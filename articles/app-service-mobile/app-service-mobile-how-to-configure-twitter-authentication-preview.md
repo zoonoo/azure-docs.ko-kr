@@ -33,7 +33,7 @@
 
 3. [Twitter 개발자] 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 다음 **Create New App**을 클릭합니다.
 
-4. 새 앱에 대한 **Name** 및 **Description**을 입력합니다. **Website** 값에 대한 **모바일 앱 URL**을 붙여 넣습니다. 그런 다음에 **Callback URL**에 앞서 복사한 **Callback URL**을 붙여 넣습니다. 이는 _/signin-twitter_ 경로를 사용하여 추가된 모바일 앱 게이트웨이입니다. 예: `https://contosogateway.azurewebsites.net/signin-twitter`. HTTPS 체계를 사용 중인지 확인합니다.
+4. 새 앱에 대한 **이름** 및 **설명**을 입력합니다. **웹사이트** 값에 대한 **모바일 앱 URL**을 붙여 넣습니다. 그런 다음에 **콜백 URL**에 앞서 복사한 **콜백 URL**을 붙여 넣습니다. 이는 _/signin-twitter_ 경로를 사용하여 추가된 모바일 앱 게이트웨이입니다. 예: `https://contosogateway.azurewebsites.net/signin-twitter`. HTTPS 체계를 사용 중인지 확인합니다.
 
     ![][0]
 
@@ -72,4 +72,4 @@
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

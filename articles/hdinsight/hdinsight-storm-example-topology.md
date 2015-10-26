@@ -37,6 +37,7 @@
 | [HDInsight의 Storm에서 Azure 서비스로 작업하는 데 사용되는 템플릿 C# Storm 토폴로지 프로젝트][ce0c02a2] | 이벤트 허브, DocumentDb, SQL 데이터베이스, HBase, SignalR | C#, Java |
 | [HDInsight의 Storm을 사용하여 Azure 이벤트 허브에서 읽기에 대한 확장성 벤치마크][d6c540e3] | 메시지 처리량, 이벤트 허브, SQL 데이터베이스 | C#, Java |
 | [HDInsight에서 Storm 및 HBase를 사용하여 이벤트의 상관 관계 지정](hdinsight-storm-correlation-topology.md) | HBase | C# |
+| [HDInsight에서 Storm으로 Python 사용](hdinsight-storm-develop-python-topology.md) | Storm 포톨로지 기반 Java 및 Clojure를 사용하여 Python 구성 요소 | Python |
 
 ## 다음 단계
 
@@ -59,4 +60,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "이 프로젝트에는 이벤트 허브, DocumentDB 및 SQL 데이터베이스와 같은 다양한 Azure 서비스와 상호 작용하는 토폴로지에 대한 Spout, Bolt 및 템플릿이 포함되어 있습니다."
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

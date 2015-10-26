@@ -19,7 +19,8 @@
 
 # Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델 또는 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터에서 응용 프로그램 액세스 문제를 해결하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Azure 가상 컴퓨터에서 실행중인 응용 프로그램에 액세스 할 수 없는 경우, 이 문서는 문제의 원인을 찾아내고 해당 문제를 수정하기 위한 체계적인 방법을 설명합니다.
 
@@ -112,4 +113,4 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 �
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

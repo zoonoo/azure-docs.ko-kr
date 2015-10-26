@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/09/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # 실수로 인한 삭제 방지
@@ -44,7 +44,8 @@ Azure AD Connect를 설치하면 실수로 인한 삭제 방지가 기본적으�
 3. 보호를 다시 사용하도록 설정하려면 PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold`를 실행합니다.
 
 ## 다음 단계
+[Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
-Azure AD Connect 동기화 구성에 대한 자세한 내용은 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md)를 참조하세요.
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

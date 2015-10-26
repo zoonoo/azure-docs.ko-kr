@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/08/2015" 
 	ms.author="juliako"/>
 
 #콘텐츠 보호 개요
@@ -54,7 +54,7 @@ Microsoft Azure 미디어 서비스를 사용하면 컴퓨터를 떠날 때부�
 
 ###동적 암호화
 
-Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 사용하는 AES(Advanced Encryption Standard) 및 PlayReady DRM로 동적 암호화된 콘텐츠를 제공할 수 있습니다.
+Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 사용하는 AES(Advanced Encryption Standard) 및 PlayReady 및/또는 Widevine DRM으로 동적 암호화된 콘텐츠를 제공할 수 있습니다.
 
 현재 암호화할 수 있는 스트리밍 형식은 HLS, MPEG DASH 및 부드러운 스트리밍입니다. HDS 스트리밍 형식 또는 점진적 다운로드는 암호화할 수 없습니다.
 
@@ -86,7 +86,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 �
 
 ###Widevine
 
-또한 AMS를 사용하면 Widevine DRM으로 암호화된 DASH를 배달할 수 있습니다. PlayReady와 Widewine 모두 CENC(Common Encryption) 사양에 따라 암호화됩니다. [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)(버전 3.5.1부터 시작) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.
+또한 AMS를 사용하면 Widevine DRM으로 암호화된 MPEG DASH를 배달할 수 있습니다. PlayReady와 Widewine 모두 CENC(Common Encryption) 사양에 따라 암호화됩니다. [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)(버전 3.5.1부터 시작) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.
 
 현재 미디어 서비스는 Widevine 라이선스 서버를 제공하지 않습니다. 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
@@ -136,4 +136,4 @@ Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 �
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

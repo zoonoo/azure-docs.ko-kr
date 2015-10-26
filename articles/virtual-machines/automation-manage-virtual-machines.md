@@ -22,7 +22,6 @@
 
 이 가이드에서는 Azure 자동화 서비스 및 이 서비스를 사용하여 Azure 가상 컴퓨터 관리를 간소화하는 방법을 소개합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Azure 자동화 정의
 
@@ -44,4 +43,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 가상
 
 [Azure 자동화 시작하기](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

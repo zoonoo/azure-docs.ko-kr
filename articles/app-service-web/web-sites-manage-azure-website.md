@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 앱 서비스에서 웹 앱 관리"
-	description="Azure 앱 서비스에서 웹 앱 관리를 위한 리소스에 대한 링크입니다."
-	services="app-service\web"
-	documentationCenter=""
-	authors="erikre"
-	manager="wpickett"
+	pageTitle="Azure 앱 서비스에서 웹 앱 관리" 
+	description="Azure 앱 서비스에서 웹 앱 관리를 위한 리소스에 대한 링크입니다." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 # Azure 앱 서비스에서 웹 앱 관리
@@ -103,4 +103,4 @@ Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를
 
   
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

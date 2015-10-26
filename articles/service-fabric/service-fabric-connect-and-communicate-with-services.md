@@ -1,20 +1,20 @@
 <properties
    pageTitle="Microsoft Azure 서비스 패브릭이 서비스와 통신하는 방법"
-	description="이 문서는 서비스 패브릭 응용 프로그램에서 서비스와 연결하고 통신할 수 있는 방법을 설명합니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="kunaldsingh"
-	manager="timlt"
-	editor=""/>
+   description="이 문서는 서비스 패브릭 응용 프로그램에서 서비스와 연결하고 통신할 수 있는 방법을 설명합니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="kunaldsingh"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="kunalds"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/21/2015"
+   ms.author="kunalds"/>
 
 
 # 서비스와의 통신
@@ -57,4 +57,4 @@
 * [OWIN 자체 호스팅으로 Microsoft Azure 서비스 패브릭 웹 API 서비스 시작](service-fabric-reliable-services-communication-webapi.md)
 * [신뢰할 수 있는 서비스에 대한 WCF 기반 통신 스택](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

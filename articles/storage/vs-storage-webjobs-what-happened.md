@@ -41,4 +41,4 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가 또는 업
 
 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

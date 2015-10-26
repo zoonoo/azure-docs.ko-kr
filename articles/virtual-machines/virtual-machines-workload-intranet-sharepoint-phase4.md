@@ -19,7 +19,8 @@
 
 # SharePoint 인트라넷 팜 워크로드 4단계: SharePoint 서버 구성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013을 배포하는 이 단계에서는 SharePoint 팜의 응용 프로그램 및 웹 계층을 구축하고 SharePoint 구성 마법사를 사용하여 팜을 만듭니다.
 
@@ -197,4 +198,4 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

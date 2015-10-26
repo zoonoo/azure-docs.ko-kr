@@ -265,4 +265,4 @@ ContactNames Web API를 빌드합니다. Web API의 Get 메서드는 ContactsLis
 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

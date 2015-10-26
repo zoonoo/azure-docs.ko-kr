@@ -14,18 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 가상 컴퓨터 관리
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-tutorial.md)
-- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Preview Portal](virtual-machines-windows-tutorial.md)
+- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 Azure PowerShell 및 리소스 관리자 템플릿을 사용하여 제공Microsoft Azure에서 리소스를 관리할 때 많은 성능과 유연성을 제공합니다. 이 문서의 작업을 사용하여 가상 컴퓨터를 만들고 관리할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다. [클래식 배포 모델](virtual-machines-windows-tutorial-classic-portal.md)을 사용하여 리소스를 만들 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md).
 
 다음 작업에는 리소스 관리자 템플릿 및 PowerShell을 사용합니다.
 
@@ -66,7 +67,7 @@ Azure 리소스 관리자 템플릿을 사용하여 만드는 리소스를 새 �
 
 다음 명령에서 *리소스 그룹 이름*을 새 리소스 그룹의 이름으로 바꾸고 *Azure 위치*를 리소스를 찾을 Azure 데이터 센터 위치로 바꾼 다음 명령을 실행합니다.
 
-	New-AzureResourceGroup -Name "resource group name" -Location "Azure location"
+	New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
 
 ## <a id="windowsvm"></a>작업: 가상 컴퓨터 만들기
 
@@ -76,15 +77,15 @@ Azure 리소스 관리자 템플릿을 사용하여 만드는 리소스를 새 �
 
 다음 명령에서는 *배포 이름*을 배포에 사용할 이름으로 바꾸고 *리소스 그룹 이름*을 기존 리소스 그룹의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
 예를 들면 다음과 같습니다.
 
-	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
 JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 프롬프트가 표시됩니다.
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: saacct
@@ -133,15 +134,15 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 다음 명령에서는 *배포 이름*을 배포에 사용할 이름으로 바꾸고 *리소스 그룹 이름*을 기존 리소스 그룹의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
 예를 들면 다음과 같습니다.
 
-	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
 JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 프롬프트가 표시됩니다.
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	osDiskVhdUri: http://saacct.blob.core.windows.net/vhds/osdiskforwindows.vhd
@@ -164,11 +165,11 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 다음 명령에서는 *배포 이름*을 배포에 사용할 이름으로 바꾸고 *리소스 그룹 이름*을 기존 리소스 그룹의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
 JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 프롬프트가 표시됩니다.
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: saTest
@@ -187,7 +188,7 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 다음 명령에서는 *리소스 그룹 이름*을 제거할 리소스 그룹의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	Remove-AzureResourceGroup  -Name "resource group name"
+	Remove-AzureRmResourceGroup  -Name "resource group name"
 
 > [AZURE.NOTE]**–Force** 매개 변수를 사용하여 확인 프롬프트를 건너뜁니다.
 
@@ -205,7 +206,7 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 다음 명령에서는 *리소스 그룹 이름*을 가상 컴퓨터가 포함된 리소스 그룹의 이름으로 바꾸고 *가상 컴퓨터 이름*을 컴퓨터의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	Get-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Get-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 이때 반환되는 내용은 다음과 같습니다.
 
@@ -276,7 +277,7 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 다음 명령에서는 *리소스 그룹 이름*을 가상 컴퓨터가 포함된 리소스 그룹의 이름으로 바꾸고 *가상 컴퓨터 이름*을 컴퓨터의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	Start-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Start-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 이때 반환되는 내용은 다음과 같습니다.
 
@@ -297,7 +298,7 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 다음 명령에서는 *리소스 그룹 이름*을 가상 컴퓨터가 포함된 리소스 그룹의 이름으로 바꾸고 *가상 컴퓨터 이름*을 컴퓨터의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	Stop-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Stop-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 확인을 요청하는 메시지가 나타납니다.
 
@@ -324,7 +325,7 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 다음 명령에서는 *리소스 그룹 이름*을 가상 컴퓨터가 포함된 리소스 그룹의 이름으로 바꾸고 *가상 컴퓨터 이름*을 컴퓨터의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	Restart-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Restart-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 이때 반환되는 내용은 다음과 같습니다.
 
@@ -345,7 +346,7 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 다음 명령에서는 *리소스 그룹 이름*을 가상 컴퓨터가 포함된 리소스 그룹의 이름으로 바꾸고 *가상 컴퓨터 이름*을 컴퓨터의 이름으로 바꾼 다음 명령을 실행합니다.
 
-	Remove-AzureVM -ResourceGroupName "resource group name" –Name "VM name"
+	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
 > [AZURE.NOTE]**–Force** 매개 변수를 사용하여 확인 프롬프트를 건너뜁니다.
 
@@ -379,4 +380,4 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

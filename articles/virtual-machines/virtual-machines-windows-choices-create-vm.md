@@ -99,4 +99,4 @@ Azure PowerShell에 대해서는 [Azure PowerShell을 사용하여 Windows 가�
 
 [Azure 하이브리드 클라우드 테스트 환경]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -130,9 +130,9 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 6. 다음과 유사한 출력이 표시됩니다.
 
-		[820,11:35:17,ko-KR,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,ko-KR,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,ko-KR,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+		[820,11:35:17,en-US,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+		[1055,17:24:08,en-US,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+		[1067,03:42:29,en-US,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. :q 입력하여 Scala 프롬프트를 종료합니다.
 
@@ -208,7 +208,7 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 6. 다음 명령을 사용하여 SimpleApp.scala 프로그램을 실행합니다.
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. 프로그램 실행이 완료되면 콘솔에 출력이 표시됩니다.
 
@@ -234,4 +234,4 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

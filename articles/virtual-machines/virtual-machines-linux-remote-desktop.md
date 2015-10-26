@@ -20,7 +20,8 @@
 
 #원격 데스크톱을 사용하여 Microsoft Azure Linux VM에 연결
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 ##개요
 
@@ -115,4 +116,4 @@ Linux VM의 `user` 및 `password`를 사용하여 로그인한 다음 Microsoft 
 ##다음
 xrdp를 사용하는 방법에 대한 자세한 내용은 [여기](http://www.xrdp.org/)를 참조할 수 있습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

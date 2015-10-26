@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tamram"/>
 
 
@@ -50,6 +50,8 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 - 다른 저장소 계정에 있는 다른 Blob에 Blob을 복사하는 경우 SAS를 사용하여 원본 Blob을 인증해야 합니다. 2015-04-05 버전에서는 필요에 따라 SAS를 사용하여 대상 Blob도 인증할 수 있습니다.
 - 다른 저장소 계정에 있는 다른 파일에 파일을 복사하는 경우 SAS를 사용하여 원본 파일을 인증해야 합니다. 2015-04-05 버전에서는 필요에 따라 SAS를 사용하여 대상 파일도 인증할 수 있습니다.
 - Blob을 파일에 복사하거나 파일을 Blob에 복사하는 경우 원본 및 대상 개체가 동일한 저장소 계정 내에 있더라도 SAS를 사용하여 원본 개체를 인증해야 합니다.
+
+>[AZURE.NOTE]현재 계정 SAS는 BLOB 및 파일 서비스에만 지원됩니다. 조만간 테이블 및 큐 서비스에도 지원될 예정입니다.
 
 ## 공유 액세스 서명의 유형
 
@@ -315,11 +317,9 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 - [Windows에서 Azure 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)
 - [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)
 - [공유 액세스 서명을 사용하여 액세스 위임](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!----HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

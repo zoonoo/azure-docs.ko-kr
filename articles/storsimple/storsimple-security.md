@@ -253,4 +253,4 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 [StorSimple 장치 배포](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

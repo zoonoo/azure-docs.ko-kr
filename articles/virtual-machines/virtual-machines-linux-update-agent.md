@@ -25,7 +25,8 @@ Azure Linux VM에서 [Azure Linux 에이전트](https://github.com/Azure/WALinux
 1. Azure에서 실행 중인 Linux vm
 2. SSH를 사용하여 해당 Linux VM에 연결
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 > [AZURE.NOTE]Windows 컴퓨터에서 이 작업을 수행할 경우 Linux 컴퓨터에 Putty 및 SSH를 사용할 수 있습니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)을 참조하세요.
 
@@ -125,4 +126,4 @@ Linux 에이전트 버전이 새 버전으로 업데이트된 것을 확인할 �
 
 Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트 추가 정보](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -309,4 +309,4 @@ Azure 기계 학습의 기본 제공 [매치박스 추천 학습][train-matchbox
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

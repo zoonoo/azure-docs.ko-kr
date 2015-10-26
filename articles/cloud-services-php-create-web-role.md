@@ -211,4 +211,4 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,7 +1,9 @@
 <properties 
 	pageTitle="활성 중인 고급 분석 프로세스 및 기술: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Microsoft Azure" 
 	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다." 
+	metaKeywords="" 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -84,11 +86,11 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 1. 이 공용 Blob 저장소의 데이터는 압축 해제된 데이터의 하위 폴더 3개로 구성됩니다.
 		
-	1. 하위 폴더 *raw/count/*는 처음 21일간의 데이터(day\_00\~day\_20)를 포함합니다.
+	1. 하위 폴더 *raw/count/*는 처음 21일간의 데이터(day\_00~day\_20)를 포함합니다.
 	2. 하위 폴더 *raw/train/*은 단일 날짜의 데이터(day\_21)를 포함합니다.
 	3. 하위 폴더 *raw/test/*는 2일간의 데이터(day\_22 및 day\_23)를 포함합니다.
 
-2. 원시 gzip 데이터로 시작하려는 경우 기본 폴더 *raw/*에서 day\_NN.gz(여기서 NN은 00\~23)로 제공됩니다.
+2. 원시 gzip 데이터로 시작하려는 경우 기본 폴더 *raw/*에서 day\_NN.gz(여기서 NN은 00~23)로 제공됩니다.
 
 로컬 다운로드가 필요 없는 이 데이터를 액세스, 탐색 및 모델링하는 다른 방법은 이 연습의 뒷부분에서 Hive 테이블을 만들 때 설명합니다.
 
@@ -361,7 +363,7 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
 
 ## <a name="downsample"></a> Azure 기계 학습에 대한 데이터 집합 다운 샘플링
 
-데이터 집합을 탐색하고 모든 변수(조합 포함)에 대해 이 유형의 탐색을 수행하는 방법을 살펴보았으므로 이제 Azure 기계 학습에서 모델을 빌드할 수 있도록 데이터 집합을 다운 샘플링합니다. 중점을 두는 문제는 지정된 예제 특성 집합(Col2\~Col40의 기능 값)에 대해 Col1이 0(클릭 안 함)인지 1(클릭)인지 예측하는 것입니다.
+데이터 집합을 탐색하고 모든 변수(조합 포함)에 대해 이 유형의 탐색을 수행하는 방법을 살펴보았으므로 이제 Azure 기계 학습에서 모델을 빌드할 수 있도록 데이터 집합을 다운 샘플링합니다. 중점을 두는 문제는 지정된 예제 특성 집합(Col2~Col40의 기능 값)에 대해 Col1이 0(클릭 안 함)인지 1(클릭)인지 예측하는 것입니다.
 
 학습 및 테스트 데이터 집합을 원래 크기의 1%로 다운 샘플링하려면 Hive의 기본 RAND() 함수를 사용합니다. [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) 스크립트는 train 데이터 집합에 대해 이 작업을 수행합니다.
 
@@ -656,4 +658,4 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 Azure 기계 학습을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

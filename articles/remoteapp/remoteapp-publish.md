@@ -33,4 +33,4 @@ RemoteApp 컬렉션을 만든 후 사용자가 사용할 수 있게 하려는 �
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

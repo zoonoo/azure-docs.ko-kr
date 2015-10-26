@@ -21,7 +21,8 @@
 
 다음 템플릿을 사용하여 유용한 항목을 신속하게 만들 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 | Template | 설명 | 템플릿 보기 | 즉시 배포 |
 |:---|:---|:---:|:---:|
@@ -52,4 +53,4 @@
 
 [Azure 리소스 관리자](../resource-group-template-deploy.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

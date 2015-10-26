@@ -182,4 +182,4 @@ applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

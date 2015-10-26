@@ -19,7 +19,8 @@
 
 # 테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 이 항목에서는 Microsoft Azure에서 호스트되는 인트라넷 SharePoint 팜을 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
@@ -72,15 +73,15 @@ SPFarmAdmin 계정 암호를 제공하라는 메시지가 나타나면 강력한
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SQL1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
-	Set-AzureStorageAccount –StorageAccountName $storageacct
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for SQL1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
+	Set-AzureStorageAccount -StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 *로컬 관리자 계정을 사용*하여 새 SQL1 가상 컴퓨터에 연결합니다.
 
@@ -95,7 +96,7 @@ SPFarmAdmin 계정 암호를 제공하라는 메시지가 나타나면 강력한
 
 그런 다음 기본 연결 테스트 및 SQL Server에 대한 트래픽을 허용하도록 Windows 방화벽 규칙을 구성합니다. SQL1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
-	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action allow 
+	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
@@ -151,13 +152,13 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 SP1용 Azure 가상 컴퓨터를 만듭니다.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SP1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for SP1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 그런 다음 CORP\\User1 자격 증명을 사용하여 SP1 가상 컴퓨터에 연결합니다.
 
@@ -175,7 +176,7 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 3.	구성하는 동안 일부 서비스를 다시 시작해야 할 수 있음을 알리는 대화 상자에서 **예**를 클릭합니다.
 4.	서버 팜에 연결 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
 5.	구성 데이터베이스 설정 지정 페이지에서 **데이터베이스 서버**에 **sql1.corp.contoso.com**을 입력하고, **사용자 이름**에 **CORP\\SPFarmAdmin**을 입력하고, 암호에 SPFarmAdmin 계정 **암호**를 입력한 후 **다음**을 클릭합니다.
-6.	팜 보안 설정 지정 페이지에서 **암호**와 **암호 확인** 둘 다에 **P@ssphrase**를 입력하고 **다음**을 클릭합니다.
+6.	팜 보안 설정 지정 페이지에서 **암호**와 **암호 확인** 둘 다에 ****P@ssphrase**를 입력하고 **다음**을 클릭합니다.
 7.	SharePoint 중앙 관리 웹 응용 프로그램 구성 페이지에서 **다음**을 클릭합니다.
 8.	SharePoint 제품 구성 마법사 완료 페이지에서 **다음**을 클릭합니다. SharePoint 제품 구성 마법사를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 9.	구성 완료 페이지에서 **마침**을 클릭합니다. 완료 후 초기 팜 구성 마법사라는 탭에서 Internet Explorer가 시작됩니다.
@@ -186,7 +187,7 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 14.	사이트 모음 만들기 페이지의 **제목 및 설명**에서 **제목**에 **Contoso Corporation**을 입력하고 URL ****http://sp1**/을 지정한 다음 **확인**을 클릭합니다. 완료되기 전에 작업 중 페이지가 잠시 동안 표시될 수 있습니다. 이 단계는 URL http://sp1에 팀 사이트를 만듭니다.
 15.	팜 구성 마법사를 완료합니다 페이지에서 **마침**을 클릭합니다. Internet Explorer 탭에 SharePoint 2013 중앙 관리 사이트가 표시됩니다.
 16.	CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
-17.	주소 표시줄에 **http://sp1/**을 입력하고 Enter를 누릅니다. Contoso Corporation에 대한 SharePoint 팀 사이트가 표시됩니다. 사이트를 렌더링하는 데 약간의 시간이 걸릴 수 있습니다.
+17.	주소 표시줄에 ****http://sp1/**을 입력하고 Enter 키를 누릅니다. Contoso Corporation에 대한 SharePoint 팀 사이트가 표시됩니다. 사이트를 렌더링하는 데 약간의 시간이 걸릴 수 있습니다.
 
 다음은 현재 구성입니다.
 
@@ -213,4 +214,4 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 [Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

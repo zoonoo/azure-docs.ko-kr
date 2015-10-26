@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="서비스 패브릭의 개요 | Microsoft Azure"
-	description="응용 프로그램이 마이크로 서비스로 구성된 서비스 패브릭의 개요. 서비스 패브릭은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor="masnider"/>
+   pageTitle="서비스 패브릭의 개요 | Microsoft Azure" 
+   description="응용 프로그램이 마이크로 서비스로 구성된 서비스 패브릭의 개요. 서비스 패브릭은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다." 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="mfussell"/>
 
 # 서비스 패브릭의 개요
 서비스 패브릭은 클라우드를 위한 확장 가능하고 안정적이며 쉽게 관리할 수 있는 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다. 서비스 패브릭은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 서비스 패브릭을 사용하면 개발자와 관리자가 복잡한 인프라 문제를 해결하기 위한 작업에 시간을 소비하는 대신, 업무 수행에 필수적인 까다로운 작업을 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 서비스 패브릭은 엔터프라이즈급 계층 1 클라우드 규모의 서비스를 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
@@ -98,4 +98,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="이미지 처리에 Blitline을 사용하는 방법 - Azure 기능 가이드"
-	description="Azure 응용 프로그램 내에서 Blitline 서비스를 사용하여 이미지를 처리하는 방법에 대해 알아봅니다."
-	services=""
-	documentationCenter=".net"
-	authors="blitline-dev"
-	manager="jason@blitline.com"
+	pageTitle="이미지 처리에 Blitline을 사용하는 방법 - Azure 기능 가이드" 
+	description="Azure 응용 프로그램 내에서 Blitline 서비스를 사용하여 이미지를 처리하는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter=".net" 
+	authors="blitline-dev" 
+	manager="jason@blitline.com" 
 	editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
 	ms.author="support@blitline.com"/>
 # Azure 및 Azure 저장소로 Blitline을 사용하는 방법
 
@@ -132,4 +132,4 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitl
 * Blitline API 예제 <http://www.blitline.com/docs/examples>
 * 타사 Nuget 라이브러리 <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

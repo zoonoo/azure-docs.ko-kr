@@ -196,4 +196,4 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 [W3C 교차 원본 자원 공유 사양](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="비즈니스 연속성을 위한 SQL 데이터베이스 설계"
-	description="이 섹션에서 설명하는 선택 지침은 어떤 BCDR 기능을 사용해야 하며 그 시기는 언제인지 선택하기 위한 것입니다. 여기에는 SQL DB를 사용할 때 자동으로 얻게 되는 기능도 포함됩니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="비즈니스 연속성을 위한 SQL 데이터베이스 설계" 
+   description="이 섹션에서 설명하는 선택 지침은 어떤 BCDR 기능을 사용해야 하며 그 시기는 언제인지 선택하기 위한 것입니다. 여기에는 SQL DB를 사용할 때 자동으로 얻게 되는 기능도 포함됩니다."
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 #비즈니스 연속성을 위한 설계
 
@@ -102,4 +102,4 @@ Azure 포털을 사용하거나 REST API 또는 PowerShell 명령을 호출하�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델 또는 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터에서 SSH 연결 문제를 해결하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 Linux 기반 Azure 가상 컴퓨터에서 SSH 실패가 발생하는 원인은 여러 가지가 있을 수 있습니다. 이 문서는 원인을 알아내고 문제를 해결하는 데 도움이 됩니다.
@@ -30,23 +31,20 @@ Linux 기반 Azure 가상 컴퓨터에서 SSH 실패가 발생하는 원인은 �
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다.
 
-또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
+또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
 
 
-## 기본 단계
-
-
-### 클래식 배포 모델
+## 기본 단계 - 클래식 배포 모델
 
 클래식 배포 모델을 사용하여 만든 가상 컴퓨터의 보다 일반적인 SSH 연결 오류를 해결하려면 다음 단계를 시도합니다.
 
-1. [Azure 포털](https://portal.azure.com)에서 원격 액세스를 다시 설정합니다. **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에서 **원격 액세스를 다시 설정**합니다. **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
 
 	![원격 액세스 다시 설정](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. 위와 마찬가지로 가상 컴퓨터를 다시 시작합니다. [Azure preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다. [Azure 관리 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **인스턴스**를 열고 **다시 시작**을 클릭합니다.
+2. 가상 컴퓨터를 **다시 시작**합니다. [Azure Preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다. [Azure 관리 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **인스턴스**를 열고 **다시 시작**을 클릭합니다.
 
-3. [가상 컴퓨터의 크기를 조정](https://msdn.microsoft.com/library/dn168976.aspx)합니다.
+3. [가상 컴퓨터 **크기를 조정**합니다](https://msdn.microsoft.com/library/dn168976.aspx).
 
 4. 가상 컴퓨터에서 [Linux 기반 가상 컴퓨터의 암호 또는 SSH를 다시 설정하는 방법](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)의 지침을 따라 다음 작업을 수행합니다.
 
@@ -55,94 +53,113 @@ Linux 기반 Azure 가상 컴퓨터에서 SSH 실패가 발생하는 원인은 �
 	- SSH 구성을 재설정합니다.
 
 
-### 리소스 관리자 배포 모델
+## 기본 단계 - 리소스 관리자 배포 모델
 
 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터에 대한 일반적인 SSH 문제를 해결하려면 다음 단계를 수행합니다.
 
-1. 명령줄에서 Linux VM에 SSH 연결을 다시 설정합니다. [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) 버전 2.0.5 이상이 설치되어 있는지 확인합니다.
+1. Azure CLI 또는 Azure PowerShell을 사용하여 명령줄에서 Linux VM에 대한 **SSH 연결을 다시 설정**합니다. [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) 버전 2.0.5 이상이 설치되어 있는지 확인합니다.
 
-	[A] Azure CLI 사용:
+	**Azure CLI 사용**
 
-	1단계: 아직 설치되어 있지 않은 경우 `azure login` 명령을 사용하여 [Azure CLI를 설치하고 Azure 구독에 연결](../xplat-cli-install.md)합니다.
+	a. 아직 설치되지 않은 경우 `azure login` 명령을 사용하여 [Azure CLI를 설치하고 Azure 구독에 연결](../xplat-cli-install.md)합니다.
 
-	2단계: 리소스 관리자 모드로 전환합니다.
+	b. 리소스 관리자 모드로 전환합니다.
 
-		azure config mode arm
+	```
+	azure config mode arm
+	```
 
-	3단계: 다음 방법 중 하나를 사용하여 SSH 연결을 재설정할 수 있습니다.
+	c. 다음 방법 중 하나를 사용하여 SSH 연결을 재설정할 수 있습니다.
 
-	(i) 다음 예처럼 `vm reset-access` 명령을 사용합니다.
+	* 다음 예제처럼 `vm reset-access` 명령을 사용합니다.
 
-		azure vm reset-access -g TestRgV2 -n TestVmV2 -r
+	```
+	azure vm reset-access -g TestRgV2 -n TestVmV2 -r
+	```
 
 	그러면 가상 컴퓨터에 `VMAccessForLinux` 확장이 설치됩니다.
 
-	(ii) 또는 다음과 같은 내용으로 PrivateConf.json이라는 파일을 만들 수 있습니다.
+	* 또는 다음과 같은 내용으로 PrivateConf.json이라는 파일을 만듭니다.
 
-		{
-			"reset_ssh":"True"
-		}
+	```
+	{  
+	"reset_ssh":"True"
+	}
+	```
 
 	그런 다음 `VMAccessForLinux` 확장을 수동으로 실행하여 SSH 연결을 다시 설정합니다.
 
-		azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	```
+	azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	```
 
-	[B] Azure PowerShell 사용:
+	**Azure PowerShell 사용**
 
-	1단계: 아직 설치되어 있지 않은 경우 Azure AD 명령을 사용하여 [Azure PowerShell를 설치하고 Azure 구독에 연결](../powershell-install-configure.md)합니다.
+	a. 아직 설치되지 않은 경우 Azure AD 명령을 사용하여 [Azure PowerShell를 설치하고 Azure 구독에 연결](../powershell-install-configure.md)합니다.
 
-	2단계: 리소스 관리자 모드로 전환합니다.
+	b. 리소스 관리자 모드로 전환합니다.
 
-		Switch-AzureMode -Name AzureResourceManager
+	```
+	Switch-AzureMode -Name AzureResourceManager
+	```
 
-	3단계: 아래 예처럼 `VMAccessForLinux` 확장을 실행하여 SSH 연결을 다시 설정합니다.
+	c. 아래 예처럼 `VMAccessForLinux` 확장을 실행하여 SSH 연결을 다시 설정합니다.
 
-		Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
+	```
+	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
+	```
 
-2. 포털에서 Linux VM을 다시 시작합니다. [Azure preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
+2. 포털에서 Linux VM을 **다시 시작**합니다. [Azure Preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
 
 	![V2 다시 시작](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
 
-3. 명령줄에서 Linux VM에 대한 암호 및/또는 SSH 키를 다시 설정합니다. 다음 예와 같이 sudo 권한으로 새 사용자 이름/암호를 만들 수도 있습니다.
+3. Azure CLI 또는 Azure PowerShell을 사용하여 명령줄에서 Linux VM에 대한 **암호 또는 SSH 키를 다시 설정**합니다. 다음 예제와 같이 sudo 권한으로 새 사용자 이름 및 암호를 만들 수도 있습니다.
 
-	[A] Azure CLI 사용:
+	**Azure CLI 사용**
 
 	위의 설명대로 Azure CLI를 설치 및 구성합니다. 리소스 관리자 모드로 전환한 후 다음 방법 중 하나를 사용하여 확장을 실행합니다.
 
-	(i) `vm reset-access` 명령을 실행하여 SSH 자격 증명을 설정합니다.
+	* `vm reset-access` 명령을 실행하여 SSH 자격 증명을 설정합니다.
 
-		azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
+	```
+	azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
+	```
 
 	명령줄에 `azure vm reset-access -h`를 입력하여 이에 대한 자세한 정보를 확인합니다.
 
-	(ii) 또는 다음과 같은 내용으로 PrivateConf.json이라는 파일을 만들 수 있습니다.
-
-		{
-			"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
-		}
+	* 또는 다음과 같은 내용으로 PrivateConf.json이라는 파일을 만들 수 있습니다. ```
+	{
+	"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
+	}
+	```
 
 	그런 다음 위의 파일을 사용하여 Linux 확장을 실행합니다.
 
-		$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	```
+	$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	```
 
 	[Linux 기반 가상 컴퓨터의 암호 또는 SSH를 재설정하는 방법](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)과 유사한 단계를 따라 다르게 변형해 봅니다. 리소스 관리자 모드에 대한 Azure CLI 지침을 수정해야 합니다.
 
-	[B] Azure PowerShell 사용:
+	**Azure PowerShell 사용**
 
-	위의 설명대로 Azure PowerShell을 설치 및 구성합니다. 리소스 관리자 모드로 전환한 후 다음을 사용하여 확장을 실행합니다.
+	위의 설명대로 Azure PowerShell을 설치 및 구성합니다. 리소스 관리자 모드로 전환한 후 다음과 같이 확장을 실행합니다.
 
-		$RGName = 'testRG'
-		$VmName = 'testVM'
-		$Location = 'West US'
+	```
+	$RGName = 'testRG'
+	$VmName = 'testVM'
+	$Location = 'West US'
 
-		$ExtensionName = 'VMAccessForLinux'
-		$Publisher = 'Microsoft.OSTCExtensions'
-		$Version = '1.2'
+	$ExtensionName = 'VMAccessForLinux'
+	$Publisher = 'Microsoft.OSTCExtensions'
+	$Version = '1.2'
 
-		$PublicConf = '{}'
-		$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
+	$PublicConf = '{}'
+	$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
 
-		Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
+	Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
+
+	```
 
 	설치에 특정 값을 가진 $RGName, $VmName, $Location 및 SSH 자격 증명의 값을 교체할 수 있는지 확인합니다.
 
@@ -165,9 +182,9 @@ Linux 기반 Azure 가상 컴퓨터에서 SSH 실패가 발생하는 원인은 �
 3. **모니터**를 클릭하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 봅니다.
 4. **끝점**을 클릭하여 SSH 트래픽의 끝점이 있는지 확인합니다.
 
-[Azure preview 포털에서](https://portal.azure.com) 다음을 수행합니다.
+[Azure Preview 포털에서](https://portal.azure.com) 다음을 수행합니다.
 
-1. 클래식 배포 모델에서 만든 가상 컴퓨터의 경우 **찾아보기** > **가상 컴퓨터(클래식)** > *VM 이름*을 클릭합니다. 리소스 관리자를 사용하여 만든 가상 컴퓨터의 경우, **찾아보기** > **가상 컴퓨터(v2)** > *VM 이름*을 클릭합니다. 가상 컴퓨터에 대한 상태 창에 **실행 중**이 표시됩니다. 아래로 스크롤하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
+1. 클래식 배포 모델에서 만든 가상 컴퓨터의 경우 **찾아보기** > **가상 컴퓨터(클래식)** > *VM 이름*을 클릭합니다. 리소스 관리자를 사용하여 만든 가상 컴퓨터의 경우, **찾아보기** > **가상 컴퓨터** > *VM 이름*을 클릭합니다. 가상 컴퓨터에 대한 상태 창에 **실행 중**이 표시됩니다. 아래로 스크롤하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
 2. **설정**을 클릭하여 끝점, IP 주소 및 기타 설정을 확인합니다. 리소스 관리자로 만든 가상 컴퓨터에서 끝점을 식별하려면 [네트워크 보안 그룹](../traffic-manager/virtual-networks-nsg.md)이 정의되어 있고 여기에 규칙이 적용되었으며 서브넷에서 참조되는지 확인합니다.
 
 네트워크 연결 상태를 확인하려면 구성된 끝점을 점검하고 HTTP와 같은 다른 프로토콜 또는 다른 서비스를 통해 VM에 연결할 수 있는지 여부를 확인합니다.
@@ -269,4 +286,4 @@ Linux 기반 Azure 가상 컴퓨터에서 SSH 실패가 발생하는 원인은 �
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

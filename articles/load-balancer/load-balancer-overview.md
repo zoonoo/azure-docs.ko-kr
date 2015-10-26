@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 부하 분산 장치 개요 | Microsoft Azure"
-	description="Azure 부하 분산 장치 기능, 아키텍처 및 구현에 대한 개요입니다. 부하 분산 장치의 작동 방식을 이해하고 클라우드에 활용하는 데 도움이 됩니다."
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Azure 부하 분산 장치 기능, 아키텍처 및 구현에 대한 개요입니다. 부하 분산 장치의 작동 방식을 이해하고 클라우드에 활용하는 데 도움이 됩니다."
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/10/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/10/2015"
+   ms.author="joaoma" />
 
 
 # 부하 분산 장치 개요 
@@ -99,4 +99,4 @@ Azure 부하 분산 장치 구성은 UDP에 대해 완전한 원뿔형 NAT를 �
 [시작 - 인터넷 연결 부하 분산 장치](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

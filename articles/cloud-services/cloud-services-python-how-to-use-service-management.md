@@ -303,7 +303,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 		location=location)
 
 	# Name of an os image as returned by list_os_images
-	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-ko-kr-30GB.vhd'
+	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
 
 	# Destination storage account container/blob where the VM disk
 	# will be created
@@ -445,4 +445,4 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

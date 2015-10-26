@@ -385,4 +385,4 @@ C# 인터페이스는 다음과 같이 표시됩니다.
 
 [Azure 배치 개요]: batch-technical-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

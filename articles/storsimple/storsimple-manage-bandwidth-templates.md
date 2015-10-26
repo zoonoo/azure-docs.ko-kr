@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
@@ -68,7 +68,7 @@
    3. 드롭다운 목록에서 **시작 시간**을 선택합니다. 일정이 시작되는 시간입니다.
    4. 드롭다운 목록에서 **종료 시간**을 선택합니다. 일정이 중지되는 시간입니다.
    
-         > [AZURE.NOTE] 겹치는 일정은 허용되지 않습니다. 시작 및 종료 시간이 겹치는 경우 그에 대한 오류 메시지를 받게 됩니다.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. **대역폭 속도**를 지정합니다. 클라우드와 관련된 작업에서 StorSimple가 사용하는 초당 메가 비트(Mbps)의 대역폭입니다. 이 필드에 대해 1에서 1,000 사이의 숫자를 제공합니다.
    
@@ -174,7 +174,6 @@ StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 ## 다음 단계
 
-- [StorSimple 구성 요소](storsimple-components.md)에 대해 자세히 알아봅니다. 
-- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+[StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

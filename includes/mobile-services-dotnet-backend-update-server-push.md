@@ -32,4 +32,4 @@
 
 2. Azure에 모바일 서비스 프로젝트를 다시 게시합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

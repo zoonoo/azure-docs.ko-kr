@@ -42,4 +42,4 @@
 
 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

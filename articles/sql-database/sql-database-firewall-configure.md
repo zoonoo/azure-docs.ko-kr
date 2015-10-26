@@ -135,4 +135,4 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

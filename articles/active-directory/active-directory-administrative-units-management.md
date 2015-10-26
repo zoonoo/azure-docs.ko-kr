@@ -36,4 +36,4 @@
 ## 다음 단계
 [Azure Active Directory 버전](active-directory-editions.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

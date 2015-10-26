@@ -111,4 +111,4 @@
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Windows 스토어에 대한 알림 허브 방법]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

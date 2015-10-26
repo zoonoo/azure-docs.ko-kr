@@ -82,4 +82,4 @@ Thrift 서버 코어 개수 및 Thrift 서버 실행자 메모리를 0으로 지
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

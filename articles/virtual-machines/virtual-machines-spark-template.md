@@ -21,7 +21,7 @@
 
 Apache Spark는 대규모 데이터 처리를 위한 고속 엔진입니다. Spark는 순환 데이터 흐름 및 메모리 내 컴퓨팅을 지원하는 고급 DAG 실행 엔진을 포함하며, HDFS, Spark, HBase, S3 등 다양한 데이터 원본에 액세스할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 배포하는 방법을 설명합니다. 클래식 배포 모델을 사용하여 이 리소스를 배포할 수 없습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 클래식 배포 모델을 사용하여 이 리소스를 배포할 수 없습니다.
 
 
 Spark는 Mesos 또는 YARN 클러스터 관리자를 실행할 뿐만 아니라 간단한 독립 실행형 배포 모드를 제공합니다. 이 자습서는 샘플 Azure 리소스 관리자 템플릿을 사용하여 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli-install.md)를 통해 Ubuntu VM에 Spark 클러스터를 배포하는 방법을 안내합니다.
@@ -847,4 +847,4 @@ Spark 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 [템플릿 배포 문제를 해결](resource-group-deploy-debug.md)합니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

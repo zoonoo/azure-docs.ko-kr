@@ -44,6 +44,6 @@ Microsoft Azure 미디어 서비스를 사용하면 CENC(Common Encryption) 사�
 
 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)
 
-[Mingfei의 블로그](https://azure.microsoft.com/ko-KR/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Mingfei의 블로그](https://azure.microsoft.com/en-us/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

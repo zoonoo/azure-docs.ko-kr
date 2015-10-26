@@ -119,4 +119,4 @@ FW1 VM에 IP 전달을 사용하도록 설정하려면 다음 단계를 수행�
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -109,4 +109,4 @@ PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 - [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)
 - [Runbook 만들기 또는 가져오기](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

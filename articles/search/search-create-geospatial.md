@@ -67,7 +67,7 @@
 
 이 단계에서는 Bing 지도 DataFlow API를 사용하여 전 세계 여러 자전거 매장의 일부 주소를 지역 코딩합니다.
 
-이 데이터는 앞에서 다운로드한 소스에 포함된 store_locations.csv라는 CSV 파일에 포함되어 있습니다. 텍스트 편집기나 Excel에서 이 파일을 열면 각 매장의 ID 열, 매장 이름 및 주소를 확인할 수 있습니다.
+이 데이터는 앞에서 다운로드한 소스에 포함된 store\_locations.csv라는 CSV 파일에 포함되어 있습니다. 텍스트 편집기나 Excel에서 이 파일을 열면 각 매장의 ID 열, 매장 이름 및 주소를 확인할 수 있습니다.
 
 그러면 지도를 지역 코딩하는 방법을 설명하는 코드를 살펴보겠습니다.
 
@@ -75,13 +75,13 @@
 
 2. **Main** 함수로 이동하여 **ApplyStoreData**를 호출하는지 확인합니다. 해당 함수로 이동한 다음 코드를 단계별로 실행합니다.
 
-3. **ApplyStoreData**는 "store_locations.csv"라는 CSV 파일의 데이터를 System.Data.DataTable에 로드합니다.
+3. **ApplyStoreData**는 "store\_locations.csv"라는 CSV 파일의 데이터를 System.Data.DataTable에 로드합니다.
 
     이 파일에는 모든 매장 및 Azure 검색으로 로드하려는 매장의 주소가 포함되어 있습니다. 파일의 각 행을 반복하면 **indexOperations** 집합을 만들 수 있습니다. 이 집합은 이전에 **CreateStoresIndex()** 함수에서 작성된 Azure 검색 인덱스에 삽입됩니다.
 
     나중에 인덱스를 자세히 살펴보면 각 매장의 위도와 경도가 포함된 **GeoPt** 필드가 비어 있음을 확인할 수 있습니다. 따라서 **Main** 함수의 다음 단계를 수행해야 합니다.
 
-5. **ExtractAddressInfoToXML()** 함수로 이동합니다. 이 함수는store_locations.csv 파일에서 주소 정보를 추출한 다음, Bing 지도가 지역 코딩용으로 허용하는 서식으로 지정된 XML 파일에 해당 주소 정보를 로드합니다. 이와 같이 파일이 작성되면 **GeoCoding.CreateJob** 함수를 호출하여 Bing 지도 DataFlow에서 처리하도록 파일을 전송합니다.
+5. **ExtractAddressInfoToXML()** 함수로 이동합니다. 이 함수는store\_locations.csv 파일에서 주소 정보를 추출한 다음, Bing 지도가 지역 코딩용으로 허용하는 서식으로 지정된 XML 파일에 해당 주소 정보를 로드합니다. 이와 같이 파일이 작성되면 **GeoCoding.CreateJob** 함수를 호출하여 Bing 지도 DataFlow에서 처리하도록 파일을 전송합니다.
 
 6. 지역 코드 적용 프로세스는 다소 시간이 걸릴 수 있으므로 10초마다 **GeoCoding.CheckStatus**를 호출하여 작업 완료 여부를 확인하는 루프가 있습니다. 작업이 완료되면 주소 클래스로 **GeoCoding.DownloadResults**를 호출하여 결과를 다운로드합니다.
 
@@ -127,7 +127,8 @@
 
 +	**Search** 함수가 매장 위치를 검색하면 해당 정보가 Bing 지도에 수신되어 압정 모양으로 추가됩니다.
 
-4.	**컨트롤러**에서 HomeController.cs를 열고 **Search** 함수를 찾습니다. 그런 다음 해당 함수가 _storeSearch.Search(lat, lon, 10000)를 호출하는 방법을 확인합니다. 이 호출로 인해 쿼리가 실행되면서 지정한 위도(lat) 및 경도(long)에서 10,000km 이내의 모든 매장을 찾습니다. 이 쿼리의 결과는 처리된 다음 인덱스 뷰로 다시 전송되어 Bing 지도 위에 겹쳐진 압정 모양으로 처리됩니다. 
+4.	**컨트롤러**에서 HomeController.cs를 열고 **Search** 함수를 찾습니다. 그런 다음 해당 함수가 \_storeSearch.Search(lat, lon, 10000)를 호출하는 방법을 확인합니다. 이 호출로 인해 쿼리가 실행되면서 지정한 위도(lat) 및 경도(long)에서 10,000km 이내의 모든 매장을 찾습니다. 이 쿼리의 결과는 처리된 다음 인덱스 뷰로 다시 전송되어 Bing 지도 위에 겹쳐진 압정 모양으로 처리됩니다.
+
 이제 데모가 완료되었습니다. 지금까지 Azure 검색을 사용하는 ASP.NET MVC4 응용 프로그램을 기반으로 지도를 작성하기 전에 파악해야 하는 모든 주요 작업을 연습했습니다.
 
 
@@ -136,7 +137,7 @@
 
 AdventureWorksWeb을 빌드할 때 "파일이나 어셈블리 'System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 또는 여기에 종속되어 있는 파일이나 어셈블리 중 하나를 로드할 수 없습니다." 오류가 발생하는 경우 다음 단계를 수행하여 오류를 해결합니다.
 
-1. **도구** | **NuGet 패키지 관리자** | ** 패키지 관리자 콘솔**을 선택하여 패키지 관리자 콘솔을 엽니다.
+1. **도구** | **NuGet 패키지 관리자 ** | ** 패키지 관리자 콘솔**을 선택하여 패키지 관리자 콘솔을 엽니다.
 2. PM> 프롬프트에 "Update-package -reinstall Microsoft.AspNet.Mvc"를 입력합니다.
 3. 파일을 다시 로드할 것인지 묻는 메시지가 표시되면 **모두 예**를 선택합니다.
 4. 솔루션을 다시 빌드하고 **F5** 키를 다시 눌러 봅니다.
@@ -166,4 +167,4 @@ AdventureWorksWeb을 빌드할 때 "파일이나 어셈블리 'System.Web.Mvc, V
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

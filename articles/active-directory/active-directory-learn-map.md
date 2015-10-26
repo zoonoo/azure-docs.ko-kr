@@ -37,4 +37,4 @@ Azure Active Directory 서비스의 사용 제약 및 기타 서비스 제한을
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

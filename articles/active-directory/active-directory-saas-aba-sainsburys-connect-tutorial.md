@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -68,7 +68,7 @@
     ![앱 설정 구성](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "앱 설정 구성")
 
     1.  **로그온 URL** 텍스트 상자에 사용자가 Aba Sainsburys Connect 응용 프로그램에 로그인하는 데 사용하는 URL(예: **https://myaba.co.uk/client-access/sainsburys/saml.php*))을 입력합니다.
-    2.  **다음**를 클릭합니다.
+2.  **다음**를 클릭합니다.
 
 4.  **Aba Sainsburys Connect에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
@@ -105,4 +105,4 @@ Aba Sainsburys Connect에 로그인 하려는 사용자가 Azure AD를 사용하
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

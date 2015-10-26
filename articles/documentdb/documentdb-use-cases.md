@@ -64,11 +64,11 @@ Azure 이벤트 허브는 짧은 대기 시간으로 높은 처리량 데이터 
 
 DocumentDB, EventHub 및 Storm을 사용한 샘플 IoT 솔루션은 [GitHub의 hdinsight-storm-examples 리포지토리](https://github.com/hdinsight/hdinsight-storm-examples/)를 참조하세요.
 
-IoT용 Azure 제품에 대한 자세한 내용은 [사물 인터넷 만들기](http://www.microsoft.com/ko-kr/server-cloud/internet-of-things.aspx)를 참조하세요.
+IoT용 Azure 제품에 대한 자세한 내용은 [사물 인터넷 만들기](http://www.microsoft.com/ko-KR/server-cloud/internet-of-things.aspx)를 참조하세요.
 
 ## 다음 단계
  
-DocumentDB를 시작하기 위해 [계정](http://azure.microsoft.com/pricing/free-trial/)을 만든 다음 [학습 가이드](documentdb-learning-map.md)에 따라 DocumentDB에 대해 알아보고 필요한 정보를 찾을 수 있습니다.
+DocumentDB를 시작하기 위해 [계정](http://azure.microsoft.com/pricing/free-trial/)을 만든 다음 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)에 따라 DocumentDB에 대해 알아보고 필요한 정보를 찾을 수 있습니다.
 
 또는 DocumentDB를 사용하는 고객에 대한 추가 정보를 원하는 경우 다음 고객 사례를 확인할 수 있습니다.
 
@@ -79,4 +79,4 @@ DocumentDB를 시작하기 위해 [계정](http://azure.microsoft.com/pricing/fr
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). 미래 저장소가 빠른 검색 및 쉬운 데이터 흐름으로 실행됩니다.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

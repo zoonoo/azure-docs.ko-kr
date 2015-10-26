@@ -23,4 +23,4 @@
 
 1. 동일한 **IP 주소** 속성 창에서 **IP 주소 이름**을 변경합니다. 이 IP 주소 이름은 PowerShell 스크립트의 **$IPResourceName** 변수에 사용됩니다. 솔루션이 여러 Azure Vnet에 걸쳐 있는 경우 각 IP 리소스에 대해 이 단계를 반복합니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

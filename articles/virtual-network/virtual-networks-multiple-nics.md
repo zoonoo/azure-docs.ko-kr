@@ -1,19 +1,19 @@
 <properties 
    pageTitle="여러 NIC를 사용하여 VM 만들기"
-	description="여러 NIC가 있는 VM을 만들고 구성하는 방법 알아보기"
-	services="virtual-network, virtual-machines"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="여러 NIC가 있는 VM을 만들고 구성하는 방법 알아보기"
+   services="virtual-network, virtual-machines"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/10/2015"
+   ms.author="telmos" />
 
 # 여러 NIC를 사용하여 VM 만들기
 
@@ -249,4 +249,4 @@ Azure의 현재 모델은 가상 컴퓨터에서 모든 NIC가 기본 게이트�
 
 Linux VM의 경우, 기본 동작에서 취약한 호스트 라우팅을 사용하므로 보조 NIC는 동일한 서브넷 내 트래픽 흐름으로만 제한하는 것이 좋습니다. 그러나 특정 시나리오에 서브넷 외부 연결을 요청하는 경우, 사용자는 정책 기반 라우팅을 사용하도록 설정하여 송/수신 트래픽이 동일한 NIC를 사용하게 해야 합니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

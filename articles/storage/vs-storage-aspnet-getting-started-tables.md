@@ -167,4 +167,4 @@ Azure 테이블을 만들려면 이전 코드에 **CreateIfNotExistsAsync()**에
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

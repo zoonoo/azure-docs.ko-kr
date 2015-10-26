@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect - 사용자 로그인"
+<properties
+	pageTitle="Azure AD Connect - 사용자 로그인 | Microsoft Azure"
 	description="사용자 지정 설정을 위한 Azure AD Connect 사용자 로그인."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -62,6 +62,5 @@ Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사
 	- 타사 공급자 또는 스마트 카드를 사용하는 온-프레미스 다단계 인증(Windows Server 2012 R2에서 AD FS에 대한 타사 MFA 공급자에 대해 알아보기)
 	- 소프트 계정 잠금 또는 AD 암호 및 작업 시간 정책과 같은 Active Directory 통합 기능
 	- 장치 등록, Azure AD 연결 또는 Intune MDM 정책을 사용하여 온-프레미스 및 클라우드 리소스 모두에 대한 조건부 액세스
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

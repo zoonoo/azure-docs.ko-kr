@@ -178,4 +178,4 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

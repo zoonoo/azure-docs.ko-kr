@@ -191,7 +191,7 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 
 [프로덕션 버전]: http://aka.ms/downloadazcopy/
 [미리 보기 버전]: http://aka.ms/downloadazcopypr/
-[ADO.NET 대상 어댑터]: https://msdn.microsoft.com/ko-kr/library/bb934041.aspx
-[SSIS 설명서]: https://msdn.microsoft.com/ko-kr/library/ms141026.aspx
+[ADO.NET 대상 어댑터]: https://msdn.microsoft.com/en-us/library/bb934041.aspx
+[SSIS 설명서]: https://msdn.microsoft.com/en-us/library/ms141026.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

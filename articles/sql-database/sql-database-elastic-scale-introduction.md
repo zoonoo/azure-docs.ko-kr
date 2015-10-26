@@ -108,4 +108,4 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

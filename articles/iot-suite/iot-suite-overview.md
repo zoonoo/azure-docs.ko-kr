@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite 개요 | Microsoft Azure"
-	description="Azure IoT Suite에 대한 개요를 제공합니다."
+	description="패키징 및 미리 구성된 솔루션을 포함한 Azure IoT Suite에 대한 개요를 제공합니다."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,7 +12,7 @@
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="10/06/2015"
      ms.author="araguila"/>
 
@@ -38,4 +38,4 @@ Azure 저장소 및 Azure Document DB의 결합을 통해 데이터 저장소 �
 
 첫 번째 미리 구성된 솔루션은 [원격 모니터링](iot-suite-what-are-preconfigured-solutions.md)입니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

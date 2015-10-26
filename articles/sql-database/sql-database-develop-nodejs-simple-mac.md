@@ -170,4 +170,4 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 		connection.execSql(request);
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

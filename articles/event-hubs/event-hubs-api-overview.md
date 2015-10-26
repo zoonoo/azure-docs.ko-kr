@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="이벤트 허브 API 개요"
+   pageTitle="Azure 이벤트 허브 API 개요 | Microsoft Azure"
    description="주요 이벤트 허브 .NET 클라이언트 API의 일부 요약입니다."
    services="event-hubs"
    documentationCenter="na"
@@ -8,18 +8,18 @@
    editor="" />
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # 이벤트 허브 API 개요
 
 이 문서는 키 이벤트 허브 .NET 클라이언트 API의 일부를 요약합니다. 관리와 런타임 API 등 두 가지 범주가 있습니다. 런타임 API는 메시지를 주고받는 데 필요한 모든 작업으로 구성됩니다. 관리 작업을 사용하면 엔터티를 만들고 업데이트 및 삭제하여 이벤트 허브 엔터티 상태를 관리할 수 있습니다.
 
-모니터링 시나리오는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는[.NET 클래스 라이브러리](https://msdn.microsoft.com/library/azure/jj933431.aspx)및[EventProcessorHost API](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx) 참조를 참조하십시오.
+모니터링 시나리오는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는[.NET 클래스 라이브러리](https://msdn.microsoft.com/library/azure/mt419900.aspx)및[EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) 참조를 참조하십시오.
 
 ## 관리 API
 
@@ -115,7 +115,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 
 ## 이벤트 프로세서 호스트 API
 
-이러한 API는 사용 가능한 작업자에 걸쳐 사용할 수 없지만 배포되는 분할된 데이터베이스가 되는 작업자 프로세스에 탄력성을 제공합니다.
+이러한 API는 사용 가능한 작업자에 걸쳐 분할을 배포하여 사용할 수 없게 되는 작업자 프로세스에 탄력성을 제공합니다.
 
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -178,13 +178,14 @@ public class SimpleEventProcessor : IEventProcessor
 
 이벤트 허브 시나리어에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
-- [이벤트 허브 프로그래밍 가이드](event-hubs-programming-guide.md)
+- [Azure 이벤트 허브 정의](event-hubs-what-is-event-hubs.md)
 - [이벤트 허브 개요](event-hubs-overview.md)
-- [이벤트 허브 코드 샘플](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
+- [이벤트 허브 프로그래밍 가이드](event-hubs-programming-guide.md)
+- [이벤트 허브 코드 샘플](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
 
 .NET API 참조는 다음과 같습니다.
 
-- [서비스 버스 및 이벤트 허브 .NET API 참조](https://msdn.microsoft.com/library/azure/jj933424.aspx)
-- [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [서비스 버스 및 이벤트 허브 .NET API 참조](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -41,12 +41,11 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 1. [Git 설치][install-git]
 
-> [AZURE.NOTE]
-> Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
+	> [AZURE.NOTE]Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
 
 2. 프로젝트 루트에 **composer.json**이라는 파일을 만들고 다음 코드를 추가합니다.
 
-		{
+         {
              "repositories": [
                  {
                      "type": "pear",
@@ -59,7 +58,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
                  "pear-pear.php.net/mail_mimedecode" : "*",
                  "microsoft/windowsazure": "*"
              }
-		}
+         }
 
 3. 프로젝트 루트에 **[composer.phar][composer-phar]**을 다운로드합니다.
 
@@ -281,7 +280,7 @@ PHP에서 간단한 작업 목록 응용 프로그램을 빌드할 것입니다.
 
 * 엔터티를 업데이트하는 첫 번째 단계는 테이블에서 가져오는 것입니다.
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -431,4 +430,4 @@ Git를 사용하여 응용 프로그램을 게시하려면 아래 단계를 따�
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

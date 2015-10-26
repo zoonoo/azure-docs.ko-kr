@@ -114,7 +114,7 @@ ASP.NET 태그 뷰는 화면에 맞게 크기가 조정되어 있습니다. 크�
 
 MVC 5 템플릿의 새로운 점은 기본 제공 Bootstrap 지원입니다. 이것이 응용 프로그램에서 여러 가지 뷰를 즉시 향상하는 것을 이미 확인한 바 있습니다. 예를 들어 맨 위에 있는 탐색 표시줄은 브라우저 너비가 좁아질 때 자동으로 축소될 수 있습니다. 데스크톱 브라우저에서 브라우저 창의 크기를 조정하여 탐색 표시줄의 모양과 느낌이 어떻게 변하는지 확인해 보세요. 이것이 Bootstrap에 기본 제공되는 반응형 웹 디자인입니다.
 
-Bootstrap을 사용하지 않을 때 웹 앱이 어떻게 보이는지를 확인하려면 *App_Start\BundleConfig.cs*를 열고 *bootstrap.js* 및 *bootstrap.css*가 들어 있는 줄을 주석으로 처리하세요. 다음 코드는 변경한 후 `RegisterBundles` 메서드의 마지막 두 문을 보여 줍니다
+Bootstrap을 사용하지 않을 때 웹 앱이 어떻게 보이는지를 확인하려면 *App\_Start\\BundleConfig.cs*를 열고 *bootstrap.js* 및 *bootstrap.css*가 들어 있는 줄을 주석으로 처리하세요. 다음 코드는 변경한 후 `RegisterBundles` 메서드의 마지막 두 문을 보여 줍니다
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -140,11 +140,11 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ##<a name="bkmk_overrideviews"></a> 뷰, 레이아웃 및 부분 뷰 재정의
 
-일반적인 모바일 브라우저, 개별 모바일 브라우저 또는 특정 브라우저용 뷰(레이아웃 및 부분 뷰 포함)를 재정의할 수 있습니다. 모바일 전용 뷰를 제공하기 위해 뷰 파일을 복사하여 파일 이름에 *.Mobile*을 추가할 수 있습니다. 예를 들어, 모바일 *인덱스* 뷰를 만들려면 *Views\Home\Index.cshtml*을 *Views\Home\Index.Mobile.cshtml*로 복사하면 됩니다.
+일반적인 모바일 브라우저, 개별 모바일 브라우저 또는 특정 브라우저용 뷰(레이아웃 및 부분 뷰 포함)를 재정의할 수 있습니다. 모바일 전용 뷰를 제공하기 위해 뷰 파일을 복사하여 파일 이름에 *.Mobile*을 추가할 수 있습니다. 예를 들어, 모바일 *인덱스* 뷰를 만들려면 *Views\\Home\\Index.cshtml*을 *Views\\Home\\Index.Mobile.cshtml*로 복사하면 됩니다.
 
 이 섹션에서는 모바일 전용 레이아웃 파일을 만듭니다.
 
-시작하려면 *Views\Shared_Layout.cshtml*을 *Views\Shared_Layout.Mobile.cshtml*로 복사합니다. *_Layout.Mobile.cshtml*을 열고 제목을 **MVC5 Application**에서 **MVC5 Application (Mobile)**로 변경합니다.
+시작하려면 *Views\\Shared\\_Layout.cshtml*을 *Views\\Shared\\_Layout.Mobile.cshtml*로 복사합니다. *\_Layout.Mobile.cshtml*을 열고 제목을 **MVC5 Application**에서 **MVC5 Application (Mobile)**로 변경합니다.
 
 탐색 모음에 대한 각 `Html.ActionLink` 호출에서 각 링크 *ActionLink*에서 "Browse by"를 제거합니다. 다음 코드는 모바일 레이아웃 파일의 완성된 `<ul class="nav navbar-nav">` 태그를 보여 줍니다.
 
@@ -155,15 +155,15 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-*Views\Home\AllTags.cshtml* 파일을 *Views\Home\AllTags.Mobile.cshtml*로 복사합니다. 새 파일을 열고 `<h2>` 요소를 "Tags"에서 "Tags (M)"으로 변경합니다.
+*Views\\Home\\AllTags.cshtml* 파일을 *Views\\Home\\AllTags.Mobile.cshtml*로 복사합니다. 새 파일을 열고 `<h2>` 요소를 "Tags"에서 "Tags (M)"으로 변경합니다.
 
     <h2>Tags (M)</h2>
 
-데스크톱 브라우저와 모바일 브라우저 에뮬레이터를 사용하여 태그 페이지로 이동합니다. 모바일 브라우저 에뮬레이터에 두 가지 변경 내용이 표시됩니다(*_Layout.Mobile.cshtml*에서 변경된 제목 및 *AllTags.Mobile.cshtml*에서 변경된 제목).
+데스크톱 브라우저와 모바일 브라우저 에뮬레이터를 사용하여 태그 페이지로 이동합니다. 모바일 브라우저 에뮬레이터에 두 가지 변경 내용이 표시됩니다(*\_Layout.Mobile.cshtml*에서 변경된 제목 및 *AllTags.Mobile.cshtml*에서 변경된 제목).
 
 ![][AllTagsMobile_LayoutMobile]
 
-반대로 데스크톱 화면은 변경되지 않았습니다(*_Layout.cshtml* 및 *AllTags.cshtml*의 제목 그대로).
+반대로 데스크톱 화면은 변경되지 않았습니다(*\_Layout.cshtml* 및 *AllTags.cshtml*의 제목 그대로).
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
@@ -191,9 +191,9 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
     using System.Web.WebPages;
 
-변경 내용을 저장합니다. *Views\Shared_Layout.Mobile.cshtml* 파일을 *Views\Shared_Layout.iPhone.cshtml*에 복사합니다. 새 파일을 연 후에 제목을 `MVC5 Application (Mobile)`에서 `MVC5 Application (iPhone)`으로 변경합니다.
+변경 내용을 저장합니다. *Views\\Shared\\_Layout.Mobile.cshtml* 파일을 *Views\\Shared\\_Layout.iPhone.cshtml*에 복사합니다. 새 파일을 연 후에 제목을 `MVC5 Application (Mobile)`에서 `MVC5 Application (iPhone)`으로 변경합니다.
 
-*Views\Home\AllTags.Mobile.cshtml* 파일을 *Views\Home\AllTags.iPhone.cshtml*에 복사합니다. 새 파일에서 `<h2>` 요소를 "Tags (M)"에서 "Tags (iPhone)"로 변경합니다.
+*Views\\Home\\AllTags.Mobile.cshtml* 파일을 *Views\\Home\\AllTags.iPhone.cshtml*에 복사합니다. 새 파일에서 `<h2>` 요소를 "Tags (M)"에서 "Tags (iPhone)"로 변경합니다.
 
 응용 프로그램을 실행합니다. 모바일 브라우저 에뮬레이터를 실행하고, 사용자 에이전트가 "iPhone"으로 설정되었는지 확인하고, *AllTags* 뷰로 이동합니다. Internet Explorer 11 F12 개발자 도구에서 에뮬레이터를 사용 중인 경우 에뮬레이션을 다음과 같이 구성합니다.
 
@@ -205,22 +205,22 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-모바일 브라우저에서 **Speakers** 링크를 선택합니다. 모바일 뷰(*AllSpeakers.Mobile.cshtml*)가 없으므로 기본 발표자 뷰(*AllSpeakers.cshtml*)는 모바일 레이아웃 뷰(*_Layout.Mobile.cshtml*)를 사용하여 렌더링됩니다. 아래와 같이 **MVC5 Application (Mobile)**이라는 제목이 *_Layout.Mobile.cshtml*에서 정의됩니다.
+모바일 브라우저에서 **Speakers** 링크를 선택합니다. 모바일 뷰(*AllSpeakers.Mobile.cshtml*)가 없으므로 기본 발표자 뷰(*AllSpeakers.cshtml*)는 모바일 레이아웃 뷰(*\_Layout.Mobile.cshtml*)를 사용하여 렌더링됩니다. 아래와 같이 **MVC5 Application (Mobile)**이라는 제목이 *\_Layout.Mobile.cshtml*에서 정의됩니다.
 
 ![][AllSpeakers_LayoutMobile]
 
-다음과 같이 *Views_ViewStart.cshtml* 파일에서 `RequireConsistentDisplayMode`를 `true`로 설정하여 모바일 레이아웃 내에서 기본(모바일 아님) 뷰가 렌더링되지 않도록 전체적으로 비활성화할 수 있습니다.
+다음과 같이 *Views\\_ViewStart.cshtml* 파일에서 `RequireConsistentDisplayMode`를 `true`로 설정하여 모바일 레이아웃 내에서 기본(모바일 아님) 뷰가 렌더링되지 않도록 전체적으로 비활성화할 수 있습니다.
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-`RequireConsistentDisplayMode`이(가) `true`(으)로 설정되면 모바일 레이아웃(*\_Layout.Mobile.cshtml*)이 모바일 뷰에 대해서만 사용됩니다(예: 뷰 파일이 ***ViewName**.Mobile.cshtml* 형식일 때). 모바일 뷰가 아닌 뷰에서 모바일 레이아웃이 제대로 작동하지 않을 때 `RequireConsistentDisplayMode`를 `true`로 설정할 수도 있습니다. 아래의 스크린샷은 `RequireConsistentDisplayMode`가 `true`로 설정되어 있을 때 *발표자* 페이지가 어떻게 렌더링되는 지를 보여줍니다(맨 위의 탐색 표시줄에 "(Mobile)" 문자열이 없음).
+`RequireConsistentDisplayMode`이(가) `true`(으)로 설정되면 모바일 레이아웃(*\_Layout.Mobile.cshtml*)이 모바일 뷰에 대해서만 사용됩니다(예: 뷰 파일이 ****ViewName**.Mobile.cshtml* 형식일 때). 모바일 뷰가 아닌 뷰에서 모바일 레이아웃이 제대로 작동하지 않을 때 `RequireConsistentDisplayMode`를 `true`로 설정할 수도 있습니다. 아래의 스크린샷은 `RequireConsistentDisplayMode`가 `true`로 설정되어 있을 때 *발표자* 페이지가 어떻게 렌더링되는 지를 보여줍니다(맨 위의 탐색 표시줄에 "(Mobile)" 문자열이 없음).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
-뷰 파일에서 `RequireConsistentDisplayMode`를 `false`로 설정하여 특정 뷰의 일관된 디스플레이 모드를 비활성화할 수 있습니다. *Views\Home\AllSpeakers.cshtml* 파일의 다음 태그는 `RequireConsistentDisplayMode`를 `false`로 설정합니다.
+뷰 파일에서 `RequireConsistentDisplayMode`를 `false`로 설정하여 특정 뷰의 일관된 디스플레이 모드를 비활성화할 수 있습니다. *Views\\Home\\AllSpeakers.cshtml* 파일의 다음 태그는 `RequireConsistentDisplayMode`를 `false`로 설정합니다.
 
     @model IEnumerable<string>
 
@@ -235,7 +235,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 방금 본 것처럼 *발표자* 뷰는 가독성은 있지만 링크가 작고 모바일 장치에서 누르기 어렵습니다. 이 섹션에서는 *AllSpeakers* 뷰를 모바일 친화적으로 만듭니다. 크고 누르기 쉬운 링크를 표시하고 발표자를 빨리 찾을 수 있는 검색 상자가 포함됩니다.
 
-부트스트랩 [연결된 목록 그룹][] 스타일을 사용하여 *발표자* 뷰를 개선할 수 있습니다. *Views\Home\AllSpeakers.cshtml*에서 Razor 파일의 내용을 아래의 코드로 바꿉니다.
+부트스트랩 [연결된 목록 그룹][] 스타일을 사용하여 *발표자* 뷰를 개선할 수 있습니다. *Views\\Home\\AllSpeakers.cshtml*에서 Razor 파일의 내용을 아래의 코드로 바꿉니다.
 
      @model IEnumerable<string>
 
@@ -262,7 +262,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllSpeakersFixedDesktop]
 
-모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을 탐색하기가 힘듭니다. 부트스트랩은 바로 사용 가능한 검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여 추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에 JavaScript 코드를 연결하여 필터 기능을 만듭니다. *Views\Home\AllSpeakers.cshtml*에서 다음과 같이 \<form\> 태그를 \<h2\> 태그 바로 뒤에 추가합니다.
+모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을 탐색하기가 힘듭니다. 부트스트랩은 바로 사용 가능한 검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여 추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에 JavaScript 코드를 연결하여 필터 기능을 만듭니다. *Views\\Home\\AllSpeakers.cshtml*에서 다음과 같이 <form> 태그를 <h2> 태그 바로 뒤에 추가합니다.
 
     @model IEnumerable<string>
 
@@ -317,13 +317,13 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
         });
     });
 
-또한 등록된 번들에 filter.js를 포함해야 합니다. *App_Start\BundleConfig.cs*를 열고 첫 번째 번들을 변경합니다. 첫 번째 `bundles.Add` 문(**jquery** 번들에 해당)을 변경하여 다음과 같이 *Scripts\filter.js*를 포함합니다.
+또한 등록된 번들에 filter.js를 포함해야 합니다. *App\_Start\\BundleConfig.cs*를 열고 첫 번째 번들을 변경합니다. 첫 번째 `bundles.Add` 문(**jquery** 번들에 해당)을 변경하여 다음과 같이 *Scripts\\filter.js*를 포함합니다.
 
      bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/filter.js"));
 
-**jquery** 번들은 이미 기본 *_Layout* 뷰에 렌더링되어 있습니다. 나중에 같은 JavaScript 코드를 활용하여 필터 기능을 다른 목록 뷰에 적용할 수 있습니다.
+**jquery** 번들은 이미 기본 *\_Layout* 뷰에 렌더링되어 있습니다. 나중에 같은 JavaScript 코드를 활용하여 필터 기능을 다른 목록 뷰에 적용할 수 있습니다.
 
 모바일 브라우저를 새로 고치고 *AllSpeakers* 뷰로 이동합니다. 검색 상자에 "sc"를 입력합니다. 이제 검색 문자열에 따라 발표자 목록을 필터링할 수 있습니다.
 
@@ -331,7 +331,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ##<a name="bkmk_improvetags"></a> 태그 목록 개선
 
-*발표자* 뷰처럼 *태그* 뷰도 가독성은 있지만 링크가 작고 모바일 장치에서 누르기 어렵습니다. *발표자* 뷰를 수정한 것과 같은 방법으로 *태그* 뷰를 수정할 수 있습니다. 앞에서 설명한 대로 코드를 변경하되 *Views\Home\AllTags.cshtml*에서 다음 `Html.ActionLink` 메서드 구문을 사용하면 됩니다.
+*발표자* 뷰처럼 *태그* 뷰도 가독성은 있지만 링크가 작고 모바일 장치에서 누르기 어렵습니다. *발표자* 뷰를 수정한 것과 같은 방법으로 *태그* 뷰를 수정할 수 있습니다. 앞에서 설명한 대로 코드를 변경하되 *Views\\Home\\AllTags.cshtml*에서 다음 `Html.ActionLink` 메서드 구문을 사용하면 됩니다.
 
     @Html.ActionLink(tag, 
                      "SessionsByTag", 
@@ -350,7 +350,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ##<a name="bkmk_improvedates"></a> 날짜 목록 개선
 
-*스피커* 및 *태그*에서 개선한 것과 같이 *날짜* 뷰를 개선할 수 있습니다. 앞에서 설명한 대로 코드를 변경하되 *Views\Home\AllDates.cshtml*에서 다음 `Html.ActionLink` 메서드 구문을 사용하면 됩니다.
+*스피커* 및 *태그*에서 개선한 것과 같이 *날짜* 뷰를 개선할 수 있습니다. 앞에서 설명한 대로 코드를 변경하되 *Views\\Home\\AllDates.cshtml*에서 다음 `Html.ActionLink` 메서드 구문을 사용하면 됩니다.
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
                      "SessionsByDate", 
@@ -361,7 +361,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllDatesFixed]
 
-날짜-시간 값을 날짜별로 정리함으로써 *날짜* 뷰를 더욱 개선할 수 있습니다. Bootstrap [패널][] 스타일을 사용하면 됩니다. *Views\Home\AllDates.cshtml* 파일의 내용을 다음 코드를 사용하여 바꿉니다.
+날짜-시간 값을 날짜별로 정리함으로써 *날짜* 뷰를 더욱 개선할 수 있습니다. Bootstrap [패널][] 스타일을 사용하면 됩니다. *Views\\Home\\AllDates.cshtml* 파일의 내용을 다음 코드를 사용하여 바꿉니다.
 
     @model IEnumerable<DateTime>
 
@@ -409,7 +409,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][SessionsTableTagASP.NET]
 
-보시다시피 표 형태로 표시됩니다. 현재는 데스크톱 브라우저에서 보도록 디자인된 것입니다. 하지만 모바일 브라우저에서는 읽기가 약간 어렵습니다. 이를 수정하기 위해 *Views\Home\SessionsTable.cshtml*을 열고 파일의 내용을 다음 코드로 바꿉니다.
+보시다시피 표 형태로 표시됩니다. 현재는 데스크톱 브라우저에서 보도록 디자인된 것입니다. 하지만 모바일 브라우저에서는 읽기가 약간 어렵습니다. 이를 수정하기 위해 *Views\\Home\\SessionsTable.cshtml*을 열고 파일의 내용을 다음 코드로 바꿉니다.
 
     @model IEnumerable<Mvc5Mobile.Models.Session>
 
@@ -476,7 +476,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 기본 데스크톱 뷰도 좋지만 몇 가지 Bootstrap GUI 구성 요소를 사용하여 이 뷰를 쉽게 개선할 수 있습니다.
 
-*Views\Home\SessionByCode.cshtml*을 열고 내용을 다음 태그로 바꿉니다.
+*Views\\Home\\SessionByCode.cshtml*을 열고 내용을 다음 태그로 바꿉니다.
 
     @model Mvc5Mobile.Models.Session
 
@@ -617,4 +617,4 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

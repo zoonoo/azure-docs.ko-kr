@@ -193,4 +193,4 @@ Runbook과 작업할 가상 컴퓨터를 검색하도록 **Get-AzureVM**이 사�
 - [Azure 자동화의 자식 runbook](automation-child-runbooks.md) 
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

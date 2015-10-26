@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Azure의 Bottle 및 Azure 테이블 저장소와 Python Tools 2.2 for Visual Studio"
-	description="Python Tools for Visual Studio를 사용하여 Azure 테이블 저장소에서 데이터를 저장하는 Bottle 응용 프로그램을 만들고 웹앱을 Azure 앱 서비스 웹앱에 배포하는 방법을 알아봅니다."
-	services="app-service\web"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	pageTitle="Azure의 Bottle 및 Azure 테이블 저장소와 Python Tools 2.2 for Visual Studio" 
+	description="Python Tools for Visual Studio를 사용하여 Azure 테이블 저장소에서 데이터를 저장하는 Bottle 응용 프로그램을 만들고 웹앱을 Azure 앱 서비스 웹앱에 배포하는 방법을 알아봅니다." 
+	services="app-service\web" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -71,9 +71,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 2. 포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소**를 클릭합니다. 저장소 계정에 고유한 이름을 지정하고 이를 위한 새 [리소스 그룹](../resource-group-overview.md)을 만듭니다.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	저장소 계정이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이고 저장소 계정의 블레이드가 열려 새로 만든 리소스 그룹에 속한 것을 보여줍니다.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->저장소 계정이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이고 저장소 계정의 블레이드가 열려 새로 만든 리소스 그룹에 속한 것을 보여줍니다.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -215,4 +213,4 @@ Python Tools for Visual Studio, Bottle 및 Azure 테이블 저장소에 대해 �
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

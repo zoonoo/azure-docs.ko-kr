@@ -1,20 +1,20 @@
 <properties
    pageTitle="F5를 사용하여 Visual Studio에서 서비스 패브릭 애플리케이션 디버깅"
-	description="Visual Studio 및 로컬 개발 클러스터를 사용하여 서비스의 안정성과 성능을 향상시킵니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor=""/>
+   description="Visual Studio 및 로컬 개발 클러스터를 사용하여 서비스의 안정성과 성능을 향상시킵니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # F5를 사용하여 Visual Studio에서 서비스 패브릭 애플리케이션 디버깅
 
@@ -66,4 +66,4 @@
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

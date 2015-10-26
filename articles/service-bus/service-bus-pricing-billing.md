@@ -147,4 +147,4 @@
 
 [서비스 버스 가격 FAQ](service-bus-pricing-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

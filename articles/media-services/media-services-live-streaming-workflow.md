@@ -91,4 +91,4 @@ Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoin
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

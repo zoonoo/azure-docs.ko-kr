@@ -20,7 +20,8 @@
 
 이 문서에서는 Azure PowerShell 스크립트를 사용하여 Windows Server를 실행하는 헤드 노드 1개와 CentOS Linux 배포를 실행하는 여러 계산 노드를 포함하는 Microsoft HPC Pack 클러스터를 Azure에서 설정하는 방법을 보여 줍니다. 또한 데이터 파일을 Linux 계산 노드로 이동하는 여러 가지 방법을 살펴보겠습니다. 이 클러스터를 사용하여 Azure에서 Linux HPC 작업을 실행할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스에 대해 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 다음 다이어그램은 만들려는 HPC Pack 클러스터를 개략적으로 보여 줍니다.
 
@@ -312,4 +313,4 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

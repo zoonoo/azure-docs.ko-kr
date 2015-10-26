@@ -227,4 +227,4 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Active Directory와 온-프레미스 ID 통합"
-	description="Azure AD Connect의 정의 및 사용해야 하는 이유를 설명합니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Active Directory와 온-프레미스 ID 통합" 
+	description="Azure AD Connect의 정의 및 사용해야 하는 이유를 설명합니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Multi-Factor Authentication을 사용자 지정 앱(SDK)으로 빌드하기
@@ -191,4 +191,4 @@ SDK 내에서 다음 항목을 찾을 수 있습니다.
 	    }
 	}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

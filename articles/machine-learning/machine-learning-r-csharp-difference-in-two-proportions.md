@@ -130,4 +130,4 @@ Azure 기계 학습 내에서 두 개의 [R 스크립트 실행][execute-r-scrip
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

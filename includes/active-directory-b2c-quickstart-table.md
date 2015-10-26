@@ -7,4 +7,4 @@
 | | [NodeJS 웹 API 보안](active-directory-b2c-devquickstarts-api-node.md) | 서버 쪽 데몬(출시 예정) |
 | | [.NET 웹앱에서 Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md) | 서버 쪽 데몬(출시 예정) |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

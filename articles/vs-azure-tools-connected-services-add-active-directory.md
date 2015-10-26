@@ -1,13 +1,12 @@
 <properties 
    pageTitle="Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가 | Microsoft Azure"
-	description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure Active Directory 추가"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
-
-<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea"/>
+   description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure Active Directory 추가"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
+<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea" />
 
 # Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가 
 
@@ -73,4 +72,4 @@ Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로�
 
  - [블로그 게시물: Azure AD에 대한 소개](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

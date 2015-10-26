@@ -39,4 +39,4 @@ NodeProperty - 문자열을 값에 매핑하는 사용자 또는 시스템 정�
 자세한 내용은 [응용 프로그램 시나리오](../service-fabric-application-scenarios)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

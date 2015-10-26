@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-appdynamics-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-appdynamics-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -57,11 +57,11 @@
 
 1.  Azure AD 포털의 **AppDynamics** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Single SignOn 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Single Sign-On 구성")
 
 2.  **AppDynamics에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Single SignOn 구성")
+    ![Single Sign-On 구성](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Single Sign-On 구성")
 
 3.  **앱 URL 구성** 페이지의 **AppDynamics Sign-on URL** 텍스트 상자에서 사용자가 사용한 URL을 입력하여AppDynamics에 로그인하고(예: "**https://companyname.saas.appdynamics.com*")) **다음**을 클릭합니다.
 
@@ -69,7 +69,7 @@
 
 4.  **AppDynamics에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-appdynamics-tutorial/IC790215.png "Single SignOn 구성")
+    ![Single Sign-On 구성](./media/active-directory-saas-appdynamics-tutorial/IC790215.png "Single SignOn 구성")
 
 5.  다른 웹 브라우저 창에서 AppDynamics 회사 사이트에 관리자로 로그인합니다.
 
@@ -137,4 +137,4 @@ Azure AD 사용자가 AppDynamics에 로그인할 수 있도록 하려면 AppDyn
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

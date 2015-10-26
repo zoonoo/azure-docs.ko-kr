@@ -106,4 +106,4 @@ HDInsight 커넥터는 논리 앱에서 동작으로만 사용할 수 있습니�
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

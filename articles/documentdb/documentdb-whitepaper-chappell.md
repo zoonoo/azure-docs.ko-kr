@@ -31,4 +31,4 @@ DocumentDB가 응용 프로그램 또는 데이터에 적합한지 잘 모르십
 **PDF다운로드:** [ DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

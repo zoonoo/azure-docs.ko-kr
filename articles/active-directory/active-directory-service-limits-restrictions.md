@@ -27,4 +27,4 @@ Microsoft Azure 서비스 제한을 모두 보려면 [Azure 구독 및 서비스
 - [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 용어](active-directory-terminology.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

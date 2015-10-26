@@ -35,4 +35,4 @@
 * [ Azure AD란?](active-directory-whatis.md)
 * [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

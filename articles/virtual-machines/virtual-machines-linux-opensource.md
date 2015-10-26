@@ -23,7 +23,8 @@
 
 이 문서에서는 Microsoft와 그 파트너가 Linux 기반 가상 컴퓨터 실행과 기타 오픈 소스 계산 환경 및 Microsoft Azure의 응용 프로그램에 대해 작성한 모든 항목을 한 곳에 정리해서 보여 줍니다. Azure와 오픈 소스 컴퓨팅 환경은 둘 다 빠르게 변화하고 있으므로 Microsoft에서 최신 항목을 지속적으로 추가하고 오래된 항목을 제거하기 위해 최선을 다하고 *있음에도* 이 문서는 분명히 오래된 버전이 될 것입니다. 누락된 사항이 있으면 설명을 통해 알려 주시거나 [Github 리포지토리](https://github.com/Azure/azure-content/)로 끌어오기 요청을 제출해 주세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 배포 모델에 관련없는 항목을 나열합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## 일반 사항
 섹션은 이 페이지 오른쪽에 구분되어 있습니다. 항목이 둘 이상의 개념, Linux 배포판 또는 기술과 관련이 있응 수 있으므로 링크가 둘 이상의 섹션에 나와 있을 수 있습니다. 또한 여러 Linux 옵션, 이미지 리포지토리, 사례 연구 및 고유한 사용자 지정 이미지 업로드 방법을 설명하는 여러 항목이 있습니다.
@@ -310,4 +311,4 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

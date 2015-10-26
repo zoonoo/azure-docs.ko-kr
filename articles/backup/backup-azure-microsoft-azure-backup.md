@@ -29,12 +29,14 @@
 
 그리고 단일 온-프레미스 사용자 인터페이스에서 여러 보호된 엔터티(서버 및 클라이언트)를 보호하도록 관리할 수 있습니다.
 
+>[AZURE.NOTE]Microsoft Azure 백업 서버는 워크로드 백업을 위해 DPM(Data Protection Manager) 기능을 상속합니다. 이러한 기능 중 몇 가지에 대한 DPM 설명서의 포인터가 있습니다. 그러나 Microsoft Azure 백업 서버는 테이프에 대한 보호 기능을 제공하거나 System Center와 통합하지 않습니다.
+
 Microsoft Azure 백업 서버를 다음으로 배포할 수 있습니다.
 
 - 실제 독립 실행형 서버입니다.
-- Hyper-V 가상 컴퓨터 - 온-프레미스 데이터를 백업하는 온-프레미스 Hyper-V 호스트 서버에서 호스팅되는 가상 컴퓨터인 DPM을 실행할 수 있습니다. 이 환경에 대한 고려 사항 목록은 [온-프레미스 Hyper-V 서버의 가상 컴퓨터로 DPM 설치](https://technet.microsoft.com/library/dn440941.aspx)를 참조하세요.
-- VMWare의 Windows 가상 컴퓨터 - DPM을 배포하여 VMWare의 Windows 가상 컴퓨터에서 실행되는 Microsoft 워크로드에 보호를 제공할 수 있습니다. 이 시나리오에서 DPM은 VMWare의 물리적 독립 실행형 서버, Hyper-V 가상 컴퓨터, 또는 Windows 가상 컴퓨터로 배포될 수 있습니다.
-- Azure 가상 컴퓨터 - DPM을 Azure에서 가상 컴퓨터로 실행하여 Azure 가상 컴퓨터를 실행하는 클라우드 워크로드를 백업할 수 있습니다. 이 배포에 대한 정보는 [Azure 가상 컴퓨터인 DPM 설치](https://technet.microsoft.com/library/hh758176.aspx)를 참조하세요.
+- Hyper-V 가상 컴퓨터 - 온-프레미스 데이터를 백업하는 온-프레미스 Hyper-V 호스트 서버에서 호스팅되는 가상 컴퓨터인 Microsoft Azure 백업 서버를 실행할 수 있습니다. 이 환경에 대한 고려 사항 목록은 [온-프레미스 Hyper-V 서버의 가상 컴퓨터로 DPM 설치](https://technet.microsoft.com/library/dn440941.aspx)를 참조하세요.
+- VMWare의 Windows 가상 컴퓨터 - Microsoft Azure 백업 서버를 배포하여 VMWare의 Windows 가상 컴퓨터에서 실행되는 Microsoft 워크로드에 보호를 제공할 수 있습니다. 이 시나리오에서 Microsoft Azure 백업 서버는 VMWare의 물리적 독립 실행형 서버, Hyper-V 가상 컴퓨터 또는 Windows 가상 컴퓨터로 배포될 수 있습니다.
+- Azure 가상 컴퓨터 - Microsoft Azure 백업 서버를 Azure에서 가상 컴퓨터로 실행하여 Azure 가상 컴퓨터를 실행하는 클라우드 워크로드를 백업할 수 있습니다. 이 배포에 대한 정보는 [Azure 가상 컴퓨터인 DPM 설치](https://technet.microsoft.com/library/hh758176.aspx)를 참조하세요.
 
 다음도 참조하세요.
 
@@ -42,7 +44,7 @@ Microsoft Azure 백업 서버를 다음으로 배포할 수 있습니다.
 - Microsoft Azure 백업 서버는 SCDPM 또는 SCDPM RA 에이전트가 설치된 컴퓨터에 설치할 수 없습니다.
 - Microsoft Azure 백업 서버는 Microsoft Azure 백업 에이전트가 설치된 컴퓨터에 설치할 수 없고 Azure 백업 자격 증명 모음으로 등록할 수 없습니다.
 
->[AZURE.NOTE]Microsoft Azure 백업 서버는 워크로드 백업에 대한 Data Protection Manager(DPM)의 기능을 상속하지만 테이프에 보호 기능을 제공하거나 System Center와 통합하지 않습니다.
+
 
 Microsoft Azure 백업을 설치하려는 서버를 선택하면 다음을 수행해야 합니다.
 
@@ -64,7 +66,7 @@ Microsoft Azure 백업을 설치하려는 서버를 선택하면 다음을 수�
 - Microsoft Azure 백업 서버는 도메인에 연결되어야 합니다.
 - Microsoft Azure 백업 서버에는 .Net 3.5,.Net 4.0,.Net 3.5 SP1 기능이 설치되어야 합니다. 추가 정보는 [.NET Framework를 사용하는 방법에 대한 자세한 내용](https://technet.microsoft.com/library/dn482071.aspx)을 참조하세요.
 - Microsoft Azure 백업 서버에는 Windows Management Framework 4.0이 설치되어야 합니다. [여기](http://www.microsoft.com/download/details.aspx?id=40855)에서 다운로드할 수 있습니다.
-- DPM 데이터 저장소에 대한 전용 공간으로 사용되는 디스크의 경우 권장되는 저장소 풀 크기는 보호된 데이터의 1.5배 크기입니다. 자세한 내용은 [이 항목]의 디스크 및 저장소 섹션을 참조하십시오.(https://technet.microsoft.com/library/hh758176.aspx#DPM 서버)
+- Microsoft Azure 백업 서버 데이터 저장소에 대한 전용 공간으로 사용되는 디스크의 경우 권장되는 저장소 풀 크기는 보호된 데이터의 1.5배 크기입니다. 자세한 내용은 [이 항목]의 디스크 및 저장소 섹션을 참조하십시오.(https://technet.microsoft.com/library/hh758176.aspx#DPM 서버)
 
 Microsoft Azure 백업 서버를 준비하여 다음으로 데이터를 백업합니다.
 
@@ -286,4 +288,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 - [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

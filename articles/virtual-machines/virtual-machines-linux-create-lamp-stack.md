@@ -21,7 +21,8 @@
 
 "LAMP" 스택은 일반적으로 함께 설치되어 서버가 동적 웹 사이트와 웹 응용 프로그램을 호스트할 수 있게 해주는 오픈 소스 소프트웨어 그룹입니다. 이 용어는 실제로 Apache 웹 서버가 있는 Linux 운영 체제를 나타내는 약어입니다. 사이트 데이터는 MySQL 데이터베이스에 저장되고 동적 콘텐츠는 PHP에 의해 처리됩니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 이 가이드에서는 Linux 이미지에 설치된 LAMP 스택을 가져와서 Microsoft Azure에 배포합니다.
 
@@ -455,4 +456,4 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

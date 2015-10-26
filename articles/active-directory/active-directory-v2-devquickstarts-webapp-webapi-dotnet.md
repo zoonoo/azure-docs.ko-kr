@@ -18,8 +18,7 @@
 
 # 앱 모델 v2.0 미리 보기: .NET 웹앱에서 Web API 호출
 
-> [AZURE.NOTE]
-	이 정보는 v2.0 끝점 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+> [AZURE.NOTE]이 정보는 v2.0 끝점 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
 v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱 및 Web API에 빠르게 추가할 수 있습니다. 여기서는 다음과 같은 작업을 수행하는 MVC 웹앱을 빌드하겠습니다.
 
@@ -42,20 +41,20 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
+또는 [완성된 앱을 .zip으로 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip)하거나 완성된 된 앱을 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1. 앱 등록
+## 1\. 앱 등록
 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르세요. 다음을 수행해야 합니다.
 
-- 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 필요합니다.
+- 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
 - **암호** 형식의 **앱 암호**를 만들고 나중에 사용할 수 있도록 해당 값을 적어둡니다.
 - 앱에 대한 **웹** 플랫폼을 추가합니다.
 - 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `https://localhost:44326/`입니다.
 
 
-## 2. OpenID Connect를 사용하여 사용자 로그인
+## 2\. OpenID Connect를 사용하여 사용자 로그인
 여기서는 [OpenID Connect 인증 프로토콜](active-directory-v2-protocols.md#openid-connect-sign-in-flow)을 사용하도록 OWIN 미들웨어를 구성합니다. OWIN은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 -	먼저 `TodoList-WebApp` 프로젝트의 루트에서 `web.config` 파일을 열고 `<appSettings>` 섹션에 앱의 구성 값을 입력합니다.
@@ -114,14 +113,12 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3. ADAL을 사용하여 사용자 로그인 시 액세스 토큰 가져오기
+## 3\. ADAL을 사용하여 사용자 로그인 시 액세스 토큰 가져오기
 `AuthorizationCodeReceived` 알림에서 [OpenID Connect와 함께 OAuth 2.0](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow)을 사용하여 authorization\_code를 To-Do List Service에 대한 액세스 토큰으로 교환하려고 합니다. ADAL을 통해 이 프로세스를 쉽게 수행할 수 있습니다.
 
 - 먼저 ADAL 미리 보기 버전을 설치합니다.
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
-- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - 그리고 ADAL의 `App_Start\Startup.Auth.cs` 파일에 다른 `using` 문을 추가합니다. - 이제 새 메서드인 `OnAuthorizationCodeReceived` 이벤트 처리기를 추가합니다. 이 처리기는 ADAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 ADAL의 토큰 캐시에 토큰을 저장합니다.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -143,7 +140,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4. To-Do List Web API 호출
+## 4\. To-Do List Web API 호출
 이제 3단계에서 획득한 access\_token을 실제로 사용해 보겠습니다. To-Do List API에 대한 모든 CRUD 요청을 수행하는 웹앱의 `Controllers\TodoListController.cs` 파일을 엽니다.
 
 - 여기서 ADAL을 다시 사용하여 ADAL 캐시에서 access\_token을 가져올 수 있습니다. 먼저 ADAL에 대한 `using` 문을 이 파일에 추가합니다.
@@ -203,8 +200,6 @@ catch (AdalException ee)
 
 ## 다음 단계
 
-추가 리소스는 다음을 확인해보세요.
-- [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md)
-- [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
+추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -65,4 +65,4 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
 			data:
 			info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

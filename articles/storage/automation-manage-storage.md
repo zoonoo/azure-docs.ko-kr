@@ -50,4 +50,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 저장
 Azure 자동화 [시작 자습서](../automation-create-runbook-from-samples.md) 참조
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -43,14 +43,14 @@
 
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
-## 1. 앱 등록
-[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르세요.  다음을 수행해야 합니다.
+## 1\. 앱 등록
+[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르세요. 다음을 수행해야 합니다.
 
-- 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 필요합니다.
+- 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
 - 앱에 대한 **웹** 플랫폼을 추가합니다.
 - 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `http://localhost:3000/auth/openid/return`입니다.
 
-## 2. pre requisities를 디렉터리에 추가
+## 2\. pre requisities를 디렉터리에 추가
 
 명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.
 
@@ -67,38 +67,38 @@
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- 또한 빠른 시작의 뼈대에 Preview를 위해 `passport-azure-ad` 을(를) 사용했습니다.
+- 또한 빠른 시작의 뼈대에 Preview를 위해 `passport-azure-ad`를 사용했습니다.
 
 - `npm install passport-azure-ad`
 
 
 이는 passport-azure-ad가 의존하는 라이브러리를 설치합니다.
 
-## 3. passport-node-js 전략을 사용하도록 앱을 설정합니다.
+## 3\. passport-node-js 전략을 사용하도록 앱을 설정합니다.
 여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express 미들웨어를 구성합니다. passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 -	먼저 프로젝트의 루트에서 `config.js` 파일을 열고 `exports.creds` 섹션에 앱의 구성 값을 입력합니다.
     -	`clientID:`는 등록 포털에서 앱에 할당된 **응용 프로그램 ID**입니다.
-    -	`returnURL`는 포털에서 입력한 **리디렉션 URI**입니다.
+    -	`returnURL`은 포털에서 입력한 **리디렉션 URI**입니다.
     - `clientSecret`는 포털에서 생성한 암호입니다.
 
-- 그 다음 프로젝트의 루트에 있는 `app.js` 파일을 열고 `passport-azure-ad`과 함께 제공되는 `OIDCStrategy` 전략을 불러오기 위해 다음 호출을 추가합니다.
+- 그 다음 프로젝트의 루트에 있는 `app.js` 파일을 열고 `passport-azure-ad`와 함께 제공되는 `OIDCStrategy` 전략을 불러오기 위해 다음 호출을 추가합니다.
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Add some logging 
-var log = bunyan.createLogger({ 
-	name: 'Microsoft OIDC Example Web Application' 
-}); 
+// Add some logging
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
 ```
 
 - 그런 후에 방금 참조한 전략을 사용하여 로그인 요청을 처리합니다.
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -228,7 +228,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 
@@ -241,16 +241,16 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 ```
 
 ## 4\. Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
 
-이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점 끝점과 통신하도록 올바르게 구성되었습니다. `passport-azure-ad`가 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다. 이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
+이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점과 통신하도록 올바르게 구성되었습니다. `passport-azure-ad`가 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다. 이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
 
-- 먼저 `app.js` 파일에 default, login, account 및 logout 메서드를 추가합니다.
+- 먼저 `app.js` 파일에 기본, 로그인, 계정 및 로그아웃 메서드를 추가합니다.
 
 ```JavaScript
 
@@ -328,7 +328,7 @@ exports.index = function(req, res){
 };
 ```
 
-- 루트 디렉터리 아래에 `/routes/user.js` 경로 만들기
+- 루트 디렉터리 아래에 `/routes/user.js` 경로를 만듭니다.
 
 ```JavaScript
 
@@ -387,13 +387,13 @@ exports.list = function(req, res){
 	<body>
 		<% if (!user) { %>
 			<p>
-			<a href="/">Home</a> | 
+			<a href="/">Home</a> |
 			<a href="/login">Log In</a>
 			</p>
 		<% } else { %>
 			<p>
-			<a href="/">Home</a> | 
-			<a href="/account">Account</a> | 
+			<a href="/">Home</a> |
+			<a href="/account">Account</a> |
 			<a href="/logout">Log Out</a>
 			</p>
 		<% } %>
@@ -421,4 +421,4 @@ exports.list = function(req, res){
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

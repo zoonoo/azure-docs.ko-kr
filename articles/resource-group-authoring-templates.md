@@ -103,7 +103,11 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -113,6 +117,10 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 | type | 예 | 매개 변수 값의 유형입니다. 아래의 허용되는 유형 목록을 참조하세요.
 | defaultValue | 아니요 | 매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다.
 | allowedValues | 아니요 | 올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다.
+| minValue | 아니요 | Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다.
+| maxValue | 아니요 | Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다.
+| minLength | 아니요 | 문자열, secureString 및 배열 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다.
+| maxLength | 아니요 | 문자열, secureString 및 배열 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다.
 
 허용되는 유형 및 값은 다음과 같습니다.
 
@@ -130,10 +138,13 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -148,6 +159,14 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -410,4 +429,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

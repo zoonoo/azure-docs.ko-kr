@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="개발, 테스트 및 프로덕션용 Application Insights 리소스 구분"
-	description="개발의 여러 단계에서 응용 프로그램의 성능 및 사용 모니터링"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="개발, 테스트 및 프로덕션용 Application Insights 리소스 구분" 
+	description="개발의 여러 단계에서 응용 프로그램의 성능 및 사용 모니터링" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
 	ms.author="awills"/>
 
 # 개발, 테스트 및 프로덕션용 Application Insights 리소스 구분
@@ -94,8 +94,8 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

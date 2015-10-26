@@ -273,12 +273,12 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	- **다음**을 클릭하면 프록시 연결을 확인하는 테스트가 실행됩니다.
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/ko-kr/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/en-us/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -362,7 +362,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	- 사용자 지정 1: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 메타 데이터를 보냅니다. 프로세스 서버가 개인 포트 9080을 사용하여 VPN을 통해 제어 데이터를 마스터 대상 서버로 보냅니다.
 	- SSH: 개인 포트 22
 
-    >[AZURE.WARNING] 마스터 대상 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
+    >[AZURE.WARNING]마스터 대상 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
 
 5. **가상 컴퓨터**에서 가상 컴퓨터가 시작될 때까지 기다립니다.
 
@@ -379,11 +379,10 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	![Windows 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
 8. Linux를 실행하는 경우 다음을 수행합니다.
-	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/ko-kr/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
+	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/en-us/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
 	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
-	2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
-	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***,를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다. 
-	![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
+2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
+	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
 	4. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
 	5. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
 	6. "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**" 명령을 실행합니다.
@@ -394,11 +393,11 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 	![대상 서버 확인](./media/site-recovery-vmware-to-azure/ASRVMWare_TSList.png)
 
->[AZURE.NOTE] 등록을 마친 후 마스터 대상 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
+>[AZURE.NOTE]등록을 마친 후 마스터 대상 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
 
 ## 4단계: 온-프레미스 프로세스 서버 배포
 
->[AZURE.NOTE] 재부팅 시에도 유지되도록 프로세스 서버에서 정적 IP 주소를 구성하는 것이 좋습니다.
+>[AZURE.NOTE]재부팅 시에도 유지되도록 프로세스 서버에서 정적 IP 주소를 구성하는 것이 좋습니다.
 
 1. 빠른 시작 > **프로세스 서버 온-프레미스 설치** > **프로세스 서버 다운로드 및 설치**를 클릭합니다.
 
@@ -406,12 +405,12 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 2.  프로세스 서버를 설치할 서버에 다운로드한 zip 파일을 복사합니다. zip 파일에는 다음 두 개의 설치 파일이 들어 있습니다.
 
-	- Microsoft-ASR_CX_TP_8.4.0.0_Windows*
-	- Microsoft-ASR_CX_8.4.0.0_Windows*
+	- Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows*
+	- Microsoft-ASR\_CX\_8.4.0.0\_Windows*
 
 3. 보관 파일의 압축을 풀고 설치 파일을 서버의 한 위치에 복사합니다.
-4. **Microsoft-ASR_CX_TP_8.4.0.0_Windows*** 설치 파일을 실행하고 지침을 따릅니다. 이렇게 하면 배포에 필요한 타사 구성 요소가 설치됩니다.
-5. 그런 다음 **Microsoft-ASR_CX_8.4.0.0_Windows***를 실행합니다.
+4. **Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows*** 설치 파일을 실행하고 지침을 따릅니다. 이렇게 하면 배포에 필요한 타사 구성 요소가 설치됩니다.
+5. 그런 다음 **Microsoft-ASR\_CX\_8.4.0.0\_Windows***를 실행합니다.
 6. **서버 모드** 페이지에서 **프로세스 서버**를 선택합니다.
 
 	![서버 선택 모드](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -434,7 +433,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 	![어댑터 선택](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerNICSelection.png)
 
-10.	**구성 서버 세부 정보**에서
+10.	**구성 서버 세부 정보**에서:
 
 	- IP 주소 및 포트를 지정하려면 VPN을 통해 연결하는 경우 구성 서버의 내부 IP 주소를 지정하고 포트에 443을 지정합니다. 그렇지 않으면 공용 가상 IP 주소 및 매핑된 공용 HTTP 끝점을 지정합니다.
 	- 구성 서버의 암호를 입력합니다.
@@ -450,13 +449,13 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 12. 설치를 완료하려면 서버를 다시 시작해야 할 수 있습니다. **구성 서버** > **서버 정보**에서 프로세스 서버가 성공적으로 등록되었는지 확인합니다.
 
->[AZURE.NOTE] 등록을 마친 후 프로세스 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
+>[AZURE.NOTE]등록을 마친 후 프로세스 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
  
 ![프로세스 서버 유효성 검사](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerRegister.png)
 
 프로세스 서버를 등록할 때 모바일 서비스에 대해 서명 검증을 사용하지 않도록 설정하지 않은 경우 나중에 다음과 같이 설정할 수 있습니다.
 
-1. 관리자 권한으로 프로세스 서버에 로그온한 다음 편집을 위해 C:\pushinstallsvc\pushinstaller.conf 파일을 엽니다. **[PushInstaller.transport]** 섹션에서 **SignatureVerificationChecks=”0”** 줄을 추가합니다. 파일을 저장하고 닫습니다.
+1. 관리자 권한으로 프로세스 서버에 로그온한 다음 편집을 위해 C:\\pushinstallsvc\\pushinstaller.conf 파일을 엽니다. **[PushInstaller.transport]** 섹션에서 **SignatureVerificationChecks=”0”** 줄을 추가합니다. 파일을 저장하고 닫습니다.
 2. InMage PushInstall 서비스를 다시 시작합니다.
 
 
@@ -552,7 +551,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	![방화벽 설정](./media/site-recovery-vmware-to-azure/ASRVMWare_PushInstallFirewall.png)
 
 4. 푸시 설치에 사용되는 계정은 보호할 컴퓨터의 Administrators 그룹에 속해야 합니다. 이러한 자격 증명은 모바일 서비스 푸시 설치에만 사용되며 보호 그룹에 컴퓨터를 추가할 때 제공해야 합니다.
-5. 제공된 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\PoliciesSystem에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**를 입력합니다. 
+5. 제공된 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을 입력합니다. 
 
 **Linux 서버에 모바일 서비스 자동 푸시 설치:**
 
@@ -562,7 +561,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 4. 원본 Linux 서버의 /etc/hosts 파일에 로컬 호스트 이름을 모든 NIC와 연결된 IP 주소에 매핑하는 항목이 포함되어 있는지 확인합니다.
 5. 보호할 컴퓨터에 최신 openssh, openssh-server, openssl 패키지를 설치합니다.
 6. 포트 22에 SSH를 사용하고 실행 중인지 확인합니다. 
-7. 다음과 같이 sshd_config 파일에서 SFTP 하위 시스템 및 암호 인증을 사용하도록 설정합니다. 
+7. 다음과 같이 sshd\_config 파일에서 SFTP 하위 시스템 및 암호 인증을 사용하도록 설정합니다. 
 
 	- a) 루트로 로그인합니다.
 	- b) /etc/ssh/sshd\_config 파일에서 **PasswordAuthentication**으로 시작하는 줄을 찾습니다.
@@ -772,4 +771,4 @@ Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어
 
 전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

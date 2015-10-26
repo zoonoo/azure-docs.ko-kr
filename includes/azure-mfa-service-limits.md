@@ -13,4 +13,4 @@ MFA 호출 중 **X**회 시도 허용|1|99
 
 <sup>1</sup>나중에 증가할 것으로 예상됩니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

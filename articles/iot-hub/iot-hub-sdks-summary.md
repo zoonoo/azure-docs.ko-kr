@@ -1,19 +1,19 @@
 <properties
  pageTitle="Azure IoT Hub SDK 목록 | Microsoft Azure"
- description="다양한 IoT Hub 장치 및 서비스 SDK에 대한 링크와 정보"
+ description="다양한 Azure IoT Hub 장치 및 서비스 SDK에 대한 링크와 정보입니다."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="10/01/2015"
  ms.author="dobett"/>
 
 # IoT Hub SDK
@@ -73,4 +73,4 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 [Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

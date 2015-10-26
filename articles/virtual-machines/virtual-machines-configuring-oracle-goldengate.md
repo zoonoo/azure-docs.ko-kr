@@ -13,9 +13,12 @@
 	ms.workload="infrastructure-services"
 	ms.date="06/22/2015"
 	ms.author="bbenz" />
+
+	
 #Azure에 대한 Oracle GoldenGate 구성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스를 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle GoldenGate를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서는 비 RAC Oracle 데이터베이스의 [양방향 복제](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm)에 중점을 두며 두 사이트가 모두 활성 상태여야 합니다.
 
@@ -599,4 +602,4 @@ Oracle GoldenGate 구성을 확인 하려면 사이트 A에서 데이터베이�
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 페이지 사용자 인터페이스(UI) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구
@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## B2C 테넌트 가져오기
+## Azure AD B2C 테넌트 가져오기
 
 사용자 지정을 수행하기 전에 Azure AD B2C 테넌트가 없다면 [Azure AD B2C 테넌트를 가져와](active-directory-b2c-get-started.md)야 합니다.
 
@@ -59,8 +59,8 @@ Azure Blob 저장소를 사용하여 페이지 콘텐츠를 호스팅하려는 �
 
 #### 저장소 계정 만들기
 
-1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
-2. **+새로 만들기** -> **데이터 + 저장소** -> **저장소 계정**을 클릭합니다. Azure Blob 저장소 계정을 만들려면 Azure 구독이 필요합니다. [여기서](https://azure.microsoft.com/ko-kr/pricing/free-trial/) 무료 평가판에 등록할 수 있습니다.
+1. [Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다.
+2. **+새로 만들기** -> **데이터 + 저장소** -> **저장소 계정**을 클릭합니다. Azure Blob 저장소 계정을 만들려면 Azure 구독이 필요합니다. [여기서](https://azure.microsoft.com/ko-KR/pricing/free-trial/) 무료 평가판에 등록할 수 있습니다.
 3. 저장소 계정에 **이름**을 제공하고(예: "contoso") **가격 책정 계층**, **리소스 그룹** 및 **구독**에 적절한 항목을 선택합니다. **시작 보드에 고정** 옵션이 선택되었는지 확인합니다. **만들기**를 클릭합니다.
 4. 시작 보드에 돌아가서 방금 만든 저장소 계정을 클릭합니다.
 5. **요약** 섹션에서 **컨테이너** 및 **+추가**를 차례로 클릭합니다.
@@ -90,4 +90,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
         
 이제 **지금 실행** 단추 또는 사용자의 응용 프로그램을 사용하여 정책을 다시 실행할 수 있습니다. 두 경우 모두 동일한 샘플 HTML 및 CSS를 사용했으므로 결과는 거의 동일한 모양이어야 합니다. 하지만 사용자의 정책은 자신의 Azure Blob 저장소 인스턴스를 참조하며 원하는 대로 파일을 편집하고 다시 업로드할 수 있습니다. HTML 및 CSS 사용자 지정에 대한 자세한 내용은 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

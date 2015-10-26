@@ -18,7 +18,7 @@
 	
 	**JsonPropertyAttribute**는 클라이언트 유형의 속성 이름과 기본 데이터 테이블의 열 이름 간 매핑을 정의하는 데 사용됩니다.
 
-	>[AZURE.NOTE] 범용 Windows 앱 프로젝트에서 TodoItem 클래스는 공유 DataModel 폴더의 별도 코드 파일에서 정의됩니다.
+	>[AZURE.NOTE]범용 Windows 앱 프로젝트에서 TodoItem 클래스는 공유 DataModel 폴더의 별도 코드 파일에서 정의됩니다.
 
 3. MainPage.xaml.cs에서 기존 항목 컬렉션을 정의하는 줄을 주석 처리하거나 삭제한 후 다음 줄을 추가하거나 주석 처리를 제거합니다. 이때 _&lt;yourClient&gt;_는 모바일 서비스에 프로젝트를 연결할 때 App.xaml.cs 파일에 추가한 `MobileServiceClient` 필드로 바꿉니다.
 
@@ -70,4 +70,4 @@
 
 이제 앱이 백 엔드 저장소에 모바일 서비스를 사용하도록 업데이트되었으므로 모바일 서비스에 대해 앱을 테스트해야 합니다.
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

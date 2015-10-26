@@ -614,4 +614,4 @@ ASP.NET 5에서 웹 응용 프로그램의 *호스트*와 *응용 프로그램*�
 
 [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

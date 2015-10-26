@@ -337,4 +337,4 @@ Azure 환경에서는 위에서 지정한 기본 경로를 볼 수 없으며, �
 - 라우팅 및 IP 전달을 구성하려면 [Azure에서 경로를 만들고 IP 전달을 사용하도록 설정하는 방법](virtual-network/virtual-networks-udr-how-to.md)을 참조하세요. 
 - 역할 기반 액세스 제어에 대한 개요는 [Microsoft Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

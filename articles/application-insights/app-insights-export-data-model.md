@@ -451,7 +451,7 @@
 * 
     클라이언트의 앱 로캘입니다. 원격 분석 항목에 명시적으로 제공되지 않으면 사용자 에이전트 필드의 처리에 따라 제공됩니다. 
 
-    *예제*<br/> ru<br/>ko-KR<br/>de-DE<br/>unknown
+    *예제*<br/> ru<br/>en-US<br/>de-DE<br/>unknown
 
 **machineName**
 
@@ -1081,4 +1081,4 @@
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

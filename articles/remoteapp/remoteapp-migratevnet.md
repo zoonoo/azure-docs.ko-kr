@@ -1,19 +1,19 @@
 <properties 
     pageTitle="VNET RemoteApp에서 Azure VNET으로 마이그레이션하는 방법"
-	description="VNET RemoteApp에서 Azure VNET으로 마이그레이션하는 방법을 알아봅니다."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="VNET RemoteApp에서 Azure VNET으로 마이그레이션하는 방법을 알아봅니다." 
+    services="remoteapp" 
+	documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -50,4 +50,4 @@
 궁금한 사항이 있거나 특별한 지원이 필요한 경우 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help)으로 메일을 보내세요.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

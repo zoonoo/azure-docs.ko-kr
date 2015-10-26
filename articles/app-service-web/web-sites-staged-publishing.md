@@ -260,4 +260,4 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

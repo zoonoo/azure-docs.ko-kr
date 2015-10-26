@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 # Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법
@@ -37,6 +37,8 @@
 
 다음은 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험에 대한 [Cortana Analytics 갤러리](http://gallery.azureml.net/)의 예제입니다. [다중 클래스 분류자 비교: 문자 인식](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
+>[AZURE.TIP]기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
+
 ## 기계 학습의 다양한 특징
 
 ### 감독
@@ -45,7 +47,7 @@
 
 이는 널리 사용되고 유용한 기계 학습 유형입니다. 한 가지 예외를 제외하고, Azure 기계 학습의 모든 모듈은 감독 학습 알고리즘입니다. Azure 기계 학습 내에서는 분류, 회귀 및 이상 감지의 여러 특정 유형의 감독 학습이 표시됩니다.
 
-* **분류** 범주를 예측하는 데 데이터를 사용하는 감독 학습을 분류라고도 합니다. '고양이' 또는 '개' 그림으로 이미지를 할당하는 경우가 해당합니다. 선택 항목이 두 가지뿐인 경우 **2클래스** 또는 **이항 분류**라고 합니다. NCAA March Madness(미국 대학농구 토너먼트전) 대회의 승자를 예측하는 경우처럼 더 많은 범주가 있는 경우 이 문제를 **다중 클래스 분류**라고 합니다.
+* **분류**. 범주를 예측하는 데 데이터를 사용하는 감독 학습을 분류라고도 합니다. '고양이' 또는 '개' 그림으로 이미지를 할당하는 경우가 해당합니다. 선택 항목이 두 가지뿐인 경우 **2클래스** 또는 **이항 분류**라고 합니다. NCAA March Madness(미국 대학농구 토너먼트전) 대회의 승자를 예측하는 경우처럼 더 많은 범주가 있는 경우 이 문제를 **다중 클래스 분류**라고 합니다.
 
 * **회귀**. 주가와 같은 값을 예측하는 경우 감독 학습을 회귀라고 합니다.
 
@@ -112,7 +114,7 @@
 |[로컬 심층 지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|큰 기능 집합의 적합|
 |[Bayes 지점 컴퓨터](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**다중 클래스 분류**| | | | | |
-|[로지스틱 회귀](https://msdn.microsoft.com/ko-kr/library/azure/dn905853.aspx)| |●|●|5| |
+|[로지스틱 회귀](https://msdn.microsoft.com/ko-KR/library/azure/dn905853.aspx)| |●|●|5| |
 |[의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[의사 결정 정글](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|적은 메모리 공간|
 |[신경망](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -129,7 +131,7 @@
 
 ### 선형 회귀
 
-이전에 설명한 것처럼 [선형 회귀](https://msdn.microsoft.com/library/azure/dn905978.aspx)는 데이터 집합에 대한 선(또는 평면, 초평면(hyperplane)) 적합합니다. 자주 사용되고 간단하며 빠르지만 일부 문제에 대해서는 지나치게 단순화될 수 있습니다. [선형 회귀 자습서](machine-learning-linear-regression-in-azure.md)는 여기를 확인하세요.
+이전에 설명한 것처럼 [선형 회귀](https://msdn.microsoft.com/library/azure/dn905978.aspx)는 데이터 집합에 대한 선(또는 평면, 초평면(hyperplane))에 적합합니다. 자주 사용되고 간단하며 빠르지만 일부 문제에 대해서는 지나치게 단순화될 수 있습니다. [선형 회귀 자습서](machine-learning-linear-regression-in-azure.md)는 여기를 확인하세요.
 
 ![선형 추세 반영 데이터][3]
 
@@ -137,11 +139,11 @@
 
 ### 로지스틱 회귀
 
-이름에 혼동을 줄 수 있는 '회귀'가 포함되어 있지만, 로지스틱 회귀는 실제로 [2클래스](https://msdn.microsoft.com/library/azure/dn905994.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn905853.aspx) 분류를 위한 강력한 도구입니다. 빠르고 단순합니다. 직선 대신 'S' 모양 곡선을 사용한다는 사실 때문에 데이터를 그룹으로 나누는 데 적합합니다. 로지스틱 회귀는 선형 클래스 경계를 제공하므로 이를 사용할 때는 선형 근사값이 수락할 수 있는 것인지 확인해야 합니다.
+이름에 혼동을 줄 수 있는 '회귀'가 포함되어 있지만, 로지스틱 회귀 분석은 실제로 [2클래스](https://msdn.microsoft.com/library/azure/dn905994.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn905853.aspx) 분류를 위한 강력한 도구입니다. 빠르고 단순합니다. 직선 대신 'S' 모양 곡선을 사용한다는 사실 때문에 데이터를 그룹으로 나누는 데 적합합니다. 로지스틱 회귀는 선형 클래스 경계를 제공하므로 이를 사용할 때는 선형 근사값이 수락할 수 있는 것인지 확인해야 합니다.
 
 ![하나의 기능을 포함하는 2클래스 데이터에 대한 로지스틱 회귀][4]
 
-***한 가지 기능만 있는 2클래스 데이터에 대한 로지스틱 회귀*** *- 클래스 경계가 로지스틱 곡선이 두 클래스에 가까운 지점임*
+***한 가지 기능만 있는 2클래스 데이터에 대한 로지스틱 회귀 분석*** *- 클래스 경계가 로지스틱 곡선이 두 클래스에 가까운 지점임*
 
 ### 트리, 포리스트 및 정글
 
@@ -155,7 +157,7 @@
 
 향상된 의사 결정 트리는 세분화할 수 있는 횟수 및 각 하위 지역에 허용되는 데이터 요소 수를 제한하여 과잉 맞춤을 피합니다. 알고리즘은 트리 시퀀스를 생성하며 각각은 이전 트리가 남긴 오류에 대한 보정을 학습합니다. 그 결과 많은 양의 메모리를 사용하는 경향이 있는 매우 정확한 학습자가 나타납니다. 자세한 기술적인 설명은 [Friedman의 원본 문서](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf)를 참조하세요.
 
-[빠른 포리스트 분위수 회귀](https://msdn.microsoft.com/library/azure/dn913093.aspx)는 일반(중간값) 값뿐만 아니라 분위수 형태에 대한 분포도 알고 싶은 하위 지역 내의 특수한 사례에 대한 변형된 의사 결정 트리입니다.
+[빠른 포리스트 분위수 회귀](https://msdn.microsoft.com/library/azure/dn913093.aspx)는 일반(중앙값) 값뿐만 아니라 분위수 형태에 대한 분포도 알고 싶은 하위 지역 내의 특수한 사례에 대한 변형된 의사 결정 트리입니다.
 
 ### 신경망 및 퍼셉트론
 
@@ -166,7 +168,7 @@
 ![신경망으로 학습된 경계][6]
 ---------------------------
 
-***신경망으로 학습하는 경계는 복잡하고 불규칙할 수 있습니다***
+***신경망으로 학습하는 경계는 복잡하고 불규칙할 수 있습니다.***
 
 [2클래스 평균 퍼셉트론](https://msdn.microsoft.com/library/azure/dn906036.aspx)은 급증하는 학습 시간에 대한 신경망의 해답입니다. 2클래스 평균 퍼셉트론은 선형 클래스 경계를 제공하는 네트워크 구조를 사용합니다. 오늘날의 기준으로 거의 원형에 가깝지만 오랫동안 견고하게 작동해왔으며 작기 때문에 신속한 학습이 가능합니다.
 
@@ -176,7 +178,7 @@ SVM(Support Vector Machine)은 가능한 넓은 여백으로 클래스를 구분
 
 ![지원 벡터 컴퓨터 클래스 경계][7]
 
-***일반적인 지원 벡터 컴퓨터 클래스 경계는 두 클래스를 구분하는 여백을 최대화합니다***
+***일반적인 지원 벡터 컴퓨터 클래스 경계는 두 클래스를 구분하는 여백을 최대화합니다.***
 
 Microsoft Research의 다른 제품인 [2클래스 로컬 심층 SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx)은 선형 버전의 속도 및 메모리 효율성을 대부분 유지하는 SVM의 비선형 변형입니다. 선형 방식으로 정확하고 충분한 해답을 얻을 수 없는 경우 적합합니다. 개발자는 문제를 여러 개의 작은 선형 SVM 문제로 분석하여 신속하게 처리했습니다. 이 트릭을 수행하는 방법에 대한 자세한 내용은 [전체 설명](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf)을 읽으세요.
 
@@ -198,15 +200,15 @@ Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 �
 
 ![K-means를 사용하여 그룹화된 데이터 집합][9]
 
-***K-means를 사용하여 데이터 집합을 5개 클러스터로 그룹화***
+***K-means를 사용하여 데이터 집합을 5개 클러스터로 그룹화합니다.***
 
 또한 N-클래스 분류 문제를 N-1 2클래스 분류 문제로 나누는 앙상블 [one-v-all 다중 클래스 분류자](https://msdn.microsoft.com/library/azure/dn905887.aspx)도 있습니다. 정확도, 학습 시간 및 선형성 속성은 사용된 2클래스 분류자에 의해 결정됩니다.
 
 ![2클래스 분류자를 결합하여 3클래스 분류자 형성][10]
 
-***2클래스 분류자 쌍을 결합하여 3클래스 분류자 형성***
+***2클래스 분류자 쌍을 결합하여 3클래스 분류자를 형성합니다.***
 
-Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf)이라는 제목의 강력한 기계 학습 프레임워크에 대한 액세스도 포함됩니다. VW는 분류 및 회귀를 모두 학습할 수 있으며 부분적으로 레이블이 지정되지 않은 데이터에서도 학습이 가능하므로 여기에서 분류를 거부합니다. 다양한 학습 알고리즘, 손실 함수 및 최적화 알고리즘 중 하나를 사용하도록 구성할 수 있습니다. 기초부터 효율적, 병렬, 초고속 형태로 설계되었습니다. 적은 작업으로 엄청나게 큰 기능 집합을 처리합니다. Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 알고리즘 분야에서 포뮬러 원(Formula One) 엔트리입니다. 모든 문제가 VW에 적합하지는 않지만 해당하는 경우 인터페이스에 대한 학습 곡선을 따른다면 도움이 될 수 있습니다. 또한 여러 언어로 된 [독립 실행형 공개 소스 코드](https://github.com/JohnLangford/vowpal_wabbit)도 제공됩니다.
+Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf)이라는 제목의 강력한 기계 학습 프레임워크에 대한 액세스도 포함됩니다. VW는 분류 및 회귀를 모두 학습할 수 있으며 부분적으로 레이블이 지정되지 않은 데이터에서도 학습이 가능하므로 여기에서 분류를 거부합니다. 다양한 학습 알고리즘, 손실 함수 및 최적화 알고리즘 중 하나를 사용하도록 구성할 수 있습니다. 기초부터 효율적, 병렬, 초고속 형태로 설계되었습니다. 적은 작업으로 엄청나게 큰 기능 집합을 처리합니다. Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 알고리즘 분야에서 포뮬러 원(Formula One) 엔트리입니다. 모든 문제가 VW에 적합하지는 않지만 해당하는 경우 인터페이스에 대한 학습 곡선을 따른다면 도움이 될 수 있습니다. 또한 여러 언어로 된 [독립 실행형 오픈 소스 코드](https://github.com/JohnLangford/vowpal_wabbit)도 제공됩니다.
 
 
 <!-- Media -->
@@ -222,4 +224,4 @@ Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azu
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

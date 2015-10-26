@@ -1,18 +1,18 @@
 <properties
-	pageTitle="미리 구성된 솔루션 사용자 지정에 대한 Microsoft Azure IoT Suite 지침 | Microsoft Azure"
-	description="미리 구성된 Azure IoT Suite 솔루션 사용자 지정에 대한 지침을 제공합니다."
+	pageTitle="미리 구성된 솔루션 사용자 지정 | Microsoft Azure"
+	description="미리 구성된 Azure IoT Suite 솔루션을 사용자 지정하는 방법에 대한 지침을 제공합니다."
 	services=""
 	documentationCenter=".net"
 	authors="stevehob"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="na"
-     ms.devlang="na"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="stevehob"/>
 
@@ -69,4 +69,4 @@ IoT 장치에 대한 자세한 내용은 [Azure IoT 개발자 사이트](http://
 
 [IoT 장치 SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

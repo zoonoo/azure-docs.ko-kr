@@ -1,7 +1,7 @@
 <properties
-	pageTitle="IPython Notebook 만들기 | Microsoft Azure"
-	description="클래식 배포 모델을 사용하여 만든 Azure Linux 또는 Windows 가상 컴퓨터에 IPython Notebook을 배포하는 방법을 알아봅니다."
-	services="virtua-lmachines"
+	pageTitle="Jupyter/IPython Notebook 만들기 | Microsoft Azure"
+	description="Azure의 리소스 관리자 배포 모델을 사용하여 만든 Linux 가상 컴퓨터에 Jupyter/IPython Notebook을 배포하는 방법을 알아봅니다."
+	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
@@ -11,144 +11,102 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-# Azure의 IPython Notebook
+# Azure의 Jupyter Notebook
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 컴퓨터에 노트북을 배포하는 방법을 설명합니다.
+[IPython 프로젝트](http://ipython.org) 이전의 [Jupyter 프로젝트](http://jupyter.org)는 라이브 계산 문서의 생성을 사용하여 코드 실행을 결합하는 강력한 대화형 셸을 사용하여 과학적 계산용 도구의 컬렉션을 제공합니다. 이러한 노트북 파일에는 임의 텍스트, 수식, 입력 코드, 결과, 그래픽, 비디오를 비롯하여 최신 웹 브라우저에서 표시할 수 있는 기타 모든 미디어가 포함될 수 있습니다. Python을 처음 접하며 재미있는 대화형 환경에서 이를 배우려는 경우든, 병렬/기술 컴퓨팅에 대해 상당한 조예가 있는 경우든 Jupyter Notebook을 사용하면 많은 이점을 누릴 수 있습니다.
 
-[IPython 프로젝트](http://ipython.org)(영문)는 강력한 대화형 셸, 고성능의 사용하기 쉬운 병렬 라이브러리 및 웹 기반 환경을 포함하는 과학적 컴퓨팅을 위한 도구 모음인 IPython Notebook을 제공합니다. Notebook은 코드 실행과 라이브 계산 문서를 결합하는 대화형 컴퓨팅 작업 환경을 제공합니다. 이러한 노트북 파일에는 임의 텍스트, 수식, 입력 코드, 결과, 그래픽, 비디오를 비롯하여 최신 웹 브라우저에서 표시할 수 있는 기타 모든 미디어가 포함될 수 있습니다.
+![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png) SciPy 및 Matplotlib 패키지를 사용하여 소리 녹음의 구조를 분석합니다.
 
-Python을 처음 접하며 재미있는 대화형 환경에서 이를 배우려는 경우든, 병렬/기술 컴퓨팅에 대해 상당한 조예가 있는 경우든 IPython Notebook을 사용하면 많은 이점을 누릴 수 있습니다. 그 기능을 보여 주는 다음 스크린샷은 IPython Notebook과 SciPy 및 matplotlib 패키지를 함께 사용하여 소리 녹음의 구조를 분석하는 작업을 보여 줍니다.
 
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
+## Jupyter 두 가지 방법: Azure 노트북 또는 사용자 지정 배포
+Azure는 [Jupyter를 사용하여 즉시 시작](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)하는데 사용할 수 있는 서비스를 제공합니다. Azure 노트북 서비스를 사용하면 Python과 많은 라이브러리를 완벽하게 활용할 수 있는, 확장 가능한 컴퓨팅 리소스에 대한 Jupyter의 웹 기반 인터페이스에 대한 액세스를 쉽게 얻을 수 있습니다. 설치는 서비스에 의해 처리되므로 사용자는 사용자에 의한 관리 및 구성에 대한 필요 없이 이러한 리소스에 액세스할 수 있습니다.
 
-이 문서에서는 Linux 또는 Windows VM(가상 컴퓨터)을 사용하여 Microsoft Azure에 IPython Notebook을 배포하는 방법을 보여 줍니다. Azure에서 IPython Notebook을 사용하면 Python과 많은 라이브러리를 완벽하게 활용할 수 있는, 확장 가능한 컴퓨팅 리소스에 대한 웹 기반 인터페이스를 쉽게 제공할 수 있습니다. 모든 설치는 클라우드에서 수행되므로 사용자는 최신 웹 브라우저만 있다면 로컬에서 어떤 구성도 수행하지 않고 이러한 리소스에 액세스할 수 있습니다.
+노트북 서비스가 시나리오에 대해 작동하지 않는 경우 Linux 가상 컴퓨터(VM)를 사용하여 Microsoft Azure의 Jupyter Notebook을 배포하는 방법을 보여 주는 이 문서를 계속해서 읽으세요.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Azure에서 VM 만들기 및 구성
 
-첫 번째 단계는 Azure에서 실행되는 VM(가상 컴퓨터)을 만드는 것입니다. 이 VM은 클라우드에서 작동하는 완벽한 운영 체제이며 IPython Notebook을 실행하는 데 사용됩니다. Azure는 Linux 및 Windows 가상 컴퓨터를 모두 실행할 수 있으므로, 두 가지 유형의 가상 컴퓨터에서 IPython을 설치하는 과정에 대해 살펴보겠습니다.
+첫 번째 단계는 Azure에서 실행되는 VM(가상 컴퓨터)을 만드는 것입니다. 이 VM은 클라우드에서 작동하는 완벽한 운영 체제이며 Jupyter Notebook을 실행하는데 사용됩니다. Azure는 Linux 및 Windows 가상 컴퓨터를 모두 실행할 수 있으므로, 두 가지 유형의 가상 컴퓨터에서 Jupyter를 설치하는 과정에 대해 살펴보겠습니다.
 
-### Linux VM
+### Linux VM을 만들고 Jupyter에 대한 포트 열기
 
-[여기][portal-vm-linux]에 나와 있는 지침을 따라서 *OpenSUSE* 또는 *Ubuntu* 배포의 가상 컴퓨터를 만드십시오. 이 자습서에서는 OpenSUSE 13.2 및 Ubuntu Server 14.04 LTS를 사용합니다. 기본 사용자 이름은 *azureuser*라고 가정합니다.
+[여기][portal-vm-linux]에 나와 있는 지침에 따라 *Ubuntu* 배포의 가상 컴퓨터를 만듭니다. 이 자습서에서는 Ubuntu Server 14.04 LTS를 사용합니다. 사용자 이름은 *azureuser*라고 가정합니다.
 
-### Windows VM
+가상 컴퓨터가 배포한 후 네트워크 보안 그룹의 보안 규칙을 열어야 합니다. 포털에서 **네트워크 보안 그룹**으로 이동하고 VM에 해당하는 보안 그룹에 대한 탭을 엽니다. 다음 설정을 사용하여 인바운드 보안 규칙을 추가해야 합니다. 프로토콜에 대한 **TCP**, 소스(공용) 포트에 대한***** 및 대상(개인) 포트에 대한 **9999**
 
-[여기][portal-vm-windows]에 나와 있는 지침에 따라 *Windows Server 2012 R2 Datacenter* 배포의 가상 컴퓨터를 만듭니다. 이 자습서에서는 사용자 이름이 *azureuser*라고 가정합니다.
+![스크린샷](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
-## IPython Notebook의 끝점 만들기
-
-이 단계는 Linux와 Windows VM 모두에 적용됩니다. 이 문서의 뒷부분에서, 포트 9999에서 노트북 서버를 실행하도록 IPython을 구성합니다. 이 포트를 공개적으로 사용 가능하도록 설정하려면 Azure 관리 포털에 끝점을 만들어야 합니다. 이 끝점은 Azure 방화벽의 포트에서 열리며 공용 포트(HTTPS, 443)를 VM(9999)의 개인 포트에 매핑합니다.
-
-끝점을 만들려면 VM 대시보드로 이동하고, **끝점**과 **끝점 추가**를 차례로 클릭한 후 새 끝점(이 예제에서는 `ipython_nb`)을 만듭니다. 프로토콜로 **TCP**를, 공용 포트로 **443**을, 개인 포트로 **9999**를 선택합니다.
-
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
-
-이 단계를 마치면 **끝점** 대시보드 탭이 다음 스크린샷과 같이 표시됩니다.
-
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-006.png)
+네트워크 보안 그룹에 있는 동안 **네트워크 인터페이스**를 클릭하고 다음 단계에서 VM에 연결하는데 필요하므로 **공용 IP 주소**를 적어 둡니다.
 
 ## VM에 필수 소프트웨어 설치
 
-VM에서 IPython Notebook을 실행하려면 먼저 IPython 및 종속성을 설치해야 합니다.
+VM에서 Jupyter Notebook을 실행하려면 먼저 Jupyter 및 종속성을 설치해야 합니다. vm을 만들 때 선택한 ssh 및 사용자 이름/암호 쌍을 사용하여 linux vm에 연결합니다. 이 자습서에서는 PuTTY를 사용하고 Windows에서 연결합니다.
 
-### Linux(OpenSUSE)
+### Ubuntu에 Jupyter 설치
+[지속성 분석](https://www.continuum.io/downloads)에서 제공된 링크 중 하나를 사용하여 인기 있는 데이터 과학 python 배포인 Anaconda를 설치합니다. 이 문서를 작성할 당시 아래 링크는 가장 최신 버전입니다.
 
-IPython 및 종속성을 설치하려면 Linux VM에 SSH를 수행하고 다음 단계를 완료합니다.
+#### Linux용 Anaconda 설치
+<table>
+  <th>Python 3.4</th>
+  <th>Python 2.7</th>
+  <tr>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh'>64비트</href>
+	</td>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86_64.sh'>64비트</href>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh'>32비트</href>
+	</td>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86.sh'>32비트</href>
+	</td>  
+  </tr>
+</table>
 
-다음 명령을 사용하여 [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] 및 기타 IPython의 종속성을 설치합니다.
 
-    sudo zypper install python-matplotlib
-    sudo zypper install python-tornado
-    sudo zypper install python-jinja2
-    sudo zypper install ipython
+#### Ubuntu에 Anaconda3 2.3.0 64비트 설치
+예로 Ubuntu에 Anaconda를 설치하는 방법입니다.
 
-### Linux(Ubuntu)
+	# install anaconda
+	cd ~
+	mkdir -p anaconda
+	cd anaconda/
+	curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+	sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -f -p /anaconda3
 
-IPython 및 종속성을 설치하려면 Linux VM에 SSH를 설정하고 다음과 같은 단계를 수행합니다.
+	# clean up home directory
+	cd ..
+	rm -rf anaconda/
 
-먼저 다음 명령을 사용하여 새 패키지 목록을 검색합니다.
+	# Update Jupyter to the latest install and generate its config file
+	sudo /anaconda3/bin/conda install -f jupyter -y
+	/anaconda3/bin/jupyter-notebook --generate-config
 
-    sudo apt-get update
 
-다음 명령을 사용하여 [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] 및 기타 IPython의 종속성을 설치합니다.
+![스크린샷](./media/virtual-machines-python-ipython-notebook/anaconda-install.png)
 
-    sudo apt-get install python-matplotlib
-    sudo apt-get install python-tornado
-    sudo apt-get install ipython
-    sudo apt-get install ipython-notebook
 
-### Windows
-
-Windows VM에 IPython 및 종속성을 설치하려면 원격 데스크톱을 사용하여 VM에 연결합니다. 그런 후에 Windows PowerShell에서 모든 명령줄 작업을 실행하여 다음 단계를 수행합니다.
-
-**참고**: Internet Explorer를 사용하여 다운로드하려면 몇 가지 보안 설정을 변경해야 합니다. **서버 관리자**에서 **로컬 서버**를 클릭하고 **IE 보안 강화 구성**에서 관리자에 대해 해당 설정을 해제합니다. IPython을 설치한 후 다시 사용하도록 설정할 수 있습니다.
-
-1.  최신 32비트 버전의 [Python 2.7][]을 다운로드하여 설치합니다. `C:\Python27` 및 `C:\Python27\Scripts`을 `PATH` 환경 변수에 추가해야 합니다.
-
-1.  다음 명령을 사용하여 [Tornado][Tornado], [PyZMQ][PyZMQ] 및 기타 IPython의 종속성을 설치합니다.
-
-        easy_install tornado
-        easy_install pyzmq
-        easy_install jinja2
-        easy_install six
-        easy_install python-dateutil
-        easy_install pyparsing
-
-1.  웹 사이트에서 사용 가능한 `.exe` 이진 설치 관리자를 사용해 [NumPy][NumPy]를 다운로드하여 설치합니다. 이 문서의 작성 시간을 기준으로 최신 버전은 numpy-1.9.1-win32-superpack-python2.7.exe입니다.
-
-1.  다음 명령을 사용하여 [Matplotlib][Matplotlib]를 설치합니다.
-
-        pip install matplotlib==1.4.2
-
-1.  [OpenSSL][]을 다운로드하여 설치합니다.
-
-	* 동일한 다운로드 페이지에서 필수 Visual C++ 2008 재배포 가능을 찾을 수 있습니다.
-
-	* `C:\OpenSSL-Win32\bin`을 `PATH` 환경 변수에 추가해야 합니다.
-
-	> [AZURE.NOTE]OpenSSL을 설치하는 경우 1.0.1g 이상 버전을 사용하세요. 해당 버전에는 하트블리드(Heartbleed) 보안 취약성에 대한 수정 사항이 포함되어 있습니다.
-
-1.  다음 명령을 사용하여 IPython을 설치합니다.
-
-        pip install ipython==2.4
-
-1.  Windows 방화벽의 포트를 엽니다. Windows Server 2012에서는 방화벽이 들어오는 연결을 기본적으로 차단합니다. 포트 9999를 열려면 다음 단계를 따르십시오.
-
-    - 시작 화면에서 **고급 보안이 포함된 Windows 방화벽**을 시작합니다.
-
-    - 왼쪽 패널에서 **인바운드 규칙**을 클릭합니다.
-
-	- 작업 패널에서 **새 규칙**을 클릭합니다.
-
-	- 새 인바운드 규칙 마법사에서 **포트**를 선택합니다.
-
-	- 다음 화면에서 **TCP**를 선택하고 **특정 로컬 포트**에 **9999**를 입력합니다.
-
-	- 기본값을 그대로 사용하고 규칙에 이름을 지정한 다음 **마침**을 클릭합니다.
-
-### IPython Notebook 구성
-
-이번에는 IPython Notebook을 구성합니다. 첫 번째 단계는 다음 명령을 사용하여 사용자 지정 IPython 구성 프로필을 만들어 구성 정보를 캡슐화하는 것입니다.
-
-    ipython profile create nbserver
+### Jupyter 구성 및 SSL 사용
+설치한 후 Jupyter에 대한 구성 파일을 설치해야 합니다. Jupyter 구성 문제가 발생하는 경우 [노트북 서버 실행에 대한 Jupyter 설명서](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html)를 보면 쉽게 이해할 수 있습니다.
 
 그런 다음 프로필 디렉터리로 변경하여(`cd`) SSL 인증서를 만들고 프로필 구성 파일을 편집합니다.
 
 Linux에서는 다음 명령을 사용합니다.
 
-    cd ~/.ipython/profile_nbserver/
-
-Windows에서는 다음 명령을 사용합니다.
-
-    cd \users\azureuser\.ipython\profile_nbserver
+    cd ~/.jupyter
 
 다음 명령을 사용하여 SSL 인증서를 만듭니다(Linux 및 Windows).
 
@@ -156,85 +114,61 @@ Windows에서는 다음 명령을 사용합니다.
 
 자체 서명된 SSL 인증서를 만들고 있으므로 노트북에 연결할 때 브라우저에서 보안 경고를 표시합니다. 장기 프로덕션용으로는 조직과 연결된 적절히 서명된 인증서를 사용하는 것이 좋습니다. 이 데모에서는 인증서 관리를 다루지 않으므로 지금은 자체 서명된 인증서만을 설명하겠습니다.
 
-인증서를 사용할 뿐만 아니라, 권한이 없는 사용자로부터 노트북을 보호하기 위해 암호도 제공해야 합니다. 보안상의 이유로 IPython은 구성 파일에서 암호화된 암호를 사용하므로, 먼저 암호를 암호화해야 합니다. IPython에서 암호화할 수 있는 유틸리티를 제공하므로 명령 프롬프트에서 다음 명령을 실행합니다.
+인증서를 사용할 뿐만 아니라, 권한이 없는 사용자로부터 노트북을 보호하기 위해 암호도 제공해야 합니다. 보안상의 이유로 Jupyter는 구성 파일에서 암호화된 암호를 사용하므로, 먼저 암호를 암호화해야 합니다. IPython에서 암호화할 수 있는 유틸리티를 제공하므로 명령 프롬프트에서 다음 명령을 실행합니다.
 
-    python -c "import IPython;print IPython.lib.passwd()"
+    /anaconda3/bin/python -c "import IPython;print(IPython.lib.passwd())"
 
-암호 및 암호 확인을 위한 프롬프트가 표시된 후 다음과 같이 암호가 표시됩니다.
+암호 및 암호 확인을 위한 프롬프트가 표시된 후 암호가 표시됩니다. 다음 단계를 위해 암호를 적어 둡니다.
 
     Enter password:
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-다음으로, 프로필 디렉터리 구성 파일을 편집합니다. 사용자가 있는 프로필 디렉터리의 `ipython_notebook_config.py` 파일입니다. 이 파일이 존재하지 않을 수 있습니다. 만들면 됩니다. 이 파일에는 여러 필드가 포함되어 있으며 기본적으로 모든 필드는 주석 처리되어 있습니다. 원하는 텍스트 편집기로 이 파일을 열 수 있으며, 다음과 같은 내용이 있는지 확인해야 합니다.
+다음으로, 프로필 구성 파일을 편집합니다. 사용자가 있는 디렉터리의 `jupyter_notebook_config.py` 파일입니다. 이 파일이 존재하지 않을 수 있습니다. 이 경우 만들면 됩니다. 이 파일에는 여러 필드가 포함되어 있으며 기본적으로 모든 필드는 주석 처리되어 있습니다. 원하는 텍스트 편집기로 이 파일을 열 수 있으며, 다음과 같은 내용이 있는지 확인해야 합니다. 이전 단계에서 sha1로 암호를 대체해야 합니다.
 
     c = get_config()
 
-    # This starts plotting support always with matplotlib
-    c.IPKernelApp.pylab = 'inline'
-
     # You must give the path to the certificate file.
-
-    # If using a Linux VM:
-    c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
-
-    # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = u'/home/azureuser/.jupyter/mycert.pem'
 
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed traffic on that port
-
+    # our Azure setup, where we've allowed :wqtraffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
 
-### IPython Notebook 실행
+### Jupyter Notebook 실행
 
-이제 IPython Notebook을 시작할 준비가 되었습니다. 이렇게 하려면 노트북을 저장할 디렉터리로 이동한 후 다음 명령을 사용하여 IPython Notebook 서버를 시작합니다.
+이제 Jupyter Notebook을 시작할 준비가 되었습니다. 이렇게 하려면 노트북을 저장할 디렉터리로 이동한 후 다음 명령을 사용하여 Jupyter Notebook 서버를 시작합니다.
 
-    ipython notebook --profile=nbserver
+    /anaconda3/bin/jupyter-notebook
 
-이제 주소 `https://[Your Chosen Name Here].cloudapp.net`의 IPython Notebook에 액세스할 수 있어야 합니다.
+이제 주소 `https://[PUBLIC-IP-ADDRESS]:9999`의 Jupyter Notebook에 액세스할 수 있어야 합니다.
 
-노트북에 처음 액세스하는 경우 로그인 페이지에서 암호를 묻습니다.
+노트북에 처음 액세스하는 경우 로그인 페이지에서 암호를 묻습니다. 로그인한 후에는 모든 노트북 작업에 대한 제어 센터인 "Jupyter Notebook 대시보드"가 표시됩니다. 이 페이지에서 새 노트북을 만들고 기존 노트북을 열 수 있습니다.
 
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-001.png)
+![스크린샷](./media/virtual-machines-python-ipython-notebook/jupyter-tree-view.png)
 
-로그인한 후에는 모든 노트북 작업에 대한 제어 센터인 "IPython Notebook 대시보드"가 표시됩니다. 이 페이지에서 새 노트북을 만들고 기존 노트북을 열 수 있습니다.
+### Jupyter Notebook 사용
 
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png)
+**New** 단추를 클릭하는 경우 다음과 같은 여는 페이지가 표시됩니다.
 
-**New Notebook** 단추를 클릭하는 경우 다음과 같은 여는 페이지가 표시됩니다.
-
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png)
+![스크린샷](./media/virtual-machines-python-ipython-notebook/jupyter-untitled-notebook.png)
 
 `In []:` 프롬프트로 표시되는 이 영역은 입력 영역이며, 여기서 유효한 Python 코드를 입력할 수 있고 `Shift-Enter`를 누르거나 "Play" 아이콘(도구 모음의 오른쪽을 가리키는 삼각형)을 클릭하면 코드가 실행됩니다.
-
-NumPy 및 matplotlib 지원을 자동으로 시작하도록 노트북을 구성했으므로 다음 스크린샷과 같은 그림도 생성할 수도 있습니다.
-
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-004.png)
 
 ## 강력한 패러다임: 다양한 미디어를 지원하는 라이브 컴퓨팅 문서
 
 노트북은 Python과 워드 프로세서가 결합된 방식이므로 노트북 자체는 Python 및 워드 프로세서를 사용해 본 적이 있는 사람들에게는 매우 자연스럽게 느껴집니다. Python 코드 블록을 실행할 수 있지만 도구 모음의 드롭다운 메뉴를 사용하여 "Code"에서 "Markdown"으로 셀 스타일을 변경해서 메모 및 기타 텍스트를 유지할 수도 있습니다.
 
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-005.png)
+Jupyter는 컴퓨팅 및 다양한 미디어(텍스트, 그래픽, 비디오 및 최신 웹 브라우저에서 표시할 수 있는 모든 것)의 결합을 허용하므로 워드 프로세서보다 훨씬 많은 기능을 제공합니다. 텍스트, 코드, 동영상 및 더 많은 것을 혼합할 수 있습니다.
 
-
-그러나 IPython 노트북은 컴퓨팅 및 다양한 미디어(텍스트, 그래픽, 비디오 및 최신 웹 브라우저에서 표시할 수 있는 모든 것)의 결합을 허용하므로 워드 프로세서보다 훨씬 많은 기능을 제공합니다. 예를 들어 교육용으로 컴퓨팅 기능과 설명 동영상을 결합할 수 있습니다.
-
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png)
-
-또는 다음 스크린샷과 같이 노트북 파일 안에 사용 가능한 라이브 상태의 외부 웹 사이트를 포함할 수 있습니다.
-
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png)
+![스크린샷](./media/virtual-machines-python-ipython-notebook/jupyter-editing-experience.png)
 
 또한 Python에서 지원하는 여러 가지 탁월한 과학 및 기술 컴퓨팅용 라이브러리 덕분에 다음 스크린샷과 같이 단일 환경에서 단순한 계산뿐만 아니라 복잡한 네트워크 분석도 간편하게 수행할 수 있습니다.
-
-![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-008.png)
 
 최신 웹 기능과 라이브 컴퓨팅을 결합한 이 패러다임은 많은 가능성을 제공하며, 클라우드에 이상적으로 적합하므로 Notebook을 다음과 같이 활용할 수 있습니다.
 
@@ -249,28 +183,20 @@ NumPy 및 matplotlib 지원을 자동으로 시작하도록 노트북을 구성�
 * 협업 컴퓨팅을 위한 플랫폼으로 사용할 수 있습니다. 즉, 여러 사용자가 동일한 노트북 서버에 로그인하여 라이브 컴퓨팅 세션을 공유할 수 있습니다.
 
 
-
-IPython 소스 코드 [리포지토리][]로 이동하면 노트북 예제가 있는 전체 디렉터리를 볼 수 있습니다. 여기서 예제를 다운로드하여 Azure IPython VM에서 실험해 볼 수 있습니다. 사이트에서 `.ipynb` 파일을 다운로드하고 노트북 Azure VM의 대시보드에 업로드(또는 VM으로 직접 다운로드)하기만 하면 됩니다.
+IPython 소스 코드 [리포지토리][]로 이동하면 노트북 예제가 있는 전체 디렉터리를 볼 수 있습니다. 여기서 예제를 다운로드하여 Azure Jupyter VM에서 실험해 볼 수 있습니다. 사이트에서 `.ipynb` 파일을 다운로드하고 노트북 Azure VM의 대시보드에 업로드(또는 VM으로 직접 다운로드)하기만 하면 됩니다.
 
 ## 결론
 
-IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으로 액세스할 수 있는 강력한 인터페이스를 제공합니다. 이 인터페이스는 간단한 Python 탐색 및 학습, 데이터 분석 및 시각화, 시뮬레이션, 병렬 컴퓨팅 등 다양한 사용 사례를 처리합니다. 결과적으로 생성된 Notebook 문서에는 작업을 수행한 후 다른 IPython 사용자와 공유할 수 있는 전체 컴퓨팅 레코드가 포함됩니다. IPython Notebook은 로컬 응용 프로그램으로 사용할 수 있지만 Azure의 클라우드 배포에 이상적으로 적합합니다.
+Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으로 액세스할 수 있는 강력한 인터페이스를 제공합니다. 이 인터페이스는 간단한 Python 탐색 및 학습, 데이터 분석 및 시각화, 시뮬레이션, 병렬 컴퓨팅 등 다양한 사용 사례를 처리합니다. 결과적으로 생성된 Notebook 문서에는 작업을 수행한 후 다른 Jupyter 사용자와 공유할 수 있는 전체 컴퓨팅 레코드가 포함됩니다. Jupyter Notebook은 로컬 응용 프로그램으로 사용할 수 있지만 Azure의 클라우드 배포에 이상적으로 적합합니다.
 
-또한 IPython의 핵심 기능은 [Python Tools for Visual Studio][](PTVS)(영문)를 통해 Visual Studio 내에서도 사용할 수 있습니다. PTVS는 Microsoft의 무료 오픈 소스 플러그 인으로, IntelliSense, 디버깅, 프로파일링, 병렬 컴퓨팅 통합 등 고급 편집기 기능을 포함하는 고급 Python 개발 환경으로 Visual Studio를 전환해 줍니다.
+또한 Jupyter의 핵심 기능은 [Python Tools for Visual Studio][](PTVS)(영문)를 통해 Visual Studio 내에서도 사용할 수 있습니다. PTVS는 Microsoft의 무료 오픈 소스 플러그 인으로, IntelliSense, 디버깅, 프로파일링, 병렬 컴퓨팅 통합 등 고급 편집기 기능을 포함하는 고급 Python 개발 환경으로 Visual Studio를 전환해 줍니다.
 
 ## 다음 단계
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-[Tornado]: http://www.tornadoweb.org/ "Tornado"
-[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-[NumPy]: http://www.numpy.org/ "NumPy"
-[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
-[portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
-[portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm-linux]: https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [리포지토리]: https://github.com/ipython/ipython
-[python Tools for visual studio]: http://aka.ms/ptvs
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

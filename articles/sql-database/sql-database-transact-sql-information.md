@@ -94,4 +94,4 @@ TRANSACT-SQL 참조에는 SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, 
 
 항목의 일반적인 주제는 제품에서 사용할 수 있지만 일부 인수가 지원되지 않는 경우도 있습니다. 예를 들어 포함된 데이터베이스 사용자는 SQL Server 2012에서 도입되었습니다. **CREATE USER** 문은 모든 SQL Server 제품에서 사용할 수 있지만 **WITH PASSWORD** 구문은 이전 버전에서 사용할 수 없습니다. 이 경우 **적용 대상** 섹션이 항목 본문의 해당 인수 설명에 추가로 삽입됩니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -311,4 +311,4 @@ A 레코드를 만들려면 먼저 웹 사이트의 IP 주소를 찾아야 합�
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

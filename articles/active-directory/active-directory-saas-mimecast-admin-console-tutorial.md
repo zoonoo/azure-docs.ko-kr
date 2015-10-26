@@ -15,7 +15,7 @@
 1.  Mimecast 관리 콘솔에 응용 프로그램 통합 사용
 2.  Single Sign-On 구성
 3.  사용자 프로비전 구성
-4.  사용자 지정
+4.  사용자 할당
 
 ![시나리오](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795008.png "시나리오")
 ##Mimecast 관리 콘솔에 응용 프로그램 통합 사용
@@ -104,11 +104,11 @@
 
         >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-    8.  메모장에서 base-64로 인코딩된 인증서를 열어 첫 줄("*-*")과 마지막 줄("*-*")을 제거하고 나머지 내용을 클립보드에 복사한 다음 **ID 공급자 인증서(메타데이터)** 텍스트 상자로 붙여넣습니다.
+    8.  메모장에서 base-64로 인코딩된 인증서를 열고, 첫 줄("*--*") 및 마지막 줄("*--*")을 제거하고, 나머지 내용을 클립보드에 복사한 다음 **ID 공급자 인증서(메타데이터)** 텍스트 상자로 붙여넣습니다.
     9.  **Single Sign-On 허용**을 선택합니다.
     10. **Save**를 클릭합니다.
 
-10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택한 다음 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -137,7 +137,7 @@ Azure AD 사용자가 Mimecast 관리 콘솔에 로그인하려면 Mimecast 관�
 
     ![저장](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "저장")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정 속성인 **이메일 주소**, **전역 이름**, **암호** 및 **암호 확인**을 입력합니다.
+    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정 특성의 **이메일 주소**, **전역 이름**, **암호** 및 **암호 확인** 특성을 입력합니다.
     2.  **Save**를 클릭합니다.
 
 >[AZURE.NOTE]Mimecast 관리 콘솔 사용자 계정 만들기 도구 또는 Mimecast 관리 콘솔에서 제공된 API를 사용하여 AAD 사용자 계정을 프로비전합니다.
@@ -160,4 +160,4 @@ Azure AD 사용자가 Mimecast 관리 콘솔에 로그인하려면 Mimecast 관�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -99,7 +99,6 @@ Microsoft는 둘 이상의 최신 버전이 지원 되는 각 게스트 OS 제�
 
 > [AZURE.WARNING]게스트 OS 제품군 1의 사용 중지가 2013년 6월 1일에 시작되었으며 곧 완료될 예정입니다. 이 게스트 OS 제품군을 사용하여 새로 설치하거나 이전 버전을 업그레이드하지 마세요. 자세한 내용은 [Azure 게스트 OS 제품군 1 사용 중지 정보][fam1retire]를 참조하세요.
 
-게스트 OS에는 Windows Server의 기본값과 다른 구성이 포함됩니다. 자세한 내용은 [Azure 게스트 OS와 Windows Server의 기본 차이점][server and gos]을 참조하세요.
 
 ### 게스트 OS 제품군, 버전 및 릴리스 설명
 게스트 OS 제품군은 출시된 Microsoft Windows Server 버전을 기반으로 합니다. 게스트 OS는 Azure 클라우드 서비스에서 실행되는 기본 운영 체제입니다. 각 게스트 OS에는 제품군, 버전 및 릴리스 번호가 있습니다.
@@ -232,7 +231,7 @@ Microsoft는 둘 이상의 최신 버전이 지원 되는 각 게스트 OS 제�
 
 Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다. 이러한 업데이트로 게스트 OS가 파이프라인에서 유일합니다. 릴리스는 다양한 요인에 의해 영향을 받을 수 있어 나열할 수 없습니다. 또한 Azure는 수백 대의 컴퓨터에서 실행 됩니다. 역할이 다시 부팅 되는 정확한 날짜와 시간을 제공할 수 있다는 것을 의미합니다. 최신 정보가 있는 [게스트 OS 업데이트 RSS 피드][rss]를 업데이트하지만 대략적인 시기 창 정보를 참조합니다. 고객에 문제가 있어 재부팅 시간을 제한하도록 작업 중인 것으로 알고 있습니다.
 
-게스트 OS의 새 릴리스를 게시하는 경우 Azure에 완전히 전파하는데 시간이 걸릴 수 있습니다. 서비스가 새 게스트 OS에 대해 업데이트되므로 업데이트 도메인을 구분하지 않고 다시 부팅됩니다. "자동" 업데이트를 사용하도록 설정된 서비스가 처음 릴리스됩니다. 업데이트 후 Azure 관리 포털에서 서비스에 대해 나열된 새 게스트 OS 버전을 볼 수 있습니다. 이 기간 동안 다시 릴리스할 수 있습니다. 일부 버전은 오랜 시간을 통해 배포할 수 있으며 공식 릴리스 날짜 이후 수 주 동안 자동 업그레이드 재부팅이 발생하지 않을 수 있습니다. 게스트 OS를 사용할 수 있으면, 구성 파일이나 포털에서 해당 버전을 명시적으로 찾을 수 있습니다. 자세한 내용은 [관리 포털에서 Azure 게스트 OS 업데이트][update guest os portal] 및 [서비스 구성 파일을 수정하여 Azure 게스트 OS 업데이트][update guest os svc]를 참조하세요.
+게스트 OS의 새 릴리스를 게시하는 경우 Azure에 완전히 전파하는데 시간이 걸릴 수 있습니다. 서비스가 새 게스트 OS에 대해 업데이트되므로 업데이트 도메인을 구분하지 않고 다시 부팅됩니다. "자동" 업데이트를 사용하도록 설정된 서비스가 처음 릴리스됩니다. 업데이트 후 Azure 관리 포털에서 서비스에 대해 나열된 새 게스트 OS 버전을 볼 수 있습니다. 이 기간 동안 다시 릴리스할 수 있습니다. 일부 버전은 오랜 시간을 통해 배포할 수 있으며 공식 릴리스 날짜 이후 수 주 동안 자동 업그레이드 재부팅이 발생하지 않을 수 있습니다. 게스트 OS를 사용할 수 있으면, 구성 파일이나 포털에서 해당 버전을 명시적으로 찾을 수 있습니다.
 
 게스트 및 호스트 OS 업데이트의 기술 세부 정보에 대한 포인터 및 시작에 관한 중요 정보 처리는 [OS 업그레이드로 인한 역할 인스턴스 다시 시작][restarts]이라는 MSDN 블로그 게시물을 참조하세요.
 
@@ -324,7 +323,7 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 | 2\.19 rel1 | WA-GUEST-OS-2.19\_201309-01 | 2013년 9월 23일 | 해당 없음 | 2014년 5월 14일 |
 
 
-[Azure 게스트 OS 업데이트 설정]: https://msdn.microsoft.com/library/azure/ff729420.aspx
+[Azure 게스트 OS 업데이트 설정]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft 보안 권고 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -344,4 +343,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

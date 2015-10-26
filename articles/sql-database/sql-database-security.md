@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SQL 데이터베이스 보안 개요" 
-   description="인증, 권한 부여, 연결 보안, 암호화 및 규정 준수와 관련하여 클라우드 및 SQL Server 온-프레미스 간의 차이점을 포함하여 Azure SQL 데이터베이스 및 SQL Server 보안에 대해 알아봅니다." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="tmullaney" 
-   manager="jeffreyg" 
+<properties
+   pageTitle="SQL 데이터베이스 보안 개요"
+   description="인증, 권한 부여, 연결 보안, 암호화 및 규정 준수와 관련하여 클라우드 및 SQL Server 온-프레미스 간의 차이점을 포함하여 Azure SQL 데이터베이스 및 SQL Server 보안에 대해 알아봅니다."
+   services="sql-database"
+   documentationCenter=""
+   authors="tmullaney"
+   manager="jeffreyg"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services" 
-   ms.date="09/22/2015"
+   ms.workload="data-services"
+   ms.date="10/13/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -21,7 +21,7 @@
 
 ## 개요
 
-이 문서는 Azure SQL 데이터베이스를 사용하여 응용 프로그램의 데이터 계층에 보안을 설정하기 위한 기본 사항을 안내합니다. 특히, 이 문서는 [SQL 데이터베이스 시작 자습서](sql-database-get-started.md)에서 만든 데이터베이스에 대한 액세스 제한, 데이터 보호 및 작업 모니터링을 위한 리소스로 시작할 수 있습니다. SQL의 모든 버전에서 사용할 수 있는 보안 기능의 전체 개요에 대해서는 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스를 위한 보안 센터](https://msdn.microsoft.com/library/bb510589)를 참조하세요.
+이 문서는 Azure SQL 데이터베이스를 사용하여 응용 프로그램의 데이터 계층에 보안을 설정하기 위한 기본 사항을 안내합니다. 특히, 이 문서는 [SQL 데이터베이스 시작 자습서](sql-database-get-started.md)에서 만든 데이터베이스에 대한 액세스 제한, 데이터 보호 및 작업 모니터링을 위한 리소스로 시작할 수 있습니다. SQL의 모든 버전에서 사용할 수 있는 보안 기능의 전체 개요에 대해서는 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스를 위한 보안 센터](https://msdn.microsoft.com/library/bb510589)를 참조하세요. 추가 정보는 에서도 사용할 수는 [보안 및 Azure SQL 데이터베이스 기술 백서](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## 연결 보안
 
@@ -73,7 +73,7 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 * db\_datareader 및 db\_datawriter 이외의 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121)은 더 강력한 응용 프로그램 사용자 계정이나 덜 강력한 관리 계정을 만드는 데 사용할 수 있습니다.
 * 세분화된 [권한](https://msdn.microsoft.com/library/ms191291)을 사용하면 개별 열, 테이블, 뷰, 프로시저 및 데이터베이스의 다른 개체에서 수행할 수 있는 작업을 제어할 수 있습니다.
 * [가장](https://msdn.microsoft.com/library/vstudio/bb669087) 및 [모듈 서명](https://msdn.microsoft.com/library/bb669102)은 일시적으로 권한을 안전하게 상승시키는 데 사용할 수 있습니다.
-* [행 수준 보안](https://msdn.microsoft.com/library/dn765131)을 사용하면 사용자가 볼 수 있는 행을 필터링할 수 있습니다.
+* [행 수준 보안](https://msdn.microsoft.com/library/dn765131)은 사용자가 액세스할 수 있는 행을 제한하는 데 사용할 수 있습니다.
 * [데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)은 중요한 데이터의 노출을 제한하는 데 사용할 수 있습니다.
 * [저장 프로시저](https://msdn.microsoft.com/library/ms190782)는 데이터베이스에서 수행할 수 있는 작업을 제한하는 데 사용할 수 있습니다.
 
@@ -85,10 +85,10 @@ Azure 관리 포털에서 또는 Azure 리소스 관리자 API를 사용하여 �
 Azure SQL 데이터베이스는 데이터가 "휴지 상태"일 때 또는 데이터베이스 파일 및 백업에 저장된 경우 [투명한 데이터 암호화](http://go.microsoft.com/fwlink/?LinkId=526242)를 사용하여 데이터를 암호화함으로써 데이터를 보호할 수 있도록 도와줍니다. 데이터베이스를 암호화하려면 데이터베이스 소유자로 연결하고 다음을 실행합니다.
 
 ```
-CREATE DATABASE ENCRYPTION KEY 
-   WITH ALGORITHM = AES_256 
+CREATE DATABASE ENCRYPTION KEY
+   WITH ALGORITHM = AES_256
    ENCRYPTION BY SERVER CERTIFICATE ##MS_TdeCertificate##;
-   
+
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -105,6 +105,5 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ## 규정 준수
 
 위의 기능 및 응용 프로그램이 다양한 보안 규정 준수 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL 데이터베이스는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL 데이터베이스 규정 준수 인증서](http://azure.microsoft.com/support/trust-center/services/) 목록을 찾을 수 있습니다.
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

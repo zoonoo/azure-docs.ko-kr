@@ -109,4 +109,4 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
   [Azure SQL 데이터베이스 비즈니스 연속성]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Azure 비즈니스 연속성 기술 지침]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

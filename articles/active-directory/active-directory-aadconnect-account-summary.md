@@ -1,36 +1,36 @@
-<properties 
-	pageTitle="Azure AD Connect 자격 증명 및 권한에 대한 자세한 정보" 
-	description="Azure AD Connect 자격 증명 및 사용 권한의 사용자 지정 설정을 설명합니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure AD Connect 자격 증명 및 권한에 대한 자세한 정보 | Microsoft Azure"
+	description="Azure AD Connect 자격 증명 및 사용 권한의 사용자 지정 설정을 설명합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
 
-# Azure AD Connect 자격 증명 및 권한에 대한 자세한 정보 
+# Azure AD Connect 자격 증명 및 권한에 대한 자세한 정보
 
 
 Azure AD Connect 마법사는 여러가지 고유한 사용 권한 요구 사항과 함께 서로 다른 두 경로를 제공합니다.
 
-* Express 설정에서 사용자를 만들거나 사용 권한을 별도로 구성하지 않고도 구성을 쉽게 설정할 수 있도록 더 많은 권한이 필요합니다. 
+* Express 설정에서 사용자를 만들거나 사용 권한을 별도로 구성하지 않고도 구성을 쉽게 설정할 수 있도록 더 많은 권한이 필요합니다.
 
 * 사용자 지정 설정에서 더 많은 선택과 옵션을 제공하지만, 사용자가 올바른 사용 권한이 있는지 확인해야 하는 경우도 있습니다.
 
 
 ## 수집되는 자격 증명 및 빠른 설치에서의 용도
 
-마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한| 용도 
+마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한| 용도
 ------------- | ------------- |------------- |------------- |
 Azure에 연결| Azure AD 디렉터리 자격 증명 | Azure AD에서 글로벌 관리자 역할 | <li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li> <li>Azure AD에서 진행 중인 동기화 작업에 사용할 수 있는 Azure AD 계정을 만드는데 사용됩니다.</li>
 AD DS에 연결 | 온-프레미스 Active Directory 자격 증명 | Active Directory의 Enterprise Admins(EA) 그룹의 구성원| 로컬 AD 커넥터 계정으로 사용됩니다. 즉, 동기화에 대한 디렉터리 정보를 읽고 쓰는 계정입니다.
@@ -42,9 +42,9 @@ AD DS에 연결 | 온-프레미스 Active Directory 자격 증명 | Active Direc
 ## 수집되는 자격 증명 및 사용자 지정 설치에서의 용도
 
 
-마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한| 용도 
-------------- | ------------- |------------- |------------- 
-해당 없음|마법사를 실행하는 사용자의 로그온 자격 증명|로컬 서버의 관리자| <li>기본적으로 마법사는 로컬 컴퓨터에서 동기화 서비스 로그온 계정으로 사용할 수 있는 AD 계정을 만듭니다</li><li>관리자에서 특정 계정을 지정하지 않으면 동기화 서비스 로그온 계정만 만듭니다</li> <li>DC에서 계정이 도메인 사용자가 아닌 한 계정은 로컬 사용자입니다</li> 
+마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한| 용도
+------------- | ------------- |------------- |-------------
+해당 없음|마법사를 실행하는 사용자의 로그온 자격 증명|로컬 서버의 관리자| <li>기본적으로 마법사는 로컬 컴퓨터에서 동기화 서비스 로그온 계정으로 사용할 수 있는 AD 계정을 만듭니다</li><li>관리자에서 특정 계정을 지정하지 않으면 동기화 서비스 로그온 계정만 만듭니다</li> <li>DC에서 계정이 도메인 사용자가 아닌 한 계정은 로컬 사용자입니다</li>
 동기화 서비스 페이지, 서비스 계정 옵션을 설치합니다. | AD 또는 로컬 사용자 계정 자격 증명 | 로컬 사용자|관리자가 계정을 지정하는 경우, 이 계정은 동기화 서비스에 대한 로그온 계정으로 사용됩니다.
 Azure에 연결|Azure AD 디렉터리 자격 증명| Azure AD에서 글로벌 관리자 역할|마법사는 로컬 컴퓨터에서 동기화 서비스 로그온 계정으로 사용할 수 있는 AD 계정을 만듭니다.
 디렉터리에 연결|Azure AD에 연결될 각 포리스트의 온-프레미스 Active Directory 자격 증명 |<li>마법사에 필요한 최소 수준의 사용 권한은 도메인 사용자입니다.</li> <li>그러나 지정된 계정은 의도한 시나리오에 필요한 권한이 있어야 합니다.</li><li>Azure AD에 암호 동기화를 구성하려는 경우 이 계정에 할당된 다음 사용 권한을 확인하세요. -디렉터리 복제 변경-모든 디렉터리 변경 복제</li> <li>Azure AD에서 로컬 AD까지 '쓰기 저장' 정보와 동기화를 구성하려는 경우, 쓰기 저장할 디렉터리 개체 및 속성에 대한 쓰기 권한이 계정에 있는지 확인해야 합니다.</li> <li>로그인에 대한 AD FS를 구성하려는 경우, D FS 서버가 있는 포리스트에 대해 제공하는 AD 자격 증명에 도메인 관리자 권한이 있는지 확인합니다.</li><li>사용자 시나리오는 아래 추가 요구사항 목록의 테이블을 참조하세요.</li>|<li>이는 로컬 AD 관리 에이전트(MA) 계정에 사용되는 계정입니다. 진행 중인 동기화 작업에 대한 로컬 AD에서 개체와 특성을 읽고 쓰는 데 사용됩니다.</li>
@@ -90,6 +90,5 @@ AD FS:GMSA 계정(aadcsvc$)|도메인 사용자|FS 서비스 로그온 계정
 * [암호 쓰기 저장에 대한 사용 권한](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
 * [MSDN의 Azure AD Connect](active-directory-aadconnect.md)
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

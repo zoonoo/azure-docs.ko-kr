@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # 온-프레미스 VMM 사이트 간 보호 설정
@@ -77,8 +77,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 - [VMM에서 VM 네트워크 및 게이트웨이 구성](http://go.microsoft.com/fwlink/?LinkId=386308)
 
 ### 저장소 매핑 필수 조건
-기본적으로 원본 Hyper-V 호스트 서버의 가상 컴퓨터를 대상 Hyper-V 호스트 서버로 복제하는 경우 복제된 데이터가 Hyper-V 관리자에서 대상 Hyper-V 호스트에 대해 표시된 기본 위치에 저장됩니다. 복제된 데이터가 저장되는 위치를 제어하려는 경우 저장소 매핑을 구성할 수 있습니다. 이렇게 하려면 배포를 시작하기 전에 원본 및 대상 VMM 서버에서 저장소 분류를 설정해야 합니다.
-자세한 내용은 [VMM에서 저장소 분류를 만드는 방법](http://go.microsoft.com/fwlink/?LinkId=400937)을 참조하세요.
+기본적으로 원본 Hyper-V 호스트 서버의 가상 컴퓨터를 대상 Hyper-V 호스트 서버로 복제하는 경우 복제된 데이터가 Hyper-V 관리자에서 대상 Hyper-V 호스트에 대해 표시된 기본 위치에 저장됩니다. 복제된 데이터가 저장되는 위치를 제어하려는 경우 저장소 매핑을 구성할 수 있습니다. 이렇게 하려면 배포를 시작하기 전에 원본 및 대상 VMM 서버에서 저장소 분류를 설정해야 합니다. 자세한 내용은 [VMM에서 저장소 분류를 만드는 방법](http://go.microsoft.com/fwlink/?LinkId=400937)을 참조하세요.
 
 
 ## 1단계: 사이트 복구 자격 증명 모음 만들기
@@ -127,26 +126,15 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 	![Microsoft 업데이트](./media/site-recovery-vmm-to-vmm/VMMASRInstallMUScreen.png)
 
 
-1.  설치 위치는 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**으로 설정됩니다. 공급자 설치를 시작하려면 설치 단추를 클릭합니다.
-	![InstallLocation](./media/site-recovery-vmm-to-vmm/VMMASRInstallLocationScreen.png)
+1.  설치 위치는 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**으로 설정됩니다. 공급자 설치를 시작하려면 설치 단추를 클릭합니다. ![InstallLocation](./media/site-recovery-vmm-to-vmm/VMMASRInstallLocationScreen.png)
 
 
 
-1. 공급자가 설치된 후 '등록' 단추를 클릭하여 자격 증명 모음에 서버를 등록합니다.
-	![InstallComplete](./media/site-recovery-vmm-to-vmm/VMMASRInstallComplete.png)
+1. 공급자가 설치된 후 '등록' 단추를 클릭하여 자격 증명 모음에 서버를 등록합니다. ![InstallComplete](./media/site-recovery-vmm-to-vmm/VMMASRInstallComplete.png)
 
 5. VMM 서버에서 실행 중인 공급자를 인터넷에 연결하는 방법을 **인터넷 연결**에서 지정합니다. 서버에 구성되어 있는 기본 인터넷 연결 설정을 사용하려면 *기본 시스템 프록시 설정 사용*을 선택합니다.
 
-	![인터넷 설정](./media/site-recovery-vmm-to-vmm/VMMASRRegisterProxyDetailsScreen.png)
-	- 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하는 경우 프록시 연결 상태를 확인하기 위한 테스트가 실행됩니다.
-	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요할 경우 프록시 주소와 포트를 포함한 프록시 상세 정보를 입력해야 합니다.
-	- 다음 URL은 VMM 서버 및 Hyper-v 호스트에서 액세스할 수 있어야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Allow the IP addresses described in [Azure 데이터 센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용하십시오. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+	![인터넷 설정](./media/site-recovery-vmm-to-vmm/VMMASRRegisterProxyDetailsScreen.png) - 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하는 경우 프록시 연결 상태를 확인하기 위한 테스트가 실행됩니다. - 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요할 경우 프록시 주소와 포트를 포함한 프록시 상세 정보를 입력해야 합니다. - 다음 URL은 VMM 서버 및 Hyper-v 호스트에서 액세스할 수 있어야 합니다. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Allow the IP addresses described in [Azure 데이터 센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용하십시오. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	- 사용자 지정 프록시를 사용하는 경우 지정된 프록시 자격 증명을 사용하여 VMM 실행 계정(DRAProxyAccount)이 자동으로 만들어집니다. 이 계정이 성공적으로 인증될 수 있도록 프록시 서버를 구성합니다. VMM 콘솔에서 VMM 실행 계정 설정을 수정할 수 있습니다. 이렇게 하려면 설정 작업 영역을 열고 보안을 확장한 다음 실행 계정을 클릭하고 DRAProxyAccount의 암호를 수정합니다. 이 설정이 적용되도록 VMM 서비스를 다시 시작해야 합니다.
 
@@ -162,8 +150,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 8. 자격 증명 모음에서 VMM 서버를 식별하기 위한 이름을 **서버 이름**에서 지정합니다. 클러스터 구성에서 VMM 클러스터 역할 이름을 지정합니다.
 
-8. **초기 클라우드 메타데이터** 동기화에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지 여부를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다.
-	![서버 등록](./media/site-recovery-vmm-to-vmm/VMMASRRegisterFriendlyName.png)
+8. **초기 클라우드 메타데이터** 동기화에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지 여부를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다. ![서버 등록](./media/site-recovery-vmm-to-vmm/VMMASRRegisterFriendlyName.png)
 
 
 8. *다음*을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **서버** 페이지에서 *VMM 서버* 탭에 표시됩니다.
@@ -283,9 +270,7 @@ VMM 콘솔에서 가상 컴퓨터에 대해 보호를 사용하도록 설정할 
 ![가상 컴퓨터 보호 작업](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_VMJobs.png)
 
 ### 기존 가상 컴퓨터 등록
-Hyper-V 복제본을 사용하여 복제되는 기존 가상 컴퓨터가 VMM에 있는 경우 Azure Site Recovery 보호를 위해 다음과 같이 등록해야 합니다.
-1. 기본 클라우드와 보조 클라우드가 있는지 확인합니다. 기존 가상 컴퓨터를 호스트하는 Hyper-V 서버가 기본 클라우드에 있고 복제본 가상 컴퓨터를 호스트하는 Hyper-V 서버가 보조 클라우드에 있는지 확인합니다. 클라우드에 대한 보호 설정을 구성했는지 확인합니다. 이 설정은 현재 Hyper-V 복제본에 대해 구성된 설정과 일치해야 합니다. 그렇지 않으면 가상 컴퓨터 복제가 예상대로 작동하지 않을 수 있습니다.
-2. 그런 다음 주 가상 컴퓨터에 보호를 사용하도록 설정합니다. Azure Site Recovery 및 VMM에서 동일한 복제본 호스트와 가상 컴퓨터가 검색되는지 확인하고, Azure Site Recovery에서 클라우드 구성 중 구성된 설정을 사용하여 복제를 다시 사용하고 설정합니다.
+Hyper-V 복제본을 사용하여 복제되는 기존 가상 컴퓨터가 VMM에 있는 경우 Azure Site Recovery 보호를 위해 다음과 같이 등록해야 합니다. 1. 기본 클라우드와 보조 클라우드가 있는지 확인합니다. 기존 가상 컴퓨터를 호스트하는 Hyper-V 서버가 기본 클라우드에 있고 복제본 가상 컴퓨터를 호스트하는 Hyper-V 서버가 보조 클라우드에 있는지 확인합니다. 클라우드에 대한 보호 설정을 구성했는지 확인합니다. 이 설정은 현재 Hyper-V 복제본에 대해 구성된 설정과 일치해야 합니다. 그렇지 않으면 가상 컴퓨터 복제가 예상대로 작동하지 않을 수 있습니다. 2. 그런 다음 주 가상 컴퓨터에 보호를 사용하도록 설정합니다. Azure Site Recovery 및 VMM에서 동일한 복제본 호스트와 가상 컴퓨터가 검색되는지 확인하고, Azure Site Recovery에서 클라우드 구성 중 구성된 설정을 사용하여 복제를 다시 사용하고 설정합니다.
 
 
 ## 배포 테스트
@@ -308,10 +293,7 @@ Hyper-V 복제본을 사용하여 복제되는 기존 가상 컴퓨터가 VMM에
 ###테스트 장애 조치(Failover) 실행
 
 1. **복구 계획** 탭에서 계획을 선택하고 **테스트 장애 조치**를 클릭합니다.
-2. **테스트 장애 조치(Failover) 확인** 페이지에서 **없음**을 선택합니다. 이 옵션을 사용하도록 설정하면 장애 조치(Failover)된 복제본 가상 컴퓨터가 네트워크에 연결되지 않습니다. 여기서는 가상 컴퓨터가 올바로 장애 조치(Failover)되는지 테스트하지만 복제 네트워크 환경을 테스트하지는 않습니다. 보다 포괄적인 테스트 장애 조치(Failover)를 실행하려는 경우 <a href="http://go.microsoft.com/fwlink/?LinkId=522291">MSDN에서 온-프레미스 배포 테스트</a>를 참조하세요.
-
-	![테스트 네트워크 선택](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_TestFailover1.png)
-
+2. **테스트 장애 조치(Failover) 확인** 페이지에서 **없음**을 선택합니다. 이 옵션을 사용하도록 설정하면 장애 조치(Failover)된 복제본 가상 컴퓨터가 네트워크에 연결되지 않습니다. 여기서는 가상 컴퓨터가 올바로 장애 조치(Failover)되는지 테스트하지만 복제 네트워크 환경을 테스트하지는 않습니다. 다양한 네트워킹 옵션을 사용하는 방법에 대한 자세한 내용은 [테스트 장애 조치(failover) 실행](site-recovery-failover.md#run-a-test-failover) 방법을 참조하세요.
 
 7. 테스트 가상 컴퓨터는 복제본 가상 컴퓨터가 있는 호스트와 동일한 호스트에 생성됩니다. 복제본 가상 컴퓨터가 있는 동일한 클라우드에 추가됩니다.
 
@@ -387,11 +369,11 @@ Hyper-V 복제본을 사용하여 복제되는 기존 가상 컴퓨터가 VMM에
 
 **기능: 장애 조치(Failover) - 계획됨, 계획되지 않음, 테스트**
 
-- **수행하는 작업:** 이 기능은 VMM 관리된 데이터 센터 간의 가상 컴퓨터 장애 조치(Failover)에 도움이 됩니다. 장애 조치(Failover) 작업은 서비스 포털에서 사용자가 트리거합니다. 장애 조치(Failover)의 가능한 이유로 계획되지 않은 이벤트(예: 자연 재해), 계획된 이벤트(예: 데이터 센터 부하 분산), 테스트 장애 조치(Failover)(예: 복구 계획 예행 연습) 등이 있습니다.
+- **수행하는 작업:** 이 기능은 VMM 관리되는 데이터 센터 간의 가상 컴퓨터 장애 조치(failover)에 도움이 됩니다. 장애 조치(Failover) 작업은 서비스 포털에서 사용자가 트리거합니다. 장애 조치(Failover)의 가능한 이유로 계획되지 않은 이벤트(예: 자연 재해), 계획된 이벤트(예: 데이터 센터 부하 분산), 테스트 장애 조치(Failover)(예: 복구 계획 예행 연습) 등이 있습니다.
 
 VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 VMM 인터페이스를 통해 Hyper-V 호스트에서 장애 조치(Failover) 작업을 실행합니다. 일반적으로 서로 다른 "복구" 데이터 센터에서 실행되는 Hyper-V 호스트 간의 실제 가상 컴퓨터 장애 조치(Failover)는 Windows Server 2012 또는 Windows Server 2012 R2 Hyper-V 복제 기술을 통해 처리됩니다. 장애 조치(Failover)가 완료되면 "복구" 데이터 센터의 VMM 서버에 설치된 공급자가 성공 정보를 서비스로 보냅니다.
 
-- **수집 정보**: 서비스는 위 정보를 사용하여 서비스 포털에 장애 조치(Failover) 작업 상태 정보를 채웁니다.
+- **수집 정보**: 서비스는 위 정보를 사용하여 서비스 포털에 장애 조치(failover) 작업 상태 정보를 채웁니다.
 
 - **정보 사용**: 서비스는 위 정보를 다음과 같이 사용합니다.
 
@@ -401,4 +383,4 @@ VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 
 
 - **선택**: 이 정보는 서비스의 핵심 부분이며 해제할 수 없습니다. 이 정보를 서비스로 보내지 않으려면 이 서비스를 사용하지 마세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

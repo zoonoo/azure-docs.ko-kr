@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-coupa-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-coupa-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -100,7 +100,7 @@
     2.  **찾아보기**를 클릭하여 다운로드한 Azure Active 메타데이터 파일을 업로드합니다.
     3.  **Save**를 클릭합니다.
 
-11. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+11. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-coupa-tutorial/IC791907.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -146,6 +146,6 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 
     ![예](./media/active-directory-saas-coupa-tutorial/IC767830.png "예")
 
-Single sign-on 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

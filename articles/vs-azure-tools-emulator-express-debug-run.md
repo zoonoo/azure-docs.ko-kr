@@ -54,4 +54,4 @@ Emulator Express를 사용하려면 다음과 같은 몇 가지 제한 사항을
 
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

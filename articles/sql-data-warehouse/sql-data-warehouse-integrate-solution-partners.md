@@ -101,4 +101,4 @@ SQL 데이터 웨어하우스와의 통합에 대한 자세한 내용은 [SQL �
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

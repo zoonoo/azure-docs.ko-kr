@@ -85,9 +85,48 @@
 
 ##3단계: 로케이터 업데이트 
 
-30분 후 기존 로케이터를 업데이트하여 새 보조 저장소 키에 대한 종속성을 가져올 수 있습니다.
+30분 후 주문형 로케이터를 다시 만들어 새 보조 저장소 키에 대한 종속성을 가져오고 기존의 URL을 유지할 수 있습니다.
 
-로케이터의 만료 날짜를 업데이트하려면 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
+SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경됩니다.
+
+>[AZURE.NOTE]주문형 로케이터의 기존 URL을 유지하려면 기존 로케이터를 삭제하고 동일한 ID로 새 로케이터를 만들어야 합니다.
+ 
+아래 .NET 예제에서는 동일한 ID로 로케이터를 다시 만드는 방법을 보여줍니다.
+	
+	private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+	{
+	    // Save properties of existing locator.
+	    var asset = locator.Asset;
+	    var accessPolicy = locator.AccessPolicy;
+	    var locatorId = locator.Id;
+	    var startDate = locator.StartTime;
+	    var locatorType = locator.Type;
+	    var locatorName = locator.Name;
+	
+	    // Delete old locator.
+	    locator.Delete();
+	
+	    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+	    {
+	        throw new Exception(String.Format(
+	            "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+	            locator.Id));
+	    }
+	
+	    // Create new locator using saved properties.
+	    var newLocator = context.Locators.CreateLocator(
+	        locatorId,
+	        locatorType,
+	        asset,
+	        accessPolicy,
+	        startDate,
+	        locatorName);
+	
+	
+	
+	    return newLocator;
+	}
+
 
 ##5단계: 기본 저장소 액세스 키 다시 생성
 
@@ -101,9 +140,9 @@
 
 ##7단계: 로케이터 업데이트  
 
-30분 후 기존 로케이터를 업데이트하여 새 기본 저장소 키에 대한 종속성을 가져올 수 있습니다.
+30분 후 주문형 로케이터를 다시 만들어 새 기본 저장소 키에 대한 종속성을 가져오고 기존의 URL을 유지할 수 있습니다.
 
-로케이터의 만료 날짜를 업데이트하려면 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
+[3단계](media-services-roll-storage-access-keys.md#step-3-update-locators)에 설명된 것과 동일한 절차를 사용하세요.
 
  
 ##미디어 서비스 학습 경로
@@ -113,4 +152,4 @@
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

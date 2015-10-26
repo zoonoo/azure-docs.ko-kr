@@ -52,4 +52,4 @@ Azure에서 실행되는 일괄 처리 작업은 리소스에 연결하는 작�
 
 [Azure 검색 계층](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

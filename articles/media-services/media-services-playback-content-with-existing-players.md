@@ -89,4 +89,4 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

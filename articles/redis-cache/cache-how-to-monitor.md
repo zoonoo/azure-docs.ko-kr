@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/09/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 모니터링하는 방법
@@ -143,6 +143,33 @@ Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 
 
 ![차트 세부 정보 보기][redis-cache-view-chart-details]
 
+## 클러스터링을 사용하는 프리미엄 캐시를 모니터링하는 방법
+
+[클러스터링](cache-how-to-premium-clustering.md)을 사용하도록 설정된 프리미엄 캐시는 최대 10개의 분할된 데이터베이스를 가질 수 있습니다. 각 분할된 데이터베이스에는 자체 메트릭이 있으며 이러한 메트릭은 집계되어 캐시에 메트릭을 전체로 제공합니다. 각 메트릭은 두 가지 버전을 포함합니다. 하나의 메트릭은 전체 캐시에 대한 성능을 측정합니다. 이름에 `(Shard 0-9)`을 포함하는 메트릭의 차기 버전은 캐시에서 단일 분할된 데이터베이스에 대한 성능을 측정합니다. 예를 들어 캐시에 3개의 분할된 데이터베이스가 있는 경우 `Cache Hits`은 전체 캐시에 대한 총 적중 수이고 `Cache Hits (Shard 2)`는 캐시의 해당 분할된 데이터베이스에 대한 적중입니다.
+
+각 모니터링 차트는 각 캐시의 분할된 데이터베이스에 대한 메트릭과 함께 캐시의 최상위 수준 메트릭을 표시합니다.
+
+![모니터][redis-cache-premium-monitor]
+
+데이터 요소 위에 마우스를 놓으면 특정 시점에 대한 세부 정보를 표시합니다.
+
+![모니터][redis-cache-premium-point-summary]
+
+값이 클수록 일반적으로 캐시의 집계 값이며 값이 작을수록 분할된 데이터베이스의 개별 메트릭입니다. 이 예제에는 3개의 분할된 데이터베이스가 있으며 캐시 적중이 분할된 데이터베이스에 균등하게 배포되어 있습니다.
+
+![모니터][redis-cache-premium-point-shard]
+
+자세한 내용을 보려면 차트를 클릭하여 **메트릭** 블레이드에 대한 확장된 보기를 봅니다.
+
+![모니터][redis-cache-premium-chart-detail]
+
+기본적으로 각 차트에는 개별 분할된 데이터베이스에 대한 성능 카운터 및 최상위 캐시 성능 카운터가 포함되어 있습니다. **차트 편집** 블레이드에서 이들을 사용자 지정할 수 있습니다.
+
+![모니터][redis-cache-premium-edit]
+
+사용 가능한 성능 카운터에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](#available-metrics-and-reporting-intervals)을 참조하세요.
+
+
 ## 작업 및 경고
 
 **작업** 섹션에는 **이벤트** 및 **경고 규칙** 섹션이 있습니다.
@@ -222,4 +249,14 @@ Azure의 경고에 대한 자세한 내용은 [경고 알림 받기](../azure-po
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO2-->
+[redis-cache-premium-monitor]: ./media/cache-how-to-monitor/redis-cache-premium-monitor.png
+
+[redis-cache-premium-edit]: ./media/cache-how-to-monitor/redis-cache-premium-edit.png
+
+[redis-cache-premium-chart-detail]: ./media/cache-how-to-monitor/redis-cache-premium-chart-detail.png
+
+[redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
+
+[redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure 저장소 소개
@@ -79,6 +79,8 @@ Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권�
 ### 프리미엄 저장소 계정
 
 Azure 프리미엄 저장소는 현재 Azure 가상 컴퓨터 디스크만 지원합니다. Azure 프리미엄 저장소의 자세한 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](http://go.microsoft.com/fwlink/?LinkId=521898)를 참조하세요.
+
+[AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
 ## Blob 저장소
 
@@ -234,4 +236,4 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

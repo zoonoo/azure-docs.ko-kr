@@ -232,4 +232,4 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

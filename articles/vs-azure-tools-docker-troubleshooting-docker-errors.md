@@ -1,19 +1,19 @@
 <properties
    pageTitle="Visual Studio를 사용하여 Windows에서 Docker 클라이언트 오류 문제해결 | Microsoft Azure"
-	description="Visual Studio를 사용하여 웹앱을 만들고 Docker에 배포하는 경우 발생하는 문제를 해결합니다."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Visual Studio를 사용하여 웹앱을 만들고 Docker에 배포하는 경우 발생하는 문제를 해결합니다."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Docker 오류 문제 해결
 
@@ -52,7 +52,7 @@ Visual Studio에서 Docker 호스트를 만들 때 사용자 고유 인증서를
 
 ## Docker 컨테이너에 게시할 때 필요한 PowerShell 3.0
 
-운영 체제가 Windows 7 또는 Windows Server 2008인 경우 Docker 컨테이너에 게시하려면 PowerShell 3.0을 설치해야 합니다. PowerShell 3.0은 [Windows Management Framework 3.0](https://www.microsoft.com/ko-KR/download/details.aspx?id=34595)에 포함되어 있습니다. 설치 후 시스템을 다시 부팅해야 합니다.
+운영 체제가 Windows 7 또는 Windows Server 2008인 경우 Docker 컨테이너에 게시하려면 PowerShell 3.0을 설치해야 합니다. PowerShell 3.0은 [Windows Management Framework 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595)에 포함되어 있습니다. 설치 후 시스템을 다시 부팅해야 합니다.
 
 다른 해결 방법으로 이미 PowerShell 3.0이 있는 Windows 8.1 또는 Windows 10으로 업그레이드할 수 있습니다.
 
@@ -100,4 +100,4 @@ A: 한 가지 방법은 서버에서 OpenSSL을 사용하여 CA, 서버 및 클�
 
 다른 옵션은 Windows용 OpenSSL을 다운로드하고 필요한 인증서 및 키를 생성한 다음 Linux 컴퓨터에 CA, 서버 인증서 및 키를 업로드하는 것입니다. Docker의 보안 연결 설정에 대한 자세한 내용은 [HTTPS를 사용한 Docker 데몬 소켓 보호](https://docs.docker.com/articles/https/)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

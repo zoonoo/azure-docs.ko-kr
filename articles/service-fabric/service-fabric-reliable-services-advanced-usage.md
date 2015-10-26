@@ -59,4 +59,4 @@ StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충�
 
 - [배치 제약 조건 개요](service-fabric-placement-constraint.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

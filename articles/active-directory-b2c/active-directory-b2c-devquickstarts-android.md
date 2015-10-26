@@ -891,16 +891,7 @@ Android용 ADAL은 **UserIdentifier** 개체의 형태로 사용자를 나타냅
  
  `ToDoActivity.java`라는 **동일한 파일에서**
  
- ```
-    private URL getEndpointUrl() {
-        URL endpoint = null;
-        try {
-            endpoint = new URL(Constants.SERVICE_URL);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return endpoint;
-    }
+ ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
 
  ```
 
@@ -971,11 +962,9 @@ Android는 앱 작동을 위해 일부 콜백 처리가 필요합니다. 이는 
 
 API 가 받는 액세스 토큰에서 사용자의 ID를 추출하므로 API에 사용자 당 작업이 저장됩니다.
 
-참조를 위해 완성된 샘플은 [여기에서 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)하거나 GitHub에서 복제할 수 있습니다.
+참조를 위해 완성된 샘플이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
 
 
 ### 중요 정보
@@ -995,4 +984,4 @@ CookieSyncManager.getInstance().sync();
 ``` 쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

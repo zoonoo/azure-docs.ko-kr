@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="디렉터리 통합 도구 비교"
+<properties
+	pageTitle="디렉터리 통합 도구 비교 | Microsoft Azure"
 	description="이 페이지는 다양한 디렉터리 통합 도구를 비교하는 포괄적인 표를 제공합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # 디렉터리 통합 도구 비교
@@ -82,10 +82,13 @@
 기능 | Azure Active Directory 연결 | Azure Active Directory 동기화 서비스 | Azure Active Directory 동기화 도구(디렉터리 동기화) | Forefront Identity Manager(FIM) 2010 R2  
 :-------- |:--------:|:--------:|:--------:|:--------:|
 도메인 및 조직 구성 단위에 대한 필터링 | ● | ● | ● | ●  
-개체의 특성 값에 대한 필터링 | ● | ● | ● | ● 
-최소 특성 집합이 동기화되도록 허용(MinSync) | ● | ● | |   
-다양한 서비스 템플릿이 특성 흐름에 적용되도록 허용 |● | ● | |   
+개체의 특성 값에 대한 필터링 | ● | ● | ● | ●
+최소 특성 집합이 동기화되도록 허용(MinSync) | ● | ● | |
+다양한 서비스 템플릿이 특성 흐름에 적용되도록 허용 |● | ● | |
 AD에서 Azure AD로의 흐름에서 특성 제거 허용 | ● | ● | |  
 특성 흐름에 대한 고급 사용자 지정 허용 | ● | ● | | ●  
 
-<!---HONumber=August15_HO9-->
+## 다음 단계
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
+
+<!---HONumber=Oct15_HO3-->

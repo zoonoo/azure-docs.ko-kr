@@ -80,4 +80,4 @@ API 앱을 만들고 나면 이제 Facebook Connector를 논리 앱의 트리거
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

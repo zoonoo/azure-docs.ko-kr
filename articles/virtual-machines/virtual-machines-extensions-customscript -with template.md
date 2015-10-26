@@ -23,7 +23,7 @@
 
 사용자 지정 스크립트 확장의 개요는 [이](virtual-machines-extensions-customscript.md) 문서를 참조하세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [클래식 배포 모델](virtual-machines-extensions-customscript.md)을 사용하여 리소스를 만들 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-extensions-customscript.md).
 
 사용자 지정 스크립트 확장은 도입된 이후 Windows 및 Linux VM 둘 다에서 작업을 구성하는 데 널리 사용되었습니다. Azure 리소스 관리자 템플릿이 도입되면서 이제 사용자는 VM을 프로비전할 뿐만 아니라 VM의 작업을 구성하는 단일 템플릿을 만들 수 있습니다.
 
@@ -100,4 +100,4 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스 간의 종속성�
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM의 사용자 지정 스크립트 확장</a> </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM의 사용자 지정 스크립트 확장</a>
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

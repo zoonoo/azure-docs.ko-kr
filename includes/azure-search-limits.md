@@ -11,4 +11,4 @@ Object|제한
 최대 데이터 원본 수|검색 서비스 당 10
 단일 인덱서 호출에서 인덱싱할 수 있는 최대 문서 수|Unlimited
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

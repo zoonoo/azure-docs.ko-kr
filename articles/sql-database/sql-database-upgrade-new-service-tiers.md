@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/28/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -254,9 +254,9 @@ Web 또는 Business 데이터베이스에 해당하는 서비스 계층 및 성�
 | 관리 도구 | 데이터베이스의 서비스 계층 및 성능 수준을 변경하는 방법|
 | :---| :---|
 | [Azure 관리 포털](https://manage.windowsazure.com) | 데이터베이스 대시보드 페이지에서 **확장** 탭을 클릭합니다. |
-| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx) cmdlet을 사용합니다. |
-| [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) | [데이터베이스 업데이트](http://msdn.microsoft.com/library/dn505718.aspx) 명령을 사용합니다.|
-| [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | [ALTER DATABASE(Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) 문을 사용합니다. |
+| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet을 사용합니다. |
+| [REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [데이터베이스 생성 또는 업데이트](https://msdn.microsoft.com/library/azure/mt163685.aspx) 명령을 사용합니다.|
+| [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | [ALTER DATABASE(Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx) 문을 사용합니다. |
 
 자세한 내용은 [데이터베이스 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md)을 참조하세요.
 
@@ -317,4 +317,4 @@ Azure SQL 데이터베이스 서비스는 Web/Business 데이터베이스 작업
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

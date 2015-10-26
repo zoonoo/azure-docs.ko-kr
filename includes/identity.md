@@ -118,4 +118,4 @@ ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 �
 
 David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이며
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

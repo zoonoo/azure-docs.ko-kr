@@ -1,8 +1,10 @@
 <properties 
 	pageTitle="Java 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 | Microsoft Azure" 
+	metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" 
 	description="Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법에 대해 알아봅니다." 
 	authors="sethmanheim" 
 	documentationCenter="java" 
+	writer="sethm" 
 	manager="timlt" 
 	editor="" 
 	services="service-bus"/>
@@ -31,7 +33,7 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 
 ### AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 
-최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)을 참조하세요.
+최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)을 참조하세요.
 
 서비스 버스를 사용하여 JMS 응용 프로그램을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
 
@@ -333,4 +335,4 @@ exit
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

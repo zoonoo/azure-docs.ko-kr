@@ -200,4 +200,4 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 더 많은 Storm 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하십시오.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

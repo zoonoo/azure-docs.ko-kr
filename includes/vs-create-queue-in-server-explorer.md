@@ -10,4 +10,4 @@ Visual Studio **서버 탐색기**를 사용하여 Azure 큐를 만들 수 있�
 
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -95,4 +95,4 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 [API를 만드는 방법]: api-management-howto-create-apis.md
 [API 설정을 구성하는 방법]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

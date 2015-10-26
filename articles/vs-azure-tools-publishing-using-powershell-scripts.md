@@ -349,6 +349,6 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 
 ## 다음 단계
 
-[Windows PowerShell를 사용하여 스크립팅](https://technet.microsoft.com/library/bb978526.aspx)을 읽어 PowerShell 스크립팅에 대해 자세히 알아보고 [스크립트 센터](https://azure.microsoft.com/ko-KR/documentation/scripts/)에서 기타 Azure PowerShell 스크립트에 대해 알아보세요.
+[Windows PowerShell를 사용하여 스크립팅](https://technet.microsoft.com/library/bb978526.aspx)을 읽어 PowerShell 스크립팅에 대해 자세히 알아보고 [스크립트 센터](https://azure.microsoft.com/en-us/documentation/scripts/)에서 기타 Azure PowerShell 스크립트에 대해 알아보세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

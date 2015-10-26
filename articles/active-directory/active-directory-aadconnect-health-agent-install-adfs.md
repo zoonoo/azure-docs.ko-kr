@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Azure AD Connect Health AD FS 에이전트 설치| Microsoft Azure"
 	description="AD FS(Active Directory Federation Services) 에이전트 설치를 설명하는 Azure AD Connect Health 페이지입니다."
 	services="active-directory"
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 
@@ -44,7 +44,7 @@
 
 로그인한 후 PowerShell이 계속됩니다. PowerShell이 완료되면 닫을 수 있으며 구성이 완료됩니다.
 
-이제 서비스가 자동으로 시작되고 에이전트는 데이터를 모니터링하고 수집합니다. 이전 섹션에 설명된 필수 조건이 모두 충족되지 않으면 PowerShell 창에 경고가 표시됩니다. 에이전트를 설치하기 전에 [여기](active-directory-aadconnect-health.md#requirements)에서 요구 사항을 완료해야 합니다. 다음 스크린 샷은 이러한 오류의 예입니다.
+이제 서비스가 자동으로 시작되고 에이전트는 데이터를 모니터링하고 수집합니다. 이전 섹션에 설명된 필수 조건이 모두 충족되지 않으면 PowerShell 창에 경고가 표시됩니다. 에이전트를 설치하기 전에 [여기](active-directory-aadconnect-health.md#requirements)에서 요구 사항을 완료해야 합니다. 다음 스크린 샷은 이러한 오류의 예제입니다.
 
 ![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install4.png)
 
@@ -53,7 +53,7 @@
 - Azure AD Connect Health AD FS Diagnostics Service
 - Azure AD Connect Health AD FS Insights Service
 - Azure AD Connect Health AD FS Monitoring Service
- 
+
 ![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install5.png)
 
 
@@ -70,6 +70,99 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
  - 서버에서 Internet Explorer 버전 10 이상을 설치합니다. Health Service에서 Azure 관리자 자격 증명을 사용하여 인증하는 데 필요합니다.
 1. Windows Server 2008 R2에서 Windows PowerShell 4.0을 설치하는 방법에 대한 자세한 내용은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)에서 wiki 문서를 참조하세요.
 
+
+## AD FS 감사 사용
+
+사용 현황 분석 기능을 통해 데이터를 수집하고 분석하려면 Azure AD Connect Health Agent에 AD FS 감사 로그의 정보가 필요합니다. 이러한 로그는 기본적으로 사용하도록 설정되어 있지 않습니다. 이 사항은 AD FS 페더레이션 서버에만 적용됩니다. AD FS 프록시 서버 또는 웹 응용 프로그램 프록시 서버에서 감사를 사용하도록 설정할 필요는 없습니다. AD FS 감사를 사용하도록 설정하고 AD FS 감사 로그를 찾으려면 다음 절차에 따르세요.
+
+#### AD FS 2.0에 대해 감사를 사용하도록 설정하려면
+
+1. **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **로컬 보안 정책**을 클릭합니다.
+2. **보안 설정\\로컬 정책\\사용자 권한 관리** 폴더로 이동하여 보안 감사 생성을 두 번 클릭합니다.
+3. **로컬 보안 설정** 탭에서 AD FS 2.0 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
+4. 상승된 권한을 사용하여 명령 프롬프트를 열고 다음 명령을 실행하여 감사를 사용하도록 설정합니다.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+5. 로컬 보안 정책을 닫고 관리 스냅인을 엽니다. 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 AD FS 2.0 관리를 클릭합니다.
+6. 작업 창에서 페더레이션 서비스 속성 편집을 클릭합니다.
+7. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
+8. **성공 감사** 및 **실패 감사** 확인란을 선택합니다.
+9. **확인**을 클릭합니다.
+
+#### Windows Server 2012 R2에서 AD FS에 대해 감사를 사용하도록 설정하려면
+
+1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
+2. **보안 설정\\로컬 정책\\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
+3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
+4. 상승된 권한으로 명령 프롬프트를 열고 다음 명령을 실행하여 감사를 사용합니다.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+5. **로컬 보안 정책**을 닫고 **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
+6. 작업 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
+7. 페더레이션 서비스 속성 대화 상자에서 **이벤트** 탭을 클릭합니다.
+8. **성공 감사 및 실패 감사** 확인란을 선택하고 **확인**을 클릭합니다.
+
+
+
+
+
+
+#### AD FS 감사 로그를 찾으려면
+
+
+1. **이벤트 뷰어**를 엽니다.
+2. Windows 로그로 이동하여 **보안**을 선택합니다.
+3. 오른쪽에서 **현재 로그 필터링**을 클릭합니다.
+4. 이벤트 소스에서 **AD FS 감사**를 선택합니다.
+
+![AD FS 감사 로그](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
+
+> [AZURE.WARNING]AD FS 감사를 사용하지 않도록 설정하는 그룹 정책이 있는 경우 Azure AD Connect Health Agent가 정보를 수집할 수 없습니다. 감사를 사용하지 않도록 설정할 수 있는 그룹 정책이 없는지 확인합니다.
+
+[//]: # "에이전트 프록시 구성 섹션의 시작"
+
+## HTTP 프록시를 사용하도록 Azure AD Connect Health Agent 구성
+HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수 있습니다.
+
+>[AZURE.NOTE]- 에이전트에서 Microsoft Windows HTTP 서비스 대신 System.Net을 사용하여 웹 요청을 하므로 “Netsh WinHttp set ProxyServerAddress” 사용이 작동하지 않습니다. - 구성된 HTTP 프록시 주소가 암호화된 HTTPS 메시지를 통과시키는 데 사용됩니다. - 인증된 프록시(HTTPBasic 사용)가 지원되지 않습니다.
+
+### Health Agent 프록시 구성 변경
+HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
+
+>[AZURE.NOTE]모든 Azure AD Connect Health Agent 서비스를 다시 시작하여 프록시 설정을 업데이트해야 합니다. 다음 명령을 실행합니다.<br> Restart-Service AdHealth*
+
+#### 기존 프록시 설정 가져오기
+##### Internet Explorer에서 가져오기
+Health Agent를 실행하는 각 서버에서 다음 PowerShell 명령을 실행하여 Internet Explorer HTTP 프록시 설정을 가져와서 Azure AD Connect Health Agent에 사용할 수 있습니다.
+
+	Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+
+##### WinHTTP에서 가져오기
+Health Agent를 실행하는 각 서버에서 다음 PowerShell 명령을 실행하여 WinHTTP 프록시 설정을 가져올 수 있습니다.
+
+	Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+
+#### 수동으로 프록시 주소 지정
+Health Agent를 실행하는 각 서버에서 다음 PowerShell 명령을 실행하여 수동으로 프록시 서버를 지정할 수 있습니다.
+
+	Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+
+예: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver:443*
+
+- "address"는 DNS 확인 가능 서버 이름 또는 IPv4 주소일 수 있습니다.
+- "port"는 생략할 수 있습니다. 생략하면 443이 기본 포트로 선택됩니다.
+
+#### 기존 프록시 구성 지우기
+다음 명령을 실행하여 기존 프록시 구성을 지울 수 있습니다.
+
+	Set-AzureAdConnectHealthProxySettings -NoProxy
+
+
+### 현재 프록시 설정 읽기
+다음 명령을 사용하여 현재 구성된 프록시 설정을 읽을 수 있습니다.
+
+	Get-AzureAdConnectHealthProxySettings
+
+
+[//]: # "에이전트 프록시 구성 섹션의 끝"
+
+
 ## 관련 링크
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -77,4 +170,4 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

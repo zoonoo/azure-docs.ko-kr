@@ -476,4 +476,4 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

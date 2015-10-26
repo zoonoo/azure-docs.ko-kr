@@ -92,4 +92,4 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

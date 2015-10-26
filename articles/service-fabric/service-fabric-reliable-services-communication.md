@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 통신 모델 개요"
-	description="이 문서에서는 신뢰할 수 있는 서비스의 API에서 지원하는 통신 모델의 기본 사항을 설명합니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="이 문서에서는 신뢰할 수 있는 서비스의 API에서 지원하는 통신 모델의 기본 사항을 설명합니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # 서비스 통신 모델
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [WebAPI 통신 스택을 사용하는 신뢰할 수 있는 서비스 API를 사용하여 서비스 작성](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

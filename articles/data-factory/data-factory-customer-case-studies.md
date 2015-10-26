@@ -48,4 +48,4 @@
 
 [클라우드 기계 학습을 통한 고객 파악으로 관계 개선](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

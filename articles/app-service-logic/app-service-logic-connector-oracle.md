@@ -118,4 +118,4 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

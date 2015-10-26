@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@
 | facsimiletelephonenumber| X| X| | |
 | givenName| X| X| | |
 | homePhone| X| X| | |
-| info| X| X| X| |
+| info| X| X| X| 이 특성은 현재 그룹에 사용되지 않습니다.|
 | Initials| X| X| | |
 | l| X| X| | |
 | legacyExchangeDN| X| X| X| |
@@ -97,11 +97,11 @@
 | msExchELCExpirySuspensionStart| X| | | |
 | msExchELCMailboxFlags| X| | | |
 | msExchEnableModeration| X| | X| |
-| msExchExtensionCustomAttribute1| X| X| X| |
-| msExchExtensionCustomAttribute2| X| X| X| |
-| msExchExtensionCustomAttribute3| X| X| X| |
-| msExchExtensionCustomAttribute4| X| X| X| |
-| msExchExtensionCustomAttribute5| X| X| X| |
+| msExchExtensionCustomAttribute1| X| X| X| 이 특성은 현재 Exchange Online에 사용되지 않습니다. |
+| msExchExtensionCustomAttribute2| X| X| X| 이 특성은 현재 Exchange Online에 사용되지 않습니다. |
+| msExchExtensionCustomAttribute3| X| X| X| 이 특성은 현재 Exchange Online에 사용되지 않습니다. |
+| msExchExtensionCustomAttribute4| X| X| X| 이 특성은 현재 Exchange Online에 사용되지 않습니다. |
+| msExchExtensionCustomAttribute5| X| X| X| 이 특성은 현재 Exchange Online에 사용되지 않습니다. |
 | msExchHideFromAddressLists| X| X| X| |
 | msExchImmutableID| X| | | |
 | msExchLitigationHoldDate| X| X| X| |
@@ -409,11 +409,9 @@
 - 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
 
 
-## 추가 리소스
+## 다음 단계
+[Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
-* [Azure AD Connect Sync: 동기화 옵션 사용자 지정](active-directory-aadconnectsync-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!--Image references-->
-
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

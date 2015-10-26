@@ -102,4 +102,4 @@ HDInsight 작업과 MapReduce 변환을 사용하는 샘플은 [GitHub의 데이
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

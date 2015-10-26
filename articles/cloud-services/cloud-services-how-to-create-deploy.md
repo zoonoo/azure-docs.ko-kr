@@ -66,9 +66,9 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 ## 방법: 빠른 생성을 사용하여 클라우드 서비스 만들기
 
-1. [관리 포털](http://manage.windowsazure.com/)에서 **새로 만들기**>**계산**>**클라우드 서비스**>**빨리 만들기**를 차례로 클릭합니다.
+1. [관리 포털](http://manage.windowsazure.com/)에서 **새로 만들기** > **계산** > **클라우드 서비스** > **빨리 만들기**를 차례로 클릭합니다.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. **URL**에서 프로덕션 배포의 클라우드 서비스에 액세스하기 위한 공용 URL에 사용할 하위 도메인을 입력합니다. 프로덕션 배포의 URL 형식은 http://*myURL*.cloudapp.net입니다.
 
@@ -76,20 +76,20 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 4. **클라우드 서비스 만들기**를 클릭합니다.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	창 맨 아래에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
 
 	**클라우드 서비스** 영역이 열리고 새 클라우드 서비스가 표시됩니다. 상태가 만들어짐으로 바뀌면 클라우드 서비스 만들기가 완료된 것입니다.
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+	![CloudServices\_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## 방법: 클라우드 서비스에 대한 인증서 업로드
 
 1. [관리 포털](http://manage.windowsazure.com/)에서 **클라우드 서비스**, 클라우드 서비스의 이름, **인증서**를 차례로 클릭합니다.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
 
 2. **인증서 업로드** 또는 **업로드**를 클릭합니다.
@@ -100,11 +100,11 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 5. **확인**(확인 표시)을 클릭합니다.
 
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+	![CloudServices\_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
 	아래와 같이 메시지 영역에서 업로드의 진행률을 확인할 수 있습니다. 업로드가 완료되면 인증서가 테이블에 추가됩니다. 메시지 영역에서 확인을 클릭하여 메시지를 닫습니다.
 
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+	![CloudServices\_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
 ## 방법: 클라우드 서비스 배포
 
@@ -121,17 +121,17 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 4. **구성**에서 **찾아보기**를 사용하여 사용할 서비스 구성 파일(.cscfg)을 선택합니다.
 
-5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
+5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **Deploy even if one or more roles contain a single instance** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
 
     Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 6. **확인**(확인 표시)을 클릭하여 클라우드 서비스 배포를 시작합니다.
 
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+	![CloudServices\_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
 	메시지 영역에서 배포의 상태를 모니터링할 수 있습니다. 확인을 클릭하여 메시지를 숨깁니다.
 
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+	![CloudServices\_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## 배포가 완료되었는지 확인
 
@@ -141,7 +141,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 2. **간략 상태**에서 사이트 URL을 클릭하여 웹 브라우저에서 클라우드 서비스를 엽니다.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
@@ -153,4 +153,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

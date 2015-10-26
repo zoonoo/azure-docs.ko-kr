@@ -219,10 +219,8 @@ public IEnumerable<Models.Task> Get()
 
 ## 8\. 청책 편집
 
-이제 Azure AD B2C로 보호된 API가 있으므로 앱의 정책을 진행하고 API에서 효과(또는 부족)를 볼 수 있습니다. 정책에서 **응용 프로그램 클레임**을 조작하고 웹 API에서 사용할 수 있는 사용자 정보를 변경할 수 있습니다. 추가한 추가 클레임은 위에서 설명한 것처럼 `ClaimsPrincipal` 개체의 .NET MVC 웹 API에서 사용할 수 있습니다.
-<!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
--->
+이제 Azure AD B2C로 보호된 API가 있으므로 앱의 정책을 진행하고 API에서 효과(또는 부족)를 볼 수 있습니다. 정책에서 **응용 프로그램 클레임**을 <!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->조작하고 Web API에서 사용할 수 있는 사용자 정보를 변경할 수 있습니다. 위에서 설명한 것처럼, 추가한 모든 클레임은 `ClaimsPrincipal` 개체의 .NET MVC Web API에서 사용할 수 있습니다.
 
 <!--
 
@@ -236,4 +234,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

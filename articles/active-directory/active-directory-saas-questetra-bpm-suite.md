@@ -265,4 +265,4 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

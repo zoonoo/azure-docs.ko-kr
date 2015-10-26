@@ -12,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/13/2015" 
 	ms.author="awills"/>
  
 # Application Insights란?
 
-Application Insights는 성능 및 라이브 응용 프로그램의 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 개발자가 성능 및 응용 프로그램의 가용성을 지속적으로 향상 시킬 수 있도록 설계 되었습니다.
+Application Insights는 라이브 응용 프로그램을 모니터링하는 확장 가능한 분석 서비스입니다. 성능 문제를 감지 및 진단하고 실제로 앱을 사용하여 작업하는 사용자를 이해하는데 도움이 됩니다. 개발자가 성능 및 응용 프로그램의 가용성을 지속적으로 향상 시킬 수 있도록 설계 되었습니다.
+
+![사용자 활동 통계, 차트 또는 특정 이벤트를 드릴합니다.](./media/app-insights-overview/00-sample.png)
 
 다양한 플랫폼에서 웹과 독립 실행형 앱과 함께 사용합니다: .NET 또는 J2EE, 호스팅된 온-프레미스 또는 클라우드, Windows의 장치 앱, iOS, 안드로이드, OSX 및 다른 플랫폼.
 
-개발팀을 목표로 것입니다. 함께 다음을 수행할 수 있습니다.
+Application Insights는 개발팀을 목표로 합니다. 함께 다음을 수행할 수 있습니다.
 
 * [사용 패턴을 분석][knowUsers]은 사용자에게 응용 프로그램을 지속적이고 보다 낫게 향상을 이해시킵니다. 
  * 페이지 보기 수, 신규 및 복귀 사용자, 지리적 위치, 플랫폼 및 기타 핵심 사용량 통계
@@ -29,7 +31,7 @@ Application Insights는 성능 및 라이브 응용 프로그램의 사용을 �
 * 성능 문제를 [감지, 심사 및 진단][detect]하여 대부분의 사용자가 인식하기 전에 해결합니다.
  *  성능 변화 또는 충돌에 대한 경고
  *  응답 시간, CPU 사용량, 종속성 추적 등의 성능 문제 진단에 도움을 주는 메트릭
- *  웹 앱의 가용성 테스트
+ *  웹앱의 가용성 테스트
  *  충돌 및 예외에 대한 보고서 및 경고
  *  강력한 진단 로그 검색(선호하는 로깅 프레임워크의 로그 추적 포함)
 
@@ -37,7 +39,7 @@ Application Insights는 성능 및 라이브 응용 프로그램의 사용을 �
 
 응용 프로그램에서 수집된 원격 분석 데이터는 빠른 진단과 분석을 위한 강력한 도구와 직관적인 보기가 가능한 Azure 포털에 저장되고 분석됩니다.
 
-![사용자 활동 통계, 차트 또는 특정 이벤트를 드릴합니다.](./media/app-insights-overview/00-sample.png)
+
 
 훨씬 긴밀한 수준의 분석이 필요합니까? 데이터를 [SQL](app-insights-code-sample-export-telemetry-sql-database.md), [Power BI](app-insights-export-power-bi.md) 또는 자체 도구로 [내보내기](app-insights-export-telemetry.md)합니다.
 
@@ -70,9 +72,9 @@ Application Insights 다시 작성하지 않는 IIS상의 기존 ASP.NET 웹앱�
 
 SDK에는 사용자, 세션 및 성능을 계산하는 모듈을 비롯하여 원격 분석을 수집하는 여러 모듈이 있습니다. 또한 포털에 원격 분석 데이터를 보내도록 사용자 지정 코드를 작성할 수도 있습니다. 사용자 지정 원격 분석은 사용자 스토리를 추적할 때 특히 유용합니다. 단추 클릭, 특정 목표 달성, 사용자 실수 등의 이벤트를 계산할 수 있습니다.
 
-ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [상태 모니터][redfield]도 설치할 수 있습니다. 상태 모니터의 기능은 다음과 같습니다.
+ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상태 모니터][redfield]도 설치할 수 있습니다. 상태 모니터의 기능은 다음과 같습니다.
 
-* 웹 앱을 다시 작성하거나 다시 설치하지 않고 모니터링합니다.
+* 웹앱을 다시 작성하거나 다시 설치하지 않고 모니터링합니다.
 * 종속 모듈에 대한 호출을 추적합니다.
 
 
@@ -115,7 +117,7 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
 * 질문 및 문제:
  * [문제 해결][qna]
- * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/KO-KR/home?forum=ApplicationInsights)
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -135,13 +137,13 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
 <!--Link references-->
 
-[android]: app-insights-android.md
+[android]: https://github.com/Microsoft/ApplicationInsights-Android
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[ios]: app-insights-ios.md
+[ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
 [platforms]: app-insights-platforms.md
@@ -152,4 +154,4 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

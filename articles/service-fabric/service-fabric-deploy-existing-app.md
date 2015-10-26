@@ -336,4 +336,4 @@ CodePackage는 서비스의 코드 위치(및 버전)을 지정합니다.
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

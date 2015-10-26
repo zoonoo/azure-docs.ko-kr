@@ -1,20 +1,20 @@
 <properties
    pageTitle="SSMS를 사용하여 SQL 데이터베이스로 마이그레이션"
-	description="Microsoft Azure SQL 데이터베이스, sql 데이터베이스 마이그레이션, ssms를 사용하여 마이그레이션"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="Microsoft Azure SQL 데이터베이스, sql 데이터베이스 마이그레이션, ssms를 사용하여 마이그레이션"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #SSMS를 사용하여 호환 데이터베이스 마이그레이션
 
@@ -76,4 +76,4 @@ BACPAC를 사용하는 내보내기로 BACPAC를 내보내려면 개체의 하�
 ##대안
 BACPAC 명령줄 유틸리티 sqlpackage.exe를 사용하여 데이터베이스를 배포하거나 BACPAC 파일을 내보내고 가져올 수도 있습니다 Sqlpackage.exe는 SSMS와 동일한 DAC 기술을 사용하기 때문에 결과도 동일합니다. 자세한 내용은 [MSDN에서 SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

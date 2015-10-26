@@ -414,4 +414,4 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

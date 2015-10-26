@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="07/28/2015"
    ms.author="jgao"/>
 
 # 두 Azure 가상 네트워크 간의 DNS 구성
@@ -220,4 +220,4 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -105,10 +105,6 @@ Python 및 PHP 응용 프로그램의 경우 이 예제에서는 Apache의 Proto
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
 
 - [서비스 버스 AMQP 개요]
-- [AMQP를 사용하여 .NET에서 서비스 버스 사용]
-- [AMQP를 사용하여 Java에서 서비스 버스 사용]
-- [AMQP를 사용하여 Python에서 서비스 버스 사용]
-- [AMQP를 사용하여 PHP에서 서비스 버스 사용]
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -117,9 +113,5 @@ Python 및 PHP 응용 프로그램의 경우 이 예제에서는 Apache의 Proto
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
 [Azure 포털]: http://manage.windowsazure.com
-[AMQP를 사용하여 .NET에서 서비스 버스 사용]: service-bus-amqp-dotnet.md
-[AMQP를 사용하여 Java에서 서비스 버스 사용]: service-bus-amqp-java.md
-[AMQP를 사용하여 Python에서 서비스 버스 사용]: service-bus-amqp-python.md
-[AMQP를 사용하여 PHP에서 서비스 버스 사용]: service-bus-amqp-php.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅 | Microsoft Azure"
-	description="IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅"
-	services="visual-studio-online"
-	documentationCenter="n/a"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅"
+   services="visual-studio-online"
+   documentationCenter="n/a"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 
 
@@ -69,4 +69,4 @@ IntelliTrace 로그를 다운로드하는 동안 Visual Studio에서 작업을 �
 
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

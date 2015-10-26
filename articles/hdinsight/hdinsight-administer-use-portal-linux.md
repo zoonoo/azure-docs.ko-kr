@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Azure"
-	description="HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다."
+	pageTitle="Azure 포털을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 관리 | Microsoft Azure"
+	description="Azure 포털을 사용하여 Linux 기반 HDInsight 클러스터를 만들고 관리하는 방법에 대해 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Azure 미리 보기 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -117,7 +117,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 		>
 		> 현재(2015/8/25) 하나의 Linux 기반 HDInsight 클러스터만 Azure 가상 네트워크에 있을 수 있다는 제한 사항이 있습니다.
         >
-        > Linux 기반 HDInsight와 함께 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크는 v2(Azure 리소스 관리자)가 되어야만 Azure Preview 포털에서 HDInsight 클러스터를 만드는 과정 중 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용될 수 있습니다.
+        > Linux 기반 HDInsight와 함께 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure Preview 포털에서 HDInsight 클러스터를 생성하는 동안 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
         >
         > v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하여 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 확인하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
 
@@ -195,4 +195,4 @@ HDInsight 클러스터 블레이드의 __사용량__ 섹션은 해당 클러스�
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

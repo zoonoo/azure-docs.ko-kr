@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/28/2015"
+   ms.date="10/08/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure Active Directory 인증을 사용한 SQL Database 연결 
@@ -153,39 +153,42 @@ Azure Active Directory 인증은 최신 SQL 데이터베이스 V12에서 지원�
 
 ### PowerShell을 사용하여 Azure SQL Server에 대한 Azure AD 관리자 프로비전 
 
-계속하려면 Azure PowerShell 0.9.8 버전 이상을 설치 및 구성해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md#Install)을 참조하세요.
+> [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet이 더 이상 필요하지 않으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 이 문서의 예제에서는 새 PowerShell 1.0 Preview 명명 규칙을 사용합니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
+
+
+PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야 하고 Switch-AzureMode를 제거했기 때문에 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 최신 Azure PowerShell을 다운로드하고 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 Azure AD 관리자를 프로비전하려면 다음 Azure PowerShell 명령을 실행해야 합니다.
 
 - Add-AzureAccount
 - Select-AzureSubscription
-- Switch-AzureMode -Name AzureResourceManager
+
 
 Azure AD 관리자 프로비전 및 관리에 사용되는 Cmdlet
 
 | Cmdlet 이름 | 설명 |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| Set-AzureSqlServerActiveDirectoryAdministrator | Azure SQL Server에 대한 Azure Active Directory 관리자를 프로비전합니다 (현재 구독 설정에서 수행되어야 함). |
-| Remove-AzureSqlServerActiveDirectoryAdministrator | Azure SQL Server에 대한 Azure Active Directory 관리자를 제거합니다. |
-| Get-AzureSqlServerActiveDirectoryAdministrator | 현재 Azure SQL Server에 대해 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
+| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Azure SQL Server에 대한 Azure Active Directory 관리자를 프로비전합니다 (현재 구독 설정에서 수행되어야 함). |
+| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Azure SQL Server에 대한 Azure Active Directory 관리자를 제거합니다. |
+| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | 현재 Azure SQL Server에 대해 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
 
-각 명령에 대한 자세한 내용을 확인하려면 PowerShell 명령 get-help를 사용합니다(예: ``get-help Set-AzureSqlServerActiveDirectoryAdministrator``).
+각 명령에 대한 자세한 내용을 확인하려면 PowerShell 명령 get-help를 사용합니다(예: ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``).
 
 다음 스크립트는 리소스 그룹 **Group-23**에서 **demo\_server** 서버에 대해 이름이 **DBA\_Group**(개체 ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`)인 Azure AD 관리자 그룹을 프로비전합니다.
 
 ```
-Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어, ``DisplayName="John Smith"`` 또는 ``DisplayName="johns@contoso.com"``입니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
+**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 또는 ``DisplayName="johns@contoso.com"``입니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
 
-> [AZURE.NOTE]Azure PowerShell 명령 ```Set-AzureSqlServerActiveDirectoryAdministrator```는 지원되지 않는 사용자에 대한 Azure AD 관리자 프로비전을 차단하지 않습니다. 지원되지 않는 사용자를 프로비전할 수는 있지만 데이터베이스에 연결할 수는 없습니다. 위의 **Azure AD 기능 및 제한 사항**에서 지원되는 관리자 목록을 참조하세요.
+> [AZURE.NOTE]Azure PowerShell 명령 ```Set-AzureRMSqlServerActiveDirectoryAdministrator```는 지원되지 않는 사용자에 대한 Azure AD 관리자 프로비전을 차단하지 않습니다. 지원되지 않는 사용자를 프로비전할 수는 있지만 데이터베이스에 연결할 수는 없습니다. 위의 **Azure AD 기능 및 제한 사항** 에서 지원되는 관리자 목록을 참조하세요.
 
 다음 예제에서는 **ObjectID** 옵션을 사용합니다.
 
 ```
-Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
@@ -194,11 +197,11 @@ Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 다음 예제에서는 Azure SQL Server에 대해 현재 Azure AD 관리자 정보를 반환합니다.
 
 ```
-Get-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
+Get-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
 다음 예제에서는 Azure AD 관리자를 제거합니다. ```
-Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
+Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
 ## 5\. 클라이언트 컴퓨터 구성
@@ -210,10 +213,10 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 
 ### 도구
 
-- [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 또는 [Visual Studio 2015용 SQL Server 데이터 도구](https://msdn.microsoft.com/library/mt204009.aspx)를 설치하면 .NET Framework 4.6 요구 사항에 부합합니다. 
+- [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 또는 [Visual Studio 2015용 SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)를 설치하면 .NET Framework 4.6 요구 사항에 부합합니다. 
 - SSMS이 x86 버전의 **ADALSQL.DLL**을 설치합니다. (이때 SSMS는 설치 후 다시 부팅해야 한다는 프롬프트를 표시하지 않습니다. 이 문제는 미래의 CTP에서 해결되어야 합니다.)
 - SSDT가 amd64 버전의 **ADALSQL.DLL**을 설치합니다. Azure AD 인증은 SSDT에서 부분적으로만 지원됩니다.
-- [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs)의 최신 Visual Studio는 .NET Framework 4.6 요구 사항을 만족하지만, 필요한 amd64 버전의 **ADALSQL. DLL**을 설치하지 않습니다.
+- [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs)의 최신 Visual Studio는 .NET Framework 4.6 요구 사항을 만족하지만, 필요한 amd64 버전의 **ADALSQL.DLL**을 설치하지 않습니다.
 
 ## 6\. Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자 만들기 
 
@@ -225,7 +228,7 @@ Azure Active Directory 인증에는 포함된 데이터베이스 사용자로 �
  
 Azure AD 관리자가 제대로 설정되었는지 확인하려면 Azure AD 관리자 계정을 사용하여 **마스터** 데이터베이스에 연결합니다. Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 프로비전하려면 해당 데이터베이스에 대한 액세스가 있는 Azure AD ID로 데이터베이스에 연결합니다.
 
-> [AZURE.IMPORTANT]Azure Active Directory 인증에 대 한 지원은 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)에서 사용할 수 있습니다.
+> [AZURE.IMPORTANT]Azure Active Directory 인증에 대한 지원은 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)에서 사용할 수 있습니다.
 
 #### Active Directory 통합 인증을 사용하여 연결 
 
@@ -266,7 +269,7 @@ Azure AD 또는 페더레이션된 도메인 그룹을 나타내는 포함된 �
 	CREATE USER [Nurses] FROM EXTERNAL PROVIDER;
 
 
-Azure Active Directory 기반의 포함된 데이터베이스 사용자 만들기와 관련한 자세한 내용은 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)를 참조하세요.
+Azure Active Directory 기반의 포함된 데이터베이스 사용자 만들기와 관련한 자세한 내용은 [CREATE USER(Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)를 참조하세요.
 
 데이터베이스 사용자를 만들 때 해당 사용자는 **연결** 권한을 부여 받으며 **공용** 역할의 멤버로서 해당 데이터베이스에 연결할 수 있습니다. 처음에 이 사용자는 **공용** 역할 또는 자신이 멤버인 Windows 그룹에 부여된 모든 권한만 사용할 수 있습니다. Azure AD 기반의 포함된 데이터베이스 사용자를 프로비전한 후에는 다른 사용자 유형에 권한을 부여하는 것과 같은 방식으로 이 사용자에게 추가 권한을 부여할 수 있습니다. 일반적으로 데이터베이스 역할에 권한을 부여하고 역할에 사용자를 추가합니다. 자세한 내용은 [데이터베이스 엔진의 권한 기초](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx)를 참조하세요. 특수 SQL 데이터베이스 역할에 대한 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요. 관리 도메인에 가져온 페더레이션된 도메인은 관리되는 도메인 ID를 사용해야 합니다.
 
@@ -324,4 +327,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

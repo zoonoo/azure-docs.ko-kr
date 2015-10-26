@@ -20,4 +20,4 @@
 
 	![Dropbox 앱 만들기](./media/app-service-api-create-dropbox-app/dbappsettings.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

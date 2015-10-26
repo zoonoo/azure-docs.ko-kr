@@ -19,7 +19,8 @@
 
 # MariaDB(MySQL) 클러스터 - Azure 자습서
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 MariaDB 클러스터를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력하고 확장성 있으며 신뢰할 수 있는 MySQL의 드롭인 대체 기능인 [MariaDB](https://mariadb.org/en/about/)의 다중 마스터 [Galera](http://galeracluster.com/products/) 클러스터를 만드는 중입니다.
 
@@ -35,7 +36,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 ![아키텍처](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [AZURE.NOTE]  이 항목에서는 [Azure CLI] 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용 가능한 명령에 대한 참조가 필요한 경우 이 [Azure CLI 명령 참조] 링크를 확인합니다. 또한 [인증에 사용할 SSH 키를 만들고] **.pem 파일 위치**를 적어 두어야 합니다.
+> [AZURE.NOTE]이 항목에서는 [Azure CLI] 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용 가능한 명령에 대한 참조가 필요한 경우 이 [Azure CLI 명령 참조] 링크를 확인합니다. 또한 [인증에 사용할 SSH 키를 만들고] **.pem 파일 위치**를 적어 두어야 합니다.
 
 
 ## 템플릿 만들기
@@ -209,7 +210,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 	- **[mariadb]** 섹션을 편집하고 아래 내용을 추가합니다.
 
-	> [AZURE.NOTE] **innodb\_buffer\_pool\_size**를 VM 메모리의 70%로 설정하는 것이 좋습니다. 여기서는 RAM이 3.5GB인 Medium Azure VM에 대해 2.45GB로 설정되었습니다.
+	> [AZURE.NOTE]**innodb\_buffer\_pool\_size**를 VM 메모리의 70%로 설정하는 것이 좋습니다. 여기서는 RAM이 3.5GB인 Medium Azure VM에 대해 2.45GB로 설정되었습니다.
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -228,9 +229,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 11. 포털을 통해 VM을 캡처합니다. (현재 [Azure CLI 도구의 문제 #1268]은 Azure CLI 도구에서 캡처된 이미지가 연결된 데이터 디스크를 캡처하지 않는다는 사실을 설명합니다.)
 
 	- 포털을 통해 시스템을 종료합니다.
-    - 캡처를 클릭하고 이미지 이름을 **mariadb-galera-image**로 지정한 다음 설명을 입력하고 "I have run waagent(waagent를 실행했습니다.)"를 선택합니다.
-	![가상 컴퓨터 캡처](./media/virtual-machines-mariadb-cluster/Capture.png)
-	![가상 컴퓨터 캡처](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
+    - 캡처를 클릭하고 이미지 이름을 **mariadb-galera-image**로 지정한 다음 설명을 입력하고 "I have run waagent(waagent를 실행했습니다.)"를 선택합니다. ![가상 컴퓨터 캡처](./media/virtual-machines-mariadb-cluster/Capture.png) ![가상 컴퓨터 캡처](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
 
 ## 클러스터 만들기
 
@@ -238,7 +237,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 1. 가상 네트워크 이름 **mariadbvnet**, 서브넷 **mariadb**, 컴퓨터 크기 **Medium**을 제공하고 클라우드 서비스 이름을 **mariadbha**(또는 mariadbha.cloudapp.net을 통해 액세스하려는 이름)로 전달하고, 이 컴퓨터의 이름을 **mariadb1**, 사용자 이름을 **azureuser**로 설정하고, SSH 액세스를 사용하도록 설정하고, SSH 인증서 .pem 파일을 전달하고, 생성된 .pem SSH 키를 저장한 경로로 **/path/to/key.pem**을 바꾸어 직접 만든 **mariadb-galera-image** 이미지에서 첫 번째 CentOS 7 VM을 만듭니다.
 
-	> [AZURE.NOTE] 아래 명령은 읽기 쉽도록 여러 줄로 나누어져 있지만 각각 한 줄로 입력해야 합니다.
+	> [AZURE.NOTE]아래 명령은 읽기 쉽도록 여러 줄로 나누어져 있지만 각각 한 줄로 입력해야 합니다.
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -284,8 +283,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 		sudo vi /etc/my.cnf.d/server.cnf
 
-	시작 부분에 있는 **#**을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`** 주석을 제거하고 원하는 내용이 맞는지 확인합니다. 
-    또한 **`wsrep_node_address`**의 **`<ServerIP>`** 및 **`wsrep_node_name`**의 **`<NodeName>`**을 VM의 IP 주소와 이름으로 각각 바꾸고 해당 줄의 주석도 제거합니다.
+	시작 부분에 있는 **#**을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`** 주석을 제거하고 원하는 내용이 맞는지 확인합니다. 또한 **`wsrep_node_address`**의 **`<ServerIP>`** 및 **`wsrep_node_name`**의 **`<NodeName>`**을 VM의 IP 주소와 이름으로 각각 바꾸고 해당 줄의 주석도 제거합니다.
 
 5. MariaDB1에서 클러스터를 시작하고 시작 시 실행되도록 합니다.
 
@@ -302,8 +300,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 이제 Azure 부하 분산 장치를 사용하여 3개 노드 간에 요청을 분산시킵니다.
 
-Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다.
-명령 매개 변수 구조는 다음과 같습니다. `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명령 매개 변수 구조는 다음과 같습니다. `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
 	azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
@@ -376,4 +373,4 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다.
 [Azure CLI 도구의 문제 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!------HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

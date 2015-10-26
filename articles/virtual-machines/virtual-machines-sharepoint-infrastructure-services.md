@@ -19,7 +19,8 @@
 
 # Azure 인프라 서비스에서 호스트되는 SharePoint 팜
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 간편한 구성을 활용하고 새 용량 또는 주요 기능의 최적화를 포함하도록 팜을 신속하게 확장할 수 있는 Microsoft Azure 인프라 서비스에서 첫 번째 또는 다음 개발/테스트 또는 프로덕션 SharePoint 팜을 설정합니다.
 
@@ -67,4 +68,4 @@ Azure의 SharePoint에 대한 추가 정보 및 구성은 다음 리소스를 �
 
 - [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

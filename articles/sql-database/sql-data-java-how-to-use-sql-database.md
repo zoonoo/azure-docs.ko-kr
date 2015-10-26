@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/12/2015" 
 	ms.author="genemi"/>
 
 # Java에서 Azure SQL 데이터베이스를 사용하는 방법
@@ -37,7 +37,7 @@ SQL 데이터베이스에 대한 추가 리소스는 [다음 단계][] 섹션을
 
 * JDK(Java 개발자 키트), v 1.6 이상
 * Azure 구독. <http://www.microsoft.com/windowsazure/offers/>에서 구입할 수 있습니다.
-* Eclipse를 사용하는 경우 Eclipse IDE for Java EE Developers, Indigo 이상이 필요합니다. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다. 또한 Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)이 필요합니다. 이 플러그인을 설치하는 동안 Microsoft JDBC Driver 4.0 for SQL Server가 포함되어 있는지 확인하세요. 자세한 내용은 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공) 설치](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)(영문)를 참조하세요.
+* Eclipse를 사용하는 경우 Eclipse IDE for Java EE Developers, Indigo 이상이 필요합니다. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다. 또한 Eclipse용 Azure 도구 키트도 필요합니다. 이 플러그인을 설치하는 동안 Microsoft JDBC Driver 4.0 for SQL Server가 포함되어 있는지 확인하세요. 자세한 내용은 [Eclipse용 Azure 도구 키트 설치](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)를 참조하세요.
 * Eclipse를 사용하지 않는 경우 <http://www.microsoft.com/download/details.aspx?id=11774>에서 다운로드할 수 있는 SQL Server용 Microsoft JDBC Driver 4.0이 필요합니다.
 
 ## Azure SQL 데이터베이스 만들기
@@ -688,7 +688,7 @@ Azure 배포 내 Java에서 SQL 데이터베이스를 사용하려면, 위에 �
 3. **New Assembly Directive** 대화 상자에서 **Java Build Path Entries**를 클릭한 후 **Next**를 클릭합니다.
 4. **Microsoft JDBC Driver 4.0 SQL Server**를 선택한 다음 **Finish**를 클릭합니다.
 5. **OK**를 클릭하여 **Properties** 대화 상자를 닫습니다.
-6. 프로젝트의 WAR 파일을 approot 폴더로 내보내고 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)을 사용하여 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문)에 설명된 단계에 따라 Azure 프로젝트를 다시 빌드합니다. 이 항목에는 계산 에뮬레이터와 Azure에서 응용 프로그램을 실행하는 방법도 설명되어 있습니다.
+6. 프로젝트의 WAR 파일을 approot 폴더로 내보내고 [Eclipse용 Azure 도구 키트를 사용하여 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문)에 설명된 단계에 따라 Azure 프로젝트를 다시 빌드합니다. 이 항목에는 계산 에뮬레이터와 Azure에서 응용 프로그램을 실행하는 방법도 설명되어 있습니다.
 
 **Eclipse를 사용하지 않는 경우 Microsoft JDBC Driver 4.0 SQL Server 패키지 만들기**
 
@@ -728,4 +728,4 @@ Microsoft JDBC Driver for SQL Server에 대한 자세한 내용은 [JDBC 드라�
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

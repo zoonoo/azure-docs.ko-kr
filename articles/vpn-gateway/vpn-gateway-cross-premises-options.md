@@ -91,4 +91,4 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 자세한 내용은 [Express 경로 FAQ](../expressroute/expressroute-faqs.md) 및 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

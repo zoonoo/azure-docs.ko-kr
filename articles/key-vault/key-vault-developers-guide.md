@@ -67,4 +67,4 @@ Azure 키 자격 증명 모음 컨테이너(자격 증명 모음)는 다음 문�
 
 - 이 다운로드는 HelloKeyVault 샘플 응용 프로그램 및 Azure 웹 서비스 예제를 모두 포함합니다. [Azure 키 자격 증명 모음 코드 샘플](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -155,4 +155,4 @@ Preview 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 �
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

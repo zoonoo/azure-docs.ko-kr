@@ -232,4 +232,4 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

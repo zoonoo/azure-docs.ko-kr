@@ -25,4 +25,4 @@ AMS 계정당 인코딩 단위 </p></td>|25</p></td>|해당 없음<sup>1</sup>
 
 <sup>5</sup> 저장소 계정은 동일한 Azure 구독에 속해 있어야 합니다.
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

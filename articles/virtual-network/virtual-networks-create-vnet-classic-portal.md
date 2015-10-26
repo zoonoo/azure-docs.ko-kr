@@ -33,4 +33,4 @@ UI를 사용하고 netcfg 파일을 배포하여 Azure 포털에서 VNet을 만�
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-portal-include](../../includes/virtual-networks-create-vnet-classic-netcfg-portal-include.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

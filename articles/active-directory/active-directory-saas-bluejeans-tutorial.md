@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-bluejeans-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-bluejeans-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -63,7 +63,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **BlueJeans Sign-on URL** 텍스트 상자에 다음 패턴 "**https://company.BlueJeans.com**"을 사용하여 URL을 입력한 다음 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **BlueJeans Sign-on URL** 텍스트 상자에 다음 패턴 "**https://company.BlueJeans.com*"을 사용하여 URL을 입력한 다음 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "앱 URL 구성")
 
@@ -97,11 +97,11 @@
 
     ![변경 내용 저장](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "변경 내용 저장")
 
-    1.  **사용자 ID** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
-2.  **전자 메일** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
+    1.  **사용자 ID** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
+2.  **전자 메일** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
 3.  **변경 내용 저장**을 클릭합니다.
 
-10. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -143,6 +143,6 @@ Azure AD 사용자가 BlueJeans에 로그인할 수 있도록 하려면 BlueJean
 
     ![예](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "예")
 
-Single sign-on 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

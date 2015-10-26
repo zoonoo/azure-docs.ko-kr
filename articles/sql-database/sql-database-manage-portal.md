@@ -90,4 +90,4 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 처리량
  
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

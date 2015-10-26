@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석"
-	description="Application Insights를 사용한 사용량 분석 개요"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석" 
+	description="Application Insights를 사용한 사용량 분석 개요" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="awills"/>
  
 # Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석
@@ -391,4 +391,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

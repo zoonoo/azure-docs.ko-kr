@@ -66,4 +66,4 @@ Web 및 Business 버전에서 페더레이션 기능이 사용되지 않습니�
 
 [SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

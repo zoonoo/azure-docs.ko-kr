@@ -20,8 +20,7 @@
 
 v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 데스크톱 앱에 빠르게 추가할 수 있습니다. 또한 앱이 백 엔드 Web API 및 [Office 365 통합 API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 중 일부와 안전하게 통신할 수 있도록 합니다.
 
-> [AZURE.NOTE] 
-	이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+> [AZURE.NOTE]이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
 [장치에서 실행되는 .NET 네이티브 앱](active-directory-v2-flows.md#mobile-and-native-apps)의 경우 Azure AD는 Active Directory 인증 라이브러리 또는 ADAL을 제공합니다. ADAL의 유일한 용도는 앱이 쉽게 웹 서비스 호출을 위한 토큰을 가져오도록 하는 것입니다. 액세스 토큰을 얼마나 쉽게 가져올 수 있는지 보여 주기 위해 여기서는 다음과 같은 작업을 수행하는 .NET WPF To-Do List 앱을 빌드하겠습니다.
 
@@ -39,22 +38,22 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-완성된 앱이 이 자습서 끝에도 제공됩니다.
+전체 앱은 이 자습서 마지막 부분에서도 제공됩니다.
 
-## 1. 앱 등록
-[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 [세부 단계](active-directory-v2-app-registration.md)를 따르세요. 다음을 수행해야 합니다.
+## 1\. 앱 등록
+[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
 
-- 바로 필요하므로 앱에 할당된 **응용 프로그램 ID**를 복사합니다.
-- 앱에 대한 **모바일** 플랫폼을 추가합니다.
-- 포털에서 **리디렉션 URI**를 복사합니다. 기본값인 `urn:ietf:wg:oauth:2.0:oob`를 사용해야 합니다.
+- 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
+- 앱용 **Mobile** 플랫폼을 추가합니다.
+- 포털에서 **Redirect URI**를 복사합니다. `urn:ietf:wg:oauth:2.0:oob`의 기본값을 사용해야 합니다.
 
-## 2. ADAL 설치 및 구성
-앱을 Microsoft에 등록했으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 v2.0 끝점과 통신할 수 있게 하려면 앱 등록에 대한 일부 정보를 제공해야 합니다.
+## 2\. ADAL 설치 및 구성
+이제 앱을 Microsoft에 등록했으며, ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL에서 v2.0 끝점을 전달할 수 있도록 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
 
--    먼저 패키지 관리자 콘솔을 사용하여 ADAL을 TodoListClient 프로젝트에 추가하세요.
+-	패키지 관리자 콘솔을 사용하여 ADAL을 TodoListClient 프로젝트에 추가하여 시작합니다.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
 ```
 
 -	TodoListClient 프로젝트에서 `app.config`를 엽니다. 앱 등록 포털에 입력한 값을 반영하도록 `<appSettings>` 섹션의 요소 값을 바꿉니다. 코드는 ADAL을 사용할 때마다 이러한 값을 참조합니다.
@@ -218,12 +217,7 @@ private async void GetTodoList()
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
 ```C#
-private async void SignIn(object sender = null, RoutedEventArgs args = null) 
-{ 
-	// If the user clicked the 'clear cache' button, 
-	// clear the ADAL token cache and show the user as signed out. 
-	// It's also necessary to clear the cookies from the browser 
-	// control so the next user has a chance to sign in.
+private async void SignIn(object sender = null, RoutedEventArgs args = null) { // If the user clicked the 'clear cache' button, // clear the ADAL token cache and show the user as signed out. // It's also necessary to clear the cookies from the browser // control so the next user has a chance to sign in.
 
 		if (SignInButton.Content.ToString() == "Clear Cache")
 		{
@@ -237,11 +231,11 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 		...
 ```
 
-축하합니다. 이제 OAuth 2.0을 사용하여 사용자를 인증하고 웹 API를 안전하게 호출하는 기능을 제공하는 .NET WPF 앱이 작성되었습니다. 두 프로젝트를 모두 실행하고 개인 Microsoft 계정이나 회사 또는 학교 계정을 사용하여 로그인합니다. 해당 사용자의 할 일 목록에 작업을 추가합니다. 로그아웃했다가 다른 사용자 계정으로 로그인하여 해당 사용자의 할 일 목록을 확인합니다. 앱을 닫고 다시 실행합니다. 사용자 세션은 로컬 파일의 앱 캐시 토큰 때문에 그대로 잘 유지될 수 있습니다.
+축하합니다. 이제 OAuth 2.0을 사용하여 사용자를 인증하고 웹 API를 안전하게 호출하는 기능이 있는 .NET WPF 앱이 작동합니다. 두 프로젝트를 실행하고, 개인 Microsoft 계정이나 회사 또는 학교 계정으로 로그인합니다. 작업을 사용자의 할 일 모음에 추가합니다.  다른 사용자의 할 일 목록을 보려면 로그아웃하고 해당 사용자로 다시 로그인합니다. 앱을 닫았다가 다시 실행합니다. 사용자의 세션이 원래 상태로 유지됩니다. 이는 앱이 로컬 파일의 토큰을 캐시하기 때문입니다.
 
-ADAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽게 통합합니다. 이는 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등 번거로운 작업을 처리합니다. 따라서 단일 API 호출인 `authContext.AcquireTokenAsync(...)`만 알면 됩니다.
+ADAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽게 통합합니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 관리해줍니다. 실제로 알아두어야 할 모든 항목은 단일 API 호출, `authContext.AcquireTokenAsync(...)`입니다.
 
-[여기에 .zip 형태로 제공된](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip) 전체 샘플(개인 구성값 없음)을 참고하거나, GitHub로부터 이를 복제할 수 있습니다.
+참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
@@ -253,4 +247,4 @@ ADAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

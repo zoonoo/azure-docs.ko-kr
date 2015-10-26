@@ -90,4 +90,4 @@ Microsoft Azure AD는 동기화 프로세스의 매우 효과적인 구현을 �
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

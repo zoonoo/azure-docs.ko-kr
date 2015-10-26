@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 기계 학습 배치 실행 작업을 사용하여 예측 파이프라인 만들기 | Microsoft Azure"
-	description="Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure 기계 학습 배치 실행 작업을 사용하여 예측 파이프라인 만들기 | Microsoft Azure" 
+	description="Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="spelluru"/>
 
 # Azure 기계 학습 배치 실행 작업을 사용하여 예측 파이프라인 만들기   
@@ -261,7 +261,7 @@ Azure ML 실험을 만들 때 다른 일반적인 시나리오는 판독기 및 
 
 	"typeProperties": {
     	"globalParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -348,7 +348,9 @@ AzureMLBatchScoring 작업을 계속해서 사용하려면 자세한 내용은 [
 **A**: 예. 자세한 내용은 **Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용**을 참조하세요.
 
 
+## 참고 항목
 
+- [Azure 블로그 게시물: Azure 데이터 팩터리 및 Azure 기계 학습 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 
 
@@ -361,4 +363,4 @@ AzureMLBatchScoring 작업을 계속해서 사용하려면 자세한 내용은 [
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -89,8 +89,7 @@
 
 마지막으로 실험을 한 번 실행합니다(**실행** 클릭). 모델이 계속 작동 중인지 확인하려면 [모델 점수 매기기][score-model] 모듈의 출력을 클릭하고 **결과 보기**를 선택합니다. 원래 데이터가 신용 위험 값("점수를 매긴 레이블") 및 점수 매기기 확률 값("점수를 매긴 확률")과 함께 표시됩니다.
 
-##
-웹 서비스 배포
+## 웹 서비스 배포
 
 실험에서 파생된 웹 서비스를 배포하려면 캔버스 아래에서 **웹 서비스 배포**를 클릭합니다. 기계 학습 스튜디오에서 실험을 웹 서비스로 배포하고 서비스 대시보드로 이동합니다.
 
@@ -127,4 +126,4 @@
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

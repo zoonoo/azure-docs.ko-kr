@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # 스트림 분석 입력 이해
@@ -94,15 +94,15 @@ Iot 허브는 IoT 시나리오에 최적화된, 확장성이 뛰어난 게시-�
 
 | 속성 | 설명 |
 |------|------|
-| System.Input.EventProcessedUtcTime | 이벤트가 처리되는 날짜 및 시간입니다. |
-| System.Input.EventEnqueuedUtcTime | IoT 허브에서 이벤트를 받은 날짜 및 시간입니다. |
-| System.Input.PartitionId | 입력 어댑터의 0부터 시작하는 파티션 ID입니다. |
-| System.Input.MessageId | IoT 허브에서 양방향 통신을 상호 연결하는 데 사용합니다. |
-| System.Input.CorrelationId | IoT 허브에서 메시지 응답 및 피드백에 사용됩니다. |
-| System.Input.ConnectionDeviceId | 이 메시지를 보내는 데 사용되는 인증된 ID로, IoT 허브에서 서비스 바운드 메시지에 자동 삽입됩니다. |
-| System.Input.ConnectionDeviceGenerationId | 이 메시지를 보내는 데 사용되는 인증 장치의 generationId로, IoT 허브에서 서비스 바운드 메시지에 자동 삽입됩니다. |
-| System.Input.EnqueuedTime | IoT 허브에서 메시지가 수신된 시간입니다. |
-| System.Input.StreamId | 보낸 사람 장치에 의해 추가된 사용자 지정 이벤트 속성입니다. |
+| EventProcessedUtcTime | 이벤트가 처리되는 날짜 및 시간입니다. |
+| EventEnqueuedUtcTime | IoT 허브에서 이벤트를 받은 날짜 및 시간입니다. |
+| PartitionId | 입력 어댑터의 0부터 시작하는 파티션 ID입니다. |
+| IoTHub.MessageId | IoT 허브에서 양방향 통신을 상호 연결하는 데 사용합니다. |
+| IoTHub.CorrelationId | IoT 허브에서 메시지 응답 및 피드백에 사용됩니다. |
+| IoTHub.ConnectionDeviceId | 이 메시지를 보내는 데 사용되는 인증된 ID로, IoT 허브에서 서비스 바운드 메시지에 자동 삽입됩니다. |
+| IoTHub.ConnectionDeviceGenerationId | 이 메시지를 보내는 데 사용되는 인증 장치의 generationId로, IoT 허브에서 서비스 바운드 메시지에 자동 삽입됩니다. |
+| IoTHub.EnqueuedTime | IoT Hub에서 메시지가 수신된 시간입니다. |
+| IoTHub.StreamId | 보낸 사람 장치에 의해 추가된 사용자 지정 이벤트 속성입니다. |
 
 ## Blob 저장소 데이터 스트림 입력 만들기 ##
 
@@ -183,7 +183,7 @@ FROM Input
 
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 사물 인터넷에서 발생한 데이터에 대한 스트리밍 분석용 관리 서비스, 스트림 분석에 대해 소개하였습니다. 이 서비스에 대해 자세히 알아보려면 다음을 참조하세요.
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

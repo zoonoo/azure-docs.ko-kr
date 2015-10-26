@@ -32,9 +32,9 @@
 
 - **Visual Studio** - Visual Studio 2013 또는 Visual Studio 2015의 무료 평가판 버전을 다운로드하려면 [Visual Studio 다운로드](http://www.visualstudio.com/downloads/download-visual-studio-vs)를 참조하세요. 계속하기 전에 다음 중 하나를 설치합니다. (이 자습서의 스크린샷은 Visual Studio 2013을 사용하여 수행되었음)
 
-- **SQL Server 2014 Express with Tools** - [Microsoft 웹 플랫폼 데이터베이스 페이지](https://www.microsoft.com/ko-kr/download/details.aspx?id=42299)에서 Microsoft SQL Server Express를 무료로 다운로드하세요. 이 자습서의 뒷부분에서 [SQL Server 설치](#InstallSQLDB) 방법을 참조하여 제대로 구성되었는지 확인합니다.
+- **SQL Server 2014 Express with Tools** - [Microsoft 웹 플랫폼 데이터베이스 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=42299)에서 Microsoft SQL Server Express를 무료로 다운로드하세요. 이 자습서의 뒷부분에서 [SQL Server 설치](#InstallSQLDB) 방법을 참조하여 제대로 구성되었는지 확인합니다.
 
-- **SQL Server Management Studio Express** - 이 제품은 위에서 언급한 SQL Server 2014 Express with Tools 다운로드와 함께 포함되지만 별도로 설치해야 하는 경우 [SQL Server Express 다운로드 페이지](https://www.microsoft.com/ko-kr/download/details.aspx?id=42299)에서 이 제품을 다운로드하여 설치할 수 있습니다.
+- **SQL Server Management Studio Express** - 이 제품은 위에서 언급한 SQL Server 2014 Express with Tools 다운로드와 함께 포함되지만 별도로 설치해야 하는 경우 [SQL Server Express 다운로드 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=42299)에서 이 제품을 다운로드하여 설치할 수 있습니다.
 
 이 자습서에서는 사용자가 Azure 구독을 사용하며, Visual Studio 2013을 설치했고, .NET Framework 3.5을 설치했거나 사용하도록 설정했다고 가정합니다. 이 자습서에서는 Azure 하이브리드 연결 기능(정적 TCP 포트를 사용하는 기본 인스턴스)에서 적절히 작동하는 구성에 SQL Server 2014 Express를 설치하는 방법을 보여 줍니다. 자습서를 시작하기 전에 SQL 서버가 설치되어 있지 않은 경우 위에서 언급한 위치의 도구를 사용하여 SQL Server 2014 Express를 다운로드합니다(설치는 하지 않음).
 
@@ -430,4 +430,4 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

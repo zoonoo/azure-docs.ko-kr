@@ -100,4 +100,4 @@ Azure 포털을 사용하여 VNet 설정을 확인하고 수정할 수 있습니
 
 [VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

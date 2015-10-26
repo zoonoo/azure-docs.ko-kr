@@ -118,4 +118,4 @@ Azure는 지역 쌍의 집합을 구성합니다. Azure는 단일 인스턴스 �
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

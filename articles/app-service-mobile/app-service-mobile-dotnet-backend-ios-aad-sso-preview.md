@@ -123,4 +123,4 @@ ADAL을 사용하여 사용자를 인증하려면 먼저 AAD(Azure Active Direct
  [모바일 앱 시작 자습서]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [앱에 인증 추가]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

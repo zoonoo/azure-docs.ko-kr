@@ -29,4 +29,4 @@
 
 Azure 리소스 관리자에는 API 호출 제한이 있습니다. [Azure 리소스 관리자 API 제한](azure-subscription-service-limits/#resource-group-limits) 범위 안의 속도로 API 호출을 수행할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

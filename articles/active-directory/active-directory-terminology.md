@@ -43,4 +43,4 @@ Single Sign-On | 회사 네트워크에 로그온한 동안 Microsoft 클라우�
 - [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 서비스 제한 및 제한 사항](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

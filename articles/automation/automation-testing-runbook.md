@@ -55,4 +55,4 @@ Azure 포털에서는 [PowerShell 워크플로 Runbook](automation-runbook-types
 - [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

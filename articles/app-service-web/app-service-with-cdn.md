@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="cephalin"/>
 
 # Azure 웹앱과 Azure CDN 통합 #
@@ -72,7 +72,7 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 	게시가 완료되면 브라우저에 게시된 웹앱이 표시됩니다.
 
 1. CDN 끝점을 만들려면 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다.
-2. **새로 만들기** > **앱 서비스** > **CDN** > **빠른 생성**을 클릭합니다. **http://*&lt;sitename>\*.azurewebsites.net/**을 선택하고 **만들기**를 클릭합니다.
+2. **새로 만들기** > **앱 서비스** > **CDN** > **빠른 생성**을 클릭합니다. **http://*&lt;sitename>*.azurewebsites.net/**을 선택하고 **만들기**를 클릭합니다.
 
 	![](media/app-service-with-cdn/7-create-cdn.png)
 
@@ -131,7 +131,7 @@ Azure 웹앱에서 Azure CDN 통합을 사용하면 CDN 끝점에서 정적 콘�
       ...
     </system.webServer>
 
-이렇게 구성하면 Azure 웹앱의 모든 정적 파일이 CDN 캐시에서 동일한 규칙을 준수합니다. 캐싱 설정을 더 세밀하게 제어하려면 *Web.config* 파일을 폴더에 추가하고 이 파일에 해당 설정을 추가합니다. 예를 들어 *Web.config* 파일을 *\Content* 폴더에 추가하고 다음 XML로 내용을 바꿉니다.
+이렇게 구성하면 Azure 웹앱의 모든 정적 파일이 CDN 캐시에서 동일한 규칙을 준수합니다. 캐싱 설정을 더 세밀하게 제어하려면 *Web.config* 파일을 폴더에 추가하고 이 파일에 해당 설정을 추가합니다. 예를 들어 *Web.config* 파일을 *\\Content* 폴더에 추가하고 다음 XML로 내용을 바꿉니다.
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -142,7 +142,7 @@ Azure 웹앱에서 Azure CDN 통합을 사용하면 CDN 끝점에서 정적 콘�
 	  </system.webServer>
 	</configuration>
 
-이 설정을 통해 *\Content* 폴더의 모든 정적 파일은 15일 동안 캐시됩니다.
+이 설정을 통해 *\\Content* 폴더의 모든 정적 파일은 15일 동안 캐시됩니다.
 
 `<clientCache>` 요소를 구성하는 방법에 대한 자세한 내용은 [클라이언트 캐시 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)(영문)를 참조하세요.
 
@@ -556,4 +556,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 - [Azure에 CDN 사용](../cdn-how-to-use.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

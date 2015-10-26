@@ -1,18 +1,18 @@
 <properties
-   pageTitle="미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치 연결 | Microsoft Azure"
-   description="온도 및 습도와 관련된 예를 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다."
-   services="iot-hub"
+   pageTitle="미리 구성된 솔루션에 장치를 연결 | Microsoft Azure"
+   description="온도 및 습도 데이터를 사용하는 예를 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다."
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="nana"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -100,7 +100,7 @@ Note: if you have already provisioned a device on your solution, you can skip th
 
 1. 환경 설정: 장치 SDK를 사용한 적이 없는 경우 Windows에서 환경을 설정하는 방법에 대해 [여기](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows)에서 알아보세요.
 
-1. Visual Studio 2015의 새 인스턴스를 시작합니다. 레포지토리의 로컬 복사본의 **c\\serializer\\build\\windows** 폴더에서 **remote\_monitoring.sln** 솔루션을 엽니다.
+1. Visual Studio 2015의 새 인스턴스를 시작합니다. 리포지토리의 로컬 복사본의 **c\\serializer\\build\\windows** 폴더에서 **remote\_monitoring.sln** 솔루션을 엽니다.
 
 2. Visual Studio에서 **솔루션 탐색기**에서 샘플 폴더로 이동합니다. **remote\_monitoring** 프로젝트에서 **remote\_monitoring.c** 파일을 엽니다.
 
@@ -309,4 +309,4 @@ node .
 
 이 샘플의 기능을 확장하는 방법은 실제 센서를 장치에 연결하여 실제 날짜를 보내고 명령을 구현하고 기능을 제어하는 등 다양합니다. 원격 모니터링 솔루션을 확장하는 방법에 대한 자세한 내용은 [지침](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md)을 사용하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

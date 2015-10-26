@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="서비스 버스 큐를 사용하는 방법(Python) | Microsoft Azure" 
+	pageTitle="Python에서 서비스 버스 큐를 사용하는 방법 | Microsoft Azure" 
 	description="Python에서 Azure 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다." 
 	services="service-bus" 
 	documentationCenter="python" 
-	authors="huguesv" 
+	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,60 +13,72 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
-	ms.author="huvalo"/>
+	ms.date="10/08/2015" 
+	ms.author="sethm"/>
 
 
 # 서비스 버스 큐를 사용하는 방법
 
-이 가이드에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
+이 문서에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-**참고:** Python 또는 [Python Azure 패키지][]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
+> [AZURE.NOTE]Python 또는 [Python Azure 패키지][]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
 
-## 큐를 만드는 방법
+## 큐 만들기
 
-**ServiceBusService** 개체를 사용하면 큐로 작업할 수 있습니다. 프로그래밍 방식으로 Azure 서비스 버스에 액세스하려는 Python 파일의 맨 위쪽에 다음 코드를 추가합니다.
+**ServiceBusService** 개체를 사용하면 큐로 작업할 수 있습니다. 프로그래밍 방식으로 서비스 버스에 액세스하려는 Python 파일의 맨 위쪽에 다음 코드를 추가합니다.
 
-	from azure.servicebus import ServiceBusService, Message, Queue
+```
+from azure.servicebus import ServiceBusService, Message, Queue
+```
 
-다음 코드는 **ServiceBusService** 개체를 만듭니다. 'mynamespace', 'sharedaccesskeyname' 및 'sharedaccesskey'를 네임스페이스, SAS(공유 액세스 서명) 키 이름 및 값으로 바꿉니다.
+다음 코드는 **ServiceBusService** 개체를 만듭니다. `mynamespace`, `sharedaccesskeyname`, 및 `sharedaccesskey`를 네임스페이스, SAS(공유 액세스 서명) 키 이름 및 값으로 바꿉니다.
 
-	bus_service = ServiceBusService(
-		service_namespace='mynamespace',
-		shared_access_key_name='sharedaccesskeyname',
-		shared_access_key_value='sharedaccesskey')
+```
+bus_service = ServiceBusService(
+	service_namespace='mynamespace',
+	shared_access_key_name='sharedaccesskeyname',
+	shared_access_key_value='sharedaccesskey')
+```
 
-SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual Studio **속성** 창(이전 섹션에 표시된 대로 서버 탐색기에서 서비스 버스 네임스페이스 선택)에서 확인할 수 있습니다.
+SAS 키 이름 및 값에 대한 값은 [Azure 포털][] 연결 정보 또는 Visual Studio **속성** 창(이전 섹션에 표시된 대로 서버 탐색기에서 서비스 버스 네임스페이스 선택)에서 확인할 수 있습니다.
 
-	bus_service.create_queue('taskqueue')
+```
+bus_service.create_queue('taskqueue')
+```
 
-**create\_queue**는 추가 옵션도 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 큐 크기 등 기본 큐 설정을 재정의할 수 있습니다. 다음은 최대 큐 크기를 5GB,TTL(Time to Live)을 1분으로 설정하는 예제입니다.
+**create\_queue**는 추가 옵션도 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 큐 크기 등 기본 큐 설정을 재정의할 수 있습니다. 다음은 최대 큐 크기를 5GB로, TTL 값을 1분으로 설정하는 예제입니다.
 
-	queue_options = Queue()
-	queue_options.max_size_in_megabytes = '5120'
-	queue_options.default_message_time_to_live = 'PT1M'
+```
+queue_options = Queue()
+queue_options.max_size_in_megabytes = '5120'
+queue_options.default_message_time_to_live = 'PT1M'
 
-	bus_service.create_queue('taskqueue', queue_options)
+bus_service.create_queue('taskqueue', queue_options)
+```
 
-## 큐에 메시지를 보내는 방법
+## 큐에 메시지 보내기
 
 서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusService** 개체에 대해 **send\_queue\_message** 메서드를 호출합니다.
 
 다음 예제에서는 *send\_queue\_message*를 사용하여 **taskqueue**라는 큐에 테스트 메시지를 보내는 방법을 보여 줍니다.
 
-	msg = Message(b'Test Message')
-	bus_service.send_queue_message('taskqueue', msg)
+```
+msg = Message(b'Test Message')
+bus_service.send_queue_message('taskqueue', msg)
+```
 
-서비스 버스 큐는 256KB의 최대 메시지 크기를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다.
+서비스 버스 큐는 256KB의 최대 메시지 크기를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 할당량에 대한 자세한 내용은 [Azure 큐 및 서비스 버스 큐][]를 참조하세요.
 
-## 큐에서 메시지를 받는 방법
+## 큐에서 메시지 받기
 
 **ServiceBusService** 개체의 **receive\_queue\_message** 메서드를 사용하여 큐에서 메시지를 받습니다.
 
-	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
-	print(msg.body)
+```
+msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
+print(msg.body)
+```
 
 **peek\_lock** 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 큐에서 해당 메시지가 삭제됩니다. **peek\_lock** 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
 
@@ -74,10 +86,12 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
 
 **peek\_lock** 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 **delete** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete** 메서드는 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
 
-	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
-	print(msg.body)
+```
+msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
+print(msg.body)
 
-	msg.delete()
+msg.delete()
+```
 
 ## 응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
 
@@ -93,9 +107,10 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
 
 -   [큐, 토픽 및 구독][]을 참조하세요.
 
-[Azure Management Portal]: http://manage.windowsazure.com
+[Azure 포털]: http://manage.windowsazure.com
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
 [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
+[Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -62,4 +62,4 @@ Microsoft Build Engine (MSBuild)를 사용 하여 Visual Studio가 설치되지 
 
 패키지를 빌드한 후에 Azure에 배포할 수 있습니다. 이 과정을 보여주는 자습서는 Azure 웹사이트를 참조합니다. 이 프로세스를 자동화하는 방법에 대한 정보는 [Azure의 클라우드 서비스에 대한 지속적인 전송](../cloud-services/cloud-services-dotnet-continuous-delivery)을 참조하십시오.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

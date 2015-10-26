@@ -71,4 +71,4 @@ Azure Site Recovery는 여러 배포에서 가상 컴퓨터의 복제, 장애 �
 
 의견이나 질문은 [사이트 복구 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

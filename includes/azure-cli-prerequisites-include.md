@@ -3,4 +3,4 @@
 
 > [AZURE.NOTE]Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](sign-up-organization.md)에 등록합니다. 또한 작업을 완전히 수행하려면 [jq](https://stedolan.github.io/jq/) 또는 일부 다른 JSON 구문 분석 도구 또는 설치된 라이브러리가 필요합니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

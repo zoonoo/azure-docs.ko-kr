@@ -413,4 +413,4 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 [나에게 적합한 Azure 캐시 서비스]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

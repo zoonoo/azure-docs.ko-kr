@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/09/2015"
 	ms.author="femila"/>
 
 
@@ -30,7 +30,7 @@ Azure AD Premium이 있는 경우 그룹을 사용하여 Azure AD와 통합되�
 1. 사용자가 선택한 브라우저를 열고 Azure 관리 포털로 이동합니다. Azure 관리 포털의 왼쪽 탐색 모음에서 Active Directory 확장을 찾습니다. **디렉터리** 탭 아래에서 그룹에 대해 SaaS 응용 프로그램 액세스 권한을 할당할 디렉터리를 클릭합니다.
 
 
-2. 디렉터리의 응용 프로그램 탭을 클릭합니다. 응용 프로그램 갤러리에서 추가한 응용 프로그램을 클릭한 다음 사용자 및 그룹 탭을 클릭합니다.
+2. 디렉터리의 응용 프로그램 탭을 클릭합니다. 응용 프로그램 갤러리에서 추가한 응용 프로그램을 클릭한 다음 **사용자 및 그룹** 탭을 클릭합니다.
 
 3. 사용자 및 그룹 탭의 다음으로 시작 필드에 액세스 권한을 할당할 그룹의 이름을 입력하고 오른쪽 위에 있는 확인 표시를 클릭합니다. 그룹 이름의 처음 부분만 입력하면 됩니다. 그런 다음 강조 표시할 그룹을 클릭하고, **액세스 권한 할당** 단추를 클릭하고, 확인 메시지가 표시되면 **예**를 클릭합니다.
 
@@ -48,4 +48,4 @@ Azure AD Premium이 있는 경우 그룹을 사용하여 Azure AD와 통합되�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

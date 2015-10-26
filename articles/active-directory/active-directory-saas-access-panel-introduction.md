@@ -181,4 +181,4 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -23,4 +23,4 @@ Azure 스토어에서 Azure에 호스트되고 완전히 관리되는 MongoDB �
 [screen-newmongolab]: ./media/howto-provision-mongolab/screen-newmongolab.png
 [message-success]: ./media/howto-provision-mongolab/message-provisionsuccess.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

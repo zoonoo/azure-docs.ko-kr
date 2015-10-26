@@ -34,7 +34,7 @@ DNS 레코드 집합과 개별 DNS 레코드의 차이점을 이해하는 것이
 
 >영역 구로의 레코드 집합의 경우, 따옴표를 포함하여 "@"를 레코드 집합 이름으로 사용합니다. 완전한 레코드 집합의 이름은 영역 이름과 동일하며 이 경우 "contoso.com"입니다.
 
-Azure DNS는 A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등의 레코드 형식을 지원합니다. SOA 형식의 레코드 집합은 각 영역과 함께 자동으로 생성되며 별도로 만들 수 없습니다.
+Azure DNS는 A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등의 레코드 형식을 지원합니다. SOA 형식의 레코드 집합은 각 영역과 함께 자동으로 생성되며 별도로 만들 수 없습니다. [SPF 레코드 유형은 TXT 레코드 유형을 사용하여 SPF 레코드를 만드는데 유리한 DNS 표준에 의해 사용되지 않습니다](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
@@ -239,4 +239,4 @@ Remove-AzureDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 �
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset-cli.md)<BR> [DNS 영역에 대한 작업 수행](dns-operations-dnszones-cli.md)<BR> [.NET SDK로 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

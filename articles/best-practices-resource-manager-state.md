@@ -389,4 +389,4 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 - [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
 - [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

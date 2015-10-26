@@ -72,4 +72,4 @@
 * [서비스 메트릭을 모니터링](insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다.  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

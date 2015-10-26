@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - 자세히 알아보기"
-	description="Azure Multi-Factor Authentication에 대한 추가 콘텐츠 링크를 제공하는 Azure 다단계 인증 페이지입니다. 여기에서 Multi-Factor Authentication에 대한 추가 항목에 대해 알아볼 수 있습니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication - 자세히 알아보기" 
+	description="Azure Multi-Factor Authentication에 대한 추가 콘텐츠 링크를 제공하는 Azure 다단계 인증 페이지입니다. 여기에서 Multi-Factor Authentication에 대한 추가 항목에 대해 알아볼 수 있습니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에 대해 자세히 알아보기
@@ -38,4 +38,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

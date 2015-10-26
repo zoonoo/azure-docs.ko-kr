@@ -113,4 +113,4 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

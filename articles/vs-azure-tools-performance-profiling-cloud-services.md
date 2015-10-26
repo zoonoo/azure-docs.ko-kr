@@ -1,19 +1,19 @@
 <properties 
    pageTitle="클라우드 서비스의 성능 테스트 | Microsoft Azure"
-	description="Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능을 테스트합니다."
-	services="visual-studio-online"
-	documentationCenter="n/a"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능을 테스트합니다."
+   services="visual-studio-online"
+   documentationCenter="n/a"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 
 # 클라우드 서비스의 성능 테스트 
@@ -146,4 +146,4 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 
 [Visual Studio에서 Azure 클라우드 서비스에 게시](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 원격으로 연결
@@ -234,7 +234,7 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 원격 Windows PowerShell 연결을 설정하려는 컴퓨터에서 다음 절차를 따르세요.
 
-### Windows PowerShell 및 SSL을 사용하여 장치의 SSAdmin 세션에 들어가려면
+#### Windows PowerShell 및 SSL을 사용하여 장치의 SSAdmin 세션에 들어가려면
 
 1. 관리자 권한으로 Windows PowerShell 세션을 시작합니다.
 
@@ -256,7 +256,7 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
      `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
-    cmdlet의 CN 이름에 대해 *<serial number of target device>*을 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT**)에 매핑되었습니다.
+    cmdlet의 CN 이름에는 <*대상 장치의 일련 번호*>를 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT**)에 매핑되었습니다.
 
 5. 형식:
 
@@ -272,4 +272,4 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

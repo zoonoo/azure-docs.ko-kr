@@ -230,7 +230,7 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
 ## 추가 대답
 
-* [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-kr/home?forum=ApplicationInsights)
+* [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
 
 
 <!--Link references-->
@@ -238,9 +238,9 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 [azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

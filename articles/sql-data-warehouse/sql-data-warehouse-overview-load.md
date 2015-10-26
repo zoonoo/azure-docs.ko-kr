@@ -183,10 +183,10 @@ FROM    <External Table Name>
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[AZCopy 설치 지침]: https://azure.microsoft.com/ko-kr/documentation/articles/storage-use-azcopy/
-[SQL Server용 Microsoft 명령줄 유틸리티]: http://www.microsoft.com/ko-kr/download/details.aspx?id=36433
-[가져오기/내보내기]: https://azure.microsoft.com/ko-kr/documentation/articles/storage-import-export-service/
-[Azure 저장소 설명서]: https://azure.microsoft.com/ko-kr/documentation/articles/storage-create-storage-account/
+[AZCopy 설치 지침]: https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/
+[SQL Server용 Microsoft 명령줄 유틸리티]: http://www.microsoft.com/en-us/download/details.aspx?id=36433
+[가져오기/내보내기]: https://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
+[Azure 저장소 설명서]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
 [Express 경로 설명서]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

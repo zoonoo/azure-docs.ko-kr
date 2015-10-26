@@ -612,4 +612,4 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – 이 PowerShell cmdlet은 지정된 계산 노드에서 RDP 파일을 가져와 지정된 파일 위치 또는 스트림에 저장합니다.
 2.	일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

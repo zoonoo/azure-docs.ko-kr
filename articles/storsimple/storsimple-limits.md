@@ -27,4 +27,4 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소
 
 [StorSimple 시스템 요구 사항](storsimple-system-requirements.md)을 검토하십시오.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

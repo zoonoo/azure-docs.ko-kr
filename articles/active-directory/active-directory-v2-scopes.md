@@ -116,4 +116,4 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 획득하는 방법에 대한 자
 
 새로 고침 토큰을 가져오고 사용하는 방법에 대한 자세한 내용은 [앱 모델 v2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

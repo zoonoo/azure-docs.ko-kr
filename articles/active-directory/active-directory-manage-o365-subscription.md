@@ -70,4 +70,4 @@ Michael Smith는 Azure에 msmith@hotmail.com으로 로그인한 동안 두 디�
 ##다음 단계
 구독과 디렉터리 간의 관계에 대한 자세한 내용은 [구독과 디렉터리의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

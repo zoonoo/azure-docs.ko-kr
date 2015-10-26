@@ -58,4 +58,4 @@ Azure 테이블|Azure 저장소의 테이블 서비스에서 데이터를 읽습
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

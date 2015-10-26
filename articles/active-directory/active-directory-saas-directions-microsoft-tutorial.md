@@ -40,7 +40,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-directions-microsoft-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-directions-microsoft-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -99,4 +99,4 @@ Directions on Microsoft을 프로비전하는 사용자를 구성할 작업 항�
 
     ![예](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "예")
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -183,4 +183,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

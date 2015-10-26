@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Azure CLI를 사용하여 Azure VM 관리 | Microsoft Azure"
-   description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure VM을 관리하는 방법을 설명합니다."
+   pageTitle="CLI로 가상 컴퓨터 관리 | Microsoft Azure"
+   description="Azure CLI(명령줄 인터페이스)를 사용하여 Azure 리소스 관리자 VM의 관리를 자동화합니다."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 
    <tags
    ms.service="virtual-machines"
@@ -14,16 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="danlep"/>
 
-# Mac, Linux 및 Windows용 Azure CLI를 사용하여 가상 컴퓨터 관리
+# Mac, Linux 및 Windows용 Azure CLI를 사용하여 리소스 관리자 가상 컴퓨터 관리
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스를 관리하는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-how-to-automate-azure-resource-manager.md)을 사용하여 만든 리소스를 관리할 수도 있습니다.
 
-VM을 관리하기 위해 일상적으로 수행하는 많은 작업을 Azure CLI를 사용하여 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md).
 
->[AZURE.NOTE]아직 Azure CLI를 설치하고 구성하지 않은 경우 [여기](../xplat-cli-install.md)에서 지침을 확인할 수 있습니다. PowerShell의 동일한 작업에 대한 빠른 시작을 원하는 경우 [Azure PowerShell을 사용하여 VM 관리](virtual-machines-manage-vms-powershell.md)를 참조하세요.
+VM을 관리하기 위해 일상적으로 수행하는 많은 작업을 Mac, Linux 및 Windows용 Azure CLI(명령줄 인터페이스)를 사용하여 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
+
+>[AZURE.NOTE]Azure CLI를 아직 설치하지 않은 경우 [여기](../xplat-cli-install.md)에서 지침을 볼 수 있으며, [여기](../xplat-cli-connect.md)에서 구독에 연결하는 방법을 알아볼 수 있습니다. 또한 Azure 리소스 관리자(arm) 모드에서 CLI를 구성해야 합니다.
 
 ## 예제 명령을 사용하는 방법
 명령의 일부 텍스트는 환경에 적합한 텍스트로 바꿔야 합니다. < and > 기호는 바꿔야 하는 텍스트를 나타냅니다. 텍스트를 바꾸는 경우 기호는 제거하고 따옴표는 그대로 남겨 두세요.
@@ -81,6 +82,8 @@ JSON 문서로 $vm 변수에 출력을 저장하려면 다음을 실행합니다
 
 ## 다음 단계
 
-**arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리에 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용](../xplat-cli-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
+* Azure 리소스 관리자 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리에 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+* Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
+
+<!---HONumber=Oct15_HO3-->

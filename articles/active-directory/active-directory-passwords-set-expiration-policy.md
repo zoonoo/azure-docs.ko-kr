@@ -64,4 +64,4 @@ Windows PowerShell cmdlet을 사용하려면 먼저 이를 설치해야 합니�
 
 	- 조직의 모든 사용자 암호가 만료되지 않도록 설정하려면 `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true` cmdlet을 사용합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

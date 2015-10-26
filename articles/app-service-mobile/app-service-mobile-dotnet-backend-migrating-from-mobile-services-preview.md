@@ -135,14 +135,14 @@
 [Preview Azure 관리 포털]: https://portal.azure.com/
 [구성]: https://manage.windowsazure.com/
 [모바일 앱 정의]: app-service-mobile-value-prop-preview.md
-[웹 사이트와 모바일 서비스를 이미 사용하고 있습니다. 앱 서비스가 내게 어떤 도움을 주나요?]: /ko-kr/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
+[웹 사이트와 모바일 서비스를 이미 사용하고 있습니다. 앱 서비스가 내게 어떤 도움을 주나요?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
 [모바일 앱 서버 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [모바일 앱 만들기]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 [모바일 앱에 푸시 알림 추가]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [모바일 앱에 인증 추가]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
-[Azure 스케줄러]: /ko-kr/documentation/services/scheduler/
+[Azure 스케줄러]: /en-us/documentation/services/scheduler/
 [웹 작업]: ../app-service-web/websites-webjobs-resources.md
 [플랫폼 간 푸시 알림 전송]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

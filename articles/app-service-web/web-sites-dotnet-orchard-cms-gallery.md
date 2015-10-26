@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 마켓플레이스에서 Orchard CMS 웹 앱 만들기"
-	description="Azure에서 새 웹 앱을 만드는 방법에 대해 설명하는 자습서입니다. Azure 포털을 사용하여 웹 앱을 시작하고 관리하는 방법도 알아봅니다."
+	pageTitle="Azure 마켓플레이스에서 Orchard CMS 웹 앱 만들기" 
+	description="Azure에서 새 웹 앱을 만드는 방법에 대해 설명하는 자습서입니다. Azure 포털을 사용하여 웹 앱을 시작하고 관리하는 방법도 알아봅니다." 
 	tags="azure-portal"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="tfitzmac"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Azure 마켓플레이스에서 Orchard CMS 웹 앱 만들기
@@ -91,4 +91,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

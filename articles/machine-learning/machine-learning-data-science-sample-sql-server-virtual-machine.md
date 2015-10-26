@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure의 SQL Server에서 데이터 샘플링 | Microsoft Azure"
-	description="Azure의 SQL Server에서 데이터 샘플링"
-	services="machine-learning"
-	documentationCenter=""
-	authors="fashah"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="Azure의 SQL Server에서 데이터 샘플링 | Microsoft Azure" 
+	description="Azure의 SQL Server에서 데이터 샘플링" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="fashah;garye;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 
@@ -113,4 +113,4 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

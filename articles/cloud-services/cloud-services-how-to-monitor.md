@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="클라우드 서비스를 모니터링하는 방법 | Microsoft Azure"
-	description="Azure 관리 포털을 사용하여 클라우드 서비스를 모니터링하는 방법에 대해 알아봅니다."
-	services="cloud-services"
-	documentationCenter=""
-	authors="rboucher"
-	manager="jwhit"
+	pageTitle="클라우드 서비스를 모니터링하는 방법 | Microsoft Azure" 
+	description="Azure 관리 포털을 사용하여 클라우드 서비스를 모니터링하는 방법에 대해 알아봅니다." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="rboucher" 
+	manager="jwhit" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="robb"/>
 
 
@@ -192,4 +192,4 @@ Azure 관리 포털에서 클라우드 서비스의 주요 성능 메트릭을 �
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

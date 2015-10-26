@@ -124,4 +124,4 @@ Azure 자동화 Runbook을 계획의 일환으로 실행하여 복구 계획을 
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

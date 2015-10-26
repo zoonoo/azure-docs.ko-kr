@@ -164,4 +164,4 @@ NSG를 디자인할 때 다음과 같은 제한을 고려해야 합니다.
 - [클래식 배포 모델에서 NSG 배포](virtual-networks-create-nsg-classic-ps.md)
 - [리소스 관리자에서 NSG 배포](virtual-networks-create-nsg-arm-pportal.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

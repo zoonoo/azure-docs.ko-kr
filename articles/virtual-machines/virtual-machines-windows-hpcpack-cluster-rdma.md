@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # MPI 응용 프로그램을 실행하기 위해 HPC Pack, A8 및 A9 인스턴스를 사용하여 Windows RDMA 클러스터 설정
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 문서에서는 Azure에서[Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [크기가 A8 및 A9인 계산 집약적 인스턴스](virtual-machines-a8-a9-a10-a11-specs.md)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Windows RDMA를 설정하는 방법을 보여 줍니다. 지원되는 MPI 구현을 실행하도록 크기가 A8 및 A9인 Windows Server 기반 인스턴스를 구성하는 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
 
@@ -39,7 +40,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 ## 필수 조건
 
-* 계산 집약적 인스턴스에 대한 **[배경 정보 및 고려 사항](virtual-machines-a8-a9-a10-a11-specs.md) 검토**
+* 계산 집약적 인스턴스에 대한 ￼**[배경 정보 및 고려 사항](virtual-machines-a8-a9-a10-a11-specs.md)￼ 검토**
 
 
 * **Azure 구독** - 계정이 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -245,4 +246,4 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

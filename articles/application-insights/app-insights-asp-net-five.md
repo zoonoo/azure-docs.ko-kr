@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="ASP.NET 5용 Application Insights"
-	description="응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다."
-	services="application-insights"
-	documentationCenter=".net"
-	authors="alancameronwills"
+	pageTitle="ASP.NET 5용 Application Insights" 
+	description="응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다." 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
 	manager="ronmart"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/27/2015" 
 	ms.author="awills"/>
 
 # ASP.NET 5용 Application Insights
 
 Visual Studio Application Insights를 사용하여 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
-![예제](./media/app-insights-asp-net-five/sample.png)
+![예](./media/app-insights-asp-net-five/sample.png)
 
 [Microsoft Azure](http://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, XBox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다.
 
@@ -172,7 +172,7 @@ Visual Studio에서 응용 프로그램을 디버깅하거나 웹 서버에 게�
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -260,4 +260,4 @@ UI의 도달률 섹션을 사용하면 복합 수식을 통해 푸시 알림을 
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

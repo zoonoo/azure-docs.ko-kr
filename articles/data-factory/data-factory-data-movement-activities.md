@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # 데이터 이동 활동
 데이터 팩터리는 [전역적으로 사용할 수 있는 서비스](#global)을 사용하여 아래에 나열된 다양한 데이터 저장소에 걸쳐 [복사 작업](#copyactivity)으로 데이터 이동을 지원합니다. 데이터 팩터리는 데이터 관리 게이트웨이를 사용하는 [온-프레미스 위치와 클라우드 간의 데이터를 안전하게 이동](#moveonpremtocloud)하도록 기본적으로 지원합니다.
+
+복사 작업 사용에 대한 빠른 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 작업 사용](data-factory-get-started.md)을 참조하세요. 자습서에서는 복사 작업을 사용하여 Azure Blob 저장소의 데이터를 Azure SQL 데이터베이스에 복사합니다. 다음 섹션에는 복사 작업에서 지원하는 모든 원본 및 싱크가 나열되어 있습니다.
+
 
 ## 복사 작업을 지원하는 데이터 저장소
 복사 작업은 **원본** 데이터 저장소의 데이터를 **싱크** 데이터 저장소로 복사합니다. 데이터 팩터리는 다음의 데이터 저장소 및 원본, 싱크 조합을 지원합니다. 해당 저장소에서 데이터를 복사하는 방법에 알아보려면 데이터 저장소를 클릭합니다.
@@ -98,4 +101,4 @@
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

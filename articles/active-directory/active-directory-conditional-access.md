@@ -11,8 +11,8 @@
 	ms.service="active-directory"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity" 
 	ms.date="08/19/2015"
 	ms.author="femila"/>
 
@@ -44,4 +44,4 @@ Azure Active Directory, Office 365 및 Microsoft Intune을 통해 제공되는 �
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

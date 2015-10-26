@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure의 Flask 및 Azure 테이블 저장소와 Python Tools 2.2 for Visual Studio"
-	description="Python Tools for Visual Studio를 사용하여 Azure 테이블 저장소에 데이터를 저장하는 플라스크 웹앱을 만들고 Azure 앱 서비스 웹앱에 배포하는 방법에 대해 알아봅니다."
+	pageTitle="Azure의 Flask 및 Azure 테이블 저장소와 Python Tools 2.2 for Visual Studio" 
+	description="Python Tools for Visual Studio를 사용하여 Azure 테이블 저장소에 데이터를 저장하는 플라스크 웹앱을 만들고 Azure 앱 서비스 웹앱에 배포하는 방법에 대해 알아봅니다." 
 	services="app-service\web"
 	tags="python"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -210,4 +210,4 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

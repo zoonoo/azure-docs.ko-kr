@@ -72,4 +72,4 @@ Windows Azure Media Encryptor|PlayReady Protection을 사용하여 미디어 자
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

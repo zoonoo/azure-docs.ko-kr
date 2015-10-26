@@ -99,4 +99,4 @@ DateTime 값을 필터링하려면 **datetime** 키워드를 지정하고 그 �
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

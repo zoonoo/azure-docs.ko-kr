@@ -104,4 +104,4 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 
 [Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

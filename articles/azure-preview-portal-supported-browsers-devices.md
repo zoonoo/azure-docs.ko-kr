@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="지원되는 브라우저 및 장치"
-	description=""
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	manager="lwelicki"
+	pageTitle="지원되는 브라우저 및 장치" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="flanakin" 
+	manager="lwelicki" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/23/2015" 
 	ms.author="micflan"/>
 
 #지원되는 브라우저 및 장치
@@ -33,4 +34,4 @@ Microsoft Azure 포털은 모든 최신 데스크톱 및 태블릿 장치와 브
 
 *Safari 6 이하는 지원되지 않습니다. OS X을 사용하는 경우 Chrome, Firefox를 사용하거나 OS X Mavericks로 업그레이드하여 Safari 7을 구할 수 있습니다.*
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -24,7 +24,8 @@
 
 이 항목에서는 외부에서 인터넷에 액세스할 수 있는 AlwaysOn 가용성 그룹에 대해 수신기를 구성하는 방법을 보여줍니다. 클라우드 서비스의 **공용 VIP(가상 IP)** 주소를 수신기와 연결하면 이 작업이 가능합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-sql-server-alwayson-availability-groups-gui.md)했지만 수신기는 구성하지 않았다고 가정합니다.
 
@@ -125,4 +126,4 @@ AlwaysOn 복제본이 여러 서브넷에 있는 경우 클라이언트가 연�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

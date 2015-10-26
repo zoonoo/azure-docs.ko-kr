@@ -279,4 +279,4 @@ Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

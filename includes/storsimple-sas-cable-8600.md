@@ -46,4 +46,4 @@
     |5, 6|기본 인클로저(EBOD 레이블)에서 SAS 포트|
     |7, 8|EBOD 엔클로저의 SAS 포트(포트 A)|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -18,9 +18,7 @@
 
 # iOS 모바일 앱에 대해 오프라인 동기화 사용
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## 개요
 
@@ -160,9 +158,7 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
     | id | 문자열, 필수로 표시 | 원격 저장소의 기본 키 |
     | complete | Boolean | todo 항목 필드 |
     | 텍스트 | String | todo 항목 필드 |
-    | ms\_createdAt | Date | (선택 사항) \_\_createdAt 시스템 속성에 매핑됩니다. | 
-	| ms\_updatedAt | Date | (선택 사항) \_\_updatedAt 시스템 속성에 매핑됩니다. | 
-	| ms\_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 \_\_version에 매핑됩니다. |
+    | ms\_createdAt | Date | (선택 사항) \_\_createdAt 시스템 속성에 매핑됩니다. | | ms\_updatedAt | Date | (선택 사항) \_\_updatedAt 시스템 속성에 매핑됩니다. | | ms\_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 \_\_version에 매핑됩니다. |
 
 
 ## <a name="setup-sync"></a>앱의 동기화 동작 변경
@@ -226,14 +222,14 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 
     증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이 경우 `pullWithQuery`에 대한 모든 호출에서 모든 레코드가 검색되므로 이는 잠재적으로 비효율적입니다.
 
-<!-- * 모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## 추가 리소스
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화] \(참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 <!-- URLs. -->
 
@@ -250,4 +246,4 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!-----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

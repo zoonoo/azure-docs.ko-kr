@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub 고가용성 및 재해 복구 | Microsoft Azure"
- description="재해 복구(DR) 기능을 사용하여 솔루션을 빌드할 수 있도록 지원하는 기능을 설명합니다."
+ pageTitle="IoT Hub HA 및 DR | Microsoft Azure"
+ description="재해 복구 기능을 사용하여 고가용성 솔루션을 빌드할 수 있도록 지원하는 기능을 설명합니다."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -48,4 +48,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

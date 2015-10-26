@@ -46,4 +46,4 @@ StatefulRunAsyncInvocation, StatefulRunAsyncCompletion 및 StatefulRunAsyncCance
 
 RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 StatefulRunAsyncSlowCancellation이 내보내집니다. 서비스 취소 완료 시간이 너무 오래 걸리는 경우 서비스가 다른 노드에서 신속하게 다시 시작하는 기능에 영향을 미치고 서비스의 전반적인 가용성에 영향을 줄 수 있습니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

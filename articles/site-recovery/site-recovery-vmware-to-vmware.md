@@ -117,4 +117,4 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.<
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

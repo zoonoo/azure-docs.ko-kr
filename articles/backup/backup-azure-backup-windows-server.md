@@ -47,4 +47,4 @@
 - [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -171,4 +171,4 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스에 대한 기록 리�
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

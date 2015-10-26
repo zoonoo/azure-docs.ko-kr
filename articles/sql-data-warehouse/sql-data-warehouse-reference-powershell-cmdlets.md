@@ -111,4 +111,4 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

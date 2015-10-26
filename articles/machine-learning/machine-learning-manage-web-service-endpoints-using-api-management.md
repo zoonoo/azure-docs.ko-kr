@@ -384,4 +384,4 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

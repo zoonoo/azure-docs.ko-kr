@@ -14,7 +14,7 @@
 
 1.  Innotas에 응용 프로그램 통합 사용
 2.  Single Sign-On 구성
-3.  사용자 프로비저닝 구성
+3.  사용자 프로비전 구성
 4.  사용자 할당
 
 ![시나리오](./media/active-directory-saas-innotas-tutorial/IC777331.png "시나리오")
@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-innotas-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-innotas-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -97,4 +97,4 @@ Innotas를 프로비저닝하는 사용자를 구성할 작업 항목이 없습�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -15,38 +15,35 @@
 5. **Columns** 탭을 클릭합니다. 다음의 기본 열이 자동으로 생성되었는지 확인합니다.
 	
 	<table border="1" cellpadding="10">
- 	<tr>
- 	<th>열 이름</th>
- 	<th>유형</th>
- 	<th>인덱스</th>
- 	</tr>
- 	<tr>
- 	<td>id</td>
- 	<td>string</td>
- 	<td>Indexed</td>
- 	</tr>
- 	<tr>
- 	<td>__createdAt</td>
- 	<td>date</td>
- 	<td>Indexed</td>
- 	</tr>
- 	<tr>
- 	<td>__updatedAt</td>
- 	<td>date</td>
- 	<td><font color="transparent">-</font></td>
- 	</tr>
- 	<tr>
- 	<td>__version</td>
- 	<td>timestamp (MSSQL)</td>
- 	<td><font color="transparent">-</font></td>
- 	</tr> 	
- 	</table> 	
-		
+<tr>
+<th>열 이름</th>
+<th>유형</th>
+<th>인덱스</th>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Indexed</td>
+</tr>
+<tr>
+<td>__createdAt</td>
+<td>date</td>
+<td>Indexed</td>
+</tr>
+<tr>
+<td>__updatedAt</td>
+<td>date</td>
+<td><font color="transparent">-</font></td>
+</tr>
+<tr>
+<td>__version</td>
+<td>timestamp (MSSQL)</td>
+<td><font color="transparent">-</font></td>
+</tr> 	
+</table>이 부분이 모바일 서비스의 테이블 최소 요구 사항입니다.
 
-  	이 부분이 모바일 서비스의 테이블 최소 요구 사항입니다.
-
-    > [AZURE.NOTE] 모바일 서비스에서 동적 스키마를 사용하면 삽입 또는 업데이트 작업에서 JSON 개체를 모바일 서비스에 보낼 때 새 열이 자동으로 생성됩니다.
+    > [AZURE.NOTE]모바일 서비스에서 동적 스키마를 사용하면 삽입 또는 업데이트 작업에서 JSON 개체를 모바일 서비스에 보낼 때 새 열이 자동으로 생성됩니다.
 
 이제 새 모바일 서비스를 앱의 데이터 저장소로 사용할 준비가 되었습니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

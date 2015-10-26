@@ -163,4 +163,4 @@ Azure PowerShell을 사용하여 Hadoop 클러스터 크기를 변경하려면 �
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

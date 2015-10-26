@@ -19,7 +19,8 @@
 
 # 클래식 배포 모델에서 가상 컴퓨터에 대한 가용성 집합을 구성하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 가용성 집합을 사용하면 유지 관리 중과 같은 가동 중지 시간 동안에도 가상 컴퓨터를 계속 사용할 수 있습니다. 가용성 집합 내에 비슷하게 구성된 둘 이상의 가상 컴퓨터를 배치하면 가상 컴퓨터가 실행하는 서비스나 응용 프로그램의 가용성을 유지하는 데 필요한 중복성이 생성됩니다. 이 기능이 작동하는 방식에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리][]를 참조하세요.
 
@@ -111,4 +112,4 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 [가상 네트워크 개요(영문)]: virtual-networks-overview.md
 [서비스 관리의 가상 컴퓨터 관련 문서]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

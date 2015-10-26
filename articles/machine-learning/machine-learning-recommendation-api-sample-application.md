@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="기계 학습 권장 사항 API의 공통 작업 | Microsoft Azure"
-	description="Azure ML 권장 사항 샘플 응용 프로그램"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="기계 학습 권장 사항 API의 공통 작업 | Microsoft Azure" 
+	description="Azure ML 권장 사항 샘플 응용 프로그램" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 
@@ -89,4 +89,4 @@ API에 대한 자세한 내용은 Microsoft Azure 마켓플레이스 설명서�
 샘플 앱은 프로덕션 환경에서 실행할 수 없습니다. 카탈로그에 제공되는 데이터가 매우 작기 때문에 의미 있는 권장 사항 모델을 제공하지 않습니다. 제공되는 데이터는 시연용입니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

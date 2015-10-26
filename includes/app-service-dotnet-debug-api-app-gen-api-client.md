@@ -84,4 +84,4 @@ API 앱을 코딩했으면 코드를 테스트해야 합니다.
 
 5. **Enter** 키를 눌러 콘솔 창을 해제합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

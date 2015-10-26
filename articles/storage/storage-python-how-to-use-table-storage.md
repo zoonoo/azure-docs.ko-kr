@@ -144,4 +144,4 @@
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
 [Python Azure 저장소 패키지]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

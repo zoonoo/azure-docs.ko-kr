@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure의 Django 및 SQL 데이터베이스와 Python Tools 2.2 for Visual Studio"
-	description="Python Tools for Visual Studio를 사용하여 SQL 데이터베이스 인스턴스에 데이터를 저장하고 Azure 앱 서비스 웹앱에 배포할 수 있는 Django 웹앱을 만드는 방법에 대해 알아봅니다."
-	services="app-service\web"
+	pageTitle="Azure의 Django 및 SQL 데이터베이스와 Python Tools 2.2 for Visual Studio" 
+	description="Python Tools for Visual Studio를 사용하여 SQL 데이터베이스 인스턴스에 데이터를 저장하고 Azure 앱 서비스 웹앱에 배포할 수 있는 Django 웹앱을 만드는 방법에 대해 알아봅니다." 
+	services="app-service\web" 
 	tags="python"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -220,4 +220,4 @@ Python Tools for Visual Studio, Django and SQL 및 SQL 데이터베이스에 대
 [Django 설명서]: https://www.djangoproject.com/
 [SQL 데이터베이스]: /documentation/services/sql-database/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

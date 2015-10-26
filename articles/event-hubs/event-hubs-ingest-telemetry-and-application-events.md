@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="원격 분석 및 응용 프로그램 이벤트 규모 수집" 
+	pageTitle="원격 분석 및 응용 프로그램 이벤트 규모 수집 | Microsoft Azure" 
 	description="여러 비즈니스 응용 프로그램에서 원격 분석 및 응용 프로그램 이벤트 규모를 수집하는 방법에 대해 알아봅니다." 
 	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sethm"/>
 
 # 원격 분석 및 응용 프로그램 이벤트 규모 수집
@@ -29,11 +29,12 @@
  
 ## 빌드
 - [이벤트 허브 REST API 참조](https://msdn.microsoft.com/library/azure/dn790674.aspx)
-- [이벤트 허브 코드 샘플](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
+- [이벤트 허브 코드 샘플](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## 관련 서비스
-- [Azure 저장소](http://azure.microsoft.com/documentation/services/storage/)
-- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [서비스 버스](http://azure.microsoft.com/services/service-bus/)
+- [Azure 저장소](http://azure.microsoft.com/services/storage/)
+- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

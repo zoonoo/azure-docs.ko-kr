@@ -22,7 +22,8 @@
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Azure 가상 컴퓨터 및 컨테이너
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+ 
 
 Azure는 뛰어난 클라우드 솔루션을 제공합니다. 이 솔루션은 물리적 컴퓨터 하드웨어의 에뮬레이션에 기반한 가상 컴퓨터에 구축되어 물리적 하드웨어보다 소프트웨어가 빠르게 구축되고 리소스 통합이 훨씬 원활하게 수행됩니다. 지난 수년 동안 Linux 컨테이너 기술은 컨테이너 및 Docker 생태계에 대한 [Docker](https://www.docker.com) 접근 방식에 힘입어 분산 소프트웨어의 개발 및 관리 방식을 크게 확장시켰습니다. 컨테이너의 응용 프로그램 코드가 호스트 Azure VM 및 동일 VM 내 다른 컨테이너와 분리되어 있기 때문에 더욱 민첩하게 응용 프로그램을 개발 및 배포할 수 있는 것입니다.
 
@@ -239,4 +240,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

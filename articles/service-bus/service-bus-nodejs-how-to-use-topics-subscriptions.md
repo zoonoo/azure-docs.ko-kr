@@ -325,4 +325,4 @@ for (i = 0;i < 5;i++) {
   [Node.js 웹 응용 프로그램 및 저장소]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->
