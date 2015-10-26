@@ -19,7 +19,8 @@
 
 # Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터에 대해 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 암호를 잊었거나 원격 데스크톱 서비스 구성의 문제로 Windows 가상 컴퓨터에 연결할 수 없는 경우 Azure Preview 포털이나 VMAccess 확장을 사용하여 로컬 관리자 암호를 재설정하거나 원격 데스크톱 서비스 구성을 재설정합니다.
 
@@ -113,4 +114,4 @@ Azure IaaS(Windows) 진단 패키지를 실행할 수 없거나 실행해도 문
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

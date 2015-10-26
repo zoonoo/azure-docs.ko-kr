@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="10/13/2015"
 	ms.author="coreyp"/>
 
 # Azure PowerShell을 설치 및 구성하는 방법#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure CLI</a></div>
+
+> [AZURE.NOTE]이제 [PowerShell 갤러리](http://www.powershellgallery.com/)에서 **Azure PowerShell 1.0 Preview**를 사용할 수 있습니다. 이 Preview에는 많은 변경 사항이 있으며, Microsoft에서는 이를 통해 피드백을 수집하여 Azure PowerShell 1.0에 통합하고자 합니다. **이 Preview는 중요 업무용 응용 프로그램을 위한 것이 아닙니다**. 이러한 응용 프로그램을 실행하는 경우 Azure PowerShell 0.9.8을 계속 사용하세요. 1.0 Preview를 사용하는 경우에도 언제든지 이를 제거하고 0.9.8로 돌아갈 수 있습니다. 전체 설치 지침은 이 [블로그 게시물](https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/)을 참조하세요.
 
 Windows PowerShell을 사용하면 명령 프롬프트에서 대화형으로 또는 스크립트를 통해 자동으로 Azure에서 다양한 작업을 수행할 수 있습니다. Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다. 대부분의 경우 cmdlet을 사용하여 Azure 관리 포털을 통해 수행할 수 있는 것과 동일한 작업을 수행할 수 있습니다. 예를 들어 클라우드 서비스, 가상 컴퓨터, 가상 네트워크 및 웹 앱을 만들고 구성할 수 있습니다.
 
@@ -149,7 +151,7 @@ Azure 구독을 가져오려면 다음을 입력합니다.
 
 1. Azure PowerShell 콘솔을 시작합니다.
 
-2. 웹 응용 프로그램 이름을 선택합니다. DNS 명명 규칙을 준수하는 이름을 선택합니다. 유효한 이름에는 문자 'a'\~'z', 숫자 '0'\~'9', 하이픈('-')만 사용할 수 있습니다.
+2. 웹 응용 프로그램 이름을 선택합니다. DNS 명명 규칙을 준수하는 이름을 선택합니다. 유효한 이름에는 문자 'a'~'z', 숫자 '0'~'9', 하이픈('-')만 사용할 수 있습니다.
 
 	웹 앱 이름 Azure에서 고유해야 합니다. 이 예에서는 "mySite"를 사용하지만 실제로는 계정 이름 뒤에 숫자를 붙인 것과 같은 다른 이름을 선택해야 합니다.
 
@@ -260,4 +262,4 @@ Azure 및 Windows PowerShell을 사용하는 방법을 알아볼 수 있는 몇 
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

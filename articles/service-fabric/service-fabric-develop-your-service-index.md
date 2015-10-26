@@ -87,4 +87,4 @@ Reliable Services는 서비스의 진단 및 모니터링에 사용할 수 있�
 
 - [상태 저장 Reliable Service 진단](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

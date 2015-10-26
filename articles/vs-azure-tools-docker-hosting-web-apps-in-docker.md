@@ -1,19 +1,19 @@
 <properties
    pageTitle="Docker에서 웹 응용 프로그램 호스팅 | Microsoft Azure"
-	description="Visual Studio를 사용하여 Docker 컨테이너의 웹앱에 호스트하는 방법을 알아봅니다. "
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Visual Studio를 사용하여 Docker 컨테이너의 웹앱에 호스트하는 방법을 알아봅니다. "
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Docker에서 웹앱 호스팅
 
@@ -80,7 +80,7 @@ ASP.NET 5 웹 응용 프로그램과 마찬가지로 이 예제는 Docker 확장
     |이미지|Docker 호스트에서 사용할 OS 이미지가 있다면 선택합니다. 이 예제에서는 Ubuntu 서버 이미지를 선택합니다. (Windows Server 이미지는 사용 가능한 이미지 목록에서 현재 사용 가능합니다.)|
     |사용자 이름|가상 컴퓨터의 고유 사용자 이름을 입력합니다.|
     |암호|사용자의 암호를 입력하고 확인합니다.|
-    |인증서 디렉터리 |Docker 인증서가 저장된 폴더를 지정합니다. 새 폴더를 만들거나 기존 폴더를 표시하는 동안 기본 인증서 폴더(C:\\Users\[*username*]\\.docker) 사용이 권장됩니다. 그렇지 않으면, 같은 호스트를 다른 프로젝트 또는 시스템에 재사용할 경우 인증 옵션이 자동으로 검색되지 않습니다.|
+    |인증서 디렉터리 |Docker 인증서가 저장된 폴더를 지정합니다. 새 폴더를 만들거나 기존 폴더를 표시하는 동안 기본 인증서 폴더(C:\\Users\\[*username*]\\.docker) 사용이 권장됩니다. 그렇지 않으면, 같은 호스트를 다른 프로젝트 또는 시스템에 재사용할 경우 인증 옵션이 자동으로 검색되지 않습니다.|
 
 1. **인증서 디렉터리** 항목 옆의 줄임표(...) 단추를 선택한 다음 Docker 인증서의 새 폴더를 만들거나 기존 Docker 인증 폴더로 이동합니다.
 
@@ -177,4 +177,4 @@ Visual Studio의 Dcoker 사용에 관한 문제는 [Visual Studio를 사용하�
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

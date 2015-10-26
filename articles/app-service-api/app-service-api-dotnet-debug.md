@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 디버그
 
 ## 개요
 
-이 자습서에서는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 [API 앱](app-service-api-apps-why-best-platform.md)에서 실행되도록 구성된 ASP.NET Web API 코드를 디버그하는 방법을 배우게 됩니다. (Azure에서 실행하는 동안) 로컬 및 원격으로 모두 디버깅합니다.
+이 자습서에서는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 [API 앱](app-service-api-apps-why-best-platform.md)에서 실행되도록 구성된 ASP.NET Web API 코드를 디버그합니다. 로컬에서 실행되고 Azure에서 원격으로 실행되는 동안 코드를 디버그합니다.
 
 이 자습서는 이 시리즈의 이전 자습서에서 [만들고](app-service-dotnet-create-api-app.md) [배포](app-service-dotnet-deploy-api-app.md)한 API 앱을 사용합니다.
 
@@ -132,8 +132,8 @@ API 응용 프로그램을 로컬로 디버깅하려는 경우가 있을 수 있
 
 ## 다음 단계
 
-이 자습서에서 API 앱을 디버깅 하는 방법에 대해 살펴봤습니다. 문제해결에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요. 앱 서비스 API 앱은 웹 서비스를 호스트하기 위한 추가 기능이 있는 웹앱이므로 웹앱에 사용하는 것과 동일한 디버깅 및 문제 해결 도구를 API 앱에 사용할 수 있습니다.
+이 자습서에서 API 앱을 디버깅 하는 방법에 대해 살펴봤습니다.
 
- 
+문제해결에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요. 앱 서비스 API 앱은 웹 서비스를 호스트하기 위한 추가 기능이 있는 웹앱이므로 웹앱에 사용하는 것과 동일한 디버깅 및 문제 해결 도구를 API 앱에 사용할 수 있습니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

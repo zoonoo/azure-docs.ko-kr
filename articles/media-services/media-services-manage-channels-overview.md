@@ -266,4 +266,4 @@ SCTE-35|디지털 신호 시스템이 큐 광고 삽입에 사용됩니다. 다�
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

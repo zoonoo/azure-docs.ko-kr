@@ -31,7 +31,7 @@
 
 4.  **응용 프로그램 갤러리**를 열려면 **앱 추가**를 클릭한 다음 **조직에서 사용할 응용 프로그램 추가**를 클릭합니다.
 
-    ![무엇을 하시겠습니까?](./media/active-directory-saas-jive-tutorial/IC700995.png "무엇을 하시겠습니까?")
+    ![원하는 작업을 선택하세요.](./media/active-directory-saas-jive-tutorial/IC700995.png "무엇을 하시겠습니까?")
 
 5.  **검색 상자**에 **Jive**를 입력합니다.
 
@@ -70,4 +70,4 @@
   
 이제 테스트 계정을 만들 수 있습니다. 10분 동안 기다린 후 계정이 Jive.com에 동기화되었는지 확인해 보십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

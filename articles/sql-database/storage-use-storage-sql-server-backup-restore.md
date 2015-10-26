@@ -73,4 +73,4 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 [백업 및 복원 모범 사례(Azure Blob 저장소 서비스)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

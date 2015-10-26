@@ -355,4 +355,4 @@ DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 
 - [DocumentDB 쿼리](documentdb-sql-query.md)에 대해 자세히 알아보기
 - [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에 대해 자세히 알아보기
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

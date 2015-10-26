@@ -255,4 +255,4 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많으므
 
 C# 및 Java Script에서 SAS의 자세한 예는 [이 블로그 게시물](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)에 나와 있습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

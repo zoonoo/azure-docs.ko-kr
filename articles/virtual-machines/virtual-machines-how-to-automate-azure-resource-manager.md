@@ -20,7 +20,7 @@
 
 # Azure 리소스 관리자를 사용하여 자동화하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. 클래식 배포 모델을 사용하여 이 리소스를 만들 수 없습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 클래식 배포 모델을 사용하여 이 리소스를 만들 수 없습니다.
 
 Azure 리소스 관리자는 Azure 인프라 서비스에서 실행되는 복잡한 응용 프로그램의 배포와 관리를 단순화합니다. 많은 응용 프로그램에는 가상 네트워크, 저장소 계정 및 네트워크 인터페이스가 있는 가상 컴퓨터와 같은 계산, 네트워크 및 저장소 리소스의 조합이 필요합니다. Azure 리소스 관리자는 JSON 템플릿을 사용하거나 생성하여 이 모든 리소스를 단일 응용 프로그램으로 배포 및 관리할 수 있습니다.
 
@@ -74,4 +74,4 @@ Azure 리소스 관리자는 Azure 인프라 서비스에서 실행되는 복잡
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

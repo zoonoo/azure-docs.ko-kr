@@ -98,6 +98,7 @@
 [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [모바일 서비스 시작]: mobile-services-dotnet-backend-ios-get-started.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/
 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

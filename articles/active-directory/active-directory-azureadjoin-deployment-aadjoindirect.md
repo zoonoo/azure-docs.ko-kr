@@ -87,4 +87,4 @@ Azure AD 연결은 현재 클라우드에서 업무용 ID를 작동 및 관리�
 * [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

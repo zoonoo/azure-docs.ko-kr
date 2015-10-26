@@ -44,4 +44,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure API �
 * [#Azure API 관리 REST API에 대한 PowerShell 모듈](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/) 커뮤니티 블로그 게시물을 읽어보세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

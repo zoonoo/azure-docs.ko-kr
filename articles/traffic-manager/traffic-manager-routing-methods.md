@@ -1,19 +1,19 @@
 <properties 
    pageTitle="트래픽 관리자 - 트래픽 라우팅 방법 | Microsoft Azure"
-	description="이 문서는 트래픽 관리자에서 사용하는 다양한 트래픽 라우팅 방법을 이해하는 데 도움이 됩니다."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="이 문서는 트래픽 관리자에서 사용하는 다양한 트래픽 라우팅 방법을 이해하는 데 도움이 됩니다."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 트래픽 관리자 라우팅 방법
 
@@ -137,4 +137,4 @@ Azure PowerShell cmdlet 사용에 대한 자세한 내용은 [Azure 트래픽 �
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -320,4 +320,4 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

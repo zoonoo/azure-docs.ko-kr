@@ -2,8 +2,11 @@
 	pageTitle="Azure에서 고급 분석 솔루션 구축 | Microsoft Azure" 
 	description="클라우드에서 데이터 과학 및 기계 학습에 Azure를 사용하는 단계를 설명하는 가이드입니다." 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
+	videoId="" 
+	scriptId="" 
 	manager="paulettm" />
 
 <tags 
@@ -26,4 +29,4 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

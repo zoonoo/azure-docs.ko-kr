@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭 서비스 매니페스트 리소스"
-	description="서비스 매니페스트에 리소스를 설명하는 방법"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="서비스 매니페스트에 리소스를 설명하는 방법"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # 서비스 매니페스트 리소스
 
@@ -69,4 +69,4 @@ HTTP 끝점은 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
 ```
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

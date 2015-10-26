@@ -52,4 +52,4 @@ Azure 인증서(자체 서명 인증서 만들기를 비롯한)에 대한 자세
 
 이제 구독과 연관된 관리 인증서가 있으므로(로컬에서 일치하는 인증서를 설치한 후에) [서비스 관리 REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx)에 프로그래밍 방식으로 연결할 수 있고 구독과 연관된 다양한 Azure 리소스를 자동화할 수 있습니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

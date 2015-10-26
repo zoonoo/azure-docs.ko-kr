@@ -113,4 +113,4 @@ $/#application/YOUR\_APPID/native-push에서 OAuth 자격 증명(클라이언트
 [이 절차]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -14,4 +14,4 @@
 디스크당 IOPS | 500 | 2300 | 5000
 디스크당 처리량 | 초당 100MB | 초당 150MB | 초당 200MB
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

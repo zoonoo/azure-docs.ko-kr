@@ -69,4 +69,4 @@ SQL Server에는 SQL 데이터베이스가 액세스 제한, 데이터 보호 �
 
 - [첫 번째 데이터베이스 만들기](sql-database-get-started.md)로 시작합니다. 그런 다음 [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) 또는 [Ruby](sql-database-develop-ruby-simple-linux)에서 첫 앱을 만듭니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

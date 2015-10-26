@@ -526,7 +526,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
-3. 스크립트에서 첫 6개의 변수를 설정합니다. **$stringPrefix** 변수는 HDInsight 클러스터 이름, 저장소 계정 이름 및 Blob 저장소 컨테이너 이름에 지정된 문자열을 접두사로 추가하는 데 사용됩니다. 이러한 항목의 이름은 3\~24자여야 하므로 지정하는 문자열과 이 스크립트가 사용하는 이름을 합한 길이가 이름의 문자 제한을 초과하지 않는지 확인해야 합니다. 모두 **$stringPrefix**의 소문자를 사용해야 합니다.
+3. 스크립트에서 첫 6개의 변수를 설정합니다. **$stringPrefix** 변수는 HDInsight 클러스터 이름, 저장소 계정 이름 및 Blob 저장소 컨테이너 이름에 지정된 문자열을 접두사로 추가하는 데 사용됩니다. 이러한 항목의 이름은 3~24자여야 하므로 지정하는 문자열과 이 스크립트가 사용하는 이름을 합한 길이가 이름의 문자 제한을 초과하지 않는지 확인해야 합니다. 모두 **$stringPrefix**의 소문자를 사용해야 합니다.
 
 	**$storageAccountName\_Data** and **$containerName\_Data** 변수는 데이터 파일 및 응용 프로그램을 저장하는 데 사용되는 저장소 계정 및 컨테이너입니다. **$location** 변수는 데이터 저장소 계정 위치와 일치해야 합니다.
 
@@ -610,4 +610,4 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

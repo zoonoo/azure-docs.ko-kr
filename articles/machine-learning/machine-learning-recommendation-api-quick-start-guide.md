@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="빠른 시작 가이드: 기계 학습 권장 사항 API | Microsoft Azure"
-	description="Azure 기계 학습 권장 사항 - 빠른 시작 가이드"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="빠른 시작 가이드: 기계 학습 권장 사항 API | Microsoft Azure" 
+	description="Azure 기계 학습 권장 사항 - 빠른 시작 가이드" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 # 기계 학습 권장 사항 API에 대한 빠른 시작 가이드
@@ -673,4 +673,4 @@ OData XML
 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다. 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

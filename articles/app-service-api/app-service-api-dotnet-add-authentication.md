@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure API 앱 보호"
-	description="Visual Studio를 사용하여 Azure API 앱을 보호하는 방법에 대해 알아봅니다."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Azure API 앱 보호" 
+	description="Visual Studio를 사용하여 Azure API 앱을 보호하는 방법에 대해 알아봅니다." 
+	services="app-service\api" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # API 앱 보호: Azure Active Directory 또는 소셜 공급자 인증 추가
@@ -272,4 +272,4 @@ Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure Preview 포털]: https://portal.azure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

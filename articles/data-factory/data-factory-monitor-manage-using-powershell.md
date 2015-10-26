@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="자습서: Azure PowerShell을 사용하여 복사 작업이 있는 파이프라인 만들기"
-	description="이 자습서에서는 Azure PowerShell을 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="자습서: Azure PowerShell을 사용하여 복사 작업이 있는 파이프라인 만들기" 
+	description="이 자습서에서는 Azure PowerShell을 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # 자습서: Azure PowerShell을 사용하여 데이터 팩터리 만들기 및 모니터링
@@ -229,9 +229,9 @@
 
 	JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](http://go.microsoft.com/fwlink/?LinkId=516971)를 참조하세요.
 
-2.	다음 명령을 실행하여 데이터 팩터리 테이블을 만듭니다.
+2.	다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 
-		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### 출력 테이블 만들기
 이 단계에서는 **AzureSqlLinkedService** 연결된 서비스가 나타내는 Azure SQL 데이터베이스의 SQL 테이블(**emp**)을 가리키는 **EmpSQLTable**이라는 출력 테이블을 만듭니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다.
@@ -271,9 +271,9 @@
 	* 데이터베이스의 emp 테이블에는 세 개의 열 **ID**, **FirstName** 및 **LastName**이 있지만 ID는 ID 열이므로 여기서는 **FirstName**과 **LastName**만 지정하면 됩니다.
 	* **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
-2.	다음 명령을 실행하여 데이터 팩터리 테이블을 만듭니다.
+2.	다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 	
-		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>4단계: 파이프라인 만들기 및 실행
@@ -432,4 +432,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

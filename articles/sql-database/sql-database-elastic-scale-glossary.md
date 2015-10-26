@@ -80,4 +80,4 @@ Azure SQL 데이터베이스의 탄력적 데이터베이스 도구, 기능에 �
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

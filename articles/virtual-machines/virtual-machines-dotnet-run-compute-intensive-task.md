@@ -21,7 +21,8 @@
 
 Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처리할 수 있습니다. 예를 들어 가상 컴퓨터는 작업을 처리하고 그 결과를 클라이언트 컴퓨터 또는 모바일 응용 프로그램에 제공할 수 있습니다. 이 자습서를 완료하면 다른 .NET 응용 프로그램에서 모니터링할 수 있는 계산 집약적인 .NET 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법을 이해할 수 있게 됩니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 자습서는 .NET 콘솔 응용 프로그램을 만드는 방법을 알고 있는 개발자를 대상으로 합니다. Azure에 대한 지식은 없는 것으로 가정합니다.
 
@@ -549,4 +550,4 @@ TSPSolver를 사용하여 큐를 만들거나 삭제하는 대신 [Azure 포털]
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

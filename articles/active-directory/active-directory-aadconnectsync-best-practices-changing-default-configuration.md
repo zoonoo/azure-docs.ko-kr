@@ -1,5 +1,5 @@
 <properties
-	pageTitle="기본 구성 변경에 대한 모범 사례 | Microsoft Azure"
+	pageTitle="기본 구성 변경에 대한 모범 사례 | Microsoft Azure | Microsoft Azure"
 	description="Azure AD Connect 동기화의 기본 구성을 변경의 모범 사례를 제공합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -55,11 +55,11 @@ Azure AD Connect 동기화 구성에서 변경 사항 적용이 지원되지만,
 
 
 
-## 추가 리소스
+## 다음 단계
+[Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
-* [Azure AD Connect Sync: 동기화 옵션 사용자 지정](active-directory-aadconnectsync-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

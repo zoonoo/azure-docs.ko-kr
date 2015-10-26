@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync: 사용자 및 연락처 이해"
+	pageTitle="Azure AD Connect Sync: 사용자 및 연락처 이해 | Microsoft Azure"
 	description="Azure AD Connect Sync 내의 사용자 및 연락처에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -72,7 +72,7 @@ Azure AD에 개체를 프로비전하는 경우에는 메타 버스 특성 **sou
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

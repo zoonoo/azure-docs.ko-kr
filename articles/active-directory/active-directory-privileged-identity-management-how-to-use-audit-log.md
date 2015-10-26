@@ -57,4 +57,4 @@ PIM 대시보드에서 Audit history(감사 기록)을 클릭하여 감사 로�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

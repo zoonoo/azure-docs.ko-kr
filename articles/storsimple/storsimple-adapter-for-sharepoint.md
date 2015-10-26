@@ -306,6 +306,6 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/KO-KR/library/ff943565.aspx
+[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -245,4 +245,4 @@ Add-AzureVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 �
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

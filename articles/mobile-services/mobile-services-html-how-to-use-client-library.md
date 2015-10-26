@@ -665,4 +665,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

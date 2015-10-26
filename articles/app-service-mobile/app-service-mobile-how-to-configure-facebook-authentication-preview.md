@@ -77,8 +77,8 @@
 <!-- URLs. -->
 [Facebook 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 관리 포털]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

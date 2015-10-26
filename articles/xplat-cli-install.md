@@ -21,7 +21,8 @@
 
 이 문서에서는 Azure CLI(Azure 명령줄 인터페이스)를 설치하는 방법을 설명합니다. Azure CLI는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 제공합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만들고 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
+
 
 Azure CLI는 JavaScript로 작성되므로 [Node.js](https://nodejs.org)가 필요합니다. [노드용 Azure SDK](https://github.com/azure/azure-sdk-for-node)를 사용하여 구현되고, Apache 2.0 라이선스 하에 릴리스되었습니다. 프로젝트 리포지토리는 [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli)에 있습니다.
 
@@ -155,4 +156,4 @@ Azure CLI가 설치되었으면 명령줄 사용자 인터페이스(Bash, 터미
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

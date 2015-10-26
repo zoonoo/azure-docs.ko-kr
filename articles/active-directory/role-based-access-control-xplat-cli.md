@@ -151,4 +151,4 @@ Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법�
 - [Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-powershell.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

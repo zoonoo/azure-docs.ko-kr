@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 데이터 카탈로그 - 데이터 카탈로그란"
-	description="해당 기능 및 주소로 설계를 포함하여 Microsoft Azure 데이터 카탈로그를 간략하게 설명합니다. Azure 데이터 카탈로그는 분석가에서부터 데이터 과학자 및 개발자에 이르는 모든 사용자가 데이터 입력을 등록, 검색, 이해 및 소비할 수 있도록 지원하는 성능을 제공합니다."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="해당 기능 및 주소로 설계를 포함하여 Microsoft Azure 데이터 카탈로그를 간략하게 설명합니다. Azure 데이터 카탈로그는 분석가에서부터 데이터 과학자 및 개발자에 이르는 모든 사용자가 데이터 입력을 등록, 검색, 이해 및 소비할 수 있도록 지원하는 성능을 제공합니다."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/21/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/21/2015"
+   ms.author="maroche"/>
 
 # Azure 데이터 카탈로그란?
 
@@ -122,4 +122,4 @@ Microsoft**Azure 데이터 카탈로그**는 등록 시스템과 엔터프라이
 
 > [AZURE.NOTE]Azure 데이터 카탈로그의 미리 보기의 경우 Microsoft Excel 및 SQL Server Reporting Services 보고서 관리자만 **Open In(열기)** 메뉴에서 직접 지원되고 사용 가능합니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="10/08/2015"
    ms.author="jdial"/>
 
 # Microsoft Azure의 개발 및 테스트 환경
@@ -178,9 +178,9 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
   **방법 2:** PowerShell
 
-  [Azure PowerShell 설치 및 구성 방법](powershell-install-configure.md) 문서에 자세히 설명한 대로 Windows 컴퓨터에 PowerShell을 설치하고 사용자의 구독에 연결했는지 확인합니다. PowerShell 명령 프롬프트에서 개발 환경에 대한 리소스 그룹을 만들려면 아래 명령을 입력합니다.
+  [Azure PowerShell 설치 및 구성 방법](powershell-install-configure.md) 문서에 자세히 설명한 대로 Windows 컴퓨터에 PowerShell을 설치하고 사용자의 구독에 연결했는지 확인합니다. PowerShell 명령 프롬프트에서 개발 환경에 대한 리소스 그룹을 만들려면 아래 명령을 입력합니다. Azure PowerShell 1.0 Preview를 사용하는 경우 명령은 아래 나와 있는 것처럼 **New-AzureRmResourceGroup**입니다. Azure PowerShell 1.0 Preview 이전 버전을 사용하는 경우 명령은 **New-AzureResourceGroup**입니다.
 
-	New-AzureResourceGroup -Name TestApp1-Development -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
   명령이 성공하면 다음 결과를 반환합니다.
 
@@ -200,15 +200,15 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
   테스트 환경에 대한 리소스 그룹을 만들려면 아래 명령을 입력합니다.
 
-	New-AzureResourceGroup -Name TestApp1-Test -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
 
   프로덕션 전 환경에 대한 리소스 그룹을 만들려면 아래 명령을 입력합니다.
 
-	New-AzureResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
 
- **6 단계:** 아래 방법 중 하나를 수행하여 응용 프로그램용 템플릿 파일 및 각 환경용 매개 변수 파일을 사용하여 Azure 리소스를 각 환경에 대한 리소스 그룹에 배포합니다. 두 방법 모두 정확히 같은 결과를 달성합니다.
+ **6단계:** 아래 방법 중 하나를 수행하여 응용 프로그램용 템플릿 파일 및 각 환경용 매개 변수 파일을 사용하여 Azure 리소스를 각 환경에 대한 리소스 그룹에 배포합니다. 두 방법 모두 정확히 같은 결과를 달성합니다.
 
-  **방법 1:** Azure 명령줄 인터페이스(CLI)
+  **방법 1:** Azure CLI(명령줄 인터페이스)
 
   CLI 명령줄에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 개발 환경에 대해 만든 리소스 그룹에 배포합니다.
 
@@ -256,9 +256,9 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
   
   **방법 2:** PowerShell
 
-  PowerShell 명령프롬프트에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 개발 환경에 대해 만든 리소스 그룹에 배포합니다.
+  PowerShell 명령프롬프트에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 개발 환경에 대해 만든 리소스 그룹에 배포합니다. Azure PowerShell 1.0 Preview를 사용하는 경우 명령은 아래 나와 있는 것처럼 **New-AzureRmResourceGroupDeployment**입니다. Azure PowerShell 1.0 Preview 이전 버전을 사용하는 경우 명령은 **New-AzureResourceGroupDeployment**입니다.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
   명령이 성공하면 다음 결과를 반환합니다.
 
@@ -292,18 +292,18 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
   PowerShell 명령프롬프트에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 테스트 환경에 대해 만든 리소스 그룹에 배포합니다.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
 
   PowerShell 명령프롬프트에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 프로덕션 전 환경에 대해 만든 리소스 그룹에 배포합니다.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
 
 소스 제어 시스템의 응용 프로그램 코드를 사용하여 템플릿 및 매개 변수 파일을 버전 지정하고 유지 관리할 수 있습니다. 또한 위의 명령을 스크립트 파일에 저장하고 사용자의 코드도 함께 저장할 수 있습니다.
 
 ## 환경 유지 관리
 개발 과정 전체에 걸쳐 서로 다른 환경에서 Azure 리소스의 구성이 의도적으로 또는 실수로 일관성 없이 변경될 수 있습니다. 이 때문에 응용 프로그램 개발 주기에 불필요한 문제 해결을 야기할 수 있습니다.
 
-  **7 단계:** 환경을 변경 합니다. [Azure Preview포털](https://portal.azure.com)을 열고 위의 단계를 완료하는 데 사용한 것과 동일한 계정을 사용하여 로그인합니다. 아래 그림과 같이 모두 찾아보기-->리소스 그룹을 클릭합니다(리소스 그룹을 보려면 찾아보기 블레이드에서 아래로 스크롤해야 할 수 있음). 이전 단계의 방법 중 하나를 사용하여 만든 리소스 그룹 3개가 모두 나타납니다. 아래와 같이 TestApp1-Development 리소스 그룹을 클릭합니다.
+  **7단계:** 환경을 변경합니다. [Azure Preview 포털](https://portal.azure.com)을 열고 위의 단계를 완료하는 데 사용한 것과 동일한 계정을 사용하여 로그인합니다. 아래 그림과 같이 모두 찾아보기-->리소스 그룹을 클릭합니다(리소스 그룹을 보려면 찾아보기 블레이드에서 아래로 스크롤해야 할 수 있음). 이전 단계의 방법 중 하나를 사용하여 만든 리소스 그룹 3개가 모두 나타납니다. 아래와 같이 TestApp1-Development 리소스 그룹을 클릭합니다.
 
   ![포털](./media/solution-dev-test-environments-preview-portal/portal1.png)
 
@@ -315,7 +315,7 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
 > [AZURE.NOTE]Azure Preview 포털을 사용하여 리소스 그룹에서 리소스를 삭제하는 대신 CLI에서 [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) 명령 또는 "azure resource delete" 명령을 사용하여 같은 작업을 달성할 수 있습니다.
 
-  **8 단계:** 6단계에서 사용한 것과 동일한 명령을 사용하여 환경을 리소스 그룹에 다시 배포하되 "Deployment1"을 "Deployment2"로 바꿉니다. 아래 그림의 요약 섹션과 같이 템플릿에서 나온 모든 리소스가 TestApp1-Development 리소스 그룹에 다시 존재하는 것을 볼 수 있습니다. Azure 리소스 관리자 템플릿을 사용하여 환경을 배포하는 방법의 이점 중 하나는 환경을 언제든지 알려진 상태로 되돌려 쉽게 다시 배포할 수 있다는 것입니다.
+  **8단계:** 6단계에서 사용한 것과 동일한 명령을 사용하여 환경을 리소스 그룹에 다시 배포하되 "Deployment1"을 "Deployment2"로 바꿉니다. 아래 그림의 요약 섹션과 같이 템플릿에서 나온 모든 리소스가 TestApp1-Development 리소스 그룹에 다시 존재하는 것을 볼 수 있습니다. Azure 리소스 관리자 템플릿을 사용하여 환경을 배포하는 방법의 이점 중 하나는 환경을 언제든지 알려진 상태로 되돌려 쉽게 다시 배포할 수 있다는 것입니다.
 
   ![포털](./media/solution-dev-test-environments-preview-portal/portal3.png)
 
@@ -324,7 +324,7 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 ## 환경 삭제
 환경에 대한 작업을 마친 후 더 이상 사용하지 않는 Azure 리소스에 대한 사용량 수수료가 발생하지 않도록 해당 리소스를 삭제하는 것이 좋습니다. 환경을 삭제하는 것은 환경을 만드는 것보다 더 쉽습니다. 이전 단계에서 각 환경에 대해 개별 Azure 리소스 그룹이 만들어졌습니다. 리소스 그룹을 삭제하면 해당 그룹에 포함된 리소스도 모두 삭제됩니다. 아래 방법 중 하나를 수행하면 환경에서 이전에 배포한 모든 Azure 리소스와 함께 환경(리소스 그룹)이 삭제됩니다.
 
-  **9 단계:** 아래 방법 중 하나를 사용하여 환경을 삭제합니다. 두 방법 모두 정확히 같은 결과를 달성합니다.
+  **9단계:** 아래 방법 중 하나를 사용하여 환경을 삭제합니다. 두 방법 모두 정확히 같은 결과를 달성합니다.
 
   **방법 1: Azure CLI**
 
@@ -346,9 +346,9 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
   
   **방법 2:** PowerShell
 
-  PowerShell 프롬프트에서 다음을 입력합니다.
+  Azure PowerShell 1.0 Preview를 사용하는 경우 리소스 그룹을 삭제하는 명령은 아래 나와 있는 것처럼 **Remove-AzureRmResourceGroup**입니다. Azure PowerShell 1.0 Preview 이전 버전을 사용하는 경우 명령은 **Remove-AzureResourceGroup**입니다. PowerShell 프롬프트에서 다음을 입력합니다.
 
-	Remove-AzureResourceGroup -Name TestApp1-Development
+	Remove-AzureRmResourceGroup -Name TestApp1-Development
 
   프롬프트가 표시될 때 “y”를 입력하면 명령이 다음 결과를 반환합니다.
 
@@ -358,8 +358,8 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
   PowerShell 프롬프트에서 다음을 입력하여 남은 환경을 삭제합니다.
 
-	Remove-AzureResourceGroup -Name TestApp1-Test
-	Remove-AzureResourceGroup -Name TestApp1-Pre-Production
+	Remove-AzureRmResourceGroup -Name TestApp1-Test
+	Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
 
 사용하는 방법에 상관없이 명령이 실행을 마친 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 더 이상 존재하지 않으며 리소스에 대한 비용 청구가 더 이상 발생하지 않습니다.
 
@@ -372,7 +372,7 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
 ## 다음 단계
 
-- Microsoft Azure AD 그룹 또는 사용자를 Azure 리소스에 대한 작업의 부분집합을 수행하는 기능을 가진 특정 역할에 할당하여 각 환경의 서로 다른 리소스에 [관리 제어를 위임](role-based-access-control-configure.md)합니다.
+- Microsoft Azure AD 그룹 또는 사용자를 Azure 리소스에 대한 작업의 하위 집합을 수행하는 기능을 가진 특정 역할에 할당하여 각 환경의 서로 다른 리소스에 [관리 제어를 위임](role-based-access-control-configure.md)합니다.
 - 각 환경에 대한 리소스 그룹 및/또는 개별 리소스에 [태그를 할당](resource-group-using-tags.md)합니다. 리소스 그룹에 "환경" 태그를 추가하고 해당 태그의 값을 사용자의 환경 이름과 일치하도록 설정합니다. 태그는 청구 또는 관리에 대한 리소스를 구성해야 하는 경우 특히 유용할 수 있습니다.
 - [Azure Preview 포털](https://portal.azure.com)의 리소스 그룹 리소스에 대한 경고 및 청구를 모니터링합니다.
 
@@ -380,8 +380,8 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
 - Azure SDK 2.6이 설치된 상태에서 [Visual Studio에서 Azure 리소스 관리자 템플릿을 만들고 배포](http://msdn.microsoft.com/library/azure/Dn872471.aspx)합니다.
 - [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), [Visual Studio Code](http://www.visualstudio.com/products/code-vs) 또는 [Web Matrix](http://www.microsoft.com/web/webmatrix/)을 사용하여 응용 프로그램을 만듭니다.
-- 만든 환경에 [웹 앱을 배포](app-service-web/web-sites-deploy.md)합니다.
-- [Visual Studio 릴리스 관리](http://msdn.microsoft.com/Library/vs/alm/Release/overview)를 사용하여 관리되는 연속 배포 파이프라인을 만들어 빠르고 쉽게 자주 해제합니다.
+- 만든 환경에 [웹앱을 배포](app-service-web/web-sites-deploy.md)합니다.
+- [Visual Studio 릴리스 관리](http://msdn.microsoft.com/Library/vs/alm/Release/overview)를 사용하여 관리되는 지속적인 배포 파이프라인을 만들어 빠르고 쉽게 자주 해제합니다.
 - [Azure Dev/Test Lab](http://azure.microsoft.com/campaigns/devtest-lab/)의 미리 보기에 대한 초대를 요청합니다. 이 초대를 통해 템플릿을 사용하여 Dev 및 Test Lab 환경을 관리하고, 조직 내에서 사용할 할당량 및 정책을 구성합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

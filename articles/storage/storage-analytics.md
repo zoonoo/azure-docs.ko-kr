@@ -206,4 +206,4 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 - [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx)
 - [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

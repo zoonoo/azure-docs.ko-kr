@@ -67,4 +67,4 @@ SQL Alwayson을 만드는 방법에 대한 자세한 내용은 [자습서: Azure
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

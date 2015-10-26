@@ -187,4 +187,4 @@ PowerShell 또는 Azure 포털을 통해 **탄력적 데이터베이스 작업**
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

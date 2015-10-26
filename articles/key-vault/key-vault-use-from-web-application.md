@@ -243,4 +243,4 @@ StoreLocation은 LocalMachine이 아닌, CurrentUser입니다. 테스트 인증�
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -126,4 +126,4 @@ Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인
 
 아니요, Azure RemoteApp에서 지원되지 않습니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

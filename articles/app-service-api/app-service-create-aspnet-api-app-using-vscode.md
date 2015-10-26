@@ -401,8 +401,7 @@ Git는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 �
 
 	![Git 초기화](./media/app-service-create-aspnet-api-app-using-vscode/19-initgit.png)
 
-5. 
-6. 커밋 메시지를 추가하고 **모두 커밋** 확인란을 클릭합니다.
+5. 커밋 메시지를 추가하고 **모두 커밋** 확인란을 클릭합니다.
 
 	![Git 모두 커밋](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
 
@@ -413,13 +412,13 @@ Git는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 �
 cd c:\VSCodeProjects\ContactsList
 </pre>
 
-7. 앞에서 복사한 Git URL(“.git”으로 끝남)을 사용하여 이전에 만든 웹앱(API 앱 호스트)에 업데이트를 푸시하기 위한 원격 참조를 만듭니다.
+8. 앞에서 복사한 Git URL(“.git”으로 끝남)을 사용하여 이전에 만든 웹앱(API 앱 호스트)에 업데이트를 푸시하기 위한 원격 참조를 만듭니다.
 
 	<pre class="prettyprint">
 git remote add azure [URL for remote repository]
 </pre>
 
-8. 다음 명령을 입력하여 변경 내용을 Azure에 푸시합니다.
+9. 다음 명령을 입력하여 변경 내용을 Azure에 푸시합니다.
 
 	<pre class="prettyprint">
 git push azure master
@@ -451,4 +450,4 @@ Azure Preview 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드�
 이 자습서에서는 Visual Studio Code에서 API 앱을 만드는 방법을 알아보았습니다. Visual Studio Code에 대한 자세한 내용은 [Visual Studio Code](https://code.visualstudio.com/Docs/)를 참조하세요. API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -45,4 +45,4 @@ X12 API 앱의 인스턴스를 만들면 해당 인스턴스를 찾아서 추적
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

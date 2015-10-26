@@ -55,4 +55,4 @@ Azure RemoteApp 컬렉션을 나타내며 여기에서 액세스가 필요한 Re
 
 [강제 터널링](vpn-gateway-about-forced-tunneling.md)은 이제 모든 새 Azure RemoteApp 컬렉션에 지원됩니다. 현재 강제 터널링을 지원하기 위해 기존 컬렉션의 마이그레이션이 지원되지 않습니다. Azure RemoteApp에 연결 중인 VNET을 사용하여 모든 기존 컬렉션을 삭제하고 컬렉션에서 활성화된 강제 터널링을 가져오도록 새 것을 만들어야 합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

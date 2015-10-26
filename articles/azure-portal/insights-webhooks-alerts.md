@@ -87,11 +87,11 @@ Webhook URI는 유효한 HTTP 또는 HTTPS 끝점이어야 합니다. Azure 경�
 |conditionType |Y |“Metric”, “Event” |두 형식의 경고가 지원됩니다. 메트릭에 기반한 경고 및 기타 이벤트에 기반한 경고가 있습니다. 미래에 경고 이벤트에 대해 지원할 예정이므로 이 값을 사용하여 경고가 메트릭 또는 이벤트 중 어디에 기반하는지 확인합니다.|
 |condition |Y | |conditionType에 기반하는지 검사할 특정 필드가 있습니다.|
 |metricName |메트릭 경고의 경우 | |규칙은 모니터링을 정의하는 메트릭의 이름입니다.|
-|metricUnit |메트릭 경고의 경우 |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 메트릭에 사용되는 단위입니다. 허용되는 값은 https://msdn.microsoft.com/ko-kr/library/microsoft.azure.insights.models.unit.aspx|과 같습니다.
+|metricUnit |메트릭 경고의 경우 |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 메트릭에 사용되는 단위입니다. 허용되는 값은 https://msdn.microsoft.com/en-us/library/microsoft.azure.insights.models.unit.aspx|과 같습니다.
 |metricValue |메트릭 경고의 경우 | |경고를 발생하는 메트릭의 실제 값|
 |threshold |메트릭 경고의 경우 | |경고를 활성화하는 임계값|
 |windowSize |메트릭 경고의 경우 | |임계값에 기반하여 경보 활동을 모니터링하는 데 사용되는 기간입니다. 5분에서 하루 사이여야 합니다. ISO 8601 기간 형식입니다.|
-|timeAggregation |메트릭 경고의 경우 |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	데이터가 수집되는 방법은 시간이 지남에 따라 결합되어야 합니다. 기본값은 평균입니다. 허용되는 값은 https://msdn.microsoft.com/ko-kr/library/microsoft.azure.insights.models.aggregationtype.aspx|과 같습니다.
+|timeAggregation |메트릭 경고의 경우 |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	데이터가 수집되는 방법은 시간이 지남에 따라 결합되어야 합니다. 기본값은 평균입니다. 허용되는 값은 https://msdn.microsoft.com/en-us/library/microsoft.azure.insights.models.aggregationtype.aspx|과 같습니다.
 |operator |메트릭 경고의 경우 | |데이터 및 임계값을 비교하는 데 사용되는 연산자입니다.|
 |subscriptionId |Y | |Azure 구독 GUID|
 |resourceGroupName |Y | |영향을 받는 리소스의 리소스-그룹-이름|
@@ -123,4 +123,4 @@ Azure 경고를 사용하여 다른 서비스에 메시지를 보냅니다. 다�
 
 [논리 앱을 사용하여 Azure 큐에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

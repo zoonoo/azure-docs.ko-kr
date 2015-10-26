@@ -177,4 +177,4 @@ Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 �
 * [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

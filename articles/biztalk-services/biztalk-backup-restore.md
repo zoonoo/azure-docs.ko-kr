@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mandia"/>
 
 
@@ -233,4 +233,4 @@ Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

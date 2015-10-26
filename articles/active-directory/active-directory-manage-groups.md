@@ -94,4 +94,4 @@ Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 
 
 * [그룹에 대한 그래프 API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

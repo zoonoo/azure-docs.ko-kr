@@ -101,4 +101,4 @@
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [이벤트 허브 개요]: https://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

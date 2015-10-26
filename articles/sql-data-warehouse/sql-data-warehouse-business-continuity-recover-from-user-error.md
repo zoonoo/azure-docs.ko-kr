@@ -132,8 +132,8 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 [데이터베이스 작업 상태]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [복원 가능한 삭제된 데이터베이스 가져오기]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [복원 가능한 삭제된 데이터베이스 나열]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/ko-KR/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/en-us/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

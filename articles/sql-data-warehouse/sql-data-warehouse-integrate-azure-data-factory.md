@@ -41,14 +41,14 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: https://azure.microsoft.com/ko-kr/documentation/articles/data-factory-azure-sql-connector/
-[SQL Data Warehouse development overview]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-overview-develop/
-[SQL Data Warehouse integration overview]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-overview-integrate/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-sql-connector/
+[SQL Data Warehouse development overview]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-integrate/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Azure 데이터 팩터리 설명서]: https://azure.microsoft.com/documentation/services/data-factory/
-[Copy data with Azure Data Factory]: https://azure.microsoft.com/ko-kr/documentation/articles/data-factory-data-movement-activities/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/en-us/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

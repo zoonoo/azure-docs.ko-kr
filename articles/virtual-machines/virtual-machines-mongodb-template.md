@@ -19,7 +19,8 @@
 
 # Azure 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 MongoDB는 높은 성능, 고가용성 및 자동 크기 조정을 제공하는 공개 소스 문서 데이터베이스입니다. MongoDB는 기본 제공되는 복제 기능을 활용하여 독립 실행형 데이터베이스 또는 클러스터 내에서 설치할 수 있습니다. 경우에 따라 읽기 용량을 늘리려면 복제를 사용할 수 있습니다. 클라이언트에는 서로 다른 서버에 읽기 및 쓰기 작업을 보내는 기능이 있습니다. 분산된 응용 프로그램을 위한 데이터의 위치 및 가용성을 높이기 위해 다른 데이터 센터에 복사본을 유지할 수도 있습니다. MongoDB를 사용하여 복제는 중복성을 제공하고 데이터 가용성을 높일 수도 있습니다. 다른 데이터베이스 서버에서 데이터의 여러 복사본을 사용하여 복제는 단일 서버 손실로부터 데이터베이스를 보호합니다. 복제를 사용하면 하드웨어 오류 및 서비스 중단에서 복구할 수도 있습니다. 데이터의 추가 복사본을 사용하여 한 복사본은 재해 복구, 보고 또는 백업에 전념할 수 있습니다.
 
@@ -693,4 +694,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates Github 리포지토리 내 sha
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

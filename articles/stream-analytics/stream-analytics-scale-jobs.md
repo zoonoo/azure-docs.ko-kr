@@ -232,7 +232,7 @@ Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 �
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## 도움말 보기 ##
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계 ##
@@ -265,4 +265,4 @@ Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 �
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

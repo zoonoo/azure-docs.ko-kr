@@ -1,20 +1,20 @@
 <properties
     pageTitle="Azure 모바일 앱(Xamarin iOS)에 대해 오프라인 동기화 사용"
-	description="앱 서비스 모바일 앱을 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
-	documentationCenter="xamarin"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="app-service\mobile"/>
+    description="앱 서비스 모바일 앱을 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
+    documentationCenter="xamarin"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="app-service\mobile"/>
 
 <tags
     ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="article"
 	ms.date="08/22/2015"
-	ms.author="wesmc"/>
+    ms.author="wesmc"/>
 
 # Xamarin iOS 모바일 앱에 대해 오프라인 동기화 사용
 
@@ -173,4 +173,4 @@
  
 [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

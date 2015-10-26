@@ -21,7 +21,9 @@
 
 Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합입니다. 이 문서에서는 Azure CLI에서 Azure 구독에 연결하여 모든 CLI 명령을 사용하는 방법을 설명합니다. 이미 CLI를 설치하지 않은 경우 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만들고 관리하는 방법을 설명합니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
+
 
 다음 두 가지 방법으로 Azure CLI에서 구독에 연결할 수 있습니다.
 
@@ -159,4 +161,4 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 �
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

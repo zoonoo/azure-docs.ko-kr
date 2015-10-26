@@ -5,8 +5,9 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -18,7 +19,8 @@
 
 # 리소스 관리자 템플릿을 사용하는 Ubuntu의 DataStax Enterprise
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 DataStax는 항상 작동하고 민첩하며 원하는 규모로 예측 가능하게 확장할 수 있는 상업적으로 지원되며 엔터프라이즈 지원이 되는 NoSQL 분산 데이터베이스 기술인 Apache Cassandra™를 기반으로 하는 솔루션을 개발 및 제공하는 업계 선도 업체입니다. DataStax는 Enterprise(DSE)와 Community(DSC) 유형을 모두 제공합니다. Community 버전에서 제공하는 기능 외에도 Datastax Enterprise는 메모리 내 컴퓨팅, 엔터프라이즈 수준의 보안, 빠르고 강력한 통합 분석 및 엔터프라이즈 관리와 같은 기능이 있는 제품 인증된 Cassandra입니다.
 
@@ -460,7 +462,7 @@ azuredeploy.json의 "parameters" 섹션은 이 템플릿에 데이터를 입력�
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 shared\_scripts\\ubuntu 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
+vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 shared_scripts\ubuntu 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
 
 또 다른 흥미로운 조각은 CustomScriptForLinux VM 확장과 관련된 조각입니다. 이러한 확장은 별도의 리소스 유형으로 설치되며 각 클러스터 노드(및 OpsCenter 인스턴스)에 대한 종속성이 적용됩니다. 가상 컴퓨터에 대해 설명하는 동일한 리소스 루핑 메커니즘을 활용합니다.
 
@@ -502,4 +504,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 sha
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

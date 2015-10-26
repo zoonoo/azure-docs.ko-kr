@@ -1,6 +1,8 @@
 <properties 
+	title="Multi-tenant applications with elastic database tools and row-level security" 
 	pageTitle="탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램" 
-	description="탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하여 다중 테넌트 분할된 데이터베이스를 지원하고 Azure SQL 데이터베이스의 데이터 계층을 유연하게 확장할 수 있는 응용 프로그램 구축 방법에 대해 알아보세요."  
+	description="탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하여 다중 테넌트 분할된 데이터베이스를 지원하고 Azure SQL 데이터베이스의 데이터 계층을 유연하게 확장할 수 있는 응용 프로그램 구축 방법에 대해 알아보세요." 
+	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
@@ -339,4 +341,4 @@ GO
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

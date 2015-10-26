@@ -238,4 +238,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

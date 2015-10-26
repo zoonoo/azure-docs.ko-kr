@@ -21,7 +21,7 @@
 
 Azure 리소스 관리자에 계산, 네트워크 및 저장소 기능을 포함하면 IaaS에서 실행되는 복잡한 응용 프로그램의 배포 및 관리가 근본적으로 간소화됩니다. 많은 응용 프로그램에는 가상 네트워크, 저장소 계정, 가상 컴퓨터 및 네트워크 인터페이스를 비롯한 리소스의 조합이 필요합니다. Azure 리소스 관리자는 JSON 템플릿을 생성하여 이 모든 리소스를 단일 응용 프로그램으로 배포 및 관리할 수 있는 기능을 제공합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ## 계산, 네트워크 및 저장소를 Azure 리소스 관리자에 통합할 경우의 이점
@@ -116,4 +116,4 @@ Azure CLI(Azure 명령줄 인터페이스)에는 **AzureServiceManagement** 모�
 
 [Azure 리소스 관리자 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

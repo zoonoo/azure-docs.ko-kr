@@ -153,4 +153,4 @@ Runbook의 마지막 단계는 각 가상 컴퓨터에 대한 시작 또는 중�
 - [Azure 자동화의 자식 runbook](automation-child-runbooks.md) 
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

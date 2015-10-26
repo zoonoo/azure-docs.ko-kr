@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
@@ -319,4 +319,4 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

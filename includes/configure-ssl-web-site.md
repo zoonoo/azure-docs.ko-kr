@@ -11,7 +11,7 @@ SSL(Secure Socket Layer) 암호화를 사용하는 HTTPS를 통해 웹앱과 브
 
 ##<a name="bkmk_domainname"></a>사용자 지정 도메인에 대해 SSL 사용
 
-**contoso.com** 등의 사용자 지정 도메인에 HTTPS를 사용하도록 설정하려면 먼저 도메인 이름 등록 기관에 사용자 지정 도메인 이름을 등록해야 합니다. 웹앱의 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](/ko-kr/develop/net/common-tasks/custom-dns-web-site/)을 참조하세요. 사용자 지정 도메인 이름을 등록하고 사용자 지정 이름에 응답하도록 웹앱을 구성한 후에는 도메인에 대한 SSL 인증서를 요청해야 합니다.
+**contoso.com** 등의 사용자 지정 도메인에 HTTPS를 사용하도록 설정하려면 먼저 도메인 이름 등록 기관에 사용자 지정 도메인 이름을 등록해야 합니다. 웹앱의 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](/en-us/develop/net/common-tasks/custom-dns-web-site/)을 참조하세요. 사용자 지정 도메인 이름을 등록하고 사용자 지정 이름에 응답하도록 웹앱을 구성한 후에는 도메인에 대한 SSL 인증서를 요청해야 합니다.
 
 > [AZURE.NOTE]사용자 지정 도메인 이름에 HTTPS를 사용하도록 설정하려면 **표준** 모드로 웹앱을 구성해야 합니다. 현재 무료 또는 공유 모드를 사용 중이면 추가 비용이 발생할 수도 있습니다. 공유 및 **표준** 가격 책정에 대한 자세한 내용은 [가격 정보][pricing]를 참조하세요.
 
@@ -543,4 +543,4 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

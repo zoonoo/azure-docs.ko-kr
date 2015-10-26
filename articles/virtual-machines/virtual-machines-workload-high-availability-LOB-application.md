@@ -19,7 +19,8 @@
 
 # Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 Microsoft Azure에서 첫 번째 또는 다음 인트라넷 전용 LOB(기간 업무) 응용 프로그램을 설정하고, 응용 프로그램의 간편한 구성 및 신속한 확장 기능을 통해 새 용량을 추가합니다.
  
@@ -105,4 +106,4 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 
 [Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

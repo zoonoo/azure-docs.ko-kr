@@ -48,4 +48,4 @@ Facebook, Twitter, DropBox 등 많은 SaaS(Software as a Service)는 사용자�
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

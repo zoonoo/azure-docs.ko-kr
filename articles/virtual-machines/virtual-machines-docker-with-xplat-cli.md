@@ -18,7 +18,9 @@
 
 # Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
+
 
 이 항목에서는 모든 플랫폼에서 Azure CLI의 서비스 관리(asm) 모드에서 Docker VM 확장을 사용하여 VM을 만드는 방법을 설명합니다. [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md)에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
@@ -65,10 +67,10 @@ Bash 또는 터미널 세션에서 다음 Azure CLI 명령을 사용하여 VM �
 
 `azure vm image list | grep Ubuntu-14_04`
 
-`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-KO-KR-30GB`와 같은 이미지 이름 중 하나를 선택한 후에 다음 명령을 사용하여 해당 이미지를 사용하는 새 VM을 만듭니다.
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-KR-30GB`와 같은 이미지 이름 중 하나를 선택한 후에 다음 명령을 사용하여 해당 이미지를 사용하는 새 VM을 만듭니다.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-KO-KR-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-KR-30GB" <username> <password>
 ```
 
 설명:
@@ -85,18 +87,59 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 ![](./media/virtual-machines-docker-with-xplat-cli/dockercreateresults.png)
 
-> [AZURE.NOTE]가상 컴퓨터를 만들려면 몇 분 정도 걸릴 수 있습니다. 가상 컴퓨터가 프로비전된 후에는 Docker 데몬(Docker 서비스)이 시작되며 Docker 컨테이너 호스트에 연결할 수 있습니다.
+> [AZURE.NOTE]가상 컴퓨터를 만들려면 몇 분 정도 걸릴 수 있습니다. 가상 컴퓨터가 프로비전된 후에는(상태 값 `ReadyRole`) Docker 데몬(Docker 서비스)이 시작되며 Docker 컨테이너 호스트에 연결할 수 있습니다.
 
 Azure에 만든 Docker VM을 테스트하려면 다음을 입력합니다.
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-여기서 *<vm-name-you-used>*는 `azure vm docker create` 호출에 사용한 가상 컴퓨터의 이름입니다. 다음과 같은 결과가 표시됩니다. 이 결과는 Azure에서 Docker 호스트 VM이 작동하여 실행 중이며 명령을 기다리고 있음을 나타냅니다.
+여기서 *&lt;vm-name-you-used&gt;*는 `azure vm docker create` 호출에 사용한 가상 컴퓨터의 이름입니다. 다음과 같은 결과가 표시됩니다. 이 결과는 Azure에서 Docker 호스트 VM이 작동하여 실행 중이며 명령을 기다리고 있음을 나타냅니다.
 
-![](./media/virtual-machines-docker-with-xplat-cli/connectingtodockerhost.png)
+이제 정보를 얻기 위해 Docker 클라이언트를 사용하여 연결을 시도할 수 있습니다(Mac과 같은 일부 Docker 클라이언트 설정에서는 `sudo`를 사용해야 할 수 있음).
+
+	sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
+	Password:
+	Containers: 0
+	Images: 0
+	Storage Driver: devicemapper
+	Pool Name: docker-8:1-131781-pool
+	Pool Blocksize: 65.54 kB
+	Backing Filesystem: extfs
+	Data file: /dev/loop0
+	Metadata file: /dev/loop1
+	Data Space Used: 1.821 GB
+	Data Space Total: 107.4 GB
+	Data Space Available: 28 GB
+	Metadata Space Used: 1.479 MB
+	Metadata Space Total: 2.147 GB
+	Metadata Space Available: 2.146 GB
+	Udev Sync Supported: true
+	Deferred Removal Enabled: false
+	Data loop file: /var/lib/docker/devicemapper/devicemapper/data
+	Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
+	Library Version: 1.02.77 (2012-10-15)
+	Execution Driver: native-0.2
+	Logging Driver: json-file
+	Kernel Version: 3.19.0-28-generic
+	Operating System: Ubuntu 14.04.3 LTS
+	CPUs: 1
+	Total Memory: 1.637 GiB
+	Name: testsshasm
+	WARNING: No swap limit support
+
+모두 작동하고 있는지 확인하기 위해 VM의 Docker 확장을 살펴볼 수 있습니다.
+
+	azure vm extension get testsshasm
+	info: Executing command vm extension get
+	+ Getting virtual machines
+	data: Publisher Extension name ReferenceName Version State
+	data: -------------------- --------------- ------------------------- ------- ------
+	data: Microsoft.Azure.E... DockerExtension DockerExtension 1.* Enable
+	info: vm extension get command OK
 
 ### Docker Host VM 인증
-Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Docker 클라이언트 컴퓨터가 HTTPS를 사용하여 Azure 컨테이너 호스트에 연결할 수 있도록 필요한 인증서도 자동으로 만듭니다. 인증서는 해당하는 경우 클라이언트와 호스트 컴퓨터 둘 다에 저장됩니다. 이후에 실행할 때는 기존 인증서가 다시 사용되며 새 호스트와 공유됩니다.
+
+Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Docker 클라이언트 컴퓨터가 HTTPS를 사용하여 Azure 컨테이너 호스트에 연결할 수 있도록 필요한 인증서도 자동으로 만듭니다. 인증서는 해당하는 경우 클라이언트와 호스트 컴퓨터 둘 다에 저장됩니다. 이후에 시도할 때는 기존 인증서가 다시 사용되며 새 호스트와 공유됩니다.
 
 기본적으로 인증서는 `~/.docker`에 배치되고 Docker는 포트 **2376**에서 실행되도록 구성됩니다. 다른 포트나 디렉터리를 사용하려는 경우 다음 `azure vm docker create` 명령줄 옵션 중 하나를 사용하여 클라이언트 연결에 다른 포트나 다른 인증서를 사용하도록 Docker 컨테이너 호스트 VM을 구성할 수 있습니다.
 
@@ -108,9 +151,6 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 호스트의 Docker 데몬은 `azure vm docker create` 명령에서 생성된 인증서를 사용하여 지정된 포트에서 클라이언트 연결을 수신 대기하고 인증하도록 구성됩니다. 클라이언트 컴퓨터가 Docker 호스트에 액세스하려면 해당 인증서가 있어야 합니다.
 
 > [AZURE.NOTE]해당 인증서 없이 실행되는 네트워크 호스트는 컴퓨터에 연결할 수 있는 모든 사용자에게 취약합니다. 기본 구성을 수정하기 전에 컴퓨터와 응용 프로그램에 대한 위험을 이해해야 합니다.
-
-
-
 
 ## 다음 단계
 
@@ -141,4 +181,4 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

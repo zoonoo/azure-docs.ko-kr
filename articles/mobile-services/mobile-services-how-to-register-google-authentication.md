@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Google 인증 등록 | Microsoft Azure"
-	description="Google을 사용하여 Azure 모바일 서비스에서 인증을 받도록 앱을 등록하는 방법을 알아봅니다."
-	services="mobile-services"
-	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
+	pageTitle="Google 인증 등록 | Microsoft Azure" 
+	description="Google을 사용하여 Azure 모바일 서비스에서 인증을 받도록 앱을 등록하는 방법을 알아봅니다." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/27/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에 Google 로그인을 사용하기 위해 앱 등록
@@ -56,4 +56,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

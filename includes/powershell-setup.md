@@ -1,3 +1,13 @@
+<properties services="virtual-machines" title="Setting up PowerShell" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machines"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm=""
+   ms.workload="infrastructure"
+   ms.date="05/12/2015"
+   ms.author="josephd" />
 
 ## PowerShell 설정
 
@@ -68,4 +78,4 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 현재 
 
 Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](powershell-install-configure.md#Connect)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

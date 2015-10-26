@@ -3,7 +3,7 @@
 	description="이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 Axinom 라이선스 서버에서 제공됩니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+	ms.date="10/14/2015"  
 	ms.author="juliako"/>
 
 #Axinom을 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공  
@@ -24,7 +24,7 @@
 
 ##개요
 
-Azure 미디어 서비스(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/ko-KR/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure 미디어 플레이어(AMP)에도 Widevine 지원이 추가되었습닏다(자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
+Azure 미디어 서비스(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/ko-KR/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure 미디어 플레이어(AMP)에도 Widevine 지원이 추가되었습니다(자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
 
 >[AZURE.NOTE]현재 미디어 서비스는 Widevine 라이선스 서버를 제공하지 않습니다. 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
@@ -56,7 +56,7 @@ Azure Active Directory를 Axinom의 Widevine 라이선스 서버에 대한 STS�
 
 ##Azure 미디어 플레이어 준비
 
-AMP v1.4.0은 PlayReady와 Widevine DRM 둘 다를 사용하여 동적으로 패키징된 AMS 콘텐츠의 재생을 지원합니다. Widevine 라이선스 서브에 토큰 인증이 필요하지 않은 경우 Widevine에서 보호하는 DASH 콘텐츠를 테스트하기 위해 추가로 수행해야 하는 일은 없습니다. 예를 들어 AMP 팀은 간단한 샘플 [http://amp.azure.net/libs/amp/latest/samples/dynamic\_multiDRM\_PlayReadyWidevine\_notoken.html](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html)즐 제공하며, 이 샘플에서 PlayReady 포함 Edge와 IE11 및 Widevine 포함 Chrome에서 작동하는 것을 확인할 수 있습니다. Axinom 제공한 Widevine 라이선스 서버에는 JWT 토큰 인증이 필요합니다. HTTP 헤더 “X-AxDRM-Message”를 통해 라이선스 요청과 함께 JWT 토큰을 전송해야 합니다. 이 목적을 위해 원본을 설정하기 전에 웹 페이지 호스팅 AMP에서 다음과 같은 javascript를 추가해야 합니다.
+AMP v1.4.0은 PlayReady와 Widevine DRM 둘 다를 사용하여 동적으로 패키징된 AMS 콘텐츠의 재생을 지원합니다. Widevine 라이선스 서브에 토큰 인증이 필요하지 않은 경우 Widevine에서 보호하는 DASH 콘텐츠를 테스트하기 위해 추가로 수행해야 하는 일은 없습니다. 예를 들어 AMP 팀에는 PlayReady를 지원하는 Edge 및 IE11과 Widevine을 지원하는 Chrome에서 작동 모습을 볼 수 있는 간단한 [샘플](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html)을 제공합니다. Axinom 제공한 Widevine 라이선스 서버에는 JWT 토큰 인증이 필요합니다. HTTP 헤더 “X-AxDRM-Message”를 통해 라이선스 요청과 함께 JWT 토큰을 전송해야 합니다. 이 목적을 위해 원본을 설정하기 전에 웹 페이지 호스팅 AMP에서 다음과 같은 javascript를 추가해야 합니다.
 
 	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
@@ -188,7 +188,15 @@ JWT 토큰을 생성하기 위한 코드에서 키 ID가 필요하다는 것을 
 Axinom Widevine 라이선스 서버를 활욯아는 미니 솔루션에는 다음과 같은 매개 변수가 필요합니다. 키 ID를 제외하고 매개 변수의 나머지 부분은 Widevine 서버 설정에 따라 Axinom에서 제공됩니다.
 
 
-![매개 변수](./media/media-services-axinom-integration/media-services-axinom2.png)
+매개 변수|사용 방법
+---|---
+통신 키 ID|JWT 토큰의 클레임 "com\_key\_id"의 값으로 포함되어야 합니다([이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조).
+통신 키|JWT 토큰의 서명 키로 사용해야 합니다([이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조).
+키 시드|지정된 콘텐츠 키 ID로 콘텐츠 키를 생성하는데 사용해야 합니다([이](media-services-axinom-integration.md#content-protection) 섹션 참조).
+Widevine 라이선스 획득 URL|DASH 스트리밍에 대한 자산 배달 정책 구성에 사용해야 합니다([이](media-services-axinom-integration.md#content-protection) 섹션 참조).
+콘텐츠 키 ID|JWT 토큰의 자격 부여 메시지 클레임 값의 일부로 포함되어야 합니다([이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조). 
+
+
 
 
 ##미디어 서비스 학습 경로
@@ -198,4 +206,4 @@ Axinom Widevine 라이선스 서버를 활욯아는 미니 솔루션에는 다�
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

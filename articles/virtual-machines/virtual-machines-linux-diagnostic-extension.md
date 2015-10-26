@@ -35,7 +35,8 @@ Linux 진단 확장을 통해 사용자는 다음과 같은 기능으로 Microso
 - 이 [문서](https://scx.codeplex.com/wikipage?title=xplatproviders")에 지정된 모든 시스템 데이터입니다.
 - 사용자가 지정한 로그 파일
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 ## 확장을 사용하도록 설정하는 방법
 [Azure 포털](https://ms.portal.azure.com/#), Azure PowerShell 또는 Azure CLI 스크립트를 통해 확장을 사용하도록 설정할 수 있습니다.
@@ -143,4 +144,4 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 - 버전 2.0의 경우 스크립팅을 통해 Rsyslog 정보 및 고객이 지정한 로그 파일에만 액세스할 수 있습니다.
 - 버전 2.0의 경우 먼저 스크립트를 통해 Linux 진단 확장을 사용하도록 설정하면 Azure 포털에서 데이터를 볼 수 없습니다. 먼저 포털에서 확장을 사용하도록 설정하면 스크립트가 계속 작동합니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -92,7 +92,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE]'-g' 매개 변수는 모듈을 전역적으로 설치합니다. 이와 같이 **express**를 사용하여 추가 경로 정보를 입력하지 않고도 웹앱 스캐폴딩을 생성할 수 있습니다.
+	> [AZURE.NOTE] '-g' 매개 변수는 모듈을 전역적으로 설치합니다. 이와 같이 **express**를 사용하여 추가 경로 정보를 입력하지 않고도 웹앱 스캐폴딩을 생성할 수 있습니다.
 
 4. 응용프로그램에 대한 스캐폴딩을 만들려면 **express** 명령을 입력하세요.
 
@@ -340,7 +340,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE]nconf는 환경 변수 또는 나중에 만들 **config.json** 파일에서 구성 값을 로드합니다.
+	> [AZURE.NOTE] nconf는 환경 변수 또는 나중에 만들 **config.json** 파일에서 구성 값을 로드합니다.
 
 3. app.js 파일에서 다음 줄이 보일 때까지 아래로 스크롤합니다.
 
@@ -427,7 +427,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ### 구성 파일 만들기
 
-앱을 로컬로 실행하기 위해 Azure 저장소 자격 증명을 구성 파일에 배치합니다. 다음 JSON으로 **config.json* *이라는 파일 이름을 만듭니다.
+앱을 로컬로 실행하기 위해 Azure 저장소 자격 증명을 구성 파일에 배치합니다. 다음 JSON으로 **config.json**이라는 파일 이름을 만듭니다.
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -468,7 +468,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 	다음 예제와 유사한 웹 페이지가 나타납니다.
 
-	![빈 tasklist가 표시된 웹 페이지][node-table-finished]
+![빈 tasklist가 표시된 웹 페이지][node-table-finished]
 
 4. 새 할 일 항목을 만들려면 이름 및 범주를 입력하고 **항목 추가**를 클릭합니다.
 
@@ -501,6 +501,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 	이 명령은 브라우저를 시작하고 다운로드 페이지로 이동합니다. 메시지가 나타나면 Azure 구독과 관련된 계정으로 로그인합니다.
 
 	<!-- ![The download page][download-publishing-settings] -->
+
 	파일 다운로드가 자동으로 시작됩니다. 그렇지 않은 경우 페이지 처음 부분에서 링크를 클릭하여 수동으로 파일을 다운로드할 수 있습니다. 파일을 저장하고 파일 경로를 기록해 둡니다.
 
 2. 다음 명령을 입력하여 설정을 가져옵니다.
@@ -641,4 +642,4 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Hadoop용 Java MapReduce 프로그램 개발 | Microsoft Azure"
-	description="HDInsight Emulator에서 Java MapReduce 프로그램을 개발하여 HDInsight로 배포하는 방법에 대해 알아봅니다."
+	pageTitle="Linux 기반 HDInsight용 Java MapReduce 프로그램 개발 | Microsoft Azure"
+	description="Linux 기반 HDInsight에서 Java MapReduce 프로그램을 개발하여 Linux 기반 HDInsight로 배포하는 방법에 대해 알아봅니다."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
@@ -244,7 +244,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
     - [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    - [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.](hdinsight-hadoop-linux-use-ssh-windows.md)
+    - [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. SSH 세션에서 다음 명령을 사용하여 MapReduce 응용 프로그램을 실행합니다.
 
@@ -300,4 +300,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

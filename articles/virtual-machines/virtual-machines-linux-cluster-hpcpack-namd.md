@@ -20,7 +20,8 @@
 
 이 문서에서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 가상 클러스터 네트워크의 여러 Linux 계산 노드에서 **charmrun**으로 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 작업을 실행하여 규모가 큰 생체 분자 시스템의 구조를 계산하고 시각화하는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스에 대해 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 
 NAMD(Nanoscale Molecular Dynamics 프로그램용)는 바이러스, 세포 구조, 거대한 단백질 등의 수백 만 원자를 포함하는 규모가 큰 생체 분자 시스템의 고성능 시뮬레이션을 위해 설계된 병렬 분자 동적 패키지입니다. NAMD는 일반적인 시뮬레이션의 경우 수백 개의 코어로 확장되며 가장 큰 규모의 시뮬레이션의 경우 500,000 코어 이상까지 확장됩니다.
@@ -407,4 +408,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

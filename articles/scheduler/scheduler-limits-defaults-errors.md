@@ -73,4 +73,4 @@ API 작업 관리 서비스는 관리 서비스가 정의한 오류 정보를 �
 
  [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

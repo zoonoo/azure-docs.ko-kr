@@ -270,4 +270,4 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
  - Azure 검색에 대해 자세히 알아보려면 [여기](/services/search/)를 클릭하십시오.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -444,8 +444,8 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

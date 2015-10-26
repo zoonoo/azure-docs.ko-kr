@@ -19,8 +19,6 @@
 
 #Azure의 Linux 소개
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
-
 이 항목에서는 Azure 클라우드에서 Linux 가상 컴퓨터를 사용하는 몇 가지 측면을 간략하게 설명합니다. 갤러리의 기존 이미지를 사용하여 Linux 가상 컴퓨터 배포는 간단한 프로세스입니다.
 
 ## 인증: 사용자 이름, 암호 및 SSH 키
@@ -99,4 +97,4 @@ Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 �
 
  - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

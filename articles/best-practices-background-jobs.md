@@ -317,4 +317,4 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 - [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/hh767287.aspx)
 - [클라우드 서비스에서 진단 기능을 사용하는 방법](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

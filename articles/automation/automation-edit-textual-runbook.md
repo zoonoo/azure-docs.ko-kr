@@ -144,4 +144,4 @@ Windows PowerShell을 사용하여 runbook을 편집하려면 원하는 편집�
 - [일정](automation-schedules.md)
 - [변수](automation-variables.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

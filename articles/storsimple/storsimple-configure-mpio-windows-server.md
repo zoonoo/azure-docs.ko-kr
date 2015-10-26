@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치에 대한 MPIO 구성 | Microsoft Azure"
-	description="Windows Server 2012 R2를 실행하는 호스트에 연결된 StorSimple 장치에 대해 MPIO(다중 경로 I/O)를 구성하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Windows Server 2012 R2를 실행하는 호스트에 연결된 StorSimple 장치에 대해 MPIO(다중 경로 I/O)를 구성하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치에 대한 다중 경로 I/O 구성
 
@@ -173,4 +173,4 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 [StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정](storsimple-modify-device-config.md)에 대해 자세히 알아봅니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

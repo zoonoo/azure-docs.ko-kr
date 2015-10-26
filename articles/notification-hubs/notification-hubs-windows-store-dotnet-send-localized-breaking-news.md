@@ -230,4 +230,4 @@ Windows 스토어 앱에서
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

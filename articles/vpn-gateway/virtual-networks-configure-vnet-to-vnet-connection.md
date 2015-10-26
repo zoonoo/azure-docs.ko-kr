@@ -1,20 +1,20 @@
 <properties
    pageTitle="VNet 간 연결 구성 | Microsoft Azure"
-	description="같거나 다른 구독 또는 지역에서 Azure 가상 네트워크를 연결하는 방법에 대해 설명합니다."
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="같거나 다른 구독 또는 지역에서 Azure 가상 네트워크를 연결하는 방법에 대해 설명합니다."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 
 <tags
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc"/>
 
 
 # Azure 포털에서 VNet-VNet 연결 구성
@@ -232,4 +232,4 @@ RRAS를 사용하여 VNet 연결을 구성하려는 경우 [Windows Server 2012 
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

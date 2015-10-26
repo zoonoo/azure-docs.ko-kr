@@ -104,4 +104,4 @@ Azure Managed Library는 역할 인스턴스에서 실행되는 코드 내부에
 
 - [Azure용 클라우드 서비스 설정](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

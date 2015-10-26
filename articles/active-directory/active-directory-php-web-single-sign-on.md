@@ -206,4 +206,4 @@ PHP 웹 사이트에 Azure Active Directory 및 Single Sign-On을 사용하는 �
 [Azure Active Directory용 PHP 샘플 코드]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

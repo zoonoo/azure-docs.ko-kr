@@ -19,7 +19,6 @@
 
 # Azure용 CentOS 기반 가상 컴퓨터 준비
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Azure용 CentOS 6.x 가상 컴퓨터 준비](#centos6)
 - [Azure용 CentOS 7.0 이상 가상 컴퓨터 준비](#centos7)
@@ -364,4 +363,4 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 16. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

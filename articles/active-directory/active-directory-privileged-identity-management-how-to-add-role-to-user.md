@@ -47,4 +47,4 @@ PIM 인터페이스의 **관리되는 사용자 추가 블레이드**로 이동�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

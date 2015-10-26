@@ -36,13 +36,13 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 ## Application Insights를 사용한 앱 모니터링
 
-아직 시도하지 않은 경우 지금이 시작 시간입니다. Application Insights는 Windows, iOS, Android, J2EE 등과 같은 광범위한 플랫폼에서 모든 장치 또는 웹앱을 모니터링할 수 있습니다. [시작](app-insights-get-started.md)
+아직 시도하지 않은 경우 지금이 시작 시간입니다. Application Insights는 Windows, iOS, Android, J2EE 등과 같은 광범위한 플랫폼에서 모든 장치 또는 웹앱을 모니터링할 수 있습니다. [시작하기](app-insights-overview.md).
 
 ## Azure에서 저장소 만들기
 
 연속 내보내기는 항상 Azure 저장소 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에서 구독에 “클래식" 저장소 계정을 만듭니다.
+1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-power-bi/030.png)
 
@@ -239,4 +239,4 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 * [Application Insights](app-insights-overview.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -593,4 +593,4 @@ SQL Server Management Studio에서 이러한 스크립트를 실행하여 school
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

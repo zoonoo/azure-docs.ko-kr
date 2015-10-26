@@ -1,8 +1,8 @@
 <properties
  pageTitle="IoT 장치 관리 | Microsoft Azure"
- description="Azure IoT Hub 장치 관리의 개요"
+ description="IoT Hub 및 IoT Suite를 사용하여 IoT 장치 관리 개요"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="juanjperez"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="juanpere"/>
 
@@ -118,4 +118,4 @@ Azure 저장소와 같은 저장소 서비스 또는 CDN(콘텐츠 배달 네트
 
 펌웨어 업데이트를 완료한 후에는 장치에서 성공적 상태를 확인 및 식별할 수 있어야 합니다. 장치가 성공적 상태로 들어가지 않은 경우 장치의 소프트웨어가 알려진 성공적 상태로 롤백을 시작해야 합니다. 알려진 성공적 상태는 마지막 성공적 상태이거나 저장소 파티션에 저장된 '골든 스테이트'로 알려진 장치 펌웨어 이미지일 수 있습니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

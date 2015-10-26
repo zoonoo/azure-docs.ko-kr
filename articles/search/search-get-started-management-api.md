@@ -204,4 +204,4 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

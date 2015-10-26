@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델 개요"
-	description="서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델에 대해 알아보고 사용자 고유의 서비스 작성을 시작합니다."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="masnider"
-	manager="timlt"
-	editor="jessebenson; mani-ramaswamy"/>
+   description="서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델에 대해 알아보고 사용자 고유의 서비스 작성을 시작합니다."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="masnider"
+   manager="timlt"
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="masnider;jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="masnider;jesseb"/>
 
 # 신뢰할 수 있는 서비스 개요
 서비스 패브릭은 신뢰할 수 있는 상태 비저장 및 상태 저장 서비스의 작성과 관리를 단순화합니다. 이 문서에 대해 이야기합니다.
@@ -130,4 +130,4 @@
 + [신뢰할 수 있는 행위자 프로그래밍 모델 읽기](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

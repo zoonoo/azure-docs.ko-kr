@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Azure RemoteApp과 함께 Office 사용"
-	description="Office 및 Azure RemoteApp 연동 방법에 대해 알아봅니다."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    pageTitle="Azure RemoteApp과 함께 Office 사용" 
+    description="Office 및 Azure RemoteApp 연동 방법에 대해 알아봅니다." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 # Azure RemoteApp과 함께 Office 사용
 
@@ -50,4 +50,4 @@ RemoteApp의 30일 평가 기간 동안 Office 2013 Professional Plus(평가판)
 평가판이 만료될 때까지 프로덕션 모드로 전환하지 않으면 RemoteApp 컬렉션을 사용할 수 없습니다. 걱정하지 마세요. 설정과 사용자 데이터는 90일 동안 저장되므로 데이터 손실 없이 서비스를 활성화하고 프로덕션 모드로 전환할 수 있습니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

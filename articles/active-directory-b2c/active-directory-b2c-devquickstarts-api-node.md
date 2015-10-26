@@ -24,7 +24,7 @@
 	이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 웹 API를 호출하는 데 집중합니다.
 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
 
-> [AZURE.NOTE]	이 샘플은 [iOS B2C 샘플 응용 프로그램](active-directory-b2c-devquickstarts-ios.md)에 연결되어 쓰여졌습니다. 이 연습을 먼저 수행한 다음 해당 샘플도 함께 수행하세요.
+> [AZURE.NOTE]이 샘플은 [iOS B2C 샘플 응용 프로그램](active-directory-b2c-devquickstarts-ios.md)에 연결되어 쓰여졌습니다. 이 연습을 먼저 수행한 다음 해당 샘플도 함께 수행하세요.
 
 **Passport**는 Node.js에 대한 인증 미들웨어입니다. 매우 유연한 모듈식 Passport는 어떤 Express 기반 또는 Resitify 웹 응용 프로그램에도 원활하게 추가할 수 있습니다. 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 등을 사용하는 인증을 지원합니다. Microsoft는 Microsoft Azure Active Directory에 대한 전략을 개발했습니다. 여기서는 이 모듈을 설치하고 Microsoft Azure Active Directory `passport-azure-ad` 플러그 인을 추가하겠습니다.
 
@@ -36,35 +36,33 @@
 
 이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
-> [AZURE.WARNING] 	B2C 미리 보기에서 Web-API 작업 서버와 이 서버에 연결되는 클라이언트에 대해 동일한 클라이언트 ID/응용 프로그램 ID 및 정책을 사용해야 합니다. 이것은 iOS 및 Android 자습서에 대해 적용됩니다. 이전에 이러한 빠른 시작 중 하나에서 응용 프로그램을 만든 경우, 아래와 같이 새로 만드는 대신 이 값을 사용합니다.
+> [AZURE.WARNING]B2C 미리 보기에서 Web-API 작업 서버와 이 서버에 연결되는 클라이언트에 대해 동일한 클라이언트 ID/응용 프로그램 ID 및 정책을 사용해야 합니다. 이것은 iOS 및 Android 자습서에 대해 적용됩니다. 이전에 이러한 빠른 시작 중 하나에서 응용 프로그램을 만든 경우, 아래와 같이 새로 만드는 대신 이 값을 사용합니다.
 
 
-## 1. Azure AD B2C 디렉터리 가져오기
+## 1\. Azure AD B2C 디렉터리 가져오기
 
 Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 디렉터리가 없는 경우 넘어가기 전에 [B2C 디렉터리 만들기](active-directory-b2c-get-started.md)로 이동합니다.
 
-## 2. 응용 프로그램 만들기
+## 2\. 응용 프로그램 만들기
 
 이제 B2C 디렉터리에 앱을 만들어야 하며 Azure AD가 앱과 안전하게 통신해야 한다는 일부 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 클라이언트 앱과 Web API 모두는 단일 **응용 프로그램 ID**에서 표현됩니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 반드시
 
-- 응용 프로그램에서 **웹앱/Web API** 포함
+- 응용 프로그램에서 **웹앱/웹 API** 포함
 - `http://localhost/TodoListService`을 **회신 URL**로 입력 - 이 코드 샘플에 대한 기본 URL입니다.
 - 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 또한 곧 필요합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3. 정책 만들기
+## 3\. 정책 만들기
 
-Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-reference-policies.md)에서 정의합니다. 이 앱은 등록, 로그인 및 Facebook으로 로그인 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 등록, 로그인 및 Facebook으로 로그인 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
-- 등록 정책에서 **표시 이름** 및 다른 몇가지 등록 특성을 선택합니다.
+- 등록 정책에서 **표시 이름** 및 다른 몇 가지 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
 - 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 곧 필요합니다.
 
@@ -72,7 +70,7 @@ Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-r
 
 세 가지 정책을 성공적으로 만들었다면 앱을 빌드할 준비가 되었습니다.
 
-이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책이 작동하는 방식을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)에서 시작해야 합니다.
+이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책 작동 방법을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작해야 합니다.
 
 ## 4단계: 사용자 플랫폼을 위한 node.js 다운로드
 이 샘플을 사용하려면 작동하는 Node.js 설치가 있어야 합니다.
@@ -880,9 +878,7 @@ Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정
 
 참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 
 ## 다음 단계
@@ -891,4 +887,4 @@ git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 
 [B2C로 iOS를 사용하여 웹 API에 연결 >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

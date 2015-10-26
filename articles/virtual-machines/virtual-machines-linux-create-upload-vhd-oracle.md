@@ -19,7 +19,6 @@
 
 # Azure용 Oracle Linux 가상 컴퓨터 준비
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Azure용 Oracle Linux 6.4 이상 가상 컴퓨터 준비](#oracle6)
 - [Azure용 Oracle Linux 7.0 이상 가상 컴퓨터 준비](#oracle7)
@@ -230,4 +229,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -93,4 +93,4 @@ PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell cmdl
 
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

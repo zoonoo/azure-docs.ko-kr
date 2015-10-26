@@ -262,15 +262,13 @@ public class GroupClaimContext : DbContext
 	> + Azure Active Directory가 AD FS와 동기화된 디렉터리인 경우 기본적으로 AD FS 트러스트는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 전송하지 않습니다. 이 클레임을 전송하도록 AD FS를 수동으로 구성할 수 있습니다.
 	> 다음 단계에서 이 문제를 해결할 수 있습니다.
 
-12.  App_Start\Startup.Auth.cs에서 `ConfigureAuth` 메서드에 다음 코드 줄을 추가합니다.
+12.  App\_Start\\Startup.Auth.cs에서 `ConfigureAuth` 메서드에 다음 코드 줄을 추가합니다.
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
 	`ClaimTypes.NameIdentifies`는 Azure Active Directory에서 제공하는 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` 클레임을 지정합니다. 이제 인증 부분을 해결했으므로(오래 걸리지는 않았음) 작업의 실제 기능에 집중할 수 있습니다.
 
-13.	Create() 및 Edit()에서 다음 코드를 추가하여 나중에 JavaScript에서 일부 변수를 사용할 수 있도록 합니다.
-            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
-            ViewData["tenant"] = ConfigHelper.Tenant;
+13.	Create() 및 Edit()에서 다음 코드를 추가하여 나중에 JavaScript에서 일부 변수를 사용할 수 있도록 합니다. ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
 
 14.	Views\WorkItems\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
@@ -345,11 +343,11 @@ public class GroupClaimContext : DbContext
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
-16. 양식의 나머지 부분을 입력하고 **만들기**를 선택합니다. ~/WorkItems/Index 페이지에 새로 만든 작업 항목이 표시됩니다. 또한 아래의 스크린샷을 보면 Views\WorkItems\Index.cshtml에서 `AssignedToID` 열이 제거된 것을 알 수 있습니다.
+16. 양식의 나머지 부분을 입력하고 **만들기**를 선택합니다. ~/WorkItems/Index 페이지에 새로 만든 작업 항목이 표시됩니다. 또한 아래의 스크린샷을 보면 Views\\WorkItems\\Index.cshtml에서 `AssignedToID` 열이 제거된 것을 알 수 있습니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
 
-11.	이제 이와 유사하게 **편집** 보기를 변경합니다. Views\WorkItems\Edit.cshtml에서 이전 단계의 Views\WorkItems\Create.cshtml과 동일한 `Html.BeginForm` 도우미 메서드를 변경합니다(위의 강조 표시된 코드에서 "Create"를 "Edit"로 바꿈).
+11.	이제 이와 유사하게 **편집** 보기를 변경합니다. Views\\WorkItems\\Edit.cshtml에서 이전 단계의 Views\\WorkItems\\Create.cshtml과 동일한 `Html.BeginForm` 도우미 메서드를 변경합니다(위의 강조 표시된 코드에서 "Create"를 "Edit"로 바꿈).
 
 이것으로 끝입니다.
 
@@ -376,4 +374,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

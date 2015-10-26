@@ -1,5 +1,5 @@
 <properties
-   pageTitle="HDInsight의 Storm으로 이벤트 허브에서 이벤트 처리 | Azure"
+   pageTitle="Java를 사용하여 HDInsight의 Storm으로 이벤트 허브에서 이벤트 처리 | Azure"
    description="Maven으로 만든 Java Storm 토폴로지를 사용하여 이벤트 허브 데이터를 처리하는 방법을 알아봅니다."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
@@ -476,4 +476,4 @@ Storm UI를 사용하는 방법에 대한 자세한 내용은 다음 항목을 �
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

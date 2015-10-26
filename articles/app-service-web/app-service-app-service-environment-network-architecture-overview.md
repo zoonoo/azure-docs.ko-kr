@@ -62,7 +62,7 @@
 ## 앱 서비스 환경 간의 호출 ##
 동일 가상 네트워크의 여러 앱 서비스 환경에 배포하고 다른 앱 서비스 환경에서 다른 앱 서비스 환경으로 아웃바운드 호출을 작성하는 경우 더 복잡한 시나리오가 발생할 수 있습니다. 이러한 종류의 크로스 앱 서비스 환경 호출은 "Internet" 호출로도 처리됩니다.
 
-다음 다이어그램은 두 번째 앱 서비스 환경(예: 내부 백 엔드 API 앱은 인터넷에서 액세스할 수 있도록 하지 않았음)에서 앱을 호출하는 하나의 앱 서비스 환경에서 앱으로 계층화된 아키텍처의 예를 보여줍니다.(예: "프런트 도어" 웹앱)
+다음 다이어그램은 두 번째 앱 서비스 환경(예: 내부 백 엔드 API 앱은 인터넷에서 액세스할 수 있도록 하지 않았음)에서 앱을 호출하는 하나의 앱 서비스 환경에서 앱으로 계층화된 아키텍처의 예를 보여 줍니다.(예: "프런트 도어" 웹앱)
 
 ![앱 서비스 환경 간의 호출][CallsBetweenAppServiceEnvironments]
 
@@ -87,4 +87,4 @@
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

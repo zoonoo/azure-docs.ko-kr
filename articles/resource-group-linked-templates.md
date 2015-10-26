@@ -110,4 +110,4 @@
 - [템플릿 작성](./resource-group-authoring-templates.md)
 - [템플릿 배포](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

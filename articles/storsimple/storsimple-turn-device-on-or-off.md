@@ -43,7 +43,7 @@ Microsoft Azure StorSimple 장치 종료는 정상적인 시스템 작업의 일
 
 StorSimple 8100 모델은 단일 인클로저 장치입니다. 장치에는 예비 전원 및 냉각 모듈(PCM)이 포함됩니다. 두 PCM을 모두 설치하고 다른 전원 공급 장치에 연결하여 높은 가용성을 보장해야 합니다.
 
-다음 단계를 수행하여 케이블로 장치를 전원에 연결하십시오.
+다음 단계를 수행하여 케이블로 장치를 전원에 연결하세요.
 
 [AZURE.INCLUDE [전원용-storsimple-케이블-8100](../../includes/storsimple-cable-8100-for-power.md)]
 
@@ -241,4 +241,4 @@ EBOD 인클로저의 두 전원 공급 장치가 실패한 경우 시스템이 �
 
 StorSimple 장치의 전원을 켜거나 종료할 때 문제가 발생하는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하십시오.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -203,4 +203,4 @@ SQL 데이터 웨어하우스 관리에 대한 자세한 팁은 [관리 개요][
 
 <!--MSDN references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

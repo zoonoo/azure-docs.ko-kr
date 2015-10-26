@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Maven을 사용하여 HBase 응용 프로그램 빌드 | Microsoft Azure"
-	description="Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure HDInsight에 배포하는 방법에 대해 알아봅니다."
+	pageTitle="Maven을 사용하여 HBase 응용 프로그램을 빌드하고 Windows 기반 HDInsight에 배포 | Microsoft Azure"
+	description="Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Windows 기반 Azure HDInsight 클러스터에 배포하는 방법에 대해 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성
@@ -39,7 +39,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 		mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	이 명령은 현재 디렉터리에 새 디렉터리를 만들며, 이름은 __artifactID__ 매개 변수로 지정됩니다(이 예에서는 **hbaseapp**). 이 디렉터리에는 다음 항목이 포함됩니다.
+	이 명령은 현재 디렉터리에 새 디렉터리를 만들며, 이름은 __artifactID__ 매개 변수로 지정됩니다(이 예제에서는 **hbaseapp**). 이 디렉터리에는 다음 항목이 포함됩니다.
 
 	* __pom.xml__: [프로젝트 개체 모델(POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
 
@@ -592,4 +592,4 @@ __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 표준 오류(STDERR)을 확인합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

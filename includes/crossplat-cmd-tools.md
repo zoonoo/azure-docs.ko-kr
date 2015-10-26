@@ -171,7 +171,7 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 
 사용 가능한 이미지 중 하나에서 가상 컴퓨터를 프로비전 및 시작하려면 `vm create` 명령을 사용합니다. 다음 예제에서는 이미지 갤러리(CentOS 6.2)의 이미지에서 Linux 가상 컴퓨터(`myVM`)를 만드는 방법을 보여 줍니다. 가상 컴퓨터의 루트 사용자 이름과 암호는 각각 `myusername`, `Mypassw0rd`입니다. `--location` 매개 변수는 가상 컴퓨터가 만들어지는 데이터 센터를 지정합니다. `--location` 매개 변수를 생략하면 위치를 선택하라는 메시지가 표시됩니다.
 
-	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-ko-kr-30GB.vhd myusername --location "West US"
+	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
 
 새로 만든 가상 컴퓨터에 대한 원격 연결을 사용하도록 설정하려면 `--ssh` 플래그(Linux) 또는 `--rdp` 플래그(Windows)를 `vm create`에 전달하는 것이 좋습니다.
 
@@ -220,4 +220,4 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

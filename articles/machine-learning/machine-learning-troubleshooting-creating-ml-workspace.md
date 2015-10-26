@@ -77,4 +77,4 @@ Microsoft는 기계 학습 환경을 가능한 한 원활하게 만들기 위해
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

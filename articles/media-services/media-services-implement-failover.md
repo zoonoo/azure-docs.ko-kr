@@ -796,7 +796,7 @@
 		    sb.Append(", "AccessPolicyId" : "" + accessPolicyId + """);
 		    sb.Append(", "Type" : "" + locatorType + """);
 		    if (startTime != DateTime.MinValue)
-		        sb.Append(", "StartTime" : "" + startTime.ToString("G", CultureInfo.CreateSpecificCulture("ko-KR")) + """);
+		        sb.Append(", "StartTime" : "" + startTime.ToString("G", CultureInfo.CreateSpecificCulture("en-us")) + """);
 		    if (!string.IsNullOrEmpty(locatorIdToReplicate))
 		        sb.Append(", "Id" : "" + locatorIdToReplicate + """);
 		    sb.Append("}");
@@ -960,4 +960,4 @@
 
 이제 두 데이터 센터 간의 경로 요청에 트래픽 관리자를 사용하면 중단된 경우 장애 조치할 수 있습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

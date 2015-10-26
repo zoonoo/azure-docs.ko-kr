@@ -40,4 +40,4 @@
 
 그런 다음, 새 **CompleteDate** 데이터를 표시하도록 클라이언트 앱을 업데이트합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

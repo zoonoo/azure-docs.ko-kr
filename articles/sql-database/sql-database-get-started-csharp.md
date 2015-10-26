@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="C#을 사용하여 Azure SQL 데이터베이스 만들기"
-	description="이 문서에서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만드는 방법을 보여 줍니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="C#을 사용하여 Azure SQL 데이터베이스 만들기" 
+   description="이 문서에서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만드는 방법을 보여 줍니다." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="09/01/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/01/2015"
+   ms.author="sstein"/>
 
 # C&#x23;으로 SQL 데이터베이스 만들기
 
@@ -434,4 +434,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

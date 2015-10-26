@@ -191,4 +191,4 @@
 
 	- **-f(또는 --enable-ip-forwarding)**. *true* 또는 *false*.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

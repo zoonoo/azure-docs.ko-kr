@@ -109,4 +109,4 @@
 - [Azure 가상 컴퓨터 백업](backup-azure-vms-introduction.md)
 - [Microsoft 워크로드 백업](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -132,4 +132,4 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

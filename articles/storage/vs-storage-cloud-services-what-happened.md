@@ -43,4 +43,4 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

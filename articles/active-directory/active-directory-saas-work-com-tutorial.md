@@ -40,7 +40,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-work-com-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-work-com-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -70,7 +70,7 @@
 
     ![내 도메인](./media/active-directory-saas-work-com-tutorial/IC767825.png "내 도메인")
 
-4.  도메인이 올바르게 설정되었는지 확인하기 위해 “**4 단계 사용자에게 배포**”에 있는지 확인하고 “**내 도메인 설정**”을 확인합니다.
+4.  도메인이 올바르게 설정되었는지 확인하기 위해 “**4단계 사용자에게 배포**”에 있는지 확인하고 “**내 도메인 설정**”을 검토합니다.
 
     ![사용자에게 배포된 도메인](./media/active-directory-saas-work-com-tutorial/IC784377.png "사용자에게 배포된 도메인")
 
@@ -195,4 +195,4 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

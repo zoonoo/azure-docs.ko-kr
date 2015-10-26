@@ -2,6 +2,7 @@
 	pageTitle="고급 분석 프로세스에서 Hive 쿼리를 Hadoop 클러스터에 제출 | Microsoft Azure" 
 	description="Hive 테이블에서 데이터 처리" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -219,7 +220,7 @@ Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 �
 	    	group by <column_name1>, <column_name2>
 	    	)b 
 
-이 예제에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 부드럽게 만들도록 설정되었습니다. 위험 범위는 -Inf\~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
+이 예제에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 부드럽게 만들도록 설정되었습니다. 위험 범위는 -Inf~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
@@ -325,4 +326,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

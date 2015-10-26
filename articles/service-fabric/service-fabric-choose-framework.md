@@ -1,10 +1,10 @@
 <properties
-   pageTitle="프레임워크 선택"
+   pageTitle="서비스 패브릭 프레임워크 선택 | Microsoft Azure"
    description="서비스 패브릭은 서비스 빌드에 대해 행위자 프레임워크 및 서비스 프레임워크라는 두 가지 높은 수준의 프레임워크를 제공합니다. 각 값을 이해하면 응용 프로그램에 대해 올바른 아키텍처를 결정하는 데 도움이 될 것입니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # 서비스에 대한 프레임워크 선택
@@ -36,4 +36,4 @@
 - [신뢰할 수 있는 행위자 API에 대해 알아보기](service-fabric-reliable-actors-introduction.md)
 - [신뢰할 수 있는 서비스 API에 대해 알아보기](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

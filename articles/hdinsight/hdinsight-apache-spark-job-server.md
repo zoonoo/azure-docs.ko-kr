@@ -82,4 +82,4 @@ mypostdata.txt가 응용 프로그램을 정의합니다.
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

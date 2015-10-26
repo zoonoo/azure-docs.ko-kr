@@ -61,4 +61,4 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 * [조직으로 Azure 등록](../sign-up-organization.md)
 * [Azure ID](../fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

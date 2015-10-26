@@ -230,10 +230,10 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 �
 2. 왼쪽 창에서 **업데이트**를 선택한 다음 **Visual Studio 갤러리**를 선택합니다.
 4. **Visual Studio용 Azure Data Factory 도구**를 선택하고 **업데이트**를 클릭합니다. 이 항목이 표시되지 않으면 이미 최신 버전의 도구가 있는 것입니다. 
 
-Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline)을 참조하세요.
+Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)을 참조하세요.
 
 
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -7,4 +7,4 @@
 
 * 마지막으로, [Xcode 빠른 시작 프로젝트에서 프로비전 프로필을 새로 고친](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW10) 다음 [프로비전 프로필을 만들거나 다시 생성하여 푸시 알림을 사용하는지 확인](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW12)합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

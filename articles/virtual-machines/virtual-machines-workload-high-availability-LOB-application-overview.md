@@ -19,7 +19,8 @@
 
 # 고가용성 LOB(기간 업무) 응용 프로그램 배포
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 이 항목에는 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 고가용성 인트라넷 전용 웹 기반 LOB(기간 업무) 응용 프로그램을 배포하는 단계별 지침에 대한 링크가 포함되어 있습니다. 응용 프로그램은 다음 컴퓨터에서 호스팅됩니다.
 
@@ -68,4 +69,4 @@ Azure에 대한 IT 워크로드를 설계하는 방법에 대한 자세한 내�
 
 [Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

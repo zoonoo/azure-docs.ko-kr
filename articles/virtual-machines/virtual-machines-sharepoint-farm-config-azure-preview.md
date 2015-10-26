@@ -19,7 +19,8 @@
 
 # SharePoint 서버 팜 구성 세부 정보
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 SharePoint 서버 팜은 미리 구성된 SharePoint Server 2013 팜을 자동으로 만드는 Azure Preview 포털의 기능입니다. 다음과 같은 두 가지 팜 구성이 있습니다.
 
@@ -141,4 +142,4 @@ Azure Preview 포털의 SharePoint 서버 팜 기능은 서비스 관리에서 �
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

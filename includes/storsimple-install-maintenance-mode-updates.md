@@ -26,4 +26,4 @@
 
 8. 두 컨트롤러를 모두 업데이트한 후 유지 관리 모드를 종료합니다. 지침은 [4단계: 유지 관리 모드 종료](storsimple-update-device.md#step4)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

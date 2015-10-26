@@ -94,4 +94,4 @@
 - [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)
 - [GitHub의 EF 7, Entity Framework 6](http://entityframework.codeplex.com/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,3 +1,5 @@
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
+
 1. [Azure 포털](http://manage.windowsazure.com)에 로그인합니다. 아직 구독이 없으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요.
 
 2. 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
@@ -62,4 +64,4 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -34,4 +34,4 @@
 - 리소스 간의 링크를 만드는 방법에 대해 자세히 살펴보려면 [Azure 리소스 관리자에서 리소스 연결](../resource-group-link-resources.md)을 참조하세요.
 - 미리 보기 포털을 통해 리소스 그룹 작업에 대해 자세하게 파악하려면 [Azure Preview 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

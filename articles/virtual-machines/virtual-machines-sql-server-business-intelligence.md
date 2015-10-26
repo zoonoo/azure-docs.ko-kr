@@ -18,7 +18,8 @@
 
 # Azure 가상 컴퓨터의 SQL Server Business Intelligence
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 사용하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
  
 Microsoft Azure 가상 컴퓨터 갤러리에는 SQL Server 설치가 포함된 이미지가 들어 있습니다. 갤러리 이미지에서 지원되는 SQL Server 버전은 온-프레미스 컴퓨터와 가상 컴퓨터에 설치할 수 있는 동일한 설치 파일입니다. 이 항목은 가상 컴퓨터가 프로비전된 후 필요한 구성 단계 및 이미지에 설치된 SQL Server BI(비즈니스 인텔리전스) 기능을 요약합니다. 이 항목은 BI 기능에 대해 지원되는 배포 토폴로지 및 모범 사례도 설명합니다.
 
@@ -430,4 +431,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

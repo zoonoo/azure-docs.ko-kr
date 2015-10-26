@@ -633,7 +633,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 		# ShowOozieJobLog($oozieJobId)
 		# killOozieJob($oozieJobId)
 
-	추가 함수를 실행하려는 경우 #기호를 제거합니다.
+	추가 함수를 실행하려는 경우 # 기호를 제거합니다.
 
 7. HDinsight 클러스터 버전이 2.1인 경우 "https://$clusterName.azurehdinsight.net:443/oozie/v2/"를 "https://$clusterName.azurehdinsight.net:443/oozie/v1/"로 바꿉니다. HDInsight 클러스터 버전 2.1은 웹 서비스의 버전 2를 지원하지 않습니다.
 
@@ -645,7 +645,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 **작업 오류 로그를 검사하려면**
 
-워크플로 문제를 해결하기 위해 클러스터 headnode에서 C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log에 있는 Oozie 로그 파일을 확인할 수 있습니다. RDP에 대한 자세한 내용은 [관리 포털을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
+워크플로 문제를 해결하기 위해 클러스터 headnode에서 C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log에 있는 Oozie 로그 파일을 확인할 수 있습니다. RDP에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
 
 **자습서를 다시 실행하려면**
 
@@ -744,4 +744,4 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

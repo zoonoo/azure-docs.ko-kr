@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="HDInsight의 Hadoop을 사용하여 비행 지연 데이터 분석 | Microsoft Azure" 
-	description="하나의 Windows PowerShell 스크립트를 사용하여 HDInsight 클러스터를 프로비전하고, Hive 작업을 실행하고, Sqoop 작업을 실행하고, 클러스터를 삭제하는 방법을 알아봅니다." 
+	pageTitle="Linux 기반 HDInsight의 Hive를 사용하여 비행 지연 데이터 분석 | Microsoft Azure" 
+	description="Hive를 사용하여 Linux 기반 HDInsight에서 비행 데이터를 분석한 다음 Sqoop을 사용하여 SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다 " 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/09/2015" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -305,4 +305,4 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,7 @@
 
    	이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-6. (선택 사항) 4\~5단계를 반복하여 유니버설 Windows 앱의 Windows Phone 스토어 프로젝트도 등록합니다.
+6. (선택 사항) 4~5단계를 반복하여 유니버설 Windows 앱의 Windows Phone 스토어 프로젝트도 등록합니다.
 
 6. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
 
@@ -62,4 +62,4 @@
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

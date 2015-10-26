@@ -168,7 +168,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-\~5Mbps
+~5Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-\~100Mbps
+~100Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-\~200Mbps
+~200Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-\~400Mbps
+~400Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-\~800Mbps
+~800Mbps
 
 </td>
 </tr>
@@ -346,4 +346,4 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
   [응용 프로그램을 Azure로 마이그레이션]: http://msdn.microsoft.com/library/gg186051.aspx
   [Azure 응용 프로그램 구성]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

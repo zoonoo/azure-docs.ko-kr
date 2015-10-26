@@ -94,4 +94,4 @@ Azure 관리 포털을 사용하여 기계 학습 작업 영역을 관리하면 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -133,4 +133,4 @@ Azure Preview 포털에서 네이티브 Apache Spark 사용에 대한 문서를 
 * [오류 메시지 해석](hdinsight-debug-jobs.md)
 * [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

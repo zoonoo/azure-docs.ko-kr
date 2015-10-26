@@ -19,7 +19,8 @@
 
 # Azure의 CoreOS에서 fleet 시작
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 문서에서는 [CoreOS] 가상 컴퓨터 클러스터에서 [fleet](https://github.com/coreos/fleet) 및 [Docker](https://www.docker.com/)를 사용하여 응용 프로그램을 실행하는 두 가지 간단한 예제를 설명합니다.
 
@@ -175,4 +176,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [CoreOS Apache Docker Hub 이미지]: https://registry.hub.docker.com/u/coreos/apache/
 [Azure의 오픈 소스 컴퓨팅 및 Linux]: virtual-machines-linux-opensource.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -125,4 +125,4 @@ v2.0 앱 모델에서 SPA를 작동하려면 위에서 설명한 [웹 서버 앱
 
 [On-Behalf-Of 흐름](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 v2.0 앱 모델 미리 보기에 구현되어 있지 않습니다. 일반 공급 Azure AD 서비스에서 이 흐름이 작동하는 방식을 확인하려면 [GitHub의 On-Behalf-Of 코드 샘플](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)을 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

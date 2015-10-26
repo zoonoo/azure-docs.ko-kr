@@ -36,7 +36,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -81,7 +81,7 @@
 
 8.  **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
 
-    ![Singl Sign-On 설정](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Singl Sign-On 설정")
+    ![Singl Sign-On 설정](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Single Sign-On 설정")
 
     1.  **Single Sign-On 사용**을 선택합니다.
     2.  **기본 역할 할당**으로 **readonly**를 선택합니다.
@@ -133,4 +133,4 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

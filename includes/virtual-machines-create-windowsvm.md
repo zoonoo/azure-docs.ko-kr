@@ -32,4 +32,4 @@
 
 	![가상 컴퓨터의 VM 에이전트 및 끝점 구성](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

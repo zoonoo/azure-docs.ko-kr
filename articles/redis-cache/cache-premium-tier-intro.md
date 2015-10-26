@@ -54,4 +54,4 @@ Azure Redis Cache는 분산되고 관리된 캐시로, 데이터에 매우 빠�
 -	[프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

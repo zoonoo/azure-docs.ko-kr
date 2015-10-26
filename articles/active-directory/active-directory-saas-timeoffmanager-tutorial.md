@@ -3,8 +3,7 @@
 #자습서: TimeOffManager와 Azure Active Directory 통합
 >[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=534748)를 클릭하십시오.
   
-이 자습서는 Azure와 TimeOffManager의 통합을 보여주기 위한 것입니다.  
-이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure와 TimeOffManager의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   TimeOffManager Single Sign-On이 설정된 구독
@@ -40,7 +39,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-timeoffmanager-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-timeoffmanager-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -152,4 +151,4 @@ TimeOffManager는 사용자 프로비전 시간에만 지원합니다. 작업 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

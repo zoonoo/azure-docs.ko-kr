@@ -18,7 +18,8 @@ ms.author="bbenz" />
 
 #Azure용 Oracle Linux 가상 컴퓨터 준비
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 만든 VM에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 -   [Azure용 Oracle Linux 6.4 이상 가상 컴퓨터 준비](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -221,4 +222,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 15.  Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

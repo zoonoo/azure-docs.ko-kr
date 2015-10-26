@@ -13,14 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="cephalin"/>
+	ms.date="10/14/2015"
+	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Azure 앱 서비스에서 웹 앱 모니터링
 
 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)은 모니터 관리 페이지를 통해 표준 및 프리미엄 앱 서비스 계획에 대한 모니터링 기능을 제공합니다. 모니터 관리 페이지는 아래에 설명된 대로 웹 앱에 대한 성능 통계를 제공합니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+##메트릭 보존 정책
+
+>[AZURE.NOTE]앱 메트릭에 대한 보존 정책은 세분성에 따라 다릅니다.
+
+- **분** 세분성 메트릭은 **24시간** 동안 보존됩니다.
+- **시** 세분성 메트릭은 **7일** 동안 보존됩니다.
+- **일** 세분성 메트릭은 **30일** 동안 보존됩니다.
 
 ##<a name="websitemetrics"></a>방법: 웹 앱 메트릭 추가
 
@@ -35,6 +43,8 @@
 5. **모니터** 페이지에 메트릭을 추가한 후 각 메트릭 옆에 있는 원형 확인란을 사용하거나 사용하지 않도록 설정하여 페이지 맨 위에 있는 차트에서 메트릭을 추가하거나 제거하려면 클릭합니다.
 
 6. **모니터** 페이지에서 메트릭을 제거하려면 제거할 메트릭을 선택한 후 페이지 맨 아래에 있는 **메트릭 삭제** 아이콘을 클릭합니다.
+
+
 
 ##<a name="howtoreceivealerts"></a>방법: 웹 앱 메트릭의 경고 받기
 
@@ -88,7 +98,7 @@
 
 	Azure 저장소 계정 및 Blob을 지정하려면 **설정**, **로깅 수준**, **Blob 저장소 관리**를 차례로 선택합니다. 저장소 계정, Blob 컨테이너 및 사용할 Blob 이름을 지정하거나 새 컨테이너 및 Blob을 만드세요.
 
-Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법](/manage/services/storage/how-to-manage-a-storage-account/)(영문)을 참조하세요.
+Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법](/manage/services/storage/how-to-manage-a-storage-account/)(영문)을 참조하십시오.
 
 > [AZURE.NOTE]테이블 또는 Blob 저장소에 대한 응용 프로그램 로깅은 .NET 응용 프로그램에서만 지원됩니다.
 
@@ -96,7 +106,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 **응용 프로그램 진단(파일 시스템)**, **응용 프로그램 진단(테이블 저장소)** 및 **응용 프로그램 진단(Blob 저장소)**을 동시에 사용하도록 설정할 수 있으며 각 진단은 개별 로그 수준 구성을 포함합니다. 예를 들어 문제를 해결하기 위해 응용 프로그램 코드를 계측한 후 세부 정보 표시 수준의 파일 시스템 로깅을 사용하면서 오류 및 경고를 장기 로깅 솔루션으로 저장소에 로깅할 수 있습니다.
 
-Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하세요.
+Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
 > [AZURE.NOTE]응용 프로그램 로깅은 응용 프로그램에서 생성되는 로그 정보를 사용합니다. 로그 정보뿐 아니라 정보의 형식을 생성하는 데 사용되는 메서드는 응용 프로그램을 작성한 언어에 따라 달라집니다. 응용 프로그램 로깅 사용에 관한 특정 언어는 다음 문서를 참조합니다.
 >
@@ -111,9 +121,9 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 - **웹 서버 로깅** - W3C 확장 로그 파일 형식을 사용하여 웹 앱 로그를 저장하려면 웹 서버 로깅을 설정합니다. 웹 서버 로깅은 웹 앱으로 들어오는 모든 요청에 대한 레코드를 생성하며, 이 레코드에는 클라이언트 IP 주소, 요청된 URI, 응답의 HTTP 상태 코드, 클라이언트의 사용자 에이전트 문자열 등의 정보를 포함합니다. Azure 저장소 계정 또는 파일 시스템에 로그를 저장할 수 있습니다.
 
- Azure 저장소 계정에 웹 서버 로그를 저장하려면 **저장소**를 선택한 후 **저장소 관리**를 선택하여 로그를 저장할 저장소 계정 및 Azure Blob 컨테이너를 지정하세요. Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법](/manage/services/storage/how-to-manage-a-storage-account/)(영문)을 참조하세요.
+ Azure 저장소 계정에 웹 서버 로그를 저장하려면 **저장소**를 선택한 후 **저장소 관리**를 선택하여 로그를 저장할 저장소 계정 및 Azure Blob 컨테이너를 지정하십시오. Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법](/manage/services/storage/how-to-manage-a-storage-account/)(영문)을 참조하십시오.
 
-   파일 시스템에 웹 서버 로그를 저장하려면 **파일 시스템**을 선택하세요. 그러면 로그 파일의 최대 디스크 공간 양을 설정할 수 있는 **할당량** 상자가 사용되도록 설정됩니다. 최소 크기는 25MB이고 최대 크기는 100MB입니다. 기본 크기는 35MB입니다.
+   파일 시스템에 웹 서버 로그를 저장하려면 **파일 시스템**을 선택하십시오. 그러면 로그 파일의 최대 디스크 공간 양을 설정할 수 있는 **할당량** 상자가 사용되도록 설정됩니다. 최소 크기는 25MB이고 최대 크기는 100MB입니다. 기본 크기는 35MB입니다.
 
  기본적으로 웹 서버 로그는 절대로 삭제되지 않습니다. 일정 기간 후 로그가 자동으로 삭제되도록 지정하려면 **Set Retention**을 선택하고 **보존 기간** 상자에 로그를 보관할 기간(일)을 입력합니다. 이 설정은 Azure 저장소 및 파일 시스템 옵션 모두에 사용할 수 있습니다.
 
@@ -163,7 +173,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 1. **시작 화면** 또는 **시작 메뉴**에서 **Azure PowerShell**을 검색합니다. **Azure PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
-	> [AZURE.NOTE]**Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하세요.
+	> [AZURE.NOTE]**Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하십시오.
 
 2. Azure PowerShell 프롬프트에서 다음 명령을 사용하여 로그 파일을 다운로드합니다.
 
@@ -279,4 +289,4 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

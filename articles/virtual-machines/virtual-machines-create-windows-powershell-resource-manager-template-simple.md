@@ -1,5 +1,5 @@
 <properties
-	pageTitle="ARM 템플릿을 사용하여 VM 만들기 | Microsoft Azure"
+	pageTitle="템플릿을 사용하여 VM 만들기 | Microsoft Azure"
 	description="리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터를 만들 수 있습니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,12 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # 리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. 클래식 배포 모델을 사용하여 이 리소스를 만들 수 없습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 Azure PowerShell과 함께 리소스 관리자 템플릿을 사용하여 새 Windows 기반 Azure VM(가상 컴퓨터)을 쉽게 만들 수 있습니다. 이 템플릿은 새 리소스 그룹에 단일 서브넷이 있는 새 가상 네트워크에서 Windows를 실행하는 단일 가상 컴퓨터를 만듭니다.
 
@@ -39,21 +40,21 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-**New-AzureResourceGroupDeployment** 명령을 실행하면 JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메시지가 표시됩니다. 매개 변수 값을 모두 지정하면 명령에서 리소스 그룹과 가상 컴퓨터를 만듭니다.
+**New-AzureRmResourceGroupDeployment** 명령을 실행하면 JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메시지가 표시됩니다. 매개 변수 값을 모두 지정하면 명령에서 리소스 그룹과 가상 컴퓨터를 만듭니다.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 다음과 같이 표시됩니다.
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: newsaacct
@@ -103,6 +104,6 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
+[Azure PowerShell 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

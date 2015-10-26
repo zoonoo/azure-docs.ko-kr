@@ -57,4 +57,4 @@
 - [Azure 서비스 버스 아키텍처 개요](fundamentals-service-bus-hybrid-solutions.md)
 - [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -529,4 +529,4 @@ Azure 검색에 대해 자세히 알아보려면 [http://azure.microsoft.com](ht
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

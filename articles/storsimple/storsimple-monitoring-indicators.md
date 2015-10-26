@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 모니터링 표시기 | Microsoft Azure"
-	description="StorSimple 장치의 상태를 모니터링하는 데 사용되는 LED(발광 다이오드) 및 청각적 경보에 대해 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+    pageTitle="StorSimple 모니터링 표시기 | Microsoft Azure" 
+    description="StorSimple 장치의 상태를 모니터링하는 데 사용되는 LED(발광 다이오드) 및 청각적 경보에 대해 설명합니다."
+    services="storsimple"
+    documentationCenter="NA"
+    authors="SharS"
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="TBD"
+    ms.date="08/31/2015"
+    ms.author="v-sharos" />
 
 # StorSimple 모니터링 표시기를 사용하여 장치 관리   
 
@@ -256,4 +256,4 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

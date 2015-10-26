@@ -476,7 +476,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 기본 데스크톱 뷰도 좋지만 몇 가지 Bootstrap GUI 구성 요소를 사용하여 이 뷰를 쉽게 개선할 수 있습니다.
 
-*Views\Home\SessionByCode.cshtml*을 열고 내용을 다음 태그로 바꿉니다.
+*Views\\Home\\SessionByCode.cshtml*을 열고 내용을 다음 태그로 바꿉니다.
 
     @model Mvc5Mobile.Models.Session
 
@@ -617,4 +617,4 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -20,7 +20,8 @@
 
 # 클래식 배포 모델을 사용하여 만든, Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL 설치
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 [MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. [Azure 포털](http://manage.windowsazure.com)을 사용하면 이미지 갤러리에서 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음 해당 가상 컴퓨터를 설치하고 MySQL Server로 구성할 수 있습니다.
 
@@ -129,4 +130,4 @@ Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원�
 
 MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -22,7 +22,8 @@
 
 프로비전 중에 Azure 가상 컴퓨터에 스크립트 또는 기타 데이터를 삽입하는 경우는 운영 체제가 Windows이든, Linux 배포판이든 상관없이 아주 일반적인 시나리오입니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 항목에서는 이러한 방법에 대해 설명합니다.
 
@@ -82,4 +83,4 @@ Azure 가상 컴퓨터를 CoreOS 또는 Ubuntu 이미지에서 온 경우, Custo
 
 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -301,4 +301,4 @@ Azure 포털의 ADF에서 다음과 같이 파이프라인이 표시되는지 �
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](http://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

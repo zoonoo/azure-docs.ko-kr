@@ -272,4 +272,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [응용 프로그램을 만들어](active-directory-b2c-app-registration.md) 응용 프로그램 ID 및 redirect\_uri를 얻을 수 있습니다. 앱에서 **네이티브 클라이언트**를 포함하려 합니다.
 - [정책을 만들어](active-directory-b2c-reference-policies.md) 정책 이름을 얻습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -97,4 +97,4 @@ API 앱을 만들고 나면 이제 OneDrive 커넥터를 논리 앱에 대한 �
 [새 논리 앱을 만듭니다]: app-service-logic-create-a-logic-app.md
 [OneDrive API 정의]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -179,4 +179,4 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -182,4 +182,4 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js**를 컴퓨터에 �
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

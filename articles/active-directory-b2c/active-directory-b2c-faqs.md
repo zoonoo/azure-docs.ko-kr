@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: FAQ
@@ -22,9 +22,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-### 기존의 직원 기반 Azure AD 디렉터리에서 Azure AD B2C를 사용할 수 있습니까?
+### 기존의 직원 기반 Azure AD 테넌트에서 Azure AD B2C를 사용할 수 있습니까?
 
-현재 Azure AD B2C 기능은 기존 Azure AD 디렉터리에 설정할 수 없습니다. 즉, 별도의 디렉터리를 만들어 Azure AD B2C 기능을 사용, 즉 소비자를 관리하는 것이 좋습니다.
+현재 Azure AD B2C 기능은 기존 Azure AD 테넌트에 설정할 수 없습니다. 즉, 별도의 테넌트를 만들어 Azure AD B2C 기능을 사용, 즉 소비자를 관리하는 것이 좋습니다.
 
 ### Azure AD B2C를 사용하여 소셜 로그인(Facebook 및 Google+)을 Office 365에 제공할 수 있습니까?
 
@@ -32,9 +32,9 @@ Azure AD B2C는 Office 365와 함께 사용할 수 없습니다. 일반적으로
 
 ### Azure AD B2C에서 "로컬 계정"은 무엇입니까? Azure AD의 "작업 또는 학교 계정"과 어떻게 다릅니까?
 
-Azure AD 디렉터리에서 디렉터리의 모든 사용자는 형식 `<xyz>@<directory domain>`의 전자 메일 주소를 사용하여 로그인합니다.(기존 Microsoft 계정을 가진 사용자 제외) 여기서 `<directory domain>`는 디렉터리 또는 초기 `<...>.onmicrosoft.com` 도메인에서 확인된 도메인 중 하나입니다. 이 계정 유형은 "회사 또는 학교 계정" 또는 "조직 계정"이라고 합니다.
+Azure AD 테넌트에서 테넌트의 모든 사용자는 형식 `<xyz>@<tenant domain>`의 전자 메일 주소를 사용하여 로그인합니다.(기존 Microsoft 계정을 가진 사용자 제외) 여기서 `<tenant domain>`는 테넌트 또는 초기 `<...>.onmicrosoft.com` 도메인에서 확인된 도메인 중 하나입니다. 이 계정 유형은 "회사 또는 학교 계정" 또는 "조직 계정"이라고 합니다.
 
-Azure AD B2C 디렉터리에서 대부분의 앱은 사용자가 임의의 전자 메일 주소를 사용하여 로그인하도록 합니다.(예: joe@comcast.net, bob@gmail.com, sarah@contoso.com 또는 jim@live.com)) 이 계정 유형은 "로컬 계정"입니다. 오늘날에 임의의 사용자 이름(일반 문자열)을 로컬 계정(예:, joe, bob, sarah 또는 jim)으로 지원합니다. Azure AD B2C 서비스에서 이러한 두 로컬 계정 "형식" 중 하나를 선택할 수 있습니다.
+Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 전자 메일 주소를 사용하여 로그인하도록 합니다.(예: joe@comcast.net, bob@gmail.com, sarah@contoso.com 또는 jim@live.com)) 이 계정 유형은 "로컬 계정"입니다. 오늘날에 임의의 사용자 이름(일반 문자열)을 로컬 계정(예:, joe, bob, sarah 또는 jim)으로 지원합니다. Azure AD B2C 서비스에서 이러한 두 로컬 계정 "형식" 중 하나를 선택할 수 있습니다.
 
 ### 지금 어떤 소셜 ID 공급자를 지원합니까? 나중에 어떤 공급자를 지원하려는 계획입니까?
 
@@ -55,7 +55,7 @@ Azure AD B2C 디렉터리에서 대부분의 앱은 사용자가 임의의 전�
 
 ### 여러 Azure AD B2C 디렉터리가 있습니다. Azure Preview 포털에서 어떻게 관리할 수 있습니까?
 
-각 Azure AD B2C 디렉터리는 Azure Preview 포털에 고유의 B2C 기능 블레이드가 있습니다. 어떻게 Azure Preview 포털에서 특정 디렉터리의 B2C 기능 블레이드로 이동할 수 있는지에 대해 [여기](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)를 읽습니다. Azure Preview 포털에서 Azure AD B2C 디렉터리를 전환하면 대부분의 브라우저에서 B2C 기능 블레이드를 열어둘 수 없습니다.
+각 Azure AD B2C 테넌트는 Azure 미리 보기 포털에 고유의 B2C 기능 블레이드가 있습니다. 어떻게 Azure Preview 포털에서 특정 테넌트의 B2C 기능 블레이드로 이동할 수 있는지에 대해 [여기](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)를 읽습니다. Azure Preview 포털에서 Azure AD B2C 디렉터리를 전환하면 대부분의 브라우저에서 B2C 기능 블레이드를 열어둘 수 없습니다.
 
 ### Azure AD B2C에서 보낸 확인 전자 메일을 어떻게 사용자 지정합니까?(콘텐츠 및 보낸 사람 필드, 즉 "From" 필드)
 
@@ -87,7 +87,7 @@ Azure AD Graph API를 사용([여기](active-directory-b2c-devquickstarts-graph-
 
 ### Azure AD B2C에서 제공하는 등록 및 로그인 페이지에 고유 URL을 사용할 수 있습니까? 예를 들어 login.microsoftonline.com에서 login.contoso.com으로 URL을 변경할 수 있습니까?
 
-현재는 아닙니다. 하지만 이 기능은 우리의 로드맵입니다.
+현재는 아닙니다. 이 기능은 우리의 로드맵입니다. 또한 Azure 포털에서 테넌트의 **도메인** 탭에서 해당 도메인 “확인"은 해당 내용을 수행하지 않습니다.
 
 ### Enterprise Mobility Suite(EMS)의 일부로 Azure AD B2C를 가져올 수 있습니까?
 
@@ -105,4 +105,4 @@ Azure AD B2C에서 [이 지원 항목](active-directory-b2c-support.md)을 확�
 
 또한 현재 [미리 보기 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

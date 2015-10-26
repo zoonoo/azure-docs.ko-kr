@@ -70,7 +70,7 @@
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebAppTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebapp" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10\~15분이 걸립니다.
+	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
 
 4. 다음은 결과 출력의 예입니다.
 
@@ -169,7 +169,7 @@
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebSite> .\CreateDocDBWebSite.ps1 -WebSiteName "myotherdocumentdbwebapp" -ResourceGroupName "myOtherDemoResourceGroup" -docDBAccountName "myotherdocumentdbdemoaccount" -location "East US"
 
-	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10\~15분이 걸립니다.
+	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
 
 4. 배포 출력은 첫 번째 템플릿 예제와 매우 유사합니다.
 5. Azure Preview 포털을 열기 전에 이 템플릿 배포에서 수행한 내용을 살펴보겠습니다.
@@ -210,4 +210,4 @@
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

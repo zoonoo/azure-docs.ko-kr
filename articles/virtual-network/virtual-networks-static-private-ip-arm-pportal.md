@@ -97,4 +97,4 @@ Preview 포털을 사용하여 리소스 관리자 배포 모드에서 VM을 만
 - [ILPIP(인스턴스 수준 공용 IP)](../virtual-networks-instance-level-public-ip) 주소에 대해 알아봅니다.
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

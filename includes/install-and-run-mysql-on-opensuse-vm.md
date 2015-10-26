@@ -66,7 +66,7 @@
 
 12. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
 
-13. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다. 그러면 MySQL에 원격으로 액세스할 수 있습니다. 
+13. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다.
 
 14. 컴퓨터에서 가상 컴퓨터에 원격으로 연결하려면 다음을 입력합니다.
 
@@ -81,4 +81,4 @@
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

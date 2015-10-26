@@ -3,7 +3,7 @@
         description="클라우드에서 파일 공유를 만들고 Azure VM 또는 Linux에서 실행 중인 온-프레미스 응용 프로그램에서 탑재합니다."
         services="storage"
         documentationCenter="na"
-        authors="jutang"
+        authors="jasontang501"
         manager="jahogg"
         editor="" />
 
@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="09/28/2015"
+      ms.date="10/06/2015"
       ms.author="jutang;tamram" />
 
 
@@ -24,7 +24,7 @@ Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드�
 
 Azure Preview 포털, Azure 저장소 PowerShell cmdlet, Azure 저장소 클라이언트 라이브러리 또는 Azure 저장소 REST API를 사용하여 Azure 파일 공유를 만들 수 있습니다. 또한 파일 공유는 SMB 공유이므로, 익숙한 표준 파일 시스템 API를 통해 파일 공유에 액세스할 수 있습니다.
 
-Azure에서 실행 중인 응용 프로그램은 쉽게 Azure 가상 컴퓨터에서 파일 공유를 탑재할 수 있습니다. 최신 릴리스 파일 저장소를 사용하면 SMB 3.0을 지원하는 온-프레미스 응용 프로그램에서 파일 공유를 탑재할 수도 있습니다.
+Azure에서 실행 중인 응용 프로그램은 쉽게 Azure 가상 컴퓨터에서 파일 공유를 마운트할 수 있습니다. 최신 릴리스 파일 저장소를 사용하면 SMB 3.0을 지원하는 온-프레미스 응용 프로그램에서 파일 공유를 탑재할 수도 있습니다.
 
 Linux SMB 클라이언트는 아직 암호화를 지원하지 않으므로, Linux에서 파일 공유를 탑재하려면 여전히 클라이언트가 파일 공유와 동일한 Azure 지역에 있어야 합니다. 그러나 Linux에 대한 암호화 지원은 SMB 기능을 담당하는 Linux 개발자의 로드맵상에 있습니다. 향후 암호화를 지원하는 Linux 배포판은 어디에서나 Azure 파일 공유를 탑재할 수 있게 됩니다.
 
@@ -57,9 +57,7 @@ Linux를 실행하는 가상 컴퓨터에서 파일 공유를 탑재하려면 �
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
-다음은 구체적인 예입니다.
-
-Azure 마켓플레이스에서 사용할 수 있는 Linux 이미지 Ubuntu Server 15.04를 사용하여 Azure VM을 만든 경우에는 다음과 같이 파일을 탑재할 수 있습니다.
+예를 들어 Azure 이미지 갤러리에서 사용할 수 있는 Linux 이미지 Ubuntu Server 15.04를 사용하여 Azure VM을 만든 경우에는 다음과 같이 파일을 탑재할 수 있습니다.
 
     azureuser@azureconubuntu:~$ sudo apt-get install apt-file
     azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
@@ -85,6 +83,28 @@ Open SUSE 13.2를 사용하는 경우 다음과 같이 파일을 탑재할 수 �
     Filesystem  Size  Used Avail Use% Mounted on
     //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 
+## 파일 공유 관리 ##
+
+이제 [Azure Preview 포털](https://portal.azure.com/)에서 Azure 파일 저장소를 관리하기 위한 사용자 인터페이스를 제공합니다. 웹 브라우저에서 다음 작업을 수행할 수 있습니다.
+
+- 파일 공유에 대해 파일 업로드 및 다운로드
+- 각 파일 공유의 실제 사용량 모니터링
+- 파일 공유 크기 할당량 조정
+- Windows 클라이언트에서 파일 공유를 마운트하기 위해 사용할 `net use` 명령 복사 
+
+또한 Linux에서 Azure CLI(Azure 플랫폼 간 명령줄 인터페이스)를 사용하여 파일 공유를 관리할 수 있습니다. Azure CLI는 파일 저장소를 비롯한 Azure 저장소 작업을 실행하기 위한 공개 소스, 플랫폼 간 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 Azure 포털에 있는 동일한 기능을 대부분 제공합니다. 예제는 [Azure 저장소와 함께 Azure CLI 사용](storage-azure-cli.md)을 참조하세요.
+
+## 파일 저장소를 사용하여 개발 ##
+
+개발자는 [Java용 Azure 저장소 클라이언트 라이브러리](https://github.com/azure/azure-storage-java)를 사용하여 파일 저장소와 함께 응용 프로그램을 빌드할 수 있습니다. 코드 예제를 보려면 [Java에서 파일 저장소를 사용하는 방법](storage-java-how-to-use-file-storage.md)을 참조하세요.
+
+또한 파일 저장소에 대해 개발하기 위해 [Node.js용 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-node)를 사용할 수도 있습니다.
+
+## 피드백 및 추가 정보 ##
+
+Linux 사용자 여러분의 의견을 듣고 싶습니다!
+
+Linux 사용자 그룹용 Azure 파일 저장소는 Linux에서 파일 저장소를 평가하고 채택할 때 피드백을 공유할 수 있도록 포럼을 제공합니다. 사용자 그룹에 참가하려면 [Azure 파일 저장소 Linux 사용자](mailto:azurefileslinuxusers@microsoft.com)에게 메일을 보내세요.
 
 ## 다음 단계
 
@@ -110,4 +130,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

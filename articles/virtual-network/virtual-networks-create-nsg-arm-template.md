@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="10/08/2015"
    ms.author="telmos" />
 
 # 템플릿을 사용하여 NSG를 만드는 방법
@@ -97,19 +97,10 @@
 PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다음 단계를 수행합니다.
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
-2. 다음과 같이 **Switch-AzureMode** cmdlet을 실행하여 리소스 관리자 모드로 전환합니다.
 
-		Switch-AzureMode AzureResourceManager
+3. **New-AzureRMResourceGroup** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
 
-	다음은 위의 명령에 대해 예상된 출력입니다.
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]Switch-AzureMode cmdlet은 곧 더 이상 사용되지 않습니다. 이 경우 모든 리소스 관리자 cmdlet의 이름이 바뀝니다.
-
-3. **New-AzureResourceGroup** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
-
-		New-AzureResourceGroup -Name TestRG -Location uswest `
+		New-AzureRMResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
 
@@ -147,7 +138,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Azure CLI를 사용하여 ARM 템플릿 배포
 
@@ -175,7 +166,7 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 		info:    Initializing template configurations and parameters
 		info:    Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 		data:    Name:                TestRG
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -188,4 +179,4 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 	- **-f(또는 --template-file)**. ARM 템플릿 파일에 대한 경로입니다.
 	- **-e(또는 --parameters-file)**. ARM 매개 변수 파일에 대한 경로입니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

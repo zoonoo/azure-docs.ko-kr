@@ -45,4 +45,4 @@
 		
 	이제 새 TodoItem을 삽입하면 등록된 모든 장치에 푸시 알림이 전송됩니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

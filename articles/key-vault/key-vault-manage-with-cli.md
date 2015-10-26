@@ -256,4 +256,4 @@ Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 �
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

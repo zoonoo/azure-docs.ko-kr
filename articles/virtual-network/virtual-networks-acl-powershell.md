@@ -97,4 +97,4 @@ Azure PowerShell cmdlet을 사용하여 네트워크 ACL(액세스 제어 목록
 
 [가상 컴퓨터와의 통신을 설정하는 방법](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

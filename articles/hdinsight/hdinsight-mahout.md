@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mahout 및 Hadoop을 사용하여 추천 생성 | Microsoft Azure"
-	description="Apache Mahout 기계 학습 라이브러리를 사용하여 HDInsight(Hadoop)에서 영화 추천을 생성하는 방법을 알아봅니다."
+	pageTitle="Mahout 및 WIndows 기반 HDInsight를 사용하여 추천 생성 | Microsoft Azure"
+	description="Apache Mahout 기계 학습 라이브러리를 사용하여 Windows 기반 HDInsight(Hadoop)에서 영화 추천을 생성하는 방법을 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #HDInsight의 Hadoop과 함께 Apache Mahout을 사용하여 영화 추천 생성
@@ -38,7 +38,7 @@ Mahout은 Apache Hadoop용 [기계 학습][ml] 라이브러리입니다. Mahout�
 
 	> [AZURE.NOTE]Mahout는 HDInsight 3.1 버전의 클러스터에서 제공됩니다. 이전 버전의 HDInsight를 사용하는 경우 계속하기 전에 [Mahout 설치](#install)를 참조하세요.
 
-##필수 조건:
+##필수 조건
 
 * **HDInsight에서 Windows 기반 Hadoop 클러스터** HDInsight 클러스터 만들기에 대해서는 [HDInsight에서 Hadoop 사용 시작][getstarted]을 참조하세요.
 
@@ -81,7 +81,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
     	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
-    이 명령은 클러스터용 기본 저장소의 __example/data/u.data__에 __u.data__ 파일을 업로드합니다. 그런 다음 HDInsight 작업에서 __wasb:///example/data/u.data__ URI를 사용하여 이 데이터에 액세스할 수 있습니다.
+    이 명령은 클러스터용 기본 저장소의 __example/data/u.data__에 __u.data__ 파일을 업로드합니다. 그런 다음 HDInsight 작업에서 \_\___wasb:///example/data/u.data__ URI를 사용하여 이 데이터에 액세스할 수 있습니다.
 
 ###작업 실행
 
@@ -422,4 +422,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -38,4 +38,4 @@ MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs]를 참조하세
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

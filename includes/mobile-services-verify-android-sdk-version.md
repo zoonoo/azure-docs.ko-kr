@@ -20,4 +20,4 @@
 
 4. Android Studio에서는 Eclipse와 달리 매니페스트 파일이 대상 SDK 및 최소 SDK 버전을 지정하는 데 더 이상 사용되지 않습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

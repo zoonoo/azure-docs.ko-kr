@@ -300,4 +300,4 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

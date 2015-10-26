@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Azure AD Connect Health FAQ"
 	description="이 FAQ는 Azure AD Connect Health에 대한 질문에 답변합니다. 이 FAQ는 요금 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용에 대한 질문을 다룹니다."
 	services="active-directory"
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 
@@ -25,10 +25,9 @@
 
 
 
-**Azure Active Directory에 여러 테넌트가 있습니다. Azure Active Directory Premium을 사용하는 테넌트로 전환하려면 어떻게 해야 하나요?**
+**Q: 여러 Azure AD 디렉터리를 관리합니다. Azure Active Directory Premium을 사용하는 테넌트로 전환하려면 어떻게 해야 하나요?**
 
-왼쪽 탐색 모음에서 "홈"을 선택한 다음 오른쪽 위 모서리에서 현재 로그인된 사용자 이름을 선택하고 적합한 테넌트 계정을 선택하여 Azure AD 테넌트를 전환할 수 있습니다. 테넌트 계정이 여기에 나열되어 있지 않으면 로그아웃을 선택한 다음 Azure Active Directory Premium 테넌트의 글로벌 테넌트 관리자 자격 증명을 사용하여 로그인합니다.
-
+맨 위 오른쪽 모서리에 있는 현재 로그인한 사용자 이름을 선택하고 적절한 계정을 선택하면 서로 다른 Azure AD 디렉터리 간에 전환할 수 있습니다. 계정이 여기에 나열되어 있지 않으면 로그아웃을 선택한 다음 Azure Active Directory Premium이 사용하도록 설정된 디렉터리의 글로벌 관리자 자격 증명을 사용하여 로그인합니다.
 
 ## 설치 관련 질문
 
@@ -43,7 +42,7 @@ ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 �
 - CPU 사용: ~1% 증가
 - 메모리 소비: 전체 시스템 메모리의 최대 10%
 - 네트워크 대역폭 사용: ~1MB/ADFS 요청 1000개
->[AZURE.NOTE]에이전트가 Azure와 통신할 수 없는 경우, 에이전트는 총 시스템 메모리의 최대 10% 한계까지 데이터를 로컬로 저장합니다. 에이전트가 총 실제 메모리의 10% 값에 도달하여 에이전트가 데이터를 서비스에 업로드할 수 없는 경우, 새 ADFS 트랜잭션이 "최소 최근 서비스" 단위로 "캐시된" 모든 트랜잭션을 덮어 쓰게 됩니다.
+>[AZURE.NOTE]Azure와 통신할 수 없는 에이전트의 경우 에이전트는 정의된 최대 제한까지 로컬로 데이터를 저장합니다. 에이전트가 제한에 도달해서 에이전트가 서비스에 데이터를 업로드할 수 없는 경우 새 ADFS 트랜잭션은 "오래 전에 서비스된 항목" 기준으로 "캐시된" 트랜잭션을 덮어씁니다.
 
 - AD Health Agent의 로컬 버퍼 저장소: ~20MB
 - 감사 채널에 필요한 데이터 저장소
@@ -60,49 +59,14 @@ ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 �
 
 **Q: Azure AD Connect Health Services는 통과 http 프록시를 통해 작동하나요?**
 
-예, 등록 프로세스와 일반 작업 모두 아웃바운드 http 요청을 전달하도록 설정된 명시적 프록시를 통해 작동할 수 있습니다. 이 경우에는 에이전트가 Microsoft Windows HTTP Services 대신 System.Net을 사용하여 웹 요청을 수행했으므로 “Netsh WinHttp set Proxy”가 작동하지 않습니다.
+예. 진행 중인 작업은 HTTP 프록시를 사용하여 아웃바운드 http 요청을 전달하도록 상태 에이전트를 구성할 수 있습니다. 자세한 내용은 [HTTP 프록시를 사용하도록 Azure AD Connect Health 에이전트 구성](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy)을 참조하세요.
 
-Register-AdHealthAgent를 실행하기 전 언제든지 수행하세요(설치 최종 단계).
-
-
-- 1단계 - machine.config 파일에 항목 추가
-
-
-machine.config 파일을 찾습니다. 파일은 %windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>에 있습니다.
-
-machine.config 파일의 <configuration></configuration> 요소 아래에 다음 항목을 추가합니다.
-		
-	<system.net>  
-			<defaultProxy useDefaultCredentials="true">
-       		<proxy 
-        usesystemdefault="true" 
-        proxyaddress="http://YOUR.PROXY.HERE.com"  
-        bypassonlocal="true"/>
-		</defaultProxy>
-	</system.net> 
-
- 
-
-추가 <defaultProxy> 정보는 [여기](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110))에서 확인할 수 있습니다.
-
-이 설정은 http .NET 요청을 수행할 때 명시적으로 정의된 프록시를 사용하도록 시스템 전체의 .NET 응용 프로그램을 구성합니다. 자동 업데이트 중에 실행이 취소되므로 개별 app.config는 수정하지 않는 것이 좋습니다. 파일 한 개만 변경해야 하며 machine.config만 수정하는 경우 업데이트 시에도 유지됩니다.
-
-- 2단계 - 인터넷 옵션에서 프록시 구성
-
-Internet Explorer -> 설정 -> 인터넷 옵션 -> 연결 -> LAN 설정을 엽니다.
-
-Lan에 프록시 서버 사용을 선택합니다.
-
-HTTP 및 HTTPS/보안의 프록시 포트가 다른 경우 고급을 선택합니다.
-
-
+에이전트를 등록하는 동안 프록시를 구성해야 하는 경우 Internet Explorer 프록시 설정을 수정해야 합니다. <br> Internet Explorer -> 설정 -> 인터넷 옵션 -> 연결 -> LAN 설정을 엽니다.<br> LAN에 프록시 서버 사용을 선택합니다.<br> HTTP 및 HTTPS/보안의 프록시 포트가 다른 경우 고급을 선택합니다.<br>
 
 
 **Q: Azure AD Connect Health Services는 Http 프록시에 연결할 때 기본 인증을 지원하나요?**
 
 아니요. 기본 인증에 필요한 임의 사용자 이름/암호 지정 메커니즘은 현재 지원되지 않습니다.
-
-
 
 
 
@@ -125,7 +89,7 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 
 **Q: Azure AD Connect Health Agent가 작동하도록 하기 위해 열어야 하는 방화벽 포트는 무엇인가요?**
 
-Azure AD Connect Health Agent가 Azure AD Health 서비스 끝점과 통신할 수 있도록 하려면 TCP/UDP 포트 80 및 443을 열어야 합니다.
+Azure AD Connect Health 에이전트가 Azure AD Health 서비스 끝점과 통신할 수 있도록 하려면 TCP/UDP 포트 80, 443 및 5671을 열어야 합니다.
 
 ## 관련 링크
 
@@ -134,4 +98,4 @@ Azure AD Connect Health Agent가 Azure AD Health 서비스 끝점과 통신할 �
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

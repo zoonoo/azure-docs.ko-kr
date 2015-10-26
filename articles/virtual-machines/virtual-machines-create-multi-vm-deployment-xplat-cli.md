@@ -19,7 +19,8 @@
 
 # Azure CLI를 사용하여 여러 VM 배포 만들기
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 다음 스크립트는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 VNET에서 여러 VM 다중 클라우드 서비스 배포를 구성하는 방법을 보여 줍니다.
 
@@ -70,4 +71,4 @@
 * [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

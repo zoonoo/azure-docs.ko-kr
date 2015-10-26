@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL 데이터베이스 사용자 오류 복구"
-	description="Azure SQL 데이터베이스의 PITR(지정 시간 복원) 기능을 사용하여 사용자 오류, 실수로 인한 데이터 손상 또는 삭제된 데이터베이스를 복구하는 방법을 알아봅니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="SQL 데이터베이스 사용자 오류 복구" 
+   description="Azure SQL 데이터베이스의 PITR(지정 시간 복원) 기능을 사용하여 사용자 오류, 실수로 인한 데이터 손상 또는 삭제된 데이터베이스를 복구하는 방법을 알아봅니다." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/23/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="10/08/2015"
+   ms.author="elfish"/>
 
 # 사용자 오류에서 Azure SQL 데이터베이스 복구
 
@@ -44,6 +44,8 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
 ###PowerShell
 프로그래밍 방식으로 데이터베이스 복원을 수행하려면 PowerShell을 사용합니다.
+
+> [AZURE.IMPORTANT]이 문서에서는 Azure PowerShell 버전 1.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
 
 지정 시간 복원으로 데이터베이스를 복원하려면 [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet을 사용합니다. 자세한 연습에 대해서는 [방법 비디오](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/)를 참조하세요.
 
@@ -113,4 +115,4 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="테스트 용이성 작업 | Microsoft Azure"
-	description="이 문서에서는 Microsoft Azure 서비스 패브릭에서 발견되는 테스트 용이성 작업에 대해 다룹니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="heeldin"
-	manager="timlt"
-	editor=""/>
+   description="이 문서에서는 Microsoft Azure 서비스 패브릭에서 발견되는 테스트 용이성 작업에 대해 다룹니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="heeldin"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/31/2015"
-	ms.author="heeldin;motanv"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/31/2015"
+   ms.author="heeldin;motanv"/>
 
 # 테스트 용이성 작업
 불안정한 인프라를 시뮬레이션할 수 있도록 서비스 패브릭에서는 개발자에게 다양한 실제 오류 및 상태 전환을 시뮬레이션할 수 있는 작업을 제공합니다. 이러한 작업을 테스트 용이성 작업이라고 합니다. 이러한 작업은 특정 오류 주입, 상태 전환 또는 유효성 검사를 발생시키는 저수준 API입니다. 서비스 개발자는 이러한 작업을 결합하여 서비스에 대한 포괄적인 테스트 시나리오를 작성할 수 있습니다.
@@ -234,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

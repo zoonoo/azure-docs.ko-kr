@@ -171,4 +171,4 @@
 
 VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

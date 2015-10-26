@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/09/2015" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 Redis 클러스터링을 구성하는 방법
@@ -97,7 +97,7 @@ Redis 단위당 [키 배포 모델](http://redis.io/topics/cluster-spec#keys-dis
 
 ## 내 케시의 분할된 데이터베이스에 직접 연결할 수 있나요?
 
-공식적으로는 지원되지 않습니다. 즉 분할된 각각의 데이터베이스는 통틀어 캐시 인스턴스라고 하는 주/복제본 캐시로 구성되어 있습니다. 다음 패턴에서 redis-cli.exe를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다.
+공식적으로는 지원되지 않습니다. 즉 분할된 각각의 데이터베이스는 통틀어 캐시 인스턴스라고 하는 주/복제본 캐시로 구성되어 있습니다. GitHub에서 Redis 리포지토리의 [불안정한](http://redis.io/download) 분기에서 redis-cli 유틸리티를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다. 이 버전에는 `-c` 스위치로 시작한 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터 자습서](http://redis.io/topics/cluster-tutorial)의 [http://redis.io](http://redis.io)에서 [클러스터 작업](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)을 참조하세요.
 
 비 SSL은 다음 명령을 사용합니다.
 
@@ -146,4 +146,4 @@ SSL에서는 `1300N`을 `1500N`으로 대체합니다.
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

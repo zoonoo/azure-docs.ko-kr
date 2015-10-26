@@ -141,4 +141,4 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

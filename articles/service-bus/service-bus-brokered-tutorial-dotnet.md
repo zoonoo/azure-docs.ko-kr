@@ -649,4 +649,4 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 아키텍처](service-bus-architecture.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

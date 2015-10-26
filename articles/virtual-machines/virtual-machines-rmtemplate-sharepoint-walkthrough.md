@@ -18,7 +18,7 @@
 
 # 세 개의 서버 SharePoint 팜 리소스 관리자 템플릿
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. 클래식 배포 모델을 사용하여 이 리소스를 만들 수 없습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 클래식 배포 모델을 사용하여 이 리소스를 만들 수 없습니다.
 
 이 항목에서는 세 개의 서버 SharePoint 팜용 azuredeploy.json 템플릿 파일의 구조를 단계별로 안내합니다. [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json)에서 브라우저를 통해 이 템플릿의 내용을 확인할 수도 있습니다.
 
@@ -376,4 +376,4 @@ Azure에서 다중 계층 인프라를 구축하는 사용자 고유의 JSON 템
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

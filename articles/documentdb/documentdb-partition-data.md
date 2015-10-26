@@ -112,4 +112,4 @@ DocumentDB에서는 언제라도 컬렉션을 추가 및 제거하고, 이를 �
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

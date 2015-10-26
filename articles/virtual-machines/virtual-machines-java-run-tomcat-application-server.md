@@ -19,7 +19,8 @@
 
 # 클래식 배포 모델을 사용하여 만든 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있습니다. 한 예로, Java 응용 프로그램 서버(예: Apache Tomcat)를 호스트하도록 Azure에서 실행되는 가상 컴퓨터를 구성할 수 있습니다. 이 가이드를 완료하고 나면 Azure에서 실행되는 가상 컴퓨터를 만들고 Java 응용 프로그램 서버에서 실행하도록 구성하는 방법을 이해할 수 있게 됩니다.
 
@@ -145,4 +146,4 @@ Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

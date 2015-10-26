@@ -103,4 +103,4 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

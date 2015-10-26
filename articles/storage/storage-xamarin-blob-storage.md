@@ -179,4 +179,4 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

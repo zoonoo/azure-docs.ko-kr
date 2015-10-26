@@ -19,7 +19,8 @@
 
 # .NET 라이브러리 및 템플릿을 사용하여 Azure 리소스 배포
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 리소스 그룹 및 템플릿을 사용하면 응용 프로그램을 함께 지원하는 모든 리소스를 관리할 수 있습니다. 이 자습서에는 Azure 리소스 관리 라이브러리에서 사용 가능한 일부 클라이언트를 사용하는 방법 및 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 배포하기 위해 템플릿을 빌드하는 방법을 보여 줍니다.
 
@@ -38,31 +39,23 @@
 
 Azure AD를 사용하여 Azure 리소스 관리자에 요청을 인증하려면, 응용 프로그램이 기본 디렉터리에 추가되어야 합니다. 응용 프로그램을 추가하려면 다음을 수행 합니다.
 
-1. Azure PowerShell 명령 프롬프트를 열고 이 명령을 실행합니다.
+1. Azure PowerShell 명령 프롬프트를 연 다음 이 명령을 실행하고 메시지가 표시되면 구독에 대한 자격 증명을 입력합니다.
 
-        Switch-AzureMode –Name AzureResourceManager
+	    Login-AzureRmAccount
 
-2. 이 자습서에 사용하려는 Azure 계정을 설정합니다. 이 명령을 실행하고 메시지가 표시되면 구독에 대한 자격 증명을 입력합니다.
+2. 다음 명령에서 {password}를 사용할 명령으로 바꾼 다음 실행하여 응용 프로그램을 만듭니다.
 
-	    Add-AzureAccount
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-3. 다음 명령에서 {password}를 사용할 명령으로 바꾼 다음 실행하여 응용 프로그램을 만듭니다.
+	>[AZURE.NOTE]다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 포털의 Active Directory 섹션에서 응용 프로그램의 클라이언트 id 필드에서 응용 프로그램 ID를 찾을 수 있습니다.
 
-	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+3. {application-id}를 방금 기록된 식별자로 바꾼 다음 해당 응용 프로그램에 대한 서비스 사용자를 만듭니다.
 
-4. 이전 단계의 응답에서 ApplicationId 값을 기록합니다. 이 값은 자습서의 뒷부분에서 필요합니다.
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-	![AD 응용 프로그램 만들기](./media/arm-template-deployment/azureapplicationid.png)
+4. 응용 프로그램을 사용하는 사용 권한을 설정합니다.
 
-	>[AZURE.NOTE]또한 관리 포털에서 응용 프로그램의 클라이언트 id 필드에서 응용 프로그램 ID를 찾을 수 있습니다.
-
-5. {application-id}를 방금 기록된 식별자로 바꾼 다음 해당 응용 프로그램에 대한 서비스 사용자를 만듭니다.
-
-        New-AzureADServicePrincipal -ApplicationId {application-id}
-
-6. 응용 프로그램을 사용하는 사용 권한을 설정합니다.
-
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## 2단계: Visual Studio 프로젝트, 템플릿 파일 및 매개 변수 파일 만들기
 
@@ -453,4 +446,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 	![AD 응용 프로그램 만들기](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

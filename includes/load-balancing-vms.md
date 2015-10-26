@@ -1,3 +1,7 @@
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Azure 인프라 서비스를 위한 부하 분산" description="트래픽 관리자와 부하 분산 장치를 사용하여 부하 분산을 수행하는 기능을 설명합니다." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
+
 #Azure 인프라 서비스를 위한 부하 분산#
 
 Azure 인프라 서비스에 사용할 수 있는 두 가지 수준의 부하 분산이 있습니다.
@@ -58,4 +62,4 @@ Azure 부하 분산과 마찬가지로 내부 부하 분산 집합을 구성함�
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # 비즈니스 응용 프로그램 작업 라인 3단계: SQL Server 인프라 구성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 Azure 인프라 서비스의 비즈니스 응용 프로그램 고가용성 라인 배포의 이 단계에서는 SQL 서버와 클러스터 주 노드 컴퓨터를 실행하는 두 대의 컴퓨터를 구성한 다음 Windows 서버 클러스터로 결합합니다.
 
@@ -274,4 +275,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -219,7 +219,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     new PlatformParameters(PromptBehavior.Always, null), Globals.editProfilePolicy);
 ```
 
-이 모든 경우에 ADAL은 `AuthenticationResult`에서 토큰을 반환하거나 예외를 throw 합니다. ADAL에서 토큰을 가져올 때마다 `AuthenticationResult.UserInfo` 개체를 사용하여 UI와 같은 앱의 사용자 데이터를 업데이트합니다. 또한 ADAL는 응용 프로그램의 다른 부분에 사용하기 위해 토큰을 캐시합니다.
+이 모든 경우에 ADAL은 `AuthenticationResult`에서 토큰을 반환하거나 예외를 throw합니다. ADAL에서 토큰을 가져올 때마다 `AuthenticationResult.UserInfo` 개체를 사용하여 UI와 같은 앱의 사용자 데이터를 업데이트합니다. 또한 ADAL는 응용 프로그램의 다른 부분에 사용하기 위해 토큰을 캐시합니다.
 
 ## 7\. API 호출
 ADAL을 사용하여 정책을 실행하고 토큰을 가져옵니다. 그러나 많은 경우 정책을 실행하지 않고 기존의 캐시된 토큰을 확인하려 합니다. 이러한 한 가지 경우는 앱이 `TaskService`에서 사용자의 할 일 모음을 가져오려고 할 때입니다. 이렇게 하려면 `clientId`을 다시 한 번 범위 매개 변수로 사용하여 동일한 `authContext.AcquireTokenAsync(...)` 메서드를 사용할 수 있지만 이번에는 `PromptBehavior.Never`를 사용합니다.
@@ -329,9 +329,7 @@ B2C 디렉터리에 ID 공급자를 추가한 경우 다시 돌아가 [정책 �
 
 참조를 위해 완성된 샘플이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
 <!--
 
@@ -345,4 +343,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

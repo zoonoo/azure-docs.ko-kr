@@ -94,4 +94,4 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

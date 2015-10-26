@@ -1,6 +1,6 @@
 <properties
 	pageTitle="서비스 관리에서 Azure CLI 사용 | Microsoft Azure"
-	description="Mac, Linux 및 Windows에 대한 명령줄 도구를 사용하여 Azure CLI 클래식(서비스 관리) 배포 모드에서 Azure를 관리하는 방법을 알아봅니다."
+	description="Mac, Linux 및 Windows에 대한 명령줄 도구를 사용하여 Azure CLI 클래식(Azure 서비스 관리) 모드에서 Azure를 관리하는 방법을 알아봅니다."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,24 +14,26 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-deploy-rmtemplates-azure-cli.md)을 사용하여 리소스를 만들 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델에서 CLI 명령을 사용하여 리소스를 만들고 관리하는 방법을 설명합니다. [리소스 관리자 배포 모델](azure-cli-arm-commands.md)에서 CLI 명령을 사용하여 리소스를 만들고 관리할 수도 있습니다.
 
-이 항목에서는 **asm** 모드에서 Azure CLI를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. 이 기능은 Azure SDK for .NET, Node.JS 및 PHP와 함께 설치되는 Windows PowerShell 서비스 관리 cmdlet에 제공되는 기능과 비슷합니다.
+이 문서에서는 서비스 관리 모드(asm 모드)에서 Azure CLI를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. Azure SDK의 다양한 라이브러리와 Azure 포털을 사용하여 Azure PowerShell과 동일한 많은 작업을 수행할 수 있습니다. 서비스 관리 모드로 Azure 서비스를 사용하는 것은 개별 Azure 개념 및 웹 사이트, 가상 컴퓨터, 가상 네트워크, 저장소 등과 같은 서비스를 만들고 관리하는 것과 개념적으로는 유사합니다.
 
-> [AZURE.NOTE]**asm** 모드로 Azure 서비스를 사용하는 것은 개별 Azure 개념 및 웹사이트, 가상 컴퓨터, 가상 네트워크, 저장소 등과 같은 서비스를 생각하는 것과 개념적으로는 유사합니다. 논리적 그룹화 및 리소스의 계층적 모델로 더 풍부한 기능을 **arm** 모드를 사용하는 명령줄에서 이용할 수 있습니다. 해당 모드로 전환하려면, [리소스 관리자에서 Azure 명령줄 인터페이스 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
+> [AZURE.NOTE]시작하려면 먼저 [Azure CLI를 설치](../xplat-cli-install.md)하고 [로그온해야 계정과 연결된 Azure 리소스를 사용](../xplat-cli-connect.md)할 수 있습니다.
 
-설치 지침은 [Azure 명령줄 인터페이스 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+## 문서의 범위
+
+이 문서에서는 클래식(서비스 관리) 배포 모델에 일반적으로 사용되는 Azure CLI 명령의 구문 및 옵션을 제공합니다. 전체 참조는 아니며 CLI 버전에서 일부 다른 명령 또는 매개 변수를 표시할 수도 있습니다. 현재 명령 구문 및 옵션을 보려면 서비스 관리 모드의 명령줄에서 `azure help`를 입력하고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
 
 선택적 매개 변수는 대괄호 안에 표시됩니다(예: [parameter]). 모든 다른 매개 변수는 필수 항목입니다.
 
 여기에 언급된 명령 관련 선택적 매개 변수 이외에 요청 옵션, 상태 코드 등과 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 선택적 매개 변수가 있습니다. -v 매개 변수는 자세한 정보를 출력하고 -vv 매개 변수는 훨씬 더 자세한 정보를 출력합니다. --json 옵션은 결과를 원시 JSON 형식으로 출력합니다.
 
-## **asm** 모드 설정
+## 서비스 관리 모드 설정
 
 현재 서비스 관리 모드는 CLI를 처음 설치할 때 기본적으로 사용하도록 설정됩니다. 필요한 경우 다음 명령을 사용하여Azure CLI 서비스 관리 명령을 사용하도록 설정합니다.
 
@@ -210,7 +212,7 @@ Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나�
 
 **-c, --connect**는 호스팅 서비스에서 이미 만들어진 배포 내에 가상 컴퓨터를 만듭니다. -vmname을 이 옵션과 함께 사용하지 않는 경우 새 가상 컴퓨터의 이름이 자동으로 생성됩니다.<br /> **-n, --vm-name** 가상 컴퓨터의 이름을 지정합니다. 이 매개 변수는 기본적으로 호스팅 서비스 이름을 가져옵니다. -vmname을 지정하지 않은 경우 새 가상 컴퓨터의 이름은 &lt;service-name>&lt;id>로 생성되며, 여기서 &lt;id>는 서비스에 1을 더한 기존 가상 컴퓨터의 번호입니다. 예를 들어 이 명령을 사용하여 기존 가상 컴퓨터가 하나인 호스팅 서비스 MyService에 새 가상 컴퓨터를 추가할 경우 새 가상 컴퓨터의 이름은 MyService2입니다.<br /> **-u, --blob-url** 가상 컴퓨터 시스템 디스크를 생성할 대상 Blob 저장소 URL을 지정합니다. <br /> **-z, --vm-size** 가상 컴퓨터의 크기를 지정합니다. 유효한 값은 다음과 같습니다. "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". 기본값은 "Small"입니다. <br /> **-r** RDP 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-e, --ssh** SSH 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-t, --ssh-cert** SSH 인증서를 지정합니다. <br /> **-s** 구독 <br /> **-o, --community** 지정된 이미지는 커뮤니티 이미지입니다. <br /> **-w** 가상 네트워크 이름 <br/> **-l,--location**은 위치를 지정합니다(예: "미국 중 북부"). <br /> **-a, --affinity-group**은 선호도 그룹을 지정합니다.<br /> **-w, --virtual-network-name** 새 가상 컴퓨터에 추가할 가상 네트워크를 지정합니다. 가상 네트워크를 설정하고 Azure 포털에서 관리할 수 있습니다.<br /> **-b, --subnet-names** 가상 컴퓨터를 할당할 서브넷 이름을 지정합니다.
 
-이 예에서 MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-ko-kr-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
+이 예에서 MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-ko-KR-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -422,15 +424,15 @@ info:   vm shutdown command OK
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-ko-kr-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-ko-KR-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.ko-kr.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.ko-KR.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.ko-kr.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-ko-kr-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-ko-kr-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-ko-kr-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.ko-KR.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-ko-KR-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-ko-KR-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-ko-KR-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -501,7 +503,7 @@ azure vm disk detach 명령을 사용하여 데이터 디스크를 분리할 경
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ko-kr-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ko-KR-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
@@ -2348,4 +2350,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

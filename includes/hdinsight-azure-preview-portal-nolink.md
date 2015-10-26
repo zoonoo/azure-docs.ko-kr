@@ -4,4 +4,4 @@
 > 
 > Azure Preview 포털에서 만든 서비스 및 리소스는 새 리소스 모델을 사용하기 때문에 Azure 포털에서 보이지 않습니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

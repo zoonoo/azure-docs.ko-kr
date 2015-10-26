@@ -313,4 +313,4 @@ Azure에 장애 조치(Failover)를 실행할 때 기본 측 스크립트를 실
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

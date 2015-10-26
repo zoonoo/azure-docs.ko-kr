@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/12/2015"
 	ms.author="rkarlin"/>
 
 # Azure AD 응용 프로그램 프록시 사용
-> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](https://msdn.microsoft.com/library/azure/dn532272.aspx)을 참조하세요.
+> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlook Web Access, IIS 기반 응용 프로그램과 같은 응용 프로그램을 개인 네트워크 내에 게시할 수 있으며 네트워크 외부 사용자가 안전하게 액세스할 수 있게 합니다. 직원들은 자택에서 개인용 장치를 사용하여 앱에 로그인하고 이 클라우드 기반 프록시를 통해 인증할 수 있습니다.
 
@@ -61,12 +61,27 @@ Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlo
 - IE 보안 강화 구성이 Azure AD 커넥터를 설치하는 서버에서 설정으로 지정되어 있는 경우 등록 화면이 차단 될 수 있습니다. 이 문제가 발생하면 오류 메시지의 지침에 따라 액세스를 허용합니다. Internet Explorer 보안 강화가 해제되어 있는지 확인합니다.
 - 커넥터 등록에 실패할 경우 응용 프로그램 프록시 문제 해결을 참조하세요.
 
-4. 설치가 완료되면 아래와 같이 두 개의 새 서비스가 서버에 추가됩니다. 하나는 연결 기능을 사용할 수 있는 커넥터 서비스이며, 다른 하나는 정기적으로 커넥터의 새 버전을 확인하고 필요에 따라 커넥터를 업데이트하는 자동화된 업데이트 서비스입니다. 설치를 완료하려면 설치 창에서 마침을 클릭합니다.![응용 프로그램 프록시 커넥터 서비스](http://i.imgur.com/zsVJKOz.png)<p>
+4. 설치가 완료되면 아래와 같이 두 개의 새 서비스가 서버에 추가됩니다. 하나는 연결 기능을 사용할 수 있는 커넥터 서비스이며, 다른 하나는 정기적으로 커넥터의 새 버전을 확인하고 필요에 따라 커넥터를 업데이트하는 자동화된 업데이트 서비스입니다. 설치를 완료하려면 설치 창에서 마침을 클릭합니다.![응용 프로그램 프록시 커넥터 서비스](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. 이제 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시할 준비가 되었습니다.
 
 커넥터를 제거하려면 커넥터 서비스와 업데이트 프로그램 서비스를 제거한 후 컴퓨터를 다시 시작하여 커넥터를 완전히 제거해야 합니다. <p>고가용성을 위해 하나 이상의 추가 커넥터를 배포해야 합니다. 추가 커넥터를 배포하려면 위의 2단계와 3단계를 반복합니다. 각 커넥터는 별도로 등록되어야 합니다.
 
 
+
+## 참고 항목
+응용 프로그램 프록시를 사용하여 수행할 수 있는 작업은 많습니다.
+
+- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
+- [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
+- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+- [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+- [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
+- [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
+
+## 응용 프로그램 프록시에 대해 자세히 알아보기
+- [온라인 도움말에서 살펴보기](active-directory-application-proxy-enable.md)
+- [응용 프로그램 프록시 블로그 확인](http://blogs.technet.com/b/applicationproxyblog/)
+- [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 추가 리소스
 
@@ -74,4 +89,4 @@ Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlo
 * [Azure ID](..fundamentals-identity.md)
 * [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

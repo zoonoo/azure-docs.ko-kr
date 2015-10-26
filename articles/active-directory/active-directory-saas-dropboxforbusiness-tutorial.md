@@ -173,4 +173,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

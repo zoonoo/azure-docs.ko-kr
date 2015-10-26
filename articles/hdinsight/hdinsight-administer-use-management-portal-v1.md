@@ -205,4 +205,4 @@ Azure PowerShell cmdlet을 통해 이 작업을 수행할 수도 있습니다.
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop 명령줄"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

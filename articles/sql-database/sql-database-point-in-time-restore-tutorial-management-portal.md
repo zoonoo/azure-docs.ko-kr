@@ -74,4 +74,4 @@
 
 [Azure SQL 데이터베이스 특정 시점 복원(블로그)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

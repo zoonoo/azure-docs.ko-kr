@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/06/2015"
+   ms.date="10/07/2015"
    ms.author="brjohnst"/>
 
 # .NET 응용 프로그램에서 Azure 검색을 사용하는 방법 #
@@ -337,7 +337,7 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
 
 `Hotel` 클래스에 대해 두 번째로 중요한 부분은 공용 속성의 데이터 유형입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `Edm.String` 유형인 `category` 필드에 매핑됩니다. `bool?` 및 `Edm.Boolean`, `DateTimeOffset?` 및 `Edm.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 유형 매핑에 대한 특정 규칙은 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)에 `Documents.Get` 메서드로 문서화됩니다.
  
-> [AZURE.NOTE]사용자 고유의 모델 클래스를 Azure 검색 인덱스에 매핑하도록 설계하는 경우 `bool` 및 `int` 등과 같은 값 유형의 속성을 null이 허용되도록 선언해야 합니다(예: `bool?` 대신 `bool`). Azure 검색의 모든 기본 필드 형식에 null이 허용되기 때문에 이렇게 해야 합니다. Null이 허용되지 않는 형식을 사용하면 `0` 및 `false` 같은 기본값을 인덱싱할 때 예기치 않은 결과가 발생할 수 있습니다.
+> [AZURE.NOTE]사용자 고유의 모델 클래스를 Azure 검색 인덱스에 매핑하도록 설계하는 경우 `bool` 및 `int` 등과 같은 값 유형의 속성을 null이 허용되도록 선언해야 합니다(예: `bool?` 대신 `bool`). Azure 검색의 모든 기본 필드 형식에 null이 허용되기 때문에 이렇게 해야 합니다. Null이 허용되지 않는 형식을 사용하면 `0` 및 `false` 같은 기본값을 인덱싱할 때 예기치 않은 결과가 발생하게 됩니다. 특히 인덱싱하는 동안 이러한 기본값은 null로 변환됩니다. SDK의 이후 릴리스에서는 Null이 허용되지 않는 형식을 사용하면 예외가 발생합니다.
 
 사용자의 클래스를 문서로서 사용하는 이 능력은 양방향으로 사용 가능합니다. 또한 다음 섹션에서 확인할 수 있듯이 검색 결과를 검색하고 이 검색 결과를 SDK가 자동으로 사용자가 선택한 유형으로 역직렬화하도록 할 수도 있습니다.
 
@@ -627,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# PowerShell을 사용하여 SQL 데이터베이스의 BACPAC 만들기 및 내보내기
+# PowerShell을 사용하여 Azure SQL 데이터베이스의 BACPAC 만들기 및 내보내기
 
 **단일 데이터베이스**
 
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-이 문서에서는 PowerShell을 사용하여 SQL 데이터베이스의 BACPAC을 수동으로 내보내는 방법을 보여 줍니다.
+이 문서에서는 PowerShell을 사용하여 Azure SQL 데이터베이스의 BACPAC를 내보내는 방법에 대한 지침을 제공합니다.
 
 BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파일입니다. 자세한 내용은 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)에서 백업 패키지(.bacpac)를 참조하세요.
 
@@ -144,4 +144,4 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

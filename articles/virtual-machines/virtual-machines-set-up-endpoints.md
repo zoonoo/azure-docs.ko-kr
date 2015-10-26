@@ -96,4 +96,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [PowerShel
 
 [Azure 인프라 서비스를 위한 부하 분산](virtual-machines-load-balance.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

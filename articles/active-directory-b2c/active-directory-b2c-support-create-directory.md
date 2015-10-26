@@ -34,4 +34,4 @@
 	- 방금 만든 테넌트를 삭제하고 다시 시도합니다.
 - 위 해결 방법이 작동하지 않으면 지원에 문의합니다. Azure AD B2C에 대한 지원 요청을 작성하는 방법은 [이 문서](active-directory-b2c-support.md)를 읽습니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

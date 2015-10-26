@@ -8,4 +8,4 @@ VM에 대한 고정 IP 주소를 구성하는 방법을 보다 잘 설명하기 
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,8 @@
 
 이 확장을 통해 Azure 가상 컴퓨터의 SQL Server에서 이 문서에 나열된 특정 서비스를 사용할 수 있습니다. 해당 서비스는 설치된 확장과 함께 사용해야 합니다. 이 확장은 Azure Preview 포털에서 SQL Server 갤러리 이미지에 대해 자동으로 설치됩니다. 해당 확장은 Azure VM 게스트 에이전트가 설치된 모든 SQL Server VM에 설치할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 사용하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
  
 ## 필수 조건
 Powershell cmdlet 사용의 요구 사항:
@@ -77,4 +78,4 @@ VM에서 이 확장을 제거하려는 경우 다음 Azure Powershell cmdlet을 
 ### 구문
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

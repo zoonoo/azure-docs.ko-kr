@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-factor Authentication에서 대체 방법을 사용하여 로그인"
-	description="이 페이지에서는 사용자가 Azure MFA에서 대체 방법을 사용하여 로그인하는 방법을 설명합니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-factor Authentication에서 대체 방법을 사용하여 로그인" 
+	description="이 페이지에서는 사용자가 Azure MFA에서 대체 방법을 사용하여 로그인하는 방법을 설명합니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication에서 대체 방법을 사용하여 로그인
@@ -33,4 +33,4 @@
 
 <li>대체 방법을 선택하고 로그인합니다.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

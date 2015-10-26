@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/14/2015" 
 	ms.author="luisca"/>
 
 # Azure 기계 학습 권장 사항 - JavaScript 통합
@@ -192,10 +192,10 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
 		</script>
 
-##4. JavaScript 통해 권장 사항 사용
+##4\. JavaScript 통해 권장 사항 사용
 권장 사항을 사용하는 코드는 클라이언트 웹 페이지의 일부 JavaScript 이벤트에 의해 트리거됩니다. 권장 사항 응답에는 권장 항목 ID, 이름 및 해당 등급이 포함됩니다. 권장 항목의 목록 표시에만 이 옵션을 사용하는 것이 좋습니다. 더 복잡한 처리(예: 항목의 메타데이터 추가)는 서버 쪽 통합에서 수행해야 합니다.
 
-###4.1 권장 사항 사용
+###4\.1 권장 사항 사용
 권장 사항을 사용하려면 필요한 JavaScript 라이브러리를 페이지에 포함하고 AzureMLRecommendationsStart를 호출해야 합니다. 섹션 2를 참조하세요.
 
 하나 이상의 항목에 대해 권장 사항을 사용하려면 AzureMLRecommendationsGetI2IRecommendation이라는 메서드를 호출해야 합니다.
@@ -228,4 +228,4 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

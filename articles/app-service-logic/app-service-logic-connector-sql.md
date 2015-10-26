@@ -151,4 +151,4 @@ Where 절 | <ul><li>연산자: AND, OR, =, <>, <, <=, >, >= 및 LIKE</li><li>여
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

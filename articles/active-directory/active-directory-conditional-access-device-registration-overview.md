@@ -79,4 +79,4 @@ Windows 7 및 Windows 8.1 장치는 사용자 계정 이름을 잘 알려진 장
 
 Azure AD 장치 등록을 사용하여 Windows 7 및 Windows 8.1 도메인 가입 장치를 등록할 수 있습니다. 다음 항목에서는 Windows 7 및 Windows 8.1 장치에서 장치 등록을 구성하는 데 필요한 단계 및 필수 조건에 대한 자세한 정보를 제공합니다. 도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

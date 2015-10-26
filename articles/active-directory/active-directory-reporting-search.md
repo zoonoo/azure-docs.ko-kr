@@ -56,4 +56,4 @@ RMS 장치 사용 현황 | 아니요
  - [Azure Active Directory 보고서](active-directory-view-access-usage-reports.md)
  - [Azure Active Directory Reporting 감사 이벤트](active-directory-reporting-audit-events.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

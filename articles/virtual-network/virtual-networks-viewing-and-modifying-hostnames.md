@@ -1,19 +1,19 @@
 <properties 
    pageTitle="호스트 이름 보기 및 수정 | Microsoft Azure"
-	description="이름 확인을 위해 Azure 가상 컴퓨터, 웹 및 작업자 역할에 대한 호스트 이름을 보고 변경하는 방법"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="이름 확인을 위해 Azure 가상 컴퓨터, 웹 및 작업자 역할에 대한 호스트 이름을 보고 변경하는 방법"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="joaoma" />
 
 # 호스트 이름 보기 및 수정
 
@@ -71,4 +71,4 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 [네트워크 구성 파일을 사용하여 DNS 설정 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

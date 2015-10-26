@@ -122,4 +122,4 @@ DocumentDB에 대해 자세히 알아보려면 Azure DocumentDB [설명서](http
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -599,4 +599,4 @@ false | mergeFiles | <p>다음 구조를 가진 원본 폴더 Folder1의 경우:
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

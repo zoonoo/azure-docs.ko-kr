@@ -18,7 +18,7 @@
 
 # Microsoft Passport를 통해 암호 없이 ID 인증
 
-암호만을 사용하는 현재 인증 방법은 사용자의 안전을 유지하는 데 충분하지 않습니다. 사용자는 암호를 다시 사용하고 잊기도 합니다. 암호는 깨질 수도 있고, 피싱될 수도 있고, 공격에 취약하고, 추측될 수도 있습니다. 기억하기 어려울 수도 있고 “pass the hash”와 같은 공격에 취약하기도 합니다.
+암호만을 사용하는 현재 인증 방법은 사용자의 안전을 유지하는 데 충분하지 않습니다. 사용자는 암호를 다시 사용하고 잊기도 합니다. 암호는 깨질 수도 있고, 피싱될 수도 있고, 공격에 취약하고, 추측될 수도 있습니다. 기억하기 어려울 수도 있고 “Pass the Hash”와 같은 공격에 취약하기도 합니다. Pass the Hash는 공격자가 일반적으로 연결된 일반 텍스트 암호를 요구하는 대신 사용자 암호의 기본 NTLM 및/또는 LanMan 해시를 사용하여 원격 서버/서비스에 인증할 수 있도록 하는 해킹 기술입니다. Pass the Hash에 대한 자세한 내용은 [Pass the Hash](https://technet.microsoft.com/ko-KR/dn785092.aspx)를 참조하세요.
 
 ## Microsoft Passport란?
 Microsoft Passport는 조직과 소비자를 위한 보안 방법으로, 암호 수준을 넘어서는 새로운 개인/공개 키 또는 인증서 기반 인증 방법입니다. 이 인증 방식은 암호를 대신할 수 있으며, 위반, 도난 및 피싱에도 강한 키 쌍 자격 증명에 의존합니다. 사용자는 Microsoft Passport를 사용하여 Microsoft 계정, Active Directory 계정, Microsoft Azure AD(Active Directory) 계정 또는 FIDO(Fast ID Online) 인증을 지원하는 타사 서비스에 인증할 수 있습니다. Microsoft Passport 등록 중에 진행되는 초기 2단계 확인 과정 후에 Microsoft Passport가 사용자의 장치에 설치되며 사용자는 Windows Hello 또는 PIN에 해당하는 제스처를 설정합니다. 사용자는 ID를 확인하는 제스처를 제공합니다. 그러면 Windows는 Microsoft Passport를 사용하여 사용자를 인증하고 사용자가 보호된 리소스 및 서비스에 액세스하도록 지원합니다.
@@ -68,5 +68,6 @@ Microsoft Passport 인증 수명 주기 ![](./media/active-directory-azureadjoin
 
 * [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
+* [Microsoft Passport를 사용하여 ID 확인 관리](https://technet.microsoft.com/library/mt219735(v=vs.85).aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

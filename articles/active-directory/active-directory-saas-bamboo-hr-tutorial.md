@@ -3,8 +3,7 @@
 #자습서: Bamboo HR과 Azure Active Directory 통합
 >[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=529837)를 클릭하십시오.
 
-이 자습서는 Azure 및 BambooHR의 통합을 보여주기 위한 것입니다.  
-자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 BambooHR의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   BambooHR Single Sign-on이 설정된 구독
@@ -39,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-bamboo-hr-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-bamboo-hr-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -96,7 +95,7 @@
     3.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
     4.  **Save**를 클릭합니다.
 
-8.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+8.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -138,6 +137,6 @@ BambooHR의 경우 프로비전은 수동 작업입니다.
 
     ![예](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "예")
 
-Single Sign-on 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!----------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

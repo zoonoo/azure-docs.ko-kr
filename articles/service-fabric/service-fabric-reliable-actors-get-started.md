@@ -158,4 +158,4 @@ Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅�
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

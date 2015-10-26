@@ -44,7 +44,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
    3. 기타 함수 예: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
 
 
-- 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름:"Contoso""
+- 문자열 상수의 경우, 백슬래시 (\\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\\) 기호로 이스케이프되어야 합니다. 예: "회사 이름:"Contoso""
 
 
 
@@ -307,4 +307,4 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

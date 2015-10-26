@@ -1,8 +1,9 @@
 <properties 
+    title="Elastic Scale Security Configurations" 
     pageTitle="탄력적인 확장 보안 구성" 
     description="암호화에 대한 409 인증서를 설정" 
-    services="sql-database" 
-	documentationCenter="" 
+    metaKeywords="Elastic Database certificates security" 
+    services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
 
@@ -133,7 +134,7 @@
 
 액세스 제어 그룹의 규칙은 서비스 구성 파일의 <AccessControl name=""> 섹션에서 구성합니다.
 
-해당 형식에 대한 설명은 네트워크 액세스 제어 목록 설명서에 나와 있습니다. 예를 들어 100.100.0.0\~100.100.255.255 범위의 IP만 HTTPS 끝점에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
+해당 형식에 대한 설명은 네트워크 액세스 제어 목록 설명서에 나와 있습니다. 예를 들어 100.100.0.0~100.100.255.255 범위의 IP만 HTTPS 끝점에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -473,4 +474,4 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

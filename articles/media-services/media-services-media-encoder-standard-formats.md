@@ -58,6 +58,7 @@ QuickTime(.mov) |예
 AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 
 Avid DNxHD(MXF) |예 
 DVCPro/DVCProHD(MXF) |예 
+DV(디지털 비디오)(AVI 파일) |예
 JPEG 2000 |예 
 MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함)|최대 422 프로필 
 MPEG-1 |예 
@@ -118,4 +119,4 @@ MPEG2-TS |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

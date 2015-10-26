@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-e-builder-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-e-builder-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -73,7 +73,7 @@
 
 5.  e-Builder 지원팀에 해당 메타데이터 파일을 전달합니다. 지원팀은 single sign-on을 구성합니다.
 
-6.  Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+6.  Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-e-builder-tutorial/IC777385.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -95,6 +95,6 @@ e-Builder를 프로비전하는 사용자를 구성할 작업 항목이 없습�
 
     ![예](./media/active-directory-saas-e-builder-tutorial/IC767830.png "예")
   
-Single sign-on 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Java용 Azure SDK 다운로드(Windows)" 
-	description="Azure SDK for Java를 다운로드합니다. Maven용 코드가 제공됩니다. Eclipse with Java용 Azure 플러그 인의 설치 단계가 제공됩니다." 
+	description="Azure SDK for Java를 다운로드합니다. Maven용 코드가 제공됩니다. Eclipse용 Azure 도구 키트에 대해 제공되는 설치 단계입니다." 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 #Java용 Azure SDK 다운로드
@@ -26,4 +26,4 @@
 
 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

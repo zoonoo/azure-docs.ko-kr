@@ -146,4 +146,4 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

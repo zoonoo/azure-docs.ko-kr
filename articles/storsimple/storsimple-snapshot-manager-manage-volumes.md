@@ -269,4 +269,4 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

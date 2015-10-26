@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -105,7 +105,7 @@
         >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
     8.  메모장에서 base-64로 인코딩된 인증서를 열고, 첫 줄("*--*") 및 마지막 줄("*--*")을 제거하고, 나머지 내용을 클립보드에 복사한 다음 **ID 공급자 인증서(메타데이터)** 텍스트 상자로 붙여넣습니다.
-    9.  **Single Sign On 허용**을 선택합니다.
+    9.  **Single Sign-On 허용**을 선택합니다.
     10. **Save**를 클릭합니다.
 
 10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
@@ -160,4 +160,4 @@ Azure AD 사용자가 Mimecast Personal Portal에 로그인하게 하려면 Mime
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

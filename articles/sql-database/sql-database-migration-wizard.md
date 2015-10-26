@@ -98,4 +98,4 @@ SQL Azure 마이그레이션 마법사는 CodePlex에서 다운로드할 수 있
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

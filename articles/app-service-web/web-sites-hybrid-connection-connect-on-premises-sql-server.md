@@ -363,4 +363,4 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

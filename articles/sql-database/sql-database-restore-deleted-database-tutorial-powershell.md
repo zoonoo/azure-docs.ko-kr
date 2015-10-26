@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
+   ms.date="10/08/2015"
    ms.author="elfish; v-romcal; v-stste"/>
 
 # Azure PowerShell에서 삭제된 Azure SQL 데이터베이스 복원
@@ -38,17 +38,19 @@
 
 다음 cmdlet을 실행하려면 인증서 기반 인증을 사용해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md#use-the-certificate-method)의 *인증서 방법 사용* 섹션을 참조하세요.
 
+> [AZURE.IMPORTANT]이 문서에서는 Azure PowerShell 버전 1.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
+
 1. [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx) cmdlet을 사용하여 복구 가능한 데이터베이스 목록을 표시합니다.
 	* **RestorableDropped** 스위치를 사용하여 데이터베이스를 삭제한 서버의 **ServerName**을 지정합니다.
 	* 다음 명령을 실행하면 결과가 **$RecoverableDBs** 변수에 저장됩니다.
 	
-	`PS C:\>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" –RestorableDropped`
+	`$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" –RestorableDropped`
 
 2. 삭제된 데이터베이스 목록에서 복원할 삭제된 데이터베이스를 선택합니다.
 
 	* **$RecoverableDBs** 목록에서 삭제된 데이터베이스 번호를 입력합니다.  
 
-	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
+	`$Database = $RecoverableDBs[<deleted database number>]`
 
 	* 복원 가능한 삭제된 데이터베이스 개체를 가져오는 방법에 대한 자세한 내용은 [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx)를 참조하세요.
 
@@ -58,14 +60,14 @@
 
 	**$RestoreRequest**라는 변수로 반환되는 결과를 저장합니다. 이 변수는 복원 상태를 모니터링하는 데 사용되는 복원 요청 ID를 포함합니다.
 	
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “myrestoredDB”`
+	`$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “myrestoredDB”`
 
 복원을 완료하려면 다소 시간이 걸릴 수 있습니다. 복원 상태를 모니터링하려면 [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546738.aspx) cmdlet을 사용하고 다음 매개 변수를 지정합니다.
 
 * **ServerName** - 복원 대상 데이터베이스의 서버 이름입니다.
 * **OperationGuid** - 3단계의 **$RestoreRequest** 변수에 저장된 복원 요청 ID입니다.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 **State** 및 **PercentComplete** 필드에 복원 상태가 표시됩니다.
 
@@ -73,10 +75,8 @@
 
 자세한 내용은 다음을 참조하세요.
 
-[Azure SQL 데이터베이스 비즈니스 연속성](http://msdn.microsoft.com/library/azure/hh852669.aspx)
-
-[Azure SQL 데이터베이스 백업 및 복원](http://msdn.microsoft.com/library/azure/jj650016.aspx)
+[Azure SQL 데이터베이스 비즈니스 연속성](sql-database-business-continuity.md)
 
 [Azure PowerShell](http://msdn.microsoft.com/library/azure/jj156055.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

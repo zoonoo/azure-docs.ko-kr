@@ -56,4 +56,4 @@ Preview 포털의 기존 NSG에 규칙을 만들려면 다음 단계를 수행�
 
 ![Preview 포털 - 새 규칙](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

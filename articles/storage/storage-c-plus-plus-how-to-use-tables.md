@@ -414,4 +414,4 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭�
 -	[C++용 Storage Client Library 참조](http://azure.github.io/azure-storage-cpp)(영문)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

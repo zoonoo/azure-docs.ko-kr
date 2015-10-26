@@ -19,7 +19,8 @@
 
 # Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 항목에는 클래식 배포 모델에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 단계별 지침에 대한 링크가 포함되어 있습니다. 팜은 다음 컴퓨터로 구성됩니다.
 
@@ -76,4 +77,4 @@ SQL Server AlwaysOn 가용성 그룹을 사용하는 SharePoint에 대한 자세
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

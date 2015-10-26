@@ -220,9 +220,9 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
         const string HBASETABLENAME = "tweets_by_words";
 
         // Sentiment dictionary file and the punctuation characters
-        const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
+        const string DICTIONARYFILENAME = @"..\..\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -678,9 +678,9 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 	- **CLUSTERNAME**: HBase 클러스터 이름입니다(예: *https://<HBaseClusterName>.azurehdinsight.net/*). 
     - **HADOOPUSERNAME**: HBase 클러스터 Hadoop 사용자의 사용자 이름입니다. 기본 이름은 *admin*입니다.
     - **HADOOPUSERPASSWORD**: HBase 클러스터 Hadoop 사용자의 암호입니다.
-    - **HBASETABLENAME** = "tweets_by_words";
+    - **HBASETABLENAME** = "tweets\_by\_words";
 
-	HBase 테이블 이름은 **"tweets_by_words";**입니다. 값은 스트리밍 서비스에서 전송한 값과 일치해야 합니다. 그래야 웹 응용 프로그램이 같은 HBase 테이블에서 데이터를 읽을 수 있습니다.
+	HBase 테이블 이름은 **"tweets\_by\_words";**입니다. 값은 스트리밍 서비스에서 전송한 값과 일치해야 합니다. 그래야 웹 응용 프로그램이 같은 HBase 테이블에서 데이터를 읽을 수 있습니다.
 
 
 
@@ -1177,7 +1177,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **layout.cshtml을 수정하려면**
 
-1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **공유**를 차례로 확장하고 _**Layout.cshtml** 을 두 번 클릭합니다.
+1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **공유**를 차례로 확장하고 \__**Layout.cshtml**을 두 번 클릭합니다.
 2. 파일의 내용을 다음으로 바꿉니다.
 
 		<!DOCTYPE html>
@@ -1242,7 +1242,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **Index.cshtml을 수정하려면**
 
-1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **홈**을 차례로 확장하고 _**Index.cshtml**을 두 번 클릭합니다.
+1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **홈**을 차례로 확장하고 \_**Index.cshtml**을 두 번 클릭합니다.
 2. 파일의 내용을 다음으로 바꿉니다.
 
 		@{
@@ -1255,7 +1255,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **site.css 파일을 수정하려면**
 
-1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **콘텐츠**를 차례로 확장하고 _**Site.css**를 두 번 클릭합니다.
+1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **콘텐츠**를 차례로 확장하고 \_**Site.css**를 두 번 클릭합니다.
 2. 파일에 다음 코드를 추가합니다.
 		
 		/* make container, and thus map, 100% width */
@@ -1283,7 +1283,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 		using System.Web.Http;
 
-2. **Application_Start()** 함수 내에 다음 줄을 추가합니다.
+2. **Application\_Start()** 함수 내에 다음 줄을 추가합니다.
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1357,4 +1357,4 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

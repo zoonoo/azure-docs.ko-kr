@@ -13,4 +13,4 @@
    
 3. 서버 프로젝트를 다시 게시합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

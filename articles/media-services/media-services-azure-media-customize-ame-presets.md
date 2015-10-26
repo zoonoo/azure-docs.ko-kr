@@ -517,4 +517,4 @@ Azure 미디어 서비스 인코더를 사용하여 이미지(jpg, bmp, gif, tif
 
 [Azure 미디어 인코더 XML 스키마](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

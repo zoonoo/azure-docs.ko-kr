@@ -69,4 +69,4 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

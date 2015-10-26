@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="휴대폰용 Azure Authenticator 앱"
-	description="최신 버전의 Azure Authenticatior로 업그레이드하는 방법에 알아봅니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="휴대폰용 Azure Authenticator 앱" 
+	description="최신 버전의 Azure Authenticatior로 업그레이드하는 방법에 알아봅니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 
 
 # 새 Azure Authenticator 앱으로 전환
 
-[Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)에 사용할 수 있는 Azure Authenticator 앱이 출시되면서 Multi-factor Authentication 앱을 대신하고 있습니다. Multi-factor Authentication 앱은 계속 사용할 수 있지만 새 Azure Authenticator 앱으로 전환할 것을 결정해야 합니다. 그런 경우 이 문서의 지원을 받을 수 있습니다.
+[Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)에 사용할 수 있는 Azure Authenticator 앱이 출시되면서 Multi-factor Authentication 앱을 대신하고 있습니다. Multi-factor Authentication 앱은 계속 사용할 수 있지만 새 Azure Authenticator 앱으로 전환할 것을 결정해야 합니다. 그런 경우 이 문서의 지원을 받을 수 있습니다.
 
 
 ## 새 Azure Authenticator 앱으로 전환하는 방법 
@@ -64,6 +64,6 @@ QR 코드가 있으면 앱을 시작합니다. +를 클릭합니다.
 **추가 리소스**
 
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
-* [Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)용 Azure Authenticator 앱
+* [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)용 Azure Authenticator 앱
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

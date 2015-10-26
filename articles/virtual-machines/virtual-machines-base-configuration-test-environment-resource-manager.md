@@ -19,7 +19,8 @@
 
 # Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [클래식 배포 모델](virtual-machines-base-configuration-test-environment.md)을 사용하여 이러한 리소스를 만들 수도 있습니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-base-configuration-test-environment.md).
 
 이 문서는 리소스 관리자에서 만든 가상 컴퓨터를 사용하는 Microsoft Azure 가상 네트워크에서 기본 구성 테스트 환경을 만드는 방법에 관한 단계별 지침을 제공합니다.
 
@@ -95,7 +96,7 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 	Switch-AzureMode AzureServiceManagement
 	Test-AzureName -Storage <Proposed storage account name>
 
-Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이 고유한 것입니다. 고유한 이름을 확인한 경우 다음 명령을 사용하여 Azure PowerShell을 다시 리소스 관리자 모드로 전환합니다.
+Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름은 고유한 것입니다. 고유한 이름을 확인한 경우 다음 명령을 사용하여 Azure PowerShell을 다시 리소스 관리자 모드로 전환합니다.
 
 	Switch-AzureMode AzureResourceManager 
 
@@ -144,7 +145,7 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 그런 다음 DC1 가상 컴퓨터에 연결합니다.
 
 1.	Azure Preview 포털에서, 왼쪽 창에 있는 **모두 찾아보기**를 클릭하고, **찾아보기** 목록의 **가상 컴퓨터**를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.  
-2.	**DC1** 창에서 **연결**을 클릭합니다.
+2.	**DC1**창에서, **연결**을 클릭합니다.
 3.	메시지가 나타나면 다운로드한 DC1.rdp 파일을 엽니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
@@ -335,4 +336,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

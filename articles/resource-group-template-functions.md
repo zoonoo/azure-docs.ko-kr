@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="10/13/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
@@ -493,6 +493,41 @@
     }
 
 
+## uniqueString
+
+**uniqueString(stringForCreatingUniqueString, ...)**
+
+고유한 문자열을 만들려면 제공된 64비트 해시의 문자열을 수행합니다. 이 함수는 리소스의 고유한 이름을 만들어야 할 때 유용합니다. 결과의 고유성 수준을 나타내는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포에 대해 해당 이름이 고유한지 여부를 지정할 수 있습니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| stringForCreatingUniqueString | 예 | 고유한 문자열을 만들기 위해 해시 함수에서 사용되는 기본 문자열입니다.
+| 필요에 따라 추가하는 매개 변수 | 아니요 | 고유성의 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다.
+
+반환된 값은 완전한 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유하도록 보장되지는 않습니다. 보다 친숙한 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다.
+
+다음 예제에서는 uniqueString를 사용하여 일반적으로 사용하는 다른 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
+
+구독에 따라 고유하게
+
+    "[uniqueString(subscription().subscriptionId)]"
+
+리소스 그룹에 따라 고유하게
+
+    "[uniqueString(resourceGroup().id)]"
+
+리소스 그룹의 배포에 따라 고유하게
+
+    "[uniqueString(resourceGroup().id, deployment().name)]"
+    
+다음 예제에서는 리소스 그룹에 따라 저장소 계정에 고유한 이름을 만드는 방법을 보여 줍니다.
+
+    "resources": [{ 
+        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "type": "Microsoft.Storage/storageAccounts", 
+        ...
+
+
 ## variables
 
 **variables (variableName)**
@@ -510,4 +545,4 @@
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

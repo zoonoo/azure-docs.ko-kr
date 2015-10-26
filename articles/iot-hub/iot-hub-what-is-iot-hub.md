@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub란? | Microsoft Azure"
+ pageTitle="Azure IoT Hub 개요 | Microsoft Azure"
  description="장치 연결, 통신 패턴 및 서비스 보조 통신 패턴을 포함한 Azure IoT Hub 서비스에 대한 개요"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
 # Azure IoT Hub란?
 
- Azure IoT Hub는 수백 만개의 IoT 장치와 응용 프로그램 백 엔드 간에 신뢰할 수 있고 안전한 양방향 통신을 가능하게 하는 완전히 관리되는 서비스입니다. Azure IoT Hub는 안정적인 장치-클라우드 및 클라우드-장치 하이퍼-메시징을 제공하고 장치 단위 보안 자격 증명 및 액세스 제어를 사용하여 보안 통신을 사용하며 인기 있는 언어 및 플랫폼에 대한 장치 라이브러리를 포함합니다.
+Azure IoT Hub는 수백 만개의 IoT 장치와 응용 프로그램 백 엔드 간에 신뢰할 수 있고 안전한 양방향 통신을 가능하게 하는 완전히 관리되는 서비스입니다. Azure IoT Hub는 안정적인 장치-클라우드 및 클라우드-장치 하이퍼-메시징을 제공하고 장치 단위 보안 자격 증명 및 액세스 제어를 사용하여 보안 통신을 사용하며 인기 있는 언어 및 플랫폼에 대한 장치 라이브러리를 포함합니다.
 
 ![클라우드 게이트웨이로 IoT Hub?][img-architecture]
 
@@ -92,11 +92,11 @@ Azure IoT Hub에 대해 더 알아보려면 다음 링크를 참조하세요.
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
 [지원하는 장치 플랫폼 및 언어]: iot-hub-sdks-summary.md#os-platforms-and-hardware-compatibility
-[Azure IoT 개발자 센터]: http://www.azure.com/iotdev
+[Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot/
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "서비스 지원 통신, Clemens vasters의 블로그 게시물"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

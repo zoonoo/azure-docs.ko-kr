@@ -12,21 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/13/2015" 
 	ms.author="awills"/>
 
 
-# ASP.NET용 Application Insights
+# ASP.NET용 Application Insights 설치
 
 *Application Insights는 미리 보기 상태입니다.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+<a name="selector1"></a>
+
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다. SDK를 앱에 설치하면 작동합니다. SDK는 앱에 대한 원격 분석을 Application Insights 서비스에 보내 앱의 동작을 분석하고 시각화합니다.
 
 
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다. 다양한 응용 프로그램 종류에서 사용할 수 있습니다. Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 Azure VM에서 호스트된 앱에서도 작동합니다. [장치 앱 및 Java 서버에 대해서도 다룹니다][start].
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
+Visual Studio에서 앱에 SDK를 추가하면 서버 요청, 응답 시간 및 실패에 대한 차트를 얻게 됩니다.
 
 ![예제 성능 모니터링 차트](./media/app-insights-asp-net/10-perf.png)
 
+또한 API를 사용하여 사용 현황을 자세히 모니터링할 수 있습니다.
 
 #### 시작하기 전에
 
@@ -59,12 +64,12 @@ Visual Studio에서 새 프로젝트를 만들 때 Application Insights를 선�
 
 처음 연 경우 Microsoft Azure에 로그인하거나 등록하라는 메시지가 표시됩니다.
 
-이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리소스 그룹에 넣고자 할 수 있습니다.
+이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리스소 그룹에 넣고자 할 수 있습니다.
 
 
 ####<a name="land"></a> ‘Application Insights 추가'에서 무엇을 했나요?
 
-명령은 다음 단계를 수행했습니다.(원하는 경우 [수동으로 수행](app-insights-start-monitoring-app-health-usage.md) 가능)
+명령은 다음 단계를 수행했습니다(원하는 경우 [수동으로 수행](app-insights-start-monitoring-app-health-usage.md) 가능).
 
 * [Azure 포털][portal]에 Application Insights 리소스를 만듭니다. 이곳에서 사용자의 데이터를 볼 수 있습니다. 리소스를 식별하는 *계측 키*를 검색합니다.
 * 프로젝트에 Application Insights 웹 SDK NuGet 패키지를 추가합니다. Visual Studio에서 보려면 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다.
@@ -85,6 +90,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
+### 메트릭: 집계된 데이터
 
 개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
 
@@ -92,12 +98,19 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다. [메트릭에 대해 자세히 알아봅니다.][perf]
 
-이제 응용 프로그램을 배포하고 누적되는 데이터를 관찰합니다.
+* *사용자 또는 페이지 데이터가 없나요?* - [사용자 및 페이지 데이터 추가](../article/application-insights/app-insights-asp-net-client.md)
 
+### 검색: 개별 이벤트
 
-디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
+검색을 열어 개별 요청 및 관련된 이벤트를 조사합니다.
 
-#### 데이터가 없나요?
+![](./media/app-insights-asp-net/21-search.png)
+
+[검색에 대한 자세한 정보](app-insights-diagnostic-search.md)
+
+* *연결된 이벤트가 없나요?* [서버 예외](../article/application-insights/app-insights-asp-net-exception-mvc.md) 및 [종속성](../article/application-insights/app-insights-asp-net-dependencies.md)을 설정합니다.
+
+### 데이터가 없나요?
 
 * 올바른 작업을 보고 있는지 확인하세요. [Azure 포털](https://portal.azure.com)에 로그인하고 "찾아보기 >", "Application Insights"를 클릭한 다음 앱을 선택합니다.
 * 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
@@ -105,104 +118,23 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 * 몇 초 정도 기다렸다가 새로고침을 클릭합니다.
 * [문제 해결][qna]을 참조하세요.
 
+
+## 응용 프로그램 게시
+
+이제 응용 프로그램을 배포하고 누적되는 데이터를 관찰합니다.
+
+디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
+
 #### 빌드 서버에 문제가 있나요?
 
 [이 문제 해결 항목](app-insights-troubleshoot-faq.md#NuGetBuild)을 참조하세요.
 
+## 다음 단계
 
-## 브라우저 모니터링 추가
-
-브라우저 모니터링은 사용자, 세션, 페이지 보기 및 브라우저에서 발생하는 충돌 혹은 예외에 데이터를 제공합니다.
-
-![새로 만들기, 개발자 서비스, Application Insights를 선택합니다.](./media/app-insights-asp-net/16-page-views.png)
-
-사용자는 응용 프로그램과 사용자의 고객이 함께 작동하는지 추적하는 코드를 오른쪽 아래의 클릭과 키 입력 세부 수준에서 작성할 수 있습니다.
-
-모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
-
-![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭합니다.](./media/app-insights-asp-net/02-monitor-web-page.png)
-
-코드는 응용 프로그램 리소스를 식별하는 계측 키를 포함한다는 것을 참고하세요.
-
-[웹 페이지 추적에 대해 더 알아보기](app-insights-web-track-usage.md)
-
-
-## 사용 추적
-
-새 사용자 스토리를 배달한 경우, 사용자들이 얼마나 이용하고 있는지와 그들이 목표를 달성하거나 목표를 달성했는지 알고자 합니다. 클라이언트와 서버에 있는 TrackEvent() 및 코드 안에 다른 호출을 삽입하여 사용자 작업에 대한 자세한 그림을 가져옵니다.
-
-[API를 사용하여 사용량 추적 ][api]
-
-
-## 진단 로그
-
-문제 진단을 위해 즐겨찾는 로깅 프레임워크에서 [로그 추적 캡처][netlogs] 로그 항목은 Application Insights 원격 분석 이벤트를 따른 [진단 검색][diagnostic]에 나타납니다.
-
-## 응용 프로그램 게시
-
-앱을 (Application Insights를 추가한 이후로) 게시하지 않은 경우 지금 게시합니다. 차트에서 사용자들의 앱 사용에 따라 증가하는 데이터를 확인하세요.
-
-
-#### 서버에 게시한 후 데이터가 없나요?
-
-서버 방화벽에서 나가는 트래픽에 대해 다음 포트를 엽니다.
-
-+ `dc.services.visualstudio.com:443`
-+ `f5.services.visualstudio.com:443`
-
-
-## 개발, 테스트 및 릴리스
-
-주요 응용 프로그램의 경우 서로 다른 스탬프(디버깅, 테스트, 프로덕션 빌드)의 원격 분석 데이터를 [별도 리소스](app-insights-separate-resources.md)로 보내는 것이 좋습니다.
-
-## 응용 프로그램 버전 추적
-
-빌드 프로세스에서 `buildinfo.config`가 생성되었는지 확인합니다. .csproj 파일에서 다음을 추가합니다.
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색][diagnostic]을 수행하거나 [메트릭을 탐색][metrics]할 때 버전을 기준으로 필터링할 수 있습니다.
-
-
-
-## 종속성 추적 및 시스템 성능 카운터 추가
-
-[종속성 메트릭](app-insights-dependencies.md)은 성능 문제를 진단하는 데 유용할 수 있습니다. 앱에서 데이터베이스, REST API 및 다른 외부 구성 요소로 온 호출을 측정합니다.
-
-![](./media/app-insights-asp-net/04-dependencies.png)
-
-이 단계를 수행하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
-
-#### 앱이 IIS 서버에서 실행되는 경우
-
-관리자 권한으로 서버에 로그인하고 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
-
-[서버 방화벽에서 추가 포트가 열려 있는지](app-insights-monitor-performance-live-website-now.md#troubleshooting) 확인해야 합니다.
-
-#### 앱이 Azure 웹앱인 경우
-
-Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
-
-![웹앱에서 설정, 확장, 추가, Application Insights](./media/app-insights-asp-net/05-extend.png)
-
-(또한 앱에 SDK를 설치하지 않았더라도 확장을 이미 살아있는 앱에 추가할 수 있습니다.)
-
-#### Azure 클라우드 서비스 역할을 모니터링하려면
-
-[상태 모니터를 추가하기 위한 수동 절차](app-insights-cloudservices.md)가 있습니다.
-
-## 가용성 웹 테스트
-
-[웹 테스트를 설정][availability]하여 응용 프로그램의 라이브 상태 및 응답성을 외부에서 테스트할 수 있습니다.
-
-
-![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
-
+- [사용자 및 페이지 데이터](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [예외](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [종속성](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -238,8 +170,8 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

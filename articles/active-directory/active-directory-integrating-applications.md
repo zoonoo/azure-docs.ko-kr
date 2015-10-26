@@ -351,4 +351,4 @@ ConsentReturnUrl을 회신 URL과 별도로 지정하면 앱이 회신 URL(일�
 
 - [Active Directory 개발자 가이드](active-directory-developer's guide.md) 방문
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

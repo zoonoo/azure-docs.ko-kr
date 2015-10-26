@@ -152,9 +152,9 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 	이전 예제에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **데이터** Blob 컨테이너와 **partitioneddata** 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
 
-2. Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 테이블을 만듭니다.
+2. Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 
-		New-AzureDataFactoryTable $df -File .\OutputTable.json
+		New-AzureDataFactoryDataset $df -File .\OutputTable.json
 
 ## 3단계: 첫 번째 파이프라인 만들기
 이 단계에서는 첫 번째 파이프라인을 만듭니다.
@@ -268,4 +268,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

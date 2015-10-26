@@ -206,4 +206,4 @@ Azure 서비스 패브릭이 빅 데이터 프레임워크 또는 고성능 컴�
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

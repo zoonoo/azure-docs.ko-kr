@@ -104,4 +104,4 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 - [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -31,7 +31,7 @@
 
 링크|설명
 ----|-----------
-[Azure 검색에 대한 AzureCon 2015 모범 사례](https://azure.microsoft.com/ko-kr/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|웹 또는 모바일 시나리오용 앱을 만들 때 크기 조정, 최적 성능 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언입니다. 
+[Azure 검색에 대한 AzureCon 2015 모범 사례](https://azure.microsoft.com/en-us/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|웹 또는 모바일 시나리오용 앱을 만들 때 크기 조정, 최적 성능 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언입니다. 
 [Microsoft Virtual Academy: 웹 사이트 및 앱에 Azure 검색 추가](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|응용 프로그램에 Azure 검색을 추가하는 방법에 관한 7부 시리즈입니다. Liam Cavanagh, Janusz Lembicz 및 Bernardita Torres Garayar가 제공합니다.
 [빌드 2015: 최신 데이터](http://channel9.msdn.com/Events/Build/2015/2-663)|세션에서 29분 동안 Azure 검색이 최근의 데이터 혁명에서 차지하는 위치에 대해 알아봅니다. Shawn Bice 및 Pablo Castro가 제공합니다.
 [빌드 2015: Azure 검색을 사용하여 모바일 및 WebApp에서 우수한 검색 경험 구축](http://channel9.msdn.com/Events/Build/2015/2-745)|Microsoft 빌드 2015에서 Pablo Castro가 제공합니다.
@@ -91,4 +91,4 @@ CodePlex에서 공개 미리 보기 중에 현재 버전과 여전히 관련이 
 - [**SQL Server와 Azure 검색의 동기화 샘플**](http://sqlserver2azuresearch.codeplex.com/)은 포함된 로컬 데이터베이스에서 SQL Server 행 집합을 로드하는 Windows 콘솔 응용 프로그램입니다.
 - [**점수 매기기 프로필 데모**](https://azuresearchscoringprofiles.codeplex.com/)는 검색 결과 조정을 위한 점수 매기기 프로필을 정의하고 실행하며 업데이트하는 Windows 콘솔 응용 프로그램입니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

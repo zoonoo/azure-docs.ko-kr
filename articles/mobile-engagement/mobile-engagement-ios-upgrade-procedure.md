@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #업그레이드 절차
 
@@ -72,4 +72,4 @@ SmartAd 추적이 SDK에서 제거되었으므로 `AETrackModule` 클래스의 �
 -   클래스 `CapptainUtils`의 이름은 `EngagementUtils`(으)로 바뀌었습니다.
 -   클래스 `CapptainViewController`의 이름은 `EngagementViewController`(으)로 바뀌었습니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

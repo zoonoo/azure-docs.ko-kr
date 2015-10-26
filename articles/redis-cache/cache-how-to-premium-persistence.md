@@ -96,4 +96,4 @@ Azure Redis Cache는 Azure 저장소 계정에 데이터를 저장하는 Redis �
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

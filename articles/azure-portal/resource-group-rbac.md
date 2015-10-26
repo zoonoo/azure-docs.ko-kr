@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
-# 리소스에 대한 액세스 관리 및 감사
+# 리소스에 대한 액세스 관리
 
 Azure 리소스 관리자를 사용하여 해당 조직의 사용자가 리소스 관리 또는 액세스에 적합한 권한을 갖게 할 수 있습니다. 리소스 관리자는 사용자가 개별 리소스나 리소스 그룹에 쉽게 보안 정책을 적용할 수 있도록 역할 기반 액세스 제어(RBAC)를 활용합니다. 예를 들어 사용자에게 구독 중인 특정 가상 컴퓨터에 대한 액세스를 부여하거나, 다른 리소스를 제외한 구독 중인 모든 웹 사이트 관리 기능을 제공할 수 있습니다.
+
+이 항목에서는 역할 및 사용 권한을 할당하기 위해 사용하는 명령을 중점적으로 설명합니다. 역할 기반 액세스 제어에 대한 개요는 [Microsoft Azure 포털에서 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 ## 개념
 
@@ -55,90 +57,86 @@ RBAC 개념을 이해하기 위해 몇 가지 일반적인 역할 정의에 대�
 
 
 ## PowerShell을 사용한 액세스 관리 방법
-Azure PowerShell 최신 버전을 아직 설치하지 않은 경우 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요. Azure PowerShell 콘솔을 엽니다.
 
-1. 자격 증명으로 Azure 계정에 로그인합니다. 이 명령은 사용자 계정에 대한 정보를 반환합니다.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-        PS C:\> Add-AzureAccount
-          
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-2. 여러 구독이 있는 경우 배포에 사용할 구독 ID를 제공합니다.
-
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
-
-3. Azure 리소스 관리자 모듈로 전환합니다.
-
-        PS C:\> Switch-AzureMode AzureResourceManager
 
 ### 사용 가능한 역할 보기
-구독에 사용 가능한 모든 역할을 보려면 **Get AzureRoleDefinition** 명령을 실행합니다.
+구독에 사용 가능한 모든 역할을 보려면 **Get AzureRmRoleDefinition** 명령을 실행합니다.
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:\> Get-AzureRmRoleDefinition
+    
+    Name             : API Management Service Contributor
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+    IsCustom         : False
+    Description      : Lets you manage API Management services, but not access to them.
+    Actions          : {Microsoft.ApiManagement/Services/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/resources/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
 
-    Name                          Id                            Actions                  NotActions
-    ----                          --                            -------                  ----------
-    API Management Service Con... /subscriptions/####... {Microsoft.ApiManagement/S...   {}
-    Application Insights Compo... /subscriptions/####... {Microsoft.Insights/compon...   {}
+    Name             : Application Insights Component Contributor
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+    IsCustom         : False
+    Description      : Lets you manage Application Insights components, but not access to them.
+    Actions          : {Microsoft.Insights/components/*, Microsoft.Insights/webtests/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
     ...
 
 ### 구독에 대해 그룹에 읽기 권한자 권한을 부여합니다.
-1. **Get-AzureRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **읽기 권한자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
+1. **Get-AzureRmRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **읽기 권한자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:\> Get-AzureRmRoleDefinition Reader
    
-        Name            Id                            Actions           NotActions
-        ----            --                            -------           ----------
-        Reader          /subscriptions/####...        {*/read}          {}
+        Name             : Reader
+        Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+        IsCustom         : False
+        Description      : Lets you view everything, but not make any changes.
+        Actions          : {*/read}
+        NotActions       : {}
+        AssignableScopes : {/}
 
-2. **Get AzureADGroup** 명령을 실행하여 필요한 보안 그룹을 가져옵니다. 구독에서 그룹의 실제 이름을 제공합니다. ExampleAuditorGroup은 아래와 같습니다.
+2. **Get AzureRmADGroup** 명령을 실행하여 필요한 보안 그룹을 가져옵니다. 구독에서 그룹의 실제 이름을 제공합니다. ExampleAuditorGroup은 아래와 같습니다.
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:\> $group = Get-AzureRmAdGroup -SearchString ExampleAuditorGroup
 
 3. 감사자 보안 그룹에 대한 역할 할당을 만듭니다. 명령이 완료되면 새 역할 할당이 반환됩니다.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
-        Mail               :
-        RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
-        DisplayName        : Auditors
-        RoleDefinitionName : Reader
-        Actions            : {*/read}
-        NotActions         : {}
-        Scope              : /subscriptions/####
-        ObjectId           : ####
 
 ###리소스 그룹에 대해 응용 프로그램에 참가자 권한을 부여합니다.
-1. **Get-AzureRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **참가자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
+1. **Get-AzureRmRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **참가자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:\> Get-AzureRmRoleDefinition Contributor
 
-2. **Get-AzureADServicePrincipal** 명령을 실행하고 구독에서 응용 프로그램 이름을 제공하여 서비스 주체 개체 ID를 가져옵니다. ExampleApplication은 아래와 같습니다.
+2. **Get-AzureRmADServicePrincipal** 명령을 실행하고 구독에서 응용 프로그램 이름을 제공하여 서비스 주체 개체 ID를 가져옵니다. ExampleApplication은 아래와 같습니다.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:\> $service = Get-AzureRmADServicePrincipal -SearchString ExampleApplicationName
 
-3. **New-AzureRoleAssignment** 명령을 실행하여 서비스 주체에 대한 역할 할당을 만듭니다.
+3. **New-AzureRmRoleAssignment** 명령을 실행하여 서비스 주체에 대한 역할 할당을 만듭니다.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Azure Active Directory 응용 프로그램 및 서비스 주체 설정에 대한 자세한 설명은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)을 참조하십시오.
 
 ###리소스에 대해 사용자에게 소유자 권한을 부여합니다.
-1. **Get-AzureRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **소유자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
+1. **Get-AzureRmRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **소유자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:\> Get-AzureRmRoleDefinition Owner
 
 2. 사용자에 대한 역할 할당을 만듭니다.
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:\> New-AzureRmRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###리소스 그룹의 감사 로그 목록을 표시합니다.
-리소스 그룹에 대한 감사 로그를 얻으려면 **Get-AzureResourceGroupLog** 명령을 실행합니다.
+리소스 그룹에 대한 감사 로그를 가져오려면 **Get-AzureRmLog** 명령(또는 Azure PowerShell 1.0 Preview 이전 버전의 경우 **Get-AzureResourceGroupLog**)을 실행합니다.
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
 ## Mac, Linux 및 Windows용 Azure CLI를 사용하는 방법
 
@@ -264,10 +262,10 @@ Azure 리소스 관리자 REST API를 통한 역할 기반 액세스 제어를 �
 
 ## 다음 단계
 
-- [Microsoft Azure 포털에서의 역할 기반 액세스 제어](../role-based-access-control-configure.md)
-- [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](../resource-group-create-service-principal-portal.md)
-- [Azure 리소스 관리자를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)
+- 역할 기반 액세스 제어에 대한 자세한 내용은 [Microsoft Azure 포털에서 역할 기반 액세스 제어](../role-based-access-control-configure.md)를 참조하세요.
+- 구독에서 응용 프로그램에 대한 액세스를 관리하기 위해 필요한 서비스 주체 작업과 관련된 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md) 및 [Azure 클래식 포털을 사용하여 Azure 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
+- 조직에서 작업을 감사하는 방법에 대한 자세한 내용은 [리소스 관리자로 작업 감사](../resource-group-audit.md)를 참조하세요.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

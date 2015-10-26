@@ -23,8 +23,7 @@
 
 이 문서에서는 Linux를 실행하는 Azure 가상 컴퓨터에서 MySQL을 설치 및 구성하는 방법을 알아봅니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ##가상 컴퓨터에 MySQL 설치
@@ -186,4 +185,4 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 ###다음 단계
 [여기](https://www.mysql.com/)에서 MySQL에 대한 사용법 및 정보를 확인합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

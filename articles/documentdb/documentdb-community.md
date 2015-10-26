@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/07/2015"
+  ms.date="10/12/2015"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -35,6 +35,7 @@ DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블, 맟 N �
 
 [Github](https://github.com/lmaccherone/documentdb-lumenize) 및 [npm](https://www.npmjs.com/package/lumenize)에서 확인합니다.
 
+
 ### DocumentDB 스튜디오
 
 *Ming Liu 작성*
@@ -42,6 +43,7 @@ DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블, 맟 N �
 Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기입니다.
 
 [GitHub](https://github.com/mingaliu/DocumentDBStudio)에서 확인합니다.
+
 
 <br/><br/>
 
@@ -86,27 +88,55 @@ Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기�
 ### 최근 및 예정된 이벤트
 
 | 이벤트 이름 | 위치 | Date | 해시 태그 |
-| --------------------------------------------------------------- | ------------- | ------------------- | ------- |
+| ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | 콜롬버스, OH | 2015년 10월 23일 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
 | [PASS 회담 2015](http://www.sqlpass.org/summit/2015/Home.asp) | 시애틀, WA | 2015년 10월 27-30일 | [#Summit15](https://twitter.com/hashtag/Summit15) |
-| [통합 사용자 그룹](http://www.integrationusergroup.com/) | 가상 이벤트 | 2015년 11월 9일 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+| [통합 사용자 그룹](http://www.integrationusergroup.com/) | 웹 세미나 | 2015년 11월 9일 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+| [모임: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | 몬트리올, QC, 캐나다 | 2015년 12월 1일 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
+
+*이벤트를 호스팅하나요? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
 
 ### 이전 이벤트 및 기록
 
 | 이벤트 이름 | 위치 | Date | 기록 |
-| ---------- | -------- | ---- | ------- |
-| [통합 사용자 그룹](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk&event_date=2015-10-05) | 가상 이벤트 | 2015년 10월 5일 | [의료 서비스 통합을 위한 Azure DocumentDB](http://fast.wistia.net/embed/iframe/ee3b1nfe3o) |
-| [AzureCon](https://azure.microsoft.com/azurecon/) | 가상 이벤트 | 2015년 9월 29일 | [DocumentDB에서 NoSQL 데이터로 작업](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQL Saturday #430 - 소피아 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | 소피아, 불가리아 | 2015년 10월 10일 | 해당 없음 |
+| [SQL Saturday #429 - 오포르토 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | 오포르토, 포르투갈 | 2015년 10월 3일 | 해당 없음 |
+| [AzureCon](https://azure.microsoft.com/azurecon/) | 가상 이벤트 | 2015년 9월 29일 | [Azure 데이터 및 분석 플랫폼](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[DocumentDB에서 NoSQL 데이터 작업](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| [SQL Saturday #434 - 홀랜드 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | 위트레흐트, 네덜란드 | 2015년 9월 26일 | 해당 없음 |
+| [모임: 샌프란시스코만 지역 Azure 개발자](http://www.meetup.com/bayazure/events/223943785/) | 샌프란시스코, CA | 2015년 9월 15일 | 해당 없음 |
+| [NoSQL Now!](http://nosql2015.dataversity.net/) | 산호세, 캘리포니아 | 2015년 8월 18일-20일 | 해당 없음 |
 | [@Scale Seattle](http://www.atscaleconference.com/) | 시애틀, WA | 2015년 6월 17일 | [Azure DocumentDB로 스키마 제약 없는 인덱싱](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
-| [메모리 내 기술 PASS 가상 장](http://imvc.sqlpass.org/) | 가상 이벤트 | 2015년 5월 25일 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | 리스본, 포르투갈 | 2015년 6월 15일 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [데이터베이스 월](http://www.databasemonth.com/database/azure-documentdb) | 뉴욕, NY | 2015년 5월 19일 | [Azure DocumentDB: 대규모 확장 가능한 다중 테넌트 문서 데이터베이스 서비스](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
+| [모임: 런던 SQL Server 사용자 그룹](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | 런던, 영국 | 2015년 5월 19일 | 해당 없음 |
 | [Ignite](http://ignite.microsoft.com/) | 시카코, IL | 2015년 5월 4-8일 | [DocumentDB 비디오에서 최신 선택](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB 및 Azure HDInsight: 성능 향상 비디오](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [빌드 2015](http://www.buildwindows.com/) | 샌프란시스코, CA | 2015년 4월 29일 - 5월 1일 | [Azure의 NoSQL 서비스로 향후 중대한 가치 빌드: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
-| [#DevHangout - devacademy.la](https://www.youtube.com/user/devacademyla) | 가상 이벤트 | 2015년 3월 11일 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
-| [데이터 아키텍처 가상 장 PASS](https://dataarch.sqlpass.org/) | 가상 이벤트 | 2015년 2월 25일 | [DocumentDB 소개](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+| [Global Azure Bootcamp 2015 - 스페인](http://azurebootcamp.es/) | 마드리드, 스페인 | 2015년 4월 25일 | [#Azure에서 실행 중인 DEAN DocumentDB + Express + AngularJS + NodeJS](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
+| [모임: 샬럿 Microsoft 클라우드](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | 샬럿, NC | 2015년 4월 8일 | 해당 없음 |
+| [모임: Azure 사용자 그룹 덴마크](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | 코펜하겐, 덴마크 | 2015년 5월 19일 | 해당 없음 |
+| [모임: 시애틀 웹앱 개발자 그룹](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | 시애틀, WA | 2015년 5월 14일 | 해당 없음 |
+| [모임: 이스탄불 Azure 모임](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) | 이스탄불, 터키 | 2015년 3월 7일 | 해당 없음 |
+| [모임: 5대호 지역 .Net 사용자 그룹](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) | 사우스필드, MI | 2015년 2월 18일 | 해당 없음 |
 | [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) | 스톡홀름, 스웨덴 | 2015년 1월 28-29일 | [클라우드용 Azure 새 NoSQL 옵션의 DocumentDB](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
-*이벤트를 호스팅하나요? 도울 방법을 [알려주십시오](mailto:askdocdb@microsoft.com)!*
+### 비디오 및 팟캐스트
+
+| 표시 | Date | 에피소드 |
+| ------------------------------------------- | ------------------ | ------- |
+| 통합 사용자 그룹 | 2015년 10월 5일 | [의료 서비스 통합을 위한 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
+| DX 이탈리아 - #TecHeroes | 2015년 10월 2일 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
+| .NET Rocks! 팟캐스트 | 2015년 9월 29일 | [Ryan CrawCour와 함께 하는 DocumentDB의 데이터](https://www.dotnetrocks.com/?show=1197) |
+| 데이터 노출 | 2015년 9월 28일 | [GA 이후 Azure DocumentDB의 새로운 기능](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
+| Azure 팟캐스트 | 2015년 9월 17일 | [에피소드 94: azpodcast.com 재설계](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
+| 클라우드 커버 | 2015년 9월 4일 | [에피소드 185: Ryan CrawCour와 함께 하는 DocumentDB 업데이트](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
+| CodeChat 033 | 2015년 7월 28일 | [Azure DocumentDB의 Greg Doerr](https://channel9.msdn.com/Shows/codechat/033) |
+| 메모리 내 기술 PASS 가상 장 | 2015년 5월 25일 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| 데이터 노출 | 2015년 4월 8일 | [DocumentDB 일반 가용성 및 새로운 기능!](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
+| 데이터 노출 | 2015년 3월 17일 | [Java DocumentDB용 SDK](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
+| #DevHangout | 2015년 3월 11일 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
+| 데이터 아키텍처 가상 장 PASS | 2015년 2월 25일 | [DocumentDB 소개](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+
 
 ### 온라인 클래스
 
@@ -135,7 +165,7 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 
 | 포럼 공급자 | 설명 |
 | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb)로 바꿉니다. | 프로그래머를 위해 공동으로 언어 독립적이게 편집된 질문 및 답변 사이트입니다. 태그를 따라옵니다. [azure documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
+| [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb)로 바꿉니다. | 프로그래머를 위해 공동으로 언어 독립적이게 편집된 질문 및 답변 사이트입니다. 태그를 팔로우합니다. [azure documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
 | [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655)로 바꿉니다. | Microsoft Azure 기능 및 웹사이트, DocumentDB 등과 같은 서비스에 대한 지원 및 피드백을 할 수 있는 곳입니다. |
 
 <br/><br/>
@@ -152,13 +182,10 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 
 ## 팀에 문의
 
-<hr/>
+| | |
+| -------------------------------------------------------- | --- |
+|![팀](./media/documentdb-community/documentdb-team.png) | 기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하신가요?<br/><br/>[DocumentDB 엔지니어링 팀과 직접 1:1 채팅을 예약](http://www.askdocdb.com/)할 수 있습니다.[@DocumentDB](https://twitter.com/DocumentDB)로 <br/><br/>[메일](mailto:askdocdb@microsoft.com)을 보내거나 트윗을 보내주세요. |
 
-기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하십니까?
-
-[DocumentDB 엔지니어링 팀에 직접 1:1 채팅을 예약](http://www.askdocdb.com/)할 수 있습니다.
-
-또한 [전자 메일](mailto:askdocdb@microsoft.com)을 보내거나 [@DocumentDB](https://twitter.com/DocumentDB)에 트윗할 수 있습니다.
 
 <br/><br/>
 
@@ -186,4 +213,4 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 | Hadoop 커넥터 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 데이터 마이그레이션 도구 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

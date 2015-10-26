@@ -186,4 +186,4 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

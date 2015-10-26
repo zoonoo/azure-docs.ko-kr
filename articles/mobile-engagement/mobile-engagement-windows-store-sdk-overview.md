@@ -53,4 +53,4 @@
 
 [업그레이드 절차](mobile-engagement-windows-store-upgrade-procedure/)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

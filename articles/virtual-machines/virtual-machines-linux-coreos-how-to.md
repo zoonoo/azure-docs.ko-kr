@@ -21,7 +21,7 @@
 
 이 항목에서는 [CoreOS]에 대해 설명하며 이 운영 체제를 빠르게 이해할 수 있도록 Azure에서 CoreOS 가상 컴퓨터 3개로 구성된 클러스터를 만드는 방법을 보여 줍니다. 여기서는 [Azure의 CoreOS], [Tim Park의 CoreOS 자습서] 및 [Patrick Chanezon의 CoreOS 자습서]에 포함된 매우 기본적인 CoreOS 배포 및 예제의 요소를 사용하여 CoreOS 배포의 기본 구조를 이해하고 정상적으로 실행되는 3개 가상 컴퓨터의 클러스터를 만들기 위한 최소 요구 사항을 제시합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 Azure CLI를 사용하여 클래식 배포 모델로 CoreOS VM을 만드는 내용에 대해 설명합니다. [리소스 관리자 배포 모델](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)에서 템플릿을 사용하여 CoreOS VM을 만들 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
 ## <a id='intro'>CoreOS, 클러스터 및 Linux 컨테이너</a>
@@ -58,11 +58,11 @@ CoreOS는 [Docker] 컨테이너를 비롯한 Linux 컨테이너만을 패키징 
 
 [Azure에서 Linux 환경의 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)의 지침에 따라 SSH용 공용 키 및 개인 키를 만듭니다. 기본 단계는 아래 지침에 나와 있습니다. 이러한 키를 사용하여 클러스터의 VM에 연결해 VM이 작동하며 서로 통신할 수 있는지를 확인합니다.
 
-> [AZURE.NOTE]이 항목에서는 사용자가 이러한 키를 갖고 있지 않다고 가정하며, 해당 사용자는 명확한 작업을 위해 `myPrivateKey.pem` 및 `myCert.pem` 파일을 만들어야 합니다. 이미 공용 키와 개인 키 쌍을 `~/.ssh/id_rsa`에 저장한 경우, `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem`을 입력하여 Azure에 업로드해야 하는 .pem 파일을 가져올 수 있습니다.
+> [AZURE.NOTE]이 항목에서는 사용자가 이러한 키를 갖고 있지 않다고 가정하며, 해당 사용자는 명확한 작업을 위해 `myPrivateKey.pem` 및 `myCert.pem` 파일을 만들어야 합니다. 이미 공용 키와 개인 키 쌍을 `~/.ssh/id_rsa`에 저장한 경우, `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem`을 입력하여 Azure에 업로드해야하는 .pem 파일을 가져올 수 있습니다.
 
 1. 작업 디렉터리에서, `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem`을 입력하여 개인 키를 만들고 연결된 x.509 인증서를 만듭니다.
 
-2. 개인 키의 소유자가 파일을 읽고 쓸 수 있도록 어설션하려면 `chmod 600 myPrivateKey.key`를 입력합니다.
+2. 개인 키의 소유자가 파일을 읽고 쓸 수 있도록 어설션 하려면 `chmod 600 myPrivateKey.key`을 입력합니다.
 
 이제 작업 디렉터리에 `myPrivateKey.key`과 `myCert.pem` 파일이 모두 포함되어 있습니다.
 
@@ -79,7 +79,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 계속해서 같은 작업 디렉터리에서, 다음 텍스트를 포함하는 평소에 사용하는 텍스트 에디터로 파일을 만들고 `cloud-config.yaml`로 저장합니다. 파일은 원하는 이름으로 저장하면 되지만 다음 단계에서 VM을 만들 때 **azure vm create** 명령의 **--custom-data** 옵션에서 이 파일 이름을 참조해야 합니다.
 
-> [AZURE.NOTE]`cat etcdid`를 입력하여 사용자가 위에서 만든 `etcdid` 파일에서 etcd 검색 ID를 검색한 후 다음 `cloud-config.yaml` 파일의 `<token>`을 `etcdid` 파일에서 생성된 숫자로 바꾸세요. 작업 종료 시 클러스터의 유효성을 검사할 수 없는 경우 이 단계를 건너뛰었기 때문일 수 있습니다.
+> [AZURE.NOTE]`cat etcdid`을 입력하여 사용자가 위에서 만든 `etcdid` 파일에서 etcd 검색 ID를 검색한 후 다음 `cloud-config.yaml` 파일의 `<token>`을 `etcdid` 파일에서 생성된 숫자로 바꾸세요. 작업 종료 시 클러스터의 유효성을 검사할 수 없는 경우 이 단계를 건너뛰었기 때문일 수 있습니다.
 
 ```
 #cloud-config
@@ -108,7 +108,7 @@ cloud-config 파일에 대한 전체 정보는 CoreOS 설명서의 [cloud-config
 
 	데이터:2b171e93f07c4903bcad35bda10acf22\_\_CoreOS-Stable-522.6.0 Public Linux
 
-3. `azure service create <cloud-service-name>`을 입력하여 기본 클러스터에 대해 클라우드 서비스를 만듭니다. 여기서 <*cloud-service-name*>은 CoreOS 클라우드 서비스의 이름입니다. 이 샘플에서는 이름으로 **`coreos-cluster`**를 사용합니다. 클라우드 서비스 내에서 CoreOS VM 인스턴스를 만들려면 선택하는 이름을 다시 사용해야 합니다.
+3. `azure service create <cloud-service-name>`을 입력하여 기본 클러스터에 대해 클라우드 서비스를 만듭니다. 여기서 <*cloud-service-name*>은 CoreOS 클라우드 서비스의 이름입니다. 이 샘플에서는 이름으로 **`coreos-cluster`**을 사용합니다. 클라우드 서비스 내에서 CoreOS VM 인스턴스를 만들려면 선택하는 이름을 다시 사용해야 합니다.
 
 	[Preview 포털](https://portal.azure.com)에서 지금까지 수행한 작업을 확인하려면 다음 이미지에 나와 있는 것처럼 클라우드 서비스 이름이 리소스 그룹이자 도메인임을 확인할 수 있습니다.
 
@@ -134,7 +134,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 	ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
 
-연결되면 `sudo fleetctl list-machines`를 입력하며 클러스터가 클러스터 내의 모든 VM을 이미 식별했는지 여부를 확인합니다. 그러면 다음과 같은 응답이 표시됩니다.
+연결되면 `sudo fleetctl list-machines`을 입력하며 클러스터가 클러스터 내의 모든 VM을 이미 식별했는지 여부를 확인합니다. 그러면 다음과 같은 응답이 표시됩니다.
 
 
 	core@node-1 ~ $ sudo fleetctl list-machines
@@ -154,7 +154,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `git clone https://github.com/coreos/fleet.git`
 
-`fleet` 디렉터리로 변경하고 다음을 입력하여 **fleet**를 구축합니다.
+`fleet` 디렉터리로 변경하고 다음을 입력하여 **fleet**을 구축합니다.
 
 `./build`
 
@@ -182,7 +182,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 ## 다음 단계
 
-지금까지 Azure에서 실행되는 3개 노드 CoreOS 클러스터를 만들었습니다. 여기에서, 더 복잡한 클러스터를 만드는 방법과 Docker를 사용하는 법 그리고 더 흥미로운 응용 프로그램을 작성하는 방법을 탐색할 수 있습니다. 몇 가지 빠른 예를 실행하려면 [Azure의 CoreOS에서 Fleet 시작]을 참조하세요.
+지금까지 Azure에서 실행되는 3개 노드 CoreOS 클러스터를 만들었습니다. 여기에서, 더 복잡한 클러스터를 만드는 방법과 Docker를 사용하는 법 그리고 더 흥미로운 응용 프로그램을 작성하는 방법을 탐색할 수 있습니다. 몇 가지 빠른 예를 실행하려면 [Azure의 CoreOS에서 Fleet 시작]을 참조하십시오.
 
 <!--Anchors-->
 [CoreOS, Clusters, and Linux Containers]: #intro
@@ -209,4 +209,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [Azure의 CoreOS에서 Fleet 시작]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

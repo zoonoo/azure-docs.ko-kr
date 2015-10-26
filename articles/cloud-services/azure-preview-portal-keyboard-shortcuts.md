@@ -50,4 +50,4 @@
 
 Azure 포털을 더 잘 이해하게 됩니다(http://azure.microsoft.com).
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

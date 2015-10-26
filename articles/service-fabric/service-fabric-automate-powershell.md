@@ -1,0 +1,205 @@
+<properties
+	pageTitle="PowerShell을 사용하여 서비스 패브릭 응용 프로그램 관리 자동화 | Microsoft Azure"
+	description="PowerShell을 사용하여 서비스 패브릭 응용 프로그램 배포, 업그레이드, 테스트 및 제거."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="rwike77"
+	manager="timlt"
+	editor=""/>
+
+<tags
+	ms.service="service-fabric"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/09/2015"
+	ms.author="ryanwi"/>
+
+# PowerShell을 사용하여 서비스 패브릭 응용 프로그램 배포, 업그레이드, 테스트 및 제거
+
+이 문서에서는 PowerShell을 사용해 서비스 패브릭 응용 프로그램을 배포, 업그레이드, 제거 및 테스트하는 일반적인 작업을 자동화하는 방법을 보여줍니다.
+
+## 필수 조건
+
+이 문서의 작업을 진행하기 전에 [런타임, SDK 및 도구를 설치](service-fabric-get-started.md)하여 ServiceFabric 및 ServiceFabricTestability PowerShell 모듈이 설치되도록 해야 합니다. [PowerShell 스크립트 실행을 활성화](service-fabric-get-started.md#enable-powershell-script-execution)하고 [로컬 클러스터를 설치 및 시작](service-fabric-get-started.md#install-and-start-a-local-cluster)하면 이 문서의 예제를 실행할 수 있습니다.
+
+이 문서의 예에서는 [HelloWorldStateful 응용 프로그램 예제](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/HelloWorldStateful)를 사용합니다. 응용 프로그램 예제 다운로드 및 빌드
+
+이 문서에서는 PowerShell 명령을 실행하기에 앞서 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/azure/mt125938.aspx)를 사용하여 로컬 서비스 패브릭 클러스터에 먼저 연결합니다.
+
+```powershell
+Connect-ServiceFabricCluster
+```
+
+## 작업: 서비스 패브릭 응용 프로그램 배포
+
+응용 프로그램을 빌드하고 응용 프로그램 형식이 패키지되면 서비스 패브릭 클러스터로 응용 프로그램을 배포할 수 있습니다. 먼저, 솔루션 탐색기에서 **HelloWorldStatefulApplication**을 마우스 오른쪽 단추로 클릭하고 **패키지**를 선택하여 Visual Studio에서 HelloWorldStateful 응용 프로그램을 패키지합니다. 서비스 및 응용 프로그램 매니페스트와 패키지 레이아웃에 대한 자세한 내용은 [서비스 패브릭에서 응용 프로그램 모델링](service-fabric-application-model.md)을 참조하세요. 배포에는 응용 프로그램 패키지를 업로드하고 응용 프로그램 형식을 등록하며 응용 프로그램 인스턴스를 만드는 작업이 포함됩니다. 이 섹션의 지침에 따라 새 응용 프로그램을 클러스터에 배포합니다.
+
+### 1단계: 응용 프로그램 패키지 업로드
+응용 프로그램 패키지를 ImageStore에 업로드하면 내부 서비스 패브릭 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. 응용 프로그램 패키지에는 필요한 응용 프로그램 매니페스트, 서비스 매니페스트, 응용 프로그램 및 서비스 인스턴스를 만드는 코드/구성/데이터 패키지가 포함됩니다. [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125905.aspx) 명령으로 패키지를 업로드합니다. 예:
+
+```powershell
+Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+```
+
+### 2단계: 응용 프로그램 형식 등록
+응용 프로그램 패키지 등록은 응용 프로그램 매니페스트에서 사용하기 위해 응용 프로그램 형식과 버전을 사용할 수 있도록 합니다. 시스템은 이전 단계에서 업로드된 패키지를 읽고, 패키지를 확인하며(로컬에서 실행 중인 [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125950.aspx)와 동일한지), 패키지 콘텐츠를 처리하고, 처리된 패키지를 내부 시스템 위치에 복사합니다. [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet을 실행합니다.
+
+```powershell
+Register-ServiceFabricApplicationType HelloWorldStateful
+```
+클러스터에 등록된 응용 프로그램 형식을 보려면 cmdlet을 실행합니다.
+
+```powershell
+Get-ServiceFabricApplicationType
+```
+
+### 3단계: 응용 프로그램 인스턴스 만들기
+응용 프로그램은 [New-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt125913.aspx) 명령을 사용하여 성공적으로 등록된 모든 응용 프로그램 형식 버전을 사용하여 인스턴스화될 수 있습니다. 각 응용 프로그램의 이름은 반드시 **fabric:** 체계로 시작하고 각 응용 프로그램 인스턴스에 대해 고유해야 합니다. 응용 프로그램 형식 이름 및 응용 프로그램 형식 버전은 ApplicationManifest.xml 파일에 선언됩니다. 대상 응용 프로그램 형식의 응용 프로그램 매니페스트에 정의된 기본 서비스가 하나라도 있으면 이때 그것도 생성되게 됩니다.
+
+```powershell
+New-ServiceFabricApplication fabric:/HelloWorldStatefulApplication HelloWorldStatefulApplication 1.0.0.0
+```
+
+[Get-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt163515.aspx) 명령은 해당 모든 상태에 따라 성공적으로 만들어진 모든 응용 프로그램 인스턴스를 나열합니다. [Get-ServiceFabricService](https://msdn.microsoft.com/library/azure/mt125889.aspx) 명령은 주어진 응용 프로그램 인스턴스 내에서 성공적으로 만들어진 모든 서비스 인스턴스를 나열합니다. 기본 서비스(있는 경우)가 나열됩니다.
+
+```powershell
+Get-ServiceFabricApplication
+
+Get-ServiceFabricApplication | Get-ServiceFabricService
+```
+
+## 작업: 서비스 패브릭 응용 프로그램 업그레이드
+
+이전에 배포된 서비스 패브릭 응용 프로그램을 업그레이드할 수 있습니다. 이 작업은 '작업: 서비스 패브릭 응용 프로그램 배포'에서 배포했던 HelloWorldStateful 응용 프로그램을 업그레이드합니다. 자세한 내용은 [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)를 읽어보세요.
+
+### 1단계: 응용 프로그램 업데이트
+
+HelloWorldStateful 서비스의 코드를 변경합니다.
+
+서비스 코드를 업데이트한 후에는 ServiceManifest.xml 파일(HelloWorldStateful 프로젝트의 PackageRoot 디렉터리에 있음)에서 서비스 버전 번호를 증분해야 합니다. 매니페스트의 **CodePackage** 요소를 찾고 서비스 버전을 2.0.0.0으로 변경합니다. ServiceManifest.xml 파일에서 해당 줄은 다음과 같습니다.
+
+```xml
+<ServiceManifest Name="HelloWorldStatefulPkg"
+                 Version="2.0.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<CodePackageName="Code" Version="2.0.0.0">
+```
+
+이제 ApplicationManifest.xml 파일(HelloWorldStateful 솔루션에서 HelloWorldStatefulApplication 프로젝트 아래에 있음)을 업데이트해야 합니다. **ServiceManifestRef** 요소를 HelloWorldStatefulPkg 프로젝트의 버전 2.0.0.0을 사용하도록 업데이트합니다. 또한 **ApplicationTypeVersion**도 1.0.0.0에서 2.0.0.0으로 업데이트합니다. ApplicationManifest.xml의 해당 줄은 다음과 같습니다.
+
+```xml
+<ApplicationManifest ApplicationTypeName="HelloWorldStatefulApplication" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<ServiceManifestRef ServiceManifestName="HelloWorldStatefulPkg" ServiceManifestVersion="2.0.0.0" />
+```
+
+변경한 후 파일을 저장하고 HelloWorldStateful 프로젝트를 다시 빌드합니다. 이제 HelloWorldStatefulApplication 프로젝트에서 마우스 오른쪽 단추를 클릭하고 서비스 패브릭 메뉴를 선택한 후 패키지를 선택하여 업데이트된 응용 프로그램을 패키지합니다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
+
+### 2단계: 업데이트된 응용 프로그램 패키지 복사 및 등록
+
+이제 응용 프로그램을 빌드, 패키지하였고 업그레이드할 준비가 되었습니다. 관리자로 PowerShell 창을 열고 [Get-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt163515.aspx)을 입력하면 **HelloWorldStatefulApplication**의 Application Type 1.0.0.0이 배포되었음이 표시됩니다. HelloWorldStateful 예제에서 응용 프로그램 패키지는 *C:\\ServiceFabricSamples\\Services\\VS2015\\HelloWorldStateful\\HelloWorldStatefulApplication\\pkg\\Debug*에 있습니다.
+
+이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore*는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령은 응용 프로그램 패키지를 ImageStore에서 *HelloWorldStatefulV2*에 복사합니다.
+
+```powershell
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore   -ApplicationPackagePathInImageStore HelloWorldStatefulV2
+```
+
+다음 단계에서는 서비스 패브릭으로 새 버전의 응용 프로그램을 등록하는 것이며 이 작업은 [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet을 사용하여 수행할 수 있습니다.
+
+```powershell
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore HelloWorldStatefulV2
+```
+
+이 명령이 성공하지 못한 경우 1단계에서 설명한 것처럼 서비스를 다시 빌드해야 할 수 있습니다.
+
+### 3단계: 업그레이드 시작
+응용 프로그램 업그레이드에는 다양한 업그레이드 매개 변수, 제한 시간 및 상태 기준을 적용할 수 있습니다. 자세히 알아보려면 [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 읽어보세요. 이 연습에서는 서비스 상태 평가 조건을 기본 설정(및 권장 값)으로 남겨둡니다. 모든 서비스 및 인스턴스는 업그레이드 후 _정상_ 상태여야 합니다. 그러나 *HealthCheckStableDuration*을 60초로 증가시키면 서비스는 다음 업그레이드 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다. 또한 *UpgradeDomainTimeout*을 1200초로, *UpgradeTimeout*을 3000초로 설정합니다. 마지막으로 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 롤백으로 *UpgradeFailureAction*을 설정합니다.
+
+이제 [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125975.aspx) cmdlet을 사용하여 응용 프로그램 업그레이드를 시작할 수 있습니다.
+
+```powershell
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/HelloWorldStatefulApplication -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000  -FailureAction Rollback -Monitored
+```
+
+응용 프로그램 이름은 이전에 배포한 v1.0.0.0 응용 프로그램 이름과 동일합니다(fabric:/HelloWorldStatefulApplication). 서비스 패브릭은 이 이름을 사용하여 업그레이드할 응용 프로그램을 식별합니다. 제한 시간을 너무 짧게 설정하면 문제 발생을 알리는 오류 메시지가 발생할 수 있습니다. [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)을 참조하거나 시간 제한을 늘리세요.
+
+[서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)를 사용하거나 [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet을 사용하여 응용 프로그램 업그레이드 진행 상태를 모니터링할 수 있습니다.
+
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/HelloWorldStatefulApplication
+```
+
+잠시 후에 [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet이 업그레이드된(완료된) 모든 업그레이드 도메인을 보여줍니다.
+
+## 작업: 서비스 패브릭 응용 프로그램 테스트
+
+고품질 서비스를 작성하려면 개발자는 불안정한 인프라 결함을 유도하여 서비스의 안정성을 테스트할 수 있어야 합니다. 서비스 패브릭은 비정상 및 장애 조치(failover) 테스트 시나리오를 사용하여 개발자에게 오류가 있는 상황에서 서비스를 테스트할 수 있도록 오류 작업을 유도하는 기능을 제공합니다. 자세한 내용은 [테스트 용이성 개요](service-fabric-testability-overview.md)를 읽어보세요.
+
+### 1단계: 비정상 상황 테스트 시나리오 실행
+비정상 상황 시나리오는 전체 서비스 패브릭 클러스터에서 오류를 생성합니다. 이 시나리오에서는 일반적으로 수개월 또는 수년 후에 발견되는 오류를 수시간으로 압축합니다. 인터리브 오류를 높은 오류 비율과 결합하면 놓치기 쉬운 특이한 사례를 발견할 수 있습니다. 다음 예제에서는 60분 동안 비정상 상황 테스트 시나리오를 실행합니다.
+
+```powershell
+$timeToRun = 60
+$maxStabilizationTimeSecs = 180
+$concurrentFaults = 3
+$waitTimeBetweenIterationsSec = 60
+
+Connect-ServiceFabricCluster
+
+Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterStabilizationTimeoutSec $maxStabilizationTimeSecs -MaxConcurrentFaults $concurrentFaults -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec
+```
+
+### 2단계: 비정상 상황 테스트 시나리오 실행
+장애 조치(failover) 테스트 시나리오는 전체 클러스터가 아닌 특정 서비스 파티션을 대상으로 하고 기타 서비스는 영향을 받지 않은 상태로 유지합니다. 비즈니스 논리가 실행되는 동안 일련의 시뮬레이션된 오류 및 서비스 유효성 검사를 통해 시나리오가 반복됩니다. 서비스 유효성 검사에서 오류가 발생하면 추가 조사가 필요한 문제가 있다는 의미입니다. 비정상 상황 테스트에서 다중 오류가 가능한 것과는 달리 장애 조치(failover) 테스트는 한 번에 하나씩 오류를 유도할 수 있습니다. 다음 예제에서는 fabric:/HelloWorldStatefulApplication/HelloWorldStateful service에 대해 60초 동안 장애 조치 테스트를 실행합니다.
+
+```powershell
+$timeToRun = 60
+$maxStabilizationTimeSecs = 180
+$waitTimeBetweenFaultsSec = 10
+$serviceName = "fabric:/HelloWorldStatefulApplication/HelloWorldStateful"
+
+Connect-ServiceFabricCluster
+
+Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindUniformInt64 -PartitionKey 1
+```
+
+## 작업: 서비스 패브릭 응용 프로그램 제거
+배포된 응용 프로그램의 인스턴스를 삭제하고 클러스터에서 프로비전된 응용 프로그램 형식을 제거하며 ImageStore에서 응용 프로그램 패키지를 제거할 수 있습니다.
+
+### 1단계: 응용 프로그램 인스턴스 제거
+응용 프로그램 인스턴스가 더 이상 필요하지 않은 경우, [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/azure/mt125914.aspx) cmdlet을 사용하여 영구적으로 제거할 수 있습니다. 모든 서비스 상태를 영구적으로 제거하고 해당 응용 프로그램에 속한 모든 서비스를 자동으로 제거합니다. 이 작업은 되돌릴 수 없으며 응용 프로그램 상태는 복구할 수 없습니다.
+
+```powershell
+Remove-ServiceFabricApplication fabric:/HelloWorldStatefulApplication
+```
+
+### 2단계: 응용 프로그램 형식 등록 취소
+응용 프로그램 형식의 특정 버전이 더 이상 필요하지 않은 경우, [Unregister-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125885.aspx) cmdlet을 사용하여 등록 취소할 수 있습니다. 사용하지 않는 형식을 등록 취소하면 ImageStore에서 해당 응용 프로그램 패키지가 사용하는 저장소 공간을 비웁니다. 응용 프로그램 형식은 이에 대해 인스턴스화된 응용 프로그램이나 이를 참조하는 보류 중인 응용 프로그램이 없는 한 등록 취소할 수 있습니다.
+
+```powershell
+Unregister-ServiceFabricApplicationType HelloWorldStatefulApplication 1.0.0.0
+```
+
+### 3단계: 응용 프로그램 패키지 제거
+응용 프로그램 형식이 등록 취소되면 [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt163532.aspx) cmdlet을 사용하여 ImageStore에서 응용 프로그램 패키지를 제거할 수 있습니다.
+
+```powershell
+Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+```
+
+## 추가 리소스
+[서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
+
+[서비스 패브릭 서비스 관리](service-fabric-manage-your-service-index.md)
+
+[Azure 서비스 패브릭 Cmdlet](https://msdn.microsoft.com/library/azure/mt125965.aspx)
+
+[Azure 서비스 패브릭 테스트 용이성 Cmdlet](https://msdn.microsoft.com/library/azure/mt125844.aspx)
+
+<!---HONumber=Oct15_HO3-->

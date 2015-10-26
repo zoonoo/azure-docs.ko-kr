@@ -476,4 +476,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

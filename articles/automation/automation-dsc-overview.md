@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/09/2015"
    ms.author="coreyp"/>
 
 # Azure 자동화 DSC 개요 #
@@ -107,9 +107,9 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 
 Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](https://msdn.microsoft.com/library/mt244122.aspx)에서 다음과 같은 컴파일 작업 관리용 cmdlet을 제공합니다.
 
--	`Get-AzureAutomationDscCompilationJob`
--	`Get-AzureAutomationDscCompilationJobOutput`
--	`Start-AzureAutomationDscCompilationJob`
+-	`Get-AzureRmAutomationDscCompilationJob`
+-	`Get-AzureRmAutomationDscCompilationJobOutput`
+-	`Start-AzureRmAutomationDscCompilationJob`
 
 ##Azure 자동화 DSC 수명 주기##
 빈 자동화 계정부터 올바르게 구성된 관리 노드 집합까지에는 구성을 정의하고 해당 구성을 노드 구성으로 전환하며 온보딩 노드를 Azure 자동화 DSC 및 해당 노드 구성으로 전환하는 프로세스 집합이 포함됩니다. 다음 다이어그램에서는 Azure 자동화 DSC 수명 주기를 보여줍니다.
@@ -143,5 +143,6 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC 가격 책정](http://azure.microsoft.com/pricing/details/automation/)
+- [Azure 자동화 DSC 및 Chocolatey를 사용하여 IaaS VM에 연속 배포](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

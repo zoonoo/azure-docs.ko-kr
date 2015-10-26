@@ -30,4 +30,4 @@ REST API | 데이터 팩터리 REST API를 사용하여 Azure 데이터 팩터�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

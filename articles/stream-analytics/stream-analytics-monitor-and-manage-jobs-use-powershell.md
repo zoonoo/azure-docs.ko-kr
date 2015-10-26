@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -25,24 +25,23 @@
 
 ## 스트림 분석에 Azure PowerShell cmdlet을 실행하기 위한 필수 조건
 
-1.	Azure PowerShell을 설치하고 구성합니다.
+ - 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요.  
 
-	[Azure PowerShell을 설치 및 구성하는 방법][powershell-install]의 지침에 따라 Azure PowerShell을 설치합니다.
 
-	Azure Active Directory 메서드를 사용하여 Azure 구독에 연결하는 방법:
-
+ 		# Log in to your Azure account
 		Add-AzureAccount
 
-	해당 방법을 사용하도록 설정된 Azure 스트림 분석 서비스로 Azure 구독을 선택하는 방법:
+		# Select the Azure subscription you want to use to create the resource group
+		Select-AzureSubscription -SubscriptionName <subscription name>
+ 
+		# Create an Azure resource group	
+			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-		Select-AzureSubscription
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
-
-2.	Azure 모드를 구성합니다.
-
-	Azure PowerShell을 설치한 후 [Switch-AzureMode][msdn-switch-azuremode] cmdlet을 실행하여 스트림 분석 cmdlet에 액세스하는 데 적합한 Azure 모드를 설정합니다.
-
-		Switch-AzureMode AzureResourceManager
 
 > [AZURE.NOTE]프로그래밍 방식으로 만든 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 모니터링을 설정하거나 [Azure 스트림 분석 - 프로그래밍 방식으로 스트림 분석 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
 
@@ -259,7 +258,7 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 이 PowerShell 명령은 StreamingJob에서 Output 출력의 연결 상태를 테스트합니다.
 
 ## 지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/KO-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계
@@ -288,4 +287,4 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

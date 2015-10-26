@@ -19,7 +19,8 @@
 
 # Azure 가상 컴퓨터에 호스트된 Oracle 소프트웨어
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 첫 번째 또는 다음 개발/테스트 또는 Azure 인프라 서비스의 가상 컴퓨터에서 실행되는 프로덕션 Oracle 데이터베이스를 설정합니다. 새 용량을 포함하도록 Oracle 데이터베이스를 신속히 확장하는 쉬운 구성과 기능을 활용하세요.
 
@@ -55,4 +56,4 @@ Windows 서버 기반 Azure 가상 컴퓨터의 Oracle 소프트웨어에 대한
 
 [Azure용 Oracle GoldenGate 구성](virtual-machines-configuring-oracle-goldengate.md)은 데이터베이스 및 복제를 설정하는 과정을 단계별로 안내합니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

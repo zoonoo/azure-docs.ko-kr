@@ -150,4 +150,4 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 StorSimple Manager 서비스를 사용하는 방법에 대한 자세한 내용을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

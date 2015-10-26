@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 가상 네트워크에 Active Directory 포리스트 설치"
-	description="Azure 가상 네트워크의 VM(가상 컴퓨터)에서 새 Active Directory 포리스트를 만드는 방법에 대해 설명하는 자습서입니다."
-	services="active-directory, virtual-network"
-	documentationCenter=""
-	authors="markusvi"
-	manager="TerryLan"
+	pageTitle="Azure 가상 네트워크에 Active Directory 포리스트 설치" 
+	description="Azure 가상 네트워크의 VM(가상 컴퓨터)에서 새 Active Directory 포리스트를 만드는 방법에 대해 설명하는 자습서입니다." 
+	services="active-directory, virtual-network" 
+	documentationCenter="" 
+	authors="markusvi" 
+	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/23/2015"
+	ms.service="active-directory" 
+	ms.devlang="na" 
+	ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+	ms.date="07/23/2015" 
 	ms.author="markusvi"/>
 
 
@@ -138,4 +138,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

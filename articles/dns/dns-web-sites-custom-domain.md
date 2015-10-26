@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="웹앱에 대한 사용자 지정 DNS 레코드 만들기 | Microsoft Azure"
-	description="Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인 DNS 레코드를 만드는 방법입니다. CNAME 또는 A 레코드를 사용하여 도메인 소유권을 검증하는 단계별 가이드입니다."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="carolz"
-	editor=""/>
+   pageTitle="웹앱에 대한 사용자 지정 DNS 레코드 만들기 | Microsoft Azure" 
+   description="Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인 DNS 레코드를 만드는 방법입니다. CNAME 또는 A 레코드를 사용하여 도메인 소유권을 검증하는 단계별 가이드입니다." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # 사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기
 
@@ -165,4 +165,4 @@ Set-AzureDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

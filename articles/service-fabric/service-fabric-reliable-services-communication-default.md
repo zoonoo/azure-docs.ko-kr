@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭이 제공하는 기본 통신 스택"
-	description="이 문서에서는 신뢰할 수 있는 서비스의 프레임워크에서 통신할 서비스와 클라이언트에 대해 제공하는 기본 통신 스택을 설명합니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="timlt"
-	editor=""/>
+   description="이 문서에서는 신뢰할 수 있는 서비스의 프레임워크에서 통신할 서비스와 클라이언트에 대해 제공하는 기본 통신 스택을 설명합니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # 신뢰할 수 있는 서비스 프레임워크가 제공하는 기본 통신 스택
 특정 통신 스택 구현(WebAPI, WCF 등)에 얽매이지 않는 서비스 작성자를 위해 이 프레임워크는 서비스와 클라이언트 간의 통신을 설정하는 데 사용할 수 있는 클라이언트 및 서비스 측 통신 부분을 제공합니다.
@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]통신 프레임워크는 서비스에서 클라이언트에 throw된 예외 전파를 처리합니다. 따라서 ServiceProxy를 사용하는 클라이언트에서 예외 처리 논리는 서비스가 잠재적으로 throw할 수 있는 예외를 직접 처리할 수 있습니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

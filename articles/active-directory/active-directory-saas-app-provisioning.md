@@ -100,7 +100,7 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 - [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 - [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 - [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-- [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx)(인바운드 프로비저닝)
+- [Workday](http://go.microsoft.com/fwlink/?LinkId=690250)(인바운드 프로비저닝)
 
 응용 프로그램에서 자동 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램이 사용자를 만들고, 유지 관리하고, 제거하는 데 필요한 끝점을 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 앱이 이를 지원하면 Azure AD 엔지니어링 팀이 이 앱에 대한 프로비저닝 커넥터를 만들 수 있게 되며, 이러한 작업은 현재와 잠재 고객의 필요에 따라 우선 순위가 지정됩니다.
 
@@ -108,4 +108,4 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

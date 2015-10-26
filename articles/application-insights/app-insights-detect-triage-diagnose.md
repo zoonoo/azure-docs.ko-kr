@@ -260,4 +260,4 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

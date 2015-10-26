@@ -397,12 +397,12 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 -	네트워크에는 두 번째 숨겨진 계층인 _Conv2_에 완전히 연결된 세 번째 숨겨진 계층인 _Hid3_이 있습니다.
 -	_Digit_ 출력 계층은 세 번째 계층인 _Hid3_에만 연결됩니다. 키워드 **all**은 출력 계층이 _Hid3_에 완전히 연결되었음을 나타냅니다.
 -	나선 인자 수는 3입니다(**InputShape**, **KernelShape**, **Stride** 및 **Sharing** 튜플의 길이). 
--	커널당 가중치 수는 _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26입니다. 또는 26 * 50 = 1300_입니다.
+-	커널당 가중치 수는 _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26입니다. 또는 26 * 50 = 1300_입니다.
 -	다음과 같이 각 숨겨진 계층에서 노드를 계산할 수 있습니다.
-	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_와 같이 계산할 수 있습니다.
+	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
+-	총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_와 같이 계산할 수 있습니다.
 -	**Sharing**[d]는 _d == 0_에 대해서만 False이므로 커널 수는 _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_입니다. 
 
 
@@ -414,4 +414,4 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

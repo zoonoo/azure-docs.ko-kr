@@ -274,4 +274,4 @@
 
 [미디어 프로세서 가져오기](media-services-rest-get-media-processor.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

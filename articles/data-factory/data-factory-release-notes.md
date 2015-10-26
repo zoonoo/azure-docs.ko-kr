@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/09/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 릴리스 정보
+특정 릴리스의 데이터 팩터리 .NET SDK에 대한 변경 내용을 알아보려면 [데이터 팩터리 - .NET API 변경 로그](data-factory-api-change-log.md) 문서를 참조하세요.
 
 ## 데이터 팩터리의 2015/07/17 릴리스 정보
 다음 JSON 변경 사항이 Azure PowerShell 2015년 7월 릴리스에서 도입되었습니다.
@@ -247,7 +248,7 @@
 ## BlobSink의 새 copyBehavior 속성
 **BlobSink**는 **copyBehavior**라는 새 속성을 지원합니다. 이 속성은 원본이 **BlobSource** 또는 **FileSystem**인 경우 복사 동작을 정의합니다. **copyBehavior** 속성에 대해 세 가지 값이 가능합니다.
 
-**PreserveHierarchy**: 대상 폴더에서 파일 계층을 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.
+**PreserveHierarchy**: 대상 폴더에서 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.
 
 
 **FlattenHierarchy**: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다.
@@ -353,4 +354,4 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -183,4 +183,4 @@ VMM 클라우드에서 VM에 대한 보호를 사용하도록 설정합니다.
 
 이 시나리오에 대한 의견 및 질문은 [사이트 복구 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr/)을 방문하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

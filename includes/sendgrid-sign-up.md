@@ -50,7 +50,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	전자 메일 배달 설정을 설정하려면 **Manage** 단추를 클릭합니다. 그러면 로그인할 수 있는 Sendgrid.com 웹 인터페이스가 열리고 SendGrid 제어판이 열립니다.
+	전자 메일 배달 설정을 설정하려면 **Manage** 단추를 클릭합니다. 그러면 SendGrid Control Panel로 리디렉션됩니다.
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
@@ -76,4 +76,4 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 [SendGrid 프로비전 프로세스]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [모든 API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

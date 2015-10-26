@@ -62,4 +62,4 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 - [Azure Active Directory B2C FAQ](active-directory-b2c-faqs.md)
 - [Azure Active Directory B2C에 대 한 지원 요청 제출](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

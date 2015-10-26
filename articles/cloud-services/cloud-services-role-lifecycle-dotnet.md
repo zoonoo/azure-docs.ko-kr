@@ -80,4 +80,4 @@ public override bool OnStart()
 ## 다음 단계
 [클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md) 방법에 대해 알아봅니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

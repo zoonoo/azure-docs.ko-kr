@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 고객에게 Facebook 계정으로 등록 및 로그인 제공
@@ -63,11 +63,11 @@ Azure Active Directory(AD) B2C에서 Facebook을 ID 공급자로 사용하려면
 ## 디렉터리에서 Facebook을 ID 공급자로 구성
 
 1. [Azure Preview 포털의 B2C 기능 블레이드로 이동합니다.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)
-2. B2C 기능 블레이드에서 **소셜 ID 공급자**를 클릭합니다.
+2. B2C 기능 블레이드에서 **ID 공급자**를 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
 4. ID 공급자 구성에 친숙한 **이름**을 제공합니다. 예를 들어 "FB"를 입력합니다.
 5. **ID 공급자 형식**을 클릭하고 **Facebook**을 선택한 다음 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정**을 클릭하고 이전에 **클라이언트 ID** 및 **클라이언트 암호** 필드에서 각각 만든 Facebook 응용 프로그램의 **앱 ID** 및 **앱 암호**를 입력합니다.
 7. **확인** 및 **만들기**를 차례로 클릭하여 Facebook 구성을 저장합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

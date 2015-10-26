@@ -99,11 +99,11 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 
 ## Runbook 또는 모듈 요청 중
 
-[사용자 음성](http://feedback.azure.com/forums/246290-azure-automation)에 요청을 보낼 수 있습니다. Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/ko-KR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
+[사용자 음성](http://feedback.azure.com/forums/246290-azure-automation)에 요청을 보낼 수 있습니다. Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
 
 ## 관련된 문서
 
 - [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 - [PowerShell 워크플로 학습](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

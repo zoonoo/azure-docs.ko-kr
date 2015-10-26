@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="09/22/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법
 
-이 가이드에서는 Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공) 내에서 Azure ACS(액세스 제어 서비스)를 사용하는 방법을 보여 줍니다. ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.
+이 가이드에서는 Eclipse용 Azure 도구 키트 내에서 Azure ACS(액세스 제어 서비스)를 사용하는 방법을 보여 줍니다. ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.
 
-> [AZURE.NOTE]Azure Access Control Services Filter(Microsoft Open Technologies 제공)는 CTP(Community Technology Preview)입니다. 이 필터는 시험판 소프트웨어로서 Microsoft Open Technologies, Inc.와 Microsoft에서 공식적으로 지원되지 않습니다.
+> [AZURE.NOTE]Azure Access Control Services Filter는 CTP(Community Technology Preview)입니다. 이 필터는 시험판 소프트웨어로서 Microsoft에서 공식적으로 지원되지 않습니다.
 
 ## ACS 정의
 
@@ -76,7 +76,7 @@ Azure ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프�
 - Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다. 
 - Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat, GlassFish, JBoss Application Server 또는 Jetty)
 - Azure 구독. <http://www.microsoft.com/windowsazure/offers/>에서 구입할 수 있습니다.
-- Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공), 2014년 4월 릴리스. 자세한 내용은 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공) 설치](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)(영문)를 참조하세요.
+- Eclipse용 Azure 도구 키트, 2014년 4월 릴리스 이상. 자세한 내용은 [Eclipse용 Azure 도구 키트 설치](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)를 참조하세요.
 - 응용 프로그램에 사용할 X.509 인증서. 이 인증서는 공용 인증서(.cer)와 개인 정보 교환(.PFX) 형식 둘 다로 필요합니다. (이 인증서를 만들기 위한 옵션은 이 자습서의 뒷부분에 설명되어 있음)
 - Azure 계산 에뮬레이터 및 배포 기술의 기본적인 지식은 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문)에 설명되어 있습니다.
 
@@ -141,7 +141,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
 3.  **토큰 서명 인증서 또는 키 추가** 페이지에서 다음을 수행합니다.
     1. **Used for** 섹션에서 **신뢰 당사자 응용 프로그램**을 클릭하고 **Azure Web App**(앞에서 신뢰 당사자 응용 프로그램의 이름으로 설정한 이름)을 선택합니다.
     2. **Type** 섹션에서 **X.509 인증서**를 선택합니다.
-    3. **인증서** 섹션에서 찾아보기 단추를 클릭하고 사용할 X.509 인증서 파일로 이동합니다. 이 파일은 .PFX 파일입니다. 파일을 선택하고 **열기**를 클릭한 후 **암호** 텍스트 상자에 인증서 암호를 입력합니다. 테스트 목적으로 자체 서명된 인증서를 사용할 수 있습니다. 자체 서명된 인증서를 만들려면 **ACS Filter Library** 대화 상자(뒷부분의 설명 참조)에서 **New** 단추를 사용하거나 Azure Starter Kit for Java(Microsoft Open Technologies 제공)의 **프로젝트 웹 사이트**에서 [encutil.exe][] 유틸리티를 사용하세요.
+    3. **인증서** 섹션에서 찾아보기 단추를 클릭하고 사용할 X.509 인증서 파일로 이동합니다. 이 파일은 .PFX 파일입니다. 파일을 선택하고 **열기**를 클릭한 후 **암호** 텍스트 상자에 인증서 암호를 입력합니다. 테스트 목적으로 자체 서명된 인증서를 사용할 수 있습니다. 자체 서명된 인증서를 만들려면 **ACS Filter Library** 대화 상자(뒷부분의 설명 참조)에서 **New** 단추를 사용하거나 Azure Starter Kit for Java의 **프로젝트 웹 사이트**에서 [encutil.exe][] 유틸리티를 사용하세요.
     4. **Make Primary**가 선택되어 있는지 확인합니다. **토큰 서명 인증서 또는 키 추가** 페이지는 다음과 유사합니다. ![토큰 서명 인증서 추가][add_token_signing_cert]
     5. **저장**을 클릭하여 설정을 저장하고 **토큰 서명 인증서 또는 키 추가** 페이지를 닫습니다.
 
@@ -287,7 +287,7 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [encutil.exe]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법]: /ko-kr/develop/java/how-to-guides/view-saml-returned-by-acs/
+[Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법]: /ko-KR/develop/java/how-to-guides/view-saml-returned-by-acs/
 [액세스 제어 서비스 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -309,4 +309,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

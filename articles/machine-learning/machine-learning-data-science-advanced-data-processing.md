@@ -2,6 +2,7 @@
 	pageTitle="학습 가이드: Azure에서 고급 데이터 처리 | Microsoft Azure" 
 	description="Azure 기계 학습에 대한 고급 분석 프로세스 및 기술(ADAPT)에서 사용할 데이터를 준비합니다." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev"  
 	manager="paulettm" />
@@ -24,4 +25,4 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-prepare-data-for-ml.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

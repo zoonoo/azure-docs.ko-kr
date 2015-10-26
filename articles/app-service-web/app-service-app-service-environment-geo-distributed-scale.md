@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/08/2015" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경으로 지역 분산된 규모
@@ -43,6 +43,7 @@
 - **앱 공간을 크기 조정하는 전략:** 응용 프로그램 공간은 단일 지역의 여러 앱 서비스 환경에 걸쳐 분산됩니까? 여러 영역? 두 방법을 혼합 및 일치? 결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다. 예를 들어 100% 상태 비저장 응용 프로그램의 경우 Azure 지역 마다 여러 앱 서비스 환경의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 앱 서비스 환경으로 곱해집니다. 선택할 수 있는 15+ 공용 Azure 지역으로 고객은 전세계 하이퍼 규모의 응용 프로그램 공간을 진정으로 구축할 수 있습니다. 이 문서에 사용되는 샘플 앱의 경우 세 가지 앱 서비스 환경을 단일 Azure 지역(미국 중남부)에서 만들었습니다.
 - **앱 서비스 환경에 대한 명명 규칙:** 각 앱 서비스 환경에는 고유한 이름이 있어야 합니다. 하나 또는 두 개의 앱 서비스 환경 외에도 각 앱 서비스 환경을 식별하는 데 도움이 되는 명명 규칙을 파악하는 것이 좋습니다. 샘플 앱의 경우 간단한 명명 규칙을 사용했습니다. 세 가지 앱 서비스 환경의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
 - **앱에 대한 명명 규칙:** 앱의 여러 인스턴스가 배포되기 때문에 이름은 배포된 앱의 인스턴스 각각에 필요합니다. 하나의 잘 알려지지 않지만 매우 편리한 앱 서비스 환경의 기능은 동일한 앱 이름을 여러 앱 서비스 환경에 걸쳐 사용할 수 있다는 점입니다. 각 앱 서비스 환경에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에 정확히 동일한 앱 이름을 다시 사용하도록 선택할 수 있습니다. 예를 들어 개발자가 앱을 다음과 같이 명명할 수 있습니다. *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, 등... 그러나 샘플 앱의 경우 각 앱 인스턴스에도 고유한 이름이 지정됩니다. 앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2*, 및 *webfrontend3*입니다.
+
 
 ## 트래픽 관리자 프로필 설정 ##
 여러 앱 서비스 환경에서 앱의 여러 인스턴스를 배포하면 개별 앱 인스턴스는 트래픽 관리자를 사용하여 등록할 수 있습니다. 샘플 앱의 경우 트래픽 관리자 프로필은 다음 배포된 앱 인스턴스에 고객을 라우팅할 수 있는 *scalable-ase-demo.trafficmanager.net*에 필요합니다.
@@ -115,7 +116,7 @@ Azure 앱 서비스 앱으로 사용자 지정 도메인을 등록하는 요점�
 <!-- LINKS -->
 [AzureTrafficManagerProfile]: https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
 [ARMTrafficManager]: https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]: https://azure.microsoft.com/ko-KR/documentation/articles/web-sites-custom-domain-name/
+[RegisterCustomDomain]: https://azure.microsoft.com/en-us/documentation/articles/web-sites-custom-domain-name/
 
 
 <!-- IMAGES -->
@@ -124,4 +125,4 @@ Azure 앱 서비스 앱으로 사용자 지정 도메인을 등록하는 요점�
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

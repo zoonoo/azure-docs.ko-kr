@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.date="10/12/2015"
 	ms.author="mandia"/>
 
 
@@ -24,30 +24,26 @@
 
 > [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-## 표준 커넥터
-다음 표에는 표준 커넥터에서 사용할 수 있는, Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱이 나열되어 있습니다.
+## 코어 커넥터
+다음 표에는 코어 커넥터로 사용할 수 있는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱이 나열되어 있습니다.
 
 이름 | 설명
 --- | ---
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | 이 커넥터를 사용하여 Azure에서 Hadoop 클러스터를 만들고, 다른 Hadoop 작업 등을 제출합니다.
 [Azure 서비스 버스](app-service-logic-connector-azureservicebus.md) | 서비스 버스 큐 및 항목에서 메시지를 보내고 서비스 버스 엔큐 및 구독에서 메시지를 받을 수 있습니다.
 [Azure 저장소 Blob](app-service-logic-connector-azurestorageblob.md) | Blob 저장소에 연결하고 가져오기, 삭제, 나열 등을 할 수 있습니다. 
+Bing 검색 | 웹, 이미지, 뉴스 및 비디오에 대한 Bing을 검색합니다.
+Bing 번역 | Bing을 사용하여 텍스트를 다른 언어로 번역합니다.
 [Box](app-service-logic-connector-box.md) | 상자에 연결하고 업로드, 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다.
 [Chatter](app-service-logic-connector-chatter.md) | Chatter에 연결하고 메시지를 게시 및 검색하며 새 메시지를 검색할 수 있습니다.
 [Dropbox](app-service-logic-connector-dropbox.md) | Dropbox에 연결하고 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다.
 [Facebook](app-service-logic-connector-facebook.md) | Facebook에 연결하고 메시지, 그림 등을 게시할 수 있습니다. 메시지와 주석을 가져오고, 책 및 동영상을 포함한 다른 항목에 대한 사용자 정보를 가져올 수도 있습니다.
-[파일](app-service-logic-connector-file.md) | 이 커넥터를 사용하여 온-프레미스 파일 시스템 또는 네트워크에 연결하고 파일 업로드, 삭제, 나열 등과 같은 다른 파일 작업을 완료할 수 있습니다.
-[FTP<br/>FTPS](app-service-logic-connector-ftp.md) | FTP / FTPS 서버에 연결하여 파일 등의 업로드, 가져오기, 삭제를 포함한 다른 FTP 작업을 수행합니다.
 [HTTP](app-service-logic-connector-http.md) | HTTP 수신기는 HTTP 서버로서 작업하는 끝점을 열고, 들어오는 HTTP 또는 HTTPS 요청을 수신합니다. HTTP 작업은 API 앱이 필요하지 않고 논리 앱 내에서 고유하게 지원됩니다.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Office 365 커넥터는 메일을 보내고 받고, 일정을 관리하고, Office 365 계정을 사용하여 연락처를 관리할 수 있습니다.
 [Microsoft OneDrive](app-service-logic-connector-onedrive.md) | 사용자 개인 Microsoft OneDrive에 연결하여 파일 등을 업로드, 삭제, 나열합니다.
 [Microsoft SharePoint](app-service-logic-connector-sharepoint.md) | 온-프레미스 Microsoft SharePoint Server 또는 SharePoint Online에 연결하여 문서를 관리하고 목록을 나열합니다. 기본 자격 증명, OAuth 2.0, Windows 인증 및 양식 기반 인증과 같은 다양한 인증 방법이 지원됩니다.
-[Microsoft SQL Server](app-service-logic-connector-sql.md) | 온-프레미스 SQL Server 또는 Azure SQL 데이터베이스에 연결합니다. SQL 데이터베이스 테이블의 항목 생성, 업데이트, 가져오기 및 삭제 작업을 수행할 수 있습니다.
 [Microsoft Yammer](app-service-logic-connector-yammer.md) | Yammer에 연결하여 메시지를 게시하고 새 메시지를 받습니다.
-[POP3](app-service-logic-connector-pop3.md)(Post Office Protocol)| POP3 서버에 연결하여 첨부 파일이 있는 이메일을 검색합니다.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | 고객, 항목, 송장 등과 같은 Intuit QuickBooks에서 다른 엔터티를 만들기, 업데이트 및 쿼리를 포함한 다른 작업을 완료할 수 있습니다.
-[SFTP](app-service-logic-connector-sftp.md)(SSH 파일 전송 프로토콜)| SFTP에 연결하고 파일 등을 업로드하고, 가져오고 삭제할 수 있습니다.
-[SMTP](app-service-logic-connector-smtp.md)(단순 메일 전송 프로토콜) | SMTP 서버에 연결하여 첨부 파일과 함께 전자 메일을 보냅니다.
 [Slack](app-service-logic-connector-slack.md) | Slack에 연결하고 Slack 채널에 메시지를 게시합니다.
 [Salesforce](app-service-logic-connector-salesforce.md) | Salesforce 계정에 연결하고 계정, 잠재 고객, 영업 기회 등을 관리합니다.
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | SugarCRM 온라인에 연결하여 계정, 연락처 등을 포함한 여러 다른 유형의 모듈로 만들고, 업데이트하고 읽을 수 있습니다.
@@ -56,26 +52,32 @@
 [Wait](app-service-logic-connector-wait.md) | 이 커넥터를 사용하여 앱의 실행을 지연할 수 있습니다. 앱을 특정 기간 동안 또는 특정 시간에 발생 될 때까지 연기할 수 있습니다.
 
 
-## 프리미엄 커넥터
-다음 표에는 프리미엄 커넥터에서 사용할 수 있는, Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱이 나열되어 있습니다.
+## 엔터프라이즈 통합 커넥터
+다음 표에는 엔터프라이즈 통합 커넥터로 사용할 수 있는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱이 나열되어 있습니다.
 
 이름 | 설명
 ------------- | -------------
 [AS2 커넥터](app-service-logic-connector-as2.md) | AS2 전송 프로토콜을 사용하여 메시지를 수신하고 보낼 수 있습니다. 데이터는 안전하고 안정적으로 디지털 인증서 및 암호화를 사용하여 전송됩니다.
 [BizTalk EDIFACT](app-service-logic-connector-edifact.md) | 기업 간 통신에 EDIFACT 프로토콜을 사용하여 메시지를 수신하고 보냅니다.
-[BizTalk X12](app-service-logic-connector-x12.md) | 기업 간 통신에 X12 프로토콜을 사용하여 메시지를 수신하고 보냅니다.
-[BizTalk 거래 업체 관리](app-service-logic-connector-tpm.md) | 파트너, 규약 및 규약에 사용되는 스키마 및 인증서를 사용하여 B2B 관계를 정의하고 유지합니다. 이러한 관계는 AS2, EDIFACT 및 X12 API 앱을 사용하여 적용됩니다.
+[BizTalk 플랫 파일 인코더](app-service-logic-flatfile-encoder.md) | 플랫 파일 데이터(예: excel 및 csv)와 XML 데이터 간의 상호 운용성을 제공합니다. 이 API 앱은 플랫 파일 인스턴스를 XML로 또는 그 반대로 변환할 수 있습니다.
 [BizTalk JSON 인코더](app-service-logic-connector-jsonencoder.md) | JSON 및 XML 데이터 간에 사용자 앱을 상호 운용하는 인코더 및 디코더. 이는 지정된 JSON 인스턴스를 XML로 변환하며 그 반대로 변환할 수도 있습니다.
 [BizTalk 규칙](app-service-logic-use-biztalk-rules.md) | BizTalk 규칙을 사용하여 조직 내에서 비즈니스 논리를 정의하고 제어합니다. 비즈니스 정책은 관련된 응용 프로그램을 다시 컴파일하고 다시 배포하지 않고도 업데이트할 수 있습니다.
-DB2 커넥터 | Windows 운영 체제를 실행하는 IBM DB2 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. Web API 및 OData API 작업을 Informix 구조적 쿼리 언어 명령에 매핑할 수 있습니다. <br/><br/>트리거가 없습니다. 작업은 테이블 선택, 삽입, 업데이트, 삭제 및 사용자 지정 문을 포함합니다<br/><br/> 이 커넥터에는 TCP/IP 네트워크를 통해 Informix 서버에 연결하는 DRDA용 Microsoft 클라이언트도 포함되어 있습니다.
-Informix | Windows 운영 체제를 실행하는 IBM Informix 데이터베이스, 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. Web API 및 OData API 작업을 Informix 구조적 쿼리 언어 명령에 매핑할 수 있습니다.<br/><br/>트리거가 없습니다. 작업은 테이블 선택, 삽입, 업데이트, 삭제 및 사용자 지정 문을 포함합니다.<br/><br/>온-프레미스를 사용하여 VPN 또는 Azure ExpressRoute를 사용할 수 있습니다. 이 커넥터에는 TCP/IP 네트워크를 통해 Informix 서버에 연결하는 DRDA용 Microsoft 클라이언트도 포함되어 있습니다.
-MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. 온-프레미스를 사용하는 경우 VPN 또는 Azure Express 경로를 사용할 수 있습니다. 커넥터에는 MQ용 Microsoft 클라이언트도 포함되어 있습니다.<br/><br/>트리거가 없습니다. 작업이 없습니다.<br/><br/>**참고** 현재는 논리 앱과 함께 사용할 수 없습니다.
-[Oracle 데이터베이스](app-service-logic-connector-oracle.md) | 온-프레미스 Oracle 데이터베이스에 연결하고 데이터베이스 테이블의 항목 생성, 업데이트, 가져오기 및 삭제 작업을 수행할 수 있습니다.
-[SAP](app-service-logic-connector-sap.md) | 온-프레미스 SAP 서버에 연결하고 RFC, BAPI 및 tRFC를 호출하며 IDOC를 보냅니다.
-[BizTalk 플랫 파일 인코더](app-service-logic-flatfile-encoder.md) | 플랫 파일 데이터(예: excel 및 csv)와 XML 데이터 간의 상호 운용성을 제공합니다. 이 API 앱은 플랫 파일 인스턴스를 XML로 또는 그 반대로 변환할 수 있습니다.
+[BizTalk 거래 업체 관리](app-service-logic-connector-tpm.md) | 파트너, 규약 및 규약에 사용되는 스키마 및 인증서를 사용하여 B2B 관계를 정의하고 유지합니다. 이러한 관계는 AS2, EDIFACT 및 X12 API 앱을 사용하여 적용됩니다.
 [BizTalk 변환 서비스](app-service-logic-transform-xml-documents.md) | 데이터를 한 형식에서 다른 형식으로 변환합니다. 또한 기존 맵(.trfm 파일)을 업로드하고, 원본과 대상 스키마 간 링크를 보고, 샘플 입력 XML 콘텐츠로 '테스트' 기능을 사용할 수 있습니다. 문자열 조작, 조건부 할당 등을 비롯하여 다양한 기본 제공 함수도 사용할 수 있습니다.
+[BizTalk X12](app-service-logic-connector-x12.md) | 기업 간 통신에 X12 프로토콜을 사용하여 메시지를 수신하고 보냅니다.
 [BizTalk XML 유효성 검사기](app-service-logic-xml-validator.md) | 미리 정의된 XML 스키마와 비교하여 XML 데이터의 유효성을 검사합니다. 기존 스키마를 사용하거나 플랫 파일 인스턴스, JSON 인스턴스 또는 기존 커넥터에 따라 스키마를 생성할 수 있습니다.
 [BizTalk XPath 추출기](app-service-logic-xpath-extract.md) | 선택한 XPath에 따라 XML 콘텐츠에서 데이터를 조회 및 추출합니다.
+DB2 커넥터 | Windows 운영 체제를 실행하는 IBM DB2 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. Web API 및 OData API 작업을 Informix 구조적 쿼리 언어 명령에 매핑할 수 있습니다. <br/><br/>트리거가 없습니다. 작업은 테이블 선택, 삽입, 업데이트, 삭제 및 사용자 지정 문을 포함합니다<br/><br/> 이 커넥터에는 TCP/IP 네트워크를 통해 Informix 서버에 연결하는 DRDA용 Microsoft 클라이언트도 포함되어 있습니다.
+[파일](app-service-logic-connector-file.md) | 이 커넥터를 사용하여 온-프레미스 파일 시스템 또는 네트워크에 연결하고 파일 업로드, 삭제, 나열 등과 같은 다른 파일 작업을 완료할 수 있습니다.
+[FTP<br/>FTPS](app-service-logic-connector-ftp.md) | FTP / FTPS 서버에 연결하여 파일 등의 업로드, 가져오기, 삭제를 포함한 다른 FTP 작업을 수행합니다.
+Informix | Windows 운영 체제를 실행하는 IBM Informix 데이터베이스, 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. Web API 및 OData API 작업을 Informix 구조적 쿼리 언어 명령에 매핑할 수 있습니다.<br/><br/>트리거가 없습니다. 작업은 테이블 선택, 삽입, 업데이트, 삭제 및 사용자 지정 문을 포함합니다.<br/><br/>온-프레미스를 사용하여 VPN 또는 Azure ExpressRoute를 사용할 수 있습니다. 이 커넥터에는 TCP/IP 네트워크를 통해 Informix 서버에 연결하는 DRDA용 Microsoft 클라이언트도 포함되어 있습니다.
+[Microsoft SQL Server](app-service-logic-connector-sql.md) | 온-프레미스 SQL Server 또는 Azure SQL 데이터베이스에 연결합니다. SQL 데이터베이스 테이블의 항목 생성, 업데이트, 가져오기 및 삭제 작업을 수행할 수 있습니다.
+MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. 온-프레미스를 사용하는 경우 VPN 또는 Azure Express 경로를 사용할 수 있습니다. 커넥터에는 MQ용 Microsoft 클라이언트도 포함되어 있습니다.<br/><br/>트리거가 없습니다. 작업이 없습니다.<br/><br/>**참고** 현재는 논리 앱과 함께 사용할 수 없습니다.
+[Oracle 데이터베이스](app-service-logic-connector-oracle.md) | 온-프레미스 Oracle 데이터베이스에 연결하고 데이터베이스 테이블의 항목 생성, 업데이트, 가져오기 및 삭제 작업을 수행할 수 있습니다.
+[POP3](app-service-logic-connector-pop3.md)(Post Office Protocol)| POP3 서버에 연결하여 첨부 파일이 있는 이메일을 검색합니다.
+[SAP](app-service-logic-connector-sap.md) | 온-프레미스 SAP 서버에 연결하고 RFC, BAPI 및 tRFC를 호출하며 IDOC를 보냅니다.
+[SFTP](app-service-logic-connector-sftp.md)(SSH 파일 전송 프로토콜)| SFTP에 연결하고 파일 등을 업로드하고, 가져오고 삭제할 수 있습니다.
+[SMTP](app-service-logic-connector-smtp.md)(단순 메일 전송 프로토콜) | SMTP 서버에 연결하여 첨부 파일과 함께 전자 메일을 보냅니다.
 
 ## 트리거로 사용되는 커넥터
 일부 커넥터는 논리 앱에 대한 트리거를 제공합니다. 다음 두 가지 유형의 트리거가 있습니다.
@@ -89,9 +91,7 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 ## 고유한 커넥터 및 API 앱 만들기
 [커넥터 및 API 앱 참조](http://aka.ms/appservicesconnectorreference) [Azure 앱 서비스 API 앱 트리거](../app-service-api/app-service-api-dotnet-triggers.md) [논리 앱 참조](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
-
 ## 커넥터 및 API 앱에 대한 자세한 내용
-
 [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md) [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md) [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

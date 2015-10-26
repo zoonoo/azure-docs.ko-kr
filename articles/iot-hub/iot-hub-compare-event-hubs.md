@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub를 이벤트 허브에 비교 | Microsoft Azure"
- description="IoT Hub 및 이벤트 허브를 비교합니다."
+ pageTitle="Azure IoT Hub를 Azure 이벤트 허브에 비교 | Microsoft Azure"
+ description="기능 차이점 및 사용 사례를 강조 표시하는 Azure IoT Hub 및 Azure 이벤트 허브 서비스 비교입니다."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -49,4 +49,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

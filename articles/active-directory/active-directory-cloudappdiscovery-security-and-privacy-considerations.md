@@ -177,4 +177,4 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

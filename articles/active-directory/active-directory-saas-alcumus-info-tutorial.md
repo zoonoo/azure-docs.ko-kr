@@ -204,4 +204,4 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

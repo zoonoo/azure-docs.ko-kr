@@ -49,4 +49,4 @@
 
 이제 **ToDoActivity**이 푸시 알림 추가를 위해 준비됩니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,24 +1,28 @@
 <properties 
-	pageTitle="고급 분석 프로세스 및 기술을 위한 Hadoop 클러스터 사용자 지정 | Microsoft Azure"
+	pageTitle="고급 분석 프로세스 및 기술을 위한 Hadoop 클러스터 사용자 지정 | Microsoft Azure" 
 	description="일반적인 Python 모듈을 사용자 지정 Azure HDInsight Hadoop 클러스터에서 사용할 수 있습니다."
-	services="machine-learning"
-	documentationCenter=""
-	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="hangzh-msft" 
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/13/2015" 
+	ms.author="hangzh;bradsev" />
 
 # 고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정
 
-이 문서에서는 HDInsight 서비스에서 클러스터를 프로비전할 때 64비트 Anaconda(Python 2.7)를 각 노드에 설치하여 HDInsight Hadoop 클러스터를 사용자 지정하는 방법에 대해 설명합니다. 이 사용자 지정에서는 Azure 기계 학습에서 사용되는 ADAPT(고급 분석 프로세스 및 기술)에서 사용할 클러스터를 준비합니다. 또한 헤드 노드에 액세스하여 사용자 지정 작업을 클러스터에 제출하는 방법을 보여 줍니다.
+이 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+
+이 문서에서는 HDInsight 서비스에서 클러스터를 프로비전할 때 64비트 Anaconda(Python 2.7)를 각 노드에 설치하여 HDInsight Hadoop 클러스터를 사용자 지정하는 방법에 대해 설명합니다. 이 사용자 지정은 Cortana 분석 프로세스에서 사용하기 위한 클러스터를 준비합니다. 또한 헤드 노드에 액세스하여 사용자 지정 작업을 클러스터에 제출하는 방법을 보여 줍니다.
 
 이 사용자 지정을 통해 클러스터에서 Hive 레코드를 처리하도록 설계된 UDF(사용자 정의 함수)에서 Anaconda에 포함된 널리 사용되는 많은 Python 모듈을 편리하게 사용할 수 있습니다. 이 시나리오에서 사용되는 절차에 대한 지침은 [고급 분석 프로세스에서 HDInsight Hadoop 클러스터로 Hive 쿼리 제출](machine-learning-data-science-hive-queries.md)을 참조하세요.
 
@@ -39,7 +43,7 @@
 
 ![작업 영역 만들기][3]
 
-구성 페이지 3에서 HDInsight Hadoop 클러스터의 사용자 이름 및 암호를 제공합니다. _Hive/Oozie Metastore 입력_은 선택하지 **마십시오**. 그런 다음 화살표를 클릭하여 다음 구성 페이지로 이동합니다.
+구성 페이지 3에서 HDInsight Hadoop 클러스터의 사용자 이름 및 암호를 제공합니다. _Hive/Oozie Metastore 입력_은 선택하지 **마세요**. 그런 다음 화살표를 클릭하여 다음 구성 페이지로 이동합니다.
 
 ![작업 영역 만들기][4]
 
@@ -51,7 +55,7 @@
  
 * **이름** - 이 스크립트 동작의 이름인 모든 문자열입니다. 
 * **노드 유형** - **모든 노드**를 선택합니다. 
-* **SCRIPT URI** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **스크립트 URI** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts*는 저장소 계정의 공용 컨테이너입니다. 
 	* *getgoing*은 Azure에서 사용자의 작업을 용이하게 하기 위해 PowerShell 스크립트 파일을 공유하는 데 사용됩니다. 
 * **매개 변수** - 비어 있는 상태로 둡니다.
@@ -98,4 +102,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

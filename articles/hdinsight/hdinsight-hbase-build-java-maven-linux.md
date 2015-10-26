@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Maven을 사용하여 HBase 응용 프로그램 빌드 | Microsoft Azure"
+	pageTitle="Maven 및 Java를 사용하여 HBase 응용 프로그램을 빌드한 다음 Linux 기반 HDInsight에 배포 | Microsoft Azure"
 	description="Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure 클라우드에서 Linux 기반 HDInsight에 배포하는 방법에 대해 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성
@@ -361,4 +361,4 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

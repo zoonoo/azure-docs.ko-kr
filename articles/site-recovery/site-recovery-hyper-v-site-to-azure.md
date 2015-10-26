@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="09/29/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 
@@ -53,7 +53,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 
 ### 가상 컴퓨터 필수 조건
 
-보호할 가상 컴퓨터는 [가상 컴퓨터 필수 조건](site-recovery-best-practices.md/#virtual-machines)에 맞아야 합니다.
+보호할 가상 컴퓨터는 [가상 컴퓨터 필수 조건](site-recovery-best-practices.md#virtual-machines)에 맞아야 합니다.
 
 ### 공급자 및 에이전트 필수 조건
 
@@ -270,14 +270,10 @@ Azure로의 테스트 장애 조치(Failover)를 실행하는 두 가지 방법�
 - Azure 네트워크를 사용하지 않는 테스트 장애 조치(Failover) - 이 유형의 테스트 장애 조치(Failover)는 Azure에서 가상 컴퓨터가 제대로 작동하는지 확인합니다. 장애 조치(Failover) 후에 가상 컴퓨터가 Azure 네트워크에 연결되지 않습니다.
 - Azure 네트워크를 사용하는 테스트 장애 조치(Failover) - 이 유형의 테스트 장애 조치(Failover)는 전체 복제 환경이 예상대로 작동하고 장애 조치(Failover)된 가상 컴퓨터가 지정한 대상 Azure 네트워크에 연결되는지 확인합니다. 테스트 장애 조치(Failover)에 대한 서브넷 처리의 경우 테스트 가상 컴퓨터의 서브넷이 복제본 가상 컴퓨터의 서브넷에 따라 확인됩니다. 이는 복제본 가상 컴퓨터의 서브넷이 원본 가상 컴퓨터의 서브넷을 기반으로 하는 일반 복제의 경우와 다릅니다.
 
-Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정된 가상 컴퓨터에 대해 테스트 장애 조치(Failover)를 실행하려는 경우 아무 것도 준비할 필요가 없습니다. Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만들고(Azure에서 새 네트워크를 만들 때의 기본 동작) 복제된 가상 컴퓨터가 예상대로 작동하도록 인프라를 설정해야 합니다. 예를 들어, 도메인 컨트롤러 및 DNS와 가상 컴퓨터를 Azure Site Recovery를 사용하여 Azure에 복제할 수 있으며 테스트 장애 조치를 사용하여 테스트 네트워크에서 만들 수 있습니다. 장애 조치 테스트를 실행하려면 다음 단계를 수행합니다.
+Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정된 가상 컴퓨터에 대해 테스트 장애 조치(Failover)를 실행하려는 경우 아무 것도 준비할 필요가 없습니다. Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치 실행](site-recovery-failover.md#run-a-test-failover)하는 방법을 살펴봅니다.
 
 
-1. 온-프레미스 가상 컴퓨터의 실제 장애 조치 테스트에 사용할 것과 동일한 네트워크에서 도메인 컨트롤러 및 DNS와 가상 컴퓨터의 장애 조치 테스트를 수행합니다.
-2. 장애 조치된 DNS 가상 컴퓨터에 할당된 IP 주소를 적어 둡니다.
-3. 장애 조치에 사용할 Azure 가상 네트워크에서 IP 주소를 DNS 서버의 IP 주소로 추가합니다.
-4. Azure 테스트 네트워크를 지정하여 원본 온-프레미스 가상 컴퓨터의 테스트 장애 조치를 실행합니다.
-5. 테스트 장애 조치가 예상대로 작동했는지 확인한 후 차례로 복구 계획에 대해 테스트 장애 조치를 완료된 것으로 표시하고, 도메인 컨트롤러 및 DNS 가상 컴퓨터에 대해 테스트 장애 조치를 완료된 것으로 표시합니다.
+또한 예상 대로 작동하는 복제된 가상 컴퓨터에 대한 인프라를 설정해야 합니다. 예를 들어, 도메인 컨트롤러 및 DNS와 가상 컴퓨터를 Azure Site Recovery를 사용하여 Azure에 복제할 수 있으며 테스트 장애 조치를 사용하여 테스트 네트워크에서 만들 수 있습니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(failover) 시 고려 사항](site-recovery-active-directory.md#considerations-for-test-failover) 섹션을 살펴봅니다.
 
 테스트 장애 조치를 실행하려면 다음을 수행합니다.
 
@@ -309,4 +305,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

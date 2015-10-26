@@ -274,4 +274,4 @@ catch [System.Exception]
 [서비스 버스용 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 [Azure PowerShell 설치 및 구성]: ../install-configure-powershell.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

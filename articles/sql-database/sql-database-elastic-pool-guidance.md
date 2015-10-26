@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -219,8 +219,8 @@ STA는 기존 서버에 탄력적 데이터베이스 풀을 추가할 때 Previe
 
 스크립트가 완료되면 대상 서버의 모든 후보 데이터베이스를 포함하는 탄력적 풀에 필요한 eDTU의 예상 수를 출력합니다. 이러한 데이터베이스를 보관하는 탄력적 데이터베이스 풀을 만들고 구성하는 데 이 예상 eDTU를 사용할 수 있습니다. 풀을 만들고 데이터베이스를 풀로 이동한 후 며칠 동안 모니터링해야 하며 필요에 따라 풀 DTU 구성을 조정해야 합니다.
 
+> [AZURE.IMPORTANT]이 스크립트에서는 Azure PowerShell 버전 1.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
 
-복사하기위해 전체 스크립트를 선택하려면 아무 문장이나 3번 클릭하세요. (세 번 클릭).
 
     
     param (
@@ -438,4 +438,4 @@ STA는 기존 서버에 탄력적 데이터베이스 풀을 추가할 때 Previe
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

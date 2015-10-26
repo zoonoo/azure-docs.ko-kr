@@ -28,6 +28,9 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
 > 
 > AzCopy 4.x의 경우 명령줄 옵션 및 기능이 향후 릴리스에서 변경될 수 있습니다.
 
+
+AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공개 소스 라이브러리도 릴리스했습니다. 자세한 내용은 [Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/ko-KR/blog/introducing-azure-storage-data-movement-library-preview-2/)에 나와 있습니다.
+
 ## AzCopy 다운로드 및 설치
 
 1. [최신 버전의 AzCopy](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다.
@@ -232,14 +235,14 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
   </tr>
   <tr>
     <td><b>/XN</b></td>
-    <td>최신 소스 리소스를 제외합니다. 이 리소스는 소스가 대상보다 최신이면 복사되지 않습니다.</td>
+    <td>최신 소스 리소스를 제외합니다. 원본이 마지막으로 수정된 시간이 대상과 동일하거나 더 최신인 경우 리소스가 복사되지 않습니다.</td>
     <td>Y</td>
     <td>Y<br /> (미리 보기 전용)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XO</b></td>
-    <td>오래된 소스 리소스를 제외합니다. 이 리소스는 소스 리소스가 대상보다 오래되었으면 복사되지 않습니다.</td>
+    <td>오래된 소스 리소스를 제외합니다. 원본이 마지막으로 수정된 시간이 대상과 동일하거나 더 오래된 경우 리소스가 복사되지 않습니다.</td>
     <td>Y</td>
     <td>Y<br /> (미리 보기 전용)</td>
     <td>N</td>
@@ -737,11 +740,11 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 `/MT` 옵션을 지정하여 소스 Blob 및 대상 파일의 마지막으로 수정한 시간을 비교합니다.
 
-**대상 파일보다 최신인 Blob 제외**
+**마지막으로 수정된 시간이 대상 파일과 동일하거나 더 최신인 Blob 제외**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 
-**대상 파일보다 오래된 Blob 제외**
+**마지막으로 수정된 시간이 대상 파일과 동일하거나 더 오래된 Blob 제외**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
@@ -931,23 +934,25 @@ FIPS 규격 알고리즘은 Windows 컴퓨터에는 기본적으로 사용되지
 
 ## AzCopy 버전
 
-| 버전 | 새로운 기능 |
-|---------|-----------------------------------------------------------------------------------------------------------------|
-| **V4.2.0** | **최신 미리 보기 버전으로, V3.2.0의 모든 기능을 포함합니다. 또한 파일 저장소 공유 SAS, 파일 저장소 비동기 복사, 테이블 엔터티를 CSV로 내보내기 및 테이블 엔터티를 내보낼 때 매니페스트 이름 지정도 지원합니다.**
-| **V3.2.0** | **최신 릴리스 버전입니다. 추가 Blob 및 FIPS 규격 MD5 설정을 지원합니다.**
-| V4.1.0 | V3.1.0 이후의 모든 기능을 포함합니다. Blob 및 파일의 동기식 복사와 대상 Blob 및 파일의 콘텐츠 형식 지정을 지원합니다.
-| V3.1.0 | Blob의 동기식 복사와 대상 Blob의 콘텐츠 형식 지정을 지원합니다.
-| V4.0.0 | V3.0.0 이후의 모든 기능을 포함합니다. 또한 Azure 파일 저장소에 대한 파일 복사와 Azure 테이블 저장소에 대한 엔터티 복사도 지원합니다.
-| V3.0.0 | 매개 변수 이름을 포함해야 하도록 AzCopy 명령줄 구문이 수정되었으며 명령줄 도움말이 다시 디자인되었습니다. 이 버전에서는 Azure Blob 저장소에 대한 복사만 지원됩니다.	
-| V2.5.1 | /xo 및 /xn 옵션 사용 시 성능을 최적화합니다. 소스 파일 이름의 특수 문자 관련 버그와 사용자가 잘못된 명령줄 구문을 입력한 후의 저널 파일 손상 현상이 수정되었습니다.	
-| V2.5.0 | 대규모 복사 시나리오에 맞게 성능이 최적화되었으며 몇 가지 향상된 중요한 사용 편의성을 제공합니다.
-| V2.4.1 | 설치 마법사에서 대상 폴더를 지정할 수 있습니다.                     			
-| V2.4.0 | Azure 파일 저장소 파일을 업로드 및 다운로드할 수 있습니다.
-| V2.3.0 | 읽기 액세스 지역 중복 저장소 계정을 지원합니다.|
-| V2.2.2 | Azure 저장소 클라이언트 라이브러리 버전 3.0.3을 사용하도록 업그레이드되었습니다.
-| V2.2.1 | 동일한 저장소 계정 내에서 대량의 파일을 복사할 때의 성능 문제가 수정되었습니다.
-| V2.2 | Blob 이름에 대한 가상 디렉터리 구분 기호를 설정할 수 있습니다. 저널 파일 경로를 지정할 수 있습니다.|
-| V2.1 | 효율적인 방법으로 Blob 업로드, 다운로드 및 복사 작업을 지원하기 위한 20가지 이상의 옵션을 제공합니다.|
+> [AZURE.NOTE]새로운 기능 및 더 나은 성능을 얻으려면 최신 버전의 AzCopy를 설치하는 것이 좋습니다.
+
+| 버전 | 새로운 기능 | 참조된 .NET 클라이언트 라이브러리 버전 | 대상 저장소 REST API 버전 |
+|---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
+| [**V4.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-4-2-0-preview/MicrosoftAzureStorageTools.msi) | **최신 미리 보기 버전으로, V3.2.0의 모든 기능을 포함합니다. 또한 파일 저장소 공유 SAS, 파일 저장소 비동기 복사, 테이블 엔터티를 CSV로 내보내기 및 테이블 엔터티를 내보낼 때 매니페스트 이름 지정도 지원합니다.** | **V5.0.0** | **2015-02-21**
+| [**V3.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-3-2-0/MicrosoftAzureStorageTools.msi) | **최신 릴리스 버전입니다. 추가 Blob 및 FIPS 규격 MD5 설정을 지원합니다.** | **V5.0.0** | **2015-02-21**
+| [V4.1.0](http://xdmrelease.blob.core.windows.net/azcopy-4-1-0-preview/MicrosoftAzureStorageTools.msi) | V3.1.0 이후의 모든 기능을 포함합니다. Blob 및 파일의 동기식 복사와 대상 Blob 및 파일의 콘텐츠 형식 지정을 지원합니다. | V4.3.0 | 2014-02-14
+| [V3.1.0](http://xdmrelease.blob.core.windows.net/azcopy-3-1-0/MicrosoftAzureStorageTools.msi) | Blob의 동기식 복사와 대상 Blob의 콘텐츠 형식 지정을 지원합니다.| V4.3.0 | 2014-02-14
+| [V4.0.0](http://xdmrelease.blob.core.windows.net/azcopy-4-0-0-preview/MicrosoftAzureStorageTools.msi) | V3.0.0 이후의 모든 기능을 포함합니다. 또한 Azure 파일 저장소에 대한 파일 복사와 Azure 테이블 저장소에 대한 엔터티 복사도 지원합니다.| V4.2.1 | 2014-02-14
+| [V3.0.0](http://xdmrelease.blob.core.windows.net/azcopy-3-0-0/MicrosoftAzureStorageTools.msi) | 매개 변수 이름을 포함해야 하도록 AzCopy 명령줄 구문이 수정되었으며 명령줄 도움말이 다시 디자인되었습니다. 이 버전에서는 Azure Blob 저장소에 대한 복사만 지원됩니다.| V4.2.1 | 2014-02-14
+| V2.5.1 | /xo 및 /xn 옵션 사용 시 성능을 최적화합니다. 소스 파일 이름의 특수 문자 관련 버그와 사용자가 잘못된 명령줄 구문을 입력한 후의 저널 파일 손상 현상이 수정되었습니다.| V4.1.0 | 2014-02-14
+| V2.5.0 | 대규모 복사 시나리오에 맞게 성능이 최적화되었으며 몇 가지 향상된 중요한 사용 편의성을 제공합니다.| V4.1.0 | 2014-02-14
+| V2.4.1 | 설치 마법사에서 대상 폴더를 지정할 수 있습니다.| V4.0.0 | 2014-02-14
+| V2.4.0 | Azure 파일 저장소 파일을 업로드 및 다운로드할 수 있습니다.| V4.0.0 | 2014-02-14
+| V2.3.0 | 읽기 액세스 지역 중복 저장소 계정을 지원합니다.| V3.0.3 | 2013-08-15
+| V2.2.2 | Azure 저장소 클라이언트 라이브러리 버전 3.0.3을 사용하도록 업그레이드되었습니다.| V3.0.3 | 2013-08-15
+| V2.2.1 | 동일한 저장소 계정 내에서 대량의 파일을 복사할 때의 성능 문제가 수정되었습니다.| V2.1.0 |
+| V2.2 | Blob 이름에 대한 가상 디렉터리 구분 기호를 설정할 수 있습니다. 저널 파일 경로를 지정할 수 있습니다.| V2.1.0 |
+| V2.1 | 효율적인 방법으로 Blob 업로드, 다운로드 및 복사 작업을 지원하기 위한 20가지 이상의 옵션을 제공합니다.| V2.0.5 |
 
 
 ## 다음 단계
@@ -961,6 +966,7 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [파일 저장소를 사용하여 Azure에서 SMB 파일 공유 만들기](storage-dotnet-how-to-use-files.md)
 
 ### Azure 저장소 블로그 게시물:
+- [DML: Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/ko-KR/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 - [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](http://go.microsoft.com/fwlink/?LinkId=507682)
@@ -970,6 +976,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

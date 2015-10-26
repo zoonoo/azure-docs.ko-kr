@@ -236,4 +236,4 @@ SaaS 커넥터를 설치, 구성 및 테스트하는 방법을 살펴봤습니�
 [Azure 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

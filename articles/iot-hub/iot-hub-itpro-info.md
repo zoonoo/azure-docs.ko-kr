@@ -2,7 +2,7 @@
  pageTitle="IT 전문가를 위한 Azure IoT Hub 정보 | Microsoft Azure"
  description="포트 요구 사항 및 보안 배경과 같이 IT 전문가가 Azure IoT Hub 작업을 수행하도록 지원하는 정보입니다."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,8 +12,8 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="09/28/2015"
  ms.author="dobett"/>
 
 # IoT Hub에 대한 액세스 구성 및 관리
@@ -49,4 +49,4 @@ IoT Hub에 등록된 장치만 해당 IoT Hub와 통신할 수 있습니다. 등
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

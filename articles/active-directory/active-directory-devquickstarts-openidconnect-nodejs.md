@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="brandwe"/>
 
 # Azure AD를 사용하는 웹앱 로그인 및 로그아웃
@@ -40,18 +40,18 @@
 
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
-## 1. 앱을 등록합니다
+## 1\. 앱 등록
 - Azure 관리 포털에 로그인합니다.
 - 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 - 응용 프로그램을 등록할 테넌트를 선택합니다.
-- **응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 **추가**를 클릭합니다.
-- 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI** 를 만듭니다..
-    - 응용 프로그램의 **이름** 은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
-    -	**로그온 URL** 은 앱의 기본 URL입니다. The skeleton's default is `http://localhost:3000/auth/openid/return`입니다..
-    - **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다.  규칙은 `https://<tenant-domain>/<app-name>` 예 `https://contoso.onmicrosoft.com/my-first-aad-app`을 사용하는 것입니다.
-- 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다.  이 값은 다음 섹션에서 필요하므로 구성 탭에서 복사해둡니다.
+- **응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 추가를 클릭합니다.
+- 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI**를 만듭니다.
+    - 응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
+    -	**로그온 URL**은 앱의 기본 URL입니다. 구조의 기본값은 `http://localhost:3000/auth/openid/return``입니다.
+    - **앱 ID URI**는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>`(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
+- 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에서 필요하므로 구성 탭에서 복사해둡니다.
 
-## 2. pre requisities를 디렉터리에 추가
+## 2\. pre requisities를 디렉터리에 추가
 
 명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.
 
@@ -70,15 +70,15 @@
 
 이는 passport-azure-ad가 의존하는 라이브러리를 설치합니다.
 
-## 3. passport-node-js 전략을 사용하도록 앱을 설정합니다.
-여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express 미들웨어를 구성합니다.  passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
+## 3\. passport-node-js 전략을 사용하도록 앱을 설정합니다.
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express 미들웨어를 구성합니다. passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
--	먼저 프로젝트의 루트에서 `web.config` 파일을 열고 `<appSettings>`  섹션에 앱의 구성 값을 입력합니다
-    -	`clientID`:는 등록 포털에서 앱에 할당된 **응용 프로그램 ID**입니다.
-    -	`returnURL`는 포털에서 입력한 **리디렉션 URI**입니다.
+-	먼저 프로젝트의 루트에서 `config.js` 파일을 열고 `exports.creds` 섹션에 앱의 구성 값을 입력합니다.
+    -	`clientID:`은(는) 등록 포털에서 앱에 할당된 **응용 프로그램 ID**입니다.
+    -	`returnURL`은(는) 포털에서 입력한 **리디렉션 URI**입니다.
     - `clientSecret`는 포털에서 생성한 암호입니다.
 
-- 그 다음 프로젝트의 루트에 있는 `app.js`  파일을 열고 `passport-azure-ad`과 함께 제공되는 `OIDCStrategy` 전략을 불러오기 위해 다음 호출을 추가합니다.
+- 그 다음 프로젝트의 루트에 있는 `app.js` 파일을 열고 `passport-azure-ad`와(과) 함께 제공되는 `OIDCStrategy` 전략을 불러오기 위해 다음 호출을 추가합니다.
 
 
 ```JavaScript
@@ -86,7 +86,10 @@ var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // add a logger
 
-var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
+```
 
 - 그런 후에 방금 참조한 전략을 사용하여 로그인 요청을 처리합니다.
 
@@ -239,11 +242,11 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
+## 4. Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
 
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
+이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점 끝점과 통신하도록 올바르게 구성되었습니다.  `passport-azure-ad` 이 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다.  이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
 
-- First, lets add the default, login, account, and logout methods to our `app.js` file:
+- 먼저 `app.js`  파일에 default, login, account 및 logout 메서드를 추가합니다.
 
 ```JavaScript
 
@@ -259,14 +262,14 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	자세히 살펴보겠습니다.
+    -	`/`  경로는 요청에 사용자를 전달하여(있는 경우) index.ejs 뷰로 리디렉션됩니다.
+    - `/account`  경로는 먼저 ***인증되었는지 확인***하고(아래에서 구현) 사용자에 대한 추가 정보를 얻을 수 있도록 요청에 사용자를 전달합니다.
+    - `/login`  경로는 `passport-azuread` 에서 azuread-openidconnect 인증자를 호출하고, 실패할 경우 사용자를 다시 /login으로 리디렉션합니다.
+    - `/logout` 은 쿠키를 지우는 logout.ejs(및 경로)를 호출하고 사용자를 다시 index.ejs로 돌려보냅니다.
 
 
-- For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
+- `app.js` 의 마지막 부분을 위해 위의 `/account` 에서 사용된 EnsureAuthenticated 메서드를 추가하겠습니다.
 
 ```JavaScript
 
@@ -285,7 +288,7 @@ app.listen(3000);
 
 ## 5\. 웹 사이트에서 사용자에게 표시할 뷰와 경로를 빠르게 만들기
 
-`app.js`가 완료되었습니다. 이제 얻은 정보를 사용자에게 표시할 경로와 뷰를 추가하고 만든 `/logout` 및 `/login` 경로를 처리하기만 하면 됩니다.
+`app.js`이(가) 완료되었습니다. 이제 얻은 정보를 사용자에게 표시할 경로와 뷰를 추가하고 만든 `/logout` 및 `/login` 경로를 처리하기만 하면 됩니다.
 
 - 루트 디렉터리 아래에 `/routes/index.js` 경로를 만듭니다.
 
@@ -313,7 +316,7 @@ exports.list = function(req, res){
 
 이러한 간단한 경로는 단순히 사용자(있는 경우)를 포함하여 요청을 뷰에 전달합니다.
 
-- 루트 디렉터리 아래에 `/views/index.ejs` 뷰를 만듭니다. 이는 login 및 logout 메서드를 호출하고 계정 정보를 얻을 수 있게 해주는 간단한 페이지입니다. 요청에 전달되는 사용자가 로그인한 사용자가 있음을 입증하므로 조건부 `if (!user)`를 사용할 수 있습니다.
+- 루트 디렉터리 아래에 `/views/index.ejs` 뷰를 만듭니다. 이는 login 및 logout 메서드를 호출하고 계정 정보를 얻을 수 있게 해주는 간단한 페이지입니다. 요청에 전달되는 사용자가 로그인한 사용자가 있음을 입증하므로 조건부 `if (!user)`을(를) 사용할 수 있습니다.
 
 ```JavaScript
 <% if (!user) { %>
@@ -351,36 +354,16 @@ exports.list = function(req, res){
 
 ```HTML
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Passport-OpenID Example</title>
-	</head>
-	<body>
-		<% if (!user) { %>
-			<p>
-			<a href="/">Home</a> | 
-			<a href="/login">Log In</a>
-			</p>
-		<% } else { %>
-			<p>
-			<a href="/">Home</a> | 
-			<a href="/account">Account</a> | 
-			<a href="/logout">Log Out</a>
-			</p>
-		<% } %>
-		<%- body %>
-	</body>
-</html>```
+<!DOCTYPE html> <html> <head> <title>Passport-OpenID Example</title> </head> <body> <% if (!user) { %> <p> <a href="/">Home</a> | <a href="/login">Log In</a> </p> <% } else { %> <p> <a href="/">Home</a> | <a href="/account">Account</a> | <a href="/logout">Log Out</a> </p> <% } %> <%- body %> </body> </html>```
 
-Finally, build and run your app! 
+마지막으로 앱을 빌드하고 실행합니다.
 
-Run `node app.js` and navigate to `http://localhost:3000`
+`node app.js`을(를) 실행하고 `http://localhost:3000`(으)로 이동합니다.
 
 
-Sign in with either a personal Microsoft Account or a work or school account, and notice how the user's identity is reflected in the /account list.  You now have a web app secured using industry standard protocols that can authenticate users with both their personal and work/school accounts.
+개인 Microsoft 계정이나 회사 또는 학교 계정으로 로그인하고 /account 목록에 사용자 ID가 반영되는 방식을 확인합니다. 이제 개인 및 회사/학교 계정으로 사용자를 인증할 수 있는 업계 표준 프로토콜을 사용하여 웹앱이 보안되었습니다.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip), or you can clone it from GitHub:
+참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -391,4 +374,4 @@ For reference, the completed sample (without your configuration values) [is prov
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

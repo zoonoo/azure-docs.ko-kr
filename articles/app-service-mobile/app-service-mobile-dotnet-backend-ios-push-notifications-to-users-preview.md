@@ -105,7 +105,7 @@
 <!-- URLs. -->
 [인증 시작]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [푸시 알림 시작]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
-[템플릿]: https://msdn.microsoft.com/ko-kr/library/dn530748.aspx
+[템플릿]: https://msdn.microsoft.com/en-us/library/dn530748.aspx
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

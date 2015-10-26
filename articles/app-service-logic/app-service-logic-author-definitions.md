@@ -99,7 +99,7 @@
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/ko-KR/default.aspx",
+                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -234,7 +234,7 @@
 }
 ```
 
-[MSDN의 논리 앱 유형 작업](https://msdn.microsoft.com/ko-KR/library/azure/dn948511.aspx)에 대해 읽을 수 있습니다.
+[MSDN의 논리 앱 유형 작업](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx)에 대해 읽을 수 있습니다.
 
 >[AZURE.NOTE]논리 앱 디자이너는 논리 앱 유형 작업을 지원하지 않으므로 정의를 수동으로 편집해야 합니다.
 
@@ -250,7 +250,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/ko-KR/default.aspx",
+                "https://www.microsoft.com/en-us/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -306,7 +306,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/ko-KR/default.aspx",
+                "https://www.microsoft.com/en-us/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -723,4 +723,4 @@ Content-type: application/json
 
 논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

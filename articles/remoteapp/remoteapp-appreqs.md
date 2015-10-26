@@ -1,20 +1,20 @@
 
 <properties 
     pageTitle="Azure RemoteApp에 대한 앱 요구 사항"
-	description="Azure RemoteApp에서 사용할 앱에 대한 요구 사항에 대해 알아봅니다."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Azure RemoteApp에서 사용할 앱에 대한 요구 사항에 대해 알아봅니다." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -56,4 +56,4 @@ RemoteApp용 응용 프로그램을 개발하기 위해 다음 지침을 사용�
 - 성능을 최적화하려면 응용 프로그램이 클라이언트 세션에서 실행 중인지 [감지](https://msdn.microsoft.com/library/aa380798.aspx)하도록 하는 것이 좋습니다. 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

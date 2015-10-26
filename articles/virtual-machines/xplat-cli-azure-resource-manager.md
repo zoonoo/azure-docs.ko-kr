@@ -16,7 +16,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 이 문서에서는 Azure 리소스 관리자 모드로 Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure 리소스 및 VM을 만들고, 관리하고, 삭제하는 방법을 설명합니다.
 
@@ -341,4 +342,4 @@ Azure CLI는 기본 VM 크기로 가상 컴퓨터를 만듭니다. 또한 저장
 [clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

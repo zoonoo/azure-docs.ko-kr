@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect 관리"
+<properties
+	pageTitle="Azure AD Connect 관리 | Microsoft Azure"
 	description="Azure AD Connect에 대한 기본 구성 및 운영 작업을 확장하는 방법을 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
@@ -7,19 +7,16 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
-# Azure AD Connect 관리 
-
-
-
+# Azure AD Connect 관리
 다음은 조직 요구 사항 및 요건에 부합하도록 Azure Active Directory Connect를 사용자 지정할 수 있는 고급 운영에 대해 설명합니다.
 
 ## Azure AD Premium 및 엔터프라이즈 이동성 사용자에게 라이선스 할당
@@ -41,7 +38,6 @@
 
 ### 예약된 동기화 작업을 확인하려면
 --------------------------------------------------------------------------------
-
 1. 관리자 권한으로 Azure 포털에 로그인합니다.
 2. 왼쪽 창에서 **Active Directory**를 선택합니다.
 3. Active Directory 페이지에서 사용하도록 설정하려는 사용자가 있는 디렉토리를 두 번 클릭합니다.
@@ -56,8 +52,6 @@
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
 
-
-
 ## Azure AD Connect에서 사용할 수 있는 추가 작업
 Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 바탕 화면 바로 가기에서 항상 마법사를 다시 시작할 수 있습니다. 마법사를 다시 실행하면 몇가지 새로운 옵션이 추가 작업의 형태로 제공됩니다.
 
@@ -66,31 +60,13 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 ![규칙 조인](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
 
-추가 작업 | 설명 
+추가 작업 | 설명
 ------------- | ------------- |
 선택한 시나리오 보기 |현재 Azure AD Connect 솔루션을 볼 수 있습니다. 일반 설정, 동기화된 디렉토리, 동기화 설정 등을 포함합니다.
 동기화 옵션 사용자 지정 | 추가 Active Directory 포리스트를 구성에 추가 또는 사용자, 그룹, 장치나 암호 쓰기 저장과 같은 동기화 옵션 사용을 포함한 현재 구성을 변경할 수 있습니다.
 스테이징 모드 사용 | 이 모드를 사용하면 나중에 동기화되는 스정보를 스테이징할 수 있지만 Azure AD 또는 Active Directory로 내보내지지 않습니다. 이렇게 하면 발생하기 전에 동기화를 미리볼 수 있습니다.
 
+## 다음 단계
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
- 
-
-
-
-
-
-
-## 추가 설명서
-Azure AD Connect 작업에 대한 추가 설명서는 다음을 참조하세요.
-
-- [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
-- [Azure AD Connect 기본 구성 변경](active-directory-aadconnect-whats-next-change-default-config.md)
-- [Azure AD Connect 동기화 규칙 편집기 사용](active-directory-aadconnect-whats-next-synch-rules-editor.md)
-- [선언적 프로비저닝 사용](active-directory-aadconnect-whats-next-declarative-prov.md)
-
-Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에도 관련되며 적용됩니다. 이 설명서를 Azure.com에서도 볼 수 있도록 최선의 노력을 하고 있지만 이 설명서 일부는 여전히 MSDN의 범위 지정된 라이브러리에 있습니다. 추가 설명서를 보려면 [MSDN의 Azure AD Connect](active-directory-aadconnect.md) 및 [MSDN의 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)를 참조하세요.
-
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

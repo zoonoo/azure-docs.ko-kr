@@ -1,4 +1,4 @@
-Install the SDK and then add monitoring for other data:
+SDK를 설치한 다음 다른 데이터에 대한 모니터링을 추가합니다.
 
 > [AZURE.SELECTOR]
 - [Install the SDK](../article/application-insights/app-insights-asp-net.md#selector1)
@@ -9,3 +9,4 @@ Install the SDK and then add monitoring for other data:
 - [Java](../article/application-insights/app-insights-java-get-started.md)
 - [Already live app](../article/application-insights/app-insights-monitor-performance-live-website-now.md)
 
+<!---HONumber=Oct15_HO3-->

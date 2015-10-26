@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## 다음 단계
 클라우드 서비스 [모델](cloud-services-model-and-package.md)에 대해 더 읽습니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

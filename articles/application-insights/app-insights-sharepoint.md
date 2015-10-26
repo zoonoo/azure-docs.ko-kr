@@ -102,10 +102,10 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 * 사이트 가용성을 모니터링하는 [웹 테스트](app-insights-monitor-web-app-availability.md)
 
-* 다른 유형의 응용 프로그램에 대한 [Application Insights](app-insights-get-started.md)
+* 다른 유형의 응용 프로그램에 대한 [Application Insights](app-insights-overview.md)
 
 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

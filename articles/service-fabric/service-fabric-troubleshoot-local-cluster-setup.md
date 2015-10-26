@@ -1,10 +1,10 @@
 <properties
-   pageTitle="로컬 클러스터 설정 문제 해결"
+   pageTitle="로컬 서비스 패브릭 클러스터 설정 문제 해결 | Microsoft Azure"
    description="이 문서에서는 로컬 개발 클러스터 문제 해결을 위한 여러 제안 사항을 다룹니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # 로컬 개발 클러스터 설정 문제 해결
@@ -86,4 +86,4 @@ Visual Studio로부터 디버깅 시 FabricConnectionDeniedException이 나타�
 - [시스템 상태 보고서와 함께 클러스터 이해 및 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [서비스 패브릭 탐색기로 클러스터 시각화하기](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

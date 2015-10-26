@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Apache Storm 및 Azure 스트림 분석 비교 #
@@ -23,7 +23,7 @@
 
 이 문서에서는 HDInsight에 대한 관리 서비스로서 Azure 스트림 분석 및 Apache Storm의 위치를 보여줍니다. 두 서비스의 가치 제안을 이해 하 고 있는 자신의 비즈니스 사용 사례에 대한 올바른 선택 결정을 내릴 수 있도록 도와주는 목표가입니다. 고객이두 서비스의 가치 제안을 이해하고 자신의 비즈니스 사용 사례에 대한 올바른 선택 결정을 내릴 수 있도록 돕는 것이 목표입니다.
 
-두 솔루션 모두 PaaS 솔루션의 이점을 제공하며, 이러한 서비스를 구분 하는 몇가지 주요 특징적인 기능이 있습니다. 이 서비스들의 기능뿐만 아니라 한계도 제시하면 고객이 자신의 목표를 달성하는데 필요한 해결책을 만드는 데 도움이 될 것입니다.
+두 솔루션 모두 PaaS 솔루션의 이점을 제공하며, 이러한 서비스를 구분 하는 몇 가지 주요 특징적인 기능이 있습니다. 이 서비스들의 기능뿐만 아니라 한계도 제시하면 고객이 자신의 목표를 달성하는데 필요한 해결책을 만드는 데 도움이 될 것입니다.
 
 ## 일반 ##
 <table border="1" cellspacing="0" cellpadding="0">
@@ -578,7 +578,7 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    예, ASA 작업 생성 중 기능으로 게시된 Azure 기계 학습을 구성하여 수행합니다.
+                    ASA 작업 생성 중 기능으로 게시된 Azure 기계 학습을 구성하여 수행합니다<a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(비공개 미리 보기)</a>.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -590,4 +590,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

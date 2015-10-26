@@ -20,7 +20,8 @@
 
 # Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델에서 가상 컴퓨터 검색을 설명합니다. [클래식 배포 모델](https://msdn.microsoft.com/library/azure/dn499770.aspx)에서 이미지를 검색할 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 이 문서에서는 최근 설치된 Azure CLI 또는 Azure PowerShell을 사용하여 가상 컴퓨터 이미지를 탐색 및 선택하는 방법을 설명합니다. 전제 조건으로 리소스 관리자 모드를 변경해야 할 수 있습니다. Azure CLI로 `azure config mode arm`을(를) 입력하여 해당 모드를 입력합니다. PowerShell을 사용하여 `Switch-AzureMode AzureResourceManager`을(를) 입력합니다. 자세한 업데이트 및 구성 정보를 보려면 [리소스 관리를 이용한 Azure CLI 사용](xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자를 이용한 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
@@ -243,4 +244,4 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

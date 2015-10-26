@@ -89,4 +89,4 @@ Application Insights를 사용하여 서비스 패브릭 앱을 계측하는 방
 - [고유의 사용자 지정 이벤트 및 매트릭 생성 방법 알아보기](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

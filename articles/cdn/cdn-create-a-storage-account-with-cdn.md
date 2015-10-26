@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN을 사용하는 방법 | Microsoft Azure"
-	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다."
-	services="cdn"
-	documentationCenter=".net"
-	authors="zhangmanling"
-	manager="dwrede"
+	pageTitle="CDN을 사용하는 방법 | Microsoft Azure" 
+	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다." 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="zhangmanling" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mazha"/>
 
 
@@ -112,7 +112,7 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: ../storage-custom-domain-name.md
 [Azure에서 선호도 그룹을 만드는 방법]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: cdn-overview.md
-[방법: Azure 구독에 대한 저장소 계정 관리]: https://msdn.microsoft.com/ko-KR/library/azure/hh531793.aspx
+[방법: Azure 구독에 대한 저장소 계정 관리]: https://msdn.microsoft.com/en-us/library/azure/hh531793.aspx
 [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법]: cdn-map-content-to-custom-domain.md
 
 
@@ -120,4 +120,4 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

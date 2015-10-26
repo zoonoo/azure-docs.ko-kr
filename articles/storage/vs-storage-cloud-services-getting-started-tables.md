@@ -278,4 +278,4 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스" 섹션에 설
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

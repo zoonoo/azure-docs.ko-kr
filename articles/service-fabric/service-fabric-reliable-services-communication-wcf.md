@@ -1,20 +1,20 @@
 <properties
    pageTitle="신뢰할 수 있는 서비스 API가 제공하는 WCF 기반 통신 스택"
-	description="이 문서에서는 신뢰할 수 있는 서비스의 API에서 제공되는 WCF 기반 통신 스택을 설명합니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="이 문서에서는 신뢰할 수 있는 서비스의 API에서 제공되는 WCF 기반 통신 스택을 설명합니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # 신뢰할 수 있는 서비스에 대한 WCF 기반 통신 스택
 신뢰할 수 있는 서비스 프레임워크는 서비스 작성자가 서비스에 사용할 통신 스택을 결정하도록 지원합니다. [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md) 메서드에서 반환된 `ICommunicationListener`를 통해 선택한 통신 스택을 연결할 수 있습니다. 이 프레임워크는 WCF 기반 통신을 사용하려는 서비스 작성자를 위한 WCF 기반 통신 스택 구현을 제공합니다.
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 ```
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -17,7 +17,7 @@
 
 # Azure 리소스 그룹 배포 프로젝트 만들기 및 배포
 
-Azure SDK 2.6이 설치될 때 **Azure 리소스 그룹** 배포 프로젝트 템플릿은 Visual Studio에서 제공됩니다. Azure 리소스 그룹 프로젝트를 사용하여 관련된 여러 Azure 리소스를 단일 배포 작업으로 함께 그룹화하고 게시합니다. Azure 리소스 그룹 프로젝트는 **Azure 리소스 관리자**라는 기술을 사용하여 자신의 작업을 수행합니다. **Azure 리소스 관리자**는 Azure 리소스 그룹을 정의할 수 있는 REST API 서비스로, 일반적으로 함께 사용되며 수명 주기가 유사한 여러 Azure 리소스를 포함합니다. 리소스 그룹을 사용하여 각 개별 리소스에 대한 다른 함수를 호출하지 않고 단일 함수 호출로 그룹의 모든 리소스에 대해 작업할 수 있습니다. Azure 리소스 그룹에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요. 자세한 종단 간 Azure 리소스 그룹 배포 시나리오는 [Visual Studio용 Azure 리소스 그룹](https://azure.microsoft.com/ko-KR/blog/azure-resource-manager-2-5-for-visual-studio/)을 참조하세요.
+Azure SDK 2.6이 설치될 때 **Azure 리소스 그룹** 배포 프로젝트 템플릿은 Visual Studio에서 제공됩니다. Azure 리소스 그룹 프로젝트를 사용하여 관련된 여러 Azure 리소스를 단일 배포 작업으로 함께 그룹화하고 게시합니다. Azure 리소스 그룹 프로젝트는 **Azure 리소스 관리자**라는 기술을 사용하여 자신의 작업을 수행합니다. **Azure 리소스 관리자**는 Azure 리소스 그룹을 정의할 수 있는 REST API 서비스로, 일반적으로 함께 사용되며 수명 주기가 유사한 여러 Azure 리소스를 포함합니다. 리소스 그룹을 사용하여 각 개별 리소스에 대한 다른 함수를 호출하지 않고 단일 함수 호출로 그룹의 모든 리소스에 대해 작업할 수 있습니다. Azure 리소스 그룹에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요. 자세한 종단 간 Azure 리소스 그룹 배포 시나리오는 [Visual Studio용 Azure 리소스 그룹](https://azure.microsoft.com/en-us/blog/azure-resource-manager-2-5-for-visual-studio/)을 참조하세요.
 
 Azure 리소스 그룹 프로젝트는 리소스 그룹에 배포되는 요소를 정의하는 Azure 리소스 관리자 JSON 템플릿을 포함합니다. 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
@@ -195,4 +195,4 @@ TFS 자동화된 빌드 및 Microsoft 내 다른 프로젝트에서 명명 규�
 
 Visual Studio에서 Azure 리소스 그룹에 리소스를 추가하는 방법을 알아보려면 [Azure 리소스 그룹에 리소스 추가](vs-azure-tools-resource-group-adding-resources.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

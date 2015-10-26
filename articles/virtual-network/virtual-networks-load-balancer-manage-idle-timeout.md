@@ -152,4 +152,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

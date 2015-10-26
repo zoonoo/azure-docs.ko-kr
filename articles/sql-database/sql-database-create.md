@@ -66,4 +66,4 @@ Microsoft Azure에서 차세대 SQL 데이터베이스를 활용하려면 SQL �
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

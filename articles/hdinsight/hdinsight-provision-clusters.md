@@ -752,9 +752,9 @@ SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
-[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
-[ssisclustercreate]: http://msdn.microsoft.com/ko-KR/library/mt146774(v=sql.120).aspx
-[ssisclusterdelete]: http://msdn.microsoft.com/ko-KR/library/mt146778(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/en-US/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/en-US/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

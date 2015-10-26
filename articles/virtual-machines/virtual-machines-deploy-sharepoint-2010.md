@@ -20,7 +20,8 @@
 
 # Azure 가상 컴퓨터에 SharePoint 2010 배포
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 Microsoft SharePoint Server 2010은 조직에서 비즈니스 요구와 목표에 맞춰 적절한 배포 시나리오를 결정할 수 있도록 다양한 배포 유연성을 제공합니다. Microsoft Azure에서 호스트되고 관리되는 Azure 가상 컴퓨터는 완전하고 신뢰할 수 있으며 사용 가능한 인프라를 제공하여 다양한 주문형 응용 프로그램 및 데이터베이스 워크로드(예: Microsoft SQL Server 및 SharePoint 배포)을 지원합니다.
 
@@ -287,4 +288,4 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 
 [Azure에서 SharePoint Server 2016 IT Preview 테스트](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

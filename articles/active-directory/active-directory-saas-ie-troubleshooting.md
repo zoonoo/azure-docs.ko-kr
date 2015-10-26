@@ -105,4 +105,4 @@ InPrivate 브라우징 모드를 사용 중인 경우:
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

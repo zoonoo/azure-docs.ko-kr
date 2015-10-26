@@ -2,6 +2,7 @@
 	pageTitle="기계 학습 고급 분석 환경 계획 | Microsoft Azure" 
 	description="주요 질문을 고려하여 고급 분석 환경을 계획합니다." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -79,4 +80,4 @@ Azure 기계 학습을 통해 고급 분석을 수행하는 환경을 설정할 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

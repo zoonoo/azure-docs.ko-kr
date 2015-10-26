@@ -1,19 +1,19 @@
 <properties
     pageTitle="Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법"
-	description="Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법을 설명합니다."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"/>
+    description="Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법을 설명합니다."
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe" />
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="v-dedomi"/>
 
 #Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
@@ -213,4 +213,4 @@ Hudson용 Azure 종속 플러그인을 사용하면 분산된 빌드를 실행�
 
   
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -88,4 +88,4 @@ Azure 포털에서 로컬 계정 기반 소비자에 대한 암호를 재설정�
 
 Azure 포털에서 Azure AD B2C 테넌트를 삭제할 수 없습니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

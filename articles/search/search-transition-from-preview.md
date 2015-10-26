@@ -144,4 +144,4 @@ API 버전`2015-02-28`은 SLA에 따릅니다. 지원 티켓을 만들기 위해
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -611,4 +611,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

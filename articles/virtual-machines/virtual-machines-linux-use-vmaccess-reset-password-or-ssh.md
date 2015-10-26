@@ -19,7 +19,8 @@
 
 # Linux 가상 컴퓨터에 대한 암호 또는 SSH를 다시 설정하는 방법 #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 암호를 잊어버리거나, SSH(Secure Shell) 키가 잘못되었거나, SSH 구성 문제가 발생하여 Linux 가상 컴퓨터에 연결할 수 없는 경우, Azure 미리 보기 포털이나 VMAccessforLinux 확장을 사용하여 암호 또는 SSH 키를 다시 설정하거나 SSH 구성을 수정할 수 있습니다. 이 문서는 **클래식** 배포 모델을 사용하여 만든 가상 컴퓨터에 적용됩니다.
 
@@ -265,4 +266,4 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 [Azure VM 확장 및 기능]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

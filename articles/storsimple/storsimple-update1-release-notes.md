@@ -124,4 +124,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 - [장치에 업데이트 1.2를 설치합니다](storsimple-install-update-1.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

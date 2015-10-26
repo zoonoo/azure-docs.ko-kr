@@ -15,4 +15,4 @@
 	이제 프로젝트로 작업할 준비가 되었습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

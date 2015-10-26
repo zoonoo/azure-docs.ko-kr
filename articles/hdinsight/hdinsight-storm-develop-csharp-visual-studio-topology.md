@@ -658,4 +658,4 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 
 -	[HDInsight에서 HBase 시작](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

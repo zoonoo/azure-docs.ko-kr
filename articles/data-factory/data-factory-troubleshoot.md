@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리 문제 해결"
-	description="Azure 데이터 팩터리 사용과 관련된 문제를 해결하는 방법에 대해 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure 데이터 팩터리 문제 해결" 
+	description="Azure 데이터 팩터리 사용과 관련된 문제를 해결하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 문제 해결
@@ -382,4 +382,4 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

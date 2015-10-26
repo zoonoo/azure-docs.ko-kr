@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure의 클라우드 서비스 모델 및 패키지 정의"
+    pageTitle="클라우드 서비스 모델 및 패키지 정의 | Microsoft Azure"
     description="Azure의 클라우드 서비스 모델(.csdef,.cscfg) 및 패키지(.cspkg)에 대해 설명합니다."
     services="cloud-services"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
 # 클라우드 서비스 모델 정의 및 패키지 방법
@@ -251,11 +251,7 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
 
 클라우드 서비스 패키지를 만들고 있으며 다음 작업을 수행하려고 합니다.
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [로컬 저장소 리소스 구성](cloud-services-configure-local-storage-resources.md)
 * [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][remotedesktop]
 * [클라우드 서비스 프로젝트 배포][deploy]
 
@@ -269,9 +265,9 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/ko-KR/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/ko-KR/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/ko-KR/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

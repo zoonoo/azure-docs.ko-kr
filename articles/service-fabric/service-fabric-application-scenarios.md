@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="서비스 패브릭을 활용하는 응용 프로그램 시나리오 및 디자인"
-	description="응용 프로그램의 범주입니다. 상태 저장 및 상태 비저장 서비스를 사용하여 응용 프로그램 디자인"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor=""/>
+   pageTitle="서비스 패브릭을 활용하는 응용 프로그램 시나리오 및 디자인" 
+   description="응용 프로그램의 범주입니다. 상태 저장 및 상태 비저장 서비스를 사용하여 응용 프로그램 디자인" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/21/2015"
+   ms.author="mfussell"/>
 
 # 서비스 패브릭 응용 프로그램 시나리오
 
@@ -68,4 +68,4 @@ Azure 클라우드 서비스 작업자 역할이 있는 응용 프로그램을 �
  
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

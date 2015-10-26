@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Windows 런타임 8.1 범용 앱에 푸시 알림 추가 | Azure 모바일 앱"
-	description="Azure 앱 서비스 모바일 앱 및 Azure 알림 허브를 사용하여 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
-	services="app-service\mobile,notification-hubs"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
+	pageTitle="Windows 런타임 8.1 범용 앱에 푸시 알림 추가 | Azure 모바일 앱" 
+	description="Azure 앱 서비스 모바일 앱 및 Azure 알림 허브를 사용하여 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	services="app-service\mobile,notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.service="app-service-mobile" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/14/2015" 
 	ms.author="glenga"/>
 
 # Windows 런타임 8.1 범용 앱에 푸시 알림 추가
@@ -62,7 +62,7 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
 7. Windows 스토어 앱에서 이전에 만든 동일한 등록을 사용하여 Windows Phone 스토어 앱 프로젝트에서 1 및 3단계를 반복합니다.
 
-7. [Windows 개발자 센터](https://dev.windows.com/ko-KR/overview)로 이동하고 Microsoft 계정을 사용하여 로그인합니다. **내 앱**에서 새 앱 등록을 클릭한 다음 **서비스** > **푸시 알림**을 확장합니다.
+7. [Windows 개발자 센터](https://dev.windows.com/en-us/overview)로 이동하고 Microsoft 계정을 사용하여 로그인합니다. **내 앱**에서 새 앱 등록을 클릭한 다음 **서비스** > **푸시 알림**을 확장합니다.
 
 8. **푸시 알림** 페이지에서 **Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
 
@@ -202,4 +202,4 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

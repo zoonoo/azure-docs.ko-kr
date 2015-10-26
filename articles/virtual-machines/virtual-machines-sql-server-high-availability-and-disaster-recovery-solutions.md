@@ -22,7 +22,8 @@
 
 Microsoft Azure 가상 컴퓨터(VM)에 SQL Server를 설치하여 사용하면 고가용성 및 재해 복구(HADR) 데이터베이스 솔루션의 비용을 절감하는 데 도움이 됩니다. 대부분의 SQL Server HADR 솔루션은 Azure 가상 컴퓨터에서 지원됩니다. Azure 전용으로도, 하이브리드 솔루션으로도 사용 가능합니다. Azure 전용 솔루션에서는 HADR 시스템 전체가 Azure에서 실행됩니다. 하이브리드 구성에서는 솔루션의 일부가 Azure에서 실행되고 나머지 부분은 조직의 온-프레미스에서 실행됩니다. Azure 환경은 유연하게 제공되므로 사용 중인 SQL Server 데이터베이스 시스템의 예산과 HADR 요구 사항에 맞게 Azure로 부분적으로만 이동하거나 완전히 이동할 수도 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 ## HADR 솔루션의 필요성 이해
 
@@ -146,4 +147,4 @@ Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴
 - [Azure에 새 Active Directory 포리스트 설치](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Azure VM에서 AlwaysOn 가용성 그룹을 위한 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

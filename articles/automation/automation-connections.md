@@ -120,4 +120,4 @@ Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.c
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

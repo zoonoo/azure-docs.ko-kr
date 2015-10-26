@@ -18,7 +18,8 @@
 #Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기
 다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle WebLogic Server 12c 이미지에 따라 가상 컴퓨터를 만드는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 Oracle WebLogic Server를 만드는 내용에 대해 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 
 ##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기
@@ -186,4 +187,4 @@
 
 -	[Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

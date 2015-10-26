@@ -6,4 +6,4 @@
 
 지원 티켓을 열어 소프트 제한 업데이트를 요청할 수 있습니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

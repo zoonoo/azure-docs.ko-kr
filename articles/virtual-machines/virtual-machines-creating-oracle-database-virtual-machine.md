@@ -17,7 +17,8 @@
 	
 #Azure에서 Oracle 데이터베이스 가상 컴퓨터를 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle 데이터베이스 이미지에 따라 가상 컴퓨터(VM)를 만드는 방법을 보여줍니다. 두 단계가 있습니다. 먼저 VM을 만들고 VM 내에서 Oracle 데이터베이스를 만듭니다. 표시된 예제는 Oracle 데이터베이스 버전 12c지만 해당 단계는 버전 11g와 거의 동일합니다.
 
@@ -199,4 +200,4 @@ Oracle 데이터베이스 엔터프라이즈 관리자에 대한 원격 액세�
 
 -	[Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

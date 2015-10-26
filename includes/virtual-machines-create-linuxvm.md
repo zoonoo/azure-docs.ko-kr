@@ -40,4 +40,4 @@
 
 모든 Azure CLI 가상 컴퓨터 명령에 대한 자세한 설명은 [서비스 관리 API를 포함한 Azure CLI 사용](../articles/virtual-machines/virtual-machines-command-line-tools.md)을 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

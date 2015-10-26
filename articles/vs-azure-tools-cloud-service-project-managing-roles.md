@@ -58,4 +58,4 @@ Azure 클라우드 서비스 프로젝트를 만든 후 새 역할을 추가하�
 
 [Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성](vs-azure-tools-configure-roles-for-cloud-service.md)을 읽고 Visual Studio에서 역할을 구성하는 방법을 알아봅니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

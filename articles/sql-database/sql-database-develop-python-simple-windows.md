@@ -118,4 +118,4 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

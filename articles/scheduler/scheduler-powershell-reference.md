@@ -21,18 +21,18 @@
 
 |Cmdlet|Cmdlet 설명|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/ko-kr/library/azure/dn722516.aspx)**|스케줄러 작업 목록 또는 특정 스케줄러 작업을 가져옵니다.|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/ko-kr/library/azure/dn722471.aspx)**|스케줄러 작업 컬렉션을 가져옵니다.|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/ko-kr/library/azure/dn722514.aspx)**|스케줄러 작업 기록을 가져옵니다.|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/ko-kr/library/azure/dn722505.aspx)**|사용 가능한 스케줄러 위치를 가져옵니다.|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/ko-kr/library/azure/dn722492.aspx)**|HTTP 동작이 있는 스케줄러 작업을 만듭니다.|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/ko-kr/library/azure/dn759640.aspx)**|스케줄러 작업 컬렉션을 만듭니다.|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/ko-kr/library/azure/dn722518.aspx)**|저장소 동작이 있는 스케줄러 작업을 만듭니다.|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/ko-kr/library/azure/dn722477.aspx)**|스케줄러 작업을 삭제합니다.|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/ko-kr/library/azure/dn722530.aspx)**|스케줄러 작업 컬렉션을 삭제합니다.|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/ko-kr/library/azure/dn722474.aspx)**|HTTP 동작이 있는 스케줄러 작업을 업데이트합니다.|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/ko-kr/library/azure/dn759626.aspx)**|스케줄러 작업 컬렉션을 업데이트합니다.|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/ko-kr/library/azure/dn722476.aspx)**|저장소 동작이 있는 스케줄러 작업을 업데이트합니다.|
+|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/en-us/library/azure/dn722516.aspx)**|스케줄러 작업 목록 또는 특정 스케줄러 작업을 가져옵니다.|
+|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/en-us/library/azure/dn722471.aspx)**|스케줄러 작업 컬렉션을 가져옵니다.|
+|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/en-us/library/azure/dn722514.aspx)**|스케줄러 작업 기록을 가져옵니다.|
+|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/en-us/library/azure/dn722505.aspx)**|사용 가능한 스케줄러 위치를 가져옵니다.|
+|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/en-us/library/azure/dn722492.aspx)**|HTTP 동작이 있는 스케줄러 작업을 만듭니다.|
+|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/en-us/library/azure/dn759640.aspx)**|스케줄러 작업 컬렉션을 만듭니다.|
+|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/en-us/library/azure/dn722518.aspx)**|저장소 동작이 있는 스케줄러 작업을 만듭니다.|
+|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/en-us/library/azure/dn722477.aspx)**|스케줄러 작업을 삭제합니다.|
+|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/en-us/library/azure/dn722530.aspx)**|스케줄러 작업 컬렉션을 삭제합니다.|
+|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/en-us/library/azure/dn722474.aspx)**|HTTP 동작이 있는 스케줄러 작업을 업데이트합니다.|
+|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/en-us/library/azure/dn759626.aspx)**|스케줄러 작업 컬렉션을 업데이트합니다.|
+|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/en-us/library/azure/dn722476.aspx)**|저장소 동작이 있는 스케줄러 작업을 업데이트합니다.|
 
 
 ## 참고 항목
@@ -55,4 +55,4 @@
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

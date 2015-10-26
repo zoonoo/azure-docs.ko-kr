@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 다음 단계에서는 REST 스타일 HTTP PUT 명령을 사용하여 큐를 만드는 메서드를 작성합니다.
 
-이전 단계에서 추가한 `GetToken()` 코드 바로 뒤에 다음 코드를 붙여넣습니다.
+이전 단계에서 추가한 `GetSASToken()` 코드 바로 뒤에 다음 코드를 붙여넣습니다.
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -629,4 +629,4 @@ namespace Microsoft.ServiceBus.Samples
 - [Azure 서비스 버스 기본 사항](fundamentals-service-bus-hybrid-solutions.md)
 - [서비스 버스 릴레이 REST 자습서](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

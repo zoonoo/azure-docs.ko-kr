@@ -201,4 +201,4 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

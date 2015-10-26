@@ -372,4 +372,4 @@ Codeplex의 Azure 검색 Adventure Works 데모에는 이 문서에 나와 있�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

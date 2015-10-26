@@ -18,7 +18,8 @@
 
 # Azure에서 SQL Server 가상 컴퓨터 연결
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 사용하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
  
 ## 개요
 
@@ -86,4 +87,4 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모
 
 Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

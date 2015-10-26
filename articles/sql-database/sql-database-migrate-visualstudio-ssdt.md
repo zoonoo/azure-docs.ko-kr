@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Visual Studio 및 SSDT를 사용하여 마이그레이션"
-	description="Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 데이터베이스 내보내기, 마이그레이션 마법사"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Visual Studio 및 SSDT를 사용하여 마이그레이션" 
+   description="Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 데이터베이스 내보내기, 마이그레이션 마법사" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="carlrabeler" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #데이터베이스를 제자리에서 업데이트한 후 Azure SQL 데이터베이스에 배포
 
@@ -82,4 +82,4 @@ Visual Studio 2013 업데이트 4 이상이 포함된 [최신 Visual Studio용 S
 
 14.	SSMS를 사용하여 Azure SQL V12 호환 데이터베이스 스키마 및 데이터를 Azure SQL 데이터베이스에 배포합니다. [SSMS를 사용하여 호환 데이터베이스 마이그레이션](sql-database-migrate-ssms.md)을 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

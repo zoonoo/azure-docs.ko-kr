@@ -28,4 +28,4 @@ PIM 관리자로 로그인하는 경우 권한 있는 계정에 MFA(다단계 �
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

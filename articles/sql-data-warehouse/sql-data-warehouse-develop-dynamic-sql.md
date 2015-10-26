@@ -41,8 +41,8 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp\_executesql]: https://msdn.microsoft.com/ko-kr/library/ms188001.aspx
+[sp\_executesql]: https://msdn.microsoft.com/en-us/library/ms188001.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

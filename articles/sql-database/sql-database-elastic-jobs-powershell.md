@@ -673,4 +673,4 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

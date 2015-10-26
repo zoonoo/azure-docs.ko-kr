@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Azure PowerShell의 지역에서 복원 기능을 사용하여 Azure SQL 데이터베이스 복구
 
@@ -25,6 +25,8 @@
 ## 개요
 
 이 자습서에서는 [Azure PowerShell](../powershell-install-configure.md)의 지역에서 복원 기능을 사용하여 Azure SQL 데이터베이스를 복구하는 방법을 설명합니다. 지역에서 복원은 Azure SQL 데이터베이스의 Basic, Standard 및 Premium 서비스 계층에 모두 포함되어 있는 핵심적인 재해 복구 보호 기능입니다.
+
+> [AZURE.IMPORTANT]이 문서에서는 Azure PowerShell 버전 1.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
 
 ## 제한 사항 및 보안
 
@@ -39,13 +41,13 @@
 1. [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx) cmdlet을 사용하여 복구 가능한 데이터베이스 목록을 표시합니다. 이때 다음 매개 변수를 지정합니다.
 	* **ServerName** - 데이터베이스의 위치입니다.	
 
-	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx) cmdlet을 사용하여 복구할 원본 데이터베이스를 선택합니다. 이때 다음 매개 변수를 지정합니다.
 	* **ServerName** - 데이터베이스의 위치입니다.
 	* **DatabaseName** - 복원하고 있는 데이터베이스의 이름입니다.
 
-	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
 	 
 3. [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx) cmdlet을 사용하여 복구를 시작합니다. 이때 다음 매개 변수를 지정합니다.
 	* **SourceDatabase** - 복구하려는 데이터베이스입니다.
@@ -54,14 +56,14 @@
 
 	**$RestoreRequest**라는 변수로 반환되는 결과를 저장합니다. 이 변수는 복원 상태를 모니터링하는 데 사용되는 복원 요청 ID를 포함합니다.
 
-	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
+	`$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
 	
 데이터베이스 복구를 완료하려면 다소 시간이 걸릴 수 있습니다. 복원 상태를 모니터링하려면 [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) cmdlet을 사용하고 다음 매개 변수를 지정합니다.
 
 * **ServerName** - 복원 대상 데이터베이스의 서버 이름입니다.
 * **OperationGuid** - 3단계의 **$RecoveryRequest** 변수에 저장된 복원 요청 ID입니다.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
+	`Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
 
 **State** 및 **PercentComplete** 필드에 복원 상태가 표시됩니다.
 
@@ -82,4 +84,4 @@
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

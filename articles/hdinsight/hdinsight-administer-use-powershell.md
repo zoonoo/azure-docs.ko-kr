@@ -64,7 +64,7 @@ HDInsight 클러스터는 Azure 저장소 계정에서 Azure 리소스 그룹 �
 
 	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-	For a full list of the storage account types, see [https://msdn.microsoft.com/ko-kr/library/azure/hh264518.aspx](https://msdn.microsoft.com/ko-kr/library/azure/hh264518.aspx).
+	For a full list of the storage account types, see [https://msdn.microsoft.com/en-us/library/azure/hh264518.aspx](https://msdn.microsoft.com/en-us/library/azure/hh264518.aspx).
 
 
 Azure 미리 보기 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)를 참조하세요.
@@ -343,4 +343,4 @@ Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdin
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/08/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -68,6 +68,8 @@ SQL 데이터 웨어하우스는 몇 초 만에 쉽게 배포됩니다. 이 서�
 ## 다음 단계
 [데이터 웨어하우스 워크로드]에 대해 알아봅니다. 시작하려면 [샘플 데이터]를 [프로비전] 및 로드합니다.
 
+>[AZURE.NOTE]이 문서를 보다 개선하려고 합니다. "이 문서가 도움이 되었나요?"란 질문에 "아니요"를 선택한 경우 누락된 사항이나 문서 개선 방법에 대한 제안 사항을 간략하게 입력해 주세요. 미리 감사드립니다.
+
 <!--Image references-->
 
 <!--Article references-->
@@ -79,4 +81,4 @@ SQL 데이터 웨어하우스는 몇 초 만에 쉽게 배포됩니다. 이 서�
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

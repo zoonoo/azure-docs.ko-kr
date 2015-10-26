@@ -42,14 +42,14 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
+또는 [완성된 앱을 .zip으로 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip)하거나 완성된 된 앱을 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
 ## 1. 앱 등록
 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르세요. 다음을 수행해야 합니다.
 
-- 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 필요합니다.
+- 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
 - **암호** 형식의 **앱 암호**를 만들고 나중에 사용할 수 있도록 해당 값을 적어둡니다.
 - 앱에 대한 **웹** 플랫폼을 추가합니다.
 - 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `https://localhost:44326/`입니다.
@@ -120,8 +120,8 @@ public void ConfigureAuth(IAppBuilder app)
 - 먼저 ADAL 미리 보기 버전을 설치합니다.
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
-- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
+- 그리고 ADAL의 `App_Start\Startup.Auth.cs` 파일에 다른 `using` 문을 추가합니다.
+- 이제 새 메서드인 `OnAuthorizationCodeReceived` 이벤트 처리기를 추가합니다. 이 처리기는 ADAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 ADAL의 토큰 캐시에 토큰을 저장합니다.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -207,4 +207,4 @@ catch (AdalException ee)
 - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md)
 - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

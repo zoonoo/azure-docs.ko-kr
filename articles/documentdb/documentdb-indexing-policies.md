@@ -769,4 +769,4 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

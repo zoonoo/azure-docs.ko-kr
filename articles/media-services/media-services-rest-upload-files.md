@@ -519,4 +519,4 @@ IngestManifest의 통계 속성을 폴링하여 IngestManifest에 대한 대량 
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

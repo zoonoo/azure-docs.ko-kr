@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2015"
+	ms.date="10/13/2015"
 	ms.author="tdykstra"/>
 
 # Azure CLI(명령줄 인터페이스) 및 API 앱
@@ -288,4 +288,4 @@ Azure 리소스 관리자와 함께 Azure 명령줄 유틸리티를 사용하는
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

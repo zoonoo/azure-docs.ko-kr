@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기"
-	description="이 자습서에서는 프레미스 간 연결을 지원하는 Azure 가상 네트워크를 만드는 방법에 대해 알아봅니다."
-	services="virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
+	pageTitle="자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기" 
+	description="이 자습서에서는 프레미스 간 연결을 지원하는 Azure 가상 네트워크를 만드는 방법에 대해 알아봅니다." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 
@@ -272,4 +272,4 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

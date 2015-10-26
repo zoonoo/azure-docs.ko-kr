@@ -228,4 +228,4 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 
 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/09/2015"
 	ms.author="spelluru"/>
 
 # Visual Studio를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드
@@ -39,16 +39,21 @@
 
 ### 필수 구성 요소
 
-컴퓨터에 Visual Studio 2013이 설치되어 있어야 합니다. Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다. - Visual Studio 2013 --> Tools --> Updates --> Visual Studio 갤러리로 이동하고 거기서 "Azure 데이터 팩터리용 Visual Studio 도구" 플러그인 항목에서 "업데이트"를 클릭하여 "Azure 데이터 팩터리용 Visual Studio 도구"를 최신 버전으로 업데이트합니다.
+다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 
+- Visual Studio 2013 또는 Visual Studio 2015
+- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
+- [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다. 
+	
+	
 
 ### Visual Studio 프로젝트 만들기 
-1. **Visual Studio 2013**을 실행합니다. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.  
-2. **새 프로젝트** 대화 상자에서 **DataFactory** 템플릿을 선택하고 **빈 데이터 팩터리 프로젝트**를 클릭합니다. DataFactory 템플릿이 보이지 않으면 Visual Studio를 닫고 Visual Studio 2013용 Azure SDK를 설치한 다음 Visual Studio를 다시 엽니다.  
+1. **Visual Studio 2013** 또는 **Visual Studio 2015**를 시작합니다. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.  
+2. **새 프로젝트** 대화 상자에서 **DataFactory** 템플릿을 선택하고 **빈 데이터 팩터리 프로젝트**를 클릭합니다.   
 
 	![새 프로젝트 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
-3. 프로젝트의 **이름**, **위치**, **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
+3. 프로젝트의 **이름**, **위치** 및 **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
 
 	![솔루션 탐색기](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
@@ -59,12 +64,12 @@
 #### Azure 저장소 연결된 서비스 만들기
 
 
-4. 솔루션 탐색기에서 **연결된 서비스** 노드를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
+4. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
 5. **새 항목 추가** 대화 상자의 목록에서 **Azure 저장소 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다. 
 
 	![새 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-linked-service-dialog.png)
  
-3. **accountname** 및 **accountkey**를 Azure 저장소 계정 이름 및 해당 키로 바꿉니다.
+3. **accountname** 및 **accountkey**를 Azure 저장소 계정 및 해당 키로 바꿉니다.
 
 	![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 
@@ -73,7 +78,7 @@
 #### Azure HDInsight 연결된 서비스 만들기
 Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터의 연결된 서비스를 만듭니다.
 
-1. **솔루션 탐색기**에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리켜서 **새 항목**을 클릭합니다.
+1. **솔루션 탐색기**에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. **주문형 HDInsight 연결된 서비스**를 선택하고 **추가**를 클릭합니다. 
 3. **JSON**을 다음으로 바꿉니다.
 
@@ -174,11 +179,11 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
  	JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 	
-	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**AzureStorageLinkedService1**이라고 하는 scriptLinkedService에 의해 지정되는)과 **스크립트** 컨테이너에 저장됩니다.
+	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**AzureStorageLinkedService1**이라고 하는 scriptLinkedService에 의해 지정됨)과 **스크립트** 컨테이너에 저장됩니다.
 
 	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
-	파이프라인의 **시작** 및 **끝** 속성은 파이프라인의 활성 기간을 지정합니다.
+	파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
 	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에서 지정된 계산에 실행되도록 지정합니다.
 3. **HiveActivity1.json** 파일을 저장합니다.
@@ -237,4 +242,4 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

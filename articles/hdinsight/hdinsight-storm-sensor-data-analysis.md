@@ -422,4 +422,4 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

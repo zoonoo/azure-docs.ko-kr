@@ -47,7 +47,7 @@
 	        ParallelTransferThreadCount = 20
 	    };
 	
-	    var downloadTasks = new List&lt;Task&gt;();
+	    var downloadTasks = new List<Task>();
 	    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
 	    {
 	        // Use the following event handler to check download progress.
@@ -85,4 +85,4 @@
 
 [스트리밍 콘텐츠 제공](media-services-deliver-streaming-content.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

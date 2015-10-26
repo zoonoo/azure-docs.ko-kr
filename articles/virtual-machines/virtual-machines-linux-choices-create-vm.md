@@ -101,4 +101,4 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 [Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-tutorial.md
 [사용자 지정 가상 컴퓨터 만들기]: virtual-machines-create-custom.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->
