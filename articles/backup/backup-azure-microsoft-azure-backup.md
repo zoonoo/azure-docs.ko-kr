@@ -89,7 +89,8 @@ Microsoft Azure 백업 서버를 준비하여 다음으로 데이터를 백업�
 
     ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
 
-3. 모든 파일을 선택하고 **다음**을 클릭합니다. ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+3. 모든 파일을 선택하고 **다음**을 클릭합니다.
+![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     >[AZURE.NOTE]모든 파일의 다운로드 크기가 >3G이기 때문에 10Mbps 다운로드 링크에서 다운로드를 완료하는 데 최대 60분이 걸릴 수 있습니다.
 
@@ -148,17 +149,17 @@ Microsoft Azure 백업 서버를 준비하여 다음으로 데이터를 백업�
 
     ![Microsoft Azure 백업 PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    >[AZURE.NOTE]스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 관련된 자세한 내용은 [저장소 풀 및 디스크 저장소 구성](https://technet.microsoft.com/library/hh758075.aspx)을 참조하세요.
+    >[AZURE.NOTE] 스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 관련된 자세한 내용은 [저장소 풀 및 디스크 저장소 구성](https://technet.microsoft.com/library/hh758075.aspx)을 참조하세요.
 
 12. 제한된 로컬 사용자 계정에 강력한 암호를 제공하고 **다음**을 클릭합니다.
 
     ![Microsoft Azure 백업 PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
 
-    >[AZURE.NOTE]강력한 암호를 설정하는 것이 시스템의 보안에 중요합니다. 강력한 암호는 적어도 6자 길이이며 사용자의 계정 이름의 전체 또는 일부를 포함하지 않고 다음 네 가지 문자 중 세 가지 이상을 포함하는 암호입니다. 대문자, 소문자, 10진수 및 기호(예:!, @, #).
+    >[AZURE.NOTE] 강력한 암호를 설정하는 것이 시스템의 보안에 중요합니다. 강력한 암호는 적어도 6자 길이이며 사용자의 계정 이름의 전체 또는 일부를 포함하지 않고 다음 네 가지 문자 중 세 가지 이상을 포함하는 암호입니다. 대문자, 소문자, 10진수 및 기호(예:!, @, #).
 
 13. *Microsoft 업데이트*를 사용할지 선택하여 업데이트를 확인하고 **다음**을 클릭합니다.
 
-    >[AZURE.NOTE]Windows 업데이트에 Microsoft Update를 리디렉션하는 것이 좋으며 이는 Windows 및 Microsoft Azure 백업 서버와 같은 다른 제품에 대한 보안 및 중요 업데이트를 제공합니다.
+    >[AZURE.NOTE] Windows 업데이트에 Microsoft Update를 리디렉션하는 것이 좋으며 이는 Windows 및 Microsoft Azure 백업 서버와 같은 다른 제품에 대한 보안 및 중요 업데이트를 제공합니다.
 
     ![Microsoft Azure 백업 PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
@@ -190,7 +191,7 @@ Microsoft Azure 백업 서버를 준비하여 다음으로 데이터를 백업�
 
     ![Microsoft Azure 백업 PreReq2](./media/backup-azure-microsoft-azure-backup/encrypt1.png)
 
-    >[AZURE.NOTE]기밀성을 유지하려면 Microsoft Azure 백업 서버는 이 암호를 데이터와 함께 Azure에 보내지 않습니다. 안전한 위치에 Azure에서 데이터를 복원할 때 필요한 암호를 저장해야 합니다.
+    >[AZURE.NOTE] 기밀성을 유지하려면 Microsoft Azure 백업 서버는 이 암호를 데이터와 함께 Azure에 보내지 않습니다. 안전한 위치에 Azure에서 데이터를 복원할 때 필요한 암호를 저장해야 합니다.
 
     Microsoft Azure 백업 서버의 등록을 성공적으로 완료하면 설치는 SQL Server Standard 2014의 설치 및 구성을 진행합니다.(선택 시)
 
@@ -212,31 +213,40 @@ Microsoft Azure 백업 서버를 준비하여 다음으로 데이터를 백업�
 
 ## 문제 해결
 
-설치(또는 백업 또는 복원) 단계 동안 Microsoft Azure 백업 서버가 오류로 실패하면 자세한 내용은 [오류 코드 문서](https://support.microsoft.com/kb/3041338)를 참조합니다. [Azure 백업 관련 FAQ](backup-azure-backup-faq.md)를 참조할 수 있습니다.
+설치(또는 백업 또는 복원) 단계 동안 Microsoft Azure 백업 서버가 오류로 실패하면 자세한 내용은 [오류 코드 문서](https://support.microsoft.com/kb/3041338)를 참조합니다.
+[Azure 백업 관련 FAQ](backup-azure-backup-faq.md)를 참조할 수 있습니다.
 
 ## FAQ
 
 ### 설치 및 배포
 
-Q: NTFS 압축은 디스크 백업에 사용된 Microsoft Azure 백업 서버 디스크/볼륨에서 지원됩니까? <br>A: NTFS는 Microsoft Azure 백업 서버에 연결된 디스크/볼륨에서 지원되지**않습니다**.
+Q: NTFS 압축은 디스크 백업에 사용된 Microsoft Azure 백업 서버 디스크/볼륨에서 지원됩니까?
+<br>A: NTFS는 Microsoft Azure 백업 서버에 연결된 디스크/볼륨에서 지원되지**않습니다**.
 
-Q: Microsoft Azure 백업 서버를 새 도메인 게시 배포로 이동할 수 있습니까? <br>A: 아니요, Microsoft Azure 백업 서버를 새 도메인 게시 배포로 이동하도록 지원하지 **않습니다**.
+Q: Microsoft Azure 백업 서버를 새 도메인 게시 배포로 이동할 수 있습니까?
+<br>A: 아니요, Microsoft Azure 백업 서버를 새 도메인 게시 배포로 이동하도록 지원하지 **않습니다**.
 
-Q: 도메인 컨트롤러에 설치된 경우 어떤 리소스가 Microsoft Azure 백업 서버를 보호할 수 있습니까? <br>A: 도메인 컨트롤러와 동일한 서버에 함께 설치된 경우 Microsoft Azure 백업 서버는 로컬 데이터 원본만 보호할 수 있습니다. 다른 서버의 워크로드를 보호하기 위해 Microsoft Azure 백업 서버는 도메인 컨트롤러와 동일한 컴퓨터에 설치하지 마십시오.
+Q: 도메인 컨트롤러에 설치된 경우 어떤 리소스가 Microsoft Azure 백업 서버를 보호할 수 있습니까?
+<br>A: 도메인 컨트롤러와 동일한 서버에 함께 설치된 경우 Microsoft Azure 백업 서버는 로컬 데이터 원본만 보호할 수 있습니다. 다른 서버의 워크로드를 보호하기 위해 Microsoft Azure 백업 서버는 도메인 컨트롤러와 동일한 컴퓨터에 설치하지 마십시오.
 
-Q: Microsoft Azure 백업 서버는 원격 SQL Server 인스턴스를 사용할 수 있습니까? <br>A: 아니요, Microsoft Azure 백업 서버는 로컬 SQL Server 인스턴스만을 사용할 수 있습니다.
+Q: Microsoft Azure 백업 서버는 원격 SQL Server 인스턴스를 사용할 수 있습니까?
+<br>A: 아니요, Microsoft Azure 백업 서버는 로컬 SQL Server 인스턴스만을 사용할 수 있습니다.
 
 ### Microsoft Azure 백업 서버 저장소 풀
 
-Q: Microsoft Azure 백업 서버 저장소 풀에서 가상 디스크(VHD/HDx)를 제공할 수 있습니까? <br>A: 예.
+Q: Microsoft Azure 백업 서버 저장소 풀에서 가상 디스크(VHD/HDx)를 제공할 수 있습니까?
+<br>A: 예.
 
-Q: Microsoft Azure 백업 서버 저장소 풀에 중복 제거를 가져올 수 있습니까? <br>A: 예, Microsoft Azure 백업 서버 저장소 풀에 중복 제거를 사용 가능합니다. Microsoft Azure 백업 서버에 대한 사용자 환경은 해당 [DPM 블로그 게시물](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)에서 자세히 설명된 바와 같습니다.
+Q: Microsoft Azure 백업 서버 저장소 풀에 중복 제거를 가져올 수 있습니까?
+<br>A: 예, Microsoft Azure 백업 서버 저장소 풀에 중복 제거를 사용 가능합니다. Microsoft Azure 백업 서버에 대한 사용자 환경은 해당 [DPM 블로그 게시물](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)에서 자세히 설명된 바와 같습니다.
 
-Q: USB 또는 제거 드라이브는 Microsoft Azure 백업 서버 저장소 풀에 사용할 수 있습니까? <br>A: 아니요.
+Q: USB 또는 제거 드라이브는 Microsoft Azure 백업 서버 저장소 풀에 사용할 수 있습니까?
+<br>A: 아니요.
 
 ### Azure 서비스에 Microsoft Azure 백업 서버 연결
 
-Q: Azure 서비스 및 Azure 구독에 Microsoft Azure 백업 서버 연결 상태가 백업 및 복원에 어떤 영향을 줍니까? <br>A: Microsoft Azure 백업 서버가 Azure 서비스에 연결되어야 제품이 제대로 작동합니다. 이와 동시에 Azure 구독은 정상 상태여야 합니다.
+Q: Azure 서비스 및 Azure 구독에 Microsoft Azure 백업 서버 연결 상태가 백업 및 복원에 어떤 영향을 줍니까?
+<br>A: Microsoft Azure 백업 서버가 Azure 서비스에 연결되어야 제품이 제대로 작동합니다. 이와 동시에 Azure 구독은 정상 상태여야 합니다.
 
 다음 테이블에서 다른 연결 및 Azure 구독 상태와 관련하여 Microsoft Azure 백업 서버의 기능을 설명합니다.
 
@@ -249,15 +259,20 @@ Q: Azure 서비스 및 Azure 구독에 Microsoft Azure 백업 서버 연결 상�
 | 손실된 연결 > 15일 | 만료됨 | 중지됨 | 중지됨 | 허용됨 | 허용됨 |
 | 손실된 연결 > 15일 | 프로비전 해제됨 | 중지됨 | 중지됨 | 중지되고 Azure 복구 지점 삭제됨 | 중지됨 |
 
-Q: 구독 상태가 계속 *활성*이라고 가정하면 Microsoft Azure 백업 서버 연결이 복원된 경우 어떻게 될까요? <br>A: Microsoft Azure 서비스에 Azure 백업 서버 연결이 정상적으로 다시 시작되고 구독 상태가 *활성*이면 Microsoft Azure 백업 서버의 모든 작업이 허용됩니다. 두 디스크에 뿐만 아니라 Azure에도 백업이 정상적으로 수행됩니다.
+Q: 구독 상태가 계속 *활성*이라고 가정하면 Microsoft Azure 백업 서버 연결이 복원된 경우 어떻게 될까요?
+<br>A: Microsoft Azure 서비스에 Azure 백업 서버 연결이 정상적으로 다시 시작되고 구독 상태가 *활성*이면 Microsoft Azure 백업 서버의 모든 작업이 허용됩니다. 두 디스크에 뿐만 아니라 Azure에도 백업이 정상적으로 수행됩니다.
 
-Q: *만료됨* 상태에서 *활성* 상태로 구독 상태를 복원하는 경우 어떻게 됩니까? <br>A: Microsoft Azure 서비스에 Azure 백업 서버 연결이 정상적으로 다시 시작된다고 가정하면 Microsoft Azure 백업 서버 구독 상태가 *활성*으로 복원되면 Microsoft Azure 백업 서버의 모든 작업이 허용됩니다. 이제 두 디스크에 뿐만 아니라 Azure에도 백업이 정상적으로 수행됩니다.
+Q: *만료됨* 상태에서 *활성* 상태로 구독 상태를 복원하는 경우 어떻게 됩니까?
+<br>A: Microsoft Azure 서비스에 Azure 백업 서버 연결이 정상적으로 다시 시작된다고 가정하면 Microsoft Azure 백업 서버 구독 상태가 *활성*으로 복원되면 Microsoft Azure 백업 서버의 모든 작업이 허용됩니다. 이제 두 디스크에 뿐만 아니라 Azure에도 백업이 정상적으로 수행됩니다.
 
-Q: *프로비전 해제됨* 상태에서 *활성* 상태로 구독 상태를 복원하는 경우 어떻게 됩니까? <br>A: Microsoft Azure 서비스에 Azure 백업 서버 연결이 정상적으로 다시 시작된다고 가정하면 Microsoft Azure 백업 서버 구독 상태가 *활성*으로 복원되면 Microsoft Azure 백업 서버의 모든 작업이 허용됩니다. 그러나 Azure 복구 지점이 삭제되고 복원될 수 없습니다. 디스크 백업이 유효한 보존 범위에 있는 경우 디스크 복구 지점은 복원할 수 있습니다.
+Q: *프로비전 해제됨* 상태에서 *활성* 상태로 구독 상태를 복원하는 경우 어떻게 됩니까?
+<br>A: Microsoft Azure 서비스에 Azure 백업 서버 연결이 정상적으로 다시 시작된다고 가정하면 Microsoft Azure 백업 서버 구독 상태가 *활성*으로 복원되면 Microsoft Azure 백업 서버의 모든 작업이 허용됩니다. 그러나 Azure 복구 지점이 삭제되고 복원될 수 없습니다. 디스크 백업이 유효한 보존 범위에 있는 경우 디스크 복구 지점은 복원할 수 있습니다.
 
-Q: 공용 Azure 서비스에 Microsoft Azure 백업 서버 연결을 허용하기 위해 어떤 예외를 만들어야 합니까? <br>A: 방화벽 프로필에서 다음 도메인 주소를 허용해야 합니다. www.msftncsi.com, *. Microsoft.com, *. WindowsAzure.com, *. microsoftonline.com, *. windows.net.
+Q: 공용 Azure 서비스에 Microsoft Azure 백업 서버 연결을 허용하기 위해 어떤 예외를 만들어야 합니까?
+<br>A: 방화벽 프로필에서 다음 도메인 주소를 허용해야 합니다. www.msftncsi.com, *. Microsoft.com, *. WindowsAzure.com, *. microsoftonline.com, *. windows.net.
 
-Q: Microsoft Azure 백업 서버가 Azure 서비스에 연결되었는지 여부를 어떻게 확인할 수 있습니까? <br>A: Microsoft Azure 백업 서버 콘솔에서 다음 PowerShell cmdlet을 실행합니다.
+Q: Microsoft Azure 백업 서버가 Azure 서비스에 연결되었는지 여부를 어떻게 확인할 수 있습니까?
+<br>A: Microsoft Azure 백업 서버 콘솔에서 다음 PowerShell cmdlet을 실행합니다.
 
 ```
 Get-DPMCloudConnection
@@ -266,19 +281,25 @@ TRUE - Connected to Azure service
 FALSE - Not connected to Azure service
 ```
 
-Q: 내 구독 상태가 *활성*이 아닌 이유가 무엇입니까? *활성*으로 변경하려면 어떻게 합니까? <br>A: [구독 포털](https://account.windowsazure.com/Subscriptions)에 로그온하고 구독을 관리합니다.
+Q: 내 구독 상태가 *활성*이 아닌 이유가 무엇입니까? *활성*으로 변경하려면 어떻게 합니까?
+<br>A: [구독 포털](https://account.windowsazure.com/Subscriptions)에 로그온하고 구독을 관리합니다.
 
 ### 결제
 
-Q: Microsoft Azure 백업 서버에 대한 요금 청구 모델은 무엇입니까? <br>A: 보호된 인스턴스 모델을 통해 사용자에게 요금이 청구됩니다. 자세한 내용은 [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지에서 FAQ를 참조합니다.
+Q: Microsoft Azure 백업 서버에 대한 요금 청구 모델은 무엇입니까?
+<br>A: 보호된 인스턴스 모델을 통해 사용자에게 요금이 청구됩니다. 자세한 내용은 [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지에서 FAQ를 참조합니다.
 
-Q: 디스크에 데이터를 보호한 경우 요금 청구 모델은 무엇입니까? <br>A:는 요금 청구 모델은 보호된 인스턴스 모델과 같습니다. 해당 데이터가 온-프레미스 저장소에서 보호되므로 디스크 기반 백업의 경우 Azure 저장소 요금이 없습니다. 이 경우 보호된 인스턴스 요금만 고객에게 청구됩니다. 인스턴스의 정의가 무엇이고 인스턴스당 얼마가 청구되는지에 대한 자세한 내용은 [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지의 FAQ를 참조합니다.
+Q: 디스크에 데이터를 보호한 경우 요금 청구 모델은 무엇입니까?
+<br>A:는 요금 청구 모델은 보호된 인스턴스 모델과 같습니다. 해당 데이터가 온-프레미스 저장소에서 보호되므로 디스크 기반 백업의 경우 Azure 저장소 요금이 없습니다. 이 경우 보호된 인스턴스 요금만 고객에게 청구됩니다. 인스턴스의 정의가 무엇이고 인스턴스당 얼마가 청구되는지에 대한 자세한 내용은 [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지의 FAQ를 참조합니다.
 
-Q: 보호된 인스턴스당 요금이란 무엇입니까? <br>A: [가격 책정 페이지](http://azure.microsoft.com/pricing/details/backup/)를 참조합니다.
+Q: 보호된 인스턴스당 요금이란 무엇입니까?
+<br>A: [가격 책정 페이지](http://azure.microsoft.com/pricing/details/backup/)를 참조합니다.
 
-Q: 다른 응용 프로그램 워크로드 및 보호된 인스턴스 요금을 강조 표시하는 예제는 어디서 찾을 수 있습니까? <br>A: [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지의 "예제 섹션"을 참조합니다.
+Q: 다른 응용 프로그램 워크로드 및 보호된 인스턴스 요금을 강조 표시하는 예제는 어디서 찾을 수 있습니까?
+<br>A: [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지의 "예제 섹션"을 참조합니다.
 
-Q: Microsoft Azure 백업 서버는 클라우드 뿐만 아니라 디스크에 보호된 데이터 원본을 어떻게 청구합니까? <br>A: 데이터를 디스크 또는 클라우드 중 어디에 백업했는지와 관계 없이 Microsoft Azure 백업 서버는 보호된 인스턴스에 따라 요금을 청구합니다. 보호된 인스턴스 크기는 데이터 원본의 프런트 엔드 크기에 따라 계산됩니다. 또한 Azure 저장소에서 백업 데이터의 경우 Azure 저장소 비용도 적용합니다.
+Q: Microsoft Azure 백업 서버는 클라우드 뿐만 아니라 디스크에 보호된 데이터 원본을 어떻게 청구합니까?
+<br>A: 데이터를 디스크 또는 클라우드 중 어디에 백업했는지와 관계 없이 Microsoft Azure 백업 서버는 보호된 인스턴스에 따라 요금을 청구합니다. 보호된 인스턴스 크기는 데이터 원본의 프런트 엔드 크기에 따라 계산됩니다. 또한 Azure 저장소에서 백업 데이터의 경우 Azure 저장소 비용도 적용합니다.
 
 ## 다음 단계
 

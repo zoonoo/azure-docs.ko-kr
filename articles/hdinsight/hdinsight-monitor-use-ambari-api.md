@@ -50,7 +50,7 @@ HDInsight 클러스터 이름|$clusterName||HDInsight 클러스터의 이름입�
 클러스터 사용자 이름|$clusterUsername||프로비전 시 지정된 클러스터 사용자 이름입니다.
 클러스터 암호|$clusterPassword||클러스터 사용자 암호입니다.
 
-	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
+	> [AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
 
 
 

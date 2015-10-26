@@ -127,13 +127,15 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 	![HBase 클러스터에 대한 세부 정보 제공](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
 
 	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>데이터 노드</td><td>배포하려는 데이터 노드 수를 선택합니다. 테스트 목적으로 단일 노드 클러스터를 만듭니다. <br />클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 Azure 청구 지원 팀에 문의하세요.</td></tr>
-	<tr><td>지역/가상 네트워크</td><td><p>지역 또는 Azure 가상 네트워크를 선택합니다(이미 만든 경우). 이 자습서에서는 앞에서 만든 네트워크를 선택한 다음 해당 서브넷을 선택합니다. 기본 이름은 <b>Subnet-1</b>입니다.</p></td></tr>
-	<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-	<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-	<tr><td>Zookeeper 크기</td><td><p>Zookeeper 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-</table>>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>데이터 노드</td><td>배포하려는 데이터 노드 수를 선택합니다. 테스트 목적으로 단일 노드 클러스터를 만듭니다. <br />클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 Azure 청구 지원 팀에 문의하세요.</td></tr>
+		<tr><td>지역/가상 네트워크</td><td><p>지역 또는 Azure 가상 네트워크를 선택합니다(이미 만든 경우). 이 자습서에서는 앞에서 만든 네트워크를 선택한 다음 해당 서브넷을 선택합니다. 기본 이름은 <b>Subnet-1</b>입니다.</p></td></tr>
+		<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
+		<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
+		<tr><td>Zookeeper 크기</td><td><p>Zookeeper 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
 
 	오른쪽 단추를 클릭합니다.
 
@@ -142,43 +144,45 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 	![Hadoop HDInsight 클러스터에 대한 저장소 계정 제공](./media/hdinsight-hbase-provision-vnet/hbasewizard3.png)
 
 	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>HTTP 사용자 이름</td>
-		<td>HDInsight 클러스터 사용자 이름 지정</td></tr>
-	<tr><td>HTTP 암호/암호 확인</td>
-		<td>HDInsight 클러스터 사용자 암호 지정</td></tr>
-	<tr><td>클러스터에 대한 원격 데스크톱 활성화</td>
-		<td>클러스터가 프로비전된 후 원격 데스크톱 사용자가 클러스터 노드에 원격으로 연결할 수 있는 사용자 이름, 암호 및 만료 날짜를 지정하려면 이 확인란을 선택합니다. 클러스터가 프로비전된 후 나중에 원격 데스크톱을 사용하도록 설정할 수도 있습니다. 지침은 <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.</td></tr>
-</table>
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>HTTP 사용자 이름</td>
+			<td>HDInsight 클러스터 사용자 이름 지정</td></tr>
+		<tr><td>HTTP 암호/암호 확인</td>
+			<td>HDInsight 클러스터 사용자 암호 지정</td></tr>
+		<tr><td>클러스터에 대한 원격 데스크톱 활성화</td>
+			<td>클러스터가 프로비전된 후 원격 데스크톱 사용자가 클러스터 노드에 원격으로 연결할 수 있는 사용자 이름, 암호 및 만료 날짜를 지정하려면 이 확인란을 선택합니다. 클러스터가 프로비전된 후 나중에 원격 데스크톱을 사용하도록 설정할 수도 있습니다. 지침은 <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.</td></tr>
+	</table>
 
 6. **저장소 계정** 페이지에서 다음 값을 제공합니다.
 
     ![Hadoop HDInsight 클러스터에 대한 저장소 계정 제공](./media/hdinsight-hbase-provision-vnet/hbasewizard4.png)
 
 	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>저장소 계정</td>
-		<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 Azure 저장소 계정 지정. 세 가지 옵션 중 하나를 선택할 수 있습니다.
-		<ul>
-			<li><strong>기존 저장소 사용</strong></li>
-			<li><strong>새 저장소 만들기</strong></li>
-			<li><strong>다른 구독의 저장소 사용</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>계정 이름</td>
-		<td><ul>
-			<li>기존 저장소를 사용하도록 선택한 경우 <strong>계정 이름</strong>에 대해 기존 저장소 계정을 선택합니다. 드롭다운에는 클러스터를 프로비전하도록 선택한 것과 동일한 데이터 센터에 있는 저장소 계정만 표시됩니다.</li>
-			<li><strong>새 저장소 만들기</strong> 또는 <strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우에는 저장소 계정 이름을 제공해야 합니다.</li>
-		</ul></td></tr>
-	<tr><td>계정 키</td>
-		<td><strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우 해당 저장소 계정의 계정 키를 지정합니다.</td></tr>
-	<tr><td>기본 컨테이너</td>
-		<td><p>HDInsight 클러스터의 기본 파일 시스템으로 사용할 저장소 계정의 기본 컨테이너를 지정합니다. <strong>저장소 계정</strong> 필드에 대해 <strong>기존 저장소 사용</strong>을 선택한 경우, 해당 계정에 기존 컨테이너가 없으면 기본적으로 클러스터 이름과 동일한 이름으로 컨테이너가 생성됩니다. 클러스터의 이름을 가진 컨테이너가 이미 있는 경우에는 컨테이너 이름에 시퀀스 번호가 추가됩니다. 예를 들어 mycontainer1, mycontainer2 등과 같습니다. 그렇지만 기존 저장소 계정에 지정한 클러스터 이름과는 다른 이름의 컨테이너가 들어 있으면 해당 컨테이너도 사용할 수 있습니다.</p>
-        <p>새 저장소를 만들거나 다른 Azure 구독의 저장소를 사용하도록 선택한 경우 기본 컨테이너 이름을 지정해야 합니다.</p>
-    </td></tr>
-	<tr><td>추가 저장소 계정</td>
-		<td>필요한 경우 클러스터의 추가 저장소 계정을 지정합니다. HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 <strong>저장소 계정</strong> 페이지를 더합니다. 예를 들어 위의 스크린샷에서는 선택된 추가 저장소 계정이 없으므로 추가 페이지가 마법사에 추가되지 않았습니다.</td></tr>
-</table>오른쪽 화살표를 클릭합니다.
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>저장소 계정</td>
+			<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 Azure 저장소 계정 지정. 세 가지 옵션 중 하나를 선택할 수 있습니다.
+			<ul>
+				<li><strong>기존 저장소 사용</strong></li>
+				<li><strong>새 저장소 만들기</strong></li>
+				<li><strong>다른 구독의 저장소 사용</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>계정 이름</td>
+			<td><ul>
+				<li>기존 저장소를 사용하도록 선택한 경우 <strong>계정 이름</strong>에 대해 기존 저장소 계정을 선택합니다. 드롭다운에는 클러스터를 프로비전하도록 선택한 것과 동일한 데이터 센터에 있는 저장소 계정만 표시됩니다.</li>
+				<li><strong>새 저장소 만들기</strong> 또는 <strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우에는 저장소 계정 이름을 제공해야 합니다.</li>
+			</ul></td></tr>
+		<tr><td>계정 키</td>
+			<td><strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우 해당 저장소 계정의 계정 키를 지정합니다.</td></tr>
+		<tr><td>기본 컨테이너</td>
+			<td><p>HDInsight 클러스터의 기본 파일 시스템으로 사용할 저장소 계정의 기본 컨테이너를 지정합니다. <strong>저장소 계정</strong> 필드에 대해 <strong>기존 저장소 사용</strong>을 선택한 경우, 해당 계정에 기존 컨테이너가 없으면 기본적으로 클러스터 이름과 동일한 이름으로 컨테이너가 생성됩니다. 클러스터의 이름을 가진 컨테이너가 이미 있는 경우에는 컨테이너 이름에 시퀀스 번호가 추가됩니다. 예를 들어 mycontainer1, mycontainer2 등과 같습니다. 그렇지만 기존 저장소 계정에 지정한 클러스터 이름과는 다른 이름의 컨테이너가 들어 있으면 해당 컨테이너도 사용할 수 있습니다.</p>
+	        <p>새 저장소를 만들거나 다른 Azure 구독의 저장소를 사용하도록 선택한 경우 기본 컨테이너 이름을 지정해야 합니다.</p>
+	    </td></tr>
+		<tr><td>추가 저장소 계정</td>
+			<td>필요한 경우 클러스터의 추가 저장소 계정을 지정합니다. HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 <strong>저장소 계정</strong> 페이지를 더합니다. 예를 들어 위의 스크린샷에서는 선택된 추가 저장소 계정이 없으므로 추가 페이지가 마법사에 추가되지 않았습니다.</td></tr>
+	</table>
+
+	오른쪽 화살표를 클릭합니다.
 
 7. **스크립트 작업** 페이지에서 오른쪽 아래에 있는 확인 표시를 선택합니다. 이 자습서에서는 사용자 지정 클러스터 설정이 필요 없으므로 **스크립트 작업 추가** 단추를 클릭하지 마세요.
 

@@ -54,7 +54,8 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 For
 
 
 
-연산자는 왼쪽에서 오른쪽으로 계산됩니다. 2*(5+3)은 2*5+3과 같지 않습니다.<br> 대괄호()는 평가 순서를 변경하는 데 사용됩니다.
+연산자는 왼쪽에서 오른쪽으로 계산됩니다. 2*(5+3)은 2*5+3과 같지 않습니다.<br> 
+대괄호()는 평가 순서를 변경하는 데 사용됩니다.
 
 
 
@@ -66,9 +67,10 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 For
 
 Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매개 변수를 제공합니다.
 
-
-| Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
-
+ 
+| Domain.Netbios | Domain.FQDN | Domain.LDAP |
+| Forest.Netbios | Forest.FQDN | Forest.LDAP |
+ 
 
 시스템은 다음 매개 변수를 제공합니다.
 

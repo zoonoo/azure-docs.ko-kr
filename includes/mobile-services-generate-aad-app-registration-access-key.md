@@ -1,4 +1,4 @@
-1. **Azure 관리 포털**의 디렉터리 페이지에서 [응용 프로그램](https://manage.windowsazure.com/) 탭을 클릭합니다.
+1. [Azure 관리 포털](https://manage.windowsazure.com/) 의 디렉터리 페이지에서 **응용 프로그램** 탭을 클릭합니다.
   
 2. 통합된 응용 프로그램 등록을 클릭합니다.
 
@@ -15,7 +15,18 @@
 
 7. [Azure 관리 포털](https://manage.windowsazure.com/)에서 모바일 서비스로 다시 이동한 다음 **구성** 탭을 클릭합니다. **앱 설정** 섹션까지 아래로 스크롤하여 다음 앱 설정을 추가하고 **저장**을 클릭합니다.
 
-    <table border="1"> <tr> <th>App 설정 이름</th><th>설명</th> </tr> <tr> <td>AAD\_CLIENT\_ID</td><td>위의 단계에 있는 통합 앱에서 복사한 클라이언트 ID입니다.</td> </tr> <tr> <td>AAD\_CLIENT\_KEY</td><td>위의 단계에서 AAD 통합 앱에서 생성한 앱 키입니다.</td> </tr> <tr> <td>AAD\_TENANT\_DOMAIN</td><td>AAD 도메인 이름입니다. "mydomain.onmicrosoft.com"과 유사합니다.</td> </tr> </table><br/>
+    <table border="1">
+    <tr> <th>App 설정 이름</th><th>설명</th>
+    </tr>
+    <tr>
+    <td>AAD_CLIENT_ID</td><td>위의 단계에 있는 통합 앱에서 복사한 클라이언트 ID입니다.</td>
+    </tr>
+    <tr>
+    <td>AAD_CLIENT_KEY</td><td>위의 단계에서 AAD 통합 앱에서 생성한 앱 키입니다.</td>
+    </tr>
+    <tr> <td>AAD_TENANT_DOMAIN</td><td>AAD 도메인 이름입니다. "mydomain.onmicrosoft.com"과 유사합니다.</td>
+    </tr>
+    </table><br/>
 
  
     ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)

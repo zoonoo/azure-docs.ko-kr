@@ -20,7 +20,8 @@
 
 v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱에 빠르게 추가할 수 있습니다. Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다.
 
-  >[AZURE.NOTE]이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+  >[AZURE.NOTE]
+	이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
  여기서는 OWIN을 사용하여 다음과 같은 작업을 수행합니다. 즉, Azure AD와 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인하고, 사용자에 대한 일부 정보를 표시하고, 사용자를 앱에서 로그아웃합니다.
 
@@ -203,6 +204,8 @@ public ActionResult About()
 
 [v2.0 앱 모델을 사용하여 Web API 보안 유지 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-추가 리소스는 다음을 확인해보십시오. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+추가 리소스는 다음을 확인해보세요. 
+- [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) 
+- [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=Oct15_HO3-->

@@ -63,7 +63,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **ArcGIS Sign-on URL** 텍스트 상자에 다음 패턴 "**https://company.maps.arcgis.com*"을 사용하여 로그인하기 위해 사용자가 사용한 URL을 입력한 다음 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **ArcGIS Sign-on URL** 텍스트 상자에 다음 패턴 "*https://company.maps.arcgis.com*"을 사용하여 로그인하기 위해 사용자가 사용한 URL을 입력한 다음 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-arcgis-tutorial/IC784740.png "앱 URL 구성")
 
@@ -99,7 +99,8 @@
     ![Single Sign-On 구성](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
 
-Azure AD 사용자가 ArcGIS에 로그인할 수 있도록 하려면 ArcGIS로 프로비전되어야 합니다. ArcGIS의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자가 ArcGIS에 로그인할 수 있도록 하려면 ArcGIS로 프로비전되어야 합니다.  
+ArcGIS의 경우 프로비전은 수동 작업입니다.
 
 ###사용자 프로비전을 구성하려면
 
@@ -124,7 +125,7 @@ Azure AD 사용자가 ArcGIS에 로그인할 수 있도록 하려면 ArcGIS로 �
 
     ![멤버 추가](./media/active-directory-saas-arcgis-tutorial/IC784750.png "멤버 추가")
 
->[AZURE.NOTE]다른 ArcGIS 사용자 계정 생성 도구 또는 ArcGIS가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 ArcGIS 사용자 계정 생성 도구 또는 ArcGIS가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
 
@@ -134,7 +135,7 @@ Azure AD 사용자가 ArcGIS에 로그인할 수 있도록 하려면 ArcGIS로 �
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **ArcGIS ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **ArcGIS** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-arcgis-tutorial/IC784751.png "사용자 할당")
 

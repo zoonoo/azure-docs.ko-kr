@@ -38,7 +38,8 @@
 
 7. 테스트를 실행하거나 공지를 활성화할 때 지정된 대로 이모티콘이 있는 알림이 표시됩니다.
 
-	![][3] ![][4]
+	![][3] 
+	![][4]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png

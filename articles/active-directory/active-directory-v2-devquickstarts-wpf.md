@@ -20,7 +20,8 @@
 
 v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 데스크톱 앱에 빠르게 추가할 수 있습니다. 또한 앱이 백 엔드 Web API 및 [Office 365 통합 API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 중 일부와 안전하게 통신할 수 있도록 합니다.
 
-> [AZURE.NOTE]이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+> [AZURE.NOTE] 
+	이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
 [장치에서 실행되는 .NET 네이티브 앱](active-directory-v2-flows.md#mobile-and-native-apps)의 경우 Azure AD는 Active Directory 인증 라이브러리 또는 ADAL을 제공합니다. ADAL의 유일한 용도는 앱이 쉽게 웹 서비스 호출을 위한 토큰을 가져오도록 하는 것입니다. 액세스 토큰을 얼마나 쉽게 가져올 수 있는지 보여 주기 위해 여기서는 다음과 같은 작업을 수행하는 .NET WPF To-Do List 앱을 빌드하겠습니다.
 
@@ -217,7 +218,12 @@ private async void GetTodoList()
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
 ```C#
-private async void SignIn(object sender = null, RoutedEventArgs args = null) { // If the user clicked the 'clear cache' button, // clear the ADAL token cache and show the user as signed out. // It's also necessary to clear the cookies from the browser // control so the next user has a chance to sign in.
+private async void SignIn(object sender = null, RoutedEventArgs args = null) 
+{ 
+	// If the user clicked the 'clear cache' button, 
+	// clear the ADAL token cache and show the user as signed out. 
+	// It's also necessary to clear the cookies from the browser 
+	// control so the next user has a chance to sign in.
 
 		if (SignInButton.Content.ToString() == "Clear Cache")
 		{

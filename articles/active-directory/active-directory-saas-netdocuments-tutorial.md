@@ -51,7 +51,9 @@
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 NetDocuments에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. NetDocuments에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 NetDocuments에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
+NetDocuments에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다.
+이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 

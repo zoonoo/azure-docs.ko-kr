@@ -64,7 +64,8 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 
 -  공개 IPv4 주소를 사용하는 VPN 장치. 마법사를 완료하려면 IP 주소가 필요합니다. VPN 장치는 NAT(Network Address Translator) 뒤에 배치될 수 없으며 최소 장치 표준을 충족해야 합니다. 자세한 내용은 [가상 네트워크의 VPN 장치 정보](http://go.microsoft.com/fwlink/p/?LinkID=248098)를 참조하십시오.
 
-	참고: VPN 솔루션의 일부로 Windows Server에서 RRAS(라우팅 및 원격 액세스 서비스)를 사용할 수 있습니다. 그러나 이 자습서에서는 RRAS 구성 단계를 안내하지 않습니다. RRAS 구성 정보에 대해서는 [라우팅 및 원격 액세스 서비스 템플릿](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)을 참조하십시오.
+	참고: VPN 솔루션의 일부로 Windows Server에서 RRAS(라우팅 및 원격 액세스 서비스)를 사용할 수 있습니다. 그러나 이 자습서에서는 RRAS 구성 단계를 안내하지 않습니다.
+	 RRAS 구성 정보에 대해서는 [라우팅 및 원격 액세스 서비스 템플릿](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)을 참조하십시오.
 
 -  IPsec 터널 모드 연결을 위한 라우터 구성에 대한 경험 또는 이 단계에 도움이 될 수 있는 다른 사람
 
@@ -98,7 +99,7 @@ Azure 가상 컴퓨터에 AD DS를 배포하는 방법에 대한 지침은 [Azur
 	
 4.	**DNS 서버 및 VPN 연결** 페이지에서 다음 정보를 입력한 후 화면 아래의 오른쪽에 있는 정방향 화살표를 클릭합니다.
 
-> [AZURE.NOTE]이 페이지에서 **지점 및 사이트 간**과 **사이트 간** 구성을 동시에 선택할 수는 없습니다. 이 자습서에서는 **사이트 간**만 구성하도록 선택합니다. 이 페이지의 설정에 대한 자세한 내용은 **관리 포털의 가상 네트워크 구성 정보**의 [DNS 서버 및 VPN 연결](http://go.microsoft.com/fwlink/p/?LinkID=248092) 페이지를 참조하십시오.
+> [AZURE.NOTE] 이 페이지에서 **지점 및 사이트 간**과 **사이트 간** 구성을 동시에 선택할 수는 없습니다. 이 자습서에서는 **사이트 간**만 구성하도록 선택합니다. 이 페이지의 설정에 대한 자세한 내용은 **관리 포털의 가상 네트워크 구성 정보**의 [DNS 서버 및 VPN 연결](http://go.microsoft.com/fwlink/p/?LinkID=248092) 페이지를 참조하십시오.
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 
@@ -215,30 +216,30 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 3.	다음 명령 중 하나를 실행하여 연결을 테스트합니다.
 
 	<table border="1">
-<tr>
-<th>-</th>
-<th>Cisco ASA</th>
-<th>Cisco ISR/ASR</th>
-<th>Juniper SSG/ISG</th>
-<th>Juniper SRX/J</th>
-</tr>
-
-<tr>
-<td><b>Check main mode SAs</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-</tr>
-
-<tr>
-<td><b>Check quick mode SAs</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-</tr>
-</table>
+	<tr>
+	<th>-</th>
+	<th>Cisco ASA</th>
+	<th>Cisco ISR/ASR</th>
+		<th>Juniper SSG/ISG</th>
+	<th>Juniper SRX/J</th>
+	</tr>
+	
+	<tr>
+	<td><b>Check main mode SAs</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+	</tr>
+	
+	<tr>
+	<td><b>Check quick mode SAs</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+	</tr>
+	</table>
 
 
 ##  다음 단계

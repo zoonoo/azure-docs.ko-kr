@@ -71,7 +71,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
    
 	이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 웹 앱: 응용 프로그램 문자열 및 연결 문자열 작동 방식](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)을 참조하세요.
 
-	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 미리보기 포털을 엽니다. 자세한 내용은 [웹 앱을 구성하는 방법](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
+	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 미리보기 포털을 엽니다. 자세한 내용은 [웹 앱을 구성하는 방법](/ko-KR/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
 
 ## <a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스
 
@@ -111,7 +111,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 
 	![자세한 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(표시된 오류는 빨간색으로 표시된 줄이 *Views\\Home\\Index.cshtml*에 추가되어 생성됨)
+	(표시된 오류는 빨간색으로 표시된 줄이 *Views\Home\Index.cshtml*에 추가되어 생성됨)
 
 Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 있도록 Azure 웹 앱의 파일 읽기/편집 기능을 사용하는 한 가지 예에 지나지 않습니다.
 
@@ -125,7 +125,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 프로젝트를 엽니다.
 
-1. *Controllers\\HomeController.cs*를 엽니다.
+1. *Controllers\HomeController.cs*를 엽니다.
 
 2. `About()` 메서드를 삭제하고 그 자리에 다음 코드를 삽입합니다.
 
@@ -298,7 +298,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 ### 응용 프로그램에 추적 문 추가
 
-1. *Controllers\\HomeController.cs*를 열고 파일 내용을 다음 코드로 바꿔 `System.Diagnostics`에 대한 `Trace` 문과 `using` 문을 추가합니다.
+1. *Controllers\HomeController.cs*를 열고 파일 내용을 다음 코드로 바꿔 `System.Diagnostics`에 대한 `Trace` 문과 `using` 문을 추가합니다.
 
 		using System;
 		using System.Collections.Generic;
@@ -519,9 +519,9 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	![다운로드한 파일](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* 응용 프로그램 추적 로그는 *LogFiles\\Application* 폴더에 *.txt* 파일로 기록됩니다.
-	* 웹 서버 로그는 *LogFiles\\http\\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
-	* 자세한 오류 메시지 로그는 *LogFiles\\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
+	* 응용 프로그램 추적 로그는 *LogFiles\Application* 폴더에 *.txt* 파일로 기록됩니다.
+	* 웹 서버 로그는 *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
+	* 자세한 오류 메시지 로그는 *LogFiles\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
 
 	참고로, *deployments* 폴더는 소스 제어 게시로 인해 생성되는 것이며 Visual Studio 게시와는 전혀 관계가 없습니다. *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.
 
@@ -567,7 +567,8 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 1. Visual Studio **Azure 웹 앱** 창에서 **로그** 탭을 클릭한 다음 **관리 포털에서 로깅 구성**을 클릭합니다.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![로깅 구성](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![로깅 구성](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	웹 앱의 Azure 포털에서 **구성** 탭이 열립니다.
 

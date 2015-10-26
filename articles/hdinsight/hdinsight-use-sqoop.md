@@ -39,52 +39,54 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. Azure PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)
+을 참조하세요. Azure PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Windows PowerShell 스크립트 실행][powershell-script](영문)을 참조하세요.
 
 - **Azure HDInsight 클러스터**: 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
 	<table border="1">
-<tr><th>클러스터 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-<tr><td>HDInsight 클러스터 이름</td><td>$clusterName</td><td></td><td>HDInsight 클러스터 이름</td></tr>
-<tr><td>Azure 저장소 계정 이름</td><td>$storageAccountName</td><td></td><td>Azure 저장소 계정은 HDInsight 클러스터에서 사용할 수 있습니다. 이 자습서의 경우 클러스터 프로비전 프로세스 도중에 지정된 기본 저장소 계정을 사용합니다.</td></tr>
-<tr><td>Azure Blob 컨테이너 이름</td><td>$containerName</td><td></td><td>이 예에서는 기본 HDInsight 클러스터 파일 시스템에 사용되는 Blob 이름을 사용합니다. 기본적으로 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.</td></tr>
-</table>
+	<tr><th>클러스터 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
+	<tr><td>HDInsight 클러스터 이름</td><td>$clusterName</td><td></td><td>HDInsight 클러스터 이름</td></tr>
+	<tr><td>Azure 저장소 계정 이름</td><td>$storageAccountName</td><td></td><td>Azure 저장소 계정은 HDInsight 클러스터에서 사용할 수 있습니다. 이 자습서의 경우 클러스터 프로비전 프로세스 도중에 지정된 기본 저장소 계정을 사용합니다.</td></tr>
+	<tr><td>Azure Blob 컨테이너 이름</td><td>$containerName</td><td></td><td>이 예에서는 기본 HDInsight 클러스터 파일 시스템에 사용되는 Blob 이름을 사용합니다. 기본적으로 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.</td></tr>
+	</table>
 
 - ****Azure SQL 데이터베이스 또는 Microsoft SQL Server
+		- **Azure SQL 데이터베이스**: 워크스테이션에서 액세스할 수 있도록 Azure SQL 데이터베이스 서버의 방화벽 규칙을 구성해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 구성에 대한 자세한 내용은 [Azure SQL 데이터베이스 사용 시작][sqldatabase-get-started]을 참조하세요. 이 문서에는 이 자습서에 필요한 Azure SQL 데이터베이스 테이블을 만들기 위한 Windows PowerShell 스크립트가 있습니다.
 
-	- **Azure SQL 데이터베이스**: 워크스테이션에서 액세스할 수 있도록 Azure SQL 데이터베이스 서버의 방화벽 규칙을 구성해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 구성에 대한 자세한 내용은 [Azure SQL 데이터베이스 사용 시작][sqldatabase-get-started]을 참조하세요. 이 문서에는 이 자습서에 필요한 Azure SQL 데이터베이스 테이블을 만들기 위한 Windows PowerShell 스크립트가 있습니다.
-	
 		<table border="1">
-<tr><th>Azure SQL 데이터베이스 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-<tr><td>Azure SQL 데이터베이스 서버 이름</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 Azure SQL 데이터베이스 서버입니다. </td></tr>
-<tr><td>Azure SQL 데이터베이스 로그인 이름</td><td>$sqlDatabaseLogin</td><td></td><td>Azure SQL 데이터베이스 로그인 이름입니다.</td></tr>
-<tr><td>Azure SQL 데이터베이스 로그인 암호</td><td>$sqlDatabasePassword</td><td></td><td>Azure SQL 데이터베이스 로그인 암호입니다.</td></tr>
-<tr><td>Azure SQL 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 Azure SQL 데이터베이스입니다. </td></tr>
-</table>> [AZURE.NOTE]기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure Preview 포털에서 사용하도록 설정해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL 데이터베이스 만들기 및 구성][sqldatabase-create-configue]을 참조하세요.
-	
+		<tr><th>Azure SQL 데이터베이스 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
+		<tr><td>Azure SQL 데이터베이스 서버 이름</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 Azure SQL 데이터베이스 서버입니다. </td></tr>
+		<tr><td>Azure SQL 데이터베이스 로그인 이름</td><td>$sqlDatabaseLogin</td><td></td><td>Azure SQL 데이터베이스 로그인 이름입니다.</td></tr>
+		<tr><td>Azure SQL 데이터베이스 로그인 암호</td><td>$sqlDatabasePassword</td><td></td><td>Azure SQL 데이터베이스 로그인 암호입니다.</td></tr>
+		<tr><td>Azure SQL 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 Azure SQL 데이터베이스입니다. </td></tr>
+		</table>
+
+		> [AZURE.NOTE]기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure 포털에서 사용하도록 설정해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL 데이터베이스 만들기 및 구성][sqldatabase-create-configue]을 참조하세요.
+
 	* **SQL Server**: HDInsight 클러스터가 SQL Server와 같은 Azure의 가상 네트워크에 있으면 이 문서의 단계를 사용하여 SQL Server 데이터베이스에 대해 데이터 가져오기 및 내보내기를 수행할 수 있습니다.
-	
+
 		> [AZURE.NOTE]HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
-	
-		* 가상 네트워크를 만들고 구성하려면 [가상 네트워크 구성 작업](../services/virtual-machines/)을 참조하세요.
-	
+
+		* 가상 네트워크를 만들고 구성하려면 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
+
 			* 데이터 센터에서 SQL Server를 사용할 때는 가상 네트워크를 *사이트 간* 또는 *지점 및 사이트 간*으로 구성해야 합니다.
-	
+
 				> [AZURE.NOTE]**지점 및 사이트 간** 가상 네트워크의 경우 SQL Server가 VPN 클라이언트 구성 응용 프로그램을 실행해야 합니다. 이 응용 프로그램은 Azure 가상 네트워크 구성의 **대시보드**에서 사용 가능합니다.
-	
+
 			* Azure 가상 컴퓨터에서 SQL Server를 사용할 때는 SQL Server를 호스트하는 가상 컴퓨터가 HDInsight와 같은 가상 네트워크의 멤버이면 모든 가상 네트워크 구성을 사용할 수 있습니다.
-	
+
 		* 가상 네트워크에 HDInsight 클러스터를 프로비전하려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
-	
+
 		> [AZURE.NOTE]SQL Server는 인증도 허용해야 합니다. 이 문서의 단계를 완료하려면 SQL 서버 로그인을 사용해야 합니다.
-	
+
 		<table border="1">
-<tr><th>SQL Server 데이터베이스 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-<tr><td>SQL Server 이름</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 SQL Server입니다. </td></tr>
-<tr><td>SQL Server 로그인 이름</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Server에 대한 로그인 이름입니다.</td></tr>
-<tr><td>SQL Server 로그인 암호</td><td>$sqlDatabasePassword</td><td></td><td>SQL Server에 대한 로그인 암호입니다.</td></tr>
-<tr><td>SQL Server 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 SQL Server 데이터베이스입니다. </td></tr>
-</table>
+		<tr><th>SQL Server 데이터베이스 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
+		<tr><td>SQL Server 이름</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 SQL Server입니다. </td></tr>
+		<tr><td>SQL Server 로그인 이름</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Server에 대한 로그인 이름입니다.</td></tr>
+		<tr><td>SQL Server 로그인 암호</td><td>$sqlDatabasePassword</td><td></td><td>SQL Server에 대한 로그인 암호입니다.</td></tr>
+		<tr><td>SQL Server 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보내거나 가져올 SQL Server 데이터베이스입니다. </td></tr>
+		</table>
 
 
 > [AZURE.NOTE]이전 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
@@ -102,19 +104,19 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 - */hive/warehouse/hivesampletable*에 있는 데이터 파일을 참조하는 *hivesampletable*이라는 이름의 Hive 테이블. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다. 다음은 Hive 테이블 스키마입니다.
 
 	<table border="1">
-<tr><th>필드</th><th>데이터 형식</th></tr>
-<tr><td>clientid</td><td>string</td></tr>
-<tr><td>querytime</td><td>string</td></tr>
-<tr><td>market</td><td>string</td></tr>
-<tr><td>deviceplatform</td><td>string</td></tr>
-<tr><td>devicemake</td><td>string</td></tr>
-<tr><td>devicemodel</td><td>string</td></tr>
-<tr><td>state</td><td>string</td></tr>
-<tr><td>country</td><td>string</td></tr>
-<tr><td>querydwelltime</td><td>double</td></tr>
-<tr><td>sessionid</td><td>bigint</td></tr>
-<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-</table>
+	<tr><th>필드</th><th>데이터 형식</th></tr>
+	<tr><td>clientid</td><td>string</td></tr>
+	<tr><td>querytime</td><td>string</td></tr>
+	<tr><td>market</td><td>string</td></tr>
+	<tr><td>deviceplatform</td><td>string</td></tr>
+	<tr><td>devicemake</td><td>string</td></tr>
+	<tr><td>devicemodel</td><td>string</td></tr>
+	<tr><td>state</td><td>string</td></tr>
+	<tr><td>country</td><td>string</td></tr>
+	<tr><td>querydwelltime</td><td>double</td></tr>
+	<tr><td>sessionid</td><td>bigint</td></tr>
+	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+	</table>
 
 먼저 *sample.log*와 *hivesampletable*을 Azure SQL 데이터베이스 또는 SQL Server에 내보낸 후 모바일 장치 데이터를 포함하는 테이블을 다음 경로를 통해 HDInsight에 다시 가져옵니다.
 

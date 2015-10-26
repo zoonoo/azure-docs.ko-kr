@@ -86,7 +86,7 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 로그인하지 
 
 ### 템플릿과 함께 사용자 지정 스크립트 확장 사용
 
-템플릿과 함께 사용자 지정 스크립트 확장을 사용하는 방법을 알아보려면 [이] 설명서(virtual-machines-extensions-customscript -with template.md)를 참조하세요.
+템플릿과 함께 사용자 지정 스크립트 확장을 사용하는 방법을 알아보려면  [이](virtual-machines-extensions-customscript -with template.md) 설명서 를 참조하세요.
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png

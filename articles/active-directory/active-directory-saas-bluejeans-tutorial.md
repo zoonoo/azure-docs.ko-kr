@@ -97,9 +97,9 @@
 
     ![변경 내용 저장](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "변경 내용 저장")
 
-    1.  **사용자 ID** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
-2.  **전자 메일** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
-3.  **변경 내용 저장**을 클릭합니다.
+    1.  **사용자 ID** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
+    2.  **전자 메일** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
+    3.  **변경 내용 저장**을 클릭합니다.
 
 10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 

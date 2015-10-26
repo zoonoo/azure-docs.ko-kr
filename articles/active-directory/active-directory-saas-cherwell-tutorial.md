@@ -66,7 +66,7 @@
     ![앱 URL 구성](./media/active-directory-saas-cherwell-tutorial/IC798992.png "앱 URL 구성")
 
     1.  **로그온 URL** 텍스트 상자에 사용자가 **Cherwell**에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://pictdev.cherwellondemand.com/cherwellclient*))
-2.  **다음**를 클릭합니다.
+    2.  **다음**를 클릭합니다.
 
 4.  **Cherwell의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.
 

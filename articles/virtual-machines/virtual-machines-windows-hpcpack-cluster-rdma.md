@@ -40,7 +40,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 ## 필수 조건
 
-* 계산 집약적 인스턴스에 대한 ￼**[배경 정보 및 고려 사항](virtual-machines-a8-a9-a10-a11-specs.md)￼ 검토**
+* 계산 집약적 인스턴스에 대한 **[배경 정보 및 고려 사항](virtual-machines-a8-a9-a10-a11-specs.md) 검토**
 
 
 * **Azure 구독** - 계정이 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.

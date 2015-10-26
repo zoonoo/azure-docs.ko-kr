@@ -242,11 +242,11 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
+## 4. Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
 
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
+이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점 끝점과 통신하도록 올바르게 구성되었습니다.  `passport-azure-ad` 이 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다.  이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
 
-- First, lets add the default, login, account, and logout methods to our `app.js` file:
+- 먼저 `app.js`  파일에 default, login, account 및 logout 메서드를 추가합니다.
 
 ```JavaScript
 
@@ -262,14 +262,14 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	자세히 살펴보겠습니다.
+    -	`/`  경로는 요청에 사용자를 전달하여(있는 경우) index.ejs 뷰로 리디렉션됩니다.
+    - `/account`  경로는 먼저 ***인증되었는지 확인***하고(아래에서 구현) 사용자에 대한 추가 정보를 얻을 수 있도록 요청에 사용자를 전달합니다.
+    - `/login`  경로는 `passport-azuread` 에서 azuread-openidconnect 인증자를 호출하고, 실패할 경우 사용자를 다시 /login으로 리디렉션합니다.
+    - `/logout` 은 쿠키를 지우는 logout.ejs(및 경로)를 호출하고 사용자를 다시 index.ejs로 돌려보냅니다.
 
 
-- For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
+- `app.js` 의 마지막 부분을 위해 위의 `/account` 에서 사용된 EnsureAuthenticated 메서드를 추가하겠습니다.
 
 ```JavaScript
 

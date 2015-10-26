@@ -376,7 +376,12 @@ API 앱이 Dropbox API를 호출할 수 있게 하려면 API 앱과 Dropbox 개�
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	다른 공급자에 대해 사용하는 값은 다음과 같습니다. * "microsoftaccount" * "facebook" * "twitter" * "google"<br/><br/>
+	다른 공급자에 대해 사용하는 값은 다음과 같습니다.
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * `GetConsentLinkAsync()` 메서드에 대한 두 번째 매개 변수는 사용자가 Dropbox에 로그인한 후 동의 서버가 리디렉션되는 콜백 URL로, 사용자 계정에 액세스할 수 있는 동의를 제공합니다.
 
@@ -444,7 +449,7 @@ Dropbox 로그인 이후에 나타나는 리디렉션 URL은 다음과 같을 �
 
 SaaS 플랫폼에 연결되는 API 앱을 코딩 및 구성하는 방법을 살펴보았습니다. API 앱에서 인증을 처리하는 방법에 대한 다른 자습서로 연결되는 링크를 보려면 [API 앱 및 모바일 앱에 대한 인증 - 다음 단계](../app-service/app-service-authentication-overview.md#next-steps)를 참조하세요.
 
-[Azure preview portal]: https://portal.azure.com/
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Preview 포털]: https://portal.azure.com/
+[Azure 포털]: https://manage.windowsazure.com/
 
 <!---HONumber=Oct15_HO3-->

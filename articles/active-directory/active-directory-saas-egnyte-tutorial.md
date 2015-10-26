@@ -51,7 +51,9 @@
     ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Egnyte에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base 64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Egnyte에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+이 절차의 일부로 base 64로 인코딩된 인증서 파일을 만들어야 합니다.  
+이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 

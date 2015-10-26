@@ -18,7 +18,9 @@
 
 # Windows 앱에 대해 오프라인 동기화 사용
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## 개요
 
@@ -249,7 +251,7 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [Cloud Cover: Azure 모바일 서비스의 오프라인 동기화](참고: 동영상은 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [Cloud Cover: Azure 모바일 서비스의 오프라인 동기화]  \(참고: 동영상은 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.\)
 
 * [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]
 

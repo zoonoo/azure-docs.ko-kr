@@ -18,7 +18,8 @@
 
 # 앱 모델 v2.0 미리 보기: node.js를 사용하여 Web API 보안 유지
 
-> [AZURE.NOTE]이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+> [AZURE.NOTE]
+이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
 v2.0 앱 모델에서는 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 액세스 토큰을 사용하여 Web API를 보호함으로써 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 가진 사용자가 Web API에 안전하게 액세스할 수 있도록 합니다.
 
@@ -271,7 +272,8 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 *audience*: 포털에서의 리디렉션 URI입니다.
 
-> [AZURE.NOTE]키는 자주 롤링됩니다. 항상 "openid\_keys" URL에서 끌어오고 있으며 앱에서 인터넷에 액세스할 수 있는지 확인하세요.
+> [AZURE.NOTE]
+키는 자주 롤링됩니다. 항상 "openid\_keys" URL에서 끌어오고 있으며 앱에서 인터넷에 액세스할 수 있는지 확인하세요.
 
 
 ## 11: server.js 파일에 구성 추가
@@ -648,7 +650,8 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
 그런 다음 해당 디렉터리로 변경하고 curl을 시작합니다.
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread` 
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -714,7 +717,8 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]API를 작성하는 경우 항상 사용자가 스푸핑할 수 없는 토큰의 고유한 항목에 데이터를 연결해야 합니다. 이 서버는 TODO 항목을 저장할 때 "owner" 필드에 넣은 토큰의 사용자 구독 ID(token.sub라고 함)를 기준으로 항목을 저장합니다. 이렇게 하면 해당 사용자만 자신의 TODO에 액세스할 수 있고 다른 사용자는 입력된 TODO에 액세스할 수 없습니다. API에 "owner"가 노출되지 않으므로 외부 사용자가 인증된 경우에도 다른 사용자의 TODO를 요청할 수 있습니다.
+> [AZURE.TIP]
+API를 작성하는 경우 항상 사용자가 스푸핑할 수 없는 토큰의 고유한 항목에 데이터를 연결해야 합니다. 이 서버는 TODO 항목을 저장할 때 "owner" 필드에 넣은 토큰의 사용자 구독 ID(token.sub라고 함)를 기준으로 항목을 저장합니다. 이렇게 하면 해당 사용자만 자신의 TODO에 액세스할 수 있고 다른 사용자는 입력된 TODO에 액세스할 수 없습니다. API에 "owner"가 노출되지 않으므로 외부 사용자가 인증된 경우에도 다른 사용자의 TODO를 요청할 수 있습니다.
 
 다음에는 passport-azure-ad에 포함된 Open ID Connect 전달자 전략을 사용하겠습니다. 지금은 코드만 살펴보고 곧 설명하겠습니다. 위에서 붙여넣은 코드 뒤에 이 코드를 넣습니다.
 
@@ -763,7 +767,8 @@ passport.use(oidcStrategy);
 
 Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 전략(Twitter, Facebook 등)에 대해 사용합니다. 전략을 보면 토큰 및 완료가 매개 변수로 포함된 function()이 전달되는 것을 확인할 수 있습니다. 전략은 모든 작업을 수행한 후 돌아옵니다. 전략이 돌아오면 사용자를 저장하고 토큰을 다시 요청할 필요가 없도록 보관하려 합니다.
 
-> [AZURE.IMPORTANT]위 코드는 서버에 인증하는 모든 사용자를 사용합니다. 이를 자동 등록이라고 합니다. 프로덕션 서버에서는 결정한 등록 프로세스를 먼저 통과해야만 사용자 액세스를 허용하려 합니다. 일반적으로 이는 Facebook으로 등록할 수 있도록 하지만 추가 정보를 입력하도록 요구하는 소비자 앱에서 나타나는 패턴입니다. 명령줄 프로그램이 아니라면 반환된 토큰 개체에서 메일을 추출하고 추가 정보를 입력하도록 요구할 수 있습니다. 테스트 서버이므로 메모리 내 데이터베이스에 추가합니다.
+> [AZURE.IMPORTANT]
+위 코드는 서버에 인증하는 모든 사용자를 사용합니다. 이를 자동 등록이라고 합니다. 프로덕션 서버에서는 결정한 등록 프로세스를 먼저 통과해야만 사용자 액세스를 허용하려 합니다. 일반적으로 이는 Facebook으로 등록할 수 있도록 하지만 추가 정보를 입력하도록 요구하는 소비자 앱에서 나타나는 패턴입니다. 명령줄 프로그램이 아니라면 반환된 토큰 개체에서 메일을 추출하고 추가 정보를 입력하도록 요구할 수 있습니다. 테스트 서버이므로 메모리 내 데이터베이스에 추가합니다.
 
 ### 2\. 마지막으로 일부 끝점 보호
 
@@ -851,6 +856,8 @@ Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정
 
 [Node.js에서 v2.0 앱 모델을 사용하여 웹앱 보안 유지 >>](active-directory-v2-devquickstarts-node-web.md)
 
-추가 리소스는 다음을 확인해보십시오. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+추가 리소스는 다음을 확인해보세요.
+- [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md)
+- [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=Oct15_HO3-->
