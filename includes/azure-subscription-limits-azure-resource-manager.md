@@ -16,4 +16,4 @@
 
 <sup>3</sup>Azure 리소스 그룹 및 Azure 리소스 관리자를 사용하면 이러한 기능이 더 이상 필요하지 않습니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

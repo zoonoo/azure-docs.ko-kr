@@ -25,7 +25,7 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-windows-tutorial.md)을 사용하여 리소스를 만들 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-tutorial.md).
 
 이 자습서에서는 Azure 포털에서 Azure 가상 컴퓨터(VM)를 간편하게 만드는 방법을 보여줍니다. 한 예로, Windows Server 이미지를 사용할 것이지만, 해당 아미지는 Azure가 제공하는 여러 이미지 중 하나일 뿐입니다. 참고: 이미지 선택은 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
@@ -53,4 +53,4 @@
 
 - 데이터를 저장할 디스크를 연결합니다. 빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 자세한 내용은 [데이터 디스크 연결 자습서](storage-windows-attach-disk.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

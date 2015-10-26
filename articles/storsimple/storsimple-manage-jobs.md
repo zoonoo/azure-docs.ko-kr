@@ -91,4 +91,4 @@
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

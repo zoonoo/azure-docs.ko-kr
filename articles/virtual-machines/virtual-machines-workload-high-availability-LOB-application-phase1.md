@@ -19,7 +19,8 @@
 
 # LOB(기간 업무) 응용 프로그램 워크로드 1단계: Azure 구성
  
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
  
 이 인트라넷 전용 Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 단계에서는 Azure 네트워킹 및 저장소 인프라를 구축합니다. [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)로 진행하기 전에 이 단계를 완료해야 합니다. 모든 단계는 [Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)를 참조하세요.
 
@@ -249,4 +250,4 @@ Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이
 
 [Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

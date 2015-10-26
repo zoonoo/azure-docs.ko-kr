@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## 다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

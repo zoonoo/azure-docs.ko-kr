@@ -1,12 +1,12 @@
 <properties
 	pageTitle="리소스 관리자에서 Azure CLI 사용 | Microsoft Azure"
-	description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 리소스 관리자 배포 모드에서 Azure 리소스를 관리하는 방법을 알아봅니다."
-	services="virtual-machines"
+	description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure 리소스 관리자 모드에서 CLI를 사용하여 Azure 리소스를 관리하는 방법을 알아봅니다."
+	services="virtual-machines,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-mangaer"/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="multiple"
@@ -14,31 +14,34 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [클래식 배포 모델](virtual-machines-command-line-tools.md)을 사용하여 리소스를 만들 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
+이 문서에서는 Azure 리소스 관리자 모드에서 Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. Azure SDK의 다양한 라이브러리와 Azure Preview 포털을 사용하여 Azure PowerShell과 동일한 많은 작업을 수행할 수 있습니다.
 
-이 항목에서는 **arm** 모드에서 Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. Azure SDK의 다양한 라이브러리와 Azure 포털을 사용하여 PowerShell과 동일한 작업을 수행할 수 있습니다.
+Azure 리소스 관리자를 사용하면 단일 배포 가능한 단위로 가상 컴퓨터, 웹 사이트, 데이터베이스 등의 리소스 그룹을 만들 수 있습니다. 그런 다음 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 JSON 템플릿에 그룹 리소스를 설명하고, 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다.
 
-Azure 리소스 관리를 사용하면 단일 배포 가능한 단위로 가상 컴퓨터, 웹사이트, 데이터베이스 등의 리소스 그룹을 만들 수 있습니다. 그런 다음 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 JSON 템플릿에 그룹 리소스를 설명하고, 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다.
+## 문서의 범위
+
+이 문서에서는 리소스 관리자 배포 모델에 일반적으로 사용되는 Azure CLI 명령의 구문 및 옵션을 제공합니다. 전체 참조는 아니며 CLI 버전에서 일부 다른 명령 또는 매개 변수를 표시할 수도 있습니다. 리소스 관리자 모드의 명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azure help`를 입력합니다. 그렇지 않고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
+
+선택적 매개 변수는 대괄호 안에 표시됩니다(예: [parameter]). 모든 다른 매개 변수는 필수 항목입니다.
+
+여기에 언급된 명령 관련 선택적 매개 변수 이외에 요청 옵션, 상태 코드 등과 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 선택적 매개 변수가 있습니다. -v 매개 변수는 자세한 정보를 출력하고 -vv 매개 변수는 훨씬 더 자세한 정보를 출력합니다. --json 옵션은 결과를 원시 JSON 형식으로 출력합니다. --json 스위치와 함께 사용하는 것이 매우 일반적이며, 모두 얻기 및 리소스 정보, 상태 및 로그를 반환하는 Azure CLI 작업 결과를 얻고 이해하며 템플릿을 사용하는 데 중요한 부분입니다. **jq** 또는 **jsawk**와 같은 JSON 파서 도구를 설치하거나 선호하는 언어 라이브러리를 사용하는 것이 좋습니다.
 
 ## 명령적 접근법 및 선언적 접근법
 
-Azure CLI의 **arm** 모드는 **asm**([서비스 관리 모드](../virtual-machines-command-line-tools.md))과 마찬가지로 명령줄에서 명령을 통해 리소스를 만들 수 있는 명령을 제공합니다. 예를 들어 `azure group create <groupname> <location>`을 입력하는 경우 Azure에 리소스 그룹을 만들도록 요청하는 것이고, `azure group deployment create <resourcegroup> <deploymentname>`은 Azure에 원하는 개수의 항목 배포를 만들고 그룹에 배치하도록 명령하는 것입니다. 각 리소스 유형에는 명령적 명령이 있으므로 이러한 명령을 함께 연쇄하여 매우 복잡한 배포를 만들 수 있습니다.
+Azure CLI의 리소스 관리자 모드는 [Azure 서비스 관리 모드](../virtual-machines-command-line-tools.md)와 마찬가지로 명령줄에서 명령을 통해 리소스를 만들 수 있는 명령을 제공합니다. 예를 들어 `azure group create <groupname> <location>`을 입력하는 경우 Azure에 리소스 그룹을 만들도록 요청하는 것이고, `azure group deployment create <resourcegroup> <deploymentname>`은 Azure에 원하는 개수의 항목 배포를 만들고 그룹에 배치하도록 명령하는 것입니다. 각 리소스 유형에는 명령적 명령이 있으므로 이러한 명령을 함께 연쇄하여 매우 복잡한 배포를 만들 수 있습니다.
 
-그러나 리소스 그룹을 설명하는 리소스 그룹 _템플릿_을 사용하는 것은 거의 모든 용도의 거의 모든 개수의 리소스에 대한 복잡한 배포를 자동화할 수 있는 훨씬 더 강력한 선언적 접근법입니다. 템플릿을 사용할 때 유일한 명령적 명령은 하나를 배포하는 것입니다. 템플릿, 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure 리소스 그룹 개요](resource-groups-overview)를 참조하세요.
-
-> [AZURE.NOTE]아래와 명령줄에 나와 있는 명령별 옵션 외에도 요청 옵션 및 상태 코드와 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 옵션이 있습니다. -v 매개 변수는 자세한 정보를 출력하고 -vv 매개 변수는 훨씬 더 자세한 정보를 출력합니다. --json 옵션은 원시 json 형식으로 결과를 출력하며 스크립팅 시나리오에 매우 유용합니다.
->
-> --json 스위치와 함께 사용하는 것이 매우 일반적이며, 모두 얻기 및 리소스 정보, 상태 및 로그를 반환하는 Azure CLI 작업 결과를 얻고 이해하며 템플릿을 사용하는 데 중요한 부분입니다. **jq** 또는 **jsawk**와 같은 JSON 파서 도구를 설치하거나 선호하는 언어 라이브러리를 사용하는 것이 좋습니다.
+그러나 리소스 그룹을 설명하는 리소스 그룹 _템플릿_을 사용하는 것은 거의 모든 용도의 거의 모든 개수의 리소스에 대한 복잡한 배포를 자동화할 수 있는 훨씬 더 강력한 선언적 접근법입니다. 템플릿을 사용할 때 유일한 명령적 명령은 하나를 배포하는 것입니다. 템플릿, 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure 리소스 그룹 개요](resource-groups-overview)를 참조하십시오.
 
 ##사용 요구 사항
 
-Azure CLI에서 **arm** 모드를 사용하기 위한 설정 요구 사항은 다음과 같습니다.
+Azure CLI에서 리소스 관리자 모드를 사용하기 위한 설정 요구 사항은 다음과 같습니다.
 
 - Azure 계정([여기에서 무료 평가판 받기](http://azure.microsoft.com/pricing/free-trial/))
 - [Azure CLI 설치](../xplat-cli-install.md)
@@ -46,10 +49,9 @@ Azure CLI에서 **arm** 모드를 사용하기 위한 설정 요구 사항은 �
 
 계정이 있고 Azure CLI가 설치되었으면 다음을 수행해야 합니다.
 
-- `azure config mode arm`을 입력하여 **arm** 모드로 전환
+- `azure config mode arm`을 입력하여 리소스 관리자 모드로 전환합니다.
 - `azure login`을 입력하고 프롬프트에서 회사 또는 학교 ID를 사용하여 Azure 계정에 로그인
 
-이제 `azure`를 입력하여 아래 섹션에 설명된 최상위 명령의 목록을 봅니다.
 
 ## azure account: 계정 정보 및 게시 설정 관리
 Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 여기에 설명한 대로 Azure 포털에서 이 정보를 게시 설정 파일로 가져올 수 있습니다. 도구에서 후속 작업에 사용할 영구 로컬 구성 설정으로 게시 설정 파일을 가져올 수 있습니다. 게시 설정을 한 번만 가져와야 합니다.
@@ -1740,4 +1742,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

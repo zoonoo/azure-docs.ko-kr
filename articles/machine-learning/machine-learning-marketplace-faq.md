@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="FAQ: Azure 마켓플레이스에서 기계 학습 앱 서비스 게시 및 사용 | Microsoft Azure"
-	description="질문과 대답"
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
+	pageTitle="FAQ: Azure 마켓플레이스에서 기계 학습 앱 서비스 게시 및 사용 | Microsoft Azure" 
+	description="질문과 대답" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 #Azure 마켓플레이스에서 기계 학습 앱 게시 및 사용: FAQ
@@ -77,4 +77,4 @@ Azure 기계 학습 웹 서비스에 직접 연결하는 경우와 마켓플레�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

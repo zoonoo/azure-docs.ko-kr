@@ -19,7 +19,8 @@
 
 # Azure PowerShell을 사용하여 가상 컴퓨터 관리
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행하는 많은 작업을 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
 
@@ -96,4 +97,4 @@ Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShel
 - 기존 부하 분산 집합의 구성원으로 만들기
 - 고정 IP 주소로 만들기
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

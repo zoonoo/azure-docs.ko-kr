@@ -1,6 +1,7 @@
 <properties
 	pageTitle="가상 네트워크에 HBase 클러스터 프로비전 | Microsoft Azure"
 	description="Azure HDInsight에서 HBase 사용 시작 Azure 가상 네트워크에 HDInsight HBase 클러스터를 만드는 방법을 알아봅니다."
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,12 +10,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 # Azure 가상 네트워크에 HBase 클러스터 프로비전
 
@@ -336,7 +337,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]자체 DNS 서버를 사용하는 방법을 포함한 Azure 가상 네트워크의 이름 확인에 대한 자세한 내용은 [이름 확인(DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요.
+> [AZURE.NOTE]자체 DNS 서버를 사용하는 방법을 포함한 Azure 가상 네트워크의 이름 확인에 대한 자세한 내용은 [이름 확인(DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 ##Azure PowerShell을 사용하여 HBase 클러스터 프로비전
 
@@ -433,4 +434,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "새 HBase 클러스터에 대한 프로비전 정보"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

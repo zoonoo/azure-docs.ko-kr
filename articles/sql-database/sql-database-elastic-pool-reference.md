@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -149,17 +149,17 @@ Azure SQL 데이터베이스 V12 서버는 리소스 그룹에 있습니다.
 
 탄력적 풀을 만들고 관리하는 데 몇 가지 PowerShell cmdlet 및 REST API 명령을 사용할 수 있습니다. 세부 정보 및 코드 예제는 [PowerShell을 사용한 SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리](sql-database-elastic-pool-powershell.md)와 [C#을 사용한 SQL 데이터베이스 만들기 및 관리](sql-database-client-library.md)를 참조하세요.
 
-
+> [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet을 더 이상 사용할 수 없으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
 
 | [PowerShell cmdlet](https://msdn.microsoft.com/library/mt163521.aspx) | [REST API 명령](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [탄력적 데이터베이스 풀 생성](https://msdn.microsoft.com/library/mt163596.aspx) |
-| [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [탄력적 데이터베이스 풀의 성능 설정 설정](https://msdn.microsoft.com/library/mt163641.aspx) |
-| [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [탄력적 데이터베이스 풀 삭제](https://msdn.microsoft.com/library/mt163672.aspx) |
-| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [탄력적 데이터베이스 풀 및 해당 속성 값 가져오기](https://msdn.microsoft.com/ko-kr/library/mt163646.aspx) |
-| [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [탄력적 데이터베이스 풀 관련 작업 상태 가져오기](https://msdn.microsoft.com/library/mt163669.aspx) |
-| [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [탄력적 데이터베이스 풀에서 데이터베이스 가져오기](https://msdn.microsoft.com/library/mt163646.aspx) |
-| [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [풀 내부 및 외부에서 데이터베이스의 이동 상태 가져오기](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [New-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [탄력적 데이터베이스 풀 생성](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [탄력적 데이터베이스 풀의 성능 설정 설정](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619355.aspx) | [탄력적 데이터베이스 풀 삭제](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [탄력적 데이터베이스 풀 및 해당 속성 값 가져오기](https://msdn.microsoft.com/ko-KR/library/mt163646.aspx) |
+| [Get-AzureRMSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [탄력적 데이터베이스 풀 관련 작업 상태 가져오기](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureRMSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [탄력적 데이터베이스 풀에서 데이터베이스 가져오기](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureRMSqlElasticPoolDatabaseActivity]() | [풀 내부 및 외부에서 데이터베이스의 이동 상태 가져오기](https://msdn.microsoft.com/library/mt163669.aspx) |
 
 ## Transact-SQL
 
@@ -202,13 +202,11 @@ Transact-SQL을 사용하여 다음 탄력적 데이터베이스 관리 작업�
 | 40864 | EX_USER | 탄력적 풀의 DTU는 서비스 계층’%.*ls’에 대하여 최고 (%d) DTU이어야 합니다. | 탄력적 풀의 DTU, 탄력적 풀 서비스 계층. | 탄력적 풀의 DTU를 최소 한도 아래로 설정하려고 했습니다. | 탄력적 풀의 DTU를 최소 한도 이상으로 다시 설정하세요. |
 | 40865 | EX_USER | 탄력적 풀의 DTU는 서비스 계층’%.*ls’에 대해 (%d) DTU를 초과할 수 없습니다. | 탄력적 풀의 DTU, 탄력적 풀 서비스 계층. | 탄력적 풀의 DTU를 최대 한도 위로 설정하려고 했습니다. | 탄력적 풀의 DTU를 최대 한도 미만으로 다시 설정하세요. |
 | 40867 | EX_USER | 데이터베이스당 DTU 최대값은 서비스 계층’%.*ls’에 대해 최소 (%d)이어야 합니다. | 데이터베이스당 DTU 최대값, 탄력적 풀 서비스 계층 | 데이터베이스당 DTU 최대값을 지원되는 한도 아래로 설정하려고 했습니다. | 원하는 설정을 지원하는 탄력적 풀 서비스 계층을 사용하는 것을 고려하세요. |
-| 40868 | EX_USER | 데이터베이스당 DTU 최대값은 서비스 계층’%.*ls’에 대해 (%d)을(를) 초과할 수 없습니다. | 데이터베이스당 DTU 최대값, 탄력적 풀 서비스 계층. | 데이터베이스당 DTU 최대값을 지원되는 한도를 초과하여 설정하려고 했습니다. | 원하는 설정을 지원하는 탄력적 풀 서비스 계층을 사용하는 것을 고려하세요. |
-| 40870 | EX_USER | 데이터베이스당 DTU 최소값은 서비스 계층’%.*ls’에 대해 (%d)을(를) 초과할 수 없습니다. | 데이터베이스당 DTU 최소값, 탄력적 풀 서비스 계층. | 데이터베이스당 DTU 최소값을 지원되는 한도를 초과하여 설정하려고 했습니다. | 원하는 설정을 지원하는 탄력적 풀 서비스 계층을 사용하는 것을 고려하세요. |
-| 40873 | EX_USER | 데이터베이스 수 (%d) 및 데이터베이스당 DTU 최소값은 탄력적 풀의 DTU (%d)을(를) 초과할 수 없습니다. | 탄력적 풀에 포함된 데이터베이스 수, 데이터베이스당 DTU 최소값, 탄력적 풀의 DTU. | 탄력적 풀에 있는 데이터베이스의 DTU 최소값을 탄력적 풀의 DTU를 초과하는 값으로 지정하려고 했습니다. | 탄력적 풀의 DTU를 늘리거나, 데이터베이스당 DTU 최소값을 줄이거나, 탄력적 풀에 포함된 데이터베이스 수를 줄이는 것을 고려하세요. |
+| 40868 | EX_USER | 데이터베이스당 DTU 최대값은 서비스 계층’%.*ls’에 대해 (%d)을(를) 초과할 수 없습니다. | 데이터베이스당 DTU 최대값, 탄력적 풀 서비스 계층. | 데이터베이스당 DTU 최대값을 지원되는 한도를 초과하여 설정하려고 했습니다. | 원하는 설정을 지원하는 탄력적 풀 서비스 계층을 사용하는 것을 고려하세요. || 40870 | EX\_USER | 데이터베이스당 DTU 최소값은 서비스 계층’%.*ls’에 대해 (%d)을(를) 초과할 수 없습니다. | 데이터베이스당 DTU 최소값, 탄력적 풀 서비스 계층. | 데이터베이스당 DTU 최소값을 지원되는 한도를 초과하여 설정하려고 했습니다. | 원하는 설정을 지원하는 탄력적 풀 서비스 계층을 사용하는 것을 고려하세요. || 40873 | EX\_USER | 데이터베이스 수 (%d) 및 데이터베이스당 DTU 최소값은 탄력적 풀의 DTU (%d)을(를) 초과할 수 없습니다. | 탄력적 풀에 포함된 데이터베이스 수, 데이터베이스당 DTU 최소값, 탄력적 풀의 DTU. | 탄력적 풀에 있는 데이터베이스의 DTU 최소값을 탄력적 풀의 DTU를 초과하는 값으로 지정하려고 했습니다. | 탄력적 풀의 DTU를 늘리거나, 데이터베이스당 DTU 최소값을 줄이거나, 탄력적 풀에 포함된 데이터베이스 수를 줄이는 것을 고려하세요. |
 | 40877 | EX_USER | 탄력적 풀에 데이터베이스가 포함되어 있으면 삭제할 수 없습니다. | 없음 | 탄력적 풀이 하나 이상의 데이터베이스를 포함하고 있으므로 삭제할 수 없습니다. | 삭제하려면 탄력적 풀에서 데이터베이스를 제거하세요. |
 | 40881 | EX_USER | 탄력적 풀 ‘%.*ls’이(가) 데이터베이스 개수 한도에 도달했습니다. 탄력적 풀에 대한 데이터베이스 개수 한도는 (%d) DTU를 가진 탄력적 풀에 대해 (%d)을(를) 초과할 수 없습니다. | 탄력적 풀의 이름, 탄력적 풀의 데이터베이스 개수 한도, 리소스 풀에 대한 eDTU. | 탄력적 풀의 데이터베이스 개수 한도에 도달했을 때 탄력적 풀에 데이터베이스를 생성 또는 추가하려고 했습니다. | 데이터베이스 한도를 늘리기 위해 가능하다면 탄력적 풀의 DTU를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
 | 40889 | EX_USER | 데이터베이스에 충분한 저장소 공간이 제공되지 않으므로 탄력적 풀 ‘%.*ls’에 대한 DTU 또는 저장소 용량 한도를 줄일 수 없습니다. | 탄력적 풀의 이름. | 아래로 탄력적 풀의 저장소 용량 한도를 저장소 사용량 아래로 줄이려고 했습니다. | 탄력적 풀에서 개별 데이터베이스의 저장소 사용량을 줄이거나 풀에서 데이터베이스를 제거하여 DTU 또는 저장소 용량 한도를 줄이는 것을 고려하세요. |
 | 40891 | EX_USER | 데이터베이스당 DTU 최소값 (%d)은(는) 데이터베이스당 DTU 최대값 (%d)을(를) 초과할 수 없습니다. | 데이터베이스당 DTU 최소값, 데이터베이스당 DTU 최대값. | 데이터베이스당 DTU 최대값 보다 높은 데이터베이스당 DTU 최소값을 설정하려고 했습니다. | 데이터베이스당 DTU 최소값이 데이터베이스당 DTU 최대값을 초과하지 않도록 확인하세요. |
 | TBD | EX_USER | 탄력적 풀에 있는 개별 데이터베이스에 대한 저장소 크기는 ‘%.*ls’ 서비스 계층 탄력적 풀이 허용하는 최대 크기를 초과할 수 없습니다. | 탄력적 풀 서비스 계층 | 데이터베이스의 최대 크기가 탄력적 풀 서비스 계층이 허용하는 최대 크기를 초과합니다. | 탄력적 풀 서비스 계정이 허용한 최대 크기의 한도 내에 있는 데이터베이스의 최대 크기를 설정하세요. |
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

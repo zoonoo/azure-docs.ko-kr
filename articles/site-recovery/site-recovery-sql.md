@@ -148,16 +148,111 @@ Azure로 복제할 때 사이트 복구는 게스트 클러스터 지원을 지�
 
 
 
-##복구 계획 만들기
+##SQL AlwaysOn을 Azure에 통합
 
-복구 계획은 함께 장애 조치해야 하는 컴퓨터를 그룹화합니다. 시작하기 전에 [복구 계획](site-recovery-create-recovery-plans.md) 및 [장애 조치](site-recovery-failover.md)에 대해 알아봅니다.
+ASR()은 기본적으로 SQL AlwaysOn을 지원합니다. Azure 가상 컴퓨터를 '보조'로 설정한 상태에서 SQL 가용성 그룹을 만든 경우 ASR을 사용하여 가용성 그룹의 장애 조치(failover)를 관리할 수 있습니다.
+
+이 기능은 현재 미리 보기이며 기본 데이터 센터를 System Center VMM(Virtual Machine Manager)으로 관리할 경우 사용할 수 있습니다.
+
+### VMM Server에서 관리하는 환경
+ASR 자격 증명 모음을 표시하면 '보호된 항목' 탭에 'SQL Servers' 탭이 있습니다.
+
+![보호된 항목](./media/site-recovery-sql/protected-items.png)
+
+다음은 ASR에 SQL AlwaysOn을 통합하는 단계입니다.
+
+#### 필수 조건
+- 독립 실행형 서버 또는 장애 조치(failover) 클러스터의 온-프레미스 SQL Server 
+- SQL Server가 설치된 한 대 이상의 Azure 가상 컴퓨터
+- 온-프레미스 SQL Server와 Azure에서 실행되는 SQL server 간 SQL 가용성 그룹 설정
+- 온-프레미스 SQL Server에 PowerShell 원격을 사용하도록 설정해야 합니다. VMM Server는 SQL Server에 원격 PowerShell 호출을 수행할 수 있어야 함
+- 온-프레미스 SQL Server에서 최소한 다음과 같은 사용 권한이 있는 SQL 사용자 그룹에 사용자 계정을 추가해야 합니다.
+	- 가용성 그룹 수정 - [참조 1](https://msdn.microsoft.com/ko-KR/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/ko-KR/library/ff878601.aspx#Anchor_3)
+	- 데이터베이스 수정 - [참조 1](https://msdn.microsoft.com/ko-KR/library/ff877956.aspx#Security)
+- 이전 단계의 계정에 대해 VMM Server에 실행 계정을 만들어야 함
+- 온-프레미스 및 Azure 가상 컴퓨터에서 실행되는 SQL Server에 SQL PS 모듈을 설치해야 함
+- Azure에서 실행되는 가상 컴퓨터에 VM 에이전트를 설치해야 함
+- NTAUTHORITY\\시스템은 Azure의 가상 컴퓨터에서 실행되는 SQL Server에 다음과 같은 권한이 있어야 함
+	- 가용성 그룹 수정 - [참조 1](https://msdn.microsoft.com/ko-KR/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/ko-KR/library/ff878601.aspx#Anchor_3)
+	- 데이터베이스 수정 - [참조 1](https://msdn.microsoft.com/ko-KR/library/ff877956.aspx#Security)
+
+#### SQL Server 추가
+
+새 SQL Server를 추가하려면 SQL 추가를 클릭합니다.
+
+![SQL 추가](./media/site-recovery-sql/add-sql.png)
+
+SQL Server 및 VMM 정보와 SQL Server를 관리하는 사용할 자격 증명을 입력합니다.
+
+![SQL 대화 상자 추가](./media/site-recovery-sql/add-sql-dialog.png)
+
+##### 매개 변수
+1. 이름: 이 SQL Server를 가리키는 데 사용할 이름
+2. SQL Server(FQDN): 추가하려는 원본 SQL Server의 FQDN(정규화된 도메인 이름) SQL Server를 장애 조치(failover) 클러스터에 설치한 경우 클러스터의 FQDN을 입력합니다. 클러스터 노드의 FQDN은 입력하지 않습니다. 
+3. SQL Server 인스턴스: 기본 SQL 인스턴스를 선택하거나 사용자 지정 SQL 인스턴스의 이름을 입력합니다.
+4. VMM 서버: 이미 ASR(Azure Site Recovery)에 등록된 VMM Server 중 하나를 선택합니다. ASR는 이 VMM 서버를 사용하여 SQL Server와 통신합니다.
+5. 실행 계정: 위에서 선택한 VMM 서버에서 만든 실행 계정 중 하나의 이름을 입력합니다. 이 실행 계정은 SQL Server에 액세스하는 데 사용하며 SQL Server의 가용성 그룹에서 읽기 및 장애 조치(failover) 권한이 있어야 합니다. 
+
+SQL Server를 추가하면 'SQL Servers' 탭에 표시됩니다.
+
+![SQL Server 목록](./media/site-recovery-sql/sql-server-list.png)
+
+#### SQL 가용성 그룹 추가
+
+SQL Server를 추가한 다음에는 ASR에 가용성 그룹을 추가해야 합니다. 그러려면 이전 단계에서 추가한 SQL Server 안을 드릴다운하고 'SQL 가용성 그룹 추가'를 클릭합니다.
+
+![SQL AG 추가](./media/site-recovery-sql/add-sqlag.png)
+
+SQL 가용성 그룹은 Azure에서 하나 이상의 가상 컴퓨터로 복제할 수 있습니다. SQL 가용성 그룹을 추가할 경우 ASR에서 가용성 그룹을 장애 조치(failover)할 Azure 가상 컴퓨터의 이름과 구독을 입력해야 합니다.
+
+![SQL AG 대화 상자 추가](./media/site-recovery-sql/add-sqlag-dialog.png)
+
+위 예제에서 가용성 그룹 DB1-AG는 장애 조치(failover) 시 DevTesting2 구독 내에서 실행되는 가상 컴퓨터 SQLAGVM2의 기본이 됩니다.
+
+>[AZURE.NOTE]위 단계에서 추가한 SQL Server의 기본 가용성 그룹만 ASR에 추가할 수 있습니다. 가용성 그룹을 SQL Server의 기본으로 지정하거나 추가한 다음 SQL Server에 가용성 그룹을 추가한 경우 SQL Server에서 사용 가능한 새로 고침 옵션을 사용하여 새로 고칩니다.
+
+#### 복구 계획 만들기
+
+다음으로 가상 컴퓨터와 가용성 그룹을 사용하여 복구 계획을 만듭니다. 1단계에서 사용한 것과 동일한 VMM 서버를 원본으로 선택하고 Microsoft Azure를 대상으로 선택합니다.
+
+![복구 계획 만들기](./media/site-recovery-sql/create-rp1.png)
+
+![복구 계획 만들기](./media/site-recovery-sql/create-rp2.png)
+
+이 예제에서 SharePoint 응용 프로그램은 SQL 가용성 그룹을 백 엔드로 사용하는 3개의 가상 컴퓨터로 구성되어 있습니다. 이 복구 계획에서는 가용성 그룹과 응용 프로그램을 구성하는 가상 컴퓨터를 모두 선택할 수 있습니다.
+
+가상 컴퓨터를 다른 장애 조치(failover) 그룹으로 이동하여 장애 조치(failover) 순서를 조정하면 복구 계획을 자세히 사용자 지정할 수 있습니다. 가용성 그룹은 모든 응용 프로그램의 백 엔드로 사용되므로 언제나 가장 먼저 장애 조치(failover)됩니다.
+
+![복구 계획 사용자 지정](./media/site-recovery-sql/customize-rp.png)
+
+#### 장애 조치(Failover)
+
+가용성 그룹을 복구 계획에 추가하면 다른 장애 조치(failover) 옵션을 사용할 수 있습니다.
+
+##### 계획된 장애 조치(failover)
+
+계획된 장애 조치(failover)는 데이터 손실이 없는 장애 조치(failover)를 의미합니다. 이를 달성하기 위해 우선 SQL 가용성 그룹의 가용성 모드를 동기로 설정한 다음 장애 조치(failover)를 트리거하여 가용성 그룹을 제공된 가상 컴퓨터의 기본으로 지정하는 동시에 ASR에 추가합니다. 장애 조치(failover)가 완료되면 가용성 모드를 계획된 장애 조치(failover)가 트리거되기 전과 동일한 값으로 설정합니다.
+
+##### 계획되지 않은 장애 조치
+
+계획되지 않은 장애 조치(failover)는 데이터 손실이 발생할 수 있습니다. 계획되지 않은 장애 조치(failover)를 트리거하는 동안 가용성 그룹의 가용성 모드는 변경되지 않으며 가용성 그룹을 제공된 가상 컴퓨터에 기본으로 지정하는 동시에 ASR에 추가합니다. 계획되지 않은 장애 조치(failover)가 완료되고 SQL Server를 실행하는 온-프레미스 서버를 다시 사용할 수 있게 되면 가용성 그룹에서 역방향 복제를 트리거해야 합니다. 이 작업은 복구 계획에서 사용할 수 없으며 'SQL Servers' 탭의 SQL 가용성 그룹에서 수행할 수 있습니다.
+
+##### 테스트 장애 조치(Failover)
+SQL 가용성 그룹에 대한 테스트 장애 조치(failover)는 지원되지 않습니다. SQL 가용성 그룹이 포함된 역방향 계획의 테스트 장애 조치(failover)를 트리거할 경우 가용성 그룹에 대한 장애 조치(failover)를 건너뜁니다.
+
+##### 장애 복구
+
+온-프레미스 SQL Server에서 가용성 그룹을 다시 기본으로 지정하려면 복구 계획에서 계획된 장애 조치(failover)를 트리거하고 Microsoft Azure에서 온-프레미스 VMM 서버로 방향을 선택합니다.
+
+##### 역방향 복제
+
+계획되지 않은 장애 조치(failover) 이후에는 가용성 그룹에서 역방향 복제를 트리거하여 복제를 재개해야 합니다. 이 작업을 완료하기 전까지는 복제가 일시 중단됩니다.
 
 
-### SQL Server 클러스터(SQL Server 2012/2014 Enterprise)에 대한 복구 계획 만들기
+### VMM에서 관리하지 않는 환경
 
-#### Azure에 장애 조치를 위한 SQL Server 스크립트 구성
+VMM 서버에서 관리하지 않는 환경의 경우 Azure 자동화 Runbook을 사용하여 SQL 가용성 그룹의 스크립팅된 장애 조치(failover)를 구성할 수 있습니다. 다음은 구성 단계입니다.
 
-이 시나리오에서는 SQL Server 가용성 그룹의 스크립트된 장애 조치를 구성하기 위해 사용자 지정 스크립트 및 복구 계획을 위한 Azure 자동화를 활용합니다.
 
 1.	가용성 그룹을 장애 조치하기 위해 스크립트용 로컬 파일을 만듭니다. 이 샘플 스크립트는 Azure 복제본에서 가용성 그룹에 대한 경로를 지정하고 해당 복제본 인스턴스에 장애 조치를 합니다. 이 스크립트는 사용자 지정 스크립트 확장으로 전달을 통해 SQL Server 복제본 가상 컴퓨터에서 실행됩니다.
 
@@ -243,120 +338,25 @@ Azure로 복제할 때 사이트 복구는 게스트 클러스터 지원을 지�
 
 2. 응용프로그램에 대한 복구 계획을 만들 때 가용성 그룹을 장애 조치하기 위해 스크립트를 호출하는 "pre-Group 1 boot" 스크립트 단계를 추가합니다.
 
-### SQL Server 클러스터(Standard)에 대한 복구 계획 만들기
-
-#### Azure에 장애 조치를 위한 SQL Server 스크립트 구성
-
-1.	SQL Server 데이터베이스 미러링을 장애 조치하기 위해 스크립트용 로컬 파일을 만듭니다. 이 샘플 스크립트를 사용합니다.
-
-    	Param(
-    	[string]$database
-    	)
-    	Import-module sqlps
-    	Invoke-sqlcmd –query “ALTER DATABASE $database SET PARTNER FORCE_SERVICE_ALLOW_DATA_LOSS”
-
-2.	Azure 저장소 계정에서 Blob으로 스크립트를 업로드합니다. 이 샘플 스크립트를 사용합니다.
-
-    	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
-    	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
-
-3.	Azure의 SQL Server 복제본 가상 컴퓨터에서 스크립트를 호출하는 Azure 자동화 runbook을 만듭니다. 이 예제 스크립트를 사용하여 이 작업을 수행합니다. 복구 계획에서 자동화 runbook 사용에 대해 [자세히 알아봅니다](site-recovery-runbook-automation.md). 이를 수행하기 전에 가상 컴퓨터 에이전트가 장애 조치된 SQL Server 가상 컴퓨터에서 실행 중인지 확인합니다.
-
-    	workflow SQLAvailabilityGroupFailover
-		{
-    		param (
-        		[Object]$RecoveryPlanContext
-    		)
-
-    	$Cred = Get-AutomationPSCredential -name 'AzureCredential'
-	
-    	#Connect to Azure
-    	$AzureAccount = Add-AzureAccount -Credential $Cred
-    	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-    	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-    
-    	InLineScript
-    	{
-     	#Update the script with name of your storage account, key and blob name
-     	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key";
-     	$sasuri = New-AzureStorageBlobSASToken -Container "script-container" -Blob "AGFailover.ps1" -Permission r -FullUri -Context $context;
-     
-     	Write-output "failovertype " + $Using:RecoveryPlanContext.FailoverType;
-               
-     	if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
-       		{
-           		#Skipping TFO in this version.
-           		#We will update the script in a follow-up post with TFO support
-           		Write-output "tfo: Skipping SQL Failover";
-       		}
-     	else
-       			{
-           		Write-output "pfo/ufo";
-           		#Get the SQL Azure Replica VM.
-           		#Update the script to use the name of your VM and Cloud Service
-           		$VM = Get-AzureVM -Name "SQLAzureVM" -ServiceName "SQLAzureReplica";     
-       
-           		Write-Output "Installing custom script extension"
-           		#Install the Custom Script Extension on teh SQL Replica VM
-           		Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM; 
-                    
-           		Write-output "Starting AG Failover";
-           		#Execute the SQL Failover script
-           		#Pass the SQL AG path as the argument.
-       
-           		$AGArgs="-SQLAvailabilityGroupPath sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag";
-       
-           		Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument $AGArgs | Update-AzureVM;
-       
-           		Write-output "Completed AG Failover";
-
-       			}
-        
-    		}
-		}
-
-
-
-4. SQL Server 계층 장애 조치를 위해 복구 계획에 이러한 단계를 추가합니다.
-
-	- 계획된 장애 조치의 경우 “그룹 종료” 후에 기본 클러스터를 종료하도록 기본 쪽 스크립트를 추가합니다.
-	- 복구 계획에, 가급적이면 첫 번째 부팅 그룹에서 SQL Server 데이터베이스 미러 가상 컴퓨터를 추가합니다.
-3.	위의 자동화 스크립트를 사용하여 이 가상 컴퓨터 내의 미러 복사본을 장애 조치하도록 사후 장애 조치 스크립트를 추가합니다. 데이터베이스 인스턴스 이름이 변경되기 때문에 응용프로그램 계층은 새 데이터베이스를 사용하도록 다시 구성해야 합니다.
-
-
-#### 보조 사이트에 장애 조치를 위한 SQL Server 스크립트 구성
-
-1.	이 샘플 스크립트를 기본 및 보조 사이트의 VMM 라이브러리에 추가합니다.
-
-    	Param(
-    	[string]$database
-    	)
-    	Import-module sqlps
-    	Invoke-sqlcmd –query “ALTER DATABASE $database SET PARTNER FORCE_SERVICE_ALLOW_DATA_LOSS”
-
-2.	복구 계획에, 가급적이면 첫 번째 부팅 그룹에서 SQL Server 데이터베이스 미러 가상 컴퓨터를 추가합니다.
-3.	위의 VMM 스크립트를 사용하여 이 가상 컴퓨터 내의 미러 복사본을 장애 조치하도록 사후 장애 조치 스크립트를 추가합니다. 데이터베이스 인스턴스 이름이 변경되기 때문에 응용프로그램 계층은 새 데이터베이스를 사용하도록 다시 구성해야 합니다.
-
-
-
-
 
 ## 테스트 장애 조치 시 고려 사항
 
 AlwaysOn 가용성 그룹을 사용하는 경우 SQL Server 계층의 테스트 장애 조치를 수행할 수 없습니다. 대신 다음과 같은 옵션을 고려합니다.
 
-- 옵션 1
+###옵션 1
 
-	1. 응용프로그램 및 프런트엔드 계층의 테스트 장애 조치를 수행합니다.
-	2. 읽기 전용 모드에서 복제 복사본에 액세스하도록 응용프로그램 계층을 업데이트하고 응용프로그램의 읽기 전용 테스트를 수행합니다.
 
-- 옵션 2
+
+1. 응용프로그램 및 프런트엔드 계층의 테스트 장애 조치를 수행합니다.
+
+2. 읽기 전용 모드에서 복제 복사본에 액세스하도록 응용프로그램 계층을 업데이트하고 응용프로그램의 읽기 전용 테스트를 수행합니다.
+
+###옵션 2
+
 1.	복제본 SQL Server 가상 컴퓨터 인스턴스(사이트간 또는 Azure 백업용 VMM 복제 사용)를 만들고 이를 테스트 네트워크로 가져옵니다.
 2.	복구 계획을 사용하여 테스트 장애 조치를 수행합니다.
 
-## 장애 복구 고려 사항
 
-SQL 표준 클러스터의 경우, 계획되지 않은 장애 조치 후의 장애 복구는 SQL Server 백업이 필요하며 미러 인스턴스에서 원래 클러스터로 복구한 다음 미러를 다시 설정해야 합니다.
 
 
 
@@ -364,4 +364,4 @@ SQL 표준 클러스터의 경우, 계획되지 않은 장애 조치 후의 장�
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

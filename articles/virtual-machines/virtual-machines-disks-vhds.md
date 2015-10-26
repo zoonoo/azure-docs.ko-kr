@@ -19,7 +19,8 @@
 
 # Azure 가상 컴퓨터용 디스크 및 VHD 정보
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델과 클래식 배포 모델을 사용하여 만든 리소스에 대해 알아봅니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Azure의 모든 가상 컴퓨터는 적어도 2개 이상의 디스크로 구성되며, 그 중 하나는 운영 체제 디스크이고 다른 하라는 종종 리소스 디스크로 일컫는 임시 로컬 디스크입니다. 운영 체제 디스크는 이미지에서 만들어지며, 운영 체제 디스크 및 이미지 모두는 실제로 Azure 저장소 계정에 저장된 가상 하드 디스크(VHD)입니다. 가상 컴퓨터에도 데이터 디스크가 있을 수 있으며 이러한 디스크 또한 VHD로 저장됩니다.
 
@@ -67,4 +68,4 @@ Windows 가상 컴퓨터:
 -  [Windows 가상 컴퓨터를 캡쳐](virtual-machines-capture-image-windows-server.md)
 -  [디스크를 분리](storage-windows-detach-disk.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

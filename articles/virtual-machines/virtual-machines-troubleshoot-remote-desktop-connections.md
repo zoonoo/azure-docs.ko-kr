@@ -19,7 +19,8 @@
 
 # Windows를 실행하는 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델 또는 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터의 문제를 해결하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 원격 데스크톱(RDP)이 Windows를 실행하는 Azure 가상 컴퓨터에 연결하지 못하는 데에는 여러 원인이 있을 수 있습니다. 이 문서는 원인을 알아내고 문제를 해결하는 데 도움이 됩니다.
 
@@ -157,4 +158,4 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

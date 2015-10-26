@@ -16,9 +16,10 @@
  ms.date="08/25/2015"
  ms.author="rasquill"/>
 #가상 컴퓨터 확장 관리
+
 Azure의 Windows 또는 Linux 가상 컴퓨터에서 VM 확장의 찾기, 추가, 수정 또는 제거 방법을 설명합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 확장을 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모드
 
 
 ##VM 확장 사용
@@ -141,4 +142,4 @@ REST Api를 사용하여 사용 가능한 확장 목록을 검색할 때 해당 
 
 >[AZURE.NOTE]확장은 JSON으로 정의된 구성을 사용할 수도 있습니다. 이러한 유형의 확장을 사용할 때는 **SampleConfig** 요소만 사용됩니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

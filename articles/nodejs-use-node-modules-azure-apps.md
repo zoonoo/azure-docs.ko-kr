@@ -78,4 +78,4 @@ Azure 웹 사이트는 일부 네이티브 모듈을 지원하지 않으며 매�
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

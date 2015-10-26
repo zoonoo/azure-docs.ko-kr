@@ -379,4 +379,4 @@ SendAppInfo() 함수를 사용하면 추적 정보 또는 기타 응용 프로�
 			{"subscription":"2013-12-07","premium":"true"}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,3 +1,13 @@
+<properties services="virtual-machines" title="Using Azure CLI with Azure Resource Manager" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machine"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="linux"
+   ms.workload="infrastructure"
+   ms.date="04/13/2015"
+   ms.author="rasquill" />
 
 ## ARM(Azure 리소스 관리자)에서 Azure CLI 사용
 
@@ -54,4 +64,4 @@ ARM(Azure 리소스 관리) 모드에서 Azure CLI를 사용하려면 `azure con
 
 > [AZURE.NOTE]`azure config mode asm`을 입력하여 Azure 서비스 관리 명령을 사용하도록 다시 전환할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

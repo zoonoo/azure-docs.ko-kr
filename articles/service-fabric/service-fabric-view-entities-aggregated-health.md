@@ -836,4 +836,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 [서비스 패브릭 응용프로그램 업그레이드](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

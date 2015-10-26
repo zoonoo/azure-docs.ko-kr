@@ -60,4 +60,4 @@ SQL Server 또는 Azure SQL/SQL Server 데이터베이스로 데이터를 복사
 
 저장된 프로시저 기능은 [테이블 값 매개 변수](https://msdn.microsoft.com/library/bb675163.aspx)을 이용합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

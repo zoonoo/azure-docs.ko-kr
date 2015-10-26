@@ -118,7 +118,7 @@ BizTalk Server 오케스트레이션 처리를 Microsoft Azure에 마이그레�
 
 - *MSDN의 Windows Workflow Foundation 개발자 센터*. [여기](http://go.microsoft.com/fwlink/p/?LinkId=237315)를 참조하세요.
 
-- *MSDN의 Windows Workflow Foundation 4 (WF4) 설명서*. [여기](https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx)를 참조하세요.
+- *MSDN의 Windows Workflow Foundation 4 (WF4) 설명서*. [여기]를 참조하세요(https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx).
 
 ## 기타 고려 사항
 
@@ -142,4 +142,4 @@ Microsoft Azure BizTalk 서비스는 많은 기능을 추가하기 위해 중요
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

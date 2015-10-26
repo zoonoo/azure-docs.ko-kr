@@ -1,3 +1,3 @@
 이 데이터 집합은 강철 가열 냉각 시도에서 얻은 일련의 레코드를 결과 강철 유형의 물리적 특성(너비, 두께, 유형(코일, 시트 등))과 함께 포함합니다.<p> </p><b>사용:</b> 두 가지 숫자 클래스 특성인 경도 또는 강도의 하나를 예측합니다. 특성 간의 상관관계를 분석할 수도 있습니다.<p> </p>강철 등급은 SAE 및 기타 조직에서 정의된 집합 표준을 따릅니다. 특정 '등급'(클래스 변수)을 찾고 있고 필요한 값을 파악하려고 합니다. <p> </p><b>관련 조사:</b> Sterling, D. & Buntine, W., (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>강철 등급에 대한 유용한 지침: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

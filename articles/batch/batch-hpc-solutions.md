@@ -94,7 +94,7 @@ Windows 기반 및 Linux 기반 또는 독립적으로 개발된 클러스터용
 
 Azure에는 큰 계산 솔루션 및 워크플로에 사용할 수 있는 다양한 계산, 데이터, 네트워킹 및 관련된 서비스가 있습니다. 이러한 서비스의 각 세부 지침에 대 해서는 Azure 서비스 설명서를 참조하세요. 배치 및 HPC 응용 프로그램을 사용하는 일부 일반적인 접근 방법에 대해서는 이 문서의 [솔루션 시나리오](#solution-scenarios)를 참조하세요.
 
->[AZURE.NOTE]새로운 서비스는 Azure 플랫폼에 정기적으로 도입되며 사용자의 시나리오에 유용할 수 있습니다. 미리 보기 서비스의 사용은 프로덕션워크로드가 아니라 개념 배포의 테스트 또는 증명에만 권장됩니다. 질문이 있는 경우 [Azure 파트너](https://pinpoint.microsoft.com/ko-kr/search?keyword=azure) 또는 전자 메일 **bigcompute@microsoft.com*에 문의하세요.
+>[AZURE.NOTE]새로운 서비스는 Azure 플랫폼에 정기적으로 도입되며 사용자의 시나리오에 유용할 수 있습니다. 미리 보기 서비스의 사용은 프로덕션워크로드가 아니라 개념 배포의 테스트 또는 증명에만 권장됩니다. 질문이 있는 경우 [Azure 파트너](https://pinpoint.microsoft.com/en-US/search?keyword=azure) 또는 전자 메일 **bigcompute@microsoft.com*에 문의하세요.
 
 ### 계산 서비스
 
@@ -222,4 +222,4 @@ Azure 자동화 도구를 사용하여 필요한 용량을 만들기 위해서 A
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

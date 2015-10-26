@@ -25,7 +25,6 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 
 이 문서를 읽은 후 다음을 수행할 수 있습니다.
 
-
 - StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 연결
 
 - StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치 관리
@@ -124,7 +123,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 ## StorSimple용 Windows PowerShell을 사용하여 StorSimple에 원격으로 연결
 Windows PowerShell 원격을 사용하여 StorSimple 장치에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 장치의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
 
-표시 언어는 직렬 콘솔 메뉴에서 언어 변경 옵션을 사용하여 설정하는 언어와 독립적입니다. 지정되지 않은 경우 원격 PowerShell은 연결에 사용되는 장치의 로캘을 자동으로 선택합니다.
+표시 언어는 직렬 콘솔 메뉴에서 **언어 변경** 옵션을 사용하여 설정하는 언어와 독립적입니다. 지정되지 않은 경우 원격 PowerShell은 연결에 사용되는 장치의 로캘을 자동으로 선택합니다.
 
 >[AZURE.NOTE]Microsoft Azure 가상 호스트 및 StorSimple 가상 장치로 작업하는 경우 Windows PowerShell 원격 및 가상 호스트를 사용하여 가상 장치에 연결할 수 있습니다. Windows PowerShell 세션에서 정보를 저장할 호스트의 공유 위치를 설정한 경우 모든 사용자 보안 주체에 인증된 사용자만 포함된다는 것을 알아야 합니다. 따라서 모든 사용자의 액세스를 허용하도록 공유를 설정한 후 자격 증명을 지정하지 않고 연결하면 인증되지 않은 익명 보안 주체가 사용되며 오류가 표시됩니다. 이 문제를 해결하려면 공유 호스트에서 게스트 계정을 사용하도록 설정한 다음 공유에 대한 모든 권한을 게스트 계정에 부여하거나 Windows PowerShell cmdlet과 함께 유효한 자격 증명을 지정해야 합니다.
 
@@ -198,4 +197,4 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 ## 다음 단계
 위의 워크플로 중 하나를 수행할 때 StorSimple 장치에서 문제가 발생하는 경우 [StorSimple 배포 문제를 해결하는 도구](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

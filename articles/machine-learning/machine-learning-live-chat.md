@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
-    ms.author="luisca"/>
+    ms.date="10/14/2015" 
+    ms.author="olgali"/>
 #기계 학습 라이브 채팅 지원에서 도움 받기
 
 [Azure 기계 학습 스튜디오](machine-learning-what-is-ml-studio.md)에서는 기계 학습 모델을 작성하는 직관적인 인터페이스를 제공합니다. [갤러리](machine-learning-gallery-how-to-use-contribute-publish.md)와 [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)에서 안내를 제공합니다.
@@ -31,4 +31,4 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

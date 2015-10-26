@@ -147,4 +147,4 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

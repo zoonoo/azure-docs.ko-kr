@@ -1,6 +1,7 @@
 <properties
 	pageTitle="HDInsight에 대해 Hadoop 에뮬레이터 시작 | Microsoft Azure"
 	description="MapReduce 자습서 및 다른 샘플과 함께 설치된 에뮬레이터를 사용하여 Hadoop 에코 시스템에 대해 알아봅니다. HDInsight 에뮬레이터는 Hadoop 샌드박스처럼 작동합니다."
+	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -196,7 +197,7 @@ HDInsight Emulator를 설치하면 사용자가 Windows에서 Apache Hadoop 기�
 
 ###<a name="scenarios"></a>IIS W3C 로그 데이터 시나리오
 
-W3C 시나리오에서는 IIS W3C 로그 데이터를 세 가지 크기(1MB(소형), 500MB(중형) 및 2GB(대형))로 생성하여 HDFS 또는 Azure Blob 저장소에 가져옵니다. 이 시나리오는 세 가지 작업 유형을 제공하는 데 각각 C\#, Java, Pig 및 Hive로 구현합니다.
+W3C 시나리오에서는 IIS W3C 로그 데이터를 세 가지 크기(1MB(소형), 500MB(중형) 및 2GB(대형))로 생성하여 HDFS 또는 Azure Blob 저장소에 가져옵니다. 이 시나리오는 세 가지 작업 유형을 제공하는 데 각각 C#, Java, Pig 및 Hive로 구현합니다.
 
 - **totalhits** - 지정한 페이지의 총 요청 수를 계산합니다.
 - **avgtime** - 페이지당 요청에 걸린 평균 시간(초)을 계산합니다.
@@ -241,7 +242,7 @@ HDFS로 데이터를 생성하고 가져오는 작업은 Azure PowerShell 스크
 
 ###<a name="javamapreduce"></a> Java MapReduce 작업 실행
 
-MapReduce는 Hadoop의 기본 계산 엔진입니다. 기본적으로 Java로 구현되지만 C\#을 사용하는 Hadoop 스트리밍 및 .NET을 활용하는 예도 있습니다. MapReduce 작업을 실행하는 구문은 다음과 같습니다.
+MapReduce는 Hadoop의 기본 계산 엔진입니다. 기본적으로 Java로 구현되지만 C#을 사용하는 Hadoop 스트리밍 및 .NET을 활용하는 예도 있습니다. MapReduce 작업을 실행하는 구문은 다음과 같습니다.
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
@@ -467,7 +468,7 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 
 - [Azure HDInsight 사용 시작](../hdinsight-get-started.md)
 - [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
-- [HDInsight용 C#Hadoop 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight Emulator 릴리스 정보](hdinsight-emulator-release-notes.md)
 - [HDInsight 토론을 위한 MSDN 포럼](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -497,4 +498,4 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

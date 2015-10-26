@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,9 +14,16 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #릴리스 정보
+
+##3\.2.0(2015/10/08)
+
+-   **Xcode 7**과 연동되도록 SDK의 Bitcode를 활성화했습니다.
+-   앱 내 알림 메시지와 관련된 버그를 수정했습니다.
+-   배터리가 부족한 경우 및 기타 이러한 시나리오에서 앱 내 알림 메시지를 더욱 안정적으로 만들었습니다.
+-   타사 라이브러리에서 생성하는 추가 콘솔 로그를 제거했습니다.
 
 ##3\.1.0(08/26/2015)
 
@@ -47,4 +54,4 @@
 -   보안이 개선되었습니다.
 -   SmartAd 추적 기능이 제거되었습니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="두 가상 네트워크 간의 VPN 연결 구성 | Microsoft Azure"
-	description="두 Azure 가상 네트워크 간의 VPN 연결을 구성하는 방법, 두 Azure 가상 네트워크 간의 도메인 이름 확인을 구성하는 방법 및 HBase 지역에서 복제를 구성하는 방법에 대해 알아봅니다."
-	services="hdinsight,virtual-network"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+   pageTitle="두 가상 네트워크 간의 VPN 연결 구성 | Microsoft Azure" 
+   description="두 Azure 가상 네트워크 간의 VPN 연결을 구성하는 방법, 두 Azure 가상 네트워크 간의 도메인 이름 확인을 구성하는 방법 및 HBase 지역에서 복제를 구성하는 방법에 대해 알아봅니다." 
+   services="hdinsight,virtual-network" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/08/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="07/08/2015"
+   ms.author="jgao"/>
 
 # 두 Azure 가상 네트워크 간의 VPN 연결 구성  
 
@@ -270,4 +270,4 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

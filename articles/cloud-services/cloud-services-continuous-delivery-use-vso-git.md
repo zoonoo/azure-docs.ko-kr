@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure에서 Git 및 Visual Studio Online을 사용한 연속 배달"
+	pageTitle="Azure에서 Git 및 Visual Studio Online을 사용한 연속 배달" 
 	description="Git을 사용하여 자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법을 알아봅니다."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -273,4 +273,4 @@ Visual Studio Online에서 Git 사용에 대해 더 많은 팁을 알아보려�
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,7 @@
 
 # Azure Preview 포털에서 데이터 디스크를 연결하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [클래식 배포 모델](storage-windows-attach-disk.md)을 사용하여 리소스를 만들 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](storage-windows-attach-disk.md).
 
 이 문서에서는 Azure Preview 포털을 통해 새 디스크와 기존 디스크를 모두 가상 컴퓨터에 연결하는 방법을 보여줍니다. 이 작업을 수행 하기 전에 다음 팁을 검토하세요.
 
@@ -90,4 +90,4 @@
 
 [Azure 저장소 계정 정보]: ../storage-whatis-account/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

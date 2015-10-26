@@ -21,7 +21,8 @@
 
 이 문서는 Azure에서 [Deis](http://deis.io/) 클러스터를 프로비전하는 과정을 단계별로 안내합니다. 새로 프로비전된 클러스터에서 배포 및 샘플 **이동** 응용 프로그램 확장에 필요한 인증서를 만드는 모든 단계를 다룹니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 다음 다이어그램에서는 배포된 시스템의 아키텍처를 보여줍니다. 시스템 관리자는 **deis** 및 **deisctl**과 같은 Deis 도구를 사용하여 클러스터를 관리합니다. 연결은 클러스터의 멤버 노드 중 하나에 연결을 전달하는 Azure 부하 분산 장치를 통해 설정됩니다. 클라이언트도 부하 분산 장치를 통해 배포된 응용 프로그램을 액세스합니다. 이 경우 부하 분산 장치는 트래픽을 Deis 라우터 메시에 전달합니다. 이렇게 하면 트래픽을 클러스터에서 호스트되는 해당 Docker 컨테이너에 추가로 라우트합니다.
 
@@ -257,4 +258,4 @@ Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

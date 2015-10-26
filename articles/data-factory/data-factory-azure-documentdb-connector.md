@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="DocumentDB 간 데이터 이동 | Azure 데이터 팩터리"
-	description="Azure 데이터 팩터리를 사용하여 Azure DocumentDB 컬렉션 간 데이터를 이동하는 방법에 대해 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="DocumentDB 간 데이터 이동 | Azure 데이터 팩터리" 
+	description="Azure 데이터 팩터리를 사용하여 Azure DocumentDB 컬렉션 간 데이터를 이동하는 방법에 대해 알아봅니다." 
+	services="data-factory, documentdb" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="multiple" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 DocumentDB 간 데이터 이동
@@ -399,6 +399,21 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 | writeBatchSize | 병렬 수가 DocumentDB 서비스에 문서를 만들도록 요청합니다.<p>이 속성을 사용하여 DocumentDB에서 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 "요청 속도가 큽니다."라는 오류 메시지를 발생할 수 있는 제한을 방지해야 합니다. </p><p>제한은 문서 크기, 문서에서 용어 수, 대상 컬렉션의 인덱싱 정책 등을 포함하는 많은 요인으로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예를 들어 S3)을 사용하여 사용할 수 있는 처리량을 보유할 수 있습니다.(2,500개의 요청 단위/초)</p> | 정수 값 | 아니요 |
 | writeBatchTimeout | 시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. | (단위 = timespan) 예를 들어 “00:30:00”(30분)입니다. | 아니요 |
  
- 
+## 부록
+1. **질문:** 복사 작업은 기존 레코드의 업데이트를 지원합니까?
 
-<!---HONumber=August15_HO9-->
+	**대답:** 아니요.
+
+2. **질문:** DocumentDB로 복사 재시도는 이미 복사된 레코드를 어떻게 처리하나요?
+
+	**대답:** 레코드에 "ID" 필드가 있고 복사 작업이 동일한 ID를 가진 레코드를 삽입하려고 시도하는 경우 복사 작업에서 오류가 발생합니다.
+ 
+3. **질문:** 데이터 팩터리는 [범위 또는 해시 기반 데이터 분할](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)을 지원합니까?
+
+	**대답:** 아니요. 
+4. **질문:** 하나의 테이블에 대해 하나 이상의 DocumentDB 컬렉션을 지정할 수 있습니까?
+	
+	**대답:** 아니요. 이 경우 하나의 컬렉션만 지정할 수 있습니다.
+     
+
+<!---HONumber=Oct15_HO3-->

@@ -63,4 +63,4 @@ Azure AD에 대한 인증을 사용하여 이 시나리오를 설명하는 코�
 
 [Azure Active Directory 코드 샘플](active-directory-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

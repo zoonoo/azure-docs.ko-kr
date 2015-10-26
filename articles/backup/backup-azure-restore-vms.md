@@ -8,9 +8,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="trinadhk"; "jimpark"/>
 
-# 가상 컴퓨터 복원
+# Azure 가상 컴퓨터를 복원합니다.
 복원 동작을 사용하여 Azure 백업 자격 증명에 저장된 백업을 통해 새 VM에 가상 컴퓨터를 복원할 수 있습니다.
 
 ## 워크플로 복원
@@ -105,4 +105,4 @@ Azure에 DSRM 모드가 없으면 문제가 됩니다. 따라서 이러한 VM을
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -221,11 +221,10 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 2. **웹 게시** 대화 상자의 **프로필** 탭에서 **Azure 웹앱**을 클릭합니다.
 	  
 3. 아직 로그인하지 않은 경우 **기존 웹 앱 선택** 대화 상자에서 **로그인** 단추를 클릭합니다. 로그인한 후에는 이 자습서의 첫 번째 부분에서 만든 웹 앱을 선택합니다. **확인**을 클릭하여 계속합니다.  
-	![기존 웹 사이트 선택 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png)  
-	Visual Studio는 게시 설정을 다운로드합니다.
+	![기존 웹 사이트 선택 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png) Visual Studio는 게시 설정을 다운로드합니다.
 4. **웹 게시** 대화 상자에서 **게시**를 클릭합니다.  
-	![웹 게시 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png)  
-	Visual Studio 내의 **Web Publish Activity** 창에 전체 게시 상태가 표시됩니다.  
+	![웹 게시 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png)
+	Visual Studio 내의 **Web Publish Activity** 창에 전체 게시 상태가 표시됩니다.
 	![웹 게시 작업](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms09.png)  
 
 만든 응용 프로그램이 이제 클라우드에서 실행되고 있습니다. 다음에 Visual Studio에서 응용 프로그램을 배포할 때는 변경된(또는 새) 파일만 배포됩니다.  
@@ -242,7 +241,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 먼저 코드로 간단한 데이터 모델을 만듭니다. 이 데이터 모델은 `Contacts`라는 클래스에 포함됩니다. `Contacts` 클래스 이름은 Web Forms 템플릿으로 생성된 Contact.aspx.cs 파일에 포함된 `Contact` 클래스와의 이름 충돌을 방지하기 위해 선택했습니다.
 
 1. **솔루션 탐색기**에서 *Models* 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** -> **클래스**를 선택합니다.  
-	![클래스 선택](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png)  
+	![클래스 선택](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png) 
 	**새 항목 추가** 대화 상자가 표시됩니다.  
 
 2. 이 새 클래스 이름을 *Contacts.cs*로 지정합니다.  
@@ -441,7 +440,7 @@ ASP.NET Web Forms는 멤버 자격 및 인증을 위해 개선된 옵션을 제�
 	**Create Client ID** 대화 상자가 표시됩니다.
 	![Google - 클라이언트 ID 만들기](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. **Create Client ID** 대화 상자에서 응용 프로그램 유형에 대한 기본값을 **웹 응용 프로그램**으로 유지합니다.  
-8. **Authorized JavaScript Origins**를 이 자습서의 앞부분에서 사용한 SSL URL로 설정합니다(다른 SSL 프로젝트를 만들지 않았다면 **https://localhost:44300/**). 이 URL이 응용 프로그램의 원점입니다. 이 샘플의 경우 localhost 테스트 URL만 입력합니다. 그러나 실제로는 localhost 및 프로덕션을 담당할 URL을 여러 개 입력할 수 있습니다.  
+8. **Authorized JavaScript Origins**를 이 자습서의 앞부분에서 사용한 SSL URL로 설정합니다(다른 SSL 프로젝트를 만들지 않았다면 ****https://localhost:44300/**). 이 URL이 응용 프로그램의 원점입니다. 이 샘플의 경우 localhost 테스트 URL만 입력합니다. 그러나 실제로는 localhost 및 프로덕션을 담당할 URL을 여러 개 입력할 수 있습니다.
 
 9. **Authorized Redirect URI**를 다음으로 설정합니다.
 
@@ -703,10 +702,8 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 	![기존 웹 사이트 선택 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26.png)  
 7. **구성** 드롭다운 상자를 **디버그**로 설정합니다.
 8. **ApplicationDbContext** 옆에 있는 **아래쪽 화살표** 아이콘을 클릭하고 **ContactDB**로 설정합니다.
-9. **Execute Code First Migrations** 확인란을 선택합니다.  
-
-	>[AZURE.NOTE]  
-	이 예제에서는 응용 프로그램을 처음 게시할 때에만 이 확인란을 선택합니다. 이런 방식으로 *Configuration.cs* 파일의 *Seed* 메서드는 한 번만 호출됩니다.
+9. **Execute Code First Migrations** 확인란을 선택합니다.
+	이 예제에서는 응용 프로그램을 처음 게시할 때에만 이 확인란을 선택합니다. 이런 방식으로 *Configuration.cs* 파일의 *Seed* 메서드는 한 번만 호출됩니다.  
 
 10. 그런 다음 **게시**를 클릭합니다.  
 	응용 프로그램 Azure에 게시됩니다.
@@ -786,4 +783,4 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft A
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

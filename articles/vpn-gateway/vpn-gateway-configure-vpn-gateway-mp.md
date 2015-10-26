@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 포털에서 VPN 게이트웨이 구성 | Microsoft Azure"
-	description="이 문서에서는 가상 네트워크 VPN 게이트웨이 구성하고 VPN 게이트웨이 라우팅 유형을 고정에서 동적으로 또는 동적에서 고정으로 변경하는 방법을 안내합니다."
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="이 문서에서는 가상 네트워크 VPN 게이트웨이 구성하고 VPN 게이트웨이 라우팅 유형을 고정에서 동적으로 또는 동적에서 고정으로 변경하는 방법을 안내합니다."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="cherylmc" />
 
 # Azure 포털에서 VPN 게이트웨이 구성
 
@@ -151,4 +151,4 @@ VPN 게이트웨이 라우팅 유형을 변경해야 하는 경우 기존 게이
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

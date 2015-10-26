@@ -523,4 +523,4 @@ Accept 헤더가 모든 알려진 미디어 형식을 지정하지 않은 경우
 - [RESTful Cookbook](http://restcookbook.com/)은 RESTful API를 구축하는 방법을 소개합니다.
 - 웹 [API 검사 목록](https://mathieu.fenniak.net/the-api-checklist/)에 웹 API를 디자인 및 구현할 때 고려할 유용한 항목 목록이 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

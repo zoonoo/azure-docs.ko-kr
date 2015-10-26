@@ -385,4 +385,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

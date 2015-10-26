@@ -17,7 +17,10 @@ ms.date="06/22/2015"
 ms.author="bbenz" />
 
 #Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 문서는 운영 체제로 Windows Server와 함께 Microsoft에 의해 제공되는 Azure에서의 Oracle 가상 컴퓨터에 대한 고려 상황을 다룹니다.
 
@@ -105,4 +108,4 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지 ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

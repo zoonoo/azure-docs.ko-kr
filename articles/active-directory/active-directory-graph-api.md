@@ -66,4 +66,4 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -32,7 +32,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
-* [Visual Studio 2013](https://www.visualstudio.com/ko-KR/downloads/download-visual-studio-vs.aspx) 설치
+* [Visual Studio 2013](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) 설치
 * [Node.js](https://nodejs.org/download/) 설치
 * [Python 버전 2.7.10](https://www.python.org/) 설치
 
@@ -174,4 +174,4 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
   
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

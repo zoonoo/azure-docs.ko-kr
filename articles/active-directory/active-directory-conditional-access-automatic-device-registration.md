@@ -83,6 +83,6 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 
 모바일 및 기존 장치를 둘 다 사용하거나 Office 365, Azure AD 또는 다른 Microsoft 서비스를 사용하는 회사는 Azure AD 장치 등록 서비스를 사용하여 Azure AD에 장치를 등록해야 합니다. 회사에서 모바일 장치를 사용하지 않으며 office 365 또는 Microsoft Intune과 같은 Microsoft 서비스를 사용하지 않고 대신 온-프레미스 응용 프로그램만 호스트하는 경우 AD FS를 사용하여 Active Directory에 장치를 등록할 수 있습니다.
 
-[여기](https://technet.microsoft.com/ko-KR/library/dn486831.aspx)서 AD FS를 사용하여 장치 등록을 배포하는 방법에 대해 자세히 알아볼 수 있습니다.
+[여기](https://technet.microsoft.com/en-us/library/dn486831.aspx)서 AD FS를 사용하여 장치 등록을 배포하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

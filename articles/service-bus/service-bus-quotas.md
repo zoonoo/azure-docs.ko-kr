@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="서비스 버스 할당량"
-   description="서비스 버스 한도 및 할당량"
+   pageTitle="Microsoft Azure 서비스 버스 할당량 및 제한 | Microsoft Azure"
+   description="Azure 서비스 버스 할당량 및 제한"
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # 서비스 버스 할당량
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

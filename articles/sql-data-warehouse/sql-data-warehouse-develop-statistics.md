@@ -459,4 +459,4 @@ DBCC SHOW\_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

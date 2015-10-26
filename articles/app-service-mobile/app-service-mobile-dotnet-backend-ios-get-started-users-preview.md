@@ -3,7 +3,7 @@
 	description="Azure 모바일 앱을 사용하여 AAD, Google, Facebook, Twitter 및 Microsoft를 포함한 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh"
+	authors="krisragh" 
 	manager="dwrede"
 	editor=""/>
 
@@ -51,4 +51,4 @@ Xcode에서 **실행**을 눌러 앱을 시작합니다. 앱이 인증되지 않
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

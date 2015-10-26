@@ -111,4 +111,4 @@ Azure AD에서 다른 Azure AD 디렉터리의 사용자 또는 Microsoft 계정
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

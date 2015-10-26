@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/28/2015"
+   ms.date="10/08/2015"
    ms.author="bwren;sngun"/>
 
 # Azure 자동화 Webhook
@@ -156,7 +156,8 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
             # Start each virtual machine
 			foreach ($VM in $VMList)
 			{
-				Write-Output "Starting $VM.Name."
+				$VMName = $VM.Name
+				Write-Output "Starting $VMName"
 				Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName
 			}
 		}
@@ -254,4 +255,4 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 - [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md)
 - [Azure 자동화를 사용하여 Azure 경고에서 조치 취하기](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

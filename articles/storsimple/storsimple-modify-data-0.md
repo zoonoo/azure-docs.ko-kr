@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치에서 DATA 0 설정 수정 | Microsoft Azure"
-	description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에서 DATA 0 네트워크 인터페이스를 다시 구성하는 방법을 알아봅니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에서 DATA 0 네트워크 인터페이스를 다시 구성하는 방법을 알아봅니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/02/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치에서 DATA 0 네트워크 인터페이스 설정 수정
 
@@ -71,4 +71,4 @@ StorSimple 장치의 Windows PowerShell 인터페이스에 연결하고 설치 �
 
 DATA 0 이외의 네트워크 인터페이스를 구성하려면 [관리 포털에서 페이지 구성](storsimple-modify-device-config.md)을 사용할 수 있습니다. 네트워크 인터페이스를 구성할 때 문제가 발생하는 경우 [배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

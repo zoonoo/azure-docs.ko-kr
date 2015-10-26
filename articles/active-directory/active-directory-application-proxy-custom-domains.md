@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/07/2015"
 	ms.author="rkarlin"/>
 
 # Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
@@ -35,9 +35,22 @@ Q: 이미 업로드한 인증서를 다시 업로드하지 않고 선택할 수 
 
 
 
+## 참고 항목
+응용 프로그램 프록시를 사용하여 수행할 수 있는 작업은 많습니다.
+
+- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
+- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+- [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+- [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)- [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
+
+## 응용 프로그램 프록시에 대해 자세히 알아보기
+- [온라인 도움말에서 살펴보기](active-directory-application-proxy-enable.md)
+- [응용 프로그램 프록시 블로그 확인](http://blogs.technet.com/b/applicationproxyblog/)
+- [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+
 ## 추가 리소스
 
 * [조직으로 Azure 등록](..sign-up-organization.md)
 * [Azure ID](..fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

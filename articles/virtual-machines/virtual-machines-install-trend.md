@@ -20,7 +20,8 @@
 
 # Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 컴퓨터에 응용 프로그램을 설치하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 문서에서는 Windows Server가 실행되는 새 VM(가상 컴퓨터) 또는 기존 VM에서 Trend Micro Deep Security as a Service를 설치 및 구성하는 방법을 보여 줍니다. Deep Security as a Service는 맬웨어 방지 보호, 방화벽, 침입 방지 시스템 및 무결성 모니터링을 포함합니다.
 
@@ -86,4 +87,4 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: virtual-machines-log-on-windows-server.md
 [Azure VM 확장 및 기능]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

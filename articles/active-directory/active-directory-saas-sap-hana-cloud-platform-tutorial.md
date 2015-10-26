@@ -181,4 +181,4 @@ Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, S
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

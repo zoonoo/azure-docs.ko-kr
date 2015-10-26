@@ -65,4 +65,4 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 경우를 알아봅니다.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

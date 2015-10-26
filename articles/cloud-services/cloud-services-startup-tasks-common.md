@@ -1,19 +1,19 @@
 <properties 
-pageTitle="클라우드 서비스에 대한 일반적인 시작 작업 | Microsoft Azure"
-	description="클라우드 서비스 웹 역할 또는 작업자 역할에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+pageTitle="클라우드 서비스에 대한 일반적인 시작 작업 | Microsoft Azure" 
+description="클라우드 서비스 웹 역할 또는 작업자 역할에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다." 
+services="cloud-services" 
+documentationCenter="" 
+authors="Thraka" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
-	ms.author="adegeo"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="08/24/2015" 
+ms.author="adegeo"/>
 
 # 일반적인 클라우드 서비스 시작 작업
 
@@ -492,7 +492,7 @@ Startup2.cmd:
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [작업]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Runtime]: https://msdn.microsoft.com/ko-KR/library/azure/gg557552.aspx#Runtime
+[Runtime]: https://msdn.microsoft.com/en-us/library/azure/gg557552.aspx#Runtime
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [런타임]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
@@ -504,4 +504,4 @@ Startup2.cmd:
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

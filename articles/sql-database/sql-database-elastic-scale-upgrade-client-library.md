@@ -97,4 +97,4 @@ ShardMapManager를 열고 모든 분할에서 반복 실행한 다음, 다음 �
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

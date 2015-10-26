@@ -76,4 +76,4 @@ Azure 데이터 팩터리는 생성되는 데이터를 간단히 사용할 수 �
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

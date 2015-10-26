@@ -153,4 +153,4 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
 
 Visual Studio에서 Azure에 앱을 게시하는 방법에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](vs-azure-tools-publishing-a-cloud-service.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

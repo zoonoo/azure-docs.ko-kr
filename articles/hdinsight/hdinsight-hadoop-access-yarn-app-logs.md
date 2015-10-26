@@ -174,4 +174,4 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

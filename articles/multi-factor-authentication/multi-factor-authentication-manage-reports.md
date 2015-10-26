@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 보고서"
-	description="Azure Multi-Factor Authentication 기능 - 보고서를 사용하는 방법을 설명합니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication 보고서" 
+	description="Azure Multi-Factor Authentication 기능 - 보고서를 사용하는 방법을 설명합니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에서 보고서
@@ -50,4 +50,4 @@ Queued|처리 및 해당 상태에 대해 대기 중인 보고서가 나열되�
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,8 @@
 
 # HPC 팩 IaaS 배포 스크립트를 사용하여 Azure VM에 HPC(고성능 컴퓨팅) 클러스터 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 
 클라이언트 컴퓨터에 HPC 팩 IaaS 배포 PowerShell 스크립트를 실행하여 Azure 인프라 서비스에 완전한 HPC 팩 클러스터를 배포합니다(IaaS). 이 스크립트는 여러 배포 옵션을 제공하며 지원되는 Linux 배포 또는 Windows Server 운영 체제를 실행하는 클러스터 계산 노드를 추가할 수 있습니다.
@@ -389,4 +390,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 
 * 사용자가 만든 클러스터에서 계산 노드를 시작, 중지, 추가, 제거하는 HPC 팩의 도구. [Azure에서 HPC 팩 클러스터의 계산 노드 관리](virtual-machines-hpcpack-cluster-node-manage.md) 참조
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

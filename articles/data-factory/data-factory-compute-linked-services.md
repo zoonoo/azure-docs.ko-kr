@@ -247,4 +247,4 @@ Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-fac
  
    
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

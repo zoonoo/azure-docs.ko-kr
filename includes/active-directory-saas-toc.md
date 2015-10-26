@@ -18,7 +18,7 @@
 	- [Box를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [ServiceNow를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn510971.aspx)
 	- [Dropbox for Business를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [Workday를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn510972.aspx) 
+	- [Workday를 통합하는 방법](http://go.microsoft.com/fwlink/?LinkId=690250) 
 	- [다른 SaaS 앱 자습서...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

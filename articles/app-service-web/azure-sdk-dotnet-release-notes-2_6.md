@@ -106,4 +106,4 @@ Azure SDK 2.6에서는 Azure 계산 에뮬레이터의 진단 로그를 수집�
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

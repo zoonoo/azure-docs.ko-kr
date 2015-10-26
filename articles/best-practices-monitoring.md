@@ -1,21 +1,21 @@
 <properties
    pageTitle="모니터링 및 진단 지침 | Microsoft Azure"
-	description="클라우드의 분산 응용 프로그램을 모니터링 하기 위한 모범 사례입니다."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="클라우드의 분산 응용 프로그램을 모니터링 하기 위한 모범 사례입니다."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="04/28/2015"
-	ms.author="masashin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="04/28/2015"
+   ms.author="masashin"/>
 
 # 모니터링 및 진단 지침
 
@@ -612,4 +612,4 @@ _그림 6. 분석 및 저장소 요구 사항에 따라 데이터 분할_
 - Microsoft 웹 사이트의 [Azure의 모니터링 경고 및 알림 이해](https://msdn.microsoft.com/library/azure/dn306639.aspx) 페이지
 - Microsoft 웹 사이트의 [Application Insights](app-insights-get-started/) 페이지
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -78,20 +78,20 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 <!--Image references-->
 
 <!--Article references-->
-[마이그레이션]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-overview-migrate/
-[개발]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-overview-develop/
-[로드]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-overview-load/
-[연결 및 쿼리]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[마이그레이션 코드]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-migrate-code/
-[샘플 데이터를 수동으로 로드]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
+[마이그레이션]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/
+[개발]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
+[로드]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/
+[연결 및 쿼리]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-query/
+[마이그레이션 코드]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/
+[샘플 데이터를 수동으로 로드]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
 [Azure 포털]: https://portal.azure.com
 [Power BI]: http://www.powerbi.com
-[SQL 데이터 웨어하우스에 연결]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-integrate-power-bi/
+[SQL 데이터 웨어하우스에 연결]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-integrate-power-bi/
 
 <!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/ko-kr/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/en-us/download/details.aspx?id=36433
 
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

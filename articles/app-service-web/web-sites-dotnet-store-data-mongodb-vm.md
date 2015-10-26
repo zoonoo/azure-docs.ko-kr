@@ -326,7 +326,7 @@ MongoDB C# 드라이버를 설치하려면
 	}
 
 ## 스타일 설정 ##
-페이지 위쪽에 있는 제목을 변경하려면 **솔루션 탐색기**에서 *Views\\Shared\\\_Layout.cshtml* 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
+페이지 위쪽에 있는 제목을 변경하려면 **솔루션 탐색기**에서 *Views\\Shared\\_Layout.cshtml* 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -499,4 +499,4 @@ MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 [C
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

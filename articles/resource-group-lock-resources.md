@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자를 사용하여 리소스 잠그기
@@ -93,11 +93,13 @@ lock-level로 **CanNotDelete** 또는 **ReadOnly**를 지정합니다.
 
 ## Azure PowerShell을 사용하여 잠금 만들기
 
-아래와 같이 **New-AzureResourceLock**을 사용하여 Azure PowerShell을 통해 배포된 리소스를 잠글 수 있습니다. PowerShell을 통해 **LockLevel**을 **CanNotDelete**로만 설정할 수 있습니다.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+아래와 같이 **New-AzureRmResourceLock**을 사용하여 Azure PowerShell을 통해 배포된 리소스를 잠글 수 있습니다. PowerShell을 통해 **LockLevel**을 **CanNotDelete**로만 설정할 수 있습니다.
 
-PowerShell은 잠금을 업데이트하기 위한 **Set-AzureResourceLock**, 잠금을 삭제하기 위한 **Remove-AzureResourceLock**와 같은 잠금 사용을 위한 다른 명령도 제공합니다.
+    PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
+
+Azure PowerShell은 잠금을 업데이트하기 위한 **Set-AzureRmResourceLock**, 잠금을 삭제하기 위한 **Remove-AzureRmResourceLock**와 같은 잠금 사용을 위한 다른 명령도 제공합니다.
 
 ## 다음 단계
 
@@ -105,4 +107,4 @@ PowerShell은 잠금을 업데이트하기 위한 **Set-AzureResourceLock**, 잠
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 - 리소스가 존재하는 리소스 그룹을 변경하려면 [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

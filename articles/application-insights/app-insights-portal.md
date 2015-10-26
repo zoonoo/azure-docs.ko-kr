@@ -17,7 +17,7 @@
 
 # Application Insights 포털 사용
 
-[프로젝트에서 Application Insights를 설정](app-insights-get-started.md)하면 앱의 성능 및 사용에 대한 원격 분석 데이터가 [Azure 포털](https://portal.azure.com)에서 프로젝트의 Application Insights 리소스에 나타납니다.
+[프로젝트에서 Application Insights를 설정](app-insights-overview.md)하면 앱의 성능 및 사용에 대한 원격 분석 데이터가 [Azure 포털](https://portal.azure.com)에서 프로젝트의 Application Insights 리소스에 나타납니다.
 
 ## Azure에서 원격 분석 찾기
 
@@ -139,4 +139,4 @@
 
 상대 시간 범위로 저장한 경우 다시 열린 블레이드는 최신 데이터입니다. 절대 시간 범위로 저장한 경우 매번 같은 데이터가 보입니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

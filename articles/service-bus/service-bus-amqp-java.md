@@ -401,19 +401,11 @@ while (propertyNames.hasMoreElements())
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
 
 - [서비스 버스 AMQP 개요]
-- [AMQP를 사용하여 .NET에서 서비스 버스 사용]
-- [AMQP를 사용하여 Python에서 서비스 버스 사용]
-- [AMQP를 사용하여 PHP에서 서비스 버스 사용]
-- [Azure Linux VM에 Apache Qpid Proton-C 설치]
 - [Windows Server용 서비스 버스의 AMQP]
 
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
-[AMQP를 사용하여 .NET에서 서비스 버스 사용]: service-bus-amqp-dotnet.md
-[AMQP를 사용하여 Python에서 서비스 버스 사용]: service-bus-amqp-python.md
-[AMQP를 사용하여 PHP에서 서비스 버스 사용]: service-bus-amqp-php.md
-[Azure Linux VM에 Apache Qpid Proton-C 설치]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

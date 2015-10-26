@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 기술 사양 | Microsoft Azure"
-	description="StorSimple 하드웨어 구성 요소에 대한 기술 사양 및 규제 표준 준수 정보를 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 하드웨어 구성 요소에 대한 기술 사양 및 규제 표준 준수 정보를 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
  <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/26/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치에 대한 기술 사양 및 규정 준수
 
@@ -172,4 +172,4 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

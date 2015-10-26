@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HDInsight에서 Hadoop Sqoop 사용 | Microsoft Azure"
+	pageTitle="Linux 기반 HDInsight에서 Hadoop Sqoop 사용 | Microsoft Azure"
 	description="HDInsight 클러스터의 Linux 기반 Hadoop과 Azure SQL 데이터베이스 사이에서 Sqoop 가져오기/내보내기를 실행하는 방법을 알아봅니다."
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop과 Sqoop 사용(SSH)
@@ -50,7 +50,7 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 ##시나리오 이해
 
-HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **wasb:///hive/warehouse/hivesampletable**에 위치한 데이터 파일을 참조하는 **hivesampletable**이라는 이름의 Hive 테이블을 사용합니다. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다. 다음은 Hive 테이블 스키마입니다.
+HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. ****wasb:///hive/warehouse/hivesampletable**에 위치한 데이터 파일을 참조하는 **hivesampletable**이라는 이름의 Hive 테이블을 사용합니다. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다. 다음은 Hive 테이블 스키마입니다.
 
 | 필드 | 데이터 형식 |
 | ----- | --------- |
@@ -66,7 +66,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-먼저 **hivesampletable**을 Azure SQL 데이터베이스 또는 **mobiledata**라는 이름의 테이블에 있는 SQL Server로 내보낸 다음 테이블을 다시 **wasb:///tutorials/usesqoop/importeddata**에 있는 HDInsight로 가져옵니다.
+먼저 **hivesampletable**을 Azure SQL 데이터베이스 또는 **mobiledata**라는 이름의 테이블에 있는 SQL Server로 내보낸 다음 테이블을 다시 ****wasb:///tutorials/usesqoop/importeddata**에 있는 HDInsight로 가져옵니다.
 
 ##데이터베이스 만들기
 
@@ -171,7 +171,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 **wasb:///hive/warehouse/hivesampletable** (*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
+    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 ****wasb:///hive/warehouse/hivesampletable**(*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
 
 5. 명령이 완료되면 다음을 통해 TSQL을 사용하여 데이터베이스에 연결합니다.
 
@@ -186,7 +186,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
 ##Sqoop 가져오기
 
-1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 **wasb:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
+1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 ****wasb:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -240,9 +240,9 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight와 함께 Oozie 사용][hdinsight-use-oozie]: Oozie 워크플로에서 Sqoop 작업을 사용합니다.
-- [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
-- [HDInsight에 데이터 업로드][hdinsight-upload-data]: HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
+- [HDInsight와 함께 Oozie 사용][hdinsight-use-oozie]\: Oozie 워크플로에서 Sqoop 작업을 사용합니다.
+- [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]\: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
+- [HDInsight에 데이터 업로드][hdinsight-upload-data]\: HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
 
 
 
@@ -264,4 +264,4 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -557,4 +557,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

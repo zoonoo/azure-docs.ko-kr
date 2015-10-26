@@ -141,4 +141,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

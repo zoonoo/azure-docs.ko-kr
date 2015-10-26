@@ -352,10 +352,10 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 - [Azure 저장소 REST API]
 - [Azure 저장소 팀 블로그]
 
-이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/ko-KR/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure 저장소에 대한 기능 제안은 [Azure 저장소 피드백](http://feedback.azure.com/forums/217298-storage)에 제공해 주세요.
+이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure 저장소에 대한 기능 제안은 [Azure 저장소 피드백](http://feedback.azure.com/forums/217298-storage)에 제공해 주세요.
 
 [Azure 저장소 iOS 라이브러리]: https://github.com/azure/azure-storage-ios
 [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

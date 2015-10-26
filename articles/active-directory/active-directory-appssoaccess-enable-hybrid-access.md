@@ -46,4 +46,4 @@ Azure AD의 액세스 패널을 통해 Azure AD에 온-프레미스 응용 프�
 1. Azure AD의 응용 프로그램 프록시를 사용하고 커넥터를 설치 및 등록합니다. 자세한 지침은 [Azure AD 응용 프로그램 프록시 사용](active-directory-application-proxy-enable/#step-1-enable-application-proxy-in-azure-ad.md)을 참조하세요.
 2. Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시- 자세한 지침은 [Azure AD 앱 프록시를 통해 응용 프로그램 게시](active-directory-application-proxy-publish.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

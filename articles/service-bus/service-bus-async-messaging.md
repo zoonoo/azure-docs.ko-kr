@@ -154,7 +154,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
-  [MessagingException]: https://msdn.microsoft.com/ko-KR/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+  [MessagingException]: https://msdn.microsoft.com/en-us/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
   [서비스 버스 중단 및 재해로부터 서비스 버스 응용 프로그램을 보호하는 최상의 방법]: service-bus-outages-disasters.md
   [Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
   [MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
@@ -172,4 +172,4 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [쌍을 이루는 네임 스페이스 및 비용 영향]: service-bus-paired-namespaces.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

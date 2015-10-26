@@ -224,4 +224,4 @@ Azure 미디어 인코더로 인코딩할 때 [여기](https://msdn.microsoft.co
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

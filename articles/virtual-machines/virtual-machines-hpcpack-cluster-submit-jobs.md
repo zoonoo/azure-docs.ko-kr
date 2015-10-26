@@ -18,7 +18,7 @@ ms.service="virtual-machines"
 
 # 온-프레미스 컴퓨터에서 Azure의 HPC 팩 클러스터로 HPC 작업 제출
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 만든 리소스 관리에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 이 문서는 Windows를 실행하는 온-프레미스 클라이언트 컴퓨터를 구성하여 HTTPS를 통해 Azure의 HPC 팩 클러스터와 통신하는 HPC 팩 작업 제출 도구를 실행하는 방법을 설명합니다. 또한 다양한 클러스터 사용자가 작업 제출 도구를 실행하기 위해 헤드 노드 VM에 직접 연결하지 않고도 클라우드 기반 HPC 팩 클러스터로 작업을 제출하는 간단하고 유연한 방법을 설명합니다.
 
@@ -26,7 +26,7 @@ ms.service="virtual-machines"
 
 ## 필수 조건
 
-* **Azure VM에 배포된 HPC 팩 헤드 노드** - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/ko-kr/documentation/templates/) 또는 [Azure PowerShell 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)와 같은 자동화된 도구를 사용하여 헤드 노드 및 클러스터를 배포하거나 온-프레미스 클러스터와 같은 방식으로 Azure에 클러스터를 수동으로 배포할 수 있습니다. 이 문서의 단계를 완료하려면 헤드 노드의 DNS 이름 및 클러스터 관리자 자격 증명이 필요합니다.
+* **Azure VM에 배포된 HPC 팩 헤드 노드** - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/en-us/documentation/templates/) 또는 [Azure PowerShell 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)와 같은 자동화된 도구를 사용하여 헤드 노드 및 클러스터를 배포하거나 온-프레미스 클러스터와 같은 방식으로 Azure에 클러스터를 수동으로 배포할 수 있습니다. 이 문서의 단계를 완료하려면 헤드 노드의 DNS 이름 및 클러스터 관리자 자격 증명이 필요합니다.
 
     헤드 노드를 수동으로 배포한 경우 VM에 HTTPS 끝점이 구성되어 있는지 확인하십시오. 그렇지 않은 경우 해당 끝점을 설정합니다. [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)을 참조하세요.
 
@@ -183,4 +183,4 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

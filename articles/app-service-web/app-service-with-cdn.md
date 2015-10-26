@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="cephalin"/>
 
 # Azure 웹앱과 Azure CDN 통합 #
@@ -556,4 +556,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 - [Azure에 CDN 사용](../cdn-how-to-use.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

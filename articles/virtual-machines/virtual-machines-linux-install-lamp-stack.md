@@ -21,7 +21,8 @@
 
 #Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 
@@ -128,4 +129,4 @@ Ubuntu에 LAMP 스택을 설치하는 여러 다른 리소스가 있습니다.
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

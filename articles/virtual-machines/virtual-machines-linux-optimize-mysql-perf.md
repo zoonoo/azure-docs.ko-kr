@@ -21,7 +21,8 @@
 
 가상 하드웨어 선택과 소프트웨어 구성 모두에서 Azure의 MySQL 성능에 영향을 주는 많은 요소가 있습니다. 이 문서에서는 저장소, 시스템 및 데이터베이스 구성을 통해 성능을 최적화하는 방법에 중점을 둡니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 ##Azure 가상 컴퓨터에서 RAID 활용
 저장소는 클라우드 환경에서 데이터베이스 성능에 영향을 주는 주요 요소입니다. 단일 디스크에 비해 RAID는 동시 연결을 통해 더욱 빠른 액세스를 제공할 수 있습니다. 자세한 내용은 [표준 RAID 수준](http://en.wikipedia.org/wiki/Standard_RAID_levels)을 참조하세요.
@@ -347,4 +348,4 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

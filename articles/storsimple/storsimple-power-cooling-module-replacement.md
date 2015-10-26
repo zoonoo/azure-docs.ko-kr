@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치의 PCM 교체 | Microsoft Azure"
-	description="StorSimple 장치의 PCM(전원 및 냉각 모듈)을 꺼내고 교체하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 장치의 PCM(전원 및 냉각 모듈)을 꺼내고 교체하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치의 전원 및 냉각 모듈 교체
 
@@ -152,4 +152,4 @@ StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요.
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

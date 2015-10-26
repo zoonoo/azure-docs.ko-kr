@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK 통합"
+	pageTitle="Azure Mobile Engagement Android SDK 통합" 
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #업그레이드 절차
@@ -386,4 +386,4 @@ Proguard 구성은 브랜드 재지정의 영향을 받을 수 있으며, 규칙
 			}
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

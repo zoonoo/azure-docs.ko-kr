@@ -202,7 +202,7 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 
 > - Windows Server 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-configure-mpio-windows-server.md)으로 이동합니다. StorSimple 볼륨을 탑재, 초기화 및 포맷하는 단계도 포함됩니다.
 
-> - Linux 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-linux.md)으로 이동합니다.
+> - Linux 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)으로 이동합니다.
 
 MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows Server 호스트에서 StorSimple 볼륨을 탑재, 초기화 및 포맷합니다.
 
@@ -273,7 +273,7 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 MPIO(다중 경로 I/O)는 선택적 기능이며 Windows Server에 기본적으로 설치되지 않습니다. 서버 관리자를 통해 기능으로 설치해야 합니다. MPIO 설치 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-configure-mpio-windows-server.md)으로 이동합니다.
 
-Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-linux.md)으로 이동합니다.
+Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)으로 이동합니다.
 
 
 > [AZURE.NOTE]MPIO는 StorSimple 가상 장치에서 지원되지 않습니다.
@@ -287,4 +287,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 [StorSimple 관리자 서비스](storsimple-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

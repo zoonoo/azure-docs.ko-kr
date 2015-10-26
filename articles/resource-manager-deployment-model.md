@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/07/2015"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 배포 및 클래식 배포 이해
@@ -50,9 +50,13 @@
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - PowerShell 명령은 **AzureResourceManager** 모드에서 실행합니다.
+  - Azure PowerShell 1.0 Preview 이전 버전의 경우 명령이 **AzureResourceManager** 모드에서 실행됩니다.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
+
+  - Azure PowerShell 1.0 Preview의 경우 리소스 관리자 버전의 명령을 사용합니다. 이 명령은 다음과 같이 *동사-AzureRm* 형식을 갖습니다.
+
+            PS C:\> Get-AzureRmResourceGroupDeployment
 
   - REST용 [Azure 리소스 관리자 REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx) 작업.
   - Azure CLI 명령은 **arm** 모드에서 실행합니다.
@@ -77,9 +81,13 @@
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - PowerShell 명령은 **AzureServiceManagement** 모드에서 실행합니다(기본 모드이며, 그렇지 않은 경우 AzureResourceManager로 구체적으로 전환된 경우, AzureServiceManagement 모드에서 실행 중입니다).
+  - 1\.0 Preview보다 이전 버전의 Azure PowerShell의 경우 **AzureServiceManagement** 모드에서 실행합니다(기본 모드이며, 그렇지 않은 경우 AzureResourceManager로 구체적으로 전환된 경우, AzureServiceManagement 모드에서 실행 중입니다).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
+
+  - Azure PowerShell 1.0 Preview의 경우 서비스 관리 버전의 명령을 사용합니다. 이러한 명령의 이름은 다음과 같이 *동사-AzureRm* 형식을 갖지 **않습니다**.
+
+            PS C:\> Get-AzureDeployment
 
   - REST용 [서비스 관리 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 작업.
   - Azure CLI 명령은 **asm** 또는 기본 모드에서 실행됩니다.
@@ -117,7 +125,7 @@
 
 클래식 배포 모델에서 만든 리소스는 리소스 관리자 작업을 지원하지 않습니다. 경우에 따라 리소스 관리자 명령은 클래식 배포를 통해 생성되는 리소스에 대한 정보를 검색하거나, 다른 리소스 그룹으로 기존 리소스 이동과 같은 관리 작업을 수행할 수 있지만, 이 경우 해당 유형이 리소스 관리자 작업을 지원한다는 느낌을 주어서는 안됩니다. 예를 들어, 리소스 관리자 및 클래식으로 만든 가상 컴퓨터가 포함된 리소스 그룹이 있다고 가정합니다. 다음 PowerShell 명령을 실행하면 모든 가상 컴퓨터를 표시합니다.
 
-    PS C:\> Get-AzureResourceGroup -Name ExampleGroup
+    PS C:\> Get-AzureRmResourceGroup -Name ExampleGroup
     ...
     Resources :
      Name                 Type                                          Location
@@ -158,4 +166,4 @@
 - 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -20,7 +20,7 @@
 
 ## 개요
 
-이 자습서에서는 웹 앱을 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행할 때 디버그할 수 있도록 지원하는 Visual Studio 도구를 사용하여 원격으로 [디버그 모드](http://www.visualstudio.com/ko-kr/get-started/debug-your-app-vs.aspx)를 실행하는 방법 또는 응용 프로그램 로그 및 웹 서버 로그를 보는 방법을 보여 줍니다.
+이 자습서에서는 웹 앱을 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행할 때 디버그할 수 있도록 지원하는 Visual Studio 도구를 사용하여 원격으로 [디버그 모드](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx)를 실행하는 방법 또는 응용 프로그램 로그 및 웹 서버 로그를 보는 방법을 보여 줍니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -71,7 +71,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
    
 	이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 웹 앱: 응용 프로그램 문자열 및 연결 문자열 작동 방식](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)을 참조하세요.
 
-	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 미리보기 포털을 엽니다. 자세한 내용은 [웹 앱을 구성하는 방법](/ko-kr/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
+	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 미리보기 포털을 엽니다. 자세한 내용은 [웹 앱을 구성하는 방법](/ko-KR/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
 
 ## <a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스
 
@@ -735,7 +735,7 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 
 오류 로깅과 관련하여, 사용자 자신의 추적 코드를 기록하는 또 다른 방법은 [ELMAH](http://nuget.org/packages/elmah/) 같은 오픈 소스 로깅 프레임워크를 사용하는 것입니다. 자세한 내용은 [Scott Hanselman의 ELMAH 관련 블로그 게시물](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)(영문)을 참조하십시오.
 
-또한 Azure에서 로그를 스트리밍하려면 ASP.NET 또는 System.Diagnostics 추적 기능을 사용할 필요가 없습니다. Azure 웹 앱 로그 스트리밍 서비스는 *LogFiles* 폴더에 위치한 *.txt*, *.html* 또는 *.log* 파일로 스트리밍합니다. 따라서 웹 앱의 파일 시스템에 기록하는 사용자 자신의 로깅 시스템을 만들 수 있습니다. 그러면 파일이 자동으로 스트리밍되어 다운로드됩니다. 그러려면 *d:\home\logfiles* 폴더에 파일을 만드는 응용 프로그램 코드만 작성하면 됩니다.
+또한 Azure에서 로그를 스트리밍하려면 ASP.NET 또는 System.Diagnostics 추적 기능을 사용할 필요가 없습니다. Azure 웹 앱 로그 스트리밍 서비스는 *LogFiles* 폴더에 위치한 *.txt*, *.html* 또는 *.log* 파일로 스트리밍합니다. 따라서 웹 앱의 파일 시스템에 기록하는 사용자 자신의 로깅 시스템을 만들 수 있습니다. 그러면 파일이 자동으로 스트리밍되어 다운로드됩니다. 그러려면 *d:\\home\\logfiles* 폴더에 파일을 만드는 응용 프로그램 코드만 작성하면 됩니다.
 
 ### 웹 서버 로그 분석
 
@@ -762,4 +762,4 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

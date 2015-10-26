@@ -119,4 +119,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

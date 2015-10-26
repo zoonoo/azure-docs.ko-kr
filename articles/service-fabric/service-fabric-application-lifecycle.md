@@ -118,4 +118,4 @@
 - [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

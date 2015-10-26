@@ -177,4 +177,4 @@ Azure에서 제공하지 않는 이름 확인을 사용할 경우, 지정하는 
 
 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

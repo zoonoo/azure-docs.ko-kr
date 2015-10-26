@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="테이블 저장소를 사용하는 웹 앱(Node.js) | Microsoft Azure"
-	description="Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다."
-	services="cloud-services, storage"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="테이블 저장소를 사용하는 웹 앱(Node.js) | Microsoft Azure" 
+	description="Azure 저장소 서비스 및 Azure 모듈을 추가해 Express를 사용하여 웹 앱 빌드 자습서를 기반으로 응용 프로그램을 빌드하는 자습서입니다." 
+	services="cloud-services, storage" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -408,4 +408,4 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
  
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

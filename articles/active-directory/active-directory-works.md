@@ -49,4 +49,4 @@ Azure AD를 관리하는 방법, 디렉터리를 얻는 방법, 디렉터리를 
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

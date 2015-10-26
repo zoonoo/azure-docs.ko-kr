@@ -256,4 +256,4 @@ sendClient.Send(helloMessage);
 
 서비스 버스 인증에 대한 자세한 백그라운드는 [서비스 버스 인증 및 권한 부여](service-bus-authentication-and-authorization.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

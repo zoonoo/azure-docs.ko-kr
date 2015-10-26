@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
@@ -174,7 +174,6 @@ StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 ## 다음 단계
 
-- [StorSimple 구성 요소](storsimple-components.md)에 대해 자세히 알아봅니다. 
-- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+[StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

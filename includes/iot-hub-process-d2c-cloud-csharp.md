@@ -53,7 +53,7 @@ Azure 저장소에 메시지를 안정적으로 기록하기 위해 기별 블�
 
 5. **ProcessDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. 새 클래스의 이름을 **StoreEventProcessor**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다.
 
-6. SimpleEventProcessor.cs 파일의 맨 위에 다음 구문을 추가합니다.
+6. StoreEventProcessor.cs 파일의 맨 위에 다음 구문을 추가합니다.
 
         using System.IO;
         using System.Diagnostics;
@@ -96,7 +96,7 @@ Azure 저장소에 메시지를 안정적으로 기록하기 위해 기별 블�
 
             Task IEventProcessor.OpenAsync(PartitionContext context)
             {
-                Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+                Console.WriteLine("StoreEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 
                 if (!long.TryParse(context.Lease.Offset, out currentBlockInitOffset))
                 {
@@ -126,7 +126,7 @@ Azure 저장소에 메시지를 안정적으로 기록하기 위해 기별 블�
                         WriteHighlightedMessage(string.Format("Received interactive message: {0}", messageId));
                         continue;
                     }
-                    
+
                     if (toAppend.Length + data.Length > MAX_BLOCK_SIZE || stopwatch.Elapsed > MAX_CHECKPOINT_TIME)
                     {
                         await AppendAndCheckpoint(context);
@@ -229,7 +229,7 @@ Azure 저장소에 메시지를 안정적으로 기록하기 위해 기별 블�
 > [AZURE.NOTE]간단히 하기 위해 이 자습서에서는 [EventProcessorHost]의 단일 인스턴스를 사용합니다. 장치-클라우드 메시지 처리에 대한 자세한 내용은 [이벤트 허브 프로그래밍 가이드] 및 [장치-클라우드 메시지 처리] 자습서를 참조하세요.
 
 ## 대화형 메시지 수신
-이 섹션에서는 서비스 버스 큐에서 대화형 메시지를 수신하는 Windows 콘솔 응용 프로그램을 작성합니다. 서비스 버스를 사용하여 솔루션을 설계하는 방법에 대한 자세한 내용은 [서비스 버스를 통해 다중 계층 응용 프로그램 빌드]를 참조하세요.
+이 섹션에서는 서비스 버스 큐에서 대화형 메시지를 수신하는 Windows 콘솔 응용 프로그램을 작성합니다. 서비스 버스를 사용하여 솔루션을 설계하는 방법에 대한 자세한 내용은 [서비스 버스를 통해 다중 계층 응용 프로그램 빌드][]를 참조하세요.
 
 1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트의 이름을 **ProcessD2cInteractiveMessages**로 지정합니다.
 
@@ -309,9 +309,11 @@ Azure 저장소에 메시지를 안정적으로 기록하기 위해 기별 블�
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
+[서비스 버스를 통해 다중 계층 응용 프로그램 빌드]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+
 
 <!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[10]: ./media/iot-hub-process-d2c-cloud-csharp/create-identity-csharp1.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
@@ -322,4 +324,4 @@ Azure 저장소에 메시지를 안정적으로 기록하기 위해 기별 블�
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -50,7 +50,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC 솔루션으로, Windows와 Linux HPC 작업을 모두 실행할 수 있습니다.
 
-* [HPC Pack 2012 R2 업데이트 2 다운로드](https://www.microsoft.com/ko-kr/download/details.aspx?id=47755)(영문)
+* [HPC Pack 2012 R2 업데이트 2 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=47755)(영문)
 
 * [설명서](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -121,4 +121,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](http://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](http://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](http://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

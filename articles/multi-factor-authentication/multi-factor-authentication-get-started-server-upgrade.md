@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드"
-	description="이 문서에서는 Azure MFA 서버를 시작하는 방법 및 이전 phonefactor agent에서 업그레이드하는 방법을 설명합니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드" 
+	description="이 문서에서는 Azure MFA 서버를 시작하는 방법 및 이전 phonefactor agent에서 업그레이드하는 방법을 설명합니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
@@ -60,4 +60,4 @@ PhoneFactor Agent v5.x 및 이전 버전을 Azure Multi-Factor Authentication �
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

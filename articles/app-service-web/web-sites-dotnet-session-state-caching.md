@@ -109,4 +109,4 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

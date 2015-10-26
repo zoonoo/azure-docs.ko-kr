@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Visual Studio에서 연결된 서비스를 사용하여 모바일 서비스 추가 | Microsoft Azure"
-	description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 모바일 서비스 추가"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 모바일 서비스 추가"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # Visual Studio 연결된 서비스를 사용하여 모바일 서비스 추가
 
@@ -89,4 +89,4 @@ Visual Studio가 프로젝트를 수정하는 방법은 프로젝트 형식에 �
 
  - [azure.microsoft.com의 Azure 모바일 서비스 설명서](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

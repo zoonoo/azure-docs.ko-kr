@@ -104,4 +104,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 식은 논리 앱 트
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

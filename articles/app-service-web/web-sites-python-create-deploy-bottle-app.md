@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure에서 Bottle을 사용하는 Python 웹앱"
-	description="Azure 앱 서비스 웹앱에서 Python 웹앱을 실행하는 방법을 소개하는 자습서입니다."
-	services="app-service\web"
-	documentationCenter="python"
+	pageTitle="Azure에서 Bottle을 사용하는 Python 웹앱" 
+	description="Azure 앱 서비스 웹앱에서 Python 웹앱을 실행하는 방법을 소개하는 자습서입니다." 
+	services="app-service\web" 
+	documentationCenter="python" 
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -397,4 +397,4 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Bottle 설명서]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

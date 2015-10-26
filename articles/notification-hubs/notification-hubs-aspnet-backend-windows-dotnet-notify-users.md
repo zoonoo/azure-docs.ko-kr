@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 사용자에게 알림
@@ -27,6 +27,13 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 이 자습서는 [보안 푸시] 자습서의 필수 조건이기도 합니다. 이 자습서의 단계를 완료해야 푸시 알림을 안전하게 보내도록 이 자습서의 코드를 수정하는 방법을 보여주는 [보안 푸시] 자습서를 진행할 수 있습니다.
 
+
+
+
+
+## 시작하기 전에
+
+사용자 의견을 진지하게 고려합니다. 이 항목을 완료하기가 어렵거나 이 콘텐츠를 개선할 사항이 있는 경우 페이지의 맨 아래에 의견을 보내주시면 감사하겠습니다.
 
 이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)서 찾을 수 있습니다.
 
@@ -377,4 +384,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

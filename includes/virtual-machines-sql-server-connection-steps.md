@@ -183,4 +183,4 @@ SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://
 
 	![SSMS를 사용하여 연결](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

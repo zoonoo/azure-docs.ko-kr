@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # Hudson Continuous Integration 솔루션과 함께 Azure 저장소 사용
-
-*[Microsoft Open Technologies Inc. 제공][ms-open-tech]*
 
 ## 개요
 
 다음 정보에서는 Azure Blob 서비스를 Hudson CI(Continuous Integration) 솔루션에서 만든 빌드 아티팩트의 리포지토리로 사용하거나 빌드 프로세스에 사용할 다운로드 가능 파일의 원본으로 사용하는 방법을 보여 줍니다. 이는 민첩한 개발 환경(Java 또는 다른 언어 사용)에서 코딩하고 빌드가 연속 통합을 기반으로 실행 중이며, 다른 조직 구성원이나 고객과 빌드 아티팩트를 공유하거나 보관 파일을 유지 관리할 수 있도록 빌드 아티팩트의 리포지토리가 필요한 경우와 같은 시나리오에서 유용합니다. 다른 시나리오는 빌드 작업 자체에 종속성 등의 다른 파일이 빌드 입력의 다운로드로 필요한 경우입니다.
 
-이 자습서에서는 Microsoft Open Technologies, Inc.에서 제공하는 Hudson CI용 Azure 저장소 플러그 인을 사용합니다.
+이 자습서에서는 Microsoft에서 제공하는 Hudson CI용 Azure 저장소 플러그 인을 사용합니다.
 
 ## Hudson 소개 ##
+
 Hudson은 개발자가 코드 변경을 쉽게 통합하고 자동으로 자주 빌드를 생성하도록 하여 개발자의 생산성을 증가시켜 소프트웨어 프로젝트의 연속 통합을 가능하게 합니다. 빌드에는 버전이 지정되고 빌드 아티팩트는 다양한 리포지토리에 업로드될 수 있습니다. 이 문서에서는 Azure Blob 저장소를 빌드 아티팩트의 리포지토리로 사용하는 방법을 보여 줍니다. Azure Blob 저장소에서 종속성을 다운로드하는 방법도 보여 줍니다.
 
 Hudson에 관한 자세한 정보는 [Meet Hudson][](영문)에서 찾을 수 있습니다.
@@ -85,7 +84,7 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
 
 1. Hudson 대시보드에서 **Manage Hudson**을 클릭합니다.
 2. **Manage Hudson** 페이지에서 **Configure System**을 클릭합니다.
-3. **Microsoft Azure 저장소 계정 구성** 섹션에서:
+3. **Microsoft Azure Storage Account Configuration** 섹션에서:
 
     a. [Azure 포털](https://manage.windowsazure.com)에서 가져올 수 있는 저장소 계정 이름을 입력합니다.
 
@@ -162,7 +161,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
 - **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 이는 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
 - **컨테이너**: 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
-- **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob 저장소 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+- **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob 저장소 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하십시오.
 - **URL 형식**: Blob에 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -173,8 +172,9 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
+## 다음 단계
+
   [저장소 계정을 만드는 방법]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
-  [ms-open-tech]: http://msopentech.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

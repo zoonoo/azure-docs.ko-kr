@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="알려진 네트워크"
-	description="알려진 네트워크를 구성하여 조직 소유의 IP 주소가 여러 지역에서의 로그인 및 의심스러운 활동을 포함하는 IP 주소의 로그인 보고서에 포함되지 않도록 할 수 있습니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="msStevenPo"
+	pageTitle="알려진 네트워크" 
+	description="알려진 네트워크를 구성하여 조직 소유의 IP 주소가 여러 지역에서의 로그인 및 의심스러운 활동을 포함하는 IP 주소의 로그인 보고서에 포함되지 않도록 할 수 있습니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="markusvi" 
+	manager="msStevenPo"  
 	editor=""/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015" 
 	ms.author="markvi"/>
 
 # 알려진 네트워크
@@ -56,4 +56,4 @@ Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 
 * [의심스러운 활동을 포함하는 IP 주소의 로그인](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [여러 지역에서의 로그인](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

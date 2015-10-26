@@ -3,8 +3,7 @@
 #자습서: ServiceNow와 Azure Active Directory 통합
 >[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=521880)를 클릭하십시오.
   
-이 자습서는 Azure와 ServiceNow의 통합을 보여주기 위한 것입니다.
-이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure와 ServiceNow의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   ServiceNow의 테넌트
@@ -198,7 +197,7 @@
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **ServiceNow ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-servicenow-tutorial/IC769499.png "사용자 할당")
 
@@ -214,4 +213,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

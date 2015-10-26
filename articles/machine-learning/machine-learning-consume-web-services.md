@@ -432,4 +432,4 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 	    }
 	}
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

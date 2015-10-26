@@ -1,19 +1,19 @@
 <properties 
    pageTitle="배포된 StorSimple 장치 문제 해결 | Microsoft Azure"
-	description="현재 배포되어 작동하는 StorSimple 장치에서 발생하는 오류를 진단하고 수정하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="현재 배포되어 작동하는 StorSimple 장치에서 발생하는 오류를 진단하고 수정하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="v-sharos" />
 
 # 작동 StorSimple 장치 문제 해결
 
@@ -64,7 +64,7 @@
 문제를 해결할 수 없는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
 
-[1]: https://technet.microsoft.com/ko-KR/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/ko-KR/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

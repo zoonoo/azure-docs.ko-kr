@@ -168,10 +168,6 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
 
 - [서비스 버스 AMQP 개요]
-- [AMQP를 사용하여 Java에서 서비스 버스 사용]
-- [AMQP를 사용하여 Python에서 서비스 버스 사용]
-- [AMQP를 사용하여 PHP에서 서비스 버스 사용]
-- [Azure Linux VM에 Apache Qpid Proton-C 설치]
 - [Windows Server용 서비스 버스의 AMQP]
 
   [서비스 버스 큐를 사용하는 방법]: service-bus-dotnet-how-to-use-queues.md
@@ -203,10 +199,6 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
-[AMQP를 사용하여 Java에서 서비스 버스 사용]: service-bus-amqp-java.md
-[AMQP를 사용하여 Python에서 서비스 버스 사용]: service-bus-amqp-python.md
-[AMQP를 사용하여 PHP에서 서비스 버스 사용]: service-bus-amqp-php.md
-[Azure Linux VM에 Apache Qpid Proton-C 설치]: service-bus-amqp-apache.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

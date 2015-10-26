@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="09/22/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # Azure 액세스 제어 서비스에서 반환한 SAML을 보는 방법
@@ -24,7 +24,7 @@
 
 ACS에 대한 자세한 내용은 [다음 단계](#next_steps) 섹션을 참조하세요.
 
-> [AZURE.NOTE]Azure Access Control Services Filter(Microsoft Open Technologies 제공)는 CTP(Community Technology Preview)입니다. 이 필터는 시험판 소프트웨어로서 Microsoft Open Technologies, Inc.와 Microsoft에서 공식적으로 지원되지 않습니다.
+> [AZURE.NOTE]Azure Access Control Services Filter는 CTP(Community Technology Preview)입니다. 이 필터는 시험판 소프트웨어로서 Microsoft에서 공식적으로 지원되지 않습니다.
 
 ## 필수 조건
 
@@ -195,4 +195,4 @@ ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하�
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

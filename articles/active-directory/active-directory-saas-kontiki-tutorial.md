@@ -57,11 +57,11 @@
 
 1.  Azure AD 포털의 **Kontiki** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Single SignOn 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Single Sign-On 구성")
 
 2.  **Kontiki에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Single SignOn 구성")
+    ![Single Sign-On 구성](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Single Sign-On 구성")
 
 3.  **앱 URL 구성** 페이지의 **Kontiki Sign On URL** 텍스트 상자에 Kontiki에 로그온하기 위해 사용자가 사용하는 URL(예: https://company.mc.eval.kontiki.com/*"))을 입력한 후 **다음**을 클릭합니다.
 
@@ -69,15 +69,15 @@
 
 4.  **Kontiki에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Single SignOn 구성")
+    ![Single Sign-On 구성](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Single Sign-On 구성")
 
 5.  메타데이터를 Kontiki 지원 팀에 보냅니다.
 
     >[AZURE.NOTE]Single sign-on 구성을 Kontiki 지원 팀에서 수행할 수 있습니다. 구성이 완료되는 즉시 알림을 받아볼 수 있습니다.
 
-6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+6.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Single SignOn 구성")
+    ![Single Sign-On 구성](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Single SignOn 구성")
 ##사용자 프로비전 구성
   
 Kontiki를 프로비전하는 사용자를 구성할 작업 항목이 없습니다. 할당된 사용자가 액세스 패널을 사용하여 Kontiki에 로그인하려는 경우 Kontiki는 사용자가 존재하는지를 확인합니다. 사용할 수 있는 사용자 계정이 없으면 자동으로 Kontiki에 의해 생성됩니다.
@@ -99,4 +99,4 @@ Kontiki를 프로비전하는 사용자를 구성할 작업 항목이 없습니�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

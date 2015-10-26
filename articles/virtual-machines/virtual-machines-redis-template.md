@@ -19,7 +19,8 @@
 
 # 리소스 관리자 템플릿을 사용하는 Redis 클러스터
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 Redis 클러스터를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 Redis는 오픈 소스 키-값 캐시 및 저장소이며, 키에는 문자열, 해시, 목록, 집합, 정렬된 집합 등의 데이터 구조가 포함될 수 있습니다. Redis는 이러한 데이터 유형에 대한 소규모 작업 집합을 지원합니다. Redis 버전 3.0이 릴리스되면서 이제는 안정적인 최신 Redis 버전에서 Redis 클러스터를 사용할 수 있게 되었습니다. Redis 클러스터는 데이터가 여러 Redis 노드로 자동 분할되는 분산형 Redis 구현으로, 노드 하위 집합에서 오류가 발생해도 작업을 계속 진행할 수 있는 기능이 제공됩니다.
 
@@ -669,4 +670,4 @@ node-resources.json은 기본 azuredeploy.json 파일 내에서 호출할 경우
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

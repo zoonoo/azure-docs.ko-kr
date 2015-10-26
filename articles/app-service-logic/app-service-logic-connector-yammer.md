@@ -92,4 +92,4 @@ API 앱을 만들고 나면 이제 Yammer 커넥터를 논리 앱에 대한 트�
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

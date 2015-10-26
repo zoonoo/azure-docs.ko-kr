@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc" />
 
 # VPN 게이트웨이 정보
@@ -79,4 +79,4 @@ VPN 게이트웨이 유형을 변경하려면 [가상 네트워크 VPN 게이트
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

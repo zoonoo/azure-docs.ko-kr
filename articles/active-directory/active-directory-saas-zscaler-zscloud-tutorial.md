@@ -188,4 +188,4 @@ Azure AD 사용자가 ZScaler ZSCloud에 로그인할 수 있도록 하려면 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

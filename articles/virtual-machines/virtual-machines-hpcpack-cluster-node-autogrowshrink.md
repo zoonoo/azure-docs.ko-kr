@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # 클러스터 워크로드에 따라 HPC 팩 클러스터에서 Azure 계산 리소스를 자동으로 확장 및 축소
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 클래식 배포 모델을 사용하여 만든 리소스를 관리하는 방법에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 HPC 팩 클러스터를 만드는 경우 Azure 컴퓨팅 리소스를 현재 작업 워크로드 및 클러스터 작업에 따라 자동으로 증가 또는 축소하려는 방법이 필요합니다. 그러면 Azure 리소스를 더욱 효율적으로 사용하고 비용을 관리할 수 있습니다. 이렇게 하려면 HPC 팩에 설치된 **AzureAutoGrowShrink.ps1** HPC PowerShell 스크립트를 사용합니다.
 
@@ -101,4 +102,4 @@ AzureAutoGrowShrink.ps1
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

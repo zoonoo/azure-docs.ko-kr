@@ -234,4 +234,4 @@ _UsageAPI_ 시트에서 사용량 API의 정보를 추출하여 처리하고, _P
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "그림 13 - 태그 정보에 대한 새 필드 만들기"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "그림 14 - 조회 정보로 계정 구조 채우기"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

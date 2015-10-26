@@ -118,4 +118,4 @@ Azure 미디어 계정을 삭제할 준비가 되면 [Remove-AzureMediaServicesA
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

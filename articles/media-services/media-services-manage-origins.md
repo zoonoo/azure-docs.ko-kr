@@ -149,4 +149,4 @@ CDN 통합은 모든 Azure 데이터 센터, 미국 서부, 미국 동부, 북�
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

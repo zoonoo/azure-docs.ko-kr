@@ -112,4 +112,4 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](machine-learning-retrain-models-programmatically.md)을 참조하세요.
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

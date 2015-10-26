@@ -36,6 +36,9 @@ PolyBase를 사용하여 Azure blob 저장소에 저장된 데이터를 쿼리�
 
 먼저, PolyBase가 연결하여 Azure blob 저장소에서 데이터를 쿼리하는 데 필요한 개체를 만듭니다.
 
+> [AZURE.IMPORTANT]PolyBase에서 지원되는 Azure 저장소 계정 유형에은 + 표준 로컬 중복 저장소(표준-LRS) + 표준 지역 중복 저장소(표준-GRS) + 표준 읽기 액세스 지역 중복 저장소(표준-RAGRS)입니다. 표준 영역 중복 저장소(표준-ZRS) 및 프리미엄 로컬 중복 저장소(프리미엄-LRS) 계정 유형은 PolyBase에서 지원되지 않습니다. 새 Azure 저장소 계정을 만드는 경우 가격 책정 계층에서 PolyBase 지원 저장소 계정 유형을 선택해야 합니다.
+
+
 ## 데이터베이스 마스터 키 만들기
 서버에서 사용자 데이터베이스에 연결하여 데이터베이스 마스터 키를 만듭니다. 이 키는 다음 단계에서 사용자 자격 증명 암호를 암호화하는 데 사용됩니다.
 
@@ -316,13 +319,13 @@ $write.Dispose()
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/mt146379.aspx
-[DROP EXTERNAL TABLE(Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt146379.aspx
+[DROP EXTERNAL TABLE(Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (TRANSACT-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189450.aspx
+[CREATE MASTER KEY (TRANSACT-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

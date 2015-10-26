@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect를 사용하여 디렉터리 연결"
+<properties
+	pageTitle="Azure AD Connect를 사용하여 디렉터리 연결 | Microsoft Azure"
 	description="Azure AD Connect 디렉터리의 사용자 지정 설정을 설명합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory"
+<tags
+	ms.service="active-directory"  
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -44,6 +44,5 @@ SSO(Single Sign-on) 및 AD FS| 페더레이션된 서버에 있는 도메인에 
 * [암호 쓰기 저장에 대한 사용 권한](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
 * [MSDN의 Azure AD Connect](active-directory-aadconnect.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

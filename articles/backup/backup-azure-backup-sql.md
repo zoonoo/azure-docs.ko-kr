@@ -165,4 +165,4 @@ Azure에서 보호되는 엔터티(SQL 데이터베이스)를 복구하려면 �
 
 • [Azure 백업 FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

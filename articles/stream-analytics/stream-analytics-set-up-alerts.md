@@ -75,7 +75,7 @@ Azure Preview 포털에서 경고를 수신하려는 스트림 분석 작업으�
 Azure Preview 포털에서 경고를 구성하는 방법에 대한 자세한 내용은 [경고 알림 받기](./azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
@@ -85,4 +85,4 @@ Azure Preview 포털에서 경고를 구성하는 방법에 대한 자세한 내
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

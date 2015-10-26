@@ -133,9 +133,9 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

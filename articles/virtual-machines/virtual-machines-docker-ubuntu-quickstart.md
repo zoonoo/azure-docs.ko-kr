@@ -18,7 +18,8 @@
 
 # Azure Marketplace에서 Docker를 신속하게 시작하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 [Docker] 사용을 가장 빠르게 시작하려면 Azure Marketplace로 이동해 [MSOpenTech]와 함께 [Canonical]에서 만든 **Ubuntu Server의 Docker** 이미지 템플릿을 사용하여 VM을 만듭니다. 그러면 Ubuntu Server VM이 생성되고 Azure에 미리 설치되어 실행 중인 **최신** Docker 엔진과 함께 [Docker VM 확장](virtual-machines-docker-vm-extension.md)이 자동으로 설치됩니다.
 
@@ -77,4 +78,4 @@ Docker 명령을 실행해 보세요. 이 Azure VM의 기본 구성에는 **`sud
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

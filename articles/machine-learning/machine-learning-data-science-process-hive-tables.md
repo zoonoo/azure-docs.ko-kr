@@ -2,10 +2,11 @@
 	pageTitle="고급 분석 프로세스 및 기술에서 Hive 쿼리를 Hadoop 클러스터에 제출 | Microsoft Azure"
 	description="Hive 쿼리를 사용하여 Hive 테이블의 데이터 처리"
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> 고급 분석 프로세스 및 기술에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출 
 
@@ -319,4 +320,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

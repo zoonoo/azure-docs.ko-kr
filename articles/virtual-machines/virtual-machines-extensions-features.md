@@ -17,9 +17,11 @@
  ms.date="09/03/2015"
  ms.author="rasquill"/>
 #가상 컴퓨터 확장 및 기능 정보
+
 Microsoft Azure에서는 Azure Virtual Machine에서의 생산성을 높이는 데 활용할 수 있는 보안, 런타임, 디버깅, 관리 및 기타 기능을 구현하기 위해 Microsoft와 신뢰할 수 있는 타 공급업체가 구축한 VM 확장을 제공합니다. 이 항목에서는 Windows 및 Linux 가상 컴퓨터 모두에 제공되는 Azure VM 확장의 다양한 기능을 설명하고 각 기능에 대한 관련 문서를 안내합니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 만든 리소스에 대해 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 VM 에이전트 및 VM 확장을 지원하기 위한 VM 에이전트의 작동 방식에 대한 자세한 내용은 [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/dn832621.aspx)를 참조하세요.
@@ -101,4 +103,4 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**BGInfo**|RDP를 사용할 때 바탕 화면에 서버에 대한 유용한 통합 정보를 표시합니다.|[BGInfo 확장](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 크기가 A8 또는 A9인 VM에서 RDMA(원격 직접 메모리 액세스) 네트워크 장치 드라이버를 설치, 구성 및 유지 관리합니다. 병렬 MPI 응용 프로그램을 실행할 때 클러스터형 A8 또는 A9 VM에서 RDMA 네트워크를 사용하도록 설정합니다.|[A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

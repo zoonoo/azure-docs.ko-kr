@@ -339,10 +339,10 @@ StorSimple 장치에는 다음이 있어야 합니다.
 	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
 
 
-		하나의 호스트 인터페이스 및 두 개의 경로가 표시되면 iSCSI용 호스트에 두 개의 인터페이스를 모두 사용하도록 설정해야 합니다. [Linux 설명서에서 자세한 지침](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)을 수행할 수 있습니다.
+		하나의 호스트 인터페이스 및 두 개의 경로가 표시되면 iSCSI용 호스트에 두 개의 인터페이스를 모두 사용하도록 설정해야 합니다. [Linux 설명서에서 자세한 지침](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)을 수행할 수 있습니다.
 
 	
-	1. 볼륨은 StorSimple 장치에서 CentOS 서버에 노출됩니다. 자세한 내용은 StorSimple 장치에서 관리 포털을 통한 [6단계: 볼륨 만들기](https://sandboxmsdnstage.redmond.corp.microsoft.com/ko-KR/library/azure/dn772357.aspx) 방법을 참조하세요.
+	1. 볼륨은 StorSimple 장치에서 CentOS 서버에 노출됩니다. 자세한 내용은 StorSimple 장치에서 관리 포털을 통한 [6단계: 볼륨 만들기](https://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/dn772357.aspx) 방법을 참조하세요.
 
 	1. 사용 가능한 경로를 확인합니다. 형식:
 
@@ -475,4 +475,4 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 - [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 교육 가이드](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

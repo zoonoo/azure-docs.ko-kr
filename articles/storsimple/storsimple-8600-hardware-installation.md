@@ -289,4 +289,4 @@ H, I | 호스트(예: 파일 서버)
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

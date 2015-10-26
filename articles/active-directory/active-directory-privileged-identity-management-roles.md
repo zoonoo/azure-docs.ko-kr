@@ -30,7 +30,7 @@ Azure PIM은 다음 역할을 기본 관리자 역할로 사용합니다.
 - 사용자 관리자
 - 암호 관리자
 
-Office 365, Exchange Online, Sharepoint Online 및 비즈니스용 Skype의 역할에 대한 자세한 내용을 보려면 여기를 클릭하세요.[Office 365에서 관리자 역할 할당](https://support.office.com/ko-KR/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=ko-KR&rs=ko-KR&ad=US)
+Office 365, Exchange Online, Sharepoint Online 및 비즈니스용 Skype의 역할에 대한 자세한 내용을 보려면 여기를 클릭하세요.[Office 365에서 관리자 역할 할당](https://support.office.com/en-us/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=en-US&rs=en-US&ad=US)
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -57,4 +57,4 @@ Office 365, Exchange Online, Sharepoint Online 및 비즈니스용 Skype의 역�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

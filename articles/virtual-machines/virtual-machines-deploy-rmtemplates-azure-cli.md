@@ -21,7 +21,7 @@
 
 이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델에서 템플릿을 사용하여 VM 배포 및 관리를 다룹니다. 클래식 배포 모델에서 템플릿을 사용할 수 없습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 클래식 배포 모델에서 템플릿을 사용할 수 없습니다.
 
 
 - [Azure에서 가상 컴퓨터 빨리 만들기](#quick-create-a-vm-in-azure)
@@ -1306,4 +1306,4 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

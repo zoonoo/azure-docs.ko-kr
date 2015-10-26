@@ -51,4 +51,4 @@
 
 <sup>1</sup>지원에 문의하여 제한을 늘릴 수 있습니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

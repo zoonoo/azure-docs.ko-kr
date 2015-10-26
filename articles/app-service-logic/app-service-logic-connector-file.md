@@ -85,4 +85,4 @@ API의 세부 정보는 [파일 커넥터 API 정의]에서 찾을 수 있습니
 [파일 커넥터 API 정의]: https://msdn.microsoft.com/library/dn936296.aspx
 [하이브리드 연결 관리자 사용]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

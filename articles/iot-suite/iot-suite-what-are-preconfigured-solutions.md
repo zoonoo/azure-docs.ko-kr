@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT 미리 구성된 솔루션 설명 | Microsoft Azure"
+ pageTitle="미리 구성된 Azure IoT 솔루션 | Microsoft Azure"
  description="미리 구성된 Azure IoT 솔루션에 대한 솔루션 및 추가 리소스에 대한 링크와 해당 아키텍처에 대한 설명입니다."
  services=""
- documentationCenter=".net"
+ documentationCenter=""
  authors="aguilaaj"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="araguila"/>
 
@@ -58,7 +58,7 @@ IoT Hub는 단일 끝점에 있는 쿨러에서 원격 분석 데이터를 수�
 
 IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 노출합니다.
 
-미리 구성된 솔루션에서 IoT Hub 인스턴스는 일반적인 IoT 솔루션 아키텍처의 **IoT 백엔드 응용 프로그램**에 해당됩니다.
+미리 구성된 솔루션에서 IoT Hub 인스턴스는 일반적인 IoT 솔루션 아키텍처의 **IoT 백 엔드 응용 프로그램**에 해당됩니다.
 
 ### Azure 스트림 분석
 
@@ -91,4 +91,4 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Azure 스트림 분석]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

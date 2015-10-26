@@ -167,4 +167,4 @@ Azure 이벤트 허브는 규모에 관계 없이 모니터링하는 일반 응�
 [큐 메시징 솔루션]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

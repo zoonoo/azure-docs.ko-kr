@@ -86,4 +86,4 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 
 이 플래그를 설정하는 것 외에도 페더레이션 테넌트 AD FS 인스턴스에서 다단계 인증을 수행하도록 구성해야 합니다. 온-프레미스에 Azure Multi-Factor Authentication을 배포하기 위한 지침을 따르세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

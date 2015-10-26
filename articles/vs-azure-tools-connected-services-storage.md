@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Visual Studio에서 연결된 서비스를 사용하여 Azure 저장소 추가 | Microsoft Azure"
-	description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure 저장소를 앱에 추가"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure 저장소를 앱에 추가"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # Visual Studio 연결 서비스를 사용하여 Azure 저장소 추가
 
@@ -94,4 +94,4 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
      - [azure.microsoft.com의 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

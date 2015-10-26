@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 
@@ -124,7 +124,7 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | 임의의 문자열 값 또는 $null입니다. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | 임의의 문자열 값 또는 $null입니다. | (user.postalCode -eq "value") |
-| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "ko-KR") |
+| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "en-US") |
 | sipProxyAddress | 임의의 문자열 값 또는 $null입니다. | (user.sipProxyAddress -eq "value") |
 | state | 임의의 문자열 값 또는 $null입니다. | (user.state -eq "value") |
 | streetAddress | 임의의 문자열 값 또는 $null입니다. | (user.streetAddress -eq "value") |
@@ -168,4 +168,4 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

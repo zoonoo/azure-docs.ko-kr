@@ -253,4 +253,4 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

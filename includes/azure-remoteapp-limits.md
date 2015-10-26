@@ -20,4 +20,4 @@
 
 유료 컬렉션 또는 동시 연결 수를 증가하도록 요청하려면 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com)으로 구독 ID를 포함하여 필요한 세부 정보를 전자 메일로 보내십시오.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

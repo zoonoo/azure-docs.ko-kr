@@ -57,4 +57,4 @@ Azure 권한 있는 ID 관리는 다음과 같은 경고를 제공하며 구성�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

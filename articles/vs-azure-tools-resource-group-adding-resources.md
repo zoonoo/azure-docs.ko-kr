@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 리소스 그룹에 리소스 추가"
-	description="Visual Studio를 사용하여 Azure 리소스 그룹에 리소스를 추가하는 방법에 대해 알아봅니다."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Visual Studio를 사용하여 Azure 리소스 그룹에 리소스를 추가하는 방법에 대해 알아봅니다."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Azure 리소스 그룹에 리소스 추가
 
@@ -61,4 +61,4 @@
 
 [Channel9 비디오: Azure 리소스 관리자](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

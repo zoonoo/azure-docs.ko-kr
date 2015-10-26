@@ -53,4 +53,4 @@ RemoteApp에 대한 Active Directory 구성에 대한 [자세한 내용](remotea
 컬렉션에서 Office 365 ProPlus 템플릿 이미지를 사용하는 경우 *또는* Office 365를 사용하는 사용자 지정 이미지를 만든 경우 Office 365 구독이 있는 Azure Active Directory 사용자만 구독의 기본 도메인에 대해 추가할 수 있습니다. 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md)을 참조하세요.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

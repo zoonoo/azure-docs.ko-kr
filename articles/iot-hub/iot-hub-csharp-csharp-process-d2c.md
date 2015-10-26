@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# IoT Hub 장치-클라우드 메시지 처리
+# 자습서: IoT Hub 장치-클라우드 메시지를 처리하는 방법
 
 ## 소개
 
@@ -49,7 +49,7 @@ IoT Hub가 이벤트 허브 호환 끝점을 노출하여 장치-클라우드 �
 
 + Microsoft Visual Studio 2015
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")을 참조하세요.
 
 또한 [Azure 저장소] 및 [Azure 서비스 버스]의 가정한 일부 지식입니다.
 
@@ -75,7 +75,7 @@ IoT Hub가 이벤트 허브 호환 끝점을 노출하여 장치-클라우드 �
 
 이 자습서에서 [EventProcessorHost]를 사용하여 안정적으로 *데이터 요소* 및 *대화형* 장치-클라우드 메시지를 처리하는 방법을 알아보았습니다. Ananlogous 메시지 처리 논리를 함께 구현할 수 있습니다.
 
-- [장치에서 파일 업로드]\: 장치에서 파일을 쉽게 업로드하기 위해 클라우드-장치 메시지를 사용하는 패턴을 설명합니다.
+- [장치에서 파일 업로드]는 장치에서 파일을 쉽게 업로드하기 위해 클라우드-장치 메시지를 사용하는 패턴을 설명합니다.
 
 IoT Hub에 대한 추가 정보:
 
@@ -91,19 +91,19 @@ IoT Hub에 대한 추가 정보:
 
 <!-- Links -->
 
-[Azure Blob]: https://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/
-[Azure 데이터 팩터리]: https://azure.microsoft.com/ko-kr/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/ko-kr/documentation/services/hdinsight/
-[Service Bus Queue]: https://azure.microsoft.com/ko-kr/documentation/articles/service-bus-dotnet-how-to-use-queues/
-[서비스 버스 큐]: https://azure.microsoft.com/ko-kr/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[Azure Blob]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-dotnet-how-to-use-blobs/
+[Azure 데이터 팩터리]: https://azure.microsoft.com/ko-KR/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/ko-KR/documentation/services/hdinsight/
+[Service Bus Queue]: https://azure.microsoft.com/ko-KR/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[서비스 버스 큐]: https://azure.microsoft.com/ko-KR/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Transient Fault Handling]: https://msdn.microsoft.com/ko-kr/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub 지침 - 이벤트 허브 호환성]: iot-hub-guidance.md#eventhubcompatible
 
-[Azure 저장소]: https://azure.microsoft.com/ko-kr/documentation/services/storage/
-[Azure 서비스 버스]: https://azure.microsoft.com/ko-kr/documentation/services/service-bus/
+[Azure 저장소]: https://azure.microsoft.com/ko-KR/documentation/services/storage/
+[Azure 서비스 버스]: https://azure.microsoft.com/ko-KR/documentation/services/service-bus/
 
 [Azure Preview Portal]: https://portal.azure.com/
 
@@ -117,10 +117,6 @@ IoT Hub에 대한 추가 정보:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [IoT Hub로 시작]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT 개발자 센터]: http://www.azure.com/iotdev
+[Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

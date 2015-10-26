@@ -530,4 +530,4 @@ System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노
 [서비스 패브릭 응용프로그램 업그레이드](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

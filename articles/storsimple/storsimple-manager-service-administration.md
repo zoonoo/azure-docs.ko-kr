@@ -116,4 +116,4 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 
 -  [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

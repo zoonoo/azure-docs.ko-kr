@@ -115,4 +115,4 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -73,4 +73,4 @@ documentationCenter=""/>
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
 
 1.  InsideView에 응용 프로그램 통합 사용
 2.  Single Sign-On 구성
-3.  사용자 프로비저닝 구성
+3.  사용자 프로비전 구성
 4.  사용자 할당
 
 ![시나리오](./media/active-directory-saas-insideview-tutorial/IC794128.png "시나리오")
@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-insideview-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-insideview-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -51,17 +51,17 @@
     ![InsideView](./media/active-directory-saas-insideview-tutorial/IC794130.png "InsideView")
 ##Single Sign-On 구성
   
-이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 InsideView에 인증할 수 있게 하는 방법을 간략하게 설명합니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 InsideView에 인증할 수 있게 하는 방법을 간략하게 설명합니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
 1.  Azure AD 포털의 **InsideView** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-insideview-tutorial/IC794131.png "Single SignOn 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-insideview-tutorial/IC794131.png "Single Sign-On 구성")
 
 2.  **InsideView에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-insideview-tutorial/IC794132.png "Single SignOn 구성")
+    ![Single Sign-On 구성](./media/active-directory-saas-insideview-tutorial/IC794132.png "Single Sign-On 구성")
 
 3.  **앱 URL 구성** 페이지의 **InsideView 회신 URL** 텍스트 상자에 InsideView SSO 로그인 URL(예: `https://my.insideview.com/iv/<STS Name>/login.iv`)을 입력한 후 **다음**을 클릭합니다.
 
@@ -69,7 +69,7 @@
 
 4.  **InsideView에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
 
-    ![Single SignOn 구성](./media/active-directory-saas-insideview-tutorial/IC794134.png "Single SignOn 구성")
+    ![Single Sign-On 구성](./media/active-directory-saas-insideview-tutorial/IC794134.png "Single SignOn 구성")
 
 5.  다른 웹 브라우저 창에서 InsideView 회사 사이트에 관리자로 로그인합니다.
 
@@ -123,4 +123,4 @@ InsideView에서 생성된 사용자 또는 연락처를 얻으려면 고객 성
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

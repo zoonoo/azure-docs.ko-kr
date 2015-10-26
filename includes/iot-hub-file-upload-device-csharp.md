@@ -70,8 +70,8 @@
 
 <!-- Links -->
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Azure 저장소 - BLOB을 사용하는 방법]: https://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/#upload-a-blob-into-a-container
+[Azure 저장소 - BLOB을 사용하는 방법]: https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#upload-a-blob-into-a-container
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

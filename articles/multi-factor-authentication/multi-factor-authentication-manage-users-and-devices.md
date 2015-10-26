@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 보고서"
-	description="사용자가 증명 프로세스를 다시 수행하도록 하는 등의 사용자 설정을 변경하는 방법에 대해 설명합니다."
-	documentationCenter=""
-	services="multi-factor-authentication"
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication 보고서" 
+	description="사용자가 증명 프로세스를 다시 수행하도록 하는 등의 사용자 설정을 변경하는 방법에 대해 설명합니다." 
+	documentationCenter="" 
+	services="multi-factor-authentication" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
@@ -80,4 +80,4 @@
 <li>위쪽에서 사용자를 클릭합니다.</li>
 <li>페이지의 아래쪽에서 Multi-Factor Auth 관리를 클릭합니다. 다단계 인증 페이지가 열립니다. <li>관리하고 이름 옆에 있는 상자에 체크 표시하려는 사용자를 찾습니다. 위쪽에서 보기를 변경해야 할 수도 있습니다.</li> <li>이렇게 하면 오른쪽에 **사용자 설정 관리** 링크가 표시됩니다. 이 단추를 클릭합니다.</li> <li>일시 중단된 모든 장치에서 Multi-factor Authentication 복원에 체크 표시합니다.</li> ![앱 암호 삭제](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>저장을 클릭합니다.</li> <li>닫기를 클릭합니다.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

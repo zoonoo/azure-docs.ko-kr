@@ -19,7 +19,8 @@
 
 # Azure 인프라 서비스 워크로드: 인트라넷 SharePoint 팜
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 Microsoft Azure에서 첫 번째 또는 다음 SharePoint 팜을 설정하고, 간편한 구성과 새 용량 또는 주요 기능의 최적화를 포함하도록 팜을 신속하게 확장할 수 있는 기능을 활용하세요. 많은 SharePoint 팜은 가용성이 뛰어난 표준 3계층 구성에서 성능 또는 별도 역할(예: 분산 캐싱 또는 검색)에 최적화된 수십 가지 이상의 서버가 포함된 팜으로 확장됩니다.
 
@@ -128,4 +129,4 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

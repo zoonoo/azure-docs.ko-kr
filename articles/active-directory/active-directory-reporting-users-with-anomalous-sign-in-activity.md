@@ -22,4 +22,4 @@
 
 ![비정상적인 로그인 활동을 포함하는 사용자 보고서](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

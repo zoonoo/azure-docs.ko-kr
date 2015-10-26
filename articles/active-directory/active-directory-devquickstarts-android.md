@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/13/2015"
 	ms.author="brandwe"/>
 
 # Android 응용 프로그램에 Azure AD 통합
@@ -454,4 +454,4 @@ Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

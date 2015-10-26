@@ -38,4 +38,4 @@
 - [문제 해결을 위한 시스템 상태 보고서 사용](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [사용자 지정 서비스 패브릭 상태 보고서 추가](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

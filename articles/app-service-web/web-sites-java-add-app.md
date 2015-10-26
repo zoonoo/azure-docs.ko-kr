@@ -40,4 +40,4 @@ Tomcat 웹 앱에 대한 참고 사항: **webapps** 폴더에 WAR 파일을 업�
 <!-- External Links -->
 [Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

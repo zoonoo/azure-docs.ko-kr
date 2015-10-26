@@ -90,4 +90,4 @@ Azure PowerShell을 사용하여 샘플을 실행할 수 있습니다. 실행 �
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

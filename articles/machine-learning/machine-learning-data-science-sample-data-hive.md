@@ -2,10 +2,11 @@
 	pageTitle="Azure HDInsight Hive 테이블에서 데이터 샘플링 | Microsoft Azure"
 	description="Azure HDInsight Hive 테이블에서 데이터 다운 샘플링"
 	services="machine-learning,hdinsight"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.author="hangzh;bradsev" />
 
 # Azure HDInsight Hive 테이블에서 데이터 샘플링
 
@@ -99,4 +100,4 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리�
 Hive에서 사용할 수 있는 고급 샘플링 방법에 대한 자세한 내용은 [LanguageManual 샘플링](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)을 참조하세요.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

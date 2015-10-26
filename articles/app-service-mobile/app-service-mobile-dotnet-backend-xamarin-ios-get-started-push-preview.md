@@ -131,7 +131,7 @@
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 	
-	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱을 처음 실행할 때만 수행됩니다.
+	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 2. 앱에서 작업을 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
@@ -195,12 +195,12 @@
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
@@ -212,4 +212,4 @@
 
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

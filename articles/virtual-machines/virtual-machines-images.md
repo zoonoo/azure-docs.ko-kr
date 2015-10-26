@@ -57,4 +57,4 @@ Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

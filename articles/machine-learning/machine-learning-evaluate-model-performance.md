@@ -189,4 +189,4 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

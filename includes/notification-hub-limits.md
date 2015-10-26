@@ -8,4 +8,4 @@
 
 이러한 제한 사항 및 가격에 관한 정보는 [알림 허브 가격](http://azure.microsoft.com/pricing/details/notification-hubs/)을 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

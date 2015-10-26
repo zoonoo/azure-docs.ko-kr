@@ -170,4 +170,4 @@
 
 [자산 다운로드](media-services-deliver-asset-download.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

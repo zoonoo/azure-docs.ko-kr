@@ -153,4 +153,4 @@
 
 [업데이트 1.2 릴리스](storsimple-update1-release-notes.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

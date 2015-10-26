@@ -12,7 +12,7 @@
 # 백업 저장소의 다른 DPM 서버에서 데이터 복구
 이제 Azure 백업 저장소에 보호해 둔 데이터를 해당 저장소에 등록된 모든 DPM 서버에서 복구할 수 있습니다. 이를 위한 절차는 DPM 관리 콘솔에 완전히 통합되었으며 다른 복구 워크플로와 비슷합니다.
 
-백업 저장소에 있는 다른 DPM 서버에서 데이터를 복구하려면 [System Center Data Protection Manager UR7](https://support.microsoft.com/ko-KR/kb/3065246)과 [최신 Azure 백업 에이전트](http://aka.ms/azurebackup_agent)가 필요합니다.
+백업 저장소에 있는 다른 DPM 서버에서 데이터를 복구하려면 [System Center Data Protection Manager UR7](https://support.microsoft.com/en-us/kb/3065246)과 [최신 Azure 백업 에이전트](http://aka.ms/azurebackup_agent)가 필요합니다.
 
 ## 다른 DPM 서버에서 데이터 복구
 다른 DPM 서버에서 데이터를 복구하려면:
@@ -96,4 +96,4 @@
 ## 다음 단계:
 • [Azure 백업 FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

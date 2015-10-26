@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure SQL 데이터베이스로 BACPAC 가져오기"
-	description="Azure SQL 데이터베이스로 BACPAC 가져오기"
+	pageTitle="BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기"
+	description="기존 BACPAC 파일을 가져와 새 Azure SQL 데이터베이스를 만듭니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,15 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# SQL 데이터베이스로 BACPAC 가져오기
+# BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기
+
 
 **단일 데이터베이스**
 
@@ -25,11 +26,11 @@
 - [Azure Preview Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-이 문서에서는 [Azure Preview 포털](https://portal.azure.com)에서 BACPAC을 가져와 SQL 데이터베이스를 만드는 방법을 보여 줍니다.
+이 문서에서는 [Azure Preview 포털](https://portal.azure.com)을 사용하여 BACPAC 파일에서 Azure SQL 데이터베이스를 만드는 방법에 대한 지침을 제공합니다.
 
 BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파일입니다. 자세한 내용은 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)에서 백업 패키지(.bacpac)를 참조하세요.
 
-데이터베이스는 Azure 저장소 Blob 컨테이너에서 가져온 BACPAC으로 만들어집니다. Azure 저장소에 .bacpac 파일이 없는 경우 [Azure SQL 데이터베이스의 BACPAC 만들기 및 내보내기](sql-database-backup.md)의 단계에 따라 새로 만들 수 있습니다.
+데이터베이스는 Azure 저장소 Blob 컨테이너에서 가져온 BACPAC으로 만들어집니다. Azure 저장소에 .bacpac 파일이 없는 경우 [Azure SQL 데이터베이스의 BACPAC 만들기 및 내보내기](sql-database-export.md)의 단계에 따라 새로 만들 수 있습니다.
 
 
 > [AZURE.NOTE]Azure SQL 데이터베이스는 모든 사용자 데이터베이스에 대해 복원할 수 있는 백업을 자동으로 만들고 유지 관리합니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
@@ -109,4 +110,4 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

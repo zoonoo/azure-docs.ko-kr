@@ -2,9 +2,9 @@
  pageTitle="Azure IoT Hub 크기 조정 | Microsoft Azure"
  description="Azure IoT Hub의 크기를 조정하는 방법을 설명합니다."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -73,4 +73,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

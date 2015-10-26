@@ -197,4 +197,4 @@ StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 �
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

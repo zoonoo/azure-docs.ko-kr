@@ -225,4 +225,4 @@ PS D:\temp>
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

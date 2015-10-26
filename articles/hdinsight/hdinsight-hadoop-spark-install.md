@@ -309,4 +309,4 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

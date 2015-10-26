@@ -116,7 +116,7 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 이 요청의 본문에 있는 client_id와 client_secret 값을 입증해야 합니다. client_id와 client_secret은 각각 AccountName과 AccountKey 값에 해당합니다. 이러한 값은 계정을 설정할 때 미디어 서비스에서 제공합니다.
 
-미디어 서비스 계정에 대한 AccountKey는 액세스 토큰 요청에서 client\_secret 값으로 사용하는 경우 URL로 인코딩되어야 합니다.
+미디어 서비스 계정에 대한 AccountKey는 액세스 토큰 요청에서 client_secret 값으로 사용하는 경우 URL로 인코딩되어야 합니다.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -150,7 +150,7 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 >[AZURE.NOTE]
 외부 저장소에 "access_token" 및 "expires_in" 값을 캐시하는 것이 좋습니다. 나중에 저장소에서 토큰 데이터를 검색하여 미디어 서비스 REST API 호출에서 다시 사용할 수 있습니다. 여러 프로세스 또는 컴퓨터 사이에서 토큰을 안전하게 공유할 수 있는 시나리오에 특히 유용합니다.
 
-액세스 토큰의 "expires_in" 값을 모니터링하고 필요에 따라 REST API 호출을 새 토큰으로 업데이트해야 합니다.
+액세스 토큰의 "expires\_in" 값을 모니터링하고 필요에 따라 REST API 호출을 새 토큰으로 업데이트해야 합니다.
 
 ###미디어 서비스 URI에 연결
 
@@ -1213,4 +1213,4 @@ MPEG DASH를 스트리밍하려면 "/매니페스트" 뒤에 추가(format=mpd-t
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

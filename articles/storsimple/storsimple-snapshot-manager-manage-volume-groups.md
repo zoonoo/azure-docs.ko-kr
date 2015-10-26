@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리
@@ -23,7 +23,11 @@
 
 볼륨 그룹은 백업이 응용 프로그램에 일관됨을 보장하는 데 사용되는 관련 볼륨들의 풀입니다. 자세한 내용은 [볼륨 및 볼륨 그룹](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups)과 [Windows 볼륨 섀도 복사본 서비스와의 통합](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)을 참조하세요.
 
->[AZURE.IMPORTANT]볼륨 그룹을 구성할 때는 클러스터 공유 볼륨(CSV)과 비 CSV를 동일한 볼륨 그룹에 혼합하지 않도록 합니다. StorSimple 스냅숏 관리자는 동일한 스냅숏에 혼합되어 있는 CSV와 비 CSV를 지원하지 않습니다.
+>[AZURE.IMPORTANT]
+>
+> * 볼륨 그룹의 모든 볼륨은 단일 클라우드 서비스 공급자에서 가져와야 합니다.
+> 
+> * 볼륨 그룹을 구성할 때는 클러스터 공유 볼륨(CSV)과 비 CSV를 동일한 볼륨 그룹에 혼합하지 않도록 합니다. StorSimple 스냅숏 관리자는 동일한 스냅숏에 혼합되어 있는 CSV와 비 CSV를 지원하지 않습니다.
  
 ![볼륨 그룹 노드](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
@@ -41,7 +45,7 @@
  
 ## 볼륨 그룹 보기
 
-**볼륨 그룹** 노드를 클릭하면 선택한 열에 따라 **결과** 창에 각 볼륨 그룹에 대해 다음 정보가 표시됩니다. (**결과** 창의 열은 구성할 수 있습니다. **볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 선택한 다음 **열 추가/제거**를 선택합니다.)
+**볼륨 그룹** 노드를 클릭하면 선택한 열에 따라 **결과** 창에 각 볼륨 그룹에 대해 다음 정보가 표시됩니다. **결과** 창의 열은 구성할 수 있습니다. (**볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 선택한 다음 **열 추가/제거**를 선택합니다.)
 
 결과 열 | 설명 
 :--------------|:------------ 
@@ -143,4 +147,4 @@
 - [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 - [StorSimple 스냅숏 관리자를 사용하여 백업 정책을 만들고 관리](storsimple-snapshot-manager-manage-backup-policies.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

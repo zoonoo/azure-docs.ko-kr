@@ -238,4 +238,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [알림 허브 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

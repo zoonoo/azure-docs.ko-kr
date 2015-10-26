@@ -33,4 +33,4 @@ IoT 솔루션 다수는 해당 장치에서 수집된 데이터를 사용자에�
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

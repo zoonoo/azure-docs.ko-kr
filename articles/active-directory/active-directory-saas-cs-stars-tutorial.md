@@ -205,4 +205,4 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

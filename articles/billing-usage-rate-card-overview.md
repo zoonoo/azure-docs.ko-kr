@@ -78,4 +78,4 @@ Azure 리소스 사용량 및 RateCard API는 Azure 리소스 관리자가 노�
 + Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하십시오.
 + 클라우드 지출을 이해하는 데 필요한 도구 모음에 대한 추가 정보는 Gartner 문서 [IT 재무 관리(ITFM) 도구에 대한 시장 가이드](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

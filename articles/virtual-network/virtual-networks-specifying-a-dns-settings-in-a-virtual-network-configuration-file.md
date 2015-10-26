@@ -1,19 +1,19 @@
 <properties 
    pageTitle="가상 네트워크 구성 파일에서 DNS 설정 지정 | Microsoft Azure"
-	description="가상 네트워크 구성 파일을 사용하여 가상 네트워크에서 DNS 서버 설정을 변경하는 방법"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="가상 네트워크 구성 파일을 사용하여 가상 네트워크에서 DNS 서버 설정을 변경하는 방법"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="joaoma" />
 
 # 가상 네트워크 구성 파일에서 DNS 설정 지정
 
@@ -53,4 +53,4 @@
 
 [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

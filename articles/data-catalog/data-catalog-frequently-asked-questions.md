@@ -169,4 +169,4 @@ Microsoft는 **Azure 데이터 카탈로그**에 더 많은 데이터 원본을 
 
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -41,4 +41,4 @@ Microsoft 앱이 있다면, 앱 모델 v2.0을 작동시키는 빠른 시작 자
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

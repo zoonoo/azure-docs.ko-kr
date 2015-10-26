@@ -19,7 +19,8 @@
 
 # Azure에서 자신만의 개인 Docker 레지스트리 배포하기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 만든 VM에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 이 문서에서는 Docker 개인 레지스트리란 무엇이며 Docker Registry 2.0 컨테이너 이미지를 Azure Blob 저장소를 사용하여 Microsoft Azure에서 Docker 개인 레지스트리에 배포하는 방법에 대해 설명합니다.
@@ -95,4 +96,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

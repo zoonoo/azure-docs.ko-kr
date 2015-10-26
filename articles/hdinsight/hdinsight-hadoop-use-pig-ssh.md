@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 #Pig 명령(SSH)를 사용하여 Linux 기반 클러스터에서 Pig 작업 실행
@@ -99,7 +99,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
 
 6. `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음은 클러스터의 기본 저장소 컨테이너에 있는 **/example/data/pigout** 디렉터리에 `RESULT`를 저장합니다.
 
-		STORE RESULT into 'wasb:///example/data/pigout'
+		STORE RESULT into 'wasb:///example/data/pigout';
 
 	> [AZURE.NOTE]데이터는 지정된 디렉터리에 **part-nnnnn**이라는 파일로 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류가 발생합니다.
 
@@ -154,4 +154,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

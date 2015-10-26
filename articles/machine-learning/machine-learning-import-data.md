@@ -14,19 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/12/2015"
 	ms.author="garye;bradsev" />
 
 
 # 다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기
 
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+이 **메뉴**는 CAP(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## 소개
 
 다음을 수행하면 기계 학습 스튜디오에 사용자 고유의 데이터를 사용하여 예측 분석 솔루션을 개발 및 학습할 수 있습니다.
 
 - 미리 하드 드라이브의 **로컬 파일**에서 데이터를 업로드하여 사용자의 작업 영역에 데이터 집합 모듈을 만듭니다.  
 - [판독기][reader] 모듈을 사용하여 실험을 실행하는 동안 여러 **온라인 데이터 원본** 중 하나에서 데이터에 액세스합니다. 
 - **데이터 집합**으로 저장된 또 다른 Azure 기계 학습 실험에서 나온 데이터를 사용합니다. 
+
+[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 이러한 각 옵션을 위 메뉴의 항목 중 하나에서 설명합니다. 이 항목에서는 기계 학습 스튜디오에서 사용하기 위해 이러한 여러 데이터 원본에서 데이터를 가져오는 방법을 보여 줍니다.
 
@@ -89,4 +96,4 @@
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

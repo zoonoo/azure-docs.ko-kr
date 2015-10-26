@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect에 대한 토폴로지
@@ -159,7 +159,12 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다. 디렉터리 간�
 
 두 개의 Exchange 조직 사이에서 GALsync 사용자에게 FIM2010/MIM2016 온-프레미스를 사용할 수 있습니다. 한 조직 내의 사용자가 다른 조직에서 외부 사용자/연락처로 표시됩니다. 이러한 여러 온-프레미스 AD를 각각 자체 Azure AD 디렉터리에 동기화할 수 있습니다.
 
-## 다음 단계
-이러한 시나리오에 대해 Azure AD Connect를 설치하는 방법을 알아보려면 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요. Azure AD Connect Sync를 위한 구성에 대해 자세한 내용을 보려면 [Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+## 다음 단계
+이러한 시나리오에 대해 Azure AD Connect를 설치하는 방법을 알아보려면 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요.
+
+[Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
+
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
+
+<!---HONumber=Oct15_HO3-->

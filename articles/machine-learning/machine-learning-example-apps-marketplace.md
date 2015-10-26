@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 마켓플레이스의 기계 학습 예제 앱 | Microsoft Azure"
-	description="Azure 기계 학습 마켓플레이스 앱 예제에서는 유료 구독자가 자신의 앱에서 사용할 수 있도록 Azure 마켓플레이스에 기계 학습 서비스를 게시하는 방법을 보여 줍니다."
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
+	pageTitle="Azure 마켓플레이스의 기계 학습 예제 앱 | Microsoft Azure" 
+	description="Azure 기계 학습 마켓플레이스 앱 예제에서는 유료 구독자가 자신의 앱에서 사용할 수 있도록 Azure 마켓플레이스에 기계 학습 서비스를 게시하는 방법을 보여 줍니다." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 # Azure 마켓플레이스의 기계 학습 앱
@@ -63,4 +63,4 @@
 
 [설명서](https://churn.cloudapp.net/documentation)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

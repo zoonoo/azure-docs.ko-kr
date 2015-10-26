@@ -578,4 +578,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

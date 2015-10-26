@@ -1,19 +1,19 @@
 <properties
    pageTitle="트래픽 관리자 라운드 로빈 트래픽 라우팅 방법 구성 | Microsoft Azure"
-	description="이 문서는 트래픽 관리자 끝점에 대해 라운드 로빈 부하 분산을 구성하는 데 도움이 됩니다."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="이 문서는 트래픽 관리자 끝점에 대해 라운드 로빈 부하 분산을 구성하는 데 도움이 됩니다."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 라운드 로빈 라우팅 방법 구성
 
@@ -52,4 +52,4 @@
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

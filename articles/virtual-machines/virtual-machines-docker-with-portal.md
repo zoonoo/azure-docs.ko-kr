@@ -20,7 +20,8 @@
 
 # Azure 포털에서 Docker VM 확장 사용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트]에서 관리되는 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
 
@@ -146,4 +147,4 @@ WARNING: No swap limit support
 [https를 사용하여 Docker 실행]: http://docs.docker.com/articles/https/
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

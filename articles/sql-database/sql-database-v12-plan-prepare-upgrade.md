@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/08/2015"
 	ms.author="genemi"/>
 
 
@@ -161,7 +161,7 @@ VS2013(Visual Studio 2013)을 사용하여 Azure SQL 데이터베이스에 연�
 ### V12로 업그레이드하는 *동안*의 제한 사항
 
 
-V12로 업그레이드하는 동안에도 V11 이전 버전 데이터베이스의 데이터에는 계속 액세스할 수 있습니다. 아직 고려 해야할 몇가지 제한 사항이 있습니다.
+V12로 업그레이드하는 동안에도 V11 이전 버전 데이터베이스의 데이터에는 계속 액세스할 수 있습니다. 아직 고려 해야할 몇 가지 제한 사항이 있습니다.
 
 
 | 제한 사항 | 설명 |
@@ -220,18 +220,19 @@ V12로 업그레이드하는 동안에도 V11 이전 버전 데이터베이스�
 5. S0을 사용하지 않으려는 경우 지원되는 임의 서비스 계층으로 데이터베이스를 전환할 수 있습니다.
 
 
-### Powershell cmdlet
+### PowerShell cmdlet
 
 
-Powershell cmdlet을 사용하여 V11 또는 기타 V12 이전 버전에서 Azure SQL 데이터베이스 V12로의 업그레이드를 시작, 중지 또는 모니터링할 수 있습니다.
+PowerShell cmdlet을 사용하여 V11 또는 기타 V12 이전 버전에서 Azure SQL 데이터베이스 V12로의 업그레이드를 시작, 중지 또는 모니터링할 수 있습니다.
+
+- [PowerShell을 사용하여 SQL 데이터베이스 V12로 업그레이드 준비](sql-database-upgrade-server.md)
+
+이러한 PowerShell cmdlet에 대한 참조 설명서는 다음을 참조하세요.
 
 
-이러한 Powershell cmdlet에 대한 참조 설명서는 다음을 참조하세요.
-
-
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+- [Get AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
 
 Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다. 처음부터 다시 시작하는 것 외에 업그레이드를 다시 시작할 수 있는 방법은 없습니다. Stop- cmdlet은 해당하는 모든 리소스를 정리하고 해제합니다.
@@ -253,4 +254,4 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

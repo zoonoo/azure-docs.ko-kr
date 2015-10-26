@@ -444,7 +444,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 이러한 것들을 조합하여 중간에 잘못된 이벤트가 없는 good->bad->good을 얻습니다. 이제 버그의 기간을 알려주는 첫 번째 정상 이벤트와 마지막 정상 이벤트 사이의 기간을 계산할 수 있습니다.
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/KO-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
@@ -455,4 +455,4 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

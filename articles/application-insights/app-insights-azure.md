@@ -28,7 +28,7 @@
 
 * [Azure 웹 앱 - 웹 및 작업자 역할](app-insights-cloudservices.md)
 * [Azure VM의 IIS에 있는 웹 앱](../insights-perf-analytics.md)
-* [Azure 외부 응용 프로그램](app-insights-get-started.md)
+* [Azure 외부 응용 프로그램](app-insights-overview.md)
 
 
 
@@ -39,4 +39,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

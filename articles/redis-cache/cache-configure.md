@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="10/09/2015"
    ms.author="sdanie" />
 
 # Azure Redis 캐시 구성 방법
@@ -163,11 +163,16 @@ Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://red
 
 ## Redis 콘솔
 
-표준 및 프리미엄 캐시에서 사용할 수 있는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다. Redis 콘솔에 액세스하려면 **Redis 캐시** 블레이드에서 **콘솔**을 클릭합니다.
+표준 및 프리미엄 캐시에서 사용할 수 있는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다.
+
+>[AZURE.IMPORTANT]Redis 콘솔은 VNET 또는 클러스터링과 작동되지 않습니다.
+>
+>-	[VNET](cache-how-to-premium-vnet.md) - 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET의 일부가 아닌 VM에서 호스팅되는 redis-cli.exe 클라이언트를 사용하므로 캐시에 연결할 수 없습니다.
+>-	[클러스터링](cache-how-to-premium-clustering.md) - Redis 콘솔은 현재 클러스터링을 지원하지 않는 redis-cli.exe 클라이언트를 사용합니다. GitHub에서 Redis 레포지토리의 [불안정한](http://redis.io/download) 분기에 있는 redis-cli 유틸리티는 `-c` 스위치로 시작된 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터 자습서](http://redis.io/topics/cluster-tutorial)의 [http://redis.io](http://redis.io)에서 [클러스터 작업](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)을 참조하세요.
+
+Redis 콘솔에 액세스하려면 **Redis 캐시 블레이드**에서 **콘솔**을 클릭합니다.
 
 ![Redis 콘솔](./media/cache-configure/redis-console-menu.png)
-
->[AZURE.IMPORTANT]Redis 콘솔은 표준 및 프리미엄 캐시에서만 사용할 수 있습니다.
 
 캐시 인스턴스에 대해 명령을 실행하려면 원하는 명령을 콘솔에 입력하면 됩니다.
 
@@ -178,4 +183,4 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 ## 다음 단계
 -	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

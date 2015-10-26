@@ -91,7 +91,7 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 ## 다음 단계
 
 - Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/)을 참조하세요.
-- 가격, 지원 및 SLA에 대한 자세한 내용은 다음 링크를 방문하십시오.
+- 가격, 지원 및 SLA에 대한 자세한 내용은 다음 링크를 방문하세요.
 	
 	[데이터 전송 가격 정보](/pricing/details/data-transfers/)
 	
@@ -131,4 +131,4 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -20,11 +20,12 @@
 
 이 항목에는 Azure VM에서 SQL Server 인스턴스로의 안전하게 액세스하는 데 도움이 되는 전반적인 보안 지침이 포함되어 있습니다. 그러나 Azure의 SQL Server 데이터베이스 인스턴스를 더 잘 보호하기 위해서는 Azure에 대한 보안 모범 사례에 더불어 기존의 온-프레미스 보안 사례 역시 구현하는 것이 좋습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 사용하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 SQL Server 보안 방법에 대한 자세한 내용은 [SQL Server 2008 R2 보안 모범 사례 - 운영 및 관리 작업](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)을 참조하세요.
 
-Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루션을 제작할 수 있도록 하는 몇가지 산업 규정 및 표준을 준수합니다. Azure 규정 준수에 대한 자세한 내용은 [Azure 보안 센터](http://azure.microsoft.com/support/trust-center/)를 참조하세요.
+Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루션을 제작할 수 있도록 하는 몇 가지 산업 규정 및 표준을 준수합니다. Azure 규정 준수에 대한 자세한 내용은 [Azure 보안 센터](http://azure.microsoft.com/support/trust-center/)를 참조하세요.
 
 다음은 Azure VM에서 SQL Server의 인스턴스를 구성 및 연결할 때 고려해야 하는 보안 권장 사항의 목록입니다.
 
@@ -61,4 +62,4 @@ Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루�
 
 Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -266,4 +266,4 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 [특정 응용 프로그램 유형에 대한 추가 요구 사항]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

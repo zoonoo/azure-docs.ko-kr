@@ -66,7 +66,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 ## 방법: 빠른 생성을 사용하여 클라우드 서비스 만들기
 
-1. [관리 포털](http://manage.windowsazure.com/)에서 **새로 만들기**>**계산**>**클라우드 서비스**>**빨리 만들기**를 차례로 클릭합니다.
+1. [관리 포털](http://manage.windowsazure.com/)에서 **새로 만들기** > **계산** > **클라우드 서비스** > **빨리 만들기**를 차례로 클릭합니다.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
@@ -153,4 +153,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

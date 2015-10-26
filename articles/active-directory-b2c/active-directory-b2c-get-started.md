@@ -70,4 +70,4 @@ Azure Active Directory(AD) B2C를 사용하여 시작하려면 아래에 설명�
 
 [Azure AD B2C로 응용 프로그램 등록 및 빠른 시작 응용 프로그램 빌드](active-directory-b2c-app-registration.md)로 이동합니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

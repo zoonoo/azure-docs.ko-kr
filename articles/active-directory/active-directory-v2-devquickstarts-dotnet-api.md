@@ -34,33 +34,34 @@ ASP.NET Web API에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들�
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-완성된 앱이 이 자습서 끝에도 제공됩니다.
+전체 앱은 이 자습서 마지막 부분에서도 제공됩니다.
 
 
-## 1. 앱 등록
+## 1\. 앱 등록
+[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
 
-[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 [세부 단계](active-directory-v2-app-registration.md)를 따르세요. 다음을 수행해야 합니다.
+- 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
 
-- 바로 필요하므로 앱에 할당된 **응용 프로그램 ID**를 복사합니다.
+또한 이 visual studio 솔루션에는 간단한 WPF 앱인 "TodoListClient"가 포함되어 있습니다. TodoListClient는 사용자가 로그인하는 방법 및 클라이언트가 웹 API에 요청을 발급할 수 있는 방법을 설명하기 위해 사용됩니다. 이 경우 TodoListClient와 TodoListService는 모두 동일한 앱으로 표시됩니다. TodoListClient를 구성하려면 다음을 수행해야 합니다.
 
-이 Visual Studio 솔루션에는 간단한 WPF 앱에 해당하는 "TodoListClient"도 포함되어 있습니다. 이 TodoListClient는 사용자가 로그인하는 방법과 클라이언트가 웹 API로 요청을 발행하는 방법을 보여 주기 위한 것입니다. 이 경우 TodoListClient 및 TodoListService 둘 다 동일한 앱으로 나타냅니다. TodoListClient를 계속하려면 다음 작업도 수행해야 합니다.
-
-- 앱에 대한 **모바일** 플랫폼을 추가합니다.
-- 포털에서 **리디렉션 URI**를 복사합니다. 기본값인 `urn:ietf:wg:oauth:2.0:oob`를 사용해야 합니다.
+- 앱용 **Mobile** 플랫폼을 추가합니다.
+- 포털에서 **Redirect URI**를 복사합니다. `urn:ietf:wg:oauth:2.0:oob`의 기본값을 사용해야 합니다.
 
 
-## 2. OWIN 인증 파이프라인을 사용하도록 앱 설정
+## 2\. OWIN 인증 파이프라인을 사용하도록 앱을 설정합니다.
 
-앱을 등록했으므로 들어오는 요청 및 토큰이 유효한지 확인하기 위해 v2.0 끝점과 통신하도록 앱을 설정해야 합니다.
+앱을 등록했으므로 들어오는 요청 및 토큰의 유효성을 검사하기 위해 v2.0 끝점과 통신할 수 있게 앱을 설정해야 합니다.
 
--	시작하려면, 솔루션을 열고 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 TodoListService 프로젝트에 추가합니다.
+-	시작하려면 솔루션을 열고 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 TodoListService 프로젝트에 추가합니다.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
 -	OWIN Startup 클래스를 `Startup.cs`라는 TodoListService 프로젝트에 추가합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** --> **새 항목** --> "OWIN" 검색을 클릭합니다. OWIN 미들웨어는 앱이 시작되면 `Configuration(…)` 메서드를 호출합니다.
--	클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup`으로 변경합니다. `Configuration(…)` 메서드에서 ConfigureAuth(...)를 호출하여 웹앱에 대한 인증을 설정합니다.
+-	클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup`으로 변경합니다. `Configuration(…)` 메서드에서 ConfgureAuth(...)를 호출하여 웹앱에 대한 인증을 설정합니다.
 
 ```C#
 public partial class Startup
@@ -155,6 +156,6 @@ Todo List Service가 작동하는 것을 보려면 먼저 v2.0 끝점에서 토�
 
 [v2.0 앱 모델을 사용한 웹앱에서 Web API 호출 >>](active-directory-devquickstarts-webapp-webapi-dotnet.md)
 
-추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+추가 리소스는 다음을 확인해보십시오. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

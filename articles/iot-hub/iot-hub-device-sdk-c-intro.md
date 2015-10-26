@@ -1,18 +1,18 @@
 <properties
-	pageTitle="C용 Azure IoT 장치 SDK 소개"
+	pageTitle="C용 Azure IoT 장치 SDK 사용 | Microsoft Azure"
 	description="C용 Azure IoT 장치 SDK에 대해 알아보고 샘플 코드로 작업을 시작합니다."
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/30/2015"
      ms.author="michelb"/>
 
@@ -455,4 +455,4 @@ serializer_deinit();
 
 이 문서에서는 **C용 Azure IoT 장치 SDK**에서 라이브러리 사용에 대한 기본 사항을 다룹니다. SDK에 포함된 사항, 아키텍처 및 Windows 샘플 작업을 시작하는 방법을 이해하기에 충분한 정보를 제공합니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

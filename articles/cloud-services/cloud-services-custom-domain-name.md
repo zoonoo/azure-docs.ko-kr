@@ -165,4 +165,4 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

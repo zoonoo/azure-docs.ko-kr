@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure AD Connect 설계 개념 | Microsoft Azure"
-	description="이 항목에서는 특정 구현 설계 영역을 자세히 설명합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="이 항목에서는 특정 구현 설계 영역을 자세히 설명합니다."
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="Identity"
-	ms.date="09/03/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="Identity"
+   ms.date="10/13/2015"
+   ms.author="andkjell"/>
 
 # Azure AD Connect의 설계 개념
 이 토픽에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야할 영역들을 설명합니다. 이 토픽은 특정 영역들을 심층 분석하고 이 개념들을 다른 토픽에서처럼 간단히 설명합니다.
@@ -26,7 +26,7 @@ sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으�
 
 이 특성은 다음 시나리오에서 사용됩니다.
 
-- 새 동기화 엔진 서버를 구축하거나 재난 복구 시나리오를 다시 구축할 때,.이 특성은 개체 온 프레미스의 Azure AD 내의 기존 개체에 연결됩니다.
+- 새 동기화 엔진 서버를 구축하거나 재해 복구 시나리오를 다시 구축할 때,이 특성은 개체 온-프레미스의 Azure AD 내의 기존 개체에 연결됩니다.
 - 클라우드 전용 ID에서 동기화 ID 모델로 이동할 경우, 이 특성은 온-프레미스 개체를 포함한 Azure AD의 “완전 일치”하는 기존 개체에 개체를 허용합니다.
 - 페더레이션을 사용할 경우, **userPrincipalName**을 포함한 특성은 사용자를 고유하게 식별하는 클레임에서 사용됩니다.
 
@@ -66,4 +66,7 @@ sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 
 - 다른 Azure AD Connect 서버를 설치한 경우 이전에 사용했던 동일한 sourceAnchor 특성을 선택해야만 합니다. 이전부터 DirSync를 사용했으며 Azure AD Connect로 이동한 경우 DirSync에서 사용했던 특성이므로 **objectGUID**를 사용해야 합니다.
 - 개체를 Azure AD로 내보낸 후 sourceAnchor 값이 변경된 경우, Azure AD Connect 동기화는 오류를 표시하고 문제가 해결되거나 sourceAnchor를 source 디렉터리에 원상 복귀시키기 전까지는 어떠한 변경도 허용하지 않습니다.
 
-<!---HONumber=September15_HO1-->
+## 다음 단계
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
+
+<!---HONumber=Oct15_HO3-->

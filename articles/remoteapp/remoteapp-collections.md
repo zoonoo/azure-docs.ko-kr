@@ -91,4 +91,4 @@ Azure AD 및 Active Directory를 구성하는 데 필요한 단계는 [Azure Rem
 
 [클라우드 컬렉션을 만들](remoteapp-create-cloud-deployment.md) 또는 [하이브리드 컬렉션을 만들기](remoteapp-create-hybrid-deployment.md) - 만들기만 하면 됩니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

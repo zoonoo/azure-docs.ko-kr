@@ -90,4 +90,4 @@
 
 9. Windows Phone 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭한 다음 위의 단계를 반복하여 Windows Phone 스토어 앱도 올바르게 실행되는지 확인합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

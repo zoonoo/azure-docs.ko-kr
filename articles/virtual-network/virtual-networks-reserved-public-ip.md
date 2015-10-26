@@ -1,19 +1,19 @@
 <properties 
    pageTitle="예약된 IP"
-	description="예약된 IP, VIP, ILPIP 및 관리 방법에 대해 알아봅니다."
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   description="예약된 IP, VIP, ILPIP 및 관리 방법에 대해 알아봅니다."
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/17/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/17/2015"
+   ms.author="telmos" />
 
 # 예약된 IP 개요
 Azure의 IP 주소는 두 범주 즉, 동적 IP 및 예약된 IP로 나뉩니다. Azure에서 관리하는 공용 IP 주소는 기본적으로 동적입니다. 즉, 지정된 클라우드 서비스에 사용되는 IP 주소(VIP) 또는 VM이나 역할 인스턴스에 직접 액세스하는 데 사용되는 IP 주소(ILPIP)는 리소스가 종료 또는 할당 취소된 경우 때때로 변경될 수 있습니다.
@@ -119,4 +119,4 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 확인합니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

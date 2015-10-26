@@ -82,4 +82,4 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

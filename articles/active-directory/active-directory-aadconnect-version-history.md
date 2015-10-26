@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure AD Connect: 버전 릴리스 내역 | Microsoft Azure"
-	description="이 항목에서는 Azure AD Connect 및 Azure AD Sync의 모든 릴리스를 나열합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="이 항목에서는 Azure AD Connect 및 Azure AD Sync의 모든 릴리스를 나열합니다."
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="10/13/2015"
+   ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
 
@@ -137,9 +137,7 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 
 **Azure AD Sync의 초기 릴리스**
 
-## 추가 리소스
-[Azure AD Connect Sync: 동기화 옵션 사용자 지정](active-directory-aadconnectsync-whatis.md)
+## 다음 단계
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

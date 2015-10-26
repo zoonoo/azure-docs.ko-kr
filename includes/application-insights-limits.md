@@ -21,4 +21,4 @@
  
 [Application Insights의 가격 책정 및 할당량 정보](app-insights-pricing.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

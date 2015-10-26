@@ -10,4 +10,4 @@
 - [MFA를 요구하는 방법](active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [감사 로그를 사용하는 방법](active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

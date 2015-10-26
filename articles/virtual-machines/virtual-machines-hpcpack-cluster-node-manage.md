@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Azure의 HPC 팩 클러스터에 있는 계산 노드의 수 및 가용성 관리
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 클래식 배포 모델을 사용하여 만든 리소스를 관리하는 방법에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 Azure VM에 HPC 팩 클러스터를 만든 경우 클러스터에서 여러 계산 노드 VM을 손쉽게 추가, 제거, 시작(프로비전), 중지(프로비전 해제)할 수 있어야 합니다. 이러한 작업을 하려면 헤드 노드 VM에 설치된 Azure PowerShell 스크립트를 실행합니다(HPC 팩 2012 R2 업데이트 1 이후). 이러한 스크립트로 HPC 팩 클러스터 리소스의 수와 가용성을 관리하여 비용을 관리할 수 있습니다.
 
@@ -177,4 +178,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Azure 컴퓨팅 리소스를 현재 작업 워크로드 및 클러스터 작업에 따라 자동으로 증가 또는 축소하려는 경우 [HPC 팩 클러스터에서 Azure 계산 리소스 증가 및 축소](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

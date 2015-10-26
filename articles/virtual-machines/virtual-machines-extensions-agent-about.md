@@ -18,9 +18,11 @@
  ms.author="rasquill"/>
 
 #가상 컴퓨터 에이전트 및 확장 정보
+
 Azure 가상 컴퓨터 에이전트(VM 에이전트)는 Azure 가상 컴퓨터 확장(VM 확장)을 설치, 구성, 관리 및 실행하는 데 사용됩니다. VM 확장은 Microsoft 및 기타 타사가 제공하는 동적 기능을 구현합니다. 에이전트 및 확장은 주로 관리 포털을 통해 추가되지만 VM을 만들 때나 기존 VM에서 [Powershell](../install-configure-powershell.md) cmdlet 또는 [Azure CLI](xplat-install.md)를 사용하여 추가 및 구성할 수도 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 클래식 배포 모델에 사용되는 배포 호출을 참조합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 
 VM 확장은 다음과 같은 작업에 도움이 될 수 있습니다.
@@ -64,4 +66,4 @@ VM 에이전트는 다음과 같은 상황에서 사용됩니다.
 
 이러한 작업에 대한 자세한 내용은 [Azure VM 확장 추가, 찾기, 업데이트 및 제거](virtual-machines-extensions-install.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

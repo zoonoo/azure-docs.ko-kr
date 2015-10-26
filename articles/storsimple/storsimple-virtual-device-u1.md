@@ -392,4 +392,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

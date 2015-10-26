@@ -38,7 +38,7 @@
 
 **3) TinyTDS:** 터미널에서 다음 명령을 실행합니다. 그러면 컴퓨터에 TinyTDS가 설치됩니다.
 
-    sudo ARCHFLAGS="-arch x86_64" gem install tiny_tds
+    gem install tiny_tds
 
 ## 데이터베이스를 만들고 연결 문자열 검색
 
@@ -104,4 +104,4 @@ Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx)
     puts row
     end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

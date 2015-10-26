@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory를 사용하여 로그 파일 이동 및 처리(Azure PowerShell)"
-	description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure Data Factory 서비스 및 Azure PowerShell을 사용하여 시나리오를 구현합니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Data Factory를 사용하여 로그 파일 이동 및 처리(Azure PowerShell)" 
+	description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure Data Factory 서비스 및 Azure PowerShell을 사용하여 시나리오를 구현합니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 [PowerShell]을 사용하여 로그 파일 이동 및 처리
@@ -297,26 +297,26 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 ### 테이블을 만들려면
 
 1.	Azure PowerShell에서 샘플의 압축을 푼 위치의 **Tables** 폴더(**C:\\ADFWalkthrough\\Tables**)로 이동합니다.
-2.	다음과 같이 **New-AzureDataFactoryTable** cmdlet을 사용하여 **RawGameEventsTable**.json에 대한 테이블을 만듭니다.	
+2.	다음과 같이 **New-AzureDataFactoryDataset** cmdlet을 사용하여 **RawGameEventsTable**.json에 대한 데이터 집합을 만듭니다.	
 
 
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
 
 	ResourceGroupName 및 DataFactoryName에 다른 이름을 사용하는 경우 위의 cmdlet에서 이 이름을 참조합니다. 또한 cmdlet에서 파일을 찾을 수 없는 경우 테이블 JSON 파일의 전체 파일 경로 제공합니다.
 
 3. 이전 단계를 반복하여 다음 테이블을 만듭니다.
 		
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
 		
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
 
 
 
@@ -326,7 +326,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 	Azure PowerShell에서 다음 명령을 사용할 수도 있습니다.
 			
-		Get-AzureDataFactoryTable –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
 
 	
 
@@ -558,4 +558,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

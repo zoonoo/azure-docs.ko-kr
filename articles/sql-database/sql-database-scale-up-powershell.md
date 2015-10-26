@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="10/08/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -45,15 +45,14 @@
 
 - Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
 - Azure SQL 데이터베이스입니다. SQL 데이터베이스가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 문서의 단계에 따라 만듭니다.
-- Azure PowerShell. [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 Azure PowerShell 모듈을 다운로드하고 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
+- Azure PowerShell.
 
-Azure SQL 데이터베이스의 서비스 계층을 변경하는 Cmdlet은 Azure 리소스 관리자 모듈에 있습니다. Azure PowerShell을 시작하면 Azure 모듈에 있는 cmdlet을 기본적으로 가져옵니다. Azure 리소스 관리자 모듈로 전환하려면 Switch-AzureMode cmdlet을 사용합니다.
+> [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet을 더 이상 사용할 수 없으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 이 문서의 예제에서는 새 PowerShell 1.0 Preview 명명 규칙을 사용합니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
 
-	Switch-AzureMode -Name AzureResourceManager
 
-**Switch-azuremode**를 실행하고 경고: *Switch-AzureMode cmdlet은 더 이상 사용되지 않으며 향후 릴리스에서 제거될 예정입니다.*가 표시되는 경우 다음 단계로 이동하여 자격 증명을 구성합니다.
+PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야 하고 Switch-AzureMode를 제거했기 때문에 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 최신 Azure PowerShell을 다운로드하고 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
-자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
+
 
 ## 자격 증명 구성 및 구독 선택
 
@@ -71,7 +70,7 @@ Azure SQL 데이터베이스의 서비스 계층을 변경하는 Cmdlet은 Azure
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     Select-AzureSubscription -SubscriptionId $SubscriptionId
 
-성공적으로 **Select-azuresubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다. 둘 이상의 구독이 있는 경우 **Get-azuresubscription**을 실행하고 **IsCurrent: True** 표시를 사용하려는 구독을 확인할 수 있습니다.
+성공적으로 **Select-azuresubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다. 둘 이상의 구독이 있는 경우 **Get-azuresubscription**을 실행하고 사용하려는 구독이 **IsCurrent: True**를 표시하는지 확인할 수 있습니다.
 
 
  
@@ -79,7 +78,7 @@ Azure SQL 데이터베이스의 서비스 계층을 변경하는 Cmdlet은 Azure
 
 ## SQL 데이터베이스의 서비스 계층 및 성능 수준 변경
 
-**Set-AzureSqlDatabase** Cmdlet을 실행하고 **-RequestedServiceObjectiveName**을 원하는 가격 책정 계층의 성능 수준(예를 들어 *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...)으로 설정합니다.
+**Set-AzureRMSqlDatabase** Cmdlet을 실행하고 **-RequestedServiceObjectiveName**을 원하는 가격 책정 계층의 성능 수준(예를 들어 *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...)으로 설정합니다.
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -100,7 +99,7 @@ Azure SQL 데이터베이스의 서비스 계층을 변경하는 Cmdlet은 Azure
 ## SQL 데이터베이스의 서비스 계층 및 성능 수준을 변경하는 샘플 PowerShell 스크립트
 
     
-	Switch-AzureMode -Name AzureResourceManager
+
     
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     
@@ -116,7 +115,7 @@ Azure SQL 데이터베이스의 서비스 계층을 변경하는 Cmdlet은 Azure
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRMSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     
@@ -133,5 +132,6 @@ Azure SQL 데이터베이스의 서비스 계층을 변경하는 Cmdlet은 Azure
 
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt163521.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

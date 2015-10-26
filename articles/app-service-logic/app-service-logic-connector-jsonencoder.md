@@ -68,4 +68,4 @@ Input Xml|object|입력 Xml 내용
 <!--Links -->
 [논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

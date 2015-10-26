@@ -439,7 +439,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 		   <property>
 		       <name>sqlDatabaseConnectionString</name>
-		       <value>&quot;$sqlDatabaseConnectionString&quot;</value>
+		       <value>";$sqlDatabaseConnectionString";</value>
 		   </property>
 
 		   <property>
@@ -520,7 +520,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 **작업 오류 로그를 검사하려면**
 
-워크플로의 문제를 해결하려면 Oozie 로그 파일을 클러스터 헤드 노드의 *C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* 또는 *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log*에서 찾을 수 있습니다. RDP에 대한 자세한 내용은 [Azure 관리 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
+워크플로의 문제를 해결하려면 Oozie 로그 파일을 클러스터 헤드 노드의 *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* 또는 *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log*에서 찾을 수 있습니다. RDP에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
 
 **자습서를 다시 실행하려면**
 
@@ -570,7 +570,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 - [HDInsight에서 Hadoop과 Sqoop 사용][hdinsight-use-sqoop]
 - [HDInsight에서 Hadoop과 Hive 사용][hdinsight-use-hive]
 - [HDInsight에서 Hadoop과 Pig 사용][hdinsight-use-pig]
-- [HDInsight용 C#Hadoop 스트리밍 작업 개발][hdinsight-develop-streaming-jobs]
+- [HDInsight용 C# Hadoop 스트리밍 작업 개발][hdinsight-develop-streaming-jobs]
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
@@ -613,7 +613,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: ../powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/ko-kr/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -623,4 +623,4 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

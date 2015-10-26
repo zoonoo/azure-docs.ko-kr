@@ -7,7 +7,7 @@
 | -------- | ----------- | -------- |
 | name | 열의 이름입니다. | 예 |
 | type | 열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. | 아니요 |
-| culture | 지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 .NET 기반 culture입니다. 기본값은 "ko-kr"입니다. | 아니요 |
+| culture | 지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 .NET 기반 culture입니다. 기본값은 "en-us"입니다. | 아니요 |
 | format | 지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 형식 문자열입니다. | 아니요 |
 
 다음 샘플에서는 3개의 열 즉, userid, name 및 lastlogindate가 있는 테이블에 대한 구조 섹션 JSON을 보여줍니다.
@@ -47,4 +47,4 @@
 
 Datetime 및 Datetimeoffset의 경우 사용자 지정 Datetime 문자열의 구문 분석을 용이하게 하려면 "culture" 및 "format" 문자열을 지정할 수도 있습니다. 아래의 형식 변환 샘플을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

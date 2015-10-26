@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # SAN을 사용하여 온-프레미스 VMM 사이트 간 보호 설정
@@ -347,7 +347,8 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 	![가상 컴퓨터 추가](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
 5. 만든 복구 계획은 **복구 계획** 탭의 목록에 표시됩니다.
 6. **복구 계획** 탭에서 계획을 선택하고 **테스트 장애 조치**를 클릭합니다.
-7. **테스트 장애 조치(Failover) 확인** 페이지에서 **없음**을 선택합니다. 이 옵션을 사용하도록 설정하면 장애 조치(Failover)된 복제본 가상 컴퓨터가 네트워크에 연결되지 않습니다. 여기서는 가상 컴퓨터가 올바로 장애 조치(Failover)되는지 테스트하지만 복제 네트워크 환경을 테스트하지는 않습니다. 보다 포괄적인 테스트 장애 조치(Failover)를 실행하려는 경우 <a href="http://go.microsoft.com/fwlink/?LinkId=522291">MSDN에서 온-프레미스 배포 테스트</a>를 참조하세요.
+7. **테스트 장애 조치(Failover) 확인** 페이지에서 **없음**을 선택합니다. 이 옵션을 사용하도록 설정하면 장애 조치(Failover)된 복제본 가상 컴퓨터가 네트워크에 연결되지 않습니다. 여기서는 가상 컴퓨터가 올바로 장애 조치(Failover)되는지 테스트하지만 복제 네트워크 환경을 테스트하지는 않습니다. 다양한 네트워킹 옵션을 사용하는 방법에 대한 자세한 내용은 [테스트 장애 조치(failover) 실행](site-recovery-failover.md#run-a-test-failover) 방법을 참조하세요.
+
 
 	![테스트 네트워크 선택](./media/site-recovery-vmm-san/SRSAN_TestFailover1.png)
 
@@ -382,4 +383,4 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 작업 및 대시보드와의 상호 작용에 대한 자세한 내용은 [작업 및 모니터링](http://go.microsoft.com/fwlink/?LinkId=398534)을 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

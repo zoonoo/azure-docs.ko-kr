@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 클라우드 서비스 - 인증서에 대해 알아야 할 모든 정보" 
+	pageTitle="클라우드 서비스 및 관리 인증서 | Microsoft Azure" 
 	description="Microsoft Azure에서 인증서를 만들고 사용하는 방법 알아보기" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015"
+	ms.date="10/09/2015"
 	ms.author="adegeo"/>
 
 # Azure 클라우드 서비스 인증서 개요
@@ -69,6 +69,9 @@ Windows에서는 두 가지 방법, `makecert.exe` 유틸리티 또는 IIS를 �
 ### Java
 Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate) 수 있습니다.
 
+### Linux
+[이](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) 문서에서는 SSH로 인증서를 만드는 방법을 설명합니다.
+
 ## 다음 단계
 
 [서비스 인증서를 Azure 포털(또는[Preview 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
@@ -77,4 +80,4 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 >[AZURE.NOTE]Azure Preview 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

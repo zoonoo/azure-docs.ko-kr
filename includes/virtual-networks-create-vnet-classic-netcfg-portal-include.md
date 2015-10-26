@@ -49,4 +49,4 @@ Azure 포털을 통해 netcfg 파일을 사용하여 VNet을 만들려면 다음
 
 	![새 가상 네트워크](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

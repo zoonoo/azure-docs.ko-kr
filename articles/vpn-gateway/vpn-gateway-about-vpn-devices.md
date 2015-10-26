@@ -156,4 +156,4 @@ VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](v
 
 사이트 간 VPN을 구성하려면 [사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-site-to-site-create.md)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

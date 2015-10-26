@@ -8,4 +8,4 @@
   - [테이블 저장소](./storage-dotnet-how-to-use-tables.md)를 사용하여 구조화된 데이터를 저장합니다.
   - [SQL 데이터베이스](../sql-database/sql-database-dotnet-how-to-use.md)를 사용하여 관계형 데이터를 저장합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

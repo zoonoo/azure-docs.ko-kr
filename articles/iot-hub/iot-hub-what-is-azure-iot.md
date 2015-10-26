@@ -1,8 +1,8 @@
 <properties
- pageTitle="Microsoft Azure IoT Hub 및 IoT(사물 인터넷) | Microsoft Azure"
+ pageTitle="사물 인터넷에 대한 Azure 솔루션 | Microsoft Azure"
  description="샘플 솔루션 아키텍처 및 이를 Azure IoT Hub, 장치 SDK 및 미리 구성된 솔루션과 연결하는 방법을 포함한 Azure IoT 개요"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="dobett"/>
 
@@ -29,19 +29,20 @@
 
 ### Azure IoT Hub
 
-IoT Hub는 장치에서 대규모로 장치-클라우드 데이터를 수신하고 해당 데이터를 스트림 이벤트 프로세서로 라우트할 수 있도록 해주는 Azure 서비스입니다. IoT Hub는 장치별 큐를 사용하여 특정 장치에 클라우드-장치 명령을 보낼 수도 있습니다.
+IoT Hub는 장치에서 대규모로 장치-클라우드 데이터를 수신하고 해당 데이터를 스트림 이벤트 프로세서로 라우트하는 Azure 서비스입니다. IoT Hub는 장치별 큐를 사용하여 특정 장치에 클라우드-장치 명령을 보낼 수도 있습니다.
 
-또한 IoT Hub 서비스에는 장치를 프로비전하고 IoT Hub에 연결할 수 있는 장치를 관리하는 데 도와주는 장치 ID 레지스트리가 포함되어 있습니다.
+또한 IoT Hub 서비스에는 장치를 프로비전하고 IoT Hub에 연결할 수 있는 장치를 관리하는 데 사용할 수 있는 장치 ID 레지스트리가 포함되어 있습니다.
 
 ### Azure IoT 장치 SDK
 
-Microsoft에서는 다양한 장치 하드웨어 플랫폼과 운영 체제에서 실행되는 클라이언트 응용 프로그램을 구현할 수 있도록 해주는 IoT 장치 SDK를 제공합니다. IoT 장치 SDK에는 IoT Hub로 장치-클라우드 원격 분석 데이터 전송 및 IoT Hub에서 클라우드-장치 명령 수신을 용이하게 하는 라이브러리가 포함되어 있습니다. 이러한 IoT 장치 SDK를 사용하면 다양한 네트워크 프로토콜 중에서 선택하여 Azure IoT Hub와 통신할 수 있습니다.
+Microsoft에서는 다양한 장치 하드웨어 플랫폼과 운영 체제에서 실행되는 클라이언트 응용 프로그램을 구현하는 데 사용할 수 있는 IoT 장치 SDK를 제공합니다. IoT 장치 SDK에는 IoT Hub로 장치-클라우드 원격 분석 데이터 전송 및 IoT Hub에서 클라우드-장치 명령 수신을 용이하게 하는 라이브러리가 포함되어 있습니다. SDK를 사용하면 다양한 네트워크 프로토콜 중에서 선택하여 Azure IoT Hub와 통신할 수 있습니다.
 
 ## 다음 단계
 
 Azure에서 IoT를 시작하려면 다음 리소스를 탐색하세요.
 
 - [IoT Hub 시작][lnk-getstarted]
+- [Azure IoT 개발자 센터][lnk-iotdev]
 - [Azure IoT Hub][lnk-iot-hub]
 - [Azure IoT Suite][lnk-iot-suite]  
 
@@ -49,5 +50,6 @@ Azure에서 IoT를 시작하려면 다음 리소스를 탐색하세요.
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

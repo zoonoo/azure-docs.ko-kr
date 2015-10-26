@@ -238,4 +238,4 @@ shardlet(tenant)의 할당된 별도 데이터베이스 모델을 사용하지 �
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

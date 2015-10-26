@@ -266,4 +266,4 @@ StorSimple 장치에서 결함이 있는 모듈을 꺼낸 후 팩터리 제공 �
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -3,7 +3,7 @@
 
 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL 데이터베이스 논리 서버 및 데이터베이스를 관리할 수 있습니다. 이 항목에서는 SSMS로 수행하는 일반적인 작업에 대해 설명합니다. 시작하기 전에 Azure SQL 데이터베이스에서 논리 서버 및 데이터 베이스가 생성되어 있어야 합니다. 시작하려면 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 읽은 다음 다시 돌아오십시오.
 
-Azure SQL 데이터베이스를 사용하여 작업할 경우 최신 버전의 SSMS를 사용하는 것이 좋습니다. 최신 버전을 사용하려면 [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/ko-kr/library/mt238290.aspx)를 방문하십시오.
+Azure SQL 데이터베이스를 사용하여 작업할 경우 최신 버전의 SSMS를 사용하는 것이 좋습니다. 최신 버전을 사용하려면 [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/en-us/library/mt238290.aspx)를 방문하십시오.
 
 
 ## SQL 데이터베이스 논리 서버에 연결
@@ -72,7 +72,7 @@ Management Studio에서 쿼리 창을 열려면 데이터베이스 폴더를 열
 
         DROP DATABASE myTestBase;
 
--   master 데이터베이스에는 모든 데이터베이스에 관한 세부 정보를 볼 수 있는 **sys.databases** 뷰가 있습니다. 기존 데이터베이스를 모두 보려면 다음 문을 실행하십시오.
+-   master 데이터베이스에는 모든 데이터베이스에 관한 세부 정보를 볼 수 있는 **sys.databases** 뷰가 있습니다. 기존 데이터베이스를 모두 보려면 다음 문을 실행하세요.
 
         SELECT * FROM sys.databases;
 
@@ -119,7 +119,7 @@ Management Studio에서 쿼리 창을 열려면 데이터베이스 폴더를 열
 
         DROP LOGIN login1;
 
--   master 데이터베이스에는 로그인을 볼 수 있는 **sys.sql\_logins** 뷰가 있습니다. 기존 로그인을 모두 보려면 다음 문을 실행하십시오.
+-   master 데이터베이스에는 로그인을 볼 수 있는 **sys.sql\_logins** 뷰가 있습니다. 기존 로그인을 모두 보려면 다음 문을 실행하세요.
 
         SELECT * FROM sys.sql_logins;
 
@@ -166,4 +166,4 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

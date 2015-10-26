@@ -15,4 +15,4 @@
 	>
 	>새 테이블은 Id, \_\_createdAt, \_\_updatedAt 및 \_\_version 열을 사용하여 만들어집니다. 동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청의 JSON 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)를 참조하십시오.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -249,4 +249,4 @@ Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -205,4 +205,4 @@ REST API를 사용하여 리소스 작업을 수행하는 방법에 대한 자�
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

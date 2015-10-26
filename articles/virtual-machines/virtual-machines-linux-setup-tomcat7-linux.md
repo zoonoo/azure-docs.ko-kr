@@ -21,7 +21,8 @@
 
 Apache Tomcat(또는 간단히 Tomcat, 이전에는 Jakarta Tomcat이라고도 함)은 ASF(Apache Software Foundation)에서 개발한 오픈 소스 웹 서버 및 서블릿 컨테이너입니다. Tomcat은 Sun Microsystems의 Java Servlet 및 JSP(JavaServer Pages) 사양을 구현하며, Java 코드를 실행할 순수 Java HTTP 웹 서버 환경을 제공합니다. 가장 단순한 구성의 경우 Tomcat은 단일 운영 체제 프로세스로 실행됩니다. 이 프로세스에서는 JVM(Java Virtual Machine)을 실행합니다. 브라우저에서 Tomcat으로 전송되는 모든 HTTP 요청은 Tomcat 프로세스에서 별도의 스레드로 처리됩니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 가이드에서는 Linux 이미지에 tomcat7을 설치하여 Microsoft Azure에서 배포합니다.
 
@@ -305,4 +306,4 @@ tomcat 서비스를 다시 시작하려면：
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

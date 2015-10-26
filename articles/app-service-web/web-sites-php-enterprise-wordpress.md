@@ -283,4 +283,4 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

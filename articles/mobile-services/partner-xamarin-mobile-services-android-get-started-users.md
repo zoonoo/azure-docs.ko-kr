@@ -137,4 +137,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

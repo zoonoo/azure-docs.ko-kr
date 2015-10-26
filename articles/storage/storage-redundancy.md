@@ -1,22 +1,21 @@
 
-<properties 
-  pageTitle="Azure 저장소 복제 | Microsoft Azure" 
-  description="Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="adinah" 
-  editor=""/>
+<properties 
+  pageTitle="Azure 저장소 복제 | Microsoft Azure" 
+  description="description = ";Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
 
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="09/01/2015" 
-  ms.author="tamram"/>
-
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="10/07/2015" 
+  ms.author="tamram"/>
 
 # Azure 저장소 복제
 
@@ -57,7 +56,7 @@ GRS(지역 중복 저장소)는 대부분의 응용 프로그램에 대해 권�
 영역 중복 저장소(ZRS)가 LRS보다 더 나은 경우, 단일 지역 내 또는 두 개 지역에 걸쳐 2~3개 시설에서 데이터를 복제하며 높은 영속성을 제공합니다. 저장소 계정에서 ZRS를 사용하도록 설정된 경우, 데이터가 시설 중 하나에서 장애가 발생 하더라도 지속됩니다.
 
 
->[AZURE.NOTE]현재 ZRS는 블록 Blob에 대해서만 사용 가능합니다. 저장소 계정을 만들고 영역 중복 복제를 선택한 후에는 다른 복제 유형으로 또는 그 반대로 변환할 수 없습니다.
+>[AZURE.NOTE]ZRS는 현재 블록 BLOB에만 사용할 수 있으며, 2014-02-14 이상 버전에서만 지원됩니다. 저장소 계정을 만들고 영역 중복 복제를 선택한 후에는 다른 복제 유형으로 또는 그 반대로 변환할 수 없습니다.
 
 
 ## 지역 중복 저장소
@@ -105,4 +104,4 @@ GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기�
 - [RA-GRS를 포함한 Microsoft Azure 저장소 에뮬레이터 3.1](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Azure 저장소 SOSP 문서](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

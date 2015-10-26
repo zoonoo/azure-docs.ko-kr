@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure 포털)"
+	pageTitle="온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure 포털)" 
 	description="이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure 포털의 데이터 팩터리 편집기를 사용하는 자습서를 확장합니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -169,4 +169,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

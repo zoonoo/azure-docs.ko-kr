@@ -70,7 +70,7 @@ Visual Studio를 사용하여 응용 프로그램 패키지를 만들면 빌드 
     │   │   │   VoiceMailBox.exe.config
     │   │   │   VoiceMailBox.Interfaces.dll
     │   │   │
-    │   │   └───ko-kr
+    │   │   └───en-us
     │   │           System.Fabric.Common.Internal.Strings.resources.dll
     │   │
     │   └───Config
@@ -91,7 +91,7 @@ Visual Studio를 사용하여 응용 프로그램 패키지를 만들면 빌드 
             │   VoicemailBoxWebService.exe
             │   VoicemailBoxWebService.exe.config
             │
-            └───ko-kr
+            └───en-us
                     System.Fabric.Common.Internal.Strings.resources.dll
 
 위 목록에서는 응용 프로그램 패키지 내 서비스 패키지 내에 있는 코드 패키지에 포함된 VoicemailBox 행위자 가져오기 작업을 구현하는 어셈블리를 보여줍니다.
@@ -242,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

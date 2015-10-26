@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="진단 사용 방법(.NET) | Microsoft Azure"
-	description="Azure에서 디버그, 성능 측정, 모니터링, 트래픽 분석 등에 진단 데이터를 사용하는 방법에 대해 알아봅니다."
-	services="cloud-services"
-	documentationCenter=".net"
-	authors="rboucher"
-	manager="jwhit"
+	pageTitle="진단 사용 방법(.NET) | Microsoft Azure" 
+	description="Azure에서 디버그, 성능 측정, 모니터링, 트래픽 분석 등에 진단 데이터를 사용하는 방법에 대해 알아봅니다." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="rboucher" 
+	manager="jwhit" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="robb"/>
 
 
@@ -174,7 +174,7 @@ WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][]
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -320,7 +320,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -511,4 +511,4 @@ EventSource|아니요|테이블|.NET EventSource 클래스를 사용하여 코�
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

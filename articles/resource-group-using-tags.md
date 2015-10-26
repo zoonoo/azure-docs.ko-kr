@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/14/2015"
 	ms.author="tomfitz"/>
 
 
@@ -48,15 +48,11 @@
 
 ## PowerShell을 사용한 태그 지정
 
-이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요. 이 문서의 목적에 맞게 이미 계정을 추가했고 태그를 지정하려는 리소스가 있는 구독을 선택했다고 가정합니다.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-태그 지정은 [리소스 관리자](http://msdn.microsoft.com/library/azure/dn790568.aspx)에서 제공되는 리소스 및 리소스 그룹에만 사용할 수 있으므로 먼저 리소스 관리자를 사용하도록 전환해야 합니다.
+태그는 리소스 및 리소스 그룹에 직접 존재하므로 이미 적용된 태그를 확인하기 위해서는 **Get-AzureRmResource** 또는 **Get-AzureRmResourceGroup**이 있는 리소스나 리소스 그룹을 파악하기만 하면 됩니다. 리소스 그룹부터 살펴보겠습니다.
 
-    Switch-AzureMode AzureResourceManager
-
-태그는 리소스 및 리소스 그룹에 직접 존재하므로 이미 적용된 태그를 확인하기 위해서는 `Get-AzureResource` 또는 `Get-AzureResourceGroup`이 있는 리소스나 리소스 그룹을 파악하기만 하면 됩니다. 리소스 그룹부터 살펴보겠습니다.
-
-    PS C:\> Get-AzureResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup tag-demo
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -80,9 +76,9 @@
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
 
-이 cmdlet은 적용된 태그를 포함하여 리소스 그룹의 일부 메타데이터를 반환합니다. 리소스 그룹에 태그를 지정하기 위해 `Set-AzureResourceGroup` 명령을 사용하고 태그 이름과 값을 지정합니다.
+이 cmdlet은 적용된 태그를 포함하여 리소스 그룹의 일부 메타데이터를 반환합니다. 리소스 그룹에 태그를 지정하기 위해 **Set-AzureRmResourceGroup** 명령을 사용하고 태그 이름과 값을 지정합니다.
 
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -95,9 +91,9 @@
 
 태그는 전체적으로 업데이트되므로 이미 태그가 지정된 리소스에 태그를 추가하려는 경우 유지하려는 모든 태그가 있는 배열을 사용해야 합니다. 이렇게 하려면 먼저 기존 태그를 선택하고 새 태그를 추가하면 됩니다.
 
-    PS C:\> $tags = (Get-AzureResourceGroup -Name tag-demo).Tags
+    PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag $tags
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -112,7 +108,15 @@
 
 태그를 하나 이상 제거하려는 경우에는 제거하려는 태그가 없는 배열을 저장하면 됩니다.
 
-이 프로세스는 `Get-AzureResource` 및 `Set-AzureResource` cmdlet을 사용한다는 점을 제외하고 리소스에도 동일하게 적용됩니다. 특정 태그가 있는 리소스 또는 리소스 그룹을 가져오려면 `-Tag` 매개 변수와 함께 `Get-AzureResource` 또는 `Get-AzureResourceGroup` cmdlet을 사용합니다.
+프로세스는 **Get-AzureRmResource** 및 **Set-AzureRmResource** cmdlet을 사용한다는 점을 제외하고 리소스에 대한 프로세스와 동일합니다.
+
+특정 태그가 있는 리소스 그룹을 가져오려면 **-Tag** 매개 변수와 함께 **Find-AzureRmResourceGroup** cmdlet을 사용합니다.
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
+    rbacdemo-group
+    tag-demo
+
+Azure PowerShell 1.0 Preview 이전 버전의 경우 다음 명령을 사용하여 특정 태그가 있는 리소스를 가져옵니다.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -120,11 +124,11 @@
     PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
     rbacdemo-web
     rbacdemo-docdb
-    ...
+    ...    
 
-PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면 `Get-AzureTag` cmdlet을 사용합니다.
+PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면 **Get-AzureRmTag** cmdlet을 사용합니다.
 
-    PS C:/> Get-AzureTag
+    PS C:/> Get-AzureRmTag
     Name                      Count
     ----                      ------
     env                       8
@@ -132,7 +136,7 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 "hidden-" 및 "link:"로 시작하는 태그도 볼 수 있습니다. 이러한 태그는 내부 태그이므로 무시해도 되며 변경하지 않도록 하세요.
 
-`New-AzureTag` cmdlet을 사용하여 분류에 새 태그를 추가합니다. 이러한 태그는 아직 리소스 또는 리소스 그룹에 적용되지 않았더라도 자동 완성에 포함됩니다. 태그 이름/값을 제거하려면 먼저 함께 사용될 수 있는 모든 리소스에서 태그를 제거하고 `Remove-AzureTag` cmdlet을 사용하여 분류에서 제거합니다.
+**New-AzureRmTag** cmdlet을 사용하여 분류에 새 태그를 추가합니다. 이러한 태그는 아직 리소스 또는 리소스 그룹에 적용되지 않았더라도 자동 완성에 포함됩니다. 태그 이름/값을 제거하려면 먼저 함께 사용될 수 있는 모든 리소스에서 태그를 제거하고 **Remove-AzureRmTag** cmdlet을 사용하여 분류에서 제거합니다.
 
 ## REST API를 사용하여 태그 지정
 
@@ -155,4 +159,4 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하세요.
 - Preview 포털 사용에 대한 소개는 [Azure Preview 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)를 참조하세요.  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

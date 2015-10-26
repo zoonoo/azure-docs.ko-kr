@@ -9,7 +9,7 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 
 	ZRS는 LRS보다 높은 수준의 영속성을 제공하지만 최대의 영속성을 위해서는 아래에 설명된 대로 지역 중복 저장소를 사용하는 것이 좋습니다.
 
-	> [AZURE.NOTE]현재 ZRS는 블록 Blob에 대해서만 사용 가능합니다.
+	> [AZURE.NOTE]ZRS는 현재 블록 BLOB에만 사용할 수 있으며, 2014-02-14 이상 버전에서만 지원됩니다.
 	> 
 	> 저장소 계정을 만들고 ZRS를 선택하면 다른 복제 유형으로 또는 그 반대로 변환할 수 없습니다.
 
@@ -26,4 +26,4 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 
 Azure 저장소를 통한 지속성에 대한 구조적인 세부 사항은 [Azure 저장소 SOSP 문서](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

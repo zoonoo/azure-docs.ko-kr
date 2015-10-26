@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 구성하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 문서에서는 Azure에서 [크기가 A8 및 A9인 가상 컴퓨터](virtual-machines-a8-a9-a10-a11-specs.md)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA를 설정하는 방법을 보여 줍니다. 지원되는 MPI 구현을 실행하도록 크기가 A8 및 A9인 Linux 기반 VM을 구성한 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
 
@@ -51,7 +52,7 @@ ms.service="virtual-machines"
 
 *   **Azure CLI** - Azure CLI를 [설치](../xplat-cli-install.md)하고 클라이언트 컴퓨터에서 Azure 구독을 연결하도록 [구성](../xplat-cli-connect.md)합니다.
 
-*   **Intel MPI** -클러스터에 대한 Linux VM 이미지 사용자 지정의 일부로(이 문서의 뒷부분에 나오는 세부 정보 참조) 프로비전할 Azure Linux VM의 [Intel.com 사이트](https://software.intel.com/ko-kr/intel-mpi-library/)에서 Intel MPI 라이브러리 5 런타임을 다운로드 및 설치해야 합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
+*   **Intel MPI** -클러스터에 대한 Linux VM 이미지 사용자 지정의 일부로(이 문서의 뒷부분에 나오는 세부 정보 참조) 프로비전할 Azure Linux VM의 [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 Intel MPI 라이브러리 5 런타임을 다운로드 및 설치해야 합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
 
 ### SLES 12 VM 프로비전
 
@@ -367,6 +368,6 @@ cluster12
 
 * Linux 클러스터에서 Linux MPI 응용 프로그램을 배포하고 실행합니다.
 
-* Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-kr/articles/intel-mpi-library-documentation/)를 참조하세요.
+* Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

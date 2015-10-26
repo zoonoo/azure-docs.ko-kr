@@ -1,11 +1,11 @@
 <properties
     pageTitle="Jenkins Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법 | Microsoft Azure"
-	description="Jenkins Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법을 설명합니다."
+    description="Jenkins Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법을 설명합니다."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe" />
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="v-dedomi"/>
+    ms.author="v-dedomi"/>
 
 # Jenkins Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
 
@@ -204,4 +204,4 @@ Jenkins용 Azure 종속 플러그인을 사용하면 분산된 빌드를 실행�
 
 그러면 Jenkins는 이전 섹션에서 만든 템플릿을 사용하여 슬레이브 노드를 만들고 이 작업에 대한 빌드 단계에서 지정한 스크립트를 실행합니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

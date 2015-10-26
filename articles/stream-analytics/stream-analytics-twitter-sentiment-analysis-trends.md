@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/09/2015"
 	ms.author="jeffstok"/>
 
 
@@ -55,7 +55,7 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 다음 단계에 따라 응용 프로그램을 설치합니다.
 
-1.	[TwitterClient 솔루션을 다운로드](https://github.com/streamanalytics/samples/tree/master/TwitterClient)합니다.
+1.	[TwitterClient 솔루션을 다운로드](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)합니다.
 2.	App.config를 열고 oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret을 원하는 값의 Twitter 토큰으로 바꿉니다.  
 
 	[OAuth 액세스 토큰을 생성하는 단계](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
@@ -224,7 +224,7 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 ![소셜 미디어 분석: Power BI 대시보드에 정서 분석(의견 마이닝) 출력을 스트림 분석합니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## 지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/KO-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계
@@ -236,4 +236,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

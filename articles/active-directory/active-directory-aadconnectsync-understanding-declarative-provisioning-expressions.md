@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync: 선언적 프로비전 식 이해"
+	pageTitle="Azure AD Connect Sync: 선언적 프로비전 식 이해 | Microsoft Azure"
 	description="선언적 프로비전 식에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -23,7 +23,7 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 For
 
 선언적 프로비전의 핵심적인 부분은 특성 흐름에 사용되는 표현 언어입니다. 사용 되는 언어는 VBA(Microsoft® Visual Basic® for Applications)의 하위 집합입니다. 이 언어는 Microsoft Office에서 사용되며, VBScript 경험이 있는 사용자 또한 이 언어를 인식합니다. 선언적 프로비저닝 표현 언어는 함수만 사용하며 구조적 언어는 아닙니다. 메서드 또는 문이 없습니다. 대신, 빠른 프로그램 흐름에 함수가 중첩됩니다.
 
-자세한 내용은 [Office 2013용 Visual basic for Applications 언어 참조 시작](https://msdn.microsoft.com/library/gg264383(v=office.15).aspx) 을 참조하십시오.
+자세한 내용은 [Office 2013용 Visual basic for Applications 언어 참조 시작]을 참조하십시오(https://msdn.microsoft.com/library/gg264383(v=office.15).aspx).
 
 특성은 강력한 형식입니다. 단일 값 문자열 특성을 예상하는 함수는 다중 값 또는 다른 유형의 특성을 허용하지 않습니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
 
@@ -134,7 +134,7 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
 
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

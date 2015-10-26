@@ -26,7 +26,7 @@
 
 이 섹션에서는 Workday에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명합니다.
 
-###Workday에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+###Workday에 응용 프로그램 통합을 사용하도록 설정하려면
 
 1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.    
 
@@ -40,7 +40,7 @@
 
 4.  **응용 프로그램 갤러리**를 열려면 **앱 추가**를 클릭한 다음 **조직에서 사용할 응용 프로그램 추가**를 클릭합니다.
 
-	![무엇을 하시겠습니까?](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "무엇을 하시겠습니까?")
+	![원하는 작업을 선택하세요.](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "원하는 작업을 선택하세요.")
 
 5.  **검색 상자**에 **Workday**를 입력합니다.
 
@@ -171,4 +171,4 @@
 
 이제 **사용자** 섹션으로 이동하여 Workday 사용자를 가져왔는지 확인할 수 있습니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

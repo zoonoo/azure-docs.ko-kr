@@ -79,4 +79,4 @@ Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

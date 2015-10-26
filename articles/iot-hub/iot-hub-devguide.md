@@ -1,6 +1,6 @@
 <properties
- pageTitle="Azure IoT Hub 개발자 가이드 | Microsoft Azure"
- description="IoT Hub 끝점, 보안, 장치 ID 레지스트리 및 메시징을 다루는 Azure IoT Hub 개발자 가이드"
+ pageTitle="IoT Hub에 대한 개발자 가이드 항목 | Microsoft Azure"
+ description="IoT Hub 끝점, 보안, 장치 ID 레지스트리 및 메시징을 포함하는 Azure IoT Hub 개발자 가이드"
  services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
@@ -9,10 +9,10 @@
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -42,7 +42,7 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
 끝점에 대한 설명은 다음과 같습니다.
 
-* **리소스 공급자**: IoT Hub 리소스 공급자는 Azure 구독 소유자가 IoT Hub를 만들고 IoT Hub 속성을 업데이트하며 IoT Hub를 삭제하도록 하는 [Azure 리소스 관리자][lnk-arm] 인터페이스를 노출합니다. IoT Hub 속성은 허브 수준 보안 정책(장치 수준 액세스 제어와 반대임. [액세스 제어](#accesscontrol) 참조) 및 클라우드-장치 및 장치-클라우드 메시징에 대한 기능 옵션을 제어합니다. 또한 리소스 공급자는 [장치 ID를 내보내도록](#importexport) 합니다.
+* **리소스 공급자**: IoT Hub 리소스 공급자는 Azure 구독 소유자가 IoT Hub를 만들고 IoT Hub 속성을 업데이트하며 IoT Hub를 삭제하도록 하는 [Azure 리소스 관리자][lnk-arm] 인터페이스를 노출합니다. IoT Hub 속성은 허브 수준 보안 정책을 제어합니다(반대로 장치 수준 액세스 제어). [액세스 제어](#accesscontrol)) 및 클라우드-장치 및 장치-클라우드 메시징에 대한 기능 옵션을 참조하세요. 또한 리소스 공급자는 [장치 ID를 내보내도록](#importexport) 합니다.
 * **장치 ID 관리**: 각 IoT Hub는 HTTP REST 끝점 집합을 노출하여 장치 ID를 관리합니다.(만들기, 검색, 업데이트 및 삭제) 장치 ID는 장치 인증 및 액세스 제어에 사용됩니다. 자세한 내용은 [장치 ID 레지스트리](#device-identity-registry)를 참조하세요.
 * **장치 끝점**: 장치 ID 레지스트리에 프로비전된 각 장치의 경우 IoT Hub는 해당 장치 간의 통신에 사용되는 끝점의 집합을 노출합니다. 이러한 끝점은 HTTP 및 [AMQP][lnk-amqp] 모두에서 현재 노출됩니다.
     - *장치-클라우드 메시지 보내기*. 이 끝점이 장치-클라우드로 메시지를 보내는데 사용됩니다. 자세한 내용은 [장치-클라우드 메시징](#d2c)을 참조하세요.
@@ -489,6 +489,7 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 
 - [IoT Hub 시작(자습서)][lnk-get-started]
 - [OS 플랫폼 및 하드웨어 호환성][lnk-compatibility]
+- [Azure IoT 개발자 센터][lnk-iotdev]
 - [IoT 구현 계획][lnk-guidance]
 
 [이벤트 허브 - 이벤트 프로세서 호스트]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
@@ -532,5 +533,6 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

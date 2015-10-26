@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# IoT Hub를 사용하여 장치에서 클라우드로 파일 업로드
+# 자습서: IoT Hub를 사용하여 장치에서 클라우드로 파일을 업로드하는 방법
 
 ## 소개
 
@@ -33,13 +33,13 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 * **SimulatedDevice**: [IoT Hub로 클라우드-장치 메시지 보내기]에서 만든 앱의 수정된 버전으로서 IoT 허브에 연결하고 Azure Blob URI를 포함한 클라우드-장치 메시지를 수신합니다. 수신된 각 클라우드-장치 메시지의 경우 지정된 blob URI에 파일을 업로드를 트리거합니다.
 * **SendCloudToDevice**는 Azure blob URI([Blob 서비스로 SAS 만들기 및 사용](../storage/storage-dotnet-shared-access-signature-part-2.md)에서 설명한 것처럼)를 빌드하고 IoT Hub를 통해 시뮬레이션된 장치에 클라우드-장치 메시지를 보낸 다음 해당 전달을 승인받습니다.
 
-> [AZURE.NOTE]IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 장치 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요. Java 및 노드용 Azure IoT 서비스 SDK는 곧 제공됩니다.
+> [AZURE.NOTE]IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 장치 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요. Java 및 노드용 Azure IoT 서비스 SDK는 출시 예정입니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 + Microsoft Visual Studio 2015
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank")을 참조하세요.
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -62,7 +62,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 이 자습서에서 장치에서 파일 업로드를 단순화하기 위해 클라우드-장치 메시지를 활용하는 방법을 알아보았습니다. IoT Hub 기능 및 시나리오는 다음의 자습서와 함께 계속해서 탐색할 수 있습니다.
 
-- [장치-클라우드 메시지 처리]\: 장치에서 들어오는 대화형 메시지 및 원격 분석을 안정적으로 처리하는 방법을 보여줍니다.
+- [장치-클라우드 메시지 처리]는 장치에서 들어오는 대화형 메시지 및 원격 분석을 안정적으로 처리하는 방법을 보여 줍니다.
 
 IoT Hub에 대한 추가 정보:
 
@@ -82,8 +82,8 @@ IoT Hub에 대한 추가 정보:
 
 [Azure Preview 포털]: https://portal.azure.com/
 
-[Azure 데이터 팩터리]: https://azure.microsoft.com/ko-kr/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/ko-kr/documentation/services/hdinsight/
+[Azure 데이터 팩터리]: https://azure.microsoft.com/ko-KR/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/ko-KR/documentation/services/hdinsight/
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub로 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
@@ -99,10 +99,6 @@ IoT Hub에 대한 추가 정보:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [IoT Hub로 시작]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT 개발자 센터]: http://www.azure.com/iotdev
+[Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

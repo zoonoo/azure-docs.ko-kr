@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="기계 학습 권장 사항 API 설정 및 사용 | Microsoft Azure"
-	description="Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="기계 학습 권장 사항 API 설정 및 사용 | Microsoft Azure" 
+	description="Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 #기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ
@@ -130,4 +130,4 @@ API 설명서는 [Azure 기계 학습 권장 사항 - 빠른 시작 가이드](m
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -115,4 +115,4 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
     > [AZURE.NOTE]정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

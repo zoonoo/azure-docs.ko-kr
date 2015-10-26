@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Java용 Azure SDK를 사용하여 Azure 앱 서비스에서 웹 앱 만들기"
-	description="Java 용 Azure SDK를 사용하여 프로그래밍 방식으로 Azure 앱 서비스에 웹 앱을 만드는 방법에 대해 알아봅니다."
+	pageTitle="Java용 Azure SDK를 사용하여 Azure 앱 서비스에서 웹 앱 만들기" 
+	description="Java 용 Azure SDK를 사용하여 프로그래밍 방식으로 Azure 앱 서비스에 웹 앱을 만드는 방법에 대해 알아봅니다." 
 	tags="azure-classic-portal"
-	services="app-service\web"
-	documentationCenter="Java"
-	authors="donntrenton"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter="Java" 
+	authors="donntrenton" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -155,7 +155,7 @@ Windows 명령 프롬프트에서(관리자로 실행), cd를 사용하여 인�
 
     ![][1]
     
-    이 단계는 사용자의 연결 속도에 따라 몇 분정도 걸릴 수 있습니다. 인덱스를 다시 빌드하면, **중앙** Maven 저장소에 Microsoft Azure 패키지가 나타납니다.
+    이 단계는 사용자의 연결 속도에 따라 몇 분 정도 걸릴 수 있습니다. 인덱스를 다시 빌드하면, **중앙** Maven 저장소에 Microsoft Azure 패키지가 나타납니다.
 
 6. **종속성**에서 **추가**를 클릭합니다. **그룹 ID 입력...**에 `azure-management`를 입력합니다. 기본 관리 및 앱 서비스 웹 앱 관리에 대한 패키지를 선택합니다.
 
@@ -245,7 +245,7 @@ AzureWebDemo 응용 프로그램의 목적은 웹 서비스 웹 앱을 만드는
 
 #### 웹 만들기 메서드 정의
 
-다음으로, 웹 앱을 만드는 메서드를 정의 합니다. 이 메소드, `createWebApp`는 웹 앱 및 웹 공간의 매개 변수를 지정합니다. 웹 서비스 웹 앱 관리 클라이언트도 만들고 구성하며, [WebSiteManagementClient][] 개체로 정의됩니다. 관리 클라이언트는 웹 앱을 작성하는 키입니다. 서비스 관리 API를 호출하여 응용 프로그램이 웹 앱(만들기, 업데이트 및 삭제와 같은 작업 수행)을 관리할 수 있는 RESTful 웹 서비스를 제공합니다.
+다음으로, 웹 앱을 만드는 메서드를 정의 합니다. 이 메서드, `createWebApp`는 웹 앱 및 웹 공간의 매개 변수를 지정합니다. 웹 서비스 웹 앱 관리 클라이언트도 만들고 구성하며, [WebSiteManagementClient][] 개체로 정의됩니다. 관리 클라이언트는 웹 앱을 작성하는 키입니다. 서비스 관리 API를 호출하여 응용 프로그램이 웹 앱(만들기, 업데이트 및 삭제와 같은 작업 수행)을 관리할 수 있는 RESTful 웹 서비스를 제공합니다.
 
     private static void createWebApp() throws Exception {
 
@@ -306,7 +306,7 @@ AzureWebDemo 응용 프로그램의 목적은 웹 서비스 웹 앱을 만드는
         System.out.println("----------\n");
     }
 
-코드는 성공 또는 실패를 나타내는 응답의 HTTP 상태를 출력하고 성공하는 경우작성한 웹 앱의 이름을 출력합니다.
+코드는 성공 또는 실패를 나타내는 응답의 HTTP 상태를 출력하고 성공하는 경우 작성한 웹 앱의 이름을 출력합니다.
 
 
 #### Main () 메서드 정의
@@ -340,7 +340,7 @@ createWebApp()을 호출하여 웹 앱을 만드는 main () 메서드 코드를 
     
     ----------
 
-Azure 클래식 포털에 로그인하고 **웹 앱**을 클릭합니다. 새 웹 앱은 몇분 내에 웹 앱 목록에 나타나야 합니다.
+Azure 클래식 포털에 로그인하고 **웹 앱**을 클릭합니다. 새 웹 앱은 몇 분 내에 웹 앱 목록에 나타나야 합니다.
 
 
 ## 웹 앱에 응용 프로그램 배포
@@ -378,7 +378,7 @@ AzureWebDemo를 실행하고 새 웹 앱을 만든 후 클래식 포털로 로�
 
 #### localhost에서 Hello World 응용 프로그램 실행
 
-이 응용 프로그램을 실행하기 전에 몇가지 속성을 구성해야 합니다.
+이 응용 프로그램을 실행하기 전에 몇 가지 속성을 구성해야 합니다.
 
 1. **JSPHello** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 
@@ -432,7 +432,7 @@ WAR 파일의 배포에 대한 자세한 내용은 [Java 응용 프로그램을 
 
 응용 프로그램을 게시할 타사 FTP 클라이언트를 선택합니다. 이 절차에서는 Azure로 빌드된 Kudu 콘솔 및 편리한 그래픽 UI의 널리 사용되는 도구인 FileZilla의 두 옵션을 설명합니다.
 
-> **참고:** Java 2.4를 포함한 Eclipse용 Azure 플러그인은 저장소 계정 및 클라우드 서비스에 대한 배포를 지원하지만, 현재는 웹 앱에 대한 배포를 지원하지 않습니다. [Eclipse에서 Azure용 Hello World 응용 프로그램을 만들기](http://msdn.microsoft.com/library/azure/hh690944.aspx)에서 설명한 대로 Azure 배포 프로젝트를 사용하여 저장소 계정 및 클라우드 서비스를 배포할 수 있지만 웹 앱에는 배포하지 않습니다. FTP 또는 GitHub와 같은 다른 메서드를 사용하여 웹 앱에 파일을 전송합니다.
+> **참고:** Eclipse용 Azure 도구 키트는 저장소 계정 및 클라우드 서비스에 대한 배포를 지원하지만, 현재는 웹앱에 대한 배포를 지원하지 않습니다. [Eclipse에서 Azure용 Hello World 응용 프로그램을 만들기](http://msdn.microsoft.com/library/azure/hh690944.aspx)에서 설명한 대로 Azure 배포 프로젝트를 사용하여 저장소 계정 및 클라우드 서비스를 배포할 수 있지만 웹 앱에는 배포하지 않습니다. FTP 또는 GitHub와 같은 다른 메서드를 사용하여 웹 앱에 파일을 전송합니다.
 
 > **참고:** Windows 명령 프롬프트(Windows와 함께 제공되는 명령줄 FTP.EXE 유틸리티)에서 FTP를 사용하는 것은 권장하지 않습니다. FTP.EXE와 같은 활성 FTP를 사용하는 FTP 클라이언트는 방화벽을 통해 작동하는 데 자주 실패합니다. 활성 FTP는 FTP 서버가 연결에 실패할 가능성이 있는 내부 LAN 기반 주소를 지정합니다.
 
@@ -454,7 +454,7 @@ FTP를 사용하여 웹 서비스 웹 앱에 배포에 대한 자세한 내용�
 
 #### FTP 연결 정보 가져오기
 
-FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 배포하려면 연결 정보를 가져와야 합니다. 두 가지 방법으로 연결 정보를 얻을 수 있습니다. 한 가지 방법은 웹 앱의 **대시보드** 페이지를 방문하는 것이고, 다른 방법은 웹 앱의 게시 프로필을 다운로드하는 것입니다. 게시 프로필은 Azure 앱 서비스에서 웹 앱에 대한 FTP 호스트 이름 및 로그온 자격 증명과 같은 정보를 제공하는 XML 파일입니다. 이 사용자 이름 및 암호를 사용하여 Azure 계정과 연결된 모든 구독에서 하나가 아닌 모든 웹 앱에 배포할 수 있습니다.
+FTP를 사용하여 새로 만든 웹 앱에 응용 프로그램 파일을 배포하려면 연결 정보를 가져와야 합니다. 두 가지 방법으로 연결 정보를 얻을 수 있습니다. 한 가지 방법은 웹 앱의 **대시보드** 페이지를 방문하는 것이고, 다른 방법은 웹 앱의 게시 프로필을 다운로드하는 것입니다. 게시 프로필은 Azure 앱 서비스에서 웹 앱에 대한 FTP 호스트 이름 및 로그온 자격 증명과 같은 정보를 제공하는 XML 파일입니다. 이 사용자 이름 및 암호를 사용하여 Azure 계정과 연결된 모든 구독에서 하나가 아닌 모든 웹 앱에 배포할 수 있습니다.
 
 [Azure 포털][]의 웹 앱의 블레이드에서 FTP 연결 정보를 가져오려면:
 
@@ -488,7 +488,7 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 
 #### Java 응용 프로그램을 호스트하도록 웹 앱 구성
 
-응용 프로그램을 게시하기 전에, 웹 앱이 Java 응용 프로그램을 호스팅할 수 있도록 몇가지 구성 설정을 변경해야 합니다.
+응용 프로그램을 게시하기 전에, 웹 앱이 Java 응용 프로그램을 호스팅할 수 있도록 몇 가지 구성 설정을 변경해야 합니다.
 
 1. 클래식 포털에서 웹 앱의 **대시보드** 페이지로 이동하고 **구성**을 클릭합니다. **구성** 페이지에서 다음 설정을 지정합니다.
 
@@ -601,4 +601,4 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

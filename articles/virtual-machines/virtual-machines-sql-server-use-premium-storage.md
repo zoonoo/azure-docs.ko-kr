@@ -24,7 +24,8 @@
 
 [Azure 프리미엄 저장소](../storage-premium-storage-preview-portal.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [가상 컴퓨터](http://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 작업에서 매우 효율적입니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 사용하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 이 문서에서는 SQL Server를 실행하는 가상 컴퓨터가 프리미엄 저장소를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
 
@@ -1148,4 +1149,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -351,4 +351,4 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

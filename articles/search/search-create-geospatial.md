@@ -166,4 +166,4 @@ AdventureWorksWeb을 빌드할 때 "파일이나 어셈블리 'System.Web.Mvc, V
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

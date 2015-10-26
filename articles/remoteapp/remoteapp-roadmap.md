@@ -41,4 +41,4 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 - 오스트레일리아 데이터 센터의 가용성
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

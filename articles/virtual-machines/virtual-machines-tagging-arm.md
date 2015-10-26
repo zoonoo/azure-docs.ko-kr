@@ -19,7 +19,8 @@
 
 # Azure에서 가상 컴퓨터에 태그를 지정하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터에 태그를 지정하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
 
 이 문서에서는 Azure 리소스 관리자를 통해 Azure의 가상 컴퓨터에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 Azure 리소스 관리자를 통해 생성된 리소스에 대해서만 지원됩니다.
 
@@ -182,11 +183,11 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 
 
 [Azure 리소스 관리자를 사용하여 PowerShell 환경]: ../powershell-azure-resource-manager.md
-[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/ko-kr/library/azure/dn757692.aspx
+[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/ko-KR/library/azure/dn757692.aspx
 [Azure CLI 환경]: ./xplat-cli-azure-resource-manager.md
 [Azure 리소스 관리자 개요]: ../resource-group-overview.md
 [태그를 사용하여 Azure 리소스 구성]: ../resource-group-using-tags.md
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

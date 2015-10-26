@@ -283,4 +283,4 @@ extras 이벤트와 마찬가지로 `NSDictionary` 클래스도 응용 프로그
 
 	{"birthdate":"1983-12-07","gender":"female"}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

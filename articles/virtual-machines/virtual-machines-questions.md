@@ -19,7 +19,8 @@
 
 # 클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 질문과 대답
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스에 대한 질문에 대답하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 문서에서는 포럼, 뉴스 그룹 및 다른 문서의 의견뿐만 Azure VM 지원 팀의 입력 내용을 기반으로 클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대해 사용자가 질문한 몇 가지 일반적인 질문들을 다룰 것입니다. 기본적인 정보를 다루기 위해 [가상 컴퓨터에 대하여](virtual-machines-about.md)로 시작하겠습니다.
 
@@ -151,4 +152,4 @@ VM 상태가 실행 중이거나 정지되면 요금이 부과되지만, VM 상�
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

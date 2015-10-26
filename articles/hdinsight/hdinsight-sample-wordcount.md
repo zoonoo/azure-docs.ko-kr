@@ -218,4 +218,4 @@ MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 �
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

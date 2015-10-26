@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="msolhab;bradsev"/>
+	ms.author="msolhab;bradsev" />
 
 
 # 기계 학습에서 사용할 데이터 준비
@@ -104,4 +104,4 @@ Azure 기계 학습에서는 올바르게 구성된 테이블 형식 데이터�
 >_데이터 마이닝: 개념 및 기술_, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber 및 Jian Pei
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

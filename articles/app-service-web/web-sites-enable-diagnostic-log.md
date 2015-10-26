@@ -254,7 +254,7 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 ##<a name="nextsteps"></a> 다음 단계
 
-- [웹앱을 모니터링하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
+- [웹앱을 모니터링하는 방법](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 - [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [HDInsight에서 웹앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -265,4 +265,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

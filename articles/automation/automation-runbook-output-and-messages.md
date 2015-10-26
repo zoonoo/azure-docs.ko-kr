@@ -168,4 +168,4 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](http://msdn.microsoft.co
 - [Runbook 작업 추적](automation-runbook-execution.md)
 - [자식 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

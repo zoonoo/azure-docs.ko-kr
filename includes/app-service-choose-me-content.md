@@ -19,4 +19,4 @@ Azure 앱 서비스는 여러 사용자가 만든 여러 웹 앱이 포함된 �
 
 위의 [그림](#appservice_diagram)에서 볼 수 있듯이 코드 및 기타 웹 콘텐츠를 여러 가지 방법으로 Azure 앱 서비스에 게시할 수 있습니다. FTP, FTPS 또는 Microsoft의 WebDeploy 기술을 사용할 수 있습니다. 또한 Azure 앱 서비스는 Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server 및 클라우드 기반의 Team Foundation Service를 포함하는 소스 제어 시스템으로부터 코드를 게시할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

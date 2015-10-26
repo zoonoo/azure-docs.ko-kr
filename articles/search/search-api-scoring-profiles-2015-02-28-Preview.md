@@ -370,4 +370,4 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

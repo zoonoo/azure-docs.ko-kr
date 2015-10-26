@@ -127,4 +127,4 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

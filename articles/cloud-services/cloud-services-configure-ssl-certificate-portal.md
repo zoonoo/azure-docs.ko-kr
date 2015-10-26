@@ -162,4 +162,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

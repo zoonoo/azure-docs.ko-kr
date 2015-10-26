@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="연습: Application Insights를 사용한 Microsoft Dynamics CRM 모니터링"
-	description="Application Insights를 사용하여 Microsoft Dynamics CRM Online에서 원격 분석 가져오기 설정, 데이터 가져오기, 시각화 및 내보내기의 연습입니다."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="연습: Application Insights를 사용한 Microsoft Dynamics CRM 모니터링" 
+	description="Application Insights를 사용하여 Microsoft Dynamics CRM Online에서 원격 분석 가져오기 설정, 데이터 가져오기, 시각화 및 내보내기의 연습입니다." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # 연습: Application Insights를 사용하여 Microsoft Dynamics CRM Online 작업에 대한 원격 분석 설정
@@ -60,7 +60,7 @@
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Application Insights에서 코드 복사
+4. Application Insights에서 코드 복사 복사하는 동안 <script> 태그를 무시합니다. 아래 스크린샷을 참조하세요.
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

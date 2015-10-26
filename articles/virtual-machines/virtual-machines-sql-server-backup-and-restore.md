@@ -19,7 +19,8 @@
 
 # Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 ## 개요
 
@@ -92,4 +93,4 @@ Azure VM에서 SQL Server를 배포할 계획 중인 경우 [Azure에서 SQL Ser
 
 그 밖에 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 리소스](virtual-machines-sql-server-infrastructure-services.md)를 검토하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

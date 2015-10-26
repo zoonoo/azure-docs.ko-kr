@@ -440,4 +440,4 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

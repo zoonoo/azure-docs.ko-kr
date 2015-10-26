@@ -63,4 +63,4 @@ Azure PIM 대시보드에서 시작할 수 있는 경로는 다음과 같습니�
 ## PIM 목차
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

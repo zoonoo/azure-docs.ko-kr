@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭 서비스의 가용성"
-	description="서비스에 대한 오류 검색, 장애 조치, 복구를 설명합니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="서비스에 대한 오류 검색, 장애 조치, 복구를 설명합니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # 서비스 패브릭 서비스의 가용성
 서비스 패브릭 서비스는 상태 저장 또는 상태 비저장이 모두 될 수 있습니다. 이 문서에서는 서비스 패브릭이 오류 발생 시 서비스의 가용성을 유지하는 방법에 대한 개요를 설명합니다.
@@ -51,4 +51,4 @@
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

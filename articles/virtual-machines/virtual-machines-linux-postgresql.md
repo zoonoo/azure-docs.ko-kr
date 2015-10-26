@@ -25,7 +25,8 @@ PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이�
 이 문서에서는 Linux를 실행하는 Azure 가상 컴퓨터에서 PostgreSQL을 설치 및 구성하는 방법을 알아봅니다.
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## PostgreSQL 설치
 
@@ -254,4 +255,4 @@ Postgres 데이터베이스를 만듭니다.
 ##PostgreSQL에 대한 자세한 정보 얻기
 Azure Linux VM에서 PostgreSQL의 설치를 완료하면 Azure에서 사용하여 즐길 수 있습니다. PostgreSQL에 대해 자세히 알아보려면 [PostgreSQL 웹 사이트](http://www.postgresql.org/)를 방문하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

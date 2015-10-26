@@ -57,4 +57,4 @@ v2.0 앱 모델을 사용하여 두가지 방법으로 앱을 실행할 수 있�
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

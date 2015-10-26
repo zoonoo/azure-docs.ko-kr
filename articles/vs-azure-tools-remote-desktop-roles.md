@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 역할과 함께 원격 데스크톱 사용"
-	description="Azure 역할과 함께 원격 데스크톱 사용"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Azure 역할과 함께 원격 데스크톱 사용"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Azure 역할과 함께 원격 데스크톱 사용
 
@@ -75,4 +75,4 @@ Azure에서 클라우드 서비스를 게시한 후 서버 탐색기를 사용�
 
 1. 이전에 만든 사용자 이름 및 암호를 입력합니다. 이제 원격 세션에 로그인됩니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

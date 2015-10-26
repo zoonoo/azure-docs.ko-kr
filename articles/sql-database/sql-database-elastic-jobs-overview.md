@@ -1,8 +1,9 @@
 <properties 
+	title="Elastic database jobs overview" 
 	pageTitle="탄력적 데이터베이스 작업 개요" 
 	description="탄력적 데이터베이스 작업 서비스를 설명합니다." 
-	services="sql-database" 
-	documentationCenter=""  
+	metaKeywords="azure sql database elastic databases" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -86,4 +87,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

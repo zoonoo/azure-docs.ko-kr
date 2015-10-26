@@ -60,7 +60,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 다음과 같이 설치합니다.
 
-1. [업데이트] 다운로드(http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASRScout 8.0.1 Update1.zip) zip 파일입니다. 이 zip 파일에는 다음 파일이 포함됩니다.
+1. [업데이트](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASRScout 8.0.1 Update1.zip) 다운로드 zip 파일입니다. 이 zip 파일에는 다음 파일이 포함됩니다.
 
 	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
 	-  CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe
@@ -117,4 +117,4 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.<
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

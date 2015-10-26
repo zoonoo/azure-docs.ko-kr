@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Multi-Factor Authentication 및 Active Directory 간의 디렉터리 통합"
-	description="디렉터리를 동기화할 수 있도록 Active Directory와 Azure Multi-Factor Authentication 서버를 통합하는 방법에 대해 설명하는 Azure Multi-Factor 인증 페이지입니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Multi-Factor Authentication 및 Active Directory 간의 디렉터리 통합" 
+	description="디렉터리를 동기화할 수 있도록 Active Directory와 Azure Multi-Factor Authentication 서버를 통합하는 방법에 대해 설명하는 Azure Multi-Factor 인증 페이지입니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Azure MFA 서버와 Active Directory 간의 디렉터리 통합
@@ -137,4 +137,4 @@ LDAP를 사용하도록 구성하고 LDAP 디렉터리가 DirSync 컨트롤을 �
 
 ![Multi-Factor-Auth 서버](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -31,4 +31,4 @@ Microsoft Azure에서 '응용 프로그램'이라는 용어는 프런트 엔드,
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

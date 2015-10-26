@@ -256,4 +256,4 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop 명령줄"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

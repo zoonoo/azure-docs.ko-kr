@@ -3,8 +3,7 @@
 #자습서: ArcGIS와 Azure Active Directory 통합
 >[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=526915)를 클릭하십시오.
 
-이 자습서는 Azure 및 ArcGIS의 통합을 보여주기 위한 것입니다.  
-이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 ArcGIS의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   ArcGIS Single Sign-on이 설정된 구독
@@ -39,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-arcgis-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-arcgis-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -144,6 +143,6 @@ ArcGIS의 경우 프로비전은 수동 작업입니다.
 
     ![예](./media/active-directory-saas-arcgis-tutorial/IC767830.png "예")
 
-Single sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

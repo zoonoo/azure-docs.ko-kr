@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Azure Mobile Engagement용 iOS SDK
 
@@ -32,9 +32,12 @@
 
 ##릴리스 정보
 
-###3\.1.0(08/26/2015)
+##3\.2.0(2015/10/08)
 
--   타사 라이브러리와 iOS 9 호환성 버그를 수정합니다. 설문 조사 결과, 응용 프로그램 정보 또는 추가 데이터를 보내는 동안 충돌을 야기합니다.
+-   **Xcode 7**과 연동되도록 SDK의 Bitcode를 활성화했습니다.
+-   앱 내 알림 메시지와 관련된 버그를 수정했습니다.
+-   배터리가 부족한 경우 및 기타 이러한 시나리오에서 앱 내 알림 메시지를 더욱 안정적으로 만들었습니다.
+-   타사 라이브러리에서 생성하는 추가 콘솔 로그를 제거했습니다.
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-ios-release-notes.md)를 참조하세요.
 
@@ -59,4 +62,4 @@ iOS 4.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로�
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

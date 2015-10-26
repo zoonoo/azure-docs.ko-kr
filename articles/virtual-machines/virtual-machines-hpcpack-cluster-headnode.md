@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # 마켓플레이스 이미지를 사용하여 Azure VM에 HPC 팩 클러스터의 헤드 노드 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 이 문서는 Azure 마켓플레이스의 [Microsoft HPC 팩 가상 머신 이미지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)를 사용하여 Azure에서 클래식(서비스 관리) 배포 모델로 Windows HPC 클러스터의 헤드 노드를 만드는 방법을 보여줍니다. 헤드 노드는 Azure 가상 네트워크의 Active Directory 도메인에 연결해야 합니다. Azure에서 HPC 팩 개념 증명 배포로 이 헤드 노드를 사용하고 클러스터에 계산 리소스를 추가하여 HPC 워크로드를 실행할 수 있습니다.
 
@@ -101,4 +102,4 @@ Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

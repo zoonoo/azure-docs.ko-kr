@@ -94,4 +94,4 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

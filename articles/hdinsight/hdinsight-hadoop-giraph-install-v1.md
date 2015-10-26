@@ -190,4 +190,4 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

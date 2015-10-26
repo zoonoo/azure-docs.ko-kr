@@ -60,4 +60,4 @@ Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현�
 
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

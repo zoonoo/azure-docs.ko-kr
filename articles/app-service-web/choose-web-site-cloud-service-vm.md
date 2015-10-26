@@ -204,4 +204,4 @@ ETW 이벤트 수신 가능||X|X|
   [저장소]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

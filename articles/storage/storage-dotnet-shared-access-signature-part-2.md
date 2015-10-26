@@ -555,4 +555,4 @@ Blob에서 만든 공유 액세스 서명을 모두 사용하여 **UseBlobSAS()*
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

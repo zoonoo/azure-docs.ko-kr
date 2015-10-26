@@ -15,4 +15,4 @@
 
 이제 하이브리드 연결 설정이 완료되었습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

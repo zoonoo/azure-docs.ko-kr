@@ -179,4 +179,4 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [서비스 버스용 .NET API]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

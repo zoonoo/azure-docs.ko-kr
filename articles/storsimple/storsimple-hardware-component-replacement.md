@@ -142,4 +142,4 @@ StorSimple 장치에 사용할 수 있는 FRU(필드 교체 장치)는 다음과
 
 StorSimple 하드웨어 구성 요소를 교체하기 전에 모든 [안전 정보](storsimple-safety.md)를 검토하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

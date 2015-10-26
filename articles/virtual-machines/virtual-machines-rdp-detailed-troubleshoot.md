@@ -205,4 +205,4 @@ Azure 가상 컴퓨터에 대한 원격 데스크톱 끝점도 TCP 포트 3398�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

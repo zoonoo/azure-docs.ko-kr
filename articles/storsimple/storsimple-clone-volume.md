@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 복제
@@ -87,7 +87,6 @@ StorSimple에서 클론 및 복원 기능을 사용하여 삭제된 파일을 �
 
 프로덕션 환경에서 테스트 버그를 확인해야 합니다. 프로덕션 환경에서 볼륨의 클론을 만듭니다. 향상된 성능을 위해 이 클론의 클라우드 스냅숏을 수행해야 합니다. 복제된 볼륨은 이제 독립적이며 성능이 향상됩니다. 이 시나리오에서는 영구 클론이 사용됩니다.
 
-
 ## 다음 단계
 - [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법에 대해 알아봅니다.
 
@@ -95,4 +94,4 @@ StorSimple에서 클론 및 복원 기능을 사용하여 삭제된 파일을 �
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

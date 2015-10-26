@@ -416,4 +416,4 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 
 	@end
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

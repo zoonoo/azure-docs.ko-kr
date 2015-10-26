@@ -48,4 +48,4 @@ Azure 검색이 풍부한 검색 경험을 다음과 같은 조직의 온라인 
 [5]: ./media/search-case-studies/weichert_m.png
 [6]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

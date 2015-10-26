@@ -129,4 +129,4 @@ Ping 메시지는 [ContentType][] 속성이 application/vnd.ms-servicebus-ping�
   [TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
   [비동기 메시징 패턴 및 고가용성]: service-bus-async-messaging.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,8 @@
 
 이 문서에서는 Docker 및[Compose](http://github.com/docker/compose)를 사용하여 Azure의 Linux 가상 컴퓨터에서 복잡한 응용 프로그램을 정의 및 실행하는 방법을 보여줍니다. Compose(*Fig*에 대한 후속)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음 VM에서 실행할 수 있는 모든 작업을 수행하는 단일 명령에서 응용 프로그램을 스핀업합니다. 그 예로, 이 문서에서는 백 엔드 MariaDB SQL 데이터베이스로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 리소스 관리자 및 클래식 배포 모델을 모두 사용하여 만드는 가상 컴퓨터에 적용됩니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Docker 및 컨테이너를 처음 사용하는 경우는 [Docker 요약 화이트보드](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/)를 참조하세요.
 
@@ -33,14 +34,14 @@ Docker 및 컨테이너를 처음 사용하는 경우는 [Docker 요약 화이�
 
 Linux VM이 Docker에서 실행된 후 SSH를 사용하여 클라이언트 컴퓨터에서 연결합니다. 필요한 경우 다음 두 명령을 실행하여 [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md)를 설치합니다.
 
->[AZURE.TIP] Docker VM 확장을 사용하여 VM을 만든 경우 Compose은 이미 설치되어 있습니다. 이러한 명령을 건너뛰고 3단계로 이동합니다. VM에 직접 Docker를 설치한 경우에만 Compose를 설치해야 합니다.
+>[AZURE.TIP]Docker VM 확장을 사용하여 VM을 만든 경우 Compose은 이미 설치되어 있습니다. 이러한 명령을 건너뛰고 3단계로 이동합니다. VM에 직접 Docker를 설치한 경우에만 Compose를 설치해야 합니다.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 
 $ chmod +x /usr/local/bin/docker-compose
 ```
->[AZURE.NOTE] "사용 권한이 거부 되었습니다" 오류가 발생하는 경우 VM의 usr/local/bin 디렉터리에 쓸 수 없을 수 있으므로 superuser로 Compose를 설치해야 합니다. `sudo -i`을 실행하고, 위의 두 명령을 실행한 다음 `exit`를 실행합니다.
+>[AZURE.NOTE]"사용 권한이 거부 되었습니다" 오류가 발생하는 경우 VM의 usr/local/bin 디렉터리에 쓸 수 없을 수 있으므로 superuser로 Compose를 설치해야 합니다. `sudo -i`을 실행하고, 위의 두 명령을 실행한 다음 `exit`를 실행합니다.
 
 Compose 설치를 테스트하려면 다음 명령을 실행합니다.
 
@@ -128,4 +129,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!----HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

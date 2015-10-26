@@ -227,4 +227,4 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure 미리 보기 포털]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

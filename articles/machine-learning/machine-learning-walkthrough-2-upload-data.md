@@ -79,4 +79,4 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

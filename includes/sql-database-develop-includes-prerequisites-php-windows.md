@@ -8,7 +8,7 @@
 - [Microsoft Drivers for PHP for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098)
  - `SQLSRV32.EXE`에는 최신 비트가 들어 있습니다.
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Microsoft ODBC Driver](https://www.microsoft.com/ko-kr/download/details.aspx?id=36434)
+- [Microsoft ODBC Driver](https://www.microsoft.com/en-us/download/details.aspx?id=36434)
 - IIS Express
 - [IIS Express용 PHP 5.6](http://www.microsoft.com/web/downloads/platform.aspx)
  - 플랫폼 설치 관리자를 사용하여 다운로드합니다.
@@ -29,4 +29,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

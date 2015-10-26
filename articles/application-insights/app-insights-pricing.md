@@ -130,9 +130,9 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

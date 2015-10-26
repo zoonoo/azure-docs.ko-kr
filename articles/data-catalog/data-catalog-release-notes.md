@@ -45,7 +45,7 @@ Azure 데이터 카탈로그의 초기 미리 보기 릴리스에서 SSRS(SQL Se
 
 Azure 데이터 카탈로그 포털에서 Microsoft Excel의 데이터 자산을 열 때 **Microsoft Excel 보안 공지** 대화 상자가 표시될 수 있습니다. 이는 예상된 표준 동작입니다. 사용자는 **사용**을 선택하여 계속할 수 있습니다.
 
-자세한 내용은 [의심스러운 웹 사이트의 링크 및 파일에 대한 보안 경고 사용 또는 사용 안 함](https://support.office.com/ko-KR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)을 참조하세요.
+자세한 내용은 [의심스러운 웹 사이트의 링크 및 파일에 대한 보안 경고 사용 또는 사용 안 함](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)을 참조하세요.
 
 ### 미리 보기에서 누락된 BLOB 및 UDT 열
 
@@ -61,7 +61,7 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
 
 일부 상황에서 이 오류 동작은 사용자가 회사 네트워크에 있을 때만 또는 회사 네트워크 외부에서 연결할 때만 발생할 수 있습니다. 전역 인증 정책을 사용하면 인트라넷 및 엑스트라넷 연결을 위해 인증 방법을 개별적으로 사용하도록 설정할 수 있습니다. 폼 인증이 사용자가 연결되는 네트워크에 사용하도록 설정되지 않은 경우 로그온 오류가 발생할 수 있습니다.
 
-자세한 내용은 [인증 정책 구성](https://technet.microsoft.com/ko-KR/library/dn486781.aspx)을 참조하세요.
+자세한 내용은 [인증 정책 구성](https://technet.microsoft.com/en-us/library/dn486781.aspx)을 참조하세요.
 
 **원인 2: 네트워크 프록시 구성** 회사 네트워크가 프록시 서버를 사용하는 경우 등록 도구가 프록시를 통해 Azure Active Directory에 연결하지 못할 수도 있습니다. 도구의 구성 파일을 편집하고 이 섹션을 파일에 추가하여 사용자가 등록 도구를 확인할 수 있습니다.
 
@@ -77,4 +77,4 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
 
 RegistrationTool.exe.config 파일을 찾으려면 등록 도구를 시작하여 Windows 작업 관리자 유틸리티를 엽니다. 작업 관리자의 세부 정보 탭에서 RegistrationTool.exe를 마우스 오른쪽 단추로 클릭하고 팝업 메뉴에서 파일 위치 열기를 선택합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

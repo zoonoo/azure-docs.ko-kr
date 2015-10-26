@@ -23,7 +23,8 @@
 # Linux에서 소프트웨어 RAID 구성
 Azure에서 Linux 가상 컴퓨터의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 장치로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+ 
 
 ## 데이터 디스크 연결
 RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. 이 문서에서는 Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법은 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](storage-windows-attach-disk.md#attachempty)을 참조하세요.
@@ -181,4 +182,4 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

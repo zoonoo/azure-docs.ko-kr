@@ -19,7 +19,8 @@
 
 # SharePoint 인트라넷 팜 워크로드 2단계: 도메인 컨트롤러 구성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 서비스 관리에서 Azure 가상 네트워크의 도메인 컨트롤러 두 개를 구성합니다. 그런 다음 VPN 또는 Azure ExpressRoute 연결을 통해 인증 트래픽을 온-프레미스 네트워크로 전송하는 대신 Azure 가상 네트워크에서 SharePoint 팜 리소스에 대한 클라이언트 웹 요청을 인증할 수 있습니다.
 
@@ -248,4 +249,4 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

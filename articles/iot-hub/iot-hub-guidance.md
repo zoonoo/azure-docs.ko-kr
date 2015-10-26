@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub 지침 | Microsoft Azure"
- description="Azure IoT Hub를 사용하는 솔루션에 대한 지침 항목 모음입니다."
+ pageTitle="Azure IoT Hub 사용에 대한 지침 항목 | Microsoft Azure"
+ description="Azure IoT Hub를 사용하는 솔루션 개발에 대한 지침 항목 모음입니다."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -88,4 +88,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

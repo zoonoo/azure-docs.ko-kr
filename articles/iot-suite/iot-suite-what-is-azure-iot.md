@@ -1,8 +1,8 @@
 <properties
- pageTitle="Microsoft Azure IoT Suite 및 IoT(사물 인터넷) | Microsoft Azure"
- description="샘플 IoT 솔루션 아키텍처 및 이를 Azure IoT Hub, 장치 SDK 및 미리 구성된 솔루션과 연결하는 방법을 포함한 Azure IoT 개요"
+ pageTitle="사물 인터넷에 대한 Azure 솔루션 | Microsoft Azure"
+ description="샘플 솔루션 아키텍처 및 이를 Azure IoT Suite 및 미리 구성된 솔루션과 연결하는 방법을 포함한 Azure IoT 개요"
  services=""
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="dobett"/>
 
@@ -46,4 +46,4 @@ Azure에서 IoT에 대한 자세한 내용은 다음 리소스를 탐색합니�
 [Azure 기계 학습]: https://azure.microsoft.com/ko-KR/services/machine-learning/
 [Azure 저장소]: https://azure.microsoft.com/ko-KR/services/storage/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

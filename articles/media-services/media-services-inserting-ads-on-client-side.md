@@ -810,4 +810,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

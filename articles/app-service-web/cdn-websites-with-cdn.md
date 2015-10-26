@@ -109,7 +109,7 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-     **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
+	**http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -169,7 +169,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 위의 단계에 따라 이 컨트롤러 작업을 설정하려면 다음을 수행합니다.
 
-1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
+1. *\\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
 
 
         using System;
@@ -535,7 +535,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
 	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
- 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
  	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
@@ -566,4 +566,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

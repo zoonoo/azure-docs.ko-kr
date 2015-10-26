@@ -18,7 +18,8 @@
 
 # PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+ 
 
 이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. 이 문서의 단계는 가상 컴퓨터 및 Windows PowerShell 스크립트를 만드는 수동 단계를 조합하여 VM에서 Reporting Services를 구성합니다. 구성 스크립트에는 HTTP 또는 HTTPS에 대해 방화벽 포트를 여는 작업이 포함되어 있습니다.
 
@@ -704,4 +705,4 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

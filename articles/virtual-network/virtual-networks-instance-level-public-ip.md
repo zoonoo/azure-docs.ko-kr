@@ -125,4 +125,4 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

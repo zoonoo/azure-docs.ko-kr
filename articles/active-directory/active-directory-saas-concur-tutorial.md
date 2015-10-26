@@ -38,7 +38,7 @@
 
 4.  **응용 프로그램 갤러리**를 열려면 **앱 추가**를 클릭한 다음 **조직에서 사용할 응용 프로그램 추가**를 클릭합니다.
 
-    ![무엇을 하시겠습니까?](./media/active-directory-saas-concur-tutorial/IC700995.png "무엇을 하시겠습니까?")
+    ![원하는 작업을 선택하세요.](./media/active-directory-saas-concur-tutorial/IC700995.png "원하는 작업을 선택하세요.")
 
 5.  **검색 상자**에 **Concur**를 입력합니다.
 
@@ -142,4 +142,4 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

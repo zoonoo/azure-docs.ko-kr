@@ -46,4 +46,4 @@
 
 	>[AZURE.NOTE]이 POST 메서드는 응용 프로그램 키를 소유한 모든 클라이언트가 호출할 수 있으므로 안전하지 않습니다. 끝점을 보호하려면 인증이 필요하도록 메서드나 클래스에 `[AuthorizeLevel(AuthorizationLevel.User)]` 특성을 적용합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

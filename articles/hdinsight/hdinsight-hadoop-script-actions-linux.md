@@ -1,20 +1,20 @@
 <properties
-    pageTitle="HDInsight를 사용하여 스크립트 작업 개발 | Microsoft Azure"
-	description="스크립트 작업을 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Linux 기반 HDInsight를 사용하여 스크립트 작업 개발 | Microsoft Azure"
+    description="스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
     ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="larryfr"/>
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/09/2015"
+    ms.author="larryfr"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발
 
@@ -213,4 +213,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

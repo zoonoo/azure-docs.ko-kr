@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="MFA 서버 모바일 앱 웹 서비스 시작"
-	description="Azure Multi-Factor Authentication 앱은 추가적인 대역외 인증 옵션을 제공합니다. 이 옵션을 사용하면 MFA 서버는 사용자에게 푸시 알림을 사용할 수 있습니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="MFA 서버 모바일 앱 웹 서비스 시작" 
+	description="Azure Multi-Factor Authentication 앱은 추가적인 대역외 인증 옵션을 제공합니다. 이 옵션을 사용하면 MFA 서버는 사용자에게 푸시 알림을 사용할 수 있습니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # MFA 서버 모바일 앱 웹 서비스 시작
@@ -89,4 +89,4 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

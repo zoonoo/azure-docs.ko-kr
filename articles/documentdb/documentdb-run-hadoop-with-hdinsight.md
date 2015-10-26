@@ -196,7 +196,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 2. Azure PowerShell 통합 스크립팅 환경을 엽니다.
 	- Windows 8 또는 Windows Server 2012 이상을 실행하는 컴퓨터에서는 기본 제공되는 검색 기능을 사용할 수 있습니다. 시작 화면에서 **powershell ise**를 입력하고 **Enter** 키를 클릭합니다. 
-	- Windows 8 또는 Windows Server 2012 이전 버전을 실행하는 컴퓨터에서 시작 메뉴를 사용합니다. 시작 메뉴에서 검색 상자에 **명령 프롬프트**를 입력한 후 결과 목록에서 **명령 프롬프트**를 클릭합니다. 명령 프롬프트에서 **powershell_ise**를 입력하고 **Enter** 키를 클릭합니다.
+	- Windows 8 또는 Windows Server 2012 이전 버전을 실행하는 컴퓨터에서 시작 메뉴를 사용합니다. 시작 메뉴에서 검색 상자에 **명령 프롬프트**를 입력한 후 결과 목록에서 **명령 프롬프트**를 클릭합니다. 명령 프롬프트에서 **powershell\_ise**를 입력하고 **Enter** 키를 클릭합니다.
 
 3. Azure 계정을 추가합니다.
 	1. 콘솔 창에서 **Add-AzureAccount**를 입력하고 **Enter** 키를 클릭합니다. 
@@ -275,7 +275,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 		$queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
 		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
 
-	File 스위치를 사용하여 HDFS에서 HiveQL 스크립트 파일을 지정할 수도 있습니다.
+	-File 스위치를 사용하여 HDFS에서 HiveQL 스크립트 파일을 지정할 수도 있습니다.
 
 6. 다음 코드 조각을 추가해서 시작 시간을 저장하고 Hive 작업을 제출합니다.
 
@@ -362,7 +362,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
         $queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
         $pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $queryString -StatusFolder $statusFolder
 
-	File 스위치를 사용하여 HDFS에서 Pig 스크립트 파일을 지정할 수도 있습니다.
+	-File 스위치를 사용하여 HDFS에서 Pig 스크립트 파일을 지정할 수도 있습니다.
 
 6. 다음 코드 조각을 추가해서 시작 시간을 저장하고 Pig 작업을 제출합니다.
 
@@ -408,7 +408,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 		# Define the MapReduce job.
 		$TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
 
-	> [AZURE.NOTE] TallyProperties-v01.jar은 DocumentDB Hadoop 커넥터의 사용자 지정 설치로 제공됩니다.
+	> [AZURE.NOTE]TallyProperties-v01.jar은 DocumentDB Hadoop 커넥터의 사용자 지정 설치로 제공됩니다.
 
 3. 다음 명령을 실행하여 MapReduce 작업을 제출합니다.
 
@@ -493,4 +493,4 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

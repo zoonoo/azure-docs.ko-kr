@@ -111,4 +111,4 @@ Azure 포털 및 서비스 버스 SDK를 통해 분할 항목을 만들 수 있�
 *    [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

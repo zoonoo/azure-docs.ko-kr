@@ -17,7 +17,7 @@
  
 # 코드 샘플: Application Insights에서 내보낸 데이터 구문 분석
 
-이 문서에서는 Application Insights에서 내보낸 JSON 데이터를 처리하는 방법을 보여줍니다. 예를 들어, [연속 내보내기][export]를 통해 [Visual Studio Application Insights][start]에서 Azure SQL 데이터베이스로 원격 분석을 이동하는 방법을 보여줍니다. 이 작업은 [스트림 분석](app-insights-code-sample-export-sql-stream-analytics.md)을 통해서도 수행할 수 있지만 여기서의 목표는 코드를 보여주는 것입니다.
+이 문서에서는 Application Insights에서 내보낸 JSON 데이터를 처리하는 방법을 보여줍니다. 예를 들어 [연속 내보내기][export]를 통해 [Visual Studio Application Insights][start]에서 Azure SQL 데이터베이스로 원격 분석을 이동하는 방법을 보여 줍니다. 이 작업은 [스트림 분석](app-insights-code-sample-export-sql-stream-analytics.md)을 통해서도 수행할 수 있지만 여기서의 목표는 코드를 보여주는 것입니다.
 
 연속 내보내기는 원격 분석을 JSON 형식으로 Azure 저장소로 이동하므로, JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만드는 코드를 작성해 보겠습니다.
 
@@ -525,7 +525,7 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 이 예제의 실행을 확인하려면 전체 작업 코드를 [다운로드](https://sesitai.codeplex.com/)한 다음 `app.config` 설정을 변경하고 작업자 역할을 Azure에 게시합니다.
 
 
-## 관련된 문서
+## 관련 문서
 
 * [작업자 역할을 사용하여 SQL로 내보내기](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Application Insights에서 연속 내보내기](app-insights-export-telemetry.md)
@@ -539,8 +539,8 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

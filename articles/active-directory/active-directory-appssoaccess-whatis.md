@@ -220,4 +220,4 @@ Azure AD는 또한 암호 기반 Single Sign-On, 기존 Single Sign-On 및 페�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

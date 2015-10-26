@@ -71,4 +71,4 @@ Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니�
 * [Azure AD 조인에 대한 사용 시나리오와 배포 고려 사항에 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Azure 백업 소개
 이 문서에서는 고객이 온-프레미스 또는 Azure에 있는 데이터를 백업할 수 있는 Microsoft 클라우드 통합 백업 솔루션에 대해 간략히 소개합니다.
@@ -43,22 +43,31 @@ Azure 백업은 데이터가 온-프레미스에 있든 Azure에 있든 백업�
 7. **클라우드에서 백업**: Azure 백업은 가상 컴퓨터를 종료하지 않고도 실행 중인 Azure IaaS 가상 컴퓨터에 대해 VSS 기반 응용 프로그램 일치 백업을 제공합니다. Azure에서 파일 시스템 일관성을 통해 Linux 가상 컴퓨터도 백업할 수 있습니다.
 
 
+## 배포 시나리오
+| 구성 요소 | Azure에 배포할 수 있나요? | 온-프레미스로 배포할 수 있나요? | 지원되는 대상 저장소|
+| --- | --- | --- | --- |
+| Azure 백업 에이전트 | **예** <br><br>Azure 백업 에이전트는 Azure에서 실행 중인 모든 Windows Server VM에 배포될 수 있습니다. | **예** <br><br>Azure 백업 에이전트는 모든 Windows Server VM 또는 물리적 컴퓨터에 배포될 수 있습니다. | Azure 자격 증명 모음 |
+| SCDPM(System Center Data Protection Manager) | **예** <br><br>[SCDPM을 사용하여 Azure에서 워크로드 보호](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)에 대해 자세히 알아보세요. | **예** <br><br>[데이터 센터에서 워크로드 및 VM 보호](https://technet.microsoft.com/ko-KR/library/hh758173.aspx)에 대해 자세히 알아보세요. | 로컬로 연결된 디스크,<br>Azure 백업 자격 증명 모음,<br>테이프(온-프레미스만) |
+| Azure 백업(VM 확장) | **예** <br><br>[Azure IaaS 가상 컴퓨터의 백업](backup-azure-vms-introduction.md)의 경우 특수합니다. | **아니요** <br><br>SCDPM을 사용하여 데이터 센터의 가상 컴퓨터를 백업합니다. | Azure 자격 증명 모음 |
+
+
 ## 응용 프로그램 및 워크로드
 
 | 워크로드 | 원본 컴퓨터 | Azure 백업 솔루션 |
 | --- | --- |---|
-| 파일 및 폴더 | Windows Server, Windows 클라이언트 | Azure 백업 에이전트 |
-| 파일 및 폴더 | Windows Server, Windows 클라이언트 | System Center DPM |
+| 파일 및 폴더 | Windows Server | [Azure 백업 에이전트](backup-configure-vault.md),<br> [System Center DPM](backup-azure-dpm-introduction.md) |
+| 파일 및 폴더 | Windows 클라이언트 | [Azure 백업 에이전트](backup-configure-vault.md),<br> [System Center DPM](backup-azure-dpm-introduction.md) |
 | Hyper-V 가상 컴퓨터(Windows) | Windows Server | System Center DPM |
 | Hyper-V 가상 컴퓨터(Linux) | Windows Server | System Center DPM |
-| Microsoft SQL Server | Windows Server | System Center DPM |
-| Microsoft SharePoint | Windows Server | System Center DPM |
+| Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
+| Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Azure IaaS VM(Windows)| - | Azure 백업 | | Azure IaaS VM(Linux) | - | Azure 백업 |
+| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) | | Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
+
 
 ## 다음 단계
 - [Azure 백업 시도](backup-try-azure-backup-in-10-mins.md)
 - Azure 백업 서비스에 대한 질문과 대답은 [여기](backup-azure-backup-faq.md)에 나열되어 있습니다.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

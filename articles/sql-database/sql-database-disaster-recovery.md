@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL 데이터베이스 재해 복구"
-	description="Azure SQL 데이터베이스의 지역에서 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="SQL 데이터베이스 재해 복구" 
+   description="Azure SQL 데이터베이스의 지역에서 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 # 중단 상태에서 Azure SQL 데이터베이스 복구
 
@@ -103,4 +103,4 @@ Azure SQL 데이터베이스는 몇 가지 중단 복구 기능을 제공합니�
 데이터베이스가 복구된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 사용할 방식을 구성할 수 있습니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

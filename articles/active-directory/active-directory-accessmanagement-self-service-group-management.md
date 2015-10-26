@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/09/2015"
 	ms.author="femila"/>
 
 #셀프 서비스 응용 프로그램 액세스 관리를 위해 Azure AD 설정
@@ -49,4 +49,4 @@ Azure 관리 포털의 구성 탭에서 위임된 그룹 관리 스위치를 사
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

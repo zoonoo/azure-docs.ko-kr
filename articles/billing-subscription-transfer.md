@@ -111,4 +111,4 @@
 4. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) [자세한 정보](http://go.microsoft.com/fwlink/?LinkID=533292)에서 이 구독에 대한 청구 경고를 업데이트합니다.
 5. 	파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. 이 작업은 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 수행할 수 있습니다.
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

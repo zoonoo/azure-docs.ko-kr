@@ -293,7 +293,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("KO-KR"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
 
             var push = client.GetPush();
 
@@ -846,4 +846,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [전체 Xamarin.Forms Azure 푸시 알림 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

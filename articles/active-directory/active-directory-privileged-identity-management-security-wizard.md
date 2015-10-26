@@ -69,4 +69,4 @@ MFA 및 PIM에 대한 자세한 내용은 여기를 클릭하세요. PLACEHOLDER
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -36,4 +36,4 @@
 
 > [AZURE.NOTE]셀프 서비스 암호 재설정 페이지는 [회사 브랜딩 기능](active-directory-add-company-branding.md)을 사용하여 사용자 지정할 수 있습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

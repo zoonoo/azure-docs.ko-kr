@@ -115,7 +115,7 @@
       "if" : {
         "not" : {
           "field" : "location",
-          "in" : ["north europe" , "west europe"]
+          "in" : ["northeurope" , "westeurope"]
         }
       },
       "then" : {
@@ -213,6 +213,26 @@
 
 정책 정의를 위에 나오는 예제 중 하나로 정의할 수 있습니다. api-version에는 *2015-10-01-preview*를 사용합니다. 예제 및 더 자세한 세부 정보는 [정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 참조하세요.
 
+### PowerShell을 사용하여 정책 정의 만들기
+
+아래와 같이 New-AzureRmPolicyDefinition cmdlet을 사용하여 새 정책 정의를 만들 수 있습니다. 아래 예제는 북유럽과 서유럽에서만 리소스를 허용하기 위한 정책을 만듭니다.
+
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
+    	    			    "not" : {
+    	      			    	"field" : "location",
+    	      			    		"in" : ["northeurope" , "westeurope"]
+    	    			    	}
+    	    		          },
+    	      		    		"then" : {
+    	    			    		"effect" : "deny"
+    	      			    		}
+    	    		    	}'    		
+
+실행의 출력은 $policy 개체에 저장되어 나중에 정책 할당 중에 사용할 수 있습니다. 정책 매개 변수의 경우 아래 나와 있는 것처럼 정책 인라인을 지정하지 않고 정책이 포함된 .json 파일에 대한 경로가 제공될 수도 있습니다.
+
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+
+
 ## 정책 적용
 
 ### REST API를 사용하여 정책 할당
@@ -240,4 +260,20 @@
 
 예제 및 더 자세한 세부 정보는 [정책 할당에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)를 참조하세요.
 
-<!---HONumber=Oct15_HO2-->
+### PowerShell을 사용하여 정책 할당
+
+PowerShell을 통해 위에서 만든 정책을 아래 나와 있는 것처럼 New-AzureRmPolicyAssignment cmdlet을 사용하여 원하는 범위에 적용할 수 있습니다.
+
+    New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+여기서 $policy는 아래 나와 있는 것처럼 New-AzureRmPolicyDefinition cmdlet을 실행한 결과로 반환된 정책 개체입니다. 여기서 범위는 지정하는 리소스 그룹의 이름입니다.
+
+위의 정책 할당을 제거하려는 경우 다음과 같이 수행하면 됩니다.
+
+    Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolicyDefinition cmdlet을 통해 각각 정책 정의를 가져오거나 변경 또는 제거할 수 있습니다.
+
+마찬가지로 Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment 및 Remove-AzureRmPolicyAssignment cmdlet을 통해 각각 정책 할당을 가져오거나 변경 또는 제거할 수 있습니다.
+
+<!---HONumber=Oct15_HO3-->

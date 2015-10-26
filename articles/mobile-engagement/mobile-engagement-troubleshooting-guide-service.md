@@ -89,4 +89,4 @@
     - 최대 파일 크기인 35MB보다 작은 파일을 사용합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

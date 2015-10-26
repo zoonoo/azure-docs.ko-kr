@@ -98,7 +98,7 @@
     3.  다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     4.  **Save**를 클릭합니다.
 
-11. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+11. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-kintone-tutorial/IC785884.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -152,4 +152,4 @@ Azure AD 사용자가 Kintone에 로그인할 수 있도록 하려면 Kintone로
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

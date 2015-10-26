@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -123,7 +123,7 @@ Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 �
 
 **도메인을 추가한 경우의 단계**
 
-1. **ADSyincAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온합니다.
+1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온합니다.
 
 2. **시작**에서 **동기화 서비스**를 탭 또는 클릭하여 **동기화 서비스 관리자**를 엽니다.
 
@@ -169,7 +169,7 @@ Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 �
 
 **도메인을 제거한 경우의 단계**
 
-1. **ADSyincAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온합니다.
+1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온합니다.
 
 2. **시작**에서 **동기화 서비스**를 탭 또는 클릭하여 **동기화 서비스 관리자**를 엽니다.
 
@@ -189,7 +189,7 @@ Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 �
 
 **조직 구성 단위 기반 필터링을 구성하려면 다음 단계를 수행합니다.**
 
-1. **ADSyincAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온합니다.
+1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온합니다.
 
 2. **시작**에서 **동기화 서비스**를 탭 또는 클릭하여 **동기화 서비스 관리자**를 엽니다.<br>
 
@@ -230,7 +230,7 @@ Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 �
 
 다음 예제에서는 extensionAttribute15가 NoSync의 값을 가진 모든 사용자를 필터링합니다.
 
-1. ADSyincAdmins 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온 합니다.
+1. ADSyncAdmins 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온 합니다.
 2. **시작 메뉴**에서 **동기화 규칙 편집기**를 엽니다.
 3. **인바운드**가 선택되어 있는지 확인하고 **새 규칙 추가**를 클릭합니다.
 4. 규칙에 “*In from AD - User DoNotSyncFilter*”와 같은 설명이 포함된 이름을 지정하고 올바른 포리스트를 선택합니다. 즉, **CS 개체 형식**으로 **사용자**를, **MV 개체 형식**으로 **개인**을 선택합니다. **링크 유형**으로 **조인**을 선택하고 우선 순위 형식에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 50)을 선택한 후 **다음**을 클릭합니다.
@@ -244,7 +244,7 @@ Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 �
 
 다음 예제에서는 부서 특성이 “*Sales*”이거나 비어있는 경우에만 사용자를 동기화합니다.
 
-1. ADSyincAdmins 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온 합니다.
+1. ADSyncAdmins 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온 합니다.
 2. **시작 메뉴**에서 **동기화 규칙 편집기**를 엽니다.
 3. **인바운드**가 선택되어 있는지 확인한 후 **새 규칙 추가**를 클릭합니다.
 4. 규칙에 설명이 포함된 이름(예: "*In from AD – User DoNotSyncFilter*")을 지정하고 올바른 포리스트를 선택합니다. 즉, **CS 개체 형식**으로 **사용자**를, **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**으로 **조인**을 선택하고 **우선 순위 형식**에서 현재 다른 동기와 규칙에서 사용하지 않는 값(예: 60)을 선택합니다. **다음**을 클릭합니다.
@@ -267,7 +267,7 @@ Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 �
 
 이 예제에서는 메일과 userPrincipalName이 @contoso.com으로 끝나는 사용자만 동기화하도록 필터링을 변경합니다.
 
-1. ADSyincAdmins 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온 합니다.
+1. ADSyncAdmins 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 컴퓨터에 로그온 합니다.
 2. 시작 메뉴에서 동기화 규칙 편집기를 찾아 엽니다.
 3. 규칙 형식에서 아웃바운드를 클릭합니다.
 4. Out to AAD – User Join이라는 규칙을 찾습니다. 편집을 클릭합니다.
@@ -276,10 +276,9 @@ Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 �
 7. 전체 동기화 수행 방법: 커넥터 탭에서 SourceAD를 마우스 오른쪽 단추로 클릭하고 실행, 전체 동기화, 확인을 차례로 클릭합니다.
 
 
+## 다음 단계
+[Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
-## 추가 리소스
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-* [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

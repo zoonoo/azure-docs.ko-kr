@@ -14,7 +14,7 @@
 
 1.  Jobscience에 응용 프로그램 통합 사용
 2.  Single Sign-On 구성
-3.  사용자 프로비저닝 구성
+3.  사용자 프로비전 구성
 4.  사용자 할당
 
 ![시나리오](./media/active-directory-saas-jobscience-tutorial/IC784341.png "시나리오")
@@ -38,7 +38,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-jobscience-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-jobscience-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -51,8 +51,8 @@
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Single Sign-On 구성
   
-이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jobscience에 인증할 수 있게 하는 방법을 간략하게 설명합니다.  
-Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.  
+이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jobscience에 인증할 수 있게 하는 방법을 간략하게 설명합니다.
+Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.
 이 절차를 잘 모르는 경우 [인증서의 손도장 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하세요.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
@@ -184,4 +184,4 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

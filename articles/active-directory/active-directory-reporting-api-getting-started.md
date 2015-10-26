@@ -168,4 +168,4 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -230,4 +230,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

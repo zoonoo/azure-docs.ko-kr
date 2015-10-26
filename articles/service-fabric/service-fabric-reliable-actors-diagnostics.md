@@ -155,4 +155,4 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 |ActorActivated|5|정보 제공|0x1|행위자가 활성화되었습니다.|
 |ActorDeactivated|6|정보 제공|0x1|행위자가 비활성화되었습니다.|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

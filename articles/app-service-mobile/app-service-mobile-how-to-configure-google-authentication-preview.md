@@ -1,9 +1,9 @@
 <properties
 	pageTitle="앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법"
 	description="앱 서비스 응용 프로그램에 대해 Google 인증을 구성하는 방법을 알아봅니다."
-	services="app-service\mobile"
+    services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -67,4 +67,4 @@
 [Azure 관리 포털]: https://portal.azure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

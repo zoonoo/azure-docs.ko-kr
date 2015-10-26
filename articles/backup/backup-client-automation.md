@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -16,6 +16,15 @@
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## 설정 및 등록
+시작하려면
+
+1. [최신 PowerShell을 다운로드](https://github.com/Azure/azure-powershell/releases)합니다(필요한 최소 버전: 1.0.0).
+2. 다음과 같은 **Switch-AzureMode** commandlet을 통해 *AzureResourceManager* 모드로 전환하여 Azure 백업 commandlet을 사용하도록 설정합니다.
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
 PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있습니다.
 
 - 백업 자격 증명 모음 만들기
@@ -25,14 +34,17 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
 - 암호화 설정
 
 ### 백업 자격 증명 모음 만들기
-**New-AzureBackupVault** commandlet을 사용하여 새 백업 자격 증명 모음을 만들 수 있습니다. 백업 저장소는 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
+
+> [AZURE.WARNING]처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+**New-AzureRMBackupVault** commandlet을 사용하여 새 백업 자격 증명 모음을 만들 수 있습니다. 백업 저장소는 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-**Get-AzureBackupVault** commandlet을 사용하여 지정된 구독의 모든 백업 자격 증명 모음 목록을 가져올 수 있습니다.
+**Get-AzureRMBackupVault** commandlet을 사용하여 지정된 구독의 모든 백업 자격 증명 모음 목록을 가져올 수 있습니다.
 
 
 ### Azure 백업 에이전트 설치
@@ -80,7 +92,7 @@ Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-configur
 - 유효한 Azure 구독이 있어야 함
 - 백업 자격 증명 모음
 
-자격 증명 모음을 다운로드하려면 Azure PowerShell 콘솔에서 **Get-AzureBackupVaultCredentials** commandlet을 실행하고 *C:\\Downloads*와 같은 편리한 위치에 저장합니다.
+자격 증명 모음을 다운로드하려면 Azure PowerShell 콘솔에서 **Get-AzureRMBackupVaultCredentials** commandlet을 실행하고 *C:\\Downloads*와 같은 편리한 위치에 저장합니다.
 
 ```
 PS C:\> $credspath = "C:"
@@ -103,7 +115,7 @@ Region              : West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT]저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마십시오. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
+> [AZURE.IMPORTANT]저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
 
 ### 네트워킹 서비스
 Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
@@ -580,7 +592,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## 다음 단계
 Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 참조하세요.
 
-- [Azure 백업 소개](backup-introduction-to-azure-backup.md)
+- [Azure 백업 소개](backup-configure-vault.md)
 - [Windows 서버 백업](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

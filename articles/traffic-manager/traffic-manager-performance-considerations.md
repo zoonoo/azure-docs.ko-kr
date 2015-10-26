@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 트래픽 관리자 성능 고려 사항 | Microsoft Azure"
-	description="트래픽 관리자의 성능 및 트래픽 관리자 사용 시 웹 사이트의 성능을 테스트 하는 방법에 대한 이"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="kwill-MSFT"
-	manager="adinah"
-	editor="joaoma"/>
+   description="트래픽 관리자의 성능 및 트래픽 관리자 사용 시 웹 사이트의 성능을 테스트 하는 방법에 대한 이"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="kwill-MSFT"
+   manager="adinah"
+   editor="joaoma" />
 
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 
 # 트래픽 관리자 성능 고려 사
@@ -98,4 +98,4 @@ http://www.digwebinterface.com – Watchmouse 사이트와 유사하지만, CNAM
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

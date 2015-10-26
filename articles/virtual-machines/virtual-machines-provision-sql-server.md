@@ -26,7 +26,7 @@
 
 ## 개요
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 있습니다. 갤러리에서 가상 컴퓨터 이미지 중 하나를 선택하고 몇 번의 클릭으로 Azure 환경에 가상 컴퓨터를 프로비전할 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure에서 지원되는 SQL Server 이미지에 관한 최신 정보는 [Azure 
 	>[AZURE.NOTE] 가상 컴퓨터의 크기는 프로비전 중 지정합니다.
  	>
 	> - 프로덕션 작업의 경우 최소 권장 크기를 가진 프리미엄 저장소(SQL Server Enterprise Edition의 경우 **DS3**, SQL Server Standard Edition의 경우 **DS2**)를 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 참조하세요.
-	> - 선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하십시오.
+   	> - 선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하십시오.
 
 5. VM 구성 세부 정보를 입력한 후 오른쪽 아래에 있는 다음 화살표를 클릭하여 계속합니다.
 
@@ -155,4 +155,4 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

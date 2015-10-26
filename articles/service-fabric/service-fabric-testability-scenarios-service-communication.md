@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="서비스 패브릭 테스트 용이성 시나리오: 서비스 통신"
-	description="서비스 간 통신은 서비스 패브릭 응용 프로그램의 중요 한 통합점입니다. 이 문서에서는 디자인 고려 사항 및 테스트 기술에 대해 설명합니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="vturecek"
-	manager="timlt"
-	editor=""/>
+   pageTitle="서비스 패브릭 테스트 용이성 시나리오: 서비스 통신" 
+   description="서비스 간 통신은 서비스 패브릭 응용 프로그램의 중요 한 통합점입니다. 이 문서에서는 디자인 고려 사항 및 테스트 기술에 대해 설명합니다." 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="vturecek" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="vturecek"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="vturecek"/>
 
 # 서비스 패브릭 테스트 용이성 시나리오: 서비스 통신
 
@@ -101,4 +101,4 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 [테스트 용이성 시나리오에 대한 자세한 정보](service-fabric-testability-scenarios.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

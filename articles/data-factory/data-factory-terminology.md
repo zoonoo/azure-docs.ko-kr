@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리 - 용어"
-	description="이 문서에서는 Azure 데이터 팩터리 서비스를 사용하여 데이터 팩터리를 만드는 데 사용되는 용어를 소개합니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure 데이터 팩터리 - 용어" 
+	description="이 문서에서는 Azure 데이터 팩터리 서비스를 사용하여 데이터 팩터리를 만드는 데 사용되는 용어를 소개합니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 #Azure 데이터 팩터리 - 용어
@@ -110,4 +110,4 @@ Microsoft **데이터 관리 게이트웨이**는 온-프레미스 데이터 원
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

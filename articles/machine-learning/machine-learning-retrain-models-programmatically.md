@@ -156,4 +156,4 @@ ML 학습 프로세스의 일부로, 데이터 집합을 사용하여 모델을 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

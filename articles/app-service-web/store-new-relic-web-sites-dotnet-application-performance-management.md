@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="New Relic 응용 프로그램 성능 관리를 사용하는 Azure 앱 서비스에서의 .NET 웹 앱"
-	description="Azure 응용 프로그램 서비스에서 실행 중인 ASP.NET 응용 프로그램에 New Relic 성능 모니터링을 사용하는 방법에 대해 알아봅니다."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="New Relic 응용 프로그램 성능 관리를 사용하는 Azure 앱 서비스에서의 .NET 웹 앱" 
+	description="Azure 응용 프로그램 서비스에서 실행 중인 ASP.NET 응용 프로그램에 New Relic 성능 모니터링을 사용하는 방법에 대해 알아봅니다." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -34,7 +34,7 @@ New Relic Standard는 Azure 사용자에게 무료입니다. New Relic Pro는 �
 
 가격 책정 정보는 [Azure 마켓플레이스의 New Relic 페이지](/marketplace/partners/newrelic/newrelic)를 참조하십시오.
 
-> [AZURE.NOTE] 최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.
+> [AZURE.NOTE]최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
 
@@ -168,7 +168,6 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
 * Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
@@ -180,4 +179,4 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

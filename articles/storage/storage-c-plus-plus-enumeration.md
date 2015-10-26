@@ -184,4 +184,4 @@ Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은
 -	[Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

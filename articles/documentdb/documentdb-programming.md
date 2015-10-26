@@ -854,7 +854,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 	}
 
 
-만들려는 저장 프로시저를 본문에 포함하여 URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs에 대해 POST 요청을 실행하면 저장 프로시저가 등록됩니다. 트리거 및 UDF는 각각 /triggers 및 /udfs에 대해 POST를 실행해서 비슷하게 등록할 수 있습니다.
+만들려는 저장 프로시저를 본문에 포함하여 URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs에 대해 POST 요청을 실행하면 저장 프로시저가 등록됩니다. 트리거 및 UDF는 각각 /triggers 및 /udfs에 대해 POST를 실행해서 비슷하게 등록할 수 있습니다. 
 그런 다음 해당 리소스 링크에 대해 POST 요청을 실행해서 이 저장 프로시저를 실행할 수 있습니다.
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
@@ -902,7 +902,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 ## 샘플 코드
 
-[Github 리포지토리](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples)에서 더 많은 서버쪽 코드 예제를 찾을 수 있습니다.([upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) 및 [업데이트](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)를 포함)
+[Github 리포지토리](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples)에서 더 많은 서버 쪽 코드 예제를 찾을 수 있습니다.([upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) 및 [업데이트](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)를 포함)
 
 저장된 프로시저를 공유하시겠습니까? 끌어오기 요청을 보내주세요.
 
@@ -920,4 +920,4 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 -	[서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,7 @@
 
 *Application Insights는 미리 보기 상태입니다.*
 
-[Visual Studio Application Insights](app-insights-get-started.md) 사용 방법을 보여주는 코드 샘플의 컴파일입니다.
+[Visual Studio Application Insights](app-insights-overview.md) 사용 방법을 보여주는 코드 샘플의 컴파일입니다.
 
 ## SDK 실습
 
@@ -37,7 +37,7 @@
 * [Power BI에 내보내기](app-insights-export-power-bi.md) 
 * [작업자 역할을 사용하여 내보낸 데이터 구문 분석](app-insights-code-sample-export-telemetry-sql-database.md)
 * [스트림 분석을 사용하여 SQL로 내보내기](app-insights-code-sample-export-sql-stream-analytics.md)
-* [Microsoft CRM에 대한 원격 분석 사용](app-insights-sample-mscrm.md)
+* [Microsoft Dynamics CRM에 대한 원격 분석 사용](app-insights-sample-mscrm.md)
 
 
 ## 작업 자동화
@@ -53,4 +53,4 @@
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -219,4 +219,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [모바일 서비스 빠른 시작 자습서]: mobile-services-android-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

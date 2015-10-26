@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 서버의 사용자 포털 배포"
-	description="Azure MFA 및 사용자 포털 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication 서버의 사용자 포털 배포" 
+	description="Azure MFA 및 사용자 포털 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 서버의 사용자 포털 배포
@@ -189,4 +189,4 @@ SAML을 사용하는 ID 공급자의 클레임을 받을 수 있는 사용자 �
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

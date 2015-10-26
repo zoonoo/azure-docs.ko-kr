@@ -22,4 +22,4 @@
 
 ![의심스러운 활동을 포함하는 IP 주소의 로그인](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

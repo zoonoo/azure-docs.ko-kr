@@ -1,19 +1,19 @@
 <properties 
    pageTitle="가상 네트워크 VPN 게이트웨이 FAQ | Microsoft Azure"
-	description="VPN 게이트웨이 FAQ. Microsoft Azure 가상 네트워크 프레미스 간 연결, 하이브리드 구성 연결 및 VPN 게이트웨이에 대한 FAQ"
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="VPN 게이트웨이 FAQ. Microsoft Azure 가상 네트워크 프레미스 간 연결, 하이브리드 구성 연결 및 VPN 게이트웨이에 대한 FAQ"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # VPN 게이트웨이 FAQ
 
@@ -252,4 +252,4 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, netcfg �
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

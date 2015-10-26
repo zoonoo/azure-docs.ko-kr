@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="DocumentDB 쿼리 치트 시트 | Microsoft Azure"
-	description="NoSQL 데이터베이스에서 JSON 문서를 쿼리하기 위해 DocumentDB의 SQL 스타일 문법을 사용하는 데 도움이 되는 인쇄 가능한 쿼리 치트 시트입니다."
-	services="documentdb"
-	documentationCenter=""
-	authors="mimig1"
-	manager="jhubbard"
+	pageTitle="DocumentDB 쿼리 치트 시트 | Microsoft Azure" 
+	description="NoSQL 데이터베이스에서 JSON 문서를 쿼리하기 위해 DocumentDB의 SQL 스타일 문법을 사용하는 데 도움이 되는 인쇄 가능한 쿼리 치트 시트입니다." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/20/2015" 
 	ms.author="mimig"/>
 
 # 다운로드 가능한 DocumentDB SQL 쿼리 치트 시트
@@ -38,4 +38,4 @@ DocumentDB는 스키마 또는 보조 인덱스를 지정하지 않고도 [SQL](
 - DocumentDB에서 사용 가능한 쿼리 옵션에 대한 설명은 [DocumentDB 쿼리](documentdb-sql-query.md)를 참조하세요.
 - 관련 참조 문서는 [DocumentDB SQL 쿼리 언어](https://msdn.microsoft.com/library/azure/dn782250.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

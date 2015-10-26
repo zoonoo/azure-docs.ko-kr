@@ -115,4 +115,4 @@
 * [트랜잭션 패턴 보상](http://msdn.microsoft.com/library/dn589804.aspx)(영문)
 * [멱등 패턴](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)(영문)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

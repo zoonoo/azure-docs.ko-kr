@@ -475,4 +475,4 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->
