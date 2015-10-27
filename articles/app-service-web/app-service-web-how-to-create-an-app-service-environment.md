@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="앱 서비스 환경을 만드는 방법" 
 	description="앱 서비스 환경에 대한 만들기 흐름 설명" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
@@ -146,4 +146,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

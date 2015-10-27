@@ -1,10 +1,10 @@
 <properties
-   pageTitle="서비스 패브릭 개발 환경 설정 | Microsoft Azure"
-   description="서비스 패브릭 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다."
+   pageTitle="개발 환경 설정 | Microsoft Azure"
+   description="런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 응용 프로그램을 빌드할 수 있습니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# 서비스 패브릭 개발 환경 설정
- 이 문서에서는 런타임, SDK 및 도구의 설치 및 로컬 클러스터 설정을 포함하여 [서비스 패브릭][1] 앱을 빌드하기 시작할 때 필요한 모든 것을 다룹니다.
+# 개발 환경 준비
+ 개발 컴퓨터에서 [서비스 패브릭 응용 프로그램][1]을 빌드 및 실행하려면 런타임, SDK, 도구를 설치하고 로컬 클러스터를 설정해야 합니다.
 
- >[AZURE.NOTE]이러한 지침은 새 PC를 설정하기 위해 마련되었습니다. PC에 서비스 패브릭의 이전 버전을 설치한 경우 [개발 환경 업데이트 지침](service-fabric-update-your-development-environment.md)을 따르세요.
+ >[AZURE.NOTE]이러한 지침은 새 컴퓨터 설정에 대해 설명합니다. 서비스 패브릭의 이전 버전을 설치한 경우 [개발 환경 업데이트 지침](service-fabric-update-your-development-environment.md)을 따르세요.
 
 ## 필수 조건
 ### 지원되는 운영 체제 버전
@@ -33,7 +33,7 @@
 
 서비스 패브릭용 도구는 [여기][2]에서 찾을 수 있는 Visual Studio 2015에 종속되어 있습니다.
 
-> [AZURE.NOTE]지원되는 OS 버전 중 하나가 실행되고 있지 않거나 PC에 Visual Studio 2015를 설치하지 않으려는 경우는 VM 갤러리의 이미지를 사용하여 Windows Server 2012 R2와 Visual Studio 2015가 미리 설치된 Azure 가상 컴퓨터를 설정할 수 있습니다.
+> [AZURE.NOTE]지원되는 OS 버전 중 하나가 실행되고 있지 않거나 PC에 Visual Studio 2015를 설치하지 않으려는 경우는 Azure 가상 컴퓨터의 이미지를 사용하여 Windows Server 2012 R2와 Visual Studio 2015가 미리 설치된 Azure 가상 컴퓨터를 설정할 수 있습니다.
 
 ## 런타임, SDK 및 도구 설치
 
@@ -106,4 +106,4 @@ SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여,
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

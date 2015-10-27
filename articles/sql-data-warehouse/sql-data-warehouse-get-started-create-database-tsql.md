@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm"/>
 
 # TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기
@@ -54,11 +54,11 @@ SERVICE\_OBJECTIVE는 인스턴스에서 시작할 DWU 값을 나타내고 다�
 SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이터를 로드][]하거나 [개발][], [로드][] 또는 [마이그레이션][] 방법을 확인할 수 있습니다.
 
 [Azure Preview 포털 자습서]: ./sql-data-warehouse-get-started-provision.md
-[연결 및 쿼리]: ./sql-data-warehouse-get-started-connect-query.md
-[마이그레이션]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-overview-migrate/
-[개발]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-overview-develop/
-[로드]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-overview-load/
-[샘플 데이터를 로드]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[가격 책정 페이지]: https://azure.microsoft.com/ko-KR/pricing/details/sql-data-warehouse/
+[연결 및 쿼리]: ./sql-data-warehouse-get-started-connect.md
+[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
+[개발]: ./sql-data-warehouse-overview-develop.md
+[로드]: ./sql-data-warehouse-overview-load.md
+[샘플 데이터를 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[가격 책정 페이지]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

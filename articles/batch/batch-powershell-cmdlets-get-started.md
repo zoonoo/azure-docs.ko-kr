@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 배치 PowerShell cmdlet 시작 | Microsoft Azure"
-   description="Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet을 소개합니다."
+   pageTitle="Azure 배치 PowerShell 시작 | Microsoft Azure"
+   description="Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet에 대해 간략히 알아보세요."
    services="batch"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="08/07/2015"
+   ms.date="10/13/2015"
    ms.author="danlep"/>
 
 # Azure 배치 PowerShell Cmdlet 시작
@@ -21,87 +21,76 @@
 
 자세한 cmdlet 구문은 `get-help <Cmdlet_name>`을 입력하거나 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)을 참조하세요.
 
+[AZURE.INCLUDE [powershell-preview-include](../../includes/powershell-preview-include.md)]
+
 ## 필수 조건
 
-* **Azure PowerShell** - 필수 조건과 다운로드 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 배치 cmdlet은 버전 0.8.10 이후 버전에서 도입되었습니다. 일괄 처리 cmdlet이 버전 0.9.6에서 일반 가용성 API를 사용하도록 업데이트되었습니다.
+* **Azure PowerShell** - 배치 cmdlet은 Azure 리소스 관리자 모듈에 기본 제공됩니다. 필수 구성 요소, 설치 지침, 기본 사용 방법은 [Azure 리소스 관리자 cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx)을 참조하세요.
 
-## 배치 cmdlet 사용
 
-Azure PowerShell을 시작하고 [Azure 구독에 연결](../powershell-install-configure.md#Connect)하려면 표준 절차를 사용합니다. 또한 다음을 수행할 수도 있습니다.
 
-* **Azure 구독 선택 **-구독이 두 개 이상인 경우 다음의 구독을 선택 합니다.
+* **배치 공급자 네임스페이스(일회성 작업)에 등록** - 배치 계정을 사용하기 전에 배치 공급자 네임스페이스에 등록해야 합니다. 이 작업은 구독당 한 번만 수행하면 됩니다.
 
     ```
-    Select-AzureSubscription -SubscriptionName <SubscriptionName>
-    ```
-
-* **AzureResourceManage 모드로 전환** - Azure 리소스 관리자 모듈에서 배치 cmdlet을 전달합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요. 이 모듈을 사용하려면 [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) cmdlet을 실행합니다.
-
-    ```
-    Switch-AzureMode -Name AzureResourceManager
-    ```
-
-* **배치 공급자 네임스페이스(일회성 작업)에 등록** -배치 계정을 관리하기 전에 배치 공급자 네임스페이스에 등록해야 합니다. 이 작업은 구독당 한 번만 수행하면 됩니다.
-
-    ```
-    Register-AzureProvider -ProviderNamespace Microsoft.Batch
+    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
     ```
 
 ## 배치 계정 및 키 관리
 
-Azure PowerShell cmdlet을 사용하여 배치 계정 및 키를 만들고 관리할 수 있습니다.
 
 ### 배치 계정 만들기
 
-**New-AzureBatchAccount**를 사용하여 지정된 리소스 그룹에서 새로운 배치 계정을 만듭니다. 리소스 그룹이 아직 없는 경우는 [New-AzureResourceGroup](https://msdn.microsoft.com/library/dn654594.aspx) cmdlet을 실행하여 하나 만듭니다. 이때 **위치** 매개 변수에 Azure 지역 중 하나를 지정합니다. ([Get-AzureLocation](https://msdn.microsoft.com/library/dn654582.aspx)을 실행하면 다른 Azure 리소스에 대해 사용 가능한 지역을 찾을 수 있습니다.) 예:
+**New-AzureBatchAccount**는 지정된 리소스 그룹에서 새로운 배치 계정을 만듭니다. 아직 리소스 그룹이 없는 경우는 [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet을 실행하고 **위치** 매개 변수에 "미국 중부"와 같은 Azure 지역 중 하나를 지정하여 하나를 만듭니다. 예:
 
 ```
-New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
+New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-그런 다음, 리소스 그룹에 새 배치 계정을 만듭니다. <*account\_name*>의 계정 이름과 배치 서비스를 사용할 수 있는 위치도 지정합니다. 계정을 만드는 데는 몇 분 정도 걸릴 수 있습니다. 예:
+그런 다음, 리소스 그룹에 새 배치 계정을 만듭니다. <*account\_name*>의 계정 이름과 배치 서비스를 사용할 수 있는 위치를 지정합니다. 계정을 만드는 데는 몇 분 정도 걸릴 수 있습니다. 예:
 
 ```
-New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
+New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
 ```
 
 > [AZURE.NOTE]배치 계정 이름은 Azure에서 고유해야 하며, 3자에서 24자 사이의 문자를 포함하고 소문자와 숫자만 사용해야 합니다.
 
 ### 계정 액세스 키 가져오기
-**Get-AzureBatchAccountKeys**는 Azure 배치 계정과 연결된 액세스 키를 표시합니다. 예를 들어, 사용자가 만든 계정의 기본 및 보조 키를 가져오려면 다음을 실행합니다.
+**Get-AzureRmBatchAccountKey**는 Azure 배치 계정과 연결된 액세스 키를 표시합니다. 예를 들어, 사용자가 만든 계정의 기본 및 보조 키를 가져오려면 다음을 실행합니다.
 
 ```
 $Account = Get-AzureBatchAccountKeys –AccountName <accountname>
+
 $Account.PrimaryAccountKey
+
 $Account.SecondaryAccountKey
 ```
 
 ### 새 액세스 키 생성
-**New-AzureBatchAccountKey**는 Azure 배치 계정에 대해 기본 또는 보조 계정 키를 새로 생성합니다. 예를 들어, 배치 계정의 새 기본 키를 생성하려면 다음과 같이 입력합니다.
+**New-AzureRmBatchAccountKey**는 Azure 배치 계정에 대해 기본 또는 보조 계정 키를 새로 생성합니다. 예를 들어, 배치 계정의 새 기본 키를 생성하려면 다음과 같이 입력합니다.
 
 ```
-New-AzureBatchAccountKey -AccountName <account_name> -KeyType Primary
+New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
 > [AZURE.NOTE]새 보조 키를 생성하려면 **KeyType** 매개 변수에 "Secondary"를 지정합니다. 기본 및 보조 키를 개별적으로 다시 생성해야 합니다.
 
 ### 배치 계정 삭제
-**Remove-AzureBatchAccount**는 배치 계정을 삭제합니다. 예:
+**Remove-AzureRmBatchAccount**는 배치 계정을 삭제합니다. 예:
 
 ```
-Remove-AzureBatchAccount -AccountName <account_name>
+Remove-AzureRmBatchAccount -AccountName <account_name>
 ```
 
 메시지가 나타나면 계정을 제거할 것인지 확인합니다. 계정을 제거하는 데는 시간이 걸릴 수 있습니다.
 
 ## 작업, 태스크 및 기타 세부 정보에 대한 쿼리
 
-**Get-AzureBatchJob**, **Get-AzureBatchTask**, **Get-AzureBatchPool** 등의 cmdlet을 사용하여 Batch 계정 아래에 만든 엔터티를 쿼리합니다.
+**Get-AzureBatchJob**, **Get-AzureBatchTask**, **Get-AzureBatchPool** 등의 cmdlet을 사용하여 Bath 계정 아래에 만든 엔터티를 쿼리합니다.
 
 이러한 cmdlet을 사용하려면 먼저 계정 이름과 키를 저장할 AzureBatchContext 개체를 만들어야 합니다.
 
 ```
-$context = Get-AzureBatchAccountKeys "<account_name>"
+$context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 ```
 
 **BatchContext** 매개 변수를 사용하여 배치 서비스와 상호 작용하는 cmdlet에 이 컨텍스트를 전달합니다.
@@ -122,6 +111,7 @@ Get-AzureBatchPool -BatchContext $context
 
 ```
 $filter = "startswith(id,'myPool')"
+
 Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
@@ -135,11 +125,11 @@ OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID�
 Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
 ```
-**ID** 매개 변수는 전체 ID 검색만 지원하며 와일드카드 또는 OData 스타일 필터는 지원하지 않습니다.
+**ID** 매개 변수는 전체 ID 검색만 지원하며 와일드카드 또는 OData 스타일 필터를 지원하지 않습니다.
 
 ### 파이프라인 사용
 
-배치 cmdlet은 PowerShell 파이프라인을 활용하여 cmdlet 간에 데이터를 전송할 수 있습니다. 이 방식은 매개 변수를 지정하는 것과 동일한 효과를 갖지만 보다 쉽게 여러 엔터티를 나열할 수 있습니다. 예를 들어, 다음과 같이 사용자 계정 아래의 모든 작업을 찾을 수 있습니다.
+배치 cmdlet은 PowerShell 파이프라인을 활용하여 cmdlet 간에 데이터를 전송할 수 있습니다. 이 방식은 매개 변수를 지정하는 것과 동일한 효과를 갖지만 보다 쉽게 여러 엔터티를 나열할 수 있습니다. 예를 들어 다음은 사용자 계정의 모든 작업을 검색합니다.
 
 ```
 Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
@@ -157,9 +147,9 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 상한값을 제거하려면 **MaxCount**를 0 이하로 설정합니다.
 
 ## 관련된 항목
-* [배치 기술 개요](batch-technical-overview.md)
-* [Azure PowerShell 다운로드](http://go.microsoft.com/p/?linkid=9811175)
+* [Azure PowerShell 다운로드](http://go.microsoft.com/?linkid=9811175)
+* [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)
 * [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)
-* [효율적인 목록 쿼리](batch-efficient-list-queries.md)
+* [효율적인 배치 서비스 쿼리](batch-efficient-list-queries.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

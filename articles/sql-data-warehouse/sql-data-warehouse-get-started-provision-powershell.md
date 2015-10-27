@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/20/2015"
    ms.author="lodipalm"/>
 
 # Powershell을 사용하여 SQL 데이터 웨어하우스 만들기
@@ -30,7 +30,7 @@ Powershell을 아직 설정하지 않은 경우 다음 작업을 수행할 수 �
 
 1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다.
 2. 모듈을 실행하려면 시작 창에서 **Microsoft Azure PowerShell**을 입력합니다.
-3. 아직 컴퓨터에 계정을 추가하지 않았다면 다음 cmdlet을 실행합니다. (자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법][]을 참조하세요.)
+3. 아직 컴퓨터에 계정을 추가하지 않은 경우 다음 cmdlet을 실행합니다. (자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법][]을 참조하세요.)
 
             Add-AzureAccount
 
@@ -71,4 +71,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [firewall rules]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-database-configure-firewall-settings/
 [Azure PowerShell을 설치 및 구성하는 방법]: powershell-install-configure.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

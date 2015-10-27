@@ -165,26 +165,26 @@ Blob 저장소에 대한 자세한 내용은 [.NET에서 Blob 저장소를 사�
 
 		static void CreateFiles()
 		{
-			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-				ConfigurationManager.AppSettings["StorageConnectionString"]);
-			CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-			CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+		  CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+			ConfigurationManager.AppSettings["StorageConnectionString"]);
+		  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+		  CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
 
-			CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
-			CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
-			CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
-			taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
-			taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
-			taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+		  CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
+		  CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
+		  CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
+		  taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+		  taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+	  	taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
 
 			CloudBlockBlob storageassembly = container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
 			storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
 
 			CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
-			dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
+		  dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
 
-			Console.WriteLine("Uploaded the files. Press Enter to continue.");
-			Console.ReadLine();
+		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
+		  Console.ReadLine();
 		}
 
 2. 방금 추가한 메서드를 호출하는 Main에 다음 코드를 추가합니다.
@@ -495,4 +495,4 @@ Azure에서 리소스에 대한 요금이 부과되므로 리소스가 더 이�
 
 2. 일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

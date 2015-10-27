@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/15/2015"
 	ms.author="awills"/>
 
 # Java 웹 프로젝트에서 Application Insights 시작하기
@@ -25,7 +25,7 @@
 
 ![샘플 데이터](./media/app-insights-java-get-started/5-results.png)
 
-[Application Insights 웹 테스트][availability]는 응용 프로그램의 가용성을 모니터링합니다.
+Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원합니다.
 
 필요한 사항:
 
@@ -80,7 +80,7 @@
     </dependencies>
 
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있는 경우* 다음과 같은 특정 버전을 사용해 봅니다. `<version>1.0.n</version>`. [SDK 릴리스 정보](app-insights-release-notes-java.md) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
+* *빌드 또는 체크섬 유효성 검사 오류가 있는 경우* `<version>1.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](app-insights-release-notes-java.md) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
 * *새 SDK로 업데이트해야 하는 경우* 프로젝트의 종속성을 새로 고칩니다.
 
 #### Gradle을 사용하는 경우...
@@ -271,13 +271,13 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드에 trackException()에 대한 호출 삽입][apiexceptions] 
-* [서버에 Java 에이전트 설치](app-insights-java-agent.md) 감시 방법을 지정할 수 있습니다.
+* [사용자 코드에 trackException()에 대한 호출을 삽입합니다][apiexceptions]. 
+* [서버에 Java 에이전트를 설치합니다](app-insights-java-agent.md). 감시 방법을 지정할 수 있습니다.
 
 
 ## 메서드 호출 및 외부 종속성 모니터링
 
-[Java 에이전트를 설치](app-insights-java-agent.md)하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록합니다.
+[Java 에이전트를 설치](app-insights-java-agent.md)하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록할 수 있습니다.
 
 
 ## 성능 카운터
@@ -341,7 +341,7 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 ### Unix 성능 카운터
 
-* [Application Insights 플러그인과 함께 collectd를 설치](app-insights-java-collectd.md)하여 광범위한 시스템 및 네트워크 데이터를 얻습니다.
+* [Application Insights 플러그 인과 함께 collectd를 설치](app-insights-java-collectd.md)하여 광범위한 시스템 및 네트워크 데이터를 얻을 수 있습니다.
 
 ## 사용자 및 세션 데이터 가져오기
 
@@ -383,7 +383,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 ## 다음 단계
 
-자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
+자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
 <!--Link references-->
 
@@ -396,4 +396,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

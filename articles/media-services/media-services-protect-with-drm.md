@@ -3,7 +3,7 @@
 	description="Microsoft Azure 미디어 서비스를 사용하면 Microsoft PlayReady DRM으로 보호되는 MPEG-DASH, 부드러운 스트리밍 및 Http-Live-Streaming(HLS) 스트림을 배달할 수 있습니다. 또한 Widevine DRM으로 암호화된 DASH를 배달할 수 있습니다. 이 항목에서는 PlayReady 및 Widevine DRM으로 동적으로 암호화하는 방법을 보여 줍니다."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako"
+	authors="Juliako,Mingfeiy"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/14/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
@@ -569,4 +569,4 @@ Microsoft Azure 미디어 서비스를 사용하면 [Microsoft PlayReady DRM](ht
 
 [AMS로 Widevine 패키징 구성](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -31,9 +31,9 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |---|---|---|
 |**US**|모든 미국 지역 - 미국 동부, 미국 서부, 미국 동부 2, 중앙 미국, 미국 중남부, 미국 중북부|애틀랜타, 시카고, 달라스, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC|
 |**남미**|브라질 남부|상파울루|
-|**유럽**|북유럽, 서유럽|암스테르담, 런던|
+|**유럽**|북유럽, 서유럽|암스테르담, 더블린+, 런던|
 |**아시아**|동아시아, 동남 아시아|홍콩, 싱가포르|
-|**일본**|일본 서부, 일본 동부|도쿄|
+|**일본**|일본 서부, 일본 동부|오사카, 도쿄|
 |**오스트레일리아**|오스트레일리아 남동부, 오스트레일리아 동부|멜버른, 시드니|
 |**인도**|인도 서부, 인도 중부, 인도 남부|첸나이, 뭄바이|
 
@@ -55,13 +55,14 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 | **서비스 공급자** |**Microsoft Azure** | **Office 365** | **위치** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Aryaka Networks](http://www.aryaka.com/)** | 지원됨 | 지원되지 않음 | 실리콘밸리, 싱가포르, 워싱턴 DC |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 서비스 예정 | 암스테르담+, 런던+, 댈러스, 실리콘밸리, 워싱턴 DC |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 지원됨 | 지원됨 | 암스테르담, 런던, 실리콘밸리+, 워싱턴 DC |
+| **[Aryaka Networks](http://www.aryaka.com/)** | 지원됨 | 지원되지 않음 | 암스테르담, 실리콘밸리, 싱가포르, 워싱턴 DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원됨 | 암스테르담, 런던+, 댈러스, 실리콘밸리, 워싱턴 DC |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 지원됨 | 지원됨 | 암스테르담, 런던, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
 |**China Telecom Global** | 서비스 예정 | 지원되지 않음 | 홍콩+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던 |
 | **Comcast** | 지원됨 | 지원되지 않음 | 실리콘밸리, 워싱턴 DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 지원됨 | 지원됨 | 암스테르담, 애틀랜타, 시카고, 댈러스, 홍콩, 런던, 로스앤젤레스, 멜버른, 뉴욕, 상 파울로, 시애틀, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
+| **CoreSite** | 지원됨 | 지원되지 않음 | 로스앤젤레스 | 
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 지원됨 | 지원됨 | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | 지원됨 | 지원되지 않음 | 도쿄 |
 | **[InterCloud](https://www.intercloud.com/)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던, 싱가포르, 워싱턴 DC |
 | **Internet Solutions - 클라우드 연결** | 지원됨 | 지원되지 않음 | 암스테르담, 런던 |
@@ -71,14 +72,15 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **MTN** | 지원됨 | 지원되지 않음 | 런던 |
 | **NTT Communications** | 지원됨 | 지원되지 않음 | 런던+, 도쿄 |
 | **NEXTDC** | 지원됨 | 지원되지 않음 | 멜버른, 시드니+ |
-| **[Orange](http://www.orange-business.com/)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던, 실리콘밸리, 워싱턴 DC |
+| **[Orange](http://www.orange-business.com/)** | 지원됨 | 지원되지 않음 | 암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **PCCW Global Limited** | 지원됨 | 지원되지 않음 | 홍콩 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 지원됨 | 지원되지 않음 | 싱가포르 |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 지원됨 | 지원됨 | 암스테르담, 첸나이+, 홍콩, 런던, 뭄바이+, 싱가포르 |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 지원됨 | 지원됨 | 암스테르담, 첸나이+, 홍콩, 런던, 뭄바이, 싱가포르 |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | 지원됨 | 지원됨 | 암스테르담, 런던 |
-| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 지원됨 | 지원되지 않음 | 멜버른+, 시드니 |
-| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | 지원됨 | 지원됨 | 런던, 홍콩, 실리콘밸리, 워싱턴 DC |
-| **[Zayo Group](http://www.zayo.com/)** | 지원됨 | 지원되지 않음 | 워싱턴 DC |
+| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 지원됨 | 지원되지 않음 | 멜버른, 시드니 |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | 지원됨 | 지원됨 | 홍콩, 런던, 실리콘밸리, 시드니, 워싱턴 DC |
+| **Vodafone** | 지원됨 | 지원되지 않음 | 런던 | 
+| **[Zayo Group](http://www.zayo.com/)** | 지원됨 | 지원되지 않음 | 시카고, 실리콘밸리, 워싱턴 DC |
 
  **+**는 서비스 예정을 나타냄
 
@@ -127,4 +129,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

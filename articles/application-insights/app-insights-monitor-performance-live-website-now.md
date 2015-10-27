@@ -174,6 +174,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
   * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
     * IIS 관리자에서 응용 프로그램 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
     * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
+  * 서버에 MMA/SCOM이 설치된 경우 일부 버전이 충돌할 수 있습니다. SCOm과 상태 모니터를 제거한 다음 최신 버전을 다시 설치하세요.
   * [문제 해결][qna]을 참조하세요.
 
 ## 시스템 요구 사항
@@ -215,4 +216,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
