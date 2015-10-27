@@ -83,7 +83,13 @@
 
 ###코드 추가
 
-1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">알림 허브 Android SDK</a>를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\\notification-hubs-0.3.jar** 및 **notifications\\notifications-1.0.1.jar**을 프로젝트의 **app\\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. **libs** 폴더를 새로 고칩니다.
+1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">알림 허브 Android SDK</a>를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\\notification-hubs-0.4.jar** 및 **notifications\\notifications-1.0.1.jar**을 프로젝트의 **app\\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. **libs** 폴더를 새로 고칩니다.
+
+
+
+	이 두 패키지에 대한 참조 설명서는 다음 링크에 있습니다.
+	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
+	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
 
 
     > [AZURE.NOTE]후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.
@@ -120,7 +126,10 @@
 	    private static Boolean isVisible = false;
 
 
-	세 개의 자리 표시자를 업데이트해야 합니다. * **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. * **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. * **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
+	자리 표시자 3개를 업데이트해야 합니다.
+	* **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다.
+	* **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다.
+	* **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
 
 
 
