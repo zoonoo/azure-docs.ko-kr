@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Visual Studio 2015 설치 | Microsoft Azure"
-   description="Azure SQL 데이터 웨어하우스용 Visual Studio와 SSDT를 설치합니다."
+   pageTitle="SQL 데이터 웨어하우스용 Visual Studio 및/또는 SSDT 설치 | Microsoft Azure"
+   description="Azure SQL 데이터 웨어하우스용 Visual Studio 및/또는 SSDT 개발 도구 설치"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,36 +13,40 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
-   ms.author="twounder"/>
+   ms.date="10/21/2015"
+   ms.author="twounder;barbkess"/>
 
-# Visual Studio 2015 설치
+# SQL 데이터 웨어하우스용 Visual Studio 2015 및/또는 SSDT 설치
 
-개발을 위해 Azure SQL 데이터 웨어하우스 팀은 SQL Server 데이터 도구(SSDT)와 함께 Visual Studio 2013 이상을 사용할 것을 권장합니다. 다음은 visual studio의 실행 가능한 버전이 아직 설치되지 않은 경우 Visual Studio 2015를 다운로드 및 업데이트하는 방법을 간략하게 설명합니다. 다음 단계는 Azure SQL 데이터 웨어하우스로 작업하기 위한 필수 조건을 다운로드 및 설치할 수 있도록 합니다.
+SQL 데이터 웨어하우스용 응용 프로그램을 개발하려면 Visual Studio 2013 또는 최신 버전과 함께 최신 버전의 SSDT(SQL Server 데이터 도구)를 사용하는 것이 좋습니다.
 
-+ [Visual Studio 2015 다운로드 및 설치](#Download-and-Install-Visual-Studio-2015)
-+ [SQL Server 데이터 도구(SSDT) 미리 보기 다운로드 및 설치] (#Download-and-Install-SQL-Server-Data-Tools-(SSDT)-Preview)
- 
-> [AZURE.NOTE]또한 Visual Studio 2013 및 SQL Server 데이터 도구(SSDT) 미리 보기는 Azure SQL 데이터 웨어하우스와 함께 사용할 수 있습니다.
- 
-##Visual Studio 2015 다운로드 및 설치
+Visual Studio IDE(통합 개발 환경)에서 쿼리를 실행하려면 SSDT만 설치하면 됩니다. 그러면 Visual Studio IDE와 함께 SSDT가 설치되며 SQL Server 개체 탐색기를 사용하여 Azure SQL 서버에 연결할 수 있습니다. 그런 다음 SQL 데이터 웨어하우스 데이터베이스를 보고 쿼리를 실행할 수 있습니다.
 
-Visual Studio 2015를 설치하려면 아래 단계를 수행합니다.
 
-1. Visual Studio Online에서 [Visual Studio 2015를 다운로드](https://www.visualstudio.com/downloads)합니다.
-2. 기본 구성을 선택하여 MSDN에서 [Visual Studio 설치](https://msdn.microsoft.com/library/e2h7fzkw.aspx) 가이드를 수행합니다. 
+## 1단계: Visual Studio 다운로드 및 설치
 
-##SQL Server 데이터 도구(SSDT) 미리 보기 다운로드 및 설치
+Visual Studio를 설치할 경우 SQL 데이터 웨어하우스에 Visual Studio 2013 또는 Visual Studio 2015를 사용할 수 있습니다. 이미 Visual Studio 2013 또는 2015가 설치되어 있는 경우 2단계로 건너뛰어 SSDT를 설치합니다.
 
-Azure SQL 데이터 웨어하우스는 에서 사용 가능한 SQL Server 데이터 도구(SSDT)의 최신 미리 보기 버전을 활용합니다.
+Visual Studio 2015를 설치하려면 다음을 수행합니다.
 
-1. Visual Studio 2013 또는 2015용 [SQL Server 데이터 도구 미리 보기를 다운로드](https://msdn.microsoft.com/mt429383.aspx)합니다.
-2. 데이터 도구를 설치하려면 설치 지침을 따릅니다.
+1. Visual Studio Online에서 [Visual Studio 2015를 다운로드](https://www.visualstudio.com/downloads)합니다. 
+2. MSDN의 [Visual Studio 설치](https://msdn.microsoft.com/library/e2h7fzkw.aspx) 지침을 따르고 기본 구성을 선택하여 설치합니다.
 
+## 2단계: 최신 SSDT(SQL Server 데이터 도구) 다운로드 및 설치 
+
+Visual Studio가 설치되어 있는지 여부와 상관없이 SQL 데이터 웨어하우스를 지원하는 최신 버전의 SSDT(SQL Server 데이터 도구)가 필요합니다.
+
+최신 버전의 SSDT를 설치하려면 다음을 실행합니다.
+
+1. Visual Studio 2013 또는 2015용 [SQL Server 데이터 도구 미리 보기를 다운로드](https://msdn.microsoft.com/library/mt204009.aspx)합니다.
+2. 다운로드 사이트에 나와 있는 다음 설치 지침을 따릅니다.
+
+## 다음 단계
+
+이제 최신 버전의 SSDT가 설치되었으므로 데이터베이스에 [연결](./sql-data-warehouse-get-started-connect.md)할 수 있습니다.
 
 <!--Anchors-->
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,14 +1,14 @@
 <properties
 	pageTitle="앱 서비스 환경에서 웹앱을 만드는 방법"
 	description="앱 서비스 환경에 대해 검사된 웹앱 및 앱 서비스 계획 만들기 흐름"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -100,4 +100,4 @@ ASE에서 웹앱을 실행하고 ASP를 관리하기 위해 고려해야 하는 
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

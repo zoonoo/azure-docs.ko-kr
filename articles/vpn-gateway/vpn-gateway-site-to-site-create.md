@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/10/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
 # Azure 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
@@ -25,7 +25,7 @@
 
 이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 이 문서는 클래식 배포 모델에 적용됩니다.
 
->[AZURE.IMPORTANT]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
+>[AZURE.NOTE]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
 
 위에 있는 탭을 사용하여 배포 모델 및 배포 도구에 대한 문서를 선택할 수 있습니다. 예를 들어 클래식 모델 대신 Azure 리소스 관리자 모델을 사용하여 사이트 간 VPN 게이트웨이 연결을 만들려는 경우 **PowerShell - 리소스 관리자** 탭(위)을 클릭하여 [Azure 리소스 관리자 및 PowerShell을 사용하여 사이트 간 VPN 연결 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)로 이동합니다.
 
@@ -34,11 +34,12 @@
 
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
-- 호환되는 VPN 장치(및 구성할 수 있는 사람). [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
-- VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
+- 호환되는 VPN 장치(및 구성할 수 있는 사람). [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
+
+-  VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
+
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
->[AZURE.IMPORTANT]VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
 
 ## 가상 네트워크 만들기
 
@@ -85,6 +86,8 @@
 
 페이지 아래에 있는 확인 표시를 클릭하면 가상 네트워크 만들기가 시작됩니다. 완료되면 Azure 포털의 **네트워크** 페이지에 있는 **상태**에 **생성됨**이 표시됩니다. VNet를 만든 후에 가상 네트워크 게이트웨이를 구성할 수 있습니다.
 
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+
 ## 가상 네트워크 게이트웨이 구성
 
 다음으로, 안전한 사이트 간 VPN 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성하겠습니다. [Azure 포털에서 가상 네트워크 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
@@ -99,4 +102,4 @@
 
 클래식 가상 네트워크와 Azure 리소스 관리자 모드를 사용하여 만든 가상 네트워크 간의 연결을 구성하려는 경우 [Azure 리소스 관리자 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

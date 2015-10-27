@@ -1,7 +1,7 @@
 >[AZURE.NOTE]이 절차를 완료하려면 검증된 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>으로 이동하세요.
 
 
-1. <a href="http://cloud.google.com/console" target="_blank">Google 클라우드 콘솔</a> 웹 사이트로 이동하고 Google 계정 자격 증명을 사용하여 로그인한 후 **Create Project**를 클릭합니다.
+1. [Google 클라우드 콘솔](https://console.developers.google.com/project)로 이동하고 Google 계정 자격 증명을 사용하여 로그인한 후 **프로젝트 만들기**를 클릭합니다.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
@@ -17,7 +17,7 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. **Credentials**를 클릭한 다음 **Create new Key**를 클릭합니다.
+5. **자격 증명**을 클릭한 다음 **자격 증명 추가**와 **API 키**를 차례로 클릭합니다.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
@@ -25,10 +25,11 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. **API key** 값을 기록해 둡니다.
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2-2.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png)
+
+7. **API key** 값을 기록해 둡니다.
 
 	이 API 키를 사용하여 Azure 에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

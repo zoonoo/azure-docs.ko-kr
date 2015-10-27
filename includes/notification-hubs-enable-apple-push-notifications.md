@@ -83,9 +83,9 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps_development.cer**로 지정됩니다.
+    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
 
-7. 다운로드한 푸시 인증서 **aps_development.cer**을 두 번 클릭합니다.
+7. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
 
    	아래와 같이 새 인증서가 Keychain에 설치됩니다.
 
@@ -93,7 +93,14 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
     > [AZURE.NOTE]인증서의 이름은 다를 수 있지만 **Apple Development iOS Push Services:**가 앞에 옵니다.
 
-이 인증서는 나중에 APNS 인증이 가능한 .p12 파일을 생성하는 데 사용됩니다.
+8. Keychain Access에서는 **인증서** 범주에서 만든 새 푸시 인증서를 마우스 오른쪽 단추로 클릭합니다. **내보내기**를 클릭하고 파일의 이름을 지정한 후 **.p12** 형식을 선택하고 **저장**을 클릭합니다.
+
+	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
+
+	내보낸 .p12 인증서의 파일 이름과 위치를 적어둡니다. APNS을 이용한 인증을 사용하도록 설정하는 데 사용합니다.
+
+	>[AZURE.NOTE]이 자습서에서는 QuickStart.p12 파일을 만듭니다. Your file name and location might be different.
+
 
 ##앱용 프로비저닝 프로필 만들기
 
@@ -128,4 +135,4 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

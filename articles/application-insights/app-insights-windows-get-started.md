@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/16/2015"
+	ms.date="10/16/2015"
 	ms.author="awills"/>
 
 # Windows Phone 및 스토어 앱용 Application Insights
@@ -71,7 +71,7 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 	```xml
 
 		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights>
+		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
@@ -232,4 +232,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

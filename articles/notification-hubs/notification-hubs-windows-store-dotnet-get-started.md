@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/11/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Windows 스토어 앱에 대한 알림 허브 시작
@@ -90,31 +90,15 @@ Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토�
 
 ##알림 허브 구성
 
-1. [Azure 포털]에 로그인한 다음 화면 아래쪽에서 **새로 만들기**를 클릭합니다.
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. **앱 서비스**, **서비스 버스**, **알림 허브** 및 **빠른 생성**을 차례로 클릭합니다.
+<ol start="7">
+<li><p>맨 위에 있는 <b>구성</b> 탭을 선택하고 이전 섹션의 WNS에서 얻은 <b>클라이언트 암호</b> 및 <b>패키지 SID</b> 값을 입력한 후 <b>저장</b>을 클릭합니다.</p>
+</li>
+</ol>
 
-   	![][7]
+&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
-3. 알림 허브의 이름을 입력하고 원하는 지역을 선택한 후 **새 알림 허브 만들기**를 클릭합니다.
-
-   	![][8]
-
-4. 방금 만든 네임스페이스(일반적으로 ***알림 허브 이름*-ns**)를 클릭한 후 맨 위에 있는 **구성** 탭을 클릭합니다.
-
-   	![][9]
-
-5. 맨 위에 있는 **알림 허브** 탭을 선택한 후 방금 만든 알림 허브를 클릭합니다.
-
-   	![][10]
-
-6. 맨 위에 있는 **구성** 탭을 선택하고 이전 섹션의 WNS에서 얻은 **클라이언트 암호** 및 **패키지 SID** 값을 입력한 후 **저장**을 클릭합니다.
-
-   	![][11]
-
-7. 페이지 위쪽에서 **대시보드** 탭을 선택하고 아래쪽에서 **연결 정보** 단추를 클릭합니다. 두 연결 문자열을 기록해 둡니다.
-
-   	![][12]
 
 이제 알림 허브가 WNS와 작동하도록 구성되었으며 앱을 등록하고 알림을 보내기 위한 연결 문자열이 있습니다.
 
@@ -197,7 +181,7 @@ Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토�
 
 * **REST 인터페이스**: [REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하여 백엔드 플랫폼에서 알림을 지원할 수 있습니다.
 
-* **Microsoft Azure 알림 허브.NET SDK**: Visual Studio용 Nuget 패키지 관리자에서 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 실행합니다.
+* **Microsoft Azure 알림 허브 .NET SDK**: Visual Studio용 Nuget 패키지 관리자에서 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 실행합니다.
 
 * **Node.js** : [Node.js에서 알림 허브 사용 방법](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
@@ -217,11 +201,11 @@ Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토�
 
 	그러면 새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다. 별도의 솔루션에서 이 작업을 수행할 수도 있습니다.
 
-4. Visual Studio에서 **도구**를 클릭하고 **NuGet 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
+2. Visual Studio에서 **도구**를 클릭하고 **NuGet 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
 
 	그러면 Visual Studio에 패키지 관리자 콘솔이 표시됩니다.
 
-6. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 응용 프로그램 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
+3. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 응용 프로그램 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
 
         Install-Package Microsoft.Azure.NotificationHubs
 
@@ -230,11 +214,11 @@ Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토�
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 
-5. Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
+4. Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
 
         using Microsoft.Azure.NotificationHubs;
 
-6. **Program** 클래스에서 다음 메서드를 추가합니다.
+5. **Program** 클래스에서 다음 메서드를 추가합니다.
 
         private static async void SendNotificationAsync()
         {
@@ -248,12 +232,12 @@ Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토�
 
 	>[AZURE.NOTE]**수신 대기** 권한이 아니라 **모든** 권한을 가진 연결 문자열을 사용해야 합니다. 수신 대기 권한 문자열은 알림을 보낼 수 있는 권한이 없습니다.
 
-7. **Main** 메서드에 다음 코드를 추가합니다.
+6. **Main** 메서드에 다음 코드를 추가합니다.
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. Visual Studio에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭하여 시작 프로젝트로 설정합니다. 그런 다음 **F5** 키를 눌러 응용 프로그램을 실행합니다.
+7. Visual Studio에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭하여 시작 프로젝트로 설정합니다. 그런 다음 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
    	![][14]
 
@@ -279,12 +263,7 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
 [6]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-push-auth.png
-[7]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png
-[8]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal2.png
-[9]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal.png
-[10]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png
-[12]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-connection-strings.png
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [15]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler1.png
@@ -294,7 +273,7 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Azure 포털]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -305,4 +284,4 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

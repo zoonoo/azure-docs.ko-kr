@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Data Factory 소개" 
+	pageTitle="Azure 데이터 팩터리 소개" 
 	description="Azure Data Factory 서비스를 통해 데이터 처리, 데이터 저장 및 데이터 이동 서비스를 구성하여 신뢰할 수 있는 정보를 생성하는 파이프라인을 만드는 방법을 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -29,6 +29,8 @@
 
 깊을 통찰력을 끌어내도록 다양한 형태와 크기의 데이터를 신뢰할만한 일정으로 수집하고 변환하고 게시하기 위해 필요할 때마다 데이터 팩터리를 사용할 수 있습니다. 데이터 팩터리는 분석 파이프라인이 필요한 다양한 산업의 여러 시나리오에서 가용성이 높은 데이터 흐름 파이프라인을 만드는 데 사용됩니다. 온라인 소매 업체는 데이터 팩터리를 사용하여 고객의 탐색 활동을 기반으로 맞춤형 [제품 권장 목록](data-factory-product-reco-usecase.md)을 만듭니다. 게임 제작사는 [자사 마케팅](data-factory-customer-profiling-usecase.md) 캠페인의 효율을 파악하는 데 데이터 팩터리를 사용합니다. [고객 사례 연구](data-factory-customer-case-studies.md)를 검토하여 고객이 데이터 팩터리를 사용하는 방법과 이유를 직접 들어보세요.
 
+> [AZURE.VIDEO azure-data-factory-overview]
+
 ## 주요 개념
 
 Azure Data Factory에는 입력 및 출력 데이터, 처리 이벤트, 필요한 데이터 흐름을 실행하는데 필요한 일정과 리소스를 정의하기 위해 함께 작용하는 몇 가지 주요 엔터티가 있습니다.
@@ -55,7 +57,4 @@ Azure Data Factory에는 입력 및 출력 데이터, 처리 이벤트, 필요�
 
 데이터 집합, 활동, 파이프라인, 연결된 서비스라는 네 가지의 단순한 개념만으로 시작할 준비가 되었습니다. 처음부터 시작하여 [첫 번째 파이프라인을 빌드](data-factory-build-your-first-pipeline.md)하거나 [Data Factory 샘플](data-factory-samples.md)에 있는 지침에 따라 즉시 사용 가능한 샘플을 배포할 수 있습니다.
 
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md)을 통해 의견을 보내주세요.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

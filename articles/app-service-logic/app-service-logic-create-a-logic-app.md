@@ -1,6 +1,6 @@
 <properties
 	pageTitle="논리 앱 만들기 | Microsoft Azure"
-	description="기본 앱 서비스 논리 앱을 만드는 방법 알아보기"
+	description="SaaS 서비스에 연결하는 논리 앱을 만드는 방법에 대해 알아보세요."
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="stepsic"/>
 
-# 새 논리 앱 만들기
+# SaaS 서비스에 연결하는 새 논리 앱 만들기
 
 | 빠른 참조 |
 | --------------- |
@@ -94,15 +94,19 @@
 
 1. **논리 앱 만들기** 뷰에서 **트리거 및 작업**을 클릭합니다.
 
-	그러면 흐름을 표시하는 전체 화면 디자이너가 표시됩니다. 오른쪽에 트리거를 포함할 수 있는 모든 서비스의 목록이 표시됩니다.
+	그러면 흐름을 표시하는 전체 화면 디자이너와 시작할 수 있는 일부 템플릿이 표시됩니다.
+	
+2. 이 자습서에서는 **처음부터 만들겠습니다**. 유용하다고 생각될 경우 언제나 템플릿을 사용할 수 있습니다.
+    
+    이제 오른쪽에 트리거를 포함할 수 있는 모든 서비스의 목록이 표시됩니다.
 
-2. 위쪽 섹션에서 **되풀이**를 클릭합니다.
+3. 위쪽 섹션에서 **되풀이**를 클릭합니다.
 
 	그러면 되풀이 설정을 지정할 수 있는 상자가 추가됩니다.
 
 	![되풀이](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-3.  되풀이 **빈도** 및 **간격**(예: 1시간마다 한 번씩)을 선택하고 녹색 확인 표시를 클릭합니다.
+4.  되풀이 **빈도** 및 **간격**(예: 1시간마다 한 번씩)을 선택하고 녹색 확인 표시를 클릭합니다.
 
 이제 흐름에 작업을 추가합니다.
 
@@ -184,4 +188,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
