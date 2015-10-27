@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Microsoft Azure를 사용하는 모바일 개발이 처음이라면 Azure 모바일 서비스대신 [Azure 모바일 앱 시작](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)이 [추가적인 이점을](app-service-mobile-value-prop-migration-from-mobile-services-preview.md) 제공합니다.
+>[AZURE.TIP]Microsoft Azure를 사용하는 모바일 개발이 처음이라면 Azure 모바일 서비스 대신 [Azure 모바일 앱부터 시작](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)하세요. 모바일 앱이 [추가적인 이점](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)을 제공합니다.
 
 이 자습서는 Azure 모바일 서비스를 사용하여 Xamarin iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 _할 일 모음_ 앱을 둘 다 만듭니다. 생성되는 모바일 서비스에서는 Visual Studio에서 지원되는 .NET 언어를 서버 쪽 비즈니스 논리와 모바일 서비스 관리에 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성할 수 있게 해 주는 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전]을 참조하세요.
 
@@ -138,4 +138,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

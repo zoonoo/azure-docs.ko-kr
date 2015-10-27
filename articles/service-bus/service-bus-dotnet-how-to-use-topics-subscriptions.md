@@ -1,6 +1,6 @@
 <properties
-    pageTitle="서비스 버스 토픽을 사용하는 방법(.NET) | Microsoft Azure"
-    description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다."
+    pageTitle=".NET으로 서비스 버스 토픽 사용 | Microsoft Azure"
+    description="Azure에서 .NET으로 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다."
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -9,16 +9,18 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/06/2015"
+    ms.date="10/15/2015"
     ms.author="sethm"/>
 
-# Azure 서비스 버스 토픽 및 구독을 사용하는 방법
+# 서비스 버스 토픽 및 구독을 사용하는 방법
 
-이 문서에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. 여기서 다루는 시나리오에는 토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기, 구독에서 메시지 받기, 토픽 및 구독 삭제 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#Next-steps) 섹션을 참조하세요.
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+이 문서에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. 여기서 다루는 시나리오에는 토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기, 구독에서 메시지 받기, 토픽 및 구독 삭제 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은[ 다음 단계](#Next-steps) 섹션을 참조하세요.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -172,7 +174,7 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 
 토픽에 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지를 지정하는 필터를 설정할 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 형식의 필터는 SQL92 하위 집합을 구현하는 [SqlFilter][] 클래스입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하세요.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 [SqlFilter][] 클래스입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하세요.
 
 다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 [SqlFilter][] 개체를 사용하여 **HighMessages**라는 구독을 만듭니다.
 
@@ -218,7 +220,7 @@ Client.Send(new BrokeredMessage());
 
 서비스 버스 토픽으로 전송된 메시지는 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 클래스 인스턴스입니다. [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 개체에는 표준 속성 집합(예: [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 및 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 개체 생성자에 직렬화된 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 **DataContractSerializer**를 사용하여 개체를 직렬화합니다. 또는 **System.IO.Stream**을 제공할 수 있습니다.
 
-다음 예제에서는 이전 코드 예제에서 얻은 **TestTopic** [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) 개체에 테스트 메시지 5개를 보내는 방법을 보여 줍니다. 루프의 반복에 따라 각 메시지의 [MessageNumber](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) 속성 값이 변경되며 이 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
+다음 예제는 5개의 테스트 메시지를 앞의 코드 예제에서 얻은 **TestTopic** [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) 개체로 보내는 방법을 보여줍니다. 루프의 반복에 따라 각 메시지의 [MessageNumber](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) 속성 값이 변경되며 이 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
 
 ```
 for (int i=0; i<5; i++)
@@ -325,4 +327,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [서비스 버스 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -24,6 +24,10 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
+
+
 이 자습서에서는 Preview 포털에서 Azure 가상 컴퓨터를 몇 분 내에 간단하게 만드는 방법을 보여 줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 가상 컴퓨터를 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
 사용자 고유의 이미지, 리소스 관리자 템플릿 또는 자동화 도구를 사용하여 가상 컴퓨터를 만들 수도 있습니다. 여러 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)을 참조하세요.
@@ -56,7 +60,7 @@
 
 이미지를 선택한 후에는 대부분의 구성에 Azure 기본 설정을 그대로 사용하여 신속하게 가상 컴퓨터를 만들 수 있습니다.
 
-1. **가상 컴퓨터 만들기** 블레이드에서 **기본**을 클릭합니다. 가상 컴퓨터에 대한 원하는 **이름**을 입력하고 **관리 사용자 이름** 및 강력한 **암호**를 입력합니다. 구독이 둘 이상인 경우 새 가상 컴퓨터에 대한 구독을 지정하고 새로운 또는 기존 **리소스 그룹** 및 Azure 데이터 센터 **위치**도 지정합니다.
+1. **가상 컴퓨터 만들기** 블레이드에서 **기본 사항**을 클릭합니다. 가상 컴퓨터에 대한 원하는 **이름**을 입력하고 **관리 사용자 이름** 및 강력한 **암호**를 입력합니다. 구독이 둘 이상인 경우 새 가상 컴퓨터에 대한 구독을 지정하고 새로운 또는 기존 **리소스 그룹** 및 Azure 데이터 센터 **위치**도 지정합니다.
 
 	![VM 기본 사항 구성](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
@@ -94,7 +98,7 @@
 
 4. **열기**를 클릭하여 Windows Server 가상 컴퓨터에 대해 자동으로 만들어진 원격 데스크톱 프로토콜 파일을 사용합니다.
 
-5. **연결**을 클릭합니다.
+5. **Connect**를 클릭합니다.
 
 6. 가상 컴퓨터를 만들 때 설정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
 
@@ -107,4 +111,4 @@
 * Azure PowerShell 및 Azure CLI를 사용하여 [가상 컴퓨터 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
 * [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터와 워크로드 배포 및 관리를 자동화합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
@@ -31,17 +31,18 @@
 
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
-- 호환되는 VPN 장치(및 구성할 수 있는 사람). [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
+- 호환되는 VPN 장치(및 구성할 수 있는 사람). [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
 
 - VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
-
->[AZURE.IMPORTANT]VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
 	
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-- 최신 버전의 Azure PowerShell cmdlet. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다. 이 문서는 Azure PowerShell *0.9.8*을 위해 작성되었습니다.
+- Azure PowerShell 0.9.8 cmdlet. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다. 이 문서는 0.9.8용으로 작성되었지만 PowerShell 1.0 Preview에서 이러한 단계를 사용할 수 있습니다(cmdlet을 약간 수정해야 함).
 
->[AZURE.NOTE]중요 업무용 앱을 실행하는 경우 Azure PowerShell 0.9.8을 계속 사용하세요. 대부분의 경우 두 버전 간의 유일한 차이점은 1.0 Preview cmdlet 이름은 {동사}-AzureRm{명사} 패턴을 따르는 반면 0.9.8 이름에는 Rm이 포함되지 않습니다. 예를 들어 New-AzureResourceGroup 대신 New-AzureRmResourceGroup입니다. Azure PowerShell 1.0 Preview에 대한 자세한 내용은 이 [블로그 게시물](https://azure.microsoft.com/blog/azps-1-0-pre/)을 참조하세요. Azure PowerShell 1.0 Preview cmdlet에 대한 자세한 내용은 [Azure 리소스 관리자 Cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)을 참조하세요.
+**Azure PowerShell 1.0 Preview에서 다음 단계를 사용할 경우 정보**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
+	
 
 
 ## 1\. 구독에 연결 
@@ -251,6 +252,6 @@ VPN 연결을 만들었고 로컬 사이트에 포함된 IP 주소 접두사를 
 
 ## 다음 단계
 
-가상 네트워크에 가상 컴퓨터를 추가합니다. [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md).
+가상 네트워크에 가상 컴퓨터를 추가합니다. [가상 컴퓨터를 만듭니다](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

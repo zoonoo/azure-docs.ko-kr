@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Azure Preview 포털을 사용하여 SQL 데이터 웨어하우스 만들기#
@@ -121,6 +121,6 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
 ## 다음 단계
 
-이제 SQL 데이터 웨어하우스에 대한 예제 데이터베이스를 만들었으므로, [연결 및 쿼리](./sql-data-warehouse-get-started-connect-query.md)에서는 SQL 데이터 웨어하우스를 사용하는 방법에 대해 더 자세히 알아봅니다.
+이제 SQL 데이터 웨어하우스의 샘플 데이터베이스를 만들었으므로 데이터베이스에 [연결](./sql-data-warehouse-get-started-connect.md)할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

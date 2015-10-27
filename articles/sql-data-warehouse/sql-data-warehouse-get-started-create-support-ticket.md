@@ -10,10 +10,10 @@
 <tags
     ms.service="sql-data-warehouse"
     ms.devlang="NA"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="10/05/2015"
+    ms.date="10/20/2015"
     ms.author="sahaj08"/>
 
 # SQL 데이터 웨어하우스에 대한 지원 티켓 만들기
@@ -84,4 +84,4 @@
 [S스택 오버플로]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
