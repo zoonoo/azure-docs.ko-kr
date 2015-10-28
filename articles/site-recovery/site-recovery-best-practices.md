@@ -63,7 +63,11 @@ FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 �
 
 ## VMM 서버
 
-사이트 복구는 다음과 같이 시스템 센터 가상 컴퓨터 관리자(VMM) 클라우드 내 Hyper-V 호스트 서버에 위치한 가상 컴퓨터에 대한 복제를 오케스트레이션할 수 있습니다. - 온 사이트 VMM 서버에서 Azure로 복제(Hyper-V 복제본 사용) - 보조 온-프레미스 사이트로 복제(Hyper-V 복제본 사용). 기본 사이트에서 VMM 서버 1개, 보조 사이트에서 1개와 함께 배포할 것을 권장합니다. 그러나 필요한 경우 두 사이트에 모두 [단일 VMM 서버를 배포](site-recovery-single-vmm.md)할 수 있습니다. - 보조 온-프레미스 사이트로 복제(SAN 사용) 각 사이트에 VMM 서버 1개가 있는 기본 및 보조 데이터 센터가 필요합니다. 사이트 복구를 사용하여 VMM을 배포하려면 VMM 인프라를 설정해야 합니다. VMM 서버가 없다면 [여기서](site-recovery-hyper-v-site-to-azure.md) 더 읽으십시오.
+사이트 복구는 다음과 같이 시스템 센터 가상 컴퓨터 관리자(VMM) 클라우드 내 Hyper-V 호스트 서버에 위치한 가상 컴퓨터에 대한 복제를 오케스트레이션할 수 있습니다.
+	- 온 사이트 VMM 서버에서 Azure로 복제(Hyper-V 복제본 사용)
+	- 보조 온-프레미스 사이트로 복제(Hyper-V 복제본 사용). 기본 사이트에서 VMM 서버 1개, 보조 사이트에서 1개와 함께 배포할 것을 권장합니다. 그러나 필요한 경우 두 사이트에 모두 [단일 VMM 서버를 배포](site-recovery-single-vmm.md)할 수 있습니다.
+	- 보조 온-프레미스 사이트로 복제(SAN 사용) 각 사이트에 VMM 서버 1개가 있는 기본 및 보조 데이터 센터가 필요합니다.
+사이트 복구를 사용하여 VMM을 배포하려면 VMM 인프라를 설정해야 합니다. VMM 서버가 없다면 [여기서](site-recovery-hyper-v-site-to-azure.md) 더 읽으십시오.
 
 
 ### VMM 버전 확인
@@ -103,11 +107,11 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 
 	- 공급자 설치 전에 사용자 지정 프록시 서버를 설정합니다.
 	- 방화벽을 통해 다음 URL을 허용:
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
 	- VMM으로 사이트 복구를 배포하고 사용자 지정 프록시를 사용하는 경우 VMM RunAs 계정 (DRAProxyAccount)이 사이트 복구 포털 내 사용자 지정 프록시 설정에서 지정한 프록시 자격 증명을 사용하여 자동으로 생성됩니다. 이 계정이 성공적으로 인증될 수 있도록 프록시 서버를 설정해야 합니다.
 
@@ -194,4 +198,4 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
