@@ -369,7 +369,14 @@ Similarly, install Courier module on your production site and configure it point
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Umbraco CMS 웹앱 대시보드에서 Courier2 탭을 클릭하고 위치를 선택합니다. `courier.config`에서 설명한 것처럼 리포지토리 이름이 표시될 것입니다. 프로덕션과 스테이징 웹앱 모두에 대해 이 작업을 수행합니다.
 
@@ -422,4 +429,4 @@ Courier는 Umbraco CMS의 한 버전을 다른 버전으로 업그레이드하�
 
 [비 프로덕션 배포 슬롯에 대한 웹 액세스를 차단하는 방법](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
