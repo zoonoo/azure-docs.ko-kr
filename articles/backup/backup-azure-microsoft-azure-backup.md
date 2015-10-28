@@ -66,7 +66,7 @@ Microsoft Azure 백업을 설치하려는 서버를 선택하면 다음을 수�
 - Microsoft Azure 백업 서버는 도메인에 연결되어야 합니다.
 - Microsoft Azure 백업 서버에는 .Net 3.5,.Net 4.0,.Net 3.5 SP1 기능이 설치되어야 합니다. 추가 정보는 [.NET Framework를 사용하는 방법에 대한 자세한 내용](https://technet.microsoft.com/library/dn482071.aspx)을 참조하세요.
 - Microsoft Azure 백업 서버에는 Windows Management Framework 4.0이 설치되어야 합니다. [여기](http://www.microsoft.com/download/details.aspx?id=40855)에서 다운로드할 수 있습니다.
-- Microsoft Azure 백업 서버 데이터 저장소에 대한 전용 공간으로 사용되는 디스크의 경우 권장되는 저장소 풀 크기는 보호된 데이터의 1.5배 크기입니다. 자세한 내용은 [이 항목]의 디스크 및 저장소 섹션을 참조하십시오.(https://technet.microsoft.com/library/hh758176.aspx#DPM 서버)
+- Microsoft Azure 백업 서버 데이터 저장소에 대한 전용 공간으로 사용되는 디스크의 경우 권장되는 저장소 풀 크기는 보호된 데이터의 1.5배 크기입니다. 자세한 내용은 [이 항목](https://technet.microsoft.com/library/hh758176.aspx#DPM 서버)의 디스크 및 저장소 섹션을 참조하십시오.
 
 Microsoft Azure 백업 서버를 준비하여 다음으로 데이터를 백업합니다.
 
@@ -290,7 +290,7 @@ Q: Microsoft Azure 백업 서버에 대한 요금 청구 모델은 무엇입니�
 <br>A: 보호된 인스턴스 모델을 통해 사용자에게 요금이 청구됩니다. 자세한 내용은 [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지에서 FAQ를 참조합니다.
 
 Q: 디스크에 데이터를 보호한 경우 요금 청구 모델은 무엇입니까?
-<br>A:는 요금 청구 모델은 보호된 인스턴스 모델과 같습니다. 해당 데이터가 온-프레미스 저장소에서 보호되므로 디스크 기반 백업의 경우 Azure 저장소 요금이 없습니다. 이 경우 보호된 인스턴스 요금만 고객에게 청구됩니다. 인스턴스의 정의가 무엇이고 인스턴스당 얼마가 청구되는지에 대한 자세한 내용은 [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지의 FAQ를 참조합니다.
+<br>A: 는 요금 청구 모델은 보호된 인스턴스 모델과 같습니다. 해당 데이터가 온-프레미스 저장소에서 보호되므로 디스크 기반 백업의 경우 Azure 저장소 요금이 없습니다. 이 경우 보호된 인스턴스 요금만 고객에게 청구됩니다. 인스턴스의 정의가 무엇이고 인스턴스당 얼마가 청구되는지에 대한 자세한 내용은 [가격 책정](http://azure.microsoft.com/pricing/details/backup/) 페이지의 FAQ를 참조합니다.
 
 Q: 보호된 인스턴스당 요금이란 무엇입니까?
 <br>A: [가격 책정 페이지](http://azure.microsoft.com/pricing/details/backup/)를 참조합니다.
@@ -309,4 +309,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 - [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

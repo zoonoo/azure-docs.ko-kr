@@ -19,6 +19,7 @@
 # <a name="getting-started"> </a>모바일 서비스 및 Sencha Touch 시작
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -37,9 +38,9 @@
 
 ##요구 사항
 
-- [Sencha Touch]를 다운로드하여 설치합니다(http://wwww.sencha.com/products/touch/download" target="\_blank").
+- [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="\_blank") 를 다운로드하여 설치합니다.
 
-- [Sencha Cmd Tool]을 다운로드하여 설치합니다(http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
+- [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank") 을 다운로드하여 설치합니다.
 
 - JRE(Java Runtime Environment) 또는 Java Development Kit(Android 앱을 만드는 경우)
 
@@ -63,7 +64,7 @@
 
 3. **TodoItems 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
-	> [AZURE.NOTE]관리 포털에서 HTML 앱을 다운로드하지 마세요. 대신, 아래 섹션에서 직접 Sencha Touch 응용 프로그램을 만듭니다.
+	> [AZURE.NOTE] 관리 포털에서 HTML 앱을 다운로드하지 마세요. 대신, 아래 섹션에서 직접 Sencha Touch 응용 프로그램을 만듭니다.
 
 
 1. 관리 포털에서 **appKey** 및 **appUrl**을 기록해 두십시오. 이 자습서의 다른 섹션에서 이 정보를 사용합니다.
@@ -107,7 +108,7 @@ Azure용 확장 프로그램은 수동으로 또는 Sencha 패키지로 설치�
 
 ###Sencha 패키지로 설치
 
-> [AZURE.NOTE]<code>sencha generate app</code> 명령을 사용하여 응용 프로그램을 생성한 경우에만 이 방법을 사용할 수 있습니다.
+> [AZURE.NOTE] <code>sencha generate app</code> 명령을 사용하여 응용 프로그램을 생성한 경우에만 이 방법을 사용할 수 있습니다.
 
 Sencha Cmd로 생성된 모든 응용 프로그램에는 루트에 "packages" 폴더가 있습니다. 이 폴더의 위치는 구성할 수 있지만, 위치에 상관없이 "packages" 폴더의 역할은 응용 프로그램에서 사용되는 모든 패키지(또는 Sencha Workspace를 만든 경우 여러 응용 프로그램)의 저장소 역할입니다.
 
@@ -671,7 +672,7 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 
   3. 터미널에서 나열된 URL(예: http://localhost:1841))을 웹 브라우저에서 열고 앱을 시작합니다.
 
-  4. 앱에서 "Complete the tutorial" 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
+  4. 앱에서 "자습서 완료" 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
 
     ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
 
@@ -716,4 +717,4 @@ Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](h
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
