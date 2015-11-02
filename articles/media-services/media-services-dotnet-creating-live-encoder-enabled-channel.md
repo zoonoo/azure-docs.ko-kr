@@ -1,9 +1,9 @@
 <properties 
 	pageTitle=".NET SDK를 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기" 
-	description="이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다." 
+	description="이 자습서에서는 .NET SDK를 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
@@ -517,4 +517,4 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 
 이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

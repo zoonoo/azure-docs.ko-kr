@@ -1,19 +1,19 @@
-<properties
-	pageTitle="작동 방법: Azure AD 암호 관리 | Microsoft Azure"
-	description="사용자가 암호를 등록, 재설정 및 변경하는 위치, 관리자가 온-프레미스 Active Directory 암호의 관리를 구성, 보고 및 사용하도록 설정하는 위치를 포함하여 Azure AD 암호 관리의 다양 한 구성 요소에 대해 알아봅니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="작동 방법: Azure AD 암호 관리 | Microsoft Azure" 
+	description="사용자가 암호를 등록, 재설정 및 변경하는 위치, 관리자가 온-프레미스 Active Directory 암호의 관리를 구성, 보고 및 사용하도록 설정하는 위치를 포함하여 Azure AD 암호 관리의 다양 한 구성 요소에 대해 알아봅니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리의 작동 원리
@@ -38,7 +38,8 @@ Azure Active Directory에서 암호 관리는 아래에 설명된 여러 논리 
  - 보안 질문(지식 기반 인증)
 - 보안 질문 인증 방법을 사용하기 위해 사용자가 등록해야 하는 질문의 수 설정(보안 질문을 사용하는 경우만 표시)
 - 보안 질문 인증 방법을 사용하기 위해 사용자가 재설정 중에 제공해야 하는 질문의 수 설정(보안 질문을 사용하는 경우만 표시)
-- 보안 질문 인증 방법을 사용하기 위해 사용자가 등록할 수 있는 사용자 지정 보안 질문 정의(보안 질문을 사용하는 경우만 표시)
+- 사용자가 암호를 재설정하기 위해 등록할 때 사용하려고 선택한 미리 준비된 지역화된 보안 질문 사용(보안 질문을 사용하는 경우만 표시)
+- 사용자가 암호를 재설정하기 위해 등록할 때 사용하려고 선택한 사용자 지정 보안 질문 정의(보안 질문을 사용하는 경우만 표시)
 - 사용자가 응용 프로그램 액세스 패널([http://myapps.microsoft.com](http://myapps.microsoft.com))로 이동할 때 암호 재설정에 대한 등록 필요
 - 구성 가능한 일수가 경과한 후 이전에 등록한 데이터에 대한 사용자의 재확인 필요(강제 등록을 사용하는 경우에만 표시)
 - 사용자가 암호를 재설정하는 데 문제가 있는 경우 사용자에게 표시할 사용자 지정 기술 지원팀 전자 메일 또는 URL 제공
@@ -121,4 +122,4 @@ Azure AD Connect에 대한 자세한 내용은 [시작: Azure AD Connect](active
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

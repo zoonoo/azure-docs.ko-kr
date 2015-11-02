@@ -1,7 +1,7 @@
 <properties
 	pageTitle="처리량을 높이기 위한 스트림 분석 작업 규모 지정 | Microsoft Azure"
 	description="입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 단위를 설정하여 스트림 분석 작업의 크기를 조정하는 방법을 알아봅니다."
-	keywords="analytics jobs,data stream,data streaming"
+	keywords="분석 작업, 데이터 스트림, 데이터 스트리밍"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -232,7 +232,7 @@ Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 �
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## 도움말 보기 ##
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계 ##
@@ -265,4 +265,4 @@ Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 �
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

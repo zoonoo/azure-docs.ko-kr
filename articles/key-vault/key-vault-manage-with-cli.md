@@ -132,7 +132,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 
 그러나 Azure 키 자격 증명 모음에 업로드하려는 softkey.pem이라는 파일에 로컬 파일로 저장된 .pem 파일의 기존 키가 있는 경우 다음을 입력하여 키 자격 증명 모음 서비스에서 소프트웨어로 키를 보호하는 .PEM 파일에서 키를 가져옵니다.
 
-    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
+    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
 이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
 
@@ -145,7 +145,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 방금 만든 키 또는 암호를 확인해 보겠습니다.
 
 - 사용자의 키를 보려면 다음을 입력 합니다. `azure keyvault key list --vault-name 'ContosoKeyVault'`
-- 사용자의 비밀을 보려면 다음을 입력 합니다. `azure keyvault secret list -–vault-name 'ContosoKeyVault'`
+- 사용자의 비밀을 보려면 다음을 입력 합니다. `azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 
 ## Azure Active Directory에 응용 프로그램 등록
@@ -207,7 +207,7 @@ keyvault를 만들 때 'sku' 매개 변수를 추가합니다.
 
 다음 명령을 사용하여 사용자 컴퓨터의 .pem 파일에서 키를 가져올 수 있습니다. 이 명령은 키 자격 증명 모음 서비스에서 HSM으로 키를 가져옵니다.
 
-    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' –-password 'PaSSWORD'
+    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' --password 'PaSSWORD'
 
 다음 명령은 "bring your own key"(BYOK) 패키지를 가져옵니다. 이렇게 하면 로컬 HSM에 키를 생성하고 키가 HSM 경계를 벗어나지 않고 이를 키 자격 증명 모음 서비스의 HSM에 전달합니다.
 
@@ -237,7 +237,7 @@ Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 �
 
 이 명령은 지정된 키에 대한 속성의 전체 목록을 표시합니다.
 
-    azure keyvault key show --vault-name 'ContosoKeyVault' –-key-name 'ContosoFirstKey'
+    azure keyvault key show --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey'
 
 이 명령은 모든 비밀 이름과 선택한 속성을 테이블 형식으로 표시합니다.
 
@@ -256,4 +256,4 @@ Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 �
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Java용 Application Insights에 대한 릴리스 정보" 
-	description="최신 업데이트입니다." 
+	description="Java SDK에 대한 최신 업데이트입니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -68,4 +68,4 @@
 - 보고된 항목에 ```SyntheticSource``` 속성을 추가하여 원격 분석 항목에 가상으로 태그를 지정할 수 있습니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

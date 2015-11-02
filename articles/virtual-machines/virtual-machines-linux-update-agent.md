@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Github에서 Azure Linux 에이전트 업데이트 | Microsoft Azure"
+	pageTitle="GitHub에서 Azure Linux 에이전트 업데이트 | Microsoft Azure"
 	description="Azure Linux VM의 Azure Linux 에이전트를 Github의 최신 버전으로 업데이트하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.author="mingzhan"/>
 
 
-# VM의 Azure Linux 에이전트를 Github의 최신 버전으로 업데이트하는 방법
+# VM의 Azure Linux 에이전트를 GitHub의 최신 버전으로 업데이트하는 방법
 
 Azure Linux VM에서 [Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent)를 업데이트하려면 다음 항목이 이미 있어야 합니다.
 
@@ -56,7 +56,7 @@ SSH를 사용하여 VM에 로그인합니다.
 
 ## 최신 버전 다운로드
 
-웹 페이지에서 [Github의 Azure Linux 에이전트 릴리스](https://github.com/Azure/WALinuxAgent/releases)를 열고 최신 버전 번호를 확인합니다. `#waagent --version`을 입력하면 현재 버전을 찾을 수 있습니다.
+웹 페이지에서 [GitHub의 Azure Linux 에이전트 릴리스](https://github.com/Azure/WALinuxAgent/releases)를 열고 최신 버전 번호를 확인합니다. `#waagent --version`을 입력하면 현재 버전을 찾을 수 있습니다.
 
 ###버전 2.0.x의 경우 다음을 입력합니다.
 
@@ -126,4 +126,4 @@ Linux 에이전트 버전이 새 버전으로 업데이트된 것을 확인할 �
 
 Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트 추가 정보](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -5,17 +5,23 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Azure 포털에서 VPN 게이트웨이 구성
+
+>[AZURE.NOTE]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
+
+이 문서는 클래식 배포 모델 및 Azure 포털(미리 보기 포털 제외)에 대해 작성되었습니다. 이번에 포털을 사용하여 클래식 배포 모델에 대한 VPN 게이트웨이를 구성하려는 경우 Azure 포털을 사용해야 합니다.
 
 Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만들려면 VPN 게이트웨이를 구성해야 합니다. 다양한 유형의 게이트웨이가 있으며, 만들 게이트웨이의 유형은 네트워크 설계 계획과 사용하려는 온-프레미스 VPN 장치에 따라 다릅니다. 예를 들어 지점 및 사이트 간 연결과 같은 일부 연결 옵션은 동적 라우팅 게이트웨이가 필요합니다. 지점 및 사이트 간(P2S) 연결과 사이트 간(S2S) 연결을 모두 지원하도록 게이트웨이를 구성하려면, 두 게이트웨이 라우팅 유형 중 하나로 사이트 간 연결을 구성할 수 있더라도 동적 라우팅 게이트웨이를 구성해야 합니다. 또한 사이트 간 연결에 사용하려는 장치가 만들려는 게이트웨이 유형을 지원하는지 확인해야 합니다. [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
@@ -151,4 +157,4 @@ VPN 게이트웨이 라우팅 유형을 변경해야 하는 경우 기존 게이
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

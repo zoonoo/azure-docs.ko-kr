@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB에서 일관성 수준 | Microsoft Azure" 
 	description="DocumentDB에는 결과적 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 네 가지 일관성 수준 및 관련된 성능 수준이 있습니다." 
-	keywords="eventual consistency, documentdb, azure, Microsoft azure"
+	keywords="최종 일관성, Documentdb, Azure, Microsoft Azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -40,9 +40,9 @@
  
 강력한 일관성은 절대적인 데이터 일관성을 보장하지만 읽기 및 쓰기 성능 수준이 가장 낮습니다.
 
-**제한된 부실**: 제한된 부실 일관성은 쓰기의 전체 전파 순서를 보장하고 읽기가 최대 K 접두사만큼 쓰기보다 지연될 수 있습니다. 읽기는 항상 과반수 쿼럼의 복제본에서 승인됩니다. 읽기 요청의 응답은 K와 관련해서 상대 새로 고침을 지정합니다.
+**제한된 부실**: 제한된 부실 일관성은 쓰기의 전체 전파 순서를 보장하고 읽기가 최대 K 접두사만큼 쓰기보다 지연될 수 있습니다. 읽기는 항상 과반수 쿼럼의 복제본에서 승인됩니다. 읽기 요청의 응답은 K와 관련해서 상대 새로 고침을 지정합니다. 제한된 부실의 경우 읽기에 부실의 구성 가능한 임계값을 (접두사 또는 시간으로) 설정하여 안정적인 상태에서 대기 시간 및 일관성의 균형을 유지할 수 있습니다.
 
-제한된 부실은 보다 예측 가능한 읽기 일관성 동작을 제공하며 쓰기 대기 시간이 가장 짧습니다. 읽기가 과반수 쿼럼에서 승인되기 때문에 읽기 대기 시간은 가장 짧은 시스템 제공 값이 아닙니다.
+제한된 부실은 보다 예측 가능한 읽기 일관성 동작을 제공하며 쓰기 대기 시간이 가장 짧습니다. 읽기가 과반수 쿼럼에서 승인되기 때문에 읽기 대기 시간은 가장 짧은 시스템 제공 값이 아닙니다. 제한된 부실은 강력한 일관성을 원하지만 강력한 일관성이 실용적이지 않은 시나리오에 대한 옵션입니다. 제한된 부실 일관성이 임의적으로 크도록 "부실 간격"을 구성하는 경우 쓰기의 총 전역 순서를 여전히 유지합니다. 세션 또는 최종 보다 강력하게 보장합니다.
 
 >[AZURE.NOTE]제한된 부실은 명시적인 읽기 요청에 대해서만 단조 읽기를 보장합니다. 쓰기 요청에 대해 에코된 서버 응답은 제한된 부실 보증을 제공하지 않습니다.
 
@@ -56,7 +56,7 @@
 
 ### 데이터베이스 일관성 수준 변경
 
-1.  [Azure preview 포털](https://portal.azure.com/)의 점프 모음에서 **DocumentDB 계정**을 클릭합니다.
+1.  [Azure Preview 포털](https://portal.azure.com/)의 점프 모음에서 **DocumentDB 계정**을 클릭합니다.
 
 2. **DocumentDB 계정** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
 
@@ -88,4 +88,4 @@
 -	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

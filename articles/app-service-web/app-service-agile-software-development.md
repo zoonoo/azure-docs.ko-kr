@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -264,7 +264,7 @@ ProdandStage.json에서 스테이징 및 프로덕션 환경이 설정된 방식
 
 ## 요약 ##
 
-Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채택하려는 대부분의 회사에게 필수품입니다. 이 자습서에서는, 프로덕션 환경, 심지어 복잡한 응용 프로그램의 정확하거나 비슷한 복제본을 쉽게 만들고 분리하는 방법에 대해 배웠습니다. 또한, Azure에서 모든 단일 커밋을 구축하고 테스트하는 개발 프로세스를 생성하는 기능을 활용하는 방법을 배웠습니다. 이 자습서는 사용자가 Azure 앱 서비스와 Azure 리소스 관리자를 함께 사용하여 agile 방법론에 부합하는 DevOps 솔루션을 제공하는 최상의 방법을 보여줍니다.
+Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채택하려는 대부분의 회사에게 필수품입니다. 이 자습서에서는, 프로덕션 환경, 심지어 복잡한 응용 프로그램의 정확하거나 비슷한 복제본을 쉽게 만들고 분리하는 방법에 대해 배웠습니다. 또한, Azure에서 모든 단일 커밋을 구축하고 테스트하는 개발 프로세스를 생성하는 기능을 활용하는 방법을 배웠습니다. 이 자습서는 사용자가 Azure 앱 서비스와 Azure 리소스 관리자를 함께 사용하여 agile 방법론에 부합하는 DevOps 솔루션을 제공하는 최상의 방법을 보여줍니다. 다음으로 [프로덕션에서 테스트](app-service-web-test-in-production-get-start.md)와 고급 DevOps 기술을 수행하여 시나리오를 계속 빌드할 수 있습니다. 일반적인 프로덕션 시나리오 테스트의 경우 [Azure 앱 서비스에서 Flighting 배포(베타 테스트)](app-service-web-test-in-production-controlled-test-flight.md)를 참조하세요.
 
 ## 추가 리소스 ##
 
@@ -281,4 +281,4 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

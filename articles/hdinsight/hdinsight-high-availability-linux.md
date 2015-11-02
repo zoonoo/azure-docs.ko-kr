@@ -1,6 +1,6 @@
 <properties
-	pageTitle="HDInsight의 Hadoop 클러스터 가용성 | Microsoft Azure"
-	description="Linux 기반 HDInsight 클러스터는 추가 헤드 노드를 사용하여 안정성과 가용성을 향상합니다."
+	pageTitle="Linux 기반 HDInsight(Hadoop)의 고가용성 기능 | Microsoft Azure"
+	description="Linux 기반 HDInsight 클러스터에서 추가 헤드 노드를 사용하여 안정성과 가용성을 높이는 방법을 알아봅니다. 이것이 Ambari 및 Hive 같은 Hadoop 서비스에 어떻게 영향을 미치는지 알아보고, SSH를 사용하여 각 헤드 노드를 개별적으로 연결하는 방법을 알아봅니다."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
@@ -166,4 +166,4 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

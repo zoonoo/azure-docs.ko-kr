@@ -19,6 +19,7 @@
 
 # Azure 인프라 서비스를 위한 부하 분산#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure 인프라 서비스에 사용할 수 있는 두 가지 수준의 부하 분산이 있습니다.
 
@@ -84,4 +85,4 @@ Azure 부하 분산과 마찬가지로 내부 부하 분산 집합을 구성함�
 
 <!-- LINKS -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

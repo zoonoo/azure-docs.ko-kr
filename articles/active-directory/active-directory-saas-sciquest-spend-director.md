@@ -1,5 +1,5 @@
 <properties
-	pageTitle="자습서: SciQuest Spend Director와 Azure Active Directory 통합"
+	pageTitle="자습서: SciQuest Spend Director와 Azure Active Directory 통합 | Microsoft Azure"
 	description="Azure Active Directory 및 SciQuest Spend Director 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -195,4 +195,4 @@ Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Di
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

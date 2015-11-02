@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 워크로드 3단계: SQL Server 인프라 구성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 배포 모델.
 
 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 서비스 관리에서 두 SQL Server 컴퓨터와 클러스터 주 노드 컴퓨터를 만들고 구성한 다음 Windows Server 클러스터에 결합합니다.
 
@@ -144,7 +143,7 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 
 SQL Server에서는 클라이언트가 데이터베이스 서버에 액세스하는 데 사용하는 포트가 필요합니다. 또한 SQL Server Management Studio에 연결하고 고가용성 그룹을 관리하기 위한 포트도 필요합니다. 다음으로 관리자 수준 Windows PowerShell 명령 프롬프트에서 아래 명령을 두 번(각 SQL Server에 대해 한 번씩) 실행하여 SQL Server에 대한 인바운드 트래픽을 허용하는 방화벽 규칙을 추가합니다.
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 각 SQL Server 가상 컴퓨터에 대해 로컬 관리자로 로그아웃합니다.
 
@@ -164,7 +163,7 @@ SQL Server AlwaysOn 가용성 그룹은 Windows Server의 WSFC(Windows Server �
 - 보조 SQL Server
 - 클러스터 주 노드
 
-장애 조치(failover) 클러스터에는 VM이 3개 이상 필요합니다. 두 컴퓨터는 SQL Server를 호스팅합니다. 두 번째 SQL Server VM은 주 컴퓨터에서 오류가 발생하더라도 데이터가 손실되지 않도록 하는 동기 보조 복제본입니다. 세 번째 컴퓨터는 SQL Server를 호스팅하지 않아도 됩니다. 클러스터 주 노드는 WSFC에서 쿼럼 감시 역할도 수행합니다. WSFC 클러스터는 쿼럼을 사용하여 상태를 모니터링하므로 WSFC 클러스터가 온라인 상태로 유지되도록 항상 주 노드가 있어야 합니다. 클러스터에 컴퓨터가 두 개뿐인데 그 중 하나에 오류가 발생하면 주 노드가 없어지게 됩니다. 자세한 내용은 [WSFC 쿼럼 모드 및 응답 구성(SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx)을 참조하세요.
+장애 조치(failover) 클러스터에는 VM이 3개 이상 필요합니다. 두 컴퓨터는 SQL Server를 호스팅합니다. 두 번째 SQL Server VM은 주 컴퓨터에서 오류가 발생하더라도 데이터가 손실되지 않도록 하는 동기 보조 복제본입니다. 세 번째 컴퓨터는 SQL Server를 호스팅하지 않아도 됩니다. 클러스터 주 노드는 WSFC에서 쿼럼을 제공합니다. WSFC 클러스터는 쿼럼을 사용하여 상태를 모니터링하므로 WSFC 클러스터가 온라인 상태로 유지되도록 항상 주 노드가 있어야 합니다. 클러스터에 컴퓨터가 두 개뿐인데 그 중 하나에 오류가 발생하면 주 노드가 없어지게 됩니다. 자세한 내용은 [WSFC 쿼럼 모드 및 응답 구성(SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx)을 참조하세요.
 
 두 SQL Server 컴퓨터 및 클러스터 주 노드에 대해 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -233,4 +232,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

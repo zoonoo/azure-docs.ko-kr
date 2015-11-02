@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="데이터 수집 | Microsoft Azure" 
+	pageTitle="분석용 저장소 환경에 데이터 로드 | Microsoft Azure" 
 	description="Azure Blob 저장소의 데이터 이동" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/19/2015" 
 	ms.author="bradsev" />
 
-# 데이터 수집
+# 분석용 저장소 환경에 데이터 로드
 
 ## 소개
 
@@ -28,4 +28,4 @@ CAP(Cortana 분석 프로세스)는 프로세스의 각 단계에서 가장 적�
 
 데이터의 처음 위치, 형식 및 크기는 물론 기술 및 비즈니스 요구에 따라 분석의 목표를 달성하기 위해 데이터를 수집해야 하는 대상 환경이 결정됩니다. 예측 모델을 구성하는 데 필요한 다양한 작업을 구현하기 위해 데이터가 여러 환경 사이를 이동해야 하는 시나리오는 일반적이지 않습니다. 이 작업 시퀀스에는 데이터 탐색, 사전 처리, 정리, 다운 샘플링, 모델 학습 등이 포함될 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

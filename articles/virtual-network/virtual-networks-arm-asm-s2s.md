@@ -272,9 +272,9 @@ ARM VNet(vnet02)에 대해 만든 게이트웨이의 IP 주소를 사용하도�
 
 4. 방금 다운로드한 파일을 열고 **vnet02**에 대한 **LocalNetworkSite** 요소를 편집하여 위의 1단계에서 얻은 새 VNet에 대한 게이트웨이의 IP 주소를 추가합니다. 요소는 아래 샘플과 유사해야 합니다.
 
-	      <LocalNetworkSite name="vnet03">
+	      <LocalNetworkSite name="vnet02">
 	        <AddressSpace>
-	          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+	          <AddressPrefix>10.2.0.0/16</AddressPrefix>
 	        </AddressSpace>
 	        <VPNGatewayAddress>23.99.213.28</VPNGatewayAddress>
 	      </LocalNetworkSite>
@@ -363,4 +363,4 @@ ARM VNet(vnet02)에 대해 만든 게이트웨이의 IP 주소를 사용하도�
 - [ARM에 대한 NRP(네트워크 리소스 공급자)](../resource-groups-networking.md)에 대해 자세히 알아봅니다.
 - [클래식 VNet과 ARM VNet 간의 S2S VPN 연결을 만드는](../virtual-networks-arm-asm-s2s-howto.md) 방법에 대한 일반적인 지침을 살펴봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업"
+	pageTitle="Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업 | Microsoft Azure"
 	description="Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업에 대해 설명"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
@@ -50,7 +50,7 @@ Q: 이미 업로드한 인증서를 다시 업로드하지 않고 선택할 수 
 
 ## 추가 리소스
 
-* [조직으로 Azure 등록](..sign-up-organization.md)
-* [Azure ID](..fundamentals-identity.md)
+* [조직으로 Azure 등록](sign-up-organization.md)
+* [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

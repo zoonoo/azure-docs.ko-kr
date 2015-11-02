@@ -3,8 +3,8 @@
    description="Azure 테이블 저장소에서 확장형 및 영구 테이블 디자인"
    services="storage"
    documentationCenter="na"
-   authors="tamram" 
-   manager="carolz"
+   authors="jasonnewyork" 
+   manager="tadb"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage"
    ms.date="08/03/2015"
-   ms.author="tamram"/>
+   ms.author="jahogg"/>
 
 # Azure 저장소 테이블 디자인 가이드: 확장성이 뛰어난 디자인 및 성능이 뛰어난 테이블
 
@@ -1550,4 +1550,4 @@ SAS(공유 액세스 서명) 토큰을 사용하여 클라이언트 응용 프�
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

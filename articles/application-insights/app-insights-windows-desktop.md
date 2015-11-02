@@ -62,11 +62,11 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     * 코어 API 패키지 Microsoft.ApplicationInsights를 설치한 경우 main()와 같은 코드에서 키를 설정해야 합니다. 
 
-     `TelemetryConfiguration.Active.InstrumentationKey = "`*키*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*키*`";`
 
     * 다른 패키지 중 하나를 설치한 경우 코드를 사용하여 키를 설정하거나 ApplicationInsights.config에서 설정할 수 있습니다.
  
-     `<InstrumentationKey>`*키*`</InstrumentationKey>`
+    `<InstrumentationKey>`*키*`</InstrumentationKey>`
 
 
 
@@ -299,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties      
     pageTitle="분할을 사용한 DocumentDB의 분할 및 데이터 조정 | Microsoft Azure"      
     description="분할이라는 기술을 사용하여 데이터의 크기를 조정하는 방법을 검토합니다. 분할, DocumentDB에서 데이터를 분할하는 방법 및 해시 및 범위 분할을 사용해야 하는 경우에 대해 알아봅니다."         
-    keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
+    keywords="데이터, 분할, 분할, Documentdb, Azure, Microsoft Azure의 크기 조정"
 	services="documentdb"      
     authors="arramac"      
     manager="jhubbard"      
@@ -112,4 +112,4 @@ DocumentDB에서는 언제라도 컬렉션을 추가 및 제거하고, 이를 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

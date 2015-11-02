@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="10/16/2015"
    ms.author="joaoma" />
 
 
@@ -77,4 +77,4 @@ Azure 부하 분산 장치를 사용한 템플릿은 커뮤니티 생성 템플�
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

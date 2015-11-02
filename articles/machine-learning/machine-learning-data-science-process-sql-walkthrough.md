@@ -1,8 +1,7 @@
 <properties
-	pageTitle="활성 중인 고급 분석 프로세스 및 기술: SQL Server 사용하기 | Microsoft Azure"
+	pageTitle="실행 중인 Cortana 분석 프로세스: SQL Server 사용 | Microsoft Azure"
 	description="활성 중인 고급 분석 프로세스 및 기술"  
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -14,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015" 
+	ms.date="10/18/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
-# 활성 중인 고급 분석 프로세스 및 기술: SQL Server 사용하기
+# 실행 중인 Cortana 분석 프로세스: SQL Server 사용
 
 이 자습서에서는 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 모델 빌드 및 배포를 연습합니다. 절차는 Azure ADAPT(고급 분석 프로세스 및 기술) 가이드를 따릅니다.
 
@@ -715,4 +714,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

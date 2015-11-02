@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/19/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect Health 작업
@@ -95,7 +95,7 @@ Azure AD Connect Health는 다음과 같은 기본 제공 역할을 지원합니
 
 Azure AD Connect는 두 수준에서 액세스 관리를 지원합니다.
 
-- ***디렉터리***: 대부분의 고객에 대 한 권장되는 경로이며 Azure AD Connect Health에서 모니터링되는 모든 역할 형식에서 모든 서비스 인스턴스(예: ADFS 팜)에 대한 액세스를 제어합니다.
+- ***모든 서비스 인스턴스***: 대부분의 고객에 대 한 권장되는 경로이며 Azure AD Connect Health에서 모니터링되는 모든 역할 형식에서 모든 서비스 인스턴스(예: ADFS 팜)에 대한 액세스를 제어합니다.
 
 - ***서비스 인스턴스***: 역할 유형에 기반하거나 서비스 인스턴스에 의해 액세스를 분리해야 하는 경우도 있습니다. 이 경우 서비스 인스턴스 수준에서 액세스를 관리할 수 있습니다.
 
@@ -104,35 +104,28 @@ Azure AD Connect는 두 수준에서 액세스 관리를 지원합니다.
 
 ### 사용자 또는 그룹에 Azure AD Connect Health에 대한 액세스를 허용하는 방법
 #### 1단계: 적절한 액세스 범위 선택
-Azure AD Connect Health내에서 *디렉터리* 수준으로 사용자에게 액세스를 허용하려면 Azure AD Connect Health에서 주 블레이드를 엽니다.<br>
-[//]: # (RBAC\_MainBladeSS)
+Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 사용자에게 액세스를 허용하려면 Azure AD Connect Health에서 주 블레이드를 엽니다.<br>
 #### 2단계: 사용자, 그룹 추가 및 역할 할당
-1. 구성 섹션에서 "사용자" 부분을 클릭합니다.<br>
-[//]: # (RBAC\_MainBladeUserPart)
+1. 구성 섹션에서 "사용자" 부분을 클릭합니다.<br> ![Azure AD Connect Health RBAC 기본 블레이드](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. "추가" 선택
-3. "역할" 선택<br>
-[//]: # (RBAC\_AddRole)
-4. 사용자 또는 그룹을 대상으로 한 이름 또는 식별자를 입력합니다. 동시에 하나 이상의 사용자 또는 그룹을 선택할 수 있습니다.
+3. "소유자"와 같은 "역할"을 선택합니다.<br> ![Azure AD Connect Health RBAC 사용자 추가](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. 사용자 또는 그룹을 대상으로 한 이름 또는 식별자를 입력합니다. 동시에 하나 이상의 사용자 또는 그룹을 선택할 수 있습니다. "선택"을 클릭합니다.![Azure AD Connect Health RBAC 사용자 선택](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. "확인"을 선택합니다.<br>
-[//]: # (RBAC\_LastStep)
-6. 역할 할당이 완료되면 목록에서 사용자 및/또는 그룹이 표시됩니다.<br>
-[//]: # (RBAC\_ListofUsersAndGroups)
+
+6. 역할 할당이 완료되면 목록에서 사용자 및/또는 그룹이 표시됩니다.<br> ![Azure AD Connect Health RBAC 사용자 목록](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 이러한 단계는 할당된 역할에 맞춰 나열된 사용자 및 그룹 액세스에 따라 허용합니다.
->[AZURE.NOTE]
-- 전역 관리자는 항상 모든 작업에 모든 권한을 갖지만 전역 관리자 계정은 위의 목록에 표시되지 않습니다.
-- "사용자 초대" 기능은 Azure AD Connect Health 내에서 지원되지 않습니다.
+>[AZURE.NOTE]- 전역 관리자는 항상 모든 작업에 모든 권한을 갖지만 전역 관리자 계정은 위의 목록에 표시되지 않습니다. - "사용자 초대" 기능은 Azure AD Connect Health 내에서 지원되지 않습니다.
 
 #### 3단계: 사용자 또는 그룹을 사용하여 블레이드 위치 공유
 1. 사용 권한을 할당한 후에 사용자는[http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth)에 이동하여 Azure AD Connect Health를 액세스할 수 있습니다.
-2. 블레이드에서 사용자는 "대시보드에 고정"를 클릭하여 대시보드에 블레이드 또는 다른 부분을 고정할 수 있습니다.<br>
-[//]: # (RBAC\_PinBlade)
+2. 블레이드에서 사용자는 "대시보드에 고정"를 클릭하여 대시보드에 블레이드 또는 다른 부분을 고정할 수 있습니다.<br> ![Azure AD Connect Health RBAC 블레이드 고정](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+
 
 >[AZURE.NOTE]"읽기" 역할이 할당된 사용자는 "만들기" 작업을 수행하여 Azure 마켓플레이스에서 Azure AD Connect Health 확장을 가져올 수 없습니다. 이 사용자는 위의 링크로 이동하여 블레이드를 가져올 수 있습니다. 이후 사용의 경우 사용자는 대시보드에 블레이드를 고정할 수 있습니다.
 
 ### 사용자 및/또는 그룹 제거
-마우스 오른쪽 단추로 클릭하고 제거를 선택하여 Azure AD Connect Health 역할 기반 액세스 제어 부분에 추가된 그룹 또는 사용자를 제거할 수 있습니다.<br>
-[//]: # (RBAC\_RemoveUser)
+마우스 오른쪽 단추로 클릭하고 제거를 선택하여 Azure AD Connect Health 역할 기반 액세스 제어 부분에 추가된 그룹 또는 사용자를 제거할 수 있습니다.<br> ![Azure AD Connect Health RBAC 사용자 제거](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # "RBAC 섹션의 끝"
 
@@ -143,4 +136,4 @@ Azure AD Connect Health내에서 *디렉터리* 수준으로 사용자에게 액
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 #SQL 데이터 웨어하우스로 샘플 데이터를 로드
@@ -42,7 +42,7 @@
 
 ## 샘플을 연결하고 쿼리하기
 
-[연결 및 쿼리][] 설명서에서 설명한대로 Visual Studio와 SSDT를 사용하여 데이터베이스에 연결할 수 있습니다. 이제 SQL 데이터 웨어하우스 내의 일부 샘플 데이터를 로드했고, 시작하기위해 몇 가지 쿼리를 신속하게 실행할 수 있습니다.
+[연결][] 설명서에서 설명한대로 Visual Studio와 SSDT를 사용하여 데이터베이스에 연결할 수 있습니다. 이제 SQL 데이터 웨어하우스 내의 일부 샘플 데이터를 로드했고, 시작하기 위해 몇 가지 쿼리를 신속하게 실행할 수 있습니다.
 
 직원의 모든 정보를 가져오는 간단한 select 문을 실행할 수 있습니다.
 
@@ -71,16 +71,16 @@
 <!--Image references-->
 
 <!--Article references-->
-[마이그레이션]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/
-[개발]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
-[로드]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/
-[연결 및 쿼리]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[마이그레이션 코드]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/
+[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
+[개발]: ./sql-data-warehouse-overview-develop.md
+[로드]: ./sql-data-warehouse-overview-load.md
+[연결]: ./sql-data-warehouse-get-started-connect.md
+[마이그레이션 코드]: ./sql-data-warehouse-migrate-code.md
 
 <!--MSDN references-->
-[SQL Server용 Microsoft 명령줄 유틸리티]: http://www.microsoft.com/en-us/download/details.aspx?id=36433
+[SQL Server용 Microsoft 명령줄 유틸리티]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[샘플 데이터 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[샘플 데이터 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

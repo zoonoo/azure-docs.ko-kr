@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 앱 서비스 웹 앱에서 PHP 구성"
 	description="Azure 앱 서비스의 웹앱에서 기본 PHP 설치를 구성하거나 사용자 지정 PHP 설치를 추가하는 방법에 대해 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter="php"
 	authors="tfitzmac"
 	manager="wpickett"
@@ -182,4 +182,4 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js**를 컴퓨터에 �
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 데이터베이스 질문 - 질문과 대답 | Microsoft Azure" 
 	description="Azure DocumentDB NoSql 문서 데이터베이스 서비스에 대한 질문과 대답을 가져옵니다. 용량, 성능 수준 및 크기 조정에 대한 데이터베이스 질문에 대답합니다." 
-	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+	keywords="데이터베이스 질문, 질문과 대답, Documentdb, Azure, Microsoft Azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -46,7 +46,7 @@ DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성�
 컬렉션을 추가하여 저장소와 처리량을 기준으로 DocumentDB 계정을 확장할 수 있습니다. 컬렉션의 수에 대한 서비스 할당량은 [DocumentDB 제한](documentdb-limits.md)을 참조하세요. 추가 컬렉션이 필요한 경우 [지원 담당자에게 문의하여](documentdb-increase-limits.md) 계정 할당량을 늘리세요.
 
 ### Microsoft Azure DocumentDB 비용은 얼마인가요?
-자세한 내용은 [DocumentDB 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkID=402317) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다.
+자세한 내용은 [DocumentDB 가격 책정 세부 정보](http://go.microsoft.com/fwlink/p/?LinkID=402317) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다.
 
 ### 무료 평가판이 있나요?
 Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 MSDN 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
@@ -81,7 +81,7 @@ Microsoft Azure DocumentDB는 [Azure Preview 포털][azure-portal]에 있습니�
 ### DocumentDB에 대해 어떻게 개발을 시작하나요?
 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 다양한 플랫폼 및 언어의 DocumentDB 리소스를 조작할 수 있습니다.
 
-GitHub에서 DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples), 및 [Python](https://github.com/Azure/azure-documentdb-python) SDK용 샘플을 사용할 수 있습니다.
+GitHub에서 샘플 DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples), 및 [Python](https://github.com/Azure/azure-documentdb-python) SDK를 받을 수 있습니다.
 
 ### DocumentDB에서 SQL을 지원하나요?
 DocumentDB SQL 쿼리 언어는 JavaScript 기반 UDF(사용자 정의 함수)를 통해 다양한 계층 구조 및 관계형 연산자를 제공합니다. JSON 문법은 트리 노드로 레이블이 지정된 트리로 JSON 문서 모델링을 허용합니다. 이 내용은 DocumentDB 자동 인덱싱 기술 및 DocumentDB의 SQL 쿼리 언어 모두에 사용됩니다. SQL 문법을 사용하는 방법에 대한 자세한 내용은 [DocumentDB 쿼리][query] 문서를 참조하세요.
@@ -98,9 +98,9 @@ DocumentDB는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통�
 ### DocumentDB에 문서를 어떻게 일괄 삽입할 수 있나요? 
 DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 
-- [DocumentDB로 데이터 가져오기](documentdb-import-data.md)에 설명된 데이터 마이그레이션 도구
-- [문서 탐색기를 사용하여 문서 일괄 추가](documentdb-view-json-document-explorer.md#BulkAdd)에 설명된 Azure Preview 포털의 문서 탐색기
-- [DocumentDB 서버 쪽 프로그래밍](documentdb-programming.md)에 설명된 저장 프로시저
+- [DocumentDB로 데이터 가져오기](documentdb-import-data.md)에 설명된 데이터 마이그레이션 도구.
+- [문서 탐색기를 사용하여 문서 일괄 추가](documentdb-view-json-document-explorer.md#BulkAdd)에 설명된 Azure Preview 포털의 문서 탐색기.
+- [DocumentDB 서버 쪽 프로그래밍](documentdb-programming.md)에 설명된 저장 프로시저.
 
 ### DocumentDB에서 리소스 링크 캐싱을 지원하나요?
 예, DocumentDB는 RESTful 서비스이므로 리소스 링크가 제한되며 캐시될 수 있습니다. DocumentDB 클라이언트는 문서 또는 컬렉션과 같은 모든 리소스 읽기에 대해 "If-None-Match" 헤더를 지정하고, 서버 버전이 변경될 때만 로컬 복사본을 업데이트할 수 있습니다.
@@ -112,4 +112,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

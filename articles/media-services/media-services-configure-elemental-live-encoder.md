@@ -3,7 +3,7 @@
 	description="이 항목에서는 Elemental 라이브 인코더를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako,cenkdin,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"    
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Elemental 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기 
@@ -171,4 +171,4 @@
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

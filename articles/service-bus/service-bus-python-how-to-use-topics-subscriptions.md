@@ -18,7 +18,9 @@
 
 # 서비스 버스 토픽 및 구독을 사용하는 방법
 
-이 문서에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+이 문서에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은[다음 단계](#next-steps) 섹션을 참조하세요.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -81,7 +83,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 > [AZURE.NOTE]기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **delete\_rule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
-다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 `HighMessages`라는 구독을 만듭니다.
+다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 `HighMessages`(이)라는 구독을 만듭니다.
 
 ```
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -94,7 +96,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-마찬가지로, 다음 예제에서는 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 **SqlFilter**를 사용하여 `LowMessages`라는 구독을 만듭니다.
+마찬가지로, 다음 예제에서는 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 **SqlFilter**를 사용하여 `LowMessages`(이)라는 구독을 만듭니다.
 
 ```
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -180,4 +182,4 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

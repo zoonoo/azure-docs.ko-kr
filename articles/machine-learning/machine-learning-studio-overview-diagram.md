@@ -1,7 +1,7 @@
 <properties
 	pageTitle="기계 학습 스튜디오 기능 개요 다이어그램 | Microsoft Azure"
 	description="Azure 기계 학습 스튜디오 기능의 인쇄 가능한 다이어그램으로 스튜디오를 사용하여 예측 분석 실험을 개발하고 Azure 클라우드에서 운영하는 방법을 보여 줍니다."
-	keywords="machine learning studio,overview diagram,download"
+	keywords="기계 학습 스튜디오, 개요 다이어그램, 다운로드"
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -47,4 +47,4 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

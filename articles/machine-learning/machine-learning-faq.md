@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 기계 학습 FAQ | Microsoft Azure"
 	description="Azure 기계 학습 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ."
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	keywords="기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요"
 	services="machine-learning"
 	documentationCenter=""
 	authors="pablissima"
@@ -93,9 +93,8 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 
 **Amazon S3에서 데이터를 읽을 수 있나요?**
 
-소량의 데이터를 http URL을 통해 노출하려는 경우 [Reader][reader] 모듈을 사용할 수 있습니다. Azure 저장소로 전송할 데이터가 많은 경우에는 먼저 [Reader][reader] 모듈을 사용하여 실험으로 가져옵니다. 
-<!--
-SEE CLOUD DS PROCESS>
+소량의 데이터를 http URL을 통해 노출하려는 경우 [Reader][reader] 모듈을 사용할 수 있습니다. Azure 저장소로 전송할 데이터가 많은 경우에는 먼저 [Reader][reader] 모듈을 사용하여 실험으로 가져옵니다. <!--
+<SEE CLOUD DS PROCESS>
 -->
 
 **기본 제공 이미지 입력 기능이 있나요?**
@@ -215,7 +214,7 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 
 RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입니다. Blob으로 작성할 수도 있습니다. BES의 경우 기본적으로 출력은 Blob에 기록됩니다. 기록기 모듈을 사용하여 출력을 데이터베이스 또는 테이블에 기록할 수도 있습니다.
 
- **스튜디오에서 만든 모델에서만 웹 서비스를 만들 수 있나요? 아니요. Jupyter 노트북 및 RStudio에서 직접 웹 서비스를 만들 수도 있습니다.
+ ****스튜디오에서 만든 모델에서만 웹 서비스를 만들 수 있나요? 아니요. Jupyter 노트북 및 RStudio에서 직접 웹 서비스를 만들 수도 있습니다.
 
 
 ##확장성
@@ -308,4 +307,4 @@ Azure 기계 학습에 대한 기술 지원을 받으려면 [Azure 지원](/supp
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

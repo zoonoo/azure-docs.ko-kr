@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter=".net" 
    authors="cawaMS" 
-   manager="dwrede" 
+   manager="paulyuk" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/29/2015"
+   ms.date="10/14/2015"
    ms.author="cawa"/>
 
 # Visual Studio를 사용하여 클라우드 서비스 컨테이너를 만드는 방법
@@ -33,4 +33,4 @@ Visual Studio에서 **서버 탐색기**를 보려면, 메뉴 모음에서 **보
 이제 클라우드 서비스 컨테이너가 있으므로 클라우드 서비스를 [만들기 및 배포](cloud-services-how-to-create-deploy.md)할 수 있습니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

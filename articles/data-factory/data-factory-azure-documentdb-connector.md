@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 DocumentDB 간 데이터 이동
@@ -416,4 +416,4 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 	**대답:** 아니요. 이 경우 하나의 컬렉션만 지정할 수 있습니다.
      
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

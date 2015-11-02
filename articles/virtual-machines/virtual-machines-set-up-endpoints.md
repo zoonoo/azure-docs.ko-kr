@@ -19,7 +19,7 @@
 
 #가상 컴퓨터에 끝점을 설정하는 방법
 
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 Azure에서 만든 모든 가상 컴퓨터는 개인 네트워크 채널을 사용하여 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 컴퓨터와 자동으로 통신할 수 있습니다. 그러나 인터넷이나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다.
 
@@ -96,4 +96,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [PowerShel
 
 [Azure 인프라 서비스를 위한 부하 분산](virtual-machines-load-balance.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

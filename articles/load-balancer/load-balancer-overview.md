@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="10/16/2015"
    ms.author="joaoma" />
 
 
@@ -99,4 +99,4 @@ Azure 부하 분산 장치 구성은 UDP에 대해 완전한 원뿔형 NAT를 �
 [시작 - 인터넷 연결 부하 분산 장치](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

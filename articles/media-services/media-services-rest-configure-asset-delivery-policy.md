@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="REST를 사용하여 자산 배달 정책 구성하기" 
-	description="이 항목에서는 다른 자산 배달 하는 정책을 구성하는 방법을 보여 줍니다." 
+	pageTitle="미디어 서비스 REST API를 사용하여 자산 배달 정책 구성하기" 
+	description="이 항목에서는 미디어 서비스 REST API를 사용하여 여러 자산 배달 정책을 구성하는 방법을 보여줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #방법: 자산 배달 정책 구성
@@ -436,4 +436,4 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

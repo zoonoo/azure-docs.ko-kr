@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/20/2015"
    ms.author="lodipalm"/>
 
 
@@ -53,8 +53,8 @@
 <!--Image references-->
 
 <!--Article references-->
-[마이그레이션 설명서]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/
-[개발]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
+[마이그레이션 설명서]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-overview-migrate/
+[개발]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-overview-develop/
 [여기]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,9 +1,7 @@
 <properties 
-	pageTitle="활성 중인 고급 분석 프로세스 및 기술: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Microsoft Azure" 
+	pageTitle="실행 중인 Cortana 분석 프로세스: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Microsoft Azure" 
 	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다." 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -15,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
-	ms.author="ginathan;mohabib;bradsev" />
+	ms.date="10/18/2015" 
+	ms.author="ginathan;bradsev" />
 
-# 고급 분석 처리 및 기술 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
+# 실행 중인 Cortana 분석 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
 
-이 연습에서는 [Azure HDInsight Hadoop 클러스터](http://azure.microsoft.com/services/hdinsight/)에서 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 집합 중 하나에서 데이터를 저장, 탐색, 기능 설계 및 다운 샘플링하는 방법을 보여 줍니다. Azure 기계 학습을 사용하여 이 데이터에 대한 이진 분류 모델을 빌드합니다. 또한 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여 줍니다.
+이 연습에서는 [Azure HDInsight Hadoop 클러스터](http://azure.microsoft.com/services/hdinsight/)를 사용하는 종단간 환경에서 Cortana 분석 프로세스를 사용하여 공개적으로 사용 가능한 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 집합 중 하나에서 데이터를 저장, 탐색, 기능 설계 및 다운 샘플링하는 방법을 보여줍니다. Azure 기계 학습을 사용하여 이 데이터에 대한 이진 분류 모델을 빌드합니다. 또한 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여 줍니다.
 
 이 연습에서 IPython 노트북을 사용하여 작업을 수행할 수도 있습니다. 이 방법을 사용하려면 [Hive ODBC 연결을 사용하여 Criteo 연습](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) 항목을 참조해야 합니다.
 
@@ -78,7 +76,7 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 링크를 클릭하고 사용 약관에 동의한 후 이름을 제공하여 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 집합에 액세스할 수 있습니다. 아래와 같은 스냅숏이 나타납니다.
 
-![Criteo 조건 동의](http://i.imgur.com/hLxfI2E.png)
+![Criteo 조건 동의](./media/machine-learning-data-science-process-hive-criteo-walkthrough/hLxfI2E.png)
 
 **Continue to Download**를 클릭하여 데이터 집합 및 사용성을 읽어봅니다.
 
@@ -100,7 +98,8 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 클러스터 헤드 노드에 처음 로그인하면 일반적으로 다음과 같은 화면이 나타납니다.
 
-![클러스터에 로그인](http://i.imgur.com/Yys9Vvm.png)
+![클러스터에 로그인](./media/machine-learning-data-science-process-hive-criteo-walkthrough/Yys9Vvm.png)
+
 
 왼쪽에 데이터 탐색에 자주 사용되는 "Hadoop Command Line"이 있습니다. 두 가지 유용한 URL인 "Hadoop Yarn Status" 및 "Hadoop Name Node"도 있습니다. Yarn Status URL은 작업 진행률을 표시하고, Name Node URL은 클러스터 구성에 대한 세부 정보를 표시합니다.
 
@@ -447,7 +446,7 @@ Azure 기계 학습의 모델 빌드 프로세스는 다음 단계를 따릅니�
 
 Hive 테이블에서 데이터를 가져오는 동안의 **Reader** 모양은 다음과 같습니다.
 
-![Reader에서 데이터 가져오기](http://i.imgur.com/i3zRaoj.png)
+![Reader에서 데이터 가져오기](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
 **판독기** 모듈의 경우 그래픽에서 제공되는 매개 변수의 값은 사용자가 제공해야 하는 값 종류에 해당하는 예입니다. 다음은 **판독기** 모듈에 대해 설정된 매개 변수를 입력하는 방법에 대한 일반적인 지침입니다.
 
@@ -464,14 +463,13 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Reader** 모양은 �
 
 **Reader**에서 데이터 가져오기를 완료하면(모듈에 녹색 틱이 표시됨) 이 데이터를 데이터 집합(선택한 이름 사용)으로 저장합니다. 다음과 같이 표시됩니다.
 
-![Reader에서 데이터 저장](http://i.imgur.com/oxM73Np.png)
-
+![Reader에서 데이터 저장](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
 **Reader** 모듈의 출력 포트를 마우스 오른쪽 단추로 클릭합니다. **Save as dataset** 옵션 및 **Visualize** 옵션이 표시됩니다. **Visualize** 옵션을 클릭하면 몇 가지 요약 통계에 유용한 오른쪽 패널과 함께 100개의 데이터 행이 표시됩니다. 데이터를 저장하려면 **Save as dataset**을 클릭하고 지침을 따릅니다.
 
 기계 학습 실험에서 사용하기 위해 저장된 데이터 집합을 선택하려면 아래에 표시된 **검색** 상자를 사용하여 데이터 집합을 찾습니다. 그런 다음 데이터 집합의 이름을 부분적으로 입력하여 데이터 집합에 액세스하고 주 패널로 끌어옵니다. 주 패널에 끌어다 놓으면 기계 학습 모델링에 사용하도록 선택됩니다.
 
-![](http://i.imgur.com/cl5tpGw.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 ***중요:*** **학습 및 테스트 데이터 집합 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.**
  
@@ -479,7 +477,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Reader** 모양은 �
 
 Azure 기계 학습 실험은 아래와 같이 표시됩니다.
 
-![](http://i.imgur.com/xRpVfrY.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
 이제 이 실험의 주요 구성 요소를 검사합니다. 먼저 저장되어 있는 학습 및 테스트 데이터 집합을 실험 캔버스로 끌어와야 합니다.
 
@@ -487,7 +485,7 @@ Azure 기계 학습 실험은 아래와 같이 표시됩니다.
 
 **누락된 데이터 처리** 모듈은 이름에서 알 수 있듯이 사용자가 지정할 수 있는 방법으로 누락 데이터를 정리합니다. 이 모듈을 다음과 같습니다.
 
-![누락 데이터 정리](http://i.imgur.com/0ycXod6.png)
+![누락 데이터 정리](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0ycXod6.png)
 
 여기에서 모든 누락 값을 0으로 바꿉니다. 모듈의 드롭다운에서 확인할 수 있는 다른 옵션도 있습니다.
 
@@ -499,20 +497,22 @@ Azure 기계 학습 실험은 아래와 같이 표시됩니다.
 
 개수 기능을 작성하기 위해 Azure 기계 학습에서 사용할 수 있는 **개수 변환 작성** 모듈을 사용합니다. 이 모듈은 다음과 같습니다.
 
-![](http://i.imgur.com/e0eqKtZ.png) ![](http://i.imgur.com/OdDN0vw.png)
+
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png) ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
+
 
 **중요**:**Count columns**(개수 열) 상자에 개수를 세려고 하는 열을 입력합니다. 이미 설명한 대로 이러한 열은 일반적으로 고차원 범주의 열입니다. 처음에 Criteo 데이터 집합에 Col15에서 Col40까지 26개의 범주 열이 있다고 했습니다. 여기서 이 범주 열의 개수를 세고 인덱스를 붙입니다(아래 나온 것 같이 15부터 40까지 쉼표로 구분).
 
 MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합) HDInsight Hadoop 클러스터 액세스 권한(위에서 기능 탐색에 사용했던 액세스 권한도 이 용도에 재사용 가능) 및 해당 자격 증명이 필요합니다. 위의 그림은 값을 입력했을 때 보이는 모양을 나타냅니다. 이 그림의 표시된 값은 필요한 값으로 바꾸세요.
 
-![](http://i.imgur.com/05IqySf.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
 위의 그림은 입력 Blob 위치를 입력하는 방법을 보여 줍니다. 이 위치에는 개수 테이블을 작성하기 위해 예약된 데이터가 있습니다.
 
 
 이 모듈의 실행이 완료되면 모듈을 마우스 오른쪽 단추로 클릭하고 **Save as Transform**(변환으로 저장) 옵션을 선택하여 나중에 사용하기 위해 변환을 저장할 수 있습니다.
 
-![](http://i.imgur.com/IcVgvHR.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
 
 위에 나와 있는 실험 아키텍처에서 데이터 집합 "ytransform2"는 저장된 개수 변환과 정확히 일치합니다. 이 실험의 나머지 부분에서는 판독기가 일부 데이터에 대해 **개수 변환 작성** 모듈을 사용하여 개수를 생성한 다음 해당 개수를 사용하여 학습 및 테스트 데이터 집합에 대해 개수 기능을 생성할 수 있다고 가정합니다.
 
@@ -520,7 +520,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 개수 변환이 준비되면 사용자는 **개수 테이블 매개 변수 수정** 모듈을 사용하여 학습 및 테스트 데이터 집합에 포함할 기능을 선택할 수 있습니다. 완성된 모양을 보여 주기 위해 이 모듈을 아래 표시해 놓기는 했지만 실험을 단순하게 하려면 이 모듈을 실제로 사용하지 마세요.
 
-![](http://i.imgur.com/PfCHkVg.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
 
 이 사례에서 볼 수 있는 것처럼 로그 확률만 사용하고 백오프 열은 무시하기로 선택했습니다. 휴지통 임계값, 원활한 진행을 위해 추가할 의사 이전 예제 수, 라플라스 노이즈 사용 여부 같은 매개 변수도 설정할 수 있습니다. 이들은 모두 고급 기능으로, 이러한 종류의 기능 생성을 처음 시도하는 사용자는 기본값을 사용하는 것이 좋습니다.
 
@@ -528,17 +528,18 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 이제 개수 기능을 실제로 생성하기 전에 학습 및 테스트 데이터를 변환하는 방법에서 중요한 부분에 초점을 맞추겠습니다. 개수 변환을 데이터에 적용하기 전에 사용하는 두 개의 **R 스크립트 실행** 모듈이 있습니다.
 
-![](http://i.imgur.com/aF59wbc.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
 
 첫 번째 R 스크립트는 다음과 같습니다.
 
-![](http://i.imgur.com/3hkIoMx.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
+
 
 이 R 스크립트에서 열 이름을 "Col1"부터 "Col40"까지로 바꿉니다. 개수 변환에서 이 형식의 이름을 필요로 하기 때문입니다.
 
 두 번째 R 스크립트에서는 음수 클래스를 다운샘플링하여 양수 클래스와 음수 클래스(각각 클래스 1과 클래스 0) 사이에서 분포의 균형을 맞춥니다. 아래의 R 스크립트에서 이 작업을 수행하는 방법을 보여 줍니다.
 
-![](http://i.imgur.com/91wvcwN.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
 
 이 간단한 R 스크립트에서 "pos\_neg\_ratio"를 사용하여 양수 클래스와 음수 클래스 간의 균형량을 설정합니다. 클래스의 불균형을 개선하면 일반적으로 클래스 분포가 편향되는 분류 문제에 대해 성능 이점이 있으므로 이 작업이 중요합니다(우리 사례의 경우 양수 클래스가 3.3%이고 음수 클래스가 96.7%임).
 
@@ -546,13 +547,13 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 마지막으로 **변환 적용** 모듈을 사용하여 학습 및 테스트 데이터 집합에 개수 변환을 적용합니다. 이 모듈은 저장된 개수 변환을 하나의 입력으로 사용하고, 학습 또는 테스트 데이터 집합을 다른 입력으로 사용하여 개수 기능을 통해 데이터를 반환합니다. 다음과 같이 표시됩니다.
 
-![](http://i.imgur.com/xnQvsYf.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### 개수 기능이 보이는 모양 발췌
 
 개수 기능이 어떻게 보이는지 보겠습니다. 아래는 이 기능이 보이는 부분을 발췌한 것입니다.
 
-![](http://i.imgur.com/FO1nNfw.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
 이 발췌에서, 개수를 센 열에 대해 개수와 로그 확률뿐만 아니라 관련 백오프도 볼 수 있습니다.
 
@@ -564,7 +565,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 먼저 학습자를 선택해야 합니다. 2클래스 향상된 의사 결정 트리를 학습자로 사용하겠습니다. 다음은 이 학습자에 대한 기본 옵션입니다.
 
-![](http://i.imgur.com/bH3ST2z.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
 실험용이므로 간단히 기본값을 선택하겠습니다. 기본값은 일반적으로 성능에 대해 빠른 기준을 얻을 수 있는 의미 있고 좋은 방법입니다. 기준이 있는 상태에서 원하는 경우 매개 변수를 스윕하여 성능을 향상시킬 수 있습니다.
 
@@ -572,23 +573,25 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 학습용으로 간단히 **모델 학습** 모듈을 호출합니다. 이 모듈에 대한 두 가지 입력이 2클래스 향상된 의사 결정 트리 학습자와 학습 데이터 집합입니다. 다음과 같습니다.
 
-![](http://i.imgur.com/2bZDZTy.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
+
 
 #### 모델 점수 매기기
 
 학습된 모델이 있으면 테스트 데이터 집합에 대한 점수를 매기고 성능을 평가할 준비가 된 것입니다. **모델 평가** 모듈과 함께 아래 나와 있는 **모델 점수 매기기** 모듈을 사용하여 이 작업을 수행합니다.
 
-![](http://i.imgur.com/fydcv6u.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
+
 
 ### <a name="step5"></a> 5단계: 모델 평가
 
 마지막으로 모델 성능을 분석하겠습니다. 일반적으로 2클래스(이진) 분류 문제의 경우 AUC를 측정하는 것이 좋습니다. 이를 시각화하려면 **점수 매기기 모델** 모듈을 **모델 평가** 모듈에 연결합니다. **Evaluate Model** 모듈에서 **Visualize**를 클릭하면 다음과 같은 그림이 표시됩니다.
 
-![Evaluate module BDT 모델](http://i.imgur.com/0Tl0cdg.png)
+![Evaluate module BDT 모델](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
 
 이진(또는 2클래스) 분류 문제에서 예측 정확도의 적절한 척도는 AUC(Area Under Curve)입니다. 다음은 테스트 데이터 집합에서 이 모델을 사용한 결과입니다. 결과를 확인하려면 **Evaluate Model** 모듈의 출력 포트를 마우스 오른쪽 단추로 클릭한 다음 **Visualize**를 클릭합니다.
 
-![Evaluate Model 모듈 시각화](http://i.imgur.com/IRfc7fH.png)
+![Evaluate Model 모듈 시각화](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
 ### <a name="step6"></a> 6단계: 모델을 웹 서비스로 게시
 혼란을 최소화하면서 Azure 기계 학습 모델을 웹 서비스로 게시하는 기능은 이 기능의 광범위한 사용을 위한 유용한 기능입니다. 이 작업이 완료되면 누구나 예측이 필요한 입력 데이터를 사용하여 웹 서비스를 호출하고 웹 서비스는 모델을 사용하여 해당 예측을 반환할 수 있습니다.
@@ -604,7 +607,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 **SQL 변환 적용** 모듈을 사용하여 입력 포트 데이터로 사용할 10개 행만 편리하게 선택할 수 있습니다. 아래 나와 있는 SQL 쿼리를 사용하여 입력 포트에 대해 이러한 데이터 행을 선택합니다.
 
-![입력 포트 데이터](http://i.imgur.com/XqVtSxu.png)
+![입력 포트 데이터](./media/machine-learning-data-science-process-hive-criteo-walkthrough/XqVtSxu.png)
 
 #### 웹 서비스
 이제 웹 서비스 게시하는 데 사용할 수 있는 소규모 실험을 실행할 준비가 완료되었습니다.
@@ -613,7 +616,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가져와 count 기능과 함께 출력 데이터를 생성합니다. 이 데이터는 웹 서비스에 대해 입력 데이터 형식 역할을 할 수 있습니다. 다음과 같습니다.
 
-![BDT 입력 데이터 만들기](http://i.imgur.com/OEJMmst.png)
+![BDT 입력 데이터 만들기](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OEJMmst.png)
 
 참고: 이제 입력 데이터 형식에 대해 **Count Featurizer** 모듈의 OUTPUT을 사용합니다. 이 실험의 실행이 완료되면 **Count Featurizer** 모듈의 출력을 Dataset으로 저장합니다.
 
@@ -623,19 +626,20 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 먼저 구조를 확인합니다. 기본 구조는 **모델 점수 매기기** 모듈로, 이 모듈은 학습된 모델 개체 및 이전 단계에서 **개수 기능화기** 모듈을 사용하여 생성한 몇 줄의 입력 데이터를 허용합니다. "Project Columns"를 사용하여 Scored 레이블 및 Score 확률을 표시합니다.
 
-![Project Columns](http://i.imgur.com/kRHrIbe.png)
+![Project Columns](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
 **프로젝트 열** 모듈은 데이터 집합에서 데이터를 ‘필터링'할 때 사용할 수 있습니다. 아래 내용이 표시됩니다.
 
-![Project Columns 모듈을 사용하여 필터링](http://i.imgur.com/oVUJC9K.png)
+![Project Columns 모듈을 사용하여 필터링](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
 파란색 입력 및 출력 포트를 가져오려면 오른쪽 아래에서 **prepare webservice**(웹 서비스 준비)를 클릭하면 됩니다. 이 실험을 실행하면 아래와 같이 오른쪽 아래에서 **PUBLISH WEB SERVICE** 아이콘을 클릭하여 웹 서비스를 게시할 수도 있습니다.
 
-![웹 서비스 게시](http://i.imgur.com/WO0nens.png)
+![웹 서비스 게시](./media/machine-learning-data-science-process-hive-criteo-walkthrough/WO0nens.png)
+
 
 웹 서비스가 게시되면 다음과 같은 페이지로 리디렉션됩니다.
 
-![](http://i.imgur.com/YKzxAA5.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
 
 왼쪽에 웹 서비스에 대한 두 개의 링크가 있습니다.
 
@@ -648,14 +652,15 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 올바른 API 키가 있는 python 코드의 세그먼트는 다음과 같습니다.
 
-![Python 코드](http://i.imgur.com/f8N4L4g.png)
+![Python 코드](./media/machine-learning-data-science-process-hive-criteo-walkthrough/f8N4L4g.png)
+
 
 기본 API 키를 웹 서비스의 API 키로 바꿨습니다. IPython 노트북에서 이 셀에 대해 **Run**(실행)을 클릭하면 다음 응답이 나타납니다.
 
-![IPython 응답](http://i.imgur.com/KSxmia2.png)
+![IPython 응답](./media/machine-learning-data-science-process-hive-criteo-walkthrough/KSxmia2.png)
 
 요청한 두 가지 테스트 예제(python 스크립트의 JSON 프레임워크)에 대해 "Scored Labels, Scored Probabilities" 형식의 응답이 제공됩니다. 이 사례에서는 미리 만든 코드에서 제공하는 기본값(모든 숫자 열의 경우 0, 모든 범주 열의 경우 문자열 "값")을 선택했습니다.
 
 Azure 기계 학습을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

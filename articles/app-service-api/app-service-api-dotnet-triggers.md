@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Azure 앱 서비스 API 앱 트리거" 
 	description="이 문서에서는 API 앱에서 트리거를 구현하는 방법을 보여 줍니다." 
-	services="app-service" 
+	services="app-service\logic" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-logic" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/15/2015" 
 	ms.author="guayan"/>
 
 # Azure 앱 서비스 API 앱 트리거
@@ -341,4 +341,4 @@ API 앱에 트리거를 추가한 후에는 몇 가지 작업을 통해 논리 �
     }
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

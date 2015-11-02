@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스에 연결 
@@ -151,11 +151,11 @@ WHERE   s.[session_id] <> SESSION_ID()
 <!--Image references-->
 
 <!--Azure.com references-->
-[연결 및 쿼리]: sql-data-warehouse-get-started-connect-query.md
-[테이블 디자인]: sql-data-warehouse-develop-table-design.md
+[연결 및 쿼리]: ./sql-data-warehouse-get-started-connect.md
+[테이블 디자인]: ./sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

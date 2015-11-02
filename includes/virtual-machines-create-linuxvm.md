@@ -8,8 +8,9 @@
 
         azure vm image list | grep "Linux"
 
-4. `azure vm create`을 사용하여 위 목록의 Linux 이미지를 사용하여 새 가상 컴퓨터를 만듭니다. 이 단계에서는 새 클라우드 서비스와 함께 새 저장소 계정도 만듭니다. 가상 컴퓨터를 `-c` 옵션을 사용한 기존 클라우드 서비스에서도 연결할 수 있습니다. `-e` 옵션을 사용한 Linux 가상 컴퓨터에 로그인할 수 있는 SSH 끝점도 만들  
-수 있습니다.
+   Windows 명령 프롬프트 창에서 grep 대신 find를 사용합니다.
+
+4. `azure vm create`을 사용하여 위 목록의 Linux 이미지를 사용하여 새 가상 컴퓨터를 만듭니다. 이 단계에서는 새 클라우드 서비스와 함께 새 저장소 계정도 만듭니다. 가상 컴퓨터를 `-c` 옵션을 사용한 기존 클라우드 서비스에서도 연결할 수 있습니다. `-e` 옵션을 사용한 Linux 가상 컴퓨터에 로그인할 수 있는 SSH 끝점도 만들 수 있습니다.
 
         ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
         info:    Executing command vm create
@@ -40,4 +41,4 @@
 
 모든 Azure CLI 가상 컴퓨터 명령에 대한 자세한 설명은 [서비스 관리 API를 포함한 Azure CLI 사용](../articles/virtual-machines/virtual-machines-command-line-tools.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

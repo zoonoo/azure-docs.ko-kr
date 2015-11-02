@@ -76,7 +76,7 @@ Azure 자동화 DSC를 사용하면 Azure 자동화에서 Runbook을 가져오�
 
 ###노드 구성###
 
-DSC 구성이 컴파일되면 구성의 노드 블록에 따라 하나 이상의 노드 구성이 생성됩니다. 노드 구성은 “MOF” 또는 “구성 문서”(이러한 PS DSC 용어에 친숙한 경우)와 동일하며, 하나 이상의 노드에서 준수해야 하는 필요한 상태인 “역할”(예: 웹 서버 또는 작업자)을 나타냅니다. Azure 자동화 DSC의 노드 구성 이름은 “<Configuration-name>.<Node configuration-block-name>” 형식을 취합니다.
+DSC 구성이 컴파일되면 구성의 노드 블록에 따라 하나 이상의 노드 구성이 생성됩니다. 노드 구성은 “MOF” 또는 “구성 문서”(이러한 PS DSC 용어에 친숙한 경우)와 동일하며, 하나 이상의 노드에서 준수해야 하는 필요한 상태인 “역할”(예: 웹 서버 또는 작업자)을 나타냅니다. Azure 자동화 DSC의 노드 구성 이름은 “Configuration Name.NodeConfigurationBlockName” 형식을 취합니다.
 
 PS DSC 노드는 DSC 밀어넣기 또는 끌어오기 메서드를 통해 적용해야 하는 노드 구성을 인식하게 됩니다. Azure 자동화 DSC는 노드가 Azure 자동화 DSC 끌어오기 서버에서 적용해야 하는 노드 구성을 요청하는 DSC 끌어오기 메서드를 기반으로 합니다. 노드는 Azure 자동화 DSC에 요청하기 때문에 방화벽 뒤에 있을 수 있으며 모든 인바운드 포트가 닫혀 있을 수 있습니다. 인터넷에 대한 아웃바운드 액세스만 필요합니다.
 
@@ -97,7 +97,7 @@ Azure 자동화 DSC는 PS DSC와 모두 동일한 기본 제공 DSC 리소스와
 
 
 ###컴파일 작업###
-Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만드는 구성 컴파일 인스턴스입니다. 이는 노드 구성을 만드는 것 외에는 실제로 아무 작업도 수행하지 않는다는 점을 제외하고는 Azure 자동화 Runbook 작업과 유사합니다. 컴파일 작업에서 만든 모든 노드 구성은 Azure 자동화 DSC 끌어오기 서버에 자동으로 배치되며, 이전 버전의 노드 구성(이 구성에 대해 존재하는 경우)을 덮어씁니다. 컴파일 작업에 의해 생성된 노드 구성의 이름은 "<Configuration-name>.<Node configuration-block-name>" 형식입니다. 예를 들어 아래의 구성을 컴파일하면 "MyConfiguration.webserver"라는 단일 노드 구성이 생성됩니다.
+Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만드는 구성 컴파일 인스턴스입니다. 이는 노드 구성을 만드는 것 외에는 실제로 아무 작업도 수행하지 않는다는 점을 제외하고는 Azure 자동화 Runbook 작업과 유사합니다. 컴파일 작업에서 만든 모든 노드 구성은 Azure 자동화 DSC 끌어오기 서버에 자동으로 배치되며, 이전 버전의 노드 구성(이 구성에 대해 존재하는 경우)을 덮어씁니다. 컴파일 작업에서 만들어진 노드 구성 이름은 “ConfigurationName.NodeConfigurationBlockName” 형식을 취합니다. 예를 들어 아래의 구성을 컴파일하면 "MyConfiguration.webserver"라는 단일 노드 구성이 생성됩니다.
 
 
 ![대체 텍스트](./media/automation-dsc-overview/AADSC_5.png)
@@ -121,7 +121,7 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 - Azure 자동화 DSC는 현재 부분 또는 복합 DSC 구성을 지원하지 않습니다.
 
-- Windows용 PowerShell DSC 에이전트가 Azure 자동화와 통신하려면 최신 버전의 WMF 5가 설치되어 있어야 합니다. Linux용 PowerShell DSC 에이전트는 현재 Azure 자동화와의 통신을 지원하지 않습니다. 이는 곧 업데이트될 예정입니다.
+- Windows용 PowerShell DSC 에이전트가 Azure 자동화와 통신하려면 최신 버전의 WMF 5가 설치되어 있어야 합니다. 최신 버전 Linux용 PowerShell DSC 에이전트가 Azure 자동화와 통신하려면 Linux용으로 설치되어야 합니다.
 
 - Azure 자동화는 PowerShell 모듈과 함께 사용할 수 없습니다. 따라서 자동화 계정 내의 모든 구성은 해당 자동화 계정으로 가져온 최신 버전의 PowerShell 모듈 및 구성에서 사용하는 모듈이 포함된 PowerShell DSC 리소스를 사용해야 합니다.
 
@@ -145,4 +145,4 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 - [Azure 자동화 DSC 가격 책정](http://azure.microsoft.com/pricing/details/automation/)
 - [Azure 자동화 DSC 및 Chocolatey를 사용하여 IaaS VM에 연속 배포](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

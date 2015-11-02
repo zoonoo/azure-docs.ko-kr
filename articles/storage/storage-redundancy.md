@@ -1,7 +1,7 @@
 
 <properties 
   pageTitle="Azure 저장소 복제 | Microsoft Azure" 
-  description="description = ";Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다." 
+  description="description = Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다." 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/07/2015" 
+  ms.date="10/20/2015" 
   ms.author="tamram"/>
 
 # Azure 저장소 복제
@@ -88,8 +88,10 @@ GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기�
 |일본 서부 |일본 동부
 |브라질 남부 |미국 중남부
 |오스트레일리아 동부 |오스트레일리아 남동부
-|오스트레일리아 남동부|오스트레일리아 동부  
-
+|오스트레일리아 남동부|오스트레일리아 동부
+|인도 남부 |인도 중부
+|인도 중부 |인도 남부
+  
 
 ## 읽기 액세스 지역 중복 저장소
 
@@ -104,4 +106,4 @@ GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기�
 - [RA-GRS를 포함한 Microsoft Azure 저장소 에뮬레이터 3.1](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Azure 저장소 SOSP 문서](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

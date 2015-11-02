@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="10/21/2015"
    ms.author="rasquill"/>
 
 # 템플릿을 사용하여 응용 프로그램 프레임워크 만들기
 
-다음 템플릿을 사용하여 유용한 항목을 신속하게 만들 수 있습니다.
+다음 템플릿을 사용하여 유용한 항목을 신속하게 만들 수 있습니다. 이러한 서식 파일 외에도 템플릿을 통해 검색할 수 있습니다](https://azure.microsoft.com/documentation/templates/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
@@ -53,4 +53,4 @@
 
 [Azure 리소스 관리자](../resource-group-template-deploy.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

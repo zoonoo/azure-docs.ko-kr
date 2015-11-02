@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight에서 Hadoop Hive와 SSH 사용 | Microsoft Azure"
-   description="SSH를 사용하여 HDInsight의 Hadoop 클러스터에 연결하고 Hive 명령줄 인터페이스를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다."
+   pageTitle="HDInsight(Hadoop)에서 Hive 셸 사용 | Microsoft Azure"
+   description="Linux 기반 HDInsight 클러스터에서 Hive 셸을 사용하는 방법을 알아봅니다. SSh를 사용하여 HDInsight에 연결한 다음 Hive 셸을 사용하여 대화형으로 쿼리를 실행하는 방법을 알아봅니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -147,4 +147,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="REST를 사용하여 콘텐츠 키 인증 정책 구성하기" 
-	description="콘텐츠 키에 대한 인증 정책을 구성하는 방법에 대해 알아봅니다." 
+	pageTitle="미디어 서비스 REST API를 사용하여 콘텐츠 키 권한 부여 정책 구성" 
+	description="미디어 서비스 REST API를 사용하여 콘텐츠 키에 대한 인증 정책을 구성하는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -481,4 +481,4 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

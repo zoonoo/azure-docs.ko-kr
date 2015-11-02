@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
@@ -95,9 +95,9 @@ Azure에서는 이 템플릿을 이미지로 처리하고 **이미지**에 저�
 
 [관리 포털]: http://manage.windowsazure.com
 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법]: virtual-machines-linux-how-to-log-on.md
-[Azure의 가상 컴퓨터 이미지 정보]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[사용자 지정 가상 컴퓨터를 만드는 방법]: virtual-machines-create-custom.md
+[Azure의 가상 컴퓨터 이미지 정보]: virtual-machines-images.md
+[사용자 지정 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Linux를 실행하는 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

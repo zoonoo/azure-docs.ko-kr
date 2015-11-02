@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="새 게이트웨이로 API 앱 배포" 
 	description="새 게이트웨이 및 새 앱 서비스 계획으로 API 앱을 배포하기 위해 Azure 리소스 관리자 템플릿을 사용합니다." 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -308,4 +308,4 @@ API 앱을 만듭니다.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

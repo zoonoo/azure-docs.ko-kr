@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Hive의 정의 및 HiveQL을 사용하는 방법을 알아봅니다 | Microsoft Azure"
 	description="Apache Hive 정보 및 HDInsight에서 Hadoop와 Apache Hive를 사용하는 방법을 알아봅니다. Hive 작업을 실행하고 HiveQL을 사용하여 Apache log4j 샘플 파일을 분석하는 방법을 선택합니다."
-	keywords="hiveql,what is hive"
+	keywords="hiveql, hive란"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -132,7 +132,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 - [Azure 구독 연결 관리자][connectionmanager]
 
 
-[여기][ssispack]서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
 
 
 ##<a id="nextsteps"></a>다음 단계
@@ -159,9 +159,9 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/ko-KR/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -183,4 +183,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

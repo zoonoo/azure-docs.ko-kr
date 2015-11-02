@@ -25,9 +25,7 @@ Azure PowerShell과 함께 리소스 관리자 템플릿을 사용하여 새 Win
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
-시작하기 전에 Azure PowerShell이 구성 및 준비되어 있는지 확인합니다.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## 리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기
 
@@ -290,4 +288,4 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 
 [Azure PowerShell 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

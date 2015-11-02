@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱" 
-	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱"
+	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako,johndeu"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/21/2015"   
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/15/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,14 +29,14 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 >[AZURE.IMPORTANT]콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예: 회의, 강의 또는 프레젠테이션 녹음. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
 
 
-인덱싱 작업은 다음 출력을 생성합니다.
+인덱싱 작업은 다음 출력을 생성할 수 있습니다.
 
 - **SAMI**, **TTML** 및 **WebVTT** 형식의 선택 자막 파일.
 
 	선택 자막 파일은 Recognizability라는 태그를 포함합니다. 이 태그는 원본 동영상의 음성을 인식할 수 있는 정도에 따라 인덱싱 작업을 평가합니다. 유용성을 위해 화면 출력 파일에 Recognizability 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.
 - 키워드 파일(XML).
 - SQL server에서 사용할 AIB(오디오 인덱싱 Blob) 파일.
-	
+
 	자세한 내용은 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)을 참조하세요.
 
 
@@ -44,84 +44,84 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 
 최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](http://azure.microsoft.com/blog/topics/media-services/)(영문)를 참조하세요.
 
-##인덱싱 태스크에 대한 구성 및 매니페스트 파일 사용
+## 인덱싱 태스크에 대한 구성 및 매니페스트 파일 사용
 
-태스크 구성을 사용하여 인덱싱 태스크에 대한 세부 사항을 지정할 수 있습니다. 예를 들어, 미디어 파일에 사용할 메타데이터를 지정할 수 있습니다. 이 메타데이터는 그 언어의 어휘를 확장하고 음성 인식 정확성을 크게 향상하기 위해 언어 엔진이 사용합니다.
+태스크 구성을 사용하여 인덱싱 태스크에 대한 세부 사항을 지정할 수 있습니다. 예를 들어, 미디어 파일에 사용할 메타데이터를 지정할 수 있습니다. 이 메타데이터는 그 언어의 어휘를 확장하고 음성 인식 정확성을 크게 향상하기 위해 언어 엔진이 사용합니다. 또한 원하는 출력 파일을 지정할 수 있습니다.
 
 매니페스트 파일을 사용하여 여러 미디어 파일을 한 번에 처리할 수도 있습니다.
 
 자세한 내용은 [Azure 미디어 인덱서의 작업 기본 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
 
-##자산 인덱스
+## 자산 인덱스
 
 다음 메서드는 미디어 파일을 자산으로 업로드하고 자산을 인덱스하기 위해 작업을 만듭니다.
 
 구성 파일이 지정되지 않은 경우 해당 미디어 파일은 모든 기본 설정으로 인덱스됩니다.
-	
+
 	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
 	{
 	    // Create an asset and upload the input media file to storage.
 	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
 	        "My Indexing Input Asset",
 	        AssetCreationOptions.None);
-	
+
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
-	
+
 	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
+
 	    // Read configuration from file if specified.
 	    string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
-	
+
 	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My Indexing Task",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
-	
+
 	    // Specify the input asset to be indexed.
 	    task.InputAssets.Add(asset);
-	
-	    // Add an output asset to contain the results of the job. 
+
+	    // Add an output asset to contain the results of the job.
 	    task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
-	
+
 	    // Use the following event handler to check job progress.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
+
 	    // Launch the job.
 	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
+
+	    // Check job execution and wait for job to finish.
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
+
+	    // If job state is Error, the event handling
+	    // method for job progress should log errors.  Here we check
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
-	
+
 	    // Download the job outputs.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
+
 	    return true;
 	}
-	
+
 	static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
 	{
 	    IAsset asset = _context.Assets.Create(assetName, options);
-	
+
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
 	    assetFile.Upload(filePath);
-	
+
 	    return asset;
 	}
-	        
+
 	static void DownloadAsset(IAsset asset, string outputDirectory)
 	{
 	    foreach (IAssetFile file in asset.AssetFiles)
@@ -129,7 +129,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	        file.Download(Path.Combine(outputDirectory, file.Name));
 	    }
 	}
-	
+
 	static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
 	    var processor = _context.MediaProcessors
@@ -137,17 +137,17 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	    .ToList()
 	    .OrderBy(p => new Version(p.Version))
 	    .LastOrDefault();
-	
+
 	    if (processor == null)
 	        throw new ArgumentException(string.Format("Unknown media processor",
 	                                                   mediaProcessorName));
-	
-	    return processor;
-	} 
-	
-###<a id="output_files"></a>출력 파일
 
-인덱싱 작업은 다음 출력 파일을 생성합니다. 다음 파일은 첫 번째 출력 자산에 저장됩니다.
+	    return processor;
+	}
+
+### <a id="output_files"></a>출력 파일
+
+기본적으로 인덱싱 작업은 다음 출력 파일을 생성합니다. 다음 파일은 첫 번째 출력 자산에 저장됩니다.
 
 
 <table border="1">
@@ -162,105 +162,110 @@ Microsoft SQL server 2008 이상을 실행하는 컴퓨터에서 Indexer SQL 추
 추가 기능을 다운로드하려면 <a href="http://aka.ms/indexersql">Azure 미디어 인덱서 SQL 추가 기능</a>을 클릭합니다.
 <br/><br/>
 선택 자막에 기반한 비디오 및 키워드 XML 파일을 간단하게 인덱스하기 위해 Apache Lucene/Solr와 같은 기타 검색 엔진을 활용할 수도 있습니다. 하지만 이는 검색 결과의 정확성이 떨어집니다.</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
+<tr><td>InputFileName.smi<br/>InputFileName.ttml<br/>InputFileName.vtt</td>
 <td>SAMI, TTML 및 WebVTT 형식의 CC(선택 자막) 파일.
 <br/><br/>
 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다.
 <br/><br/>
 선택 자막 파일은 <b>Recognizability</b>라는 태그를 포함합니다. 이 태그는 원본 동영상의 음성을 인식할 수 있는 정도에 따라 인덱싱 작업을 평가합니다. 유용성을 위해 화면 출력 파일에 <b>Recognizability</b> 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.</td></tr>
-<tr><td>InputFileName.kw.xml</td>
-<td>키워드 파일.
+<tr><td>InputFileName.kw.xml
+<br/>
+InputFileName.info
+</td>
+<td>키워드 및 정보 파일입니다.
 <br/><br/>
 키워드 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함하는 XML 파일입니다.
 <br/><br/>
-음성 분석을 수행하거나, Bing, Google 또는 Microsoft SharePoint와 같은 검색 엔진에 노출하여 미디어 파일을 보다 검색하기 쉽게 하거나, 보다 관련있는 광고를 제공하는 데 사용하는 등의 여러 가지 목적을 위해 이 파일을 사용할 수 있습니다.</td></tr>
+정보 파일은 인식된 각 용어에 대한 세부적인 정보를 포함한 일반 텍스트 파일입니다. 첫 번째 줄은 특수하며 Recognizability 점수를 포함합니다. 이후 각 줄은 탭으로 구분된 데이터 목록이며, 다음과 같습니다. 시작 시간, 종료 시간, 단어/구, 신뢰도 시간은 초 단위로 제공되며 신뢰도는 0-1의 숫자로 지정됩니다.  <br/><br/>줄 예제: "1.20 &#160;&#160;&#160;1.45 &#160;&#160;&#160;word &#160;&#160;&#160;0.67"
+<br/><br/>
+음성 분석을 수행하거나, Bing, Google 또는 Microsoft SharePoint와 같은 검색 엔진에 노출하여 미디어 파일을 보다 검색하기 쉽게 하거나, 보다 관련 있는 광고를 제공하는 데에도 사용하는 등의 여러 가지 목적을 위해 이들 파일을 사용할 수 있습니다.</td></tr>
 </table>
 
 모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 
-##여러 파일 인덱스
+## 여러 파일 인덱스
 
 다음 메서드는 여러 파일을 한 자산으로 업로드하고 이러한 모든 파일을 일괄로 인덱스하기 위해 작업을 만듭니다.
 
 확장명이 .lst인 매니페스트 파일이 만들어지고 자산으로 업로드됩니다. 매니페스트 파일은 모든 자산 파일 목록을 포함합니다. 자세한 내용은 [Azure 미디어 인덱서의 작업 기본 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
-	
+
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
 	    // Create an asset and upload to storage.
 	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
 	        "My Indexing Input Asset - Batch Mode",
 	        AssetCreationOptions.None);
-	
+
 	    // Create a manifest file that contains all the asset file names and upload to storage.
 	    string manifestFile = "input.lst";            
 	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
 	    assetFile.Upload(manifestFile);
-	
+
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
-	
+
 	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
+
 	    // Read configuration.
 	    string configuration = File.ReadAllText("batch.config");
-	
+
 	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
-	
+
 	    // Specify the input asset to be indexed.
 	    task.InputAssets.Add(asset);
-	
+
 	    // Add an output asset to contain the results of the job.
 	    task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
-	
+
 	    // Use the following event handler to check job progress.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
+
 	    // Launch the job.
 	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
+
+	    // Check job execution and wait for job to finish.
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
+
+	    // If job state is Error, the event handling
+	    // method for job progress should log errors.  Here we check
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
-	
+
 	    // Download the job outputs.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
+
 	    return true;
 	}
-	
+
 	private static IAsset CreateAssetAndUploadMultipleFiles(string[] filePaths, string assetName, AssetCreationOptions options)
 	{
 	    IAsset asset = _context.Assets.Create(assetName, options);
-	
+
 	    foreach (string filePath in filePaths)
 	    {
 	        var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
 	        assetFile.Upload(filePath);
 	    }
-	
+
 	    return asset;
 	}
 
 
-###출력 파일
+### 출력 파일
 
-하나 이상의 입력 미디어 파일이 있을 때, WAMI는 ‘JobResult.txt’라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일에 대한 결과로 생성되는 AIB, SAMI, TTML, WebVTT 및 키워드 파일은 아래와 같이 순차적으로 번호가 매겨집니다.
+하나 이상의 입력 미디어 파일이 있을 때, 인덱서는 ‘JobResult.txt’라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일에 대한 결과로 생성되는 AIB, SAMI, TTML, WebVTT 및 키워드 파일은 아래와 같이 순차적으로 번호가 매겨집니다.
 
 출력 파일 설명은 [출력 파일](#output_files)을 참조하세요.
 
@@ -300,7 +305,7 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 
 모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 
-###부분적으로 성공된 작업
+### 부분적으로 성공된 작업
 
 모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 
@@ -354,4 +359,4 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

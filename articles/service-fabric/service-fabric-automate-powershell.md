@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/16/2015"
 	ms.author="ryanwi"/>
 
 # PowerShell을 사용하여 서비스 패브릭 응용 프로그램 배포, 업그레이드, 테스트 및 제거
@@ -34,13 +34,13 @@ Connect-ServiceFabricCluster
 
 ## 작업: 서비스 패브릭 응용 프로그램 배포
 
-응용 프로그램을 빌드하고 응용 프로그램 형식이 패키지되면 서비스 패브릭 클러스터로 응용 프로그램을 배포할 수 있습니다. 먼저, 솔루션 탐색기에서 **HelloWorldStatefulApplication**을 마우스 오른쪽 단추로 클릭하고 **패키지**를 선택하여 Visual Studio에서 HelloWorldStateful 응용 프로그램을 패키지합니다. 서비스 및 응용 프로그램 매니페스트와 패키지 레이아웃에 대한 자세한 내용은 [서비스 패브릭에서 응용 프로그램 모델링](service-fabric-application-model.md)을 참조하세요. 배포에는 응용 프로그램 패키지를 업로드하고 응용 프로그램 형식을 등록하며 응용 프로그램 인스턴스를 만드는 작업이 포함됩니다. 이 섹션의 지침에 따라 새 응용 프로그램을 클러스터에 배포합니다.
+응용 프로그램을 빌드하고 응용 프로그램 형식이 패키지되면 로컬 서비스 패브릭 클러스터로 응용 프로그램을 배포할 수 있습니다. 먼저, 솔루션 탐색기에서 **HelloWorldStatefulApplication**을 마우스 오른쪽 단추로 클릭하고 **패키지**를 선택하여 Visual Studio에서 HelloWorldStateful 응용 프로그램을 패키지합니다. 서비스 및 응용 프로그램 매니페스트와 패키지 레이아웃에 대한 자세한 내용은 [서비스 패브릭에서 응용 프로그램 모델링](service-fabric-application-model.md)을 참조하세요. 배포에는 응용 프로그램 패키지를 업로드하고 응용 프로그램 형식을 등록하며 응용 프로그램 인스턴스를 만드는 작업이 포함됩니다. 이 섹션의 지침에 따라 새 응용 프로그램을 클러스터에 배포합니다.
 
 ### 1단계: 응용 프로그램 패키지 업로드
 응용 프로그램 패키지를 ImageStore에 업로드하면 내부 서비스 패브릭 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. 응용 프로그램 패키지에는 필요한 응용 프로그램 매니페스트, 서비스 매니페스트, 응용 프로그램 및 서비스 인스턴스를 만드는 코드/구성/데이터 패키지가 포함됩니다. [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125905.aspx) 명령으로 패키지를 업로드합니다. 예:
 
 ```powershell
-Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ### 2단계: 응용 프로그램 형식 등록
@@ -107,7 +107,7 @@ HelloWorldStateful 서비스의 코드를 변경합니다.
 이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore*는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령은 응용 프로그램 패키지를 ImageStore에서 *HelloWorldStatefulV2*에 복사합니다.
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore   -ApplicationPackagePathInImageStore HelloWorldStatefulV2
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStatefulV2
 ```
 
 다음 단계에서는 서비스 패브릭으로 새 버전의 응용 프로그램을 등록하는 것이며 이 작업은 [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet을 사용하여 수행할 수 있습니다.
@@ -190,7 +190,7 @@ Unregister-ServiceFabricApplicationType HelloWorldStatefulApplication 1.0.0.0
 응용 프로그램 형식이 등록 취소되면 [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt163532.aspx) cmdlet을 사용하여 ImageStore에서 응용 프로그램 패키지를 제거할 수 있습니다.
 
 ```powershell
-Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ## 추가 리소스
@@ -202,4 +202,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Azure 서비스 패브릭 테스트 용이성 Cmdlet](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

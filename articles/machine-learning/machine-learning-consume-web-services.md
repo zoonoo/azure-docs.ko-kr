@@ -2,7 +2,6 @@
 	pageTitle="기계 학습 웹 서비스 사용 | Microsoft Azure"
 	description="기계 학습 서비스가 배포된 후에는 요청-응답 서비스 또는 일괄 처리 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다."
 	services="machine-learning"
-	solutions="big-data"
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="09/09/2015" 
+	ms.date="10/19/2015"
 	ms.author="bradsev" />
 
 
@@ -33,6 +32,8 @@
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Azure 기계 학습 웹 서비스는 요청-응답 서비스 및 일괄 처리 실행 서비스의 두 가지 방법 중 하나로 사용될 수 있습니다. 각 시나리오에서 기능은 실험이 배포된 후 사용할 수 있는 RESTFul 웹 서비스를 통해 제공됩니다. Azure에서 Azure 웹 서비스 끝점을 사용하여 기계 학습 웹 서비스를 배포하면 사용량에 따라 서비스가 자동으로 확장되기 때문에 하드웨어 리소스의 사전 비용 및 지속적인 비용을 방지할 수 있습니다.
+
+> [AZURE.TIP]예측 웹 서비스에 액세스하는 웹 앱을 만드는 간단한 방법은 [웹 앱 템플릿을 사용한 Azure 기계 학습 웹 서비스 사용](machine-learning-consume-web-service-with-web-app-template.md)을 참조하세요.
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
@@ -432,4 +433,4 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 	    }
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

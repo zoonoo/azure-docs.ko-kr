@@ -1,7 +1,7 @@
 <properties
 	pageTitle="온라인 데이터 원본에서 기계 학습 스튜디오로 데이터 가져오기 | Microsoft Azure"
 	description="다양한 온라인 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오는 방법."
-	keywords="import data,data format,data types,data sources,training data"
+	keywords="데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터"
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -58,4 +58,4 @@ Azure 테이블|Azure 저장소의 테이블 서비스에서 데이터를 읽습
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

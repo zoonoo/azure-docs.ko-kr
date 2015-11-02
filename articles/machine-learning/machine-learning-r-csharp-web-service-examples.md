@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="R을 사용하여 작성한 기계 학습 웹 서비스 예제 | Microsoft Azure" 
 	description="R 코드와 기계 학습을 사용하여 만든 후 Azure 마켓플레이스에 게시한 유용한 웹 서비스 예제 집합을 찾아보세요." 
-	keywords="csharp,r code,web services examples"
+	keywords="csharp, r 코드, 웹 서비스 예제"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
@@ -74,4 +74,4 @@ Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

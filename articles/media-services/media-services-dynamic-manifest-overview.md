@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="필터 및 동적 매니페스트" 
-	description="이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍을 수행하기 위해 미디어 서비스는 동적 매니페스트를 생성합니다." 
+	description="이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍을 보관하기 위해 미디어 서비스는 동적 매니페스트를 생성합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="cenkdin,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #필터 및 동적 매니페스트
 
-미디어 서비스 2.11 버전부터 자산에 대한 필터를 정의할 수 있습니다. 이 필터는 고객이 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생하거나 자산과 연결된 모든 변환 대신 고객의 장치가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 **동적 매니페스트**를 통해 자산의 필터링이 이루어집니다.
+미디어 서비스 2.11 버전부터 자산에 대한 필터를 정의할 수 있습니다. 이 필터는 고객이 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생하거나 자산과 연결된 모든 변환 대신 고객의 장치가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 **동적 매니페스트**를 통해 자산의 필터링이 보관됩니다.
 
 이 항목에서는 필터를 사용하는 것이 고객에게 도움이 되는 일반적인 시나리오를 설명하고, 프로그래밍 방식으로 필터를 만드는 방법을 보여주는 항목에 대한 링크를 제공합니다.
 
@@ -209,6 +209,7 @@
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+
 ##참고 항목
 
 [고객에 콘텐츠 배달 개요](media-services-deliver-content-overview.md)
@@ -233,4 +234,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

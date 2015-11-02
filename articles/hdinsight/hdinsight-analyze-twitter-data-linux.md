@@ -1,6 +1,6 @@
 <properties
-	pageTitle="HDInsight의 Hadoop을 사용하여 Twitter 데이터 분석 | Microsoft Azure"
-	description="Hive를 사용하여 HDInsight의 Hadoop에서 Twitter 데이터를 분석해 특정 단어의 사용 빈도를 확인하는 방법에 대해 알아봅니다."
+	pageTitle="HDInsight에서 Apache Hive로 Twitter 데이터 분석 | Microsoft Azure"
+	description="Python을 사용하여 특정 키워드를 포함한 트윗을 저장하고, HDInsight에서 Hive 및 Hadoop을 사용하여 원시 Twitter 데이터를 검색 가능한 Hive 테이블로 변환하는 방법을 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
@@ -319,4 +319,4 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

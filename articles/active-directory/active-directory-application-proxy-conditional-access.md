@@ -19,9 +19,15 @@
 # 조건부 액세스로 작업하기
 > [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
-이제 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 액세스하는 사용자와 그룹에 조건부 액세스 권한을 부여하도록 액세스 규칙을 설정할 수 있습니다. 그러면 다음이 가능해집니다. - 응용 프로그램별 Multi-Factor Authentication 요구 - 사용자가 직장이 아닐 때만 Multi-Factor Authentication 요구 - 사용자가 직장이 아닐 때 응용 프로그램에 액세스하지 못하도록 차단
+이제 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 액세스하는 사용자와 그룹에 조건부 액세스 권한을 부여하도록 액세스 규칙을 설정할 수 있습니다. 다음을 수행할 수 있습니다.
 
-모든 사용자 및 그룹 또는 특정 사용자 및 그룹에만 이러한 규칙을 적용할 수 있습니다. 기본적으로 규칙은 응용 프로그램에 대한 액세스 권한이 있는 모든 사용자에게 적용됩니다. 그러나 규칙은 지정된 보안 그룹의 구성원인 사용자로만 제한될 수도 있습니다. 사용자가 OAuth 2.0, OpenID Connect, SAML 또는 WS-Federation을 사용하는 페더레이션된 응용 프로그램에 액세스할 때 액세스 규칙이 평가됩니다. 또한 액세스 규칙은 Auth 2.0 및 OpenID Connect가 새로고침 토큰을 사용하여 액세스 토큰을 확보할 때 평가됩니다.
+- 응용 프로그램 당 Multi-Factor Authentication 요구
+- 사용자가 직장이 아닌 경우 Multi-Factor Authentication 요구
+- 사용자가 직장이 아닌 경우 응용 프로그램에 액세스를 차단
+
+모든 사용자 및 그룹 또는 특정 사용자 및 그룹에만 이러한 규칙을 적용할 수 있습니다. 기본적으로 규칙은 응용 프로그램에 대한 액세스 권한이 있는 모든 사용자에게 적용됩니다. 그러나 규칙은 지정된 보안 그룹의 구성원인 사용자로만 제한될 수도 있습니다.
+
+사용자가 OAuth 2.0, OpenID Connect, SAML 또는 WS-Federation을 사용하는 페더레이션된 응용 프로그램에 액세스할 때 액세스 규칙이 평가됩니다. 또한 액세스 규칙은 Auth 2.0 및 OpenID Connect가 새로고침 토큰을 사용하여 액세스 토큰을 확보할 때 평가됩니다.
 
 ## 조건부 액세스 필수 조건
 
@@ -44,7 +50,7 @@
 
 
 ## 페더레이션 서비스에 대한 MFA 구성
-페더레이션된 테넌트의 경우 MFA(Multi-Factor Authentication)를 Azure Active Directory 또는 온-프레미스 AD FS 서버에서 수행할 수 있습니다. 기본적으로 MFA는 Azure Active Directory에서 호스팅되는 모든 페이지에 발생합니다. MFA 온-프레미스를 구성하려면 Windows PowerShell을 실행하고 Azure AD 모듈을 설정하려면 – SupportsMFA 속성을 사용합니다. 다음 예제는 contoso.com 테넌트에서 [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx)을 사용하여 온-프레미스 MFA를 사용하는 방법을 보여줍니다. `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` 이 플래그를 설정하는 것 외에도 페더레이션 테넌트 AD FS 인스턴스를 다단계 인증을 수행하도록 구성해야 합니다. [온-프레미스에 Microsoft Azure Multi-Factor Authentication을 배포](..multi-factor-authentication-get-started-server.md)하기 위한 지침을 따르세요.
+페더레이션된 테넌트의 경우 MFA(Multi-Factor Authentication)를 Azure Active Directory 또는 온-프레미스 AD FS 서버에서 수행할 수 있습니다. 기본적으로 MFA는 Azure Active Directory에서 호스팅되는 모든 페이지에 발생합니다. MFA 온-프레미스를 구성하려면 Windows PowerShell을 실행하고 Azure AD 모듈을 설정하려면 – SupportsMFA 속성을 사용합니다. 다음 예제는 contoso.com 테넌트에서 [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx)을 사용하여 온-프레미스 MFA를 사용하는 방법을 보여줍니다. `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` 이 플래그를 설치하는 것 외에도 페더레이션된 테넌트 AD FS 인스턴스가 Multi-Factor Authentication을 수행하도록 구성해야 합니다. [온-프레미스에 Microsoft Azure Multi-Factor Authentication을 배포](..multi-factor-authentication-get-started-server.md)하기 위한 지침을 따르세요.
 ## 참고 항목
 응용 프로그램 프록시를 사용하여 수행할 수 있는 작업은 많습니다.
 
@@ -61,7 +67,7 @@
 
 ## 추가 리소스
 
-* [조직으로 Azure 등록](..sign-up-organization.md)
-* [Azure ID](..fundamentals-identity.md)
+* [조직으로 Azure 등록](sign-up-organization.md)
+* [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

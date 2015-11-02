@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성
@@ -78,9 +78,11 @@
 
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-- 최신 버전의 Azure PowerShell cmdlet. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다. 이 문서는 Azure PowerShell *0.9.8*을 위해 작성되었습니다.
+- Azure PowerShell 0.9.8 cmdlet. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다. 이 문서는 0.9.8용으로 작성되었지만 PowerShell 1.0 Preview에서 이러한 단계를 사용할 수 있습니다(cmdlet을 약간 수정해야 함).
 
->[AZURE.NOTE]중요 업무용 앱을 실행하는 경우 Azure PowerShell 0.9.8을 계속 사용하세요. 대부분의 경우 두 버전 간의 유일한 차이점은 1.0 Preview cmdlet 이름은 {동사}-AzureRm{명사} 패턴을 따르는 반면 0.9.8 이름에는 Rm이 포함되지 않습니다. 예를 들어 New-AzureResourceGroup 대신 New-AzureRmResourceGroup입니다. Azure PowerShell 1.0 Preview에 대한 자세한 내용은 이 [블로그 게시물](https://azure.microsoft.com/blog/azps-1-0-pre/)을 참조하세요. Azure PowerShell 1.0 Preview cmdlet에 대한 자세한 내용은 [Azure 리소스 관리자 Cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)을 참조하세요.
+**Azure PowerShell 1.0 Preview에서 다음 단계를 사용할 경우 정보**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
 
 
 ## 1\. IP 주소 범위 계획
@@ -113,9 +115,7 @@ VNet2 값:
 
 ## 2\. 구독에 연결 
 
-PowerShell 콘솔을 열고 계정에 연결합니다. 아래 지침에서는 Azure PowerShell 0.9.8 버전을 사용합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다.
-
-연결에 도움이 되도록 다음 샘플을 사용합니다.
+PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 샘플을 사용합니다.
 
 		Add-AzureAccount
 
@@ -253,4 +253,4 @@ VNet에 게이트웨이 서브넷을 추가해야 하는 경우 아래 샘플을
 
 VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-faq.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

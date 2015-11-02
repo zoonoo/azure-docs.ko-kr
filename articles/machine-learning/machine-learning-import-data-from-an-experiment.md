@@ -1,7 +1,7 @@
 <properties
 	pageTitle="다른 실험에서 얻은 데이터를 기계 학습 스튜디오로 가져오기 | Microsoft Azure"
 	description="Azure 기계 학습 스튜디오에서 학습 데이터를 저장하고 다른 실험에 사용하는 방법."
-	keywords="import data,data,data sources,training data"
+	keywords="데이터 가져오기, 데이터, 데이터 원본, 학습 데이터"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -35,4 +35,4 @@
 
 저장이 완료되면 작업 영역의 모든 실험에서 데이터 집합을 사용할 수 있습니다. 모듈 팔레트의 **저장된 데이터 집합** 목록에서 찾을 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

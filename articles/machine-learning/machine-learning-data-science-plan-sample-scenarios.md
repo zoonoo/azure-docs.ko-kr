@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/18/2015"
 	ms.author="msolhab;bradsev" />
 
 
 # Azure 기계 학습의 고급 분석 시나리오
 
-이 문서에서는 Azure 기계 학습의 ADAPT(고급 분석 프로세스 및 기술)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 처리 시퀀스에서 사용 가능한 옵션을 보여 줍니다.
+이 문서에서는 Cortana 분석 프로세스(CAP)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 처리 시퀀스에서 사용 가능한 옵션을 보여 줍니다.
 
 마지막 섹션에서는 데이터 및 목표에 적합한 샘플 시나리오를 선택하는 **의사 결정 트리**를 소개합니다.
 
@@ -32,8 +32,6 @@
 
 *   [저장소 계정 만들기](storage-whatis-account.md)
 *   [Azure ML 작업 영역 만들기](machine-learning/machine-learning-create-workspace.md)
-
-
 
 
 ## <a name="smalllocal"></a>시나리오 #1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음
@@ -298,8 +296,8 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 공용 데이터 집합에서 고급 분석 프로세스 및 기술을 사용하는 종단 간 Azure 기계 학습 연습에 대한 자세한 내용은 다음을 참조하세요.
 
 
-* [고급 분석 프로세스 및 기술 작동: SQL Server 사용](machine-learning/machine-learning-data-science-process-sql-walkthrough.md)
-* [고급 분석 프로세스 및 기술 작동: HDInsight Hadoop 클러스터 사용](machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
+* [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning/machine-learning-data-science-process-sql-walkthrough.md)
+* [실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -316,4 +314,4 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리 문제 해결 방법
@@ -1483,6 +1483,4 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

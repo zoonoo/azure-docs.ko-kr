@@ -1,19 +1,19 @@
-<properties
-	pageTitle="모범 사례: Azure AD 암호 관리 | Microsoft Azure"
-	description="배포 및 사용 모범 사례, 샘플 최종 사용자 설명서 및 Azure Active Directory에서 암호 관리에 대한 교육 가이드입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="모범 사례: Azure AD 암호 관리 | Microsoft Azure" 
+	description="배포 및 사용 모범 사례, 샘플 최종 사용자 설명서 및 Azure Active Directory에서 암호 관리에 대한 교육 가이드입니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리 배포 및 사용자 교육
@@ -24,6 +24,7 @@
   * [사용자가 직접 인증 데이터를 채울 수 있는 방법](#ways-to-populate-authentication-data)
 * [**조직에 재설정된 암호를 롤아웃할 수 있는 가장 좋은 방법**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [전자 메일 롤아웃 + 샘플 전자 메일 통신](#email-based-rollout)
+  * [사용자에 대한 고유의 사용자 지정 암호 관리 포털 만들기](#creating-your-own-password-portal)
   * [강제로 사용자가 로그인에 등록하도록 강제 등록을 사용하는 방법](#using-enforced-registration)
   * [사용자 계정에 대한 인증 데이터를 업로드하는 방법](#uploading-data-yourself)
 * [**샘플 사용자 및 지원 교육 자료(서비스 예정!)**](#sample-training-materials)
@@ -73,6 +74,17 @@
 
 [여기](http://1drv.ms/1xWFtQM)에서 전자 메일 템플릿을 다운로드할 수 있습니다.
 
+### 고유의 암호 포털 만들기
+암호 관리 기능을 배포하는 더 큰 고객에게 적합한 하나의 전략은 사용자가 한 위치에서 암호와 관련된 모든 것을 관리하는 데 사용할 수 있는 "암호 포털"를 생성하는 것입니다.
+
+대부분의 가장 큰 고객이 Azure AD 암호 재설정 포털, 암호 재설정 등록 포털 및 암호 변경 페이지에 대한 링크가 있는 https://passwords.contoso.com과 같은 루트 DNS 항목을 만들도록 선택합니다. 이러한 방식으로 보낼 전자 메일 통신 또는 전단지에서 서비스를 시작할 시간이 있을 때 이동할 수 있는 하나의 인상적인 URL을 포함할 수 있습니다.
+
+여기서 진행하려면 응답성이 뛰어난 최신 UI 설계 패러다임을 사용하는 간단한 페이지를 만들고 모든 브라우저 및 모바일 장치에서 작동합니다.
+
+  ![][007]
+  
+[여기](https://github.com/kenhoff/password-reset-page)에서 웹 사이트 템플릿을 다운로드할 수 있습니다. 조직의 필요성에 따라 로고 및 색을 사용자 지정하는 것이 좋습니다.
+
 ### 강제 등록 사용
 직접 암호 재설정에 등록하려면 [http://myapps.microsoft.com](http://myapps.microsoft.com)의 액세스 패널에 로그인할 때 강제로 등록하게 할 수도 있습니다. **액세스 패널에 로그인할 때 사용자가 등록해야 함** 옵션을 사용하여 사용자 디렉터리의 **구성** 탭에서 이 옵션을 사용할 수 있습니다.
 
@@ -98,12 +110,12 @@ AAD Connect 또는 Windows PowerShell을 통해 설정할 수 있는 속성을 �
 1.	[Azure 관리 포털](https://manage.windowsazure.com)의 **Active Directory 확장**에서 사용자 디렉터리로 이동합니다.
 2.	**사용자** 탭을 클릭합니다.
 3.	목록에서 관심 있는 사용자를 선택합니다.
-4.	첫 번째 탭에서 암호 재설정을 사용하는 속성으로 사용될 수 있는 **대체 전자 메일**을 찾습니다.
+4.	첫 번째 탭에서 암호 재설정을 사용하는 속성으로 사용될 수 있는 **대체 전자 메일**을 찾습니다. 
 
     ![][005]
 
 5.	**작업 정보** 탭을 클릭합니다.
-6.	이 페이지에서 **사무실 전화**, **휴대폰**, **인증 전화** 및 **인증 전자 메일**을 찾습니다. 사용자가 자신의 암호를 다시 설정할 수 있도록 이 속성을 설정할 수도 있습니다.
+6.	이 페이지에서 **사무실 전화**, **휴대폰**, **인증 전화** 및 **인증 전자 메일**을 찾습니다. 사용자가 자신의 암호를 다시 설정할 수 있도록 이 속성을 설정할 수도 있습니다. 
 
     ![][006]
 
@@ -136,5 +148,6 @@ AAD Connect 또는 Windows PowerShell을 통해 설정할 수 있는 속성을 �
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
+[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

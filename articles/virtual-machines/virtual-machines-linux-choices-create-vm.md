@@ -19,6 +19,8 @@
 
 # Linux 가상 컴퓨터를 만드는 다양한 방법
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 VM은 다른 사용자와 목적에 적합하기 때문에 Azure는 다른 방법으로 VM을 만들 수 있습니다. 즉, VM 및 만드는 방법에 대해 일부 선택 해야 함을 의미합니다. 이 문서에서는 이 선택 사항 및 지침에 대한 링크 요약을 제공합니다.
 
 Azure 리소스 관리자 템플릿은 하나의 논리적 배포 단위로 다른 리소스 및 가상 컴퓨터를 만들고 관리하는 방법으로 최근에 도입되었습니다. 사용 가능한 경우, 이 방법에 대한 지침은 아래에 포함됩니다. Azure 리소스 관리자 및 리소스를 하나의 단위로 관리하는 방법에 대해 자세히 알려면 [개요][]를 참조하세요.
@@ -33,9 +35,9 @@ Azure 포털의 그래픽 사용자 인터페이스는 특히 Azure로 시작한
 
 명령 셸에서 작업을 원할 경우, Mac 및 Linux 사용자 또는 Azure PowerShell용 Azure 명령행 인터페이스(CLI) 간을 선택하며, Azure용 Windows PowerShell cmdlet 및 사용자 지정 콘솔을 포함합니다.
 
-Azure CLI는 [Linux를 실행하는 가상 컴퓨터 만들기][]를 참조하세요. 템플릿을 사용하려면, [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리][]를 참조하세요.
+Azure CLI는 [Linux를 실행하는 가상 컴퓨터 만들기][]를 참조하세요. 템플릿을 사용하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리][]를 참조하세요.
 
-Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성][]을 참조하세요. 템플릿을 사용하려면, [Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리][]를 참조하세요.
+Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성][]을 참조하세요. 템플릿을 사용하려면 [Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리][]를 참조하세요.
 
 ### 개발 환경: Visual Studio
 
@@ -101,4 +103,4 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 [Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-tutorial.md
 [사용자 지정 가상 컴퓨터 만들기]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

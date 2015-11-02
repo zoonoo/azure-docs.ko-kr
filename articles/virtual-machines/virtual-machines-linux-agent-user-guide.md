@@ -21,6 +21,8 @@
 
 #Azure Linux 에이전트 사용자 가이드
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##소개
 
 Azure Linux 에이전트(/usr/sbin/waagent)는 가상 컴퓨터와 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. 이 에이전트는 다음을 수행합니다.
@@ -318,4 +320,4 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

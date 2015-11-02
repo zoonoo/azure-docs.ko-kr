@@ -19,6 +19,8 @@ ms.service="virtual-machines"
 
 # 가상 컴퓨터의 크기
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## 개요
 
 이 문서에서는 앱 및 작업을 실행하는데 사용할 수는 가상 컴퓨터 기반 계산 리소스에 대한 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.
@@ -31,7 +33,7 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 가상 컴퓨터는 기본 및 표준 – 두 계층에서 사용할 수 있습니다. 두 유형 모두 선택한 크기를 제공하지만 기본 계층은 부하 분산 및 자동 크기 조정 같은 표준 계층에서는 사용할 수 있는 일부 기능을 제공하지 않습니다. 다른 크기: A, D, DS, G 및 GS로 구성된 표준 계층 크기입니다. 이러한 크기 중 일부에 대한 고려 사항은 다음을 포함합니다.
 
-*   D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 가상 컴퓨터 크기](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
+*   D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그에 발표된 [새로운 D 시리즈 가상 컴퓨터 크기](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)를 참조하세요.
 
 *   원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서에 기반하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.2GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
@@ -76,92 +78,92 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 ### 기본 계층
 
-|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크는 가 1023GB임)|최대 IOPS(디스크당 300)|
-|---|---|---|---|---|---|
-|A0\\Basic\_A0|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x300|
-|A1\\Basic\_A1|1|1\.75 GB|<p>OS = 1023GB</p><p>임시 = 40GB</p>|2|2x300|
-|A2\\Basic\_A2|2|3\.5 GB|<p>OS = 1023GB</p><p>임시 = 60GB</p>|4|4x300|
-|A3\\Basic\_A3|4|7 GB|<p>OS = 1023GB</p><p>임시 = 120GB</p>|8|8x300|
-|A4\\Basic\_A4|8|14 GB|<p>OS = 1023GB</p><p>임시 = 240GB</p>|16|16x300|
+|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|NIC(최대)|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크는 가 1023GB임)|최대 IOPS(디스크당 300)|
+|---|---|---|---|---|---|---|
+|A0\\Basic\_A0|1|768 MB|1|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x300|
+|A1\\Basic\_A1|1|1\.75 GB|1|<p>OS = 1023GB</p><p>임시 = 40GB</p>|2|2x300|
+|A2\\Basic\_A2|2|3\.5 GB|1|<p>OS = 1023GB</p><p>임시 = 60GB</p>|4|4x300|
+|A3\\Basic\_A3|4|7 GB|1|<p>OS = 1023GB</p><p>임시 = 120GB</p>|8|8x300|
+|A4\\Basic\_A4|8|14 GB|1|<p>OS = 1023GB</p><p>임시 = 240GB</p>|16|16x300|
 
 ### 표준 계층: A 시리즈
 
-|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
-|---|---|---|---|---|---|
-|A0\\ExtraSmall|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x500|
-|A1\\작음|1|1\.75 GB|<p>OS = 1023GB</p><p>임시 = 70GB</p>|2|2x500|
-|A2\\중간|2|3\.5 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4x500|
-|A3\\큼|4|7 GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
-|A4\\매우 큼|8|14 GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
-|A5\\동일|2|14 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4X500|
-|A6\\동일|4|28GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
-|A7\\동일|8|56GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
-|A8\\동일|8|56GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
-|A9\\동일|16|112GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
-|A10\\동일|8|56GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
-|A11\\동일|16|112GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
+|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|NIC(최대)|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
+|---|---|---|---|---|---|---|
+|A0\\ExtraSmall|1|768 MB|1|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x500|
+|A1\\작음|1|1\.75 GB|1|<p>OS = 1023GB</p><p>임시 = 70GB</p>|2|2x500|
+|A2\\중간|2|3\.5 GB|1|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4x500|
+|A3\\큼|4|7 GB|2|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
+|A4\\매우 큼|8|14 GB|4|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
+|A5\\동일|2|14 GB|1|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4X500|
+|A6\\동일|4|28GB|2|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
+|A7\\동일|8|56GB|4|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
+|A8\\동일|8|56GB|2|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
+|A9\\동일|16|112GB|4|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
+|A10\\동일|8|56GB|2|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
+|A11\\동일|16|112GB|4|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
 
 ### 표준 계층: D 시리즈
 
-|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
-|---|---|---|---|---|---|
-|Standard\_D1\\동일|1|3\.5 GB|<p>OS = 1023GB</p><p>임시 (SSD) =50GB</p>|2|2x500|
-|Standard\_D2\\동일|2|7 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
-|Standard\_D3\\동일|4|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
-|Standard\_D4\\동일|8|28GB|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
-|Standard\_D11\\동일|2|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
-|Standard\_D12\\동일|4|28GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
-|Standard\_D13\\동일|8|56GB|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
-|Standard\_D14\\동일|16|112GB|<p>OS = 1023GB</p><p>임시 (SSD) =800GB</p>|32|32x500|
+|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|NIC(최대)|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
+|---|---|---|---|---|---|---|
+|Standard\_D1\\동일|1|3\.5 GB|1|<p>OS = 1023GB</p><p>임시 (SSD) =50GB</p>|2|2x500|
+|Standard\_D2\\동일|2|7 GB|2|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
+|Standard\_D3\\동일|4|14 GB|4|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
+|Standard\_D4\\동일|8|28GB|8|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
+|Standard\_D11\\동일|2|14 GB|2|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
+|Standard\_D12\\동일|4|28GB|4|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
+|Standard\_D13\\동일|8|56GB|8|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
+|Standard\_D14\\동일|16|112GB|16|<p>OS = 1023GB</p><p>임시 (SSD) =800GB</p>|32|32x500|
 
 ### 표준 계층: Dv2 시리즈
 
-|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
-|---|---|---|---|---|---|
-|Standard\_D1\_v2\\same|1|3\.5 GB|<p>OS = 1023GB</p><p>임시 (SSD) =50GB</p>|2|2x500|
-|Standard\_D2\_v2\\same|2|7 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
-|Standard\_D3\_v2\\same|4|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
-|Standard\_D4\_v2\\same|8|28GB|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
-|Standard\_D5\_v2\\same|16|56GB|<p>OS = 1023GB</p><p>임시 (SSD) =800GB</p>|32|32x500|
-|Standard\_D11\_v2\\same|2|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
-|Standard\_D12\_v2\\same|4|28GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
-|Standard\_D13\_v2\\same|8|56GB|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
-|Standard\_D14\_v2\\same|16|112GB|<p>OS = 1023GB</p><p>임시 (SSD) =800GB</p>|32|32x500|
+|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|NIC(최대)|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
+|---|---|---|---|---|---|---|
+|Standard\_D1\_v2\\same|1|3\.5 GB|1|<p>OS = 1023GB</p><p>임시 (SSD) =50GB</p>|2|2x500|
+|Standard\_D2\_v2\\same|2|7 GB|2|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
+|Standard\_D3\_v2\\same|4|14 GB|4|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
+|Standard\_D4\_v2\\same|8|28GB|8|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
+|Standard\_D5\_v2\\same|16|56GB|16|<p>OS = 1023GB</p><p>임시 (SSD) =800GB</p>|32|32x500|
+|Standard\_D11\_v2\\same|2|14 GB|2|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
+|Standard\_D12\_v2\\same|4|28GB|4|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
+|Standard\_D13\_v2\\same|8|56GB|8|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
+|Standard\_D14\_v2\\same|16|112GB|16|<p>OS = 1023GB</p><p>임시 (SSD) =800GB</p>|32|32x500|
 
 ### 표준 계층: DS 시리즈*
 
-|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭|
-|---|---|---|---|---|---|---|
-|Standard\_DS1\\동일|1|3\.5|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 7GB</p>|2|43|<p>3,200</p><p>초당 32MB</p>|
-|Standard\_DS2\\동일|2|7|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 14GB</p>|4|86|<p>6,400</p><p>초당 64MB</p>|
-|Standard\_DS3\\동일|4|14|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 28GB</p>|8|172|<p>12,800</p><p>초당 128MB</p>|
-|Standard\_DS4\\동일|8|28|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|16|344|<p>25,600</p><p>초당 256MB</p>|
-|Standard\_DS11\\동일|2|14|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 28GB</p>|4|72|<p>6,400</p><p>초당 64MB</p>|
-|Standard\_DS12\\동일|4|28|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|8|144|<p>12,800</p><p>초당 128MB</p>|
-|Standard\_DS13\\동일|8|56|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 112GB</p>|16|288|<p>25,600</p><p>초당 256MB</p>|
-|Standard\_DS14\\동일|16|112|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 224GB</p>|32|576|<p>50,000</p><p>초당 512MB</p>|
+|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|NIC(최대)|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭|
+|---|---|---|---|---|---|---|---|
+|Standard\_DS1\\동일|1|3\.5|1|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 7GB</p>|2|43|<p>3,200</p><p>초당 32MB</p>|
+|Standard\_DS2\\동일|2|7|2|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 14GB</p>|4|86|<p>6,400</p><p>초당 64MB</p>|
+|Standard\_DS3\\동일|4|14|4|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 28GB</p>|8|172|<p>12,800</p><p>초당 128MB</p>|
+|Standard\_DS4\\동일|8|28|8|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|16|344|<p>25,600</p><p>초당 256MB</p>|
+|Standard\_DS11\\동일|2|14|2|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 28GB</p>|4|72|<p>6,400</p><p>초당 64MB</p>|
+|Standard\_DS12\\동일|4|28|4|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|8|144|<p>12,800</p><p>초당 128MB</p>|
+|Standard\_DS13\\동일|8|56|8|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 112GB</p>|16|288|<p>25,600</p><p>초당 256MB</p>|
+|Standard\_DS14\\동일|16|112|16|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 224GB</p>|32|576|<p>50,000</p><p>초당 512MB</p>|
 
 **DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage-premium-storage-preview-portal.md)를 참조하세요.
 
 ### 표준 계층: G 시리즈
 
-|크기 – Azure 포털\\cmdlet &amp; API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
-|---|---|---|---|---|---|
-|Standard\_G1\\동일|2|28GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 384GB</p>|4|4 x 500|
-|Standard\_G2\\동일|4|56GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 768GB</p>|8|8 x 500|
-|Standard\_G3\\동일|8|112GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 1,536GB</p>|16|16 x 500|
-|Standard\_G4\\동일|16|224GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 3,072GB</p>|32|32 x 500|
-|Standard\_G5\\동일|32|448GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 6,144GB</p>|64|<p>64 x 500</p>|
+|크기 – Azure 포털\\cmdlet &amp; API|CPU 코어|메모리|NIC(최대)|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
+|---|---|---|---|---|---|---|
+|Standard\_G1\\동일|2|28GB|1|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 384GB</p>|4|4 x 500|
+|Standard\_G2\\동일|4|56GB|2|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 768GB</p>|8|8 x 500|
+|Standard\_G3\\동일|8|112GB|4|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 1,536GB</p>|16|16 x 500|
+|Standard\_G4\\동일|16|224GB|8|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 3,072GB</p>|32|32 x 500|
+|Standard\_G5\\동일|32|448GB|16|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 6,144GB</p>|64|<p>64 x 500</p>|
 
 ### 표준 계층: GS 시리즈
 
-|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭|
-|---|---|---|---|---|---|---|
-|Standard\_GS1|2|28|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|4|264|<p>5,000</p><p>초당 125MB</p>|
-|Standard\_GS2|4|56|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 112GB</p>|8|528|<p>10,000</p><p>초당 250MB</p>|
-|Standard\_GS3|8|112|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 224GB</p>|16|1056|<p>20,000</p><p>초당 500MB</p>|
-|Standard\_GS4|16|224|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 448GB</p>|32|2112|<p>40,000</p><p>초당 1,000MB</p>|
-|Standard\_GS5|32|448|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 896GB</p>|64|4224|<p>80,000</p><p>초당 2,000MB</p>|
+|크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|NIC(최대)|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭|
+|---|---|---|---|---|---|---|---|
+|Standard\_GS1|2|28|1|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|4|264|<p>5,000</p><p>초당 125MB</p>|
+|Standard\_GS2|4|56|2|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 112GB</p>|8|528|<p>10,000</p><p>초당 250MB</p>|
+|Standard\_GS3|8|112|4|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 224GB</p>|16|1056|<p>20,000</p><p>초당 500MB</p>|
+|Standard\_GS4|16|224|8|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 448GB</p>|32|2112|<p>40,000</p><p>초당 1,000MB</p>|
+|Standard\_GS5|32|448|16|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 896GB</p>|64|4224|<p>80,000</p><p>초당 2,000MB</p>|
 
 
 ### 참고 항목
@@ -170,4 +172,4 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

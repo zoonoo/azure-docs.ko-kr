@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="10/21/2015" 
 	ms.author="femila"/>
 
 
@@ -25,7 +25,7 @@
 
 **Azure 관리 포털에서 그룹을 만들려면**
 
-1. 관리 포털에서 Active Directory를 클릭한 다음 조직의 디렉터리의 이름을 클릭합니다.
+1. 관리 포털에서 **Active Directory**를 클릭한 다음 조직의 디렉터리의 이름을 클릭합니다.
 2. **그룹** 탭을 클릭합니다.
 3. 그룹 페이지에서 **그룹 추가**를 클릭합니다.
 4. **그룹 추가** 창에서 그룹의 이름 및 설명을 지정합니다.
@@ -68,4 +68,4 @@
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="작업 로그 | Microsoft Azure" 
 	description="스트림 분석 작업 로그" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="빅 데이터 분석, 클라우드 서비스, 사물 인터넷, 관리되는 서비스, 스트림 처리, 스트리밍 분석, 데이터 스트리밍"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -83,10 +83,10 @@ Azure Preview 포털에서 **중요** 이벤트를 보려면 메시지의 수준
 
   ![작업 세부 정보](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-[지원](http://azure.microsoft.com/support/options/)에 문의하거나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 통해 팀에 정보를 제공해야 하는 경우 작업 세부 정보, 특히 **상관관계 ID**를 적어 두세요.
+[지원](http://azure.microsoft.com/support/options/)에 문의하거나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 통해 팀에 정보를 제공해야 하는 경우 작업 세부 정보, 특히 **상관관계 ID**를 적어 두세요.
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
@@ -96,4 +96,4 @@ Azure Preview 포털에서 **중요** 이벤트를 보려면 메시지의 수준
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

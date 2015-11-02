@@ -106,14 +106,22 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 아직 Azure 구독에서 PowerShell을 사용한 적이 없을 경우:
 
-1. 스크립트를 실행하려는 컴퓨터에 Azure Powershell 모듈을 설치합니다. 
+스크립트를 실행하려는 컴퓨터에 Azure Powershell 모듈을 설치합니다.
+
  * [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](http://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
  * 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
-2. Azure PowerShell을 시작하고 [구독에 연결](powershell-install-configure.md)합니다.
 
-    ```
+
+#### Azure에 연결
+
+Azure PowerShell을 시작하고 [구독에 연결](powershell-install-configure.md)합니다.
+
+```PowerShell
+
     Add-AzureAccount
-    ```
+    Switch-AzureMode AzureResourceManager
+```
+
 
 #### 경고 받기
 
@@ -217,4 +225,4 @@ request,<br/>requestFailed|[서버 요청](app-insights-configuration-with-appli
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

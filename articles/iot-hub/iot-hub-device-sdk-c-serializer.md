@@ -570,6 +570,20 @@ WITH_DATA(int, MyData)
 
 이러한 매개 변수를 변경하려는 경우 macro\_utils.tt 파일의 값을 수정하고 macro\_utils\_h\_generator.sln 솔루션을 다시 컴파일하고 컴파일한 프로그램을 실행합니다. 이렇게 하면 새 macro\_utils.h 파일이 생성되고 .\\common\\inc 디렉터리에 배치됩니다.
 
+새 버전의 macro\_utils.h를 사용하려면 솔루션에서 **serializer** NuGet 패키지를 제거하고 대신 그 자리에 **serializer** Visual Studio 프로젝트를 넣어야 합니다. 이렇게 하면 업데이트된 macro\_utils.h를 포함하는 serializer 라이브러리의 소스 코드에 대해 코드를 컴파일할 수 있습니다. **simplesample\_amqp**에 이 작업을 수행해 보겠습니다. 먼저 솔루션에서 serializer 라이브러리에 대해 NuGet 패키지를 제거합니다.
+
+   ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
+
+이제 Visual Studio 솔루션에 이 프로젝트를 추가합니다.
+
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
+
+완료되면 다음과 같이 솔루션이 표시됩니다.
+
+   ![](media/iot-hub-device-sdk-c-serializer/05-serializer-project.PNG)
+
+이제 솔루션을 컴파일할 때 업데이트된 macro\_utils.h가 라이브러리에 포함됩니다.
+
 주의할 점은 이 값을 너무 높게 늘리면 컴파일러 한계를 초과할 수 있습니다. 이 때 **nMacroParameters**가 고려해야 할 주요 매개 변수입니다. C99 사양에서는 매크로 정의에서 최소 127개의 매개 변수를 허용하고 있습니다. Microsoft 컴파일러는 이 사양을 정확히 따르므로(127개의 제한) **nMacroParameters**를 기본값을 초과하도록 늘릴 수 없습니다. 하지만 다른 컴파일러에서는 허용될 수도 있습니다(예를 들어, GNU 컴파일러는 보다 높은 제한 지원).
 
 지금까지 **serializer** 라이브러리로 코드를 작성하는 방법에 대해 알아야 하는 모든 내용을 살펴봤습니다. 마무리하기 전에 궁금해할 수 있는 이전 문서의 일부 항목을 다시 확인해보겠습니다.
@@ -642,4 +656,4 @@ serializer_deinit();
 
 또한 **C용 Azure IoT 장치 SDK**로 응용 프로그램을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 보다 자세한 정보를 원하는 경우 위에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. 또는 [SDK 설명서](https://github.com/Azure/azure-iot-sdks)가 추가 정보를 얻을 수 있는 훌륭한 리소스입니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

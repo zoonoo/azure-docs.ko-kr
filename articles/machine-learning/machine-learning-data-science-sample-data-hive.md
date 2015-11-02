@@ -2,7 +2,6 @@
 	pageTitle="Azure HDInsight Hive 테이블에서 데이터 샘플링 | Microsoft Azure"
 	description="Azure HDInsight Hive 테이블에서 데이터 다운 샘플링"
 	services="machine-learning,hdinsight"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -14,12 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/20/2015"
 	ms.author="hangzh;bradsev" />
 
 # Azure HDInsight Hive 테이블에서 데이터 샘플링
 
-분석할 데이터 집합이 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. Azure 기계 학습의 ADAPT(고급 분석 프로세스 및 기술)에서 해당 역할은 데이터 처리 함수 및 기계 학습 모델의 프로토타입을 신속하게 만드는 것입니다.
+이 **메뉴**는 다양한 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 항목에 연결되는 링크입니다. 이 작업은 Cortana 분석 프로세스(CAP)의 한 단계입니다.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## 소개
+
+분석할 데이터 집합이 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. Cortana 분석 프로세스에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
 이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블의 데이터를 다운 샘플링하는 방법에 대해 설명합니다. 일반적으로 사용되는 세 가지 샘플링 방법인
 
@@ -100,4 +105,4 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리�
 Hive에서 사용할 수 있는 고급 샘플링 방법에 대한 자세한 내용은 [LanguageManual 샘플링](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)을 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

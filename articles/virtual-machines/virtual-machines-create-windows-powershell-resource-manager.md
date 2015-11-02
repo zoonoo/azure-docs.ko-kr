@@ -29,7 +29,7 @@ Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상
 
 	Get-Module azure | format-table version
 
-Azure PowerShell을 아직 설치하지 않았거나 설치된 버전을 업데이트해야 하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다. 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 먼저 다음 명령을 사용하여 Azure에 로그온해야 합니다.
 
@@ -137,4 +137,4 @@ Azure 데이터 센터의 위치를 지정해야 합니다. Azure 데이터 센�
 
 [Azure PowerShell 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

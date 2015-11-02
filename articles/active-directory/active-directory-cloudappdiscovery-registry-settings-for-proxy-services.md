@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="프록시 서비스용 클라우드 앱 검색 레지스트리 설정" 
+	pageTitle="프록시 서비스용 클라우드 앱 검색 레지스트리 설정 | Microsoft Azure" 
 	description="이 항목의 목표는 클라우드 앱 검색 에이전트를 실행하는 컴퓨터에 필요한 포트를 설정하기 위해 수행해야 하는 단계를 제공하는 것입니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="swadhwa" 
-	editor="lisatoft"/>
+	manager="stevenpo"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 # 프록시 서비스용 클라우드 앱 검색 레지스트리 설정
@@ -48,4 +47,4 @@
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

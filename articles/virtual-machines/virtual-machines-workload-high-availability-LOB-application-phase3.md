@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/20/2015" 
 	ms.author="josephd"/>
 
 # 비즈니스 응용 프로그램 작업 라인 3단계: SQL Server 인프라 구성
@@ -26,7 +26,7 @@ Azure 인프라 서비스의 비즈니스 응용 프로그램 고가용성 라�
 
 [4단계](virtual-machines-workload-high-availability-LOB-application-phase4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 모든 단계는 [Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)를 참조하세요.
 
-> [AZURE.NOTE]이 명령에서는 Azure 이미지 갤러리의 SQL Server 이미지를 사용하며 SQL Server 라이선스 사용에 대해 지속적인 비용이 청구됩니다. Azure에서 가상 컴퓨터를 만들고 사용자 고유의 SQL Server 라이선스를 설치할 수도 있지만 Azure 가상 컴퓨터를 포함하여 가상 컴퓨터에서 SQL Server 라이선스를 사용하려면 Software Assurance 및 License Mobility가 있어야 합니다. 가상 컴퓨터에 SQL Server를 설치하는 방법에 대한 자세한 내용은 [SQL Server 설치](https://msdn.microsoft.com/library/bb500469.aspx)를 참조하세요.
+> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 "-AzureRM"의 모든 인스턴스를 "-Azure"와 대체하고 모든 명령을 실행하기 전에 **Switch-azuremode AzureResourceManager** 명령을 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
 
 ## Azure에서 SQL Server 클러스터 가상 컴퓨터 만들기
 
@@ -42,14 +42,9 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 
 [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의한 테이블 M과, [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의한 테이블 V, S, ST 및 A를 불러옵니다.
 
-> [AZURE.NOTE]이 문서에서는 Azure PowerShell 버전 1.0.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다. 이 문서의 Azure PowerShell 명령 블록은 Azure PowerShell 버전 1.0.0 이상에서 새 cmdlet을 지원하도록 테스트 및 업데이트 중입니다. 기다려 주셔서 감사합니다.
-
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
-	# Set up subscription and key variables
-	$subscr="<name of the Azure subscription>"
-	Set-AzureSubscription -SubscriptionName $subscr
-	Switch-AzureMode AzureResourceManager
+	# Set up key variables
 	$rgName="<your resource group name>"
 	$locName="<Azure location of your resource group>"
 	# Change to the premium storage account
@@ -60,45 +55,45 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 	# Create the first SQL server
 	$vmName="<Table M – Item 3 - Virtual machine name column>"
 	$vmSize="<Table M – Item 3 - Minimum size column>"
-	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	$nic=New-AzureNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
-	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName 
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	
 	$diskSize=<size of the extra disk for SQL data in GB>
 	$diskLabel="<the label on the disk>"
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-SQLDataDisk.vhd"
-	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	Add-AzureRMVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
 	
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first SQL Server computer." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 	
 	# Create the second SQL Server virtual machine
 	$vmName="<Table M – Item 4 - Virtual machine name column>"
 	$vmSize="<Table M – Item 4 - Minimum size column>"
-	$nic=New-AzureNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	
 	$diskSize=<size of the extra disk for SQL data in GB>
 	$diskLabel="<the label on the disk>"
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
-	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	Add-AzureRMVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
 	
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 	
 	# Change to the standard storage account
 	$saName="<Table ST – Item 2 – Storage account name column>"
@@ -106,16 +101,16 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 	# Create the cluster majority node server
 	$vmName="<Table M – Item 5 - Virtual machine name column>"
 	$vmSize="<Table M – Item 5 - Minimum size column>"
-	$nic=New-AzureNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the cluster majority node server." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 > [AZURE.NOTE]이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure Preview 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다. 원격 데스크톱 연결 액세서리 또는 다른 원격 데스크톱 도구를 통해 해당 개인 IP 주소 또는 인트라넷 DNS 이름을 사용하여 가상 컴퓨터에 연결합니다.
 
@@ -180,7 +175,7 @@ Add-Computer 명령을 입력한 후에는 반드시 도메인 계정 자격 증
 
 SQL Server 서비스에서는 클라이언트가 데이터베이스 서버에 액세스하는 데 사용하는 포트가 필요합니다. 또한 SQL Server Management Studio에 연결하고 고가용성 그룹을 관리하기 위한 포트도 필요합니다. 다음으로 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 두 번(각 SQL Server 가상 컴퓨터에 대해 한 번씩) 실행하여 이 유형의 인바운드 트래픽을 허용하는 방화벽 규칙을 추가합니다.
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 각 SQL Server 가상 컴퓨터에 대해 로컬 관리자로 로그아웃합니다.
 
@@ -208,7 +203,7 @@ SQL Server AlwaysOn 가용성 그룹은 Windows Server의 WSFC(Windows Server �
 - SQL Server를 실행하는 보조 가상 컴퓨터
 - 클러스터 주 노드
 
-장애 조치(failover) 클러스터에는 VM이 3개 이상 필요합니다. 두 컴퓨터는 SQL Server를 호스팅하는데, 이 때 주 컴퓨터에 장애가 발생하더라도 데이터 손실이 없도록 하기 위해 보조 가상 컴퓨터는 동기 보조 복제본입니다. 세 번째 가상 컴퓨터는 SQL Server를 호스팅하지 않아도 됩니다. 클러스터 주 노드는 WSFC에서 쿼럼 감시 역할도 수행합니다. WSFC 클러스터는 쿼럼을 사용하여 상태를 모니터링하므로 WSFC 클러스터가 온라인 상태로 유지되도록 항상 주 노드가 있어야 합니다. 클러스터에 컴퓨터가 두 개뿐인데 그 중 하나에 오류가 발생하면 주 노드가 없어지게 됩니다. 자세한 내용은 [WSFC 쿼럼 모드 및 응답 구성(SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx)을 참조하세요.
+장애 조치(failover) 클러스터에는 VM이 3개 이상 필요합니다. 두 컴퓨터는 SQL Server를 호스팅하는데, 이 때 주 컴퓨터에 장애가 발생하더라도 데이터 손실이 없도록 하기 위해 보조 가상 컴퓨터는 동기 보조 복제본입니다. 세 번째 가상 컴퓨터는 SQL Server를 호스팅하지 않아도 됩니다. 클러스터 주 노드 기능은 WSFC에서 쿼럼을 제공합니다. WSFC 클러스터는 쿼럼을 사용하여 상태를 모니터링하므로 WSFC 클러스터가 온라인 상태로 유지되도록 항상 주 노드가 있어야 합니다. 클러스터에 컴퓨터가 두 개뿐인데 그 중 하나에 오류가 발생하면 주 노드가 없어지게 됩니다. 자세한 내용은 [WSFC 쿼럼 모드 및 응답 구성(SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx)을 참조하세요.
 
 두 SQL Server 가상 컴퓨터 및 클러스터 주 노드에 대해 관리자 수준의 Windows PowerShell 프롬프트에서 다음 명령을 실행합니다.
 
@@ -222,7 +217,7 @@ SQL Server AlwaysOn 가용성 그룹은 Windows Server의 WSFC(Windows Server �
 4.	**시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 5.	**서버 선택** 페이지에서 주 SQL Server 컴퓨터의 이름을 입력하고 **추가**, **다음**을 차례로 클릭합니다.
 6.	**유효성 검사 경고** 페이지에서 **아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 클릭하고 **다음**을 클릭합니다.
-7.	**클러스터 관리 액세스** 지점 페이지의 **클러스터 이름** 텍스트 상자에 클러스터의 이름을 입력하고 **다음**을 클릭합니다.
+7.	**클러스터 관리 액세스 지점** 페이지의 **클러스터 이름** 텍스트 상자에 클러스터의 이름을 입력하고 **다음**을 클릭합니다.
 8.	**확인** 페이지에서 **다음**을 클릭하여 클러스터 만들기를 시작합니다. 
 9.	**요약** 페이지에서 **마침**을 클릭합니다.
 10.	왼쪽 창에서 새 클러스터를 클릭합니다. 내용 창의 **클러스터 코어 리소스** 섹션에서 서버 클러스터 이름을 엽니다. **IP 주소** 리소스가 **실패** 상태로 표시됩니다. 클러스터에 컴퓨터 자체와 같은 IP 주소가 할당되므로 IP 주소 리소스는 온라인으로 설정할 수 없습니다. 따라서 주소가 중복됩니다. 
@@ -273,6 +268,6 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
+[Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

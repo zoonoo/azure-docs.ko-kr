@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="코드 샘플: Application Insights에서 내보낸 데이터 구문 분석" 
-	description="연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다." 
+	description="연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다. SQL에 데이터를 저장합니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
@@ -543,4 +543,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

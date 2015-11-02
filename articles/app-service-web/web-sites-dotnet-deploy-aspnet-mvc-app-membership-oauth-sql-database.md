@@ -35,7 +35,7 @@
 * Azure SQL 데이터베이스를 사용하여 클라우드에서 관계형 데이터를 저장하는 방법
 * Azure 앱 서비스에서 데이터베이스를 사용하는 웹 프로젝트를 [웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법
 
->[AZURE.NOTE]긴 자습서입니다. Azure 앱 서비스 및 Visual Studio 웹 프로젝트에 대한 간략한 소개를 보려면 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기](web-sites-dotnet-get-started.md)를 참조하세요.
+>[AZURE.NOTE]긴 자습서입니다. Azure 앱 서비스 및 Visual Studio 웹 프로젝트에 대한 간략한 소개를 보려면 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기](web-sites-dotnet-get-started.md)를 참조하세요. 문제 해결 정보는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 >
 >Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -390,6 +390,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 ## OAuth2 공급자 추가
 
+>[AZURE.NOTE]Google 및 Facebook 개발자 포털 사이트 사용 방법에 대한 자세한 지침의 경우 이 자습서는 ASP.NET 사이트의 자습서에 연결되어 있습니다. 그러나 Google 및 Facebook은 자습서가 업데이트되는 것보다 사이트를 자주 변경하고 현재 최신 상태에서 벗어났습니다. 지침을 따르는데 문제가 있는 경우 변경 내용 목록에 대한 이 자습서의 후반부에 있는 주요 Disqus 설명을 참조하세요.
+
 [OAuth](http://oauth.net/ "http://oauth.net/")는 웹, 모바일 및 데스크톱 응용 프로그램에서 간단한 표준 메서드로 보안 권한 부여를 허용하는 개방형 프로토콜입니다. ASP.NET MVC 인터넷 템플릿은 OAuth를 사용하여 Facebook, Twitter, Google 및 Microsoft를 인증 공급자로 표시합니다. 이 자습서에서는 인증 공급자로 Google만 사용하지만 이러한 공급자를 사용하도록 코드를 쉽게 수정할 수 있습니다. 다른 공급자를 구현하는 단계도 이 자습서에 표시되는 단계와 매우 비슷합니다. Facebook을 인증 공급자로 사용하려면 [Facebook, Twitter, LinkedIn 및 Google OAuth2 Sign-on을 사용한 MVC 5 앱](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on)(영문)을 참조하세요.
 
 자습서에서는 인증 외에도 역할을 사용하여 권한 부여를 구현합니다. *canEdit* 역할에 추가한 사용자만 데이터를 변경할 수 있습니다(즉, 연락처 만들기, 편집 또는 삭제).
@@ -493,7 +495,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 		     return View(model);
 		  }
 
-자습서의 뒷부분에서 응용 프로그램을 Azure에 배포합니다. 여기서 Google 또는 다른 타사 인증 공급자를 사용하여 로그온합니다. 이렇게 하면 새로 등록된 계정이 *canEdit* 역할에 추가됩니다. Google ID가 있고 이 앱의 URL을 찾은 모든 사용자는 데이터베이스를 등록하고 업데이트할 수 있습니다. 다른 사용자가 등록 및 업데이트할 수 없게 하려면 사이트를 중지합니다. 데이터베이스를 검사하여 *canEdit* 역할에 있는 사용자를 확인할 수 있습니다.
+자습서의 뒷부분에서 응용 프로그램을 Azure에 배포합니다. 여기서 Google 또는 다른 타사 인증 공급자를 사용하여 로그온합니다. 이렇게 하면 새로 등록된 계정이 *canEdit* 역할에 추가됩니다. Google ID가 있고 웹앱의 URL을 찾은 모든 사용자는 데이터베이스를 등록하고 업데이트할 수 있습니다. 다른 사용자가 등록 및 업데이트할 수 없게 하려면 사이트를 중지합니다. 데이터베이스를 검사하여 *canEdit* 역할에 있는 사용자를 확인할 수 있습니다.
 
 **패키지 관리자 콘솔** 창에서 위쪽 화살표 키를 눌러 다음 명령을 표시합니다.
 
@@ -706,6 +708,16 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
  
 3. **UserId**가 **user1@contoso.com*에 속하고 등록한 Google 계정인지 확인합니다.
 
+## 문제 해결
+
+문제를 발생한 경우 해결 방법에 대한 몇 가지 제안은 다음과 같습니다.
+
+* SQL 데이터베이스 프로비전 오류 - 현재 SDK가 설치되었는지 확인합니다. 2.7.1 이전 버전은 VS에서 데이터베이스 서버 또는 데이터베이스를 만들려고 할 때 일부 시나리오에서 오류가 발생하는 버그가 있습니다.
+* Azure 리소스를 만들 때 오류 메시지 "구독 제공 형식에서 작업을 지원하지 않습니다" - 위와 동일합니다.
+* 배포 시 오류 - [기본 ASP.NET 배포](web-sites-dotnet-get-started.md) 문서 진행을 고려합니다. 배포 시나리오는 더 간단하고 동일한 문제가 있는 경우 격리시키기 쉽습니다. 예를 들어 일부 엔터프라이즈 환경에서 회사 방화벽은 웹 배포가 Azure에 대한 필요한 종류의 연결을 만들지 못하도록 합니다.
+* 배포 시 웹 게시 마법사에서 연결 문자열 선택 옵션 없음 - 다른 메서드를 사용하여 Azure 리소스를 만든 경우(예: 포털에서 만든 웹앱 및 SQL 데이터베이스에 배포하려는 경우) SQL 데이터베이스는 웹앱에 연결되지 않을 수 있습니다. VS를 사용하여 새 웹앱 및 데이터베이스를 만드는 가장 쉬운 솔루션은 자습서에 표시된 것과 같습니다. 자습서를 다시 시작하지 않아도 됩니다. -- 웹 게시 마법사에서 새 웹앱을 만들도록 선택할 수 있고 프로젝트를 만들 때 얻은 것과 동일한 Azure 리소스 만들기 대화 상자를 가져옵니다.
+* Google 또는 Facebook 개발자 포털에 대한 지침은 만료되었습니다. - 이 자습서의 후반부에 있는 주요 Disqus 설명을 참조하세요.
+
 ## 다음 단계
 
 사용자를 인증하는 기본 ASP.NET MVC 웹앱을 만들었습니다. 일반적인 인증 작업 및 중요한 데이터 보안을 유지하는 방법에 대한 자세한 내용은 다음 자습서를 참조하세요.
@@ -786,4 +798,4 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

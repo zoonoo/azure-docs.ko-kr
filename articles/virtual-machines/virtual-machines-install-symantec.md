@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
+# Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
@@ -49,7 +49,7 @@
 
 이 작업을 수행하려면 다음이 필요합니다.
 
-- Azure PowerShell 모듈 버전 0.8.2 이상이 작업 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다. 지침 및 최신 버전으로 연결되는 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법][PS]을 참조하세요. Azure 구독에 로그인해야 합니다.
+- Azure PowerShell 모듈 버전 0.8.2 이상이 작업 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대한 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법][PS]을 참조하세요. Azure 구독에 로그인해야 합니다.
 
 - Azure 가상 컴퓨터에서 VM 에이전트를 실행해야 합니다.
 
@@ -88,7 +88,7 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 
 [Portal]: http://manage.windowsazure.com
 
-[Create]: virtual-machines-windows-tutorial.md
+[Create]: virtual-machines-windows-tutorial-classic-portal.md
 
 [PS]: ../powershell-install-configure.md
 
@@ -98,4 +98,4 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

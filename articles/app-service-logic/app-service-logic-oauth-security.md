@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/15/2015"
 	ms.author="mandia"/>
 
 
 # SaaS 커넥터의 OAUTH 보안에 대해 알아보기
-Facebook, Twitter, DropBox 등 많은 SaaS(Software as a Service)는 사용자가 OAUTH 프로토콜을 사용하여 인증해야 합니다. 사용자가 논리 앱에서 SaaS 커넥터를 사용할 때 논리 앱 프로그램 디자이너에서 "인증"을 클릭하는 간소화된 사용자 환경이 제공됩니다. 사용자가 **인증**하면 로그인 후(아직 하지 않은 경우) 사용자를 대신하여 SaaS 서비스에 연결할 수 있도록 동의해 달라는 메시지가 나타납니다. 요청에 동의하고 인증하면 논리 앱에서 이러한 SaaS 서비스에 액세스할 수 있습니다.
+Facebook, Twitter, DropBox 등 많은 SaaS(Software as a Service)는 사용자가 OAUTH 프로토콜을 사용하여 인증해야 합니다. 사용자가 논리 앱에서 SaaS 커넥터를 사용할 때 논리 앱 프로그램 디자이너에서 "인증"을 클릭하는 간소화된 사용자 환경이 제공됩니다. 사용자가 **인증**하면 로그인 후(아직 하지 않은 경우) 사용자를 대신하여 SaaS 서비스에 연결할 수 있도록 동의해 달라는 메시지가 나타납니다. 요청에 동의하고 인증한 후에 논리 앱에서 이러한 SaaS 서비스에 액세스할 수 있습니다.
 
 ## 사용자 고유의 SaaS 앱 만들기
 이 간소화된 환경이 가능한 이유는 이전에 이러한 SaaS 서비스에서 응용 프로그램을 만들고 등록했기 때문입니다. 사용자가 고유의 응용 프로그램을 등록하여 사용하려는 경우가 있습니다. 예를 들어 [SaaS 커넥터 API 앱을 배포](app-service-api-connnect-your-app-to-saas-connector.md)하는 경우처럼 사용자 지정 응용 프로그램에서 이러한 SaaS 커넥터를 사용하려는 경우에 이 방법이 필요합니다. 이 예에서는 DropBox 커넥터를 사용하지만 OAUTH를 사용하는 모든 커넥터의 프로세스가 동일합니다.
@@ -48,4 +48,4 @@ Facebook, Twitter, DropBox 등 많은 SaaS(Software as a Service)는 사용자�
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

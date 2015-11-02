@@ -535,133 +535,47 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
     // ...
 
 
+## 데이터 플러시
 
-## 원격 분석 이니셜라이저
-
-원격 분석 이니셜라이저를 사용하여 모든 원격 분석과 함께 전송되는 전역 속성을 정의하고 표준 원격 분석 모듈의 선택한 동작을 재정의할 수 있습니다.
-
-예를 들어, 웹 패키지에 대한 Application Insights는 HTTP 요청에 대한 원격 분석을 수집합니다. 기본적으로, 모든 요청을 응답 코드 > = 400으로 실패한 것으로 플래그합니다. 하지만 400를 성공으로 처리하려는 경우 성공 속성을 설정하는 원격 분석 이니셜라이저를 제공할 수 있습니다.
-
-원격 분석 이니셜라이저를 제공하는 경우 Track*() 메소드가 호출될 때마다 호출됩니다. 표준 원격 분석 모듈에 의해 호출되는 메서드가 포함됩니다. 규칙에 따라 이러한 모듈은 이니셜라이저에서 이미 설정된 모든 속성을 설정하지 않습니다.
-
-**이니셜라이저 정의**
+일반적으로 SDK는 사용자에 미치는 영향을 최소화하기 위해 선택한 시간에 데이터를 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 응용 프로그램에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
 
 *C#*
 
-```C#
+    telemetry.Flush();
 
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
 
-    namespace MvcWebRole.Telemetry
-    {
-      /*
-       * Custom TelemetryInitializer that overrides the default SDK 
-       * behavior of treating response codes >= 400 as failed requests
-       * 
-       */
-      public class MyTelemetryInitializer : ITelemetryInitializer
-      {
-        public void Initialize(ITelemetry telemetry)
-        {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            // Is this a TrackRequest() ?
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                // If we set the Success property, the SDK won't change it:
-                requestTelemetry.Success = true;
-                // Allow us to filter these requests in the portal:
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }
-            // else leave the SDK to set the Success property      
-        }
-      }
-    }
-```
-
-**이니셜라이저 로드**
-
-ApplicationInsights.config에서:
-
-    <ApplicationInsights>
-      <TelemetryInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/> 
-        ...
-      </TelemetryInitializers>
-    </ApplicationInsights>
-
-*또는*, 코드에서 이니셜라이저를 인스턴스화할 수 있습니다(예: Global.aspx.cs).
+함수는 메모리 내 채널에서 비동기 상태이지만 [영구 채널](app-insights-windows-desktop.md#persistence-channel)을 사용하도록 선택하면 동기 상태가 됩니다.
 
 
-```C#
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
-    }
-```
+
+## 원격 분석 이니셜라이저 및 프로세서
+
+Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원격 분석을 Application Insights 서비스에 전송하기 전에 캡처하고 처리하는 방법을 사용자 지정할 수 있습니다.
+
+[자세히 알아보기](app-insights-telemetry-processors.md)
 
 
-[이 샘플에 대해 자세히 알아봅니다.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+## 표준 원격 분석을 사용하지 않도록 설정
 
-<a name="js-initializer"></a>
-### JavaScript 원격 분석 이니셜라이저
+`ApplicationInsights.config`를 편집하여 [표준 원격 분석에서 선택한 부분을 사용하지 않도록 설정][config]할 수 있습니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
-*JavaScript*
-
-포털에서 가져온 초기화 코드 바로 뒤에 원격 분석 이니셜라이저를 삽입합니다.
-
-```JS
-
-    <script type="text/javascript">
-        // ... initialization code
-        ...({
-            instrumentationKey: "your instrumentation key"
-        });
-        window.appInsights = appInsights;
+[자세히 알아봅니다][config].
 
 
-        // Adding telemetry initializer.
-        // This is called whenever a new telemetry item
-        // is created.
+## <a name="debug"></a>개발자 모드
 
-        appInsights.queue.push(function () {
-            appInsights.context.addTelemetryInitializer(function (envelope) {
-                var telemetryItem = envelope.data.baseData;
+디버깅하는 동안 결과를 즉시 볼 수 있도록 파이프라인을 통해 원격 분석을 신속하게 처리할 때 유용합니다. 또한 원격 분석과 관련된 모든 문제를 추적하는 데 도움이 되는 추가 메시지가 제공됩니다. 앱이 느려질 수 있으므로 프로덕션 환경에서는 끄는 것이 좋습니다.
 
-                // To check the telemetry item’s type - for example PageView:
-                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                    // this statement removes url from all page view documents
-                    telemetryItem.url = "URL CENSORED";
-                }
 
-                // To set custom properties:
-                telemetryItem.properties = telemetryItem.properties || {};
-                telemetryItem.properties["globalProperty"] = "boo";
+*C#*
+    
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
-                // To set custom metrics:
-                telemetryItem.measurements = telemetryItem.measurements || {};
-                telemetryItem.measurements["globalMetric"] = 100;
-            });
-        });
+*VB*
 
-        // End of inserted code.
-
-        appInsights.trackPageView();
-    </script>
-```
-
-telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 요약은 [데이터 모델](app-insights-export-data-model.md/#lttelemetrytypegt)을 참조하세요.
-
-이니셜라이저를 원하는 수만큼 추가할 수 있습니다.
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 ## <a name="dynamic-ikey"></a> 동적 계측 키
 
@@ -700,42 +614,6 @@ telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
     }) // ...
 
 
-
-## 데이터 플러시
-
-일반적으로 SDK는 사용자에 미치는 영향을 최소화하기 위해 선택한 시간에 데이터를 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 응용 프로그램에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
-
-*C#*
-
-    telemetry.Flush();
-
-    // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
-
-함수는 메모리 내 채널에서 비동기 상태이지만 [영구 채널](app-insights-windows-desktop.md#persistence-channel)을 사용하도록 선택하면 동기 상태가 됩니다.
-
-
-
-## 표준 원격 분석을 사용하지 않도록 설정
-
-`ApplicationInsights.config`를 편집하여 [표준 원격 분석에서 선택한 부분을 사용하지 않도록 설정][config]할 수 있습니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
-
-[자세히 알아봅니다][config].
-
-
-## <a name="debug"></a>개발자 모드
-
-디버깅하는 동안 결과를 즉시 볼 수 있도록 파이프라인을 통해 원격 분석을 신속하게 처리할 때 유용합니다. 또한 원격 분석과 관련된 모든 문제를 추적하는 데 도움이 되는 추가 메시지가 제공됩니다. 앱이 느려질 수 있으므로 프로덕션 환경에서는 끄는 것이 좋습니다.
-
-
-*C#*
-    
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
-
-*VB*
-
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
-
 ## TelemetryContext
 
 TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 다양한 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
@@ -755,92 +633,6 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의할 수 있습니다.
 * **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
 * **User** 사용자 정보입니다. 
-
-
-## <a name="default-properties"></a>컨텍스트 이니셜라이저 - 모든 원격 분석에 대한 기본 속성 설정
-
-유니버설 아니셜라이저를 설정하여 새로운 모든 TelemetryClients는 사용자 컨텍스트를 자동으로 사용할 수 있습니다. 여기에는 웹 서버 요청 추적처럼 플랫폼별 원격 분석 모듈에서 전송하는 표준 원격 분석이 포함됩니다.
-
-일반적으로 여러 앱 버전 또는 여러 앱 구성 요소에서 들어오는 원격 분석을 식별하는 데 사용됩니다. 포털에서 "응용 프로그램 버전" 속성을 사용하여 결과를 필터링 또는 그룹화할 수 있습니다.
-
-일반적으로 [컨텍스트 이니셜라이저 대신 원격 분석 이니셜라이저를 사용하는 것이 좋습니다](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
-
-#### 컨텍스트 이니셜라이저 정의
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-#### 컨텍스트 이니셜라이저 로드
-
-ApplicationInsights.config에서:
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*또는*, 코드에서 이니셜라이저를 인스턴스화할 수 있습니다.
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
 
 
 
@@ -916,4 +708,4 @@ ApplicationInsights.config에서:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,8 +1,6 @@
 <properties
-	title="Getting started with elastic database query"
-	pageTitle="탄력적 데이터베이스 쿼리 시작하기"
-	description="탄력적 데이터베이스 쿼리 사용방법"
-	metaKeywords="azure sql database elastic queries"
+	pageTitle="분할(행 분할)을 위한 탄력적 쿼리 시작 | Microsoft Azure"
+	description="데이터베이스 간 쿼리 사용 방법"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -14,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="sidneyh" />
+	ms.date="10/15/2015"
+	ms.author="SilviaDoomra" />
 
-# 탄력적 데이터베이스 쿼리 시작하기
+# 분할(행 분할)을 위한 탄력적 쿼리 시작
 
 Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보기)를 사용 하면 단일 연결 지점을 사용하여 여러 데이터베이스에 걸쳐 있는 T-SQL 쿼리를 실행할 수 있습니다. 탄력적 데이터베이스 쿼리 기능에 대한 자세한 내용은 [기능 개요 페이지](sql-database-elastic-query-overview.md)를 참조하세요.
 
@@ -126,7 +124,7 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 다른 분할된 데이터베이스에 저장된**사용자**테이블의 모든 행으로 Excel 시트를 채웁니다.
 
 ## 다음 단계
-이제 Excel의 강력한 데이터 함수를 사용할 수 있습니다. 탄력적 쿼리 데이터 베이스의 데이터 통합도구 및 BI과 연결하기 위해 서버이름, 데이터베이스 이름, 자격증명의 문자열을 사용할 수 있습니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 탄력적 쿼리 데이터베이스 및 기타 SQL Server 데이터베이스와 마찬가지로 외부 테이블 및 도구와 연결할 수 있는 SQL Server 테이블을 참조할 수 있습니다.
+이제 Excel의 강력한 데이터 시각화 함수를 사용할 수 있습니다. 탄력적 쿼리 데이터 베이스의 데이터 통합도구 및 BI과 연결하기 위해 서버이름, 데이터베이스 이름, 자격증명의 문자열을 사용할 수 있습니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 탄력적 쿼리 데이터베이스 및 기타 SQL Server 데이터베이스와 마찬가지로 외부 테이블 및 도구와 연결할 수 있는 SQL Server 테이블을 참조할 수 있습니다.
 
 ### 비용
 탄력적 데이터베이스 쿼리 기능을 사용 하는 것은 무료입니다. 그러나, 지금 이 기능은 분할된 데이터베이스처럼 모든 서비스계층에서만 사용 가능한게 아니라, 끝점처럼 프리미엄 데이터베이스에서만 사용 가능합니다.
@@ -144,4 +142,4 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HDInsight의 Hadoop이란: 클라우드 빅 데이터 분석 | Microsoft Azure"
 	description="HDInsight의 클라우드에 있는 Hadoop 구성 요소를 소개합니다. HDInsight에서 Hadoop 클러스터를 사용하여 빅 데이터를 관리, 분석 및 보고하는 방법을 알아봅니다."
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
+	keywords="빅 데이터, 빅 데이터 분석, hadoop, hadoop 소개, hadoop이란"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -78,7 +78,7 @@ HDInsight는 Hadoop, HBase 또는 Storm에 대한 클러스터 구성을 제공�
 * [Hue](hdinsight-hadoop-hue-linux.md)
 
 	> [AZURE.NOTE]Hue 스크립트는 Linux 기반 클러스터에 대해서만 사용할 수 있습니다.
-	
+
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 
 * [R](hdinsight-hadoop-r-scripts-linux.md)
@@ -229,7 +229,7 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a>: 전체 컴퓨터의 클러스터에 대해 큰 데이터 집합을 분산 처리할 수 있는 프레임워크인 Apache Hadoop 소프트웨어 라이브러리에 대해 자세히 알아 봅니다.
 
-* <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a>: Hadoop 응용 프로그램이 사용하는 주 저장 시스템인 Hadoop 분산 파일 시스템의 아키텍처 및 설계에 대해 자세히 알아 봅니다.
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.0.4/hdfs_design.html">HDFS</a>: Hadoop 응용 프로그램이 사용하는 주 저장 시스템인 Hadoop 분산 파일 시스템의 아키텍처 및 설계에 대해 자세히 알아 봅니다.
 
 * <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">MapReduce 자습서</a>: 컴퓨터 노드의 대형 클러스터에서 엄청난 양의 데이터를 병렬로 빠르게 처리하는 Hadoop 응용 프로그램을 작성하기 위한 프로그래밍 프레임워크에 대해 자세히 알아봅니다.
 
@@ -272,6 +272,5 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 [marketing-page]: ../services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

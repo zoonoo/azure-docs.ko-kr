@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="10/19/2015"
    ms.author="tomfitz"/>
 
-# 서비스 및 지역에 대한 Azure 리소스 관리자 지원
+# 서비스, 지역 및 API 버전에 대한 리소스 관리자 지원
 
 Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다. 모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
 
-리소스를 배포할 때는 이러한 리소스를 지원하는 지역도 알아야 합니다. [지원되는 지역](#supported-regions) 섹션에서는 구독 및 리소스에 대해 작동할 지역을 확인하는 방법을 보여줍니다.
+리소스를 배포할 때는 이러한 리소스를 지원하는 지역 및 리소스에 사용할 수 있는 API 버전도 알아야 합니다. [지원되는 지역](#supported-regions) 섹션에서는 구독 및 리소스에 대해 작동할 지역을 확인하는 방법을 보여줍니다. 섹션 [지원되는 API 버전](#supported-api-versions)에서는 사용할 수 있는 API 버전을 결정하는 방법을 보여줍니다.
 
 다음 표에서는 리소스 관리자를 통해 배포 및 관리를 지원 또는 지원하지 않는 서비스 목록을 보여줍니다. **리소스 이동**이라는 열은 새 리소스 그룹 및 새 구독 모두에 이 유형의 리소스를 이동할 수 있는지 여부를 나타냅니다. **Preview 포털**이라는 열은 Preview 포털을 통해 서비스를 만들 수 있는지 여부를 나타냅니다.
 
@@ -32,7 +32,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 가상 컴퓨터 | 예 | 예 | 아니요 | [VM 만들기](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 배치 | 예 | 아니요 | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | 예 | 아니요 | | | |
-| 가상 컴퓨터(클래식) | 제한됨 | 아니요 | 부분적(아래 참조) | - | - | | RemoteApp | 아니요 | - | - | - | - | | 서비스 패브릭 | 아니요 | - | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 예 | 부분적(아래 참조) | - | - | | RemoteApp | 아니요 | - | - | - | - | | 서비스 패브릭 | 아니요 | - | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -86,7 +86,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 부하 분산 장치 | 예 | | | [부하 분산 장치 만들기](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | 가상 네트워크 | 예 | 예 | 아니요 | [가상 네트워크 만들기](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | 트래픽 관리자 | 예 | 아니요 | | [트래픽 관리자 프로필 만들기](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| Express 경로 | 아니요 | 아니요 | - | - | - |
+| Express 경로 | 예 | 아니요 | 아니요 | [Express 경로 REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## 미디어 및 CDN
 
@@ -135,7 +135,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 ### REST API
 
-특정 리소스 유형에 사용할 수 있는 지역을 검색하는 최적의 옵션은 [모든 리소스 공급자를 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx)하는 작업입니다. 이 작업은 사용자의 구독 및 리소스 유형에 사용할 수 있는 지역만 반환합니다.
+본인의 구독에서 특정 리소스 유형에 사용할 수 있는 지역을 검색하려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 사용하세요.
 
 ### PowerShell
 
@@ -177,4 +177,44 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
             North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
     }
 
-<!---HONumber=Oct15_HO3-->
+## 지원되는 API 버전
+
+서식 파일을 배포할 때 각 리소스를 만들기 위해 사용하는 API 버전을 지정해야 합니다. API 버전은 리소스 공급자가 릴리스하는 REST API 작업의 버전에 해당합니다. 리소스 공급자는 새 기능을 사용하도록 설정할 때 REST API의 새 버전을 릴리스합니다. 따라서 서식 파일에 지정하는 API의 버전은 템플릿에 지정할 수 있는 속성에 영향을 줍니다. 일반적으로 새 템플릿을 만들 때 가장 최근의 API 버전을 선택하려고 합니다. 기존 템플릿의 경우 이전 API 버전을 계속 사용할지 아니면 새 기능을 이용하도록 최신 버전에 맞게 템플릿을 업데이트할지 여하를 결정할 수 있습니다.
+
+### REST API
+
+리소스 유형에 사용할 수 있는 API 버전을 검색하려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 사용하세요.
+
+### PowerShell
+
+다음 예제에서는 Azure PowerShell 1.0 Preview를 사용하여 특정 리소스에 사용할 수 있는 API 버전을 가져오는 방법을 보여줍니다.
+
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    
+다음과 유사하게 출력됩니다.
+    
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
+
+### Azure CLI
+
+다음 명령을 사용하여 리소스 공급자에 대한 정보(사용할 수 있는 API 버전 포함)를 파일로 저장할 수 있습니다.
+
+    azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+파일을 열고 **apiVersions** 요소를 찾을 수 있습니다.
+
+## 다음 단계
+
+- 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 제작](resource-group-authoring-templates.md)을 참조하세요.
+- 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./azure-portal/resource-group-template-deploy.md)를 참조하세요.
+
+<!---HONumber=Oct15_HO4-->

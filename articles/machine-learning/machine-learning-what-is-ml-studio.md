@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 기계 학습 스튜디오란 무엇인가요? | Microsoft Azure"
 	description="Azure 기계 학습 스튜디오의 개요로, 알고리즘 및 모듈의 사용할 준비가 되어 있는 라이브러리에서 신속하게 모델을 빌드하기 위한 끌어서 놓기 도구입니다."
-	keywords="azure machine learning,azure ml, ml studio"
+	keywords="azure 기계 학습, azure ml, 기계 학습 스튜디오"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -115,4 +115,4 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
