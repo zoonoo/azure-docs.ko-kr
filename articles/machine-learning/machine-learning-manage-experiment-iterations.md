@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="기계 학습 스튜디오에서 반복 실험 관리 | Microsoft Azure" 
-	description="Azure 기계 학습 스튜디오에서 반복 실험을 관리하는 방법" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="기계 학습 스튜디오에서 반복 실험 관리 | Microsoft Azure"
+	description="Azure 기계 학습 스튜디오에서 반복 실험을 관리하는 방법"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/15/2015"
 	ms.author="garye"/>
 
-#Azure 기계 학습 스튜디오에서 반복 실험 관리 
+# Azure 기계 학습 스튜디오에서 반복 실험 관리
 
 예측 분석 모델을 개발하는 과정은 반복 프로세스이며, 실험의 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다. 이 프로세스의 핵심은 다양하게 반복되는 실험 매개 변수와 구성을 추적하는 것입니다.
 
@@ -26,13 +26,13 @@
 
 > [AZURE.NOTE]이전에 실행한 실험을 볼 때, 해당 버전의 실험은 잠겨 있으며 편집할 수 없습니다. 그러나 **다른 이름으로 저장**을 클릭하고 사본의 새 이름을 제공하여 사본을 저장할 수 있습니다. 기계 학습 스튜디오에서 사용자가 편집하여 실행할 수 있는 새로운 사본을 엽니다. 이 실험의 사본은 다른 모든 실험과 함께 **실험** 목록에서 사용할 수 있습니다.
 
-##이전 실행 보기
+## 이전 실행 보기
 
 한 번 이상 실행한 실험이 열려 있는 경우, 속성 창에서 **이전 실행**을 클릭하여 실험의 이전 실행을 볼 수 있습니다.
 
 예를 들어, 실험을 만들고 11:23, 11:42 및 11:55에 실험의 버전을 실행한다고 가정합니다. 마지막으로 실행된 실험(11:55)을 열고 **이전 실행**을 클릭하면 11:42에 실행한 버전이 열립니다.
 
-##실행 기록 보기
+## 실행 기록 보기
 
 열린 실험에서 **실행 기록 보기**를 클릭하여 이전에 실행된 모든 실험을 볼 수 있습니다.
 
@@ -55,7 +55,7 @@
 
 기계 학습 스튜디오의 **실험** 탭에 있는 실험 목록은 항상 실험의 최신 버전을 표시합니다. 이전에 실행된 실험을 열면( **이전 실행** 또는 **실행 기록 보기** 사용), **실행 기록 보기**를 클릭하고 **상태**가 **편집 가능**인 반복을 선택하여 초안 버전으로 돌아갈 수 있습니다.
 
-##이전 실행 반복
+## 이전 실행 반복
 
 **이전 실행** 또는 **실행 기록 보기**를 클릭하고 이전 실행을 열면 읽기 전용 모드로 완료된 실험을 볼 수 있습니다.
 
@@ -64,7 +64,7 @@
 예를 들어, 이전 섹션에 표시된 실험 실행 기록이 있다고 가정합니다. **학습 속도** 매개 변수를 0.4로 설정하면 어떻게 되는지 관찰하고 **학습 epoch 수** 매개 변수에 다른 값을 사용해 보려고 합니다.
 
 
-1. **실행 기록 보기**를 클릭하고 오후 4:28:36에 실행한 반복 실험을 엽니다(매개 변수 값을 0.4로 설정함). 
+1. **실행 기록 보기**를 클릭하고 오후 4:28:36에 실행한 반복 실험을 엽니다(매개 변수 값을 0.4로 설정함).
 
 2. **다른 이름으로 저장**을 클릭합니다.
 
@@ -83,6 +83,5 @@
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="새 Application Insights 리소스 만들기" 
-	description="새 응용 프로그램에 대해 설정하고 새 계측 키를 가져옵니다. Application Insights는 라이브 응용 프로그램의 성능 및 사용을 모니터링합니다." 
+	description="새로운 라이브 응용 프로그램에 대 한 Application Insights 모니터링을 설정합니다. 웹 기반 접근 방식." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

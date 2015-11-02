@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Java 웹 프로젝트에서 Application Insights 문제 해결" 
-	description="문제 해결 가이드 및 질문과 대답입니다." 
+	description="문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다." 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
@@ -138,4 +138,4 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

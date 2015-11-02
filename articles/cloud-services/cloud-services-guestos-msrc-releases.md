@@ -13,12 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="09/14/2015"
+   ms.date="10/18/2015"
    ms.author="yuemlu"/>
 
 # Azure 게스트 OS 
 
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## 게스트 OS 10월
+
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-106 | [3096441] | Internet Explorer용 누적 보안 업데이트 | 4\.25, 3.32, 2.44 | 2015년 10월 13일 |
+| MS15-108 | [3089659] | 잠재적 원격 코드 실행 문제를 해결하기 위한 JScript 및 VBScript용 보안 업데이트 | 2\.44 | 2015년 10월 13일 |
+| MS15-109 | [3096443] | 원격 코드 실행 문제를 해결하기 위해 Windows 셸용 보안 업데이트 | 4\.25, 3.32, 2.44 | 2015년 10월 13일 |
+| MS15-111 | [3096447] | 권한 상승 문제점을 해결하기 위한 Windows 커널용 보안 업데이트 | 4\.25, 3.32, 2.44 | 2015년 10월 13일 |
+| Microsoft 보안 권고 | [3092627] | 3076895 보안 업데이트를 설치한 후에 Windows 또는 응용 프로그램 중지를 해결하기 위한 2015년 9월 업데이트 | 4\.25, 3.32, 2.44 | 2015년 10월 13일 |
+
 
 ## 게스트 OS 9월
 
@@ -172,6 +183,12 @@
 | 해당 없음 | [2896881][2896881] | Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 
 
+[3096441]: http://support.microsoft.com/kb/3096441
+[3089659]: http://support.microsoft.com/kb/3089659
+[3096443]: http://support.microsoft.com/kb/3096443
+[3096447]: http://support.microsoft.com/kb/3096447
+[3092627]: http://support.microsoft.com/kb/3092627
+
 [3088903]: http://support.microsoft.com/kb/3088903
 [3089548]: http://support.microsoft.com/kb/3089548
 [3072595]: http://support.microsoft.com/kb/3072595
@@ -208,7 +225,7 @@
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/en-us/kb/3042553/
+[3042553]: https://support.microsoft.com/ko-KR/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -288,4 +305,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

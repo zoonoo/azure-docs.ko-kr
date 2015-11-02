@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 리소스와 RESTful 상호 작용 | Microsoft Azure" 
 	description="이 RESTful 웹 서비스 자습서의 HTTP 메서드를 검토합니다. HTTP 동사를 사용하여 Microsoft Azure DocumentDB 리소스와 함께 RESTful 상호 작용을 수행하는 방법을 알아봅니다."
-	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
+	keywords="HTTP 메서드, RESTful 서비스 자습서, RESTful 웹 서비스 자습서, HTTP 동사, Documentdb, Azure, Microsoft Azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -205,4 +205,4 @@ REST API를 사용하여 리소스 작업을 수행하는 방법에 대한 자�
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

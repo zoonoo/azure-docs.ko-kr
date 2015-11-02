@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="tdykstra"/>
 
 # Azure API 응용 프로그램을 Azure Active Directory에 의해 인증되는 웹 응용 프로그램 클라이언트에서 호출
@@ -227,4 +227,4 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure 미리 보기 포털]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

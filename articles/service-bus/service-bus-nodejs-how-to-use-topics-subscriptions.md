@@ -19,7 +19,9 @@
 
 # 서비스 버스 토픽 및 구독을 사용하는 방법
 
-이 가이드에서는 Node.js 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 설명합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, 토픽에 **메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+이 가이드에서는 Node.js 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 설명합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은[다음 단계](#next-steps) 섹션을 참조하세요.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -152,7 +154,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 > [AZURE.NOTE]기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **deleteRule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
-다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 `HighMessages`(이)라는 구독을 만듭니다.
+다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 이름이 `HighMessages`인 구독을 만듭니다.
 
 ```
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
@@ -187,7 +189,7 @@ var rule={
 }
 ```
 
-마찬가지로, 다음 예제에서는 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 **SqlFilter**를 사용하여 `LowMessages`(이)라는 구독을 만듭니다.
+마찬가지로, 다음 예제에서는 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 **SqlFilter**를 사용하여 이름이 `LowMessages`인 구독을 만듭니다.
 
 ```
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
@@ -222,7 +224,7 @@ var rule={
 }
 ```
 
-이제 `MyTopic`(으)로 메시지를 보내는 경우 `AllMessages` 토픽 구독을 구독하는 수신자에게는 항상 배달되고, `HighMessages` 및 `LowMessages` 토픽 구독을 구독하는 수신자에게는 메시지 내용에 따라 선택적으로 배달됩니다.
+이제 `MyTopic`으로 메시지를 보내는 경우 `AllMessages` 토픽 구독을 구독하는 수신자에게는 항상 배달되고, `HighMessages` 및 `LowMessages` 토픽 구독을 구독하는 수신자에게는 메시지 내용에 따라 선택적으로 배달됩니다.
 
 ## 토픽에 메시지를 보내는 방법
 
@@ -325,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [Node.js 웹 응용 프로그램 및 저장소]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

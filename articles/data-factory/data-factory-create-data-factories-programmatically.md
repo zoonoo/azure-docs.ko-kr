@@ -378,11 +378,8 @@
 18. 출력 파일이 **adftutorial** 컨테이너의 **apifactoryoutput** 폴더에 만들어졌는지 확인합니다.
 
 
-## 참고 항목
 
-문서 | 설명
------- | ---------------
-[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 .NET 클래스 라이브러리, cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
+> [AZURE.NOTE]위의 샘플 코드는 대화 상자를 시작하여 Azure 자격 증명을 입력하도록 합니다. 대화 상자를 사용하지 않고 프로그래밍 방식으로 로그인해야 하는 경우 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)을 참조하세요.
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -395,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

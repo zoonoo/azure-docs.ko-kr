@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="10/15/2015" 
 	ms.author="tdykstra"/>
 
 # API 앱 정의
 
-API 앱은 클라우드 및 온-프레미스에서 API를 빌드, 호스팅, 사용 및 배포하기 위한 풍부한 플랫폼 및 에코 시스템을 제공합니다. 사용자의 API를 API 앱으로 배포하고 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 및 SaaS 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합에서 이점을 얻을 수 있습니다.
+API 앱은 클라우드 및 온-프레미스에서 API를 빌드, 호스팅 및 사용하기 위한 풍부한 플랫폼을 제공합니다. 사용자의 API를 API 앱으로 배포하고 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 및 SaaS 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합에서 이점을 얻을 수 있습니다.
 
 API 앱은 웹앱, 모바일 앱 및 논리 앱도 포함하는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 일부입니다.
 
@@ -46,18 +46,6 @@ API 앱은 RESTful 웹 API 개발, 배포, 게시, 사용 및 관리를 위한 �
 >
 >API 앱은 현재 공개 미리 보기로 제공됩니다. [앱 서비스 웹앱](../app-service-web/app-service-web-overview.md)은 글로벌 규모로 안전한 중요 업무용 응용 프로그램을 빌드 및 호스트하도록 설계된 GA(일반 공급) 서비스입니다. 현재 API를 빌드하기 위한 GA 서비스를 찾고 있는 경우 웹앱이 유용한 옵션입니다. API 앱이 GA로 전환되면 기존 웹앱을 통해 API 앱의 기능을 활용할 수 있는 추가 기능이 제공될 것입니다.
 
-### 이후 사용 가능한 API 앱 기능
-
-조만간 API 앱 플랫폼은 쉽게 코드를 공유할 수 있게 하여 진정한 API 에코 시스템도 만들 것입니다.
-
-- **공용 및 개인 마켓플레이스** - [Azure 마켓플레이스](http://azure.microsoft.com/marketplace/)를 통해 Microsoft 및 타사에서 개발한 미리 패키지된 API 앱을 쉽게 찾아서 Azure 구독에 배포할 수 있습니다. 또한 다른 개발자가 Azure 구독에 배포할 수 있도록 자신이 개발한 API 앱을 패키지 및 게시할 수 있습니다. Azure 마켓플레이스에 API를 게시할 때 해당 조직의 다른 구성원에게만 표시되도록 설정할 수 있습니다. 
-
-- **자동 종속성 배포** - 마켓플레이스에서 Azure 구독으로 API 앱을 배포할 때마다-Azure에서 자동으로 종속 API 앱을 배포하고 필요한 리소스를 만듭니다. API 앱 패키지는 해당 앱이 종속된 API 앱과 필요한 Azure 리소스를 지정합니다.
-
-- **자동 업데이트** - 공유한 API 앱 패키지 중 하나의 코드를 업데이트할 때 해당 API 앱을 설치하여 실행 중인 모든 사용자에게 업데이트를 푸시할 수 있습니다. 이 기능은 사소한 변경 및 업데이트 수신을 옵트인(opt in)한 사용자에 대해 작동합니다.
-
-공용 마켓플레이스 및 자동 업데이트와 같은 대부분의 기능은 Microsoft에서 제공하는 API 앱에 이미 사용할 수 있습니다.
-
 ## API 앱 개념 ##
 
 - **게이트웨이** - 리소스 그룹의 모든 API 앱에 대한 인증 및 API 관리 기능을 처리하는 웹앱입니다. 
@@ -70,10 +58,10 @@ API 앱은 RESTful 웹 API 개발, 배포, 게시, 사용 및 관리를 위한 �
 
 API 앱을 시작하려면 [API 앱 만들기 자습서](app-service-dotnet-create-api-app.md)를 따르세요.
 
-API 앱의 알려진 문제 목록을 보려면 [이 MSDN 포럼 게시물](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)을 참조하세요.
+API 앱의 알려진 문제 목록을 보려면 [이 MSDN 포럼 게시물](https://social.msdn.microsoft.com/Forums/ko-KR/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)을 참조하세요.
 
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)를 참조하세요.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

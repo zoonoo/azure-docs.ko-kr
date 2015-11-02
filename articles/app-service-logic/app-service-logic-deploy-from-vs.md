@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # Visual Studio에서 배포
@@ -39,11 +39,11 @@
 
 ## 논리 앱 구성
 
-프로젝트가 있으면 VS 안에서 논리 앱 정의를 편집할 수 있습니다. 솔루션 탐색기에서 JSON 파일을 클릭합니다. 응용 프로그램의 논리를 사용하여 채울 수 있는 자리 표시자 정의 확인할 수 있습니다.
+프로젝트가 있으면 Visual Studio 내에서 논리 앱 정의를 편집할 수 있습니다. 솔루션 탐색기에서 JSON 파일을 클릭합니다. 응용 프로그램의 논리를 사용하여 채울 수 있는 자리 표시자 정의 확인할 수 있습니다.
 
 정의에 **매개 변수**를 사용하는 것이 좋습니다. 이는 개발 및 제품 환경에 둘 다 배포하려는 경우에 유용합니다. 이 경우에 `.param` 파일의 모든 환경 관련 구성을 배치하고 실제 문자열 대신 매개 변수를 배치해야 합니다.
 
-오늘날, Visual Studio에 기본 제공된 디자이너가 없으므로 그래픽 인터페이스(JSON와 대조적)를 사용하려는 경우 Azure 포털을 사용해야 합니다.
+오늘날, Visual Studio에 기본 제공된 JSON 설계자가 없으므로 그래픽 인터페이스(JSON와 대조적)를 사용하려는 경우 Azure 포털을 사용해야 합니다.
 
 Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어를 위해 이를 확인하려는 경우 다음 3가지 방법으로 수행할 수 있습니다. - 포털에서 **코드 보기**로 이동하여 정의를 복사합니다. - [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 논리 앱을 사용하여 정의를 확인합니다. - [Azure 리소스 관리자 powershell](../powershell-azure-resource-manager.md), 특히 [`Get-AzureResource` 명령](https://msdn.microsoft.com/library/dn654579.aspx)을 사용하여 정의를 다운로드합니다.
 
@@ -61,8 +61,8 @@ Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어
     
 4. 배포의 상태가 **출력** 창(**Azure 프로비저닝**을 선택해야 할 수 있음.)에서 표시됩니다. ![출력](./media/app-service-logic-deploy-from-vs/output.png)
 
-나중에 소스 제어에서 논리 앱을 수정하고 새 버전을 배포하기 위해 Visual Studio를 사용할 수 있습니다. Azure 포털에서 정의를 직접 수정하면 다음에 Visual Studio에서 변경 내용을 배포하면 해당 변경 내용이 재정의됩니다.
+나중에 소스 제어에서 논리 앱을 수정하고 새 버전을 배포하기 위해 Visual Studio를 사용할 수 있습니다. Azure 포털에서 정의를 직접 수정하면 다음에 Visual Studio에서 변경 내용을 배포하면 해당 변경 내용이 덮어쓰여집니다.
 
-Visual Studio를 사용하지 않고 싶지만 소스 제어에서 논리 앱을 배포하기 위해 여전히 도구를 보유하고자 하는 경우 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 또는 [Powershell](../powershell-azure-resource-manager.md)을 직접 사용하여 배포를 자동화하는 데 사용할 수 있습니다.
+Visual Studio를 사용하지 않고 싶지만 소스 제어에서 논리 앱을 배포하기 위해 여전히 도구를 사용하고자 하는 경우 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 또는 [Powershell](../powershell-azure-resource-manager.md)을 직접 사용하여 배포를 자동화하는 데 사용할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

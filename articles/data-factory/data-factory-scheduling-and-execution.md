@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 예약 및 실행
@@ -676,4 +676,4 @@ DateTime | Ticks(X) | X: DateTime | 매개 변수 X의 틱 속성을 가져옵�
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

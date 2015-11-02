@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Azure CLI를 사용하여 HDInsight에서 Linux에 Hadoop, HBase 또는 Storm 클러스터 만들기 | Microsoft Azure"
-   	description="Azure CLI를 사용하여 HDInsight에서 Linux에 Hadoop, HBase 또는 Storm 클러스터를 만드는 방법에 대해 알아봅니다."
+   	pageTitle="플랫폼 간 Azure CLI를 사용하여 HDInsight에서 Linux에 Hadoop, HBase 또는 Storm 클러스터 만들기 | Microsoft Azure"
+   	description="플랫폼 간 Azure CLI, Azure 리소스 관리자 템플릿 및 Azure REST API를 사용하여 Linux 기반 HDInsight 클러스터를 만드는 방법을 알아봅니다. 클러스터 유형(Hadoop, HBase 또는 Storm)을 지정하거나 스크립트를 사용하여 사용자 지정 구성 요소를 설치할 수 있습니다."
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
@@ -117,4 +117,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

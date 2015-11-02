@@ -1,7 +1,7 @@
 <properties
 	pageTitle="비교: Apache Storm 및 Azure 스트림 분석 | Microsoft Azure"
 	description="실시간 Twitter 정서 분석에 대한 스트림 분석을 사용하는 방법에 대해 알아봅니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="실시간 twitter, 정서 분석, 소셜 미디어 분석, 소셜 미디어 분석 도구"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -377,13 +377,13 @@
                     <strong>작업 배포 모델</strong>
                 </p>
                 <p>
-                    <strong>Azure 포털</strong>
+                    - <strong>Azure 포털</strong>
                 </p>
                 <p>
-                    <strong>Visual Studio</strong>
+                    - <strong>Visual Studio</strong>
                 </p>
                 <p>
-                    <strong>Powershell</strong>
+                    - <strong>Powershell</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -590,4 +590,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

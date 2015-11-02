@@ -1,7 +1,7 @@
 <properties
 	pageTitle="기계 학습 알고리즘 치트 시트 | Microsoft Azure"
 	description="인쇄 가능한 기계 학습 알고리즘 치트 시트를 사용하면 Azure 기계 학습 스튜디오에서 예측 모델에 적합한 알고리즘을 선택합니다."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
+	keywords="알고리즘 치트 시트, 치트 시트, 기계 학습 알고리즘"
 	services="machine-learning"
 	documentationCenter=""
 	authors="brohrer"
@@ -22,7 +22,7 @@
 
 **Microsoft Azure 기계 학습 알고리즘 치트 시트**를 사용하면 알고리즘의 Microsoft Azure 기계 학습 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다.
 
-[Azure 기계 학습 스튜디오](https://studio.azureml.net/)는 예측 분석 솔루션에 대해 많은 수의 기계 학습 알고리즘과 함께 제공됩니다. 이러한 알고리즘은 ***회귀***, ***분류***, ***클러스터링*** 및 ***이상 탐지***의 일반적인 기계 학습 범주에 해당하며, 각각 다른 유형의 기계 학습 문제를 해결합니다.
+[Azure 기계 학습 스튜디오](https://studio.azureml.net/)는 예측 분석 솔루션에 대해 많은 수의 기계 학습 알고리즘와 함께 제공됩니다. 이러한 알고리즘은 ***회귀***, ***분류***, ***클러스터링*** 및 ***이상 탐지***의 일반적인 기계 학습 범주에 해당하며, 각각 다른 유형의 기계 학습 문제를 해결합니다.
 
 > [AZURE.NOTE]이 치트 시트를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md) 문서를 참조하세요.
 
@@ -42,7 +42,7 @@
 * 다양한 유형의 기계 학습 알고리즘, 사용 방법 및 적합한 알고리즘을 선택하기 위해 이 치트 시트 사용 방법에 대한 자세한 논의는 [Microsoft Azure 기계 학습에서 알고리즘을 선택하는 방법](machine-learning-algorithm-choice.md)을 참조하세요.
 * 기계 학습 스튜디오에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 기계 학습 스튜디오 Algorithm 및 모듈 도움말에서 [초기화 모델][initialize-model]을 참조하세요.
 * 기계 학습 스튜디오의 전체 알고리즘 및 모듈 목록은 기계 학습 스튜디오 알고리즘 및 모듈 도움말에서 [기계 학습 스튜디오 모듈의 A-Z 목록][a-z-list]을 참조하세요.
-* 기계 학습 스튜디오의 기능에 대한 개요를 설명하는 다이어그램을 다운로드 및 프린트하려면 [기계 학습 스튜디오의 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
+* 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -87,4 +87,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

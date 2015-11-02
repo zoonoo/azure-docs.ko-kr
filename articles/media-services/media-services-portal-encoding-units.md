@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="인코딩 예약 단위 크기를 조정하는 방법" 
+	pageTitle="Azure 포털을 사용하여 인코딩 예약 단위 크기를 조정하는 방법" 
 	description="계정에서 프로비전할 주문형 스트리밍 예약 단위 및 인코딩 예약 단위의 수를 지정하여 미디어 서비스를 확장하는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,milangada" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#인코딩 크기를 조정하는 방법
+#Azure 포털을 사용하여 인코딩 크기를 조정하는 방법
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -69,4 +69,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

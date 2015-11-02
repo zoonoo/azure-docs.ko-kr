@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="arramac"/>
 
 # Order By를 사용하여 DocumentDB 데이터 정렬
@@ -125,7 +125,7 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
         });
 
 ## 샘플
-정책 인덱싱 정책 만들기 및 Order By를 사용한 페이징을 포함하여 Order By를 사용하는 방법을 나타내는 이 [Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)을 살펴 보세요. 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)을 참조하세요.
+정책 인덱싱 정책 만들기 및 Order By를 사용한 페이징을 포함하여 Order By를 사용하는 방법을 나타내는 이 [Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)을 살펴 보세요. 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)을 참조하세요.
 
 ## 다음 단계
 
@@ -152,7 +152,7 @@ Order By는 조회에 대한 DocumentDB 인덱스를 사용하므로 Order By �
 
 **Order By를 사용하여 DocumentDB에서 기존 내 데이터를 쿼리하는 방법**
 
-[다음 단계](what's-coming-next) 섹션에 언급된 동적 인덱싱 정책 개선의 가용성으로 지원됩니다. 오늘날 이 작업을 수행하기 위해, 데이터를 내보내고 인덱스별 범위/주문으로 만든 새 DocumentDB 컬렉션으로 다시 가져와야 합니다. DocumentDB 가져오기 도구는 컬렉션 간 데이터를 마이그레이하는 데 사용될 수 있습니다.
+Order By를 사용하여 쿼리 결과를 정렬하기 위해 컬렉션의 인덱싱 정책을 수정하여 정렬하는 데 사용된 속성에 대해 범위 인덱스 형식을 사용해야 합니다. [인덱싱 정책 수정](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection)을 참조하세요.
 
 **Order By의 현재 제한 사항은 무엇입니까?**
 
@@ -168,13 +168,13 @@ Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 �
 
 ## 다음 단계
 
-[Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)를 분기하고 주문 데이터를 시작합니다.
+[Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)를 분기하고 주문 데이터를 시작합니다.
 
 ## 참조
 * [DocumentDB 쿼리 참조](documentdb-sql-query.md)
 * [DocumentDB 인덱싱 정책 참조](documentdb-indexing-policies.md)
 * [DocumentDB SQL 참조(영문)](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

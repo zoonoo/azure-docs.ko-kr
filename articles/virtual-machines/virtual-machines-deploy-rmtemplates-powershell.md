@@ -43,11 +43,7 @@ Azure PowerShell 및 리소스 관리자 템플릿을 사용하여 제공Microso
 - [가상 컴퓨터 다시 시작](#restart)
 - [가상 컴퓨터 삭제](#delete)
 
-시작하기 전에 Azure PowerShell을 사용할 준비가 되었는지 확인하세요.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Azure 리소스 관리자 템플릿 및 리소스 그룹
 
@@ -63,7 +59,7 @@ Azure 리소스 관리자 템플릿을 사용하여 만드는 리소스를 새 �
 
 ### 리소스 그룹 만들기
 
-리소스를 만드는 작업의 경우 리소스 그룹(아직 없다면이 필요합니다.
+리소스를 만드는 작업의 경우 리소스 그룹(아직 없다면)이 필요합니다.
 
 다음 명령에서 *리소스 그룹 이름*을 새 리소스 그룹의 이름으로 바꾸고 *Azure 위치*를 리소스를 찾을 Azure 데이터 센터 위치로 바꾼 다음 명령을 실행합니다.
 
@@ -380,4 +376,4 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

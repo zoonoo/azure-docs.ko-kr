@@ -169,7 +169,7 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
 
 ## Azure 경고에 답하여 Runbook 시작
 
-Webhook 지원 Runbook을 사용하여 [Azure 경고](Azure-portal/insights-receive-alert-notifications.md)에 대처할 수 있습니다. Azure 경고를 통해 성능, 가용성 및 사용량 등의 통계를 수집하여 Azure의 리소스를 모니터링할 수 있습니다. 모니터링 메트릭이나 이벤트를 기반으로 Azure 리소스에 대한 경고를 받을 수 있습니다. 지정한 메트릭의 값이 할당된 임계값을 초과하거나 구성된 이벤트가 트리거된 경우 서비스 관리자나 공동 관리자에게 알림을 보내 경고를 해결하도록 합니다. 메트릭과 이벤트에 대한 자세한 내용은 [Azure 경고](Azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
+Webhook 지원 Runbook을 사용하여 [Azure 경고](Azure-portal/insights-receive-alert-notifications.md)에 대처할 수 있습니다. Azure 경고를 통해 성능, 가용성 및 사용량 등의 통계를 수집하여 Azure의 리소스를 모니터링할 수 있습니다. 모니터링 메트릭이나 이벤트를 기반으로 Azure 리소스에 대한 경고를 받을 수 있습니다. 현재 자동화 계정은 메트릭만 지원합니다. 지정한 메트릭의 값이 할당된 임계값을 초과하거나 구성된 이벤트가 트리거된 경우 서비스 관리자나 공동 관리자에게 알림을 보내 경고를 해결하도록 합니다. 메트릭과 이벤트에 대한 자세한 내용은 [Azure 경고](Azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
 
 Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대한 응답으로 Runbook을 실행할 수 있습니다. Azure 자동화는 Azure 경고를 통해 Webhook 지원 Rubbook을 실행하는 기능을 제공합니다. 메트릭이 구성된 임계값을 초과할 경우 경고 규칙이 활성화되고 그에 따라 Runbook을 실행하는 자동화 Webhook을 트리거합니다.
 
@@ -255,4 +255,4 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 - [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md)
 - [Azure 자동화를 사용하여 Azure 경고에서 조치 취하기](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

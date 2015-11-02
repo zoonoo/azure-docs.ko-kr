@@ -13,17 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="10/15/2015"
 	ms.author="nitinme"/>
 
-# HDInsight Hadoop 클러스터에서 Spark 설치 및 사용
+# 스크립트 작업을 사용하여 HDInsight Hadoop 클러스터에 Spark 설치 및 사용
 
+> [AZURE.IMPORTANT]이 문서는 이제 사용되지 않습니다. 이제 HDInsight는 Windows 기반 클러스터를 위한 최고급 클러스터 형식으로 Spark를 제공하므로 스크립트 작업을 사용하여 Hadoop 클러스터를 수정하지 않고 Spark 클러스터를 직접 만들 수 있습니다. Spark 클러스터 유형을 사용하여 Spark 버전 1.3.1과 함께 HDInsight 버전 3.2 클러스터를 얻습니다. 다른 버전의 Spark를 설치하려면 스크립트 작업을 사용할 수 있습니다. HDInsight는 샘플 스크립트 작업 스크립트를 제공합니다.
 
 스크립트 동작을 사용하여 Windows 기반 HDInsight에서 Spark를 설치하는 방법 및 HDInsight 클러스터에서 Spark 쿼리를 실행하는 방법을 알아봅니다.
 
-HDInsight는 Windows 기반 클러스터를 위한 최고급 클러스터 형식으로 Spark를 제공하여 Hadoop 클러스터를 수정하지 않고 Spark 클러스터를 직접 만들 수 있습니다. Spark 클러스터 유형을 사용하여 Spark 버전 1.3.1과 함께 HDInsight 버전 3.2 클러스터를 얻습니다. 다른 버전의 Spark를 설치하려면 스크립트 작업을 사용할 수 있습니다. HDInsight는 샘플 스크립트 작업 스크립트를 제공합니다.
 
-**관련 문서** - [Linux 기반 HDInsight 클러스터에서 Spark 설치합니다](hdinsight-hadoop-spark-install-linux.md).- [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 일반 정보입니다. - [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): windows OS에서 Spark 형식 클러스터를 만듭니다. - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 동작을 사용하는 HDInsight 클러스터 사용자 지정에 대한 일반 정보입니다. - [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md).
+**관련 문서** - [Linux 기반 HDInsight 클러스터에 Spark 설치](hdinsight-hadoop-spark-install-linux.md).
+
+- [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
+
+- [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): Windows OS에 Spark 형식 클러스터를 만듭니다.
+
+- [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
+
+- [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 
 ## Spark란?
 
@@ -309,4 +317,4 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 기계 학습 FAQ | Microsoft Azure"
 	description="Azure 기계 학습 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ."
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	keywords="기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요"
 	services="machine-learning"
 	documentationCenter=""
 	authors="pablissima"
@@ -308,4 +308,4 @@ Azure 기계 학습에 대한 기술 지원을 받으려면 [Azure 지원](/supp
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

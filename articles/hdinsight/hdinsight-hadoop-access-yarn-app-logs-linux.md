@@ -1,6 +1,6 @@
 <properties
-	pageTitle="프로그래밍 방식으로 Hadoop YARN 응용 프로그램 로그에 액세스 | Microsoft Azure"
-	description="HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 응용 프로그램 로그에 액세스합니다."
+	pageTitle="Linux 기반 HDInsight에서 Hadoop YARN 응용 프로그램 로그에 액세스 | Microsoft Azure"
+	description="명령줄과 웹 브라우저를 사용하여 Linux 기반 HDInsight(Hadoop) 클러스터에서 YARN 응용 프로그램 로그에 액세스하는 방법을 알아봅니다."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스
@@ -96,4 +96,4 @@ SSH 터널을 만든 후 다음 단계를 사용하여 YARN 로그를 봅니다.
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

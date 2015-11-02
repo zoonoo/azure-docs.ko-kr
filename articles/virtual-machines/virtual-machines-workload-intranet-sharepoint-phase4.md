@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 워크로드 4단계: SharePoint 서버 구성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
- 
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 배포 모델.
 
 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013을 배포하는 이 단계에서는 SharePoint 팜의 응용 프로그램 및 웹 계층을 구축하고 SharePoint 구성 마법사를 사용하여 팜을 만듭니다.
 
@@ -30,7 +29,7 @@ Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용�
 
 SharePoint 서버 가상 컴퓨터는 네 개입니다. 두 SharePoint 서버 가상 컴퓨터는 프런트 엔드 웹 서버용이고 다른 두 컴퓨터는 SharePoint 응용 프로그램 관리 및 호스팅용입니다. 각 계층에 SharePoint 서버가 두 개씩이므로 고가용성이 제공됩니다.
 
-Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버용 가상 컴퓨터를 만듭니다. < and > 문자를 제거하고 변수의 값을 지정합니다. 이 PowerShell 명령 집합은 다음 표의 값을 사용합니다.
+Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버용 가상 컴퓨터를 만듭니다. < and > 문자를 제거하고 변수의 값을 지정합니다. 이 Azure PowerShell 명령 집합은 다음 표의 값을 사용합니다.
 
 - 가상 컴퓨터의 경우 표 M
 - 가상 네트워크 설정의 경우 표 V
@@ -198,4 +197,4 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

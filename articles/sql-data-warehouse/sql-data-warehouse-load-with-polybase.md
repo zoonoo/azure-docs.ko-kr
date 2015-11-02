@@ -36,7 +36,13 @@ PolyBase를 사용하여 Azure blob 저장소에 저장된 데이터를 쿼리�
 
 먼저, PolyBase가 연결하여 Azure blob 저장소에서 데이터를 쿼리하는 데 필요한 개체를 만듭니다.
 
-> [AZURE.IMPORTANT]PolyBase에서 지원되는 Azure 저장소 계정 유형에은 + 표준 로컬 중복 저장소(표준-LRS) + 표준 지역 중복 저장소(표준-GRS) + 표준 읽기 액세스 지역 중복 저장소(표준-RAGRS)입니다. 표준 영역 중복 저장소(표준-ZRS) 및 프리미엄 로컬 중복 저장소(프리미엄-LRS) 계정 유형은 PolyBase에서 지원되지 않습니다. 새 Azure 저장소 계정을 만드는 경우 가격 책정 계층에서 PolyBase 지원 저장소 계정 유형을 선택해야 합니다.
+> [AZURE.IMPORTANT]PolyBase에서 지원하는 Azure 저장소 계정 형식은 다음과 같습니다.
+> 
+> + 표준 로컬 중복 저장소(표준-LRS)
+> + 표준 지역 중복 저장소(표준-GRS)
+> + 표준 읽기 액세스 지역 중복 저장소(표준-RAGRS)
+>
+> 표준 영역 중복 저장소(표준-ZRS) 및 프리미엄 로컬 중복 저장소(Premium-LRS) 계정 유형은 PolyBase에서 지원되지 않습니다. 새 Azure 저장소 계정을 만드는 경우 가격 책정 계층에서 PolyBase 지원 저장소 계정 유형을 선택해야 합니다.
 
 
 ## 데이터베이스 마스터 키 만들기
@@ -328,4 +334,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

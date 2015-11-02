@@ -146,7 +146,7 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     ```
 
-    ~/.ssh 디렉터리에서 ssh\_config 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다(이 예에서는 10.32.0.0/16).
+    ~/.ssh 디렉터리에서 "config" 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다(이 예에서는 10.32.0.0/16).
 
     ```
     host 10.32.0.*
@@ -370,4 +370,4 @@ cluster12
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

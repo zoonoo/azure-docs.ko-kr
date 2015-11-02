@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
-   ms.author="vturecek"/>
+   ms.date="09/29/2015"
+   ms.author="claudioc"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 분산 네트워크 및 그래프
 서비스 패브릭 신뢰할 수 있는 행위자는 관계와 관련된 복잡한 솔루션을 모델링하고 이러한 관계를 개체로 모델링하는 데 가장 적합합니다.
@@ -57,7 +57,7 @@ Public class SocialPersonState
     public SocialStatus _lastStatus; // this is my last update
 }
 
-public class SocialPerson : Actor, ISocialPerson
+public class SocialPerson : Actor<SocialPersonState>, ISocialPerson
 {
     public override Task ActivateAsync()
     {
@@ -224,4 +224,4 @@ public Task PublishMessageAsync(long participantId, string message)
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

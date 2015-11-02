@@ -74,7 +74,7 @@
 | 4 | Invoke-HcsSetupWizard: 클러스터 리소스가 실패했습니다. (HRESULT:0x800713AE에서 예외 발생). | VIP가 중복되었습니다. 제공된 IP가 이미 사용 중입니다.| 사용되지 않는 새 IP를 제공합니다.|
 | 5 | Invoke-HcsSetupWizard: 잘못된 IPv4 주소입니다. | IP 주소는 잘못된 형식으로 제공됩니다.| 형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv4 주소 지정][1]을 참조하세요. |
 | 6 | Invoke-HcsSetupWizard: 잘못된 IPv6 주소입니다. | IP 주소는 잘못된 형식으로 제공됩니다.| 형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv6 주소 지정][2]을 참조하세요.|
-| 7 | Invoke-HcsSetupWizard: 끝점 매퍼에서 사용 가능한 끝점이 더 이상 없습니다. ((HRESULT: 0x800706D9에서 예외 발생). | 클러스터 기능이 작동하지 않습니다. | 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
+| 7 | Invoke-HcsSetupWizard: 끝점 매퍼에서 사용 가능한 끝점이 더 이상 없습니다. (HRESULT: 0x800706D9에서 예외 발생). | 클러스터 기능이 작동하지 않습니다. | 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
 ## 선택적 웹 프록시 설정 중 오류
 
@@ -256,6 +256,8 @@ StorSimple 장치에 업데이트 1을 실행 하는 경우 다음 진단 cmdlet
 ## Test-Connection cmdlet 문제 해결
 
 `Test-Connection` cmdlet을 사용하여 StorSimple 장치를 외부 네트워크에 연결할 수 있는지 여부를 확인할 수 있습니다. DNS를 포함한 모든 네트워킹 매개 변수가 설치 마법사에서 올바르게 구성된 경우, `Test-Connection` cmdlet을 사용하여 outlook.com과 같은 네트워크 외부에 알려진 주소를 ping할 수 있습니다.
+
+Ping이 비활성화된 경우 ping을 활성화하여 이 cmdlet과 연결 문제를 해결해야 합니다.
 
 `Test-Connection` cmdlet에서 다음과 같은 출력 샘플을 확인하세요.
 
@@ -575,4 +577,4 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

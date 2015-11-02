@@ -52,9 +52,13 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 응용 프로그램에서 SendGrid NuGet 패키지를 설치하려면 다음을 수행합니다.
 
-1.  새 프로젝트를 만듭니다. ![새 프로젝트 만들기][create-new-project]
+1.  새 프로젝트를 만듭니다.
 
-2.  템플릿을 선택합니다. ![템플릿 선택][select-a-template]
+    ![새 프로젝트 만들기][create-new-project]
+
+2.  템플릿을 선택합니다.
+
+    ![템플릿 선택][select-a-template]
 
 3.  **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 
@@ -257,4 +261,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Node.js에서 Blob 저장소를 사용하는 방법 | Microsoft Azure";"
+	pageTitle="Node.js에서 Blob 저장소를 사용하는 방법 | Microsoft Azure"
 	description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다."
 	services="storage"
 	documentationCenter="nodejs"
@@ -201,7 +201,7 @@ Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob�
 
 Blob에서 데이터를 다운로드하려면 다음을 사용합니다.
 
-* **getBlobToFile** - Blob의 내용을 파일에 씁니다.
+* **getBlobToLocalFile** - Blob의 내용을 파일에 씁니다.
 
 * **getBlobToStream** - Blob의 내용을 스트림에 씁니다.
 
@@ -378,4 +378,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 공유 액세스 서명�
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Node용 Azure 저장소 SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

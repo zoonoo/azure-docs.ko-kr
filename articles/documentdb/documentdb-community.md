@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/12/2015"
+  ms.date="10/20/2015"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -126,7 +126,8 @@ Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기�
 | ------------------------------------------- | ------------------ | ------- |
 | 통합 사용자 그룹 | 2015년 10월 5일 | [의료 서비스 통합을 위한 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | DX 이탈리아 - #TecHeroes | 2015년 10월 2일 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
-| .NET Rocks! 팟캐스트 | 2015년 9월 29일 | [Ryan CrawCour와 함께 하는 DocumentDB의 데이터](https://www.dotnetrocks.com/?show=1197) |
+| Microsoft 클라우드 쇼 - 팟캐스트 | 2015년 9월 30일 | [에피소드 099-Andrew Liu와 Azure DocumentDB](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
+| .NET Rocks! - 팟캐스트 | 2015년 9월 29일 | [Ryan CrawCour와 함께 하는 DocumentDB의 데이터](https://www.dotnetrocks.com/?show=1197) |
 | 데이터 노출 | 2015년 9월 28일 | [GA 이후 Azure DocumentDB의 새로운 기능](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
 | Azure 팟캐스트 | 2015년 9월 17일 | [에피소드 94: azpodcast.com 재설계](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
 | 클라우드 커버 | 2015년 9월 4일 | [에피소드 185: Ryan CrawCour와 함께 하는 DocumentDB 업데이트](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
@@ -184,7 +185,7 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 
 | | |
 | -------------------------------------------------------- | --- |
-|![팀](./media/documentdb-community/documentdb-team.png) | 기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하신가요?<br/><br/>[DocumentDB 엔지니어링 팀과 직접 1:1 채팅을 예약](http://www.askdocdb.com/)할 수 있습니다.[@DocumentDB](https://twitter.com/DocumentDB)로 <br/><br/>[메일](mailto:askdocdb@microsoft.com)을 보내거나 트윗을 보내주세요. |
+|![팀](./media/documentdb-community/documentdb-team.png) | 기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하신가요?<br/><br/>[DocumentDB 엔지니어링 팀과 직접 1:1 채팅을 예약](http://www.askdocdb.com/)할 수 있습니다.<br/><br/>[@DocumentDB](https://twitter.com/DocumentDB)로[메일](mailto:askdocdb@microsoft.com)을 보내거나 트윗을 보내주세요. |
 
 
 <br/><br/>
@@ -213,4 +214,4 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 | Hadoop 커넥터 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 데이터 마이그레이션 도구 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석" 
-	description="Application Insights를 사용한 사용량 분석 개요" 
+	description="Application Insights을 사용하여 웹앱에 대한 사용량 분석 개요" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -391,4 +391,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

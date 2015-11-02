@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # 구성 표를 사용하여 크로스-프레미스 가상 네트워크 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
- 
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 배포 모델.
 
 이 항목에서는 다음 구성 표 집합에서 이전에 지정한 설정을 사용하여 크로스-프레미스 가상 네트워크를 만드는 과정을 안내합니다.
 
@@ -70,4 +69,4 @@
 
 [Azure 가상 네트워크에 대한 프레미스 사이 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

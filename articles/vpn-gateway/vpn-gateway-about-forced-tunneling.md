@@ -1,21 +1,20 @@
-<properties 
-   pageTitle="Microsoft Azure VPN 게이트웨이에 대한 강제 터널링 구성 | Microsoft Azure"
-   description="크로스-프레미스 VPN 게이트웨이를 사용한 가상 네트워크가 있는 경우 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor="" />
-<tags 
+<properties pageTitle "Microsoft Azure VPN 게이트웨이에 대한 강제 터널링 구성 | Microsoft Azure" description="크로스-프레미스 VPN 게이트웨이를 사용한 가상 네트워크가 있는 경우 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. "services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
+<tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # 강제 터널링 구성
+
+이 문서는 클래식 배포 모델을 사용하여 VNets 및 VPN 게이트웨이에 적용됩니다. 리소스 관리자 모델을 사용하여 만든 VNet 및 VPN 게이트웨이에 대한 강제 터널링 구성에 지침이 사용 가능한 경우 이 페이지의 위쪽에 링크를 추가합니다.
+
+>[AZURE.NOTE]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
+
+## 강제 터널링 정보
 
 강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. 대부분의 엔터프라이즈 IT 정책에 있어서 중요한 보안 요구 사항입니다. 강제 터널링 없이 Azure의 VM에서 인터넷 바인딩된 트래픽은 항상 트래픽을 검사 또는 감사하도록 허용하는 옵션 없이 Azure 네트워크 인프라에서 직접 인터넷으로 트래버스합니다. 인증되지 않은 인터넷 액세스는 잠재적으로 정보 공개 또는 다른 유형의 보안 위반을 발생시킬 수 있습니다.
 
@@ -45,7 +44,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 - 강제 터널링은 동적 라우팅 VPN 게이트웨이(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다. 가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
 
-- Express 경로 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 Express 경로 BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다. 자세한 내용은 [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/)를 참조하십시오.
+- Express 경로 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 Express 경로 BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다. 자세한 내용은 [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/)를 참조하세요.
 
 ## 구성 개요
 
@@ -156,6 +155,9 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 ## 다음 단계
 
-네트워크 트래픽 보안에 대한 정보입니다. [네트워크 보안 그룹이란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
-<!----HONumber=Oct15_HO3-->
+사용자 정의 경로에 대한 정보는 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
+
+네트워크 트래픽 보안에 대한 정보는 [네트워크 보안 그룹이란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요. Azure VNet 게이트웨이 서브넷에 네트워크 보안 그룹을 적용해서는 안됩니다.
+
+<!---HONumber=Oct15_HO4-->

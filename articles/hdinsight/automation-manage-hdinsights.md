@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 자동화를 사용하여 Azure HDInsight 관리"
-	description="Azure 자동화 서비스를 사용하여 Azure HDInsight를 관리하는 방법에 대해 알아봅니다."
+	description="Azure 자동화 서비스를 사용하여 Azure HDInsight를 관리하는 방법을 알아봅니다."
 	services="HDInsight, automation"
 	documentationCenter=""
 	authors="elcooper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="10/20/2015"
 	ms.author="elcooper"/>
 
 
@@ -44,4 +44,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure HDInsi
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

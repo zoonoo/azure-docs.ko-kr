@@ -289,4 +289,4 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

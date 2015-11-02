@@ -1,6 +1,6 @@
 <properties 
-pageTitle="클라우드 서비스에서 역할 인스턴스에 대한 통신 사용 | Microsoft Azure" 
-description="" 
+pageTitle="클라우드 서비스에서 역할에 대한 통신 | Microsoft Azure" 
+description="클라우드 서비스의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 끝점(http, https, tcp, udp)이 있을 수 있습니다." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## 다음 단계
 클라우드 서비스 [모델](cloud-services-model-and-package.md)에 대해 더 읽습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

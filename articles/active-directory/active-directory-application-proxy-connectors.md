@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD 응용 프로그램 프록시 커넥터 작업"
+	pageTitle="Azure AD 응용 프로그램 프록시 커넥터 작업 | Microsoft Azure"
 	description="Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
 # 커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 
-> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-edition.md)을 참조하세요.
+> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 커넥터 그룹은 다음을 비롯한 다양한 시나리오에 유용합니다.
 
@@ -38,7 +38,7 @@
 ## 1단계: 커넥터 그룹 만들기
 원하는 수 만큼 커넥터 그룹을 만들 수 있습니다. 커넥터 그룹은 Azure 포털에서 만들 수 있습니다. 디렉터리를 선택하고 **구성**을 클릭합니다. 그런 다음 응용 프로그램 프록시에서 **커넥터 그룹 관리**를 클릭하고 그룹에 이름을 지정하여 새 커넥터 그룹을 만듭니다. ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png) ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 ## 2단계: 그룹에 커넥터 할당
-커넥터 그룹을 만든 후 커넥터를 적절한 그룹으로 이동합니다. **응용 프로그램 프록시**에서 **커넥터 관리**를 클릭하고 **그룹**에서 각 커넥터에 원하는 그룹을 선택합니다. 커넥터가 새 그룹에서 활성화되는 데 최대 10분까지 걸릴 수 있습니다. ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
+커넥터 그룹이 만들어지면 해당 그룹에 커넥터를 이동합니다. **응용 프로그램 프록시**에서 **커넥터 관리**를 클릭하고 **그룹**에서 각 커넥터에 대해 원하는 그룹을 선택합니다. 커넥터가 새 그룹에서 활성화되는 데 최대 10분까지 걸릴 수 있습니다. ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 ## 3단계: 커넥터 그룹에 응용 프로그램 할당
 마지막 단계는 각 응용 프로그램을 해당 응용 프로그램을 처리할 커넥터 그룹에 할당하는 것입니다. Azure 포털의 해당 디렉터리에서 그룹에 할당할 응용 프로그램을 선택하고 **구성**을 클릭합니다. **커넥터 그룹**에서 응용 프로그램에서 사용할 그룹을 선택합니다. 이 변경은 즉시 적용됩니다. ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png) 응용 프로그램 게시에 대한 자세한 내용은 [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)를 참조하세요.
 ## 참고 항목
@@ -59,4 +59,4 @@
 
 * [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Azure Preview 포털을 통해 DocumentDB 계정 관리 | Microsoft Azure" 
 	description="Azure Preview 포털을 통해 DocumentDB 계정을 관리하는 방법을 알아봅니다. Azure Preview 포털을 사용하여 계정을 보기, 복사, 삭제 및 액세스하는 방법에 대한 지침을 찾습니다." 
-	keywords="Azure preview portal, documentdb, azure, Microsoft azure"
+	keywords="Azure Preview 포털, Documentdb, Azure, Microsoft Azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,16 +15,16 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Azure Preview 포털에서 DocumentDB 계정을 관리하는 방법
 
 Azure Preview 포털에서 키와 일관성 설정을 사용하는 방법 및 계정을 삭제하는 방법을 알아봅니다.
 
-## <a id="keys"></a>액세스 키 보기, 복사 및 다시 생성
+## <a id="keys"></a>선택키 보기, 복사 및 다시 생성
 DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키가 생성됩니다. DocumentDB에서는 2개의 액세스 키를 제공해서 사용자가 DocumentDB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다.
 
-[Microsoft Azure Preview 포털](https://portal.azure.com/)에서 **DocumentDB 계정 블레이드**에서 **키** 부분에 액세스하여 DocumentDB 계정에 액세스하는 데 사용되는 액세스 키를 표시, 복사 및 다시 생성합니다.
+[Microsoft Azure Preview 포털](https://portal.azure.com/)에서 **DocumentDB 계정 블레이드**에서 **키** 부분에 액세스하여 DocumentDB 계정에 액세스하는 데 사용되는 선택키를 표시, 복사 및 다시 생성합니다.
 
 ![Azure Preview 포털 스크린샷, 키 블레이드](media/documentdb-manage-account/keys.png)
 
@@ -113,4 +113,4 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

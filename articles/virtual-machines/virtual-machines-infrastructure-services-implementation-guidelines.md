@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Azure 인프라 서비스 구현 지침
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure는 솔루션 구현에 대한 특정 접근 방법을 테스트하는 데 거의 투자할 필요가 없기 때문에 개발/테스트 또는 개념 증명 구성을 구현하기에 적합한 플랫폼입니다. 하지만 IT 작업의 기능이 완전하고 프로덕션이 준비된 구현을 위한 보다 어렵고 자세한 방법과 개발/테스트 환경을 위한 쉬운 방법을 구분할 수 있어야 합니다.
 
 이 지침에서는 Azure에서 IT 작업의 성공에 매우 중요한 계획의 다양한 영역을 살펴봅니다. 또한 계획은 필요한 리소스를 생성하는 과정의 순서도 제공합니다. 어느 정도 융통성을 발휘할 수는 있지만 계획 및 의사 결정에 이 순서를 적용하는 것이 좋습니다.
 
-이 문서는 [Azure 구현 지침](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) 블로그 게시물의 내용에서 가져왔습니다. 원본 자료를 제공한 Santiago Cánepa(Microsoft의 응용 프로그램 개발 관리자)와 Hugo Salcedo(Microsoft의 이전 응용 프로그램 개발 관리자에게 감사를 전합니다.
+이 문서는 [Azure 구현 지침](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) 블로그 게시물의 내용에서 가져왔습니다. 원본 자료를 제공한 Santiago Cánepa(Microsoft의 응용 프로그램 개발 관리자)와 Hugo Salcedo(Microsoft의 이전 응용 프로그램 개발 관리자)에게 감사를 전합니다.
 
 > [AZURE.NOTE]선호도 그룹은 지원이 중단되었습니다. 여기서는 그 용도를 설명하지 않습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
 
@@ -440,4 +442,4 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"
+	ms.date="10/18/2015"
 	ms.author="juliako"/>
 
 
@@ -519,4 +519,4 @@ IngestManifest의 통계 속성을 폴링하여 IngestManifest에 대한 대량 
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

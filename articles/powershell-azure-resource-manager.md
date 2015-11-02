@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 리소스 관리자로 Azure PowerShell 사용" 
-	description="Azure에 리소스 그룹으로 여러 리소스를 배포하려면 Azure PowerShell을 사용합니다." 
+	pageTitle="리소스 관리자 포함 Azure PowerShell | Microsoft Azure" 
+	description="Azure PowerShell을 사용하여 여러 리소스를 Azure에 리소스로 배포하는 작업을 소개합니다." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="10/16/2015" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자로 Azure PowerShell 사용
@@ -22,309 +22,397 @@
 - [Azure PowerShell](powershell-azure-resource-manager.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 
-Azure 리소스 관리자는 Azure 리소스에 대해 완전히 새로운 방식으로 접근합니다. 개별 리소스를 만들어서 관리하는 대신 블로그, 사진 갤러리, SharePoint 포털, wiki 등의 복잡한 서비스를 생각해 보십시오. 템플릿(서비스의 리소스 모델)을 사용하여 서비스를 지원하는 데 필요한 리소스를 포함하는 리소스 그룹을 만듭니다. 그런 다음 해당 리소스 그룹을 논리 단위로 관리 및 배포할 수 있습니다.
+Azure 리소스 관리자는 Azure 리소스에 대해 완전히 새로운 방식으로 접근합니다. 개별 리소스를 만들어서 관리하는 대신 블로그, 사진 갤러리, SharePoint 포털, wiki 등의 전체 솔루션을 생각해 보십시오. 템플릿(솔루션의 선언적 표현)을 사용하여 해당 솔루션을 지원하는 데 필요한 모든 리소스가 포함된 리소스 그룹을 만듭니다. 그런 다음 해당 리소스 그룹을 논리 단위로 관리 및 배포합니다.
 
-이 자습서에서는 Microsoft Azure용 Azure 리소스 관리자에서 Azure PowerShell을 사용하는 방법에 대해 알아봅니다. 또한 이 자습서에서는 SQL 데이터베이스와 지원하는 데 필요한 모든 리소스를 사용하여 Azure에 호스트된 웹 앱에 대한 리소스 그룹을 만들어서 배포하는 과정을 안내합니다.
+이 자습서에서는 Azure 리소스 관리자에서 Azure PowerShell을 사용하는 방법에 대해 알아봅니다. 또한 이 자습서에서는 SQL 데이터베이스와 지원하는 데 필요한 모든 리소스를 사용하여 Azure에 호스트된 웹 앱에 대한 리소스 그룹을 만들어서 배포하는 과정을 안내합니다.
 
 ## 필수 조건
 
-이 자습서를 완료하려면 Azure PowerShell 버전 0.8.0 이상이 있어야 합니다. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
+이 자습서를 완료하려면 다음이 필요합니다.
+
+- Azure 계정.
+  + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
+  
+  + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+- Azure PowerShell
+
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
 이 자습서는 PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](http://technet.microsoft.com/library/hh857337.aspx)(영문)을 참조하십시오.
+
+## 배포할 내용
+
+이 자습서에서는 Azure PowerShell을 사용하여 웹 앱 및 SQL 데이터베이스를 배포합니다. 이 웹 앱 및 SQL 데이터베이스 솔루션은 함께 작동하는 여러 리소스 유형으로 이루어집니다. 배포할 실제 리소스는 다음과 같습니다.
+
+- SQL 서버 - 데이터베이스 호스팅
+- SQL 데이터베이스 - 데이터 저장
+- 방화벽 규칙 - 웹 앱을 데이터베이스에 연결하도록 허용
+- 앱 서비스 계획 - 웹 앱의 기능과 비용 정의
+- 웹 사이트, 웹 앱 실행
+- 웹 구성 - 연결 문자열을 데이터베이스에 저장 
+
+## Cmdlet에 대한 도움말 보기
 
 이 설명서에 나오는 cmdlet에 대한 자세한 도움말을 보려면 Get-Help cmdlet을 사용합니다.
 
 	Get-Help <cmdlet-name> -Detailed
 
-예를 들어 Add-AzureAccount cmdlet에 대한 도움말을 보려면 다음과 같이 입력합니다.
+예를 들어 AzureRmResource Cmdlet에 대한 도움말을 보려면 다음과 같이 입력합니다.
 
-	Get-Help Add-AzureAccount -Detailed
+	Get-Help Get-AzureRmResource -Detailed
 
-## Azure PowerShell 모듈 정보
-Azure PowerShell 버전 0.8.0 이상을 설치하면 다음과 같은 하나 이상의 PowerShell 모듈이 포함되어 있습니다. Azure 모듈 또는 Azure 리소스 관리자 모듈에서 사용할 수 있는 명령을 사용할지 여부를 명시적으로 결정해야 합니다. 두 모듈 간을 쉽게 전환할 수 있도록 **Switch-AzureMode**라는 새로운 cmdlet을 Azure 프로필 모듈에 추가했습니다.
+리소스 모듈의 Cmdlet 목록을 도움말 개요와 함께 가져오려면 다음을 입력합니다.
 
-Azure PowerShell을 사용할 경우 Azure 모듈의 cmdlet을 기본적으로 가져옵니다. Azure 리소스 관리자 모듈로 전환하려면 Switch-AzureMode cmdlet을 사용합니다. 이 cmdlet은 Azure 모듈을 세션에서 제거하고 Azure 리소스 관리자 및 Azure 프로필 모듈을 가져옵니다.
-
-AzureResoureManager 모듈로 전환하려면 다음을 입력합니다.
-
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
-
-Azure 모듈로 전환하려면 다음을 입력합니다.
-
-    PS C:\> Switch-AzureMode -Name AzureServiceManagement
-
-기본적으로 Switch-AzureMode는 현재 세션에만 영향을 줍니다. 스위치를 모든 PowerShell 세션에서 유효하도록 만들려면 Switch-AzureMode의 **전역** 매개 변수를 사용합니다.
-
-Switch-AzureMode cmdlet에 대한 도움말을 보려면 `Get-Help Switch-AzureMode` 또는 [Switch-AzureMode](http://go.microsoft.com/fwlink/?LinkID=394398)를 참조하십시오.
-  
-AzureResourceManager 모듈의 cmdlet 목록을 도움말 개요와 함께 가져오려면 다음을 입력합니다.
-
-    PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
+    PS C:\> Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
 
 출력은 다음 발췌와 유사합니다.
 
 	Name                                   Synopsis
 	----                                   --------
-	Add-AlertRule                          Adds or updates an alert rule of either metric, event, o...
-	Add-AzureAccount                       Adds the Azure account to Windows PowerShell
-	Add-AzureEnvironment                   Creates an Azure environment
-	Add-AzureKeyVaultKey                   Creates a key in a vault or imports a key into a vault.
-        ...
+	Find-AzureRmResource                   Searches for resources using the specified parameters.
+	Find-AzureRmResourceGroup              Searches for resource group using the specified parameters.
+	Get-AzureRmADGroup                     Filters active directory groups.
+	Get-AzureRmADGroupMember               Get a group members.
+	...
 
 cmdlet에 대한 전체 도움말을 가져오려면 다음 형식으로 명령을 입력합니다.
 
 	Get-Help <cmdlet-name> -Full
-
-예를 들면 다음과 같습니다.
-
-	Get-Help Get-AzureLocation -Full
-
-Azure 리소스 관리자 명령 전체 집합에 대 해서는 [Azure 리소스 관리자 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765)를 참조하십시오.
   
-## 리소스 그룹 만들기
+## Azure 계정에 로그인합니다.
 
-자습서의 이 섹션에서는 SQL 데이터베이스에서 웹 앱에 대한 리소스 그룹을 만들어서 배포하는 과정을 안내합니다.
+솔루션에서 작업을 하기 전에 본인의 계정에 로그인해야 합니다.
 
-이 작업은 Azure, SQL, 웹 앱 또는 리소스 관리 전문가가 아니라도 수행할 수 있습니다. 템플릿을 통해 필요한 모든 리소스를 포함하는 리소스 그룹 모델을 제공합니다. Windows PowerShell을 사용하여 작업을 자동화하고 있으므로 이러한 프로세스를 대규모 작업을 스크립팅하기 위한 모델로 활용할 수 있습니다.
+Azure 계정에 로그인하려면 **Login-AzureRmAccount** Cmdlet을 사용합니다. Azure PowerShell 1.0 Preview보다 이전 버전에서는 **Add-AzureAccount** 명령을 사용합니다.
 
-### 1단계: Azure 리소스 관리자로 전환 
-1. PowerShell을 시작합니다. Azure PowerShell 콘솔, Windows PowerShell ISE 등 원하는 호스트 프로그램을 사용할 수 있습니다.
+    PS C:\> Login-AzureRmAccount
 
-2. **Switch-AzureMode** cmdlet을 사용하여 AzureResourceManager 및 AzureProfile 모듈에서 cmdlet을 가져옵니다.
+Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+계정 설정은 만료되므로 자주 새로 고쳐야 합니다. 계정 설정을 새로 고치려면 **Login-AzureRmAccount**를 다시 실행합니다.
 
-3. Windows PowerShell 세션에 Azure 계정을 추가하려면 **Add-AzureAccount** cmdlet을 사용합니다.
+>[AZURE.NOTE]리소스 관리자 모듈을 사용하려면 Login-AzureRmAccount가 필요합니다. 게시 설정 파일로는 충분하지 않습니다.
 
-        PS C:\> Add-AzureAccount
+## 리소스 유형 위치 가져오기
 
-Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Windows PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
+리소스를 배포하는 경우 리소스를 호스팅할 위치를 지정해야 합니다. 어떤 지역에서는 일부 리소스 유형을 지원하지 않을 수 있습니다. 웹 앱 및 SQL 데이터베이스를 배포 하기 전에 해당 유형을 지원하는 지역을 파악해야 합니다. 리소스 그룹에는 서로 다른 지역에 있는 리소스가 포함될 수 있지만, 성능을 최적화하기 위해 가능하면 언제나 동일한 위치에 리소스를 만들어야 합니다. 특히, 앱이 액세스할 때 데이터베이스가 동일한 위치에 있는지 확인합니다.
 
-계정 설정은 만료되므로 자주 새로 고쳐야 합니다. 계정 설정을 새로 고치려면 **Add-AzureAccount**를 다시 실행합니다.
+각 리소스 유형을 지원하는 위치를 가져오려면 **Get-AzureRmResourceProvider** Cmdlet을 사용해야 합니다. 첫째,이 명령에서 반환하는 것이 무엇인지 살펴보겠습니다.
 
->[AZURE.NOTE]AzureResourceManager 모듈은 Add-AzureAccount가 필요합니다. 게시 설정 파일로는 충분하지 않습니다.
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
-### 2단계: 갤러리 템플릿 선택
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+    ...
 
-리소스 그룹과 리소스를 만드는 여러 가지 방법이 있지만, 리소스 그룹 템플릿을 사용하는 것이 가장 쉬운 방법입니다. *리소스 그룹 템플릿*은 리소스 그룹에서 리소스를 정의하는 JSON 문자열입니다. 이 문자열은 이름, 크기와 같은 사용자 정의 값에 대한 "매개 변수"라는 자리 표시자를 포함합니다.
+ProviderNamespace는 관련 리소스 유형의 컬렉션을 표시합니다. 이러한 네임스페이스는 일반적으로 Azure에서 만들려고 하는 서비스와 일치합니다. **Unregistered**으로 나열된 리소스 공급자를 사용하려는 경우 **Register-AzureRmResourceProvider** Cmdlet을 실행하고 등록할 공급자 네임스페이스를 지정하여 해당 리소스 공급자를 등록할 수 있습니다. 대부분의 경우 이 자습서에서 사용할 리소스 공급자는 사용자의 구독에 대해 이미 등록되어 있을 것입니다.
 
-Azure는 리소스 그룹 템플릿 갤러리를 호스트하므로 사용자가 템플릿을 처음부터 직접 만들거나 갤러리 템플릿을 편집하여 만들 수 있습니다. 이 자습서에서는 갤러리 템플릿을 사용합니다.
+해당 네임스페이스를 지정하여 공급자에 관한 자세한 정보를 얻을 수 있습니다.
 
-Azure 리소스 그룹 템플릿 갤러리의 모든 템플릿을 보려면 **Get-AzureResourceGroupGalleryTemplate** cmdlet를 사용합니다. 그러나 이 명령은 템플릿 중 많은 수를 반환합니다. 더 많은 관리가 용이한 템플릿을 보려면 게시자 매개 변수를 지정합니다.
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql
 
-Powershell 프롬프트에서 다음을 입력합니다.
+    ProviderNamespace RegistrationState ResourceTypes                                 Locations
+    ----------------- ----------------- -------------                                 ---------
+    Microsoft.Sql     Registered        {operations}                                  {East US 2, South Central US, Cent...
+    Microsoft.Sql     Registered        {locations}                                   {East US 2, South Central US, Cent...
+    Microsoft.Sql     Registered        {locations/capabilities}                      {East US 2, South Central US, Cent...
+    ...
+
+출력을 특정 유형의 리소스에 대해 지원되는 위치(웹 사이트 등)로 제한하려면 다음을 사용합니다.
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
-
-cmdlet은 Microsoft를 게시자로 사용하여 갤러리 템플릿 목록을 반환합니다. **Identity** 속성을 사용하여 명령에서 템플릿을 식별합니다.
-
-Microsoft.WebSiteSQLDatabase.0.2.6-preview 템플릿은 유용합니다. 명령을 실행하려면 새 버전이 릴리스되었기 때문에 템플릿의 버전이 약간 달라질 수 있습니다. 최신 버전의 템플릿을 사용합니다. 갤러리 템플릿에 대한 자세한 내용을 보려면 **Identity** 매개 변수를 사용합니다. Identity 매개 변수 값은 템플릿의 ID입니다.
-
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
-
-이 cmdlet은 요약 및 설명을 포함하여 템플릿에 대한 자세한 정보와 개체를 반환합니다.
-
-이 템플릿은 요구 사항을 충족하는 것처럼 보입니다. 따라서 이 템플릿을 디스크에 저장하고 자세히 살펴보겠습니다.
-
-### 3단계: 템플릿 검사
-
-템플릿을 디스크에 JSON 파일로 저장하겠습니다. 이 단계는 필수 사항은 아니지만 템플릿을 보기 쉽게 만들어줍니다. 템플릿을 저장하려면 **Save-AzureResourceGroupGalleryTemplate** cmdlet을 사용합니다. **Identity** 매개 변수를 사용하여 템플릿을 지정하고 **Path** 매개 변수를 사용하여 디스크의 경로를 지정합니다.
-
-Save-AzureResourceGroupGalleryTemplate은 템플릿을 저장하고 경로를 JSON 템플릿 파일의 파일 이름으로 반환합니다.
-
-	PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview -Path C:\Azure\Templates\New_WebSite_And_Database.json
-
-	Path
-	----
-	C:\Azure\Templates\New_WebSite_And_Database.json
-
-
-메모장과 같은 텍스트 편집기에서 템플릿 파일을 볼 수 있습니다. 각 템플릿에는 **매개 변수** 섹션과 **리소스** 섹션이 있습니다.
-
-템플릿의 **parameters** 섹션은 모든 리소스에서 정의되는 매개 변수 모음입니다. 리소스 그룹을 설정하는 경우 제공할 수 있는 속성 값을 포함합니다.
-
-    "parameters": {
-      "siteName": {
-        "type": "string"
-      },
-      "hostingPlanName": {
-        "type": "string"
-      },
-      "siteLocation": {
-        "type": "string"
-      },
-      ...
-    }
-
-일부 매개 변수는 기본값이 있습니다. 템플릿을 사용할 때 이러한 매개 변수에 대한 값을 제공할 필요가 없습니다. 값을 지정하지 않으면 기본값이 사용됩니다.
-
-    "collation": {
-      "type": "string",
-      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
-    },
-
-열거된 값이 있는 매개 변수의 경우 유효한 값이 매개 변수와 함께 나열됩니다. 예를 들어 **sku** 매개 변수의 값은 Free, Shared, Basic 또는 Standard입니다. **sku** 매개 변수 값을 지정하지 않을 경우 기본값인 Free가 사용됩니다.
-
-    "sku": {
-      "type": "string",
-      "allowedValues": [
-        "Free",
-        "Shared",
-        "Basic",
-        "Standard"
-      ],
-      "defaultValue": "Free"
-    },
-
-
-**administratorLoginPassword** 매개 변수는 일반 텍스트가 아닌 보안 문자열을 사용합니다. 보안 문자열에 대한 값을 제공할 경우 해당 값은 가려집니다.
-
-	"administratorLoginPassword": {
-      "type": "securestring"
-    },
-
-템플릿의 **resources** 섹션에는 템플릿이 만드는 리소스가 나열됩니다. 이 템플릿은 SQL 데이터베이스 서버 및 SQL 데이터베이스, 서버 팜 및 웹 사이트, 다양한 관리 설정을 만듭니다.
-  
-각 리소스 정의에는 사용자 정의 값에 대한 속성(이름, 유형, 위치 등)과 매개 변수가 포함되어 있습니다. 예를 들어 템플릿의 이 섹션에서 SQL 데이터베이스를 정의할 경우, 이 정의에는 데이터베이스 이름([parameters('databaseName')]), 데이터베이스 서버 위치[parameters('serverLocation')] 및 collation 속성[parameters('collation')]에 대한 매개 변수가 포함되어 있습니다.
-
-    {
-        "name": "[parameters('databaseName')]",
-        "type": "databases",
-        "location": "[parameters('serverLocation')]",
-        "apiVersion": "2.0",
-        "dependsOn": [
-          "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-        ],
-        "properties": {
-          "edition": "[parameters('edition')]",
-          "collation": "[parameters('collation')]",
-          "maxSizeBytes": "[parameters('maxSizeBytes')]",
-          "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]"
-        }
-    },
-
-
-항상 템플릿을 사용할 수 있지만, 먼저 각 리소스에 대한 위치를 찾아야 합니다.
-
-### 4단계: 리소스 유형 위치 가져오기
-
-대부분의 템플릿은 리소스 그룹의 각 리소스에 대한 위치를 지정하라는 메시지를 표시합니다. 모든 리소스는 Azure 데이터 센터에 있지만, 모든 Azure 데이터 센터에서 모든 리소스 유형을 지원하는 것은 아닙니다.
-
-리소스 유형을 지원하는 위치를 선택합니다. 동일한 위치에서 리소스 그룹의 모든 리소스를 만들 필요는 없습니다. 그러나 가능 하면 성능을 최적화하기 위해 동일한 위치에 리소스를 만들게 됩니다. 특히, 앱이 액세스할 때 데이터베이스가 동일한 위치에 있는지 확인합니다.
-
-각 리소스 유형을 지원하는 위치를 가져오려면 **Get-AzureLocation** cmdlet을 사용합니다. ResourceGroup와 같은 특정 유형의 리소스에 대해 출력을 제한하려면 다음을 사용합니다.
-
-    Get-AzureLocation | Where-Object Name -eq "ResourceGroup" | Format-Table Name, LocationsString -Wrap
-
 다음과 유사하게 출력됩니다.
 
-    Name                                 LocationsString
-    ----                                 ---------------
-    ResourceGroup                        East Asia, South East Asia, East US, West US, North
-                                         Central US, South Central US, Central US, North Europe,
-                                         West Europe
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
+    Central US
+    East US 2
 
-이제 리소스 그룹을 만드는 데 필요한 정보가 모두 수집되었습니다.
+표시되는 위치는 앞의 결과와 조금 다를 수 있습니다. 결과가 다를 수 있는 이유는 조직의 관리자가 사용자의 구독에 사용할 수 있는 지역을 제한하는 정책을 만들었거나 사용자의 모국의 세금 정책과 관련된 제한이 있을 수 있기 때문입니다.
 
-### 5단계: 리소스 그룹 만들기
- 
-이 단계에서는 리소스 그룹 템플릿을 사용하여 리소스 그룹을 만듭니다. 예를 들어 디스크에서 New\_WebSite\_And\_Database.json 파일을 열고 안내를 따릅니다. 템플릿 파일은 리소스에 대한 올바른 ApiVersion과 같이 전달할 매개 변수 값을 결정하는 데 매우 유용할 수 있습니다.
+데이터베이스에 대해 동일한 명령을 실행해 보겠습니다.
 
-리소스 그룹을 만들려면 **New-AzureResourceGroup** cmdlet을 사용합니다.
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers).Locations
+    East US 2
+    South Central US
+    Central US
+    North Central US
+    West US
+    East US
+    East Asia
+    Southeast Asia
+    Japan West
+    Japan East
+    North Europe
+    West Europe
+    Brazil South
 
-이 명령은 **Name** 매개 변수를 사용하여 리소스 그룹에 대한 이름을 지정하고 **Location** 매개 변수를 사용하여 위치를 지정합니다. **Get-AzureLocation** 출력을 사용하여 리소스 그룹에 대한 위치를 선택합니다. 이 명령은 **GalleryTemplateIdentity** 매개 변수를 사용하여 갤러리 템플릿을 지정합니다.
+이러한 리소스는 많은 지역에서 사용할 수 있는 것 같습니다. 이 항목에서는 **서부 미국**을 사용하지만 지원되는 어떤 지역이든 지정할 수 있습니다.
 
-	PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview
-            ....
+## 리소스 그룹 만들기
 
-템플릿 이름을 입력하면 New-AzureResourceGroup이 템플릿을 가져와서 구문 분석하고, 템플릿 매개 변수를 명령에 동적으로 추가합니다. 따라서 템플릿 매개 변수 값을 매우 쉽게 지정할 수 있습니다. 필수 매개 변수 값을 잊은 경우 Windows PowerShell이 값을 묻는 메시지를 표시합니다.
+자습서의 이 섹션에서는 리소스 그룹을 만드는 과정을 안내합니다. 리소스 그룹은 같은 수명 주기를 공유하는 솔루션의 모든 리소스에 대한 컨테이너 역할을 합니다. 자습서의 뒷부분에서는 이 리소스 그룹에 웹 앱 및 SQL 데이터베이스를 배포합니다.
 
-**동적 템플릿 매개 변수**
+리소스 그룹을 만들려면 **New-AzureRmResourceGroup** Cmdlet을 사용합니다.
 
-매개 변수를 가져오려면 매개 변수 이름을 나타내는 빼기 기호(-)를 입력한 다음 TAB 키를 누릅니다. 또는 매개 변수 이름의 처음 몇 글자(예: siteName)를 입력한 다음 TAB 키를 누릅니다.
+이 명령은 **Name** 매개 변수를 사용하여 리소스 그룹에 대한 이름을 지정하고 **Location** 매개 변수를 사용하여 위치를 지정합니다. 이전 섹션에서 발견한 내용을 바탕으로 “서부 미국"을 위치로 사용합니다.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -si<TAB>
+    PS C:\> New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
+    
+    ResourceGroupName : TestRG1
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+    Permissions       :
+                    Actions  NotActions
+                    =======  ==========
+                    *
 
-PowerShell이 매개 변수 이름을 완성합니다. 매개 변수 이름을 순환하려면 TAB 키를 반복해서 누릅니다.
+    ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName 
+리소스 그룹은 성공적으로 만들어졌습니다.
 
-웹 사이트에 대한 이름을 입력하고 각 매개 변수에 대해 TAB 프로세스를 반복합니다. 기본값이 있는 매개 변수는 선택 사항입니다. 기본값을 적용하려면 명령에서 매개 변수를 생략합니다.
 
-이 템플릿의 sku 매개 변수처럼 템플릿 매개 변수에 열거된 값이 있는 경우 매개 변수 값을 순환하려면 TAB 키를 누릅니다.
+## 리소스에 사용할 수 있는 API 버전 가져오기
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku <TAB>
+서식 파일을 배포할 때 리소스를 만들기 위해 사용하는 API 버전을 지정해야 합니다. 사용할 수 있는 API 버전은 리소스 공급자가 릴리스하는 REST API 작업의 버전에 해당합니다. 리소스 공급자는 새 기능을 사용하도록 설정할 때 REST API의 새 버전을 릴리스합니다. 따라서 템플릿에 지정하는 API의 버전은 템플릿을 만들 때 사용할 수 있는 속성에 영향을 줍니다. 일반적으로 새 템플릿을 만들 때 가장 최근의 API 버전을 선택하려고 합니다. 기존 템플릿의 경우 배포를 변경하지 않을 것으로 알고 있는 API 버전을 계속 사용할지 여부 또는 새 기능을 이용하도록 최신 버전에 맞게 템플릿을 업데이트할지 여부를 결정할 수 있습니다.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Basic<TAB>
+이 단계는 혼동스러워 보이지만 리소스에 사용할 수 있는 API 버전을 검색하는 것은 어렵지 않습니다. **Get-AzureRmResourceProvider** 명령을 다시 사용합니다.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
 
-다음은 필수 템플릿 매개 변수와 **Verbose** 공통 매개 변수만 지정하는 New-AzureResourceGroup 명령의 예입니다. **administratorLoginPassword**는 생략됩니다.
+보다시피 이 API는 자주 업데이트되었습니다. 일반적으로 리소스 공급자의 모든 리소스에 대해 동일한 API 버전 번호를 사용할 수 있습니다. 유일한 예외는 어떤 지점에서 리소스가 추가 또는 제거되었는지 여부입니다. 여기서는 serverFarms 리소스에 동일한 API 버전을 사용할 수 있다고 가정하지만, 사용할 수 있는 API 버전의 서로 다른 목록이 있을 수 있다고 생각하는 리소스에 대해서는 다시 한 번 점검할 수 있습니다.
 
-	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
+데이터베이스에 대해 다음 사항이 표시됩니다.
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers/databases).ApiVersions
+    2014-04-01-preview
+    2014-04-01 
+
+## 템플릿 이미지 만들기
+
+이 항목에서는 템플릿을 만드는 방법을 보여 주거나 템플릿의 구조를 설명하지 않습니다. 이러한 정보는 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. 배포할 템플릿은 다음과 같습니다. 템플릿이 이전 섹션에서 검색한 API 버전을 사용하는 것을 확인할 수 있습니다. 모든 리소스가 같은 지역에 상주하도록 템플릿 식 **resourceGroup().location**을 사용하여 리소스 그룹의 위치를 사용합니다.
+
+매개 변수에 대한 섹션도 참고하세요. 이 섹션에서는 리소스를 배포할 때 제공할 수 있는 값을 정의합니다. 이 값을 이 자습서의 뒷부분에서 사용합니다.
+
+템플릿을 복사하고 로컬 컴퓨터에 .json 파일로 저장할 수 있습니다. 이 자습서에서는 c:\\Azure\\Templates\\azuredeploy.json에 저장되었다고 가정하지만 편리한 위치에 요구사항에 맞는 이름으로 저장할 수 있습니다.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "hostingPlanName": {
+                "type": "string"
+            },
+            "serverName": {
+                "type": "string"
+            },
+            "databaseName": {
+                "type": "string"
+            },
+            "administratorLogin": {
+                "type": "string"
+            },
+            "administratorLoginPassword": {
+                "type": "securestring"
+            }
+        },
+        "variables": {
+            "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+        },
+        "resources": [
+            {
+                "name": "[parameters('serverName')]",
+                "type": "Microsoft.Sql/servers",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2014-04-01",
+                "properties": {
+                    "administratorLogin": "[parameters('administratorLogin')]",
+                    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                    "version": "12.0"
+                },
+                "resources": [
+                    {
+                        "name": "[parameters('databaseName')]",
+                        "type": "databases",
+                        "location": "[resourceGroup().location]",
+                        "apiVersion": "2014-04-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                        ],
+                        "properties": {
+                            "edition": "Basic",
+                            "collation": "SQL_Latin1_General_CP1_CI_AS",
+                            "maxSizeBytes": "1073741824",
+                            "requestedServiceObjectiveName": "Basic"
+                        }
+                    },
+                    {
+                        "name": "AllowAllWindowsAzureIps",
+                        "type": "firewallrules",
+                        "location": "[resourceGroup().location]",
+                        "apiVersion": "2014-04-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                        ],
+                        "properties": {
+                            "endIpAddress": "0.0.0.0",
+                            "startIpAddress": "0.0.0.0"
+                        }
+                    }
+                ]
+            },
+            {
+                "apiVersion": "2015-08-01",
+                "type": "Microsoft.Web/serverfarms",
+                "name": "[parameters('hostingPlanName')]",
+                "location": "[resourceGroup().location]",
+                "sku": {
+                    "tier": "Free",
+                    "name": "f1",
+                    "capacity": 0
+                },
+                "properties": {
+                    "numberOfWorkers": 1
+                }
+            },
+            {
+                "apiVersion": "2015-08-01",
+                "name": "[variables('siteName')]",
+                "type": "Microsoft.Web/sites",
+                "location": "[resourceGroup().location]",
+                "dependsOn": [
+                    "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
+                ],
+                "properties": {
+                    "serverFarmId": "[parameters('hostingPlanName')]"
+                },
+                "resources": [
+                    {
+                        "name": "web",
+                        "type": "config",
+                        "apiVersion": "2015-08-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
+                        ],
+                        "properties": {
+                            "connectionStrings": [
+                                {
+                                    "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+                                    "Name": "DefaultConnection",
+                                    "Type": 2
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+
+## 템플릿 배포
+
+리소스 그룹이 있고 템플릿이 있으므로 이제 템플릿에 정의된 인프라를 리소스 그룹에 배포할 준비가 되었습니다. **New-AzureRmResourceGroupDeployment** Cmdlet을 사용하여 리소스를 배포합니다. 기본 구문은 다음과 같습니다.
+
+    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
+
+리소스 그룹 및 템플릿 위치를 지정합니다. 템플릿이 로컬이 아닌 경우 -TemplateUri 매개 변수를 사용하고 템플릿에 대한 URI를 지정할 수 있습니다.
+
+###동적 템플릿 매개 변수
+
+PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌러 Cmdlet에 사용할 수 있는 매개 변수를 순환시켜 볼 수 있습니다. 이 기능은 템플릿에 정의하는 매개 변수에 대해서도 작동합니다. 템플릿 이름을 입력하자마자 Cmdlet이 템플릿을 인출하고 분석한 다음 템플릿 매개 변수를 명령에 동적으로 추가합니다. 따라서 템플릿 매개 변수 값을 매우 쉽게 지정할 수 있습니다. 필수 매개 변수 값을 잊은 경우 PowerShell이 값을 묻는 메시지를 표시합니다.
+
+다음은 매개 변수가 포함된 전체 명령입니다. 리소스의 이름에 대한 고유한 값을 제공할 수 있습니다.
+
+    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json -hostingPlanName freeplanwest -serverName exampleserver -databaseName exampledata -administratorLogin exampleadmin
 
 명령을 입력하면 누락된 필수 매개 변수 **administratorLoginPassword**를 묻는 메시지가 표시됩니다. 암호를 입력하면 보안 문자열 값이 가려집니다. 이 전략은 암호를 일반 텍스트로 제공할 위험을 제거합니다.
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	administratorLoginPassword: **********
+    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    Supply values for the following parameters:
+    (Type !? for Help.)
+    administratorLoginPassword: ********
 
-**New-AzureResourceGroup**은 만들어서 배포한 리소스 그룹을 반환합니다.
+명령이 실행되고 리소스가 만들어질 때 메시지를 반환합니다. 결국 배포 결과를 표시합니다.
 
-단 몇 개의 단계를 수행하여 복잡한 웹 사이트에 필요한 리소스를 만들어 배포했습니다. 갤러리 템플릿은 이 작업을 수행하는 데 필요한 거의 모든 정보를 제공했습니다. 또한 작업은 쉽게 자동화됩니다.
+    DeploymentName    : azuredeploy
+    ResourceGroupName : TestRG1
+    ProvisioningState : Succeeded
+    Timestamp         : 10/16/2015 12:55:50 AM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+                    Name             Type                       Value
+                    ===============  =========================  ==========
+                    hostingPlanName  String                     freeplanwest
+                    serverName       String                     exampleserver
+                    databaseName     String                     exampledata
+                    administratorLogin  String                  exampleadmin
+                    administratorLoginPassword  SecureString
+
+    Outputs           :
+
+단 몇 개의 단계를 수행하여 복잡한 웹 사이트에 필요한 리소스를 만들어 배포했습니다.
 
 ## 리소스 그룹에 대한 정보 가져오기
 
-리소스 그룹을 만든 후 AzureResourceManager 모듈에서 cmdlet을 사용하여 리소스 그룹을 관리할 수 있습니다.
+리소스 그룹을 만든 후 리소스 관리자 모듈에서 Cmdlet을 사용하여 리소스 그룹을 관리할 수 있습니다.
 
-- 구독에서 모든 리소스 그룹을 가져오려면 **Get-AzureResourceGroup cmdlet**을 사용합니다.
+- 구독에서 모든 리소스 그룹을 가져오려면 **Get-AzureRmResourceGroup** Cmdlet을 사용합니다.
 
-		PS C:\>Get-AzureResourceGroup
+		PS C:\>Get-AzureRmResourceGroup
 
 		ResourceGroupName : TestRG
-		Location          : eastasia
+		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
-		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+		ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG
 		
 		...
 
-- 리소스 그룹에서 리소스를 가져오려면 **Get-AzureResource** cmdlet과 ResourceGroupName 매개 변수를 사용합니다. 매개 변수를 사용하지 않고 Get-AzureResource를 입력하면 Azure 구독에서 모든 리소스를 가져옵니다.
+- 리소스 그룹에서 리소스를 가져오려면 **Get-AzureRmResource** Cmdlet과 ResourceGroupName 매개 변수를 사용합니다. 매개 변수를 사용하지 않고 Get-AzureRmResource를 입력하면 Azure 구독에서 모든 리소스를 가져옵니다.
 
-		PS C:\> Get-AzureResource -ResourceGroupName TestRG
+		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
 		
-		ResourceGroupName : TestRG
-		Location          : eastasia
-		ProvisioningState : Succeeded
-		Tags              :
-		
-		Resources         :
-				Name                   Type                          Location
-				----                   ------------                  --------
-				ServerErrors-TestSite  microsoft.insights/alertrules         eastasia
-	        	TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-	        	TestSite               microsoft.insights/components         centralus
-	         	testserver             Microsoft.Sql/servers                 eastasia
-	        	TestDB                 Microsoft.Sql/servers/databases       eastasia
-	        	TestPlan               Microsoft.Web/serverFarms             eastasia
-	        	TestSite               Microsoft.Web/sites                   eastasia
-		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+		Name              : exampleserver
+                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+                ResourceName      : exampleserver
+                ResourceType      : Microsoft.Sql/servers
+                Kind              : v12.0
+                ResourceGroupName : TestRG1
+                Location          : westus
+                SubscriptionId    : {guid}
+                
+                ...
+	        
 
 ## 리소스 그룹 추가
 
-- 리소스 그룹에 리소스를 추가하려면 **New-AzureResource** cmdlet을 사용합니다. 이 명령은 TestRG 리소스 그룹에 새 웹 사이트를 추가합니다. 이 명령은 템플릿을 사용하지 않기 때문에 좀 더 복잡합니다. 
-
-        PS C:\>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
-
-- 리소스 그룹에 새 템플릿 기반 배포를 추가하려면 **New-AzureResourceGroupDeployment** 명령을 사용합니다.
-
-		PS C:\>New-AzureResourceGroupDeployment ` 
-		-ResourceGroupName TestRG `
-		-GalleryTemplateIdentity Microsoft.WebSite.0.2.6-preview `
-		-siteName TestWeb2 `
-		-hostingPlanName TestDeploy2 `
-		-siteLocation "North Europe" 
+리소스 그룹에 리소스를 추가하려면 **New-AzureRmResource** Cmdlet을 사용할 수 있습니다. 그러나 이 방법으로 리소스를 추가하면 새 리소스가 템플릿에 존재하지 않기 때문에 나중에 혼동을 일으킬 수 있습니다. 기존 템플릿을 다시 배포하는 경우 불완전한 솔루션을 배포할 수 있습니다. 자주 배포하는 경우 새 리소스를 템플릿에 추가하고 다시 배포하는 것이 더 쉽고 안정됩니다.
 
 ## 리소스 이동
 
@@ -332,49 +420,27 @@ PowerShell이 매개 변수 이름을 완성합니다. 매개 변수 이름을 �
 
 ## 리소스 그룹 삭제
 
-- 리소스 그룹에서 리소스를 삭제하려면 **Remove-AzureResource** cmdlet을 사용합니다. 이 cmdlet은 리소스를 삭제하지만 리소스 그룹은 삭제하지 않습니다.
+- 리소스 그룹에서 리소스를 삭제하려면 **Remove-AzureRmResource** Cmdlet을 사용합니다. 이 cmdlet은 리소스를 삭제하지만 리소스 그룹은 삭제하지 않습니다.
 
-	이 명령은 TestRG 리소스 그룹에서 TestSite2 웹 사이트를 제거합니다.
+	이 명령은 TestRG 리소스 그룹에서 TestSite 웹 사이트를 제거합니다.
 
-		Remove-AzureResource -Name TestSite2 -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01
+		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
-- 리소스 그룹을 삭제하려면 **Remove-AzureResourceGroup** cmdlet을 사용합니다. 이 cmdlet은 리소스 그룹과 해당 리소스를 삭제합니다.
+- 리소스 그룹을 삭제하려면 **Remove-AzureRmResourceGroup** Cmdlet을 사용합니다. 이 cmdlet은 리소스 그룹과 해당 리소스를 삭제합니다.
 
-		PS C:\ps-test> Remove-AzureResourceGroup -Name TestRG
+		PS C:\> Remove-AzureRmResourceGroup -Name TestRG1
 		
 		Confirm
-		Are you sure you want to remove resource group 'TestRG'
+		Are you sure you want to remove resource group 'TestRG1'
 		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
-
-## 리소스 그룹 문제 해결
-AzureResourceManager 모듈에서 cmdlet 실험 중에 오류가 발생할 수 있습니다. 이 섹션을 팁을 사용하여 오류를 해결하십시오.
-
-### 오류 방지
-
-AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이 포함되어 있습니다.
-
-
-- **Get-AzureLocation**: 이 cmdlet은 각 리소스 유형을 지원하는 위치를 가져옵니다. 리소스에 대한 위치를 입력하기 전에 이 cmdlet을 사용하여 해당 위치에서 리소스 유형을 지원하는지 확인하세요.
-
-
-- **Test-AzureResourceGroupTemplate**: 템플릿과 템플릿 매개 변수를 사용하기 전에 테스트합니다. 사용자 지정 또는 갤러리 템플릿과 사용할 템플릿 매개 변수 값을 입력합니다. 이 cmdlet은 템플릿이 내부적으로 일관되고 설정된 매개 변수 값이 템플릿과 일치하는지 여부를 테스트합니다.
-
-
-
-### 오류 수정
-
-- **Get-AzureResourceGroupLog**: 이 cmdlet은 로그에서 리소스 그룹의 각 배포에 대한 항목을 가져옵니다. 오류가 있는 경우 배포 로그 검사를 시작합니다. 
-
-- **세부 정보 표시 및 디버그**: AzureResourceManager 모듈의 cmdlet은 실제 작업을 수행하는 REST API를 호출합니다. API가 반환하는 메시지를 표시하려면 $DebugPreference 변수를 "Continue"로 설정하고 명령에서 Verbose 공통 매개 변수를 사용합니다. 메시지에 오류의 원인에 대한 중요한 단서가 제공되는 경우도 있습니다.
-
-- **Azure 자격 증명이 설정되지 않았거나 만료된 경우**: Windows PowerShell 세션에서 자격 증명을 새로 고치려면 Add-AzureAccount cmdlet을 사용합니다. 게시 설정 파일의 자격 증명으로는 AzureResourceManager 모듈의 cmdlet을 지원할 수 없습니다.
 
 
 ## 다음 단계
 
-- 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 제작](./resource-group-authoring-templates.md)을 참조하세요.
+- 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](./resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./resource-group-template-deploy.md)를 참조하세요.
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
+- 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./virtual-machines/resource-group-deploy-debug.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

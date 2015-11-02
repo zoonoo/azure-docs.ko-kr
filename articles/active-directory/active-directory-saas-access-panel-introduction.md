@@ -1,10 +1,10 @@
 <properties
-	pageTitle="액세스 패널 소개"
+	pageTitle="액세스 패널 소개 | Microsoft Azure"
 	description="다양한 액세스 패널(웹 브라우저, Android 앱, iPhone 및 iPad 응용 프로그램)을 사용해 할당된 SaaS 앱에 액세스하는 방법을 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -181,4 +181,4 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/16/2015"
 	ms.author="markusvi"/>
 
 
@@ -64,8 +64,7 @@ Workrite의 Azure AD 통합을 구성하려면 갤러리의 Workrite를 관리�
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **Workrite**를 입력합니다.<br><br> ![응용 프로그램][5]<br>
-7. 결과 창에서 **Workrite**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.<br>
-
+7. 결과 창에서 **Workrite**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.<br><br>![응용 프로그램][500]<br>
 
 
 ##  Azure AD Single Sign-on 구성 및 테스트
@@ -76,10 +75,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Workrite 테스트 사용자 만들기](#creating-a-halogen-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Workrite에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
 
@@ -87,13 +86,13 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Workrite에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털의 **Workrite** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Configure Single Sign-On** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][6] <br>
+1. Azure AD 포털의 **Workrite** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Configure Single Sign-On** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][6] <br>
 
 2. **Workrite에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.<br><br>![Azure AD Single Sign-On][7]<br>
 
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD Single Sign-On][8]<br>
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD Single Sign-On][8] <br>
  
-     a. **로그온 URL** 텍스트 상자에 사용자가 Workrite 앱에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
+     a. **로그온 URL** 텍스트 상자에 사용자가 Workrite 사이트에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*).
 
      >[AZURE.NOTE]로그인 URL 값을 모를 경우 Workrite 지원([support@workrite.co.uk](mailto:support@workrite.co.uk))에 문의합니다.
 
@@ -116,7 +115,7 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션의 목적은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
@@ -124,11 +123,11 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_03.png) <br>
+3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_03.png) <br>
  
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_04.png) <br>
+4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_04.png)<br>
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_05.png) <br>
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_05.png) <br>
 
     a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
 
@@ -146,7 +145,7 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     d. **역할** 목록에서 **사용자**를 선택합니다. e. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_07.png) <br>
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_07.png)<br>
  
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-workrite-tutorial/create_aaduser_08.png) <br>
   
@@ -210,6 +209,7 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [3]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_01.png
+[500]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_05.png
 
 [6]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_02.png
@@ -231,4 +231,4 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

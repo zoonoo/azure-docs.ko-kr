@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 워크로드 2단계: 도메인 컨트롤러 구성
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 배포 모델.
 
 Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 서비스 관리에서 Azure 가상 네트워크의 도메인 컨트롤러 두 개를 구성합니다. 그런 다음 VPN 또는 Azure ExpressRoute 연결을 통해 인증 트래픽을 온-프레미스 네트워크로 전송하는 대신 Azure 가상 네트워크에서 SharePoint 팜 리소스에 대한 클라이언트 웹 요청을 인증할 수 있습니다.
 
@@ -36,7 +35,7 @@ Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하�
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC2 등의 두 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | A2(중형)
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(SQL1 등의 첫 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(SQL2 등의 두 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(MN1 등의 클러스터에 대한 주 노드 감시) | Windows Server 2012 R2 Datacenter | A1(소형)
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(MN1 등의 클러스터에 대한 주 노드) | Windows Server 2012 R2 Datacenter | A1(소형)
 6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(APP1 등의 첫 번째 SharePoint 응용 프로그램 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
 7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(APP2 등의 두 번째 SharePoint 응용 프로그램 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
 8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(WEB1 등의 첫 번째 SharePoint 웹 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
@@ -186,7 +185,7 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 	New-ADUser -SamAccountName sp_install -AccountPassword (read-host "Set user password" -assecurestring) -name "sp_install" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
-	New-	ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
+	New-ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
 각 명령에 대해 암호를 입력하라는 메시지가 표시됩니다. 이러한 계정 이름과 암호를 기록하여 안전한 위치에 보관합니다.
 
@@ -249,4 +248,4 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

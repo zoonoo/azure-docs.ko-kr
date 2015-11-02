@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -288,7 +288,7 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
 ## 다음 단계 ##
 
-[agile 방법론을 적용하고 지속적으로 간단히 마이크로 서비스 응용 프로그램을 게시](app-service-agile-software-development.md)하는 방법을 알아봅니다.
+[agile 방법론을 적용하고 지속적으로 마이크로 서비스 응용 프로그램 및 [flighting deployment](app-service-web-test-in-production-controlled-test-flight.md) 같은 고급 배포 기술을 쉽게 게시](app-service-agile-software-development.md)하는 방법을 알아봅니다.
 
 <a name="resources"></a>
 ## 추가 리소스 ##
@@ -305,4 +305,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

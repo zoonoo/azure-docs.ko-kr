@@ -1,19 +1,19 @@
-<properties
-	pageTitle="자세한 정보: Azure AD 암호 관리 | Microsoft Azure"
-	description="암호 쓰기 저장의 작동 원리, 암호 쓰기 저장 보안, 암호 재설정 포털의 작동 원리, 암호 재설정에서 사용되는 데이터를 포함하여 Azure AD 암호 관리에 대한 고급 항목을 제공합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="자세한 정보: Azure AD 암호 관리 | Microsoft Azure" 
+	description="암호 쓰기 저장의 작동 원리, 암호 쓰기 저장 보안, 암호 재설정 포털의 작동 원리, 암호 재설정에서 사용되는 데이터를 포함하여 Azure AD 암호 관리에 대한 고급 항목을 제공합니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리에 대한 자세한 정보
@@ -73,7 +73,7 @@
 암호 쓰기 저장은 매우 안전하고 강력한 서비스입니다. 사용자 정보를 확실하게 보호하기 위해 아래에서 설명하는 4계층 보안 모델이 사용됩니다.
 
 - **테넌트별 서비스 버스 릴레이** – 사용자가 이 서비스를 설정하면 임의로 생성된 강력한 암호에 의해 보호되는 테넌트별 서비스 버스 릴레이가 설정됩니다. 이때 해당 암호는 Microsoft에도 전혀 액세스 권한이 없습니다.
-- **잠겨 있는 강력한 암호 암호화 키** – 서비스 버스 릴레이를 만든 후 회선을 통해 도착하는 암호를 암호화하는 데 사용할 강력한 대칭 키를 만듭니다. 이 키는 클라우드의 테넌트 암호 저장소에만 존재하며 디렉터리의 암호와 마찬가지로 강력하게 잠겨 있고 감사됩니다.
+- **잠겨 있는 강력한 암호 암호화 키** – 서비스 버스 릴레이를 만든 후 회선을 통해 도착하는 암호를 암호화하는 데 사용할 강력한 대칭 키를 만듭니다. 이 키는 클라우드의 회사의 암호 저장소에만 존재하며 디렉터리의 암호와 마찬가지로 강력하게 잠겨 있고 감사됩니다.
 - **업계 표준 TLS** – 클라우드에서 암호 재설정 또는 변경 작업을 수행하면 일반 텍스트 암호를 가져와서 공용 키로 암호화합니다. 그런 다음, Microsoft의 SSL 인증서를 사용하여 암호화된 채널을 통해 서비스 버스 릴레이로 전송되는 HTTPS 메시지에 해당 암호를 삽입합니다. 서비스 버스에 해당 메시지가 도착한 후에는 온-프레미스 에이전트가 절전 모드에서 해제되고, 이전에 생성된 강력한 암호를 사용하여 서비스 버스에 대한 인증을 수행하고, 암호화된 메시지를 받아서 미리 생성된 개인 키를 사용하여 암호를 해독한 다음, AD DS SetPassword API를 통해 해당 암호를 설정합니다. 이 단계에서는 클라우드에서 AD 온-프레미스 암호 정책(복잡성, 나이, 기록, 필터 등)을 적용할 수 있습니다.
 - **메시지 만료 정책** – 마지막으로, 어떤 이유로 온-프레미스 서비스가 다운되었기 때문에 메시지가 서비스 버스에 그대로 있는 경우는 보안을 더욱 강화하기 위해 몇 분 후 시간 초과되어 제거됩니다.
 
@@ -281,4 +281,4 @@
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

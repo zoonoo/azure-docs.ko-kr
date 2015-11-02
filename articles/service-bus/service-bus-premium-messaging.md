@@ -1,5 +1,5 @@
 <properties
-	pageTitle="서비스 버스 프리미엄 및 표준 메시징 계층 | Microsoft Azure"
+	pageTitle="서비스 버스 프리미엄 및 표준 메시징 가격 책정 계층 개요 | Microsoft Azure"
 	description="서비스 버스 프리미엄 및 표준 메시징"
 	services="service-bus"
 	documentationCenter=".net"
@@ -9,12 +9,12 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="sethm"/>
+	ms.date="10/15/2015"
+	ms.author="darosa"/>
 
 # 서비스 버스 프리미엄 및 표준 메시징 계층 
 
@@ -41,7 +41,7 @@
 
 ### 분할된 엔터티
 
-분할된 엔터티는 프리미엄 메시징에서 지원되지만 서비스 버스 메시징의 표준 및 기본 계층의 경우와 동일하게 작동하지 않습니다. 프리미엄 메시징은 SQL을 데이터 저장소로 사용하지 않으며 공유 플랫폼과 관련된 리소스 경합이 더 이상 가능하지 않습니다. 따라서 분할이 필요하지 않습니다. 또한 파티션 수가 표준 메시징의 16개 파티션에서 프리미엄 메시징의 2개 파티션으로 변경되었습니다. 2개의 파티션은 가용성을 보장하며, 프리미엄 런타임 환경에 좀 더 적합합니다. 자세한 내용은 [메시징 엔터티 분할](https://msdn.microsoft.com/library/dn520246.aspx)을 참조하세요.
+분할된 엔터티는 프리미엄 메시징에서 지원되지만 서비스 버스 메시징의 표준 및 기본 계층의 경우와 동일하게 작동하지 않습니다. 프리미엄 메시징은 SQL을 데이터 저장소로 사용하지 않으며 공유 플랫폼과 관련된 리소스 경합이 더 이상 가능하지 않습니다. 따라서 분할이 필요하지 않습니다. 또한 파티션 수가 표준 메시징의 16개 파티션에서 프리미엄 메시징의 2개 파티션으로 변경되었습니다. 2개의 파티션은 가용성을 보장하며, 프리미엄 런타임 환경에 좀 더 적합합니다. 자세한 내용은 [메시징 엔터티 분할](service-bus-partitioning.md)을 참조하세요.
 
 ### Express 엔터티
 
@@ -54,7 +54,7 @@
 - [Azure 서비스 버스 프리미엄 메시징 소개(블로그 게시물)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Azure 서비스 버스 프리미엄 메시징 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
-- [Azure 서비스 버스 아키텍처 개요](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

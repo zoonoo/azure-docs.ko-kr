@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # 실수로 인한 삭제 방지
@@ -39,8 +39,8 @@ Azure AD Connect를 설치하면 실수로 인한 삭제 방지가 기본적으�
 
 모든 삭제를 진행하려면 다음을 수행합니다.
 
-1. 일시적으로 이 보호를 해제하고 삭제를 진행할 수 있도록 하려면 PowerShell cmdlet `Disable-ADSyncExportDeletionThreshold`를 실행합니다.
-2. Azure Active Directory Connector를 선택한 상태로 **실행** 작업, **내보내기**를 차례로 선택합니다.
+1. 일시적으로 이 보호를 해제하고 삭제를 진행할 수 있도록 하려면 PowerShell cmdlet `Disable-ADSyncExportDeletionThreshold`를 실행합니다. 자격 증명을 물으면 Azure AD 전역 관리자 계정 및 암호를 제공합니다.![자격 증명](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
+2. Azure Active Directory 커넥터를 선택한 상태로 **실행** 작업, **내보내기**를 차례로 선택합니다.
 3. 보호를 다시 사용하도록 설정하려면 PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold`를 실행합니다.
 
 ## 다음 단계
@@ -48,4 +48,4 @@ Azure AD Connect를 설치하면 실수로 인한 삭제 방지가 기본적으�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

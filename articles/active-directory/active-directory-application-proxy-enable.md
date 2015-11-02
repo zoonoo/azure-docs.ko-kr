@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD 응용 프로그램 프록시 사용"
+	pageTitle="Azure AD 응용 프로그램 프록시 사용 | Microsoft Azure"
 	description="Azure AD 응용 프로그램 프록시를 작동시키는 방법에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Azure AD 응용 프로그램 프록시 사용
@@ -49,7 +49,7 @@ Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlo
 2. Active Directory로 이동하여 응용 프로그램 프록시를 사용하도록 설정할 디렉터리를 선택합니다.
 3. 구성을 클릭하고 응용 프로그램 프록시로 스크롤하여 이 디렉터리에 대해 응용 프로그램 프록시 서비스 사용을 사용으로 설정합니다.
 
-	![응용 프로그램 프록시 사용](http://i.imgur.com/87woFzq.png) <p>
+	![응용 프로그램 프록시 사용](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
 4. 화면 아래쪽에서 지금 다운로드를 클릭합니다. 이렇게 하면 다운로드 페이지로 이동합니다. 사용 조건을 읽어보고 동의한 다음 다운로드를 클릭하여 응용 프로그램 프록시 커넥터의 Windows Installer 파일(.exe)을 저장합니다. 
 
 ##2단계: 커넥터 설치 및 등록
@@ -85,8 +85,8 @@ Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlo
 
 ## 추가 리소스
 
-* [조직으로 Azure 등록](..sign-up-organization.md)
-* [Azure ID](..fundamentals-identity.md)
+* [조직으로 Azure 등록](sign-up-organization.md)
+* [Azure ID](fundamentals-identity.md)
 * [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

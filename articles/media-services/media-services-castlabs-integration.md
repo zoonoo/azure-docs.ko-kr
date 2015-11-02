@@ -3,7 +3,7 @@
 	description="이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 castLabs 라이선스 서버에서 제공됩니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Mingfeiy,Juliako" 
+	authors="Mingfeiy,willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -26,6 +26,8 @@
 ##개요
 
 이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 **castLabs** 라이선스 서버에서 제공됩니다.
+
+CENC(PlayReady 및/또는 Widevine)에 의해 보호되는 스트리밍 콘텐츠를 재생하려면 [Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용할 수 있습니다. 자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/)를 참조하십시오.
 
 다음 다이어그램은 고도의 Azure 미디어 서비스 및 castLabs 통합 아키텍처를 보여줍니다.
 
@@ -98,24 +100,18 @@ jti|이 토큰에 대한 고유 식별자(모든 토큰은 castLabs 시스템에
 
 ##비디오 재생
 
-일반 암호화(PlayReady)를 사용하여 암호화된 비디오를 재생할 때는 [Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용할 수 있습니다. 콘솔 앱을 실행하는 경우 콘텐츠 키 ID와 매니페스트 URL이 화면에 표시됩니다.
+일반 암호화(PlayReady 및/또는 Widevine)를 사용하여 암호화된 비디오를 재생할 때는 [Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용할 수 있습니다. 콘솔 앱을 실행하는 경우 콘텐츠 키 ID와 매니페스트 URL이 화면에 표시됩니다.
 
 1.	새 탭을 열고 STS를 시작합니다(http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid]).
 2.	[Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)로 이동합니다.
 3.	스트리밍 URL에 붙여 넣습니다.
 4.	**고급 옵션** 확인란을 클릭합니다.
-5.	**보호** 드롭다운에서 PlayReady를 선택합니다.
-6.	STS에서 가져온 토큰을 토큰 텍스트 상자에 붙여 넣습니다.
+5.	**보호** 드롭다운에서 PlayReady 및/또는 Widevine를 선택합니다.
+6.	STS에서 가져온 토큰을 토큰 텍스트 상자에 붙여 넣습니다. 
+	
+	castLab 라이선스 서버는 토큰 앞에 "Bearer =" 접두사가 필요하지 않습니다. 따라서 토큰을 제출하기 전에 제거하세요.
 7.	플레이어를 업데이트합니다.
 8.	비디오가 재생됩니다.
-
-Chrome에서 castLabs 플레이어를 사용하여 HTML5 형식의 보호된 비디오를 재생하려면 yanmf@microsoft.com에 문의하여 플레이어에 대한 액세스 권한을 얻어야 합니다. 액세스 권한이 있는 경우는 두 가지를 알아두어야 합니다.
-
-1.	castLabs 플레이어는 MPEG-DASH 매니페스트 파일에 대한 액세스 권한이 있어야 하므로 (format=mpd-time-csf)를 사용자의 매니페스트 파일에 추가하여 기본 부드러운 스트리밍 파일 대신 MPEG-DASH 매니페스트 파일을 가져옵니다.
-
-2.	castLab 라이선스 서버는 토큰 앞에 "Bearer =" 접두사가 필요하지 않습니다. 따라서 토큰을 제출하기 전에 제거하세요.
-
- 
 
 ##미디어 서비스 학습 경로
 
@@ -124,4 +120,4 @@ Chrome에서 castLabs 플레이어를 사용하여 HTML5 형식의 보호된 비
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

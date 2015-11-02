@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/21/2015"
+   ms.date="10/15/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리
@@ -39,7 +39,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
  
 ## 볼륨 탑재
 
-다음 절차에 따라 Azure StorSimple 볼륨을 탑재, 초기화 및 포맷할 수 있습니다.
+다음 절차에 따라 Azure StorSimple 볼륨을 탑재, 초기화 및 포맷할 수 있습니다. 이 절차는 포함하고 있는 하드 디스크 및 볼륨 또는 파티션 관리를 위한 디스크 관리, 시스템 유틸리티를 사용합니다. 디스크 관리에 대한 자세한 내용은 Microsoft TechNet 웹 사이트에서 [디스크 관리](https://technet.microsoft.com/library/cc770943.aspx)로 이동하세요.
 
 #### 볼륨을 탑재하려면
 
@@ -47,7 +47,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
 2. 대상 포털로 인터페이스 IP 주소 중 하나를 제공하거나 IP 주소를 검색한 후 장치에 연결합니다. 장치가 연결된 후 Windows 시스템에서 볼륨에 액세스할 수 있습니다. Microsoft iSCSI 초기자 사용에 대한 자세한 내용은 [Microsoft iSCSI 초기자 설치 및 구성][1]에서 “iSCSI 대상 장치에 연결” 섹션을 참조하세요.
 
-3. 다음 옵션 중 하나를 사용하여 디스크 관리 스냅인을 시작합니다.
+3. 다음 옵션 중 하나를 사용하여 디스크 관리를 시작합니다.
 
     - **실행** 상자에 Diskmgmt.msc를 입력합니다.
 
@@ -110,7 +110,9 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
 다음 절차에 따라 StorSimple 스냅숏 관리자에서 볼륨을 삭제할 수 있습니다.
 
->[AZURE.NOTE]볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. (볼륨 그룹에 속한 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다.) 볼륨을 삭제하려면 전체 볼륨 그룹을 삭제해야 합니다. <br>
+>[AZURE.NOTE]볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. (볼륨 그룹에 속한 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다.) 볼륨을 삭제하려면 전체 볼륨 그룹을 삭제해야 합니다.
+
+
 #### 볼륨을 삭제하려면
 
 1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
@@ -233,7 +235,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
     ![동적 디스크 변환 메시지](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. 디스크 관리에서 디스크 1과 디스크 2가 동적 미러 볼륨으로 표시되는지 확인합니다. **동적**이 상태 열에 표시되고 용량 막대의 색은 미러 볼륨을 나타내는 빨강으로 변경되어야 합니다.
+10. 디스크 관리에서 디스크 1과 디스크 2가 동적 미러 볼륨으로 표시되는지 확인합니다. (**동적**이 상태 열에 표시되고 용량 막대의 색은 미러 볼륨을 나타내는 빨강으로 변경되어야 합니다.)
 
     ![디스크 관리에서 미러링한 동적 디스크](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -269,4 +271,4 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

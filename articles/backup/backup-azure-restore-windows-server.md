@@ -7,7 +7,7 @@
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
 이 문서는 두가지 유형의 복원 작업을 수행하는 데 필요한 단계를 다룹니다.
@@ -109,4 +109,4 @@
 - [Azure 가상 컴퓨터 백업](backup-azure-vms-introduction.md)
 - [Microsoft 워크로드 백업](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

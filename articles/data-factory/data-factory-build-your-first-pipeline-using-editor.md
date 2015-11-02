@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 편집기를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드(Azure 포털)
@@ -47,7 +47,10 @@
 
 	![새 데이터 팩터리 블레이드](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]Azure Data Factory 이름은 전역적으로 고유합니다. 팩터리를 성공적으로 만들려면 데이터 팩터리의 이름의 접두사를 사용자의 이름으로 해야 합니다. 
+	> [AZURE.IMPORTANT]Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “DataFactoryMyFirstPipeline”를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameDataFactoryMyFirstPipeline) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+	>  
+	> 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
+
 3.	만들어 놓은 리소스 그룹이 없으면 리소스 그룹을 만들어야 합니다. 다음을 수행합니다.
 	1.	**리소스 그룹 이름**을 클릭합니다.
 	2.	**리소스 그룹** 블레이드에서 **새 리소스 그룹 만들기**를 선택합니다.
@@ -78,7 +81,7 @@
 	![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	편집기에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다. 
-4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 선택키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 5. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
 	![배포 단추](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -199,7 +202,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
  
 	JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 	
-	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**StorageLinkedService**라고 하는 scriptLinkedService에 의해 지정됨)과 **스크립트** 컨테이너에 저장됩니다.
+	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**StorageLinkedService**라는 scriptLinkedService에 의해 지정되는)과 **스크립트**라는 컨테이너에 저장됩니다.
 
 	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
@@ -223,7 +226,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 9. 처리가 완료되면 **준비** 상태에 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다. 
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. 조각이 **준비** 상태에 있으면 BLOB 저장소의 **데이터** 컨테이너에 있는 **partitioneddata** 폴더에서 출력 데이터를 확인합니다.  
+10. 조각이 **Ready**(준비) 상태에 있으면 Blob 저장소의 **data** 컨테이너에 있는 **partitioneddata** 폴더에서 출력 데이터를 확인합니다.  
  
 
  
@@ -235,4 +238,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

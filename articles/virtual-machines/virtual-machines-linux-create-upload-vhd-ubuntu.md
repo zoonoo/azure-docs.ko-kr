@@ -19,6 +19,7 @@
 
 # Azure용 Ubuntu 가상 컴퓨터 준비
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ##필수 조건##
 
@@ -118,4 +119,4 @@ Ubuntu 하드웨어 지원(HWE) 커널
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

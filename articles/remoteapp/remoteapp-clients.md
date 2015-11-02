@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="10/10/2015"
     ms.author="elizapo" />
 
 
@@ -28,11 +28,10 @@ Azure RemoteApp의 장점 중 하나는 앱을 모든 장치에서 액세스할 
 
 장치가 다음 운영 체제 중 하나를 실행하는 경우 아래 단계에 따라 RemoteApp에 액세스할 수 있습니다.
 
- - Windows 10 Preview
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 서비스 팩 1
- - Windows RT
  - Windows Phone 8.1
  - iOS
  - Mac OS X
@@ -208,4 +207,4 @@ Windows Phone 8.1 스토어에서 Microsoft 원격 데스크톱 앱을 설치하
 	![Azure RemoteApp에 대한 데모 피드](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,19 +1,19 @@
-<properties
-	pageTitle="정보 얻기: Azure AD 암호 관리 보고서 | Microsoft Azure"
-	description="이 문서에서는 사용자의 조직에서 암호 관리 작업에 대한 정보를 얻기 위해 보고서를 사용하는 방법을 설명합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="정보 얻기: Azure AD 암호 관리 보고서 | Microsoft Azure" 
+	description="이 문서에서는 사용자의 조직에서 암호 관리 작업에 대한 정보를 얻기 위해 보고서를 사용하는 방법을 설명합니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리 보고서와 함께 Operational Insights를 얻는 방법
@@ -47,6 +47,16 @@
 5.	**암호 재설정 활동** 보고서 또는 **암호 재설정 등록 활동** 보고서 중 하나를 선택합니다.
 
     ![][001]
+
+## API에서 암호 관리 보고서에 액세스하는 방법
+이제 2015년 8월을 기준으로 Azure AD 보고서 및 이벤트는 암호 재설정 및 암호 재설정 등록 보고서에 포함된 모든 정보를 검색하도록 지원합니다.
+
+이 데이터에 액세스하려면 작은 앱 또는 스크립트를 작성하여 서버에서 검색해야 합니다. [Azure AD Reporting API를 시작하는 방법을 알아봅니다](active-directory-reporting-api-getting-started.md)
+
+작동하는 스크립트가 있으면 다음으로 시나리오에 맞게 검색할 수 있는 암호 재설정 및 등록 이벤트를 검사하려 합니다.
+
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): 암호 재설정 이벤트에 대해 사용 가능한 열을 나열합니다.
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): 암호 재설정 등록 이벤트에 대해 사용 가능한 열을 나열합니다.
 
 ## 암호 재설정 등록 활동 보기
 
@@ -95,7 +105,6 @@
 
 ### 보고서 값 설명
 다음 테이블에서 각 열에 대해 허용되는 다른 값을 설명합니다.
-
 
 열|허용되는 값과 해당 의미
 ---|---
@@ -163,4 +172,4 @@
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

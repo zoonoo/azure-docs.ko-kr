@@ -24,6 +24,8 @@
 
 Azure 갤러리의 Linux 이미지는 다양한 파트너에서 제공되며, 여러 Linux 커뮤니티와의 작업을 통해 좀 더 다양한 인증 배포 목록을 추가합니다. 그러는 동안 이 갤러리에서 사용할 수 없는 배포의 경우, [이 페이지](virtual-machines-linux-create-upload-vhd.md)의 지침에 따라 자신만의 Linux를 언제든지 가져올 수 있습니다.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## 지원 되는 배포판 및 버전 ##
 
@@ -35,7 +37,7 @@ Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치
 
 배포|버전|드라이버|에이전트
 ---|---|---|---
-Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 and 15.04|커널에 있음|패키지: "WALinuxAgent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 and 15.04|커널에 있음|패키지: "walinuxagent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 OpenLogic의 CentOS |CentOS 6.3 이상, 7.0 이상| CentOS 6.3:[LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음|패키지: "WALinuxAgent"의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 이상 |커널에 있음|원본: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4 이상, 7.0 이상|커널에 있음|패키지: "WALinuxAgent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
@@ -79,4 +81,4 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

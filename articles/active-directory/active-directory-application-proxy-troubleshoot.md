@@ -1,5 +1,5 @@
 <properties
-	pageTitle="응용 프로그램 프록시 문제 해결"
+	pageTitle="응용 프로그램 프록시 문제 해결 | Microsoft Azure"
 	description="Azure AD 응용 프로그램 프록시에서 오류를 해결하는 방법을 설명합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
@@ -27,12 +27,10 @@
 
 - Windows 서비스 콘솔을 열고 "Microsoft AAD 응용 프로그램 프록시 커넥터" 서비스가 활성화되어 있고 실행 중인지 확인합니다. 또한 다음 그림에 표시된 것처럼 응용 프로그램 프록시 서비스 속성 페이지에서 확인할 수도 있습니다.
 
-![Microsoft AAD 응용 프로그램 프록시 커넥터 속성 스크린샷][connectorproperties.png]
+![](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 
 - 이벤트 뷰어를 열고 **응용 프로그램 및 서비스 로그** > **Microsoft** > **AadApplicationProxy** > **커넥터** > **관리** 아래에 있는 응용 프로그램 프록시 커넥터와 관련된 이벤트를 찾아보세요.
-- 필요한 경우 다음 그림에 표시된 것처럼 분석 및 디버깅 로그를 켜고 응용 프로그램 프록시 커넥터 세션 로그를 켜면 더 자세한 로그를 볼 수 있습니다.
-
-![응용 프로그램 프록시 커넥터 세션 로그 스크린샷][sessionlog.png]
+- 필요한 경우 분석 및 디버깅 로그를 켜고 응용 프로그램 프록시 커넥터 세션 로그를 켜면 더 자세한 로그를 볼 수 있습니다.
 
 
 ## 일반 오류
@@ -99,4 +97,4 @@
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="10/15/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication의 로그인 환경
@@ -26,11 +26,80 @@
 
 수행하는 작업|설명
 :------------- | :------------- | 
-[휴대폰 또는 사무실 전화로 로그인](multi-factor-authentication-end-user-signin-phone.md) | 휴대폰 또는 사무실 전화를 사용하여 로그인할 때 예상할 수 있는 환경입니다.
-[알림을 사용하여 모바일 앱에 로그인](multi-factor-authentication-end-user-signin-app-notify.md) | 알림을 사용하여 모바일 앱에 로그인할 때 예상할 수 있는 환경입니다.
-[확인 코드를 사용하여 모바일 앱에 로그인](multi-factor-authentication-end-user-signin-app-verify.md)|확인 코드를 사용하여 모바일 앱에 로그인할 때 예상할 수 있는 환경입니다.
-[다른 방법을 사용하여 로그인](multi-factor-authentication-end-user-signin-alt.md)|여기서는 대체 방법을 사용하려면 경우 예상할 수 있는 환경을 보여 줍니다.
+[휴대폰 또는 사무실 전화로 로그인](#signing-in-with-mobile-or-office-phone) | 휴대폰 또는 사무실 전화를 사용하여 로그인할 때 예상할 수 있는 환경입니다.
+[알림을 사용하여 모바일 앱에 로그인](#signing-in-with-the-mobile-app-using-notification) | 알림을 사용하여 모바일 앱에 로그인할 때 예상할 수 있는 환경입니다.
+[확인 코드를 사용하여 모바일 앱에 로그인](#signing-in-with-the-mobile-app-using-verification-code)|확인 코드를 사용하여 모바일 앱에 로그인할 때 예상할 수 있는 환경입니다.
+[다른 방법을 사용하여 로그인](#signing-in-with-an-alternate-method)|여기서는 대체 방법을 사용하려면 경우 예상할 수 있는 환경을 보여 줍니다.
+
+## 휴대폰 또는 사무실 전화로 로그인
+
+다음 정보에서는 휴대폰 또는 사무실 전화를 통해 다단계 인증을 사용하는 환경에 대해 설명합니다.
+
+### 사무실 전화 또는 휴대폰으로 걸려오는 전화를 사용하여 로그인하려면
+
+- 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.
+- Microsoft가 사용자에게 전화를 합니다.
+
+![Microsoft 호출](./media/multi-factor-authentication-end-user-signin-phone/call.png)
+
+- 전화를 받고 # 키를 누릅니다.
+
+![응답](./media/multi-factor-authentication-end-user-signin-phone/phone.png)
+
+- 사용자가 로그인됩니다.</li>
+
+## 알림을 사용하여 모바일 앱에 로그인
+
+다음 정보에서는 알림을 받았을 때 모바일 앱에서 다단계 인증을 사용하는 환경에 대해 설명합니다.
+
+### 모바일 앱으로 전송된 알림을 사용하여 로그인하려면
+
+- 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.
+- Microsoft가 알림을 보냅니다.
+
+![Microsoft가 알림을 보냄](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
+
+
+- 전화를 받고 확인 키를 누릅니다.
+
+![Verify](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
+
+
+- 사용자가 로그인됩니다.
+
+
+## 확인 코드를 사용하여 모바일 앱에 로그인
+
+다음 정보에서는 확인 코드를 함께 사용할 때 모바일 앱에서 다단계 인증을 사용하는 환경에 대해 설명합니다.
+
+### 모바일 앱에서 확인 코드를 사용하여 로그인하려면
+
+- 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.
+- Microsoft가 확인 코드를 요구합니다.
+
+![확인 코드 입력](./media/multi-factor-authentication-end-user-signin-app-verify/verify.png)
+
+- 휴대폰에서 Azure Authenticatior 앱을 열고 로그인 위치에 제공되는 상자에 코드를 입력합니다.
+
+![코드 받기](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
+
+- 사용자가 로그인됩니다.
+
+
+## 다른 방법을 사용하여 로그인
+
+
+다음 섹션에서는 기본 방법을 사용할 수 없을 때 대체 방법을 사용하여 로그인하는 방법을 보여 줍니다.
+
+### 대체 방법을 사용하여 로그인하려면
+
+- 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.
+- 다른 확인 옵션을 사용하도록 선택합니다. 다양한 옵션이 제공됩니다. 표시되는 옵션 수는 설정 수에 따라 다릅니다.
+
+![대체 방법 사용](./media/multi-factor-authentication-end-user-signin-alt/alt.png)
+
+- 대체 방법을 선택하고 로그인합니다.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

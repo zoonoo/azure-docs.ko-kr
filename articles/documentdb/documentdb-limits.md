@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 한도 및 할당량 | Microsoft Azure" 
 	description="DocumentDB의 한도 및 할당량 적용에 대해 알아봅니다. Azure 데이터베이스 서비스 사용에 대한 할당량을 검토합니다."
-	keywords="Quotas, database, documentdb, azure, Microsoft azure"
+	keywords="할당량, 데이터베이스, Documentdb, Azure, Microsoft Azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -24,4 +24,4 @@
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
