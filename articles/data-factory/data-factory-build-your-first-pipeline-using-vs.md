@@ -183,7 +183,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
-	파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
+	파이프라인의 **시작** 및 **끝** 속성은 파이프라인의 활성 기간을 지정합니다.
 
 	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에서 지정된 계산에 실행되도록 지정합니다.
 3. **HiveActivity1.json** 파일을 저장합니다.
