@@ -1,7 +1,7 @@
 <properties
 	pageTitle="기계 학습을 위한 R 언어의 빠른 시작 자습서 | Microsoft Azure"
 	description="이 R 프로그래밍 자습서를 사용하여 신속하게 Azure 기계 학습 스튜디오에서 R 언어를 사용하여 예측 솔루션을 만듭니다."
-	keywords="quickstart,r language,r programming language,r programming tutorial"
+	keywords="빠른 시작, r 언어, r 프로그래밍 언어, r 프로그래밍 자습서"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -1346,4 +1346,4 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

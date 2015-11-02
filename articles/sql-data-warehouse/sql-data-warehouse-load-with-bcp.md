@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor="JRJ@BigBangData.co.uk"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -22,12 +22,22 @@
 
 bcp는 SQL 데이터 웨어하우스 데이터베이스 내부 및 외부로 더 작은 데이터 집합을 이동하는 빠르고 쉬운 방법입니다. bcp를 통한 로드/추출을 권장하는 정확한 크기의 데이터는 Azure 데이터 센터에 연결된 네트워크에 따라 다릅니다. 일반적으로 차원 테이블을 로드하고 추출할 수 있지만 매우 큰 팩트 테이블은 추출 하거나 로드하는 데 시간이 많이 걸릴 수 있습니다.
 
-bcp를 사용하여 다음을 수행할 수 있습니다.- SQL 데이터 웨어하우스로 데이터를 로드하는 간단한 명령줄 유틸리티를 사용 합니다. - SQL 데이터 웨어하우스에서 데이터를 추출하는 간단한 명령줄 유틸리티를 사용합니다.
+bcp를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
-이 자습서에서는 다음 방법을 보여줍니다. - 명령에서 bcp를 사용하여 테이블로 데이터 가져오기 - bcp out 명령을 사용하여 테이블에서 데이터 내보내기
+- 간단한 명령줄 유틸리티를 사용하여 SQL 데이터 웨어하우스에 데이터를 로드합니다.
+- 간단한 명령줄 유틸리티를 사용하여 SQL 데이터 웨어하우스에서 데이터를 추출합니다.
+
+이 자습서는 다음에 대한 방법을 보여 줍니다.
+ 
+- bcp in 명령을 사용하여 테이블로 데이터 가져오기
+- bcp out 명령을 사용하여 테이블에서 데이터 내보내기
 
 ## 필수 조건
-이 자습서를 실행하려면, SQL 데이터 웨어하우스 데이터베이스가 필요합니다. - bcp 명령줄 유틸리티가 설치됩니다. - SQLCMD 명령줄 유틸리티가 설치되어 있습니다.
+이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
+
+- SQL 데이터 웨어하우스 데이터베이스
+- 설치된 bcp 명령줄 유틸리티
+- 설치된 SQLCMD 명령줄 유틸리티
 
 >[AZURE.NOTE][Microsoft 다운로드 센터][]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
 
@@ -152,4 +162,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 다운로드 센터]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

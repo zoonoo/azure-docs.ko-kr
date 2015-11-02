@@ -1,19 +1,19 @@
-<properties
-	pageTitle="시작: Azure AD 암호 관리 | Microsoft Azure"
-	description="사용자가 자신의 암호를 재설정하고, 암호 재설정을 위한 사전 필수 구성 요소를 검색하고 Active Directory에서 온-프레미스 암호를 관리하는 암호 쓰기 저장을 사용할 수 있도록 합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="시작: Azure AD 암호 관리 | Microsoft Azure" 
+	description="사용자가 자신의 암호를 재설정하고, 암호 재설정을 위한 사전 필수 구성 요소를 검색하고 Active Directory에서 온-프레미스 암호를 관리하는 암호 쓰기 저장을 사용할 수 있도록 합니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리 시작
@@ -242,13 +242,19 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
 1.	설치가 완료되면, 사용자 환경에서 알 수 없는 아웃바운드 연결을 차단한 경우 방화벽에 다음 규칙도 추가해야 합니다. 변경한 후 AAD Connect 컴퓨터를 다시 부팅해야 합니다.
    - 포트 443 TCP를 통한 아웃바운드 연결 허용
-   - https://ssprsbprodncu-sb.accesscontrol.windows.net/에 아웃바운드 연결 허용
-   - 프록시를 사용하거나 일반적인 연결 문제가 있는 경우, 포트 9350-9534 TCP를 통한 아웃바운드 연결 허용
+   - https://ssprsbprodncu-sb.accesscontrol.windows.net/에 아웃바운드 연결 허용 
+   - 프록시를 사용하거나 일반적인 연결 문제가 있는 경우, 포트 9350-9354 TCP를 통한 아웃바운드 연결 허용
 
 ### 4단계: 적절한 Active Directory 사용 권한 설정
 암호를 재설정한 사용자를 포함한 모든 포리스트의 경우, X가 구성 마법사에서 해당 포리스트에 대해 지정된 계정이면(초기 구성 중), X는 **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한**, `pwdLastSet`에서 **쓰기 권한**를 제공하며 해당 포리스트에서 각 도메인의 루트 개체에 대한 권한을 확장합니다. 오른쪽은 모든 사용자 개체에서 상속된 것으로 표시되어야 합니다.
 
-이러한 사용 권한을 설정하면 각 포리스트에 대한 MA 서비스 계정이 해당 포리스트 내에서 사용자 계정을 대신하여 암호를 관리할 수 있습니다. 이러한 사용 권한을 할당하는 것을 잊은 경우, 쓰기 저장이 올바르게 구성된 것으로 표시되면, 클라우드에서 온-프레미스 암호 관리를 시도하면 오류가 발생합니다. 다음은 **Active Directory 사용자 및 컴퓨터** 관리 스냅인을 사용하여 수행할 수 있는 방법에 대한 자세한 단계입니다.
+위에서 어떤 계정을 말하는지 확실하지 않은 경우 Azure Active Directory 연결 구성 UI를 열고 **솔루션 검토** 옵션을 클릭합니다. 권한을 추가해야 하는 계정은 아래 스크린샷에서 빨간색 밑줄이 그어집니다.
+
+**<font color="red">시스템에 있는 각 포리스트의 도메인 각각에 이 사용 권한을 설정하고 그렇지 않은 경우 비밀번호 쓰기 저장이 제대로 작동하지 않습니다.</font>**
+
+  ![][032]
+
+  이러한 사용 권한을 설정하면 각 포리스트에 대한 MA 서비스 계정이 해당 포리스트 내에서 사용자 계정을 대신하여 암호를 관리할 수 있습니다. 이러한 사용 권한을 할당하는 것을 잊은 경우, 쓰기 저장이 올바르게 구성된 것으로 표시되면, 클라우드에서 온-프레미스 암호 관리를 시도하면 오류가 발생합니다. 다음은 **Active Directory 사용자 및 컴퓨터** 관리 스냅인을 사용하여 수행할 수 있는 방법에 대한 자세한 단계입니다.
 
 >[AZURE.NOTE]이 사용 권한이 디렉터리의 모든 개체를 복제하려면 한 시간이 걸릴 수 있습니다.
 
@@ -278,7 +284,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
 ### 5단계: 사용자로 AD 암호 재설정
 이제 암호 쓰기 저장을 사용하도록 설정했으므로, 클라우드 테넌트로 동기화된 계정자의 사용자 암호를 재설정하여 작동하는지 테스트할 수 있습니다.
-
+ 
 #### 암호 쓰기 저장이 제대로 작동하는 지 확인하려면
 1.	[https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com)으로 이동하거나 임의의 조직 ID 로그인 화면으로 이동하고 **계정에 액세스할 수 없습니까?** 링크를 클릭합니다.
 
@@ -342,5 +348,6 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 [029]: ./media/active-directory-passwords-getting-started/029.jpg "Image_029.jpg"
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
+[032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

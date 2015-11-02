@@ -15,10 +15,10 @@
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 	- [Salesforce를 통합하는 방법](active-directory-saas-salesforce-tutorial.md)
 	- [Google Apps를 통합하는 방법](active-directory-saas-google-apps-tutorial.md)
-	- [Box를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn308589.aspx)
-	- [ServiceNow를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [Dropbox for Business를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [Workday를 통합하는 방법](http://go.microsoft.com/fwlink/?LinkId=690250) 
+	- [Box를 통합하는 방법](active-directory-saas-box-tutorial.md)
+	- [ServiceNow를 통합하는 방법](active-directory-saas-servicenow-tutorial.md)
+	- [Dropbox for Business를 통합하는 방법](active-directory-saas-dropboxforbusiness-tutorial.md)
+	- [Workday를 통합하는 방법](active-directory-saas-workday-tutorial.md) 
 	- [다른 SaaS 앱 자습서...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

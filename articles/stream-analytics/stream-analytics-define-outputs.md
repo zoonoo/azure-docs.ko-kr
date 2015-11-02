@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="출력 정의 | Microsoft Azure" 
 	description="스트림 분석 출력 이해" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="빅 데이터 분석, 클라우드 서비스, 사물 인터넷, 관리되는 서비스, 스트림 처리, 스트리밍 분석, 데이터 스트리밍"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -247,7 +247,7 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 사물 인터넷에서 발생한 데이터에 대한 스트리밍 분석용 관리 서비스, 스트림 분석에 대해 소개하였습니다. 이 서비스에 대해 자세히 알아보려면 다음을 참조하세요.
@@ -265,4 +265,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

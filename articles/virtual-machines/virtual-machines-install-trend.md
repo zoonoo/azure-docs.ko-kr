@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
-# Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
+# Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
@@ -87,4 +87,4 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: virtual-machines-log-on-windows-server.md
 [Azure VM 확장 및 기능]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/18/2015" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 
-이 문서에서는 Azure의 SQL Server에 저장된 데이터를 샘플링하고 SQL 및 Python 프로그래밍 언어를 사용하는 방법을 설명합니다.
+이 문서에서는 SQL 및 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure ML로 읽어 들임으로써 Azure 기계 학습으로 이동시키는 방법을 보여줍니다.
 
->[AZURE.NOTE]이 문서의 샘플 SQL 코드에서는 데이터가 Azure의 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 Azure의 SQL Server로 데이터를 이동하는 방법에 대한 지침은 [고급 데이터 프로세스 가이드](machine-learning-data-science-advanced-data-processing.md)의 [Azure의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md) 항목을 참조하세요.
+Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) 라이브러리에 연결하기 위해 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 라이브러리를 사용하여 샘플링을 수행합니다.
+
+>[AZURE.NOTE]이 문서의 샘플 SQL 코드에서는 데이터가 Azure의 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 Azure의 SQL Server로 데이터를 이동하는 방법에 대한 지침은 [Azure의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md) 항목을 참조하세요.
 
 ##<a name="SQL"></a>SQL 사용
 
@@ -55,7 +57,7 @@ Azure 기계 학습 판독기 모듈에서 위의 샘플 쿼리를 직접 사용
 
 ##<a name="python"></a>Python 프로그래밍 언어 사용 
 
-이 섹션에서는 pyodbc 라이브러리를 사용하여 Python에서 SQL server 데이터베이스에 연결하는 방법을 보여 줍니다. 데이터베이스 연결 문자열은 다음과 같습니다. 여기서 servername, dbname, username 및 password를 고유한 구성으로 바꿉니다.
+이 섹션에서는 [pyodbc 라이브러리](https://code.google.com/p/pyodbc/)를 사용하여 Python에서 SQL server 데이터베이스에 ODBC 연결을 설정하는 방법을 보여줍니다. 데이터베이스 연결 문자열은 다음과 같습니다. 여기서 servername, dbname, username 및 password를 고유한 구성으로 바꿉니다.
 
 	#Set up the SQL Azure connection
 	import pyodbc	
@@ -104,13 +106,13 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
  
 ![판독기 blob][2]
 
-## ADAPT(고급 분석 프로세스 및 기술) 작동 예제
+## 실행 중인 Cortana 분석 프로세스 예
 
-공용 데이터 집합을 사용하는 ADAPT(고급 분석 프로세스 및 기술)의 종단 간 연습 예제는 [Azure 고급 분석 프로세스 및 기술 작동: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
+공용 데이터 집합을 사용하여 Cortana 분석 프로세스의 종단간 연습 예제는 [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

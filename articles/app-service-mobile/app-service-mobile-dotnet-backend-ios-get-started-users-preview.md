@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
@@ -51,4 +51,4 @@ Xcode에서 **실행**을 눌러 앱을 시작합니다. 앱이 인증되지 않
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

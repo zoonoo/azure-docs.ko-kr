@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # 사용 사례 - 제품 추천 
@@ -60,4 +60,4 @@ Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현�
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="PowerShell을 사용하여 스트림 분석 작업 모니터링 및 관리 | Microsoft Azure" 
 	description="Azure PowerShell 및 cmdlet을 사용하여 스트림 분석 작업을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
-	keywords="azure powershell,azure powershell cmdlets,powershell command"	
+	keywords="azure powershell, azure powershell cmdlet, powershell 명령"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -258,7 +258,7 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 이 PowerShell 명령은 StreamingJob에서 Output 출력의 연결 상태를 테스트합니다.
 
 ## 지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계
@@ -287,4 +287,4 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

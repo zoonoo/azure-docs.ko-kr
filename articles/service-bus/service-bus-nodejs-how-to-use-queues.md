@@ -18,6 +18,8 @@
 
 # 서비스 버스 큐를 사용하는 방법
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 이 문서에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 JavaScript로 작성되었으며 Node.js Azure 모듈을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -70,7 +72,7 @@ Azure 웹 사이트의 Azure 포털에서 환경 변수를 설정하는 방법�
 
 ## 큐 만들기
 
-**ServiceBusService** 개체를 사용하면 서비스 버스 큐로 작업할 수 있습니다. 다음 코드는 **ServiceBusService** 개체를 만듭니다. 이 코드를 **server.js** 파일의 위쪽, Azure 모듈을 가져오기 위한 문 뒤에 추가하세요.
+**ServiceBusService** 개체를 사용하면 서비스 버스 큐로 작업할 수 있습니다. 다음 코드는 **ServiceBusService** 개체를 만듭니다. 이 코드를 **server.js** 파일의 위쪽, Azure 모듈을 가져오기 위한 문 뒤에 추가하십시오.
 
 ```
 var serviceBusService = azure.createServiceBusService();
@@ -200,4 +202,4 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
   [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

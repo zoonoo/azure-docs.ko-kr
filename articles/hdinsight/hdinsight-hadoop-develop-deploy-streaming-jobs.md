@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +34,7 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 - Azure HDInsight에서 동일한 MapReduce 작업 실행
 - MapReduce 작업 결과 검색
 
-##<a name="prerequisites"></a>필수 조건
+##필수 조건
 
 이 자습서를 시작하기 전에 다음을 완료해야 합니다.
 
@@ -43,7 +43,7 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 - Azure 구독. 자세한 내용은 [구매 옵션][azure-purchase-options], [회원 제안][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
 
 
-##<a name="develop"></a>C#으로 단어 계산 Hadoop 스트리밍 프로그램 개발#35;
+##C&#35으로 단어 계산 Hadoop 스트리밍 프로그램 개발
 
 단어 계산 솔루션에는 두 개의 콘솔 응용 프로그램 프로젝트인 매퍼와 리듀서가 들어 있습니다. 매퍼 응용 프로그램은 각 단어를 콘솔로 스트림하며, 리듀서 응용 프로그램은 문서에서 스트림된 단어 수를 계산합니다. 매퍼와 리듀서는 둘 다 표준 입력 스트림(stdin)에서 문자를 줄 단위로 읽고 표준 출력 스트림(stdout)에 씁니다.
 
@@ -156,7 +156,7 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 - C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
-##<a name="test"></a>에뮬레이터에서 프로그램 테스트
+##에뮬레이터에서 프로그램 테스트
 
 HDInsight Emulator에서 다음을 수행하여 프로그램을 테스트합니다.
 
@@ -288,7 +288,7 @@ HDInsight Emulator에서 다음을 수행하여 프로그램을 테스트합니�
 
 	페이지 보기를 가져오기 위해 명령의 끝 부분에 "|more"를 추가할 수 있습니다.
 
-##<a id="upload"></a>Azure Blob 저장소에 데이터 업로드
+##Azure Blob 저장소에 데이터 업로드
 Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 구성하여 데이터 파일에 추가 Blob 저장소를 사용할 수도 있습니다. 이 섹션에서는 Azure 저장소 계정을 만들어 Blob 저장소에 데이터 파일을 업로드합니다. 데이터 파일은 %hadoop\_home%\\share\\doc\\hadoop\\common 디렉터리에 있는 .txt 파일입니다.
 
 
@@ -377,7 +377,7 @@ Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용�
 	두 응용 프로그램 파일의 목록이 모두 표시됩니다.
 
 
-##<a name="run"></a>Azure HDInsight에서 MapReduce 작업 실행
+##Azure HDInsight에서 MapReduce 작업 실행
 
 이 섹션에서는 MapReduce 작업 실행과 관련된 모든 작업을 수행하는 Azure PowerShell 스크립트를 제공합니다. 작업 목록에는 다음이 포함됩니다.
 
@@ -493,7 +493,7 @@ Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용�
 Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려면 [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs](영문)을 참조하세요.
 
 
-##<a name="retrieve"></a>MapReduce 작업 출력 검색
+##MapReduce 작업 출력 검색
 이 섹션에서는 출력을 다운로드하고 표시하는 방법을 보여 줍니다. Excel에서 결과를 표시하는 방법에 대한 자세한 내용은 [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-ODBC] 및 [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query]을 참조하세요.
 
 
@@ -520,7 +520,7 @@ Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려�
 
 
 
-##<a id="nextsteps"></a>다음 단계
+##다음 단계
 이 자습서에서는 Hadoop 스트리밍 MapReduce 작업을 개발하는 방법, HDInsight Emulator에서 응용 프로그램을 테스트하는 방법 및 HDInsight 클러스터를 프로비전하고 클러스터에서 MapReduce 작업을 실행하도록 Azure PowerShell 스크립트를 작성하는 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure HDInsight 시작](../hdinsight-get-started.md)
@@ -555,4 +555,4 @@ Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려�
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce 단어 계산 응용 프로그램 흐름"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -19,6 +19,8 @@
 
 #Azure에서 Linux와 함께 SSH를 사용하는 방법
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 현재 버전의 Azure 관리 포털은 X509 인증서에 캡슐화된 SSH 공개 키만 허용합니다. SSH 키를 생성하고 Azure에 사용하려면 아래 단계를 따르세요.
 
 ## Linux에서 Azure 호환 키 생성 ##
@@ -177,4 +179,4 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

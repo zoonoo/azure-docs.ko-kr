@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="스크립트 작업을 사용하여 Hadoop 클러스터에 Spark 설치 | Microsoft Azure" 
-	description="Spark를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트를 사용하여 Spark를 설치하려면 스크립트 작업 구성 옵션을 사용하게 됩니다." 
+	pageTitle="스크립트 작업을 사용하여 Linux 기반 HDInsight에 Apache Spark 설치(Hadoop) | Microsoft Azure" 
+	description="스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터에 Spark를 설치하는 방법을 알아봅니다. 스크립트 작업을 사용하면 클러스터 구성을 변경하거나 서비스 및 유틸리티를 설치하여 생성 중 클러스터를 사용자 지정할 수 있습니다." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에서 Spark 설치 및 사용
@@ -40,6 +40,8 @@ Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수�
 
 이 스크립트는 Spark 1.5.1을 `/usr/hdp/current/spark`에 설치합니다.
 
+> [AZURE.WARNING]HDInsight 클러스터에서 기본적으로 몇 가지 Spark 1.3.1 바이너리가 설치되는 경우도 있습니다. 이러한 작업은 사용하지 않으며, 향후 업데이트에서는 HDInsight 클러스터 이미지에서 제거될 것입니다.
+
 ## <a name="install"></a>스크립트 동작을 사용하여 Spark 설치
 
 HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 만들면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
@@ -53,9 +55,11 @@ HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 �
 	* __NAME__: 스크립트 작업의 이름을 입력합니다.
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__: 이 옵션 선택
-	* __WORKER__:이 옵션 선택
-	* __ZOOKEEPER__: Zookeeper 노드에 설치하려면 이 옵션을 선택합니다.
+	* __WORKER__: 이 옵션 선택 안 함
+	* __ZOOKEEPER__: 이 옵션 선택 안 함
 	* __PARAMETERS__: 이 필드는 공백으로 둡니다.
+    
+    > [AZURE.NOTE]이 Spark 스크립트 예에서는 헤드 노드에서만 구성 요소를 설치하므로 다른 노드 유형은 선택 취소할 수 있습니다.
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
 
@@ -130,9 +134,9 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 6. 다음과 유사한 출력이 표시됩니다.
 
-		[820,11:35:17,en-US,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,en-US,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,en-US,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+		[820,11:35:17,ko-KR,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+		[1055,17:24:08,ko-KR,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+		[1067,03:42:29,ko-KR,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. :q 입력하여 Scala 프롬프트를 종료합니다.
 
@@ -216,7 +220,7 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 ## 다음 단계
 
-- [HDInsight에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md). Hue는 기본 저장소에서 HDInsight 클러스터를 쉽게 찾을 뿐만 아니라 Pig 및 Hive 작업을 편리하게 만들고 실행하고 저장할 수 있도록 하는 웹 UI입니다.
+- [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다. Hue는 기본 저장소에서 HDInsight 클러스터를 쉽게 찾을 뿐만 아니라 Pig 및 Hive 작업을 편리하게 만들고 실행하고 저장할 수 있도록 하는 웹 UI입니다.
 
 - [HDInsight 클러스터에 R 설치][hdinsight-install-r] - 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 R을 설치하고 사용하는 방법에 대한 지침을 제공합니다. R은 통계 계산을 위한 오픈 소스 언어 및 환경입니다. 수백 개의 기본 제공 통계 함수와 기능 및 개체 지향 프로그래밍의 측면을 결합하는 고유한 프로그래밍 언어를 제공합니다. 또한 광범위한 그래픽 기능도 제공합니다.
 
@@ -234,4 +238,4 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

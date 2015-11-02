@@ -45,7 +45,7 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 ## Azure PowerShell
 
-시작하기 전에 올바른 버전의 Azure PowerShell이 설치되었는지, 로그인했는지, 새 리소스 관리자 모드로 전환했는지 확인해야 합니다. 자세한 내용을 보려면 [여기](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates)를 클릭하세요.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 다음 명령 세트에 Azure 배포 이름, 새 리소스 그룹 이름 및 Azure 데이터센터 위치를 입력합니다. < and > 문자를 포함하여 따옴표 안의 모든 내용을 제거합니다.
 
@@ -95,7 +95,7 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 ## 추가 리소스
 
-[Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
+[Azure 리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -105,6 +105,6 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
+[Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

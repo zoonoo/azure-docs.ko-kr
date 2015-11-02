@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)* - 시작
@@ -55,6 +55,18 @@ Azure AD 테넌트에 Azure AD 도메인 서비스를 사용하도록 설정한 
 Azure AD Connect에 대한 설치 지침은 [Azure AD Connect 시작](../active-directory/active-directory-aadconnect.md) 문서에 나와 있습니다.
 
 
+#### Azure AD에 레거시 자격 증명의 동기화 사용
+
+Azure AD 도메인 서비스에서 NTLM 인증을 위해 필요한 레거시 자격 증명의 동기화를 사용합니다. 이렇게 하려면 Azure AD Connect를 설치할 컴퓨터에서 다음 레지스트리 키를 만들면 됩니다.
+
+다음 DWORD 레지스트리 키를 만들고 1로 설정합니다.
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
+
+Set its value to 1.
+```
+
 #### Azure AD에 전체 암호 동기화 강제 적용
 
 전체 암호 동기화를 강제로 적용하고 모든 온-프레미스 사용자의 암호 해시(NTLM/Kerberos 인증에 필요한 자격 증명 해시 포함)가 Azure AD 테넌트에 동기화될 수 있도록 설정하려면 각 AD 포리스트에서 다음 PowerShell 스크립트를 실행합니다.
@@ -75,4 +87,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 디렉터리의 크기(사용자, 그룹 등의 수)에 따라 자격 증명을 Azure AD에 동기화한 다음 Azure AD 도메인 서비스에 동기화하는 데는 시간이 걸립니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

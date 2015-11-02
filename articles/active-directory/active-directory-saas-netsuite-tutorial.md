@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #자습서: Azure Active Directory와 NetSuite를 통합하는 방법
@@ -66,13 +66,13 @@
 
 	> [AZURE.NOTE]다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
-3. **앱 설정 구성** 페이지에서 **Sign On URL** 필드에 다음 형식 중 하나를 사용하여 NetSuite 테넌트 URL을 입력합니다.
-	- `https://<tenant-name>.netsuite.com`
-	- `https://<tenant-name>.na1.netsuite.com`
-	- `https://<tenant-name>.na2.netsuite.com`
-	- `https://<tenant-name>.sandbox.netsuite.com`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com`
+3. **앱 설정 구성** 페이지에서 **회신 URL** 필드에 다음 형식 중 하나를 사용하여 NetSuite 테넌트 URL을 입력합니다.
+	- `https://<tenant-name>.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![테넌트 URL 입력][8]
 
@@ -142,23 +142,23 @@
 
 	- 위쪽 탐색 메뉴에서 **설치**를 클릭한 다음 **설치 관리자**를 클릭합니다.
 
-	![설치 관리자 이동][10]
+		![설치 관리자 이동][10]
 
 	- 왼쪽 탐색 메뉴에서 **사용자/역할**을 선택한 다음 **역할 관리**를 클릭합니다.
 
-	![역할 관리로 이동][22]
+		![역할 관리로 이동][22]
 
 	- **새 역할**을 클릭합니다.
 
 	- 새 역할에 대한 **이름**을 입력하고 **Single Sign-On 전용** 확인란을 선택합니다.
 
-	![새 역할에 이름을 지정합니다.][23]
+		![새 역할에 이름을 지정합니다.][23]
 
 	- **Save**를 클릭합니다.
 
 	- 위쪽에 있는 메뉴에서 ** 사용 권한**을 클릭합니다. **설치**를 클릭합니다.
 
-	![사용 권한으로 이동][24]
+		![사용 권한으로 이동][24]
 
 	- **SAM Single Sign-On 설치**를 선택한 다음 **추가**를 클릭합니다.
 
@@ -166,25 +166,27 @@
 
 	- 위쪽 탐색 메뉴에서 **설치**를 클릭한 다음 **설치 관리자**를 클릭합니다.
 
-	![설치 관리자 이동][10]
+		![설치 관리자 이동][10]
 
 	- 왼쪽 탐색 메뉴에서 **사용자/역할**을 선택한 다음 **사용자 관리**를 클릭합니다.
 
-	![사용자 관리로 이동][25]
+		![사용자 관리로 이동][25]
 
 	- 테스트 사용자를 선택합니다. **편집**을 클릭합니다.
 
-	![사용자 관리로 이동][26]
+		![사용자 관리로 이동][26]
 
 	- 역할 대화 상자에서 만든 역할을 선택하거 **추가**를 클릭합니다.
 
-	![사용자 관리로 이동][27]
+		![사용자 관리로 이동][27]
 
 	- **Save**를 클릭합니다.
 
 19. 구성을 테스트하려면 [NetSuite에 사용자 할당](#step-4-assign-users-to-netsuite) 섹션을 참조하세요.
 
 ##3단계: 자동화된 사용자 프로비저닝 사용
+
+> [AZURE.NOTE]기본적으로 프로비전된 사용자를 NetSuite 환경의 루트 자회사에 추가합니다.
 
 1. Azure Active Directory에서 NetSuite에 대한 빠른 시작 페이지의 **사용자 프로비저닝 구성**을 클릭합니다.
 
@@ -254,4 +256,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

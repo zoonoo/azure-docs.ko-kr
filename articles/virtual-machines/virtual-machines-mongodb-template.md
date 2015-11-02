@@ -36,7 +36,7 @@ Azure 마켓플레이스에서 이미 제공되는 것 외에도 이제 [Azure P
 
 Azure 리소스 관리자 및 이 배포에 사용할 템플릿과 관련된 자세한 내용을 살펴보기 전에 Azure PowerShell 또는 Azure CLI가 올바르게 구성되어 있는지 확인해야 합니다.
 
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/powershell-preview-inline-include.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
@@ -694,4 +694,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates Github 리포지토리 내 sha
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

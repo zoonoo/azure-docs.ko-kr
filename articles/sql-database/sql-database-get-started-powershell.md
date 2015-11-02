@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/08/2015"
+    ms.date="10/20/2015"
     ms.author="sstein"/>
 
 # PowerShell을 사용하여 SQL 데이터베이스 만들기
@@ -44,22 +44,22 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
 
 먼저 다음 cmdlet을 실행하도록 Azure 계정에 대한 액세스를 설정하해야 하며 자격 증명을 입력하는 로그인 화면이 나타납니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
 
-	Add-AzureAccount
+	Add-AzureRMAccount
 
 로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
 
 
 ### Azure 구독 선택
 
-구독을 선택하려면 구독 ID가 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
+구독을 선택하려면 구독 ID가 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureRMSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRMSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-성공적으로 **Select-azuresubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다. 둘 이상의 구독이 있는 경우 **Get-azuresubscription**을 실행하고 사용하려는 구독이 **IsCurrent: True**를 표시하는지 확인할 수 있습니다.
+성공적으로 **Select-AzureRMSubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다. 둘 이상의 구독이 있는 경우 **Get-AzureRMSubscription**을 실행하고 사용하려는 구독이 **IsCurrent: True**를 표시하는지 확인할 수 있습니다.
 
 ## 리소스 그룹, 서버, 방화벽 규칙 만들기
 
-이제 선택한 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 데이터베이스를 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations**를 실행하여 유효한 위치의 목록을 가져옵니다.
+이제 선택한 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 데이터베이스를 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations**를 실행하여 유효한 위치의 목록을 가져옵니다.
 
 다음 명령을 실행하여 새 리소스 그룹을 만듭니다.
 
@@ -88,7 +88,7 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 
 다른 Azure 서비스의 서버 액세스를 허용하려면 방화벽 규칙을 추가하고 StartIpAddress와 EndIpAddress를 모두 0.0.0.0으로 설정합니다. 이렇게 하면 모든 Azure 구독에서 Azure 트래픽이 서버에 액세스할 수 있습니다.
 
-자세한 내용은 [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx)을 참조하세요.
+자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 
 
 ## SQL 데이터베이스 만들기
@@ -120,8 +120,8 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
     $DatabasePerfomanceLevel = "S1"
     
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId
     
     $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
     
@@ -144,4 +144,4 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 
 - [Azure SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

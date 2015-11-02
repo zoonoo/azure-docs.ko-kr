@@ -1,6 +1,6 @@
 <properties
-   pageTitle="OWIN 자체 호스트를 사용하는 서비스 패브릭 Web API 서비스 | Microsoft Azure"
-   description="이 서비스 패브릭 문서에서는 신뢰할 수 있는 서비스에서 OWIN이 자체 호스팅되는 ASP.NET Web API를 사용하여 서비스 통신을 구현하는 방법을 설명합니다."
+   pageTitle="ASP.NET 웹 API와의 서비스 통신 | Microsoft Azure"
+   description="신뢰할 수 있는 서비스 API에서 OWIN이 자체 호스팅되는 ASP.NET 웹 API를 사용하여 서비스 통신을 구현하는 방법을 단계별로 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -614,4 +614,4 @@ ASP.NET 5에서 웹 응용 프로그램의 *호스트*와 *응용 프로그램*�
 
 [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

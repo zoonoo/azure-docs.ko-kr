@@ -3,17 +3,17 @@
 	description="이 자습서에서는 채널이 온-프레미스 라이브 인코더에서 다중 비트 전송률 라이브 스트림을 받는 기본적인 미디어 서비스 라이브 스트리밍 응용 프로그램을 구현하는 단계를 안내합니다."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	authors="Juliako,cenkdin" 
+	manager="dwrede" 
 	editor=""/>
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
@@ -212,4 +212,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

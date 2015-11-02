@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/20/2015"
    ms.author="larryfr"/>
 
 #Ambari를 사용하여 HDInsight 클러스터 관리(미리 보기)
@@ -28,6 +28,10 @@ Ambari를 사용하여 Linux 기반 Azure HDInsight 클러스터를 관리하고
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a>에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a>를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
 
 Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다. Windows 기반 HDInsight 클러스터는 Ambari REST API를 통해 모니터링 기능을 제공합니다.
+
+##연결
+
+HDInsight 클러스터에서 Ambari에 연결하려면 HTTPS를 사용해야 합니다. 또한 관리자 계정 이름(기본값: __admin__)과, 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다.
 
 ##SSH 프록시
 
@@ -228,4 +232,4 @@ Ambari 웹은 관리 및 모니터링 도구를 만드는데 활용할 수 있�
 
 REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

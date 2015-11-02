@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="10/19/2015"
     ms.author="larryfr"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발
@@ -36,11 +36,14 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 - [Hadoop 버전 대상](#bPS1)
 - [스크립트 리소스에 대한 안정적인 링크 제공](#bPS2)
+- [사전 컴파일한 리소스 사용](#bPS4)
 - [클러스터 사용자 지정 스크립트가 멱등원인지 확인](#bPS3)
 - [클러스터 아키텍처의 고가용성 확인](#bPS5)
 - [Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성](#bPS6)
 - [STDOUT 및 STDERR에 정보 쓰기](#bPS7)
 - [줄 끝을 LF인 파일을 ASCII로 저장](#bps8)
+
+> [AZURE.IMPORTANT]스크립트 동작은 15분 이내에 완료하지 않으면 시간이 초과됩니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
 
 ### <a name="bPS1"></a>Hadoop 버전 대상
 
@@ -55,6 +58,10 @@ HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 �
 > [AZURE.IMPORTANT]사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
 예를 들어 Microsoft에서 제공하는 샘플은 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너를 저장소 계정인 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/)에 저장됩니다.
+
+### <a name="bPS4"></a>사전 컴파일한 리소스 사용
+
+스크립트 실행 시간을 최소화하려면 소스 코드로부터 리소스를 컴파일하는 작업은 실행하지 않습니다. 대신 리소스를 사전에 컴파일하여 Azure Blob 저장소에 이진으로 저장하면 스크립트로부터 신속하게 클러스터에 다운로드할 수 있습니다.
 
 ### <a name="bPS3"></a>클러스터 사용자 지정 스크립트가 멱등원인지 확인
 
@@ -213,4 +220,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

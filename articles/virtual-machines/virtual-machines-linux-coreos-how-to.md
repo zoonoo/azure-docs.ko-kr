@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/03/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Azure에서 CoreOS를 사용하는 방법
@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
-## <a id='intro'>CoreOS, 클러스터 및 Linux 컨테이너</a>
+## CoreOS, 클러스터 및 Linux 컨테이너
 
 CoreOS는 [Docker] 컨테이너를 비롯한 Linux 컨테이너만을 패키징 메커니즘으로 사용하는 매우 커질 수 있는 VM 클러스터를 빠르게 만들 수 있도록 지원하는 경량 Linux 버전이며, 다음을 지원합니다.
 
@@ -40,10 +40,10 @@ CoreOS는 [Docker] 컨테이너를 비롯한 Linux 컨테이너만을 패키징 
 
 위의 항목은 CoreOS 및 해당 기능에 대한 매우 일반적인 설명입니다. CoreOS에 대한 전체 설명은 [CoreOS 개요]를 참조하세요.
 
-## <a id='security'>보안 고려 사항</a>
+## 보안 고려 사항
 현재 CoreOS는 클러스터에 대해 SSH를 실행할 수 있는 사용자에게 클러스터 관리 권한이 있다고 가정합니다. 따라서 CoreOS 클러스터는 테스트 및 개발 환경에서는 수정하지 않아도 매우 유용하지만 프로덕션 환경에서는 추가 보안 기능을 적용해야 합니다.
 
-## <a id='usingcoreos'>Azure에서 CoreOS를 사용하는 방법</a>
+## Azure에서 CoreOS를 사용하는 방법
 
 이 섹션에서는 [Azure 명령줄 인터페이스(Azure CLI)]를 사용하여 3대의 CoreOS 가상 컴퓨터로 Azure 클라우드 서비스를 만드는 방법을 설명합니다. 기본적인 단계는 다음과 같습니다.
 
@@ -110,7 +110,7 @@ cloud-config 파일에 대한 전체 정보는 CoreOS 설명서의 [cloud-config
 
 3. `azure service create <cloud-service-name>`을 입력하여 기본 클러스터에 대해 클라우드 서비스를 만듭니다. 여기서 <*cloud-service-name*>은 CoreOS 클라우드 서비스의 이름입니다. 이 샘플에서는 이름으로 **`coreos-cluster`**을 사용합니다. 클라우드 서비스 내에서 CoreOS VM 인스턴스를 만들려면 선택하는 이름을 다시 사용해야 합니다.
 
-	[Preview 포털](https://portal.azure.com)에서 지금까지 수행한 작업을 확인하려면 다음 이미지에 나와 있는 것처럼 클라우드 서비스 이름이 리소스 그룹이자 도메인임을 확인할 수 있습니다.
+	[미리 보기 포털](https://portal.azure.com)에서 지금까지 수행한 작업을 확인하려면 다음 이미지에 나와 있는 것처럼 클라우드 서비스 이름이 리소스 그룹이자 도메인임을 확인할 수 있습니다.
 
 	![][CloudServiceInNewPortal]
 
@@ -182,7 +182,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 ## 다음 단계
 
-지금까지 Azure에서 실행되는 3개 노드 CoreOS 클러스터를 만들었습니다. 여기에서, 더 복잡한 클러스터를 만드는 방법과 Docker를 사용하는 법 그리고 더 흥미로운 응용 프로그램을 작성하는 방법을 탐색할 수 있습니다. 몇 가지 빠른 예를 실행하려면 [Azure의 CoreOS에서 Fleet 시작]을 참조하십시오.
+지금까지 Azure에서 실행되는 3개 노드 CoreOS 클러스터를 만들었습니다. 여기에서, 더 복잡한 클러스터를 만드는 방법과 Docker를 사용하는 법 그리고 더 흥미로운 응용 프로그램을 작성하는 방법을 탐색할 수 있습니다. 몇 가지 빠른 예를 실행하려면 [Azure의 CoreOS에서 Fleet 시작]을 참조하세요.
 
 <!--Anchors-->
 [CoreOS, Clusters, and Linux Containers]: #intro
@@ -209,4 +209,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [Azure의 CoreOS에서 Fleet 시작]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

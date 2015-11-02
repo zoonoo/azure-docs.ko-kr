@@ -19,6 +19,8 @@
 
 # 서비스 버스 큐를 사용하는 방법
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 이 문서에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -113,4 +115,4 @@ msg.delete()
 [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

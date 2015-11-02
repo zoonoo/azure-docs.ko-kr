@@ -20,6 +20,26 @@
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
+## HDInsight 10/20/2015 릴리스 정보
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight 2.1.10.716.1846990 (Windows) (HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight 3.0.6.716.1846990 (Windows) (HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight 3.1.4.716.1846990 (Windows) (HDP 2.1.16.0-2374)
+* HDInsight 3.2.7.716.1846990 (Windows) (HDP 2.2.7.1-0004)
+* HDInsight 3.2.1000.0.5930166 (Linux) (HDP 2.2.7.1-0004)
+* SDK 1.5.8
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 기본 HDP 버전 HDP 2.2로 변경됨 | HDInsight Windows 클러스터의 기본 버전이 HDP 2.2로 변경됩니다. HDInsight 버전 3.2(HDP 2.2)는 2015년 2월 이후 일반에서 사용할 수 있습니다. 이 변경에서는 Azure 포털, PowerShell cmdlet 또는 SDK를 사용하여 프로비전하는 동안 명시적 선택이 없을 때 기본 클러스터 버전만 앞으로 이동합니다. | 부여 | 모두| 해당 없음 |
+|단일 가상 네트워크의 Linux 클러스터에서 여러 HDInsight 배포를 위한 VM 이름 형식 변경 | 단일 가상 네트워크에서의 여러 HDInsight Linux 클러스터 배포에 대한 지원이 이 릴리스에 추가되었습니다. 이러한 지원의 일환으로, 클러스터의 가상 컴퓨터 이름 형식이 headnode*, workernode* 및 zookeepernode*에서 각각 hn*, wn*, 및 zk*로 변경되었습니다. 이 내용은 변경될 수 있으므로 가상 컴퓨터 이름의 형식에 직접적인 종속성을 만들지 않는 것이 좋습니다. 로컬 컴퓨터나 Ambari API에서 "hostname -f"를 사용하여 호스트 목록과 호스팅 대상 구성 요소의 매핑을 판단합니다. 자세한 정보는[https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 및 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md)에서 제공합니다. | 부여 | Linux 기반 HDInsight 클러스터 | 해당 없음 |
+| 구성 변경 내용 | HDInsight 3.1 클러스터의 경우 이제 <ul><li>tez.yarn.ats.enabled 및yarn.log.server.url 구성을 사용할 수 있습니다. 이렇게 하면 응용 프로그램 타임라인 서버 및 로그 서버가 아웃 로그를 서비스할 수 있습니다.</li></ul>HDInsight 3.2 클러스터의 경우 <ul><li>mapreduce.fileoutputcommitter.algorithm.version 구성이 2로 설정되었습니다. 이를 통해 FileOutputCommitter의 V2 버전을 사용할 수 있게 됩니다.</li></ul> | 부여 | 모두 | 해당 없음 |
+
+
 ## HDInsight의 2015/09/09 릴리스 정보
 
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
@@ -1346,4 +1366,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

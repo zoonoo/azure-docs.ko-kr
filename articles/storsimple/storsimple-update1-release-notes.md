@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="10/20/2015"
    ms.author="alkohli" />
 
 # StorSimple 8000 시리즈 업데이트 1.2 릴리스 정보  
@@ -55,7 +55,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 - **다른 클라우드 서비스 공급자에 대한 지원** – 지원되는 다른 클라우드 서비스 공급자는 Amazon S3, RRS가 있는 Amazon S3, HP 및 OpenStack(베타)입니다.
 
-- **최신 저장소 API에 대한 업데이트** –이 릴리스에서 StorSimple은 최신 Azure 저장소 서비스 API로 업데이트되었습니다. 업데이트 1 이전 소프트웨어 버전(Release, 0.1, 0.2 및 0.3)을 실행하는 StorSimple 8000 시리즈 장치는 2012년 2월 12일보다 오래된 버전의 Azure 저장소 서비스 API를 사용합니다. [저장소 서비스 버전 제거에 대한 알림](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/)에서 설명한 것처럼, 2015년 12월 10일 이 API는 더 이상 사용되지 않습니다. 2015년 12월 9일 전에 StorSimple 8000 시리즈 Update 1을 적용하는 것이 매우 중요합니다. 실패한 경우 StorSimple 장치는 정상적으로 작동 중지됩니다.
+- **최신 저장소 API에 대한 업데이트** –이 릴리스에서 StorSimple은 최신 Azure 저장소 서비스 API로 업데이트되었습니다. 업데이트 1 이전 소프트웨어 버전(Release, 0.1, 0.2 및 0.3)을 실행하는 StorSimple 8000 시리즈 장치는 2009년 7월 17일보다 오래된 버전의 Azure 저장소 서비스 API를 사용합니다. 업데이트된 [저장소 서비스 버전 제거에 대한 알림](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)에서 설명한 것처럼, 2016년 8월 1일 이 API는 더 이상 사용되지 않습니다. 2016년 8월 1일 전에 StorSimple 8000 시리즈 Update 1을 적용하는 것이 매우 중요합니다. 실패한 경우 StorSimple 장치는 정상적으로 작동 중지됩니다.
 
 - **영역 중복 저장소(ZRS) 지원** – 최신 버전의 저장소 API에 대한 업데이트로, StorSimple 8000 시리즈는 로컬 중복 저장소(LRS) 및 지역 중복 저장소(GRS) 외에도 영역 중복 저장소(ZRS)를 지원합니다. ZRS 세부 정보는 [Azure 저장소 중복 옵션에 대한 기사](../storage/storage-redundancy.md)를 참조하세요.
 
@@ -124,4 +124,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 - [장치에 업데이트 1.2를 설치합니다](storsimple-install-update-1.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

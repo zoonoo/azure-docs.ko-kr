@@ -17,6 +17,8 @@ ms.author="diviso"/>
 
 # Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Chef는 자동화 및 필요한 상태 구성을 제공하는 유용한 도구입니다.
 
 최신 cloud-api 릴리스에서 Chef는 Azure와의 원활한 통합을 통해 단일 명령으로 구성 상태를 프로비전 및 배포할 수 있는 기능을 제공합니다.
@@ -237,4 +239,4 @@ C:\\chef\\cookbooks\\webserver\\recipes\\default.rb를 수정하고 다음 줄�
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle=".NET용 Application Insights에 대한 릴리스 정보" 
-	description="최신 업데이트입니다." 
+	description=".NET SDK에 대한 최신 업데이트입니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -97,4 +97,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

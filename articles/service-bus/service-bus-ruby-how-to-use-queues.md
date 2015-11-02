@@ -1,10 +1,10 @@
 <properties
-	pageTitle="서비스 버스 큐를 사용하는 방법(Ruby) | Microsoft Azure"
+	pageTitle="Ruby를 통해 서비스 버스 큐를 사용하는 방법 | Microsoft Azure"
 	description="Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby로 작성되었습니다."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,14 +14,13 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
+	ms.author="sethm"/>
 
 # 서비스 버스 큐를 사용하는 방법
 
-이 가이드에서는 서비스 버스 큐를 사용하는 방법을 보여 줍니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
+이 가이드에서는 서비스 버스 큐를 사용하는 방법을 보여 줍니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
 
 ## 서비스 버스 큐 정의
 
@@ -61,7 +60,7 @@ Azure 서비스 버스 네임스페이스를 만들 때 실행한 PowerShell cmd
 
 ## Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/)를 참조하세요.
+Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/)를 참조하십시오.
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -147,9 +146,9 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
 -   [큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md) 개요
--   GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하세요.
+-   GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하십시오.
 
 이 문서에서 설명한 Azure 서비스 버스 큐와 [Azure 큐 서비스를 사용하는 방법](/develop/ruby/how-to-guides/queue-service/)(영문) 문서에서 설명한 Azure 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하십시오.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

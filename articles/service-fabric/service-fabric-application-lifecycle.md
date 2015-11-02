@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 응용 프로그램 수명 주기 | Microsoft Azure"
+   pageTitle="서비스 패브릭의 응용 프로그램 수명 주기 | Microsoft Azure"
    description="서비스 패브릭 응용 프로그램 개발, 배포, 테스트, 업그레이드, 유지 관리 및 제거를 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="10/15/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -118,4 +118,4 @@
 - [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

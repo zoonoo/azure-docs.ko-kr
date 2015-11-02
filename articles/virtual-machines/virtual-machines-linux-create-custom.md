@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# Azure에서 Linux를 실행하는 사용자 지정 가상 컴퓨터를 만드는 방법
+# 사용자 지정 Linux VM을 만드는 방법
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] []리소스 관리자 모델](virtual-machines-linux-tutorial.md).
 
@@ -30,14 +30,9 @@
 
 > [AZURE.IMPORTANT]가상 컴퓨터에서 가상 네트워크를 사용하여 호스트 이름으로 가상 컴퓨터에 직접 연결하거나 프레미스 간 연결을 설정할 수 있게 하려는 경우 가상 컴퓨터를 만들 때 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만드는 경우에만 가상 네트워크에 가입하도록 가상 컴퓨터를 구성할 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://go.microsoft.com/fwlink/p/?LinkID=294063)를 참조하세요.
 
-<p/>
-
-
-- [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md)
-
 
 ## 클래식 배포 모델을 사용하여 Linux 가상 컴퓨터를 만드는 방법
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="고급 분석 프로세스에서 Hive 쿼리를 Hadoop 클러스터에 제출 | Microsoft Azure" 
+	pageTitle="Cortana 분석 프로세스에서 Hive 쿼리를 Hadoop 클러스터에 제출 | Microsoft Azure" 
 	description="Hive 테이블에서 데이터 처리" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="10/18/2015" 
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> 고급 분석 프로세스에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출
+#<a name="heading"></a> Cortana 분석 프로세스에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출
 
 이 문서에서는 Azure의 HDInsight 서비스에서 관리하는 Hadoop 클러스터에 Hive 쿼리를 제출하는 다양한 방법에 대해 설명합니다. 다음을 사용하여 Hive 쿼리를 제출할 수 있습니다.
 
@@ -326,4 +325,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

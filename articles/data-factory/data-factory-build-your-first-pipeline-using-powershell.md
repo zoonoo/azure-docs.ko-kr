@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드
@@ -54,7 +54,9 @@
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
 
-	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “DataFactoryMyFirstPipelinePSH”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameADFTutorialDataFactoryPSH). 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다.
+	> [AZURE.IMPORTANT]Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “DataFactoryMyFirstPipelinePSH”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameADFTutorialDataFactoryPSH). 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+	> 
+	> 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 
 이후 단계에서는 이 자습서에서 사용할 연결된 서비스, 데이터 집합, 파이프라인을 만드는 방법을 알아봅니다.
 
@@ -75,10 +77,10 @@
 		    }
 		}
 
-	**계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 선택키 보기, 복사 및 다시 생성](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+	**계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 
 2.	Azure PowerShell에서 ADFGetStartedPSH 폴더로 전환합니다.
-3.	**New-AzureDataFactoryLinkedService** cmdlet을 사용하여 연결된 서비스를 만들 수 있습니다. 이 cmdlet 및 이 자습서에서 사용하는 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get AzureDataFactory**를 사용하여 **DataFactory** 개체를 가져온 다음 cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName*을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzureDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
+3.	**New-AzureDataFactoryLinkedService** cmdlet을 사용하여 연결된 서비스를 만들 수 있습니다. 이 cmdlet 및 이 자습서에서 사용하는 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get-AzureDataFactory**를 사용하여 **DataFactory** 개체를 가져온 다음 cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName*을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzureDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
@@ -268,4 +270,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

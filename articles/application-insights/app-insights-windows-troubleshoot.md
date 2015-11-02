@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 장치에서 Application Insights 문제 해결" 
-	description="문제 해결 가이드 및 질문과 대답입니다." 
+	description="Windows 장치에서 Application Insights에 대한 문제 해결 가이드 및 질문과 대답입니다." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -120,4 +120,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

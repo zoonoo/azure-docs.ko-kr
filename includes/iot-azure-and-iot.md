@@ -28,9 +28,9 @@ IoT 솔루션은 자동 피드백 루프를 포함할 수 있습니다. 예를 �
 
 IoT 솔루션 다수는 해당 장치에서 수집된 데이터를 사용자에게 보여주고 분석할 수 있도록 합니다. 이러한 보기는 대시보드 또는 BI 보고서의 형태일 수 있습니다.
 
-[img-solution-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+[img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

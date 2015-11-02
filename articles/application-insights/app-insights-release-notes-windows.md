@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows용 Application Insights에 대한 릴리스 정보" 
-	description="최신 업데이트입니다." 
+	description="Windows 스토어 SDK용 최신 업데이트입니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@
 
 이전 버전에 대한 릴리스 정보가 없습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -2,9 +2,8 @@
 	pageTitle="기계 학습 고급 분석 환경 계획 | Microsoft Azure" 
 	description="주요 질문을 고려하여 고급 분석 환경을 계획합니다." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -14,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
-	ms.author="mohabib;bradsev" />
+	ms.date="10/18/2015" 
+	ms.author="bradsev" />
 
 
-# Azure 기계 학습 고급 분석 환경 계획
+# Cortana 분석 프로세스에 대한 환경 계획
 
-Azure 기계 학습을 통해 고급 분석을 수행하는 환경을 설정할 준비가 되었다면 사용자의 분석 문제와 어떤 시나리오가 일치할까요? 필요한 리소스는 데이터의 유형, 크기 및 원본 위치와 이 데이터의 대상 위치에 따라 결정하면 됩니다. 이 문서에서는 시나리오를 식별하는 데 도움이 될 이러한 질문에 대해 설명합니다.
+고급 분석 처리를 통해 고급 분석을 수행하는 환경을 설정할 준비가 되었다면 사용자의 분석 문제와 어떤 시나리오가 일치할까요? 필요한 리소스는 데이터의 유형, 크기 및 원본 위치와 이 데이터의 대상 위치에 따라 결정하면 됩니다. 이 문서에서는 시나리오를 식별하는 데 도움이 될 이러한 질문에 대해 설명합니다.
 
-관련 시나리오를 확인했으면 [학습 경로: Azure에서 고급 분석 솔루션 구축](machine-learning-data-science-how-to-create-machine-learning-service.md)에 나온 고급 분석 프로세스 및 기술(ADAPT) 워크플로를 사용하여 데이터 집합을 가져오고 모델을 생성하여 응용 프로그램에서 사용할 수 있는 Azure 웹 서비스로 게시하는 과정까지 일련의 작업을 단계별로 수행할 수 있습니다.
+관련 시나리오를 확인했으면 [학습 경로: Azure에서 고급 분석 솔루션 구축](machine-learning-data-science-how-to-create-machine-learning-service.md)에 나온 Cortana 분석 프로세스 워크플로를 사용하여 데이터 집합을 가져오고 모델을 생성하여 응용 프로그램에서 사용할 수 있는 Azure 웹 서비스로 게시하는 과정까지 일련의 작업을 단계별로 수행할 수 있습니다.
 
 또한 이 항목에는 이 고급 분석 프로세스에서 사용되는 리소스 및 도구 중 일부가 열거되어 있습니다.
 
@@ -80,4 +79,4 @@ Azure 기계 학습을 통해 고급 분석을 수행하는 환경을 설정할 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

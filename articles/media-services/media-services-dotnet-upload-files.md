@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -314,4 +314,4 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 [미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

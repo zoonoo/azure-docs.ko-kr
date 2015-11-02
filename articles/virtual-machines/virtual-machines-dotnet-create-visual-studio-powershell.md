@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Visual Studio를 사용하여 웹 프로젝트용 VM 만들기 | Microsoft Azure"
-	description="웹 사이트용 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
+	description="웹 응용 프로그램용 가상 컴퓨터 만들기"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kempb"
 	manager="douge"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,21 +14,23 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="10/19/2015"
 	ms.author="kempb"/>
 
-# Visual Studio에서 웹 사이트용 가상 컴퓨터 만들기
+# Visual Studio에서 웹 응용 프로그램용 가상 컴퓨터 만들기
 
-Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨터를 프로비전할 수 있습니다. 그런 후 추가 소프트웨어를 사용하여 가상 컴퓨터를 구성하거나 진단 또는 디버깅 용도로 가상 컴퓨터를 사용할 수 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
-웹 사이트를 만들 때 가상 컴퓨터를 만들려면 다음 단계를 따르세요.
+Azure용 웹 응용 프로그램 프로젝트를 만들면 Azure에서 가상 컴퓨터를 프로비전할 수 있습니다. 그런 후 추가 소프트웨어를 사용하여 가상 컴퓨터를 구성하거나 진단 또는 디버깅 용도로 가상 컴퓨터를 사용할 수 있습니다.
+
+웹 응용 프로그램을 만들 때 가상 컴퓨터를 만들려면 다음 단계를 따르세요.
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** > **웹**을 클릭하고 **ASP.NET 웹 응용 프로그램**을 선택합니다(**Visual C#** 또는 **Visual Basic** 노드 아래).
 2. **새 ASP.NET 프로젝트** 대화 상자에서 원하는 웹 응용 프로그램 유형을 선택하고 대화 상자의 Azure 섹션(오른쪽 아래 구석)에서 **Host in the cloud(클라우드의 호스트)** 확인란을 선택합니다(이 확인란의 경우 일부 설치에서 **Create remote resources(원격 리소스 만들기)**로 표시됨).
 
 	![][0]
 
-3. Microsoft Azure의 드롭다운 목록에서 **가상 컴퓨터**를 선택한 다음 **확인** 단추를 클릭합니다.
+3. 이 예제의 경우 Microsoft Azure의 드롭다운 목록에서 **가상 컴퓨터(v1)**를 선택한 다음 **확인** 단추를 클릭합니다.
 4. 메시지가 나타나는 경우 Azure에 로그인합니다. **가상 컴퓨터 만들기** 대화 상자가 나타납니다.
 
 	![][2]
@@ -46,13 +49,13 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 
 	* 가상 컴퓨터가 없는 경우 만듭니다.
 	* 이름이 `devtest`로 시작하는 저장소 계정을 만듭니다. 단, 지정된 지역에 이러한 저장소 계정이 없어야 합니다.
-	* 가상 컴퓨터에 대한 컨테이너로 클라우드 서비스를 만들고 웹 사이트에 대한 웹 역할을 만듭니다.
+	* 가상 컴퓨터에 대한 컨테이너로 클라우드 서비스를 만들고 웹 응용 프로그램에 대한 웹 역할을 만듭니다.
 	* 가상 컴퓨터에서 웹 배포를 구성합니다.
 	* 가상 컴퓨터에서 IIS 및 ASP.NET을 구성합니다.
 
 	![][4]
 
-<br/> 13. (선택 사항)새 가상 컴퓨터에 연결할 수 있습니다. **Server Explorer(서버 탐색기)**에서 **Virtual Machines(가상 컴퓨터)** 노드를 확장하고 만든 가상 컴퓨터에 대한 노드를 선택한 후 **Connect with Remote Desktop(원격 데스크톱으로 연결)**을 선택합니다.
+13. (선택 사항)새 가상 컴퓨터에 연결할 수 있습니다. **Server Explorer(서버 탐색기)**에서 **Virtual Machines(가상 컴퓨터)** 노드를 확장하고 만든 가상 컴퓨터에 대한 노드를 선택한 후 **Connect with Remote Desktop(원격 데스크톱으로 연결)**을 선택합니다. 또는 **클라우드 탐색기**에서 바로 가기 메뉴의 **포털에서 열기**를 선택하고 가상 컴퓨터에 연결할 수 있습니다.
 
  ![][5]
 
@@ -68,4 +71,4 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

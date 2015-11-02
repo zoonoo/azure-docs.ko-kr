@@ -207,7 +207,11 @@
 
 21. 데이터 팩터리 구성 페이지에서 다음을 수행합니다.
 	1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
-	2. **이름**에 **VSTutorialFactory**를 입력합니다.
+	2. **이름**에 **VSTutorialFactory**를 입력합니다.  
+	
+		> [AZURE.NOTE]Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 데이터 팩터리의 이름에 대한 오류를 받은 경우 데이터 팩터리의 이름(예: yournameVSTutorialFactory)을 변경하고 다시 게시하도록 시도합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+		> 
+		> 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 	3. **구독** 필드에서 올바른 구독을 선택합니다. 
 	4. 생성되는 데이터 팩터리의 **리소스 그룹**을 선택합니다. 
 	5. 데이터 팩터리의 **지역**을 선택합니다. 
@@ -236,4 +240,4 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

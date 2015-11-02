@@ -1,19 +1,19 @@
-<properties
+<properties 
 	pageTitle="정의: Azure AD 암호 관리 | Microsoft Azure"
-	description="암호 재설정, 변경, 암호 관리 보고 및 로컬 온-프레미스 Active Directory에 쓰기 저장을 포함한 Azure AD의 암호 관리 기능 설명."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+	description="암호 재설정, 변경, 암호 관리 보고 및 로컬 온-프레미스 Active Directory에 쓰기 저장을 포함한 Azure AD의 암호 관리 기능 설명." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 어디에서나 암호 관리
@@ -40,7 +40,7 @@
 - **셀프 서비스 암호 변경** 기능을 사용하여 최종 사용자나 관리자는 관리자에게 전화를 하거나 지원 센터에 문의하지 않고 만료되거나 만료되지 않은 암호를 변경할 수 있습니다.
 - **셀프 서비스 암호 재설정** 기능을 사용하여 최종 사용자나 관리자는 관리자에게 전화를 하거나 지원 센터에 문의하지 않고도 자동으로 암호를 재설정할 수 있습니다. 셀프 서비스 암호 재설정 기능을 사용하려면 Azure AD Premium 또는 Basic이 필요합니다. 자세한 내용은 Azure Active Directory 버전을 참조하세요.
 - **관리자가 시작한 암호 재설정** 기능을 사용하여 관리자는 [Azure 관리 포털](https://manage.windowsazure.com) 내에서 최종 사용자나 다른 관리자의 암호를 재설정할 수 있습니다.
-- **암호 관리 작업 보고서**는 조직에서 발생하는 암호 재설정 및 등록 작업에서의 관리자 이해도를 높여줍니다.
+- **암호 관리 작업 보고서**는 조직에서 발생하는 암호 재설정 및 등록 작업에서의 관리자 이해도를 높여줍니다. 
 - **암호 쓰기 저장** 기능을 사용하여 클라우드에서 온-프레미스 암호를 관리할 수 있으므로 위의 모든 시나리오에서 수행되거나 페더레이션 및 암호가 동기화된 사용자가 대신 수행할 수 있습니다. 암호 쓰기 저장 기능을 사용하려면 Azure AD Premium이 필요합니다. 자세한 내용은 Azure AD Premium 시작을 참조하세요.
 
 ## Azure AD 암호 관리를 사용하는 이유
@@ -51,7 +51,36 @@
 - **적은 기술 지원팀** -암호 관리는 대부분의 조직에서 가장 큰 단일 기술 지원팀을 필요로 합니다.
 - **이동성 사용** -사용자가 어디에서든 암호를 재설정할 수 있습니다
 
-## 최근 업데이트
+## 최근 서비스 업데이트
+
+**등록 페이지에 사용 편의성 업데이트** - 2015년 10월
+
+- 이제 사용자가 이미 등록된 데이터를 가진 경 "올바름"을 클릭하여 메일 또는 전화 통화를 다시 보낼 필요 없이 데이터를 업데이트할 수 있습니다.
+
+**비밀번호 쓰기 저장의 안정성 향상** - 2015년 9월
+
+- Azure AD Connect의 9월 버전으로 비밀번호 쓰기 저장 에이전트는 이제 자세한 연결 및 추가적으로 더욱 강력해진 장애 조치 기능을 더 공격적으로 다시 시도합니다.
+
+**암호 재설정 보고 데이터를 검색하기 위한 API ** - 2015년 8월
+
+- 이제 암호 재설정 보고 관련 데이터는 [Azure AD 보고서 및 이벤트 API](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)에서 직접 검색할 수 있습니다.
+
+**클라우드 도메인 가입 시에 Azure AD 암호 재설정에 대한 지원** - 2015년 8월
+
+- 이제 클라우드 사용자는 클라우드 도메인 가입 온보딩 환경 동안 Windows 10 로그인 화면에서 암호를 재설정할 수 있습니다. Windows 10 로그인 화면에서 아직 노출되지 않습니다.
+
+**Azure 및 페더레이션된 앱에 로그인 시 암호 재설정 등록 적용** - 2015년 7월
+
+- 이제 myapps.microsoft.com에 로그인할 때 등록을 적용하는 것 외에도 Azure 관리 포털 및 응용 프로그램에서 페더레이션된 Single Sign-On에 로그인하는 동안 등록을 적용하도록 지원합니다.
+
+**보안 질문 지역화 지원** - 2015년 5월
+
+- 이제 암호 재설정을 위해 보안 질문을 구성할 때 설정한 전체 O365 언어로 지역화된 미리 정의된 보안 질문을 선택하는 옵션이 있습니다.
+
+**암호 재설정 시 계정 잠금 해제 지원** - 2015년 6월
+
+- 비밀번호 쓰기 저장을 사용하고 계정이 잠겼을 때 암호를 재설정하는 경우 Active Directory 계정의 잠금을 자동으로 해제합니다.
+
 **SSPR 등록 브랜드** -2015년 4월
 
 - 암호 재설정 등록 페이지는 이제 회사 로고로 브랜드 지정됩니다!
@@ -63,6 +92,22 @@
 **계정 잠금해제** -2015년 3월
 
 - 이제 암호가 재설정되면 사용자는 계정을 잠금 해제할 수 있습니다.
+
+## 서비스 예정
+
+지금 작업 중인 멋진 기능의 일부는 다음과 같습니다.
+
+**암호 재설정 없이 잠금 해제한 Active Directory 계정에 대한 지원** - 곧 제공됩니다.
+
+- 사람들은 대부분 암호 재설정과 별도로 AD 계정의 잠금을 해제하는 기능을 요청했습니다. 이 기능에 대한 마무리 작업이 진행 중이며 비밀번호 쓰기 저장을 사용하는 모든 사용자에게 곧 출시됩니다.
+
+**사용자를 상기시켜 로그인 시 등록된 해당 데이터를 업데이트하도록 지원** - 진행 중인 작업
+
+- 오늘날 myapps.microsoft.com에 액세스할 때 등록된 해당 데이터를 업데이트하도록 사용자를 상기하도록 지원하지만 모든 로그인에 해당 작업을 수행할 수 있는 기능을 위해 최선을 다하고 있습니다.
+
+**Office 365 앱에 로그인 시 암호 재설정 등록 적용** - 진행 중인 작업
+
+- 점점 더 많은 office 앱이 최신 Azure AD 로그인 환경에 온보드될 여정입니다. 이러한 경우 자동으로 SSPR가 적용된 등록에 대해 지원됩니다.
 
 <br/> <br/> <br/>
 
@@ -79,4 +124,4 @@
 * [자세한 정보](active-directory-passwords-learn-more.md)
 * [MSDN의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

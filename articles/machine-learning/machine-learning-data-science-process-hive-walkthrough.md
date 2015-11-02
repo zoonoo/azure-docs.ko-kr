@@ -1,5 +1,5 @@
 <properties
-	pageTitle="고급 분석 프로세스 및 기술 작동: Hadoop 클러스터 사용 | Microsoft Azure"
+	pageTitle="실행 중인 Cortana 분석 프로세스: Hadoop 클러스터 사용 | Microsoft Azure"
 	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 데이터 집합으로 모델을 빌드 및 배포합니다."
 	services="machine-learning,hdinsight"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/18/2015"
 	ms.author="hangzh;bradsev" />
 
 
-# 고급 분석 프로세스 및 기술 작동: HDInsight Hadoop 클러스터 사용
+# 실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용
 
-이 연습에서는 [Azure HDInsight Hadoop 클러스터](http://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계 및 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
+이 연습에서는 [Azure HDInsight Hadoop 클러스터](http://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 Cortana 분석 프로세스를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계 및 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
 
-데이터 처리에 HDInsight Hadoop 클러스터를 사용하는 유사한 시나리오에서 더 큰(1TB) 데이터 집합을 처리하는 방법을 보여 주는 연습은 [고급 분석 프로세스 및 기술 작동 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)을 참조하세요.
+데이터 처리에 HDInsight Hadoop 클러스터를 사용하는 유사한 시나리오에서 더 큰(1TB) 데이터 집합을 처리하는 방법을 보여 주는 연습은 [Cortana 분석 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)을 참조하세요.
 
 IPython 노트북에서 1TB 데이터 집합을 사용하는 연습의 작업을 수행할 수도 있습니다. 이 방법을 사용하려면 [Hive ODBC 연결을 사용하여 Criteo 연습](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) 항목을 참조해야 합니다.
 
@@ -810,4 +810,4 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

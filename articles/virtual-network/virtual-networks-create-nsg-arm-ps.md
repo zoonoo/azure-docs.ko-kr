@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="telmos" />
 
 # PowerShell에서 NSG를 만드는 방법
@@ -32,25 +32,27 @@
 ## 프런트 엔드 서브넷에 대한 NSG를 만드는 방법
 위의 시나리오에 따라 *NSG-FrontEnd*라는 NSG를 만들려면 다음 단계를 따르세요.
 
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
 3. 인터넷에서 포트 3389에 액세스할 수 있도록 허용하는 보안 규칙을 만듭니다.
 
-		$rule1 = New-AzureRMNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+		$rule1 = New-AzureNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
 		    -SourceAddressPrefix Internet -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 3389
 
 4. 인터넷에서 포트 80에 액세스할 수 있도록 허용하는 보안 규칙을 만듭니다.
 
-		$rule2 = New-AzureRMNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
+		$rule2 = New-AzureNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
 		    -SourceAddressPrefix Internet -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 80
 
 5. 위에서 만든 규칙을 **NSG-FrontEnd**라는 새 NSG에 추가합니다.
 
-		$nsg = New-AzureRMNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
+		$nsg = New-AzureNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. NSG에서 만든 규칙을 확인합니다.
@@ -94,8 +96,8 @@
 
 6. 위에서 만든 NSG를 *FrontEnd* 서브넷에 연결합니다.
 
-		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
 
 	*FrontEnd* 서브넷 설정을 보여 주는 출력에서 **NetworkSecurityGroup** 속성의 값을 확인합니다.
@@ -121,9 +123,11 @@
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
+>[AZURE.WARNING]위의 명령에 대한 출력에서는 PowerShell을 실행 중인 컴퓨터에만 존재하는 가상 네트워크 구성 개체에 대한 콘텐츠를 보여 줍니다. 이러한 설정을 Azure에 저장하려면 **Set-AzureVirtualNetwork** cmdlet을 실행해야 합니다.
+
 7. Azure에 새 VNet 설정을 저장합니다.
 
-		Set-AzureRMVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	NSG 부분만 표시하는 출력:
 
@@ -136,26 +140,26 @@
 
 1. 프런트 엔드 서브넷에서 포트 1433(SQL Server에서 사용되는 기본 포트)에 액세스할 수 있도록 허용하는 보안 규칙을 만듭니다.
 
-		$rule1 = New-AzureRMNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
+		$rule1 = New-AzureNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
 		    -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 1433
 
 4. 인터넷에 대한 액세스를 차단하는 보안 규칙을 만듭니다.
 
-		$rule2 = New-AzureRMNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
+		$rule2 = New-AzureNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
 		    -Access Deny -Protocol * -Direction Outbound -Priority 200 `
 		    -SourceAddressPrefix * -SourcePortRange * `
 		    -DestinationAddressPrefix Internet -DestinationPortRange *
 
 5. 위에서 만든 규칙을 **NSG-BackEnd**라는 새 NSG에 추가합니다.
 
-		$nsg = New-AzureRMNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. 위에서 만든 NSG를 *BackEnd* 서브넷에 연결합니다.
 
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
 	*BackEnd* 서브넷 설정을 보여 주는 출력에서 **NetworkSecurityGroup** 속성의 값을 확인합니다.
@@ -176,6 +180,6 @@
 
 7. Azure에 새 VNet 설정을 저장합니다.
 
-		Set-AzureRMVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

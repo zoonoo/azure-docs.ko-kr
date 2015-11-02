@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="고급 분석 프로세스 및 기술을 위한 Hadoop 클러스터 사용자 지정 | Microsoft Azure" 
+	pageTitle="Cortana 분석 프로세스를 위한 Hadoop 클러스터 사용자 지정 | Microsoft Azure" 
 	description="일반적인 Python 모듈을 사용자 지정 Azure HDInsight Hadoop 클러스터에서 사용할 수 있습니다."
 	services="machine-learning" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="10/13/2015" 
 	ms.author="hangzh;bradsev" />
 
-# 고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정
+# Cortana 분석 프로세스를 위한 Azure HDInsight Hadoop 클러스터 사용자 지정 
 
 이 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
 
@@ -102,4 +102,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

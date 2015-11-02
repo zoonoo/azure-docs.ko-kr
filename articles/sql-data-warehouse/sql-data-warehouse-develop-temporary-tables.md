@@ -3,7 +3,7 @@
    description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 임시 테이블 사용을 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="10/19/2015"
+   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 임시 테이블
 임시 테이블은 SQL 데이터 웨어하우스의 세션 수준에서 존재합니다. 로컬 임시 테이블로 정의되며 SQL Server 테이블과 달리 세션 내 어디에서나 액세스할 수 있습니다.
@@ -34,7 +34,7 @@
 ```
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
-,   @sample_pct     tinyint
+	,@sample_pct     tinyint
 )
 AS
 
@@ -49,9 +49,10 @@ BEGIN;
 END;
 
 CREATE TABLE #stats_ddl
-WITH    (   DISTRIBUTION = HASH([seq_nmbr])
-        ,   LOCATION     = USER_DB
-        )
+WITH
+(
+	DISTRIBUTION = HASH([seq_nmbr])
+)
 AS
 (
 SELECT
@@ -146,4 +147,4 @@ DROP TABLE #stats_ddl;
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -2,9 +2,8 @@
 	pageTitle="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기 | Microsoft Azure" 
 	description="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2015" 
-	ms.author="msolhab" />
+	ms.author="bradsev" />
 
 # SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
 
@@ -180,9 +179,9 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 
  >[AZURE.NOTE]인덱스를 만든 후 데이터를 대량으로 가져올 수도 있습니다. 인덱스를 만든 후 대량 가져오기를 수행하면 데이터 로드 속도가 느려집니다.
 
-### 고급 분석 프로세스 및 기술 작동 예제
+## 고급 분석 프로세스 및 기술 작동 예제
 
-공용 데이터 집합에서 ADAPT(고급 분석 프로세스 및 기술)를 사용하는 종단 간 연습 예제는 [고급 분석 프로세스 및 기술 작동: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
+공용 데이터 집합과 Cortana 분석 프로세스를 사용하여 종단간 연습 예제는 [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

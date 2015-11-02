@@ -19,6 +19,8 @@
 
 # 가상 컴퓨터에 대한 이미지 정보
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 이미지는 Azure에서 운영 체제에 새 가상 컴퓨터를 제공하는 데에 사용됩니다. 이미지에는 데이터 디스크가 하나 이상 있을 수 있습니다. 이미지는 여러 원본에서 사용할 수 있습니다.
 
 -	Azure에서는 [마켓플레이스](http://azure.microsoft.com/gallery/virtual-machines/)에 있는 이미지를 제공합니다. 최신 버전의 Windows Server 및 Linux 운영 체제의 배포판을 찾을 수 있습니다. 일부 이미지에는 SQL Server와 같은 응용 프로그램이 포함되어 있습니다. MSDN 혜택 및 MSDN 종량제 구독자는 추가 이미지에 액세스할 수 있습니다.
@@ -57,4 +59,4 @@ Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

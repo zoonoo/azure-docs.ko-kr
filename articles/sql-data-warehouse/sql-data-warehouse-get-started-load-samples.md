@@ -1,6 +1,6 @@
 <properties
    pageTitle="샘플 데이터를 SQL 데이터 웨어하우스에 로드 | Microsoft Azure"
-   description="샘플 데이터를 SQL 데이터 웨어하우스에 로드"
+   description="샘플 데이터를 SQL 데이터 웨어하우스에 로드하는 방법에 대해 알아보기"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
-#SQL 데이터 웨어하우스로 샘플 데이터를 로드
+# SQL 데이터 웨어하우스로 샘플 데이터를 로드
 
-SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데이터를 쉽게 로드할 수 있습니다. 프로비전하는 동안 이 단계를 놓친 경우 [샘플 데이터를 수동으로 로드][]할 수도 있습니다.
+SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데이터를 쉽게 로드할 수도 있습니다. 프로비전하는 동안 이 단계를 놓친 경우 [샘플 데이터를 수동으로 로드][]할 수도 있습니다.
 
 다음은 AdventureWorksDW를 데이터베이스에 로드할 수 방법의 간략한 보기를 제공합니다. 이 데이터 집합은 회사에 대한 판매 및 고객을 나타내는 데이터가 있는 AdventureWorks라는 가상 회사의 샘플 데이터 웨어하우스 구조를 모델링합니다.
 
@@ -33,7 +33,7 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 > [AZURE.NOTE]샘플 데이터를 인스턴스에 로드하기 위해 Azure 서비스를 활성화하여 서버에 액세스해야 합니다(새 서버를 만들 때 기본으로 해야 함). 이렇게 하지 않으면 로드가 실패하지만 여전히 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
 
 
-##Power BI를 사용하여 Adventureworks 분석
+## Power BI를 사용하여 Adventureworks 분석
 
 샘플 데이터 집합을 사용하는 것은 Power BI를 시작하기 위한 좋은 방법이 될 수 있습니다. 샘플 데이터를 로드한 후 Azure 포털에서 ‘Power BI에서 열기’ 단추를 클릭하거나 [Power BI][]로 이동하고 [SQL 데이터 웨어하우스에 연결][]하여 SQL 데이터 웨어하우스에 대한 연결을 열 수 있습니다. 연결 후 데이터 웨어하우스와 동일한 이름을 가진 새 데이터 집합을 만들어야 합니다. 분석을 쉽게 수행할 수 있도록 회사의 판매 분석에 핵심적인 매트릭 중 몇 가지가 있는 'AggregateSales'라는 보기를 만들었습니다. 이 보기의 이름을 클릭하여 확장하고 포함하는 열을 볼 수 있으며 다음 단계를 수행하여 일부 빠른 시각화를 만들 수 있습니다.
 
@@ -78,20 +78,20 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 <!--Image references-->
 
 <!--Article references-->
-[마이그레이션]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/
-[개발]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
-[로드]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/
-[연결 및 쿼리]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[마이그레이션 코드]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/
-[샘플 데이터를 수동으로 로드]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[Azure 포털]: https://portal.azure.com
-[Power BI]: http://www.powerbi.com
-[SQL 데이터 웨어하우스에 연결]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-integrate-power-bi/
+[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
+[개발]: ./sql-data-warehouse-overview-develop.md
+[로드]: ./sql-data-warehouse-overview-load.md
+[연결 및 쿼리]: ./sql-data-warehouse-get-started-connect.md
+[마이그레이션 코드]: ./sql-data-warehouse-migrate-code.md
+[샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[Azure 포털]: https://portal.azure.com/
+[Power BI]: http://www.powerbi.com/
+[SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-integrate-power-bi.md
 
 <!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/en-us/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

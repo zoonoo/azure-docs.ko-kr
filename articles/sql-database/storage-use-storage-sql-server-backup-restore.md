@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/20/2015"
 	ms.author="carlrab"/>
 
 
@@ -22,7 +22,7 @@
 
 ## 개요
 
-SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 SQL Server 2012 SP1 CU2에서 배포되었습니다. 이 기능을 사용하여 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server 데이터베이스에서 Azure Blob 서비스로 백업하고 Azure Blob 서비스에서 복원할 수 있습니다. 클라우드로 백업하면 가용성, 무제한으로 지역에서 복제되는 오프사이트 저장소, 클라우드로/에서 쉬운 데이터 마이그레이션 등의 이점이 있습니다. 이 릴리스에서는 Transact-SQL 또는 SMO를 사용하여 BACKUP 또는 RESTORE 문을 실행할 수 있습니다.
+SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 SQL Server 2012 SP1 CU2에서 배포되었습니다. 이 기능을 사용하여 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server 데이터베이스로 Azure Blob 서비스로 백업하고 Azure Blob 서비스에서 복원할 수 있습니다. 클라우드로 백업하면 가용성, 무제한으로 지역에서 복제되는 오프사이트 저장소, 클라우드로/에서 쉬운 데이터 마이그레이션 등의 이점이 있습니다. Transact-SQL 또는 SMO를 사용하여 BACKUP 또는 RESTORE 문을 실행할 수 있습니다.
 
 ## SQL Server 백업에 Azure Blob 서비스를 사용할 경우의 이점
 
@@ -73,4 +73,4 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 [백업 및 복원 모범 사례(Azure Blob 저장소 서비스)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

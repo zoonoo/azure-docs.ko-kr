@@ -14,29 +14,36 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
-# HDInsight의 Pi 추정 Hadoop 샘플
+# HDInsight의 Hadoop 클러스터에서 파이 에스티메이터 MapReduce 프로그램 실행
 
-이 항목에서는 Azure HDInsight에서 Azure Powershell을 사용하여 수학 상수 Pi 값을 추정하는 Hadoop MapReduce 프로그램의 실행 방법을 보여 줍니다. 또한 검사할 Pi 값을 추정하는 데 사용되는 MapReduce 프로그램의 Java 코드도 제공합니다.
+HDInsight 클러스터에는 여러 MarReduce 샘플과 jar 파일이 포함되어 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 파이 에스티메이터 샘플을 실행하는 방법을 보여줍니다. 파이 에스티메이터 샘플은 수학적 상수인 파이 값을 추정합니다.
 
 > [AZURE.NOTE]이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux 기반 클러스터에서 이 샘플 및 다른 샘플을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 샘플 실행](hdinsight-hadoop-run-samples-linux.md)을 참조하세요.
 
 이 프로그램에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다. 단위 정사각형 내에 무작위로 놓인 점은 원의 영역과 같은 확률인 Pi/4로 해당 정사각형 내의 내접원 안에 들어갑니다. Pi의 값은 4R의 값에서 추정할 수 있습니다. 여기에서 R은 정사각형 내에 있는 점의 총수에 대한 원 내부에 있는 점 개수의 비율입니다. 사용한 점 샘플이 크면 클수록 추정이 향상됩니다.
 
-mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에 사용할 수 있습니다. 매퍼 프로그램은 단위 정사각형 내에 무작위로 놓인 점의 지정된 개수를 생성한 후 원 내부에 있는 해당 점 개수를 계산합니다. reducer 프로그램은 mapper에서 계산된 점을 누적한 후 수식 4R에서 Pi의 값을 추정합니다. 여기에서 R은 정사각형 내에 있는 점의 총수에 대한 원 내부에서 계산된 점 개수의 비율입니다.
-
 이 샘플을 위해 제공된 스크립트는 Hadoop jar 작업을 제출하고 하나의 값으로 16개의 맵을 실행하도록 설정되며, 각 맵은 매개 변수 값으로 천만 개의 샘플 점을 계산하는 데 필요합니다. 이러한 매개 변수 값은 Pi의 추정값을 개선하기 위해 변경할 수 있습니다. 참고로 Pi의 첫 소수점 이하의 10자리는 3.1415926535입니다.
-
-Azure의 Hadoop에서 응용 프로그램을 배포하는 데 필요한 파일이 포함된 .jar 파일은 .zip 파일이며 다운로드할 수 있습니다. 편한 시간에, 다양한 압축 유틸리티를 사용하여 압축을 푼 후 파일을 탐색할 수 있습니다.
 
 HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수 있는 기타 샘플이 실행 방법 지침에 대한 링크와 함께 [HDInsight 샘플 실행][hdinsight-samples]에 나열되어 있습니다.
 
-**다음 내용을 배웁니다.**
 
-* Azure PowerShell을 사용하여 Azure HDInsight에서 Pi 추정 MapReduce 프로그램을 실행하는 방법
-* Java로 작성한 MapReduce 프로그램
+**다른 관련 문서:**
+
+* [Azure HDInsight 시작][hdinsight-get-started]
+* [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
+* [HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [샘플: 10GB GraySort][hdinsight-sample-10gb-graysort]
+* [샘플: Wordcount][hdinsight-sample-wordcount]
+* [샘플: C# 스트리밍][hdinsight-sample-cs-streaming]
+
+
+
+
+
+
 
 **필수 조건**:
 
@@ -46,7 +53,7 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 
 
 
-## <a id="run-sample"></a>Azure PowerShell을 사용하여 샘플 실행
+## Azure PowerShell로 샘플 실행
 
 **MapReduce 작업을 제출하려면**
 
@@ -80,8 +87,9 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 	비교를 위해, Pi의 첫 소수점 이하의 10자리는 3.1415926535입니다.
 
 
-## <a id="java-code"></a>Pi 추정 MapReduce 프로그램의 Java 코드
+## MapReduce Java 소스 코드
 
+mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에 사용할 수 있습니다. 매퍼 프로그램은 단위 정사각형 내에 무작위로 놓인 점의 지정된 개수를 생성한 후 원 내부에 있는 해당 점 개수를 계산합니다. reducer 프로그램은 mapper에서 계산된 점을 누적한 후 수식 4R에서 Pi의 값을 추정합니다. 여기에서 R은 정사각형 내에 있는 점의 총수에 대한 원 내부에서 계산된 점 개수의 비율입니다.
 
 
  	/**
@@ -474,5 +482,6 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-sample-cs-streaming]: hdinsight-sample-csharp-streaming.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

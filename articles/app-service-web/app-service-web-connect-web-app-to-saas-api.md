@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Azure 앱 서비스의 API 앱에 웹앱 연결" 
 	description="이 자습서에서는 Azure 앱 서비스에 호스트된 ASP.NET 웹앱에서 API 앱을 사용하는 방법을 보여 줍니다." 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="syntaxc4" 
 	manager="yochayk" 
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
@@ -83,7 +83,7 @@
 &lt;/ul> 
 	</pre>
 
-	![Contact.cshtml 코드 업데이트](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+	![Contact.cshtml Code Updates](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## 앱 서비스에서 웹앱에 웹 응용 프로그램 배포
 
@@ -96,4 +96,4 @@
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

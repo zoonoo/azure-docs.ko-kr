@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # 논리 앱 기능 사용
@@ -143,4 +143,4 @@
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -19,10 +19,9 @@
 
 # Azure Active Directory에서 회사 또는 학교 ID 만들기
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 개인 Azure 계정을 생성하거나 개인 MSDN 구독이 있고 MSDN Azure 크레딧을 활용하기 위해 Azure 계정을 만든 경우는 *Microsoft 계정* ID를 사용하여 만든 것입니다. Azure의 많은 훌륭한 기능(예: [리소스 그룹 템플릿](../resource-group-overview.md))을 사용하기 위해서는 회사 또는 학교 계정(Azure Active Directory에서 관리하는 ID)이 필요합니다.
-
-
-> [AZURE.NOTE]Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 두 모델을 모두 사용하여 설명하지만 대부분의 새로운 배포에는 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 
 다행히 개인 Azure 계정이 제공하는 최고의 이점 중 하나는, 계정을 필요로 하는 Azure 기능과 함께 사용할 수 있는 새로운 회사 또는 학교 계정을 만드는 데 사용할 수 있는 기본 Azure Active Directory 도메인으로 제공된다는 점입니다.
@@ -145,4 +144,4 @@ Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택
     data:
     info:    group create command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

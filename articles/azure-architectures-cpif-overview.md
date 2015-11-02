@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -59,4 +59,4 @@ Azure 내 솔루션 아키텍처 개발을 지원하려면 일련의 일반적�
 
 [Azure 검색](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

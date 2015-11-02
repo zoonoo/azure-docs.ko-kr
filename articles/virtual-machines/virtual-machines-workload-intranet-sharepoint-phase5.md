@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 워크로드 5단계: 가용성 그룹을 만들고 SharePoint 데이터베이스 추가
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
- 
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 배포 모델.
 
 Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 마지막 단계에서는 새 AlwaysOn 가용성 그룹을 만들고 SharePoint 팜의 데이터베이스를 추가합니다.
 
@@ -68,7 +67,7 @@ SharePoint는 초기 구성의 일부로 여러 데이터베이스를 만듭니�
 
 1.	보조 SQL Server 컴퓨터에 **[domainName]\\sp\_farm\_db**로 로그온합니다.
 2.	시작 화면에서 **SQL Studio**를 입력하고 **SQL Server Management Studio**를 클릭합니다.
-3.	**Connect**를 클릭합니다.
+3.	**연결**을 클릭합니다.
 4.	왼쪽 창에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **데이터베이스 복원**을 클릭합니다.
 5.	**원본** 섹션에서 **장치**를 선택하고 줄임표(...) 단추를 클릭합니다.
 6.	**백업 장치 선택**에서 **추가**를 클릭합니다.
@@ -129,4 +128,4 @@ SQL Server AlwaysOn 가용성 그룹을 사용하는 SharePoint에 대한 자세
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

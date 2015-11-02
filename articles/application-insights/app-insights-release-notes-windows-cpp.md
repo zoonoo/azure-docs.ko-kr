@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights C++ SDK에 대한 릴리스 정보" 
-	description="최신 업데이트입니다." 
+	description="C++ SDK에 대한 최신 업데이트입니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -37,4 +37,4 @@
 첫번째 릴리스
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,13 +14,13 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="10/19/2015"
    ms.author="cherylmc"/>
 
 # Express 경로에 대한 가상 네트워크 구성
 
-이 단계에서는 클래식 배포 모델을 사용하여 Express 경로에 사용할 게이트웨이 및 가상 네트워크를 구성하는 과정을 안내합니다. 이 구성은 현재 리소스 관리자 모델을 사용하여 만든 VNet 및 게이트웨이에 대해 지원되지 않습니다. 사용할 수 있게 되면 이 페이지에 해당 설명서에 대한 링크가 제공됩니다.
- 
+이 단계에서는 클래식 배포 모델 및 서비스 관리를 사용하여 Express 경로에 사용할 게이트웨이 및 가상 네트워크를 구성하는 과정을 안내합니다. 현재, 리소스 관리자 배포 모델을 사용하여 Express 경로에 대해 VNet을 구성하는 것에 대한 설명서는 없습니다. 게시된 문서가 있을 때마다 링크를 추가할 것입니다.
+
 >[AZURE.IMPORTANT]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
 
 1. **Azure 포털**에 로그인합니다.
@@ -60,14 +60,14 @@
 
 10. 게이트웨이 만들기가 시작되면 게이트웨이가 시작되었음을 알려주는 메시지가 표시됩니다. 게이트웨이를 만드는 데에는 최대 15분이 걸릴 수 있습니다.
 
-11. 네트워크를 회로에 연결합니다. [VNet을 Express 경로 회로에 연결하는 방법](expressroute-howto-linkvnets-classic.md) 문서의 지침을 따르세요.
+11. 네트워크를 회로에 연결합니다. [VNet을 Express 경로 회로에 연결하는 방법](expressroute-howto-linkvnet-classic.md) 문서의 지침을 따르세요.
 
 ## 다음 단계
 
-- 가상 컴퓨터를 가상 네트워크에 추가하려면, [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines-create-custom.md)을 참조하세요.
+- 가상 컴퓨터를 가상 네트워크에 추가하려면 [가상 컴퓨터 학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)를 참조하세요.
 - Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](expressroute-introduction.md)를 참조하세요.
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

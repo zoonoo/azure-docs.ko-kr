@@ -1,9 +1,9 @@
 <properties 
-	pageTitle=".NET을 사용하여 자산 배포 정책 구성" 
-	description="이 항목에서는 다른 자산 배달 하는 정책을 구성하는 방법을 보여 줍니다." 
+	pageTitle=".NET SDK를 사용하여 자산 배포 정책 구성" 
+	description="이 항목에서는 Azure 미디어 서비스 .NET SDK를 사용하여 여러 자산 배달 정책을 구성하는 방법을 보여줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/20/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
-#방법: 자산 배달 정책 구성
+#.NET SDK를 사용하여 자산 배포 정책 구성
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 암호화된 자산을 배달하려는 경우 미디어 서비스 콘텐츠 배달 워크플로의 단계 중 하나는 자산에 대한 배달 정책을 구성하는 것입니다. 자산 배달 정책은 어떤 스트리밍 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두)로 사용자의 자산을 동적으로 패키지할 지와 같은 사용자가 원하는 자산 배달 방법과 사용자의 자산을 동적으로 암호화할 지 여부 및 방법(봉투 또는 일반 암호화)를 미디어 서비스에 알려줍니다.
@@ -328,4 +328,4 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

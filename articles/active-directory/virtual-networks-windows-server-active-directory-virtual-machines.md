@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Azure VM의 Windows Server Active Directory" 
+	pageTitle="Azure VM의 Windows Server Active Directory | Microsoft Azure" 
 	description="Azure 가상 컴퓨터에 Windows Server AD DS(Active Directory 도메인 서비스) 또는 AD FS(Active Directory Federation Services)를 실행할 수 있습니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="terrylan" 
-	editor="LisaToft"
+	manager="stevenpo" 
 	tags="azure-classic-portal"/>
 
 <tags 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 
@@ -48,4 +47,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

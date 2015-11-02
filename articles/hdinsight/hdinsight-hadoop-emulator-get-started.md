@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HDInsight에 대해 Hadoop 에뮬레이터 시작 | Microsoft Azure"
 	description="MapReduce 자습서 및 다른 샘플과 함께 설치된 에뮬레이터를 사용하여 Hadoop 에코 시스템에 대해 알아봅니다. HDInsight 에뮬레이터는 Hadoop 샌드박스처럼 작동합니다."
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
+	keywords="에뮬레이터, hadoop 에코 시스템, hadoop 샌드박스, mapreduce 자습서"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -498,4 +498,4 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="10/06/2015"
+    ms.date="10/16/2015"
     ms.author="markvi"/>
 
 #Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록
@@ -112,6 +112,7 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Projectplace.jpg)| [Projectplace](https://go.microsoft.com/fwLink/?LinkID=510265&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Qualtrics.jpg)| [Qualtrics](https://go.microsoft.com/fwLink/?LinkID=522567&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Questetra_BPM_Suite.jpg)| [Questetra BPM Suite](https://go.microsoft.com/fwLink/?LinkID=530240&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_QuickHelp.jpg)| [QuickHelp](https://go.microsoft.com/fwLink/?LinkID=530246&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_RallySoftware.jpg)| [Rally Software](https://go.microsoft.com/fwLink/?LinkID=403247&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Replicon.jpg)| [Replicon](https://go.microsoft.com/fwLink/?LinkID=403243&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.jpg)| [RightAnswers](https://go.microsoft.com/fwLink/?LinkID=530239&clcid=0x409)|
@@ -150,6 +151,7 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Work.jpg)| [Work.com](https://go.microsoft.com/fwLink/?LinkID=510259&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday 인바운드 동기화](https://msdn.microsoft.com/library/azure/dn762434.aspx)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workrite.jpg)| [Workrite](https://go.microsoft.com/fwLink/?LinkID=530242&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zendesk.jpg)| [Zendesk](https://go.microsoft.com/fwLink/?LinkID=403255&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_ZohoMail.jpg)| [Zoho Mail](https://go.microsoft.com/fwLink/?LinkID=403220&clcid=0x409)|
@@ -166,6 +168,7 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 
 
 
+
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

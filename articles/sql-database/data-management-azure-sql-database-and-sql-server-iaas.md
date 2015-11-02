@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure SQL 데이터베이스 및 Azure VM의 SQL Server 이해" 
+	pageTitle="Azure SQL 데이터베이스 및 Azure VM의 SQL Server 이해 | Microsoft Azure" 
 	description="Azure 가상 컴퓨터의 Azure SQL 데이터베이스 및 SQL Server를 이해합니다. 일반적인 비즈니스 동기 부여 요소를 검토하여 응용 프로그램에 가장 적합한 SQL 기술을 확인합니다." 
 	services="sql-database, virtual-machines" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/19/2015" 
 	ms.author="selcint"/>
 
 # Azure SQL 데이터베이스 및 Azure VM의 SQL Server 이해
 
-Microsoft Azure는 SQL Server를 호스팅하는 것에 대한 두 가지 옵션을 제공합니다: **Azure SQL 데이터베이스** 및 **Azure 가상 컴퓨터의 SQL Server**. 이 문서에서는 먼저 Microsoft 데이터 플랫폼의 전체 환경에서 각 옵션이 얼마나 적합한지 살펴본 다음 계속해서 선택의 동기가 되는 비즈니스 요구 사항을 바탕으로 더 깊이 있게 논의합니다. 비용 절감이 우선이든 관리 최소화가 무엇보다 중요하든 이 문서에서는 가장 관심 있는 비즈니스 요구 사항에 대해 각 옵션이 어떤 결과를 내놓는지를 기준으로 적합한 접근 방식을 결정하도록 도울 수 있습니다.
+Microsoft Azure는 SQL Server를 호스팅하는 것에 대한 두 가지 옵션을 제공합니다. [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/) 및 [Azure VM의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). 이 문서에서는 먼저 Microsoft 데이터 플랫폼의 전체 환경에서 각 옵션이 얼마나 적합한지 살펴본 다음 계속해서 선택의 동기가 되는 비즈니스 요구 사항을 바탕으로 더 깊이 있게 논의합니다. 비용 절감이 우선이든 관리 최소화가 무엇보다 중요하든 이 문서에서는 가장 관심 있는 비즈니스 요구 사항에 대해 각 옵션이 어떤 결과를 내놓는지를 기준으로 적합한 접근 방식을 결정하도록 도울 수 있습니다.
 
 - [Microsoft의 데이터 플랫폼](#platform)
 - [Azure SQL 데이터베이스 및 Azure VM의 SQL Server에 대해 자세히 살펴보기](#close)	
@@ -128,7 +128,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 </tr>
 </table>
 
-##<a name="business"></a>Azure SQL 데이터 베이스 또는 Azure VM의 SQL Server를 선택할 때 비즈니스 동기
+##<a name="business"></a>Azure SQL 데이터베이스 또는 Azure VM의 SQL Server를 선택할 때 비즈니스 동기
 
 ###<a name="cost"></a>비용
 
@@ -158,9 +158,9 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 *총 응용 프로그램 비용 = 최소 소프트웨어 개발/수정 비용 + 관리 비용 + SQL Server 및 Windows Server 라이선스 비용 + Azure 저장소 비용*
 
-**중요 참고 사항:** 현재 Azure SQL 데이터베이스는 SQL Server의 일부 기능을 지원하지 않습니다. 자세한 비교 정보는 [Azure SQL 데이터베이스 지침 및 제한 사항](http://msdn.microsoft.com/library/azure/ff394102.aspx)을 참조하세요. 따라서 기존 데이터베이스를 Azure SQL 데이터베이스로 이동하려는 경우 데이터베이스 재설계에 따른 추가 예산이 필요할 수 있습니다. Azure SQL 데이터베이스는 Microsoft의 PasS(Platform-as-a-Service) 제품입니다. 기존 온-프레미스 SQL Server 응용 프로그램을 Azure SQL 데이터베이스로 마이그레이션하는 경우에는 PasS(Platform-as-a-Service) 제품을 최대한 활용하기 위해 응용 프로그램을 업데이트하는 것이 좋습니다. 예를 들어 응용 프로그램 계층에서 [Azure 웹 사이트](http://azure.microsoft.com/documentation/services/websites/)나 [Azure 클라우드 서비스](http://azure.microsoft.com/services/cloud-services/)를 사용하면 비용 혜택이 증가합니다. 또한 서로 다른 Azure SQL 데이터베이스 서비스 계층에 대해 응용 프로그램의 유효성을 검사하고 응용 프로그램 요구에 가장 적합한 계층을 확인하세요. 이러한 과정을 통해 성능 결과를 더 향상하고 비용을 최소화할 수 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)을 참조하세요.
+> [AZURE.IMPORTANT]현재 Azure SQL 데이터베이스는 SQL Server의 일부 기능을 지원하지 않습니다. 자세한 비교 정보는 [Azure SQL 데이터베이스 지침 및 제한 사항](http://msdn.microsoft.com/library/azure/ff394102.aspx)을 참조하세요. 따라서 기존 데이터베이스를 Azure SQL 데이터베이스로 이동하려는 경우 데이터베이스 재설계에 따른 추가 예산이 필요할 수 있습니다. Azure SQL 데이터베이스는 Microsoft의 PasS(Platform-as-a-Service) 제품입니다. 기존 온-프레미스 SQL Server 응용 프로그램을 Azure SQL 데이터베이스로 마이그레이션하는 경우에는 PasS(Platform-as-a-Service) 제품을 최대한 활용하기 위해 응용 프로그램을 업데이트하는 것이 좋습니다. 예를 들어 응용 프로그램 계층에서 [Azure 웹 사이트](http://azure.microsoft.com/documentation/services/websites/)나 [Azure 클라우드 서비스](http://azure.microsoft.com/services/cloud-services/)를 사용하면 비용 혜택이 증가합니다. 또한 서로 다른 Azure SQL 데이터베이스 서비스 계층에 대해 응용 프로그램의 유효성을 검사하고 응용 프로그램 요구에 가장 적합한 계층을 확인하세요. 이러한 과정을 통해 성능 결과를 더 향상하고 비용을 최소화할 수 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)을 참조하세요.
 
-예상 비용을 자세히 알아보려면 [Azure 비용 계산기](http://azure.microsoft.com/pricing/calculator/)를 사용하세요.
+예상 비용을 자세히 알아보려면 [Azure 가격 책정 계산기](http://azure.microsoft.com/pricing/calculator/)를 사용하세요.
 
 가격에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
@@ -179,7 +179,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 일부에게는 SLA(서비스 수준 계약)의 작동 시간 의무를 충족하는 일이 가장 우선합니다. 이 섹션에서는 각 데이터베이스 호스팅 옵션이 SLA에 어떤 의미가 있는지 살펴봅니다.
 
-**Azure SQL 데이터베이스**의 경우 Basic, Standard 및 Premium 서비스 계정에 대해 Microsoft는 99.99%의 가용성 SLA를 제공합니다. 가용성 SLA란 데이터베이스에 연결할 수 있는 기능을 나타냅니다. 즉, 데이터베이스 수준 SLA입니다. SLA에 대한 최신 정보는 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요. Azure SQL 데이터베이스 서비스 계층(버전) 및 지원되는 비즈니스 연속성 계획에 대한 최신 정보는 [Azure SQL 데이터베이스 서비스 계층](sql-database-service-tiers)을 참조하세요.
+**Azure SQL 데이터베이스**의 경우 Basic, Standard 및 Premium 서비스 계정에 대해 Microsoft는 99.99%의 가용성 SLA를 제공합니다. 가용성 SLA란 데이터베이스에 연결할 수 있는 기능을 나타냅니다. 즉, 데이터베이스 수준 SLA입니다. SLA에 대한 최신 정보는 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요. Azure SQL 데이터베이스 서비스 계층(버전) 및 지원되는 비즈니스 연속성 계획에 대한 최신 정보는 [Azure SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
 **Azure에 호스트된 가상 컴퓨터**의 경우 Microsoft는 99.95%의 가용성 SLA를 제공하며, 이는 VM 내에서 실행되는 프로세스(SQL Server 등)에 대한 가용성이 아니라 VM에 대한 가용성입니다. [VM SLA](http://www.microsoft.com/download/details.aspx?id=38427)를 이용하려면 두 개 이상의 VM을 가용성 집합으로 호스트해야 합니다. 이러한 구성을 사용하면 Azure에서는 VM 중 하나 이상을 99.95%의 시간 동안 사용할 수 있음을 보장합니다. VM 내에서 데이터베이스 고가용성(HA)을 이용하려면 SQL Server에서 지원되는 고가용성 옵션 중 하나(예: AlwaysOn 가용성 그룹)를 구성해야 합니다. Azure에서 AlwaysOn을 설정하려면 일부 수동 구성과 관리가 필요하며 작동하는 각 보조 항목에 대해 추가로 지불해야 합니다.
 
@@ -202,13 +202,18 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 - 데이터베이스의 일반 관리 작업을 Microsoft로 하여금 수행하게 하고 데이터베이스에 대해 높은 가용성 SLA가 필요한 경우. 이 접근 방식은 관리 비용을 최소화하는 동시에 데이터베이스에 대한 가용성을 보장합니다.
 
+    [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)
+
+
 **Azure VM의 SQL Server**를 선택하는 경우:
 
 - 기존 온-프레미스 응용 프로그램이 있는데 자체적인 하드웨어 유지 관리를 중지하고 싶거나 하이브리드 솔루션을 고려하는 경우. 이 접근 방식을 사용하면 고용량 데이터베이스에 빠르게 액세스할 수 있고 온-프레미스 응용 프로그램을 보안 터널을 통해 클라우드에 연결할 수 있습니다.
 
 - 기존 IT 리소스가 있고, SQL Server에 대한 모든 관리 권한이 필요하고, 온-프레미스 SQL Server와의 완벽한 호환성이 필요한 경우(예: 일부 기능이 Azure SQL 데이터베이스에 없는 경우). 이 접근 방식을 사용하면 대부분의 응용 프로그램을 유연하게 실행할 수 있는 기능을 통해 기존 응용 프로그램의 개발 또는 수정 비용을 최소화할 수 있습니다. 또한 VM, 운영 체제 및 데이터베이스 구성을 완벽히 제어할 수 있습니다.
 
-> [AZURE.NOTE]- SQL Server 2016 CTP2를 사용해보시겠습니까? Microsoft Azure에 등록한 다음 [여기](http://aka.ms/sql2016vm "여기")로 이동하여 SQL Server 2016 CTP2가 이미 설치된 가상 컴퓨터를 스핀업합니다.
+    [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)
+
+> [AZURE.NOTE]SQL Server 2016 CTP2를 사용해보시겠습니까? Microsoft Azure에 등록한 다음 [여기](http://aka.ms/sql2016vm "여기")로 이동하여 SQL Server 2016 CTP2가 이미 설치된 가상 컴퓨터를 만듭니다.
 
 
 ##<a name="ack"></a>감사의 말
@@ -251,6 +256,5 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

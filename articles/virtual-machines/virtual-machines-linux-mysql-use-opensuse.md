@@ -21,6 +21,12 @@
 
 [MySQL][MySQL]은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 OpenSUSE Linux를 실행하는 가상 컴퓨터를 만든 다음 MySQL을 설치하는 방법을 보여 줍니다.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
+
+<br>
+
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## OpenSUSE Linux를 실행하는 가상 컴퓨터 만들기
@@ -38,4 +44,4 @@ MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs]를 참조하세
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

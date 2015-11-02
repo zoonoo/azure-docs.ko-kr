@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HDFS 호환 가능 Blob 저장소에서 데이터 쿼리 | Microsoft Azure"
 	description="HDInsight에서는 Blob 저장소를 HDFS용 빅 데이터 저장소로 사용합니다. Blob 저장소에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법에 대해 알아봅니다."
-	keywords="blob storage,hdfs,structured data,unstructured data"
+	keywords="blob 저장소, hdfs, 구조화된 데이터, 구조화되지 않은 데이터"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -27,7 +27,7 @@ Azure Blob 저장소는 HDInsight와 매끄럽게 통합되는 강력한 범용 
 
 Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
-> [AZURE.NOTE]HDInsight 버전 3.0 클러스터에서는 **asv://* 구문이 지원되지 않습니다. 즉, 정확히 **asv://* 구문을 명시적으로 사용하는 HDInsight 버전 3.0 클러스터에 제출하는 작업은 실패하게 됩니다. 대신 **wasb://*구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 버전 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb:// 구문을 사용하여 이 Metastore를 다시 만들어야 합니다.
+> [AZURE.NOTE]HDInsight 버전 3.0 클러스터에서는 **asv://* 구문이 지원되지 않습니다. 즉, 정확히 **asv://* 구문을 명시적으로 사용하는 HDInsight 버전 3.0 클러스터에 제출하는 작업은 실패하게 됩니다. 대신 **wasb://* 구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 버전 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb:// 구문을 사용하여 이 Metastore를 다시 만들어야 합니다.
 
 > HDInsight는 현재 블록 Blob만 지원합니다.
 
@@ -316,4 +316,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

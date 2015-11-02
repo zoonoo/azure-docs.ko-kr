@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 데이터베이스에 대한 SQL 쿼리 – 쿼리 SQL | Microsoft Azure" 
 	description="DocumentDB에서 자동 인덱싱을 위해 계층적 JSON 문서에 대한 SQL 쿼리를 지원하는 방법을 알아봅니다. 스키마가 없는 SQL 쿼리 데이터베이스 환경이 제공됩니다." 
-	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
+	keywords="쿼리 데이터베이스, SQL 쿼리, SQL 쿼리, 구조화된 쿼리 언어, DocumentDB, Azure, Microsoft Azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -2089,4 +2089,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 Azure Redis 캐시를 사용하는 세션 상태" 
 	description="Azure 캐시 서비스를 사용하여 ASP.NET 세션 상태 캐싱을 지원하는 방법에 대해 설명합니다." 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-web" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -109,4 +109,4 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

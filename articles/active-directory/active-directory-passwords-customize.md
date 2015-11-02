@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 해당 조직의 요구에 맞게 사용자 지정 암호 관리
@@ -393,7 +393,56 @@
             </tr>
             <tr>
               <td>
-                <p>보안 질문</p>
+                <p>지식에 기반한 보안 질문</p>
+              </td>
+              <td>
+                <p>암호 재설정을 위해 등록할 때와 암호를 재설정할 때 사용자가 선택할 수 있는 미리 만든 보안 질문을 정의합니다.</p>
+                <p>
+                  
+                </p>
+                <p>(<strong>보안 질문</strong> 확인란이 선택된 경우에만 표시됨).</p>
+              </td>
+              <td>
+                <p>
+                  <strong>참고:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												모든 기술 기반 질문이 사용자의 브라우저 로캘을 기반으로 O365 언어의 전체 집합에 지역화될 예정입니다.<br><br></li>
+                  <li class="unordered">
+												최대 총 20가지 질문이 정의될 수 있습니다.(사용자 지정 및 기술 기반 질문의 합)<br><br></li>
+                 <li class="unordered">
+												최소 질문 문자 수 제한은 3자입니다.<br><br></li>
+                  <li class="unordered">
+												최대 질문 문자 수 제한은 40자입니다.<br><br></li>
+                  <li class="unordered">
+												사용자는 같은 질문에 두 번 답변하지 않을 수 있습니다.<br><br></li>
+                  <li class="unordered">
+												사용자는 서로 다른 두 질문에 대해 동일한 대답을 제공할 수 없습니다.<br><br></li>
+                  <li class="unordered">
+												대답을 정의하는데 모든 문자 집합을 사용할 수 있습니다(유니코드 문자 포함).<br><br></li>
+                  <li class="unordered">
+												정의된 질문 수는 등록에 필요한 질문 수보다 크거나 같아야 합니다.<br><br></li>
+                </ul>
+                <p>
+                  <strong>등록 포털:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												암호 재설정을 위해 등록하는 경우 사용자가 답변을 제공할 수 있는 질문을 결정합니다.<br><br></li>
+                </ul>
+                <p>
+                  <strong>암호 재설정 포털:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												사용자가 암호를 재설정하는 데 사용할 수 있는 질문을 결정합니다.<br><br></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>사용자 지정 보안 질문</p>
               </td>
               <td>
                 <p>암호 재설정을 위해 등록할 때와 암호를 재설정할 때 사용자가 선택할 수 있는 보안 질문을 정의합니다.</p>
@@ -408,7 +457,7 @@
                 </p>
                 <ul>
                   <li class="unordered">
-												최대 20개의 질문을 정의할 수 있습니다.<br><br></li>
+												최대 총 20가지 질문이 정의될 수 있습니다.(사용자 지정 및 기술 기반 질문의 합)<br><br></li>
                   <li class="unordered">
 												최대 질문 문자 수 제한은 200자입니다.<br><br></li>
                   <li class="unordered">
@@ -420,11 +469,11 @@
                   <li class="unordered">
 												사용자는 서로 다른 두 질문에 대해 동일한 대답을 제공할 수 없습니다.<br><br></li>
                   <li class="unordered">
-												질문 및 대답을 정의하는데 모든 문자 집합을 사용할 수 있습니다(유니코드 문자 포함).<br><br></li>
+												질문 및 대답을 정의하는데 모든 문자 집합을 사용할 수 있습니다.(유니코드 문자 포함)<br><br></li>
                   <li class="unordered">
 												정의된 질문 수는 등록에 필요한 질문 수보다 크거나 같아야 합니다.<br><br></li>
                   <li class="unordered">
-												서로 다른 로캘에 대한 다양한 질문은 아직 지원되지 않지만 나중에 지원될 예정입니다.<br><br></li>
+												서로 다른 로캘에 대한 다양한 질문은 사용자 지정 질문에 아직 지원되지 않습니다. 사용자의 브라우저 로캘이 다른 경우 모든 사용자 지정 질문을 관리 UI에 입력할 수 있는 언어에 표시합니다. 이러한 질문을 지역화할 필요한 경우 대신 "지식 기반" 질문을 사용합니다.<br><br></li>
                 </ul>
                 <p>
                   <strong>등록 포털:</strong>
@@ -727,6 +776,6 @@
 * [암호 관리 FAQ](active-directory-passwords-faq.md)
 * [암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
 * [자세한 정보](active-directory-passwords-learn-more.md)
-* [MSDN의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [MSDN의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

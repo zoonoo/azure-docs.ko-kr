@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -46,4 +46,4 @@ Azure 검색 계층 디자인 패턴은 지리적 경계를 넘어 예측 가능
 
 [일괄 처리 계층](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

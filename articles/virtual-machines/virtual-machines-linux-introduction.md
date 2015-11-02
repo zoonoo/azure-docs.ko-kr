@@ -21,6 +21,8 @@
 
 이 항목에서는 Azure 클라우드에서 Linux 가상 컴퓨터를 사용하는 몇 가지 측면을 간략하게 설명합니다. 갤러리의 기존 이미지를 사용하여 Linux 가상 컴퓨터 배포는 간단한 프로세스입니다.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## 인증: 사용자 이름, 암호 및 SSH 키
 
 Azure 관리 포털에서 Linux 가상 컴퓨터를 만들 경우 사용자 이름, 암호 또는 SSH 공개 키를 지정해야 합니다. Azure에 Linux 가상 컴퓨터를 배포할 때 선택하는 사용자 이름에는 다음과 같은 제약이 있습니다. 가상 컴퓨터에 이미 존재하던 시스템 계정의 이름(UID <100)(예: 'root')은 허용되지 않습니다.
@@ -97,4 +99,4 @@ Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 �
 
  - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

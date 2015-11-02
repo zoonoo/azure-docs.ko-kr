@@ -2,7 +2,7 @@
 	pageTitle="DocumentDB로 데이터 가져오기 | Microsoft Azure" 
 	description="오픈 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 비롯한 다양한 소스에서 DocumentDB로 데이터를 가져오는 방법을 알아봅니다." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="anhoh"/>
 
 # DocumentDB로 데이터 가져오기 #
 
@@ -35,7 +35,7 @@
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인합니다.
 
-- [Microsoft .NET Framework 4.51](http://www.microsoft.com/net/downloads) 이상
+- [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) 이상
 
 ##<a id="Overviewl"></a>DocumentDB 데이터 마이그레이션 도구 개요 ##
 
@@ -57,8 +57,8 @@ DocumentDB 데이터 마이그레이션 도구는 다음을 비롯한 다양한 
 
 마이그레이션 도구 소스 코드는 GitHub의 [이 리포지토리](https://github.com/azure/azure-documentdb-datamigrationtool)에서 사용할 수 있으며, 컴파일된 버전은 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)에서 사용할 수 있습니다. 솔루션을 컴파일하거나, 컴파일된 버전을 다운로드하고 선택한 디렉터리에 압축을 풀 수 있습니다. 다음 중 하나를 실행합니다.
 
-- Dtui.exe: 도구의 그래픽 인터페이스 버전
-- Dt.exe: 도구의 명령줄 버전
+- **Dtui.exe**: 도구의 그래픽 인터페이스 버전
+- **Dt.exe**: 도구의 명령줄 버전
 
 ##<a id="JSON"></a>JSON 파일 가져오기 ##
 
@@ -425,7 +425,7 @@ DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 
 
 ![DocumentDB 인덱싱 정책 고급 옵션의 스크린샷](./media/documentdb-import-data/indexingpolicy2.png)
 
-> [AZURE.NOTE]인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. DocumentDB 인덱싱 정책에 대한 자세한 정보는 [여기](documentdb-indexing-policies.md)에서 읽을 수 있습니다.
+> [AZURE.NOTE]인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. DocumentDB 인덱싱 정책에 대한 자세한 정보는 [여기서](documentdb-indexing-policies.md) 읽을 수 있습니다.
 
 
 ## JSON 파일로 내보내기
@@ -501,4 +501,4 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
