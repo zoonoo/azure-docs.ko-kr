@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Windows Phone에 대한 알림 허브 시작
@@ -51,8 +51,7 @@
 
 이제 Windows Phone의 인증되지 않은 알림을 보낼 수 있는 허브가 생성 및 구성되었습니다.
 
-> [AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. 알림 허브는 [MPNS 인증된 모드](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx)를 지원합니다.
-<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. 알림 허브는 인증서를 업로드할 수 있도록 하여 [MPNS 인증 모드](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)를 지원합니다.
 
 ##알림 허브에 앱 연결
 
@@ -119,7 +118,7 @@
 
 	그러면 새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다. 별도의 솔루션에서 이 작업을 수행할 수도 있습니다.
 
-4. 마우스 오른쪽 단추를 클릭하고 **도구**를 클릭하고 **라이브러리 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
+4. **도구**를 클릭하고 **라이브러리 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
 
 	그러면 패키지 관리자 콘솔이 표시됩니다.
 
@@ -199,4 +198,4 @@ MSDN의 [알림 카탈로그] 및 [타일 카탈로그] 항목에서 가능한 �
 [타일 카탈로그]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

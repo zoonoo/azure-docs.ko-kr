@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/16/2015"
+	ms.date="10/21/2015"
 	ms.author="stepsic"/>
 
 # SaaS 서비스에 연결하는 새 논리 앱 만들기
@@ -188,4 +188,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

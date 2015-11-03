@@ -13,10 +13,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/05/2015"
+	ms.date="10/23/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Java와 함께 사용하는 방법
+
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
 Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세스할 수 있게 합니다. Microsoft Azure 내의 모든 응용 프로그램에서 캐시에 액세스할 수 있습니다.
 
@@ -32,7 +38,7 @@ Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세�
 
 ## Azure에 Redis 캐시 만들기
 
-[Azure 미리 보기 포털](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
+[Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
 
   ![][1]
 
@@ -87,4 +93,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

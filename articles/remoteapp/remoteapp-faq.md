@@ -13,19 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015" 
+	ms.date="10/23/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
-Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 있을 경우 [RemoteApp 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp)을 방문하여 알아야 할 사항을 알려 주세요.
+Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 있을 경우 [RemoteApp 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp)을 방문하여 알아야 할 사항을 알려 주거나 아래에 의견을 남겨주세요.
 
 ## Azure RemoteApp이란? ##
 
 
 - **Azure RemoteApp이란?** RemoteApp은 다양한 사용자 장치에서 응용 프로그램에 안전하게 원격으로 액세스할 수 있는 Azure 서비스입니다. [Azure RemoteApp](remoteapp-whatis.md)에 대한 더 알아봅니다.
-- **두 종류의 배포 옵션은 무엇인가요?** RemoteApp 배포(또는 컬렉션)의 두 가지 종류는 클라우드 및 하이브리드입니다. 사용자의 조직에 가장 적합하게 작동하는 [배포 옵션](remoteapp-whatis.md)을 알아봅니다.
+- **배포 옵션은 무엇인가요?** RemoteApp 컬렉션의 두 가지 종류는 클라우드 및 하이브리드입니다. 도메인 가입을 해야 하는지 여부와 같은 요인에 따라 필요한 것이 달라집니다. [여기](remoteapp-collections.md)에서 이러한 모든 결정에 대해 이야기합니다.
 
+## Azure RemoteApp 사용에 대한 빠른 팁 ##
+- **연결이 끊길 때까지 시간이 얼마나 남았나요? 부팅되기 전에 유휴 상태인 시간은 얼마나 되나요?** 4시간입니다. 사용자 또는 사용자 일부가 4시간 동안 유휴 상태인 경우 Azure RemoteApp에서 자동으로 로그아웃됩니다. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)에서 기타 기본 설정을 확인합니다.
+- **이 서비스를 무료로 사용해 볼 수 있나요?** 예. 30일 동안 사용할 수 있는 무료 평가판이 있습니다. 평가 기간이 끝난 후 유료 계정으로 전환하거나(프로덕션 환경에서 사용할 수 있음) 서비스 사용을 중지할 수 있습니다. [manage.windowsazure.com](http://manage.windowsazure.com)으로 이동하여 무료 평가판을 시작합니다. RemoteApp의 새 인스턴스를 만듭니다. 무료 평가판으로 인스턴스당 10명의 사용자와 RemoteApp의 인스턴스를 2개 만들 수 있습니다. 이 평가판은 30일 동안만 사용할 수 있습니다.
 ## Azure RemoteApp 구독 세부 정보 ##
+
 - **서비스의 제한 사항은 무엇입니까?** [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)에서 Azure RemoteApp의 기본 설정 및 서비스 제한 사항에 대해 자세히 알아볼 수 있습니다. 추가 질문이 있으면 알려주세요.
 - **얼마나 많은 사용자가 필요합니까?** 최소 20명의 사용자입니다. 분명히 알아두어야 합니다. 최소 20명입니다. 20명에 대한 비용이 청구됩니다. 
 - **RemoteApp 비용은 얼마인가요?** [Azure RemoteApp 가격 정보](../../../pricing/details/remoteapp/)를 확인하세요.
@@ -83,7 +87,7 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
 ##지원 및 피드백
 
-- **이 서비스를 무료로 사용해 볼 수 있나요?** 예. 30일 동안 사용할 수 있는 무료 평가판이 있습니다. 평가 기간이 끝난 후 유료 계정으로 전환하거나(프로덕션 환경에서 사용할 수 있음) 서비스 사용을 중지할 수 있습니다. [manage.windowsazure.com](http://manage.windowsazure.com)으로 이동하여 무료 평가판을 시작합니다. RemoteApp의 새 인스턴스를 만듭니다. 무료 평가판으로 인스턴스당 10명의 사용자와 RemoteApp의 인스턴스를 2개 만들 수 있습니다. 이 평가판은 30일 동안만 사용할 수 있습니다.
+
 - **RemoteApp에 대한 지원 계획은 무엇인가요?** 청구 및 구독 관리 지원은 무료로 제공됩니다. 기술 지원은 [Azure 서비스 플랜](../../../support/plans/)을 통해 이용할 수 있습니다. [Azure 토론 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp)을 통해 커뮤니티 지원을 무료로 이용할 수도 있습니다. 
 - **사용자 의견을 제출하려면 어떻게 해야 하나요?** [피드백 포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)을 방문하세요.
 - **Azure RemoteApp에 대해 자세히 알아보려면 어디로 문의해야 하나요?** 질문을 게시하는 데 유용한 [토론 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp) 외에도 RemoteApp과 관련된 모든 사항을 토론하는 주간 [전문가에게 물어보세요 웹 세미나](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html)에 참가할 수 있습니다.
@@ -107,5 +111,7 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 	동영상! RemoteApp에 대한 많은 동영상도 있습니다. 소개 동영상([Azure RemoteApp 소개](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/))도 있고, 배포([클라우드 배포](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) 및 [하이브리드 배포](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be))를 안내하는 동영상도 있습니다. 지금 확인해 보세요.
 
  
+### 의견 보내기 
+이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -32,7 +32,6 @@
 
 + MAC 앱 스토어에서 설치할 수 있는 XCode 6 또는 XCode 7
 + [Mobile Engagement iOS SDK]
-+ Apple 개발자 센터에서 가져올 수 있는 푸시 알림 인증서(.p12)
 
 이 자습서를 완료해야 다른 모든 iOS 앱용 Mobile Engagement 자습서를 진행할 수 있습니다.
 
@@ -44,7 +43,7 @@
 
 ##<a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 
-이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 전체 통합 설명서는 [Mobile Engagement iOS SDK 통합](../mobile-engagement-ios-sdk-overview/)에서 확인할 수 있습니다.
+이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 전체 통합 설명서는 [Mobile Engagement iOS SDK 통합](../mobile-engagement-ios-sdk-overview/)에서 찾을 수 있습니다.
 
 여기서는 통합을 시연하기 위해 XCode를 사용하여 기본적인 앱을 만듭니다.
 
@@ -186,4 +185,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

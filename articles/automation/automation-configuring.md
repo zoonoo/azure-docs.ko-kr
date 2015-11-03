@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="10/22/2015"
    ms.author="bwren" />
 
 # Azure 자동화 구성
@@ -67,4 +67,4 @@ Runbook의 모든 [검사점](http://technet.microsoft.com/library/dn469257.aspx
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

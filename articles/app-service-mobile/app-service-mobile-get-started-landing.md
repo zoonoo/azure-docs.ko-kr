@@ -21,12 +21,12 @@
 
 시작하려면 자습서를 수행하여 앱 서비스에서 모바일 백 엔드에 연결하는 할 일 앱을 만듭니다. 클라이언트 플랫폼을 선택합니다.
 
-  * [iOS](../app-service-mobile-dotnet-backend-ios-get-started-preview.md)
-  * [Xamarin.iOS](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
-  * [Xamarin.Android](../app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md)
-  * [Xamarin.Forms](../app-service-mobile-dotnet-backend-xamarin-forms-get-started-preview.md)
-  * [Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)
-  * [HTML](../app-service-mobile-dotnet-backend-html-get-started-preview.md)
+  * [iOS](../app-service-mobile-ios-get-started.md)
+  * [Xamarin.iOS](../app-service-mobile-xamarin-ios-get-started.md)
+  * [Xamarin.Android](../app-service-mobile-xamarin-android-get-started.md)
+  * [Xamarin.Forms](../app-service-mobile-xamarin-forms-get-started.md)
+  * [Windows](../app-service-mobile-windows-store-dotnet-get-started.md)
+  * [HTML](../app-service-mobile-html-get-started.md)
 
 ##비디오
 
@@ -34,4 +34,4 @@
 
 Kirill Gavrylyuk를 사용하는 앱 서비스 모바일 앱
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

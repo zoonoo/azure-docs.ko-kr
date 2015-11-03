@@ -514,4 +514,4 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

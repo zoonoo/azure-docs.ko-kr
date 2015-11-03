@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HBase 자습서: Hadoop 및 HBase로 시작 | Microsoft Azure"
 	description="HDInsight에서 Hadoop을 통해 Apache HBase 사용을 시작하려면 이 HBase 자습서를 따르세요. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="apache hbase, hbase, hbase 셸, hbase 자습서"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -45,11 +45,11 @@ HDInsight에서 HBase 클러스터를 프로비전하고, HBase 테이블을 만
 3. 다음 값을 입력합니다.
 
 	- **클러스터 이름**: 이 클러스터를 식별하기 위한 이름을 입력합니다.
-	- **클러스터 유형**: **HBase**를 선택합니다.
+	- **클러스터 형식**: **HBase**를 선택합니다.
 	- **클러스터 운영 체제**: **Ubuntu**를 선택합니다.
 	- **구독**: 이 클러스터를 프로비전하는 데 사용할 Azure 구독을 선택합니다.
 	- **리소스 그룹**: Azure 리소스 그룹을 추가하거나 선택합니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
-	- **자격 증명**. HTTP 웹 서비스 사용자에 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다. **SSH 사용자 이름**과 **암호** 또는 **공개 키**(SSH 사용자를 인증하는 데 사용됨) 중 하나도 입력해야 합니다. 공개 키를 사용하는 것이 권장 방식입니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+	- **자격 증명** HTTP 웹 서비스 사용자에 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다. **SSH 사용자 이름**과 **암호** 또는 **공개 키**(SSH 사용자를 인증하는 데 사용됨)도 입력해야 합니다. 공개 키를 사용하는 것이 권장 방식입니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 		- [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) **선택**을 클릭하여 변경 사항을 저장합니다.
@@ -87,7 +87,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 4. PuTTY 세션 화면에 대한 기본 옵션에서 다음 값을 입력합니다.
 
 	- 호스트 이름: 호스트 이름에서 HDInsight 서버의 SSH 주소(또는 IP 주소) 필드입니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 *mycluster-ssh.azurehdinsight.net*과 같습니다.
-	- 포트: 22. headnode0에서 SSH 포트는 22입니다. [Linux에서 HDInsight 사용에 관한 정보(미리 보기)](hdinsight-hadoop-linux-information.md#remote-access-to-services)를 참조하세요.
+	- 포트: 22. 헤드 노드 0에서 SSH 포트는 22입니다. [Linux에서 HDInsight 사용에 관한 정보(미리 보기)](hdinsight-hadoop-linux-information.md#remote-access-to-services)를 참조하세요.
 4. **Open**을 클릭하여 클러스터에 연결합니다.
 5. 메시지가 표시되면 클러스터를 생성할 때 입력한 사용자를 입력합니다. 사용자에 대한 암호를 제공한 경우 사용자를 입력하라는 메시지도 나타납니다.
 6. 다음 명령을 실행합니다.
@@ -114,7 +114,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 	행이 하나만 있기 때문에 스캔 명령을 사용하여 동일한 결과가 표시됩니다.
 
-	HBase 테이블 스키마에 대한 자세한 내용은 [HBase 스키마 디자인 소개][hbase-schema]를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드][hbase-quick-start]를 참조하세요.
+	Hbase 테이블 스키마에 대한 자세한 내용은 [HBase 스키마 디자인 소개][hbase-schema]를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드][hbase-quick-start]를 참조하세요.
 
 
 6. 셸 종료
@@ -182,7 +182,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 >
 > 이 섹션의 명령에서 **USERNAME**은 클러스터에 대해 인증할 사용자로 바꾸고 **PASSWORD**는 사용자 계정의 암호로 바꿉니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다.
 >
-> REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보호됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
+> REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
 1. 명령줄에서 다음 명령을 사용하여 HDInsight 클러스터에 연결할 수 있는지 확인합니다.
 
@@ -232,7 +232,7 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 4. PuTTY 세션 화면에 대한 기본 옵션에서 다음 값을 입력합니다.
 
 	- **호스트 이름**: 호스트 이름에서 HDInsight 서버의 SSH 주소(또는 IP 주소) 필드입니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 *mycluster-ssh.azurehdinsight.net*과 같습니다.
-	- **포트**: 22. headnode0에서 SSH 포트는 22입니다.  
+	- **포트**: 22. 헤드 노드 0에서 SSH 포트는 22입니다.  
 5. 대화 상자의 왼쪽에 있는 **카테고리** 섹션에서 **연결**, **SSH**를 차례로 확장한 다음 **터널**을 클릭합니다.
 6. SSH 포트 전달을 제어하는 옵션 양식에 다음 정보를 제공합니다.
 
@@ -248,7 +248,7 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 2. 클러스터 사용자 계정 자격 증명을 두 번 입력합니다.
 3. 왼쪽된 메뉴에서 **Zookeeper**를 클릭합니다.
 4. 요약 목록에서 세 가지 **ZooKeeper 서버** 링크 중 하나를 클릭합니다.
-5. **호스트 이름**을 복사합니다. 예를 들어 zookeepernode0.zookeepernode-0-xxxxxxxxxxxxxxxxxxxx.c7.internal.cloudapp.net입니다.
+5. **호스트 이름**을 복사합니다. 예를 들어 zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net입니다.
 
 **클라이언트 프로그램(Firefox)을 구성하고 클러스터 상태를 확인하려면**
 
@@ -305,4 +305,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

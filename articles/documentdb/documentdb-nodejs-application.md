@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Node.js 알아보기 - DocumentDB Node.js 자습서 | Microsoft Azure" 
 	description="Node.js에 대해 알아봅니다. 자습서에서는 Microsoft Azure DocumentDB를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 설명합니다." 
-	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+	keywords="응용 프로그램 개발, 데이터베이스 자습서, node.js 알아보기, node.js 자습서, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
@@ -48,7 +48,7 @@
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하세요.
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하십시오.
 - [Node.js][] 버전 v0.10.29 이상
 - [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 - [Git][]
@@ -569,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
@@ -21,7 +21,7 @@
 
 ![웹 테스트의 예](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-공용 인터넷에서 액세스 가능한 모든 HTTP 끝점에 대해 웹 테스트를 설정할 수 있습니다.
+공용 인터넷에서 액세스 가능한 모든 HTTP 또는 HTTPS 끝점에 대해 웹 테스트를 설정할 수 있습니다.
 
 웹 테스트에는 두 가지 유형이 있습니다:
 
@@ -246,4 +246,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
