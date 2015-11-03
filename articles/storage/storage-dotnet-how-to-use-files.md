@@ -12,10 +12,12 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="09/28/2015"
+      ms.date="10/26/2015"
       ms.author="tamram" />
 
 # Windows에서 Azure 파일 저장소 사용 방법
+
+[AZURE.INCLUDE [저장소-선택기-파일-포함](../../includes/storage-selector-file-include.md)]
 
 ## 개요
 
@@ -34,6 +36,12 @@ Linux에서 파일 저장소 사용에 대한 자세한 내용은 [Linux에서 A
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [저장소-파일-개념-포함](../../includes/storage-file-concepts-include.md)]
+
+## 비디오: Windows에서 Azure 파일 저장소 사용
+
+Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주는 비디오는 다음과 같습니다.
+
+> [AZURE.VIDEO azure-file-storage-with-windows]
 
 ## 이 자습서 정보
 
@@ -518,8 +526,9 @@ Azure 포털에서 파일 저장소에 대한 메트릭을 사용하도록 설�
 
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
 
-### 개념 문서
+### 개념 문서 및 비디오
 
+- [Azure 파일 저장소: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Linux에서 Azure 파일 저장소 사용 방법](storage-how-to-use-files-linux.md)
 
 ### 파일 저장소용 도구 지원
@@ -540,4 +549,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

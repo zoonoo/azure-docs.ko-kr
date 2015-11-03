@@ -135,9 +135,15 @@ SDK 라이브러리를 다운로드하여 통합합니다.
 
 데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 화면(활동)을 하나 이상 보내야 합니다.
 
-**MainActivity.java**로 이동하고 다음을 추가하여 **MainActivity**의 기본 클래스를 **ActionBarActivity**에서 **EngagementActivity**로 바꿉니다.
+**MainActivity.java**로 이동하고 다음을 추가하여 **MainActivity**의 기본 클래스를 **EngagementActivity**로 바꿉니다.
 
 	public class MainActivity extends EngagementActivity {
+
+간단한 샘플 시나리오에 대해 다음 줄을 주석 처리해야 합니다.(제외)
+
+    // setSupportActionBar(toolbar);
+
+이를 유지하려면 [고급 Android 통합]의 "기본 보고" 시나리오를 확인해야 합니다.
 
 ##<a id="monitor"></a>실시간 모니터링과 앱 연결
 
@@ -218,6 +224,10 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 >[AZURE.TIP]올바른 아이콘 해상도를 사용하는지 확인하려면 [해당 예제](https://www.google.com/design/icons)를 확인하세요. **알림** 섹션이 나올 때까지 아래로 스크롤하고 아이콘을 클릭한 다음 `PNGS`를 클릭하여 아이콘 drawable 집합을 다운로드합니다. 각 아이콘 버전에 사용할 drawable 폴더와 해상도를 확인할 수 있습니다.
 
+##API 키를 가진 Google Cloud Messaging 프로젝트 만들기 
+
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+
 ###앱이 GCM 푸시 알림을 받을 수 있도록 설정
 
 1. Google Play 콘솔에서 가져온 `project number`을 교체한 후에 다음을 `<application>` 및 `</application>` 사이의 Manifest.xml에 붙여넣습니다. \\n은 프로젝트 번호가 \\n으로 끝나도록 의도적으로 사용되었습니다.
@@ -265,7 +275,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 	  
 	![][17]
 
-4. 팝업에서 [Google Cloud Messaging 사용](#register) 섹션에서 가져온 GCM 서버 키를 붙여넣은 다음 **확인**을 클릭합니다.
+4. 팝업에서 전에 가져온 GCM 서버 키를 붙여넣은 다음 **확인**을 클릭합니다.
 
 	![][18]
 
@@ -306,6 +316,8 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 <!-- URLs. -->
 [Mobile Engagement Android SDK]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[고급 Android 통합]: https://azure.microsoft.com/ko-KR/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -327,4 +339,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

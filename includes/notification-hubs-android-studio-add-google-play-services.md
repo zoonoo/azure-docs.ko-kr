@@ -11,18 +11,22 @@
 
 	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. *종속성* 아래에 이 줄 추가:
+4. 다음 줄을 *android*에 추가합니다.
+
+		useLibrary 'org.apache.http.legacy'
+
+5. *종속성* 아래에 이 줄 추가:
 
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5. *defaultConfig* 아래에서 *minSdkVersion*을 9로 변경합니다.
+7. *defaultConfig* 아래에서 *minSdkVersion*을 9로 변경합니다.
  
-6. 도구 모음에서 **Gradle 파일과 프로젝트 동기화** 아이콘을 클릭합니다.
+8. 도구 모음에서 **Gradle 파일과 프로젝트 동기화** 아이콘을 클릭합니다.
 
-7. **AndroidManifest.xml**을 열고 이 태그를 *응용프로그램* 태그에 추가합니다.
+9. **AndroidManifest.xml**을 열고 이 태그를 *응용프로그램* 태그에 추가합니다.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

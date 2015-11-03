@@ -26,7 +26,7 @@ Azure 배치 풀의 여러 계산 노드에서 실행되는 지원 파일 및 �
 
 	- **Azure 계정** - 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-	- **배치 계정** - [Azure 배치 기술 개요](batch-technical-overview.md)의 **배치 계정** 섹션을 참조하세요.
+	- **배치 계정** - [Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md)를 참조하세요.
 
 	- **저장소 계정** - [Azure 저장소 계정 정보](../storage-create-storage-account.md)의 **저장소 계정 만들기** 섹션을 참조하세요. 이 자습서에서는 **testcon1**이라는 컨테이너를 이 계정에 만듭니다.
 
@@ -212,7 +212,7 @@ Blob 저장소에 대한 자세한 내용은 [.NET에서 Blob 저장소를 사�
 
 	- **[account-name]** - **배치 계정**을 클릭하고 이전에 만든 배치 계정을 선택합니다.
 	- **[account-url]** - 배치 계정 블레이드 내에서 **속성** > **URL**을 클릭합니다.
-	- **[account-key]** - 배치 계정 블레이드 내에서 **속성** > **키** > **기본 액세스 키**를 클릭합니다.
+	- **[account-key]** - 배치 계정 블레이드 내에서 **속성** > **키** > **기본 선택키**를 클릭합니다.
 
 3.	풀을 만드는 Program 클래스에 다음 메서드를 추가합니다.
 
@@ -495,4 +495,4 @@ Azure에서 리소스에 대한 요금이 부과되므로 리소스가 더 이�
 
 2. 일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

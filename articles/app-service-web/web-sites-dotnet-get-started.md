@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기
@@ -28,7 +28,7 @@
 
 ## 개요
 
-이 자습서에서는 Visual Studio 2015 또는 Visual Studio 2013을 사용하여 ASP.NET 웹 응용 프로그램을 만들고 [Azure 앱 서비스의 웹앱](app-service-web-overview.md)에 배포하는 방법을 보여줍니다. 이 자습서에서는 이전에 Azure 또는 ASP.NET을 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수 있습니다.
+이 자습서에서는 Visual Studio 2015 또는 Visual Studio 2013을 사용하여 ASP.NET 웹 응용 프로그램을 [Azure 앱 서비스의 웹앱](app-service-web-overview.md)에 배포하는 방법을 보여줍니다. 이 자습서에서는 이전에 Azure을 사용한 경험이 없는 ASP.NET 개발자를 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수 있습니다.
 
 다음 그림에서는 완료된 응용 프로그램을 보여 줍니다.
 
@@ -39,9 +39,12 @@
 * [Azure SDK for .NET](../dotnet-sdk/)을 설치하여 Azure 개발용 컴퓨터를 준비하는 방법
 * Visual Studio를 설정하여 앱 서비스 웹앱으로 ASP.NET MVC 5 웹 프로젝트를 만들면서 새 앱 서비스 웹앱을 만드는 방법
 * Visual Studio를 사용하여 앱 서비스 웹앱에 웹 프로젝트를 배포하는 방법
+* Visual Studio **서버 탐색기**를 사용하여 원격 파일을 열고 원격 디버그 세션을 시작하는 방법입니다. 
 * [Azure 포털](/overview/preview-portal/)을 사용하여 웹앱을 모니터링 및 관리하는 방법
 
-만들 웹 프로젝트를 사용자 지정하는 방법을 보여주지 않는 빠르고 간단한 자습서입니다. ASP.NET MVC 5 웹 응용 프로그램 개발에 대한 소개는 [ASP.NET](http://asp.net/) 사이트에서 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요. Azure 앱 서비스의 웹 응용 프로그램에 대해 더 심층적으로 살펴보는 다른 문서에 대한 링크는 [다음 단계](#next-steps) 섹션을 참조하세요.
+> [AZURE.NOTE]이 자습서는 Azure 앱 서비스와 ASP.NET을 사용하는 방법을 설명합니다. ASP.NET 웹앱을 개발하는 방법을 가르치지 않습니다. ASP.NET MVC 5에 대한 소개는 [ASP.NET](http://asp.net/) 사이트에서 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요. Azure 앱 서비스를 사용하는 방법에 대해 더 심층적으로 살펴보는 다른 문서에 대한 링크는 [다음 단계](#next-steps) 섹션을 참조하세요.
+> 
+> 이 자습서의 범위 및 접근 방식을 알도록 돕습니다. -- 여기 시작 자습서에서 살펴보고 싶은 다른 항목이 있는 경우 자습서의 끝에 있는 [Disqus 주석](#comments)에 피드백을 남겨주세요.
 
 ##<a name="video"></a>Microsoft Azure 등록
 
@@ -50,9 +53,9 @@
 * [Azure 계정을 무료로 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=A261C142F). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
 * [MSDN 구독자 혜택을 활성화할 수 있습니다](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
-> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
+Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
-이 비디오에서 Scott Hanselman은 Microsoft Azure의 무료 평가판 등록이 얼마나 쉬운지 보여 줍니다. (소요 시간: 1분 58초)
+다음 비디오에서 Scott Hanselman은 Microsoft Azure의 무료 평가판 등록이 얼마나 쉬운지 보여 줍니다. (소요 시간: 1분 58초)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -70,7 +73,7 @@
 
 	Visual Studio 2013을 사용할 경우 화면이 스크린샷과 약간 다르지만 기본적으로 절차는 동일합니다.
 
-2. **파일** 메뉴에서 **새로 만들기 > 프로젝트**를 클릭합니다.
+2. **파일** 메뉴에서 **새로 만들기 >프로젝트**를 클릭합니다.
 
 3. **새 프로젝트** 대화 상자에서 **C# > Web > ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
 
@@ -194,11 +197,39 @@
 
 	![Azure에서 실행되는 웹앱](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-13. 브라우저를 닫습니다.
+13. 다음 섹션에서 사용하기 위해 이 브라우저 창을 열어둡니다.
 
 **팁:** 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기 > 도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다.
 
 ![한 번 클릭으로 웹 게시 도구 모음](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+
+## 서버 탐색기에서 원격 파일 열기
+
+웹앱을 테스트하고 디버깅할 때 원격 사이트에서 **서버 탐색기**의 파일을 열고 편집하여 빠른 임시 변경을 수행할 수 있습니다.
+
+1.  **서버 탐색기**에서 **Azure > 앱 서비스 > MyExampleGroup**으로 이동한 다음 웹앱에 대한 노드를 확장합니다.
+
+2. **파일 > 뷰 > 홈**을 확장한 다음 *Index.cshtml* 파일을 두 번 클릭합니다.
+
+	![](./media/web-sites-dotnet-get-started/indexfileinse.png)
+
+3. `<h1>ASP.NET</h1>`을 `<h1>Azure App Service</h1>`으로 변경합니다.
+
+4. 파일을 저장합니다.
+
+5. Azure에서 실행되는 사이트가 있는 브라우저 창을 새로 고칩니다.
+
+	![](./media/web-sites-dotnet-get-started/afterindexedit.png)
+
+이제 이 변경 내용은 로컬 프로젝트가 아닌 배포된 사이트에 포함됩니다. 프로젝트를 다시 배포하는 경우 사이트는 이러한 변경 사항을 적용하기 전의 방식으로 되돌아갑니다.
+
+이 기능은 [자세한 오류 메시지를 가져오기 위해 Web.config 파일에서 customErrors를 일시적으로 해제](web-sites-dotnet-troubleshoot-visual-studio.md)하는 경우 유용합니다.
+
+또한 **서버 탐색기**에서 웹앱 노드를 마우스 오른쪽 단추로 클릭하고 Visual Studio 창에서 웹앱 설정에 액세스하며 원격 디버깅 세션을 시작하고 응용 프로그램이 작성하는 순간 실시간으로 응용 프로그램 로그를 볼 수 있습니다.
+
+![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
+
+자세한 내용은 [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
 ## Azure 포털에서 웹앱 모니터링 및 관리
 
@@ -261,7 +292,7 @@
 
 * 웹 응용 프로그램용 앱 서비스, Azure 클라우드 서비스 및 Azure 가상 컴퓨터를 선택하는 방법
 
-	Azure에서는 앱 서비스 웹앱을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/)를 참조하세요.
+	Azure에서는 앱 서비스 웹앱을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/) 를 참조하세요.
 
 * [앱 서비스 계획을 선택하거나 만드는 방법](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -271,4 +302,4 @@
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스 및 기존 Azure 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 참조하세요.
 * Azure 포털에서 Preview 포털로 변경하는 방법에 대한 지침은 [Azure 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

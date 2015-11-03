@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Apache Storm 자습서: HDInsight에서 Linux 기반 Storm 시작 | Microsoft Azure"
 	description="Linux 기반 HDInsight에서 Apache Storm 및 Storm Starter 샘플을 사용한 빅 데이터 분석을 시작합니다. Storm을 사용하여 실시간으로 데이터를 처리하는 방법을 알아봅니다."
-	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+	keywords="apache storm, apache storm 자습서, 빅 데이터 분석, storm 시작"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 
@@ -40,13 +40,13 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에 제출된 토폴로지 및 로그 파일을 저장합니다. 다음 단계를 사용하여 클러스터에서 사용할 Azure 저장소 계정을 만들 수 있습니다.
 
-1. [Azure Preview 포털][preview-portal]에 로그인합니다.
+1. [Azure 미리 보기 포털][preview-portal]에 로그인합니다.
 
 2. **새로 만들기**를 선택하고 __데이터 분석__, __HDInsight__를 차례로 선택합니다.
 
-	![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
+	![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
 
-3. __클러스터 이름__을 입력한 후 __클러스터 유형__에 대해 __Storm__을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 __클러스터 이름__ 옆에 녹색 확인 표시가 나타납니다.
+3. __클러스터 이름__을 입력한 후 __클러스터 형식__에 대해 __Storm__을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 __클러스터 이름__ 옆에 녹색 확인 표시가 나타납니다.
 
 	![클러스터 이름, 클러스터 유형 및 OS 유형](./media/hdinsight-apache-storm-tutorial-get-started-linux/clustername.png)
 
@@ -102,7 +102,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 프로비전](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인하세요.
+	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인합니다.
 
 ##HDInsight에서 Storm Starter 샘플 실행
 
@@ -116,13 +116,13 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 		
 	Linux 기반 HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 	
-	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows)
 
 2. 다음 명령을 사용하여 예제 토폴로지를 시작합니다.
 
-        storm jar storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
 		
 	> [AZURE.NOTE]파일 이름의 `0.9.3.2.2.4.9-1` 부분은 HDinsight가 새 버전의 Storm으로 업데이트되면 변경될 수 있습니다.
 
@@ -233,4 +233,4 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
