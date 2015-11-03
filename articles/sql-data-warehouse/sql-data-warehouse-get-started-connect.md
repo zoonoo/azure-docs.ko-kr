@@ -1,10 +1,10 @@
 <properties
-   pageTitle="시작: Azure SQL 데이터 웨어하우스에 연결 | Microsoft Azure"
+   pageTitle="Visual Studio를 사용하여 SQL 데이터 웨어하우스에 연결 | Microsoft Azure"
    description="SQL 데이터 웨어하우스에 연결 및 일부 쿼리 실행 시작"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,82 +13,99 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
-   ms.author="twounder"/>
+   ms.date="10/22/2015"
+   ms.author="twounder;barbkess"/>
 
-# Visual Studio를 사용하여 연결 및 쿼리
+# Visual Studio를 사용하여 SQL 데이터 웨어하우스에 연결
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-이 연습에서는 Visual Studio를 사용하여 Azure SQL 데이터 웨어하우스 데이터베이스를 몇 분 이내에 연결하고 쿼리하는 방법을 보여줍니다. 이 연습에서는 다음을 수행합니다.
-
-+ 필수 조건 소프트웨어 설치
-+ AdventureWorksDW 샘플 데이터베이스를 포함하는 데이터베이스에 연결
-+ 샘플 데이터베이스에 대한 쿼리 실행  
+이 연습에서는 Visual Studio의 SQL Server 데이터 도구를 사용하여 Azure SQL 데이터 웨어하우스 데이터베이스를 몇 분 이내에 연결하는 방법을 보여줍니다. 연결되면 간단한 쿼리를 실행합니다.
 
 ## 필수 조건
 
-+ Visual Studio 2013/2015 - Visual Studio 2015 및/또는 SSDT를 다운로드 및 설치하려면 [Visual Studio 및 SSDT 설치](sql-data-warehouse-install-visual-studio.md)를 참조하세요.
++ SQL 데이터 웨어하우스의AdventureWorksDW 샘플 데이터베이스 만들려면 [SQL 데이터 웨어하우스 데이터베이스 만들기](sql-data-warehouse-get-started-create.md)를 참조하세요. 
++ Visual Studio용 SQL Server 데이터 도구 설치 지침 및 옵션은 [Visual Studio 및/또는 SSDT 설치](sql-data-warehouse-install-visual-studio.md)를 참조하세요.
 
-## 정규화된 SQL Azure 서버 이름 가져오기
+## Step 1: 정규화된 Azure SQL 서버 이름 찾기
 
-데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(****servername**.database.windows.net*)이 필요합니다.
+데이터베이스는 Azure SQL Server와 연결됩니다. 데이터베이스에 연결하려면 서버의 정규화된 이름(**servername**.database.windows.net*)이 필요합니다.
+
+정규화된 서버 이름을 찾으려면
 
 1. [Azure Preview 포털](https://portal.azure.com)로 이동합니다.
-2. 연결하려는 데이터베이스를 찾습니다.
-3. 전체 서버 이름을 찾습니다.(다음 단계에서 사용)
+2. **SQL 데이터베이스**를 클릭하고 연결하려는 데이터베이스를 클릭합니다. 이 예제에서는 AdventureWorksDW 샘플 데이터베이스를 사용합니다.
+3. 전체 서버 이름을 찾습니다.
 
-![][1]
+    ![전체 서버 이름][1]
 
-## SQL 데이터베이스 연결
+## 2단계: SQL 데이터베이스 연결
 
 1. Visual Studio를 엽니다.
-2. 보기 메뉴에서 **SQL Server 개체 탐색기**를 엽니다.
+2. SQL Server 개체 탐색기를 엽니다. 그렇게 하려면 **보기** > **SQL Server 개체 탐색기**를 선택합니다.
  
-![][2]
+    ![SQL Server 개체 탐색기][2]
 
-3. **SQL Server 추가** 단추 클릭
+3. **SQL Server 추가** 아이콘을 클릭합니다.
 
-![][3]
+    ![SQL Server 추가][3]
 
-4. 위에 캡처한 *서버 이름* 입력
-5. **인증** 목록에서 **SQL Server 인증**을 선택합니다.
-6. SQL 데이터베이스 서버를 만들 때 지정한 **로그인** 및 **암호**를 입력하고 **연결**을 클릭합니다.
+1. 서버 창에 연결에서 필드를 입력합니다.
 
-## 예제 쿼리 실행
+    ![서버에 연결][4]
 
-이제 서버를 등록했으므로 계속해서 쿼리를 작성합니다.
+    - **서버 이름**. 이전에 위치한 *서버 이름*을 입력합니다.
+    - **인증**. SQL Server 인증을 선택합니다.
+    - **로그인** 및 **암호**. Azure SQL Server 로그인 및 암호를 입력합니다.
+    - **Connect**를 클릭합니다.
 
-1. SSDT에서 사용자 데이터베이스를 클릭합니다.
+1. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
 
-2. **새 쿼리** 단추를 클릭합니다. 새 창이 열립니다.
+    ![AdventureWorksDW 탐색하기][5]
 
-![][4]
 
-3. 쿼리 창에 다음 코드를 입력합니다.
+## 3단계: 샘플 쿼리 실행
+
+이제 서버에 연결했으므로 계속해서 쿼리를 작성합니다.
+
+1. SQL Server 개체 탐색기에서 데이터베이스를 마우스 오른쪽 단추로 클릭합니다. 
+
+2. **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
+
+    ![새 쿼리][6]
+
+3. 이 TSQL 쿼리를 쿼리 창에 복사합니다.
 
 	```
 	SELECT COUNT(*) FROM dbo.FactInternetSales;
 	```
 
-4. 쿼리를 실행합니다.
+4. 쿼리를 실행합니다. 이렇게 하려면 녹색 화살표를 클릭하거나 다음 바로 가기를 사용합니다. `CTRL`+`SHIFT`+`E`
 
-	쿼리를 실행하려면 녹색 화살표를 클릭하거나 다음 바로 가기를 사용합니다. `CTRL`+`SHIFT`+`E`
+    ![쿼리 실행][7]
+
+1. 쿼리 결과를 봅니다. 이 예에서 FactInternetSales 테이블에는 60398 행이 있습니다.
+
+    ![쿼리 결과][8]
 
 ## 다음 단계
 
-이제 연결 및 쿼리할 수 있으므로 [PowerBI로 연결][]해 보세요.
+이제 연결 및 쿼리할 수 있으므로 [PowerBI로 데이터 시각화][]를 시도해 보세요.
 
-[PowerBI로 연결]: ./sql-data-warehouse-integrate-power-bi.md
+[PowerBI로 데이터 시각화]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
 
 <!--Image references-->
 
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 [2]: ./media/sql-data-warehouse-get-started-connect/open-ssdt.png
-[3]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
-[4]: ./media/sql-data-warehouse-get-started-connect/new-query.png
+[3]: ./media/sql-data-warehouse-get-started-connect/add-server.png
+[4]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
+[5]: ./media/sql-data-warehouse-get-started-connect/explore-sample.png
+[6]: ./media/sql-data-warehouse-get-started-connect/new-query2.png
+[7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
+[8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/20/2015"
 	ms.author="wesmc"/>
 
 # Chrome 앱에 대한 알림 허브 시작
@@ -417,13 +417,13 @@ REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/P
 
 3. 콘솔 창에서 다음 명령을 실행합니다.
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
    	이 명령은 <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다.
 
 4. **Program.cs** 파일을 열고 다음 `using` 문을 추가합니다.
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 5. **Program** 클래스에서 다음 메서드를 추가합니다.
 
@@ -494,4 +494,4 @@ REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/P
 [Azure 알림 허브 알릴 사용자]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 알림 허브 뉴스 속보]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

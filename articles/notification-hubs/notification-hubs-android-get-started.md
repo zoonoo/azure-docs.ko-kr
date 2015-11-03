@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Android 앱에 대한 알림 허브 시작
@@ -83,13 +83,7 @@
 
 ###코드 추가
 
-1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">알림 허브 Android SDK</a>를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\\notification-hubs-0.4.jar** 및 **notifications\\notifications-1.0.1.jar**을 프로젝트의 **app\\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. **libs** 폴더를 새로 고칩니다.
-
-
-
-	이 두 패키지에 대한 참조 설명서는 다음 링크에 있습니다.
-	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
-	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">알림 허브 Android SDK</a>를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\\notification-hubs-0.3.jar** 및 **notifications\\notifications-1.0.1.jar**을 프로젝트의 **app\\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. **libs** 폴더를 새로 고칩니다.
 
 
     > [AZURE.NOTE]후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.
@@ -162,7 +156,7 @@
     	}
 
 
-7. 앱이 실행 중이며 표시되는 경우 알림을 표시하려면 **DialogNotify** 메서드를 활동에 추가합니다. 또한 대화 상자를 표시하기 위해 활동이 표시되는지 확인하려면 **onStart** 및 **onStop**을 재정의합니다.
+7. 앱이 실행 중이며 표시되는 경우 알림을 표시하려면 `DialogNotify` 메서드를 활동에 추가합니다. 또한 대화 상자를 표시하기 위해 활동이 표시되는지 확인하려면 `onStart`, `onPause`, `onResume` 및 `onStop`을 재정의합니다.
 
 	    @Override
 	    protected void onStart() {
@@ -171,11 +165,22 @@
 	    }
 	
 	    @Override
+	    protected void onPause() {
+	        super.onPause();
+	        isVisible = false;
+	    }
+	
+	    @Override
+	    protected void onResume() {
+	        super.onResume();
+	        isVisible = true;
+	    }
+	
+	    @Override
 	    protected void onStop() {
 	        super.onStop();
 	        isVisible = false;
 	    }
-
 
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
@@ -286,7 +291,7 @@
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-14. Android Studio의 메뉴 모음에서 **빌드** -> **프로젝트 다시 빌드**를 클릭하여 발견된 오류가 없는지 확인합니다.
+14. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 발견된 오류가 없는지 확인합니다.
 
 ##알림 보내기
 
@@ -555,4 +560,4 @@
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-android-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

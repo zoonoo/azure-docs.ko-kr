@@ -18,13 +18,13 @@
 
 # SaaS API에 모바일 앱 연결
 
-이 자습서에서는 모바일 앱을 엔터프라이즈 SaaS(Software-as-a-Service) 솔루션에 연결합니다. 새 TodoItem이 추가될 때마다 SharePoint Online에서 Microsoft Word 문서를 만들도록 [Azure Active Directory 인증 라이브러리 Single Sign-On을 사용하여 앱 인증]에 따라 앱을 업데이트합니다.
+이 자습서에서는 모바일 앱을 엔터프라이즈 SaaS(Software-as-a-Service) 솔루션에 연결합니다. 새 TodoItem이 추가될 때마다 SharePoint Online에서 Microsoft Word 문서를 만들도록 [Azure Active Directory 인증 라이브러리 Single Sign-On]에서 앱을 업데이트합니다.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * Windows 8.1에서 실행 중인 Visual Studio 2013
 * 활성 [SharePoint Online] 구독
-* [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증] 자습서 완료. SharePoint 구독으로 제공된 테넌트를 사용해야 합니다.
+* [Azure Active Directory 인증 라이브러리 Single Sign-On] 자습서 완료. SharePoint 구독으로 제공된 테넌트를 사용해야 합니다.
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
@@ -182,10 +182,9 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 
 <!-- URLs. -->
 
-[Preview Azure Management Portal]: https://portal.azure.com/
 [Active Directory]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/ko-KR/sharepoint/
-[Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Azure Active Directory 인증 라이브러리 Single Sign-On]: app-service-mobile-ios-aad-sso.md
 [모바일 앱 .NET 백 엔드 앱 서비스 확장]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
