@@ -70,11 +70,11 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     ![등록 작업](./media/backup-azure-vms/register-create-job.png)
 
-   또한 등록 작업의 상태와 함께 가상 컴퓨터가 등록된 항목 목록에 나타납니다.
+6. 가상 컴퓨터가 등록된 항목 목록에도 나타나며 등록 작업의 상태가 표시됩니다.
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status will change to reflect the *registered* state.
+7. 작업이 완료되면 포털의 상태가 등록된 상태를 반영하도록 변경됩니다.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
