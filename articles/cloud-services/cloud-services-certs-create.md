@@ -74,10 +74,10 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 ## 다음 단계
 
-[서비스 인증서를 Azure 포털(또는[Preview 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
+서비스 인증서를 Azure 포털(또는[Preview 포털](cloud-services-configure-ssl-certificate-portal.md))에 [업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
 
 [관리 API 인증서](../azure-api-management-certs.md)를 Azure 포털에 업로드합니다.
 
 >[AZURE.NOTE]Azure Preview 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

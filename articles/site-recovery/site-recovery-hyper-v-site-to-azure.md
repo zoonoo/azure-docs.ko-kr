@@ -237,7 +237,7 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 **보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
 		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다.
 			- Large(A3) 및 A6: 2
@@ -305,4 +305,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->
