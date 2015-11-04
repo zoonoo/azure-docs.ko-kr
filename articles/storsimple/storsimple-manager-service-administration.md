@@ -63,6 +63,8 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 ||작업|구성(장치)|| 
 ||경고|유지 관리||
 
+![ビデオ](./media/storsimple-manager-service-administration/Video_icon.png) **ビデオ**
+
 StorSimple Manager 서비스 사용자 인터페이스를 안내하는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)를 클릭하세요.
 
 ## StorSimple Manager 서비스를 사용한 StorSimple 장치 관리
@@ -114,4 +116,4 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 
 -  [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
