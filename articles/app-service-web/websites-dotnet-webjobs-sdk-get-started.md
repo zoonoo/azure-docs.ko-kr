@@ -466,7 +466,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 	- *Global.asax.cs*  
 	- *Controllers* 폴더: *AdController.cs*
 	- *Views\\Shared* 폴더: *\_Layout.cshtml* 파일
-- *Views\\Home* 폴더: *Index.cshtml*
+	- *Views\\Home* 폴더: *Index.cshtml*
 	- *Views\\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일<br/><br/>
 
 3. ContosoAdsWebJob 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
@@ -813,4 +813,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
