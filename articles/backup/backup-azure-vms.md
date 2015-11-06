@@ -28,7 +28,7 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
 ![Azure 가상 컴퓨터를 백업하는 세 단계](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE]가상 컴퓨터 백업은 로컬입니다. 한 지역에서 다른 지역의 백업 자격 증명 모음에 가상 컴퓨터를 백업할 수 없습니다. 따라서 백업이 필요한 VM이 있는 모든 Azure 지역의 경우, 해당 지역에 1개 이상의 백업 저장소가 만들어져야 합니다.
+>[AZURE.NOTE] 가상 컴퓨터 백업은 로컬입니다. 한 지역에서 다른 지역의 백업 자격 증명 모음에 가상 컴퓨터를 백업할 수 없습니다. 따라서 백업이 필요한 VM이 있는 모든 Azure 지역의 경우, 해당 지역에 1개 이상의 백업 저장소가 만들어져야 합니다.
 
 ## 1단계 - Azure 가상 컴퓨터 검색
 검색 프로세스는 항상 첫 번째 단계로 실행하여 구독에 추가된 새 가상 컴퓨터를 식별해야 합니다. 프로세스는 클라우드 서비스 이름 및 지역과 같은 추가 정보와 함께 구독의 가상 컴퓨터 목록을 Azure에 쿼리합니다.
@@ -39,7 +39,8 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
     ![워크로드 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 페이지 맨 아래에서 **검색**을 클릭합니다. ![검색 단추](./media/backup-azure-vms/discover-button-only.png)
+3. 페이지 맨 아래에서 **검색**을 클릭합니다.
+    ![검색 단추](./media/backup-azure-vms/discover-button-only.png)
 
     검색 프로세스는 가상 컴퓨터를 표로 정리하는 동안 몇 분이 걸릴 수 있습니다. 화면 맨 아래에서 프로세스가 실행되고 있다는 것을 알립니다.
 
@@ -58,7 +59,8 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     ![워크로드 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 페이지의 맨 아래에서 **등록**을 클릭합니다. ![등록 단추](./media/backup-azure-vms/register-button-only.png)
+3. 페이지의 맨 아래에서 **등록**을 클릭합니다.
+    ![등록 단추](./media/backup-azure-vms/register-button-only.png)
 
 4. **등록 항목** 바로 가기 메뉴에서 등록하려는 가상 컴퓨터를 선택합니다. 동일한 이름을 가진 가상 컴퓨터가 두 개 이상 있는 경우 클라우드 서비스를 사용하여 가상 컴퓨터를 구분합니다.
 
@@ -70,11 +72,11 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     ![등록 작업](./media/backup-azure-vms/register-create-job.png)
 
-6. 가상 컴퓨터가 등록된 항목 목록에도 나타나며 등록 작업의 상태가 표시됩니다.
+    가상 컴퓨터가 등록된 항목 목록에도 나타나며 등록 작업의 상태가 표시됩니다.
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-7. 작업이 완료되면 포털의 상태가 등록된 상태를 반영하도록 변경됩니다.
+    작업이 완료되면 포털의 상태가 등록된 상태를 반영하도록 변경됩니다.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
@@ -84,6 +86,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 2015년 5월 이후에 만든 Azure 백업 자격 증명 모음은 자격 증명 모음에 기본 제공되는 기본 정책을 사용합니다. 이 기본 정책을 30일의 기본 보존 기간 및 하루 한 번 백업 일정과 함께 제공됩니다.
 
 1. Azure 포털의 **복구 서비스**에 있는 백업 저장소로 이동하여 **등록된 항목**을 클릭합니다.
+
 2. 드롭다운 메뉴에서 **Azure 가상 컴퓨터**를 선택합니다.
 
     ![포털에서 워크로드 선택](./media/backup-azure-vms/select-workload.png)
@@ -94,7 +97,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     동일한 이름을 가진 가상 컴퓨터가 두 개 이상 있는 경우 클라우드 서비스를 사용하여 가상 컴퓨터를 구분합니다.
 
-    >[AZURE.TIP]한 번에 여러 가상 컴퓨터를 보호할 수 있습니다.
+    >[AZURE.TIP] 한 번에 여러 가상 컴퓨터를 보호할 수 있습니다.
 
     ![규모로 보호 구성](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -104,7 +107,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     ![새 정책으로 보호](./media/backup-azure-vms/policy-schedule.png)
 
-    >[AZURE.NOTE]백업 정책은 예약된 백업의 보존 체계를 포함합니다. 기존 백업 정책을 선택하면 다음 단계에서 보존 옵션을 수정할 수 없습니다.
+    >[AZURE.NOTE] 백업 정책은 예약된 백업의 보존 체계를 포함합니다. 기존 백업 정책을 선택하면 다음 단계에서 보존 옵션을 수정할 수 없습니다.
 
 5. **보존 범위**를 선택하여 백업과 연관시킵니다.
 
@@ -140,7 +143,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     ![진행 중인 백업](./media/backup-azure-vms/protect-inprogress.png)
 
->[AZURE.NOTE]백업 작업의 일부로 Azure 백업 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기를 플러시하고 일관된 스냅숏을 찍습니다.
+>[AZURE.NOTE] 백업 작업의 일부로 Azure 백업 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기를 플러시하고 일관된 스냅숏을 찍습니다.
 
 초기 백업이 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 상태가 *보호됨*으로 표시됩니다.
 
@@ -161,4 +164,4 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 - [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
