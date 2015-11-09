@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그에 대한 질문과 대답
@@ -71,12 +71,15 @@
 - Azure 저장소 디렉터리
 - HDFS 파일
 - HDSF 디렉터리
+- Teradata 테이블
+- Teradata 뷰
 
 위에 나열된 자산 외에도 **Azure 데이터 카탈로그**는 다음 데이터 자산 컨테이너의 검색을 지원합니다.
 
 - SQL Server 데이터베이스
 - Oracle 데이터베이스
 - HDFS 클러스터
+- Teradata 데이터베이스 
 
 
 ## 질문: 다른 데이터 원본에 대한 지원을 어떻게 요청하나요?
@@ -169,4 +172,4 @@ Microsoft는 **Azure 데이터 카탈로그**에 더 많은 데이터 원본을 
 
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

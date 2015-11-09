@@ -151,7 +151,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스에서 데이터에
 
 3. `[Authorize]` 특성을 인증을 요구하는 모든 컨트롤러 또는 메서드에 추가합니다. 이제 해당 끝점 또는 특정 API에 액세스하려면 사용자를 인증해야 합니다.
 
-모바일 앱 백 엔드에 클라이언트를 인증하는 방법에 대해 알아보려면 [앱에 인증 추가](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md)를 참조하세요.
+모바일 앱 백 엔드에 클라이언트를 인증하는 방법에 대해 알아보려면 [앱에 인증 추가](app-service-mobile-dotnet-backend-ios-get-started-users.md)를 참조하세요.
 
 ## 방법: 서버 프로젝트에 푸시 알림 추가
 
@@ -191,13 +191,13 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스에서 데이터에
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-이제 등록된 장치에 푸시 알림을 보내는 데 알림 허브 클라이언트를 사용할 수 있습니다. 자세한 내용은 [앱에 푸시 알림 추가](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md)를 참조하세요. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](../notification-hubs/notification-hubs-overview.md)를 참조하세요.
+이제 등록된 장치에 푸시 알림을 보내는 데 알림 허브 클라이언트를 사용할 수 있습니다. 자세한 내용은 [앱에 푸시 알림 추가](app-service-mobile-ios-get-started-push.md)를 참조하세요. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](../notification-hubs/notification-hubs-overview.md)를 참조하세요.
 
 ## 방법: 서버 프로젝트 게시
 
 서버 프로젝트를 Azure에 게시하려면 다음 단계를 사용합니다.
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
 [NuGet.org]: http://www.nuget.org/
@@ -205,4 +205,4 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스에서 데이터에
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

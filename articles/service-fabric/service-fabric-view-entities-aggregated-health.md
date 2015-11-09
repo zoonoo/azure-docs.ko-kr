@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 엔터티에서 집계한 상태를 보는 방법"
+   pageTitle="Azure 서비스 패브릭 엔터티에서 집계한 상태를 보는 방법 | Microsoft Azure"
    description="상태 쿼리 및 일반 쿼리를 통해 Azure 서비스 패브릭 엔터티에서 집계한 상태를 쿼리, 확인 및 평가하는 방법을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # 서비스 패브릭 상태 보고서를 보는 방법
@@ -833,7 +833,7 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 
 [로컬로 서비스를 모니터링 및 진단하는 방법](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[서비스 패브릭 응용프로그램 업그레이드](service-fabric-application-upgrade.md)
+[서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

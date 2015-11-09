@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory B2B 공동 작업"
+   pageTitle="Azure Active Directory B2B 공동 작업 | Microsoft Azure"
    description="Azure Active Directory B2B 공동 작업을 사용하면 비즈니스 파트너가 각 사용자를 단일 Azure AD 계정으로 나타내어 회사 응용 프로그램에 액세스할 수 있습니다."
    services="active-directory"
    documentationCenter=""
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="10/27/2015"
    ms.author="curtand"/>
 
-# Azure Active Directory B2B 공동 작업
+# Azure Active Directory(Azure AD) B2B 공동 작업
 
-Azure Active Directory B2B 공동 작업은 파트너 관리되는 ID에서 회사 응용 프로그램에 액세스를 사용하도록 설정할 수 있습니다. 리소스에 액세스하는 파트너 회사의 사용자를 초대하고 권한을 부여하여 회사 간 관계를 만들 수 있습니다. 각 회사가 Azure Active Directory(Azure AD)로 한 번 페더레이션하고 각 사용자가 단일 Azure AD 계정에서 나타나기 때문에 복잡성이 감소합니다. 파트너 사용자가 자신의 조직에서 종료되는 경우 액세스가 취소되고 내부 디렉터리의 멤버 자격을 통해 의도하지 않은 액세스가 차단되기 때문에 보안이 향상됩니다. Azure AD가 없는 비즈니스 파트너의 경우 B2B 공동 작업은 간소화된 등록 환경으로 비즈니스 파트너에게 Azure AD 계정을 제공합니다.
+Azure AD B2B 공동 작업은 파트너 관리되는 ID에서 회사 응용 프로그램에 액세스를 사용하도록 설정할 수 있습니다. 리소스에 액세스하는 파트너 회사의 사용자를 초대하고 권한을 부여하여 회사 간 관계를 만들 수 있습니다. 각 회사가 Azure Active Directory로 한 번 페더레이션하고 각 사용자가 단일 Azure AD 계정에서 나타나기 때문에 복잡성이 감소합니다. 파트너 사용자가 자신의 조직에서 종료되는 경우 액세스가 취소되고 내부 디렉터리의 멤버 자격을 통해 의도하지 않은 액세스가 차단되기 때문에 보안이 향상됩니다. Azure AD가 없는 비즈니스 파트너의 경우 B2B 공동 작업은 간소화된 등록 환경으로 비즈니스 파트너에게 Azure AD 계정을 제공합니다.
 
 -   비즈니스 파트너는 고유한 로그인 자격 증명을 사용하여 사용자를 외부 파트너 디렉터리의 관리에서 해제하고 사용자가 파트너 조직을 떠날 때 액세스 권한을 제거하지 않게 합니다.
 
@@ -42,7 +42,7 @@ Azure Active Directory B2B 공동 작업은 전자 메일 확인 프로세스를
 
 4. 일단 로그인하면 사용자와 공유하는 앱으로 사용자가 리디렉션됩니다.
 
-소비 전자 메일 주소로 초대하기(예: gmail 또는 [*comcast.net*](http://comcast.net/))는 현재 지원되지 않습니다.
+소비 전자 메일 주소로 초대하기(예: Gmail 또는 [*comcast.net*](http://comcast.net/))는 현재 지원되지 않습니다.
 
 B2B 공동 작업의 작동 원리에 대해 자세한 것은 [이 비디오](http://aka.ms/aadshowb2b)를 확인하세요.
 
@@ -61,5 +61,15 @@ wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
+## 다음 단계
+Azure B2B 공동 작업에 대한 다른 기사 찾아보기
 
-<!---HONumber=Oct15_HO3-->
+- [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [작동 방법](active-directory-b2b-how-it-works.md)
+- [자세한 연습](active-directory-b2b-detailed-walkthrough.md)
+- [CSV 파일 형식 참조](active-directory-b2b-references-csv-file-format.md)
+- [외부 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md)
+- [외부 사용자 개체 특성 변경](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
+
+<!---HONumber=Nov15_HO1-->

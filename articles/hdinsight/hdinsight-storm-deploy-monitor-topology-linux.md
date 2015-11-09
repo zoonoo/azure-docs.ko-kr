@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/04/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 # Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -143,7 +143,14 @@ Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하�
 
 ### 기본 URI
 
-Linux 기반 HDInsight 클러스터에서 REST API에 대한 기본 URI는 **https://headnode0:8744/api/v1/</a>**입니다.
+Linux 기반 HDInsight 클러스터에서 REST API에 대한 기본 URI는 ****https://HEADNODEFQDN:8744/api/v1/**에서 사용할 수 있지만 헤드 노드의 도메인 이름은 클러스터 생성 동안 생성되며 고정되어 있지 않습니다.
+
+다양한 방법으로 클러스터 헤드 노드의 정규화된 도메인 이름(FQDN)을 찾을 수 있습니다.
+
+* __SSH 세션에서__: SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다.
+* __Ambari 웹에서__: 페이지 맨 위에서 __서비스__를 선택한 다음 __Storm__을 선택합니다. __요약__ 탭에서 __Storm UI 서버__를 선택합니다. Storm UI 및 REST API가 실행 중인 노드의 FQDN은 페이지 맨 위에 있습니다.
+* __Ambari REST API에서__: `curl -u admin:PASSWORD -G "https://CLUSTERNAME
+.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. __PASSWORD__를 클러스터의 관리자 암호로 바꿉니다. __CLUSTERNAME__을 클러스터 이름으로 바꿉니다. 응답에서 "host\_name" 항목에는 노드의 FQDN이 포함됩니다.
 
 ### 인증
 
@@ -161,4 +168,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

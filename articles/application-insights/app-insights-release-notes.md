@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
  
 # SDK 릴리스 정보 - Application Insights
@@ -21,16 +21,15 @@
 자세한 릴리스 정보 및 SDK에 대한 업데이트 지침은 다음과 같습니다.
 
 * [.NET](app-insights-release-notes-dotnet.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](app-insights-release-notes-java.md)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [Windows Phone and Store C#|VB](app-insights-release-notes-windows.md)
-* [Windows Phone and Store C++](app-insights-release-notes-windows-cpp.md)
+* [Windows Phone and Store C++](https://github.com/Microsoft/ApplicationInsights-CPP/releases)
 * [기타 플랫폼](https://github.com/Microsoft/ApplicationInsights-Home)
 
 또한 전체적으로 Application Insights 서비스의 주요 개선 사항을 요약하는 [서비스 업데이트](http://azure.microsoft.com/updates/?service=application-insights)를 읽으세요.
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

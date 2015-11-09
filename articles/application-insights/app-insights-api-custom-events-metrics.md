@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -526,14 +526,6 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 **JavaScript 웹 클라이언트의 경우**, [JavaScript 원격 분석 이니셜라이저를 사용합니다](#js-initializer).
 
 
-## <a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키를 설정합니다.
-
-*C#*
-    
-    var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
-    // ...
-
 
 ## 데이터 플러시
 
@@ -550,19 +542,33 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 
 
-## 원격 분석 이니셜라이저 및 프로세서
-
-Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원격 분석을 Application Insights 서비스에 전송하기 전에 캡처하고 처리하는 방법을 사용자 지정할 수 있습니다.
-
-[자세히 알아보기](app-insights-telemetry-processors.md)
 
 
-## 표준 원격 분석을 사용하지 않도록 설정
+## 원격 분석 샘플링, 필터링 및 처리 
 
-`ApplicationInsights.config`를 편집하여 [표준 원격 분석에서 선택한 부분을 사용하지 않도록 설정][config]할 수 있습니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 수 있습니다. 처리는 HTTP 요청 컬렉션 및 종속성 컬렉션과 같은 표준 원격 분석 모듈에서 전송된 데이터를 포함합니다.
 
-[자세히 알아봅니다][config].
+* 원격 분석에 [속성 추가](app-insights-api-filtering-sampling.md#add-properties) - 예: 다른 속성에서 계산된 값 또는 버전 번호.
+* [샘플링](app-insights-api-filtering-sampling.md#sampling)은 표시된 메트릭에 영향을 주지 않고 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하며 문제를 진단하는 기능에 영향을 주지 않으면서 응용 프로그램에서 포털로 전송되는 데이터의 양을 감소시킵니다.
+* [필터링](app-insights-api-filtering-sampling.md#filtering) 또한 볼륨을 줄입니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
 
+[자세히 알아보기](app-insights-api-filtering-sampling.md)
+
+
+## 원격 분석 사용 안 함
+
+원격 분석의 컬렉션 및 전송을 **동적으로 중지 및 시작**:
+
+*C#*
+
+```C#
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+**선택한 표준 수집기 해제** - 예: 성능 카운터, HTTP 요청 또는 종속성 - [ApplicationInsights.config][config]에서 관련 줄을 삭제 또는 주석으로 처리. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
 ## <a name="debug"></a>개발자 모드
 
@@ -576,6 +582,16 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 *VB*
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+
+## <a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키를 설정합니다.
+
+*C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
 
 ## <a name="dynamic-ikey"></a> 동적 계측 키
 
@@ -618,7 +634,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 다양한 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
 
-    telemetryClient.Context.Operation.Name = “MyOperationName”;
+    telemetryClient.Context.Operation.Name = "MyOperationName";
 
 이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config][config]에서 관련 줄을 제거해야 합니다.
 
@@ -708,4 +724,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

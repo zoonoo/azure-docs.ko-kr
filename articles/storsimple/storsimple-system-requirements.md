@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/22/2015"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -163,6 +163,9 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 
 <sup>3</sup> StorSimple 장치에서 IP가 고정된 컨트롤러는 라우팅할 수 있어야 하며 인터넷에 연결할 수 있어야 합니다. 고정 IP 주소는 장치에 대한 업데이트를 제공하는 데 사용됩니다. 장치 컨트롤러가 고정 IP를 통해 인터넷에 연결되는 경우 StorSimple 장치를 업데이트할 수 없습니다.
 
+> [AZURE.IMPORTANT]방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호 해제하지 않는지 확인합니다.
+
+<br></br>
 ### 포트 라우팅
 
 포트 라우팅은 StorSimple 장치에서 실행 중인 소프트웨어 버전에 따라 다릅니다.
@@ -191,10 +194,10 @@ StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 �
 
 ## 다음 단계
 
-- [StorSimple 시스템 제한에 대해 자세히 알아보기](storsimple-limits.md)
-- [StorSimple 솔루션 배포 방법 알아보기](storsimple-deployment-walkthrough.md)
+- [StorSimple 시스템 제한에 대해 자세히 알아봅니다](storsimple-limits.md).
+- [StorSimple 솔루션 배포 방법을 알아봅니다](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

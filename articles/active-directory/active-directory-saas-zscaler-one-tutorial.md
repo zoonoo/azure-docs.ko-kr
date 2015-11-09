@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Azure Active Directory와 Zscaler One 통합| Microsoft Azure" description="Azure Active Directory에서 ZScaler One을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Azure Active Directory와 Zscaler One 통합| Microsoft Azure" 
+    description="Azure Active Directory에서 ZScaler One을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Azure Active Directory와 Zscaler One 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=613694)를 클릭하십시오.
 
 이 자습서에서는 Azure와 Zscaler One의 통합을 보여줍니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   ZScaler One Single Sign-On이 설정된 구독  
 
-이 자습서를 완료하면 ZScaler One에 할당한 Azure AD 사용자가 ZScaler One 회사 사이트 (로그온을 시작한 서비스 공급자)에서, 또는 [액세스 패널 소개](https://msdn.microsoft.com/library/azure/dn308586.aspx)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+이 자습서를 완료하면 ZScaler One에 할당한 Azure AD 사용자가 ZScaler One 회사 사이트 (로그온을 시작한 서비스 공급자)에서, 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -186,6 +199,6 @@ Azure AD 사용자가 ZScaler One에 로그인할 수 있도록 하려면 사용
 
 	![예](./media/active-directory-saas-zscaler-one-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/azure/dn308586.aspx)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -292,9 +292,9 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 	이 명령은 다음과 유사한 정보를 반환합니다.
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	JobTracker에 사용되는 포트는 8050이므로 JobTracker에 사용할 전체 주소는 **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**입니다.
+	JobTracker에 사용되는 포트는 8050이므로 JobTracker에 사용할 전체 주소는 **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**입니다.
 
 1. 다음을 사용하여 Oozie 작업 정의 구성을 만듭니다.
 
@@ -390,13 +390,13 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 	이 명령은 다음과 유사한 값을 반환합니다.
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** 부분은 Oozie 명령에서 사용할 URL입니다.
+	****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** 부분은 Oozie 명령에서 사용할 URL입니다.
 
 2. 모든 명령에 입력할 필요 없이 다음을 사용하여 URL에 대한 환경 변수를 만들 수 있습니다.
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	URL을 이전에 받은 URL로 바꿉니다.
 
@@ -721,4 +721,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

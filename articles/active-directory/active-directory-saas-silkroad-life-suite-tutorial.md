@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="markusvi"/>
 
 
@@ -85,17 +85,32 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 **SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **SilkRoad Life Suite** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][6] <br>
+5. SilkRoad 회사 사이트에 관리자로 로그인합니다. 
+
+
+    > [AZURE.NOTE]Microsoft Azure AD와 페더레이션을 구성하기 위한 SilkRoad Life 인증 응용 프로그램에 대한 액세스를 얻으려면 SilkRoad 지원 또는 SilkRoad 서비스 담당자에게 문의하세요.
+
+
+6. **서비스 공급자**로 이동한 다음 **페더레이션 세부 정보**를 클릭합니다. <br><br>![Azure AD Single Sign-On][10] <br>
+
+
+1. **페더레이션 메타데이터 다운로드**를 클릭한 후, 컴퓨터에 메타데이터 파일을 저장 합니다. <br><br>![Azure AD Single Sign-On][11] <br>
+
+3. Azure AD 포털의 **SilkRoad Life Suite** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][6] <br>
 
 2. **SilkRoad Life Suite에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Azure AD Single Sign-On**을 선택하고**다음**을 클릭합니다.<br><br> ![Azure AD Single Sign-On][7] <br>
 
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD Single Sign-On][8] <br>
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD Single Sign-On][8] <br>
  
-     a. **로그온 URL** 텍스트 상자에 사용자가 SilkRoad Life Suite 사이트에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
+    a. **로그온 URL** 텍스트 상자에 사용자가 SilkRoad Life Suite 사이트에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
 
-     b. **회신 URL** 텍스트 상자에 사용자가 SilkRoad Life Suite 사이트에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).
+    b. 다운로드한 **Silkroad** 메타데이터 파일을 엽니다.
 
-     c. **다음**을 클릭합니다.
+    c. **AssertionConsumerService** 태그를 찾은 후 **위치** 특성을 복사합니다. <br><br>![Azure AD Single Sign-On][21] <br>
+   
+    d. **Reply URL** 텍스트 상자에 값을 붙여 넣습니다.
+ 
+    e. **다음**을 클릭합니다.
  
 4. **SilkRoad Life Suite의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD Single Sign-On][9] <br>
 
@@ -105,19 +120,8 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 
 
-5. SilkRoad 회사 사이트에 관리자로 로그인합니다.
 
-
-    > [AZURE.NOTE]Microsoft Azure AD와 페더레이션을 구성하기 위한 SilkRoad Life 인증 응용 프로그램에 대한 액세스를 얻으려면 SilkRoad 지원 또는 SilkRoad 서비스 담당자에게 문의하세요.
-
-
-
-
-
-6. **서비스 공급자**로 이동한 다음 **페더레이션 세부 정보**를 클릭합니다. <br><br>![Azure AD Single Sign-On][10] <br>
-
-
-1. **인증 원본**을 클릭합니다. <br><br>![Azure AD Single Sign-On][12] <br>
+1. **SilkRoad** 응용 프로그램에서 **인증 원본**을 클릭합니다. <br><br>![Azure AD Single Sign-On][12] <br>
 
 
 
@@ -155,19 +159,19 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션의 목적은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png) <br> 
+1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png) <br> 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
 3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) <br>
  
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png)<br>
+4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png) <br>
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png) <br>
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png) <br>
 
     a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
 
@@ -175,7 +179,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     c. **다음**을 클릭합니다.
 
-6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) <br>
+6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) <br>
  
     a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
 
@@ -185,7 +189,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     d. **역할** 목록에서 **사용자**를 선택합니다. e. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png)<br>
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) <br>
  
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png) <br>
   
@@ -199,6 +203,11 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 이 섹션에서는 SilkRoad Life Suite에서 Britta Simon이라는 사용자를 만들어 보겠습니다. Britta는 Azure AD에서 Britta의 **emailaddress**와 일치하는 SSO ID(종종 *AuthParam*라고 함)가 있어야 합니다
 
+**SilkRoad Life Suite에서 Britta Simon라는 사용자를 만들려면 다음 단계를 수행합니다.**
+
+1. SilkRoad Life Suite 지원팀에 요청하여 Azure AD에서 Britta Simon이라는 **emailaddress**가 동일한 값인 **SSO ID** 특성을 가진 사용자를 만듭니다.
+
+
 
 ### Azure AD 테스트 사용자 할당
 
@@ -206,12 +215,12 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 **Britta Simon을 SilkRoad Life Suite에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br>![사용자 할당][201]<br>
+1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 2. 응용 프로그램 목록에서 **SilkRoad Life Suite**를 선택합니다. <br><br>![사용자 할당][202] <br>
-1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br> <br>![사용자 할당][203]<br>
+1. 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.<br><br>![사용자 할당][205]
+2. 아래쪽 도구 모음에서 **할당**을 클릭합니다. <br><br>![사용자 할당][205]
 
 
 
@@ -252,6 +261,8 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 
 [20]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_100.png
+[21]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_15.png
+
 
 [200]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_201.png
@@ -260,4 +271,4 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

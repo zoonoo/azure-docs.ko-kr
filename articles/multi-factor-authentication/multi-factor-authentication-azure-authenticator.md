@@ -127,7 +127,9 @@ QR 코드가 있으면 앱을 시작합니다. +를 클릭합니다.
 Microsoft 계정 등 비 Azure 계정을 수동으로 추가하려는 경우, 다음을 수행합니다.
 
 
-- 먼저, 계정이 연결된 사이트로부터 비밀 키를 가져와야 합니다. 예를 들어, Outlook.com의 경우 계정 설정, 보안 설정으로 이동하고 인증 앱 설정을 선택합니다. 비밀 키를 가져오려면 바코드를 스캔할 수 없습니다를 선택해야 합니다.
+- Azure가 아닌 계정을 수동으로 추가하는 작업은 QR 코드를 스캔하거나 암호 키를 입력하여 수행할 수 있습니다.
+- 암호 키를 수동으로 입력하려는 경우 계정이 연결된 사이트에서 암호 키를 가져옵니다. 예를 들어, Outlook.com의 경우 계정 설정, 보안 설정으로 이동하고 인증 앱 설정을 선택합니다. 비밀 키를 가져오려면 바코드를 스캔할 수 없습니다를 선택해야 합니다.
+- 
 
 ![계정 추가](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
@@ -135,11 +137,11 @@ Microsoft 계정 등 비 Azure 계정을 수동으로 추가하려는 경우, �
 
 ![계정 추가](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- 맨 아래에 있는 수동으로 입력 단추를 클릭합니다.
+- QR 코드를 스캔하거나 맨 아래에 있는 입력 단추를 수동으로 클릭합니다. QR 코드를 스캔하는 경우 활성화가 즉시 시작되므로 다음 단계는 건너뜁니다.
 
 ![계정 추가](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- 바코드가 표시된 페이지에서 제공되는 accpount 이름과 비밀 키를 입력합니다. 그러면 모바일 앱에서 코드와 URL 상자로 이동합니다. 활성화가 시작됩니다.
+- 암호 키를 수동으로 입력하는 경우 바코드가 표시된 페이지에서 제공되는 계정 이름과 비밀 키를 입력합니다. 그러면 모바일 앱에서 코드와 URL 상자로 이동합니다. 활성화가 시작됩니다.
 
 ![계정 추가](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
@@ -162,4 +164,4 @@ Azure Authenticator를 통한 Touch ID 설정은 매우 간단합니다. PIN을 
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

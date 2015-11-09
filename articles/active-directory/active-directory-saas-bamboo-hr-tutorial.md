@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Bamboo HR과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Bamboo HR을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Bamboo HR과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Bamboo HR을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Bamboo HR과 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=529837)를 클릭하십시오.
 
 이 자습서는 Azure 및 BambooHR의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   BambooHR Single Sign-on이 설정된 구독
 
-이 자습서를 완료한 후 BambooHR에 할당한 Azure AD 사용자가 BambooHR 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+이 자습서를 완료한 후 BambooHR에 할당한 Azure AD 사용자가 BambooHR 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-bamboo-hr-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-bamboo-hr-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -51,9 +64,7 @@
     ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
 ##Single Sign-On 구성
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 BambooHR에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
-이 절차의 일부로 base 64로 인코딩된 인증서 파일을 만들어야 합니다.  
-이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 BambooHR에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base 64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -65,7 +76,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-bamboo-hr-tutorial/IC796688.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **BambooHR Sign-on URL** 텍스트 상자에서 사용자가 사용한 URL을 입력하여 BambooHR 응용 프로그램에 로그인하고(예: https://company.bamboohr.com)) **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **BambooHR Sign On URL** 텍스트 상자에서 사용자가 사용한 URL을 입력하여 BambooHR 응용 프로그램에 로그인하고(예: https://company.bamboohr.com)) **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-bamboo-hr-tutorial/IC796689.png "앱 URL 구성")
 
@@ -87,21 +98,20 @@
 
     ![SAML Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
 
-    1.  Azure 포털의 **BambooHR에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **SSO 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    2.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.  
+    1.  Azure 포털의 **BambooHR에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **SSO 로그인 URL ** 텍스트 상자에 붙여넣습니다.
+2.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
 
-        >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+        >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
     3.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
     4.  **Save**를 클릭합니다.
 
-8.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+8.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
 
-Azure AD 사용자가 BambooHR에 로그인할 수 있도록 하려면 BambooHR로 프로비전되어야 합니다.  
-BambooHR의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자가 BambooHR에 로그인할 수 있도록 하려면 BambooHR로 프로비전되어야 합니다. BambooHR의 경우 프로비전은 수동 작업입니다.
 
 ###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
 
@@ -117,9 +127,9 @@ BambooHR의 경우 프로비전은 수동 작업입니다.
 
 5.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 사용자 이름, 암호 및 전자 메일 주소를 입력합니다.
 
-6.  **저장**을 클릭합니다.
+6.  **Save**를 클릭합니다.
 
->[AZURE.NOTE] 다른 BambooHR 사용자 계정 생성 도구 또는 BambooHR이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE]다른 BambooHR 사용자 계정 생성 도구 또는 BambooHR이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
 
@@ -129,7 +139,7 @@ BambooHR의 경우 프로비전은 수동 작업입니다.
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **BambooHR** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **BambooHR ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "사용자 할당")
 
@@ -137,6 +147,6 @@ BambooHR의 경우 프로비전은 수동 작업입니다.
 
     ![예](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

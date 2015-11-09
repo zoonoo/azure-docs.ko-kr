@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/09/2015"
+   ms.date="10/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션 
@@ -46,7 +46,7 @@ StorSimple은 [저장소 계층화](#automatic-storage-tiering)를 사용하여 
 |Azure Government 포털의 가용성 | StorSimple은 Azure Government 포털에서 현재 사용 가능합니다. 자세한 내용은 [정부 포털에서 온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-gov.md)를 참조하세요.|
 |영역 중복 저장소 지원 | 최신 버전의 저장소 API에 대한 업데이트로, StorSimple 8000 시리즈는 로컬 중복 저장소(LRS) 및 지역 중복 저장소(GRS) 외에도 영역 중복 저장소(ZRS)를 지원합니다. ZRS 세부 정보는 [Azure 저장소 중복 옵션에 대한 기사](https://azure.microsoft.com/documentation/articles/storage-redundancy/)를 참조하세요.
 
-![동영상 아이콘](./media/storsimple-overview/video_icon.png) StorSimple 8000 시리즈 기능 및 이점에 대한 개요는 [이 동영상](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be)을 보세요.
+![동영상 아이콘](./media/storsimple-overview/video_icon.png) StorSimple 8000 시리즈 기능 및 이점에 대한 소개는 [이 동영상](http://azure.microsoft.com/documentation/videos/guru-pangals-welcome-to-wpc--july-2015)을 보세요.
 
 ## StorSimple 구성 요소
 
@@ -66,6 +66,8 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 
 다음 섹션에서는 이러한 각 구성 요소를 자세히 설명하고 솔루션이 데이터를 정렬하고, 저장소를 할당하고 저장소 관리 및 데이터 보호를 용이하게 방법에 대해 설명합니다. 마지막 섹션에서는 StorSimple 구성 요소 및 해당 관리와 관련된 중요한 일부 용어 및 개념의 정의를 제공합니다.
 
+![동영상 아이콘](./media/storsimple-overview/video_icon.png) StorSimple 장치, StorSimple 가상 장치 및 StorSimple 관리자 서비스에 대한 소개는 [이 동영상](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be)을 보세요.
+
 ## StorSimple 장치
 
 Microsoft Azure StorSimple 장치는 기본 저장소 및 그 곳에 저장된 데이터에 대한 iSCSI 액세스를 제공하는 온-프레미스 하이브리드 저장소 배열입니다. 클라우드 저장소와의 통신을 관리하고 보안 및 Microsoft Azure StorSimple 솔루션에 저장된 모든 데이터의 기밀성을 보장하는데 도움이 됩니다.
@@ -77,7 +79,7 @@ StorSimple 장치에 클러스터링 및 자동 장애 조치에 대한 지원 �
 - 하드웨어 모니터링
 - 전원이 중단되는 경우 정보를 유지하는 비휘발성 임의 액세스 메모리(NVRAM)
 - 클러스터 인식 업데이트는 서비스 가용성에 영향을 주지 않거나 최소한의 영향을 주도록 장애 조치 클러스터의 서버의 소프트웨어 업데이트를 관리합니다.
-- 백엔드 클러스터와 같은 기능의 클러스터 서비스는 고가용성을 제공하며 HDD 또는 SSD가 고장 나거나 오프라인으로 전환되는 경우 발생할 수 있는 부정적인 영향을 최소화합니다.
+- 백엔드 클러스터와 같은 기능의 클러스터 서비스는 고가용성을 제공하며 HDD 또는 SSD가 고장나거나 오프라인으로 전환되는 경우 발생할 수 있는 부정적인 영향을 최소화합니다.
 
 언제든지 컨트롤러 하나만 활성화됩니다. 활성 컨트롤러에 실패하면 두 번째 컨트롤러가 자동으로 활성화됩니다.
 
@@ -226,7 +228,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | 동적 디스크 미러링 | 동적 디스크에 논리 디스크 볼륨을 복제합니다.|
 | 동적 디스크 | LDM(논리 디스크 관리자)을 사용하여 여러 실제 디스크에 데이터를 저장하고 관리하는 디스크 볼륨 형식입니다. 사용 가능한 추가 공간을 제공하기 위해 동적 디스크를 확장할 수 있습니다.|
 | EBOD(Extended Bunch of Disks) 엔클로저 | 추가 저장소를 위해 여분의 하드 드라이브 디스크를 포함하는 Microsoft Azure StorSimple 장치의 보조 엔클로저입니다.|
-| 팻 프로비저닝 | 예상 요구를 기준으로 저장소 공간이 할당되며 일반적으로 현재 요구를 초과하는 기존 저장소 프로비저닝입니다. *씬 프로비저닝*을 참조하세요.|
+| 팻 프로비저닝 | 예상 요구를 기준으로 저장소 공간이 할당되며 일반적으로 현재 요구를 초과하는 기존 저장소 프로비저닝입니다. *씬 프로비저닝*도 참조하세요.|
 | 하드 디스크 드라이브(HDD) | 회전하는 플래터를 사용하여 데이터를 저장하는 드라이브입니다.|
 | 하이브리드 클라우드 저장소 | 클라우드 저장소를 포함하여 로컬 및 오프사이트 리소스를 사용하는 저장소 아키텍처입니다.|
 | Internet Small Computer System Interface(iSCSI) | 데이터 저장소 장비 또는 시설을 연결하기 위한 IP(인터넷 프로토콜) 기반 저장소 네트워킹 표준입니다.|
@@ -249,7 +251,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | StorSimple 관리자 서비스 | Azure StorSimple 온-프레미스 및 가상 장치를 관리할 수 있게 해주는 Azure 관리 포털의 확장입니다.|
 | StorSimple 스냅숏 관리자 | Microsoft Azure StorSimple에서 백업 및 복원 작업을 관리하기 위한 MMC(Microsoft Management Console) 스냅인입니다.|
 | 백업 수행 | 사용자가 대화형으로 볼륨을 백업할 수 있게 해주는 기능입니다. 정의된 정책을 통해 자동화된 백업을 수행하는 대신 볼륨의 수동 백업을 수행하는 대체 방법입니다.|
-| 씬 프로비저닝 | 사용 가능한 저장소 공간이 저장소 시스템에서 사용되는 효율성을 최적화하는 방법입니다. 씬 프로비저닝에서는 지정된 시간에 각 사용자에게 필요한 최소 공간을 기준으로 여러 사용자 간에 저장소가 할당됩니다. *팻 프로비저닝*을 참조하세요.|
+| 씬 프로비저닝 | 사용 가능한 저장소 공간이 저장소 시스템에서 사용되는 효율성을 최적화하는 방법입니다. 씬 프로비저닝에서는 지정된 시간에 각 사용자에게 필요한 최소 공간을 기준으로 여러 사용자 간에 저장소가 할당됩니다. *팻 프로비저닝*도 참조하세요.|
 | 계층화 | 현재 사용량, 수명 및 다른 데이터에 대한 관계에 따라 논리적 그룹화에서 데이터를 정렬합니다. StorSimple은 계층에서 데이터를 자동으로 정렬합니다. |
 | 볼륨 | 드라이브 형태로 제공되는 논리 저장소 영역입니다. StorSimple 볼륨은 iSCSI 및 StorSimple 장치를 사용하여 검색된 볼륨을 포함하여 호스트에 의해 탑재된 볼륨에 해당합니다.|
  | 볼륨 컨테이너 | 볼륨 및 볼륨에 적용되는 설정의 그룹화입니다. StorSimple 장치의 모든 볼륨은 볼륨 컨테이너로 그룹화됩니다. 볼륨 컨테이너 설정에는 저장소 계정, 연결된 암호화 키와 함께 클라우드에 전송된 데이터에 대한 암호화 설정 및 클라우드 관련 작업에 사용된 대역폭이 포함됩니다.|
@@ -269,4 +271,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

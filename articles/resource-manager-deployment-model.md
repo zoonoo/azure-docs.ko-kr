@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/26/2015"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 배포 및 클래식 배포 이해
@@ -46,7 +46,7 @@
 
         ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        계산, 저장, 네트워킹 리소스에 리소스 관리자를 사용할지 클래식 배포를 사용할지 선택할 수 있습니다. **리소스 관리자**를 선택합니다.
+        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -77,7 +77,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        또는 Preview 포털과 **클래식** 배포(계산, 저장소 및 네트워킹의 경우)를 지정합니다.
+        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -155,6 +155,8 @@
 - 리소스 관리자 배포 모델로 배포된 가상 컴퓨터는 가상 네트워크에 포함되어야 합니다.
 - 클래식 배포 모델로 배포된 가상 컴퓨터는 가상 네트워크에 포함되어야 합니다.
 
+가상 컴퓨터에 대한 가동 중지를 이용할 수 있는 경우 [ASM2ARM PowerShell 스크립트](https://github.com/fullscale180/asm2arm)를 사용하여 클래식 배포에서 리소스 관리자로 전환할 수 있습니다.
+
 클래식 배포에서 리소스 관리자로 전환 시 해당 Azure CLI 명령 목록은 [VM 작업을 위한 해당 리소스 관리자 및 서비스 관리 명령](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md)을 참조하세요.
 
 전환, 계산, 저장소 및 네트워킹 리소스에 관한 자세한 내용은 [Azure 리소스 관리자에서 Azure 계산, 네트워크 및 저장소 공급자](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
@@ -166,4 +168,4 @@
 - 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -3,7 +3,7 @@
    description="필요에 따라 가동 중지 시간 없이 규모를 조정하는 동안 비용 및 기능의 균형을 잘 유지할 수 있도록 Azure SQL 데이터베이스 서비스 계층의 성능 및 비즈니스 연속성 기능을 비교합니다."
    services="sql-database"
    documentationCenter=""
-   authors="shontnew"
+   authors="rothja"
    manager="jeffreyg"
    editor="monicar"/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/13/2015"
-   ms.author="shkurhek"/>
+   ms.date="10/29/2015"
+   ms.author="jroth"/>
 
 # SQL 데이터베이스 서비스 계층
-
+ 
 ## 개요
 [Azure SQL 데이터베이스](sql-database-technical-overview.md)는 다양한 유형의 워크로드를 처리할 수 있도록 복수의 서비스 계층을 제공합니다. 정의된 특성을 가진 [단일 데이터베이스를 만들고](sql-database-get-started.md) 가격을 책정하는 옵션이 있습니다. 또는 [탄력적 데이터베이스 풀을 만들어](sql-database-elastic-pool-portal.md) 여러 데이터베이스를 관리할 수 있습니다. 두 경우 모두 계층은 **Basic**, **Standard** 및 **Premium**을 포함합니다. 하지만 이러한 계층의 특성은 개별 데이터베이스를 만드는지 아니면 탄력적인 데이터베이스 풀에 데이터베이스를 만드는지 여하에 따라 다릅니다. 이 문서에서는 두 컨텍스트 모두의 서비스 계층에 대한 개요를 제공합니다.
 
@@ -39,6 +39,11 @@
 
 [AZURE.INCLUDE [SQL DB 서비스 계층 테이블](../../includes/sql-database-service-tiers-table.md)]
 
+
+DTU를 보다 잘 이해하려면 이 항목에서 [DTU 섹션](#understanding-dtus)을 참조하세요.
+
+>[AZURE.NOTE]이 서비스 계층 표에서 다른 모든 행에 대한 자세한 설명은 [서비스 계층 기능 및 제한](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)을 참조하세요.
+
 ### 탄력적 데이터베이스 풀에 대한 서비스 계층
 단일 데이터베이스를 만들고 규모를 확장하는 것 외에도 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md) 내에 복수의 데이터베이스를 관리하는 옵션이 있습니다. 탄력적 데이터베이스 풀에 있는 모든 데이터베이스가 공통의 리소스 집합을 공유합니다. 성능 특성은 *탄력적 데이터베이스 트랜잭션 장치*(eDTU)에 의해 측정됩니다. 단일 데이터베이스의 경우와 마찬가지로 탄력적 데이터베이스 툴은 세 가지 성능 계층 **Basic**, **Standard** 및 **Premium**으로 제공됩니다. 탄력적 데이터베이스의 경우 이러한 세 가지 서비스 계층은 여전히 전체 성능 한계와 여러 기능을 정의합니다.
 
@@ -48,9 +53,9 @@
 
 [AZURE.INCLUDE [탄력적 데이터베이스에 대한 SQL DB 서비스 계층 표](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
->[AZURE.NOTE]또한 풀 내의 각 데이터베이스는 해당 계층에 대한 단일 데이터베이스 특성을 준수합니다. 예를 들어 Basic 풀의 최대 세션 수 한계는 2400 ~ 28800개이지만, 해당 풀 내의 개별 데이터베이스에 대한 데이터베이스 세션 한계는 300개입니다(앞 섹션에서 지정한 단일 Basic 데이터베이스에 대한 한계).
+또한 풀 내의 각 데이터베이스는 해당 계층에 대한 단일 데이터베이스 특성을 준수합니다. 예를 들어 Basic 풀의 최대 세션 수 한계는 2400 ~ 28800개이지만, 해당 풀 내의 개별 데이터베이스에 대한 데이터베이스 세션 한계는 300개입니다(이전 섹션에서 지정한 단일 Basic 데이터베이스에 대한 한계).
 
-## DTU 이해
+### DTU 이해
 
 [AZURE.INCLUDE [SQL DB DTU 설명](../../includes/sql-database-understanding-dtus.md)]
 
@@ -78,7 +83,7 @@ SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 �
 
 성능 메트릭이 더 낮은 성능 수준으로 다운그레이드할 수 있는지 여부를 판단하는 데 도움이 될 수도 있습니다. 표준 S2 데이터베이스를 사용하고 있는데 모든 성능 메트릭에서 지정한 시기에 데이터베이스가 평균적으로 10% 이하를 사용하는 것으로 나타난다고 가정합니다. 데이터베이스가 표준 S1에서 잘 작동할 가능성이 있습니다. 그러나 더 낮은 성능 수준으로 이동하도록 결정하기 전에 갑자기 증가하거나 변동하는 워크로드에 주의해야 합니다.
 
-포털에 표시된 것과 같은 메트릭을 서버의 논리 마스터 데이터베이스에 있는 [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx), 사용자 데이터베이스의 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) 등의 시스템 뷰를 통해 사용할 수도 있습니다. (**sys.dm\_db\_resource\_stats**는 각 Basic, Standard 및 Premium 사용자 데이터베이스에 만들어집니다. Web 및 Business 버전 데이터베이스는 빈 결과 집합을 반환합니다.) 더 오랜 개간 동안 덜 자세한 데이터를 모니터링해야 하는 경우 **sys.resource\_stats**를 사용합니다. 더 작은 시간 범위의 자세한데이터를 모니터링해야 하는 경우 **sys.dm\_db\_resource\_stats**를 사용합니다. 자세한 내용은 [Azure SQL 데이터베이스 성능 지침](https://msdn.microsoft.com/library/azure/dn369873.aspx)을 참조하세요.
+포털에 표시된 것과 같은 메트릭을 서버의 논리 **마스터** 데이터베이스에 있는 [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx), 사용자 데이터베이스의 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) 등의 시스템 뷰를 통해 사용할 수도 있습니다. (**sys.dm\_db\_resource\_stats**는 각 Basic, Standard 및 Premium 사용자 데이터베이스에 만들어집니다. Web 및 Business 버전 데이터베이스는 빈 결과 집합을 반환합니다.) 더 오랜 개간 동안 덜 자세한 데이터를 모니터링해야 하는 경우 **sys.resource\_stats**를 사용합니다. 더 작은 시간 범위의 자세한 데이터를 모니터링해야 하는 경우 **sys.dm\_db\_resource\_stats**를 사용합니다. 자세한 내용은 [Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats)을 참조하세요.
 
 탄력적 데이터베이스 풀의 경우 이 섹션에서 설명하는 기법을 사용하여 풀의 개별 데이터베이스를 모니터링할 수 있습니다. 하지만 전체적으로 풀을 모니터링할 수도 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)를 참조하세요.
 
@@ -90,4 +95,4 @@ SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 �
 SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

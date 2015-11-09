@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="푸시 알림 내에서 이모지 이모티콘 사용" 
-	description="푸시 알림 내에서 이모지 이모티콘을 사용하는 방법"					
+	pageTitle="Azure 모바일 계약 내에서 이모지 이모티콘 사용" 
+	description="푸시 알림 내에서 이모지 이모티콘을 사용하는 방법"		
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -11,41 +11,43 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="10/22/2015" 
 	ms.author="piyushjo" />
 
 #푸시 알림 내에서 이모지 이모티콘 사용
 
-푸시 알림에 이모지 이모티콘을 포함할 수 있습니다. 현재 Azure Mobile Engagement에서는 앱 내 및 외부 텍스트 알림에 대해 3바이트 이모지 이모티콘만 지원합니다. 다음 단계를 따르세요.
+다음과 같은 쉬운 몇 가지 단계를 통해 푸시 알림에 이모지 이모티콘을 포함할 수 있습니다.
 
-1.  먼저 3바이트 이모지 이모티콘 라이브러리를 찾아야 합니다. 다음 [링크](http://stackoverflow.com/questions/10153529/emoji-on-mysql-and-php-why-some-symbol-yes-other-not)에서 사용 가능한 모든 이모지 이모티콘을 찾을 수 있습니다.
+1. 먼저 메시지에서 보낼 이모지를 찾아야 합니다. 장치 제조업체에서 새로 승인한 이모지를 장치 플랫폼에 추가하려면 다소 시간이 걸리므로 선택하는 이모지를 대상 장치에서 지원할지 확인하십시오. 
+
+2. **Windows**에서 이 [링크](http://apps.timwhitlock.info/emoji/tables/unicode)를 탐색하고 ‘네이티브' 아이콘을 복사할 수 있습니다.
+
+	![][7]
+
+3. **Mac**에서 편집 -> 이모지 및 기호 아래의 사전 응용 프로그램에서 이모지를 찾을 수 있습니다.
+
+	![][6]
+
+4. 이제 Azure Mobile Engagement 포털에서 **Reach** 탭으로 이동합니다. 푸시 알림 유형(공지, 설문 조사 등)을 선택합니다. 이 예제에서는 공지 푸시를 선택합니다.
+
+5. 알림 텍스트에 도달할 때까지 여러 알림 필드를 지정합니다. 이 위치에서 이모지 이모티콘을 추가합니다. 제목, 메시지 또는 두 항목 모두에 이모티콘을 넣을 수 있습니다. 위의 위치에서 찾은 이모지를 끌어서 놓거나 복사해야 합니다.
 
 	![][1]
-
-2. Azure Mobile Engagement 포털에서 도달률 탭으로 이동합니다.
-
-3. 푸시 알림 유형(공지, 설문 조사 등)을 선택합니다. 이 예제에서는 공지 푸시를 선택합니다.
-
-4. 알림 텍스트에 도달할 때까지 여러 알림 필드를 지정합니다. 이 위치에서 이모지 이모티콘을 추가합니다. 제목, 메시지 또는 두 항목 모두에 이모티콘을 넣을 수 있습니다.
-
-	![][2]
-
-5. 이전 링크에서 사용할 이모지 이모티콘을 잘라냅니다. 제목 및/또는 메시지의 선택한 위치에 직접 붙여넣습니다.
 
 6. 알림에 대한 다른 필드를 완료하고 저장합니다.
 
 7. 테스트를 실행하거나 공지를 활성화할 때 지정된 대로 이모티콘이 있는 알림이 표시됩니다.
 
-	![][3] 
-	![][4]
+	![][3] ![][4] ![][5]
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png
-[2]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
-[3]: ./media/mobile-engagement-use-emoji-with-push/notification_android.png
-[4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
- 
+[1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
+[3]: ./media/mobile-engagement-use-emoji-with-push/iOS_Emoji.png
+[4]: ./media/mobile-engagement-use-emoji-with-push/Android_Emoji.png
+[5]: ./media/mobile-engagement-use-emoji-with-push/WindowsPhone_Emoji.png
+[6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
+[7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

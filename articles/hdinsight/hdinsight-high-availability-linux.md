@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
@@ -37,7 +37,7 @@ HDInsight 클러스터는 주 노드에서 오류가 발생할 경우 마스터 
 
 일반적으로 공용 게이트웨이(Ambari 웹 및 REST API)를 통한 클러스터에 대한 모든 액세스는 헤드 노드가 여러 개인 것에 영향을 받지 않습니다. 요청은 활성 헤드 노드로 라우트되고 적절하게 서비스됩니다.
 
-SSH를 사용하여 클러스터에 액세스하고 포트 22(SSH의 기본값)를 통해 연결할 경우 headnode0에 연결되고 포트 23을 통해 연결할 경우 headnode1에 연결됩니다.
+SSH를 사용하여 클러스터에 액세스하고 포트 22(SSH의 기본값)를 통해 연결할 경우 headnode0에 연결되고 포트 23을 통해 연결할 경우 headnode 1에 연결됩니다.
 
 ### 내부 FQDN(정규화된 도메인 이름)
 
@@ -49,7 +49,7 @@ HDInsight 클러스터의 노드는 클러스터에서만 액세스할 수 있�
 
 그러면 다음과 유사한 값이 반환되며, 이 값은 `oozie` 명령에 사용할 내부 URL을 포함합니다.
 
-	"oozie.base.url": "http://headnode0.CLUSTERNAME-ssh.d9.internal.cloudapp.net:11000/oozie"
+	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
 ## 서비스 상태를 확인하는 방법
 
@@ -74,7 +74,7 @@ Ambari 웹 UI 또는 Ambari REST API를 사용하여, 헤드 노드에서 실행
 응답은 다음과 유사합니다.
 
 	{
-	  "href" : "http://headnode0.mycluster-ssh.j7.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
 	  "ServiceInfo" : {
 	    "cluster_name" : "mycluster",
 	    "service_name" : "HDFS",
@@ -82,7 +82,7 @@ Ambari 웹 UI 또는 Ambari REST API를 사용하여, 헤드 노드에서 실행
 	  }
 	}
 
-URL은 현재 서비스가 **headnode0**에서 실행되고 있음을 알려줍니다.
+URL은 현재 서비스가 **head node 0**에서 실행되고 있음을 알려줍니다.
 
 상태는 현재 서비스가 실행되고 있음(**STARTED**)을 알려줍니다.
 
@@ -166,4 +166,4 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

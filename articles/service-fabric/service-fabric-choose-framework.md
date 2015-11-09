@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -36,4 +36,4 @@
 - [신뢰할 수 있는 행위자 API에 대해 알아보기](service-fabric-reliable-actors-introduction.md)
 - [신뢰할 수 있는 서비스 API에 대해 알아보기](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

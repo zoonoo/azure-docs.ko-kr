@@ -1,5 +1,5 @@
 <properties
-   pageTitle="리소스에 대한 액세스 관리 및 감사"
+   pageTitle="리소스에 대한 액세스 관리"
    description="역할 기반 액세스 제어(RBAC)를 사용하여 Azure에 배포된 리소스의 사용자 권한을 관리합니다."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/28/2015"
    ms.author="tomfitz"/>
 
 # 리소스에 대한 액세스 관리
@@ -265,7 +265,8 @@ Azure 리소스 관리자 REST API를 통한 역할 기반 액세스 제어를 �
 - 역할 기반 액세스 제어에 대한 자세한 내용은 [Microsoft Azure 포털에서 역할 기반 액세스 제어](../role-based-access-control-configure.md)를 참조하세요.
 - 구독에서 응용 프로그램에 대한 액세스를 관리하기 위해 필요한 서비스 주체 작업과 관련된 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md) 및 [Azure 클래식 포털을 사용하여 Azure 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
 - 조직에서 작업을 감사하는 방법에 대한 자세한 내용은 [리소스 관리자로 작업 감사](../resource-group-audit.md)를 참조하세요.
+- 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../resource-manager-policy.md)를 참조하세요.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

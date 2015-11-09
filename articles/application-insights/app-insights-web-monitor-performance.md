@@ -135,7 +135,6 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 원하는 경우 같은 효과를 가진 코드를 작성할 수 있습니다.
 
     var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
@@ -194,4 +193,4 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

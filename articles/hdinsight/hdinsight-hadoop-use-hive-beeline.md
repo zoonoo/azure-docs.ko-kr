@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/05/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용
@@ -55,21 +55,27 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
 ##<a id="beeline"></a>Beeline 명령 사용
 
-2. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
+1. 연결되면 다음을 사용하여 헤드 노드의 호스트 이름을 가져옵니다.
+
+        hostname -f
+    
+    Beeline에서 HiveServer2에 연결할 때 나중에 사용하도록 반환된 호스트 이름을 저장합니다.
+    
+2. 다음 명령을 사용하여 Hive CLI를 시작합니다.
 
         beeline
 
-2. `beeline>`라는 메시지에서 다음을 사용하여 HiveServer2 서비스에 연결합니다.
+2. `beeline>`라는 메시지에서 다음을 사용하여 HiveServer2 서비스에 연결합니다. __HOSTNAME__을 이전의 헤드 노드에 반환된 호스트 이름으로 교체합니다.
 
-        !connect jdbc:hive2://headnode0:10001/;transportMode=http admin
+        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
 
     메시지가 표시되면 HDInsight 클러스터에 관리자(관리자) 계정에 암호를 입력합니다. 연결이 설정되면 프롬프트는 메시지는 다음으로 변경됩니다.
     
-        jdbc:hive2://headnode0:10001/>
+        jdbc:hive2://HOSTNAME:10001/>
 
 3. Beeline 명령은 일반적으로 `!` 문자로 시작합니다. 예를 들어 `!help`는 도움말을 표시합니다. 그러나 `!`은 생략될 수 있습니다. 예를 들어 `help`도 작동합니다.
 
-    도움말을 보면 `!sql`는 HiveQL 문을 실행하는 데 사용됩니다. 그러나 HiveQL는 너무 일반적으로 사용되어 이전의 `!sql`를 생략할 수 있습니다. 다음 두 문의 결과가 정확하게 동일하며 하이브를 통해 현재 사용 가능한 테이블을 표시합니다.
+    도움말을 보면 `!sql`는 HiveQL 문을 실행하는 데 사용됩니다. 그러나 HiveQL은 너무 일반적으로 사용되어 이전의 `!sql`를 생략할 수 있습니다. 다음 두 문의 결과가 정확하게 동일하며 하이브를 통해 현재 사용 가능한 테이블을 표시합니다.
     
         !sql show tables;
         show tables;
@@ -151,11 +157,11 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
 또한 Beeline은 HiveQL 문을 포함하는 파일을 실행하는 데 사용할 수 있습니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 
-1. 다음 명령을 사용하여 __query.hql__라는 새 파일을 만듭니다.
+1. 다음 명령을 사용하여 __query.hql__이라는 새 파일을 만듭니다.
 
         nano query.hql
         
-2. 편집기가 열리면 파일의 내용으로 다음을 사용합니다. 이 쿼리는 **errorLogs**라는 새 '내부' 테이블을 만듭니다.
+2. 편집기가 열리면 파일의 내용으로 다음을 사용합니다. 이 쿼리는 **errorLogs**라는 새 ‘내부' 테이블을 만듭니다.
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
@@ -170,11 +176,11 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
     
 3. 파일을 저장하려면 __Ctrl__+___\_X__을 사용한 다음 __Y__ 및 마지막으로 __Enter__를 입력합니다.
 
-4. Beeline를 사용하여 파일을 실행하려면 다음을 사용합니다.
+4. Beeline을 사용하여 파일을 실행하려면 다음을 사용합니다. __HOSTNAME__을 헤드 노드에 가져온 이전 이름으로 바꾸고 __PASSWORD__를 관리자 계정의 암호로 바꿉니다.
 
-        beeline -u 'jdbc:hive2://headnode0:10001/;transportMode=http' -n admin -p GiantR0b0! -f query.hql
+        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
 
-5. **errorLogs** 테이블을 만들었는지 확인하려면 Beeline를 시작하고 HiveServer2에 연결한 후 다음 문을 사용하여 **errorLogs**에서 모든 행을 반환합니다.
+5. **errorLogs** 테이블을 만들었는지 확인하려면 Beeline을 시작하고 HiveServer2에 연결한 후 다음 문을 사용하여 **errorLogs**에서 모든 행을 반환합니다.
 
         SELECT * from errorLogs;
 
@@ -237,4 +243,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

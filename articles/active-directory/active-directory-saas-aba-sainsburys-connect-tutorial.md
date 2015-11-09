@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: ABa Sainsburys Connect와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 ABa Sainsburys Connect를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties
+    pageTitle="자습서: ABa Sainsburys Connect와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 ABa Sainsburys Connect를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Aba Sainsburys Connect와 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=615290)를 클릭하십시오.
 
 이 자습서는 Azure 및 Aba Sainsburys Connect의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Aba Sainsburys Connect single sign-on이 설정된 구독
 
-이 자습서를 완료한 후 Aba Sainsburys Connect에 할당한 Azure AD 사용자가 Aba Sainsburys Connect 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+이 자습서를 완료한 후 Aba Sainsburys Connect에 할당한 Azure AD 사용자가 Aba Sainsburys Connect 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -68,9 +81,9 @@
     ![앱 설정 구성](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "앱 설정 구성")
 
     1.  **로그온 URL** 텍스트 상자에 사용자가 Aba Sainsburys Connect 응용 프로그램에 로그인하는 데 사용하는 URL(예: **https://myaba.co.uk/client-access/sainsburys/saml.php*))을 입력합니다.
-    2.  **다음**를 클릭합니다.
+2.  **다음**를 클릭합니다.
 
-4.  **Aba Sainsburys Connect에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 저장합니다.
+4.  **Aba Sainsburys Connect에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807729.png "Single Sign-On 구성")
 
@@ -78,7 +91,7 @@
 
     >[AZURE.NOTE]Aba Sainsburys Connect 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
 
-6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+6.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807730.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -103,6 +116,6 @@ Aba Sainsburys Connect에 로그인 하려는 사용자가 Azure AD를 사용하
 
     ![예](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

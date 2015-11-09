@@ -74,7 +74,35 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 	
 > 연속하는 WebJob을 모든 인스턴스에서 안정적으로 실행하려면 웹앱에 대한 항상 위* 구성 설정을 사용하도록 설정합니다. 그렇지 않으면 SCM 호스트 사이트를 오래 동안 사용하지 않을 경우 실행이 중지될 수 있습니다.
 
-## <a name="CreateScheduled"></a>예약된 웹 작업 만들기
+## <a name="CreateScheduledCRON"></a>CRON 식을 사용하여 예정된 WebJob 만들기
+
+이 기술은 표준 또는 프리미엄 모드에서 실행 중인 웹앱에 사용할 수 있으며 앱에서 활성화하도록 **Always On** 설정이 필요합니다.
+
+주문형 WebJob을 예정된 WebJob으로 설정하려면 WebJob zip 파일의 루트에 `settings.job` 파일을 포함하면 됩니다. 이 JSON 파일에는 아래 예제별로 [CRON 식](https://en.wikipedia.org/wiki/Cron)이 포함된 `schedule` 속성이 포함되어야 합니다.
+
+CRON 식은 6개의 필드로 구성되어 있습니다. `{second} {minute} {hour} {day} {month} {day of the week}`.
+
+예를 들어 15분마다 WebJob을 트리거하려면 `settings.job`에 다음 사항이 있어야 합니다.
+
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+``` 
+
+다른 CRON 일정 예:
+
+- 1시간마다(즉, 분 횟수가 0일 때마다): `* 0 * * * *` 
+- 1시간마다(오전 9시~오후 5시): `* 0 9-17 * * *` 
+- 매일 오전 9시 30분: `* 30 9 * * *`
+- 매주 오전 9시 30분: `* 30 9 * * 1-5`
+
+**참고**: Visual Studio에서 WebJob을 배포하는 경우 `settings.job` 파일 속성이 ‘변경된 내용만 복사'로 표시되는지 확인합니다.
+
+
+## <a name="CreateScheduled"></a>Azure 스케줄러를 사용하여 예정된 WebJob 만들기
+
+다음 대체 기술은 Azure 스케줄러를 사용합니다. 이 경우 WebJob에 일정의 직접적인 정보가 없습니다. 대신 Azure 스케줄러는 일정에서 WebJob을 트리거하도록 구성됩니다.
 
 Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 기능이 추가될 때까지 [이전 포털](http://manage.windowsazure.com)을 사용하여 만들 수 있습니다.
 
@@ -211,4 +239,4 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

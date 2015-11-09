@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/09/2015"
+      ms.date="10/28/2015"
       ms.author="hascipio; v-divte" />
 
 # Azure 마켓플레이스용 솔루션 템플릿 만들기에 대한 가이드
@@ -44,16 +44,6 @@
 
 Zip 파일을 업로드한 후 **인증 요청**을 클릭합니다. Microsoft 인증 팀이 파일을 검토하고 토폴로지를 인증합니다.
 
-또한 아래 단계에 따라 최종 사용자를 위해 실제 배포하지 않고 만들기 환경을 확인할 수도 있습니다.
-
-1. *createUiDefinition.json*을 저장하고 절대 URL을 생성합니다. 이 URL은 공개적으로 액세스할 수 있어야 합니다.
-2. URL[[http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)]을 인코드합니다.
-3. 강조 표시된 텍스트를 유효성 확인이 필요한 *createUiDefinition.json*의 위치(인코드된 URL)로 바꿉니다.
-
-  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-  
-4. URL을 복사하고 브라우저에 붙여 넣어 createUiDefinition.json 파일의 최종 사용자 환경을 확인합니다.
-
 > [AZURE.TIP]개발자가 솔루션 템플릿 토폴로지를 만들고 인증을 받는 동안 회사의 비즈니스/마케팅/법무 부서는 마케팅 및 법률 콘텐츠를 작업할 수 있습니다.
 
 ## 다음 단계
@@ -75,4 +65,4 @@ Zip 파일을 업로드한 후 **인증 요청**을 클릭합니다. Microsoft �
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

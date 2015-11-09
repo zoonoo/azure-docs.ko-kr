@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2015"
+	ms.date="10/26/2015"
 	ms.author="selcint"/>
 
 # Azure 저장소와 함께 Azure PowerShell 사용
@@ -237,7 +237,7 @@ Azure 저장소 컨텍스트는 저장소 자격 증명을 캡슐화하는 Power
 
 컴퓨터를 설정하고 Azure PowerShell을 사용하여 구독 및 저장소 계정을 관리하는 방법을 알아보았습니다. 다음 섹션으로 이동하여 Azure Blob 및 스냅숏 Blob을 관리하는 방법을 알아보세요.
 
-## Azure Blob 및 Blob 스냅숏을 관리하는 방법
+## Azure Blob 관리 방법
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md) 및 [Blob 서비스 개념](http://msdn.microsoft.com/library/azure/dd179376.aspx)을 참조하세요.
 
 ### 컨테이너를 만드는 방법
@@ -736,4 +736,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [Next Steps]: #next
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

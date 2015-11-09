@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/26/2015"
    ms.author="cherylmc" />
 
 # VPN 게이트웨이 FAQ
@@ -70,6 +70,10 @@ Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고
 ### 사용 중인 VPN 장치가 알려진 호환 장치 목록에 없는 경우 어떻게 해야 합니까?
 
 사용 중인 장치가 알려진 호환 VPN 장치 목록에 표시되지 않지만 해당 장치를 VPN 연결에 사용하려면 해당 장치가 [여기에](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list) 나열된 지원되는 IPsec/IKE 구성 옵션 및 매개 변수를 충족하는지 확인해야 합니다. 최소 요구 사항을 충족하는 장치는 VPN 게이트웨이에서 잘 작동합니다. 추가 지원 및 구성 지침은 장치 제조업체에 문의하세요.
+
+### 트래픽이 유휴 상태일 때 정책 기반 VPN 터널이 다운되는 이유는 무엇인가요?
+
+정책 기반(정적 라우팅이라고도 함) VPN 게이트웨이에서 예상되는 동작입니다. 터널의 트래픽이 5분 이상 유휴 상태인 경우 터널은 삭제됩니다. 하지만 트래픽이 어느 방향으로든 흐름이 시작되면 즉시 터널이 다시 설정됩니다. 경로 기반(동적이라고도 함) VPN 게이트웨이가 있는 경우 이 동작은 발생하지 않습니다.
 
 ### 소프트웨어 VPN을 사용하여 Azure에 연결할 수 있습니까?
 
@@ -252,4 +256,4 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, netcfg �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

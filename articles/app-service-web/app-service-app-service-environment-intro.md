@@ -36,6 +36,8 @@
 
 AzureCon 심층 분석에 표시된 보안 아키텍처를 구성하는 방법을 보려면 앱 서비스 환경을 사용하여 [계층화된 보안 아키텍처](app-service-app-service-environment-layered-security.md)를 구현하는데 대한 문서를 참조하세요.
 
+앱 서비스 환경에서 실행 중인 앱은 웹 응용 프로그램 방화벽 (WAF) 등의 업스트림 장치에서 제어된 액세스를 가질 수 있습니다. [앱 서비스 환경에 대한 WAF 구성](app-service-app-service-environment-web-application-firewall.md)의 문서는 이 시나리오에 대해 설명합니다.
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 전용 계산 리소스 ##
@@ -103,4 +105,4 @@ Express 경로로 앱 서비스 환경을 사용하는 방법에 대한 자세�
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

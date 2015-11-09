@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Cherwell과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Cherwell를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Cherwell과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Cherwell를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/20/2015" 
+    ms.author="markvi" />
+
 #자습서: Cherwell와 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=550980)를 클릭하십시오.
 
 이 자습서는 Azure 및 Cherwell의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Cherwell Single Sign-on이 설정된 구독
 
-이 자습서를 완료한 후 Cherwell에 할당한 Azure AD 사용자가 Cherwell 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+이 자습서를 완료한 후 Cherwell에 할당한 Azure AD 사용자가 Cherwell 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,11 +51,11 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-cherwell-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-cherwell-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
-6.  **검색 상자**에 **Cherwell**를 입력합니다.
+6.  **검색 상자**에 **Cherwell**을 입력합니다.
 
     ![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798989.png "Cherwell")
 
@@ -57,7 +70,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Single Sign-On 구성")
 
-2.  **Cherwell에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
+2.  **Cherwell에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798991.png "Single Sign-On 구성")
 
@@ -66,22 +79,22 @@
     ![앱 URL 구성](./media/active-directory-saas-cherwell-tutorial/IC798992.png "앱 URL 구성")
 
     1.  **로그온 URL** 텍스트 상자에 사용자가 **Cherwell**에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://pictdev.cherwellondemand.com/cherwellclient*))
-    2.  **다음**를 클릭합니다.
+2.  **다음**를 클릭합니다.
 
 4.  **Cherwell의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Single Sign-On 구성")
 
     1.  **인증서 다운로드**를 클릭하고 인증서를 컴퓨터에 로컬로 저장합니다.
-    2.  **ID 공급자 URL**를 복사합니다.
-    3.  **Single Sign-On 서비스 URL**를 복사합니다.
+    2.  **ID 공급자 URL**을 복사합니다.
+    3.  **Single Sign-On 서비스 URL**을 복사합니다.
     4.  **다음**을 클릭합니다.
 
-5.  다운로드한 인증서, **ID 공급자 URL** 및 **Single Sign-On 서비스 URL**를 Cherwell 지원팀에 제출합니다.
+5.  다운로드한 인증서, **ID 공급자 URL** 및 **Single Sign-On 서비스 URL**을 Cherwell 지원팀에 제출합니다.
 
     >[AZURE.NOTE]Cherwell 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
 
-6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+6.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -106,6 +119,6 @@ Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell�
 
     ![예](./media/active-directory-saas-cherwell-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

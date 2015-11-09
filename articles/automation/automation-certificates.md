@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 자동화의 인증서 자산 | Microsoft Azure"
-   description="Runbook에서 액세스하여 Azure 및 타사 리소스를 인증할 수 있도록 Azure 자동화에 인증서를 안전하게 저장할 수 있습니다. 이 문서에서는 인증서에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 인증서를 사용하는 방법을 설명합니다."
+   description="인증서는 Azure 자동화에 안전하게 저장되어 Azure 및 타사 리소스에 대해 인증하는 runbook과 DSC 구성에 액세스할 수 있게 합니다. 이 문서에서는 인증서에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 인증서를 사용하는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Azure 자동화의 인증서 자산
 
-**Get-AutomationCertificate** 활동을 사용하여 Runbook에서 액세스할 수 있도록 Azure 자동화에 인증서를 안전하게 저장할 수 있습니다. 이렇게 하면 인증서를 사용하여 인증하는 Runbook을 만들거나 Azure 또는 Runbook에서 생성하거나 구성할 수 있는 타사 리소스에 인증서를 추가할 수 있습니다.
+인증서는 Azure 자동화에 안전하게 저장되어 runbook 또는 DSC 구성이 **Get-AutomationCertificate** 활동을 사용하여 액세스할 수 있습니다. 인증에 대한 인증서를 사용하는 runboo과 DSC 구성을 만들거나 Azure 또는 타사 리소스에 추가할 수 있게 해줍니다.
 
 >[AZURE.NOTE]Azure 자동화의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure 자동화에 저장됩니다. 이 키는 마스터 인증서로 암호화되어 Azure 자동화에 저장됩니다. 자동화 계정에 대한 키는 보안 자산을 저장하기 전에 마스터 인증서를 사용하여 암호가 해독된 후 자산을 암호화하는 데 사용됩니다.
 
 ## Windows PowerShell cmdlet
 
-다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 인증서 자산을 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 자동화 Runbook에서 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 제공됩니다.
+다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 인증서 자산을 만들고 관리하는 데 사용됩니다. 자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 전송됩니다.
 
 |Cmdlet|설명|
 |:---|:---|
@@ -32,19 +32,19 @@
 |[Remove- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913773.aspx)|Azure 자동화에서 인증서를 제거합니다.|
 |[Set- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913763.aspx)|인증서 파일 업로드 및 .pfx 암호 설정을 포함하여 기존 인증서에 대한 속성을 설정합니다.|
 
-## Runbook 활동
+## 인증서에 액세스하는 활동
 
-다음 표의 활동은 Runbook에서 인증서에 액세스하는 데 사용됩니다.
+다음 표의 활동은 runbook 또는 DSC 구성에 대 한 인증서에 액세스 하는 데 사용됩니다.
 
 |활동|설명|
 |:---|:---|
-|Get-AutomationCertificate|Runbook에서 사용할 인증서를 가져옵니다.|
+|Get-AutomationCertificate|Runbook 또는 DSC 구성에 사용할 인증서를 가져옵니다.|
 
->[AZURE.NOTE]GetAutomationCertificate의 –Name 매개 변수에 변수를 사용하지 않는 것이 좋습니다. 변수를 사용하면 디자인 타임에 Runbook과 인증서 자산 간의 종속성 검색이 복잡해질 수 있습니다.
+>[AZURE.NOTE]GetAutomationCertificate의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
 
 ## 새 인증서 만들기
 
-새 인증서를 만들 때 cer 또는 pfx 파일을 Azure 자동화에 업로드합니다. 인증서를 내보내기 가능한 것으로 표시한 경우 Azure 자동화 인증서 저장소 외부로 전송할 수 있습니다. 내보낼 수 없는 경우에는 Runbook 내에서 서명하는 데에만 사용할 수 있습니다.
+새 인증서를 만들 때 cer 또는 pfx 파일을 Azure 자동화에 업로드합니다. 인증서를 내보내기 가능한 것으로 표시한 경우 Azure 자동화 인증서 저장소 외부로 전송할 수 있습니다. 내보낼 수 없는 경우, runbook 또는 DSC 구성내 에서 사용할 수 있는 것만 서명합니다.
 
 ### Azure 포털을 사용하여 새 인증서를 만들려면
 
@@ -77,9 +77,9 @@
 	
 	New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable
 
-## Runbook에서 인증서 사용
+## 인증서 사용
 
-Runbook에서 인증서를 사용하려면 **Get-AutomationCertificate** 활동을 사용해야 합니다. [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx) cmdlet은 인증서 자산에 대한 정보를 반환하지만 인증서 자체는 반환하지 않으므로 사용할 수 없습니다.
+**Get-AutomationCertificate** 활동만 사용하여 인증서를 사용합니다. [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx) cmdlet은 인증서 자산에 대한 정보를 반환하지만 인증서 자체는 반환하지 않으므로 사용할 수 없습니다.
 
 ### 텍스트 Runbook 샘플
 
@@ -107,4 +107,4 @@ Runbook에서 인증서를 사용하려면 **Get-AutomationCertificate** 활동�
 
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -40,10 +40,10 @@
 
 다른 브라우저 창에서 다음 단계를 수행 하는 동안 **코드 페이지를 열린 상태로 유지**합니다. 코드가 곧 필요합니다.
 
-### Microsoft CRM의 JavaScript 웹 리소스 만들기
+### Microsoft Dynamics CRM의 JavaScript 웹 리소스 만들기
 
 1. CRM Online 인스턴스를 열고 관리자 권한으로 로그인합니다.
-2. Microsoft Dynamics CDM 설정, 사용자 지정, 시스템을 엽니다.
+2. Microsoft Dynamics CDM 설정, 사용자 지정, 시스템 사용자 지정을 엽니다.
 
     ![](./media/app-insights-sample-mscrm/04.png)
     
@@ -60,7 +60,7 @@
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Application Insights에서 코드 복사 복사하는 동안 <script> 태그를 무시합니다. 아래 스크린샷을 참조하세요.
+4. Application Insights에서 코드 복사 복사하는 동안 스크립트 태그를 무시합니다. 아래 스크린샷을 참조하세요.
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -149,9 +149,9 @@
 
 [Microsoft Power BI에 데이터를 내보내는](app-insights-export-power-bi.md) 경우 훨씬 심도 깊은 분석을 수행할 수 있습니다.
 
-## 샘플 Dynamics CRM 솔루션
+## 샘플 Microsoft Dynamics CRM 솔루션
 
-[다음은 Dynamics CRM에서 구현된 샘플 솔루션입니다.](https://dynamicsandappinsights.codeplex.com/)
+[다음은 Microsoft Dynamics CRM에서 구현된 샘플 솔루션입니다.](https://dynamicsandappinsights.codeplex.com/)
 
 ## 자세한 정보
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/09/2015"
+ms.date="10/26/2015"
 ms.author="larryfr"/>
 
 #SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스
@@ -144,21 +144,11 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 4. **URL Patterns** 탭을 선택한 다음 **Add New Pattern**을 선택합니다. 다음을 사용하여 패턴을 정의하고 **OK**를 클릭합니다.
 
-	* **Pattern Name** - **headnode** - 패턴의 이름입니다.
+	* **Pattern Name** - **clusternodes** - 패턴의 이름입니다.
 
-	* **URL pattern** - ***headnode*** - **headnode**라는 단어가 포함된 모든 URL과 일치하는 패턴을 정의합니다.
+	* **URL 패턴** - ***internal.cloudapp.net*** - 클러스터 노드의 내부 정규화된 도메인 이름과 일치하는 패턴을 정의합니다.
 
 	![foxyproxy 패턴](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-
-	> [AZURE.NOTE]__HBase__ 클러스터를 사용하고 있는 경우 클러스터의 zookeeper 노드의 웹 UI를 호스트하므로 다음 패턴을 추가해야 합니다.
-	>
-	> * __패턴 이름__ - __zookeeper__
-	> * __URL 패턴__ - __*zookeeper*__
-	>
-	> __Storm__ 클러스터를 사용하고 있는 경우 Storm UI는 로그를 검색할 때 작업자 노드의 IP 주소로 연결하므로 다음 패턴을 추가해야 합니다. 향후 업데이트에서 도메인 이름을 사용하도록 변경할 예정입니다.
-	>
-	> * __패턴 이름__ - __nodesbyip__
-	> * __URL 패턴__ - __*10.0.0.*__
 
 4. **OK**를 클릭하여 프록시를 추가하고 **Proxy Settings**를 닫습니다.
 
@@ -166,13 +156,13 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	![foxyproxy 선택 모드](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
 
-이러한 단계를 따른 후에는 **headnode** 문자열이 포함된 URL에 대한 요청만 SSL 터널을 통해 라우팅됩니다.
+이러한 단계를 다른 후에는 __internal.cloudapp.net__ 문자열이 포함된 URL에 대한 요청만 SSL 터널을 통해 라우팅됩니다.
 
 ##Ambari 웹 UI 통해 확인
 
 클러스터를 설정한 후에 Ambari 웹에서 서비스 웹 UI에 액세스할 수 있는지 확인하려면 다음 단계를 따릅니다.
 
-1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net(으)로 이동합니다. 여기서 CLUSTERNAME은 HDInsight 클러스터의 이름입니다.
+1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. 여기서 CLUSTERNAME은 HDInsight 클러스터의 이름입니다.
 
 	메시지가 표시되면 클러스터의 관리자 사용자 이름(관리자) 및 암호를 입력합니다. Ambari 웹 UI에서 두 번째로 메시지가 표시될 수 있습니다. 그럴 경우 정보를 다시 입력합니다.
 
@@ -193,7 +183,7 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	![YARN ResourceManager UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP]이 페이지에 대한 URL은 \_\___http://headnode1.CLUSTERNAME-ssh.j8.internal.cloudapp.net:8088/cluster__와(과) 유사해야 합니다. 노드의 내부 정규화된 도메인 이름(FQDN)을 사용하며 SSH 터널을 사용하지 않고 액세스할 수 없습니다.
+	> [AZURE.TIP]이 페이지에 대한 URL은 \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__와(과) 유사해야 합니다. 노드의 내부 정규화된 도메인 이름(FQDN)을 사용하며 SSH 터널을 사용하지 않고 액세스할 수 없습니다.
 
 ##다음 단계
 
@@ -207,4 +197,4 @@ HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음�
 
 * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
