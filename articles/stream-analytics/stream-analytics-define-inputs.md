@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="jeffstok"/>
 
 # 스트림 분석 입력 이해
@@ -137,7 +137,7 @@ Iot 허브는 IoT 시나리오에 최적화된, 확장성이 뛰어난 게시-�
 </tr>
 <tr>
 <td>경로 접두사 패턴 [선택 사항]</td>
-<td>지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로. 경로 내에서 다음 3개 변수의 인스턴스 중 하나 이상을 지정하도록 선택할 수도 있습니다.<BR>{date}, {time},<BR>{partition}<BR>예제 1: cluster1/logs/{date}/{time}/{partition}<BR>예제 2: cluster1/logs/{date}</td>
+<td>지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로. 경로 내에서 다음 3개 변수의 인스턴스 중 하나 이상을 지정하도록 선택할 수도 있습니다.<BR>{date}, {time},<BR>{partition}<BR>예제 1: cluster1/logs/{date}/{time}/{partition}<BR>예제 2: cluster1/logs/{date}<P>"*"는 pathprefix에 허용되는 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다.</td>
 </tr>
 <tr>
 <td>날짜 형식[선택 사항]</td>
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

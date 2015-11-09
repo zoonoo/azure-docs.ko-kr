@@ -195,10 +195,30 @@
 
 ## Application Insights에 대한 내 앱의 트래픽 줄이기
 
-* [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 성능 카운터 등, 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.
+* [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 성능 카운터 수집기 등, 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.
+* SDK에서 [샘플링 및 필터링](app-insights-api-filtering-sampling.md)을 사용합니다.
 * [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 계산합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
 
+
 [가격 및 할당량](app-insights-pricing.md)에 대해 자세히 확인합니다.
+
+## 원격 분석 사용 안 함  
+
+
+서버로부터 원격 분석의 컬렉션 및 전송을 **동적으로 중지 및 시작**:
+
+```
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+
+
+**선택한 표준 수집기 해제** - 예: 성능 카운터, HTTP 요청 또는 종속성 - [ApplicationInsights.config](app-insights-api-custom-events-metrics.md)에서 관련 줄을 삭제 또는 주석으로 처리. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+
+
 
 ## 시스템 성능 카운터 보기
 
@@ -224,4 +244,4 @@
 
 현재 성능 카운터를 모니터링하지 않습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

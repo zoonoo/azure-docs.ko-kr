@@ -25,6 +25,6 @@
 응용 프로그램은 이제 AAD에서 AAD 로그인을 사용하여 사용자가 로그온할 수 있도록 구성되었습니다.
 
 [Active Directory]: https://manage.windowsazure.com/
-[Azure Active Directory로 모바일 앱을 구성하는 방법]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
+[Azure Active Directory로 모바일 앱을 구성하는 방법]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

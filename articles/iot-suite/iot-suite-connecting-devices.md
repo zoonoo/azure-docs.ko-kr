@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="nana"
+   ms.workload="na"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -234,10 +234,10 @@ mbed 프로젝트 만들기 및 샘플 코드 가져오기
 
 
    ```
-   static const char* deviceId = "[Device Id]";
-   static const char* deviceKey = "[Device Key]";
-   static const char* hubName = "[IoTHub Name]";
-   static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+   var deviceID = "[DeviceID]";
+   var deviceKey = "[Device Key]";
+   var hubName = "[IoT Hub Name]";
+   var hubSuffix = "[IoT Hub Suffix i.e azure-devices.net]";
    ```
 
 -  "[장치 ID]", "[장치 키]를 장치 데이터와 대체합니다.
@@ -248,10 +248,10 @@ mbed 프로젝트 만들기 및 샘플 코드 가져오기
 
 
    ```
-     static const char* deviceId = "mydevice";
-   static const char* deviceKey = "mykey";
-   static const char* hubName = "Contoso";
-   static const char* hubSuffix = "azure-devices.net";
+   var deviceID = "mydevice";
+   var deviceKey = "mykey";
+   var hubName = "Contoso";
+   var hubSuffix = "azure-devices.net";
    ```
 
 
@@ -309,4 +309,4 @@ node .
 
 이 샘플의 기능을 확장하는 방법은 실제 센서를 장치에 연결하여 실제 날짜를 보내고 명령을 구현하고 기능을 제어하는 등 다양합니다. 원격 모니터링 솔루션을 확장하는 방법에 대한 자세한 내용은 [지침](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md)을 사용하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

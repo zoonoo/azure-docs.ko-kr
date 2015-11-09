@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/11/2015" 
+    ms.date="10/27/2015" 
     ms.author="arramac"/>
     
 # Azure DocumentDB에서 지리 공간 데이터 작업
@@ -31,7 +31,7 @@
 공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 응용 프로그램에서 이러한 데이터는 지구의 개체, 즉 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다. 일반적인 사용 사례에는 종종 근접 쿼리(예: "내 현재 위치 근처의 모든 커피숍 찾기")가 포함됩니다.
 
 ### GeoJSON
-DocumentDB는 [GeoJSON 사양](http://geojson.org/geojson-spec.html)을 사용하여 표시되는 지리 공간 데이터의 인덱싱 및 쿼리를 지원합니다. GeoJSON 데이터 구조는 항상 유효한 JSON 개체이므로 특수 도구나 라이브러리 없이 DocumentDB를 사용하여 저장 및 쿼리할 수 있습니다. DocumentDB SDK는 쉽게 공간 데이터로 작업할 수 있게 해주는 도우미 클래스와 메서드를 제공합니다.
+DocumentDB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지원하고 [GeoJSON 사양](http://geojson.org/geojson-spec.html)을 사용하여 나타납니다. GeoJSON 데이터 구조는 항상 유효한 JSON 개체이므로 특수 도구나 라이브러리 없이 DocumentDB를 사용하여 저장 및 쿼리할 수 있습니다. DocumentDB SDK는 쉽게 공간 데이터로 작업할 수 있게 해주는 도우미 클래스와 메서드를 제공합니다.
 
 ### 점, Linestring 및 다각형
 **점**은 공간 내의 단일 위치를 나타냅니다. 지리 공간 데이터에서 점은 식품점, 키오스크, 자동차 또는 도시의 주소일 수 있는 정확한 위치를 나타냅니다. 점은 좌표 쌍이나 경도 및 위도를 사용하여 GeoJSON(및 DocumentDB)에서 표시됩니다. 점에 대한 예제 JSON은 다음과 같습니다.
@@ -81,7 +81,7 @@ DocumentDB는 [GeoJSON 사양](http://geojson.org/geojson-spec.html)을 사용�
 >
 >다각형 내의 점을 시계 반대 방향 순서로 지정해야 합니다. 시계 방향 순서로 지정된 다각형은 내부 영역의 반전을 나타냅니다.
 
-점, LineString 및 다각형 외에도 GeoJSON은 여러 지리 공간 위치를 그룹화하는 방법 및 임의 속성을 지리적 위치에 **기능**으로 연결하는 방법에 대한 표현을 지정합니다. 이러한 개체는 유효한 JSON이므로 모두 DocumentDB에 저장하고 처리할 수 있습니다.
+점, LineString 및 다각형 외에도 GeoJSON은 여러 지리 공간 위치를 그룹화하는 방법 및 임의 속성을 지리적 위치에 **기능**으로 연결하는 방법에 대한 표현을 지정합니다. 이러한 개체는 유효한 JSON이므로 모두 DocumentDB에 저장하고 처리할 수 있습니다. 그러나 DocumentDB는 지점의 자동 인덱싱만 지원합니다.
 
 ### 좌표 참조 시스템
 
@@ -355,4 +355,4 @@ DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 
 - [DocumentDB 쿼리](documentdb-sql-query.md)에 대해 자세히 알아보기
 - [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에 대해 자세히 알아보기
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

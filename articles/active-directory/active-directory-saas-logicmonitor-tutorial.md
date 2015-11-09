@@ -1,7 +1,20 @@
-<properties pageTitle="자습서: LogicMonitor와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 LogicMonitor를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: LogicMonitor와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 LogicMonitor를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: LogicMonitor와 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=528728)를 클릭하십시오.
   
 이 자습서는 Azure 및 LogicMonitor의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -40,7 +53,7 @@
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
-6.  **검색 상자**에 **LogicMonitor**를 입력합니다.
+6.  **검색 상자**에 **logicmonitor**를 입력합니다.
 
     ![응용 프로그램 갤러리](./media/active-directory-saas-logicmonitor-tutorial/IC790046.png "응용 프로그램 갤러리")
 
@@ -79,7 +92,7 @@
 
     ![SSO(Single sign-on)](./media/active-directory-saas-logicmonitor-tutorial/IC790053.png "SSO(Single sign-on)")
 
-8.  **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
+8.  **SSO(Single Sign-On) 설정** 섹션에서 다음 단계를 수행합니다.
 
     ![Singl Sign-On 설정](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Single Sign-On 설정")
 
@@ -88,7 +101,7 @@
     3.  다운로드한 메타데이터 파일을 메모장에서 열고 파일 내용을 **ID 공급자 메타데이터** 텍스트 상자에 붙여넣습니다.
     4.  **변경 내용 저장**을 클릭합니다.
 
-9.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택한 다음 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+9.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -105,7 +118,7 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
 
 3.  **추가**를 클릭합니다.
 
-4.  **새 계정 추가** 섹션에서 다음 단계를 수행합니다.
+4.  **계정 추가** 섹션에서 다음 단계를 수행합니다.
 
     ![계정 추가](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "계정 추가")
 
@@ -131,6 +144,6 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
 
     ![예](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

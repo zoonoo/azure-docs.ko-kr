@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="10/22/2015"
    ms.author="sameerch"/>
 
 
 # HDInsight 커넥터 시작 및 논리 앱에 추가
-HDInsight 커넥터를 사용하면 Azure에서 Hadoop 클러스터를 생성하고 Hive, Pig, MapReduce 및 스트리밍 MapReduce 작업과 같은 다양한 Hadoop 작업을 제출할 수 있습니다. Azure HDInsight 서비스는 빅 데이터를 관리, 분석 및 보고하기 위한 소프트웨어 프레임워크를 제공하여 클라우드에서 Apache Hadoop 클러스터를 배포하고 프로비전합니다. Hadoop 코어는 HDFS(Hadoop Distributed File System)을 사용하는 안정적인 데이터 저장소와 이 분산 시스템에 저장된 데이터를 병렬로 처리 및 분석하는 간단한 MapReduce 프로그래밍 모델을 제공합니다. HDInsight 커넥터를 사용하여 클러스터를 만들거나 삭제하고 작업을 제출하고 작업이 완료되기를 기다릴 수 있습니다.
+HDInsight 커넥터를 사용하면 Azure에서 Hadoop 클러스터를 생성하고 Hive, Pig, MapReduce 및 스트리밍 MapReduce와 같은 다양한 Hadoop 작업을 제출할 수 있습니다. Azure HDInsight 서비스는 빅 데이터를 관리, 분석 및 보고하기 위한 소프트웨어 프레임워크를 제공하여 클라우드에서 Apache Hadoop 클러스터를 배포하고 프로비전합니다. Hadoop 코어는 HDFS(Hadoop Distributed File System)을 사용하는 안정적인 데이터 저장소와 이 분산 시스템에 저장된 데이터를 병렬로 처리 및 분석하는 간단한 MapReduce 프로그래밍 모델을 제공합니다. HDInsight 커넥터를 사용하여 클러스터를 만들거나 삭제하고 작업을 제출하고 작업이 완료되기를 기다릴 수 있습니다.
 
 커넥터는 논리 앱에 사용하여 흐름의 일부로 데이터 가져오기, 처리 또는 푸시를 수행할 수 있습니다. HDInsight 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
@@ -62,11 +62,11 @@ API 앱에 관리 인증을 업로드하려면 다음을 수행해야 합니다.
 
 ## 논리 앱에서 커넥터 사용하기 ##
 
-HDInsight 커넥터는 논리 앱에서 동작으로만 사용할 수 있습니다. 클러스터를 만들고 Hive 작업을 실행하며 작업 완료 시 클러스터를 삭제하는 단순한 논리 앱을 만들어 봅니다.
+HDInsight 커넥터는 논리 앱에서 동작으로만 사용할 수 있습니다. 클러스터를 만들고 Hive 작업을 실행하며 작업을 마칠 때 클러스터를 삭제하는 단순한 논리 앱을 만들어 봅니다.
 
 
 1. '논리 시작' 카드에서 '이 논리를 수동으로 실행'을 클릭합니다.
-2. 갤러리에서 만든 HDInsight 커넥터 API 앱을 선택합니다. 사용할 수 있는 동작이 나열됩니다. ![][5]
+2. 갤러리에서 이전에 만든 HDInsight 커넥터 API 앱을 선택합니다. (화면 오른쪽의 API 앱 목록에서 만든 HDInsight 커넥터 찾을 수 있습니다.) 검정색 오른쪽 화살표를 선택합니다. 사용할 수 있는 동작이 나타납니다. ![][12]
 
 3. '클러스터 만들기'를 선택하고 모든 필수 클러스터 매개 변수를 입력한 다음 ✓를 클릭합니다. ![][6]
 
@@ -105,5 +105,6 @@ HDInsight 커넥터는 논리 앱에서 동작으로만 사용할 수 있습니�
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+[12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

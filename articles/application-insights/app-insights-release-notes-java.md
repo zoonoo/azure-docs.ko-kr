@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/21/2015" 
 	ms.author="awills"/>
  
 # Application Insights SDK for Java에 대한 릴리스 정보
@@ -36,6 +36,11 @@
 * 최신 버전의 [Java용 Azure 라이브러리](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)를 다운로드하고 이전 버전을 대체합니다. 
  
 이전 버전과 새 ApplicationInsights.xml을 비교합니다. 대부분 변경 내용은 모듈을 추가하고 제거하기 때문입니다. 변경한 모든 사용자 지정을 복구합니다.
+
+## 버전 1.0.2
+
+- Docker와의 호환성
+- 버그 수정 - 모든 예외 catch, 모든 성공 상태 코드 처리
 
 ## 버전 1.0.1
 - [Java 에이전트](app-insights-java-agent.md)는 다음에 대한 종속성 정보를 수집합니다.
@@ -68,4 +73,4 @@
 - 보고된 항목에 ```SyntheticSource``` 속성을 추가하여 원격 분석 항목에 가상으로 태그를 지정할 수 있습니다.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

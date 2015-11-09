@@ -1,5 +1,18 @@
-<properties pageTitle="자습서: Box와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Box를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Box와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Box를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
 
 
 
@@ -7,14 +20,13 @@
 #자습서: Box와 Azure Active Directory 통합
 
 
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=522410)를 클릭하십시오.
   
 이 자습서는 Azure 및 Box의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Box의 테스트 테넌트
   
-이 자습서를 완료한 후 Box에 할당한 Azure AD 사용자가 Box 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+이 자습서를 완료한 후 Box에 할당한 Azure AD 사용자가 Box 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -47,7 +59,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-box-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-box-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -63,7 +75,7 @@
 
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Box에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. <br>이 절차의 일부로 Box.com에 메타데이터를 업로드 해야 합니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Box에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. <br>이 절차의 일부로 Box.com에 메타데이터를 업로드해야 합니다.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -71,15 +83,15 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-box-tutorial/IC769538.png "Single Sign-On 구성")
 
-2.  **Box에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
+2.  **Box에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-box-tutorial/IC769539.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지에 있는 **Box테넌트 URL** 텍스트 상자에 Box테넌트 URL (예: https://<mydomainname>.box.com)을 입력하고 **다음**을 클릭하십시오.
+3.  **앱 URL 구성** 페이지에 있는 **Box테넌트 URL** 텍스트 상자에 Box테넌트 URL (예: https://<mydomainname>.box.com)을 입력하고 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-box-tutorial/IC669826.png "앱 URL 구성")
 
-4.  **Box에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 데이터 파일을 컴퓨터에 로컬로 저장합니다.
+4.  **Box에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 데이터 파일을 컴퓨터에 로컬로 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-box-tutorial/IC669824.png "Single Sign-On 구성")
 
@@ -94,14 +106,14 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. Azure 관리 포털의 **Box** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다.<br><br>![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769541.png "자동 사용자 프로비전 사용")
+1. Azure 관리 포털의 **Box** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다. <br> <br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769541.png "자동 사용자 프로비전 사용")
 
-2. **Box에 사용자 프로비전을 사용 하도록 설정** 대화 상자 페이지에서 **사용자 프로비전 사용**을 클릭합니다.<br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769544.png "자동 사용자 프로비전 사용")
+2. **Box에 사용자 프로비전을 사용하도록 설정** 대화 상자 페이지에서 **사용자 프로비전 사용**을 클릭합니다. <br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769544.png "자동 사용자 프로비전 사용")
 
-3. **Box에 대한 액세스 권한 부여를 위한 로그인** 페이지에서 필요한 자격 증명을 제공한 다음 **권한 부여**를 클릭합니다.<br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769546.png "자동 사용자 프로비전 사용")
+3. **Box에 대한 액세스 권한 부여를 위한 로그인** 페이지에서 필요한 자격 증명을 제공한 다음 **권한 부여**를 클릭합니다. <br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769546.png "자동 사용자 프로비전 사용")
 
 
-4. **Box에 액세스 허용**을 클릭하여 이 작업에 권한을 부여하고 Azure 관리 포털로 돌아옵니다.<br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769549.png "자동 사용자 프로비전 사용")
+4. **Box에 액세스 허용**을 클릭하여 이 작업에 권한을 부여하고 Azure 관리 포털로 돌아옵니다. <br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769549.png "자동 사용자 프로비전 사용")
 
 5. 구성을 마치려면 완료 단추를 클릭합니다. <br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769551.png "자동 사용자 프로비전 사용")
 
@@ -117,7 +129,7 @@
 
 2. **Box ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다. <br><br> ![사용자 할당](./media/active-directory-saas-box-tutorial/IC769552.png "사용자 할당")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다.<br><br> ![예](./media/active-directory-saas-box-tutorial/IC767830.png "예")
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다. <br><br> ![예](./media/active-directory-saas-box-tutorial/IC767830.png "예")
   
 
 이제 10분 동안 기다린 후 계정이 Box에 동기화되었는지 확인해야 합니다.
@@ -131,7 +143,7 @@
 <br><br> ![통합 상태](./media/active-directory-saas-box-tutorial/IC769555.png "통합 상태")
 
 
-Box 테넌트에서 동기화 된 사용자가 **관리 콘솔**의 **관리된 사용자**에 나열됩니다.
+Box 테넌트에서 동기화된 사용자가 **관리 콘솔**의 **관리된 사용자**에 나열됩니다.
 
 <br><br> ![통합 상태](./media/active-directory-saas-box-tutorial/IC769556.png "통합 상태")
 
@@ -141,4 +153,4 @@ Box 테넌트에서 동기화 된 사용자가 **관리 콘솔**의 **관리된 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

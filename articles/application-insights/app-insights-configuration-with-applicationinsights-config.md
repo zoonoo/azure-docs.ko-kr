@@ -213,58 +213,9 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
    </ApplicationInsights>
 ```
 
-## 사용자 지정 이니셜라이저
+## 원격 분석 이니셜라이저
 
-
-표준 이니셜라이저가 응용 프로그램에 적합하지 않으면 이니셜라이저를 직접 만들 수 있습니다.
-
-컨텍스트 이니셜라이저를 사용하여 모든 원격 분석 클라이언트를 초기화하는 데 사용될 값을 설정할 수 있습니다. 예를 들어 앱 버전을 둘 이상 게시한 경우 사용자 지정 속성으로 필터링하여 데이터를 구분할 수 있는지 확인할 수 있습니다.
-
-    plublic class MyContextInitializer: IContextInitializer
-    {
-        public void Initialize(TelemetryContext context)
-        {
-          context.Properties["AppVersion"] = "v2.1";
-        }
-    }
-
-원격 분석 이니셜라이저를 사용하여 각 이벤트에 처리를 추가합니다. 예를 들어 웹 SDK는 응답 코드가 400보다 크거나 같은 모든 요청을 실패로 지정합니다. 이 동작을 재정의할 수 있습니다.
-
-    public class MyTelemetryInitializer : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                requestTelemetry.Success = true;
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }            
-        }
-    }
- 
-이니셜라이저를 설치하려면 ApplicationInsights.config에 다음 줄을 추가합니다.
-
-    <TelemetryInitializers> <!-- or ContextInitializers -->
-    <Add Type="MyNamespace.MyTelemetryInitializer, MyAssemblyName" />
-
-
-또는 응용 프로그램 실행 시 처음에 이니셜라이저를 설치하는 코드를 작성할 수 있습니다. 예:
-
-
-    // In the app initializer such as Global.asax.cs:
-
-    protected void Application_Start()
-    {
-      TelemetryConfiguration.Active.TelemetryInitializers.Add(
-                new MyTelemetryInitializer());
-            ...
-
-
+응용 프로그램에서 수집된 원격 분석을 필터링하고 수정하는 원격 분석 이니셜라이저를 작성할 수 있습니다. 이니셜라이저는 .config 파일에서 표준 모듈과 함께 초기화될 수 있습니다. [자세히 알아보기](app-insights-api-filtering-sampling.md)
 
 
 ## InstrumentationKey
@@ -313,4 +264,4 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

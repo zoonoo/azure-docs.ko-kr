@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -79,4 +79,4 @@
 * [Azure 서비스 패브릭 활동자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [상태 저장 신뢰할 수 있는 서비스 진단](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

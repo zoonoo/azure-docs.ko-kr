@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="10/23/2015" 
 	ms.author="spelluru"/>
 
 # 온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -134,11 +134,11 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 	또한 이 블레이드에서 링크를 클릭하여 게이트웨이를 수동으로 다운로드하여 설치하고 **REGISTER WITH KEY(키를 사용하여 등록)** 텍스트 상자에 표시된 키를 사용하여 등록할 수도 있습니다.
 	
-	모범 사례, 중요한 고려 사항 등을 포함하여 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](#DMG) 섹션을 참조하세요.
+	모범 사례, 중요 고려 사항 등을 포함하여 게이트웨이에 대한 자세한 내용은 이 문서의 시작 부분에 있는 섹션을 참조하세요.
 
 	>[AZURE.NOTE]데이터 관리 게이트웨이를 성공적으로 설치 및 구성하려면 로컬 컴퓨터의 관리자여야 합니다. 데이터 관리 게이트웨이 사용자 로컬 Windows 그룹에 사용자를 더 추가할 수 있습니다. 이 그룹의 구성원은 데이터 관리 게이트웨이 구성 관리자 도구를 사용하여 게이트웨이를 구성할 수 있습니다.
 
-5. 몇 분 정도 기다리면 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 시작됩니다. **검색** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
+5. 몇 분 정도 기다리면 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 응용 프로그램이 시작됩니다. **검색** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
 
 	![게이트웨이 구성 관리자](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
@@ -152,11 +152,11 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 8. **인증서**로 전환합니다. 이 탭에 지정된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대한 자격 증명을 암호화/해독하는 데 사용됩니다. **변경**을 클릭하여 그 대신 사용자 고유의 인증서를 사용합니다. 기본적으로 게이트웨이는 데이터 팩터리 서비스에서 자동으로 생성되는 인증서를 사용합니다.
 
 	![게이트웨이 인증서 구성](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
-9. Azure 포털에서 **구성** 블레이드, **새 데이터 게이트웨이** 블레이드에서 차례로 **확인**을 클릭합니다.
-6. 왼쪽 트리의 **데이터 게이트웨이** 아래 **adftutorialgateway**가 표시되어야 합니다. 이 항목을 클릭하면 연결된 JSON이 나타납니다. 
+9. Azure 포털의 **구성** 블레이드, **새 데이터 게이트웨이** 블레이드에서 차례로 **확인**을 클릭합니다.
+6. 왼쪽 트리의 **데이터 게이트웨이** 아래에 **adftutorialgateway**가 표시되어야 합니다. 이 항목을 클릭하면 연결된 JSON이 나타납니다. 
 	
 
-### 2단계: 연결된 서비스 만들기 
+### 3단계: 연결된 서비스 만들기 
 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **StorageLinkedService** 연결 서비스는 Azure Blob 저장소를 데이터 팩터리에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
 
 #### 온-프레미스 SQL Server 데이터베이스에 연결된 서비스 추가
@@ -167,10 +167,10 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 	1. **gatewayName**에 **adftutorialgateway**를 지정합니다.	
 	2. Windows 인증을 사용하는 경우
 		1. **connectionString**에서 
-			1. **통합 보안**을 **true**로 설정합니다.
-			2. 데이터베이스 **서버 이름**과 **데이터베이스 이름**을 지정합니다. 
-			2. **사용자 ID** 및 **암호**를 제거합니다. 
-		3. **userName** 및 **암호** 속성에 사용자 이름과 암호를 지정합니다.
+			1. **Integrated Security**를 **true**로 설정합니다.
+			2. 데이터베이스 **server name**과 **database name**을 지정합니다. 
+			2. **User ID** 및 **Password**를 제거합니다. 
+		3. **userName** 및 **password** 속성에 사용자 이름과 암호를 지정합니다.
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
@@ -180,7 +180,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
         		}
 
 	4. SQL 인증을 사용하는 경우
-		1. **connectionString**에 데이터베이스 **서버 이름**, **데이터베이스 이름**, **사용자 ID** 및**암호**를 지정합니다.       
+		1. **connectionString**에서 데이터베이스 **server name**, **database name**, **User ID** 및**Password**를 지정합니다.       
 		2. 마지막 두 JSON 속성, 즉 **userName** 및 **password**를 JSON에서 제거합니다.
 		3. **gatewayName** 속성 값을 지정하는 행의 마지막에서 **,(쉼표)**를 제거합니다. 
 
@@ -199,7 +199,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 4. **배포**를 클릭하여 **StorageLinkedService**를 배포합니다.
    
  
-### 3단계: 입력 및 출력 데이터 집합 만들기
+### 4단계: 입력 및 출력 데이터 집합 만들기
 이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = > Azure Blob 저장소)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 집합을 만듭니다. 데이터 집합 또는 테이블(사각형 데이터 집합)을 만들려면 먼저 다음을 수행해야 합니다(자세한 단계는 목록 다음에 나옴).
 
 - 데이터 팩터리에 연결된 서비스로 추가한 SQL Server 데이터베이스에서 **emp**라는 테이블을 만들고 테이블에 몇 가지 샘플 항목을 삽입합니다.
@@ -299,7 +299,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
 	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
 
-	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
+	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob가 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
  
 	**출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -322,7 +322,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 2.	명령 모음에서 **배포**를 클릭하여 데이터 집합을 배포합니다(테이블은 사각형 데이터 집합임). 제목 표시줄에 **테이블이 성공적으로 배포됨** 메시지가 표시되는지 확인합니다.
   
 
-### 4단계: 파이프라인 만들기 및 실행
+### 5단계: 파이프라인 만들기 및 실행
 이 단계에서는 **EmpOnPremSQLTable**을 입력으로, **OutputBlobTable**을 출력으로 사용하는 **복사 작업**을 포함하는 **파이프라인**을 만듭니다.
 
 1.	**데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
@@ -377,7 +377,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 	다음 사항에 유의하세요.
  
-	- Activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
+	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink**를 **sink type**으로 지정합니다.
 - **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
@@ -407,8 +407,8 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 	확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 테이블 위치 지정, 계보 정보 표시(선택한 항목의 업스트림 및 다운스트림 항목 강조 표시)를 수행할 수 있습니다. 개체(입출력 테이블 또는 파이프라인)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
 
-### 5단계: 데이터 집합 및 파이프라인 모니터링
-이 단계에서는 Azure 포털을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 세부 정보는 [파이프라인 모니터링 및 관리](monitor-manage-pipelines.md) 문서를 참조하세요.
+### 6단계: 데이터 집합 및 파이프라인 모니터링
+이 단계에서는 Azure 포털을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](monitor-manage-pipelines.md) 문서를 참조하세요.
 
 1. 닫혀 있는 경우 **Azure Preview 포털**로 이동합니다.
 2. **ADFTutorialOnPremDF**에 대한 블레이드가 열려있지 않은 경우, **시작 보드**에서 **ADFTutorialOnPremDF**를 클릭하여 엽니다.
@@ -447,13 +447,45 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 	![활동 실행 세부 정보 블레이드][image-data-factory-activity-run-details]
 
-11. **X**를 클릭하여 모든 블레이드를닫아
+11. **X**를 클릭하여 모든 블레이드를 닫아
 12. **ADFTutorialOnPremDF**의 홈 블레이드로 돌아갑니다.
 14. (선택 사항) **파이프라인**을 클릭하고 **ADFTutorialOnPremDF**를 클릭한 다음 입력 테이블(**Consumed**) 또는 출력 테이블(**Produced**)을 드릴스루합니다.
 15. **Azure 저장소 탐색기**와 같은 도구를 사용하여 출력을 확인합니다.
 
 	![Azure 저장소 탐색기](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
+## 컴퓨터 간에 게이트웨이 이동
+이 섹션에서는 컴퓨터 간에 게이트웨이 클라이언트를 이동하는 단계를 제공합니다.
+
+2. 포털에서 **데이터 팩터리 홈 페이지**로 이동하여 **연결된 서비스** 타일을 클릭합니다. 
+
+	![데이터 게이트웨이 링크](./media/data-factory-move-data-between-onprem-and-cloud/DataGatewaysLink.png) 
+3. **연결된 서비스** 블레이드의 **데이터 게이트웨이** 섹션에서 게이트웨이를 선택합니다.
+	
+	![게이트웨이가 선택된 연결된 서비스 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/LinkedServiceBladeWithGateway.png)
+4. **데이터 게이트웨이** 블레이드에서 **데이터 게이트웨이 다운로드 및 설치**를 클릭합니다.
+	
+	![게이트웨이 다운로드 링크](./media/data-factory-move-data-between-onprem-and-cloud/DownloadGatewayLink.png) 
+5. **구성** 블레이드에서 **데이터 게이트웨이 다운로드 및 설치**를 클릭하고 지침에 따라 데이터 게이트웨이를 컴퓨터에 설치합니다. 
+
+	![구성 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/ConfigureBlade.png)
+6. **Microsoft 데이터 관리 게이트웨이 구성 관리자**를 열어 둡니다. 
+ 
+	![구성 관리자](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
+7. 포털의 **구성** 블레이드에서 명령 모음에 있는 **키 다시 만들기**를 클릭하고 경고 메시지가 나타나면 **예**를 클릭합니다. 키 텍스트 옆의 **복사 단추**를 클릭하여 키를 클립보드에 복사합니다. 키를 다시 만드는 즉시 이전 컴퓨터의 게이트웨이가 작동 중지됩니다.  
+	
+	![키 다시 만들기](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
+	 
+8. 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자**의 **게이트웨이 등록** 페이지에 있는 텍스트 상자에 **키**를 붙여 넣습니다. (선택 사항) **게이트웨이 키 표시** 확인란을 클릭하여 키 텍스트를 확인합니다.
+ 
+	![키 복사 및 등록](./media/data-factory-move-data-between-onprem-and-cloud/CopyKeyAndRegister.png)
+9. **등록**을 클릭하여 클라우드 서비스에 게이트웨이를 등록합니다.
+10. **인증서 지정** 페이지에서 **찾아보기**를 클릭하여 이전 게이트웨이에 사용된 것과 동일한 인증서를 선택하고 **암호**를 입력한 다음 **마침**을 클릭합니다. 
+ 
+	![인증서 지정](./media/data-factory-move-data-between-onprem-and-cloud/SpecifyCertificate.png)
+
+	이전 게이트웨이에서 인증서를 내보낼 수 있습니다. 이전 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자를 시작하고 **인증서** 탭으로 전환한 후 **내보내기** 단추를 클릭하고 지침을 따르면 됩니다. 
+10. 게이트웨이 등록에 성공하면 게이트웨이 구성 관리자의 홈 페이지에 **등록**이 **등록됨**으로 설정되고 **상태**가 **시작됨**으로 설정됩니다. 
 
 ## 자격 증명 및 보안 설정
 
@@ -462,7 +494,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 3.	데이터 팩터리 홈 페이지에서 **연결된 서비스** 타일을 클릭합니다. 
 4.	**연결된 서비스** 블레이드의 명령 모음에서 **새 데이터 저장소**를 클릭합니다. 
 4.	**이름**에 **SqlServerLinkedService**를 입력합니다. 
-2.	**형식** 옆에 화살표를 클릭하고**SQL Server**를 선택합니다.
+2.	**형식** 옆의 화살표를 클릭하고 **SQL Server**를 선택합니다.
 
 	![새 데이터 저장소 만들기](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
 3.	**형식** 설정에서 자세한 설정을 수행해야 합니다.
@@ -480,7 +512,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. 데이터 팩터리 서비스가 데이터베이스 연결에 사용할 **인증**을 선택합니다. 2. **USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 3. **PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 4. **확인**을 클릭하여 대화 상자를 닫습니다. 
 4. **확인**을 클릭하여 **자격 증명** 블레이드를 닫습니다. 
 5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
-6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다. ![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
 
@@ -552,7 +584,7 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 ## 데이터 관리 게이트웨이를 사용하는 복사에 대한 데이터 흐름
 데이터 파이프라인에는 복사 활동을 사용하여 온-프레미스 데이터를 클라우드로 수집하거나 결과 데이터를 클라우드에서 온-프레미스 데이터 저장소에 다시 내보내는 경우 복사 작업은 내부적으로 게이트웨이를 사용하여 온-프레미스 데이터 원본에서 클라우드로 그리고 반대로 데이터를 전송합니다.
 
-다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다. ![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	데이터 개발자는 [Azure 포털](http://portal.azure.com) 또는 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx) 중 하나를 사용하는 Azure Data Factory에 대한 새 게이트웨이를 만듭니다. 
 2.	데이터 개발자는 게이트웨이로 "연결된 서비스" 패널을 사용하여 온-프레미스 데이터 저장소에 대한 새 연결 된 서비스를 정의합니다. 연결된 서비스 데이터 설정의 일부로서 개발자는 단계별 연습에 표시된 대로 자격 증명 설정 응용 프로그램을 사용하여 인증 유형 및 자격 증명을 지정합니다. 자격 증명 설정 응용 프로그램 대화 상자는 연결을 테스트하는 데이터 저장소 및 자격 증명을 저장하는 게이트웨이와 통신합니다.
@@ -578,4 +610,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

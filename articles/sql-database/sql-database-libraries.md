@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="08/04/2015"
 	ms.author="pehteh"/>
 
 
@@ -22,14 +22,6 @@
 
 
 이 항목에는 클라이언트 프로그램에서 Azure SQL 데이터베이스 또는 Microsoft SQL Server에 연결하는 데 사용할 수 있는 각 라이브러리/드라이버의 최소 버전 번호가 나열되어 있습니다.
-
-
-이 항목은 두 섹션으로 구성되어 있습니다.
-
-
-- *Microsoft에서 출시한 드라이버 라이브러리 표* -Microsoft에서 출시한 라이브러리를 다룹니다. Microsoft는 이 섹션에 포함된 정보를 유지 관리합니다.
-- *타사 라이브러리* - Microsoft 이외의 타사에서 출시 및 유지 관리하는 라이브러리를 나열합니다. **개발자 공개 커뮤니티에서만 섹션을 유지 관리합니다. Microsoft는 이 섹션을 유지 관리하지 않습니다.**
-
 
 ## Microsoft에서 출시한 드라이버 라이브러리 표
 
@@ -45,6 +37,14 @@
 | ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | [링크](http://msdn.microsoft.com/library/jj730308.aspx) |
 | ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | . |
 | ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | . |
+
+### ODBC 지원
+
+DSN(데이터 원본 이름) 마법사를 사용하여 Azure SQL 데이터베이스의 데이터 원본을 정의하는 경우 **사용자가 입력한 로그인 ID 및 암호를 사용하여 SQL Server 인증** 옵션을 클릭하고 **SQL Server에 연결하여 추가 구성 옵션에 대한 기본 설정 가져오기**를 선택합니다. 사용자 이름 및 암호를 입력하여 Azure SQL 데이터베이스 서버에 **로그인 ID** 및 **암호**로 연결합니다. **SQL Server에 연결하여 추가 구성 옵션에 대한…** 확인란을 선택 취소합니다. **기본 데이터베이스를 다음으로 변경:**을 클릭하고 목록에 표시되지 않더라도 Azure SQL 데이터베이스 이름을 입력합니다. 마법사가 **SQL Server 시스템 메시지 언어를 다음으로 변경:** 목록에서 여러 언어를 나열합니다.
+
+이 릴리스에서 Microsoft Azure SQL 데이터베이스는 영어만 지원하므로 영어를 언어로 선택합니다. Microsoft Azure SQL 데이터베이스는 **미러 서버** 또는 **데이터베이스 연결**을 지원하지 않으므로 이러한 항목을 비워둡니다. **연결 테스트**를 클릭합니다.
+
+SQL Server 2008 Native Client ODBC 드라이버를 사용하는 경우 **연결 테스트** 단추는 **master.dbo.syscharsets**가 지원되지 않는 오류를 야기할 수 있습니다. 이 오류를 무시하고 DSN을 저장하여 사용합니다.
 
 
 ### DB2 및 DRDA 디자인에 대한 SQL Server에 대한 OLEDB
@@ -82,4 +82,4 @@ Microsoft OLE DB Provider for DB2 버전 5.0 (데이터 공급자)를 사용 하
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/16/2015"
+   ms.date="10/22/2015"
    ms.author="kareni"/>
 
 
@@ -24,7 +24,15 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 
 이전 청구 기간에서 최대 24시간의 잠재 사용량이 현재 청구 기간에 보고될 수 있습니다.
 
-사용량 과금, 사용 현황 및 요금제에 대한 자세한 내용은 [Microsoft Azure 구입 옵션 페이지](http://azure.microsoft.com/pricing/purchase-options/)를 참조하세요.
+소비와 요금 계획에 관한 자세한 내용은 [Microsoft Azure 구입 옵션 페이지](http://azure.microsoft.com/pricing/purchase-options/)를 참조하세요.
+
+아래 링크는 모든 Microsoft Azure 서비스의 전체 목록을 다룹니다.
+
+- [서비스 세부 정보 목록 (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+- [서비스 세부 정보 목록 (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+
+*참고: **csv1** 링크는 csv version 1의 열 머리글 이름을 참조하고 **csv2** 링크는 csv version 2의 새 열 머리글 이름을 참조합니다. 이 파일들은 매달 업데이트 됩니다.*
+
 
 ## 콘텐츠:
 
@@ -237,14 +245,6 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 ![tags](./media/billing-understand-your-bill/tags.png)
 
 
-각 서비스에 대한 자세한 내용은 정보 파일의 추가 원본을 참조하세요. 이러한 파일은 매월 업데이트되고 다음 달에 사용할 수 있도록 25일에 게시되며 .csv 버전1이 **2015년 5월**부터 .csv 버전2가 **2015년 6월**부터 제공됩니다. 다음은 서비스 다운로드 필드의 기본 파일 URL입니다.
-
->>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v2_MMYYYY.xlsx
-
-
-
-최신 버전을 찾으려면 연도 및 월을 입력합니다. 예를 들어 2015년 5월 파일을 찾으려면 위 URL에서 _**“MMYYYY”**_ 섹션에 **052015**를 입력합니다. 이 스프레드시트는 **사용 현황 다운로드 보고서**의 가능한 모든 서비스 관련 필드 조합에 대한 목록을 제공합니다.
-
 ## 추가 리소스
 일부 매우 유용한 링크를 보려면 [서비스를 관리](https://msdn.microsoft.com/library/azure/dn578292.aspx) 아래에서 **계정 관리, 구독 및 관리 역할** 섹션으로 이동합니다.
 
@@ -262,4 +262,4 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

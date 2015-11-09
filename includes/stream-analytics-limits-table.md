@@ -12,14 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-data"
-   ms.date="07/13/2015"
+   ms.date="10/22/2015"
    ms.author="jeffstok" />
 
 | 제한 식별자 | 제한 | 설명 |
 |----------------- | ------------|--------- |
-| 지역당 구독당 최대 스트리밍 단위 수 | 50 | 구독의 스트리밍 단위를 50을 초과하도록 요청하려면 [Microsoft 지원](https://support.microsoft.com/en-us)에 문의하세요. |
+| 지역당 구독당 최대 스트리밍 단위 수 | 50 | 구독의 스트리밍 단위를 50을 초과하도록 요청하려면 [Microsoft 지원](https://support.microsoft.com/ko-KR)에 문의하세요. |
 | 스트리밍 단위의 최대 처리량 | 1MB/s* | SU당 최대 처리량은 시나리오에 따라 달라집니다. 실제 처리량은 더 낮을 수 있고 쿼리 복잡성 및 분할에 따라 달라질 수 있습니다. 자세한 내용은 [처리량을 높이기 위한 Azure 스트림 분석 작업 규모 지정](../articles/stream-analytics/stream-analytics-scale-jobs.md) 문서에서 찾을 수 있습니다. |
 | SELECT 문 쿼리 제한 | 쿼리당 5 출력 | 이 제한은 나중에 증가할 수 있습니다. |
-| SELECT 문 하위 쿼리 제한 | 하위 쿼리당 14 집계 | 이 제한은 나중에 증가할 수 있습니다. |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

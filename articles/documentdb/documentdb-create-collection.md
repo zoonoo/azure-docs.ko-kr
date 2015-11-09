@@ -40,7 +40,7 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 	- **기본값** 이 정책은 문자열에 대해 같음 쿼리를 수행하고 숫자에 대해 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 **범위**보다 더 낮은 인덱스 저장소 오버헤드가 있습니다.
 	- **해시** 이 정책은 숫자 및 문자열 모두에 대해 같음 쿼리를 수행할 때 가장 좋습니다. 이 정책에는 가장 낮은 인덱스 저장소 오버헤드가 있습니다.
-	- **범위** 이 정책은 숫자와 문자열 모두에 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 **기본값** 또는 **해시**보다 더 높은 인덱스 저장소 오버헤드가 있습니다.
+	- **범위** 이 정책은 숫자 및 문자열 모두의 범위 및 동등 쿼리에 ORDER BY를 사용할때 가장 좋습니다. 이 정책에는 **기본값** 또는 **해시**보다 더 높은 인덱스 저장소 오버헤드가 있습니다.
 
 	인덱싱 정책에 대한 자세한 내용은 [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
 
@@ -65,4 +65,4 @@ Preview 포털에서 컬렉션을 만들지 않아도 됩니다. [DocumentDB SDK
 
 컬렉션에 문서를 추가한 후에 [DocumentDB SQL](documentdb-sql-query.md)에서 Preview 포털에 있는 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 대해 [쿼리를 실행](documentdb-sql-query.md#executing-queries)할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

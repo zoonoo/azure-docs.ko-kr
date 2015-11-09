@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/23/2015"
 	ms.author="cynthn"/>
 
 #Azure 가상 컴퓨터 정보 
@@ -22,9 +22,9 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Azure 가상 컴퓨터는 Azure가 제공하는 여러 유형의 확장성 있는 주문형 컴퓨팅 리소스 중 하나입니다. 일반적으로 다른 선택 항목을 제공하기 보다 계산 환경을 통해 더 많이 제어해야 하는 경우 다른 옵션 대신 가상 컴퓨터를 선택합니다.
+Azure 가상 컴퓨터는 Azure가 제공하는 여러 유형의 확장성 있는 주문형 컴퓨팅 리소스 중 하나입니다. 일반적으로 계산 환경을 통해 더 많이 제어해야 하는 경우 다른 옵션 대신 가상 컴퓨터를 선택합니다.
 
-다른 방법은 자신의 하드웨어 상의 가상 컴퓨터를 사용하는 것입니다. 이 접근 방식에 비해 Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 하지만 가상 컴퓨터도 여전히 가상 컴퓨터에서 실행하는 운영 체제 및 기타 소프트웨어를 구성, 패치 및 유지 관리하는 등의 유지 관리가 필요합니다.
+Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 하지만 가상 컴퓨터도 여전히 가상 컴퓨터에서 실행하는 운영 체제 및 기타 소프트웨어를 구성, 패치 및 유지 관리하는 등의 유지 관리가 필요합니다.
 
 이 표는 Azure를 통해 제공되는 선택 항목을 비교하는 데 도움이 됩니다.
 
@@ -48,8 +48,8 @@ Azure 가상 컴퓨터에 대해 잘 모르는 경우 [질문과 대답](virtual
 
 
 <!--links-->
-[앱 서비스]: app-service-choose-me.md
-[가상 컴퓨터]: #tellmevm
-[클라우드 서비스]: cloud-services-choose-me.md
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

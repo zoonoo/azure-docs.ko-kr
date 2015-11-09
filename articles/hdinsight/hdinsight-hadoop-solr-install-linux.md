@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
@@ -158,11 +158,21 @@ Solr 대시보드는 웹 브라우저를 통해 Solr로 작업할 수 있는 웹
 
 SSH 터널을 설정하면 다음 단계를 수행하여 Solr 대시보드를 사용합니다.
 
-1. 브라우저에서 \_ \___http://headnode0:8983/solr/#/__에 연결합니다. 이 트래픽은 HDInsight 클러스터에 대한 headnode0로 SSH 터널을 통해 라우트되어야 합니다. 다음과 유사한 결과가 표시됩니다.
+1. 헤드 노드에 호스트 이름을 결정합니다.
+
+    1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. 메시지가 표시되면 관리자 사용자 이름 및 암호를 사용하여 사이트에 인증합니다.
+    
+    2. 페이지 위쪽에 있는 메뉴에서 __호스트__를 선택합니다.
+    
+    3. __hn0__으로 시작하는 항목을 선택합니다. 페이지가 열릴 때 호스트 이름이 위쪽에 표시됩니다. 호스트 이름의 형식은 __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__입니다. 이는 Solr 대시보드에 연결할 때 사용해야 하는 호스트 이름입니다.
+    
+1. 브라우저에서 \_\___http://HOSTNAME:8983/solr/#/__에 연결하며 여기에서 __HOSTNAME__은 이전 단계에서 결정한 이름입니다.
+
+    이 요청은 HDInsight 클러스터에 대한 헤드 노드로 SSH 터널을 통해 라우팅해야 합니다. 다음과 유사한 결과가 표시됩니다.
 
 	![Solr 대시보드의 이미지](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-2. 왼쪽 창에서 **코어 선택기** 드롭다운을 사용하여 **collection1**을 선택합니다. 여러 항목이 __collection1__ 밑에 나타나야 합니다.
+2. 왼쪽 창에서 **코어 선택기** 드롭다운을 사용하여 **collection1**을 선택합니다. 여러 항목이 __collection1__ 아래에 나타나야 합니다.
 
 3. __collection1__ 아래의 항목에서 __쿼리__를 선택합니다. 검색 페이지를 채우려면 다음 값을 사용합니다.
 
@@ -240,9 +250,13 @@ Solr를 수동으로 중지하거나 시작해야 하는 경우 다음 명령을
 
 Solr 클러스터 노드에서 인덱싱된 데이터를 Azure Blob 저장소에 백업하는 것이 좋습니다. 이렇게 하려면 다음 단계를 수행합니다.
 
-1. SSH를 사용하여 클러스터에 연결하고 다음 명령을 사용하여 인덱싱된 데이터의 스냅숏을 만듭니다.
+1. SSH를 사용하여 클러스터에 연결하고 다음 명령을 사용하여 헤드 노드에 호스트 이름을 가져옵니다.
 
-		curl http://headnode0:8983/solr/replication?command=backup
+        hostname -f
+        
+2. 다음을 사용하여 인덱싱된 데이터의 스냅숏을 만듭니다. __HOSTNAME__을 이전 명령에서 반환한 이름으로 바꿉니다.
+
+		curl http://HOSTNAME:8983/solr/replication?command=backup
 
 	다음과 같은 응답이 표시됩니다.
 
@@ -257,7 +271,7 @@ Solr 클러스터 노드에서 인덱싱된 데이터를 Azure Blob 저장소에
 
 2. 다음으로 디렉터리를 __/usr/hdp/current/solr/example/solr__로 변경합니다. 각 컬렉션에 대한 하위 디텍터리가 여기에 있습니다. 컬렉션의 각 디렉터리는 __데이터__ 디렉터리를 포함하고 여기에 해당 컬렉션에 대한 스냅숏이 있습니다.
 
-	예를 들어 이전 단계를 사용하여 샘플 문서를 인덱싱하는 경우 __/usr/hdp/current/solr/example/solr/collection1/data__ 디렉터리는 스냅숏의 날짜 및 시간인 #'가 있는 __snapshot.###########__라는 디렉터리를 포함해야 합니다.
+	예를 들어 이전 단계를 사용하여 샘플 문서를 인덱싱한 경우 __/usr/hdp/current/solr/example/solr/collection1/data__ 디렉터리는 스냅숏의 날짜 및 시간인 #가 있는 __snapshot.###########__라는 디렉터리를 포함해야 합니다.
 
 3. 다음과 비슷한 명령을 사용하여 스냅숏 폴더의 압축된 아카이브를 만듭니다.
 
@@ -276,7 +290,7 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업
 
 ## 참고 항목
 
-- [HDInsight 클러스터에 Hue를 설치 및 사용](hdinsight-hadoop-hue-linux.md)합니다. Hue는 HDInsight 클러스터에 대한 기본 저장소를 쉽게 찾을 뿐만 아니라 Pig 및 Hive 작업을 편리하게 만들고 실행하고 저장할 수 있도록 하는 웹 UI입니다.
+- [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다. Hue는 HDInsight 클러스터에 대한 기본 저장소를 쉽게 찾을 뿐만 아니라 Pig 및 Hive 작업을 편리하게 만들고 실행하고 저장할 수 있도록 하는 웹 UI입니다.
 
 - [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Spark를 설치합니다. Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다.
 
@@ -284,7 +298,7 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업
 
 - [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install-linux.md). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
 
-- [HDInsight 클러스터에 Hue를 설치](hdinsight-hadoop-hue-linux.md)합니다. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Hue를 설치합니다. Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 프로그램 집합입니다.
+- [HDInsight 클러스터에서 Hue를 설치](hdinsight-hadoop-hue-linux.md)합니다. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Hue를 설치합니다. Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 프로그램 집합입니다.
 
 
 
@@ -294,4 +308,4 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

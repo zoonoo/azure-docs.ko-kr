@@ -1,7 +1,20 @@
-<properties pageTitle="자습서: Spring CM과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Spring CM을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Spring CM과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Spring CM을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Spring CM과 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=536554)를 클릭하십시오.
   
 이 자습서는 Azure Active Directory와 Spring CM 사이에 Single Sign-On을 설정하는 방법을 보여주기 위한 것입니다.
   
@@ -91,7 +104,7 @@
     4.  **SAML 사용**으로 설정되었을 때 **사용**을 선택합니다.
     5.  **Save**를 클릭합니다.
 
-8.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+8.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택한 다음 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Single Sign-On 구성")
 
@@ -139,6 +152,6 @@ Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하�
 
     ![예](./media/active-directory-saas-spring-cm-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

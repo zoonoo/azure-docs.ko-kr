@@ -20,6 +20,10 @@
 
 Microsoft는 Azure IoT 서비스를 사용한 다양한 기능을 제공합니다. 이러한 서비스는 장치에서 데이터의 수집, 데이터 스트림 인모션의 분석, 큰 데이터 집합의 저장 및 쿼리, 실시간 및 기록 데이터 모두의 시각화, 중요한 백 오피스 시스템과 통합하는 엔터프라이즈급 기능을 제공합니다. Azure IoT Suite는 일반적으로 활용되는 서비스 및 고객의 가치 창출 시간을 절감할 수 있는 확장된 기능의 집합을 패키지합니다. 이러한 확장은 가장 일반적인 솔루션 패턴의 기본 구현을 제공하는 미리 구성된 솔루션을 포함합니다. IoT 소프트웨어 개발 키트(SDK)와 함께 고객은 미리 구성된 솔루션을 쉽게 사용자 지정하거나 새 솔루션의 개발을 위한 예제로 활용할 수 있습니다.
 
+다음 비디오는 Azure IoT Suite에 대한 소개를 제공합니다.
+
+> [AZURE.VIDEO azurecon-2015-introducing-the-microsoft-azure-iot-suite]
+
 ## Azure IoT Suite에서 Azure IoT 서비스
 
 Azure IoT Suite의 핵심은 IoT Hub 서비스입니다. 이 서비스는 장치-클라우드 및 클라우드-서비스 메시징을 제공합니다. 클라우드 및 기타 주요 IoT Suite 서비스에 게이트웨이로 작동합니다.
@@ -36,6 +40,6 @@ Azure 저장소 및 Azure Document DB의 결합을 통해 데이터 저장소 �
 
 미리 구성된 솔루션은 Azure IoT Suite에 포함되어 고객이 Azure IoT Suite에서 가능한 시나리오를 신속하게 시작하고 탐색할 수 있게 합니다.
 
-첫 번째 미리 구성된 솔루션은 [원격 모니터링](iot-suite-what-are-preconfigured-solutions.md)입니다.
+첫 번째 미리 구성된 솔루션은 [Remote Monitoring](iot-suite-what-are-preconfigured-solutions.md)입니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

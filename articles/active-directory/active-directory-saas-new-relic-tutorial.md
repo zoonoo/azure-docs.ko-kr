@@ -1,7 +1,20 @@
-<properties pageTitle="자습서: New Relic과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 New Relic을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: New Relic과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory와 New Relic을 사용하여 Single sign-on, 자동화 된 프로비저닝 등에 사용할 수 있는 방법에 대해 알아봅니다!" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: New Relic과 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=536553)를 클릭하십시오.
   
 이 자습서는 Azure Active Directory와 New Relic 사이에 Single Sign-On을 설정하는 방법을 보여주기 위한 것입니다.
   
@@ -63,7 +76,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-new-relic-tutorial/IC797033.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **New Relic Sign On URL** 텍스트 상자에 New Relic 응용 프로그램에 로그온하기 위해 사용자가 사용한 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **New Relic 로그온 URL** 텍스트 상자에 New Relic 응용 프로그램에 로그온하기 위해 사용자가 사용한 URL을 입력한 후 **다음**을 클릭합니다.
 
     앱 URL은 New Relic 테넌트 URL입니다(예: **https://rpm.newrelic.com*):).
 
@@ -88,8 +101,8 @@
     ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.png "SAML")
 
     1.  **파일 선택**을 클릭하여 다운로드한 Azure Active Directory 인증서를 업로드합니다.
-    2.  Microsoft Azure 포털의 **New Relic에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    3.  Microsoft Azure 포털의 **New Relic에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 방문 URL** 텍스트 상자에 붙여넣습니다.
+    2.  Microsoft Azure 포털의 **New Relic에서 Single Sign-On 구성** 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
+    3.  Microsoft Azure 포털의 **New Relic에서 Single Sign-On 구성** 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 방문 URL** 텍스트 상자에 붙여넣습니다.
     4.  **내 변경 내용 저장**을 클릭합니다.
 
 9.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
@@ -107,7 +120,7 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
 
     ![계정 설정](./media/active-directory-saas-new-relic-tutorial/IC797040.png "계정 설정")
 
-3.  왼쪽의 **계정** 창에서 **요약**을 클릭 한 다음 **사용자 추가**를 클릭합니다.
+3.  왼쪽의 **계정** 창에서 **요약**을 클릭한 다음 **사용자 추가**를 클릭합니다.
 
     ![계정 설정](./media/active-directory-saas-new-relic-tutorial/IC797041.png "계정 설정")
 
@@ -115,7 +128,7 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
 
     ![활성 사용자](./media/active-directory-saas-new-relic-tutorial/IC797042.png "활성 사용자")
 
-    1.  **이메일** 텍스트 상자에서 프로비전하려는 유효한 Azure Active Directory 계정의 이메일 주소를 입력합니다.
+    1.  **이메일** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 사용자의 이메일 주소를 입력합니다.
     2.  **역할**로 **사용자**를 선택합니다.
     3.  **이 사용자 추가**를 클릭합니다.
 
@@ -137,6 +150,6 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
 
     ![예](./media/active-directory-saas-new-relic-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

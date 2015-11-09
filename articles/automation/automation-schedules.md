@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/26/2015"
    ms.author="bwren" />
 
 # Azure 자동화의 일정
 
 자동화 일정은 Runbook이 자동으로 실행되도록 예약하는 데 사용됩니다. 이는 Runbook을 한 번 실행할 단일 날짜 및 시간이거나, Runbook을 여러 번 시작할 되풀이 일정일 수 있습니다. 일반적으로 Runbook에서는 일정에 액세스할 수 없습니다.
+
+>[AZURE.NOTE]일정은 현재 Azure 자동화 DSC 구성을 지원하지 않습니다.
 
 ## Windows PowerShell cmdlet
 
@@ -66,4 +68,4 @@
 - [Azure 자동화에서 Runbook 예약](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

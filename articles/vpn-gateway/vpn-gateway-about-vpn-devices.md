@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
+   ms.date="10/27/2015"
    ms.author="cherylmc" />
 
 # 사이트 간 가상 네트워크 연결에 대한 VPN 장치 정보
@@ -47,19 +47,19 @@ VPN 장치 지원은 장치 제조업체에 문의하세요.
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | 호환되지 않음 |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [구성 지침](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | 호환되지 않음 |
 | Check Point | Security Gateway | R75.40, R75.40VS | [구성 지침](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [구성 지침](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Cisco ASA 샘플](https://msdn.microsoft.com/library/azure/dn133793.aspx) | 호환되지 않음 |
-| Cisco | ASR | IOS 15.1(고정), IOS 15.2(동적) | [Cisco ASR 샘플](https://msdn.microsoft.com/library/azure/dn133802.aspx) | [Cisco ASR 샘플](https://msdn.microsoft.com/library/azure/dn133802.aspx) |
-| Cisco | ISR | IOS 15.0(고정), IOS 15.1(동적) | [Cisco ISR 샘플](https://msdn.microsoft.com/library/azure/dn133800.aspx) | [Cisco ISR 샘플](https://msdn.microsoft.com/library/azure/dn133800.aspx) |
+| Cisco | ASA | 8\.3 | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | 호환되지 않음 |
+| Cisco | ASR | IOS 15.1(고정), IOS 15.2(동적) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Cisco | ISR | IOS 15.0(고정), IOS 15.1(동적) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | CloudBridge MPX 어플라이언스 또는 VPX 가상 어플라이언스 | 해당 없음 | [통합 지침](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | 호환되지 않음 |
 | Dell SonicWALL | TZ 시리즈, NSA 시리즈, SuperMassive 시리즈 E-Class NSA 시리즈 | SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x | [구성 지침](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | 호환되지 않음 |
 | F5 | BIG-IP 시리즈 | 해당 없음 | [구성 지침](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | 호환되지 않음 |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [구성 지침](http://docs.fortinet.com/fortigate/admin-guides) | [구성 지침](http://docs.fortinet.com/fortigate/admin-guides) |
 | IIJ(Internet Initiative Japan) | SEIL 시리즈 | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [구성 지침](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | 호환되지 않음 |
-| Juniper | SRX | JunOS 10.2(고정), JunOS 11.4(동적) | [Juniper SRX 샘플](https://msdn.microsoft.com/library/azure/dn133794.aspx) | [Juniper SRX 샘플](https://msdn.microsoft.com/library/azure/dn133794.aspx) |
-| Juniper | J 시리즈 | JunOS 10.4r9(고정), JunOS 11.4(동적) | [Juniper J 시리즈 샘플](https://msdn.microsoft.com/library/azure/dn133799.aspx) | [Juniper J 시리즈 샘플](https://msdn.microsoft.com/library/azure/dn133799.aspx) |
-| Juniper | ISG | ScreenOS 6.3(고정 및 동적) | [Juniper ISG 샘플](https://msdn.microsoft.com/library/azure/dn133797.aspx) | [Juniper ISG 샘플](https://msdn.microsoft.com/library/azure/dn133797.aspx) |
-| Juniper | SSG | ScreenOS 6.2(고정 및 동적) | [Juniper SSG 샘플](https://msdn.microsoft.com/library/azure/dn133796.aspx) | [Juniper SSG 샘플](https://msdn.microsoft.com/library/azure/dn133796.aspx) |
-| Microsoft | 라우팅 및 원격 액세스 서비스 | Windows Server 2012 | 호환되지 않음 | [라우팅 및 RRAS(원격 액세스 서비스) 샘플](https://msdn.microsoft.com/library/azure/dn133801.aspx) |
+| Juniper | SRX | JunOS 10.2(고정), JunOS 11.4(동적) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | J 시리즈 | JunOS 10.4r9(고정), JunOS 11.4(동적) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | ISG | ScreenOS 6.3(고정 및 동적) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | SSG | ScreenOS 6.2(고정 및 동적) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Microsoft | 라우팅 및 원격 액세스 서비스 | Windows Server 2012 | 호환되지 않음 | [Microsoft 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Openswan | Openswan | 2\.6.32 | (출시 예정) | 호환되지 않음 |
 | Palo Alto Networks | PAN-OS 5.0 이상을 실행하는 모든 장치 | PAN-OS 5x 이상 | [Palo Alto Networks](https://support.paloaltonetworks.com/) | 호환되지 않음 |
 | Watchguard | 모두 | Fireware XTM v11.x | [구성 지침](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | 호환되지 않음 |
@@ -156,4 +156,4 @@ VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](v
 
 사이트 간 VPN을 구성하려면 [사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-site-to-site-create.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

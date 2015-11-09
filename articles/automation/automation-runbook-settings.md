@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="10/22/2015"
    ms.author="bwren" />
 
 # Runbook 설정
@@ -60,4 +60,4 @@ Azure 관리 포털의 Runbook에 대한 **구성** 페이지에서 해당 Runbo
 - [Runbook 출력 및 메시지](../automation-runbook-output-and-messages) 
 - [Runbook 만들기 또는 가져오기](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

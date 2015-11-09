@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="07/22/2015"
-   ms.author="john.harvey@microsoft.com"/>
+   ms.date="10/28/2015"
+   ms.author="jharve"/>
 
-#  Microsoft Azure Government 개요 
+# Microsoft Azure Government 개요 
 
 <p> Microsoft Azure Government는 Microsoft Azure의 물리적으로 격리되고 네트워크에서 격리된 인스턴스입니다. 이 개요는 환경 및 서비스에 대한 소개는 물론 추가 정보의 링크를 제공합니다.
 
@@ -27,7 +27,7 @@ Azure Government는 속도, 규모, 보안, 규정 준수 및 경제성이 필�
 
 또한 Azure Government는 FedRAMP(United States Federal Risk and Authorization Management Program), ECSB(Department of Defense Enterprise Cloud Service Broker), CJIS(Criminal Justice Information Services) Security Policy, HIPAA(Health Insurance Portability and Accountability Act) 등의 규정에 명시된 민감한 미국 공공 부문 전용 작업에 대한 보다 높은 수준의 보안 및 규정 준수 요구 사항을 충족하도록 설계되었습니다.
 
-다음은 정부 기관에서 목표에 맞게 하이브리드 클라우드 솔루션을 구축하는데 도움이 되는 Azure Government 클라우드 인프라, 패브릭, 서비스 및 프레임 워크에 대한 요약 보기입니다. 아래의 일부 서비스는 미리 보기로만 제공됩니다. 일반 공급된 최신 서비스는 [지역 페이지](http://azure.microsoft.com/regions/#services)를 참조하세요.
+다음은 정부 기관이 목표를 달성하기 위해 하이브리드 클라우드 솔루션을 구축할 수 있게 도와주는 Azure 정부 인프라, 패브릭, 서비스 및 프레임워크의 요약 보기 입니다. 일반적으로 사용 가능한 가장 최근의 서비스가 나열된 [하위 지역 페이지](http://azure.microsoft.com/regions/#services)를 참조하세요.
 
 ![][2]
 
@@ -39,13 +39,13 @@ Azure Government는 Azure의 강력한 서비스 및 기능 외에도 다음을 
 
 - **보안, 개인 정보 보호 및 규정 준수** - Microsoft는 강력한 보안, 개인 정보 보호 및 규정 준수 제어 프레임워크와 함께 ECSB Impact Level 및 CJIS에 명시된 수준 높은 요구 사항을 준수할 수 있도록 더욱 엄격한 제어 기능을 구현했습니다.
 
-- **데이터 저장소** - Azure Government 환경에서는 약 805Km 이상 떨어져 있는 두 개의 데이터 센터를 유지 관리할 수 있습니다. 고객이 관리하는 모든 데이터는 CONUS(Continental United States) 데이터 센터에 저장됩니다.
+- **데이터 저장소** - Azure Government 환경에서는 약 1300Km 이상 떨어져 있는 두 개의 데이터 센터를 유지 관리할 수 있습니다. 고객이 관리하는 모든 데이터는 CONUS(Continental United States) 데이터 센터에 저장됩니다.
 
 - **미국 담당자** - 모든 Azure Government 운영자 및 관리자는 선별된 미국 시민입니다.
 
 - **ID 관리** - Azure Government 환경 내의 ID 관리는 Azure Active Directory의 별도 인스턴스입니다.
 
-- **규정 준수** - Microsoft는 FedRAMP, CJIS, ECSB, HIPAA 등 미국 정부 클라우드 솔루션에 대한 연방, 주 및 지방 정부의 엄격하고 변화하는 규정 준수 요구 사항을 준수하고 유지 관리하기 위해 지속적으로 투자하고 있습니다.
+- **규정 준수** – Microsoft 지속적으로 투자를 감행 하 충족 하 고 엄격 하 게 유지 관리 하 고 FedRAMP, CJIS, ECSB 같은 미국 연방, 주 및 로컬 규정 준수 요구 사항을 변경, HIPAA 및 미국 정부에 대 한 IRS 1075 클라우드 솔루션입니다.
 
 - **클라우드 통합** - Azure Government는 O365 Government와의 통합 환경을 제공하여 클라우드 서비스 및 향상된 서비스(예: 1TB의 OneDrive 저장소 공간)에 걸쳐 Single Sign-On을 지원합니다.
 
@@ -60,7 +60,7 @@ Azure Government는 Azure의 강력한 서비스 및 기능 외에도 다음을 
 
 
 ## <a name="Features"></a> Microsoft Azure Government에서 현재 사용할 수 있는 기능
-현재 Azure Government에는 미국 정부 아이오와 및 미국 정부 버지니아 지역에서 사용할 수 있는 다음과 같은 서비스가 포함되어 있습니다.
+Azure 정부 서비스는 미국 정부 아이오와 및 버지니아 지역 모두에서 사용 가능합니다.
 
 - 가상 컴퓨터
 - 클라우드 서비스
@@ -74,6 +74,11 @@ Azure Government는 Azure의 강력한 서비스 및 기능 외에도 다음을 
 - 트래픽 관리자
 - 서비스 버스
 - StorSimple
+- Redis 캐시
+- Azure 백업
+- 자동화
+- Express 경로
+- etc.
 
 기타 서비스도 사용할 수 있으며, 계속해서 서비스가 더 추가될 예정입니다. 서비스의 최신 목록은 사용 가능한 각 지역과 해당 서비스가 강조 표시되어 있는 [지역 페이지](http://azure.microsoft.com/regions/#services)를 참조하세요.
 
@@ -85,9 +90,17 @@ Azure Government는 Azure의 강력한 서비스 및 기능 외에도 다음을 
 
 Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 알아보시기 바랍니다.
 
-- **<A href="http://azure.com/gov">Azure Government 구입 및 액세스</a>**
+- **[평가판에 등록](https://azuregov.microsoft.com/trial/azuregovtrial)**
 
-- **<A href="/azure-government-developer-guide">Azure Government 개발자 가이드</a>**
+- **[Azure Government 구입 및 액세스](http://azure.com/gov)**
+
+- **[Azure Government 개발자 가이드](/azureazure-government-developer-guide)**
+
+- **[Azure 정부 블로그](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Azure 규정 준수](http://azure.microsoft.com/support/trust-center/compliance/)**
+
+
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
@@ -104,4 +117,4 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

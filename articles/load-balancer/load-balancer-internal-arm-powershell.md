@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="10/21/2015"
    ms.author="joaoma" />
 
 # Azure 리소스 관리자를 사용하여 내부 부하 분산 장치 구성 시작
@@ -30,6 +30,7 @@
 
 ## 내부 부하 분산 장치를 만드는 데 필요한 항목은 무엇입니까?
 
+
 내부 부하 분산 장치를 만들기 전에 다음 항목을 구성해야 합니다.
 
 - 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 개인 IP 주소를 구성합니다 
@@ -44,10 +45,10 @@
 
 Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
 
-다음 단계에서는 두 가상 컴퓨터 간에 부하를 분산하도록 부하 분산 장치를 구성하는 방법을 보여 줍니다.
+다음 단계에서는 두 가상 컴퓨터 간에 부하 분산 장치를 구성하는 방법을 보여 줍니다.
 
 
-## Powershell을 사용 단계별 지침
+## Powershell 사용 단계별 지침
 
 
 ### 부하 분산 장치에 대한 리소스 그룹 만들기
@@ -88,7 +89,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 위 예제에서는 "NRP-RG"라는 리소스 그룹과 "West US"라는 위치를 만들었습니다.
 
-## 프런트 엔드 IP 풀에 대한 공용 IP 주소 및 가상 네트워크 만들기
+## 프런트 엔드 IP 풀에 대한 개인 IP 주소 및 가상 네트워크 만들기
 
 
 ### 1단계
@@ -235,7 +236,39 @@ PS C:\> $backendnic1
 
 Add-AzureVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 할당합니다.
 
-가상 컴퓨터를 만들고 NIC에 할당하는 단계별 지침은 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)을 참조하세요.
+가상 컴퓨터를 만들고 NIC에 할당하는 단계별 지침은 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) 옵션 4 또는 5를 참조하세요.
+
+
+## 기존 부하 분산 장치 업데이트
+
+
+### 1단계
+
+위의 예제에서 부하 분산 장치를 사용하여 부하 분산 장치 개체를 Get-AzureLoadBalancer를 사용하는 변수 $slb에 할당
+
+	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+### 2단계
+
+다음 예제에서는 프런트 엔드에 있는 포트 81과 백 엔드 풀의 포트 8181을 사용하여 새 인바운드 NAT 규칙을 기존 부하 분산 장치에 추가
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### 3단계
+
+Set-AzureLoadBalancer를 사용하여 새 구성 저장
+
+	$slb | Set-AzureLoadBalancer
+
+## 부하 분산 장치 제거하기
+
+Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그룹에서 이전에 생성한 "NRP-LB"라는 부하 분산 장치 삭제
+
+	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]선택적 스위치 -Force를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
+
 
 
 ## 참고 항목
@@ -245,4 +278,4 @@ Add-AzureVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 �
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

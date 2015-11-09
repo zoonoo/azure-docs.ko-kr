@@ -1,7 +1,20 @@
-<properties pageTitle="자습서: Rally Software와 Azure Active Directory 통합| Microsoft Azure" description="Azure Active Directory에서 Rally Software를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Rally Software와 Azure Active Directory 통합| Microsoft Azure" 
+    description="Azure Active Directory에서 Rally Software를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Rally Software와 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=521865)를 클릭하십시오.
   
 이 자습서는 Azure와 Rally Software의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -61,7 +74,7 @@
 
     ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC769528.png "Microsoft Azure AD Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **Rally Software 테넌트 URL** 텍스트 상자에 다음 패턴 "*https://\<테넌트 이름>.Pagerduty.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Rally Software 테넌트 URL** 텍스트 상자에 다음 패턴 "*https://\<tenant-name>.rally.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-rally-software-tutorial/IC769529.png "앱 URL 구성")
 
@@ -85,7 +98,7 @@
     2.  Azure 포털의 **Rally Software에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
     3.  Azure 포털의 **Rally Software에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그 아웃 URL** 값을 복사합니다.
 
-9.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+9.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -100,14 +113,14 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
 
     ![사용자](./media/active-directory-saas-rally-software-tutorial/IC781039.png "사용자")
 
-3.  새 사용자 텍스트 상자에 이름을 입력한 다음 **세부 정보로 추가**를 클릭합니다.
+3.  이름을 새 사용자 텍스트 상자에 입력한 다음 **세부 정보 추가**를 클릭합니다.
 
 4.  **사용자 만들기** 섹션에서 다음 단계를 수행합니다.
 
     ![사용자 만들기](./media/active-directory-saas-rally-software-tutorial/IC781040.png "사용자 만들기")
 
-    1.  **사용자 이름** 텍스트 상자에서 프로비전하려는 Azure AD 사용자의 이름을 입력합니다.
-    2.  **이메일 주소** 텍스트 상자에 프로비전하려는 Azure AD 사용자의 메일 주소를 입력합니다.
+    1.  **사용자 이름** 텍스트 상자에 프로비전할 Azure AD 사용자의 이름을 입력합니다.
+    2.  **이메일 주소** 텍스트 상자에 프로비전할 Azure AD 사용자의 이메일 주소를 입력합니다.
     3.  **저장 후 닫기**를 클릭합니다.
 
 >[AZURE.NOTE]다른 Rally Software 사용자 계정 생성 도구 또는 Rally Software가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
@@ -128,6 +141,6 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
 
     ![예](./media/active-directory-saas-rally-software-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

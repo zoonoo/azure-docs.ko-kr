@@ -17,6 +17,9 @@
 	ms.author="asteen"/>
 
 # 어디에서나 암호 관리
+
+  >[AZURE.IMPORTANT]Azure 또는 O365 암호를 재설정하려고 하나요? 그렇다면 [다음 지침을 따르십시오](https://support.microsoft.com/kb/2606983).
+  
 셀프 서비스는 오랫동안 비용 절감 및 노동 절감 수단으로 전세계 IT 부서에서의 주요 목표가 되어 왔습니다. 실제로, 시장은 클라우드 또는 온-프레미스에서 온-프레미스 그룹, 암호 또는 사용자 프로필을 관리할 수 있는 제품으로 넘쳐납니다. Azure AD는 사용하기 가장 쉬운 방법 및 오늘날 가능한 가장 강력한 셀프서비스 기능을 제공하여 이들 제품과 차별을 두었습니다.
 
 **Azure AD 암호 관리**는 정의한 보안 정책을 준수하는 동안 언제, 언제 어디에서든 모든 장치에서 암호를 관리할 수 있는 기능들입니다.
@@ -124,4 +127,4 @@
 * [자세한 정보](active-directory-passwords-learn-more.md)
 * [MSDN의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

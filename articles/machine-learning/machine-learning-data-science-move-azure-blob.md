@@ -22,7 +22,7 @@
 
 ## 소개
 
-이 항목에서는 Azure Blob 저장소 내부 및 외부로 데이터를 이동하는 세 가지 기술의 사용법을 설명합니다.
+Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데 사용되는 기술 지침은 여기에 연결되어 있습니다.
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -44,4 +44,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

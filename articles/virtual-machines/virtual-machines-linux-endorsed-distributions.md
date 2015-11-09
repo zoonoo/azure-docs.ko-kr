@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Linux의 보증 배포판 | Microsoft Azure" 
-	description="Ubuntu, OpenLogic, Oracle 및 SUSE 관련 지침을 포함하여 Azure에서 Linux의 인증 배포를 수행하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+<properties
+	pageTitle="Linux의 보증 배포판 | Microsoft Azure"
+	description="Ubuntu, OpenLogic, Oracle 및 SUSE 관련 지침을 포함하여 Azure에서 Linux의 인증 배포를 수행하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"
-	tags="azure-service-management,azure-resource-manager" 
+	tags="azure-service-management,azure-resource-manager"
 	/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="szark"/>
 
 
@@ -37,7 +37,7 @@ Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치
 
 배포|버전|드라이버|에이전트
 ---|---|---|---
-Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 and 15.04|커널에 있음|패키지: "walinuxagent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Canonical Ubuntu|Ubuntu 12.04, 14.04, 15.04 및 15.10|커널에 있음|패키지: "walinuxagent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 OpenLogic의 CentOS |CentOS 6.3 이상, 7.0 이상| CentOS 6.3:[LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음|패키지: "WALinuxAgent"의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 이상 |커널에 있음|원본: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4 이상, 7.0 이상|커널에 있음|패키지: "WALinuxAgent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
@@ -79,6 +79,4 @@ Oracle의 전략은 공용 및 사설 클라우드에 대한 솔루션의 다양
 
 SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수한 안정성과 보안을 제공하는 검증된 플랫폼입니다. SUSE의 다양한 Linux 플랫폼은 Azure 클라우드 서비스와 자연스럽게 통합되어 쉽게 관리할 수 있는 클라우드 환경을 제공합니다. 1,800곳이 넘는 SUSE Linux Enterprise Server의 독립 소프트웨어 공급업체에서 9,200개 이상의 인증된 응용 프로그램을 통해 SUSE는 데이터 센터에서 지원되는 실행 중인 작업이 확실히 Azure에 배포될 수 있도록 합니다.
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

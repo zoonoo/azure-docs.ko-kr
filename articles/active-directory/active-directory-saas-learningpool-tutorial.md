@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Learningpool과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Learningpool을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Learningpool과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Learningpool을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Learningpool과 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=533920)를 클릭하십시오.
   
 이 자습서는 Azure 및 Learningpool의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Learningpool Single Sign-on이 설정된 구독
   
-이 자습서를 완료한 후 Learningpool에 할당한 Azure AD 사용자가 Learningpool 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+이 자습서를 완료한 후 Learningpool에 할당한 Azure AD 사용자가 Learningpool 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-learningpool-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-learningpool-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -89,7 +102,7 @@ Learningpool 응용 프로그램은 특정 서식에서 SAML 어설션을 예상
 
     ![Single Sign-On 구성](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Single Sign-On 구성")
 
-6.  **Learningpool에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
+6.  **Learningpool에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Single Sign-On 구성")
 
@@ -97,7 +110,7 @@ Learningpool 응용 프로그램은 특정 서식에서 SAML 어설션을 예상
 
     ![앱 URL 구성](./media/active-directory-saas-learningpool-tutorial/IC795078.png "앱 URL 구성")
 
-8.  **Learningpool에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 인증서 파일을 컴퓨터에 로컬로 저장합니다.
+8.  **Learningpool에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 인증서 파일을 컴퓨터에 로컬로 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Single Sign-On 구성")
 
@@ -105,7 +118,7 @@ Learningpool 응용 프로그램은 특정 서식에서 SAML 어설션을 예상
 
     >[AZURE.NOTE]Single Sign-on은 Learningpool 지원팀에서 사용할 수 있어야 합니다.
 
-10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택한 다음 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -132,6 +145,6 @@ Learningpool을 프로비전하는 사용자를 구성할 작업 항목이 없�
 
     ![예](./media/active-directory-saas-learningpool-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

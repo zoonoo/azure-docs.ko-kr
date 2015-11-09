@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Azure Active Directory와 ZScaler Two 통합 | Microsoft Azure" description="Azure Active Directory에서 ZScaler Two를 사용하여 Single Sign-On, 자동화 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Azure Active Directory와 ZScaler Two 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 ZScaler Two를 사용하여 Single Sign-On, 자동화 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Azure Active Directory와 Zscaler Two 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=614871)를 클릭하십시오.
-  
+
 이 자습서에서는 Azure와 Zscaler Two의 통합을 보여줍니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   ZScaler Two Single Sign-On은 구독할 수 있습니다.
   
-이 자습서를 완료하면, ZScaler Two에 할당한 Azure AD 사용자들은 ZScaler Two 회사(로그온을 시작한 서비스 공급자) 사이트의 응용 프로그램에 단일 로그인 하거나, [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용할 수 있습니다.
+이 자습서를 완료하면, ZScaler Two에 할당한 Azure AD 사용자들은 ZScaler Two 회사(로그온을 시작한 서비스 공급자) 사이트의 응용 프로그램에 단일 로그인 하거나, [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용할 수 있습니다.
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -97,7 +110,7 @@
 
     ![SSO(Single sign-on)](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "SSO(Single sign-on)")
 
-    1.  Azure 포털의 **ZScaler Two에서 Single Sign-On 구성** 대화 상자 페이지에서 **요청된 URL 인증** 값을 복사하여 **사용자가 인증을 위해 보낸 SAML 포털의 URL** 텍스트 상자에 붙여넣기 합니다.
+    1.  Azure 포털의 **ZScaler Two에서 Single Sign-On 구성** 대화 상자 페이지에서 **요청된 URL 인증** 값을 복사하여 **사용자가 인증을 위해 보낸 SAML 포털의 URL** 텍스트 상자에 붙여 넣습니다.
     2.  **로그인 이름을 포함한 특성** 텍스트 상자에 **NameID**를 입력합니다.
     3.  **Zscaler pem**을 클릭하여 다운로드한 인증서를 업로드합니다.
     4.  **SAML 자동 프로비전 사용**을 선택합니다.
@@ -186,6 +199,6 @@ Azure AD 사용자가 ZScaler Two에 로그인할 수 있도록 하려면 사용
 
     ![예](./media/active-directory-saas-zscaler-two-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

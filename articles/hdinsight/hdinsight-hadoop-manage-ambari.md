@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ambari를 사용하여 HDInsight 클러스터 관리 | Microsoft Azure"
-   description="Ambari를 사용하여 Linux 기반 HDInsight 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다."
+   pageTitle="Apache Ambari Web UI를 사용하여 HDInsight 클러스터를 모니터링하고 관리| Microsoft Azure"
+   description="Ambari를 사용하여 Linux 기반 HDInsight 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari 웹 UI를 사용하는 방법을 배웁니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,24 +14,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/20/2015"
+   ms.date="10/27/2015"
    ms.author="larryfr"/>
 
-#Ambari를 사용하여 HDInsight 클러스터 관리(미리 보기)
+#Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리
 
-Ambari를 사용하여 Linux 기반 Azure HDInsight 클러스터를 관리하고 모니터링하는 방법에 대해 알아봅니다.
+[AZURE.INCLUDE [ambari 선택기](../../includes/hdinsight-ambari-selector.md)]
 
-> [AZURE.NOTE]이 문서에 있는 정보의 대부분은 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터에서는 Ambari REST API를 통한 모니터링만 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)를 참조하세요.
+Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는데 사용됩니다.
+
+이 문서에서는 HDInsight 클러스터와 Ambari 웹 UI를 사용하는 방법을 배웁니다.
+
+> [AZURE.NOTE]이 문서의 정보는 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터에서는 Ambari REST API를 통한 모니터링만 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)를 참조하세요.
 
 ##<a id="whatis"></a>Ambari 정의
 
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a>에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a>를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
 
-Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다. Windows 기반 HDInsight 클러스터는 Ambari REST API를 통해 모니터링 기능을 제공합니다.
+Ambari 웹 UI는 Linux 기반 HDInsight 클러스터와 함께 기본적으로 제공됩니다.
 
 ##연결
 
-HDInsight 클러스터에서 Ambari에 연결하려면 HTTPS를 사용해야 합니다. 또한 관리자 계정 이름(기본값: __admin__)과, 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다.
+Ambari 웹 UI는 사용자 클러스터의 이름 __CLUSTERNAME__인 HTTPS://CLUSTERNAME.azurehdidnsight.net의 HDInsight 클러스터에서 사용 가능합니다.
+
+> [AZURE.IMPORTANT]HTTPS를 요구하는 HDInsight에서 Ambari로 연결 또한 관리자 계정 이름(기본값: __admin__)과, 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다.
 
 ##SSH 프록시
 
@@ -41,15 +47,7 @@ Ambari로 작업하기 위해 SSH 터널 생성에 대한 정보는 [SSH 터널�
 
 ##Ambari 웹 UI
 
-Ambari 웹 UI는 **https://&lt;clustername>.azurehdinsight.net**에서 만든 각 Linux 기반 HDInsight 클러스터에서 사용할 수 있습니다.
-
-페이지에 인증하라는 메시지가 두 번 표시됩니다. 첫 번째는 HDInsight 클러스터에 인증하라는 메시지이고 두 번째는 Ambari에 인증하라는 메시지입니다.
-
-* **클러스터 인증** - 클러스터 관리자의 사용자 이름(기본값은 **admin**) 및 암호를 사용합니다.
-
-* **Ambari 인증** - 사용자 이름과 암호의 기본값은 모두 **admin**입니다.
-
-	> [AZURE.NOTE]**admin**의 암호를 변경한 경우 사용자는 새 암호를 입력해야 합니다.
+Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵니다. 클러스터를 만들 때 사용했던 클러스터 관리자 사용자(기본값 관리자)와 암호를 사용합니다.
 
 페이지가 열리면 위쪽의 표시줄을 확인합니다. 여기에는 다음 정보 및 컨트롤이 포함되어 있습니다.
 
@@ -147,7 +145,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 ###Ambari 사용자, 그룹 및 사용 권한
 
-Linux 기반 HDInsight 미리 보기 중에는 사용자, 그룹 및 사용 권한 관리를 사용할 수 없습니다.
+사용자, 그룹 및 권한 관리는 HDInsight 클러스터와 함께 사용하면 안됩니다.
 
 ###호스트
 
@@ -191,7 +189,7 @@ Linux 기반 HDInsight 미리 보기 중에는 사용자, 그룹 및 사용 권�
 
 ![서비스 작업](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]이 메뉴에 __서비스 추가__가 나열되어 있지만 HDInsight 클러스터에 서비스를 추가하는 데 사용하면 안 됩니다. 클러스터를 프로비전하는 동안 스크립트 작업을 사용하여 새 서비스를 추가해야 합니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> [AZURE.WARNING].이 메뉴에 __서비스 추가__가 나열되어 있지만 HDInsight 클러스터에 서비스를 추가하는 데 사용하면 안 됩니다. 클러스터를 프로비전하는 동안 스크립트 작업을 사용하여 새 서비스를 추가해야 합니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 
 **Actions** 단추는 모든 서비스를 다시 시작할 수 있는 반면, 특정 서비스를 시작하거나 중지, 다시 시작하려는 경우가 많습니다. 다음 단계를 사용하여 개별 서비스에서 작업을 수행할 수 있습니다.
@@ -218,18 +216,4 @@ Linux 기반 HDInsight 미리 보기 중에는 사용자, 그룹 및 사용 권�
 
 3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save**를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current**를 선택하여 이전 설정으로 롤백할 수 있습니다.
 
-##REST API
-
-Ambari 웹은 관리 및 모니터링 도구를 만드는데 활용할 수 있는 기본 REST API에 의존 합니다. API는 비교적 간단히 사용할 수 있지만 Azure에서 몇 가지 주의해야 할 사항이 있습니다.
-
-* **인증** - 클러스터 관리자 사용자 이름(기본값은 **admin**) 및 암호를 사용하여 서비스에 인증해야 합니다.
-
-* **보안** - Ambari 기본 인증을 사용하므로 API와 통신할 때 항상 HTTPS(보안 HTTP)를 사용해야 합니다.
-
-* **IP 주소** - 클러스터가 Azure 가상 네트워크의 구성원이 아니면 클러스터 외부에서 클러스터 내부의 호스트에 대해 반환되는 주소에 액세스할 수 없습니다. 하지만 네트워크 외부가 아니라면 가상 네트워크의 다른 구성원은 액세스할 수 있습니다.
-
-* **일부 기능은 사용할 수 없음** - HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다. Linux 기반 HDInsight의 미리 보기 중에는 다른 기능이 완벽하게 구현되지 않습니다.
-
-REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

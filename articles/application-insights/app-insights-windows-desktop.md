@@ -62,13 +62,13 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     * 코어 API 패키지 Microsoft.ApplicationInsights를 설치한 경우 main()와 같은 코드에서 키를 설정해야 합니다. 
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "`*키*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *키* `";`
 
-    * 다른 패키지 중 하나를 설치한 경우 코드를 사용하여 키를 설정하거나 ApplicationInsights.config에서 설정할 수 있습니다.
+    다른 패키지 중 하나를 설치한 경우 코드를 사용하여 키를 설정하거나 ApplicationInsights.config에서 설정할 수 있습니다.
  
     `<InstrumentationKey>`*키*`</InstrumentationKey>`
 
-
+    ApplicationInsights.config를 사용하는 경우 솔루션 탐색기에서 해당 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
 
 ## <a name="telemetry"></a>원격 분석 호출 삽입
 
@@ -299,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

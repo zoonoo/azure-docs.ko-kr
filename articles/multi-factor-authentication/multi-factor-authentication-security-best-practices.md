@@ -84,14 +84,6 @@ Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액�
 - IIS 6 이상이 필요
 - ASP.NET v2.0.507207을 설치하고 등록해야 함
 - 이 서버는 경계 네트워크에 배포할 수 있습니다.
-- 이 서버와 Azure 사이에 통신을 필터링하는 방화벽이 있는 경우 다음 URL과 통신할 수 있도록 하기 위해 TCP 포트 443 아웃바운드가 필요합니다.
-	- https://pfd.phonefactor.net 
-	- https://pfd2.phonefactor.net 
-	- https://css.phonefactor.net
-- 아웃바운드 방화벽이 포트 443에서 제한되는 경우 다음 IP 주소 범위를 아웃바운드로 사용할 수 있어야 합니다.
-	- 134\.170.116.0/25
-	- 134\.170.165.0/25
-	- 70\.37.154.128/25
 
 
 
@@ -129,4 +121,4 @@ Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액�
 - [Azure Multi-Factor Authentication의 환경 설정](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

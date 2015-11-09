@@ -1,8 +1,21 @@
-<properties pageTitle="자습서: Concur와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Concur를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Concur와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Concur를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Concur와 Azure Active Directory 통합  
 
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=522413)를 클릭하십시오.
 
 이 자습서는 Azure 및 Concur의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -63,7 +76,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-concur-tutorial/IC769768.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지에 있는 **Concur 로그인 URL** 텍스트 상자에 Concur 테넌트 로그인 URL를 입력하고 **다음**을 클릭하십시오.
+3.  **앱 URL 구성** 페이지에 있는 **Concur 로그인 URL** 텍스트 상자에 Concur 테넌트 로그인 URL를 입력하고 **다음**을 클릭합니다.
 
     ![로그인 URL 구성](./media/active-directory-saas-concur-tutorial/IC769769.png "로그인 URL 구성")
 
@@ -140,6 +153,6 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 이제 10분 동안 기다린 후 계정이 Concur에 동기화되었는지 확인해야 합니다.
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

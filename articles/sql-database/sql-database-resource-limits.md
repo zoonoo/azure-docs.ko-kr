@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="09/11/2015"
+	ms.date="10/27/2015"
 	ms.author="jroth" />
 
 
@@ -51,9 +51,9 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 
 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)은 풀의 데이터베이스에서 리소스를 공유합니다. 다음 표에서는 Basic, Standard 및 Premium 탄력적 데이터베이스 풀의 특징을 설명합니다.
 
-[AZURE.INCLUDE [탄력적 데이터베이스에 대한 SQL DB 서비스 계층 테이블](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[AZURE.INCLUDE [탄력적 데이터베이스에 대한 SQL DB 서비스 계층 표](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-서비스 계층에 대한 자세한 내용은 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)을 참조하세요.
+이전 표에 나열된 각 리소스의 확장된 정의는 [서비스 계층 기능 및 제한](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)의 설명을 참조하세요. 서비스 계층에 대한 개요는 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)을 참조하세요.
 
 ## 서버당 DTU 할당량
 
@@ -75,4 +75,4 @@ Azure SQL 데이터베이스에는 현재 15000 DTU의 논리 서버당 DTU 할�
 
 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

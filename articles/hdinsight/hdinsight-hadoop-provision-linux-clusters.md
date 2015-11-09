@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 
@@ -44,6 +44,8 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 구성하는 동안 이러한 클러스터 유형 중 하나를 선택합니다. [스크립트 동작](#scriptaction)을 사용하여 이러한 기본 유형에 Hue, Spark 또는 R과 같은 다른 기술을 추가할 수 있습니다.
 
 각 클러스터 유형에는 클러스터 내에 있는 노드에 대한 고유한 용어, 노드 수 및 각 노드 유형에 대한 기본 VM 크기가 포함됩니다.
+
+> [AZURE.IMPORTANT]클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
 
 ![HDInsight Hadoop 클러스터 노드](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
@@ -138,7 +140,7 @@ HDInsight는 클러스터에 대한 기본 저장소로 Azure Blob 저장소를 
 
 > [AZURE.IMPORTANT]클러스터는 기본 저장소 계정과 동일한 데이터 센터에 있어야 하므로 저장소 계정에 대해 선택하는 지리적 위치에 따라 HDInsight 클러스터의 위치가 결정됩니다.
 >
-> 지원되는 지역 목록은 [HDInsight 가격 책정](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)에서 **지역** 드롭다운 목록을 클릭하세요.
+> 지원되는 지역 목록은 [HDInsight 가격](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)에서 **지역** 드롭다운 목록을 클릭하세요.
 
 ####기본 저장소 컨테이너
 
@@ -152,11 +154,13 @@ HDInsight는 저장소 계정에 _기본 저장소 컨테이너_를 만듭니다
 
 클러스터에서 사용하는 계산 리소스의 크기를 선택할 수 있습니다. 예를 들어 많은 메모리가 필요한 작업을 수행할 것으로 예상되는 경우 더 많은 메모리를 포함하는 계산 리소스를 선택할 수 있습니다.
 
-> [AZURE.NOTE]클러스터 유형마다 서로 다른 노드 유형, 노드 수 및 노드 크기를 포함합니다. 예를 들어, Hadoop 클러스터 유형은 _헤드 노드_ 2개, 기본 _데이터 노드_ 4개를 포함하는 반면, Storm 클러스터 유형은 _nimbus 노드_ 2개, _zookeeper 노드_ 3개 및 기본 _감독자 노드_ 4개를 포함합니다.
+클러스터 유형마다 서로 다른 노드 유형, 노드 수 및 노드 크기를 포함합니다. 예를 들어, Hadoop 클러스터 유형은 _헤드 노드_ 2개, 기본 _데이터 노드_ 4개를 포함하는 반면, Storm 클러스터 유형은 _nimbus 노드_ 2개, _zookeeper 노드_ 3개 및 기본 _감독자 노드_ 4개를 포함합니다.
 
-Azure Preview 포털을 사용하여 클러스터를 구성하는 경우 노드 크기는 __노드 가격 책정 계층__ 블레이드를 통해 노출되며 다양한 노드 크기와 연결된 비용도 표시합니다.
+> [AZURE.IMPORTANT]클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
 
-> [AZURE.IMPORTANT]클러스터가 만들어지면 청구가 시작되고 클러스터가 삭제되면 청구가 중지됩니다. 가격 책정에 대한 자세한 내용은 [HDInsight 가격 정보](https://azure.microsoft.com/ko-KR/pricing/details/hdinsight/)를 참조하세요.
+Azure Preview 포털을 사용하여 클러스터를 구성하는 경우 노드 크기는 __노드 가격 책정 계층__ 블레이드를 통해 사용하는 다양한 노드 크기와 연결된 비용도 표시합니다.
+
+> [AZURE.IMPORTANT]클러스터가 만들어지면 청구가 시작되고 클러스터가 삭제되면 청구가 중지됩니다. 가격 책정에 대한 자세한 내용은 [HDInsight 가격 정보](https://azure.microsoft.com/pricing/details/hdinsight/)를 참조하세요.
 
 ##<a id="optionalconfiguration"></a>선택적 구성
 
@@ -195,7 +199,7 @@ Azure Preview 포털을 사용하여 클러스터를 구성하는 경우 노드 
 >
 > Linux 기반 HDInsight로 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure Preview 포털에서 HDInsight 클러스터를 생성하는 동안 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
 >
-> v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)에서 참조하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
+> v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하여 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 확인하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
 
 ### 메타 저장소
 
@@ -276,4 +280,4 @@ Metastore 구성 옵션을 사용하여 SQL 데이터베이스를 사용하는 �
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
