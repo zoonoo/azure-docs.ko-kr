@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="10/28/2015" 
 	ms.author="LuisCa"/>
 
 #Azure 기계 학습 권장 사항 API 설명서
@@ -141,7 +141,7 @@ OData XML
 |:--------			|:--------								|
 |	id |	모델의 고유 식별자(대/소문자 구분) |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -204,7 +204,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -273,7 +273,7 @@ OData XML
 |:--------			|:--------								|
 |	id | 모델의 고유 식별자(대/소문자 구분) |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.|
 
 **응답**:
@@ -291,7 +291,7 @@ ID별로 기존 모델을 삭제합니다.
 |:--------			|:--------								|
 |	id |	모델의 고유 식별자(대/소문자 구분) |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -335,7 +335,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -572,7 +572,7 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 |	buildId |	(선택 사항) - 성공적인 빌드를 식별하는 번호 |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -652,7 +652,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -806,7 +806,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -864,7 +864,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | <ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>WhiteList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **응답**:
@@ -912,7 +912,7 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 |	filterId |	필터의 고유 식별자 |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -929,7 +929,7 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -1312,7 +1312,7 @@ OData XML
 |:--------			|:--------								|
 |	forModelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -1379,7 +1379,7 @@ OData XML
 | endDate |	종료 날짜입니다. 형식: yyyy/MM/ddTHH:mm:ss |
 | eventTypes |	쉼표로 구분된 이벤트 유형 문자열이거나 null(모든 이벤트를 가져오려는 경우) |
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -1462,7 +1462,7 @@ OData XML
 | modelId |	모델의 고유 식별자 |
 | fileId |	모델 사용 파일의 고유 식별자 |
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -1485,7 +1485,7 @@ HTTP 상태 코드: 200
 | fid |	모델 사용 파일의 고유 식별자 |
 | 다운로드 | 1 |
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -1506,7 +1506,7 @@ HTTP 상태 코드: 200
 | modelId |	모델의 고유 식별자 |
 | fileId | 삭제할 파일의 고유 식별자 |
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -1525,7 +1525,7 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -1547,7 +1547,7 @@ HTTP 상태 코드: 200
 | modelId |	모델의 고유 식별자 |
 |samplingSize| 카탈로그에 있는 데이터에 따라 각 기능에 대해 포함할 값 수 <br/>가능한 값은 다음과 같습니다.<br> -1 - 모든 샘플 <br>0 - 샘플링 없음 <br>N - 각 기능 이름별로 N개의 샘플 반환|
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 
@@ -1630,7 +1630,7 @@ OData XML
 |samplingSize| 카탈로그에 있는 데이터에 따라 각 기능에 대해 포함할 값 수<br/> 가능한 값은 다음과 같습니다.<br> -1 - 모든 샘플 <br>0 - 샘플링 없음 <br>N - 각 기능 이름별로 N개의 샘플 반환|
 |rankBuildId| 순위 빌드의 고유 식별자 또는 마지막 순위 빌드의 경우 -1|
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 
@@ -1780,7 +1780,7 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 | modelId |	모델의 고유 식별자 |
 | userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명은 "빌드 매개 변수" 섹션을 참조하세요.`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **응답**:
@@ -1856,7 +1856,7 @@ OData XML
 | userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | buildType | 호출할 빌드의 형식: <br/> - 권장 사항 빌드의 경우 'Recommendation' <br> - 순위 빌드의 경우 'Ranking' <br/> - FBT 빌드의 경우 'Fbt'
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명 및 매개 변수 전체 목록을 보려면 "빌드 매개 변수" 섹션을 참조하세요.`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **응답**:
@@ -2821,7 +2821,7 @@ Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 �
 |:--------			|:--------								|
 | modelId | 선택적 매개 변수. 생략한 경우 모든 모델에 대한 모든 알림을 가져옵니다. <br>유효한 값: 모델의 고유 식별자|
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답:**
@@ -2873,7 +2873,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자 |
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -2891,7 +2891,7 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-|||
+||| 
 | 요청 본문 | 없음 |
 
 **응답**:
@@ -2905,4 +2905,4 @@ HTTP 상태 코드: 200
 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br> 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br> 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br> © 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

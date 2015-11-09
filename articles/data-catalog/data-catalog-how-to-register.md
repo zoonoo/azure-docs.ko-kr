@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/12/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 
@@ -39,8 +39,9 @@
 * Azure 저장소 Blob 및 디렉터리
 * HDFS 파일 및 디렉터리
 * HDInsight 하이브 테이블
+* Teradata 테이블 및 뷰
 
-> [AZURE.NOTE]SQL Server 지원에는 Microsoft Azure SQL 데이터베이스도 포함됩니다.
+> [AZURE.NOTE]SQL Server 지원에는 Microsoft Azure SQL 데이터베이스 및 Microsoft Azure SQL 데이터 웨어하우스가 포함됩니다.
 
 <br/>
 
@@ -94,4 +95,4 @@
 ## 요약
 데이터 원본을 **Azure 데이터 카탈로그**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터 원본을 보다 쉽게 검색하고 이해할 수 있게 됩니다. 데이터 원본이 등록되면 **Azure 데이터 카탈로그** 포털을 사용하여 주석을 추가하고, 관리하고, 검색할 수 있습니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

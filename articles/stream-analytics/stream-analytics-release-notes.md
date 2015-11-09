@@ -13,10 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/22/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 스트림 분석 릴리스 정보
+
+## 스트림 분석의 2015/10/22 릴리스에 대한 정보 ##
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+제목 | 설명
+---|---
+추가 쿼리 언어 기능 | 스트림 분석은 다음 기능을 포함하여 쿼리 언어를 확장합니다. [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) 및 [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
+집계 제한 사항이 제거되었습니다. | 이 릴리스는 쿼리에서 15개의 집계 제한 사항을 제거합니다. 쿼리당 집계 수에는 이제 제한이 없습니다.
+GROUP BY System.Timestamp 기능 추가됨 | [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) 기능은 이제 window\_type 또는 [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx)를 허용합니다.
+연속 및 도약 창에 대한 오프셋 추가됨 | 기본적으로 [연속](https://msdn.microsoft.com/library/azure/dn835055.aspx) 및 [도약](https://msdn.microsoft.com/library/azure/dn835041.aspx) 창은 0으로 된 시간에 대해 정렬됩니다(1/1/0001 12:00:00 AM UTC). 새(선택 사항) 매개 변수 'offsetsize'는 사용자 지정 오프셋(또는 맞춤) 지정을 허용합니다.
+
 
 ## 스트림 분석의 2015/09/29 릴리스에 대한 정보 ##
 
@@ -93,7 +105,7 @@ SQL 데이터베이스 이벤트 볼륨 제한|SQL 데이터베이스를 출력 
 PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|PowerBI는 지정된 데이터 집합에서 둘 이상의 테이블을 지원하지 않습니다.
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
@@ -104,4 +116,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

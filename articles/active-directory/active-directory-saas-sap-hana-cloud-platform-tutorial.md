@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 SAP HANA Cloud Platform을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 SAP HANA Cloud Platform을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: SAP HANA Cloud Platform과 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=529793)를 클릭하십시오.
   
 이 자습서는 Azure 및 SAP HANA Cloud Platform의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   SAP HANA Cloud Platform 계정
   
-이 자습서를 완료한 후 SAP HANA Cloud Platform에 할당한 Azure AD 사용자가 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+이 자습서를 완료한 후 SAP HANA Cloud Platform에 할당한 Azure AD 사용자가 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 >[AZURE.IMPORTANT]사용자 고유의 응용 프로그램을 배포하거나 SAP HANA Cloud Platform 계정에 대 한 single sign 테스트하도록 응용 프로그램을 구독해야 합니다. 이 자습서에서는 응용 프로그램이 계정에 배포됩니다.
   
@@ -98,7 +111,7 @@
     ![트러스트 관리](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "트러스트 관리")
 
     1.  **편집**을 클릭합니다.
-    2.  **구성 유형**으로 **사용자 할당**을 선택합니다.
+    2.  **구성 유형**으로 **사용자 지정**을 선택합니다.
     3.  **로컬 공급자 이름**으로 기본값을 그대로 사용합니다.
     4.  **서명 키** 및 **서명 인증서** 키 쌍을 생성하려면 **키 쌍 생성**을 클릭합니다.
     5.  **주 전파**로 **사용 안 함**을 선택합니다.
@@ -115,7 +128,7 @@
 
     ![트러스트 관리](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "트러스트 관리")
 
-    >[AZURE.NOTE]메타데이터 파일을 업로드한 후 **Single Sign-On URL**, **Single Logout URL** 및**서명 인증서**의 값이 자동으로 채워집니다.
+    >[AZURE.NOTE]메타데이터 파일을 업로드한 후 **Single Sign-On URL**, **Single Logout URL** 및 **서명 인증서**의 값이 자동으로 채워집니다.
 
 11. **특성** 탭을 클릭합니다.
 
@@ -179,6 +192,6 @@ Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, S
 
     ![예](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

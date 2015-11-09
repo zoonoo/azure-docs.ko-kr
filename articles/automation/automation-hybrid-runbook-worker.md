@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Azure 자동화 Hybrid Runbook Worker
@@ -30,6 +30,8 @@ Azure 자동화의 Runbook은 Azure 클라우드에서 실행되므로 로컬 �
 >[AZURE.NOTE]Operational Insights가 Operations Management Suite로 통합되는 과정에 있기 때문에 두 가지 이름 중 하나를 포털 및 이 문서에서 볼 수 있습니다.
 
 Hybrid Runbook Worker를 지원하기 위한 인바운드 방화벽 요구 사항은 없습니다. 로컬 컴퓨터의 에이전트는 클라우드에서 Azure 자동화와의 모든 통신을 시작합니다. Runbook이 시작되면 Azure 자동화에서 에이전트에게 전달되는 지침을 만듭니다. 그런 다음 에이전트는 Runbook을 실행하기 전에 Runbook 및 모든 매개 변수를 끌어옵니다. 또한 Azure 자동화에서 Runbook에 사용되는 모든 [자산](http://msdn.microsoft.com/library/dn939988.aspx)을 검색합니다.
+
+>[AZURE.NOTE]하이브리드 Runbook Worker는 현재 [DSC 구성](automation-dsc-overview.md)을 지원하지 않습니다.
 
 ## Hybrid Runbook Worker 그룹
 
@@ -73,7 +75,7 @@ Microsoft 관리 에이전트는 컴퓨터를 Operations Management Suite에 연
 
 관리자 모드에서 PowerShell 세션을 열고 다음 명령을 실행하여 모듈을 가져옵니다.
 
-	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\5.2.20826.0\HybridRegistration"
+	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation<version>\HybridRegistration"
 	Import-Module HybridRegistration.psd1
 
 
@@ -111,8 +113,6 @@ Azure Preview 포털에서 Runbook을 시작하면 **Azure** 또는 **Hybrid Wor
 	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 >[AZURE.NOTE]**RunOn** 매개 변수는 Microsoft Azure PowerShell 버전 0.9.1에서 **Start-AzureAutomationRunbook** cmdlet에 추가되었습니다. 이전 버전을 설치한 경우 [최신 버전을 다운로드](http://azure.microsoft.com/downloads)해야 합니다. Windows PowerShell에서 Runbook을 시작할 워크스테이션에만 이 버전을 설치하면 됩니다. 작업자 컴퓨터에서 Runbook을 시작하려는 경우가 아니라면 해당 컴퓨터에 설치할 필요는 없습니다. 현재 Hybrid Runbook Worker에서 다른 Runbook을 통해 Runbook을 시작할 수는 없습니다. 이렇게 하려면 최신 버전의 Azure Powershell을 자동화 계정에 설치해야 합니다. 최신 버전은 Azure 자동화에서 자동으로 업데이트되며 곧 작업자에 자동으로 푸시될 예정입니다.
-
->[AZURE.NOTE]Hybrid Runbook Worker는 [그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)만 실행할 수 있습니다. 지금은 Hybrid Runbook Worker에서 [PowerShell runbook](automation-runbook-types.md)을 시작할 수 없습니다.
 
 ## Hybrid Runbook Worker에서 Runbook 문제 해결
 
@@ -164,4 +164,4 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 - [Azure 자동화에서 Runbook 편집](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

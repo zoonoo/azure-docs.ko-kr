@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Oracle Linux VHD 만들기 및 업로드 | Microsoft Azure" 
-	description="Oracle Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+<properties
+	pageTitle="Oracle Linux VHD 만들기 및 업로드 | Microsoft Azure"
+	description="Oracle Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management,azure-resource-manager" />
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/05/2015"
 	ms.author="szark"/>
 
 # Azure용 Oracle Linux 가상 컴퓨터 준비
@@ -36,7 +36,7 @@
 
 - Oracle의 UEK2는 필수 드라이버를 포함하지 않으므로 Hyper-V 및 Azure에서 지원되지 않습니다.
 
-- 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
+- VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
 - Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
 
@@ -228,7 +228,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 15. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

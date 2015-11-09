@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/28/2015" 
 	ms.author="mimig"/>
 
 # DocumentDB 용량 요구 관리
@@ -77,4 +77,4 @@ Azure Preview 포털에서 성능 수준 모니터링에 대한 지침은 [Docum
 컬렉션에 대한 성능 수준 선택에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels)을 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

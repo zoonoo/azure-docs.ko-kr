@@ -1,6 +1,6 @@
 <properties
-   pageTitle="시스템 상태 보고서를 사용하여 문제 해결"
-   description="시스템 상태 보고서와 클러스터 또는 응용프로그램 문제를 해결하는 데 사용하는 방법을 설명합니다."
+   pageTitle="시스템 상태 보고서 문제 해결 | Microsoft Azure"
+   description="Azure 서비스 패브릭 구성 요소에서 보낸 상태 보고서와 클러스터 또는 응용 프로그램 문제 해결에 대한 사용을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # 시스템 상태 보고서를 사용하여 문제 해결
@@ -527,7 +527,7 @@ System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노
 
 [로컬로 서비스를 모니터링 및 진단하는 방법](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[서비스 패브릭 응용프로그램 업그레이드](service-fabric-application-upgrade.md)
+[서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

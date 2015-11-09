@@ -1,7 +1,20 @@
-<properties pageTitle="자습서: Bonus.ly와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Bonus.ly를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Bonus.ly와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Bonus.ly를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Bonus.ly와 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=523806)를 클릭하십시오.
 
 이 자습서는 Azure 및 Bonus.ly의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -49,7 +62,7 @@
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773682.png "Bonusly")
 ##Single Sign-On 구성
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Bonus.ly에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. Bonus.ly에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 손도장 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Bonus.ly에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. Bonus.ly에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -90,7 +103,7 @@
 
 9.  **저장**을 클릭합니다.
 
-10. Microsoft Azure AD 포털에서 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+10. Microsoft Azure AD 포털에서 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC773689.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -121,7 +134,7 @@ Azure AD 사용자가 Bonus.ly에 로그인할 수 있도록 하려면 Bonus.ly�
 
     ![사용자 추가](./media/active-directory-saas-bonus-tutorial/IC781045.png "사용자 추가")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 “**전자 메일**,**이름**, **성**을 입력합니다.
+    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 “**전자 메일**, **이름**, **성**을 입력합니다.
     2.  **Save**를 클릭합니다.
 
     >[AZURE.NOTE]AAD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
@@ -144,6 +157,6 @@ Azure AD 사용자가 Bonus.ly에 로그인할 수 있도록 하려면 Bonus.ly�
 
     ![예](./media/active-directory-saas-bonus-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

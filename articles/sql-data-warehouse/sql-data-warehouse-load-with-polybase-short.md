@@ -18,6 +18,12 @@
 
 
 # PolyBase를 사용하여 데이터 로드
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 이 자습서는 PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 로드하는 방법을 보여 줍니다.
 
 
@@ -166,4 +172,4 @@ PolyBase에 대한 자세한 내용은 [SQL 데이터 웨어하우스의 PolyBas
 [데이터베이스 범위 자격 증명 만들기]: https://msdn.microsoft.com/ko-KR/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

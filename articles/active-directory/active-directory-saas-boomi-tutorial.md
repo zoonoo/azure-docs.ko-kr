@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Boomi와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Boomi를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Boomi와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Boomi를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Boomi와 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=529589)를 클릭하십시오.
 
 이 자습서는 Azure 및 Boomi의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Boomi Single Sign-on이 설정된 구독
 
-이 자습서를 완료한 후 Boomi에 할당한 Azure AD 사용자가 Boomi 회사 사이트(서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+이 자습서를 완료한 후 Boomi에 할당한 Azure AD 사용자가 Boomi 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-boomi-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-boomi-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -87,11 +100,11 @@
 
     1.  **SAML Single Sign-On 사용**을 선택합니다.
     2.  다운로드한 인증서를 업로드하려면 **가져오기**를 클릭합니다.
-    3.  Azure 포털의 **Boomi에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
+    3.  Azure 포털의 **Boomi에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
     4.  **페더레이션 Id 위치**로 **페더레이션 Id는 제목의 NameID 요소입니다**를 선택합니다.
-    5.  **Save**를 클릭합니다.
+    5.  **저장**을 클릭합니다.
 
-9.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+9.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-boomi-tutorial/IC775560.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -114,7 +127,7 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
     ![사용자 추가](./media/active-directory-saas-boomi-tutorial/IC790833.png "사용자 추가")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름**, **성** 및 **메일**을 입력합니다.
+    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름**, **성** 및 **전자 메일**을 입력합니다.
     2.  확인을 클릭합니다.
 
 >[AZURE.NOTE]다른 Boomi 사용자 계정 생성 도구 또는 Boomi가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
@@ -135,6 +148,6 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
     ![예](./media/active-directory-saas-boomi-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

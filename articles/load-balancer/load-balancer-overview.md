@@ -16,7 +16,8 @@
    ms.author="joaoma" />
 
 
-# 부하 분산 장치 개요 
+# Azure 부하 분산 장치란?
+ 
 Azure 부하 분산 장치는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 부하 분산 장치 집합에 정의된 클라우드 서비스 또는 가상 컴퓨터의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하는 계층-4(TCP, UDP) 유형의 부하 분산 장치입니다.
  
 다음을 수행하도록 구성할 수 있습니다.
@@ -87,7 +88,7 @@ Azure 부하 분산 장치 구성은 UDP에 대해 완전한 원뿔형 NAT를 �
 
 가상 컴퓨터 집합에 두 개 이상의 부하 분산 공용 IP 주소를 할당할 수 있습니다. 이 기능을 사용하면 동일한 가상 컴퓨터 집합에서 여러 개의 SSL 웹 사이트 및/또는 여러 개의 SQL AlwaysOn 가용성 그룹 수신기를 호스트할 수 있습니다. 자세한 내용은 [클라우드 서비스당 여러 VIP](load-balancer-multivip.md)를 참조하세요.
 
-**Azure 리소스 관리자(공개 미리 보기)를 사용한 템플릿 기반 배포** ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 부하 분산 장치를 관리할 수 있습니다. Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자를 통해 Iaas가 더 쉬워짐](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)을 참조하세요.
+****Azure 리소스 관리자(공개 미리 보기)를 사용한 템플릿 기반 배포 ** ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 부하 분산 장치를 관리할 수 있습니다. Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자를 통해 Iaas가 더 쉬워짐](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)을 참조하세요.
 
 
 ## 다음 단계
@@ -99,4 +100,4 @@ Azure 부하 분산 장치 구성은 UDP에 대해 완전한 원뿔형 NAT를 �
 [시작 - 인터넷 연결 부하 분산 장치](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

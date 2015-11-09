@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HTML 클라이언트를 사용하는 방법 | Microsoft Azure"
+	pageTitle="HTML 클라이언트를 Azure 모바일 서비스와 사용하는 방법 | Microsoft Azure"
 	description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/23/2015"
 	ms.author="glenga"/>
 
 # Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법
@@ -504,10 +504,9 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
 	// Start the sign-in process.
 	authenticate();
 
-이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 앱은 인증에 성공할 때까지 시작되지 않습니다.
-
-###인증 토큰 캐시
-일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. [sessionStorage] 또는 [localStorage]를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있거나 호출이 실패하는 경우(현재 로그인 세션이 만료되었음을 의미함)에도 로그인 프로세스를 거쳐야 합니다.
+이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 앱은 인증에 성공할 때까지 시작되지 않습니다. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+###Caching the authentication token
+In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
     // After logging in
     sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -522,6 +521,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
      // Log out
     client.logout();
     sessionStorage.loggedInUser = null;
+-->
 
 ##<a name="push-notifications"></a>방법: 푸시 알림 등록
 
@@ -665,4 +665,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

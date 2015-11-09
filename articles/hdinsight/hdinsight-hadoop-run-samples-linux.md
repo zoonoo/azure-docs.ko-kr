@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Linux 기반 HDInsight에서 Hadoop 샘플 실행 | Microsoft Azure"
+	pageTitle="Linux 기반 HDInsight에서 Hadoop MapReduce 샘플을 실행 | Microsoft Azure"
 	description="Linux 기반 HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/29/2015"
 	ms.author="larryfr"/>
 
 
@@ -79,7 +79,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
     - [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. `username@headnode0:~$` 프롬프트에서 다음 명령을 사용하여 샘플을 나열합니다.
+2. `username@#######:~$` 프롬프트에서 다음 명령을 사용하여 샘플을 나열합니다.
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
@@ -243,4 +243,4 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

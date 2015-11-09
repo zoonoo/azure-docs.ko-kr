@@ -20,7 +20,7 @@
 
 이 **메뉴**는 다양한 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 항목에 연결되는 링크입니다. 이 작업은 Cortana 분석 프로세스(CAP)의 한 단계입니다.
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-explore-data-selector.md)]
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## 소개
 
@@ -32,4 +32,4 @@
 - **SQL Server 데이터**는 SQL 및 Python 프로그래밍 언어를 모두 사용하여 샘플링됩니다. 
 - **Hive 테이블 데이터**는 Hive 쿼리를 사용하여 샘플링됩니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

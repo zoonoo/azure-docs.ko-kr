@@ -1,5 +1,5 @@
 <properties
-   pageTitle="사용자 지정 서비스 패브릭 상태 보고서 추가"
+   pageTitle="사용자 지정 서비스 패브릭 상태 보고서 추가 | Microsoft Azure"
    description="Azure 서비스 패브릭 상태 엔터티에 사용자 지정 상태 보고서를 보내는 방법을 설명합니다. 고품질 상태 보고서 설계 및 구현에 대한 권장 사항을 제공합니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # 사용자 지정 서비스 패브릭 상태 보고서 추가
@@ -274,4 +274,4 @@ HealthEvents          :
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

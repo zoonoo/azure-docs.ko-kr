@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 #Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성
@@ -159,6 +159,9 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 		    //            "zookeepernode0,zookeepernode1,zookeepernode2");
 		    //config.set("hbase.zookeeper.property.clientPort", "2181");
 		    //config.set("hbase.cluster.distributed", "true");
+            //
+            //NOTE: Actual zookeeper host names can be found using Ambari:
+            //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
 
 		    // create an admin object using the config
 		    HBaseAdmin admin = new HBaseAdmin(config);
@@ -361,4 +364,4 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -66,8 +66,6 @@
 
 사이트 간 VPN 게이트웨이 연결 구성에 대한 자세한 내용은 [사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md)을 참조하세요.
 
-RRAS를 사용하여 사이트 간 VPN 게이트웨이 연결을 구성하려는 경우 [Windows Server 2012 RRAS(라우팅 및 원격 액세스 서비스)를 사용하여 사이트 간 VPN 구성](https://msdn.microsoft.com/library/dn636917.aspx)을 참조하세요.
-
 
 ## 지점 및 사이트 간 연결
 
@@ -102,4 +100,4 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 자세한 내용은 [Express 경로 FAQ](../expressroute/expressroute-faqs.md) 및 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

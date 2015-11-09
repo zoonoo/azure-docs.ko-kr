@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/20/2015"
+	ms.date="10/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,9 +28,10 @@
 
 이 문서에서는 PowerShell을 사용하여 Azure SQL 데이터베이스의 BACPAC를 내보내는 방법에 대한 지침을 제공합니다.
 
-BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파일입니다. 자세한 내용은 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)에서 백업 패키지(.bacpac)를 참조하세요.
+[BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)는 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파일입니다. BACPAC의 기본 사용 사례는 하나의 서버에서 다른 서버로 데이터베이스를 이동하고, [로컬 데이터베이스를 클라우드에 마이그레이션](sql-database-cloud-migrate.md)하고, 개방형 형식에서 기존 데이터베이스를 보관하는 것입니다.
 
-> [AZURE.NOTE]Azure SQL 데이터베이스에서는 모든 사용자 데이터베이스의 백업이 자동으로 생성됩니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+> [AZURE.NOTE]BACPAC는 백업에 사용되는 목적이 아니며 작업을 복원합니다. Azure SQL 데이터베이스에서는 모든 사용자 데이터베이스의 백업이 자동으로 생성됩니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+
 
 작업이 성공적으로 완료되면 다운로드할 수 있는 BACPAC이 Azure 저장소 Blob 컨테이너로 내보내집니다.
 
@@ -69,10 +70,10 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 서버 및 데이터베이스 이름을 현재 계정에 있는 서버 및 데이터베이스로 바꿉니다. Blob 이름에 생성되는 BACPAC 파일 이름을 입력합니다. 원하는 대로 BACPAC 파일의 이름을 입력할 수 있지만 .bacpac 확장명을 포함해야 합니다.
 
     $ServerName = "servername"
-    $DatabaseName = "nameofdatabasetobackup"
+    $DatabaseName = "nameofdatabasetoexport"
     $BlobName = "filename.bacpac"
 
-[Azure Preview 포털](https://portal.azure.com)에서 해당 저장소 계정을 찾아 이러한 값을 얻습니다. 저장소 계정 블레이드에서 **모든 설정**, **키**를 차례로 클릭하여 기본 액세스 키를 찾을 수 있습니다.
+[Azure Preview 포털](https://portal.azure.com)에서 해당 저장소 계정을 찾아 이러한 값을 얻습니다. 저장소 계정 블레이드에서 **모든 설정**, **키**를 차례로 클릭하여 기본 선택키를 찾을 수 있습니다.
 
     $StorageName = "storageaccountname"
     $ContainerName = "blobcontainername"
@@ -147,4 +148,4 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

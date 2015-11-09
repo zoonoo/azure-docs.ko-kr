@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 자동화의 연결 자산 | Microsoft Azure"
-   description="Azure 자동화의 연결 자산에는 Runbook에서 외부 서비스 또는 응용 프로그램에 연결하는 데 필요한 정보가 들어 있습니다. 이 문서에서는 연결에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 연결을 사용하는 방법을 설명합니다."
+   description="Azure 자동화의 연결 자산은 외부 서비스 또는 runbook이나 DSC 구성의 응용 프로그램을 연결하는데 필요한 정보를 포함합니다. 이 문서에서는 연결에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 연결을 사용하는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Azure 자동화의 연결 자산
 
-자동화 연결 자산에는 Runbook에서 외부 서비스 또는 응용 프로그램에 연결하는 데 필요한 정보가 들어 있습니다. 여기에는 URL 또는 포트와 같은 연결 정보 외에 사용자 이름 및 암호와 같은 인증에 필요한 정보가 포함될 수 있습니다. 연결 값은 여러 변수를 만드는 대신, 특정 응용 프로그램에 연결하기 위한 모든 속성을 하나의 자산에 유지합니다. 사용자는 한 곳에서 연결 값을 편집할 수 있으며, 연결 이름을 단일 매개 변수로 Runbook에 전달할 수 있습니다. Runbook에서 **Get-AutomationConnection** 활동을 사용하여 연결 속성에 액세스할 수 있습니다.
+자동화 연결 자산은 외부 서비스 또는 runbook의 응용 프로그램이나 DSC 구성 연결에 필요한 정보를 포함합니다. 여기에는 URL 또는 포트와 같은 연결 정보 외에 사용자 이름 및 암호와 같은 인증에 필요한 정보가 포함될 수 있습니다. 연결 값은 여러 변수를 만드는 대신, 특정 응용 프로그램에 연결하기 위한 모든 속성을 하나의 자산에 유지합니다. 사용자는 한 위치의 연결에 대한 값을 편집할 수 있고 단일 매개 변수에서 연결 이름을 runbook 이나 DSC구성에 전달할 수 있습니다. 연결에 대한 속성은 **Get-AutomationConnection** 활동을 사용하여 runbook 또는 DSC 구성에 액세스할 수 있습니다.
 
 연결을 만들 때 *연결 형식*을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈에서 Azure 자동화에 추가되거나 [Azure 자동화 API](http://msdn.microsoft.com/library/azure/mt163818.aspx)를 사용하여 만들어집니다. 연결을 만들 때 사용할 수 있는 연결 형식만 자동화 계정에 설치됩니다.
 
@@ -25,7 +25,7 @@
 
 ## Windows PowerShell cmdlet
 
-다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 인증서 자산을 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 자동화 Runbook에서 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 제공됩니다.
+다음 표에 나와있는 cmdlet는 Windows PowerShell Window PowerShell의 자동화 연결을 생성하고 관리하는데 사용됩니다. 자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 전송됩니다.
 
 |Cmdlet|설명|
 |:---|:---|
@@ -34,15 +34,15 @@
 |[Remove-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921827.aspx)|기존 연결을 제거합니다.|
 |[Set-AzureAutomationConnectionFieldValue](http://msdn.microsoft.com/library/dn921826.aspx)|기존 연결의 특정 필드 값을 설정합니다.|
 
-## Runbook 활동
+## 활동
 
-다음 표의 활동은 Runbook에서 연결에 액세스하는 데 사용됩니다.
+다음 표의 활동은 runbook 또는 DSC 구성의 연결에 액세스하는데 사용됩니다.
 
 |활동|설명|
 |---|---|
-|Get-AutomationConnection|Runbook에서 사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
+|Get-AutomationConnection|사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
 
->[AZURE.NOTE]**Get- AutomationConnection**의 –Name 매개 변수에 변수를 사용하지 않는 것이 좋습니다. 변수를 사용하면 디자인 타임에 Runbook과 연결 자산 간의 종속성 검색이 복잡해질 수 있습니다.
+>[AZURE.NOTE]**Get- AutomationConnection**의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
 
 ## 새 연결 만들기
 
@@ -79,9 +79,9 @@ Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.c
 	New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
 
 
-## Runbook에서 연결 사용
+## runbook 또는 DSC 구성에서 연결 사용하기
 
-**Get-AutomationConnection** cmdlet을 사용하여 Runbook에서 연결을 검색합니다. 이 활동은 연결의 여러 필드 값을 검색하여 Runbook에서 적절한 명령과 함께 사용할 수 있는 [해시 테이블](http://go.microsoft.com/fwlink/?LinkID=324844)로 반환합니다.
+**Get-AutomationConnection** cmdlet를 사용하여 runbook 또는 DSC 구성의 연결을 검색합니다. 이 활동은 연결의 여러 필드값을 검색하고 runbook 또는 DSC 구성의 적절한 명령과 함께 사용될 수 있는 [해시 테이블](http://go.microsoft.com/fwlink/?LinkID=324844)로 반환합니다.
 
 ### 텍스트 Runbook 샘플
 다음 명령 예제에서는 이전 예제의 Twilio 연결을 사용하여 Runbook에서 텍스트 메시지를 보내는 방법을 보여 줍니다. 여기에서 사용된 Send-TwilioSMS 활동에는 각각 Twilio 서비스를 인증하는 데 서로 다른 메서드를 사용하는 두 개의 매개 변수 집합이 있습니다. 하나는 연결 개체를 사용하고, 나머지는 계정 SID 및 권한 부여 토큰에 대한 개별 매개 변수를 사용합니다. 두 메서드 모두 이 샘플에 나와 있습니다.
@@ -120,4 +120,4 @@ Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.c
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

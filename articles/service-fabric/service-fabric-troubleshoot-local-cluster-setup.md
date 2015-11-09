@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -86,4 +86,4 @@ Visual Studio로부터 디버깅 시 FabricConnectionDeniedException이 나타�
 - [시스템 상태 보고서와 함께 클러스터 이해 및 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [서비스 패브릭 탐색기로 클러스터 시각화하기](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

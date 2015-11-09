@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: AnswerHub와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 AnswerHub를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: AnswerHub와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 AnswerHub를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: AnswerHub와 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=528077)를 클릭하십시오.
 
 이 자습서는 Azure 및 AnswerHub의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   AnswerHub Single Sign-on이 설정된 구독
 
-이 자습서를 완료한 후 AnswerHub에 할당한 Azure AD 사용자가 AnswerHub 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+이 자습서를 완료한 후 AnswerHub에 할당한 Azure AD 사용자가 AnswerHub 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-answerhub-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-answerhub-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -77,7 +90,7 @@
 
 7.  **사용자 및 그룹** 탭을 클릭합니다.
 
-8.  탐색 창의 왼쪽에 **소셜 설정** 섹션에서 **SAML 설정**을 클릭합니다.
+8.  탐색 창의 왼쪽에 있는 **소셜 설정** 섹션에서 **SAML 설정**을 클릭합니다.
 
 9.  **IDP 구성** 탭을 클릭합니다.
 
@@ -88,22 +101,22 @@
     1.  Azure 포털의 **AnswerHub에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IDP 로그인 URL** 텍스트 상자에 붙여넣습니다.
     2.  Azure 포털의 **AnswerHub에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **IDP 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
     3.  Azure 포털의 **AnswerHub에서 Single Sign-on 구성** 대화 상자 페이지에서 **이름 식별자 서식** 값을 복사한 다음 **IDP 이름 식별자 서식** 텍스트 상자에 붙여넣습니다.
-    4.  **암호 및 인증서**를 클릭합니다.
+    4.  **키 및 인증서**를 클릭합니다.
 
 11. 키와 인증서 탭에서 다음 단계를 수행 합니다.
 
     ![암호 및 인증서](./media/active-directory-saas-answerhub-tutorial/IC785173.png "암호 및 인증서")
 
-    1.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.  
+    1.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
 
 		>[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-    2.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **IDP 공용 키(x509 서식)** 텍스트 상자에 붙여넣습니다.
-    3.  **Save**를 클릭합니다.
+    2.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **IDP 공용 키(x509 서식)** 텍스트 상자에 붙여 넣습니다.
+    3.  **저장**을 클릭합니다.
 
 12. **IDP 구성** 탭에서 **저장**을 클릭합니다.
 
-13. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+13. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -142,6 +155,6 @@ Azure AD 사용자가 AnswerHub에 로그인할 수 있도록 하려면 AnswerHu
 
     ![예](./media/active-directory-saas-answerhub-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

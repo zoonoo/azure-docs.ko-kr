@@ -19,7 +19,7 @@
 
 # Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델에서 CLI 명령을 사용하여 리소스를 만들고 관리하는 방법을 설명합니다. [리소스 관리자 배포 모델](azure-cli-arm-commands.md)에서 CLI 명령을 사용하여 리소스를 만들고 관리할 수도 있습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]((azure-cli-arm-commands.md).
 
 이 문서에서는 서비스 관리 모드(asm 모드)에서 Azure CLI를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. Azure SDK의 다양한 라이브러리와 Azure 포털을 사용하여 Azure PowerShell과 동일한 많은 작업을 수행할 수 있습니다. 서비스 관리 모드로 Azure 서비스를 사용하는 것은 개별 Azure 개념 및 웹 사이트, 가상 컴퓨터, 가상 네트워크, 저장소 등과 같은 서비스를 만들고 관리하는 것과 개념적으로는 유사합니다.
 
@@ -2350,4 +2350,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

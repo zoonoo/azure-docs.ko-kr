@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Azure Active Directory와 Mimecast 관리 콘솔의 통합 | Microsoft Azure" description="Azure Active Directory에서 Mimecast 관리 콘솔을 사용하여 Single Sign-On 및 자동으로 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Azure Active Directory와 Mimecast 관리 콘솔의 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Mimecast 관리 콘솔을 사용하여 Single Sign-On 및 자동으로 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Azure Active Directory와 Mimecast 관리 콘솔의 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=529833)를 클릭하십시오.
   
 이 자습서는 Azure 및 Mimecast 관리 콘솔의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Mimecast 관리 콘솔 Single Sign-On이 활성화된 구독
   
-이 자습서를 완료한 후 Mimecast 관리 콘솔에 할당된 Azure AD 사용자는 Mimecast 관리 콘솔 회사 사이트(서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+이 자습서를 완료한 후 Mimecast 관리 콘솔에 할당된 Azure AD 사용자는 Mimecast 관리 콘솔 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -91,7 +104,7 @@
 
     ![인증 프로필](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795015.png "인증 프로필")
 
-    1.  **설명** 텍스트 상자에 구성 이름을 입력 합니다.
+    1.  **설명** 텍스트 상자에 구성 이름을 입력합니다.
     2.  **Mimecast 관리 콘솔에 SAML 인증 적용**을 선택합니다.
     3.  **공급자**로 **Azure Active Directory**를 선택합니다.
     4.  Azure 포털의 **Mimecast 관리 콘솔에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자 URL** 텍스트 상자에 붙여넣습니다.
@@ -100,7 +113,7 @@
 
         >[AZURE.NOTE]로그인 URL 값과 로그아웃 URL 값은 Mimecast 관리 콘솔에 대해 동일합니다.
 
-    7.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.
+    7.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
 
         >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
@@ -108,7 +121,7 @@
     9.  **Single Sign-On 허용**을 선택합니다.
     10. **Save**를 클릭합니다.
 
-10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -137,7 +150,7 @@ Azure AD 사용자가 Mimecast 관리 콘솔에 로그인하려면 Mimecast 관�
 
     ![저장](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "저장")
 
-    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정 특성의 **이메일 주소**, **전역 이름**, **암호** 및 **암호 확인** 특성을 입력합니다.
+    1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이메일 주소**, **전역 이름**, **암호** 및 **암호 확인** 특성을 입력합니다.
     2.  **Save**를 클릭합니다.
 
 >[AZURE.NOTE]Mimecast 관리 콘솔 사용자 계정 만들기 도구 또는 Mimecast 관리 콘솔에서 제공된 API를 사용하여 AAD 사용자 계정을 프로비전합니다.
@@ -158,6 +171,6 @@ Azure AD 사용자가 Mimecast 관리 콘솔에 로그인하려면 Mimecast 관�
 
     ![예](./media/active-directory-saas-mimecast-admin-console-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

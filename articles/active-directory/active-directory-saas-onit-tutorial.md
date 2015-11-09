@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Onit과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Onit을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Onit과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Onit을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Onit과 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=530341)를 클릭하십시오.
   
 이 자습서는 Azure 및 Onit의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Onit Single Sign-On이 설정된 구독
   
-이 자습서를 완료한 후 Onit에 할당한 Azure AD 사용자가 Onit 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+이 자습서를 완료한 후 Onit에 할당한 Azure AD 사용자가 Onit 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,22 +51,22 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-onit-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-onit-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
-6.  **검색 상자**에 **Onit**을 입력합니다.
+6.  **검색 상자**에 **Onit**를 입력합니다.
 
     ![응용 프로그램 갤러리](./media/active-directory-saas-onit-tutorial/IC791167.png "응용 프로그램 갤러리")
 
-7.  결과 창에서 **Onit**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  결과 창에서 **Onit**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
 ##Single Sign-On 구성
   
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Onit에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. Onit에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
   
-Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 **SAML 토큰 특성** 구성에 사용자 할당 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
 ![SSO(Single sign-on)](./media/active-directory-saas-onit-tutorial/IC791168.png "SSO(Single sign-on)")
 
@@ -115,7 +128,7 @@ Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 �
     ![SSO(Single sign-on)](./media/active-directory-saas-onit-tutorial/IC791177.png "SSO(Single sign-on)")
 
     1.  **인증 전략**으로 **Single Sign On 및 암호**를 선택합니다.
-    2.  Azure 포털의 **Onit에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **Onit 대상 URL** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 포털의 **Onit에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **Idp 대상 URL** 텍스트 상자에 붙여넣습니다.
     3.  Azure 포털의 **Onit에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **Idp 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
     4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **Idp 인증서 지문(SHA1)** 텍스트 상자에 붙여 넣습니다.  
 
@@ -123,7 +136,7 @@ Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 �
 
     5.  **SSO 형식**으로 **SAML**을 선택합니다.
     6.  **SSO 로그인 단추 텍스트** 텍스트 상자에 원하는 단추 텍스트를 입력합니다.
-    7.  **SSO을 사용하여 로그인: 다음 도메인/사용자에게 필요**를 선택하고, 관련된 텍스트 상자에 테스트 사용자의 이메일 주소를 입력한 다음, **업데이트**를 클릭합니다.![회사 편집](./media/active-directory-saas-onit-tutorial/IC791178.png "회사 편집")
+    7.  **SSO을 사용하여 로그인: 다음 도메인/사용자에게 필요**를 선택하고, 관련된 텍스트 상자에 테스트 사용자의 이메일 주소를 입력한 다음, **업데이트**를 클릭합니다. ![회사 편집](./media/active-directory-saas-onit-tutorial/IC791178.png "회사 편집")
 
 14. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
@@ -167,6 +180,6 @@ Azure AD 사용자가 Onit에 로그인할 수 있도록 하려면 Onit으로 �
 
     ![예](./media/active-directory-saas-onit-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

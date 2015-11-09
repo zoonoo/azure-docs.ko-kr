@@ -1,7 +1,21 @@
-<properties pageTitle="자습서: Jive와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Jive를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Jive와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Jive를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Jive와 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=330042)를 클릭하십시오. 이 항목에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 액세스 향상 기능을 관리하기 위한 모범 사례](http://go.microsoft.com/fwlink/?LinkId=329963)를 참조하십시오.
+
   
 이 자습서는 Azure와 Jive의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -70,4 +84,4 @@
   
 이제 테스트 계정을 만들 수 있습니다. 10분 동안 기다린 후 계정이 Jive.com에 동기화되었는지 확인해 보십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

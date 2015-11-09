@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/23/2015"
 	ms.author="jgao"/>
 
 #HDInsight에서 Hadoop 샘플 실행
@@ -87,4 +87,4 @@ Azure PowerShell을 사용하여 샘플을 실행할 수 있습니다. 실행 �
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

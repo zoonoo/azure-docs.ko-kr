@@ -44,10 +44,14 @@ CNAME 레코드는 *mail.contoso.com* 또는 **www.contoso.com**과 같은 **특
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
+3. **사용자 지정 도메인 및 SSL** 블레이드에서 **외부 도메인 가져오기**를 클릭합니다.
+
+	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
+
 	> [AZURE.NOTE] **도메인 관리**를 사용할 수 없는 경우 **무료** 웹앱을 사용하는 것입니다. **무료** 웹앱에서는 사용자 지정 도메인 이름을 사용할 수 없으며 앱 서비스 계획을 **공유**, **기본** 또는 **표준** 모드로 업그레이드해야 합니다. 웹앱의 모드를 변경하는 방법을 포함하여 앱 서비스 계획 모드에 대한 자세한 내용은 [웹앱 크기를 조정하는 방법](../articles/web-sites-scale.md)(영문)을 참조하세요.
 
-6. **사용자 지정 도메인 관리** 대화 상자에서 **awverify** 정보, 현재 할당된 **.azurewebsites.net** 도메인 이름 및 가상 IP 주소를 확인할 수 있습니다. 이 정보는 DNS 레코드를 만들 때 사용되므로 저장합니다.
+6. **외부 도메인 가져오기** 블레이드에서 **awverify 정보**, 현재 할당된 **.azurewebsites.net** 도메인 이름, 가상 IP 주소를 볼 수 있습니다. 이 정보는 DNS 레코드를 만들 때 사용되므로 저장합니다.
 
-	![](./media/custom-dns-web-site/managecustomdomains.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

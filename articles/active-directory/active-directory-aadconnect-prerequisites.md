@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect에 대한 필수 조건 | Microsoft Azure"
+   pageTitle="Azure Active Directory Connect에 대한 필수 조건 | Microsoft Azure"
    description="대부분의 검색 결과에 표시할 문서 설명 검색"
    services="active-directory"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="10/13/2015"
    ms.author="andkjell;billmath"/>
 
-# Azure AD Connect에 대한 필수 조건
+# Azure Active Directory Connect(Azure AD Connect)에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
 
 ## Azure AD Connect를 설치하기 전에
@@ -39,7 +39,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 **계정**
 
 - 통합하려는 Azure AD 디렉터리에 대한 Azure AD 전역 관리자 계정
-- Express 설정을 사용하는 경우 로컬 Active Directory에 대한 엔터프라이즈 관리자 계정입니다.
+- Express 설정을 사용하거나 DirSync에서 업그레이드하는 경우 로컬 Active Directory에 대한 엔터프라이즈 관리자 계정입니다.
 - 사용자 지정 설정 설치 경로를 사용하는 경우 [계정은 Active Directory입니다](active-directory-aadconnect-accounts-permissions.md).
 
 **연결**
@@ -114,4 +114,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

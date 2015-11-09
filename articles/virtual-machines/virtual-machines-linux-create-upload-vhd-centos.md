@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/22/2015"
 	ms.author="szarkos"/>
 
 # Azure용 CentOS 기반 가상 컴퓨터 준비
@@ -32,7 +32,7 @@
 
 **CentOS 설치 참고 사항**
 
-- 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
+- VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
 - Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
 
@@ -82,33 +82,12 @@
 		# sudo chkconfig network on
 
 
-8. **CentOS 6.3에만 해당**: Linux 통합 서비스 드라이버 설치
+8. **CentOS 6.3에만 해당**: LIS(Linux 통합 서비스) 드라이버 설치
 
 	**중요: 이 단계는 CentOS 6.3 이하 버전에만 적용됩니다.** CentOS 6.4 이상 버전에서는 Linux 통합 서비스가 *커널에서 이미 제공됩니다*.
 
-	a) [Microsoft 다운로드 센터](http://www.microsoft.com/download/details.aspx?id=41554)에서 Linux 통합 서비스 드라이버가 포함된 .iso 파일을 다운로드합니다.
+	- [LIS 다운로드 페이지](https://www.microsoft.com/ko-KR/download/details.aspx?id=46842)의 설치 지침에 따르고 이미지에 RPM을 설치합니다.  
 
-	b) Hyper-V 관리자의 **작업** 창에서 **설정**을 클릭합니다.
-
-	![Hyper-V 설정 열기](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
-
-	c) **하드웨어** 창에서 **IDE 컨트롤러 1**을 클릭합니다.
-
-	![DVD 드라이브와 설치 미디어 추가](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
-
-	d) **IDE 컨트롤러** 상자에서 **DVD 드라이브**를 클릭하고 **추가**를 클릭합니다.
-
-	e) **이미지 파일**을 선택하고 **Linux IC v3.2.iso**를 찾은 다음 **열기**를 클릭합니다.
-
-	f) **설정** 페이지에서 **확인**을 클릭합니다.
-
-	g) **연결**을 클릭하여 가상 컴퓨터 창을 엽니다.
-
-	h) 명령 프롬프트 창에서 다음 명령을 입력합니다.
-
-		# sudo mount /dev/cdrom /media
-		# sudo /media/install.sh
-		# sudo reboot
 
 9. 다음 명령을 실행하여 python-pyasn1 패키지를 설치합니다.
 
@@ -365,4 +344,4 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 16. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

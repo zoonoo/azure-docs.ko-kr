@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
-   manager="vipulm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [WebAPI 통신 스택을 사용하는 신뢰할 수 있는 서비스 API를 사용하여 서비스 작성](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

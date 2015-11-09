@@ -19,7 +19,7 @@
 
 이 페이지는 Cisco ASA 및 Juniper MX 시리즈 라우터에 NAT 구성 샘플을 제공합니다. 이러한 샘플은 단지 지침용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다.
 
->[AZURE.IMPORTANT]이 페이지에 있는 샘플은 순수하게 지침을 위한 것입니다. 공급업체의 영업/기술 팀 및 네트워킹 팀과 함께 작업하면서 필요에 맞게 적절히 구성해야 합니다. Microsoft는 이 페이지에 나열된 구성과 관련된 문제를 지원하지 않습니다. 지원 문제는 장치 공급업체에 문의해야 합니다.
+>[AZURE.IMPORTANT]이 페이지에 있는 샘플은 참조용입니다. 공급업체의 영업/기술 팀 및 네트워킹 팀과 함께 작업하면서 필요에 맞게 적절히 구성해야 합니다. Microsoft는 이 페이지에 나열된 구성과 관련된 문제를 지원하지 않습니다. 지원 문제는 장치 공급업체에 문의해야 합니다.
 
 아래의 라우터 구성 샘플은 Azure 공용 및 Microsoft 피어링에 적용됩니다. Azure 개인 피어링의 경우 NAT를 구성하면 안 됩니다. 자세한 내용은 [Express 경로 피어링](expressroute-circuit-peerings.md) 및 [Express 경로 NAT 요구 사항](expressroute-nat.md)을 검토하세요.
 
@@ -37,10 +37,10 @@
       network-object <IP> <Subnet_Mask>
     
     object-group network on-prem-range-1
-      network-object <IP> <Subnet_Mask>
+      network-object <IP> <Subnet-Mask>
     
     object-group network on-prem-range-2
-      network-object <IP> <Subnet_Mask>
+      network-object <IP> <Subnet-Mask>
     
     object-group network on-prem
       network-object object on-prem-range-1
@@ -48,6 +48,34 @@
     
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
+### Microsoft에서 고객 네트워크로 트래픽 PAT 구성
+
+#### 인터페이스 및 방향:
+	Source Interface (where the traffic enters the ASA): inside
+	Destination Interface (where the traffic exits the ASA): outside
+
+#### 구성:
+NAT 풀:
+
+	object network outbound-PAT
+		host <NAT-IP>
+
+대상 서버:
+
+	object network Customer-Network
+		network-object <IP> <Subnet-Mask>
+
+고객 IP 주소에 대한 개체 그룹
+
+	object-group network MSFT-Network-1
+		network-object <MSFT-IP> <Subnet-Mask>
+	
+	object-group network MSFT-PAT-Networks
+		network-object object MSFT-Network-1
+
+NAT 명령:
+
+	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
 ## Juniper MX 시리즈 라우터 
@@ -64,7 +92,7 @@
 	        unit 100 {
 	            vlan-id 100;
 	            family inet {
-	                address <IP_Address/Subnet_mask>;
+	                address <IP-Address/Subnet-mask>;
 	            }
 	        }
 	    }
@@ -78,7 +106,7 @@
 	            description "To Microsoft via Edge Router";
 	            vlan-id 100;
 	            family inet {
-	                address <IP_Address/Subnet_mask>;
+	                address <IP-Address/Subnet-mask>;
 	            }
 	        }
 	    }
@@ -134,49 +162,49 @@
 		security {
 		    nat {
 		        source {
-		            pool SNAT_To_ExpressRoute {
+		            pool SNAT-To-ExpressRoute {
 		                routing-instance {
-		                    External_ExpressRoute;
+		                    External-ExpressRoute;
 		                }
 		                address {
-		                    <NAT_IP_address/Subnet_mask>;
+		                    <NAT-IP-address/Subnet-mask>;
 		                }
 		            }
-		            pool SNAT_From_ExpressRoute {
+		            pool SNAT-From-ExpressRoute {
 		                routing-instance {
 		                    Internal;
 		                }
 		                address {
-		                    <NAT_IP_address/Subnet_mask>;
+		                    <NAT-IP-address/Subnet-mask>;
 		                }
 		            }
 		            rule-set Outbound_NAT {
 		                from routing-instance Internal;
-		                to routing-instance External_ExpressRoute;
-		                rule SNAT_Out {
+		                to routing-instance External-ExpressRoute;
+		                rule SNAT-Out {
 		                    match {
 		                        source-address 0.0.0.0/0;
 		                    }
 		                    then {
 		                        source-nat {
 		                            pool {
-		                                SNAT_To_ExpressRoute;
+		                                SNAT-To-ExpressRoute;
 		                            }
 		                        }
 		                    }
 		                }
 		            }
-		            rule-set Inbound_NAT {
-		                from routing-instance External_ExpressRoute;
+		            rule-set Inbound-NAT {
+		                from routing-instance External-ExpressRoute;
 		                to routing-instance Internal;
-		                rule SNAT_In {
+		                rule SNAT-In {
 		                    match {
 		                        source-address 0.0.0.0/0;
 		                    }
 		                    then {
 		                        source-nat {
 		                            pool {
-		                                SNAT_From_ExpressRoute;
+		                                SNAT-From-ExpressRoute;
 		                            }
 		                        }
 		                    }
@@ -194,12 +222,12 @@
 ### 6\. 정책 만들기
 
 	routing-options {
-	    	      autonomous-system <Customer_ASN>;
+	    	      autonomous-system <Customer-ASN>;
 	}
 	policy-options {
-	    prefix-list Microsoft_Prefixes {
-	        <IP_Address/Subnet_Mask;
-	        <IP_Address/Subnet_Mask;
+	    prefix-list Microsoft-Prefixes {
+	        <IP-Address/Subnet-Mask;
+	        <IP-Address/Subnet-Mask;
 	    }
 	    prefix-list private-ranges {
 	        10.0.0.0/8;
@@ -207,18 +235,18 @@
 	        192.168.0.0/16;
 	        100.64.0.0/10;
 	    }
-	    policy-statement Advertise_NAT_Pools {
+	    policy-statement Advertise-NAT-Pools {
 	        from {
 	            protocol static;
-	            route-filter <NAT_Pool_Address/Subnet_mask> prefix-length-range /32-/32;
+	            route-filter <NAT-Pool-Address/Subnet-mask> prefix-length-range /32-/32;
 	        }
 	        then accept;
 	    }
-	    policy-statement Accept_from_Microsoft {
+	    policy-statement Accept-from-Microsoft {
 	        term 1 {
 	            from {
-	                instance External_ExpressRoute;
-	                prefix-list-filter Microsoft_Prefixes orlonger;
+	                instance External-ExpressRoute;
+	                prefix-list-filter Microsoft-Prefixes orlonger;
 	            }
 	            then accept;
 	        }
@@ -226,7 +254,7 @@
 	            then reject;
 	        }
 	    }
-	    policy-statement Accept_from_Internal {
+	    policy-statement Accept-from-Internal {
 	        term no-private {
 	            from {
 	                instance Internal;
@@ -252,35 +280,35 @@
 	        interface reth0.100;
 	        routing-options {
 	            static {
-	                route <NAT_Pool_IP_Address/Subnet_mask> discard;
+	                route <NAT-Pool-IP-Address/Subnet-mask> discard;
 	            }
-	            instance-import Accept_from_Microsoft;
+	            instance-import Accept-from-Microsoft;
 	        }
 	        protocols {
 	            bgp {
 	                group customer {
-	                    export <Advertise_NAT_Pools>;
-	                    peer-as <Customer_ASN_1>;
-	                    neighbor <BGP_Neighbor_IP_Address>;
+	                    export <Advertise-NAT-Pools>;
+	                    peer-as <Customer-ASN-1>;
+	                    neighbor <BGP-Neighbor-IP-Address>;
 	                }
 	            }
 	        }
 	    }
-	    External_ExpressRoute {
+	    External-ExpressRoute {
 	        instance-type virtual-router;
 	        interface reth1.100;
 	        routing-options {
 	            static {
-	                route <NAT_Pool_IP_Address/Subnet_mask> discard;
+	                route <NAT-Pool-IP-Address/Subnet-mask> discard;
 	            }
-	            instance-import Accept_from_Internal;
+	            instance-import Accept-from-Internal;
 	        }
 	        protocols {
 	            bgp {
-	                group edge_router {
-	                    export <Advertise_NAT_Pools>;
-	                    peer-as <Customer_Public_ASN>;
-	                    neighbor <BGP_Neighbor_IP_Address>;
+	                group edge-router {
+	                    export <Advertise-NAT-Pools>;
+	                    peer-as <Customer-Public-ASN>;
+	                    neighbor <BGP-Neighbor-IP-Address>;
 	                }
 	            }
 	        }
@@ -291,4 +319,4 @@
 
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

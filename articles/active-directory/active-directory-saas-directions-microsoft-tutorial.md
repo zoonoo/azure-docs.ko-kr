@@ -1,7 +1,20 @@
-<properties pageTitle="자습서: Directions on Microsoft과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Directions on Microsoft을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Directions on Microsoft과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Directions on Microsoft을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Directions on Microsoft과 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=533728)를 클릭하십시오.
 
 이 자습서는 Azure Active Directory 및 Directions on Microsoft 간에 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -40,15 +53,15 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-directions-microsoft-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-directions-microsoft-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
-6.  **검색 상자**에 **Directions on Microsoft**을 입력합니다.
+6.  **검색 상자**에 **Directions on Microsoft**를 입력합니다.
 
     ![응용 프로그램 갤러리](./media/active-directory-saas-directions-microsoft-tutorial/IC786878.png "응용 프로그램 갤러리")
 
-7.  결과 창에서 **Directions on Microsoft**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
+7.  결과 창에서 **Directions on Microsoft**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
     ![시나리오](./media/active-directory-saas-directions-microsoft-tutorial/IC793922.png "시나리오")
 ##Single Sign-On 구성
@@ -61,11 +74,11 @@
 
     ![Single Sign-On 사용](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Single Sign-On 사용")
 
-2.  **Directions on Microsoft에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
+2.  **Directions on Microsoft에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
     ![Microsoft Azure AD Singel Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Microsoft Azure AD Singel Sign-On")
 
-3.  **앱 URL 구성** 페이지의 Sign On URL 텍스트 상자에 ****https://www.directionsonmicrosoft.com/user/login**을 입력한 다음 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 Sign On URL 텍스트 상자에 ****https://www.directionsonmicrosoft.com/user/login**을 입력하고 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "앱 URL 구성")
 
@@ -77,7 +90,7 @@
 
     >[AZURE.NOTE]Directions on Microsoft에 single sign-on은 Directions on Microsoft 지원팀에서 활성화되어야 합니다. Single sign-on가 활성화되면 알림을 받습니다.
 
-6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+6.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -99,4 +112,4 @@ Directions on Microsoft을 프로비전하는 사용자를 구성할 작업 항�
 
     ![예](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "예")
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

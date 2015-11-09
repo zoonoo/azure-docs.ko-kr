@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/29/2015" 
+    ms.date="10/28/2015" 
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@ Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 �
 
 ## 관리자는 데이터를 어떻게 얻을 수 있습니까?
 
-사용자 중 하나에 대 한 데이터에 액세스해야 하는 경우(재해 복구 또는 사용자가 회사를 떠날 경우), [Azure RemoteApp](mailto:remoteappforum@microsoft.com)에 컬렉션 및 사용자 ID에 대한 구독 정보를 제공합니다. Azure RemoteApp 팀은 데이터를 액세스할 수 있는 URL을 제공합니다. 여기에서 위치를 찾아 모든 문서 또는 필요한 파일을 검색할 수 있습니다.
+사용자 중 하나에 대 한 데이터에 액세스해야 하는 경우(재해 복구 또는 사용자가 회사를 떠날 경우), [Azure RemoteApp](mailto:remoteappforum@microsoft.com)에 컬렉션 및 사용자 ID에 대한 구독 정보를 제공합니다. Azure RemoteApp 팀에서 VHD의 URL을 제공합니다. 해당 VHD를 다운로드하고 필요한 문서 또는 파일을 검색합니다. VHD는 50GB이므로 다운로드하는 데 다소 시간이 걸립니다.
 
 
 ## 데이터를 백업했습니까?
@@ -126,4 +126,4 @@ Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인
 
 아니요, Azure RemoteApp에서 지원되지 않습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

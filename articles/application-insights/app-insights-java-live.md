@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # 이미 라이브 상태인 Java 웹앱용 Application Insights
@@ -139,4 +139,4 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

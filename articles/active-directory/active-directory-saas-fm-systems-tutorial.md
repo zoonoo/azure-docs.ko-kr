@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: FM:Systems와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 FM:Systems를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: FM:Systems와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 FM:Systems를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: FM: Systems와 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=534787)를 클릭하십시오.
   
 이 자습서는 Azure 및 FM: Systems의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   FM: Systems Single Sign-on이 설정된 구독
   
-이 자습서를 완료한 후 FM: Systems에 할당한 Azure AD 사용자가 FM: Systems 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+이 자습서를 완료한 후 FM: Systems에 할당한 Azure AD 사용자가 FM: Systems 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-fm-systems-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-fm-systems-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -67,7 +80,7 @@
 
     ![앱 URL 구성](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "앱 URL 구성")
 
-    1.  **FM:Systems Sign-on URL** 텍스트 상자에 FM:Systems **URL 회신**을 입력합니다.(예:: **https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*))
+    1.  **FM:Systems Sign On URL** 텍스트 상자에 FM:Systems **회신 URL**을 입력합니다.(예:: **https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*))
 
         >[AZURE.WARNING]FM: Systems 지원팀에서 이 값을 가져올 수 있습니다.
 
@@ -125,6 +138,6 @@ Azure AD 사용자가 FM:Systems에 로그인할 수 있도록 하려면 FM:Syst
 
     ![예](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

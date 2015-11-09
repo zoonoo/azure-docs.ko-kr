@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 # Linux에서 HDInsight 사용에 관한 정보
@@ -23,7 +23,19 @@ Linux 기반 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되�
 
 ## 도메인 이름
 
-클러스터에 연결할 때 사용하려는 FQDN(정규화된 도메인 이름)은 **&lt;clustername>.azurehdinsight.net** 또는 **&lt;clustername-ssh>.azurehdinsight.net**(SSH인 경우만)입니다.
+인터넷에서 클러스터에 연결할 때 사용하려는 FQDN(정규화된 도메인 이름)은 **&lt;clustername>.azurehdinsight.net** 또는 **&lt;clustername-ssh>.azurehdinsight.net**(SSH인 경우만)입니다.
+
+내부적으로 클러스터의 각 노드 이름은 클러스터 구성 중에 할당됩니다. 클러스터 이름을 찾으려면 Ambari 웹 UI에서 __호스트__ 페이지를 방문하거나 다음을 통해 [cURL](http://curl.haxx.se/) 및 [jq](https://stedolan.github.io/jq/)를 사용하여 Ambari REST API에서 호스트 목록을 반환합니다.
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+
+__PASSWORD__를 관리 계정의 암호로 바꾸고 __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다. 그러면 클러스터의 호스트 목록이 포함된 JSON 문서를 반환한 다음 jq가 클러스터의 각 호스트에 대한 `host_name` 요소 값을 추출합니다.
+
+특정 서비스에 대한 노드의 이름을 찾으려면 해당 구성 요소에 대해 Ambari를 쿼리하면 됩니다. 예를 들어 HDFS 이름 노드에 대한 호스트를 찾으려면 다음을 사용합니다.
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+
+그러면 서비스를 설명하는 JSON 문서를 반환한 다음 jq가 해당 호스트에 대한 `host_name` 값만 추출합니다.
 
 ## 서비스에 대한 원격 액세스
 
@@ -35,7 +47,7 @@ Linux 기반 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되�
 
 	> [AZURE.IMPORTANT]인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 공용이 아닌 내부 도메인 이름이어야 하므로 인터넷을 통해 일부 기능에 액세스하면 “서버를 찾을 수 없음" 오류가 발생합니다.
 	>
-	> Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+	> Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 * **Ambari(REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -57,7 +69,7 @@ Linux 기반 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되�
 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
-* __2.2.4.9-1__:이 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform 버전에 따라 지정되므로 사용 중인 클러스터의 번호가 여기 나열된 번호와 다를 수 있습니다.
+* __2.2.4.9-1__: 이 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform 버전에 따라 지정되므로 사용 중인 클러스터의 번호가 여기 나열된 번호와 다를 수 있습니다.
 * __current__: 이 디렉터리는 __2.2.4.9-1__ 디렉터리 아래의 디렉터리에 대한 링크를 포함하며 파일에 액세스할 때마다 버전 번호(변경될 수 있음)를 입력하지 않아도 됩니다.
 
 예제 데이터 및 JAR 파일은 HDFS(Hadoop Distributed File System) 또는 Azure Blob 저장소('/example' 또는 'wasb:///example')에서 찾을 수 있습니다.
@@ -110,7 +122,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 또한 Azure 미리 보기 포털을 사용하여 저장소 정보를 찾을 수 있습니다.
 
-1. [Azure 미리 보기 포털](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
+1. [Azure Preview 포털](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
 
 2. __필수__ 섹션에서 __모든 설정__을 선택합니다.
 
@@ -176,7 +188,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 			storm rebalance TOPOLOGYNAME
 
-		매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10`은(는) 포톨로지를 5 작업자 프로세스, 파란색 spout 구성 요소에 대해 3 실행자 및 노란색 bolt 구성 요소에 대해 10 실행자로 다시 구성합니다.
+		매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10`은 토폴로지를 5 작업자 프로세스, 파란색 spout 구성 요소에 대해 3 실행자 및 노란색 bolt 구성 요소에 대해 10 실행자로 다시 구성합니다.
 
 	* __Storm UI__: Storm UI를 사용하여 토폴로지의 균형을 다시 조정하려면 다음 단계를 사용합니다.
 
@@ -191,7 +203,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 			![Storm UI](./media/hdinsight-hadoop-linux-information/storm-ui.png)
 
-		3. 균형을 다시 조정하려는 토폴로지를 선택한 다음 __균형 다시 맞추기__단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
+		3. 균형을 다시 조정하려는 토폴로지를 선택한 다음 __균형 다시 맞추기__ 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
 
 HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -232,7 +244,7 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 
 > [AZURE.WARNING]HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
 >
-> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다.(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/))
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
 
 ## 다음 단계
 
@@ -240,4 +252,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

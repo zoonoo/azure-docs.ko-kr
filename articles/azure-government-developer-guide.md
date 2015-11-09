@@ -4,7 +4,7 @@
 	services="" 
 	documentationCenter="" 
 	authors="Joharve2" 
-	manager="carolz" 
+	manager="Chrisnie" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="01/21/2014" 
+	ms.date="10/29/2015" 
 	ms.author="jharve"/>
 
 
@@ -66,6 +66,16 @@ Microsoft는 클라우드 응용 프로그램을 만들고 배포할 수 있는 
 - 스케줄러
 - 가상 네트워킹
 - SQL 데이터베이스
+- Azure 파일
+- 미디어 서비스
+- 트래픽 관리자
+- 서비스 버스
+- StorSimple
+- Redis 캐시
+- Azure 백업
+- 자동화
+- Express 경로
+- etc.
 
 기타 서비스도 사용할 수 있으며, 계속해서 서비스가 더 추가될 예정입니다. 서비스의 최신 목록은 사용 가능한 각 지역과 해당 서비스가 강조 표시되어 있는 [지역 페이지](http://azure.microsoft.com/regions/#services)를 참조하세요.
 
@@ -78,7 +88,6 @@ Microsoft는 클라우드 응용 프로그램을 만들고 배포할 수 있는 
 
 서비스 유형|Azure 공용|Azure Government
 ---|---|---
-Azure Government 홈|windowsazure.com|microsoftazure.us
 관리 포털|manage.windowsazure.com|manage.windowsazure.us
 일반|*.windows.net|*.usgovcloudapi.net
 코어|*.core.windows.net|*.core.usgovcloudapi.net
@@ -87,9 +96,23 @@ Blob 저장소|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue Stor
 테이블 저장소|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 서비스 관리|management.core.windows.net|management.core.usgovcloudapi.net
 SQL 데이터베이스|*.database.windows.net|*.database.usgovcloudapi.net
+ARM 부하 분산 된 끝점|https://management.windows.net|https://management.usgovcloudapi.net  
+
+* Azure AD 통한 ARM 인증은 [Azure 리소스 관리자 요청 인증](https://msdn.microsoft.com/library/azure/dn790557.aspx)을 참조하세요.
 
 ## <a name="next"></a>다음 단계
-Azure Government에 대한 자세한 내용과 조직이 액세스하기 위한 자격을 갖추는 방법은 <A href="http://azure.com/gov">http://www.azure.com/gov</a>를 참조하십시오.
+
+Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 알아보시기 바랍니다.
+
+- **[평가판에 등록](https://azuregov.microsoft.com/trial/azuregovtrial)**
+
+- **[Azure Government 구입 및 액세스](http://azure.com/gov)**
+
+- **[Azure Government 개요](/azure-government-overview)**
+
+- **[Azure 정부 블로그](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Azure 규정 준수](http://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -105,4 +128,4 @@ Azure Government에 대한 자세한 내용과 조직이 액세스하기 위한 
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

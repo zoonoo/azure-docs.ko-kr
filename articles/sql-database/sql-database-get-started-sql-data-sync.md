@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/27/2015"
 	ms.author="jhubbard"/>
 
 
@@ -23,6 +23,7 @@
 
 이 자습서에서는 SQL Server 및 Azure SQL 데이터베이스를 사용한 경험이 매우 적다고 가정합니다. 이 자습서에서는 완전하게 구성되고 설정된 일정에 동기화되는 하이브리드(SQL Server 및 SQL 데이터베이스 인스턴스) 동기화 그룹을 만듭니다.
 
+**참고!** 이전에 MSDN에 있었던 Azure SQL 데이터 동기화에 설정된 전체 기술 설명서는 이제 [여기](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)에서 다운로드하는 단일 .pdf입니다.
 
 ## 1단계: Azure SQL 데이터베이스에 연결
 
@@ -63,7 +64,7 @@
 <a id="InstallClient"></a>
 ### 2b단계: 새 클라이언트 에이전트 설치
 
-[클라이언트 에이전트 설치(SQL 데이터 동기화)](http://msdn.microsoft.com/library/jj823137.aspx)의 지침에 따라 에이전트를 설치합니다.
+[클라이언트 에이전트 설치(SQL 데이터 동기화)]에 있는 지침을 따라((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf) 에이전트를 설치합니다.
 
 
 
@@ -80,7 +81,7 @@
 
 ## 3단계: 클라이언트 에이전트에 SQL Server 데이터베이스 등록
 
-클라이언트 에이전트가 설치된 후 동기화 그룹에 포함하려는 모든 온-프레미스 SQL Server 데이터베이스를 에이전트에 등록합니다. 에이전트에 데이터베이스를 등록하려면 [클라이언트 에이전트에 SQL Server 데이터베이스 등록](http://msdn.microsoft.com/library/jj823138.aspx)의 지침에 따릅니다.
+클라이언트 에이전트가 설치된 후 동기화 그룹에 포함하려는 모든 온-프레미스 SQL Server 데이터베이스를 에이전트에 등록합니다. 에이전트에 데이터베이스를 등록하려면 [클라이언트 에이전트에 SQL Server 데이터베이스 등록](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)의 지침에 따릅니다.
 
 
 
@@ -195,11 +196,11 @@ Azure SQL 데이터 동기화에서는 동기화할 테이블과 열을 선택�
 ## 다음 단계
 SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
-* [SQL 데이터 동기화 기술 설명서 다운로드](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
+* [전체 SQL 데이터 동기화 기술 설명서 다운로드](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [SQL 데이터베이스 개요](sql-database-technical-overview.md)
 * [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

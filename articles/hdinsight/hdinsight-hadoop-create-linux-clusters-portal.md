@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 
@@ -81,6 +81,10 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 8. **노드 가격 책정 계층**을 클릭하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 클러스터에 필요한 작업자 노드 수를 설정합니다. 클러스터의 예상 비용이 블레이드 내에 표시됩니다.
 
 	![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.5.png "클러스터 노드 수 지정")
+    
+    > [AZURE.IMPORTANT]클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
+    >
+    > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
 	**선택**을 클릭하여 노드 가격 책정 구성을 저장합니다.
 
@@ -94,15 +98,15 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
     	>[AZURE.NOTE]Windows 기반 HDInsight 클러스터는 클래식 가상 네트워크에만 배치될 수 있습니다.
 
-	* **외부 Metastore**를 클릭하여 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장하는 데 사용할 SQL 데이터베이스를 지정합니다.
+	* **외부 Metastore**를 클릭하여 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장하는데 사용할 SQL 데이터베이스를 지정합니다.
 
 		![사용자 지정 Metastore 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.7.png "외부 Metastore 지정")
 
-		**Use an existing SQL DB for Hive metadata(Hive 메타데이터에 기존 SQL DB 사용)**에 대해 **예**를 클릭하고 SQL 데이터베이스를 선택한 다음 데이터베이스의 사용자 이름/암호를 입력합니다. **Use an existing SQL DB for Oozie metadata(Oozie 메타데이터에 기존 SQL DB 사용)**를 원하는 경우 이러한 단계를 반복합니다. **옵션 구성** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
+		**Hive 메타데이터에 기존 SQL DB 사용**에 대해 **예**를 클릭하고 SQL 데이터베이스를 선택한 다음 데이터베이스의 사용자 이름/암호를 입력합니다. **Oozie 메타데이터에 기존 SQL DB 사용**하려는 경우 이러한 단계를 반복합니다. **옵션 구성** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
 
 		>[AZURE.NOTE]메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
 
-	* **스크립트 동작**: 클러스터를 만들 때 사용자 지정 스크립트를 사용하여 클러스터를 사용자 지정하려는 경우에 사용합니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요. 스크립트 동작 블레이드에서는 화면 캡처에 표시된 것과 같은 세부 정보를 제공합니다.
+	* **스크립트 동작**: 클러스터를 만들 때 사용자 지정 스크립트를 사용하여 클러스터를 사용자 지정하려는 경우에 사용합니다. .스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요. 스크립트 동작 블레이드에서는 화면 캡처에 표시된 것과 같은 세부 정보를 제공합니다.
 
 		![스크립트 동작 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.8.png "스크립트 동작 지정")
 
@@ -112,13 +116,13 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 		**새 HDInsight 클러스터** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
 
-10. **새 HDInsight 클러스터** 블레이드에서 **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 클릭합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비저닝 중임을 나타내고 프로비저닝이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
+10. **새 HDInsight 클러스터** 블레이드에서 **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 클릭합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비전 중임을 나타내고 프로비전이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
 
-	| 프로비저닝 중 | 프로비저닝 완료 |
+	| 프로비전 중 | 프로비전 완료 |
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 프로비저닝](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비저닝 프로세스를 확인하세요.
+	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인합니다.
 
 11. 프로비저닝이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다. 클러스터 블레이드는 이름, 속한 리소스 그룹, 위치, 운영 체제, 클러스터 대시보드의 URL 등 클러스터에 대한 필수 정보를 제공합니다.
 
@@ -126,7 +130,7 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 	다음을 사용하여 이 블레이드의 위쪽과 **필수** 섹션에 있는 아이콘을 이해합니다.
 
-	* **설정** 및 **모든 설정**: 클러스터의 자세한 구성 정보에 액세스할 수 있는 클러스터의 **설정** 블레이드를 표시합니다.
+	* **설정** 및 **모든 설정**: 클러스터의 자세한 구성 정보에 액세스할 수 있도록 하는 클러스터의 **설정** 블레이드를 표시합니다.
 
 	* **대시보드**, **클러스터 대시보드** 및 **URL**: 이러한 항목을 통해 클러스터에서 작업을 실행하기 위한 웹 포털인 클러스터 대시보드에 액세스할 수 있습니다.
 
@@ -136,11 +140,11 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 	* **빠른 시작**(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)): HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
 
-	* **사용자**(![사용자 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
+	* **사용자(![사용자 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png))**: Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
 		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
-	* **태그**(![태그 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+	* **태그** (![태그 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
 ##다음 단계
 
@@ -163,4 +167,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

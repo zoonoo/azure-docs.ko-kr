@@ -30,17 +30,27 @@
 샘플링은 ASP.NET SDK 또는 [웹 페이지](#other-web-pages)에 대해 현재 사용할 수 있습니다.
 
 ### ASP.NET 서버
-응용 프로그램에서 샘플링을 구성하려면 다음 코드 조각을 Global.asax.cs의 `Application_Start()` 메서드에 삽입합니다.
 
-```C#
+1. 프로젝트의 NuGet 패키지를 최신 *시험판* 버전의 Application Insights로 업데이트합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **Include prerelease**(시험판 포함)를 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
 
-    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+2. 다음 코드 조각을 ApplicationInsights.config에 추가합니다.
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
 ```
 
-> [AZURE.NOTE]샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다. 예를 들어 유효한 값은 50(=1/2), 33.33(= 1/3), 25(=1/4), 20(=1/5) 등을 포함합니다. 현재 샘플링은 다른 값을 지원하지 않습니다.
+> [AZURE.NOTE]샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다. 현재 샘플링은 다른 값을 지원하지 않습니다.
 
+<a name="other-web-pages"></a>
 ### JavaScript를 사용하는 웹 페이지
 
 서버에서 샘플링에 대한 웹 페이지를 구성할 수 있습니다. ASP.NET 서버의 경우 클라이언트와 서버 양쪽을 구성합니다.
@@ -63,6 +73,26 @@
 서버 측에서 수행한 대로 JavaScript에서 동일한 샘플링 비율을 제공해야 합니다.
 
 [Web API에 대해 자세히 알아봅니다](app-insights-api-custom-events-metrics.md).
+
+
+### 대체: 서버 코드에서 샘플링 설정
+
+
+.config 파일에 샘플링 매개 변수를 설정하는 대신 코드를 사용할 수 있습니다. 이렇게 하면 샘플링을 켜거나 끌 수 있습니다.
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    // It's recommended to set SamplingPercentage in the .config file instead.
+
+    // This configures sampling percentage at 10%:
+    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+
+```
 
 
 ## 언제 샘플링을 사용합니까?
@@ -132,4 +162,4 @@ SDK는 어떤 원격 분석 항목을 삭제하고 어떤 항목을 유지할지
 
 * 아니요, 지금 시점에 장치 응용 프로그램에 대한 샘플링은 지원되지 않습니다. 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

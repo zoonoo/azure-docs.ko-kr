@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -65,6 +65,8 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 **참고:** 페더레이션 오류 10053 및 10054는 다시 시도 논리에 포함될 수도 있습니다.
 
 
+<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
+
 ## 데이터베이스 복사 오류
 
 
@@ -87,6 +89,8 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40570|16|내부 오류로 인해 데이터베이스를 복사하지 못했습니다. 대상 데이터베이스를 삭제하고 나중에 다시 시도하십시오.|
 |40571|16|내부 오류로 인해 데이터베이스를 복사하지 못했습니다. 대상 데이터베이스를 삭제하고 나중에 다시 시도하십시오.|
 
+
+<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
 
 ## 리소스 관리 오류
 
@@ -124,6 +128,8 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL 데이터베이스 리소스 관리](http://msdn.microsoft.com/library/azure/dn338078.aspx).
 
 
+<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
+
 ## 페더레이션 오류
 
 
@@ -139,13 +145,13 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 |오류 번호|심각도|설명|해결 방법|
 |---:|---:|:---|:---|
-|266|16|<statement> 문을 다중 문 트랜잭션 내에서 사용할 수 없습니다|문을 실행하기 전에 `@@trancount`이(가) 연결에서 0인지 여부를 확인하십시오.|
-|2072|16|데이터베이스 '%. & #x2a; l s'이(가) 없습니다.|`USE FEDERATION`을(를) 실행하기 전에 데이터베이스 문에 대해 `sys.databases`을(를) 확인하십시오.|
-|2209|16|'%ls' 근처의 %s 구문 오류|페더레이션 멤버에서 테이블을 만들 때 `FEDERATED ON`이(가) 사용될 수 있습니다.|
+|266|16|<statement> 문을 다중 문 트랜잭션 내에서 사용할 수 없습니다|문을 실행하기 전에 `@@trancount`가 연결에서 0인지 여부를 확인하십시오.|
+|2072|16|데이터베이스 '%. & #x2a; l s'이(가) 없습니다.|`USE FEDERATION`을 실행하기 전에 데이터베이스 문에 대해 `sys.databases`를 확인하십시오.|
+|2209|16|'%ls' 근처의 %s 구문 오류|페더레이션 멤버에서 테이블을 만들 때 `FEDERATED ON`이 사용될 수 있습니다.|
 |2714|16|데이터베이스에 '%. & #x2a; l s'(이)라는 개체가 이미 있습니다.|페더레이션 이름이 이미 있습니다.|
 |10054, 10053|20|서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. 호스트 컴퓨터에서 소프트웨어에 의해 설정된 연결이 중단되었습니다.|응용 프로그램에서 다시 시도 논리를 구현하십시오.|
 |40530|15|배치에서 <statement>은(는) 유일한 문이어야 합니다.|배치에 다른 문이 없는지 확인하십시오.|
-|40604|16|서버의 할당량을 초과하기 때문에 `CREATE DATABASE`을(를) 할 수 없습니다.|서버 db 수 할당량을 확장하십시오.|
+|40604|16|서버의 할당량을 초과하기 때문에 `CREATE DATABASE`를 할 수 없습니다.|서버 db 수 할당량을 확장하십시오.|
 |45000|16|<statement> 작업이 실패했습니다. 지정된 페더레이션 이름 <federation_name>이(가) 올바르지 않습니다.|Federation\_name이 페더레이션 이름 규칙에 맞지 않거나 유효한 식별자가 아닙니다.|
 |45001|16|<statement> 작업이 실패했습니다. 지정된 페더레이션 이름이 존재하지 않습니다.|페더레이션 이름이 존재하지 않습니다.|
 |45002|16|<statement> 작업이 실패했습니다. 지정된 페더레이션 키 이름 <distribution_name>이(가) 올바르지 않습니다.|존재하지 않거나 잘못된 페더레이션 키|
@@ -163,6 +169,8 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |45022|16|<statement> 작업이 실패했습니다. 지정된 경계 값이 이미 페더레이션 키 <distribution_name> 및 페더레이션 <federation_name>에 있습니다.|이미 경계 값인 값을 지정하십시오.|
 |45023|16|<statement> 작업이 실패했습니다. 지정된 경계 값이 페더레이션 키 <distribution_name> 및 페더레이션 <federation_name>에 존재하지 않습니다.|이미 경계 값이 아닌 값을 지정하십시오.|
 
+
+<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
 
 ## 일반 오류
 
@@ -242,4 +250,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL 데이터베이스 일반 지침 및 제한 사항](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [리소스 관리](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

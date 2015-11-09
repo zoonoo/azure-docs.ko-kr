@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -135,7 +135,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-포트가 지정되지 않은 경우 SSH는 HDInsight 클러스터의 headnode0에 연결하는 포트 22로 기본 설정됩니다. 포트 23을 사용하는 경우 headnode1에 연결합니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
+지정된 포트가 없는 경우, SSH가 기본적으로 HDInsight 클러스터의 헤드 노드 0에 연결되는 port22로 설정됩니다. 23 포트를 사용하는 경우, 헤드 노드 1에 연결 됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 ###작업자 노드에 연결
 
@@ -242,4 +242,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

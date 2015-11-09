@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="bradsev" />
 
 
@@ -48,10 +48,10 @@ Azure VM을 만들기 전에 다음을 갖추어야 합니다.
 데이터 과학 VM의 인스턴스 만들기와 관련된 단계는 다음과 같습니다.
 
 1.	Azure 포털에 로그인
-2.	**새로 만들기** -> **계산** -> **마켓플레이스**로 이동하여 *데이터 과학 가상 컴퓨터*를 검색합니다. 데이터 과학 가상 컴퓨터를 설명하는 패널을 보기 위해 Microsoft가 게시한 “**Data Science Virtual Machine**”라는 이름의 VM을 하나 선택합니다.
-3.	마법사로 이동하려면 아래에 있는 **만들기** 단추를 클릭합니다. ![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
-4.	 다음 섹션에서는 데이터 과학 VM을 만드는 데 사용되는 마법사의 각 단계에 입력을 제공합니다.
-
+2.	**새로 만들기** -> **계산** -> **마켓플레이스**로 이동하여 *데이터 과학 가상 컴퓨터*를 검색합니다.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
+3.	데이터 과학 가상 컴퓨터를 설명하는 패널을 보기 위해 Microsoft가 게시한 “**Data Science Virtual Machine**”라는 이름의 VM을 하나 선택합니다. 	
+4.	 마법사로 이동하려면 아래에 있는 **만들기** 단추를 클릭합니다.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+5.	 다음 섹션에서는 데이터 과학 VM을 만드는 데 사용되는 마법사의 각 5단계(위의 그림 오른쪽에 열거됨)에 입력을 제공합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
 
  **1. 기본 사항**:
 
@@ -97,7 +97,7 @@ VM이 만들어지고 프로비전되면 여기에 설치 및 구성되는 도�
 Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7이 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. IDLE 또는 Spyder와 같은 Anaconda 함께 제공되는 IDE를 사용할 수 있습니다. 검색 표시줄에서 검색하여 다음 중 하나를 시작할 수 있습니다(**Win** + **S** 키).
 
 ### IPython Notebook
-Anaconda 배포는 코드 및 분석을 공유 하는 환경인 IPython notebook도 제공됩니다. Ipython notebook 서버는 미리 구성되어 있습니다. Notebook 서버에 액세스하려면 브라우저를 시작하는 바탕 화면 아이콘이 있습니다. 원격 데스크톱을 통해 VM를 사용 중인 경우 [https://localhost:9999 /](https://localhost:9999/)에 방문하여 IPython notebook 서버에 액세스할 수도 있습니다(참고: 인증서 경고가 발생하더라도 계속 진행하세요.)
+Anaconda 배포는 코드 및 분석을 공유 하는 환경인 IPython notebook도 제공됩니다. Ipython notebook 서버는 미리 구성되어 있습니다. Notebook 서버에 액세스하려면 브라우저를 시작하는 바탕 화면 아이콘이 있습니다. 원격 데스크톱을 통해 VM를 사용 중인 경우 [https://localhost:9999/](https://localhost:9999/)에 방문하여 IPython notebook 서버에 액세스할 수도 있습니다(참고: 인증서 경고가 발생하더라도 계속 진행하세요.)
 
 ### Visual Studio 2015 Community edition
 VM에 설치된 Visual Studio Community edition 평가 목적이나 매우 작은 팀에 사용할 수 있는 Microsoft의 인기 있는 IDE의 무료 버전입니다. 사용 약관은 ***여기***(링크 TBD)에서 확인할 수 있습니다. 바탕 화면 아이콘이나 **시작** 메뉴를 두 번 클릭하여 Visual Studio를 엽니다. 또한 **Win** + **S** 및 "Visual Studio"를 입력하여 프로그램을 검색할 수도 있습니다.
@@ -108,7 +108,7 @@ VM에 설치된 Visual Studio Community edition 평가 목적이나 매우 작�
 SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함되어 있습니다. **SQL Server Management Studio**를 시작하여 SQL Server에 액세스할 수 있습니다. 사용 중인 VM 이름이 서버 이름으로 사용됩니다. Windows의 관리자 권한으로 로그인할 때 Windows 인증을 사용합니다. SQL Server Management Studio에서 다른 사용자를 만들고, 데이터베이스를 만들며, 데이터를 가져오고, SQL 쿼리를 실행할 수 있습니다.
 
 ### Azure 
-몇 개의 Azure 도구가 VM에 설치됩니다. - Azure SDK 설명서에 액세스하는 바탕 화면 바로 가기가 있습니다. - Microsoft Azure 저장소 계정 내외부로 데이터를 이동시키는 데 사용되는 **AzCopy**.- Azure 저장소 계정 내에 저장된 개체를 통해 검색하는 데 사용되는 **Azure 저장소 탐색기** .- **Microsoft Azure Powershell** - VM에도 설치된 스크립트 언어로 된 Azure 리소스를 관리하는 데 사용되는 스크립트 언어
+몇 개의 Azure 도구가 VM에 설치됩니다. - Azure SDK 설명서에 액세스하는 바탕 화면 바로 가기가 있습니다. - Microsoft Azure 저장소 계정 내외부로 데이터를 이동시키는 데 사용되는**AzCopy**.- Azure 저장소 계정 내에 저장된 개체를 통해 검색하는 데 사용되는 **Azure 저장소 탐색기**.- **Microsoft Azure Powershell** - VM에도 설치된 스크립트 언어로 된 Azure 리소스를 관리하는 데 사용되는 스크립트 언어
 
 ###Power BI
 
@@ -119,4 +119,4 @@ SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함�
 ## 추가 Microsoft 개발 도구
 [**Microsoft 웹 플랫폼 설치 관리자**](https://www.microsoft.com/web/downloads/platform.aspx)는 다른 Microsoft 개발 도구를 검색하고 다운로드하는 데 사용할 수 있습니다. VM 바탕 화면에 제공된 도구의 바로 가기도 있습니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

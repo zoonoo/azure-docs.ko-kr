@@ -3,9 +3,10 @@
 	description="Azure 앱 서비스에서 웹 앱으로 사용자 지정 도메인 이름을 사용하는 방법에 대해 알아봅니다."
 	services="app-service"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="cephalin"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+	tags="top-support-issue"/>
 
 <tags
 	ms.service="app-service"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="mwasson"/>
+	ms.date="10/23/2015"
+	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
 
@@ -26,15 +27,17 @@
 
 웹 앱을 만들면 Azure에서 azurewebsites.net의 하위 도메인에 할당됩니다. 예를 들어 웹 앱의 이름이 **contoso**인 경우 URL은 **contoso.azurewebsites.net**입니다. Azure는 가상 IP 주소도 할당합니다.
 
-프로덕션 웹 앱의 경우 사용자에게 사용자 지정 도메인 이름을 표시할 수 있습니다. 이 문서에서는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 사용자 지정 도메인을 예약 또는 구성하는 방법에 대해 설명합니다.
+프로덕션 웹앱의 경우 사용자에게 사용자 지정 도메인 이름을 표시할 수 있습니다. 이 문서에서는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 사용자 지정 도메인을 구성하는 방법에 대해 설명합니다.
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## 개요
 
-도메인 이름이 이미 있거나 다른 도메인 등록 기관에서 도메인을 예약하려는 경우 웹앱에서 사용자 지정 도메인 이름을 가져오는 일반적인 단계는 다음과 같습니다.
+외부 도메인 이름에 아직 등록하지 않은 경우(즉, *.azurewebsites.net이 아님) 사용자 지정 도메인을 설정하는 가장 쉬운 방법은 [Azure Preview 포털](https://portal.azure.com)에서 직접 도메인을 구입하는 것입니다. 프로세스를 사용하면 관리할 GoDaddy 등의 타사 사이트로 이동하는 대신 포털에서 직접 웹앱의 도메인 이름을 관리할 수 있습니다. 마찬가지로 웹앱에서 도메인 이름을 구성하는 것은 웹앱이 [Azure 트래픽 관리자](web-sites-traffic-manager-custom-domain-name.md)를 사용하는지 여부와 무관하게 매우 간소화됩니다. 자세한 내용은 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구입 및 구성](custom-dns-web-site-buydomains-web-app.md)을 참조하세요.
+
+도메인 이름이 이미 있거나 다른 도메인 등록 기관에서 도메인을 예약하려는 경우 웹앱에서 사용자 지정 도메인 이름을 가져오는 일반적인 단계는 다음과 같습니다([GoDaddy.com의 특정 지침](web-sites-godaddy-custom-domain-name.md) 참조):
 
 1. 도메인 이름을 예약합니다. 이 문서에서는 해당 과정을 다루지 않습니다. 여러 등록 기관 중에서 선택할 수 있습니다. 가입하면 해당 사이트에서 프로세스를 안내해 줍니다.
 1. 도메인을 Azure 웹 앱에 매핑하는 DNS 레코드를 만듭니다.
@@ -70,7 +73,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 3.	**웹앱** 블레이드를 클릭합니다.
 4.	웹 앱의 이름을 클릭 합니다.
 5.	**필수** 페이지에서 **모든 설정**을 클릭합니다.
-6.	**사용자 지정 도메인 및 SSL**을 클릭합니다. 
+6.	**사용자 지정 도메인 및 SSL**을 클릭합니다.
 7.	**사용자 지정 도메인 및 SSL** 블레이드에서 **외부 도메인 가져오기**를 클릭합니다. IP 주소는 이 부분의 맨 아래에 있습니다.
 
 ## DNS 레코드 만들기
@@ -95,7 +98,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
   <tr>
     <td>@</td>
     <td>A(주소)</td>
-    <td>127.0.0.1</td>
+    <td>168.62.48.183</td>
   </tr>
   <tr>
     <td>www</td>
@@ -106,7 +109,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 
 사용자 지정 도메인 이름이 ‘contoso.com’이라고 가정하면 다음과 같은 레코드가 만들어집니다.
 
-- 127\.0.0.1에 매핑된 **contoso.com**
+- 168\.62.48.183에 매핑된 **contoso.com**
 - **contoso.azurewebsites.net**에 매핑된 **www.contoso.com**
 
 >[AZURE.NOTE]Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns-web-sites-custom-domain)를 참조하세요.
@@ -127,6 +130,13 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
+## DNS 적용 확인
+
+구성 단계를 완료하고 나면 DNS 공급자에 따라 변경 내용이 적용되는 데 다소 시간이 걸릴 수 있습니다. [http://digwebinterface.com/](http://digwebinterface.com/)을 사용하여 예상대로 DNS 적용이 작동하는지 확인할 수 있습니다. 사이트를 찾은 후 텍스트 상자에 호스트 이름을 지정하고 **Dig**를 클릭합니다. 최근 변경 내용이 적용되었는지 확인하려면 결과를 확인합니다.
+
+![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
+
+> [AZURE.NOTE]DNS 항목이 적용되는 데는 최대 48시간이 걸립니다(더 걸리는 경우도 있음). 모든 항목이 올바르게 구성된 경우 성공적으로 적용될 때까지 기다려야 합니다.
 
 ## 다음 단계
 
@@ -145,6 +155,5 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

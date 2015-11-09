@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
 
 # ASP.NET 5용 Application Insights
@@ -75,8 +75,8 @@ NuGet 패키지의 [최신 릴리스 번호](https://github.com/Microsoft/Applic
         "Microsoft.ApplicationInsights.AspNet": "0.*",
 
        // Add these if they aren't already there:
-       "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta4",
-       "Microsoft.Framework.ConfigurationModel.Json":  "1.0.0-beta4"
+       "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta7",
+       "Microsoft.Framework.ConfigurationModel.Json":  "1.0.0-beta7"
       }
     }
 
@@ -175,4 +175,4 @@ Visual Studio에서 응용 프로그램을 디버깅하거나 웹 서버에 게�
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

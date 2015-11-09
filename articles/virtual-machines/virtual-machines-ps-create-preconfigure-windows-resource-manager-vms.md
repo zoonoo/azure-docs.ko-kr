@@ -27,26 +27,14 @@
 
 ## 1단계: Azure PowerShell 설치
 
-또한 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell을 설치 및 구성하지 않은 경우 지침을 보려면 [여기](../powershell-install-configure.md)를 클릭하세요.
-
-Azure PowerShell 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
-
-	Get-Module azure | format-table version
-
-다음은 예제입니다.
-
-	Version
-	-------
-	1.0.0
-
-버전 1.0.0 이상이 없는 경우 제어판의 프로그램 및 기능을 사용하여 Azure PowerShell을 제거한 다음 최신 버전을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## 2단계: 구독 설정
 
 먼저, Azure PowerShell 프롬프트를 시작합니다.
 
 계정에 로그인합니다.
-	
+
 	Login-AzureRmAccount
 
 다음 명령을 사용하여 구독 이름을 가져옵니다.
@@ -130,8 +118,8 @@ DNSNameAvailability가 "True"인 경우 제안된 이름이 고유한 것입니�
 
 	Get-AzureRmAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-### NAT 규칙	
-	
+### NAT 규칙
+
 인터넷에서 들어오는 트래픽을 허용하고 부하 분산된 집합에 배치할 수 있도록 인바운드 NAT 규칙을 사용하여 리소스 관리자 기반 가상 컴퓨터를 구성할 수 있습니다. 두 경우 모두 부하 분산 장치 인스턴스 및 기타 설정을 지정해야 합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 부하 분산 장치를 만드는 방법](../load-balancer/load-balancer-arm-powershell.md)을 참조하세요.
 
 리소스 관리자 배포 모델을 사용하여 만든 VM에는 리소스 관리자 가상 네트워크가 필요합니다. 필요한 경우 새 가상 컴퓨터에 대한 하나 이상의 서브넷이 있는 새 리소스 관리자 기반 가상 네트워크를 만듭니다. 다음은 **frontendSubnet** 및 **backendSubnet**이라는 두 서브넷을 사용하는 새 가상 네트워크 **TestNet**에 대한 예제입니다.
@@ -396,4 +384,4 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

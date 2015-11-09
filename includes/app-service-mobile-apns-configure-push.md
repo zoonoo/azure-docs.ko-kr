@@ -1,13 +1,15 @@
 
-1.  On your Mac, launch **Keychain Access**. Open **Category** > **My Certificates**. Find the SSL certificate to export (that you downloaded earlier) and disclose its contents. Select only the certificate without selecting the private key, and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
+1.  Mac에서 **Keychain Access**를 시작합니다. **범주** > **내 인증서**를 엽니다. 내보낼 SSL 인증서(이전에 다운로드함)를 찾고 해당 콘텐츠를 공개합니다. 개인 키를 선택하지 않고 인증서만 선택한 다음 [내보냅니다](https://support.apple.com/kb/PH20122?locale=en_US).
 
-2. In the Azure portal, click **Browse All** > **Mobile Apps** > your backend > **Settings** > **Mobile App** > **Push** > **Configure required settings** > **+ Notification Hub**, and provide a name and namespace for your notification hub, and then click the **OK** button.
+2. Azure 포털에서 **모두 찾아보기** > **모바일 앱** > 백 엔드 > **설정** > **모바일 앱** > **푸시** > **필요한 설정 구성** > **+ 알림 허브**를 클릭하고 알림 허브에 대한 이름 및 네임스페이스를 입력한 다음 **확인** 단추를 클릭합니다.
 
   ![][1]
 
-3. In the **Create Notification Hub** blade, click the **Create** button.
+3. **알림 허브 만들기** 블레이드에서 **만들기** 단추를 클릭합니다.
      
-    Before you proceed to the next step, click **Notifications**, to ensure that your notification hub setup is complete. 
-4. In the Azure portal, click **Browse All** > **Mobile Apps** > your backend > **Settings** > **Mobile App** > **Push** > **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, selecting the correct **Mode** (corresponding to whether the client SSL certificate you generated earlier was Development or Distribution.) Your service is now configured to work with push notifications on iOS!
+    다음 단계를 계속 진행하기 전에 **알림**을 클릭하여 알림 허브 설정이 완료되도록 합니다. 
+4. Azure 포털에서 **모두 찾아보기** > **모바일 앱** > 백 엔드 > **설정** > **모바일 앱** > **푸시** > **Apple 푸시 알림 서비스** > **인증서 업로드**를 클릭합니다. 올바른 **모드**(전에 생성한 클라이언트 SSL 인증서가 개발인지 또는 배포인지에 따라 다름)를 선택하여 .p12 파일을 업로드합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png
+
+<!---HONumber=Nov15_HO1-->

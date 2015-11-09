@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
@@ -174,6 +174,15 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 
 변수 섹션에서는 템플릿 언어 식을 단순화하는 데 사용할 수 있는 값을 생성합니다. 일반적으로 이들 변수는 매개 변수에서 제공되는 값에 따라 달라집니다.
 
+다음과 같은 구조를 사용하여 변수를 정의합니다.
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
+
 다음 예제에서는 두 매개 변수 값에서 생성된 변수를 정의하는 방법을 보여줍니다.
 
     "parameters": {
@@ -228,6 +237,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -245,6 +255,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 | name | 예 | 리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다.
 | location | 아니요 | 제공된 리소스의 지역적 위치를 지원합니다.
 | tags | 아니요 | 리소스와 연결된 태그입니다.
+| 설명 | 아니요 | 템플릿에서 리소스를 문서화하는 내용에 대한 참고
 | dependsOn | 아니요 | 정의 중인 리소스가 종속되는 리소스입니다. 종속된 순서에 따라 리소스 간의 종속성이 평가되고 리소스가 배포됩니다. 리소스가 서로 종속되어 있지 않으면 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록일 수 있습니다.
 | properties | 아니요 | 리소스별 구성 설정입니다.
 | 리소스 | 아니요 | 정의 중인 리소스에 종속되는 하위 리소스입니다.
@@ -429,4 +440,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

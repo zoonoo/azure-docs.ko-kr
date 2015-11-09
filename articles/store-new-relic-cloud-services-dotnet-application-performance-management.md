@@ -3,8 +3,8 @@
 	description="New Relic 서비스를 사용하여 Azure 응용 프로그램을 관리 및 모니터링하는 방법에 대해 알아봅니다." 
 	services="" 
 	documentationCenter=".net" 
-	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	authors="nickfloyd" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -14,34 +14,32 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="stepsic"/>
+	ms.author="nickfloyd@newrelic.com"/>
 
 
 
-#Azure에서 New Relic 응용 프로그램 성능 관리
+# Azure에서 New Relic 응용 프로그램 성능 관리
 
 이 가이드에서는 Azure 호스티드 응용 프로그램에 세계 최고 수준의 New Relic 성능 모니터링을 추가하는 방법에 대해 설명합니다. 응용 프로그램에 New Relic을 빠르고 간단하게 추가하는 프로세스를 다루며 New Relic의 일부 기능을 소개합니다. New Relic을 사용하는 방법에 대한 자세한 내용은 [New Relic 사용](#using-new-relic)을 참조하십시오.
 
-New Relic 정의
---
+## New Relic 정의
 
 New Relic은 개발자에 초점을 맞춘 도구로 프로덕션 응용 프로그램을 모니터링하고 성능 및 안정성에 대한 깊은 통찰력을 제공하는 도구입니다. 성능 문제를 확인하고 진단할 때 시간을 절약할 수 있도록 설계되었으며, 성능 문제를 해결하는 데 필요한 정보를 즉시 제공합니다.
 
 New Relic은 서버 및 사용자 브라우저의 웹 트랜잭션에 대한 부하 시간 및 처리량을 추적합니다. 그리고 데이터베이스 사용 시간을 보여 주고, 느린 쿼리 및 웹 요청을 분석하고, 가동 시간 모니터링 및 경고를 제공하고, 응용 프로그램 예외를 추적하는 등의 다양한 기능을 제공합니다.
 
-Azure 스토어에서 제공하는 New Relic의 특별 가격
---
+## Azure 스토어에서 제공하는 New Relic의 특별 가격
+
 
 New Relic Standard는 Azure 사용자에게 무료이며, New Relic Pro는 Azure 클라우드 서비스의 인스턴스 크기에 따라 제공됩니다.
 
 가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic)(영문)를 참조하십시오.
 
-> [AZURE.NOTE] 최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.
+> [AZURE.NOTE]최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
 
-Azure 스토어를 사용하여 New Relic에 등록
---
+## Azure 스토어를 사용하여 New Relic에 등록
 
 New Relic은 Azure 웹 역할 및 작업자 역할과 원활하게 통합됩니다.
 
@@ -95,7 +93,7 @@ Azure 스토어에서 직접 New Relic에 등록하려면 다음과 같이 간�
 	![클라우드 프로젝트 게시](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**참고:** Azure에 이 앱을 처음 배포하는 경우 Azure 자격 증명을 입력하라는 메시지가 표시됩니다. 자세한 내용은 <a href="/develop/net/tutorials/get-started/">Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포</a>를 참조하십시오.
+**참고:** Azure에 이 앱을 처음 배포하는 경우 Azure 자격 증명을 입력하라는 메시지가 표시됩니다. 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](app-service-web\web-sites-dotnet-get-started.md)를 참조하세요.
 
 ![게시 설정](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -117,49 +115,23 @@ New Relic 대시보드를 보려면 다음을 수행합니다.
 
 Applications 메뉴의 목록에서 앱을 선택하면 Overview 대시보드에서 현재 앱 서버 및 브라우저 정보를 표시합니다. 두 보기 간에 화면을 전환하려면 **App server** 또는 **Browser** 단추를 클릭합니다.
 
-Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">표준 New Relic UI</a> 및 <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">대시보드 드릴다운</a> 기능 외에도 추가 기능이 있습니다.
+Applications Overview 대시보드에는 [표준 New Relic UI](https://newrelic.com/docs/site/the-new-relic-ui#functions")(영문) 및 [대시보드 드릴다운](https://newrelic.com/docs/site/the-new-relic-ui#drilldown)(영문) 기능 외에도 추가 기능이 있습니다.
 
-<table border="1">
-  <thead>
-    <tr>
-      <th><b>수행하려는 작업</b></th>
-      <th><b>방법</b></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-       <td>선택한 앱 서버 또는 브라우저에 대한 대시보드 정보 표시</td>
-       <td><b>App Server</b> 또는 <b>Browser</b> 단추를 클릭합니다.</td>
-    </tr>
-     <tr>
-       <td>앱의 <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> score에 대한 임계값 수준 보기</td>
-       <td>Apdex score <b>?<b> 아이콘</b></b>을 가리킵니다.</td>
-    </tr>
-    <tr>
-       <td>Worldwide Apdex 세부 정보 보기</td>
-       <td>Overview의 <b>Browser</b> 보기에서 Global Apdex 맵의 아무 곳이나 마우스로 가리킵니다.<br /><b>팁:</b> 선택한 앱의 <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a> 대시보드로 바로 이동하려면 <b>Global Apdex</b> 제목을 클릭하거나 Global Apdex 맵의 아무 곳이나 클릭합니다.</td>
-    </tr>
-    <tr>
-       <td><a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a> 대시보드 보기</td>
-       <td>Applications Overview 대시보드에서 Web Transactions 테이블을 클릭합니다. 또는 특정 웹 트랜잭션(<a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a> 포함)에 대한 세부 정보를 보려면 해당 이름을 클릭합니다.</td>
-    </tr>
-    <tr>
-       <td><a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a> 대시보드 보기</td>
-       <td>Applications Overview 대시보드에서 Error rate 차트 제목을 클릭합니다.<br /><b>팁:</b> <b>Applications</b> > (사용자의 앱) > Events > Errors를 클릭하여 Errors 대시보드를 볼 수도 있습니다.</td>
-    </tr>
-    <tr>
-       <td>앱 서버 세부 정보 보기</td>
-       <td><p>다음 중 하나를 수행합니다.<p>
-        <ul>
-          <li>호스트의 테이블 보기 또는 각 호스트의 브레이크아웃 메트릭 세부 정보 간에 전환합니다.</li>
-          <li>개별 서버 이름을 클릭합니다.</li>
-          <li>개별 서버의 Apdex score를 가리킵니다.</li>
-          <li>개별 서버의 CPU usage 또는 Memory를 클릭합니다.</li>
-        </ul>
-       </p></p></td>
-    </tr>
-  </tbody>
-</table>
+| 수행하려는 작업 | 방법 |
+| ----------------- | ---------- |
+| 선택한 앱 서버 또는 브라우저에 대한 대시보드 정보를 표시합니다. | **App Server** 또는 **Browser** 단추를 클릭합니다. |
+| 앱의 [Apdex](https://newrelic.com/docs/site/apdex) score에 대한 임계값 수준을 봅니다. | Apdex score **?** 아이콘을 가리킵니다. |
+| Worldwide Apdex 세부 정보를 봅니다. | Overview의 **Browser** 보기에서 Global Apdex 맵의 아무 곳이나 마우스로 가리킵니다. **팁:** 선택한 앱의 [Geography](https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard") 대시보드로 바로 이동하려면 **Global Apdex** 제목을 클릭하거나 Global Apdex 맵의 아무 곳이나 클릭합니다. |
+| [Web Transactions](https://newrelic.com/docs/applications-dashboards/web-transactions) 대시보드를 봅니다. | Applications Overview 대시보드에서 Web Transactions 테이블을 클릭합니다. 또는 특정 웹 트랜잭션([Key Transactions](https://newrelic.com/docs/site/key-transactions") 포함)에 대한 세부 정보를 보려면 해당 이름을 클릭합니다. |
+| [Errors](https://newrelic.com/docs/site/errors) 대시보드를 봅니다. | Applications Overview 대시보드에서 Error rate 차트 제목을 클릭합니다. **팁:** **Applications** > (사용자의 앱) > Events > Errors를 클릭하여 Errors 대시보드를 볼 수도 있습니다. |
+
+
+또한 응용 프로그램의 서버 세부 정보를 보려는 경우 다음 중 하나를 수행합니다.
+
+- 호스트의 테이블 보기 또는 각 호스트의 브레이크아웃 메트릭 세부 정보 간에 전환합니다.
+- 개별 서버 이름을 클릭합니다.
+- 개별 서버의 Apdex score를 가리킵니다.
+- 개별 서버의 CPU usage 또는 Memory를 클릭합니다.
 
 아래 그림은 Browser 보기를 선택한 경우 Applications Overview 대시보드의 예제입니다.
 
@@ -176,4 +148,4 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
  * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring): RUM에서 사용자의 브라우저가 웹 페이지를 로드하는 데 걸리는 시간, 사용자의 위치 및 사용하는 브라우저의 종류를 자세히 표시하는 방법에 대한 개요
  * [도움말 찾기](https://newrelic.com/docs/site/finding-help): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

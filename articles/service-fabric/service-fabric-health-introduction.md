@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 상태 모니터링 소개"
-   description="이 문서에서는 상태 엔터티, 보고 및 평가를 포함하여 Azure 서비스 패브릭 상태 모니터링 모델을 설명합니다."
+   pageTitle="서비스 패브릭의 상태 모니터링 | Microsoft Azure"
+   description="클러스터 및 응용 프로그램과 서비스 모니터링을 제공하는 Azure 서비스 패브릭 상태 모니터링 모델 소개"
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # 서비스 패브릭 상태 모니터링 소개
@@ -336,4 +336,4 @@ HealthEvents                    :
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

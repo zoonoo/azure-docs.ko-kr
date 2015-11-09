@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/26/2015"
+   ms.date="10/27/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 기술 사양 및 규정 준수
@@ -20,8 +20,6 @@
 ## 개요
 
 Microsoft Azure StorSimple 장치의 하드웨어 구성 요소는 이 문서에 설명된 기술 사양 및 규제 표준을 준수합니다. 기술 사양은 전원 및 냉각 모듈(PCM), 디스크 드라이브 및 엔클로저를 설명합니다. 호환성 정보는 국제 표준, 안전성 및 배출, 및 케이블 연결 등의 작업을 다룹니다.
-
-> [AZURE.NOTE]StorSimple 장치에 대한 자세한 내용은 [StorSimple 8000 시리즈 데이터시트](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx)를 다운로드하세요.
 
 ## 전원 및 냉각 모듈 사양  
 
@@ -170,6 +168,8 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 
 10GbE 네트워크 인터페이스에 대한 데이터 2와 데이터 3은 [지원되는 네트워크 케이블 및 모듈의 목록](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)을 참조하세요.
 
- 
+## 다음 단계
 
-<!---HONumber=Oct15_HO3-->
+StorSimple 장치 사양에 대한 자세한 내용은 [StorSimple 8000 시리즈 사양](http://storsimple.seagate.com/Specifications-8000)을 다운로드하세요.
+
+<!---HONumber=Nov15_HO1-->

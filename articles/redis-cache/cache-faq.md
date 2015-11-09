@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/23/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -27,7 +27,7 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 캐시 제품을 선택할 때는 다음을 고려해야 합니다.
 
 -	**메모리**: 기본 및 표준 계층에서 250MB-53GB를 제공합니다. 프리미엄 계층은 [요청 시](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) 추가적으로 사용 가능한 최대 530GB를 제공합니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
--	**네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 계층이 표준이나 기본에 비해 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 다음 표를 참조하세요.
+-	**네트워크 성능**: 높은 처리량이 필요한 작업이 있는 경우 프리미엄 계층이 표준이나 기본에 비해 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 다음 표를 참조하세요.
 -	**처리량**: 프리미엄 계층은 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과가 수신됩니다. 자세한 내용은 다음 표를 참조하세요.
 -	**높은 가용성/SLA**: Azure Redis Cache는 표준/프리미엄(미리 보기 기간 이후까지 프리미엄에 대한 SLA 없음) 99.9% 이상의 시간에서 캐시를 사용할 수 있도록 보장합니다. SLA에 대한 자세한 내용은 [ Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. SLA에서는 캐시 끝점에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
 -	**Redis 데이터 지속성**: 프리미엄 계층을 사용하면 Azure 저장소 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라의 경우 문제는 잠재적인 데이터 손실이 있을 수 있다는 점입니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Redis Cache는 Redis 지속성에서 RDB 및 AOF(출시 예정) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
@@ -191,4 +191,33 @@ Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 
 
 클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 Azure.com의 [Redis Cache 설명서](http://azure.microsoft.com/documentatgion/services/redis-cache/) 페이지에는 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+
+## 내게 적합한 Azure 캐시 기능
+
+>[AZURE.IMPORTANT]신규 개발에서는 항상 Azure Redis Cache를 사용하는 것이 좋습니다.
+
+Azure 캐시에는 현재 다음과 같은 세 가지 제품이 있습니다.
+
+-	Azure Redis 캐시(영문)
+-	Azure 관리된 캐시 서비스
+-	Azure In-Role Cache
+
+
+### Azure Redis 캐시(영문)
+Azure Redis Cache가 이제 최대 53GB 크기로 출시되었으며 99.9%의 가용성 SLA를 제공합니다. 새 [프리미엄 계층](cache-premium-tier.md)이 미리 보기에 있으며 최대 530GB 크기와 클러스터링, VNET 및 지속성에 대한 지원을 제공합니다.
+
+Azure Redis Cache에서 고객은 Microsoft에서 관리하는 안전한 전용 Redis Cache를 사용할 수 있습니다. Redis에서 제공하는 다양한 기능 집합 및 에코시스템을 활용하면서 Microsoft의 안정적인 호스팅 및 모니터링 기능을 이용할 수 있습니다.
+
+Redis는 키 값 쌍만 다루는 기존 캐시와 달리 높은 성능의 데이터 형식 때문에 널리 사용됩니다. 또한 Redis는 이러한 형식에서의 원자성 작업 실행도 지원합니다(예: 문자열에 추가, 해시에서 값 증분, 목록에 푸시, 교집합, 합집합 및 차집합 계산 또는 정렬된 집합에서 가장 높은 순위의 구성원 가져오기). 기타 기능으로는 트랜잭션, 게시/알림, Lua 스크립팅, TTL(Time-to-Live)이 제한된 키 및 보다 일반적인 캐시 역할을 하도록 Redis를 설정하는 구성 설정이 있습니다.
+
+Redis 성공의 또 다른 중요한 측면은 이를 기반으로 구축된 정상적이고 활발한 오픈 소스 에코시스템입니다. 이는 여러 언어로 사용할 수 있는 다양한 Redis 클라이언트의 집합에 반영됩니다. 따라서 Azure 내에서 작성하는 거의 모든 작업에 이 캐시를 사용할 수 있습니다.
+
+Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Redis Cache를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md) 및 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/redis-cache/)를 참조하세요.
+
+### 관리된 캐시 서비스
+기존 Azure 관리된 캐시 서비스 고객은 기존 서비스를 계속 사용하거나 Azure Redis Cache로 마이그레이션하여 다양한 기능 집합을 활용할 수 있습니다. 또한 Azure 관리된 캐시 서비스가 이제 출시되었으며 99.9%의 가용성 SLA를 제공합니다.
+
+### In-Role Cache
+In-Role Cache를 사용하여 캐시를 자체 호스트하는 경우 계속 그렇게 할 수 있습니다. In-Role Cache는 Microsoft 호스티드 서비스가 아닌 자체 호스트 소프트웨어 구성 요소이므로 SLA를 제공하지 않습니다. In-Role Cache 사용자는 Azure Redis Cache로 마이그레이션하여 풍부한 기능 집합을 활용하고 SLA를 얻을 수 있습니다.
+
+<!---HONumber=Nov15_HO1-->

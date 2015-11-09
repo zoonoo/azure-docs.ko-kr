@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="10/26/2015"
    ms.author="joaoma" />
 
 # 클라우드 서비스당 여러 VIP
@@ -155,4 +155,4 @@ PowerShell을 통해 클라우드 서비스에서 사용하는 VIP를 확인하�
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

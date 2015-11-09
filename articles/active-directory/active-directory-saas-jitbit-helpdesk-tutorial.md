@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: Jitbit Helpdesk와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Jitbit Helpdesk를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Jitbit Helpdesk와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Jitbit Helpdesk를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Jitbit Helpdesk와 Azure Active Directory 통합
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=524767)를 클릭하십시오.
   
 이 자습서는 Azure와 Jitbit Helpdesk의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Jitbit Helpdesk 테넌트
   
-이 자습서를 완료하면 Jitbit Helpdesk에 할당한 Azure AD 사용자가 Jitbit Helpdesk 회사 사이트(서비스 공급자가 제공한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On으로 로그인할 수 있습니다.
+이 자습서를 완료하면 Jitbit Helpdesk에 할당한 Azure AD 사용자가 Jitbit Helpdesk 회사 사이트(서비스 공급자가 제공한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On으로 로그인할 수 있습니다.
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -51,7 +64,7 @@
     ![JitBit](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC781008.png "JitBit")
 ##Single Sign-On 구성
   
-이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jitbit Helpdesk에 인증할 수 있게 하는 방법을 간략하게 설명합니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jitbit Helpdesk에 인증할 수 있게 하는 방법을 간략하게 설명합니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 >[AZURE.IMPORTANT]Jitbit Helpdesk 테넌트에 대한 Single Sign-On을 구성하기 위해 먼저 Jitbit Helpdesk 기술 지원에 문의하여 이 기능을 사용하도록 설정합니다.
 
@@ -75,7 +88,7 @@
 
 5.  다른 웹 브라우저 창에서 Jitbit Helpdesk 회사 사이트에 관리자로 로그인합니다.
 
-6.  위쪽에 도구 모음에서 **관리**를 클릭합니다.
+6.  위쪽의 도구 모음에서 **관리**를 클릭합니다.
 
     ![관리](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777681.png "관리")
 
@@ -88,10 +101,10 @@
     ![인증 설정](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777683.png "인증 설정")
 
     1.  **OneLogin**과 함께 SSO(Single Sign-On)을 사용하여 **SAML 2.0 Single Sign On 사용** 로그인을 선택합니다.
-    2.  Azure 포털의 **Jitbit Helpdesk에서 Single Sign-On 구성** 대화 상자 페이지에서 **서비스 공급자 제공 끝점** 값을 복사한 다음 **끝점 URL** 텍스트 상자에 붙여넣습니다.
-    3.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.
+    2.  Azure 포털의 **Jitbit Helpdesk에서 Single Sign-On 구성** 대화 상자 페이지에서 **서비스 공급자(SP) 제공 끝점** 값을 복사한 다음 **끝점 URL** 텍스트 상자에 붙여넣습니다.
+    3.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
         
-		>[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+		>[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
     4.  Base 64로 인코딩된 인증서를 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
     5.  **변경 내용 저장**을 클릭합니다.
@@ -143,6 +156,6 @@ Azure AD 사용자가 Jitbit Helpdesk에 로그인할 수 있도록 하려면 Ji
 
     ![예](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

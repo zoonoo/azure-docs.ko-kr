@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # collectd: Application Insights에서 Unix 성능 메트릭
@@ -143,4 +143,4 @@ Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

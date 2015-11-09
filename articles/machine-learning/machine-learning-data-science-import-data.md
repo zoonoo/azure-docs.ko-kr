@@ -14,16 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/27/2015"
 	ms.author="garye;bradsev" />
 
 
 # 다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기
-
-이 **메뉴**는 CAP(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
-
 
 ## 소개
 
@@ -96,4 +91,4 @@
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

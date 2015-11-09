@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리 정책 참조
@@ -32,6 +32,8 @@
 	-	[JWT 유효성 검사][] - 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.
 -	[고급 정책][]
 	-	[흐름 제어][] - 부울 [식][]의 평가 결과에 따라 정책 문을 조건부로 적용합니다.
+	-	[요청 전달][] - 백 엔드 서비스에 요청을 전달합니다.
+	-	[로그 이벤트 허브를][] - [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) 엔터티가 정의한 메시지 대상에 지정된 형식으로 메시지를 보냅니다.
 	-	[변수 설정][] - 나중에 액세스할 수 있도록 명명된 [context][] 변수의 값을 유지합니다.
 -	[인증 정책][]
 	-	[기본 사용 인증][] - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.
@@ -73,6 +75,8 @@
 [변수 설정]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [식]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [context]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+[요청 전달]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[로그 이벤트 허브를]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [인증 정책]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [기본 사용 인증]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
@@ -106,4 +110,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

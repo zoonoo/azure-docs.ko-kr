@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기 
@@ -315,4 +315,4 @@ Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

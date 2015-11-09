@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # 연결된 서비스 계산
@@ -234,6 +234,40 @@ mlEndpoint | 일괄 처리 점수 매기기 URL입니다. | 예
 apiKey | 게시된 작업 영역 모델의 API입니다. | 예
 
 
+## Azure 데이터 레이크 분석 연결된 서비스
+파이프 라인에서 [데이터 레이크 분석 U-SQL 작업](data-factory-usql-activity.md) 을 사용하기 전에 Azure 데이터 레이크 분석 계산 서비스와 Azure 데이터 팩토리에 연결하는 **Azure 데이터 레이크 분석** 연결된 서비스를 만듭니다.
+
+다음 예제에서는 Azure 데이터 레이크 분석 연결된 서비스에 JSON 정의를 제공합니다.
+
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID>", 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+다음 표에는 JSON 정의에서 사용하는 JSON 속성이 나와 있습니다.
+
+속성 | 설명 | 필수
+-------- | ----------- | --------
+형식 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예
+accountName | Azure 데이터 레이크 분석 계정 이름입니다. | 예
+dataLakeAnalyticsUri | Azure 데이터 레이크 분석 URI입니다. | 아니요 
+권한 부여 | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. | 예 
+subscriptionId | Azure 구독 ID | 아니요(지정하지 않으면 Data Factory의 구독이 사용됨). 
+resourceGroupName | Azure 리소스 그룹 이름 | 아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨).
+sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며 Data Factory 편집기에서 자동으로 생성됩니다. | 예
+
+
 ## Azure SQL 연결된 서비스
 
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md)에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 문서를 참조하세요.
@@ -247,4 +281,4 @@ Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-fac
  
    
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

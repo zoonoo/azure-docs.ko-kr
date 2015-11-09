@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="nana"
+   ms.workload="na"
    ms.date="09/29/2015"
    ms.author="kdotchko"/>
 
@@ -37,4 +37,4 @@ Azure IoT 프로토콜 게이트웨이와 이를 IoT 솔루션의 일부로 사�
 * [GitHub에서 Azure IoT 프로토콜 게이트웨이 리포지토리](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Azure IoT 프로토콜 게이트웨이 개발자 가이드](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

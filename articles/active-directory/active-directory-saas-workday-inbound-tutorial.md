@@ -1,25 +1,23 @@
 <properties 
-  pageTitle="자습서: 인바운드 동기화를 위한 Workday 구성 | Microsoft Azure" 
-  description="Azure Active Directory에 대한 ID 데이터의 원본으로 Workday를 사용하는 방법에 대해 알아봅니다." 
-  services="active-directory" 
-  authors="MarkusVi"  
-  documentationCenter="na" 
-  manager="msStevenPo"/>
+    pageTitle="자습서: 인바운드 동기화를 위한 Workday 구성 | Microsoft Azure" 
+    description="Azure Active Directory에 대한 ID 데이터의 원본으로 Workday를 사용하는 방법에 대해 알아봅니다." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
 <tags 
-  ms.service="active-directory" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.tgt_pltfrm="na" 
-  ms.workload="identity" 
-  ms.date="08/01/2015" 
-  ms.author="markvi" />
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
 
 
 #자습서: 인바운드 동기화를 위한 Workday 구성
 
 
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=521880)를 클릭하십시오.
-  
 이 자습서는 Workday에서 Azure AD로 사람들을 가져오기 위해 Workday 및 Azure AD에서 수행해야 하는 단계를 설명하기 위한 것입니다.
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
@@ -226,4 +224,4 @@
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

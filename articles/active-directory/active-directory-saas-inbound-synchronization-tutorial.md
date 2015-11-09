@@ -1,11 +1,21 @@
-<properties pageTitle="자습서: 인바운드 동기화를 위한 Workday 구성 | Microsoft Azure" description="Azure Active Directory에서 인바운드 동기화를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: 인바운드 동기화를 위한 Workday 구성 | Microsoft Azure" 
+    description="Azure Active Directory에서 인바운드 동기화를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: 인바운드 동기화를 위한 Workday 구성
 >[AZURE.NOTE]Azure AD(Active Directory) Premium은 Azure AD의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. 중국의 21Vianet에서 운영하는 Microsoft Azure 서비스는 현재 Azure AD Premium을 지원하지 않습니다.
-
-&nbsp;
-
->[AZURE.TIP]사용자 의견을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=330042)를 클릭하십시오.
 
 이 자습서는 Workday에서 Microsoft Azure AD로 사람들을 가져오기 위해 Workday 및 Microsoft Azure AD에서 수행해야 하는 단계를 설명하기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -153,7 +163,7 @@
 
 	![설정 및 관리자 자격 증명](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "설정 및 관리자 자격 증명")
 
-	1.  **Workday 관리자 사용자 이름** 텍스트 상자에 [통합 시스템 사용자 만들기](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) 섹션에서 만든 사용자의 이름을 입력합니다.    
+	1.  **Workday 관리자 이름** 텍스트 상자에 [통합 시스템 사용자 만들기](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) 섹션에서 만든 사용자의 이름을 입력합니다.    
     2.  **Workday 관리자 암호** 텍스트 상자에 [통합 시스템 사용자 만들기](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser) 섹션에서 만든 사용자의 암호를 입력합니다.    
     3.  **Workday 테넌트 URL** 텍스트 상자에 Workday 테넌트의 URL을 입력합니다.    
 
@@ -171,4 +181,4 @@
 
 이제 **사용자** 섹션으로 이동하여 Workday 사용자를 가져왔는지 확인할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

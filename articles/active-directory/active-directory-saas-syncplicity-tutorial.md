@@ -1,9 +1,22 @@
-<properties pageTitle="자습서: Syncplicity와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Syncplicity를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Syncplicity와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Syncplicity를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: Syncplicity와 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=522417)를 클릭하십시오.
   
-이 자습서는 Azure Active Directory(AAD)와 Syncplicity 사이에 Single Sign-On을 설정하는 방법을 보여주기 위한 것입니다.
+이 자습서는 Azure Active Directory(Azure AD)와 Syncplicity 사이에 Single Sign-On을 설정하는 방법을 보여주기 위한 것입니다.
   
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -65,7 +78,7 @@
 
     ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-syncplicity-tutorial/IC769535.png "Microsoft Azure AD Single Sign-On")
 
-3.  **앱 URL 구성** 페이지의 **Syncplicity 로그온 URL** 텍스트 상자에 Syncplicity 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Syncplicity 로그인 URL** 텍스트 상자에 Syncplicity 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL을 입력한 후 **다음**을 클릭합니다.
 
     앱 URL은 Syncplicity 테넌트 URL입니다(예: **http://company.Syncplicity.com*):).
 
@@ -145,6 +158,6 @@ AAD 사용자가 로그인할 수 있도록 Syncplicity 응용 프로그램에 �
 
     ![예](./media/active-directory-saas-syncplicity-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

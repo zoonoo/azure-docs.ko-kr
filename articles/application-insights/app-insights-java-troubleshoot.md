@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Java용 Application Insights 문제 해결과 질문 및 답변
@@ -24,7 +24,7 @@
 
 *Eclipse에서 Maven 또는 Gradle을 통해 Application Insights SDK를 추가할 때 빌드 또는 체크섬 유효성 검사 오류가 표시됩니다.*
 
-* 종속성 <version> 요소가 와일드카드 문자가 포함된 패턴을 사용하는 경우(예: (Maven) `<version>[0.9,)</version>` 또는 (Gradle) `version:'0.9.+'`) `0.9.3`과 같이 특정 버전을 대신 지정해 보세요.
+* 종속성 <version> 요소가 와일드카드 문자가 포함된 패턴을 사용하는 경우(예: (Maven) `<version>[1.0,)</version>` 또는 (Gradle) `version:'1.0.+'`) `1.0.2`과 같이 특정 버전을 대신 지정해 보세요. 최신 버전은 [릴리스 정보](app-insights-release-notes-java.md)를 참조하세요.
 
 ## 데이터 없음 
 
@@ -138,4 +138,4 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

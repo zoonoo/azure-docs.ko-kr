@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -137,7 +137,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 6. 메시지가 표시되면 클러스터를 생성할 때 입력한 사용자를 입력합니다. 사용자에 대한 암호를 제공한 경우 사용자를 입력하라는 메시지도 나타납니다.
 
-> [AZURE.NOTE]위의 단계에서는 HDInsight 클러스터의 headnode0에 연결하는 포트 22를 사용 중이라고 가정합니다. 포트 23을 사용하는 경우 headnode1에 연결합니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
+> [AZURE.NOTE]위의 단계는 HDInsight 클러스터의 헤드 노드0에 연결되는 포트 22를 사용한다는 것을 가정합니다. 23 포트를 사용하는 경우, 헤드 노드 1에 연결 됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 ###작업자 노드에 연결
 
@@ -233,4 +233,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,0 +1,258 @@
+<properties 
+   pageTitle=".NET SDK를 사용하여 Azure 데이터 레이크 분석 시작 | Azure" 
+   description=".NET SDK를 사용하여 데이터 레이크 저장소 계정을 만들고, 데이터 레이크 분석 작업을 만들고, U-SQL로 작성된 작업을 제출하는 방법에 대해 알아봅니다." 
+   services="data-lake-analytics" 
+   documentationCenter="" 
+   authors="edmacauley" 
+   manager="paulettm" 
+   editor="cgronlun"/>
+ 
+<tags
+   ms.service="data-lake-analytics"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="10/21/2015"
+   ms.author="edmaca"/>
+
+# 자습서: .NET SDK를 사용하여 Azure 데이터 레이크 분석 시작
+
+[AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
+
+
+Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 데이터 레이크 분석 작업을 정의하고, 작업을 데이터 레이크 분석 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
+
+이 자습서에서는 TSV(탭으로 구분된 값) 파일을 읽어 CSV(쉼표로 구분된 값) 파일로 변환하는 U-SQL 스크립트가 포함된 C# 콘솔 응용 프로그램을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요.
+
+**기본 데이터 레이크 분석 프로세스:**
+
+![Azure 데이터 레이크 분석 프로세스 흐름 다이어그램](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
+
+1. 데이터 레이크 분석 계정을 만듭니다.
+2. 원본 데이터를 준비합니다. 데이터 레이크 분석 작업은 Azure 데이터 레이크 저장소 계정 또는 Azure Blob 저장소 계정에서 데이터를 읽을 수 있습니다.   
+3. U-SQL 스크립트를 개발합니다.
+4. 작업(U-SQL 스크립트)을 데이터 레이크 분석 계정에 제출합니다. 이 작업은 원본 데이터를 읽고 U-SQL 스크립트에서 지시한 대로 데이터를 처리한 다음 출력을 데이터 레이크 저장소 계정 또는 Blob 저장소 계정에 저장합니다.
+
+##필수 조건
+
+이 자습서를 시작하기 전에 다음이 있어야 합니다.
+
+- **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치**.
+- **.NET 버전 2.5 이상용 Microsoft Azure SDK**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
+- **[Visual Studio용 데이터 레이크 도구](http://aka.ms/adltoolsvs)** 
+- **데이터 레이크 분석 계정**. [Azure 데이터 레이크 분석 계정 만들기](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)를 참조하세요.
+
+	데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다. 따라서 Azure Preview 포털, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 해당 계정을 만들어야 합니다.
+
+##콘솔 응용 프로그램 만들기
+
+이 자습서에서는 몇 가지 검색 로그를 처리합니다. 검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다.
+
+샘플 검색 로그가 공용 Azure Blob 컨테이너에 복사되었습니다. 응용 프로그램에서 파일을 워크스테이션에 다운로드한 후 해당 파일을 기본 데이터 레이크 저장소 계정에 업로드합니다.
+
+**응용 프로그램을 만들려면**
+
+1. Visual Studio를 엽니다.
+2. C# 콘솔 응용 프로그램을 만듭니다.
+3. Nuget 패키지 관리 콘솔을 열고 다음 명령을 실행합니다.
+
+        Install-Package Microsoft.Azure.Common.Authentication -Pre
+        Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
+        Install-Package Microsoft.Azure.Management.DataLake.AnalyticsCatalog -Pre
+        Install-Package Microsoft.Azure.Management.DataLake.AnalyticsJob -Pre
+        Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
+        Install-Package Microsoft.Azure.Management.DataLake.StoreFileSystem -Pre
+        Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
+        Install-Package WindowsAzure.Storage
+
+4. 새 파일을 **SampleUSQLScript.txt**라는 프로젝트에 추가한 후 다음 U-SQL 스크립트를 붙여넣습니다. 데이터 레이크 분석 작업은 U-SQL 언어로 작성됩니다. U-SQL에 대한 자세한 내용은 [U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
+
+        @searchlog =
+            EXTRACT UserId          int,
+                    Start           DateTime,
+                    Region          string,
+                    Query           string,
+                    Duration        int?,
+                    Urls            string,
+                    ClickedUrls     string
+            FROM "/Samples/Data/SearchLog.tsv"
+            USING Extractors.Tsv();
+        
+        OUTPUT @searchlog   
+            TO "/Output/SearchLog-from-Data-Lake.csv"
+        USING Outputters.Csv();
+
+	이 U-SQL 스크립트는 **Extractors.Tsv()**를 사용하여 원본 데이터 파일을 읽은 다음 **Outputters.Csv()**를 사용하여 csv 파일을 만듭니다.
+    
+    C# 프로그램에서 **/Samples/Data/SearchLog.tsv** 파일 및 **/Output/** 폴더를 준비해야 합니다.
+	
+	기본 데이터 레이크 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다. 예를 들면 다음과 같습니다.
+    
+        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+        
+    연결된 저장소 계정의 파일에 액세스하려면 절대 경로를 사용해야 합니다. 연결된 Azure 저장소 계정에 저장된 파일에 대한 구문은 다음과 같습니다.
+    
+        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+    >[AZURE.NOTE]공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
+       
+       
+5. Program.cs에서 다음 코드를 붙여넣습니다.
+
+        using System;
+        using System.Security;
+        using System.IO;
+        
+        using Microsoft.Azure;
+        using Microsoft.Azure.Common.Authentication;
+        using Microsoft.Azure.Common.Authentication.Models;
+        using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.Azure.Management.DataLake.StoreFileSystem;
+        using Microsoft.Azure.Management.DataLake.StoreFileSystem.Models;
+        using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.Azure.Common.Authentication.Factories;
+        
+        using Microsoft.Azure.Management.DataLake.Analytics;
+        using Microsoft.Azure.Management.DataLake.Analytics.Models;
+        using Microsoft.Azure.Management.DataLake.AnalyticsJob;
+        using Microsoft.Azure.Management.DataLake.AnalyticsJob.Models;
+        
+        using Microsoft.WindowsAzure.Storage.Blob;
+        
+        namespace data_lake_analytics_get_started
+        {
+            class Program
+            {
+        
+                private const string AzureSubscriptionID = "<Your Azure Subscription ID>";
+        
+                private const string ResourceGroupName = "<Existing Azure Resource Group Name>"; //See the Get started using portal article
+                private const string Location = "<Azure Data Center>";  //For example, EAST US 2
+                private const string DataLakeStoreAccountName = "<Data Lake Store Account Name>"; // The application will create this account.
+                private const string DataLakeAnalyticsAccountName = "<Data Lake Analytics Account Name>"; //The application will create this account.
+        
+                private const string LocalFolder = @"C:\tutorials\downloads";  //local folder with write permission for file transferring.
+        
+                private static DataLakeStoreManagementClient _dataLakeStoreClient;
+                private static DataLakeStoreFileSystemManagementClient _dataLakeStoreFileSystemClient;
+        
+                private static DataLakeAnalyticsManagementClient _dataLakeAnalyticsClient;
+                private static DataLakeAnalyticsJobManagementClient _dataLakeAnalyticsJobClient;
+        
+                static void Main(string[] args)
+                {
+                    var subscriptionId = new Guid(AzureSubscriptionID);
+                    var _credentials = GetAccessToken();
+        
+                    _credentials = GetCloudCredentials(_credentials, subscriptionId);
+                    _dataLakeStoreClient = new DataLakeStoreManagementClient(_credentials);
+                    _dataLakeStoreFileSystemClient = new DataLakeStoreFileSystemManagementClient(_credentials);
+                    _dataLakeAnalyticsClient = new DataLakeAnalyticsManagementClient(_credentials);
+                    _dataLakeAnalyticsJobClient = new DataLakeAnalyticsJobManagementClient(_credentials);
+        
+                    //=========================
+                    Console.WriteLine("Creating the Azure Data Lake Store account ...");
+                    var storeAccountParameters = new DataLakeStoreAccountCreateOrUpdateParameters();
+                    storeAccountParameters.DataLakeStoreAccount = new Microsoft.Azure.Management.DataLake.Store.Models.DataLakeStoreAccount
+                    {
+                        Name = DataLakeStoreAccountName,
+                        Location = Location
+                    };
+                    _dataLakeStoreClient.DataLakeStoreAccount.Create(ResourceGroupName, storeAccountParameters);
+        
+                    //=========================
+                    Console.WriteLine("Preparing the source data file ...");
+        
+                    // Download the source file from a public Azure Blob container.
+                    CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://adltutorials.blob.core.windows.net/adls-sample-data/SearchLog.tsv"));
+                    blob.DownloadToFile(LocalFolder + "SearchLog.tsv", System.IO.FileMode.Create);
+        
+                    // Create a folder in the default Data Lake Store account.
+                    _dataLakeStoreFileSystemClient.FileSystem.Mkdirs("/Samples/Data/", DataLakeStoreAccountName, "777");
+        
+                    // Upload the source file to the default Data Lake Store account
+                    var uploadParameters = new UploadParameters(LocalFolder + "SearchLog.tsv", "/Samples/Data/SearchLog.tsv", DataLakeStoreAccountName, isOverwrite: true);
+                    var uploader = new DataLakeStoreUploader(uploadParameters, new DataLakeStoreFrontEndAdapter(DataLakeStoreAccountName, _dataLakeStoreFileSystemClient));
+                    uploader.Execute();
+        
+                    //=========================
+                    Console.WriteLine("Creating the Data Lake Analytics account ...");
+                    var analyticsAccountParameters = new DataLakeAnalyticsAccountCreateOrUpdateParameters();
+                    analyticsAccountParameters.DataLakeAnalyticsAccount = new DataLakeAnalyticsAccount
+                    {
+                        Name = DataLakeAnalyticsAccountName,
+                        Location = Location,
+                        Properties = new DataLakeAnalyticsAccountProperties()
+                    };
+        
+                    //create a DataLakeStoreAccount object, add it to the analytics client and then set it as the default ADL Store account
+                    Microsoft.Azure.Management.DataLake.Analytics.Models.DataLakeStoreAccount storeAccountObject = new Microsoft.Azure.Management.DataLake.Analytics.Models.DataLakeStoreAccount();
+                    storeAccountObject.Name = DataLakeStoreAccountName;
+                    analyticsAccountParameters.DataLakeAnalyticsAccount.Properties.DataLakeStoreAccounts.Add(storeAccountObject);
+                    analyticsAccountParameters.DataLakeAnalyticsAccount.Properties.DefaultDataLakeStoreAccount = DataLakeStoreAccountName;
+        
+                    _dataLakeAnalyticsClient.DataLakeAnalyticsAccount.Create(ResourceGroupName, analyticsAccountParameters);
+        
+                    //=========================
+                    Console.WriteLine("Submitting the job ...");
+        
+                    USqlProperties uSQLProperties = new USqlProperties
+                    {
+                        Type = JobType.USql,
+                        Script = File.ReadAllText("SampleUSQLScript.txt")
+                    };
+        
+                    JobInformation jobParameters = new JobInformation
+                    {
+                        JobId = Guid.NewGuid(),
+                        Name = "myfirstdatalakeanalyticsjob",
+                        Properties = uSQLProperties,
+                        Type = JobType.USql,
+                        DegreeOfParallelism = 1,
+                        Priority = 1
+                    };
+        
+                    _dataLakeAnalyticsJobClient.Jobs.Create(ResourceGroupName, DataLakeAnalyticsAccountName, new JobInfoBuildOrCreateParameters { Job = jobParameters });
+        
+                    Console.WriteLine(" Downloading results ...");
+                    FileCreateOpenAndAppendResponse beginOpenResponse = _dataLakeStoreFileSystemClient.FileSystem.BeginOpen("/Output/SearchLog-from-Data-Lake.csv", DataLakeStoreAccountName, new FileOpenParameters());
+                    FileOpenResponse openResponse = _dataLakeStoreFileSystemClient.FileSystem.Open(beginOpenResponse.Location);
+                    System.IO.File.WriteAllBytes(LocalFolder + "SearchLog-from-Data-Lake.csv", openResponse.FileContents);
+        
+                    Console.WriteLine("Done");
+                }
+        
+                public static SubscriptionCloudCredentials GetAccessToken(string username = null, SecureString password = null)
+                {
+                    var authFactory = new AuthenticationFactory();
+        
+                    var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+        
+                    if (username != null && password != null)
+                        account.Id = username;
+        
+                    var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+                    return new TokenCloudCredentials(authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto).AccessToken);
+                }
+        
+                public static SubscriptionCloudCredentials GetCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+                {
+                    return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+                }
+            }
+        }
+
+7. **F5** 키를 눌러 응용 프로그램을 실행합니다.
+
+## 참고 항목
+
+- 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
+- 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
+- U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
+- U-SQL을 알아보려면 [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
+- 관리 작업을 보려면 [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
+- 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
+
+<!---HONumber=Nov15_HO1-->

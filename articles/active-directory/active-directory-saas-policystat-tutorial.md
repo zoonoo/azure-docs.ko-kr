@@ -1,14 +1,27 @@
-<properties pageTitle="자습서: PolicyStat와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 PolicyStat를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: PolicyStat와 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 PolicyStat를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #자습서: PolicyStat와 Azure Active Directory 통합
->[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=616313)를 클릭하십시오.
   
 이 자습서는 Azure 및 PolicyStat의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   PolicyStat 테넌트
   
-이 자습서를 완료한 후 PolicyStat에 할당한 Azure AD 사용자가 PolicyStat 회사 사이트 (서비스 공급자가 시작한 로그온)에서나 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
+이 자습서를 완료한 후 PolicyStat에 할당한 Azure AD 사용자가 PolicyStat 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
   
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
@@ -38,7 +51,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-policystat-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-policystat-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -51,7 +64,7 @@
     ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 PolicyStat에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. PolicyStat 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 **SAML 토큰 특성** 구성에 사용자 할당 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 PolicyStat에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. PolicyStat 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
 ![특성](./media/active-directory-saas-policystat-tutorial/IC808628.png "특성")
 
@@ -75,7 +88,7 @@
 
 5.  다른 웹 브라우저 창에서 PolicyStat 회사 사이트에 관리자로 로그인합니다.
 
-6.  **관리** 탭을 클릭 한 후 왼쪽 탐색 창에서 **Single Sign-On 구성**을 클릭합니다.
+6.  **관리** 탭을 클릭한 다음 왼쪽 탐색 창에서 **Single Sign-On 구성**을 클릭합니다.
 
     ![관리자 메뉴](./media/active-directory-saas-policystat-tutorial/IC808633.png "관리자 메뉴")
 
@@ -88,9 +101,9 @@
     ![Single Sign-On 구성](./media/active-directory-saas-policystat-tutorial/IC808635.png "Single Sign-On 구성")
 
     1.  **사용자 이름 특성** 텍스트 상자에 **uid**를 입력합니다.
-    2.  **이름 속성** 텍스트 상자에 **firstname**을 입력합니다.
-    3.  **성 속성** 텍스트 상자에 **lastname**을 입력합니다.
-    4.  **이메일 속성** 텍스트 상자에 **emailaddress**를 입력합니다.
+    2.  **이름 특성** 텍스트 상자에 **firstname**을 입력합니다.
+    3.  **성 특성** 텍스트 상자에 **lastname**을 입력합니다.
+    4.  **이메일 특성** 텍스트 상자에 **emailaddress**를 입력합니다.
     5.  **변경 내용 저장**을 클릭합니다.
 
 9.  **IDP 메타데이터**를 클릭한 다음, **IDP 메타데이터** 섹션에서 다음 단계를 수행합니다.
@@ -139,6 +152,6 @@ Azure AD 사용자가 PolicyStat에 로그인할 수 있도록 하려면 PolicyS
 
     ![예](./media/active-directory-saas-policystat-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
