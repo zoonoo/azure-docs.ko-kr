@@ -24,11 +24,13 @@ Azure Data Factory의 변환 작업을 통해 원시 데이터를 변환 및 처
 
 변환 작업 | 컴퓨팅 환경 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [기계 학습 배치 실행](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
-[저장 프로시저](data-factory-stored-proc-activity.md) | Azure SQL |
-[데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) | Azure 데이터 레이크 분석 
-[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 또는 Azure Batch
-   
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
+[Hadoop 스트리밍](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
+[기계 학습 일괄 점수 매기기](data-factory-create-predictive-pipelines.md) | Azure VM 
+[저장 프로시저](data-factory-stored-proc-activity.md) | Azure SQL | 
+[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 또는 Azure Batch    
 
 컴퓨팅 환경을 위한 연결된 서비스를 만들고 변환 작업을 정의할 때 이 연결된 서비스를 사용해야 합니다. 데이터 팩터리에서 지원하는 컴퓨팅 환경은 두 가지 유형이 있습니다.
 

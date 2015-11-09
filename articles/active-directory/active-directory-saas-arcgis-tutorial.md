@@ -112,7 +112,8 @@
     ![Single Sign-On 구성](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
 
-Azure AD 사용자가 ArcGIS에 로그인할 수 있도록 하려면 ArcGIS로 프로비전되어야 합니다. ArcGIS의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자가 ArcGIS에 로그인할 수 있도록 하려면 ArcGIS로 프로비전되어야 합니다.  
+ArcGIS의 경우 프로비전은 수동 작업입니다.
 
 ###사용자 프로비전을 구성하려면
 
