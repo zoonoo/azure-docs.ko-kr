@@ -87,8 +87,7 @@ Application Insights.NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [�
 * `ClientIpHeaderTelemetryInitializer`은 `X-Forwarded-For` HTTP 헤더 기반의 모든 원격 분석 항목의 `Location` 컨텍스트의 `Ip` 속성을 업데이트 합니다.
 * `UserAgentTelemetryInitializer`은 `User-Agent` HTTP 헤더 기반의 모든 원격 분석 항목의 `User` 컨텍스트의 `UserAgent` 속성을 업데이트 합니다.
 * `OperationNameTelemetryInitializer`은 `RequestTelemetry`의 `Name` 속성과 HTTP 메서드를 기반으로 한 모든 원격 분석 아이템의 `Operation` 컨텍스트의 `Name` 속성을 업데이트뿐만 아니라 ASP.NET MVC 컨트롤러와 요청을 처리하는 데 작업을 불러옵니다.
-* `OperationNameTelemetryInitializer`은 ' Operation.Id` context property of all telemetry items tracked while 
-handling a request with the automatically generated `RequestTelemetry.Id'를 업데이트합니다.
+* `OperationNameTelemetryInitializer`은(는) 자동으로 생성된 `RequestTelemetry.Id`(으)로 요청을 처리하는 동안 추적되는 모든 원격 분석 항목의 `Operation.Id` 컨텍스트 속성을 업데이트합니다.
 * `UserTelemetryInitializer`은`Id` 및 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 4 컨텍스트의`AcquisitionDate`속성을 업데이트합니다.
 * `SessionTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_session`쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Session` 컨텍스트의 `Id`속성을 업데이트합니다. 
 * `AzureRoleEnvironmentTelemetryInitializer`은 `RoleName`및 Azure 런타임 환경에서 추출된 정보를 사용하여 모든 원격 분석 항목에 대해 `Device`컨텍스트에 대한 `RoleInstance`속성을 업데이트합니다.
@@ -264,4 +263,4 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
