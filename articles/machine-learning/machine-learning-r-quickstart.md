@@ -644,7 +644,8 @@ R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두
 
 이미 언급했듯이 시계열은 시간으로 인덱싱된 일련의 데이터 값입니다. R 시계열 개체는 시간 인덱스를 만들고 관리하는 데 사용됩니다. 시계열 개체를 사용하면 다음과 같은 몇 가지 이점이 있습니다. 시계열 개체를 사용하면 개체에 캡슐화된 시계열 인덱스 값을 관리하지 않아도 됩니다. 또한 시계열 개체를 통해 그리기, 인쇄, 모델링을 위한 다양한 시계열 메서드를 사용할 수 있습니다.
 
-POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합니다. 이 시계열 클래스는 1970년 1월 1일 Epoch 시작부터 시간을 측정합니다. 이 예제에서는 POSIXct 시계열 개체를 사용합니다. 널리 사용되는 다른 R 시계열 개체 클래스에는 확장 가능한 시계열인 zoo와 xts가 있습니다. <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합니다. 이 시계열 클래스는 1970년 1월 1일 Epoch 시작부터 시간을 측정합니다. 이 예제에서는 POSIXct 시계열 개체를 사용합니다. 널리 사용되는 다른 R 시계열 개체 클래스에는 확장 가능한 시계열인 zoo와 xts가 있습니다. 
+<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	시계열 개체 예
 
@@ -1346,4 +1347,4 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
