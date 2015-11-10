@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="07/09/2015"
+   ms.date="10/29/2015"
    ms.author="jgao"/>
 
 # Azure HDInsight 시작 갤러리를 사용하여 Hadoop에 대해 알아보기
@@ -45,7 +45,7 @@ HDInsight 시작 갤러리는 HDInsight에서 샘플 응용 프로그램을 실�
 **시작 갤러리에서 샘플을 실행하려면**
 
 1. [Azure Preview 포털][azure.portal]에 로그인합니다.
-2. 왼쪽 메뉴에서 **모두 찾아보기**를 클릭하고 **HDInsight 클러스터**를 클릭한 다음 클러스터 이름을 클릭합니다.
+2. 왼쪽 메뉴에서 **찾아보기**를 클릭하고 **HDInsight 클러스터**를 클릭한 다음 클러스터 이름을 클릭합니다.
 3. 위쪽 메뉴에서 **대시보드**를 클릭합니다.
 4. HTTP 사용자(클러스터 사용자라고도 함)에 대한 사용자 이름 및 암호를 입력합니다.
 6. 페이지 위쪽에서 **시작 갤러리**를 클릭합니다.
@@ -68,4 +68,4 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

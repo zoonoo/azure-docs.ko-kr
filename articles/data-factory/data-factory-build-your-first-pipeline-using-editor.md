@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 편집기를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드(Azure 포털)
@@ -238,4 +238,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

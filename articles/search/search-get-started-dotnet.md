@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/05/2015"
 	ms.author="heidist"/>
 
 # .NET에서 첫 Azure 검색 응용 프로그램 시작
 
-Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 사용자 지정 .NET 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 Azure 검색 서비스 REST API뿐만 아니라 [Azure 검색 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업에 대한 클래스를 만듭니다.
+Visual Studio 2013 이상에서 검색 환경에 Microsoft Azure에서 클라우드 호스트된 검색 서비스인 Azure 검색을 사용하는 사용자 지정 .NET 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 Azure 검색 서비스 REST API뿐만 아니라 [Azure 검색 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업에 대한 클래스를 만듭니다.
 
 이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다.
 
@@ -66,7 +66,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 서비스를 만든 후 포털로 돌아가서 URL 또는 `api-key`를 가져옵니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
 
-1. 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
+1. 이동 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
 
 2. 서비스 대시보드에 기본 정보에 대한 타일 및 관리 키에 액세스할 수 있는 키 아이콘이 표시됩니다.
 
@@ -794,4 +794,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

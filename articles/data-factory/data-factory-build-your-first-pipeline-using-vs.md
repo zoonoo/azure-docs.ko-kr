@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Visual Studio를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드
@@ -69,7 +69,7 @@
 
 	![새 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-linked-service-dialog.png)
  
-3. **accountname** 및 **accountkey**를 Azure 저장소 계정 및 해당 키로 바꿉니다.
+3. **accountname** 및 **accountkey**를 Azure 저장소 계정 이름 및 해당 키로 바꿉니다.
 
 	![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 
@@ -246,4 +246,4 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

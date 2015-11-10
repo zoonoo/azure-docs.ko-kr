@@ -90,9 +90,9 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 | **서비스 공급자** |**Microsoft Azure** | **Office 365** | **위치** |
 |-----------------------|--------------------|----------------|---------------|
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 서비스 예정 | 지원되지 않음 | 시카고+, 워싱턴 DC+ |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원되지 않음 | 시카고+, 워싱턴 DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 서비스 예정 | 지원되지 않음 | 시카고+, 워싱턴 DC+ |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 서비스 예정 | 지원되지 않음 | 시카고+, 워싱턴 DC |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 지원되지 않음 | 시카고+, 워싱턴 DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 지원됨 | 지원되지 않음 | 시카고+, 워싱턴 DC |
 
 ## 나열되지 않은 서비스 공급자를 통한 연결
@@ -129,4 +129,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

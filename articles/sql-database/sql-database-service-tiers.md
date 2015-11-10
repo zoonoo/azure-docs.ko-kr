@@ -1,20 +1,20 @@
 <properties
-   pageTitle="SQL 데이터베이스 서비스 계층"
-   description="필요에 따라 가동 중지 시간 없이 규모를 조정하는 동안 비용 및 기능의 균형을 잘 유지할 수 있도록 Azure SQL 데이터베이스 서비스 계층의 성능 및 비즈니스 연속성 기능을 비교합니다."
-   services="sql-database"
-   documentationCenter=""
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="SQL 데이터베이스 서비스 계층"
+	description="필요에 따라 가동 중지 시간 없이 규모를 조정하는 동안 비용 및 기능의 균형을 잘 유지할 수 있도록 Azure SQL 데이터베이스 서비스 계층의 성능 및 비즈니스 연속성 기능을 비교합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="10/29/2015"
-   ms.author="jroth"/>
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="11/03/2015"
+	ms.author="jroth"/>
 
 # SQL 데이터베이스 서비스 계층
  
@@ -45,7 +45,7 @@ DTU를 보다 잘 이해하려면 이 항목에서 [DTU 섹션](#understanding-d
 >[AZURE.NOTE]이 서비스 계층 표에서 다른 모든 행에 대한 자세한 설명은 [서비스 계층 기능 및 제한](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)을 참조하세요.
 
 ### 탄력적 데이터베이스 풀에 대한 서비스 계층
-단일 데이터베이스를 만들고 규모를 확장하는 것 외에도 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md) 내에 복수의 데이터베이스를 관리하는 옵션이 있습니다. 탄력적 데이터베이스 풀에 있는 모든 데이터베이스가 공통의 리소스 집합을 공유합니다. 성능 특성은 *탄력적 데이터베이스 트랜잭션 장치*(eDTU)에 의해 측정됩니다. 단일 데이터베이스의 경우와 마찬가지로 탄력적 데이터베이스 툴은 세 가지 성능 계층 **Basic**, **Standard** 및 **Premium**으로 제공됩니다. 탄력적 데이터베이스의 경우 이러한 세 가지 서비스 계층은 여전히 전체 성능 한계와 여러 기능을 정의합니다.
+단일 데이터베이스를 만들고 규모를 확장하는 것 외에도 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md) 내에 복수의 데이터베이스를 관리하는 옵션이 있습니다. 탄력적 데이터베이스 풀에 있는 모든 데이터베이스가 공통의 리소스 집합을 공유합니다. 성능 특성은 *탄력적 데이터베이스 트랜잭션 장치*(eDTU)에 의해 측정됩니다. 단일 데이터베이스의 경우와 마찬가지로 탄력적 데이터베이스 툴은 세 가지 서비스 계층 **Basic**, **Standard** 및 **Premium**으로 제공됩니다. 탄력적 데이터베이스의 경우 이러한 세 가지 서비스 계층은 여전히 전체 성능 한계와 여러 기능을 정의합니다.
 
 탄력적 데이터베이스 풀을 사용하여 이러한 데이터베이스가 풀 내의 데이터베이스에 특정 성능 수준을 할당할 필요 없이 DTU 리소스를 공유하고 사용할 수 있습니다. 예를 들어 표준 풀의 단일 데이터베이스에서 eDTU를 0개 사용하다가 최대 데이터베이스 eDTU 사용으로 전환할 수 있습니다(서비스 게층에서 eDTU 100개를 정의하거나 사용자가 원하는 개수를 구성). 따라서 다양한 워크로드를 가진 복수의 데이터베이스에서 전체 풀에 사용 가능한 eDTU 리소스를 효율적으로 사용할 수 있습니다.
 
@@ -95,4 +95,4 @@ SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 �
 SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

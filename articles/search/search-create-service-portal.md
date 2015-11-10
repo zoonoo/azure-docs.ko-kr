@@ -1,6 +1,6 @@
 <properties
 	pageTitle="포털에서 Azure 검색 서비스 만들기 | Microsoft Azure"
-	description="Azure 포털을 사용하여 무료 또는 표준 Azure 검색 서비스를 기존 구독에 추가합니다."
+	description="Azure 포털을 사용하여 무료 또는 표준 Azure 검색을 기존 구독에 추가합니다. Azure 검색은 사용자 지정 앱에 대한 클라우드 호스트된 검색 서비스입니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Azure 포털에서 Azure 검색 서비스 만들기
@@ -27,7 +27,7 @@ Microsoft Azure 검색은 검색 기능을 사용자 지정 응용 프로그램�
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. 표시줄에서 **새로 만들기** > **데이터 + 저장소** > **검색**을 클릭합니다.
+2. 이동 표시줄에서 **새로 만들기** > **데이터 + 저장소** > **검색**을 클릭합니다.
 
      ![][1]
 
@@ -57,7 +57,7 @@ Microsoft Azure 검색은 검색 기능을 사용자 지정 응용 프로그램�
 
 서비스를 만든 후 Azure 포털로 돌아가 URL 또는 `api-key`를 가져올 수 있습니다. Azure 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
 
-1. 표시줄에서 **홈**을 클릭한 다음 Azure 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
+1. 이동 표시줄에서 **홈**을 클릭한 다음 Azure 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
 
 2. 서비스 대시보드에 기본 정보에 대한 타일 및 관리 키에 액세스할 수 있는 키 아이콘이 표시됩니다.
 
@@ -120,4 +120,4 @@ Microsoft Azure 검색은 검색 기능을 사용자 지정 응용 프로그램�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

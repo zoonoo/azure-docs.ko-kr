@@ -150,6 +150,26 @@ Azure Multi-factor Authentication 서버와 함께 다양한 방법으로 다중
 
 ![메일 템플릿](./media/multi-factor-authentication-get-started-server/email2.png)
 
+## Azure Multi-Factor Authentication 서버에서 사용자 데이터를 처리하는 방법
+
+MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용자의 데이터가 온-프레미스 서버에 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하면 MFA 서버가 인증을 수행할 Azure MFA 클라우드 서비스에 데이터를 보냅니다. 이러한 인증 요청이 클라우드 서비스에 전송되면 다음 필드가 요청 및 로그에 전송되어 고객의 인증/사용 보고서에서 사용할 수 있게 됩니다. 일부 필드는 선택 사항이므로 Multi-Factor Authentication 서버 내에서 사용하거나 사용하지 않도록 설정할 수 있습니다. MFA 서버에서 MFA 클라우드 서비스로의 통신은 포트 443 아웃바운드를 통해 연결된 SSL/TLS를 사용합니다. 이러한 필드는 다음과 같습니다.
+
+- 고유 ID - 사용자 이름 또는 내부 MFA 서버 ID
+- 이름과 성 - 선택 사항
+- 메일 주소 - 선택 사항
+- 전화 번호 - 음성 통화 또는 SMS 인증을 수행할 때
+- 장치 토큰 - 모바일 앱 인증을 수행할 때
+- 인증 모드 
+- 인증 결과 
+- MFA 서버 이름 
+- MFA 서버 IP 
+- 클라이언트 IP - 사용 가능한 경우
+
+
+
+위의 필드 외에도 인증 결과(성공/거부) 및 모든 거부 사유는 인증 데이터와 함께 저장되어 인증/사용 보고서를 통해 사용할 수 있습니다.
+
+
 ## 고급 Azure Multi-Factor Authentication 서버 구성
 고급 설정 및 구성 정보에 대한 추가 정보는 아래 표를 사용합니다.
 
@@ -165,4 +185,4 @@ Azure Multi-factor Authentication 서버와 함께 다양한 방법으로 다중
 [Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md)|Active Directory와 Azure MFA 서버 간의 동기화 설정 및 구성에 대한 정보입니다.
 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)|Azure MFA 서버 웹 서비스 구성 및 설치에 대한 정보입니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

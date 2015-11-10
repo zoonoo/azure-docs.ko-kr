@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 검색에서 Chrome Postman 사용 | Microsoft Azure"
-	description="Azure 검색에서 Chrome Postman을 사용합니다 Postman을 설치하고 구성합니다. Azure 검색 인덱스 만들기 Postman에 문서를 게시하고 인덱스를 쿼리합니다."
+	description="호스트된 클라우드 검색 서비스인 Azure 검색으로 Chrome Postman을 사용합니다. Postman을 설치하고 구성합니다. Azure 검색 인덱스 만들기 Postman에 문서를 게시하고 인덱스를 쿼리합니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Azure 검색에서 Chrome Postman을 사용하는 방법 #
@@ -118,4 +118,4 @@ REST API에 대한 설명서는 [MSDN](https://msdn.microsoft.com/library/azure/
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

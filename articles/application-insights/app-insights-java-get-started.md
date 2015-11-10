@@ -43,7 +43,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
     ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-get-started/01-create.png)
 3. Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
 
-    ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
+    ![이름을 채우고 Java 웹앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
 4. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 곧바로 붙여넣어야 합니다.
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-get-started/03-key.png)
@@ -106,7 +106,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
 
 수동으로 SDK 추가:
 
-1. [Java용 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)를 다운로드합니다.
+1. [Java용 Application Insights SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)를 다운로드합니다.
 2. zip 파일에서 이진 파일을 추출하고 프로젝트에 추가합니다.
 
 ### 질문...
@@ -396,4 +396,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->
