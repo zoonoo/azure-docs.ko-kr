@@ -362,9 +362,9 @@ Courier2 패키지를 [여기](https://our.umbraco.org/projects/umbraco-pro/umbr
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+`<repositories>`에서 프로덕션 사이트 URL 및 사용자 정보를 입력하세요. 기본 Umbraco 멤버 자격 공급자를 사용 중인 경우 <user> 섹션에서 관리 사용자의 ID를 추가하세요. 사용자 정의 Umbraco 멤버 자격 공급자를 사용 중인 경우 `<login>`,`<password>`을(를) Courier2 모듈에 사용하세요.  자세한 정보는 Courier 모듈 [설명서](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) 를 확인하세요.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+마찬가지로, 여기에 표시된 대로 프로덕션 사이트에 Courier 모듈을 설치하고 각 courier.config 파일에서 스테이지 웹 앱에 연결하도록 구성하세요.
 
 ```xml
   <!-- Repository connection settings -->
@@ -429,4 +429,4 @@ Courier는 Umbraco CMS의 한 버전을 다른 버전으로 업그레이드하�
 
 [비 프로덕션 배포 슬롯에 대한 웹 액세스를 차단하는 방법](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

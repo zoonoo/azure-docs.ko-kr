@@ -20,7 +20,7 @@
 
 디버깅, 테스트, 응용 프로그램의 프로덕션 버전에서 원격 분석 혼합을 피하려면, 별도의 [Application Insights][start] 리소스를 생성하여 각 버전의 데이터를 수신합니다.
 
-응용 프로그램에서 받은 데이터는 Microsoft Azure *리소스*의 Application Insights에 의해 저장되고 처리됩니다. 각 리소스는 해당 *계측 키*로 식별됩니다. 응용 프로그램에서 올바른 리소스를 수집하는 데이터를 보낼 수 있도록 키 Application Insights SDK를 제공합니다. 코드 또는 ApplicationInsights.config에서 키를 제공 받을 수 있습니다. SDK에 있는 키를 변경하여 데이터를 다른 리소스로 디렉트할 수 있습니다.
+응용 프로그램에서 받은 데이터는 Microsoft Azure 리소스의 Application Insights에 의해 저장되고 처리됩니다. 각 리소스는 해당 계측 키로 식별됩니다. 응용 프로그램에서 올바른 리소스를 수집하는 데이터를 보낼 수 있도록 키 Application Insights SDK를 제공합니다. 코드 또는 ApplicationInsights.config에서 키를 제공 받을 수 있습니다. SDK에 있는 키를 변경하여 데이터를 다른 리소스로 디렉트할 수 있습니다.
 
 
 ## Application Insights 리소스 만들기
@@ -98,4 +98,4 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->
