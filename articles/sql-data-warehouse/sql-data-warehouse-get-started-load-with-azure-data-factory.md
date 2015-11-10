@@ -18,6 +18,11 @@
 
 # Azure Data Factory를 사용하여 데이터 로드
 
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
  이 자습서 다음에는 Azure Data Factory에서 파이프라인을 만들어 Azure 저장소 BLOB에서 SQL 데이터 웨어하우스로 데이터를 이동하는 방법을 보여줍니다. 다음 단계에서 수행할 작업은 다음과 같습니다.
 
 + Azure 저장소 BLOB에서 샘플 데이터를 설정합니다.
@@ -201,4 +206,4 @@
 	}
 	
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -69,8 +69,9 @@ Azure AD Connect Health 성능 모니터링은 메트릭에 대한 모니터링 
 ## 관련 링크
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [AD FS에 대한 Azure AD Connect Health 에이전트 설치](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
+* [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

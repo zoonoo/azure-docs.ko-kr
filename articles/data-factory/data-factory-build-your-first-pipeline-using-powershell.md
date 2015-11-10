@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.topic="hero-article"
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드
@@ -33,13 +33,17 @@
 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
 > [AZURE.IMPORTANT][자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+>   
+> 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
+>    
+> Azure PowerShell 1.0 미리 보기를 사용하는 경우 [여기](https://msdn.microsoft.com/library/dn820234.aspx)에서 설명된 cmdlet을 사용해야 합니다. 예를 들어 New-AzureDataFactory를 사용하는 대신 New-AzureRMDataFactory를 사용합니다.
 
 ## 1단계: 데이터 팩터리 만들기
 
 이 단계에서는 Azure PowerShell을 사용하여 ADFTutorialDataFactoryPSH라는 Azure Data Factory를 만듭니다.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
-	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는데 사용하는 사용자 이름 및 암호를 입력합니다.  
+	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
 	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 미리 보기 포털에서 사용한 것과 같아야 합니다.
 2. AzureResourceManager 모드로 전환합니다. Azure Data Factory cmdlet은 이 모드에서 사용할 수 있습니다.
@@ -77,10 +81,10 @@
 		    }
 		}
 
-	**계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+	**계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 선택키 보기, 복사 및 다시 생성](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 
 2.	Azure PowerShell에서 ADFGetStartedPSH 폴더로 전환합니다.
-3.	**New-AzureDataFactoryLinkedService** cmdlet을 사용하여 연결된 서비스를 만들 수 있습니다. 이 cmdlet 및 이 자습서에서 사용하는 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get-AzureDataFactory**를 사용하여 **DataFactory** 개체를 가져온 다음 cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName*을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzureDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
+3.	**New-AzureDataFactoryLinkedService** cmdlet을 사용하여 연결된 서비스를 만들 수 있습니다. 이 cmdlet 및 이 자습서에서 사용하는 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get AzureDataFactory**를 사용하여 **DataFactory** 개체를 가져온 다음 cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName*을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzureDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
@@ -199,7 +203,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 	이전 예제에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 
-	Hive 스크립트 파일 partitionweblogs.hql은 Azure 저장소 계정(StorageLinkedService라고 하는 scriptLinkedService에 의해 지정되는)과 **스크립트** 컨테이너에 저장됩니다.
+	Hive 스크립트 파일 partitionweblogs.hql은 Azure 저장소 계정(StorageLinkedService라는 scriptLinkedService에 의해 지정되는)과 **스크립트**라는 컨테이너에 저장됩니다.
 
 	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예를 들어 ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는데 사용됩니다.
 
@@ -270,4 +274,6 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO4-->
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
+<!---HONumber=Nov15_HO2-->

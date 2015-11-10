@@ -147,6 +147,7 @@ SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이�
 | Windows 8 | SMB 3.0 |
 | Windows Server 2012 | SMB 3.0 |
 | Windows Server 2012 R2 | SMB 3.0 |
+| Windows 10 | SMB 3.0 |
 
 ### Windows를 실행하는 Azure 가상 컴퓨터에서 공유 마운트
 
@@ -197,7 +198,7 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 
 ## 파일 저장소를 사용하여 개발
 
-파일 저장소를 프로그래밍 방식으로 다루려면 .NET 및 Java 또는 Azure 저장소 REST API용 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 섹션의 예제는 데스크톱에서 실행하는 간단한 콘솔 응용 프로그램에서 [Azure.NET 저장소 클라이언트 라이브러리](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)를 사용하여 파일 공유를 다루는 방법을 보여줍니다.
+파일 저장소를 프로그래밍 방식으로 다루려면 .NET 및 Java 또는 Azure 저장소 REST API용 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 섹션의 예제는 데스크톱에서 실행하는 간단한 콘솔 응용 프로그램에서 [Azure.NET 저장소 클라이언트 라이브러리](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)를 사용하여 파일 공유를 다루는 방법을 보여 줍니다.
 
 ### 콘솔 응용 프로그램 만들기 및 어셈블리 가져오기
 
@@ -490,9 +491,9 @@ Azure 포털에서 파일 저장소에 대한 메트릭을 사용하도록 설�
 
 	예. 트래픽은 동일한 지역에 있는 경우 무료입니다.
 
-5. **온-프레미스 가상 컴퓨터에서 Azure 파일 저장소로 연결하는 것은 Azure ExpressRoute에 따라 달라집니까?**
+5. **온-프레미스 가상 컴퓨터에서 Azure 파일 저장소로 연결하는 것은 Azure Express 경로에 따라 달라집니까?**
 
-	아니요. ExpressRoute가 없더라도 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)를 열어 놓기만 하면 온-프레미스에서 여전히 파일 공유에 액세스할 수 있습니다. 그러나 원하는 경우 ExpressRoute을 파일 저장소와 함께 사용할 수 있습니다.
+	아니요. Express 경로가 없더라도 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)를 열어 놓기만 하면 온-프레미스에서 여전히 파일 공유에 액세스할 수 있습니다. 그러나 원하는 경우 Express 경로를 파일 저장소와 함께 사용할 수 있습니다.
 
 6. **장애 조치 클러스터에 대한 "파일 공유 감시"는 Azure 파일 저장소의 사용 사례 중 하나입니까?**
 
@@ -549,4 +550,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

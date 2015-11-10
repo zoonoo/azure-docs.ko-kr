@@ -3,9 +3,9 @@
 	description="최종 사용자가 해당 사이트를 사용할 때마다 혼동되지 않도록 회사에서 관리하는 모든 웹 사이트 및 서비스 전체에 일관된 모양과 느낌을 적용하는 방법을 설명하는 항목입니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="MarkusVi"
+	authors="markusvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015" 
+	ms.date="10/30/2015" 
 	ms.author="MarkVi"/>
 
 # 로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
@@ -185,4 +185,4 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

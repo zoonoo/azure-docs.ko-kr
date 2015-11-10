@@ -99,7 +99,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## 성능 원격 분석 보기
 
-[Azure Preview 포털](http://portal.azure.com)에 로그인하고 Application Insights를 찾아본 다음 만든 리소스를 엽니다.
+[Azure 포털](http://portal.azure.com)에 로그인하고 Application Insights를 찾아본 다음 만든 리소스를 엽니다.
 
 ![찾아보기, Application Insights를 선택한 후 앱을 선택합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -216,4 +216,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->
