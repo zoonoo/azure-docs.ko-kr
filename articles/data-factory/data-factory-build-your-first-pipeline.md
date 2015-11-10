@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="10/06/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 첫 번째 파이프라인 빌드
@@ -175,4 +175,4 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

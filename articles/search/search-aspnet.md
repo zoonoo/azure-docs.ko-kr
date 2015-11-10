@@ -1,6 +1,6 @@
 <properties
 	pageTitle="ASP.NET MVC 웹앱에 Azure 검색 연결 | Microsoft Azure"
-	description="Azure 검색으로 ASP.NET 웹앱에 연결합니다. .Net 라이브러리 또는 REST API를 사용하여 결과를 연결, 쿼리 및 렌더링하는 방법을 알아봅니다."
+	description="호스트된 클라우드 검색 서비스인 Azure 검색으로 ASP.NET MVC 웹앱에 연결합니다. .Net 라이브러리 또는 REST API를 사용하여 결과를 연결, 쿼리 및 렌더링하는 방법을 알아봅니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/26/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #ASP.NET MVC 웹앱에 Azure 검색을 통합하는 방법
@@ -462,4 +462,4 @@ Azure 검색 및 ASP.NET 통합을 이해하려면 다음 링크를 방문합니
 - [Azure 검색 개발자 사례 연구](search-dev-case-study-whattopedia.md)
 - [Azure 검색 개발을 위한 일반적인 워크플로](search-workflow.md) 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

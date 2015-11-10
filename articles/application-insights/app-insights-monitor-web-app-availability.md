@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="11/04/2015"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
@@ -217,14 +217,17 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 ## 질문이 있으십니까? 문제가 있습니까?
 
-
-* *"웹 테스트" 및 "가용성" 간의 차이가 있나요?*
-
-    두 용어는 같은 의미로 사용됩니다.
-
 * *웹 테스트에서 코드를 호출할 수 있나요?*
 
     아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 유용한 여러 플러그 인이 제공됩니다.
+
+* *HTTPS가 지원됩니까?*
+
+    현재 SSL 3.0과 TLS 1.0을 지원합니다.
+
+* *"웹 테스트" 및 "가용성 테스트" 간의 차이가 있나요?*
+
+    두 용어는 같은 의미로 사용됩니다.
 
 ## <a name="video"></a>동영상
 
@@ -246,4 +249,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

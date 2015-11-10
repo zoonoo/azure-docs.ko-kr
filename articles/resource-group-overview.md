@@ -79,7 +79,7 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 템플릿 스키마에 대해서는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-배포용 템플릿을 사용하는 방법에 대한 정보는 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하십시오.
+배포용 템플릿을 사용하는 방법에 대한 정보는 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
 템플릿을 구성하는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
@@ -101,7 +101,7 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 역할 기반 액세스 제어에 대한 자세한 내용은 [Microsoft Azure Preview 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하십시오. 이 항목은 기본 제공 역할 및 허용된 작업의 목록을 포함합니다. 기본 제공 역할은 소유자, 판독기 및 참여자와 같은 일반 역할 및 가상 컴퓨터 참여자, 가상 네트워크 참여자 및 SQL 보안 관리자와 같은 서비스 관련 역할을 포함합니다.(사용 가능한 역할의 일부에 이름을 지정함)
 
-역할 할당의 예제는 [리소스에 대한 액세스 관리](azure-portal/resource-group-rbac.md)를 참조하세요.
+역할 할당의 예제는 [리소스에 대한 액세스 관리](resource-group-rbac.md)를 참조하세요.
 
 또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
@@ -127,7 +127,7 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 ## 다음 단계
 
 - 템플릿 작성에 대해 자세히 알아보려면 [템플릿 작성](./resource-group-authoring-templates.md)을 참조하세요.
-- 작성한 템플릿을 배포하려면 [템플릿 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 작성한 템플릿을 배포하려면 [템플릿 배포](resource-group-template-deploy.md)를 참조하세요.
 - 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
 - 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
@@ -135,4 +135,4 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

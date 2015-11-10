@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp이란?
 
-Azure RemoteApp은 원격 데스크톱 서비스가 지원하는 온-프레미스 Microsoft RemoteApp 프로그램의 기능을 Azure에 제공합니다. Azure RemoteApp은 다양한 여러 사용자 장치에서 안전하게 원격으로 응용 프로그램에 액세스하는 데 도움이 됩니다.
+Azure RemoteApp은 원격 데스크톱 서비스가 지원하는 온-프레미스 Microsoft RemoteApp 프로그램의 기능을 Azure에 제공합니다. Azure RemoteApp은 다양한 여러 사용자 장치에서 안전하게 원격으로 응용 프로그램에 액세스하는 데 도움이 됩니다. 기본적으로 Azure RemoteApp은 클라우드에서 비영구 터미널 서버 세션을 호스팅하고 이를 사용하고 사용자와 공유하기 위해 가져옵니다.
 
 Azure RemoteApp를 사용하면 거의 모든 장치의 사용자와도 앱 및 리소스를 공유할 수 있습니다. 우리는 사용자의 앱을 클라우드에서 호스팅하므로 하드웨어 및 크기 조정을 사용자 요구에 충족하도록 관리합니다. 우리가 해야 하는 일은 게시가 공유하려고 하는 앱을 업로드한 다음 사용자가 해당 앱을 사용하도록 하는 것이 전부입니다. [사용자는 자신의 장치를 유지](remoteapp-clients.md)하는 반면에, 게시자는 Azure 포털을 통해 모든 항목을 관리합니다. 회사 자격 증명을 사용하는 옵션도 있으므로 앱과 데이터의 보안을 확보할 수 있습니다.
 
@@ -80,4 +80,4 @@ Azure RemoteApp은 Windows 및 Windows RT용 RemoteApp 클라이언트 앱과 Ma
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

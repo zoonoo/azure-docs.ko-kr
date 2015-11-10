@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/02/2015"
 	ms.author="genemi"/>
 
 
@@ -81,17 +81,10 @@ SQL 쿼리 명령 중 일시적 오류가 발생할 경우 명령을 즉시 다�
 ### 재시도 간격 증가
 
 
-프로그램은 첫 번째 재시도 전까지 최소 6-10초를 기다려야 합니다. 그렇지 않을 경우 클라우드 서비스가 처리할 수 없을 정도로 많은 요청이 갑자기 발생합니다.
 
+첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-두 번 이상의 재시도가 필요할 경우 연속 재시도 전 간격을 최대값까지 늘려야 합니다. 대체 전략 중 두 가지는 다음과 같습니다.
-
-
-- 간격을 일정하게 증가합니다. 예를 들어 각 연속 간격에 5초를 더할 수 있습니다.
-
-
-- 간격을 기하급수적으로 증가합니다. 예를 들어 각 연속 간격에 1.5를 곱합니다.
-
+ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 
@@ -284,7 +277,7 @@ Enterprise Library 6(EntLib60)는 로깅을 지원하기 위해 .NET 관리 클�
 
 | 로그 쿼리 | 설명 |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 뷰는 재구성, 제한, 과도한 리소스 누적과 관련된 연결 오류를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>가장 좋은 방법은 **start\_time** 또는 **end\_time** 값과 클라이언트에 문제가 발생했을 당시의 정보의 상관 관계를 분석하는 것입니다.<br/><br/>**팁:** 이 작업을 실행하려면 **마스터** 데이터베이스에 연결해야 합니다. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 뷰는 일시적 오류 또는 연결 오류를 발생할 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>가장 좋은 방법은 **start\_time** 또는 **end\_time** 값과 클라이언트에 문제가 발생했을 당시의 정보의 상관 관계를 분석하는 것입니다.<br/><br/>**팁:** 이 작업을 실행하려면 **마스터** 데이터베이스에 연결해야 합니다. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) 뷰는 추가 진단을 위해 이벤트 유형별로 집계된 개수를 제공합니다<br/><br/>**팁:** 이 작업을 실행하려면 **마스터** 데이터베이스에 연결해야 합니다. |
 
 
@@ -485,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

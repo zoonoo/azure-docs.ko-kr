@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 Java 웹앱 만들기 | Microsoft Azure"
-	description="이 자습서에서는 Azure 앱 서비스에 Java 웹 앱을 배포하는 방법을 보여 줍니다."
+	description="이 자습서에서는 Azure 앱 서비스에 Java 웹앱을 배포하는 방법을 보여 줍니다."
 	services="app-service\web"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -15,7 +15,7 @@
 	ms.date="10/20/2015"
 	ms.author="robmcm"/>
 
-# Azure 앱 서비스에서 Java 웹 앱 만들기
+# Azure 앱 서비스에서 Java 웹앱 만들기
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -25,17 +25,38 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-이 자습서는 Azure Preview 포털을 사용하여 [Azure 앱 서비스에서 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 만드는 방법을 보여줍니다. Azure 마켓플레이스에서 웹앱 템플릿을 선택하거나 일반 웹앱을 만들고 Java용으로 수동으로 구성할 수 있습니다.
-
-이러한 기술을 사용하지 않으려는 경우(예: 응용 프로그램 컨테이너를 사용자 지정하려는 경우) [Azure에 사용자 지정 Java 웹앱 업로드](web-sites-java-custom-upload.md)를 참조하세요.
+이 자습서는 [Azure Preview 포털](https://portal.azure.com/)을 사용하여 [Azure 앱 서비스에서 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 만드는 방법을 보여 줍니다. Azure preview 포털은 Azure 리소스를 관리하는 데 사용할 수 있는 웹 인터페이스입니다.
 
 > [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화][]하거나 [무료 평가판을 등록][]할 수 있습니다.
 >
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가][]로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
+> Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가][]로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
-## Azure 마켓플레이스에서 웹앱 템플릿 선택
+## Java 응용 프로그램 옵션
 
-이 섹션에서는 Azure 마켓플레이스를 사용하여 Java 웹앱을 만드는 방법을 보여줍니다.
+여러 가지 방법으로 앱 서비스 웹앱의 Java 응용 프로그램을 설정할 수 있습니다.
+
+1. Azure 마켓플레이스에서 템플릿 사용
+
+	Azure 마켓플레이스는 Tomcat 또는 Jetty 웹 컨테이너로 Java 웹앱을 자동으로 만들고 구성하는 템플릿을 포함합니다. 템플릿을 설정하는 웹 컨테이너를 구성할 수 있습니다. 자세한 내용은 이 자습서의 [Azure 마켓플레이스에서 Java 템플릿 사용](#marketplace) 섹션을 참조하세요.
+ 
+1. 앱을 만든 다음 **응용 프로그램 설정**을 구성합니다.
+
+	앱 서비스는 기본 구성을 사용하여 여러 Tomcat 및 Jetty 버전을 제공합니다. 호스팅하는 응용 프로그램이 기본 제공 버전 중 하나와 작동하는 경우 웹 컨테이너를 설정하는 이 메서드는 가장 쉽지만 다른 메서드에서 구성 기능이 부족합니다. 이 메서드의 경우 포털에서 앱을 만든 다음 응용 프로그램의 **응용 프로그램 설정** 블레이드로 이동하여 원하는 Java 웹 컨테이너와 함께 Java의 버전을 선택합니다. 이 메서드를 사용하는 경우 테넌트 외에 디스크 공간을 사용하지 않는 응용 프로그램을 호스팅하기 위해 작업자가 사용하는 로컬 하드 드라이브에서 앱이 실행됩니다. 이 모델을 사용하는 경우 파일 시스템의 이 부분에서 파일을 편집하기 위한 액세스가 없으며 이는 *server.xml* 파일을 구성하거나 */lib* 폴더에 라이브러리 파일을 배치하는 등과 같은 작업을 할 수 없음을 의미합니다. 자세한 내용은 이 자습서 뒷부분의 [Java 웹앱 만들기 및 구성](#appsettings) 섹션을 참조하세요.
+  
+3. 앱을 만든 다음 구성 파일을 수동으로 복사 및 편집
+
+	앱 서비스에서 제공하는 웹 컨테이너 중 하나에 배포하지 않는 사용자 지정 Java 응용 프로그램을 호스팅할 수도 있습니다. 예를 들어 다음은 이 작업을 수행하는 것에 대한 몇 가지 이유입니다.
+	
+	* Java 응용 프로그램은 앱 서비스에서 직접 제공하지 않거나 갤러리에서 지원되지 않는 Tomcat 또는 Jetty의 버전이 필요합니다.
+	* Java 응용 프로그램은 HTTP 요청을 취하며 기존 웹 컨테이너에 WAR로 배포하지 않습니다.
+	* 사용자가 직접 처음부터 웹 컨테이너를 구성하려고 합니다. 
+	* 앱 서비스에서 지원하지 않는 Java 버전을 사용하고 사용자가 직접 업로드하려고 합니다.
+
+	이러한 경우 포털을 사용하여 앱을 만든 다음 적절한 런타임 파일을 수동으로 제공할 수 있습니다. 이 경우 파일은 앱 서비스 계획에 대한 저장소 공간 할당량에 대해 계산됩니다. 자세한 내용은 [Azure에 사용자 지정 Java 웹앱 업로드](https://acom-sandbox.azurewebsites.net/ko-KR/documentation/articles/web-sites-java-custom-upload/)를 참조하세요.
+
+## <a name="marketplace"></a> Azure 마켓플레이스에서Java 템플릿 사용
+
+이 섹션에서는 Azure 마켓플레이스를 사용하여 Java 웹앱을 만드는 방법을 보여줍니다. 동일한 일반 흐름은 Java 기반 모바일 또는 API 앱을 만드는 데도 사용될 수 있습니다.
 
 1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
 
@@ -81,26 +102,25 @@
 
 	![](./media/web-sites-java-get-started/jettyurl.png)
 
-	Tomcat을 선택하는 경우 다음 예제와 유사한 페이지가 표시됩니다.
+	Tomcat은 기본 페이지의 집합을 제공하므로 Tomcat을 선택하는 경우 다음 예제와 유사한 페이지가 표시됩니다.
 
 	![Apache Tomcat을 사용하는 웹앱](./media/web-sites-java-get-started/tomcat.png)
 
-	Jetty를 선택하는 경우 다음 예제와 유사한 페이지가 표시됩니다.
+	Jetty를 선택하는 경우 다음 예제와 유사한 페이지가 표시됩니다. Jetty는 기본 페이지 집합이 없으므로 빈 Java 사이트에 사용되는 동일한 JSP는 여기에 다시 사용됩니다.
 
 	![Jetty를 사용하는 웹앱](./media/web-sites-java-get-started/jetty.png)
 
 앱 컨테이너로 웹앱을 만들었으므로 [다음 단계](#next-steps) 섹션에서 응용 프로그램을 웹앱에 업로드 하는 방법을 알아보세요.
 
-## 웹앱을 만들고 Java용으로 수동 구성하기
+## <a name="portal"></a> Java 웹앱 만들기 및 구성
 
-이 섹션은 웹앱을 만들고 Java용으로 수동으로 구성하는 방법을 보여줍니다.
+이 섹션에서는 포털의 **응용 프로그램 설정** 블레이드를 사용하여 Java에 대한 웹앱을 만들고 구성하는 방법을 보여 줍니다.
 
 1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **새로 만들기 > 웹 + 모바일**을 클릭합니다.
+2. **새로 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다.
 
-
-3. **웹 앱**을 클릭합니다.
+	![](./media/web-sites-java-get-started/newwebapp.png)
 
 4. **웹앱** 상자에서 웹앱에 대한 이름을 입력합니다.
 
@@ -115,20 +135,28 @@
 	앱 서비스 계획에 대한 자세한 내용은 [Azure 앱 서비스 계획 개요](../azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
 
 7. **만들기**를 클릭합니다.
+
+	![](./media/web-sites-java-get-started/newwebapp2.png)
  
 8. 웹앱을 만들었으면 **웹앱 > {사용자의 웹앱}**을 클릭합니다.
  
+	![](./media/web-sites-java-get-started/selectwebapp.png)
+
 9. **웹앱** 블레이드에서 **설정**을 클릭합니다.
 
 10. **응용 프로그램 설정**을 클릭합니다.
 
 11. 원하는 **Java 버전**을 클릭합니다.
 
-12. 원하는 **웹 컨테이너**를 선택합니다.
+12. 원하는 **Java 부 버전**을 클릭합니다. **최신**을 선택하는 경우 앱은 해당 Java 주 버전에 대한 앱 서비스에서 사용할 수 있는 최신 부 버전을 사용합니다.
+
+12. 원하는 **웹 컨테이너**를 선택합니다. **최신**으로 시작하는 컨테이너 이름을 선택하는 경우 앱은 앱 서비스에서 사용할 수 있는 해당 웹 컨테이너 주 버전의 최신 버전으로 유지됩니다.
+
+	![](./media/web-sites-java-get-started/versions.png)
 
 13. **Save**를 클릭합니다.
 
-	잠시 후 웹 앱이 Java 기반이 됩니다.
+	잠시 후 웹앱은 Java 기반이 되며 선택한 웹 컨테이너를 사용하도록 구성됩니다.
 
 14. **웹앱 > {새로운 웹앱}**을 클릭합니다.
 
@@ -148,4 +176,4 @@ Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 
 
 [앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

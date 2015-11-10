@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # iOS 앱에 대한 알림 허브 시작
@@ -302,8 +302,8 @@
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
 				// Construct authorization token string
-				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
-					targetUri, signature, expires, HubSasKeyName];
+				token = [NSString stringWithFormat:@"SharedAccessSignature sig=%@&se=%qu&skn=%@&sr=%@",
+					signature, expires, HubSasKeyName, targetUri];
 			}
 			@catch (NSException *exception)
 			{
@@ -365,7 +365,7 @@
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		        if (error || httpResponse.statusCode != 200)
+		        if (error || (httpResponse.statusCode != 200 && httpResponse.statusCode != 201))
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
@@ -433,9 +433,9 @@
 11. 프로젝트를 빌드하고 오류가 없는지 확인 합니다.
 
 
+> [AZURE.NOTE]bitcode 지원에 대한 Xcode7에 빌드 오류가 발생하는 경우 "빌드 설정" -> "Bitcode 사용"(ENABLE\_BITCODE)을 '아니요'로 변경해야 합니다. 알림 허브 SDK는 현재 bitcode를 지원하지 않습니다.
 
 Apple [로컬 및 푸시 알림 프로그래밍 가이드]에서 가능한 모든 알림 페이로드를 찾아볼 수 있습니다.
-
 
 
 ##앱 테스트
@@ -503,4 +503,4 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

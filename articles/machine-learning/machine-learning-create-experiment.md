@@ -1,7 +1,7 @@
 <properties
 	pageTitle="기계 학습 스튜디오에서 간단한 실험 만들기 | Microsoft Azure"
 	description="Azure 기계 학습 스튜디오에서 선형 회귀 모델을 테스트할 간단한 실험을 만들기 위한 첫번째 기계 학습 자습서입니다."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+	keywords="실험, 선형 회귀, 기계 학습 알고리즘, 기계 학습 자습서, 예측 모델링 기술"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # 기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기
@@ -29,7 +29,7 @@
 
 기계 학습 스튜디오에 대한 일반적인 정보는 [기계 학습 스튜디오란 무엇인가요?](machine-learning-what-is-ml-studio.md)를 참조하세요.
 
->[AZURE.TIP]기계 학습 스튜디오의 기능에 대한 개요를 설명하는 다이어그램을 다운로드 및 프린트하려면 [기계 학습 스튜디오의 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
+>[AZURE.TIP]기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
 
 
 ## 실험 만들기 5단계
@@ -56,7 +56,7 @@
 
 선택할 수 있는 여러 샘플 데이터 집합이 기계 학습 스튜디오에 포함되어 있으며, 다양한 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 포함된 샘플 데이터 집합 **Automobile price data (Raw)**를 사용합니다. 이 데이터 집합에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 여러 개별 자동차에 대한 항목이 포함되어 있습니다.
 
-1. 기계 학습 스튜디오 창의 아래쪽에서 **+NEW**를 클릭하여 새 실험을 시작한 다음 **EXPERIMENT**, **Blank Experiment**를 차례로 선택합니다. 캔버스 위쪽에서 기본 실험 이름을 선택하고 이를 의미 있는 이름(예: **Automobile price prediction**)으로 바꿉니다.
+1. 기계 학습 스튜디오 창의 아래쪽에서 **+NEW**를 클릭하여 새 실험을 시작한 다음 **EXPERIMENT**, **Blank Experiment**를 선택합니다. 캔버스 위쪽에서 기본 실험 이름을 선택하고 이를 의미 있는 이름(예: **Automobile price prediction**)으로 바꿉니다.
 
 2. 실험 캔버스 왼쪽에는 데이터 집합과 모듈의 팔레트가 있습니다. 이 팔레트 맨 위에 있는 검색 상자에 **automobile**을 입력하여 레이블이 **Automobile price data (Raw)**인 데이터 집합을 찾습니다.
 
@@ -82,7 +82,7 @@
 
 1. 모듈 팔레트의 맨 위에 있는 검색 상자에 **project columns**를 입력하여 [Project Columns][project-columns] 모듈을 찾은 다음 이를 실험 캔버스로 끌어와 **Automobile price data (Raw)** 데이터 집합의 출력 포트에 연결합니다. 이 모듈을 사용하면 모델에서 포함하거나 제외할 데이터 열을 선택할 수 있습니다.
 
-2. [Project Columns][project-columns] 모듈을 선택하고 **Properties** 창에서 **Launch column selector**을 클릭합니다.
+2. [Project Columns][project-columns] 모듈을 선택하고 **Properties** 창에서 **Launch column selector**를 클릭합니다.
 
 	- 필터 드롭다운 **Begin With** 목록에서 **All columns**를 선택합니다. 그러면 모든 열을 전달하는 [Project Columns][project-columns]로 리디렉션됩니다(제외할 열은 예외임).
 	- 다음 행에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하면 텍스트 상자에 추가됩니다.
@@ -140,17 +140,17 @@
 
 임의의 값일 수 있는 자동차 가격을 예측하려고 하므로 회귀 모델을 사용하겠습니다. 이 예제에서는 간단한 *선형 회귀* 모델을 학습하고 다음 단계에서 이를 테스트합니다.
 
-1. 데이터를 별도의 학습 및 테스트 집합으로 분할하여 학습과 테스트 모두에 데이터를 사용할 수 있습니다. [분할][split] 모듈을 선택하여 실험 캔버스로 끌어 놓고 마지막 [프로젝트 열][project-columns] 모듈의 출력과 연결합니다. **첫 번째 출력 데이터 집합의 행 분수**를 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.
+1. 데이터를 별도의 학습 및 테스트 집합으로 분할하여 학습과 테스트 모두에 데이터를 사용할 수 있습니다. [Split Data][split] 모듈을 선택하여 실험 캔버스로 끌어 놓고 마지막 [Project Columns][project-columns] 모듈의 출력과 연결합니다. **첫 번째 출력 데이터 집합의 행 분수**를 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.
 
 	> [AZURE.TIP]**Random seed** 매개 변수를 변경하면 학습 및 테스트용으로 서로 다른 무작위 샘플을 생성할 수 있습니다. 이 매개 변수는 난수 발생기의 시드를 제어합니다.
 
-2. 실험을 실행합니다. 그러면 [Project Columns][project-columns] 및 [Split][split] 모듈이 다음에 추가할 모듈에 열 정의를 전달할 수 있습니다.
+2. 실험을 실행합니다. 그러면 [Project Columns][project-columns] 및 [Split Data][split] 모듈이 다음에 추가할 모듈에 열 정의를 전달할 수 있습니다.
 
 3. 학습 알고리즘을 선택하려면 캔버스 왼쪽의 모듈 팔레트에서 **Machine Learning** 범주를 확장한 후 **Initialize Model**을 확장합니다. 기계 학습 알고리즘을 초기화하는 데 사용할 수 있는 몇 가지 범주의 모듈이 표시됩니다.
 
 	이 예제 학습에서는 **Regression** 범주 아래에 있는 [Linear Regression][linear-regression] 모듈을 선택하여(팔레트 검색 상자에 "linear regression"을 입력하여 모듈을 찾을 수도 있음) 실험 캔버스로 끌어 놓습니다.
 
-4. [Train Model][train-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. 왼쪽 입력 포트를 [Linear Regression][linear-regression] 모듈의 출력에 연결합니다. 오른쪽 입력 포트를 [Split][split] 모듈의 학습 데이터 출력(왼쪽 포트)에 연결합니다.
+4. [Train Model][train-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. 왼쪽 입력 포트를 [Linear Regression][linear-regression] 모듈의 출력에 연결합니다. 오른쪽 입력 포트를 [Split Data][split] 모듈의 학습 데이터 출력(왼쪽 포트)에 연결합니다.
 
 5. [Train Model][train-model] 모듈을 선택하고 **Properties** 창에서 **Launch column selector**를 클릭한 다음 **price** 열을 선택합니다. 모델이 예측할 값입니다.
 
@@ -166,7 +166,7 @@
 
 데이터의 75%를 사용하여 모델을 학습했으며, 이제 모델을 사용하여 나머지 25% 데이터의 점수를 매겨 모델 기능이 얼마나 좋은지 확인할 수 있습니다.
 
-1. [Score Model][score-model] 모듈을 찾아서 실험 캔버스로 끌어온 후 왼쪽 입력 포트를 [Train Model][train-model] 모듈의 출력에 연결합니다. 오른쪽 입력 포트를 [Split][split] 모듈의 테스트 데이터 출력(오른쪽 포트)에 연결합니다.  
+1. [Score Model][score-model] 모듈을 찾아서 실험 캔버스로 끌어온 후 왼쪽 입력 포트를 [Train Model][train-model] 모듈의 출력에 연결합니다. 오른쪽 입력 포트를 [Split Data][split] 모듈의 테스트 데이터 출력(오른쪽 포트)에 연결합니다.  
 
 	![모델 점수 매기기 모듈][screen8a]
 
@@ -234,4 +234,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

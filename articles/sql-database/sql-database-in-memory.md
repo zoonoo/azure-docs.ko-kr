@@ -21,9 +21,9 @@
 # 메모리 내 시작(미리 보기)
 
 
-SQL 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다. 워크로드에 따라 메모리 내 OLTP은 트랜잭션 처리량이 30배까지 향상될 수 있고 메모리 내 분석은 쿼리 성능이 100배까지 향상될 수 있습니다.
+SQL 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다. 워크로드에 따라 메모리 내 OLTP은 트랜잭션 처리량이 30배까지 향상될 수 있고 메모리 내 분석은 쿼리 성능이 100배까지 향상될 수 있습니다. 실시간 분석으로 이러한 기술을 결합하여 운영 데이터를 기반으로 실시간 비즈니스 상태를 얻을 수 있습니다.
 
-메모리 내 분석은 일반적으로 공급됩니다. 메모리 내 OLTP은 Premium Azure SQL 데이터베이스에 대한 미리 보기입니다.
+메모리 내 분석은 일반적으로 Azure DB에서 사용 가능합니다. 메모리 내 OLTP 및 실시간 운영 성과 분석은 프리미엄 Azure SQL 데이터베이스에 대한 미리 보기에 있습니다.
 
 
 ## 시작
@@ -31,18 +31,18 @@ SQL 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 �
 트랜잭션 워크로드에 대한 메모리 내 OLTP를 시도합니다.
 
 
-- [메모리 내 OLTP 샘플을 사용하여 AdventureWorksLT 데이터베이스 보강](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples).
+- [메모리 내 OLTP 샘플 설치](#install-the-in-memory-oltp-sample).
 - [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용.](sql-database-in-memory-oltp-migration.md)
 - [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
 
-트랜잭션 워크로드에 대한 메모리 내 분석을 시도합니다.
+분석 워크로드에 대한 메모리 내 분석을 시도합니다.
 
-- [메모리 내 분석 설치](#Install-the-In-Memory-Analytics-sample).
+- [메모리 내 분석 샘플을 설치합니다.](#install-the-in-memory-analytics-sample)
 - MSDN에서 [Columnstore 인덱스](https://msdn.microsoft.com/library/gg492088.aspx)에 대해 자세히 알아봅니다.
 
 
-## 메모리 내 OLTP 샘플을 사용하여 AdventureWorksLT 데이터베이스 보강.
+## 메모리 내 OLTP 샘플 설치
 
 Azure Preview 포털에서 몇 번 클릭으로 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그러면 다음 단계에서는 메모리 내 OLTP 개체를 설명하기 위해 AdventureWorksLT 데이터베이스, 테이블 및 고유하게 컴파일된 저장 프로시저를 보강하는 방법을 설명합니다.
 
@@ -241,9 +241,11 @@ SQL 데이터 웨어하우스와 함께 메모리 내 OLTP은 사용은 지원�
 
 ## 추가 리소스
 
-메모리 내 OLTP 및 분석에 대해 [메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx).
+[MSDN의 메모리 내 OLTP에 대해 알아보기](https://msdn.microsoft.com/library/dn133186.aspx)
 
-[MSDN에서 Columnstore 인덱스에 대해 알아보기](https://msdn.microsoft.com/library/gg492088.aspx)
+[MSDN의 메모리 내 분석(Columnstore)에 대해 알아보기](https://msdn.microsoft.com/library/gg492088.aspx)
+
+[MSDN의 실시간 운영 성과 분석에 대해 알아보기](https://msdn.microsoft.com/library/dn817827.aspx)
 
 [일반적인 워크로드 패턴 및 마이그레이션 고려 사항에 대한 백서](https://msdn.microsoft.com/library/dn673538.aspx)는 메모리 내 OLTP이 일반적으로 상당한 성능 향상을 제공하는 워크로드 패턴을 설명합니다.
 
@@ -253,4 +255,4 @@ SQL 데이터 웨어하우스와 함께 메모리 내 OLTP은 사용은 지원�
 
 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)입니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

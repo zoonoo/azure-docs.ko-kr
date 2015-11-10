@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="10/08/2015"
@@ -229,4 +229,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

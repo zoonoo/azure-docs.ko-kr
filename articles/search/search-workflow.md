@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 검색 개발을 위한 일반적인 워크플로 | Microsoft Azure"
-	description="Azure 검색과 통합된 프로덕션 응용 프로그램이나 프로토타입을 구축하기 위한 워크플로 또는 로드맵입니다."
+	description="호스트된 클라우드 검색 서비스인 Azure 검색과 통합된 프로덕션 응용 프로그램이나 프로토타입을 구축하기 위한 워크플로 또는 로드맵입니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Azure 검색 개발을 위한 일반적인 워크플로
 
-이 문서는 사용자 지정 응용 프로그램에서 검색 환경을 제공하는 구성 요소로 Azure 검색을 포함시키기 위한 로드맵입니다. 테스트 중인지 또는 곧바로 시작할 준비가 되었는지에 따라 Azure 검색을 사용자 지정 개발 프로젝트에 통합하는 방법에 대한 예비 지침이 필요하게 됩니다.
+이 문서는 사용자 지정 응용 프로그램에서 검색 환경을 제공하는 구성 요소로 호스트된 클라우드 검색 서비스인 Azure 검색을 포함시키기 위한 로드맵입니다. 테스트 중인지 또는 곧바로 시작할 준비가 되었는지에 따라 Azure 검색을 사용자 지정 개발 프로젝트에 통합하는 방법에 대한 예비 지침이 필요하게 됩니다.
 
 다음 섹션에서는 Azure 검색이 응용 프로그램의 검색 요구 사항을 얼마나 잘 충족시키는지 평가하는 데 도움이 되는 초기 프로토타입에 대한 일반적인 워크플로를 자세히 살펴봅니다. 이 문서는 두 부분으로 구성되어 있으며 보다 중대한 응용 프로그램 개발 작업에 영향을 주는 중요한 설계 결정에 대해 다룹니다.
 
@@ -190,4 +190,4 @@ Azure 검색에서 주목할 만한 기능 중 하나는 요구에 따라 쉽게
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
