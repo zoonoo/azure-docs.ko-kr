@@ -677,7 +677,7 @@ Azure 큐를 사용하면 둘 이상의 파티션 또는 저장소 시스템 간
 
 #### 관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
--	[복합 키 패턴](#compound-key-pattern) 
+-	[복합 키 패턴](#compound-key-pattern)  
 -	[엔터티 그룹 트랜잭션](#entity-group-transactions)  
 -	[유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)
 
@@ -1575,4 +1575,4 @@ SAS(공유 액세스 서명) 토큰을 사용하여 클라이언트 응용 프�
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!----HONumber=Oct15_HO4-->
+<!-----HONumber=Oct15_HO4-->

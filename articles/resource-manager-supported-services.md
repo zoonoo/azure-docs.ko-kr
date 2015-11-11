@@ -68,10 +68,9 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 검색 | 예 | [예](https://portal.azure.com/#create/Microsoft.Search) | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 데이터 웨어하우스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | 아니요 | 아니요 | - | - | - |
-| 백업 | 아니요 | 아니요 | - | - | - |
-| 사이트 복구 | 아니요 | 아니요 | - | - | - |
+
 | 관리된 캐시 | 아니요 | 아니요 | - | - | - |
-| 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
+
 
 ## 분석
 
@@ -81,7 +80,8 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 스트림 분석 | 예 | [예](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | 예 | [예](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | 데이터 팩터리 | 예 | [예](https://portal.azure.com/#create/Microsoft.DataFactory) | 예 | [데이터 팩터리 만들기](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 기계 학습 | 아니요 | 아니요 | - | - | - | | 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
+| 기계 학습 | 아니요 | 아니요 | - | - | - |
+| 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
 
 ## 네트워킹
 
