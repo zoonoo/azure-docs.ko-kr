@@ -42,4 +42,4 @@ Azure Data Factory의 변환 작업을 통해 원시 데이터를 변환 및 처
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
