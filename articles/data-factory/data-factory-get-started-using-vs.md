@@ -35,7 +35,9 @@
 ## Visual Studio를 사용하여 데이터 팩터리 엔터티 만들기 및 배포 
 
 ### 필수 구성 요소
-컴퓨터에 Visual Studio 2013이 설치되어 있어야 합니다. Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
+다음 항목이 컴퓨터에 설치되어 있어야 합니다:
+- Visual Studio 2013
+- Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
 
 ### 연습
 
@@ -242,4 +244,4 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md)을 통해 의견을 보내주세요.
 
-<!----HONumber=Nov15_HO2-->
+<!-----HONumber=Nov15_HO2-->
