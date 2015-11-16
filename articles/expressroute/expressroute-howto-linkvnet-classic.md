@@ -13,25 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="11/02/2015"
    ms.author="cherylmc" />
 
 # Express 경로 회로에 Vnet 연결
 
-이 문서는 가상 네트워크(VNets)를 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다. 이 문서는 클래식 배포 모델을 사용하여 배포된 VNet에 적용됩니다.
+> [AZURE.SELECTOR]
+- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
+- [Template - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
->[AZURE.IMPORTANT]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
+이 문서는 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다. 이 문서는 클래식 배포 모델을 사용하여 배포된 VNet에 적용됩니다. Azure 리소스 관리자 배포 방법을 사용하여 배포된 가상 네트워크 연결하려는 경우 템플릿을 사용하면 됩니다. 템플릿으로 이동하려면 위의 탭을 참조하세요.
+
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## 필수 구성 요소
 
-- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. 컴퓨터를 구성하여 Azure PowerShell 모듈을 사용하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행합니다. 
-- 구성을 시작 하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
+- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침을 따르려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행하세요. 
+- 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 - 활성화된 Express 경로 회로가 있어야 합니다. 
-	- 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 연결 공급자에서 회로를 사용하도록 설정합니다. 
+	- 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
 	- 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-classic.md)을 참조하세요. 
 	- Azure 개인 피어링을 구성해야 하며 네트워크와 Microsoft 간의 BGP 피어링은 종단 간 연결을 사용하도록 작동 상태여야 합니다.
 
-최대 10개의 VNet을 Express 경로 회로에 연결할 수 있습니다. 모든 Express 경로 회로는 같은 지역에 있어야 합니다. Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Express 경로 회로에 많은 수의 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md)을 확인합니다.
+최대 10개의 VNet을 Express 경로 회로에 연결할 수 있습니다. 모든 Express 경로 회로는 같은 지역에 있어야 합니다. Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Express 경로 회로에 많은 수의 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md)에서 확인하세요.
 
 ## 동일한 Azure 구독에 있는 VNet을 Express 경로 회로에 연결하기
 
@@ -50,7 +54,7 @@
 
 ### 관리
 
-*회로 소유자*는 Express 경로 회로를 만드는 구독의 관리자/공동 관리자입니다. 회로 소유자는 자신이 소유한 전용 회로를 워크플로 다이어그램에서 *회로 사용자*로 지칭되는 다른 구독의 관리자/공동 관리자가 사용하도록 권한을 부여할 수 있습니다. 조직의 Express 경로 회로 사용 권한을 부여받은 회로 사용자는 권한이 부여된 후 구독의 VNet을 Express 경로 회로에 연결할 수 있습니다.
+*회로 소유자*는 Express 경로 회로를 만드는 구독의 관리자/공동 관리자입니다. 회로 소유자는 자신이 소유한 전용 회로를 다른 구독의 관리자/공동 관리자(워크플로 다이어그램에서 *회로 사용자*로 지칭됨)가 사용하도록 권한을 부여할 수 있습니다. 조직의 Express 경로 회로 사용 권한을 부여받은 회로 사용자는 권한이 부여된 후 구독의 VNet을 Express 경로 회로에 연결할 수 있습니다.
 
 회로 소유자는 언제든지 부여된 권한을 수정하고 해지할 수 있습니다. 권한 부여를 해지하면 액세스가 해지된 구독에서 모든 링크가 삭제됩니다.
 
@@ -145,4 +149,4 @@
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

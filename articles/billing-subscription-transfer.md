@@ -25,7 +25,7 @@
 - Azure 구독을 한 디렉터리에서 다른 컴퓨터로 이동하시겠습니까?
 - 다른 테넌트에 있는 Azure 및 Office 365를 통합하시겠습니까?
 
-계정이 미국에 있는 경우 이제 종량제 구독을 위해 Microsoft Azure 계정 센터에서 이를 쉽게 수행할 수 있습니다. 다른 사용자에게 구독을 양도하는 기능을 추가했습니다. 즉, 이제 자신이 소유한 종량제 구독의 계정 관리자를 변경할 수 있습니다.
+이제 종량제 또는 MSDN 구독을 위해 Microsoft Azure 계정 센터에서 이를 쉽게 수행할 수 있습니다. 다른 사용자에게 구독을 양도하는 기능을 추가했습니다. 즉, 이제 구독을 운영하고 있는 국가와 관계없이 소유하고 있는 종량제 또는 MSDN 구독의 계정 관리자를 변경할 수 있습니다.
 
 ## Azure 구독을 양도하는 방법
 
@@ -71,7 +71,7 @@
 
     이는 완전한 목록이 아닙니다. 받는 사람은 리소스에 액세스를 제한해야 하는 경우 서비스와 연결된 암호 업데이트를 고려해야 합니다. 대부분의 리소스는 다음과 같이 업데이트할 수 있습니다.
 
-    1.   Azure 포털로 이동합니다.[*https://portal.azure.com*](https://portal.azure.com)
+    1.   Azure 포털로 이동합니다.[**https://portal.azure.com*](https://portal.azure.com)
 
     2.    모두 찾아보기 -&gt; 모든 리소스를 클릭합니다.
 
@@ -111,4 +111,4 @@
 4. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) [자세한 정보](http://go.microsoft.com/fwlink/?LinkID=533292)에서 이 구독에 대한 청구 경고를 업데이트합니다.
 5. 	파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. 이 작업은 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 수행할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

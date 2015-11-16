@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/28/2015" 
 	ms.author="erikre"/>
 
 # Azure 앱 서비스에서 웹 앱 관리
@@ -66,7 +66,7 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 ### 백업
 
 - 웹 앱의 [자동 백업](web-sites-backup.md)을 설정합니다. 백업에 대해 자세히 알아보려면 [이 비디오](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/)를 시청하세요.
-- Azure SQL 데이터베이스의 [재해 복구](http://msdn.microsoft.com/library/azure/hh852669.aspx)용 옵션에 대해서도 알아볼 수 있습니다.
+- Azure SQL 데이터베이스의 [재해 복구](https://azure.microsoft.com/ko-KR/documentation/articles/sql-database-business-continuity/)용 옵션에 대해서도 알아볼 수 있습니다.
 
 ### 문제 해결
 
@@ -103,4 +103,4 @@ Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

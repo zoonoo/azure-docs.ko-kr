@@ -1,6 +1,6 @@
 <properties
-   pageTitle="사용자 지정 테스트 시나리오"
-   description="정상/비정상 오류로부터 서비스의 보안을 강화 하는 방법"
+   pageTitle="사용자 지정 테스트 시나리오 | Microsoft Azure"
+   description="정상/비정상 오류로부터 서비스의 보안을 강화하는 방법"
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -153,4 +153,4 @@ class Test
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

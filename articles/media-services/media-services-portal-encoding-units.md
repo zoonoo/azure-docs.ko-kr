@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Azure 포털을 사용하여 인코딩 예약 단위 크기를 조정하는 방법" 
-	description="계정에서 프로비전할 주문형 스트리밍 예약 단위 및 인코딩 예약 단위의 수를 지정하여 미디어 서비스를 확장하는 방법에 대해 알아봅니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,milangada" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure 포털을 사용하여 미디어 처리를 확장하는 방법"
+	description="계정에서 프로비전할 주문형 스트리밍 예약 단위 및 인코딩 예약 단위의 수를 지정하여 미디어 서비스를 확장하는 방법에 대해 알아봅니다."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako,milangada"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#Azure 포털을 사용하여 인코딩 크기를 조정하는 방법
+# Azure 포털을 사용하여 미디어 처리를 확장하는 방법
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -25,11 +25,13 @@
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-##개요
+## 개요
 
-미디어 서비스 계정은 인코딩 작업을 처리하는 속도를 결정하는 예약 단위 유형에 연관됩니다. **Basic**, **Standard**, 또는 **Premium** 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 **Standard** 예약 단위 유형을 사용하는 경우 **Basic** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. 자세한 내용은 [인코딩 예약 단위 유형(영문)](http://azure.microsoft.com/blog/author/milanga)을 참조하세요.
+미디어 서비스 계정은 미디어 처리 작업을 처리하는 속도를 결정하는 예약 단위 유형과 연결됩니다. **Basic**, **Standard**, 또는 **Premium** 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 **Standard** 예약 단위 유형을 사용하는 경우 **Basic** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. 자세한 내용은 [인코딩 예약 단위 유형(영문)](http://azure.microsoft.com/blog/author/milanga)을 참조하세요.
 
 예약 단위 유형을 지정하는 것 외에도 인코딩 예약 단위를 사용하여 계정을 프로비전하도록 지정할 수 있습니다. 프로비전된 인코딩 예약 단위의 수는 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수를 결정합니다. 예를 들어 계정에 5개의 예약 단위가 있는 경우 처리할 미디어 작업이 있다면 5개의 미디어 작업이 동시에 실행됩니다. 나머지 작업은 큐에 대기하다가 실행 중인 작업이 완료되자마자 순차적으로 처리를 위해 선택됩니다. 계정에 프로비전된 예약 단위가 없는 경우에는 작업이 순차적으로 선택됩니다. 이 경우 한 작업 완료와 다음 작업 시작 사이의 대기 시간은 시스템의 리소스 가용성에 따라 다릅니다.
+
+>[AZURE.IMPORTANT]예약된 단위는 Azure 미디어 인덱서를 사용하는 인덱싱 작업을 비롯하여 모든 미디어 처리 병렬화에 대해 작동합니다. 그러나 인코딩과 달리 인덱싱 작업은 보다 빠른 예약 단위를 보다 빠르게 처리하지 않습니다.
 
 예약 단위 유형 및 인코딩 예약 단위 수를 변경하려면 다음을 수행합니다.
 
@@ -40,11 +42,11 @@
 	**예약 단위 유형**을 변경하려면, BASIC, STANDARD 또는 PREMIUM을 누릅니다.
 
 	선택한 예약 단위 유형에 대한 예약 단위 수를 변경하려면 **인코딩** 슬라이더를 사용합니다.
-	
-	
+
+
 	![프로세서 페이지](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
-	  
+
 	>[AZURE.NOTE]싱가포르, 홍콩, 오사카, 베이징, 상하이 데이터 센터에서는 프리미엄 예약 단위 유형을 제공 하지 않습니다.
 
 3. 저장 단추를 눌러 변경 내용을 저장합니다.
@@ -66,7 +68,4 @@
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

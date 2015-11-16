@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Twitter 로그인을 사용하도록 응용 프로그램을 구성하는 방법
@@ -29,7 +29,7 @@
 
 1. [Azure 관리 포털]에 로그온한 다음 모바일 앱으로 이동합니다. **URL**을 복사합니다. Twitter 앱을 구성하는 데 사용합니다.
 
-2. **설정**, **사용자 인증** 및 **Twitter**를 차례로 클릭합니다. **콜백 URL**을 복사합니다. Twitter 앱을 구성하는 데 사용합니다.
+2. **설정**, **모바일 인증** 및 **Twitter**를 차례로 클릭합니다. **콜백 URL**을 복사합니다. Twitter 앱을 구성하는 데 사용합니다.
 
 3. [Twitter 개발자] 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 다음 **Create New App**을 클릭합니다.
 
@@ -70,6 +70,5 @@
 [Twitter 개발자]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure 관리 포털]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

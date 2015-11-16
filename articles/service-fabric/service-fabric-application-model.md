@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 응용 프로그램 모델"
-   description="서비스 패브릭에서 응용 프로그램을 모델링하는 방법"
+   pageTitle="서비스 패브릭 응용 프로그램 모델 | Microsoft Azure"
+   description="서비스 패브릭에서 응용 프로그램 및 서비스를 모델링 및 설명하는 방법"
    services="service-fabric"
    documentationCenter=".net"
    authors="alexwun"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/02/2015"
    ms.author="alexwun"/>
 
 # 서비스 패브릭에서 응용 프로그램 모델링
@@ -232,4 +232,4 @@ PS D:\temp>
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

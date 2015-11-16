@@ -47,7 +47,7 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 
 가져오려는 데이터베이스에 대한 SQL Server 블레이드를 엽니다.
 
-1.	[Azure Preview 포털](https//:portal.azure.com)로 이동합니다.
+1.	[Azure Preview 포털](https://portal.azure.com)로 이동합니다.
 2.	**모두 찾아보기**를 클릭합니다.
 3.	**SQL Server**를 클릭합니다.
 2.	데이터베이스를 복원할 서버를 클릭합니다.
@@ -110,4 +110,4 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

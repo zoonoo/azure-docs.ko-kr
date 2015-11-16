@@ -240,7 +240,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 ## Preview 포털을 사용하여 만들기
 
-[기본 구성 옵션] 및 필드 설명을 위한 [고급 구성 옵션]을 참조할 수 있습니다.
+[기본 구성 옵션](#basic-configuration-options) 및 필드 설명을 위한 [고급 구성 옵션](#advanced-configuration-options)을 참조할 수 있습니다.
 
 **HDInsight 클러스터를 만들려면**
 
@@ -752,9 +752,9 @@ SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
-[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
-[ssisclustercreate]: http://msdn.microsoft.com/en-US/library/mt146774(v=sql.120).aspx
-[ssisclusterdelete]: http://msdn.microsoft.com/en-US/library/mt146778(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/ko-KR/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/ko-KR/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

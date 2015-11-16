@@ -1,16 +1,16 @@
 
 <properties
-	pageTitle="Azure 백업 - 가상 컴퓨터 관리 | Microsoft Azure"
-	description="Azure 가상 컴퓨터를 관리하는 방법을 알아봅니다."
+	pageTitle="Azure 가상 컴퓨터 백업 관리 및 모니터링 | Microsoft Azure"
+	description="Azure 가상 컴퓨터 백업을 관리하고 모니터링하는 방법에 관해 알아봅니다."
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# Azure 가상 컴퓨터의 백업 관리 및 모니터링
+# Azure 가상 컴퓨터 백업 관리 및 모니터링
 
 ## 보호된 가상 컴퓨터 관리
 
@@ -249,4 +249,4 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 - [Azure VM 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

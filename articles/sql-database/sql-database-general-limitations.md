@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="jroth" />
 
 # Azure SQL 데이터베이스 일반 제한 사항 및 지침
@@ -41,9 +41,7 @@ Azure SQL 데이터베이스는 여러 리소스에 영향을 주는 트랜잭�
 
 ## SQL Server 데이터 정렬 지원
 
-Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**이며 여기서 **LATIN1\_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다.
-
-온-프레미스 SQL Server서버 사용할 때 서버, 데이터베이스, 열 및 식 수준 데이터 정렬을 설정할 수 있습니다. Microsoft Azure SQL 데이터베이스는 서버 수준에서 데이터 정렬을 설정할 수 없도록 합니다. Microsoft Azure SQL 데이터베이스로 기본이 아닌 데이터 정렬을 사용하려면 Create Database Collate 옵션을 사용하여 또는 열 수준 또는 식 수준에서 데이터 정렬을 설정합니다. SQL 데이터베이스는 Alter Database 명령으로 Collate 옵션을 지원하지 않습니다. 기본적으로 SQL 데이터베이스에서 임시 데이터에는 데이터베이스와 동일한 데이터 정렬이 있습니다. 데이터 정렬을 설정하는 방법에 대한 자세한 내용은 [COLLATE(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)를 참조하세요.
+Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**이며 여기서 **LATIN1\_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다. Transact-SQL을 사용하여 V12 데이터베이스의 데이터 정렬을 변경할 수 있습니다. 데이터 정렬을 설정하는 방법에 대한 자세한 내용은 [COLLATE(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)를 참조하세요.
 
 ## 명명 요구 사항
 
@@ -71,4 +69,4 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

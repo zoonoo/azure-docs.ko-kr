@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기" 
+	pageTitle="탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기 | Microsoft Azure" 
 	description="이 문서에서는 탄력적인 확장 API를 사용하여 새 분할된 데이터베이스를 분할된 데이터베이스 집합에 추가하는 방법을 설명합니다." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기
 
@@ -79,4 +79,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

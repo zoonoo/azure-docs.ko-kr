@@ -1,6 +1,6 @@
 <properties
-   pageTitle="F5를 사용하여 Visual Studio에서 서비스 패브릭 애플리케이션 디버깅"
-   description="Visual Studio 및 로컬 개발 클러스터를 사용하여 서비스의 안정성과 성능을 향상시킵니다."
+   pageTitle="Visual Studio에서 응용 프로그램 디버그 | Microsoft Azure"
+   description="Visual Studio 및 로컬 개발 클러스터를 사용한 개발 및 디버깅으로 서비스의 안정성과 성능을 향상시킵니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# F5를 사용하여 Visual Studio에서 서비스 패브릭 애플리케이션 디버깅
+# Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅
 
 로컬 컴퓨터 개발 클러스터에서 서비스 패브릭 응용 프로그램을 배포하고 디버깅하여 시간과 비용을 절약할 수 있습니다. Visual Studio는 로컬 클러스터에 응용 프로그램을 배포하고 응용 프로그램의 모든 인스턴스에 디버거를 자동으로 연결할 수 있습니다.
 
@@ -66,4 +66,4 @@
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

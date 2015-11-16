@@ -40,6 +40,10 @@
 
 * [빠른 시작 자습서](../app-service-mobile-xamarin-ios-get-started.md)를 완료합니다.
 
+##<a name="create-hub"></a>알림 허브 만들기
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
 ## <a id="register"></a>푸시 알림을 위한 앱 등록
 
 [AZURE.INCLUDE [Apple 푸시 알림 사용](../../includes/enable-apple-push-notifications.md)]
@@ -52,7 +56,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a name="publish-the-service"></a>서버 프로젝트를 Azure에 배포
+## <a name="publish-the-service"></a>Azure에 서버 프로젝트 배포
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
@@ -62,7 +66,7 @@
 
 ## <a name="add-push"></a>앱에 푸시 알림 추가
 
-1. **QSTodoService**에서 **AppDelegate**가 모바일 클라이언트를 얻을 수 있도록 다음 속성을 추가합니다.
+1. **QSTodoService**에서 **AppDelegate**가 모바일 클라이언트를 가져올 수 있도록 다음 속성을 추가합니다.
         
             public MobileServiceClient GetClient {
             get
@@ -154,4 +158,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 응용 프로그램 업그레이드 자습서"
-   description="이 문서는 서비스 패브릭 응용 프로그램 업그레이드 경험을 안내합니다."
+   pageTitle="응용 프로그램 업그레이드 자습서 | Microsoft Azure"
+   description="이 문서는 서비스 패브릭 응용 프로그램의 배포, 코드 변경, 업그레이드 배포 환경을 안내합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -78,7 +78,7 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## 4 단계: 업그레이드를 위한 응용 프로그램 준비
+## 4단계: 업그레이드를 위한 응용 프로그램 준비
 
 이제 응용 프로그램이 빌드되고 업그레이드 준비되었습니다. 관지자로 PowerShell 창을 열고 **Get-ServiceFabricApplication**을 입력하면 배포된 **VisualObjects**의 Application Type 1.0.0.0임을 알려줍니다. 이 응용 프로그램 패키지는 서비스 패브릭 SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug* 디렉터리에서 응용 프로그램이 저장된 “Package” 폴더를 찾을 수 있습니다. 타임 스탬프를 확인하여 최신 빌드인지 확인하십시오(경로를 적절하게 수정해야 할 수 있습니다).
 
@@ -126,4 +126,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

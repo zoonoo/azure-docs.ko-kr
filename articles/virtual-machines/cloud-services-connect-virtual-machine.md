@@ -41,7 +41,7 @@
 
 가상 네트워크에서 가상 컴퓨터를 연결하려면
 
-1.	[Azure 포털](http://manage.windowsazure.com)에서 가상 네트워크를 만듭니다. 자세한 내용은 참조 [Azure 포털을 사용 하 여 가상 네트워크를 (기본) 만들기](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+1.	[Azure Preview 포털](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 가상 네트워크를 만듭니다.
 2.	가용성 집합 및 부하 분산에 대한 디자인을 반영하기 위해 배포에 대한 클라우드 서비스의 집합을 만듭니다. 포털에서 각 클라우드 서비스에 대해 **새로 만들기 > 계산 > 클라우드 서비스 > 사용자 지정 만들기**를 클릭합니다.
 3.	각각의 새 가상 컴퓨터를 만들려면 **새로 만들기 > 계산 > 가상 컴퓨터 > 갤러리에서**를 클릭합니다. VM에 대한 올바른 클라우드 서비스 및 가상 네트워크를 선택합니다. 클라우드 서비스가 가상 네트워크에 이미 연결된 경우 해당 이름이 이미 선택되어 있을 것입니다.
 
@@ -67,4 +67,4 @@
 
 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -44,7 +44,7 @@ Azure CLI를 통해 Azure 리소스 관리자 작업을 수행하려면 회사 �
 
 Microsoft Azure에 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)을 참조하세요.
 
->[AZURE.NOTE]Azure Active Directory에서 관리하는 회사 또는 학교 계정을 사용하는 경우 Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스 액세스 및 사용을 관리할 수도 있습니다. 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](../azure-portal/resource-group-rbac.md)를 참조하세요.
+>[AZURE.NOTE]Azure Active Directory에서 관리하는 회사 또는 학교 계정을 사용하는 경우 Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스 액세스 및 사용을 관리할 수도 있습니다. 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.
 
 ## Azure 리소스 관리자 모드 설정
 
@@ -88,30 +88,31 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 1. [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm)에서 로컬 컴퓨터의 작업 폴더로 azuredeploy.json 및 azuredeploy.parameters.json 파일을 다운로드합니다.
 
-2. 텍스트 편집기에서 azuredeploy.parameters.json 파일을 열고 사용자 환경에 적합한 매개 변수 값을 입력합니다(**ubuntuOSVersion** 값은 변경하지 말고 그대로 유지). ```
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newStorageAccountName": {
-	      "value": "MyStorageAccount"
-	    },
-	    "adminUsername": {
-	      "value": "MyUserName"
-	    },
-	    "adminPassword": {
-	      "value": "MyPassword"
-	    },
-	    "dnsNameForPublicIP": {
-	      "value": "MyDomainName"
-	    },
-	    "ubuntuOSVersion": {
-	      "value": "14.04.2-LTS"
-	    }
-	  }
-	}
-```
-3. azuredeploy.parameters.json 파일을 저장한 후 다음 명령을 사용하여 템플릿에 따라 새 리소스 그룹을 만듭니다. `-e` 옵션은 이전 단계에서 수정한 azuredeploy.parameters.json 파일을 지정합니다. *testRG*는 사용하려는 그룹 이름으로 바꾸고 *testDeploy*는 선택하는 배포 이름으로 바꿉니다. 위치는 템플릿 매개 변수 파일에 지정된 것과 동일해야 합니다.
+2. 텍스트 편집기에서 azuredeploy.parameters.json 파일을 열고 사용 중인 환경에 적합한 매개 변수 값을 입력합니다(**ubuntuOSVersion** 값은 변경하지 않고 그대로 유지).
+
+		{
+	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	  	"contentVersion": "1.0.0.0",
+	  	"parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+	```
+3. azuredeploy.parameters.json 파일을 저장한 후 다음 명령을 사용하여 템플릿에 따라 새 리소스 그룹을 만듭니다. `-e` 옵션은 이전 단계에서 수정한 azuredeploy.parameters.json 파일을 지정합니다. *testRG*는 사용하려는 그룹 이름으로 바꾸고 *testDeploy*는 선택한 배포 이름으로 바꿉니다. 위치는 템플릿 매개 변수 파일에 지정된 것과 동일해야 합니다.
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
 
@@ -157,12 +158,12 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 	이 명령을 사용하면 그룹의 리소스에 대한 정보가 반환됩니다. 그룹이 여러 개인 경우 `azure group list` 명령을 사용하여 그룹 이름 목록을 검색한 후 `azure group show` 명령을 사용하여 특정 그룹의 세부 정보를 확인합니다.
 
-또한 컴퓨터에 템플릿을 다운로드하는 대신 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 바로 템플릿을 사용할 수도 있습니다. 이렇게 하려면 **--template-url** 옵션을 사용하여 명령에서 템플릿의 azuredeploy.json 파일에 대한 URL을 전달하세요. URL을 가져오려면 GitHub에서 azuredeploy.json을 _원시_ 모드로 열고 브라우저의 주소 표시줄에 표시되는 URL을 복사합니다. 그런 후 다음과 비슷한 명령으로 이 URL을 직접 사용하여 배포를 만들 수 있습니다.
+또한 컴퓨터에 템플릿을 다운로드하는 대신 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 바로 템플릿을 사용할 수도 있습니다. 이렇게 하려면 **--template-url** 옵션을 사용하여 명령에서 템플릿의 azuredeploy.json 파일에 URL을 전달하세요. URL을 가져오려면 GitHub에서 azuredeploy.json을 _원시_ 모드로 열고 브라우저의 주소 표시줄에 표시되는 URL을 복사합니다. 그런 후 다음과 비슷한 명령으로 이 URL을 직접 사용하여 배포를 만들 수 있습니다.
 
 	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
 필요한 템플릿 매개 변수를 입력하라는 메시지가 표시 됩니다.
 
-> [AZURE.NOTE]JSON 템플릿을 _원시_ 모드로 여는 것이 중요합니다. 브라우저의 주소 표시줄에 표시되는 URL이 일반 모드에서 표시되는 URL과 다릅니다. GitHub에서 파일을 볼 때 파일을 _원시_ 모드로 열려면 오른쪽 위에 있는 **원시**를 클릭합니다.
+> [AZURE.NOTE]JSON 템플릿을 _원시_ 모드로 여는 것이 중요합니다. 브라우저의 주소 표시줄에 표시되는 URL이 일반 모드에서 표시되는 URL과 다릅니다. GitHub에서 파일을 볼 때 파일을 _원시_ 모드로 열려면 오른쪽 위 모서리에 있는 **원시**를 클릭합니다.
 
 ## 리소스 작업
 
@@ -182,7 +183,7 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 	이 명령을 실행하면 가상 컴퓨터 관련 정보가 반환됩니다.
 
-3. `--json` 매개 변수는 리소스 세부 정보를 볼 때 자주 유용하게 사용됩니다. 일부 값이 중첩된 구조이거나 컬렉션이기 때문에 이 매개 변수를 사용하면 출력을 읽기가 훨씬 수월합니다. 다음 예제에서는 **show** 명령의 결과를 JSON 문서로 반환하는 방법을 보여 줍니다.
+3. `--json` 매개 변수는 보통 리소스 세부 정보를 볼 때 유용하게 사용됩니다. 일부 값이 중첩된 구조이거나 컬렉션이기 때문에 이 매개 변수를 사용하면 출력을 읽기가 훨씬 수월합니다. 다음 예제에서는 **show** 명령의 결과를 JSON 문서로 반환하는 방법을 보여 줍니다.
 
 		azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
@@ -209,4 +210,4 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

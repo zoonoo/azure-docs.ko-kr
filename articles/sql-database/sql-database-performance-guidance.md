@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/29/2015"
+	ms.date="11/03/2015"
 	ms.author="jroth" />
 
 # 단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침
 
-## 개요
+## 개요 
 
 Microsoft Azure SQL 데이터베이스에는 세 가지 [서비스 계층](sql-database-service-tiers.md), 즉, Basic, Standard, Premium이 있습니다. 세 서비스 모두 Azure SQL 데이터베이스에 제공된 리소스를 엄격하게 격리하여 예측 가능한 성능을 보장합니다. 데이터베이스에 보장되는 처리량은 Basic, Standard, Premium 순서로 점점 많아집니다.
 
@@ -114,8 +114,8 @@ Standard 및 Premium의 성능 수준 설정으로 필요한 용량에 대해서
 
 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
-### 최대 XTP 메모리 내 저장소
-**최대 XTP 메모리 내 저장소**는 Premium 데이터베이스를 위한 [메모리 내 OLTP 미리 보기](sql-database-in-memory.md)에 제공되는 최대 저장소 양입니다. Azure 포털 또는 **sys.dm\_db\_resource\_stats** 뷰를 사용하여 메모리 내 저장소 사용을 모니터링할 수 있습니다. 모니터링에 대한 자세한 내용은 [XTP 메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)을 참조하세요.
+### 최대 메모리 내 OLTP 저장소
+**최대 메모리 내 OLTP 저장소**는 Premium 데이터베이스를 위한 [메모리 내 OLTP 미리 보기](sql-database-in-memory.md)에 제공되는 최대 저장소 양입니다. 때때로 *XTP 메모리 내 저장소*라고도 합니다. Azure 포털 또는 **sys.dm\_db\_resource\_stats** 뷰를 사용하여 메모리 내 저장소 사용을 모니터링할 수 있습니다. 모니터링에 대한 자세한 내용은 [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)을 참조하세요.
 
 >[AZURE.NOTE]메모리 내 OLTP 미리 보기는 현재 단일 데이터베이스에 대해서만 지원되고 탄력적 데이터베이스 풀에 대해서는 지원되지 않습니다.
 
@@ -491,4 +491,4 @@ Azure SQL 데이터베이스 내에서 사용되는 확장형 아키텍처에서
 
 Azure SQL 데이터베이스의 서비스 계층을 사용하면 클라우드에 구축할 수 있는 응용 프로그램 유형이 더욱 다양해집니다. 자세한 응용 프로그램 튜닝과 결합하면 응용 프로그램에 강력하고 예측 가능한 성능을 얻을 수 있습니다. 이 문서는 데이터베이스의 리소스 사용을 최적화하여 한 가지 성능 수준에 맞추기 위한 기법을 간단히 설명했습니다. 튜닝은 클라우드 모델에서 지속적으로 활용하는 방식이며, 관리자는 서비스 계층 및 해당 성능 수준에 따라 성능을 극대화하는 동시에 Microsoft Azure 플랫폼에서 비용을 최고화할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,9 @@
 이 문서에서는 Azure IaaS VM의 백업 및 복구를 위한 Azure PowerShell을 사용하는 방법을 보여줍니다.
 
 ## 개념
-Azure 백업 설명서에 [Azure IaaS VM 백업이 소개](backup-azure-vms-introduction.md)되어 있습니다. VM, 필수 조건 및 제한 사항을 백업해야 이유에 대한 필수 정보가 설명되어 있습니다.
+Azure 백업 설명서에 [Azure IaaS VM 백업이 소개](backup-azure-vms-introduction.md)되어 있습니다.
+
+> [AZURE.WARNING]시작하기 전에 먼저 Azure 백업 작업에 필요한 [필수 조건](backup-azure-vms-prepare.md) 및 현재 VM 솔루션의 [제한](backup-azure-vms-prepare.md#limitations)에 관한 기본 사항을 다루었는지 확인합니다.
 
 PowerShell을 효과적으로 사용하기 위해 개체의 계층 구조와 시작하는 위치를 이해하는 데 필요합니다.
 
@@ -28,7 +30,7 @@ PowerShell을 효과적으로 사용하기 위해 개체의 계층 구조와 시
 
 1. [최신 PowerShell을 다운로드](https://github.com/Azure/azure-powershell/releases)합니다(필요한 최소 버전: 1.0.0).
 
-2. 다음과 같은 **Switch-azuremode** commandlet을 통해 *AzureResourceManager* 모드로 전환하여 Azure 백업 commandlet을 사용하도록 설정합니다.
+2. 다음과 같이 **Switch-AzureMode** commandlet을 통해 *AzureResourceManager* 모드로 전환하여 Azure 백업 commandlet을 사용하도록 설정합니다.
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -67,7 +69,7 @@ PS C:\> $registerjob = Register-AzureRMBackupContainer -Vault $backupvault -Name
 ## Azure VM 백업
 
 ### 보호 정책 만들기
-VM의 백업을 시작하기 위한 새 보호 정책을 만들지 않아도 됩니다. 저장소는 빠르게 보호하는 데 사용할 수 있는 ‘기본 정책’이 적용된 다음, 나중에 올바른 세부 정보로 편집할 수 있습니다. 다음과 같은 **Get-AzureRMBackupProtectionPolicy** commandlet을 통해 자격 증명 모음에서 사용할 수 있는 정책 목록을 가져올 수 있습니다.
+VM의 백업을 시작하기 위한 새 보호 정책을 만들지 않아도 됩니다. 저장소는 빠르게 보호하는 데 사용할 수 있는 ‘기본 정책’이 적용된 다음, 나중에 올바른 세부 정보로 편집할 수 있습니다. 다음과 같이 **Get-AzureRMBackupProtectionPolicy** commandlet을 사용하여 자격 증명 모음에서 사용할 수 있는 정책 목록을 가져올 수 있습니다.
 
 ```
 PS C:\> Get-AzureRMBackupProtectionPolicy -Vault $backupvault
@@ -100,7 +102,7 @@ PS C:\> Get-AzureRMBackupContainer -Type AzureVM -Status Registered -Vault $back
 ```
 
 ### 초기 백업
-백업 일정은 항목에 대한 전체 초기 복사와 후속 백업에 대한 증분 복사 작업을 처리합니다. 그러나 초기 백업을 강제로 특정 시간에 수행하거나 즉시 수행하려는 경우 다음과 같은 **Backup-AzureRMBackupItem** commandlet을 사용합니다.
+백업 일정은 항목에 대한 전체 초기 복사와 후속 백업에 대한 증분 복사 작업을 처리합니다. 그러나 초기 백업을 강제로 특정 시간에 수행하거나 즉시 수행하려는 경우 다음과 같이 **Backup-AzureRMBackupItem** commandlet을 사용합니다.
 
 ```
 PS C:\> $container = Get-AzureRMBackupContainer -Vault $backupvault -type AzureVM -name "testvm"
@@ -177,7 +179,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-복원 작업이 완료되면 **Get-AzureRMBackupJobDetails** commandlet을 사용하여 복원 작업의 세부 정보를 가져올 수 있습니다. *ErrorDetails* 속성에 VM을 다시 빌드하는 데 필요한 정보가 포함됩니다.
+복원 작업이 완료되면 **Get-AzureRMBackupJobDetails** commandlet을 사용하여 복원 작업의 세부 정보를 가져올 수 있습니다. *ErrorDetails* 속성에는 VM을 다시 빌드하는 데 필요한 정보가 포함됩니다.
 
 ```
 PS C:\> $restorejob = Get-AzureRMBackupJob -Job $restorejob
@@ -300,4 +302,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 이 보고서 출력에 차트 기능을 추가하려는 경우 TechNet 블로그에서 [PowerShell을 사용한 차트 작성](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)에 대해 알아보세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

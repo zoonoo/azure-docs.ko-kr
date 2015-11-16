@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/29/2015"
 	ms.author="davidmu"/>
 
 
@@ -34,11 +34,9 @@ Azure 리소스 관리자는 Azure 인프라 서비스에서 실행되는 복잡
 
 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
+[Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)
+
 [Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## 일반 리소스
-
-[Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/)
 
 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -47,31 +45,17 @@ Azure 리소스 관리자는 Azure 인프라 서비스에서 실행되는 복잡
 
 [네트워크 리소스 공급자](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
-
-## Azure CLI을 사용한 자동화
-
-[Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)
-
-[Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
-
-## Azure PowerShell로 자동화
-
-[Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
-
-
-## .NET을 사용한 자동화
+## .NET
 
 [.NET 라이브러리를 사용하여 Azure 리소스 배포](virtual-machines-arm-deployment.md)
 
 
-## Azure 자동화를 사용하여 자동화
+## Azure Automation
 
 [Azure 자동화를 사용하여 Azure 가상 컴퓨터 관리](automation-manage-virtual-machines.md)
-
-
 
 ## 추가 리소스
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

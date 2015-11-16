@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="garye"/>
 
 
@@ -98,8 +98,11 @@
 
 **구성** 탭을 클릭하여 서비스를 구성할 수 있습니다. 여기서 서비스 이름(기본적으로 실험 이름이 지정됨)을 수정하고 설명을 제공할 수 있습니다. 입력 및 출력 열에 대해 더 친숙한 레이블을 제공할 수도 있습니다.
 
+![웹 서비스 구성][5]
+
 ## 웹 서비스 테스트
-**대시보드** 페이지에서 **기본 끝점** 아래의 **테스트** 링크를 클릭합니다. 대화 상자가 팝업되고 서비스에 대한 입력 데이터를 요구합니다. 이는 원래 독일 신용 위험 데이터 집합에 나타난 열과 같습니다.
+**대시보드** 페이지에서 **기본 끝점** 아래의 **테스트** 링크를 클릭합니다. 대화 상자가 팝업되고 서비스에 대한 입력 데이터를 요구합니다. 이는 원래 독일 신용 위험 데이터 집합에 나타난 열과 같습니다. ![웹 서비스 테스트][6]
+
 
 데이터 집합을 입력하고 **확인**을 클릭합니다.
 
@@ -114,6 +117,8 @@
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
 <!-- Module References -->
@@ -127,4 +132,4 @@
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

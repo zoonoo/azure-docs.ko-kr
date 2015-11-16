@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="10/29/2015"  
 	ms.author="juliako"/>
 
 #Azure 주문형 미디어 인코더 개요 및 비교
@@ -166,6 +166,7 @@ AVI(압축되지 않은 8비트/10비트)|예|예 |예
 부드러운 스트리밍 파일 형식(PIFF 1.3)|예|예|아니요
 [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|예|아니요|아니요
 Matroska/WebM |예|아니요|아니요
+QuickTime(.mov) |예|아니요|아니요
 
 ###입력 비디오 코덱
 
@@ -181,6 +182,12 @@ Windows Media 비디오/VC-1 |예|예|예
 Canopus HQ/HQX |아니요|예|아니요
 Mpeg-4 2부 |예|아니요|아니요
 [Theora](https://en.wikipedia.org/wiki/Theora) |예|아니요|아니요
+Apple ProRes 422 |예|아니요|아니요
+Apple ProRes 422 LT |예|아니요|아니요
+Apple ProRes 422 HQ |예|아니요|아니요
+Apple ProRes Proxy|예|아니요|아니요
+Apple ProRes 4444 |예|아니요|아니요
+Apple ProRes 4444 XQ |예|아니요|아니요
 
 ###입력 오디오 코덱
 
@@ -254,4 +261,4 @@ Windows Media 오디오|아니요|예|예
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

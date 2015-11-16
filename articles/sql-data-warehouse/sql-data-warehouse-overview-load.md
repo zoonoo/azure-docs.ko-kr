@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="lodipalm;barbkess"/>
 
 # SQL 데이터 웨어하우스에 데이터 로드
@@ -163,6 +163,16 @@ FROM    <External Table Name>
 
 `CREATE TABLE...AS SELECT` 문 외에도, ‘INSERT...INTO’ 문을 사용하여 외부 테이블의 데이터를 기존 테이블로 로드할 수 있습니다.
 
+##  새로 로드한 데이터에 대한 통계 만들기 
+
+Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요. 다음은 이 예제에 로드한 테이블에 대한 통계를 만드는 방법을 간략히 보여주는 예입니다.
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
+
 ## 다음 단계
 더 많은 개발 팁은 [개발 개요][]를 참조하세요.
 
@@ -175,6 +185,7 @@ FROM    <External Table Name>
 [개발 개요]: sql-data-warehouse-overview-develop.md
 [스키마 마이그레이션]: sql-data-warehouse-migrate-schema.md
 [코드 마이그레이션]: sql-data-warehouse-migrate-code.md
+[통계]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -183,10 +194,10 @@ FROM    <External Table Name>
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[AZCopy 설치 지침]: https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/
-[SQL Server용 Microsoft 명령줄 유틸리티]: http://www.microsoft.com/en-us/download/details.aspx?id=36433
-[가져오기/내보내기]: https://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
-[Azure 저장소 설명서]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+[AZCopy 설치 지침]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-use-azcopy/
+[SQL Server용 Microsoft 명령줄 유틸리티]: http://www.microsoft.com/ko-KR/download/details.aspx?id=36433
+[가져오기/내보내기]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-import-export-service/
+[Azure 저장소 설명서]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/
 [Express 경로 설명서]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

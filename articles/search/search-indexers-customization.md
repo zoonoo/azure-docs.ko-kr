@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 검색 인덱서 사용자 지정" 
-	description="Azure 검색 인덱서의 설정 및 정책을 사용자 지정하는 방법에 대해 알아보세요." 
+	pageTitle="Azure 검색 인덱서 사용자 지정 | Microsoft Azure" 
+	description="Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색에서 설정과 정책을 사용자 지정하는 방법을 알아봅니다." 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Azure 검색 인덱서 사용자 지정
@@ -117,4 +117,4 @@ Azure 검색에서 문서 키 필드 내부의 문자는 URL 안전 문자로 �
 오늘은 여기까지 하겠습니다. 향후 콘텐츠 아이디어에 대해 의견이나 제안이 있다면 #AzureSearch 해시 태그를 사용하여 트윗하거나 [UserVoice 페이지](http://feedback.azure.com/forums/263029-azure-search)에 아이디어를 제출하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

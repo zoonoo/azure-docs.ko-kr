@@ -1,13 +1,13 @@
 <properties
 	pageTitle="Azure 가상 컴퓨터 백업 문제 해결 | Microsoft Azure"
-	description="Azure 가상 컴퓨터의 백업 및 복원의 문제 해결 정보 찾기"
+	description="Azure 가상 컴퓨터의 백업 및 복원 문제 해결"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Azure 가상 컴퓨터 백업 문제 해결
@@ -123,4 +123,4 @@ Windows VM에서 VM 에이전트 버전을 확인하는 방법
 1. 허용 목록에 추가할 [Azure datacenter IP](https://msdn.microsoft.com/library/azure/dn175718.aspx) 목록을 가져옵니다.
 2. [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창(관리자 권한으로 실행)을 통해 Azure VM 내에서 이 commandlet을 실행합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

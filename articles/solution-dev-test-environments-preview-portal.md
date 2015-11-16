@@ -43,7 +43,7 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 
 목록에 "[201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)" 폴더가 나타납니다. 많은 사용자 지정 응용 프로그램은 웹 응용 프로그램 및 SQL 데이터베이스를 포함하고 있으므로, 사용자가 템플릿 사용 방법을 이해할 수 있도록 이 템플릿을 이 문서의 나머지 부분에서 예제로 사용합니다. 이 템플릿으로 만들고 구성하는 모든 것을 완전하게 설명하는 것은 이 기사의 범위를 벗어나지만, 사용자의 조직에서 이 템플릿을 사용하여 실제 환경을 만들려는 경우 [SQL 데이터베이스를 사용하여 웹 앱 프로비전](app-service-web/app-service-web-arm-with-sql-database-provision.md) 문서를 읽고 완전히 이해하는 것이 좋습니다.
 
-> [AZURE.NOTE][SQL 데이터베이스를 사용하여 웹 앱 프로비전](http://azure.microsoft.com/documentation/templates/201-web-app-sql-database/)의 "Azure에 배포" 단추를 클릭하여 Azure에 템플릿을 배포할 수 있습니다. 이 작업이 템플릿에 관하여 배우는 데 유용할 수 있지만, 그럴 경우 사용자의 응용 프로그램 코드를 사용하여 템플릿 및 매개 변수 값을 편집, 버전 관리 및 저장할 수 없습니다. 이 문서의 단계는 사용자의 응용 프로그램 코드를 사용하여 템플릿 및 매개 변수 값을 저장하고 버전 관리할 수 있는 방법을 설명합니다.
+> [AZURE.NOTE] [SQL 데이터베이스를 사용하여 웹 앱 프로비전](http://azure.microsoft.com/documentation/templates/201-web-app-sql-database/)의 "Azure에 배포" 단추를 클릭하여 Azure에 템플릿을 배포할 수 있습니다. 이 작업이 템플릿에 관하여 배우는 데 유용할 수 있지만, 그럴 경우 사용자의 응용 프로그램 코드를 사용하여 템플릿 및 매개 변수 값을 편집, 버전 관리 및 저장할 수 없습니다. 이 문서의 단계는 사용자의 응용 프로그램 코드를 사용하여 템플릿 및 매개 변수 값을 저장하고 버전 관리할 수 있는 방법을 설명합니다.
 
   **1 단계:** 201-web-app-sql-database 폴더에서 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) 파일의 내용을 봅니다. 이 파일은 Azure 리소스 관리자 템플릿 파일입니다. 보기 모드에서 "[원시](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json)" 단추를 클릭합니다. 마우스로 이 파일의 전체 내용을 선택하고 "TestApp1 Template.json"이라는 이름의 파일로 컴퓨터에 저장합니다.
 
@@ -144,7 +144,7 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## 환경 만들기
-모든 Azure 리소스는 [Azure 리소스 그룹](azure-portal/resource-group-portal.md) 내에 만들어야 합니다. 리소스 그룹을 사용하여 Azure 리소스를 모아서 관리할 수 있도록 그룹화 할 수 있습니다. 조직의 특정인이 리소스 그룹 및 해당 그룹 내의 리소스를 만들거나, 수정, 삭제하거나, 볼 수 있도록 해당 그룹에 [권한](azure-portal/resource-group-rbac.md)을 할당할 수 있습니다. 리소스 그룹의 리소스에 대한 경고 및 청구 정보는 [Azure Preview 포털](https://portal.azure.com)에서 볼 수 있습니다. 리소스 그룹은 Azure [위치](http://azure.microsoft.com/regions/)에 만들어집니다. 이 문서에서 모든 리소스는 미국 중부 위치에 만들어집니다. 실제 환경을 만들기 시작할 때 사용자의 요구 사항에 가장 알맞은 위치를 선택합니다.
+모든 Azure 리소스는 [Azure 리소스 그룹](azure-portal/resource-group-portal.md) 내에 만들어야 합니다. 리소스 그룹을 사용하여 Azure 리소스를 모아서 관리할 수 있도록 그룹화 할 수 있습니다. 조직의 특정인이 리소스 그룹 및 해당 그룹 내의 리소스를 만들거나, 수정하거나, 삭제하거나, 볼 수 있도록 해당 그룹에 [권한](resource-group-rbac.md)을 할당할 수 있습니다. 리소스 그룹의 리소스에 대한 경고 및 청구 정보는 [Azure Preview 포털](https://portal.azure.com)에서 볼 수 있습니다. 리소스 그룹은 Azure [위치](http://azure.microsoft.com/regions/)에 만들어집니다. 이 문서에서 모든 리소스는 미국 중부 위치에 만들어집니다. 실제 환경을 만들기 시작할 때 사용자의 요구 사항에 가장 알맞은 위치를 선택합니다.
 
   **5 단계:** 아래 방법 중 하나를 사용하여 개발 및 테스트 환경에 대한 리소스 그룹을 만듭니다. 두 방법 모두 정확히 같은 결과를 달성합니다.
 
@@ -384,4 +384,4 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 - [Visual Studio 릴리스 관리](http://msdn.microsoft.com/Library/vs/alm/Release/overview)를 사용하여 관리되는 지속적인 배포 파이프라인을 만들어 빠르고 쉽게 자주 해제합니다.
 - [Azure Dev/Test Lab](http://azure.microsoft.com/campaigns/devtest-lab/)의 미리 보기에 대한 초대를 요청합니다. 이 초대를 통해 템플릿을 사용하여 Dev 및 Test Lab 환경을 관리하고, 조직 내에서 사용할 할당량 및 정책을 구성합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Nov15_HO2-->

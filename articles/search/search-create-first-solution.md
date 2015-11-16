@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 검색을 사용하는 첫 검색 솔루션 만들기" 
-	description="Azure 검색을 사용하는 첫 검색 솔루션 만들기" 
+	pageTitle="Azure 검색을 사용하는 첫 검색 솔루션 만들기 | Microsoft Azure" 
+	description="Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색을 사용하여 첫 번째 검색 솔루션을 만듭니다." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Azure 검색을 사용하는 첫 검색 솔루션 만들기
@@ -206,4 +206,4 @@ MSDN에서 [Azure 검색 REST API](http://msdn.microsoft.com/library/azure/dn798
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

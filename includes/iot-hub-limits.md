@@ -1,35 +1,37 @@
-The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](http://azure.microsoft.com/pricing/details/iot-hub/).
+다음 표는 다양한 서비스 계층(S1, S2, F1)과 관련한 한도를 나타냅니다. 각 계층에서 각각의 *단위*에 대한 비용은 [IoT Hub 가격 책정](http://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
-| Resource | S1 Standard | S2 Standard | F1 Free |
+| 리소스 | S1 표준 | S2 표준 | F1 무료 |
 | -------- | ----------- | ----------- | ------- |
-| Devices/unit | 500 | 500 | 10 |
-| Messages/day | 50,000 | 1,500,000 | 3,000 |
-| Maximum units | 200 | 200 | 1 |
-| Device updates (create, update, <br/> delete) per unit per day | 1100 | 1100 | 1100 |
+| 장치/단위 | 500 | 500 | 10 |
+| 메시지 수/1일 | 50,000 | 1,500,000 | 3,000 |
+| 최대 단위 | 200 | 200 | 1 |
+| 단위당 장치 업데이트(만들기, 업데이트 <br/> 삭제)/1일 | 1100 | 1100 | 1100 |
 
-> [AZURE.NOTE] If you anticipate using more than 200 units with an S1 or S2 tier hub, please contact Microsoft support.
+> [AZURE.NOTE]S1 또는 S2 계층 허브에서 200개 이상의 단위를 사용할 것 같으면 Microsoft 지원에 문의하세요.
 
-The following table lists the limits that apply to IoT Hub resources:
+다음 표에서는 IoT Hub 리소스에 적용되는 제한을 나열합니다.
 
-| Resource | Limit |
+| 리소스 | 제한 |
 | -------- | ----- |
-| Maximum IoT hubs per Azure subscription | 10 |
-| Maximum number of device identities<br/>  returned in a single call | 1000 |
-| IoT Hub message maximum retention | 7 days |
-| Maximum size of device-to-cloud message | 256 KB |
-| Maximum size of device-to-cloud batch | 256 KB |
-| Maximum messages in device-to-cloud batch | 500 |
-| Maximum size of cloud-to-device message | 64 KB |
-| Maximum TTL for cloud-to-device messages | 2 days |
-| Maximum delivery count for cloud-to-device <br/> messages | 100 |
-| Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message | 100 |
-| Maximum TTL for feedback messages in <br/> response to a cloud-to-device message | 2 days |
+| Azure 구독당 최대 IoT Hub | 10 |
+| 단일 호출에서 반환되는 최대 장치 ID<br/> 수 | 1000 |
+| IoT Hub 메시지 최대 보존 | 7 일 |
+| 장치->클라우드 메시지의 최대 크기 | 256 KB |
+| 장치->클라우드 배치의 최대 크기 | 256 KB |
+| 장치->클라우드 배치의 최대 메시지 | 500 |
+| 클라우드->장치 메시지의 최대 크기 | 64KB |
+| 클라우드->장치 메시지의 최대 TTL | 2일 |
+| 클라우드->장치 <br/>메시지의 전달 수 | 100 |
+| 클라우드->장치 메시지에 대한 응답에서 피드백 <br/> 메시지의 최대 전달 수 | 100 |
+| 클라우드->장치 메시지에 대한 응답에서 피드백 <br/> 메시지의 최대 TTL | 2일 |
 
-The IoT Hub service throttles requests when the following quotas are exceeded:
+다음 할당량이 초과되면 IoT 허브 서비스가 요청을 제한합니다.
 
-| Throttle | Per-hub value |
+| 제한 | 허브 단위 값 |
 | -------- | ------------- |
-| Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export | 100/min/unit, up to 5000/min |
-| Device connections | 100/sec/unit |
-| Device-to-cloud sends | 2000/min/unit (for S2), 60/min/unit (for S1) <br/> Minimum of 100/sec |
-| Cloud-to-device operations <br/> (sends, receives, feedback) | 100/min/unit |
+| ID 레지스트리 작업<br/>(만들기, 검색, 나열, 업데이트 및 삭제), <br/>개별 또는 대량 가져오기/내보내기 | 100/분/단위, 최대 5000/분까지 |
+| 장치 연결 | 100/초/단위 |
+| 장치->클라우드 보내기 | 2000/분/단위(S2의 경우), 60/분/단위(S1의 경우)<br/>최소 100/초 |
+| 클라우드-장치 작업<br/>(전송, 수신, 피드백) | 100/분/단위 |
+
+<!---HONumber=Nov15_HO2-->

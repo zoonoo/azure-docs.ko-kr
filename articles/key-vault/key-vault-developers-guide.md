@@ -51,8 +51,9 @@ Node.js API는 직접 REST 끝점을 조작할 필요 없이 node.js 프로그�
 
 ## 키 자격 증명 모음 관리
 
-Azure 키 자격 증명 모음 컨테이너(자격 증명 모음)는 다음 문서에 설명되어 있는 것처럼 PowerShell 또는 CLI를 사용해서도 관리할 수 있습니다.
+Azure 주요 자격 증명 모음 컨테이너(자격 증명 모음)는 다음 문서에 설명된 대로 REST, PowerShell 또는 CLI를 사용하여 관리할 수 있습니다.
 
+- [REST를 사용하여 주요 자격 증명 모음 만들기 및 관리](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [PowerShell을 사용하여 키 자격 증명 모음 만들기 및 관리](key-vault-get-started.md)
 - [CLI를 사용하여 키 자격 증명 모음 만들기 및 관리](key-vault-manage-with-cli.md)
 
@@ -67,4 +68,4 @@ Azure 키 자격 증명 모음 컨테이너(자격 증명 모음)는 다음 문�
 
 - 이 다운로드는 HelloKeyVault 샘플 응용 프로그램 및 Azure 웹 서비스 예제를 모두 포함합니다. [Azure 키 자격 증명 모음 코드 샘플](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

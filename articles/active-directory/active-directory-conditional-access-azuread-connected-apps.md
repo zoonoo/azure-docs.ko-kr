@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/30/2015"
 	ms.author="femila"/>
 
 # Azure Conditional Access Preview for SaaS Apps
@@ -55,7 +55,7 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 
 제외 옵션을 선택하고 하나 이상의 그룹을 지정하여 정책에서 보안 그룹을 명시적으로 제외할 수도 있습니다. 제외 목록에 있는 그룹의 구성원인 사용자는 액세스 규칙이 적용되는 그룹의 구성원인 경우에도 다단계 인증 요구 사항이 적용되지 않습니다. 아래 표시된 액세스 규칙의 경우 관리자 그룹의 모든 사용자가 응용 프로그램에 액세스할 때 다단계 인증을 사용해야 합니다.
 
-![MFA를 사용하는 조건부 액세스 규칙 설정](./media/active-directory-conditional-access/conditionalaccess-saas-apps.jpg)
+![MFA를 사용하는 조건부 액세스 규칙 설정](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
 ##MFA를 사용하는 조건부 액세스 규칙
 사용자가 사용자별 다단계 인증 기능을 사용하여 구성된 경우 사용자에 대한 이 설정이 앱 다단계 인증 규칙보다 우선 적용됩니다. 즉, 사용자별 다단계 인증에 대해 구성된 사용자는 응용 프로그램 다단계 인증 규칙에서 제외된 경우에도 다단계 인증을 수행해야 합니다. 다단계 인증 및 사용자별 설정에 대해 자세히 알아보세요.
@@ -86,4 +86,4 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 
 이 플래그를 설정하는 것 외에도 페더레이션 테넌트 AD FS 인스턴스에서 다단계 인증을 수행하도록 구성해야 합니다. 온-프레미스에 Azure Multi-Factor Authentication을 배포하기 위한 지침을 따르세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

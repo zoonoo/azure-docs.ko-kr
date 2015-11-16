@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="10/28/2015"
 	ms.author="csand"/>
 
 
@@ -43,4 +43,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 웹앱
 * Azure 자동화 [시작 자습서](../automation-intro.md) 참조
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

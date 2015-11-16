@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="10/01/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Azure 검색에 최신 업데이트된 새로운 기능#
 
-Azure 검색으로 [2015-02-28 버전의 API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 구성을 지원하는 99.9% 가용성 서비스 수준 계약 (SLA)이 제공되어 일반적으로 사용 가능합니다.
+Azure 검색은 Microsoft Azure에서 클라우드 호스팅되는 검색 서비스입니다. 일반적으로 [2015-02-28 버전의 API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 구성을 지원하는 99.9% 가용성 서비스 수준 계약 (SLA)이 가능합니다.
 
 ##다양한 버전으로 출시된 기능
 
@@ -32,7 +32,7 @@ Azure 검색으로 [2015-02-28 버전의 API](https://msdn.microsoft.com/library
 
 이 버전은 [Azure 검색 서비스 REST API의 미리 보기 버전](search-api-2015-02-28-preview.md)에 대해 사용할 수 있는 새 [Lucene 쿼리 구문 지원](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 추가합니다. 새 구문을 사용하려면 검색 문서 작업에서 `queryType`을(를) 지정해야 합니다.
 
-또한 다음 두 기능이 모두 미리 보기에서 전환되며 이제 MSDN에서 공식 API의 일부가 됩니다. - 자연어 프로세서 - 검색, 제안 및 조회 쿼리의 POST
+또한 다음 두 기능이 모두 미리 보기에서 전환되며 이제 MSDN에서 공식 API의 일부가 됩니다. - [자연어 프로세서](search-language-support.md) - 검색, 제안 및 조회 쿼리의 POST
 
 ##.NET SDK 0.10.0-preview
 **릴리스 날짜: 2015년 8월**
@@ -125,4 +125,4 @@ SDK의 설치 및 사용에 대한 안내를 원하시면 [.NET에서 Azure 검�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

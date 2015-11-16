@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 리소스 관리자 템플릿 함수"
-   description="값을 검색하고 문자열을 포맷하며 배포 정보를 검색하는 Azure 리소스 관리자 템플릿에서 사용하는 함수를 설명합니다."
+   pageTitle="리소스 관리자 템플릿 함수 | Microsoft Azure"
+   description="Azure 리소스 관리자 템플릿에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
 
 이 항목에서는 Azure 리소스 관리자 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다.
+
+템플릿 함수 및 해당 매개 변수는 대/소문자를 구분하지 않습니다. 예를 들어 리소스 관리자에서 **variables('var1')**와 **VARIABLES('VAR1')**는 동일합니다.
 
 ## 추가
 
@@ -68,7 +70,7 @@
 
 **copyIndex(offset)**
 
-반복 루프의 현재 인덱스를 반환합니다. 이 함수를 사용하는 예는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+반복 루프의 현재 인덱스를 반환합니다. 이 함수를 사용하는 방법의 예는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
 ## deployment
 
@@ -266,7 +268,7 @@
 
 **reference** 함수는 런타임 상태에서 값을 파생하므로 변수 섹션에서 사용할 수 없습니다. 템플릿의 출력 섹션에서 사용할 수 있습니다.
 
-참조 식을 사용하여 참조되는 리소스가 동일한 템플릿 내에서 프로비전되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. **dependsOn** 속성을 사용할 필요가 없습니다. 참조 리소스가 배포를 완료할 때까지 식은 평가되지 않습니다.
+참조 식을 사용하여 참조되는 리소스가 동일한 템플릿 내에서 프로비전되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. 또한 **dependsOn** 속성도 사용할 필요가 없습니다. 참조 리소스가 배포를 완료할 때까지 식은 평가되지 않습니다.
 
     "outputs": {
       "siteUri": {
@@ -543,6 +545,6 @@
 - Azure 리소스 관리자 템플릿의 섹션에 대한 설명은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 여러 템플릿을 병합하려면 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-- 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="신뢰할 수 있는 행위자 스마트 캐시 디자인 패턴"
-   description="웹 기반 응용 프로그램에서 캐싱 인프라로 신뢰할 수 있는 행위자를 사용하는 방법에 대한 패턴 디자인"
+   pageTitle="스마트 캐시 설계 패턴 | Microsoft Azure"
+   description="서비스 패브릭의 신뢰할 수 있는 행위자 프로그래밍 모델을 사용하여 웹 기반 응용 프로그램용 캐싱 인프라를 구축하는 설계 패턴"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,11 +17,13 @@
    ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 스마트 캐시
+
 웹 계층, 캐싱 계층, 저장소 계층 및 경우에 따라 작업자 계층을 조합하는 방식은 오늘날의 응용 프로그램에서 거의 표준에 가깝습니다. 일반적으로 캐싱 계층은 성능에 중요하며, 사실상 여러 계층 자체로 구성될 수 있습니다 . 많은 캐시가 간단한 키-값 쌍이며 [Redis](http://redis.io)처럼 캐시로 사용되는 다른 시스템이 훨씬 다양한 의미 체계를 제공합니다. 여전히, 특별한 부분에서 캐싱 계층은 의미 체계에 제한이 있으며 무엇 보다도 아직 관리해야 하는 또 다른 계층입니다. 그 대신, 로컬 변수에 개체의 상태가 유지되고 이러한 개체를 지속형 저장소에 자동으로 스냅숏하거나 유지할 수 있다면 어떨까요? 또한 해당 문제와 관련하여, 목록, 정렬된 집합, 큐 및 기타 사용자 지정 형식 등 다양한 컬렉션은 멤버 변수와 메서드를 모델링하기만 하면 됩니다.
 
 ![][1]
 
 ## leaderboard 샘플
+
 리더 보드를 예로 들어 보겠습니다. Leaderboard 개체는 쿼리할 수 있도록 정렬된 플레이어 목록과 점수를 유지 관리해야 합니다. 예를 들어, "상위 100대 플레이어"를 찾거나 리더 보드상에서 한 플레이어의 위치가 해당 위치를 기준으로 하여 위아래로 +- N 플레이어의 어느 위치인지 찾을 수 있습니다. 기존 도구를 사용한 일반적인 솔루션에서는 Leaderboard 개체(Score라는 이름의 새로운 <Player  Points> 튜플 삽입을 지원하는 컬렉션)에 대해 'GET'을 수행하고 정렬한 후 마지막으로 다시 캐시에 'PUT'을 수행해야 합니다. 일관성을 위해 Leaderboard 개체에 대해 LOCK(GETLOCK, PUTLOCK)을 수행하게 됩니다. 상태와 동작이 함께 있는 행위자 기반 솔루션을 만들도록 하겠습니다. 두 가지 옵션이 있습니다.
 
 * 행위자의 일부로 Leaderboard 컬렉션 구현
@@ -280,6 +282,7 @@ public Task RefreshRates()
 
 
 ## 다음 단계
+
 [패턴: 분산 네트워크 및 그래프](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [패턴: 리소스 관리](service-fabric-reliable-actors-pattern-resource-governance.md)
@@ -298,4 +301,4 @@ public Task RefreshRates()
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

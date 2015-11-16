@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="11/01/2015"
    ms.author="liviodlc"/>
 
 #자습서: Azure Active Directory와 Google Apps를 통합하는 방법
@@ -25,6 +25,12 @@
 1. [Azure 관리 포털](https://manage.windowsazure.com)을 통해 Azure Active Directory에 액세스하려면 먼저 유효한 Azure 구독이 있어야 합니다.
 
 2. [Google Apps for Work](https://www.google.com/work/apps/) 또는 [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/)에 유효한 테넌트가 있어야 합니다. 어느 서비스에나 무료 평가판 계정을 사용할 수 있습니다.
+
+##비디오 자습서
+
+2분 안에 Google Apps에 Single Sign-On을 사용하는 방법
+
+> [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
 ##1단계: 디렉터리에 Google Apps 추가
 
@@ -70,11 +76,51 @@
 
 	![테넌트 URL 입력][8]
 
+4. **자동 Single Sign-On 구성** 페이지에서 Google Apps 테넌트에 대한 도메인에 입력합니다. **구성** 단추를 입력합니다.
+
+	![도메인 이름을 입력하고 구성을 누릅니다.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
+
+	> [AZURE.NOTE]Single sign-on을 수동으로 구성하는 것을 선호하는 경우 [선택적 단계: 수동으로 Single Sign-on 구성](#optional-step-manually-configure-single-sign-on)을 참조하세요.
+
+5. Google Apps 관리자 계정에 로그인합니다. Azure Active Directory를 제출하기 위해 **허용**을 클릭하여 Google Apps 구독에서 구성을 변경할 수 있습니다.
+
+	![도메인 이름을 입력하고 구성을 누릅니다.](./media/active-directory-saas-google-apps-tutorial/ga-consent.PNG)
+
+6. Azure Active Directory가 Google Apps 테넌트를 구성하는 동안 몇 초 정도 기다립니다. 구성이 완료되면 **다음**을 클릭합니다.
+
+10. 대화 상자의 마지막 페이지에서 이 Single Sign-On 구성 유지 관리와 관련된 오류 및 경고에 대한 전자 메일 알림을 수신하려는 경우 전자 메일 주소에 입력합니다.
+
+	![전자 메일 주소를 입력합니다.][14]
+
+11. **완료**를 클릭하여 대화 상자를 닫습니다. 구성을 테스트하려면 [Google Apps에 사용자 할당](#step-4-assign-users-to-google-apps) 섹션을 참조하세요.
+
+##선택적 단계: 수동으로 Single Sign-on 구성
+
+Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 단계를 완료합니다.
+
+1. Azure AD에서 Google Apps에 대한 빠른 시작 페이지에 있는 **Single Sign-On 구성** 단추를 클릭합니다.
+
+	![Single Sign-On 구성 단추][6]
+
+2. 대화 상자가 열리고 "Google Apps에 대한 사용자 로그온 방법을 선택하십시오."를 묻는 화면이 표시됩니다. **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
+
+	![Azure AD Single Sign-On 선택][7]
+
+	> [AZURE.NOTE]다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+
+3. **앱 설정 구성** 페이지에서 **로그온 URL** 필드에 다음 형식으로 Google Apps 테넌트 URL을 입력합니다.`https://mail.google.com/a/<yourdomain>`
+
+	![테넌트 URL 입력][8]
+
+4. **Single Sign-On 자동 구성** 페이지에서 **수동으로 Single Sign On하도록 이 응용 프로그램 구성**이라는 확인란을 선택합니다. 그런 후 **Next**를 클릭합니다.
+
+	![수동 구성을 선택합니다.](./media/active-directory-saas-google-apps-tutorial/ga-auto-skip.PNG)
+
 4. **Google Apps에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
 
 	![인증서를 다운로드합니다.][9]
 
-5. 브라우저에서 새 탭을 열고 관리자 계정을 사용하여 [ 관리 콘솔](http://admin.google.com/)에 로그인합니다.
+5. 브라우저에서 새 탭을 열고 관리자 계정을 사용하여 [Google Apps 관리 콘솔](http://admin.google.com/)에 로그인합니다.
 
 6. **보안**을 클릭합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
 
@@ -140,7 +186,7 @@
 
 		![도메인 이름을 입력합니다.][18]
 
-	- **다음**을 클릭하여 확인 페이지로 이동합니다. 이 도메인을 소유했는지 확인하려면 이 페이지에 제공된 값에 따라 도메인의 DNS 레코드를 편집해야 합니다. **레코드 종류** 옵션에 대해 선택한 항목에 따라 **MX 레코드** 또는 **TXT 레코드**를 사용하여 확인하도록 선택할 수 있습니다. Azure AD에서 도메인 이름을 확인하는 방법에 대한 포괄적인 지침은 [Azure AD에 고유한 도메인 이름 추가](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409)를 참조하세요.
+	- **다음**을 클릭하여 확인 페이지로 이동합니다. 이 도메인을 소유했는지 확인하려면 이 페이지에 제공된 값에 따라 도메인의 DNS 레코드를 편집해야 합니다. **레코드 형식** 옵션에 대해 선택한 항목에 따라 **MX 레코드** 또는 **TXT 레코드**를 사용하여 확인하도록 선택할 수 있습니다. Azure AD에서 도메인 이름을 확인하는 방법에 대한 포괄적인 지침은 [Azure AD에 고유한 도메인 이름 추가](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409)를 참조하세요.
 
 		![도메인 이름을 확인합니다.][19]
 
@@ -170,7 +216,7 @@
 
 	![Google Apps 클릭][26]
 
-7. 사용자 프로비저닝을 관리하는 데 사용할 관리자 계정을 결정합니다. 해당 계정의 **관리자 역할**에서 해당 역할에 대한 **권한**을 편집합니다. 이 계정을 프로비저닝에 사용할 수 있도록 모든 **Admin API Privileges(관리자 API 권한)**이 설정되었는지 확인합니다.
+7. 사용자 프로비저닝을 관리하는 데 사용할 관리자 계정을 결정합니다. 해당 계정의 **관리자 역할**에서 해당 역할에 대한 **권한**을 편집합니다. 이 계정을 프로비전하는 데 사용할 수 있도록 모든 **관리자 API 권한**이 설정되었는지 확인합니다.
 
 	![Google Apps 클릭][27]
 
@@ -180,7 +226,7 @@
 
 	![Google Apps 클릭][23]
 
-9. Google Apps의 빠른 시작 페이지에서 클릭**사용자 프로비저닝 구성**을 클릭합니다.
+9. Google Apps의 빠른 시작 페이지에서 클릭**사용자 프로비전 구성**을 클릭합니다.
 
 	![사용자 프로비저닝 구성][24]
 
@@ -246,4 +292,4 @@
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

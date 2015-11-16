@@ -56,7 +56,7 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 3. 서버 수준 방화벽 규칙은 쿼리 창 내에서 선택, 생성, 업데이트 또는 삭제할 수 있습니다.
 4. 0서버 수준 방화벽 규칙을 만들거나 업데이트 하려면 sp\_set\_firewall 규칙 저장 프로시저를 실행 합니다. 다음 예제는 Contoso 서버에서 일정 범위의 IP 주소를 사용하도록 설정합니다.<br/>먼저 이미 존재하는 규칙을 확인합니다.
 
-		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+		SELECT * FROM sys.firewall_rules ORDER BY name;
 
 	그런 다음 방화벽 규칙을 추가합니다.
 
@@ -141,4 +141,4 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

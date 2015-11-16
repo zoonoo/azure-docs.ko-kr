@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/29/2015" 
 	ms.author="mahender"/>
 
 # Azure Active Directory 로그인을 사용하도록 응용 프로그램을 구성하는 방법
@@ -26,7 +26,7 @@
 
 1. [Preview Azure 관리 포털]에 로그온한 다음 모바일 앱으로 이동합니다.
 
-2. **설정**에서 **사용자 인증**과 **Azure Active Directory**를 차례로 클릭합니다. **응용 프로그램 URL** 및 목록에 표시된 **회신 URL**을 복사합니다. 나중에 사용합니다. **앱 URL** 및 **회신 URL**이 HTTPS 구성표를 사용하도록 합니다.
+2. **설정**에서 **모바일 인증**과 **Azure Active Directory**를 차례로 클릭합니다. **응용 프로그램 URL** 및 목록에 표시된 **회신 URL**을 복사합니다. 나중에 사용합니다. **앱 URL** 및 **회신 URL**이 HTTPS 구성표를 사용하도록 합니다.
 
     ![][1]
 
@@ -73,6 +73,5 @@ Azure Active Directory Single Sign-On으로 모바일 앱의 사용자 인증: [
 [Preview Azure 관리 포털]: https://portal.azure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

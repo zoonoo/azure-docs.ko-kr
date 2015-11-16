@@ -1,6 +1,6 @@
 <properties
-   pageTitle="신뢰할 수 있는 행위자 분산 계산"
-   description="서비스 패브릭 신뢰할 수 있는 행위자는 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산에 적합합니다."
+   pageTitle="분산 계산 패턴 | Microsoft Azure"
+   description="서비스 패브릭의 신뢰할 수 있는 행위자는 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산에 적합합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -206,4 +206,4 @@ Azure 서비스 패브릭이 빅 데이터 프레임워크 또는 고성능 컴�
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

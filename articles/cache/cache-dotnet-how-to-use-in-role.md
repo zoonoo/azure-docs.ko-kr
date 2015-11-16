@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -410,7 +410,7 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 [Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[나에게 적합한 Azure 캐시 서비스]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+[나에게 적합한 Azure 캐시 서비스]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

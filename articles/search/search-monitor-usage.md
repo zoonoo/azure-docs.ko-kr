@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure 검색의 사용량 및 통계 모니터링" 
-   description="Azure 검색에 대한 리소스 소비 및 인덱스 크기 추적" 
+   pageTitle="Azure 검색 서비스의 사용량 및 통계 모니터링 | Microsoft Azure" 
+   description="Microsoft Azure에서 호스팅되는 검색 서비스인 Azure 검색에 대해 리소스 소비 및 인덱스 크기를 추적합니다." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="09/08/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Azure 검색의 사용량 및 통계 모니터링
@@ -57,4 +57,4 @@ Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

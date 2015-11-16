@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/03/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -23,6 +23,7 @@
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
+
 
 **[bcp][]**는 명령줄 대량 로드 유틸리티로, SQL Server, 데이터 파일 및 SQL 데이터 웨어하우스 간에 데이터를 복사할 수 있습니다. bcp 유틸리티를 사용하여 SQL 데이터 웨어하우스 테이블로 많은 수의 행을 가져오거나, 또는 SQL Server 테이블에서 데이터 파일로 데이터를 내보냅니다. Queryout 옵션을 사용하는 경우를 제외하고, bcp를 사용하려면 TRANSACT-SQL 지식이 없어도 됩니다.
 
@@ -34,7 +35,7 @@ bcp를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 - 간단한 명령줄 유틸리티를 사용하여 SQL 데이터 웨어하우스에서 데이터를 추출합니다.
 
 이 자습서는 다음에 대한 방법을 보여 줍니다.
- 
+
 - bcp in 명령을 사용하여 테이블로 데이터 가져오기
 - bcp out 명령을 사용하여 테이블에서 데이터 내보내기
 
@@ -64,14 +65,20 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 연결되면, sqlcmd 프롬프트에서 다음 테이블 스크립트를 복사한 다음 Enter 키를 누릅니다.
 
 ```
-CREATE TABLE DimDate2 (DateId INT NOT NULL, CalendarQuarter TINYINT NOT NULL, FiscalQuarter TINYINT NOT NULL);
-```
-
-다음 줄에 GO 일괄 처리 종결자를 입력하고 Enter 키를 눌러 문을 실행합니다.
-
-```
+CREATE TABLE DimDate2 
+(
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
+    FiscalQuarter TINYINT NOT NULL
+)
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = ROUND_ROBIN
+);
 GO
 ```
+>[AZURE.NOTE]WITH 절에서 사용 가능한 옵션에 대한 자세한 내용은 항목의 개발 그룹에서 [테이블 설계][] 항목을 참조하세요.
 
 ### 2단계: 원본 데이터 파일 만들기
 
@@ -127,6 +134,19 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
+### 4단계: 새로 로드한 데이터에 대한 통계 만들기 
+
+Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요. 다음은 이 예제에 로드한 테이블에 대한 통계를 만드는 방법을 간략히 보여주는 예입니다.
+
+sqlcmd 프롬프트에서 다음 CREATE STATISTICS 문을 실행합니다.
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+GO
+```
+
 ## SQL 데이터 웨어하우스에서 데이터 내보내기
 이 자습서에서는 SQL 데이터 웨어하우스의 테이블에서 데이터 파일이 만들어집니다. 위에서 만든 데이터를 DimDate2\_export.txt라는 새 데이터 파일로 내보냅니다.
 
@@ -163,8 +183,11 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 <!--Article references-->
 
-[SQL 데이터 웨어하우스로 데이터 로드]: ./sql-data-warehouse-overview-load/
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop/
+[SQL 데이터 웨어하우스로 데이터 로드]: ./sql-data-warehouse-overview-load.md
+[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
+[테이블 설계]: ./sql-data-warehouse-develop-table-design.md
+[통계]: ./sql-data-warehouse-develop-statistics.md
+
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -173,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 다운로드 센터]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

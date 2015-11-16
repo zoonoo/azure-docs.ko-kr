@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -34,7 +34,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 
 	> [AZURE.NOTE]이 문서에서 제공된 PowerShell 스크립트는 Azure 리소스 관리자 모드를 사용합니다. 예제를 작동하려면 Microsoft 웹 플랫폼 설치 관리자를 사용하여 최신 Azure PowerShell을 다운로드하십시오.
 
-##HDInsight 클러스터 프로비전
+##클러스터 만들기
 
 HDInsight 클러스터는 Azure 리소스 그룹 및 Azure 저장소 계정의 Blob 컨테이너에 필요합니다.
 
@@ -43,61 +43,60 @@ HDInsight 클러스터는 Azure 리소스 그룹 및 Azure 저장소 계정의 B
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**Azure 리소스 그룹을 만들려면**
+**Azure에 연결하려면**
 
-2. Azure 계정에 연결하고 구독을 선택합니다.(여러 구독이 있는 경우)
-
-		Add-AzureRmAccount
-		Get-AzureRmSubscription
+		Login-AzureRmAccount
+		Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
 		Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
-3. 새 리소스 그룹 만들기:
+	**Select-AzureRMSubscription** is called in case you have multiple Azure subscriptions.
+	
+**새 리소스 그룹을 만들려면**
 
-	새 AzureRmResourceGroup-이름 <New Azure Resource Group Name> -위치 <Azure Data Center> # 예를 들어 "미국 서부"
-
+	New-AzureRmResourceGroup -name <New Azure Resource Group Name> -Location "<Azure Location>"  # For example, "EAST US 2"
 
 **Azure 저장소 계정을 만들려면**
 
-	New-AzureRmStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
-
-저장소 계정 유형의 전체 목록은[https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx)을 참조하세요.
+	New-AzureRmStorageAccount -ResourceGroupName <Azure Resource Group Name> -Name <Azure Storage Account Name> -Location "<Azure Location>" -Type <AccountType> # account type example: Standard_LRS for zero redundancy storage
+	
+	Don't use **Standard_ZRS** because it deson't support Azure Table.  HDInsight uses Azure Table to logging. For a full list of the storage account types, see [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
 
 [AZURE.INCLUDE [데이터 센터 목록](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-Azure 미리 보기 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)를 참조하세요.
+Azure Preview 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)를 참조하세요.
 
 저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
 
 	# List Storage accounts for the current subscription
 	Get-AzureRmStorageAccount
 	# List the keys for a Storage account
-	Get-AzureRmStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
+	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-미리 보기 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)의 "저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
+Preview 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)의 "저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
 
 **Azure 저장소 컨테이너를 만들려면**
 
-Azure PowerShell은 HDInsight 프로비전 중 Blob 컨테이너를 만들 수 없습니다. 다음 스크립트를 사용하여 컨테이너를 만들 수 있습니다.
+Azure PowerShell은 HDInsight 만들기 프로세스 중 Blob 컨테이너를 만들 수 없습니다. 다음 스크립트를 사용하여 컨테이너를 만들 수 있습니다.
 
 	$resourceGroupName = "<AzureResoureGroupName>"
-	$storageAccountName = "<AzureStorageAccountName>"
+	$storageAccountName = "<Azure Storage Account Name>"
 	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
 	$containerName="<AzureBlobContainerName>"
 
 	# Create a storage context object
-	$destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 	# Create a Blob storage container
-	New-AzureRmStorageContainer -Name $containerName -Context $destContext
+	New-AzureStorageContainer -Name $containerName -Context $destContext
 
-**클러스터를 프로비전하려면**
+**클러스터 만들려면**
 
 저장소 계정 및 Blob 컨테이너가 준비되면 클러스터를 만들 준비가 되었습니다.
 
 	$resourceGroupName = "<AzureResoureGroupName>"
 
-	$storageAccountName = "<AzureStorageAccountName>"
+	$storageAccountName = "<Azure Storage Account Name>"
 	$containerName = "<AzureBlobContainerName>"
 
 	$clusterName = "<HDInsightClusterName>"
@@ -116,40 +115,21 @@ Azure PowerShell은 HDInsight 프로비전 중 Blob 컨테이너를 만들 수 �
 		-DefaultStorageContainer $containerName  `
 		-ClusterSizeInNodes $clusterNodes
 
-##클러스터 세부 정보 나열
+##클러스터 나열
 현재 구독의 클러스터를 모두 나열하려면 다음 명령을 사용합니다.
 
 	Get-AzureRmHDInsightCluster
 
+##클러스터 표시
+
 현재 구독의 특정 클러스터 세부 정보를 표시하려면 다음 명령을 사용합니다.
 
-	Get-AzureRmHDInsightCluster -ClusterName <ClusterName>
+	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##클러스터 삭제
 클러스터를 삭제하려면 다음 명령을 사용합니다.
 
-	Remove-AzureRmHDInsightCluster -ClusterName <ClusterName>
-
-
-
-##HTTP 서비스 액세스 권한 부여/해지
-
-HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 끝점이 있음).
-
-- ODBC
-- JDBC
-- Ambari
-- Oozie
-- Templeton
-
-
-이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. 액세스 권한을 해지/부여할 수 있습니다. 샘플은 다음과 같습니다.
-
-	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
-
->[AZURE.NOTE]액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
-
-이 작업은 미리 보기 포털을 통해서도 수행할 수 있습니다. [Azure 미리 보기 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
+	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##클러스터 크기 조정
 클러스터 크기 조정 기능을 사용하여 클러스터를 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 작업자 노드 수를 변경합니다.
@@ -199,6 +179,50 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 Azure PowerShell을 사용하여 Hadoop 클러스터 크기를 변경하려면 클라이언트 컴퓨터에서 다음 명령을 실행합니다.
 
 	Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+	
+##리소스 그룹 찾기
+
+	$clusterName = "<HDInsight Cluster Name>"
+	
+	$cluster = Get-AzureRmHDInsightCluster  -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
+
+
+##기본 저장소 계정 찾기
+
+다음 Powershell 스크립트에서는 클러스터에 대한 기본 저장소 계정 이름 및 기본 저장소 계정 키를 가져오는 방법을 보여 줍니다.
+
+
+	$clusterName = "<HDInsight Cluster Name>"
+	
+	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
+	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+	$defaultBlobContainerName = $cluster.DefaultStorageContainer
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+
+
+##액세스 권한 부여/해지
+
+HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 끝점이 있음).
+
+- ODBC
+- JDBC
+- Ambari
+- Oozie
+- Templeton
+
+
+이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. 액세스 권한을 해지/부여할 수 있습니다. 샘플은 다음과 같습니다.
+
+	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+
+>[AZURE.NOTE]액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
+
+이 작업은 미리 보기 포털을 통해서도 수행할 수 있습니다. [Azure Preview 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
+
+
 
 
 
@@ -340,7 +364,7 @@ Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdin
 * [HDInsight Cmdlet 참조 설명서][hdinsight-powershell-reference]
 * [Azure 미리 보기 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]
 * [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
-* [HDInsight 클러스터 프로비전][hdinsight-provision]
+* [HDInsight 클러스터 만들기][hdinsight-provision]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]
 * [Azure HDInsight 시작][hdinsight-get-started]
@@ -369,4 +393,4 @@ Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdin
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

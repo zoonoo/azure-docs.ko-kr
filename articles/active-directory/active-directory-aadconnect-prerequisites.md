@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
 # Azure Active Directory Connect(Azure AD Connect)에 대한 필수 조건
@@ -31,8 +31,9 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 **온-프레미스 서버 및 환경**
 
 - AD 스키마의 버전 및 포리스트 기능 수준은 Windows Server 2003 이상이어야 합니다. 도메인 컨트롤러는 스키마와 포레스트의 수준 요구 사항이 맞으면 어떤 버전도 실행할 수 있습니다.
+- **비밀번호 쓰기 저장** 기능을 사용하려는 경우 도메인 컨트롤러가 Windows Server 2008(최신 SP 포함) 이상에 있어야 합니다.
 - Azure AD Connect는 반드시 Windows Server 2008 이상의 버전에 설치되어야 합니다. Express 설정을 사용하는 경우 이 서버는 도메인 컨트롤러 또는 멤버 서버일 수 있습니다. 사용자 지정 설정을 사용하는 경우 서버는 독립 실행형일 수 있고 도메인에 가입할 필요는 없습니다.
-- 기능 암호 동기화를 사용하려는 경우 서버는 Windows Server 2008 R2 SP1 이후여야 합니다.
+- **암호 동기화** 기능을 사용하려는 경우 서버가 Windows Server 2008 R2 SP1 이상에 있어야 합니다.
 - Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 응용 프로그램 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. 원격 설치를 위해 이러한 서버에서 Windows 원격 관리를 사용할 수 있어야 합니다.
 - Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치되고 서비스에 대한 서비스 계정을 로컬 컴퓨터에 생성합니다. SQL Server Express는 약 100,000 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 프로세스가 SQL Server의 다른 버전을 가리키도록 해야 합니다. Azure AD Connect는 SQL Server 2008(SP4)에서 SQL Server 2014까지 Microsoft SQL Server의 모든 버전을 지원합니다.
 
@@ -44,7 +45,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 
 **연결**
 
-- 인터넷에 연결하는 데 아웃 바운드 프록시를 사용하는 경우 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 파일의 다음 설정은 설치 마법사 및 Azure AD 동기화에 추가되어 인터넷 및 Azure AD에 연결할 수 있어야 합니다.
+- 인터넷에 연결하는 데 아웃바운드 프록시를 사용하는 경우 설치 마법사 및 Azure AD 동기화에서 인터넷 및 Azure AD에 연결할 수 있으려면 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 파일의 다음 설정을 추가해야 합니다.
 
 ```
     <system.net>
@@ -58,7 +59,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
     </system.net>
 ```
 
-이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 &lt;PROXYADRESS&gt;는 실제 프록시 IP 주소 또는 호스트 이름을 나타냅니다. - 프록시가 액세스할 수 있는 URL을 제한하는 경우 [Office 365 URL 및 IP 주소 범위](https://support.office.com/ko-KR/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에서 설명한 URL은 프록시에서 열려야 합니다.
+이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 &lt;PROXYADRESS&gt;는 실제 프록시 IP 주소 또는 호스트 이름을 나타냅니다. 프록시가 액세스할 수 있는 URL을 제한하는 경우 [Office 365 URL 및 IP 주소 범위](https://support.office.com/ko-KR/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에서 설명한 URL이 프록시에서 열려야 합니다.
 
 **기타**
 
@@ -76,7 +77,7 @@ Azure AD Connect는 PowerShell 및.Net 4.5.1에 따라 달라집니다. Windows 
   - 최신 버전의 PowerShell은 **Windows Management Framework 4.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
   - .NET 4.5.1 이후 릴리스는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
 - Windows Server 2008
-  - 최신 지원 버전의 PowerShell은 **Windows Management Framework 3.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
+  - 지원되는 최신 버전의 PowerShell은 **Windows Management Framework 3.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
  - .NET 4.5.1 이후 릴리스는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
 
 ## Azure AD Connect 지원 구성 요소
@@ -114,4 +115,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

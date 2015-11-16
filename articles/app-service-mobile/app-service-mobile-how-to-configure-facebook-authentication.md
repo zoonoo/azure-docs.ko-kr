@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Facebook 로그인을 사용하도록 응용 프로그램을 구성하는 방법
@@ -28,7 +28,7 @@
 
 1. [Azure 관리 포털]에 로그온한 다음 모바일 앱으로 이동합니다. **URL**을 복사합니다. Facebook 앱을 구성하는 데 사용합니다.
  
-2. **설정**, **사용자 인증** 및 **Facebook**을 차례로 클릭합니다. 그런 다음 Facebook 블레이드에서 **리디렉션 URI**를 복사합니다. Facebook 앱으로 사용합니다.
+2. **설정**, **모바일 인증** 및 **Facebook**을 차례로 클릭합니다. 그런 다음 Facebook 블레이드에서 **리디렉션 URI**를 복사합니다. Facebook 앱으로 사용합니다.
  
 3. 다른 브라우저 창에서 [Facebook 개발자] 웹 사이트로 이동한 다음 Facebook 계정 자격 증명으로 로그인합니다.
 
@@ -79,6 +79,5 @@
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /ko-KR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 관리 포털]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

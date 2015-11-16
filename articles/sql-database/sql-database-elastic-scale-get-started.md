@@ -4,8 +4,8 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
-	editor=""/>
+	authors="ddove" 
+	editor="sidneyh"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,34 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh@microsoft.com"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
-#탄력적 데이터베이스 도구 시작하기
+# 탄력적 데이터베이스 도구 시작하기
 
-클라우드 컴퓨팅의 핵심 기능 중 하나는 요청 시 용량을 늘리고 줄이는 것입니다. 데이터베이스 응용 프로그램의 경우, 이렇듯 확장성이 뛰어난 솔루션 구축을 위한 중요한 기술은 분할이라는 패턴입니다. 이는 데이터가 동일하게 구조화된 다량의 데이터베이스에서 물리적으로 분할되는 것입니다. 하지만 일반적으로 분할을 사용하는 응용 프로그램의 구축 및 관리에는 응용 프로그램의 비즈니스 논리 외부에서 중요한 코딩이 필요합니다.
-
-탄력적 데이터베이스 도구는 Azure SQL DB에서 데이터베이스 분할을 사용하여 응용 프로그램 만들기 및 관리를 단순화합니다. 도구는 탄력적 데이터베이스 클라이언트 라이브러리 및 분할/병합 도구를 포함합니다. 더불어, 분할의 인프라 측면을 구현하므로 응용 프로그램의 비즈니스 논리에 초점을 맞출 수 있습니다.
-
-이 문서에서는 탄력적 데이터베이스 클라이언트 라이브러리를 사용하는 개발자 환경을 소개합니다.
-
-탄력적 데이터베이스 도구 작업에 대한 자세한 내용은 [탄력적 데이터베이스 도구 개요](sql-database-elastic-scale-introduction.md)를 참조하세요.
-
-탄력적 데이터베이스 도구와 관련된 모든 항목의 목록은 [학습 맵](sql-database-elastic-scale-documentation-map.md)을 참조하세요.
-
-## 탄력적 데이터베이스 샘플 응용 프로그램
-
-이 문서의 샘플에서는 간단한 분할 응용 프로그램을 만들고 탄력적 데이터베이스 도구의 주요 기능을 살펴봅니다. 응용 프로그램을 다운로드하여 실행하려면 아래의 단계를 수행하거나 [탄력적인 확장 - 비디오 시작](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started) 비디오를 시청하세요.
+이 문서에서는 샘플 앱을 실행하여 개발자 환경을 소개합니다. 이 문서의 샘플에서는 간단한 분할 응용 프로그램을 만들고 탄력적 데이터베이스 도구의 주요 기능을 살펴봅니다. 이 샘플은 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 기능을 보여줍니다.
 
 ## 필수 조건
-샘플 앱을 실행하려면 Visual Studio를 사용해야 하며 Azure에서 실행 중인 Azure SQL 데이터베이스 액세스 권한이 있어야 합니다. Azure 구독이 아직 없으면 [평가판 구독](http://azure.microsoft.com/pricing/free-trial/)을 신청하세요.
-### Visual Studio 및 Nuget
 
 1. C#가 포함된 Visual Studio 2012 이상이 필요합니다. [Visual Studio 다운로드](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)에서 무료 버전을 다운로드하세요.
 2. Nuget 2.7 이상. 최신 버전을 설치하려면 [NuGet 설치](http://docs.nuget.org/docs/start-here/installing-nuget)를 참조하세요.
-### Azure SQL 데이터베이스 만들기
-
-* [Microsoft Azure SQL 데이터베이스 시작](sql-database-get-started.md)을 참조하세요.
 
 ## 샘플 앱 다운로드 및 실행
 
@@ -115,4 +98,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

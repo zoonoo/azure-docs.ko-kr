@@ -1,11 +1,11 @@
 <properties
 	
-	pageTitle="Upgrade to the latest elastic database client library" 
+	pageTitle="Upgrade to the latest elastic database client library | Microsoft Azure" 
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
-	ms.author="sidneyh" />
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh" />
 
 # 최신 탄력적 데이터베이스 클라이언트 라이브러리로 업그레이드
 
-탄력적 데이터베이스 클라이언트 라이브러리의 새 버전은 Visual Studio의 NuGetPackage Manager 인터페이스와 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)을 통해 제공됩니다. 업그레이드에는 클라이언트 라이브러리의 새 기능 지원 및 버그 수정이 포함됩니다.
+[탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 새 버전은 Visual Studio의 NuGetPackage Manager 인터페이스와 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)을 통해 제공됩니다. 업그레이드에는 클라이언트 라이브러리의 새 기능 지원 및 버그 수정이 포함됩니다.
 
 새 라이브러리를 사용하여 응용 프로그램을 다시 빌드하고 새로운 기능을 지원하도록 Azure SQL 데이터베이스에 저장된 기존 분할된 데이터베이스 맵 관리자 메타데이터를 변경합니다.
 
@@ -97,4 +97,4 @@ ShardMapManager를 열고 모든 분할에서 반복 실행한 다음, 다음 �
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

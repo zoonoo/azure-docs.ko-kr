@@ -29,6 +29,10 @@ Azure 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크톱, Win
 
 - [네트워크 보안 그룹 정보](virtual-networks-nsg.md)
 
+네트워크 보안 그룹은 가상 컴퓨터에 대한 액세스를 제어하지만 포트 전달 기능은 제공하지 않습니다. 포트 전달을 수행하려면 다음 문서를 참조하세요.
+
+- [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치 구성 시작](../load-balancer/load-balancer-arm-powershell.md)
+
 각 끝점에는 공용 포트와 개인 포트가 있습니다.
 
 - 공용 포트는 Azure 부하 분산 장치가 인터넷에서 가상 컴퓨터로 들어오는 트래픽을 수신 대기하는 데 사용됩니다.
@@ -96,4 +100,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [PowerShel
 
 [Azure 인프라 서비스를 위한 부하 분산](virtual-machines-load-balance.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

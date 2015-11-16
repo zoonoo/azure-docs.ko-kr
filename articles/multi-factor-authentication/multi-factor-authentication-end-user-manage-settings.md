@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure MFA 설정 관리" 
-	description="이 문서에서는 Azure MFA 설정을 관리해야 하는 위치에 대한 사용자 정보를 제공합니다." 
+	pageTitle="Azure Multi-Factor Authentication에 문제가 있는 경우 | Microsoft Azure" 
+	description="이 문서는 Azure 다단계 인증에 문제가 있는 경우 수행할 작업에 대한 정보를 제공합니다." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,19 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="10/29/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에 문제가 있는 경우
 발생할 수 있는 일반적인 문제 중 일부를 도와주는 다음 정보가 제공됩니다.
 
 
-
+- [상관관계 ID 오류](#correlation-id-errors)
 - [전화를 분실했거나 도난당한 경우](#i-have-lost-my-phone-or-it-was-stolen?)
 - [휴대폰 번호를 변경하려는 경우](#i-want-to-change-my-phone-number)
 - [휴대폰에서 코드를 받지 못하는 경우](#i-am-not-receiving-a-code-on-my-phone)
 - [앱 암호가 작동하지 않는 경우](#app-passwords-are-not-working)
 - [이전 장치에서 Azure Authenticator를 제거하고 새 장치로 이동하려는 경우](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+
+##상관관계 ID 오류
+아래의 문제 해결 단계를 시도해도 여전히 문제가 발생하면 [Azure AD 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)에 질문을 게시하거나, [Microsoft 기술 자료(KB)를 검색하거나](https://www.microsoft.com/ko-KR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport), [지원에 문의하시면](https://support.microsoft.com/ko-KR) 빠른 시일 내에 문제를 살펴보겠습니다.
+
+지원에 문의할 때 다음 정보를 포함 하는 것이 좋습니다.
+
+ - **오류에 대한 일반적인 설명** – 사용자가 본 정확한 오류 메시지 정의 오류 메시지가 있는 경우 알아낸 예기치 않은 동작을 자세히 설명합니다.
+ - **페이지** – 오류(URL 포함)가 나타나는 경우 페이지 정의
+ - **ErrorCode** - 수신한 특정 오류 코드
+ - **SessionId** - 수신한 특정 세션 ID
+ - **상관관계 ID** – 사용자가 오류를 확인했을 때 생성된 상관관계 ID
+ - **타임스탭프** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간 정의
+ 
+![상관관계 ID](./media/multi-factor-authentication-end-user-manage/correlation.png)
+
+ - **사용자 ID** – 오류가 나타난 사용자의 ID 정의(예: user@contoso.com)?
+ - **사용자에 대한 정보** – 페더레이션된 사용자, 동기화된 암호 해시, 클라우드 정의 Azure AD Premium, Enterprise Mobility 또는 Azure AD Basic 라이선스 할당 여부 Office 365 등을 사용하는지 여부
+
+이 정보를 포함하면 최대한 빨리 문제를 해결하는데 도움이 됩니다.
 
 ## 전화를 분실했거나 도난당한 경우
 전화를 분실했거나 도난당한 경우 관리자에게 [앱 암호](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords)를 초기화하고 [기억된 장치](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-suspended-devices-for-a-user)를 삭제하도록 문의하는 것이 좋습니다.
@@ -66,7 +85,7 @@ Office 365와 함께 다단계 인증을 사용하는 경우 Office 365 포털�
 2. 오른쪽 위 모서리에서 위젯을 선택하고 Office 365 설정을 선택합니다.
 3. 추가 보안 인증을 클릭합니다.
 4. 오른쪽의 **Update my phone numbers used for account security(계정 보안에 사용되는 전화 번호 업데이트)** 링크를 클릭합니다. ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. 설정을 변경할 수 있는 페이지로 이동합니다. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
+5. 이렇게 하면 설정을 변경할 수 있는 페이지로 이동합니다. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
 ### Myapps 포털에서 설정 변경
@@ -92,7 +111,7 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 1. Azure 포털에 로그온합니다.
 2. Azure 포털의 위쪽에서 사용자 이름을 클릭합니다. 그러면 드롭다운 상자가 표시됩니다.
 3. 드롭다운 상자에서 추가 보안 인증을 선택합니다. ![Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
-4. 설정을 변경할 수 있는 페이지로 이동합니다. ![검사](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
+4. 이렇게 하면 설정을 변경할 수 있는 페이지로 이동합니다.![검사](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
 ##휴대폰에서 코드를 받지 못하는 경우
 
@@ -120,4 +139,4 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 ##이전 장치에서 Azure Authenticator를 제거하고 새 장치로 이동하려는 경우
 장치에서 앱을 제거하거나 장치를 재점멸하는 경우 백 엔드에서 정품 인증을 제거하지 않습니다. [새 장치로 이동](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app)에 설명된 단계를 사용해야 합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="11/02/2015" 
     ms.author="markvi" />
 
 #자습서: ServiceNow와 Azure Active Directory 통합
@@ -67,7 +67,7 @@
   
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 ServiceNow에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
-이 절차의 일부로 base-64로 인코딩된 인증서를 Dropbox for Business 테넌트로 업로드 해야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+이 절차의 일부로 base-64로 인코딩된 인증서를 Dropbox for Business 테넌트로 업로드 해야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -79,91 +79,142 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **ServiceNow 로그인 URL** 텍스트 상자에 "*https://<InstanceName>.servicenow.com*" 패턴을 사용하여 URL을 입력하고 **다음**을 누릅니다.
+3.  **앱 설정 구성** 페이지에서 다음 단계를 수행합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC769497.png "앱 URL 구성")
+
+    a. **ServiceNow 로그인 URL** 텍스트 상자에 사용자가 ServiceNow 응용 프로그램에 로그인하는 데 사용한 URL을 입력합니다.(예: *https://\<InstanceName>.service-now.com*)
+
+    b. **발급자 URL** 텍스트 상자에 사용자가 ServiceNow 응용 프로그램에 로그인하는 데 사용한 URL을 입력합니다.(예: *https://\<InstanceName>.service-now.com*)
+
+    c. **다음**를 클릭합니다.
+
+4.  **Single Sign-On 자동 구성** 페이지에서 **수동으로 Single Sign On하도록 이 응용 프로그램 구성**을 선택하고 **다음**을 클릭합니다.
+
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "앱 URL 구성")
+
+
 
 4.  **ServiceNow에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭하고 컴퓨터에 로컬로 인증서 파일을 저장한 후 **다음**을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Single Sign-On 구성")
 
-5.  ServiceNow 테넌트의 왼쪽에 있는 탐색 모음에서 **속성**을 클릭하여 **SAML 2.0 Single Sign on 속성** 페이지를 엽니다.
+1. ServiceNow 응용 프로그램에 관리자 권한으로 로그온합니다.
+
+2. 왼쪽의 탐색 창에서 **속성**을 클릭합니다.
+
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694980.png "앱 URL 구성")
 
 
-6. **SAML 2.0 Single sign-on 속성** 페이지에서 다음 단계를 수행합니다.
+3. **여러 공급자 SSO 속성** 대화 상자에서 다음 단계를 수행합니다.
 
-     6\.1. **외부 인증 사용**으로 **예**를 선택합니다.
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "앱 URL 구성")
 
+    a. **여러 공급자 SSO 사용**을 **예**로 선택합니다.
 
-     6\.2. **사용자 정보로 SAML2 보안 토큰을 발급할 수 있는 ID 공급자 URL** 텍스트 상자에 **https://sts.windows.net/<테넌트의 GUID>/**를 입력합니다.
+    b. **디버그 로깅에 여러 공급자 SSO 통합을 사용하도록 설정**을 **예**로 선택합니다.
 
+    c. **...하는 사용자 테이블의 필드** 텍스트 상자에서 **user\_name**을 입력합니다.
 
-     6\.3. **ID 공급자의 AuthnRequest 서비스에 대한 기준 URL** 텍스트 상자에 **https://login.windows.net/<테넌트의 GUID>/saml2**를 입력합니다.
-
-
-     6\.4. **ID 공급자의 SingleLogoutRequest 서비스에 대한 기준 URL** 텍스트 상자에 **https://login.windows.net/<테넌트의 GUID>/saml2**를 입력합니다.
-
-
-     6\.5. **ID 공급자의 SingleLogoutRequest 서비스에 대한 프로토콜 바인딩** 텍스트 상자에 **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**를 입력합니다.
-
-     6\.6. **Sign LogoutRequest**로 **예**를 선택합니다.
-
-     6\.7. **세션이 인증되지 않거나, 처음으로 로그인하기 때문에 SAML 2.0 single sign-on을 할 수 없는 경우, 이 URL로 리디렉션** 텍스트 상자에 **https://login.windows.net/<테넌트의 GUID>/saml2**를 입력합니다.
-
-  
-
-7. * * 서비스 공급자 (Service-now) 속성 * * 섹션에서 다음 단계를 수행합니다.
-
-     7\.1. **Service-now 인스턴스 홈페이지의 URL** 텍스트 상자에 ServiceNow 인스턴스 홈페이지의 URL을 입력합니다. ServiceNow 인스턴스 홈페이지의 URL은 **ServiceNow 테넌트 URL** 및 **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Service-now 인스턴스 홈페이지](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Service-now 인스턴스 홈페이지")의 연결입니다.
-
-
-     7\.2. **엔터티 ID 또는 발급자** 텍스트 상자에 테넌트의 URL을 입력합니다.
-
-     7\.3. **SAML2 토큰을 허용하는 대상 그룹 uri** 텍스트 상자에 테넌트의 URL을 입력합니다.
-
-     7\.4. **SAMLResponse의 주체 NameID 요소와 일치하는 사용자 테이블 필드** 텍스트 상자에 **email**을 입력합니다.
-
-     7\.5. **SAMLResponse의 주체 NameID 반환에 사용할 NameID 정책** 텍스트 상자에 **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**를 입력합니다.
-
-     7\.6 **AuthnRequest 문에서 AuthnContextClass 요청 만들기** 옵션을 선택 취소 상태로 그대로 둡니다.
-
-     7\.7 **ID 공급자에 대한 SAML 2.0 AuthnRequest에 포함될 AuthnContextClassRef 메서드** 텍스트 상자에 ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**을 입력합니다.
+    d. **Save**를 클릭합니다.
 
 
 
-8. **고급 설정** 섹션에서 다음 단계를 수행합니다.
+1. 왼쪽의 탐색 창에서 **x509 Certificates**을 클릭합니다.
 
-     8\.1. **"notBefore" 제약 조건 이전 또는 "notOnOrAfter" 제약 조건 이후에 여전히 유효한지 고려해야 할 초 단위 수** 텍스트 상자에 **60**을 입력합니다.
-
-
-9. 구성을 저장하려면 **저장**을 클릭합니다.
-
-10. 왼쪽의 탐색 모음에서 **인증서**를 클릭하여 **인증서** 페이지를 엽니다.
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694973.png "Single Sign-On 구성")
 
 
+1. **X.509 인증서** 대화 상자에서 **새로 만들기**를 클릭합니다.
 
-11. 인증서 페이지에서 인증서를 업로드 하려면 다음 단계를 수행 합니다.
-
-     11\.1. **새로 만들기**를 클릭합니다.
-
-     11\.2. **이름** 텍스트 상자에 **SAML 2.0**을 입력합니다.
-
-     11\.3. **활성**을 선택합니다.
-
-     11\.4. **형식**으로 **PEM**을 선택합니다.
-
-     11\.5. 다운로드한 인증서에서 Base-64로 인코딩된 파일을 만듭니다.>[AZURE.NOTE]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
-
-     11\.6. **메모장**에서 Base-64로 인코딩된 파일을 열고 이 파일의 내용을 클립보드에 복사합니다.
-
-     11\.7. 클립보드의 내용을 **PEM 인증서** 텍스트 상자에 붙여넣습니다.
-
-     11\.8. **Submit**를 클릭합니다.
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Single Sign-On 구성")
 
 
+1. **X.509 Certificates** 대화 상자에서 다음 단계를 수행합니다.
 
-12. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 완료를 클릭하여 Single Sign-On 구성 대화 상자를 닫습니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749326.png "Single Sign-On 구성")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Single Sign-On 구성")
 
+    a. **새로 만들기**를 클릭합니다.
+
+    b. **이름** 텍스트 상자에서 구성할 이름을 입력합니다.(예: **TestSAML2.0**).
+
+    c. **활성**을 선택합니다.
+
+    d. **형식**으로 **PEM**을 선택합니다.
+
+    e. **형식**으로 **저장소 인증서 신뢰**를 선택합니다.
+
+    f. 다운로드한 인증서에서 Base-64로 인코딩한 파일을 만듭니다.
+    > [AZURE.NOTE]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+    
+    g. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **PEM 인증서** 텍스트 상자에 붙여 넣습니다.
+
+    h. **업데이트**를 클릭합니다.
+
+
+1. 왼쪽의 탐색 창에서 **ID 공급자**를 클릭합니다.
+
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694976.png "Single Sign-On 구성")
+
+1. **ID 공급자** 대화 상자에서 **새로 만들기**를 클릭합니다.
+
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Single Sign-On 구성")
+
+
+1. **ID 공급자** 대화 상자에서 **SAML2 Update1?**를 클릭합니다.
+
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Single Sign-On 구성")
+
+
+1. SAML2 Update1 속성 대화 상자에서 다음 단계를 수행합니다.
+
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Single Sign-On 구성")
+
+
+    a. **이름** 텍스트 상자에서 구성할 이름을 입력합니다.(예: **SAML 2.0**)
+
+    b. **사용자 필드** 텍스트 상자에 **전자 메일**을 입력합니다.
+
+    c. Azure AD 포털에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
+
+    d. Azure AD 포털에서 **인증 요청 URL** 값을 복사한 다음 **ID 공급자의 AuthnRequest** 텍스트 상자에 붙여넣습니다.
+
+    e. Azure AD 포털에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **ID 공급자의 SingleLogoutRequest** 텍스트 상자에 붙여넣습니다.
+
+    f. **ServiceNow 홈페이지** 텍스트 상자에 ServiceNow 인스턴스 홈페이지의 URL을 입력합니다.
+
+    > [AZURE.NOTE]ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다.(e.g.: **https://fabrikam.service-now.com/navpage.do*).
+ 
+
+    g. **엔터티 ID/발급자** 텍스트 상자에 ServiceNow 테넌트의 URL을 입력합니다.
+
+    h. **대상 URL** 텍스트 상자에 ServiceNow 테넌트의 URL을 입력합니다.
+
+    i **IDP의 SingleLogoutRequest에 대한 프로토콜 바인딩** 텍스트 상자에 **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**를 입력합니다.
+
+    j. NameID 정책 텍스트 상자에 **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**를 입력합니다.
+
+    k. **AuthnContextClass 만들기**의 선택을 취소합니다.
+
+    l. **AuthnContextClassRef 메서드**에 ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**를 입력합니다.
+
+    m. **시계 기울이기** 텍스트 상자에 **60**을 입력합니다.
+
+    n. **단일 로그인 스크립트**로 **MultiSSO\_SAML2\_Update1**를 선택합니다.
+
+    o. **x509 인증서**로 이전 단계에서 만든 인증서를 선택합니다.
+
+    p. **제출**을 클릭합니다.
+
+
+
+6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Single Sign-On 구성")
+
+7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
+ 
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Single Sign-On 구성")
 
 
 
@@ -174,10 +225,10 @@
 
 ### 사용자 프로비전을 구성하려면
 
-1. Azure 관리 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭합니다. <br><br> ![사용자 프로비전](./media/active-directory-saas-servicenow-tutorial/IC769498.png "사용자 프로비전")
+1. Azure 관리 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭합니다. <br><br> ![사용자 프로비전](./media/active-directory-saas-servicenow-tutorial/IC769498.png "사용자 프로비전")
 
 
-2. **ServiceNow 자격 증명을 입력하여 자동 사용자 프로비전 사용** 페이지에서 사용자 프로비저닝 구성 설정을 제공합니다.
+2. **ServiceNow 자격 증명을 입력하여 자동 사용자 프로비전 사용** 페이지에서 사용자 프로비전 구성 설정을 제공합니다.
 
      2\.1. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
 
@@ -219,7 +270,7 @@
 
     ![예](./media/active-directory-saas-servicenow-tutorial/IC767830.png "예")
   
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
 
 ## 추가 리소스
@@ -227,4 +278,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

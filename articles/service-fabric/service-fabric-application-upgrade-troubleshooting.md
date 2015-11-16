@@ -1,5 +1,5 @@
 <properties
-   pageTitle="서비스 패브릭 응용 프로그램 업그레이드 문제 해결"
+   pageTitle="응용 프로그램 업그레이드 문제 해결 | Microsoft Azure"
    description="이 문서에서는 서비스 패브릭 응용 프로그램 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -225,4 +225,4 @@ PS D:\temp>
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

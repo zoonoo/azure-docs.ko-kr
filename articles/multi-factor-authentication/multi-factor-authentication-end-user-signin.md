@@ -17,7 +17,7 @@
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication의 로그인 환경
-다음 정보는 로그인 환경을 안내하기 위해 제공됩니다.
+이 페이지에 제공된 문서는 일반적인 로그인 환경을 보여줍니다. 로그인 관련 지원은 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-manage-settings.md)를 참조하세요.
 
 
 ## 어떤 로그인 환경이 제공되나요?
@@ -102,4 +102,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

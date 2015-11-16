@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure 리소스 소비에 대한 통찰력 얻기"
+   pageTitle="Microsoft Azure 리소스 사용에 대한 통찰력 얻기 | Microsoft Azure"
    description="Azure 청구 사용량 및 RateCard API에 대한 개념 정보를 제공하며 이는 Azure 리소스 소비 및 추세에 대한 통찰력을 제공하는데 사용합니다."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/07/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Microsoft Azure 리소스 소비에 대한 통찰력 얻기 
@@ -72,10 +72,10 @@ Azure 리소스 사용량 및 RateCard API는 Azure 리소스 관리자가 노�
 
 ## 다음 단계
 + 두 API에 대한 자세한 내용은 [Azure 청구 REST API 참조](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)를 확인하십시오. 이는 Azure 리소스 관리자에서 제공하는 API 집합입니다.
-+ 샘플 코드를 곧바로 시작려면 [Github의 Microsoft Azure 청구 API 코드 샘플](https://github.com/Azure/BillingCodeSamples)을 확인하십시오.
++ 샘플 코드를 곧바로 시작하려면 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?term=billing)의 Microsoft Azure 청구 API 코드 샘플을 확인하세요.
 
 ## 자세한 정보
 + Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하십시오.
 + 클라우드 지출을 이해하는 데 필요한 도구 모음에 대한 추가 정보는 Gartner 문서 [IT 재무 관리(ITFM) 도구에 대한 시장 가이드](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Microsoft Azure에서 검색 서비스 관리 | Microsoft Azure" 
-	description="Microsoft Azure에서 검색 서비스 관리" 
+	description="Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색 관리" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Microsoft Azure에서 검색 서비스 관리
 
-Azure 검색은 사용자 지정 검색 응용 프로그램에서 사용할 수 있는 클라우드 기반 서비스 및 HTTP 기반 API입니다. 검색 서비스는 전체 텍스트 검색 텍스트 분석, 고급 검색 기능, 검색 데이터 저장소 및 쿼리 명령 구문을 위한 엔진을 제공합니다.
+Azure 검색은 사용자 지정 검색 응용 프로그램에서 HTTP 기반 API가 있는 클라우드 기반 서비스입니다. 검색 서비스는 전체 텍스트 검색 텍스트 분석, 고급 검색 기능, 검색 데이터 저장소 및 쿼리 명령 구문을 위한 엔진을 제공합니다.
 
 이 문서에서는 [Microsoft 포털](https://portal.azure.com)에서 검색 서비스를 관리하는 방법에 대해 설명합니다.
 
@@ -193,4 +193,4 @@ Azure 검색에서는 역할 기반 액세스 제어에 따라 다음 관리 작
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

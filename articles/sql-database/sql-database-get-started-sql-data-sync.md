@@ -20,10 +20,9 @@
 #Azure SQL 데이터 동기화 시작(미리 보기)
 이 자습서에서는 Azure(미리 보기) 포털을 사용하여 Azure SQL 데이터 동기화의 기본 사항에 대해 알아봅니다.
 
-
 이 자습서에서는 SQL Server 및 Azure SQL 데이터베이스를 사용한 경험이 매우 적다고 가정합니다. 이 자습서에서는 완전하게 구성되고 설정된 일정에 동기화되는 하이브리드(SQL Server 및 SQL 데이터베이스 인스턴스) 동기화 그룹을 만듭니다.
 
-**참고!** 이전에 MSDN에 있었던 Azure SQL 데이터 동기화에 설정된 전체 기술 설명서는 이제 [여기](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)에서 다운로드하는 단일 .pdf입니다.
+> [AZURE.NOTE]이전에 MSDN에 있었던 Azure SQL 데이터 동기화에 설정된 전체 기술 설명서는 이제 [여기](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)에서 다운로드하는 단일 .pdf입니다.
 
 ## 1단계: Azure SQL 데이터베이스에 연결
 
@@ -64,7 +63,7 @@
 <a id="InstallClient"></a>
 ### 2b단계: 새 클라이언트 에이전트 설치
 
-[클라이언트 에이전트 설치(SQL 데이터 동기화)]에 있는 지침을 따라((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf) 에이전트를 설치합니다.
+[[클라이언트 에이전트 설치(SQL 데이터 동기화)]](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)에 있는 지침을 따라에이전트를 설치합니다.
 
 
 
@@ -203,4 +202,4 @@ SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

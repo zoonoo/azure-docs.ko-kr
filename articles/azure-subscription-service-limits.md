@@ -49,6 +49,7 @@
 - [데이터 팩터리](#data-factory-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [IoT 허브](#iot-hub-limits)
 - [키 자격 증명 모음](#key-vault-limits)
 - [미디어 서비스](#media-services-limits)
 - [모바일 고객 관리](#mobile-engagement-limits)
@@ -194,6 +195,10 @@ Azure 검색 제한에 대한 자세한 내용은 [제한 및 제약 조건](htt
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
+### IoT Hub 제한
+
+[AZURE.INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
+
 ### 데이터 팩터리 제한
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
@@ -258,4 +263,4 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

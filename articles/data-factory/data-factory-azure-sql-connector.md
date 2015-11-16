@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 Azure SQL 간 데이터 이동
@@ -562,4 +562,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 	 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

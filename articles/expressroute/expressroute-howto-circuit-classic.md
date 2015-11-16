@@ -13,10 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="11/04/2015"
    ms.author="cherylmc"/>
 
 # Express 경로 회로 만들기 및 수정
+
+> [AZURE.SELECTOR]
+[PowerShell Classic](expressroute-howto-circuit-classic.md)
+[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
 
 이 문서에서는 PowerShell cmdlet 및 일반 배포 모델을 사용하여 Express 경로 회로를 만드는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
 
@@ -24,8 +28,8 @@
 
 ## 필수 구성 요소
 
-- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. 컴퓨터를 구성하여 Azure PowerShell 모듈을 사용하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행합니다. 
-- 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지와 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
+- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침을 따르려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행하세요. 
+- 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지와 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 
 ## Express 경로 회로 만들기 및 프로비전
 
@@ -116,7 +120,7 @@
 
 4. **모든 Express 경로 목록.**
 
-	*Get-azurededicatedcircuit* 명령을 실행하여 자신이 만든 모든 Express 경로 회로 목록을 구할 수 있습니다.
+	*Get-AzureDedicatedCircuit* 명령을 실행하여 직접 만든 모든 Express 경로 회로 목록을 가져올 수 있습니다.
 
 		#Getting service key
 		Get-AzureDedicatedCircuit
@@ -157,7 +161,7 @@
 		
 		Status                           : Enabled
 
-	*ServiceProviderProvisioningState*는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공하며, Status는 Microsoft 측의 상태를 제공합니다. Express 경로 회로를 사용하려면 다음 상태여야 합니다.
+	*ServiceProviderProvisioningState*는 서비스 공급자 쪽의 현재 프로비전 상태에 대한 정보를 제공하며, Status는 Microsoft 쪽의 상태를 제공합니다. Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -173,7 +177,7 @@
 
 5. **주기적으로 회로 키의 상태 및 상태를 확인합니다.**
 
-	이를 통해 공급자가 회로 활성화를 마치면 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *프로비전됨*으로 표시됩니다.
+	이를 통해 공급자가 회로 활성화를 마치면 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예처럼 *프로비전됨*으로 표시됩니다.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -192,7 +196,7 @@
 
 7. **VNet을 Express 경로 회로에 연결합니다.**
 
-	이제 VNet을 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로를 VNet에 연결](expressroute-howto-linkvnet-classic.md)을 참조하세요. Express 경로에 대한 가상 네트워크를 만들어야 할 경우 지침은 [Express 경로에 대한 가상 네트워크 만들기](expressroute-howto-createvnet-classic.md)를 참조하세요.
+	이제 VNet을 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로를 VNet에 연결](expressroute-howto-linkvnet-classic.md)을 참조하세요. Express 경로에 대한 가상 네트워크를 만들어야 할 경우 지침은 [Express 경로에 대해 가상 네트워크 만들기](expressroute-howto-createvnet-classic.md)를 참조하세요.
 
 ##  Express 경로 회로의 상태를 확인하는 방법
 
@@ -317,11 +321,11 @@
 
 Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
 
-위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
+위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 대한 프로비전을 해제하고 청구를 중지합니다.
 
 ## 다음 단계
 
 - [라우팅 구성](expressroute-howto-routing-classic.md)
 - [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

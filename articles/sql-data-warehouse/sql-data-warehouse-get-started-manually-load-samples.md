@@ -1,6 +1,6 @@
 <properties
    pageTitle="샘플 데이터를 SQL 데이터 웨어하우스에 로드 | Microsoft Azure"
-   description="샘플 데이터를 SQL 데이터 웨어하우스에 로드"
+   description="SQL 데이터 웨어하우스로 샘플 데이터를 로드"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,49 +13,50 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/02/2015"
    ms.author="lodipalm;barbkess"/>
 
 #SQL 데이터 웨어하우스로 샘플 데이터를 로드
 
-이제 SQL 데이터 웨어하우스 인스턴스를 설치하였음으로, 일부 데이터를 쉽게 로드할 수 있습니다. 다음은 데이터베이스에 AdventureWorksPDW2012라는 데이터 집합을 만드는데 도움이 됩니다. 이 데이터 집합은 AdventureWorks라는 가상 회사의 샘플 데이터 웨어하우스 구조를 모델링합니다. 아래의 단계에 따라 BCP를 설치해야합니다. 현재 BCP가 설치되어있지 않은경우, [SQL Server용 Microsoft 명령줄 유틸리티][]를 설치하십시오.
+[SQL 데이터 웨어하우스 데이터베이스 인스턴스를 만들고][create a SQL Data Warehouse database instance] 나면 다음 단계는 테이블을 만들고 로드하는 것입니다. SQL 데이터 웨어하우스용으로 만든 Adventure Works 샘플 스크립트를 사용하여 Adventure Works라는 가상 회사의 테이블을 만들고 로드할 수 있습니다. 이 스크립트는 sqlcmd를 사용하여 SQL을 실행하고 bcp를 사용하여 데이터를 로드합니다. 이런 도구가 아직 설치되어 있지 않다면 다음 링크를 따라 [bcp를 설치][]하고 [sqlcmd를 설치][]합니다.
 
-1. [샘플 데이터 스크립트][]를 다운로드하도록 클릭하여 시작합니다.
+다음 단계에 따라서 Adventure Works 샘플 데이터베이스를 SQL DW에 로드합니다.
 
-2. 파일을 다운로드한 후, AdventureWorksPDW2012.zip 파일의 내용을 추출하고 새 AdventureWorksPDW2012 폴더를 엽니다.
+1. [SQL 데이터 웨어하우스용 Adventure Works 샘플 스크립트][]를 다운로드합니다.
 
-3. Aw\_create.bat 파일을 편집하고 파일의 위에 다음 값을 설정합니다.
+2. 사용자의 로컬 컴퓨터 디렉터리에 다운로드한 zip 파일의 압축을 풉니다.
 
-   a. **서버**: b에 있는 SQL 데이터 웨어하우스의 완벽히 조건에 충족된 서버 이름입니다.
+3. 압축을 푼 aw\_create.bat 파일을 편집하고 파일 위쪽에서 다음 변수를 설정합니다. "="와 매개 변수 사이에 공백이 없도록 해야 합니다. 다음은 사용자가 편집한 예입니다.
 
-   b. **사용자**: 위 서버 c의 사용자입니다.
-   
-   c. **암호**: d에 로그인하는 제공된 서버의 암호입니다.
-   
-   d. **데이터베이스**: 데이터를 로드하려는 SQL 데이터 웨어하우스 인스턴스의 이름입니다.
-   
-   '='와 이러한 매개 변수 사이에 공백이 없는지 확인합니다.
-   
+    	server=mylogicalserver.database.windows.net
+    	user=mydwuser
+    	password=Mydwpassw0rd
+    	database=mydwdatabase
 
-4. 데이터베이스가 위치한 디렉토리에서 aw\_create.bat를 실행합니다. 이것은 스키마를 만들고 BCP를 사용하여 모든 테이블안에 데이터를 로드합니다.
+4. 편집한 aw\_create.bat 파일을 Windows cmd 프롬프트에서 실행합니다. aw\_create.bat 파일의 편집 버전을 저장한 디렉터리에 있어야 합니다. 이 스크립트는 다음과 같은 기능을 수행합니다.
+	* 데이터베이스에 존재하는 Adventure Works 테이블 또는 뷰를 제거합니다.
+	* Adventure Works 테이블 및 뷰를 만듭니다.
+	* bcp를 사용하여 각각의 Adventure Works 테이블을 로드합니다.
+	* 각 Adventure Works 테이블의 행 개수를 확인합니다.
+	* 각 Adventure Works 테이블의 모든 열에 대해 통계를 수집합니다.
 
 
-## 샘플을 연결하고 쿼리하기
+##샘플 데이터 쿼리
 
-[연결][] 설명서에서 설명한대로 Visual Studio와 SSDT를 사용하여 데이터베이스에 연결할 수 있습니다. 이제 SQL 데이터 웨어하우스 내의 일부 샘플 데이터를 로드했고, 시작하기 위해 몇 가지 쿼리를 신속하게 실행할 수 있습니다.
+SQL 데이터 웨어하우스로 샘플 데이터를 로드하고 나면, 몇 가지 쿼리를 신속하게 실행할 수 있습니다. 쿼리를 실행하려면 [연결][] 문서의 설명대로, Visual Studio 및 SSDT를 사용하여 Azure SQL DW에 새로 만든 Adventure Works 데이터베이스에 연결합니다.
 
-직원의 모든 정보를 가져오는 간단한 select 문을 실행할 수 있습니다.
+직원의 모든 정보를 가져오는 간단한 select 문의 예입니다.
 
 	SELECT * FROM DimEmployee;
 
-각 날짜의 모든 판매 금액을 살펴보기 위해 GROUP BY 같은 구문을 사용하여 더 복잡한 쿼리를 실행할 수도 있습니다.
+각 날짜의 모든 판매에 대한 총 금액을 살펴보기 위해 GROUP BY 같은 구문을 사용하는 더 복잡한 쿼리의 예입니다.
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-특정 날짜 이전의 주문을 필터링 할 WHERE 구문을 사용할 수도 있습니다.
+특정 날짜 이전의 주문을 필터링하기 위한 SELECT와 WHERE 절의 예입니다.
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
@@ -63,10 +64,10 @@
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-사실, SQL 데이터 웨어하우스는 SQL Server에서 사용되는 대부분의 T-SQL 구문을 지원하며, [마이그레이션 코드][] 설명서에 일부 차이점을 찾을 수 있습니다.
+SQL 데이터 웨어하우스는 SQL Server가 지원하는 거의 모든 T-SQL 구문을 지원합니다. 차이점은 [코드 마이그레이션][] 문서에 설명되어 있습니다.
 
 ## 다음 단계
-이제 샘플 데이터로 [개발][],[로드][] 또는 [마이그레이션][]할 준비 시간을 드리겠습니다.
+샘플 데이터로 몇 가지 쿼리를 시도해 볼 기회를 가졌으니, SQL 데이터 웨어하우스로 [개발][], [로드][] 또는 [마이그레이션][]하는 방법에 대해 알아보겠습니다.
 
 <!--Image references-->
 
@@ -75,12 +76,12 @@
 [개발]: ./sql-data-warehouse-overview-develop.md
 [로드]: ./sql-data-warehouse-overview-load.md
 [연결]: ./sql-data-warehouse-get-started-connect.md
-[마이그레이션 코드]: ./sql-data-warehouse-migrate-code.md
-
-<!--MSDN references-->
-[SQL Server용 Microsoft 명령줄 유틸리티]: http://www.microsoft.com/download/details.aspx?id=36433/
+[코드 마이그레이션]: ./sql-data-warehouse-migrate-code.md
+[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
+[bcp를 설치]: ./sql-data-warehouse-load-with-bcp.md
+[sqlcmd를 설치]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
 
 <!--Other Web references-->
-[샘플 데이터 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
+[SQL 데이터 웨어하우스용 Adventure Works 샘플 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

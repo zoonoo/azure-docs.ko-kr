@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="11/03/2015"
    ms.author="bwren" />
 
 # Azure 자동화 Hybrid Runbook Worker
@@ -44,7 +44,7 @@ Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹�
 Hybrid Runbook 작업을 실행하려면 온-프레미스 컴퓨터를 적어도 하나 지정해야 합니다. 이 컴퓨터에는 다음 항목이 있어야 합니다.
 
 - Windows Server 2012 이상
-- WIndows PowerShell 4.0 이상
+- Windows PowerShell 4.0 이상
 
 Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 
@@ -52,11 +52,15 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 - Hybrid Worker는 서비스 관리 자동화 또는 System Center Orchestrator Runbook 서버와 공존할 수 있습니다.
 - 작업이 완료되면 작업 데이터가 Azure 자동화로 다시 전송되므로 자동화 계정 지역이나 그와 가까운 위치에 있는 컴퓨터를 사용하는 것이 좋습니다.
 
+방화벽 요구 사항:
+
+- Hybrid Runbook Worker를 실행 중인 온-프레미스 컴퓨터는 포트 443, 9354 및 30000-30199에서 *.cloudapp.net에 아웃바운드 액세스를 할 수 있어야 합니다.
+
 ## Hybrid Runbook Worker 설치
 아래 절차는 Hybrid Runbook Worker를 설치하고 구성하는 방법을 설명합니다. 자동화 환경에 대해 처음 두 단계를 한 번 수행한 후 각 Worker 컴퓨터에 대해 나머지 단계를 반복합니다.
 
 ### 1\. Operations Management Suite 작업 영역 만들기
-Azure 계정에 Operations Management Suite 작업 영역이 아직 없는 경우 [Operational Insights 작업 영역 설정](../operational-insights/operational-insights-onboard-in-minutes.md)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
+Operations Management Suite 작업 영역이 아직 없는 경우 [Operational Insights 작업 영역 설정](../operational-insights/operational-insights-onboard-in-minutes.md)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
 
 ### 2\. Operations Management Suite 작업 영역에 자동화 솔루션 추가
 솔루션은 Operations Management Suite에 기능을 추가합니다. 자동화 솔루션은 Hybrid Runbook Worker에 대한 지원을 포함하여 Azure 자동화를 위한 기능을 추가합니다. 작업 영역에 솔루션을 추가할 때 다음 단계에서 설치할 에이전트 컴퓨터로 Worker 구성 요소를 자동으로 푸시다운합니다.
@@ -68,7 +72,7 @@ Microsoft 관리 에이전트는 컴퓨터를 Operations Management Suite에 연
 
 [Operational Insights에 직접 컴퓨터 연결](../operational-insights/operational-insights-direct-agent.md)의 지침에 따라 온-프레미스 컴퓨터에 에이전트를 설치합니다. 이 과정을 여러 컴퓨터에 반복하여 사용자의 환경에 여러 작업자를 추가합니다.
 
-에이전트가 Operations Management Suite에 연결되면 Operations Management Suite **설정** 창의 **Connected Sources**(연결된 원본) 탭에 나열됩니다. 에이전트에서 자동화 솔루션 다운로드를 완료했는지 확인하려면 C:\\Program Files\\Microsoft Monitoring Agent\\Agent 아래 **AzureAutomationFiles** 폴더가 있는지 확인합니다.
+에이전트가 Operations Management Suite에 연결되면 Operations Management Suite **설정** 창의 **연결된 원본** 탭에 나열됩니다. 에이전트에서 자동화 솔루션 다운로드를 완료했는지 확인하려면 C:\\Program Files\\Microsoft Monitoring Agent\\Agent에 **AzureAutomationFiles** 폴더가 있는지 확인합니다.
 
 ### 4\. Runbook 환경을 설치하고 Azure 자동화에 연결
 에이전트를 Operations Management Suite에 추가하면 자동화 솔루션이 **Add-HybridRunbookWorker** cmdlet을 포함하는 **HybridRegistration** PowerShell 모듈을 푸시다운합니다. 이 cmdlet을 사용하여 컴퓨터에 Runbook 환경을 설치하고 Azure 자동화에 등록합니다.
@@ -91,7 +95,7 @@ Azure Preview 포털의 **키 관리** 블레이드에서 이 cmdlet에 필요�
 - **끝점**은 **키 관리** 블레이드의 **URL** 필드입니다.
 - **Token**은 **키 관리** 블레이드의 **기본 액세스 키**입니다.  
 
-설치에 대해 자세한 정보를 받으려면 **Add-HybridRunbookWorker**와 함께 **-Verbose** switch를 사용합니다.
+설치에 대해 자세한 정보를 받으려면 **Add-HybridRunbookWorker**와 함께 **-Verbose** 스위치를 사용합니다.
 
 ### 5\. PowerShell 모듈 설치
 Runbook은 Azure 자동화 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다. 이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포되지 않으므로 수동으로 설치해야 합니다. 단, 기본적으로 설치되어 Azure 자동화의 모든 Azure 서비스 및 활동에 사용되는 cmdlet에 대한 액세스를 제공하는 Azure 모듈은 예외입니다.
@@ -100,7 +104,7 @@ Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 �
 
 ## Hybrid Runbook Worker 제거
 
-온-프레미스 컴퓨터에서 **Remove-HybridRunbookWorker** cmdlet을 실행하면 해당 컴퓨터에서 Hybrid Runbook Worker를 제거할 수 있습니다. 제거 과정에 대한 자세한 로그를 보려면 **-Verbose** switch를 사용합니다.
+온-프레미스 컴퓨터에서 **Remove-HybridRunbookWorker** cmdlet을 실행하면 해당 컴퓨터에서 Hybrid Runbook Worker를 제거할 수 있습니다. 제거 과정에 대한 자세한 로그를 보려면 **-Verbose** 스위치를 사용합니다.
 
 ## Hybrid Runbook Worker에서 Runbook 시작
 
@@ -164,4 +168,4 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 - [Azure 자동화에서 Runbook 편집](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

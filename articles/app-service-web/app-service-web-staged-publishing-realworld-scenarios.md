@@ -312,13 +312,13 @@ WebMatrix나, FTP , Git, PhpMyAdmin 등과 같은 사용자 선택 도구를 사
 응용 프로그램의 `install` 폴더는 항상 제거하고, 스테이지 또는 프로덕션 웹앱에 업로드하지 않아야 합니다. 이 자습서에서는 WebMatrix를 사용합니다.
 
 #### 스테이징 환경 설정
-Umbraco CMS 웹앱에 대해 위에서 언급한 배포 슬롯을 만듭니다. 이미 Umbraco CMS 웹앱을 가동 및 실행 중이라고 가정합니다. 없으면 마켓플레이스에서 만들 수 있습니다. 자세히 알아보려면 [여기](web-sites-gallery-umbraco)를 클릭하세요.
+Umbraco CMS 웹앱에 대해 위에서 언급한 배포 슬롯을 만듭니다. 이미 Umbraco CMS 웹앱을 가동 및 실행 중이라고 가정합니다. 없으면 마켓플레이스에서 만들 수 있습니다.
 
 새로 만든 데이터베이스 **umbraco-stage-db**를 가리키도록 스테이지 배포 슬롯에 대한 연결 문자열을 업데이트합니다. 프로덕션 웹앱(umbraositecms-1)과 스테이징 웹앱(umbracositecms-1-stage)은 다른 데이터베이스를 가리켜야 **합니다**.
 
 ![새 스테이징 데이터베이스를 통해 스테이징 웹앱의 연결 문자열 업데이트](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-배포 슬롯 **스테이지**에 대해 **게시 설정 가져오기**를 클릭합니다 . 그러면 Visual Studio나 Web Matrix가 로컬 개발 웹앱의 응용 프로그램을 Azure 웹앱에 게시하는 데 필요한 모든 정보가 담긴 게시 설정 파일을 다운로드합니다.
+배포 슬롯 **스테이지**에 대해 **게시 설정 가져오기**를 클릭합니다. 그러면 Visual Studio나 Web Matrix가 로컬 개발 웹앱의 응용 프로그램을 Azure 웹앱에 게시하는 데 필요한 모든 정보가 담긴 게시 설정 파일을 다운로드합니다.
 
  ![스테이징 웹앱의 게시 설정 가져오기](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 
@@ -326,18 +326,18 @@ Umbraco CMS 웹앱에 대해 위에서 언급한 배포 슬롯을 만듭니다. 
 
 ![Web Matrix를 사용하여 Umbraco 게시 설정 가져오기](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-- 대화 상자에서 변경 내용을 검토하고 로컬 웹앱을 Azure 웹앱*umbracositecms-1-stage*에 배포합니다. 파일을 직접 스테이징 웹앱에 배포할 때는 `~/app_data/TEMP/` 폴더의 모든 파일을 생략합니다. 이 파일들은 스테이지 웹앱을 처음 시작할 때 다시 생성됩니다. `~/app_data/umbraco.config` 파일도 다시 생성되므로 생략해야 합니다.
+- 대화 상자에서 변경 내용을 검토하고 로컬 웹앱을 Azure 웹앱 *umbracositecms-1-stage*에 배포합니다. 파일을 스테이징 웹앱에 직접 배포할 경우 `~/app_data/TEMP/` 폴더의 모든 파일을 생략합니다. 이러한 파일은 스테이지 웹앱을 처음 시작할 때 다시 생성되기 때문입니다. `~/app_data/umbraco.config` 파일도 다시 생성되므로 생략해야 합니다.
 
 ![Web Matrix에서 게시 설정 검토](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
 - Umbraco 로컬 웹앱을 성공적으로 게시한 후 스테이징 웹앱을 탐색하고 몇 가지 테스트를 실행하여 문제를 제거합니다.
 
 #### Courier2 배포 모듈 설정
-[Courier2](http://umbraco.com/products/more-add-ons/courier-2) 모듈을 사용하면 콘텐츠, 스타일시트, 개발 모듈 및 기타 항목을 스테이징 웹앱에서 마우스 오른쪽 단추를 클릭하여 간단하게 프로덕션 웹앱에 푸시할 수 있으므로, 업데이트를 배포할 때 배포 부담이 줄고 프로덕션 웹앱의 손상 위험을 낮출 수 있습니다. 도메인 `*.azurewebsites.net` 및 사용자 지정 도메인(http://abc.com이라 가정)에 대해 Courier2 라이선스를 구매합니다. 라이선스 구매 후에는 다운로드한 라이선스(.LIC 파일)를 `bin` 폴더에 배치합니다.
+[Courier2](http://umbraco.com/products/more-add-ons/courier-2) 모듈을 사용하면 콘텐츠, 스타일시트, 개발 모듈 및 기타 항목을 스테이징 웹앱에서 마우스 오른쪽 단추를 클릭하여 간단하게 프로덕션 웹앱에 푸시할 수 있으므로, 업데이트를 배포할 때 배포 부담이 줄고 프로덕션 웹앱의 손상 위험을 낮출 수 있습니다. 도메인 `*.azurewebsites.net` 및 사용자 지정 도메인(http://abc.com이라 가정)에 대해 Courier2 라이선스를 구매합니다. 라이선스를 구매한 후에는 다운로드한 라이선스(.LIC 파일)를 `bin` 폴더에 저장합니다.
 
 ![라이선스 파일을 bin 폴더에 넣기](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
-Courier2 패키지를 [여기](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/)에서 다운로드합니다. 스테이지 웹 앱 http://umbracocms-site-stage.azurewebsites.net/umbraco에 로그온하여 **개발자** 메뉴를 클릭하고 **패키지**를 선택합니다. 로컬 패키지 **설치** 클릭
+Courier2 패키지를 [여기](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/)에서 다운로드합니다. 스테이지 웹앱 http://umbracocms-site-stage.azurewebsites.net/umbraco에 로그온하여 **개발자** 메뉴를 클릭하고 **패키지**를 선택합니다. 로컬 패키지 **설치**를 클릭합니다.
 
 ![Umbraco 패키지 설치 관리자](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
 
@@ -378,11 +378,11 @@ Courier2 패키지를 [여기](https://our.umbraco.org/projects/umbraco-pro/umbr
   </repositories>
 ```
 
-Umbraco CMS 웹앱 대시보드에서 Courier2 탭을 클릭하고 위치를 선택합니다. `courier.config`에서 설명한 것처럼 리포지토리 이름이 표시될 것입니다. 프로덕션과 스테이징 웹앱 모두에 대해 이 작업을 수행합니다.
+Umbraco CMS 웹앱 대시보드에서 Courier2 탭을 클릭하고 위치를 선택합니다. `courier.config`에서 설명한 대로 리포지토리 이름이 표시됩니다. 프로덕션과 스테이징 웹앱 모두에 대해 이 작업을 수행합니다.
 
 ![대상 웹앱 리포지토리 보기](./media/app-service-web-staged-publishing-realworld-scenarios/16courierloc.png)
 
-이제 스테이징 사이트의 콘텐츠를 프로덕션 사이트로 배포합니다. 콘텐츠 위치로 이동하여 기존 페이지를 선택하거나 새 페이지를 만듭니다. 여기서는 페이지 내 웹엡에서 기존 페이지를 선택합니다. 제목이 **Getting Started – new**로 바뀌며, **저장 및 게시**를 클릭합니다.
+이제 스테이징 사이트의 콘텐츠를 프로덕션 사이트로 배포합니다. 콘텐츠 위치로 이동하여 기존 페이지를 선택하거나 새 페이지를 만듭니다. 페이지 제목이 **Getting Started - new**로 바뀐 내 웹앱에서 기존 페이지를 선택합니다. 그런 다음 **저장 및 게시**를 클릭합니다.
 
 ![페이지 제목 변경 및 게시](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
@@ -414,7 +414,7 @@ Courier는 Umbraco CMS의 한 버전을 다른 버전으로 업그레이드하�
 
 로컬로 웹앱을 업그레이드하는 방법에 대한 자세한 내용은 [여기](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general)서 설명하는 지침에 따릅니다.
 
-로컬 개발 사이트를 업그레이드한 후에는 변경 내용을 스테이징 웹앱에 게시합니다. 응용 프로그램을 테스트하고 모든 내용이 양호하면 **교환** 단추를 사용하여 스테이징 사이트를 프로덕션 웹앱에 **교환**합니다. **교환** 작업을 수행하면 웹앱 구성에 영향을 미칠 변경 내용을 확인할 수 있습니다. 이 **교환** 작업을 통해 웹앱과 데이터베이스를 교환합니다. 즉 교환한 후에는 프로덕션 웹앱이 umbraco-stage-db 데이터베이스를, 스테이징 웹앱이 umbraco-prod-db 데이터베이스를 가리키게 됩니다.
+로컬 개발 사이트를 업그레이드한 후에는 변경 내용을 스테이징 웹앱에 게시합니다. 응용 프로그램을 테스트하고 모든 내용이 양호하면 **교환** 단추를 사용하여 스테이징 사이트를 프로덕션 웹앱으로 **교환**합니다. **교환** 작업을 수행하면 웹앱 구성에 영향을 미칠 변경 내용을 확인할 수 있습니다. 이 **교환** 작업을 통해 웹앱과 데이터베이스를 교환합니다. 즉 교환한 후에는 프로덕션 웹앱이 umbraco-stage-db 데이터베이스를, 스테이징 웹앱이 umbraco-prod-db 데이터베이스를 가리키게 됩니다.
 
 ![Umbraco CMS 배포를 위한 교환 미리보기](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
@@ -429,4 +429,4 @@ Courier는 Umbraco CMS의 한 버전을 다른 버전으로 업그레이드하�
 
 [비 프로덕션 배포 슬롯에 대한 웹 액세스를 차단하는 방법](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

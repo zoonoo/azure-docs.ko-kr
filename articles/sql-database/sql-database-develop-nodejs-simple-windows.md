@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Windows에서 Node.js를 사용하여 SQL 데이터베이스에 연결
@@ -224,4 +224,4 @@ Azure SQL 데이터베이스에서는 **conn.beginTransactions** 메소드가 �
 
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -27,37 +27,35 @@
 
 ## 기본 SharePoint 개발/테스트 팜
 
-리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터의 경우 Azure 미리 보기 포털의 Azure 마켓플레이스에서 [SharePoint 2013 비 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) 항목을 참조하세요. 인터넷 연결 SharePoint 웹사이트에 대한 기본 개발/테스트 팜을 만듭니다.
+자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 3개의 서버(각각 도메인 컨트롤러, SQL Server 및 SharePoint Server용)로 구성됩니다.
+
+Azure Preview 포털의 Azure 마켓플레이스에서 [SharePoint 2013 비 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) 항목이 제거되었습니다. 인터넷 연결 SharePoint 웹사이트에 대한 기본 개발/테스트 팜을 만듭니다. 추가 정보는 [SharePoint 서버 팜 만들기](virtual-machines-sharepoint-farm-azure-preview.md)를 참조하세요.
 
 Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [3개의 서버 SharePoint 팜 배포](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)를 참조하세요.
 
-자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 3개의 서버(각각 도메인 컨트롤러, SQL Server 및 SharePoint Server용)로 구성됩니다.
-
-클래식 배포 모델로 비슷한 구성을 만들려면 Azure 미리 보기 포털의 Azure 마켓플레이스에서 [SharePoint 서버 팜](virtual-machines-sharepoint-farm-azure-preview.md) 항목을 사용합니다.
-
+> [AZURE.NOTE]Azure Preview 포털의 Azure 마켓플레이스에서 **SharePoint 서버 팜** 항목이 제거되었습니다.
 
 ## 고가용성 SharePoint 개발자/테스트 팜
 
-리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터의 경우 Azure 미리 보기 포털의 Azure 마켓플레이스에서 [SharePoint 2013 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) 항목을 참조하세요. 인터넷 연결 SharePoint 웹사이트에 대한 고가용성 팜을 만듭니다.
+자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 9개의 서버(도메인 컨트롤러용 2개, SQL Server 클러스터용 3개, 응용 프로그램 계정 SharePoint Server용 2개 및 웹 계층 SharePoint Server용 2개)로 구성됩니다.
+
+Azure Preview 포털의 Azure 마켓플레이스에서 [SharePoint 2013 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) 항목이 제거되었습니다. 인터넷 연결 SharePoint 웹사이트에 대한 고가용성 개발/테스트 팜을 만듭니다. 추가 정보는 [SharePoint 서버 팜 만들기](virtual-machines-sharepoint-farm-azure-preview.md)를 참조하세요.
 
 Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [9개의 서버 SharePoint 팜 배포](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm)를 참조하세요.
 
-자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 9개의 서버(도메인 컨트롤러용 2개, SQL Server 클러스터용 3개, 응용 프로그램 계정 SharePoint Server용 2개 및 웹 계층 SharePoint Server용 2개)로 구성됩니다.
-
-클래식 배포 모델로 비슷한 구성을 만들려면 Azure 미리 보기 포털의 Azure 마켓플레이스에서 [SharePoint 서버 팜](virtual-machines-sharepoint-farm-azure-preview.md) 항목을 사용합니다.
-
+> [AZURE.NOTE]Azure Preview 포털의 Azure 마켓플레이스에서 **SharePoint 서버 팜** 항목이 제거되었습니다.
 
 ## 하이브리드 클라우드 개발/테스트 팜
 
 [하이브리드 클라우드 개발/테스트 환경의 SharePoint 인트라넷 팜](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)을 통해 인터넷상의 현재 위치에서 Azure에서 호스트되는 인트라넷 SharePoint 팜을 테스트하는 데 사용할 수 있는 간단한 2계층 SharePoint 팜을 호스트하는 시뮬레이션된 하이브리드 클라우드 구성을 만들 수 있습니다.
 
-이 구성은 클래식 가상 컴퓨터를 사용합니다.
+이 구성은 클래식 배포 모델을 사용합니다.
 
 ## 고가용성, 인트라넷 Sharepoint 프로덕션 팜
 
 [Azure에서 SQL Server AlwaysOn 가용성 그룹이 있는 SharePoint 2013](virtual-machines-workload-intranet-sharepoint-overview.md) 배포를 통해 Azure에서 프로덕션을 지원하는 고가용성 인트라넷 SharePoint Server 2013 팜을 구축합니다.
 
-이 구성은 클래식 가상 컴퓨터를 사용합니다.
+이 구성은 클래식 배포 모델을 사용합니다.
 
 ## 추가 리소스
 
@@ -71,4 +69,4 @@ Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [9개의 �
 
 [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

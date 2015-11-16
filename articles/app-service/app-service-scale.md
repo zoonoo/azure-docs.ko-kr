@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/29/2015" 
 	ms.author="stepsic"/>
 
 # Azure 앱 서비스에서 가격 책정 계층 크기 조정
@@ -131,4 +131,4 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

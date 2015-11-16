@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="davidmu"/>
+	ms.author="josephd"/>
 
 # 세 개의 서버 SharePoint 팜 리소스 관리자 템플릿
 
@@ -376,4 +376,4 @@ Azure에서 다중 계층 인프라를 구축하는 사용자 고유의 JSON 템
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

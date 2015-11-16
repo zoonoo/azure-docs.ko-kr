@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="서비스 패브릭 응용 프로그램 업그레이드: 업그레이드 매개 변수"
-   description="이 문서에서는 서비스 패브릭 응용 프로그램을 업그레이드하는 데 관련된 다양한 매개 변수를 설명합니다."
+   pageTitle="응용 프로그램 업그레이드: 업그레이드 매개 변수 | Microsoft Azure"
+   description="수행할 상태 확인 및 업그레이드를 자동으로 실행 취소하는 정책 등을 포함하여 서비스 패브릭 응용 프로그램 업그레이드와 관련한 매개 변수를 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -77,4 +77,4 @@
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

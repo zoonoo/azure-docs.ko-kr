@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/03/2015" 
 	ms.author="awills"/>
  
 # 종속성, 예외 및 Java 웹앱에서의 실행 시간을 모니터링합니다.
@@ -33,7 +33,7 @@ Java 에이전트를 사용하려면 사용자의 서버에 설치합니다. [Ap
 
 ## Java용 Application Insights 에이전트 설치
 
-1. Java 서버를 실행 중인 컴퓨터에서 [에이전트를 다운로드](http://go.microsoft.com/fwlink/?LinkId=618633)합니다.
+1. Java 서버를 실행 중인 컴퓨터에서 [에이전트를 다운로드](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)합니다.
 2. 응용 프로그램 서버 시작 스크립트를 편집하여 다음 JVM을 추가합니다.
 
     `javaagent:`*에이전트 JAR 파일에 대한 전체 경로*
@@ -122,4 +122,4 @@ Application Insights 리소스에서 원격 종속성과 메서드 실행 시간
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

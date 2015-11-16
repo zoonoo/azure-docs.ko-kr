@@ -750,7 +750,7 @@ __.chain()
 </table>
 
 ## 런타임 지원
-[DocumentDB JavaScript 서버 쪽 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)는 [ECMA-262](documentdb-interactions-with-resources.md)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다
+[DocumentDB JavaScript 서버 쪽 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)는 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
 
 ### 보안
 JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데이터베이스 수준의 스냅숏 트랜잭션 격리를 통과하지 않고 다른 스크립트로 누출되지 않도록 샌드박스됩니다. 런타임 환경은 풀링되지만 각 실행 후에 컨텍스트가 정리됩니다. 따라서 서로 간의 의도치 않은 파생 작업으로부터 보호됩니다.
@@ -902,7 +902,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 ## 샘플 코드
 
-[Github 리포지토리](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples)에서 더 많은 서버쪽 코드 예제를 찾을 수 있습니다.([upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) 및 [업데이트](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)를 포함)
+[Github 리포지토리](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples)에서 더 많은 서버 쪽 코드 예제를 찾을 수 있습니다.([upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) 및 [업데이트](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)를 포함)
 
 저장된 프로시저를 공유하시겠습니까? 끌어오기 요청을 보내주세요.
 
@@ -920,4 +920,4 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 -	[서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

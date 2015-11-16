@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
@@ -54,7 +54,7 @@
 ## 1단계: 가상 네트워크를 설정합니다.
 기존 Azure 가상 네트워크를 사용하는 하이브리드 컬렉션을 배포하거나 새 가상 네트워크를 만들 수 있습니다. 가상 네트워크를 사용하여 사용자는 RemoteApp 원격 리소스를 통해 로컬 네트워크의 데이터에 액세스할 수 있습니다. Azure 가상 네트워크를 사용하여 다른 Azure 서비스 및 해당 가상 네트워크에 배포된 가상 컴퓨터에 대한 직접 네트워크 액세스를 컬렉션에 제공합니다.
 
-VNET을 만들기 전에 [VNET 계획](remoteapp-planvpn.md) 및 [VNET 크기](remoteapp-vnetsizing.md) 정보를 검토해야 합니다.
+VNET을 만들기 전에 [VNET 계획](remoteapp-planvnet.md) 및 [VNET 크기](remoteapp-vnetsizing.md) 정보를 검토해야 합니다.
 
 ### Azure VNET을 만들고 Active Directory 배포에 조인
 
@@ -86,6 +86,8 @@ Azure 가상 컴퓨터 만들기 및 원격 데스크톱을 사용하여 연결�
 5. **RemoteApp 컬렉션 만들기**를 클릭합니다.
 
 Azure RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며, 여기서 컬렉션 구성을 완료합니다.
+
+뭔가 잘못된 경우 [하이브리드 컬렉션 문제 해결 정보](remoteapp-hybridtrouble.md)를 확인합니다.
 
 ## 3단계: 로컬 도메인에 컬렉션 가입 ##
 
@@ -147,4 +149,4 @@ Azure RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

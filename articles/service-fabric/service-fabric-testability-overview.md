@@ -1,6 +1,6 @@
 <properties
-   pageTitle="테스트 용이성 개요"
-   description="이 문서에서는 Microsoft Azure 서비스 패브릭의 테스트 용이성 기능을 설명합니다."
+   pageTitle="테스트 용이성 개요 | Microsoft Azure"
+   description="이 문서는 결함을 유도하고 서비스에 대한 테스트 시나리오를 실행하는 Microsoft Azure 서비스 패브릭의 테스트 용이성 기능을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -94,4 +94,4 @@ System.Fabric.Testability.dll에 다양한 테스트 용이성 기능이 있습�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

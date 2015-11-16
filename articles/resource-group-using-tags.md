@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="10/28/2015"
 	ms.author="tomfitz"/>
 
 
@@ -155,8 +155,9 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 ## 다음 단계
 
-- 리소스 배포 시 Azure PowerShell 사용에 대한 소개는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](./powershell-azure-resource-manager.md)을 참조하세요.
+- 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 정의한 정책을 사용하려면 모든 리소스에 대해 특정 태그를 설정해야 할 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
+- 리소스 배포 시 Azure PowerShell 사용에 대한 소개는 [Azure 리소스 관리자에서 Azure PowerShell 사용](./powershell-azure-resource-manager.md)을 참조하세요.
 - 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하세요.
 - Preview 포털 사용에 대한 소개는 [Azure Preview 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)를 참조하세요.  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

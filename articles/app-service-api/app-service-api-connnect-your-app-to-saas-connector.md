@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 SaaS 커넥터 API 앱을 배포 및 구성
@@ -24,7 +24,7 @@
 
 예를 들어 Dropbox 계정으로 파일을 읽고 쓰기 위해 HTTP 요청을 코딩하려는 경우 Dropbox에서 직접 작업하기 위한 인증 프로세스는 복잡합니다. 비즈니스 관련 코드 작성에 집중할 수 있도록 Dropbox 커넥터가 인증의 복잡성을 처리합니다.
 
-> [AZURE.NOTE]논리 앱에서 SaaS 커넥터를 사용하려는 경우에는 지침을 요구하지 않습니다. 논리 앱 내에서 SaaS 커넥터를 사용하는 방법에 대한 자세한 내용은 [새 논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) 및 [커넥터에 사용자 지정 OAUTH 응용 프로그램 사용](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1)을 참조하세요.
+> [AZURE.NOTE]논리 앱에서 SaaS 커넥터를 사용하려는 경우에는 지침을 요구하지 않습니다. 논리 앱 내에서 SaaS 커넥터를 사용하는 방법에 대한 자세한 내용은 [새 논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) 및 [커넥터에 사용자 지정 OAUTH 응용 프로그램 사용](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1)을 참조하세요.
  
 이 자습서에서는 DropBox 커넥터를 예로 사용하여 다음 단계를 안내합니다.
 
@@ -236,4 +236,4 @@ SaaS 커넥터를 설치, 구성 및 테스트하는 방법을 살펴봤습니�
 [Azure 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

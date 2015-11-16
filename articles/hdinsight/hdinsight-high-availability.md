@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
@@ -68,11 +68,19 @@ ZK([ZooKeeper](http://zookeeper.apache.org/)) 노드가 추가되었으며 헤�
 
 초대형 VM은 Azure PowerShell cmdlet 또는 HDInsight SDK를 사용하여 구성할 수 있습니다.
 
-Azure PowerShell을 사용하는 클러스터의 생성 및 프로비전은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)에 설명되어 있습니다. 초대형 헤드 노드를 구성하려면 `-HeadNodeVMSize ExtraLarge` 매개 변수를 이 코드에 사용되는 `New-AzureHDInsightcluster` cmdlet에 추가해야 합니다.
+Azure PowerShell을 사용하는 클러스터의 생성 및 프로비전은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)에 설명되어 있습니다. 초대형 헤드 노드를 구성하려면 `-HeadNodeVMSize ExtraLarge` 매개 변수를 이 코드에 사용되는 `New-AzureRmHDInsightcluster` cmdlet에 추가해야 합니다.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge head-node VM
-    New-AzureHDInsightCluster -Name $clusterName -Location $location -HeadNodeVMSize ExtraLarge -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
+    New-AzureRmHDInsightCluster `
+				-ResourceGroupName $resourceGroupName `
+				-ClusterName $clusterName ` 
+				-Location $location `
+				-HeadNodeVMSize ExtraLarge `
+				-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+				-DefaultStorageAccountKey $storageAccountKey `
+				-DefaultStorageContainerName $containerName  `
+				-ClusterSizeInNodes $clusterNodes
 
 SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터의 생성 및 프로비전은 [HDInsight .NET SD 사용](hdinsight-provision-clusters.md#sdk)에 설명되어 있습니다. 초대형 헤드 노드를 구성하려면 `HeadNodeSize = NodeVMSize.ExtraLarge` 매개 변수를 이 코드에 사용되는 `ClusterCreateParameters()` 메서드에 추가해야 합니다.
 
@@ -80,15 +88,15 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
 	# Configured with an ExtraLarge head-node VM
     ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
     {
-    Name = clustername,
-    Location = location,
-    HeadNodeSize = NodeVMSize.ExtraLarge,
-    DefaultStorageAccountName = storageaccountname,
-    DefaultStorageAccountKey = storageaccountkey,
-    DefaultStorageContainer = containername,
-    UserName = username,
-    Password = password,
-    ClusterSizeInNodes = clustersize
+		Name = clustername,
+		Location = location,
+		HeadNodeSize = NodeVMSize.ExtraLarge,
+		DefaultStorageAccountName = storageaccountname,
+		DefaultStorageAccountKey = storageaccountkey,
+		DefaultStorageContainer = containername,
+		UserName = username,
+		Password = password,
+		ClusterSizeInNodes = clustersize
     };
 
 
@@ -98,4 +106,4 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
 - [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)
 - [HDInsight .NET SDK 사용](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="사물 인터넷에 대한 신뢰할 수 있는 행위자"
-   description="서비스 패브릭 신뢰할 수 있는 행위자는 HTTPS, MQTT 또는 AMQP 등의 다중 전송을 지원하는 메시징 시스템 프런트 엔드를 결합한 후 개별 장치를 나타내는 행위자와 통신하는 시스템에서 사용하는 주요 구성 요소(중간 계층)입니다."
+   pageTitle="사물 인터넷을 위한 신뢰할 수 있는 Azure 솔루션 | Microsoft Azure"
+   description="서비스 패브릭 신뢰할 수 있는 행위자는 HTTPS, MQTT 또는 AMQP 등의 다중 전송을 지원하는 메시징 시스템 프런트 엔드를 결합한 후 개별 장치를 나타내는 행위자와 통신하는 시스템에서 사용하는 주요 구성 요소입니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -217,4 +217,4 @@ Sending an engineer to repair/replace devices in Richmond
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

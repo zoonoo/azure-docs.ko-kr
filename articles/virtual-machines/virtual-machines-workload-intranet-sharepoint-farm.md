@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Azure 인프라 서비스 워크로드: 인트라넷 SharePoint 팜
@@ -48,9 +48,9 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 ### 클라우드 전용 가상 네트워크
 
-클라우드 전용 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다. 기본 또는 고가용성 SharePoint 팜을 빠르게 만들려면 [SharePoint 서버 팜](virtual-machines-sharepoint-farm-azure-preview.md)을 참조하세요. 기본 SharePoint 팜 구성 예는 다음과 같습니다.
+클라우드 전용 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다. 기본 또는 고가용성 SharePoint 팜을 빠르게 만들려면 [SharePoint 서버 팜 만들기](virtual-machines-sharepoint-farm-azure-preview.md)를 참조하세요. 기본 SharePoint 팜 구성 예는 다음과 같습니다.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### 프레미스 간 가상 네트워크
 
@@ -128,4 +128,4 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

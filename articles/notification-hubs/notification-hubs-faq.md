@@ -39,6 +39,9 @@
 * 7Digital - [사례 연구 - 7Digital]
 * Bing Apps – 수천만 대의 장치에서 매일 3백만 건의 알림을 전송합니다.
 
+###4\. 알림 허브를 업그레이드 또는 다운그레이드하여 서비스 계층을 변경하려면 어떻게 해야 하나요?
+[Azure 포털]로 이동하여 서비스 버스를 클릭한 다음 해당 네임스페이스를 클릭하고 알림 허브를 클릭합니다. 크기 조정 탭에서 알림 허브 서비스 계층을 변경할 수 있습니다.
+
 ##디자인 및 개발
 ###1\. 어떤 서버 쪽 플랫폼이 지원되나요?
 .NET, Java, PHP, Python, Node.js용 SDK와 샘플이 제공되므로 이러한 모든 플랫폼을 사용하여 알림 허브와 통신하도록 앱 백 엔드를 설정할 수 있습니다. 알림 허브 API는 REST 인터페이스 기반이므로 해당 API와 직접 통신할 수 있습니다. 자세한 내용은 [NH - REST API]를 참조하십시오.
@@ -110,6 +113,7 @@ Azure 알림 허브에서는 일반적인 문제 해결을 수행할 수 있는 
 ###2\. 어떤 원격 분석 기능이 제공되나요?
 Azure 알림 허브에서는 Azure 관리 포털의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [NH - 메트릭]을 참조하십시오. 알림이 정상적으로 전송되었다는 것은 외부 푸시 알림 서비스(예: Apple의 APNS, Google의 GCM 등)로 배달되었다는 뜻이며, 그 후 알림을 장치로 배달하는 것은 PNS의 몫입니다. 그러나 PNS는 이러한 메트릭을 제공하지 않습니다. 표준 계층에서는 프로그래밍 방식으로 원격 분석을 내보내는 기능도 제공합니다. 자세한 내용은 [NH - 메트릭 샘플]에서 샘플을 참조하십시오.
 
+[Azure 포털]: https://manage.windowsazure.com
 [알림 허브 가격]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [알림 허브 SLA]: http://azure.microsoft.com/support/legal/sla/
 [사례 연구 - 소치]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -130,4 +134,4 @@ Azure 알림 허브에서는 Azure 관리 포털의 원격 분석 데이터를 �
 [NH - 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

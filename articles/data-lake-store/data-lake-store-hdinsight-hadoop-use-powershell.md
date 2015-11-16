@@ -8,12 +8,12 @@
    editor="cgronlun"/>
  
 <tags
-   ms.service="data-lake"
+   ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 프로비전
@@ -23,7 +23,12 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소와 함께 작동하도록 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 구성하는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항: * **Hadoop 및 Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)이 됩니다. * **HBase 클러스터(Windows 및 Linux)의 경우 ** 데이터 레이크 저장소는 기본 저장소 또는 추가 저장소로 사용될 수 있습니다.
+Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소와 함께 작동하도록 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 구성하는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항:
+
+* **Hadoop 및 Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)입니다.
+
+* **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다.
+
 
 이 문서에서 데이터 레이크 저장소를 추가 저장소로 사용하여 Hadoop 클러스터를 프로비저닝합니다.
 
@@ -41,11 +46,7 @@ PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도�
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
 - 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 - **Windows SDK**. [여기](https://dev.windows.com/ko-KR/downloads)에서 설치할 수 있습니다. 이를 사용하여 보안 인증서를 만듭니다.
-- **Azure PowerShell 1.0 이상**. 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. Azure PowerShell 1.0 이상을 설치한 후 Azure 데이터 레이크 저장소 모듈을 설치하려면 다음 cmdlet을 실행합니다.
-
-		Install-Module AzureRM.DataLakeStore
-
-	**AzureRM.DataLakeStore** 모듈에 대한 자세한 내용은 [PowerShell 갤러리](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore)를 참조하세요.
+- **Azure PowerShell 1.0**. [여기](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi)에서 설치할 수 있습니다.
  
 
 ## Azure 데이터 레이크 저장소 만들기
@@ -119,7 +120,7 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 
 4. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령을 실행합니다.
 
-		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po myPassword
+		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
 	메시지가 표시되면 이전에 지정한 개인 키 암호를 입력합니다. **-po** 매개 변수에 대해 지정한 값은 .pfx 파일에 연관된 암호입니다. 명령을 성공적으로 완료한 후 지정한 인증서 디렉터리에서 CertFile.pfx도 또한 확인해야 합니다.
 
@@ -131,7 +132,7 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
 		
-		$password = Read-Host –Prompt "Enter the password" –AsSecureString  # This is the password you specified for the .pfx file (e.g. "myPassword")
+		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
 		
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 		
@@ -293,4 +294,4 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 [makecert]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

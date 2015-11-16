@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/04/2015"
    ms.author="kunalds"/>
 
 
@@ -79,4 +79,4 @@
 * [Azure 서비스 패브릭 활동자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [상태 저장 신뢰할 수 있는 서비스 진단](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

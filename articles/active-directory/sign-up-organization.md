@@ -3,7 +3,7 @@
 	description="회사 또는 학교 계정을 사용하여 이미 소유하고 있는 기존 사용자 계정, 정책, 설정 또는 온-프레미스 서버 배포를 활용하고 조직의 온-프레미스 ID 인프라와 Azure AD 간의 효율성을 개선하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markvi"
+	authors="markusvi"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/30/2015"
 	ms.author="markvi"/>
 
 
@@ -35,4 +35,4 @@
 * [ Azure AD란?](active-directory-whatis.md)
 * [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

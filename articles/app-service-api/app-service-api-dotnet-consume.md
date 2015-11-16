@@ -51,7 +51,7 @@
 
 1. [API 앱 배포](app-service-dotnet-deploy-api-app.md)에 따라 Azure 구독에서 API 앱에 ContactsList 샘플 프로젝트를 배포합니다(아직 배포하지 않은 경우).
 
-	이 자습서에서는 Visual Studio 게시 대화 상자에서 액세스 수준을 포털의 **공용(익명)**과 동일한 **모든 사용자가 사용 가능**으로 설정하도록 안내합니다. 그러나 그 다음에 [API 앱 보호](../app-service-dotnet-add-authentication.md) 자습서를 수행하여 액세스 수준이 **공용(인증됨)**으로 설정된 경우에는 다음 단계의 지시에 따라 액세스 수준을 변경해야 합니다.
+	이 자습서에서는 Visual Studio 게시 대화 상자에서 액세스 수준을 포털의 **공용(익명)**과 동일한 **모든 사용자가 사용 가능**으로 설정하도록 안내합니다. 그러나 그 다음에 [API 앱 보호](../app-service-api-dotnet-add-authentication.md) 자습서를 수행하여 액세스 수준이 **공용(인증됨)**으로 설정된 경우에는 다음 단계의 지시에 따라 액세스 수준을 변경해야 합니다.
 
 2. [Azure Preview 포털](https://portal.azure.com/)의 호출한 API 앱에 대한 **API 앱** 블레이드에서 **설정 > 응용 프로그램 설정**으로 이동하여 **액세스 수준**을 **공용(익명)**으로 설정합니다.
 
@@ -102,7 +102,7 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 
 ### API 앱 설정 및 프로젝트 만들기
 
-1. [API 앱 보호](../app-service-dotnet-add-authentication.md) 자습서에 따라 **공용(인증)** 액세스 수준으로 API 앱을 설정합니다.
+1. [API 앱 보호](../app-service-api-dotnet-add-authentication.md) 자습서에 따라 **공용(인증)** 액세스 수준으로 API 앱을 설정합니다.
 
 1. Visual Studio에서 Windows Forms 데스크톱 프로젝트를 만듭니다.
 
@@ -205,4 +205,4 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -32,41 +32,53 @@
 * 이전 복사본과 ApplicationInsights.config를 비교합니다. 대부분의 변경 내용은 일부 모듈을 제거하고 다른 일부를 매개변수화하기 때문입니다. 이전 파일에 대한 모든 사용자 지정을 복구합니다.
 * 솔루션을 다시 빌드합니다.
 
+## 버전 2.0.0-beta2
+- ITelemetryProcessor에 대한 지원과 코드 또는 구성을 통해 구성하는 기능이 추가되었습니다. [SDK에서 사용자 지정 필터링을 사용할 수 있습니다](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors).
+- 컨텍스트 이니셜라이저가 제거되었습니다. 대신 [원격 분석 이니셜라이저](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)를 사용합니다.
+- .NET Framework 4.6용 Application Insights가 업데이트되었습니다. 
+- 이제 사용자 지정 이벤트 이름을 최대 512자까지 지정할 수 있습니다.
+- ```OperationContext.Name``` 속성의 이름이 ```RootName```으로 변경되었습니다.
+- ```RequestTelemetry.Id``` 속성이 제거되었습니다.
+- 새 RequestTelemetry를 생성할 때 RequestTelemetry의 ```Id``` 및 ```Context.Operation.Id``` 속성이 초기화되지 않습니다.
+- ```RequestTelemetry.Name```이 더 이상 초기화되지 않습니다. 대신 ```RequestTelemetry.Context.Operation.Name```이 사용됩니다.
+- 요청 모니터링에서 401 응답 코드는 일반 인증 핸드셰이크의 일부이며 성공적으로 요청됩니다.
+- UI 스레드에서 InMemoryChannel(기본 채널)을 초기화할 때 UI 스레드 잠금이 수정되었습니다. 따라서 이제 WPF 응용 프로그램의 UI 고정 문제가 수정되었습니다.
+ 
 ## 버전 2.0.0-beta1
 - 일부 필수 필드가 지정되지 않은 경우 TrackDependency에서 유효한 JSON을 생성합니다.
 - 이제 중복 속성 ```RequestTelemetry.ID```가 ```RequestTelemetry.Operation.Id```의 프록시입니다.
 - 새 인터페이스 ```ISupportSampling```이 도입되었으며 대부분의 데이터 항목 형식에서 이를 명시적으로 구현합니다.
 - DependencyTelemetry에서 ```Count``` 속성이 사용되지 않는 것으로 표시됩니다. 대신 ```SamplingPercentage```를 사용합니다.
-- 새 ```CloudContext```가 도입되었으며 ```RoleName``` 및 ```RoleInstance``` 속성이 ```DeviceContext```에서 여기로 이동했습니다.
-- 인증된 사용자 ID를 지정하기 위해 ```UserContext```에 새 속성 ```AuthenticatedUserId```이 도입되었습니다.
+- 새 ```CloudContext```가 도입되었으며 ```RoleName``` 및 ```RoleInstance``` 속성이 ```DeviceContext```에서 여기로 이동되었습니다.
+- 인증된 사용자 ID를 지정하기 위해 ```UserContext```에 새 속성 ```AuthenticatedUserId```가 도입되었습니다.
 - Javascript SDK에 의해 설정된 대로 인증된 사용자 컨텍스트를 초기화하는 `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`가 추가되었습니다.
 - 이에 대한 구현으로 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` 및 고정 속도 샘플링 지원이 추가되었습니다.
-- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` 집합을 사용하여 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`를 생성할 수 있는 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`가 추가되었습니다.
+- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` 집합을 사용하여 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`을 생성할 수 있는 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`가 추가되었습니다.
 
 ## 버전 1.2
 
-- ASP.NET 라이브러리에 종속성이 없는 원격 분석 이니셜라이저가 `Microsoft.ApplicationInsights.Web`에서 새 종속성 nuget`Microsoft.ApplicationInsights.WindowsServer`으로 옮겨졌습니다.
+- ASP.NET 라이브러리에 종속성이 없는 원격 분석 이니셜라이저가 `Microsoft.ApplicationInsights.Web`에서 새 종속성 nuget `Microsoft.ApplicationInsights.WindowsServer`로 옮겨졌습니다.
 - `Microsoft.AI.Web.dll`에서 `Microsoft.ApplicationInsights.Web.dll`의 이름이 변경되었습니다.
-- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`에서 `Microsoft.ApplicationInsights.Web.TelemetryChannel` nuget의 이름이 변경되었습니다.`Microsoft.AI.ServerTelemetryChannel.dll`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 어셈블리의 이름이 변경되었습니다.`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 클래스의 이름이 변경되었습니다.
-- 웹 SDK의 일부인 모든 네임 스페이스가 `Extensibility` 부분을 제외하도록 변경되었습니다. 이는 ApplicationInsights.config의 모든 원격 분석 이니셜라이저와 web.config의 `ApplicationInsightsWebTracking` 모듈을 포함합니다.
+- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`에서 `Microsoft.ApplicationInsights.Web.TelemetryChannel` nuget의 이름이 변경되었습니다. `Microsoft.AI.ServerTelemetryChannel.dll`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 어셈블리의 이름이 변경되었습니다. `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 클래스의 이름이 변경되었습니다.
+- 웹 SDK의 일부인 모든 네임스페이스가 `Extensibility` 부분을 제외하도록 변경되었습니다. 여기에는 ApplicationInsights.config의 모든 원격 분석 이니셜라이저와 web.config의 `ApplicationInsightsWebTracking` 모듈이 포함됩니다.
 - 런타임 계측 에이전트(상태 모니터 또는 Azure 웹사이트 확장을 통해 사용 가능)를 사용하여 수집된 종속성 은 스레드에 HttpContext.Current가 없는 경우 비동기로 표시되지 않습니다.
-- `DependencyTrackingTelemetryModule`의 속성 `SamplingRatio`는 아무 작업도 수행하지 않고 사용되지 않음으로 표시됩니다.
+- `DependencyTrackingTelemetryModule`의 `SamplingRatio` 속성은 아무 작업도 수행하지 않고 사용되지 않음으로 표시됩니다.
 - `Microsoft.AI.PerfCounterCollector`에서 `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` 어셈블리의 이름이 변경되었습니다.
 - 웹 및 장치 SDK의 몇 가지 사소한 버그 수정
 
 
 ## 버전 1.1
 
-- 새 원격 분석 유형 `DependencyTelemetry`에 응용 프로그램에의 종속성 호출에 대한 정보를 보내는 데 사용할 수 있는 기능(SQL, HTTP 호출 등)이 추가되었습니다.
-- 새 오버로드 메서드 `TelemetryClient.TrackDependency`에 종속성 호출에 대한 정보를 보낼 수 있도록 하는 기능이 추가되었습니다.
+- 응용 프로그램의 종속성 호출(SQL, HTTP 호출 등)에 관한 정보를 보내는 데 사용할 수 있는 새 원격 분석 유형 `DependencyTelemetry`가 추가되었습니다.
+- 종속성 호출에 관한 정보를 보내는 데 사용될 수 있는 새 오버로드 메서드 `TelemetryClient.TrackDependency`가 추가되었습니다.
 - TelemetryConfiguration.CreateDefault를 사용할 때 고정된 NullReferenceException은 진단 모듈에 의해 throw 됩니다.
 
 ## 버전 1.0
 
-- 원격 분석 이니셜라이저 및 원격 분석 모듈을 별도의 하위 네임스페이스에서 루트 `Microsoft.ApplicationInsights.Extensibility.Web` 네임스페이스로 이동시킵니다.
-- “Web”접두사는 이미 `Microsoft.ApplicationInsights.Extensibility.Web` 네임스페이스 이름에 포함되었기 때문에 원격 분석 이니셜라이저 및 원격 분석 모듈의 이름에서 “Web” 접두사를 제거합니다.
-- `DeviceContextInitializer`을 `Microsoft.ApplicationInsights` 어셈블리에서 `Microsoft.ApplicationInsights.Extensibility.Web` 어셈블리로 이동하고 `ITelemetryInitializer`로 변환시켰습니다.
-- 네임스페이스 및 어셈블리 이름을 `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry`에서 `Microsoft.ApplicationInsights.Extensibility.DependencyCollector`로 변경하여 NuGet 패키지의 이름에 대한 일관성을 유지시킵니다.
+- 원격 분석 이니셜라이저 및 원격 분석 모듈을 별도의 하위 네임스페이스에서 루트 `Microsoft.ApplicationInsights.Extensibility.Web` 네임스페이스로 이동했습니다.
+- “Web” 접두사가 이미 `Microsoft.ApplicationInsights.Extensibility.Web` 네임스페이스 이름에 포함되었기 때문에 원격 분석 이니셜라이저 및 원격 분석 모듈의 이름에서 이 접두사를 제거했습니다.
+- `DeviceContextInitializer`를 `Microsoft.ApplicationInsights` 어셈블리에서 `Microsoft.ApplicationInsights.Extensibility.Web` 어셈블리로 이동하고 `ITelemetryInitializer`로 변환했습니다.
+- NuGet 패키지의 이름에 대한 일관성을 위해 네임스페이스 및 어셈블리 이름을 `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry`에서 `Microsoft.ApplicationInsights.Extensibility.DependencyCollector`로 변경합니다.
 - `RemoteDependencyModule`에서 `DependencyTrackingTelemetryModule`로 이름을 변경합니다.
 - `CustomPerformanceCounterCollectionRequest`에서 `PerformanceCounterCollectionRequest`로 이름을 변경합니다.
 
@@ -97,4 +109,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

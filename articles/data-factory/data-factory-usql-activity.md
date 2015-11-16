@@ -178,7 +178,7 @@ degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 �
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -187,4 +187,4 @@ degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 �
 
 위의 Azure 데이터 레이크 저장소 연결된 서비스 및 데이터 집합 JSON 조각의 JSON 속성에 대한 설명을 보려면 [Azure 데이터 레이크 저장소에서 데이터 이동](data-factory-azure-datalake-connector.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

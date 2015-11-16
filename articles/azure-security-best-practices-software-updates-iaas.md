@@ -75,7 +75,7 @@ PaaS 시나리오에서 운영 체제의 업데이트 관리가 Microsoft의 책
 
 ## 소프트웨어 업데이트 고려 사항
 
-엔터프라이즈에서 사용 중인 소프트웨어의 초기 감사를 수행한 후에 요구 사항 결정하여 소프트웨어 업데이트 관리 시스템을 설치해야 하며 이는 사용 중인 소프트웨어 업데이트 관리 시스템에 종속됩니다. WSUS는 [Windows Server Update Service를 사용한 모범 사례](https://technet.microsoft.com/en-us/library/Cc708536)를 읽고 System Center는 [구성 관리자에서 소프트웨어 업데이트에 대한 계획](https://technet.microsoft.com/en-us/library/gg712696)을 읽습니다.
+엔터프라이즈에서 사용 중인 소프트웨어의 초기 감사를 수행한 후에 요구 사항 결정하여 소프트웨어 업데이트 관리 시스템을 설치해야 하며 이는 사용 중인 소프트웨어 업데이트 관리 시스템에 종속됩니다. WSUS는 [Windows Server Update Service를 사용한 모범 사례](https://technet.microsoft.com/ko-KR/library/Cc708536)를 읽고 System Center는 [구성 관리자에서 소프트웨어 업데이트에 대한 계획](https://technet.microsoft.com/ko-KR/library/gg712696)을 읽습니다.
 
 그러나 다음에 나오는 섹션처럼 사용하는 솔루션에 상관없이 적용할 수 있는 일부 일반적인 고려 사항 및 모범 사례가 있습니다.
 
@@ -87,13 +87,13 @@ PaaS 시나리오에서 운영 체제의 업데이트 관리가 Microsoft의 책
 
 -   **참조 컴퓨터를 포함하는 사전 프로덕션 컬렉션 만들기**: 사전 프로덕션 컬렉션은 기업에서 실행되는 운영 체제 버전, 비즈니스 소프트웨어의 줄 및 다른 소프트웨어의 대표적인 구성을 포함해야 합니다.
 
-또한 소프트웨어 업데이트 서버가 클라우드의 Azure IaaS 인프라 또는 온-프레미스에 위치한 경우 이를 고려해 야 합니다. 온-프레미스 리소스와 Azure 인프라 간의 트래픽 양을 평가해야 하기 때문에 중요한 결정입니다. 온-프레미스 인프라를 Azure에 연결하는 방법에 대한 자세한 내용은 [Microsoft Azure 가상 네트워크에 온-프레미스 네트워크 연결](https://technet.microsoft.com/en-us/library/Dn786406.aspx)을 읽습니다.
+또한 소프트웨어 업데이트 서버가 클라우드의 Azure IaaS 인프라 또는 온-프레미스에 위치한 경우 이를 고려해 야 합니다. 온-프레미스 리소스와 Azure 인프라 간의 트래픽 양을 평가해야 하기 때문에 중요한 결정입니다. 온-프레미스 인프라를 Azure에 연결하는 방법에 대한 자세한 내용은 [Microsoft Azure 가상 네트워크에 온-프레미스 네트워크 연결](https://technet.microsoft.com/ko-KR/library/Dn786406.aspx)을 읽습니다.
 
-또한 업데이트 서버가 위치할 곳을 결정하는 설계 옵션은 현재 인프라 및 현재 사용 중인 소프트웨어 업데이트 시스템에 따라 다릅니다. WSUS은 [조직에서 Windows Server Update Service 배포](https://technet.microsoft.com/en-us/library/hh852340.aspx)를 읽고 System Center 구성 관리자는 [구성 관리자에서 사이트 및 계층에 대한 계획](https://technet.microsoft.com/en-us/library/Gg712681.aspx)을 읽습니다.
+또한 업데이트 서버가 위치할 곳을 결정하는 설계 옵션은 현재 인프라 및 현재 사용 중인 소프트웨어 업데이트 시스템에 따라 다릅니다. WSUS은 [조직에서 Windows Server Update Service 배포](https://technet.microsoft.com/ko-KR/library/hh852340.aspx)를 읽고 System Center 구성 관리자는 [구성 관리자에서 사이트 및 계층에 대한 계획](https://technet.microsoft.com/ko-KR/library/Gg712681.aspx)을 읽습니다.
 
 ### 백업
 
-정기적인 백업은 소프트웨어 업데이트 관리 플랫폼 자체 뿐만 아니라 업데이트되는 서버에도 중요합니다. [변경 관리 프로세스](https://technet.microsoft.com/en-us/library/cc543216.aspx)를 갖춘 조직은 서버를 업데이트해야 하는 이유, 예상된 가동 중지 시간 및 가능한 영향에 대한 이유를 정당화하기 위해 IT를 필요로 합니다. 업데이트가 실패하는 경우 롤백 구성이 준비되었는지를 확인하려면 시스템을 정기적으로 백업해야 합니다.
+정기적인 백업은 소프트웨어 업데이트 관리 플랫폼 자체 뿐만 아니라 업데이트되는 서버에도 중요합니다. [변경 관리 프로세스](https://technet.microsoft.com/ko-KR/library/cc543216.aspx)를 갖춘 조직은 서버를 업데이트해야 하는 이유, 예상된 가동 중지 시간 및 가능한 영향에 대한 이유를 정당화하기 위해 IT를 필요로 합니다. 업데이트가 실패하는 경우 롤백 구성이 준비되었는지를 확인하려면 시스템을 정기적으로 백업해야 합니다.
 
 Azure IaaS에 대한 일부 백업 옵션은 다음과 같습니다.
 
@@ -119,4 +119,4 @@ Azure IaaS에 대한 일부 백업 옵션은 다음과 같습니다.
 
 Azure IaaS 내에서 이 문서에 설명된 지침을 사용하여 가상 컴퓨터에 대한 소프트웨어 업데이트에 가장 적합한 옵션을 결정하도록 지원합니다. 기존 데이터 센터 및 Azure IaaS에서 소프트웨어 업데이트 모범 사례 간의 많은 공통점이 있습니다. 따라서 현재 소프트웨어 업데이트 정책을 평가하여 Azure VM을 포함하고 전체 소프트웨어 업데이트 프로세스의 이 문서에서 관련된 모범 사례를 포함하는 것이 좋습니다
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

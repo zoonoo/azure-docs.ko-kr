@@ -710,4 +710,4 @@ namespace ServiceFabricRestCaller
 
 [서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

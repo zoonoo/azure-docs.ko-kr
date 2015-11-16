@@ -1,5 +1,5 @@
 <properties
-	pageTitle="SSH를 통해 Azure VM에 연결할 수 없음 | Microsoft Azure"
+	pageTitle="SSH를 통한 Azure VM 연결 문제 해결 | Microsoft Azure"
 	description="Linux를 실행하는 Azure 가상 컴퓨터에 대한 SSH(보안 셸) 연결 문제 해결"
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/27/2015"
 	ms.author="dkshir"/>
 
 # Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결
@@ -25,7 +25,7 @@
 
 Linux 기반 Azure 가상 컴퓨터에서 SSH 실패가 발생하는 원인은 여러 가지가 있을 수 있습니다. 이 문서는 원인을 알아내고 문제를 해결하는 데 도움이 됩니다.
 
-> [AZURE.NOTE]이 문서는 Linux를 실행하는 Azure 가상 컴퓨터에만 적용됩니다. Windows를 실행하는 Azure 가상 컴퓨터에 대한 연결 문제를 해결하는 방법은 [이 문서](virtual-machines-troubleshoot-remote-desktop-connections.md)를 참조하세요.
+이 문서는 Linux를 실행하는 Azure 가상 컴퓨터에만 적용됩니다. Windows를 실행하는 Azure 가상 컴퓨터에 대한 연결 문제를 해결하는 방법은 [이 문서](virtual-machines-troubleshoot-remote-desktop-connections.md)를 참조하세요.
 
 ## Azure 고객 지원 서비스에 문의
 
@@ -42,15 +42,17 @@ Linux 기반 Azure 가상 컴퓨터에서 SSH 실패가 발생하는 원인은 �
 
 	![원격 액세스 다시 설정](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. 가상 컴퓨터를 **다시 시작**합니다. [Azure Preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다. [Azure 관리 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **인스턴스**를 열고 **다시 시작**을 클릭합니다.
+2. 가상 컴퓨터를 **다시 시작합니다**. [Azure preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다. [Azure 관리 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **인스턴스**를 열고 **다시 시작**을 클릭합니다.
 
-3. [가상 컴퓨터 **크기를 조정**합니다](https://msdn.microsoft.com/library/dn168976.aspx).
+3. [가상 컴퓨터 **크기를 조정합니다**](https://msdn.microsoft.com/library/dn168976.aspx).
 
 4. 가상 컴퓨터에서 [Linux 기반 가상 컴퓨터의 암호 또는 SSH를 다시 설정하는 방법](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)의 지침을 따라 다음 작업을 수행합니다.
 
 	- 암호 또는 SSH 키를 재설정합니다.
 	- 새 sudo 사용자 계정을 만듭니다.
 	- SSH 구성을 재설정합니다.
+
+5. VM 리소스 상태에서 플랫폼 문제를 확인합니다. 모두 찾아보기 > 가상 컴퓨터(클래식) > Linux 가상 컴퓨터 > **상태 확인**을 클릭합니다.
 
 
 ## 기본 단계 - 리소스 관리자 배포 모델
@@ -286,4 +288,4 @@ Linux 기반 Azure 가상 컴퓨터에서 SSH 실패가 발생하는 원인은 �
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

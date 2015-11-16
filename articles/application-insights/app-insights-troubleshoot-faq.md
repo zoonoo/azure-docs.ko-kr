@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
  
 # ASP.NET용 Application Insights 문제 해결 및 질문
@@ -136,12 +136,15 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 + 새로고침 단추를 클릭합니다. 블레이드 자체는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 시간 범위가 커지면 새로 고침 간격이 길어집니다.
 + Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
 + 또한 [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 확인합니다.
++ ApplicationInsights.config를 편집한 경우 TelemetryInitializers 및 TelemetryProcessors의 구성을 신중하게 확인합니다. 형식 또는 매개 변수를 잘못 명명하면 SDK에서 빈 데이터를 보내게 될 수 있습니다.
 
 #### 내 서버에 앱을 게시한 이후 데이터 없음
 
++ 실제로 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll을 포함하여 모든 Microsoft ApplicationInsights DLL을 서버로 복사했는지 확인합니다.
 + 방화벽에서 dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
-+ 회사 네트워크를 벗어나 보내기 위해 프록시를 사용해야 하는 경우, Web.config에서 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)를 설정하세요.
-+ Windows Server 2008: 다음 업데이트를 설치했는지 확인하세요. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
++ 회사 네트워크를 벗어나 보내기 위해 프록시를 사용해야 하는 경우, Web.config에서 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)를 설정하십시오.
++ Windows Server 2008: 다음 업데이트를 설치했는지 확인하십시오. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+
 
 #### <a name="q04"></a> 웹 사이트에 대한 사용 현황 분석에 데이터가 표시되지 않습니다.
 
@@ -162,7 +165,7 @@ Dc.services.visualstudio.com에 https POST 호출을 릴레이할 수 있는 프
 #### 데이터를 보는 데 중지되었습니다.
 
 * [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참고하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참고하십시오.
 
 ## 상태 모니터가 작동하지 않습니다.
 
@@ -243,4 +246,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
