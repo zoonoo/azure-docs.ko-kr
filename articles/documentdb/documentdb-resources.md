@@ -149,7 +149,7 @@ DocumentDB는 진정한 스키마 없는 데이터베이스 시스템입니다. 
 
 DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이루려고 합니다. DocumentDB의 데이터베이스 엔진은 기본적으로 SQL 쿼리 문을 컴파일하고 실행합니다. [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용하여 컬렉션을 쿼리할 수 있습니다. .NET SDK에는 LINQ 공급자가 포함되어 있습니다.
 
-> [AZURE.TIP][쿼리 실습](https://www.documentdb.com/sql/demo)에서 DocumentDB를 사용해 보고 데이터 집합에 대해 SQL 쿼리를 실행할 수 있습니다.
+> [AZURE.TIP] [쿼리 실습](https://www.documentdb.com/sql/demo)에서 DocumentDB를 사용해 보고 데이터 집합에 대해 SQL 쿼리를 실행할 수 있습니다.
 
 ### 다중 문서 트랜잭션
 데이터베이스 트랜잭션은 데이터 동시 변경을 처리하기 위한 안전하고 예측 가능한 프로그래밍 모델을 제공합니다. RDBMS에서 비즈니스 논리를 작성하는 기존 방법은 **저장 프로시저** 및/또는 **트리거**를 작성하고 트랜잭션 실행을 위해 데이터베이스 서버에 전달하는 것입니다. RDBMS에서는 응용 프로그램 프로그래머가 다음 두 가지 프로그래밍 언어를 처리해야 합니다.
@@ -410,4 +410,4 @@ DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->

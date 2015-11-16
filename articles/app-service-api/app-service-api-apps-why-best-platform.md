@@ -40,7 +40,7 @@ API 앱은 공개 미리 보기에서 현재 사용할 수 있는 다음과 같�
 
 다음은 중요한 몇 가지입니다. API 앱이 활용할 수 있는 더 많은 기능은 [웹앱 개요](../app-service-web/app-service-web-overview.md)를 참조하세요.
 
->[AZURE.NOTE][Azure API 관리](../api-management/api-management-key-concepts.md)를 사용하여 앱 서비스 API 앱에서 호스팅되는 API에 대한 클라이언트 액세스를 제어할 수 있습니다. API 앱이 인증 서비스를 제공하는 반면 액세스 관리 끝점 통합 및 제한 등 API 관리에서 제공하는 다른 기능을 제공하지 않습니다.
+>[AZURE.NOTE] [Azure API 관리](../api-management/api-management-key-concepts.md)를 사용하여 앱 서비스 API 앱에서 호스팅되는 API에 대한 클라이언트 액세스를 제어할 수 있습니다. API 앱이 인증 서비스를 제공하는 반면 액세스 관리 끝점 통합 및 제한 등 API 관리에서 제공하는 다른 기능을 제공하지 않습니다.
 >
 >API 앱은 현재 공개 미리 보기로 제공됩니다. [앱 서비스 웹앱](../app-service-web/app-service-web-overview.md)은 글로벌 규모로 안전한 중요 업무용 응용 프로그램을 빌드 및 호스트하도록 설계된 GA(일반 공급) 서비스입니다. 현재 API를 빌드하기 위한 GA 서비스를 찾고 있는 경우 웹앱이 유용한 옵션입니다. API 앱이 GA로 전환되면 기존 웹앱을 통해 API 앱의 기능을 활용할 수 있는 추가 기능이 제공될 것입니다.
 
@@ -62,4 +62,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->
