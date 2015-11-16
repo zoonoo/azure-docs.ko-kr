@@ -1,5 +1,5 @@
 <properties
-   pageTitle="서비스 패브릭 응용 프로그램 업그레이드: 고급 항목"
+   pageTitle="응용 프로그램 업그레이드: 고급 항목 | Microsoft Azure"
    description="이 문서에서는 서비스 패브릭 응용 프로그램 업그레이드와 관련된 고급 항목을 다룹니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -51,4 +51,4 @@
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

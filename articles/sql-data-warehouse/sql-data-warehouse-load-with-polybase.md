@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -245,6 +245,17 @@ FROM   [ext].[CarSensor_Data]
 
 [CREATE TABLE AS SELECT (Transact-SQL)][]를 참조하세요.
 
+## 새로 로드한 데이터에 대한 통계 만들기
+
+Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요. 다음은 이 예제에 로드한 테이블에 대한 통계를 만드는 방법을 간략히 보여주는 예입니다.
+
+```
+create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
+create statistics [CustomerKey] on [Customer_Speed] ([CustomerKey]);
+create statistics [GeographyKey] on [Customer_Speed] ([GeographyKey]);
+create statistics [Speed] on [Customer_Speed] ([Speed]);
+create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
+```
 
 ## Azure Blob 저장소에 데이터 내보내기
 이 섹션은 SQL 데이터 웨어하우스에서 Azure Blob 저장소로 데이터를 내보내는 방법을 보여줍니다. 이 예에서는 모든 계산 노드에서 병렬로 데이터를 내보내는 높은 성능의 Transact-SQL 문인 CREATE EXTERNAL TABLE AS SELECT를 사용합니다.
@@ -269,8 +280,6 @@ WHERE
     AND DateRequested > '12/31/2013'
     AND DateRequested < '01/01/2015';
 ```
-
-
 
 
 ## PolyBase UTF-8 요구 사항 해결
@@ -338,6 +347,7 @@ $write.Dispose()
 [Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [개발 개요]: sql-data-warehouse-overview-develop.md
+[통계]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -360,4 +370,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

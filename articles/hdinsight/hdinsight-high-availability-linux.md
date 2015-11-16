@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
@@ -146,7 +146,7 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 
 * **Azure CLI**: `azure hdinsight cluster create` 명령을 사용하는 경우 `--headNodeSize` 매개 변수를 사용하여 헤드 노드의 크기를 설정할 수 있습니다.
 
-* **Azure PowerShell**: `New-AzureHDInsightCluster` cmdlet을 사용하는 경우 `-HeadNodeVMSize` 매개 변수를 사용하여 헤드 노드의 크기를 설정할 수 있습니다.
+* **Azure PowerShell**: `New-AzureRmHDInsightCluster` cmdlet을 사용하는 경우 `-HeadNodeVMSize` 매개 변수를 사용하여 헤드 노드의 크기를 설정할 수 있습니다.
 
 ##다음 단계
 
@@ -166,4 +166,4 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
@@ -183,4 +183,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

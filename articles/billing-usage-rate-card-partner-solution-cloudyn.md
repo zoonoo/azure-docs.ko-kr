@@ -1,5 +1,5 @@
 <properties
-   pageTitle="고객용 ITFM를 제공하여 Microsoft Azure 사용 및 RateCard API 사용 Cloudyn"
+   pageTitle="Microsoft Azure 사용량 및 RateCard API로 Cloudyn을 사용하여 고객에 ITFM 제공 | Microsoft Azure"
    description="경험으로 해당 제품에 Azure 청구 API를 통합하여 Microsoft Azure 청구 파트너 Cloudyn에서 고유한 관점을 제공합니다. Azure 서비스용 Cloudyn를 사용/시도하는 데 관심을 두는 Azure 및 Cloudyn 고객에게 특히 유용합니다."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/14/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # 고객용 ITFM를 제공하여 Microsoft Azure 사용 및 RateCard API 사용 Cloudyn 
@@ -74,7 +74,7 @@ Azure 성능 API 외에도 Cloudyn은 사용 및 RateCard API를 모두 사용�
 + 무료 [Azure용 Cloudyn](https://www.cloudyn.com/microsoft-azure/) 평가판을 시작하여 Microsoft Azure 클라우드 배포에서 사용자 지정 보고 및 분석과 함께 비용 투명성을 얻을 수 있는 방법을 참조합니다.
 + Azure 리소스 사용 및 RateCard API에 대한 개요는 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하십시오. 
 + 두 API에 대한 정보는 [Azure 청구 REST API 참조](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)를 확인하십시오. 이는 Azure 리소스 관리자에서 제공하는 API 집합의 일부입니다.
-+ 샘플 코드를 곧바로 시작려면 [Github의 Microsoft Azure 청구 API 코드 샘플](https://github.com/Azure/BillingCodeSamples)을 확인하십시오.
++ 샘플 코드를 곧바로 시작하려면 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?term=billing)의 Microsoft Azure 청구 API 코드 샘플을 확인하세요.
 
 ## 자세한 정보
 + Microsoft Azure 엔터프라이즈 규약(EA) 제공에 대한 자세한 내용을 보려면 [엔터프라이즈용 Azure 라이선스](http://azure.microsoft.com/pricing/enterprise-agreement/)를 방문하십시오
@@ -90,4 +90,4 @@ Azure 성능 API 외에도 Cloudyn은 사용 및 RateCard API를 모두 사용�
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

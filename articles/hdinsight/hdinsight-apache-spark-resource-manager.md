@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="11/03/2015" 
 	ms.author="nitinme"/>
 
 
@@ -82,4 +82,4 @@ Thrift 서버 코어 개수 및 Thrift 서버 실행자 메모리를 0으로 지
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

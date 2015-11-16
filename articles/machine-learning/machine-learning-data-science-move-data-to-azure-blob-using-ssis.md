@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/28/2015" 
 	ms.author="bradsev" />
 
 # SSIS 커넥터를 사용하여 Azure Blob 저장소의 데이터 이동
@@ -45,7 +45,7 @@ SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반�
 **SSIS 커넥터**를 사용하려면 다음을 다운로드해야 합니다.
 
 - **SQL Server 2014 또는 2016 Standard 이상**: 설치 파일에 SQL Server Integration Services가 포함되어 있습니다.
-- **Azure용 Microsoft SQL Server 2016 Integration Services 기능 팩**: [SQL Server Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) 페이지에서 다운로드할 수 있습니다.
+- **Azure용 Microsoft SQL Server 2014 또는 2016 Integration Services 기능 팩**: [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) 및 [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) 페이지에서 다운로드할 수 있습니다.
 
 > [AZURE.NOTE]SSIS는 SQL Server와 함께 설치되지만 Express 버전에는 포함되어 있지 않습니다. 다양한 버전의 SQL Server에 포함된 응용 프로그램에 대한 자세한 내용은 [SQL Server 버전](http://www.microsoft.com/ko-KR/server-cloud/products/sql-server-editions/)을 참조하세요.
 
@@ -54,7 +54,7 @@ SSIS에 대한 교육 자료는 [SSIS에 대한 실습 교육](http://www.micros
 SISS를 사용하여 간단한 ETL(추출, 변환 및 로드) 패키지를 빌드하는 방법에 대한 자세한 내용은 [SSIS 자습서: 간단한 ETL 패키지 만들기](https://msdn.microsoft.com/library/ms169917.aspx)를 참조하세요.
 
 ## NYC Taxi 데이터 집합 다운로드  
-여기에 설명된 예제에서는 공개적으로 제공되는 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 사용합니다. 이 데이터 집합은 2013년 뉴욕 시의 1억 7,300만 건에 달하는 택시 승차 기록으로 구성됩니다. 데이터는 여정 정보 데이터와 요금 데이터의 두 종류가 있습니다. 월별로 하나의 파일씩 총 24개의 파일이 있으며, 각 파일은 압축되지 않은 크기가 약 2GB입니다. 이 데이터 집합은 [Github](https://github.com/andresmh/nyctaxitrips)에서 간편하게 다운로드할 수 있습니다.
+여기에 설명된 예제에서는 공개적으로 제공되는 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 사용합니다. 이 데이터 집합은 2013년 뉴욕 시의 1억 7,300만 건에 달하는 택시 승차 기록으로 구성됩니다. 데이터는 여정 정보 데이터와 요금 데이터의 두 종류가 있습니다. 월별로 하나의 파일씩 총 24개의 파일이 있으며, 각 파일은 압축되지 않은 크기가 약 2GB입니다.
 
 
 ## Azure Blob 저장소에 데이터 업로드
@@ -88,4 +88,4 @@ SSIS 기능 팩을 사용하면 패키징 작업을 통해 보다 복잡한 흐�
 - SSIS를 사용하여 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하려면 [Azure HDInsight Hive 작업](https://msdn.microsoft.com/library/mt146771.aspx)을 사용합니다.
 - SSIS를 사용하여 Azure HDInsight 클러스터에서 Pig 스크립트를 실행하려면 [Azure HDInsight Pig 작업](https://msdn.microsoft.com/library/mt146781.aspx)을 사용합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

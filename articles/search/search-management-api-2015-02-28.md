@@ -1,10 +1,10 @@
-<properties pageTitle="Azure 검색 관리 REST API 버전 2015-02-28" description="Azure 검색 관리 REST API: 버전 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="Azure 검색 관리 REST API 버전 2015-02-28 | Microsoft Azure" description="Azure 검색 관리 REST API: 버전 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="09/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
 # 관리 API: 버전 2015-02-28
 
-이 문서에서는 Azure 검색 관리 REST API의 **2015-02-28* 버전에 대해 설명합니다. 이후에 최신 버전으로 대체되었습니다. 최신 정보는 MSDN에서 [Azure 검색 관리 REST API 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx)를 참조하세요.
+Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비스입니다. 이 문서에서는 Azure 검색 관리 REST API의 **2015-02-28* 버전에 대해 설명합니다. 이후에 최신 버전으로 대체되었습니다. 최신 정보는 MSDN에서 [Azure 검색 관리 REST API 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx)를 참조하세요.
 
 ##서비스 관리 작업
 
@@ -810,6 +810,6 @@ api 키, 특히 관리 키는 중요한 데이터로서 처리해야 합니다. 
 
 ###응답 본문###
 
-없음.
+없음
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

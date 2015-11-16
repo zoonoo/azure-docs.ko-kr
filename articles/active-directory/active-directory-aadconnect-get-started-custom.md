@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/02/2015"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -90,7 +90,7 @@ Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충
 ------------- | ------------- |
 [사용자는 모든 포리스트에 걸쳐 한번만 표시됩니다.](active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) | 모든 사용자는 Azure AD에 개별 개체로 만들어집니다.<br> 개체는 메타 버스에 연결되지 않습니다.
 [Mail 특성](active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) | 메일 특성에 다른 포리스트의 동일한 값이 있는 경우 이 옵션은 사용자 및 연락처를 연결합니다. 연락처가 GALSync를 사용하여 만들어진 경우 이 옵션을 사용하는 것이 좋습니다.
-[ObjectSID 및 msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|이 옵션은 계정 포리스트에서 활성화된 사용자와 Exchange 리소스 포리스트의 비활성화된 사용자를 연결합니다. Exchange에서 연결된 사서함이라고도 합니다.
+[ObjectSID 및 msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|이 옵션은 계정 포리스트에서 활성화된 사용자와 Exchange 리소스 포리스트의 비활성화된 사용자를 연결합니다. Exchange에서 연결된 사서함이라고도 합니다. 이 옵션은 Lync만 사용하며 Exchange는 리소스 포리스트에 없는 경우에도 사용할 수 있습니다.
 sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID를 찾을 수 있을 것으로 예상되는 특성에 연결합니다.
 나만의 특성|이 옵션을 사용하면 고유한 특성을 선택할 수 있습니다. **제한:** 메타버스에 이미 존재하는 특성을 선택할 수 있는지 확인합니다. 사용자 지정 특성을 선택하면 마법사를 완료할 수 없습니다.
 
@@ -246,4 +246,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

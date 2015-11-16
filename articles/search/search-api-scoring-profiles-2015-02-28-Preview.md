@@ -1,6 +1,6 @@
 <properties
 	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview) | Microsoft Azure"
-	description="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)"
+	description="Azure 검색은 사용자가 정의한 점수 매기기 프로필을 기초로 순위의 결과를 조정할 수 있도록 하는 호스팅되는 클라우드 검색 서비스입니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="10/01/2015" />
+	ms.date="11/04/2015" />
 
 # 점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)
 
@@ -370,4 +370,4 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

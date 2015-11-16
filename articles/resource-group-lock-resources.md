@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/28/2015" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자를 사용하여 리소스 잠그기
@@ -106,5 +106,6 @@ Azure PowerShell은 잠금을 업데이트하기 위한 **Set-AzureRmResourceLoc
 - 리소스 잠금 작업에 대한 자세한 내용은 [Azure 리소스 잠금](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)을 참조하세요.
 - 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 - 리소스가 존재하는 리소스 그룹을 변경하려면 [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
+- 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

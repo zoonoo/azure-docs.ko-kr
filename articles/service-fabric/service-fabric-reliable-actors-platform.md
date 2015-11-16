@@ -1,6 +1,6 @@
 <properties
-   pageTitle="신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법"
-   description="이 문서에서는 신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼의 기능을 사용하는 방법을 설명합니다. 행위자 개발자의 관점에서 서비스 패브릭 플랫폼 개념을 설명합니다."
+   pageTitle="서비스 패브릭의 신뢰할 수 있는 행위자| Microsoft Azure"
+   description="신뢰할 수 있는 행위자가 행위자 개발자의 견지에서 서비스 패브릭 플랫폼의 기능을 어떻게 사용하는지 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -18,8 +18,9 @@
 
 # 신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
 
-## 행위자를 위한 서비스 패브릭 응용 프로그램 모델 개념
 행위자는 서비스 패브릭 응용 프로그램 모델을 사용하여 응용 프로그램 수명 주기를 관리합니다. 모든 행위자 형식이 서비스 패브릭 [서비스 유형](service-fabric-application-model.md#describe-a-service)에 매핑됩니다. 행위자 코드는 서비스 패브릭 응용 프로그램으로 [패키지](service-fabric-application-model.md#package-an-application)되며 클러스터에 [배포](service-fabric-deploy-remove-applications.md#deploy-an-application)됩니다.
+
+## 행위자에 대한 응용 프로그램 모델 개념 예
 
 [Visual Studio를 사용하여 만든](service-fabric-reliable-actors-get-started.md) 행위자 프로젝트의 예를 통해 위의 개념 중 몇 가지를 살펴보겠습니다.
 
@@ -70,7 +71,7 @@ Visual Studio를 사용하여 응용 프로그램 패키지를 만들면 빌드 
     │   │   │   VoiceMailBox.exe.config
     │   │   │   VoiceMailBox.Interfaces.dll
     │   │   │
-    │   │   └───en-us
+    │   │   └───ko-KR
     │   │           System.Fabric.Common.Internal.Strings.resources.dll
     │   │
     │   └───Config
@@ -91,7 +92,7 @@ Visual Studio를 사용하여 응용 프로그램 패키지를 만들면 빌드 
             │   VoicemailBoxWebService.exe
             │   VoicemailBoxWebService.exe.config
             │
-            └───en-us
+            └───ko-KR
                     System.Fabric.Common.Internal.Strings.resources.dll
 
 위 목록에서는 응용 프로그램 패키지 내 서비스 패키지 내에 있는 코드 패키지에 포함된 VoicemailBox 행위자 가져오기 작업을 구현하는 어셈블리를 보여줍니다.
@@ -242,4 +243,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

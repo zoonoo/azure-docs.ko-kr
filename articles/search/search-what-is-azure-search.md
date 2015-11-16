@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 검색이란"
-	description="Azure 검색 기술 개요 및 기능 요약."
+	description="Azure 검색은 호스팅되는 클라우드 검색 서비스입니다. 이 기술 개요 및 기능 요약에서 자세히 알아보세요."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Azure 검색이란?
 
-Azure 검색 서비스는 개발자가.NET SDK 또는 REST API를 사용하여 풍부한 검색 응용 프로그램을 빌드할 수 있도록 완전히 관리되는 클라우드 서비스입니다. 이 서비스는 콘텐츠 전체를 범위로 설정한 전체 텍스트 검색 및 입력한 용어의 일부에 기초한 자동 완성 쿼리 제안, 적중 항목 강조 및 패싯 탐색 등 상용 웹 검색 엔진에서 볼 수 있는 기능과 유사한 고급 검색을 포함하고 있습니다. 자연 언어 지원은 지정된 언어에 적절한 언어 규칙을 사용하여 기본 제공됩니다.
+Azure 검색 서비스는 호스팅되는 완전 관리 클라우드 서비스로, 개발자가 .NET SDK 또는 REST API를 사용하여 풍부한 검색 응용 프로그램을 빌드할 수 있도록 합니다. 이 서비스는 콘텐츠 전체를 범위로 설정한 전체 텍스트 검색 및 입력한 용어의 일부에 기초한 자동 완성 쿼리 제안, 적중 항목 강조 및 패싯 탐색 등 상용 웹 검색 엔진에서 볼 수 있는 기능과 유사한 고급 검색을 포함하고 있습니다. 자연 언어 지원은 지정된 언어에 적절한 언어 규칙을 사용하여 기본 제공됩니다.
 
 향상된 검색 또는 저장소 용량의 필요에 따라 서비스를 확장할 수 있습니다. 예를 들어, 소매 업체는 휴일 쇼핑 또는 홍보 이벤트와 관련된 추가 볼륨에 맞게 용량을 늘릴 수 있습니다.
 
@@ -131,4 +131,4 @@ REST API는 내용이 JSON 형식으로 되어 있는 HTTP 요청 및 응답으�
 
 [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md) [Azure 검색 .NET 시작](search-get-started-dotnet.md) [Azure 검색: 자습서, 비디오 데모 및 샘플](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

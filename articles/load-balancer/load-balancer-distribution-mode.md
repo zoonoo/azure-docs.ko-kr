@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2015"
+   ms.date="11/02/2015"
    ms.author="joaoma" />
 
 
@@ -149,4 +149,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

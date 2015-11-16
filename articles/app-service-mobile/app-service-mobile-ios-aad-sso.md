@@ -7,12 +7,12 @@
         manager="dwrede" />
 
 <tags ms.service="app-service-mobile"
-ms.workload="mobile"
-ms.tgt_pltfrm="mobile-ios"
-ms.devlang="objective-c"
-ms.topic="article"
-ms.date="09/14/2015"
-ms.author="mahender" />
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="09/14/2015"
+	ms.author="mahender" />
 
 # iOS 앱에 Azure Active Directory 로그인 추가
 
@@ -120,7 +120,7 @@ ADAL을 사용하여 사용자를 인증하려면 먼저 AAD(Azure Active Direct
 [Azure Active Directory로 모바일 앱을 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [모바일 앱 시작 자습서]: app-service-mobile-ios-get-started.md
- [앱에 인증 추가]: app-service-mobile-ios-get-started-users.md
+[모바일 앱 시작 자습서]: app-service-mobile-ios-get-started.md
+[앱에 인증 추가]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="리소스 분산 장치 클러스터 설명"
-   description="리소스 분산 장치에 대한 클러스터 설명 지정"
+   pageTitle="리소스 분산 장치 클러스터 설명 | Microsoft Azure"
+   description="리소스 분산 장치에 대해 장애 도메인, 업그레이드 도메인, 노드 속성, 노드 용량을 지정하여 서비스 패브릭 클러스터를 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -16,7 +16,7 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-# 클러스터 설명
+# 서비스 패브릭 클러스터 설명
 
 서비스 패브릭 리소스 분산 장치는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 동안 리소스 분산 장치는 클러스터 리소스의 최대 사용을 보장하는 한편 클러스터 내에 실행되는 서비스의 높은 가용성을 확보할 수 있는 방식으로 서비스를 배치하기 위하여 이 정보를 사용합니다. 클러스터를 설명하는 리소스 분산 장치 기능은 장애 도메인, 업그레이드 도메인, 노드 속성, 노드 용량입니다. 또한 리소스 분산 장치에는 성능을 조정할 수 있는 몇 가지 구성 옵션이 있습니다.
 
@@ -192,4 +192,4 @@ NodeName, NodeType, FaultDomain, 그리고 UpgradeDomain 배치 속성에는 기
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

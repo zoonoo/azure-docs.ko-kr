@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="탄력적 데이터베이스 도구 용어집" 
+    pageTitle="탄력적 데이터베이스 도구 용어집 | Microsoft Azure" 
     description="탄력적 데이터베이스 도구에 쓰이는 용어 설명." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/24/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 도구 용어집
-Azure SQL 데이터베이스의 탄력적 데이터베이스 도구, 기능에 대해 정의된 용어는 다음과 같습니다. 도구는 클라이언트 라이브러리 및 분할/병합 도구, 탄력적 풀, 쿼리를 포함합니다.
+Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md), 기능에 대해 정의된 용어는 다음과 같습니다. 도구는 [클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 및 [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md), [탄력적 풀](sql-database-elastic-pool.md), [쿼리](sql-database-elastic-query-overview.md)를 포함합니다.
 
 ![탄력적인 확장 용어][1]
 
@@ -80,4 +80,4 @@ Azure SQL 데이터베이스의 탄력적 데이터베이스 도구, 기능에 �
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

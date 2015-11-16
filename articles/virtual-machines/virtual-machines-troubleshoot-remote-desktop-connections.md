@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/27/2015"
 	ms.author="dkshir"/>
 
 # Windows를 실행하는 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
@@ -30,9 +30,9 @@
 
 첫 번째 섹션 '기본 단계'는 일반적인 연결 문제를 해결하는 단계를 나열하고 두 번째 섹션에서는 특정 오류 메시지에 의한 해결 단계를 제공하고 마지막 섹션은 각 네트워크 구성 요소의 자세한 문제를 해결하도록 합니다.
 
-## 기본 단계
+## 기본 단계 - 클래식 배포 모델
 
-이 기본 단계는 대부분의 일반적인 원격 데스크톱 연결 실패를 해결하는 데 도움이 될 수 있습니다. 각 단계를 수행한 후 VM에 다시 연결을 시도합니다.
+이 단계는 클래식 배포 모델을 통해 만든 가상 컴퓨터에서 대부분의 일반적인 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계를 수행한 후 VM에 다시 연결을 시도합니다.
 
 - [Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하여 RDP 서버와 시작 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
 
@@ -44,19 +44,46 @@
 
 - VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다. 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **진단 부팅** 클릭
 
+- VM 리소스 상태에서 플랫폼 문제를 확인합니다. 모두 찾아보기 > 가상 컴퓨터(클래식) > 해당 Windows 가상 컴퓨터 > **상태 확인**을 클릭합니다.
+-  
+
+## 기본 단계 - 리소스 관리자 배포 모델
+
+이 단계는 리소스 관리자 배포 모델을 통해 만든 가상 컴퓨터에서 대부분의 일반적인 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계를 수행한 후 VM에 다시 연결을 시도합니다.
+
+- Powershell<br>을 사용한 원격 액세스 다시 설정 a. 아직 설치되지 않은 경우 Azure AD 명령을 사용하여 [Azure PowerShell를 설치하고 Azure 구독에 연결](../powershell-install-configure.md)합니다.
+
+	b. 리소스 관리자 모드로 전환합니다.
+
+	```
+	Switch-AzureMode -Name AzureResourceManager
+	```
+	c. Set-AzureVMAccessExtension 명령을 실행하여 다음 예에서처럼 RDP 연결을 다시 설정합니다.
+
+	```
+	Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
+	```
+
+- 가상 컴퓨터를 다시 시작하여 다른 시작 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터 > 해당Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
+
+- VM 크기를 조정하여 모든 호스트 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터 > 해당 Windows 가상 컴퓨터 > 설정 > **크기**를 클릭합니다.
+
+- VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다. 모두 찾아보기 > 가상 컴퓨터 > Windows 가상 컴퓨터 > **진단 부팅**을 클릭합니다.
+
+
 ## 일반적인 RDP 오류 문제 해결
 
 다음은 Azure 가상 컴퓨터에 원격 데스크톱 연결을 하려고 할 때 발생할 수 있는 가장 일반적인 오류입니다.
 
-1. [원격 데스크톱 연결 오류: 라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다.](#rdplicense)
+1. [원격 데스크톱 연결 오류: 라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다](#rdplicense).
 
-2. [원격 데스크톱 연결 오류: 원격 데스크톱이 컴퓨터 "name"을(를) 찾을 수 없습니다.](#rdpname)
+2. [원격 데스크톱 연결 오류: 원격 데스크톱이 컴퓨터 "name"을(를) 찾을 수 없습니다](#rdpname).
 
 3. [원격 데스크톱 연결 오류: 인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.](#rdpauth)
 
-4. [Windows 보안 오류: 자격 증명이 작동하지 않습니다.](#wincred)
+4. [Windows 보안 오류: 자격 증명이 작동하지 않습니다](#wincred).
 
-5. [원격 데스크톱 연결 오류: 이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다.](#rdpconnect)
+5. [원격 데스크톱 연결 오류: 이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다](#rdpconnect).
 
 <a id="rdplicense"></a>
 ### 원격 데스크톱 연결 오류: 라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다.
@@ -71,7 +98,7 @@
 
 가상 컴퓨터에 실제로 셋 이상의 동시 원격 데스크톱 연결이 필요하지 않을 경우 서버 관리자를 사용하여 원격 데스크톱 서버 역할을 제거할 수 있습니다.
 
-또한 ["사용 가능한 원격 데스크톱 라이선스 서버가 없음"과 함께 Azure VM이 실패하는 경우](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx) 블로그 게시물을 참조하십시오.
+또한 ["사용 가능하 원격 데스크톱 라이선스 서버가 없음"과 함께 Azure VM이 실패하는 경우](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx) 블로그 게시물을 참조하십시오.
 
 <a id="rdpname"></a>
 ### 원격 데스크톱 연결 오류: 원격 데스크톱이 컴퓨터 "name"을(를) 찾을 수 없습니다.
@@ -93,7 +120,7 @@
 
 원인: 대상 가상 컴퓨터가 사용자의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾지 못했습니다.
 
-사용자 이름이 *SecurityAuthority*\*UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
+사용자 이름이 *SecurityAuthority*\*UserName* (예: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
 
 가능한 해결 방법:
 
@@ -143,4 +170,4 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

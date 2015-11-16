@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # 모바일 서비스를 사용하여 푸시 알림에 현재 사용자 등록
@@ -122,4 +122,4 @@
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

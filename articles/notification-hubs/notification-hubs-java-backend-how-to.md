@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # Java에서 알림 허브를 사용하는 방법
@@ -303,4 +303,4 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

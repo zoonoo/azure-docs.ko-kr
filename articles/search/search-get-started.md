@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 검색 | Microsoft Azure 시작" 
-	description="Azure 검색 시작" 
+	description="Microsoft Azure에서 클라우드 호스팅되는 검색 서비스인 Azure 검색을 시작합니다." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Azure 검색 시작
 
-Microsoft Azure 검색은 검색 기능을 사용자 지정 응용 프로그램에 포함할 수 있는 새로운 서비스로, .NET 라이브러리 또는 REST API를 사용하여 액세스 및 관리하는 데이터에 대한 저장소와 검색 엔진을 제공합니다.
+Microsoft Azure 검색은 호스팅되는 클라우드 검색 서비스로, 서비스 기능을 사용자 지정 응용 프로그램에 포함할 수 있습니다. .NET 라이브러리 또는 REST API를 사용하여 액세스 및 관리하는 데이터에 대한 저장소와 검색 엔진을 제공합니다.
 
 이 문서에서는 Azure 검색 REST API 사용을 시작합니다.
 
@@ -378,4 +378,4 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

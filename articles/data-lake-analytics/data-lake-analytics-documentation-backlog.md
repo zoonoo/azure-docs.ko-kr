@@ -21,29 +21,36 @@
 Azure 데이터 레이크 분석을 서비스 개발로 지원하고 일반 사용 사례 및 옵션에 대해 중점적으로 설명하는 새 문서가 계속 추가되고 있습니다. 이 페이지에서는 현재 계획된 설명서를 나열합니다. 이 문서에 의견 추가, GitHub에서 끌어오기 요청 제출 또는 메일을 보내는 방법을 통해 어떤 곳에 초점을 맞추었으면 좋겠는지에 대한 의견을 제시할 수 있습니다.
 
 ## 설명서 백로그
-영역 |항목 | 우선 순위 | 상태
-------------- | ------------- | -------------- | --------------
-U-SQL | 분산 쿼리 | 1 | 보류 중, 적절한 방화벽 참고 자료를 작성하고 있습니다.
-U-SQL | JSON 처리 | 2 |  
-부여 | Curl 조작 | |보류 중인 RestFUL API |
-U-SQL | 분할된 테이블 |1 |
-U-SQL | 성능 튜닝 | |
-U-SQL | 프로그래머 가이드 | |
-U-SQL | T-SQL 백그라운드에서 U-SQL 시작 | |
-U-SQL | Hive 백그라운드에서 U-SQL 시작 | |
-U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트](http://bottlecaps.de/rr/ui) 사용 |
-부여 | 데이터 레이크 분석의 작업, 데이터 및 테이블 보안 |1|이 문제는 Saveen과 함께 작업합니다.
-부여 | Data Factory를 사용하여 작업 출력을 SQL 데이터 웨어하우스로 이동 |1 |이 문제는 Sreedhar와 함께 작업합니다.
-부여 | ARM 템플릿을 사용하여 데이터 레이크 분석의 배포를 다른 Azure 서비스와 조정 |1 |ARM 템플릿을 PowerShell을 사용하여 관리 문서에 포함시켰습니다. 공개 미리 보기에서 확인할 수 있습니다. CLI를 사용하여 관리와 범위가 동일합니다.
-도구 | 진단 도구 사용 | 1 |
+
+영역 |항목 | 우선 순위 | 상태 | 할당 대상 | 요청자 
+------------- | ------------- | -------------- | -------------- | --------------- | --------------
+U-SQL | 분산 쿼리 | 1 | 처리 중 | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | JSON 처리 | 2 | Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
+부여 | Curl 조작 | 3 |Pending |[@mumian](https://github.com/mumian)
+U-SQL | 분할된 테이블 |1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | 성능 튜닝 | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
+U-SQL | 프로그래머 가이드 | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | T-SQL 백그라운드에서 U-SQL 시작 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
+U-SQL | Hive 백그라운드에서 U-SQL 시작 | 1 | Pending | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
+U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트](http://bottlecaps.de/rr/ui) 사용 | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
+부여 | 데이터 레이크 분석의 작업, 데이터 및 테이블 보안 |1| 진행 중 | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
+부여 | Data Factory를 사용하여 작업 출력을 SQL 데이터 웨어하우스로 이동 |1 | 진행 중 | [@mumian](https://github.com/mumian) | 
+도구 | 진단 도구 사용 | 1 | Pending | [@mumian](https://github.com/mumian) | 
 
 
+
+
+## 백로그에서 작성된 문서
+
+영역 |항목 | location
+------------- | ------------- | -------------- 
+부여 | ARM 템플릿을 사용하여 데이터 레이크 분석의 배포를 다른 Azure 서비스와 조정 | [위치](https://azure.microsoft.com/ko-KR/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## 백로그에서 피드백을 제공하는 방법
 백로그에서 피드백을 제공하는 몇 가지 옵션이 있습니다.
 
 * 아래에 의견 추가
-* Azure 콘텐츠 리포지토리(Azure Content Repo)에서 이 문서에 대한 끌어오기 요청 제출
+* [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

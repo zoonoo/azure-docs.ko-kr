@@ -154,6 +154,6 @@
 ## 다음 단계
 - 템플릿 섹션에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](./resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿에서 사용할 수 있는 모든 함수는 [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
-- 템플릿 배포 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 템플릿 배포 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

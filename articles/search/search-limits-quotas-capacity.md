@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 검색의 서비스 제한 사항 | Microsoft Azure"
-	description="용량 계획에 사용되는 Azure 검색 제한 및 요청 및 응답 최대 제한입니다."
+	description="용량 계획에 사용되는 서비스 한도와, 호스팅되는 클라우드 검색 서비스인 Azure 검색의 요청 및 응답 최대 한도입니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Azure 검색의 서비스 제한 사항
@@ -39,6 +39,7 @@ Object|제한
 최대 인덱서 수|3
 인덱서 데이터 원본의 최대 수|3
 인덱서 호출당 인덱싱된 최대 문서 수|10000
+최대 인덱서 실행 시간|3분
 
 쿼리와 관련된 할당량이나 최대 제한이 없는지 확인합니다. QPS(초당 쿼리 수)는 사용 가능한 대역폭 및 시스템 리소스에 대한 경합에 따라 달라집니다. 공유 서비스를 백업하는 Azure 계산 및 저장소 리소스는 여러 구독자가 공유하므로 동시에 실행되는 다른 작업의 수에 따라 솔루션의 QPS가 달라집니다.
 
@@ -132,4 +133,4 @@ API 키는 서비스 인증에 사용됩니다. 두 가지 형식이 있습니�
 - 검색 결과 페이지당 반환되는 문서 최대 1000개
 - 제안 API 요청당 반환되는 제안 최대 100개
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

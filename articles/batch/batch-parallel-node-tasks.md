@@ -13,7 +13,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/30/2015"
+   	ms.date="11/02/2015"
    	ms.author="v-marsma"/>
 
 # 동시 노드 작업으로 Azure Batch 계산 리소스 사용 극대화
@@ -38,7 +38,7 @@
 
 병렬 작업 실행을 위한 배치 솔룻에서의 계산 노드 구성은 풀 수준에서 실행됩니다. Batch .NET API 작업 시 풀을 만들 때 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 속성이 설정됩니다. Batch REST API에서는 풀을 만들 때 요청 본문에서 [maxTasksPerNode][maxtasks_rest] 요소가 설정됩니다.
 
-Azure Batch를 사용하면 노드 코어의 최대 4배수의 노드 설정마다 최대 작업이 가능합니다. 예를 들어, 풀이 노드 크기 “Large”로 구성되었다면(4코어) `maxTasksPerNode` 는 16으로 설정할 수 있습니다. 각 노드 크기의 코어 수에 대한 자세한 내용은 [가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-size-specs.md)에, 서비스 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 제공합니다.
+Azure Batch를 사용하면 노드 코어의 최대 4배수의 노드 설정마다 최대 작업이 가능합니다. 예를 들어, 풀이 노드 크기 “Large”로 구성되었다면(4코어) `maxTasksPerNode` 는 16으로 설정할 수 있습니다. 각 노드 크기의 코어 수에 대한 자세한 내용은 [클라우드 서비스의 크기](../cloud-services/cloud-services-sizes-specs.md)에서 확인할 수 있고, 서비스 제한에 대한 자세한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)에서 확인할 수 있습니다.
 
 > [AZURE.TIP]풀에 [자동 크기 조정 수식][enable_autoscaling]을 구성할 때는 `maxTasksPerNode` 값을 고려해야 합니다. 예를 들어, `$RunningTasks`를 평가하는 수식은 노드당 작업 수 증가에 크게 영향을 받을 수 있습니다. 자세한 내용은 [Azure Batch 풀에서 자동으로 계산 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
 
@@ -106,18 +106,18 @@ Duration: 00:08:48.2423500
 
 ## 배치 탐색기 열 지도
 
-Azure Batch [예제 응용 프로그램][github_samples] 중 하나인 [배치 탐색기][batch_explorer]에는 풀 내의 노드 코어 사용량을 가상화하여 제공하는 *열 지도* 기능이 있습니다. [ParallelTasks][parallel_tasks_sample] 예제 응용 프로그램을 실행할 때는 열 지도 기능을 사용하여 노드 코어 활동을 간편하게 가상화합니다.
+Azure 배치 [샘플 응용 프로그램][github_samples] 중 하나인 [배치 탐색기][batch_explorer]에는 작업 실행을 시각화하는 *열 지도* 기능이 있습니다. [ParallelTasks][parallel_tasks_sample] 샘플 응용 프로그램을 실행할 때 열 지도 기능을 사용하면 각 노드에서 병렬 작업의 실행을 쉽게 시각화할 수 있습니다.
 
 ![배치 탐색기 열 지도][1]
 
-*각각 4개 코어가 있는 4개 노드를 나타내는 배치 탐색기 열 지도, 각 코어가 현재 작업을 실행 중임*
+*현재 4가지 작업을 실행하는 각 노드와 4개 노드의 풀을 보여 주는 배치 탐색기 열 지도*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_explorer]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-[fill_type]: https://msdn.microsoft.com/en-us/library/microsoft.azure.batch.common.computenodefilltype.aspx
+[fill_type]: https://msdn.microsoft.com/ko-KR/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
 [maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -127,4 +127,4 @@ Azure Batch [예제 응용 프로그램][github_samples] 중 하나인 [배치 �
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

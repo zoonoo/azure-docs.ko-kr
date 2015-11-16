@@ -95,8 +95,9 @@ Azure AD Connect Health 에이전트가 Azure AD Health 서비스 끝점과 통�
 ## 관련 링크
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [AD FS에 대한 Azure AD Connect Health 에이전트 설치](active-directory-aadconnect-health-agent-install-adfs.md)
-* [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
+* [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
+* [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #HDInsight의 Hadoop과 함께 Apache Mahout을 사용하여 영화 추천 생성
@@ -105,7 +105,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
             -Container $container `
             -Context $context
     
-    이 명령은 클러스터용 기본 저장소의 __example/data/u.data__에 __u.data__ 파일을 업로드합니다. 그런 다음 HDInsight 작업에서 __wasb:///example/data/u.data__ URI를 사용하여 이 데이터에 액세스할 수 있습니다.
+    이 명령은 클러스터용 기본 저장소의 __example/data/u.data__에 __u.data__ 파일을 업로드합니다. 그런 다음 HDInsight 작업에서 \_\___wasb:///example/data/u.data__ URI를 사용하여 이 데이터에 액세스할 수 있습니다.
 
 ###작업 실행
 
@@ -133,7 +133,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
             
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
-	$jarFile = "file:///C:/apps/dist/mahout-0.9.0.2.1.15.1-1234/examples/target/mahout-examples-0.9.0.2.1.15.1-1234-job.jar"
+	$jarFile = "file:///C:/apps/dist/mahout-0.9.0.2.2.7.1-33/examples/target/mahout-examples-0.9.0.2.2.7.1-33-job.jar"
     #
 	# If you are using an earlier version of HDInsight,
 	# set $jarFile to the jar file you
@@ -379,7 +379,7 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    이 작업의 출력은 HDInsight 클러스터(__wasb://user/&lt;username>/nsl-forest/nsl-forest.seq)의 저장소에 있는 __nsl-forest__ 디렉터리에 저장됩니다. &lt;username>은 원격 데스크톱 세션에 사용되는 사용자 이름입니다. 이 파일은 사용자가 읽을 수 없습니다.
+    이 작업의 출력은 HDInsight 클러스터(\_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq)의 저장소에 있는 __nsl-forest__ 디렉터리에 저장됩니다. &lt;username>은 원격 데스크톱 세션에 사용되는 사용자 이름입니다. 이 파일은 사용자가 읽을 수 없습니다.
 
 5. __KDDTest+.arff__ 데이터 집합을 분류하여 포리스트를 테스트합니다. 다음 명령을 사용합니다.
 
@@ -411,7 +411,7 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  또한 이 작업은 __wasb:///example/data/predictions/KDDTest+.arff.out__에 있는 파일을 생성합니다. 그러나 이 파일은 사용자가 읽을 수 없습니다.
+  또한 이 작업은 \_\___wasb:///example/data/predictions/KDDTest+.arff.out__에 있는 파일을 생성합니다. 그러나 이 파일은 사용자가 읽을 수 없습니다.
 
 > [AZURE.NOTE]Mahout 작업은 파일을 덮어쓰지 않습니다. 이러한 작업을 다시 실행하려는 경우 이전 작업에서 생성된 파일을 삭제해야 합니다.
 
@@ -421,10 +421,7 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 
 Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하여 HDInsight 3.0 또는 HDInsight 2.1 클러스터에 수동으로 설치할 수 있습니다.
 
-1. 사용할 Mahout 버전은 사용 중인 클러스터의 HDInsight 버전에 따라 다릅니다. 다음 [Azure PowerShell][aps] 명령을 사용하여 클러스터 버전을 찾을 수 있습니다.
-
-    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
-
+1. 사용할 Mahout 버전은 사용 중인 클러스터의 HDInsight 버전에 따라 다릅니다. Azure 포털에서 클러스터에 대한 속성을 확인하여 클러스터 버전을 찾을 수 있습니다.
 
   * __HDInsight 2.1__의 경우 [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar)가 포함된 JAR(Java Archive) 파일을 다운로드할 수 있습니다.
 
@@ -434,9 +431,9 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
 
     	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] Mahout 1.0이 릴리스되면 HDInsight 3.0에 미리 빌드된 패키지를 사용할 수 있습니다.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
-2. 클러스터용 기본 저장소의 __example/jars__에 jar 파일을 업로드합니다. 다음 스크립트에서 CLUSTERNAME을 해당 HDInsight 클러스터의 이름으로, FILENAME은 __mahout-coure-0.9-job.jar__ 파일에 대한 경로로 교체합니다.
+2. 클러스터용 기본 저장소의 __example/jars__에 jar 파일을 업로드합니다. 다음 스크립트에서 CLUSTERNAME을 해당 HDInsight 클러스터의 이름으로, FILENAME은 __mahout-coure-0.9-job.jar__ 파일에 대한 경로로 바꿉니다.
 
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterName = "CLUSTERNAME"
@@ -469,10 +466,24 @@ Mahout 작업을 실행할 때 오류를 방지하려면 실행 사이에 임시
 
 ###JAR 파일을 찾을 수 없음
 
-HDInsight 3.1 클러스터에는 Mahout이 포함되어 있습니다. 경로 및 파일 이름에는 클러스터에 설치된 Mahout의 버전 번호가 포함됩니다. 이 자습서의 Windows PowerShell 예제 스크립트는 2014년 7월을 기준으로 유효한 경로를 사용하지만 향후 HDInsight 업데이트에서 버전 번호가 변경될 예정입니다. 사용 중인 클러스터용 Mahout JAR 파일의 현재 경로를 확인하려면 다음 Windows PowerShell 명령을 사용한 후 반환된 파일 경로를 참조하도록 스크립트를 수정하세요.
+HDInsight 3.1 클러스터에는 Mahout이 포함되어 있습니다. 경로 및 파일 이름에는 클러스터에 설치된 Mahout의 버전 번호가 포함됩니다. 이 자습서의 Windows PowerShell 예제 스크립트는 2015년 11월을 기준으로 유효한 경로를 사용하지만 향후 HDInsight 업데이트에서 버전 번호가 변경될 예정입니다. 사용 중인 클러스터용 Mahout JAR 파일의 현재 경로를 확인하려면 다음 Windows PowerShell 명령을 사용한 후 반환된 파일 경로를 참조하도록 스크립트를 수정하세요.
 
-	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
+	Use-AzureRmHDInsightCluster -ClusterName $clusterName
+    #Get the cluster info so we can get the resource group, storage, etc.
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $resourceGroup = $clusterInfo.ResourceGroup
+        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container=$clusterInfo.DefaultStorageContainer
+        $storageAccountKey=Get-AzureRmStorageAccountKey `
+            -Name $storageAccountName `
+            -ResourceGroupName $resourceGroup `
+            | %{ $_.Key1 }
+    Invoke-AzureRmHDInsightHiveJob `
+            -StatusFolder "wasb:///example/statusout" `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>Windows PowerShell에서 작동하지 않는 클래스
 
@@ -520,4 +531,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용" 
+	pageTitle="Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용 | Microsoft Azure" 
 	description="Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="torsteng"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 # Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용 
 
@@ -174,4 +174,4 @@ Dapper 및 DapperExtensions를 사용하는 응용 프로그램에서는 Azure S
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

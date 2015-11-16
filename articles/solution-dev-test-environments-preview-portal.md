@@ -144,7 +144,7 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## 환경 만들기
-모든 Azure 리소스는 [Azure 리소스 그룹](azure-portal/resource-group-portal.md) 내에 만들어야 합니다. 리소스 그룹을 사용하여 Azure 리소스를 모아서 관리할 수 있도록 그룹화 할 수 있습니다. 조직의 특정인이 리소스 그룹 및 해당 그룹 내의 리소스를 만들거나, 수정, 삭제하거나, 볼 수 있도록 해당 그룹에 [권한](azure-portal/resource-group-rbac.md)을 할당할 수 있습니다. 리소스 그룹의 리소스에 대한 경고 및 청구 정보는 [Azure Preview 포털](https://portal.azure.com)에서 볼 수 있습니다. 리소스 그룹은 Azure [위치](http://azure.microsoft.com/regions/)에 만들어집니다. 이 문서에서 모든 리소스는 미국 중부 위치에 만들어집니다. 실제 환경을 만들기 시작할 때 사용자의 요구 사항에 가장 알맞은 위치를 선택합니다.
+모든 Azure 리소스는 [Azure 리소스 그룹](azure-portal/resource-group-portal.md) 내에 만들어야 합니다. 리소스 그룹을 사용하여 Azure 리소스를 모아서 관리할 수 있도록 그룹화 할 수 있습니다. 조직의 특정인이 리소스 그룹 및 해당 그룹 내의 리소스를 만들거나, 수정하거나, 삭제하거나, 볼 수 있도록 해당 그룹에 [권한](resource-group-rbac.md)을 할당할 수 있습니다. 리소스 그룹의 리소스에 대한 경고 및 청구 정보는 [Azure Preview 포털](https://portal.azure.com)에서 볼 수 있습니다. 리소스 그룹은 Azure [위치](http://azure.microsoft.com/regions/)에 만들어집니다. 이 문서에서 모든 리소스는 미국 중부 위치에 만들어집니다. 실제 환경을 만들기 시작할 때 사용자의 요구 사항에 가장 알맞은 위치를 선택합니다.
 
   **5 단계:** 아래 방법 중 하나를 사용하여 개발 및 테스트 환경에 대한 리소스 그룹을 만듭니다. 두 방법 모두 정확히 같은 결과를 달성합니다.
 
@@ -384,4 +384,4 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 - [Visual Studio 릴리스 관리](http://msdn.microsoft.com/Library/vs/alm/Release/overview)를 사용하여 관리되는 지속적인 배포 파이프라인을 만들어 빠르고 쉽게 자주 해제합니다.
 - [Azure Dev/Test Lab](http://azure.microsoft.com/campaigns/devtest-lab/)의 미리 보기에 대한 초대를 요청합니다. 이 초대를 통해 템플릿을 사용하여 Dev 및 Test Lab 환경을 관리하고, 조직 내에서 사용할 할당량 및 정책을 구성합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

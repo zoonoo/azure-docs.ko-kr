@@ -219,15 +219,16 @@ VNet 내에서 계산 서비스만 사용할 수 있습니다. 계산 서비스�
 
 ### 가상 네트워크와 함께 웹앱을 사용할 수 있습니까?
 
-아니요. VNet에 Azure 웹앱을 배포할 수 없습니다. 그러나 VNet에 대해 지점 및 사이트 간 구성된 경우 Azure VNet에서 웹앱을 안전하게 연결하고 리소스에 액세스할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+예. ASE(앱 서비스 환경)를 사용하여 VNet 내부에 웹앱을 배포할 수 있습니다. 또한 VNet에 대해 지점 및 사이트 간 구성된 경우 Azure VNet에서 웹앱을 안전하게 연결하고 리소스에 액세스할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-- [웹앱 가상 네트워크 통합](http://azure.microsoft.com/blog/
-- 014/09/15/azure-websites-virtual-network-integration/)
+
+- [앱 서비스 환경에서 웹앱 만들기](https://azure.microsoft.com/ko-KR/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+
+- [웹앱 가상 네트워크 통합](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
 - [웹앱을 통해 VNet 통합 및 하이브리드 연결 사용](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Azure 가상 네트워크에 웹앱 통합](web-sites-integrate-with-vnet.md)
-
 
 ### VNet에서 웹 및 작업자 역할(PaaS)을 사용하여 클라우드 서비스를 배포할 수 있습니까?
 
@@ -265,4 +266,4 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 
 예. 다양한 플랫폼에 대해 PowerShell 및 명령줄 도구를 사용할 수 있습니다. 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?LinkId=317721)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

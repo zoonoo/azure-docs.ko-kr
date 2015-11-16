@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 알림 허브 사용자에게 알림"
+	pageTitle=".NET 백엔드를 통한 Azure 알림 허브의 사용자 알림"
 	description="Azure에서 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다. Android용 Java로 작성된 코드 샘플"
 	documentationCenter="android"
 	services="notification-hubs"
@@ -16,7 +16,7 @@
 	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
-#Azure 알림 허브 사용자에게 알림
+#.NET 백엔드를 통한 Azure 알림 허브의 사용자 알림
 
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -432,4 +432,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

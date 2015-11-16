@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/21/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # 서비스, 지역 및 API 버전에 대한 리소스 관리자 지원
@@ -32,9 +32,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 가상 컴퓨터 | 예 | 예, 다양한 옵션 | 아니요 | [VM 만들기](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 배치 | 예 | [예(클래식에만 해당)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | 예 | 아니요 | | | |
-| 가상 컴퓨터(클래식) | 제한됨 | 예 | 부분적(아래 참조) | - | - |
-| RemoteApp | 아니요 | - | - | - | - |
-| 서비스 패브릭 | 아니요 | - | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 예, 다양한 옵션 | 부분적(아래 참조) | - | - | | RemoteApp | 아니요 | 아니요 | - | - | - | | 서비스 패브릭 | 아니요 | 아니요 | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -67,10 +65,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | SQL 데이터베이스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 검색 | 예 | [예](https://portal.azure.com/#create/Microsoft.Search) | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 데이터 웨어하우스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | 아니요 | 아니요 | - | - | - |
-
-| 관리된 캐시 | 아니요 | 아니요 | - | - | - |
-
+| StorSimple | 아니요 | 아니요 | - | - | - | | 관리된 캐시 | 아니요 | 아니요 | - | - | - |
 
 ## 분석
 
@@ -80,8 +75,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 스트림 분석 | 예 | [예](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | 예 | [예](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | 데이터 팩터리 | 예 | [예](https://portal.azure.com/#create/Microsoft.DataFactory) | 예 | [데이터 팩터리 만들기](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 기계 학습 | 아니요 | 아니요 | - | - | - |
-| 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
+| 기계 학습 | 아니요 | 아니요 | - | - | - | | 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
 
 ## 네트워킹
 
@@ -98,8 +92,9 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 | 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
+| CDN | 예(Preview) | 아니요 | | | |
 | 미디어 서비스 | 아니요 | 아니요 | | | |
-| CDN | 아니요 | 아니요 | | | |
+
 
 ## 하이브리드 통합
 
@@ -113,9 +108,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 | 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 아니요 | 아니요 | - | - | - |
-| Azure Active Directory B2C | 아니요 | 아니요 | - | - | - |
-| Multi-Factor Authentication | 아니요 | 아니요 | - | - | - |
+| Azure Active Directory | 아니요 | 아니요 | - | - | - | | Azure Active Directory B2C | 아니요 | 아니요 | - | - | - | | Multi-Factor Authentication | 아니요 | 아니요 | - | - | - |
 
 ## 개발자 서비스 
 
@@ -140,15 +133,15 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 리소스를 배포할 때는 일반적으로 리소스에 대한 지역을 지정해야 합니다. 리소스 관리자는 모든 지역에서 지원되지만 배포한 리소스는 모든 지역에서 지원되지 않을 수 있습니다. 또한 해당 리소스를 지원하는 일부 지역을 사용하지 못하게 하는 구독에 대한 제한 사항이 있을 수 있습니다. 이러한 제한은 본국에 대한 세금 문제와 관련되거나 구독 관리자가 특정 지역만 사용하도록 배치한 정책에 따른 결과일 수 있습니다.
 
-리소스를 배포하기 전에 다음 명령 중 하나를 실행하여 리소스 유형에 대해 지원되는 지역을 확인하세요.
+모든 Azure 서비스에 대해 지원되는 모든 지역의 전체 목록은 [지역별 서비스](https://azure.microsoft.com/regions/#services)를 참조하세요. 그러나 이 목록에는 구독에서 지원하지 않는 지역이 포함될 수 있습니다. 다음 명령 중 하나를 실행하여 구독에서 지원하는 특정 리소스 종류에 대한 지역을 확인할 수 있습니다.
 
 ### REST API
 
-본인의 구독에서 특정 리소스 유형에 사용할 수 있는 지역을 검색하려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 사용하세요.
+구독 중인 특정 리소스 종류에 사용할 수 있는 지역을 검색하려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 사용하세요.
 
 ### PowerShell
 
-다음 예에서는 Azure PowerShell 1.0 미리 보기를 사용하여 웹 사이트에 대해 지원되는 지역을 가져오는 방법을 보여줍니다. 1.0 미리 보기 릴리스에 대한 자세한 내용은 [Azure PowerShell 1.0 미리 보기](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+다음 예에서는 Azure PowerShell 1.0 미리 보기를 사용하여 웹 사이트에 대해 지원되는 지역을 가져오는 방법을 보여줍니다. 1.0 Preview 릴리스에 대한 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -196,7 +189,7 @@ Azure PowerShell 0.9.8의 경우 다음 명령을 사용합니다.
 
 ### REST API
 
-리소스 유형에 사용할 수 있는 API 버전을 검색하려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 사용하세요.
+리소스 종류에 사용할 수 있는 API 버전을 검색하려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 사용하세요.
 
 ### PowerShell
 
@@ -232,6 +225,6 @@ Azure PowerShell 0.9.8의 경우 다음을 사용합니다.
 ## 다음 단계
 
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-- 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

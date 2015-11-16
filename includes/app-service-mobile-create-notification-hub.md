@@ -1,10 +1,12 @@
-Follow these steps to create a new notification hub to use for push notifications. You can skip this section when you have already created a notification hub in the same resource group as your Mobile App backend.
+다음 단계에 따라 푸시 알림에 사용할 새 알림 허브를 만듭니다. 모바일 앱 백엔드와 동일한 리소스 그룹에서 알림 허브를 이미 만든 경우 이 섹션을 생략할 수 있습니다.
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** and click your Mobile App backend
+1. [Azure 포털]을 방문합니다. **모두 찾아보기** > **모바일 앱**을 클릭하고 모바일 앱 백엔드를 클릭합니다.
 
-2. Click **Settings** > **Mobile** > **Push**. 
+2. **설정** > **모바일** > **푸시**를 클릭합니다.
 
-2. Follow the work flow to create a notification hub. You will need to create a new namespace if there is none in your current resource group. Click **Create** once you've configured all the settings.
+2. 알림 허브를 만들려면 워크플로를 따릅니다. 현재 리소스 그룹에 해당 사항이 없으면 새 네임스페이스를 만들어야 합니다. 설정을 모두 구성했으면 **만들기**를 클릭합니다.
 
 
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
+
+<!---HONumber=Nov15_HO2-->

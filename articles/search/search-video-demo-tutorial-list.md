@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 검색의 비디오, 샘플 및 자습서"
-	description="Azure 검색에 대해 작성된 모든 비디오, 샘플, 데모 및 자습서를 중앙의 한 목록에서 찾을 수 있습니다."
+	pageTitle="Azure 검색의 비디오, 샘플 및 자습서 | Microsoft Azure"
+	description="Microsoft Azure에서 호스팅되는 클라우드 서비스인 Azure 검색에 대해 만들어진 모든 비디오, 샘플, 데모 및 자습서의 중앙 목록"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/29/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #Azure 검색: 자습서, 비디오 데모 및 샘플
@@ -25,13 +25,16 @@
 
 [**Azure 검색을 위한 뉴욕시(NYC) 구직 포털 데모**](http://aka.ms/azjobsdemo)는 NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure 검색 기능을 설명하는 라이브 ASP.NET 웹 사이트입니다.
 
-[**앱 서비스 + Azure 검색 체험**](search-tryappservice.md)은 데이터, 작동하는 웹 응용 프로그램, 온라인으로 수정하여 다양한 검색 기능을 시험해 볼 수 있는 소스 코드가 포함된 1시간 짜리 Azure 검색 세션입니다.
+[**ASP.NET MVC 콤보 앱의 앱 서비스 + Azure 검색 체험**](search-tryappservice.md)은 ASP.NET응용 프로그램에서 데이터, 작동하는 웹 응용 프로그램, 온라인으로 수정하여 다양한 검색 기능을 시험해 볼 수 있는 소스 코드가 포함된 1시간 짜리 Azure 검색 세션입니다.
+
+[**Azure 검색 데모 사이트**](https://searchsamples.azurewebsites.net/#/)는 Azure 검색 데모 앱의 모음입니다. Azure 검색을 사용하여 미디어 검색, 지리적 검색 및 제품 재고 앱을 시험 사용합니다.
 
 ##비디오
 
 링크|설명
 ----|-----------
-[Azure 검색에 대한 AzureCon 2015 모범 사례](https://azure.microsoft.com/en-us/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|웹 또는 모바일 시나리오용 앱을 만들 때 크기 조정, 최적 성능 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언입니다. 
+[Azure 검색이란?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|1\.5분짜리 Azure Search 개요입니다.
+[Azure 검색에 대한 AzureCon 2015 모범 사례](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|웹 또는 모바일 시나리오용 앱을 만들 때 크기 조정, 최적 성능 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언입니다. 
 [Microsoft Virtual Academy: 웹 사이트 및 앱에 Azure 검색 추가](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|응용 프로그램에 Azure 검색을 추가하는 방법에 관한 7부 시리즈입니다. Liam Cavanagh, Janusz Lembicz 및 Bernardita Torres Garayar가 제공합니다.
 [빌드 2015: 최신 데이터](http://channel9.msdn.com/Events/Build/2015/2-663)|세션에서 29분 동안 Azure 검색이 최근의 데이터 혁명에서 차지하는 위치에 대해 알아봅니다. Shawn Bice 및 Pablo Castro가 제공합니다.
 [빌드 2015: Azure 검색을 사용하여 모바일 및 WebApp에서 우수한 검색 경험 구축](http://channel9.msdn.com/Events/Build/2015/2-745)|Microsoft 빌드 2015에서 Pablo Castro가 제공합니다.
@@ -50,6 +53,7 @@
 
 연습|설명
 -----------|-----------
+[Azure 검색을 사용하여 StackExchange 데이터를 검색하는 방법](search-howto-stackexchange-data.md)|Azure 검색과 통합된 응용 프로그램의 StackExchange 데이터에서 전체 텍스트를 검색합니다.
 [D3.js에서 Azure 검색을 사용하여 대화형 데이터 시각화를 구축하는 방법](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|사용자 지정 앱에 비주얼 검색 기능을 추가하는 방법을 설명하는 블로그 게시물과 샘플 코드입니다.
 [.NET에서 Azure 검색 시작](search-get-started-dotnet.md)|관리 코드에서 Azure 검색을 사용하는 방법을 알아봅니다.
 [NodeJS에서 Azure 검색 시작](search-get-started-nodejs.md)|NodeJS에서 Azure 검색을 사용하는 방법을 알아봅니다.
@@ -91,4 +95,4 @@ CodePlex에서 공개 미리 보기 중에 현재 버전과 여전히 관련이 
 - [**SQL Server와 Azure 검색의 동기화 샘플**](http://sqlserver2azuresearch.codeplex.com/)은 포함된 로컬 데이터베이스에서 SQL Server 행 집합을 로드하는 Windows 콘솔 응용 프로그램입니다.
 - [**점수 매기기 프로필 데모**](https://azuresearchscoringprofiles.codeplex.com/)는 검색 결과 조정을 위한 점수 매기기 프로필을 정의하고 실행하며 업데이트하는 Windows 콘솔 응용 프로그램입니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

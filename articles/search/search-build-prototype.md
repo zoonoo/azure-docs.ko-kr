@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 검색을 위한 프로토타입 응용 프로그램 빌드" 
-	description="첫 번째 응용 프로그램 프로토타입을 만들어 Azure 검색을 시작합니다." 
+	description="첫 번째 응용 프로그램 프로토타입을 만들어 호스팅되는 클라우드 검색 서비스인 Azure 검색을 시작합니다." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Azure 검색을 위한 프로토타입 응용 프로그램 빌드
 
-Azure 검색을 평가하는 개발자는 거의 항상 Azure 검색의 값을 사용자 지정 응용 프로그램에 추가하는 사전 테스트 응용 프로그램부터 시작합니다. 이 글에서는 프로토타입 프로세스 속도를 높일 수 있는 몇 가지 빌딩 블록을 제공합니다.
+호스팅되는 클라우드 검색에 대해 Azure 검색을 평가하는 개발자는 거의 항상 Azure 검색의 값을 사용자 지정 응용 프로그램에 추가하는 사전 테스트 응용 프로그램부터 시작합니다. 이 글에서는 프로토타입 프로세스 속도를 높일 수 있는 몇 가지 빌딩 블록을 제공합니다.
  
 - Data.json 및 schema.json 파일을 포함하는 visual studio C# 프로젝트. 예제 데이터가 있으면 코드 작성에 앞서 솔루션을 즉시 빌드 및 실행하여 솔루션이 시스템에서 제대로 작동하는지 확인할 수 있습니다. 
 
@@ -133,4 +133,4 @@ JSON 파일에 데이터를 가져올 수 있는 경우, 해당 데이터로 기
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

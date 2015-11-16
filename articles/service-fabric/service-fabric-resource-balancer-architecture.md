@@ -1,6 +1,6 @@
 <properties
-   pageTitle="리소스 분산 아키텍처"
-   description="서비스 패브릭의 리소스 분산 장치의 아키텍처 개요"
+   pageTitle="리소스 분산 아키텍처| Microsoft Azure"
+   description="서비스 패브릭의 리소스 분산에 대한 아키텍처 개요"
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -38,4 +38,4 @@
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

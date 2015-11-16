@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 검색에서 검색 결과를 페이징하는 방법" 
-	description="Azure 검색의 페이지 매김" 
+	pageTitle="Azure 검색에서 검색 결과를 페이징하는 방법 | Microsoft Azure" 
+	description="Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색에서의 페이징" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Azure 검색에서 검색 결과를 페이징하는 방법#
@@ -114,4 +114,4 @@ Azure 검색에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

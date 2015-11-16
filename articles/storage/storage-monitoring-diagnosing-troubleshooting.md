@@ -3,8 +3,8 @@
 	description="저장소 분석, 클라이언트 쪽 로깅 등의 기능과 Azure 저장소 관련 문제를 파악, 진단 및 해결하는 기타 타사 도구를 사용하는 방법에 대해 알아봅니다."
 	services="storage"
 	documentationCenter=""
-	authors="dominicbetts"
-	manager="adinah"
+	authors="jasonnewyork"
+	manager="tadb"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="v-dobett"/>
+	ms.author="jahogg"/>
 
 # Microsoft Azure 저장소 모니터링, 진단 및 문제 해결
 
@@ -913,4 +913,4 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="분할된 데이터베이스 맵 관리" 
+	pageTitle="분할된 데이터베이스 맵 관리 | Microsoft Azure" 
 	description="ShardMapManager 및 .NET용 탄력적 데이터베이스를 사용하는 방법" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # 분할된 데이터베이스 맵 관리
-분할된 데이터베이스 환경에서는 **분할된 데이터베이스 맵**이 **분할 키**의 값에 따라 응용 프로그램이 올바른 데이터베이스에 연결할 수 있도록 정보를 유지 관리합니다. 탄력적 데이터베이스 클라이언트 라이브러리에서 분할된 데이터베이스를 관리하려면 이러한 맵의 생성 방식을 이해해야 합니다.
+
+[탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)는 분할된 응용 프로그램을 관리하는 데 사용됩니다. 분할된 데이터베이스 환경에서는 [**분할된 데이터베이스 맵**](sql-database-elastic-scale-glossary.md)이 **분할 키**의 값에 따라 응용 프로그램이 올바른 데이터베이스에 연결할 수 있도록 정보를 유지 관리합니다. 분할된 데이터베이스 맵 관리를 위해서는 이 맵의 구성을 이해하는 것이 필수적입니다.
 
 ## 분할된 데이터베이스 맵 및 분할된 데이터베이스 매핑
  
@@ -71,7 +72,7 @@
 
 2. **LSM(Local Shard Map)**: 분할된 데이터베이스 맵 내에서 지정하는 모든 데이터베이스는 해당 분할된 데이터베이스와 관련된 분할된 데이터베이스 맵 정보를 포함하고 유지하는 여러 개의 작은 테이블 및 특수 저장 프로시저를 포함하도록 수정됩니다. 이 정보는 GSM의 정보와 중복되지만 그렇기 때문에 응용 프로그램에서 GSM에 어떤 부하도 주지 않으면서 캐시된 분할된 데이터베이스 맵 정보의 유효성을 검사할 수 있습니다. 응용 프로그램은 LSM을 사용하여 캐시된 매핑이 여전히 유효한지 여부를 확인합니다. 각 분할된 데이터베이스의 LSM에 해당하는 테이블은 **\_\_ShardManagement** 스키마에 있습니다.
 
-3. **응용 프로그램 캐시**: **ShardMapManager** 개체에 액세스하는 각 응용 프로그램 인스턴스는 해당 매핑의 로컬 메모리 내 캐시를 유지 관리합니다. 이 캐시는 최근에 검색된 라우팅 정보를 저장합니다.
+3. **Application cache**: **ShardMapManager** 개체에 액세스하는 각 응용 프로그램 인스턴스는 해당 매핑의 로컬 메모리 내 캐시를 유지 관리합니다. 이 캐시는 최근에 검색된 라우팅 정보를 저장합니다.
 
 ## ShardMapManager 생성
 응용 프로그램의 **ShardMapManager** 개체는 팩터리 패턴을 사용하여 인스턴스화됩니다. **ShardMapManagerFactory.GetSqlShardMapManager** 메서드는 **ConnectionString** 형식으로 자격 증명(GSM이 저장되는 데이터베이스 이름과 서버 이름 포함)을 가져와 **ShardMapManager** 인스턴스를 반환합니다.
@@ -253,4 +254,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

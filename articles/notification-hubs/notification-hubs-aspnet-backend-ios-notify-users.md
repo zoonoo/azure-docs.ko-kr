@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 알림 허브 사용자에게 알림"
+	pageTitle=".NET 백엔드를 통한 Azure 알림 허브의 사용자 알림"
 	description="Azure에서 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 백 엔드용 .NET API 및 Objective-C로 작성되었습니다."
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -16,7 +16,7 @@
 	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
-#Azure 알림 허브 사용자에게 알림
+#.NET 백엔드를 통한 Azure 알림 허브의 사용자 알림
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -465,4 +465,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

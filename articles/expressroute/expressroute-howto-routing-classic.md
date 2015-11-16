@@ -13,10 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/02/2015"
+   ms.date="11/04/2015"
    ms.author="cherylmc"/>
 
 # Express 경로 라우팅 구성 만들기 및 수정
+
+> [AZURE.SELECTOR]
+[PowerShell Classic](expressroute-howto-routing-classic.md)
+[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
 
 이 문서에서는 PowerShell cmdlet 및 일반 배포 모델을 사용하여 Express 경로 회로에 대한 라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
 
@@ -25,9 +29,9 @@
 
 ## 필수 구성 요소
 
-- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. 컴퓨터를 구성하여 Azure PowerShell 모듈을 사용하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행합니다. 
-- 구성을 시작 하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
-- 활성화된 Express 경로 회로가 있어야 합니다. 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 진행하기 전에 연결 공급자에서 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
+- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침을 따르려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행하세요. 
+- 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
+- 활성화된 Express 경로 회로가 있어야 합니다. 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 
 >[AZURE.IMPORTANT]이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 이러한 경우에 피어링을 만들거나 관리할 수 없습니다.
 
@@ -48,7 +52,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로를 만듭니다.**
 	
-	지침을 수행하여 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자에서 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
 3. **Express 경로 회로를 확인하여 프로비전되도록 합니다.**
 
@@ -140,7 +144,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침을 수행하여 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자에서 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
 3. **Express 경로 회로를 확인하여 프로비전되도록 합니다.**
 
@@ -233,7 +237,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침을 수행하여 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자에서 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
 3. **Express 경로 회로를 확인하여 프로비전되도록 합니다.**
 
@@ -308,8 +312,8 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 ## 다음 단계
 
--  다음으로 [VNet을 Express 경로 회로에 연결합니다.](expressroute-howto-linkvnet-classic.md)
+-  이제 [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)합니다.
 -  워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
 -  회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

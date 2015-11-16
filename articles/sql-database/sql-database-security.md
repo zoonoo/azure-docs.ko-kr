@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/13/2015"
+   ms.workload="data-management"
+   ms.date="10/21/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -96,7 +96,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 * [셀 수준 암호화](https://msdn.microsoft.com/library/ms179331.aspx)는 특정 열 또는 서로 다른 암호화 키를 가진 데이터의 셀도 암호화합니다.
 * 하드웨어 보안 모듈 또는 암호화 키 계층의 중앙 관리가 필요한 경우 [Azure VM에서 SQL Server와 함께 Azure 키 자격 증명 모음](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx)을 사용하는 것을 고려해 보세요.
-
+* [항상 암호화](https://msdn.microsoft.com/library/mt163865.aspx)(미리 보기)를 사용하면 암호화가 응용 프로그램에 하며 클라이언트가 SQL Database와 암호화 키를 공유하지 않고도 클라이언트 응용 프로그램 내부에서 중요 데이터를 암호화할 수 있습니다.
 
 ## 감사
 
@@ -106,4 +106,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 위의 기능 및 응용 프로그램이 다양한 보안 규정 준수 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL 데이터베이스는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL 데이터베이스 규정 준수 인증서](http://azure.microsoft.com/support/trust-center/services/) 목록을 찾을 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

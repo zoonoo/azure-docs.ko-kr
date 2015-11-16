@@ -40,7 +40,7 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 
 ## 2\. SDK 다운로드
 
-1. [Java용 Application Insights SDK](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip)를 다운로드합니다. 
+1. [Java용 Application Insights SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)를 다운로드합니다. 
 2. 서버에서 프로젝트 이진 파일이 로드된 원본 디렉터리로 SDK 콘텐츠를 추출합니다. Tomcat을 사용하는 경우 이 디렉터리는 일반적으로 `webapps<your_app_name>\WEB-INF\lib` 아래가 됩니다.
 
 
@@ -139,4 +139,4 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

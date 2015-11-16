@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 [PowerShell]을 사용하여 로그 파일 이동 및 처리
 이 문서에서는 Azure Data Factory를 사용하여 로그 파일의 데이터를 유용한 정보로 변환하는 정식 로그 처리 시나리오로 구성된 완전한 연습을 제공합니다.
+
+> [AZURE.IMPORTANT]이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
+>    
+> Azure PowerShell 1.0 Preview를 사용하는 경우 [여기](https://msdn.microsoft.com/library/dn820234.aspx)에서 설명된 cmdlet을 사용해야 합니다. 예를 들어 New-AzureDataFactory를 사용하는 대신 New-AzureRMDataFactory를 사용합니다.
 
 ## 시나리오
 Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다양한 플랫폼용 게임을 만드는 게임 회사입니다. 이러한 각 게임은 많은 로그를 생성합니다. Contoso는 이러한 게임에서 생성되는 로그를 수집 및 분석하여 사용량 정보를 얻고, 업셀 및 교차 판매 기회를 포착하고, 탁월한 새 기능을 개발하는 등을 통해 비즈니스를 개선하고 고객에게 더 나은 환경을 제공하려는 목표가 있습니다.
@@ -25,11 +29,11 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 이 연습에서는 샘플 로그를 수집하고, 참조 데이터를 사용하여 이 로그를 처리 및 보강하고, 데이터를 변환하여 Contoso가 최근 시작한 마케팅 캠페인의 효과를 평가합니다.
 
 ## 자습서 수행을 위한 준비
-1.	[Azure Data Factory 소개][adfintroduction]를 읽고 Azure Data Factory에 대한 개요를 확인하고 최상위 개념을 이해합니다.
-2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
+1.	[Azure 데이터 팩터리 소개][adfintroduction]를 읽고 Azure 데이터 팩터리에 대한 개요를 확인하고 최상위 개념을 이해합니다.
+2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하십시오.
 3.	컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치해야 합니다. 
-2.	**(권장)** [Azure Data Factory 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
-3.	**(권장)** [Azure Data Factory에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
+2.	**(권장)** [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
+3.	**(권장)** [Azure 데이터 팩터리에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
 4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
 	- **Pipelines:** 파이프라인 정의가 포함된 JSON 파일을 포함합니다.
 	- **Tables:** 테이블 정의가 포함된 JSON 파일을 포함합니다.
@@ -61,7 +65,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
     
 ## 연습: 워크플로 만들기, 배포 및 모니터링
 1. [1단계: 샘플 데이터 및 스크립트 업로드](#MainStep1) 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
-2. [2단계: Azure Data Factory 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
+2. [2단계: Azure 데이터 팩터리 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
 3. [3단계: 연결된 서비스 만들기](#MainStep3) 이 단계에서는 연결된 서비스 
 	
 	- 	**StorageLinkedService**. 원시 게임 이벤트, 분할된 게임 이벤트, 보강된 게임 이벤트, 마케팅 캠페인 효과 정보, 참조 지역 코드 데이터 및 참조 마케팅 캠페인 데이터를 포함하는 Azure 저장소 위치를 LogProcessingFactory에 연결합니다.   
@@ -153,8 +157,8 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
 
-## <a name="MainStep2"></a> 2단계: Azure Data Factory 만들기
-이 단계에서는 **LogProcessingFactory**라는 Azure Data Factory를 만듭니다.
+## <a name="MainStep2"></a> 2단계: Azure 데이터 팩터리 만들기
+이 단계에서는 **LogProcessingFactory**라는 Azure 데이터 팩터리를 만듭니다.
 
 1.	[Azure Preview 포털][azure-preview-portal]에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭하고 **새로 만들기** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
 
@@ -242,7 +246,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
 	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 미리 보기 포털에서 사용한 것과 같아야 합니다. 
-15. **AzureResourceManager** 모드로 전환합니다. Azure Data Factory cmdlet은 이 모드에서 사용할 수 있습니다.
+15. **AzureResourceManager** 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 이 모드에서 사용할 수 있습니다.
 
 		Switch-AzureMode AzureResourceManager
 
@@ -436,7 +440,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 	오류가 발생한 경우 여기에 **Failed ** 상태가 표시됩니다. 두 조각의 상태가 모두 **Ready**이거나 **PendingValidation**일 수 있으며, 이는 조각이 얼마나 빨리 처리되는지에 따라 다릅니다.
  
-	조각의 가능한 모든 상태에 대해 알아보려면 [Azure Data Factory 개발자 참조][developer-reference](영문)를 참조하세요.
+	조각의 가능한 모든 상태에 대해 알아보려면 [Azure 데이터 팩터리 개발자 참조][developer-reference](영문)를 참조하세요.
 
 12.	**데이터 조각** 블레이드의 **작업 실행** 목록에서 실행을 클릭합니다. 해당 조각의 Activity Run 블레이드가 표시됩니다. 다음과 같은 **작업 실행 세부 정보** 블레이드가 표시됩니다.
 
@@ -558,4 +562,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

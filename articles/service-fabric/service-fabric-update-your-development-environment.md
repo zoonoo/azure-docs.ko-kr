@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2015"
+   ms.date="10/30/2015"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 개발 환경 업데이트
@@ -53,4 +53,4 @@
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -34,13 +34,7 @@ Azure 서비스 패브릭은 상태 모니터링 및 응용 프로그램 수명 
 
   다음은 응용 프로그램 매니페스트의 예입니다.
 
- ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ApplicationManifest ApplicationTypeName="actor2Application" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
@@ -55,8 +49,7 @@ Azure 서비스 패브릭은 상태 모니터링 및 응용 프로그램 수명 
       </Service>
     </DefaultServices>
 
-  </ApplicationManifest>
-  ```
+  </ApplicationManifest> ```
 
 * **서비스 매니페스트**
 
@@ -64,16 +57,7 @@ Azure 서비스 패브릭은 상태 모니터링 및 응용 프로그램 수명 
 
   서비스 매니페스트의 예입니다.
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ServiceManifest Name="actor2Pkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ServiceTypes> <StatelessServiceType ServiceTypeName="actor2Type" /> </ServiceTypes>
 
     <CodePackage Name="Code" Version="1.0.0.0">
       <EntryPoint>
@@ -90,8 +74,7 @@ Azure 서비스 패브릭은 상태 모니터링 및 응용 프로그램 수명 
         <Endpoint Name="ServiceEndpoint" />
       </Endpoints>
     </Resources>
-  </ServiceManifest>
-  ```
+  </ServiceManifest> ```
 
 ## 응용 프로그램 패키지 파일 구조
 Powershell cmdlet 등을 사용하는 응용 프로그램을 배포하기 위해 응용 프로그램은 미리 정의된 디렉터리 구조를 따라야 합니다.
@@ -294,7 +277,7 @@ CodePackage는 서비스의 코드 위치(및 버전)을 지정합니다.
 
 * `InstanceCount`: 서비스 패브릭 클러스터에서 실행되어야 하는 서비스의 인스턴스 개수를 지정하는 데 사용됩니다. 배포하는 응용 프로그램의 유형에 따라 `InstanceCount` 값을 설정할 수 있습니다. 가장 일반적인 두가지 시나리오는 다음과 같습니다.
 
-	* `InstanCount = "1"`: 이 경우 단 한 개의 서비스 인스턴스가 클러스터에 배포됩니다. 서비스 패브릭의 스케줄러는 배포할 서비스 노드를 결정합니다. 단일 인스턴스 개수는 여러 인스턴스에서 실행되는 경우 다른 구성이 필요한 응용 프로그램에 대해서도 사용됩니다. 이 경우 동일한 응용 프로그램 매니페스트 파일에서 더 쉽게 여러 서비스를 정의하고 `InstanceCount = "1"`을 사용할 수 있습니다. 따라서 최종 결과에는 동일한 서비스의 여러 인스턴스가 있지만 각각은 특정 구성을 사용합니다. 정확히 동일한 구성의 여러 인스턴스를 갖는 것이 목표일 경우에만 1보다 큰 `InstanceCount`의 값이 사용됩니다.
+	* `InstanceCount = "1"`: 이 경우 단 한 개의 서비스 인스턴스가 클러스터에 배포됩니다. 서비스 패브릭의 스케줄러는 배포할 서비스 노드를 결정합니다. 단일 인스턴스 개수는 여러 인스턴스에서 실행되는 경우 다른 구성이 필요한 응용 프로그램에 대해서도 사용됩니다. 이 경우 동일한 응용 프로그램 매니페스트 파일에서 더 쉽게 여러 서비스를 정의하고 `InstanceCount = "1"`을 사용할 수 있습니다. 따라서 최종 결과에는 동일한 서비스의 여러 인스턴스가 있지만 각각은 특정 구성을 사용합니다. 정확히 동일한 구성의 여러 인스턴스를 갖는 것이 목표일 경우에만 1보다 큰 `InstanceCount`의 값이 사용됩니다.
 
 	* `InstanceCount ="-1"`: 단 한 개의 서비스 인스턴스가 서비스 패브릭 클러스터의 모든 노드에 배포됩니다. 최종 결과로 클러스터의 각 노드에 대한 서비스의 인스턴스를 하나(및 하나만) 갖게 됩니다. 끝점을 사용하도록 클라이언트 응용 프로그램이 클러스터의 노드에 '연결'해야 하기 때문에 프런트엔드 응용 프로그램(예: REST 끝점)에 유용한 구성입니다. 예를 들어, 서비스 패브릭 클러스터의 모든 노드가 부하 분산 장치에 연결된 경우 이 구성을 사용할 수도 있으므로, 클라이언트 트래픽을 클러스터의 모든 노드에서 실행되는 서비스에 분산될 수 있습니다.
 
@@ -353,4 +336,4 @@ CodePackage는 서비스의 코드 위치(및 버전)을 지정합니다.
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

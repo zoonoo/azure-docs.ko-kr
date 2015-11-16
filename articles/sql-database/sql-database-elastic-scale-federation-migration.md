@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="페더레이션 마이그레이션" 
+    pageTitle="페더레이션 마이그레이션 | Microsoft Azure" 
     description="페더레이션 기능을 사용하여 빌드된 기존 앱을 탄력적 데이터베이스 모델로 마이그레이션하는 단계를 간략히 설명합니다." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/14/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # 페더레이션 마이그레이션 
 
@@ -108,7 +108,7 @@ Azure SQL 데이터베이스 페더레이션 기능은 2015년 9월부터 Web/Bu
 
 ## 기능 비교
 
-탄력적 데이터베이스 도구가 많은 추가 기능(예: [다중 분할 쿼리](sql-database-elastic-scale-multishard-querying.md), [분할된 데이터베이스 분할 및 병합](sql-database-elastic-scale-overview-split-and-merge.md), [분할된 데이터베이스 탄력성](sql-database-elastic-scale-elasticity.md), [클라이언트 쪽 캐싱](sql-database-elastic-scale-shard-map-management.md) 등)을 제공하지만 탄력적 데이터베이스 도구에서 지원되지 않는 몇 가지 주목할 만한 페더레이션 기능이 있습니다.
+탄력적 데이터베이스 도구가 많은 추가 기능(예: [다중 분할 쿼리](sql-database-elastic-scale-multishard-querying.md), [분할된 데이터베이스 분할 및 병합](sql-database-elastic-scale-overview-split-and-merge.md), 분할된 데이터베이스 탄력성, [클라이언트 쪽 캐싱](sql-database-elastic-scale-shard-map-management.md) 등)을 제공하지만 탄력적 데이터베이스 도구에서 지원되지 않는 몇 가지 주목할 만한 페더레이션 기능이 있습니다.
   
 - **FILTERING=ON** 사용. 대신, 행 필터링에 대한 RLS(행 수준 보안)을 사용하는 것이 좋습니다. 페더레이션에 필터링과 마찬가지로 RLS는 분할된 데이터베이스 테이블에 대한 모든 쿼리에 조건자를 자동으로 추가합니다. 자세한 내용은 [탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)을 참조하세요. 
  
@@ -150,4 +150,4 @@ Azure SQL 데이터베이스 페더레이션 기능은 2015년 9월부터 Web/Bu
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

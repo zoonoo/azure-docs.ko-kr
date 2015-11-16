@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 알림 허브 사용자에게 알림"
+	pageTitle=".NET 백엔드를 통한 Azure 알림 허브의 사용자 알림"
 	description="Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다."
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -16,7 +16,7 @@
 	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
-#Azure 알림 허브 사용자에게 알림
+#.NET 백엔드를 통한 Azure 알림 허브의 사용자 알림
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -384,4 +384,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

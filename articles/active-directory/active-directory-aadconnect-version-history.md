@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="11/03/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -21,6 +21,44 @@
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
 
 이 문서는 릴리스된 버전을 추적하고 최신 버전으로 업데이트해야 하는지 여부를 파악할 수 있도록 도와줍니다.
+
+관련 링크:
+
+- 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
+- [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.0.9125.0
+릴리스 날짜: 2015년 11월
+
+**새로운 기능:**
+
+- ADFS와 Azure AD 간의 트러스트를 다시 구성할 수 있습니다.
+- Active Directory 스키마를 새로 고치고 동기화 규칙을 다시 생성할 수 있습니다.
+- 동기화 규칙을 사용하지 않도록 설정할 수 있습니다.
+- 동기화 규칙에서 새 리터럴로 "AuthoritativeNull"을 정의할 수 있습니다.
+
+**새로운 미리 보기 기능:**
+
+- [동기화를 위한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
+- [Azure AD 도메인 서비스](active-directory-ds-getting-started.md) 암호 동기화에 대한 지원
+
+**지원되는 새 시나리오:**
+
+- 여러 온-프레미스 Exchange 조직을 지원합니다. 자세한 내용은 [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/ko-KR/library/jj873754.aspx)를 참조하세요.
+
+**수정된 문제:**
+
+- 암호 동기화 문제:
+    - 범위 외부에서 범위 내부로 이동된 개체는 해당 암호가 동기화되지 않습니다. 여기에는 OU와 특성 필터링이 모두 포함됩니다.
+    - 동기화에 포함할 새 OU를 선택하는 데에는 전체 암호 동기화가 필요하지 않습니다.
+    - 비활성화된 사용자가 설정된 경우 암호가 동기화되지 않습니다.
+    - 암호 다시 시도 큐에는 제한이 없으며, 사용 중지될 개체 5, 000개에 대한 이전의 제한이 제거되었습니다.
+    - [개선된 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)
+- Windows Server 2016 포리스트 기능 수준으로 Active Directory에 연결할 수 없습니다.
+- 초기 설치 후 그룹 필터링에 사용된 그룹을 변경할 수 없습니다.
+- 비밀번호 쓰기 저장을 사용하도록 설정한 경우 암호 변경을 수행하는 모든 사용자에 대해 새 사용자 프로필을 Azure AD Connect 서버에 더 이상 만들 수 없습니다.
+- 동기화 규칙 범위 내 정수(Long) 값을 사용할 수 없습니다.
+- 연결할 수 없는 도메인 컨트롤러가 있는 경우 "장치 쓰기 저장" 확인란을 비활성화된 상태로 유지합니다.
 
 ## 1\.0.8667.0
 릴리스 날짜: 2015년 8월
@@ -41,6 +79,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 - 확장 특성을 추가하지 않은 경우 “스테이징 모드"를 활성화 및 비활성화할 수 없습니다.
 - Active Directory Connector에 잘못된 암호 때문에 일부 구성에서 암호 쓰기 저장이 실패합니다.
 - 특성 필터링에 dn이 사용되는 경우 DirSync를 업그레이드할 수 없습니다.
+- 암호 재설정을 사용할 경우 CPU가 과도하게 사용됩니다.
 
 **제거된 미리 보기 기능:**
 
@@ -160,4 +199,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

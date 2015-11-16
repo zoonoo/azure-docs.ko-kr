@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015"   
+	ms.date="11/03/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2015년 10월 릴리스](#oct_changes_15)
 - [2015년 9월 릴리스](#september_changes_15)
 - [2015년 8월 릴리스](#august_changes_15)
 - [2015년 7월 릴리스](#july_changes_15)
@@ -74,9 +75,17 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
 
+##<a id="oct_changes_15"></a>2015년 10월 릴리스
+
+AMS(Azure 미디어 서비스)는 이제 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 데이터 센터에서도 사용 가능합니다. 이제 Azure 관리 포털을 사용하여 [미디어 서비스 계정을 만들고](media-services-create-account.md#create-a-media-services-account-using-quick-create) [여기](https://azure.microsoft.com/documentation/services/media-services/)에서 설명된 다양한 작업을 수행할 수 있습니다. 그러나 라이브 인코딩은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 모든 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
+
+- 브라질 남부: 표준 및 기본 인코딩 예약 단위만 사용 가능
+- 인도 서부, 인도 남부 및 인도 중부: 기본 인코딩 예약 단위만 사용 가능
+
+
 ##<a id="september_changes_15"></a>2015년 9월 릴리스 
 
-- 이제 AMS에서 Widevine 모듈식 DRM 기술을 사용하여 VOD(Video-On-Demand)와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 다음 배달 서비스 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)를 참조하세요.
+- 이제 AMS에서 Widevine 모듈식 DRM 기술을 사용하여 VOD(Video-On-Demand)와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 배달 서비스 파트너 [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/)를 사용하여 Widevine 라이선스를 배달할 수 있습니다. 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)를 참조하세요.
 
 	[AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)(버전 3.5.1부터 시작) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.
 
@@ -603,4 +612,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -29,7 +29,7 @@
 ## 구독 할당량
 리소스|기본 제한|최대 제한
 ---|---|---
-구독당 지역별 배치 계정|1|20
+구독당 지역별 배치 계정|1|50
 
 ## 배치 계정 할당량
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -95,4 +95,4 @@ Azure 지원에서 사용자에게 연락합니다. 요청을 완료하려면 �
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

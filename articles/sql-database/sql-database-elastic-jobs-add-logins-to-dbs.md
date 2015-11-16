@@ -1,11 +1,10 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="탄력적 데이터베이스 풀에 사용자를 추가하는 방법" 
 	description="풀에 있는 각 데이터베이스에 대한 권한을 가진 사용자를 추가해야 합니다." 
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # 탄력적 데이터베이스 풀에 사용자를 추가하는 방법
@@ -33,7 +32,7 @@
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. 또한 사용자에게 작업에 대해 지정된 스크립트를 실행하기에 충분한 권한이 있어야 합니다. **sp\_addrolemember** 프로시저를 사용하여 사용자에게 스크립트를 성공적으로 실행하는 데 필요한 최소한의 권한을 제공합니다.
+3. 또한 사용자에게 작업에 대해 지정된 스크립트를 실행하기에 충분한 권한이 있어야 합니다. [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 역할을 사용하여 사용자에게 스크립트를 성공적으로 실행하는 데 필요한 최소한의 권한을 제공합니다.
 
 ## 다음 단계
 
@@ -45,4 +44,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

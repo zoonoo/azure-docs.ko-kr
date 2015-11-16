@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/30/2015" 
 	ms.author="mimig"/>
 
 # Azure Preview 포털을 사용하여 DocumentDB 계정 모니터링 
@@ -21,7 +21,7 @@
 [Microsoft Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정을 모니터링할 수 있습니다. 각 DocumentDB 계정에 대해 성능 메트릭(예: 요청 및 서버 오류)과 사용량 메트릭(예: 저장소 사용)을 사용할 수 있습니다.
 
 ## 방법: DocumentDB 계정의 성능 메트릭 보기
-1.	[Azure Preview 포털](https://portal.azure.com/)에서 **모두 찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
+1.	[Azure Preview 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
 2.	**모니터링** 렌즈에서 기본적으로 다음을 확인할 수 있습니다.
 	*	오늘의 총 요청 수
 	*	오늘의 초당 평균 요청 수 
@@ -30,7 +30,7 @@
 
 
 3.	**총 요청** 또는 **초당 평균 요청 수** 파트를 클릭하면 자세한 **메트릭** 블레이드가 열립니다.
-4.	**메트릭** 블레이드는 선택한 메트릭에 대한 세부 정보를 보여 줍니다. 블레이드 맨 위에는 그래프가 있고, 그 아래에 평균, 최소값, 최대값 등 선택된 메트릭의 집계를 보여 주는 테이블이 있습니다. 또한 메트릭 블레이드는 현재 메트릭 블레이드에 표시되는 메트릭으로 정의 및 필터링된 경고 목록을 보여 줍니다. 이런 방법으로, 경고가 많은 경우 여기에 표시되는 관련성 높은 경고만 볼 수 있습니다.   
+4.	**메트릭** 블레이드는 선택한 메트릭에 대한 세부 정보를 보여 줍니다. 블레이드 맨 위에는 그래프가 있고, 그 아래에 평균, 최소값, 최대값 등 선택된 메트릭의 집계 값을 보여 주는 테이블이 있습니다. 또한 메트릭 블레이드는 현재 메트릭 블레이드에 표시되는 메트릭으로 정의 및 필터링된 경고 목록을 보여 줍니다. 이런 방법으로, 경고가 많은 경우 여기에 표시되는 관련성 높은 경고만 볼 수 있습니다.   
 
 	![메트릭 블레이드의 스크린샷](./media/documentdb-monitor-accounts/madocdb2.png)
 
@@ -90,4 +90,4 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 DocumentDB에 대한 자세한 내용은 [DocumentDB 용량 관리](documentdb-manage.md)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

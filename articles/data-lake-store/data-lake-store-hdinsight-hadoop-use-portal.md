@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Azure Preview 포털을 사용하여 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 프로비전
@@ -23,7 +23,12 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소와 함께 작동하도록 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 구성하는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항: * **Hadoop 및 Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)이 됩니다. * **HBase 클러스터(Windows 및 Linux)의 경우 ** 데이터 레이크 저장소는 기본 저장소 또는 추가 저장소로 사용될 수 있습니다.
+Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소와 함께 작동하도록 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 구성하는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항:
+
+* **Hadoop 및 Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)입니다.
+
+* **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다.
+
 
 이 문서에서 데이터 레이크 저장소를 추가 저장소로 사용하여 Hadoop 클러스터를 프로비저닝합니다. Azure Preview 포털을 사용하여 데이터 레이크 저장소와 함께 작동하도록 HDInsight를 구성하는 단계는 다음과 같습니다.
 
@@ -202,4 +207,4 @@ HBase 클러스터의 경우 데이터 레이크 저장소 계정을 기본 저�
 [makecert]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

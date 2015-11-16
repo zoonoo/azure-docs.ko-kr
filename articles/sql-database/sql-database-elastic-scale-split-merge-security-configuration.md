@@ -1,11 +1,10 @@
 <properties 
-    title="Elastic Scale Security Configurations" 
-    pageTitle="탄력적인 확장 보안 구성" 
+    pageTitle="탄력적인 확장 보안 구성| Microsoft Azure" 
     description="암호화에 대한 409 인증서를 설정" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" documentationCenter="" 
     manager="jhubbard" 
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags 
     ms.service="sql-database" 
@@ -13,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/07/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="torsteng;sidneyh" />
 
 # 분할-병합 보안 구성  
 
@@ -474,4 +473,4 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

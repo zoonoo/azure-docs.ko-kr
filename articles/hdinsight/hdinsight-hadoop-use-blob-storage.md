@@ -33,7 +33,7 @@ Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 �
 
 > 대부분의 HDFS 명령(예를 들어, <b>ls</b>, <b>copyFromLocal</b> 및 <b>mkdir</b>)은 여전히 예상대로 작동합니다. <b>fschk</b> 및 <b>dfsadmin</b> 등 기본 HDFS 구현(DFS라고 함)에 특정된 명령만이 Azure Blob 저장소에서 다르게 동작합니다.
 
-HDInsight 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하십시오.
+HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 시작하기][hdinsight-get-started] 또는 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요.
 
 
 ## HDInsight 저장소 아키텍처
@@ -50,11 +50,11 @@ HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 
 	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
 
-Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 프로비전 프로세스 중에 Azure 저장소 계정 및 이 계정에서 오는 특정 Azure Blob 저장소 컨테이너가 기본 파일 시스템으로 지정됩니다.
+Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 만들기 프로세스 중에 Azure 저장소 계정 및 해당 계정에서 오는 특정 Azure Blob 저장소 컨테이너가 기본 파일 시스템으로 지정됩니다.
 
-프로비전 프로세스 중에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다.프로비전 프로세스 중에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
+만들기 프로세스 중에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요.
 
-- **클러스터에 연결된 저장소 계정의 컨테이너:** 계정 이름과 키는 프로비저닝 중 클러스터와 연관되므로 사용자는 이러한 컨테이너의 Blob에 대한 모든 권한을 보유합니다.
+- **클러스터에 연결된 저장소 계정의 컨테이너:** 계정 이름과 키는 만들기 중 클러스터와 연결되므로 사용자는 이러한 컨테이너의 Blob에 대한 모든 권한을 보유합니다.
 
 - **클러스터에 연결되지 않은 저장소 계정의 공용 컨테이너 또는 공용 Blob:** 컨테이너의 Blob에 대한 읽기 전용 권한을 가집니다.
 
@@ -63,21 +63,21 @@ Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 �
 - **클러스터에 연결되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 이것은 문서 뒷부분에 설명되어 있습니다.
 
 
-프로비전 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 %HADOOP\_HOME%/conf/core-site.xml에 저장됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 저장소 계정을 사용하는 것입니다. 클러스터 헤드 노드(마스터)는 언제든지 다시 이미징되거나 마이그레이션될 수 있으며 해당 파일의 변경 내용은 손실되므로 core-site.xml 파일은 편집하지 않는 것이 좋습니다.
+만들기 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 %HADOOP\_HOME%/conf/core-site.xml에 저장됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 저장소 계정을 사용하는 것입니다. 클러스터 헤드 노드(마스터)는 언제든지 다시 이미징되거나 마이그레이션될 수 있으며 해당 파일의 변경 내용은 손실되므로 core-site.xml 파일은 편집하지 않는 것이 좋습니다.
 
 Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업은 저장소 계정 및 메타데이터 설명을 포함할 수 있습니다. (현재 메타데이터가 아닌 저장소 계정이 있는 Pig에서 작동합니다.) 이 문서의 [PowerShell을 사용하여 Blob 액세스](#powershell) 섹션에는 이 기능의 샘플이 포함되어 있습니다. 자세한 내용은 [대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조하세요.
 
 구조적 및 비구조적 데이터에 대한 Blob 저장소를 사용할 수 있습니다. Blob 저장소 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 슬래쉬 문자(/)를 사용할 수 있습니다. 예를 들어 Blob의 키 이름을 *input/log1.txt*로 지정할 수 있습니다. 실제로*input* 디렉터리는 없지만 키 이름에 슬래쉬 문자가 있으므로 파일 경로처럼 보입니다.
 
 ###<a id="benefits"></a>Blob 저장소의 이점
-계산 클러스터 및 저장소 공동 배치에 따른 암시적 성능 비용은 계산 클러스터를 Azure 데이터 센터 내에서 저장소 계정 리소스 근처에 프로비전하는 방식으로 완화되어 고속 네트워크 환경에서는 계산 노드가 Azure Blob 저장소 내 데이터에 매우 효율적으로 액세스할 수 있습니다.
+계산 클러스터 및 저장소 공동 배치에 따른 암시적 성능 비용은 계산 클러스터를 Azure 데이터 센터 내에서 저장소 계정 리소스 근처에 만드는 방식으로 완화되어 고속 네트워크 환경에서는 계산 노드가 Azure Blob 저장소 내 데이터에 매우 효율적으로 액세스할 수 있습니다.
 
 HDFS 대신Azure Blob 저장소에 데이터를 저장할 경우 몇 가지 이점이 있습니다:
 
 * **데이터 다시 사용 및 공유:** HDFS의 데이터는 계산 클러스터 내에 있습니다. 계산 클러스터에 액세스할 수 있는 응용 프로그램만 HDFS API를 통해 데이터를 사용할 수 있습니다. Azure Blob 저장소의 데이터는 HDFS API 또는 [Blob 저장소 REST API][blob-storage-restAPI]를 통해 액세스할 수 있습니다. 따라서 데이터의 생성과 소비에 더 많은 응용 프로그램(기타 HDInsight 클러스터 포함)과 도구를 사용할 수 있습니다.
 * **데이터 보관:** Blob 저장소에 데이터를 저장하면 계산에 사용된 HDInsight 클러스터를 사용자 데이터 손실 없이 안전하게 삭제할 수 있습니다.
 * **데이터 저장 비용:** 데이터를 장기간 저장하는 경우 DFS에 저장하는 것이 Azure Blob 저장소에 저장하는 것보다 비용이 많이 드는데, 이는 계산 클러스터의 비용이 Azure Blob 저장소 컨테이너의 비용보다 비싸기 때문입니다. 또한 계산 클러스터를 생성할 때마다 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절약됩니다.
-* **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 프로비전하는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 Azure Blob 저장소에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
+* **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 만드는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 Azure Blob 저장소에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
 * **지역에서 복제:** Azure Blob 저장소 컨테이너를 지역에서 복제할 수 있습니다. 이 경우 지리적 복구와 데이터 중복 기능이 제공되지만, 지역에서 복제된 위치에 대한 장애 조치(Failover)는 성능에 심각한 영향을 미치게 되며 추가 비용을 발생시킬 수 있습니다. 따라서 지역에서 복제 기능은 추가 비용을 감수할 만큼 가치 있는 데이터에 한해서만 현명하게 사용하는 것이 좋습니다.
 
 특정 MapReduce 작업과 패키지는 Azure Blob 저장소에 전혀 저장하고 싶지 않을 만한 중간 결과를 생성할 수 있습니다. 그런 경우에는 로컬 HDFS에 데이터를 저장하도록 선택할 수 있습니다. 실제로 HDInsight는 Hive 작업 및 기타 프로세스에서 생성되는 이러한 중간 결과 중 일부에 DFS를 사용합니다.
@@ -91,14 +91,14 @@ Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을
 어디에 있든, 만들어진 각 Blob은 Azure 저장소 계정의 일부 컨테이너에 속합니다. 이 컨테이너는 HDInsight 외부에 생성된 기존 Blob일 수도 있고 HDInsight 클러스터용으로 생성된 컨테이너일 수도 있습니다.
 
 
-기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 HDInsight 클러스터의 기본 Blob 컨테이너를 공유하지 마세요. 이로 인해 작업 기록이 손상될 수 있으며 클러스터가 올바르게 작동하지 않습니다. 각 클러스터에 다른 컨테이너를 사용하고 기본 저장소 계정 대신 모든 관련 클러스터 배포에 지정된 연결 저장소 계정에서 공유 데이터를 배치하는 것이 좋습니다. 연결된 저장소 계정에 대한 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터를 사용하면 삭제된 HBase 클러스터에서 쓰인 기본 blob 저장소 컨테이너를 사용하여 새로운 HBase 클러스터를 프로비전함으로써 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
+기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 HDInsight 클러스터의 기본 Blob 컨테이너를 공유하지 마세요. 이로 인해 작업 기록이 손상될 수 있으며 클러스터가 올바르게 작동하지 않습니다. 각 클러스터에 다른 컨테이너를 사용하고 기본 저장소 계정 대신 모든 관련 클러스터 배포에 지정된 연결 저장소 계정에서 공유 데이터를 배치하는 것이 좋습니다. 연결된 저장소 계정에 대한 자세한 내용은 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터의 경우 삭제된 HBase 클러스터에서 사용되었던 기본 Blob 저장소 컨테이너를 사용하여 새로운 HBase 클러스터를 만들어 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
 
 
 ### Azure Preview 포털 사용
 
-Preview 포털에서 HDInsight 클러스터를 프로비전할 때 기존 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다.
+Preview 포털에서 HDInsight 클러스터를 만들 때 기존 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다.
 
-![hdinsight hadoop 프로비전 데이터 원본](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![HDInsight Hadoop 만들기 데이터 원본](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ###Azure CLI 사용
 
@@ -106,7 +106,7 @@ Preview 포털에서 HDInsight 클러스터를 프로비전할 때 기존 저장
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE]`--type` 매개 변수는 저장소 계정이 복제되는 방식을 나타냅니다. 자세한 내용은 [Azure 저장소 중복](../storage-redundancy.md)을 참조하세요.
+> [AZURE.NOTE]`--type` 매개 변수는 저장소 계정이 복제되는 방식을 나타냅니다. 자세한 내용은 [Azure 저장소 복제](../storage-redundancy.md)를 참조하세요. ZRS에서 페이지 Blob, 파일, 테이블 또는 큐를 지원하지 않으므로 ZRS를 사용하지 마세요.
 
 저장소 계정에 있는 지리적 지역을 지정 하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려는 동일한 지역에 저장소 계정을 만들어야 합니다.
 
@@ -122,21 +122,26 @@ Preview 포털에서 HDInsight 클러스터를 프로비전할 때 기존 저장
 
 [Azure PowerShell을 설치하고 구성한][powershell-install] 경우 Azure PowerShell 프롬프트에서 다음을 사용하여 저장소 계정 및 컨테이너를 만들 수 있습니다.
 
-	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
-	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
-	$containerName="<BlobContainerToBeCreated>" # The Blob container name that you will create
-
-	# Connect to your Azure account and selec the current subscription
-	Add-AzureAccount # The connection will expire in 12 hours.
-	Select-AzureSubscription $subscriptionName #only required if you have multiple subscriptions
-
-	# Create a storage context object
-	$storageAccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+	$SubscriptionID = "<Your Azure Subscription ID>"
+	$ResourceGroupName = "<New Azure Resource Group Name>"
+	$Location = "EAST US 2"
+	
+	$StorageAccountName = "<New Azure Storage Account Name>"
+	$containerName = "<New Azure Blob Container Name>"
+	
+	Add-AzureRmAccount
+	Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+	
+	# Create resource group
+	New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+	
+	# Create default storage account
+	New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
+	
+	# Create default blob containers
+	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName |  %{ $_.Key1 }
 	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-	# Create a Blob storage container
 	New-AzureStorageContainer -Name $containerName -Context $destContext
-
 
 ## Blob 저장소에서 파일 주소 지정
 
@@ -200,97 +205,72 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 
 ![Blob 관련 PowerShell cmdlet의 목록입니다.][img-hdi-powershell-blobcommands]
 
-
-**파일을 업로드하기 위해 Azure PowerShell을 사용하는 예제**
+###파일 업로드
 
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하십시오.
 
-**파일을 다운로드하기 위해 Azure PowerShell을 사용하는 예제**
+###파일 다운로드
 
 다음 스크립트를 실행하면 블록 Blob이 현재 폴더로 다운로드됩니다. 스크립트를 실행하기 전에 디렉터리를 쓰기 권한이 있는 폴더로 변경하십시오.
 
-
-	$storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
+	$resourceGroupName = "<AzureResourceGroupName>"
+	$storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
 	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
 	$blob = "example/data/sample.log" # The name of the blob to be downloaded.
-
+	
 	# Use Add-AzureAccount if you haven't connected to your Azure subscription
-	#Add-AzureAccount # The connection is good for 12 hours
-
-	# Use these two commands if you have multiple subscriptions
-	#$subscriptionName = "<SubscriptionName>"
-	#Select-AzureSubscription $subscriptionName
-
+	Login-AzureRmAccount 
+	Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
+	
 	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.key1 }
 	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
+	
 	Write-Host "Download the blob ..." -ForegroundColor Green
 	Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
-
+	
 	Write-Host "List the downloaded file ..." -ForegroundColor Green
 	cat "./$blob"
 
-**파일을 삭제하기 위해 Azure PowerShell을 사용하는 예제**
+리소스 그룹 이름 및 클러스터 이름을 제공할 때 다음 코드를 사용할 수 있습니다.
 
-다음 스크립트는 파일 삭제 방법을 보여 줍니다.
-
-	$storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
-	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
+	$resourceGroupName = "<AzureResourceGroupName>"
+	$clusterName = "<HDInsightClusterName>"
 	$blob = "example/data/sample.log" # The name of the blob to be downloaded.
+	
+	$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+	$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+	$defaultStorageContainer = $cluster.DefaultStorageContainer
+	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
+	
+	Write-Host "Download the blob ..." -ForegroundColor Green
+	Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
-	# Use Add-AzureAccount if you haven't connected to your Azure subscription
-	#Add-AzureAccount # The connection is good for 12 hours
+###파일 삭제
 
-	# Use these two commands if you have multiple subscriptions
-	#$subscriptionName = "<SubscriptionName>"
-	#Select-AzureSubscription $subscriptionName
 
-	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-	Write-Host "Delete the blob ..." -ForegroundColor Green
 	Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
+###파일 나열
 
-**리스트의 파일을 나열하기 위해 Azure PowerShell을 사용하는 예제**
+	Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
-다음 스크립트는 폴더 내의 파일을 나열하는 방법을 보여 줍니다. (다음 샘플은 **Invoke-Hive** cmdlet을 사용하여 폴더를 나열하는 **dfs ls** 명령 실행 방법을 보여 줍니다.)
+###정의되지 않은 저장소 계정을 사용하여 Hive 쿼리 실행
 
-	$storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
-	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
-	$blobPrefix = "example/data/"
-
-	# Use Add-AzureAccount if you haven't connected to your Azure subscription
-	#Add-AzureAccount # The connection is good for 12 hours
-
-	# Use these two commands if you have multiple subscriptions
-	#$subscriptionName = "<SubscriptionName>"
-	#Select-AzureSubscription $subscriptionName
-
-	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-	Write-Host "List the files in $blobPrefix ..."
-	Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix $blobPrefix
-
-**정의되지 않은 저장소 계정을 사용하여 Hive 쿼리를 실행하는 Azure PowerShell을 사용하는 예제**
-
-이 샘플은 프로비전 프로세스 중에 정의되지 않은 저장소 계정에서 폴더를 나열하는 방법을 보여 줍니다.$clusterName = "<HDInsightClusterName>"
+이 샘플에서는 만들기 프로세스 중에 정의되지 않은 저장소 계정에서 폴더를 나열하는 방법을 보여 줍니다. $clusterName = "<HDInsightClusterName>"
 
 	$undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
 	$undefinedContainer = "<UnboundedBlobContainerAssociatedWithTheStorageAccount>"
 
 	$undefinedStorageKey = Get-AzureStorageKey $undefinedStorageAccount | %{ $_.Primary }
 
-	Use-AzureHDInsightCluster $clusterName
+	Use-AzureRmHDInsightCluster $clusterName
 
 	$defines = @{}
 	$defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+	Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## 다음 단계
 
@@ -304,7 +284,7 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 
 [powershell-install]: ../install-configure-powershell.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -317,4 +297,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

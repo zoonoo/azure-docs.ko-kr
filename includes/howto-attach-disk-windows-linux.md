@@ -2,6 +2,7 @@
 디스크에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../articles/virtual-machines-disks-vhds.md)를 참조하세요.
 
 ##<a id="attachempty"></a>방법: 빈 디스크 연결
+
 Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므로, 빈 디스크를 연결하는 것이 데이터 디스크를 추가하는 더욱 간단한 방법입니다.
 
 1. **가상 컴퓨터**를 클릭하고 해당 가상 컴퓨터를 선택합니다.
@@ -28,6 +29,8 @@ Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므�
 4.	데이터 디스크가 생성되어 연결된 후에는 가상 컴퓨터의 대시보드에 나열됩니다.
 
 	![빈 데이터 디스크 연결됨](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+	
+> [AZURE.NOTE]새 데이터 디스크를 추가한 후 가상 컴퓨터가 디스크를 저장소에 사용할 수 있도록 가상 컴퓨터에 로그온한 다음 디스크를 초기화해야 합니다.
 
 ##<a id="attachexisting"></a>방법: 기존 디스크 연결
 
@@ -55,6 +58,4 @@ Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므�
 
 	![데이터 디스크 연결됨](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
 
-> [AZURE.NOTE]데이터 디스크를 추가한 후 가상 컴퓨터가 디스크를 저장소에 사용할 수 있도록 가상 컴퓨터에 로그온한 다음 디스크를 초기화해야 합니다.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

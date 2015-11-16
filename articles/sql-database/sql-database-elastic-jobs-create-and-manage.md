@@ -1,10 +1,10 @@
 <properties
-	pageTitle="탄력적 데이터베이스 작업 만들기 및 관리"
+	pageTitle="탄력적 데이터베이스 작업 만들기 및 관리 | Micosoft Azure"
 	description="탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다."
 	services="sql-database"
 	documentationCenter=""
 	manager="jhubbard"
-	authors="sidneyh"
+	authors="ddove"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/04/2015"
 	ms.author="ddove; sidneyh"/>
 
 # 포털을 사용하여 SQL 데이터베이스 탄력적 작업 만들기 및 관리(미리 보기)
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

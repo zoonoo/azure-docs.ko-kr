@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="탄력적 데이터베이스 분할/병합 도구를 사용하여 확장하기" 
+    pageTitle="탄력적 데이터베이스 분할/병합 도구를 사용하여 확장하기 | Microsoft Azure" 
     description="탄력적 데이터베이스 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh"/>
+    authors="ddove"/>
 
 <tags 
     ms.service="sql-database" 
@@ -12,14 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/29/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh" />
 
 # 탄력적 데이터베이스 분할/병합 도구를 사용하여 확장하기
 
-shardlet(tenant)의 할당된 별도 데이터베이스 모델을 사용하지 않도록 선택한 경우, 용량을 변경해야 할 경우 응용 프로그램은 데이터베이스 간의 데이터를 유연하게 재배포해야 합니다. 탄력적 데이터베이스 도구는 데이터 분포 균형 조정하는 고객 호스팅 분할-병합 도구를 포함하고 분할된 데이터베이스 응용 프로그램의 핫스팟을 관리합니다. 필요에 따라 여러 데이터베이스 간에 shardlet을 이동하는 기본 기능을 기반으로 하며, 분할된 데이터베이스 맵 관리에 통합되어 일관된 매핑을 유지합니다.
+[탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)는 데이터 분포 균형 조정하는 도구를 포함하고 분할된 응용 프로그램의 핫스팟을 관리합니다. **분할-병합** 도구는 수평확장, 수직확장을 관리합니다. 즉 분할된 데이터베이스 집합에서 데이터베이스를 추가하거나 삭제할 수 있고, 데이터베이스 간 shardlet의 분포를 재조정 할 때 사용합니다. (용어 정의는 [탄력적 확장 용어집](sql-database-elastic-scale-glossary.md)을 참조하세요.)
 
-분할-병합 툴은 수평확장, 수직확장을 관리합니다; 분할된 데이터베이스 집합에서 데이터베이스를 추가하거나 삭제할 수 있고, 데이터베이스 간 shardlets의 분포를 재조정 할 때 사용합니다. (용어 정의는 [탄력적인 확장 용어집](sql-database-elastic-scale-glossary.md)을 확인하세요.)
+필요에 따라 여러 데이터베이스 간에 shardlet을 이동하며, [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)에 통합되어 일관된 매핑을 유지합니다.
+
+시작하려면 [탄력적 데이터베이스 분할-병합 도구](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
 
 ## 분할/병합의 새로운 기능
 
@@ -29,8 +31,6 @@ shardlet(tenant)의 할당된 별도 데이터베이스 모델을 사용하지 �
 
 ## 업그레이드하는 방법
 
-최신 버전의 분할-병합으로 업그레이드하려면 다음 단계를 따릅니다.
-
 1. 설명된 대로 NuGet에서 최신 버전의 [분할-병합 패키지를 다운로드](sql-database-elastic-scale-configure-deploy-split-and-merge.md#download-the-Split-Merge-packages)합니다.
 2. 분할/병합 배포의 클라우드 서비스 구성 파일을 새 구성 매개 변수를 반영하도록 변경합니다. 새 필수 매개 변수는 암호화에 사용되는 인증서에 대한 정보입니다. 이 작업을 쉽게 수행하는 방법은 다운로드한 새 구성 템플릿 파일을 기존 구성과 비교하는 것입니다. 웹 역할과 작업자 역할 둘 다에 대해 “DataEncryptionPrimaryCertificateThumbprint” 및“DataEncryptionPrimary” 설정을 추가합니다.
 3. 업데이트를 Azure에 배포하기 전에 현재 실행 중인 모든 분할/병합 작업이 완료되었는지 확인합니다. 분할/병합 메타데이터 데이터베이스에의 RequestStatus 및 PendingWorkflows 테이블에서 진행 중인 요청을 쿼리하여 쉽게 확인할 수 있습니다.
@@ -39,6 +39,7 @@ shardlet(tenant)의 할당된 별도 데이터베이스 모델을 사용하지 �
 업그레이드하기 위해 분할-병합용 새 메타데이터 데이터베이스를 프로비전할 필요는 없습니다. 새 버전은 기존 메타데이터 데이터베이스를 새 버전으로 자동으로 업그레이드합니다.
 
 ## 분할/병합 시나리오 
+
 응용 프로그램은 다음 시나리오에서 설명한 대로 단일 Azure SQL DB 데이터베이스의 제한을 초과하여 유연하게 확장되어야 합니다.
 
 * **Grow Capacity – Splitting Ranges**: 데이터 계층의 집계 용량을 확장하는 기능이 용량 증가 요구 사항을 해결해 줍니다. 이 시나리오에서는 응용 프로그램이 데이터를 분할하고 용량 요구 사항이 충족될 때까지 늘어나는 데이터베이스에 걸쳐 배포하여 추가 용량을 제공합니다. 탄력적인 확장 분할-합 서비스의 '분할' 기능이 시나리오를 해결해 줍니다. 
@@ -238,4 +239,4 @@ shardlet(tenant)의 할당된 별도 데이터베이스 모델을 사용하지 �
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

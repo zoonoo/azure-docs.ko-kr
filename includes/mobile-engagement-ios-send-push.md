@@ -43,6 +43,17 @@
 
 	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
+7. 다음과 같이 알림 센터에서 iOS 장치에 대한 알림을 받게 됩니다.
+
+	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+
+8. 이 iOS 장치와 페어링된 Apple Watch가 있으면 해당 Apple Watch에 알림이 표시됩니다.
+
+	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+
+
  
 
-<!---HONumber=Oct15_HO3-->
+ 
+
+<!---HONumber=Nov15_HO2-->

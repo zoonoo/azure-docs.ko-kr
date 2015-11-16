@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -79,4 +79,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

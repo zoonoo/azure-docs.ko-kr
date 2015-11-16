@@ -1,9 +1,10 @@
 
+
 1.  Mac에서 **Keychain Access**를 시작합니다. **범주** > **내 인증서**를 엽니다. 내보낼 SSL 인증서(이전에 다운로드함)를 찾고 해당 콘텐츠를 공개합니다. 개인 키를 선택하지 않고 인증서만 선택한 다음 [내보냅니다](https://support.apple.com/kb/PH20122?locale=en_US).
 
 2. Azure 포털에서 **모두 찾아보기** > **모바일 앱** > 백 엔드 > **설정** > **모바일 앱** > **푸시** > **필요한 설정 구성** > **+ 알림 허브**를 클릭하고 알림 허브에 대한 이름 및 네임스페이스를 입력한 다음 **확인** 단추를 클릭합니다.
 
-  ![][1]
+  	![][1]
 
 3. **알림 허브 만들기** 블레이드에서 **만들기** 단추를 클릭합니다.
      
@@ -12,4 +13,4 @@
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

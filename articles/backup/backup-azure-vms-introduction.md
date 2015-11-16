@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Azure에서 VM 백업 인프라 계획
@@ -102,4 +102,4 @@ Azure 백업을 사용하여 백업된 Azure 가상 컴퓨터에는 [Azure 백�
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [VM 백업 문제 해결](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

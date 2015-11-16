@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 검색을 사용하는 사람: 사례 연구 및 고객 사례"
-	description="Azure 검색 사례 연구 및 고객 사례"
+	description="Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색과 관련한 사례 연구 및 고객 스토리"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="10/05/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Azure 검색을 사용하는 사람: 사례 연구 및 고객 사례
@@ -61,4 +61,4 @@ Independent realtor는 클라우드로 이동하는 것이 최선의 길임을 �
 [5]: ./media/search-case-studies/weichert_m.png
 [6]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -33,7 +33,7 @@
 
 1. 프로젝트의 NuGet 패키지를 최신 *시험판* 버전의 Application Insights로 업데이트합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **Include prerelease**(시험판 포함)를 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
 
-2. 다음 코드 조각을 ApplicationInsights.config에 추가합니다.
+2. 다음 코드 조각을 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에 추가합니다.
 
 ```XML
 
@@ -55,7 +55,7 @@
 
 서버에서 샘플링에 대한 웹 페이지를 구성할 수 있습니다. ASP.NET 서버의 경우 클라이언트와 서버 양쪽을 구성합니다.
 
-[Application Insights에 대한 웹 페이지를 구성](app-insights-javascript.md)할 때 Application Insights 포털에서 얻는 코드 조각을 수정합니다. (ASP.NET의 \_Layout.cshtml에 위치합니다.) 계측 키 앞에 `samplingPercentage: 10,`와 같은 줄을 삽입합니다.
+[Application Insights에 대한 웹 페이지를 구성](app-insights-javascript.md)할 때 Application Insights 포털에서 얻는 코드 조각을 수정합니다. (ASP.NET의 \_Layout.cshtml에 위치합니다.) 계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입합니다.
 
     <script>
 	var appInsights= ... 
@@ -104,7 +104,7 @@
 
 
 * 앱이 짧은 시간 간격으로 매우 높은 비율의 원격 분석을 전송할 때 Application Insights 서비스는 ("제한") 데이터 요소를 삭제합니다. 
-* 가격 책정 계층에 대한 데이터 요소의 [할당량](app-insights-pricing.md)을 유지하려 합니다. 
+* 가격 책정 계층에 대한 데이터 요소의 [할당량](app-insights-pricing.md)을 유지하려고 합니다. 
 * 원격 분석의 컬렉션에서 네트워크 트래픽을 줄이려면 
 
 ## 샘플링은 어떻게 작동되나요?
@@ -162,4 +162,6 @@ SDK는 어떤 원격 분석 항목을 삭제하고 어떤 항목을 유지할지
 
 * 아니요, 지금 시점에 장치 응용 프로그램에 대한 샘플링은 지원되지 않습니다. 
 
-<!---HONumber=Nov15_HO1-->
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
+
+<!---HONumber=Nov15_HO2-->

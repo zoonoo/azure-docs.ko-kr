@@ -42,7 +42,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 
 이 항목에서는 **자산을 인덱싱**하고 **여러 파일 색인을 인덱싱**하는 인덱싱 작업을 만드는 방법을 보여 줍니다.
 
-최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](http://azure.microsoft.com/blog/topics/media-services/)(영문)를 참조하세요.
+최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](#preset)(영문)를 참조하세요.
 
 ## 인덱싱 태스크에 대한 구성 및 매니페스트 파일 사용
 
@@ -50,7 +50,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 
 매니페스트 파일을 사용하여 여러 미디어 파일을 한 번에 처리할 수도 있습니다.
 
-자세한 내용은 [Azure 미디어 인덱서의 작업 기본 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
+자세한 내용은 [Azure 미디어 인덱서의 태스크 기본 설정](#)(영문)을 참조하세요.
 
 ## 자산 인덱스
 
@@ -143,43 +143,22 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	                                                   mediaProcessorName));
 
 	    return processor;
-	}
-
+	}  
+<!-- __ -->
 ### <a id="output_files"></a>출력 파일
 
 기본적으로 인덱싱 작업은 다음 출력 파일을 생성합니다. 다음 파일은 첫 번째 출력 자산에 저장됩니다.
 
+하나 이상의 입력 미디어 파일이 있을 때, 인덱서는 ‘JobResult.txt’라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일에 대한 결과로 생성되는 AIB, SAMI, TTML, WebVTT 및 키워드 파일은 순차적으로 번호가 매겨지고 "별칭"을 사용하여 이름이 지정됩니다.
 
-<table border="1">
-<tr><th>파일 이름</th><th>설명</th></tr>
-<tr><td>InputFileName.aib </td>
-<td>Audio indexing blob file.<br/><br/>
-AIB(Audio Indexing Blob) 파일은 전체 텍스트 검색을 사용하는 Microsoft SQL에서 검색할 수 있는 이진 파일입니다. AIB 파일은 더 풍부한 검색 환경을 허용하여 각각의 단어에 대체 항목을 포함하기 때문에 단일 캡션 파일보다 훨씬 강력합니다.
-<br/>
-<br/>
-Microsoft SQL server 2008 이상을 실행하는 컴퓨터에서 Indexer SQL 추가 기능을 설치해야 합니다. Microsoft SQL server의 전체 텍스트 검색을 사용하는 AIB 검색은 WAMI에 의해 생성된 선택 자막 파일을 검색할 때보다 훨씬 정교한 검색 결과를 제공합니다. 선택 자막 파일은 오디오의 각 세그먼트에 가장 신뢰성이 높은 단어를 포함하지만 AIB는 사운드가 유사한 대체 단어를 포함하기 때문입니다. 음성 단어 검색이 가장 중요한 경우, Microsoft SQL Server와 함께 AIB를 사용하는 것이 좋습니다.
-<br/><br/>
-추가 기능을 다운로드하려면 <a href="http://aka.ms/indexersql">Azure 미디어 인덱서 SQL 추가 기능</a>을 클릭합니다.
-<br/><br/>
-선택 자막에 기반한 비디오 및 키워드 XML 파일을 간단하게 인덱스하기 위해 Apache Lucene/Solr와 같은 기타 검색 엔진을 활용할 수도 있습니다. 하지만 이는 검색 결과의 정확성이 떨어집니다.</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml<br/>InputFileName.vtt</td>
-<td>SAMI, TTML 및 WebVTT 형식의 CC(선택 자막) 파일.
-<br/><br/>
-청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다.
-<br/><br/>
-선택 자막 파일은 <b>Recognizability</b>라는 태그를 포함합니다. 이 태그는 원본 동영상의 음성을 인식할 수 있는 정도에 따라 인덱싱 작업을 평가합니다. 유용성을 위해 화면 출력 파일에 <b>Recognizability</b> 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.</td></tr>
-<tr><td>InputFileName.kw.xml
-<br/>
-InputFileName.info
-</td>
-<td>키워드 및 정보 파일입니다.
-<br/><br/>
-키워드 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함하는 XML 파일입니다.
-<br/><br/>
-정보 파일은 인식된 각 용어에 대한 세부적인 정보를 포함한 일반 텍스트 파일입니다. 첫 번째 줄은 특수하며 Recognizability 점수를 포함합니다. 이후 각 줄은 탭으로 구분된 데이터 목록이며, 다음과 같습니다. 시작 시간, 종료 시간, 단어/구, 신뢰도 시간은 초 단위로 제공되며 신뢰도는 0-1의 숫자로 지정됩니다.  <br/><br/>줄 예제: "1.20 &#160;&#160;&#160;1.45 &#160;&#160;&#160;word &#160;&#160;&#160;0.67"
-<br/><br/>
-음성 분석을 수행하거나, Bing, Google 또는 Microsoft SharePoint와 같은 검색 엔진에 노출하여 미디어 파일을 보다 검색하기 쉽게 하거나, 보다 관련 있는 광고를 제공하는 데에도 사용하는 등의 여러 가지 목적을 위해 이들 파일을 사용할 수 있습니다.</td></tr>
-</table>
+파일 이름 | 설명
+----------|------------
+__InputFileName.aib__ | Audio indexing blob file. <br /><br /> AIB(Audio Indexing Blob) 파일은 전체 텍스트 검색을 사용하는 Microsoft SQL에서 검색할 수 있는 이진 파일입니다. AIB 파일은 더 풍부한 검색 환경을 허용하여 각각의 단어에 대체 항목을 포함하기 때문에 단일 캡션 파일보다 훨씬 강력합니다. <br/> <br/>Microsoft SQL server 2008 이상을 실행하는 컴퓨터에서 Indexer SQL 추가 기능을 설치해야 합니다. Microsoft SQL server의 전체 텍스트 검색을 사용하는 AIB 검색은 WAMI에 의해 생성된 선택 자막 파일을 검색할 때보다 훨씬 정교한 검색 결과를 제공합니다. 선택 자막 파일은 오디오의 각 세그먼트에 가장 신뢰성이 높은 단어를 포함하지만 AIB는 사운드가 유사한 대체 단어를 포함하기 때문입니다. 음성 단어 검색이 가장 중요한 경우, Microsoft SQL Server와 함께 AIB를 사용하는 것이 좋습니다.<br/><br/> 추가 기능을 다운로드하려면 <a href="http://aka.ms/indexersql">Azure 미디어 인덱서 SQL 추가 기능</a>을 클릭합니다. <br/><br/>선택 자막에 기반한 비디오 및 키워드 XML 파일을 간단하게 인덱스하기 위해 Apache Lucene/Solr와 같은 기타 검색 엔진을 활용할 수도 있습니다. 하지만 이는 검색 결과의 정확성이 떨어집니다.
+__InputFileName.smi__<br />\_\_InputFileName.ttml\_\_<br />\_\_InputFileName.vtt\_\_ |SAMI, TTML 및 WebVTT 형식의 CC(선택 자막) 파일.<br/><br/>청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다.<br/><br/>선택 자막 파일은 <b>Recognizability</b>라는 태그를 포함합니다. 이 태그는 원본 동영상의 음성을 인식할 수 있는 정도에 따라 인덱싱 작업을 평가합니다. 유용성을 위해 화면 출력 파일에 <b>Recognizability</b> 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.
+__InputFileName.kw.xml<br />InputFileName.info__ |키워드 및 정보 파일입니다. <br/><br/>키워드 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함하는 XML 파일입니다. <br/><br/>정보 파일은 인식된 각 용어에 대한 세부적인 정보를 포함한 일반 텍스트 파일입니다. 첫 번째 줄은 특수하며 Recognizability 점수를 포함합니다. 이후 각 줄은 탭으로 구분된 데이터 목록이며, 다음과 같습니다. 시작 시간, 종료 시간, 단어/구, 신뢰도 시간은 초 단위로 제공되며 신뢰도는 0-1의 숫자로 지정됩니다. <br/><br/>줄 예제: "1.20 1.45 word 0.67" <br/><br/>음성 분석을 수행하거나, Bing, Google 또는 Microsoft SharePoint와 같은 검색 엔진에 노출하여 미디어 파일을 보다 검색하기 쉽게 하거나, 보다 관련 있는 광고를 제공하는 데에도 사용하는 등의 여러 가지 목적을 위해 이들 파일을 사용할 수 있습니다.
+__JobResult.txt__ |출력 매니페스트로, 다음 정보를 포함한 여러 파일을 인덱싱할 때만 표시됩니다.<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media\_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media\_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
+
+
 
 모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 
@@ -187,7 +166,7 @@ InputFileName.info
 
 다음 메서드는 여러 파일을 한 자산으로 업로드하고 이러한 모든 파일을 일괄로 인덱스하기 위해 작업을 만듭니다.
 
-확장명이 .lst인 매니페스트 파일이 만들어지고 자산으로 업로드됩니다. 매니페스트 파일은 모든 자산 파일 목록을 포함합니다. 자세한 내용은 [Azure 미디어 인덱서의 작업 기본 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
+확장명이 .lst인 매니페스트 파일이 만들어지고 자산으로 업로드됩니다. 매니페스트 파일은 모든 자산 파일 목록을 포함합니다. 자세한 내용은 [Azure 미디어 인덱서의 태스크 기본 설정](https://msdn.microsoft.com/library/azure/dn783454.aspx)(영문)을 참조하세요.
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -262,49 +241,6 @@ InputFileName.info
 	    return asset;
 	}
 
-
-### 출력 파일
-
-하나 이상의 입력 미디어 파일이 있을 때, 인덱서는 ‘JobResult.txt’라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일에 대한 결과로 생성되는 AIB, SAMI, TTML, WebVTT 및 키워드 파일은 아래와 같이 순차적으로 번호가 매겨집니다.
-
-출력 파일 설명은 [출력 파일](#output_files)을 참조하세요.
-
-
-<table border="1">
-<tr><th>파일 이름</th><th>설명</th></tr>
-<tr><td>JobResult.txt</td>
-<td>출력 매니페스트
-<br/><br/>다음은 출력 매니페스트 파일(JobResult.txt)의 형식입니다.
-<br/><br/>
-
-<table border="1">
-<tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>오류</th></tr>
-<tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr>
-<tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr>
-<tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr>
-</table><br/>
-각 행은 하나의 입력 미디어 파일을 나타냅니다.
-<br/><br/>
-InputFile: 자산 파일 이름 또는 입력 미디어 파일의 URL.
-<br/><br/>
-Alias: 대리 출력 파일 이름.
-<br/><br/>
-MediaLength: 입력 미디어 파일의 길이(초). 0은 이 입력에 오류를 발생할 수 있습니다.
-<br/><br/>
-Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅니다. 0인 경우 성공, 0이 아닌 경우 실패입니다. 구체적인 오류는 <a href="#error_codes">오류 코드</a>를 참조하세요.
-</td></tr>
-<tr><td>Media_1.aib </td>
-<td>File #0 - 오디오 인덱싱 blob 파일.</td></tr>
-<tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>파일 #0 - SAMI, TTML 및 WebVTT 형식의 CC(선택 자막) 파일.</td></tr>
-<tr><td>Media_1.kw.xml</td>
-<td>File #0 - 키워드 파일.</td></tr>
-<tr><td>Media_2.aib </td>
-<td>File #1 - 오디오 인덱싱 blob 파일.</td></tr>
-</table>
-
-모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
-
 ### 부분적으로 성공된 작업
 
 모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
@@ -312,36 +248,40 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 
 동일한 출력(성공된 작업)이 생성됩니다. 출력 매니페스트 파일을 참조하여 오류 열 값에 따라 실패한 입력 파일을 알아볼 수 있습니다. 실패한 입력 파일의 경우 AIB, SAMI, TTML, WebVTT 및 키워드 파일이 결과로 생성되지 않습니다.
 
+### <a id="preset"></a> Azure 미디어 인덱서의 태스크 미리 설정
+
+태스크와 함께 태스크 미리 설정을 제공하여 Azure 미디어 인덱서의 처리를 사용자 지정할 수 있습니다. 다음은 이 구성 xml의 형식을 설명합니다.
+
+이름 | 필요 | 설명
+----|----|---
+__input__ | false | 인덱싱할 자산 파일.</p><p>Azure 미디어 인덱서는 MP4, WMV, MP3, M4A, WMA, AAC, WAV의 미디어 파일 형식을 지원합니다.</p><p>아래와 같이 **input** 요소의 **name** 또는 **list** 특성에 파일 이름을 지정할 수 있습니다. 인덱싱할 자산 파일을 지정하지 않으면 주 파일이 선택됩니다. 주 자산 파일이 설정되지 않은 경우 입력 자산에 있는 첫 번째 파일이 인덱싱됩니다.</p><p>자산 파일 이름을 명시적으로 지정하려면 다음을 수행합니다.<br />`<input name="TestFile.wmv">`<br /><br />여러 자산 파일을 한 번에 인덱싱할 수도 있습니다(최대 10개 파일). 다음을 수행합니다.<br /><br /><ol class="ordered"><li><p>텍스트 파일(매니페스트 파일)을 만들고 .lst 확장명을 지정합니다. </p></li><li><p>입력 자산에 있는 모든 자산 파일 이름 목록을 이 매니페스트 파일에 추가합니다. </p></li><li><p>자산에 매니페스트 파일을 추가(업로드)합니다. </p></li><li><p>입력의 목록 특성에 매니페스트 파일의 이름을 지정합니다.<br />`<input list="input.lst">`</li></ol><br /><br />참고: 매니페스트 파일에 10개 이상의 파일을 추가하는 경우 인덱싱 작업이 2006 오류 코드와 함께 실패합니다.
+__metadata__ | false | 어휘 적응에 사용되는 지정된 자산 파일에 대한 메타데이터입니다. 적절한 명사와 같은 비표준 어휘 단어를 인식하는 인덱서를 준비하는 경우 유용합니다.<br />`<metadata key="..." value="..."/>` <br /><br />미리 정의된 __키__에 대해 __값__을 제공할 수 있습니다. 현재 다음 키가 지원됩니다.<br /><br />"title" 및 "description" - 어휘 적응에서 작업에 대한 언어 모델을 조정하고 음성 인식 정확도를 향상하는 데 사용됩니다. 값 시드 인터넷으로 인덱싱 태스크 기간 동안 내부 디렉터리를 보강할 콘텐츠를 사용하여 문맥적으로 관련된 텍스트 문서를 검색하여 찾습니다.<br />`<metadata key="title" value="[Title of the media file]" />`<br />`<metadata key="description" value="[Description of the media file] />"`
+__features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되는 유일한 기능은 음성 인식("ASR")입니다.| false | 음성 인식 기능에는 다음 설정 키가 포함됩니다.<table><tr><th><p>키</p></th> <th><p>설명</p></th><th><p>예제 값</p></th></tr><tr><td><p>Language</p></td><td><p>멀티미디어 파일에서 인식되는 자연어</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>원하는 출력 캡션 형식의 세미콜론으로 구분된 목록(있는 경우)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>AIB 파일이 필요한지 여부를 지정하는 부울 플래그입니다(SQL Server 및 고객 인덱서 IFilter와 함께 사용). 자세한 내용은 <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용</a>(영문)을 참조하세요.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>키워드 XML 파일이 필요한지 여부를 지정하는 부울 플래그입니다.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>신뢰 수준에 관계없이 전체 캡션을 강제로 적용할지 여부를 지정하는 부울 플래그입니다. </p><p>기본값은 false이고 신뢰 수준이 50% 미만인 단어 및 구는 최종 캡션 출력에서 생략되고 줄임표("...")로 대체됩니다. 줄임표는 캡션 품질 제어 및 감사에 유용합니다.</p></td><td><p>True; False. </p></td></tr></table>
 
 ### <a id="error_codes"></a>오류 코드
 
+오류 발생 시 Azure 미디어 인덱서는 다음 오류 코드 중 하나를 다시 보고해야 합니다.
 
-<table border="1">
-<tr><th>코드</th><th>이름</th><th>가능한 이유</th></tr>
-<tr><td>2000</td><td>유효하지 않은 구성</td><td>유효하지 않은 구성</td></tr>
-<tr><td>2001</td><td>유효하지 않은 입력 자산</td><td>입력 자산 유실 또는 빈 자산.</td></tr>
-<tr><td>2002</td><td>유효하지 않은 매니페스트</td><td>매니페스트가 비어 있거나 유효하지 않은 항목을 포함합니다.</td></tr>
-<tr><td>2003</td><td>미디어 파일 다운로드에 실패</td><td>매니페스트 파일에 유효하지 않은 URL.</td></tr>
-<tr><td>2004</td><td>지원되지 않는 프로토콜</td><td>미디어 URL 프로토콜이 지원되지 않습니다.</td></tr>
-<tr><td>2005</td><td>지원되지 않는 파일 유형</td><td>입력 미디어 파일 유형이 지원되지 않습니다.</td></tr>
-<tr><td>2006</td><td>너무 많은 입력 파일</td><td>입력 매니페스트에 10개 이상의 파일이 있습니다. </td></tr>
-<tr><td>3000</td><td>미디어 파일 디코딩 실패</td>
-<td>지원되지 않는 미디어 코덱.
-<br/>또는<br/>
-손상된 미디어 파일.
-<br/>또는<br/>
-입력 미디어에 오디오 스트림 없음.</td></tr>
-<tr><td>4000</td><td>인덱싱 일괄 처리 부분적으로 성공</td><td>일부 입력 미디어 파일 인덱싱에 실패했습니다. 자세한 내용은 <a href="output_files">출력 파일</a>을 참조하세요.</td></tr>
-<tr><td>기타</td><td>내부 오류</td><td>지원 팀에 문의하시기 바랍니다.</td></tr>
-</table>
+코드 | 이름 | 가능한 이유
+-----|------|------------------
+2000 | 유효하지 않은 구성 | 유효하지 않은 구성
+2001 | 유효하지 않은 입력 자산 | 입력 자산 유실 또는 빈 자산.
+2002 | 유효하지 않은 매니페스트 | 매니페스트가 비어 있거나 유효하지 않은 항목을 포함합니다.
+2003 | 미디어 파일 다운로드에 실패 | 매니페스트 파일에 유효하지 않은 URL.
+2004 | 지원되지 않는 프로토콜 | 미디어 URL 프로토콜이 지원되지 않습니다.
+2005 | 지원되지 않는 파일 유형 | 입력 미디어 파일 유형이 지원되지 않습니다.
+2006 | 너무 많은 입력 파일 | 입력 매니페스트에 10개 이상의 파일이 있습니다.
+3000 | 미디어 파일 디코딩 실패 | 지원되지 않는 미디어 코덱<br/>이거나<br/> 손상된 미디어 파일<br/>이거나<br/> 입력 미디어에 오디오 스트림이 없습니다.
+4000 | 인덱싱 일괄 처리 부분적으로 성공 | 일부 입력 미디어 파일 인덱싱에 실패했습니다. 자세한 내용은 <a href="output_files">출력 파일</a>을 참조하세요.
+기타 | 내부 오류 | 지원 팀에 문의하시기 바랍니다. indexer@microsoft.com
 
 
-##<a id="supported_languages"></a>지원되는 언어
+## <a id="supported_languages"></a>지원되는 언어
 
-현재 영어와 스페인어가 지원됩니다. 자세한 내용은 [Azure 미디어 인덱서(스페인어)](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)(영문)를 참조하세요.
+현재 영어와 스페인어가 지원됩니다. 자세한 내용은 [v1.2 릴리스 블로그 게시물](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
 
 
-##미디어 서비스 학습 경로
+## 미디어 서비스 학습 경로
 
 여기서 AMS 학습 경로를 볼 수 있습니다.
 
@@ -349,7 +289,7 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-##관련 링크
+## 관련 링크
 
 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용(영문)](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
@@ -359,4 +299,4 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

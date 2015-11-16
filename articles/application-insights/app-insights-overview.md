@@ -89,7 +89,7 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
 1. [Microsoft Azure](http://azure.com)를 구독해야 합니다. Application Insights의 무료 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)을 선택하여 무료로 등록할 수 있습니다.
 
-2. [Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
+2. [Azure 포털](http://portal.azure.com)에 로그인합니다.
 3. Application Insights 리소스 만들기 이곳에서 응용 프로그램의 데이터를 볼 수 있습니다.
 
     ![새로 만들기, 개발자 서비스, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -154,4 +154,4 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

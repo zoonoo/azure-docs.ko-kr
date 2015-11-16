@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="10/27/2015"
    ms.author="derrickv"/>
 
 # Azure 데이터 카탈로그 개발자 개념
@@ -40,7 +40,7 @@ Microsoft**Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라�
 
 사용자가 할 수 있는 여러 역할이 있습니다. 역할에 대한 자세한 내용은 역할 및 권한 부여 섹션을 참조하세요.
 
-개별 사용자(보안 그룹 제외)만 추가할 수 있습니다.
+개별 사용자 및 보안 그룹을 추가할 수 있습니다.
 
 Azure 데이터 카탈로그는 관리를 식별하고 액세스하기 위해 Azure Active Directory를 사용합니다. 각 카탈로그 사용자는 계정에 대해 Active Directory의 구성원이어야 합니다.
 
@@ -92,19 +92,19 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 > [AZURE.NOTE]이중 밑줄로 시작하는 속성에는 시스템 형식이 있습니다.
 
-<table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>마지막으로 루트가 수정된 시간. 이 시간은 클라이언트에 의해 설정됩니다. (서버에 이 값이 유지되지 않습니다).</td></tr><tr><td>__id</td><td>Guid</td><td>항목의 id입니다 (읽기 전용). 이 id는 자산에 대해 고유성을 보장합니다. 따라서 항목에 중요한 것은 __Id, 루트의__id 입니다. 이 튜플은 디렉터리 내에서 고유성을 보장합니다.</td></tr><tr><td>__typeId</td><td>Guid</td><td>자산 유형(읽기 전용) </td></tr><tr><td>__creatorId</td><td>문자열</td><td>자산을 고유하게 식별하는 자산의 작성자에 의해 사용되는 문자열입니다. </td></tr></table>
+<table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>마지막으로 루트가 수정된 시간. 이 시간은 클라이언트에 의해 설정됩니다. (서버에 이 값이 유지되지 않습니다).</td></tr><tr><td>__id</td><td>String</td><td>항목의 id입니다 (읽기 전용). 이 id는 카탈로그 내 자산의 고유성을 보장합니다.</td></tr><tr><td>__type</td><td>String</td><td>자산 유형(읽기 전용) </td></tr><tr><td>__creatorId</td><td>문자열</td><td>자산을 고유하게 식별하는 자산의 작성자에 의해 사용되는 문자열입니다. </td></tr></table>
 
 ### 공용 루트 속성
 
 이러한 속성은 모든 루트 자산 형식에 적용 됩니다.
 
-<table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>name</td><td>문자열</td><td>데이터 원본 위치 정보에서 파생된 이름</td></tr><tr><td>dsl</td><td>데이터 원본 위치</td><td>고유하게 데이터 원본을 설명하고 자산에 대한 식별자 중 하나입니다. (이중 ID 섹션 참조). dsl의 구조는 원본 유형에 따라 달라집니다.</td></tr><tr><td>DataSource</td><td>DataSourceInfo</td><td>자산 형식에 대한 세부 정보.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>이 자산을 가장 최근에 등록한 사용자를 설명합니다. 사용 (upn)뿐만 아니라 표시 이름 (lastName과 firstName)에 대한 고유 id를 포함합니다.</td></tr><tr><td>lastRegisteredTime</td><td>datetime</td><td>이 자산이 카탈로그에 등록된 마지막 시간.</td></tr></table>
+<table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>name</td><td>문자열</td><td>데이터 원본 위치 정보에서 파생된 이름</td></tr><tr><td>dsl</td><td>데이터 원본 위치</td><td>고유하게 데이터 원본을 설명하고 자산에 대한 식별자 중 하나입니다. (이중 ID 섹션 참조). dsl의 구조는 원본 유형에 따라 달라집니다.</td></tr><tr><td>DataSource</td><td>DataSourceInfo</td><td>자산 형식에 대한 세부 정보.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>이 자산을 가장 최근에 등록한 사용자를 설명합니다. 사용 (upn)뿐만 아니라 표시 이름 (lastName과 firstName)에 대한 고유 id를 포함합니다.</td></tr><tr><td>lastRegisteredTime</td><td>datetime</td><td>이 자산이 카탈로그에 등록된 마지막 시간.</td></tr><tr><td>containerId</td><td>String</td><td>데이터 원본에 대한 컨테이너 자산의 ID입니다. 이 속성은 컨테이너 형식에 대해 지원되지 않습니다.</td></tr></table>
 
 ### 루트 자산 형식
 
 루트 자산 형식은 카탈로그에 등록 될 수 있는 다양한 유형의 데이터 자산을 나타내는 자산 형식입니다.
 
-<table><tr><td><b>자산 형식</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>테이블</td><td></td><td></td><td>테이블은 모든 테이블 형식 데이터를 나타냅니다. 여기에는 SQL 테이블, SQL 보기, Analysis Services 테이블 형식 테이블, Analysis Services 다차원 차원, Oracle 등...이 포함됩니다    </td></tr><tr><td>측정값</td><td></td><td></td><td>이 유형은 Analysis Services 측정값을 나타냅니다.</td></tr><tr><td></td><td>측정값</td><td>열</td><td>측정값을 설명하는 메타데이터</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>측정값이 계산할지 여부를 지정합니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td>KPI</td><td></td><td></td><td>이 형식은 Analysis Services 핵심 성과 지표를 나타냅니다.</td></tr><tr><td></td><td>goalExpression</td><td>문자열</td><td>KPI의 목표값을 반환하는 MDX 숫자 식 또는 계산.</td></tr><tr><td></td><td>valueExpression</td><td>문자열</td><td>KPI의 실제 값을 반환하는 MDX 숫자 식.</td></tr><tr><td></td><td>statusExpression</td><td>문자열</td><td>특정 시점에 지정한 KPI의 상태를 나타내는 MDX 식.</td></tr><tr><td></td><td>trendExpression</td><td>문자열</td><td>시간이 지남에 따라 KPI 값을 계산하는 MDX 식.  특정 비즈니스 컨텍스트에서 유용한 시간 기반 조건이 추세가 될 수 있습니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td>보고서</td><td></td><td></td><td>이 형식은 SQL Server Reporting Services 보고서를 나타냅니다. </td></tr><tr><td></td><td>만든 사람</td><td>문자열</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>문자열</td><td></td></tr></table>
+<table><tr><td><b>자산 형식</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>테이블</td><td></td><td></td><td>테이블은 모든 테이블 형식 데이터를 나타냅니다. 여기에는 SQL 테이블, SQL 보기, Analysis Services 테이블 형식 테이블, Analysis Services 다차원 차원, Oracle 등...이 포함됩니다    </td></tr><tr><td>측정값</td><td></td><td></td><td>이 유형은 Analysis Services 측정값을 나타냅니다.</td></tr><tr><td></td><td>측정값</td><td>열</td><td>측정값을 설명하는 메타데이터</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>측정값이 계산할지 여부를 지정합니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td></td><td>goalExpression</td><td>문자열</td><td>KPI의 목표값을 반환하는 MDX 숫자 식 또는 계산.</td></tr><tr><td></td><td>valueExpression</td><td>문자열</td><td>KPI의 실제 값을 반환하는 MDX 숫자 식.</td></tr><tr><td></td><td>statusExpression</td><td>문자열</td><td>특정 시점에 지정한 KPI의 상태를 나타내는 MDX 식.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>시간이 지남에 따라 KPI 값을 계산하는 MDX 식.  특정 비즈니스 컨텍스트에서 유용한 시간 기반 조건이 추세가 될 수 있습니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td>보고서</td><td></td><td></td><td>이 형식은 SQL Server Reporting Services 보고서를 나타냅니다. </td></tr><tr><td></td><td>만든 사람</td><td>문자열</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr><tr><td>컨테이너</td><td></td><td></td><td>이 형식은 SQL 데이터베이스, Azure Blob 컨테이너 또는 Analysis Services 모델과 같은 다른 자산의 컨테이너를 나타냅니다.</td></tr></table>
 
 ### 주석 형식
 
@@ -123,6 +123,10 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 <tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>열</td></td><td>ColumnDataProfile[]</td><td>데이터 집합의 행 수입니다.</td></tr>
+
+<tr><td>설명서</td><td></td><td></td><td>지정된 자산은 하나의 설명서에만 연결될 수 있습니다.</td></tr>
+<tr><td></td><td>mimeType</td><td>string</td><td>콘텐츠의 mime 형식입니다.</td></tr>
+<tr><td></td><td>콘텐츠</td><td>string</td><td>설명서 내용입니다.</td></tr>
 
 
 </table>
@@ -258,4 +262,4 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

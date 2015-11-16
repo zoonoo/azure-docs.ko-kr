@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
 
 # Application Insights SDK에서 원격 분석 샘플링, 필터링 및 전처리
@@ -42,7 +42,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 1. 프로젝트의 NuGet 패키지를 최신 *시험판* 버전의 Application Insights로 업데이트합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **Include prerelease**(시험판 포함)를 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
 
-2. 다음 코드 조각을 ApplicationInsights.config에 추가합니다.
+2. 다음 코드 조각을 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에 추가합니다.
 
 ```XML
 
@@ -58,7 +58,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 ```
 
 
-웹 페이지에서 데이터에 대한 샘플링을 가져오려면 삽입한 [Application Insights 조각](app-insights-javascript.md)의 줄을 추가로 둡니다(일반적으로 \_Layout.cshtml 같은 마스터 페이지에서).
+웹 페이지에서 데이터에 대한 샘플링을 가져오려면 삽입한 [Application Insights 조각](app-insights-javascript.md)에 줄을 추가로 배치합니다(일반적으로 \_Layout.cshtml 같은 마스터 페이지에서).
 
 *JavaScript*
 
@@ -77,7 +77,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 * 웹 페이지와 서버 모두에서 샘플링을 설정한 경우 양쪽 모두에서 동일한 샘플링 비율을 설정해야 합니다.
 * 클라이언트 및 서버 측은 관련된 항목을 선택하도록 조정합니다.
 
-[샘플링에 대한 자세한 정보](app-insights-sampling.md)
+[샘플링에 대해 자세히 알아봅니다](app-insights-sampling.md).
 
 ## 필터링
 
@@ -91,21 +91,26 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 ### 원격 분석 프로세서 만들기
 
-1. 필터를 만들려면 ITelemetryProcessor를 구현합니다. 원격 분석 모듈, 원격 분석 이니셜라이저 및 원격 분석 채널와 같은 또 다른 확장성 지점입니다. 
+1. Application Insights SDK를 최신 버전(2.0.0-beta2 이상)으로 업데이트합니다. Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 Microsoft.ApplicationInsights.Web을 검색합니다.
+
+1. 필터를 만들려면 ITelemetryProcessor를 구현합니다. 원격 분석 모듈, 원격 분석 이니셜라이저 및 원격 분석 채널와 같은 또 다른 확장성 지점입니다.
 
     원격 분석 프로세서는 일련의 프로세싱을 생성합니다. 원격 분석 프로세서를 인스턴스화할 때 과정에서 다음 프로세서에 대한 링크를 전달합니다. 원격 분석 데이터 요소가 프로세스 메서드에 전달되는 경우 해당 작업을 수행하고 과정에서 다음 원격 분석 프로세서를 호출합니다.
 
     ``` C#
 
-    namespace FilteringTelemetryProcessor
-    {
-      using Microsoft.ApplicationInsights.Channel;
-      using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-      class UnauthorizedRequestFilteringProcessor : ITelemetryProcessor
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
       {
-        public UnauthorizedRequestFilteringProcessor(ITelemetryProcessor next)
-		//Initialization will fail without this constructor. Link processors to each other
+        private ITelemetryProcessor Next { get; set; }
+
+        // You can pass values from .config
+        public string MyParamFromConfigFile { get; set; }
+
+        // Link processors to each other in a chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
         {
             this.Next = next;
         }
@@ -117,17 +122,52 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
             ModifyItem(item);
 
             this.Next.Process(item);
-        }      private ITelemetryProcessor Next { get; set; }
-      }
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
+
+        // Example: replace with your own modifiers.
+        private void ModifyItem (ITelemetry item)
+        {
+            item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
+        }
     }
+    
 
     ```
-2. Global.asax.cs의 AppStart과 같은 적합한 초기화 클래스의 과정에서 프로세서를 삽입합니다.
+2. ApplicationInsights.config에 다음을 삽입합니다. 
+
+```XML
+
+    <TelemetryProcessors>
+      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+         <!-- Set public property -->
+         <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+(샘플링 필터를 초기화하는 섹션과 동일합니다.)
+
+클래스에서 명명된 공용 속성을 제공하여 .config 파일의 문자열 값을 전달할 수 있습니다.
+
+> [AZURE.WARNING].config 파일의 형식 이름 및 모든 속성 이름이 코드의 클래스 및 속성 이름과 일치하는지 주의하여 확인해야 합니다. .config 파일에서 존재하지 않는 형식 또는 속성을 참조하는 경우 SDK가 원격 분석을 자동으로 전송하지 못할 수 있습니다.
+
+ 
+**또는** 코드에서 필터를 초기화할 수 있습니다. Global.asax.cs의 AppStart과 같은 적합한 초기화 클래스의 과정에서 프로세서를 삽입합니다.
 
     ```C#
 
-    var builder = new TelemetryChannelBuilder();
-    builder.Use((next) => new UnauthorizedRequestFilteringProcessor(next));
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
@@ -136,7 +176,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
     ```
 
-    이 시점 이후에 만든 TelemetryClients는 프로세서를 사용합니다.
+이 시점 이후에 만든 TelemetryClients는 프로세서를 사용합니다.
 
 ### 예제 필터
 
@@ -146,13 +186,13 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 ``` C#
 
-public void Process(ITelemetry item)
-{
-    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource))
-    { return; }
+    public void Process(ITelemetry item)
+    {
+      if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-    this.Next.Process(item);
-}
+      // Send everything else: 
+      this.Next.Process(item);
+    }
 
 ```
 
@@ -333,33 +373,14 @@ telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 * [API 개요](app-insights-api-custom-events-metrics.md)
 
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Java 참조](http://dl.windowsazure.com/applicationinsights/javadoc/)
-* [JavaScript 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 
 ## SDK 코드
 
 * [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
-* [모든 플랫폼](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## 질문
-
-* *Track\_() 호출에서 발생할 수 있는 예외는 무엇인가요?*
-    
-    없음 try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에서 볼 수 있는 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
-
-
-
-* *REST API가 있나요?*
-
-    예, 하지만 아직은 게시하지 않고 있습니다.
 
 ## <a name="next"></a>다음 단계
 
@@ -388,4 +409,4 @@ telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

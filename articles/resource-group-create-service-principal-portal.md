@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 포털을 사용하여 새 Azure 서비스 사용자 만들기"
-   description="Azure 리소스 관리자에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Azure 서비스 사용자를 만드는 방법을 설명합니다."
+   pageTitle="포털에서 AD 응용 프로그램 및 서비스 주체 만들기 | Microsoft Azure"
+   description="Azure 리소스 관리자에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Active Directory 응용 프로그램 및 서비스 주체를 만드는 방법을 설명합니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,24 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/29/2015"
    ms.author="tomfitz"/>
 
-# Azure 포털을 사용하여 새 Azure 서비스 사용자 만들기
+# 포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기
 
 ## 개요
-서비스 주체는 다른 리소스에 액세스하는 데 필요한 자동화된 프로세스, 응용 프로그램 또는 서비스입니다. Azure 리소스 관리자를 사용하여 서비스 사용자가 구독에 있거나 테넌트로 존재하는 리소스에 대해 허용된 관리 작업을 수행할 수 있도록 서비스 사용자에게 액세스 권한을 부여하고 서비스 사용자를 인증할 수 있습니다.
+구독에서 리소스를 액세스하거나 수정해야 하는 응용 프로그램이 있는 경우 포털을 사용하여 Active Directory 응용 프로그램을 만들고 적절한 권한이 있는 역할에 할당할 수 있습니다. 포털을 통해 Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 사용 권한을 설정하는 경우 서비스 주체를 사용합니다.
 
-이 항목에서는 Azure 포털을 사용하여 새 서비스 사용자를 만드는 방법을 보여 줍니다. 현재는 새 서비스 사용자를 만들려면 Microsoft Azure 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure Preview 포털에 추가될 예정입니다.
+이 항목에서는 Azure 포털을 사용하여 새 응용 프로그램 및 서비스 주체를 만드는 방법을 보여줍니다. 현재는 새 Active Directory 응용 프로그램을 만들려면 Microsoft Azure 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure Preview 포털에 추가될 예정입니다. Preview 포털을 사용하여 응용 프로그램을 역할에 할당할 수 있습니다.
 
 ## 개념
-1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스 빌드입니다. 자세한 내용은 [Azure Active Directory란](./active-directory-whatis/)을 참조하세요.
+1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스 빌드입니다. 자세한 내용은 [Azure Active Directory란](active-directory/active-directory-whatis.md)을 참조하세요.
 2. 서비스 사용자 - 디렉터리의 응용 프로그램 인스턴스입니다.
-3. AD 응용 프로그램 - AAD에 응용 프로그램을 식별하는 AAD의 디렉터리 레코드입니다. 자세한 내용은 [Azure AD의 인증 기본 사항](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth)을 참조하세요.
+3. AD 응용 프로그램 - AAD에 응용 프로그램을 식별하는 AAD의 디렉터리 레코드입니다. 
+
+응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](active-directory/active-directory-application-objects.md)를 참조하세요. Active Directory 인증에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
 
 
-## Active Directory 응용 프로그램 만들기
-1. [클래식 포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
+## 응용 프로그램 및 서비스 주체 개체 만들기
+
+1. [포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
 
 2. 왼쪽 창에서 **Active Directory**를 선택합니다.
 
@@ -64,7 +67,7 @@
 
      ![응용 프로그램 속성][4]
 
-## 서비스 사용자 암호 만들기
+## 응용 프로그램에 대한 인증 키 만들기
 이제 포털에서 개발자의 응용 프로그램이 선택되어 있습니다.
 
 1. **구성** 탭을 클릭하여 응용 프로그램의 암호를 구성합니다.
@@ -93,11 +96,41 @@
 * **클라이언트 ID** - 사용자 이름으로 사용합니다.
 * **키** - 암호로 사용합니다.
 
+## 응용 프로그램을 역할에 할당
+
+[Preview 포털](https://portal.azure.com)을 사용하여 액세스해야 하는 리소스에 대한 액세스 권한이 있는 역할에 Active Directory 응용 프로그램을 할당할 수 있습니다. 응용 프로그램을 역할에 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](active-directory/role-based-access-control-configure.md)를 참조하세요.
+
+## 코드에서 액세스 토큰 가져오기
+
+.NET을 사용하는 경우 다음 코드로 응용 프로그램에 대한 액세스 토큰을 검색할 수 있습니다.
+
+먼저, Visual Studio 프로젝트에 Active Directory 인증 라이브러리를 설치해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 NuGet 패키지를 사용하는 것입니다. 패키지 관리자 콘솔을 열고 다음 명령을 입력합니다.
+
+    PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+    PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
+
+응용 프로그램에서 토큰을 검색하는 다음과 같은 메서드를 추가합니다.
+
+    public static string GetAccessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
+
 ## 다음 단계
 
-- 보안 정책 지정에 대해 자세히 알아보려면 [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)를 참조하세요.  
-- 서비스 주체에게 리소스 액세스를 허용하는 과정은 [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.  
-- 역할 기반 액세스에 대한 개요는 [Microsoft Azure 포털에서의 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+- 보안 정책 지정에 대해 자세히 알아보려면 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.  
+- 이러한 단계에 대한 비디오 데모를 보려면 [Azure Active Directory에서 Azure 리소스의 프로그래밍 방식 관리 활성화](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)를 참조하세요.
+- Azure PowerShell 또는 Azure CLI를 사용하여 Active Directory 응용 프로그램 및 서비스 주체로 작업 및 인증을 위해 인증서를 사용하는 방법에 대해 자세히 알아보려면 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.
 - Azure 리소스 관리자에서 보안 구현에 대한 지침은 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 
 
@@ -116,4 +149,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

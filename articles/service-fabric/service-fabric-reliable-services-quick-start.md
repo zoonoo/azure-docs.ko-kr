@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Microsoft Azure 서비스 패브릭 신뢰할 수 있는 서비스 시작하기"
-   description="상태 비저장 및 상태 저장 서비스를 사용하여 서비스 패브릭 응용 프로그램을 만드는 방법"
+   pageTitle="신뢰할 수 있는 서비스 시작하기 |Microsoft Azure "
+   description="상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="10/15/2015"
    ms.author="vturecek"/>
 
 # Microsoft Azure 서비스 패브릭 신뢰할 수 있는 서비스 시작하기
 
-서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 자습서는 [*신뢰할 수 있는 서비스* 프로그래밍 모델](../Service-Fabric/service-fabric-reliable-services-introduction.md)을 사용하여 상태 비저장 및 상태 저장 "Hello World" 서비스 패브릭 응용 프로그램을 만드는 단계를 안내합니다.
+서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 자습서는 [*신뢰할 수 있는 서비스* 프로그래밍 모델](service-fabric-reliable-services-introduction.md)을 사용하여 상태 비저장 및 상태 저장 "Hello World" 서비스 패브릭 응용 프로그램을 만드는 단계를 안내합니다.
 
 상태 비저장 서비스는 현재 주로 클라우드 응용 프로그램에 존재하는 서비스 유형입니다. 서비스는 상태 비저장으로 간주됩니다. 서비스 자체에 안정적으로 저장하거나 항상 사용 가능하게 만들어야 하는 데이터가 포함되어 있지 않기 때문입니다. 즉, 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고, 높은 가용성과 안정성을 유지해야 합니다.
 
@@ -204,4 +204,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

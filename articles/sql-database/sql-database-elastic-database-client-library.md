@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     manager="jeffreyg"
-    authors="sidneyh"
+    authors="ddove"
     editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/29/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 클라이언트 라이브러리 개요
 
-**탄력적 데이터베이스 클라이언트 라이브러리**를 통해 Microsoft Azure에서 호스트되는 수백 또는 수천 개의 Azure SQL 데이터베이스를 사용하여 분할된 응용 프로그램을 쉽게 개발할 수 있습니다. 이러한 디자인은 각 테넌트가 데이터베이스로 프로비전되는 일반적으로 단일 테넌트 아키텍처인 SaaS(Software as a Service) 응용 프로그램에 주로 사용됩니다. 이러한 응용 프로그램을 빌드하고 관리하는 것이 라이브러리의 목표입니다. 클라이언트 라이브러리는 [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) 및 [Nuget](http://go.microsoft.com/?linkid=9862605)을 사용하여 모든 응용 프로그램 프로젝트에 설치할 수 있는 .NET Framework 라이브러리입니다. 클라이언트 라이브러리는 [탄력적 데이터베이스 기능](sql-database-elastic-scale-introduction.md)인 탄력적 데이터베이스 도구의 의 일부입니다.
+**탄력적 데이터베이스 클라이언트 라이브러리**를 통해 Microsoft Azure에서 호스트되는 수백 또는 수천 개의 Azure SQL 데이터베이스를 사용하여 분할된 응용 프로그램을 쉽게 개발할 수 있습니다. 이러한 디자인은 각 테넌트가 데이터베이스로 프로비전되는 일반적으로 단일 테넌트 아키텍처인 SaaS(Software as a Service) 응용 프로그램에 주로 사용됩니다. 이러한 응용 프로그램을 빌드하고 관리하는 것이 라이브러리의 목표입니다.
+
+라이브러리를 설치하려면 [Microsoft Azure SQL 데이터베이스: 탄력적인 확장](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)을 참조하세요. 클라이언트 라이브러리는 [탄력적 데이터베이스 기능](sql-database-elastic-scale-introduction.md)인 탄력적 데이터베이스 도구의 일부입니다.
 
 ## 클라이언트 기능
 
@@ -53,4 +55,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

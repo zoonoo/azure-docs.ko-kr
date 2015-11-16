@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 검색에서 패싯 탐색을 구현하는 방법" 
-	description="Azure 검색의 패싯 탐색" 
+	pageTitle="Azure 검색에서 패싯 탐색을 구현하는 방법 | Microsoft Azure" 
+	description="Microsoft Azure에서 클라우드 호스팅되는 검색 서비스인 Azure 검색과 통합되는 응용 프로그램에 패싯 탐색을 추가합니다." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/07/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Azure 검색에서 패싯 탐색을 구현하는 방법
@@ -372,4 +372,4 @@ Codeplex의 Azure 검색 Adventure Works 데모에는 이 문서에 나와 있�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

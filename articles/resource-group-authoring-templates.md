@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
@@ -54,33 +54,7 @@ Azure 응용 프로그램은 일반적으로 원하는 목표를 충족시키기
 
 일반적으로 배포를 구성하기 위한 작업을 수행하는 함수를 식과 함께 사용합니다. JavaScript에서와 마찬가지로 함수 호출은 **functionName(arg1,arg2,arg3)**으로 형식이 지정됩니다. 점과 [인덱스] 연산자를 사용하여 속성을 참조할 수 있습니다.
 
-다음 목록에는 일반 함수가 나와 있습니다.
-
-- **parameters(parameterName)**
-
-    배포를 실행할 때 제공되는 매개 변수 값을 반환합니다.
-
-- **variables(variableName)**
-
-    템플릿에 정의된 변수를 반환합니다.
-
-- **concat(arg1,arg2,arg3,...)**
-
-    여러 문자열 값을 결합합니다. 이 함수는 임의의 수의 인수를 사용할 수 있습니다.
-
-- **base64(inputString)**
-
-    입력 문자열의 base64 표현을 반환합니다.
-
-- **resourceGroup()**
-
-    현재 리소스 그룹을 나타내는 구조화된 개체(ID, 이름 및 위치 속성 포함)를 반환합니다.
-
-- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
-
-    리소스의 고유 식별자를 반환합니다. 다른 리소스 그룹에서 리소스를 검색하는 데 사용할 수 있습니다.
-
-다음 예제에서는 값을 생성할 때 여러 함수를 사용하는 방법을 보여줍니다.
+다음 예제에서는 값을 생성할 때 여러 함수를 사용하는 방법을 보여 줍니다.
  
     "variables": {
        "location": "[resourceGroup().location]",
@@ -88,7 +62,7 @@ Azure 응용 프로그램은 일반적으로 원하는 목표를 충족시키기
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-이제 템플릿 섹션을 이해하기 위한 식과 함수에 대해 충분히 알게 되었습니다. 매개 변수와 반환된 값 형식 등 모든 템플릿 함수에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
+템플릿 함수의 전체 목록을 보려면 [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
 
 
 ## 매개 변수
@@ -107,7 +81,10 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
          "minValue": <optional-minimum-value-for-int-parameters>,
          "maxValue": <optional-maximum-value-for-int-parameters>,
          "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "metadata": {
+             "description": "<optional-description-of-the parameter>" 
+         }
        }
     }
 
@@ -121,6 +98,7 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 | maxValue | 아니요 | Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다.
 | minLength | 아니요 | 문자열, secureString 및 배열 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다.
 | maxLength | 아니요 | 문자열, secureString 및 배열 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다.
+| description | 아니요 | 포털 사용자 지정 템플릿 인터페이스를 통해 템플릿의 사용자에게 표시되는 매개 변수에 대한 설명입니다.
 
 허용되는 유형 및 값은 다음과 같습니다.
 
@@ -262,7 +240,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 
 리소스 이름이 고유하지 않은 경우 아래에 설명된 **resourceId** 도우미 함수를 사용하여 리소스에 대한 고유 식별자를 가져올 수 있습니다.
 
-**속성** 요소의 값은 리소스를 만들기 위해 REST API 작업(PUT 메서드)에 대한 요청 본문에 제공한 값과 동일합니다. 배포하려는 리소스에 대한 REST API 작업은 [Azure 참조](https://msdn.microsoft.com/library/azure/mt420159.aspx)를 참조하세요.
+**속성** 요소의 값은 리소스를 만들기 위해 REST API 작업(PUT 메서드)의 요청 본문에 지정한 값과 동일합니다. 배포하려는 리소스에 대한 REST API 작업은 [Azure 참조](https://msdn.microsoft.com/library/azure/mt420159.aspx)를 참조하세요.
 
 다음 예제에는 중첩된 **Extensions** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스가 나와 있습니다.
 
@@ -436,8 +414,8 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 
 ## 다음 단계
 - 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
-- 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

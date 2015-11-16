@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visual Studio에서 서비스 패브릭 응용 프로그램 관리"
-   description="Visual Studio를 통해 Microsoft Azure 서비스 패브릭 응용 프로그램 및 서비스를 관리할 수 있습니다."
+   pageTitle="Visual Studio에서 응용 프로그램 관리 | Microsoft Azure"
+   description="Visual Studio를 사용하여 서비스 패브릭 응용 프로그램과 서비스를 만들고, 개발하고, 배포하며 디버그합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Visual Studio에서 서비스 패브릭 응용 프로그램 관리
+# Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 쓰기 및 관리 단순화하기
 
-Visual Studio를 통해 Microsoft Azure 서비스 패브릭 응용 프로그램 및 서비스를 관리할 수 있습니다. [개발 환경을 설정](../service-fabric-setup-your-development-environment)한 후, Visual Studio를 사용하여 로컬 개발 클러스터에서 서비스 패브릭 응용 프로그램을 만들거나 서비스를 추가하거나 응용 프로그램의 패키징, 등록 및 배포를 수행할 수 있습니다.
+Visual Studio를 통해 서비스 패브릭 응용 프로그램 및 서비스를 관리할 수 있습니다. [개발 환경을 설정](service-fabric-setup-your-development-environment.md)한 후, Visual Studio를 사용하여 로컬 개발 클러스터에서 서비스 패브릭 응용 프로그램을 만들거나 서비스를 추가하거나 응용 프로그램의 패키징, 등록 및 배포를 수행할 수 있습니다.
 
-서비스 패브릭 응용 프로그램을 관리하려면 솔루션 탐색기에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
+응용 프로그램을 관리하려면 솔루션 탐색기에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
 
 ![응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하여 서비스 패브릭 응용 프로그램 관리][manageservicefabric]
 
 ## 서비스 패브릭 응용 프로그램 배포
 
-서비스 패브릭 응용 프로그램을 배포하는 작업은 다음 단계를 하나의 간단한 작업으로 통합합니다.
+응용 프로그램을 배포하는 작업은 다음 단계를 하나의 간단한 작업으로 통합합니다.
 
 1. 응용 프로그램 패키지 만들기
 2. 이미지 저장소에 응용 프로그램 패키지 업로드
@@ -79,4 +79,4 @@ Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/29/2015"
+ ms.date="10/30/2015"
  ms.author="danlep"/>
 
 # A8, A9, A10 및 A11 계산 집약적 인스턴스 정보
@@ -29,7 +29,7 @@ ms.service="virtual-machines"
 
 * **Linux 및 Windows HPC 클러스터 지원** - Azure의 A8, A9, A10 및 A11 인스턴스에서 클러스터 관리 및 작업 예약 소프트웨어를 배포하여 독립 실행형 HPC 클러스터를 만들거나 온-프레미스 클러스터에 용량을 추가합니다. 다른 Azure VM 크기와 같이 A8, A9, A10, 및 A11 인스턴스는 표준 또는 사용자 지정 Windows Server 및 Linux 운영체제 이미지 또는 Azure VM(IaaS)의 Azure 리소스 관리자 템플릿, 혹은 클라우드 서비스의 Azure Guest OS 릴리스(PaaS, Windows Server 전용)를 지원합니다.
 
->[AZURE.NOTE]A10 및 A11 인스턴스는 A8 및 A9 인스턴스와 성능 최적화 및 사양이 동일합니다. 하지만 Azure의 RDMA 네트워크에 대한 액세스는 포함하지 않습니다. 노드 간에 지속적이고 대기 시간이 짧은 통신을 필요로 하지 않는 HPC 응용 프로그램을 위해 설계되었으며, 매개 변수 또는 병렬 처리 응용 프로그램이라고도 합니다. MPI 응용 프로그램이 아닌 다른 워크로드를 실행할 때, A8 과 A9 인스턴스는 RDMA 네트워크에 액세스하지 않고, 기능적으로 A10과 A11 인스턴스와 동일합니다.
+>[AZURE.NOTE]A10 및 A11 인스턴스는 A8 및 A9 인스턴스와 성능 최적화 및 사양이 동일합니다. 하지만 Azure의 RDMA 네트워크에 대한 액세스는 포함하지 않습니다. 노드 간에 지속적이고 대기 시간이 짧은 통신을 필요로 하지 않는 HPC 응용 프로그램을 위해 설계되었으며, 매개 변수 또는 병렬 처리 응용 프로그램이라고도 합니다.
 
 
 ## 사양
@@ -61,17 +61,15 @@ A8 및 A9 인스턴스에는 다음 두 백엔드 AZure 네트워크에 연결�
 
 A10 및 A11 인스턴스에는 Azure 서비스 및 인터넷에 연결하는 한 개의 10-Gbps 이더넷 네트워크 어댑터가 있습니다.
 
-## Azure 구독에 대한 고려 사항
+## 구독 고려 사항
 
 * **Azure 계정** - 소량의 계산 집약적 인스턴스를 배포하려는 경우 종량제 구독 또는 기타 구매 옵션을 고려합니다. MSDN 구독을 이용할 수도 있습니다. [MSDN 구독자에 대한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세. [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
 
-* **코어 할당량** - 시나리오가 많은 경우 8개 또는 16개의 코어 인스턴스로는 충분하지 않기 때문에 기본 20개 코어에서 Azure 구독의 코어 할당량을 높여야 할 수 있습니다. 초기 테스트의 경우 할당량을 100개의 코어로 높이도록 요청해볼 수 있습니다. 이를 위해 [Azure 제한 및 증가 이해](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)에 표시된 대로 무료 지원 티켓을 엽니다.
+* **코어 할당량** – 8개 코어 인스턴스 또는 16개 코어 인스턴스가 있는 많은 시나리오에서, 구독당 20개 코어(Azure 서비스 관리 배포) 또는 지역당 20개 코어(Azure 리소스 관리자 배포)인 코어 할당량 기본값을 늘려야 하는 경우가 있습니다. 초기 테스트의 경우 할당량을 100개의 코어로 높이도록 요청해볼 수 있습니다. 이를 위해 [Azure 제한 및 증가 이해](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)에 표시된 대로 무료 지원 티켓을 엽니다.
 
     >[AZURE.NOTE]Azure 할당량은 신용 제한이며 용량 보증이 아닙니다. 사용하는 코어에 대해서만 요금이 청구됩니다.
 
-* **선호도 그룹** - 현재 선호도 그룹은 대부분의 새 배포에 대해서는 권장되지 않습니다. 그러나 A8~A11 이외의 다른 크기의 인스턴스를 포함하는 선호도 그룹을 사용하는 경우, A8~A11 인스턴스에는 사용할 수 없고, 그 반대의 경우도 마찬가지입니다.
-
-* **가상 네트워크** - Azure 가상 네트워크는 계산 집약적 인스턴스를 사용할 필요가 없습니다. 하지만 응용 프로그램 라이선스 서버와 같은 온-프레미스 리소스에 액세스해야 하는 경우 많은 IaaS 시나리오 또는 사이트 간 연결을 위해 클라우드 기반 Azure 가상 네트워크가 필요할 수 있습니다. 인스턴스를 배포하기 전에 새(지역) 가상 네트워크를 만들어야 합니다. 선호도 그룹에서 가상 네트워크에 A8, A9, A10 또는 A11 VM을 추가하는 것은 지원되지 않습니다. 자세한 내용은 [VNet(가상 네트워크)를 만드는 방법](../virtual-network/virtual-networks-create-vnet.md) 및 [사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
+* **가상 네트워크** - Azure 가상 네트워크는 계산 집약적 인스턴스를 사용할 필요가 없습니다. 하지만 응용 프로그램 라이선스 서버와 같은 온-프레미스 리소스에 액세스해야 하는 경우 많은 IaaS 시나리오 또는 사이트 간 연결을 위해 클라우드 기반 Azure 가상 네트워크가 필요할 수 있습니다. 인스턴스를 배포하기 전에 새(지역) 가상 네트워크를 만들어야 합니다. 선호도 그룹에서 가상 네트워크에 A8, A9, A10 또는 A11 VM을 추가하는 것은 지원되지 않습니다. 자세한 내용은 [가상 네트워크 설명서](https://azure.microsoft.com/documentation/services/virtual-network/)를 참조하세요.
 
 * **클라우드 서비스 또는 가용성 집합** – RDMA 네트워크를 통해 연결하려면, A8 및 A9 인스턴스가 같은 클라우드 서비스(Azure 서비스 관리의 Windows 기반 VM이나 Linux 기반 VM을 사용하는 IaaS 시나리오 또는 Windows Server를 사용하는 PaaS 시나리오용) 또는 동일한 가용성 집합(Azure 리소스 관리자의 Windows 기반 VM이나 Linux 기반 VM용)에 배포되어야 합니다.
 
@@ -91,7 +89,7 @@ Windows Server에서 HPC 팩을 사용하여 계산 집약적 인스턴스를 �
 
 ### Linux A8 및 A9 VM에서 액세스
 
-단일 클라우드 서비스 또는 가용성 집합 내에서 A8 및 A9 인스턴스는 인스턴스간 통신을 위한 Linux RDMA 드라이버를 사용하는 MPI 응용 프로그램을 실행하여 Azure의 RDMA 네트워크에 액세스할 수 있습니다. 이때 Azure Linux RDMA는 [Intel MPI Library 5](https://software.intel.com/en-us/intel-mpi-library/)에서만 지원됩니다.
+단일 클라우드 서비스 또는 가용성 집합 내에서 A8 및 A9 인스턴스는 인스턴스간 통신을 위한 Linux RDMA 드라이버를 사용하는 MPI 응용 프로그램을 실행하여 Azure의 RDMA 네트워크에 액세스할 수 있습니다. 이때 Azure Linux RDMA는 [Intel MPI Library 5](https://software.intel.com/ko-KR/intel-mpi-library/)에서만 지원됩니다.
 
 >[AZURE.NOTE]현재 Azure Linux RDMA 드라이버는 드라이버 확장을 통한 설치에 사용할 수 없습니다. 오직 Azure Marketplace의 RDMA-enabled SLES 12 이미지를 사용하는 경우에만 사용 가능합니다.
 
@@ -120,13 +118,11 @@ MPI | MS-MPI 2012 R2 이상, 독립 실행형 또는 HPC Pack 2012 R2 이상을 
 
 ## 알아야할 추가 사항
 
-* A8~A11 VM 크기는 표준 가격 책정 계층에서만 사용할 수 있습니다.
+* **가격 책정** - A8~A11 VM 크기는 표준 가격 책정 계층에서만 사용할 수 있습니다.
 
-* A8, A9, A10 또는 A11 크기로 기존 Azure VM의 크기를 조정할 수 없습니다.
+* **크기 조정** – A8–A11이 아닌 크기의 인스턴스를 계산 집약적 인스턴스 크기(A8-11) 중 하나로 조정할 수 없으며 계산 집약적 인스턴스를 그렇지 않은 크기로 조정할 수 없습니다. 이것은 계산 집약적 인스턴스에 특정한 성능 최적화 및 특수 하드웨어 때문에 그렇습니다.
 
-* A8, A9, A10 및 A11 인스턴스는 현재 기존 선호도 그룹의 일부인 클라우드 서비스를 사용하여 배포할 수 없습니다. 마찬가지로, A8, A9, A10 및 A11 인스턴스를 포함하는 클라우드 서비스를 포함한 선호도 그룹은 다른 인스턴스 크기의 배포를 사용할 수 없습니다. 이러한 배포를 시도하는 경우 `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.`와 유사한 오류 메시지를 보게 됩니다.
-
-* Azure의 RDMA 네트워크는 주소 공간 172.16.0.0/12를 예약합니다. Azure 가상 네트워크에 배포되는 A8 및 A9 인스턴스에서 MPI 응용 프로그램을 실행하려는 경우 가상 네트워크 주소 공간이 RDMA 네트워크와 겹치지 않도록 해야 합니다.
+* **RDMA 네트워크 주소 공간** - Azure의 RDMA 네트워크는 주소 공간 172.16.0.0/12를 예약합니다. Azure 가상 네트워크의 A8 및 A9 인스턴스에서 MPI 응용 프로그램을 실행하려면 가상 네트워크 주소 공간이 RDMA 네트워크와 겹치지 않도록 해야 합니다.
 
 ## 다음 단계
 
@@ -134,4 +130,4 @@ MPI | MS-MPI 2012 R2 이상, 독립 실행형 또는 HPC Pack 2012 R2 이상을 
 * Azure RDMA 네트워크에 액세스할 수 있는 A8 및 A9 인스턴스를 포함한 Linux 기반 클러스터를 배포 및 구성하려면 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)을 참조하세요.
 * Windows에서 HPC 팩을 사용하여 A8 및 A9 인스턴스의 배포 및 사용을 시작하려면 [MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정](virtual-machines-windows-hpcpack-cluster-rdma.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

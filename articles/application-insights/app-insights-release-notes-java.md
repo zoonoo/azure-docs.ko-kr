@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Java용 Application Insights에 대한 릴리스 정보" 
-	description="Java SDK에 대한 최신 업데이트입니다." 
-	services="application-insights" 
+<properties
+	pageTitle="Java용 Application Insights에 대한 릴리스 정보"
+	description="Java SDK에 대한 최신 업데이트입니다."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="awills"/>
- 
+
 # Application Insights SDK for Java에 대한 릴리스 정보
 
 [Application Insights SDK for Java](app-insights-java-get-started.md)는 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
@@ -22,7 +22,7 @@
 
 [Java용 SDK 시작](app-insights-java-get-started.md)을 참조하세요.
 
-#### 최신 SDK를 업그레이드하려면 
+#### 최신 SDK를 업그레이드하려면
 
 업그레이드 후에 ApplicationInsights.xml에 대해 작성된 모든 사용자을 다시 병합해야 합니다. 새 파일와 비교할 개체의 복사본을 수행 합니다.
 
@@ -33,14 +33,15 @@
 
 *그렇지 않은 경우*
 
-* 최신 버전의 [Java용 Azure 라이브러리](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)를 다운로드하고 이전 버전을 대체합니다. 
- 
+* 최신 버전의 [Java용 Azure 라이브러리](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)를 다운로드하고 이전 버전을 대체합니다.
+
 이전 버전과 새 ApplicationInsights.xml을 비교합니다. 대부분 변경 내용은 모듈을 추가하고 제거하기 때문입니다. 변경한 모든 사용자 지정을 복구합니다.
 
 ## 버전 1.0.2
+- 계측 키가 코드에서 명시적으로 지정되면 구성에서 지정된 계측 키를 사용하여 해당 키를 재정의하지 않도록 합니다.
+- 성공적인 모든 HTTP 상태 코드를 처리하고 관련 HTTP 요청을 성공한 것으로 보고합니다.
+- ConfigurationFileLocator에서 발생된 모든 예외를 처리합니다.
 
-- Docker와의 호환성
-- 버그 수정 - 모든 예외 catch, 모든 성공 상태 코드 처리
 
 ## 버전 1.0.1
 - [Java 에이전트](app-insights-java-agent.md)는 다음에 대한 종속성 정보를 수집합니다.
@@ -71,6 +72,5 @@
 - 32비트 Windows 컴퓨터에서 성능 카운터를 수집할 수 있습니다.
 - 새로운 ```trackDependency``` 메서드 API를 사용하여 수동으로 종속성을 추적할 수 있습니다.
 - 보고된 항목에 ```SyntheticSource``` 속성을 추가하여 원격 분석 항목에 가상으로 태그를 지정할 수 있습니다.
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

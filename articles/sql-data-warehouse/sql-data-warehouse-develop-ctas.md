@@ -13,29 +13,95 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/03/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
-선택으로 테이블 만들기 또는 일명 CTAS는 사용할 수 있는 가장 중요한 T-SQL 기능 중 하나입니다. 이는 Select 문의 출력을 기반으로 새 테이블을 만드는 완전하게 병렬화된 연산입니다. CTAS를 원한다면 SELECT..INTO의 보강된 버전이라고 생각할 수 있습니다.
+선택으로 테이블 만들기 또는 일명 CTAS는 사용할 수 있는 가장 중요한 T-SQL 기능 중 하나입니다. 이는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 완전하게 병렬화된 연산입니다. CTAS는 테이블 사본을 만드는 가장 간단하고 빠른 방법입니다. CTAS를 원한다면 SELECT..INTO의 보강된 버전이라고 생각할 수 있습니다. 이 문서는 CTAS에 대한 예제와 모범 사례를 모두 제공합니다.
 
-또한 위에 열거한 지원되지 않는 여러 기능을 해결하기 위해 CTAS를 사용할 수도 있습니다. 많은 경우 이는 코드가 규정을 준수하면서도 SQL 데이터 웨어하우스에서 더 빠르게 실행되는 윈/윈 상황으로 입증될 수 있습니다. 이는 완전히 병렬화된 디자인의 결과입니다.
+## CTAS를 사용하여 테이블 복사
 
-> [AZURE.NOTE]"CTAS를 먼저" 생각해 보십시오. CTAS를 사용하여 문제를 해결할 수 있다고 생각한다면, 그 결과로 더 많은 데이터를 작성한다 하더라도 이는 일반적으로 최선의 문제 해결 방법입니다.
+CTAS를 가장 일반적으로 사용하는 경우 중 하나는 DDL을 변경할 수 있도록 테이블 사본을 만드는 것입니다. 예를 들어 원래 ROUND\_ROBIN으로 테이블을 만들었는데 열에 배포된 테이블로 변경하고 싶다면, CTAS를 통해 배포 열을 변경할 수 있습니다. CTAS는 분할, 인덱싱 또는 열 유형을 변경하는데도 사용될 수 있습니다.
 
-CTAS로 해결할 수 있는 시나리오는 다음과 같습니다.
+예를 들어 CREATE TABLE에 배포 열이 지정되지 않았을 때부터 배포되었던 ROUND\_ROBIN 기본 배포 유형을 사용하여 이 테이블을 만들었다고 가정해 보겠습니다.
+
+```
+CREATE TABLE FactInternetSales
+(
+	ProductKey int NOT NULL,
+	OrderDateKey int NOT NULL,
+	DueDateKey int NOT NULL,
+	ShipDateKey int NOT NULL,
+	CustomerKey int NOT NULL,
+	PromotionKey int NOT NULL,
+	CurrencyKey int NOT NULL,
+	SalesTerritoryKey int NOT NULL,
+	SalesOrderNumber nvarchar(20) NOT NULL,
+	SalesOrderLineNumber tinyint NOT NULL,
+	RevisionNumber tinyint NOT NULL,
+	OrderQuantity smallint NOT NULL,
+	UnitPrice money NOT NULL,
+	ExtendedAmount money NOT NULL,
+	UnitPriceDiscountPct float NOT NULL,
+	DiscountAmount float NOT NULL,
+	ProductStandardCost money NOT NULL,
+	TotalProductCost money NOT NULL,
+	SalesAmount money NOT NULL,
+	TaxAmt money NOT NULL,
+	Freight money NOT NULL,
+	CarrierTrackingNumber nvarchar(25),
+	CustomerPONumber nvarchar(25)
+);
+```
+
+이제 클러스터형 Columnstore 테이블의 성능을 활용하기 위해 클러스터형 Columnstore 인덱스로 이 테이블의 사본을 만들고자 합니다. 또한 이 테이블에 조인을 예상하기 때문에 테이블을 ProductKey로 배포하고자 하며 ProductKey에 조인하는 동안 데이터 이동을 피하려고 합니다. 마지막으로 이전 파티션을 제거하여 이전 데이터를 빠르게 삭제할 수 있도록 OrderDateKey에 분할을 추가하고자 합니다. 이전 테이블을 새 테이블로 복사하는 CTAS 문은 다음과 같습니다.
+
+```
+CREATE TABLE FactInternetSales_new
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = HASH(ProductKey),
+    PARTITION
+    (
+        OrderDateKey RANGE RIGHT FOR VALUES 
+        (
+        20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
+        20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
+        20200101,20210101,20220101,20230101,20240101,20250101,20260101,20270101,20280101,20290101
+        )
+    )
+)
+AS SELECT * FROM FactInternetSales;
+```
+
+이제 새 테이블을 교환해 넣고 이전 테이블을 제거하도록 테이블 이름을 변경할 수 있게 되었습니다.
+
+```
+RENAME OBJECT FactInternetSales TO FactInternetSales_old;
+RENAME OBJECT FactInternetSales_new TO FactInternetSales;
+
+DROP TABLE FactInternetSales_old;
+```
+
+> [AZURE.NOTE]Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요.
+
+## CTAS를 사용하여 지원되지 않는 기능 해결
+
+CTAS는 아래 나열된 다수의 지원되지 않는 기능을 해결하는 경우에도 사용될 수 있습니다. 많은 경우 이는 코드가 규정을 준수하면서도 SQL 데이터 웨어하우스에서 더 빠르게 실행되는 윈/윈 상황으로 입증될 수 있습니다. 이는 완전히 병렬화된 디자인의 결과입니다. CTAS로 해결할 수 있는 시나리오는 다음과 같습니다.
 
 - SELECT..INTO
 - UPDATE에 대한 ANSI JOINS 
 - DELETE에 대한 ANSI JOIN
 - MERGE 문
 
-이 문서에는 CTAS로 코딩하는 경우 몇 가지 모범 사례도 포함되어 있습니다.
+> [AZURE.NOTE]"CTAS를 먼저" 생각해 보십시오. CTAS를 사용하여 문제를 해결할 수 있다고 생각한다면, 그 결과로 더 많은 데이터를 작성한다 하더라도 이는 일반적으로 최선의 문제 해결 방법입니다.
+> 
 
 ## SELECT..INTO
 사용자 솔루션의 여러 위치에 SELECT..INTO를 사용할 수 있습니다.
 
-아래 SELECT..INTO 예제를 참조하세요.
+다음은 SELECT..INTO 문의 예입니다.
 
 ```
 SELECT *
@@ -43,14 +109,13 @@ INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-이 문을 CTAS로 변환하는 것은 매우 간단합니다.
+위 문을 CTAS 문으로 변환하는 것은 매우 간단합니다.
 
 ```
 CREATE TABLE #tmp_fct
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-,   LOCATION = USER_DB
 )
 AS
 SELECT  *
@@ -58,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-CTAS를 사용하면 데이터 배포 기본 설정 및 옵션 인덱스를 테이블로 지정할 수도 있습니다.
+> [AZURE.NOTE]현재 CTAS는 배포 열 지정이 필요합니다. 배포 열을 의도적으로 변경하려는 것이 아니라면, CTAS는 기본 테이블과 동일한 배포 열을 선택하면 이 전략이 데이터 이동을 방지하기 때문에 가장 빠르게 수행됩니다. 성능이 요인이 아닌 작은 테이블을 만드는 경우에는 배포 열을 결정하지 않아도 되도록 ROUND\_ROBIN을 지정할 수 있습니다.
 
 ## Update 문에 대한 ANSI 조인 대체
 
@@ -357,10 +422,11 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Article references-->
 [개발 개요]: sql-data-warehouse-overview-develop.md
+[통계]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/en-us/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/ko-KR/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

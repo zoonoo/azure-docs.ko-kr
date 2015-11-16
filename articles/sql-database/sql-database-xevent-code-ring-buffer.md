@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL 데이터베이스에 대한 XEvent 이벤트 파일 코드 | Microsoft Azure" 
+	pageTitle="SQL 데이터베이스에 대한 XEvent 링 버퍼 코드 | Microsoft Azure" 
 	description="Azure SQL 데이터베이스에서 링 버퍼 대상을 사용하여 편리하고 빨라진 TRANSACT-SQL 코드 샘플을 제공합니다." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -377,4 +377,4 @@ Azure SQL 데이터베이스의 확장 이벤트에 대한 기본 항목은 다�
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

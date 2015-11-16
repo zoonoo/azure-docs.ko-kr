@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Windows에서 PHP를 사용하여 SQL 데이터베이스에 연결
@@ -180,4 +180,4 @@ PHP 설치 및 사용에 대한 자세한 내용은[PHP로 SQL Server 데이터�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

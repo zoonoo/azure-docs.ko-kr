@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -77,6 +77,14 @@ Azure AD Connect를 설치할 때 **디렉터리 연결** 페이지에 지정한
 | 장치 쓰기 저장 | [장치 쓰기 저장](active-directory-aadconnect-get-started-custom-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다.|
 | 그룹 쓰기 저장 | 배포 그룹을 찾을 수 있어야 하는 OU에서 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.|
 
+## 업그레이드
+Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경우 다음 권한이 필요합니다.
+
+| 주체 | 필요한 사용 권한 | 용도 |
+| ---- | ---- | ---- |
+| 설치 마법사를 실행하는 사용자 | 로컬 서버의 관리자 | 이진을 업데이트합니다. |
+| 설치 마법사를 실행하는 사용자 | ADSyncAdmins의 구성원 | 동기화 규칙 및 기타 구성을 변경합니다. |
+| 설치 마법사를 실행하는 사용자 | 전체 SQL Server를 사용하는 경우, 동기화 엔진 데이터베이스의 DBO(또는 유사한 권한) | 새 열을 사용한 테이블 업데이트와 같이 데이터베이스 수준을 변경합니다. |
 
 ## 만든 계정에 대한 자세한 내용
 
@@ -87,11 +95,13 @@ Express 설정을 사용하는 경우 계정은 동기화에 사용되는 Active
 ![AD 계정](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Azure AD Connect 동기화 서비스 계정
-로컬 서비스 계정은 설치 마법사에서 만듭니다.(사용자 지정 설정에 사용할 계정을 지정하지 않으면) 계정은 **AAD\_**를 접두사로 하며 실행할 실제 동기화 서비스에 사용됩니다. 도메인 컨트롤러에 Azure AD Connect를 설치하는 경우 계정은 도메인에 만들어집니다. 원격 서버에서 SQL server를 사용하는 경우 계정은 도메인에 있어야 합니다.
+두 로컬 서비스 계정은 설치 마법사에서 만듭니다(사용자 지정 설정에 사용할 계정을 지정하지 않으면). **AAD\_**를 접두사로 하는 계정은 실행할 실제 동기화 서비스에 사용됩니다. 도메인 컨트롤러에 Azure AD Connect를 설치하는 경우 계정이 도메인에 생성됩니다. 원격 서버에서 SQL Server를 사용하는 경우 **AAD\_** 서비스 계정이 도메인에 있어야 합니다. **AADSyncSched\_**가 접두사로 지정된 계정은 동기화 엔진을 실행하는 예약된 작업에 사용됩니다.
 
 ![서비스 계정 동기화](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
-계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다. 이 계정은 Windows에서 사용되어 암호화 키를 저장하므로 해당 계정의 암호는 다시 설정하거나 변경하지 않아야 합니다.
+계정은 만료되지 않은 길고 복잡한 암호를 사용하여 생성됩니다.
+
+동기화 엔진 서비스 계정의 경우 Windows에서 암호화 키를 저장하는 데 이 계정을 사용하므로 이 계정의 암호는 다시 설정하거나 변경해서는 안 됩니다.
 
 전체 SQL Server를 사용하는 경우 서비스 계정은 동기화 엔진에 대해 만든 데이터베이스의 DBO입니다. 서비스는 다른 사용 권한이 의도한 대로 작동하지 않습니다. 또한 SQL 로그인이 만들어집니다.
 
@@ -104,7 +114,7 @@ Azure AD의 계정은 동기화 서비스의 사용에 만들어집니다. 이 �
 
 계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 위 그림에서 서버 이름은 FABRIKAMCON입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다. Azure AD에서 동기화 서비스 계정은 10개로 제한됩니다.
 
-서비스 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다. 디렉터리 동기화 작업을 수행할 수 있는 권한이 있는 **디렉터리 동기화 계정**에 특별한 역할을 부여합니다. 이 특별한 기본 제공 역할은 Azure AD Connect 마법사 외부에서 부여될 수 없고 Azure 포털은 **사용자** 역할을 사용하여 이 계정을 표시합니다.
+서비스 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다. 또한 디렉터리 동기화 작업을 수행할 수 있는 유일한 권한이 있는 특별한 역할인 **디렉터리 동기화 계정**이 부여됩니다. 이 특별한 기본 제공 역할은 Azure AD Connect 마법사 외부에서 부여할 수 없으며, Azure 포털은 **사용자** 역할에서만 이 계정을 표시합니다.
 
 ![AD 계정 역할](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
 
@@ -112,4 +122,4 @@ Azure AD의 계정은 동기화 서비스의 사용에 만들어집니다. 이 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

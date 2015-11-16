@@ -1,9 +1,9 @@
-## 시뮬레이트된 장치에서 메시지 받기
+## 시뮬레이션된 장치에서 메시지 받기
 
 이 섹션에서는 [IoT Hub 시작]에서 만든 시뮬레이트된 장치 응용 프로그램을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
 
 1. Visual Studio에서 **SimulatedDevice** 프로젝트의 **Program** 클래스에 다음 메서드를 추가합니다.
-   
+
         private static async void ReceiveC2dAsync()
         {
             Console.WriteLine("\nReceiving cloud to device messages from service");
@@ -37,4 +37,4 @@
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

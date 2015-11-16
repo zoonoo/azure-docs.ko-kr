@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # 자습서: Azure PowerShell을 사용하여 데이터 팩터리 만들기 및 모니터링
@@ -27,6 +27,10 @@
 [Azure Data Factory 시작][adf-get-started] 자습서에서는 [Azure Preview 포털][azure-preview-portal]을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory를 만들고 모니터링합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
 > [AZURE.NOTE]이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
+>  
+>  Azure PowerShell 1.0 Preview를 사용하는 경우 [여기](https://msdn.microsoft.com/library/dn820234.aspx)에서 설명된 cmdlet을 사용해야 합니다. 예를 들어 New-AzureDataFactory를 사용하는 대신 New-AzureRMDataFactory를 사용합니다.
+
+
 
 ##필수 조건
 자습서 개요 항목에 나열된 필수 조건 외에도 Azure PowerShell이 컴퓨터에 설치되어 있어야 합니다. 아직 없는 경우 컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치합니다.
@@ -36,20 +40,20 @@
 
 단계 | 설명
 -----| -----------
-[1단계: Azure Data Factory 만들기](#CreateDataFactory) | 이 단계에서는 **ADFTutorialDataFactoryPSH**라는 Azure Data Factory를 만듭니다. 
+[1단계: Azure 데이터 팩터리 만들기](#CreateDataFactory) | 이 단계에서는 **ADFTutorialDataFactoryPSH**라는 Azure 데이터 팩터리를 만듭니다. 
 [2단계: 연결된 서비스 만들기](#CreateLinkedServices) | 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService는 Azure 저장소를 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 ADFTutorialDataFactoryPSH에 연결합니다.
-[3단계: 입력 및 출력 데이터 집합 만들기](#CreateInputAndOutputDataSets) | 이 단계에서는 다음 단계에서 만들 ADFTutorialPipeline의 **복사 작업**에 대한 입력 및 출력 테이블로 사용되는 2개의 데이터 집합(**EmpTableFromBlob** 및 **EmpSQLTable**)을 만듭니다.
+[3단계: 입력 및 출력 데이터 집합 만들기](#CreateInputAndOutputDataSets) | 이 단계에서는 다음 단계에서 만들 ADFTutorialPipeline의 **복사 작업**에 대한 입력 및 출력 테이블로 사용되는 2개의 데이터 집합(**EmpTableFromBlob** 및 **EmpSQLTable**)을 정의합니다.
 [4단계: 파이프라인 만들기 및 실행](#CreateAndRunAPipeline) | 이 단계에서는 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure 데이터베이스 테이블로 데이터를 복사하는 **복사 작업**이 있습니다.
 [5단계: 데이터 집합 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure PowerShell을 사용하여 데이터 집합 및 파이프라인을 모니터링합니다.
 
-## <a name="CreateDataFactory"></a>1 단계: 프로그램 Azure Data Factory 만들기
-이 단계에서는 명명 된는 Azure Data Factory를 만들려면 Azure PowerShell을 사용 **ADFTutorialDataFactoryPSH**.
+## <a name="CreateDataFactory"></a>1 단계: 프로그램 Azure 데이터 팩터리 만들기
+이 단계에서는 명명 된는 Azure 데이터 팩터리를 만들려면 Azure PowerShell을 사용 **ADFTutorialDataFactoryPSH**.
 
 1. **Azure PowerShell**을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
 	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
 	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 미리 보기 포털에서 사용한 것과 같아야 합니다. 
-2. **AzureResourceManager** 모드로 전환합니다. Azure Data Factory cmdlet은 이 모드에서 사용할 수 있습니다.
+2. **AzureResourceManager** 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 이 모드에서 사용할 수 있습니다.
 
 		Switch-AzureMode AzureResourceManager 
 3. 다음 명령을 실행하여 **ADFTutorialResourceGroup**이라는 Azure 리소스 그룹을 만듭니다.
@@ -112,7 +116,7 @@
 		  		}
 			}
 
-	**servername**, **databasename**, ****username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
+	**servername**, **databasename**, ****username@servername** 및 **password**를 Azure SQL Server 이름, 데이터베이스 이름, 사용자 계정 및 암호로 바꿉니다.
 
 2.	다음 명령을 실행하여 연결된 서비스를 만듭니다.
 	
@@ -129,7 +133,7 @@
 
 ## <a name="CreateInputAndOutputDataSets"></a>3단계: 입력 및 출력 테이블 만들기
 
-이전 단계에서는 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만들어 Azure 저장소 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 연결했습니다. 이 단계에서는 다음 단계에서 만들 파이프라인에 있는 복사 작업의 입력 및 출력 데이터를 나타내는 테이블을 만듭니다.
+이전 단계에서는 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만들어 Azure 저장소 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 연결했습니다. 이 단계에서는 다음 단계에서 만들 파이프라인에 있는 복사 작업의 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다.
 
 테이블은 사각형 데이터 집합이며 현재 지원되는 유일한 데이터 집합 유형입니다. 이 자습서의 입력 테이블은 StorageLinkedService가 가리키는 Azure 저장소의 Blob 컨테이너를 참조하고 출력 테이블은 AzureSqlLinkedService가 가리키는 Azure SQL 데이터베이스의 SQL 테이블을 참조합니다.
 
@@ -210,7 +214,7 @@
 	- **folderPath**를 **adftutorial** 컨테이너로 설정합니다. 또한 폴더 내의 Blob 이름을 지정할 수도 있습니다. Blob 이름을 지정하지 않으므로 컨테이너에 있는 모든 Blob의 데이터가 입력 데이터로 간주됩니다.  
 	- format **type**을 **TextFormat**으로 설정합니다.
 	- 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(**columnDelimiter**)로 구분되어 있습니다.	
-	- **availability**를 **hourly**로 설정하므로(**frequency**를 **hour**로 설정하고 **interval**을 **1**로 설정함), 데이터 팩터리 서비스가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 입력 데이터를 1시간마다 찾습니다.
+	- **availability**를 **시간별**로 설정하므로(**frequency**를 **hour**로 설정하고 **interval**을 **1**로 설정함), 데이터 팩터리 서비스가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 입력 데이터를 1시간마다 찾습니다.
 
 	**입력** **테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
  
@@ -253,7 +257,7 @@
 			      }
 			    ],
 			    "type": "AzureSqlTable",
-			    "linkedServiceName": "AzureSqlLinkedService1",
+			    "linkedServiceName": "AzureSqlLinkedService",
 			    "typeProperties": {
 			      "tableName": "emp"
 			    },
@@ -270,7 +274,7 @@
 	* **linkedServiceName**을 **AzureSqlLinkedService**로 설정합니다.
 	* **tablename**을 **emp**로 설정합니다.
 	* 데이터베이스의 emp 테이블에는 세 개의 열 **ID**, **FirstName** 및 **LastName**이 있지만 ID는 ID 열이므로 여기서는 **FirstName**과 **LastName**만 지정하면 됩니다.
-	* **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+	* **availability**는 **시간별**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
 2.	다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 	
@@ -328,7 +332,7 @@
 
 	다음 사항에 유의하세요.
 
-	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
+	- activities 섹션에는 **type**이 **Copy**로 설정된 작업만 있습니다.
 	- 작업에 대한 입력을 **EmpTableFromBlob**으로 설정하고 작업에 대한 출력을 **EmpSQLTable**로 설정합니다.
 	- **transformation** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다.
 
@@ -354,7 +358,7 @@
  
 2.	**Get-AzureDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 **EmpSQLTable**의 모든 조각에 대한 세부 정보를 가져옵니다.
 
-		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+		Get-AzureDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
 	**StartDateTime** 매개 변수의 연도, 월 및 날짜 부분을 현재 연도, 월 및 날짜로 바꿉니다. 파이프라인 JSON의 **Start** 값과 일치해야 합니다.
 
@@ -386,7 +390,7 @@
 
 3.	**Get-AzureDataFactoryRun**을 실행하여 **특정** 조각에 대한 작업 실행의 세부 정보를 가져옵니다. 위 출력의 조각 **Start** 시간과 일치하도록 **StartDateTime** 매개 변수 값을 변경합니다. **StartDateTime** 값은 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-03-03T22:00:00Z.
 
-		Get-AzureDataFactoryRun $df -TableName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
+		Get-AzureDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
 	다음과 비슷한 결과가 나타나야 합니다.
 
@@ -433,4 +437,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

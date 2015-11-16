@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/03/2015"
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 간 데이터 이동
@@ -54,7 +54,7 @@
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -227,7 +227,7 @@
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -395,9 +395,9 @@
 Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Azure Data Factory에 연결할 수 있습니다. 다음 테이블은 Azure 저장소 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
 | 속성 | 설명 | 필수 |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | type | type 속성은 **AzureDataLakeStore**로 설정되어야 합니다. | 예 |
-| dataLakeUri | Azure 데이터 레이크 저장소 계정에 대한 정보를 지정합니다. https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 형식입니다. | 예 |
+| dataLakeUri | Azure 데이터 레이크 저장소 계정에 대한 정보를 지정합니다. https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 형식입니다. | 예 |
 | authorization | **데이터 팩터리 편집기**에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예 |
 | sessionid | oauth authorization 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하며, 한 번만 사용할 수 있습니다. 데이터 팩터리 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |  
 | accountName | 데이터 레이크 계정 이름 | 아니요 |
@@ -412,10 +412,12 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 서식 등에 대한 정보를 제공합니다. **AzureDataLakeStore** 데이터 집합 형식의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
 | 속성 | 설명 | 필수 |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | folderPath | Azure 데이터 레이크 저장소의 컨테이너 및 폴더에 대한 경로입니다. | 예 |
 | fileName | <p>Azure 데이터 레이크 저장소에 있는 파일의 이름입니다. fileName은 선택 사항입니다. </p><p>filename을 지정하면 활동(복사 포함)이 특정 파일에서 작동합니다.</p><p> fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 파일을 포함합니다.</p><p>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름이 Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> 형식으로 표시됩니다. | 아니요 |
 | partitionedBy | partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 아래 partitionedBy 속성 활용 섹션을 참조하세요. | 아니요 |
+| format | **TextFormat**, **AvroFormat**과 같은 두 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. | 아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 GZip, Deflate 및 BZip2이고 지원되는 수준은 최적 및 가장 빠름입니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 
 ### partitionedBy 속성 활용
 위에서 설명한 것처럼 **partitionedBy** 섹션, 데이터 팩터리 매크로 및 시스템 변수(지정된 데이터 조각에 대한 시작 및 종료 시간을 나타내는 SliceStart 및 SliceEnd)를 사용하여 동적 folderPath 및 시계열 데이터에 대해 및 filename을 지정할 수 있습니다.
@@ -446,8 +448,96 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 
 위의 예제에서 SliceStart의 연도, 월, 일 및 시간은 folderPath 및 fileName 속성에서 사용하는 별도 변수로 추출됩니다.
 
+### TextFormat 지정
+
+형식이 **TextFormat**으로 설정된 경우 **Format** 섹션에서 다음과 같은 **선택적** 속성을 지정할 수 있습니다.
+
+| 속성 | 설명 | 필수 |
+| -------- | ----------- | -------- |
+| columnDelimiter | 파일에서 문자는 열 구분 기호로 사용됩니다. 이 태그는 선택 사항입니다. 기본값은 쉼표(,)입니다. | 아니요 |
+| rowDelimiter | 파일에서 문자는 원시 구분 기호로 사용됩니다. 이 태그는 선택 사항입니다. 기본값은 다음 중 하나입니다. ["\\r\\n", "\\r", "\\n"] | 아니요 |
+| escapeChar | <p>열 구분 기호를 이스케이프하는 데 사용되는 특수 문자가 콘텐츠에 표시됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.</p><p>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: "Hello, world") '$'를 이스케이프 문자로 정의하고 원본에서 "$Hello, world" 문자열을 사용할 수 있습니다.</p><p>테이블에 escapeChar 및 quoteChar 모두를 지정할 수 없습니다.</p> | 아니요 | 
+| quoteChar | <p>특수 문자는 문자열 값을 따옴표로 묶는 데 사용됩니다. 인용 문자 내의 열 및 행 구분 기호는 문자열 값의 일부로 간주됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.</p><p>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: <Hello  world>) ‘"’를 인용 문자로 정의하고 원본에서 <"Hello, world"> 문자열을 사용할 수 있습니다. 이 속성은 입력 및 출력 테이블 모두에 적용됩니다.</p><p>테이블에 escapeChar 및 quoteChar을 모두 지정할 수 없습니다.</p> | 아니요 |
+| nullValue | <p>Blob 파일 콘텐츠에서 null 값을 나타내는 데 사용되는 문자입니다. 이 태그는 선택 사항입니다. 기본값은 "\\N"입니다.</p><p>예를 들어 위의 예제에 따라 blob의 "NaN"이 예를 들어 SQL Server에 복사되는 동안 null 값으로 변환됩니다.</p> | 아니요 |
+| encodingName | 인코딩 이름을 지정합니다. 올바른 인코딩 이름 목록은 [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift\_jis 기본값은 UTF-8입니다. | 아니요 | 
+
+#### 샘플
+다음 예제는 TextFormat에 대한 서식 속성 중 일부를 보여줍니다.
+
+	"typeProperties":
+	{
+	    "folderPath": "mycontainer/myfolder",
+	    "fileName": "myfilename"
+	    "format":
+	    {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "quoteChar": """,
+	        "NullValue": "NaN"
+	    }
+	},
+
+quoteChar 대신 escapeChar를 사용하려면 quoteChar가 있는 해당 줄을 다음으로 바꿉니다.
+
+	"escapeChar": "$",
+
+### AvroFormat 지정
+서식이 AvroFormat으로 설정된 경우 typeProperties 섹션 내의 서식 섹션에서 속성을 지정할 필요가 없습니다. 예제:
+
+	"format":
+	{
+	    "type": "AvroFormat",
+	}
+
+Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자습서](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)를 참조하세요.
+
+
+### 압축 지원  
+큰 데이터 집합을 처리하면 I/O 및 네트워크 병목 현상이 발생할 수 있습니다. 따라서 저장소의 압축된 데이터는 네트워크를 통해 데이터 전송의 속도를 높이고 디스크 공간을 절약할 수 없을 뿐만 아니라 빅 데이터 처리에서 상당한 성능 개선을 가져올 수 없습니다. 이 때 압축은 Azure Blob 또는 온-프레미스 파일 시스템과 같은 파일 기반 데이터 저장소에 대해 지원됩니다.
+
+데이터 집합에 대한 압축을 지정하려면 다음 예제와 같이 데이터 집합 JSON의 **압축** 속성을 사용합니다.
+
+	{  
+		"name": "AzureDatalakeStoreDataSet",  
+	  	"properties": {  
+	    	"availability": {  
+	    		"frequency": "Day",  
+	    	  	"interval": 1  
+	    	},  
+	    	"type": "AzureDatalakeStore",  
+	    	"linkedServiceName": "DataLakeStoreLinkedService",  
+	    	"typeProperties": {  
+	    		"fileName": "pagecounts.csv.gz",  
+	    	  	"folderPath": "compression/file/",  
+	    	  	"compression": {  
+	    	    	"type": "GZip",  
+	    	    	"level": "Optimal"  
+	    	  	}  
+    		}  
+	  	}  
+	}  
+ 
+**압축** 섹션에는 두 가지 속성이 있습니다.
+  
+- **유형:** **GZIP**, **Deflate** 또는 **BZIP2**가 될 수 있는 압축 코덱  
+- **수준:** **최적** 또는 **가장 빠름**이 될 수 있는 압축 비율 
+	- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다. 
+	- **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다. 
+	
+	자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요.
+
+위의 샘플 데이터 집합이 복사 작업의 출력으로 사용된다고 가정하면 복사 작업은 최적의 비율을 사용하여 GZIP 코덱으로 출력 데이터를 압축한 다음 압축된 데이터를 pagecounts.csv.gz라는 이름의 파일로 Azure 데이터 레이크 저장소에 작성합니다.
+
+입력 데이터 집합 JSON에 압축 속성을 지정하는 경우 파이프라인은 원본에서 압축된 데이터를 읽을 수 있고 출력 데이터 집합 JSON 에서 속성을 지정하는 경우 복사 작업은 대상에 압축된 데이터를 작성할 수 있습니다. 다음은 몇 가지 샘플 시나리오입니다.
+
+- Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL 데이터베이스에 결과 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 입력 Azure 데이터 레이크 저장소 데이터 집합을 정의합니다. 
+- 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure 데이터 레이크 저장소에 압축된 데이터를 작성합니다. 이 경우 압축 JSON 속성으로 출력 Azure 데이터 레이크 데이터 집합을 정의합니다.  
+- Azure 데이터 레이크 저장소에서 GZIP 압축 데이터를 읽고 압축을 풀고 BZIP2를 사용하여 압축하고 Azure 데이터 레이크 저장소에 결과 데이터를 작성합니다. 이 경우 GZIP으로 설정된 압축 유형으로 입력 Azure 데이터 레이크 저장소 데이터 집합을 정의하고 BZIP2로 설정된 압축 유형으로 출력 데이터 집합을 정의합니다.   
+
+
 ## Azure 데이터 레이크 복사 작업 형식 속성  
-작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
 
 반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다
 
@@ -472,4 +562,4 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

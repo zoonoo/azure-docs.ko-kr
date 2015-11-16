@@ -62,6 +62,9 @@
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
+  기본적으로 **Create** 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 **DeviceClient**를 만듭니다. HTTPS 프로토콜을 사용하려면 **Create** 메서드를 사용하여 프로토콜을 지정해야 합니다. HTTPS 프로토콜을 사용하려면 **Microsoft.AspNet.WebApi.Client** NuGet 패키지를 프로젝트에 추가하여 **System.Net.Http.Formatting** 네임스페이스를 포함해야 합니다.
+
+
 > [AZURE.NOTE]간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현하는 것이 좋습니다.
 
 <!-- Links -->
@@ -72,4 +75,4 @@
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -54,12 +54,13 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 
 이러한 링크는 서비스를 자세히 탐색하는 데 유용합니다.
 
+- [Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c) 참조
 - [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
-- [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 미리 보기에 대한 의견을 보내주십시오. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
+- [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 미리 보기에 대한 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
 - Azure Active Directory B2C는 "앱 모델 v2.0"이라고 하는 응용 프로그램 등록 모델을 사용하여 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0을 지원합니다.
   - [앱 모델 v2.0 프로토콜 참조](active-directory-b2c-reference-protocols.md)
   - [앱 모델 v2.0 토큰 참조](active-directory-b2c-reference-tokens.md)
 - [Azure Active Directory B2C FAQ](active-directory-b2c-faqs.md)
 - [Azure Active Directory B2C에 대 한 지원 요청 제출](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

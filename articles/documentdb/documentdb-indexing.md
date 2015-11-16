@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="arramac"/>
 	
 # Azure DocumentDB에서 자동 인덱싱
@@ -55,7 +55,7 @@ DocumentDB의 인덱싱은 JSON 문법에서 문서를 **트리로 표시**할 �
 
 ![트리로 인덱스](media/documentdb-indexing/IndexAsTree.png)
 
-스키마가 없음에도 불구하고, DocumentDB의 SQL 및 JavaScript 쿼리 언어는 관계형 프로젝션 및 필터, 문서에서의 계층적 탐색 및 전적으로 JavaScript로 작성된 UDF의 호출을 제공합니다. DocumentDB의 쿼리 런타임은 데이터의이 인덱스 트리 표현에 대해 직접 작동할 수 있으므로 이 쿼리를 지원할 수입니다.
+스키마가 없음에도 불구하고, DocumentDB의 SQL 및 JavaScript 쿼리 언어는 관계형 프로젝션 및 필터, 문서에서의 계층적 탐색, 공간 작업 및 전적으로 JavaScript로 작성된 UDF의 호출을 제공합니다. DocumentDB의 쿼리 런타임은 데이터의이 인덱스 트리 표현에 대해 직접 작동할 수 있으므로 이 쿼리를 지원할 수입니다.
 
 기본 인덱싱 정책은 자동으로 모든 문서의 모든 속성을 인덱스하고 일관성있는 쿼리(문서 쓰기와 인덱스가 동기적으로 업데이트됨을 의미)를 제공합니다. 어떻게 DocumentDB가 대규모의 인덱스 트리에 대한 일관된 업데이트를 지원합니까? DocumentDB는 쓰기 최적화, 잠금 없는 로그 구조 인덱스 유지 관리 기술을 사용합니다. DocumentDB가 일관성 있는 쿼리를 제공하는 동시에 빠른 쓰기의 지속적인 볼륨을 지원함을 의미합니다.
 
@@ -67,4 +67,4 @@ DocumentDB의 인덱싱은 다중 테넌트를 처리하고 저장소 효율성�
 - [여기](documentdb-indexing-policies.md)서 DocumentDB 인덱스를 사용자 지정하는 방법을 알아보세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

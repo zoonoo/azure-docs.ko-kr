@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/02/2015"
 	ms.author="larryfr"/>
 
 # 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Linux)
@@ -243,7 +243,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 2. Azure PowerShell을 시작하고 Azure 계정에 로그인합니다. 자격 증명을 제공하면 사용자 계정에 대한 정보가 반환됩니다.
 
-		Add-AzureRMAccount
+		Add-AzureRmAccount
 
 		Id                             Type       ...
 		--                             ----
@@ -251,13 +251,13 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 3. 여러 구독이 있는 경우 배포에 사용할 구독 ID를 제공합니다.
 
-		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
+		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]`Get-AzureRMSubscription`을 사용하여 계정과 관련한 모든 구독 목록을 가져올 수 있습니다. 여기에는 각 구독에 대한 구독 ID가 포함되어 있습니다.
+    > [AZURE.NOTE]`Get-AzureRmSubscription`을 사용하여 계정과 관련된 모든 구독 목록을 가져올 수 있습니다. 여기에는 각 구독에 대한 구독 ID가 포함되어 있습니다.
 
 5. 기본 리소스 그룹이 없는 경우 새 리소스 그룹을 만듭니다. 솔루션에 필요한 위치 및 리소스 그룹의 이름을 제공합니다. 새 리소스 그룹에 대한 요약이 반환됩니다.
 
-		New-AzureRMResourceGroup -Name myresourcegroup -Location "West US"
+		New-AzureRmResourceGroup -Name myresourcegroup -Location "West US"
 
 		ResourceGroupName : myresourcegroup
 		Location          : westus
@@ -270,10 +270,10 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 		ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
 
-6. 리소스 그룹에 대한 새 배포를 만들려면 **New-azureresourcegroupdeployment** 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 만든 템플릿의 경로 또는 URL이 포함됩니다. 템플릿에 매개 변수가 필요한 경우 해당 매개 변수를 전달해야 합니다. 이 경우 클러스터에서 R을 설치하는 스크립트 작업은 매개 변수가 필요하지 않습니다.
+6. 리소스 그룹에 대한 새 배포를 만들려면 **New-AzureRmResourceGroupDeployment** 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름 및 만든 템플릿의 경로 또는 URL이 포함됩니다. 템플릿에 매개 변수가 필요한 경우 해당 매개 변수를 전달해야 합니다. 이 경우 클러스터에서 R을 설치하는 스크립트 작업은 매개 변수가 필요하지 않습니다.
 
 
-		New-AzureRMResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
+		New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
 
 
 	템플릿에 정의된 매개 변수에 대한 값을 제공하라는 메시지가 표시됩니다.
@@ -289,42 +289,41 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 8. 배포에 실패할 경우 다음 cmdlet을 사용하여 오류에 대한 정보를 가져올 수 있습니다.
 
-		Get-AzureRMResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
+		Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
 
 ## Azure PowerShell에서 스크립트 작업 사용
 
-이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRMHDInsightScriptAction](http://msdn.microsoft.com/library/dn858088.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
+이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 
 다음 단계를 수행합니다.
 
 1. Azure PowerShell 콘솔을 열고 다음 변수를 선언합니다.
 
 		# PROVIDE VALUES FOR THESE VARIABLES
-		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
+		$subscriptionId = "<SubscriptionId>"		# ID of the Azure subscription
 		$clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
 		$storageAccountName = "<StorageAccountName>"	# Azure storage account that hosts the default container
 		$storageAccountKey = "<StorageAccountKey>"      # Key for the storage account
 		$containerName = $clusterName
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
-		$version = "<HDInsightClusterVersion>"          # HDInsight version, for example "3.1"
         $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster will be created in
 
 2. 구성 값(예: 클러스터의 노드) 및 사용할 기본 저장소를 지정합니다.
 
 		# SPECIFY THE CONFIGURATION OPTIONS
-		Select-AzureRMSubscription $subscriptionName
-		$config = New-AzureRMHDInsightClusterConfig
+		Select-AzureRmSubscription -SubscriptionId $subscriptionId
+		$config = New-AzureRmHDInsightClusterConfig
 		$config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccountKey=$storageAccountKey
 
-3. **Add-AzureHDInsightScriptAction** cmdlet을 사용하여 스크립트를 호출합니다. 다음 예제에서는 클러스터에 R을 설치하는 스크립트를 사용합니다.
+3. **Add-AzureRmHDInsightScriptAction** cmdlet을 사용하여 스크립트를 호출합니다. 다음 예제에서는 클러스터에 R을 설치하는 스크립트를 사용합니다.
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
-		$config = Add-AzureRMHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-        $config = Add-AzureRMHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
 
-	**Add-AzureHDInsightScriptAction** cmdlet에서 다음과 같은 매개 변수를 사용합니다.
+	**Add-AzureRmHDInsightScriptAction** cmdlet에서 다음과 같은 매개 변수를 사용합니다.
 
 	| 매개 변수 | 정의 |
 	| --------- | ---------- |
@@ -335,10 +334,8 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 	| Uri | 실행되는 스크립트의 URI를 지정합니다. |
 
 4. 끝으로, 클러스터를 만듭니다.
-
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
         
-        New-AzureRMHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes 2
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes
 
 메시지가 나타나면 클러스터에 대한 자격 증명을 입력합니다. 클러스터가 생성되는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -550,4 +547,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

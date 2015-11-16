@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # PHP에서 알림 허브를 사용하는 방법
@@ -133,11 +133,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
 이제 이 클래스를 사용하여 **NotificationHub** 클래스 내부에서 알림 보내기 메서드를 쓸 수 있습니다.
 
-	public function sendNotification($notification) {
-		$this->sendNotification($notification, "");
-	}
-
-	public function sendNotification($notification, $tagsOrTagExpression) {
+	public function sendNotification($notification, $tagsOrTagExpression="") {
 		if (is_array($tagsOrTagExpression)) {
 			$tagExpression = implode(" || ", $tagsOrTagExpression);
 		} else {
@@ -199,7 +195,9 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 ##<a name="complete-tutorial"></a>자습서 완료
 이제 PHP 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
-알림 허브 클라이언트를 초기화합니다([시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체). $hub = new NotificationHub("connection string", "hubname");
+알림 허브 클라이언트를 초기화합니다([시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
+
+	$hub = new NotificationHub("connection string", "hubname");	
 
 그리고 대상 모바일 플랫폼에 따라 보내기 코드를 추가합니다.
 
@@ -229,7 +227,7 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 		                '<wp:Text1>Hello from PHP!</wp:Text1>' .
 		           '</wp:Toast> ' .
 		        '</wp:Notification>';
-	$notification = new Notification("mpns", $toast);
+	$notification = new Notification("windowsphone", $toast);
 	$notification->headers[] = 'X-WindowsPhone-Target : toast';
 	$notification->headers[] = 'X-NotificationClass : 2';
 	$hub->sendNotification($notification);
@@ -250,10 +248,10 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 * [속보 자습서]에서 알림 허브 태그 지정 기능에 대해 계속 알아봅니다.
 * [사용자에게 알림 자습서]에서 개별 사용자에게 알림을 게시하는 방법을 알아봅니다.
 
-자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
+자세한 내용은 [PHP 개발자 센터](/develop/php/)도 참조하세요.
 
 [PHP REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

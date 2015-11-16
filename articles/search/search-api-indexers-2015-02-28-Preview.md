@@ -1,5 +1,5 @@
 <properties 
-pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)" 
+pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview) | Microsoft Azure" 
 description="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/29/2015" 
+ms.date="11/04/2015" 
 ms.author="heidist" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)#
@@ -21,7 +21,7 @@ ms.author="heidist" />
 
 ## 개요 ##
 
-코드를 작성하여 데이터를 인덱싱하지 않고도 일부 일반적인 데이터 원본과 Azure 검색을 직접 통합할 수 있습니다. 이를 설정하기 위해 Azure 검색 API를 호출하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다.
+Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비스입니다. 코드를 작성하여 데이터를 인덱싱하지 않고도 일부 일반적인 데이터 원본과 Azure 검색을 직접 통합할 수 있습니다. 이를 설정하기 위해 Azure 검색 API를 호출하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다.
 
 **인덱서**는 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다. 인덱서는 다음과 같은 방법으로 사용됩니다.
 
@@ -776,4 +776,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

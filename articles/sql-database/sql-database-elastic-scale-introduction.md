@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure SQL 데이터베이스 탄력적 데이터베이스 도구"
+    pageTitle="탄력적 데이터베이스 도구 기능 개요 | Microsoft Azure"
     description="SaaS(Software as a Service) 개발자는 이러한 도구를 사용하여 클라우드에서 확장 가능한 탄력적 데이터베이스를 쉽게 만들 수 있습니다."
     services="sql-database"
     documentationCenter=""
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/27/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 기능 개요
 
@@ -108,4 +108,4 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="클라우드 크루저 및 Microsoft Azure 청구 API 통합"
+   pageTitle="Cloud Cruiser 및 Microsoft Azure 청구 API 통합 | Microsoft Azure"
    description="경험으로 해당 제품에 Azure 청구 API를 통합하여 Microsoft Azure 청구 파트너 Cloud Cruiser에서 고유한 관점을 제공합니다. Microsoft Azure 팩용 Cloud Cruiser를 사용/시도하는 데 관심을 두는 Azure 및 Cloud Cruiser 고객에게 특히 유용합니다."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="08/10/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # 클라우드 크루저 및 Microsoft Azure 청구 API 통합
@@ -213,7 +213,7 @@ _UsageAPI_ 시트에서 사용량 API의 정보를 추출하여 처리하고, _P
 + Cloud Cruiser 워크북 및 보고서를 만드는 방법에 대한 자세한 지침은 Cloud Cruiser 온라인 [설명서](http://docs.cloudcruiser.com/) (유효한 로그인 필요)를 참조하십시오. Cloud Cruiser에 대한 자세한 내용은 [info@cloudcruiser.com](mailto:info@cloudcruiser.com)에 문의하십시오.
 + Azure 리소스 사용 및 RateCard API에 대한 개요는 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하십시오.
 + 두 API에 대한 정보는 [Azure 청구 REST API 참조](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)를 확인하십시오. 이는 Azure 리소스 관리자에서 제공하는 API 집합의 일부입니다.
-+ 샘플 코드를 곧바로 시작하려면 [Github의 Microsoft Azure 청구 API 코드 샘플](https://github.com/Azure/BillingCodeSamples)을 확인하십시오.
++ 샘플 코드를 곧바로 시작하려면 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?term=billing)의 Microsoft Azure 청구 API 코드 샘플을 확인하세요.
 
 ### 자세한 정보
 + Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하십시오.
@@ -234,4 +234,4 @@ _UsageAPI_ 시트에서 사용량 API의 정보를 추출하여 처리하고, _P
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "그림 13 - 태그 정보에 대한 새 필드 만들기"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "그림 14 - 조회 정보로 계정 구조 채우기"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

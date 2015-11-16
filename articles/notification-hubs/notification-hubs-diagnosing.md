@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 - 진단 지침
@@ -115,7 +115,7 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 
 	![][8]
  
-	> [AZURE.NOTE]등록을 편집할 수 있는 visual Studio 기능은 제한된 수의 등록을 가진 개발/테스트 동안에만 사용해야 합니다. 등록을 대량으로 수정해야 할 경우 [등록 내보내기/가져오기](표준 계층에서만 사용 가능)에 설명된 등록 내보내기/가져오기 기능 사용을 고려합니다.
+	> [AZURE.NOTE]등록을 편집할 수 있는 visual Studio 기능은 제한된 수의 등록을 가진 개발/테스트 동안에만 사용해야 합니다. 등록을 대량으로 수정해야 할 경우 [등록 내보내기/가져오기](https://msdn.microsoft.com/library/dn790624.aspx)에 설명된 등록 내보내기/가져오기 기능 사용을 고려합니다.
 
 2. **서비스 버스 탐색기**
 
@@ -227,7 +227,7 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 [템플릿 지침]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNS 지침]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [GCM 지침]: http://developer.android.com/google/gcm/adv.html
-[등록 내보내기/가져오기]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [ServiceBus 탐색기]: http://msdn.microsoft.com/library/dn530751.aspx
 [ServiceBus 탐색기 코드]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [VS 서버 탐색기 개요]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
@@ -239,4 +239,4 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

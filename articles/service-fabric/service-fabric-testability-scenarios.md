@@ -1,6 +1,6 @@
 <properties
-   pageTitle="비정상 상황 테스트 실행."
-   description="이 문서에서는 Microsoft에서 제공하는 미리 작성된 서비스 패브릭 시나리오에 대해 설명합니다."
+   pageTitle="Chaos 및 장애 조치 테스트 | Microsoft Azure"
+   description="서비스 패브릭 Chaos 테스트 및 장애 조치 테스트 시나리오를 통해 결함을 유도하고 서비스의 신뢰성을 확인합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -235,7 +235,7 @@ class Test
 ```
 
 
-PowerShell
+Powershell
 
 ```powershell
 $connection = "localhost:19000"
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

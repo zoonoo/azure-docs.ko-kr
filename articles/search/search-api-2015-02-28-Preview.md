@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="10/01/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
-이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
+Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비스입니다. 이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
 
 - [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)은 [검색 작업](#SearchDocs)에 queryType 매개 변수를 지정할 수 있는 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)의 구현입니다.
 - `moreLikeThis`은(는) [검색 작업](#SearchDocs)에서 또 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
@@ -1742,4 +1742,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

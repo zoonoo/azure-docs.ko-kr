@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="06/16/2015" 
+    ms.date="10/28/2015" 
     ms.author="anhoh"/>
 
 #인덱서를 사용해서 DocumentDB를 Azure 검색에 연결
@@ -137,7 +137,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 |Bool|Edm.Boolean, Edm.String|
 |정수와 같이 보이는 숫자|Edm.Int32, Edm.Int64, Edm.String|
 |부동소수점처럼 보이는 숫자|Edm.Double, Edm.String|
-|문자열|Edm.String|
+|String|Edm.String|
 |기본 형식의 배열, 예: "a", "b", "c" |Collection(Edm.String)|
 |날짜처럼 보이는 문자열| Edm.DateTimeOffset, Edm.String|
 |GeoJSON 개체, 예: { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
@@ -270,4 +270,4 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
  - Azure 검색에 대해 자세히 알아보려면 [여기](/services/search/)를 클릭하십시오.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

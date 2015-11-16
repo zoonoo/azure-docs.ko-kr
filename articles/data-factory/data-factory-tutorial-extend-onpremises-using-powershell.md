@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 
@@ -23,6 +23,10 @@
 분할 -> 보강 -> 분석 워크플로를 사용한 첫 번째 연습에서 로그 처리 시나리오의 마지막 단계에 마케팅 캠페인 효과 출력이 Azure SQL 데이터베이스에 복사되었습니다. 이 데이터를 조직 내에서 분석하기 위해 온-프레미스 SQL Server로 이동할 수도 있습니다.
  
 마케팅 캠페인 효과 데이터를 Azure Blob에서 온-프레미스 SQL Server로 복사하기 위해서는 첫 번째 연습에서 소개한 일련의 cmdlet을 동일하게 사용하여 연결된 서비스, 테이블 및 파이프라인을 추가로 만들어야 합니다.
+
+> [AZURE.IMPORTANT]이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
+>    
+> Azure PowerShell 1.0 Preview를 사용하는 경우 [여기](https://msdn.microsoft.com/library/dn820234.aspx)에서 설명된 cmdlet을 사용해야 합니다. 예를 들어 New-AzureDataFactory를 사용하는 대신 New-AzureRMDataFactory를 사용합니다.
 
 ## 사전 필수 구성 요소
 
@@ -170,4 +174,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

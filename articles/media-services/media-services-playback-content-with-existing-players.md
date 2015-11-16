@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="11/03/2015"
 	ms.author="juliako"/>
 
 
@@ -31,14 +31,14 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
  
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
-- **MEDIA SERVICES CONTENT PLAYER**가 기본 스트리밍 끝점에서 재생됩니다. 기본이 아닌 스트리밍 끝점에서 재생하려면 다른 플레이어를 사용합니다. 예를 들어 [Azure 미디어 서비스 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
+- **MEDIA SERVICES CONTENT PLAYER**가 기본 스트리밍 끝점에서 재생됩니다. 기본이 아닌 스트리밍 끝점에서 재생하려면 다른 플레이어를 사용합니다. 예를 들어 [Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
  
 
 ![AMSPlayer][AMSPlayer]
 
-###Azure 미디어 서비스 플레이어
+###Azure 미디어 플레이어
 
-[Azure 미디어 서비스 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용하여 다음 형식 중 하나로 콘텐츠(일반 또는 보호됨)를 재생합니다.
+[Azure 미디어 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용하여 다음 형식 중 하나로 콘텐츠(일반 또는 보호됨)를 재생합니다.
 
 - 부드러운 스트리밍
 - MPEG DASH
@@ -89,4 +89,4 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

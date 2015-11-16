@@ -4,7 +4,7 @@
                 services="active-directory"
                 documentationCenter=""
                 authors="markusvi"
-                manager="swadhwa"
+                manager="stevenpo"
                 editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
                 ms.tgt_pltfrm="na"
                 ms.devlang="na"
                 ms.topic="article"
-                ms.date="08/10/2015"
+                ms.date="10/30/2015"
                 ms.author="markusvi"/>
 
 
@@ -25,11 +25,11 @@
 
 Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다.
 
-Azure AD는 IT 관리자를 위해 직원 및 비즈니스 파트너에게 Office365, Salesforce.com, DropBox, Concur와 같은 [수천 개의 SaaS 응용 프로그램 클라우드](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx)에 대한 SSO(Single Sign-On) 액세스 권한을 제공할 저렴하고 사용하기 쉬운 솔루션을 제공합니다.
+Azure AD는 IT 관리자를 위해 직원 및 비즈니스 파트너에게 Office365, Salesforce.com, DropBox, Concur와 같은 [수천 개의 SaaS 응용 프로그램 클라우드](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx)에 대한 SSO(Single Sign-On) 액세스 권한을 부여하는 사용하기 편리한 솔루션을 제공합니다.
 
-응용 프로그램 개발자는 Azure AD를 사용하여 전세계 수백 만 조직에서는 사용하는 전세계 클래스 ID 관리 솔루션과 빠르고 쉽게 통합할 수 있도록 함으로써 응용 프로그램을 구축하는데 집중할 수 있습니다.
+응용 프로그램 개발자는 Azure AD를 사용하여 전 세계 수백 만 조직에서 사용하는 클래스 ID 관리 솔루션과 빠르고 쉽게 통합할 수 있도록 함으로써 응용 프로그램을 구축하는 데 집중할 수 있습니다.
 
-Azure AD에는 다단계 인증, 장치 등록, 셀프 서비스 암호 관리, 셀프서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 풍부한 감사 및 보안 모니터링 및 경고를 포함하여 완전하 ID 관리 기능이 포함되어 있습니다. 이러한 기능을 통해 클라우드 기반 응용 프로그램을 보호하고, IT 프로세스를 간소화하고, 비용을 절감하고, 회사의 규정 준수 목표를 충족할 수 있도록 합니다.
+Azure AD에는 다단계 인증, 장치 등록, 셀프 서비스 암호 관리, 셀프서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사 및 보안 모니터링 및 경고를 포함하는 완전한 ID 관리 기능이 포함되어 있습니다. 이러한 기능을 통해 클라우드 기반 응용 프로그램을 보호하고, IT 프로세스를 간소화하고, 비용을 절감하고, 회사의 규정 준수 목표를 충족할 수 있도록 합니다.
 
 또한 [네 번 클릭](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)으로 Azure AD를 기존 Windows Server Active Directory와 통합하여 기존 온-프레미스 ID 투자를 활용하여 클라우드를 기반으로 하는 SaaS 응용 프로그램에 대한 액세스를 관리하는 기능을 조직에 제공할 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인�
 조직에서 Azure AD를 사용하면 여러 가지 방법으로 직원의 생산성을 향상시키고, IT 프로세스를 간소화하고, 보안을 개선하고, 비용을 절감할 수 있습니다.
 
 -	신속하게 클라우드 서비스를 채택하여 Azure AD에서 자동화된 SaaS 앱 액세스 관리 및 프로비저닝 서비스 기능에서 제공하는 간단한 Single Sign-On 환경을 직원과 파트너에게 제공합니다.
--	직원에게 전세계 클라우드 앱과 서비스에 액세스할 권한을 제공하고 직원이 어디서든 사용하려는 장치에서 작업해야 할 때마다 셀프 서비스 기능을 제공합니다.
+-	직원에게 전 세계 클라우드 앱과 서비스에 액세스할 수 있는 권한과 사용 장치에서 작업할 수 있는 셀프 서비스 기능을 제공합니다.
 -	회사의 소셜 미디어 계정에 대한 직원 및 공급 업체 액세스를 쉽고 안전하게 관리합니다.
 -	Azure AD 다단계 인증 및 조건부 액세스를 사용하여 응용 프로그램 보안을 개선합니다.
 -	일관된 셀프서비스 응용 프로그램 액세스 관리를 구현하여 비즈니스 소유자가 IT 비용 및 오버헤드를 줄이면서 신속하게 이동할 수 있도록 합니다.
@@ -77,7 +77,7 @@ Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인�
 
 
 
-## 자세한 내용을 알아보려면 어떻게 할까요?
+## 자세한 내용을 알아보려면 어떤 정보를 참조해야 하나요?
 
 Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소스를 온라인으로 제공합니다. 다음은 시작에 대한 기사 목록입니다.
 
@@ -104,4 +104,4 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 - [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

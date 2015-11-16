@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 행위자 리소스 관리 디자인 패턴"
-   description="서비스 패브릭 행위자를 사용하여 규모를 확장해야 하지만 제한된 리소스를 사용해야 하는 응용 프로그램을 모델링할 수 있는 방법에 대한 패턴 디자인"
+   pageTitle="리소스 관리 디자인 패턴 | Microsoft Azure"
+   description="서비스 패브릭의 신뢰할 수 있는 행위자를 사용하여 수직 확장이 필요하지만 제한된 리소스를 사용해야 하는 응용 프로그램을 모델링하는 방법에 대한 설계 패턴"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,6 +17,7 @@
    ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 리소스 관리
+
 이 패턴 및 관련 시나리오에서는 즉시 크기 조정할 수 없거나 대규모 응용 프로그램 및 데이터를 클라우드로 전송하려는 경우, 리소스를 온-프레미스 또는 클라우드에서 제한한 개발자(엔터프라이즈 등)가 쉽게 알 수 있습니다.
 
 엔터프라이즈 환경에서는 데이터베이스 등과 같이 제한된 리소스가 확장된 하드웨어에서 실행됩니다. 엔터프라이즈 환경에서 오래 작업한 사람은 이것이 온-프레미스 환경에서 일반적인 상황이라는 것을 압니다. 클라우드 규모에서도 클라우드 서비스가 주소/포트 튜플 간 연결에 대한 64K TCP 제한을 초과하려고 하거나 동시 연결 수를 제한하는 클라우드 기반 데이터베이스에 연결하려고 할 때 이런 상황이 발생합니다.
@@ -30,6 +31,7 @@
 ![][1]
 
 ## 행위자를 사용한 캐시 시나리오 모델링
+
 기본적으로 리소스에 대한 액세스는 행위자로 모델링하거나 리소스 또는 리소스 그룹에 대한 프록시(예: 연결) 역할을 하는 여러 행위자로 모델링합니다. 그런 다음, 직접 개별 행위자를 통해 리소스를 관리하거나 리소스 행위자를 관리하는 조정 행위자를 사용합니다. 이를 더 구체적으로 설정하기 위해 성능 및 확장성을 이유로, 분할된 저장소 계층에 대해 작업해야 하는 일반적인 필요성이 제기됩니다. 첫 번째 옵션은 매우 기본적인 옵션으로, 행위자를 매핑하고 다운스트림 리소스로 처리하는 정적 함수를 사용할 수 있습니다. 이러한 함수는 해당 입력을 가진 연결 문자열 등을 반환할 수 있습니다. 해당 함수를 구현하는 방법은 전적으로 사용자에게 달려 있습니다. 물론 이 방법에는 리소스를 다시 분할하거나 행위자를 리소스에 다시 매핑하기 굉장히 어렵게 만드는 정적 선호도 등의 단점도 있습니다. 간단한 예를 들어 보겠습니다. userId를 사용하여 데이터베이스 이름을 확인하고 region을 사용하여 데이터베이스 서버를 식별하는 모듈로 산술 작업을 수행할 수 있습니다.
 
 ## 리소스 관리 코드 샘플 - 정적 확인
@@ -140,6 +142,7 @@ public class Resolver : Actor<ResolverState>, IResolver
 ```
 
 ## 제한된 기능을 가진 리소스 액세스
+
 이제 다른 예로, 제한된 처리량을 가진 DB, 저장소 계정 및 파일 시스템 등의 중요 리소스에 대한 단독 액세스를 살펴보겠습니다. 시나리오는 다음과 같습니다. 이벤트를 처리하고, 이 경우는 간단히 .CSV 파일에 유지하는 EventProcessor라는 행위자를 사용하여 이벤트를 처리하려고 합니다. 위에서 설명한 분할 방법에 따라 리소스를 확장하는 동안 동시성 문제도 여전히 해결해야 합니다. 이런 이유로 파일 기반 예제를 선택하여, 여러 행위자에서 단일 파일에 쓰는 것으로 동시성 문제를 발생시키는 특정 지점을 설명하는 것입니다. 문제를 해결하기 위해 제한된 리소스의 단독 소유권을 가진 EventWriter라는 다른 행위자가 사용되었습니다. 이 시나리오는 아래에 나와 있습니다.
 
 ![][3]
@@ -398,6 +401,7 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 
 
 ## 다음 단계
+
 [패턴: 스마트 캐시](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [패턴: 분산 네트워크 및 그래프](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -417,4 +421,4 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
