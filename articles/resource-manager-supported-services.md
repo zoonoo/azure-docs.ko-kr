@@ -32,7 +32,9 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 가상 컴퓨터 | 예 | 예, 다양한 옵션 | 아니요 | [VM 만들기](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 배치 | 예 | [예(클래식에만 해당)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | 예 | 아니요 | | | |
-| 가상 컴퓨터(클래식) | 제한됨 | 예, 다양한 옵션 | 부분적(아래 참조) | - | - | | RemoteApp | 아니요 | 아니요 | - | - | - | | 서비스 패브릭 | 아니요 | 아니요 | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 예 | 부분적(아래 참조) | - | - |
+| RemoteApp | 아니요 | - | - | - | - |
+| 서비스 패브릭 | 아니요 | - | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -65,7 +67,11 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | SQL 데이터베이스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 검색 | 예 | [예](https://portal.azure.com/#create/Microsoft.Search) | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 데이터 웨어하우스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | 아니요 | 아니요 | - | - | - | | 관리된 캐시 | 아니요 | 아니요 | - | - | - |
+| StorSimple | 아니요 | 아니요 | - | - | - |
+| 백업 | 아니요 | 아니요 | - | - | - |
+| 사이트 복구 | 아니요 | 아니요 | - | - | - |
+| 관리된 캐시 | 아니요 | 아니요 | - | - | - |
+| 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
 
 ## 분석
 
@@ -108,7 +114,9 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 | 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 아니요 | 아니요 | - | - | - | | Azure Active Directory B2C | 아니요 | 아니요 | - | - | - | | Multi-Factor Authentication | 아니요 | 아니요 | - | - | - |
+| Azure Active Directory | 아니요 | 아니요 | - | - | - |
+| Azure Active Directory B2C | 아니요 | 아니요 | - | - | - |
+| Multi-Factor Authentication | 아니요 | 아니요 | - | - | - |
 
 ## 개발자 서비스 
 
