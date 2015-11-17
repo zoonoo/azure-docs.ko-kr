@@ -81,7 +81,7 @@
 	![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	편집기에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다. 
-4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 선택키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 선택키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 5. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
 	![배포 단추](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -235,7 +235,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](./data-factory-get-started.md)를 참조하세요.
   
 
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md)을 통해 의견을 보내주세요.
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,49 +1,52 @@
 <properties 
-   pageTitle="PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리" 
-   description="PowerShell을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+    pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 | Microsoft Azure" 
+    description="탄력적 데이터베이스 풀을 만들어서 여러 Azure SQL 데이터베이스에 대해 리소스를 공유합니다." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="10/08/2015"
-   ms.author="adamkr; sstein"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="powershell"
+    ms.workload="data-management" 
+    ms.date="11/06/2015"
+    ms.author="adamkr; sstein"/>
 
-# PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리
+# PowerShell을 사용한 탄력적 데이터베이스 풀 만들기
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-client-library.md)
+- [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-## 개요
+이 문서에서는 PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여 줍니다.
 
-이 문서는 PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 풀을 만들고 관리하는 방법을 보여 줍니다.
+> [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server.md)를 할 수 있습니다.
+
+이 문서에서는 Azure 구독을 제외하고 (V12 서버를 포함하여) 탄력적 데이터베이스 풀을 만들고 구성하는 데 필요한 모든 항목을 만드는 방법을 보여 줍니다. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
+
+
+
+
+Azure PowerShell을 사용하여 탄력적 데이터베이스 풀을 만드는 각각의 단계가 세분화되고 이해하기 쉽게 설명되어 있습니다. 단순히 명령의 요약 목록을 원하는 경우 이 문서의 아래쪽에 있는 **모든 항목 요약** 섹션을 참조하세요.
 
 > [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet을 더 이상 사용할 수 없으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 이 문서의 예제에서는 새 PowerShell 1.0 Preview 명명 규칙을 사용합니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
 
 PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야 하고 Switch-AzureMode를 제거했기 때문에 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 최신 Azure PowerShell을 다운로드하고 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
-Azure PowerShell을 사용하여 탄력적 데이터베이스 풀을 만드는 각각의 단계가 세분화되고 이해하기 쉽게 설명되어 있습니다. 단순히 명령의 요약 목록을 원하는 경우 이 문서의 아래쪽에 있는 **모든 항목 요약** 섹션을 참조하세요.
 
-이 문서에서는 Azure 구독을 제외하고 탄력적 데이터베이스 풀을 만들고 구성하는 데 필요한 모든 항목을 만드는 방법을 보여 줍니다. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
-
-> [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다.
 
 
 ## 자격 증명 구성 및 구독 선택
 
 이제 Azure 리소스 관리자 모듈을 실행하고 있으므로 탄력적 데이터베이스 풀을 만들고 구성하는 데 필요한 모든 cmdlet에 액세스할 수 있습니다. 먼저 Azure 계정에 대한 액세스를 설정해야 합니다. 다음을 실행하면 자격 증명을 입력할 수 있는 로그인 화면이 나타납니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
 
-	Add-AzureAccount
+	Add-AzureRmAccount
 
 로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
 
@@ -52,7 +55,7 @@ Azure PowerShell을 사용하여 탄력적 데이터베이스 풀을 만드는 �
 
 구독을 선택하려면 구독 ID 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 
 ## 리소스 그룹, 서버, 방화벽 규칙 만들기
@@ -61,34 +64,34 @@ Azure PowerShell을 사용하여 탄력적 데이터베이스 풀을 만드는 �
 
 이미 리소스 그룹이 있다면 다음 단계로 진행하거나, 아래 명령을 실행하여 새 리소스 그룹을 만들 수 있습니다.
 
-	New-AzureRMResourceGroup -Name "resourcegroup1" -Location "West US"
+	New-AzureRmResourceGroup -Name "resourcegroup1" -Location "West US"
 
 ### 서버 만들기 
 
-탄력적 데이터베이스 풀은 Azure SQL 데이터베이스 서버 내부에서 만들어집니다. 이미 서버가 있다면 다음 단계로 진행하거나, 아래 명령을 실행하여 새 V12 서버를 만들 수 있습니다. ServerName을 사용자의 서버 이름으로 바꿉니다. 서버 이름은 Azure SQL Server에 대해 고유해야 하며, 그렇지 않으면 서버 이름이 이미 사용 중이라는 오류가 발생할 수 있습니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 서버가 성공적으로 생성된 후 서버 세부 정보와 PowerShell 프롬프트가 표시됩니다. 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다.
+탄력적 데이터베이스 풀은 Azure SQL 데이터베이스 서버 내부에서 만들어집니다. 이미 서버가 있다면 다음 단계로 진행하거나 [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet을 실행하여 새 V12 서버를 만들 수 있습니다. ServerName을 사용자의 서버 이름으로 바꿉니다. 서버 이름은 Azure SQL Server에 대해 고유해야 하며 서버 이름이 이미 사용 중인 경우 오류가 발생할 수 있습니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 서버가 성공적으로 생성된 후 서버 세부 정보와 PowerShell 프롬프트가 표시됩니다. 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다.
 
-	New-AzureRMSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRmSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 이 명령을 실행하면 **사용자 이름**과 **암호**를 묻는 창이 열립니다. 이는 Azure 자격 증명이 아니며, 새 서버에 만들려는 관리자 자격 증명이 될 사용자 이름과 암호를 입력해야 합니다.
 
 
 ### 서버에 대한 액세스를 허용할 수 있도록 서버 방화벽 규칙 구성
 
-서버에 액세스할 수 있도록 방화벽 규칙을 설정합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다.
+서버에 액세스할 수 있도록 방화벽 규칙을 설정합니다. [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx) 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다.
 
 서버에서 다른 Azure 서비스에 대한 액세스를 허용해야 하는 경우, 특별한 방화벽 규칙을 추가하고 모든 Azure 트래픽이 서버에 액세스할 수 있도록 하는 **-AllowAllAzureIPs** 스위치를 추가합니다.
 
-	New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
 자세한 내용은 [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx)을 참조하세요.
 
 
 ## 탄력적 데이터베이스 풀 및 탄력적 데이터베이스 만들기
 
-리소스 그룹, 서버, 방화벽 규칙을 구성했으므로 이제 서버에 액세스할 수 있습니다. 다음 명령은 탄력적 데이터베이스 풀을 만듭니다. 이 명령은 총 400 eDTU를 공유하는 풀을 만듭니다. 풀에 있는 각 데이터베이스는 항상 10 eDTU(DatabaseDtuMin)를 사용할 수 있도록 보장됩니다. 풀에 있는 개별 데이터베이스는 최대 100 eDTU(DatabaseDtuMax)를 사용할 수 있습니다. 매개 변수 설명에 대한 자세한 내용은 [Azure SQL 데이터베이스 탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+리소스 그룹, 서버, 방화벽 규칙을 구성했으므로 이제 서버에 액세스할 수 있습니다. [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet을 사용하여 탄력적 데이터베이스 풀을 만듭니다. 이 명령은 총 400 eDTU를 공유하는 풀을 만듭니다. 풀에 있는 각 데이터베이스는 항상 10 eDTU(DatabaseDtuMin)를 사용할 수 있도록 보장됩니다. 풀에 있는 개별 데이터베이스는 최대 100 eDTU(DatabaseDtuMax)를 사용할 수 있습니다. 매개 변수 설명에 대한 자세한 내용은 [Azure SQL 데이터베이스 탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 
-	New-AzureRMSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ### 탄력적 데이터베이스 만들기 및 탄력적 데이터베이스 풀에 추가
@@ -99,30 +102,30 @@ Azure PowerShell을 사용하여 탄력적 데이터베이스 풀을 만드는 �
 
 ### 탄력적 데이터베이스 풀 내에 새 탄력적 데이터베이스 만들기
 
-풀 내에서 직접 새 데이터베이스를 만들려면 **New-AzureRMSqlDatabase** cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
+풀 내에서 직접 새 데이터베이스를 만들려면 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
 
 
-	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
 
 ### 기존 데이터베이스를 탄력적 데이터베이스 풀 내로 이동
 
-기존 데이터베이스를 풀로 이동하려면 **Set-AzureRMSqlDatabase** cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
+기존 데이터베이스를 풀로 이동하려면 [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
 
 
 데모 목적으로 탄력적 데이터베이스 풀에 포함되지 않은 데이터베이스를 만듭니다.
 
-	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
 기존 데이터베이스를 탄력적 데이터베이스 풀로 이동합니다.
 
-	Set-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## 탄력적 데이터베이스 풀의 성능 설정 변경
 
 
-    Set-AzureRMSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+    Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
 ## 탄력적 데이터베이스 및 탄력적 데이터베이스 풀 모니터링
@@ -131,12 +134,12 @@ Azure PowerShell을 사용하여 탄력적 데이터베이스 풀을 만드는 �
 
 생성 및 업데이트를 포함하여 탄력적 데이터베이스 풀 관련 작업의 상태를 추적할 수 있습니다.
 
-	Get-AzureRMSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
+	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
 ### 탄력적 데이터베이스를 탄력적 데이터베이스 풀 내외부로 이동하는 작업의 상태 확인
 
-	Get-AzureRMSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	Get-AzureRmSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ### 탄력적 데이터베이스 풀에 대한 리소스 사용 메트릭 가져오기
 
@@ -201,14 +204,14 @@ CSV 파일로 내보내기:
 ## 모든 항목 요약
 
 
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-    New-AzureRMResourceGroup -Name "resourcegroup1" -Location "West US"
-    New-AzureRMSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
-    New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
-    New-AzureRMSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
-    New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
-    Set-AzureRMSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+    New-AzureRmResourceGroup -Name "resourcegroup1" -Location "West US"
+    New-AzureRmSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+    New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+    New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+    New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
+    Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
     
     $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
     $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
@@ -229,4 +232,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

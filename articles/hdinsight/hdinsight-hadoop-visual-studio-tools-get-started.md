@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HDInsight용 Visual Studio Hadoop 도구를 사용하는 방법 알아보기 | Microsoft Azure"
 	description="HDInsight용 Visual Studio Hadoop 도구를 설치하고 이를 사용하여 Hadoop 클러스터에 연결한 후 Hive 쿼리를 실행하는 방법에 대해 알아봅니다."
-	keywords="hadoop tools,hive query,visual studio"
+	keywords="hadoop 도구, hive 쿼리, visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -90,7 +90,7 @@ Azure 구독에 연결한 후에는 다음을 수행할 수 있습니다.
 ![Visual Studio용 HDInsight 도구 서버 탐색기 클러스터 목록][2]
 
 ## HIVE 쿼리 실행
-[Apache Hive][apache.hive]는 Hadoop을 기반으로 하는 데이터 웨어하우스 인프라로, 데이터 요약, 쿼리 및 분석 기능을 제공합니다. Visual Studio용 HDInsight 도구를 사용하면 Visual Studio에서 Hive 쿼리를 실행할 수 있습니다. Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight.hive]을 참조하세요.
+[Apache Hive][apache.hive]는 Hadoop을 기반으로 하는 데이터 웨어하우스 인프라로, 데이터 요약, 쿼리 및 분석 기능을 제공합니다. Visual Studio용 HDInsight 도구를 사용하면 Visual Studio에서 Hive 쿼리를 실행할 수 있습니다. Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight.hive]을 참조하십시오.
 
 HDInsight 클러스터에 대해 Hive 스크립트를 테스트하려면 많은 시간이 걸립니다. 몇 분 이상 걸릴 수 있습니다. Visual Studio용 HDInsight 도구는 로컬로 라이브 클러스터에 연결하지 않고 Hive 스크립트의 유효성 검사를 할 수 있습니다.
 
@@ -180,6 +180,21 @@ Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로�
 
 	![Hadoop 도구: HDInsight Visual Studio Tools 새 Hive 작업][12]
 
+### HiveServer2를 통해 더 빠른 경로 하이브 실행
+
+>[AZURE.NOTE]이 기능은 HDInsight 클러스터 버전 3.2 이상에만 적용됩니다.
+
+WebHCat(Templeton라고도 함)를 통해 Hive 작업을 제출하는 데 사용되는 HDInsight 도구입니다. 작업 세부 정보 및 오류 정보를 반환 하는 데 오랜 시간이 걸렸습니다. 이 성능 문제를 해결하기 위해 HDInsight 도구는 RDP/SSH를 무시하도록 HiveServer2를 통해 클러스터에서 직접 Hive 작업을 실행합니다. 성능 향상 외에도 사용자는 Tez의 Hive 그래프 및 작업 세부 정보를 볼 수 있습니다.
+
+HDInsight 클러스터 버전 3.2 이상의 경우 **HiveServer2를 통해 실행** 단추를 볼 수 있습니다.
+
+![hiveserver2 통해 hdinsight visual studio 도구 실행](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
+
+그리고 실시간으로 스트리밍 백 된 로그를 확인하고 Hive 쿼리가 Tez에서 실행된 경우 작업 그래프를 볼 수 있습니다.
+ 
+![hdinsight visual studio 도구 빠른 경로 hive 실행](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
+
+
 ### Tez Hive 작업 성능 그래프
 
 HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 대한 성능 그래프를 보여 줍니다. Tez를 사용하도록 설정하는 방법에 대한 자세한 내용은 [HDInsight에서 Hive 사용][hdinsight.hive]을 참조하세요. Visual Studio에서 Hive 작업을 제출하면 Visual Studio가 작업이 완료될 때 그래프를 보여줍니다. 최신 작업 상태를 가져오기 위해 **새로 고침** 단추를 클릭해야 할 수도 있습니다.
@@ -189,6 +204,12 @@ HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 �
 ![hadoop hive tez 성능 그래프](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 Hive 쿼리를 파악하는 데 도움이 되도록 이 릴리스에서는 도구에 Hive 운영자 뷰 기능이 추가되었습니다. 작업 그래프의 꼭짓점을 두 번 클릭해야 꼭짓점 내의 모든 운영자를 볼 수 있습니다. 특정 운영자에 대한 자세한 정보를 보려면 이 운영자를 마우스로 가리킵니다.
+
+### Tez의 Hive 작업을 위한 작업 실행 보기
+
+Tez의 Hive 작업을 위한 작업 실행 보기는 Hive 작업에 대한 정보를 구조화 및 시각화하는 데 사용할 수 있으며 작업 세부 정보를 가져올 수 합니다. 성능 문제가 있는 경우 세부 정보를 얻기위해 보기를 사용할 수 있습니다. 예를 들어, 각 작업의 작동 방식과 각 작업(데이터 읽기/쓰기, 일정/시작/종료 시간 등)에 대한 세부 정보의 경우, 가상된 정보를 기반으로 작업 구성 또는 시스템 아키텍처를 조정할 수 있도록 합니다.
+
+![hdinsight visual studio 도구 작업 실행 보기](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## Pig 스크립트 실행
 
@@ -237,4 +258,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

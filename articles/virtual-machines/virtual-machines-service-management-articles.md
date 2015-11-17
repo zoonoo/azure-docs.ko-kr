@@ -38,7 +38,7 @@
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 관리](virtual-machines-create-windows-powershell-service-manager.md)
+[PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Linux를 실행하는 사용자 지정 VM 만들기](virtual-machines-linux-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

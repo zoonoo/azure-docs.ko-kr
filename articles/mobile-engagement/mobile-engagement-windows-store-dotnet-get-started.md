@@ -157,15 +157,34 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 ###알림을 보내도록 Mobile Engagement 액세스 권한 부여
 
-1. 앱을 Windows 스토어 앱에 연결하여 **패키지 SID(보안 식별자)** 및 **비밀 키**(클라이언트 암호)를 가져와야 합니다. [Windows 스토어 개발자 센터]에서 앱을 만들 수 있으며, 그런 다음 Visual Studio에서 **스토어와 앱 연결**을 사용해야 합니다.
+1. 웹 브라우저에서 [Windows 스토어 개발자 센터]를 열어 로그인하고 필요한 경우 계정을 만드십시오.
+2. 오른쪽 위 모서리에 있는 **대시보드**를 클릭한 다음 왼쪽 패널 메뉴에서 **새 앱 만들기**를 클릭합니다. 
 
-	![][7]
+	![][9]
 
-2. Mobile Engagement 포털의 **설정**으로 이동하여 왼쪽의 **네이티브 푸시** 섹션을 클릭합니다.
+2. 해당 이름을 예약하여 앱을 만듭니다.
 
-3. **편집** 단추를 클릭하여 아래와 같이 **패키지 SID(보안 식별자)** 및 **비밀 키**를 입력합니다.
+	![][10]
+
+3. 앱이 만들어지면 왼쪽 메뉴에서 **서비스 -> 푸시 알림**으로 이동합니다.
+
+	![][11]
+
+4. 푸시 알림 섹션에서 **Live 서비스 사이트** 링크를 클릭합니다.
+
+	![][12]
+
+5. 푸시 자격 증명 섹션으로 이동하게 됩니다. **앱 설정** 섹션에 있는지 확인한 다음 **패키지 SID** 및 **클라이언트 암호**를 복사합니다.
+
+	![][13]
+
+6. Mobile Engagement 포털의 **설정**으로 이동하여 왼쪽의 **네이티브 푸시** 섹션을 클릭합니다. 그런 다음 **편집** 단추를 클릭하여 아래와 같이 **패키지 SID(보안 식별자)** 및 **비밀 키**를 입력합니다.
 
 	![][6]
+
+8. 마지막으로 Visual Studio 앱과 앱 스토어에 만들어진 이 앱이 연결되어 있는지 확인합니다. 이렇게 하려면 Visual Studio에서 **앱과 스토어 연결**을 클릭해야 합니다.
+
+	![][7]
 
 ##<a id="send"></a>앱에 알림 보내기
 
@@ -178,7 +197,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Windows 스토어 개발자 센터]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
+[Windows 스토어 개발자 센터]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -189,5 +208,10 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 [8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
+[9]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_create_app.png
+[10]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_app_name.png
+[11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
+[12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
+[13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

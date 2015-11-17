@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="11/02/2015"
    ms.author="bwren" />
 
 # Azure 자동화 구성
@@ -21,7 +21,7 @@
 
 ## 자동화 계정
 
-Azure 자동화를 처음 시작하려면 자동화 계정을 하나 이상 만들어야 합니다. 자동화 계정을 사용하면 다른 자동화 계정에 포함된 자동화 리소스에서 사용자의 자동화 리소스(Runbook, 자산)를 격리할 수 있습니다. 자동화 계정을 사용하여 자동화 리소스를 별도의 논리적 환경으로 구분할 수 있습니다. 예를 들어 개발 및 프로덕션에 서로 다른 계정을 사용할 수 있습니다.
+Azure 자동화를 처음 시작하려면 자동화 계정을 하나 이상 만들어야 합니다. 자동화 계정을 사용하면 다른 자동화 계정에 포함된 자동화 리소스에서 사용자의 자동화 리소스(Runbook, 자산, 구성)를 격리할 수 있습니다. 자동화 계정을 사용하여 자동화 리소스를 별도의 논리적 환경으로 구분할 수 있습니다. 예를 들어 개발 및 프로덕션에 서로 다른 계정을 사용할 수 있습니다.
 
 각 자동화 계정의 자동화 리소스는 단일 Azure 지역과 연결되지만 자동화 계정에서 모든 지역의 Azure 서비스를 관리할 수 있습니다. 여러 지역에서 자동화 계정을 만드는 주된 이유는 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있을 수 있기 때문입니다.
 
@@ -67,4 +67,4 @@ Runbook의 모든 [검사점](http://technet.microsoft.com/library/dn469257.aspx
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

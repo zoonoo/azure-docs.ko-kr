@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/07/2015"
+	ms.date="11/04/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
@@ -90,4 +90,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 백 엔드 버전]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

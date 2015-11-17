@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리 | Microsoft Azure"
-	description="Azure SQL 데이터베이스 그룹에서 공유할 수 있는 단일 리소스 풀을 만듭니다."
+	pageTitle="Azure preview 포털을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 | Microsoft Azure"
+	description="탄력적 데이터베이스 풀을 만들어서 여러 Azure SQL 데이터베이스에 대해 리소스를 공유합니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,24 +10,26 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/29/2015"
+	ms.date="11/06/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# 탄력적 데이터베이스 풀 생성
+# Azure preview 포털로 탄력적 데이터베이스 풀을 만들기
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-client-library.md)
+- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-이 문서에서는 여러 데이터베이스를 만들고 유지 관리하며 데이터베이스의 성능과 비용을 관리하는 프로세스를 간소화하는 탄력적 데이터베이스 풀을 만드는 방법을 보여 줍니다. 시작하기 전에 SQL 데이터베이스 V12 서버에 데이터베이스가 하나 이상 있어야 합니다. 데이터베이스가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 5분 이내에 하나를 만드세요.
+이 문서에서는 Azure preview 포털을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여줍니다.
+
+> [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server.md)를 할 수 있습니다.
 
 
-> [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다.
+시작하기 전에 SQL 데이터베이스 V12 서버에 데이터베이스가 있어야 합니다. 데이터베이스가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 5분 이내에 하나를 만드세요. 또는 SQL 데이터베이스 V11 서버가 이미 있는 경우 [포털에서 V12 업그레이드](sql-database-v12-upgrade.md)한 다음 다시 돌아와서 풀을 만들려면 다음이 지침에 따르세요.
 
 
 ## 1단계: 서버에 풀 추가
@@ -44,7 +46,7 @@
 서버에 대해 권장되는 풀이 있다는 메시지가 표시되는 경우 클릭하면 서버의 데이터베이스에 최적화된 풀을 쉽게 검토하고 만들 수 있습니다. 자세한 내용은 [권장되는 탄력적 데이터베이스 풀](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)을 참조하세요.
    
   
-   ![탄력적 풀 만들기][1]
+![탄력적 풀 만들기][1]
 
 
 **탄력적 데이터베이스 풀** 블레이드에는 가격 책정 계층을 선택하고 데이터베이스를 추가하고 풀의 성능 특성을 구성하는 옵션이 있습니다.
@@ -137,7 +139,7 @@ SQL 데이터베이스 V12 서버로 이동하면 서버에 대해 권장되는 
 
 풀을 만든 후에 **데이터베이스 추가** 페이지에서 데이터베이스를 선택하거나 선택 취소하면 풀에 데이터베이스를 추가하거나 풀에서 데이터베이스를 제거할 수 있습니다.
 
-풀을 만든 후에 Transact-SQL을 사용하여 풀에서 탄력적 데이터베이스를 새로 만들고 데이터베이스를 풀 내부 및 외부로 이동할 수도 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)*을 참조하세요.
+풀을 만든 후에 Transact-SQL을 사용하여 풀에서 탄력적 데이터베이스를 새로 만들고 데이터베이스를 풀 내부 및 외부로 이동할 수도 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
 
 
 ## 탄력적 데이터베이스 풀 모니터링 및 관리
@@ -199,4 +201,4 @@ SQL 데이터베이스 V12 서버로 이동하면 서버에 대해 권장되는 
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

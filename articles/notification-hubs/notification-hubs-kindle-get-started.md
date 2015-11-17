@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # Kindle 앱에 대한 알림 허브 시작
@@ -117,7 +117,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 		    android:exported="false" />
 
 		<receiver
-		    android:name="[YOUR SERVICE NAME]$Receiver"
+		    android:name="[YOUR SERVICE NAME]$Receiver" />
 
 		    <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
 		    android:permission="com.amazon.device.messaging.permission.SEND" >
@@ -185,7 +185,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
 	    	NotificationCompat.Builder mBuilder =
 	          	new NotificationCompat.Builder(ctx)
-	          	.setSmallIcon(R.drawable.ic_launcher)
+	          	.setSmallIcon(R.mipmap.ic_launcher)
 	          	.setContentTitle("Notification Hub Demo")
 	          	.setStyle(new NotificationCompat.BigTextStyle()
 	                     .bigText(msg))
@@ -281,4 +281,4 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

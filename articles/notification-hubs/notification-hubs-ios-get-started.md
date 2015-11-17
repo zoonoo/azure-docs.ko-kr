@@ -210,7 +210,7 @@
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. ViewController.m의 구현 섹션에 다음 코드를 추가합니다. 이 코드는 *DefaultFullSharedAccessSignature* 연결 문자열을 구문 분석합니다. [REST API 참조](http://msdn.microsoft.com/library/azure/dn495627.aspx)에서 설명한 것처럼 이 구문 분석된 정보는 **권한 부여** 요청 헤더를 위한 SaS 토큰을 생성하는데 사용됩니다.
+5. ViewController.m에서 구현 섹션에 다음 코드를 추가합니다. 이 코드는 *DefaultFullSharedAccessSignature* 연결 문자열을 구문 분석합니다. [REST API 참조](http://msdn.microsoft.com/library/azure/dn495627.aspx)에서 설명한 것처럼 이 구문 분석된 정보는 **권한 부여** 요청 헤더를 위한 SaS 토큰을 생성하는데 사용됩니다.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -503,4 +503,4 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

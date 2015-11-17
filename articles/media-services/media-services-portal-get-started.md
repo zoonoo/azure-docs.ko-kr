@@ -223,16 +223,15 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 
 
-##다음 단계
+##다음 단계: 미디어 서비스 학습 경로
 
-###미디어 서비스 학습 경로
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+##피드백 제공
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### 다른 정보를 찾으시나요?
+## 다른 정보를 찾으시나요?
 
 이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
@@ -261,4 +260,4 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

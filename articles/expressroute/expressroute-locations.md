@@ -44,6 +44,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |**지역**|**Azure 지역**|**Express 경로 위치**|
 |---|---|---|---|
 |**미국 정부 클라우드**|미국 정부|아이오와, 버지니아|애슈번, 시카고|
+|**중국 클라우드**|중국|동쪽, 북쪽|
 
 
 지정학적 지역에 걸친 연결은 표준 Express 경로 SKU에서 지원되지 않습니다. 전역 연결을 지원하려면 Express 경로 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 국가별 클라우드 환경에 대한 연결은 지원되지 않습니다. 이러한 요구가 발생할 경우 연결 공급자와 함께 작업할 수 있습니다.
@@ -93,7 +94,14 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원되지 않음 | 시카고+, 워싱턴 DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 서비스 예정 | 지원되지 않음 | 시카고+, 워싱턴 DC+ |
 | **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 지원되지 않음 | 시카고+, 워싱턴 DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 지원됨 | 지원되지 않음 | 시카고+, 워싱턴 DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 지원됨 | 지원되지 않음 | 시카고, 워싱턴 DC |
+
+#### 중국 클라우드
+
+| **서비스 공급자** |**Microsoft Azure** | **Office 365** | **위치** |
+|-----------------------|--------------------|----------------|---------------|
+| **China Telecom** | 지원됨 | 지원되지 않음 | 베이징, 상하이 +|
+자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)를 참조하세요.
 
 ## 나열되지 않은 서비스 공급자를 통한 연결
 
@@ -129,4 +137,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

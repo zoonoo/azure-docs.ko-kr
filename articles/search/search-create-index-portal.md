@@ -1,5 +1,5 @@
 <properties
-	pageTitle="포털에서 Azure 검색 인덱스 만들기 | Microsoft Azure"
+	pageTitle="포털에서 Azure 검색 인덱스 만들기 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="Azure 포털에서 필드 정의를 입력하여 클라우드 호스트된 검색 서비스인 Azure 검색 서비스에 인덱스를 추가합니다."
 	services="search"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="search"
-	ms.devlang="rest-api"
+	ms.devlang="na"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
@@ -18,6 +18,11 @@
 	ms.author="heidist"/>
 
 # Azure 포털에서 Azure 검색 인덱스 만들기
+> [AZURE.SELECTOR]
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
+- [.NET](search-create-index-dotnet.md)
+- [REST API](search-create-index-rest-api.md)
 
 Azure 포털에서 만들어 Azure 검색의 인덱스를 신속하게 프로토타이핑할 수 있습니다. 포털은 개념 증명 테스트에 유용하지만 이를 사용하여 서비스에 배포된 인덱스의 스키마 정의 및 리소스 사용량을 확인할 수도 있습니다.
 
@@ -100,4 +105,4 @@ Azure 검색에서는 searchable, facetable 및 filterable과 같은 인덱스 �
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

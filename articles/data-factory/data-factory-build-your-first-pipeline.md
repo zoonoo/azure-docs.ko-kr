@@ -172,7 +172,4 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 - 맨 위의 [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md) 링크를 클릭하여 Azure PowerShell을 통해 자습서를 수행합니다.
 - 맨 위의 [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md) 링크를 클릭하여 Visual Studio를 사용해서 자습서를 수행합니다. 
 
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)을 통해 의견을 보내주세요.
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

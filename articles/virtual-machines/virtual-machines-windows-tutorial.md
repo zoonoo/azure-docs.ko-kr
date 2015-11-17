@@ -28,7 +28,7 @@
 
 
 
-이 자습서에서는 Preview 포털에서 Azure 가상 컴퓨터를 몇 분 내에 간단하게 만드는 방법을 보여 줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 가상 컴퓨터를 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
+이 자습서에서는 Azure Preview 포털에서 Azure 가상 컴퓨터를 몇 분 이내에 간편하게 만드는 방법을 보여줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 가상 컴퓨터를 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
 사용자 고유의 이미지, 리소스 관리자 템플릿 또는 자동화 도구를 사용하여 가상 컴퓨터를 만들 수도 있습니다. 여러 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)을 참조하세요.
 
@@ -44,7 +44,7 @@
 
 ## 이미지 선택
 
-1. [Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. Azure Preview 포털에 로그인합니다.
 
 2. 허브 메뉴에서 **새로 만들기** > **계산** > **Windows Server 2012 R2 Datacenter**를 클릭합니다.
 
@@ -72,7 +72,7 @@
 
 	>[AZURE.NOTE]프리미엄 저장소는 특정 지역에서 DS 시리즈에 대해 사용할 수 있습니다. 프리미엄 저장소는 데이터베이스와 같은 데이터 집약적인 작업에 대해 최상의 저장소 옵션입니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
 
-3. **설정**을 클릭하여 새 가상 컴퓨터의 저장소 및 네트워킹 설정을 봅니다. 첫 번째 가상 컴퓨터의 경우 일반적으로 기본 설정을 적용할 수 있습니다. 지원하는 가상 컴퓨터 크기를 선택한 경우 **디스크 유형** 아래에서 **프리미엄(SSD)**을 선택해 볼 수 있습니다.
+3. **설정**을 클릭하여 새 가상 컴퓨터의 저장소 및 네트워킹 설정을 봅니다. 첫 번째 가상 컴퓨터의 경우 일반적으로 기본 설정을 적용할 수 있습니다. 지원하는 가상 컴퓨터 크기를 선택한 경우 **디스크 형식**에서 **프리미엄(SSD)**을 선택하여 프리미엄 저장소를 사용해 볼 수 있습니다.
 
 	![VM 설정 구성](./media/virtual-machines-windows-tutorial/create_vm_settings.PNG)
 
@@ -88,7 +88,7 @@
 
 >[AZURE.NOTE]자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)을 참조하십시오.
 
-1. 아직 로그인하지 않은 경우 [Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. 아직 로그인하지 않은 경우 Azure Preview 포털에 로그인합니다.
 
 2. 시작 보드에서 가상 컴퓨터를 클릭합니다. 가상 컴퓨터를 찾아야 하는 경우 **모두 찾아보기** > **최근** 또는 **모두 찾아보기** > **가상 컴퓨터**를 클릭합니다. 그런 다음 목록에서 가상 컴퓨터를 선택합니다.
 
@@ -111,4 +111,4 @@
 * Azure PowerShell 및 Azure CLI를 사용하여 [가상 컴퓨터 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
 * [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터와 워크로드 배포 및 관리를 자동화합니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -50,7 +50,7 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 **New-AzureRMResourceGroup**을 **New-AzureResourceGroup**로 대체하고, **New-AzureResourceGroupDeployment**를 **New-AzureResourceGroupDeployment**로 클릭한 다음, **New-AzureResourceGroup** 명령 앞에 **Switch-AzureMode AzureResourceManager**를 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 **New-AzureRMResourceGroup**을 **New-AzureResourceGroup**로 대체하고, **New-AzureRMResourceGroupDeployment**를 **New-AzureResourceGroupDeployment**로 대체한 다음 **New-AzureResourceGroup** 명령 앞에 **Switch-AzureMode AzureResourceManager**를 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
 
 다음 명령 세트에 Azure 배포 이름, 새 리소스 그룹 이름 및 Azure 데이터센터 위치를 입력합니다. < and > 문자를 포함하여 따옴표 안의 모든 내용을 제거합니다.
 
@@ -123,7 +123,7 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 **New-AzureRMResourceGroup**을 **New-AzureResourceGroup**로 대체하고, **New-AzureResourceGroupDeployment**를 **New-AzureResourceGroupDeployment**로 클릭한 다음, **New-AzureResourceGroup** 명령 앞에 **Switch-AzureMode AzureResourceManager**를 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 **New-AzureRMResourceGroup**을 **New-AzureResourceGroup**로 대체하고, **New-AzureRMResourceGroupDeployment**를 **New-AzureResourceGroupDeployment**로 대체한 다음 **New-AzureResourceGroup** 명령 앞에 **Switch-AzureMode AzureResourceManager**를 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
 
 다음 명령 세트에 Azure 배포 이름, 새 리소스 그룹 이름 및 Azure 데이터센터 위치를 입력합니다. < and > 문자를 포함하여 따옴표 안의 모든 내용을 제거합니다.
 
@@ -188,4 +188,4 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 검색 개발을 위한 일반적인 워크플로 | Microsoft Azure"
+	pageTitle="Azure 검색 개발을 위한 일반적인 워크플로 | Microsoft Azure | 호스트 된 클라우드 검색 서비스"
 	description="호스트된 클라우드 검색 서비스인 Azure 검색과 통합된 프로덕션 응용 프로그램이나 프로토타입을 구축하기 위한 워크플로 또는 로드맵입니다."
 	services="search"
 	documentationCenter=""
@@ -190,4 +190,4 @@ Azure 검색에서 주목할 만한 기능 중 하나는 요구에 따라 쉽게
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

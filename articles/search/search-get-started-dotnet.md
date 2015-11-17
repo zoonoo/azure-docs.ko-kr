@@ -1,5 +1,5 @@
 <properties
-	pageTitle=".NET에서 첫 Azure 검색 응용 프로그램 시작 | Microsoft Azure"
+	pageTitle=".NET에서 첫 Azure 검색 응용 프로그램 시작 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="Azure 검색 .NET SDK의 .NET 클라이언트 라이브러리를 사용하여 Visual Studio 솔루션을 빌드하는 방법을 보여 주는 자습서입니다."
 	services="search"
 	documentationCenter=""
@@ -794,4 +794,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->
