@@ -106,7 +106,7 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [기술 개념](active-directory-aadconnectsync-technical-concepts.md)에서 설명한 대로 사용된 기본 사항 및 용어를 이해하기 시작하기 전에 동기화 토폴로지로 작업해보지 못한 경우입니다. Azure AD Connect는 MIIS2003, ILM2007 및 FIM2010에서 진화했습니다. 일부가 동일하지만 많은 부분이 변경되었습니다.
 
-구성은 구성에 두 개 이상의 포리스트가 있을 수 있다고 가정합니다. 이러한 토폴로지에서 사용자 개체는 다른 포리스트에 연락처로 표시될 수 있습니다. 또한 사용자에는 다른 리소스 포리스트에 연결된 사서함이 있을 수 있습니다. 기본 구성의 동작은 [사용자 및 연락처](active-directory-aadconnectsync-understanding-users-and-contacts.md)에 설명됩니다.
+[기본 구성](active-directory-aadconnectsync-understanding-default-configuration.md)은 구성에 두 개 이상의 포리스트가 있을 수 있다고 가정합니다. 이러한 토폴로지에서 사용자 개체는 다른 포리스트에 연락처로 표시될 수 있습니다. 또한 사용자에는 다른 리소스 포리스트에 연결된 사서함이 있을 수 있습니다. 기본 구성의 동작은 [사용자 및 연락처](active-directory-aadconnectsync-understanding-users-and-contacts.md)에 설명됩니다.
 
 동기화의 구성 모델은 [선언적 프로비전](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)이라고 합니다. 고급 특성 흐름은 [함수](active-directory-aadconnectsync-functions-reference.md)를 사용하여 특성 변환을 표현합니다. Azure AD Connect와 함께 제공되는 도구를 사용하여 전체 구성을 보고 검사할 수 있습니다. 구성에 변경이 필요한 경우 [모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)를 따르고 있는지 확인하여 새 릴리스를 사용할 수 있는 대로 쉽게 도입할 수 있도록 합니다.
 
@@ -115,6 +115,7 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 | 항목 | |
 | --------- | --------- |
 | 기술 개념 | [Azure AD Connect Sync: 기술 개념](active-directory-aadconnectsync-technical-concepts.md) |
+| 기본 구성 이해 | [Azure AD Connect 동기화: 기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md) |
 | 사용자 및 연락처 이해 | [Azure AD Connect Sync: 사용자 및 연락처 이해](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | 선언적 프로비전 | [Azure AD Connect Sync: 선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | 선언적 프로비전 함수 참조 | [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md) |
@@ -138,4 +139,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

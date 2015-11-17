@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="11/05/2015"
 	ms.author="ricksal"/>
 
 # Android에 대해 모바일 서비스 시작(JavaScript 백 엔드)
@@ -28,7 +28,9 @@
 
 > [AZURE.VIDEO mobile-get-started-android]
 
-완성된 앱의 스크린샷은 다음과 같습니다.![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+완성된 앱의 스크린샷은 다음과 같습니다.
+
+![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## 필수 조건
 
@@ -93,4 +95,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

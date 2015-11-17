@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/09/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -123,6 +123,7 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 
 미리 보기 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
 
+Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합니다. CORS를 통해 다른 도메인에 상주하는 웹 응용 프로그램에서 리소스 관리자 REST API 또는 Azure 서비스 REST API를 호출할 수 있습니다. CORS 지원하지 않는 웹 브라우저에서는 한 도메인의 응용 프로그램이 다른 도메인의 리소스에 액세스할 수 없습니다. 리소스 관리자는 유효한 인증 자격 증명을 사용하여 모든 요청에 대해 CORS할 수 있습니다.
 
 ## 다음 단계
 
@@ -135,4 +136,4 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

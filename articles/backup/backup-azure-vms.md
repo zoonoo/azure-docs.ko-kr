@@ -70,13 +70,13 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     ![등록 작업](./media/backup-azure-vms/register-create-job.png)
 
-   또한 등록 작업의 상태와 함께 가상 컴퓨터가 등록된 항목 목록에 나타납니다.
+    또한 등록 작업의 상태와 함께 가상 컴퓨터가 등록된 항목 목록에 나타납니다.
 
-    ![Registering status 1](./media/backup-azure-vms/register-status01.png)
+    ![등록 상태 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status will change to reflect the *registered* state.
+    작업이 완료되면 상태가 *등록된* 상태를 반영하도록 변경됩니다.
 
-    ![Registration status 2](./media/backup-azure-vms/register-status02.png)
+    ![등록 상태 2](./media/backup-azure-vms/register-status02.png)
 
 ## 3단계 - Azure 가상 컴퓨터 보호
 이제 가상 컴퓨터에 대한 백업 및 보존 정책을 설정할 수 있습니다. 단일 보호 작업을 사용하여 여러 가상 컴퓨터를 보호할 수 있습니다.
@@ -153,7 +153,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
 대시보드의 값은 24시간마다 한 번 새로 고쳐집니다.
 
-## 문제 해결 오류
+## 문제 해결
 가상 컴퓨터를 백업하는 동안 문제를 실행하는 경우 도움말은 이 [문제해결](backup-azure-vms-troubleshoot.md) 지침을 살펴봅니다.
 
 ## 다음 단계
@@ -161,4 +161,4 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 - [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/05/2015" 
+	ms.date="11/05/2015" 
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>모바일 서비스 시작
@@ -25,7 +25,7 @@
 
 이 자습서에서는 Azure 모바일 서비스를 사용하여 Xamarin.Android 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다.
 
-동영상을 시청하려는 경우 아래쪽의 클립은 이 자습서와 동일한 단계를 따릅니다.
+동영상을 시청하려는 경우 아래쪽의 클립은 이 자습서의 동일한 단계를 따릅니다.
 
 비디오: "Xamarin 및 Azure 모바일 서비스 시작". 진행: Craig Dunn, Xamarin 개발자(시간: 10:05분)
 
@@ -141,4 +141,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

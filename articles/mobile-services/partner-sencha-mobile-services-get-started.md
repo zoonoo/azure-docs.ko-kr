@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 및 Sencha Touch 시작
@@ -43,6 +43,7 @@
 - [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank") 을 다운로드하여 설치합니다.
 
 - JRE(Java Runtime Environment) 또는 Java Development Kit(Android 앱을 만드는 경우)
+- Ruby 및 SASS 보석
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
@@ -64,7 +65,7 @@
 
 3. **TodoItems 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
-	> [AZURE.NOTE] 관리 포털에서 HTML 앱을 다운로드하지 마세요. 대신, 아래 섹션에서 직접 Sencha Touch 응용 프로그램을 만듭니다.
+	> [AZURE.NOTE]관리 포털에서 HTML 앱을 다운로드하지 마세요. 대신, 아래 섹션에서 직접 Sencha Touch 응용 프로그램을 만듭니다.
 
 
 1. 관리 포털에서 **appKey** 및 **appUrl**을 기록해 두십시오. 이 자습서의 다른 섹션에서 이 정보를 사용합니다.
@@ -95,7 +96,7 @@ Azure용 확장 프로그램은 수동으로 또는 Sencha 패키지로 설치�
 
 다음 단계를 사용하여 응용 프로그램에 Azure 확장 프로그램을 수동으로 추가할 수 있습니다.
 
-1. Azure 확장 패키지는 [여기](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)(영문)에서 다운로드합니다. 이 영역에 액세스하려면 Sencha Forums ID를 사용할 수 있습니다.
+1. Azure 확장 패키지는 [여기](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)(영문)에서 다운로드합니다. 이 영역에 액세스하려면 Sencha Forums ID를 사용할 수 있습니다.
 
 2. 다운로드 디렉터리에서 Azure 확장 패키지를 복사하여 최종적으로 배치하여 압축을 풀 위치에 넣습니다.
 
@@ -108,11 +109,11 @@ Azure용 확장 프로그램은 수동으로 또는 Sencha 패키지로 설치�
 
 ###Sencha 패키지로 설치
 
-> [AZURE.NOTE] <code>sencha generate app</code> 명령을 사용하여 응용 프로그램을 생성한 경우에만 이 방법을 사용할 수 있습니다.
+> [AZURE.NOTE]<code>sencha generate app</code> 명령을 사용하여 응용 프로그램을 생성한 경우에만 이 방법을 사용할 수 있습니다.
 
 Sencha Cmd로 생성된 모든 응용 프로그램에는 루트에 "packages" 폴더가 있습니다. 이 폴더의 위치는 구성할 수 있지만, 위치에 상관없이 "packages" 폴더의 역할은 응용 프로그램에서 사용되는 모든 패키지(또는 Sencha Workspace를 만든 경우 여러 응용 프로그램)의 저장소 역할입니다.
 
-Ext.Azure는 Sencha Cmd "패키지"이므로, Sencha Cmd를 사용하여 원본 코드를 쉽게 설치하고 응용 프로그램에 포함할 수 있습니다. 자세한 내용은 [Sencha Cmd 패키지](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages)(영문)를 참조하십시오.
+Ext.Azure는 Sencha Cmd "패키지"이므로, Sencha Cmd를 사용하여 원본 코드를 쉽게 설치하고 응용 프로그램에 포함할 수 있습니다. 자세한 내용은 [Sencha Cmd 패키지](http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_packages.html)(영문)를 참조하십시오.
 
 Sencha 패키지 리포지토리에서 Azure 확장 패키지를 다운로드하여 설치하려면 **app.json** 파일에 패키지 이름을 추가하고 응용 프로그램을 빌드해야 합니다.
 
@@ -664,7 +665,7 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 
   2. Sencha Cmd를 사용하여 다음 명령을 실행합니다.
 
-    * *sencha app refresh*: Sencha Cmd에 모든 앱 종속성을 찾고 필요한 패키지를 다운로드(예: [Azure용 Sencha Touch 확장](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure))하도록 지시합니다.
+    * *sencha app refresh*: Sencha Cmd에 모든 앱 종속성을 찾고 필요한 패키지를 다운로드(예: [Azure용 Sencha Touch 확장](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure))하도록 지시합니다.
 
     * *sencha web start*: 응용 프로그램을 테스트하는 로컬 웹 서버를 시작합니다.
 
@@ -702,7 +703,7 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 ##추가 리소스
 
   * [Sencha Touch 다운로드](http://pages.sencha.com/touch-for-azure.html)
-  * [Azure용 Sencha Touch 확장 프로그램](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+  * [Azure용 Sencha Touch 확장 프로그램](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
 
 ##요약
@@ -717,4 +718,4 @@ Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](h
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

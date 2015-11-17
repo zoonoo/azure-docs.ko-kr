@@ -383,8 +383,6 @@
  
 Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerShell을 사용하여 데이터 팩터리 만들기 및 모니터링][monitor-manage-using-powershell]을 참조하세요.
 
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md)을 통해 의견을 보내주세요.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -503,4 +501,4 @@ Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerSh
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

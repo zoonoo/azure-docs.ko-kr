@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/16/2015"
+	ms.date="11/11/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 개요
 
-이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다.
+이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 저장소 클라이언트 라이브러리는 Blob 저장소 REST API와의 상호작용을 단순화하는 SDK입니다. 이 가이드에서 다루는 시나리오는 Blob의 **업로드**, **나열**, **다운로드** 및 **삭제**를 포함하며 완료하는 데 한시간 정도가 걸려야 합니다. 비디오 시작을 시청하려면 [5분 만에 저장소 소개](https://azure.microsoft.com/ko-KR/documentation/videos/azure-storage-5-minute-overview/) 를 참조하거나 [5분 만에 저장소 시작](https://azure.microsoft.com/ko-KR/documentation/articles/storage-getting-started-guide/) 가이드를 읽을 수 있습니다.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -146,9 +146,9 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대�
 		}
 	}
 
-위와 같이 이름에 대한 경로 정보를 사용하여 Blob 이름을 지정할 수 있습니다. 이렇게 하면 기존 파일 시스템과 같이 구성 및 트래버스할 수 있는 가상 디렉터리 구조를 만듭니다. 디렉터리 구조는 가상만 해당됩니다. Blob 저장소에서 사용할 수 있는 리소스만 컨테이너 및 Blob입니다. 하지만 저장소 클라이언트 라이브러리는 참조하도록 가상 디렉터리에 **CloudBlobDirectory** 개체를 제공하며 이러한 방식으로 구성되는 Blob을 사용한 작업 과정을 단순화합니다.
+위와 같이 이름에 대한 경로 정보를 사용하여 Blob 이름을 지정할 수 있습니다. 이렇게 하면 기존 파일 시스템과 같이 구성 및 트래버스할 수 있는 가상 디렉터리 구조를 만듭니다. 디렉터리 구조는 가상만 해당됩니다. Blob 저장소에서 사용할 수 있는 리소스만 컨테이너 및 Blob입니다. 하지만 저장소 클라이언트 라이브러리는 가상 디렉터리를 참조하는 **CloudBlobDirectory** 개체를 제공하며 이러한 방식으로 구성되는 Blob을 사용한 작업 과정을 단순화합니다.
 
-예를 들어 `photos`(이)라는 컨테이너에 있는 다음 블록 Blob 집합을 고려합니다.
+예를 들어 `photos` 컨테이너에 있는 다음 블록 Blob 집합을 고려합니다.
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -338,7 +338,20 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 
 ## 다음 단계
 
-이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요. <ul> <li>사용 가능한 API에 대한 자세한 내용은 Blob 서비스 참조 설명서: <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">.NET 참조에 대한 저장소 클라이언트 라이브러리</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 참조</a></li> </ul> </li> <li><a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Azure에서 데이터 저장 및 액세스</a>에서 Azure 저장소와 수행할 수 있는 고급 작업에 대해 자세히 알아봅니다.</li> <li><a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK</li>를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법에 대해 알아봅니다. <li>Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요. <ul> <li><a href="/documentation/articles/storage-dotnet-how-to-use-tables/">테이블 저장소</a>를 사용하여 구조화된 데이터를 저장합니다.</li> <li><a href="/documentation/articles/storage-dotnet-how-to-use-queues/">큐 저장소</a>를 사용하여 구조화되지 않은 데이터를 저장합니다.</li> <li><a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL 데이터베이스</a>를 사용하여 관계형 데이터를 저장합니다.</li> </ul> </li> </ul>
+이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
+
+### Blob 저장소 참조 설명서
+
+- [Storage Client Library for .NET 참조](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+- [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
+
+### 추가 기능 가이드
+
+- [.NET용 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
+- [.NET용 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
+- [.NET용 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
+- [SQL 데이터베이스를 사용하여 관계형 데이터 저장](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -353,4 +366,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

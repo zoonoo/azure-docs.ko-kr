@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="08/12/2015"
+	ms.date="11/03/2015"
 	ms.author="normesta"/>
 
 #Xamarin.Forms 앱 만들기
@@ -168,4 +168,4 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
@@ -90,7 +90,7 @@
 
 1. 압축된 프로젝트 파일을 저장한 위치로 이동하고, 컴퓨터에 파일의 압축을 풀고, **서버** 하위 폴더에서 다음 명령 파일 중 하나를 실행합니다.
 
-	+ **launch-windows**(Windows 컴퓨터)
+	+ **.\\start-iisexpress.ps1**(Windows 컴퓨터)
 	+ **launch-mac.command**(Mac OS X 컴퓨터)
 	+ **launch-linux.sh**(Linux 컴퓨터)
 
@@ -106,7 +106,7 @@
 
    	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 모바일 서비스에서 반환되고 그 데이터가 앱의 두 번째 열에 표시됩니다.
 
-	> [AZURE.NOTE]모바일 서비스에 액세스하는 코드를 검토하여 데이터를 쿼리 및 삽입할 수 있습니다(app.js 파일에 있음).
+	> [AZURE.NOTE]모바일 서비스에 액세스하는 코드를 검토하여 데이터를 쿼리 및 삽입할 수 있습니다(page.js 파일에 있음).
 
 4. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

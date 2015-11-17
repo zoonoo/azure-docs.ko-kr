@@ -33,7 +33,7 @@
 
 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
-> [AZURE.IMPORTANT][자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+> [AZURE.IMPORTANT] [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 
 ## 연습: Visual Studio를 사용하여 데이터 팩터리 엔터티 만들기 및 배포 
 
@@ -69,7 +69,7 @@
 
 	![새 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-linked-service-dialog.png)
  
-3. **accountname** 및 **accountkey**를 Azure 저장소 계정 이름 및 해당 키로 바꿉니다.
+3. **accountname** 및 **accountkey**를 Azure 저장소 계정 및 해당 키로 바꿉니다.
 
 	![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 
@@ -183,7 +183,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
-	파이프라인의 **시작** 및 **끝** 속성은 파이프라인의 활성 기간을 지정합니다.
+	파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
 	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에서 지정된 계산에 실행되도록 지정합니다.
 3. **HiveActivity1.json** 파일을 저장합니다.
@@ -243,7 +243,5 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 ## 다음 단계
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO3-->

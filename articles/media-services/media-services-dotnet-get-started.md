@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.date="11/08/2015"
 	ms.author="juliako"/>
 
 
@@ -29,6 +29,12 @@
 
 
 기본적인 미디어 서비스 워크플로와 미디어 서비스 개발에 필요한 가장 일반적인 프로그래밍 개체 및 작업을 소개합니다. 자습서를 마치면 업로드하고 인코딩하고 다운로드한 샘플 미디어 파일을 스트리밍하거나 점진적으로 다운로드할 수 있습니다.
+
+
+##샘플 다운로드
+
+[여기](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)에서 샘플을 가져와서 실행합니다.
+
 
 ## 필수 조건
 Media Services SDK for .NET을 사용하여 개발을 시작하려면 다음 필수 조건이 필요합니다.
@@ -420,14 +426,14 @@ MPEG DASH
 점진적 다운로드를 테스트하려면 Internet Explorer, Chrome, Safari 등의 브라우저에 URL을 붙여넣습니다.
 
 
-##다음 단계
+##다음 단계: 미디어 서비스 학습 경로
 
-###미디어 서비스 학습 경로
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+##피드백 제공
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### 다른 정보를 찾으시나요?
 
@@ -441,4 +447,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

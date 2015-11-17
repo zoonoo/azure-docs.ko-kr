@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/27/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -205,7 +205,6 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 개체를 직렬화하는 간단한 방법은 [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1)에서 `JsonConvert` 직렬화 방법을 사용하고 JSON 간에 직렬화하는 것입니다. 다음 예제에서는 `Employee` 개체 인스턴스를 사용하는 가져오기 및 설정을 보여줍니다.
 
 
-	[Serializable]
 	class Employee
 	{
 	    public int Id { get; set; }
@@ -330,4 +329,4 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

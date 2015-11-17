@@ -1,5 +1,5 @@
 <properties
-	pageTitle="NodeJS에서 Azure 검색 시작 | Microsoft Azure"
+	pageTitle="NodeJS에서 Azure 검색으로 시작 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="NodeJS를 프로그래밍 언어로 사용하여 사용자 지정 Azure에서 호스트된 클라우드 검색 서비스의 검색 응용 프로그램을 빌드하는 과정을 안내합니다."
 	services="search"
 	documentationCenter=""
@@ -24,7 +24,7 @@
 
 이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다.
 
-> [AZURE.TIP][AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198)에서 이 자습서의 원본 코드를 다운로드하세요.
+> [AZURE.TIP] [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198)에서 이 자습서의 원본 코드를 다운로드하세요.
 
 ## 데이터 정보
 
@@ -147,4 +147,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO3-->

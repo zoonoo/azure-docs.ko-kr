@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 검색에서 Chrome Postman 사용 | Microsoft Azure"
+	pageTitle="Azure 검색에서 Chrome Postman 사용 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="호스트된 클라우드 검색 서비스인 Azure 검색으로 Chrome Postman을 사용합니다. Postman을 설치하고 구성합니다. Azure 검색 인덱스 만들기 Postman에 문서를 게시하고 인덱스를 쿼리합니다."
 	services="search"
 	documentationCenter=""
@@ -14,10 +14,16 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
 # Azure 검색에서 Chrome Postman을 사용하는 방법 #
+> [AZURE.SELECTOR]
+- [Overview](search-query-overview.md)
+- [Fiddler](search-fiddler.md)
+- [Postman](search-chrome-postman.md)
+- [.NET](search-query-dotnet.md)
+- [REST](search-query-rest-api.md)
 
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman")은 개발자가 Azure 검색과 같은 REST 기반 API 서비스를 효율적으로 사용할 수 있도록 Google Chrome의 일부로 제공되는 도구입니다. Postman을 사용하면 코드를 작성하지 않고도 Postman을 통해 API 호출을 보내 검색 인덱스를 신속하게 만들고 쿼리할 수 있습니다. 이 방법을 통해 API를 효율적으로 배우고 새 기능을 사용해 볼 수 있습니다.
 
@@ -94,7 +100,7 @@ Postman을 구성하려면 다음 단계를 따릅니다.
 
 1. 검색 서비스 이름을 사용하여 URL에 `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail`을 입력합니다. URL에 `search` 쿼리 매개 변수와 검색 용어 *trail*이 포함되었습니다.
 2. HTTP 요청 형식을 `GET`으로 변경합니다.
-3. **Send**를 클릭합니다.
+3. **보내기**를 클릭합니다.
 
 Azure 검색에서 반환된 JSON 검색 결과가 응답에 표시됩니다.
 
@@ -118,4 +124,4 @@ REST API에 대한 설명서는 [MSDN](https://msdn.microsoft.com/library/azure/
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -47,7 +47,7 @@
 
 	![새 프로젝트 대화 상자](./media/data-factory-get-started-using-vs/new-project-dialog.png)
 
-3. 프로젝트의 **이름**, **위치** 및 **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
+3. 프로젝트의 **이름**, **위치**, **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
 
 	![솔루션 탐색기](./media/data-factory-get-started-using-vs/solution-explorer.png)
 
@@ -58,7 +58,7 @@
 
 ##### Azure 저장소 연결된 서비스 만들기
 
-4. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
+4. 솔루션 탐색기에서 **연결된 서비스** 노드를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
 5. **새 항목 추가** 대화 상자의 목록에서 **Azure 저장소 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다. 
 
 	![새 연결된 서비스](./media/data-factory-get-started-using-vs/new-linked-service-dialog.png)
@@ -240,8 +240,4 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 �
 
 Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)을 참조하세요.
 
-
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md)을 통해 의견을 보내주세요.
-
-<!-----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

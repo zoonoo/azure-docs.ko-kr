@@ -19,10 +19,10 @@
 
 5. 네임스페이스 페이지에서 위쪽의 **알림 허브** 탭을 클릭한 후 방금 만든 알림 허브를 클릭합니다. 그러면 새 알림 허브의 대시보드가 열립니다.
 
-6. 새 허브의 대시보드를 열고 **연결 문자열 보**기를 클릭합니다. 두 연결 문자열을 기록해 둡니다. 나중에 사용합니다.
+6. 새 허브의 대시보드에서 **연결 문자열 보**기를 클릭합니다. 두 연결 문자열을 기록해 둡니다. 나중에 사용합니다.
 
    	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-view-connection-strings.png)
 
 	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Java에서 Azure 검색 시작 | Microsoft Azure"
+	pageTitle="Java에서 Azure 검색으로 시작 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="Java를 프로그래밍 언어로 사용하여 Azure에서 호스트된 클라우드 검색 응용 프로그램을 빌드하는 방법입니다."
 	services="search"
 	documentationCenter=""
@@ -231,4 +231,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

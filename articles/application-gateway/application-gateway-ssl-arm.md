@@ -17,18 +17,21 @@
 
 # Azure 리소스 관리자를 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성
 
+> [AZURE.SELECTOR]
+-[Azure Classic Powershell](application-gateway-ssl.md)
+-[Azure Resource Manager Powershell](application-gateway-ssl-arm.md)
 
  응용 프로그램 게이트웨이 구성을 사용하여 웹 팜에서 발생하는 비용이 많이 드는 SSL 암호 해독 작업을 방지하기 위한 게이트웨이에서 SSL 세션을 종료합니다. SSL 오프로드는 또한 프런트엔드 서버 설치 및 웹 응용 프로그램의 관리를 간소화합니다.
 
 
->[AZURE.IMPORTANT]Azure 리소스로 작업하기 전에 Azure에는 현재 리소스 관리자와 클래식 모드의 두 가지 배포 모델이 있다는 것을 이해해야 합니다. Azure 리소스로 작업하기 전에 [배포 모델 및 도구](azure-classic-rm.md)를 이해해야 합니다. 이 문서의 윗부분에 있는 탭을 클릭하여 다양한 도구에 대한 설명서를 볼 수 있습니다. 이 문서에서는 Azure 리소스 관리자를 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 설명합니다. 클래식 버전을 사용하려면 [PowerShell(기본)을 사용하여 응용 프로그램 게이트웨이 SSL 오프로드 구성](application-gateway-ssl.md)으로 이동합니다.
+>[AZURE.IMPORTANT]Azure 리소스로 작업하기 전에 Azure에는 현재 리소스 관리자와 클래식 배포 모델의 두 가지 배포 모델이 있다는 것을 이해해야 합니다. Azure 리소스로 작업하기 전에 [배포 모델 및 도구](azure-classic-rm.md)를 이해해야 합니다. 이 문서의 윗부분에 있는 탭을 클릭하여 다양한 도구에 대한 설명서를 볼 수 있습니다. 이 문서에서는 Azure 리소스 관리자를 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 설명합니다. 클래식 배포 모델 버전을 사용하려면 [Azure 클래식 배포를 사용하여 응용 프로그램 게이트웨이 SSL 오프로드 구성](application-gateway-ssl.md)으로 이동합니다.
 
 
 
 ## 시작하기 전에
 
 1. 웹 플랫폼 설치 관리자를 사용하여 최신 버전의 Azure PowerShell cmdlet을 설치합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 **Windows PowerShell** 섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
-2. 응용 프로그램 게이트웨이에 대한 가상 네트워크 및 서브넷을 만듭니다. 서브넷을 사용 중인 가상 컴퓨터 또는 클라우드 배포가 없는지 확인합니다. 응용 프로그램 게이트웨이는 가상 네트워크 서브넷에서 단독이어야 합니다.
+2. 응용 프로그램 게이트웨이에 대한 가상 네트워크 및 서브넷을 만듭니다. 가상 컴퓨터 또는 클라우드 배포가 서브넷을 사용하지 않는지 확인합니다. 응용 프로그램 게이트웨이는 가상 네트워크 서브넷에 단독으로 있어야 합니다.
 3. 응용 프로그램 게이트웨이를 사용하도록 구성된 서버가 존재하거나 가상 네트워크나 공용 IP/VIP가 할당된 해당 끝점이 만들어져야 합니다.
 
 ## 응용 프로그램 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
@@ -42,14 +45,14 @@
 
 **추가 구성 정보:**
 
-SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*로(대/소문자 구분)바꿔야 합니다. **SslCertificate** 요소는 SSL 인증서에 대해 구성된 변수 값으로 **HttpListener**에 추가되어야 합니다. 프런트 엔드 포트는 443으로 업데이트되어야 합니다.
+SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*(대/소문자 구분)로 바꿔야 합니다. **SslCertificate** 요소는 SSL 인증서에 대해 구성된 변수 값으로 **HttpListener**에 추가되어야 합니다. 프런트 엔드 포트는 443으로 업데이트되어야 합니다.
 
-**선호도 쿠키 기반으로 사용하도록 설정**: 응용 프로그램 게이트웨이는 웹팜에 있는 동일한 VM으로부터 항상 연결되는 클라이언트 세션의 해당 요청을 확인할 수 있게 구성될 수 있습니다. 트래픽에 적절하게 연결해주는 게이트웨이를 허용하는 세션 쿠키를 삽입하면 완료됩니다. 쿠키를 기반 선호도를 사용하려면,**CookieBasedAffinity**를*사용할수 있게***BackendHttpSettings**요소에 설정합니다.
+**쿠키 기반 선호도를 사용하도록 설정**: 응용 프로그램 게이트웨이는 클라이언트 세션의 요청이 항상 웹 팜에 있는 동일한 VM으로 전송되도록 구성할 수 있습니다. 트래픽에 적절하게 연결해주는 게이트웨이를 허용하는 세션 쿠키를 삽입하면 완료됩니다. 쿠키를 기반 선호도를 사용하려면 **BackendHttpSettings** 요소에서 **CookieBasedAffinity**를 *Enabled*로 설정합니다.
 
  
 ## 새 응용 프로그램 게이트웨이 만들기
 
-Azure Classic 및 Azure 리소스 관리자 간의 차이점은 응용 프로그램 게이트웨이를 만드는 순서와 구성할 항목입니다.
+Azure Classic 배포 모델 및 Azure 리소스 관리자 간의 차이점은 응용 프로그램 게이트웨이를 만드는 순서와 구성할 항목입니다.
 
 리소스 관리자를 사용하면 응용 프로그램 게이트웨이를 만드는 모든 항목이 개별적으로 구성된 후 응용 프로그램 게이트웨이 리소스를 만드는 데 사용됩니다.
 
@@ -167,7 +170,7 @@ SSL 연결에 사용된 인증서를 구성합니다. 인증서는 .pfx 형식�
 
 ### 7단계
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
 "listener01"이라는 수신기를 만들고 프런트 엔드 IP 구성 및 인증서에 프런트 엔드 포트를 연결합니다.
@@ -184,7 +187,7 @@ SSL 연결에 사용된 인증서를 구성합니다. 인증서는 .pfx 형식�
 
 응용 프로그램 게이트웨이의 인스턴스 크기를 구성합니다.
 
->[AZURE.NOTE]*InstanceCount*에 대한 기본값은 2이고, 최대값은 10입니다. *GatewaySize*에 대한 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
+>[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
 
 ## New-AzureApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -195,10 +198,10 @@ SSL 연결에 사용된 인증서를 구성합니다. 인증서는 .pfx 형식�
 
 ## 응용 프로그램 게이트웨이 시작
 
-게이트웨이가 구성되면, `Start-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 시작합니다. 응용 프로그램 게이트웨이에 대한 청구는 게이트웨이가 성공적으로 작동된 후 시작합니다.
+게이트웨이가 구성되면 `Start-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 시작합니다. 응용 프로그램 게이트웨이에 대한 청구는 게이트웨이가 성공적으로 작동된 후 시작합니다.
 
 
-**참고:** `Start-AzureApplicationGateway` cmdlet을 완료하려면 최대 15-20분까지 걸릴 수 있습니다.
+**참고:** `Start-AzureApplicationGateway` cmdlet은 완료되는 데 최대 15-20분까지 걸릴 수 있습니다.
 
 아래 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 하고 리소스 그룹을 "app-rg"라고 합니다.
 
@@ -219,7 +222,7 @@ SSL 연결에 사용된 인증서를 구성합니다. 인증서는 .pfx 형식�
 
 ## 응용 프로그램 게이트웨이 상태 확인
 
-`Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. *시작 AzureApplicationGateway*가 이전 단계에서 성공한 경우, 상태가 *실행*이 되어야 하고, Vip와 DNS 이름은 유효한 항목을 가져야 합니다.
+`Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. *Start-AzureApplicationGateway*가 이전 단계에서 성공한 경우 상태가 *실행 중*이어야 하고, Vip와 DnsName에 유효한 항목이 있어야 합니다.
 
 이 샘플은 작동되어 실행 중이고 `http://<generated-dns-name>.cloudapp.net`으로 전송된 트래픽을 받아들일 준비가 된 응용 프로그램 게이트웨이를 보여 줍니다.
 
@@ -379,4 +382,4 @@ ILB에 사용하기 위해 응용 프로그램 게이트웨이를 구성하려�
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

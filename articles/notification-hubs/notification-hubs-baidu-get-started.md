@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="10/19/2015"
+	ms.date="11/03/2015"
 	ms.author="wesmc"/>
 
 # Baidu를 사용하여 알림 허브 시작
@@ -503,4 +503,4 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 [Azure 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

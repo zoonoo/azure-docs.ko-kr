@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/03/2015"
 	ms.author="yuaxu"/>
 
 # 알림 허브 시작
@@ -81,7 +81,7 @@
 
 3. **AppDelegate.cs**에서 다음 using 문을 추가합니다.
 
-    using WindowsAzure.Messaging;
+    	using WindowsAzure.Messaging;
 
 4. **SBNotificationHub** 인스턴스를 선언합니다.
 
@@ -98,9 +98,17 @@
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert |
-                UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
+            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+    			var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
+                       UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
+                       new NSSet ());
+
+			    UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
+			    UIApplication.SharedApplication.RegisterForRemoteNotifications ();
+			} else {
+			    UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+			    UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
+			}
 
             return true;
         }
@@ -323,4 +331,4 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

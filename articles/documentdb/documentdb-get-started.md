@@ -1,7 +1,7 @@
 <properties
 	pageTitle="NoSQL 데이터베이스 - DocumentDB .NET SDK 시작 | Microsoft Azure"
 	description="데이터베이스를 만들고 Azure DocumentDB 계정을 구성하는 방법을 알아봅니다. NoSQL 데이터베이스 계정 내에서 데이터베이스 및 컬렉션을 만들고 JSON 문서를 저장합니다."
-	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
+	keywords="데이터베이스 만들기, 데이터베이스 만들기, nosql 데이터베이스, nosql 데이터베이스, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="09/16/2015"
+	ms.date="11/05/2015"
 	ms.author="anhoh"/>
 
 #DocumentDB .NET SDK 시작  
@@ -75,6 +75,8 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
+
+> [AZURE.IMPORTANT]이 응용 프로그램을 완료하려면 위의 종속성을 추가했는지 확인합니다.
 
 다음으로 DocumentDB 계정 끝점과 기본 또는 보조 선택키를 저장합니다. [Azure Preview 포털](https://portal.azure.com)에서 확인할 수 있습니다.
 
@@ -478,4 +480,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

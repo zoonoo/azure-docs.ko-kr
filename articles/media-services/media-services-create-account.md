@@ -74,12 +74,16 @@ Azure 포털을 통해 Azure 미디어 서비스 계정을 신속하게 만들 �
 
 	뿐만 아니라 Azure 미디어 서비스 SDK를 사용하여 동영상을 업로드, 인코드 및 게시하는 작업을 완료하는 코드를 볼 수 있습니다. **코드 작성** 섹션 아래의 링크 중 하나를 클릭하고 코드를 복사한 후 응용 프로그램에서 사용할 수 있습니다.
 
+
+
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ## 다음 단계
 
@@ -99,4 +103,4 @@ Azure 포털을 통해 Azure 미디어 서비스 계정을 신속하게 만들 �
 
   [Azure 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

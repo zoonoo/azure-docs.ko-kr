@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
+	ms.date="11/10/2015"
 	ms.author="jroth"/>
 
 # SQL 데이터베이스 서비스 계층
@@ -35,7 +35,7 @@
 ### 단일 데이터베이스에 대한 서비스 계층
 단일 데이터베이스의 경우 각 서비스 계층 내에 여러 성능 수준이 있으므로 워크로드 요구에 가장 적합한 수준을 융통성 있게 선택할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 응용 프로그램 가동 중지 시간 없이 Azure 포털에서 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 자세한 내용은 [데이터베이스 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md)을 참조하세요.
 
-여기에 나열된 성능 특성은 [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)를 사용하여 만든 데이터베이스에 적용됩니다.
+여기에 나열된 성능 특성은 [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)를 사용하여 만든 데이터베이스에 적용됩니다. Azure에서 기본 하드웨어가 여러 SQL 데이터베이스를 호스팅하는 경우 데이터베이스는 여전히 보장된 리소스 집합을 가져오며 개별 데이터베이스의 예상되는 성능 특징은 영향을 받지 않습니다.
 
 [AZURE.INCLUDE [SQL DB 서비스 계층 테이블](../../includes/sql-database-service-tiers-table.md)]
 
@@ -95,4 +95,4 @@ SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 �
 SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->
