@@ -24,7 +24,7 @@
 
 이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다.
 
-> [AZURE.TIP][AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198)에서 이 자습서의 원본 코드를 다운로드하세요.
+> [AZURE.TIP] [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198)에서 이 자습서의 원본 코드를 다운로드하세요.
 
 ## 데이터 정보
 
@@ -147,4 +147,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
