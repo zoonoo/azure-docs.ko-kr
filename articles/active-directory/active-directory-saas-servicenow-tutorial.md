@@ -145,7 +145,7 @@
     e. **형식**으로 **저장소 인증서 신뢰**를 선택합니다.
 
     f. 다운로드한 인증서에서 Base-64로 인코딩한 파일을 만듭니다.
-    > [AZURE.NOTE]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+    > [AZURE.NOTE] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
     
     g. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **PEM 인증서** 텍스트 상자에 붙여 넣습니다.
 
@@ -183,7 +183,7 @@
 
     f. **ServiceNow 홈페이지** 텍스트 상자에 ServiceNow 인스턴스 홈페이지의 URL을 입력합니다.
 
-    > [AZURE.NOTE]ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다.(e.g.: **https://fabrikam.service-now.com/navpage.do*).
+    > [AZURE.NOTE] ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다.(e.g.: *https://fabrikam.service-now.com/navpage.do*).
  
 
     g. **엔터티 ID/발급자** 텍스트 상자에 ServiceNow 테넌트의 URL을 입력합니다.
@@ -196,7 +196,7 @@
 
     k. **AuthnContextClass 만들기**의 선택을 취소합니다.
 
-    l. **AuthnContextClassRef 메서드**에 ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**를 입력합니다.
+    l. **AuthnContextClassRef 메서드**에 **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**를 입력합니다.
 
     m. **시계 기울이기** 텍스트 상자에 **60**을 입력합니다.
 
@@ -230,19 +230,19 @@
 
 2. **ServiceNow 자격 증명을 입력하여 자동 사용자 프로비전 사용** 페이지에서 사용자 프로비전 구성 설정을 제공합니다.
 
-     2\.1. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
+     2.1. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
 
-     2\.2. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 ServiceNow 관리자 계정의 이름을 입력합니다.
+     2.2. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 ServiceNow 관리자 계정의 이름을 입력합니다.
 
-     2\.3. **ServiceNow 관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
+     2.3. **ServiceNow 관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
 
-     2\.4. **유효성 검사**를 클릭하여 구성을 확인합니다.
+     2.4. **유효성 검사**를 클릭하여 구성을 확인합니다.
 
-     2\.5. **다음** 단추를 클릭하여 **다음 단계** 페이지를 엽니다.
+     2.5. **다음** 단추를 클릭하여 **다음 단계** 페이지를 엽니다.
 
-     2\.6. 이 응용 프로그램에 모든 사용자를 프로비전하려는 경우 "** 이 응용 프로그램에 대한 디렉터리의 모든 사용자 계정을 자동으로 프로비전**"을 선택합니다. <br><br> ![다음 단계](./media/active-directory-saas-servicenow-tutorial/IC698804.png "다음 단계")
+     2.6. 이 응용 프로그램에 모든 사용자를 프로비전하려는 경우 "**이 응용 프로그램에 대한 디렉터리의 모든 사용자 계정을 자동으로 프로비전**"을 선택합니다. <br><br> ![다음 단계](./media/active-directory-saas-servicenow-tutorial/IC698804.png "다음 단계")
 
-     2\.7. **다음 단계** 페이지에서 **완료**를 클릭하여 구성을 저장합니다.
+     2.7. **다음 단계** 페이지에서 **완료**를 클릭하여 구성을 저장합니다.
 
 
 
@@ -278,4 +278,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->

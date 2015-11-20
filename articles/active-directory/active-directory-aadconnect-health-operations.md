@@ -22,7 +22,7 @@
 
 ## 전자 메일 알림 사용
 ID 인프라가 정상이 아님을 나타내는 경고가 생성되면 전자 메일 알림을 보내도록 Azure AD Connect Health Service를 구성할 수 있습니다. 알림은 경고가 생성되는 경우 및 해결된 것으로 표시되는 경우에 발생합니다. 전자 메일 알림을 구성하려면 아래 지침을 따르세요.
->[AZURE.NOTE]전자 메일 알림은 기본적으로 사용하지 않도록 설정되어 있습니다.
+>[AZURE.NOTE] 전자 메일 알림은 기본적으로 사용하지 않도록 설정되어 있습니다.
 
 
 ### Azure AD Connect Health 전자 메일 알림을 사용하도록 설정 하려면
@@ -128,7 +128,7 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 2. 블레이드에서 사용자는 "대시보드에 고정"를 클릭하여 대시보드에 블레이드 또는 다른 부분을 고정할 수 있습니다.<br> ![Azure AD Connect Health RBAC 블레이드 고정](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 [//]: # (RBAC\_PinBlade)
 
->[AZURE.NOTE]"읽기" 역할이 할당된 사용자는 "만들기" 작업을 수행하여 Azure 마켓플레이스에서 Azure AD Connect Health 확장을 가져올 수 없습니다. 이 사용자는 위의 링크로 이동하여 블레이드를 가져올 수 있습니다. 이후 사용의 경우 사용자는 대시보드에 블레이드를 고정할 수 있습니다.
+>[AZURE.NOTE] "읽기" 역할이 할당된 사용자는 "만들기" 작업을 수행하여 Azure 마켓플레이스에서 Azure AD Connect Health 확장을 가져올 수 없습니다. 이 사용자는 위의 링크로 이동하여 블레이드를 가져올 수 있습니다. 이후 사용의 경우 사용자는 대시보드에 블레이드를 고정할 수 있습니다.
 
 ### 사용자 및/또는 그룹 제거
 마우스 오른쪽 단추로 클릭하고 제거를 선택하여 Azure AD Connect Health 역할 기반 액세스 제어 부분에 추가된 그룹 또는 사용자를 제거할 수 있습니다.<br> ![Azure AD Connect Health RBAC 사용자 제거](./media/active-directory-aadconnect-health/RBAC_remove.png)
@@ -144,4 +144,4 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->

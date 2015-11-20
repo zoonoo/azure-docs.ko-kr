@@ -55,7 +55,9 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 	응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.	
 - **운영 체제**
 
-	다음 두 운영 체제 중 하나에서 HDInsight 클러스터를 만들 수 있습니다. - **Windows의 HDInsight(Windows Server 2012 R2 Datacenter)** - **Linux의 HDInsight(Linux용 Ubuntu 12.04 LTS) (미리 보기)** HDInsight는 Azure에서 Linux 클러스터를 구성하는 옵션을 제공합니다. Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합 또는 Linux 또는 Unix를 사용하고 기존 Hadoop Linux 기반 솔루션에서 마이그레이션에 익숙한 경우에 Linux 클러스터를 구성합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Hadoop 시작](hdinsight-hadoop-linux-get-started.md)을 참조하세요.
+	다음 두 운영 체제 중 하나에서 HDInsight 클러스터를 만들 수 있습니다. 
+	- **Windows의 HDInsight(Windows Server 2012 R2 Datacenter)**
+	- **Linux의 HDInsight(Linux용 Ubuntu 12.04 LTS) (미리 보기)** HDInsight는 Azure에서 Linux 클러스터를 구성하는 옵션을 제공합니다. Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합 또는 Linux 또는 Unix를 사용하고 기존 Hadoop Linux 기반 솔루션에서 마이그레이션에 익숙한 경우에 Linux 클러스터를 구성합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Hadoop 시작](hdinsight-hadoop-linux-get-started.md)을 참조하세요.
 
 
 - **HDInsight 버전**
@@ -73,7 +75,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 	![HDInsight 클러스터](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
-	> [AZURE.NOTE]*Azure HDInsight 클러스터*는 *HDInsight의 Hadoop 클러스터* 또는 *HDInsight 클러스터*라고도 합니다. 경우에 따라 *Hadoop 클러스터*로도 사용됩니다. 이들은 모두 Microsoft Azure 환경에서 호스트되는 Hadoop 클러스터를 말합니다.
+	> [AZURE.NOTE] *Azure HDInsight 클러스터* 는 *HDInsight의 Hadoop 클러스터* 또는 *HDInsight 클러스터* 라고도 합니다. 경우에 따라 *Hadoop 클러스터* 로도 사용됩니다. 이들은 모두 Microsoft Azure 환경에서 호스트되는 Hadoop 클러스터를 말합니다.
 
 	지정된 클러스터 형식 내의 다양한 노드에 대해 다양한 역할이 있으므로 고객이 지정된 역할에서 작업 세부 정보에 적절하게 노드 크기를 조정할 수 있습니다. 예를 들어 수행된 분석의 형식이 많은 양의 메모리 집약적인 경우 Hadoop 클러스터는 많은 양의 메모리로 만든 작업자 노드가 있을 수 있습니다.
 
@@ -86,21 +88,30 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다. - 헤드 서버(노드 2개) - 지역 서버(노드 1개 이상) - 마스터/Zookeeper 노드(노드 3개)
+	HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다.
+	- 헤드 서버(노드 2개)
+	- 지역 서버(노드 1개 이상)
+	- 마스터/Zookeeper 노드(노드 3개)
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	HDInsight용 Storm 클러스터는 세 가지 역할로 배포됩니다. - Nimbus 노드(노드 2개) - 감독자 서버(노드 1개 이상) - Zookeeper 노드(노드 3개)
+	HDInsight용 Storm 클러스터는 세 가지 역할로 배포됩니다.
+	- Nimbus 노드(노드 2개)
+	- 감독자 서버(노드 1개 이상)
+	- Zookeeper 노드(노드 3개)
 
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	HDInsight용 Spark 클러스터는 세 가지 역할로 배포됩니다. - 헤드 노드(노드 2개) - 작업자 노드(노드 1개 이상) - Zookeeper 노드(노드 3개) (A1 Zookeeper의 경우 무료)
+	HDInsight용 Spark 클러스터는 세 가지 역할로 배포됩니다.
+	- 헤드 노드(노드 2개)
+	- 작업자 노드(노드 1개 이상)
+	- Zookeeper 노드(노드 3개) (A1 Zookeeper의 경우 무료)
 
 	고객은 클러스터의 수명 기간 동안 해당 노드의 사용량에 대한 대금이 청구됩니다. 대금 청구는 클러스터를 만들면 시작되고 클러스터가 삭제되면 중지됩니다(클러스터를 할당 해제하거나 보류할 수 없음). 클러스터 크기는 클러스터 가격에 영향을 줍니다. 학습 목적인 경우는 데이터 노드를 하나 사용하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격 책정](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
 
 
-	>[AZURE.NOTE]클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 청구 지원 팀에 문의하세요.
+	>[AZURE.NOTE] 클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 청구 지원 팀에 문의하세요.
 
 - **지역/가상 네트워크(위치라고도 함)**
 
@@ -135,12 +146,12 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 	![HDInsight 저장소](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
-	>[AZURE.NOTE]Blob 저장소 컨테이너는 이미지에 나온 것처럼 Blob 집합 그룹화를 제공합니다.
+	>[AZURE.NOTE] Blob 저장소 컨테이너는 이미지에 나온 것처럼 Blob 집합 그룹화를 제공합니다.
 
 	![Azure Blob 저장소](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
 
-	>[AZURE.WARNING]여러 클러스터에서 하나의 Blob 저장소 컨테이너를 공유하지 마세요. 이 기능은 지원되지 않습니다.
+	>[AZURE.WARNING] 여러 클러스터에서 하나의 Blob 저장소 컨테이너를 공유하지 마세요. 이 기능은 지원되지 않습니다.
 
 	보조 Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요.
 
@@ -150,7 +161,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 ## 고급 구성 옵션
 
->[AZURE.NOTE]이 섹션은 현재 Windows 기본 HDInsight 클러스터에만 적용됩니다.
+>[AZURE.NOTE] 이 섹션은 현재 Windows 기본 HDInsight 클러스터에만 적용됩니다.
 
 ### HDInsight 클러스터 사용자 지정을 사용하여 클러스터 사용자 지정
 
@@ -229,7 +240,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-> [AZURE.NOTE]HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크에 Hadoop 클러스터 만들기](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network)를 참조하세요.
+> [AZURE.NOTE] HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크에 Hadoop 클러스터 만들기](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network)를 참조하세요.
 >
 > Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다. Azure PowerShell cmdlet Get-AzureVNetConfig를 사용하여 기존 Azure 가상 네트워크가 위치 기반인지 여부를 확인합니다. 가상 네트워크가 위치 기반이 아니면 다음과 같은 옵션을 사용할 수 있습니다.
 >
@@ -318,7 +329,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 
 	
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인하세요.
+	> [AZURE.NOTE] 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인하세요.
 	
 
 5. 생성이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다. 클러스터 블레이드는 이름, 속한 리소스 그룹, 위치, 운영 체제, 클러스터 대시보드의 URL 등 클러스터에 대한 필수 정보를 제공합니다.
@@ -339,7 +350,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 	* **사용자**(![사용자 아이콘](./media/hdinsight-provision-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 	
 
-		> [AZURE.IMPORTANT]이는 _오직_ Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
+		> [AZURE.IMPORTANT] 이는 _오직_ Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 		
 	* **태그**(![태그 아이콘](./media/hdinsight-provision-clusters/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
@@ -757,4 +768,4 @@ SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 
 [ssisclustercreate]: http://msdn.microsoft.com/ko-KR/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/ko-KR/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->
