@@ -34,7 +34,7 @@ DocumentDB에서 관리하는 데이터베이스 엔터티를 **리소스**라�
 
 >[AZURE.NOTE]DocumentDB는 통신 모델이 RESTful이며 [.NET 클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 사용할 수 있는 효율성 높은 TCP 프로토콜을 제공합니다.
 
-![][1]  
+![DocumentDB 계층적 리소스 모델][1]  
 **단일 데이터베이스 계정 아래의 계층적 리소스 모델**
 
 리소스 작업을 시작하려면 Azure 구독을 사용해서 [DocumentDB 데이터베이스 계정을 만들어야](documentdb-create-account.md) 합니다. 데이터베이스는 일련의 **데이터베이스** 집합으로 구성되며, 각 데이터베이스에는 여러 개의 **컬렉션**이 포함되며, 이러한 각 컬렉션에는 또한 **저장 프로시저, 트리거, UDF, 문서** 및 관련 **첨부 파일**(미리 보기 기능)이 포함됩니다. 또한 데이터베이스에는 **사용자**가 연관될 수 있으며, 이러한 각 사용자는 컬렉션, 저장 프로시저, 트리거, UDF, 문서 또는 첨부 파일에 액세스할 수 있는 **권한** 집합을 갖고 있습니다. 데이터베이스, 사용자, 사용 권한 및 컬렉션은 잘 알려진 스키마가 있는 시스템 정의 리소스인 반면 문서 및 첨부 파일에는 임의의 사용자 정의 JSON 콘텐츠가 포함됩니다.
@@ -61,7 +61,11 @@ DocumentDB에서 관리하는 데이터베이스 엔터티를 **리소스**라�
 
 속성 |사용자 설정 가능 또는 시스템 생성?|목적
 ---|---|---
-_\_rid|시스템 생성|시스템에서 생성된 고유 및 계층적 리소스 식별자. \_etag|시스템 생성|낙관적 동시성 제어에 필요한 리소스의 etag. \_ts|시스템 생성|리소스의 마지막으로 업데이트한 날짜 타임스탬프. \_self|시스템 생성|리소스의 주소 지정 가능한 고유 URI. id|사용자 설정 가능|리소스의 고유한 사용자 정의 이름. 사용자가 ID를 지정하지 않는 경우 시스템에서 ID가 생성됩니다.
+_rid|시스템 생성|시스템에서 생성된 고유 및 계층적 리소스 식별자.
+_etag|시스템 생성|낙관적 동시성 제어에 필요한 리소스의 etag.
+_ts|시스템 생성|리소스의 마지막으로 업데이트한 날짜 타임스탬프.
+_self|시스템 생성|리소스의 주소 지정 가능한 고유 URI.
+id|사용자 설정 가능|리소스의 고유한 사용자 정의 이름. 사용자가 ID를 지정하지 않는 경우 시스템에서 ID가 생성됩니다.
 
 ### 리소스의 네트워크 표현
 DocumentDB는 JSON 표준 또는 특수 인코딩에 대한 소유 확장을 위임하지 않습니다. 표준 규격 JSON 문서로 작동합니다.
@@ -75,6 +79,8 @@ DocumentDB는 JSON 표준 또는 특수 인코딩에 대한 소유 확장을 위
 |/dbs/{_rid-db}	|고유한 id 속성 값이 {_rid-db}인 데이터베이스
 |/dbs/{_rid-db}/colls/	|단일 데이터베이스 아래의 컬렉션 피드
 |/dbs/{_rid-db}/colls/{_rid-coll}	|고유한 id 속성 값이 {_rid-coll}인 컬렉션
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs |컬렉션 아래의 문서 피드
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |값 {_rid-doc}와 일치하는 id가 있는 문서
 |/dbs/{_rid-db}/users/	|단일 데이터베이스 아래의 사용자 피드
 |/dbs/{_rid-db}/users/{_rid-user}	|고유한 id 속성 값이 {_rid-user}인 사용자
 |/dbs/{_rid-db}/users/{_rid-user}/permissions	|단일 데이터베이스 아래의 사용 권한 피드
@@ -410,4 +416,4 @@ DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!----HONumber=Nov15_HO2-->
+<!-----HONumber=Nov15_HO2-->
