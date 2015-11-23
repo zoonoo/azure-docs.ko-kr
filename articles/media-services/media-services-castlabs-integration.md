@@ -113,11 +113,13 @@ jti|이 토큰에 대한 고유 식별자(모든 토큰은 castLabs 시스템에
 7.	플레이어를 업데이트합니다.
 8.	비디오가 재생됩니다.
 
+
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
 
-<!---HONumber=Oct15_HO4-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

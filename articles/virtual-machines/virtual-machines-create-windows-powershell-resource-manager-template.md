@@ -282,10 +282,10 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 
 [Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[PowerShell 및 Azure 서비스 관리자를 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-service-manager.md)
+[PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure PowerShell 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

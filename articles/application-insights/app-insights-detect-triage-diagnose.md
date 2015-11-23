@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2015"
+	ms.date="11/06/2015"
 	ms.author="awills"/>
 
 # Application Insights를 사용하여 감지, 심사 및 진단
@@ -20,28 +20,29 @@
 *Application Insights는 미리 보기 상태입니다.*
 
 
-응용 프로그램을 게시한 후 Application Insights를 사용하면 확인을 실행하고 정상적으로 작동하는지 확인할 수 있습니다. 문제가 있으면 바로 파악하고 이에 대해 어떻게 대처해야 하는지 알고자 합니다.
+Application Insights는 앱이 라이브 상태일 때 앱의 성능과 사용 방식을 파악하는 데 유용합니다. 또한 문제가 있는 경우 문제에 대해 알려주며 영향을 평가하고 원인을 확인하는 데 도움을 줍니다.
+
+웹 응용 프로그램을 개발하는 팀의 사례는 다음과 같습니다.
 
 * *"몇 일 전에 '사소한' 핫픽스가 배포되었습니다. 광범위한 테스트 패스를 실행하지 않았지만 안타깝게도 예기치 못한 변경 사항 일부가 페이로드에 병합되었으며 이는 프런트 엔드 및 백 엔드 사이의 비호환성을 유발합니다. 즉시, 서버 예외 사항이 급증했고 경고가 발생했으며 상황을 인식하도록 했습니다. Application Insights 포털에서 몇 번의 클릭만으로 문제를 줄이기 위해 예외 사항 호출 스택에서 충분한 정보를 얻었습니다. 즉시 롤백하고 손상을 제한했습니다. Application Insights는 DevOps 사이클에서 이 부분을 매우 쉽고 조치할 수 있도록 합니다."*
 
-DevOps 사이클에서 이 부분을 파이프라인으로 생각할 수 있습니다.
-
-![감지-심사-진단](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
-
-
-문제를 진단하면 어디에 초점을 맞추어야 하는지 알게 됩니다(코드를 디버그해야하는지, 더 많은 비용을 할당해야 하는지 또는 종속성이 수반되어야 하는지). 마지막으로 수정한 적이 있는지 확인할 수 있습니다.
-
-
-
-![복구-유효성 검사](./media/app-insights-detect-triage-diagnose/02-pipe2.png)
-
-
-Application Insights는 파이프라인의 각 단계에서 동작하는 방법을 살펴보겠습니다.
-
-Application Insights는 장치 앱 및 웹 응용 프로그램에 대해 동작합니다. 이 연습에서는 웹 응용 프로그램에 주안점을 둡니다. 온라인 뱅킹 시스템을 담당하는 Fabrikam 은행의 OBS 팀을 살펴보도록 하겠습니다. 해당 웹 프로젝트에 Application Insights를 추가했습니다.
-
+일반적인 웹 개발 팀에서 Application Insights를 사용하여 성능을 모니터링하는 방식을 살펴보겠습니다. OBS(온라인 뱅킹 시스템)를 개발하는 Fabrikam 은행의 팀을 살펴보도록 하겠습니다.
 
 ![은행 웹 사이트 예시](./media/app-insights-detect-triage-diagnose/03-bank.png)
+
+팀은 다음과 같은 주기로 작업합니다.
+
+![DevOps 주기](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
+
+요구 사항이 개발 백로그(작업 목록)에 제공됩니다. 팀에서는 대개 기존 응용 프로그램에 대한 개선 기능과 확장의 형태로, 작동하는 소프트웨어를 짧은 기간 안에 제공합니다. 라이브 앱은 새로운 기능으로 자주 업데이트됩니다. 앱이 라이브 상태일 때 팀은 Application Insights의 도움을 받아 앱의 성능과 사용 현황을 모니터링합니다. 이 분석은 팀의 개발 백로그로 다시 피드백됩니다.
+
+팀에서는 Application Insights를 사용하여 라이브 웹 응용 프로그램을 자세히 모니터링합니다. * 성능. 팀에서는 요청 수에 따라 응답 시간이 어떻게 달라지는지, 얼마나 많은 CPU, 네트워크, 디스크 및 기타 리소스가 사용되고 있는지, 어디에 병목이 있는지를 파악하려고 합니다. * 실패. 예외 또는 실패한 요청이 있거나 성능 카운터가 적절한 범위를 벗어나는 경우 팀에서는 조치를 취할 수 있도록 신속하게 파악해야 합니다. * 사용 현황. 새로운 기능이 릴리스될 때마다 팀에서는 해당 기능이 사용되는 범위와 사용자가 해당 기능에서 어려움을 겪고 있는지 여부를 파악하려고 합니다.
+
+
+
+주기의 피드백 부분을 집중적으로 살펴보겠습니다.
+
+![감지-심사-진단](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 
 
@@ -102,7 +103,7 @@ Marcela는 가끔 이러한 차트를 살펴봅니다. 실패한 요청이 없�
 ## 예외 사항 감지
 
 
-설치가 일부 진행되면 [예외](app-insights-asp-net-exceptions.md)가 Application Insights에 자동으로 보고됩니다. [TrackException()](app-insights-api-custom-events-metrics.md#track-exception)에 대한 호출을 코드에 삽입하여 명시적으로 캡처될 수도 있습니다.
+설치가 일부 진행되면 [예외](app-insights-asp-net-exceptions.md)가 Application Insights에 자동으로 보고됩니다. [TrackException()](app-insights-api-custom-events-metrics.md#track-exception)에 대한 호출을 코드에 삽입하여 예외가 명시적으로 캡처될 수도 있습니다.
 
     var telemetry = new TelemetryClient();
     ...
@@ -260,4 +261,4 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

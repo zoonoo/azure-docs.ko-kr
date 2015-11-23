@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL 데이터베이스 TRANSACT-SQL 정보
@@ -29,7 +29,6 @@
 
 SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 있는 인수가 일부는 지원되고 일부는 지원되지 않습니다. 예를 들어 CREATE PROCEDURE 문은 사용할 수 있지만 CREATE PROCEDURE의 WITH ENCRYPTION 옵션은 사용할 수 없습니다. 각 문의 지원되는 영역에 대한 자세한 내용은 연결된 구문 항목을 참조하세요.
 
-- CLR 어셈블리: [CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
 - 데이터베이스: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - DMV는 사용할 수 있는 기능에 대해 일반 공급됩니다.
 - 함수: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
@@ -96,4 +95,4 @@ TRANSACT-SQL 참조에는 SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, 
 
 항목의 일반적인 주제는 제품에서 사용할 수 있지만 일부 인수가 지원되지 않는 경우도 있습니다. 예를 들어 포함된 데이터베이스 사용자는 SQL Server 2012에서 도입되었습니다. **CREATE USER** 문은 모든 SQL Server 제품에서 사용할 수 있지만 **WITH PASSWORD** 구문은 이전 버전에서 사용할 수 없습니다. 이 경우 **적용 대상** 섹션이 항목 본문의 해당 인수 설명에 추가로 삽입됩니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

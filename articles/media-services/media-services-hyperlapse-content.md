@@ -203,13 +203,14 @@ NumFrames|처리할 프레임 수
 
 
 
+##미디어 서비스 학습 경로
 
-## 미디어 서비스 학습 경로
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+##피드백 제공
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 
@@ -220,4 +221,4 @@ NumFrames|처리할 프레임 수
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -20,7 +20,7 @@
 모니터링, 검색, 진단 및 문제 해결은 사용자 환경에 최소화하면서 서비스를 계속할 수 있게 해 줍니다. 자세한 내용은 다음을 참조하십시오.
 
 - [로컬에서 서비스를 모니터링 및 진단하는 방법](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-- [서비스 패브릭 응용 프로그램에 대한 Application Insights 설정](service-fabric-diagnostics-application-insights-setup.md)
+- [서비스 패브릭 응용 프로그램에 대한 Application Insights 설정](../app-insights-windows-desktop.md)
 - [응용 프로그램 업그레이드 실패 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
 - [신뢰할 수 있는 행위자에 대한 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 - [신뢰할 수 있는 서비스에 대한 진단 및 성능 모니터링](service-fabric-reliable-services-diagnostics.md)
@@ -38,4 +38,4 @@
 - [문제 해결을 위한 시스템 상태 보고서 사용](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [사용자 지정 서비스 패브릭 상태 보고서 추가](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

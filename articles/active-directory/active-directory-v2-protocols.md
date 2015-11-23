@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: 프로토콜 - OAuth 2.0 및 OpenID Connect
@@ -475,4 +475,4 @@ On Behalf Of 흐름 또는 JWT 전달자 자격 증명 부여는 [OAuth 2.0 확�
 
 이 흐름은 현재 v2.0 앱 모델 미리 보기에서 지원되지 않습니다. 일반 공급 Azure AD 서비스에서 이 흐름이 작동하는 방식을 확인하려면 [이 Azure AD 코드 샘플](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

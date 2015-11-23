@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Microsoft Azure에서 검색 서비스 관리 | Microsoft Azure" 
+	pageTitle="Microsoft Azure에서 검색 서비스 관리 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색 관리" 
 	services="search" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ Azure 검색에서는 역할 기반 액세스 제어에 따라 다음 관리 작
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

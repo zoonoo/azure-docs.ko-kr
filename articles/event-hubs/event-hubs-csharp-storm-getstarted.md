@@ -1,5 +1,5 @@
 <properties
-	pageTitle="이벤트 허브 시작"
+	pageTitle="Apache Storm과 함께 C#에서 이벤트 허브 시작 | Microsoft Azure"
 	description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 C#으로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # 이벤트 허브 시작
@@ -34,7 +34,7 @@
 
 + [Maven](http://maven.apache.org/)을 실행하도록 구성된 Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용한다고 가정합니다.
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ## 이벤트 허브 만들기
 
@@ -89,9 +89,9 @@
 
 이제 이벤트 허브를 만들고 데이터를 보내고 받는 작업 중인 응용 프로그램을 구축했으므로 다음 시나리오로 진행할 수 있습니다.
 
-- [이벤트 허브를 사용하는 샘플 응용 프로그램] 전체.
-- [이벤트 허브를 사용하는 이벤트 처리 확장] 샘플
-- 서비스 버스 큐를 사용하는 [큐 메시징 솔루션].
+- [이벤트 허브를 사용하는 샘플 응용 프로그램][] 전체.
+- [이벤트 허브를 사용하는 이벤트 처리 확장][] 샘플
+- 서비스 버스 큐를 사용하는 [큐 메시징 솔루션][].
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-storm-getstarted/create-event-hub1.png
@@ -108,9 +108,9 @@
 [Azure 포털]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: event-hubs-overview.md
-[이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[이벤트 허브를 사용하는 이벤트 처리 확장]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[이벤트 허브를 사용하는 이벤트 처리 확장]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [큐 메시징 솔루션]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

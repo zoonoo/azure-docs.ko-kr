@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
+	ms.date="11/03/2015"
 	ms.author="huvalo"/>
 
 # Python에서 서비스 관리를 사용하는 방법
 
-이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. **Python용 Azure SDK**의 [ServiceManagementService][download-SDK-Python] 클래스는 [관리 포털][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다(예: **클라우드 서비스, 배포, 데이터 관리 서비스, 가상 컴퓨터 만들기, 업데이트 및 삭제**). 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 응용 프로그램을 빌드하는 데 유용할 수 있습니다.
+이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. **Python용 Azure SDK**의 [ServiceManagementService](../python-how-to-install.md) 클래스는 [관리 포털][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다(예: **클라우드 서비스, 배포, 데이터 관리 서비스, 가상 컴퓨터 만들기, 업데이트 및 삭제**). 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 응용 프로그램을 빌드하는 데 유용할 수 있습니다.
+
+> [AZURE.NOTE]서비스 관리 API는 현재 미리 보기 릴리스에서 사용할 수 있는 새로운 리소스 관리 API로 대체되고 있습니다. Python에서 새로운 리소스 관리 API를 사용하는 방법에 대한 자세한 내용은 [Azure 리소스 관리 설명서](http://azure-sdk-for-python.readthedocs.org/)를 참조하세요.
+
 
 ## <a name="WhatIs"> </a>서비스 관리 정의
 서비스 관리 API는 [관리 포털][management-portal]을 통해 사용할 수 있는 대부분의 서비스 관리 기능에 대해 프로그래밍 방식의 액세스를 제공합니다. Python용 Azure SDK를 사용하여 클라우드 서비스 및 저장소 계정을 관리할 수 있습니다.
@@ -42,7 +45,7 @@ Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][svc-mgmt-rest-ap
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
+Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인증서 개요](./cloud-services-certs-create.md)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
 
 이러한 파일을 만든 후에는 [관리 포털][management-portal]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 하고, `.pem` 파일을 저장한 위치를 적어 두어야 합니다.
 
@@ -64,7 +67,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx)를 참조하세요.
+이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure 클라우드 서비스 인증서 개요](./cloud-services-certs-create.md)를 참조하세요.
 
 인증서를 만든 후에는 [관리 포털][management-portal]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 합니다.
 
@@ -167,7 +170,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="CreateStorageService"> </a>방법: 저장소 서비스 만들기
 
-[저장소 서비스]로 Azure [Blob][azure-blobs], [테이블][azure-tables], [큐][azure-queues]에 액세스할 수 있습니다. 저장소 서비스를 만들려면 서비스(3자에서 24자 사이의 소문자로서 Azure 내에서 고유해야 함), 설명, 레이블(base64로 자동 인코딩되며 최대 100자까지 가능) 및 위치에 대해 이름이 있어야 합니다. 다음 예제에서는 위치를 지정하여 저장소 서비스를 만드는 방법을 보여 줍니다.
+[저장소 서비스](../storage/storage-create-storage-account.md)로 Azure [Blob](../storage/storage-python-how-to-use-blob-storage.md), [테이블](../storage/storage-python-how-to-use-table-storage.md), [큐](../storage/storage-python-how-to-use-queue-storage.md)에 액세스할 수 있습니다. 저장소 서비스를 만들려면 서비스(3자에서 24자 사이의 소문자로서 Azure 내에서 고유해야 함), 설명, 레이블(base64로 자동 인코딩되며 최대 100자까지 가능) 및 위치에 대해 이름이 있어야 합니다. 다음 예제에서는 위치를 지정하여 저장소 서비스를 만드는 방법을 보여 줍니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -303,7 +306,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 		location=location)
 
 	# Name of an os image as returned by list_os_images
-	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
+	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-ko-KR-30GB.vhd'
 
 	# Destination storage account container/blob where the VM disk
 	# will be created
@@ -398,13 +401,13 @@ VM 이미지를 캡처하기 위해 먼저 **capture\_vm\_image** 메서드를 �
 		role_size='Small',
 		vm_image_name = image_name)
 
-Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](../virtual-machines-linux-capture-image.md)을 참조하세요.
+Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-linux-capture-image.md)을 참조하세요.
 
-Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines-capture-image-windows-server.md)을 참조하세요.
+Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-capture-image-windows-server.md)을 참조하세요.
 
 ## <a name="What's Next"> </a>다음 단계
 
-서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](http://azure-sdk-for-python.readthedocs.org/en/documentation/index.html)에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 응용 프로그램을 관리할 수 있습니다.
+서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](http://azure-sdk-for-python.readthedocs.org/)에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 응용 프로그램을 관리할 수 있습니다.
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
@@ -430,19 +433,6 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[download-SDK-Python]: https://www.windowsazure.com/develop/python/common-tasks/install-python/
-[클라우드 서비스]: http://windowsazure.com/documentation/articles/cloud-services-what-is
-[service package]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Azure PowerShell cmdlets]: https://www.windowsazure.com/develop/php/how-to-guides/powershell-cmdlets/
-[cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
-[Deploying an Azure Service]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
-[저장소 서비스]: https://www.windowsazure.com/manage/services/storage/what-is-a-storage-account/
-[azure-blobs]: https://www.windowsazure.com/develop/python/how-to-guides/blob-service/
-[azure-tables]: https://www.windowsazure.com/develop/python/how-to-guides/table-service/
-[azure-queues]: https://www.windowsazure.com/develop/python/how-to-guides/queue-service/
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
- 
+[클라우드 서비스]: https://azure.microsoft.com/ko-KR/documentation/services/cloud-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

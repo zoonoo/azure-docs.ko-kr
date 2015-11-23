@@ -281,12 +281,14 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 현재 영어와 스페인어가 지원됩니다. 자세한 내용은 [v1.2 릴리스 블로그 게시물](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
 
 
-## 미디어 서비스 학습 경로
+##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ## 관련 링크
@@ -299,4 +301,4 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

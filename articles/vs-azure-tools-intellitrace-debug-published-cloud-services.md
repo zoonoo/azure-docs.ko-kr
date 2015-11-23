@@ -3,7 +3,7 @@
    description="IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 
 
@@ -69,4 +69,4 @@ IntelliTrace 로그를 다운로드하는 동안 Visual Studio에서 작업을 �
 
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

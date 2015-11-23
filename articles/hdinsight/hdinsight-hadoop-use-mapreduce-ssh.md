@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # SSH를 사용하여 HDInsight에서 Hadoop과 MapReduce 사용
@@ -72,7 +72,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
 
 3. 작업이 완료되면 다음 명령을 사용하여 ****wasb://example/data/WordCountOutput**에 저장된 출력 파일을 나열합니다.
 
-		hadoop fs -ls wasb:///example/data/WordCountOutput
+		hdfs dfs -ls wasb:///example/data/WordCountOutput
 
 	**\_SUCCESS** 및 **part-r-00000**이라는 두 개의 파일이 표시됩니다. **part-r-00000** 파일은 이 작업에 대한 출력을 포함합니다.
 
@@ -80,7 +80,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
 
 4. 출력을 보려면 다음 명령을 사용합니다.
 
-		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
 	****wasb://example/data/gutenberg/davinci.txt** 파일에 포함된 단어 목록과 각 단어의 발생 횟수가 표시됩니다. 다음은 파일에 포함된 데이터의 예입니다.
 
@@ -108,4 +108,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

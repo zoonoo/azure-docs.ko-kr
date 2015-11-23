@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
+	ms.date="11/11/2015"
 	ms.author="jgao"/>
 
 # Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
@@ -50,7 +50,7 @@ HDInsight 클러스터 이름|$clusterName||HDInsight 클러스터의 이름입�
 클러스터 사용자 이름|$clusterUsername||프로비전 시 지정된 클러스터 사용자 이름입니다.
 클러스터 암호|$clusterPassword||클러스터 사용자 암호입니다.
 
-	> [AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -130,17 +130,17 @@ Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{c
 모니터링 API 호출|URI|설명
 ---|---|---
 클러스터 가져오기|`/api/v1/clusters`|
-클러스터 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net`|클러스터, 서비스, 호스트
-서비스 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services`|서비스에 포함: hdfs, mapreduce
-서비스 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;`|
-서비스 구성 요소 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
-구성 요소 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;`|ServiceComponentInfo, host-components, 메트릭
-호스트 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts`|headnode0, workernode0
-호스트 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;`|
-호스트 구성 요소 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components`|namenode, resourcemanager
-호스트 구성 요소 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;`|HostRoles, 구성 요소, 호스트, 메트릭
-구성 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations`|구성 유형: core-site, hdfs-site, mapred-site, hive-site
-구성 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|구성 유형: core-site, hdfs-site, mapred-site, hive-site
+클러스터 정보 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net`|클러스터, 서비스, 호스트
+서비스 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services`|서비스에 포함: hdfs, mapreduce
+서비스 정보 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>`|
+서비스 구성 요소 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
+구성 요소 정보 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>`|ServiceComponentInfo, host-components, 메트릭
+호스트 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts`|headnode0, workernode0
+호스트 정보 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>`|
+호스트 구성 요소 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components`|namenode, resourcemanager
+호스트 구성 요소 정보 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components/<ComponentName>`|HostRoles, 구성 요소, 호스트, 메트릭
+구성 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations`|구성 유형: core-site, hdfs-site, mapred-site, hive-site
+구성 정보 가져오기|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>`|구성 유형: core-site, hdfs-site, mapred-site, hive-site
 
 
 ##다음 단계
@@ -175,4 +175,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

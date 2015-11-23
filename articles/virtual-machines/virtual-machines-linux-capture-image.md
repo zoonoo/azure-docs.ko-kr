@@ -18,14 +18,14 @@
 	ms.author="dkshir"/>
 
 
-# Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법
+# 클래식 Linux 가상 컴퓨터를 이미지로 캡처하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image-resource-manager.md).
 
 
-이 문서에서는 Linux가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 템플릿처럼 사용하는 방법을 소개합니다. 이 템플릿에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로 템플릿을 사용하는 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
+이 문서에서는 Linux를 실행하는 클래식 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로 이 이미지를 사용하여 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
 
-Azure에서는 이 템플릿을 이미지로 처리하고 **이미지**에 저장합니다. 이 위치에 업로드한 이미지도 저장됩니다. 이미지에 대한 자세한 내용은 [Azure의 가상 컴퓨터 이미지 정보][]를 참조하세요.
+Azure에서는 이미지를 **Images** 아래에 저장합니다. 이 위치에 업로드한 이미지도 저장됩니다. 이미지에 대한 자세한 내용은 [Azure의 가상 컴퓨터 이미지 정보][]를 참조하세요.
 
 ## 시작하기 전에
 
@@ -51,7 +51,7 @@ Azure에서는 이 템플릿을 이미지로 처리하고 **이미지**에 저�
 	- 호스트 이름을 localhost.localdomain으로 다시 설정
 	- 마지막으로 프로비전된 사용자 계정 (/var/lib/waagent에서 얻은) **및 관련 데이터**를 삭제합니다.
 
-	>[AZURE.NOTE]프로비저닝은 파일 및 데이터를 삭제하여 이미지를 "일반화"합니다. 새 이미지 서식 파일로 캡처할 가상 컴퓨터에서만 이 명령을 실행합니다. 하지만 이미지에서 중요한 정보가 모두 지워지고 이미지가 제3자에게 다시 배포하기에 적합하다고 보증할 수는 없습니다.
+	>[AZURE.NOTE]프로비저닝은 파일 및 데이터를 삭제하여 이미지를 "일반화"합니다. 새 이미지 템플릿 파일로 캡처할 가상 컴퓨터에서만 이 명령을 실행합니다. 하지만 이미지에서 중요한 정보가 모두 지워지고 이미지가 제3자에게 다시 배포하기에 적합하다고 보증할 수는 없습니다.
 
 
 3. 계속하려면 **y**를 입력합니다. `-force` 매개 변수를 추가하여 이 확인 단계를 피할 수 있습니다.
@@ -89,7 +89,7 @@ Azure에서는 이 템플릿을 이미지로 처리하고 **이미지**에 저�
 
 
 ## 다음 단계
-가상 컴퓨터를 만들기 위한 템플릿으로 사용할 이미지가 마련됩니다. Azure CLI 명령 `azure vm create`를 사용하고 방금 만든 이미지 이름을 제공할 수 있습니다. 명령에 대한 자세한 내용은 [서비스 관리 API에서 Azure CLI 사용](virtual-machines-command-line-tools.md)을 참조하세요. 또는 [관리 포털][]에서 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택할 수 있습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
+이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. Azure CLI 명령 `azure vm create`를 사용하고 방금 만든 이미지 이름을 제공할 수 있습니다. 명령에 대한 자세한 내용은 [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines-command-line-tools.md)을 참조하세요. 또는 [관리 포털][]에서 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
 
 **참고 항목:** [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)
 
@@ -100,4 +100,4 @@ Azure에서는 이 템플릿을 이미지로 처리하고 **이미지**에 저�
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Linux를 실행하는 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

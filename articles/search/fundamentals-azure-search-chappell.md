@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색 소개 | Microsoft Azure" 
+	pageTitle="Azure 검색 소개 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="호스팅되는 클라우드 검색 서비스인Azure 검색이, 풍부한 검색 응용 프로그램을 구축하는 데 어떻게 도움이 되는지 알아봅니다." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Azure 검색 소개"(PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Azure 검색 소개"(Microsoft Word)</a> 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

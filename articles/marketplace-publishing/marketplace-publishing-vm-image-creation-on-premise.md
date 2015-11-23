@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -35,11 +35,11 @@ VHD를 다운로드하려면 먼저 OS 디스크에 대한 Blob URL을 찾습니
 3.	**OS 디스크**를 선택합니다. 그러면 VHD 위치를 포함한 디스크 속성을 표시하는 다른 블레이드가 열립니다.
 4.	이 Blob URL을 복사합니다.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
 
 5.	이제 백업 디스크를 삭제하지 않고 배포된 VM을 삭제합니다. 또한 VM을 삭제하는 대신 중지하도록 선택할 수도 있습니다. VM이 실행 중인 경우 OS VHD를 다운로드하지 마십시오.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### VHD 다운로드
 Blob URL을 알고 있는 경우 [Azure 관리 포털](http://manage.windowsazure.com/) 또는 PowerShell을 사용하여 VHD를 다운로드할 수 있습니다.
@@ -51,20 +51,20 @@ Blob URL을 알고 있는 경우 [Azure 관리 포털](http://manage.windowsazur
 2.	**저장소** 탭을 클릭합니다.
 3.	VHD가 저장된 **저장소 계정**을 선택합니다.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
 
 4.	저장소 계정 속성이 열립니다. 컨테이너 탭을 선택합니다.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
 
 5.	VHD가 저장되는 컨테이너를 선택합니다. 기본적으로 포털에서 만들 때 VHD는 vhd 컨테이너에 저장됩니다.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
 
 6.	저장된 URL과 비교하여 올바른 OS VHD를 선택합니다.
 7.	**다운로드**를 클릭합니다.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### PowerShell을 사용하여 VHD 다운로드
 Azure 관리 포털 외에도 [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet을 사용하여 OS VHD를 다운로드할 수 있습니다.
@@ -90,19 +90,19 @@ Azure 관리 포털 외에도 [Save-AzureVhd](http://msdn.microsoft.com/library/
 2.	**저장소**를 선택합니다.
 3.	저장소 계정 이름을 입력하고 위치를 선택합니다.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 
 4.	**만들기**를 클릭합니다.
 5.	만든 저장소 계정에 대한 블레이드가 열립니다. 그렇지 않은 경우 **찾아보기 > 저장소 계정**을 선택합니다. **저장소 계정** 블레이드에서 만든 저장소 계정을 선택합니다.
 6.	**컨테이너**를 선택합니다.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)
 
 7.	**컨테이너** 블레이드에서 **추가**를 선택하고 컨테이너 이름 및 컨테이너 권한을 입력합니다. 컨테이너 권한에 대해 **개인**을 선택합니다.
 
 > [AZURE.TIP]게시를 계획 중인 SKU당 하나의 컨테이너를 만드는 것이 좋습니다.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
+  ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### PowerShell을 사용하여 저장소 계정 만들기
 PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet으로 저장소 계정을 만듭니다.
@@ -138,4 +138,4 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 - [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
 - [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

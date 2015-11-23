@@ -98,6 +98,27 @@ SQL DB용 탄력적 데이터베이스 트랜잭션은 확장된 데이터 층�
 
 Azure에 대한 탄력적 데이터베이스 트랜잭션에 필요한 .NET 버전과 라이브러리의 설치 및 배포를 자동화할 수 있습니다(클라우드 서비스의 게스트 OS로). Azure 작업자 역할에 시작 작업을 사용합니다. 개념 및 단계는 [클라우드 서비스 역할에 .NET 설치](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/)에 문서화되어 있습니다.
 
+.NET 4.6.1용 설치 관리자는 Azure 클라우드 서비스에서 프로세스를 부트스트랩하는 과정에서 .NET 4.6용 설치 관리자보다 더 많은 임시 저장 공간을 필요로 합니다. 성공적인 설치를 위해 다음 예에서처럼 LocalResources 섹션의 ServiceDefinition.csdef 파일과 시작 작업의 환경 설정에서 Azure 클라우드 서비스의 임시 저장 공간을 늘려야 합니다.
+
+	<LocalResources>
+	...
+		<LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+		<LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+	</LocalResources>
+	<Startup>
+		<Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+			<Environment>
+		...
+				<Variable name="TEMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+				</Variable>
+				<Variable name="TMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+				</Variable>
+			</Environment>
+		</Task>
+	</Startup>
+
 ## 트랜잭션 상태 모니터링
 
 SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이터베이스 트랜잭션의 상태와 진행률을 모니터링합니다. 트랜잭션과 관련된 모든 DMV는 SQL DB의 분산 트랜잭션과 관련이 있습니다. 해당 DMV 목록은 [트랜잭션 관련 동적 관리 뷰 및 함수(Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx)에서 찾을 수 있습니다.
@@ -124,4 +145,4 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

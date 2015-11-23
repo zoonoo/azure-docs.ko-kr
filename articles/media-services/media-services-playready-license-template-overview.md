@@ -74,7 +74,7 @@ XML은 PlayReady 라이선스 템플릿 XML 스키마 섹션에 정의된 PlayRe
 
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - 이 클래스는 PlayReady 라이선스의 PlayRight를 나타냅니다. 라이선스 및 재생 관련 정책의 PlayRight 자체에 구성된 0개 이상의 제한 사항이 적용되는 콘텐츠를 재생할 권한을 사용자에게 부여합니다. PlayRight에 대한 대부분 정책은 특정 출력을 사용할 때 적용되어야 하는 제한 사항과 콘텐츠가 재생될 수 있는 출력 유형을 제어하는 출력 제한 사항과 관련이 있습니다. 예를 들어 DigitalVideoOnlyContentRestriction이 사용되면 DRM 런타임에서는 디지털 출력을 통해 비디오가 재생되도록 허용합니다(아날로그 비디오 출력은 콘텐츠를 전달하도록 허용되지 않음).
 
->[AZURE.IMPORTANT]이들 제한 사항 유형은 매우 강력할 수 있지만 소비자 환경에도 영향을 줄 수 있습니다. 출력 보호가 너무 제한적으로 구성되면 몇몇 클라이언트에서는 콘텐츠를 재생하지 못할 수 있습니다. 자세한 내용은 PlayReady 준수 규칙 문서를 참조하세요.
+>[AZURE.IMPORTANT]이들 제한 사항 유형은 매우 강력할 수 있지만 소비자 환경에도 영향을 줄 수 있습니다. 출력 보호가 너무 제한적으로 구성되면 몇몇 클라이언트에서는 콘텐츠를 재생하지 못할 수 있습니다. 자세한 내용은 [PlayReady 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/) 문서를 참조하세요.
 
 Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 Silverlight 지원](http://go.microsoft.com/fwlink/?LinkId=617318)을 참조하세요.
 
@@ -302,11 +302,13 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 	</xs:schema>
 
 
+
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

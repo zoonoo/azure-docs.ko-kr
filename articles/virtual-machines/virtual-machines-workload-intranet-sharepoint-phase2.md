@@ -33,8 +33,8 @@ Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하�
 --- | --- | --- | ---
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC1 등의 첫 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | A2(중형)
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC2 등의 두 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | A2(중형)
-3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(SQL1 등의 첫 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(SQL2 등의 두 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(SQL1 등의 첫 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(SQL2 등의 두 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(MN1 등의 클러스터에 대한 주 노드) | Windows Server 2012 R2 Datacenter | A1(소형)
 6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(APP1 등의 첫 번째 SharePoint 응용 프로그램 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
 7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(APP2 등의 두 번째 SharePoint 응용 프로그램 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
@@ -115,7 +115,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 5.	manage.windowsazure.com에서 ComputerName.rdp를 열거나 저장할지를 묻는 브라우저 대화 상자가 나타납니다. **열기**를 클릭합니다.
 6.	**원격 데스크톱 연결** 대화 상자에서 **연결**을 클릭합니다.
 7.	**Windows 보안** 대화 상자에서 **다른 계정 사용**을 클릭합니다.
-8.	**사용자 이름**에 VM의 이름 및 VM과 함께 만든 로컬 관리자 계정(로컬 컴퓨터 계정)의 사용자 이름을 입력합니다. *ComputerName*\*LocalAdministratorAccountName* 형식을 사용합니다.
+8.	**사용자 이름**에 VM의 이름 및 VM과 함께 만든 로컬 관리자 계정(로컬 컴퓨터 계정)의 사용자 이름을 입력합니다. *ComputerName**LocalAdministratorAccountName* 형식을 사용합니다.
 9.	**암호**에는 로컬 관리자 계정의 암호를 입력합니다.
 10.	**확인**을 클릭합니다.
 11.	**원격 데스크톱 연결** 대화 상자에서 **예**를 클릭합니다. 새 컴퓨터의 바탕 화면이 원격 데스크톱 세션 창에 표시됩니다.
@@ -248,4 +248,4 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색 | Microsoft Azure에 최신 업데이트된 새로운 기능" 
+	pageTitle="Azure 검색의 최신 업데이트의 새로운 기능 | Microsoft Azure| 호스트된 클라우드 검색 서비스" 
 	description="서비스에 최신 업데이트를 설명하는 Azure 검색용 릴리스 정보" 
 	services="search" 
 	documentationCenter="" 
@@ -125,4 +125,4 @@ SDK의 설치 및 사용에 대한 안내를 원하시면 [.NET에서 Azure 검�
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

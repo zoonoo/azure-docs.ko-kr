@@ -1,4 +1,4 @@
-<properties pageTitle="Azure 검색 관리 REST API 버전 2015-02-28 | Microsoft Azure" description="Azure 검색 관리 REST API: 버전 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="Azure 검색 관리 REST API 버전 2015-02-28 | Microsoft Azure | 호스트된 클라우드 검색 서비스" description="Azure 검색 관리 REST API: 버전 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
@@ -812,4 +812,4 @@ api 키, 특히 관리 키는 중요한 데이터로서 처리해야 합니다. 
 
 없음
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

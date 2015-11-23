@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # HDInsight에서 Hadoop과 Pig 사용
@@ -42,6 +42,8 @@ Hadoop의 MapReduce를 사용하여 데이터를 처리할 때 문제는 지도 
 Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) 및 [Pig Latin 참조 설명서 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html)를 참조하십시오.
 
 Pig와 UDF를 사용하는 예로, 다음 문서를 참조하십시오:
+
+* [HDInsight에서 HDInsight와 함께 Pig 사용](hdinsight-hadoop-use-pig-datafu-udf.md) - DataFu는 Apache에서 유지 관리하는 유용한 UDF의 컬렉션입니다.
 
 * [HDInsight에서 Pig 및 Hive와 함께 Python 사용](hdinsight-python.md)
 
@@ -86,7 +88,7 @@ WASB가 HDInsight의 기본 저장소이므로 Pig Latin에서 **/example/data/s
 
 HDInsight는 다양한 메서드를 사용하여 Pig Latin 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르십시오.
 
-| 원하는 경우 **이것을 사용**하세요... | ...**대화형** 셸 | ...**일괄** 처리 | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
+| 원하는 경우 **이것을 사용**하세요... | ...**대화형** 셸 | ...**배치** 처리 | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
 |:--------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
 | [SSH](hdinsight-hadoop-use-pig-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](hdinsight-hadoop-use-pig-curl.md) | &nbsp; | ✔ | Linux 또는or Windows | Linux, Unix, Mac OS X, 또는 Windows |
@@ -104,7 +106,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Pig 작업을 실행할 �
 - [Azure 구독 연결 관리자][connectionmanager]
 
 
-[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+[여기][ssispack]서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
 
 
 ##<a id="nextsteps"></a>다음 단계
@@ -120,9 +122,9 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/en-US/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
+[pigtask]: http://msdn.microsoft.com/ko-KR/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -144,4 +146,4 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

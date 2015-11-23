@@ -17,13 +17,13 @@
    ms.date="10/21/2015"
    ms.author="joaoma" />
 
-# PowerShell을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치 만들기
+# PowerShell을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치를 만들기 시작
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. Azure 클래식 배포 모델을 찾는 경우 [클래식 배포를 사용하는 인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-classic-portal.md)으로 이동합니다.
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -69,20 +69,6 @@ PowerShell용 Azure 모듈이 최신 프로덕션 버전이고 Azure 구독에 �
 
 ### 2단계
 
- Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다. Azure PowerShell 프롬프트에서 다음과 같이 **Switch-AzureMode** cmdlet을 실행하여 리소스 관리자 모드로 전환합니다.
-
-		Switch-AzureMode AzureResourceManager
-	
-	Expected output:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-
->[AZURE.WARNING]Switch-AzureMode cmdlet은 곧 더 이상 사용되지 않습니다. 이 경우 모든 리소스 관리자 cmdlet의 이름이 바뀝니다.
-
-
-### 3단계
-
 Azure 계정에 로그인
 
 
@@ -91,7 +77,7 @@ Azure 계정에 로그인
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
 
-### 4단계
+### 3단계
 
 사용할 Azure 구독을 선택합니다.
 
@@ -120,7 +106,7 @@ DNS 이름이 *loadbalancernrp.westus.cloudapp.azure.com*인 프런트 엔드 IP
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT]부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.westus.cloudapp.azure.com*입니다.
+>[AZURE.IMPORTANT]부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포 모델의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.westus.cloudapp.azure.com*입니다.
 
 ## 프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
 
@@ -140,11 +126,14 @@ DNS 이름이 *loadbalancernrp.westus.cloudapp.azure.com*인 프런트 엔드 IP
 
 아래 예제에서는 다음 항목을 만듭니다.
 
-- 포트 3441~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
+- 포트 3441~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙<sup>1</sup>
 - 포트 3442~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
 - 포트 80~포트 80에서 들어오는 모든 트래픽을 백 엔드 풀에 있는 주소로 분산하는 부하 분산 장치 규칙
-- 경로 *HealthProbe.aspx*에 대한 상태를 확인하는 프로브 규칙
+- *HealthProbe.aspx*라는 페이지에서 상태를 확인하는 프로브 규칙
 - 위의 모든 개체를 사용하는 부하 분산 장치
+
+
+<sup>1</sup> NAT 규칙은 부하 분산 장치 뒤에 특정 가상 컴퓨터 인스턴스와 관련이 있습니다. 3341 포트로 들어오는 네트워크 트래픽은 아래 예에서 NAT 규칙과 관련된 포트 3389의 특정 가상 컴퓨터로 전송됩니다. NAT 규칙, UDP 또는 TCP 프로토콜을 선택해야 합니다. 두 프로토콜을 모두 동일한 포트에 할당할 수 없습니다.
 
 ### 1단계
 
@@ -254,6 +243,36 @@ NIC를 확인합니다.
 
 가상 컴퓨터를 만들고 NIC에 할당하는 방법에 대한 참고 자료는 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)에서 5가지의 옵션을 사용한 예제를 참조하세요.
 
+## 기존 부하 분산 장치 업데이트
+
+
+### 1단계
+
+위의 예제에서 부하 분산 장치를 사용하여 부하 분산 장치 개체를 Get-AzureLoadBalancer를 사용하는 변수 $slb에 할당
+
+	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+### 2단계
+
+다음 예제에서는 프런트 엔드에 있는 포트 81과 백 엔드 풀의 포트 8181을 사용하여 새 인바운드 NAT 규칙을 기존 부하 분산 장치에 추가
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### 3단계
+
+Set-AzureLoadBalancer를 사용하여 새 구성 저장
+
+	$slb | Set-AzureLoadBalancer
+
+## 부하 분산 장치 제거하기
+
+Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그룹에서 이전에 생성한 "NRP-LB"라는 부하 분산 장치 삭제
+
+	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]선택적 스위치 -Force를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
+
 ## 다음 단계
 
 [내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
@@ -262,4 +281,4 @@ NIC를 확인합니다.
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

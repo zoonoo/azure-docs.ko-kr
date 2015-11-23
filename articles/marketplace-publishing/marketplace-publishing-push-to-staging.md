@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
@@ -37,17 +37,17 @@
 ### 링크
 왼쪽 막대의 링크 탭에 고객에게 유용한 정보가 있는 링크를 입력합니다. 각 링크의 이름과 URL을 입력합니다.
 
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![그리기](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### 샘플 이미지(선택 사항)
 > [AZURE.NOTE]샘플 이미지를 포함하는 것은 선택적인 단계입니다. 기타 마케팅 콘텐츠를 작성하여 스테이징으로 푸시하기 위한 요건을 갖춥니다.
 
 왼쪽 메뉴의 **Sample Images** 탭에서 **Upload a new image**를 클릭하여 새 이미지를 업로드합니다. 기존 이미지가 있고 이를 바꾸려는 경우 **Replace image**를 클릭합니다.
 
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-03.png)
+![그리기](media/marketplace-publishing-push-to-staging/pubportal-03.png)
 
 ### 요금제
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![그리기](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### 법적 정보
 Legal 탭에 정책/사용 약관을 연결하는 링크를 제공합니다. 큰 Terms of Use 상자에 약관을 입력하거나 붙여넣습니다.
@@ -118,37 +118,35 @@ Legal 탭에 정책/사용 약관을 연결하는 링크를 제공합니다. 큰
 다음은 게시자 포털 제품 마케팅 세부 정보가 [Azure 마켓플레이스 웹 사이트](http://azure.microsoft.com/marketplace) 및 [Azure Preview 포털 마켓플레이스 갤러리](https://ms.portal.azure.com)에서 어떻게 사용되는지를 자세히 보여줍니다.
 
 ### Azure.com 마켓플레이스 웹 사이트에서
-![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
+![그리기](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
 
-![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
+![그리기](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
 
 *Azure.com 마켓플레이스 웹 사이트에서 제품 목록*
 
-![drawing](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
+![그리기](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
 
 *Azure.com 마켓플레이스 웹 사이트에서 제품 설명 정보*
 
-![drawing](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
+![그리기](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
 
 *Azure.com 마켓플레이스 웹 사이트에서 제품 설명 가격 책정 정보*
 
 ### Azure Preview 포털 마켓플레이스 갤러리에서
-![drawing](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
+![그리기](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
 
 *Azure Preview 포털 마켓플레이스 갤러리에서 제품 목록*
 
-![drawing](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+![그리기](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
-![drawing](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+![그리기](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
 *Azure Preview 포털 마켓플레이스 갤러리에서 제품 설명 정보*
 
 ## 다음 단계
 마켓플레이스 콘텐츠를 로드했으므로 **3단계: 스테이징에서 제품 테스트**를 진행하겠습니다. 그러나 제품 유형별로 다양한 단계에 따라 아래 목록에서 적절한 제품 유형을 선택해야 합니다.
 
-||가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
-|---|---|---|---|---|
-| **3단계. 스테이징에 제품을 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 스테이징에서 개발자 서비스 제품 테스트 | 스테이징에서 데이터 서비스 제품 테스트 | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) |
+||가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 | |---|---|---|---|---| | **3단계. 스테이징에 제품을 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 스테이징에서 개발자 서비스 제품 테스트 | 스테이징에서 데이터 서비스 제품 테스트 | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
@@ -162,4 +160,4 @@ Legal 탭에 정책/사용 약관을 연결하는 링크를 제공합니다. 큰
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소 시작
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법을 알아봅니다. 데이터 레이크 저장소에 대한 자세한 내용은 [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)를 참조하세요.
 
@@ -123,12 +124,13 @@ Azure 데이터 레이크 저장소 계정을 삭제하려면 데이터 레이�
 
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 - [.NET SDK를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
+- [Azure CLI를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-cli.md)
 
 
 ## 다음 단계
 
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-- [데이터 레이크 저장소와 함께 Azure 데이터 레이크 분석 사용](data-lake-analytics-get-started-portal.md)
-- [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
+- [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

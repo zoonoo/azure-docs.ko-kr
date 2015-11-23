@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레이크 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크에 대한 자세한 내용은 [Azure 데이터 레이크 저장소](data-lake-store-overview.md)를 참조하세요.
 
@@ -50,7 +51,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 5. Nuget 패키지를 프로젝트에 추가합니다.
 
 	1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-	2. **Nuget 패키지 관리자** 대화 상자에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **Include Prerelease**(시험판 포함) 확인란이 선택되어 있는지 확인합니다.
+	2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **Include Prerelease**(시험판 포함) 확인란이 선택되어 있는지 확인합니다.
 	3. 다음 패키지를 검색하고 설치합니다.
 	
 		* Microsoft.Azure.Common.Authentication
@@ -212,7 +213,8 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 ## 데이터 레이크 저장소 계정을 만드는 다른 방법
 
 - [포털을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
-- [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md) 
+- [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
+- [Azure CLI를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-cli.md)
 
 
 ## 다음 단계
@@ -221,4 +223,4 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

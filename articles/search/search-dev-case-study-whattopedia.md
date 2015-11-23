@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색 개발자 사례 연구: WhatToPedia가 Microsoft Azure에서 정보 미디어 포털을 구축한 방법 | Microsoft Azure" 
+	pageTitle="Azure 검색 개발자 사례 연구: WhatToPedia가 Microsoft Azure에서 정보 미디어 포털을 구축한 방법 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="개발자를 위한 클라우드 호스팅 검색 서비스인 Azure 검색을 사용하여 정보 포털 및 메타 검색 엔진을 구축하는 방법을 알아봅니다." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
@@ -421,4 +421,4 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

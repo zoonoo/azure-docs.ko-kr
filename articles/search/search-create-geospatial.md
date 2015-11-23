@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색을 사용하여 지리 공간 검색 앱 만들기 | Microsoft Azure" 
+	pageTitle="Azure 검색을 사용하여 지리 공간 검색 앱 만들기 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="Bing과, Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색을 사용하여 지리 공간 검색 앱을 만듭니다." 
 	services="search" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@ AdventureWorksWeb을 빌드할 때 "파일이나 어셈블리 'System.Web.Mvc, V
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

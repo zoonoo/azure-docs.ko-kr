@@ -40,6 +40,20 @@ Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니�
 
 * [HDInsight에 사용자 지정 하이브 UDF를 추가 하는 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+
+## Hive 내부 테이블과 외부 테이블 비교
+
+Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇 가지 있습니다.
+
+- **CREATE TABLE** 명령은 내부 테이블을 만듭니다. 데이터 파일은 기본 컨테이너에 있어야 합니다.
+- **CREATE TABLE** 명령은 데이터 파일을 /hive/warehouse/<TableName> 폴더로 이동합니다.
+- **CREATE EXTERNAL TABLE** 명령은 외부 테이블을 만듭니다. 데이터 파일은 기본 컨테이너가 아닌 곳에 있을 수 있습니다.
+- **CREATE EXTERNAL TABLE** 명령은 데이터 파일을 이동하지 않습니다.
+- **CREATE EXTERNAL TABLE** 명령은 LOCATION에 어떤 폴더도 허용하지 않습니다. 이는 자습서에서 sample.log 파일의 복사본을 만들기 때문입니다.
+
+자세한 내용은 [HDInsight: Hive 내부 및 외부 테이블 소개][cindygross-hive-tables]를 참조하세요.
+
+
 ##<a id="data"></a>Apache log4j 파일인 샘플 데이터 정보
 
 해당 예제는 사용자의 blob 저장 컨테이너의 **/example/data/sample.log**에 저장된 *log4j* 샘플 파일을 사용합니다. 파일 내부의 각 로그는 유형과 심각도를 표시하는 `[LOG LEVEL]` 필드가 포함된 필드의 줄로 구성되어 있습니다. 예를 들어:
@@ -132,7 +146,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 - [Azure 구독 연결 관리자][connectionmanager]
 
 
-[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+[여기][ssispack]서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
 
 
 ##<a id="nextsteps"></a>다음 단계
@@ -183,4 +197,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO4-->
+
+[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+
+<!---HONumber=Nov15_HO3-->

@@ -108,7 +108,7 @@
 - 장치의 명령 기록을 봅니다.
 
 ### 클라우드 솔루션의 동작 관찰
-[Azure 관리 포털](https://portal.azure.com)로 가고 지정한 솔루션 이름으로 리소스 그룹으로 이동함으로써 프로비전된 리소스를 볼 수 있습니다.
+[Azure preview 포털](https://portal.azure.com)로 가고 지정한 솔루션 이름으로 리소스 그룹으로 이동함으로써 프로비전된 리소스를 볼 수 있습니다.
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
@@ -144,4 +144,4 @@
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

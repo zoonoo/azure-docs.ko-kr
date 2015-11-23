@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="BrucePerlerMS"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="bruceper" />
 <tags
    ms.service="key-vault"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/22/2015"
-   ms.author="mbaldwin" />
+   ms.date="11/06/2015"
+   ms.author="bruceper" />
 
 # Azure 키 자격 증명 모음 개발자 가이드
 
@@ -33,21 +33,11 @@
 
 ## 키 자격 증명 모음에 대한 프로그래밍
 
-프로그래머를 위한 키 자격 증명 모음 관리 시스템은 REST를 기반으로 하여 여러 인터페이스로 구성됩니다. REST 참조의 해당 문서는 [키 및 암호에 대한](https://msdn.microsoft.com/library/azure/dn903623.aspx) 핵심 개념을 제공합니다.
+프로그래머를 위한 키 자격 증명 모음 관리 시스템은 REST를 기반으로 하여 여러 인터페이스로 구성됩니다. [주요 자격 증명 모음 REST API 참조](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-### REST (영문)
-
-REST API는 키 자격 증명 모음에 대한 모든 프로그래밍 방식 조작의 기반입니다.
-
-키 자격 증명 모음에는 자체 REST 끝점이 있으며 이는 [키 자격 증명 모음 REST API 참조](https://msdn.microsoft.com/library/azure/dn903609.aspx)에 설명되어 있습니다.
-
-### .NET
-
-.NET API는 직접 REST 끝점을 조작할 필요 없이 C# 프로그래밍 모델을 통한 구현을 허용하는 래퍼 집합입니다. 여기서 [Azure 키 자격 증명 모음 .NET 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903301.aspx)를 찾을 수 있습니다.
-
-### Node.js
-
-Node.js API는 직접 REST 끝점을 조작할 필요 없이 node.js 프로그래밍 모델을 통한 구현을 허용하는 래퍼 집합입니다. 여기서 [Node.js용 Microsoft Azure SDK - 키 자격 증명 모음 관리](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)를 찾을 수 있습니다.
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)로 바꿉니다.|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)로 바꿉니다.
+|:--:|:--:|
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
 ## 키 자격 증명 모음 관리
 
@@ -67,5 +57,12 @@ Azure 주요 자격 증명 모음 컨테이너(자격 증명 모음)는 다음 �
 ## 예
 
 - 이 다운로드는 HelloKeyVault 샘플 응용 프로그램 및 Azure 웹 서비스 예제를 모두 포함합니다. [Azure 키 자격 증명 모음 코드 샘플](http://www.microsoft.com/download/details.aspx?id=45343)
+- 이 자습서에서는 Azure의 웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 방법을 알아볼 수 있습니다. [웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용](key-vault-use-from-web-application.md)
 
-<!---HONumber=Nov15_HO2-->
+## 라이브러리 지원
+
+- [Microsoft Azure 키 자격 증명 모음 핵심 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0)는 식별자의 키를 찾고 키로 작업을 수행하기 위한 IKey 및 IKeyResolver 인터페이스를 제공합니다.
+
+- [Microsoft Azure 키 자격 증명 모음 확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0)은 Azure 키 자격 증명 모음에 확장된 기능을 제공합니다.
+
+<!---HONumber=Nov15_HO3-->

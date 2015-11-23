@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="10/30/2015"
 	ms.author="mwasson"/>
 
 
@@ -69,7 +69,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 > [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
-1. Azure CLI(Azure 명령줄 인터페이스)를 설치하고 Azure 구독에 연결합니다. [Azure CLI 설치 및 구성](xplat-cli)을 참조하세요.
+1. Azure CLI(Azure 명령줄 인터페이스)를 설치하고 Azure 구독에 연결합니다. [Azure CLI 설치 및 구성](../xplat-cli)을 참조하세요.
 
 2. Azure에서 리포지토리를 처음 설정하는 경우 로그인 자격 증명을 만들어야 합니다. Azure CLI에서 다음 명령을 입력합니다.
 
@@ -119,7 +119,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 ###Redis 캐시 만들기
 
-[Azure Redis 캐시에서 캐시 만들기](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409)의 단계를 수행하여 새 캐시를 만듭니다.
+[Azure Redis 캐시에서 캐시 만들기](https://azure.microsoft.com/ko-KR/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)의 단계를 수행하여 새 캐시를 만듭니다.
 
 > [AZURE.NOTE]캐시의 __호스트 이름__ 및 __기본 키__를 저장합니다. 이러한 정보는 다음 단계에서 필요합니다.
 
@@ -145,7 +145,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 	> [AZURE.NOTE]__socket.io-redis__ 어댑터는 Redis와 직접 통신할 수 있지만 현재 버전에서는 Azure Redis 캐시에 필요한 인증을 지원하지 않습니다. 따라서 __redis__ 모듈을 통해 초기 연결이 만들어진 다음 __socket.io-redis__ 어댑터로 클라이언트가 전달됩니다.
 	>
-	> Azure Redis 캐시는 포트 6380을 사용한 보안 연결을 지원하지만 이 예제에 사용된 모듈에서는 2014년 7월 14일 현재 보안 연결을 지원하지 않습니다. 위 코드에서는 기본적으로 비보안 포트 6380을 사용합니다.
+	> Azure Redis 캐시는 포트 6380을 사용한 보안 연결을 지원하지만 이 예제에 사용된 모듈에서는 2014년 7월 14일 현재 보안 연결을 지원하지 않습니다. 위의 코드에서는 기본적으로 비보안 포트 6379를 사용합니다.
 
 3. 수정한 __app.js__를 저장합니다.
 
@@ -285,4 +285,4 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

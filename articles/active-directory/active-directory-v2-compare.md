@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기 : 어떤 차이가 있습니까?
@@ -121,4 +121,4 @@ v2.0 앱 모델 토큰에서 내보내는 특정 클레임에 관한 더 자세�
 ## 미리 보기 제한 사항
 다양한 공용 미리 보기 중 v2.0 App 모델로 응용 프로그램을 작성할 때 주의해야 할 여러 제한 사항이 있습니다. 이 제한 사항들 중 하나라도 특정 시나리오에 적용하는 경우, [v2.0 앱 모델 제한 사항 문서](active-directory-v2-limitations.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

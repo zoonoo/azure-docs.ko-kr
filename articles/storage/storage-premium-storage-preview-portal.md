@@ -1,10 +1,10 @@
 <properties
 	pageTitle="프리미엄 저장소: Azure 가상 컴퓨터 작업용 고성능 저장소 | Microsoft Azure"
-	description="디스크용 Azure 프리미엄 저장소 알아보기 프리미엄 저장소 계정 만드는 방법 알아보기"
+	description="프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Azure DS 시리즈 및 GS 시리즈 VM은 프리미엄 저장소를 지원합니다."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="ms-prkhad"
+	manager=""
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/04/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -21,15 +21,13 @@
 
 ## 개요
 
-보다 빠른 Azure 가상 컴퓨터를 위한 **Azure 프리미엄 저장소 디스크**입니다.
+Azure 프리미엄 저장소는 I/O 사용량이 많은 작업을 실행하는 가상 컴퓨터에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 프리미엄 저장소를 사용하는 가상 컴퓨터(VM) 디스크는 솔리드 스테이트 드라이브(SSD)에 데이터를 저장합니다. 이 디스크의 속도와 성능 혜택을 활용하여 응용 프로그램의 VM 디스크를 Azure 프리미엄 저장소로 마이그레이션할 수 있습니다.
 
-프리미엄 저장소가 도입되면서 이제 Microsoft Azure는 **프리미엄 저장소** 및 **표준 저장소**라는 두 가지 유형의 지속형 저장소를 제공합니다. 프리미엄 저장소는 최신 기술인 SSD(Solid State Drive)에 데이터를 저장하는 반면, 표준 저장소는 HDD(하드 디스크 드라이브)에 데이터를 저장합니다.
+Azure VM은 여러 프리미엄 저장소 디스크의 연결을 지원하므로 응용 프로그램이 VM당 최대 64TB의 저장소를 지원할 수 있습니다. 프리미엄 저장소를 사용할 경우 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 80,000 IOPS(초당 입/출력 작업 수) 및 VM당 디스크 처리량 초당 2000MB를 얻을 수 있습니다.
 
-프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 여러 개의 프리미엄 저장소 디스크를 VM(가상 컴퓨터)에 연결할 수 있습니다. 프리미엄 저장소를 사용할 경우 응용 프로그램이 VM당 최대 64TB의 저장소를 사용할 수 있으며, 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 80,000 IOPS(초당 입/출력 작업 수) 및 VM당 디스크 처리량 초당 2000MB를 얻을 수 있습니다.
+>[AZURE.NOTE]응용 프로그램이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 컴퓨터 디스크를 Azure 프리미엄 디스크로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 컴퓨터 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저자하는 표준 저장소를 사용하여 비용을 절약할 수 있습니다.
 
-Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기](http://azure.microsoft.com/pricing/free-trial/) 페이지를 방문하세요.
-
-이 문서에서는 Azure 프리미엄 저장소의 개요를 자세히 설명합니다.
+Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기](http://azure.microsoft.com/pricing/free-trial/) 페이지를 방문하세요. 기존 가상 컴퓨터를 프리미엄 저장소로 마이그레이션하는 것과 관련한 정보는 [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)을 참조하세요.
 
 ## 프리미엄 저장소에 대해 알아야 할 중요 사항
 
@@ -60,6 +58,8 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 - 새 DS 시리즈 또는 GS 시리즈 VM을 만듭니다. VM을 만드는 동안 이전에 만든 프리미엄 저장소 계정을 선택하거나, 새로 만들거나, Azure 포털에서 기본 프리미엄 계정을 만들도록 할 수 있습니다.
 
 Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테이너로 사용합니다. 즉, Azure DS 시리즈 또는 GS 시리즈 VM을 만들고 Azure 프리미엄 저장소 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 저장소 계정에 저장됩니다.
+
+기존 가상 컴퓨터를 프리미엄 저장소로 마이그레이션하는 것과 관련한 정보는 [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)을 참조하세요.
 
 프리미엄 저장소의 혜택을 활용하려면 먼저 *Premium\_LRS* 계정 유형을 사용하여 프리미엄 저장소 계정을 만듭니다. 이렇게 하려면 [Microsoft Azure Preview 포털](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) 또는 [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)를 사용할 수 있습니다. 단계별 지침은 [디스크용 프리미엄 저장소 계정 만들기 및 사용](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
 
@@ -330,17 +330,14 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 ## 다음 단계
 
-[Azure 프리미엄 저장소와 함께 Blob 서비스 작업 사용](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-[Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial-azure-preview.md)
-
-[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
-
-[저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
-
-[MSDN 참조](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Azure 프리미엄 저장소와 함께 Blob 서비스 작업 사용](http://go.microsoft.com/fwlink/?LinkId=521969)
+- [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
+- [Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial-azure-preview.md)
+- [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+- [저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
+- [MSDN 참조](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

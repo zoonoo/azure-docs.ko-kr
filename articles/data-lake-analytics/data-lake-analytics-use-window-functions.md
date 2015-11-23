@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/11/2015"
    ms.author="jgao"/>
 
 
@@ -603,10 +603,10 @@ CUME\_DIST는 값 그룹에 지정된 값의 상대적인 위치를 계산합니
 파티션에 행이 6개 있고 파티션 키는 “Web”(4번째 행 이하)입니다.
 
 - 값이 500보다 작거나 같은 행이 6개 있고, 따라서 CUME\_DIST는 6/6=1과 같습니다.
-- 값이 500보다 작거나 같은 행이 5개 있고, 따라서 CUME\_DIST는 5/6=0.83과 같습니다.
-- 값이 500보다 작거나 같은 행이 4개 있고, 따라서 CUME\_DIST는 4/6=0.66과 같습니다.
-- 값이 500보다 작거나 같은 행이 3개 있고, 따라서 CUME\_DIST는 3/6=0.5와 같습니다. 대기 시간 값이 동일한 행이 둘 있습니다.
-- 값이 500보다 작거나 같은 행이 1개 있고, 따라서 CUME\_DIST는 1/6=1와 같습니다. 
+- 값이 400보다 작거나 같은 행이 5개 있고, 따라서 CUME\_DIST는 5/6=0.83과 같습니다.
+- 값이 300보다 작거나 같은 행이 4개 있고, 따라서 CUME\_DIST는 5/6=0.66과 같습니다.
+- 값이 200보다 작거나 같은 행이 3개 있고, 따라서 CUME\_DIST는 3/6=0.5와 같습니다. 대기 시간 값이 동일한 행이 둘 있습니다.
+- 값이 100보다 작거나 같은 행이 1개 있고, 따라서 CUME\_DIST는 1/6=0.16과 같습니다. 
 
 
 **사용 메모:**
@@ -743,4 +743,4 @@ PERCENTILE\_DISC는 값을 보정하지 않으며 따라서 웹에 대한 중간
 - [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-powershell.md)
 - [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

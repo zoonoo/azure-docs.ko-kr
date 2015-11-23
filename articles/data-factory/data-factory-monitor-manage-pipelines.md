@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Data Factory 파이프라인 모니터링 및 관리" 
+	pageTitle="Azure 데이터 팩터리 파이프라인 모니터링 및 관리" 
 	description="Azure 관리 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -67,15 +67,66 @@ Azure Preview 포털을 사용하면 데이터 팩터리를 다이어그램으�
 
 데이터 팩터리의 데이터 집합 조각의 상태는 다음 중 하나입니다.
 
-상태 | 하위 상태 | 설명
------- | ---------- | -----------
-대기 | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | 실행 전에 사전 조건이 충족되기를 기다립니다. 하위 상태를 참조하여 조각에 무엇이 필요한지 파악합니다.
-In-Progress(진행 중) | Starting(시작 중)<br/>Configuring(구성 중)<br/>Allocating Resources(리소스 할당 중)<br/>Running(실행 중)<br/>Validating(유효성 검사 중) | 현재 작업이 실행 중이며 특정 조각에 대한 데이터를 생성/확인 중입니다.
-Failed | | 조각 처리에 실패했습니다. 오류 로그를 참조하여 실패의 원인을 파악합니다.
-Ready | | 조각 처리에 성공했습니다. 조각을 사용할 준비가 되었습니다.
-Skip | | 이 조각을 처리하지 않습니다.
+<table>
+<tr>
+	<th align="left">시스템 상태</th><th align="left">하위 상태</th><th align="left">설명</th>
+</tr>
+<tr>
+	<td rowspan="8">대기</td><td>ScheduleTime</td><td>아직 조각이 실행할 시간이 되지 않습니다.</td>
+</tr>
+<tr>
+<td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
+</tr>
+<tr>
+<td>ComputeResources</td><td>계산 리소스를 사용할 수 없습니다.</td>
+</tr>
+<tr>
+<td>ConcurrencyLimit</td> <td>모든 활동 인스턴스는 다른 조각을 실행하고 있습니다.</td>
+</tr>
+<tr>
+<td>ActivityResume</td><td>작업은 일시 중지되어 재개될 때까지 조각을 실행할 수 없습니다.</td>
+</tr>
+<tr>
+<td>Retry</td><td>활동 실행을 다시 시도합니다.</td>
+</tr>
+<tr>
+<td>유효성 검사</td><td>유효성 검사를 아직 시작되지 않았습니다.</td>
+</tr>
+<tr>
+<td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
+</tr>
+<tr>
+&lt;tr
+<td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
+</tr>
+<td></td>
+<td>조각이 처리되고 있습니다.</td>
+</tr>
+<tr>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>실행이 작업에서 허용하는 것보다 오래 걸렸습니다.</td>
+</tr>
+<tr>
+<td>Canceled</td><td>사용자 동작으로 취소합니다.</td>
+</tr>
+<tr>
+<td>유효성 검사</td><td>유효성 검사가 실패했습니다.</td>
+</tr>
+<tr>
+<td></td><td>조각을 생성 및/또는 유효성을 검사하지 못했습니다.</td>
+</tr>
+<td>Ready</td><td></td><td>조각을 사용할 준비가 되었습니다.</td>
+</tr>
+<tr>
+<td>생략</td><td></td><td>조각이 처리되지 않았습니다.</td>
+</tr>
+<tr>
+<td>없음</td><td></td><td>다른 상태와 함께 존재하기 위해 사용되는 조각이지만, 재설정되지 않았습니다.</td>
+</tr>
+</table>
 
-**Recently updated slices**(최근에 업데이트된 조각) 블레이드에서 조각 항목을 클릭하면 조각에 대한 세부 사항을 볼 수 있습니다.
+
+
+**Recently Updated Slices**(최근에 업데이트된 조각) 블레이드에서 조각 항목을 클릭하면 조각에 대한 세부 사항을 볼 수 있습니다.
 
 ![조각 세부 정보](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
@@ -471,8 +522,4 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 	Parameters        :
 	Outputs           
 
-
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md)을 통해 의견을 보내주세요.
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

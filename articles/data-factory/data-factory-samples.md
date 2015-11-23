@@ -1,5 +1,5 @@
 <properties 	
-	pageTitle="Azure Data Factory - 샘플" 
+	pageTitle="Azure 데이터 팩터리 - 샘플" 
 	description="Azure Data Factory 서비스와 함께 제공 되는 샘플에 대 한 세부 정보를 제공 합니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -54,9 +54,7 @@ Azure 포털의 **샘플 파이프라인** 블레이드를 사용하여 Azure Da
 ## GitHub의 샘플
 [GitHub Azure-DataFactory 리포지토리](https://github.com/azure/azure-datafactory)에는 신속하게 Azure Data Factory 서비스의 규모를 확장하거나 스크립트를 수정하고 자체 응용 프로그램에서 사용하는 데 도움이 되는 여러 샘플이 포함되어 있습니다. Samples\\JSON 폴더에는 일반적인 시나리오에 대한 JSON 조각이 포함되어 있습니다.
 
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-samples.md)을 통해 의견을 보내주세요.
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

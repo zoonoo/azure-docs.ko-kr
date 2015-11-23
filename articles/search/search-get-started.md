@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색 | Microsoft Azure 시작" 
+	pageTitle="Azure 검색 시작 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="Microsoft Azure에서 클라우드 호스팅되는 검색 서비스인 Azure 검색을 시작합니다." 
 	services="search" 
 	documentationCenter="" 
@@ -378,4 +378,4 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

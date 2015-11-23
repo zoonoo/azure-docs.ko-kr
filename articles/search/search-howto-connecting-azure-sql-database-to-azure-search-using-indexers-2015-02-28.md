@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결 | Microsoft Azure " 
+	pageTitle="인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="인덱서를 사용하여 Azure SQL 데이터베이스에서 Azure 검색 인덱스로 데이터를 가져오는 방법에 대해 알아봅니다." 
 	services="search" 
 	documentationCenter="" 
@@ -279,4 +279,4 @@ A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

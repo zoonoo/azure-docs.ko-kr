@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -38,7 +38,7 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 이 구독은 VM 이미지를 만들고 [Azure 마켓플레이스](http://azure.microsoft.com/marketplace)에 이미지를 넘겨주는 데 사용됩니다. 기존 구독이 없는 경우 여기(https://account.windowsazure.com/signup?offer=ms-azr-0003p)에서 등록하세요.
 
 ## "판매" 국가
-> [AZURE.WARNING]Microsoft Azure 마켓플레이스에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 “판매" 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [Microsoft Azure 마켓플레이스 참가 정책](http://go.microsoft.com/fwlink/?LinkID=526833)의 **섹션 1b**를 참조하세요.
+> [AZURE.WARNING]Microsoft Azure 마켓플레이스에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 “판매" 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [Microsoft Azure 마켓플레이스 참가 정책](http://go.microsoft.com/fwlink/?LinkID=526833)의 **섹션 1b**를 참조하세요.
 
 ## 다음 단계
 다음은 각 제품 유형에 대한 기술적인 필수 조건입니다. Azure 마켓플레이스용으로 만들 해당 제품 유형에 대한 문서로 연결되는 링크를 클릭하세요.
@@ -50,4 +50,4 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

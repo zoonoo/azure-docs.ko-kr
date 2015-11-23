@@ -117,7 +117,7 @@ HttpProxy.Port=<proxy port>
 	![새 규칙 만들기](./media/backup-azure-vms-prepare/firewall-02.png)
 2. *새 인바운드 규칙 마법사*에서 *규칙 형식*에 **사용자 지정** 옵션을 선택하고 다음을 클릭합니다. *프로그램*을 선택하려는 화면에서 **모든 프로그램**을 선택하고 다음을 클릭합니다.
 
-3. *프로토콜 및 포트* 화면에서 아래 테이블에 입력을 사용하고 다음을 클릭합니다.
+3. *프로토콜 및 포트* 화면에서 아래 테이블의 입력을 사용하고 다음을 클릭합니다.
 
 	![새 규칙 만들기](./media/backup-azure-vms-prepare/firewall-03.png)
 
@@ -194,4 +194,4 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
 - [가상 컴퓨터 설정](backup-azure-vms.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

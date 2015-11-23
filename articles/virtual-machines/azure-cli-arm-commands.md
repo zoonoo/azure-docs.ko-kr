@@ -1742,4 +1742,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

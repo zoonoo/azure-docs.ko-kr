@@ -18,11 +18,11 @@
 
 # Azure 모바일 앱용 iOS 클라이언트 라이브러리를 사용하는 방법
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+ 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-이 가이드에서는 최신 [Azure 모바일 앱 iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작]을 완료하여 백 엔드를 만들고 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드에 대한 .NET 서버 쪽 SDK에 대해 더 자세히 알아보려면 [.NET 백 엔드로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+이 가이드에서는 최신 [Azure 모바일 앱 iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작]을 완료하여 백 엔드를 만들고 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드의 .NET 서버 쪽 SDK에 대해 자세히 알아보려면 [.NET 백 엔드로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 ##<a name="Setup"></a>설정 및 필수 조건
 
@@ -30,7 +30,7 @@
 
 ##<a name="create-client"></a>방법: 클라이언트 만들기
 
-프로젝트에서 Azure 모바일 앱 백 엔드에 액세스하려면 `MSClient`를 만듭니다. `AppUrl`을 앱 URL로 대체합니다. `gatewayURLString` 및 `applicationKey`는 비워둘 수 있습니다. 인증에 대한 게이트웨이를 설정하는 경우 `gatewayURLString`을 게이트웨이 URL로 채웁니다.
+프로젝트에서 Azure 모바일 앱 백 엔드에 액세스하려면 `MSClient`를 만듭니다. `AppUrl`을 앱 URL로 대체합니다. `gatewayURLString` 및 `applicationKey`는 비워 둘 수 있습니다. 인증에 대한 게이트웨이를 설정하는 경우 `gatewayURLString`을 게이트웨이 URL로 채웁니다.
 
 ```
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
@@ -249,4 +249,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

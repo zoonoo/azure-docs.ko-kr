@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-service-management,hpc-pack"/>
 <tags
    ms.service="virtual-machines"
    ms.devlang="NA"
@@ -390,4 +390,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 
 * 사용자가 만든 클러스터에서 계산 노드를 시작, 중지, 추가, 제거하는 HPC 팩의 도구. [Azure에서 HPC 팩 클러스터의 계산 노드 관리](virtual-machines-hpcpack-cluster-node-manage.md) 참조
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

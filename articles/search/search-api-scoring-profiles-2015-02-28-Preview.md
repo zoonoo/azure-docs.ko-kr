@@ -1,5 +1,5 @@
 <properties
-	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview) | Microsoft Azure"
+	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview) | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="Azure 검색은 사용자가 정의한 점수 매기기 프로필을 기초로 순위의 결과를 조정할 수 있도록 하는 호스팅되는 클라우드 검색 서비스입니다."
 	services="search"
 	documentationCenter=""
@@ -302,7 +302,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 </tr><tr>
 <td>freshness</td>	<td>freshness 점수 매기기 함수는 DateTimeOffset 필드의 값을 기준으로 항목의 순위 점수를 변경하는 데 사용됩니다. 예를 들어 보다 최근 날짜의 항목에 오래된 날짜의 항목보다 더 높은 순위를 지정할 수 있습니다. (참고로 현재 날짜에 더 가까운 항목 같은 미래 날짜를 가진 일정 이벤트 등의 항목을 더 먼 미래의 항목보다 높게 순위를 설정할 수 있습니다.) 현재 서비스 릴리스에서는 범위의 한쪽 끝이 현재 시간으로 고정됩니다. 반대쪽은 'boostingDuration'을 기반으로 하는 과거의 시간입니다. 나중에 시간 범위를 늘리려면 음수 'boostingDuration'을 사용합니다. 상승 기준이 최대 범위에서 최소 범위로 변경되는 비율은 점수 매기기 프로필에 적용되는 보간을 통해 결정됩니다(아래 그림 참조). 적용된 상승 계수의 방향을 바꾸려면 1보다 작은 상승 계수를 선택합니다.</td>
 </tr><tr>
-<td>freshness | boostingDuration</td>	<td>특정 문서에 대해 상승을 중지할 만료 기간을 설정합니다. 구문 및 예제는 다음 섹션의 [boostingDuration 설정](#bkmk_boostdur)을 참조하세요.</td>
+<td>freshness | boostingDuration</td>	<td>특정 문서에 대해 상승을 중지할 만료 기간을 설정합니다. 구문 및 예제는 다음 섹션의 [boostingDuration 설정][#bkmk_boostdur]을 참조하세요.</td>
 </tr><tr>
 <td>distance</td>	<td>distance 점수 매기기 함수는 참조 지리적 위치와의 거리를 기준으로 문서 점수를 변경하는 데 사용됩니다. 참조 위치는 쿼리의 일부로 ‘scoringParameterquery’ 문자열 옵션을 사용하여 매개 변수에서 lon, lat 인수로 제공됩니다.</td>
 </tr><tr>
@@ -340,7 +340,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 `boostingDuration`은 freshness 함수의 특성입니다. 이 특성을 사용하여 특정 문서에 대해 상승이 중지되는 만료 기간을 설정합니다. 예를 들어 프로모션 기간 10일 동안 특정 제품 라인이나 브랜드를 상승시키려는 경우 해당 문서에 대해 10일의 기간을 "P10D"로 지정합니다. 또는 다음 주에 예정된 이벤트를 더 중요시하려면 "-P7D"를 지정합니다.
 
-`boostingDuration`의 형식은 XSD "dayTimeDuration" 값(ISO 8601 기간 값의 제한된 하위 집합)으로 지정해야 합니다. 이 형식의 패턴은 "P[nD]\[T\[nH]\[nM]\[nS]]"입니다.
+`boostingDuration`의 형식은 XSD "dayTimeDuration" 값(ISO 8601 기간 값의 제한된 하위 집합)으로 지정해야 합니다. 이 형식의 패턴은 "P[nD][T[nH][nM][nS]]"입니다.
 
 다음 표에 여러 예제가 나와 있습니다.
 
@@ -370,4 +370,4 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!-----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

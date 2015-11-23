@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/30/2015"
 	ms.author="mahender"/>
 
 # Microsoft 계정 로그인을 사용하도록 응용 프로그램을 구성하는 방법
@@ -71,4 +71,4 @@
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure 관리 포털]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

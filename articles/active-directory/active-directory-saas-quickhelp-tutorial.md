@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/06/2015"
 	ms.author="markusvi"/>
 
 
@@ -45,7 +45,7 @@ QuickHelp와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 
  
 ## 시나리오 설명
-이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. <br> 이 자습서에 설명된 시나리오는 다음 세 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. <br> 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 QuickHelp 추가 
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -70,14 +70,13 @@ QuickHelp의 Azure AD 통합을 구성하려면 갤러리의 QuickHelp를 관리
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 QuickHelp 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와QuickHelp의 관련 사용자 간에 연결이 형성되어야 합니다.<br> 이 연결 관계는 Azure AD의 **사용자 이름** 값을 QuickHelp의 **Username** 값으로 할당하여 설정합니다.
- 
+
 QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[QuickHelp 테스트 사용자 만들기](#creating-a-halogen-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 QuickHelp에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[QuickHelp 테스트 사용자 만들기](#creating-a-quickhelp-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 QuickHelp에 만듭니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -92,13 +91,12 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![앱 설정 구성][8] <br>
  
-     a. **로그온 URL** 텍스트 상자에 사용자가 QuickHelp 사이트에 로그인하는 데 사용하는 URL을 입력합니다.(예: *https://quickhelp.com/bsiazure/#/home/assignedContent*).
+     a. **로그온 URL** 텍스트 상자에 사용자가 QuickHelp 사이트에 로그온하는 데 사용하는 URL(예: *https://quickhelp.com/bsiazure/*))을 입력합니다.
 
      >[AZURE.NOTE]로그인 URL 값을 모를 경우 QuickHelp 지원에 문의합니다.
 
      b. **다음**을 클릭합니다.
 
-4. **QuickHelp** 메타데이터 파일을 다운로드하여 컴퓨터에 저장합니다([https://quickhelp.blob.core.windows.net/metadata/QuickhelpSamlMetadataBS.xml](https://quickhelp.blob.core.windows.net/metadata/QuickhelpSamlMetadataBS.xml)).
  
 4. **QuickHelp에서 Single Sign-On 구성** 페이지에서 다음을 수행합니다. **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 로컬로 저장합니다.<br><br>![Azure AD Connect의 정의][9] <br>
 
@@ -119,7 +117,19 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     b. 다운로드한 Azure 메타데이터 파일을 업로드하려면 **찾아보기**를 클릭하여 파일로 이동한 다음 **메타데이터 업로드**를 클릭합니다.
 
-    d. **이메일** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+    d. **메일** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+
+    e. **이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**를 입력합니다.
+
+    f. **성** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**를 입력합니다.
+
+    g. **작업 모음**에서 **저장**을 클릭합니다.
+
+
+
+
+
+
 
 6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.<br><br>![Azure AD Connect의 정의][10]<br>
 
@@ -171,44 +181,16 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
 ### QuickHelp 테스트 사용자 만들기
 
-이 섹션은 QuickHelp에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
+이 섹션은 QuickHelp에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 QuickHelp 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 QuickHelp의 관련 사용자 간에 연결이 형성되어야 합니다.
 
-이 자습서에서는 다음 구조로 CSV 파일에서 새 사용자를 가져옵니다.
+QuickHelp는 적시에 프로비전을 지원합니다. 즉, 필요한 경우 사용자 계정이 QuickHelp에 자동으로 만들어지고 계정이 Azure AD 계정에 연결됩니다.
 
-|FirstName|LastName|Email|Department|제목|
-|---|---|---|---|---|
-|Britta|Simon|BritaSimon@Fabrikam.com|||
-
-<br><br>![QuickHelp 테스트 사용자 만들기][26]<br>
-
-Azure Active Directory 테스트 환경에서 **Britta Simon** 값이 포함된 구조가 있는 CSV 파일을 만들어야 합니다.
-
-
-
-**QuickHelp에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.**
-
-1. 위의 지침에 따라 CSV 파일을 만듭니다. 
- 
-2. QuickHelp 회사 사이트에 관리자로 로그인합니다.<br><br>![QuickHelp 테스트 사용자 만들기][21]<br>
-
-
-3. **QuickHelp 관리자** 메뉴에서 **사용자**, **새로 만들기**를 차례로 클릭합니다. <br><br>![QuickHelp 테스트 사용자 만들기][24]<br>
-
-
-4. **콘텐츠**로 **사용자**를 선택하고 **가져오기**를 클릭합니다. <br><br>![QuickHelp 테스트 사용자 만들기][25]<br>
-
-5. CSV 파일을 가져오려면 **찾아보기**를 클릭하고 파일로 이동한 다음 **다음**을 클릭합니다. <br><br>![QuickHelp 테스트 사용자 만들기][26]<br>
-
-6. 요약 페이지에서 상태를 검토한 다음 **마침**을 클릭합니다. <br><br>![QuickHelp 테스트 사용자 만들기][27]<br>
-
-
-Britta를 성공적으로 가져온 경우 사용자 목록에 이 이름이 나타납니다. <br><br>![QuickHelp 테스트 사용자 만들기][28]<br>
-
+이 섹션에 작업 항목이 없습니다.
 
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 QuickHelp에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다.<br><br>![사용자 할당][200]<br>
+이 섹션의 목적은 Britta Simon에게 QuickHelp에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다.<br><br>![사용자 할당][200]<br>
 
 **Britta Simon을 QuickHelp에 할당하려면 다음 단계를 수행합니다.**
 
@@ -216,11 +198,11 @@ Britta를 성공적으로 가져온 경우 사용자 목록에 이 이름이 나
 
 2. 응용 프로그램 목록에서 **QuickHelp**를 선택합니다. <br><br>![사용자 할당][202]<br>
 
-1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br> <br>![사용자 할당][203]<br>
+1. 위쪽 메뉴에서 **사용자**를 클릭합니다.<br> <br>![사용자 할당][203]<br>
 
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.<br><br>![사용자 할당][205]
+2. 아래쪽 도구 모음에서 **할당**을 클릭합니다. <br><br>![사용자 할당][205]
 
 
 
@@ -273,4 +255,4 @@ Britta를 성공적으로 가져온 경우 사용자 목록에 이 이름이 나
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

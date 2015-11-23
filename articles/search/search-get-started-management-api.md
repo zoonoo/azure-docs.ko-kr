@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색 관리 REST API 시작 | Microsoft Azure" 
+	pageTitle="Azure 검색 관리 REST API 시작 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="관리 REST API를 사용하여 호스팅되는 클라우드 Azure 검색 서비스 관리" 
 	services="search" 
 	documentationCenter="" 
@@ -204,4 +204,4 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

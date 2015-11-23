@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/02/2015"
+	ms.date="11/10/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # 정책을 사용하여 리소스 및 컨트롤 액세스 관리
@@ -23,6 +23,8 @@
 구체적으로 거부되는 작업 또는 리소스를 설명하는 정책 정의를 만듭니다. 구독, 리소스 그룹 또는 개별 리소스와 같이 원하는 범위에서 해당 정책 정의를 할당합니다.
 
 이 문서에서는 정책을 만드는 데 사용할 수 있는 정책 정의 언어의 기본 구조를 설명합니다. 그런 다음 이 정책을 서로 다른 범위에서 적용하는 방법을 설명하고 REST API를 통해 이를 달성할 수 있는 방법에 관한 몇 가지 예제를 보여 줍니다.
+
+정책은 현재 미리 보기로 사용할 수 있습니다.
 
 ## RBAC와 어떻게 다르나요?
 
@@ -224,7 +226,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
     }
 
 
-정책 정의를 위에 나오는 예제 중 하나로 정의할 수 있습니다. api-version에는 *2015-10-01-preview*를 사용합니다. 예제 및 보다 자세한 세부 정보는 [정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 참조하세요.
+정책 정의를 위에 나오는 예제 중 하나로 정의할 수 있습니다. api-version에는 *2015-10-01-preview*를 사용합니다. 예제 및 자세한 내용은 [정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 참조하세요.
 
 ### PowerShell을 사용하여 정책 정의 만들기
 
@@ -271,7 +273,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
       "name":"VMPolicyAssignment"
     }
 
-예제 및 보다 자세한 세부 정보는 [정책 할당에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)를 참조하세요.
+예제 및 자세한 내용은 [정책 할당에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)를 참조하세요.
 
 ### PowerShell을 사용하여 정책 할당
 
@@ -289,4 +291,4 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
 
 마찬가지로 Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment 및 Remove-AzureRmPolicyAssignment cmdlet을 통해 각각 정책 할당을 가져오거나 변경 또는 제거할 수 있습니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

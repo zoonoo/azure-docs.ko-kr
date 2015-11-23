@@ -66,7 +66,7 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 ### 옵션 1: 저장소 계정 만들기
 
-1. [포털](http://manage.windowsazure.com)에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 
 2. 명령 모음에서 **New**를 클릭합니다.
 
@@ -102,13 +102,13 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 ### 옵션 2: 저장소 계정 정보 가져오기
 
-1.	[포털](http://manage.windowsazure.com)에 로그인합니다.
+1.	Azure 포털에 로그인합니다.
 
 2.	탐색 창에서 **저장소**를 클릭합니다.
 
 3.	저장소 계정의 이름을 클릭한 다음 **대시보드**를 클릭합니다.
 
-4.	대시보드의 **서비스** 아래에서 Blob URL 위로 마우스를 이동하고 클립보드 아이콘을 클릭하여 URL을 복사한 다음 붙여넣고 저장합니다. VHD를 업로드하는 명령을 만들 때 이 방법을 사용합니다.
+4.	대시보드의 **서비스** 아래에서 Blob URL 위로마우스를 이동하고 클립보드 아이콘을 클릭하여 URL을 복사한 다음 붙여넣고 저장합니다. VHD를 업로드하는 명령을 만들 때 이 방법을 사용합니다.
 
 ## 3단계: Azure PowerShell에서 구독에 연결
 
@@ -150,7 +150,7 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 
-	여기서: - **BlobStorageURL**는 저장소 계정의 URL - **YourImagesFolder**는 이미지를 저장할 Blob 저장소 내의 컨테이너 - **VHDName**은 포털이 가상 하드 디스크를 식별하기 위해 표시하게 할 이름 - **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름
+	여기서: - **BlobStorageURL**는 저장소 계정의 URL - **YourImagesFolder**는 이미지를 저장할 Blob 저장소 내의 컨테이너 - **VHDName**은 Azure 포털이 가상 하드 디스크를 식별하기 위해 표시하게 할 이름 - **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름
 
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
@@ -158,11 +158,11 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 
 ## 5단계: 사용자 지정 이미지 목록에 이미지 추가
 
-> [AZURE.TIP]포털을 사용하여 이미지를 추가하는 대신 Azure PowerShell을 사용하려면 **Add-AzureVMImage** cmdlet을 사용합니다. 예:
+> [AZURE.TIP]Azure 포털을 사용하여 이미지를 추가하는 대신 Azure PowerShell을 사용하려면 **Add-AzureVMImage** cmdlet을 사용합니다. 예:
 
 >	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
-1. 포털의 **모든 항목**에서 **가상 컴퓨터**를 클릭합니다.
+1. Azure 포털의 **모든 항목**에서 **가상 컴퓨터**를 클릭합니다.
 
 2. 가상 컴퓨터에서 **이미지**를 클릭합니다.
 
@@ -192,7 +192,7 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 
 	![사용자 지정 이미지에서 VM 만들기](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]VM을 만드려고 할 때 "VHD https://XXXXX..의 YYYY 바이트는 지원되지 않는 가상 크기입니다. 크기는 정수(MB)여야 합니다."라는 오류 메시지가 표시되는 경우 이는 VHD가 정수 MB가 아니며 고정 크기 VHD여야 함을 의미합니다. 포털 대신 **Add-AzureVMImage** PowerShell cmdlet을 사용하여 이미지를 추가합니다(위 5단계 참조). Azure cmdlet을 사용하면 VHD가 Azure 요구 사항을 충족합니다.
+	> [AZURE.TIP]VM을 만드려고 할 때 "VHD https://XXXXX..의 YYYY 바이트는 지원되지 않는 가상 크기입니다. 크기는 정수(MB)여야 합니다."라는 오류 메시지가 표시되는 경우 이는 VHD가 정수 MB가 아니며 고정 크기 VHD여야 함을 의미합니다. Azure 포털 대신 **Add-AzureVMImage** PowerShell cmdlet을 사용하여 이미지를 추가합니다(위 5단계 참조). Azure cmdlet을 사용하면 VHD가 Azure 요구 사항을 충족합니다.
 
 ## 다음 단계 ##
 
@@ -203,4 +203,4 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,13 @@
-<properties pageTitle="HPC 팩 클러스터에 "버스트" 노드 추가 | Microsoft Azure" description="클라우드 서비스에서 실행되는 주문형 작업자 역할 인스턴스를 Azure의 HPC 팩 헤드 노드에 계산 리소스로 추가하는 방법을 알아보세요." services="virtual-machines" documentationCenter="" authors="dlepow" manager="timlt" editor="" tags="azure-service-management"/>
-<tags 
+<properties
+ pageTitle="HPC 팩 클러스터에 버스트 노드 추가 | Microsoft Azure"
+ description="주문형 클라우드 서비스에서 실행되는 작업자 역할 인스턴스를 Azure의 HPC 팩 헤드 노드에 계산 리소스로 추가하는 방법을 살펴봅니다."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management,hpc-pack"/>
+<tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
@@ -17,7 +25,7 @@ ms.service="virtual-machines"
 
 ![버스트 노드][burst]
 
->[AZURE.TIP][HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에 클러스터를 만들 경우 자동 배포에 Azure 버스트 노드를 포함할 수 있습니다.
+>[AZURE.TIP] [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에 클러스터를 만들 경우 자동 배포에 Azure 버스트 노드를 포함할 수 있습니다.
 
 이 문서의 단계를 통해 Azure 노드를 클라우드 기반 HPC 팩 헤드 노드 VM에 빠르게 추가하여 테스트 또는 개념 증명 배포를 수행할 수 있습니다. 이 절차는 기본적으로 온-프레미스 HPC 팩 클러스터에 클라우드 계산 용량을 추가하는 "Azure로 버스트"와 동일합니다. 자습서를 보려면 [Microsoft HPC 팩을 사용하여 하이브리드 계산 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. 프로덕션 배포에 대한 자세한 지침과 고려 사항을 보려면 [Microsoft HPC 팩을 사용하여 Azure로 버스트](http://go.microsoft.com/fwlink/p/?LinkID=200493)를 참조하세요.
 
@@ -61,7 +69,7 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 
 
-이 시나리오에서 Azure 노드를 추가 및 시작하는 단계는 온-프레미스 헤드 노드에서 사용하는 방법과 일반적으로 동일합니다. 자세한 내용은 [Microsoft HPC 팩을 사용하여 Azure 노드를 배포하는 단계](https://technet.microsoft.com/library/gg481758(v=ws.10).aspx)에서 다음 섹션을 참조하세요.
+이 시나리오에서 Azure 노드를 추가 및 시작하는 단계는 온-프레미스 헤드 노드에서 사용하는 방법과 일반적으로 동일합니다. 자세한 내용은 [Microsoft HPC 팩을 사용하여 Azure 노드를 배포하는 단계]에서 다음 섹션을 참조하세요(https://technet.microsoft.com/library/gg481758(v=ws.10).aspx)).
 
 * Azure 노드 템플릿 만들기
 
@@ -71,7 +79,7 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 노드를 추가 및 시작하면 클러스터 작업을 실행하는 데 사용할 수 있습니다.
 
-Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 사용하여 Azure 노드 배포 시 문제 해결](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx)을 참조하세요.
+Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 사용하여 Azure 노드 배포 시 문제 해결]을 참조하세요(http://technet.microsoft.com/library/jj159097(v=ws.10).aspx)).
 
 ## 다음 단계
 
@@ -80,4 +88,4 @@ Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 �
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

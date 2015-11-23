@@ -20,7 +20,7 @@
 # PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기 
 
 > [AZURE.SELECTOR]
-- [Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
@@ -146,8 +146,8 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
 	$lbsetname="<name of the existing load-balanced set>"
-	$probeprotocol="<Specify one: tcp, udp>"
-	$probeport=<TCP or UDP port number of probe traffic>
+	$probeprotocol="<Specify one: tcp, http>"
+	$probeport=<TCP or HTTP port number of probe traffic>
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
@@ -157,7 +157,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-클라우드 서비스의 짧은 이름은 Azure 관리 포털의 클라우드 서비스 목록에 표시된 이름 또는 Azure 미리 보기 포털의 리소스 그룹 목록에 표시된 이름입니다.
+클라우드 서비스의 짧은 이름은 Azure 포털의 클라우드 서비스 목록에 표시된 이름 또는 Azure Preview 포털의 리소스 그룹 목록에 표시된 이름입니다.
 
 옵션 2: 기존 클라우드 서비스 및 가상 네트워크에서 가상 컴퓨터를 만듭니다.
 
@@ -174,7 +174,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
 
 - 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
-- Azure 관리 포털의 **자동화** 섹션에서 이 명령 집합을 Azure 자동화 Runbook으로 저장합니다.
+- Azure 포털의 **자동화** 섹션에서 이 명령 집합을 Azure 자동화 Runbook으로 저장합니다.
 
 ## <a id="examples"></a>예제
 
@@ -265,4 +265,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 [Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

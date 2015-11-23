@@ -59,11 +59,11 @@ Windows Azure Media Encryptor|PlayReady Protection을 사용하여 미디어 자
 
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##다음 단계
 미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure Media Encoder를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
@@ -72,4 +72,4 @@ Windows Azure Media Encryptor|PlayReady Protection을 사용하여 미디어 자
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

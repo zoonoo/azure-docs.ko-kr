@@ -1,5 +1,5 @@
 <properties
-	pageTitle="태그를 사용하여 Azure 리소스 구성"
+	pageTitle="태그를 사용하여 Azure 리소스 구성 | Microsoft Azure"
 	description="태그를 적용하여 대금 청구 및 관리를 위해 리소스를 구성하는 방법을 보여 줍니다."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/28/2015"
+	ms.date="11/11/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,8 +25,31 @@
 
 리소스 또는 리소스 그룹에 추가한 각 태그는 구독 전체의 분류에 자동으로 추가됩니다. 나중에 리소스에 태그를 지정할 때 사용하려는 태그 이름 및 값으로 구독을 위한 분류를 미리 채울 수도 있습니다.
 
-> [AZURE.NOTE]리소스 관리자 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 기존 배포 모델을 통해(예: Azure 포털 또는[서비스 관리 API](../services/api-management/)를 통해) 가상 컴퓨터, 가상 네트워크 또는 저장소를 만든 경우, 해당 리소스에 태그를 적용할 수 없습니다. 태그 지정을 지원하기 위해서는 리소스 관리자를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.
+각 리소스 또는 리소스 그룹에는 최대 15개의 태그가 포함될 수 있습니다. 태그 이름은 512자로 제한되며 태그 값은 256자로 제한됩니다.
 
+> [AZURE.NOTE]리소스 관리자 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 클래식 배포 모델을 통해(예: Azure 포털 또는[서비스 관리 API](../services/api-management/)를 통해) 가상 컴퓨터, 가상 네트워크 또는 저장소를 만든 경우 해당 리소스에 태그를 적용할 수 없습니다. 태그 지정을 지원하기 위해서는 리소스 관리자를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.
+
+## 템플릿의 태그
+
+배포 중에 리소스에 태그를 추가하기는 매우 쉽습니다. 배포할 리소스에 **tags** 요소를 추가하고 태그 이름 및 값을 제공하기만 하면 됩니다. 태그 이름 및 값은 구독에 미리 존재할 필요가 없습니다. 각 리소스에 최대 15개의 태그를 제공할 수 있습니다.
+
+다음 예제에서는 태그가 있는 저장소 계정을 보여 줍니다.
+
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2015-06-15",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "dept": "Finance"
+            },
+            "properties": 
+            {
+                "accountType": "Standard_LRS"
+            }
+        }
+    ]
 
 ## 미리 보기 포털의 태그
 
@@ -76,7 +99,7 @@
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
 
-이 cmdlet은 적용된 태그를 포함하여 리소스 그룹의 일부 메타데이터를 반환합니다. 리소스 그룹에 태그를 지정하기 위해 **Set-AzureRmResourceGroup** 명령을 사용하고 태그 이름과 값을 지정합니다.
+이 cmdlet은 적용된 태그를 포함하여 리소스 그룹의 일부 메타데이터를 반환합니다. 리소스 그룹에 태그를 지정하려면 **Set-AzureRmResourceGroup** 명령을 사용하고 태그 이름 및 값을 지정합니다.
 
     PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
 
@@ -140,14 +163,14 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 ## REST API를 사용하여 태그 지정
 
-포털 및 PowerShell 둘 다 백그라운드에서 [리소스 관리자 REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx)를 사용합니다. 태그를 다른 환경으로 통합해야 하는 경우 리소스 ID에 대해 GET을 사용하여 태그를 얻고 PATCH 호출을 통해 태그 집합을 업데이트할 수 있습니다.
+포털 및 PowerShell 둘 다 백그라운드에서 [리소스 관리자 REST API](https://msdn.microsoft.com/library/azure/dn848368.aspx)를 사용합니다. 태그를 다른 환경으로 통합해야 하는 경우 리소스 ID에 대해 GET을 사용하여 태그를 얻고 PATCH 호출을 통해 태그 집합을 업데이트할 수 있습니다.
 
 
 ## 태그 지정 및 대금 청구
 
 지원 되는 서비스에 대한 청구 데이터를 그룹화하는 데 태그를 사용할 수 있습니다. 예를 들어, [Azure 리소스 관리자와 통합된 가상 컴퓨터](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 사용하면 가상 컴퓨터에 대한 청구 사용을 구성하는 태그를 정의하고 적용할 수 있습니다. 서로 다른 조직에 여러 VM을 실행하는 경우 비용 센터에 따라 그룹 사용에 대한 태그를 사용할 수 있습니다. 또한 프로덕션 환경에서 실행 중인 VM에 대한 청구 사용과 같이 런타임 환경으로 비용을 분류하는 데 태그를 사용할 수 있습니다.
 
-[Azure 계정 포털](https://account.windowsazure.com/) 또는 [EA 포털](https://ea.azure.com)에서 다운로드할 수 있는 [Azure 리소스 사용 및 RateCard API](billing-usage-rate-card-overview.md) 또는 사용 쉼표로 구분된 값(CSV) 파일을 통해 태그에 대한 정보를 검색할 수 있습니다. 대금 청구 정보에 프로그래밍 방식으로 액세스하는 방법은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하세요. REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)를 참조하세요.
+[Azure 계정 포털](https://account.windowsazure.com/) 또는 [EA 포털](https://ea.azure.com)에서 다운로드할 수 있는 [Azure 리소스 사용 및 RateCard API](billing-usage-rate-card-overview.md) 또는 사용 CSV(쉼표로 구분된 값) 파일을 통해 태그에 대한 정보를 검색할 수 있습니다. 대금 청구 정보에 프로그래밍 방식으로 액세스하는 방법은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하세요. REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)를 참조하세요.
 
 대금 청구에 태그를 지원하는 서비스용 사용 CSV를 다운로드하면 **태그** 열에 태그가 나타납니다 더 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하십시오.
 
@@ -160,4 +183,4 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하세요.
 - Preview 포털 사용에 대한 소개는 [Azure Preview 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)를 참조하세요.  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

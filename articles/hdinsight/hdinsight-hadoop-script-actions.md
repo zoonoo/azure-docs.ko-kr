@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 # HDInsight용 스크립트 작업 스크립트 개발
@@ -200,9 +200,9 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 이 예에서는 'somestorageaccount' 저장소 계정의 'somecontainer' 컨테이너가 공개적으로 액세스할 수 있는지 확인해야 합니다. 그렇지 않은 경우 스크립트는 ' 찾을 수 없음 ' 예외를 발생시키고 실패합니다.
 
-### Add-AzureHDInsightScriptAction cmdlet에 매개 변수 전달
+### Add-AzureRmHDInsightScriptAction cmdlet에 매개 변수 전달
 
-여러 매개 변수를 AzureHDInsightScriptAction cmdlet에 전달하려면 스크립트에 대한 모든 매개 변수를 포함하도록 문자열 값의 형식을 지정해야 합니다. 예:
+여러 매개 변수를 Add-AzureRmHDInsightScriptAction cmdlet에 전달하려면 스크립트에 대한 모든 매개 변수를 포함하도록 문자열 값의 형식을 지정해야 합니다. 예:
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
@@ -351,4 +351,4 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -126,10 +126,6 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 
 위의 예제에서 otherLinkedServiceName1 및 otherLinkedServiceName2는 HDInsight 클러스터가 대체 저장소 계정에 액세스하는 데 필요한 자격 증명이 해당 정의에 포함된 연결된 서비스를 나타냅니다.
 
-## 저장 프로시저 작업 - FAQ
-### 저장 프로시저 작업은 어떤 데이터 원본을 지원하나요?
-현재 저장 프로시저 작업은 Azure SQL 데이터베이스만 지원합니다.
-
 ## 조각 - FAQ
 
 ### 어떻게 조각을 다시 실행할 수 있나요?
@@ -181,4 +177,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 검색의 비디오, 샘플 및 자습서 | Microsoft Azure"
+	pageTitle="Azure 검색의 비디오, 샘플 및 자습서 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="Microsoft Azure에서 호스팅되는 클라우드 서비스인 Azure 검색에 대해 만들어진 모든 비디오, 샘플, 데모 및 자습서의 중앙 목록"
 	services="search"
 	documentationCenter=""
@@ -95,4 +95,4 @@ CodePlex에서 공개 미리 보기 중에 현재 버전과 여전히 관련이 
 - [**SQL Server와 Azure 검색의 동기화 샘플**](http://sqlserver2azuresearch.codeplex.com/)은 포함된 로컬 데이터베이스에서 SQL Server 행 집합을 로드하는 Windows 콘솔 응용 프로그램입니다.
 - [**점수 매기기 프로필 데모**](https://azuresearchscoringprofiles.codeplex.com/)는 검색 결과 조정을 위한 점수 매기기 프로필을 정의하고 실행하며 업데이트하는 Windows 콘솔 응용 프로그램입니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

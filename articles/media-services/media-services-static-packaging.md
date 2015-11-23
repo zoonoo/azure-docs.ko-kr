@@ -27,7 +27,7 @@
 
 미디어 서비스는 동적 및 정적 패키징을 지원합니다. 정적 패키징을 사용하는 경우 고객에게 필요한 각 형식으로 콘텐츠 복사본을 만들어야 합니다. 동적 패키징을 사용하는 경우 적응 비트 전송률 MP4 또는 부드러운 스트리밍 파일의 집합이 포함된 자산을 만들기만 하면 됩니다. 이렇게 하면 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림을 받을 수 있도록 합니다. 따라서 사용자는 단일 저장소 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, 미디어 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다.
 
->[AZURE.NOTE][동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하는 것이 좋습니다.
+>[AZURE.NOTE] [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하는 것이 좋습니다.
 
 그러나 정적 패키징이 필요한 일부 시나리오가 있습니다.
 
@@ -1441,9 +1441,10 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

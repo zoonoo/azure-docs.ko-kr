@@ -3,7 +3,7 @@
 	description="Visual Studio 연결된 서비스를 사용하여 저장소 계정을 만든 후 Visual Studio ASP.NET 5 프로젝트에서 Azure Blob 저장소 사용을 시작하는 방법입니다."
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET 5)
 
@@ -166,4 +166,4 @@ Blob을 삭제하려면 먼저 Blob에 대한 참조를 가져온 다음 **Delet
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

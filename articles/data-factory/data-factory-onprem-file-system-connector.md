@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 온-프레미스 파일 시스템 간 데이터 이동
@@ -52,7 +52,7 @@
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -273,7 +273,7 @@
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -427,7 +427,7 @@
 속성 | 설명 | 필수
 -------- | ----------- | --------
 type | 형식 속성은 **OnPremisesFileServer**로 설정해야 합니다. | 예 
-host | 서버의 호스트 이름입니다. '\\'를 다음 예제와 같이 이스케이프 문자로 사용합니다. 공유가 :\\servername인 경우 \\\servername를 지정합니다.<p>파일 시스템이 게이트웨이 컴퓨터에 로컬인 경우 로컬 또는 localhost를 사용합니다. 파일 시스템이 게이트웨이 컴퓨터와 다른 서버에 있는 경우 \\\servername를 사용합니다.</p> | 예
+host | 서버의 호스트 이름입니다. '\\'를 다음 예제와 같이 이스케이프 문자로 사용합니다. 공유가 :\\servername인 경우 \\servername를 지정합니다.<p>파일 시스템이 게이트웨이 컴퓨터에 로컬인 경우 로컬 또는 localhost를 사용합니다. 파일 시스템이 게이트웨이 컴퓨터와 다른 서버에 있는 경우 \\servername를 사용합니다.</p> | 예
 userid | 서버에 액세스 권한이 있는 사용자의 ID 지정 | 아니요(encryptedCredential을 선택하는 경우)
 password | 사용자에 암호 지정(userid) | 아니요(encryptedcredential을 선택하는 경우) 
 encryptedCredential | New-AzureDataFactoryEncryptValue cmdlet을 실행하여 얻을 수 있는 암호화된 자격 증명을 지정합니다<p>**참고:** 버전 0.8.14 이상의 Azure PowerShell을 사용하여 OnPremisesFileSystemLinkedService로 설정된 형식 매개 변수로 New-AzureDataFactoryEncryptValue와 같은 cmdlet을 사용해야 합니다</p> | 아니요(일반 텍스트에 userid 및 암호를 지정하는 경우)
@@ -442,7 +442,7 @@ gatewayName | 데이터 팩터리 서비스가 온-프레미스 파일 서버에
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -599,4 +599,4 @@ false | mergeFiles | <p>다음 구조를 가진 원본 폴더 Folder1의 경우:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

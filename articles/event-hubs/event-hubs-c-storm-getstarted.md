@@ -1,5 +1,5 @@
 <properties
-	pageTitle="이벤트 허브 시작"
+	pageTitle="C 및 Apache Storm과 함께 이벤트 허브 시작 | Microsoft Azure"
 	description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다."
 	services="event-hubs"
 	documentationCenter=""
@@ -111,4 +111,4 @@
 [Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -169,7 +169,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-SQL 데이터 웨어하우스는 ANSI 조인을 지원하지 않으므로 이 코드를 약간 변경해야 복사할 수 있습니다.
+SQL 데이터 웨어하우스는 UPDATE 문의 FROM 구문에서의 ANSI 조인을 지원하지 않으므로 이 코드를 약간 변경해야 복사할 수 있습니다.
 
 CTAS와 암시적 조인의 조합을 사용하여 이 코드를 대체할 수 있습니다.
 
@@ -206,7 +206,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## Delete 문에 대한 ANSI 조인 대체
-CTAS를 사용하여 데이터를 삭제하는 것이 최선의 방법인 경우가 있습니다. 단순히 데이터를 삭제하는 대신 유지 하려는 데이터를 선택합니다. SQL 데이터 웨어하우스에서 지원되지 않는 ANSI 조이닝 구문을 사용하는 DELETE 문의 경우 특히 이 방법을 사용해야 합니다.
+CTAS를 사용하여 데이터를 삭제하는 것이 최선의 방법인 경우가 있습니다. 단순히 데이터를 삭제하는 대신 유지 하려는 데이터를 선택합니다. 특히 ANSI 조인 구문을 사용하는 DELETE 문에서 그렇습니다. SQL 데이터 웨어하우스가 DELETE 문의 FROM 구문에서 ANSI 조인을 지원하지 않기 때문입니다.
 
 변환된 DELETE 문의 예를 아래에서 볼 수 있습니다.
 
@@ -429,4 +429,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

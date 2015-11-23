@@ -1,5 +1,5 @@
 <properties 
-pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview) | Microsoft Azure" 
+pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview) | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 description="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -776,4 +776,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

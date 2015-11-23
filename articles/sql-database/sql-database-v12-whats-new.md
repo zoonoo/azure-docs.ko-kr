@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/11/2015" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,6 @@ SQL 데이터베이스의 리소스 제한에 대한 최신 정보는 <br/>[Azur
 SQL 데이터베이스 V12에 대한 주요 목표는 Microsoft SQL Server 2014와 호환성을 개선하는 것입니다. 다른 영역 중 V12는 프로그래밍의 중요한 영역에서 SQL server와의 패리티를 실현합니다. 예를 들어 다음과 같습니다.
 
 
-- [CLR(Common Language Runtime) 어셈블리](http://msdn.microsoft.com/library/ms189524.aspx)
 - [OVER](http://msdn.microsoft.com/library/ms189461.aspx)를 포함한 [Window 함수](http://msdn.microsoft.com/library/bb934097.aspx) 
 - [XML 인덱스](http://msdn.microsoft.com/library/bb934097.aspx) 및 [선택적 XML 인덱스](http://msdn.microsoft.com/library/jj670104.aspx)
 - [변경 내용 추적](http://msdn.microsoft.com/library/bb933875.aspx)
@@ -48,7 +47,7 @@ SQL 데이터베이스 V12에 대한 주요 목표는 Microsoft SQL Server 2014�
 - [전체 텍스트 검색](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-SQL 데이터베이스에서 아직 지원되지 않는 작은 집합의 기능은 [여기](http://msdn.microsoft.com/library/azure/ee336281.aspx)를 참조하세요.
+SQL 데이터베이스에서 아직 지원되지 않는 작은 집합의 기능은 [여기](sql-database-transact-sql-information.md)를 참조하세요.
 
 
 ## 자세한 프리미엄 성능, 새로운 성능 수준
@@ -92,7 +91,7 @@ V12에서만 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)의
 
 - [행 수준 보안](http://msdn.microsoft.com/library/dn765131.aspx)(RLS)
 - [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)
-- [포함된 데이터베이스](http://msdn.microsoft.com/library/azure/ff394108.aspx)
+- [포함된 데이터베이스](http://msdn.microsoft.com/library/ff929188.aspx)
 - GRANT, DENY, REVOKE로 관리되는 [응용 프로그램 역할](http://msdn.microsoft.com/library/ms190998.aspx)
 - [투명한 데이터 암호화](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx)(TDE)
 - [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
@@ -113,7 +112,7 @@ V12는 대폭 개선된 복구 지점 목표(RPO) 및 예상된 복구 시간 (E
 | 활성 지역 복제 | • RPO < 5분.<br/>• ERT < 1시간. | • RPO < 5초.<br/>• ERT < 30초. |
 
 
-자세한 내용은 [SQL 데이터베이스 비즈니스 연속성](http://msdn.microsoft.com/library/azure/hh852669.aspx)을 참조하세요.
+자세한 내용은 [SQL 데이터베이스 비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.
 
 
 ## 지금 업그레이드하는 더 많은 이유
@@ -162,4 +161,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

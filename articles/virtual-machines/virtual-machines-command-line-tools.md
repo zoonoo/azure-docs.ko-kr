@@ -192,7 +192,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 
 ![Azure 기술 다이어그램](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new**는 Blob 저장소에서 드라이브(즉, 다이어그램의 e:\\)를 만들고, **연결**은 이미 만들어졌지만 연결되지 않은 디스크를 가상 컴퓨터에 연결합니다.
+**create-new**는 Blob 저장소에서 드라이브(즉, 다이어그램의 e:\)를 만들고, **연결**은 이미 만들어졌지만 연결되지 않은 디스크를 가상 컴퓨터에 연결합니다.
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
@@ -2350,4 +2350,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

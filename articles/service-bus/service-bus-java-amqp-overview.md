@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="서비스 버스 AMQP 개요(Java) | Microsoft Azure" 
+	pageTitle="Java가 포함된 서비스 버스 AMQP 개요 | Microsoft Azure" 
 	description="Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 Java를 사용하는 방법을 알아봅니다." 
 	services="service-bus" 
 	documentationCenter="java" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/06/2015" 
 	ms.author="sethm"/>
 
 
@@ -80,23 +80,25 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 **그림 2: AMQP 1.0 클라이언트 라이브러리 표**
 
-서비스 버스로 이러한 라이브러리를 가져오고 사용하는 방법에 대한 자세한 내용은 [서비스 버스 AMQP 개발자 가이드][]를 참조하세요. 자세한 내용은 아래 "참조" 섹션을 참조하세요.
+서비스 버스로 이러한 라이브러리를 가져오고 사용하는 방법에 대한 자세한 내용은 [서비스 버스 AMQP 개발자 가이드][]를 참조하세요. 자세한 내용으로 연결되는 [다음 단계](service-bus-java-amqp-overview.md#next-steps) 섹션을 참조하세요.
 
 ## 요약
 
 *    AMQP 1.0은 여러 플랫폼 간에 상호 운용되는 하이브리드 응용 프로그램을 만들 수 있는 안정적인 개방형 메시징 프로토콜입니다. AMQP 1.0은 OASIS 표준입니다.
 *    이제 Azure 서비스 버스와 Windows Server용 서비스 버스(서비스 버스 1.1)에서 모두 AMQP 1.0이 지원됩니다. 가격은 기존 프로토콜과 같습니다.
 
-## 참조
+## 다음 단계
 
-*    [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk)
-*    [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법](http://aka.ms/ll1fm3)
-*    [서비스 버스 AMQP 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)
+서비스 버스의 AMQP 지원에 대한 자세한 내용을 보려면 다음 링크를 방문하세요.
+
+*    [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md)
+*    [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법](service-bus-java-how-to-use-jms-api-amqp.md)
+*    [서비스 버스 AMQP 개발자 가이드][]
 *    [OASIS AMQP(Advanced Message Queuing Protocol) 버전 1.0 사양](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-java-amqp-overview/Example1.png
-[서비스 버스 AMQP 개발자 가이드]: http://msdn.microsoft.com/library/jj841071.aspx
+[서비스 버스 AMQP 개발자 가이드]: service-bus-amqp-dotnet.md
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

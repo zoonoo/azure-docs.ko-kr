@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/22/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 스트림 분석 릴리스 정보
+
+## 스트림 분석의 2015/11/12 릴리스에 대한 정보 ##
+
+이 릴리스에는 다음 업데이트가 포함됩니다.
+
+제목 | 설명
+---|---
+SELECT의 새 동작 | 스트림 분석의 SELECT가 중첩된 레코드의 속성 접근자로 *를 허용하도록 확장되었습니다. 추가 정보는[http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "복합 데이터 형식")를 참조하세요.
 
 ## 스트림 분석의 2015/10/22 릴리스에 대한 정보 ##
 
@@ -116,4 +124,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

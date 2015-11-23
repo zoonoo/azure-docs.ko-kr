@@ -185,4 +185,12 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - WOOX Innovations Limited
 - ZTE Corporation
 
-<!---HONumber=Nov15_HO2-->
+##미디어 서비스 학습 경로
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##피드백 제공
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

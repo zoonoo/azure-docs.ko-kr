@@ -13,136 +13,152 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/04/2015" 
 	ms.author="mahender"/>
 
-# 기존 Azure 모바일 서비스를 Azure 앱 서비스 모바일 앱으로 마이그레이션
+# 기존 Azure 모바일 서비스를 앱 서비스로 마이그레이션 
 
-이 항목에서는 기존 응용 프로그램을 Azure 모바일 서비스에서 새로운 앱 서비스 모바일 앱으로 마이그레이션하는 방법을 보여 줍니다. 기존의 모든 모바일 서비스 앱을 새로운 앱 서비스 모바일 앱으로 쉽게 마이그레이션할 수 있습니다. 마이그레이션 중에 기존 모바일 서비스 응용 프로그램이 계속 작동할 수 있습니다. 시간이 지나면 마이그레이션 프로세스가 훨씬 더 쉬워지겠지만 지금 마이그레이션하려는 경우 다음 단계를 사용할 수 있습니다.
+이 항목에서는 기존 응용 프로그램을 Azure 모바일 서비스에서 새로운 앱 서비스 모바일 앱으로 마이그레이션하는 방법을 보여 줍니다. 기존의 모든 모바일 서비스 앱을 새로운 앱 서비스 모바일 앱으로 쉽게 마이그레이션할 수 있습니다. 마이그레이션 중에 기존 모바일 서비스 응용 프로그램이 계속 작동할 수 있습니다.
 
->[AZURE.NOTE]마이그레이션은 현재 모바일 서비스 .NET 백 엔드를 사용하는 고객에 대해서만 지원됩니다. Node.JS 백 엔드를 사용하는 응용 프로그램은 아직 모바일 서비스에 유지해야 합니다.
+>[AZURE.NOTE]현재 수동 마이그레이션을 사용하여 .NET 백 엔드 모바일 서비스를 앱 서비스로 마이그레이션할 수 있습니다. Node.js와 .NET에 대한 완성 인도 방식의 마이그레이션 환경이 곧 제공됩니다. 그러나 수동 마이그레이션을 수행하는 경우 기존의 **service.azure-mobile.net** URL을 보존할 수 *없습니다*.
 
-##<a name="understand"></a>앱 서비스 모바일 앱 이해
+앱이 Azure 앱 서비스로 마이그레이션되면 모든 앱 서비스 기능에 액세스할 수 있고 모바일 서비스 가격 책정이 아닌 [앱 서비스 가격 책정]에 따라 요금이 청구됩니다.
 
-앱 서비스 모바일 앱은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 모바일 앱에 대한 자세한 내용은 [모바일 앱 정의] 항목을 참조하세요.
+### <a name="why-host"></a>왜 앱 서비스에서 호스트하나요?
+
+앱 서비스는 응용 프로그램에 대해 더 풍부한 기능의 호스팅 환경을 제공합니다. 앱 서비스에서 호스팅하여 서비스 슬롯, 사용자 지정 도메인, 트래픽 관리자 지원 및 기타에 대해 액세스할 수 있습니다. [앱 서비스의 모바일 앱에 모바일 서비스를 마이그레이션]하는 동안 일부 고객은 SDK 업데이트를 수행하지 않고 이러한 기능을 즉시 활용하려고 할 수 있습니다.
+
+앱 서비스에서 호스팅되는 주요 제한 사항은 모바일 서비스가 예약된 작업이 통합되지 않고 Azure 스케줄러가 사용자 지정 API을 적중하도록 설정되거나 웹 작업 기능이 사용되도록 설정되어야 합니다.
+
+앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스 vs. 앱 서비스] 항목을 참조하세요.
+
+##마이그레이션과 업그레이드 비교
+
+[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
+
+  - Node.js 기반 서버 프로젝트의 경우 새로운 [모바일 앱 Node.js SDK](https://github.com/Azure/azure-mobile-apps-node)에서 다양한 새로운 기능을 제공합니다. 예를 들어 이제 로컬 개발 및 디버깅을 수행하고 0.10 이후의 모든 Node.js 버전을 사용할 수 있으며 원하는 Express.js 미들웨어로 사용자 지정할 수 있습니다.
+
+  - .NET 기반 서버 프로젝트의 경우 새로운 [모바일 앱 SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)는 NuGet 종속성에 대한 유연성을 더 많이 제공하고, 새로운 앱 서비스 인증 기능을 지원하며, MVC를 비롯한 모든 ASP.NET 프로젝트를 사용하여 작성합니다. 업그레이드에 대한 자세한 내용은 [기존 .NET 모바일 서비스를 앱 서비스로 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)를 참조하세요.
+
+
+##<a name="understand"></a>앱 서비스 모바일 이해 
+
+앱 서비스 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 모바일 앱에 대한 자세한 내용은 [모바일 앱 정의] 항목을 참조하세요.
 
 모바일 앱으로 마이그레이션하는 경우 기존 앱 기능(및 코드)을 모두 보존할 수 있습니다. 또한 응용 프로그램에서 새로운 기능을 사용할 수 있습니다. 모바일 앱 모델에서 코드는 실제로 웹앱(새 버전의 Azure 웹 사이트)에서 실행됩니다. 웹앱과 웹앱 작동 방식을 완전히 제어할 수 있습니다. 뿐만 아니라 이전에 모바일 서비스 고객이 사용할 수 없었던 웹앱 기능(예: 트래픽 관리자 및 개발 슬롯)을 이제 사용할 수 있습니다.
 
-새 모델은 모바일 서비스 작업의 주요 문제 중 하나도 해결합니다. 이제 종속성 충돌을 염려하지 않고 모든 버전의 NuGet 패키지를 배포할 수 있습니다. 마이그레이션의 이점에 대한 자세한 내용은 [웹 사이트와 모바일 서비스를 이미 사용하고 있습니다. 앱 서비스가 내게 어떤 도움을 주나요?] 항목을 참조하세요.
 
-##<a name="overview"></a>기본 마이그레이션 개요
-가장 간단한 마이그레이션 방법은 앱 서비스 모바일 앱의 새 인스턴스를 만드는 것입니다. 대부분의 경우 새 서버 SDK로 전환한 다음 새 모바일 앱에 코드를 다시 게시하기만 하면 간단히 마이그레이션할 수 있습니다. 그러나 고급 인증 시나리오 및 예약된 작업 사용과 같이 추가 구성이 필요한 일부 시나리오도 있습니다. 각 시나리오는 다음 섹션에서 설명합니다.
+##모바일 서비스 .NET 백 엔드에 대한 수동 마이그레이션
 
->[AZURE.NOTE]마이그레이션을 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해하는 것이 좋습니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
+이 섹션에서는 Azure 앱 서비스 내에서 .NET 모바일 서비스 프로젝트를 호스트하는 방법을 보여 줍니다. 이러한 방식으로 호스트되는 앱은 모든 *모바일 서비스* .NET 런타임 자습서를 사용할 수 있습니다. 단, azure-mobile.net 도메인을 사용하는 모든 URL을 앱 서비스 인스턴스의 도메인으로 대체해야 합니다.
 
-편리할 때 코드를 이동하여 테스트할 수 있습니다. 모바일 앱 백 엔드가 준비되면 새 버전의 클라이언트 응용 프로그램을 릴리스할 수 있습니다. 이제 두 개의 응용 프로그램 백엔드 복사본이 나란히 실행됩니다. 버그 수정 내용이 둘 다에 적용되는지 확인해야 합니다. 끝으로, 사용자가 최신 버전으로 업데이트한 후 원본 모바일 서비스를 삭제할 수 있습니다.
+또한 모바일 서비스 프로젝트는 [앱 서비스 환경]에서 호스트될 수 있습니다. 이 항목의 모든 내용이 여전히 적용되지만 사이트는 contoso.azurewebsites.net 대신 contoso.contosoase.p.azurewebsites.net 형태입니다.
 
-이 마이그레이션의 전체 단계 집합은 다음과 같습니다.
-
-1. 새 모바일 앱 만들기 및 구성
-2. 인증 문제 해결
-3. 새 버전의 클라이언트 응용 프로그램 릴리스
-4. 원본 모바일 서비스 인스턴스 삭제
+>[AZURE.NOTE]수동 마이그레이션을 수행하는 경우 기존의 **service.azure-mobile.net** URL을 보존할 수 *없습니다*. 이 URL에 연결하는 모바일 클라이언트가 있는 경우 자동 마이그레이션 옵션을 사용하거나 모든 모바일 클라이언트가 새 URL로 업그레이드될 때까지 모바일 서비스를 계속 실행해야 합니다.
 
 
-##<a name="mobile-app-version"></a>모바일 앱 버전의 응용 프로그램 설정
-마이그레이션의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. [Preview Azure 관리 포털]에서 새 모바일 앱을 만들 수 있습니다. 자세한 내용은 [모바일 앱 만들기] 항목을 참조하세요.
+### <a name="app-settings"></a>응용 프로그램 설정
+모바일 서비스에는 환경에서 사용 가능한 여러 응용 프로그램 설정이 필요합니다. 이에 대해서는 이 섹션에 설명되어 있습니다.
 
-모바일 서비스와 동일한 데이터베이스 및 알림 허브를 사용하려는 경우가 많습니다. **Azure 관리 포털** 모바일 서비스 섹션의 [구성] 탭에서 이러한 값을 복사할 수 있습니다. **연결 문자열**에서 `MS_NotificationHubConnectionString` 및 `MS_TableConnectionString`을 복사합니다. 모바일 앱 사이트로 이동하고 **설정**, **응용 프로그램 설정**을 차례로 선택한 다음 **연결 문자열** 섹션에 추가하여 기존 값을 덮어씁니다.
-
-모바일 앱은 모바일 서비스 런타임과 동일한 기능을 대부분 제공하는 새로운 [모바일 앱 서버 SDK]를 제공합니다. 먼저, 기존 프로젝트에서 모바일 서비스 NuGet을 제거하고 서버 SDK를 대신 포함해야 합니다. 이 마이그레이션을 위해 대부분의 개발자는 `Microsoft.Azure.Mobile.Server.Quickstart` 패키지를 다운로드하고 설치할 수 있으며, 전체 필수 집합으로 가져오게 됩니다. 그런 다음 WebApiConfig.cs에서
-
-    // Use this class to set configuration options for your mobile service
-    ConfigOptions options = new ConfigOptions();
-    
-    // Use this class to set WebAPI configuration options
-    HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
-
-다음으로 바꿀 수 있습니다.
-
-    HttpConfiguration config = new HttpConfiguration();
-
-    new MobileAppConfiguration()
-	    .UseDefaultConfiguration()
-	    .ApplyTo(config);
+웹앱에서 응용 프로그램 설정을 구성하기 위해 먼저 [Azure 관리 포털 미리 보기]에 로그인합니다. "설정" 및 "응용 프로그램 설정"을 차례로 사용하고 선택하려는 웹, 모바일 또는 API 앱으로 이동합니다. "앱 설정"이라는 섹션까지 아래로 스크롤합니다. 여기에 필요한 키-값 쌍을 설정할 수 있습니다.
+ 
+**MS\_MobileServiceName**은 앱의 이름으로 설정해야 합니다. 예를 들어 URL contoso.azurewebsites.net을 가진 앱에서 실행하는 경우 "contoso"는 올바른 값입니다.
+ 
+**MS\_MobileServiceDomainSuffix**는 웹앱의 이름으로 설정해야 합니다. 예를 들어 URL contoso.azurewebsites.net을 가진 앱에서 실행하는 경우 "azurewebsites.net"는 올바른 값입니다.
+ 
+**MS\_ApplicationKey**는 임의의 값으로 설정할 수 있지만 클라이언트 SDK에서 사용되는 동일한 값이어야 합니다. GUID는 사용하는 것이 좋습니다.
+ 
+**MS\_MasterKey**는 임의의 값으로 설정할 수 있지만, 이 값은 관리자 API/클라이언트에서 사용되는 값과 같아야 합니다. GUID는 사용하는 것이 좋습니다.
+ 
+기존 모바일 서비스 응용 프로그램을 통해 이동하는 경우 마스터 키와 응용 프로그램 키는 모두 [Azure 관리 포털]의 모바일 서비스 섹션에 있는 "구성" 탭에서 가져올 수 있습니다. 아래쪽에 있는 "키 관리" 작업을 선택하고 키를 복사합니다.
 
 
->[AZURE.NOTE]앱에서 기능을 추가/제거하는 방법 및 새 서버 SDK에 대한 자세한 내용을 보려면, [.NET 서버 SDK를 사용하는 방법] 항목을 참조하세요.
+### <a name="client-sdk"></a>방법: 클라이언트 SDK 수정
 
-모바일 서비스 및 모바일 앱 SDK 사이의 다른 몇가지 변경 사항이 있지만 처리하기 쉽습니다. 사용자 프로젝트에서 일부 using 문을 수정해야 할 수 있으며, Visual Studio가 지원합니다.
+클라이언트 앱 프로젝트에서 모바일 서비스 클라이언트 개체의 생성자를 수정하여 새로운 앱 URL(예: `https://contoso.azurewebsites.net`) 및 이전에 구성한 응용 프로그램 키를 적용합니다. 클라이언트 SDK 버전은 **모바일 서비스** 버전이어야 하고 업그레이드되지 **않아야** 합니다. iOS 및 Android 클라이언트의 경우 2.x 버전을 사용하고 Windows/Xamarin의 경우 1.3.2를 사용합니다. Javascript 클라이언트는 1.2.7을 사용해야 합니다.
 
-해당 decorator를 클래스 정의 바로 앞에 배치하여 `[MobileAppController]` 특성을 ApiControllers 모두에 추가해야 합니다.
+### <a name="data"></a>방법: 데이터 기능 활성화
 
-`[AuthorizeLevel]` 특성은 더 이상 없으며 대신 표준 ASP.NET `[Authorize]` 특성과 함께 컨트롤러 및 메소드를 장식합니다. `[AuthorizeLevel]`이 없는 컨트롤러는 더 이상 응용 프로그램 키로 보호되지 않으며 공용으로 처리됩니다. 새 SDK는 응용 프로그램 키 및 마스터 키를 더 이상 사용하지 않습니다.
+모바일 서비스에서 기본 Entity Framework 클래스를 사용하기 위해 추가로 두 개의 앱 설정이 필요합니다.
+ 
+연결 문자열은 응용 프로그램 설정 블레이드의 **앱 설정** 섹션 바로 아래에 있는 "연결 문자열" 섹션에 저장됩니다. 데이터베이스에 대한 연결 문자열은 **MS\_TableConnectionString** 키에서 설정되어야 합니다. 기존 모바일 서비스 응용 프로그램을 통해 이동하는 경우 모바일 서비스 포털에서 구성 탭의 "연결 문자열" 섹션으로 이동합니다. "연결 문자열 표시"를 클릭하고 값을 복사합니다.
+ 
+기본적으로 사용할 스키마는 **MS\_MobileServiceName**이지만 **MS\_TableSchema** 설정으로 덮어쓸 수 있습니다. 다시 **앱 설정**에서 **MS\_TableSchema**를 사용할 스키마의 이름으로 설정합니다. 기존 모바일 서비스 응용 프로그램을 통해 이동하는 경우 스키마는 Entity Framework를 사용하여 만들어집니다. 이것은 코드를 호스팅하는 앱 서비스 인스턴스가 아니라 모바일 서비스의 이름입니다.
 
-푸시를 위해 서버 SDK에서 누락된 주요 항목은 PushRegistrationHandler 클래스입니다. 모바일 앱에서는 등록이 약간 다르게 처리되며, 기본적으로 태그 없는 등록이 사용됩니다. 사용자 지정 API를 통해 태그를 관리할 수 있습니다. 자세한 내용은 [모바일 앱에 푸시 알림 추가] 항목을 참조하세요.
+### <a name="push"></a>방법: 푸시 기능 활성화
 
-예약된 작업은 모바일 앱에 빌드되지 않으므로 .NET 백 엔드에 있는 기존 작업을 모두 개별적으로 마이그레이션해야 합니다. 한 가지 옵션은 모바일 앱 코드 사이트에 예약된 [웹 작업]을 만드는 것입니다. 작업 코드를 포함하는 컨트롤러를 설정하고 예상 일정에 따라 해당 끝점에 도달하도록 [Azure 스케줄러]를 구성할 수도 있습니다.
+작동할 푸시의 경우 웹앱은 추가로 알림 허브에 대한 정보를 알고 있어야 합니다.
+ 
+"연결 문자열"에서 **MS\_NotificationHubConnectionString**을 알림 허브에 대한 DefaultFullSharedAccessSignature 연결 문자열을 사용하여 설정합니다. 기존 모바일 서비스 응용 프로그램을 통해 이동하는 경우 모바일 서비스 포털에서 구성 탭의 "연결 문자열" 섹션으로 이동합니다. "연결 문자열 표시"를 클릭하고 값을 복사합니다.
 
-`ApiServices` 개체는 더이상 SDK의 일부가 아닙니다. 모바일 앱 설정에 액세스하려면 다음을 사용할 수 있습니다.
+**MS\_NotificationHubName** 앱 설정은 허브의 이름으로 설정되어야 합니다. 기존 모바일 서비스 앱을 이동할 때 모바일 서비스 포털의 푸시 탭에서 이 값을 가져올 수 있습니다. 이 탭에서 다른 필드는 자체 허브에 연결되고 어디에도 복사할 필요가 없습니다.
+ 
+### <a name="auth"></a>방법: 인증 기능 활성화
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings(); 
+또한 ID 기능에는 개별 공급자에 필요한 앱 설정을 요구 사항이 있습니다. 기존 모바일 서비스 앱으로 이동하는 경우 각 모바일 서비스 포털의 ID 탭에 있는 각각의 필드에는 해당하는 앱 설정이 있습니다.
+ 
+Microsoft 계정
 
-마찬가지로, 로깅은 이제 표준 ASP.NET 추적 쓰기를 사용하여 수행됩니다.
+* **MS\_MicrosoftClientID**
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+* **MS\_MicrosoftClientSecret**
 
-##<a name="authentication"></a>인증 고려 사항
-모바일 앱과 모바일 서비스 간의 가장 큰 차이점 중 하나는 모바일 앱의 경우 로그인이 코드를 실행하는 사이트가 아닌 앱 서비스 게이트웨이에서 처리된다는 것입니다. 리소스 그룹에 없는 경우, 관리 포털에서 Azure 모바일 앱으로 이동하여 게이트웨이를 프로비전할 수 있습니다. 그런 다음 **설정**, **사용자 인증**을 **모바일** 범주에서 선택합니다. **만들기**를 클릭하여 모바일 앱과 함께 게이트웨이를 연결합니다.
+* **MS\_MicrosoftPackageSID**
+ 
+Facebook
 
-이 외에 대부분의 응용 프로그램에서는 추가 작업이 필요하지 않지만 유의해야 하는 몇 가지 고급 시나리오가 있습니다.
+* **MS\_FacebookAppID**
 
-대부분의 앱은 간단히 대상 ID 공급자와 함께 새 등록을 사용하기만 해도 되지만 [모바일 앱에 인증 추가] 자습서에 따라 앱 서비스 앱에 ID를 추가하는 방법을 알아볼 수 있습니다.
+* **MS\_FacebookAppSecret**
+ 
+Twitter
 
-데이터베이스에 사용자 ID를 저장하는 경우와 같이 응용 프로그램이 사용자 ID에 종속된 경우 모바일 서비스와 앱 서비스 모바일 앱 간에 사용자 ID가 서로 다르다는 것에 유의해야 합니다. 그러나 다음을 사용하여 앱 서비스 모바일 앱 응용 프로그램에서 모바일 서비스 사용자 ID를 가져올 수 있습니다(Facebook을 예제로 사용).
+* **MS\_TwitterConsumerKey**
 
-    MobileAppUser = (MobileAppUser) this.User;
-    FacebookCredentials creds = await user.GetIdentityAsync<FacebookCredentials>();
-    string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+* **MS\_TwitterConsumerSecret**
+ 
+Google
 
-또한 사용자 ID에 종속된 경우 가능하면 ID 공급자와 함께 동일한 등록을 활용하는 것이 중요합니다. 일반적으로 사용자 ID의 범위는 사용된 응용 프로그램 등록으로 지정되므로 새 등록을 도입하면 사용자를 해당 데이터에 일치시킬 때 문제가 발생할 수 있습니다. 어떤 이유로든 응용 프로그램이 동일한 ID 공급자 등록을 사용해야 하는 경우 다음 단계를 따를 수 있습니다.
+* **MS\_GoogleClientID**
 
-1. 응용 프로그램에서 사용하는 각 공급자에 대한 클라이언트 ID 및 클라이언트 보안 연결 정보를 복사합니다.
-2. 게이트웨이의 /signin-* 끝점을 각 공급자에 대한 추가 리디렉션 URI로 추가합니다. 
+* **MS\_GoogleClientSecret**
+ 
+AAD
 
->[AZURE.NOTE]Twitter 및 Microsoft 계정과 같은 일부 공급자는 서로 다른 도메인의 리디렉션 URI를 여러 개 지정할 수 있도록 허용하지 않습니다. 앱에서 이러한 공급자 중 하나를 사용하며 사용자 ID에 종속된 경우 지금은 마이그레이션을 시도하지 않는 것이 좋습니다.
+* **MS\_AadClientID**
 
-##<a name="updating-clients"></a>클라이언트 업데이트
-작동하는 모바일 앱 백 엔드가 있으면 새 모바일 앱을 사용하도록 클라이언트 응용 프로그램을 업데이트할 수 있습니다. 모바일 앱에는 개발자가 새로운 앱 서비스 기능을 이용할 수 있게 하는 새 버전의 모바일 서비스 클라이언트 SDK도 포함됩니다. 모바일 앱 버전의 백 엔드가 있으면 새 SDK 버전을 활용하는 새 버전의 클라이언트 응용 프로그램을 릴리스할 수 있습니다.
+* **MS\_AadTenants** - 참고: **MS\_AadTenants**는 테넌트 도메인의 쉼표로 구분된 목록으로 저장됩니다(모바일 서비스 포털에서 "허용된 테넌트" 필드).
 
-클라이언트 코드에서 필요한 주요 변경 내용은 생성자에 있습니다. 모바일 앱 코드 사이트의 URL 외에, 인증 설정을 호스트하는 앱 서비스 게이트웨이의 URL을 제공해야 합니다.
+### <a name="publish"></a>방법: 모바일 서비스 프로젝트 게시
 
-    public static MobileServiceClient MobileService = new MobileServiceClient(
-        "https://contoso.azurewebsites.net", // URL of the Mobile App
-        "https://contoso-gateway.azurewebsites.net", // URL of the App Service Gateway
-        "" // Formerly app key. To be removed in future client SDK update
-    );
+1. 미리 보기 포털에서 앱으로 이동하고 명령 모음에서 "Get 게시 프로필"를 선택합니다. 로컬 컴퓨터에 다운로드한 프로필을 저장합니다.
+2. Visual Studio에서 모바일 서비스 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 "게시"를 선택합니다. 프로필 탭에서 "가져오기"를 선택하고 다운로드한 프로필을 찾습니다.
+3. 게시를 클릭하여 앱 서비스에 코드를 배포합니다.
 
-이렇게 하면 클라이언트가 모바일 앱의 구성 요소에 요청을 라우팅할 수 있습니다. 대상 플랫폼과 관련된 자세한 내용은 해당 [모바일 앱 만들기] 항목을 참조하세요.
+로그는 표준 앱 서비스 로깅 기능을 통해 처리됩니다. 로깅에 대해 자세히 알아보려면 [Azure 앱 서비스에서 진단 로깅 사용]을 참조하세요.
 
-동일한 업데이트에서 수행하는 모든 푸시 알림 등록 호출을 조정해야 합니다. 등록 프로세스를 향상시키는 새로운 API가 있습니다(Windows를 예제로 사용).
 
-    var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-    await MobileService.GetPush().Register(channel.Uri); 
-
-대상 플랫폼과 관련된 자세한 내용은 [모바일 앱에 푸시 알림 추가] 및 [플랫폼 간 푸시 알림 전송] 항목을 참조하세요.
-
-고객이 이러한 업데이트를 받고 나면 모바일 서비스 버전의 앱을 삭제할 수 있습니다. 이제 앱 서비스 모바일 앱으로 완전히 마이그레이션했습니다.
 
 <!-- URLs. -->
 
-[Preview Azure 관리 포털]: https://portal.azure.com/
-[구성]: https://manage.windowsazure.com/
+[Azure 관리 포털 미리 보기]: https://portal.azure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/
 [모바일 앱 정의]: app-service-mobile-value-prop.md
-[웹 사이트와 모바일 서비스를 이미 사용하고 있습니다. 앱 서비스가 내게 어떤 도움을 주나요?]: /ko-KR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[모바일 앱 서버 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[모바일 앱 만들기]: app-service-mobile-xamarin-ios-get-started.md
-[모바일 앱에 푸시 알림 추가]: app-service-mobile-xamarin-ios-get-started-push.md
-[모바일 앱에 인증 추가]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure 스케줄러]: /ko-KR/documentation/services/scheduler/
-[웹 작업]: ../app-service-web/websites-webjobs-resources.md
-[플랫폼 간 푸시 알림 전송]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
-[.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[I already use web sites and mobile services – how does App Service help me?]: /ko-KR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
+[Azure Scheduler]: /ko-KR/documentation/services/scheduler/
+[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
+[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=Nov15_HO1-->
+
+[Azure 앱 서비스에서 진단 로깅 사용]: web-sites-enable-diagnostic-log.md
+[앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
+[앱 서비스 환경]: app-service-app-service-environment-intro.md
+[모바일 서비스 vs. 앱 서비스]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
+[앱 서비스의 모바일 앱에 모바일 서비스를 마이그레이션]: app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md
+
+<!---HONumber=Nov15_HO3-->

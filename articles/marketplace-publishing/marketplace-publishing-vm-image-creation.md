@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
@@ -163,7 +163,7 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 2. 사용할 Azure 구독에 대한 Microsoft 계정(MSA) 및 암호를 사용하여 포털에 로그인합니다.
 3. 프롬프트에 따라 선택한 기본 이미지를 사용하여 VM을 만듭니다. 최소한 VM에 대한 호스트 이름(컴퓨터 이름), 사용자 이름(등록된 관리 사용자) 및 암호를 제공해야 합니다.
 
-    ![drawing][img-portal-vm-create]
+    ![그리기][img-portal-vm-create]
 
 4. 배포할 VM의 크기를 선택합니다.
 
@@ -173,7 +173,7 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 
     c. 가격 책정에 대한 자세한 내용은 포털에 표시되는 권장 가격 책정 계층 선택기를 참조하세요. 게시자가 제공한 세 개의 권장 크기를 제공합니다. 이 경우 게시자는 Microsoft입니다.
 
-    ![drawing][img-portal-vm-size]
+    ![그리기][img-portal-vm-size]
 
 5. 속성을 설정합니다.
 
@@ -188,7 +188,7 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 
     b. Azure에서 이미지를 개발하려면 처음부터 미국 기반 Microsoft Azure 지역 중 하나를 사용하는 것이 좋습니다. 그러면 개발자가 인증을 위해 이미지를 제출할 때 Microsoft에서 자동으로 수행되는 VHD 복사 프로세스가 단축됩니다.
 
-    ![drawing][img-portal-vm-location]
+    ![그리기][img-portal-vm-location]
 
 7. **만들기**를 클릭합니다. VM이 배포됩니다. 몇 분 이내에 배포되고 SKU에 대한 이미지 만들기를 시작할 수 있습니다.
 
@@ -215,7 +215,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 클라우드에서 VHD를 
 4. **속성**을 클릭합니다.
 5. 도메인 이름의 첫 부분은 서비스 이름입니다. 호스트 이름은 VM 이름입니다.
 
-    ![drawing][img-portal-vm-rdp]
+    ![그리기][img-portal-vm-rdp]
 
 6. 만든 VM에 대한 RDP 파일을 관리자의 로컬 데스크톱으로 다운로드하기 위한 cmdlet은 다음과 같습니다.
 
@@ -433,7 +433,7 @@ OS VHD 및 추가 빈 데이터 디스크(이 디스크에 대한 VHD를 만들�
 
 1. **새로 만들기 > 계산 > VM > 갤러리에서**로 이동합니다.
 
-    ![drawing][img-manage-vm-new]
+    ![그리기][img-manage-vm-new]
 
 2. **내 이미지**로 이동한 다음 VM을 배포할 VM 이미지를 선택합니다.
   1. '내 이미지' 보기에는 OS 이미지와 VM 이미지가 모두 나열되므로 선택한 이미지에 주의하세요.
@@ -529,27 +529,27 @@ SAS URI를 만들려면 [공유 액세스 서명, 1부: SAS 모델 또는 공유
 
 4. 저장소 계정 이름, 저장소 계정 키 및 저장소 끝점 도메인을 지정합니다. "Https 사용"을 선택하지 **마세요**.
 
-    ![drawing][img-azstg-setup-1]
+    ![그리기][img-azstg-setup-1]
 
 5. 위의 단계에서 Azure 저장소 탐색기가 특정 저장소 계정에 연결됩니다. 저장소 계정 내의 모든 컨테이너를 보여주는 과정이 시작됩니다. OS 디스크 VHD 파일(시나리오에 적용 가능한 경우 데이터 디스크도 해당)을 복사한 컨테이너를 선택합니다.
 
-    ![drawing][img-azstg-setup-2]
+    ![그리기][img-azstg-setup-2]
 
 6. Blob 컨테이너를 선택하면 Azure 저장소 탐색기 응용 프로그램에서 컨테이너 내의 파일을 보여주기 시작합니다. 제출해야 하는 이미지 파일(.vhd)를 선택합니다.
 
-    ![drawing][img-azstg-setup-3]
+    ![그리기][img-azstg-setup-3]
 
 7. 컨테이너의 (.vhd) 파일을 선택한 후 아래 강조 표시된 **보안** 탭을 클릭합니다.
 
-    ![drawing][img-azstg-setup-4]
+    ![그리기][img-azstg-setup-4]
 
 8. **보안** 탭을 클릭하여 다음 대화 상자가 나타나면 액세스 수준 탭에서 기본값을 그대로 두고 공유 액세스 서명 탭을 클릭합니다.
 
-    ![drawing][img-azstg-setup-5]
+    ![그리기][img-azstg-setup-5]
 
 9. 이 탭에서 아래 단계에 따라 .vhd 이미지에 대한 SAS URL을 생성합니다.
 
-    ![drawing][img-azstg-setup-6]
+    ![그리기][img-azstg-setup-6]
 
     a. 액세스 허용 시작 -> UTC 시간에 대한 보호를 위해, 현재 날짜 이전으로 선택하세요. 예를 들어, 현재 날짜가 2014년 10월 6일이면 여기서 2014년 10월 5일을 선택합니다.
 
@@ -577,7 +577,7 @@ SAS URI를 만들려면 [공유 액세스 서명, 1부: SAS 모델 또는 공유
 3. 페이지의 맨 위에 나열된 식별자는 SKU 식별자가 아니고 실제 제품 식별자입니다.
 4. SKU 섹션에 속성을 입력합니다.
 
-    ![drawing][img-pubportal-vm-skus]
+    ![그리기][img-pubportal-vm-skus]
 
 5. **운영 체제 제품군**에서 OS VHD에 연결된 운영 체제 유형을 선택합니다.
 6. **운영 체제**에서 운영 체제에 대해 설명합니다. 운영 체제 제품군, 유형, 버전, 업데이트 등과 같은 형식을 고려하세요. 예를 들어 Windows Server Datacenter 2014 R2를 고려합니다.
@@ -596,7 +596,7 @@ SAS URI를 만들려면 [공유 액세스 서명, 1부: SAS 모델 또는 공유
 13.	**Request Certification(인증 요청)**을 클릭합니다.
 14.	모든 추가 데이터 디스크 VHD에 대해 11, 12 및 13단계를 반복합니다.
 
-    ![drawing][img-pubportal-vm-skus-2]
+    ![그리기][img-pubportal-vm-skus-2]
 
 ## 다음 단계
 인증을 위한 가상 컴퓨터 이미지 SKU가 제출되면 [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 이 단계에서는 **3단계 스테이징에서 VM 제품 테스트** 이전에 필요한 마케팅 콘텐츠, 가격 책정 및 기타 정보를 제공합니다. 여기에서 제품을 Azure 마켓플레이스에 배포하여 일반에게 공개하고 판매하기 전에 다양한 사용 사례 시나리오를 테스트합니다.
@@ -656,4 +656,4 @@ SAS URI를 만들려면 [공유 액세스 서명, 1부: SAS 모델 또는 공유
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -58,7 +58,7 @@ Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포
 
     * 간단한 개념 증명 배포의 경우 이 단계를 생략하고 나중에 헤드 노드 VM을 도메인 컨트롤러로 승격할 수 있습니다.
 
-3. Azure 관리 포털 또는 Azure Preview 포털의 Azure 마켓플레이스에서 HPC 팩 2012 R2 이미지를 선택하여 클래식 VM을 만듭니다. ([여기](virtual-machines-windows-tutorial-classic-portal.md)에서 관리 포털 단계를 참조하세요.)
+3. Azure 포털 또는 Azure Preview 포털의 Azure 마켓플레이스에서 HPC 팩 2012 R2 이미지를 선택하여 클래식 VM을 만듭니다. ([여기](virtual-machines-windows-tutorial-classic-portal.md)에서 Azure 포털 단계를 참조하세요.)
 
     **고려 사항**
 
@@ -102,4 +102,4 @@ Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

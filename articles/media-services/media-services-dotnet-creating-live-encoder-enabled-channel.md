@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015"  
+	ms.date="11/08/2015"  
 	ms.author="juliako"/>
 
 
@@ -86,6 +86,10 @@
 
 - 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 Microsoft.com에서 amslived에 문의하세요.
 - 콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
+
+##샘플 다운로드
+
+[여기](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)에서 샘플을 가져와서 실행합니다.
 
 ##필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
@@ -506,17 +510,16 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 	}	
 
 
-##다음 단계
+##다음 단계: 미디어 서비스 학습 경로
 
-###미디어 서비스 학습 경로
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+##피드백 제공
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ### 다른 정보를 찾으시나요?
 
 이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

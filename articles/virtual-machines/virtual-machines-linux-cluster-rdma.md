@@ -370,4 +370,4 @@ cluster12
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

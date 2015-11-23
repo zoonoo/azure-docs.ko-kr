@@ -105,7 +105,7 @@ IoT Hub에 대한 추가 정보:
 [Azure 저장소]: https://azure.microsoft.com/ko-KR/documentation/services/storage/
 [Azure 서비스 버스]: https://azure.microsoft.com/ko-KR/documentation/services/service-bus/
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
@@ -119,4 +119,4 @@ IoT Hub에 대한 추가 정보:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

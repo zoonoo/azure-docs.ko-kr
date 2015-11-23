@@ -208,13 +208,4 @@ type | 열의 데이터 형식 | 아니요 | 해당 없음
 	  }
 	}
 
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md)을 통해 의견을 보내주세요.
-
-
-
-
-
-  
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

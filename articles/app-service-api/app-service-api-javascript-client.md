@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/30/2015" 
 	ms.author="bradygaster"/>
 
 # HTML 및 JavaScript를 사용하여 Azure API 앱 사용
@@ -54,7 +54,7 @@ Azure Preview 포털에서 CORS를 사용하도록 API 앱 게이트웨이를 �
 
 	![게이트웨이 응용 프로그램 설정](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. **MS_CrossDomainOrigins** 응용 프로그램 설정을 추가합니다. 설정 값을 API 앱에 대한 액세스를 제공할 HTTP 호스트의 쉼표로 구분된 목록으로 지정합니다. 여러 호스트에 대한 액세스를 제공하려는 경우 *appSetting* 값을 아래 코드와 같이 설정할 수 있습니다.
+1. **MS\_CrossDomainOrigins** 응용 프로그램 설정을 추가합니다. 설정 값을 API 앱에 대한 액세스를 제공할 HTTP 호스트의 쉼표로 구분된 목록으로 지정합니다. 여러 호스트에 대한 액세스를 제공하려는 경우 *appSetting* 값을 아래 코드와 같이 설정할 수 있습니다.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -66,7 +66,7 @@ Azure Preview 포털에서 CORS를 사용하도록 API 앱 게이트웨이를 �
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-**MS_CrossDomainOrigins** 응용 프로그램 설정은 [Azure 모바일 서비스 .NET 업데이트](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/) 블로그 게시물에 자세히 설명되어 있으므로 설정에 대한 자세한 내용은 이 게시물을 참조하세요.
+**MS\_CrossDomainOrigins** 응용 프로그램 설정은 [Azure 모바일 서비스 .NET 업데이트](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/) 블로그 게시물에 자세히 설명되어 있으므로 설정에 대한 자세한 내용은 이 게시물을 참조하세요.
 
 ### Web API 코드에서 CORS 설정
 
@@ -80,7 +80,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 	![솔루션 탐색기의 apiapp.json 및 Metadata](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. *App_Start/WebApiConfig.cs* 파일을 엽니다. 이 파일에서 **WebApiConfig** 클래스의 **Register** 메서드에 아래 코드 줄을 추가합니다.
+1. *App\_Start/WebApiConfig.cs* 파일을 엽니다. 이 파일에서 **WebApiConfig** 클래스의 **Register** 메서드에 아래 코드 줄을 추가합니다.
 
 		config.EnableCors();
 
@@ -141,7 +141,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 ## API 앱을 사용하는 웹앱 만들기
 
-이 섹션에서는 비어 있는 새 웹 응용 프로그램을 만들고 여기에 AngularJS를 설치하고 사용하며 간단한 HTML 프런트 엔드를 API 앱에 바인딩합니다. 사용하는 웹앱을 Azure 앱 서비스에 배포합니다. HTML 웹앱은 API 앱에 바인딩되고 API 앱에서 검색한 데이터를 표시하며, 사용자에게 Contacts API에 대한 간단한 UI를 제공합니다.
+이 섹션에서는 비어 있는 새 웹 응용 프로그램을 만들고, AngularJS를 설치하고 사용하며, 간단한 HTML 프런트 엔드를 API 앱에 바인딩합니다. 사용하는 웹앱을 Azure 앱 서비스에 배포합니다. HTML 웹앱은 API 앱에 바인딩되고 API 앱에서 검색한 데이터를 표시하며, 사용자에게 Contacts API에 대한 간단한 UI를 제공합니다.
 
 1. [API 앱 만들기](app-service-dotnet-create-api-app.md)에서 이전에 만든 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가 -> 새 프로젝트**를 선택합니다.
 
@@ -312,7 +312,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 1, index.html에 방금 추가한 코드에서 기본 URL(`http://localhost:1578`)의 포트 번호를 API 프로젝트에 대한 실제 포트 번호로 바꿉니다.
 
-	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+>[AZURE.NOTE]**참고** HTML 클라이언트 프로젝트의 포트 번호를 사용하지 마세요. API 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **디버그 > 새 인스턴스 시작**을 클릭하여 포트 번호가 표시되는 브라우저 창을 가져옵니다.
 
 1. HTML 클라이언트를 실행할 때 API 앱 프로젝트도 실행 중인지 또는 JavaScript HTML이 제대로 작동하지 않는지 확인합니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 그런 다음 두 개의 웹 프로젝트를 모두 **디버깅하지 않고 시작**으로 설정하면 API 프로젝트가 먼저 실행됩니다. 
 
@@ -371,4 +371,4 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 이 예제에서는 API 앱에 대한 인증되지 않은 액세스를 보여 줍니다. 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

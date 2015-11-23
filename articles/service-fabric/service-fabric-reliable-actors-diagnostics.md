@@ -1,6 +1,6 @@
 <properties
-   pageTitle="신뢰할 수 있는 행위자 진단 및 성능 모니터링"
-   description="이 문서에서는 신뢰할 수 있는 행위자 런타임에서 내보낸 이벤트 및 성능 카운터를 포함하여 패브릭 행위자 런타임에 있는 진단 및 성능 모니터링 기능을 설명합니다."
+   pageTitle="행위자 진단 및 모니터링 | Microsoft Azure"
+   description="이 문서에서는 서비스 패브릭의 신뢰할 수 있는 행위자 런타임에서 내보낸 이벤트 및 성능 카운터를 포함하여 패브릭 행위자 런타임에 있는 진단 및 성능 모니터링 기능을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="abhisram"/>
 
 # 신뢰할 수 있는 행위자에 대한 진단 및 성능 모니터링
 신뢰할 수 있는 행위자 런타임은 런타임 작동 방법에 대한 통찰력을 제공하고 문제 해결 및 성능 모니터링을 지원하는 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)와 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보냅니다.
 
 ## EventSource 이벤트
-신뢰할 수 있는 행위자 런타임의 EventSource 이름은 "Microsoft-ServiceFabric-Actors"입니다. 이 이벤트 원본의 이벤트는 행위자 응용 프로그램이 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
+신뢰할 수 있는 행위자 런타임의 EventSource 공급자 이름은 "Microsoft-ServiceFabric-Actors"입니다. 이 이벤트 원본의 이벤트는 행위자 응용 프로그램이 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
 
-또한 패브릭 서비스에는 이러한 이벤트를 [Application Insights](http://azure.microsoft.com/services/application-insights/)로 전달하는 옵션이 제공됩니다. 자세한 내용은 [서비스 패브릭을 위한 Application Insights 설정](service-fabric-diagnostics-application-insights-setup.md)을 참조하세요.
-
-EventSource 이벤트를 수집하거나 보는 데 도움이 되는 다른 도구 및 기술의 예에는 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure 진단](../cloud-services-dotnet-diagnostics.md), [의미 중심 로깅](https://msdn.microsoft.com/library/dn774980.aspx) 및 [Microsoft TraceEvent 라이브러리](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
+EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예에는 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure 진단](../cloud-services-dotnet-diagnostics.md), [의미 중심 로깅](https://msdn.microsoft.com/library/dn774980.aspx) 및 [Microsoft TraceEvent 라이브러리](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
 
 ### 키워드
 신뢰할 수 있는 행위자 EventSource에 속하는 모든 이벤트는 하나 이상의 키워드와 연결되어 있습니다. 이를 통해 수집된 이벤트를 필터링할 수 있습니다. 다음과 같은 키워드 비트가 정의되어 있습니다.
@@ -155,4 +153,4 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 |ActorActivated|5|정보 제공|0x1|행위자가 활성화되었습니다.|
 |ActorDeactivated|6|정보 제공|0x1|행위자가 비활성화되었습니다.|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

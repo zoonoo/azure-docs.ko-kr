@@ -144,17 +144,19 @@ SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경�
 
 [3단계](media-services-roll-storage-access-keys.md#step-3-update-locators)에 설명된 것과 동일한 절차를 사용하세요.
 
- 
+
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ###승인 
 
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

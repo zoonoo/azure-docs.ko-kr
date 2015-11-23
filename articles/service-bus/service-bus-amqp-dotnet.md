@@ -27,7 +27,7 @@ AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 �
 
 기본적으로 서비스 버스 .NET 클라이언트 라이브러리는 전용 SOAP 기반 프로토콜을 사용하여 서비스 버스 서비스와 통신합니다. 기본 프로토콜 대신 AMQP 1.0을 사용하려면 다음 섹션에서 설명한 대로 서비스 버스 연결 문자열에서 이를 명시적으로 구성해야 합니다. AMQP 1.0을 사용하는 경우 이러한 변경 사항 외에는 응용 프로그램 코드가 기본적으로 변경되지 않습니다.
 
-현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 지원되지 않는 이러한 기능은 뒤에 나오는 "지원되지 않는 기능 및 제한" 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다.
+현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 지원되지 않는 이러한 기능은 뒤에 나오는 [지원되지 않는 기능, 제한 및 동작 차이](#unsupported-features-restrictions-and-behavioral-differences) 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다.
 
 ### App.config를 사용한 구성
 
@@ -168,6 +168,7 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
 
 - [서비스 버스 AMQP 개요]
+- [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]
 - [Windows Server용 서비스 버스의 AMQP]
 
   [서비스 버스 큐를 사용하는 방법]: service-bus-dotnet-how-to-use-queues.md
@@ -199,6 +200,7 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
+[서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

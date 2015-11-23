@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -30,6 +30,7 @@
 2. 대상 리소스 그룹은 사용자가 이동하는 리소스와 동일한 응용 프로그램 수명 주기를 공유하는 리소스만 포함해야 합니다.
 3. Azure PowerShell을 사용하는 경우 최신 버전을 사용하고 있는지 확인합니다. **Move-AzureResource** 명령은 자주 업데이트됩니다. 사용 중인 버전을 업데이트하려면 Microsoft 웹 플랫폼 설치 관리자를 실행하고 새 버전을 사용할 수 있는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 4. 이동 작업을 완료하는 데 다소 시간이 걸릴 수 있으며 이 시간 동안 PowerShell 프롬프트는 작업이 완료될 때까지 대기합니다.
+5. 리소스를 이동할 때 원본 그룹과 대상 그룹은 작업 기간 동안 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 그룹에서 차단됩니다.
 
 ## 지원되는 서비스
 
@@ -87,18 +88,7 @@
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-**{source-subscription-id}** 및 **{source-resource-group-name}**을 현재 이동하려는 리소스가 포함된 구독 및 리소스 그룹으로 바꿉니다. {api-version}에는 **2015-01-01**을 사용합니다.
-
-요청에 대상 리소스 그룹 및 이동하려는 리소스를 정의하는 JSON 개체를 포함합니다.
-
-    {
-        "targetResourceGroup": "/subscriptions/{target-subscription-id}/resourceGroups/{target-resource-group-name}", "resources": [
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}"
-        ]
-    }
+요청 본문에서 대상 리소스 그룹 및 이동할 리소스를 지정합니다. 이동 REST 작업에 대한 자세한 내용은 [리소스 이동](https://msdn.microsoft.com/library/azure/mt218710.aspx)을 참조하세요.
 
 ## 다음 단계
 - [리소스 관리자로 Azure PowerShell 사용](./powershell-azure-resource-manager.md)
@@ -106,4 +96,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

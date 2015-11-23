@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/29/2015"
+   ms.date="11/06/2015"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 프로비전
@@ -46,7 +46,7 @@ PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도�
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
 - 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 - **Windows SDK**. [여기](https://dev.windows.com/ko-KR/downloads)에서 설치할 수 있습니다. 이를 사용하여 보안 인증서를 만듭니다.
-- **Azure PowerShell 1.0**. [여기](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi)에서 설치할 수 있습니다.
+- **Azure PowerShell 1.0 이상**. 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요.
  
 
 ## Azure 데이터 레이크 저장소 만들기
@@ -294,4 +294,4 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 [makecert]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

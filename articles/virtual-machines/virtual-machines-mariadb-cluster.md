@@ -21,6 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
+> [AZURE.NOTE]Azure 마켓플레이스에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 이 새로운 서비스는 ARM에 MariaDB Galera 클러스터를 자동 배포합니다. https://azure.microsoft.com/ko-KR/marketplace/partners/mariadb/cluster-maxscale/에서 새 기능을 사용해야 합니다.
 
 Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력하고 확장성 있으며 신뢰할 수 있는 MySQL의 드롭인 대체 기능인 [MariaDB](https://mariadb.org/en/about/)의 다중 마스터 [Galera](http://galeracluster.com/products/) 클러스터를 만드는 중입니다.
 
@@ -36,7 +37,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 ![아키텍처](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [AZURE.NOTE] 이 항목에서는 [Azure CLI] 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용 가능한 명령에 대한 참조가 필요한 경우 이 [Azure CLI 명령 참조] 링크를 확인합니다. 또한 [인증에 사용할 SSH 키를 만들고] **.pem 파일 위치**를 적어 두어야 합니다.
+> [AZURE.NOTE]이 항목에서는 [Azure CLI] 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용 가능한 명령에 대한 참조가 필요한 경우 이 [Azure CLI 명령 참조] 링크를 확인합니다. 또한 [인증에 사용할 SSH 키를 만들고] **.pem 파일 위치**를 적어 두어야 합니다.
 
 
 ## 템플릿 만들기
@@ -210,7 +211,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 	- **[mariadb]** 섹션을 편집하고 아래 내용을 추가합니다.
 
-	> [AZURE.NOTE] **innodb\_buffer\_pool\_size**를 VM 메모리의 70%로 설정하는 것이 좋습니다. 여기서는 RAM이 3.5GB인 Medium Azure VM에 대해 2.45GB로 설정되었습니다.
+	> [AZURE.NOTE]**innodb\_buffer\_pool\_size**를 VM 메모리의 70%로 설정하는 것이 좋습니다. 여기서는 RAM이 3.5GB인 Medium Azure VM에 대해 2.45GB로 설정되었습니다.
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -237,7 +238,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 1. 가상 네트워크 이름 **mariadbvnet**, 서브넷 **mariadb**, 컴퓨터 크기 **Medium**을 제공하고 클라우드 서비스 이름을 **mariadbha**(또는 mariadbha.cloudapp.net을 통해 액세스하려는 이름)로 전달하고, 이 컴퓨터의 이름을 **mariadb1**, 사용자 이름을 **azureuser**로 설정하고, SSH 액세스를 사용하도록 설정하고, SSH 인증서 .pem 파일을 전달하고, 생성된 .pem SSH 키를 저장한 경로로 **/path/to/key.pem**을 바꾸어 직접 만든 **mariadb-galera-image** 이미지에서 첫 번째 CentOS 7 VM을 만듭니다.
 
-	> [AZURE.NOTE] 아래 명령은 읽기 쉽도록 여러 줄로 나누어져 있지만 각각 한 줄로 입력해야 합니다.
+	> [AZURE.NOTE]아래 명령은 읽기 쉽도록 여러 줄로 나누어져 있지만 각각 한 줄로 입력해야 합니다.
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -283,8 +284,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 		sudo vi /etc/my.cnf.d/server.cnf
 
-	시작 부분에 있는 **#**을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`** 주석을 제거하고 원하는 내용이 맞는지 확인합니다. 
-    또한 **`wsrep_node_address`**의 **`<ServerIP>`** 및 **`wsrep_node_name`**의 **`<NodeName>`**을 VM의 IP 주소와 이름으로 각각 바꾸고 해당 줄의 주석도 제거합니다.
+	시작 부분에 있는 **#**을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`** 주석을 제거하고 원하는 내용이 맞는지 확인합니다. 또한 **`wsrep_node_address`**의 **`<ServerIP>`** 및 **`wsrep_node_name`**의 **`<NodeName>`**을 VM의 IP 주소와 이름으로 각각 바꾸고 해당 줄의 주석도 제거합니다.
 
 5. MariaDB1에서 클러스터를 시작하고 시작 시 실행되도록 합니다.
 
@@ -338,29 +338,13 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 
 아래 표와 같은 결과가 생성됩니다.
 
-<pre class="prettyprint copy-to-clipboard  prettyprinted" id="clipboard-element-40"><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="pun">|</span><span class="pln" style="
-    padding-left: 6px;
-    padding-right: 6px;
-"> id </span><span class="pun">|</span><span class="pln" style="
-    padding-left: 8px;
-"> value  </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="pun">|</span><span class="pln">  </span><span class="lit" style="
-    padding-left: 6px;
-    border-right-width: 5px;
-    padding-right: 6px;
-">1</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="typ" style="
-    padding-left: 4px;
-">Value1</span><span class="pln"> </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">|</span><span class="pln">  </span><span class="lit" style="
-    padding-left: 6px;
-    padding-right: 6px;
-">4</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="typ" style="
-    padding-left: 4px;
-">Value2</span><span class="pln"> </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="lit">2</span><span class="pln"> rows </span><span class="kwd">in</span><span class="pln"> </span><span class="kwd">set</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0.00</span><span class="pln"> sec</span><span class="pun">)</span></pre>
+	+----+--------+
+	| id | value  |
+	+----+--------+
+	|  1 | Value1 |
+	|  4 | Value2 |
+	+----+--------+
+	2 rows in set (0.00 sec)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
@@ -390,4 +374,4 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 [Azure CLI 도구의 문제 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

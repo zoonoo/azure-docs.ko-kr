@@ -196,15 +196,17 @@ Axinom Widevine 라이선스 서버를 활욯아는 미니 솔루션에는 다�
 Widevine 라이선스 획득 URL|DASH 스트리밍에 대한 자산 배달 정책 구성에 사용해야 합니다([이](media-services-axinom-integration.md#content-protection) 섹션 참조).
 콘텐츠 키 ID|JWT 토큰의 자격 부여 메시지 클레임 값의 일부로 포함되어야 합니다([이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조). 
 
+
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ###승인 
 
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Axinom의 Kristjan Jõgi, Mingfei Yan 및 Amit Rajput
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

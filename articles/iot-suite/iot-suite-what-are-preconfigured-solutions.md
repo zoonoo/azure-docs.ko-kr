@@ -58,7 +58,7 @@ IoT Hub는 단일 끝점에 있는 쿨러에서 원격 분석 데이터를 수�
 
 IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 노출합니다.
 
-미리 구성된 솔루션에서 IoT Hub 인스턴스는 일반적인 IoT 솔루션 아키텍처의 **IoT 백 엔드 응용 프로그램**에 해당됩니다.
+미리 구성된 솔루션에서 IoT Hub 인스턴스는 일반적인 IoT 솔루션 아키텍처의 **클라우드 게이트웨이**에 해당됩니다.
 
 ### Azure 스트림 분석
 
@@ -91,4 +91,4 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Azure 스트림 분석]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/29/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
 # 처리량을 높이기 위한 Azure 스트림 분석 작업 규모 지정 #
@@ -265,4 +265,4 @@ Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 �
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

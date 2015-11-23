@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/14/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 # 스트림 분석 출력 이해
@@ -143,6 +143,8 @@ Power BI 계정의 인증을 설정하면 사용자가 Power BI 출력에 대한
 | 테이블 이름 | Power BI 출력의 데이터 집합 아래에 테이블 이름을 제공합니다. 현재, 스트림 분석 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다. |
 | 그룹 이름 | 다른 Power BI 사용자와 공유 데이터를 사용하도록 설정하려면 그룹에 데이터를 작성합니다. Power BI 계정 내에서 그룹을 선택하거나 그룹에 작성하지 않으려면 "내 작업 영역"을 선택할 수 있습니다. 기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
 
+Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure스트림 분석 및 Power BI](stream-analytics-power-bi-dashboard.md) 문서를 참조하세요.
+
 > [AZURE.NOTE]Power BI 대시보드에 명시적으로 데이터 집합 및 테이블을 만들지 마세요. 작업을 시작하고 작업이 Power BI에 출력을 펌프하기 시작하는 경우 데이터 집합 및 테이블은 자동으로 채워집니다. 작업 쿼리가 결과 생성하지 않으면 데이터 집합 및 테이블은 생성되지 않은 것입니다. 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
 
 ### Power BI 권한 부여 갱신
@@ -169,7 +171,7 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 | 테이블 이름 | 테이블의 이름입니다. 테이블이 존재하지 않는 경우 생성됩니다. |
 | Partition Key | 파티션 키를 포함하는 출력 열의 이름입니다. 파티션 키는 엔터티 기본 키의 첫 번째 부분을 형성하는 지정된 테이블 내에서 분할에 고유한 식별자입니다. 크기가 최대 1KB인 문자열 값입니다. |
 | Row Key | 행 키를 포함하는 출력 열의 이름입니다. 행 키는 주어진 파티션 내 엔터티의 고유 식별자입니다. 엔터티의 기본 키에서 두번째 부분을 형성합니다. 행 키는 크기가 최대 1KB인 문자열 값입니다. |
-| 배치 크기 | 배치 작업에 대한 레코드 수입니다. 일반적으로 대부분의 작업은 기본값으로 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 배치 작업 사양](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)을 참조하세요. |
+| 배치 크기 | 배치 작업에 대한 레코드 수입니다. 일반적으로 대부분의 작업은 기본값으로 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 일괄 작업 사양](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)을 참조하세요. |
 
 ## 서비스 버스 큐
 
@@ -191,7 +193,7 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 
 ## 서비스 버스 토픽
 
-서비스 버스 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 방법을 제공하는 반면, [서비스 버스 항목](https://msdn.microsoft.com/library/azure/hh367516.aspx)은 일대다 형태의 통신을 제공합니다.
+서비스 버스 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 방법을 제공하는 반면, [서비스 버스 토픽](https://msdn.microsoft.com/library/azure/hh367516.aspx)은 일대다 형태의 통신을 제공합니다.
 
 다음 테이블은 테이블 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -265,4 +267,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->
