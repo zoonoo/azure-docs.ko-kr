@@ -19,7 +19,7 @@
 # Microsoft 판매자 계정 만들기
 이 문서에서는 Azure 마켓플레이스에서 승인된 Microsoft 판매자가 되기 위해 필요한 계정 만들기 및 등록 과정을 안내합니다.
 
-## 1\. Microsoft 계정(MSA) 만들기
+## 1. Microsoft 계정(MSA) 만들기
 > [AZURE.WARNING]게시 프로세스를 완료하려면 Microsoft 계정을 만들어야 합니다. 이 계정은 게시 포털과 판매자 대시보드에 등록 및 로그인하는 데 사용됩니다. Azure 마켓플레이스 제품에 대해 Microsoft 계정이 하나만 있으면 됩니다. 서비스 또는 제품에 한정될 필요가 없습니다.
 
 사용자 이름을 구성하는 주소는 귀사의 도메인에 속하고 귀사의 IT 팀에서 제어해야 합니다(예: publishing@yourcompany.com). 결제, 세금 정보 및 보고가 이 계정을 통해 전송됩니다.
@@ -47,7 +47,7 @@
 
 > [AZURE.IMPORTANT]DL를 사용하면 여러 사람이 지급액 정보에 대한 중요한 보고 사항을 전자 메일 알림으로 받을 수 있으며 MSA의 소유권을 양도할 수 있으며 단일 사용자에게 국한되지 않도록 보증할 수 있습니다.
 
-## 2\. 판매자 대시보드 계정 만들기
+## 2. 판매자 대시보드 계정 만들기
 Microsoft 판매자 대시보드는 회사 정보를 등록하는 데 한 번 사용됩니다. 등록자는 회사의 정식 담당자여야 하며 신원을 확인할 수 있는 개인 정보를 제공해야 합니다. 등록자는 회사에서 공유되는 Microsoft 계정(MSA)을 사용해야 하며 동일한 계정을 Azure 게시 포털에서도 사용해야 합니다. 계정 만들기를 시작하기 전에 회사에 판매자 대시보드 계정이 아직 없는지 확인해야 합니다. 프로세스 중에 은행 계좌 정보, 세금 정보 및 회사 주소 정보를 수집합니다. 이러한 정보는 일반적으로 재무 또는 업무 연락처에서 확인할 수 있습니다.
 
 > [AZURE.IMPORTANT]제품 만들기 및 배포의 여러 단계를 진행하기 위해서는 다음 판매자 프로필 구성 요소를 완료해야 합니다.
@@ -142,7 +142,7 @@ Microsoft 판매자 대시보드는 회사 정보를 등록하는 데 한 번 �
 
 > [AZURE.WARNING]판매자 대시보드 계정에서 세금 및 은행 계좌 정보를 완료하지 않으면 상업용 제품을 프로덕션으로 푸시할 수 없습니다.
 
-## 3\. 게시 포털에서 계정 등록
+## 3. 게시 포털에서 계정 등록
 Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 게시 포털에서 제품 만들기 프로세스를 안내하는 유용한 정보를 얻게 됩니다.
 
 > [AZURE.WARNING]여기서는 반드시 판매자 대시보드 등록에 사용된 것과 동일한 회사 Microsoft 계정을 사용해야 합니다. 마스터 게시자 계정을 만든 후에 지원하기 위해 추가 사용자를 추가할 수 있습니다.
@@ -154,11 +154,16 @@ Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 
 
   >[AZURE.TIP]참여 정책은 [여기](http://azure.microsoft.com/support/legal/marketplace/participation-policies/)에 나와 있습니다.
 
-  >판매자 등록 완료에 문제가 있으면 아래와 같이 지원 티켓을 기록하세요. 1. [지원](http://go.microsoft.com/fwlink?LinkId=272975)에 문의 2. **판매자 대시보드 등록 및 귀하 계정** 선택 3. **개발자 계정 등록** 선택 4. 연락 **방법** 선택
+  >판매자 등록 완료에 문제가 있으면 아래와 같이 지원 티켓을 기록하세요.
+  1. [지원](http://go.microsoft.com/fwlink?LinkId=272975)에 문의
+  2. **판매자 대시보드 등록 및 귀하 계정** 선택
+  3. **개발자 계정 등록** 선택
+  4. 연락 **방법** 선택
 
 ### "판매" 국가
 
-> [AZURE.WARNING]Microsoft Azure 마켓플레이스에서 서비스를 판매하기 위해서는 귀하의 등록된 법인이 승인된 "판매" 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833)에 있는 문서의 1b 섹션을 참조하세요.
+> [AZURE.WARNING]
+Microsoft Azure 마켓플레이스에서 서비스를 판매하기 위해서는 귀하의 등록된 법인이 승인된 "판매" 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833)에 있는 문서의 1b 섹션을 참조하세요.
 
 
 
@@ -166,7 +171,12 @@ Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 
 ## 다음 단계
 이제 계정을 만들고 등록했으므로 Azure 마켓플레이스에 게시할 아티팩트 유형(가상 컴퓨터, 개발자 서비스, 데이터 서비스, 솔루션 템플릿)을 클릭합니다. 각 제품을 게시하는 방법에 대해 알아보려면 다음 문서 중 하나를 방문하세요.
 
-|| 가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 | |----|-----|-----|-----|-----| |**2단계: 제품 만들기** |[일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| || [VM 이미지 필수 기술][link-single-vm-prereq] | 개발자 서비스 필수 기술 구성 요소 | 데이터 서비스 필수 기술 구성 요소 | [솔루션 템플릿 필수 기술 구성 요소](marketplace-publishing-solution-template-creation-prerequisites.md) | || [VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | 데이터 서비스 게시 가이드 | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) | || [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] |
+|| 가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
+|----|-----|-----|-----|-----|
+|**2단계: 제품 만들기** |[일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)|
+|| [VM 이미지 필수 기술][link-single-vm-prereq] | 개발자 서비스 필수 기술 구성 요소 | 데이터 서비스 필수 기술 구성 요소 | [솔루션 템플릿 필수 기술 구성 요소](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | 데이터 서비스 게시 가이드 | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |
+|| [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] |
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)

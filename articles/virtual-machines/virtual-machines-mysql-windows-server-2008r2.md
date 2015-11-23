@@ -89,7 +89,7 @@ Linux에 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
 
-19.	또한 C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini 파일의 항목을 사용하여 기본/데이터 디렉터리 및 드라이브와 같은 서버 구성 기본 설정을 구성할 수 있습니다. 자세한 내용은 [5\.1.2 서버 구성 기본값](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)을 참조하세요.
+19.	또한 C:\Program Files (x86)\MySQL\MySQL Server 5.6\\my-default.ini 파일의 항목을 사용하여 기본/데이터 디렉터리 및 드라이브와 같은 서버 구성 기본 설정을 구성할 수 있습니다. 자세한 내용은 [5.1.2 서버 구성 기본값](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)을 참조하세요.
 
 ## 끝점 구성
 
