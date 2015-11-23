@@ -50,11 +50,11 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
 
 [Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
-[시작]: app-service-mobile-ios-get-started-offline-data.md
+[시작]: app-service-mobile-ios-get-started.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="11/06/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: 단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
@@ -57,4 +57,4 @@ v2.0 앱 모델을 사용하여 두가지 방법으로 앱을 실행할 수 있�
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

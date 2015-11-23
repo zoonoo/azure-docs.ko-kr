@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Application Insights 데이터 모델 내보내기
@@ -120,43 +120,6 @@
 
     *예제*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
 
-**urlData.port**
-
-    string <telemetrytype>.urldata.port      Max: 100
-* 
-    전체 URL에 표시되는 경우 URL 데이터 항목의 포트입니다. 그렇지 않으면 비어 있습니다. 
-
-    *파생:* URL 변환에 대한 부록 참조
-
-    *예제*<br/> 80<br/>443
-
-**urlData.protocol**
-
-    string <telemetrytype>.urldata.protocol      Max: 100
-* 
-    URL 데이터 항목의 프로토콜(HTTP, FTP 등) 
-
-    *파생:* URL 변환에 대한 부록 참조
-
-    *예제*<br/> http<br/>https
-
-**urlData.queryParameters.parameter**
-
-    string <telemetrytype>.urldata.queryparameters.parameter      Max: 100
-* 
-    URL 데이터 항목의 쿼리 매개 변수 이름 배열 
-
-    *파생:* URL 변환에 대한 부록 참조
-
-    *예제*<br/> etc<br/>extraqs<br/>pagemode<br/>pagetype
-
-**urlData.queryParameters.value**
-
-    string <telemetrytype>.urldata.queryparameters.value      Max: 100
-* 
-    URL 데이터 항목에서 구문 분석되는 쿼리 매개 변수 값 배열 
-
-    *파생:* URL 변환에 대한 부록 참조
 
 
 ## availability
@@ -451,7 +414,7 @@
 * 
     클라이언트의 앱 로캘입니다. 원격 분석 항목에 명시적으로 제공되지 않으면 사용자 에이전트 필드의 처리에 따라 제공됩니다. 
 
-    *예제*<br/> ru<br/>en-US<br/>de-DE<br/>unknown
+    *예제*<br/> ru<br/>ko-KR<br/>de-DE<br/>unknown
 
 **machineName**
 
@@ -531,15 +494,6 @@
 
     *예제*<br/> 640<br/>800<br/>1080
 
-**userAgentString**
-
-    string context.device.useragent      Max: 1000
-* 
-    클라이언트 브라우저의 useragent 
-
-    *기본:* null인 경우 데이터 컬렉션 끝점에서 캡처된 HTTP 사용자 에이전트로 설정됩니다.
-
-    *예제*<br/> Opera/9.80 (Windows NT 5.1) Presto/2.12.388 Version/12.17<br/>Mozilla/5.0 (iPad; CPU OS 8\_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12F69 Safari/600.1.4<br/>Chrome/37.0.2062.124 Safari/537.36<br/>Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)<br/>Safari/537.36<br/>+S89
 
 **aiAgentVersion**
 
@@ -561,7 +515,7 @@
 * 
     Xxx.xxx. xxx.xxx 형식의 클라이언트 IPv4 주소입니다.   
 
-    *기본:* null인 경우 데이터 컬렉션 끝점에서 캡처된 HTTP IP로 설정됩니다.
+    *기본값:* null인 경우 데이터 컬렉션 끝점에서 캡처된 HTTP IP로 설정됩니다.
 
     *예제*<br/> 0.123.63.143<br/>123.203.131.197
 
@@ -571,7 +525,7 @@
 * 
     앱 세션의 대륙입니다. 원격 분석 항목에 직접 제공될 수 있습니다. 없는 경우 원격 분석 항목의 한 IPv4에 따라 채워집니다. IPv4가 제공되지 않으면 이 필드는 비어 있습니다. 
 
-    *예제*<br/> 유럽<br/>북아메리카
+    *예제*<br/> Europe<br/>North America
 
 **country**
 
@@ -581,17 +535,6 @@
 
     *예제*<br/> Belarus<br/>Netherlands<br/>Germany
 
-**latitude**
-
-    long context.location.point.lat      
-* 
-    *예제*<br/> 53.9<br/>45.7788 
-
-**longitude**
-
-    long context.location.point.lon      
-* 
-    *예제*<br/> 27.5667<br/>-119.529 
 
 **state**
 
@@ -1081,4 +1024,4 @@
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

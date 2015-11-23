@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="11/03/2015" 
 	ms.author="juliako"/>
 
 #콘텐츠 보호 개요
@@ -76,7 +76,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 �
 
 미디어 서비스는 PlayReady 라이선스를 배달하는 서비스를 제공합니다. 최종 사용자 플레이어(예: Silverlight)가 PlayReady로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청을 보내 라이선스를 얻습니다. 라이선스 서비스에서 요청을 승인하면 클라이언트로 전송하여 지정된 콘텐츠의 암호를 해독하고 재생하는 데 사용할 수 있는 라이선스가 발급됩니다.
 
-라이선스에는 사용자가 보호된 콘텐츠를 재생하려고 할 때 PlayReady DRM 런타임에서 적용하도록 하려는 권한 및 제한이 포함됩니다. 미디어 서비스는 PlayReady 라이선스를 구성할 수 있는 API를 제공합니다. 자세한 내용은 [미디어 서비스 PlayReady 라이선스 템플릿 개요](https://msdn.microsoft.com/library/azure/dn783459.aspx)를 참조하세요.
+라이선스에는 사용자가 보호된 콘텐츠를 재생하려고 할 때 PlayReady DRM 런타임에서 적용하도록 하려는 권한 및 제한이 포함됩니다. 미디어 서비스는 PlayReady 라이선스를 구성할 수 있는 API를 제공합니다. 자세한 정보는 [미디어 서비스 PlayReady 라이선스 템플릿 개요](media-services-playready-license-template-overview)를 참조하세요.
 
 ###토큰 제한
 
@@ -112,12 +112,15 @@ Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 �
 [castLabs를 사용하여 Azure 미디어 서비스에 DRM 라이선스 제공](media-services-castlabs-integration.md)
 
 
+
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ##관련 링크
 
@@ -136,4 +139,4 @@ Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 �
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

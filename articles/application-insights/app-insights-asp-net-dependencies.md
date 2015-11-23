@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 
@@ -44,7 +44,7 @@
 * Java
  * MySQL, SQL Server, PostgreSQL 또는 SQLite 등의 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 드라이버를 통해 데이터베이스를 호출합니다.
 
-[TrackDependency API](app-insights-api-custom-events-metrics.md#track-종속성을 사용하여 다른 종속성을 모니터링하는 사용자 고유의 SDK 호출을 작성할 수 있습니다.
+[TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 다른 종속성을 모니터링하는 사용자 고유의 SDK 호출을 작성할 수 있습니다.
 
 
 ## 종속성 모니터링을 설정하려면
@@ -202,4 +202,4 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

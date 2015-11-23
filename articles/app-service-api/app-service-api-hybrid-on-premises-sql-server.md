@@ -361,7 +361,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 4. **API 앱** 블레이드에서 API 앱을 찾아 클릭합니다.
 
-5. APII 앱의 블레이드에서 **API 앱 호스트** 아래 값을 클릭합니다.
+5. API 앱의 블레이드에서 **API 앱 호스트** 아래의 값을 클릭합니다.
  
 	![API 앱 블레이드](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
@@ -430,4 +430,4 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

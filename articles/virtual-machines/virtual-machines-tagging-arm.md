@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="11/10/2015"
    ms.author="dkshir;memccror"/>
 
 # Azure에서 가상 컴퓨터에 태그를 지정하는 방법
@@ -88,7 +88,7 @@ PowerShell을 통해 태그를 만들고 추가 및 삭제하려면 먼저 [Azur
 
 PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureResource` 명령을 사용할 수 있습니다. PowerShell을 통해 태그를 업데이트하는 경우 태그가 전체적으로 업데이트됩니다. 따라서 이미 태그가 있는 리소스에 하나의 태그를 추가하는 경우 리소스에 배치하려는 모든 태그를 포함해야 합니다. 다음은 PowerShell Cmdlet을 통해 리소스에 태그를 더 추가하는 방법의 예입니다.
 
-첫 번째 cmdlet은 `Get-AzureResource` 및 `Tags` 함수를 사용하여 *MyWindowsVM*에 배치된 모든 태그를 *tags* 변수에 설정합니다.
+첫 번째 cmdlet은 `Get-AzureResource` 및 `Tags` 함수를 사용하여 *MyWindowsVM*에 배치된 모든 태그를 *tags* 변수에 설정합니다. `ApiVersion` 매개 변수는 선택 사항입니다. 지정하지 않으면 최신 API 리소스 공급자 버전을 사용합니다.
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -155,7 +155,7 @@ PowerShell, Azure CLI 및 포털을 통해 리소스에 태그를 적용했으�
 
 ## 사용량 세부 정보에서 태그 보기
 
-Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스에 배치된 태그는 청구 포털의 사용량 세부 정보에 채워집니다.
+Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스에 배치된 태그는 [청구 포털](https://account.windowsazure.com/)의 사용량 세부 정보에 채워집니다.
 
 **사용량 세부 정보 다운로드**를 클릭하여 구독의 사용량 세부 정보를 표시합니다.
 
@@ -190,4 +190,4 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

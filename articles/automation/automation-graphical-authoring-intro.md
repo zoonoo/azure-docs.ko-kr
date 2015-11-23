@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="11/05/2015"
    ms.author="bwren" />
 
 # Azure 자동화에서 그래픽 작성
@@ -131,7 +131,7 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 |자동화 자격 증명 자산|입력으로 자동화 자격 증명을 선택합니다.|  
 |자동화 인증서 자산|입력으로 자동화 인증서를 선택합니다.|  
 |자동화 연결 자산|입력으로 자동화 연결을 선택합니다.| 
-|PowerShell 식|간단한 PowerShell 식을 지정합니다. 활동 전에 식이 계산되며, 그 결과가 매개 변수 값에 사용됩니다. 변수를 사용하여 활동의 출력 또는 Runbook 입력 매개 변수를 참조할 수 있습니다.|
+|PowerShell 식|간단한 [PowerShell 식](#powershell-expressions)을 지정합니다. 활동 전에 식이 계산되며, 그 결과가 매개 변수 값에 사용됩니다. 변수를 사용하여 활동의 출력 또는 Runbook 입력 매개 변수를 참조할 수 있습니다.|
 |빈 문자열|빈 문자열 값입니다.|
 |Null|Null 값입니다.|
 |선택 취소|이전에 구성된 모든 값을 지웁니다.|
@@ -241,6 +241,7 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 
 Runbook에서 [검사점](automation-powershell-workflow/#checkpoints)을 설정하는 데 적용되는 동일한 지침이 그래픽 Runbook에 적용됩니다. 검사점을 설정해야 하는 Checkpoint-Workflow cmdlet에 대한 활동을 추가할 수 있습니다. 그런 다음 이 검사점에서 다른 작업자에 대해 Runbook이 시작되는 경우 Add-AzureAccount를 사용하여 이 활동을 따릅니다.
 
+
 ## Azure 리소스 인증
 
 Azure 자동화의 Runbook에는 대부분 Azure 리소스에 대한 인증이 필요합니다. 이 인증에 사용되는 일반적인 메서드는 Azure 계정에 대한 액세스 권한이 있는 Active Directory 사용자를 나타내는 [자격 증명 자산](http://msdn.microsoft.com/library/dn940015.aspx)이 포함된 Add-AzureAccount cmdlet입니다. 이에 관한 내용은 [Azure 자동화 구성](automation-configuring.md)에 설명되어 있습니다.
@@ -285,10 +286,97 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 나가는 링크가 없는 모든 활동에서 생성된 데이터는 [Runbook의 출력](http://msdn.microsoft.com/library/azure/dn879148.aspx)에 추가됩니다. 출력은 Runbook 작업과 함께 저장되며, 해당 Runbook이 자식으로 사용되는 경우 부모 Runbook에서 사용할 수 있습니다.
 
 
+## PowerShell 식
+
+그래픽 제작의 이점 중 하나는 PowerShell에 대한 최소한의 지식만으로 runbook을 작성하는 기능을 제공한다는 점입니다. 그러나 현재 특정 [매개 변수 값](#activities)을 채우고 [연결 조건](#links-and-workflow)을 설정하기 위해 PowerShell을 조금은 알아야 합니다. 이 섹션에서는 PowerShell 식에 대해 친숙하지 못한 사용자에게 이를 간략히 소개합니다. PowerShell의 세부 사항 전체는 [Windows PowerShell을 사용하는 스크립트](http://technet.microsoft.com/library/bb978526.aspx)에서 사용 가능합니다.
+
+
+### PowerShell 식 데이터 원본
+
+PowerShell 식을 데이터 원본으로 사용하여 [동작 매개 변수](#activities)의 값을 일부 PowerShell 코드의 결과로 채울 수 있습니다. 간단한 함수를 수행하는 코드 한 줄이거나 또는 복잡한 함수를 수행하는 여러 줄의 코드일 수 있습니다. 변수에 할당되지 않은 명령의 출력은 매개 변수 값에 대한 출력입니다.
+
+예를 들어 다음 명령은 현재 날짜를 출력합니다.
+
+	Get-Date
+
+다음 명령은 현재 날짜에서 문자열을 작성하고 변수에 할당합니다. 변수의 내용은 출력으로 보내집니다.
+
+	$string = "The current date is " + (Get-Date)
+	$string
+
+다음 명령은 현재 날짜를 평가하고 현재 날짜가 주말 또는 평일인지를 나타내는 문자열을 반환합니다.
+
+	$date = Get-Date
+	if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
+	else { "Weekday" }
+	
+ 
+
+### 활동 출력
+
+Runbook의 이전 작업에서 출력을 사용하려면 다음 구문을 사용하여 $ActivityOutput 변수를 사용합니다.
+
+	$ActivityOutput['Activity Label'].PropertyName
+
+예를 들어 가상 컴퓨터의 이름이 필요한 속성을 사용하는 활동이 있는 경우 다음 식을 사용할 수 있습니다.
+
+	$ActivityOutput['Get-AzureVm'].Name
+
+속성이 속성 대신 가상 컴퓨터 개체를 필요로 하는 경우 다음 구문을 사용하여 전체 개체를 반환합니다.
+
+	$ActivityOutput['Get-AzureVm']
+
+또한 가상 컴퓨터 이름에 텍스트를 연결하는 다음과 같은 보다 복잡한 식에서 활동의 출력을 사용할 수 있습니다.
+
+	"The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+
+
+### 조건
+
+[비교 연산자](https://technet.microsoft.com/library/hh847759.aspx)를 사용하여 값을 비교 하거나 값이 지정된 패턴과 일치하는지를 확인합니다. 비교는 $true 또는 $false의 값을 반환합니다.
+
+예를 들어 다음 조건은 *Get-AzureVM*이라는 활동에서 가상 컴퓨터가 현재 *중지*되었는지 확인합니다.
+
+	$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+
+다음 조건은 동일한 가상 컴퓨터가 *중지* 이외의 상태인지를 확인합니다.
+
+	$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+
+**-and** 또는 **-or**와 같은 [논리 연산자](https://technet.microsoft.com/library/hh847789.aspx)를 사용하여 여러 조건을 조인할 수 있습니다. 예를 들어 다음 조건은 이전 예제에서 동일한 가상 컴퓨터가 *중지됨* 또는 *중지 중* 중에 어떤 상태인지 확인합니다.
+
+	($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping") 
+
+
+### 해시 테이블
+
+[해시 테이블](http://technet.microsoft.com/library/hh847780.aspx)은 값 집합을 반환하는 데 유용한 이름/값 쌍입니다. 특정 활동에 대한 속성은 단순 값 대신 해시 테이블을 필요로 할 수 있습니다. 또한 해시 테이블은 사전이라고 표시될 수 있습니다.
+
+다음 구문을 사용하여 해시 테이블을 만듭니다. 해시 테이블은 항목을 몇 개이든 포함할 수 있지만 각각은 이름 및 값으로 정의됩니다.
+
+	@{ <name> = <value>; [<name> = <value> ] ...}
+
+예를 들어 다음 식은 데이터 원본에서 인터넷을 검색에 대한 값이 있는 해시 테이블을 예상하는 활동 매개 변수에 사용될 해시 테이블을 만듭니다.
+
+	$query = "Azure Automation"
+	$count = 10
+	$h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
+	$h
+
+다음 예제에서는 *Twitter 연결 가져오기*라는 작업에서 출력을 사용하여 해시 테이블을 채움니다.
+
+	@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
+	  'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
+	  'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
+	  'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+
+
+
 ## 관련된 문서
 
 - [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)
 - [자동화 자산](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+- [연산자](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

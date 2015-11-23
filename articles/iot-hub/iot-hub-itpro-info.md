@@ -43,10 +43,10 @@ IoT Hub에 등록된 장치만 해당 IoT Hub와 통신할 수 있습니다. 등
 
 - [IoT Hub Azure란?][lnk-iothub]
 - [Azure IoT Hub 개발자 가이드의 "보안"][lnk-devguide] 섹션에서 IoT Hub의 토큰 및 권한 시스템에 대한 추가 정보를 제공합니다.
-- [Azure 포털을 통해 IoT Hub 관리][lnk-manage-portal]에서 Azure 포털을 사용하여 IoT Hub를 관리하는 방법을 설명합니다.
+- [Azure preview 포털을 통해 IoT Hub 관리][lnk-manage-portal]에서 Azure preview 포털을 사용하여 IoT Hub를 관리하는 방법을 설명합니다.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

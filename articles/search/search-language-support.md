@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 검색에서 다국어 문서에 대한 인덱스 정의 만들기| Microsoft Azure"
+   pageTitle="Azure 검색에서 다국어 문서에 대한 인덱스 정의 만들기| Microsoft Azure | 호스트된 클라우드 검색 서비스"
    description="Azure 검색은 Lucene 및 Microsoft 제공 자연어 처리 기술을 통해 56개 언어를 지원합니다."
    services="search"
    documentationCenter=""
@@ -16,9 +16,9 @@
    ms.date="10/19/2015"
    ms.author="jlembicz"/>
 
-# Azure 검색에서 다국어 문서에 대한 인덱스 정의 만들기
-
+# Azure 검색에서 다국어 문서에 대한 인덱스 만들기
 > [AZURE.SELECTOR]
+- [Portal](search-language-support.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
 - [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
 
@@ -74,4 +74,4 @@
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

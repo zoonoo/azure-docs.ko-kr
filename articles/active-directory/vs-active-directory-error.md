@@ -3,7 +3,7 @@
 	description="Active Directory 연결 마법사에서 호환되지 않는 인증 유형 검색" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 인증 검색 중 오류 발생
 
@@ -97,4 +97,4 @@ Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 �
 자세한 내용은 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

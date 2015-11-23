@@ -21,6 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
+> [AZURE.NOTE]Azure 마켓플레이스에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 이 새로운 서비스는 ARM에 MariaDB Galera 클러스터를 자동 배포합니다. https://azure.microsoft.com/ko-KR/marketplace/partners/mariadb/cluster-maxscale/에서 새 기능을 사용해야 합니다.
 
 Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력하고 확장성 있으며 신뢰할 수 있는 MySQL의 드롭인 대체 기능인 [MariaDB](https://mariadb.org/en/about/)의 다중 마스터 [Galera](http://galeracluster.com/products/) 클러스터를 만드는 중입니다.
 
@@ -338,29 +339,13 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 
 아래 표와 같은 결과가 생성됩니다.
 
-<pre class="prettyprint copy-to-clipboard  prettyprinted" id="clipboard-element-40"><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="pun">|</span><span class="pln" style="
-    padding-left: 6px;
-    padding-right: 6px;
-"> id </span><span class="pun">|</span><span class="pln" style="
-    padding-left: 8px;
-"> value  </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="pun">|</span><span class="pln">  </span><span class="lit" style="
-    padding-left: 6px;
-    border-right-width: 5px;
-    padding-right: 6px;
-">1</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="typ" style="
-    padding-left: 4px;
-">Value1</span><span class="pln"> </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">|</span><span class="pln">  </span><span class="lit" style="
-    padding-left: 6px;
-    padding-right: 6px;
-">4</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="typ" style="
-    padding-left: 4px;
-">Value2</span><span class="pln"> </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="lit">2</span><span class="pln"> rows </span><span class="kwd">in</span><span class="pln"> </span><span class="kwd">set</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0.00</span><span class="pln"> sec</span><span class="pun">)</span></pre>
+	+----+--------+
+	| id | value  |
+	+----+--------+
+	|  1 | Value1 |
+	|  4 | Value2 |
+	+----+--------+
+	2 rows in set (0.00 sec)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
@@ -390,4 +375,4 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 [Azure CLI 도구의 문제 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

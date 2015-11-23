@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -71,7 +71,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 6. **새 클라우드 서비스 및 저장소 계정 만들기**
 
-    Azure 관리 포털을 사용하여 계산 집약적 인스턴스를 사용할 수 있는 지역에 배포하기 위한 클라우드 서비스 및 저장소 계정을 만듭니다. (클라우드 서비스와 저장소 계정을 다른 배포에 사용된 기존 선호도 그룹과 연결하지 마세요.)
+    Azure 포털을 사용하여 계산 집약적 인스턴스를 사용할 수 있는 지역에 배포하기 위한 클라우드 서비스 및 저장소 계정을 만듭니다. (클라우드 서비스와 저장소 계정을 다른 배포에 사용된 기존 선호도 그룹과 연결하지 마세요.)
 
 7. **Azure 노드 템플릿 만들기**
 
@@ -246,4 +246,4 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

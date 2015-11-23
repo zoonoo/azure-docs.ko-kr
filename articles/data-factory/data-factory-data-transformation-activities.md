@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/04/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용한 분석 및 변환
@@ -32,7 +32,7 @@ Azure Data Factory의 변환 작업을 통해 원시 데이터를 변환 및 처
 [저장 프로시저](data-factory-stored-proc-activity.md) | Azure SQL | 
 [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) | Azure 데이터 레이크 분석 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 또는 Azure Batch
-    
+   
 
 컴퓨팅 환경을 위한 연결된 서비스를 만들고 변환 작업을 정의할 때 이 연결된 서비스를 사용해야 합니다. 데이터 팩터리에서 지원하는 컴퓨팅 환경은 두 가지 유형이 있습니다.
 
@@ -41,7 +41,4 @@ Azure Data Factory의 변환 작업을 통해 원시 데이터를 변환 및 처
 
 데이터 팩터리에서 지원하는 계산 연결된 서비스에 대한 자세한 내용은 [계산 연결된 서비스](data-factory-compute-linked-services.md) 문서를 참조하세요.
 
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md)을 통해 의견을 보내주세요.
-
-<!-----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

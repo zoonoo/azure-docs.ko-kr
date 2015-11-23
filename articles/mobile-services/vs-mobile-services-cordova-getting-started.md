@@ -3,7 +3,7 @@
 	description="Visual Studio 연결 서비스를 사용하여 Cordova 프로젝트를 Azure 모바일 서비스에 연결한 다음 할 수 있는 첫 번째 단계에 대해 설명합니다." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 모바일 서비스 시작(Cordova 프로젝트)
 
@@ -94,4 +94,4 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

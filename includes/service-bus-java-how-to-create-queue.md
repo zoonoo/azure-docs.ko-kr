@@ -19,11 +19,11 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 서비스 네임스페이스를 만들려면
 
-1.  [Azure 관리 포털][]에 로그온합니다.
+1.  [Azure 포털][]에 로그온합니다.
 
-2.  관리 포털의 왼쪽 탐색 창에서 **Service Bus**를 클릭합니다.
+2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
-3.  관리 포털의 아래쪽 창에서 **만들기**를 클릭합니다. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
 4.  **Add a new namespace** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다. ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
@@ -35,11 +35,11 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
-만든 네임스페이스를 활성화되는 데 약간의 시간이 걸린 후 관리 포털에 표시됩니다. 계속하기 전에 네임스페이스가 **활성** 상태가 될 때까지 기다리세요.
+만든 네임스페이스를 활성화되는 데 약간의 시간이 걸린 후 Azure 포털에 표시됩니다. 계속하기 전에 네임스페이스가 **활성** 상태가 될 때까지 기다리세요.
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
-새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다. Azure 관리 포털에서 이러한 자격 증명을 가져올 수 있습니다.
+새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다. Azure 포털에서 이러한 자격 증명을 가져올 수 있습니다.
 
 ###포털에서 관리 자격 증명을 가져오려면
 
@@ -51,9 +51,8 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 4.  기본 키를 적어 두거나 클립보드에 복사해 둡니다.
 
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [Azure 관리 포털]: http://manage.windowsazure.com
+  [Azure 포털]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

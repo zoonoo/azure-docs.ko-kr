@@ -38,7 +38,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 이 자습서는 HBase 지역에서 복제 만들기에 대한 [시리즈][hdinsight-hbase-replication]의 한 부분입니다.
 
 - 두 가상 네트워크 간의 VPN 연결 구성(이 자습서)
-- [가상 네트워크에 대한 DNS 구성][hdinsight-hbase-geo-replication-DNS]
+- [가상 네트워크에 대한 DNS 구성][hdinsight-hbase-geo-replication-dns]
 - [HBase 지역에서 복제 구성][hdinsight-hbase-geo-replication]
 
 다음 다이어그램에서는 이 자습서에서 만들 두 가상 네트워크를 보여 줍니다.
@@ -249,7 +249,7 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 
 
 
-[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 
 
@@ -270,4 +270,4 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

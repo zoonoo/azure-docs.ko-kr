@@ -57,7 +57,7 @@ IoT Hub를 사용하면 [장치 ID 레지스트리][IoT Hub Developer Guide - id
 3. 토큰 서비스에서 [IoT Hub 개발자 가이드 - 보안][]에 따라 `deviceId`를 인증할 장치로 함께 `resourceURI`로 `/devices/{deviceId}`를 사용하여 생성된 토큰을 반환합니다.
 4. 장치는 IoT Hub에서 직접 토큰을 사용합니다.
 
-토큰 서비스는 토큰 만료를 원하는 대로 설정할 수 있습니다. 만료 시 IoT Hub는 연결을 제공하고 장치는 토큰 서비스에 새 토큰을 요청해야 합니다. 분명히, 만료 시간이 짧으면 장치 및 토큰 서비스에 대한 부하가 증가합니다.
+토큰 서비스는 토큰 만료를 원하는 대로 설정할 수 있습니다. 만료 시 IoT Hub 연결을 끊고 장치는 토큰 서비스에 새 토큰을 요청해야 합니다. 분명히, 만료 시간이 짧으면 장치 및 토큰 서비스에 대한 부하가 증가합니다.
 
 연결할 수 있는 장치에 대해 지정될 가치가 있으며 IoT Hub에서 장치 ID를 계속 만들어야 합니다. 즉, 장치가 토큰으로 인증되더라도 장치별 액세스 제어([IoT Hub 개발자 가이드 - ID 레지스트리][]에 따라 장치 ID 비활성화)가 계속 작동합니다. 이렇게 하면 장기간 토큰이 존재하는 것이 완화됩니다.
 
@@ -88,4 +88,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -67,4 +67,12 @@
 	
 >[AZURE.NOTE]문제 해결 단계를 수행한 후에도 여전히 성공적으로 스트리밍되지 않으면 Azure 관리 포털을 사용하여 지원 티켓을 제출하세요.
 
-<!---HONumber=Oct15_HO3-->
+##미디어 서비스 학습 경로
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##피드백 제공
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

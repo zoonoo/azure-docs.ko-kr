@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
-    ms.author="torsteng" />
+    ms.date="11/09/2015"
+    ms.author="torsteng;sidneyh" />
 
 # 데이터베이스 간 쿼리를 위한 탄력적 데이터베이스 쿼리(수직 분할)
 
@@ -44,7 +44,7 @@
     SECRET = ‘<password>’
     [;]
     
-또는 삭제하려면
+자격 증명을 삭제하려면:
     
     DROP DATABASE SCOPED CREDENTIAL <credential_name>;  
     DROP MASTER KEY;   
@@ -184,4 +184,4 @@ SCHEMA\_NAME 및 OBJECT\_NAME 절은 각각 외부 테이블 정의를 원격 �
 <!--Image references-->
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

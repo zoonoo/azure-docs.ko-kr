@@ -3,7 +3,7 @@
 	description="Visual Studio에서 JavaScript 프로젝트의 모바일 서비스를 시작하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Visual Studio 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Javascript 모바일 앱 시작
 
@@ -92,4 +92,4 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

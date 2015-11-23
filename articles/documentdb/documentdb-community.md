@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/20/2015"
+  ms.date="11/05/2015"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -89,8 +89,6 @@ Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기�
 
 | 이벤트 이름 | 위치 | Date | 해시 태그 |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [CloudDevelop 2015](http://www.clouddevelop.org/) | 콜롬버스, OH | 2015년 10월 23일 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
-| [PASS 회담 2015](http://www.sqlpass.org/summit/2015/Home.asp) | 시애틀, WA | 2015년 10월 27-30일 | [#Summit15](https://twitter.com/hashtag/Summit15) |
 | [통합 사용자 그룹](http://www.integrationusergroup.com/) | 웹 세미나 | 2015년 11월 9일 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [모임: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | 몬트리올, QC, 캐나다 | 2015년 12월 1일 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
@@ -100,11 +98,14 @@ Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기�
 
 | 이벤트 이름 | 위치 | Date | 기록 |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [PASS 회담 2015](http://www.sqlpass.org/summit/2015/Home.asp) | 시애틀, WA | 2015년 10월 27-30일 | 해당 없음 |
+| [CloudDevelop 2015](http://www.clouddevelop.org/) | 콜롬버스, OH | 2015년 10월 23일 | 해당 없음 |
 | [SQL Saturday #430 - 소피아 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | 소피아, 불가리아 | 2015년 10월 10일 | 해당 없음 |
 | [SQL Saturday #429 - 오포르토 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | 오포르토, 포르투갈 | 2015년 10월 3일 | 해당 없음 |
 | [AzureCon](https://azure.microsoft.com/azurecon/) | 가상 이벤트 | 2015년 9월 29일 | [Azure 데이터 및 분석 플랫폼](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[DocumentDB에서 NoSQL 데이터 작업](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [SQL Saturday #434 - 홀랜드 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | 위트레흐트, 네덜란드 | 2015년 9월 26일 | 해당 없음 |
+| [SQL Saturday #434 - 홀랜드 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | 위트레흐트, 네덜란드 | 2015년 9월 26일 | [Azure DocumentDB 소개](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [모임: 샌프란시스코만 지역 Azure 개발자](http://www.meetup.com/bayazure/events/223943785/) | 샌프란시스코, CA | 2015년 9월 15일 | 해당 없음 |
+| [벨로루시 Azure 사용자 그룹 모임 접속](https://www.facebook.com/events/786540124800276/) | 민스크, 벨로루시 | 2015년 9월 9일 | [DocumentDB 개념 개요, 일관성 수준, 분할 전략 소개](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
 | [NoSQL Now!](http://nosql2015.dataversity.net/) | 산호세, 캘리포니아 | 2015년 8월 18일-20일 | 해당 없음 |
 | [@Scale Seattle](http://www.atscaleconference.com/) | 시애틀, WA | 2015년 6월 17일 | [Azure DocumentDB로 스키마 제약 없는 인덱싱](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | 리스본, 포르투갈 | 2015년 6월 15일 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
@@ -214,4 +215,4 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 | Hadoop 커넥터 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 데이터 마이그레이션 도구 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -45,7 +45,7 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 
 ## 사용자 고유 규칙 추가
 
-미리 구성된 Azure 스트림 분석 작업 변경 외에도 Azure 포털을 사용하여 새 작업을 추가하거나 기존 작업에 새 쿼리를 추가할 수 있습니다.
+미리 구성된 Azure 스트림 분석 작업 변경 외에도 Azure preview 포털을 사용하여 새 작업을 추가하거나 기존 작업에 새 쿼리를 추가할 수 있습니다.
 
 ## 장치 사용자 지정
 
@@ -69,4 +69,4 @@ IoT 장치에 대한 자세한 내용은 [Azure IoT 개발자 사이트](http://
 
 [IoT 장치 SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

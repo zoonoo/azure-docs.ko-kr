@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 검색으로 Azure 앱 서비스 시도 | Microsoft Azure" 
+   pageTitle="Azure 검색으로 Azure 앱 서비스 시도 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
    description="TryAzureAppService 템플릿을 사용하여, 호스팅되는 클라우드 검색 서비스인 Azure 검색을 1시간 무료로 새용해 봅니다." 
    services="search" 
    documentationCenter="" 
@@ -529,4 +529,4 @@ Azure 검색에 대해 자세히 알아보려면 [http://azure.microsoft.com](ht
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

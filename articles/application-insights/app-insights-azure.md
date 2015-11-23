@@ -26,7 +26,8 @@
 
 어떤 유형의 앱이 있습니까?
 
-* [Azure 웹 앱 - 웹 및 작업자 역할](app-insights-cloudservices.md)
+* [Azure 웹앱](insights-perf-analytics.md)
+* [Azure 클라우드 서비스 앱 - 웹 및 작업자 역할](app-insights-cloudservices.md)
 * [Azure VM의 IIS에 있는 웹 앱](../insights-perf-analytics.md)
 * [Azure 외부 응용 프로그램](app-insights-overview.md)
 
@@ -39,4 +40,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

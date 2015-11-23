@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="11/11/2015" 
 	ms.author="andrl"/>
 
 # DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
@@ -50,7 +50,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 	-	원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.  
 	-	이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.  
 
-데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 생성 및 실행은 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 지원됩니다. **이 자습서에서는 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)**를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.
+데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 생성 및 실행은 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 지원됩니다. <b>이 자습서에서는 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)</b>를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.
 
 ## 저장 프로시저
 
@@ -902,7 +902,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 ## 샘플 코드
 
-[Github 리포지토리](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples)에서 더 많은 서버 쪽 코드 예제를 찾을 수 있습니다.([upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) 및 [업데이트](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)를 포함)
+[Github 리포지토리](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)에서 더 많은 서버 쪽 코드 예제를 찾을 수 있습니다.([upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 및 [업데이트](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)를 포함)
 
 저장된 프로시저를 공유하시겠습니까? 끌어오기 요청을 보내주세요.
 
@@ -920,4 +920,4 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 -	[서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

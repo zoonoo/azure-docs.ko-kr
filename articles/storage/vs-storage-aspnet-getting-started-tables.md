@@ -3,7 +3,7 @@
 	description="Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다."
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 테이블 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET)
 > [AZURE.SELECTOR]
@@ -167,4 +167,4 @@ Azure 테이블을 만들려면 이전 코드에 **CreateIfNotExistsAsync()**에
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

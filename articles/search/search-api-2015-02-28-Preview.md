@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure | 호스트된 클라우드 검색 서비스"
    description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 Lucene 쿼리 구문 및 moreLikeThis 검색 같은 실험적 기능이 포함되어 있습니다."
    services="search"
    documentationCenter="na"
@@ -1742,4 +1742,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

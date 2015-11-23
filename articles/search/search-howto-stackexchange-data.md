@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 검색을 사용하여 StackExchange 데이터를 검색하는 방법| Microsoft Azure"
+	pageTitle="Azure 검색을 사용하여 StackExchange 데이터를 검색하는 방법 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="Microsoft Azure에서 클라우드 호스팅되는 검색 서비스인 Azure 검색을 사용하여 REST 검색을 수행하는 방법을 알아봅니다."
 	services="search"
 	documentationCenter=""
@@ -109,4 +109,4 @@ Brent는 SQL 데이터베이스에 데이터를 준비하는 방법을 설명하
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

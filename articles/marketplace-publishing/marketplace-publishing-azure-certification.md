@@ -9,7 +9,7 @@
    tags=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -32,7 +32,7 @@
 
 **"판매" 국가**
 
-> [AZURE.WARNING]Microsoft Azure 마켓플레이스에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 “판매" 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833)에 있는 문서의 1b 섹션을 참조하세요.
+> [AZURE.WARNING]Microsoft Azure 마켓플레이스에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 “판매" 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833)에 있는 문서의 1b 섹션을 참조하세요.
 
 ## 다음 단계
 Microsoft Azure 인증 프로그램에서 사전 승인을 받은 후 **1단계**, [Microsoft 판매자 계정: 생성 및 등록](marketplace-publishing-accounts-creation-registration.md)을 진행할 수 있습니다.
@@ -40,4 +40,4 @@ Microsoft Azure 인증 프로그램에서 사전 승인을 받은 후 **1단계*
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD B2C 미리 보기 | Microsoft Azure"
+	pageTitle="Azure AD B2C 미리 보기: Graph API 사용 | Microsoft Azure"
 	description="프로세스를 자동화하기 위해 응용 프로그램 ID를 사용하여 B2C 테넌트에 대해 Graph API를 호출하는 방법입니다."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -222,7 +222,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
@@ -349,4 +349,4 @@ B2CGraphClient를 사용하여 B2C 테넌트에 정의된 사용자 지정 특�
 
 B2C 테넌트에서 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 언제든지 알려주세요. 문서에 의견을 남기거나 코드 샘플 GitHub 리포지토리에 문제를 제출하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

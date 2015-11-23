@@ -46,26 +46,26 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 	- Mac의 경우 [Apple 제품 보안 웹 사이트](https://support.apple.com/HT201222)를 방문하여 필요에 따라 적절한 업데이트를 선택합니다.
 	- Ubuntu, Debian, Mint 등과 같은 Debian 기반 Linux 배포의 경우:
-		
+
 			sudo apt-get update ssh-keygen
 			sudo apt-get update openssl
-			
+
 	- CentOS, Oracle Linux 등과 같은 RPM 기반 Linux 배포의 경우:
-		
+
 			sudo yum update ssh-keygen
 			sudo yum update openssl
-			
+
 	- SLES 및 OpenSUSE의 경우
-		
+
 			sudo zypper update ssh-keygen
 			sudo zypper update openssl
-	
+
 2. **ssh-keygen**을 사용하여 2048비트 RSA 공개 및 개인 키 파일을 만들고, 파일의 특정 위치 또는 특정 이름이 없는 경우에는 `~/.ssh/id_rsa`의 기본 위치 및 이름을 수락합니다. 기본 명령은 다음과 같습니다.
 
 		ssh-keygen -t rsa -b 2048 
-	
+
 	일반적으로 **ssh-keygen** 구현은 주석을 추가하는데, 컴퓨터의 사용자 이름 및 호스트 이름인 경우가 자주 있습니다. `-C` 옵션을 사용하여 특정 주석을 지정할 수 있습니다.
-	
+
 3. 클래식 포털을 작업할 수 있도록 `~/.ssh/id_rsa` 파일에서 .pem 파일을 만듭니다. 다음과 같이 **openssl**을 사용합니다.
 
 		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
@@ -125,7 +125,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 	data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	data:    ContentVersion     : 1.0.0.0
 	data:    Name                   Type    Value
-	
+
 	data:    newStorageAccountName  String  testtestsshvmtemplate3
 	data:    adminUserName          String  ops
 	data:    sshKeyData             String  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAkek3P6V3EhmD+xP+iKDZco9 user@macbookpro
@@ -157,7 +157,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 	+ Configuring certificate
 	+ Creating VM
 	info:    vm create command OK
-	
+
 
 ## VM에 연결
 
@@ -166,11 +166,11 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 하위 도메인과 배포 위치만 지정한 경우 일반적인 리소스 관리자 배포 사용 방법은 다음과 같습니다.
 
 	ssh user@subdomain.westus.cloudapp.azure.com -p 22
-	
+
 또는 클래식 배포 클라우드 서비스에 연결하는 경우에 사용하는 주소는 다음과 같습니다.
 
 	ssh user@subdomain.cloudapp.net -p 22
-	
+
 주소 양식이 변경될 가능성이 있기 때문에 항상 IP 주소를 사용할 수 있거나 사용자 지정 도메인 이름이 할당됩니다. 이 경우 Azure VM의 주소를 검색해야 합니다.
 
 ### 클래식 배포를 사용하여 Azure VM SSH 주소 검색
@@ -266,27 +266,27 @@ VM을 만들 때 기본 SSH 포트 22를 사용하지 않았으면 다음 예와
 	Saving password to keychain failed
 	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-	
+
 	* Documentation:  https://help.ubuntu.com/
-	
+
 	System information as of Sat Oct 10 20:53:08 UTC 2015
-	
+
 	System load: 0.52              Memory usage: 5%   Processes:       80
 	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-	
+
 	Graph this data and manage this system at:
 		https://landscape.canonical.com/
-	
+
 	Get cloud support with Ubuntu Advantage Cloud Guest:
 		http://www.ubuntu.com/business/services/cloud
-	
+
 	0 packages can be updated.
 	0 updates are security updates.
-	
+
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-	
+
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
 
@@ -295,7 +295,7 @@ VM을 만들 때 기본 SSH 포트 22를 사용하지 않았으면 다음 예와
 [SSH 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)의 제안을 읽고 문제 해결에 도움이 되는지 알아보세요.
 
 ## 다음 단계
-
+ 
 VM에 연결했으니, 선택한 배포를 계속 사용할 수 있도록 업데이트해야 합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -5,6 +5,8 @@ Azure DNS는 DNS 도메인에 대한 호스팅 서비스로, Microsoft Azure 인
 
 | 속성 | 설명 | 샘플 값 |
 |---|---|---|
+| DNS 영역 | 특정 도메인의 DNS 레코드를 호스트할 도메인 영역 정보입니다. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
+providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | DNS 영역 | 특정 도메인의 DNS 레코드를 호스트할 도메인 영역 정보입니다. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
 
 
@@ -87,4 +89,4 @@ Json 형식의 DNS 영역 샘플:
 
 자세한 내용은[DNS 레코드 집합에 대한 REST API 설명서](https://msdn.microsoft.com/library/azure/mt130626.aspx)를 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

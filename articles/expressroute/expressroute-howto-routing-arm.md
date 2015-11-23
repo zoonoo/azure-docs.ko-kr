@@ -3,8 +3,8 @@
    description="이 문서에서는 Express 경로 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다."
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,23 +13,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
-   ms.author="ganesr"/>
+   ms.date="11/05/2015"
+   ms.author="cherylmc"/>
 
-# Express 경로 라우팅 구성 만들기 및 수정
+# Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로의 라우팅 만들기 및 수정
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-routing-classic.md)
-[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-이 문서에서는 PowerShell cmdlet 및 ARM 배포 모델을 사용하여 Express 경로 회로에 대한 라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
+이 문서에서는 PowerShell cmdlet 및 Azure 리소스 관리자 배포 모델을 사용하여 Express 경로 회로에 대한 라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
 
->[AZURE.IMPORTANT]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
-
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## 필수 구성 요소
 
-- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침을 따르려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행하세요. 
+- Azure PowerShell 모듈의 버전 1.0 이상이 필요합니다. 
 - 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 - 활성화된 Express 경로 회로가 있어야 합니다. 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 
@@ -41,7 +40,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 이 섹션에서는 Express 경로 회로에 Azure 개인 피어링 구성을 만들고 가져오며 업데이트 및 삭제하는 방법에 대한 지침을 제공합니다.
 
-### Azure 개인 피어링 만들기
+### Azure 개인 피어링을 만들려면
 
 1. **Express 경로에 대한 PowerShell 모듈을 가져옵니다.**
 	
@@ -55,7 +54,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 		Import-AzureRM
 
-	알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
+	또한 알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
 		
 		Import-Module AzureRM.Network 
 
@@ -69,7 +68,9 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로를 만듭니다.**
 	
-	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다. **연결 공급자가 관리되는 계층 3 서비스를 제공하는 경우 Azure 개인 피어링을 사용하도록 연결 공급자에게 요청할 수 있습니다. 이런 경우 다음 섹션에 나열된 지침에 따를 필요가 없습니다.** 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
+
+	연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
 3. **Express 경로 회로를 확인하여 프로비전되도록 합니다.**
 
@@ -126,7 +127,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 	>[AZURE.IMPORTANT]고객 ASN이 아닌 피어링 ASN로 AS 번호를 지정했는지 확인합니다.
 
-### Azure 개인 피어링 세부 정보 가져오기
+### Azure 개인 피어링 세부 정보를 가져오려면
 
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -135,7 +136,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
 
 
-### Azure 개인 피어링 구성 업데이트
+### Azure 개인 피어링 구성을 업데이트하려면
 
 다음 cmdlet을 사용하여 구성의 일부를 업데이트할 수 있습니다. 아래 예제에서는 회로의 VLAN ID를 100개에서 500개로 업데이트 중입니다.
 
@@ -144,20 +145,22 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Azure 개인 피어링 삭제
+### Azure 개인 피어링을 삭제하려면
 
 다음 cmdlet을 실행하여 피어링 구성을 제거할 수 있습니다.
+
+>[AZURE.WARNING]이 cmdlet을 실행하기 전에 모든 가상 네트워크가 Express 경로 회로에서 연결되지 않았는지 확인해야 합니다.
 
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
->[AZURE.IMPORTANT]이 cmdlet을 실행하기 전에 모든 가상 네트워크가 Express 경로 회로에서 연결되지 않았는지 확인해야 합니다.
+
 
 ## Azure 공용 피어링
 
 이 섹션에서는 Express 경로 회로에 Azure 공용 피어링 구성을 만들고 가져오며 업데이트 및 삭제하는 방법에 대한 지침을 제공합니다.
 
-### Azure 공용 피어링 만들기
+### Azure 공용 피어링을 만들려면
 
 1. **Express 경로에 대한 PowerShell 모듈을 가져옵니다.**
 	
@@ -171,7 +174,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 		Import-AzureRM
 
-	알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
+	또한 알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
 		
 		Import-Module AzureRM.Network 
 
@@ -185,7 +188,9 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다. **연결 공급자가 관리되는 계층 3 서비스를 제공하는 경우 Azure 개인 피어링을 사용하도록 연결 공급자에게 요청할 수 있습니다. 이런 경우 다음 섹션에 나열된 지침에 따를 필요가 없습니다.** 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
+
+	연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
 3. **Express 경로 회로를 확인하여 프로비전되도록 합니다.**
 
@@ -242,7 +247,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 	>[AZURE.IMPORTANT]고객 ASN이 아닌 피어링 ASN로 AS 번호를 지정했는지 확인합니다.
 
-### Azure 공용 피어링 세부 정보 가져오기
+### Azure 공용 피어링 세부 정보를 가져오려면
 
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -251,7 +256,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
 
-### Azure 공용 피어링 구성 업데이트
+### Azure 공용 피어링 구성을 업데이트하려면
 
 다음 cmdlet을 사용하여 구성의 일부를 업데이트할 수 있습니다.
 
@@ -261,7 +266,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 아래 예제에서 회로의 VLAN ID를 200개에서 600개로 업데이트 중입니다.
 
-### Azure 공용 피어링 삭제
+### Azure 공용 피어링을 삭제하려면
 
 다음 cmdlet을 실행하여 피어링 구성을 제거할 수 있습니다.
 
@@ -272,7 +277,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 이 섹션에서는 Express 경로 회로에 Microsoft 피어링 구성을 만들고 가져오며 업데이트 및 삭제하는 방법에 대한 지침을 제공합니다.
 
-### Microsoft 피어링 만들기
+### Microsoft 피어링을 만들려면
 
 1. **Express 경로에 대한 PowerShell 모듈을 가져옵니다.**
 	
@@ -286,7 +291,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 		Import-AzureRM
 
-	알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
+	또한 알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
 		
 		Import-Module AzureRM.Network 
 
@@ -300,7 +305,9 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다. **연결 공급자가 관리되는 계층 3 서비스를 제공하는 경우 Azure 개인 피어링을 사용하도록 연결 공급자에게 요청할 수 있습니다. 이런 경우 다음 섹션에 나열된 지침에 따를 필요가 없습니다.** 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
+
+	연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
 3. **Express 경로 회로를 확인하여 프로비전되도록 합니다.**
 
@@ -351,7 +358,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Microsoft 피어링 정보 가져오기
+### Microsoft 피어링 정보를 가져오려면
 
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -360,7 +367,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
 
 
-### Microsoft 피어링 구성 업데이트
+### Microsoft 피어링 구성을 업데이트하려면
 
 다음 cmdlet을 사용하여 구성의 일부를 업데이트할 수 있습니다.
 
@@ -369,7 +376,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 		
 
-### Microsoft 피어링 삭제
+### Microsoft 피어링을 삭제하려면
 
 다음 cmdlet을 실행하여 피어링 구성을 제거할 수 있습니다.
 
@@ -379,8 +386,13 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 ## 다음 단계
 
--  이제 [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)합니다.
--  워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
+다음 단계에서는 VNet을 Express 경로 회로에 연결합니다. Azure 리소스 관리자 배포 모드로 작업할 때 [이 서식 파일](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)을 사용할 수 있습니다. 현재 PowerShell 단계를 진행합니다.
+
+
+-  Express 경로 워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
+
 -  회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+-  가상 네트워크를 사용한 작업에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
+
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 검색이란"
+	pageTitle="Azure 검색이란 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
 	description="Azure 검색은 호스팅되는 클라우드 검색 서비스입니다. 이 기술 개요 및 기능 요약에서 자세히 알아보세요."
 	services="search"
 	documentationCenter=""
@@ -131,4 +131,4 @@ REST API는 내용이 JSON 형식으로 되어 있는 HTTP 요청 및 응답으�
 
 [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md) [Azure 검색 .NET 시작](search-get-started-dotnet.md) [Azure 검색: 자습서, 비디오 데모 및 샘플](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager"/>
+ tags="azure-resource-manager,hpc-pack"/>
 
 <tags
  ms.service="virtual-machines"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="08/18/2015"
+ ms.date="11/11/2015"
  ms.author="danlep"/>
 
 # Azure에서 Excel 및 SOA 작업을 실행할 HPC Pack 클러스터 시작
@@ -43,7 +43,7 @@
 
 
 ### 빠른 시작 템플릿 사용
-Azure 빠른 시작 템플릿을 사용하여 빠르고 쉽게 Azure Preview 포털에 HPC Pack 클러스터를 배포할 수 있습니다. 포털에서 템플릿을 열면 클러스터에 대한 설정을 입력할 수 있는 간단한 UI가 표시됩니다. 단계는 다음과 같습니다.
+Azure 빠른 시작 템플릿을 사용하여 빠르고 쉽게 Azure Preview 포털에 HPC Pack 클러스터를 배포할 수 있습니다. Preview 포털에서 템플릿을 열면 클러스터에 대한 설정을 입력할 수 있는 간단한 UI가 표시됩니다. 단계는 다음과 같습니다.
 
 1. [GitHub의 HPC 클러스터 만들기 템플릿 페이지](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)를 방문합니다. 원하는 경우 템플릿 및 소스 코드에 대한 정보를 검토합니다.
 
@@ -51,7 +51,7 @@ Azure 빠른 시작 템플릿을 사용하여 빠르고 쉽게 Azure Preview 포
 
     ![Azure에 템플릿 배포][github]
 
-3. 포털에서 다음 단계에 따라 HPC 클러스터 템플릿에 대한 매개 변수를 입력합니다.
+3. Preview 포털에서 다음 단계에 따라 HPC 클러스터 템플릿에 대한 매개 변수를 입력합니다.
 
     a. **템플릿 편집** 페이지에서 **저장**을 클릭합니다.
 
@@ -355,7 +355,7 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 
 ### NetTcp 바인딩 사용
 
-NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 연결하는 것과 같습니다. 헤드 노드 VM에서 몇 개의 끝점을 열어야 합니다. Azure 관리 포털에서 다음을 수행합니다.
+NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 연결하는 것과 같습니다. 헤드 노드 VM에서 몇 개의 끝점을 열어야 합니다. Azure 포털에서 다음을 수행합니다.
 
 
 1. VM을 중지합니다.
@@ -389,4 +389,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

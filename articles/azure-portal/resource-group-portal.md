@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,11 +25,11 @@
 
 일반적으로 리소스 그룹은 특정 응용 프로그램과 관련된 리소스를 포함합니다. 예를 들어 그룹은 공용 웹 사이트를 호스트하는 웹 응용 프로그램, 사이트에서 사용되는 관계형 데이터를 저장하는 SQL 데이터베이스, 비관계형 자산을 저장하는 저장소 계정을 포함할 수 있습니다. 리소스 그룹의 모든 리소스는 동일한 수명 주기를 공유해야 합니다. 리소스 관리자에 대한 자세한 내용은 [리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
-이 항목에서는 Azure 미리 보기 포털 내에서 리소스 그룹을 사용하는 방법에 대한 간단한 개요를 제공합니다.
+이 항목에서는 Azure 미리 보기 포털 내에서 리소스 그룹을 사용하는 방법에 대한 간단한 개요를 제공합니다. 현재 일부 서비스에서만 미리 보기 포털이나 리소스 관리자를 지원합니다. 이러한 서비스의 경우 [포털](https://manage.windowsazure.com)을 사용해야 합니다. 각 서비스의 상태는 [서비스, 지역 및 API 버전에 대한 리소스 관리자 지원](resource-manager-supported-services.md)을 참조하세요.
 
 ## 리소스 그룹 및 블레이드 만들기
 
-빈 리소스 그룹을 만들기가 필요한 경우 **새로 만들기**, **관리** 및 **리소스 그룹**을 선택합니다.
+빈 리소스 그룹을 만들어야 하는 경우 **새로 만들기**, **관리** 및 **리소스 그룹**을 선택합니다.
 
 ![빈 소스 그룹 만들기](./media/resource-group-portal/create-empty-group.png)
 
@@ -125,11 +125,11 @@
 
 ## 리소스 태그 지정
 
-리소스 그룹 및 리소스에 태그를 적용하여 논리적으로 자산을 구성할 수 있습니다. 미리 보기 포털을 통한 태그 사용에 대한 정보는 [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md)을 참조하세요.
+리소스 그룹 및 리소스에 태그를 적용하여 논리적으로 자산을 구성할 수 있습니다. 미리 보기 포털을 통한 태그 사용에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md)을 참조하세요.
 
 ## 사용자 지정 템플릿 배포
 
-배포를 실행하려고 하지만 Marketplace에서 템플릿 중 하나를 사용하지 않으려는 경우 솔루션에 대한 인프라를 정의하는 사용자 지정된 템플릿을 만들 수 있습니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요.
+배포를 실행하려고 하지만 Marketplace에서 템플릿 중 하나를 사용하지 않으려는 경우 솔루션에 대한 인프라를 정의하는 사용자 지정된 템플릿을 만들 수 있습니다. 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
 미리 보기 포털을 통해 사용자 지정된 템플릿을 배포하려면 **새로 만들기**, **Marketplace** 및 **모두**를 선택합니다.
 
@@ -147,11 +147,11 @@
 시작하기
 
 - 리소스 관리자의 개념에 대한 소개는 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.  
-- 리소스 배포 시 Azure PowerShell 사용에 대한 소개는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+- 리소스 배포 시 Azure PowerShell 사용에 대한 소개는 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 - 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요. 
   
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

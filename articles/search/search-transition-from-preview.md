@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="미리보기 api-버전=2014*에서 api-버전=2015*로 전환" 
+	pageTitle="미리 보기 api-version=2014*에서 api-version=2015*로 전환 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="Azure 검색, api-버전=2015-02-28에 대한 2014-07-31-미리 보기 또는 2014-10-20-미리 보기에 대해 작성된 주요 변경 내용 및 코드 마이그레이션 방법을 알아보세요." 
 	services="search" 
 	documentationCenter="" 
@@ -22,8 +22,8 @@ Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비
 
 미리 보기 고객은 다음의 이전 미리 보기 버전 중 하나를 사용할 수 있을 것입니다:
 
-- [2014-07-31-미리 보기](search-api-2014-07-31-preview.md)
-- [2014-10-20-미리 보기](search-api-2014-10-20-preview.md)
+- 2014-07-31-미리 보기
+- 2014-10-20-미리 보기
 
 이제 Azure 검색은 일반적으로 사용 가능하며 최신 릴리스로 전환하는 것이 좋습니다: 2015-02-28은 Azure 검색을 일반적으로 사용 가능한 릴리스의 공식 API 버전입니다. 해당 버전은 [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx)에서 확인할 수 있습니다.
 
@@ -144,4 +144,4 @@ API 버전`2015-02-28`은 SLA에 따릅니다. 지원 티켓을 만들기 위해
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -3,7 +3,7 @@
    description="SMTP 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
+   authors="rajeshramabathiran"
    manager="dwrede"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 
 # SMTP 커넥터 시작 및 논리 앱에 추가
@@ -59,12 +59,15 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 ## 논리 앱에서 SMTP 커넥터 사용
 커넥터를 만들고 나면 이제 SMTP 커넥터를 논리 앱에 대한 동작으로 사용할 수 있습니다. 다음을 수행합니다.
 
-1.	새 논리 앱을 만듭니다.  
-![][2]
-2.	**트리거 및 작업**을 열어 논리 앱 디자이너를 열고 워크플로를 구성합니다.  
-![][3]
-3.	SMTP 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 표시됩니다. 이 커넥터를 선택합니다.  
-![][4]
+1.	새 논리 앱을 만듭니다.
+
+	![][2]
+2.	**트리거 및 작업**을 열어 논리 앱 디자이너를 열고 워크플로를 구성합니다.
+
+	![][3]
+3.	SMTP 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 표시됩니다. 이 커넥터를 선택합니다.
+
+	![][4]
 4.	워크플로 디자이너에 자동으로 추가할 SMTP 커넥터를 선택합니다.
 
 이제 워크플로에서 사용되도록 SMTP 커넥터를 구성할 수 있습니다. **메일 보내기** 작업을 선택하고 입력 속성을 구성합니다.
@@ -100,4 +103,4 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

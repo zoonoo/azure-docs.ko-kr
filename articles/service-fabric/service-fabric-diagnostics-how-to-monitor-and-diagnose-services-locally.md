@@ -75,8 +75,7 @@
 ## 다음 단계
 
 * [서비스 패브릭 상태 소개](service-fabric-health-introduction.md)
-* [Application Insights 설정](service-fabric-diagnostics-application-insights-setup.md)
 * [Azure 서비스 패브릭 활동자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [상태 저장 신뢰할 수 있는 서비스 진단](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -93,7 +93,7 @@ ReportViewer는 적절한 자격 증명을 사용하여 보고서 서버로 인�
 
 ## Azure에 ASP.NET 웹 응용 프로그램 게시
 
-Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visual Studio에서 Azure에 웹 응용 프로그램 마이그레이션 및 게시 방법](https://msdn.microsoft.com/library/azure/hh420322.aspx) 및 [웹앱 및 ASP.NET 시작](../app-service-web/web-sites-dotnet-get-started.md)을 참조하세요.
+Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visual Studio에서 Azure에 웹 응용 프로그램 마이그레이션 및 게시 방법](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 및 [웹앱 및 ASP.NET 시작](../app-service-web/web-sites-dotnet-get-started.md)을 참조하세요.
 
 >[AZURE.IMPORTANT]Azure 배포 프로젝트 추가 또는 Azure 클라우드 서비스 프로젝트 추가 명령이 솔루션 탐색기의 바로 가기 메뉴에 나타나지 않으면 프로젝트에 대한 대상 프레임워크를 .NET Framework 4로 변경해야 할 수 있습니다.
 >
@@ -109,4 +109,4 @@ Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visua
 
 [Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 컴퓨터 기반 보고서 서버](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

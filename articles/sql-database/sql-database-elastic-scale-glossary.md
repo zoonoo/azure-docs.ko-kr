@@ -17,7 +17,9 @@
     ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 도구 용어집
-Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md), 기능에 대해 정의된 용어는 다음과 같습니다. 도구는 [클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 및 [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md), [탄력적 풀](sql-database-elastic-pool.md), [쿼리](sql-database-elastic-query-overview.md)를 포함합니다.
+Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md), 기능에 대해 정의된 용어는 다음과 같습니다. 이 도구는 [분할 데이터베이스 맵](sql-database-elastic-scale-shard-map-management.md)을 관리하는 데 사용하며 [클라이언트 라이브러리](sql-database-elastic-database-client-library.md), [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md), [탄력적 풀](sql-database-elastic-pool.md), [쿼리](sql-database-elastic-query-overview.md)를 포함합니다.
+
+이러한 용어는 [탄력적인 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md) 및 [RecoveryManager 클래스를 사용 하여 분할된 데이터베이스 맵 문제 해결](sql-database-elastic-database-recovery-manager.md)에 사용됩니다.
 
 ![탄력적인 확장 용어][1]
 
@@ -80,4 +82,4 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

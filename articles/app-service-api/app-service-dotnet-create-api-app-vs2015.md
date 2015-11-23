@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="11/10/2015" 
 	ms.author="tdykstra"/>
 
 # Visual Studio 2015를 사용하여 Azure 앱 서비스에서 ASP.NET API 앱 만들기
@@ -25,7 +25,7 @@
 
 ## 개요
 
-이 자습서에서는 [Visual Studio 2015 RC](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx)를 사용하여 ASP.NET Web API 2 프로젝트를 만들고 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에서 [API 앱](app-service-api-apps-why-best-platform.md)으로 클라우드에 배포하기 위해 구성하는 방법을 보여 줍니다. 또한 Azure에 프로젝트를 배포합니다. 이 자습서를 마치면 API 앱이 Azure 클라우드에서 실행되게 됩니다.
+이 자습서에서는 [Visual Studio 2015 RC](https://www.visualstudio.com/ko-KR/downloads/visual-studio-2015-downloads-vs.aspx)를 사용하여 ASP.NET Web API 2 프로젝트를 만들고 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에서 [API 앱](app-service-api-apps-why-best-platform.md)으로 클라우드에 배포하기 위해 구성하는 방법을 보여 줍니다. 또한 Azure에 프로젝트를 배포합니다. 이 자습서를 마치면 API 앱이 Azure 클라우드에서 실행되게 됩니다.
 
 이 자습서에서는 Visual Studio **솔루션 탐색기**에서 파일 및 폴더로 작업하는 방법을 알고 있다고 가정합니다.
 
@@ -297,4 +297,4 @@ API 앱은 기본적으로 Azure에서 웹 서비스 기능을 위한 추가 기
 Visual Studio 2015 RC를 사용하여 API 앱을 만들고 배포했습니다. API 앱에 대한 추가 설명서는 페이지의 왼쪽(넓은 브라우저 창의 경우) 또는 페이지의 위쪽(좁은 브라우저 창의 경우)에 표시되는 탐색 창의 항목을 참조하세요. 대부분의 API 앱 설명서에는 현재 Visual Studio 2013이 표시되어 있지만 그 중 대부분은 UI가 유사하고 작성하는 코드가 동일하며 포털 UI가 같기 때문에 VS 2015에서 사용할 수 있습니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

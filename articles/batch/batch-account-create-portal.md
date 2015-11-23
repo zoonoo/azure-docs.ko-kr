@@ -26,7 +26,7 @@
 
 ## 배치 계정 만들기
 
-1. [Azure 미리 보기 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **새로 만들기** > **계산** > **배치 서비스**를 클릭합니다.
 
@@ -80,4 +80,4 @@
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

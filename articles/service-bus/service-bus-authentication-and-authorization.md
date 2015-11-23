@@ -45,7 +45,7 @@ SAS를 사용하려면 다음을 구성하는 네임 스페이스, 큐 또는 �
 
 ## ACS 인증
 
-ACS 통한 서비스 버스 인증은 동반 "-sb" ACS 네임 스페이스를 통해 관리됩니다. 서비스 버스 네임 스페이스에 생성될 동반 ACS 네임 스페이스가 필요하면 Azure 관리 포털을 사용하여 서비스 버스 네임 스페이스를 만들 수 없습니다. [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell cmdlet를 사용하여 네임 스페이스를 만들어야 합니다. 예:
+ACS 통한 서비스 버스 인증은 동반 "-sb" ACS 네임 스페이스를 통해 관리됩니다. 서비스 버스 네임 스페이스에 생성될 동반 ACS 네임 스페이스가 필요하면 Azure 포털을 사용하여 서비스 버스 네임 스페이스를 만들 수 없습니다. [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell cmdlet를 사용하여 네임 스페이스를 만들어야 합니다. 예:
 
 ```
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
@@ -73,4 +73,4 @@ SAS에 대한 자세한 내용은 [서비스 버스를 사용한 공유 액세�
 
 [방법: OAuth WRAP 프로토콜을 통해 ACS에서 토큰 요청](https://msdn.microsoft.com/library/hh674475.aspx)에서 ACS 토큰에 대한 자세한 정보를 찾을 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

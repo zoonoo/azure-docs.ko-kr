@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Pig 작업
 
-데이터 팩터리 [파이프라인](data-factory-create-pipelines.md)에서 HDInsight Pig 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 작업의 일반적인 개요를 설명하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서를 기반으로 작성되었습니다.
+데이터 공장 [파이프라인](data-factory-create-pipelines.md)에서 HDInsight Pig 활동은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 작업의 일반적인 개요를 설명하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서를 기반으로 작성되었습니다.
 
 ## 구문
 
@@ -186,9 +186,4 @@ defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/�
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-
- 
-## 피드백 보내기
-이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md)을 통해 의견을 보내주세요.
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

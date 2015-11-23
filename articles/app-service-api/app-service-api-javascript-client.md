@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/30/2015" 
 	ms.author="bradygaster"/>
 
 # HTML 및 JavaScript를 사용하여 Azure API 앱 사용
@@ -36,7 +36,7 @@
 
 ### API 앱 게이트웨이에 대해 CORS 설정
 
-Azure Preview 포털에서 CORS를 사용하도록 API 앱 게이트웨이를 구성할 수 있습니다. **MS\_CrossDomainOrigins** *appSetting*을 추가하면 API 앱을 호출할 수 있는 URL을 지정할 수 있습니다. 이 섹션에서는 이 *appSetting*을 사용하여 API 게이트웨이 수준에서 CORS를 사용하도록 설정하는 방법을 설명합니다.
+Azure Preview 포털에서 CORS를 사용하도록 API 앱 게이트웨이를 구성할 수 있습니다. **MS_CrossDomainOrigins** *appSetting*을 추가하면 API 앱을 호출할 수 있는 URL을 지정할 수 있습니다. 이 섹션에서는 이 *appSetting*을 사용하여 API 게이트웨이 수준에서 CORS를 사용하도록 설정하는 방법을 설명합니다.
 
 1. CORS를 사용하도록 설정할 API 앱의 Azure Preview 포털 블레이드로 이동합니다. 여기에서 API 앱에 대한 *게이트웨이* 아이콘을 클릭합니다. 
 
@@ -141,7 +141,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 ## API 앱을 사용하는 웹앱 만들기
 
-이 섹션에서는 비어 있는 새 웹 응용 프로그램을 만들고 여기에 AngularJS를 설치하고 사용하며 간단한 HTML 프런트 엔드를 API 앱에 바인딩합니다. 사용하는 웹앱을 Azure 앱 서비스에 배포합니다. HTML 웹앱은 API 앱에 바인딩되고 API 앱에서 검색한 데이터를 표시하며, 사용자에게 Contacts API에 대한 간단한 UI를 제공합니다.
+이 섹션에서는 비어 있는 새 웹 응용 프로그램을 만들고, AngularJS를 설치하고 사용하며, 간단한 HTML 프런트 엔드를 API 앱에 바인딩합니다. 사용하는 웹앱을 Azure 앱 서비스에 배포합니다. HTML 웹앱은 API 앱에 바인딩되고 API 앱에서 검색한 데이터를 표시하며, 사용자에게 Contacts API에 대한 간단한 UI를 제공합니다.
 
 1. [API 앱 만들기](app-service-dotnet-create-api-app.md)에서 이전에 만든 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가 -> 새 프로젝트**를 선택합니다.
 
@@ -312,7 +312,7 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 1, index.html에 방금 추가한 코드에서 기본 URL(`http://localhost:1578`)의 포트 번호를 API 프로젝트에 대한 실제 포트 번호로 바꿉니다.
 
-	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+>[AZURE.NOTE]**참고** HTML 클라이언트 프로젝트의 포트 번호를 사용하지 마세요. API 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **디버그 > 새 인스턴스 시작**을 클릭하여 포트 번호가 표시되는 브라우저 창을 가져옵니다.
 
 1. HTML 클라이언트를 실행할 때 API 앱 프로젝트도 실행 중인지 또는 JavaScript HTML이 제대로 작동하지 않는지 확인합니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 그런 다음 두 개의 웹 프로젝트를 모두 **디버깅하지 않고 시작**으로 설정하면 API 프로젝트가 먼저 실행됩니다. 
 
@@ -371,4 +371,4 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 이 예제에서는 API 앱에 대한 인증되지 않은 액세스를 보여 줍니다. 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

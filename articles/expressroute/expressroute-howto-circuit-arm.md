@@ -1,10 +1,10 @@
 <properties
-   pageTitle="ARM을 사용하여 Express 경로 회로를 구성하기 위한 단계 | Microsoft Azure"
-   description="이 문서에서는 Express 경로 회로를 만들고 프로비전하는 단계를 안내합니다. 또한 상태 확인, 업데이트 또는 삭제 및 프로비전 해제 방법을 보여 줍니다."
+   pageTitle="Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 구성 | Microsoft Azure"
+   description="이 문서에서는 Express 경로 회로를 만들고 프로비전하는 단계를 안내합니다. 또한 상태 확인, 업데이트 또는 삭제 및 프로비전 해제 방법을 보여줍니다."
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,23 +13,23 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
-   ms.author="ganesr"/>
+   ms.date="11/06/2015"
+   ms.author="cherylmc"/>
 
-# Express 경로 회로 만들기 및 수정
+# Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-circuit-classic.md)
-[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-이 문서에서는 PowerShell cmdlet 및 ARM 배포 모델을 사용하여 Express 경로 회로를 만드는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
+이 문서에서는 PowerShell cmdlet 및 Azure 리소스 관리자 모델을 사용하여 Express 경로 회로를 만드는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
 
->[AZURE.IMPORTANT]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## 필수 구성 요소
 
-- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. 컴퓨터를 구성하여 Azure PowerShell 모듈을 사용하는 방법에 대한 단계별 지침을 따르려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행하세요. 
-- 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지와 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
+- Azure PowerShell 모듈의 버전 1.0 이상이 필요합니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침을 따르려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행하세요. 
+- 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지와 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 
 ## Express 경로 회로 만들기 및 프로비전
 
@@ -41,15 +41,15 @@
 
 		Install-AzureRM
 
-	알려진 모든 의미 체계 버전 범위 내에서 AzureRM.* 모듈을 가져옵니다.
+	알려진 의미 체계 버전 범위의 모든 AzureRM.* 모듈을 가져옵니다.
 
 		Import-AzureRM
 
-	알려진 의미 체계 버전 범위 내에서 선택 모듈만 가져올 수 있습니다.
+	또한 알려진 의미 체계 버전 범위의 선택 모듈만 가져올 수 있습니다.
 		
 		Import-Module AzureRM.Network 
 
-	계정에 로그인합니다.
+	계정에 로그온합니다.
 
 		Login-AzureRmAccount
 
@@ -221,7 +221,7 @@
 
 	이제 VNet을 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로를 VNet에 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요. Express 경로에 대한 가상 네트워크를 만들어야 할 경우 지침은 [Express 경로에 대한 가상 네트워크 만들기](expressroute-howto-createvnet-classic.md)를 참조하세요.
 
-##  Express 경로 회로의 상태를 확인하는 방법
+##  Express 경로 회로의 상태를 가져오려면
 
 언제든지 *Get-AzureRmExpressRouteCircuit* cmdlet을 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
@@ -281,7 +281,7 @@
 
 		get-help get-azurededicatedcircuit -detailed 
 
-##  Express 경로 회로 수정
+## Express 경로 회로를 수정하려면
 
 연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다.
 
@@ -320,9 +320,9 @@
 
 그러면 회로에 대해 프리미엄 추가 기능을 사용할 수 없습니다.
 
->[AZURE.IMPORTANT]표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 이 작업이 실패합니다.
->
->- 프리미엄을 표준으로 다운그레이드하기 전에 회로에 연결된 가상 네트워크 수가 10개 미만인지 확인해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
+표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 이 작업이 실패합니다.
+
+- 프리미엄을 표준으로 다운그레이드하기 전에 회로에 연결된 가상 네트워크 수가 10개 미만인지 확인해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
 - 다른 지리적 위치의 모든 가상 네트워크를 연결 해제해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
 - 사설 피어링을 위해서는 경로 테이블의 경로가 4000개 미만이어야 합니다. 경로 테이블 크기가 4000개 경로 이상이면 BGP 세션이 폐기되고 게시된 프리픽스 수가 4000개 미만이 될 때까지 다시 활성화되지 않습니다.
 
@@ -341,7 +341,7 @@
 
 >[AZURE.IMPORTANT]그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭 다운그레이드에서는 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
 
-##  Express 경로 회로 삭제 및 프로비전 해제
+## Express 경로 회로를 삭제하고 프로비전을 해제하려면
 
 다음 명령을 실행하여 Express 경로 회로를 삭제할 수 있습니다.
 
@@ -358,4 +358,4 @@ Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경�
 - [라우팅 구성](expressroute-howto-routing-arm.md)
 - [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

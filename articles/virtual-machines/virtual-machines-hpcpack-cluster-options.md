@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -22,8 +22,6 @@ ms.service="virtual-machines"
 
 
 클라우드 기반 HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하려면 Microsoft HPC Pack과 Azure 계산 및 인프라 서비스를 이용합니다. [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx)은 Microsoft Azure 및 Windows Server 기술로 구축된 Microsoft의 무료 HPC 솔루션으로, Windows와 Linux HPC 작업 모두 지원합니다. 클라우드 기반 HPC Pack 클러스터는 클러스터 관리자 또는 ISV(Independent Software Vendor)에 유연하고 확장 가능한 플랫폼을 제공하여 온-프레미스 계산 클러스터 인프라에 대한 투자를 줄이면서 계산 집약적인 응용 프로그램을 실행합니다.
-
-<!-- Take advantage of automated tools for HPC Pack cluster deployment in Azure VMs, including an HPC Pack image that can be used with either Azure quickstart templates or Azure PowerShell scripts, or deploy your cluster manually in the Azure portal.-->
 
 
 ## Azure VM에서 HPC Pack 클러스터 실행
@@ -95,4 +93,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

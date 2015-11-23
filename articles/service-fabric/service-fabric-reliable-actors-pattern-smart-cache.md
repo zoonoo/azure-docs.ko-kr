@@ -168,7 +168,7 @@ public class Job : IComparable<Job>
 }
 ```
 
-마지막으로 세부적으로 IJobQueue 인터페이스를 구현합니다. 여기서는 명확성을 위해 자세한 우선 순위 큐의 구현은 생략했습니다. 샘플 구현은 함께 제공되는 샘플에서 찾을 수 있습니다.
+마지막으로 행위자에서 IJobQueue 인터페이스를 구현합니다. 여기서는 명확성을 위해 자세한 우선 순위 큐의 구현은 생략했습니다. 샘플 구현은 함께 제공되는 샘플에서 찾을 수 있습니다.
 
 ## 스마트 캐시 코드 샘플 – 작업 큐
 
@@ -301,4 +301,4 @@ public Task RefreshRates()
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

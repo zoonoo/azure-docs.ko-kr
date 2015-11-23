@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램
@@ -68,6 +68,29 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 - 프레미스 간 가상 네트워크 1개
 - 두 저장소 계정
 
+가상 컴퓨터와, 이 구성에 해당하는 크기 기본값은 다음과 같습니다.
+
+항목 | 가상 컴퓨터 설명 | 갤러리 이미지 | 기본 크기 
+--- | --- | --- | --- 
+1\. | 최초 도메인 컨트롤러 | Windows Server 2012 R2 Datacenter | D1
+2\. | 보조 도메인 컨트롤러 | Windows Server 2012 R2 Datacenter | D1
+3\. | 주 데이터베이스 서버 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+4\. | 보조 데이터베이스 서버 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+5\. | 클러스터에 대한 주 노드 | Windows Server 2012 R2 Datacenter | D1
+6\. | 최초 웹 서버 | Windows Server 2012 R2 Datacenter | D3
+7\. | 보조 웹 서버 | Windows Server 2012 R2 Datacenter | D3
+
+이 구성에 대한 추정 비용을 계산하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요.
+
+1. 필요한 만큼 **모듈**에서 **계산**을 클릭하고 **가상 컴퓨터**를 클릭하여 7개 가상 컴퓨터의 목록을 만듭니다.
+2. 각 가상 컴퓨터에 대해 다음을 선택합니다.
+	- 원하는 지역
+	- 유형에 **Windows**
+	- 가격 책정 계층에 **표준**
+	- 이전 테이블의 기본 크기 또는 원하는 **인스턴스 크기**
+
+> [AZURE.NOTE]Azure 가격 계산기에는 SQL Server 2014 Enterprise에서 실행되는 두 대의 가상 컴퓨터의 SQL Server 라이선스에 대한 추가 비용이 포함되지 않습니다. 자세한 내용은 [가상 컴퓨터 가격 책정 - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
+
 ### 배포 단계
 
 이 구성을 배포하려면 다음 프로세스를 사용합니다.
@@ -106,4 +129,4 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 
 [Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

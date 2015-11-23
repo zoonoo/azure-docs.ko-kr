@@ -17,13 +17,14 @@
    ms.date="10/21/2015"
    ms.author="joaoma" />
 
-#Azure CLI에서 인터넷 연결 부하 분산 장치 만들기
+# Azure CLI를 사용하여 인터넷 연결 부하 분산 장치 구성 시작
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. Azure 클래식 배포 모델을 찾는 경우 [클래식 배포를 사용하는 인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-classic-portal.md)으로 이동합니다.
+
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -42,7 +43,7 @@
 
 - 프로브 - 백 엔드 주소 풀의 NIC에 연결된 VM의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
-Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
+Azure 리소스 관리자의 부하 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
 
 ## 리소스 관리자를 사용하도록 CLI 설치
 
@@ -103,10 +104,12 @@ DNS 이름이 *loadbalancernrp.eastus.cloudapp.azure.com*인 프런트 엔드 IP
 
 아래 예제에서는 다음 항목을 만듭니다.
 
-- 포트 3441~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
+- 포트 3441~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙<sup>1</sup>
 - 포트 3442~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
 - 포트 80~포트 80에서 들어오는 모든 트래픽을 백 엔드 풀에 있는 주소로 분산하는 부하 분산 장치 규칙
-- 경로 *HealthProbe.aspx*에 대한 상태를 확인하는 프로브 규칙
+- *HealthProbe.aspx*라는 페이지에서 상태를 확인하는 프로브 규칙
+
+<sup>1</sup> NAT 규칙은 부하 분산 장치 뒤에 특정 가상 컴퓨터 인스턴스와 관련이 있습니다. 3341 포트로 들어오는 네트워크 트래픽은 아래 예에서 NAT 규칙과 관련된 포트 3389의 특정 가상 컴퓨터로 전송됩니다. NAT 규칙, UDP 또는 TCP 프로토콜을 선택해야 합니다. 두 프로토콜을 모두 동일한 포트에 할당할 수 없습니다.
 
 ### 1단계
 
@@ -259,8 +262,7 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 *web1*이라는 가상 컴퓨터(VM)을 만들고 *lb-nic1-be*라는 NIC에 연결합니다. *web1nrp*라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
 
-	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-
-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
+	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
 >[AZURE.IMPORTANT]부하 분산 장치의 VM은 동일한 가용성 집합에 있어야 합니다. `azure availset create`을(를) 사용하여 가용성 집합을 만듭니다.
 
@@ -283,7 +285,7 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE]정보 메시지 **publicIP 구성 없는 NIC입니다**는 부하 분산 장치에 대해 만든 NIC는 공용 인터넷에 직접이 아닌 부하 분산 장치를 통해 연결하므로 예상된 동작입니다.
+>[AZURE.NOTE]부하 분산 장치에 대해 만든 NIC가 부하 분산 장치 공용 IP 주소를 통해 인터넷에 연결되기 때문에 정보 메시지 **publicIP 구성 없는 NIC입니다**가 나타납니다.
 
 *lb-nic1-be* NIC는 *rdp1* NAT 규칙에 연결되어 있으므로 부하 분산 장치의 포트 3441을 통해 RDP를 사용하여 *web1*에 연결할 수 있습니다.
 
@@ -293,6 +295,25 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 	azure vm create --resource-group nrprg --name web2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
+## 기존 부하 분산 장치 업데이트
+
+기존 부하 분산 장치를 참조하는 규칙을 추가할 수 있습니다. 아래 예제에서는 새 부하 분산 장치 규칙은 기존 부하 분산 장치 **NRPlb**에 추가됩니다
+
+	azure network lb rule create -g nrprg -l nrplb -n lbrule2 -p tcp -f 8080 -b 8051 -t frontendnrppool -o NRPbackendpool
+
+매개 변수:
+
+**-g** - 리소스 그룹 이름<br> **-l** - 부하 분산 장치 이름<BR> **-n** - 부하 분산 장치 규칙 이름<BR> **-p** - 프로토콜<BR> **-f** - 프런트 엔드 포트 <BR> **-b** - 백 엔드 포트<BR> **-t** - 프런트 엔드 풀 이름<BR> **-b** - 백 엔드 풀 이름<BR>
+
+## 부하 분산 장치 삭제 
+
+
+부하 분산 장치를 제거하려면 다음 명령을 사용합니다.
+
+	azure network lb delete -g nrprg -n nrplb 
+
+여기서 **nrprg**는 리소스 그룹이고 **nrplb**는 부하 분산 장치 이름입니다.
+
 ## 다음 단계
 
 [내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
@@ -301,4 +322,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

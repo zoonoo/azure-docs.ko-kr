@@ -79,7 +79,7 @@ Microsoft는 Microsoft 제품을 사용하여 특정 유형의 시스템을 빌�
 
 - 먼저 [교육 비디오를 시청](http://aka.ms/3dBlueprintTemplateVideo)하여 이 템플릿으로 무엇을 할 수 있는지 알아보십시오.   
 - [Microsoft 3D 청사진 Visio 템플릿](http://aka.ms/3DBlueprintTemplate) 다운로드
-- [클라우드 및 엔터프라이즈 기호](#symbol-and-icon-sets)를 다운로드하여 3D 템플릿과 함께 사용
+- 3D 템플릿과 함께 사용할 [클라우드 및 엔터프라이즈 기호](#drawing-symbol-and-icon-sets) 다운로드 
 
 교육 자료에 없는 내용이 궁금하거나 의견을 보내주실 분은 [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com)으로 전자 메일을 보내주십시오. 이 템플릿의 주요 목표가 유용성인 만큼 어떤 장단점이 있는지 살펴보겠습니다.
 
@@ -108,4 +108,4 @@ Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게�
 
 ![Azure 아키텍처 인포그래픽](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

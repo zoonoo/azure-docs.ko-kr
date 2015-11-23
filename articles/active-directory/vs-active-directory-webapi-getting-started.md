@@ -3,7 +3,7 @@
 	description="Visual Studio 연결 서비스를 사용하여 Azure AD를 만들거나 연결한 후에 WebApi 프로젝트에 Azure Active Directory를 사용하여 시작하는 방법입니다." 
     services="active-directory"
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Azure Active Directory 및 Visual Studio 연결 서비스 시작(WebApi 프로젝트)
 
@@ -29,4 +29,4 @@
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

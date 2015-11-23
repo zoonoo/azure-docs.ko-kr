@@ -200,13 +200,15 @@ Microsoft Azure 미디어 서비스용 라이브 수집에 기반한 ISO 조각�
 2. 별도 스트림을 사용하여 2개의 가장 낮은 비디오 비트 전송률을 전송합니다. 이 스트림 각각은 각 고유한 오디오 트랙 각각의 복사본도 포함해야 합니다. 예를 들어, 여러 언어가 지원되는 경우 이 스트림은 각 언어에 대한 오디오 트랙을 포함해야 합니다.
 3. 별도 서버(인코더) 인스턴스를 사용하여 인코딩하고 (1) 및 (2)에 언급된 중복 스트림을 전송합니다. 
 
+
+
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
@@ -219,4 +221,4 @@ Microsoft Azure 미디어 서비스용 라이브 수집에 기반한 ISO 조각�
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

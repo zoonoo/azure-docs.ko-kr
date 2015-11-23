@@ -18,7 +18,7 @@
 
 # Azure IoT Hub 개발자 가이드
 
-Azure IoT Hub는 수백 만개의 IoT 장치와 응용 프로그램 백 엔드 간에 신뢰할 수 있고 안전한 양방향 통신을 가능하게 하는 완전히 관리되는 서비스입니다.
+Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다.
 
 Azure IoT Hub는 다음을 활성화합니다.
 
@@ -289,7 +289,8 @@ IoT Hub 메시지에서 시스템 속성의 집합입니다.
 | -------- | ----------- |
 | MessageId | 사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 일반적으로 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 | 숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 C2D 메시지에 할당됩니다. |
-| 받는 사람 | 메시지의 대상에 대한 [클라우드-장치](#c2d)에 사용됩니다.|
+| 받는 사람  
+ | 메시지의 대상에 대한 [클라우드-장치](#c2d)에 사용됩니다.|
 | ExpiryTimeUtc | 메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime | IoT Hub에서 메시지가 수신된 시간입니다. |
 | CorrelationId | 일반적으로 요청-회신 패턴에서 요청의 메시지 ID를 포함하는 문자열 속성입니다. |
@@ -418,9 +419,8 @@ IoT Hub는 다음 속성을 노출하여 D2C 메시징을 제어합니다.
 
 | 속성 | 설명 |
 | -------- | ----------- |
-| EnqueuedTime | 메시지의 결과가 발생하는 경우를 나타내는 타임스탬프입니다. 예를 들어 완료된 장치 또는 만료된 메시지입니다. |
-| CorrelationId | 이 피드백 정보가 관련된 클라우드-장치 메시지의 **MessageId**입니다. |
-| StatusCode | 성공한 경우 **0**, 메시지가 만료된 경우 **1**, 최대 전달 횟수를 초과하는 경우 **2**, 메세지가 거부되는 경우 **3**입니다. |
+| EnqueuedTimeUtc | 메시지의 결과가 발생하는 경우를 나타내는 타임스탬프입니다. 예를 들어 완료된 장치 또는 만료된 메시지입니다. |
+| OriginalMessageId | 이 피드백 정보가 관련된 클라우드-장치 메시지의 **MessageId**입니다. |
 | 설명 | 이전의 결과에 대한 문자열 값입니다. |
 | DeviceId | 피드백의 해당 부분이 관련된 클라우드-장치 메시지에서 대상 장치의 **DeviceId**입니다. |
 | DeviceGenerationId | 피드백의 해당 부분이 관련된 클라우드-장치 메시지에서 대상 장치의 **DeviceGenerationId**입니다. |
@@ -431,9 +431,8 @@ IoT Hub는 다음 속성을 노출하여 D2C 메시징을 제어합니다.
 
     [
         {
-            "CorrelationId": "0987654321",
-            "EnqueuedTime": "2015-07-28T16:24:48.789Z",
-            "StatusCode": "0",
+            "OriginalMessageId": "0987654321",
+            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
             "Description": "Success",
             "DeviceId": "123",
             "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -493,7 +492,7 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 
 [이벤트 허브 - 이벤트 프로세서 호스트]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[Azure Preview 포털]: https://ms.portal.azure.com
+[Azure Preview 포털]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
@@ -534,4 +533,4 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

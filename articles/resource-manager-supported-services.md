@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/11/2015"
    ms.author="tomfitz"/>
 
 # 서비스, 지역 및 API 버전에 대한 리소스 관리자 지원
@@ -32,9 +32,9 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 가상 컴퓨터 | 예 | 예, 다양한 옵션 | 아니요 | [VM 만들기](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 배치 | 예 | [예(클래식에만 해당)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | 예 | 아니요 | | | |
-| 가상 컴퓨터(클래식) | 제한됨 | 예 | 부분적(아래 참조) | - | - |
-| RemoteApp | 아니요 | - | - | - | - |
-| 서비스 패브릭 | 아니요 | - | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 예, 다양한 옵션 | 부분적(아래 참조) | - | - |
+| RemoteApp | 아니요 | 아니요 | - | - | - |
+| 서비스 패브릭 | 아니요 | 아니요 | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -62,16 +62,13 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | 예 | [예](https://portal.azure.com/#create/Microsoft.DocumentDB) | 예 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| 저장소 | 예 | [예](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [저장소 만들기](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| 저장소 | 예 | [예](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [저장소 만들기](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [저장소 계정](resource-manager-template-storage.md) |
 | Redis 캐시 | 예 | [예](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | 예 | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL 데이터베이스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| SQL 데이터베이스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 검색 | 예 | [예](https://portal.azure.com/#create/Microsoft.Search) | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 데이터 웨어하우스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | 아니요 | 아니요 | - | - | - |
-| 백업 | 아니요 | 아니요 | - | - | - |
-| 사이트 복구 | 아니요 | 아니요 | - | - | - |
 | 관리된 캐시 | 아니요 | 아니요 | - | - | - |
-| 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
 
 ## 분석
 
@@ -81,7 +78,8 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 스트림 분석 | 예 | [예](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | 예 | [예](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | 데이터 팩터리 | 예 | [예](https://portal.azure.com/#create/Microsoft.DataFactory) | 예 | [데이터 팩터리 만들기](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 기계 학습 | 아니요 | 아니요 | - | - | - | | 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
+| 기계 학습 | 아니요 | 아니요 | - | - | - |
+| 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
 
 ## 네트워킹
 
@@ -108,7 +106,8 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk 서비스 | 예 | 아니요 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | 서비스 버스 | 예 | 아니요 | | [서비스 버스 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| 백업 | 아니요 | 아니요 | - | - | - | | 사이트 복구 | 아니요 | 아니요 | - | - | - |
+| 백업 | 아니요 | 아니요 | - | - | - |
+| 사이트 복구 | 아니요 | 아니요 | - | - | - |
 
 ## ID 및 액세스 관리 
 
@@ -135,6 +134,13 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 스케줄러 | 예 | 아니요 | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | 예 | 아니요 | 예 | | |
 | IoTHubs | 예 | [예](https://portal.azure.com/#create/Microsoft.IotHub) | | | |
+
+## 리소스 관리자
+
+| 기능 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| 권한 부여 | 예 | 해당 없음 | 해당 없음 | [관리 잠금](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[역할 기반 액세스 제어](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [리소스 잠금](resource-manager-template-lock.md)<br />[역할 할당](resource-manager-template-role.md) |
+| 리소스 | 예 | 해당 없음 | 해당 없음 | [연결된 리소스](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [리소스 링크](resource-manager-template-links.md) |
 
 
 ## 지원되는 지역
@@ -235,4 +241,4 @@ Azure PowerShell 0.9.8의 경우 다음을 사용합니다.
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

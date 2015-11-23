@@ -210,6 +210,10 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [패턴 및 작업 방식 지침](https://wamsg.codeplex.com/) [온라인 설명서](https://msdn.microsoft.com/library/dn735912.aspx) [다운로드 가능한 전자책](https://www.microsoft.com/download/details.aspx?id=42629)
 
 
+##피드백 제공
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 ##SLA(서비스 수준 계약)
 
 - 미디어 서비스 인코딩을 위해 REST API 트랜잭션의 99.9% 가용성을 보장합니다.
@@ -227,4 +231,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

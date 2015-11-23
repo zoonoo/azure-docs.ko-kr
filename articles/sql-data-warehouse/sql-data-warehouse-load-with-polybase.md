@@ -45,36 +45,26 @@ PolyBase를 사용하여 Azure blob 저장소에 저장된 데이터를 쿼리�
 >
 > 표준 영역 중복 저장소(표준-ZRS) 및 프리미엄 로컬 중복 저장소(Premium-LRS) 계정 유형은 PolyBase에서 지원되지 않습니다. 새 Azure 저장소 계정을 만드는 경우 가격 책정 계층에서 PolyBase 지원 저장소 계정 유형을 선택해야 합니다.
 
+## 1단계: 데이터베이스에 자격 증명 저장
+Azure blob 저장소에 액세스하려면 Azure 저장소 계정에 대한 인증 정보를 저장하는 데이터베이스 범위 자격 증명을 만들어야 합니다. 다음 단계에 따라 데이터베이스에 자격 증명을 저장합니다.
 
-## 데이터베이스 마스터 키 만들기
-서버에서 사용자 데이터베이스에 연결하여 데이터베이스 마스터 키를 만듭니다. 이 키는 다음 단계에서 사용자 자격 증명 암호를 암호화하는 데 사용됩니다.
+1. SQL 데이터 웨어하우스 데이터베이스에 연결합니다.
+2. [CREATE MASTER KEY (TRANSACT-SQL)][]을 사용하여 데이터베이스에 대 한 마스터 키를 만듭니다. 데이터베이스에 이미 마스터 키가 있으면 다른 키를 만들 필요가 없습니다. 이 키는 다음 단계에서 사용자 자격 증명 암호를 암호화하는 데 사용됩니다.
 
-```
--- Creating master key
-CREATE MASTER KEY;
-```
+    ```
+    -- Create a E master key
+    CREATE MASTER KEY;
+    ```
 
-참조 항목: [CREATE MASTER KEY (TRANSACT-SQL)][].
+1. 데이터베이스 자격 증명이 이미 있는지 확인합니다. 이 작업을 수행 하려면 서버 자격 증명만 표시하는 sys.credentials가 아닌 sys.database\_credentials 시스템 뷰를 사용합니다.
 
-## 데이터베이스 범위 자격 증명 만들기
-Azure blob 저장소에 액세스하려면 Azure 저장소 계정에 대한 인증 정보를 저장하는 데이터베이스 범위 자격 증명을 만들어야 합니다. 데이터 웨어하우스 데이터베이스에 연결하고 액세스하려는 각 Azure 저장소 계정에 대한 데이터베이스 범위 자격 증명을 만듭니다. ID 이름 및 Azure 저장소 계정 키를 암호로 지정합니다. ID 이름은 Azure 저장소에 대한 인증에 영향을 주지 않습니다.
+    ``` -- 기존 데이터베이스 범위 자격 증명을 확인합니다. SELECT * FROM sys.database\_credentials;
 
-데이터베이스 범위 자격 증명이 이미 있는지 확인하려면 서버 자격 증명을 보여주는 sys.credentials가 아닌 sys.database\_credentials를 사용합니다.
+3. [CREATE CREDENTIAL(Transact-SQL)][]을 사용하여 액세스하려는 각 Azure 저장소 계정에 대한 데이터베이스 범위 자격 증명을 만듭니다. 이 예에서는 IDENTITY가 자격 증명에 대한 친근한 이름입니다. 이 이름은 Azure 저장소에 대한 인증에 영향을 주지 않습니다. SECRET는 Azure 저장소 계정 키입니다.
 
-```
--- Check for existing database-scoped credentials.
-SELECT * FROM sys.database_credentials;
+    -- 데이터베이스 범위 자격 증명 만들기 CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
 
--- Create a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
-WITH IDENTITY = 'joe'
-,    Secret = '<azure_storage_account_key>'
-;
-```
-
-참조 항목: [CREATE CREDENTIAL (Transact-SQL)][].
-
-데이터베이스를 끌어 놓으려면 다음 구문을 사용합니다.
+1. 데이터베이스 범위 자격 증명을 삭제해야 할 경우 [DROP CREDENTIAL (Transact-SQL)][]을 사용합니다.
 
 ```
 -- Dropping credential
@@ -82,93 +72,90 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ;
 ```
 
-참조 항목: [DROP CREDENTIAL (Transact-SQL)][].
+## 2단계: 외부 데이터 원본 생성
+외부 데이터 원본은 Azure blob 저장소 데이터 및 액세스 정보의 위치를 저장하는 데이터베이스 개체입니다. [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][]을 사용하여 액세스 하려는 각 Azure 저장소 BLOB에 대 한 외부 데이터 원본을 정의합니다.
 
-## 외부 데이터 원본 만들기
-외부 데이터 원본은 Azure blob 저장소 데이터 및 액세스 정보의 위치를 저장하는 데이터베이스 개체입니다. 액세스하려는 각 Azure 저장소 컨테이너에 대한 외부 데이터 원본을 정의해야 합니다.
+    ```
+    -- Create an external data source for an Azure storage blob
+    CREATE EXTERNAL DATA SOURCE azure_storage 
+    WITH
+    (
+        TYPE = HADOOP,
+        LOCATION ='wasbs://mycontainer@test.blob.core.windows.net',
+        CREDENTIAL = ASBSecret
+    )
+    ;
+    ```
 
-```
--- Creating external data source (Azure Blob Storage) 
-CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH
-(
-    TYPE = HADOOP
-,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
-,   CREDENTIAL = ASBSecret
-)
-;
-```
+외부 테이블을 삭제해야 할 경우 [DROP EXTERNAL DATA SOURCE][]를 사용합니다.
 
-참조 항목: [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][].
+    ```
+    -- Drop an external data source
+    DROP EXTERNAL DATA SOURCE azure_storage
+    ;
+    ```
 
-외부 데이터 원본을 끌어 놓으려는 경우의 구문은 다음과 같습니다.
+## 3단계: 외부 파일 형식 생성
+외부 파일 형식은 외부 데이터의 서식을 지정하는 데이터베이스 개체입니다. PolyBase는 구분 기호로 분리된 텍스트, Hive RCFILE 및 HIVE ORC 형식으로 압축된 데이터와 압축되지 않은 테이터를 작업할 수 있습니다.
 
-```
--- Dropping external data source
-DROP EXTERNAL DATA SOURCE azure_storage
-;
-```
-
-참조 항목: [DROP EXTERNAL DATA SOURCE (Transact-SQL)][].
-
-## 외부 파일 형식 만들기
-외부 파일 형식은 외부 데이터의 서식을 지정하는 데이터베이스 개체입니다. 이 예제에서는 텍스트 파일의 압축되지 않은 데이터가 있으며 해당 필드는 파이프 문자('| ')로 분리됩니다.
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)][]을 사용하여 외부 파일 형식을 만듭니다. 이 예제에서는 파일의 데이터가 압축되지 않은 텍스트이며 해당 필드는 파이프 문자('| ')로 분리됩니다.
 
 ```
--- Creating external file format (delimited text file)
+-- Create an external file format for a text-delimited file.
+-- Data is uncompressed and fields are separated with the
+-- pipe character.
 CREATE EXTERNAL FILE FORMAT text_file_format 
 WITH 
 (   
-    FORMAT_TYPE = DELIMITEDTEXT 
-,	FORMAT_OPTIONS  (
-                        FIELD_TERMINATOR ='|'
-                    ,   USE_TYPE_DEFAULT = TRUE
-                    )
+    FORMAT_TYPE = DELIMITEDTEXT, 
+    FORMAT_OPTIONS  
+    (
+        FIELD_TERMINATOR ='|',
+        USE_TYPE_DEFAULT = TRUE
+    )
 )
 ;
 ```
 
-PolyBase는 구분 기호로 분리된 텍스트, Hive RCFILE 및 HIVE ORC 형식으로 압축된 데이터와 압축되지 않은 테이터를 작업할 수 있습니다.
-
-참조 항목: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
-
-외부 파일 형식을 끌어 놓으려는 경우 구문은 다음과 같습니다.
+외부 파일 형식을 삭제해야 할 경우 [DROP EXTERNAL FILE FORMAT]을 사용합니다.
 
 ```
 -- Dropping external file format
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
-참조 항목: [DROP EXTERNAL FILE FORMAT (Transact-SQL)][].
 
 ## 외부 테이블 만들기
 
-외부 테이블 정의는 관계형 테이블 정의와 유사합니다. 주요 차이점은 데이터 형식 및 위치입니다. 외부 테이블 정의는 SQL 데이터 웨어하우스 데이터베이스에 저장됩니다. 데이터는 데이터 원본에서 지정한 위치에 저장됩니다.
+외부 테이블 정의는 관계형 테이블 정의와 유사합니다. 주요 차이점은 데이터 형식 및 위치입니다.
 
-위치 옵션은 데이터 원본의 루트에서의 데이터에 대한 경로를 지정합니다. 이 예제에서 데이터는 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'에 있습니다. 동일 테이블의 모든 파일은 Azure BLOB의 동일한 논리 폴더 아래 있어야 합니다.
+- 외부 테이블 정의는 SQL 데이터 웨어하우스 데이터베이스에 메타데이터 형태로 저장됩니다. 
+- 데이터는 데이터 원본에서 지정한 외부 위치에 저장됩니다.
+
+[CREATE EXTERNAL TABLE (Transact-SQL)][]을 사용하여 외부 테이블을 정의합니다.
+
+위치 옵션은 데이터 원본의 루트에서의 데이터에 대한 경로를 지정합니다. 이 예제에서 데이터는 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'에 있습니다. 동일 테이블의 모든 파일은 Azure BLOB 저장소의 동일한 논리 폴더 아래 있어야 합니다.
 
 필요에 따라 외부 데이터 소스에서 받은 더티 레코드를 PolyBase에서 처리하는 방법을 결정하는 거부 옵션(REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE)을 지정할 수도 있습니다.
 
 ```
--- Creating external table pointing to file stored in Azure Storage
+-- Creating an external table for data in Azure blob storage.
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
 (
-     [SensorKey]     int    NOT NULL 
-,    [CustomerKey]   int    NOT NULL 
-,    [GeographyKey]  int        NULL 
-,    [Speed]         float  NOT NULL 
-,    [YearMeasured]  int    NOT NULL
+     [SensorKey]     int    NOT NULL,
+     [CustomerKey]   int    NOT NULL,
+     [GeographyKey]  int        NULL,
+     [Speed]         float  NOT NULL,
+     [YearMeasured]  int    NOT NULL,
 )
 WITH 
 (
-    LOCATION    = '/Demo/'
-,   DATA_SOURCE = azure_storage
-,   FILE_FORMAT = text_file_format      
+    LOCATION    = '/Demo/',
+    DATA_SOURCE = azure_storage,
+    FILE_FORMAT = text_file_format      
 )
 ;
 ```
-
-참조 항목: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 방금 만든 개체는 SQL 데이터 웨어하우스 데이터베이스에 저장됩니다. SQL Server 데이터 도구(SSDT) 개체 탐색기에서 볼 수 있습니다.
 
@@ -182,7 +169,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 
 > [AZURE.NOTE]외부 테이블을 삭제하는 경우 `DROP EXTERNAL TABLE`을 사용해야 합니다. `DROP TABLE`을 사용할 수 **없습니다**.
 
-참조 항목: [DROP EXTERNAL TABLE(Transact-SQL)][].
+참조 항목: [DROP EXTERNAL TABLE (Transact-SQL)][]
 
 외부 테이블이 두 `sys.tables`에 모두 표시되는지, 특히 `sys.external_tables` 카탈로그 뷰에 표시되는지 확인하는 것이 좋습니다.
 
@@ -363,11 +350,11 @@ $write.Dispose()
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt146367.aspx
 [DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt146379.aspx
-[DROP EXTERNAL TABLE(Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt130698.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (TRANSACT-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189522.aspx
+[CREATE CREDENTIAL(Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

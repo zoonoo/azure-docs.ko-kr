@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="10/20/2015"
+   ms.date="11/09/2015"
    ms.author="elfish"/>
 
 # 사용자 오류에서 Azure SQL 데이터베이스 복구
@@ -35,7 +35,7 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 > [AZURE.NOTE]데이터베이스를 복원하면 새 데이터베이스가 생성됩니다. 복원하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [지원 센터에 연락](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)하여 이 할당량을 늘리도록 요청할 수 있습니다.
 
 ###Azure 포털
-Azure 포털에서 특정 시점 복원을 사용하려면 다음 단계를 사용하거나 [이 절차의 비디오를 시청하세요](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore/).
+Azure 포털에서 특정 시점 복원을 사용하려면 다음 단계를 사용하세요.
 
 1. [Azure 포털](https://portal.Azure.com) 로그인
 2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 데이터베이스**를 선택합니다.
@@ -43,8 +43,6 @@ Azure 포털에서 특정 시점 복원을 사용하려면 다음 단계를 사�
 4. 데이터베이스의 블레이드 맨 위에서 **복원**을 선택합니다.
 5. 데이터베이스 이름, 시간을 지정하고 **만들기**를 클릭합니다.
 6. 데이터베이스 복원 프로세스가 시작되며 화면 왼쪽의 **알림**을 사용하여 모니터링할 수 있습니다.
-
-복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
 
 ###PowerShell
 PowerShell을 사용하여 프로그래밍 방식으로 [Start-azuresqldatabaserestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet을 사용하여 특정 시점 복원을 수행합니다. 자세한 연습에 대해서는 [이 절차의 비디오를 시청하세요](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
@@ -55,7 +53,6 @@ PowerShell을 사용하여 프로그래밍 방식으로 [Start-azuresqldatabaser
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
 
 ###REST API 
 프로그래밍 방식으로 데이터베이스 복원을 수행하려면 REST를 사용합니다.
@@ -66,8 +63,6 @@ PowerShell을 사용하여 프로그래밍 방식으로 [Start-azuresqldatabaser
 	
 3.	[데이터베이스 작업 상태](http://msdn.microsoft.com/library/azure/dn720371.aspx) 작업을 통해 복원 요청을 추적합니다.
 
-복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
-
 ##삭제된 데이터베이스 복원
 데이터베이스가 삭제된 경우, Azure SQL 데이터베이스를 사용하면 삭제된 데이터베이스를 지정된 삭제 시점으로 복원할 수 있습니다. Azure SQL 데이터베이스는 데이터베이스 보존 기간 동안 삭제된 데이터베이스의 백업을 저장합니다.
 
@@ -76,7 +71,7 @@ PowerShell을 사용하여 프로그래밍 방식으로 [Start-azuresqldatabaser
 > [AZURE.NOTE]데이터베이스를 복원하면 새 데이터베이스가 생성됩니다. 복원하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [지원 센터에 연락](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)하여 이 할당량을 늘리도록 요청할 수 있습니다.
 
 ###Azure 포털
-Azure 포털을 사용하여 삭제된 데이터베이스를 복원하려면 다음 단계를 사용하거나 [이 절차의 비디오를 시청하세요](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database/).
+Azure 포털을 사용하여 삭제된 데이터베이스를 복원하려면 다음 단계를 사용하세요.
 
 1. [Azure 포털](https://portal.Azure.com) 로그인
 2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 서버**를 선택합니다.
@@ -85,8 +80,6 @@ Azure 포털을 사용하여 삭제된 데이터베이스를 복원하려면 다
 5. 복원할 삭제된 데이터베이스를 선택합니다.
 6. 데이터베이스 이름을 지정하고 **만들기**를 클릭합니다.
 7. 데이터베이스 복원 프로세스가 시작되며 화면 왼쪽의 **알림**을 사용하여 모니터링할 수 있습니다.
-
-복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
 
 ###PowerShell
 PowerShell을 사용하여 삭제된 데이터베이스를 복원하려면 [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet을 사용합니다. 자세한 연습에 대해서는 [이 절차의 비디오를 시청하세요](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
@@ -101,7 +94,6 @@ PowerShell을 사용하여 삭제된 데이터베이스를 복원하려면 [Star
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “NewDatabaseName”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
 
 ###REST API 
 프로그래밍 방식으로 데이터베이스 복원을 수행하려면 REST를 사용합니다.
@@ -114,7 +106,4 @@ PowerShell을 사용하여 삭제된 데이터베이스를 복원하려면 [Star
 	
 4.	[데이터베이스 작업 상태](http://msdn.microsoft.com/library/azure/dn720371.aspx) 작업을 사용하여 복원 상태를 추적합니다.
 
-복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

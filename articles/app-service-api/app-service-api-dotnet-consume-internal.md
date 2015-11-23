@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/30/2015" 
 	ms.author="bradyg"/>
 
 # .NET 클라이언트의 Azure 앱 서비스에서 내부 API 앱 사용 
@@ -265,4 +265,4 @@ ContactNames Web API를 빌드합니다. Web API의 Get 메서드는 ContactsLis
 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -43,6 +43,8 @@ AMQP 1.0은 효율성과 안정성이 뛰어난 유선 수준 메시징 프로�
 
 ## AMQP 1.0 표준
 
+AMQP 1.0은 ISO 및 IEC에 의해 ISO/IEC 19464:2014로 승인된 국제 표준합니다.
+
 AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 모두 포함하여 20여 개가 넘는 핵심 회사에 의해 개발되었습니다. 이 개발 기간 동안 사용자 업체에서는 해당되는 실제 비즈니스 요구 사항을 제공했으며 기술 공급업체에서는 이러한 요구 사항에 부합되는 프로토콜을 개발했습니다. 이 과정 내내 공급업체는 워크샵 참여를 통해 여러 다른 공급업체와 더불어 구현 제품 간의 상호 운용성을 확인했습니다.
 
 이 개발 작업은 2011년 10월에 OASIS(Organization for the Advancement of Structured Information Standards)의 기술 위원회로 이전되었으며, 2012년 10월에 OASIS AMQP 1.0 표준이 출시되었습니다. 이 표준 개발 기간 동안 다음과 같은 회사가 기술 위원회에 참여했습니다.
@@ -105,4 +107,4 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 [Azure Linux VM에 Apache Qpid Proton-C 설치]: service-bus-amqp-apache.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

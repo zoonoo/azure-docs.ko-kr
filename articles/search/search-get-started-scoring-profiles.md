@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색에서 점수 매기기 프로필을 사용하는 방법 | Microsoft Azure" 
+	pageTitle="Azure 검색에서 점수 매기기 프로필을 사용하는 방법 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색을 사용하여 점수 매기기 프로필을 통해 검색 순위를 조정합니다." 
 	services="search" 
 	documentationCenter="" 
@@ -126,4 +126,4 @@ URL 및 `api-key`를 app.config에 추가하고 나면 응용 프로그램 설�
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

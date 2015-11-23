@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색을 위한 프로토타입 응용 프로그램 빌드" 
+	pageTitle="Azure 검색의 프로토타입 응용 프로그램 빌드 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
 	description="첫 번째 응용 프로그램 프로토타입을 만들어 호스팅되는 클라우드 검색 서비스인 Azure 검색을 시작합니다." 
 	services="search" 
 	documentationCenter="" 
@@ -133,4 +133,4 @@ JSON 파일에 데이터를 가져올 수 있는 경우, 해당 데이터로 기
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

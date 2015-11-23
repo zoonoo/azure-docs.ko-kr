@@ -44,7 +44,9 @@
 		public bool Complete { get; set; }
 	}
 
-동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/?LinkId=296271)를 참조하십시오.
+[JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm)는 클라이언트 유형 및 테이블 간의 PropertyName 매핑 간의 매핑을 정의하는 데 사용됩니다.
+
+JavaScript 백 엔드 모바일 서비스에서 동적 스키마를 사용하는 경우 Azure 모바일 서비스는 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/?LinkId=296271)를 참조하십시오. .NET 백 엔드 모바일 서비스에서 테이블은 프로젝트의 데이터 모델에서 정의됩니다.
 
 ##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
@@ -62,12 +64,12 @@
 
 ##<a name="instantiating"></a>방법: 테이블 참조 만들기
 
-모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
+모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. 다음과 같이 `MobileServiceClient`의 인스턴스에 대해 [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-형식화된 serialization 모델입니다. 아래의 <a href="#untyped">형식화되지 않은 serialization 모델</a>을 참조하십시오.
+형식화된 serialization 모델입니다. 아래의 [형식화되지 않은 serialization 모델](#untyped)을 참조하세요.
 
 ##<a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
 
@@ -669,16 +671,19 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 		await table.InsertAsync(newItem);
 	}
 
-	public class MyHandler : DelegatingHandler
-	{
-		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-		{
-			request.Headers.Add("x-my-header", "my value");
-			var response = awaitbase.SendAsync(request, cancellationToken);
-			response.StatusCode = HttpStatusCode.ServiceUnavailable;
-			return response;
-		}
-	}
+    public class MyHandler : DelegatingHandler
+    {
+        protected override async Task<HttpResponseMessage> 
+            SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            // Add a custom header to the request.
+            request.Headers.Add("x-my-header", "my value");
+            var response = await base.SendAsync(request, cancellationToken);
+            // Set a differnt response status code.
+            response.StatusCode = HttpStatusCode.ServiceUnavailable;
+            return response;
+        }
+    }
 
 이 코드는 요청에 새 **x-my-header** 헤더를 추가하고 임의로 응답 코드를 사용할 수 없도록 설정합니다. 실제 시나리오에서는 앱에서 요청하는 일부 사용자 지정 논리에 기반하여 응답 상태 코드를 설정합니다.
 
@@ -740,6 +745,7 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
 [낙관적 동시성 자습서]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[MobileServiceClient]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -748,4 +754,4 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

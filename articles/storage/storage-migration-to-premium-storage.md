@@ -1,10 +1,10 @@
 <properties
     pageTitle="Azure 프리미엄 저장소로 마이그레이션 | Microsoft Azure"
-    description="Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 워크로드를 지원하는 짧은 대기 시간의 고성능 디스크를 위해 Azure 프리미엄 저장소로 마이그레이션합니다."
+    description="Azure 프리미엄 저장소에 기존 가상 컴퓨터를 마이그레이션합니다. 프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다."
     services="storage"
     documentationCenter="na"
-    authors="tamram"
-    manager="adinah"
+    authors="ms-prkhad"
+    manager=""
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/23/2015"
+    ms.date="11/04/2015"
     ms.author="tamram"/>
 
 
@@ -21,17 +21,26 @@
 
 ## 개요
 
-이 가이드의 목적은 Microsoft Azure 프리미엄 저장소를 처음 사용하는 사용자가 현재 시스템에서 프리미엄 저장소로 원활한 전환이 가능하도록 돕는 것입니다. 이 가이드에서는 이 프로세스 중 3가지 주요 구성 요소인, 프리미엄 저장소로 마이그레이션 계획, 기존 가상 하드 디스크(VHD)를 프리미엄 저장소로 마이그레이션 및 프리미엄 저장소에 Azure 가상 컴퓨터 인스턴스 만들기에 대해 설명합니다.
+Azure 프리미엄 저장소는 I/O 사용량이 많은 작업을 실행하는 가상 컴퓨터에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 프리미엄 저장소를 사용하는 가상 컴퓨터(VM) 디스크는 솔리드 스테이트 드라이브(SSD)에 데이터를 저장합니다. 이 디스크의 속도와 성능 혜택을 활용하여 응용 프로그램의 VM 디스크를 Azure 프리미엄 저장소로 마이그레이션할 수 있습니다.
+
+Azure VM은 여러 프리미엄 저장소 디스크의 연결을 지원하므로 응용 프로그램이 VM당 최대 64TB의 저장소를 지원할 수 있습니다. 프리미엄 저장소를 사용할 경우 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 80,000 IOPS(초당 입/출력 작업 수) 및 VM당 디스크 처리량 초당 2000MB를 얻을 수 있습니다.
+
+>[AZURE.NOTE]응용 프로그램이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 컴퓨터 디스크를 Azure 프리미엄 디스크로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 컴퓨터 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저자하는 표준 저장소를 사용하여 비용을 절약할 수 있습니다.
+
+이 가이드의 목적은 Azure 프리미엄 저장소를 처음 사용하는 사용자가 현재 시스템에서 프리미엄 저장소로 원활한 전환이 가능하도록 돕는 것입니다. 이 가이드에서는 이 프로세스 중 3가지 주요 구성 요소인, 프리미엄 저장소로 마이그레이션 계획, 기존 가상 하드 디스크(VHD)를 프리미엄 저장소로 마이그레이션 및 프리미엄 저장소에 Azure 가상 컴퓨터 인스턴스 만들기에 대해 설명합니다.
 
 전체 마이그레이션 프로세스를 완료하기 위해서는 이 가이드에 제공된 단계 전과 후에 추가 작업이 필요할 수 있습니다. 이러한 작업의 예에는 가상 네트워크 또는 끝점을 구성하거나 응용 프로그램 자체 내에서 코드를 변경하는 것이 포함됩니다. 이러한 작업은 각 응용 프로그램에 대해 고유하며 프리미엄 저장소로 가능한 한 원활하게 완전히 전환하기 위해서는 이 가이드에 제공된 단계에 따라 완료해야 합니다.
 
 프리미엄 저장소의 기능 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
 
-이 가이드는 다음 두 시나리오를 다루는 두 섹션으로 구성됩니다. - [Azure 외부에서 Azure 프리미엄 저장소로 VM 마이그레이션](#migrating-vms-from-outside-azure-to-azure-premium-storage). - [기존 Azure VM을 Azure 프리미엄 저장소로 마이그레이션](#migrating-existing-azure-vms-to-azure-premium-storage).
+이 가이드는 다음과 같이 두 가지 마이그레이션 시나리오를 설명하는 두 섹션으로 구성되어 있습니다.
+
+- [Azure 외부에서 Azure 프리미엄 저장소로 VM 마이그레이션](#migrating-vms-from-outside-azure-to-azure-premium-storage)
+- [기존 Azure VM을 Azure 프리미엄 저장소로 마이그레이션](#migrating-existing-azure-vms-to-azure-premium-storage)
 
 시나리오에 따라 관련 섹션에 지정된 단계를 따릅니다.
 
-## Azure 외부에서 Azure 프리미엄 저장소로 VM 마이그레이션
+## 타 플랫폼에서 Azure 프리미엄 저장소로 VM 마이그레이션
 
 ### 필수 조건
 - Azure 구독이 필요합니다. 구독할 수 없다면, 한 달의 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 구독하거나 [Azure 가격 책정](http://azure.microsoft.com/pricing/)을 방문하여 추가 옵션을 참고합니다.
@@ -41,7 +50,7 @@
 ### 고려 사항
 
 #### VM 크기
-Azure VM 크기 사양은 [가상 컴퓨터의 크기](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/)에 나열되어 있습니다. 프리미엄 저장소와 작동하는 가상 컴퓨터의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
+Azure VM 크기 사양은 [가상 컴퓨터의 크기](https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-size-specs/)에 나열되어 있습니다. 프리미엄 저장소와 작동하는 가상 컴퓨터의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
 
 
 #### 디스크 크기
@@ -61,7 +70,7 @@ VM에서 사용할 수 있는 디스크에는 세 종류가 있으며 각 종류
 |:--|:---|
 |디스크 용량: 35TB<br />스냅숏 용량: 10TB|인바운드+아웃바운드에 대해 초당 최대 50기가비트|
 
-프리미엄 저장소 사양에 대한 자세한 내용은 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage)를 참조하세요.
+프리미엄 저장소 사양에 대한 자세한 내용은 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
 
 #### 추가 데이터 디스크
 사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우, *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../virtual-machines-linux-configure-raid.md) 문서를 참조하세요.
@@ -241,9 +250,9 @@ OS VHD에서 VM을 만들거나 새 VM에 데이터 디스크를 연결하려면
 
 새 Azure 데이터 디스크의 이름을 복사하고 저장합니다. 위의 예제에서는 *DataDisk*입니다.
 
-### Azure DS-series VM 만들기
+### Azure DS 시리즈 또는 GS 시리즈 VM을 만듭니다.
 
-OS 이미지나 OS 디스크가 등록되면, 새 DS 시리즈 Azure VM 인스턴스를 만듭니다. 등록된 운영 체제 이미지 또는 운영 체제 디스크 이름을 사용합니다. 프리미엄 저장소 계층에서 VM 종류를 선택합니다. 아래 예제에서는 *Standard\_DS2* VM 크기를 사용 중입니다. 동일한 단계를 사용하여 GS 시리즈 VM을 만들 수 있습니다.
+OS 이미지나 OS 디스크가 등록되면, 새 DS 시리즈 또는 GS 시리즈 VM을 만듭니다. 등록된 운영 체제 이미지 또는 운영 체제 디스크 이름을 사용합니다. 프리미엄 저장소 계층에서 VM 종류를 선택합니다. 아래 예제에서는 *Standard\_DS2* VM 크기를 사용 중입니다.
 
 >[AZURE.NOTE]디스크 크기를 업데이트하여 용량, 성능 요구 사항 및 사용 가능한 Azure 디스크 크기가 일치하는지 확인합니다.
 
@@ -668,4 +677,4 @@ Azure 저장소 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려�
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

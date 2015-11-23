@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 이벤트 허브 정의"
-	description="Azure 이벤트 허브의 개요입니다."
+	pageTitle="Azure 이벤트 허브란? | Microsoft Azure"
+	description="Azure 이벤트 허브의 개요"
 	services="event-hubs"
 	documentationCenter=".net"
 	authors="nberdy"
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Azure 이벤트 허브 정의
@@ -30,7 +30,7 @@ Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있
 
 몇 가지 다른 키 이벤트 허브 기능으로는 모바일 앱에서 동작 추적, 웹 팜에서 트래픽 정보, 콘솔 게임에서 게임 내 이벤트 캡처 또는 산업 컴퓨터 또는 연결된 차량에서 수집된 원격 분석 데이터가 있습니다.
 
-[서비스 버스 큐 및 항목](../service-bus/service-bus-messaging-overview.md)과 달리 이벤트 허브는 규모로 메시징 스트림 처리를 제공하는 데 집중합니다. 이벤트 허브 기능은 높은 처리량 및 이벤트 처리 시나리오에 대해 편향된 항목과 다릅니다. 결과적으로 이벤트 허브는 [항목](service-bus/fundamentals-service-bus-hybrid-solutions.md#topics)에 사용할 수 있는 메시징 기능 중 일부를 구현하지 않습니다. 이러한 기능이 필요한 경우 가장 적합한 선택 항목이 유지됩니다.
+[서비스 버스 큐 및 항목](../service-bus/service-bus-messaging-overview.md)과 달리 이벤트 허브는 규모로 메시징 스트림 처리를 제공하는 데 집중합니다. 이벤트 허브 기능은 높은 처리량 및 이벤트 처리 시나리오에 대해 편향된 항목과 다릅니다. 결과적으로 이벤트 허브는 [항목](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics)에 사용할 수 있는 메시징 기능 중 일부를 구현하지 않습니다. 이러한 기능이 필요한 경우 가장 적합한 선택 항목이 유지됩니다.
 
 ## 다음 단계
 
@@ -39,10 +39,10 @@ Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있
 - [이벤트 허브 개요](event-hubs-overview.md)
 - [이벤트 허브 프로그래밍 가이드](event-hubs-programming-guide.md)
 - [이벤트 허브 가용성 및 지원 FAQ](event-hubs-availability-and-support-faq.md)
-- [이벤트 허브 자습서]로 시작합니다.
-- [이벤트 허브를 사용하는 전체 샘플 응용 프로그램]
+- [이벤트 허브 자습서][]로 시작합니다.
+- [이벤트 허브를 사용하는 전체 샘플 응용 프로그램][]
 
-[이벤트 허브 자습서]: service-bus-event-hubs-csharp-ephcs-getstarted.md
-[이벤트 허브를 사용하는 전체 샘플 응용 프로그램]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[이벤트 허브 자습서]: event-hubs-csharp-ephcs-getstarted.md
+[이벤트 허브를 사용하는 전체 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/05/2015" 
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에 Hue 설치 및 사용
@@ -42,11 +42,13 @@ Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 �
 
 	> [AZURE.NOTE]HDInsight 클러스터에 Hue를 설치하려면 권장 헤드 노드 크기는 A4(8개 코어, 14GB 메모리) 이상입니다.
 
-2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
+2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래와 같은 정보를 제공합니다.
 
-	* __이름__: 스크립트 동작의 이름을 입력합니다.
-	* __스크립트 URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
-	* __헤드__: 이 옵션을 선택합니다.
+	![색상에 대한 스크립트 작업 매개 변수 제공](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "색상에 대한 스크립트 작업 매개 변수 제공")
+
+	* __NAME__: 스크립트 작업의 이름을 입력합니다.
+	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
+	* __HEAD__:이 옵션 선택
 	* __작업자__: 비워둡니다.
 	* __ZOOKEEPER__: 비워둡니다.
 	* __매개 변수__: 스크립트는 **클러스터 관리자 암호**를 매개 변수로 예상합니다. 클러스터를 프로비전하는 동안 지정한 암호입니다. 암호 입력 시의 중요 고려 사항:
@@ -135,4 +137,4 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

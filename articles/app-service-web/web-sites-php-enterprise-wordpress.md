@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="08/03/2015"
+	ms.date="11/06/2015"
 	ms.author="tomfitz"/>
 
 #Azure 앱 서비스의 엔터프라이즈급 WordPress
@@ -28,7 +28,7 @@ Azure 앱 서비스는 중요 업무용 대규모 [WordPress][wordpress] 사이�
 
     > [AZURE.NOTE]ClearDB는 각각 다양한 성능 특성을 갖는 여러 MySQL 구성을 제공합니다. Azure Store를 통해 제공되는 서비스에 대해서는 [Azure Store][cdbnstore](영문)를 참조하고, ClearDB에서 직접 제공되는 서비스에 대해서는 [ClearDB 가격 책정](http://www.cleardb.com/pricing.view)(영문)을 참조하세요.
 
-* **PHP 5.2.4 이상** - Azure 앱 서비스에서는 현재 [PHP 버전 5.3, 5.4 및 5.5][phpwebsite]를 제공합니다.
+* **PHP 5.2.4 이상** - Azure 앱 서비스에서는 현재 [PHP 버전 5.4, 5.5 및 5.6][phpwebsite]을 제공합니다.
 
 	> [AZURE.NOTE]최신 버전의 PHP에서 실행하여 최신 보안 픽스를 설치하는 것이 좋습니다.
 
@@ -53,7 +53,7 @@ Azure [트래픽 관리자][trafficmanager]를 사용하여 방문자에게 단�
 
 ###미디어 저장소 및 캐싱을 사용한 다중 지역 배포
 
-사이트가 업로드를 허용하거나 미디어 파일을 호스트하는 경우에는 Azure Blob 저장소를 사용합니다. 캐싱이 필요한 경우에는 [Redis 캐시][rediscache], [Memcache 클라우드](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) 또는 [Azure Store](http://azure.microsoft.com/gallery/store/)에 제공되는 기타 캐싱 서비스 중 하나를 고려하세요.
+사이트가 업로드를 허용하거나 미디어 파일을 호스트하는 경우에는 Azure Blob 저장소를 사용합니다. 캐싱이 필요한 경우에는 [Redis 캐시][rediscache], [Memcache 클라우드](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 또는 [Azure Store](http://azure.microsoft.com/gallery/store/)에 제공되는 기타 캐싱 서비스 중 하나를 고려하세요.
 
 ![Azure 웹 앱, 다중 지역에 호스트, MySQL용 CDBR 고가용성 라우터 사용, 관리되는 캐시, Blob 저장소 및 CDN 포함][performance-diagram]
 
@@ -87,7 +87,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 원하는 작업.. | 사용 기능...
 ------------------------|-----------
 **앱 서비스 인스턴스 기능 이해** | [앱 서비스 계층의 기능을 비롯한 가격 책정 세부 정보][websitepricing]
-**리소스 캐시** | [Redis 캐시][rediscache], [Memcache 클라우드](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) 또는 [Azure Store](/gallery/store/)에 제공되는 기타 캐싱 서비스 중 하나
+**리소스 캐시** | [Redis 캐시][rediscache], [Memcache 클라우드](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 또는 [Azure Store](/gallery/store/)에 제공되는 기타 캐싱 서비스 중 하나
 **응용 프로그램 확장** | [Azure 앱 서비스에서 웹앱 크기 조정][websitescale] 및 [ClearDB 고가용성 라우팅][cleardbscale] 자체 MySQL 설치를 호스트하고 관리하도록 선택한 경우 확장을 위해 [MySQL 클러스터 CGE][cge]를 고려하는 것이 좋습니다.
 
 ####마이그레이션
@@ -249,10 +249,10 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
 [customdomain]: web-sites-custom-domain-name.md
-[trafficmanager]: /blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
+[trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[rediscache]: https://azure.microsoft.com/documentation/services/redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
@@ -279,8 +279,8 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [deploy]: web-sites-deploy.md
 [posh]: ../install-configure-powershell.md
 [Azure CLI]: ../xplat-cli-install.md
-[storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
+[storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

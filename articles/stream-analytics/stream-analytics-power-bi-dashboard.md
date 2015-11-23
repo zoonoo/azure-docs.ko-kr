@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure 스트림 분석 및 Power BI: 스트리밍 데이터의 실시간 분석에 대한 라이브 대시보드
@@ -161,15 +161,15 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 
 이 자습서에서는 데이터 집합에 대한 한 종류의 차트를 만드는 방법에 대해 설명합니다. Power BI는 조직에 대한 다른 고객 비즈니스 인텔리전스 도구를 만드는 데 도움이 됩니다. Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
 
-Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유용한 리소스는 [Power BI 미리 보기의 대시보드](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)입니다.
+Power BI 출력 구성 및 Power BI 그룹 사용 방법에 대한 자세한 내용은 [스트림 분석 출력 이해](stream-analytics-define-outputs.md "스트림 분석 출력 이해")의 [Power BI 섹션](stream-analytics-define-outputs.md#power-bi)을 참조하세요. Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유용한 리소스는 [Power BI 미리 보기의 대시보드](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)입니다.
 
 ## 제한 사항 및 모범 사례 ##
 Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 가격 책정")에 설명된 바와 같이 동시성과 처리량 제약 조건을 모두 사용합니다.
 
 때문에 Power BI는 Azure 스트림 분석으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다. TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시가 되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 수식을 사용하여 몇 초 내에 창에 공급할 값을 계산할 수 있습니다(![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)).
 
-예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 할 수 있습니다.
-![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 할 수 있습니다
+![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png).
 
 이를 위해 원래 쿼리가 아래와 같이 변경됩니다.
 
@@ -222,4 +222,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -31,7 +31,7 @@
 
 ## 가상 컴퓨터 찾기
 
-1. [Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. Azure Preview 포털에 로그인합니다.
 
 2. 허브 메뉴에서 **찾아보기**를 클릭합니다.
 
@@ -90,4 +90,4 @@
 
 [Azure 저장소 계정 정보]: ../storage-whatis-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

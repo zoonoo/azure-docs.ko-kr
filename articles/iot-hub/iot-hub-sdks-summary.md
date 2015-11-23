@@ -60,7 +60,7 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 
 [Microsoft Azure IoT SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [C용 Azure IoT 장치 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
-[.NET용 Azure IoT 장치 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md
+[.NET용 Azure IoT 장치 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
 [Java용 Azure IoT 장치 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
 [Node.js용 Azure IoT 장치 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [Node.js용 Azure IoT 서비스 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/
@@ -73,4 +73,4 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 [Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

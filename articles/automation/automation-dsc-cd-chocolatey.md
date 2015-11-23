@@ -60,8 +60,7 @@ ARM 템플릿으로 시작하지 않아도 괜찮습니다. VM을 풀 서버 및
 
 인증된(Add-AzureAccount) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
 
-    Switch-AzureMode -Name AzureResourceManager                     <-- assumes you are still running Azure PowerShell v0.9.x    
-    New-AzureResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 자동화 계정을 일본 동부, 미국 동부 2, 서유럽, 동남아, 미국 중부 등의 지역 중 하나에 놓을 수 있습니다(즉, 위치).
@@ -92,7 +91,7 @@ Azure 자동화 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
         
 
-포함된 예는 cChoco 및xNetworking에 대해 이 절차를 수행합니다. cChoco에 대한 특수 처리를 위한 정보를 참조하세요.
+포함된 예는 cChoco 및xNetworking에 대해 이 절차를 수행합니다. cChoco에 대한 특수 처리는 [참고 사항](#notes)을 참조하세요.
 
 ## 4단계: 노드 구성을 풀 서버에 추가
 
@@ -145,18 +144,18 @@ ISVBoxConfig.ps1:
 
 New-ConfigurationScript.ps1:
 
-    Import-AzureAutomationDscConfiguration ` 
+    Import-AzureRmAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 ` 
         -Published –Force
     
-    $jobData = Start-AzureAutomationDscCompilationJob ` 
+    $jobData = Start-AzureRmAutomationDscCompilationJob ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -ConfigurationName ISVBoxConfig 
     
     $compilationJobId = $jobData.Id
     
-    Get-AzureAutomationDscCompilationJob ` 
+    Get-AzureRmAutomationDscCompilationJob ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -Id $compilationJobId
 
@@ -168,7 +167,7 @@ New-ConfigurationScript.ps1:
 
 ## 6단계: 모든 항목 요약
 
-각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다. 해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Visual Studio Online의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 자세한 내용은 [이 문서](https://www.visualstudio.com/ko-KR/get-started/build/build-your-app-vs)가 제공합니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks)는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
+각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다. 해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Visual Studio Online의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 자세한 내용은 [이 문서](https://www.visualstudio.com/ko-KR/get-started/build/build-your-app-vs)에서 제공합니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks)는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
 
 ## 참고 사항
 
@@ -188,4 +187,4 @@ PowerShell 갤러리에 있는 cChoco DSC 리소스의 버전은 해당 소스�
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

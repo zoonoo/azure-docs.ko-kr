@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
     ms.date="10/05/2015" 
-    ms.author="mimig"/>
+    ms.author="arramac"/>
 
 
 # DocumentDB 인덱싱 정책
@@ -769,4 +769,4 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="10/30/2015"
+    ms.date="11/10/2015"
     ms.author="v-darmi"/>
 
 # Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링
@@ -257,4 +257,15 @@ EventData 개체의 목록이 메서드로 전달되고 해당 목록을 반복�
 ## 요약
 Azure API 관리 서비스는 API간을 이동하는 HTTP 트래픽을 캡처하기 위한 최적의 장소를 제공합니다. Azure 이벤트 허브는 해당 트래픽을 캡처하고 로깅, 모니터링 및 기타 복잡한 분석하는 보조 처리 시스템에 전달하기 위한 뛰어난 확장성을 가진 저렴한 비용의 솔루션입니다. Runscope와 같은 타사 트래픽 모니터링 시스템에 연결하는 작업은 간단히 수 십 줄의 코드를 사용합니다.
 
-<!---HONumber=Nov15_HO2-->
+## 다음 단계
+-	Azure 이벤트 허브에 대해 자세히 알아보기
+	-	[Azure 이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+	-	[EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+	-	[이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
+-	API 관리 및 이벤트 허브 통합에 대해 자세히 알아보기
+	-	[Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)
+	-	[로거 엔터티 참조](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[log-to-eventhub 정책 참조](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	
+
+<!---HONumber=Nov15_HO3-->

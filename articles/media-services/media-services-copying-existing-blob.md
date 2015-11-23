@@ -24,6 +24,10 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 
 >[AZURE.NOTE]미디어 서비스 API를 사용하지 않고 미디어 서비스에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
 
+##샘플 다운로드
+
+[여기](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)에서 샘플을 가져와서 실행합니다.
+
 ##필수 조건
 
 - 신규 또는 기존 Azure 구독의 미디어 서비스 계정 2개. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하십시오.
@@ -305,9 +309,10 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 
 ##미디어 서비스 학습 경로
 
-여기서 AMS 학습 경로를 볼 수 있습니다.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##피드백 제공
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->
