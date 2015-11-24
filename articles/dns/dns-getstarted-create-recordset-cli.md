@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-recordset.md)
+- [PowerShell](dns-getstarted-create-recordset.md)
 
 
 
@@ -122,4 +122,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

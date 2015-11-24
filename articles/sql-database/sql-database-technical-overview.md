@@ -1,11 +1,12 @@
 <properties
-   pageTitle="SQL 데이터베이스 정의 | Microsoft Azure"
-   description="클라우드 환경에서 Azure SQL 데이터베이스, Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS) 및 PaaS 솔루션의 기능과 기술 세부 정보를 살펴봅니다."
-   services="sql-database"
-   documentationCenter=""
-   authors="shontnew"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="SQL 데이터베이스 정의 SQL 데이터베이스 소개 | Microsoft Azure"
+	description="SQL 데이터베이스에 대한 소개: 클라우드 환경에서 Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS)의 기능과 기술 세부 정보를 살펴봅니다."
+	keywords="sql 소개, sql 소개, sql 데이터베이스란, DTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="shontnew"
+	manager="jeffreyg"
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -16,7 +17,7 @@
    ms.date="09/30/2015"
    ms.author="shkurhek"/>
 
-# SQL 데이터베이스 소개
+# SQL 데이터베이스 정의 SQL 데이터베이스, 기술 세부 정보 및 DTU의 설명에 대한 소개
 
 SQL 데이터베이스는 시장 선도적인 Microsoft SQL Server 엔진을 기반으로 한 클라우드 환경의 관계형 데이터베이스 서비스로, 업무 수행에 중요한 기능을 제공합니다. SQL 데이터베이스는 예측 가능한 성능, 가동 중지 시간이 없는 확장성, 비즈니스 연속성, 데이터 보호 기능을 제공하며 관리할 필요가 거의 없습니다. 개발자는 가상 컴퓨터와 인프라 관리가 아닌 빠른 앱 개발 및 제품 출시 기간 단축에 전념할 수 있습니다. SQL 데이터베이스는 [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) 엔진을 기반으로 하여 기존 SQL Server 도구, 라이브러리 및 API를 지원하므로 클라우드로 더 쉽게 전환 및 확장할 수 있습니다.
 
@@ -54,9 +55,10 @@ Azure의 업계 선도적인 99.99% 가용성 [SLA](http://azure.microsoft.com/s
 SQL Server에는 SQL 데이터베이스가 액세스 제한, 데이터 보호 및 작업 모니터링 도움을 수행하는 기능을 통해 지원하는 확실한 데이터 보안의 전통을 이어갑니다. SQL 데이터베이스의 보안 옵션에 대한 빠른 요약은 [SQL 데이터베이스 보안](sql-database-security.md)을 참조하세요. 보안 기능을 더 광범위하게 보려면 [SQL Server 데이터베이스 엔진 및 SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)를 참조하세요. 그리고 Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](http://azure.microsoft.com/support/trust-center/security/)를 방문하세요.
 
 ## 다음 단계
+SQL 데이터베이스에 대한 소개를 읽고 질문 "SQL 데이터베이스란?"에 답변했으므로 다음에 대한 준비가 되었습니다.
 
 - 단일 데이터베이스 및 탄력적 데이터베이스 가격 책정 및 계산기는 [가격 책정 페이지](http://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
 - [첫 번째 데이터베이스 만들기](sql-database-get-started.md)로 시작합니다. 그런 다음 [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) 또는 [Ruby](sql-database-develop-ruby-simple-linux)에서 첫 앱을 만듭니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

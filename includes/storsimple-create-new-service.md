@@ -1,11 +1,11 @@
-<!--author=alkohli last changed: 9/17/15-->
+<!--author=alkohli last changed: 11/16/15-->
 
 
 #### 새 서비스를 만들려면
 
-1. URL [http://azure.microsoft.com/](http://azure.microsoft.com/)에서 Microsoft 계정 자격 증명을 사용하여 관리 포털에 로그온합니다.
+1. URL [http://azure.microsoft.com/](http://azure.microsoft.com/)에서 Microsoft 계정 자격 증명을 사용하여 Azure 포털에 로그온합니다.
 
-2. 관리 포털에서 **새로 만들기** > **데이터 서비스** > **StorSimple 관리자** > **빠른 생성**을 클릭합니다.
+2. Azure 포털에서 **새로 만들기** > **데이터 서비스** > **StorSimple 관리자** > **빠른 생성**을 클릭합니다.
 
 3. 표시되는 양식에서 다음을 수행합니다.
   1. 서비스에 고유한 **이름**을 지정합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이름은 문자, 숫자 및 하이픈이 될 수 있는 2자에서 50자 사이여야 합니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
@@ -28,4 +28,4 @@
 
 새 StorSimple Manager 서비스를 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/)를 클릭하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

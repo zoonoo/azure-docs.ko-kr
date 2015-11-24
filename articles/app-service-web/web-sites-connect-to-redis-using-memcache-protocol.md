@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Memcache 프로토콜을 통해 Redis Cache에 Azure 앱 서비스의 웹앱 연결 | Microsoft Azure"
-	description="Memcache 프로토콜을 사용하여 Redis Cache에 Azure 앱 서비스의 웹 앱 연결"
+	description="Memcache 프로토콜을 사용하여 Redis Cache에 Azure 앱 서비스의 웹앱 연결"
 	services="app-service\web"
 	documentationCenter="php"
 	authors="SyntaxC4"
@@ -16,26 +16,26 @@
 	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
-# Memcache 프로토콜을 통해 Redis Cache에 Azure 앱 서비스의 웹 앱 연결
+# Memcache 프로토콜을 통해 Redis Cache에 Azure 앱 서비스의 웹앱 연결
 
-이 문서에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)의 WordPress 웹앱을 [Memcache][13] 프로토콜을 사용하는 [Azure Redis Cache][12]에 연결하는 방법에 대해 알아봅니다. 메모리 내 캐싱을 위해 Memcached 서버를 사용하는 기존 웹 앱이 있는 경우 이를 Azure 앱 서비스로 마이그레이션할 수 있으며 응용 프로그램 코드를 거의 또는 전혀 변경하지 않고 Microsoft Azure에서 자사 캐싱 솔루션을 사용할 수 있습니다. 또한 .NET, PHP, Node.js, Java 및 Python과 같은 대중적인 응용 프로그램 프레임워크를 사용하는 동안 메모리 내 캐싱을 위해 Azure Redis Cache를 사용하여 Azure 앱 서비스에서 매우 확장성 있는 배포 앱을 만들기 위해 기존의 Memcache 전문가를 활용할 수 있습니다.
+이 문서에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)의 WordPress 웹앱을 [Memcache][13] 프로토콜을 사용하는 [Azure Redis Cache][12]에 연결하는 방법에 대해 알아봅니다. 메모리 내 캐싱을 위해 Memcached 서버를 사용하는 기존 웹앱이 있는 경우 이를 Azure 앱 서비스로 마이그레이션할 수 있으며 응용 프로그램 코드를 거의 또는 전혀 변경하지 않고 Microsoft Azure에서 자사 캐싱 솔루션을 사용할 수 있습니다. 또한 .NET, PHP, Node.js, Java 및 Python과 같은 대중적인 응용 프로그램 프레임워크를 사용하는 동안 메모리 내 캐싱을 위해 Azure Redis Cache를 사용하여 Azure 앱 서비스에서 매우 확장성 있는 배포 앱을 만들기 위해 기존의 Memcache 전문가를 활용할 수 있습니다.
 
-앱 서비스 웹 앱은 이 응용 프로그램 시나리오를 웹 앱 Memcache shim로 사용할 수 있으며, 이는 Azure Redis Cache로 호출되는 캐시를 위한 Memcache 프록시로 동작하는 로컬 Memcache 서버입니다. 이를 통해 앱이 Redis Cache로 데이터를 캐시하는 데 Memcache 프로토콜을 사용하여 통신할 수 있습니다. 이 Memcache shim은 프로토콜 단계에서 작업하므로 Memcache 프로토콜을 사용하여 통신하는 한 모든 응용 프로그램 또는 응용 프로그램 프레임워크에서 이를 사용할 수 있습니다.
+앱 서비스 웹앱은 이 응용 프로그램 시나리오를 웹앱 Memcache shim로 사용할 수 있으며, 이는 Azure Redis Cache로 호출되는 캐시를 위한 Memcache 프록시로 동작하는 로컬 Memcache 서버입니다. 이를 통해 앱이 Redis Cache로 데이터를 캐시하는 데 Memcache 프로토콜을 사용하여 통신할 수 있습니다. 이 Memcache shim은 프로토콜 단계에서 작업하므로 Memcache 프로토콜을 사용하여 통신하는 한 모든 응용 프로그램 또는 응용 프로그램 프레임워크에서 이를 사용할 수 있습니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 필수 조건
 
-웹 앱 Memcache shim은 Memcache 프로토콜을 사용하여 통신하는 제공된 응용 프로그램과 함께 사용할 수 있습니다. 이 특정 예제의 경우, 참조 응용 프로그램은 Azure 마켓플레이스에서 프로비전할 수 있는 확장 가능한 WordPress 사이트입니다.
+웹앱 Memcache shim은 Memcache 프로토콜을 사용하여 통신하는 제공된 응용 프로그램과 함께 사용할 수 있습니다. 이 특정 예제의 경우, 참조 응용 프로그램은 Azure 마켓플레이스에서 프로비전할 수 있는 확장 가능한 WordPress 사이트입니다.
 
 이 문서에 설명된 단계를 따르세요.
 
 * [Azure Redis Cache 서비스의 인스턴스 프로비전][1]
 * [Azure에서 확장 가능한 WordPress 사이트 배포][0]
 
-확장 가능한 WordPress 사이트가 배포되고 Redis Cache 인스턴스가 프로비전되면 Azure 앱 서비스 웹 앱에서 Memcache shim을 사용하여 진행할 준비가 됩니다.
+확장 가능한 WordPress 사이트가 배포되고 Redis Cache 인스턴스가 프로비전되면 Azure 앱 서비스 웹앱에서 Memcache shim을 사용하여 진행할 준비가 됩니다.
 
-## 웹 앱 Memcache shim 사용
+## 웹앱 Memcache shim 사용
 
 Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715), [기존 포털][3], [Azure PowerShell Cmdlet][5] 또는 [Azure 명령줄 인터페이스][5]를 포함한 다양한 방법으로 완료할 수 있습니다. 이 게시물의 목적은 [Azure 포털][4]을 사용하여 앱을 설정하는 것입니다. 다음 값은 Redis Cache의 **설정** 블레이드에서 검색할 수 있습니다.
 
@@ -63,7 +63,7 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 ### MEMCACHESHIM\_REDIS\_ENABLE 앱 설정 추가
 
-마지막 앱 설정은 웹 앱에서 Memcache Shim을 설정하는 데 사용됩니다. Memcache Shim은 Azure Redis Cache에 연결하기 위해 REDIS\_HOST 및 REDIS\_KEY를 사용하며 캐시 호출을 전달합니다. 앱 설정의 키는 **MEMCACHESHIM\_REDIS\_ENABLE**로, 값은 **true**로 설정합니다.
+마지막 앱 설정은 웹앱에서 Memcache Shim을 설정하는 데 사용됩니다. Memcache Shim은 Azure Redis Cache에 연결하기 위해 REDIS\_HOST 및 REDIS\_KEY를 사용하며 캐시 호출을 전달합니다. 앱 설정의 키는 **MEMCACHESHIM\_REDIS\_ENABLE**로, 값은 **true**로 설정합니다.
 
 ![웹앱 AppSetting MEMCACHESHIM\_REDIS\_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
@@ -79,16 +79,16 @@ Memcache 프로토콜을 읽어주는 응용 프로그램을 위해 Memcache 확
 
 ![PHP PECL 웹 사이트](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
-웹 앱에서 사용되는 PHP 버전은 NTS(Non-Thread Safe) x86 링크를 다운로드합니다. (기본은 PHP 5.4입니다.)
+웹앱에서 사용되는 PHP 버전은 NTS(Non-Thread Safe) x86 링크를 다운로드합니다. (기본은 PHP 5.4입니다.)
 
 ![PHP PECL 웹 사이트 Memcache 패키지](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
 ### php\_memcache 확장 사용
 
-파일을 다운로드한 후 압축을 풀어 **php\_memcache.dll**을 **d:\\home\\site\\wwwroot\\bin\\ext\** 디렉터리로 업로드합니다. php\_memcache.dll이 웹 앱에 업로드된 후 PHP 런타임에 대한 확장을 사용하도록 설정해야 합니다. Azure 포털에서 Memcache 확장을 사용하려면 웹앱에 대한 **응용 프로그램 설정** 블레이드를 열고 **PHP\_EXTENSIONS** 키 및 **bin\\ext\\php\_memcache.dll** 값으로 새 앱 설정을 추가합니다.
+파일을 다운로드한 후 압축을 풀어 **php\_memcache.dll**을 **d:\\home\\site\\wwwroot\\bin\\ext\** 디렉터리로 업로드합니다. php\_memcache.dll이 웹앱에 업로드된 후 PHP 런타임에 대한 확장을 사용하도록 설정해야 합니다. Azure 포털에서 Memcache 확장을 사용하려면 웹앱에 대한 **응용 프로그램 설정** 블레이드를 열고 **PHP\_EXTENSIONS** 키 및 **bin\\ext\\php\_memcache.dll** 값으로 새 앱 설정을 추가합니다.
 
 
-> [AZURE.NOTE]웹 앱에 여러 PHP 확장을 로드해야 하는 경우, PHP\_EXTENSIONS 값은 DLL 파일에 대한 관련 경로 목록을 쉼표로 구분해야 합니다.
+> [AZURE.NOTE]웹앱에 여러 PHP 확장을 로드해야 하는 경우, PHP\_EXTENSIONS 값은 DLL 파일에 대한 관련 경로 목록을 쉼표로 구분해야 합니다.
 
 ![웹앱 AppSetting PHP\_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
@@ -112,7 +112,7 @@ WordPress 플러그 인 페이지에서 **새로 추가**를 클릭합니다.
 
 ### Memcache WordPress 플러그인 사용
 
->[AZURE.NOTE]Visual Studio Online을 설치하려면 [웹앱에서 사이트 확장을 사용하는 방법][8]에 있는 이 블로그의 지침을 따르세요.
+>[AZURE.NOTE]Visual Studio Team Services를 설치하려면 [웹앱에서 사이트 확장을 사용하는 방법][8]에 있는 이 블로그의 지침을 따르세요.
 
 `wp-config.php` 파일에서 파일 끝부분 편집 중지 주석 위에 다음 코드를 추가합니다.
 
@@ -134,7 +134,7 @@ $memcached_servers = array(
 
 ## Memcache Object Cache 플러그 인이 작동하는지 확인
 
-이제 웹 앱 Memcache shim 사용 설정의 모든 단계가 완료되었습니다. 데이터가 Redis Cache 인스턴스에 채워졌는지 확인하는 단계만 남아 있습니다.
+이제 웹앱 Memcache shim 사용 설정의 모든 단계가 완료되었습니다. 데이터가 Redis Cache 인스턴스에 채워졌는지 확인하는 단계만 남아 있습니다.
 
 ### Azure Redis Cache에서 비SSL 포트 지원 사용 설정
 
@@ -152,7 +152,7 @@ Azure 포털에서 이 웹앱에 대해 만들어진 Redis Cache 인스턴스를
 
 ![Azure Redis Cache 액세스 포트 SSL만](./media/web-sites-connect-to-redis-using-memcache-protocol/17-azure-redis-cache-access-port-ssl-only.png)
 
-이제 비SSL 포트가 설정된 것이 보입니다. **Save**를 클릭합니다.
+이제 비SSL 포트가 설정된 것이 보입니다. **저장**을 클릭합니다.
 
 ![Azure Redis Cache Redis SSL이 아닌 포털에 액세스](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
@@ -170,11 +170,11 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 
 ![터미널의 Redis CLI에서 Azure Redis Cache에 연결](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
-키 나열에 대한 호출은 값을 반환합니다. 값을 반환하지 않으면 웹 앱을 찾아 다시 시도해 봅니다.
+키 나열에 대한 호출은 값을 반환합니다. 값을 반환하지 않으면 웹앱을 찾아 다시 시도해 봅니다.
 
 ## 결론
 
-축하합니다. 이제 WordPress 앱에 증가하는 처리량을 지원하기 위해 중앙 메모리 내 캐시가 생겼습니다. 웹 앱 Memcache Shim은 프로그래밍 언어 또는 응용 프로그램 프레임워크와 상관 없이 Memcache 클라이언트에 사용할 수 있습니다. 피드백 게시 또는 웹앱 Memcache shim에 대한 문의는 [MSDN 포럼][10] 또는 [Stackoverflow][11]에 게시하세요.
+축하합니다. 이제 WordPress 앱에 증가하는 처리량을 지원하기 위해 중앙 메모리 내 캐시가 생겼습니다. 웹앱 Memcache Shim은 프로그래밍 언어 또는 응용 프로그램 프레임워크와 상관 없이 Memcache 클라이언트에 사용할 수 있습니다. 피드백 게시 또는 웹앱 Memcache shim에 대한 문의는 [MSDN 포럼][10] 또는 [Stackoverflow][11]에 게시하세요.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -198,4 +198,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

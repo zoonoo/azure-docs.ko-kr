@@ -47,6 +47,14 @@
 
 설치는 자동으로 진행됩니다.
 
+## Azure PowerShell 설치
+
+서비스 패브릭 클러스터를 구성하기 위해 Azure PowerShell 스크립트를 설치해야 합니다.
+
+[Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?LinkId=320376)를 실행하여 Azure PowerShell 모듈을 다운로드하고 설치할 수 있습니다. 메시지가 표시되면 **실행**을 클릭합니다. 웹 플랫폼 설치 관리자는 Azure PowerShell 모듈 및 모든 종속성을 설치합니다. 프롬프트에 따라 설치를 완료합니다.
+
+> [AZURE.NOTE]PowerShell 설치 프로그램을 다운로드하려면 https://github.com/Azure/azure-powershell/releases을 방문하세요. 이 repo에서도 PowerShell cmdlet에 대한 소스 코드를 찾을 수 있습니다.
+
 ## PowerShell 스크립트 실행 활성화
 
 서비스 패브릭은 로컬 개발 클러스터를 만들고 Visual Studio에서 응용 프로그램을 배포하기 위해 Windows PowerShell 스크립트를 사용합니다. 기본적으로 Windows에서는 이러한 스크립트의 실행을 차단합니다. 따라서 이러한 스크립트를 사용하려면 PowerShell 실행 정책을 수정해야 합니다. 관리자로 PowerShell을 열고 다음 명령을 입력합니다.
@@ -106,4 +114,4 @@ SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여,
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 개발 | Microsoft Azure" 
-	description="DocumentDB와 .NET을 사용하여 할 일 모음 웹 응용 프로그램을 빌드하는 방법을 알아봅니다. Azure 웹 사이트에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스합니다." 
-	keywords="Github, visual studio, 웹 응용 프로그램 개발, 응용 프로그램 개발, 데이터베이스 자습서, mvc 응용 프로그램, json 데이터, documentdb, azure, Microsoft azure"
+	pageTitle="DocumentDB용 ASP.NET MVC 자습서: 웹 응용 프로그램 개발 | Microsoft Azure" 
+	description="이 ASP.NET MVC 자습서를 완료하여 DocumentDB를 사용하여 MVC 웹 응용 프로그램을 만듭니다. JSON을 저장하고 Azure 웹 사이트에서 호스트된 할 일 앱에서 데이터에 액세스합니다." 
+	keywords="ASP.NET MVC 자습서, 웹 응용 프로그램 개발, MVC 웹 응용 프로그램, ASP NET MVC 단계별 자습서"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/20/2015" 
+	ms.date="11/18/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 개발
@@ -26,9 +26,9 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md) 
 
-Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 todo 모음 웹 응용 프로그램을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
+Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
 
-![이 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image1.png)
+![이 자습서에서 만든 할 일 모음 MVC 웹 응용 프로그램의 스크린샷 - ASP NET MVC 단계별 자습서](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
 이 연습에서는 Azure에서 제공하는 DocumentDB 서비스를 사용하여 Azure에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
 
@@ -63,7 +63,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
    	**새 프로젝트** 대화 상자가 나타납니다.
 2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#**, **웹**을 확장한 후 **ASP.NET 웹 응용 프로그램**을 선택합니다.
 
-  	![ASP.NET 웹 응용 프로그램 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image10.png)
+  	![ASP.NET 웹 응용 프로그램 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
 
 3. **이름** 상자에 프로젝트의 이름을 입력합니다. 이 자습서에서는 "todo"라는 이름을 사용합니다. 다른 이름을 사용하도록 선택한 경우에는 이 자습서에서 todo 네임스페이스를 지칭할 때마다 지정한 응용 프로그램 이름을 사용하도록 제공된 코드 샘플을 조정해야 합니다.
 
@@ -71,7 +71,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
   	**새 ASP.NET 프로젝트** 대화 상자가 나타납니다.
 
-  	![MVC 응용 프로그램 템플릿이 강조 표시되고 클라우드의 호스트 상자가 선택된 새 ASP.NET 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11.png)
+  	![MVC 응용 프로그램 템플릿이 강조 표시되고 클라우드의 호스트 상자가 선택된 새 ASP.NET 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image11.png)
 
 5. 템플릿 창에서 **MVC**를 선택합니다.
 
@@ -91,9 +91,9 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 	모두 ASP.NET "Hello World" 응용 프로그램을 본 적이 있다고 확신하므로 프로젝트 로컬 실행은 건너뛰겠습니다. 바로 이 프로젝트에 DocumentDB를 추가하고 응용 프로그램을 작성하겠습니다.
 
-## <a name="_Toc395637767"></a>3단계: 웹 응용 프로그램 프로젝트에 DocumentDB 추가
+## <a name="_Toc395637767"></a>3단계: MVC 웹 응용 프로그램 프로젝트에 DocumentDB 추가
 
-이 솔루션에 필요한 대부분의 ASP.NET MVC 배관을 만들었으므로 이제 이 자습서의 실제 목적으로 돌아가 웹 응용 프로그램에 Azure DocumentDB를 추가해 보겠습니다.
+이 솔루션에 필요한 대부분의 ASP.NET MVC 배관을 만들었으므로 이제 이 자습서의 실제 목적으로 돌아가 MVC 웹 응용 프로그램에 Azure DocumentDB를 추가해 보겠습니다.
 
 1. DocumentDB .NET SDK는 패키지되어 NuGet 패키지로 배포되며, Visual Studio에서 NuGet 패키지를 다운로드하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭하여 Visual Studio에서 NuGet 패키지 관리자를 사용합니다.
 
@@ -255,7 +255,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 - [항목 추가](#_Toc395637771).
 - [항목 편집](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>웹 응용 프로그램에서 완료되지 않은 항목 나열
+### <a name="_Toc395637770"></a>MVC 웹 응용 프로그램에서 완료되지 않은 항목 나열
 
 먼저 DocumentDB에 연결하고 이를 사용할 모든 논리가 포함된 클래스를 추가합니다. 이 자습서에서는 이 모든 논리를 DocumentDBRepository라는 리포지토리 클래스로 캡슐화합니다.
 
@@ -615,15 +615,15 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 2. 사용자 자격 증명에 따라 모든 항목이 이미 구성되어 있어야 합니다. 실제로 Azure의 표시된 **대상 URL**에 웹 사이트가 이미 만들어져 있으므로 **게시**를 클릭하기만 하면 됩니다.
 
-    ![Visual Studio 웹 게시 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image29.png)
+    ![Visual Studio 웹 게시 대화 상자의 스크린샷 - ASP NET MVC 단계별 자습서](./media/documentdb-dotnet-application/image29.png)
 
 몇 초 후에 Visual Studio에서 웹 응용 프로그램 게시를 완료하고 브라우저를 시작하며, Azure에서 실행되는 작업 내용을 확인할 수 있습니다.
 
 ##<a name="_Toc395637775"></a>다음 단계
 
-축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 ASP.NET MVC 응용 프로그램을 빌드하고 Azure 웹 사이트에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
+축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 ASP.NET MVC 웹 응용 프로그램을 빌드하고 Azure 웹 사이트에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
 
-응용 프로그램에 기능을 더 추가하려면 [DocumentDB .NET 라이브러리](http://msdn.microsoft.com/library/azure/dn783362.aspx)에서 사용 가능한 API를 검토하고 [GitHub][]의 DocumentDB .NET 라이브러리에 자유롭게 기여하세요.
+응용 프로그램에 기능을 더 추가하려면 [DocumentDB .NET 라이브러리](https://msdn.microsoft.com/library/azure/dn948556.aspx)에서 사용 가능한 API를 검토하고 [GitHub][]의 DocumentDB .NET 라이브러리에 자유롭게 기여하세요.
 
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -633,4 +633,4 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 [ASP.NET MVC의 기본 CRUD 작업(영문)]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

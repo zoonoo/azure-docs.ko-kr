@@ -1,7 +1,7 @@
 <properties
-	pageTitle="NoSQL 데이터베이스 - DocumentDB Node.js SDK 시작 | Microsoft Azure"
-	description="Node.js를 사용하여 Windows, Linux 또는 OS/X DocumentDB에서 DocumentDB 계정에 연결하고 NoSQL 데이터베이스를 만들며 쿼리를 수행하는 방법을 알아봅니다."
-	keywords="Create a database, nosql database, linux, OS/X, node.js, documentdb, azure, Microsoft azure"
+	pageTitle="DocumentDB용 NoSQL Node.js 자습서 | Microsoft Azure"
+	description="DocumentDB Node.js SDK를 사용하여 노드 데이터베이스 및 콘솔 응용 프로그램을 만드는 NoSQL Node.js 자습서입니다. DocumentDB는 JSON에 대한 NoSQL 데이터베이스입니다."
+    keywords="node.js 자습서, 노드 데이터베이스"
 	services="documentdb"
 	documentationCenter="node.js"
 	authors="AndrewHoh"
@@ -14,30 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-#DocumentDB Node.js SDK 시작  
+# NoSQL Node.js 자습서: DocumentDB Node.js 콘솔 응용 프로그램  
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-DocumentDB Node.js SDK 시작에 오신 것을 환영합니다. 이 자습서를 따라하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
+DocumentDB Node.js SDK용 Node.js 자습서를 시작합니다. 이 자습서를 따라하면 노드 데이터베이스를 포함하여 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
 다음에 대해 설명합니다.
 
 - DocumentDB 계정 만들기 및 연결
 - 응용 프로그램 설정
-- 데이터베이스 만들기
+- 노드 데이터베이스 만들기
 - 컬렉션 만들기
 - JSON 문서 만들기
 - 컬렉션 쿼리
-- 데이터베이스 삭제
+- 노드 데이터베이스 삭제
 
 시간이 없으십니까? 염려하지 마십시오. [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution)를 참조하세요.
 
-나중에 이 페이지 위쪽 및 아래쪽에 있는 응답 단추를 통해 의견을 보내주세요. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
+Node.js 자습서를 완료한 후에 이 페이지 위쪽 및 아래쪽에 있는 응답 단추를 통해 의견을 보내주세요. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
 
 이제 시작하겠습니다.
 
@@ -169,7 +169,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
     module.exports = config;
 
-##<a id="Connect"></a> 4단계: DocumentDB 계정에 연결
+##<a id="Connect"></a>4단계: DocumentDB 계정에 연결
 
 텍스트 편집기에서 빈 *app.js* 파일을 엽니다. *documentdb* 모듈 및 새로 만든 *config* 모듈을 가져옵니다.
 
@@ -182,7 +182,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 DocumentDB 계정에 연결했으므로 DocumentDB 리소스와 함께 작동하는지 살펴보겠습니다.
 
-## 5단계: 데이터베이스 만들기
+## 5단계: 노드 데이터베이스 만들기
 **DocumentClient** 클래스의 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 문서 저장소의 논리적 컨테이너입니다. *config* 개체에 지정된 *id*를 사용하여 app.js 파일에서 새 데이터베이스를 만들기 위해 함수를 추가합니다. 동일한 *FamilyRegistry* ID를 가진 데이터베이스가 이미 있는지 먼저 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 데이터베이스를 반환합니다.
 
     var getOrCreateDatabase = function(callback) {
@@ -276,11 +276,11 @@ DocumentDB 계정에 연결했으므로 DocumentDB 리소스와 함께 작동하
 
 축하합니다. 이제 DocumentDB에서 데이터베이스, 컬렉션 및 문서를 만들기 위한 함수를 만들었습니다!
 
-![계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/documentdb-get-started/account-database.png)
+![계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
 ##<a id="Query"></a>8단계: DocumentDB 리소스 쿼리
 
-DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리](documentdb-sql-query.md)를 지원합니다. 다음 샘플 코드에서는 컬렉션에는 문서에 대해 실행할 수 있는 쿼리를 보여줍니다. *app.js* 파일에 다음 함수를 추가합니다. DocumentDB는 아래와 같이 SQL과 비슷한 쿼리를 지원합니다. 복잡한 쿼리 작성에 대한 자세한 내용은 [쿼리 놀이터](https://www.documentdb.com/sql/demo) 및 [쿼리 설명서](documentdb-sql-query.md)를 확인합니다.
+DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](documentdb-sql-query.md)를 지원합니다. 다음 샘플 코드에서는 컬렉션에는 문서에 대해 실행할 수 있는 쿼리를 보여줍니다. *app.js* 파일에 다음 함수를 추가합니다. DocumentDB는 아래와 같이 SQL과 비슷한 쿼리를 지원합니다. 복잡한 쿼리 작성에 대한 자세한 내용은 [쿼리 놀이터](https://www.documentdb.com/sql/demo) 및 [쿼리 설명서](documentdb-sql-query.md)를 확인합니다.
 
     var queryCollection = function(documentId, callback) {
       var querySpec = {
@@ -302,11 +302,11 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
 
 다음 다이어그램에서는 만든 컬렉션에 대해 DocumentDB SQL 쿼리 구문을 호출하는 방법을 보여 줍니다.
 
-![쿼리의 의미와 범위를 보여 주는 다이어그램](./media/documentdb-get-started/collection-documents.png)
+![쿼리의 의미와 범위를 보여 주는 다이어그램](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
 DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때문에 [FROM](documentdb-sql-query.md/#from-clause) 키워드는 쿼리에서 선택 사항입니다. 따라서 "FROM Families f"를 "FROM root r" 또는 선택한 다른 변수 이름으로 교체할 수 있습니다. DocumentDB는 패밀리, 루트 또는 선택한 변수 이름이 기본적으로 현재 컬렉션을 참조하는 것으로 유추합니다.
 
-##<a id="DeleteDatabase"></a>9단계: 데이터베이스 삭제
+##<a id="DeleteDatabase"></a>9단계: 노드 데이터베이스 삭제
 
 만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컬렉션, 문서 등)가 제거됩니다. 다음 코드 조각을 추가하여 데이터베이스를 삭제할 수 있습니다.
 
@@ -357,9 +357,9 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
         });
     });
 
-##<a id="Run"></a>11단계: 응용 프로그램 실행
+##<a id="Run"></a>11단계: Node.js 응용 프로그램 실행
 
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+이제 Node.js 응용 프로그램을 실행할 준비가 되었습니다.
 
 터미널에서 *app.js* 파일을 찾고 다음 명령을 실행합니다. **node app.js**
 
@@ -417,7 +417,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 
     Done.
 
-축하합니다. 첫 번째 DocumentDB 앱을 만들었습니다.
+축하합니다. Node.js 자습서를 만들고 완료했으며 첫 번째 DocumentDB 콘솔 응용 프로그램이 있습니다.
 
 ##<a id="GetSolution"></a> 전체 솔루션 다운로드
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
@@ -440,6 +440,6 @@ npm을 통해 **documentdb** 모듈을 설치합니다. 다음 명령을 사용�
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
-[keys]: media/documentdb-get-started/keys.png
+[keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정
@@ -29,12 +29,10 @@
 
 ## 다음 단계
 
-[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)
+[트래픽 관리자 라우팅 방법](traffic-manager-routing-methods.md)
 
 [트래픽 관리자 - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
 
 [트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
 
-[트래픽 관리자란?](traffic-manager-overview.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

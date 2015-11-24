@@ -366,4 +366,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

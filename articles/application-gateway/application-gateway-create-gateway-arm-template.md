@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,10 +22,9 @@
 응용 프로그램 게이트웨이는 부하 분산 장치 계층 7입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이의 응용 프로그램 전달 기능에는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL 오프로드 등이 있습니다.
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
-
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -60,7 +59,7 @@ GitHub에서 기존 ARM 템플릿을 다운로드한 후 수정하고 GitHub, Po
 
 github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플릿을 다운로드하고 원하는 대로 변경한 후 다시 사용할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.
 
-1. https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip로 이동합니다.
+1. https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/로 이동합니다.
 2. **azuredeploy.json**을 클릭하고 **RAW**를 클릭합니다.
 3. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
 4. ARM 템플릿에 익숙한 경우 7단계로 건너뜁니다.
@@ -76,8 +75,8 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
 	| **skuname** | sku 인스턴스 크기 |
 	| **용량** | 인스턴스 수 |
 	| **backendaddress1** | 첫 번째 웹 서버의 IP 주소 |
-	| **backendaddress2** | 두 번째 웹 서버의 IP 주소|
-
+	| **backendaddress2** | 두 번째 웹 서버의 IP 주소 |
+	
 
 >[AZURE.IMPORTANT]Github에서 유지 관리되는 ARM 템플릿은 시간이 지나면서 달라질 수 있습니다. 템플릿을 사용하기 전에 확인합니다.
 	
@@ -87,37 +86,35 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
 	- **name**. 리소스의 이름입니다. **[parameters('applicationGatewayName')]**이 사용됩니다. 이것은 해당 이름이 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 제공됨을 의미합니다.
 	- **properties**. 리소스의 속성 목록입니다. 이 템플릿은 응용 프로그램 게이트웨이를 만드는 동안 가상 네트워크 및 공용 IP 주소를 사용합니다.
 
-7. https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip로 돌아갑니다.
+7. https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json로 돌아갑니다.
 8. **azuredeploy-paremeters.json**을 클릭하고 **RAW**를 클릭합니다.
 9. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
 10. 방금 저장한 파일을 열고 매개 변수 값을 편집합니다. 아래의 값을 사용하여 이 시나리오에 설명된 응용 프로그램 게이트웨이를 배포합니다.
 
 		{
-		   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		   "contentVersion": "1.0.0.0",
-		   "parameters": {
-		     "location": {
-		       "value": "East US"
-		     },
-		     "addressPrefix": {
-		      "value": "10.0.0.0/16"
-    		 },
-		     "subnetPrefix": {
-		      "value": "10.0.0.0/24"
-		     },
-		     "skuName": {
-		       "value": "Standard_Small"
-		     },
-		     "capacity": {
-		       "value": 2
-		    },
-		    "backendIpAddress1": {
-		      "value": "10.0.1.10"
-		    },
-		     "backendIpAddress2": {
-		       "value": "10.0.1.11"
-		     }
-		  }
+		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		{
+    	"location" : {
+        "value" : "West US"
+    	},
+    	"addressPrefix": {
+        "value": "10.0.0.0/16"
+    	},
+    	"subnetPrefix": {
+        "value": "10.0.0.0/24"
+    	},
+    	"skuName": {
+        "value": "Standard_Small"
+    	},
+    	"capacity": {
+        "value": 2
+    	},
+    	"backendIpAddress1": {
+        "value": "10.0.1.10"
+    	},
+    	"backendIpAddress2": {
+        "value": "10.0.1.11"
+    	}
 		}
 
 11. 파일을 저장합니다. [JSlint.com](http://www.jslint.com/) 같은 json 유효성 검사 도구를 사용하여 Json 템플릿과 매개 변수 템플릿을 테스트할 수 있습니다.
@@ -150,7 +147,7 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
 	                 =======  ==========
 	                  *
 
-		ResourceId        : /subscriptions/################################/resourceGroups/AppgatewayRG
+		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 4. AzureResourceGroupDeployment cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다.
 
@@ -175,7 +172,7 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
                    capacity         Int                        2
                    backendIpAddress1  String                     10.0.1.10
                    backendIpAddress2  String                     10.0.1.11
-
+					
 		Outputs           :
 
 
@@ -240,7 +237,7 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 
 ### 1단계 
-[Click to deploy Application Gateway](http://azure.microsoft.com/documentation/templates/101-create-applicationgateway-publicip/)(응용 프로그램 게이트웨이 클릭하여 배포) 링크를 사용하면 응용 프로그램 게이트웨이에 대한 포털 템플릿 페이지로 리디렉션됩니다.
+[Click to deploy Application Gateway](https://azure.microsoft.com/ko-KR/documentation/templates/101-application-gateway-public-ip/)(응용 프로그램 게이트웨이 클릭하여 배포) 링크를 사용하면 응용 프로그램 게이트웨이에 대한 포털 템플릿 페이지로 리디렉션됩니다.
 
 
 ### 2단계 
@@ -276,4 +273,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

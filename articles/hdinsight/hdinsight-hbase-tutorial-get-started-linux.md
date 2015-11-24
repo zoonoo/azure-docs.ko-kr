@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 
@@ -47,9 +47,10 @@ HDInsight에서 HBase 클러스터를 프로비전하고, HBase 테이블을 만
 	- **클러스터 이름**: 이 클러스터를 식별하기 위한 이름을 입력합니다.
 	- **클러스터 형식**: **HBase**를 선택합니다.
 	- **클러스터 운영 체제**: **Ubuntu**를 선택합니다.
-	- **구독**: 이 클러스터를 프로비전하는 데 사용할 Azure 구독을 선택합니다.
+	- **버전**: 사용하려는 클러스터의 버전을 선택합니다. 다양한 HDInsight 버전에 포함된 기능에 대한 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
+    - **구독**: Azure 구독이 여러 개 있는 경우 이 클러스터에 사용할 구독을 선택합니다.
 	- **리소스 그룹**: Azure 리소스 그룹을 추가하거나 선택합니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
-	- **자격 증명** HTTP 웹 서비스 사용자에 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다. **SSH 사용자 이름**과 **암호** 또는 **공개 키**(SSH 사용자를 인증하는 데 사용됨)도 입력해야 합니다. 공개 키를 사용하는 것이 권장 방식입니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+	- **자격 증명**. HTTP 웹 서비스 사용자에 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다. **SSH 사용자 이름**과 **암호** 또는 **공개 키**(SSH 사용자를 인증하는 데 사용됨)도 입력해야 합니다. 공개 키를 사용하는 것이 권장 방식입니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 		- [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) **선택**을 클릭하여 변경 사항을 저장합니다.
@@ -58,7 +59,7 @@ HDInsight에서 HBase 클러스터를 프로비전하고, HBase 테이블을 만
 
 		> [AZURE.WARNING]HBase 서비스의 고가용성을 위해 **3개** 이상의 노드가 포함된 클러스터를 프로비전해야 합니다. 이렇게 하면 하나의 노드가 작동이 중지된 경우 다른 노드에서 HBase 데이터 영역을 사용할 수 있습니다.
 
-	- **옵션 구성**: 클러스터 버전을 선택하고, Azure 가상 네트워크를 구성하고, Hive/Oozie Metastore를 구성하고, 스크립트 동작을 구성하고, 저장소 계정을 더 추가합니다.
+	- **옵션 구성**: 클러스터 버전을 선택하고 Azure 가상 네트워크를 구성하며 스크립트 동작을 구성하고 저장소 계정을 더 추가합니다.
 
 4. **만들기**를 클릭합니다.
 
@@ -114,7 +115,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 	행이 하나만 있기 때문에 스캔 명령을 사용하여 동일한 결과가 표시됩니다.
 
-	Hbase 테이블 스키마에 대한 자세한 내용은 [HBase 스키마 디자인 소개][hbase-schema]를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드][hbase-quick-start]를 참조하세요.
+	HBase 테이블 스키마에 대한 자세한 내용은 [HBase 스키마 디자인 소개][hbase-schema]를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드][hbase-quick-start]를 참조하세요.
 
 
 6. 셸 종료
@@ -305,4 +306,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -1,11 +1,12 @@
 <properties 
-    pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 만들기" 
-    description="PowerShell을 사용하여 Azure SQL 데이터베이스 만들기" 
-    services="sql-database" 
+    pageTitle="PowerShell 사용한 새 SQL 데이터베이스 설치 | Microsoft Azure" 
+    description="PowerShell을 사용하여 새 SQL 데이터베이스를 만드는 방법에 대해 알아봅니다. PowerShell cmdlet을 통해 일반적인 데이터베이스 설치 작업을 관리할 수 있습니다." 
+    keywords="새 sql 데이터베이스 만들기, 데이터베이스 설치"
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
-    editor=""/>
+    editor="cgronlun"/>
 
 <tags
     ms.service="sql-database"
@@ -16,7 +17,7 @@
     ms.date="10/20/2015"
     ms.author="sstein"/>
 
-# PowerShell을 사용하여 SQL 데이터베이스 만들기
+# PowerShell cmdlet을 사용하여 새 SQL 데이터베이스 만들기 및 일반적인 데이터베이스 설치 작업 수행하기 
 
 **단일 데이터베이스**
 
@@ -26,14 +27,12 @@
 - [PowerShell](sql-database-get-started-powershell.md)
 
 
-## 개요
-
-이 문서는 PowerShell을 사용하여 SQL 데이터베이스를 만드는 방법을 보여 줍니다.
+PowerShell cmdlet을 사용하여 새 SQL 데이터베이스를 만들고 일반적인 데이터베이스 설치 작업을 수행합니다.
 
 > [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet을 더 이상 사용할 수 없으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 이 문서의 예제에서는 새 PowerShell 1.0 Preview 명명 규칙을 사용합니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
 
 
-PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야 하고 Switch-AzureMode를 제거했기 때문에 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 최신 Azure PowerShell을 다운로드하고 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. Switch-AzureMode를 제거했기 때문에 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 최신 Azure PowerShell을 다운로드하고 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 - Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
 
@@ -57,7 +56,7 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
 
 성공적으로 **Select-AzureRMSubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다. 둘 이상의 구독이 있는 경우 **Get-AzureRMSubscription**을 실행하고 사용하려는 구독이 **IsCurrent: True**를 표시하는지 확인할 수 있습니다.
 
-## 리소스 그룹, 서버, 방화벽 규칙 만들기
+## 데이터베이스 설치: 리소스 그룹, 서버, 방화벽 규칙 만들기
 
 이제 선택한 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 데이터베이스를 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations**를 실행하여 유효한 위치의 목록을 가져옵니다.
 
@@ -91,7 +90,7 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 
 
-## SQL 데이터베이스 만들기
+## 새 SQL 데이터베이스 만들기
 
 리소스 그룹, 서버, 방화벽 규칙을 구성했으므로 이제 서버에 액세스할 수 있습니다.
 
@@ -103,7 +102,7 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 
 데이터베이스가 성공적으로 생성된 후 데이터베이스 세부 정보가 표시됩니다.
 
-## SQL 데이터베이스 PowerShell 스크립트 만들기
+## 새 SQL 데이터베이스 PowerShell 스크립트 만들기
 
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     $ResourceGroupName = "resourcegroupname"
@@ -136,6 +135,7 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 
 
 ## 다음 단계
+새 SQL 데이터베이스를 만들고 기본 데이터베이스 설치 작업을 수행한 후 다음에 대한 준비가 됩니다.
 
 - [SQL Server Management Studio(SSMS)로 연결](sql-database-connect-to-database.md)
 
@@ -144,4 +144,4 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 
 - [Azure SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

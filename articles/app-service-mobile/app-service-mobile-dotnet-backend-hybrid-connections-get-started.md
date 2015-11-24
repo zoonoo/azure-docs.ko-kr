@@ -139,13 +139,11 @@
 
 	게시가 완료된 후 서비스를 다시 시작하 고 백 엔드 시작 페이지가 표시됩니다.
 
-4. 모바일 앱에 연결된 <!--- either the **Try it now** button on the start page as before or using --> 클라이언트 앱을 사용하여 데이터베이스 변경 내용을 생성하는 몇 가지 작업을 호출합니다.
-<!--- This try it now is not longer on the page after it is published. 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
--->
-4. SQL Server Management Studio에서 SQL Server 인스턴스에 연결하고 개체 탐색기를 열어 **OnPremisesDB** 데이터베이스 및 **테이블**을 확장합니다.
+4. 모바일 앱에 연결된 클라이언트 앱을 사용하여 데이터베이스 변경 내용을 생성하는 몇 가지 작업을 호출합니다.
 
-5. **hybridService1.TodoItems** 테이블을 마우스 오른쪽 단추로 클릭하고 **상위 1000개의 행 선택**을 선택하여 결과를 봅니다.
+5. SQL Server Management Studio에서 SQL Server 인스턴스에 연결하고 개체 탐색기를 열어 **OnPremisesDB** 데이터베이스 및 **테이블**을 확장합니다.
+
+6. **hybridService1.TodoItems** 테이블을 마우스 오른쪽 단추로 클릭하고 **상위 1000개의 행 선택**을 선택하여 결과를 봅니다.
 
 	하이브리드 연결을 사용하여 클라이언트 앱에서 생성된 변경 내용을 온-프레미스 데이터베이스의 모바일 앱 백 엔드에 저장합니다.
 
@@ -164,4 +162,4 @@
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="11/17/2015"
 	ms.author="heidist"/>
 
 # REST API를 사용하여 Azure 검색으로 데이터 가져오기
@@ -25,37 +25,63 @@
 - [REST](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-이 문서는 [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 사용하여 인덱스를 채우는 방법을 보여줍니다. 아래 콘텐츠 중 일부는 [문서 추가, 업데이트 또는 삭제](Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx)에서 가져온 것입니다. 자세한 컨텍스트에 대해서는 부모 문서를 참조하세요.
+이 문서는 [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 사용하여 인덱스를 채우는 방법을 보여줍니다. 아래 콘텐츠 중 일부는 [문서 추가, 업데이트 또는 삭제(Azure 검색 REST API)](https://msdn.microsoft.com/library/azure/dn798930.aspx)에서 가져온 것입니다. 자세한 컨텍스트에 대해서는 부모 문서를 참조하세요.
 
-가져오기 필수 구성 요소에는 데이터를 수신하는 장소에 이미 기존 인덱스를 포함시키는 것입니다.
+REST API를 사용하여 인덱스에 문서를 푸시하기 위해 서비스의 URL 끝점에 HTTP POST 요청을 발급합니다.
 
-REST API를 사용하면 데이터 수집은 Put 또는 POST HTTP 요청을 기반으로 합니다. 코드 조각은 [프로필 샘플 점수 매기기](search-get-started-scoring-profiles.md)에서 가져온 것입니다.
+**요청 및 요청 헤더**:
 
-        static bool PostDocuments(string fileName)
-        {
-            // Add some documents to the newly created index
-            Uri requestUri = new Uri(serviceUrl + indexName + "/docs/index?" + ApiVersion);
+URL에서 서비스 이름 뿐만 아니라 적절한 API 버전을 제공해야 합니다.(이 문서를 게시할 때 현재 API 버전은 "2015-02-28"임)
 
-            // Load the json containing the data from an external file
-            string json = File.ReadAllText(fileName);
+요청 헤더에서 콘텐츠 형식을 정의하고 서비스의 기본 관리자 키를 제공해야 합니다.
 
-            using (HttpClient client = new HttpClient())
-            {
-                // Create the index
-                client.DefaultRequestHeaders.Add("api-key", primaryKey);
-                HttpResponseMessage response = client.PostAsync(requestUri,       // To add data use POST
-                    new StringContent(json, Encoding.UTF8, "application/json")).Result;
+	POST https://[servicename].search.windows.net/indexes/[indexname]/docs/index?api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key]
 
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    Console.WriteLine("Documents posted from file {0}. \r\n", fileName);
-                    return true;
-                }
 
-                Console.WriteLine("Documents failed to upload: {0} {1} \r\n", (int)response.StatusCode, response.Content.ReadAsStringAsync().Result.ToString());
-                return false;
+**요청 본문**:
 
-            }
-        }
 
-<!---HONumber=Nov15_HO3-->
+	{
+		"value": [
+			{
+				"@search.action": "upload",
+				"hotelId": "1",
+				"baseRate": 199.0,
+				"description": "Best hotel in town",
+				"description_fr": "Meilleur hôtel en ville",
+				"hotelName": "Fancy Stay",
+				"category": "Luxury",
+				"tags": ["pool", "view", "wifi", "concierge"],
+				"parkingIncluded": false,
+				"smokingAllowed": false,
+				"lastRenovationDate": "2010-06-27T00:00:00Z",
+				"rating": 5,
+				"location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+			},
+			{
+				"@search.action": "upload",
+				"hotelId": "2",
+				"baseRate": 79.99,
+				"description": "Cheapest hotel in town",
+				"description_fr": "Hôtel le moins cher en ville",
+				"hotelName": "Roach Motel",
+				"category": "Budget",
+				"tags": ["motel", "budget"],
+				"parkingIncluded": true,
+				"smokingAllowed": true,
+				"lastRenovationDate": "1982-04-28T00:00:00Z",
+				"rating": 1,
+				"location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+			}
+		]
+	}
+
+이 경우 "업로드"를 검색 작업으로 사용합니다. 기존 문서를 업데이트 및 삭제하는 경우 "병합", "mergeOrUpload" 및 "삭제"를 사용할 수 있습니다.
+
+인덱스를 업데이트할 때 성공한 경우 "200 확인"이라는 상태 코드를 받습니다. 요청에 하나 이상의 항목이 성공적으로 인덱싱되지 않은 경우 "207" 상태 코드를 받습니다.
+
+문서 동작 및 성공/오류 응답에 대한 자세한 내용은 [이 페이지](https://msdn.microsoft.com/library/azure/dn798930.aspx)를 참조하세요.
+
+<!---HONumber=Nov15_HO4-->

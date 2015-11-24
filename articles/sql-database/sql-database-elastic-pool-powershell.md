@@ -1,7 +1,8 @@
 <properties 
-    pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 | Microsoft Azure" 
-    description="탄력적 데이터베이스 풀을 만들어서 여러 Azure SQL 데이터베이스에 대해 리소스를 공유합니다." 
-    services="sql-database" 
+    pageTitle="탄력적 데이터베이스 풀을 사용하여 리소스 확장 | Microsoft Azure" 
+    description="PowerShell을 사용하여 여러 데이터베이스를 관리하도록 탄력적 데이터베이스 풀을 만들어 Azure SQL 데이터베이스 리소스를 확장하는 방법에 대해 알아봅니다." 
+	keywords="여러 데이터베이스, 확장"    
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
@@ -16,17 +17,18 @@
     ms.date="11/06/2015"
     ms.author="adamkr; sstein"/>
 
-# PowerShell을 사용한 탄력적 데이터베이스 풀 만들기
+# 여러 SQL 데이터베이스에 대해 리소스를 확장하도록 PowerShell을 사용한 탄력적 데이터베이스 풀 만들기 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-
-이 문서에서는 PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여 줍니다.
+PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만들어 여러 데이터베이스를 관리하는 방법에 대해 알아봅니다.
 
 > [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server.md)를 할 수 있습니다.
+
+탄력적 데이터베이스 풀을 사용하면 여러 SQL 데이터베이스에 걸친 데이터베이스 리소스 및 관리를 확장할 수 있습니다.
 
 이 문서에서는 Azure 구독을 제외하고 (V12 서버를 포함하여) 탄력적 데이터베이스 풀을 만들고 구성하는 데 필요한 모든 항목을 만드는 방법을 보여 줍니다. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
 
@@ -60,7 +62,7 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
 
 ## 리소스 그룹, 서버, 방화벽 규칙 만들기
 
-이제 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 탄력적 데이터베이스 풀을 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations**를 실행하여 유효한 위치의 목록을 가져옵니다.
+이제 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 탄력적 데이터베이스 풀을 여러 데이터베이스를 포함하도록 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations**를 실행하여 유효한 위치의 목록을 가져옵니다.
 
 이미 리소스 그룹이 있다면 다음 단계로 진행하거나, 아래 명령을 실행하여 새 리소스 그룹을 만들 수 있습니다.
 
@@ -129,6 +131,8 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
 
 
 ## 탄력적 데이터베이스 및 탄력적 데이터베이스 풀 모니터링
+탄력적 데이터베이스 풀은 여러 데이터베이스를 관리하는 노력을 확장할 수 있도록 돕는 메트릭 보고서를 제공합니다.
+
 
 ### 탄력적 데이터베이스 풀 관련 작업 상태 확인
 
@@ -232,4 +236,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

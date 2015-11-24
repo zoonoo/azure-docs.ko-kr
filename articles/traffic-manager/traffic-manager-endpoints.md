@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 끝점 추가, 사용 안 함, 사용 또는 삭제
@@ -62,20 +62,17 @@ Azure 앱 서비스의 웹앱은 웹 사이트 모드에 관계없이 데이터 
 
 >[AZURE.NOTE]Azure 포털을 사용하여 외부 위치나 트래픽 관리자 프로필을 끝점으로 삭제할 수 없습니다. Windows PowerShell을 사용해야 합니다. 자세한 내용은 [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx)를 참조하세요.
 
-## 추가 리소스
+## 다음 단계
 
-[트래픽 관리자 개요](traffic-manager-overview.md)
 
-[트래픽 관리자 모니터링 정보](traffic-manager-monitoring.md)
+[장애 조치(Failover) 라우팅 방법 구성](traffic-manager-configure-failover-routing-method.md)
 
-[트래픽 관리자 - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
+[라운드 로빈 라우팅 방법 구성](traffic-manager-configure-round-robin-routing-method.md)
 
-[트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
+[성능 라우팅 방법 구성](traffic-manager-configure-performance-routing-method.md)
+
+[트래픽 관리자 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)
 
 [트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[클라우드 서비스](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

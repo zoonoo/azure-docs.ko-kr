@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # 알림 허브 시작
@@ -331,4 +331,4 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

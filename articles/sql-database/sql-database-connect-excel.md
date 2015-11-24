@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Excel을 사용하여 Azure SQL 데이터베이스에 연결"
-	description="보고 및 데이터 탐색을 위한 Azure SQL 데이터베이스에 대한 Excel 스프레드시트입니다."
+	pageTitle="SQL 데이터베이스에 Excel 연결 | Microsoft Azure"
+	description="Microsoft Excel을 클라우드의 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다. 보고 및 데이터 탐색을 위해 Excel로 데이터를 가져옵니다."
 	services="sql-database"
+	keywords="SQL에 Excel 연결, Excel로 데이터 가져오기"
 	documentationCenter=""
 	authors="joseidz"
 	manager="jeffreyg"
@@ -18,24 +19,26 @@
 	ms.author="joseidz"/>
 
 
-# Excel을 사용하여 Azure SQL 데이터베이스에 연결
+# Azure SQL 데이터베이스에 Excel 연결 및 보고서 만들기 
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-이 문서는 Excel을 Azure SQL 데이터베이스에 연결하고 데이터베이스의 데이터에 대해 보고서를 만드는 방법을 보여줍니다. 먼저 SQL 데이터베이스가 필요합니다. SQL 데이터베이스가 없다면 [첫 번째 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 몇 분 내에 샘플 데이터와 함께 실행되는 데이터베이스를 가져옵니다. 이 문서는 해당 문서의 예제 데이터를 기반으로 하지만 고유의 데이터에서 비슷한 단계를 따를 수 있습니다.
+데이터를 Excel로 가져오기 위해 Excel을 SQL 데이터베이스에 연결하는 방법을 알아봅니다. 그런 다음, 데이터에 대한 보고서를 만듭니다.
+
+먼저 SQL 데이터베이스가 필요합니다. SQL 데이터베이스가 없다면 [첫 번째 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 몇 분 내에 샘플 데이터와 함께 실행되는 데이터베이스를 가져옵니다. 이 문서에서는 해당 문서에서 샘플 데이터를 Excel에 가져오지만 고유의 데이터에서 비슷한 단계를 따를 수 있습니다.
 
 또한 Excel의 사본이 필요합니다. 이 문서는 [Microsoft Excel 2016](https://products.office.com/ko-KR/)를 사용합니다.
 
-## 연결 및 보고서 만들기
+## SQL 데이터베이스에 Excel 연결 및 보고서 만들기
 
-1.	Excel을 열고 새 통합 문서를 만들거나 연결하려는 통합 문서를 엽니다.
+1.	Excel을 SQL 데이터베이스에 연결하려면 Excel을 연 다음 새 통합 문서를 만듭니다. 또는 SQL 데이터베이스에 연결하려는 기존 Excel 통합 문서를 엽니다.
 
 2.	페이지 위쪽에 있는 메뉴 모음에서 **데이터**, **기타 원본에서** 및 **SQL Server에서**를 차례로 클릭합니다.
-	
-	![데이터 원본 선택](./media/sql-database-connect-excel/excel_data_source.png)
+
+	![데이터 원본 선택: SQL 데이터베이스에 Excel을 연결합니다.](./media/sql-database-connect-excel/excel_data_source.png)
 
 	데이터 연결 마법사가 열립니다.
 
@@ -51,17 +54,17 @@
 
 6. **데이터 연결 파일 저장 및 마침** 대화 상자에서 **마침**을 클릭합니다.
 
-7. **데이터 가져오기** 대화 상자에서 **피벗 차트**를 선택하고 **확인**을 클릭합니다.
+7. **데이터 가져오기** 대화 상자에서 **PivotChart**를 선택하고 **확인**을 클릭합니다.
 
-	![데이터 가져오기 선택][2]
+	![Excel로 데이터 가져오기: 데이터 대화 상자에서 PivotChart를 선택합니다.][2]
 
-8. **피벗 차트 필드** 대화 상자에서 다음 구성을 선택하여 범주별 제품 수에 대한 보고서를 만듭니다.
+8. **PivotChart 필드** 대화 상자에서 다음 구성을 선택하여 범주별 제품 수에 대한 보고서를 만듭니다.
 
-	![구성][3]
+	![데이터베이스 보고서를 구성합니다.][3]
 
 	성공 시 다음과 같이 표시됩니다.
 
-	![성공][4]
+	![성공: SQL 데이터베이스에 Excel을 연결합니다.][4]
 
 ## 다음 단계
 
@@ -74,4 +77,4 @@ SaaS(Software as a Service) 개발자인 경우 [탄력적 데이터베이스 �
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
