@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Android 앱용 Application Insights | Microsoft Azure"
-    description="Application Insights를 사용하여 Android 앱의 사용 현황 및 성능을 분석할 수 있습니다."
+    pageTitle="Android 앱에 대한 분석 | Microsoft Azure"
+    description="Android 앱의 사용 현황 및 성능을 분석할 수 있습니다."
     services="application-insights"
     documentationCenter="android"
     authors="alancameronwills"
-    manager="ronmart"/>
+    manager="douge"/>
 
 <tags
     ms.service="application-insights"
@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="04/28/2015"
+	ms.date="11/14/2015"
     ms.author="awills"/>
 
-# Android 앱용 Application Insights
+# Android 앱에 대한 분석
 
 Visual Studio Application Insights를 사용하여 모바일 응용 프로그램의 사용 현황, 이벤트 및 충돌을 모니터링할 수 있습니다.
+
+> [AZURE.NOTE]크래시 보고, 분석, 배포 및 피드백 관리를 가져오는 데 [HockeyApp](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)를 사용하는 것이 좋습니다.
 
 ## 요구 사항
 
@@ -35,69 +37,9 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 열리는 블레이드에서 앱의 성능 및 사용 데이터를 볼 수 있습니다. 다음에 Azure에 로그인할 때 다시 이 블레이드로 돌아가려면 시작 화면에서 해당 타일을 찾아야 합니다. 또는 찾아보기를 클릭하여 찾아야 합니다.
 
-## Android Studio에 Application Insights 설치
+## 설정
 
-(아직 설치하지 않은 경우)
-
-1.  Android Studio를 시작하고 플러그 인을 구성합니다.
-
-    ![구성 선택](./media/app-insights-android/01-configure.png)
-
-2.  Application Insights Android Studio 플러그 인을 선택하여 설치합니다.
-
-    ![플러그인 선택](./media/app-insights-android/03-select-plugin.png)
-
-## <a name="sdk"></a>응용 프로그램에 SDK를 설치합니다.
-
-
-1.  **도구** > **Application Insights SDK 통합**을 선택합니다.
-
-    ![Application Insights 통합](./media/app-insights-android/04-tools-integrate.png)
-
-3.  구독에서 구성 요소를 만듭니다.
-
-    ![구성 요소 만들기](./media/app-insights-android/07-create-component.png)
-
-    Application Insights 리소스에서 얻은 계측 키를 사용합니다.
-
-4.  gradle을 동기화하여 SDK를 다운로드하고 프로젝트와 통합합니다
-
-    ![gradle 파일을 동기화하여 SDK 다운로드](./media/app-insights-android/08-successful-integration.png)
-
-    추가 정보는 [사용 현황 페이지](http://go.microsoft.com/fwlink/?LinkID=533220)에서 확인할 수 있습니다.
-
-이 시점에서 다음 참조가 모듈 build.gradle에 추가되고 `INTERNET` 및 `ACCESS_NETWORK_STATE`에 대한 권한과 구성 요소의 계측 키를 포함하는 메타데이터 태그가 모듈의 `AndroidManifest.xml`에 추가되었습니다.
-
-```java
-
-    dependencies {
-    compile 'com.microsoft.azure:applicationinsights-android:+'
-    }
-```
-
-```xml
-
-    <manifest>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <application>
-        <meta-data
-            android:name="com.microsoft.applicationinsights.instrumentationKey"
-            android:value="${AI_INSTRUMENTATION_KEY}" />
-    </application>
-    </manifest>
-```
-
-#### 선택 사항: 코드에서 계측 키 설정
-
-코드에서 계측 키를 설정할 수도 있습니다. 이 방법은 `AndroidManifest.xml`에서 설정한 계측 키를 재정의합니다.
-
-```java
-
-    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
-    ApplicationInsights.start();
-```
+[설치 가이드](https://github.com/Microsoft/ApplicationInsights-Android#-3-setup)를 수행합니다.
 
 
 ## SDK 사용
@@ -197,4 +139,4 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

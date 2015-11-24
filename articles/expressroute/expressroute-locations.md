@@ -44,7 +44,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |**지역**|**Azure 지역**|**Express 경로 위치**|
 |---|---|---|---|
 |**미국 정부 클라우드**|미국 정부|아이오와, 버지니아|애슈번, 시카고|
-|**중국 클라우드**|중국|동쪽, 북쪽|
+|**중국 클라우드**|중국|베이징, 상하이|
 
 
 지정학적 지역에 걸친 연결은 표준 Express 경로 SKU에서 지원되지 않습니다. 전역 연결을 지원하려면 Express 경로 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 국가별 클라우드 환경에 대한 연결은 지원되지 않습니다. 이러한 요구가 발생할 경우 연결 공급자와 함께 작업할 수 있습니다.
@@ -57,7 +57,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **서비스 공급자** |**Microsoft Azure** | **Office 365** | **위치** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | 지원됨 | 지원됨 | 암스테르담, 실리콘밸리, 싱가포르, 워싱턴 DC |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원됨 | 암스테르담, 런던+, 댈러스, 실리콘밸리, 워싱턴 DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원됨 | 암스테르담, 런던, 댈러스, 실리콘밸리, 워싱턴 DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 지원됨 | 지원됨 | 암스테르담, 런던, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
 |**China Telecom Global** | 서비스 예정 | 지원되지 않음 | 홍콩+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던 |
@@ -67,7 +67,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | 지원됨 | 지원되지 않음 | 도쿄 |
 | **[InterCloud](https://www.intercloud.com/)** | 지원됨 | 지원됨 | 암스테르담, 런던, 싱가포르, 워싱턴 DC |
 | **Internet Solutions - 클라우드 연결** | 지원됨 | 지원됨 | 암스테르담, 런던 |
-| **Interxion** | 지원됨 | 지원되지 않음 | 암스테르담 |
+| **Interxion** | 지원됨 | 지원됨 | 암스테르담 |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 지원되지 않음 | 암스테르담, 시카고, 댈러스, 런던, 시애틀, 실리콘밸리, 워싱턴 DC |
 | **Megaport** | 지원됨 | 지원되지 않음 | 멜버른, 시드니 |
 | **MTN** | 지원됨 | 지원되지 않음 | 런던 |
@@ -137,4 +137,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

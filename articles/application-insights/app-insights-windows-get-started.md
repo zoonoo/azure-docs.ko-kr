@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Windows Phone 및 스토어 앱용 Application Insights | Microsoft Azure"
-	description="Application Insights를 사용하여 Windows 장치 앱의 사용량 및 성능을 분석합니다."
+	pageTitle="Windows Phone 및 스토어 앱에 대한 분석 | Microsoft Azure"
+	description="Windows 장치 앱의 사용량 및 성능을 분석합니다."
 	services="application-insights"
     documentationCenter="windows"
 	authors="alancameronwills"
@@ -12,92 +12,45 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/16/2015"
+	ms.date="11/11/2015"
 	ms.author="awills"/>
 
-# Windows Phone 및 스토어 앱용 Application Insights
+# Windows Phone 및 스토어 앱에 대한 분석
 
-*Application Insights는 미리 보기 상태입니다.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Visual Studio Application Insights를 사용하면 다음을 위해 게시된 응용 프로그램을 모니터링할 수 있습니다.
+Visual Studio Application Insights를 사용하면 게시된 응용 프로그램의 사용량 및 성능을 모니터링할 수 있습니다.
 
-* [**사용량**][windowsUsage]&#151;사용자 수 및 사용자가 무엇에 앱을 사용하는지 알아봅니다.
-* [**충돌**][windowsCrash]&#151;충돌에 대한 진단 보고서를 가져오고 사용자에 대한 영향을 알아봅니다.
+
+> [AZURE.NOTE]크래시 보고, 분석, 배포 및 피드백 관리를 가져오는 데 [HockeyApp](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-store-apps-and-windows-phone-store-apps)를 사용하는 것이 좋습니다.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
-많은 응용 프로그램의 경우 대부분 공지 없이 [Visual Studio가 앱에 Application Insights를 추가할 수 있습니다](#ide). 하지만 무슨 일인지 더 잘 이해하기 위해 본 문서를 읽어 보면 수동으로 단계가 안내됩니다.
+
+## Windows 장치 프로젝트에 대한 Application Insights 설정
 
 필요한 사항:
 
 * [Microsoft Azure][azure] 구독.
 * Visual Studio 2013 이상.
 
-## 1\. Application Insights 리소스 만들기
+**C++ UAP 앱** - [Application Insights C++ 설치 가이드](https://github.com/Microsoft/ApplicationInsights-CPP)를 참조하세요.
 
-[Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다.
+### <a name="new"></a>새 Windows 앱 프로젝트를 만드는 경우...
 
-![새로 만들기, 개발자 서비스, Application Insights 선택](./media/app-insights-windows-get-started/01-new.png)
+**새 프로젝트** 대화 상자에서 **Application Insights**를 선택합니다.
 
-Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소스는 사용자에게 분석 및 제공되는 앱의 원격 분석을 하는 곳입니다.
+로그인이 요청되면 자신의 Azure 계정에 대한 자격 증명을 사용합니다.
 
-#### 계측 키 복사
-
-키는 리소스를 식별합니다. 리소스에 데이터를 보내도록 SDK를 구성하려면 키가 필요합니다.
-
-![필수 항목 드롭다운 서랍을 열고 계측 키를 선택합니다.](./media/app-insights-windows-get-started/02-props.png)
+![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
 
-## 2\. 앱에 Application Insights SDK 추가
+### <a name="existing"></a>또는 기존 프로젝트의 경우...
 
-Visual Studio에서 프로젝트에 적합한 SDK를 추가합니다.
+솔루션 탐색기에서 Application Insights를 추가합니다.
 
-Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두에 대해 단계를 반복합니다.
 
-1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-
-    ![](./media/app-insights-windows-get-started/03-nuget.png)
-
-2. "Application Insights"를 검색합니다.
-
-    ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
-
-3. **Windows 응용 프로그램용 Application Insights**를 선택합니다.
-
-4. ApplicationInsights.config 파일을 프로젝트의 루트에 추가하고 포털에서 복사한 계측 키를 삽입합니다. 이 구성파일에 대한 샘플 xml는 아래와 같습니다.
-
-	```xml
-
-		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings>
-			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
-		</ApplicationInsights>
-	```
-
-    ApplicationInsights.config 파일의 속성 설정: **빌드 작업** == **콘텐츠** 및 **출력 디렉터리로 복사** == **항상 복사**
-
-	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
-
-5. 다음 초기화 코드를 추가합니다. 이 코드를 `App()` 생성자에 추가하는 것이 좋습니다. 다른 곳에서 추가하면 첫번째 pageviews의 자동 컬렉션을 누락할 수 있습니다.
-
-```C#
-
-    using Microsoft.ApplicationInsights;
-    ...
-
-	public App()
-	{
-	   // Add this initilization line.
-	   WindowsAppInitializer.InitializeAsync();
-
-	   this.InitializeComponent();
-	   this.Suspending += OnSuspending;
-	}  
-```
-
-**Windows 유니버설 앱**: Phone 및 스토어 프로젝트 모두에 대해 단계를 반복합니다. [Windows 8.1 유니버설 앱의 예](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
+![](./media/app-insights-windows-get-started/appinsights-d22-add.png) **Windows 유니버설 앱**: 휴대폰 및 스토어 프로젝트 모두에 반복합니다. [Windows 8.1 유니버설 앱의 예](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. 앱에 대한 네트워크 액세스 설정
 
@@ -122,7 +75,7 @@ Visual Studio에 수신된 이벤트의 수가 표시됩니다.
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-windows-get-started/appinsights-26-devices-01.png)
 
-더 많은 데이터를 원하는 경우 몇 초 후에 **새로고침**을 클릭합니다.
+더 많은 데이터를 기대하는 경우 몇 초 후에 **새로 고침**을 클릭합니다.
 
 보다 자세한 정보를 확인하려면 원하는 차트를 클릭합니다.
 
@@ -176,25 +129,7 @@ Application Insights SDK는 앱의 서로 다른 유형의 데이터를 자동�
 * [진단 검색에 대해 알아보기][diagnostic]
 
 
-## <a name="ide"></a>자동화된 설치
 
-Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Windows 스토어 및 기타 다양한 앱을 사용할 수 있습니다.
-
-### <a name="new"></a>새 Windows 앱 프로젝트를 만드는 경우...
-
-**새 프로젝트** 대화 상자에서 **Application Insights**를 선택합니다.
-
-로그인이 요청되면 자신의 Azure 계정에 대한 자격 증명을 사용합니다.
-
-![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
-
-
-### <a name="existing"></a>또는 기존 프로젝트의 경우...
-
-솔루션 탐색기에서 Application Insights를 추가합니다.
-
-
-![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
 
 ## SDK의 새 릴리스로 업그레이드
 
@@ -232,4 +167,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

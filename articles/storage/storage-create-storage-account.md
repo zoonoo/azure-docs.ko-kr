@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/12/2015"
 	ms.author="tamram"/>
 
 
@@ -47,7 +47,7 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 
 1. [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
 
-2. **새로 만들기**, **저장소**, **빠른 생성**을 차례로 클릭합니다.
+2. 페이지 아래쪽의 작업 표시줄에서 **새로 만들기**를 클릭합니다. **데이터 서비스** | **저장소**를 선택한 다음 **빠른 생성**을 클릭합니다.
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
@@ -171,4 +171,4 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

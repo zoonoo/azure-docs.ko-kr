@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="11/10/2015"
    ms.author="bwren" />
 
 # Azure 자동화 구성
@@ -52,6 +52,33 @@ Azure 계정에 지불 연체와 같은 문제가 있는 경우 자동화 계정
 10. Azure에서 로그한 다음 방금 만든 계정으로 다시 로그인합니다. 사용자의 암호를 변경하라는 메시지가 표시됩니다.
 11. 만든 사용자 계정에 대한 새 [Azure 자동화 자격 증명 자산](http://msdn.microsoft.com/library/dn940015.aspx)을 만듭니다. **자격 증명 형식**은 **Windows PowerShell 자격 증명**이어야 합니다.
 
+## 자동화 계정 만들기
+
+자동화 계정은 Azure 자동화 리소스에 대한 컨테이너입니다. 환경을 분리하거나 워크플로를 추가로 구성하는 방법을 제공합니다. 자동화 계정을 이미 만든 경우 이 단계를 건너뛸 수 있습니다.
+
+1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
+
+2. Azure Preview 포털에서 **새로 만들기** > **관리** > **자동화 계정**을 클릭합니다.
+
+3. **자동화 계정 추가** 블레이드에서 자동화 계정 세부 정보를 구성합니다.
+
+>[AZURE.NOTE]Azure Preview 포털을 사용하여 자동화 계정이 만들어지면 계정과 연결된 모든 리소스가 다시 클래식 관리 포털로 돌아가지 않습니다.
+
+아래는 구성할 매개 변수의 목록입니다.
+
+|매개 변수 |설명 |
+|:---|:---|
+| 이름 | 사용자의 자동화 계정 이름은 고유한 값이어야 합니다. |
+| 리소스 그룹 | 리소스 그룹을 사용하면 관련된 Azure 리소스를 간단하게 확인하고 관리할 수 있습니다. Azure Preview 포털에서 기존 리소스 그룹을 선택하거나 자동화 계정에 새로운 리소스 그룹을 만들 수 있는 반면 Azure 관리 포털에서 모든 자동화 계정은 기본 리소스 그룹에 위치할 수 있습니다. |
+| 구독 | 사용 가능한 구독 목록에서 구독을 선택합니다. |
+| 지역 | 지역은 계정의 자동화 리소스가 저장되는 위치를 지정합니다. 목록에서 지역을 선택할 수 있습니다. 계정의 기능에는 영향을 주지 않지만 계정 지역이 다른 Azure 리소스가 저장되는 곳과 가까이 있는 경우 Runbook을 더 빠르게 실행할 수 있습니다. |
+| 계정 옵션 | 이 옵션을 사용하면 새 자동화 계정에 만들 리소스를 선택할 수 있습니다. **예**를 선택하면 자습서 runbook을 만듭니다. |
+
+![계정 만들기](media/automation-configuration/automation-01-create-automation-account.png)
+
+>[AZURE.NOTE]클래식 관리 포털을 사용하여 생성된 자동화 계정이 Azure Preview 포털을 사용하여 [다른 리소스 그룹으로 이동](../resource-group-move-resources.md)할 때 클래식 관리 포털에서 Azure 리소스 관리자 계정이 지원되지 않는 것처럼 자동화 계정은 더이상 Azure 클래식 포털에서 사용할 수 없습니다.
+
+
 
 ## Runbook에서 자격 증명 사용
 
@@ -67,4 +94,4 @@ Runbook의 모든 [검사점](http://technet.microsoft.com/library/dn469257.aspx
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="11/18/2015"
 	ms.author="glenga"/>
 
 
 #HTML 앱 만들기
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+
+>[AZURE.IMPORTANT]Azure 포털에서 HTML/JavaScript 앱에 대한 빠른 시작이 일시적으로 제거되었기 때문에 이 항목은 현재 모바일 앱에서 지원되지 않습니다. 가까운 미래에 다시 적용할 예정입니다. 모바일 앱 미리 보기를 완료하도록 기다려 주셔서 감사합니다.
 
 ##개요
 
-이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 HTML5/JavaScript 웹앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 새 모바일 앱 백 엔드와 앱 데이터를 Azure에 저장하는 간단한 *할 일 모음* 웹앱을 만듭니다.
+이 자습서에서는 HTML5/JavaScript 웹앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 자세한 내용은 [모바일 앱 정의](app-service-mobile-value-prop.md)를 참조하세요.
 
 완성된 앱의 스크린샷은 다음과 같습니다.
 
@@ -121,4 +121,4 @@ CORS(크로스-원본 리소스 공유)는 웹 기반 앱이 어느 도메인 �
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

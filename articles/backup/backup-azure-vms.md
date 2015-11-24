@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Azure 가상 컴퓨터 백업 | Microsoft Azure"
-	description="Azure 가상 컴퓨터를 백업하기 위한 절차"
+	description="Azure 가상 컴퓨터 백업에 대한 이 절차를 사용하여 가상 컴퓨터 검색, 등록 및 백업합니다."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="가상 컴퓨터 백업; 가상 컴퓨터 백업 백업; 백업 및 재해 복구"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/29/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
 # Azure 가상 컴퓨터 백업
-이 문서 기존 Azure 가상 컴퓨터를 백업하기 위한 절차를 제공하여 귀사의 백업 및 보존 정책에 따라 보호합니다.
+이 문서 기존 Azure 가상 컴퓨터를 백업하는 방법에 대한 절차를 제공하여 귀사의 백업 및 재해 복구 정책에 따라 VM을 보호합니다.
 
 우선 Azure 가상 컴퓨터를 백업하기 전에 몇 가지 주의 사항이 있습니다. 아직 수행하지 않은 경우 계속 진행하기 전에 [필수 구성 요소](backup-azure-vms-prepare.md)를 완료하여 VM 백업에 대한 환경을 준비합니다.
 
@@ -26,7 +27,7 @@
 
 Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
-![Azure 가상 컴퓨터를 백업하는 세 단계](./media/backup-azure-vms/3-steps-for-backup.png)
+![Azure IaaS VM를 백업하는 세 단계](./media/backup-azure-vms/3-steps-for-backup.png)
 
 >[AZURE.NOTE]가상 컴퓨터 백업은 로컬입니다. 한 지역에서 다른 지역의 백업 자격 증명 모음에 가상 컴퓨터를 백업할 수 없습니다. 따라서 백업이 필요한 VM이 있는 모든 Azure 지역의 경우, 해당 지역에 1개 이상의 백업 저장소가 만들어져야 합니다.
 
@@ -153,7 +154,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
 대시보드의 값은 24시간마다 한 번 새로 고쳐집니다.
 
-## 문제 해결
+## 문제 해결 오류
 가상 컴퓨터를 백업하는 동안 문제를 실행하는 경우 도움말은 이 [문제해결](backup-azure-vms-troubleshoot.md) 지침을 살펴봅니다.
 
 ## 다음 단계
@@ -161,4 +162,4 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 - [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="SQL 메모리 내 시작 | Microsoft Azure"
+	pageTitle="SQL 메모리 내, 시작 | Microsoft Azure"
 	description="SQL 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다. 이러한 기술을 활용하는 방법을 알아봅니다."
 	services="sql-database"
 	documentationCenter=""
@@ -14,54 +14,99 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
 
-# 메모리 내 시작(미리 보기)
+# SQL 데이터베이스에서 메모리 내 시작(미리 보기)
+
+일반 SQL 테이블만 하드 드라이브에 저장됩니다. 메모리 내 기능을 사용하여 서버에서 실행되는 동안 테이블을 강화하여 활성 메모리에 상주할 수 있습니다.
 
 
-SQL 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다. 워크로드에 따라 메모리 내 OLTP은 트랜잭션 처리량이 30배까지 향상될 수 있고 메모리 내 분석은 쿼리 성능이 100배까지 향상될 수 있습니다. 실시간 분석으로 이러한 기술을 결합하여 운영 데이터를 기반으로 실시간 비즈니스 상태를 얻을 수 있습니다.
+메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다.
 
-메모리 내 분석은 일반적으로 Azure DB에서 사용 가능합니다. 메모리 내 OLTP 및 실시간 운영 성과 분석은 프리미엄 Azure SQL 데이터베이스에 대한 미리 보기에 있습니다.
+- 메모리 내 OLTP(온라인 트랜잭션 처리)를 사용하여 작업의 세부 사항에 따라 최대 30배의 트랜잭션 처리량을 얻을 수 있습니다.
+ - 메모리 최적화된 테이블.
+ - 고유하게 컴파일된 저장 프로시저.
 
-
-## 시작
-
-트랜잭션 워크로드에 대한 메모리 내 OLTP를 시도합니다.
-
-
-- [메모리 내 OLTP 샘플 설치](#install-the-in-memory-oltp-sample).
-- [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용.](sql-database-in-memory-oltp-migration.md)
-- [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
+- 메모리 내 분석을 사용하여 최대 100배의 쿼리 성능 향상을 얻을 수 있습니다.
+ - columnstore 인덱스.
 
 
-분석 워크로드에 대한 메모리 내 분석을 시도합니다.
+[실시간 분석](http://msdn.microsoft.com/library/dn817827.aspx)의 경우 이러한 기술을 결합하여 다음을 얻습니다.
 
-- [메모리 내 분석 샘플을 설치합니다.](#install-the-in-memory-analytics-sample)
-- MSDN에서 [Columnstore 인덱스](https://msdn.microsoft.com/library/gg492088.aspx)에 대해 자세히 알아봅니다.
-
-
-## 메모리 내 OLTP 샘플 설치
-
-Azure Preview 포털에서 몇 번 클릭으로 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그러면 다음 단계에서는 메모리 내 OLTP 개체를 설명하기 위해 AdventureWorksLT 데이터베이스, 테이블 및 고유하게 컴파일된 저장 프로시저를 보강하는 방법을 설명합니다.
+- 운영 데이터 기반 실시간 비즈니스 통찰력.
+- 빠른 OLTP 속도.
 
 
-1. [Azure Preview 포털](https://portal.azure.com/)에서 V12 서버의 Premium 데이터베이스를 만듭니다. AdventureWorksLT [V12] 샘플 데이터베이스에 소스를 설정합니다.
- - 이 단계에 대한 자세한 지침은 [이 문서](sql-database-get-started.md)를 참조하세요.
-
-2. [SQL Server Management Studio(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx) 또는 유사한 유틸리티를 사용하여 데이터베이스에 연결합니다.
-
-3. [메모리 내 OLTP 스크립트](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_oltp_sample.sql)를 클립보드에 복사합니다.
- - 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
-
-4. SSMS.exe에 Transact-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다.
+#### Availability
 
 
+- *GA:* 메모리 내 분석은 GA(일반 공급)에 있습니다.
+- *미리 보기:* 메모리 내 OLTP 및 실시간 운영 성과 분석은 모두 미리 보기에 있습니다.
+ - 이러한 두 가지는 [프리미엄](sql-database-service-tiers.md) Azure SQL 데이터베이스에 대해서만 사용할 수 있습니다.
+
+
+#### OLTP 및 분석
+
+이 항목의 두 주요 섹션은 다음과 같습니다.
+
+- A. 메모리 내 [OLTP](#install_oltp_manuallink)는 읽기 및 쓰기를 포함합니다.
+- B. 메모리 내 [분석](#install_analytics_manuallink)은 읽기를 포함합니다.
+
+
+
+<a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 &nbsp;
 
-샘플은 다음 메모리에 최적화된 테이블을 포함합니다.
+## A. 메모리 내 OLTP 샘플 설치
+
+[Azure Preview 포털](http://portal.azure.com/)에서 몇 번 클릭으로 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 AdventureWorksLT 데이터베이스를 보강할 수는 방법을 설명합니다.
+
+- 메모리 내 테이블.
+- 고유하게 컴파일된 저장 프로시저.
+
+
+#### 설치 단계
+
+1. [Azure Preview 포털](http://portal.azure.com/)에서 V12 서버의 Premium 데이터베이스를 만듭니다. AdventureWorksLT [V12] 샘플 데이터베이스에 **소스**를 설정합니다.
+ - 자세한 지침은 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+
+2. SQL Server Management Studio[(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
+
+3. [메모리 내 OLTP Transact-SQL 스크립트](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_oltp_sample.sql)를 클립보드에 복사합니다.
+ - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
+
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다.
+ - 다음과 같은 `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다.
+
+
+```
+CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
+	[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
+	...
+) WITH (MEMORY_OPTIMIZED = ON);
+```
+
+
+#### 오류 40536
+
+
+T-SQL 스크립트를 실행할 때 오류 40536을 받게 되면 다음 T-SQL 스크립트를 실행하여 데이터베이스에서 메모리를 지원하는지 여부를 확인합니다.
+
+
+```
+SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
+```
+
+
+결과 **0**은 메모리 내가 지원되지 않음을 나타내고 1은 지원됨을 나타냅니다.
+
+
+#### 생성된 메모리 최적화된 항목에 대한 정보
+
+**테이블**: 샘플은 다음 메모리에 최적화된 테이블을 포함합니다.
 
 - SalesLT.Product\_inmem
 - SalesLT.SalesOrderHeader\_inmem
@@ -69,190 +114,382 @@ Azure Preview 포털에서 몇 번 클릭으로 AdventureWorksLT [V12] 샘플 �
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-개체 탐색기 또는 카탈로그 뷰 쿼리를 통해 메모리에 최적화된 테이블을 검사합니다.
 
-예제:
+다음으로 SSMS의 **개체 탐색기**를 통해 메모리 최적화된 테이블을 검사할 수 있습니다.
 
-
-```
-		SELECT name, object_id, type, type_desc, is_memory_optimized, durability, durability_desc
-		FROM sys.tables
-	WHERE is_memory_optimized=1;
-```
+- 마우스 오른쪽 단추로 **테이블** > **필터** > **필터 설정** > **메모리 최적화된**을 클릭하면 1과 같습니다.
 
 
-마찬가지로 고유하게 컴파일된 저장 프로시저 SalesLT.usp\_InsertSalesOrder\_inmem는 개체 탐색기 또는 카탈로그 뷰 쿼리를 통해 검사할 수 있습니다.
-
-예제:
+또는 다음과 같은 카탈로그 뷰를 쿼리할 수 있습니다.
 
 
 ```
-		SELECT object_name(object_id), object_id, definition, uses_native_compilation
-		FROM sys.sql_modules
-	WHERE uses_native_compilation=1;
+SELECT is_memory_optimized, name, type_desc, durability_desc
+	FROM sys.tables
+	WHERE is_memory_optimized = 1;
 ```
 
 
-## 샘플 워크로드 실행
-
-SalesLT.usp\_InsertSalesOrder\_inmem 및 SalesLT.usp\_InsertSalesOrder\_ondisk 저장 프로시저를 사용하여 메모리에 최적화된 테이블 대 디스크 기반 테이블의 삽입 성능을 비교합니다.
-
-샘플 데이터베이스와 동일한 Azure 지역에 있는 응용 프로그램에서 많은 동시 클라이언트 연결을 사용하여 워크로드를 실행하는 것이 좋습니다.
-
-### 샘플 판매 주문 삽입
-
-다음 스크립트는 메모리에 최적화된 테이블 SalesLT.SalesOrderHeader\_inmem 및 SalesLT.SalesOrderDetail\_inmem에 다섯 개의 항목과 샘플 판매 주문을 삽입합니다.
+**고유하게 컴파일된 저장 프로시저**: SalesLT.usp\_InsertSalesOrder\_inmem는 카탈로그 뷰 쿼리를 통해 검사할 수 있습니다.
 
 
 ```
-		DECLARE
-			@i int = 0,
-			@od SalesLT.SalesOrderDetailType_inmem,
-			@SalesOrderID int,
-			@DueDate datetime2 = sysdatetime(),
-			@CustomerID int = rand() * 8000,
-			@BillToAddressID int = rand() * 10000,
-			@ShipToAddressID int = rand() * 10000;
-
-		INSERT INTO @od
-		SELECT OrderQty, ProductID
-		FROM Demo.DemoSalesOrderDetailSeed
-		WHERE OrderID= cast((rand()*60) as int);
-
-EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate,
-			@CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
+	FROM sys.sql_modules
+	WHERE uses_native_compilation = 1;
 ```
 
 
-### 샘플 스트레스 워크로드 실행
+&nbsp;
 
-샘플 스트레스 워크로드를 실행하려면 샘플 데이터베이스와 동일한 지역에서 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)를 만듭니다. ostress의 명령줄 도구를 사용하여 워크로드를 실행합니다. [ostress 설치 및 실행](https://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)에 대한 지침은 MSDN에서 찾을 수 있습니다.
+## 샘플 OLTP 워크로드 실행
 
-RML Cmd 프롬프트에서 다음 명령을 실행할 때 다음 명령은 메모리에 최적화된 테이블에서 100개의 동시 연결을 사용하여 5개의 품목을 가진 백만 개의 판매 주문을 삽입합니다.
+다음 두 *저장 프로시저* 간의 유일한 차이점은 첫 번째 절차는 테이블의 메모리 최적화된 버전을 사용하는 반면 두 번째 절차에서는 일반 디스크상의 테이블을 사용한다는 점입니다.
 
-
-```
-		ostress.exe –n100 –r500 –S<servername>.database.windows.net -U<login> -P<password>
-		 -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem,
-		@SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
-		8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()*  
-		10000; INSERT INTO @od SELECT OrderQty, ProductID FROM
-		Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); while (@i <
-		 20) begin; EXEC SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate,
-		 @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1 end"
-```
+- SalesLT**.**usp\_InsertSalesOrder**\_inmem**
+- SalesLT**.**usp\_InsertSalesOrder**\_ondisk**
 
 
-<servername>를 서버 이름으로, <database>를 데이터베이스의 이름으로, <login> 및 <password>를 로그인 정보로 바꿔야 합니다.
-
-기존의 디스크 기반 테이블과 메모리에 최적화된 테이블의 삽입 성능의 비교하려면 다음 명령을 사용하여 디스크 기반 테이블에 동일한 백만 개의 판매 주문을 삽입합니다.
+이 섹션에는 편리한 **ostress.exe** 유틸리티를 사용하여 스트레스 수준에서 두 저장된 프로시저를 실행하는 방법을 살펴봅니다. 두 스트레스가 실행 완료하는 데 걸리는 시간을 비교할 수 있습니다.
 
 
-```
-		ostress.exe –n100 –r500 –S<servername>.database.windows.net -U<login> -P<password>
-		-d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_ondisk,
-		@SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
-		8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand() *
-		10000; INSERT INTO @od SELECT OrderQty, ProductID FROM
-		Demo.DemoSalesOrderDetailSeed with (snapshot) WHERE OrderID= cast((rand()*60) as
-		int); while (@i < 20) begin; EXEC SalesLT.usp_InsertSalesOrder_ondisk
-		@SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID,
-		@od; set @i += 1 end"
-```
+ostress.exe를 실행하는 경우 모두에게 설계된 매개 변수 값을 전달하는 것이 좋습니다.
+
+- -n100을 사용하여 많은 수의 동시 연결을 실행합니다.
+- -r500을 사용하여 각 연결 루프를 수백 번 가집니다.
 
 
-테스트는 데이터베이스와 동일한 Azure 지역에 있는 VM에서 실행되는 ostress를 사용하여 이 워크로드에 대해 디스크 기반 테이블에 비해 메모리에 최적화된 테이블이 약 9배의 성능 향상을 보여줍니다.
+그러나 모든 것이 작동하도록 -n10 및 -r50과 같은 훨씬 작은 값으로 시작하려고 할 수도 있습니다.
 
-각 테스트를 실행한 후에 메모리 내 저장소 공간 부족을 방지하기 위해 샘플을 다시 설정해야 합니다. 데이터베이스에서 다음 T-SQL 문을 실행합니다. 백만 개의 판매 주문을 삽입하는 단일 테스트 실행하면 메모리에 최적화된 테이블에서 >500MB의 데이터가 발생합니다.
+
+### ostress.exe에 대한 스크립트
+
+
+이 섹션에서는 ostress.exe 명령줄에 포함된 T-SQL 스크립트를 표시합니다. 스크립트는 이전에 설치한 T-SQL 스크립트에 의해 생성된 항목을 사용합니다.
+
+
+다음 스크립트는 다음과 같은 메모리 최적화된 *테이블*에 다섯 개의 항목으로 샘플 판매 주문을 삽입합니다.
+
+- SalesLT.SalesOrderHeader\_inmem
+- SalesLT.SalesOrderDetail\_inmem
 
 
 ```
+DECLARE
+	@i int = 0,
+	@od SalesLT.SalesOrderDetailType_inmem,
+	@SalesOrderID int,
+	@DueDate datetime2 = sysdatetime(),
+	@CustomerID int = rand() * 8000,
+	@BillToAddressID int = rand() * 10000,
+	@ShipToAddressID int = rand() * 10000;
+	
+INSERT INTO @od
+	SELECT OrderQty, ProductID
+	FROM Demo.DemoSalesOrderDetailSeed
+	WHERE OrderID= cast((rand()*60) as int);
+	
+EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
+	@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+```
+
+
+ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk*로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
+
+
+### RML 유틸리티 및 ostress 설치
+
+
+이상적으로 Azure VM에 ostress.exe를 실행합니다. AdventureWorksLT 데이터베이스가 있는 동일한 Azure 지리적 지역에 [Azure 가상 컴퓨터](http://azure.microsoft.com/documentation/services/virtual-machines/)를 만듭니다. 하지만 대신 노트북에서 ostress.exe를 실행할 수 있습니다.
+
+
+VM 또는 선택한 호스트에서 ostress.exe를 포함하는 RML(Replay Markup Language) 유틸리티를 설치합니다.
+
+- [AdventureWorks로 확장하여 메모리 내 OLTP 설명하기](http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)에서 ostress.exe 설명을 참조하세요.
+ - 또는 [메모리 내 OLTP에 대한 샘플 데이터베이스](http://msdn.microsoft.com/library/mt465764.aspx)를 참조하세요.
+ - 또는 [ostress.exe 설치에 대한 블로그](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)를 참조하세요.
+
+
+
+<!--
+dn511655.aspx is for SQL 2014, whereas mt465764.aspx is for SQL 2016.
+-->
+
+
+
+### 먼저 \_inmem 스트레스 작업을 실행합니다.
+
+
+*RML Cmd Prompt* 창을 사용하여 ostress.exe 명령줄을 실행할 수 있습니다.
+
+RML Cmd Prompt에서 실행하는 경우 다음 ostress.exe 명령:
+
+- 각각 다섯 개의 항목으로 메모리 최적화된 테이블에 백만 개의 판매 주문을 삽입합니다.
+- 100개의 동시 연결(-n100)을 사용합니다.
+
+
+```
+ostress.exe -n100 -r500 -S<servername>.database.windows.net
+	 -U<login> -P<password> -d<database>
+	 -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem,
+	 @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
+	 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()*
+	 10000;
+	 INSERT INTO @od SELECT OrderQty, ProductID FROM
+	 Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int);
+	 WHILE (@i < 20) begin;
+	 EXECUTE SalesLT.usp_InsertSalesOrder_inmem
+	 @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID,
+	 @ShipToAddressID, @od; set @i += 1; end"
+```
+
+
+위의 ostress.exe 명령줄을 실행하려면:
+
+
+1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다. ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
+2. 텍스트를 클립보드로 복사합니다.
 
-## 메모리 내 분석 샘플 설치
+3. 모든 줄의 끝 문자(\\r\\n) 및 모든 탭(\\t)을 공백으로 대체합니다.
 
-**우선** Azure SQL 데이터베이스를 만듭니다.
-
-- Premium Edition을 선택합니다.(Premium은 Columnstore에 필요함)
-- 이 샘플에서 데이터베이스를 만들도록 합니다.
-
-- 간단히 하기 위해 AdventureworksLT 데이터베이스의 이름을 지정합니다.
+4. 매개 변수 - S - U - P - d에 대한 <placeholders>을(를) 올바른 실제 값으로 대체합니다.
 
 
-
-**다음**으로 [SQL Server Management Studio(SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 2015년 9월 미리 보기 이상을 통해 Azure SQL 데이터베이스에 연결합니다.
-
-
-- 설치 스크립트 [sql\_in memory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_analytics_sample.sql)를 실행합니다.
+#### 결과는 기간입니다
 
 
-- 스크립트를 실행하여 차원 및 팩트 테이블에 필요한 스키마를 만듭니다. 스크립트는 각각 350만 개의 행이 있는 2개의 팩트 테이블을 만듭니다.
+ostress.exe가 완료되면 출력의 마지막 줄로 실행 기간을 RML Cmd 창에 작성합니다. 예를 들어 짧은 테스트 실행은 약 1.5분 동안 지속됩니다.
+
+`11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-- columnstore 테이블에 있는 FactResellerSales\_CCI
+#### \_ondisk에 대해 다시 설정하고 편집한 다음 다시 실행
 
 
-- 페이지 압축된 동일한 B-트리 테이블인 FactResellerSalesXL\_PageCompressed. **참고:** 이 스크립트는 데이터를 실행하고 생성하려면 최대 15분이 걸릴 수 있습니다.
+\_Inmem 실행에서 결과를 얻은 후 \_indisk 실행에 대해 다음 단계를 수행합니다.
 
 
-[clustered\_columnstore\_sample\_queries.sql](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/clustered_columnstore_sample_queries.sql) 파일에서 데모 쿼리를 통해 **실행**하고 기능을 탐색합니다.
+1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다. ```
+EXECUTE Demo.usp_DemoReset;
+```
 
-## 메모리 내 OLTP 대한 자세한 정보
+2. ostress.exe 명령줄을 편집하여 모든 *\_inmem*을 *\_ondisk*로 대체합니다.
 
-[메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx)
+3. ostress.exe를 다시 실행하고 기간 결과를 캡처합니다.
 
-[일반적인 워크로드 패턴 및 마이그레이션 고려 사항에 대한 백서](https://msdn.microsoft.com/library/dn673538.aspx)는 메모리 내 OLTP이 일반적으로 상당한 성능 향상을 제공하는 워크로드 패턴을 설명합니다.
+4. 책임 있는 정리에 대해 데이터베이스를 다시 설정합니다.
+ - 백만 개의 판매 주문을 삽입하는 단일 테스트를 실행하면 테이블에서 500MB 이상의 데이터가 발생합니다.
 
-## 미리보기 고려 사항
 
-메모리 내 OLTP는 Premium Edition 데이터베이스에**만** 지원됩니다.
+#### 예상된 비교 결과
 
-메모리 내 OLTP는 새로 만들어진 데이터베이스에서 지원됩니다. 복사 또는 복원 기능을 통해 기존 데이터베이스를 기반으로 생성된 데이터베이스에서 지원되지 않습니다. 그러나 새 데이터베이스를 만든 후에 메모리 내 OLTP의 전체 기능을 유지하면서 이 데이터베이스를 복사 또는 복원할 수 있습니다.
+테스트는 데이터베이스와 동일한 Azure 지역에 있는 VM에서 실행되는 ostress를 사용하여 이 워크로드에 대해 디스크 기반 테이블에 비해 메모리에 최적화된 테이블이 약 **9배**의 성능 향상을 보여줍니다.
 
-지정된 데이터베이스에서 메모리 내 OLTP 지원되는지 여부를 확인하려면 다음 쿼리를 실행합니다.
+성능 향상은 고유하게 컴파일된 저장된 프로시저에 대한 변환이 추가되면 높을 수 있습니다.
+
+
+## B. 메모리 내 분석 샘플 설치
+
+
+이 섹션에서는 columnstore 인덱스와 일반 인덱스를 사용하는 경우의 IO 및 통계 결과를 비교합니다.
+
+
+columnstore 인덱스는 논리적으로 일반 인덱스와 동일하지만 물리적으로 서로 다릅니다. columnstore 인덱스는 색다른 방법으로 데이터를 구성하여 데이터를 압축합니다. 이는 주요 성능 향상을 제공합니다.
+
+
+OLTP 작업의 실시간 분석의 경우 비클러스터형 columnstore 인덱스를 사용하는 것이 좋습니다. 자세한 내용은 [Columnstore Indexes Described](http://msdn.microsoft.com/library/gg492088.aspx)를 참조하세요.
+
+
+
+### columnstore 분석 테스트 준비
+
+
+1. Azure 포털을 사용하여 샘플에서 새로운 AdventureWorksLT 데이터베이스를 만듭니다.
+ - 정확한 이름을 사용합니다.
+ - Premium 서비스 계층을 선택합니다.
+
+2. [sql\_in memory\_analytics\_sample](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_analytics_sample.sql)을 클립보드에 복사합니다.
+ - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
+ - 스크립트는 차원 테이블과 두 개의 팩트 테이블을 만듭니다. 팩트 테이블은 각각 350만 개의 행으로 채워집니다.
+ - 스크립트는 완료하는 데 15분 정도 걸릴 수 있습니다.
+
+3. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다.
+ - 다음과 같은 **CREATE INDEX** 문의 **COLUMNSTORE** 키워드가 중요합니다.<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+
+4. AdventureWorksLT를 호환성 수준 130으로 설정합니다.<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+
+
+#### 중요한 테이블 및 columnstore 인덱스
+
+
+- dbo.FactResellerSalesXL\_CCI은 클러스터형 **columnstore** 인덱스 및 는 *데이터* 수준의 고급 압축을 가진 테이블입니다.
+
+- dbo.FactResellerSalesXL\_PageCompressed는 동등한 일반 클러스터형 인덱스를 가지며 *페이지* 수준에서만 압축된 테이블입니다.
+
+
+#### columnstore 인덱스를 비교하는 중요한 쿼리
+
+
+[여기](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/clustered_columnstore_sample_queries.sql)에 성능 향상을 확인하도록 실행할 수 있는 여러 유형의 T-SQL 쿼리가 있습니다. T-SQL 스크립트의 2단계에 직접 관심 있는 쿼리의 쌍이 있습니다. 두 쿼리는 한 줄에 대해서만 다릅니다.
+
+
+- `FROM FactResellerSalesXL_PageCompressed a`
+- `FROM FactResellerSalesXL_CCI a`
+
+
+클러스터형 columnstore 인덱스는 FactResellerSalesXL**\_CCI** 테이블에 있습니다.
+
+다음 T-SQL 스크립트 발췌는 각 테이블의 쿼리에 대한 IO 및 TIME에 대한 통계를 출력합니다.
 
 
 ```
-SELECT DATABASEPROPERTYEX(DB_NAME(), 'IsXTPSupported');
+/*********************************************************************
+Step 2 -- Overview
+-- Page Compressed BTree table v/s Columnstore table performance differences
+-- Enable actual Query Plan in order to see Plan differences when Executing
+*/
+-- Ensure Database is in 130 compatibility mode
+ALTER DATABASE AdventureworksLT SET compatibility_level = 130
+GO
+
+-- Execute a typical query that joins the Fact Table with dimension tables
+-- Note this query will run on the Page Compressed table, Note down the time
+SET STATISTICS IO ON
+SET STATISTICS TIME ON
+GO
+
+SELECT c.Year
+	,e.ProductCategoryKey
+	,FirstName + ' ' + LastName AS FullName
+	,count(SalesOrderNumber) AS NumSales
+	,sum(SalesAmount) AS TotalSalesAmt
+	,Avg(SalesAmount) AS AvgSalesAmt
+	,count(DISTINCT SalesOrderNumber) AS NumOrders
+	,count(DISTINCT a.CustomerKey) AS CountCustomers
+FROM FactResellerSalesXL_PageCompressed a
+INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
+INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
+Inner JOIN DimProductSubCategory e on e.ProductSubcategoryKey = b.ProductSubcategoryKey
+INNER JOIN DimDate c ON c.DateKey = a.OrderDateKey
+WHERE e.ProductCategoryKey =2
+	AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
+GROUP BY e.ProductCategoryKey,c.Year,d.CustomerKey,d.FirstName,d.LastName
+GO
+SET STATISTICS IO OFF
+SET STATISTICS TIME OFF
+GO
+
+
+-- This is the same Prior query on a table with a Clustered Columnstore index CCI 
+-- The comparison numbers are even more dramatic the larger the table is, this is a 11 million row table only.
+SET STATISTICS IO ON
+SET STATISTICS TIME ON
+GO
+SELECT c.Year
+	,e.ProductCategoryKey
+	,FirstName + ' ' + LastName AS FullName
+	,count(SalesOrderNumber) AS NumSales
+	,sum(SalesAmount) AS TotalSalesAmt
+	,Avg(SalesAmount) AS AvgSalesAmt
+	,count(DISTINCT SalesOrderNumber) AS NumOrders
+	,count(DISTINCT a.CustomerKey) AS CountCustomers
+FROM FactResellerSalesXL_CCI a
+INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
+INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
+Inner JOIN DimProductSubCategory e on e.ProductSubcategoryKey = b.ProductSubcategoryKey
+INNER JOIN DimDate c ON c.DateKey = a.OrderDateKey
+WHERE e.ProductCategoryKey =2
+	AND c.FullDateAlternateKey BETWEEN '1/1/2014' AND '1/1/2015'
+GROUP BY e.ProductCategoryKey,c.Year,d.CustomerKey,d.FirstName,d.LastName
+GO
+
+SET STATISTICS IO OFF
+SET STATISTICS TIME OFF
+GO
+```
+
+
+## 메모리 내에 대한 미리 보기 고려 사항
+
+
+Azure SQL 데이터베이스의 메모리 내 기능은 [2015년 10월 28일에 미리 보기에 대해 활성화](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/)되었습니다.
+
+
+GA(일반 공급) 전의 미리 보기 단계 동안 메모리 내 OLTP는 다음에 대해서만 지원됩니다.
+
+- *프리미엄* 서비스 계층에 있는 데이터베이스.
+
+- 메모리 내 기능이 활성화된 후 만들어진 데이터베이스.
+ - 메모리 내 활성화 날짜 전에 수행된 백업에서 복원된 새 데이터베이스는 메모리 내 기능을 지원할 수 없습니다.
+ - 메모리 내 기능을 지원하는 데이터베이스를 백업한다고 가정합니다. 그런 다음 이전 프리미엄 데이터베이스로 백업을 복원합니다. 이제 이전 데이터베이스에서 메모리 내 기능을 지원합니다.
+
+
+확실하지 않은 경우 다음 T-SQL SELECT를 실행하여 데이터베이스에서 메모리 내 OLTP를 지원하는지 여부를 확인할 수 있습니다. 결과 **1**은 데이터베이스에서 메모리 내 기능을 지원함을 의미합니다.
+
+```
+SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
 
 쿼리가 **1**을 반환하는 경우 메모리 내 OLTP은 이 데이터베이스 뿐만 아니라 이 데이터베이스를 기반으로 생성된 어떤 데이터베이스 복사 및 데이터베이스 복원에서도 지원됩니다.
 
-데이터베이스가 다음과 같은 종류의 개체 또는 형식을 포함하는 경우 데이터베이스의 서비스 계층을 기본 또는 표준으로 변경하는 작업은 지원되지 않습니다. 데이터베이스를 다운그레이드하려면 먼저 개체를 삭제합니다.
+
+#### 프리미엄에서만 허용되는 개체
+
+
+데이터베이스가 다음과 같은 종류의 메모리 내 OLTP 개체 또는 형식을 포함하는 경우 데이터베이스의 서비스 계층을 프리미엄에서 기본 또는 표준으로 다운그레이드하는 작업은 지원되지 않습니다. 데이터베이스를 다운그레이드하려면 먼저 해당 개체를 삭제합니다.
 
 - 메모리 최적화된 테이블
 - 메모리에 최적화된 테이블 형식
-- 탄력적인 풀에서 데이터베이스와 메모리 내 OLTP를 사용하는 고유하게 컴파일된 모듈은 지원되지 않습니다.
+- 고유하게 컴파일된 모듈
 
-SQL 데이터 웨어하우스와 함께 메모리 내 OLTP은 사용은 지원되지 않습니다.
 
-쿼리 저장소는 내부에서 고유하게 컴파일된 모듈을 쿼리하지 않습니다.
+#### 기타 관계
 
-일부 Transact-SQL 기능은 메모리 내 OLTP를 사용하여 지원되지 않습니다. 자세한 내용은 [메모리 내 OLTP에 대한 Transact-SQL 지원](https://msdn.microsoft.com/library/dn133180.aspx)을 참조하세요.
 
-## 지원되는 도구
+- 탄력적 풀의 데이터베이스로 메모리 내 OLTP 기능 사용은 미리 보기 중에 지원되지 않지만 나중에 지원을 받을 수 있습니다.
 
-[SQL Server Management Studio(SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 2015년 9월 미리 보기 이상.
+- SQL 데이터 웨어하우스와 함께 메모리 내 OLTP은 사용은 지원되지 않습니다.
+ - 메모리 내 분석의 columnstore 인덱스 기능은 SQL 데이터 웨어하우스에서 지원됩니다.
 
-[SQL Server 데이터 도구 미리보기(SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) 2015년 9월 미리 보기 이상.
+- 쿼리 저장소는 고유하게 컴파일된 모듈 내의 쿼리를 미리 보기 중에 캡처하지 않지만 나중에 캡처할 수 있습니다.
+
+- 일부 Transact-SQL 기능은 메모리 내 OLTP를 사용하여 지원되지 않습니다. 이는 Microsoft SQL Server와 Azure SQL 데이터베이스에 적용됩니다. 자세한 내용은 다음을 참조하세요.
+ - [메모리 내 OLTP에 대한 Transact-SQL 지원](http://msdn.microsoft.com/library/dn133180.aspx)
+ - [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx)
+
+
+## 추가 단계
+
+
+- [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)을 시도합니다.
+
 
 ## 추가 리소스
 
-[MSDN의 메모리 내 OLTP에 대해 알아보기](https://msdn.microsoft.com/library/dn133186.aspx)
+#### 자세한 정보
 
-[MSDN의 메모리 내 분석(Columnstore)에 대해 알아보기](https://msdn.microsoft.com/library/gg492088.aspx)
+- [Microsoft SQL Server와 Azure SQL 데이터베이스에 적용되는 메모리 내 OLTP에 대해 알아보기](http://msdn.microsoft.com/library/dn133186.aspx)
 
-[MSDN의 실시간 운영 성과 분석에 대해 알아보기](https://msdn.microsoft.com/library/dn817827.aspx)
+- [MSDN의 실시간 운영 성과 분석에 대해 알아보기](http://msdn.microsoft.com/library/dn817827.aspx)
 
-[일반적인 워크로드 패턴 및 마이그레이션 고려 사항에 대한 백서](https://msdn.microsoft.com/library/dn673538.aspx)는 메모리 내 OLTP이 일반적으로 상당한 성능 향상을 제공하는 워크로드 패턴을 설명합니다.
+- [일반적인 워크로드 패턴 및 마이그레이션 고려 사항에 대한 백서](http://msdn.microsoft.com/library/dn673538.aspx)는 메모리 내 OLTP이 일반적으로 상당한 성능 향상을 제공하는 워크로드 패턴을 설명합니다.
 
-## 다음 단계
+#### 응용 프로그램 설계
 
-[기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)을 시도합니다.
+- [메모리 내 OLTP(메모리 내 최적화)](http://msdn.microsoft.com/library/dn133186.aspx)
 
-메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)입니다.
+- [기존 Azure SQL 응용 프로그램에서 메모리 내 OLTP 사용.](sql-database-in-memory-oltp-migration.md)
 
-<!---HONumber=Nov15_HO2-->
+#### 도구
+
+- 월별 최신 버전에 대한 [SQL Server Data Tools 미리 보기(SSDT)](http://msdn.microsoft.com/library/mt204009.aspx).
+
+- [SQL 서버에 대한 RML(Replay Markup Language) 유틸리티의 설명](http://support.microsoft.com/ko-KR/kb/944837)
+
+- 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
+
+<!---HONumber=Nov15_HO4-->

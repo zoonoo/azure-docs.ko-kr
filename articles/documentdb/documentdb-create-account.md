@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="데이터베이스 계정 만들기 - 무료 평가판 | Microsoft Azure" 
 	description="Azure DocumentDB용 온라인 데이터베이스 작성자인 JSON용 관리되는 NoSQL 문서 데이터베이스를 사용하여 데이터베이스 계정을 만드는 방법을 알아봅니다. 지금 무료 평가판을 사용해보세요."
-	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
+	keywords="무료 평가판, 온라인 데이터베이스 작성자, 데이터베이스 만들기, 데이터베이스 만들기, DocumentDB, Azure, Microsoft Azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/25/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Azure Preview 포털을 사용하여 DocumentDB 데이터베이스 계정 만들기
+# DocumentDB 데이터베이스 계정 만들기
 
 Microsoft Azure DocumentDB를 사용하려면 Azure Preview 포털을 사용하여 DocumentDB 데이터베이스 계정을 만들어야 합니다.
 
@@ -46,4 +46,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

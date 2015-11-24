@@ -2,12 +2,14 @@
 
 기본 데이터베이스에는 DTU 5개가 있습니다. 즉, 초당 트랜잭션 5개를 완료할 수 있으며, 프리미엄 P11 데이터베이스에는 DTU 1750개가 있습니다.
 
-![계층 및 수준별 단일 데이터베이스 DTU](./media/sql-database-understanding-dtus/single_db_dtus.png)
+![SQL 데이터베이스 소개: 계층 및 수준별 단일 데이터베이스 DTU](./media/sql-database-understanding-dtus/single_db_dtus.png)
+
+### DTU와 eDTU 비교
 
 단일 데이터베이스에 대한 DTU는 탄력적 데이터베이스에 대한 eDTU로 직접 변환됩니다. 예를 들어 기본 탄력적 데이터베이스 풀의 데이터베이스는 최대 5개의 eDTUs를 제공합니다. 이는 단일 기본 데이터베이스와 같은 성능입니다. 차이점은 탄력적 데이터베이스가 필요할 때까지 풀에서 eDTUs를 사용하지 않는다는 것입니다.
 
-![계층별 탄력적 풀](./media/sql-database-understanding-dtus/sqldb_elastic_pools.png)
+![SQL 데이터베이스 소개: 계층별 탄력적 풀](./media/sql-database-understanding-dtus/sqldb_elastic_pools.png)
 
 참고로 간단한 예를 살펴보겠습니다. DTU가 1000개인 기본 탄력적 데이터베이스 풀을 선택하고 그 안에서 데이터베이스 800개를 삭제합니다. 어느 시점에 데이터베이스 800개 중 200개만 사용 중이라면(5 DTU X 200 = 1000) 풀의 용량에 도달하지 않으며 데이터베이스 성능이 저하되지 않습니다. 이 예제는 쉽게 이해할 수 있도록 단순화했습니다. 실제 수치는 좀더 복잡합니다. 포털이 수치 계산을 수행하며, 기록 데이터베이스 사용량을 기반으로 권장 사항을 제공합니다. 권장 사항의 작동 원리에 대해 알아보거나 직접 계산을 수행하려면 [탄력적 데이터베이스 풀에 대한 가격 및 성능 고려 사항](../articles/sql-database/sql-database-elastic-pool-guidance.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

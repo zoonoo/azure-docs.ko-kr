@@ -1,7 +1,8 @@
 <properties
-	pageTitle="C#를 사용하여 SQL 데이터베이스 쿼리 | Microsoft Azure"
-	description="IP 주소, 연결 문자열, 보안 로그인을 위한 구성 파일 및 무료 Visual Studio 모두에 대한 세부 정보를 사용하면 C# 프로그램으로 ADO.NET을 사용하여 클라우드에서 Azure SQL 데이터베이스 데이터베이스에 연결할 수 있습니다."
+	pageTitle="C# 쿼리로 SQL 데이터베이스에 연결 | Microsoft Azure"
+	description="C#에 프로그램을 작성하여 SQL 데이터베이스에 쿼리하고 연결합니다. IP 주소, 연결 문자열, 보안 로그인 및 무료 Visual Studio에 대한 정보입니다."
 	services="sql-database"
+	keywords="C# 데이터베이스 쿼리, C# 쿼리, 데이터베이스에 연결"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -17,22 +18,22 @@
 	ms.author="genemi"/>
 
 
-# C&#x23;을 사용한 SQL 데이터베이스 연결 및 쿼리
+# C&#x23;에 프로그램을 작성하여 SQL 데이터베이스에 쿼리하고 연결합니다.
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-클라우드에서 Azure SQL 데이터베이스 데이터베이스에 연결하기 위해 ADO.NET을 사용하는 C# 프로그램을 작성하려 합니다.
+C#에 프로그램을 작성하여 클라우드의 Azure SQL 데이터베이스에 쿼리하고 연결하는 방법을 알아봅니다.
 
-이 항목에서는 Azure SQL 데이터베이스와 C#를 처음 시도하는 사용자를 위한 모든 단계를 설명합니다. Microsoft SQL Server 및 C#를 경험해 본 다른 사용자는 일부 단계를 생략하고 SQL 데이터베이스에 특정된 항목에 초점을 맞출 수 있습니다.
+이 문서에서는 Azure SQL 데이터베이스, C#, 및 ADO.NET를 처음 시도하는 사용자를 위한 모든 단계를 설명합니다. Microsoft SQL Server 및 C#를 경험해 본 다른 사용자는 일부 단계를 생략하고 SQL 데이터베이스에 특정된 항목에 초점을 맞출 수 있습니다.
 
 
 ## 필수 조건
 
 
-C# 코드 샘플을 실행하려면 다음이 있어야 합니다.
+C# 쿼리 코드 샘플을 실행하려면 다음이 있어야 합니다.
 
 
 - Azure 계정 및 구독 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
@@ -75,7 +76,7 @@ Visual Studio를 설치해야 하는 경우 다음을 수행할 수 있습니다
 5. 편의를 위해 이전 블레이드 각각에서 최소화 컨트롤을 클릭합니다.
 
 6. 데이터베이스 블레이드의 위쪽에서 **Visual Studio에서 열기** 단추를 클릭합니다. Visual Studio에 대한 블레이드가 링크로 열려서 Visual Studio에 위치를 설치합니다.
- 
+
 	![Visual Studio에서 열기 단추][20-OpenInVisualStudioButton]
 
 7. **Community(무료)** 링크 또는 유사한 링크를 클릭합니다. 새 웹 페이지를 추가합니다.
@@ -126,7 +127,7 @@ C# 샘플이 .NET Framework 어셈블리 **System.Configuration.dll**를 사용�
 ## 4단계: 연결 문자열 가져오기
 
 
-[Azure Preview 포털](http://portal.azure.com/)을 사용하여 데이터베이스에 대한 연결 문자열을 복사합니다.
+[Azure Preview 포털](http://portal.azure.com/)을 사용하여 SQL 데이터베이스에 필요한 연결 문자열을 복사합니다.
 
 첫 번째로 Azure SQL 데이터베이스 **AdventureWorksLT** 데이터베이스에 Visual Studio를 연결합니다.
 
@@ -145,10 +146,10 @@ C# 샘플이 .NET Framework 어셈블리 **System.Configuration.dll**를 사용�
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
-	    <startup> 
+	    <startup>
 	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	    </startup>
-	
+
 		<connectionStrings>
 			<clear />
 			<add name="ConnectionString4NoUserIDNoPassword"
@@ -172,9 +173,9 @@ C# 샘플이 .NET Framework 어셈블리 **System.Configuration.dll**를 사용�
 ## 6단계: 샘플 C# 코드에 붙여넣기
 
 
-1. Visual Studio에서 **솔루션 탐색기** 창을 사용하여 **Program.cs** 파일을 엽니다. 
+1. Visual Studio에서 **솔루션 탐색기** 창을 사용하여 **Program.cs** 파일을 엽니다.
 
-	![샘플 C# 프로그램 코드에 붙여넣기][40-VSProgramCsOverlay]
+	![샘플 C# 쿼리 코드에 붙여넣기][40-VSProgramCsOverlay]
 
 2. 다음 샘플 C# 코드에 붙여넣어 Program.cs에서 모든 시작 코드를 덮어씁니다.
  - 짧은 코드 샘플을 원하는 경우 전체 연결 문자열을 변수 **SQLConnectionString**에 리터럴로 할당할 수 있습니다. **GetConnectionStringFromExeConfig** 및 **GatherPasswordFromConsole**이라는 두 개의 메서드를 지울 수 있습니다.
@@ -186,7 +187,7 @@ using G = System.Configuration;   // System.Configuration.dll
 using D = System.Data;            // System.Data.dll
 using C = System.Data.SqlClient;  // System.Data.dll
 using T = System.Text;
-	
+
 namespace ConnectAndQuery_Example
 {
 	class Program
@@ -195,7 +196,7 @@ namespace ConnectAndQuery_Example
 		{
 			string connectionString4NoUserIDNoPassword,
 				password, userName, SQLConnectionString;
-	
+
 			// Get most of the connection string from ConnectAndQuery_Example.exe.config
 			// file, in the same directory where ConnectAndQuery_Example.exe resides.
 			connectionString4NoUserIDNoPassword = Program.GetConnectionStringFromExeConfig
@@ -205,17 +206,17 @@ namespace ConnectAndQuery_Example
 			userName = Console.ReadLine();
 			// Get the password from keyboard input.
 			password = Program.GatherPasswordFromConsole();
-	
+
 			SQLConnectionString = "Password=" + password + ';' +
 				"User ID=" + userName + ";" + connectionString4NoUserIDNoPassword;
-	
+
 			// Create an SqlConnection from the provided connection string.
 			using (C.SqlConnection connection = new C.SqlConnection(SQLConnectionString))
 			{
 				// Formulate the command.
 				C.SqlCommand command = new C.SqlCommand();
 				command.Connection = connection;
-	
+
 				// Specify the query to be executed.
 				command.CommandType = D.CommandType.Text;
 				command.CommandText = @"
@@ -224,7 +225,7 @@ namespace ConnectAndQuery_Example
 					";
 				// Open a connection to database.
 				connection.Open();
-	
+
 				// Read data returned for the query.
 				C.SqlDataReader reader = command.ExecuteReader();
 				while (reader.Read())
@@ -237,12 +238,12 @@ namespace ConnectAndQuery_Example
 			Console.ReadKey(true);
 		}
 		//----------------------------------------------------------------------------------
-	
+
 		static string GetConnectionStringFromExeConfig(string connectionStringNameInConfig)
 		{
 			G.ConnectionStringSettings connectionStringSettings =
 				G.ConfigurationManager.ConnectionStrings[connectionStringNameInConfig];
-	
+
 			if (connectionStringSettings == null)
 			{
 				throw new ApplicationException(String.Format
@@ -251,7 +252,7 @@ namespace ConnectAndQuery_Example
 			}
 				return connectionStringSettings.ConnectionString;
 		}
-	
+
 		static string GatherPasswordFromConsole()
 		{
 			T.StringBuilder passwordBuilder = new T.StringBuilder(32);
@@ -294,7 +295,7 @@ namespace ConnectAndQuery_Example
 
 2. 키보드에서 사용자 이름 및 암호를 수집하고 추가하여 연결 문자열을 완성합니다.
 
-3. 연결 문자열 및 ADO.NET 클래스를 사용하여 Azure SQL 데이터베이스에서 **AdventureWorksLT** 데모 데이터베이스에 연결합니다.
+3. 연결 문자열 및 ADO.NET 클래스를 사용하여 SQL 데이터베이스에서 **AdventureWorksLT** 데모 데이터베이스에 연결합니다.
 
 4. SQL **선택**을 만들어 **SalesLT** 테이블에서 읽습니다.
 
@@ -312,7 +313,7 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 ## 7단계: 서버 방화벽에서 허용된 IP 주소 범위 추가
 
 
-클라이언트 컴퓨터의 IP 주소가 SQL 데이터베이스 방화벽에 추가될 때까지 클라이언트 C# 프로그램은 Azure SQL 데이터베이스에 연결할 수 없습니다. 프로그램은 필요한 IP 주소를 보고하는 유용한 오류 메시지에 실패합니다.
+클라이언트 컴퓨터의 IP 주소가 SQL 데이터베이스 방화벽에 추가될 때까지 클라이언트 C# 프로그램은 SQL 데이터베이스에 연결할 수 없습니다. 프로그램은 필요한 IP 주소를 보고하는 유용한 오류 메시지에 실패합니다.
 
 
 [Azure Preview 포털](http://portal.azure.com/) 사용하여 IP 주소를 추가할 수 있습니다.
@@ -323,14 +324,14 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 
 
 
-자세한 내용은 <br/> [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+자세한 내용은<br/> [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
 
 ## 8단계: 프로그램 실행
 
 
-1. Visual Studio에서 **디버그** > **디버깅 시작** 메뉴로 프로그램을 실행합니다. 콘솔 창이 표시됩니다.
+1. Visual Studio에서 **디버그** > **디버깅 시작** 메뉴로 C# 쿼리를 실행합니다. 콘솔 창이 표시됩니다.
 
 2. 지시에 따라 사용자 이름 및 암호를 입력합니다.
  - 몇가지 연결 도구는 사용자 이름에 추가된 "@{your\_serverName\_here}"가 있어야 하지만 ADO.NET의 경우 이 접미사는 선택 사항입니다. 접미사의 입력을 신경쓰지 마세요.
@@ -357,4 +358,4 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

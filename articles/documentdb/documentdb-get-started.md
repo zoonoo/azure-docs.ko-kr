@@ -1,7 +1,7 @@
 <properties
-	pageTitle="NoSQL 데이터베이스 - DocumentDB .NET SDK 시작 | Microsoft Azure"
-	description="데이터베이스를 만들고 Azure DocumentDB 계정을 구성하는 방법을 알아봅니다. NoSQL 데이터베이스 계정 내에서 데이터베이스 및 컬렉션을 만들고 JSON 문서를 저장합니다."
-	keywords="데이터베이스 만들기, 데이터베이스 만들기, nosql 데이터베이스, nosql 데이터베이스, nuget, documentdb, azure, Microsoft azure"
+	pageTitle="NoSQL 자습서: DocumentDB .NET SDK | Microsoft Azure"
+	description="DocumentDB .NET SDK를 사용하여 온라인 데이터베이스 및 C# 콘솔 응용 프로그램을 만드는 NoSQL 자습서입니다. DocumentDB는 JSON에 대한 NoSQL 데이터베이스입니다."
+	keywords="NoSQL 자습서, 온라인 데이터베이스, C# 콘솔 응용 프로그램"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/05/2015"
+	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-#DocumentDB .NET SDK 시작  
+# NoSQL 자습서: DocumentDB C# 콘솔 응용 프로그램 
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-DocumentDB .NET SDK 시작에 오신 것을 환영합니다. 이 자습서를 따라하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
+DocumentDB .NET SDK용 NoSQL 자습서를 시작합니다. 이 자습서를 따라하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
 다음에 대해 설명합니다.
 
 - DocumentDB 계정 만들기 및 연결
 - Visual Studio 솔루션 구성
-- 데이터베이스 만들기
+- 온라인 데이터베이스 만들기
 - 컬렉션 만들기
 - JSON 문서 만들기
 - 컬렉션 쿼리
@@ -45,7 +45,7 @@ DocumentDB .NET SDK 시작에 오신 것을 환영합니다. 이 자습서를 �
 
 다음 항목이 있는지 확인합니다.
 
-- 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- 활성 Azure 계정. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 - [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
 ## 1단계: DocumentDB 계정 만들기
@@ -76,7 +76,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-> [AZURE.IMPORTANT]이 응용 프로그램을 완료하려면 위의 종속성을 추가했는지 확인합니다.
+> [AZURE.IMPORTANT]이 NoSQL 자습서를 완료하려면 위의 종속성을 추가했는지 확인합니다.
 
 다음으로 DocumentDB 계정 끝점과 기본 또는 보조 선택키를 저장합니다. [Azure Preview 포털](https://portal.azure.com)에서 확인할 수 있습니다.
 
@@ -112,8 +112,8 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스를 만드는 방법을 알게 되었으므로 이제 DocumentDB 리소스에 대한 작업을 살펴보겠습니다.
 
-## 4단계: 데이터베이스 만들기
-**DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드를 사용하여 [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 문서 저장소의 논리적 컨테이너입니다. **DocumentClient**를 만든 후 **GetStartedDemo** 메서드에서 새 데이터베이스를 만듭니다.
+## 4단계: 온라인 데이터베이스 만들기
+**DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드를 사용하여 DocumentDB [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다. **DocumentClient**를 만든 후 **GetStartedDemo** 메서드에서 새 데이터베이스를 만듭니다.
 
 	// Check to verify a database with the id=FamilyRegistry does not exist
 	Database database = client.CreateDatabaseQuery().Where(db => db.Id == "FamilyRegistry").AsEnumerable().FirstOrDefault();
@@ -159,7 +159,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
         Console.Clear();
 	}
 
-##<a id="CreateDoc"></a>6단계: 문서 만들기
+##<a id="CreateDoc"></a>6단계: JSON 문서 만들기
 **DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 하나 이상의 문서를 삽입할 수 있습니다. 데이터베이스에 저장하려는 데이터가 이미 있다면 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용할 수 있습니다.
 
 먼저 **Parent**, **Child**, **Pet**, **Address** 및 **Family** 클래스를 만들어야 합니다. **GetStartedDemo** 메서드 다음에 다음 내부 하위 클래스를 추가하여 이러한 클래스를 만듭니다.
@@ -279,7 +279,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
 
 이제 DocumentDB 계정에서 다음 데이터베이스, 컬렉션 및 문서를 만들었습니다.
 
-![계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/documentdb-get-started/account-database.png)
+![계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>7단계: DocumentDB 리소스 쿼리
 
@@ -319,7 +319,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
 
 다음 다이어그램에서는 만든 컬렉션에 대해 DocumentDB SQL 쿼리 구문을 호출하는 방법을 보여 주며, 마찬가지로 동일한 논리가 LINQ 쿼리에 적용됩니다.
 
-![쿼리의 의미와 범위를 보여 주는 다이어그램](./media/documentdb-get-started/collection-documents.png)
+![쿼리의 의미와 범위를 보여 주는 다이어그램](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때문에 [FROM](documentdb-sql-query.md#from-clause) 키워드는 쿼리에서 선택 사항입니다. 따라서 "FROM Families f"를 "FROM root r" 또는 선택한 다른 변수 이름으로 교체할 수 있습니다. DocumentDB는 패밀리, 루트 또는 선택한 변수 이름이 기본적으로 현재 컬렉션을 참조하는 것으로 유추합니다.
 
@@ -331,7 +331,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
     await client.DeleteDatabaseAsync("dbs/" + database.Id);
 	client.Dispose();
 
-##<a id="Run"></a>9단계: 응용 프로그램 실행
+##<a id="Run"></a>9단계: C# 콘솔 응용 프로그램 실행
 
 이제 응용 프로그램을 실행할 준비가 되었습니다. **Main** 메서드 끝에 다음 코드 줄을 추가합니다. 그러면 응용 프로그램 실행이 완료되기 전에 콘솔 출력을 읽을 수 있습니다.
 
@@ -456,7 +456,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 	  "_attachments": "attachments/"
 	} from LINQ query
 
-축하합니다. 첫 번째 DocumentDB 앱을 만들었습니다.
+축하합니다. 이 NoSQL 자습서를 완료했습니다!
 
 ##<a id="GetSolution"></a> 전체 솔루션 다운로드
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
@@ -468,7 +468,7 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 
 ## 다음 단계
 
--   보다 복잡한 ASP.NET MVC 샘플이 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
+-   보다 복잡한 ASP.NET MVC NoSQL 자습서가 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
 -	[DocumentDB 계정 모니터링](documentdb-monitor-accounts.md) 방법에 대해 자세히 알아봅니다.
 -	[쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
 -	[DocumentDB 설명서](../../services/documentdb/) 페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
@@ -477,7 +477,7 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
-[keys]: media/documentdb-get-started/keys.png
+[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

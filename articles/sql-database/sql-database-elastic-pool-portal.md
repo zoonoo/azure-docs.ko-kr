@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Azure preview 포털을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 | Microsoft Azure"
-	description="탄력적 데이터베이스 풀을 만들어서 여러 Azure SQL 데이터베이스에 대해 리소스를 공유합니다."
+	pageTitle="확장성 있는 탄력적 데이터베이스 풀 만들기 | Microsoft Azure"
+	description="여러 데이터베이스 간에 공유되는 관리 및 리소스에 대한 SQL 데이터베이스 구성에 확장성 있는 탄력적 데이터베이스 풀을 추가하는 방법입니다."
+	keywords="확장성 있는 데이터베이스, 데이터베이스 구성"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -17,14 +18,14 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Azure preview 포털로 탄력적 데이터베이스 풀을 만들기
+# Azure Preview 포털에서 SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀 만들기
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-이 문서에서는 Azure preview 포털을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여줍니다.
+이 문서에서는 Azure preview 포털을 사용하여 확장성 있는 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여줍니다. 탄력적 데이터베이스 풀이 있는 SQL 데이터베이스는 여러 데이터베이스 간에 공유되는 관리 및 리소스를 단순화합니다.
 
 > [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server.md)를 할 수 있습니다.
 
@@ -44,14 +45,14 @@
 또는
 
 서버에 대해 권장되는 풀이 있다는 메시지가 표시되는 경우 클릭하면 서버의 데이터베이스에 최적화된 풀을 쉽게 검토하고 만들 수 있습니다. 자세한 내용은 [권장되는 탄력적 데이터베이스 풀](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)을 참조하세요.
-   
-  
+
+
 ![탄력적 풀 만들기][1]
 
 
 **탄력적 데이터베이스 풀** 블레이드에는 가격 책정 계층을 선택하고 데이터베이스를 추가하고 풀의 성능 특성을 구성하는 옵션이 있습니다.
 
-> [AZURE.NOTE]**풀 추가** 명령을 처음으로 선택하는 경우 **미리 보기 약관**을 선택하고 **Preview 조건** 블레이드를 완료하여 미리 보기 약관에 동의해야 합니다. 각 구독에 대해 이 작업을 한번만 수행하면 됩니다.
+> [AZURE.NOTE]**풀 추가** 명령을 처음으로 선택하는 경우 **미리 보기 약관**을 선택하고 **미리 보기 조건** 블레이드를 완료하여 미리 보기 약관에 동의해야 합니다. 각 구독에 대해 이 작업을 한번만 수행하면 됩니다.
 
    ![탄력적 풀 구성][2]
 
@@ -126,9 +127,9 @@ SQL 데이터베이스 V12 서버로 이동하면 서버에 대해 권장되는 
 ### 권장되는 풀 만들기
 
 1. 권장되는 풀 목록을 보려면 메시지를 클릭합니다.
- 
+
      ![권장되는 풀][12]
-  
+
 1. 자세한 권장 사항 설정을 보려면 풀을 클릭합니다.
 2. 풀 이름을 편집하고 **확인**을 클릭하기만 하면 풀이 만들어집니다. (권장되는 풀은 다 만들 때까지 수정할 수 없습니다.)
 
@@ -201,4 +202,4 @@ SQL 데이터베이스 V12 서버로 이동하면 서버에 대해 권장되는 
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

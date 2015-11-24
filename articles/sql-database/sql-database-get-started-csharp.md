@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="C#을 사용하여 Azure SQL 데이터베이스 만들기" 
-   description="이 문서에서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만드는 방법을 보여 줍니다." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+	pageTitle="SQL 데이터베이스 시도: C#을 사용하여 SQL 데이터베이스 만들기 | Microsoft Azure" 
+	description="SQL 및 C# 앱 개발을 위해 SQL 데이터베이스를 시도하고 .NET용 SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만듭니다." 
+	keywords="sql 시도, sql c#"   
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -16,7 +17,7 @@
    ms.date="09/01/2015"
    ms.author="sstein"/>
 
-# C&#x23;으로 SQL 데이터베이스 만들기
+# SQL 데이터베이스 시도: C&#x23;을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기 
 
 **단일 데이터베이스**
 
@@ -27,9 +28,9 @@
 
 
 
-이 문서는 [.NET용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)를 사용하여 C#으로 Azure SQL 데이터베이스를 만드는 명령을 제공합니다.
+C# 명령을 사용하여 [.NET용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL 데이터베이스를 만드는 방법에 대해 알아봅니다.
 
-이 문서에서는 단일 데이터베이스를 만드는 방법을 보여 주며 탄력적 데이터베이스 생성에 대한 내용은 [탄력적 데이터베이스 풀 생성](sql-database-elastic-pool-portal.md)을 참조하세요.
+SQL 및 C#으로 단일 데이터베이스를 만들어 SQL 데이터베이스를 시도합니다. 탄력적 데이터베이스를 만들려면 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-portal.md)를 참조하세요.
 
 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
 
@@ -49,7 +50,7 @@
 
 ## 필요한 라이브러리 설치
 
-[패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 사용해 다음의 패키지를 설치하고 필요한 관리자 라이브러리를 가져옵니다.
+C#으로 SQL 데이터베이스를 설정하려면 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 사용해 다음의 패키지를 설치하고 필요한 관리자 라이브러리를 가져옵니다.
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -68,33 +69,33 @@
 
 1. 왼쪽의 메뉴를 스크롤하여 **Active Directory** 서비스를 찾아 엽니다.
 
-    ![AAD][1]
+    ![SQL 데이터베이스 시도: Azure Active Directory(AAD)를 설정합니다.][1]
 
 2. 디렉터리를 선택하여 응용 프로그램을 인증하고 해당 **이름**을 클릭합니다.
 
-    ![디렉터리][4]
+    ![디렉터리를 선택하여 SQL C# 응용 프로그램을 인증합니다.][4]
 
 3. 디렉터리 페이지에서 **응용 프로그램**을 클릭합니다.
 
-    ![응용 프로그램][5]
+    ![응용 프로그램이 있는 디렉터리 페이지입니다.][5]
 
-4. **추가**를 클릭하여 새 응용 프로그램을 만듭니다.
+4. **추가**를 클릭하여 SQL 데이터베이스에 대한 새 C# 응용 프로그램을 만듭니다.
 
-    ![응용 프로그램 추가][6]
+    ![SQL C# 응용 프로그램을 추가합니다.][6]
 
 5. **내 조직에서 개발 중인 응용 프로그램 추가**를 선택합니다.
 
 5. 앱의 **이름**을 입력하고 **네이티브 클라이언트 응용 프로그램**을 선택합니다.
 
-    ![응용 프로그램 추가][7]
+    ![SQL C# 응용 프로그램에 대한 정보를 제공합니다.][7]
 
 6. **리디렉션 URI**를 입력합니다. 실제 끝점일 필요는 없으며 유효한 URI이면 됩니다.
 
-    ![응용 프로그램 추가][8]
+    ![SQL C# 응용 프로그램에 대한 리디렉션 URL을 추가합니다.][8]
 
 7. 앱 만들기를 완료하고 **구성**을 클릭한 후 **클라이언트 ID**를 복사합니다(코드에 클라이언트 ID가 필요함).
 
-    ![클라이언트 ID 가져오기][9]
+    ![SQL C# 응용 프로그램에 대한 클라이언트 ID를 가져옵니다.][9]
 
 
 1. 페이지 맨 아래에서 **응용 프로그램 추가**를 클릭합니다.
@@ -102,7 +103,7 @@
 1. **Azure 서비스 관리 API**를 선택하고 마법사를 완료합니다.
 2. API를 선택한 후 **Azure 서비스 관리(미리 보기) 액세스**를 선택하여 이 API에 액세스하는 데 필요한 특정 권한을 부여해야 합니다.
 
-    ![권한][2]
+    ![사용 권한을 설정합니다.][2]
 
 2. **저장**을 클릭합니다.
 
@@ -115,7 +116,7 @@
 1. [Azure Preview 포털](https://portal.azure.com)로 이동합니다.
 2. 오른쪽 위에 있는 이름 위로 마우스를 이동하고 팝업 창에 나타나는 도메인을 참고합니다.
 
-    ![도메인 이름 식별][3]
+    ![도메인 이름을 식별합니다.][3]
 
 
 
@@ -223,9 +224,9 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 다른 Azure 서비스의 서버 액세스를 허용하려면 방화벽 규칙을 추가하고 StartIpAddress와 EndIpAddress를 모두 0.0.0.0으로 설정합니다. 이렇게 하면 *모든* Azure 구독에서 Azure 트래픽이 서버에 액세스할 수 있습니다.
 
 
-## 데이터베이스 만들기
+## C&#x23;을 사용하여 기본 SQL 데이터베이스 만들기
 
-다음의 명령은 서버에 같은 이름의 데이터베이스가 존재하지 않을 경우 새 기본 데이터베이스를 만듭니다. 같은 이름의 데이터베이스가 존재하면 업데이트됩니다.
+다음의 C# 명령은 서버에 같은 이름의 데이터베이스가 존재하지 않을 경우 새 기본 SQL 데이터베이스를 만듭니다. 같은 이름의 데이터베이스가 존재하면 업데이트됩니다.
 
         // Create a database
 
@@ -250,7 +251,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 
 
-## 샘플 콘솔 응용 프로그램
+## 샘플 C&#x23; 콘솔 응용 프로그램
 
 
     using Microsoft.Azure;
@@ -411,6 +412,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 
 ## 다음 단계
+이제 C#으로 SQL 데이터베이스를 시도하고 데이터베이스를 설정했으므로 다음 문서에 대한 준비가 되었습니다.
 
 - [C#을 사용하여 SQL 데이터베이스에 연결 및 쿼리하기](sql-database-connect-query.md)
 - [SQL Server Management Studio(SSMS)로 연결](sql-database-connect-to-database.md)
@@ -434,4 +436,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

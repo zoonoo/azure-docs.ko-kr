@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="11/16/2015"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 첫 번째 API 관리
@@ -116,7 +116,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 ![API 요약][api-management-imported-api-summary]
 
-API 섹션에는 여러 탭이 있습니다. **요약** 탭은 API에 대한 기본 메트릭과 정보를 표시합니다. [설정](api-management-howto-create-apis.md#configure-api-settings) 탭은 API에 대한 구성을 보고 편집하는 데 사용됩니다. [작업](api-management-howto-add-operations.md) 탭은 API의 작업을 관리하는 데 사용됩니다. **보안** 탭은 기본 인증 또는 [상호 인증서 인증](api-management-howto-mutual-certificates.md)을 사용하여 백엔드 서버에 대한 프록시 인증을 구성하고 [OAuth 2.0을 사용하여 사용자 권한 부여](api-management-howto-oauth2.md)를 구성하는 데 사용될 수 있습니다. **문제** 탭은 API를 사용하는 개발자가 보고한 문제를 보는 데 사용됩니다. **제품** 탭은 이 API를 포함하는 제품을 구성하는 데 사용됩니다.
+API 섹션에는 여러 탭이 있습니다. **요약** 탭은 API에 대한 기본 메트릭과 정보를 표시합니다. [설정](api-management-howto-create-apis.md#configure-api-settings) 탭은 API에 대한 구성을 보고 편집하는 데 사용됩니다. [작업](api-management-howto-add-operations.md) 탭은 API의 작업을 관리하는 데 사용됩니다. **보안** 탭은 기본 인증 또는 [상호 인증서 인증](api-management-howto-mutual-certificates.md)을 사용하여 백엔드 서버에 대한 게이트웨이 인증을 구성하고 [OAuth 2.0을 사용하여 사용자 권한 부여](api-management-howto-oauth2.md)를 구성하는 데 사용될 수 있습니다. **문제** 탭은 API를 사용하는 개발자가 보고한 문제를 보는 데 사용됩니다. **제품** 탭은 이 API를 포함하는 제품을 구성하는 데 사용됩니다.
 
 기본적으로 각 API 관리 인스턴스는 두 개의 샘플 제품과 함께 제공됩니다.
 
@@ -243,4 +243,4 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

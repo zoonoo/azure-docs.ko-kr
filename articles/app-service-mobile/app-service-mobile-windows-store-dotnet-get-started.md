@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="11/16/2015"
 	ms.author="glenga"/>
 
 #Windows 앱 만들기
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
-이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 Windows Runtime 8.1 범용 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 유니버설 Windows 앱 솔루션에는 Windows 스토어 8.1 및 Windows Phone 스토어 8.1 앱용 프로젝트와 공통 공유 프로젝트가 포함됩니다.
+이 자습서에서는 범용 Windows 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 자세한 내용은 [모바일 앱 정의](app-service-mobile-value-prop.md)를 참조하세요.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
 
@@ -42,29 +40,15 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## 서버 프로젝트 다운로드
+## 서버 프로젝트 구성
 
-1. [Azure 포털]에서 **모두 찾아보기** > **웹앱**을 클릭한 다음 방금 만든 모바일 앱 백 엔드를 클릭합니다.
-
-2. 모바일 앱 백 엔드에서 **모든 설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **Windows (C#)**를 클릭합니다.
-
-3. **서버 프로젝트 다운로드 및 실행**의 **새 앱 만들기**에서 **다운로드**를 클릭하고, 압축된 프로젝트 파일을 로컬 컴퓨터에 추출하고 Visual Studio에서 솔루션을 엽니다.
-
-4. NuGet 패키지를 복원하려면 프로젝트를 빌드하십시오.
-
-##Azure에 서버 프로젝트 게시
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ##클라이언트 프로젝트 다운로드 및 실행
 
-모바일 앱 백 엔드를 만들었으면 Azure 포털에서 쉬운 빠른 시작을 따라 모바일 앱 백 엔드에 연결할 새 앱을 만들거나 기존 앱을 수정할 수 있습니다.
+모바일 앱 백 엔드를 구성하면 새 클라이언트 앱을 만들거나 Azure에 연결할 기존 앱을 수정할 수 있습니다. 이 섹션에서 모바일 앱 백 엔드에 연결하도록 사용자 지정된 범용 Windows 앱 템플릿 프로젝트를 다운로드합니다.
 
-이 섹션에서 Azure 모바일 앱 백 엔드에 연결하도록 사용자 지정된 범용 Windows 앱 템플릿 프로젝트를 다운로드합니다.
-
-1. 모바일 앱 백 엔드용 블레이드로 돌아가서 **모든 설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **Windows (C#)**를 클릭합니다.
-
-2.  **Windows 프로젝트 다운로드 및 실행**의 **새 앱 만들기**에서 **다운로드**를 클릭하고, 압축된 프로젝트 파일을 로컬 컴퓨터에 추출합니다.
+1. 모바일 앱 백 엔드에 대한 **시작** 블레이드로 돌아가서 **새 앱 만들기** > **다운로드**를 클릭한 다음 로컬 컴퓨터에 압축된 프로젝트 파일을 추출합니다.
 
 3. (선택 사항) 서버 프로젝트를 사용하여 솔루션에 범용 Windows 앱 프로젝트를 추가합니다. 이렇게 하면 작업을 수행하려는 경우 동일한 Visual Studio 솔루션에서 앱 및 백 엔드 모두를 디버그하고 테스트할 수 있습니다.
 
@@ -92,7 +76,7 @@
 <!-- Images. -->
 <!-- URLs. -->
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure 포털]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

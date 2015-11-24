@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
 
@@ -154,7 +154,7 @@ INSERT INTO <new_memory_optimized_table>
 - SCHEMABINDING: 저장 프로시저가 삭제되지 않는 한 스스로에 영향을 주는 방식으로 변경된 해당 열 정의를 가질 수 없는 테이블을 의미합니다.
 
 
-네이티브 모듈은 트랜잭션 관리에 하나의 큰 [ATOMIC 블록](http://msdn.microsoft.com/library/dn452281.aspx)을 사용해야 합니다. 명시적 시작 트랜잭션에 대한 역할이 없습니다.
+네이티브 모듈은 트랜잭션 관리에 하나의 큰 [ATOMIC 블록](http://msdn.microsoft.com/library/dn452281.aspx)을 사용해야 합니다. 명시적 BEGIN TRANSACTION 또는 ROLLBACK TRANSACTION에 대한 역할이 없습니다. 코드가 비즈니스 규칙 위반을 감지한 경우 [THROW](http://msdn.microsoft.com/library/ee677615.aspx) 문으로 ATOMIC 블록을 종료할 수 있습니다.
 
 
 ### 고유하게 컴파일된 일반적인 만들기 프로시저
@@ -233,4 +233,4 @@ CREATE PROCEDURE schemaname.procedurename
 
 - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

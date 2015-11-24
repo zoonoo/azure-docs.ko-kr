@@ -1,6 +1,6 @@
 <properties
 	pageTitle="일시적 연결 오류 해결 작업 | Microsoft Azure"
-	description="Azure SQL 데이터베이스와 상호 작용할 때 연결 오류 및 기타 일시적 오류를 방지, 진다, 해결하기 위한 작업입니다."
+	description="Azure SQL 데이터베이스와 상호 작용할 때 연결 오류 및 기타 일시적 오류를 해결, 진단, 방지하기 위한 작업입니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="genemi"/>
 
 
-# SQL 데이터베이스에서 연결 오류 및 일시적 오류를 해결하는 작업
+# SQL 데이터베이스에서 발생한 일시적인 오류 및 연결 오류를 해결합니다.
 
 
-이 항목에서는 클라이언트 프로그램이 Azure SQL 데이터베이스와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 진단, 완화하는 방법에 대해 설명합니다.
+이 항목에서는 클라이언트 프로그램이 Azure SQL 데이터베이스와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다.
 
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->
