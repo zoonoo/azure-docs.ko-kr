@@ -24,7 +24,7 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 
 *완료 예상 시간:** 20분
 
->[AZURE.NOTE]이 자습서에는 단계 중 하나에 포함되는 Azure 응용 프로그램을 작성하는 방법(즉, 주요 자격 증명 모음의 키나 비밀을 사용하도록 응용 프로그램에 사용 권한을 부여하는 방법)에 대한 지침이 포함되어 있지 않습니다.
+>[AZURE.NOTE] 이 자습서에는 단계 중 하나에 포함되는 Azure 응용 프로그램을 작성하는 방법(즉, 주요 자격 증명 모음의 키나 비밀을 사용하도록 응용 프로그램에 사용 권한을 부여하는 방법)에 대한 지침이 포함되어 있지 않습니다.
 >
 >현재는 Azure 포털에서 Azure 키 자격 증명 모음을 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는[이 해당 자습서](key-vault-manage-with-cli.md)를 참조하세요.
 
@@ -92,7 +92,7 @@ Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소�
 이 cmdlet의 출력에서는 방금 만든 자격 증명 모음의 속성을 보여줍니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
 - **Vault Name**: **ContosoKeyVault**이는 예제에서입니다. 다른 키 자격 증명 모음 cmdlet에 대해 이 이름을 사용합니다.
-- **Vault URI**: 예제에서는 https://contosokeyvault.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 응용 프로그램은 URI를 사용해야 합니다.
+- **Vault URI**: 예제에서는 https://contosokeyvault.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 응용 프로그램은 URI를 사용해야 합니다.
 
 Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수행할 권한을 가지게 됩니다. 아직 다른 사람은 권한이 없습니다.
 
@@ -111,7 +111,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 키에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -125,7 +125,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 비밀에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -143,7 +143,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure 주요 자격 증명 모음에 한정된 것은 아니지만 완전성을 위해 여기에 포함되어 있습니다.
 
 
->[AZURE.IMPORTANT]이 단계에서 등록된 자습서, 계정, 해당 자격 증명 모음 및 응용 프로그램을 완료하려면, 모두 동일한 Azure 디렉터리에 있어야 합니다.
+>[AZURE.IMPORTANT] 이 단계에서 등록된 자습서, 계정, 해당 자격 증명 모음 및 응용 프로그램을 완료하려면, 모두 동일한 Azure 디렉터리에 있어야 합니다.
 
 자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다. 이렇게 하려면 응용 프로그램의 소유자가 Azure Active Directory에 먼저 응용 프로그램을 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
 
@@ -158,7 +158,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 3. **APPLICATIONS**를 클릭합니다. 디렉터리에 추가한 앱이 없는 경우 이 페이지에는 **앱 추가** 링크만 표시됩니다. 링크를 클릭하거나 명령 모음에서 **추가**를 클릭할 수 있습니다.
 4.	**응용 프로그램 추가** 마법사에서 **무엇을 하고 싶나요?** 페이지를 클릭하고, **조직에서 개발 중인 응용 프로그램 추가**를 클릭합니다.
 5.	**응용 프로그램 정보 제공** 페이지에서 응용 프로그램의 이름을 지정한 다음 **웹 응용 프로그램 및/또는 웹 API**(기본값)를 선택합니다. **다음** 아이콘을 클릭합니다.
-6.	**앱 속성** 페이지에서 웹 응용 프로그램에 대한 **로그인 URL** 및 **앱 ID URI**를 지정합니다. 응용 프로그램에 이러한 값이 없는 경우이 단계에서 만들 수 있습니다(예를 들어, 두 상자에 대해 http://test1.contoso.com를 지정할 수 있음). 이러한 사이트가 존재하는 지가 중요하지 않습니다. 사용자 디렉토리의 각 응용 프로그램에 대해 각 응용 프로그램의 앱 ID URI가 다르다는 것이 중요합니다. 디렉터리는 이 문자열을 사용하여 앱을 식별합니다.
+6.	**앱 속성** 페이지에서 웹 응용 프로그램에 대한 **로그인 URL** 및 **앱 ID URI**를 지정합니다. 응용 프로그램에 이러한 값이 없는 경우이 단계에서 만들 수 있습니다(예를 들어, 두 상자에 대해 http://test1.contoso.com 를 지정할 수 있음). 이러한 사이트가 존재하는 지가 중요하지 않습니다. 사용자 디렉토리의 각 응용 프로그램에 대해 각 응용 프로그램의 앱 ID URI가 다르다는 것이 중요합니다. 디렉터리는 이 문자열을 사용하여 앱을 식별합니다.
 7.	마법사에서 변경 내용을 저장하려면 **전체** 아이콘을 클릭합니다.
 8.	**빠른 시작** 페이지에서 **CONFIGURE**를 클릭합니다.
 9.	**키** 섹션으로 스크롤하고 기간을 선택한 다음 **저장**을 클릭합니다. 페이지가 새로 고쳐지고 이제 키 값을 표시합니다. 이 키 값 및 **클라이언트 ID**가 있는 응용 프로그램을 구성해야 합니다. (이 구성에 대한 지침은 응용 프로그램에 특정된 것입니다.)
@@ -238,4 +238,4 @@ Azure 키 자격 증명 모음에 대한 Azure PowerShell 1.0 cmdlet의 목록�
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
