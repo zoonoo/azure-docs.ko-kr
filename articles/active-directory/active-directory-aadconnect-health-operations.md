@@ -144,4 +144,4 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!----HONumber=Nov15_HO2-->
+<!-----HONumber=Nov15_HO2-->

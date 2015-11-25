@@ -102,4 +102,4 @@ Azure 검색 하는 완벽하게 관리되는 검색 서비스이기 때문에 �
 
 쿼리 볼륨 또는 데이터 저장소 요구 사항이 시간이 지남에 따라 변하는 경우 복제본 및 파티션을 추가하거나 이동하여 용량을 늘리거나 줄일 수 있습니다. 자세한 내용은 [Azure에서 검색 서비스 관리](search-manage.md) 또는 [서비스 제한](search-limits-quotas-capacity.md)을참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
