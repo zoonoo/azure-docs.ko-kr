@@ -164,7 +164,7 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 
 자세한 내용은 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)(영문)를 참조하십시오.
 
-> [AZURE.NOTE][Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대한 cmdlet을 처리하는 방식으로 변경합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
+> [AZURE.NOTE] [Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대한 cmdlet을 처리하는 방식으로 변경합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage

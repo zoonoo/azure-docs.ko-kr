@@ -16,8 +16,8 @@
    ms.date="10/09/2015"
    ms.author="hascipio" />
 
-# Azure 마켓플레이스에 제품을 게시하는 방법
-이 문서는 판매자가 솔루션을 만들어서 다른 Azure 고객 및 파트너가 구매하여 활용하도록 Azure 마켓플레이스에 배포하는 데 도움을 주기 위해 제공됩니다.
+# Microsoft Azure 마켓플레이스에 제품을 게시하는 방법
+이 문서는 판매자가 솔루션(예: 단일 가상 컴퓨터 이미지, 솔루션 템플릿, 개발자 서비스 또는 데이터 서비스)을 만들고 다른 Azure 고객 및 파트너가 구입하고 사용할 수 있도록 Azure 마켓플레이스에 배포하는 데 도움을 주기 위해 제공됩니다.
 
 게시자로서 처음 수행하려고 할 작업은 자신의 회사에서 제공할 솔루션의 종류를 정의하는 것입니다. Azure 마켓플레이스는 여러 가지 솔루션을 지원하며, 각 솔루션을 마켓플레이스에 성공적으로 게시하는 데 필요한 일련의 작업은 서로 조금씩 다릅니다.
 
@@ -32,7 +32,16 @@
 
 > [AZURE.NOTE]Azure 마켓플레이스에서 작업을 시작하기 전에 사전 승인을 받아야 합니다. 데이터 서비스 게시자에는 해당하지 않습니다.
 
-||가상 컴퓨터 이미지 |개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 | |----|----|----|----|----| | **사전 승인 받기** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | 해당 없음 | [Microsoft Azure Certified][link-certification] | | **1단계: 판매자 계정 등록** | [Microsoft 판매자 계정: 생성 및 등록][link-accts] | [Microsoft 판매자 계정: 생성 및 등록][link-accts] | [Microsoft 판매자 계정: 생성 및 등록][link-accts] | [Microsoft 판매자 계정: 생성 및 등록][link-accts] | |**2단계: 제품 만들기**| [일반 비기술적인 필수 조건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 조건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 조건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 조건](marketplace-publishing-pre-requisites.md)| || [VM 기술적인 필수 조건][link-single-vm-prereq] | 개발자 서비스 기술적인 필수 조건 | 데이터 서비스 기술적인 필수 조건 | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) | ||[VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | 데이터 서비스 게시 가이드 | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) | || [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | | **3단계: 제품을 스테이징으로 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 스테이징에서 개발자 서비스 제품 테스트 | 스테이징에서 데이터 서비스 제품 테스트 | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) | | **4단계: 마켓플레이스에 제품 배포** | [마켓플레이스에 제품 배포][link-pushprod] | [마켓플레이스에 제품 배포][link-pushprod] | [마켓플레이스에 제품 배포][link-pushprod] | [마켓플레이스에 제품 배포][link-pushprod] |
+||가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
+|----|----|----|----|----|
+| **사전 승인 받기** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | 해당 없음 | [Microsoft Azure Certified][link-certification] |
+| **1단계. 판매자 계정 등록** | [Microsoft 판매자 계정: 생성 및 등록][link-accts] | [Microsoft 판매자 계정: 생성 및 등록][link-accts] | [Microsoft 판매자 계정: 생성 및 등록][link-accts] | [Microsoft 판매자 계정: 생성 및 등록][link-accts] |
+|**2단계. 제품 만들기**| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)|
+|| [VM 기술 필수 구성 요소][link-single-vm-prereq] | 개발자 서비스 기술 필수 구성 요소 | 데이터 서비스 기술 필수 구성 요소 | [솔루션 템플릿 기술 필수 구성 요소](marketplace-publishing-solution-template-creation-prerequisites.md) |
+||[VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | 데이터 서비스 게시 가이드 | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |
+|| [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] |
+| **3단계. 스테이징에 제품 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 스테이징에서 개발자 서비스 제품 테스트 | 스테이징에서 데이터 서비스 제품 테스트 | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) |
+| **4단계. 마켓플레이스에 제품 배포** | [마켓플레이스에 제품 배포][link-pushprod] | [마켓플레이스에 제품 배포][link-pushprod] | [마켓플레이스에 제품 배포][link-pushprod] | [마켓플레이스에 제품 배포][link-pushprod] |
 
 ## 지원
 - [게시자로 지원 받기][suppt-general]

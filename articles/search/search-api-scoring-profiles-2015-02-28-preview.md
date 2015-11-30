@@ -342,7 +342,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 `boostingDuration`의 형식은 XSD "dayTimeDuration" 값(ISO 8601 기간 값의 제한된 하위 집합)으로 지정해야 합니다. 이에 대한 패턴은 다음과 같습니다.
 
-     [-]P[nD][T[nH][nM][nS]]
+     [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
 다음 표에 여러 예제가 나와 있습니다.
 
