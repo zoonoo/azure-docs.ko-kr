@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Azure AD 조인에 대한 사용 시나리오와 배포 고려 사항 | Microsoft Azure" 
-	description="Azure AD Join에서 사용할 수 있는 다른 배포 시나리오 나열 및 설명" 
+	description="관리자가 최종 사용자(직원, 학생, 다른 사용자)를 위해 Azure AD 조인을 설정하는 방법을 설명하는 항목입니다. 또한 Azure AD 조인을 사용하는 데 대한 다양한 실제 시나리오에 대해서 설명합니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항 
@@ -53,7 +54,7 @@ Azure AD 연결은 현재 클라우드에서 업무용 ID를 작동 및 관리�
 *	Windows 10(Professional 및 Enterprise SKU)
 
 ### 관리자 작업
-* [장치 등록 및 MFA 설정](active-directory-azureadjoin-setup.md)
+* [장치 등록 설정](active-directory-azureadjoin-setup.md)
 
 ### 사용자 작업
 * [설치하는 동안 Azure AD로 새 Windows 10 장치 설정](active-directory-azureadjoin-user-frx.md)
@@ -77,14 +78,18 @@ Azure AD 연결은 현재 클라우드에서 업무용 ID를 작동 및 관리�
 
 ### 관리자 작업
 
-* [장치 등록 및 MFA 설정](active-directory-azureadjoin-setup.md)
+* [장치 등록 설정](active-directory-azureadjoin-setup.md)
 
 ### 사용자 작업
 * [개인 Windows 10 장치를 조직에 연결](active-directory-azureadjoin-personal-device.md)
 
 
 ## 추가 정보
-* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
+* [엔터프라이즈를 위한 Windows 10: 작업에 장치를 사용하는 방법](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
+* [Microsoft Passport를 통해 암호 없이 ID 인증](active-directory-azureadjoin-passport.md)
+* [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

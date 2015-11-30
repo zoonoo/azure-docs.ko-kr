@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@
 
 
 - [Azure SQL 데이터베이스 프로그래밍 방식으로 연결 하기 위한 지침](http://msdn.microsoft.com/library/azure/ee336282.aspx) -다음 사항을 다룹니다.
- - [포트 및 방화벽](sql-database-configure-firewall-settings.md/)
+ - [포트 및 방화벽](sql-database-configure-firewall-settings.md)
  - 연결 문자열
-- [Azure SQL 데이터베이스 리소스 관리](https://msdn.microsoft.com/library/azure/dn338083.aspx) -다음 사항을 다룹니다.
+- [Azure SQL 데이터베이스 리소스 관리](http://msdn.microsoft.com/library/azure/dn338083.aspx) - 다음 사항을 다룹니다.
  - 리소스 관리
  - 제한 적용
  - 제한
@@ -85,7 +85,7 @@ SQL 데이터베이스에 사용자로 사용자를 추가할 때 옵션이 있�
 - Azure VM(가상 컴퓨터)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우 VM에서 포트 범위 11000-11999 및 14000-14999를 열어야 합니다. 자세한 내용을 보려면 [여기](sql-database-develop-direct-route-ports-adonet-v12.md)를 클릭하세요.
 
 
-- *일시적인 오류*를 처리하려면 Azure SQL 데이터베이스와 상호 작용하는 클라이언트 프로그램에 [*다시 시도* 논리](#TransientFaultsAndRetryLogicGm)를 추가합니다.
+- *일시적인 오류* 를 처리하려면 Azure SQL 데이터베이스와 상호 작용하는 클라이언트 프로그램에 [ *다시 시도* 논리](#TransientFaultsAndRetryLogicGm)를 추가합니다.
 
 
 ### 연결 풀
@@ -172,4 +172,4 @@ Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한
 
 - [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

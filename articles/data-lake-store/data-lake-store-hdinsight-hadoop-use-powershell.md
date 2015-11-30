@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 프로비전
@@ -87,7 +87,7 @@ PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도�
 
 	이에 대한 출력은 **True**여야 합니다.
 
-4. 일부 샘플 데이터를 Azure 데이터 레이크에 업로드합니다. 나중에 이 문서에서 사용하여 HDInsight 클러스터에서 데이터에 액세스할 수 있는지 확인합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
+4. 일부 샘플 데이터를 Azure 데이터 레이크에 업로드합니다. 나중에 이 문서에서 사용하여 HDInsight 클러스터에서 데이터에 액세스할 수 있는지 확인합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 
 		
 		$myrootdir = "/"
@@ -294,4 +294,4 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 [makecert]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

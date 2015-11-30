@@ -38,7 +38,7 @@
 
 다양한 언어 및 프레임워크에서 앱 서비스 웹 앱에 기존 웹 자산을 가져옵니다.
 
-기존 웹 자산은 .NET, PHP, Java, Node.js 또는 Python이든 상관 없이 앱 서비스 웹 앱에서 실행할 수 있습니다. 친숙한 [FTP] 도구 또는 소스 제어 관리 시스템을 사용하여 웹앱으로 이동할 수 있습니다. 웹앱에서는 [Visual Studio], [Visual Studio Online] 및 [Git](로컬, GitHub, BitBucket, DropBox, Mercurial 등)와 같은 일반적인 소스 제어 옵션에서 직접 게시할 수 있습니다.
+기존 웹 자산은 .NET, PHP, Java, Node.js 또는 Python이든 상관 없이 앱 서비스 웹 앱에서 실행할 수 있습니다. 친숙한 [FTP] 도구 또는 소스 제어 관리 시스템을 사용하여 웹앱으로 이동할 수 있습니다. 웹앱에서는 [Visual Studio], [Visual Studio Team Services], [Git](로컬, GitHub, BitBucket, DropBox, Mercurial 등)과 같은 일반적인 소스 제어 옵션에서 직접 배포할 수 있습니다.
 
 ## 자산 보안 유지
 
@@ -92,7 +92,7 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [HTTPS]: web-sites-configure-ssl-certificate.md
@@ -124,4 +124,4 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

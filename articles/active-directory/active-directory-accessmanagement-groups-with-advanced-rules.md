@@ -4,36 +4,36 @@
 	description="지원되는 식 규칙 연산자 및 매개 변수를 포함하는 그룹에 대한 고급 규칙 만들기"
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="curtand"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # 특성을 사용하여 고급 규칙 만들기
-Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하도록 설정하는 고급 규칙을 유연하게 설정할 수 있습니다.
+Azure 포털은 Azure Active Directory(Azure AD)에서 고급 규칙을 설정할 수 있는 유연성을 제공하여 Azure AD 그룹에 복잡한 동적 멤버 자격을 사용할 수 있도록 합니다.
 
-**고급 규칙을 만들려면** Azure 관리 포털에 있는 해당 그룹의 **구성** 탭 아래에서 **고급 규칙** 라디오 단추를 선택하고 제공된 텍스트 상자에 고급 규칙을 입력합니다. 다음 정보를 사용하여 고급 규칙을 만들 수 있습니다.
+**고급 규칙을 만들려면** Azure 포털에 있는 해당 그룹의 **구성** 탭에서 **고급 규칙** 옵션을 선택하고 제공된 텍스트 상자에 고급 규칙을 입력합니다. 다음 정보를 사용하여 고급 규칙을 만들 수 있습니다.
 
 ## 고급 규칙 본문 생성
 그룹의 동적 멤버 자격에 대해 만들 수 있는 고급 규칙은 기본적으로 세 부분으로 구성되며 true 또는 false 결과를 생성하는 이진 식입니다. 세 부분은 다음과 같습니다.
 
 - 왼쪽 매개 변수
 - 이항 연산자
-- 오른쪽 상수 
+- 오른쪽 상수
 
-고급 규칙의 전체 모양은 (leftParameter binaryOperator "RightConstant")와 유사합니다. 여기서 열기 및 닫기 괄호는 전체 이진 식에 필요하고, 큰 따옴표는 오른쪽 상수에 필요하며, 왼쪽 매개 변수에 대한 구문은 user.property입니다. 고급 규칙은 -and, -or 및 -not 논리 연산자로 구분된 두 개 이상의 이진 식으로 구성될 수 있습니다. 다음은 제대로 구성된 고급 규칙의 예입니다.
+고급 규칙의 전체 모양은 (leftParameter binaryOperator "RightConstant")와 유사합니다. 여기서 열기 및 닫기 괄호는 전체 이진 식에 필요하고 큰 따옴표는 오른쪽 상수에 필요하며 왼쪽 매개 변수에 대한 구문은 user.property입니다. 고급 규칙은 -and, -or 및 -not 논리 연산자로 구분된 두 개 이상의 이진 식으로 구성될 수 있습니다. 다음은 제대로 구성된 고급 규칙의 예입니다.
 
-- (user.department -eq "Sales") -or (user.department -eq "Marketing") 
-- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE") 
+- (user.department -eq "Sales") -or (user.department -eq "Marketing")
+- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 지원되는 매개 변수 및 식 규칙 연산자의 전체 목록은 아래 섹션을 참조하세요.
 
@@ -124,7 +124,7 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | 임의의 문자열 값 또는 $null입니다. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | 임의의 문자열 값 또는 $null입니다. | (user.postalCode -eq "value") |
-| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "ko-KR") |
 | sipProxyAddress | 임의의 문자열 값 또는 $null입니다. | (user.sipProxyAddress -eq "value") |
 | state | 임의의 문자열 값 또는 $null입니다. | (user.state -eq "value") |
 | streetAddress | 임의의 문자열 값 또는 $null입니다. | (user.streetAddress -eq "value") |
@@ -152,13 +152,13 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 이제 사용자의 관리자 특성에 따라 그룹의 멤버를 채울 수 있습니다.
 "관리자" 그룹으로 그룹을 구성하려면
 --------------------------------------------------------------------------------
-1. 관리자 포털에서 **구성**탭을 클릭하고 **고급 규칙**을 선택합니다. 
+1. 관리자 포털에서 **구성**탭을 클릭하고 **고급 규칙**을 선택합니다.
 2. 다음 구문 사용하여 규칙을 입력합니다.*{UserID\_of\_manager}에 대한 직접 보고*를 위한 직접 보고
-3. 이 규칙을 저장하면 규칙을 만족하는 모든 사용자가 그룹의 구성원으로 가입됩니다. 그룹을 처음 채울 때는 몇 분 정도 걸릴 수 있습니다. 
+3. 이 규칙을 저장하면 규칙을 만족하는 모든 사용자가 그룹의 구성원으로 가입됩니다. 그룹을 처음 채울 때는 몇 분 정도 걸릴 수 있습니다.
 
 
 ## 추가 정보
-다음은 Azure Active Directory에 대한 추가 정보를 제공하는 몇 가지 항목입니다.
+이러한 문서는 Azure Active Directory에 추가 정보를 제공합니다.
 
 * [그룹의 동적 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md)
 
@@ -168,4 +168,4 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 
@@ -44,7 +44,7 @@
 
 &nbsp;&nbsp;7. 공유되는 App.xaml.cs 코드 파일을 열고 새 **UploadChannel** 메서드 호출이 **OnLaunched** 이벤트 처리기에 추가되었음을 확인합니다. 따라서 앱을 시작할 때마다 장치 등록을 시도합니다.
 
-&nbsp;&nbsp;8. 이전 단계를 반복하여 Windows Phone 스토어 앱 프로젝트에 푸시 알림을 추가한 다음 공유되는 App.xaml.cs 파일에서 추가 **UploadChannel** 호출과 나머지 `#if...#endif` 조건부 래퍼를 제거합니다. 이제 두 프로젝트가 모두 단일 **UploadChannel** 호출을 공유할 수 있습니다.
+&nbsp;&nbsp;8. 이전 단계를 반복하여 Windows Phone 스토어 앱 프로젝트에 푸시 알림을 추가한 다음 공유되는 App.xaml.cs 파일에서 추가 **Mobile Service Client** 호출 및 **UploadChannel**과 나머지 `#if...#endif` 조건부 래퍼를 제거합니다. 이제 두 프로젝트가 모두 단일 **UploadChannel** 호출을 공유할 수 있습니다.
 
 &nbsp;&nbsp;`#if...#endif` 래핑 [MobileServiceClient] 정의를 앱의 두 버전에서 모두 사용되는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수도 있습니다.
 
@@ -100,4 +100,4 @@
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

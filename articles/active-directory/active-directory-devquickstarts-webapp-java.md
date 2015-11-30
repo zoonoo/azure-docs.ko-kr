@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/14/2015"
 	ms.author="brandwe"/>
 
 
@@ -21,7 +21,9 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다. Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현한 커뮤니티 기반 OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다. 여기서는 OWIN을 사용하여 다음과 같은 작업을 수행할 것입니다. 즉, Azure AD를 ID 공급자를 사용하여 사용자를 앱에 로그인하고, 사용자에 대한 일부 정보를 표시하고, 사용자를 앱에서 로그아웃합니다.
+Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다. Java 웹앱에서는 Microsoft에서 구현한 커뮤니티 기반 ADAL4J를 사용하여 이 작업을 수행할 수 있습니다.
+
+  다음의 경우 ADAL4J를 사용합니다. - Azure AD를 ID 공급자로 사용하여 사용자를 앱에 로그인합니다. - 사용자에 대한 일부 정보를 표시합니다. - 사용자를 앱에서 로그아웃합니다.
 
 이 작업을 수행하려면 다음 작업이 필요합니다.
 
@@ -45,13 +47,13 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
     - **앱 ID URI**는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>`(예: `http://localhost:8080/adal4jsample/`)을 사용하는 것입니다.
 - 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에서 필요하므로 구성 탭에서 복사해둡니다.
 
-앱의 포털에서 응용 프로그램에 **응용 프로그램 암호**를 만들면 복사합니다. 곧 필요합니다.
+앱의 포털에서 응용 프로그램에 **응용 프로그램 암호**를 만든 후 복사해둡니다. 곧 필요합니다.
 
 
 ## 2\. Maven을 사용하여 ADAL4J 라이브러리 및 필수 구성 요소를 사용하도록 앱을 설정합니다.
 여기서는 OpenID Connect 인증 프로토콜을 사용하도록 ADAL4J를 구성합니다. ADAL4J은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
--	프로젝트의 루트 디렉터리에서 `pom.xml`을 열거나 만들고 `// TODO: provide dependencies for Maven`를 찾으며 다음으로 바꿉니다.
+-	프로젝트의 루트 디렉터리에서 `pom.xml`을 열거나 만들고 `// TODO: provide dependencies for Maven`를 찾아서 다음으로 바꿉니다.
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -270,11 +272,11 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 
 WEB-INF에서 웹앱을 설치를 절반만 완료합니다. 다음으로 구성에서 힌트를 준 웹앱을 실행하는 실제 Java 서버 페이지 파일을 만들어야 합니다.
 
-기억한다면 Java에는 xml 구성 파일에 .jsp 파일을 로드해야 하는 `/` 리소스 및 `/secure`라는 필터를 통과해는 `BasicFilter` 리소스가 있다고 전했습니다.
+기억할지 모르겠지만, Java에는 xml 구성 파일에 .jsp 파일을 로드해야 하는 `/` 리소스 및 `BasicFilter`라는 필터를 통과해야 하는 `/secure` 리소스가 있다고 기록했습니다.
 
 해당 파일을 이제 만들어 보겠습니다.
 
--	먼저 `\webapp`에 위치한 `index.jsp` 파일을 만들고 다음을 자르거나 붙여 넣습니다.
+-	먼저 `\webapp`에 `index.jsp` 파일을 만들고 다음을 잘라내어 붙여넣습니다.
 
 ```jsp
 <html>
@@ -290,7 +292,7 @@ WEB-INF에서 웹앱을 설치를 절반만 완료합니다. 다음으로 구성
 
 단순히 필터에서 보호되는 보안 페이지를 리디렉션합니다.
 
-- 다음으로 동일한 디렉터리에서 `error.jsp` 파일을 만들어서 발생할 수 있는 모든 오류를 잡아냅니다.
+- 다음으로, 발생하는 모든 오류를 catch하는 `error.jsp` 파일을 동일한 디렉터리에 만듭니다.
 
 ```jsp
 <html>
@@ -306,9 +308,9 @@ WEB-INF에서 웹앱을 설치를 절반만 완료합니다. 다음으로 구성
 </html>
 ```
 
-- 마지막으로 `\secure`라는 `\webapp`에서 폴더를 만들들어 원하는 안전한 웹 페이지를 만들어 디렉터리는 이제 `\webapp\secure`입니다. 
+- 마지막으로, 디렉터리가 `\webapp\secure`가 되도록 `\webapp`에 `\secure`라는 폴더를 만들어서 원하는 보안 웹 페이지를 만듭니다. 
 
-- 이 디렉터리 안에서 `aad.jsp` 파일을 만들고 다음을 자르거나 붙여 넣습니다.
+- 이 디렉터리 안에 `aad.jsp` 파일을 만들고 다음을 잘라내어 붙여넣습니다.
 
 ```jsp
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -1318,7 +1320,7 @@ public class User extends DirectoryObject{
 
 1. 로그인된 사용의 상태를 확인하는 데 사용하는 메서드를 제공하는 `AuthHelper.java`라는 파일을 만듭니다. 내용은 다음과 같습니다.
 
-- 사용자가 로그인하는지 여부를 반환하는 `isAuthenticated()` 메서드
+- 사용자의 로그인 여부를 반환하는 `isAuthenticated()` 메서드
 - 토큰에 데이터가 있는지 여부를 알려주는 `containsAuthenticationData()`
 - 인증이 사용자에 대해 성공했는지 여부를 알려주는 `isAuthenticationSuccessful()`
 
@@ -1723,23 +1725,23 @@ public class BasicFilter implements Filter {
 
 ##Tomcat에서 샘플 컴파일 및 실행
 
-`maven`을 사용하여 함께 저장한 샘플을 빌드하도록 다시 루트 디렉터리에 변경하고 다음 명령을 저장합니다. 종속성에 대해 작성한 `pom.xml` 파일을 사용합니다.
+루트 디렉터리로 다시 변경하고 다음 명령을 실행하여 `maven`을 사용하여 모은 샘플을 빌드합니다. 여기에는 종속성에 대해 작성한 `pom.xml` 파일이 사용됩니다.
 
 `$ mvn package`
 
-이제는 `/targets` 디렉터리에 `adal4jsample.war` 파일이 있어야 합니다. Tomcat 컨테이너에서 해당 파일을 배포하고 URL를 방문할 수 있습니다.
+이제 `/targets` 디렉터리에 `adal4jsample.war` 파일이 있습니다. Tomcat 컨테이너에서 해당 파일을 배포하고 URL를 방문할 수 있습니다.
 
 `http://localhost:8080/adal4jsample/`
 
 
-> [AZURE.NOTE]최신 Tomcat 서버를 사용하여 WAR를 쉽게 배포할 수 있습니다. 단순히 `http://localhost:8080/manager/`로 이동하여 '`adal4jsample.war` 파일을 업로드하는 지침을 수행합니다. 올바른 끝점을 사용하여 자동으로 배포합니다.
+> [AZURE.NOTE]최신 Tomcat 서버를 사용하여 WAR를 쉽게 배포할 수 있습니다. `http://localhost:8080/manager/`로 이동하여 '`adal4jsample.war` 파일을 업로드하는 지침에 따릅니다. 올바른 끝점을 사용하여 자동으로 배포합니다.
 
 ##다음 단계
 
 축하합니다. 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 Java 응용 프로그램이 작성되었습니다. 아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다.
 
-참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
+참조를 위해 완료된 샘플(사용자 구성 값 제외)이 [여기에 .zip으로 제공](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

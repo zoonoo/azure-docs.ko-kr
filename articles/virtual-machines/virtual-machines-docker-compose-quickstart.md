@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager,azure-service-management"/>
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -14,21 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
+   ms.date="11/16/2015"
    ms.author="danlep"/>
 
-# Azure 가상 컴퓨터에서 Docker 및 Compose 시작
+# Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 스핀업을 위해 Docker 및 Compose 시작
 
 이 문서에서는 Docker 및[Compose](http://github.com/docker/compose)를 사용하여 Azure의 Linux 가상 컴퓨터에서 복잡한 응용 프로그램을 정의 및 실행하는 방법을 보여줍니다. Compose(*Fig*에 대한 후속)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음 VM에서 실행할 수 있는 모든 작업을 수행하는 단일 명령에서 응용 프로그램을 스핀업합니다. 그 예로, 이 문서에서는 백 엔드 MariaDB SQL 데이터베이스로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
 Docker 및 컨테이너를 처음 사용하는 경우는 [Docker 요약 화이트보드](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/)를 참조하세요.
 
 ## 1단계: Docker 호스트로 Linux VM 설정
 
-다양한 Azure 절차와 Azure Markeplace에서 사용 가능한 이미지를 사용하여 Linux VM을 만들고 Docker 호스트로 설정할 수 있습니다. 예를 들어 Docker VM 확장이 있는 Ubuntu VM을 만드는 빠른 절차는 [Azure 명령줄 인터페이스에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli-install.md)을 참조하세요. Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정됩니다. 해당 문서의 예제에서는 서비스 관리 모드에서 [Mac, Linux 및 Windows에 대한 Azure 명령줄 인터페이스](../xplat-cli-install.md)(Azure CLI)를 사용하여 VM을 만드는 방법을 보여줍니다.
+다양한 Azure 절차와 Azure Markeplace에서 사용 가능한 이미지를 사용하여 Linux VM을 만들고 Docker 호스트로 설정할 수 있습니다. 예를 들어 Docker VM 확장이 있는 Ubuntu VM을 만드는 빠른 절차는 [Azure 명령줄 인터페이스에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli.md)을 참조하세요. Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정됩니다. 해당 문서의 예제에서는 서비스 관리 모드에서 [Mac, Linux 및 Windows에 대한 Azure 명령줄 인터페이스](../xplat-cli-install.md)(Azure CLI)를 사용하여 VM을 만드는 방법을 보여줍니다.
 
 ## 2단계: Compose 설치
 
@@ -92,7 +92,7 @@ Creating wordpress_db_1...
 Creating wordpress_wordpress_1...
 ```
 
->[AZURE.NOTE] 백그라운드에서 계속 실행되도록 **-d** 옵션을 시작에서 사용해야 합니다.
+>[AZURE.NOTE]백그라운드에서 계속 실행되도록 **-d** 옵션을 시작에서 사용해야 합니다.
 
 컨테이너가 동작하는지 확인하려면 `docker-compose ps`를 입력합니다. 다음과 유사한 결과가 표시됩니다.
 
@@ -120,7 +120,7 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 ## 다음 단계
 
-* 다중 컨테이너 앱 빌드 및 배포에 대한 더 많은 예제는 [Compose CLI 참조](http://docs.docker.com/compose/cli/) 및 [사용자 가이드](http://docs.docker.com/compose/)를 참조하세요.
+* 다중 컨테이너 앱 빌드 및 배포에 대한 더 많은 예제는 [Compose CLI 참조](http://docs.docker.com/compose/reference/) 및 [사용자 가이드](http://docs.docker.com/compose/)를 참조하세요.
 * Azure 리소스 관리자 템플릿, 사용자 자신의 템플릿 또는 [커뮤니티](http://azure.microsoft.com/documentation/templates/)에서 배포된 템플릿을 사용하여, Azure VM을 Docker로 배포하고 Compose로 응용 프로그램을 설정합니다. 예를 들어 [Docker를 사용한 WordPress 블로그 배포](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) 템플릿은 Docker 및 Compose를 사용하여 Ubuntu VM에 MySQL 백 엔드와 함께 WordPress를 신속하게 배포합니다.
 * [Docker Swarm](virtual-machines-docker-swarm.md) 클러스터와 Docker Compose 통합을 시도합니다. 시나리오는
 [Docker Compose/Swarm 통합](https://github.com/docker/compose/blob/master/SWARM.md)을 참조하세요.
@@ -129,4 +129,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

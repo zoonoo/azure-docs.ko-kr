@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리 질문과 대답
@@ -187,21 +187,20 @@
 
 <br/> <br/> <br/>
 
-**추가 리소스**
+## 암호 재설정 설명서에 대한 링크
+다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-
-* [암호 관리 정의](active-directory-passwords.md)
-* [암호 관리의 작동 원리](active-directory-passwords-how-it-works.md)
-* [암호 관리 시작](active-directory-passwords-getting-started.md)
-* [암호 관리 사용자 지정](active-directory-passwords-customize.md)
-* [암호 관리 모범 사례](active-directory-passwords-best-practices.md)
-* [암호 관리 보고서와 함께 Operational Insights를 얻는 방법](active-directory-passwords-get-insights.md)
-* [암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
-* [자세한 정보](active-directory-passwords-learn-more.md)
-* [MSDN의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password) - 시스템 사용자로서 자신의 암호를 재설정하거나 변경하는 방법을 알아봅니다.
+* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
+* [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
+* [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
+* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

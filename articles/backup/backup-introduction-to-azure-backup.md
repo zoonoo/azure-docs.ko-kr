@@ -1,26 +1,17 @@
 <properties
-	pageTitle="Azure 백업 소개 | Microsoft Azure"
-	description="이 문서에서는 고객이 Azure로 그리고 Azure에서 데이터를 백업할 수 있게 해주는 Azure 백업 서비스를 간략하게 설명합니다."
+	pageTitle="Azure 백업이란? | Microsoft Azure"
+	description="Azure 백업 및 복구 서비스를 통해 Windows Server, Windows 클라이언트 컴퓨터, SCDPM 서버 또는 Azure 가상 컴퓨터에서 데이터 및 응용 프로그램을 백업 및 복원할 수 있습니다."
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor="tysonn"/>
+	editor="tysonn"
+	keywords="백업 및 복원; 복구 서비스"/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="aashishr"; "trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
-# Azure 백업 소개
-이 문서에서는 고객이 온-프레미스 또는 Azure에 있는 데이터를 백업할 수 있는 Microsoft 클라우드 통합 백업 솔루션에 대해 간략히 소개합니다.
-
-## Azure 백업이란?
-Azure 백업은 데이터가 온-프레미스에 있든 Azure에 있든 백업할 수 있는 다중 테넌트 Azure 서비스입니다. 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 제품으로 대체합니다. 또한 클라우드에서 실행되는 자산을 보호하는 유연성을 제공합니다. Azure 백업은 확장성, 내구성 및 고가용성을 제공하는 최고 수준의 인프라를 기반으로 하여 빌드되었습니다. 이 솔루션을 사용하면 SCDPM(System Center Data Protection Manager) 서버, Windows 서버, Windows 클라이언트 컴퓨터 또는 Azure IaaS 가상 컴퓨터에서 데이터와 응용 프로그램을 백업할 수 있습니다. Azure 백업 및 SCDPM은 Microsoft 클라우드 통합 백업 솔루션을 구성하는 기본 기술입니다.
+# Azure 백업이란?
+Azure 백업은 데이터가 온-프레미스에 있든 Azure에 있든 백업 및 복원할 수 있는 다중 테넌트 Azure 서비스입니다. 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 백업 솔루션으로 대체합니다. 또한 클라우드에서 실행되는 자산을 보호하는 유연성을 제공합니다. Azure 백업은 확장성, 내구성 및 고가용성을 제공하는 최고 수준의 인프라를 기반으로 하여 빌드되었습니다. 이 솔루션을 사용하면 SCDPM(System Center Data Protection Manager) 서버, Windows 서버, Windows 클라이언트 컴퓨터 또는 Azure IaaS 가상 컴퓨터에서 데이터와 응용 프로그램을 백업할 수 있습니다. Azure 백업 및 SCDPM은 Microsoft 클라우드 통합 백업 솔루션을 구성하는 기본 기술입니다.
 
 > [AZURE.VIDEO what-is-azure-backup]
 
@@ -55,7 +46,7 @@ Azure 백업은 데이터가 온-프레미스에 있든 Azure에 있든 백업�
 | --- | --- | --- | --- |
 | Azure 백업 에이전트 | **예** <br><br>Azure 백업 에이전트는 Azure에서 실행 중인 모든 Windows Server VM에 배포될 수 있습니다. | **예** <br><br>Azure 백업 에이전트는 모든 Windows Server VM 또는 물리적 컴퓨터에 배포될 수 있습니다. | Azure 자격 증명 모음 |
 | SCDPM(System Center Data Protection Manager) | **예** <br><br>[SCDPM을 사용하여 Azure에서 워크로드 보호](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)에 대해 자세히 알아보세요. | **예** <br><br>[데이터 센터에서 워크로드 및 VM 보호](https://technet.microsoft.com/ko-KR/library/hh758173.aspx)에 대해 자세히 알아보세요. | 로컬로 연결된 디스크,<br>Azure 백업 자격 증명 모음,<br>테이프(온-프레미스만) |
-| Azure 백업(VM 확장) | **예** <br><br>[Azure IaaS 가상 컴퓨터의 백업](backup-azure-vms-introduction.md)의 경우 특수합니다. | **아니요** <br><br>SCDPM을 사용하여 데이터 센터의 가상 컴퓨터를 백업합니다. | Azure 자격 증명 모음 |
+| Azure 백업(VM 확장) | **예** <br><br>[Azure IaaS 가상 컴퓨터의 백업](backup-azure-vms-introduction.md)에 맞게 특별히 설정됩니다. | **아니요** <br><br>SCDPM을 사용하여 데이터 센터의 가상 컴퓨터를 백업합니다. | Azure 자격 증명 모음 |
 
 
 ## 응용 프로그램 및 워크로드
@@ -78,4 +69,4 @@ Azure 백업은 데이터가 온-프레미스에 있든 Azure에 있든 백업�
 - Azure 백업 서비스에 대한 질문과 대답은 [여기](backup-azure-backup-faq.md)에 나열되어 있습니다.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

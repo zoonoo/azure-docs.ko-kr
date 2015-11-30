@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/18/2015"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 관리
@@ -65,21 +65,21 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 3. 페이지 맨 아래에 있는 **추가**를 클릭합니다. 볼륨 추가 마법사가 시작됩니다.
 
-     ![볼륨 추가 마법사 기본 설정](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![볼륨 추가 마법사 기본 설정](./media/storsimple-manage-volumes/AddVolume1.png)
 
 4. 볼륨 추가 마법사의 **기본 설정**에서 다음을 수행합니다.
 
   1. 볼륨의 **이름**을 지정합니다.
   2. 볼륨의 **프로비전된 용량**을 GB 또는 TB로 지정합니다. 용량은 실제 장치에 대해 1GB 및 64TB 사이여야 합니다. StorSimple 가상 장치에 있는 볼륨에 대해 프로비전할 수 있는 최대 용량은 30TB입니다.
-  3. 드롭다운 목록에서 볼륨의 **사용 유형**을 선택합니다. 자주 액세스하지 않는 보관 데이터로 작업하는 경우 **보관 볼륨**을 선택합니다. 기타 모든 경우에는 **계층화된 볼륨**을 선택합니다. (계층화된 볼륨은 이전의 기본 볼륨입니다.)
+  3. 드롭다운 목록에서 볼륨의 **사용 유형**을 선택합니다. 보관 데이터에 대해 이 볼륨을 사용하는 경우 **자주 액세스하지 않는 보관 데이터에 대해 이 볼륨 사용** 확인란을 선택합니다. 기타 모든 경우에는 **계층화된 볼륨**을 선택합니다. (계층화된 볼륨은 이전의 기본 볼륨입니다.)
   5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)을 클릭하여 **추가 설정** 페이지로 이동합니다.
 
-     ![볼륨 추가 마법사 추가 설정](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+        ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
    
 5. **추가 설정**에서 새 ACR(액세스 제어 레코드)을 추가합니다.
   
   1. 드롭다운 목록에서 ACR(액세스 제어 레코드)을 선택합니다. 또는 새 ACR을 추가할 수 있습니다. ACR은 호스트 IQN을 레코드에 나열된 항목과 비교하여 볼륨에 액세스할 수 있는 호스트를 결정합니다.
-  2. **이 볼륨에 대한 기본 백업**에서 **사용** 확인란을 선택하여 기본 백업을 사용하는 것이 좋습니다.
+  2. **이 볼륨에 대해 기본 백업 사용** 확인란을 선택하여 기본 백업을 사용하는 것이 좋습니다.
    3. 확인 아이콘![확인 아이콘](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 지정된 설정으로 볼륨을 만듭니다.
 
 이제 새 볼륨을 사용할 준비가 되었습니다.
@@ -113,9 +113,10 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
   - 오프라인인 볼륨이 제공된 ACR을 수정합니다. 볼륨이 온라인 상태이면 먼저 오프라인 상태로 전환해야 합니다. ACR을 수정하기 전에 [볼륨을 오프라인을 전환](#take-a-volume-offline)에서 단계를 참조하세요.
   - 볼륨을 오프라인으로 전환한 후 ACR 목록을 수정합니다.
  
-    > [AZURE.NOTE]볼륨에 대해 **기본 백업 사용** 옵션을 변경할 수 없습니다.
+    > [AZURE.NOTE]볼륨에 대해 **이 볼륨에 대해 기본 백업 사용** 옵션을 변경할 수 없습니다.
 
-6. 확인 아이콘![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. 포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
+6. 확인 아이콘![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. Azure
+7.  포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
 
 7. 볼륨을 확장하는 경우 Windows 호스트 컴퓨터에서 다음 단계를 완료합니다.
 
@@ -195,4 +196,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -17,9 +17,9 @@
    ms.author="hascipio"/>
 
 # Azure 마켓플레이스에 대한 제품을 만들기 위한 Azure PowerShell 설정
-Azure에서 PowerShell을 설정하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 방문하세요. 간단한 방법은 인증 방법을 사용하는 것으로, 인증에 필요한 인증서를 다운로드하고 가져옵니다. 필요한 인증서를 가져오려면 *Get-AzurePublishSettingsFile* cmdlet을 사용합니다. 메시지가 표시되면 파일을 저장합니다. 인증서를 PowerShell 세션으로 가져오려면 *Import-AzurePublishSettingsFile*을 사용합니다.
+Azure에서 PowerShell을 설정하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 간단한 방법은 인증 방법을 사용하는 것으로, 인증에 필요한 인증서를 다운로드하고 가져옵니다. 필요한 인증서를 가져오려면 **Get-AzurePublishSettingsFile** cmdlet을 사용합니다. 메시지가 나타나면 파일을 저장합니다. 인증서를 PowerShell 세션으로 가져오려면 **Import-AzurePublishSettingsFile** cmdlet을 사용합니다.
 
-PowerShell 세션에 대한 일반적인 Microsoft Azure 구독 설정을 구성하고 저장하려면 *Set-AzureSubscription* 및 *Select-AzureSubscription* cmdlet을 사용합니다.
+PowerShell 세션에 대한 일반적인 Microsoft Azure 구독 설정을 구성하고 저장하려면 **Set-AzureSubscription** 및 **Select-AzureSubscription** cmdlet을 사용합니다.
 
         Set-AzureSubscription -SubscriptionName “mySubName” -CurrentStorageAccountName “mystorageaccount”
         Select-AzureSubscription -SubscriptionName "mySubName" –Current
@@ -30,4 +30,4 @@ PowerShell 세션에 대한 일반적인 Microsoft Azure 구독 설정을 구성
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 - [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

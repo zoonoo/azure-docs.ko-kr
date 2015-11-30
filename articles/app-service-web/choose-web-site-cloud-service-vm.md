@@ -161,8 +161,8 @@ SSL 지원|X|X|X|앱 서비스 웹앱의 경우 사용자 지정 도메인 이�
 Visual Studio 통합|X|X|X|
 원격 디버깅|X|X|X|
 TFS를 사용하여 코드 배포|X|X|X|
-[Azure 가상 네트워크](../services/virtual-network/)를 사용한 네트워크 격리|X|X|X|[Azure 웹 사이트 가상 네트워크 통합](../blog/2014/09/15/azure-websites-virtual-network-integration/)도 참조하세요.
-[Azure 트래픽 관리자](../services/traffic-manager/) 지원|X|X|X|
+[Azure 가상 네트워크](/services/virtual-network/)를 사용한 네트워크 격리|X|X|X|[Azure 웹 사이트 가상 네트워크 통합](/blog/2014/09/15/azure-websites-virtual-network-integration/)도 참조하세요.
+[Azure 트래픽 관리자](/services/traffic-manager/) 지원|X|X|X|
 통합된 끝점 모니터링|X|X|X|
 서버에 대한 원격 데스크톱 액세스||X|X|
 사용자 지정 MSI 설치||X|X|
@@ -204,4 +204,4 @@ ETW 이벤트 수신 가능||X|X|
   [저장소]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

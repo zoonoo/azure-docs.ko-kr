@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 트래픽 관리자 라우팅 방법
@@ -123,18 +123,11 @@ Azure PowerShell cmdlet 사용에 대한 자세한 내용은 [Azure 트래픽 �
 
 ## 다음 단계
 
-[트래픽 관리자란?](traffic-manager-overview.md)
+[트래픽 관리자 모니터링](traffic-manager-monitoring.md)
 
-[트래픽 관리자 모니터링 정보](traffic-manager-monitoring.md)
+[프로필 만들기](traffic-manager-manage-profiles.md)
 
-[트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[클라우드 서비스](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
+[끝점 추가](traffic-manager-endpoints.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

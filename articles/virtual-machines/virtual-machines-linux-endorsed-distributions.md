@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="11/13/2015"
 	ms.author="szark"/>
 
 
@@ -79,4 +79,4 @@ Oracle의 전략은 공용 및 사설 클라우드에 대한 솔루션의 다양
 
 SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수한 안정성과 보안을 제공하는 검증된 플랫폼입니다. SUSE의 다양한 Linux 플랫폼은 Azure 클라우드 서비스와 자연스럽게 통합되어 쉽게 관리할 수 있는 클라우드 환경을 제공합니다. 1,800곳이 넘는 SUSE Linux Enterprise Server의 독립 소프트웨어 공급업체에서 9,200개 이상의 인증된 응용 프로그램을 통해 SUSE는 데이터 센터에서 지원되는 실행 중인 작업이 확실히 Azure에 배포될 수 있도록 합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="kwill-MSFT"
-   manager="adinah"
+   manager="carmonm"
    editor="joaoma" />
 
 <tags 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
-# Azure 트래픽 관리자의 성능 저하 상태 문제해결
-이 페이지에서는 성능 저하 상태를 보여주는 Azure 트래픽 관리자 프로필의 문제를 해결하는 방법을 설명하고 트래픽 관리자 검색을 이해하는 데 있어 중요한 점을 제공합니다.
+# Azure 트래픽 관리자의 성능 저하 상태 문제 해결
 
+이 페이지에서는 성능 저하 상태를 보여주는 Azure 트래픽 관리자 프로필의 문제를 해결하는 방법을 설명하고 트래픽 관리자 검색을 이해하는 데 있어 중요한 점을 제공합니다.
 
 사용자의 일부 .cloudapp.net 호스티드 서비스를 나타내는 트래픽 관리자 프로필을 구성했으며 몇 초 후에 Status as Degraded(저하 상태)를 볼 수 습니다.
 
@@ -80,4 +80,4 @@ wget은 http://watestsdp2008r2.cloudapp.net/Default.aspx(으)로 리디렉션되
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

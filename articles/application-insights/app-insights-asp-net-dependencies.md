@@ -12,19 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Application Insights 설정: 종속성 추적
 
-*Application Insights는 미리 보기 상태입니다.*
-
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다.
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -97,7 +90,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ### Azure 클라우드 서비스 프로젝트 만들기인 경우
 
-[웹 및 작업자 역할에 스크립트를 추가합니다](app-insights-cloudservices.md).
+[웹 및 작업자 역할에 스크립트 추가](app-insights-cloudservices.md)
 
 ## <a name="diagnosis"></a> 종속성 성능 문제 진단
 
@@ -202,4 +195,4 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

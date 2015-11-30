@@ -17,19 +17,19 @@
    ms.date="10/21/2015"
    ms.author="joaoma" />
 
-# PowerShell을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치를 만들기 시작
+# PowerShell을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치 만들기 시작
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. Azure 클래식 배포 모델을 찾는 경우 [클래식 배포를 사용하는 인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-classic-portal.md)으로 이동합니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. 또한 [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-arm-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 아래 단계에서는 PowerShell과 함께 Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 보여 줍니다. Azure 리소스 관리자를 사용하면 인터넷 연결 부하 분산 장치를 만드는 항목이 개별적으로 구성된 다음 함께 사용되어 리소스를 만듭니다.
 
-이 페이지에서는 부하 분산 장치를 만들기 위해 수행되는 개별 작업의 순서를 알아보고 부하 분산 장치를 만들기 위해 수행해야 하는 작업을 자세히 설명합니다.
+부하 분산 장치를 만들기 위해 수행되는 개별 작업의 순서를 알아보고 부하 분산 장치를 만들기 위해 수행해야 하는 작업을 자세히 설명합니다.
 
 ## 인터넷 연결 부하 분산 장치를 만드는 데 필요한 항목은 무엇입니까?
 
@@ -37,18 +37,19 @@
 
 - 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다. 
 
-- 백 엔드 주소 풀 - 부하 분산 장치의 트래픽을 받는 NIC(네트워크 인터페이스)를 포함합니다.
+- 백 엔드 주소 풀 - 부하 분산 장치의 네트워크 트래픽을 받는 가상 컴퓨터에 대한 NIC(네트워크 인터페이스)를 포함합니다.
 
-- 부하 분산 규칙 - 백 엔드 주소 풀에 있는 NIC의 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
+- 부하 분산 규칙 - 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
 
-- 인바운드 NAT 규칙 - 백 엔드 주소 풀에 있는 개별 NIC의 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
+- 인바운드 NAT 규칙 - 백 엔드 주소 풀에 있는 특정 가상 컴퓨터에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
 
-- 프로브 - 백 엔드 주소 풀의 NIC에 연결된 VM의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
+- 프로브 - 백 엔드 주소 풀의 가상 컴퓨터 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
-Azure 리소스 관리자의 부하 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
+Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
 
 
 ## 리소스 관리자를 사용하도록 PowerShell 설치
+
 PowerShell용 Azure 모듈이 최신 프로덕션 버전이고 Azure 구독에 액세스하도록 PowerShell이 제대로 설치되었는지 확인합니다.
 
 ### 1단계
@@ -281,4 +282,4 @@ Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

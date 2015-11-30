@@ -21,7 +21,7 @@
 
 연속 내보내기는 원격 분석 데이터를 JSON 형식으로 Azure 저장소로 이동합니다. Azure 스트림 분석을 사용하여 JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만들 것입니다.
 
-보다 일반적으로 말하자면, 연속 내보내기는 앱에서 Application Insights에 보내는 원격 분석을 자체적으로 분석하는 방법입니다. 내보낸 원격 분석을 사용하여 이 코드 샘플이 데이터 집계 및 PowerBI 가상화 그룹에 해당 데이터 게시 등의 기타 작업을 수행하도록 적용할 수 있습니다.
+보다 일반적으로 말하자면, 연속 내보내기는 앱에서 Application Insights에 보내는 원격 분석을 자체적으로 분석하는 방법입니다. 데이터 집계와 같은 원격 분석을 사용하여 이 코드 샘플이 기타 작업을 수행하도록 적용할 수 있습니다.
 
 모니터링하려는 앱이 이미 있다고 가정하고 시작합니다.
 
@@ -59,7 +59,7 @@
 
 연속 내보내기는 항상 Azure 저장소 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
 
-1. [Azure 포털][portal]에서 구독에 “클래식" 저장소 계정을 만듭니다.
+1. [Azure 포털][portal]에서 구독에 "클래식" 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소를 선택합니다. 클래식을 선택하고 만들기를 선택합니다. 저장소 이름을 제공합니다.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
@@ -300,6 +300,7 @@ SQL 데이터베이스를 지정합니다.
 ## 관련된 문서
 
 * [작업자 역할을 사용하여 SQL로 내보내기](app-insights-code-sample-export-telemetry-sql-database.md)
+* [스트림 분석을 사용하여 PowerBI로 내보내기](app-insights-export-power-bi.md)
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights에서 연속 내보내기](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -314,4 +315,4 @@ SQL 데이터베이스를 지정합니다.
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

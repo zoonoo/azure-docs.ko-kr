@@ -156,7 +156,7 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Veracode.jpg)| [Veracode](https://go.microsoft.com/fwLink/?LinkID=530231&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Wikispace.jpg)| [Wikispaces](https://go.microsoft.com/fwLink/?LinkID=403223&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Work.jpg)| [Work.com](https://go.microsoft.com/fwLink/?LinkID=510259&clcid=0x409)|
-| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday 인바운드 동기화](https://msdn.microsoft.com/library/azure/dn762434.aspx)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday 인바운드 동기화](active-directory-saas-workday-inbound-tutorial.md)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workrite.jpg)| [Workrite](https://go.microsoft.com/fwLink/?LinkID=530242&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
@@ -176,4 +176,4 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

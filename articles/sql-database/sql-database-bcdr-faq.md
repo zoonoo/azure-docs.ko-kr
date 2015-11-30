@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 # 비즈니스 연속성 FAQ
@@ -48,7 +48,7 @@
 
 ## 7\. 내 서버에서 대량으로 데이터베이스를 복원하려면 어떻게 해야 합니까?
 
-대량 복원을 위한 기본 제공 기능은 없습니다. 이 작업은 [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 스크립트를 사용하여 수행할 수 있습니다.
+대량 복원을 위한 기본 제공 기능은 없습니다. [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 스크립트는 이 작업을 수행하는 한 가지 방법의 예입니다.
 
 ## 8\. 표준 지역에서 복제와 활성 지역 복제의 차이 무엇입니까?
 
@@ -58,11 +58,6 @@
 
 ## 9\. 표준 지역에서 복제 또는 활성 지역 복제를 사용하는 경우 복제 지연이란 무엇입니까?
 
-지역에서 복제는 연속 복사를 사용합니다. 따라서 [sys.dm\_continuous\_copy\_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) 동적 관리 뷰(DMV)를 사용하여 마지막 복제 시간 및 기타 정보를 얻을 수 있습니다.
+[sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) 동적 관리 뷰(DMVs)를 사용하여 마지막 복제 시간, 마지막 복제 간격 및 복제 링크에 대한 기타 정보를 얻을 수 있습니다.
 
-
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

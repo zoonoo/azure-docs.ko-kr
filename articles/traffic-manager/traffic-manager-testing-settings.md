@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 트래픽 관리자 설정 테스트
@@ -61,22 +61,15 @@
 
 웹 기반 DNS 조회를 해제하고 사용할 수 있는 서비스를 이용합니다. 그중 일부에는 다양한 위치에서 DNS 이름을 확인할 수 있는 기능이 있습니다. 예제를 보려면 "DNS 조회"를 검색합니다. 다른 옵션은 Gomez 또는 Keynote와 같은 타사 솔루션을 사용하여 정책이 예상대로 트래픽을 분산하는지 확인하는 것입니다.
 
-## 참고 항목
+## 다음 단계
 
-[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)
+[트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
 
-[트래픽 관리자 - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
+[트래픽 관리자 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
-[트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
 
-[트래픽 관리자란?](traffic-manager-overview.md)
 
-[클라우드 서비스](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[트래픽 관리자에 대한 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

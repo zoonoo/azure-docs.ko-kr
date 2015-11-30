@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에 Google 로그인을 사용하기 위해 앱 등록
@@ -34,10 +34,13 @@
 
 6. **Credentials** 탭에서 **Add credentials** > **OAuth 2.0 client ID**를 클릭하고 **Web application**을 선택합니다.
 
-7. **Authorized JavaScript Origins**에 모바일 서비스 URL을 입력하고 **Authorized Redirect URI**에 생성된 URL을 경로 `/login/google`이 뒤에 추가된 모바일 서비스 URL로 바꾼 후 **Create client ID**를 클릭합니다.
+7. **Authorized JavaScript Origins**에 모바일 서비스 URL을 입력하고 **Authorized Redirect URI**에 생성된 URL을 다음 URL 형식 중 하나로 바꾼 후 **Create client ID**를 클릭합니다.
+ 
+	+ **.NET 백 엔드**: `https://<mobile_service>.azure-mobile.net/signin-google`
+	+ **JavaScript 백 엔드**: `https://<mobile_service>.azure-mobile.net/login/google` 
 
-	>[AZURE.NOTE]Visual Studio를 사용하여 Azure에 게시된 .NET 백 엔드 모바일 서비스의 경우 리디렉션 URL은 모바일 서비스 URL에 모바일 서비스를 .NET 서비스로 사용한 _signin-google_ 경로를 추가한 것입니다(예: `https://todolist.azure-mobile.net/signin-google`). &nbsp;
-	
+	 >[AZURE.NOTE]모바일 서비스 백 엔드 유형에 맞는 리디렉션 URL 경로 형식을 사용하고 있는지 확인합니다. 형식이 올바르지 않으면 인증이 실패합니다.
+
 8. 다음 화면에서 클라이언트 ID 및 클라이언트 암호 값을 적어 둡니다.
 
     > [AZURE.IMPORTANT]클라이언트 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 클라이언트 응용 프로그램 내에 배포하지 마세요.
@@ -56,4 +59,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

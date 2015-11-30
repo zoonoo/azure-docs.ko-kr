@@ -4,20 +4,22 @@
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+   manager="carmonm"
+   editor="tysonn" 
+   tags="azure-service-management,azure-resource-manager"
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
+   ms.date="11/09/2015"
    ms.author="telmos" />
 
 # 여러 NIC를 사용하여 VM 만들기
 
-다중 NIC 기능을 사용하여 Azure VM(가상 컴퓨터)에서 여러 가상 NIC(네트워크 인터페이스 카드)를 만들고 관리할 수 있습니다. 다중 NIC는 응용 프로그램 전달 및 WAN 최적화 솔루션과 같은 여러 네트워크 가상 장비를 위한 요구 사항입니다. 다중 NIC는 NIC 프런트 엔드 및 백 엔드 NIC 간의 격리, 또는 관리 평면 트래픽에서 데이터 평면 트래픽 분리를 포함한 추가 네트워크 트래픽 관리 기능도 제공합니다.
+Azure에서 VM(가상 컴퓨터)을 만들고 각 VM에 여러 NIC(네트워크 인터페이스)를 연결할 수 있습니다. 다중 NIC는 응용 프로그램 전달 및 WAN 최적화 솔루션과 같은 여러 네트워크 가상 장비를 위한 요구 사항입니다. 다중 NIC는 NIC 프런트 엔드 및 백 엔드 NIC 간의 격리, 또는 관리 평면 트래픽에서 데이터 평면 트래픽 분리를 포함한 추가 네트워크 트래픽 관리 기능도 제공합니다.
 
 ![VM에 대한 다중 NIC](./media/virtual-networks-multiple-nics/IC757773.png)
 
@@ -28,15 +30,15 @@
 현재 다중 NIC에는 다음과 같은 요구 사항 및 제약 조건이 있습니다.
 
 - 다중 NIC VM은 Azure VNet(가상 네트워크)에서 생성되어야 합니다. 비 VNet VM은 지원되지 않습니다. 
-- 단일 클라우드 서비스 내에서 다음 설정이 허용됩니다. 
+- 단일 클라우드 서비스(클래식 배포) 또는 리소스 그룹(리소스 관리자 배포) 내에서는 다음 설정만 허용됩니다. 
 	- 해당 클라우드 서비스의 모든 VM에서 다중 NIC를 사용할 수 있어야 합니다. 또는 
 	- 해당 클라우드 모든 VM에는 각각 단일 NIC가 있어야 합니다. 
 
->[AZURE.IMPORTANT]이미 단일 NIC VM을 포함하는 배포(클라우드 서비스)에 다중 NIC VM을 추가하려고 하거나 그 반대의 경우 다음과 같은 오류가 나타납니다. 보조 네트워크 인터페이스가 있는 가상 컴퓨터 및 보조 네트워크 인터페이스가 없는 가상 컴퓨터는 동일한 배포에서 지원되지 않으며, 보조 네트워크 인터페이스가 없는 가상 컴퓨터를 보조 네트워크 인터페이스가 있도록 업데이트할 수 없고 그 반대의 경우도 마찬가지입니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
  
-- 인터넷 연결 VIP가 "기본" NIC 에서만 지원됩니다. 기본 NIC의 IP에 하나의 VIP만 있습니다. 
-- 현재 LPIP(인스턴스 수준 공용 IP) 주소는 다중 NIC VM에 대해 지원되지 않습니다. 
-- VM 내에서 Nic의 순서가 임의로 지정되며, Azure 인프라 업데이트에서 변경할 수도 있습니다. 그러나 IP 주소 및 해당 이더넷 MAC 주소는 동일하게 유지됩니다. 예를 들어, **Eth1**의 IP 주소는 10.1.0.100이며 MAC 주소는 00-0D-3A-B0-39-0D입니다. Azure 인프라 업데이트 및 다시 부팅 후, Eth2로 변경될 수 있지만 IP 및 MAC 페어링은 그대로 유지됩니다. 다시 시작은 고객이 시작한 것이며 NIC 순서는 그대로 유지됩니다. 
+- 인터넷 연결 VIP(클래식 배포)는 "기본" NIC에서만 지원됩니다. 기본 NIC의 IP에 하나의 VIP만 있습니다. 
+- 현재 LPIP(인스턴스 수준 공용 IP) 주소(클래식 배포)는 다중 NIC VM에 대해 지원되지 않습니다. 
+- VM 내에서 Nic의 순서가 임의로 지정되며, Azure 인프라 업데이트에서 변경할 수도 있습니다. 그러나 IP 주소 및 해당 이더넷 MAC 주소는 동일하게 유지됩니다. 예를 들어, **Eth1**의 IP 주소는 10.1.0.100이며 MAC 주소는 00-0D-3A-B0-39-0D입니다. Azure 인프라 업데이트 및 다시 부팅 후, **Eth2**로 변경될 수 있지만 IP 및 MAC 페어링은 그대로 유지됩니다. 다시 시작은 고객이 시작한 것이며 NIC 순서는 그대로 유지됩니다. 
 - 각 VM에서 각 NIC에 대한 주소는 서브넷에 있어야 하며, 단일 VM의 여러 NIC는 동일한 서브넷에 있는 주소에 각각 할당됩니다. 
 - VM 크기는 VM에 대해 만들 수 있는 NIC의 수를 결정합니다. 아래 표는 VM의 크기에 해당하는 NIC의 수를 표시합니다. 
 
@@ -88,16 +90,16 @@
 |기타 모든 크기|1|
 
 ## NSG(네트워크 보안 그룹)
-다중 NIC를 사용할 수 있는 VM의 NIC를 포함하여 VM의 모든 NIC를 NSG(네트워크 보안 그룹)에 연결할 수 있습니다. NIC가 서브넷이 NSG와 연관된 서브넷 내에서 할당되면, 서브넷의 NSG의 규칙도 해당 NIC에 적용됩니다. 서브넷을 NSG와 연결하는 것 외에도 NSG와 NIC를 연결할 수도 있습니다.
+리소스 관리자 배포에서는 다중 NIC를 사용할 수 있는 VM의 NIC를 포함하여 VM의 모든 NIC를 NSG(네트워크 보안 그룹)에 연결할 수 있습니다. NIC가 서브넷이 NSG와 연관된 서브넷 내에서 할당되면, 서브넷의 NSG의 규칙도 해당 NIC에 적용됩니다. 서브넷을 NSG와 연결하는 것 외에도 NSG와 NIC를 연결할 수도 있습니다.
 
-서브넷이 해당 서브넷이 NSG와 개별적으로 연관된 NIC 및 NSG와 연결된 경우, NIC 안팎으로 전달되는 트래픽의 방향에 따라 연관된 NSG 규칙은 "**흐름 순서**"에 적용됩니다.
+서브넷이 해당 서브넷이 NSG와 개별적으로 연관된 NIC 및 NSG와 연결된 경우, NIC 안팎으로 전달되는 트래픽의 방향에 따라 연관된 NSG 규칙은 **흐름 순서**에 적용됩니다.
 
 - ****들어오는 트래픽** 대상은 서브넷을 통한 논의 중인 NIC 흐름으로, 서브넷의 NSG 규칙을 트리거하며 NIC로 전달되기 전에 NIC의 NSG 규칙을 트리거합니다.
 - **들어오는 트래픽** 소스는 처음 NIC를 통한 논의 중인 NIC 흐름으로, NIC의 NSG 규칙을 트리거하며 서브넷으로 전달되기 전에 서브넷의 NSG 규칙을 트리거합니다. 
 
-위의 그림은 NSG 규칙 응용 프로그램이 트래픽 흐름을 기반으로 흐름(VM에서 서브넷으로 또는 서브넷에서 VM으로)을 나타냅니다.
+[네트워크 보안 그룹](virtual-networks-nsg)과 서브넷, VM 및 NIC 연결을 기반으로 이를 적용하는 방법에 대해 자세히 알아보세요.
 
-## 다중 NIC VM을 구성하는 방법
+## 클래식 배포에서 다중 NIC VM을 구성하는 방법
 
 아래의 지침에 따라 기본 NIC 하나와 추가 NIC 두 개 등 3개의 NIC가 포함된 다중 NIC VM을 만들 수 있습니다. 구성 단계는 아래 서비스 구성 파일 조각에 따라 구성될 VM을 만듭니다.
 
@@ -258,4 +260,9 @@ Azure의 현재 모델은 가상 컴퓨터에서 모든 NIC가 기본 게이트�
 
 Linux VM의 경우, 기본 동작에서 취약한 호스트 라우팅을 사용하므로 보조 NIC는 동일한 서브넷 내 트래픽 흐름으로만 제한하는 것이 좋습니다. 그러나 특정 시나리오에 서브넷 외부 연결을 요청하는 경우, 사용자는 정책 기반 라우팅을 사용하도록 설정하여 송/수신 트래픽이 동일한 NIC를 사용하게 해야 합니다.
 
-<!---HONumber=Nov15_HO3-->
+## 다음 단계
+
+- [리소스 관리자 배포를 통해 2계층 응용 프로그램 시나리오에서 MultiNIC VM](virtual-network-deploy-multinic-arm-template) 배포
+- [클래식 배포를 통해 2계층 응용 프로그램 시나리오에서 MultiNIC VM](virtual-network-deploy-multinic-classic-ps) 배포
+
+<!---HONumber=Nov15_HO4-->

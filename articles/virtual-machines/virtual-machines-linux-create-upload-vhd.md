@@ -55,6 +55,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../l
 
 - **[CentOS 기반 배포판](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES 및 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[기타 - 보증되지 않는 배포](virtual-machines-linux-create-upload-vhd-generic.md)**
@@ -163,11 +164,11 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 
 자세한 내용은 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)(영문)를 참조하십시오.
 
-> [AZURE.NOTE] [Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대 한 cmdlet을 처리 하는 방식으로 변경 합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
+> [AZURE.NOTE] [Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대한 cmdlet을 처리하는 방식으로 변경합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -35,7 +35,7 @@
 
 3. 앱 디렉터리의 **server** 하위 폴더에서 다음 명령 파일 중 하나를 시작합니다.
 
-	+ **launch-windows**(Windows 컴퓨터) 
+	+ **.\\start-iisexpress.ps1**(Windows 컴퓨터) 
 	+ **launch-mac.command**(Mac OS X 컴퓨터)
 	+ **launch-linux.sh**(Linux 컴퓨터)
 
@@ -68,7 +68,7 @@
 
 	그러면 페이지에서 모바일 서비스에 로그인할 수 있게 됩니다.
 
-2. app.js 파일의 아래쪽에서 refreshTodoItems 함수를 호출하는 코드 줄을 찾아 다음 코드로 바꿉니다.
+2. page.js 파일의 아래쪽에서 refreshTodoItems 함수를 호출하는 코드 줄을 찾아 다음 코드로 바꿉니다.
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -137,4 +137,4 @@
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

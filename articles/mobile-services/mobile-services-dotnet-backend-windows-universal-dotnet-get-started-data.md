@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # 기존 앱에 모바일 서비스 추가
@@ -67,7 +67,7 @@
 
 ##모바일 서비스를 사용하도록 앱 업데이트
 
-이 섹션에서는 모바일 서비스를 응용 프로그램용 백 엔드 서비스로 사용하기 위해 범용 Windows 앱을 업데이트합니다. GetStartedWithData.Shared 프로젝트 폴더의 MainPage.xaml.cs 프로젝트 파일만 변경하면 됩니다.
+이 섹션에서는 모바일 서비스를 응용 프로그램용 백 엔드 서비스로 사용하기 위해 범용 Windows 앱을 업데이트합니다. GetStartedWithData.Shared 프로젝트 폴더의 MainPage.cs 프로젝트 파일만 변경하면 됩니다.
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
@@ -124,4 +124,4 @@
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="서비스 패브릭 신뢰할 수 있는 행위자 개요"
+   pageTitle="서비스 패브릭 신뢰할 수 있는 행위자 개요 | Microsoft Azure"
    description="서비스 패브릭 신뢰할 수 있는 행위자 프로그래밍 모델 소개"
    services="service-fabric"
    documentationCenter=".net"
@@ -36,10 +36,10 @@ public interface ICalculatorActor : IActor
 }
 ```
 
-행위자 형식은 다음과 같이 위의 인터페이스를 구현할 수 있습니다.
+행위자 형식은 다음과 같이 이 인터페이스를 구현할 수 있습니다.
 
 ```csharp
-public class CalculatorActor : Actor, ICalculatorActor
+public class CalculatorActor : StatelessActor, ICalculatorActor
 {
     public Task<double> AddAsync(double valueOne, double valueTwo)
     {
@@ -81,9 +81,9 @@ double result = calculatorActor.AddAsync(2, 3).Result;
 높은 수준의 확장성과 안정성을 제공하려면 서비스 패브릭은 클러스터 전체에 행위자를 배포하고 필요에 따라 실패한 노드에서 정상적인 노드로 자동으로 마이그레이션합니다. 클라이언트 쪽 `ActorProxy` 클래스는 ID [파티션](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)을 기준으로 행위자를 찾는 데 필요한 해결 방법을 수행하고 통신 채널을 엽니다. `ActorProxy`에서는 통신 오류 및 장애 조치 시 다시 시도합니다. 이렇게 하면 메시지는 오류 상태에도 불구하고 안정적으로 배달되지만 행위자 구현이 동일한 클라이언트에서 중복 메시지를 가져올 수 있다는 것도 의미합니다.
 
 ## 동시성
-### Turn 기반 동시성
+### 턴 기반 액세스
 
-행위자 런타임은 행위자 메서드에 대해 간단한 턴 기반 동시성을 제공합니다. 따라서 행위자 코드 내에는 항상 둘 이상의 스레드가 활성화될 수 없습니다.
+행위자 런타임은 행위자 메서드에 액세스하기 위한 간단한 턴 기반 모델을 제공합니다. 따라서 행위자 코드 내에는 항상 둘 이상의 스레드가 활성화될 수 없습니다.
 
 하나의 턴은 다른 행위자 또는 클라이언트의 요청에 대한 응답 시 행위자 메서드의 완전한 실행 또는 [타이머/미리 알림](service-fabric-reliable-actors-timers-reminders.md) 콜백의 완전한 실행으로 이루어집니다. 메서드와 콜백이 비동기이더라도 행위자 런타임은 이러한 메서드와 콜백을 인터리빙하지 않습니다. 하나의 턴을 완전히 완료해야 새로운 턴이 허용됩니다. 즉, 메서드 또는 콜백에 대한 새로운 호출을 허용하기 전에 현재 실행 중인 행위자 메서드 또는 타이머/미리 알림 콜백을 완전히 완료해야 합니다. 메서드 또는 콜백에서 실행이 반환된 경우 및 메서드 또는 콜백에서 반환된 작업이 완료된 경우, 메서드 또는 콜백이 완료된 것으로 간주합니다. 서로 다른 메서드, 타이머 및 콜백 전체에 걸쳐 턴 기반 동시성이 준수된다는 것을 강조할 가치가 있습니다.
 
@@ -121,12 +121,12 @@ double result = calculatorActor.AddAsync(2, 3).Result;
 패브릭 행위자를 사용하면 상태 비저장 또는 상태 저장 행위자를 만들 수 있습니다.
 
 ### 상태 비저장 행위자
-상태 비저장 행위자는 ``Actor`` 기본 클래스에서 파생된 것으로, 행위자 런타임에서 관리되는 상태를 유지하지 않습니다. 해당 멤버 변수는 다른 모든 .NET 형식과 마찬가지로 해당 메모리 내 수명 주기 동안 유지됩니다. 그러나 일정한 비활성 기간 후 가비지 수집되면 상태가 손실됩니다. 마찬가지로, 상태는 리소스 균형 조정 작업을 업그레이드 하는 동안 또는 작업자 프로세스 또는 해당 호스팅 노드 실패의 결과로 발생하는 장애 조치로 인해 손실될 수 있습니다.
+상태 비저장 행위자는 `StatelessActor` 기본 클래스에서 파생된 것으로, 행위자 런타임에서 관리되는 상태를 유지하지 않습니다. 해당 멤버 변수는 다른 모든 .NET 형식과 마찬가지로 해당 메모리 내 수명 주기 동안 유지됩니다. 그러나 일정한 비활성 기간 후 가비지 수집되면 상태가 손실됩니다. 마찬가지로, 상태는 리소스 균형 조정 작업을 업그레이드 하는 동안 또는 작업자 프로세스 또는 해당 호스팅 노드 실패의 결과로 발생하는 장애 조치로 인해 손실될 수 있습니다.
 
 다음은 상태 비저장 행위자의 예입니다.
 
 ```csharp
-class HelloActor : Actor, IHello
+class HelloActor : StatelessActor, IHello
 {
     public Task<string> SayHello(string greeting)
     {
@@ -136,12 +136,12 @@ class HelloActor : Actor, IHello
 ```
 
 ### 상태 저장 행위자
-상태 저장 행위자는 가비지 수집 및 장애 조치 전체에서 유지되어야 하는 상태를 갖습니다. `Actor<TState>` 기본 클래스에서 파생되며, `TState`는 보존해야 하는 상태의 유형입니다. 상태는 기본 클래스의 `State` 속성을 통해 행위자 메서드에서 액세스할 수 있습니다.
+상태 저장 행위자는 가비지 수집 및 장애 조치 전체에서 유지되어야 하는 상태를 갖습니다. `StatefulActor<TState>`에서 파생되며, `TState`는 보존해야 하는 상태의 유형입니다. 상태는 기본 클래스의 `State` 속성을 통해 행위자 메서드에서 액세스할 수 있습니다.
 
 다음은 상태에 액세스하는 상태 저장 행위자의 예입니다.
 
 ```csharp
-class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -198,4 +198,4 @@ public interface IVoicemailBoxActor : IActor
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

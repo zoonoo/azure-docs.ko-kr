@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에 Facebook 인증을 사용하기 위해 앱 등록
@@ -48,11 +48,14 @@
 	
     >[AZURE.IMPORTANT]앱 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마세요. &nbsp;
 
-8. **Advanced** 탭을 클릭하고 **Valid OAuth redirect URIs**에 경로 _/login/facebook_이 뒤에 추가되는 모바일 서비스의 URL을 입력한 후 **Save Changes**를 클릭합니다. &nbsp;
+8. **Advanced** 탭을 클릭하고, **Valid OAuth redirect URIs**에 다음 URL 형식 중 하나를 입력한 다음 **Save Changes**를 클릭합니다.
+ 
+	+ **.NET 백 엔드**: `https://<mobile_service>.azure-mobile.net/signin-facebook`
+	+ **JavaScript 백 엔드**: `https://<mobile_service>.azure-mobile.net/login/facebook` 
 
-     >[AZURE.NOTE]Visual Studio를 사용하여 Azure에 게시된 .NET 백 엔드 모바일 서비스의 경우 리디렉션 URL은 모바일 서비스 URL에 모바일 서비스를 .NET 서비스로 사용한 _signin-facebook_ 경로를 추가한 것입니다(예: `https://todolist.azure-mobile.net/signin-facebook`).
+	 >[AZURE.NOTE]모바일 서비스 백 엔드 유형에 맞는 리디렉션 URL 경로 형식을 사용하고 있는지 확인합니다. 형식이 올바르지 않으면 인증이 실패합니다.
+
        
-
 9. **Status & Review** > **Yes**를 클릭하여 앱에 대한 일반 공용 액세스를 사용하도록 설정합니다.
 
 	새 앱을 등록하는 데 사용한 Facebook 계정은 앱의 관리자이며 앱에 관리자 권한으로 액세스할 수 있습니다. 이 단계를 수행하면 일반 공용 액세스 권한을 부여받게 되므로 앱에서 다른 Facebook 계정을 사용하여 인증할 수 있습니다.
@@ -73,4 +76,4 @@
 [Azure 모바일 서비스]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

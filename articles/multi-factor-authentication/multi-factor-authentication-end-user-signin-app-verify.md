@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication에서 확인 코드를 사용하여 모바일 앱에 로그인
@@ -39,4 +39,4 @@
 
 <li>사용자가 로그인됩니다.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Azure Preview 포털을 사용하여 DocumentDB 계정 모니터링 
+# DocumentDB 계정 모니터링 
 
 [Microsoft Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정을 모니터링할 수 있습니다. 각 DocumentDB 계정에 대해 성능 메트릭(예: 요청 및 서버 오류)과 사용량 메트릭(예: 저장소 사용)을 사용할 수 있습니다.
 
@@ -90,4 +90,4 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 DocumentDB에 대한 자세한 내용은 [DocumentDB 용량 관리](documentdb-manage.md)를 참조하세요.
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

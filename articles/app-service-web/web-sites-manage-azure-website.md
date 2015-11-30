@@ -85,7 +85,7 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 
 [단계적 배포](web-sites-staged-publishing.md)를 사용할 수 있습니다. 이 옵션을 사용하면 프로덕션 배포와 나란히 실행되는 스테이징 배포에 업데이트를 게시할 수 있습니다.
 
-Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를 설정할 수 있습니다.
+Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 배포를 설정할 수 있습니다.
 
 - [TFVC(Team Foundation Version Control) 사용](../cloud-services-continuous-delivery-use-vso.md) 
 - [Git 사용](../cloud-services-continuous-delivery-use-vso-git.md)
@@ -103,4 +103,4 @@ Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를
 
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Azure 명령줄을 사용하여 Azure 데이터 레이크 저장소 시작
@@ -26,7 +26,7 @@
 
 Azure 명령줄 인터페이스를 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크 저장소에 대한 자세한 내용은 [데이터 레이크 저장소 개요](data-lake-store-overview.md)를 참조하세요.
 
-Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다. Azure CLI는 오픈 소스입니다. 소스 코드는 <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>의 GitHub에서 관리됩니다. 이 문서에서는 Data Lake 스토어를 통한 Azure CLI 사용에 대해서만 설명합니다. Azure CLI를 사용하는 방법에 대한 일반 가이드는 [Azure CLI를 사용하는 방법][azure-command-line-tools]을 참조하세요.
+Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다. Azure CLI는 오픈 소스입니다. 소스 코드는 <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>의 GitHub에서 관리됩니다. 이 문서에서는 데이터 레이크 저장소에서 Azure CLI를 사용하는 방법만 설명합니다. Azure CLI를 사용하는 방법에 대한 일반 가이드는 [Azure CLI를 사용하는 방법][azure-command-line-tools]을 참조하세요.
 
 
 ##필수 조건
@@ -46,7 +46,7 @@ Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js
 
 명령 프롬프트, 셸 또는 터미널 세션을 열고 다음 명령을 실행합니다.
 
-1. Azure 구독에 로그인:
+1. Azure 구독에 로그인합니다.
 
 		azure login
 
@@ -66,7 +66,7 @@ Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js
 
 		azure account set <subscriptionname>
 
-5. 새 리소스 그룹 만들기 다음 명령에서 사용하려는 매개 변수 값을 제공합니다.
+5. 새 리소스 그룹을 만듭니다. 다음 명령에서 사용하려는 매개 변수 값을 제공합니다.
 
 		azure group create <resourceGroup> <location>
 
@@ -88,9 +88,9 @@ Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터�
 
 ## 데이터 레이크 저장소에 데이터 업로드
 
-루트 수준에서 데이터 레이크 저장소에 직접 데이터를 업로드하거나 계정 내에서 만든 폴더에 업로드할 수 있습니다. 아래 코드 조각은 이전 섹션에서 만든 폴더(**mynewfolder**)에 일부 샘플 데이터를 업로드하는 방법을 보여줍니다.
+루트 수준에서 데이터 레이크 저장소에 직접 데이터를 업로드하거나 계정 내에서 만든 폴더에 업로드할 수 있습니다. 아래 코드 조각은 이전 섹션에서 만든 폴더(**mynewfolder**)에 일부 샘플 데이터를 업로드하는 방법을 보여 줍니다.
 
-업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다. 파일을 다운로드하고 컴퓨터의 로컬 디렉터리(예: C:\\sampledata)에 저장합니다.
+업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다. 파일을 다운로드하고 컴퓨터의 로컬 디렉터리(예: C:\\sampledata)에 저장합니다.
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
@@ -192,4 +192,4 @@ Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터�
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -16,7 +16,7 @@
 	ms.date="09/28/2015" 
 	ms.author="mimig"/>
 
-# Azure Preview 포털을 사용하여 DocumentDB 컬렉션 만들기
+# DocumentDB 컬렉션 만들기
 
 Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-create-account.md), [데이터베이스](documentdb-create-database.md), 컬렉션 및 문서가 있어야 합니다. 이 항목에서는 Azure Preview 포털에서 DocumentDB 컬렉션을 만드는 방법을 설명합니다.
 
@@ -65,4 +65,4 @@ Preview 포털에서 컬렉션을 만들지 않아도 됩니다. [DocumentDB SDK
 
 컬렉션에 문서를 추가한 후에 [DocumentDB SQL](documentdb-sql-query.md)에서 Preview 포털에 있는 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 대해 [쿼리를 실행](documentdb-sql-query.md#executing-queries)할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

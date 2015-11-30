@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Powershell을 사용한 Azure DNS 시작
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+- [PowerShell](dns-getstarted-create-dnszone.md)
 
 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 많은 DNS 레코드를 포함할 수 있습니다. DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다.<BR><BR> 도메인 호스팅을 시작하려면 먼저 DNS 영역을 만들어야 합니다. 특정 도메인에 대해 만든 DNS 레코드는 모두 해당 도메인에 대한 DNS 영역 내에 있습니다.<BR><BR> 이러한 지침은 Microsoft Azure PowerShell을 사용합니다. Azure DNS cmdlet을 사용하려면 최신 Azure PowerShell로 업데이트해야 합니다. Microsoft Azure 명령줄 인터페이스, REST API 또는 SDK를 사용하여 동일한 단계를 실행할 수도 있습니다.<BR><BR>
 
@@ -127,7 +127,7 @@ New-AzureDnsZone cmdlet을 사용하여 DNS 영역을 만듭니다. 아래 예�
 >[AZURE.NOTE]DNS 영역의 루트에 있는 레코드 집합은 레코드 집합 이름으로 "@"를 사용합니다.
 
 
-첫 번째 DNS 영역을 만들었으므로 nslookup, dig 또는 [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/en-us/library/jj590781.aspx)과 같은 DNS 도구를 사용하여 테스트할 수 있습니다.<BR>
+첫 번째 DNS 영역을 만들었으므로 nslookup, dig 또는 [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/ko-KR/library/jj590781.aspx)과 같은 DNS 도구를 사용하여 테스트할 수 있습니다.<BR>
 
 Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 않은 경우 DNS 쿼리를 영역에 대한 이름 서버 중 하나로 직접 보내야 합니다. 위의 Get-AzureDnsRecordSet에 의해 나열된 것처럼 영역에 대한 이름 서버는 NS 레코드에 제공되며, 아래 명령에 영역에 대한 올바른 값을 대체해야 합니다.<BR>
 
@@ -155,4 +155,4 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

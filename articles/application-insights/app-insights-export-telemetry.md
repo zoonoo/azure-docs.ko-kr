@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -21,14 +21,14 @@
 
 연속 내보내기는 무료 평가 기간에 사용할 수 있고 [표준 및 프리미엄 요금제](http://azure.microsoft.com/pricing/details/application-insights/)에서 확인할 수 있습니다.
 
-(단순히 메트릭에서 보거나 블레이드를 검색할 내용의 [일회성 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 수행하려면 블레이드 맨 위의 내보내기를 클릭합니다.)
+(단순히 메트릭에서 보거나 블레이드를 검색할 내용의 [일회성 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 수행하려면 블레이드 맨 위의 내보내기를 클릭합니다. Power BI에서 데이터를 확인하려는 경우 연속 내보내기를 사용하지 *않는* [어댑터](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)를 사용합니다.)
 
 ## 저장소 계정 만들기
 
 "클래식" 저장소 계정이 없는 경우 지금 만듭니다.
 
 
-1. [Azure 포털](https://portal.azure.com)에서 구독에 “클래식" 저장소 계정을 만듭니다.
+1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-telemetry/030.png)
 
@@ -141,22 +141,13 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
 연속 내보내기가 다시 시작됩니다.
 
-## Power BI에 내보내기
+## 내보내기 샘플
 
-[Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적 개체로 데이터를 표시합니다. Application Insights에서 Power BI까지 앱의 성능 및 사용에 대한 원격 분석 데이터를 스트리밍할 수 있습니다.
-
-[Power BI에 Application Insights를 스트림](app-insights-export-power-bi.md)
-
-![Application Insights 사용 데이터의 Power BI 보기의 샘플](./media/app-insights-export-telemetry/210.png)
-
-## SQL로 내보내기
-
-다른 옵션은 더 강력한 분석을 수행할 수 있는 SQL 데이터베이스로 데이터를 이동하는 것입니다.
-
-데이터를 Blob 저장소에서 데이터베이스로 이동하는 두 가지 방법을 보여주는 샘플이 있습니다.
 
 * [작업자 역할을 사용하여 SQL로 내보내기][exportcode]
 * [스트림 분석을 사용하여 SQL로 내보내기][exportasa]
+* [스트림 분석을 사용하여 Power BI로 내보내기](app-insights-export-power-bi.md)
+ * Power BI를 사용하는 표준 방법이 아닙니다. 연속 내보내기가 필요하지 않은 [어댑터](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)가 있습니다.
 
 
 더 큰 규모에서는 [HDInsight](http://azure.microsoft.com/services/hdinsight/)(클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터를 관리 및 분석하는 다양한 기술을 제공합니다.
@@ -217,4 +208,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

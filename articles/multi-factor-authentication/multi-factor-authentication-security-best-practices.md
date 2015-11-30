@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 모범 사례
@@ -121,4 +121,4 @@ Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액�
 - [Azure Multi-Factor Authentication의 환경 설정](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -352,30 +352,43 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
         /// Apply Dynamic Common encryption.
         /// </summary>
         DynamicCommonEncryption
-    }
+        }
 
 ###ContentKeyDeliveryType
 
+
     /// <summary>
     /// Delivery method of the content key to the client.
-    /// </summary>
+    ///
+    </summary>
     public enum ContentKeyDeliveryType
     {
         /// <summary>
         /// None.
-        /// </summary>
-        None,
+        ///
+        </summary>
+        None = 0,
 
         /// <summary>
         /// Use PlayReady License acquistion protocol
-        /// </summary>
-        PlayReadyLicense,
+        ///
+        </summary>
+        PlayReadyLicense = 1,
 
         /// <summary>
         /// Use MPEG Baseline HTTP key protocol.
-        /// </summary>
-        BaselineHttp
+        ///
+        </summary>
+        BaselineHttp = 2,
+
+        /// <summary>
+        /// Use Widevine License acquistion protocol
+        ///
+        </summary>
+        Widevine = 3
+
     }
+
 
 ###AssetDeliveryPolicyConfigurationKey
 
@@ -435,4 +448,4 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

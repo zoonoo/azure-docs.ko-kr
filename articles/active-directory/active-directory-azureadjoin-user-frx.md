@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # 설치하는 동안 Azure AD로 새 장치 설정
@@ -43,8 +44,11 @@ Azure AD에 장치를 조인시키려면
 > [AZURE.NOTE]Windows 기본 환경에서 온-프레미스 Active Directory 도메인 조인은 지원되지 않습니다. 따라서 PC를 도메인에 조인시키려는 경우 "로컬 계정을 사용하여 Windows 설치" 링크를 선택해야 합니다. 그런 다음 이전에 수행한 대로 PC 설정에서 도메인에 조인시킬 수 있습니다.
 
 ## 추가 정보
-* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
+* [엔터프라이즈를 위한 Windows 10: 작업에 장치를 사용하는 방법](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
+* [Microsoft Passport를 통해 암호 없이 ID 인증](active-directory-azureadjoin-passport.md)
 * [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

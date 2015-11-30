@@ -18,13 +18,6 @@
 
 # Application Insights 설정: 웹 페이지
 
-*Application Insights는 미리 보기 상태입니다.*
-
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다.
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -66,7 +59,7 @@
 
 ## <a name="run"></a>앱 실행
 
-웹 앱을 실행하고, 잠깐 사용하여 원격 분석을 생성하고, 잠시 기다립니다. 개발 컴퓨터에서 **F5** 키를 사용하여 실행하거나 사용자가 실행할 수 있도록 게시할 수 있습니다.
+웹앱을 실행하고, 잠깐 사용하여 원격 분석을 생성하고, 잠시 기다립니다. 개발 컴퓨터에서 **F5** 키를 사용하여 실행하거나 사용자가 실행할 수 있도록 게시할 수 있습니다.
 
 웹앱에서 Application Insights로 보내는 원격 분석을 확인하려면 브라우저의 디버깅 도구(대부분의 브라우저는 **F12** 키)를 사용합니다. 데이터가 dc.services.visualstudio.com으로 전송됩니다.
 
@@ -200,4 +193,4 @@
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

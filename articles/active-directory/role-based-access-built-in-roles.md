@@ -27,7 +27,7 @@ Azure 역할 기반 액세스 제어에는 사용자, 그룹 및 서비스에 �
 
 | 역할 이름 | 설명 |
 | --------- | ----------- |
-| [API 관리 서비스 참여자](#api-management-service-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
+| [API 관리 서비스 참여자](#api-management-service-contributor) | API 관리 서비스를 관리할 수 있음 |
 | [Application Insights 구성 요소 참여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
 | [자동화 운영자](#automation-operator) | 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있음 |
 | [BizTalk 참여자](#biztalk-contributor) | BizTalk 서비스를 관리할 수 있음 |
@@ -53,7 +53,7 @@ Azure 역할 기반 액세스 제어에는 사용자, 그룹 및 서비스에 �
 | [사용자 액세스 관리자](#user-access-administrator) | Azure 리소스에 대한 사용자 액세스를 관리할 수 있음 |
 | [클래식 가상 컴퓨터 참여자](#classic-virtual-machine-contributor) | 클래식 가상 컴퓨터를 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음 |
 | [가상 컴퓨터 참여자](#virtual-machine-contributor) | 가상 컴퓨터를 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음 |
-| [클래식 네트워크 참여자](#classic-network-contributor) | 가상 컴퓨터를 관리할 수 있으나 여기에 연결된 가상 네트워크 또는 저장소 계정은 관리할 수 없음 |
+| [클래식 네트워크 참여자](#classic-network-contributor) | 클래식 가상 네트워크 및 예약된 IP를 관리할 수 있음 |
 | [웹 계획 참여자](#web-plan-contributor) | 웹 계획을 관리할 수 있음 |
 | [웹 사이트 참여자](#website-contributor) | 웹 사이트를 관리할 수 있으나 여기에 연결된 웹 계획은 관리할 수 없음 |
 
@@ -480,4 +480,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 프로필 사용 안 함, 사용 또는 삭제
@@ -46,8 +46,12 @@
 
 [트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
 
-[트래픽 관리자란?](traffic-manager-overview.md)
+[장애 조치(Failover) 라우팅 방법 구성](traffic-manager-configure-failover-routing-method.md)
 
- 
+[라운드 로빈 라우팅 방법 구성](traffic-manager-configure-round-robin-routing-method.md)
 
-<!---HONumber=Oct15_HO3-->
+[성능 라우팅 방법 구성](traffic-manager-configure-performance-routing-method.md)
+
+[트래픽 관리자 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=Nov15_HO4-->

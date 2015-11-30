@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="11/15/2015"
    ms.author="sdash"/>
 
 # Azure 클라우드 서비스용 Application Insights
@@ -58,7 +58,7 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
 
     ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-cloudservices/03-nuget.png)
 
-2. [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지를 추가합니다. 이 버전의 SDK는 역할 정보와 같은 서버 컨텍스트를 추가하는 모듈을 포함합니다.
+2. [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지를 추가합니다. 이 버전의 SDK는 역할 정보와 같은 서버 컨텍스트를 추가하는 모듈을 포함합니다. 작업자 역할의 경우 Windows 서비스용 Application Insights를 사용합니다.
 
     !["Application Insights" 검색](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -69,9 +69,9 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
  
     ```XML
      
-    <Role name="WorkerRoleA"> 
+     <Role name="WorkerRoleA"> 
       <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
-    </Role>
+     </Role>
     ```
  
     적합한 시작 함수에서 구성 설정의 계측 키를 설정합니다.
@@ -90,6 +90,20 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
 4. 항상 출력 디렉토리에 복사되도록 ApplicationInsights.config 파일을 설정합니다. 
 
     .config 파일에서 해당 위치에 계측 키를 배치할지 묻는 메시지가 표시됩니다. 그러나 클라우드 응용 프로그램의 경우에는 .cscfg 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
+
+## Azure 진단 사용
+
+Azure 진단은 응용 프로그램에서 Application Insights로 성능 카운터, Windows 이벤트 로그 및 추적 로그를 보냅니다.
+
+솔루션 탐색기에서 각 역할의 속성을 엽니다. **Application Insights에서 진단 보내기**를 사용하도록 설정합니다.
+
+![속성에서 진단을 사용하도록 설정하고 Application Insights로 보냅니다.](./media/app-insights-cloudservices/05-wad.png)
+
+다른 역할에 대해 반복합니다.
+
+### 라이브 앱 또는 Azure VM에 Azure 진단을 사용하도록 설정
+
+또한 Visual Studio의 서버 탐색기 또는 클라우드 탐색기에서 속성을 열어 Azure에서 앱이 이미 실행된 경우에 진단을 사용하도록 설정할 수 있습니다.
 
 
 ## SDK를 사용하여 원격 분석 보고
@@ -208,4 +222,4 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

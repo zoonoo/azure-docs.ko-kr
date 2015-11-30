@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/07/2015"
+   ms.date="11/16/2015"
    ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 클러스터 만들기
@@ -55,7 +55,9 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 	응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.	
 - **운영 체제**
 
-	다음 두 운영 체제 중 하나에서 HDInsight 클러스터를 만들 수 있습니다. - **Windows의 HDInsight(Windows Server 2012 R2 Datacenter)** - **Linux의 HDInsight(Linux용 Ubuntu 12.04 LTS) (미리 보기)** HDInsight는 Azure에서 Linux 클러스터를 구성하는 옵션을 제공합니다. Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합 또는 Linux 또는 Unix를 사용하고 기존 Hadoop Linux 기반 솔루션에서 마이그레이션에 익숙한 경우에 Linux 클러스터를 구성합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Hadoop 시작](hdinsight-hadoop-linux-get-started.md)을 참조하세요.
+	다음 두 운영 체제 중 하나에서 HDInsight 클러스터를 만들 수 있습니다.
+	- **Windows의 HDInsight(Windows Server 2012 R2 Datacenter)**
+	- **Linux의 HDInsight(Linux용 Ubuntu 12.04 LTS) (미리 보기)** HDInsight는 Azure에서 Linux 클러스터를 구성하는 옵션을 제공합니다. Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합 또는 Linux 또는 Unix를 사용하고 기존 Hadoop Linux 기반 솔루션에서 마이그레이션에 익숙한 경우에 Linux 클러스터를 구성합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Hadoop 시작](hdinsight-hadoop-linux-get-started.md)을 참조하세요.
 
 
 - **HDInsight 버전**
@@ -86,16 +88,25 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다. - 헤드 서버(노드 2개) - 지역 서버(노드 1개 이상) - 마스터/Zookeeper 노드(노드 3개)
+	HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다.
+	- 헤드 서버(노드 2개)
+	- 지역 서버(노드 1개 이상)
+	- 마스터/Zookeeper 노드(노드 3개)
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	HDInsight용 Storm 클러스터는 세 가지 역할로 배포됩니다. - Nimbus 노드(노드 2개) - 감독자 서버(노드 1개 이상) - Zookeeper 노드(노드 3개)
+	HDInsight용 Storm 클러스터는 세 가지 역할로 배포됩니다.
+	- Nimbus 노드(노드 2개)
+	- 감독자 서버(노드 1개 이상)
+	- Zookeeper 노드(노드 3개)
 
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	HDInsight용 Spark 클러스터는 세 가지 역할로 배포됩니다. - 헤드 노드(노드 2개) - 작업자 노드(노드 1개 이상) - Zookeeper 노드(노드 3개) (A1 Zookeeper의 경우 무료)
+	HDInsight용 Spark 클러스터는 세 가지 역할로 배포됩니다.
+	- 헤드 노드(노드 2개)
+	- 작업자 노드(노드 1개 이상)
+	- Zookeeper 노드(노드 3개) (A1 Zookeeper의 경우 무료)
 
 	고객은 클러스터의 수명 기간 동안 해당 노드의 사용량에 대한 대금이 청구됩니다. 대금 청구는 클러스터를 만들면 시작되고 클러스터가 삭제되면 중지됩니다(클러스터를 할당 해제하거나 보류할 수 없음). 클러스터 크기는 클러스터 가격에 영향을 줍니다. 학습 목적인 경우는 데이터 노드를 하나 사용하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격 책정](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
 
@@ -147,6 +158,8 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 - **Hive/Oozie Metastore**
 
 	Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타데이터에 대한 정보를 포함합니다. Metastore를 사용하면 Hive 및 Oozie 메타데이터를 보존할 수 있으므로 새 클러스터를 만들 때 Hive 테이블 또는 Oozie 작업을 다시 만들 필요가 없습니다. 기본적으로 Hive는 포함된 Azure SQL 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다. 예를 들어, Hive Metastore로 만든 클러스터가 있습니다. 몇 개의 Hive 테이블을 만들었습니다. 클러스터를 삭제하고 동일한 Hive Metastore를 사용하여 클러스터를 다시 만든 후, 원래 클러스터에서 만든 Hive 테이블을 볼 수 있습니다.
+    
+    > [AZURE.NOTE]HBase 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다.
 
 ## 고급 구성 옵션
 
@@ -163,7 +176,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 - hive-site.xml
 - oozie-site.xml
 
-클러스터는 이미지로 다시 설치하므로 변경 내용을 유지할 수 없습니다. 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)(영문)을 참조하세요. 클러스터의 수명 동안 변경 내용을 유지하려면 생성 프로세스 중에 HDInsight 클러스터 사용자 지정을 사용할 수 있습니다.
+클러스터는 이미지로 다시 설치하므로 변경 내용을 유지할 수 없습니다. 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)(영문)을 참조하십시오. 클러스터의 수명 동안 변경 내용을 유지하려면 생성 프로세스 중에 HDInsight 클러스터 사용자 지정을 사용할 수 있습니다.
 
 다음은 Hive 구성을 사용자 지정하는 Azure PowerShell 스크립트 예제입니다.
 
@@ -291,6 +304,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
   		
 		* **외부 메타 저장소**: 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장하는 데 사용할 Azure SQL 데이터베이스를 지정합니다.
  
+            > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
@@ -338,13 +352,13 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 	* **원격 데스크톱**: 클러스터 노드에 대해 원격 데스크톱을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 	* **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
 	* **삭제**: HDInsight 클러스터를 삭제합니다.
-	* **빠른 시작**(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-provision-clusters/quickstart.png)): HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
-	* **사용자**(![사용자 아이콘](./media/hdinsight-provision-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
+	* **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-provision-clusters/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
+	* **사용자(![사용자 아이콘](./media/hdinsight-provision-clusters/users.png))**: Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 	
 
 		> [AZURE.IMPORTANT]이는 _오직_ Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 		
-	* **태그**(![태그 아이콘](./media/hdinsight-provision-clusters/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+	* **태그(![태그 아이콘](./media/hdinsight-provision-clusters/tags.png))**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
 
 ## ARM 템플릿을 사용하여 만들기
@@ -403,29 +417,45 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만들려면 다음 �
 
 	$subscriptionId = "<Azure Subscription ID>"
 	
-	$newResourceGroupName = "<Azure Resource Group Name>" $location = "<Azure Location>" # for example, "East US 2" $newDefaultStorageAccountName = "<Azure Storage Account Name>" $newClusterName = "<Azure HDInsight Cluster Name>" $clusterSizeInNodes = 1
+	$newResourceGroupName = "<Azure Resource Group Name>"
+	$location = "<Azure Location>" # for example, "East US 2"
+	$newDefaultStorageAccountName = "<Azure Storage Account Name>"
+	$newClusterName = "<Azure HDInsight Cluster Name>"
+	$clusterSizeInNodes = 1
 	
 	###########################################
 	# Azure 로그인
-	########################################### Login-AzureRmAccount Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	###########################################
+	Login-AzureRmAccount
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
 	
 	###########################################
 	# 리소스 그룹 만들기
-	########################################### New-AzureRmResourceGroup -Name $newRresourceGroupName -Location $location
+	###########################################
+	New-AzureRmResourceGroup -Name $newRresourceGroupName -Location $location
 	
 	###########################################
 	# 기본 저장소 계정 및 컨테이너 준비
-	########################################### New-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
+	###########################################
+	New-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
 	
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName | %{ $\_.Key1 } $defaultStorageContext = New-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey New-AzureStorageContainer -Name $newClusterName -Context $defaultStorageContext #use the cluster name as the container name
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName | %{ $\_.Key1 }
+	$defaultStorageContext = New-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+	New-AzureStorageContainer -Name $newClusterName -Context $defaultStorageContext #use the cluster name as the container name
 		
 	###########################################
 	# 클러스터 만들기
-	########################################### $httpCredential =Get-Credential -Message "Enter the HTTP account credential:" New-AzureRmHDInsightCluster `
-		-ResourceGroupName $newResourceGroupName ` -ClusterName $newClusterName `
-		-Location $location ` -ClusterSizeInNodes $clusterSizeInNodes `
-		-ClusterType Hadoop ` -OSType Windows `
-		-Version "3.2" ` -HttpCredential $httpCredential
+	###########################################
+	$httpCredential =Get-Credential -Message "Enter the HTTP account credential:"
+	New-AzureRmHDInsightCluster `
+		-ResourceGroupName $newResourceGroupName `
+		-ClusterName $newClusterName `
+		-Location $location `
+		-ClusterSizeInNodes $clusterSizeInNodes `
+		-ClusterType Hadoop `
+		-OSType Windows `
+		-Version "3.2" `
+		-HttpCredential $httpCredential 
 
 
 
@@ -541,7 +571,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 7. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려면 몇 분정도 걸릴 수 있습니다.
 
-## 온-프레미스 SQL Server Integration Service 만들기
+## 온-프레미스 SQL Server Integration Services 만들기
 
 SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 만들거나 삭제할 수 있습니다. Azure Feature Pack for SSIS는 HDInsight 클러스터에 대한 작업을 하는 다음 구성 요소를 제공합니다.
 
@@ -603,7 +633,7 @@ SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 
 	    },
 	    "sshUserName": {
 	      "type": "string",
-	      "defaultValue": "hdiuser",
+	      "defaultValue": "username",
 	      "metadata": {
 	        "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
 	      }
@@ -731,4 +761,4 @@ SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

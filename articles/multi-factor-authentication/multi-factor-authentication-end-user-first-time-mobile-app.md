@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication과 함께 연락 방법으로 모바일 앱 사용
 
 기본 연락 방법으로 모바일 앱을 사용하려는 경우 이 문서를 사용할 수 있습니다. 이 문서에서는 기본 연락 방법으로 모바일 앱을 사용하도록 다단계 인증을 설정하는 과정을 안내합니다.
 
-[Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)용 Azure Authenticator 앱을 사용할 수 있습니다.
+[Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)용 Azure Authenticator 앱을 사용할 수 있습니다.
 
 ## 연락 방법으로 모바일 앱을 사용하려면
 
@@ -73,4 +73,4 @@
 >[AZURE.NOTE]"작업 계정 추가"가 표시되는 경우 작업 공간 연결을 위한 것으로, Multi-Factor Authentication을 위한 것이 아닙니다. 무시해도 됩니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

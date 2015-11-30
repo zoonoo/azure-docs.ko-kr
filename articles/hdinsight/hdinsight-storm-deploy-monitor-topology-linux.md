@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 # Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -137,7 +137,7 @@ Storm UI의 기본 페이지는 다음 정보를 제공합니다.- **클러스�
 
 Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하여 유사한 관리 및 모니터링 기능을 수행할 수 있습니다. REST API를 사용하여 Storm 토폴로지를 관리 및 모니터링하는 사용자 지정 도구를 만들 수 있습니다.
 
-자세한 내용은 <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">Storm UI REST API</a>를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
+자세한 내용은 [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
 
 > [AZURE.IMPORTANT]Storm REST API는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 생성 및 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -168,4 +168,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

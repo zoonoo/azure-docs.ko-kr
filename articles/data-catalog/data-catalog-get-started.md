@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="11/20/2015"
    ms.author="derrickv"/>
 
 # Azure 데이터 카탈로그 시작
@@ -38,7 +38,7 @@
 
 Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯하여 가상의 자전거 제조업체(Adventure Works Cycles)에 대한 표준 온라인 트랜잭션 처리 시나리오를 지원합니다. Adventure Works DW 데이터베이스는 데이터 웨어하우스를 구축하는 방법을 보여줍니다.
 
-데이터베이스는 http://msftdbprodsamples.codeplex.com/에 있으며 [Adventure Works 2014 샘플 데이터베이스를 설치하는 방법]의 단계를 수행하여 설치할 수 있습니다.
+데이터베이스는 [CodePlex.com](http://msftdbprodsamples.codeplex.com/)에 있으며 [Adventure Works 2014 샘플 데이터베이스 추가 정보(영문)](https://msftdbprodsamples.codeplex.com/downloads/get/880669)의 단계를 수행하여 설치할 수 있습니다.
 
 이 연습에서는 나머지 연습에서 사용되는 Adventure Works 샘플 데이터베이스를 설치했습니다. 이 연습을 건너뛰고 자신만의 엔터프라이즈 데이터 원본을 사용하도록 선택한 경우, 이름, 태그 및 기타 메타데이터를 기억하도록 준비합니다.
 
@@ -93,7 +93,7 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 
 ### 다음은 등록된 데이터 자산을 검색하는 방법입니다.
 
-**Azure 데이터 카탈로그**는 간단하지만 사용자가 필요한 데이터를 반환하는 쿼리를 쉽게 작성할 수 있는 강력한 검색 구문입니다. **Azure 데이터 카탈로그**에 대한 자세한 내용은 검색 구문 참조를 참조하세요.
+**Azure 데이터 카탈로그**는 간단하지만 사용자가 필요한 데이터를 반환하는 쿼리를 쉽게 작성할 수 있는 강력한 검색 구문을 포함합니다. **Azure 데이터 카탈로그**에 대한 자세한 내용은 검색 구문 참조를 참조하세요.
 
 **Azure 데이터 카탈로그**에는 다음과 같은 검색 옵션이 있습니다.
 
@@ -109,7 +109,7 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 
 이 예에서는 키워드 검색을 사용합니다. **Azure 데이터 카탈로그** 검색에는 여러 쿼리 기법이 있습니다. 이 예에서는 **그룹화** 검색 쿼리를 사용합니다.
 
-**쿼리 기법** <table><tr><td><b>기법</b></td><td><b>사용</b></td><td><b>예</b></td></tr><tr><td>속성 범위</td><td>지정된 속성에 검색 용어와 일치하는 속성이 있는 데이터 원본만 반환</td><td>name:product</td></tr><tr><td>논리 연산자</td><td>이 페이지의 부울 연산자 섹션에 있는 부울 연산을 사용하여 검색 범위를 넓히거나 좁힘</td><td>finance NOT corporate</td></tr><tr><td>괄호로 그룹화</td><td>괄호를 사용하여 쿼리의 일부를 그룹화하여 논리적 구분 가능. 부울 연산자와 함께 사용할 때 특히 유용함</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>비교 연산자</td><td>숫자나 날짜 데이터 형식을 가진 속성의 경우 정확히 일치하는 것을 찾는 것이 아닐가 비교 방식을 사용</td><td>creationTime:&gt;11/05/14</td></tr></table>
+**쿼리 기법** <table><tr><td><b>기법</b></td><td><b>사용</b></td><td><b>예시</b></td></tr><tr><td>속성 범위</td><td>지정된 속성에서 일치하는 검색 용어가 있는 데이터 원본만 반환</td><td>name:product</td></tr><tr><td>논리 연산자</td><td>이 페이지의 Boolean 연산자 섹션에 설명된 Boolean 연산을 사용하여 검색 확대 또는 축소</td><td>finance NOT corporate</td></tr><tr><td>괄호로 그룹화</td><td>특별히 Boolean 연산자와 함께 논리적 격리를 수행하도록 쿼리의 일부를 그룹화하기 위해 괄호 사용</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>연산자 비교</td><td>숫자 및 날짜 데이터 유형이 있는 속성에 대한 균등이 아닌 비교 사용</td><td>creationTime:&gt;11/05/14</td></tr></table>
 
 이 예에서는 이름이 제품과 동일하고 태그가 그림과 동일하거나 태그가 사진과 동일한 데이터 자산에 대해 **그룹화** 검색을 수행합니다.
 
@@ -232,4 +232,4 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

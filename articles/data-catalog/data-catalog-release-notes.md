@@ -13,17 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/06/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그 릴리스 정보
 
+## Azure 데이터 카탈로그의 2015년 11월 20일 릴리스 정보
+
+### Power BI Desktop에서 데이터 원본 열기
+
+**Azure 데이터 카탈로그** 포털에서 "Power BI Desktop에서 열기" 옵션을 사용할 때 Power BI Desktop 응용 프로그램에서 다음 두 가지 문제 중 하나가 발생할 수 있습니다.
+
+- "문서를 열 수 없습니다."라는 제목의 대화 상자가 표시됩니다.
+- Power BI Desktop 응용 프로그램이 열리지만 파일이 비어 있는 것으로 표시됩니다.
+
+각 경우에 대해 [PowerBI.com](https://powerbi.com)에서 최신 버전의 Power BI Desktop을 다운로드 및 설치하여 문제를 해결할 수 있습니다.
+
+## Azure 데이터 카탈로그의 2015년 11월 13일 릴리스 정보
+
+### Teradata에 등록 및 연결
+
+Teradata 데이터 원본에 연결 시 사용자는 사용할 소프트웨어의 비트 수(32비트 또는 64비트)와 일치하는 올바른 Teradata ODBC 드라이버를 설치해야 합니다.
+
+이 ADC 릴리스 날짜 현재, 최신 [windows용 Teradata ODBC 드라이버(버전 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows)는 Office 2013과 호환되지만 Office 2016과는 호환되지 않습니다.
 
 ## Azure 데이터 카탈로그의 2015년 11월 6일 릴리스 정보
 
 ### 사용자가 데이터 원본 등록 도구를 시작할 때 오류가 발생할 수 있습니다.
 
-**Azure 데이터 카탈로그** 포털에서 **Azure 데이터 카탈로그** 데이터 원본 등록 도구를 시작할 때 이 도구의 이전 버전을 이미 설치한 사용자인 경우 다음 메시지를 받을 수 있습니다: "응용 프로그램을 시작할 수 없습니다. 응용 프로그램 공급업체에 문의하십시오."
+**Azure 데이터 카탈로그** 포털에서 **Azure 데이터 카탈로그** 데이터 원본 등록 도구를 시작할 때 이 도구의 이전 버전을 이미 설치한 사용자인 경우 다음 메시지를 받을 수 있습니다. "응용 프로그램을 시작할 수 없습니다. 응용 프로그램 공급업체에 문의하십시오."
 
 이 메시지를 받은 사용자는 Windows 제어판을 사용하여 이전에 설치한 "Azure 데이터 카탈로그" 응용 프로그램을 제거한 다음 **Azure 데이터 카탈로그** 포털에서 이 도구를 다시 시작해야 합니다.
 
@@ -78,4 +96,4 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
 
 RegistrationTool.exe.config 파일을 찾으려면 등록 도구를 시작하여 Windows 작업 관리자 유틸리티를 엽니다. 작업 관리자의 세부 정보 탭에서 RegistrationTool.exe를 마우스 오른쪽 단추로 클릭하고 팝업 메뉴에서 파일 위치 열기를 선택합니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

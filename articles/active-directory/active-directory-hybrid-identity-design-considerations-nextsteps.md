@@ -42,4 +42,7 @@
 - [Microsoft System Center Configuration Manager 블로그](http://blogs.technet.com/b/configurationmgr/)
 - [Microsoft System Center Configuration Manager 팀 블로그](http://blogs.technet.com/b/configmgrteam/)
 
-<!---HONumber=Nov15_HO3-->
+## 참고 항목
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
+
+<!---HONumber=Nov15_HO4-->

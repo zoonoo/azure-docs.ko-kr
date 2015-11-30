@@ -135,6 +135,8 @@ For more information about other features supported by service manifests, refer 
 
 > [AZURE.NOTE]응용 프로그램 매니페스트는 여러 서비스 매니페스트 가져오기 및 기본 서비스를 포함할 수 있습니다. 각 서비스 매니페스트 가져오기를 독립적으로 버전 지정할 수 있습니다.
 
+개별 환경에 대해 서로 다른 응용 프로그램 및 서비스 매개 변수를 유지 관리하는 방법을 알아보려면 [여러 환경에 대한 응용 프로그램 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
+
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
 
@@ -169,6 +171,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 ~~~
 
 폴더는 각 해당 요소의 **Name** 특성과 일치하도록 이름이 지정됩니다. 예를 들어 서비스 매니페스트에 이름이 각각 **MyCodeA**와 **MyCodeB**인 코드 패키지가 두 개 있으면 이름이 같고 각 코드 패키지에 필요한 이진을 포함하는 폴더 두 개가 필요합니다.
+
+### SetupEntryPoint 사용
+SetupEntryPoint는 일반적으로 서비스를 시작하기 전에 수행해야 하는 작업이 있거나 더 높은 권한의 작업을 수행해야 하는 경우에 사용됩니다. 서비스 실행 파일에서 사용할 수 있는 환경 변수를 설정하고 초기화하는 경우를 예로 들 수 있습니다. 여기에는 서비스 패브릭 프로그래밍 모델로 작성된 실행 파일뿐만 아니라 단순히 사용되는 EXE도 포함됩니다. 예를 들어 nodejs 응용 프로그램을 배포하는 경우 npm.exe에 대한 환경 변형(예: 인증서와 같은 리소스)을 구성해야 합니다.
+
+다음은 코드(exe), 배치 파일 또는 PowerShell을 Visual Studio 프로젝트에 올바르게 패키지하는 단계입니다.
+
 
 ### Visual Studio를 사용하여 패키지 빌드
 
@@ -221,15 +229,11 @@ PS D:\temp>
 
 ## 다음 단계
 
-[응용 프로그램 배포 및 제거][10]
-
-<!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[응용 프로그램 배포 및 제거][10] [여러 환경에 대한 응용 프로그램 매개 변수 관리][11] [RunAs: 다양 한 보안 권한으로 서비스 패브릭 응용 프로그램 실행][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Image1]: media/service-fabric-application-model/Service1.jpg [Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
+[11]: service-fabric-manage-multiple-environment-app-configuration.md
+[12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

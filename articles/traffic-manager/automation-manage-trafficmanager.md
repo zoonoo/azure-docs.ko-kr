@@ -4,7 +4,7 @@
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="adinah" 
+ manager="carmonm" 
  editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="08/12/2015" 
+ ms.date="11/12/2015" 
  ms.author="joaoma"/>
 
 
-#Azure 자동화를 사용하여 Azure 트래픽 관리자 관리
+# Azure 자동화를 사용하여 Azure 트래픽 관리자 관리
 
 이 가이드에서는 Azure 자동화 서비스 및 이를 사용하여 Azure 트래픽 관리자의 관리를 간소화하는 방법에 대해 소개합니다.
 
@@ -42,4 +42,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 트래
 * Azure 자동화 [시작 자습서](http://go.microsoft.com/fwlink/?LinkId=390560)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

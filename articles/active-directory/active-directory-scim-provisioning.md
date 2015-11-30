@@ -20,11 +20,66 @@
 
 ##개요
 
-Azure Active Directory는 [SCIM 프로토콜 사양](https://tools.ietf.org/html/draft-ietf-scim-api-19)에서 정의된 인터페이스를 가진 웹 서비스가 향하는 응용 프로그램 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전합니다. Azure Active Directory는 이 웹 서비스에 할당된 사용자 및 그룹을 만들고 수정하며 삭제하는 요청을 보내며 이는 대상 ID 저장소의 작업으로 해당 요청을 번역할 수 있습니다.
+Azure Active Directory는 [SCIM 2.0 프로토콜 사양](https://tools.ietf.org/html/draft-ietf-scim-api-19)에서 정의된 인터페이스를 가진 웹 서비스가 향하는 응용 프로그램 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전합니다. Azure Active Directory는 이 웹 서비스에 할당된 사용자 및 그룹을 만들고 수정하며 삭제하는 요청을 보내며 이는 대상 ID 저장소의 작업으로 해당 요청을 번역할 수 있습니다.
 
-![][1] *그림: 웹 서비스를 통해 Azure Active Directory에서 임의의 ID 저장소에 프로비전*
+![][1] *그림: 웹 서비스를 통해 Azure Active Directory에서 ID 저장소에 프로비전*
 
-이 기능은 Azure AD에서 "고유한 앱 가져오기" 기능과 함께 사용하여 사용자 프로비전 API를 제공하는 거의 모든 응용 프로그램에 대해 Single Sign-On 및 자동 사용자 프로비전을 사용할 수 있습니다
+이 기능은 Azure AD에서 “[고유한 앱 가져오기](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)” 기능과 함께 사용하여 제공하거나 SCIM 웹 서비스가 앞서는 응용 프로그램에 대해 Single Sign-On 및 자동 사용자 프로비전을 사용할 수 있습니다
+
+Azure Active Directory에서 SCIM에 대한 두 가지 사용 사례가 있습니다.
+
+* **SCIM을 지원하는 응용 프로그램에 사용자 및 그룹 프로비전** - SCIM 2.0을 지원하며 Azure AD에서 OAuth 전달자 토큰을 수용할 수 있는 응용 프로그램은 상자의 Azure AD를 사용합니다.
+
+* **다른 API 기반 프로비전을 지원하는 응용 프로그램에 대한 프로비전 솔루션 작성** - 비 SCIM 응용 프로그램의 경우 Azure AD의 SCIM 끝점과 응용 프로그램이 사용자 프로비전을 지원하는 API 간에 번역할 SCIM 끝점을 만들 수 있습니다. SCIM 끝점의 개발을 지원하려면 SCIM 끝점을 제공하고 SCIM 메시지를 번역하는 방법을 보여주는 코드 샘플과 함께 CLI 라이브러리를 제공합니다.
+
+##SCIM을 지원하는 응용 프로그램에 사용자 및 그룹 프로비전
+
+Azure Active Directory은 [도메인간 ID 관리용 시스템 2(SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) 웹 서비스를 구현하고 인증에 대한 OAuth 전달자 토큰을 수락하는 응용 프로그램에 자동으로 할당된 사용자 및 그룹을 프로비전하도록 구성할 수 있습니다. SCIM 2.0 사양 내에서 응용 프로그램은 다음의 요구 사항을 충족해야 합니다.
+
+* SCIM 프로토콜의 섹션 3.3에 따라 사용자 및/또는 그룹 만들기를 지원합니다.  
+
+* SCIM 프로토콜의 섹션 3.5.2에 따라 패치를 사용하여 사용자 및/또는 그룹 수정을 지원합니다.
+
+* SCIM 프로토콜의 섹션 3.4.1에 따라 알려진 리소스 검색을 지원합니다.
+
+*  SCIM 프로토콜의 섹션 3.4.2에 따라 사용자 및/또는 그룹 쿼리를 지원합니다. 기본적으로 사용자는 externalId에서 쿼리되고 그룹은 displayName에서 쿼리됩니다.
+
+* SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 관리자에 의한 사용자 쿼리를 지원합니다.
+
+* SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 멤버에 의한 그룹 쿼리를 지원합니다.
+
+* SCIM 프로토콜의 섹션 2.1에 따라 권한 부여에 대한 OAuth 전달자 토큰을 수락합니다.
+
+* OAuth 토큰에 대해 Azure AD를 ID 공급자로 사용하도록 지원합니다.(외부 ID 공급자를 곧 지원)
+
+이러한 요구 사항와의 호환성 문에 대한 응용 프로그램 공급자 또는 응용 프로그램 공급자의 설명서를 확인해야 합니다.
+ 
+###시작하기
+
+Azure AD 응용 프로그램 갤러리에 있는 "사용자 지정" 앱 기능을 사용하여 위에서 설명한 SCIM 프로필을 지원하는 응용 프로그램을 Azure Active Directory에 연결할 수 있습니다. 연결되면 Azure AD는 할당된 사용자 및 그룹에 응용 프로그램의 SCIM 끝점을 쿼리하고 할당 정보에 따라 사용자 및 그룹을 만들거나 수정하는 동기화 프로세스를 5분 마다 실행합니다.
+
+**SCIM을 지원하는 응용 프로그램을 연결하려면:**
+
+1.	웹 브라우저에서 https://manage.windowsazure.com에 Azure 관리 포털을 시작합니다.
+2.	**Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
+3.	왼쪽에서 **사용자 지정** 탭을 선택하고 응용 프로그램에 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다.
+
+![][2]
+
+4.	결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
+5.	대화 상자에서 응용 프로그램의 SCIM 끝점의 URL을 입력합니다.  
+6.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 SCIM 끝점에 연결하는 데 Azure Active Directory를 시도합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
+7.	응용 프로그램에 연결하려는 시도가 성공하면 남아 있는 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
+8.	결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
+9.	사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
+10.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다. 
+11.	**도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
+
+프로비전 프로세스가 SCIM 끝점에 요청을 보내려고 시작하기 전에 5-10분이 경과될 수 있습니다. 연결 시도의 요약은 응용 프로그램의 대시보드 탭에서 제공되고 프로비전 활동에 대한 보고서 및 프로비전 오류는 모두 디렉터리의 보고서 탭에서 다운로드할 수 있습니다.
+
+##응용 프로그램에 대한 고유한 프로비전 솔루션 구축
+
+Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서 REST 또는 SOAP 사용자 프로비전 API를 제공하는 거의 모든 응용 프로그램에 대한 Single Sign-On 및 자동 사용자 프로비전을 사용하도록 설정할 수 있습니다.
 
 방법은 다음과 같습니다.
 
@@ -33,19 +88,14 @@ Azure Active Directory는 [SCIM 프로토콜 사양](https://tools.ietf.org/html
 3.	끝점 URL은 응용 프로그램 갤러리에서 사용자 지정 응용 프로그램의 일부로 Azure AD에 등록됩니다.
 4.	사용자 및 그룹은 Azure AD에서 이 응용 프로그램에 할당됩니다. 할당 시 큐에 저장하여 대상 응용 프로그램에 동기화됩니다. 큐를 처리하는 동기화 프로세스는 5분 마다 실행됩니다.
 
-##코드 샘플
+###코드 샘플
 
 이 과정을 보다 쉽게 하려면 [코드 샘플](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)의 집합이 SCIM 웹 서비스 끝점을 만들고 자동 프로비전을 보여주도록 제공됩니다. 한 가지 샘플은 사용자 및 그룹을 나타내는 쉼표로 구분된 값의 행이 있는 파일을 유지 관리하는 공급자입니다. 다른 샘플은 Amazon 웹 서비스 ID 및 액세스 관리 서비스에서 작동하는 공급자입니다.
 
 
-###필수 조건
-* Visual Studio 2013 이상
-* [Azure SDK for .NET](https://azure.microsoft.com/ko-KR/downloads/)
-* ASP.NET framework 4.5를 SCIM 끝점으로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
-* [Azure AD Premium의 평가판 또는 사용이 허가된 버전을 사용하여 Azure 구독](https://azure.microsoft.com/ko-KR/services/active-directory/)
-* Amazon AWS 샘플은 [Visual Studio용 AWS Toolkit](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)에서 라이브러리가 필요합니다. 추가 세부 정보는 샘플에 포함된 추가 정보 파일을 참조하세요.
+**필수 구성 요소** * Visual Studio 2013 이상 * [.NET용 Azure SDK](https://azure.microsoft.com/ko-KR/downloads/) * ASP.NET framework 4.5를 SCIM 끝점으로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다 * [Azure AD Premium의 평가판 또는 사용이 허가된 버전으로 Azure 구독](https://azure.microsoft.com/ko-KR/services/active-directory/) * Amazon AWS 샘플을 사용하려면 [Visual Studio용 AWS Toolkit](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)에서 라이브러리가 필요합니다. 추가 세부 정보는 샘플에 포함된 추가 정보 파일을 참조하세요.
 
-##시작하기
+###시작하기
 
 Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
 
@@ -76,9 +126,9 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 
 ![][2]
 
-4.	결과 화면에서 두 번째 구성 계정 프로비전 단추를 선택합니다.
+4.	결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
 5.	대화 상자에서 인터넷에 노출된 URL 및 프로그램 SCIM 끝점의 포트를 입력합니다. <ip-address>이 인터넷 노출된 IP 주소인 경우 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/와 같은 것입니다.  
-6.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 SCI 끝점에 연결하는 데 Azure Active Directory를 시도합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
+6.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 SCIM 끝점에 연결하는 데 Azure Active Directory를 시도합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
 7.	웹 서비스에 연결하려는 시도가 성공하면 남아 있는 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
 8.	결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
 9.	사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
@@ -89,7 +139,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 
 이 샘플을 확인하는 마지막 단계는 Windows 컴퓨터에서 \\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug 폴더에 TargetFile.csv 파일을 여는 것입니다. 프로비전 프로세스가 실행되면 이 파일은 할당되고 프로비전된 모든 사용자 및 그룹의 세부 사항을 표시합니다.
 
-##개발 라이브러리
+###개발 라이브러리
 
 SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프로세스를 가속화하기 위해 Microsoft에서 제공하는 다음 라이브러리를 숙지합니다.
 
@@ -99,7 +149,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
 
 **2:** [Express 경로 처리기](http://expressjs.com/guide/routing.html)는 (SCIM 사양에 정의된) 호출을 나타내는 node.js 요청 개체를 구문 분석하는 데 사용할 수 있는습니다.
 
-##사용자 지정 SCIM 끝점 빌드
+###사용자 지정 SCIM 끝점 빌드
 
 위에서 설명한 라이브러리를 사용하여 해당 라이브러리를 사용하는 개발자는 실행 가능한 공용 언어 인프라 어셈블리 또는 인터넷 정보 서비스 내에서 해당 서비스를 호스팅할 수 있습니다. 다음은 http://localhost:9000 주소에 실행 가능한 어셈블리 내에서 서비스를 호스팅하기 위한 샘플 코드입니다.
 
@@ -220,7 +270,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
     }
     }
 
-##끝점 인증 처리
+###끝점 인증 처리
 
 Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다. 요청을 받는 모든 서비스는 예상된 Azure Active Directory 테넌트 대신 Azure Active Directory의 Graph 웹 서비스에 액세스하는 데 대해 발급자를 Azure Active Directory로 인증해야 합니다. 토큰에서 발급자는 "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별됩니다. 이 예제에서 상대 주소 세그먼트인 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422가 토큰이 발급된 대신 Azure Active Directory 테넌트의 고유한 발급자인 반면 클레임 값의 기본 주소인 https://sts.windows.net는 Azure Active Directory를 발급자로 식별합니다. 토큰이 Azure Active Directory의 Graph 웹 서비스에 액세스하기 위해 발급되었다면 해당 서비스의 실별자인 00000002-0000-0000-c000-000000000000는 토큰의 aud 클레임의 값에 있어야 합니다.
 
@@ -637,4 +687,4 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

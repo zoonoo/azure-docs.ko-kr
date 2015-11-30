@@ -108,4 +108,4 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

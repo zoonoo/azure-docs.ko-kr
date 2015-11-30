@@ -1,7 +1,7 @@
 
 <properties
    pageTitle="사물 인터넷을 위한 신뢰할 수 있는 Azure 솔루션 | Microsoft Azure"
-   description="서비스 패브릭 신뢰할 수 있는 행위자는 HTTPS, MQTT 또는 AMQP 등의 다중 전송을 지원하는 메시징 시스템 프런트 엔드를 결합한 후 개별 장치를 나타내는 행위자와 통신하는 시스템에서 사용하는 주요 구성 요소입니다."
+   description="서비스 패브릭 신뢰할 수 있는 행위자는 HTTPS, MQTT 또는 AMQP 등의 다중 전송을 지원하는 메시징 시스템 프런트 엔드를 결합하는 시스템에서 사용하는 주요 구성 요소입니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/14/2015"
    ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 사물 인터넷
@@ -56,10 +56,10 @@ class ThingState
 	long _deviceGroupId;
 }
 
-public class Thing : Actor<ThingState>, IThing
+public class Thing : StatefulActor<ThingState>, IThing
 {
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._telemetry = new List<ThingTelemetry>();
         State._deviceGroupId = -1; // not activated
@@ -74,7 +74,7 @@ public class Thing : Actor<ThingState>, IThing
             var deviceGroup = ActorProxy.Create<IThingGroup>(State._deviceGroupId);
             return deviceGroup.SendTelemetryAsync(telemetry); // sending telemetry data for aggregation
         }
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task ActivateMe(string region, int version)
@@ -118,10 +118,10 @@ class ThingGroupState
     public List<ThingInfo> _faultyDevices;
 }
 
-public class ThingGroup : Actor<ThingGroupState>, IThingGroup
+public class ThingGroup : StatefulActor<ThingGroupState>, IThingGroup
 {
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._devices = new List<ThingInfo>();
         State._faultsPerRegion = new Dictionary<string, int>();
@@ -133,13 +133,13 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
     public Task RegisterDevice(ThingInfo deviceInfo)
     {
         State._devices.Add(deviceInfo);
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task UnregisterDevice(ThingInfo deviceInfo)
     {
         State._devices.Remove(deviceInfo);
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task SendTelemetryAsync(ThingTelemetry telemetry)
@@ -163,7 +163,7 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
             }
         }
 
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```
@@ -217,4 +217,4 @@ Sending an engineer to repair/replace devices in Richmond
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

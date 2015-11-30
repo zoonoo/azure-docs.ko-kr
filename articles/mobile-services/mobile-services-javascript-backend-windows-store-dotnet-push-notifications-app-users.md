@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
@@ -98,4 +98,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
  
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

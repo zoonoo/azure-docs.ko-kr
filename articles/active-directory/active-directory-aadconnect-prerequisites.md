@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="11/02/2015"
+   ms.date="11/16/2015"
    ms.author="andkjell;billmath"/>
 
 # Azure Active Directory Connect(Azure AD Connect)에 대한 필수 조건
@@ -33,6 +33,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 - AD 스키마의 버전 및 포리스트 기능 수준은 Windows Server 2003 이상이어야 합니다. 도메인 컨트롤러는 스키마와 포레스트의 수준 요구 사항이 맞으면 어떤 버전도 실행할 수 있습니다.
 - **비밀번호 쓰기 저장** 기능을 사용하려는 경우 도메인 컨트롤러가 Windows Server 2008(최신 SP 포함) 이상에 있어야 합니다.
 - Azure AD Connect는 반드시 Windows Server 2008 이상의 버전에 설치되어야 합니다. Express 설정을 사용하는 경우 이 서버는 도메인 컨트롤러 또는 멤버 서버일 수 있습니다. 사용자 지정 설정을 사용하는 경우 서버는 독립 실행형일 수 있고 도메인에 가입할 필요는 없습니다.
+- Azure AD Connect는 Small Business Server 또는 Windows Server Essentials에 설치할 수 없습니다. 서버는 Windows Server Standard 이상을 사용해야 합니다.
 - **암호 동기화** 기능을 사용하려는 경우 서버가 Windows Server 2008 R2 SP1 이상에 있어야 합니다.
 - Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 응용 프로그램 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. 원격 설치를 위해 이러한 서버에서 Windows 원격 관리를 사용할 수 있어야 합니다.
 - Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치되고 서비스에 대한 서비스 계정을 로컬 컴퓨터에 생성합니다. SQL Server Express는 약 100,000 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 프로세스가 SQL Server의 다른 버전을 가리키도록 해야 합니다. Azure AD Connect는 SQL Server 2008(SP4)에서 SQL Server 2014까지 Microsoft SQL Server의 모든 버전을 지원합니다.
@@ -115,4 +116,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

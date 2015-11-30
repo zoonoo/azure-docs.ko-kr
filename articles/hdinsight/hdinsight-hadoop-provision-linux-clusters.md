@@ -207,6 +207,8 @@ Metastore는 Hive 테이블, 파티션, 스키마, 열에 대한 정보와 같�
 
 Metastore 구성 옵션을 사용하여 SQL 데이터베이스를 사용하는 외부 Metastore를 지정할 수 있습니다. 그러면 메타데이터 정보가 데이터베이스에 외부 저장되므로 클러스터를 삭제해도 해당 정보를 보존할 수 있습니다. Azure에서 SQL 데이터베이스를 만드는 방법에 대한 자세한 내용은 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
 
+> [AZURE.NOTE]HBase 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다.
+
 ###<a id="scriptaction"></a>스크립트 동작
 
 클러스터를 프로비전하는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 이러한 스크립트는 **스크립트 동작**을 통해 호출됩니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
@@ -280,4 +282,4 @@ Metastore 구성 옵션을 사용하여 SQL 데이터베이스를 사용하는 �
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

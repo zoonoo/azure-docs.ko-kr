@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="11/18/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -49,7 +49,7 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 
 | 가격 책정 계층 | 크기 | 사용 가능한 대역폭 | 1KB 키 크기 |
 |----------------------|--------|----------------------------|--------------------------------|
-| **표준 캐시 크기** | &nbsp; | **(Mbps)** | **초당 요청 수(RPS)** |
+| **표준 캐시 크기** | &nbsp; |**초당 메가비트(Mbps)** | **초당 요청 수(RPS)** |
 | C0 | 250MB | 5 | 600 |
 | C1 | 1 GB | 100 | 12200 |
 | C2 | 2\.5GB | 200 | 24000 |
@@ -189,7 +189,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 기반으로 하며 Microsoft에서 관리하는 안전한 전용 Redis Cache에 액세스할 수 있게 합니다. 다양한 프로그래밍 언어에 대해 다양한 [Redis 클라이언트](http://redis.io/clients)를 사용할 수 있습니다. 각 클라이언트에는 [Redis 명령](http://redis.io/commands)을 사용하여 Redis Cache 인스턴스를 호출하는 자체 API가 있습니다.
 
-클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 Azure.com의 [Redis Cache 설명서](http://azure.microsoft.com/documentatgion/services/redis-cache/) 페이지에는 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다.
+클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 Azure.com의 [Redis Cache 설명서](http://azure.microsoft.com/documentation/services/redis-cache/) 페이지에는 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다.
 
 
 ## 내게 적합한 Azure 캐시 기능
@@ -220,4 +220,4 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 ### In-Role Cache
 In-Role Cache를 사용하여 캐시를 자체 호스트하는 경우 계속 그렇게 할 수 있습니다. In-Role Cache는 Microsoft 호스티드 서비스가 아닌 자체 호스트 소프트웨어 구성 요소이므로 SLA를 제공하지 않습니다. In-Role Cache 사용자는 Azure Redis Cache로 마이그레이션하여 풍부한 기능 집합을 활용하고 SLA를 얻을 수 있습니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

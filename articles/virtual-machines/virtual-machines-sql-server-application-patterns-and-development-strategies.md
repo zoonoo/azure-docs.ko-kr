@@ -327,4 +327,4 @@ Azure에서 다계층 SQL Server 기반 응용 프로그램을 구현하려면 �
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

@@ -28,13 +28,13 @@ Preview 버전이 공개된 동안 Azure Preview 포털에서 무료로 앱의 �
 
 *	[Azure 구독][AzureSubscription]이 아직 없다면, 이 테스트를 위해 필요합니다. [무료로 Azure 계정을 여는 방법][AzureFreeTrial]을 알아보세요.
 
-*	성능 테스트 내역을 유지하려면 [VSO(Visual Studio Online)][WhatIsVSO] 계정이 필요합니다. 성능 테스트를 위해 새 계정을 만들거나, 기존 계정이 있다면 그대로 사용하면 됩니다. [Visual Studio Online 계정을 사용하여 또 어떤 작업이 가능한가요?](#VSOAccount)
+*	성능 테스트 내역을 유지하려면 [VSTS(Visual Studio Team Services)][WhatIsVSTS] 계정이 필요합니다. 성능 테스트를 위해 새 계정을 만들거나, 기존 계정이 있다면 그대로 사용하면 됩니다. [Visual Studio Team Services 계정을 사용하여 또 어떤 작업이 가능한가요?](#VSTSAccount)
 
 *	비-프로덕션 환경에서 테스트를 위해 응용 프로그램을 배포합니다. 프로덕션 환경이 아닌 용도로 앱에서 앱 서비스 계획을 사용하도록 합니다. 이렇게 하면 프로덕션 환경에서 기존 고객에 영향을 주거나 앱의 속도가 저하되지 않습니다.
 
 ## 성능 테스트 설정 및 실행
 
-0.	[Azure Preview 포털][AzurePortal]에 로그인합니다. 이미 Visual Studio Online 계정이 있다면 이 계정으로 로그인합니다.
+0.	[Azure Preview 포털][AzurePortal]에 로그인합니다. 이미 Visual Studio Team Services 계정이 있다면 이 계정으로 로그인합니다.
 
 0.	웹앱으로 이동합니다.
 
@@ -44,11 +44,11 @@ Preview 버전이 공개된 동안 Azure Preview 포털에서 무료로 앱의 �
 
 	![도구, 성능 테스트로 이동][ExpandedTools]
  
-0.	이제 성능 테스트 내역 유지를 위해 [VSO(Visual Studio Online)][WhatIsVSO] 계정을 연결해야 합니다.
+0.	이제 성능 테스트 내역을 유지하려면 [VSTS(Visual Studio Team Services)][WhatIsVSTS] 계정을 연결합니다.
 
-	사용하는 VSO 계정이 있다면 이 계정을 선택합니다. 계정이 없다면 새 계정을 만듭니다.
+	사용할 VSTS 계정이 있다면 이 계정을 선택합니다. 계정이 없다면 새 계정을 만듭니다.
 
-	![기존 VSO 계정을 선택하거나 새 계정 만들기][ExistingNewVSOAccount]
+	![기존 VSTS 계정을 선택하거나 새 계정 만들기][ExistingNewVSTSAccount]
 
 0.	성능 테스트를 만듭니다. 세부 정보를 설정하고 테스트를 실행합니다. 테스트를 실행하는 동안 실시간으로 결과를 볼 수 있습니다.
 
@@ -74,42 +74,42 @@ Preview 버전이 공개된 동안 Azure Preview 포털에서 무료로 앱의 �
 
 ##	질문과 대답
 
-####Q: 테스트 실행 시간에 제한이 있나요? 
+#### Q: 테스트 실행 시간에 제한이 있나요? 
 
 A: 예, Azure Preview 포털에서 최대 1시간 동안 테스트를 실행할 수 있습니다.
 
-####Q: 성능 테스트는 얼마나 오래할 수 있습니까? 
+#### Q: 성능 테스트는 얼마나 오래할 수 있습니까? 
 
-A: Preview 버전이 공개된 후 Visual Studio Online 계정으로 한 달에 20,000분에 해당하는 가상 사용자를 무료로 사용할 수 있습니다. VUM은 가상 사용자의 수를 테스트에 사용되는 시간(분)에 곱한 것입니다. 무료로 제공되는 양이 필요한 양보다 적다면 필요한 만큼만 구매하여 사용하면 됩니다.
+A: Preview 버전이 공개된 후 Visual Studio Team Services 계정으로 한 달에 20,000분에 해당하는 가상 사용자 시간(VUM)을 무료로 사용할 수 있습니다. VUM은 가상 사용자의 수를 테스트에 사용되는 시간(분)에 곱한 것입니다. 무료로 제공되는 양이 필요한 양보다 적다면 필요한 만큼만 구매하여 사용하면 됩니다.
 
-####Q: 지금까지 사용한 VUM은 어떻게 확인할 수 있습니가?
+#### Q: 지금까지 사용한 VUM은 어떻게 확인할 수 있습니가?
 
 A: Azure Preview 포털에서 이 양을 확인할 수 있습니다.
 
-![VSO 계정으로 이동][VSOAccount]
+![VSTS 계정으로 이동][VSTSAccount]
 
 ![사용한 VUM 확인][CheckTestTime]
 
 <a name="VSOAccount"></a>
-####Q: Visual Studio Online 계정을 사용하여 또 어떤 작업이 가능한가요?
+#### Q: Visual Studio Team Services 계정을 사용하여 또 어떤 작업이 가능한가요?
 
-A: 새 계정을 찾으려면 ```https://{accountname}.visualstudio.com```으로 이동합니다. 소프트웨어 코드를 공유하고, 빌드하고, 테스트하고, 작업을 추적하고, 발송하는 모든 작업이 모든 도구와 언어를 사용하여 클라우드 내에서 가능합니다. [Visual Studio Online][WhatIsVSO]의 기능과 서비스가 팀이 더 쉽게 협력하며 지속적으로 배포하는 데 어떤 도움이 되는지 알아보십시오.
+A: 새 계정을 찾으려면 ```https://{accountname}.visualstudio.com```으로 이동합니다. 소프트웨어 코드를 공유하고, 빌드하고, 테스트하고, 작업을 추적하고, 발송하는 모든 작업이 모든 도구와 언어를 사용하여 클라우드 내에서 가능합니다. [Visual Studio Team Services][WhatIsVSTS]의 기능과 서비스가 팀이 더 쉽게 협력하며 지속적으로 배포하는 데 어떤 도움이 되는지 알아보십시오.
 
 <!--Image references-->
 [WebApp]: ./media/app-service-web-app-performance-test/azure-np-web-apps.png
 [TestOverview]: ./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png
 [ExpandedTools]: ./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png
-[ExistingNewVSOAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
+[ExistingNewVSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
 [NewTest]: ./media/app-service-web-app-performance-test/azure-np-new-performance-test.png
 [TestRunning]: ./media/app-service-web-app-performance-test/azure-np-running-perf-test.png
 [TestDone]: ./media/app-service-web-app-performance-test/azure-np-perf-test-done.png
-[VSOAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
+[VSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
 [CheckTestTime]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png
 
 <!--Reference links -->
 [AzurePortal]: https://portal.azure.com
 [AzureSubscription]: https://account.windowsazure.com/subscriptions
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[WhatIsVSO]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
+[WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

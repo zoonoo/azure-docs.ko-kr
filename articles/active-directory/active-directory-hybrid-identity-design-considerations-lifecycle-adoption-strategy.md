@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 하이브리드 ID 수명 주기 채택 전략 확인 | Microsoft Azure"
+	pageTitle="Azure Active Directory 하이브리드 ID 설계 고려 사항 - 하이브리드 ID 수명 주기 채택 전략 확인 | Microsoft Azure"
 	description="각 수명 주기 단계에 사용할 수 있는 옵션에 따라 하이브리드 ID 관리 작업을 정의하는 데 도움이 됩니다."
 	documentationCenter=""
 	services="active-directory"
@@ -91,6 +91,6 @@ ID 동기화 프로세스
 
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

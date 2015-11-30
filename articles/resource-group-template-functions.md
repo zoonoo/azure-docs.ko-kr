@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="11/12/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
@@ -183,13 +183,13 @@
 
 **padLeft (stringToPad, totalLength, paddingCharacter)**
 
-지정된 총길이에 도달할 때까지 왼쪽에 문자를 추가하여 오른쪽 맞추어진 문자열을 반환합니다.
+지정된 총 길이에 도달할 때까지 왼쪽에 문자를 추가하여 오른쪽 맞추어진 문자열을 반환합니다.
   
 | 매개 변수 | 필수 | 설명
 | :--------------------------------: | :------: | :----------
 | stringToPad | 예 | 오른쪽에 맞추어진 문자열입니다.
 | totalLength | 예 | 반환된 문자열에서 문자의 총수입니다.
-| paddingCharacter | 예 | 총 길이에 도달할 때까지 왼쪽 여백에 사용는 문자입니다.
+| paddingCharacter | 예 | 총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다.
 
 다음 예제는 문자열이 10자에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 원래 매개 변수 값이 10자 보다 긴 경우 문자가 더 추가되지 않습니다.
 
@@ -494,6 +494,25 @@
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+## trim
+
+**trim(stringToTrim)**
+
+지정된 문자열에서 모든 선행 및 후행 공백 문자를 제거합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| stringToTrim | 예 | 잘라낼 문자열입니다.
+
+다음은 사용자가 입력한 매개 변수 값에서 공백 문자를 자르는 예입니다.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
 
 ## uniqueString
 
@@ -529,6 +548,21 @@
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+## uri
+
+**uri(baseUri, relativeUri)**
+
+baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| baseUri | 예 | 기본 uri 문자열입니다.
+| relativeUri | 예 | 기본 uri 문자열에 추가할 상대 uri 문자열입니다.
+
+다음은 템플릿 링크에서 절대 URI를 만드는 방법을 보여주는 예입니다. 결과는 ****http://contoso.com/resources/nested/azuredeploy.json**입니다.
+
+    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+
 
 ## variables
 
@@ -547,4 +581,4 @@
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

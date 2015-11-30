@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 # Azure 미리 보기 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -64,7 +64,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 - 클러스터를 만드는 동안 HDInsight .NET SDK 또는 Azure PowerShell의 클러스터 사용자 지정 매개 변수를 사용합니다. 그러면 이러한 구성 변경 내용이 클러스터 수명 동안 유지되며 Azure 플랫폼이 유지 관리를 위해 정기적으로 수행하는 클러스터 노드 이미지로 다시 설치의 영향을 받지 않습니다. 클러스터 사용자 지정 매개 변수 사용에 대한 자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-provision-clusters.md)를 참조하세요.
 - Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob 저장소에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
 
-	>[AZURE.NOTE] HDInsight 클러스터에 Jar 파일을 배포하거나 HDInsight 클러스터에서 Jar 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원 센터](http://azure.microsoft.com/support/options/)로 문의하세요.
+	>[AZURE.NOTE]HDInsight 클러스터에 Jar 파일을 배포하거나 HDInsight 클러스터에서 Jar 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원 센터](http://azure.microsoft.com/support/options/)로 문의하세요.
 
 	> Cascading은 HDInsight에서 지원되지 않으며 Microsoft 지원 대상이 아닙니다. 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)을 참조하세요.
 
@@ -101,11 +101,11 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	- **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
 	- **사용자(![사용자 아이콘](./media/hdinsight-administer-use-portal-linux/users.png))**: Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 	
-		> [AZURE.IMPORTANT] 이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
+		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 	- **태그(![태그 아이콘](./media/hdinsight-administer-use-portal-linux/tags.png))**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 	- **설명서**: Azure HDInsight에 대한 설명서 링크를 제공합니다.
 	
-	> [AZURE.IMPORTANT] HDInsight 클러스터에 의해 제공되는 서비스를 관리하려면 Ambari 웹 또는 Ambari REST API를 사용해야 합니다. Ambari 사용에 대한 자세한 내용은 [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+	> [AZURE.IMPORTANT]HDInsight 클러스터에 의해 제공되는 서비스를 관리하려면 Ambari 웹 또는 Ambari REST API를 사용해야 합니다. Ambari 사용에 대한 자세한 내용은 [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 	**사용 현황**
 	
@@ -123,6 +123,8 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	- **클러스터 크기 조정**: 클러스터 작업자 노드의 수를 늘리거나 줄입니다.
 	- **원격 데스크톱**: 원격 데스크톱(RDP) 액세스를 활성화하거나 비활성화하고 RDP 사용자 이름을 구성합니다. RDP 사용자 이름은 HTTP 사용자 이름과 반드시 달라야 합니다.
 	- **공식 파트너**:
+    
+    > [AZURE.NOTE]이것은 사용 가능한 설정의 일반적인 목록이며 여기의 모든 설정이 모든 클러스터 유형에 제공되는 것은 아닙니다.
 
 6. **속성**을 클릭합니다.
 
@@ -135,7 +137,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	- **생성된 데이터**.
 	- **운영 체제**: **Windows** 또는 **Linux**입니다.
 	- **형식**: Hadoop, HBase, Storm, Spark. 
-	- **버전** [HDInsight 버전](hdinsight-component-versioning.md)을 참조하세요.
+	- **버전**. [HDInsight 버전](hdinsight-component-versioning.md)을 참조하세요.
 	- **구독**: 구독 이름입니다.
 	- **구독 ID**.
 	- **주 데이터 원본**. Azure Blob 저장소 계정이 기본 Hadoop 파일 시스템으로 사용됩니다.
@@ -155,7 +157,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 ##클러스터 크기 조정
 클러스터 크기 조정 기능을 사용하여 클러스터를 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 작업자 노드 수를 변경합니다.
 
->[AZURE.NOTE] HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 포털 인터페이스에 대해 알아보기](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)를 참조하세요.
+>[AZURE.NOTE]HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 포털 인터페이스에 대해 알아보기](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)를 참조하세요.
 
 HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노드 수를 변경하는 영향은 다음과 같습니다.
 
@@ -230,7 +232,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 1. [Preview 포털][azure-portal]에 로그인합니다.
 2. 왼쪽 메뉴에서 **모두 찾아보기**를 클릭하고 **HDInsight 클러스터**를 클릭하고 클러스터 이름을 클릭합니다.
 3. 상단 메뉴에서 **설정**을 클릭한 다음 **클러스터 로그인**을 클릭합니다.
-4. **클러스터 로그인**이 활성화되어 있으면 **사용 안함**를 클릭한 후 **사용**을 클릭해야 사용자 이름과 암호를 변경할 수 있습니다.
+4. **클러스터 로그인**이 활성화되어 있으면 **사용 안함**을 클릭한 후 **사용**을 클릭해야 사용자 이름과 암호를 변경할 수 있습니다.
 4. **클러스터 로그인 이름** 및/또는 **클러스터 로그인 암호**를 변경한 다음 **저장**을 클릭합니다.
 
 	![HDinsight 클러스터 사용자 사용자 이름 암호 http 사용자 변경](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
@@ -247,15 +249,15 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 
 이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. Azure Preview 포털에서 액세스 권한을 해지/부여할 수 있습니다.
 
->[AZURE.NOTE] 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
+>[AZURE.NOTE]액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
 **HTTP 웹 서비스 액세스 권한을 부여/해지하려면**
 
 1. [Preview 포털][azure-portal]에 로그인합니다.
 2. 왼쪽 메뉴에서 **모두 찾아보기**를 클릭하고 **HDInsight 클러스터**를 클릭하고 클러스터 이름을 클릭합니다.
 3. 상단 메뉴에서 **설정**을 클릭한 다음 **클러스터 로그인**을 클릭합니다.
-4. **클러스터 로그인**이 활성화되어 있으면 **사용 안함**를 클릭한 후 **사용**을 클릭해야 사용자 이름과 암호를 변경할 수 있습니다.
-6. **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**에 대해 클러스터의 새 사용자 이름 및 암호를 각각 입력합니다.
+4. **클러스터 로그인**이 활성화되어 있으면 **사용 안함**을 클릭한 후 **사용**을 클릭해야 사용자 이름과 암호를 변경할 수 있습니다.
+6. **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**에 클러스터의 새 사용자 이름 및 암호를 각각 입력합니다.
 7. **저장**을 클릭합니다.
 
 	![HDinsight 총합계 http 웹 서비스 액세스 제거](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
@@ -290,13 +292,13 @@ HDInsight 쿼리 콘솔에는 다음 기능이 포함됩니다.
 
 	![HDInsight 포털 작업 내역](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	작업 속성, **작업 쿼리**, **작업 출력을 비롯한 세부 정보를 표시하려면** 쿼리 이름**을 클릭합니다. 사용자의 워크스테이션에 쿼리와 출력을 모두 다운로드할 수도 있습니다.
+	작업 속성, **작업 쿼리**, **작업 출력을 비롯한 세부 정보를 표시하려면 **쿼리 이름**을 클릭합니다. 사용자의 워크스테이션에 쿼리와 출력을 모두 다운로드할 수도 있습니다.
 
 - **파일 브라우저**: 기본 저장소 계정 및 연결된 저장소 계정을 찾아봅니다.
 
 	![HDInsight 포털 파일 브라우저 찾아보기](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-	스크린샷에서 **<Account>** 형식은 Azure 저장소 계정의 항목을 나타냅니다. 계정 이름을 클릭하여 파일을 찾아봅니다.
+	스크린샷에서 **<Account>** 형식은 해당 항목이 Azure 저장소 계정이라는 것을 나타냅니다. 계정 이름을 클릭하여 파일을 찾아봅니다.
 	
 - **Hadoop UI**.
 
@@ -353,7 +355,7 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 	![HDinsight 원격 데스크톱 설정 해제 구성](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
 	만료 날짜에 대한 기본 값은 1주일입니다.
-> [AZURE.NOTE] HDInsight .NET SDK를 통해 클러스터에서 원격 데스크톱을 사용하도록 설정할 수도 있습니다. 다음과 같은 방식으로 HDInsight 클라이언트 개체에서 **EnableRdp** 메서드를 사용합니다 **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. 마찬가지로, 클러스터에서 원격 데스크톱을 사용하지 않도록 설정하려면 **client.DisableRdp(clustername, location)**을 사용할 수 있습니다. 이러한 메서드에 대한 자세한 내용은 [HDInsight .NET SDK 참조](http://go.microsoft.com/fwlink/?LinkId=529017)를 참조하세요. Windows에서 실행되는 HDInsight 클러스터에만 적용됩니다.
+> [AZURE.NOTE]HDInsight .NET SDK를 통해 클러스터에서 원격 데스크톱을 사용하도록 설정할 수도 있습니다. 다음과 같은 방식으로 HDInsight 클라이언트 개체에서 **EnableRdp** 메서드를 사용합니다 **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. 마찬가지로, 클러스터에서 원격 데스크톱을 사용하지 않도록 설정하려면 **client.DisableRdp(clustername, location)**을 사용할 수 있습니다. 이러한 메서드에 대한 자세한 내용은 [HDInsight .NET SDK 참조](http://go.microsoft.com/fwlink/?LinkId=529017)를 참조하세요. Windows에서 실행되는 HDInsight 클러스터에만 적용됩니다.
 
 **RDP를 사용하여 클러스터에 연결하려면**
 
@@ -398,4 +400,4 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

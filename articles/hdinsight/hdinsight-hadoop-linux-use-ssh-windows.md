@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 #Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -44,10 +44,6 @@ SSH는 원격 서버에서 로그인 및 원격으로 실행하는 명령 유틸
 ###SSH 사용자 이름
 
 SSH 사용자 이름은 HDInsight 클러스터에 인증하는데 사용하는 이름입니다. 클러스터를 만드는 동안 SSH 사용자 이름을 지정하는 경우 해당 사용자는 클러스터의 모든 노드에 대해 만들어집니다. 클러스터를 만든 후 해당 사용자 이름을 사용하여 HDInsight 클러스터 헤드 노드에 연결할 수 있습니다. 그러면 헤드 노드에서 개별 작업자 노드에 연결할 수 있습니다.
-
-> [AZURE.NOTE]SSH 사용자 이름은 고유해야 합니다. SSH 사용자 이름은 HDInsight 클러스터에 대한 사용자 계정을 만드므로 HDInsight에서 만든 기존 사용자와 충돌하지 않습니다. 다음은 클러스터에서 실행 중인 서비스에 의해 사용하도록 예약된 이름이며 SSH 사용자 이름으로 사용할 수 없습니다.
->
-> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
 ###SSH 암호 또는 공개 키
 
@@ -91,7 +87,7 @@ SSH 사용자는 인증에 암호 또는 공개 키를 사용할 수 있습니�
 
 Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키를 제공해야 합니다. Windows 기반 클라이언트에서는 두 가지의 Linux 기반 HDInsight 클러스터를 만들 수 있습니다.
 
-* **Azure 미리 보기 포털** - 웹 기반 포털을 사용하여 클러스터를 만듭니다.
+* **Azure Preview 포털** - 웹 기반 포털을 사용하여 클러스터를 만듭니다.
 
 * **Mac, Linux 및 Windows용 Azure CLI** - 명령줄 명령을 사용하여 클러스터를 만듭니다.
 
@@ -99,7 +95,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 ###Azure 미리 보기 포털
 
-[Azure 미리 보기 포털][preview-portal]을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 경우 **SSH 사용자 이름**을 입력하고 **암호** 또는 **SSH 공개 키**를 선택하여 입력해야 합니다.
+[Azure Preview 포털][preview-portal]을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 경우 **SSH 사용자 이름**을 입력하고 **암호** 또는 **SSH 공개 키**를 선택하여 입력해야 합니다.
 
 **SSH 공개 키**를 선택하는 경우 PuttyGen의 __Public key for pasting into OpenSSH authorized\_keys file(OpenSSH authorized\_keys 파일에 붙여 넣기 위한 공개 키)__ 필드에 표시되는 공개 키를 __SSH 공개 키__ 필드에 붙여 넣거나 __파일 선택__을 선택하여 공개 키가 포함된 파일을 찾아 선택할 수 있습니다.
 
@@ -181,9 +177,9 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
     > [AZURE.NOTE]암호를 사용하여 SSH 세션을 인증하는 경우 암호를 입력하라는 메시지가 다시 표시됩니다. SSH 키를 사용하는 경우에는 아무 메시지 없이 연결이 완료됩니다.
 
-9. 세션이 설정되면 작업자 노드에 연결되었음을 나타내도록 PuTTY 세션에 대한 프롬프트가 `username@headnode`에서 `username@workernode`로 변경됩니다. 이 시점부터 실행하는 모든 명령은 작업자 노드에서 실행됩니다.
+9. 세션이 설정되면 작업자 노드에 연결되었음을 나타내도록 PuTTY 세션에 대한 프롬프트가 `username@hn0-clustername`에서 `username@wn0-clustername`로 변경됩니다. 이 시점부터 실행하는 모든 명령은 작업자 노드에서 실행됩니다.
 
-10. 작업자 노드에 대한 작업 수행을 마쳤으면 `exit` 명령을 사용하여 작업자 노드의 세션을 닫습니다. 그러면 `username@headnode` 프롬프트가 반환됩니다.
+10. 작업자 노드에 대한 작업 수행을 마쳤으면 `exit` 명령을 사용하여 작업자 노드의 세션을 닫습니다. 그러면 `username@hn0-clustername` 프롬프트가 반환됩니다.
 
 ##계정 추가
 
@@ -219,7 +215,7 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 
 > [AZURE.IMPORTANT]SSH 터널은 일부 Hadoop 서비스의 웹 UI에 액세스하기 위한 요구 사항입니다. 예를 들어 작업 기록 UI와 리소스 관리자 UI는 둘 다 SSH 터널을 사용해서만 액세스할 수 있습니다.
 
-SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 ##다음 단계
 
@@ -233,4 +229,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

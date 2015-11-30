@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 # Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -115,6 +115,8 @@ HDInsight 클러스터를 만들려면 먼저 ARM(Azure 리소스 관리) 및 Az
 ##구성 파일을 사용하여 클러스터 만들기
 일반적으로 HDInsight 클러스터를 만들고 해당 클러스터에서 작업을 실행한 후에 비용을 줄이기 위해 클러스터를 삭제합니다. 명령줄 인터페이스에는 클러스터를 만들 때마다 다시 사용할 수 있도록 구성을 파일에 저장하는 옵션이 있습니다.
 
+> [AZURE.NOTE]HBase 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다.
+
 	azure hdinsight cluster config create <file>
 
 	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName ""<Storage Account Name>".blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
@@ -180,4 +182,4 @@ Azure PowerShell을 사용하여 Hadoop 클러스터 크기를 변경하려면 �
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

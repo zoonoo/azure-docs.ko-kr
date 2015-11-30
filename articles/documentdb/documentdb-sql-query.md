@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="DocumentDB 데이터베이스에 대한 SQL 쿼리 – 쿼리 SQL | Microsoft Azure" 
-	description="DocumentDB에서 자동 인덱싱을 위해 계층적 JSON 문서에 대한 SQL 쿼리를 지원하는 방법을 알아봅니다. 스키마가 없는 SQL 쿼리 데이터베이스 환경이 제공됩니다." 
-	keywords="쿼리 데이터베이스, SQL 쿼리, SQL 쿼리, 구조화된 쿼리 언어, DocumentDB, Azure, Microsoft Azure"
+	pageTitle="DocumentDB, NoSQL 데이터베이스에서 SQL 쿼리 | Microsoft Azure" 
+	description="DocumentDB, NoSQL 데이터베이스를 쿼리하기 위해 SQL 쿼리 문을 사용하는 방법에 대해 알아봅니다. JSON 쿼리 언어인 SQL 쿼리는 빅 데이터 분석에 사용할 수 있습니다." 
+	keywords="SQL 쿼리, 여러 SQL 쿼리, SQL 구문, json 쿼리 언어, 데이터베이스 개념 및 SQL 쿼리"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.date="11/18/2015" 
 	ms.author="arramac"/>
 
-# DocumentDB 내의 SQL 쿼리
-Microsoft Azure DocumentDB는 계층적 JSON 문서에 대해 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. DocumentDB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다.
+# DocumentDB에서 SQL 쿼리
+Microsoft Azure DocumentDB는 JSON 쿼리 언어인 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. DocumentDB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다.
 
 DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
 
--	**SQL 수용** – 새 쿼리 언어를 고안하는 대신 SQL 언어를 수용하려고 했습니다. 어쨌든 SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
--	**SQL 확장** – 데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
+-	새 쿼리 언어를 고안하는 대신 SQL 언어를 지원하려고 했습니다. SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
+-	데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
 
 이러한 기능은 응용 프로그램과 데이터베이스 간의 충돌을 줄이는 데 도움이 되며 개발자 생산성에 중요합니다.
 
@@ -31,9 +31,9 @@ DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려�
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-그런 다음 이 문서로 돌아와 몇 가지 간단한 JSON 문서와 SQL 명령을 연습하세요.
+그런 다음 이 문서로 돌아와 SQL 쿼리 자습서로 몇 가지 간단한 JSON 문서 및 SQL 명령을 연습합니다.
 
-## DocumentDB에서 SQL(구조적 쿼리 언어) 명령 시작
+## DocumentDB에서 SQL 명령 시작
 DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON 문서로 시작하고 몇 개의 단순한 쿼리를 연습하겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. DocumentDB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. DocumentDB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 간단한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다.
 
 **문서**
@@ -157,14 +157,14 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 
 지금까지 확인한 예제를 통해 DocumentDB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.
  
--	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예:`Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
+-	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
 -	구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
 -	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
 -	DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
 ## DocumentDB 인덱싱
 
-DocumentDB SQL 문법을 시작하기 전에 DocumentDB의 인덱싱 설계를 살펴보는 것이 좋습니다.
+DocumentDB SQL 구문을 시작하기 전에 DocumentDB의 인덱싱 설계를 살펴보는 것이 좋습니다.
 
 데이터베이스 인덱스의 목적은 우수한 처리량과 짧은 대기 시간을 제공하는 동시에 다양한 형태와 모양의 쿼리를 최소 리소스 사용(예: CPU, 입출력)으로 처리하는 것입니다. 데이터베이스 쿼리에 올바른 인덱스를 선택하려면 대체로 많은 계획과 실험이 필요합니다. 이 접근 방법은 데이터가 엄격한 스키마를 준수하지 않고 빠르게 발전하는 스키마 없는 데이터베이스에 문제를 제기합니다.
 
@@ -180,7 +180,7 @@ DocumentDB SQL 문법을 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 
 -	저장소 효율성: 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 제한되고 예측 가능합니다. 이 목표는 DocumentDB를 사용할 경우 개발자가 비용을 기반으로 인덱스 오버헤드와 쿼리 성능 간을 절충할 수 있기 때문에 중요합니다.
 
-컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [DocumentDB 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 이제 DocumentDB SQL 문법의 세부 정보를 살펴보겠습니다.
+컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [DocumentDB 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 이제 DocumentDB SQL 구문의 세부 정보를 살펴보겠습니다.
 
 
 ## DocumentDB SQL 쿼리의 기본 사항
@@ -188,7 +188,8 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
     
     SELECT <select_list> 
     [FROM <from_specification>] 
-    [WHERE <filter_condition>]    
+    [WHERE <filter_condition>]
+    [ORDER BY <sort_specification]    
 
 
 ## FROM 절
@@ -322,7 +323,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 필터의 스칼라 식 결과가 Undefined인 경우 Undefined는 논리적으로 "true"가 아니므로 해당 문서가 결과에 포함되지 않습니다.
 
 ### BETWEEN 키워드
-또한 ANSI SQL에서처럼 값의 범위에 대한 쿼리를 표현하는 BETWEEN 키워드를 사용할 수 있습니다. BETWEEN은 JSON Primitive 형식(숫자, 문자열, 부울 및 null)에 대해 사용할 수 있습니다.
+또한 ANSI SQL에서처럼 값의 범위에 대한 쿼리를 표현하는 BETWEEN 키워드를 사용할 수 있습니다. 문자열이나 숫자에 BETWEEN을 사용할 수 있습니다.
 
 예를 들어 이 쿼리는 첫 번째 자식의 등급이 1-5(모두 포함)인 가족 문서를 모두 반환합니다.
 
@@ -705,7 +706,7 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
 	  }
 	]
 	
-## 고급 SQL 쿼리 데이터베이스 개념
+## 고급 데이터베이스 개념 및 SQL 쿼리
 ### 반복
 JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 통해 새 구문을 추가했습니다. FROM 소스에서 반복 지원을 제공합니다. 다음 예제로 시작하겠습니다.
 
@@ -943,7 +944,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 ###UDF(사용자 정의 함수)
 이 문서에 이미 정의되어 있는 형식과 더불어 DocumentDB SQL 사용자 정의 함수(UDF)를 지원합니다. 특히 개발자가 0개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.
 
-이러한 사용자 정의 함수를 사용한 사용자 지정 응용 프로그램 논리를 지원하기 위해 DocumentDB SQL 문법이 확장됩니다. UDF를 DocumentDB에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
+이러한 사용자 정의 함수를 사용한 사용자 지정 응용 프로그램 논리를 지원하기 위해 DocumentDB SQL 구문이 확장됩니다. UDF를 DocumentDB에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
 
 다음은 DocumentDB 데이터베이스의 문서 컬렉션 아래에 UDF를 등록할 수 있는 방법의 예입니다.
 
@@ -1386,8 +1387,6 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
       "numberOfChildren": 1
     }]
 
-기본 제공 함수 및 DocumentDB에 대한 SQL 문법을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 문법과 상호작용 방법을 살펴봤습니다.
-
 ### 공간 함수
 
 DocumentDB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. DocumentDB의 지리 공간 지원에 대한 자세한 내용은 [Azure DocumentDB에서 지리 공간 데이터 작업](documentdb-geospatial.md)을 참조하세요.
@@ -1481,7 +1480,7 @@ ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 공간 개체가 유효한�
       	}
     }]
     
-기본 제공 함수 및 DocumentDB에 대한 SQL 문법을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 문법과 상호작용 방법을 살펴봤습니다.
+공간 함수 및 DocumentDB에 대한 SQL 구문을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 구문 조작 방법을 살펴봤습니다.
 
 ## LINQ to DocumentDB SQL
 LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로그래밍 모델입니다. DocumentDB는 JSON 및 .NET 개체 간의 변환과 LINQ 쿼리 하위 집합에서 DocumentDB 쿼리로의 매핑을 용이하게 하여 LINQ와 인터페이스할 클라이언트 쪽 라이브러리를 제공합니다.
@@ -2071,13 +2070,13 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 ##참조
 1.	[Azure DocumentDB 소개][introduction]
 2.	[DocumentDB SQL 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3.	[DocumentDB .NET 샘플](https://github.com/Azure/azure-documentdb-net)(영문)
+3.	[DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 4.	[DocumentDB 일관성 수준][consistency-levels]
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9.	대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)(영문)
+9.	대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
@@ -2089,4 +2088,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

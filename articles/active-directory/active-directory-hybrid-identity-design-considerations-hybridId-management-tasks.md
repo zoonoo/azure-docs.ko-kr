@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 하이브리드 ID 관리 작업 | Microsoft Azure"
+	pageTitle="Azure Active Directory 하이브리드 ID 설계 고려 사항 - 하이브리드 ID 관리 작업 | Microsoft Azure"
 	description="조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다."
 	documentationCenter=""
 	services="active-directory"
@@ -62,6 +62,6 @@ ID 관리자의 목표 중 하나는 모든 ID 공급자를 가져오고 동기�
 
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

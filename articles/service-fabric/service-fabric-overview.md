@@ -1,6 +1,6 @@
 <properties 
    pageTitle="서비스 패브릭의 개요 | Microsoft Azure" 
-   description="응용 프로그램이 마이크로 서비스로 구성된 서비스 패브릭의 개요. 서비스 패브릭은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다." 
+   description="응용 프로그램이 여러 마이크로 서비스로 구성되어 확장성과 복원력을 제공하는 서비스 패브릭의 개요. 서비스 패브릭은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다." 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/25/2015"
+   ms.date="11/18/2015"
    ms.author="mfussell"/>
 
 # 서비스 패브릭의 개요
@@ -89,13 +89,15 @@
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
-* 자세한 내용은 [기술 개요](service-fabric-technical-overview.md)를 참조하세요.
-* 서비스 패브릭 [개발 환경](service-fabric-get-started.md)을 설정합니다.  
-* 서비스에 대한 [프레임워크](service-fabric-choose-framework.md)를 선택합니다.
+* 자세한 내용은 다음을 참조하세요. 
+	* [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
+	* [기술 개요](service-fabric-technical-overview.md)
+* 서비스 패브릭 [개발 환경](service-fabric-get-started.md) 설정  
+* 서비스를 위한 [프로그래밍 모델 프레임워크](service-fabric-choose-framework.md) 선택
 
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

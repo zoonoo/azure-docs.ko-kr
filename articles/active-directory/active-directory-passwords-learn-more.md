@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리에 대한 자세한 정보
@@ -25,6 +25,7 @@
   - [암호 쓰기 저장 보안 모델](#password-writeback-security-model)
 * [**암호 재설정 포털의 작동 원리**](#how-does-the-password-reset-portal-work)
   - [암호 재설정에서 사용되는 데이터](#what-data-is-used-by-password-reset)
+  - [사용자의 암호 재설정 데이터에 액세스하는 방법](#how-to-access-password-reset-data-for-your-users)
 
 ## 암호 쓰기 저장 개요
 암호 쓰기 저장은 Azure Active Directory Premium의 현재 구독자가 설정하여 사용할 수 있는 [Azure Active Directory Connect](active-directory-aadconnect) 구성 요소입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
@@ -261,24 +262,121 @@
           </tr>
         </tbody></table>
 
-<br/> <br/> <br/>
+###사용자의 암호 재설정 데이터에 액세스하는 방법
+####동기화를 통해 설정할 수 있는 데이터
+다음 필드는 온-프레미스에서 동기화할 수 있습니다.
 
-**추가 리소스**
+* 휴대폰
+* 사무실 전화
 
+####Azure AD PowerShell을 통해 설정할 수 있는 데이터
+다음 필드는 Azure AD PowerShell 및 Graph API를 통해 액세스할 수 있습니다.
 
-* [암호 관리 정의](active-directory-passwords.md)
-* [암호 관리의 작동 원리](active-directory-passwords-how-it-works.md)
-* [암호 관리 시작](active-directory-passwords-getting-started.md)
-* [암호 관리 사용자 지정](active-directory-passwords-customize.md)
-* [암호 관리 모범 사례](active-directory-passwords-best-practices.md)
-* [암호 관리 보고서와 함께 Operational Insights를 얻는 방법](active-directory-passwords-get-insights.md)
-* [암호 관리 FAQ](active-directory-passwords-faq.md)
-* [암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
-* [MSDN의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* 대체 전자 메일
+* 휴대폰
+* 사무실 전화
+* 인증 전화
+* 인증 전자 메일
+
+####등록 UI를 통해서만 설정할 수 있는 데이터
+다음 필드는 SSPR 등록 UI(https://aka.ms/ssprsetup))를 통해서만 액세스할 수 있습니다.
+
+* 보안 질문 및 답변
+
+####사용자가 등록하면 어떻게 되나요?
+사용자가 등록하면 등록 페이지에 다음 필드가 **항상** 설정됩니다.
+
+* 인증 전화
+* 인증 전자 메일
+* 보안 질문 및 답변
+
+**휴대폰** 또는 **대체 전자 메일**에 대한 값을 제공하면, 서비스에 등록하지 않은 사용자도 그 값을 사용하여 자신의 암호를 즉시 재설정할 수 있습니다. 또한 사용자는 처음으로 등록할 때 해당 값을 볼 수 있고, 원하는 경우에는 값을 변경할 수 있습니다. 하지만 등록을 완료한 후에는 **인증 전화** 및 **인증 전자 메일** 필드에 각각 그 값이 유지됩니다.
+
+이것은 사용자가 등록 과정을 통해 해당 정보의 유효성을 검사하도록 허용하는 동시에 다수의 사용자가 SSPR을 사용하도록 차단을 해제하는 유용한 방법입니다.
+
+####PowerShell을 사용하여 암호 재설정 데이터 설정
+Azure AD PowerShell을 사용하여 다음 필드에 대한 값을 설정할 수 있습니다.
+
+* 대체 전자 메일
+* 휴대폰
+* 사무실 전화
+
+시작하려면 우선 [Azure AD PowerShell 모듈을 다운로드하고 설치](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule)해야 합니다. 설치를 완료한 후에는 아래 단계에 따라서 각 필드를 구성합니다.
+
+#####대체 전자 메일
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
+```
+
+#####휴대폰
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
+```
+
+#####사무실 전화
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+```
+
+####PowerShell을 사용하여 암호 재설정 데이터 읽기
+Azure AD PowerShell을 사용하여 다음 필드에 대한 값을 읽을 수 있습니다.
+
+* 대체 전자 메일
+* 휴대폰
+* 사무실 전화
+* 인증 전화
+* 인증 전자 메일
+
+시작하려면 우선 [Azure AD PowerShell 모듈을 다운로드하고 설치](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule)해야 합니다. 설치를 완료한 후에는 아래 단계에 따라서 각 필드를 구성합니다.
+
+#####대체 전자 메일
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
+```
+
+#####휴대폰
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
+```
+
+#####사무실 전화
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+```
+
+#####인증 전화
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
+```
+
+#####인증 전자 메일
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
+
+## 암호 재설정 설명서에 대한 링크
+다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
+
+* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password) - 시스템 사용자로서 자신의 암호를 재설정하거나 변경하는 방법을 알아봅니다.
+* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
+* [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
+* [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
+* [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
+* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 
 
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

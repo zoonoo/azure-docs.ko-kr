@@ -1,10 +1,11 @@
-<properties 
-    pageTitle="C#을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 | Microsoft Azure" 
-    description="이 문서에서는 C#을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀을 만드는 방법을 보여줍니다(.NET용 Azure SQL 데이터베이스 라이브러리 사용)." 
-    services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jeffreyg" 
+<properties
+    pageTitle="C# 데이터베이스 개발: 탄력적 데이터베이스 풀 | Microsoft Azure"
+    description="C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스에 탄력적 데이터베이스 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다."
+    services="sql-database"
+    keywords="c# 데이터베이스,sql 개발"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
     editor=""/>
 
 <tags
@@ -12,11 +13,11 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+    ms.workload="data-management"
     ms.date="11/06/2015"
     ms.author="sstein"/>
 
-# C&#x23;을 사용한 탄력적 데이터베이스 풀 만들기
+# C&#x23; 데이터베이스 개발: SQL 데이터베이스에 대한 탄력적 데이터베이스 풀 만들기 및 구성
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-elastic-pool-portal.md)
@@ -24,11 +25,11 @@
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-이 문서에서는 C#을 사용하는 응용 프로그램에서 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여 줍니다.
+이 문서에서는 C# 데이터베이스 개발 기술을 사용하여 응용 프로그램에서 SQL 데이터베이스에 대해 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server.md)를 할 수 있습니다.
+> [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server.md)를 수행할 수 있습니다.
 
-예에서는 [.NET 용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)를 사용합니다. 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
+예제에서는 [.NET 용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)를 사용합니다. 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
 
 .NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](resource-group-overview.md) 기반 API를 제공합니다. 이 클라이언트 라이브러리는 리소스 관리자 기반 클라이언트 라이브러리의 일반적인 패턴을 따릅니다. 리소스 관리자는 리소스 그룹을 필요로 하며 AAD([Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx))로 인증합니다.
 
@@ -42,7 +43,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 ## 필요한 라이브러리 설치
 
-[패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 사용해 다음의 패키지를 설치하고 필요한 관리자 라이브러리를 가져옵니다.
+SQL에서 개발용 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 사용해 다음 패키지를 설치하여 필요한 관리자 라이브러리를 가져옵니다.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -51,7 +52,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 ## Azure Active Directory로 인증 구성
 
-먼저 필요한 인증을 설정하여 REST API에 액세스할 응용 프로그램을 사용해야 합니다.
+C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 완료해야 합니다. 먼저 필요한 인증을 설정하여 REST API에 액세스할 응용 프로그램을 사용해야 합니다.
 
 [Azure 리소스 관리자 REST API](https://msdn.microsoft.com/library/azure/dn948464.aspx)는 이전의 Azure 서비스 관리 REST API에서 사용된 인증서가 아닌 Azure Active Directory를 사용하여 인증합니다.
 
@@ -61,19 +62,19 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 1. 왼쪽의 메뉴를 스크롤하여 **Active Directory** 서비스를 찾아 엽니다.
 
-    ![AAD][1]
+    ![C# SQL 데이터베이스 개발: Active Directory 설정][1]
 
 2. 디렉터리를 선택하여 응용 프로그램을 인증하고 해당 **이름**을 클릭합니다.
 
-    ![디렉터리][4]
+    ![디렉터리를 선택합니다.][4]
 
 3. 디렉터리 페이지에서 **응용 프로그램**을 클릭합니다.
 
-    ![응용 프로그램][5]
+    ![응용 프로그램을 클릭합니다.][5]
 
 4. **추가**를 클릭하여 새 응용 프로그램을 만듭니다.
 
-    ![응용 프로그램 추가][6]
+    ![추가 단추를 클릭합니다. C# 응용 프로그램을 만듭니다.][6]
 
 5. **내 조직에서 개발 중인 응용 프로그램 추가**를 선택합니다.
 
@@ -93,9 +94,9 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 1. 페이지 맨 아래에서 **응용 프로그램 추가**를 클릭합니다.
 1. **Microsoft 앱**을 선택합니다.
 1. **Azure 서비스 관리 API**를 선택하고 마법사를 완료합니다.
-2. API를 선택한 후 **Azure 서비스 관리(미리 보기) 액세스**를 선택하여 이 API에 액세스하는 데 필요한 특정 권한을 부여해야 합니다.
+2. API를 선택하면 **Azure 서비스 관리에 액세스 (미리 보기)**를 선택하여 이 API에 액세스하기 위해 필요한 특정 권한을 부여해야 합니다.
 
-    ![권한][2]
+    ![사용 권한 설정][2]
 
 2. **저장**을 클릭합니다.
 
@@ -117,7 +118,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 인증을 위한 Azure Active Directory 사용에 대한 추가 정보는 [이 유용한 블로그 게시물](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/)에서 찾을 수 있습니다.
 
 
-### 현재 사용자에 대한 액세스 토큰 검색 
+### 현재 사용자에 대한 액세스 토큰 검색
 
 클라이언트 응용 프로그램은 현재 사용자에 대한 응용 프로그램 액세스 토큰을 검색해야 합니다. 코드가 사용자에 의해 처음으로 실행될 때 사용자 자격 증명을 입력하라는 메시지가 표시되며 결과적으로 토큰이 로컬에서 캐시됩니다. 후속 실행 때에는 캐시에서 토큰을 검색하며 토큰이 만료되었을 때 사용자에게 로그인하라는 메시지만 표시합니다.
 
@@ -129,13 +130,13 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */ 
+            ("https://login.windows.net/" /* AAD URI */
                 + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
-            ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/, 
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
+            ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
+        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -149,24 +150,24 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 ## 리소스 그룹 만들기
 
-리소스 관리자를 사용하여 모든 리소스를 리소스 그룹에 생성해야 합니다. 리소스 그룹은 응용 프로그램에 관련된 리소스를 보유하는 컨테이너입니다. 탄력적 데이터베이스 풀을 만들려면 기존 리소스 그룹에 Azure SQL 데이터베이스 서버가 필요합니다. 다음 명령을 실행하여 리소스 그룹을 만듭니다.
+리소스 관리자를 사용하여 모든 리소스를 리소스 그룹에 생성해야 합니다. 리소스 그룹은 응용 프로그램에 관련된 리소스를 보유하는 컨테이너입니다. 탄력적 데이터베이스 풀을 만들려면 기존 리소스 그룹에 Azure SQL 데이터베이스 서버가 필요합니다. 다음 C# 코드를 실행하여 리소스 그룹을 만듭니다.
 
 
-    // Create a resource management client 
+    // Create a resource management client
     ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
-    
+
     // Resource group parameters
     ResourceGroup resourceGroupParameters = new ResourceGroup()
     {
         Location = "South Central US"
     };
-    
+
     //Create a resource group
     var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("resourcegroup-name", resourceGroupParameters);
 
 
 
-## 서버 만들기 
+## 서버 만들기
 
 탄력적 데이터베이스 풀은 Azure SQL 데이터베이스 서버에 포함되기 때문에 다음 단계는 서버를 만드는 것입니다. 서버 이름은 모든 Azure SQL 서버에서 전역적으로 고유해야 하며 서버 이름이 이미 사용 중인 경우 오류가 발생합니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 응용 프로그램을 서버에 연결하려면 클라이언트 IP 주소에서 액세스를 열기 위한 방화벽 규칙도 서버에 만들어야 합니다.
 
@@ -195,10 +196,10 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 기본적으로 서버는 방화벽 규칙이 없기 때문에 아무 위치에서 서버에 연결할 수 없습니다. 서버 또는 서버의 데이터베이스에 연결하려면 클라이언트 IP 주소에서 액세스를 허용하는 [방화벽 규칙](sql-database-firewall-configure.md)을 정의해야 합니다.
 
-다음의 예제는 모든 IP 주소에서 서버에 대한 액세스를 여는 서버 방화벽 규칙을 만듭니다. 데이터베이스의 보안을 위해 적절한 SQL 로그인 및 암호를 만들고 지침에 대한 기본 보호로서 방화벽 규칙을 사용하지 않을 것을 권장합니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요.
+다음 예제는 모든 IP 주소에서 서버에 대한 액세스를 여는 서버 방화벽 규칙을 만듭니다. 데이터베이스의 보안을 위해 적절한 SQL 로그인 및 암호를 만들고 지침에 대한 기본 보호로서 방화벽 규칙을 사용하지 않을 것을 권장합니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요.
 
 
-    // Create a firewall rule on the server to allow TDS connection 
+    // Create a firewall rule on the server to allow TDS connection
     FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
     {
         Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -224,7 +225,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
         // Retrieve the server on which the database will be created
         Server currentServer = sqlClient.Servers.Get("resourcegroup-name", "server-name").Server;
- 
+
         // Create a database: configure create or update parameters and properties explicitly
         DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
         {
@@ -244,7 +245,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 ## 탄력적 데이터베이스 풀 생성
 
-다음 예제에서는 새로운 탄력적 데이터베스 풀을 만듭니다.
+다음 예제에서는 새로운 탄력적 데이터베이스 풀을 만듭니다.
 
 
 
@@ -292,16 +293,16 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 ## 기존 데이터베이스를 탄력적 데이터베이스 풀 내로 이동
 
-*풀을 만든 후에 기존 데이터베이스를 풀 내부 및 외부로 이동하는 데 Transact-SQL을 사용할 수 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
+*풀을 만든 후에 기존 데이터베이스를 풀 내부 및 외부로 이동하는 데 Transact-SQL을 사용할 수 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
 
 다음 예에서는 기존 Azure SQL 데이터베이스를 풀로 이동시킵니다.
 
-    
+
     // Update database service objective to add the database to a pool
-    
-    // Retrieve current database properties 
+
+    // Retrieve current database properties
     currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-    
+
     // Configure create or update parameters with existing property values, override those to be changed.
     DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
     {
@@ -315,22 +316,22 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
             Collation = currentDatabase.Properties.Collation,
         }
     };
-    
+
     // Update the database
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
-    
-    
+
+
 
 
 ## 탄력적 데이터베이스 풀 내에 새 데이터베이스 생성
 
-*풀을 만든 후에 풀에서 탄력적인 새 데이터베이스를 만드는 데 Transact-SQL을 사용할 수 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
+*풀을 만든 후에 풀에서 탄력적인 새 데이터베이스를 만드는 데 Transact-SQL을 사용할 수 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
 
-다음 예제에서는 새로운 탄력적 데이터베스를 풀에 직접 만듭니다.
+다음 예제에서는 새로운 탄력적 데이터베이스를 풀에 직접 만듭니다.
 
-    
+
     // Create a new database in the pool
-    
+
     // Create a database: configure create or update parameters and properties explicitly
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
     {
@@ -344,7 +345,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
             Collation = "SQL_Latin1_General_CP1_CI_AS"
         }
     };
-    
+
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
 
@@ -387,13 +388,13 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */ 
+                ("https://login.windows.net/" /* AAD URI */
                 + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
-                ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/, 
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
+                ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
+                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
                 PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
@@ -425,13 +426,13 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
         static void Main(string[] args)
         {
             var token = GetAccessToken();
-            
+
             // Who am I?
             Console.WriteLine("Identity is {0} {1}", token.UserInfo.GivenName, token.UserInfo.FamilyName);
             Console.WriteLine("Token expires on {0}", token.ExpiresOn);
             Console.WriteLine("");
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken));
 
             // Resource group parameters
@@ -469,7 +470,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
             Console.WriteLine("Server {0} create or update completed with status code {1}", serverResult.Server.Name, serverResult.StatusCode);
 
-            // Create a firewall rule on the server to allow TDS connection 
+            // Create a firewall rule on the server to allow TDS connection
 
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
@@ -517,7 +518,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
             // Update a databases service objective to add the database to a pool
 
-            // Update database: retrieve current database properties 
+            // Update database: retrieve current database properties
             currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
 
             // Update database: configure create or update parameters with existing property values, override those to be changed.
@@ -565,11 +566,12 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 ## 추가 리소스
 
+
 [SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 
 [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)입니다.
+[탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
 
 <!--Image references-->
@@ -583,4 +585,4 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

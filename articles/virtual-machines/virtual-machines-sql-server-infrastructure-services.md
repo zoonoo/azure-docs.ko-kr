@@ -14,13 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="09/01/2015"
+	ms.date="11/12/2015"
 	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server 개요
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
 
 ## 시작
 AlwaysOn 가용성 그룹 및 Azure 가상 네트워크를 사용하여 단일 데이터베이스 서버에서 다중 컴퓨터 구성에 이르는 다양한 구성으로 [Azure 가상 컴퓨터의 SQL Server](http://azure.microsoft.com/services/virtual-machines/sql-server/)를 호스트할 수 있습니다.
@@ -31,9 +28,9 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 
 ### 단일 VM에 SQL Server 인스턴스 배포
 
-구독을 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 관리 포털에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-provision-sql-server.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
+구독에 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 관리 포털에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-provision-sql-server.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
 
->[AZURE.NOTE][새 포털](https://manage.windowsazure.com)을 사용하여 SQL Server 가상 컴퓨터를 프로비전하고 관리합니다. 기본적으로 프리미엄 저장소를 사용하고 자동화된 패치, 자동화된 백업 및 AlwaysOn 구성을 제공합니다.
+>[AZURE.NOTE] [새 포털](https://manage.windowsazure.com)을 사용하여 SQL Server 가상 컴퓨터를 프로비전하고 관리합니다. 기본적으로 프리미엄 저장소를 사용하고 자동화된 패치, 자동화된 백업 및 AlwaysOn 구성을 제공합니다.
 
 다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다.
 
@@ -151,4 +148,4 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 가상 컴퓨터](virtual-machines-about.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

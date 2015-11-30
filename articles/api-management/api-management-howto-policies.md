@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 
@@ -23,7 +23,7 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 
 정책 명령문 및 설정의 전체 목록은 [정책 참조][]를 참조하세요.
 
-정책은 API 소비자와 관리되는 API 간에 있는 프록시 내에서 적용됩니다. 프록시는 모든 요청을 수신하고 보통 변경하지 않은 상태로 기본 API에 전달합니다. 그러나 정책은 인바운드 요청과 아웃바운드 응답 모두에 변경 내용을 적용할 수 있습니다.
+정책은 API 소비자와 관리되는 API 간에 있는 게이트웨이 내에서 적용됩니다. 게이트웨이는 모든 요청을 수신하고 보통 변경하지 않은 상태로 기본 API에 전달합니다. 그러나 정책은 인바운드 요청과 아웃바운드 응답 모두에 변경 내용을 적용할 수 있습니다.
 
 정책이 다르게 지정하지 않는 한 정책 식은 어떤 API 관리 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름][] 및 [변수 설정][] 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책][] 및 [정책 식][]을 참조하세요.
 
@@ -73,7 +73,7 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 
 ![저장][policies-save]
 
-정책에 대한 명령문을 구성한 후에는 저장을 클릭합니다. 그러면 변경 내용이 바로 API 관리 프록시에 전파됩니다.
+정책에 대한 명령문을 구성한 후에는 저장을 클릭합니다. 그러면 변경 내용이 바로 API 관리 게이트웨이에 전파됩니다.
 
 ##<a name="sections"> </a>정책 구성 이해
 
@@ -128,4 +128,4 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

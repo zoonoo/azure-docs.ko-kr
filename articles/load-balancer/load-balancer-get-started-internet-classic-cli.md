@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 클래식 배포 모델에 대해 설명합니다. 또한 [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 클래식 배포 모델에 대해 설명합니다. 또한 [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -45,25 +45,28 @@
 
 ## 끝점과 부하 분산 장치 집합 만들기 
 
-시나리오는 가상 컴퓨터 "web1" 및 "web2"가 만들어졌다고 가정합니다. 이 가이드를 통해 공용 포트로 포트 80과 로컬 포트로 포트 80을 사용하여 부하 분산 장치 집합을 만듭니다. 또한 프로브 포트가 포트 80에 구성되고 부하 분산 장치 집합 "lbset"를 호출합니다.
+시나리오는 가상 컴퓨터 "web1" 및 "web2"가 만들어졌다고 가정합니다. 이 가이드를 통해 공용 포트로 포트 80과 로컬 포트로 포트 80을 사용하여 부하 분산 장치 집합을 만듭니다. 또한 프로브 포트가 포트 80에 구성되고 부하 분산 장치 집합을 "lbset"로 지명합니다.
 
 
 ### 1단계 
 
-가상 컴퓨터 "web1"을 위해 `azure network vm endpoint create`을(를) 사용하여 첫 번째 끝점과 부하 분산 장치 집합을 만듭니다.
+가상 컴퓨터 "web1"을 위해 `azure network vm endpoint create`을 사용하여 첫 번째 끝점과 부하 분산 장치 집합을 만듭니다.
 
-	azure network endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
 
+사용된 매개 변수:
 
+**-k** - 로컬 가상 컴퓨터 포트<br> **-o** - 프로토콜<BR> **-t** - 프로브 포트<BR> **-b** - 부하 분산 장치 이름<BR>
+ 
 ## 2단계 
 
 두 번째 가상 컴퓨터 "web2"를 부하 분산 장치 집합에 추가합니다.
 
-	azure network endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
 ## 3단계 
 
-`azure vm show`을(를) 사용하여 부하 분산 장치 구성을 확인합니다.
+`azure vm show`를 사용하여 부하 분산 장치 구성을 확인합니다.
 
 	azure vm show web1
 
@@ -113,7 +116,7 @@
 
 ## 가상 컴퓨터를 위한 원격 데스크톱 끝점 만들기
 
-`azure vm endpoint create`을(를) 사용하여 특정 가상 컴퓨터의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 끝점을 만들 수 있습니다.
+`azure vm endpoint create`을 사용하여 특정 가상 컴퓨터의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 끝점을 만들 수 있습니다.
 
 	azure vm endpoint create web1 54580 -k 3389 
 
@@ -122,12 +125,12 @@
 
 가상 컴퓨터에서 부하 분산 장치 집합에 연결된 끝점을 삭제해야 합니다. 끝점이 제거되면 가상 컴퓨터는 더 이상 부하 분산 장치 집합에 속하지 않습니다.
 
- 위의 예제를 통해 명령 `azure vm endpoint delete`을 사용하여 부하 분산 장치 "lbset"에서 가상 컴퓨터 "web1"을 위해 만들어진 끝점을 제거할 수 있습니다.
+ 위의 예제를 통해 명령 `azure vm endpoint delete`를 사용하여 부하 분산 장치 "lbset"에서 가상 컴퓨터 "web1"을 위해 만들어진 끝점을 제거할 수 있습니다.
 
 	azure vm endpoint delete web1 tcp-80-80
 
 
->[AZURE.NOTE]명령 `azure vm endpoint --help`을 사용하여 끝점을 관리하는 더 많은 옵션을 탐색할 수 있습니다.
+>[AZURE.NOTE]명령 `azure vm endpoint --help`를 사용하여 끝점을 관리하는 더 많은 옵션을 탐색할 수 있습니다.
 
 
 ## 다음 단계
@@ -140,4 +143,4 @@
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

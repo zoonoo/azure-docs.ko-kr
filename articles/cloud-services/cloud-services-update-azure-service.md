@@ -119,6 +119,9 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 
 자동 업데이트 중 Azure 패브릭 컨트롤러는 다음 UD로 이동하는 안전한 시기를 결정하도록 클라우드 서비스의 상태를 주기적으로 평가합니다. 이 상태 평가는 역할별로 수행되며 최신 버전의 인스턴스만 고려합니다(즉, 이미 이동된 UD에서 인스턴스). 각 역할에 대해 최소 수의 역할 인스턴스가 만족스러운 터미널 상태로 수행됐는지 확인합니다.
 
+### 역할 인스턴스 시작 시간 제한 
+패브릭 컨트롤러는 각 역할 인스턴스가 시작됨 상태에 도달할 때까지 30분 동안 기다립니다. 시간 제한 기간이 경과하면 패브릭 컨트롤러는 다음 역할 인스턴스로 계속 이동합니다.
+
 ## 업데이트 롤백
 Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 수락된 후 서비스에 추가 작업을 시작할 수 있도록 하여 업데이트하는 동안 서비스 관리에 유연성을 제공합니다. 배포에서 업데이트(구성 변경) 또는 업그레이드가 **진행 중** 상태일 때 롤백을 수행할 수 있습니다. 업데이트 또는 업그레이드는 아직 새 버전으로 업데이트되지 않은 서비스의 인스턴스가 하나 이상 있는 한 진행 중인 것으로 간주됩니다. 롤백이 허용되는지 여부를 테스트하려면 [배포 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 및 [클라우드 서비스 속성 가져오기](https://msdn.microsoft.com/library/azure/ee460806.aspx) 작업으로 반환되는 RollbackAllowed 플래그의 값이 true로 설정되었는지 확인합니다.
 
@@ -131,7 +134,7 @@ Azure는 Azure 패브릭 컨트롤러에 의해 초기 업데이트 요청이 �
 
 다음과 같은 기능으로 이 기능이 제공됩니다.
 
--   아직 새 버전으로 업데이트되지 않은 서비스에 하나 이상의 인스턴스가 있는 한 구성 업데이트([배포 구성 변경](https://msdn.microsoft.com/library/azure/ee460809.aspx))을 호출하여 트리거됨) 또는 업그레이드([업그레이드 배포](https://msdn.microsoft.com/library/azure/ee460793.aspx)를 호출하여 트리거됨)에서 호출될 수 있는 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업.
+-   아직 새 버전으로 업데이트되지 않은 서비스에 하나 이상의 인스턴스가 있는 한 구성 업데이트([배포 구성 변경](https://msdn.microsoft.com/library/azure/ee460809.aspx)을 호출하여 트리거됨) 또는 업그레이드([업그레이드 배포](https://msdn.microsoft.com/library/azure/ee460793.aspx)를 호출하여 트리거됨)에서 호출될 수 있는 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업.
 -   [배포 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 및 [클라우드 서비스 속성 가져오기](https://msdn.microsoft.com/library/azure/ee460806.aspx) 작업의 응답 본문의 일부로 반환되는 Locked 요소 및 RollbackAllowed 요소
     1.  Locked 요소를 사용하면 지정된 배포에서 변경 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
     2.  RollbackAllowed 요소를 사용하면 지정된 배포에서 [업데이트 또는 업그레이드 롤백](https://msdn.microsoft.com/library/azure/hh403977.aspx) 작업을 호출할 수 있는 시기를 찾아낼 수 있습니다.
@@ -177,4 +180,4 @@ Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업�
 ## 다음 단계
 [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)<br> [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)<br> [클라우드 서비스를 구성하는 방법](cloud-services-how-to-cofigure.md)<br>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

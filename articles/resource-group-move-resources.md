@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/13/2015" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -58,6 +58,7 @@
 
 - 가상 컴퓨터
 - 가상 네트워크
+- 저장소
 
 웹앱으로 작업할 경우에는 앱 서비스 계획만 이동할 수 없습니다. 웹앱을 이동하려면 옵션은 다음과 같습니다.
 
@@ -96,4 +97,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

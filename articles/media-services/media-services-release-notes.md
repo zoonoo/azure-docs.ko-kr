@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2015년 11월 릴리스](#nov_changes_15)
 - [2015년 10월 릴리스](#oct_changes_15)
 - [2015년 9월 릴리스](#september_changes_15)
 - [2015년 8월 릴리스](#august_changes_15)
@@ -75,6 +76,12 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
 
+##<a id="nov_changes_15"></a>2015년 11월 릴리스
+
+이제 Azure 미디어 서비스는 클라우드에서 Google Widevine 라이선스 배달 서비스를 제공합니다. 자세한 내용은 [이 공지 사항 블로그](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요. 또한 [이 자습서](media-services-protect-with-drm.md) 및 [GitHub 리포지토리](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)도 참조하세요.
+
+Azure 미디어 서비스에서 제공하는 Widevine 라이선스 배달 서비스는 미리 보기로 제공됩니다. 자세한 내용은 [이 게시물](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)을 참조하세요.
+
 ##<a id="oct_changes_15"></a>2015년 10월 릴리스
 
 AMS(Azure 미디어 서비스)는 이제 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 데이터 센터에서도 사용 가능합니다. 이제 Azure 관리 포털을 사용하여 [미디어 서비스 계정을 만들고](media-services-create-account.md#create-a-media-services-account-using-quick-create) [여기](https://azure.microsoft.com/documentation/services/media-services/)에서 설명된 다양한 작업을 수행할 수 있습니다. 그러나 라이브 인코딩은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 모든 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
@@ -98,11 +105,11 @@ AMS(Azure 미디어 서비스)는 이제 브라질 남부, 인도 서부, 인도
 	- 이제 오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷을 사용할 수 있습니다. 이 업데이트를 통해 오디오 전용 트랙을 URL에 지정하여(audio-only=false) 제거할 수 있습니다.
 	- 자산에 대한 필터를 정의할 때 이제는 단일 URL에 여러(최대 3개) 필터를 조합할 수 있습니다.
 
-	자세한 내용은 [이](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) 블로그를 참조하세요.
+	자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)를 참조하세요.
 
 - AMS는 이제 HLS v4에 I-프레임을 지원합니다. I-프레임 지원은 빨리 감기와 되감기 작업을 최적화합니다. 기본적으로 모든 HLS v4 출력은 I-프레임 재생 목록(EXT-X-I-FRAME-STREAM-INF)를 포함합니다.
  
-	자세한 내용은 [이](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) 블로그를 참조하세요.
+	자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)를 참조하세요.
 
 ##<a id="august_changes_15"></a>2015년 8월 릴리스
 
@@ -614,4 +621,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -94,6 +94,6 @@
 [디렉터리 동기화 요구 사항 결정](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[디자인 고려 사항 개요]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -26,7 +26,7 @@
 
 Azure 미디어 서비스(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/ko-KR/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure 미디어 플레이어(AMP)에도 Widevine 지원이 추가되었습니다(자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
 
->[AZURE.NOTE]현재 미디어 서비스는 Widevine 라이선스 서버를 제공하지 않습니다. 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+미디어 서비스 .NET SDK 버전 3.5.2부터는 미디어 서비스를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 이 문서에서는 Axinom에서 관리하는 Widevine 라이선스 서버를 통합하고 테스트하는 방법을 설명합니다. 구체적으로 다음 사항을 다룹니다.
 
@@ -185,14 +185,14 @@ JWT 토큰을 생성하기 위한 코드에서 키 ID가 필요하다는 것을 
 - Windows 8.1 및 Windows 10용 IE 11
 - Mac(iOS 제외)용 Firefox(데스크톱) 및 Safari도 Silverlight 및 Azure 미디어 플레이어와 같은 URL을 통해 지원됩니다.
 
-Axinom Widevine 라이선스 서버를 활욯아는 미니 솔루션에는 다음과 같은 매개 변수가 필요합니다. 키 ID를 제외하고 매개 변수의 나머지 부분은 Widevine 서버 설정에 따라 Axinom에서 제공됩니다.
+Axinom Widevine 라이선스 서버를 활용하는 미니 솔루션에는 다음과 같은 매개 변수가 필요합니다. 키 ID를 제외하고 매개 변수의 나머지 부분은 Widevine 서버 설정에 따라 Axinom에서 제공됩니다.
 
 
 매개 변수|사용 방법
 ---|---
 통신 키 ID|JWT 토큰의 클레임 "com\_key\_id"의 값으로 포함되어야 합니다([이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조).
 통신 키|JWT 토큰의 서명 키로 사용해야 합니다([이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조).
-키 시드|지정된 콘텐츠 키 ID로 콘텐츠 키를 생성하는데 사용해야 합니다([이](media-services-axinom-integration.md#content-protection) 섹션 참조).
+키 시드|지정된 콘텐츠 키 ID로 콘텐츠 키를 생성하는 데 사용해야 합니다([이](media-services-axinom-integration.md#content-protection) 섹션 참조).
 Widevine 라이선스 획득 URL|DASH 스트리밍에 대한 자산 배달 정책 구성에 사용해야 합니다([이](media-services-axinom-integration.md#content-protection) 섹션 참조).
 콘텐츠 키 ID|JWT 토큰의 자격 부여 메시지 클레임 값의 일부로 포함되어야 합니다([이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조). 
 
@@ -209,4 +209,4 @@ Widevine 라이선스 획득 URL|DASH 스트리밍에 대한 자산 배달 정�
 
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Axinom의 Kristjan Jõgi, Mingfei Yan 및 Amit Rajput
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

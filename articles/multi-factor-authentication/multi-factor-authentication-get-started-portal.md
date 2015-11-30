@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 서버의 사용자 포털 배포
@@ -189,4 +189,4 @@ SAML을 사용하는 ID 공급자의 클레임을 받을 수 있는 사용자 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

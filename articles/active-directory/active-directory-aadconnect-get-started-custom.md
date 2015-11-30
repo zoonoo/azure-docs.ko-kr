@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/16/2015"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -46,7 +46,7 @@
 선택적 구성 | 설명
 ------------- | ------------- |
 SQL Server 이름 | SQL Server 이름 및 인스턴스 이름을 지정할 수 있습니다. 사용하려는 데이터베이스 서버가 이미 있는 경우 이 옵션을 선택합니다.
-서비스 계정 | 기본적으로 Azure AD Connect는 사용할 동기화 서비스에 대한 로컬 서비스 계정을 만듭니다. 암호가 자동으로 생성되어 Azure AD Connect를 설치하는 사람이 암호를 알 수 없습니다. 원격 SQL server를 사용하는 경우 도메인에서 서비스 계정이 필요하고 암호를 알아야 합니다. 이러한 경우에 사용할 서비스 계정을 입력합니다. |
+서비스 계정 | 기본적으로 Azure AD Connect는 사용할 동기화 서비스에 대한 로컬 서비스 계정을 만듭니다. 암호가 자동으로 생성되어 Azure AD Connect를 설치하는 사람이 암호를 알 수 없습니다. 원격 SQL server를 사용하는 경우 도메인에서 서비스 계정이 필요하고 암호를 알아야 합니다. 이러한 경우에 사용할 서비스 계정을 입력합니다. 설치를 실행하는 사용자가 SQL에서 SA이므로 서비스 계정에 대한 로그인을 만들 수 있도록 합니다. [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation)을 참조하세요. |
 권한 | 동기화 서비스가 설치되면 기본적으로 Azure AD Connect에서는 서버에 대해 4개의 그룹 로컬을 만듭니다. 이 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹, Password Reset 그룹입니다. 고유한 그룹을 지정하려면 여기서 지정하면 됩니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다. |
 
 
@@ -246,4 +246,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

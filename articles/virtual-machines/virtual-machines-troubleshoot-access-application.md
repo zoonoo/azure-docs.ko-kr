@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="11/17/2015"
 	ms.author="dkshir"/>
 
 # Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결
@@ -100,9 +100,21 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 �
 - 아웃 바운드 응용 프로그램이 클라이언트 컴퓨터에서 부터 Azure 가상 컴퓨터에 도달하는 트래픽 요청
 - Azure 가상 컴퓨터에서 발생하는 인바운드 응용 프로그램 응답 트래픽
 
+## 끝점 연결 문제 해결
+
+원격 데스크톱 끝점과 같은 끝점에 연결할 때 문제가 발생하면 다음과 같은 일반적인 문제 해결 단계를 시도합니다.
+
+- 가상 컴퓨터 다시 시작
+- 끝점 다시 만들기
+- 다른 위치에서 연결
+- 가상 컴퓨터 크기 조정
+- 가상 컴퓨터 다시 만들기
+
+자세한 내용은 [끝점 연결 문제 해결(RDP/SSH/HTTP 등의 오류)](https://social.msdn.microsoft.com/Forums/azure/ko-KR/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows)를 참조하세요.
+
 ## 다음 단계
 
-이 문서에서 1단계에서 3단계까지 실행하였지만 문제 수정을 위해 추가적인 도움이 필요한 경우, 다음을 수행할 수 있습니다.
+이 문서에서 위의 단계를 실행하였지만 문제 해결을 위해 추가적인 도움이 필요한 경우, 다음을 수행합니다.
 
 - 전 세계에 있는 Azure 전문가로 부터 도움을 받으세요. MSDN Azure 또는 스택 오버플로 포럼에 귀하의 문제를 제출하세요. 자세한 내용은 [Microsoft Azure 포럼](http://azure.microsoft.com/support/forums/)을 참조하세요.
 - Azure 지원 인시던트 제출 [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **기술 및 대금 청구 지원**에서 **지원 받기**를 클릭합니다.
@@ -113,4 +125,4 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 �
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

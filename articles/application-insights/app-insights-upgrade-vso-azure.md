@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights의 Visual Studio Online 이전 버전에서 업그레이드" 
+	pageTitle="Application Insights의 Visual Studio Team Services 이전 버전에서 업그레이드" 
 	description="기존 프로젝트 업그레이드"
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,9 @@
 	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
-# Application Insights의 Visual Studio Online 이전 버전에서 업그레이드
+# Application Insights의 Visual Studio Team Services 이전 버전에서 업그레이드
 
-이 문서는 Visual Studio Online의 일부인 Application Insights 이전 버전을 아직 사용하는 프로젝트인 경우에만 해당됩니다. 해당 버전은 적절할 때 교체되어야 하므로 Microsoft Azure 내의 서비스인 새로운 버전으로 업그레이드하는 것이 좋습니다.
+이 문서는 Visual Studio Team Services의 일부인 Application Insights 이전 버전을 아직 사용하는 프로젝트인 경우에만 해당됩니다. 해당 버전은 적절할 때 교체되어야 하므로 Microsoft Azure 내의 서비스인 새로운 버전으로 업그레이드하는 것이 좋습니다.
 
 ## 사용하고 있는 버전
 
@@ -73,4 +73,4 @@ ApplicationInsights.config를 엽니다. 노드 `ActiveProfile` 및 `Profiles`�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

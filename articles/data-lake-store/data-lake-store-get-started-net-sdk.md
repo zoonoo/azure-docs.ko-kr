@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -65,7 +65,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 
 7. **Program.cs**를 열고 기존 코드 블록을 다음 코드로 바꿉니다. 또한 코드 조각에서 매개 변수에 대한 값을 제공합니다.
 
-	이 코드는 데이터 레이크 저장소 만들기, 저장소에서 폴더 만들기, 파일 업로드, 파일 다운로드, 마지막으로 계정을 삭제하는 프로세스를 진행합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
+	이 코드는 데이터 레이크 저장소 만들기, 저장소에서 폴더 만들기, 파일 업로드, 파일 다운로드, 마지막으로 계정을 삭제하는 프로세스를 진행합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 	
 		using System;
 		using System.Collections.Generic;
@@ -223,4 +223,4 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

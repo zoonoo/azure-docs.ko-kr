@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/17/2015"
    	ms.author="larryfr"/>
 
 #Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -70,7 +70,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
     * __clusterName__: HDInsight 클러스터의 이름입니다. 이 이름은 고유해야 합니다. 아니면 배포가 실패합니다.
     * __clusterStorageAccountName__: HDInsight 클러스터에 생성되는 Azure 저장소 계정의 이름입니다. 이 이름은 고유해야 합니다. 아니면 배포가 실패합니다.
     * __clusterLoginPassword__: 클러스터 관리자 사용자의 암호입니다. 클러스터에서 웹 사이트 및 REST 서비스에 액세스하는 데 사용되기 때문에 안전한 암호여야 합니다.
-    * __sshUserName__: 클러스터에 만들 첫 번째 SSH 사용자의 이름입니다. 이 계정을 사용하여 클러스터에 원격으로 액세스하는 데 SSH를 사용합니다. 이름은 고유해야 하며 클러스터에서 이미 사용 중인 계정의 이름을 쓸 수 없습니다. 잘못된 이름은 루트, storm 및 hbase를 포함합니다.
+    * __sshUserName__: 클러스터에 만들 첫 번째 SSH 사용자의 이름입니다. 이 계정을 사용하여 클러스터에 원격으로 액세스하는 데 SSH를 사용합니다.
     * __sshPublicKey__: SSH 공개 키를 필요로 하는 템플릿을 사용하는 경우 이 줄에서 공용 키를 추가해야 합니다. 공용 키로 생성하고 작업하는 자세한 내용은 다음 문서를 참조하세요.
 
         * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -121,4 +121,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

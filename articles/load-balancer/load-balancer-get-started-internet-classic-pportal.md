@@ -23,7 +23,8 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 클래식 배포 모델에 대해 설명합니다. 또한 [Azure 리소스 관리자 powerShell로 부하 분산 장치를 만들 수 있습니다](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 클래식 배포 모델에 대해 설명합니다. 또한 [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-arm-ps).
+
  
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -39,7 +40,7 @@ Preview 포털에서 인터넷 연결 부하 분산 장치(클래식) 배포 모
 
 3. 가상 컴퓨터 "essentials" 블레이드에서 "모든 설정"을 선택합니다.
 
-4. “부하 분산된 집합”을 클릭합니다.
+4. "부하 분산된 집합"을 클릭합니다.
 
 5. 새 부하 분산 장치를 만들려면 부하 분산 집합 블레이드의 상단에 있는 "join" 아이콘을 클릭합니다.
 
@@ -65,4 +66,4 @@ Preview 포털에서 인터넷 연결 부하 분산 장치(클래식) 배포 모
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

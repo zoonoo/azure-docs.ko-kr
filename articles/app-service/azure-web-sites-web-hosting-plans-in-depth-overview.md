@@ -55,6 +55,8 @@
 그런 다음 새 앱에 대한 앱 서비스 계획을 선택하거나 만들 수 있습니다.
   
  ![][createASP]
+
+새 앱 서비스 계획을 만들려면 **+ 새로 만들기**를 클릭하고 **앱 서비스 계획** 이름을 입력하고 적절한 **위치**를 선택합니다. **가격 책정 계층**을 클릭하고 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다. 가격 책정 계층을 선택한 다음 **선택** 단추를 클릭합니다.
  
 ## 다른 앱 서비스 계획으로 앱 이동
 
@@ -98,4 +100,4 @@
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

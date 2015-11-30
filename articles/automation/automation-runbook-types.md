@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/24/2015"
+   ms.date="11/13/2015"
    ms.author="bwren" />
 
 # Azure 자동화 Runbook 형식
@@ -82,7 +82,6 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 - PowerShell 스크립팅에 대해 잘 알아야 합니다.
 - 여러 작업을 병렬 수행하도록 [병렬 처리](automation-powershell-workflow.md#parallel-processing)를 사용할 수 없습니다.
 - 오류 발생 시 Runbook을 다시 시작하도록 [검사점](automation-powershell-workflow.md#checkpoints)을 사용할 수 없습니다.
-- [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 Runbook을 실행할 수 없습니다.
 - PowerShell 워크플로 Runbook 및 그래픽 Runbook은 새 작업을 만드는 Start-AzureAutomationRunbook cmdlet을 사용해서만 자식 Runbook으로 포함시킬 수 있습니다.
 
 ### 알려진 문제
@@ -109,4 +108,4 @@ PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 - [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)
 - [Runbook 만들기 또는 가져오기](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

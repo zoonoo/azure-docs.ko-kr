@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 
@@ -87,15 +87,11 @@ http://www.digwebinterface.com – Watchmouse 사이트와 유사하지만, CNAM
 
 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)
 
-[트래픽 관리자란?](../traffic-manmager-overview.md)
-
-[클라우드 서비스](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[트래픽 관리자 설정 테스트](traffic-manager-testing-settings.md)
 
 [트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -55,6 +55,6 @@
 
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

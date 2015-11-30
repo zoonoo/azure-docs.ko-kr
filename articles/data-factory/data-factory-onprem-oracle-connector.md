@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle에서 데이터 이동 
 
 이 문서에서는 데이터 팩터리를 사용하여 Oracle에서 다른 데이터 저장소로 데이터를 이동하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
+
+## 설치 
+Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데이터베이스에 연결할 수 있도록 하려면 다음을 설치해야 합니다.
+
+- 데이터 관리 게이트웨이를 데이터베이스를 호스팅하는 컴퓨터와 같은 컴퓨터에 설치하거나 데이터베이스와 리소스 경쟁을 피하려면 별도의 컴퓨터에 설치합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 소프트웨어입니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 
+- [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). 이 프로그램은 게이트웨이가 설치되어 있는 호스트 컴퓨터에 설치해야 합니다.
+
 
 ## 샘플: Oracle에서 Azure Blob로 데이터 복사
 
@@ -150,7 +157,7 @@
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **소스** 형식은 **RelationalSource**으로 설정되고 **싱크** 형식은 **BlobSink**으로 설정됩니다. **oracleReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **oracleReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 	
 	{  
@@ -204,14 +211,14 @@
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
-type | 형식 속성은 **OnPremisesOracle**로 설정되어야 합니다. | 예
+type | type 속성은 **OnPremisesOracle**로 설정되어야 합니다. | 예
 connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 
 gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용할 게이트웨이 이름입니다. | 예
 
 온-프레미스 Oracle 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)을 참조하세요.
 ## Oracle 데이터 집합 형식 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Oracle, Azure blob, Azure 테이블 등).
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하십시오. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Oracle, Azure blob, Azure 테이블 등).
  
 typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. OracleTable 데이터 집합 형식의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
@@ -221,9 +228,9 @@ tableName | 연결된 서비스가 참조하는 Oracle 데이터베이스에 있
 
 ## Oracle 복사 작업 형식 속성
 
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
 
-**참고:** 복사 작업은 하나의 입력을 가지고 하나의 출력을 생성합니다.
+**참고:** 복사 작업은 하나의 입력을 사용하여 하나의 출력을 생성합니다.
 
 반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
 
@@ -269,9 +276,28 @@ TIMESTAMP WITH LOCAL TIME ZONE | DateTime
 TIMESTAMP WITH TIME ZONE | DateTime
 UNSIGNED INTEGER | Number
 VARCHAR2 | 문자열
-XML | 문자열
+XML | String
+
+## 문제 해결 팁
+
+****문제: ** 다음 **오류 메시지**가 표시되었습니다. 복사 작업에 잘못된 매개 변수 'UnknownParameterName'이 있습니다. 자세한 메시지: 요청한 .Net Framework 데이터 공급자를 찾을 수 없습니다. 해당 항목이 설치되어 있지 않은 것 같습니다.
+
+**가능한 원인**
+
+1. .NET Framework Data Provider for Oracle이 설치되지 않았습니다.
+2. .NET Framework Data Provider for Oracle이 .NET Framework 2.0에 설치되었고 .NET Framework 4.0 폴더에서 찾을 수 없습니다. 
+
+**해결 방법**
+
+1. .NET Provider for Oracle을 설치하지 않았으면 [해당 항목을 설치](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html)한 후 시나리오를 다시 시도합니다. 
+2. Provider를 설치한 후에도 오류 메시지가 표시되면 다음을 수행합니다. 
+	1. <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config 폴더에서 .NET 2.0 machine config 파일을 엽니다.
+	2. **Oracle Data Provider for .NET**을 검색하여 **system.data** -> **DbProviderFactories**에서 “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”와 같은 항목을 찾습니다.
+2.	이 항목을 v4.0 폴더 즉, <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config의 machine.config 파일에 복사하고 버전을 4.xxx.x.x으로 변경합니다.
+3.	“gacutil /i [provider path]”를 실행하여 전역 어셈블리 캐시(GAC)에 “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll”을 설치합니다.
+
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

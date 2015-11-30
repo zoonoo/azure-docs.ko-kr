@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭의 신뢰할 수 있는 행위자 KVSActorStateProvider 구성의 개요"
-   description="'KVSActorStateProvider' 형식의 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
+   pageTitle="Azure 서비스 패브릭 신뢰 행위자 KVSActorStateProvider 구성의 개요 | Microsoft Azure"
+   description="'KVSActorStateProvider' 형식의 Azure 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="10/28/2015"
    ms.author="sumukhs"/>
 
 # 신뢰할 수 있는 행위자 구성 - KVSActorStateProvider
@@ -81,4 +81,4 @@ KVSActorStateProvider의 기본 구성은 해당 지정된 행위자에 대해 V
 
 BatchAcknowledgementInterval은 복제 대기 시간을 제어합니다. '0' 값은 처리량을 희생하여 가장 낮은 대기 시간을 제공합니다(더 많은 승인 메시지를 보내고 처리해야 하므로 각각에 포함된 승인은 적음). BatchAcknowledgementInterval의 값이 클수록 전체적인 복제 처리량은 높아지고 작업 대기 시간은 더욱 길어집니다. 이 값은 트랜잭션 커밋의 대기 시간으로 직접 변환됩니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

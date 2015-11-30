@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/23/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # OWIN 자체 호스팅을 사용하여 Microsoft Azure 서비스 패브릭 웹 API 서비스 시작
@@ -33,9 +33,9 @@ ASP.NET Web API는 .NET Framework 위에 HTTP API를 구축할 때 널리 사용
 여기에서 Web API 응용 프로그램 자체는 변경되지 않습니다. 이전에 작성한 Web API 응용 프로그램과 다르지 않으며 대부분의 응용 프로그램 코드를 바로 이동할 수 있습니다. IIS에서 응용 프로그램을 호스팅하는 기능에 익숙한 경우 응용 프로그램 호스팅 방식이 기존 방식과 약간 다르게 보일 수 있습니다. 호스팅 부분으로 들어가기 전에 더 친숙한 부분인 Web API 응용 프로그램부터 살펴보겠습니다.
 
 
-## Web API 응용 프로그램 설정
+## 응용 프로그램 만들기
 
-Visual Studio 2015에서 단일 상태 비저장 서비스를 사용해서 새 응용 프로그램을 만들어 시작합니다.
+Visual Studio 2015에서 단일 상태 비저장 서비스를 사용해서 새 서비스 패브릭 응용 프로그램을 만들어 시작합니다.
 
 ![새 서비스 패브릭 응용 프로그램 만들기](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
@@ -53,13 +53,13 @@ Visual Studio 2015에서 단일 상태 비저장 서비스를 사용해서 새 �
  + Controllers
  + Models
 
-App\_Start 디렉터리에 기본 웹 API 구성 클래스를 추가합니다.
+App\_Start 디렉터리에 기본 웹 API 구성 클래스를 추가합니다. 지금은 비어 있는 미디어 형식 포맷터 구성만 추가합니다.
 
  + FormatterConfig.cs
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using System.Net.Http.Formatting;
 
@@ -73,65 +73,48 @@ namespace WebApi
 
 ```
 
- + RouteConfig.cs
-
-```csharp
-
-namespace WebApi
-{
-    using System.Web.Http;
-
-    public static class RouteConfig
-    {
-        public static void RegisterRoutes(HttpRouteCollection routes)
-        {
-            routes.MapHttpRoute(
-                    name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{id}",
-                    defaults: new { controller = "Default", id = RouteParameter.Optional }
-                );
-        }
-    }
-}
-
-```
-
 Controllers 디렉터리에 기본 컨트롤러를 추가합니다.
 
  + DefaultController.cs
 
 ```csharp
 
-namespace WebApi.Controllers
+namespace WebApiService.Controllers
 {
     using System.Collections.Generic;
     using System.Web.Http;
 
+    [RoutePrefix("api")]
     public class DefaultController : ApiController
     {
         // GET api/values
+        [Route("values")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
+        [Route("values/{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
         // POST api/values
+        [Route("values")]
         public void Post([FromBody]string value)
         {
         }
 
         // PUT api/values/5
+        [Route("values/{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE api/values/5
+        [Route("values/{id}")]
         public void Delete(int id)
         {
         }
@@ -146,7 +129,7 @@ namespace WebApi.Controllers
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using Owin;
     using System.Web.Http;
@@ -157,8 +140,8 @@ namespace WebApi
         {
             HttpConfiguration config = new HttpConfiguration();
 
+            config.MapHttpAttributeRoutes();
             FormatterConfig.ConfigureFormatters(config.Formatters);
-            RouteConfig.RegisterRoutes(config.Routes);
 
             appBuilder.UseWebApi(config);
         }
@@ -171,7 +154,7 @@ namespace WebApi
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using Owin;
 
@@ -202,7 +185,7 @@ public class Program
         {
             using (FabricRuntime fabricRuntime = FabricRuntime.Create())
             {
-                fabricRuntime.RegisterServiceType(Service.ServiceTypeName, typeof(Service));
+                fabricRuntime.RegisterServiceType("WebApiServiceType", typeof(Service));
 
                 Thread.Sleep(Timeout.Infinite);
             }
@@ -219,8 +202,6 @@ public class Program
 
 콘솔 응용 프로그램에 대한 진입점과 아주 비슷하게 보이는 경우 다음과 같은 이유 때문입니다.
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-projectproperties.png)
-
 서비스 호스트 프로세스와 서비스 등록에 대한 세부 정보는 이 문서의 범위를 벗어나는 내용이지만 이제 **서비스 코드가 자체 프로세스를 실행 중**이므로 알아두어야 합니다.
 
 ## OWIN 호스트로 자체 호스팅되는 웹 API
@@ -234,24 +215,11 @@ Web API 응용 프로그램 코드가 자체 프로세스에서 호스팅되는 
 
 ## 웹 서버 설정
 
-신뢰할 수 있는 서비스 API는 비즈니스 논리에 대 한 다음과 같은 두 진입점을 제공합니다.
-
- + 주로 장기 실행 계산 워크로드용으로 고안된 것으로, 원하는 모든 워크로드의 실행을 시작할 수 있는 개방형 진입점 메서드:
+Reliable Services API는 사용자와 클라이언트가 서비스에 연결할 수 있도록 해주는 통신 스택을 연결할 수 있는 통신 진입점을 제공합니다.
 
 ```csharp
 
-protected override async Task RunAsync(CancellationToken cancellationToken)
-{
-    ...
-}
-
-```
-
- + 원하는 통신 스택을 연결할 수 있는 통신 진입점:
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -275,7 +243,7 @@ namespace WebApi
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Owin.Hosting;
-    using Microsoft.ServiceFabric.Services;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
     public class OwinCommunicationListener : ICommunicationListener
     {
@@ -287,10 +255,6 @@ namespace WebApi
         {
         }
 
-        public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
-        {
-        }
-
         public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
         }
@@ -299,9 +263,8 @@ namespace WebApi
 
 ```
 
-ICommunicationListener 인터페이스에서는 서비스에 대한 통신 수신기를 관리하는 4개의 메서드를 제공합니다.
+ICommunicationListener 인터페이스에서는 서비스에 대한 통신 수신기를 관리하는 세 가지 메서드를 제공합니다.
 
- + **Initialize**: 일반적으로 서비스에서 수신 대기할 주소를 설정합니다. 웹 서버의 경우 URL을 설정하는 데 사용됩니다.
  + **OpenAsync**: 요청에 대한 수신 대기를 시작합니다.
  + **CloseAsync**: 요청에 대한 수신 대기를 중지하고, 진행 중인 모든 요청을 완료하고, 정상적으로 종료합니다.
  + **Abort**: 모든 것을 취소하고 즉시 중지합니다.
@@ -316,20 +279,22 @@ public class OwinCommunicationListener : ICommunicationListener
     private readonly string appRoot;
     private IDisposable serverHandle;
     private string listeningAddress;
+    private readonly ServiceInitializationParameters serviceInitializationParameters;
 
-    public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup)
+    public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
     {
         this.startup = startup;
         this.appRoot = appRoot;
-    }
+        this.serviceInitializationParameters = serviceInitializationParameters;
+    }        
 
     ...
 
 ```
 
-### Initialize
+### 구현
 
-여기에는 웹 서버 URL을 설정합니다. 이 작업을 수행하려면 몇 가지 정보가 필요합니다.
+웹 서버를 설정하려면 다음 두 가지 정보가 필요합니다.
 
  + **URL 경로 접두사**. 선택 사항이지만 응용 프로그램의 여러 웹 서비스를 안전하게 호스팅할 수 있도록 이를 설정하는 것이 좋습니다.
  + **포트**.
@@ -350,11 +315,12 @@ PackageRoot\\ServiceManifest.xml에 HTTP 끝점을 구성합니다.
 
 서비스 호스트 프로세스가 제한된 자격 증명(Windows의 네트워크 서비스)에서 실행되므로 서비스에 자체적으로 HTTP 끝점을 설정할 수 있는 액세스 권한이 없기 때문에 이 단계가 중요합니다. 끝점 구성을 사용하면 서비스 패브릭에서 서비스가 수신 대기할 URL의 적절한 ACL을 설정하는 방법을 알고, 끝점을 구성할 표준 위치를 제공합니다.
 
-다시 OwinCommunicationListener.cs에서 Initialize 메서드의 끝점 정보를 가져와 포트를 가져옵니다. 서비스가 수신 대기할 URL을 만들고 앞에서 만든 클래스 멤버 변수에 저장합니다. 이는 OpenAsync에서 웹 서버를 시작하는 데 사용됩니다.
+
+다시 OwinCommunicationListener.cs에서 OpenAsync 구현을 시작할 수 있습니다. 여기에서 웹 서버를 시작합니다. 먼저, 끝점 정보를 가져오고 서비스에서 수신 대기할 URL을 만듭니다.
 
 ```csharp
 
-public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
+public Task<string> OpenAsync(CancellationToken cancellationToken)
 {
     EndpointResourceDescription serviceEndpoint = serviceInitializationParameters.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
     int port = serviceEndpoint.Port;
@@ -366,15 +332,11 @@ public void Initialize(ServiceInitializationParameters serviceInitializationPara
         String.IsNullOrWhiteSpace(this.appRoot)
             ? String.Empty
             : this.appRoot.TrimEnd('/') + '/');
-}
+    ...
 
 ```
 
 여기에 "http://+"가 사용된 점에 주목하시기 바랍니다. 이는 웹 서버가 localhost, FQDN 및 컴퓨터 IP를 비롯한 사용 가능한 모든 주소에서 수신 대기하도록 합니다.
-
-### OpenAsync
-
-OpenAsync는 초기화 후 플랫폼에 의해 호출됩니다. 여기에서는 Initialize에서 웹 서버를 열기 위해 만든 주소를 사용합니다.
 
 OpenAsync를 구현하는 것은 웹 서버(또는 모든 통신 스택)를 서비스의 RunAsync()에서 바로 여는 대신 ICommunicationListener로 구현하는 가장 중요한 이유 중 하나입니다. OpenAsync의 반환 값은 웹 서버에서 수신 대기 중인 주소입니다. 이 주소가 시스템에 반환되면 서비스에 주소가 등록됩니다. 서비스 패브릭은 클라이언트 또는 다른 서비스가 서비스 이름별로 이 주소를 요청할 수 있게 해주는 API를 제공합니다. 서비스가 리소스 균형 조정 및 가용성 목적을 위해 클러스터 전체를 이동하므로 서비스 주소는 정적 주소가 아니기 때문에 이는 중요합니다. 이는 클라이언트가 서비스의 수신 대기 주소를 확인할 수 있도록 하는 메커니즘입니다.
 
@@ -382,15 +344,14 @@ OpenAsync는 이를 염두에 두고 웹 서버를 시작하고 수신 대기 �
 
 ```csharp
 
-public Task<string> OpenAsync(CancellationToken cancellationToken)
-{
+    ...
+
     this.serverHandle = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Configuration(appBuilder));
+    string publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-    string resultAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+    ServiceEventSource.Current.Message("Listening on {0}", publishAddress);
 
-    ServiceEventSource.Current.Message("Listening on {0}", resultAddress);
-
-    return Task.FromResult(resultAddress);
+    return Task.FromResult(publishAddress);
 }
 
 ```
@@ -438,13 +399,16 @@ private void StopWebServer()
 
 ## 웹 서버 시작
 
-이제 만들고 웹 서버를 시작하는 OwinCommunicationListener의 인스턴스를 만들고 반환할 준비가 되었습니다. 다시 Service 클래스(Service.cs)에서 **CreateCommunicationListener()** 메서드를 재정의합니다.
+이제 만들고 웹 서버를 시작하는 OwinCommunicationListener의 인스턴스를 만들고 반환할 준비가 되었습니다. 다시 Service 클래스(Service.cs)에서 **CreateServiceInstanceListeners()** 메서드를 재정의합니다.
 
 ```csharp
 
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
-	return new OwinCommunicationListener("api", new Startup());
+    return new[]
+    {
+        new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
+    };
 }
 
 ```
@@ -459,28 +423,31 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
-    using Microsoft.ServiceFabric.Services;
+    using System.Collections.Generic;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
+    using Microsoft.ServiceFabric.Services.Runtime;
 
-    public class Service : StatelessService
+    public class WebApiService : StatelessService
     {
-        public const string ServiceTypeName = "WebApiType";
-
-        protected override ICommunicationListener CreateCommunicationListener()
+        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new OwinCommunicationListener("api", new Startup());
+            return new[]
+            {
+                new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
+            };
         }
     }
 }
 
 ```
 
-그리고 완전한 OwinCommunicationListener 클래스는 다음과 같습니다.
+전체 `OwinCommunicationListener` 클래스는 다음과 같습니다.
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using System;
     using System.Fabric;
@@ -489,22 +456,24 @@ namespace WebApi
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Owin.Hosting;
-    using Microsoft.ServiceFabric.Services;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
     public class OwinCommunicationListener : ICommunicationListener
     {
         private readonly IOwinAppBuilder startup;
         private readonly string appRoot;
+        private readonly ServiceInitializationParameters serviceInitializationParameters;
         private IDisposable serverHandle;
         private string listeningAddress;
-
-        public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup)
+        
+        public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
         {
             this.startup = startup;
             this.appRoot = appRoot;
+            this.serviceInitializationParameters = serviceInitializationParameters;
         }
 
-        public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
+        public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
             EndpointResourceDescription serviceEndpoint = serviceInitializationParameters.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
             int port = serviceEndpoint.Port;
@@ -516,21 +485,19 @@ namespace WebApi
                 String.IsNullOrWhiteSpace(this.appRoot)
                     ? String.Empty
                     : this.appRoot.TrimEnd('/') + '/');
-        }
 
-        public Task<string> OpenAsync(CancellationToken cancellationToken)
-        {
             this.serverHandle = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Configuration(appBuilder));
+            string publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-            string resultAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+            ServiceEventSource.Current.Message("Listening on {0}", publishAddress);
 
-            ServiceEventSource.Current.Message("Listening on {0}", resultAddress);
-
-            return Task.FromResult(resultAddress);
+            return Task.FromResult(publishAddress);
         }
 
         public Task CloseAsync(CancellationToken cancellationToken)
         {
+            ServiceEventSource.Current.Message("Close");
+
             this.StopWebServer();
 
             return Task.FromResult(true);
@@ -538,6 +505,8 @@ namespace WebApi
 
         public void Abort()
         {
+            ServiceEventSource.Current.Message("Abort");
+
             this.StopWebServer();
         }
 
@@ -570,7 +539,7 @@ namespace WebApi
 아직 하지 않았다면 [개발 환경을 설정](service-fabric-get-started.md)합니다.
 
 
-이제 서비스를 빌드하고 배포할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 응용 프로그램을 빌드하고 배포합니다. 진단 이벤트 창에 웹 서버가 ****http://localhost:80/api**에 열렸음을 나타내는 메시지가 표시됩니다.
+이제 서비스를 빌드하고 배포할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 응용 프로그램을 빌드하고 배포합니다. 진단 이벤트 창에 웹 서버가 ****http://localhost:80/webapp/api**에 열렸음을 나타내는 메시지가 표시됩니다.
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -578,7 +547,7 @@ namespace WebApi
 > [AZURE.NOTE]컴퓨터의 다른 프로세스에서 포트를 이미 연 경우 여기에 수신기를 열지 못했음을 나타내는 오류가 표시될 수 있습니다. 이러한 경우 ServiceManifest.xml에서 끝점 구성에 다른 포트를 사용해 보세요.
 
 
-서비스가 실행되면 브라우저를 열고 [http://localhost/api](http://localhost/api)로 이동하여 테스트합니다.
+서비스가 실행되면 브라우저를 열고 [http://localhost/webapp/api/values](http://localhost/webapp/api/values)로 이동하여 테스트합니다.
 
 ## 확장
 
@@ -614,4 +583,4 @@ ASP.NET 5에서 웹 응용 프로그램의 *호스트*와 *응용 프로그램*�
 
 [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

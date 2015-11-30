@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="ryancraw"/>
 
 #DocumentDB에서 데이터 모델링#
@@ -392,4 +392,4 @@ Azure DocumentDB의 인덱스 튜닝에 대한 자세한 내용은 [인덱싱 �
 끝으로, 다중 테넌트 응용 프로그램에 대한 데이터 모델링 및 분할에 대한 자세한 내용은 [Azure DocumentDB로 다중 테넌트 응용 프로그램 확장](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)을 참조하십시오.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

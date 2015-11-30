@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="tamram"/>
 
 
@@ -144,17 +144,22 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 
 >[AZURE.IMPORTANT]공유 액세스 서명 URI는 서명을 만드는 데 사용된 계정 키 및 저장된 관련 액세스 정책(있는 경우)에 연결됩니다. 저장된 액세스 정책을 지정하지 않는 경우 공유 액세스 서명을 해지하는 방법은 계정 키를 변경하는 것뿐입니다.
 
-## 공유 액세스 서명의 예
+## 예제: 공유 액세스 서명 만들기 및 사용
 
 다음은 공유 액세스 서명의 두 유형(계정 SAS, 서비스 SAS)에 대한 몇 가지 예입니다.
 
-### 계정 SAS 예
+이 예제를 실행하려면 다음 패키지를 다운로드하여 참조해야 합니다.
+
+- [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage), 버전 6.x 이상(계정 SAS 사용을 위해).
+- [Azure 구성 관리자](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+
+### 예제: 계정 SAS
 
 다음 코드 예제는 Blob 및 파일 공유에 유효한 계정 SAS를 만들며 클라이언트가 읽기, 쓰기, 목록 권한을 사용하여 서비스 수준 API에 액세스할 수 있는 권한을 부여합니다. 계정 SAS는 프로토콜을 HTTPS로 제한하므로 반드시 HTTPS로 요청해야 합니다.
 
     static string GetAccountSASToken()
     {
-        // To create the account SAS, you need to use your shared key credentials.
+        // To create the account SAS, you need to use your shared key credentials. Modify for your account.
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -218,21 +223,13 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
         Console.WriteLine(serviceProperties.HourMetrics.Version);
     }
 
-### 서비스 SAS 예
+### 예제: 저장된 액세스 정책을 사용하는 서비스 SAS
 
-다음 코드 예제에서는 컨테이너에 저장된 액세스 정책을 만든 다음 컨테이너에 대한 서비스 SAS를 생성합니다. 그런 다음 클라이언트에 이 SAS를 제공하여 컨테이너의 읽기-쓰기 권한을 제공할 수 있습니다.
+다음 코드 예제에서는 컨테이너에 저장된 액세스 정책을 만든 다음 컨테이너에 대한 서비스 SAS를 생성합니다. 그런 다음 클라이언트에 이 SAS를 제공하여 컨테이너의 읽기-쓰기 권한을 제공할 수 있습니다. 자신의 계정 이름을 사용하려면 코드를 변경합니다.
 
-    // The connection string for the storage account.  Modify for your account.
-    string storageConnectionString =
-       "DefaultEndpointsProtocol=https;" +
-       "AccountName=myaccount;" +
-       "AccountKey=<account-key>";
-    
-    // As an alternative, you can retrieve storage account information from an app.config file. 
-    // This is one way to store and retrieve a connection string if you are 
-    // writing an application that will run locally, rather than in Microsoft Azure.
-    
-    // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
     
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -246,6 +243,9 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
     
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
+
+    // Clear the container's shared access policies to avoid naming conflicts.
+    blobPermissions.SharedAccessPolicies.Clear();
     
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
@@ -253,24 +253,23 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write |
-      SharedAccessBlobPermissions.Read
+       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
     
     // The public access setting explicitly specifies that 
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
     
-    // Set the permission policy on the container.
+    // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
     
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
-서비스 SAS를 소유한 클라이언트는 코드에 이 SAS를 사용하여 컨테이너의 Blob 읽기 또는 쓰기에 대한 요청을 인증할 수 있습니다. 예를 들어 다음 코드는 SAS 토큰을 사용하여 컨테이너에 새 블록 Blob을 만듭니다.
+서비스 SAS를 소유한 클라이언트는 코드에 이 SAS를 사용하여 컨테이너의 Blob 읽기 또는 쓰기에 대한 요청을 인증할 수 있습니다. 예를 들어 다음 코드는 SAS 토큰을 사용하여 컨테이너에 새 블록 Blob을 만듭니다. 자신의 계정 이름을 사용하려면 코드를 변경합니다.
 
-    Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
+    Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
     
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
@@ -281,7 +280,7 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
     // Upload the blob. 
     // If the blob does not yet exist, it will be created. 
     // If the blob does exist, its existing content will be overwritten.
-    using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
+    using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
     	blob.UploadFromStream(fileStream);
     }
@@ -324,4 +323,4 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

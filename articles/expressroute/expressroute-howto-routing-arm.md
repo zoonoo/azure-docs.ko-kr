@@ -13,10 +13,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/12/2015"
    ms.author="cherylmc"/>
 
-# Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로의 라우팅 만들기 및 수정
+# Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로의 라우팅을 만들고 수정하기
 
 > [AZURE.SELECTOR]
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
@@ -29,7 +29,7 @@
 ## 필수 구성 요소
 
 - Azure PowerShell 모듈의 버전 1.0 이상이 필요합니다. 
-- 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
+- 구성을 시작 하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 - 활성화된 Express 경로 회로가 있어야 합니다. 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 
 >[AZURE.IMPORTANT]이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 이러한 경우에 피어링을 만들거나 관리할 수 없습니다.
@@ -68,7 +68,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로를 만듭니다.**
 	
-	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
+	지침에 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
 
 	연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
@@ -113,7 +113,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 개인 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
 	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다**.
 	
-	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링를 구성할 수 있습니다.
+	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링을 구성할 수 있습니다.
 
 		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
@@ -133,7 +133,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
+		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt	
 
 
 ### Azure 개인 피어링 구성을 업데이트하려면
@@ -188,7 +188,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
+	지침에 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
 
 	연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
@@ -232,7 +232,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 공용 AS 숫자를 사용해야 합니다.
 	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다**.
 	
-	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링를 구성할 수 있습니다.
+	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링을 구성할 수 있습니다.
 
 		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
@@ -305,7 +305,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
+	지침에 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
 
 	연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
@@ -351,7 +351,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	- 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
 	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다.**
 	
-	다음 cmdlet을 실행하여 회로에 Microsoft 피어링를 구성할 수 있습니다.
+	다음 cmdlet을 실행하여 회로에 Microsoft 피어링을 구성할 수 있습니다.
 
 		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
 
@@ -393,6 +393,6 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 -  회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
--  가상 네트워크를 사용한 작업에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
+-  가상 네트워크 작업에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

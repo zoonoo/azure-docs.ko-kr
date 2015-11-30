@@ -19,6 +19,9 @@
 	ms.author="genli"/>
 
 # Azure 구독을 취소하는 방법
+
+>[AZURE.NOTE]실수로 구독을 취소해서 다시 활성화해야 하는 경우 [Microsoft 지원](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)에 도움을 요청하세요.
+
 구독을 취소하는 경우, 사용자의 모든 서비스가 즉시 삭제됩니다. 취소하기 전에 저장하려는 데이터가 백업되었는지 확인합니다.
 
 1. 계정 관리자로 [Azure 계정 포털](https://account.windowsazure.com/subscriptions)에 로그온합니다.
@@ -27,4 +30,4 @@
 4. **예, 구독을 취소합니다**를 선택합니다. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png)을 클릭하여 대화 창을 닫고 구독 페이지로 돌아갑니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

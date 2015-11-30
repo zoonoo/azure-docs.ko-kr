@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="예약된 IP"
-   description="예약된 IP, VIP, ILPIP 및 관리 방법에 대해 알아봅니다."
+   pageTitle="예약된 IP | Microsoft Azure"
+   description="예약된 IP 및 관리 방법에 대해 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # 예약된 IP 개요
@@ -27,7 +27,7 @@ IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니�
 
 ## FAQ
 1. 모든 Azure 서비스에 예약된 IP를 사용할 수 있나요?  
-  - 예약된 IP는 VM 및 클라우드 서비스 인스턴스 역할에만 사용할 수 있습니다.
+  - 예약된 IP는 VM 및 VIP를 통해 노출되는 클라우드 서비스 인스턴스 역할에만 사용할 수 있습니다.
 1. 예약된 IP를 몇 개까지 사용할 수 있나요?  
   - 현재 모든 Azure 구독은 20개의 예약된 IP를 사용할 권한이 있습니다. 그러나 예약된 IP를 추가로 요청할 수 있습니다. 자세한 내용은 [구독 및 서비스 제한](../azure-subscription-service-limits/) 페이지를 참조하세요.
 1. 예약된 IP는 사용 요금이 있나요? 
@@ -119,4 +119,4 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 확인합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

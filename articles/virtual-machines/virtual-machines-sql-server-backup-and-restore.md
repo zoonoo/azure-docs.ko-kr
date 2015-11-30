@@ -14,17 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
-
 ## 개요
 
 SQL Server 데이터베이스에 데이터를 백업하는 작업은 응용 프로그램 또는 사용자 오류로 인한 데이터 손실을 방지하기 위한 전략의 중요한 부분입니다. 이는 Azure 가상 컴퓨터(VM)에서 실행되는 SQL Server에 대해서도 마찬가지입니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 Azure VM에서 실행되는 SQL Server의 경우, 백업 파일의 대상으로 연결된 디스크를 사용하는 네이티브 백업 및 복원 기법을 사용할 수 있습니다. 그러나 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)에 따라 Azure 가상 컴퓨터에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 또한 고려해야 할 디스크 관리에 대한 오버헤드도 있습니다.
 
@@ -42,11 +41,11 @@ SQL Server 2014부터는 Microsoft Azure Blob 저장소에 백업 및 복원할 
 
 - 하지만 사용자 오류를 방지하기 위한 목적이나 보관 목적, 규정상의 이유 또는 관리 목적으로는 데이터베이스 백업을 수행해야 합니다.
 
-- Microsoft SQL Server 2016 CTP2(Community Technology Preview 2)의 SQL Server 파일-스냅숏 백업 기능을 사용하여 거의 즉시 백업 및 신속한 복원을 수행할 수 있습니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 파일-스냅숏 백업](https://msdn.microsoft.com/library/mt169363.aspx)을 참조하세요.
+- Microsoft SQL Server 2016 CTP3(Community Technology Preview 3)의 SQL Server 파일-스냅숏 백업 기능을 사용하여 거의 즉시 백업 및 신속한 복원을 수행할 수 있습니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 파일-스냅숏 백업](https://msdn.microsoft.com/library/mt169363.aspx)을 참조하세요.
 
-## Microsoft SQL Server 2016 CTP2(Community Technology Preview 2)에서 백업 및 복원
+## Microsoft SQL Server 2016 CTP3(Community Technology Preview 3)에서 백업 및 복원
 
-Microsoft SQL Server 2016 CTP2(Community Technology Preview 2)는 SQL Server 2014에서 제공하는 [Azure Blob을 사용한 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx) 기능을 지원하며, 이 기능에 대해서는 아래에서 설명합니다. 하지만 다음과 같은 향상된 기능이 포함되어 있습니다.
+Microsoft SQL Server 2016 CTP3(Community Technology Preview 3)는 SQL Server 2014에서 제공하는 [Azure Blob을 사용한 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx) 기능을 지원하며, 이 기능에 대해서는 아래에서 설명합니다. 하지만 다음과 같은 향상된 기능이 포함되어 있습니다.
 
 - **스트라이프**: Microsoft Azure Blob 저장소에 백업하는 경우 SQL Server 2016에서는 대형 데이터베이스를 백업할 수 있도록 최대 12.8TB까지 여러 Blob으로의 백업을 지원합니다.
 
@@ -93,4 +92,4 @@ Azure VM에서 SQL Server를 배포할 계획 중인 경우 [Azure에서 SQL Ser
 
 그 밖에 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 리소스](virtual-machines-sql-server-infrastructure-services.md)를 검토하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

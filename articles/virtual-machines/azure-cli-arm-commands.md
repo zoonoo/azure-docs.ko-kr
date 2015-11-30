@@ -1251,7 +1251,8 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	info:    network public-ip create command OK
 
 
-	매개 변수 옵션:
+매개 변수 옵션:
+
 	-h, --help                                   output usage information
 	-v, --verbose                                use verbose output
 	--json                                       use json output
@@ -1259,14 +1260,14 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	-n, --name <name>                            the name of the public ip
 	-l, --location <location>                    the location
 	-d, --domain-name-label <domain-name-label>  the domain name label.
-	이는 DNS를 <domain-name-label>.<location>.cloudapp.azure.com
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
 	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
 	-i, --idletimeout <idletimeout>              the idle timeout in minutes
 	-f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
-	-t, --tags <tags>                            the list of tags로 설정합니다.
-	여러 개일 수 있습니다. "name = value" 형식입니다.
-	이름은 필수 항목이며 값은 선택 사항입니다.
-	예: -t tag1=value1;tag2
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
 	-s, --subscription <subscription>            the subscription identifier
 <br>
 
@@ -1759,4 +1760,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

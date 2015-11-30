@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="v-sharos" />
 
 # 정부 포털에서 온-프레미스 StorSimple 장치 배포
@@ -238,7 +238,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 
 장치 업데이트는 몇 시간이 걸릴 수 있습니다. 다음 단계를 수행하여 장치에서 업데이트를 검색 및 적용합니다.
 
-<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!-- > [AZURE.NOTE] 데이터 0 이외의 네트워크 인터페이스에 구성된 게이트웨이의 경우 업데이트를 설치하기 전에 데이터 2 및 데이터 3 네트워크 인터페이스를 사용하지 않도록 설정해야 합니다. **장치 > 구성으로** 이동하고 데이터 2 및 데이터 3 인터페이스를 사용하지 않도록 설정합니다. 장치를 업데이트한 후에 해당 인터페이스를 다시 사용하도록 설정해야 합니다.-->
 
 #### 장치를 업데이트하려면
 
@@ -277,4 +277,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

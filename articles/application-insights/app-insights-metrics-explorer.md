@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 메트릭 탐색
@@ -196,7 +196,7 @@
 
 ### Power BI
 
-보다 풍부한 데이터 보기를 사용하려는 경우 [Power BI로 내보낼](app-insights-export-power-bi.md) 수 있습니다.
+보다 풍부한 데이터 보기를 사용하려는 경우 [Power BI로 내보낼](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) 수 있습니다.
 
 ## 다음 단계
 
@@ -212,4 +212,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

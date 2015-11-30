@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication을 위해 myapps 365 포털에서 앱 암호 만들기
@@ -39,4 +39,4 @@ Office 365에서 다단계 인증을 사용하지 않으며 Azure 구독이 있�
 <li>앱 암호의 이름을 입력하고 **다음**을 클릭합니다.</li>
 <li>앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

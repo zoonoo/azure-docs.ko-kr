@@ -14,13 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
- 
 
 ## 개요
 
@@ -28,7 +25,9 @@
 
 SQL Server 이미지를 만들 때 [새 포털](https://manage.windowsazure.com)을 사용하여 기본적으로 사용되는 프리미엄 저장소 등의 기능뿐만 아니라 자동화된 패치, 자동화된 백업, AlwaysOn 구성 같은 다른 옵션도 활용하세요.
 
->[AZURE.NOTE]이 문서는 Azure VM의 SQL Server에 대해 최상의 성능을 얻는 데 초점을 맞춥니다. 작업이 적은 경우 아래 나열된 모든 최적화 사항이 필요하지 않을 수 있습니다. 이러한 권장 사항을 평가할 때 성능 요구 사항 및 작업 패턴을 고려하세요.
+이 문서는 Azure VM의 SQL Server에 대해 최상의 성능을 얻는 데 초점을 맞춥니다. 작업이 적은 경우 아래 나열된 모든 최적화 사항이 필요하지 않을 수 있습니다. 이러한 권장 사항을 평가할 때 성능 요구 사항 및 작업 패턴을 고려하세요.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## 빠른 검사 목록
 
@@ -134,4 +133,4 @@ SQL Server 및 프리미엄 저장소에 대한 보다 자세한 내용은 문�
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)에서 다른 SQL Server 가상 컴퓨터 항목을 검토하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

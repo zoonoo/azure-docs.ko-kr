@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Power BI에서 Application Insights 데이터를 참조하세요." 
-	description="Power BI를 사용하여 응용 프로그램의 성능 및 사용을 모니터링할 수 있습니다." 
+	pageTitle="스트림 분석을 사용하여 Application Insights에서 Power BI 내보내기" 
+	description="스트림 분석을 사용하여 내보낸 데이터를 처리하는 방법을 보여 줍니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
-# Application Insights 데이터의 Power BI 보기
+# 스트림 분석을 사용하여 Application Insights에서 Power BI 공급
 
 [Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적 개체로 데이터를 표시합니다. Application Insights에서 Power BI까지 웹 또는 장치 앱의 성능 및 사용에 대한 원격 분석 데이터를 스트리밍할 수 있습니다.
+
+> [AZURE.NOTE]Application Insights에서 Power BI로 데이터를 가져오는 가장 쉬운 방법은 서비스 아래의 Power BI 갤러리에 있는 [어댑터를 사용](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-application-insights/)하는 것입니다. 이 문서에서 설명하는 내용은 현재 보다 다양하지만 Application Insights에서 스트림 분석을 사용하는 방법에 대한 데모이기도 합니다.
 
 ![Application Insights 사용 데이터의 Power BI 보기의 샘플](./media/app-insights-export-power-bi/010.png)
 
@@ -36,7 +38,7 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 ## Application Insights를 사용한 앱 모니터링
 
-아직 시도하지 않은 경우 지금이 시작 시간입니다. Application Insights는 Windows, iOS, Android, J2EE 등과 같은 광범위한 플랫폼에서 모든 장치 또는 웹앱을 모니터링할 수 있습니다. [시작하기](app-insights-overview.md).
+아직 시도하지 않은 경우 지금이 시작 시간입니다. Application Insights는 Windows, iOS, Android, J2EE 등과 같은 광범위한 플랫폼에서 모든 장치 또는 웹앱을 모니터링할 수 있습니다. [시작](app-insights-overview.md)
 
 ## Azure에서 저장소 만들기
 
@@ -183,7 +185,7 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 
 * 내보내기 입력은 스트림 입력에 제공된 별칭입니다.
 * pbi 출력은 정의한 출력 별칭입니다.
-* 이벤트 이름은 중첩된 JSON 배열에 있으므로 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx)를 사용합니다. 그런 다음 Select는 기간의 해당 이름이 있는 인스턴스의 수의 개수와 함께 이벤트 이름을 선택합니다. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 절은 요소를 1분 기간으로 그룹화합니다.
+* 이벤트 이름은 중첩된 JSON 배열에 있으므로 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx)를 사용합니다. 그런 다음 Select는 기간의 해당 이름이 있는 인스턴스의 수의 개수와 함께 이벤트 이름을 선택합니다. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 절은 요소를 1분의 기간으로 그룹화합니다.
 
 
 #### 메트릭 값을 표시하는 쿼리
@@ -205,7 +207,28 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 
 * 이 쿼리는 이벤트 시간과 메트릭 값을 가져오기 위해 메트릭 원격 분석을 드릴합니다. 메트릭 값은 배열 내부에 있으므로 OUTER APPLY GetElements 패턴을 사용하여 행을 추출합니다. 이 경우 "myMetric"은 메트릭 이름입니다. 
 
+#### 차원 속성의 값을 포함하는 쿼리
 
+```SQL
+
+    WITH flat AS (
+    SELECT
+      MySource.context.data.eventTime as eventTime,
+      InstanceId = MyDimension.ArrayValue.InstanceId.value,
+      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+    FROM MySource
+    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+    )
+    SELECT
+     eventTime,
+     InstanceId,
+     BusinessUnitId
+    INTO AIOutput
+    FROM flat
+
+```
+
+* 이 쿼리는 차원 배열에 고정된 인덱스의 특정 차원에 상관없이 차원 속성의 값을 포함합니다.
 
 ## 작업 실행
 
@@ -239,4 +262,4 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 * [Application Insights](app-insights-overview.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

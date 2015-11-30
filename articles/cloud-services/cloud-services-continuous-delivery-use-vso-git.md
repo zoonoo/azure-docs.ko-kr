@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure에서 Git 및 Visual Studio Online을 사용한 연속 배달" 
-	description="Git을 사용하여 자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법을 알아봅니다."
+	pageTitle="Azure에서 Git 및 Visual Studio Team Services를 사용한 연속 배달" 
+	description="Git을 사용하여 자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스의 웹앱 기능에 배포되도록 Visual Studio Team Services 팀 프로젝트를 구성하는 방법을 알아봅니다."
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="kempb"
@@ -16,9 +16,9 @@
 	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
-# Visual Studio Online 및 Git을 사용하여 Azure에 지속적으로 전송
+# Visual Studio Team Services 및 Git을 사용하여 Azure에 지속적으로 전송
 
-Visual Studio Online 팀 프로젝트를 사용하여 소스 코드용 Git 리포지토리를 호스트할 수 있으며 리포지토리로 커밋을 푸시할 때마다 Azure 웹앱 또는 클라우드 서비스를 자동으로 빌드 및 배포할 수 있습니다.
+Visual Studio Team Services 팀 프로젝트를 사용하여 소스 코드용 Git 리포지토리를 호스트할 수 있으며 리포지토리로 커밋을 푸시할 때마다 Azure 웹앱 또는 클라우드 서비스를 자동으로 빌드 및 배포할 수 있습니다.
 
 Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
@@ -26,11 +26,11 @@ Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Stu
 > [AZURE.NOTE]이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.
 > [Visual Studio Online 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 
-Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
+Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
 ## 1단계: Git 리포지토리 만들기
 
-1. Visual Studio Online 계정이 없는 경우 [여기에서](http://go.microsoft.com/fwlink/?LinkId=397665) 하나를 가져올 수 있습니다. 팀 프로젝트를 만들 때 소스 제어 시스템으로 Git을 선택합니다. 지침을 따라 Visual Studio를 팀 프로젝트에 연결합니다.
+1. Visual Studio Team Services 계정이 없는 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=397665)에서 계정을 확보할 수 있습니다. 팀 프로젝트를 만들 때 소스 제어 시스템으로 Git을 선택합니다. 지침을 따라 Visual Studio를 팀 프로젝트에 연결합니다.
 
 2. **팀 탐색기**에서 **이 리포지토리 복제** 링크를 선택합니다.
 
@@ -50,7 +50,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 	![][7]
 
-4. Visual Studio Online에서 처음으로 Git을 사용하는 경우 Git에서 본인을 식별해 주는 정보를 제공해야 합니다. **팀 탐색기**의 **보류 중인 변경 내용** 영역에서 사용자 이름 및 메일 주소를 입력합니다. 커밋에 대한 설명을 입력한 다음 **커밋** 단추를 선택합니다.
+4. Visual Studio Team Services에서 처음으로 Git을 사용하는 경우 Git에서 본인을 식별해 주는 정보를 제공해야 합니다. **팀 탐색기**의 **보류 중인 변경 내용** 영역에서 사용자 이름 및 메일 주소를 입력합니다. 커밋에 대한 설명을 입력한 다음 **커밋** 단추를 선택합니다.
 
 	![][8]
 
@@ -60,27 +60,27 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 ## 3단계: Azure에 프로젝트 연결
 
-1. Visual Studio Online에 일부 소스 코드를 포함한 Git 리포지토리가 있으므로 Azure에 Git 리포지토리를 연결할 준비가 되었습니다. [Azure 관리 포털](http://manage.windowsazure.com)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다.
+1. Visual Studio Team Services에 일부 소스 코드를 포함한 Git 리포지토리가 있으므로 Azure에 Git 리포지토리를 연결할 준비가 되었습니다. [Azure 관리 포털](http://manage.windowsazure.com)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다.
 
 	![][9]
 
-3. 클라우드 서비스의 경우 **Visual Studio Online으로 게시 설정** 링크를 선택합니다. 웹앱의 경우 **소스 코드에서 배포 설정** 링크를 선택합니다.
+3. 클라우드 서비스의 경우 **Visual Studio Team Services로 게시 설정** 링크를 선택합니다. 웹앱의 경우 **소스 코드에서 배포 설정** 링크를 선택합니다.
 
 	![][10]
 
-2. 마법사의 텍스트 상자에 Visual Studio Online 계정의 이름을 입력하고 **지금 권한 부여** 링크를 선택합니다. 로그인하라는 메시지가 표시될 수 있습니다.
+2. 마법사의 텍스트 상자에 Visual Studio Team Services 계정의 이름을 입력하고 **지금 권한 부여** 링크를 선택합니다. 로그인하라는 메시지가 표시될 수 있습니다.
 
 	![][11]
 
-3. **연결 요청** 팝업 대화 상자에서 **동의함**을 선택하여 Azure에 권한을 부여하고 Visual Studio Online에서 팀 프로젝트를 구성합니다.
+3. **연결 요청** 팝업 대화 상자에서 **동의함**을 선택하여 Azure에 권한을 부여하고 Visual Studio Team Services에서 팀 프로젝트를 구성합니다.
 
 	![][12]
 
-4. 권한 부여가 완료된 후, Visual Studio Online 팀 프로젝트를 포함하는 드롭다운 목록이 표시됩니다. 이전 단계에서 만든 팀 프로젝트 이름을 선택하고 마법사의 확인 표시 단추를 선택합니다.
+4. 권한 부여가 완료된 후, Visual Studio Team Services 팀 프로젝트를 포함하는 드롭다운 목록이 표시됩니다. 이전 단계에서 만든 팀 프로젝트 이름을 선택하고 마법사의 확인 표시 단추를 선택합니다.
 
 	![][13]
 
-	다음에 리포지토리에 커밋을 푸시할 때 Visual Studio Online이 프로젝트를 빌드하여 Azure에 배포합니다.
+	다음에 리포지토리에 커밋을 푸시할 때 Visual Studio Team Services가 프로젝트를 빌드하여 Azure에 배포합니다.
 
 ## 4단계: 프로젝트 다시 빌드 및 다시 배포 트리거
 
@@ -102,7 +102,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 	![][38]
 
-6. **푸시** 링크를 선택하여 Visual Studio Online의 리포지토리에 커밋을 푸시합니다. 또한 **동기화** 단추를 사용하여 리포지토리로 커밋을 복사할 수도 있습니다. **동기화**는 리포지토리의 최신 변경 내용을 끌어온다는 점이 다릅니다.
+6. **푸시** 링크를 선택하여 Visual Studio Team Services의 리포지토리에 커밋을 푸시합니다. 또한 **동기화** 단추를 사용하여 리포지토리로 커밋을 복사할 수도 있습니다. **동기화**는 리포지토리의 최신 변경 내용을 끌어온다는 점이 다릅니다.
 
 	![][39]
 
@@ -124,7 +124,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 	![][25]
 
-11. **트리거** 탭에서 기본적으로 체크 인할 때마다 빌드 정의가 빌드되도록 설정된 것을 확인합니다. 클라우드 서비스의 경우 Visual Studio Online에서 마스터 분기를 자동으로 빌드하여 스테이징 환경에 배포합니다. 라이브 사이트에 배포하려면 여전히 수동 단계를 수행해야 합니다. 스테이징 환경이 없는 웹 사이트의 경우 마스터 분기를 라이브 사이트에 직접 배포합니다.
+11. **트리거** 탭에서 기본적으로 체크 인할 때마다 빌드 정의가 빌드되도록 설정된 것을 확인합니다. 클라우드 서비스의 경우 Visual Studio Team Services에서 마스터 분기를 자동으로 빌드하여 스테이징 환경에 배포합니다. 라이브 사이트에 배포하려면 여전히 수동 단계를 수행해야 합니다. 스테이징 환경이 없는 웹 사이트의 경우 마스터 분기를 라이브 사이트에 직접 배포합니다.
 
 	![][26]
 
@@ -217,7 +217,7 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 
 	![][43]
 
-10. **동기화되지 않은 커밋** 링크를 선택한 다음 **동기화** 단추 또는 **푸시** 링크를 선택하여 Visual Studio Online에서 작업 분기의 복사본 변경 내용을 복사합니다.
+10. **동기화되지 않은 커밋** 링크를 선택한 다음 **동기화** 단추 또는 **푸시** 링크를 선택하여 Visual Studio Team Services에서 작업 분기의 복사본 변경 내용을 복사합니다.
 
 	![][45]
 
@@ -225,7 +225,7 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 
 ## 다음 단계
 
-Visual Studio Online에서 Git 사용에 대해 더 많은 팁을 알아보려면 [Visual Studio를 사용하여 Git에서 코드 개발 및 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Online에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 GIT을 사용한 지속적인 배포](../web-sites-publish-source-control.md)를 참조하세요. Visual Studio Online에 대한 자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요.
+Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아보려면 [Visual Studio를 사용하여 Git에서 코드 개발 및 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Team Services에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 GIT을 사용한 지속적인 배포](../web-sites-publish-source-control.md)를 참조하세요. Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -273,4 +273,4 @@ Visual Studio Online에서 Git 사용에 대해 더 많은 팁을 알아보려�
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
