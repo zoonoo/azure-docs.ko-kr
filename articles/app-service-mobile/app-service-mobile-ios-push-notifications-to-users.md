@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # 특정 사용자에게 크로스 플랫폼 알림 전송
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 이 항목에서는 모바일 백 엔드에서 특정 사용자의 모든 등록된 장치에 알림을 전송하는 방법을 보여 줍니다. 등록 시 클라이언트 응용 프로그램이 자유롭게 페이로드 형식과 변수 자리 표시자를 지정할 수 있게 하는 [템플릿] 개념을 소개했습니다. 이 경우 해당 자리 표시자가 포함된 모든 플랫폼에 전송이 수행되어 크로스 플랫폼 알림을 사용할 수 있습니다.
 
@@ -108,4 +106,4 @@
 [템플릿]: https://msdn.microsoft.com/ko-KR/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

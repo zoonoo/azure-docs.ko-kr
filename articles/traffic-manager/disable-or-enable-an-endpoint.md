@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 트래픽 관리자 끝점 사용 안 함 또는 사용
@@ -40,14 +40,8 @@
 
 [트래픽 관리자 - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
 
-[트래픽 관리자란?](../traffic-manager.md)
+[트래픽 관리자 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
-[클라우드 서비스](http://go.microsoft.com/fwlink/?LinkId=314074)
+[트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
 
-[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-
-[트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

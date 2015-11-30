@@ -83,4 +83,4 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

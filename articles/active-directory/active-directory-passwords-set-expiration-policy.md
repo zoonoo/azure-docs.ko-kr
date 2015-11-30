@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="11/16/2015"
 	ms.author="curtand"/>
 
 
@@ -51,7 +51,7 @@ Windows PowerShell cmdlet을 사용하려면 먼저 이를 설치해야 합니�
 2.  다음 중 하나를 수행합니다.
 
 	- 특정 사용자의 암호가 만료되도록 설정하려면 해당 사용자의 사용자 계정 이름(UPN) 또는 사용자 ID를 사용하여 `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false` cmdlet을 실행합니다.
-  	
+
 	- 조직의 모든 사용자 암호가 만료되도록 설정하려면 `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false` cmdlet을 사용합니다.
 
 ## 암호가 만료되지 않도록 설정
@@ -64,4 +64,4 @@ Windows PowerShell cmdlet을 사용하려면 먼저 이를 설치해야 합니�
 
 	- 조직의 모든 사용자 암호가 만료되지 않도록 설정하려면 `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true` cmdlet을 사용합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

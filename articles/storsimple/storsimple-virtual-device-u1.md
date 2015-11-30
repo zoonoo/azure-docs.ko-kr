@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/23/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # Azure에서 StorSimple 가상 장치 배포 및 관리
@@ -57,7 +57,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 - 가상 장치는 Microsoft Azure 구독을 통해 보안이 설정됩니다. 가상 장치를 사용하고 Azure 구독이 손상되는 경우, 가상 장치에 저장된 데이터도 노출되기 쉬움을 의미합니다.
 
-- Azure StorSimple에 저장된 데이터를 암호화하는데 사용되는 인증서의 공개키는 Microsoft Azure 관리 포털에서 안전하게 사용할 수 있으며 개인 키는 StorSimple 장치에 유지됩니다. StorSimple 가상 장치에서 공개 및 개인 키는 모두 Azure에 저장됩니다.
+- Azure StorSimple에 저장된 데이터를 암호화하는 데 사용되는 인증서의 공개키는 Microsoft Azure 포털에서 안전하게 사용할 수 있으며 개인 키는 StorSimple 장치에 유지됩니다. StorSimple 가상 장치에서 공개 및 개인 키는 모두 Azure에 저장됩니다.
 
 - 가상 장치는 Microsoft Azure 데이터 센터에서 호스팅됩니다.
 
@@ -97,7 +97,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 시작하기 전에 다음 정보가 있는지 확인합니다.
 
 
-- 액세스 자격 증명이 있는 Azure 관리 포털 계정이 필요합니다.
+- 액세스 자격 증명이 있는 Azure 포털 계정이 필요합니다.
 
 - 액세스 자격 증명이 있는 Azure 저장소 계정이 필요합니다.
 
@@ -118,7 +118,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 다음 단계에 따라 StorSimple 가상 장치를 만듭니다.
 
-1.  관리 포털에서 **StorSimple 관리자** 서비스로 이동합니다.
+1.  Azure 포털에서 **StorSimple Manager** 서비스로 이동합니다.
 
 2. **장치** 페이지로 이동합니다. **장치** 페이지 맨 아래의 **가상 장치 만들기**를 클릭합니다.
 
@@ -292,7 +292,7 @@ StorSimple 장치 구성 페이지에서 활성화한 후, Windows PowerShell �
 
 가상 장치에 공용 끝점을 만들려면 다음 단계를 수행합니다.
 
-1. 관리 포털에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 
 - **가상 컴퓨터**를 클릭한 다음 가상 장치로 사용 중인 가상 컴퓨터를 선택합니다.
 
@@ -374,7 +374,7 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 ### StorSimple 가상 장치를 종료하려면
 
-1. 관리 포털에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 
 2. **가상 컴퓨터**를 클릭한 다음 가상 장치를 선택합니다.
 
@@ -382,7 +382,7 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 ### StorSimple 가상 장치를 삭제하려면
 
-1. 관리 포털에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 
 - **가상 컴퓨터**를 클릭한 다음 가상 장치를 선택합니다.
 
@@ -392,4 +392,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

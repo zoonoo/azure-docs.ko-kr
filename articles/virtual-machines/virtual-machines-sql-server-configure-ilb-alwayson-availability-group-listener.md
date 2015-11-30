@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/16/2015"
+	ms.date="11/06/2015"
 	ms.author="jroth" />
 
 # Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성
@@ -31,13 +31,14 @@
 
 가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-sql-server-alwayson-availability-groups-gui.md)했지만 수신기는 구성하지 않았다고 가정합니다.
 
-ILB를 사용하는 Azure에서는 가용성 그룹 수신기에 다음과 같은 제한 사항이 적용됩니다.
+## 내부 수신기에 대한 지침 및 제한 사항
+ILB를 사용하는 Azure에서는 가용성 그룹 수신기에 다음과 같은 지침이 적용됩니다.
 
 - 가용성 그룹 수신기는 Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2에서 지원됩니다.
 
-- 클라이언트 응용 프로그램은 가용성 그룹 VM이 포함된 것과는 다른 클라우드 서비스에 있어야 합니다. Azure는 동일한 클라우드 서비스에 있는 클라이언트 및 서버에서의 직접 서버 반환을 지원하지 않습니다.
+- 수신기는 ILB로 구성되고 ILB는 클라우드 서비스당 하나만 있기 때문에 하나의 내부 가용성 그룹 수신기만 지원됩니다. 그러나 외부 수신기는 여러 개를 만들 수 있습니다. 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 외부 수신기 구성](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)을 참조하세요.
 
-- 수신기는 클라우드 서비스 VIP 주소를또는 ILB(내부 부하 분산기) VIP 주소를 사용하도록 구성되기 때문에 클라우드당 하나의 가용성 그룹 수신기만 지원됩니다. Azure가 이제는 지정된 클라우드 서비스에서의 여러 VIP 주소 만들기를 지원하지만 이 제한 사항은 여전히 유효합니다.
+- 클라우드 서비스의 공용 VIP를 사용하여 외부 수신기도 있는 동일한 클라우드 서비스에서 내부 수신기를 만들 수는 없습니다.
 
 ## 수신기의 액세스 가능 여부 확인
 
@@ -114,8 +115,8 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 		
 		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
 		
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
 1. 변수를 설정한 후에는 앞으로 온 Windows PowerShell 창을 열고 텍스트 편집기의 스크립트를 복사하여 Azure PowerShell 세션에 붙여넣어 실행합니다. 프롬프트에 >>가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
 
@@ -137,4 +138,4 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

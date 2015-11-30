@@ -17,7 +17,7 @@
 
 # 탄력적 데이터베이스 풀에 사용자를 추가하는 방법
 
-**탄력적 데이터베이스 작업** 기능(미리 보기)을 사용하면 Azure SQL 데이터베이스에 데이터베이스의 사용자 정의 컬렉션, **탄력적 데이터베이스 풀** 또는 **분할된 탄력적 데이터베이스 집합**을 포함하여 데이터베이스 그룹에 대해 TRANSACT-SQL 스크립트를 실행할 수 있습니다. 스크립트를 실행하려면 작업이 실행되는 모든 데이터베이스에 적절한 권한을 가진 사용자를 추가해야 합니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx) 또는 [SQL Azure 데이터베이스에 사용자 추가](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)를 참조하세요.
+**탄력적 데이터베이스 작업** 기능(미리 보기)을 사용하면 Azure SQL 데이터베이스에 데이터베이스의 사용자 정의 컬렉션, **탄력적 데이터베이스 풀** 또는 **분할된 탄력적 데이터베이스 집합**을 포함하여 데이터베이스 그룹에 대해 TRANSACT-SQL 스크립트를 실행할 수 있습니다. 스크립트를 실행하려면 작업이 실행되는 모든 데이터베이스에 적절한 권한을 가진 사용자를 추가해야 합니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md) 또는 [SQL Azure 데이터베이스에 사용자 추가](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)를 참조하세요.
 
 ## 필수 조건
 * [탄력적 작업 구성 요소](sql-database-elastic-jobs-service-installation.md)를 설치합니다. 
@@ -36,7 +36,7 @@
 
 ## 다음 단계
 
-작업 만들기 및 관리, [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md) 참조
+Azure 포털에서 작업을 만들고 관리하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요. PowerShell에서 작업을 만들려면 [PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 작업 만들기 및 관리(미리 보기)](sql-database-elastic-jobs-powershell.md)를 참조하세요.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -44,4 +44,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

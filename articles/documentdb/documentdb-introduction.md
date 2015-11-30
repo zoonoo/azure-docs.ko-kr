@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Microsoft Azure DocumentDB 소개 - 무료 평가판 | Microsoft Azure" 
-	description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드와 모바일 응용 프로그램에서 DocumentDB를 활용하는 방법을 알아봅니다. DocumentDB에서 데이터를 관리하는 방법과 응용 프로그램 개발에 DocumentDB를 사용하는 방법에 대해서도 살펴봅니다." 
+	pageTitle="JSON 데이터베이스인 DocumentDB 소개 | Microsoft Azure" 
+	description="NoSQL JSON 데이터베이스인 DocumentDB에 대해 알아봅니다. 이 문서 데이터베이스는 빅 데이터, 탄력적 확장성 및 고가용성을 위해 빌드됩니다." 
+	keywords="json 데이터베이스, 문서 데이터베이스"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Microsoft Azure DocumentDB 소개
+# DocumentDB 소개: NoSQL JSON 데이터베이스
 
-이 문서에서는 개발자, IT 전문가 및 비즈니스 의사 결정자를 위한 완전히 관리되는 NoSQL 문서 데이터베이스 서비스인 Microsoft Azure DocumentDB를 소개합니다.
+DocumentDB는 간편한 확장 및 고가용성이 필요한 JSON 데이터를 처리하는 빅 데이터 솔루션용 NoSQL 문서 데이터베이스입니다.
 
-DocumentDB에 대해 알아보고 작동 방식을 확인하는 빠른 방법은 다음 세 단계를 수행하는 것입니다.
+이 JSON 데이터베이스에 대해 알아보고 작동 방식을 확인하는 빠른 방법은 다음 세 단계를 수행하는 것입니다.
 
 1. DocumentDB의 사용 이점을 소개하는 [DocumentDB 정의](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) 동영상(2분)을 시청합니다.
 2. Azure Preview 포털에서 DocumentDB를 시작하는 방법을 강조하는 [Azure에서 DocumentDB 만들기](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 동영상(3분)을 시청합니다.
@@ -39,19 +40,20 @@ DocumentDB에 대해 알아보고 작동 방식을 확인하는 빠른 방법은
 
 DocumentDB는 최신 모바일 및 웹 응용 프로그램용으로 설계된 진정한 스키마 없는 NoSQL 문서 데이터베이스 서비스입니다. DocumentDB는 일관성 있게 빠른 읽기 및 쓰기, 스키마 유연성 및 요청 시 데이터베이스를 쉽게 확장하고 축소하는 기능을 제공합니다. 인덱싱하는 JSON 문서에 대해 스키마를 가정하거나 요구하지 않습니다. 기본적으로 데이터베이스에 있는 모든 문서를 자동으로 인덱스하며 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. DocumentDB는 SQL 언어를 사용한 복잡한 임시 쿼리를 사용할 수 있도록 하고 잘 정의된 일관성 수준을 지원하며 저장 프로시저, 트리거 및 UDF의 익숙한 프로그래밍 모델을 사용한 JavaScript 언어 통합 다중 문서 트랜잭션 처리를 제공합니다.
 
-DocumentDB는 기본적으로 JSON 문서를 지원하므로 응용 프로그램 스키마를 쉽게 반복할 수 있습니다. JSON 및 JavaScript의 편재성을 수용하므로 응용 프로그램이 정의한 개체와 데이터베이스 스키마 간의 불일치가 제거됩니다. 또한 긴밀한 JavaScript 통합을 통해 개발자가 데이터베이스 엔진의 데이터베이스 트랜잭션 내에서 직접 응용 프로그램 논리를 효율적으로 실행할 수 있습니다.
+JSON 데이터베이스인 DocumentDB는 기본적으로 JSON 문서를 지원하므로 응용 프로그램 스키마를 쉽게 반복할 수 있습니다. JSON 및 JavaScript의 편재성을 수용하므로 응용 프로그램이 정의한 개체와 데이터베이스 스키마 간의 불일치가 제거됩니다. 또한 긴밀한 JavaScript 통합을 통해 개발자가 데이터베이스 엔진의 데이터베이스 트랜잭션 내에서 직접 응용 프로그램 논리를 효율적으로 실행할 수 있습니다.
 
 Azure DocumentDB는 다음과 같은 주요 기능 및 이점을 제공합니다.
 
 -	**익숙한 SQL 구문을 사용한 임시 쿼리:** DocumentDB 내에 다른 형식의 JSON 문서를 저장하고 익숙한 SQL 구문을 통해 해당 문서를 쿼리합니다. DocumentDB는 동시성이 높고 잠금이 없으며 로그 구조화된 인덱싱 기술을 활용하여 모든 문서 콘텐츠를 자동으로 인덱싱합니다. 따라서 스키마 힌트, 보조 인덱스 또는 뷰를 지정할 필요 없이 풍부한 실시간 쿼리를 사용할 수 있습니다. [DocumentDB 쿼리](documentdb-sql-query.md)에서 자세히 알아보세요. 
 
--	**데이터베이스 내의 JavaScript 실행:** 표준 JavaScript를 사용하여 응용 프로그램 논리를 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)로 표현합니다. 이렇게 하면 응용 프로그램과 데이터베이스 스키마 간의 불일치에 관계 없이 응용 프로그램 논리가 JSON 데이터에서 작동할 수 있습니다. DocumentDB는 데이터베이스 엔진 내에서 직접 JavaScript 응용 프로그램 논리의 전체 트랜잭션 실행을 제공합니다. JavaScript가 전체 통합되므로 JavaScript 프로그램 내에서 격리된 트랜잭션으로 INSERT, REPLACE, DELETE 및 SELECT 작업을 실행할 수 있습니다. [DocumentDB 서버 쪽 프로그래밍](documentdb-programming.md)에서 자세히 알아보세요.
+-	**데이터베이스 내의 JavaScript 실행:** 표준 JavaScript를 사용하여 응용 프로그램 논리를 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)로 표현합니다. 이렇게 하면 응용 프로그램과 데이터베이스 스키마 간의 불일치에 관계 없이 응용 프로그램 논리가 데이터에서 작동할 수 있습니다. DocumentDB는 데이터베이스 엔진 내에서 직접 JavaScript 응용 프로그램 논리의 전체 트랜잭션 실행을 제공합니다. JavaScript가 전체 통합되므로 JavaScript 프로그램 내에서 격리된 트랜잭션으로 INSERT, REPLACE, DELETE 및 SELECT 작업을 실행할 수 있습니다. [DocumentDB 서버 쪽 프로그래밍](documentdb-programming.md)에서 자세히 알아보세요.
 
--	**튜닝 가능한 일관성 수준:** 잘 정의된 네 가지 일관성 수준에서 선택하여 일관성과 성능 간의 최적 절충을 실현합니다. 쿼리 및 읽기 작업에 대해 DocumentDB는 강력, 제한된 부실, 세션, 최종 등의 네 가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수 있습니다. [일관성 수준을 사용하여 DocumentDB에서 가용성 및 성능 최대화](documentdb-consistency-levels.md)에서 자세히 알아보세요.
+-	**튜닝 가능한 일관성 수준:** 잘 정의된 네 가지 일관성 수준에서 선택하여 일관성과 성능 간의 최적 절충을 실현합니다. 쿼리 및 읽기 작업에 대해 DocumentDB는 강력, 제한된 부실, 세션, 최종 등의 네 가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수
+-	있습니다. [일관성 수준을 사용하여 DocumentDB에서 가용성 및 성능 최대화](documentdb-consistency-levels.md)에서 자세히 알아보세요.
 
 -	**완전히 관리:** 데이터베이스 및 컴퓨터 리소스를 관리할 필요가 없습니다. 완전히 관리되는 Microsoft Azure 서비스의 경우 가상 컴퓨터를 관리하거나 소프트웨어를 배포 및 구성하거나 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 데이터베이스가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 필요 시 쉽게 DocumentDB 계정을 추가하고 용량을 프로비전할 수 있으므로 데이터베이스 작동 및 관리 대신 응용 프로그램에 집중할 수 있습니다.
 
--	**탄력적으로 확장 가능한 처리량 및 저장소:** 응용 프로그램 요구를 충족하기 위해 쉽게 DocumentDB를 확장 또는 축소합니다. 크기 조정은 예약된 SSD 지원 저장소 및 처리량의 세분화된 단위(컬렉션)를 통해 수행됩니다. 응용 프로그램 증가에 따라 단위를 더 만들어 탄력적으로 DocumentDB를 확장하고 예측 가능한 성능을 얻을 수 있습니다.
+-	**탄력적으로 확장 가능한 처리량 및 저장소:** 응용 프로그램 요구를 충족하기 위해 쉽게 DocumentDB JSON 데이터베이스를 확장 또는 축소합니다. 크기 조정은 예약된 SSD 지원 저장소 및 처리량의 세분화된 단위(컬렉션)를 통해 수행됩니다. 응용 프로그램 증가에 따라 단위를 더 만들어 탄력적으로 DocumentDB를 확장하고 예측 가능한 성능을 얻을 수 있습니다.
 
 -	**의도적인 개방성:** 기존 기술과 도구를 사용하여 신속하게 시작합니다. DocumentDB에 대한 프로그래밍은 단순하고 사용하기 쉬우며 새 도구를 채택하거나 JSON 또는 JavaScript에 대한 사용자 지정 확장을 준수할 필요가 없습니다. 단순한 RESTful HTTP 인터페이스를 통해 CRUD, 쿼리 및 JavaScript 처리를 비롯한 모든 데이터베이스 기능에 액세스할 수 있습니다. DocumentDB는 기존 형식, 언어 및 표준을 수용하며 이를 바탕으로 중요한 데이터베이스 기능을 제공합니다.
 
@@ -66,11 +68,11 @@ DocumentDB 내의 모든 리소스는 JSON 문서로 모델링되고 저장됩�
 
 아래 그림은 DocumentDB 리소스 간의 관계를 보여 줍니다.
 
-![][1]
+![NoSQL JSON 데이터베이스인 DocumentDB의 리소스 간 계층 관계][1]
 
 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 저장 프로시저, 트리거, UDF, 문서 및 관련 첨부 파일이 포함될 수 있습니다. 데이터베이스에는 각각 다양한 다른 컬렉션, 저장 프로시저, 트리거, UDF, 문서 또는 첨부 파일에 액세스할 권한 집합을 가진 관련 사용자도 있습니다. 데이터베이스, 사용자, 사용 권한 및 컬렉션은 잘 알려진 스키마가 있는 시스템 정의 리소스인 반면 문서, 저장 프로시저, 트리거, UDF 및 첨부 파일에는 임의의 사용자 정의 JSON 콘텐츠가 포함됩니다.
 
-##<a name="develop"></a>Azure DocumentDB를 사용하여 개발
+##<a name="develop"></a> Azure DocumentDB를 사용하여 개발
 Azure DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB는 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 주소 캐싱, 예외 관리, 자동 재시도 등과 같은 세부 정보를 처리하여 Azure DocumentDB 작업의 많은 측면을 간소화합니다. 현재 라이브러리는 다음 언어 및 플랫폼에 사용할 수 있습니다.
 
 다운로드 | 설명서
@@ -101,13 +103,13 @@ Azure 계정이 이미 있는 경우 [Azure Preview 포털](https://portal.azure
 
 Azure 계정이 없는 경우
 
-- [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 ₩240,000으로 모든 Azure 서비스를 사용해 볼 수 있습니다. 
-- MSDN 구독이 있는 경우 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다. 
+- [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 200달러로 모든 Azure 서비스를 사용해 볼 수 있습니다. 
+- MSDN 구독이 있는 경우 모든 Azure 서비스에 사용할 수 있는 [월별 150달러의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다. 
 
 자세히 배울 준비가 되면 [학습 경로](http://azure.microsoft.com/documentation/learning-paths/documentdb/)를 방문하여 사용 가능한 모든 학습 리소스를 살펴보세요.
 
 
-[1]: ./media/documentdb-introduction/resources1.png
+[1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="alkohli" />
 
 # 온-프레미스 StorSimple 장치(업데이트 1) 배포
@@ -152,7 +152,7 @@ StorSimple 관리자 서비스는 여러 StorSimple 장치를 관리할 수 있�
 
 StorSimple 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
 
-관리 포털에서 다음 단계를 수행합니다.
+Azure 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -171,7 +171,7 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 - 하나 이상의 네트워크 인터페이스에서 iSCSI를 사용하도록 설정합니다.
 - 두 컨트롤러에 고정된 IP 주소를 할당합니다.
 
-최소 장치 설정을 완료하려면 관리 포털에서 다음 단계를 수행합니다.
+최소 장치 설정을 완료하려면 Azure 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
@@ -179,13 +179,13 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 
 볼륨 컨테이너에는 저장소 계정, 대역폭 및 그 안에 포함된 모든 볼륨에 대한 암호화 설정이 있습니다. StorSimple 장치에서 볼륨 프로비저닝을 시작하려면 볼륨 컨테이너를 만들어야 합니다.
 
-볼륨 컨테이너를 만들려면 관리 포털에서 다음 단계를 수행합니다.
+볼륨 컨테이너를 만들려면 Azure 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## 6단계: 볼륨 만들기
 
-볼륨 컨테이너를 만든 후에 서버에 대한 StorSimple 장치에 저장소 볼륨을 프로비전할 수 있습니다. 볼륨을 만들려면 관리 포털에서 다음 단계를 수행합니다.
+볼륨 컨테이너를 만든 후에 서버에 대한 StorSimple 장치에 저장소 볼륨을 프로비전할 수 있습니다. 볼륨을 만들려면 Azure 포털에서 다음 단계를 수행합니다.
 
 > [AZURE.IMPORTANT]StorSimple 관리자는 씬 프로비저닝된 볼륨만 만들 수 있습니다. 완전히 또는 부분적으로 프로비전된 볼륨을 만들 수 없습니다.
 
@@ -212,7 +212,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 
 백업은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 장치에서 두 유형(로컬 스냅숏 및 클라우드 스냅숏)의 백업을 수행할 수 있습니다. 이러한 각 유형의 백업은 **예약됨** 또는 **수동**이 될 수 있습니다.
 
-예약된 볼륨을 만들려면 관리 포털에서 다음 단계를 수행합니다.
+예약된 백업을 만들려면 Azure 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -224,7 +224,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 
 다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
-**StorSimple 관리자 서비스** 페이지의 관리 포털에서 다음 단계를 수행합니다.
+**StorSimple 관리자 서비스** 페이지의 Azure 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -238,8 +238,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 
 ## 업데이트 검색 및 적용
 
-장치 업데이트는 몇 시간이 걸릴 수 있습니다. 다음 단계를 수행하여 장치에서 업데이트를 검색 및 적용합니다.
-<!-- > can take 1-4 hours-->
+장치 업데이트는 몇 시간이 걸릴 수 있습니다. 다음 단계를 수행하여 장치에서 업데이트를 검색 및 적용합니다. <!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -265,7 +264,7 @@ Windows Server® 2012를 실행하는 Windows 호스트의 iSCSIㅋIQN(정규화
 
 ## 수동 백업 만들기
 
-StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만들려면 관리 포털에서 다음 단계를 수행합니다.
+StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만들려면 Azure 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [수동 백업 만들기](../../includes/storsimple-create-manual-backup.md)]
 
@@ -287,4 +286,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 [StorSimple 관리자 서비스](storsimple-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

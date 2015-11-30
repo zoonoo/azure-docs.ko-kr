@@ -57,7 +57,7 @@ IIS 설치에서 CPU, 메모리 및 네트워크 부하와 같은 [시스템 성
 `DiagnosticsTelemetryModule`은 Application Insights instrumenation 코드 자체에 오류를 보고합니다. 예를 들어 코드가 성능 카운터에 액세스할 수 없는 경우 또는 `ITelemetryInitializer`를 throw하는 경우는 예외입니다. 원격 분석 추적은 [진단 검색][diagnostic] 안의 이 모듈의 출현의 의해 추적됩니다.
  
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights)NuGet 패키지. 이 패키지를 설치하는 경우 ApplicationInsights.config 파일은 자동으로 만들어지지 않습니다. 
+* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 패키지. 이 패키지를 설치하는 경우 ApplicationInsights.config 파일은 자동으로 만들어지지 않습니다. 
 
 ### 개발자 모드
 
@@ -71,14 +71,14 @@ IIS 설치에서 CPU, 메모리 및 네트워크 부하와 같은 [시스템 성
 HTTP 요청의 [응답 시간 및 결과 코드](app-insights-start-monitoring-app-health-usage.md)를 보고합니다.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)NuGet 패키지
+* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지
 
 ### 예외 추적
 
 `ExceptionTrackingTelemetryModule`는 웹앱에서 처리되지 않은 예외를 추적합니다. [오류 및 예외][exceptions]를 참조하세요.
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)NuGet 패키지
+* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지
 
 
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - [관찰되지 않은 작업 예외](http://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx)를 추적합니다.
@@ -90,7 +90,7 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-start-monitoring-a
 코어 패키지는 SDK의 [코어 API](https://msdn.microsoft.com/library/mt420197.aspx)를 제공합니다. 다른 원격 분석 모듈은 이를 사용하고 사용자 또한 [사용자 고유의 원격 분석을 정의하는 데 사용](app-insights-api-custom-events-metrics.md)할 수 있습니다.
 
 * ApplicationInsights.config에 항목이 없습니다.
-* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights)NuGet 패키지. 이 NuGet을 설치하면 .config 파일이 생성되지 않습니다.
+* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 패키지. 이 NuGet을 설치하면 .config 파일이 생성되지 않습니다.
 
 ## 원격 분석 채널
 
@@ -111,20 +111,20 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-start-monitoring-a
 
 * `AccountIdTelemetryInitializer`는 AccountId 속성을 설정합니다.
 * `AuthenticatedUserIdTelemetryInitializer`는 JavaScript SDK에서 설정한 AuthenticatedUserId 속성을 설정합니다.
-* `AzureRoleEnvironmentTelemetryInitializer`은 `RoleName`및 Azure 런타임 환경에서 추출된 정보를 사용하여 모든 원격 분석 항목에 대해 `Device`컨텍스트에 대한 `RoleInstance`속성을 업데이트합니다.
-* `BuildInfoConfigComponentVersionTelemetryInitializer`은 MS 빌드에 의해 생성된 `BuildInfo.config`파일로부터 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Component`컨텍스트의 `Version`속성을 업데이트합니다.
+* `AzureRoleEnvironmentTelemetryInitializer`은 `RoleName` 및 Azure 런타임 환경에서 추출된 정보를 사용하여 모든 원격 분석 항목에 대해 `Device` 컨텍스트에 대한 `RoleInstance` 속성을 업데이트합니다.
+* `BuildInfoConfigComponentVersionTelemetryInitializer`은 MS 빌드에 의해 생성된 `BuildInfo.config` 파일로부터 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Component` 컨텍스트의 `Version` 속성을 업데이트합니다.
 * `ClientIpHeaderTelemetryInitializer`은 `X-Forwarded-For` HTTP 헤더 기반의 모든 원격 분석 항목의 `Location` 컨텍스트의 `Ip` 속성을 업데이트합니다.
 * `DeviceTelemetryInitializer`은 모든 원격 분석 항목에 대한 `Device` 컨텍스트의 다음 속성을 업데이트합니다.
  - `Type`은 "PC"로 설정됩니다.
- - `Id`은 웹 응용 프로그램이 실행되고 있는 컴퓨터의 도메인 이름으로 설정되었습니다.
- - `OemName`은 WMI를 사용하여 `Win32_ComputerSystem.Manufacturer`필드에서 추출된 값으로 설정 되었습니다.
- - `Model`은 WMI를 사용하여 `Win32_ComputerSystem.Model`필드에서 추출된 값으로 설정 되었습니다.
- - `NetworkType`은 `NetworkInterface`로부터 추출된 값으로 설정되었습니다.
- - `Language`은 `CurrentCulture`의 이름으로 설정되었습니다.
-* `DomainNameRoleInstanceTelemetryInitializer`은 웹 응용 프로그램이 실행되는 컴퓨터의 도메인 이름을 사용하여 모든 원격 분석 항목에 대해 `Device`컨텍스트의 `RoleInstance`속성을 업데이트합니다.
+ - `Id`은 웹 응용 프로그램이 실행되고 있는 컴퓨터의 도메인 이름으로 설정됩니다.
+ - `OemName`은 WMI를 사용하여 `Win32_ComputerSystem.Manufacturer` 필드에서 추출된 값으로 설정됩니다.
+ - `Model`은 WMI를 사용하여 `Win32_ComputerSystem.Model` 필드에서 추출된 값으로 설정됩니다.
+ - `NetworkType`은 `NetworkInterface`에서 추출된 값으로 설정됩니다.
+ - `Language`은 `CurrentCulture`의 이름으로 설정됩니다.
+* `DomainNameRoleInstanceTelemetryInitializer`은 웹 응용 프로그램이 실행되는 컴퓨터의 도메인 이름을 사용하여 모든 원격 분석 항목에 대해 `Device` 컨텍스트의 `RoleInstance` 속성을 업데이트합니다.
 * `OperationNameTelemetryInitializer`은 `RequestTelemetry`의 `Name` 속성과 HTTP 메서드를 기반으로 한 모든 원격 분석 아이템의 `Operation` 컨텍스트의 `Name` 속성을 업데이트뿐만 아니라 ASP.NET MVC 컨트롤러와 요청을 처리하는 데 작업을 불러옵니다.
 * `OperationIdTelemetryInitializer`은 자동으로 생성된 `RequestTelemetry.Id`을 사용하여 요청을 처리하는 동안 추적된 모든 원격 분석 항목의 `Operation.Id` 컨텍스트 속성을 업데이트합니다.
-* `SessionTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application Insights JavaScript 계측 코드에 의해 제공된 `ai_session`쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Session` 컨텍스트의 `Id`속성을 업데이트합니다. 
+* `SessionTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application Insights JavaScript 계측 코드에 의해 제공된 `ai_session` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Session` 컨텍스트의 `Id` 속성을 업데이트합니다. 
 * `SyntheticTelemetryInitializer`은 `User`, `Session` 및 가용성 테스트 또는 검색 엔진 봇과 같은 가상 소스에서 요청을 처리하는 경우 모든 원격 분석 항목의 `Operation` 컨텍스트 속성을 업데이트합니다. 기본적으로 [메트릭 탐색기](app-insights-metrics-explorer.md)는 가상 원격 분석을 표시하지 않습니다.
 * `UserAgentTelemetryInitializer`은 `User-Agent` HTTP 헤더 기반의 모든 원격 분석 항목의 `User` 컨텍스트의 `UserAgent` 속성을 업데이트합니다.
 * `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 컨텍스트의 `Id` 및 `AcquisitionDate`속성을 업데이트합니다.
@@ -136,9 +136,20 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-start-monitoring-a
 
 [고유한 원격 분석 프로세서를 작성](app-insights-api-filtering-sampling.md#filtering)할 수 있습니다.
 
-(2.0.1에서)하나의 표준 프로세서가 있습니다.
+또한 표준 [샘플링 원격 분석 프로세서](app-insights-api-filtering-sampling.md#sampling)도 있습니다(2.0.1부터).
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor` - [샘플링](app-insights-api-filtering-sampling.md#sampling)은 진단을 위해 관련된 원격 분석 항목 간을 탐색할 수 있도록 하는 동안 원격 분석의 볼륨을 줄입니다.
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
+```
 
 
 
@@ -251,4 +262,4 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

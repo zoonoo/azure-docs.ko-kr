@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Windows VM에서 원격 데스크톱 연결 문제 해결 | Microsoft Azure"
-	description="RDP를 사용하여 Windows VM에 연결하는 일반적인 문제를 찾고 해결합니다. 오류 메시지 및 상세 네트워크 문제 해결로 빠른 마이그레이션 단계, 특정 도움말을 가져옵니다."
+	pageTitle="Azure VM에 원격 데스크톱 연결 문제 해결 | Microsoft Azure"
+	description="Windows VM에 대한 원격 데스크톱 연결 문제를 해결합니다. 빠른 마이그레이션 단계, 오류 메시지별 도움말, 자세한 네트워크 문제 해결을 가져옵니다."
+	keywords="원격 데스크톱 오류,원격 데스크톱 연결 오류,VM에 연결할 수 없습니다,원격 데스크톱 문제 해결"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,24 +20,23 @@
 
 # Windows를 실행하는 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
 
+Windows 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 원격 데스크톱(RDP) 오류가 발생하는 원인은 여러 가지가 있을 수 있습니다. VM, 기본 호스트 컴퓨터, 네트워크 연결 또는 연결하는 위치에서 클라이언트 측의 RDP 소프트웨어와 함께 문제가 될 수 있습니다. 이 문서는 원인을 알아내고 문제를 해결하는 데 도움이 됩니다.
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
-원격 데스크톱(RDP)이 Windows를 실행하는 Azure 가상 컴퓨터에 연결하지 못하는 데에는 여러 원인이 있을 수 있습니다. VM, 기본 호스트 컴퓨터, 네트워크 연결 또는 연결하는 위치에서 클라이언트 측의 RDP 소프트웨어와 함께 문제가 될 수 있습니다. 이 문서는 원인을 알아내고 문제를 해결하는 데 도움이 됩니다.
-
-이 문서는 Windows를 실행하는 Azure 가상 컴퓨터에만 적용됩니다. *Linux를 실행하는 Azure 가상 컴퓨터*에 대한 연결 문제를 해결하는 방법은 [이 문서](virtual-machines-troubleshoot-ssh-connections.md)를 참조하세요.
+이 문서는 Windows를 실행하는 Azure 가상 컴퓨터에만 적용됩니다. Linux를 실행하는 Azure 가상 컴퓨터의 경우 [Azure VM에 SSH 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)을 참조하세요.
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
 
 첫 번째 섹션 '기본 단계'는 일반적인 연결 문제를 해결하는 단계를 나열하고 두 번째 섹션에서는 특정 오류 메시지에 의한 해결 단계를 제공하고 마지막 섹션은 각 네트워크 구성 요소의 자세한 문제를 해결하도록 합니다.
 
-## 기본 단계 - 클래식 배포 모델
+## 클래식 배포 모델에서 일반적인 원격 데스크톱 오류를 해결하는 단계
 
 이 단계는 클래식 배포 모델을 통해 만든 가상 컴퓨터에서 대부분의 일반적인 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계를 수행한 후 VM에 다시 연결을 시도합니다.
 
 - [Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하여 RDP 서버와 시작 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
 
-    ![원격 액세스 다시 설정](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
+    ![RDP 구성 재설정을 보여주는 스크린샷](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
 - 가상 컴퓨터를 다시 시작하여 다른 시작 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
 
@@ -45,9 +45,8 @@
 - VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다. 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **진단 부팅** 클릭
 
 - VM 리소스 상태에서 플랫폼 문제를 확인합니다. 모두 찾아보기 > 가상 컴퓨터(클래식) > 해당 Windows 가상 컴퓨터 > **상태 확인**을 클릭합니다.
--  
 
-## 기본 단계 - 리소스 관리자 배포 모델
+## 원격 데스크톱 배포 모델에서 일반적인 원격 데스크톱 오류를 해결하는 단계
 
 이 단계는 리소스 관리자 배포 모델을 통해 만든 가상 컴퓨터에서 대부분의 일반적인 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계를 수행한 후 VM에 다시 연결을 시도합니다.
 
@@ -71,19 +70,19 @@
 - VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다. 모두 찾아보기 > 가상 컴퓨터 > Windows 가상 컴퓨터 > **진단 부팅**을 클릭합니다.
 
 
-## 일반적인 RDP 오류 문제 해결
+## 특정한 원격 데스크톱 연결 오류 문제 해결
 
 다음은 Azure 가상 컴퓨터에 원격 데스크톱 연결을 하려고 할 때 발생할 수 있는 가장 일반적인 오류입니다.
 
-1. [원격 데스크톱 연결 오류: 라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다](#rdplicense).
+1. [원격 데스크톱 연결 오류: 라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다.](#rdplicense)
 
-2. [원격 데스크톱 연결 오류: 원격 데스크톱이 컴퓨터 "name"을(를) 찾을 수 없습니다](#rdpname).
+2. [원격 데스크톱 연결 오류: 원격 데스크톱이 컴퓨터 "name"을(를) 찾을 수 없습니다.](#rdpname)
 
 3. [원격 데스크톱 연결 오류: 인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.](#rdpauth)
 
-4. [Windows 보안 오류: 자격 증명이 작동하지 않습니다](#wincred).
+4. [Windows 보안 오류: 자격 증명이 작동하지 않습니다.](#wincred)
 
-5. [원격 데스크톱 연결 오류: 이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다](#rdpconnect).
+5. [원격 데스크톱 연결 오류: 이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다.](#rdpconnect)
 
 <a id="rdplicense"></a>
 ### 원격 데스크톱 연결 오류: 라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다.
@@ -120,7 +119,7 @@
 
 원인: 대상 가상 컴퓨터가 사용자의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾지 못했습니다.
 
-사용자 이름이 *SecurityAuthority*\*UserName* (예: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
+사용자 이름이 *SecurityAuthority*\*UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
 
 가능한 해결 방법:
 
@@ -153,7 +152,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 연결하는 데 사용하는 계정에 원격 데스크톱 로그온 권한이 있는지 확인하세요. 해결 방법으로, 도메인 또는 로컬 관리자 계정을 사용하여 원격 데스크톱에 대해 연결한 후 컴퓨터 관리 스냅인(**시스템 도구 > 로컬 사용자 및 그룹 > 그룹 > 원격 데스크톱 사용자**)을 사용하여 원격 데스크톱 사용자 로컬 그룹에 원하는 계정을 추가합니다.
 
-## 자세한 문제 해결
+## 원격 데스크톱 오류에 대한 자세한 문제 해결
 
 이러한 오류가 발생하지 않았는데도 여전히 원격 데스크톱을 통해 가상 컴퓨터에 연결할 수 없는 경우 [이 문서](virtual-machines-rdp-detailed-troubleshoot.md)를 읽고 다른 원인을 찾아보세요.
 
@@ -164,10 +163,10 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](virtual-machines-windows-reset-password.md)
 
-[Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
+[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

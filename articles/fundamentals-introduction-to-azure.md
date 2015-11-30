@@ -250,23 +250,23 @@ Azure는 개발자 및 IT 전문가가 클라우드에서 응용 프로그램을
 
 Azure 응용 프로그램 빌드를 돕는 것 외에도, 이 SDK는 Azure 서비스를 사용하는 소프트웨어 작성을 돕는 클라이언트 라이브러리를 제공합니다. 예를 들어, Azure Blob을 읽고 쓰는 응용 프로그램을 빌드하거나 Azure 관리 인터페이스를 통해 Azure 응용 프로그램 배포 도구를 만들 수 있습니다.
 
-### Visual Studio Online
+### Visual Studio Team Services
 
-Visual Studio Online은 Azure에서 응용 프로그램을 개발하도록 돕는 다양한 서비스와 관련된 마케팅 이름입니다.
+Visual Studio Team Services는 Azure에서 응용 프로그램을 개발하도록 돕는 다양한 서비스와 관련된 마케팅 이름입니다.
 
 혼동을 피하기 위해 이 서비스는 Visual Studio의 호스티드 또는 웹 기반 버전을 제공하지 않습니다. 따라서 Visual Studio의 로컬 실행 사본이 여전히 필요합니다. 그러나 매우 유용한 다른 많은 도구를 제공합니다.
 
 이 서비스에는 버전 제어 및 작업 항목 추적 기능을 제공하는 Team Foundation Service라고 하는 호스티드 소스 제어 시스템을 포함합니다. 원하는 경우 버전 제어에 Git을 사용할 수 있습니다. 또한 프로젝트에 사용하는 소스 제어 시스템을 달리할 수 있습니다. 세계 어디에서든 액세스 가능한 무제한 개인 팀 프로젝트를 만들 수 있습니다.
 
-Visual Studio Online은 부하 테스팅 서비스를 제공합니다. 클라우드의 VM에서 Visual Studio로 생성된 부하 테스트를 실행할 수 있습니다. 부하 테스트를 원하는 사용자의 총 수를 지정하면 Visual Studio Online에서 필요한 에이전트 수를 자동으로 결정하고, 필요한 가상 컴퓨터를 스핀업하고, 부하 테스트를 실행합니다. MSDN 구독자인 경우 매달 부하 테스팅을 할 수 있는 상당한 무료 사용 시간을 받게 됩니다.
+Visual Studio Team Services는 부하 테스팅 서비스를 제공합니다. 클라우드의 VM에서 Visual Studio로 생성된 부하 테스트를 실행할 수 있습니다. 부하 테스트를 원하는 사용자의 총 수를 지정하면 Visual Studio Team Services에서 필요한 에이전트 수를 자동으로 결정하고, 필요한 가상 컴퓨터를 스핀업하고, 부하 테스트를 실행합니다. MSDN 구독자인 경우 매달 부하 테스팅을 할 수 있는 상당한 무료 사용 시간을 받게 됩니다.
 
-또한 Visual Studio Online은 연속 통합 빌드, Kanban 보드, 가상 팀 회의실과 같은 기능을 통해 민첩한 개발도 지원합니다.
+또한 Visual Studio Team Services는 연속 통합 빌드, Kanban 보드, 가상 팀 회의실과 같은 기능을 통해 민첩한 개발도 지원합니다.
 
-**Visual Studio Online 시나리오**
+**Visual Studio Team Services 시나리오**
 
-Visual Studio Online은 전 세계적으로 협업해야 하지만 그렇게 할 수 있는 적절한 인프라는 아직 갖추지 못한 회사에 적합한 옵션입니다. 몇 분 안에 설정하고, 소스 제어 시스템을 선택하고 하루 만에 코드 작성과 빌드를 시작할 수 있습니다. 팀 도구는 조정 및 협업을 위한 방법을 제공하며 추가적인 도구는 응용 프로그램을 신속하게 테스트 및 조정하는 데 필요한 분석을 제공합니다.
+Visual Studio Team Services는 전 세계적으로 협업해야 하지만 그렇게 할 수 있는 적절한 인프라는 아직 갖추지 못한 회사에 적합한 옵션입니다. 몇 분 안에 설정하고, 소스 제어 시스템을 선택하고 하루 만에 코드 작성과 빌드를 시작할 수 있습니다. 팀 도구는 조정 및 협업을 위한 방법을 제공하며 추가적인 도구는 응용 프로그램을 신속하게 테스트 및 조정하는 데 필요한 분석을 제공합니다.
 
-온-프레미스 시스템을 이미 갖춘 조직은 Visual Studio Online에서 새로운 프로젝트를 테스트하여 더 효율적인지 확인할 수 있습니다.
+온-프레미스 시스템을 이미 갖춘 조직은 Visual Studio Team Services에서 새로운 프로젝트를 테스트하여 더 효율적인지 확인할 수 있습니다.
 
 ### Application Insights
 
@@ -611,4 +611,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

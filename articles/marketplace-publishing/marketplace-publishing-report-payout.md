@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 마켓플레이스 지급 보고서 이해 | Microsoft Azure"
+   pageTitle="Azure 마켓플레이스 지급 보고 이해 | Microsoft Azure"
    description="Azure 마켓플레이스 지급 보고서를 검토하고 수집하는 방법을 알아봅니다."
    services="marketplace-publishing"
    documentationCenter="na"
@@ -24,16 +24,16 @@
 
   ![accessingpayoutreport][1]
 
-  1. 게시 포털(https://publish.windowsazure.com)로 이동
-  2. **게시자** 섹션에서 **Payout Reports**(지급 보고서)를 클릭합니다.
+  1. 게시 포털(https://publish.windowsazure.com)로 이동합니다.
+  2. **게시자** 섹션에서 **지급 보고서**를 클릭합니다.
   3. 드롭다운을 클릭하면 사용할 수 있는 모든 분기별 지급 보고서가 표시됩니다.
 
 ## 지급 보고서 읽기
 
-각 분기에 대한 지급 보고서는 해당 분기 내에 발생하는 모든 트랜잭션을 기록합니다.
+각 분기에 대한 지급 보고서는 해당 분기 내에 발생한 모든 트랜잭션을 기록합니다.
 
-- 특정 분기와 관련된 원장 항목을 찾는 경우 드롭다운에서 해당 분기에 대한 지급 보고서를 선택합니다. 예를 들어 4월 - 6월 15일에 대한 원장 항목을 보려면 드롭다운에서 4월 - 6월 15일을 선택합니다.
-- 특정 분기와 관련된 지급 세부 정보를 찾는 경우 그 이후 분기에 대한 지급 보고서를 선택합니다. 예를 들어 4월 - 6월 15일에 대한 지급을 보려는 경우 해당 금액은 그 이후의 7월 -9월 15일 보고서에 표시됩니다.
+- 특정 분기와 관련된 원장 항목을 찾으려면 드롭다운에서 해당 분기에 대한 지급 보고서를 선택합니다. 예를 들어 2015년 4~6월에 대한 원장 항목을 보려면 드롭다운 메뉴에서 해당 날짜 범위를 선택합니다.
+- 특정 분기와 관련된 지급 정보를 찾으려면 드롭다운에서 후속 분기에 대한 지급 보고서를 선택합니다. 예를 들어 2015년 4~6월에 대한 지급을 보려는 경우 2015년 7~9월에 대한 후속 지급 보고서에 해당 금액이 표시됩니다.
 
 ![readingpayoutreport][2]
 
@@ -58,12 +58,12 @@
 
 1. 지원 페이지로 이동합니다.
 2. **지급액**을 선택합니다.
-3. **Payout related inquiries**(지급액 관련 문의)를 선택합니다.
+3. **지급액 관련 문의**를 선택합니다.
 4. **요청 시작**을 클릭합니다.
 
-## 다음 단계: 기타 지원 쿼리
+## 다음 단계
 
-다음 문제의 경우 https://portal.azure.com에서 문제를 기록하세요.
+기타 지원 쿼리는 https://portal.azure.com에서 문제를 기록하세요.
 
 [1]: ./media/marketplace-publishing-report-payout/accessingpayoutreport.png
 [2]: ./media/marketplace-publishing-report-payout/readingpayoutreport.png
@@ -71,4 +71,4 @@
 [4]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [5]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

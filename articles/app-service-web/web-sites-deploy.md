@@ -26,7 +26,7 @@
 
 ##### 클라우드에 호스트된 소스 제어 시스템에서 배포
 
-* [Visual Studio Online을 사용한 지속적인 업데이트](#vso)
+* [Visual Studio Team Services를 사용한 지속적인 업데이트](#vsts)
 * [Git를 사용하는 리포지토리 웹 사이트](#git)
 * [Mercurial을 사용하는 리포지토리 웹 사이트](#mercurial)
 * [Dropbox에서 배포 자동화](#dropbox)
@@ -52,14 +52,14 @@
 
 다른 배포 옵션은 [Octopus 배포](http://en.wikipedia.org/wiki/Octopus_Deploy)와 같은 클라우드 기반 서비스를 사용하는 것입니다. 자세한 내용은 참조 [Azure 웹사이트에 ASP.NET 응용 프로그램 배포](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)를 참조하세요.
 
-##<a name="vso"></a>Visual Studio Online을 사용한 지속적인 업데이트
+##<a name="vso"></a>Visual Studio Team Services를 사용한 지속적인 업데이트
 
-[Visual Studio Online](http://www.visualstudio.com/)(이전의 Team Foundation Service)은 소스 제어와 팀 공동 작업을 위한 Microsoft 클라우드 기반 솔루션입니다. 서비스는 최대 5명의 개발자로 이루어진 팀에게 무료입니다. 앱 서비스에서 웹 앱에 지속적으로 전송할 수 있으며 리포지토리는 [Git 또는 TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) 중 하나를 사용할 수 있습니다.
+[Visual Studio Team Services](http://www.visualstudio.com/)(이전의 Team Foundation Service)는 소스 제어와 팀 공동 작업을 위한 Microsoft 클라우드 기반 솔루션입니다. 서비스는 최대 5명의 개발자로 이루어진 팀에게 무료입니다. 앱 서비스에서 웹 앱에 지속적으로 전송할 수 있으며 리포지토리는 [Git 또는 TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) 중 하나를 사용할 수 있습니다.
 
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
-* [Visual Studio Online 및 TFVC를 사용하여 Azure에 지속적으로 전송합니다.](../cloud-services-continuous-delivery-use-vso.md) TFVC를 사용하여 Visual Studio Online에서 웹 앱으로 지속적인 전송을 설정하는 방법을 보여주는 단계별 자습서입니다. TFVC는 분산된 소스 제어 옵션인 Git와 대조되는 VSO의 중앙 집중식 소스 제어 옵션입니다.
-* [Visual Studio Online 및 Git를 사용하여 Azure에 지속적으로 전송](../cloud-services-continuous-delivery-use-vso-git.md)(영문). 이 자습서는 이전 자습서와 비슷하지만 TFVC 대신 Git를 사용합니다.
+* [Visual Studio Team Services 및 TFVC를 사용하여 Azure에 지속적으로 업데이트](../cloud-services-continuous-delivery-use-vso.md) TFVC를 사용하여 Visual Studio Team Services에서 웹앱으로의 지속적인 업데이트를 설정하는 방법을 보여 주는 단계별 자습서입니다. TFVC는 분산된 소스 제어 옵션인 Git와 대조되는 VSO의 중앙 집중식 소스 제어 옵션입니다.
+* [Visual Studio Team Services 및 Git를 사용하여 Azure에 지속적으로 업데이트](../cloud-services-continuous-delivery-use-vso-git.md) 이 자습서는 이전 자습서와 비슷하지만 TFVC 대신 Git를 사용합니다.
 
 ##<a name="git"></a>Git를 사용하는 리포지토리 웹 사이트
 
@@ -79,7 +79,7 @@
 Mercurial을 사용하여 배포하는 방법에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [Git를 사용하여 소스 제어에서 웹 앱으로 게시합니다.](web-sites-publish-source-control.md) 이 자습서에서는 Git 리포지토리를 게시하는 방법을 설명하지만, CodePlex 또는 BitBucket에서 호스트되는 Mercurial 리포지토리에 대한 프로세스도 비슷합니다.
-* [Git, Mercurial 및 Dropbox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)(영문).
+* [Git, Mercurial 및 DropBox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)(영문).
 
 ##<a name="dropbox"></a>Dropbox에서 배포 자동화
 
@@ -180,7 +180,7 @@ Windows, Mac 또는 Linux 컴퓨터에서 명령줄을 사용하여 FTP를 사�
 
 ##<a name="webdeploy"></a>웹 배포 명령줄에서 배포
 
-[웹 배포](http://www.iis.net/downloads/microsoft/web-deploy)(영문)는 IIS에 배포하는 데 사용되는 Microsoft 소프트웨어로, 지능형 파일 동기화 기능을 제공할 뿐만 아니라 FTP 사용 시 자동화할 수 없는 다른 많은 배포 관련 작업을 수행하거나 조정할 수도 있습니다. 예를 들어 웹 배포는 웹 앱과 함께 새 데이터베이스나 데이터베이스 업데이트를 배포할 수 있습니다. 웹 배포는 변경된 파일만 지능적으로 복사할 수 있으므로 기존 사이트를 업데이트하는 데 필요한 시간을 최소화할 수 있습니다. Microsoft WebMatrix, Visual Studio, Visual Studio Online 및 Team Foundation Server는 웹 배포를 기본적으로 지원합니다. 하지만 명령줄에서 바로 웹 배포를 사용하여 배포를 자동화할 수도 있습니다. 웹 배포 명령은 매우 강력하지만, 학습하는 데 오래 걸릴 수 있습니다.
+[웹 배포](http://www.iis.net/downloads/microsoft/web-deploy)(영문)는 IIS에 배포하는 데 사용되는 Microsoft 소프트웨어로, 지능형 파일 동기화 기능을 제공할 뿐만 아니라 FTP 사용 시 자동화할 수 없는 다른 많은 배포 관련 작업을 수행하거나 조정할 수도 있습니다. 예를 들어 웹 배포는 웹 앱과 함께 새 데이터베이스나 데이터베이스 업데이트를 배포할 수 있습니다. 웹 배포는 변경된 파일만 지능적으로 복사할 수 있으므로 기존 사이트를 업데이트하는 데 필요한 시간을 최소화할 수 있습니다. Microsoft WebMatrix, Visual Studio, Visual Studio Team Services 및 Team Foundation Server는 웹 배포를 기본적으로 지원합니다. 하지만 명령줄에서 바로 웹 배포를 사용하여 배포를 자동화할 수도 있습니다. 웹 배포 명령은 매우 강력하지만, 학습하는 데 오래 걸릴 수 있습니다.
 
 자세한 내용은 다음 리소스를 참조하십시오.
 
@@ -205,4 +205,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

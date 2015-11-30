@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 트래픽 관리자란?
@@ -164,12 +164,12 @@ Windows PowerShell을 사용하여 트래픽 관리자 프로필을 만들고 �
 
 ## 다음 단계
 
-[클라우드 서비스](http://go.microsoft.com/fwlink/p/?LinkId=314074)
+[트래픽 관리자 라우팅 방법](traffic-manager-routing-methods.md)
 
-[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[트래픽 관리자 모니터링](traffic-manager-monitoring.md)
 
-[트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/p/?LinkId=313584)
+[프로필 만들기](traffic-manager-manage-profiles.md)
 
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

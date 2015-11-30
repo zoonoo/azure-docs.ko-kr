@@ -1,5 +1,5 @@
 <properties
-   pageTitle="서비스 패브릭 탐색기를 사용하여 클러스터 시각화"
+   pageTitle="서비스 패브릭 탐색기를 사용하여 클러스터 시각화 | Microsoft Azure"
    description="서비스 패브릭 탐색기는 Microsoft Azure 서비스 패브릭 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 유용한 GUI 도구입니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,55 +13,73 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/30/2015"
    ms.author="jesseb"/>
 
 # 서비스 패브릭 탐색기를 사용하여 클러스터 시각화
 
-서비스 패브릭 탐색기는 Microsoft Azure 서비스 패브릭 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 시각적 도구입니다. 서비스 패브릭 탐색기는 로컬 개발 클러스터와 Azure 클러스터 모두에 연결할 수 있습니다. 서비스 패브릭 PowerShell cmdlet에 대한 정보는 **다음 단계**에서 참조하십시오.
+서비스 패브릭 탐색기는 서비스 패브릭 클러스터에서 응용 프로그램 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다. 클러스터의 실행 여부와 관계 없이 항상 사용할 수 있도록 서비스 패브릭 탐색기가 클러스터 내에서 직접 호스트됩니다.
 
-> [AZURE.NOTE]Azure에서 서비스 패브릭 클러스터 만들기는 아직 제공되지 않습니다.
+## 서비스 패브릭 탐색기에 연결
 
-## 서비스 패브릭 탐색기 소개
+[개발 환경 준비](service-fabric-get-started.md)에 대한 지침을 따른 경우 http://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 서비스 패브릭 탐색기를 시작할 수 있습니다.
 
-[서비스 패브릭 개발 환경 설정](service-fabric-get-started.md)에 있는 지침을 따라 로컬 개발 환경이 설정되었는지 확인합니다.
+>[AZURE.NOTE]서비스 패브릭 탐색기에서 IE(Internet Explorer)를 사용하여 원격 클러스터를 관리하는 경우 일부 IE 설정을 구성해야 합니다. **도구 -> 호환성 보기 설정**으로 이동하고 **호환성 보기에서 인트라넷 사이트 표시**를 선택 취소하여 모든 정보가 올바르게 로드되도록 합니다.
 
-로컬 설치 경로(%Program Files%\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricExplorer\\ServiceFabricExplorer.exe)에서 서비스 패브릭 탐색기를 실행합니다. 도구가 있는 경우에는 자동으로 로컬 개발 클러스터에 연결합니다. 클러스터에 정보를 다음과 같이 표시합니다.
+## 서비스 패브릭 탐색기 레이아웃 이해
 
-- 클러스터에서 실행 중인 응용 프로그램
-- 클러스터의 노드에 대한 정보
-- 응용 프로그램 및 노드로부터 상태 이벤트
-- 클러스터 내 응용 프로그램의 로드
-- 응용 프로그램 업그레이드 상태에 대한 모니터링
+왼쪽의 트리를 사용하여 서비스 패브릭 탐색기를 탐색할 수 있습니다. 트리의 루트에서 클러스터 대시보드는 응용 프로그램 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다.
 
-![서비스 패브릭 클러스터 및 배포된 응용 프로그램의 시각적 표현][servicefabricexplorer]
+![서비스 패브릭 탐색기 클러스터 대시보드][sfx-cluster-dashboard]
 
-중요한 시각화 중 하나는 클러스터용 대시보드에 표시되는 클러스터 맵입니다(예: **Onebox/Local cluster** 클릭). 클러스터 맵은 업그레이드 도메인 및 장애 도메인 집합과 어떤 노드가 어떤 도메인에 매핑되는지를 보여줍니다. [서비스 패브릭의 기술 개요](service-fabric-technical-overview.md)를 참조하여 주요 서비스 패브릭 개념을 숙지하십시오.
+클러스터에는 두 개의 하위 트리가 포함되어 있습니다. 하나는 응용 프로그램용이고 다른 하나는 노드용입니다.
 
-![클러스터 맵은 각 노드가 속한 업그레이드 도메인과 오류 도메인을 표시합니다.][clustermap]
+### 응용 프로그램 및 서비스 보기
 
+응용 프로그램 보기를 통해 서비스 패브릭의 논리 계층인 응용 프로그램, 서비스, 파티션 및 복제를 탐색할 수 있습니다.
 
-## 응용 프로그램 및 서비스 보기
+아래 예제에서 응용 프로그램 **MyApp**은 두 개의 서비스, **MyStatefulService**와 **WebSvcService**로 구성되어 있습니다. **MyStatefulService**는 상태 저장이므로 한 개의 주 복제본과 두 개의 보조 복제본이 있는 파티션이 들어 있습니다. 이와 반대로 WebSvcService는 상태 비저장이며 단일 인스턴스가 들어 있습니다.
 
-서비스 패브릭 탐색기를 사용하여 클러스터에서 실행 중인 응용 프로그램을 탐색할 수 있습니다. **응용 프로그램 보기**를 확장하여 응용 프로그램, 서비스, 파티션 및 복제본에 대한 자세한 정보를 확인합니다.
+![서비스 패브릭 탐색기 응용 프로그램 보기][sfx-application-tree]
 
-아래 다이어그램은 **"fabric:/Stateful1Application"**이라는 이름의 응용 프로그램에 **"fabric:/Stateful1Application/MyFrontEnd"**라는 이름의 상태 비저장 서비스 1개와 **"fabric:/Stateful1Application/Stateful1"**이라는 이름의 상태 저장 서비스가 1개 있음을 보여줍니다. 상태 비저장 서비스에는 **Node.4**에서 실행 중인 1개의 복제본이 있는 파티션이 1개 있습니다. 상태 저장 서비스에는 몇 개의 노드에서 실행 중인 3개의 복제본이 각각 있는 2개의 파티션이 있습니다.
+트리의 각 수준에서 주 창은 항목에 대한 관련 정보를 표시합니다. 예를 들어 특정 서비스에 대한 상태 및 버전을 볼 수 있습니다.
 
-![서비스 패브릭 클러스터에서 실행 중인 응용 프로그램의 보기][applicationview]
+![서비스 패브릭 탐색기 기능 창][sfx-service-essentials]
 
-응용 프로그램, 서비스, 파티션 또는 복제본을 클릭하면 해당 엔터티에 대한 자세한 정보가 제공됩니다. 아래 다이어그램은 상태 저장 서비스의 주 복제본 하나에 대한 서비스 복제본 상태 대시보드를 표시합니다. 여기에는 해당 역할, 실행 중인 노드, 수신하는 주소, 디스크 상에서 파일의 위치 및 상태 이벤트가 포함됩니다.
+### 클러스터의 노드 보기
 
-![서비스 패브릭 복제본에 대한 자세한 정보][replicadetails]
+노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드에 대해 해당 노드에 배포된 코드를 가진 응용 프로그램을 검사할 수 있으며 더 구체적으로 현재 거기서 실행 중인 복제본을 검사할 수도 있습니다.
+
+## 서비스 패브릭 탐색기를 사용하여 작업 수행
+
+서비스 패브릭 탐색기는 클러스터 내에서 노드, 응용 프로그램 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.
+
+예를 들어 응용 프로그램 인스턴스를 삭제하려면 왼쪽 트리에서 응용 프로그램을 선택한 다음 작업 > 응용 프로그램 삭제를 선택합니다.
+
+![서비스 패브릭 탐색기에서 응용 프로그램 삭제][sfx-delete-application]
+
+많은 작업이 안전하지 않으므로 작업이 완료되기 전에 정말로 삭제할 것인지 묻는 메시지가 나타납니다.
+
+>[AZURE.NOTE]서비스 패브릭 탐색기를 사용하여 수행할 수 있는 모든 작업은 PowerShell 또는 REST API를 사용하여 수행할 수 있으므로 자동화를 사용하도록 설정할 수 있습니다.
+
 
 
 ## 원격 서비스 패브릭 클러스터에 연결
 
-원격 서비스 패브릭 클러스터를 보려면 **연결**을 클릭하여 **서비스 패브릭 클러스터에 연결** 대화 상자를 표시합니다. 클러스터에 **ServiceFabric 끝점**을 입력하고 **연결**을 클릭합니다. 서비스 패브릭 끝점은 일반적으로 포트 19000에서 수신되는 클러스터 서비스의 공개 이름입니다.
+서비스 패브릭 탐색기는 웹 기반이고 클러스터 내에서 실행되므로 클러스터의 끝점을 알고 있고 여기에 액세스할 수 있는 충분한 권한이 있는 한 모든 브라우저에서 액세스할 수 있습니다.
 
-![원격 서비스 패브릭 클러스터에 대한 연결 설정][connecttocluster]
+### 서비스 패브릭 탐색기에서 원격 클러스터의 끝점 검색
 
+서비스 패브릭 포털에서 클러스터 끝점을 검색할 수 있습니다. 지정된 클러스터를 위한 서비스 패브릭 탐색기에 도달하려면 19007 포트에서 해당 끝점에 연결하기만 하면 됩니다.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+http://&lt;your-cluster-endpoint&gt;:19007
+
+### 보안 클러스터에 연결
+
+연결하려면 인증서를 제공하도록 클라이언트에 요청하여 서비스 패브릭 클러스터에 대한 액세스를 제어할 수 있습니다.
+
+보안 클러스터에서 서비스 패브릭 탐색기에 연결하려는 경우 액세스 권한을 얻으려면 인증서를 제공하라는 메시지가 브라우저에 표시됩니다.
+
 ## 다음 단계
 
 - [테스트 용이성 개요](service-fabric-testability-overview.md).
@@ -74,5 +92,9 @@
 [connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

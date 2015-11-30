@@ -292,17 +292,17 @@ JavaScript 백 엔드 모바일 서비스에서 동적 스키마를 사용하는
 
 모바일 서비스 클라이언트를 사용하면 Azure 알림 허브로 푸시 알림을 등록할 수 있습니다. 등록할 때 플랫폼 특정 푸시 알림 서비스(PNS)에서 구하는 핸들을 가져옵니다. 그런 다음 등록을 만들 때 태그와 함께 이 값을 제공합니다. 다음 코드는 Windows 알림 서비스(WNS)를 통한 푸시 알림에 Windows 앱을 등록합니다.
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
 이 예제에서는 두 태그가 등록에 포함됩니다. Windows 앱에 대한 자세한 내용은 [앱에 푸시 알림 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)를 참조하세요.
 
@@ -310,6 +310,18 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 Xamarin 앱을 각각 A
 
 >[AZURE.NOTE]특정 등록 사용자에게 알림을 보내야 하는 경우, 등록하기 전에 인증을 요청한 다음 해당 사용자가 특정 태그로 등록하도록 인증되었는지 확인하는 것이 중요합니다. 예를들어, 사용자가 다른 사람의 사용자 ID인 태그로 등록하지 않았는지 확인해야 합니다. 자세한 내용은 [인증된 사용자에게 푸시 알림 보내기](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)를 참조하세요.
 
+##<a name="pull-notifications"></a>방법: Windows 앱에서 정기 알림 사용
+
+Windows는 라이브 타일을 업데이트하도록 정기 알림(끌어오기 알림)을 지원합니다. 정기 알림을 사용하도록 설정하면 Windows에서 사용자 지정 API 끝점에 주기적으로 액세스하여 시작 메뉴의 앱 타일을 업데이트합니다. 정기 알림을 사용하려면 타일별 형식으로 XML 데이터를 반환하는 [사용자 지정 API를 정의](mobile-services-javascript-backend-define-custom-api.md)해야 합니다. 자세한 내용은 [정기 알림](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx)을 참조하세요.
+
+다음 예제에서는 *tiles* 사용자 지정 끝점에서 타일 템플릿 데이터를 요청하는 정기 알림을 켭니다.
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    ); 
+
+데이터의 업데이트 빈도와 가장 일치하는 [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) 값을 선택합니다.
 
 ##<a name="optimisticconcurrency"></a>방법: 낙관적 동시성 사용
 
@@ -754,4 +766,4 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

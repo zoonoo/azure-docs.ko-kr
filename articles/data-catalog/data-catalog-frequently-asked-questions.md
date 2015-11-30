@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/30/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그에 대한 질문과 대답
@@ -172,4 +172,4 @@ Microsoft는 **Azure 데이터 카탈로그**에 더 많은 데이터 원본을 
 
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/30/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자를 사용하여 서비스 주체 인증
@@ -22,7 +22,7 @@
 
 사용자 이름 및 암호 또는 인증서를 사용하여 인증하는 방법을 보여줍니다.
 
-Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용할 수 있습니다. Azure PowerShell을 설치하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](./powershell-install-configure.md)을 참조하세요. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하세요.
+Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용할 수 있습니다. Azure PowerShell을 설치하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](./powershell-install-configure.md)을 참조하세요. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하세요. 포털을 사용하여 이러한 단계를 수행하는 방법에 대한 자세한 내용은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](resource-group-create-service-principal-portal.md)를 참조하세요.
 
 ## 개념
 1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스입니다. 자세한 내용은 [Azure Active Directory란](active-directory/active-directory-whatis.md)을 참조하세요.
@@ -88,7 +88,7 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
      현재 선택된 구독이 아닌 다른 구독에서 역할 할당을 만든 경우 **SubscriptoinId** 또는 **SubscriptionName** 매개 변수를 지정하여 다른 구독을 검색할 수 있습니다.
 
-5. **Get-Credential** 명령을 실행하여 자격 증명을 포함하는 새 **PSCredential** 개체를 만듭니다.
+5. PowerShell을 통해 서비스 주체로 로그인하려면 **Get-Credential** 명령을 실행하여 자격 증명을 포함하는 새 **PSCredential** 개체를 만듭니다.
 
         PS C:\> $creds = Get-Credential
 
@@ -98,10 +98,9 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
      사용자 이름의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 사용합니다. 암호의 경우 계정을 만들 때 지정한 암호를 사용합니다.
 
-6. **Add-AzureAccount** cmdlet에 입력한 자격 증명을 사용하여 서비스 사용자를 로그인합니다.
+     **Login-AzureRmAccount** cmdlet에 입력한 자격 증명을 사용하여 서비스 주체를 로그인합니다.
 
         PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
-        
         Environment           : AzureCloud
         Account               : {guid}
         Tenant                : {guid}
@@ -110,9 +109,9 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
      이제 사용자는 작성한 AAD 응용 프로그램에 대한 서비스 사용자로 인증됩니다.
 
-7. 응용 프로그램에서 인증하려면 다음 .NET 코드를 포함합니다. 토큰을 검색한 후 구독에서 리소스에 액세스할 수 있습니다.
+6. 응용 프로그램에서 인증하려면 다음 .NET 코드를 포함합니다. 토큰을 검색한 후 구독에서 리소스에 액세스할 수 있습니다.
 
-        public static string GetAToken()
+        public static string GetAccessToken()
         {
           var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
           var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
@@ -289,14 +288,28 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
     이제 사용자는 작성한 AAD 응용 프로그램에 대한 서비스 사용자로 인증됩니다.
 
+## 인증서로 서비스 주체 인증 - Azure CLI
+
+이 섹션에서는 인증에 인증서를 사용하는 Azure Active Directory 응용 프로그램에 대한 서비스 주체를 만드는 단계를 수행합니다. 이 항목에서는 인증서가 발급되었으며, [OpenSSL](http://www.openssl.org/)을 설치했다고 가정합니다.
+
+1. 다음을 사용하여 **.pem** 파일을 만듭니다.
+
+        openssl.exe pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
+
+2. **.pem** 파일을 열고 인증서 데이터를 복사합니다.
+
+3. **azure ad app create** 명령을 실행하여 새 AAD 응용 프로그램을 만들고, 이전 단계에서 키 값으로 복사한 인증서 데이터를 제공합니다.
+
+        azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
+
 ## 다음 단계
   
 - 역할 기반 액세스 제어에 대한 개요는 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.  
-- 서비스 주체로 포털 사용에 대한 자세한 내용은 [Azure 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)를 참조하세요.  
+- 서비스 주체로 포털 사용에 대한 자세한 내용은 [Azure 포털을 사용하여 새 Azure 서비스 주체 만들기](./resource-group-create-service-principal-portal.md)를 참조하세요.  
 - Azure 리소스 관리자에서 보안 구현에 대한 지침은 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

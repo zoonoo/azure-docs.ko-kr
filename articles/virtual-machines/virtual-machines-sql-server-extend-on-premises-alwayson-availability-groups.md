@@ -1,28 +1,25 @@
 <properties 
-   pageTitle="온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장 | Microsoft Azure"
-   description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, SSMS(SQL Server Management Studio)에서 복제본 추가 마법사를 사용하여 Azure에 AlwaysOn 가용성 그룹 복제본을 추가하는 방법을 설명합니다."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"
-   tags="azure-service-management"/>
+	pageTitle="온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장 | Microsoft Azure"
+	description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, SSMS(SQL Server Management Studio)에서 복제본 추가 마법사를 사용하여 Azure에 AlwaysOn 가용성 그룹 복제본을 추가하는 방법을 설명합니다."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"
+	tags="azure-service-management"/>
 
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # 온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장
 
 AlwaysOn 가용성 그룹은 보조 복제본 추가를 통해 데이터베이스 그룹에 고가용성을 제공합니다. 이러한 복제본은 오류 발생 시의 데이터베이스 장애 조치를 허용합니다. 또한 읽기 워크로드 또는 백업 작업의 부하를 줄이는 데 사용할 수 있습니다.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
- 
 
 SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미스 가용성 그룹에 복제본 형태로 추가하면 온-프레미스 가용성 그룹을 Microsoft Azure로 확장할 수 있습니다.
 
@@ -33,6 +30,8 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 - 기존 AlwaysOn 가용성 그룹 온-프레미스. 가용성 그룹에 대한 자세한 내용은 [AlwaysOn 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
 - Azure 가상 네트워크와 온-프레미스 네트워크 간의 연결. 이 가상 네트워크 만들기에 대한 자세한 내용은 [관리 포털에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 ## Azure Replica Wizard 추가
 
@@ -104,4 +103,4 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

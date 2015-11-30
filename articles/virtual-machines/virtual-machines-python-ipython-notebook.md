@@ -3,7 +3,7 @@
 	description="Azure의 리소스 관리자 배포 모델을 사용하여 만든 Linux 가상 컴퓨터에 Jupyter/IPython Notebook을 배포하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="crwilcox"
 	manager="wpickett"
 	editor=""
 	tags=“azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/20/2015"
-	ms.author="huvalo"/>
+	ms.date="11/10/2015"
+	ms.author="crwilcox"/>
 
 # Azure의 Jupyter Notebook
 
@@ -41,7 +41,7 @@ Azure는 [Jupyter를 사용하여 즉시 시작](http://blogs.technet.com/b/mach
 
 [여기][portal-vm-linux]에 나와 있는 지침에 따라 *Ubuntu* 배포의 가상 컴퓨터를 만듭니다. 이 자습서에서는 Ubuntu Server 14.04 LTS를 사용합니다. 사용자 이름은 *azureuser*라고 가정합니다.
 
-가상 컴퓨터가 배포한 후 네트워크 보안 그룹의 보안 규칙을 열어야 합니다. 포털에서 **네트워크 보안 그룹**으로 이동하고 VM에 해당하는 보안 그룹에 대한 탭을 엽니다. 다음 설정을 사용하여 인바운드 보안 규칙을 추가해야 합니다. 프로토콜에 대한 **TCP**, 소스(공용) 포트에 대한***** 및 대상(개인) 포트에 대한 **9999**
+가상 컴퓨터가 배포한 후 네트워크 보안 그룹의 보안 규칙을 열어야 합니다. Azure Preview 포털에서 **네트워크 보안 그룹**으로 이동하고 VM에 해당하는 보안 그룹에 대한 탭을 엽니다. 다음 설정을 사용하여 인바운드 보안 규칙을 추가해야 합니다. 프로토콜에 대한 **TCP**, 소스(공용) 포트에 대한***** 및 대상(개인) 포트에 대한 **9999**
 
 ![스크린샷](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
@@ -199,4 +199,4 @@ Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [리포지토리]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

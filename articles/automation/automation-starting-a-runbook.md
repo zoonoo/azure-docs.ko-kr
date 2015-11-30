@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/28/2015"
+   ms.date="11/13/2015"
    ms.author="bwren;sngun"/>
 
 # Azure 자동화에서 Runbook 시작
@@ -93,7 +93,7 @@
   </td>
  </tr>
  <tr>
-  <td><a href="http://msdn.microsoft.com/library/azure/dn857355.aspx">다른 Runbook에서</a></td>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-child-runbooks/">다른 Runbook에서</a></td>
   <td>
    <ul>
     <li>Runbook을 다른 Runbook의 활동으로 사용</li>
@@ -150,7 +150,7 @@ Runbook에 매개 변수가 필요한 경우 [해시 테이블](http://technet.m
 
 ## Runbook 매개 변수
 
-Azure 관리 포털 또는 Windows PowerShell을 사용하여 Runbook을 시작한 경우 Azure 자동화 웹 서비스를 통해 지침이 전송됩니다. 이 서비스는 복잡한 데이터 형식을 가진 매개 변수를 지원하지 않습니다. 복잡한 매개 변수의 값을 제공해야 하는 경우 [다른 Runbook에서 Runbook 시작](http://msdn.microsoft.com/library/azure/dn857355.aspx)에 설명된 대로 다른 Runbook에서 인라인으로 호출해야 합니다.
+Azure 관리 포털 또는 Windows PowerShell을 사용하여 Runbook을 시작한 경우 Azure 자동화 웹 서비스를 통해 지침이 전송됩니다. 이 서비스는 복잡한 데이터 형식을 가진 매개 변수를 지원하지 않습니다. 복잡한 매개 변수의 값을 제공해야 하는 경우 [Azure 자동화에서 자식 Runbook](automation-child-runbooks.md)에 설명된 대로 다른 Runbook에서 인라인으로 호출해야 합니다.
 
 Azure 자동화 웹 서비스는 다음 섹션에 설명된 대로 특정 데이터 형식을 사용하는 매개 변수에 대해 특별한 기능을 제공합니다.
 
@@ -216,7 +216,7 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 ### 자격 증명
 
-매개 변수의 데이터 형식이 **PSCredential**인 경우 Azure 자동화 [자격 증명 자산](http://msdn.microsoft.com/library/azure/dn940015.aspx)의 이름을 제공할 수 있습니다. Runbook에서 지정한 이름의 자격 증명을 검색합니다.
+매개 변수의 데이터 형식이 **PSCredential**인 경우 Azure 자동화 [자격 증명 자산](automation-credentials.md)의 이름을 제공할 수 있습니다. Runbook에서 지정한 이름의 자격 증명을 검색합니다.
 
 예를 들어 다음 테스트 Runbook에서는 credential이라는 매개 변수를 허용합니다.
 
@@ -238,6 +238,6 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 ## 관련된 문서
 
-- [다른 Runbook에서 Runbook 시작](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
+- [Azure 자동화의 자식 runbook](automation-child-runbooks.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

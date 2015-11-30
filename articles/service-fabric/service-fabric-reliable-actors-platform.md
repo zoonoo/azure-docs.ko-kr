@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="abhisram"/>
 
 # 신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
@@ -97,10 +97,6 @@ Visual Studio를 사용하여 응용 프로그램 패키지를 만들면 빌드 
 
 위 목록에서는 응용 프로그램 패키지 내 서비스 패키지 내에 있는 코드 패키지에 포함된 VoicemailBox 행위자 가져오기 작업을 구현하는 어셈블리를 보여줍니다.
 
-Visual Studio 솔루션에는 응용 프로그램을 배포하고 클러스터에서 응용 프로그램을 제거하는 데 사용되는 PowerShell 스크립트가 포함됩니다. 아래 스크린샷에서 해당 스크립트에는 원이 그려져 있습니다.
-
-![][2]
-
 또한 응용 프로그램의 후속 관리(즉, 업그레이드 및 최종 삭제)는 서비스 패브릭 응용 프로그램 관리 메커니즘을 사용하여 수행됩니다. 자세한 내용은 [응용 프로그램 모델](service-fabric-application-model.md), [응용 프로그램 배포 및 제거](service-fabric-deploy-remove-applications.md), [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에 대한 항목을 참조하세요.
 
 ## 행위자 서비스에 대한 확장성
@@ -109,7 +105,7 @@ Visual Studio 솔루션에는 응용 프로그램을 배포하고 클러스터�
 > [AZURE.NOTE]상태 비저장 행위자 서비스는 [인스턴스](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) 수로 1이 필요합니다. 파티션 내에서 상태 비저장 행위자 서비스에 대해 1을 초과하는 인스턴스는 지원되지 않습니다. 따라서, 상태 비저장 행위자 서비스는 확장성을 달성하기 위해 인스턴스 수를 증가하는 옵션을 두지 않습니다. [확장성 문서](service-fabric-concepts-scalability.md)에 설명되어 있는 확장성 옵션을 반드시 사용해야 합니다.
 
 ## 행위자에 대한 서비스 패브릭 파티션 개념
-행위자의 행위자 ID는 행위자 서비스의 파티션에 매핑됩니다. 행위자는 해당 행위자 ID가 매핑되는 파티션 내에 생성됩니다. 행위자를 만들 때 행위자 런타임은 행위자를 만든 파티션을 나타내는 [EventSource 이벤트](service-fabric-reliable-actors-diagnostics.md#eventsource-events)를 기록합니다. 아래에는 ID `-5349766044453424161`인 행위자가 서비스 `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, 응용 프로그램 `fabric:/VoicemailBoxAdvancedApplication`의 파티션 `0583c745-1bed-43b2-9545-29d7e3448156` 내에 만들어졌음을 나타내는 이벤트의 예가 나와 있습니다.
+행위자의 행위자 ID는 행위자 서비스의 파티션에 매핑됩니다. 행위자는 해당 행위자 ID가 매핑되는 파티션 내에 생성됩니다. 행위자를 만들 때 행위자 런타임은 행위자를 만든 파티션을 나타내는 [EventSource 이벤트](service-fabric-reliable-actors-diagnostics.md#eventsource-events)를 기록합니다. 아래에는 ID `-5349766044453424161`인 행위자가 서비스 `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, 응용 프로그램 `fabric:/VoicemailBoxAdvancedApplication`의 파티션 `b6afef61-be9a-4492-8358-8f473e5d2487` 내에 만들어졌음을 나타내는 이벤트의 예가 나와 있습니다.
 
     {
       "Timestamp": "2015-04-26T10:12:20.2485941-07:00",
@@ -121,14 +117,14 @@ Visual Studio 솔루션에는 응용 프로그램을 배포하고 클러스터�
         "actorType": "Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor",
         "actorId": "-5349766044453424161",
         "isStateful": "True",
-        "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "0583c745-1bed-43b2-9545-29d7e3448156",
+        "replicaOrInstanceId": "130906628008120392",
+        "partitionId": "b6afef61-be9a-4492-8358-8f473e5d2487",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
     }
 
-아래 이벤트에 나온 대로 ID가 `-4952641569324299627`인 또 다른 행위자가 동일한 서비스의 다른 파티션 `c146fe53-16d7-4d96-bac6-ef54613808ff` 내에 만들어졌습니다.
+아래 이벤트에 나온 대로 ID가 `-4952641569324299627`인 또 다른 행위자가 동일한 서비스의 다른 파티션 `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` 내에 만들어졌습니다.
 
     {
       "Timestamp": "2015-04-26T15:06:56.93882-07:00",
@@ -141,7 +137,7 @@ Visual Studio 솔루션에는 응용 프로그램을 배포하고 클러스터�
         "actorId": "-4952641569324299627",
         "isStateful": "True",
         "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "c146fe53-16d7-4d96-bac6-ef54613808ff",
+        "partitionId": "5405d449-2da6-4d9a-ad75-0ec7d65d1a2a",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
@@ -149,27 +145,30 @@ Visual Studio 솔루션에는 응용 프로그램을 배포하고 클러스터�
 
 *참고:* 위 이벤트의 일부 필드는 간단한 설명을 위해 생략되었습니다.
 
-파티션 ID는 해당 파티션에 대한 다른 정보를 얻는 데 사용할 수 있습니다. 예를 들어, [서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md) 도구는 파티션 및 해당 파티션에 속한 서비스와 응용 프로그램에 대한 정보를 보는 데 사용할 수 있습니다. 아래 스크린샷에서는 위의 예제에서 ID가 `-4952641569324299627`인 행위자가 포함된 파티션 `c146fe53-16d7-4d96-bac6-ef54613808ff`에 대한 정보를 보여줍니다.
+파티션 ID는 해당 파티션에 대한 다른 정보를 얻는 데 사용할 수 있습니다. 예를 들어, [서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md) 도구는 파티션 및 해당 파티션에 속한 서비스와 응용 프로그램에 대한 정보를 보는 데 사용할 수 있습니다. 아래 스크린샷에서는 위의 예제에서 ID가 `-4952641569324299627`인 행위자가 포함된 파티션 `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`에 대한 정보를 보여줍니다.
 
 ![][3]
 
 행위자는 행위자 형식이 파생된 기본 클래스의 `Host.ActivationContext` 및 `Host.StatelessServiceInitialization` 또는 `Host.StatefulServiceInitializationParameters` 멤버를 통해 프로그래밍 방식으로 파티션 ID, 서비스 이름, 응용 프로그램 이름 및 기타 서비스 패브릭 플랫폼 관련 정보를 얻을 수 있습니다. 다음 코드 조각에 예제가 나와 있습니다.
 
 ```csharp
-public void ActorMessage<TState>(Actor<TState> actor, string message, params object[] args)
+public void ActorMessage(StatefulActorBase actor, string message, params object[] args)
 {
-    string finalMessage = string.Format(message, args);
-    this.ActorMessage(
-        actor.GetType().ToString(),
-        actor.Id.ToString(),
-        actor.Host.ActivationContext.ApplicationTypeName,
-        actor.Host.ActivationContext.ApplicationName,
-        actor.Host.StatefulServiceInitializationParameters.ServiceTypeName,
-        actor.Host.StatefulServiceInitializationParameters.ServiceName.ToString(),
-        actor.Host.StatefulServiceInitializationParameters.PartitionId,
-        actor.Host.StatefulServiceInitializationParameters.ReplicaId,
-        FabricRuntime.GetNodeContext().NodeName,
-        finalMessage);
+    if (this.IsEnabled())
+    {
+        string finalMessage = string.Format(message, args);
+        ActorMessage(
+            actor.GetType().ToString(),
+            actor.Id.ToString(),
+            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationTypeName,
+            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationName,
+            actor.ActorService.ServiceInitializationParameters.ServiceTypeName,
+            actor.ActorService.ServiceInitializationParameters.ServiceName.ToString(),
+            actor.ActorService.ServiceInitializationParameters.PartitionId,
+            actor.ActorService.ServiceInitializationParameters.ReplicaId,
+            FabricRuntime.GetNodeContext().NodeName,
+            finalMessage);
+    }
 }
 ```
 
@@ -204,7 +203,7 @@ public void ActorMessage<TState>(Actor<TState> actor, string message, params obj
 
 > [AZURE.TIP]패브릭 행위자 런타임에서는 일부 [상태 저장 행위자 복제본 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
 
-[이전에 나온 VoiceMailBoxActor 예](#service-fabric-partition-concepts-for-actors)에서 ID가 `-4952641569324299627`인 행위자를 파티션 `c146fe53-16d7-4d96-bac6-ef54613808ff` 내에서 만들었습니다. 해당 예제에서 EventSource 이벤트는 행위자가 해당 파티션의 복제본 `130745418574851853`에 만들어졌음을 나타냅니다. 이 복제본은 행위자를 만들었을 당시 해당 파티션의 주 복제본이었습니다. 아래의 서비스 패브릭 탐색기 스크린샷에서 이를 확인할 수 있습니다.
+[이전에 나온 VoiceMailBoxActor 예](#service-fabric-partition-concepts-for-actors)에서 ID가 `-4952641569324299627`인 행위자를 파티션 `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` 내에서 만들었습니다. 해당 예제에서 EventSource 이벤트는 행위자가 해당 파티션의 복제본 `130745418574851853`에 만들어졌음을 나타냅니다. 이 복제본은 행위자를 만들었을 당시 해당 파티션의 주 복제본이었습니다. 아래의 서비스 패브릭 탐색기 스크린샷에서 이를 확인할 수 있습니다.
 
 ![][4]
 
@@ -225,7 +224,7 @@ public void ActorMessage<TState>(Actor<TState> actor, string message, params obj
 
 ```csharp
 [VolatileActorStateProvider]
-public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+public class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -243,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

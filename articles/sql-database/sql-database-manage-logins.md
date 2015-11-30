@@ -79,9 +79,9 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 #### 새 로그인 사용
 
-만든 로그인을 사용하여 Microsoft Azure SQL 데이터베이스에 연결하기 위해 먼저 ``CREATE USER`` 명령을 사용하여 각 로그인 데이터베이스 수준의 권한을 부여해야 합니다. 자세한 내용은 [로그인에 데이터베이스 수준 사용 권한 부여](https://msdn.microsoft.com/library/ee336235.aspx#DatabasePerms)를 참조하세요.
+만든 로그인을 사용하여 Microsoft Azure SQL 데이터베이스에 연결하기 위해 먼저 ``CREATE USER`` 명령을 사용하여 각 로그인 데이터베이스 수준의 권한을 부여해야 합니다. 자세한 내용은 아래의 **로그인에 데이터베이스 액세스 권한 부여** 섹션을 참조하세요.
 
-일부 도구는 TDS(Tabular Data Stream)를 다르게 구현하기 때문에 ``<login>@<server>`` 표기법을 사용하여 연결 문자열의 로그인에 Azure SQL 데이터베이스 서버 이름을 추가해야할 수 있습니다. 이러한 경우 ``@`` 기호가 있는 로그인 및 Azure SQL 데이터베이스 서버 이름을 분리합니다. 예를 들어 로그인 이름 **login1**이고 Azure SQL 데이터베이스 서버의 정규화된 이름이 **servername.database. windows.net**인 경우 연결 문자열의 사용자 이름 매개 변수는 * ***login1@servername**여야 합니다. 제한 사항은 로그인 이름으로 선택할 수 있는 텍스트를 제한합니다. 자세한 내용은 [로그인 만들기(Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx)를 참조하세요.
+일부 도구는 TDS(Tabular Data Stream)를 다르게 구현하기 때문에 ``<login>@<server>`` 표기법을 사용하여 연결 문자열의 로그인에 Azure SQL 데이터베이스 서버 이름을 추가해야 할 수 있습니다. 이러한 경우 ``@`` 기호가 있는 로그인 및 Azure SQL 데이터베이스 서버 이름을 분리합니다. 예를 들어 로그인 이름 **login1**이고 Azure SQL 데이터베이스 서버의 정규화된 이름이 **servername.database. windows.net**인 경우 연결 문자열의 사용자 이름 매개 변수는 * ***login1@servername**여야 합니다. 제한 사항은 로그인 이름으로 선택할 수 있는 텍스트를 제한합니다. 자세한 내용은 [로그인 만들기(Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx)를 참조하세요.
 
 ## 로그인에 서버 수준 권한을 부여합니다.
 
@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md) [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

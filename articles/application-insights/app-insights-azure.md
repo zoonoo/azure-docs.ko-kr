@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
 
 #  Microsoft Azure 앱용 Application Insights
@@ -26,9 +26,9 @@
 
 어떤 유형의 앱이 있습니까?
 
-* [Azure 웹앱](insights-perf-analytics.md)
+* [Azure 웹앱](app-insights-asp-net.md)
 * [Azure 클라우드 서비스 앱 - 웹 및 작업자 역할](app-insights-cloudservices.md)
-* [Azure VM의 IIS에 있는 웹 앱](../insights-perf-analytics.md)
+* [Azure VM의 IIS에 있는 웹 앱](../app-insights-asp-net.md)
 * [Azure 외부 응용 프로그램](app-insights-overview.md)
 
 
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

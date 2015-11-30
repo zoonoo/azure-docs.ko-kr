@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="11/13/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
@@ -213,6 +213,12 @@
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## Visual Studio를 사용하여 배포
+
+Visual Studio를 사용하여 리소스 그룹 프로젝트를 만들고 사용자 인터페이스를 통해 Azure에 배포할 수 있습니다. 프로젝트에 포함할 리소스 유형을 선택하면 해당 리소스가 리소스 관리자 템플릿에 자동으로 추가됩니다. 또한 프로젝트에서는 템플릿을 배포할 수 있는 PowerShell 스크립트를 제공합니다.
+
+Visual Studio를 리소스 그룹과 함께 사용하는 방법은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
+
 ## 미리 보기 포털로 배포
 
 어떤 혜택이 있을까요? Azure 리소스 관리자 템플릿은 [Preview 포털](https://portal.azure.com/)을 통해 만든 모든 응용 프로그램을 지원합니다. 포털을 통해 가상 컴퓨터, 가상 네트워크, 저장소 계정, 앱 서비스 또는 데이터베이스를 만들기만 하면 추가적인 작업 없이도 Azure 리소스 관리자의 혜택을 만끽할 수 있습니다. **새로 만들기** 아이콘을 선택하기만 하면 Azure 리소스 관리자를 통해 응용 프로그램을 배포하는 과정이 진행됩니다.
@@ -247,10 +253,10 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 ## 다음 단계
 - .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](arm-template-deployment.md)를 참조하세요.
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
-- 다른 환경에 솔루션을 배포하는 방법에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments-preview-portal.md)을 참조하세요.
+- 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments-preview-portal.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

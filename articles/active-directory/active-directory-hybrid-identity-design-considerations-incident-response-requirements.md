@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 인시던트 대응 요구 사항 확인 | Microsoft Azure Requirements"
+	pageTitle="Azure Active Directory 하이브리드 ID 설계 고려 사항 - 인시던트 대응 요구 사항 확인 | Microsoft Azure Requirements"
 	description="IT에서 활용할 수 있는 하이브리드 ID 솔루션에 대한 모니터링 및 보고 기능을 확인하여 잠재적인 위협을 식별하고 완화하는 작업을 수행합니다."
 	documentationCenter=""
 	services="active-directory"
@@ -60,6 +60,6 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -3,7 +3,7 @@
 
 >[AZURE.NOTE]클라이언트 관리 인증 또는 서비스 관리 인증을 사용하는지에 관계없이 모바일 서비스에서 발급된 토큰을 캐시할 수 있습니다. 이 자습서에서는 서비스 관리 인증을 사용합니다.
 
-1. MainPage.xaml.cs 프로젝트 파일에서 다음 **using** 문을 추가합니다.
+1. MainPage.cs 프로젝트 파일에서 다음 **using** 문을 추가합니다.
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
@@ -91,4 +91,4 @@
 
 	첫 번째 시작에서는 공급자를 사용한 로그인이 다시 필요합니다. 그러나 두 번째 다시 시작에서는 캐시된 자격 증명이 사용되고 로그인이 무시됩니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

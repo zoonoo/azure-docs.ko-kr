@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@
 
 
 - [Azure SQL 데이터베이스 프로그래밍 방식으로 연결 하기 위한 지침](http://msdn.microsoft.com/library/azure/ee336282.aspx) -다음 사항을 다룹니다.
- - [포트 및 방화벽](sql-database-configure-firewall-settings.md/)
+ - [포트 및 방화벽](sql-database-configure-firewall-settings.md)
  - 연결 문자열
-- [Azure SQL 데이터베이스 리소스 관리](https://msdn.microsoft.com/library/azure/dn338083.aspx) -다음 사항을 다룹니다.
+- [Azure SQL 데이터베이스 리소스 관리](http://msdn.microsoft.com/library/azure/dn338083.aspx) - 다음 사항을 다룹니다.
  - 리소스 관리
  - 제한 적용
  - 제한
@@ -103,8 +103,7 @@ SQL 데이터베이스에 사용자로 사용자를 추가할 때 옵션이 있�
 ### V12에서 1433 이외의 포트
 
 
-Azure SQL 데이터베이스 V12에 대한 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 <br/>
-[ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
+Azure SQL 데이터베이스 V12에 대한 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 <br/> [ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
 
 다음 섹션에서는 재시도 논리와 일시적인 오류 처리에 대해 더 설명합니다.
@@ -143,9 +142,7 @@ SQL 데이터베이스에서 오류가 발생하면 [SqlException](http://msdn.m
  - 예를 들어 다음과 유사한 오류 번호 40613이 발생한 경우 다시 시도합니다.<br/>*'theserver' 서버의 'mydatabase' 데이터베이스를 현재 사용할 수 없습니다.*
 
 
-자세한 내용은 다음을 참조하세요.
-- [Azure SQL 데이터베이스 개발: 방법 도움말 항목](http://msdn.microsoft.com/library/azure/ee621787.aspx)
-- [Azure SQL 데이터베이스에 대한 연결 문제 해결](http://support.microsoft.com/kb/2980233/)
+자세한 내용은 다음을 참조하세요. - [Azure SQL 데이터베이스 개발: 방법 도움말 항목](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Azure SQL 데이터베이스에 대한 연결 문제 해결](http://support.microsoft.com/kb/2980233/)
 
 
 <a id="e-technologies" name="e-technologies"></a>
@@ -172,4 +169,4 @@ Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한
 
 - [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

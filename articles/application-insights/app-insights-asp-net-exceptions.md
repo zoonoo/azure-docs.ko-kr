@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights를 사용하여 ASP.NET 앱의 실패 및 예외 진단" 
-	description="요청 원격 분석과 함께 예외를 캡처하여 매력적인 진단 환경을 가져오도록 앱을 구성하세요." 
+	description="요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처합니다." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,10 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# Application Insights를 사용하여 ASP.NET 앱의 실패 및 예외 진단  
+
+
+# Application Insights 설정: 예외 진단
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 [Visual Studio Application Insights][start]로 응용 프로그램을 모니터링하면 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
 
@@ -448,4 +452,4 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

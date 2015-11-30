@@ -1,24 +1,23 @@
 1. 프로젝트 파일 mainpage.xaml.cs를 열고 MainPage 클래스에 다음 코드 조각을 추가합니다.
 	
         private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
+        private async Task Authenticate()
         {
             while (user == null)
             {
                 string message;
                 try
                 {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    message =
-                        string.Format("You are now logged in - {0}", user.UserId);
+                    user = await App.MobileServiceDotNetClient.LoginAsync(MobileServiceAuthenticationProvider.Twitter);
+                    message = string.Format("You are now logged in - {0}", user.UserId);
                 }
                 catch (InvalidOperationException)
                 {
                     message = "You must log in. Login Required";
                 }
 
-                MessageBox.Show(message);
+                var dialog = new MessageDialog(message);
+                await dialog.ShowAsync();
             }
         }
 
@@ -51,4 +50,4 @@
 
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

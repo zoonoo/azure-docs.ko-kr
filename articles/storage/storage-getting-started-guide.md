@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/12/2015" 
 	ms.author="tamram;selcint"/>
 
 # 5분 만에 Azure 저장소 시작 
 
-Azure 저장소에 대한 개발을 쉽게 시작할 수 있습니다. 이 자습서에서는 Azure 저장소 응용 프로그램을 신속하게 시작 및 실행하는 방법을 보여 줍니다. Azure 저장소를 쉽게 파악할 수 있는 두 시나리오를 선보입니다.
+## 개요
 
-- [Azure 저장소 에뮬레이터에 대해 로컬로 첫 번째 Azure 저장소 응용 프로그램 실행](#run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator)
-- [클라우드의 Azure 저장소 서비스에 대해 첫 번째 Azure 저장소 응용 프로그램 실행](#run-your-first-azure-storage-application-against-azure-storage-in-the-cloud)
+Azure SDK에는 Microsoft Visual Studio에서 Azure 저장소를 사용할 수 있도록 빠른 시작 템플릿이 포함되어 있습니다. 이 경우
+
+Azure 저장소에 대한 개발을 쉽게 시작할 수 있습니다. 이 자습서에서는 Azure 저장소 응용 프로그램을 신속하게 시작 및 실행하는 방법을 보여 줍니다. Azure 저장소를 쉽게 파악할 수 있는 두 시나리오를 선보입니다.
 
 코드를 살펴보기 전에 Azure 저장소에 대해 자세히 알아보려면 [다음 단계](#next-steps)를 참조하세요.
 
@@ -107,4 +108,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하세�
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

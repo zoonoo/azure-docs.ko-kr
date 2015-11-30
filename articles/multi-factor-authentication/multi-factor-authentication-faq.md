@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
@@ -125,12 +125,6 @@ Azure Multi-Factor Authentication 서비스는 SMS 집계를 통해 문자 메�
 
 미국 및 캐나다 같은 일부 국가에서는 좀 더 확실한 문자 메시지 확인 기능이 보장됩니다. Azure Multi-Factor Authentication을 사용할 때 문자 메시지가 안정적으로 수신되지 않는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 선택하는 것이 좋습니다. 모바일 앱 알림은 셀룰러 및 Wi-Fi 연결 둘 다에서 수신될 수 있고 장치에서 신호가 발생하지 않더라도 모바일 앱 암호가 표시되므로 모바일 앱이 더 권장됩니다. [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) 장치의 경우 Azure Authenticator 앱을 사용할 수 있습니다.
 
-**Q: Azure MFA 서버에 하드웨어 토큰을 사용할 수 있나요?**
-
-Azure MFA 서버를 사용할 경우 타사 OATH TOTP 토큰을 가져와 MFA에 사용할 수 있습니다. 현재 Gemalto가 토큰에 대해 생성한 구형 PSKC 형식의 타사 OATH TOTP 토큰과, CSV 형식의 토큰에 대한 가져오기를 지원합니다. CSV 형식의 토큰을 가져올 때는 해당 CSV 파일에 일련 번호, Base32 형식의 암호 키, 시간 간격(일반적으로 30초)이 포함되어 있어야 합니다.
-
-따라서, ActiveIdentity 토큰이 OATH TOTP 토큰이고 Azure MFA 서버로 가져올 수 있는 CSV 파일로 암호 키 파일을 가져올 수 있다면 해당 토큰을 사용할 수 있습니다. OATH 토큰은 클라이언트 시스템이 액세스 질문 응답을 처리할 수 있을 때 RADIUS와 함께, 그리고 IIS 양식 기반 인증을 통해 AD FS에 사용할 수 잇습니다.
-
 
 ## 오류
 
@@ -151,4 +145,4 @@ Azure MFA 서버를 사용할 경우 타사 OATH TOTP 토큰을 가져와 MFA에
 
 이 문제를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능 제공](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1))을 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

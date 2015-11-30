@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 액세스 제어 요구 사항 확인 | Microsoft Azure"
+	pageTitle="Azure Active Directory 하이브리드 ID 설계 고려 사항 - 액세스 제어 요구 사항 확인 | Microsoft Azure"
 	description="하이브리드 환경에서 ID의 기본 요소 및 사용자의 리소스에 대한 액세스 요구 사항 식별에 대해 설명합니다."
 	documentationCenter=""
 	services="active-directory"
@@ -67,6 +67,6 @@
 [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

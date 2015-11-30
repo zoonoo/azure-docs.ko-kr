@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/16/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -44,6 +44,8 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 처음 암호 동기화 기능을 실행하면 온-프레미스 Active Directory부터 Azure Active Directory까지의 모든 범위 내의 사용자 암호의 초기 동기화를 수행합니다. 클라우드에 동기화된 암호를 갖게될 사용자의 집합을 명시적으로 정의할 수 없습니다. 온-프레미스 사용자가 암호를 변경한 이후에, 암호 동기화 기능은 짧은 시간 동안 가장 자주 변경된 암호를 검색하고 동기화합니다. 암호 동기화 기능은 사용자 암호 동기화가 실패할 경우 자동으로 다시 시도합니다. 암호를 동기화하는 동안 오류가 발생하면 이벤트 뷰어에 오류가 기록됩니다.
 
 암호 동기화는 현재 로그온한 사용자에게 아무런 영향도 미치지 않습니다. 클라우드 서비스에 로그인한 사용자가 온-프레미스 암호를 바꿔도, 클라우드 서비스 세션을 중단없이 계속됩니다. 그러나, 새 암호를 제공 받으려면, 사용자는 클라우드 서비스에 빨리 재인증을 해야합니다. 이 시점에서 사용자는 새 암호 즉, 온-프레미스 Active Directory에서 클라우드로 최근에 동기화된 암호를 제공하도록 요구받습니다.
+
+> [AZURE.NOTE]암호 동기화는 Active Directory의 개체 형식 사용자에만 지원됩니다. iNetOrgPerson 개체 형식에 대해 지원되지 않습니다.
 
 ### Azure AD 도메인 서비스와 함께 암호를 동기화하는 방법
 
@@ -156,4 +158,4 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

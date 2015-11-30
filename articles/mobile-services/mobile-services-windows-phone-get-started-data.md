@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 
@@ -95,12 +95,12 @@
 
   	모바일 서비스에 액세스하는 데 사용되는 새 **MobileServiceClient** 인스턴스가 만들어집니다.
 
-6. MainPage.xaml.cs 파일에서 다음 `using` 문을 추가하거나 주석 처리를 제거합니다.
+6. MainPage.cs 파일에서 다음 `using` 문을 추가하거나 주석 처리를 제거합니다.
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. 이 파일에서 **TodoItem** 클래스 정의를 다음 코드로 바꿉니다.
+7. 이 DataModel 파일에서 **TodoItem** 클래스 정의를 다음 코드로 바꿉니다.
 
         public class TodoItem
         {
@@ -193,4 +193,4 @@
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

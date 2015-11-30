@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/12/2015" 
 	ms.author="glenga"/>
 
 
@@ -51,7 +51,7 @@
 
 3. Visual Studio 2013에서 *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln* 솔루션 파일을 엽니다. **F5**를 눌러 프로젝트를 다시 빌드하고 실행합니다. NuGet 패키지가 복원되고 참조가 올바르게 설정되었는지 확인합니다.
 
-    >[AZURE.NOTE][오프라인 데이터 시작] 자습서에 언급된 대로 SQLite 런타임에 대한 이전 참조를 삭제하고 업데이트된 참조로 바꿔야 할 수 있습니다.
+    >[AZURE.NOTE] [오프라인 데이터 시작] 자습서에 언급된 대로 SQLite 런타임에 대한 이전 참조를 삭제하고 업데이트된 참조로 바꿔야 할 수 있습니다.
 
 4. 앱에서 **TodoItem 삽입**에 일부 텍스트를 입력한 후 **저장**을 클릭하여 일부 todo 항목을 로컬 저장소에 추가합니다. 그런 다음 앱을 닫습니다.
 
@@ -164,4 +164,4 @@
 [Todo 오프라인 모바일 서비스 샘플]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

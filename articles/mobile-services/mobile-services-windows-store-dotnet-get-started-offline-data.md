@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="11/06/2015" 
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
@@ -38,7 +38,7 @@
 * [모바일 서비스 시작] 완료
 * [Azure 모바일 서비스 SDK 버전 1.3.0 이상][Mobile Services SDK Nuget]
 * [Azure 모바일 서비스 SQLite 스토어 버전 1.0.0 이상][SQLite store nuget]
-* [Windows 8.1용 SQLite](www.sqlite.org/downloads)
+* [Windows 8.1용 SQLite](http://www.sqlite.org/download.html)
 * Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하세요. 
 
 ## <a name="enable-offline-app"></a>오프라인 기능을 지원하도록 앱 업데이트
@@ -279,4 +279,4 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

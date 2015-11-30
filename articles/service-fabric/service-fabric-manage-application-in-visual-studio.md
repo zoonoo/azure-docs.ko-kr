@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 쓰기 및 관리 단순화하기
@@ -34,8 +34,24 @@ Visual Studio를 통해 서비스 패브릭 응용 프로그램 및 서비스를
 4. 실행 중인 모든 응용 프로그램 인스턴스 제거
 5. 새 응용 프로그램 인스턴스 만들기
 
-Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프로그램을 배포할 수 있습니다. 또한 **F5**를 누르면 응용 프로그램이 배포되고 모든 응용 프로그램 인스턴스에 디버거가 연결됩니다.
+Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 모든 응용 프로그램 인스턴스에 디버거가 첨부됩니다. **Ctrl+F5** 키를 사용하여 디버깅하지 않고 응용 프로그램을 배포하거나, 게시 프로필을 사용하여 로컬 또는 원격 클러스터에 게시할 수 있습니다. [Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 게시(영문)](service-fabric-publish-app-remote-cluster.md)를 참조하세요.
 
+### 테스트를 실행하는 사이에 데이터 유지
+
+테스트 데이터 입력을 추가하고, 코드 블록을 조금 수정하여 로컬에서 서비스를 테스트한 후에 로컬에서 다시 디버깅을 하는 경우가 자주 있습니다. Visual Studio 서비스 패브릭 도구에는 **Preserve Data on Start**(시작 시 데이터 유지)라고 하는 편리한 속성이 제공되는데, 이 속성은 이전 세션에서 입력한 데이터를 유지하여 다시 사용할 수 있도록 합니다.
+
+### Preserve Data on Start(시작 시 데이터 유지) 속성을 사용하도록 설정하려면
+
+1. 응용 프로그램 프로젝트의 바로 가기 메뉴에서 **속성**을 선택하거나 **F4** 키를 선택합니다.
+1. **속성** 창에서 **Preserve Data on Start**(시작 시 데이터 유지) 속성을 **예**로 설정합니다.
+
+	![Preserve Data on Start(시작 시 데이터 유지) 속성 설정][preservedata]
+
+응용 프로그램을 다시 실행하면, 배포 스크립트는 모니터링되지 않는 자동 모드를 사용하여 배포를 업그레이드로 처리하여 응용 프로그램을 새로운 버전으로(추가된 날짜 문자열과 함께) 신속하게 업그레이드합니다. 업그레이드 프로세스는 이전 디버그 세션에서 입력한 모든 데이터를 유지합니다.
+
+![데이터가 추가된 새 응용 프로그램 버전의 예][preservedate]
+
+데이터는 서비스 패브릭 플랫폼의 업그레이드 기능을 활용하여 유지됩니다. 응용 프로그램 업그레이드에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)를 참조하세요.
 
 ## 서비스 패브릭 응용 프로그램에 서비스 추가
 
@@ -53,15 +69,14 @@ Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프
 
 ## 서비스 패브릭 응용 프로그램 패키징
 
-응용 프로그램 및 해당 서비스를 클러스터에 배포하기 위해서는 응용 프로그램 패키지를 만들어야 합니다. 패키지는 응용 프로그램 매니페스트, 서비스 매니페스트 및 특정 레이아웃에서 필요한 기타 파일로 구성됩니다. Visual Studio는 응용 프로그램 프로젝트의 폴더인 'pkg' 디렉터리에서 패키지를 관리합니다. **패키지**를 클릭하면 응용 프로그램 패키지를 만들거나 업데이트할 수 있습니다. 사용자 지정 Powershell 스크립트를 사용하여 응용 프로그램을 배포하는 경우 이 작업을 수행할 수 있습니다.
+응용 프로그램 및 해당 서비스를 클러스터에 배포하기 위해서는 응용 프로그램 패키지를 만들어야 합니다. 패키지는 응용 프로그램 매니페스트, 서비스 매니페스트 및 특정 레이아웃에서 필요한 기타 파일로 구성됩니다. Visual Studio는 응용 프로그램 프로젝트의 폴더인 'pkg' 디렉터리에서 패키지를 관리합니다. **응용 프로그램** 상황에 맞는 메뉴에서 **패키지**를 클릭하면 응용 프로그램 패키지가 생성되거나 업데이트됩니다. 사용자 지정 Powershell 스크립트를 사용하여 응용 프로그램을 배포하는 경우 이 작업을 수행할 수 있습니다.
 
 ## 응용 프로그램 제거
 
-서버 탐색기를 사용하여 로컬 클러스터에서 응용 프로그램을 제거할 수 있습니다. 이렇게 하면 위에서 설명한 배포 단계를 되돌릴 수 있습니다.
+서비스 패브릭 탐색기를 사용하여 로컬 클러스터에서 응용 프로그램 유형의 프로비전을 해제할 수 있습니다. 클러스터 탐색기는 클러스터의 HTTP 게이트웨이 끝점(일반적으로 19080 또는 19007)을 사용하여 액세스할 수 있습니다(예: http://localhost:19080/Explorer). 이렇게 하면 위에서 설명한 배포 단계를 되돌릴 수 있습니다.
 
 1. 실행 중인 모든 응용 프로그램 인스턴스 제거
 2. 응용 프로그램 유형 등록 해제
-3. 이미지 저장소에서 응용 프로그램 패키지 제거
 
 ![응용 프로그램 제거](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
 
@@ -70,6 +85,7 @@ Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프
 
 - [서비스 패브릭 응용 프로그램 모델](service-fabric-application-model.md)
 - [서비스 패브릭 응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+- [여러 환경에 대한 응용 프로그램 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)
 - [서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
 - [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
@@ -78,5 +94,7 @@ Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
+[preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
+[preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

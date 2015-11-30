@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/01/2015"
+	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
@@ -147,10 +147,9 @@
 
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
-        using System.ComponentModel.DataAnnotations;
         using System;
 
-4. 그다음에 각 클래스에 다음과 같은 속성을 추가합니다.
+4. 그 다음에 각 클래스에 다음과 같은 속성을 추가합니다.
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -615,4 +614,4 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
 
 다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

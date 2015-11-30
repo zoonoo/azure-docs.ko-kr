@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,10 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
-
-
 
 
 
@@ -204,11 +202,11 @@ Add-AzureTrafficManagerEndpointConfig에 대한 매개 변수는 다음과 같�
 	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
-## 참고 항목
+## 다음 단계
 
-[트래픽 관리자란?](traffic-manager-overview.md)
+[트래픽 관리자 모니터링](traffic-manager-monitoring.md)
 
-[Azure cmdlet 시작](https://msdn.microsoft.com/library/jj554332.aspx)
+[트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

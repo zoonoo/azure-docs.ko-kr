@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/29/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Azure Preview 포털을 사용하여 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 프로비전
@@ -92,7 +92,7 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소와 함�
 	데이터 레이크 저장소 계정에서 다음 작업을 수행합니다.
 
 	* [데이터 레이크 저장소에 폴더를 만듭니다](data-lake-store-get-started-portal.md#createfolder).
-	* [데이터 레이크 저장소에 파일을 업로드합니다](data-lake-store-get-started-portal.md#uploaddata). 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
+	* [데이터 레이크 저장소에 파일을 업로드합니다](data-lake-store-get-started-portal.md#uploaddata). 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 
 	나중에 HDInsight 클러스터로 데이터 레이크 저장소 계정을 테스트할 때 업로드된 파일을 사용합니다.
 
@@ -207,4 +207,4 @@ HBase 클러스터의 경우 데이터 레이크 저장소 계정을 기본 저�
 [makecert]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -65,7 +65,7 @@ Azure 저장소 응용 프로그램에서 종단간 문제해결 실습 가이�
 	+ [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]
 	+ [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처"를 참조하세요].
 	+ [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]
-	+ [부록5: Visual Studio Online용 Application Insights를 사용한 모니터링]
+	+ [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]
 
 ## <a name="introduction"></a>소개
 
@@ -125,7 +125,7 @@ Microsoft Azure 포털<a href="https://portal.azure.com" target="_blank">https:/
 
 Azure 포털에서는 여러 Azure 서비스에 영향을 주는 문제에 대한 알림도 제공합니다. 참고: 이전에는 이 정보가 Azure 서비스 대시보드<a href="http://status.azure.com" target="_blank">http://status.azure.com</a>에서 기록 데이터와 함께 제공되었습니다.
 
-포털은 Azure 데이터 센터 내부에서 상태 정보를 수집하는 반면(직접적인 상호 작용 모니터링) 간접적인 방식을 도입해 여러 위치에서 Azure 호스팅 웹 응용 프로그램에 주기적으로 액세스하는 가상 트랜잭션을 생성할 수도 있습니다. 이러한 간접적인 상호 작용 방식의 예로는 <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> 및 Visual Studio Online용 Application Insights에서 제공하는 서비스가 있습니다. Visual Studio Online용 Application Insights에 대한 자세한 내용은 "[부록 5: Visual Studio Online용 Application Insights를 사용한 모니터링]”를 참조하세요.
+포털은 Azure 데이터 센터 내부에서 상태 정보를 수집하는 반면(직접적인 상호 작용 모니터링) 간접적인 방식을 도입해 여러 위치에서 Azure 호스팅 웹 응용 프로그램에 주기적으로 액세스하는 가상 트랜잭션을 생성할 수도 있습니다. 이러한 간접적인 상호 작용 방식의 예로는 <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> 및 Visual Studio Team Services용 Application Insights에서 제공하는 서비스가 있습니다. Visual Studio Team Services용 Application Insights에 대한 자세한 내용은 "[부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]”를 참조하세요.
 
 ### <a name="monitoring-capacity"></a>용량 모니터링
 
@@ -827,14 +827,14 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 
 **텍스트 가져오기 마법사**의 1단계에서 구분 기호로 **세미콜론**만 선택하고 **텍스트 한정자**로 큰따옴표를 선택합니다. 그런 다음 **마침**을 클릭하고 통합 문서에서 데이터를 배치할 위치를 선택합니다.
 
-### <a name="appendix-5"></a>부록5: Visual Studio Online용 Application Insights를 사용한 모니터링
+### <a name="appendix-5"></a>부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링
 
-성능 및 가용성 모니터링의 일부분으로 Visual Studio Online의 Application Insights 기능을 사용할 수도 있습니다. 이 도구는 다음과 같은 작업을 수행할 수 있습니다.
+성능 및 가용성 모니터링의 일부분으로 Visual Studio Team Services의 Application Insights 기능을 사용할 수도 있습니다. 이 도구는 다음과 같은 작업을 수행할 수 있습니다.
 
 - 웹 서비스가 사용 가능하며 응답할 수 있는 상태인지 확인합니다. 앱이 웹 서비스를 사용하는 웹 사이트 또는 장치 앱인 경우에도 전 세계 여러 위치에서 몇 분마다 URL을 테스트하고 문제가 있는지 알려 줍니다.
 - 웹 서비스의 성능 문제나 예외를 빠르게 진단합니다. CPU 또는 기타 리소스가 확대되는지 확인하고 예외에서 스택 추적을 가져오며 로그 추적을 쉽게 검색할 수 있습니다. 앱 성능이 허용되는 제한 미만으로 떨어지면 전자 메일이 전송됩니다. .NET 및 Java 웹 서비스를 모두 모니터링할 수 있습니다.
 
-이 문서를 작성한 시점에서는 Application Insights가 미리 보기 상태였습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN의 Visual Studio Online용 Application Insights</a>에서 확인할 수 있습니다.
+이 문서를 작성한 시점에서는 Application Insights가 미리 보기 상태였습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN의 Visual Studio Team Services용 Application Insights</a>에서 확인할 수 있습니다.
 
 
 <!--Anchors-->
@@ -898,8 +898,8 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [부록3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처]: #appendix-3
 [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처"를 참조하세요]: #appendix-3
 [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]: #appendix-4
-[부록 5: Visual Studio Online용 Application Insights를 사용한 모니터링]: #appendix-5
-[부록5: Visual Studio Online용 Application Insights를 사용한 모니터링]: #appendix-5
+[부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
+[부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
@@ -913,4 +913,4 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -88,7 +88,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
-				+ "password={your_password};"
+				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
@@ -230,4 +230,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

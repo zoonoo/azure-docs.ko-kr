@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="11/17/2015" 
 	ms.author="huvalo"/>
 	
 # Linux VM에서 Django Hello World 웹 응용 프로그램
@@ -25,7 +25,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]리소스 관리자 모델.
 
 
 이 자습서에서는 Microsoft Azure에서 Linux 가상 컴퓨터를 사용하여 Django 기반 웹사이트를 호스트하는 방법을 설명합니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 가이드를 완료하면 클라우드에서 Django 기반 응용 프로그램을 실행할 수 있게 됩니다.
@@ -45,14 +45,11 @@
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
-1. [여기][portal-vm]에 나와 있는 지침에 따라 *Ubuntu Server 14.04 LTS* 배포판의 Azure 가상 컴퓨터를 만듭니다.
+1. [여기](virtual-machines-linux-tutorial-portal-rm.md)에 나와 있는 지침에 따라 *Ubuntu Server 14.04 LTS* 배포판의 Azure 가상 컴퓨터를 만듭니다. 원하는 경우 SSH 공용 키 대신 암호 인증을 선택할 수 있습니다.
 
-  **참고:** 가상 컴퓨터를 만들기*만* 하면 됩니다. *가상 컴퓨터를 만든 후 로그온하는 방법* 섹션을 참조하십시오.
+1. 들어오는 HTTP 트래픽을 포트 80에 허용하려면 [여기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)의 지침을 사용하여 네트워크 보안 그룹을 편집합니다.
 
-1. 웹을 통해 들어오는 포트 **80** 트래픽을 가상 컴퓨터의 포트 **80**으로 보내도록 Azure에 지시합니다.
-	* Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고 *끝점* 탭을 클릭합니다.
-	* 화면 아래쪽에 있는 *추가* 단추를 클릭합니다. ![끝점 추가](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* *TCP* 프로토콜의 *공용 포트 80*을 *개인 포트 80*으로 엽니다. ![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
+1. 기본적으로 새 가상 컴퓨터에는 정규화된 도메인 이름 (FQDN)이 없습니다. [여기](virtual-machines-create-fqdn-on-portal.md)의 지침에 따라서 만들 수 있습니다. 이 단계는 자습서를 완료하기 위한 선택 사항입니다.
 
 ## <a id="setup"> </a>개발 환경 설정
 
@@ -62,14 +59,14 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 1.  새 **터미널** 창을 시작합니다.
     
-1.  다음 명령을 입력하여 Azure VM에 연결합니다.
+1.  다음 명령을 입력하여 Azure VM에 연결합니다. FQDN을 만들지 않았으면, Azure 포털의 가상 컴퓨터 요약에 표시되는 공용 IP 주소를 사용하여 연결할 수 있습니다.
 
 		$ ssh yourusername@yourVmUrl
 
 1.  다음 명령을 입력하여 django를 설치합니다.
 
-		$ sudo apt-get install python-setuptools
-		$ sudo easy_install django
+		$ sudo apt-get install python-setuptools python-pip
+		$ sudo pip install django
 
 1.  다음 명령을 입력하여 Apache를 mod-wsgi와 함께 설치합니다.
 
@@ -104,10 +101,10 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 ## Apache 설정
 
-1.  Apache 가상 호스트 구성 파일인 **/etc/apache2/sites-available/helloworld.conf**를 만듭니다. 콘텐츠를 다음으로 설정하고 *yourVmUrl*을 현재 사용 중인 컴퓨터의 실제 URL(예: *pyubuntu.cloudapp.net*)으로 바꿉니다.
+1.  Apache 가상 호스트 구성 파일인 **/etc/apache2/sites-available/helloworld.conf**를 만듭니다. 콘텐츠를 다음으로 설정하고 *yourVmName*을 현재 사용 중인 컴퓨터의 실제 이름(예: *pyubuntu*)으로 바꿉니다.
 
 		<VirtualHost *:80>
-		ServerName yourVmUrl
+		ServerName yourVmName
 		</VirtualHost>
 		WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
 		WSGIPythonPath /var/www/helloworld
@@ -129,8 +126,4 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 이 자습서를 완료했으므로 새로 만든 Azure 가상 컴퓨터를 종료하거나 종료한 후 제거하여 다른 자습서에 사용할 리소스를 늘리고 Azure 사용량에 따른 요금 부과를 방지하세요.
 
-
-[portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

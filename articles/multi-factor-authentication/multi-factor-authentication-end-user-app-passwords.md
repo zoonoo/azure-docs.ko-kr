@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 
@@ -129,4 +129,4 @@ Azure에서 다단계 인증을 사용하는 경우 Azure 포털을 통해 앱 �
 5. **예**를 클릭하여 삭제를 확인합니다.
 6. 앱 암호가 삭제되면 **닫기**를 클릭할 수 있습니다. ![닫기](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,26 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # ASP.NET용 Application Insights 설치
 
-*Application Insights는 미리 보기 상태입니다.*
-
-<a name="selector1"></a>
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다. SDK를 앱에 설치하면 작동합니다. SDK는 앱에 대한 원격 분석을 Application Insights 서비스에 보내 앱의 동작을 분석하고 시각화합니다.
-
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Visual Studio에서 앱에 SDK를 추가하면 서버 요청, 응답 시간 및 실패에 대한 차트를 얻게 됩니다.
+Application Insights SDK는 라이브 웹 응용 프로그램에서 로그인하고 앱의 성능 및 사용에 대한 차트를 볼 수 있는 Azure 포털로 원격 분석을 보냅니다.
 
 ![예제 성능 모니터링 차트](./media/app-insights-asp-net/10-perf.png)
 
-또한 API를 사용하여 사용 현황을 자세히 모니터링할 수 있습니다.
+또한 특정 요청, 예외 및 이벤트 로그를 조사하고 상호 연결할 수 있습니다. API를 사용하여 성능 및 사용 현황을 자세히 모니터링하는 원격 분석을 추가할 수 있습니다.
 
 #### 시작하기 전에
 
@@ -67,7 +61,7 @@ Visual Studio에서 새 프로젝트를 만들 때 Application Insights를 선�
 이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리스소 그룹에 넣고자 할 수 있습니다.
 
 
-####<a name="land"></a> ‘Application Insights 추가'에서 무엇을 했나요?
+####<a name="land"></a> 'Application Insights 추가'에서 무엇을 했나요?
 
 명령은 다음 단계를 수행했습니다(원하는 경우 [수동으로 수행](app-insights-start-monitoring-app-health-usage.md) 가능).
 
@@ -174,4 +168,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

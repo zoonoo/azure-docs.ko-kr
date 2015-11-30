@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="11/11/2015"
 	ms.author="cynthn"/>
 
 # Azure PowerShell을 사용하여 Linux 가상 컴퓨터 만들기 및 미리 구성
@@ -27,31 +27,35 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
  
+이 단계는 Azure PowerShell 명령 집합을 생성하는 방식으로 빈칸 채우기를 사용하여 Linux 가상 컴퓨터를 만드는 방법을 보여줍니다. 이 접근 방식은 Azure PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다.
 
-이러한 단계는 Azure PowerShell 명령 집합을 사용하여 클래식 관리 모델로 Linux 가상 컴퓨터를 만들고 미리 구성하는 방법을 보여 줍니다. 이 프로세스를 사용하여 새 Linux 기반 가상 컴퓨터에 대한 명령 집합을 신속하게 만들고 기존 배포를 확장하거나, 사용자 지정 개발/테스트 또는 IT 전문가 환경을 신속하게 빌드하는 여러 명령 집합을 만들 수 있습니다.
+명령 블록을 텍스트 파일이나 PowerShell ISE에 복사해 넣은 후 변수 값을 채우고 < and > 문자를 제거하여 명령 집합을 빌드하게 됩니다. 최종 결과의 개념은 이 문서 끝의 두 [예제](#examples)를 참조하세요.
 
-다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 Azure PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다. 고급 Azure PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
+Windows 기반 가상 컴퓨터에 대한 관련 문서는 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기](virtual-machines-ps-create-preconfigure-windows-vms.md)를 참조하세요.
 
-Windows 기반 가상 컴퓨터를 구성하는 관련 항목은 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)을 참조하세요.
+## Azure PowerShell 설치
 
-## 1단계: Azure PowerShell 설치
+아직 설치하지 않은 경우에는 [Azure PowerShell을 설치하고 구성](../install-configure-powershell.md)합니다. 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
+## 구독 및 저장소 계정 설정
 
-## 2단계: 구독 및 저장소 계정 설정
+Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure 구독 및 저장소 계정을 설정합니다.
 
-Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure 구독 및 저장소 계정을 설정합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+**Get-AzureSubscription** 명령의 출력에 표시된 **SubscriptionName** 속성에서 올바른 구독 이름을 가져올 수 있습니다.
+
+Select-AzureSubscription 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 **Label** 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다.
+
+< and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-**Get-AzureSubscription** 명령의 출력에 표시된 **SubscriptionName** 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Select-AzureSubscription** 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 **Label** 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다. 또한 이러한 명령을 텍스트 파일에 저장하여 나중에 사용할 수 있습니다.
 
-## 3단계: ImageFamily 확인
+## 사용할 이미지 찾기
 
-이제 만들려는 Azure 가상 컴퓨터에 해당하는 특정 이미지에 대한 ImageFamily 값을 확인해야 합니다. 다음 명령을 사용하여 사용 가능한 ImageFamily 값 목록을 가져올 수 있습니다.
+다음으로, 사용할 이미지에 대한 ImageFamily 값을 결정해야 합니다. 다음 명령을 사용하여 사용 가능한 ImageFamily 값 목록을 가져올 수 있습니다.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
@@ -66,19 +70,17 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-## 4단계: 명령 집합 작성
-
-아래에서 다음 명령 블록 집합 중 하나를 새 텍스트 파일이나 PowerShell ISE에 복사한 다음 변수 값을 입력하고 < and > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과의 개념은 이 문서 끝의 두 [예제](#examples)를 참조하세요.
+## 이름, 크기를 지정하고 선택적으로 가용성 집합을 지정합니다.
 
 다음 두 명령 블록 중 하나를 선택하여 명령 집합을 시작합니다(필수).
 
-옵션 1: 가상 컴퓨터 이름 및 크기를 지정합니다.
+**옵션 1**: 가상 컴퓨터 이름 및 크기를 지정합니다.
 
 	$vmname="<machine name>"
 	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-옵션 2: 이름, 크기 및 가용성 집합 이름을 지정합니다.
+**옵션 2**: 이름, 크기 및 가용성 집합 이름을 지정합니다.
 
 	$vmname="<machine name>"
 	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
@@ -87,22 +89,28 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 
 D-, DS- 또는 G-시리즈 가상 컴퓨터에 대한 InstanceSize 값은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
-다음 명령을 사용하여 초기 Linux 사용자 이름 및 암호를 지정합니다(필수). 강력한 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
+
+## 사용자 액세스 보안 옵션 설정
+
+**옵션 1**: 초기 Linux 사용자 이름 및 암호를 지정합니다(필수). 강력한 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
-선택적으로 구독에 이미 배포된 SSH 키 쌍 집합을 지정합니다.
+**옵션 2**: 구독에 이미 배포된 SSH 키 쌍 집합을 지정합니다.
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하세요.
 
-선택적으로 구독에 이미 배포된 SSH 공개 키 쌍 목록을 지정합니다.
+**옵션 3**: 구독에 이미 배포된 SSH 공개 키 쌍 목록을 지정합니다.
 
 	$vm1 | Add-AzureProvisioningConfig -Linux - SSHPublicKeys "<SSH public keys>"
 
-Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx)에서 **Linux** 매개 변수 집합에 대한 구문을 참조하세요.
+Linux 기반 가상 컴퓨터에 대한 추가적인 사전 구성 옵션은 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx)에서 **Linux** 매개 변수 집합에 대한 구문을 참조하세요.
+
+
+## 선택 사항: 고정 DIP 할당
 
 선택적으로 가상 컴퓨터에 특정 IP 주소(고정 DIP라고 함)를 할당합니다.
 
@@ -112,11 +120,16 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 	Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
-선택적으로 Azure 가상 네트워크의 특정 서브넷에 가상 컴퓨터를 할당합니다.
+## 선택 사항: 특정 서브넷에 가상 컴퓨터를 할당합니다. 
+
+Azure 가상 네트워크의 특정 서브넷에 가상 컴퓨터를 할당합니다.
 
 	$vm1 | Set-AzureSubnet -SubnetNames "<name of the subnet>"
 
-선택적으로 가상 컴퓨터에 단일 데이터 디스크를 추가합니다.
+	
+## 선택 사항: 데이터 디스크 추가
+	
+가상 컴퓨터에 데이터 디스크를 추가하려면 다음 내용을 명령 집합에 추가합니다.
 
 	$disksize=<size of the disk in GB>
 	$disklabel="<the label on the disk>"
@@ -124,7 +137,9 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 	$hcaching="<Specify one: ReadOnly, ReadWrite, None>"
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
-선택적으로 외부 트래픽에 대한 기존 부하 분산된 집합에 가상 컴퓨터를 추가합니다.
+## 선택 사항: 기존 부하 분산에 가상 컴퓨터를 추가합니다. 
+
+외부 트래픽에 대한 기존 부하 분산된 집합에 가상 컴퓨터를 추가하려면 다음 내용을 명령 집합에 추가합니다.
 
 	$prot="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
@@ -136,31 +151,31 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-마지막으로 다음 명령 블록 중 하나를 선택하여 가상 컴퓨터 만들기 프로세스를 시작합니다(필수).
+## 가상 컴퓨터 만들기 프로세스를 시작하는 방법 결정 
 
-옵션 1: 기존 클라우드 서비스에서 가상 컴퓨터를 만듭니다.
+다음 명령 블록 중 하나를 선택하여 가상 컴퓨터 만들기 프로세스를 시작하려면 블록을 명령 집합에 추가합니다.
+
+**옵션 1**: 기존 클라우드 서비스에서 가상 컴퓨터를 만듭니다.
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
 클라우드 서비스의 짧은 이름은 Azure 포털의 Azure 클라우드 서비스 목록에 표시된 이름 또는 Azure 미리 보기 포털의 리소스 그룹 목록에 표시된 이름입니다.
 
-옵션 2: 기존 클라우드 서비스 및 가상 네트워크에서 가상 컴퓨터를 만듭니다.
+**옵션 2**: 기존 클라우드 서비스 및 가상 네트워크에서 가상 컴퓨터를 만듭니다.
 
 	$svcname="<short name of the cloud service>"
 	$vnetname="<name of the virtual network>"
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-## 5단계: 명령 집합 실행
+## 명령 집합 실행
 
-텍스트 편집기 또는 PowerShell ISE에서 작성한 Azure PowerShell 명령 집합(4단계의 여러 명령 블록으로 구성)을 검토합니다. 필요한 모든 변수를 지정하고 해당 변수에 올바른 값이 있는지 확인합니다. 또한 < and > 문자를 모두 제거했는지 확인합니다.
+텍스트 편집기 또는 PowerShell ISE에서 작성한 Azure PowerShell 명령 집합을 검토하고 변수를 모두 지정했는지 변수의 값이 올바른지 확인합니다. 또한 < and > 문자를 모두 제거했는지 확인합니다.
 
-텍스트 편집기를 사용하는 경우 명령 집합을 클립보드로 복사한 다음, 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 단추로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다. 또는 PowerShell ISE에서 명령 집합을 실행합니다.
-
-잘못된 구독, 저장소 계정, 클라우드 서비스, 가용성 집합, 가상 네트워크 또는 서브넷에서 가상 컴퓨터를 만든 경우 가상 컴퓨터를 삭제하고 명령 블록 구문을 수정한 다음 수정된 명령 집합을 실행합니다.
+클립보드에 명령 집합을 복사한 다음 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 버튼으로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다.
 
 가상 컴퓨터를 만든 후 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)을 참조하세요.
 
-이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
+명령 집합을 다시 사용하려면 다음을 수행합니다.
 
 - 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
 - Azure 포털의 **자동화** 섹션에서 이 명령 집합을 Azure 자동화 Runbook으로 저장합니다.
@@ -265,4 +280,4 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

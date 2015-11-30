@@ -41,7 +41,7 @@
 ### 신뢰할 수 있는 서비스에 대한 통신 옵션
 서비스가 신뢰할 수 있는 서비스 API를 사용하여 쓰여진 경우 두 가지 다른 옵션이 있습니다. 통신 프로토콜 선택이 어떤 서비스 패브릭 통신 API를 사용해야 하는지 안내할 것입니다.
 
-* **사용해야 하는 특정한 통신 프로토콜이 없으며 향상되고 빠르게 실행되는 것을 원하는 경우**: 커뮤니케이션 프레임워크를 특별히 선택하지 않으면 사용하기에 적합한 옵션은 행위자 통신 모델과 유사한 모델을 허용하는 [기본 스택](service-fabric-reliable-services-communication-default.md)입니다. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 대부분의 통신 상세를 추상화하여 로컬 개체 인스턴스에서 메서드를 호출하는 것처럼 보이는 코드의 원격 서비스에서 메서드를 호출하는 강력한 형식의 RPC 통신을 제공합니다. 이 클래스는 통신 채널을 설정하는 동안 확인, 연결, 다시 시도 및 오류 처리를 추상화하고 통신 모델에 기반하여 메서드를 호출하게 합니다. 그러므로 `ServiceCommunicationListener` 클래스는 통신의 서버 측에 사용되고 `ServiceProxy` 클래스는 클라이언트 측에 사용됩니다.
+* **사용해야 하는 특정한 통신 프로토콜이 없으며 향상되고 빠르게 실행되는 것을 원하는 경우**: 커뮤니케이션 프레임워크를 특별히 선택하지 않으면 사용하기에 적합한 옵션은 행위자 통신 모델과 유사한 모델을 허용하는 [기본 스택](service-fabric-reliable-services-communication-remoting.md)입니다. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 대부분의 통신 상세를 추상화하여 로컬 개체 인스턴스에서 메서드를 호출하는 것처럼 보이는 코드의 원격 서비스에서 메서드를 호출하는 강력한 형식의 RPC 통신을 제공합니다. 이 클래스는 통신 채널을 설정하는 동안 확인, 연결, 다시 시도 및 오류 처리를 추상화하고 통신 모델에 기반하여 메서드를 호출하게 합니다. 그러므로 `ServiceCommunicationListener` 클래스는 통신의 서버 측에 사용되고 `ServiceProxy` 클래스는 클라이언트 측에 사용됩니다.
 
 * **HTTP**: 확인, 연결 및 다시 시도 논리가 여전히 추상화되는 동안 통신 메커니즘이 결정되게 하는 HTTP 기반 통신이 제공하는 사용 가능한 서비스 패브릭 통신 API 유연성을 활용하기 위한 것입니다. 예를 들어, 통신 메커니즘을 지정하고 [`ICommunicationClient` 및 `ServicePartitionClient` 클래스](service-fabric-reliable-services-communication.md)를 통신 설정에 활용하기 위해 웹 API를 사용할 수 있습니다.
 * **WCF**: 통신 프레임워크로 WCF를 사용하는 기존 코드가 있는 경우, 서버 측에 대해 WcfCommunicationListener를 사용하고 클라이언트 측에 WcfCommunicationClient 및 ServicePartitionClient 클래스를 사용할 수 있습니다. 더 자세한 내용은 [이 문서](service-fabric-reliable-services-communication-wcf.md)를 참조하십시오.
@@ -52,9 +52,9 @@
 모든 서비스 패브릭 통신 API는 현재 C#에서만 사용 가능하므로 Java나 Node.JS와 같은 다른 프로그래밍 언어로 쓰인 서비스가 있는 경우 독자적인 통신 메커니즘을 써야 합니다.
 
 ## 다음 단계
-* [신뢰할 수 있는 서비스 프레임워크에 의해 제공되는 기본 통신 스택](service-fabric-reliable-services-communication-default.md)
+* [신뢰할 수 있는 서비스 프레임워크에 의해 제공되는 기본 통신 스택](service-fabric-reliable-services-communication-remoting.md)
 * [신뢰할 수 있는 서비스 통신 모델](service-fabric-reliable-services-communication.md)
 * [OWIN 자체 호스팅으로 Microsoft Azure 서비스 패브릭 웹 API 서비스 시작](service-fabric-reliable-services-communication-webapi.md)
 * [신뢰할 수 있는 서비스에 대한 WCF 기반 통신 스택](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

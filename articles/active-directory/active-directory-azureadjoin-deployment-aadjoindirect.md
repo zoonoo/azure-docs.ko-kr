@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Azure AD 조인에 대한 사용 시나리오와 배포 고려 사항 | Microsoft Azure" 
-	description="Azure AD Join에서 사용할 수 있는 다른 배포 시나리오 나열 및 설명" 
+	description="관리자가 최종 사용자(직원, 학생, 다른 사용자)를 위해 Azure AD 조인을 설정하는 방법을 설명하는 항목입니다. 또한 Azure AD 조인을 사용하는 데 대한 다양한 실제 시나리오에 대해서 설명합니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항 
@@ -23,9 +24,7 @@
 --------------------------------------------------------
 Azure AD 연결은 현재 클라우드에서 업무용 ID를 작동 및 관리하거나 곧 클라우드로 전환하려는 경우에 유용할 수 있습니다. Azure AD에서 만든 계정을 사용하여 Windows 10에 로그인할 수 있습니다. 사용자는 [FRX(첫 실행 경험) 프로세스](active-directory-azureadjoin-user-frx.md)를 사용하거나 [설정 환경](active-directory-azureadjoin-user-upgrade.md)을 통해 Azure AD에 연결하여 Azure AD에 컴퓨터를 연결할 수 있습니다. 이제 사용자는 브라우저나 Office 응용 프로그램에서 SSO를 사용하여 Office 365와 같은 클라우드 리소스에 편리하게 액세스할 수 있습니다.
 
-시나리오 2: 교육 기관
-----------------------------------------------------------------------------------
-교육 기관에는 일반적으로 두 가지 사용자 유형인 교직원 및 학생이 있습니다. 교직원은 조직에서 장기 멤버로 간주되므로 온-프레미스 계정을 만드는 것이 적절합니다. 하지만 학생들은 조직의 단기 멤버이므로 Azure AD에서 관리할 수 있습니다. 따라서 온-프레미스 대신 클라우드에 디렉터리 확장을 적용할 수 있습니다. 이제 이러한 학생들은 자신의 Azure AD 계정으로 Windows에 로그인하고 Office 응용 프로그램에서 Office 365 리소스에 액세스할 수 있습니다.
+시나리오 2: 교육 기관 ---------------------------------------------------------------------------------- 교육 기관에는 일반적으로 두 가지 사용자 유형인 교직원 및 학생이 있습니다. 교직원은 조직에서 장기 멤버로 간주되므로 온-프레미스 계정을 만드는 것이 적절합니다. 하지만 학생들은 조직의 단기 멤버이므로 Azure AD에서 관리할 수 있습니다. 따라서 온-프레미스 대신 클라우드에 디렉터리 확장을 적용할 수 있습니다. 이제 이러한 학생들은 자신의 Azure AD 계정으로 Windows에 로그인하고 Office 응용 프로그램에서 Office 365 리소스에 액세스할 수 있습니다.
 
 시나리오 3: 소매 기업
 ---------------------------------------------------------------------------------------
@@ -53,7 +52,7 @@ Azure AD 연결은 현재 클라우드에서 업무용 ID를 작동 및 관리�
 *	Windows 10(Professional 및 Enterprise SKU)
 
 ### 관리자 작업
-* [장치 등록 및 MFA 설정](active-directory-azureadjoin-setup.md)
+* [장치 등록 설정](active-directory-azureadjoin-setup.md)
 
 ### 사용자 작업
 * [설치하는 동안 Azure AD로 새 Windows 10 장치 설정](active-directory-azureadjoin-user-frx.md)
@@ -77,14 +76,18 @@ Azure AD 연결은 현재 클라우드에서 업무용 ID를 작동 및 관리�
 
 ### 관리자 작업
 
-* [장치 등록 및 MFA 설정](active-directory-azureadjoin-setup.md)
+* [장치 등록 설정](active-directory-azureadjoin-setup.md)
 
 ### 사용자 작업
 * [개인 Windows 10 장치를 조직에 연결](active-directory-azureadjoin-personal-device.md)
 
 
 ## 추가 정보
-* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
+* [엔터프라이즈를 위한 Windows 10: 작업에 장치를 사용하는 방법](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
+* [Microsoft Passport를 통해 암호 없이 ID 인증](active-directory-azureadjoin-passport.md)
+* [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

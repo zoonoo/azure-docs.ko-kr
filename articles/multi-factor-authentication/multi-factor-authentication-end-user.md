@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 
@@ -45,8 +45,8 @@ IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 �
 [로그인 환경](multi-factor-authentication-end-user-signin.md)|휴대폰 또는 앱과 같은 다양한 방법을 사용하여 로그인할 때 예상되는 결과를 보여 줍니다.
 [설정 변경](multi-factor-authentication-end-user-manage-settings.md)|전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여 줍니다.
 [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md)| 앱 암호 만들기 및 사용에 대한 정보를 찾아보세요.
-[모바일 앱 사용](multi-factor-authentication-azure-authenticator.md)|[Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)용 Azure Authenticator 앱을 사용할 수 있습니다.
+[모바일 앱 사용](multi-factor-authentication-azure-authenticator.md)|[Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)용 Azure Authenticator 앱을 사용할 수 있습니다.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

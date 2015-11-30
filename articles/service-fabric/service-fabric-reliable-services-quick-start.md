@@ -13,22 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/15/2015"
    ms.author="vturecek"/>
 
 # Microsoft Azure 서비스 패브릭 신뢰할 수 있는 서비스 시작하기
 
-서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 자습서는 [*신뢰할 수 있는 서비스* 프로그래밍 모델](service-fabric-reliable-services-introduction.md)을 사용하여 상태 비저장 및 상태 저장 "Hello World" 서비스 패브릭 응용 프로그램을 만드는 단계를 안내합니다.
-
-상태 비저장 서비스는 현재 주로 클라우드 응용 프로그램에 존재하는 서비스 유형입니다. 서비스는 상태 비저장으로 간주됩니다. 서비스 자체에 안정적으로 저장하거나 항상 사용 가능하게 만들어야 하는 데이터가 포함되어 있지 않기 때문입니다. 즉, 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고, 높은 가용성과 안정성을 유지해야 합니다.
-
-서비스 패브릭은 서비스 자체 내에서 안정적으로 상태를 유지할 수 있고 사용 중인 코드와 같은 위치에 배치되는 새로운 종류의 상태 저장 서비스를 도입했습니다. 외부 저장소에 상태를 유지하지 않고도 서비스 패브릭에서 사용자 상태의 높은 가용성을 유지합니다.
-
-이 자습서에서는 상태 비저장 서비스와 내부 카운터를 유지하는 상태 저장 서비스를 구현하겠습니다. 상태 비저장 서비스에서는 서비스가 다시 시작되거나 이동할 때 카운터의 값이 손실됩니다. 그러나 상태 저장 서비스에서는 계산 중에 어떤 이유로 서비스 실행이 중단되는 경우 종료된 위치에서 바로 시작할 수 있도록 서비스 패브릭에서 카운터 상태를 안정적으로 만듭니다.
+서비스 패브릭 응용 프로그램에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 서비스 패브릭 응용 프로그램을 만드는 방법을 보여줍니다.
 
 ## 상태 비저장 서비스 만들기
 
-상태 비저장 서비스부터 살펴보겠습니다.
+상태 비저장 서비스는 현재 주로 클라우드 응용 프로그램에 존재하는 서비스 유형입니다. 서비스는 상태 비저장으로 간주됩니다. 서비스 자체에 안정적으로 저장하거나 항상 사용 가능하게 만들어야 하는 데이터가 포함되어 있지 않기 때문입니다. 즉, 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고, 높은 가용성과 안정성을 유지해야 합니다.
 
 **관리자** 권한으로 Visual Studio 2015 RC를 시작하고 *HelloWorld*라는 새로운 **서비스 패브릭 응용 프로그램** 프로젝트를 만듭니다.
 
@@ -46,7 +40,7 @@
 
 ## 서비스 구현
 
-서비스 프로젝트에서 **HelloWorld.cs** 파일을 엽니다. 서비스 패브릭에서 서비스는 모든 비즈니스 논리를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
+서비스 프로젝트에서 **HelloWorldStateless.cs** 파일을 엽니다. 서비스 패브릭에서 서비스는 모든 비즈니스 논리를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
 
  - 장기 실행 계산 워크로드와 같이 원하는 모든 워크로드의 실행을 시작할 수 있는 *RunAsync*라는 개방형 진입점 메서드.
 
@@ -60,7 +54,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
  - Web API와 같은 원하는 통신 스택을 연결할 수 있고, 사용자 또는 다른 서비스에서 요청 수신을 시작할 수 있는 통신 진입점.
 
 ```C#
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -74,15 +68,20 @@ protected override ICommunicationListener CreateCommunicationListener()
 ### RunAsync
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServiceInstance)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
 
     int iterations = 0;
-    while (!cancellationToken.IsCancellationRequested)
+    // This service instance continues processing until the instance is terminated.
+    while (!cancelServiceInstance.IsCancellationRequested)
     {
+
+        // Log what the service is doing
         ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
     }
 }
 ```
@@ -102,6 +101,8 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ## 상태 저장 서비스 만들기
 
+서비스 패브릭은 서비스 자체 내에서 안정적으로 상태를 유지할 수 있고 사용 중인 코드와 같은 위치에 배치되는 새로운 종류의 상태 저장 서비스를 도입했습니다. 외부 저장소에 상태를 유지하지 않고도 서비스 패브릭에서 사용자 상태의 높은 가용성을 유지합니다.
+
 서비스가 이동하거나 다시 시작하는 경우에도 카운터 값을 상태 비저장에서 항상 사용 가능하고 지속되게 만들려면 상태 저장 서비스가 필요합니다.
 
 동일한 **HelloWorld** 응용 프로그램에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 패브릭 서비스**를 선택하여 새 서비스를 추가합니다.
@@ -117,27 +118,40 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 다음과 같은 `RunAsync` 메서드를 포함하는 *HelloWorldStateful*에서 **HelloWorldStateful.cs**를 엽니다.
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
+
+    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    while (!cancellationToken.IsCancellationRequested)
+    // This partition's replica continues processing until the replica is terminated.
+    while (!cancelServicePartitionReplica.IsCancellationRequested)
     {
+
+        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+
+            // Try to read a value from the dictionary whose key is "Counter-1".
             var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-            ServiceEventSource.Current.ServiceMessage(
-                this,
-                "Current Counter Value: {0}",
+
+            // Log whether the value existed or not.
+            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
+            // If the "Counter-1" key doesn't exist, set its value to 0
+            // else add 1 to its current value.
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
+            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
 
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
     }
 }
 ```
@@ -204,4 +218,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

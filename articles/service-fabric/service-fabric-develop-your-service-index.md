@@ -79,7 +79,7 @@ Reliable Services는 단순하고 강력한 최고 수준의 프로그래밍 모
 
 - [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)
 - [서비스 통신 모델](service-fabric-reliable-services-communication.md)
-- [Reliable Services 프레임워크가 제공하는 기본 통신 스택](service-fabric-reliable-services-communication-default.md)
+- [신뢰할 수 있는 서비스 프레임워크가 제공하는 기본 통신 스택](service-fabric-reliable-services-communication-remoting.md)
 - [Reliable Services에 대한 WCF 기반 통신 스택](service-fabric-reliable-services-communication-wcf.md)
 - [OWIN 자체 호스팅(VS 2015 RC)으로 Microsoft Azure 서비스 패브릭 웹 API 서비스 시작](service-fabric-reliable-services-communication-webapi.md)
 
@@ -87,4 +87,4 @@ Reliable Services는 서비스의 진단 및 모니터링에 사용할 수 있�
 
 - [상태 저장 Reliable Service 진단](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

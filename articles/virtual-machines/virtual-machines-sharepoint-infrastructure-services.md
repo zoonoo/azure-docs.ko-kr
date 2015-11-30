@@ -69,4 +69,4 @@ Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [9개의 �
 
 [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

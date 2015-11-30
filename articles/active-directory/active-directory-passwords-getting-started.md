@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리 시작
@@ -186,7 +186,7 @@
   
 - Azure AD Connect 도구가 설치되어 있고 클라우드로 동기화할 AD 환경을 준비합니다. 자세한 내용은 [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)을 참조하세요.
 
-  >[AZURE.NOTE]비밀번호 쓰기 저장을 테스트하기 전에 먼저 AD와 Azure AD에서 모두 전체 가져오기 및 전체 동기화 되어있는지 확인해야 합니다.
+  >[AZURE.NOTE]비밀번호 쓰기 저장을 테스트하기 전에 먼저 Azure AD Connect의 AD와 Azure AD에서 모두 전체 가져오기 및 전체 동기화를 완료하도록 합니다.
 
 - Azure AD Sync 또는 Azure AD Connect를 사용하는 경우, **TCP 443** 아웃바운드(및 경우에 따라 **TCP 9350-9354**)가 열려 있어야 합니다. 자세한 내용은 [3단계: 방화벽 구성](#step-3-configure-your-firewall)을 참조하세요. 이 시나리오에서 DirSync 사용은 더 이상 지원되지 않습니다. DirSync를 아직 사용 중인 경우, 비밀번호 쓰기 저장을 배포하기 전에 최신 버전의 Azure AD Connect로 업그레이드하십시오.
 
@@ -279,9 +279,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 8.	위쪽의 드롭다운 목록에서 **하위 사용자 개체**를 선택합니다.
 9.	나타나는 **권한 항목** 대화 상자에서, **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한** 및 `pwdLastSet`에서 **쓰기 권한** 상자를 선택합니다.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	열린 모든 대화 상자를 통해 **적용/확인**을 클릭합니다.
 
@@ -305,18 +303,17 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
 <br/> <br/> <br/>
 
-**추가 리소스**
+## 암호 재설정 설명서에 대한 링크
+다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-
-* [암호 관리 정의](active-directory-passwords.md)
-* [암호 관리의 작동 원리](active-directory-passwords-how-it-works.md)
-* [암호 관리 사용자 지정](active-directory-passwords-customize.md)
-* [암호 관리 모범 사례](active-directory-passwords-best-practices.md)
-* [암호 관리 보고서와 함께 Operational Insights를 얻는 방법](active-directory-passwords-get-insights.md)
-* [암호 관리 FAQ](active-directory-passwords-faq.md)
-* [암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
-* [자세한 정보](active-directory-passwords-learn-more.md)
-* [MSDN의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password) - 시스템 사용자로서 자신의 암호를 재설정하거나 변경하는 방법을 알아봅니다.
+* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
+* [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
+* [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
+* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 
 
@@ -353,4 +350,4 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

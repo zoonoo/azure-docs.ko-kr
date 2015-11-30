@@ -1,2 +1,4 @@
 
-In this topic, you will create a new Mobile App backend, download and publish the server project, and download a "todo list" client app that connects to the new Mobile App backend. Mobile Apps provides you with all the backend functionality of App Service, but with additional features designed for mobile developers, including offline sync and push notifications. Client SDKs simplify cloud-based data storage and authentication in your apps. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
+이 항목에서는 새 모바일 앱 백 엔드를 만들고 서버 프로젝트를 다운로드 및 게시하며 새 모바일 앱 백 엔드에 연결된 "할 일 목록" 클라이언트 앱을 다운로드합니다. 모바일 앱은 오프라인 동기화 및 푸시 알림을 포함하여 모바일 개발자를 위해 설계된 추가 기능을 제외한 앱 서비스의 모든 백 엔드 기능을 제공합니다. 클라이언트 SDK는 클라우드 기반 데이터 저장소 및 앱에서의 인증을 간소화합니다. 자세한 내용은 [모바일 앱 정의](app-service-mobile-value-prop.md)를 참조하세요.
+
+<!---HONumber=Nov15_HO4-->

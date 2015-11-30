@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple Manager 서비스 배포 | Microsoft Azure"
-   description="관리 포털에서 StorSimple 관리자 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다."
+   description="Azure 포털에서 StorSimple 관리자 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 배포
 
 ## 개요
 
-StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 서비스를 만든 후에 브라우저에서 실행되는 Microsoft Azure 관리 포털에서 이러한 장치를 관리하는 데 사용할 수 있습니다. 하나의 중앙 위치에서 StorSimple 관리자 서비스에 연결된 모든 장치를 모닝터링하여 관리 부담을 최소화할 수 있습니다.
+StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 서비스를 만든 후에 브라우저에서 실행되는 Microsoft Azure 포털에서 이러한 장치를 관리하는 데 사용할 수 있습니다. 하나의 중앙 위치에서 StorSimple 관리자 서비스에 연결된 모든 장치를 모닝터링하여 관리 부담을 최소화할 수 있습니다.
 
 StorSimple 관리자 방문 페이지에는 StorSimple 저장소 장치를 관리하는 데 사용할 수 있는 모든 StorSimple 관리자 서비스가 나열되어 있습니다. 각 StorSimple 관리자 서비스의 경우, 다음 정보가 StorSimple 관리자 페이지에 있습니다.
 
@@ -115,4 +115,4 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

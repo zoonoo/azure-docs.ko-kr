@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure에서 Visual Studio Online을 사용한 연속 배달"
-	description="자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법을 알아봅니다."
+	pageTitle="Azure에서 Visual Studio Team Services를 사용한 지속적인 업데이트"
+	description="자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에서 웹앱에 배포되도록 Visual Studio Team Services 팀 프로젝트를 구성하는 방법을 알아봅니다."
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="kempb"
@@ -16,16 +16,15 @@
 	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
-# Visual Studio Online을 사용하여 Azure에 지속적으로 전송
+# Visual Studio Team Services를 사용한 지속적인 업데이트
 
-Azure 웹앱 또는 클라우드 서비스에 자동으로 빌드 및 배포하도록 Visual Studio Online 팀 프로젝트를 구성할 수 있습니다. *온-프레미스* Team Foundation Server를 사용하여 연속 빌드 및 배포 시스템을 설정하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스의 지속적인 전송](cloud-services-dotnet-continuous-delivery.md)(영문)을 참조하세요.
+Azure 웹앱 또는 클라우드 서비스에 자동으로 빌드 및 배포하도록 Visual Studio Team Services 팀 프로젝트를 구성할 수 있습니다. *온-프레미스* Team Foundation Server를 사용하여 연속 빌드 및 배포 시스템을 설정하는 방법에 대한 자세한 내용은 [Azure 클라우드 서비스의 지속적인 전송](cloud-services-dotnet-continuous-delivery.md)(영문)을 참조하세요.
 
 이 자습서에서는 Visual Studio 2013 및 Azure SDK가 설치되어 있다고 가정합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.
-> [Visual Studio Online 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다. [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 
-Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
+Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
 ## 1단계: 팀 프로젝트 만들기
 
@@ -33,13 +32,9 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 ## 2단계: 소스 제어에 프로젝트 체크 인
 
-1. Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다.
-이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다.
-프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다.
-메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다.
-웹앱을 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../web-sites-dotnet-get-started.md)
+1. Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다. 이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다. 웹앱을 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../web-sites-dotnet-get-started.md)
 
-	> [AZURE.NOTE]Visual Studio Online은 현재 Visual Studio 웹 응용 프로그램의 CI 배포만 지원합니다. 웹 사이트 프로젝트는 범위를 벗어납니다.
+	> [AZURE.NOTE]Visual Studio Team Services는 현재 Visual Studio 웹 응용 프로그램의 CI 배포만 지원합니다. 웹 사이트 프로젝트는 범위를 벗어납니다.
 
 1. 솔루션의 상황에 맞는 메뉴를 열고 **소스 제어에 솔루션 추가**를 선택합니다.
 
@@ -63,23 +58,23 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 ## 3단계: Azure에 프로젝트 연결
 
-1. 일부 소스 코드를 포함한 VSO 팀 프로젝트가 있으므로 Azure에 팀 프로젝트를 연결할 준비가 되었습니다. [Azure 관리 포털](http://manage.windowsazure.com)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 **+** 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다. **Visual Studio Online으로 게시 설정** 링크를 선택합니다.
+1. 일부 소스 코드를 포함한 VSTS 팀 프로젝트가 있으므로 Azure에 팀 프로젝트를 연결할 준비가 되었습니다. [Azure 관리 포털](http://manage.windowsazure.com)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 **+** 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다. **Visual Studio Team Services로 게시 설정** 링크를 선택합니다.
 
 	![][10]
 
-1. 마법사의 텍스트 상자에 Visual Studio Online 계정의 이름을 입력하고 **지금 권한 부여** 링크를 클릭합니다. 로그인하라는 메시지가 표시될 수 있습니다.
+1. 마법사의 텍스트 상자에 Visual Studio Team Services 계정의 이름을 입력하고 **지금 권한 부여** 링크를 클릭합니다. 로그인하라는 메시지가 표시될 수 있습니다.
 
 	![][11]
 
-1. **연결 요청** 팝업 대화 상자에서 **동의함** 단추를 선택하여 Azure에 권한을 부여하고 VSO에서 팀 프로젝트를 구성합니다.
+1. **연결 요청** 팝업 대화 상자에서 **동의함** 단추를 선택하여 Azure에 권한을 부여하고 VSTS에서 팀 프로젝트를 구성합니다.
 
 	![][12]
 
-1. 권한 부여가 완료되면 Visual Studio Online 팀 프로젝트 목록이 포함된 드롭다운이 표시됩니다. 이전 단계에서 만든 팀 프로젝트 이름을 선택하고 마법사의 확인 표시 단추를 선택합니다.
+1. 권한 부여가 완료되면 Visual Studio Team Services 팀 프로젝트 목록이 포함된 드롭다운이 표시됩니다. 이전 단계에서 만든 팀 프로젝트 이름을 선택하고 마법사의 확인 표시 단추를 선택합니다.
 
 	![][13]
 
-1. 프로젝트가 연결되면 Visual Studio Online 팀 프로젝트에 대한 변경 내용을 체크 인하는 몇 가지 지침이 표시됩니다. 다음번에 체크 인할 때 Visual Studio Online에서 프로젝트를 Azure에 빌드 및 배포합니다. **Visual Studio에서 체크 인** 링크와 **Visual Studio 시작** 링크(또는 포털 화면 아래에 있는 해당 **Visual Studio** 단추)를 차례로 클릭하여 지금 이 작업을 시도합니다.
+1. 프로젝트가 연결되면 Visual Studio Team Services 팀 프로젝트에 대한 변경 내용을 체크 인하는 몇 가지 지침이 표시됩니다. 다음번에 체크 인할 때 Visual Studio Team Services에서 프로젝트를 Azure에 빌드 및 배포합니다. **Visual Studio에서 체크 인** 링크와 **Visual Studio 시작** 링크(또는 포털 화면 아래에 있는 해당 **Visual Studio** 단추)를 차례로 클릭하여 지금 이 작업을 시도합니다.
 
 	![][14]
 
@@ -269,7 +264,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 	![][50]
 
 ## 다음 단계
-Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드에서 단위 테스트 실행](http://go.microsoft.com/fwlink/p/?LinkId=510474)을 참조하세요. Git를 사용하는 경우 [Git에서 코드를 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [Azure 앱 서비스에 GIT를 사용하여 연속 배포](../web-sites-publish-source-control.md). Visual Studio Online에 대한 자세한 내용은 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)을 참조하세요.
+Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [빌드에서 단위 테스트 실행](http://go.microsoft.com/fwlink/p/?LinkId=510474)을 참조하세요. Git를 사용하는 경우 [Git에서 코드를 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 및 [Azure 앱 서비스에 GIT를 사용하여 연속 배포](../web-sites-publish-source-control.md). Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -322,4 +317,4 @@ Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드�
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

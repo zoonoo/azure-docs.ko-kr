@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL Server에 대한 고가용성 및 재해 복구 | Microsoft Azure"
-   description="이 자습서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 다양한 유형의 HADR 전략을 설명합니다."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" 
-   tags="azure-service-management"/>
+	pageTitle="SQL Server에 대한 고가용성 및 재해 복구 | Microsoft Azure"
+	description="이 자습서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 다양한 유형의 HADR 전략을 설명합니다."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구
 
@@ -104,9 +104,14 @@ Azure에 RFC 호환이 아닌 DHCP 서비스를 사용하면 특정한 WSFC 클�
 
 ### 가용성 그룹 수신기 지원
 
-가용성 그룹 수신기는 Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2에서 실행되는 Azure VM에서 지원됩니다. 가용성 그룹 노드인 Azure VM에서 부하 분산된 끝점과 함께 직접 서버 반환(DSR)을 사용하도록 설정하여 이러한 지원이 가능해집니다. 수신기가 작동하도록 하려면 Azure에서 실행되는 클라이언트 응용 프로그램과 온-프레미스 실행되는 클라이언트 응용 프로그램 모두에 대해 특별한 구성 단계를 따라야 합니다.
+가용성 그룹 수신기는 Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2에서 실행되는 Azure VM에서 지원됩니다. 가용성 그룹 노드인 Azure VM에서 부하 분산된 끝점을 사용하도록 설정하면 이러한 지원이 가능해집니다. 수신기가 작동하도록 하려면 Azure에서 실행되는 클라이언트 응용 프로그램과 온-프레미스 실행되는 클라이언트 응용 프로그램 모두에 대해 특별한 구성 단계를 따라야 합니다.
 
-클라이언트는 AlwaysOn 가용성 그룹 노드와 동일한 클라우드 서비스에 있지 않은 컴퓨터에서 수신기에 연결해야 합니다. 가용성 그룹이 여러 Azure 서브넷에 있는 경우(여러 Azure 지역에 배포한 경우와 같이) 클라이언트 연결 문자열에는 "MultisubnetFailover = True"가 포함되어야 합니다. 이렇게 하면 다른 서브넷에 있는 복제본에 대해 병렬 연결을 시도하게 됩니다. 수신기 설정에 대한 지침은 [Azure에서 AlwaysOn 가용성 그룹을 위해 ILB 수신기 구성](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)을 참조하세요.
+수신기를 설정하는 두 가지 주요 옵션(외부(공용) 및 내부)이 있습니다. 외부(공용) 수신기는 인터넷을 통해 액세스할 수 있는 공용 VIP(가상 IP)에 연결됩니다. 외부 수신기를 사용하는 경우 DSR(Direct Server Return)을 사용하도록 설정해야 합니다. 즉, AlwaysOn 가용성 그룹 노드와 동일한 클라우드 서비스에 있지 않은 컴퓨터에서 수신기에 연결해야 합니다. 다른 옵션은 ILB(내부 부하 분산 장치)를 사용하는 내부 수신기입니다. 내부 수신기는 동일한 가상 네트워크 내에 있는 클라이언트만 지원합니다.
+
+가용성 그룹이 여러 Azure 서브넷에 있는 경우(여러 Azure 지역에 배포한 경우와 같이) 클라이언트 연결 문자열에는 "**MultisubnetFailover = True**"가 포함되어야 합니다. 이렇게 하면 다른 서브넷에 있는 복제본에 대해 병렬 연결을 시도하게 됩니다. 수신기 설정에 대한 지침은 다음을 참조하세요.
+
+- [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Azure에서 AlwaysOn 가용성 그룹에 대한 외부 수신기 구성](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 서비스 인스턴스에 직접 연결하면 각 가용성 복제본에 개별적으로 연결할 수 있습니다. 또한 AlwaysOn 가용성 그룹은 데이터베이스 미러링 클라이언트와 역방향 호환이 가능하므로 복제본이 데이터베이스 미러링과 유사하게 구성된 이상 데이터베이스 미러링 파트너와 같이 가용성 복제본에 연결할 수 있습니다.
 
@@ -147,4 +152,4 @@ Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴
 - [Azure에 새 Active Directory 포리스트 설치](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Azure VM에서 AlwaysOn 가용성 그룹을 위한 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

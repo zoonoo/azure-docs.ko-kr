@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/05/2015"
+   ms.date="11/16/2015"
    ms.author="jroth" />
 
 # Azure SQL 데이터베이스 일반 제한 사항 및 지침
@@ -59,9 +59,9 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 ## 추가 지침
 
-- 이 문서에 설명된 일반 제한 사항 외에도 SQL 데이터베이스에는 [서비스 계층](sql-database-service-tiers.md)을 기반으로 특정 리소스 할당량 및 제한 사항이 있습니다. 서비스 계층 제한 사항의 자세한 설명은 [서비스 계층 기능 및 제한](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)을 참조하세요.
+- 이 문서에 설명된 일반 제한 사항 외에도 SQL 데이터베이스에는 **서비스 계층**을 기반으로 특정 리소스 할당량 및 제한 사항이 있습니다. 서비스 계층에 대한 개요는 [SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
-- 기타 SQL 데이터베이스 제한은 [Azure SQL 데이터베이스 리소스 제한](sql-database-limits.md)을 참조하세요.
+- 기타 SQL 데이터베이스 제한은 [Azure SQL 데이터베이스 리소스 제한](sql-database-resource-limits.md)을 참조하세요.
 
 - 보안 관련 지침은 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md)을 참조하세요.
 
@@ -69,4 +69,4 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # Application Insights 데이터 모델 내보내기
@@ -193,7 +193,7 @@
 **innerMostExceptionThrownAtAssembly**
 
     string basicException.innermostExceptionThrownAtAssembly      
-**innerMostExceptionThrownAtAssembly**
+**innerMostExceptionThrownAtMethod**
 
     string basicException.innermostExceptionThrownAtMethod      
 **innerMostExceptionType**
@@ -211,7 +211,7 @@
 **outerMostExceptionThrownAtAssembly**
 
     string basicException.outerExceptionThrownAtMethod      
-**outerMostExceptionMessage**
+**outerMostExceptionType**
 
     string basicException.outerExceptionType      
 **problemid**
@@ -232,7 +232,7 @@
 **Exceptions.Level**
 
     string basicexception.exceptions.level      Max: 100
-**Exceptions.Level**
+**Exceptions.Line**
 
     long basicexception.exceptions.line      
 **exceptions.message**
@@ -241,7 +241,7 @@
 **Exceptions.Method**
 
     string basicexception.exceptions.method      Max: 100
-**Exceptions.Method**
+**Exceptions.outerId**
 
     long basicexception.exceptions.outerid      
 **Exceptions.parsedStack**
@@ -314,7 +314,7 @@
 
     string context.application.version      Max: 100
 * 
-    클라이언트 응용 프로그램의 응용 프로그램 버전 
+    클라이언트 응용 프로그램의 응용 프로그램 버전 알 수 없음 상태로 설정된 경우 사용할 수 없습니다. 
 
     *예제*<br/> 2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
 
@@ -374,39 +374,12 @@
 * 
     서버의 배포 ID 
 
-**deviceId**
-
-    string context.device.id      Max: 100
-* 
-    클라이언트의 고유 ID입니다. 생성된 ID는 장치에 로컬로 저장되어야 하고 MAC 주소 또는 유사한 변경 불가능 ID와 같은 PII가 아니어야 합니다.   
-
-**deviceModel**
-
-    string context.device.devicemodel      Max: 100
-* 
-    모바일 하드웨어 클라이언트의 장치 모델 
-
-    *예제*<br/> Other<br/>iPad<br/>Nokia 503s
 
 **deviceName**
 
     string context.device.name      Max: 100
 * 
     앱이 실행 중인 장치의 이름 
-
-**deviceType**
-
-    string context.device.type      Max: 100
-* 
-    클라이언트 하드웨어의 장치 유형 
-
-    *예제*<br/> PC<br/>Mobile<br/>Tablet
-
-**language**
-
-    string context.device.language      Max: 100
-* 
-    클라이언트의 앱 언어입니다. 원격 분석 항목에 명시적으로 제공되지 않으면 사용자 에이전트 필드의 처리에 따라 제공됩니다. 
 
 **locale**
 
@@ -422,17 +395,6 @@
 * 
     서버의 컴퓨터 이름입니다. 가상화된 계산의 경우 이 데이터 항목이 기본 호스트와 같습니다. 전용 계산의 경우 컴퓨터 이름입니다. 
 
-**networkType**
-
-    string context.device.network      Max: 100
-* 
-    클라이언트의 네트워크 유형 
-
-**oemName**
-
-    string context.device.oemname      Max: 100
-* 
-    모바일 하드웨어 클라이언트의 OEM 이름 
 
 **operatingSystem**
 
@@ -507,7 +469,7 @@
 * 
     앱 세션의 구/군/시입니다. 원격 분석 항목에 직접 제공될 수 있습니다. 없는 경우 원격 분석 항목의 한 IPv4에 따라 채워집니다. IPv4가 제공되지 않으면 이 필드는 비어 있습니다. 
 
-    *예제*<br/> Minsk<br/>Haarlem
+    *예제*<br/> 민스크<br/>하를렘
 
 **clientIpAddress**
 
@@ -515,7 +477,7 @@
 * 
     Xxx.xxx. xxx.xxx 형식의 클라이언트 IPv4 주소입니다.   
 
-    *기본값:* null인 경우 데이터 컬렉션 끝점에서 캡처된 HTTP IP로 설정됩니다.
+    *기본:* null인 경우 데이터 컬렉션 끝점에서 캡처된 HTTP IP로 설정됩니다.
 
     *예제*<br/> 0.123.63.143<br/>123.203.131.197
 
@@ -525,7 +487,7 @@
 * 
     앱 세션의 대륙입니다. 원격 분석 항목에 직접 제공될 수 있습니다. 없는 경우 원격 분석 항목의 한 IPv4에 따라 채워집니다. IPv4가 제공되지 않으면 이 필드는 비어 있습니다. 
 
-    *예제*<br/> Europe<br/>North America
+    *예제*<br/> 유럽<br/>북아메리카
 
 **country**
 
@@ -533,7 +495,7 @@
 * 
     앱 세션의 국가입니다. 원격 분석 항목에 직접 제공될 수 있습니다. 없는 경우 원격 분석 항목의 한 IPv4에 따라 채워집니다. IPv4가 제공되지 않으면 이 필드는 비어 있습니다. 
 
-    *예제*<br/> Belarus<br/>Netherlands<br/>Germany
+    *예제*<br/> 벨로루시<br/>네덜란드<br/>독일
 
 
 **state**
@@ -542,7 +504,7 @@
 * 
     앱 세션의 시/도입니다. 원격 분석 항목에 직접 제공될 수 있습니다. 없는 경우 원격 분석 항목의 한 IPv4에 따라 채워집니다. IPv4가 제공되지 않으면 이 필드는 비어 있습니다. 
 
-    *예제*<br/> Minsk<br/>Oregon<br/>Central Serbia<br/>Provincia di Oristano
+    *예제*<br/> 민스크<br/>오리건<br/>중앙 세르비아<br/>Provincia di Oristano
 
 **operationId**
 
@@ -568,7 +530,7 @@
 * 
     issynthetic=true이면 이 데이터 항목은 가상 데이터의 소스를 나타냅니다. 
 
-    *기본값:* null인 경우 사용자 에이전트가 알려진 가상 소스(webcrawlers 등)인지 검사되고 이에 따라 원본이 설정될 수 있습니다.
+    *기본값:* null인 경우 사용자 에이전트가 알려진 가상 원본(webcrawlers 등)인지 검사되고 이에 따라 원본이 설정될 수 있습니다.
 
 **syntheticTransaction**
 
@@ -590,7 +552,8 @@
 
 **accountAcquisitionDate**
 
-    datetime context.user.accountAcquisitionDate      
+    datetime context.user.accountAcquisitionDate  
+    
 **anonUserId**
 
     string context.user.anonId      Max: 100
@@ -602,9 +565,11 @@
 **anonymousUserAcquisitionDate**
 
     datetime context.user.anonAcquisitionDate      
+
 **authenticatedUserAcquisitionDate**
 
-    datetime context.user.authAcquisitionDate      
+    datetime context.user.authAcquisitionDate     
+ 
 **authUserId**
 
     string context.user.authId      Max: 100
@@ -943,7 +908,7 @@
 * 
     추적 원격 분석 항목에 대한 사용자 스택 프레임 
 
-**userStackframe**
+**userStackframNum**
 
     string trace.userstackframenum      Max: 100
 * 
@@ -1024,4 +989,4 @@
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

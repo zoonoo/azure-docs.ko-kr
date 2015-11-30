@@ -17,44 +17,59 @@
 	ms.author="spelluru"/>
 
 # 데이터 이동 활동
-데이터 팩터리는 [전역적으로 사용할 수 있는 서비스](#global)을 사용하여 아래에 나열된 다양한 데이터 저장소에 걸쳐 [복사 작업](#copyactivity)으로 데이터 이동을 지원합니다. 데이터 팩터리는 데이터 관리 게이트웨이를 사용하는 [온-프레미스 위치와 클라우드 간의 데이터를 안전하게 이동](#moveonpremtocloud)하도록 기본적으로 지원합니다.
+[복사 작업](#copyactivity)이 Azure Data Factory의 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고, 안정적이고, 확장성 있는 방법으로 복사할 수 있는 [전역적으로 사용 가능한 데이터 이동 서비스](#global)를 통해 이루어집니다. 이 서비스는 원본 및 싱크 데이터 저장소의 위치에 따라 데이터 이동 작업을 수행할 최적의 영역을 자동으로 선택합니다. 현재는 싱크 데이터 저장소에 가장 가까운 영역이 사용됩니다.
+ 
+이 데이터 이동이 발생하는 다양한 시나리오를 살펴보겠습니다.
 
-복사 작업 사용에 대한 빠른 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 작업 사용](data-factory-get-started.md)을 참조하세요. 자습서에서는 복사 작업을 사용하여 Azure Blob 저장소의 데이터를 Azure SQL 데이터베이스에 복사합니다. 다음 섹션에는 복사 작업에서 지원하는 모든 원본 및 싱크가 나열되어 있습니다.
+## 두 클라우드 데이터 저장소 간의 데이터 복사
+원본 및 싱크(대상) 데이터 저장소가 모두 클라우드에 있는 경우 복사 작업은 다음 단계를 통해 원본에서 싱크로 데이터를 복사/이동합니다. 데이터 이동 서비스는 다음을 수행합니다.
+
+1. 원본 데이터 저장소에서 데이터 읽기
+2.	입력 데이터 집합, 출력 데이터 집합 및 복사 작업의 구성을 기준으로 직렬화/역직렬화, 압축/압축 해제, 열 매핑 및 형식 변환 수행 
+3.	대상 데이터 저장소에 데이터 기록
+
+![클라우드-클라우드 복사](.\media\data-factory-data-movement-activities\cloud-to-cloud.png)
 
 
-## 복사 작업을 지원하는 데이터 저장소
+## 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간 데이터 복사
+[회사 방화벽 뒤의 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 안전하게 데이터를 이동하려면](#moveonpremtocloud) 하이브리드 데이터 이동 및 처리를 돕는 에이전트인 데이터 관리 게이트웨이를 온-프레미스 컴퓨터에 설치해야 합니다. 데이터 관리 게이트웨이는 데이터 저장소와 같은 컴퓨터에 설치하거나 데이터 저장소에 액세스할 수 있는 별도 컴퓨터에 설치할 수 있습니다. 이 시나리오에서는 직렬화/역직렬화, 압축/압축 해제, 열 매핑 및 형식 변환이 데이터 관리 게이트웨이에 의해 수행됩니다. 데이터 이동 서비스는 이 시나리오에 포함되지 않습니다.
+
+![온-프레미스-클라우드 복사](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
+
+## Azure Iaas VM의 데이터 저장소에서/로 데이터 복사 
+데이터 관리 게이트웨이를 사용하여 Azure IaaS VM(Infrastructure-as-a-Service 가상 컴퓨터)에서 호스트되는 지원되는 데이터 저장소에서/로 데이터를 이동할 수도 있습니다. 이 경우 데이터 관리 게이트웨이는 데이터 저장소와 같은 Azure VM에 설치하거나 데이터 저장소에 액세스할 수 있는 별도 VM에 설치할 수 있습니다.
+
+## 지원되는 데이터 저장소
 복사 작업은 **원본** 데이터 저장소의 데이터를 **싱크** 데이터 저장소로 복사합니다. 데이터 팩터리는 다음의 데이터 저장소 및 원본, 싱크 조합을 지원합니다. 해당 저장소에서 데이터를 복사하는 방법에 알아보려면 데이터 저장소를 클릭합니다.
 
 | **원본** | **싱크** |
 | ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스에, 온-프레미스 SQL Server, laaS의 SQL Server, Azure DocumentDB, 온-프레미스 파일 시스템, Azure 데이터 레이크 스토어 |
-| [Azure 테이블](data-factory-azure-table-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB, Azure 데이터 레이크 저장소 |
-| [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB, Azure 데이터 레이크 저장소 |
-| [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB, Azure 데이터 레이크 저장소 |
+| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure DocumentDB, 파일 시스템 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [Azure 테이블](data-factory-azure-table-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure DocumentDB, Azure 데이터 레이크 저장소 |
+| [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure DocumentDB, Azure 데이터 레이크 저장소 |
+| [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure DocumentDB, Azure 데이터 레이크 저장소 |
 | [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, Azure 데이터 레이크 저장소 |
-| [Azure 데이터 레이크 저장소](data-factory-azure-datalake-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스에, 온-프레미스 SQL Server, laaS의 SQL Server, Azure DocumentDB, 온-프레미스 파일 시스템, Azure 데이터 레이크 스토어 | 
-| [IaaS의 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure 데이터 레이크 저장소 |
-| [온-프레미스 파일 시스템](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스에, 온-프레미스 SQL Server, laaS의 SQL Server, 온-프레미스 파일 시스템, Azure 데이터 레이크 스토어 |
-| [온-프레미스 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure 데이터 레이크 저장소 |
-| [온-프레미스 Oracle 데이터베이스](data-factory-onprem-oracle-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure 데이터 레이크 저장소 |
-| [온-프레미스 MySQL 데이터베이스](data-factory-onprem-mysql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure 데이터 레이크 저장소 |
-| [온-프레미스 DB2 데이터베이스](data-factory-onprem-db2-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure 데이터 레이크 저장소 |
-| [온-프레미스 Teradata 데이터베이스](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure 데이터 레이크 저장소 |
-| [온-프레미스 Sybase 데이터베이스](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure 데이터 레이크 저장소 |
-| [온-프레미스 PostgreSQL 데이터베이스](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure 데이터 레이크 저장소 |
+| [Azure 데이터 레이크 저장소](data-factory-azure-datalake-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure DocumentDB, 파일 시스템 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 | 
+| [IaaS의 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [파일 시스템 온-프레미스/Azure IaaS](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, 파일 시스템 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [SQL Server 온-프레미스/AzureIaaS](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [Oracle 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-oracle-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [MySQL 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-mysql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [DB2 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-db2-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [Teradata 데이터베이스 온-프레미스/Azure IaaS ](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [Sybase 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+| [PostgreSQL 데이터베이스 온-프레미스/Azure IaaS](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, SQL Server 온-프레미스/Azure IaaS, Azure 데이터 레이크 저장소 |
+
+## 자습서
+복사 작업 사용에 대한 빠른 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 작업 사용](data-factory-get-started.md)을 참조하세요. 자습서에서는 복사 작업을 사용하여 Azure Blob 저장소의 데이터를 Azure SQL 데이터베이스에 복사합니다. 다음 섹션에는 복사 작업에서 지원하는 모든 원본 및 싱크가 나열되어 있습니다.
 
 ## <a name="copyactivity"></a>복사 작업
-복사 작업은 하나의 입력 데이터 집합(**원본**)을 가지고 한 출력 데이터 집합 (**싱크**)에 활동 구성 당 데이터를 복사합니다. 데이터 복사는 작업에 지정된 일정에 따라 일괄 처리 방식으로 수행됩니다.
-
-> [AZURE.NOTE]모든 활동에서 사용할 수 있는 다양한 JSON 섹션 및 속성과 같은 높은 수준의 일반적 활동을 정의에 대해 알아보려면 [파이프라인 및 활동 이해](data-factory-create-pipelines.md) 문서를 참조하세요.
+복사 작업에는 하나의 입력 데이터 집합(**원본**)과 하나의 출력 데이터 집합(**싱크**)이 사용됩니다. 데이터 복사는 작업에 지정된 일정에 따라 일괄 처리 방식으로 수행됩니다. 모든 활동에서 사용할 수 있는 다양한 JSON 섹션 및 속성과 같은 높은 수준의 일반적 활동을 정의에 대해 알아보려면 [파이프라인 및 활동 이해](data-factory-create-pipelines.md) 문서를 참조하세요.
 
 복사 작업은 다음 기능을 제공합니다.
 
 ### <a name="global"></a>전역적으로 사용 가능한 데이터 이동
-자체 Azure 데이터 팩터리가 미국 서부 지역에서만에서 사용할 수 있지만, 다음과 같은 영역 및 지역에서는 복사 활동을 지원하는 데이터 이동 서비스를 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지는 대부분의 경우에서 영역 간 홉을 방지하는 효율적인 데이터 이동을 보장합니다.
-
-
-클라우드 소스에서 클라우드 대상으로 복사하는 경우(예: Azure Blob -> Azure SQL), 데이터 이동 서비스는 전송하기 위해 싱크 위치에 가장 가까운 배포를 선택합니다. 데이터를 온-프레미스 데이터 원본에서 클라우드에 또는 그 반대로 복사하는 경우(예: 온-프레미스 SQL Server -> Azure Blob), 데이터 이동은 데이터 이동 서비스를 포함하지 않은 데이터 관리 게이트웨이에 의해 실제로 수행됩니다.
+자체 Azure Data Factory 자체는 미국 서부 및 북유럽 지역에서만 사용할 수 있지만, 다음과 같은 지역 및 지리에서는 복사 작업을 지원하는 데이터 이동 서비스를 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지는 대부분의 경우에서 영역 간 홉을 방지하는 효율적인 데이터 이동을 보장합니다.
 
 | 지역 | Geography |
 | ------ | --------- | 
@@ -70,7 +85,10 @@
 | 동남아시아 | APAC |
 | 일본 동부 | APAC |
 
+다음 사항에 유의하세요.
 
+- 데이터를 **온-프레미스 데이터 원본**에서 **클라우드**에 또는 그 반대로 복사하는 경우(예: 온-프레미스 SQL Server -> Azure Blob) 데이터 이동은 데이터 이동 서비스를 포함하지 않은 온-프레미스 환경에서 **데이터 관리 게이트웨이**에 의해 실제로 수행됩니다.
+- **클라우드 원본**에서 **클라우드 대상**으로 복사하는 경우(예: Azure Blob -> Azure SQL) **데이터 이동 서비스**는 전송하기 위해 **동일한 지리에서 싱크 위치에 가장 가까운** 배포를 선택합니다. 예를 들어 동남 아시아에서 일본 서부로 복사하는 경우 일본 동부의 데이터 이동 서비스 배포가 복사 작업에 사용됩니다. 원본 및 대상이 모두 같은 지역에 있고 해당 지역에서 데이터 이동 서비스를 사용할 수 없는 경우(예: 현재 오스트레일리아) 다른 지역으로 이동하지 않고 복사 작업이 실패합니다. 참고: 데이터 이동 서비스는 오스트레일리아로도 확장됩니다. 
 
 ### <a name="moveonpremtocloud"></a>온-프레미스 위치와 클라우드 간에 데이터를 안전하게 이동
 최신 데이터 통합에 대한 도전 과제 중 하나는 온-프레미스와 클라우드에서 원활한 데이터 이동입니다. 데이터 관리 게이트웨이는 하이브리드 데이터 파이프라인을 사용하도록 온-프레미스를 설치할 수 있는 에이전트입니다.
@@ -81,6 +99,7 @@
 2.	데이터 팩터리 내 온-프레미스 데이터 저장소 및 클라우드 데이터 저장소를 모델로 데이터를 이동합니다.
 3.	대시보드에 기반하는 데이터 팩터리 클라우드를 사용하여 게이트웨이 상태에 대한 가시성을 사용하는 모니터링 및 관리를 위한 유리의 단일 창이 있습니다.
 
+**Express 경로** 및 **게이트웨이 사용**을 사용하는 경우 데이터 원본을 온-프레미스 데이터 원본(즉, 방화벽 뒤)으로 처리하여 서비스와 데이터 원본 간에 연결을 설정해야 합니다.
 
 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 
@@ -96,11 +115,11 @@
 각 데이터 저장소 커넥터 문서에서 데이터 저장소용 .NET에 지정된 네이티브 형식 시스템에 대한 매핑을 찾을 수 있습니다. 테이블을 만드는 동안 적절한 형식을 결정하는 이러한 매핑을 사용할 수 있으므로 복사 작업 시 오른쪽 변환이 수행 됩니다.
 
 ### 다른 파일 형식으로 작업
-파일 기반 원본 복사 작업이 이진, 텍스트 및 Avro 형식을 포함하는 다양한 파일 형식을 지원합니다. 복사 작업을 사용하여 한 형식에서 다른 형식으로 데이터를 변환할 수 있습니다. 예: 텍스트(CSV)에서 Avro로 변환
+파일 기반 원본 복사 작업이 이진, 텍스트 및 Avro 형식을 포함하는 다양한 파일 형식을 지원합니다. 복사 작업을 사용하여 한 형식에서 다른 형식으로 데이터를 변환할 수 있습니다. 예: 텍스트(CSV)에서 Avro로 변환 데이터가 구조화되지 않은 경우 [데이터 집합](data-factory-create-datasets.md)의 JSON 정의에서 **Structure** 속성을 생략할 수 있습니다.
 
 ### 복사 작업 속성
 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다. 반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다.
 
 복사 작업의 경우 **typeProperties** 섹션은 원본 및 싱크의 형식에 따라 달라집니다. 각 페이지에 특정 데이터 저장소의 위에 나열 된 문서 이러한 속성을 데이터 저장소 형식에 따라 다릅니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

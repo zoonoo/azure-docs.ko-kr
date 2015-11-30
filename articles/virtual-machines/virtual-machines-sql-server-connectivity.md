@@ -1,33 +1,32 @@
 <properties 
-   pageTitle="SQL Server 가상 컴퓨터에 연결 | Microsoft Azure"
-   description="이 항목에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure 가상 컴퓨터에서 실행 중인 SQL Server에 연결하는 방법을 설명합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"    
-   tags="azure-service-management"/>
+	pageTitle="SQL Server 가상 컴퓨터에 연결 | Microsoft Azure"
+	description="이 항목에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure 가상 컴퓨터에서 실행 중인 SQL Server에 연결하는 방법을 설명합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"    
+	tags="azure-service-management"/>
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/12/2015"
+	ms.author="jroth" />
 
 # Azure에서 SQL Server 가상 컴퓨터 연결
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
- 
- 
 ## 개요
 
 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 연결 구성은 온-프레미스 SQL Server 인스턴스에 필요한 절차와 크게는 다르지 않습니다. 여기서도 방화벽, 인증, 데이터베이스 로그인과 관련한 구성 단계를 수행해야 합니다.
 
 하지만 Azure VM에 특정한 SQL Server 연결 요소가 몇 가지 존재합니다. 이 문서에서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
 
->[AZURE.NOTE]이 문서에서는 연결에 초점을 맞춥니다. 프로비저닝 및 연결의 전체 연습은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하세요.
+이 문서에서는 연결에 초점을 맞춥니다. 프로비저닝 및 연결의 전체 연습은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하세요.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 ## 연결 시나리오
 
@@ -85,6 +84,6 @@ DNS를 구성했다고 가정하면 연결 문자열에 SQL Server VM 호스트 
 
 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항](virtual-machines-sql-server-security-considerations.md)을 참조하세요.
 
-Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
+Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/10/2015"
 	ms.author="danlep"/>
 
 
 
 # Azure Preview 포털에서 Azure 배치 계정 만들기 및 관리
+
+> [AZURE.SELECTOR]
+- [Azure preview portal](batch-account-create-portal.md)
+- [Batch Management .NET](batch-management-dotnet.md)
 
 이 문서에서는 [Azure Preview 포털](https://portal.azure.com)을 사용하여 Azure 배치 계정 및 계정 키와 같은 설정을 만들고 관리하는 방법을 보여 줍니다. 모든 배치 API 요청을 인증하려면 배치 계정 URL 및 연결된 선택키가 있어야 합니다. 또한 배치 작업에 대한 모든 배치 리소스(예: 풀, 작업(job) 및 작업(task))와 특정 배치 계정을 연결해야 합니다.
 
@@ -80,4 +84,4 @@
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

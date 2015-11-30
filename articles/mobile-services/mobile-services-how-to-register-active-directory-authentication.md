@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="11/15/2015" 
 	ms.author="ricksal"/>
 
 # Azure Active Directory 계정 로그인 사용을 위한 앱 등록
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

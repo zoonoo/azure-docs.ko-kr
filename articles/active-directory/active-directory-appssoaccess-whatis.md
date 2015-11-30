@@ -122,7 +122,7 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 이
 
 응용 프로그램이 Azure AD 응용 프로그램 갤러리에 없으면 다음과 같은 옵션이 제공됩니다.
 
-*	**사용 중이지만 목록에 없는 앱 추가** - Azure 관리 포털 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다. SAML 2.0을 페더레이션된 앱으로 지원하는 모든 응용 프로그램 또는 HTML 기반 로그인 페이지가 암호 SSO 앱으로 있는 모든 응용 프로그램을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)에 대한 이 문서를 참조하세요.
+*	**사용 중이지만 목록에 없는 앱 추가** - Azure 관리 포털 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다. SAML 2.0을 페더레이션된 앱으로 지원하는 모든 응용 프로그램 또는 HTML 기반 로그인 페이지가 암호 SSO 앱으로 있는 모든 응용 프로그램을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](active-directory-saas-custom-apps.md)에 대한 이 문서를 참조하세요.
 
 
 *	**개발 중인 고유한 앱 추가** - 사용자가 직접 응용 프로그램을 개발한 경우 Azure AD 개발자 설명서의 지침에 따라 Azure AD Graph API를 사용하여 페더레이션된 Single Sign-On 또는 프로비저닝을 구현합니다. 자세한 내용은 다음 리소스를 참조하세요.
@@ -220,4 +220,4 @@ Azure AD는 또한 암호 기반 Single Sign-On, 기존 Single Sign-On 및 페�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

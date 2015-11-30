@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Azure Active Directory 그룹| Microsoft Azure를 사용하여 리소스에 대한 액세스 관리" 
-	description="Azure AD에서 액세스 관리에 그룹을 사용하는 방법을 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
+<properties
+	pageTitle="Azure Active Directory 그룹| Microsoft Azure를 사용하여 리소스에 대한 액세스 관리"
+	description="온-프레미스 및 클라우드 응용 프로그램 및 리소스에 대한 액세스 관리를 위해 Azure Active Directory의 그룹을 사용하는 방법입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor=""
-	tags="azure-classic-portal"/>
+/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/14/2015" 
-	ms.author="femila"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리
 
-Azure Active Directory는 Office 365와 같은 Microsoft 온라인 서비스 및 수많은 비 Microsoft SaaS 응용 프로그램을 포함하여 온-프레미스와 클라우드 응용 프로그램 및 리소스에 대한 액세스를 관리하는 강력한 기능을 제공하는 포괄적인 ID 및 액세스 관리 솔루션입니다.
+Azure Active Directory(Azure AD)는 Office 365와 같은 Microsoft 온라인 서비스 및 수많은 비 Microsoft SaaS 응용 프로그램을 포함하여 온-프레미스와 클라우드 응용 프로그램 및 리소스에 대한 액세스를 관리하는 강력한 기능을 제공하는 포괄적인 ID 및 액세스 관리 솔루션입니다.
 
 
 > [AZURE.NOTE]Azure Active Directory를 사용하려면 Azure 계정이 필요합니다. 계정이 없으면 [무료 Azure 계정을 등록](http://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
@@ -43,19 +43,21 @@ Azure Active Directory 내에서 주요 기능 중 하나는 리소스에 대한
 
 4\. 외부 기관
 
-리소스에 대한 액세스 권한은 외부 소스에서 파생됩니다. 예를 들면 온-프레미스 디렉터리와 같은 권한이 있는 원본이나 작업일와 같은 SaaS 앱에서 동기화되는 그룹이 있습니다. 리소스 소유자는 리소스에 대한 액세스 권한을 제공하는 그룹을 할당하고 외부 소스는 그룹의 구성원을 관리합니다.
+리소스에 대한 액세스 권한은 외부 소스에서 파생됩니다. 예를 들면 온-프레미스 디렉터리와 같은 권한이 있는 원본이나 WorkDay와 같은 SaaS 앱에서 동기화되는 그룹이 있습니다. 리소스 소유자는 리소스에 대한 액세스 권한을 제공하는 그룹을 할당하고 외부 소스는 그룹의 구성원을 관리합니다.
 
-  ![](./media/active-directory-access-management-groups/access-management-overview.png)
+  ![액세스 관리 다이어그램의 개요](./media/active-directory-access-management-groups/access-management-overview.png)
 
 
-###액세스 관리를 설명하는 비디오 보기
+## 액세스 관리를 설명하는 비디오 보기
 
-이에 대해 자세히 설명하는 짧은 비디오를 [여기](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)서 볼 수 있습니다.
+이에 대해 자세히 설명하는 짧은 비디오를 볼 수 있습니다.
 
-##Azure Active Directory에서 액세스 관리는 어떻게 작동합니까?
+> [AZURE.VIDEO azure-ad--introduction-to-dynamic-memberships-for-groups]
+
+## Azure Active Directory에서 액세스 관리는 어떻게 작동합니까?
 Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 리소스에 대한 액세스 관리에 보안 그룹을 사용하는 것은 잘 알려진 전형적인 예로, 이를 통해 의도한 사용자 그룹에 리소스에 대한 액세스 권한을 제공하는 방법을 유연하고 쉽게 이해할 수 있습니다. 리소스 소유자(또는 디렉터리 관리자)는 특정한 액세스 권한을 제공할 그룹을 자신이 소유한 리소스에 할당할 수 있습니다. 그룹 구성원에게 액세스 권한이 제공되며, 리소스 소유자는 부서 관리자 또는 기술 지원팀 관리자와 같은 다른 사람에게 그룹 구성원 목록을 관리할 권한을 위임할 수 있습니다.
 
-![](./media/active-directory-access-management-groups/active-directory-access-management-works.png) 그룹 소유자는 해당 그룹이 셀프 서비스 요청을 이용할 수 있도록 할 수 있습니다. 이 과정에서 최종 사용자가 그룹을 검색하고 찾을 수 있으며, 참여하도록 요청하여 그룹을 통해 관리되는 리소스에 액세스할 수 있는 권한을 효과적으로 검색할 수 있습니다. 그룹의 소유자는 참가 요청을 자동으로 승인하거나 그룹 소유자의 승인을 요구하도록 그룹을 설정할 수 있습니다. 사용자가 그룹 가입을 요청하면 가입 요청이 그룹 소유자에게 전달됩니다. 소유자 중 한 명이 요청을 승인하면 요청한 사용자에게 알리고 사용자가 그룹에 가입됩니다. 소유자 중 한 명이 요청을 거부하면 요청한 사용자에게 알리지만 사용자가 그룹에 가입되지 않습니다.
+![Azure Active Directory 액세스 관리 다이어그램](./media/active-directory-access-management-groups/active-directory-access-management-works.png) 그룹 소유자는 해당 그룹이 셀프 서비스 요청을 이용할 수 있도록 할 수 있습니다. 이 과정에서 최종 사용자가 그룹을 검색하고 찾을 수 있으며, 참여하도록 요청하여 그룹을 통해 관리되는 리소스에 액세스할 수 있는 권한을 효과적으로 검색할 수 있습니다. 그룹의 소유자는 참가 요청을 자동으로 승인하거나 그룹 소유자의 승인을 요구하도록 그룹을 설정할 수 있습니다. 사용자가 그룹 가입을 요청하면 가입 요청이 그룹 소유자에게 전달됩니다. 소유자 중 한 명이 요청을 승인하면 요청한 사용자에게 알리고 사용자가 그룹에 가입됩니다. 소유자 중 한 명이 요청을 거부하면 요청한 사용자에게 알리지만 사용자가 그룹에 가입되지 않습니다.
 
 
 ## 액세스 관리 시작
@@ -76,7 +78,7 @@ Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 
 ## 액세스 관리의 다음 단계
 액세스 관리의 기본 사항을 이해했으므로, 다음은 Azure Active Directory에서 추가 응용 프로그램 및 리소스에 대한 액세스를 관리하는 데 사용할 수 있는 몇 가지 고급 추가 기능입니다.
 
-* [단순한 규칙을 사용하여 그룹 만들기](active-directory-accessmanagement-simplerulegroup.md) 
+* [단순한 규칙을 사용하여 그룹 만들기](active-directory-accessmanagement-simplerulegroup.md)
 
 * [특성을 사용하여 고급 규칙 만들기](active-directory-accessmanagement-groups-with-advanced-rules.md)
 
@@ -86,7 +88,7 @@ Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 
 
 
 ## 자세한 정보
-다음은 Azure Active Directory에 대한 추가 정보를 제공하는 몇 가지 항목입니다.
+이러한 문서는 Azure Active Directory에 추가 정보를 제공합니다.
 
 * [Azure Active Directory란?](active-directory-whatis.md)
 
@@ -94,4 +96,4 @@ Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 
 
 * [그룹에 대한 그래프 API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

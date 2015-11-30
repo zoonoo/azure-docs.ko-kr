@@ -20,7 +20,7 @@
 
 이 문서에서 설명하는 프로세스에서는 Azure 클라우드 앱에 대해 지속적인 전송을 설정하는 방법을 보여 줍니다. 이 프로세스를 통해 각 코드 체크 인 이후에 자동으로 패키지를 만들어 Azure에 배포할 수 있습니다. 이 문서에서 설명하는 패키지 빌드 프로세스는 Visual Studio의 패키지 명령과 동일하며 게시 단계는 Visual Studio의 게시 명령과 동일합니다. 이 문서에서는 MSBuild 명령줄 문과 Windows PowerShell 스크립트를 사용하여 빌드 서버를 만드는 데 사용하는 메서드에 대해 설명하고, MSBuild 명령 및 PowerShell 스크립트를 사용하도록 선택적으로 Visual Studio Team Foundation Server - 팀 빌드 정의를 구성하는 방법도 보여 줍니다. 이 프로세스는 빌드 환경 및 Azure 대상 환경에 맞게 사용자 지정할 수 있습니다.
 
-또한 Azure에서 호스트되는 TFS 버전인 Visual Studio Online을 사용하면 이 작업을 보다 쉽게 수행할 수 있습니다. 자세한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송][](영문)을 참조하세요.
+또한 Azure에서 호스트되는 TFS 버전인 Visual Studio Team Services를 사용하면 이 작업을 보다 쉽게 수행할 수 있습니다. 자세한 내용은 [Visual Studio Team Services를 사용하여 Azure에 지속적으로 전송][](영문)을 참조하세요.
 
 시작하기 전에 Visual Studio에서 응용 프로그램을 게시해야 합니다. 그러면 게시 프로세스를 자동화하려고 할 때 모든 리소스가 사용 가능하며 초기화됩니다.
 
@@ -557,7 +557,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 연속 배달을 사용하는 경우 원격 디버깅을 사용하려면 [연속 배달을 사용하여 Azure에 게시할 경우 원격 디버깅 사용](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)을 참조하세요.
 
-  [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: cloud-services-continuous-delivery-use-vso.md
+  [Visual Studio Team Services를 사용하여 Azure에 지속적으로 전송]: cloud-services-continuous-delivery-use-vso.md
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -576,4 +576,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

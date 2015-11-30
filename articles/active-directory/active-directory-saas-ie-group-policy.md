@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/28/2015"
+   ms.date="11/18/2015"
    ms.author="liviodlc"/>
 
 #그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법
 
 이 자습서에서는 그룹 정책을 사용하여 사용자의 컴퓨터에 Internet Explorer용 액세스 패널 확장을 원격 설치하는 방법을 보여줍니다. 이 확장은 [암호 기반 Single Sign-On](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)을 사용하여 구성된 앱에 로그인하는 Internet Explorer 사용자에게 필요합니다.
 
-관리자는 이 확장의 배포를 자동화하는 것이 좋습니다. 그렇지 않은 경우 사용자가 직접 확장을 다운로드하여 설치해야 하기 때문에 사용자 오류가 발생하기 쉽고며 관리자 권한이 필요합니다. 이 자습서에서는 그룹 정책을 사용하여 소프트웨어 배포를 자동화하는 한 가지 방법을 설명합니다. [그룹 정책에 대해 알아봅니다.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
+관리자는 이 확장의 배포를 자동화하는 것이 좋습니다. 그렇지 않은 경우 사용자가 직접 확장을 다운로드하여 설치해야 하기 때문에 사용자 오류가 발생하기 쉽고 관리자 권한이 필요합니다. 이 자습서에서는 그룹 정책을 사용하여 소프트웨어 배포를 자동화하는 한 가지 방법을 설명합니다. [그룹 정책에 대해 알아봅니다.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
 액세스 패널 확장은 [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) 및 [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998)에도 사용할 수 있으며 설치에 관리자 권한이 필요하지 않습니다.
 
@@ -128,7 +128,36 @@
 
 이제 선택한 OU의 컴퓨터에서 확장이 활성화되어야 합니다. [그룹 정책을 사용하여 Internet Explorer 추가 기능을 활성화 또는 비활성화하는 방법에 대해 자세히 알아봅니다.](https://technet.microsoft.com/library/dn454941.aspx)
 
-##5단계: 배포 테스트
+##5단계(선택 사항): “암호 저장" 프롬프트 비활성화
+
+사용자가 액세스 패널 확장을 사용하여 웹 사이트에 로그인하면 Internet Explorer에 “암호를 저장하시겠습니까?”라고 묻는 프롬프트가 다음과 같이 표시될 수 있습니다.
+
+![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+
+사용자에게 이 프롬프트가 표시되지 않도록 하려면 아래 단계에 따라서 자동 완성이 암호를 저장하지 않도록 합니다.
+
+1. **그룹 정책 관리 편집기** 창에서 아래 나열된 경로로 이동합니다. 이 구성 설정은 **사용자 구성**에서만 사용할 수 있습니다.
+	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
+
+2. 이름이 **양식의 사용자 이름과 암호에 자동 완성 기능 사용**인 설정을 찾습니다.
+
+	> [AZURE.NOTE]이전 버전의 Active Directory에는 이 설정의 이름이 **Do not allow auto-complete to save passwords**(자동 완성이 암호를 저장하도록 허용 안 함)으로 표시될 수 있습니다. 해당 설정에 대한 구성은 이 자습서에 설명되어 있는 설정마다 다릅니다.
+
+	![사용자 설정에서 이 내용을 찾아야 합니다.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+
+3. 위 설정을 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
+
+4. **양식의 사용자 이름과 암호에 자동 완성 기능 사용** 창에서 **사용 안함**을 선택합니다.
+
+	![사용 안함 선택](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+
+5. **확인**을 클릭하여 변경 사항을 적용하고 창을 닫습니다.
+
+사용자는 더 이상 자신의 자격 증명을 저장하거나 자동 완성을 사용하여 이전에 저장된 자격 증명에 액세스할 수 없습니다. 하지만 이 정책은 검색 필드와 같은 다른 유형의 양식 필드에는 자동 완성 기능을 계속 사용하도록 허용합니다.
+
+> [AZURE.WARNING]사용자가 자격 증명을 저장하도록 선택한 후에 이 정책을 사용하도록 설정하면, 이 정책은 이미 저장된 자격 증명을 지우지 *않습니다*.
+
+##6단계: 배포 테스트
 
 다음 단계에 따라 확장 배포가 성공적으로 이루어졌는지 확인합니다.
 
@@ -148,4 +177,4 @@
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

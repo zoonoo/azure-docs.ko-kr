@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/16/2015"
    ms.author="joaoma" />
 
 # Azure CLI를 사용하여 인터넷 연결 부하 분산 장치 구성 시작
@@ -28,6 +28,8 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
+부하 분산 장치를 만들기 위해 수행되는 개별 작업의 순서를 알아보고 부하 분산 장치를 만들기 위해 수행해야 하는 작업을 자세히 설명합니다.
+
 
 ## 인터넷 연결 부하 분산 장치를 만드는 데 필요한 항목은 무엇입니까?
 
@@ -35,15 +37,15 @@
 
 - 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다. 
 
-- 백 엔드 주소 풀 - 부하 분산 장치의 트래픽을 받는 NIC(네트워크 인터페이스)를 포함합니다.
+- 백 엔드 주소 풀 - 부하 분산 장치의 네트워크 트래픽을 받는 가상 컴퓨터에 대한 NIC(네트워크 인터페이스)를 포함합니다.
 
-- 부하 분산 규칙 - 백 엔드 주소 풀에 있는 NIC의 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
+- 부하 분산 규칙 - 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
 
-- 인바운드 NAT 규칙 - 백 엔드 주소 풀에 있는 개별 NIC의 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
+- 인바운드 NAT 규칙 - 백 엔드 주소 풀에 있는 특정 가상 컴퓨터에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
 
-- 프로브 - 백 엔드 주소 풀의 NIC에 연결된 VM의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
+- 프로브 - 백 엔드 주소 풀의 가상 컴퓨터 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
-Azure 리소스 관리자의 부하 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
+Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](load-balancer-arm.md)에서 확인할 수 있습니다.
 
 ## 리소스 관리자를 사용하도록 CLI 설치
 
@@ -104,10 +106,10 @@ DNS 이름이 *loadbalancernrp.eastus.cloudapp.azure.com*인 프런트 엔드 IP
 
 아래 예제에서는 다음 항목을 만듭니다.
 
-- 포트 3441~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙<sup>1</sup>
+- 포트 3441~포트 3389<sup>1</sup>에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
 - 포트 3442~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
 - 포트 80~포트 80에서 들어오는 모든 트래픽을 백 엔드 풀에 있는 주소로 분산하는 부하 분산 장치 규칙
-- *HealthProbe.aspx*라는 페이지에서 상태를 확인하는 프로브 규칙
+- 경로 *HealthProbe.aspx* 페이지에 대한 상태를 확인하는 프로브 규칙
 
 <sup>1</sup> NAT 규칙은 부하 분산 장치 뒤에 특정 가상 컴퓨터 인스턴스와 관련이 있습니다. 3341 포트로 들어오는 네트워크 트래픽은 아래 예에서 NAT 규칙과 관련된 포트 3389의 특정 가상 컴퓨터로 전송됩니다. NAT 규칙, UDP 또는 TCP 프로토콜을 선택해야 합니다. 두 프로토콜을 모두 동일한 포트에 할당할 수 없습니다.
 
@@ -124,20 +126,24 @@ NAT 규칙을 만듭니다.
 - **-l** - 부하 분산 장치 이름 
 - **-n** - nat 규칙, 프로브 또는 lb 규칙 여부의 리소스 이름
 - **-p** -프로토콜(TCP 또는 UDP일 수 있음)  
-- **-f** - 사용될 프런트 엔드 포트(프로브 명령은 -f를 사용하여 프로브 경로를 정의합니다.)
+- **-f** 사용될 프런트 엔드 포트(프로브 명령은 -f를 사용하여 프로브 경로를 정의합니다.)
 - **-b** - 사용될 백 엔드 포트
 
 ### 2단계
 
 부하 분산 장치를 만듭니다.
 
-	azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
-
+	azure network lb rule create nrprg nrplb lbrule -p tcp -f 80 -b 80 -t NRPfrontendpool -o NRPbackendpool
 ### 3단계
 
 상태 프로브를 만듭니다.
 
-	azure network lb rule create -g nrprg -l nrplb -n HTTP -p tcp -f 80 -b 80
+	azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
+
+	
+	
+
+**-g** - 리소스 그룹 **-l** - 부하 분산 장치 집합의 이름 **-n** - 상태 프로브의 이름 **-p** - 상태 프로브에서 사용되는 프로토콜 **-i** - 프로브 간격(초) **-c** - 검사 횟수
 
 ### 4단계
 
@@ -220,8 +226,8 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 - **-g** - 리소스 그룹 이름
 - **-n** - NIC 리소스 이름
-- **-subnet-name** - 서브넷 이름 
-- **-서브넷-vnet-이름--subnet-vnet-name** -가상 네트워크 이름
+- **--subnet-name** - 서브넷 이름 
+- **--subnet-vnet-name** -가상 네트워크 이름
 - **-d** - /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>로 시작하는 백 엔드 풀 리소스의 ID 
 - **-e** - /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>로 시작하는 NIC 리소스에 연결될 NAT 규칙의 ID
 
@@ -260,11 +266,11 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 ### 3단계 
 
-*web1*이라는 가상 컴퓨터(VM)을 만들고 *lb-nic1-be*라는 NIC에 연결합니다. *web1nrp*라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
+*web1*이라는 VM(가상 컴퓨터)을 만들고 *lb-nic1-be*라는 NIC에 연결합니다. *web1nrp*라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
 
 	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]부하 분산 장치의 VM은 동일한 가용성 집합에 있어야 합니다. `azure availset create`을(를) 사용하여 가용성 집합을 만듭니다.
+>[AZURE.IMPORTANT]부하 분산 장치의 VM은 동일한 가용성 집합에 있어야 합니다. `azure availset create`를 사용하여 가용성 집합을 만듭니다.
 
 출력은 다음과 같습니다.
 
@@ -285,19 +291,19 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE]부하 분산 장치에 대해 만든 NIC가 부하 분산 장치 공용 IP 주소를 통해 인터넷에 연결되기 때문에 정보 메시지 **publicIP 구성 없는 NIC입니다**가 나타납니다.
+>[AZURE.NOTE]부하 분산 장치에 대해 만든 NIC가 부하 분산 장치 공용 IP 주소를 사용하여 인터넷에 연결되기 때문에 정보 메시지 **publicIP 구성 없는 NIC입니다**가 나타납니다.
 
 *lb-nic1-be* NIC는 *rdp1* NAT 규칙에 연결되어 있으므로 부하 분산 장치의 포트 3441을 통해 RDP를 사용하여 *web1*에 연결할 수 있습니다.
 
 ### 4단계
 
-*web2*이라는 가상 컴퓨터(VM)을 만들고 *lb-nic2-be*라는 NIC에 연결합니다. *web1nrp*라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
+*web2*라는 VM(가상 컴퓨터)을 만들고 *lb-nic2-be*라는 NIC에 연결합니다. *web1nrp*라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
 
 	azure vm create --resource-group nrprg --name web2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
 ## 기존 부하 분산 장치 업데이트
 
-기존 부하 분산 장치를 참조하는 규칙을 추가할 수 있습니다. 아래 예제에서는 새 부하 분산 장치 규칙은 기존 부하 분산 장치 **NRPlb**에 추가됩니다
+기존 부하 분산 장치를 참조하는 규칙을 추가할 수 있습니다. 아래 예제에서는 새 부하 분산 장치 규칙은 기존 부하 분산 장치 **NRPlb**에 추가됩니다.
 
 	azure network lb rule create -g nrprg -l nrplb -n lbrule2 -p tcp -f 8080 -b 8051 -t frontendnrppool -o NRPbackendpool
 
@@ -322,4 +328,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

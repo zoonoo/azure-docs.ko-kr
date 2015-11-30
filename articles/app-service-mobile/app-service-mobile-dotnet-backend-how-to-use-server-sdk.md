@@ -77,7 +77,7 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
 
 다음 NuGet 기반 확장 패키지는 응용 프로그램에서 사용할 수 있는 다양한 모바일 기능을 제공합니다. **MobileAppConfiguration** 개체를 사용하여 초기화하는 동안 확장을 사용할 수 있습니다.
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] 기본 모바일 앱 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가했습니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. Azure 포털에서 다운로드하는 빠른 시작 서버 프로젝트와 같습니다.
+- [Microsoft.Azure.Mobile.Server.Quickstart] 기본 모바일 앱 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가합니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. Azure 포털에서 다운로드하는 빠른 시작 서버 프로젝트와 같습니다.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지*를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
 
@@ -95,9 +95,9 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
 
 사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. 사용자 지정 API 컨트롤러
 
-1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 Controller&mdash;Empty**를 선택한 후 **추가**를 클릭합니다.
+1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 컨트롤러&mdash;비어 있음**을 선택한 후 **추가**를 클릭합니다.
 
-2. `CustomController`와 같은 **컨트롤러 이름**을 제공하고 **추가**를 클릭합니다. **ApiController**에서 상속한 새 **CustomController** 클래스가 만들어집니다.
+2. `CustomController`와 같은 **컨트롤러 이름**을 제공하고 **추가**를 클릭합니다. 이렇게 하면 **ApiController**에서 상속한 새 **CustomController** 클래스가 만들어집니다.
 
 3. 새로운 컨트롤러 클래스 파일에서 다음 using 문을 추가합니다.
 
@@ -137,7 +137,7 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
  
-Entity Framework를 사용하여 Azure SQL 데이터베이스에서 데이터에 액세스하는 테이블 컨트롤러의 예는 Azure 포털의 빠른 시작 서버 프로젝트 다운로드에서 **TodoItemController** 클래스를 참조하세요.
+Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 액세스하는 테이블 컨트롤러의 예제는 Azure 포털의 빠른 시작 서버 프로젝트 다운로드에서 **TodoItemController** 클래스를 참조하세요.
 
 ## 방법: 서버 프로젝트에 인증 추가
 
@@ -151,9 +151,9 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스에서 데이터에
 
 	Azure 모바일 앱을 사용하는 OWIN 미들웨어 구성 요소를 추가하여 관련된 앱 서비스 게이트웨이에서 발급된 토큰의 유효성을 검사합니다.
 
-3. `[Authorize]` 특성을 인증을 요구하는 모든 컨트롤러 또는 메서드에 추가합니다. 이제 해당 끝점 또는 특정 API에 액세스하려면 사용자를 인증해야 합니다.
+3. 인증을 요구하는 모든 컨트롤러 또는 메서드에 `[Authorize]` 특성을 추가합니다. 이제 해당 끝점 또는 특정 API에 액세스하려면 사용자를 인증해야 합니다.
 
-모바일 앱 백 엔드에 클라이언트를 인증하는 방법에 대해 알아보려면 [앱에 인증 추가](app-service-mobile-dotnet-backend-ios-get-started-users.md)를 참조하세요.
+모바일 앱 백 엔드에 클라이언트를 인증하는 방법에 대해 알아보려면 [앱에 인증 추가](app-service-mobile-ios-get-started-users.md)를 참조하세요.
 
 ## 방법: 서버 프로젝트에 푸시 알림 추가
 
@@ -195,6 +195,29 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스에서 데이터에
 
 이제 등록된 장치에 푸시 알림을 보내는 데 알림 허브 클라이언트를 사용할 수 있습니다. 자세한 내용은 [앱에 푸시 알림 추가](app-service-mobile-ios-get-started-push.md)를 참조하세요. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](../notification-hubs/notification-hubs-overview.md)를 참조하세요.
 
+## 방법: 태그에 푸시하기 위해 장치 설치에 태그 추가
+
+위의 **방법: 사용자 지정 API 컨트롤러 정의**를 따라 특정 장치 설치에 태그를 추가하려면 알림 허브를 사용하여 작업하도록 백 엔드에 사용자 지정 API를 설정하는 것이 좋습니다. 클라이언트 로컬 저장소에 저장된 설치 ID와 추가하려는 태그(백 엔드에서 직접 태그를 지정할 수 있으므로 선택적임)를 전달해야 합니다. 태그를 장치 설치 ID에 태그를 추가하려면 알림 허브를 사용하여 작업하도록 다음 코드 조각을 컨트롤러에 추가해야 합니다.
+
+[Azure 알림 허브 NuGet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) 사용([참조](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+
+		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+
+		hub.PatchInstallation("my-installation-id", new[]
+		{
+		    new PartialUpdateOperation
+		    {
+		        Operation = UpdateOperationType.Add,
+		        Path = "/tags",
+		        Value = "{my-tag}"
+		    }
+		});
+	
+
+이러한 태그에 푸시하려면 [알림 허브 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)를 사용하여 작업합니다.
+
+또한 백 엔드에서 직접 알림 허브를 사용하여 장치 설치를 등록하기 위한 사용자 지정 API를 구축할 수 있습니다.
+
 ## 방법: 서버 프로젝트 게시
 
 서버 프로젝트를 Azure에 게시하려면 다음 단계를 사용합니다.
@@ -207,4 +230,4 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스에서 데이터에
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

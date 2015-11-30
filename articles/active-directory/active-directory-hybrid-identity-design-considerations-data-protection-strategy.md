@@ -21,7 +21,7 @@
 
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
 
-- [데이터 보호 요구 사항 확인](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) 
+- [데이터 보호 요구 사항 결정](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) 
 - [콘텐츠 관리 요구 사항 결정](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 - [액세스 제어 요구 사항 확인](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 - [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
@@ -80,7 +80,7 @@
 
 다른 디렉터리르 사용하는 중앙 집중화된 관리 및 완전한 통합
 
-Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 single-sign on를 제공합니다. Microsoft에서 테스트된 SSO 타사에 대한 자세한 내용은 [Azure Active Directory 페더레이션 호환성 목록: Single Sign-On을 구현하는 데 사용할 수 있는 타사 ID 공급자](https://msdn.microsoft.com/library/azure/jj679342.aspx) 문서를 읽습니다. 이 기능을 사용하면 조직은 ID 및 액세스 관리의 제어를 유지하면서 다양한 B2B 시나리오를 구현할 수 있습니다. 그러나 B2B 중에 프로세스를 설계하는 작업은 파트너에서 사용되는 인증 방법을 이해하고 이 메서드를 Azure에서 지원하는지에 대한 유효성을 검사하는 것이 중요합니다. 현재 다음은 Azure AD에서 지원하는 방법입니다.
+Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 Single-Sign On을 제공합니다. Microsoft에서 테스트된 SSO 타사에 대한 자세한 내용은 [Azure Active Directory 페더레이션 호환성 목록: Single Sign-On을 구현하는 데 사용할 수 있는 타사 ID 공급자](https://msdn.microsoft.com/library/azure/jj679342.aspx) 문서를 읽습니다. 이 기능을 사용하면 조직은 ID 및 액세스 관리의 제어를 유지하면서 다양한 B2B 시나리오를 구현할 수 있습니다. 그러나 B2B 중에 프로세스를 설계하는 작업은 파트너에서 사용되는 인증 방법을 이해하고 이 메서드를 Azure에서 지원하는지에 대한 유효성을 검사하는 것이 중요합니다. 현재 다음은 Azure AD에서 지원하는 방법입니다.
 
 - SAML(Security Assertion Markup Language )
 - OAuth
@@ -101,13 +101,13 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
 그림x에서 보여준 다이어그램에서 각 상호 작용은 Azure AD에서 다룰 수 있는 하나의 액세스 제어 시나리오를 나타냅니다. 아래에서 각 시나리오에 대해 설명합니다.
 
 1. 온-프레미스에서 호스트되는 응용 프로그램에 대한 조건부 액세스: Windows Server 2012 R2에서 AD FS를 사용하도록 구성된 응용 프로그램에 대한 액세스 정책이 있는 등록된 장치를 사용할 수 있습니다. 온-프레미스에 대해 조건부 액세스를 설정하는 방법에 대한 자세한 내용은 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-conditional-access-on-premises-setup/)을 참조하세요. 
-2. Azure 관리 포털에 액세스 제어: 또한 Azure에는 RBAC(역할 기반 액세스 제어)를 사용하여 관리 포털에 대한 액세스를 제어하는 기능이 있습니다. 이 방법을 사용하면 회사는 개인이 Azure 관리 포털에 액세스하면 수행할 수 있는 작업의 양을 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
+2. Azure 관리 포털에 액세스 제어: 또한 Azure에는 RBAC(역할 기반 액세스 제어)를 사용하여 관리 포털에 대한 액세스를 제어하는 기능이 있습니다. 이 방법을 사용하면 회사에서 개인이 Azure 관리 포털에 액세스한 경우에 수행할 수 있는 작업의 양을 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
 
- - 역할 그룹 기반 할당: 로컬 Active Directory에서 동기화될 수 있는 Azure AD 그룹에 액세스를 할당할 수 있습니다. 이렇게 하면 그룹 관리에 대한 도구 및 프로세스에서 조직이 만든 기존 투자를 활용할 수 있습니다. 또한 Azure AD Premium의 위임된 그룹 관리 기능을 사용할 수 있습니다.
- - Azure에서 내장된 역할 활용: 소유자, 참가자 및 판독기 등 세 가지 역할을 사용하여 사용자 및 그룹이 작업 수행에 필요한 작업만 수행할 수 있는 권한이 있도록 할 수 있습니다. 
- - 리소스에 대한 세부적인 액세스: 웹 사이트 또는 데이터베이스와 같은 특정 구독, 리소스 그룹 또는 개별 Azure 리소스에 대한 사용자 및 그룹에 역할을 할당할 수 있습니다. 이러한 방식으로 사용자는 필요한 모든 리소스에 대해 액세스하고 관리할 필요가 없는 리소스에 액세스하지 않을 수 있습니다.
+ - 그룹 기반 역할 할당: 로컬 Active Directory에서 동기화될 수 있는 Azure AD 그룹에 대한 액세스를 할당할 수 있습니다. 이렇게 하면 그룹 관리에 대한 도구 및 프로세스에서 조직이 만든 기존 투자를 활용할 수 있습니다. 또한 Azure AD Premium의 위임된 그룹 관리 기능을 사용할 수 있습니다.
+ - Azure에서 기본 제공 역할 활용: 세 가지 역할(소유자, 참가자 및 읽기 권한자)을 사용하여 사용자 및 그룹에 작업 수행에 필요한 작업만 수행할 수 있는 권한을 제공할 수 있습니다. 
+ - 리소스에 대한 세부적인 액세스: 웹 사이트 또는 데이터베이스와 같은 특정 구독, 리소스 그룹 또는 개별 Azure 리소스에 대한 역할을 사용자 및 그룹에 할당할 수 있습니다. 이러한 방식으로 사용자는 필요한 모든 리소스에 대해 액세스하고 관리할 필요가 없는 리소스에 액세스하지 않을 수 있습니다.
 
- >[AZURE.NOTE]기능에 대한 세부 사항을 알려면 [Azure Preview 포털의 역할 기반 액세스 제어](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)를 읽습니다. 또한 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 개발자의 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet)를 검토합니다.
+ >[AZURE.NOTE]이 기능에 대한 자세한 내용은 [Azure Preview 포털의 역할 기반 액세스 제어](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)를 참조하세요. 또한 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 개발자의 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet)를 검토합니다.
 
 3. Microsoft Intune을 사용한 Office 365 응용 프로그램에 대한 조건부 액세스: IT 관리자는 조건부 액세스 장치 정책을 프로비전하여 규격 장치를 사용하는 정보 작업자가 서비스에 액세스할 수 있도록 하는 동시에 회사 리소스를 보호할 수 있습니다. 자세한 내용은 [Office 365 서비스에 대한 조건부 액세스 장치 정책](https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-conditional-access-device-policies/?rnd=1)을 참조하세요.
 
@@ -119,7 +119,7 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
 Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 보안 위험을 식별하도록 IT를 지원합니다. IT는 Azure AD 액세스 및 사용 보고서 기능을 활용하여 조직 디렉터리의 무결성 및 보안에 가시성을 얻을 수 있습니다. 이 정보를 사용하면 IT 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다. [Azure AD Premium 구독](https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-get-started-premium/)에는 IT가 이 내용을 가져올 수 있는 보안 보고서 집합이 있습니다. [Azure AD 보고서](https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-view-access-usage-reports/)는 아래와 같이 분류됩니다.
 
 - **비정상 보고서**: 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다. 
-- **통합 응용 프로그램 보고서**: 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다. 
+- **통합 응용 프로그램 보고서**: 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다. 
 - **오류 보고서**: 외부 응용 프로그램에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
 - **사용자별 보고서**: 특정 사용자에 대한 장치/로그인 활동 데이터를 표시합니다.
 - **활동 로그**: 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
@@ -148,6 +148,6 @@ Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 
 
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

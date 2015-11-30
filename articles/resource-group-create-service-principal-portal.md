@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/29/2015"
+   ms.date="11/17/2015"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기
 
 ## 개요
-구독에서 리소스를 액세스하거나 수정해야 하는 응용 프로그램이 있는 경우 포털을 사용하여 Active Directory 응용 프로그램을 만들고 적절한 권한이 있는 역할에 할당할 수 있습니다. 포털을 통해 Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 사용 권한을 설정하는 경우 서비스 주체를 사용합니다.
+구독에서 리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 포털을 사용하여 Active Directory 응용 프로그램을 만들고 적절한 권한이 있는 역할에 할당할 수 있습니다. 포털을 통해 Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 사용 권한을 설정하는 경우 서비스 주체를 사용합니다.
 
-이 항목에서는 Azure 포털을 사용하여 새 응용 프로그램 및 서비스 주체를 만드는 방법을 보여줍니다. 현재는 새 Active Directory 응용 프로그램을 만들려면 Microsoft Azure 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure Preview 포털에 추가될 예정입니다. Preview 포털을 사용하여 응용 프로그램을 역할에 할당할 수 있습니다.
+이 항목에서는 Azure 포털을 사용하여 새 응용 프로그램 및 서비스 주체를 만드는 방법을 보여줍니다. 현재는 새 Active Directory 응용 프로그램을 만들려면 Microsoft Azure 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure Preview 포털에 추가될 예정입니다. Preview 포털을 사용하여 응용 프로그램을 역할에 할당할 수 있습니다. Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수도 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## 개념
 1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스 빌드입니다. 자세한 내용은 [Azure Active Directory란](active-directory/active-directory-whatis.md)을 참조하세요.
@@ -82,7 +82,7 @@
 
      ![저장][13]
 
-     저장된 키가 표시되고 키를 복사할 수 있습니다.
+     저장된 키가 표시되고 키를 복사할 수 있습니다. 나중에 키를 검색할 수 없으므로 지금 복사합니다.
 
      ![공유 키][8]
 
@@ -90,6 +90,9 @@
   
      ![클라이언트 ID][5]
 
+5. 경우에 따라 인증 요청과 함께 테넌트 ID를 전달해야 합니다. 아래와 같이 **끝점 보기**를 선택하고 ID를 검색하여 테넌트 ID를 검색할 수 있습니다.
+
+     ![테넌트 ID](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
 이제 응용 프로그램이 준비되고 테넌트에서 서비스 사용자가 만들어졌습니다. 서비스 사용자로 로그인할 때 다음을 사용해야 합니다.
 
@@ -98,7 +101,17 @@
 
 ## 응용 프로그램을 역할에 할당
 
-[Preview 포털](https://portal.azure.com)을 사용하여 액세스해야 하는 리소스에 대한 액세스 권한이 있는 역할에 Active Directory 응용 프로그램을 할당할 수 있습니다. 응용 프로그램을 역할에 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](active-directory/role-based-access-control-configure.md)를 참조하세요.
+작업 수행 권한을 부여하려면 응용 프로그램을 역할에 할당해야 합니다. [Preview 포털](https://portal.azure.com)을 사용하여 올바른 권한을 가진 역할에 Active Directory 응용 프로그램을 할당할 수 있습니다.
+
+Preview 포털에서 액세스 제어를 시작하려면 **액세스** 아이콘을 선택합니다.
+
+![사용자 선택](./media/resource-group-create-service-principal-portal/select-users.png)
+
+응용 프로그램을 할당할 역할을 선택하고 응용 프로그램을 검색합니다.
+
+![사용자 선택](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+사용자, 응용 프로그램 및 역할 작업에 대한 자세한 내용은 [Azure 관리 포털을 사용하여 액세스 관리](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal)를 참조하세요.
 
 ## 코드에서 액세스 토큰 가져오기
 
@@ -149,4 +162,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

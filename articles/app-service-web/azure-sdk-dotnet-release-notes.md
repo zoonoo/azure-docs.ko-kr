@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="11/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,6 +21,11 @@
 #Azure SDK for .NET 릴리스 정보
 
 이 항목에는 Azure SDK for .NET 릴리스 정보에 대한 링크가 포함되어 있습니다.
+
+
+##Azure SDK for .NET 2.8 릴리스 정보
+
+[Azure SDK for .NET 2.8 릴리스 정보](azure-sdk-dotnet-release-notes-2_8.md)
 
 ##Azure SDK for .NET 2.7 릴리스 정보
 
@@ -65,4 +70,4 @@
 [MSDN의 Azure SDK 릴리스 정보](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -4,53 +4,53 @@
 - [C on mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
 - [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 
-## Scenario overview
+## 시나리오 개요
 
-In this scenario, you will create a device that sends the following telemetry to the remote monitoring [preconfigured solution][lnk-what-are-preconfig-solutions]:
+이 시나리오에서는 원격 모니터링 [미리 구성된 솔루션][lnk-what-are-preconfig-solutions]에 다음과 같은 원격 분석 데이터를 보낼 장치를 만듭니다.
 
-- External temperature
-- Internal temperature
-- Humidity
+- 외부 온도
+- 내부 온도
+- 습도
 
-For simplicity, the code on the device generates sample values, but we encourage you to extend the sample by connecting real sensors to your device and sending real telemetry.
+간소함을 위하여 장치의 코드가 샘플 값을 생성하지만, 사용자는 자신의 장치에 실제 센서를 연결하고 실제 원격 분석 데이터를 보내어 샘플을 확장할 것을 권장합니다.
 
-## Before you start
+## 시작하기 전에
 
-Before you write any code for your device, you should provision your remote monitoring preconfigured solution and then provision a device in that solution.
+장치에 대한 코드를 작성하기 전에, 미리 구성된 원격 모니터링 솔루션을 프로비전하고 이 솔루션에 장치를 프로비전해야 합니다.
 
-### Provision your remote monitoring preconfigured solution
+### 미리 구성된 사용자의 원격 모니터링 솔루션 프로비전
 
-The device you create will send data to an instance of the [remote monitoring][lnk-remote-monitoring] preconfigured solution. Visit [Get started with Azure IoT Suite][lnk-getstarted] to create an Azure account and provision IoT Suite. Select **Remote monitoring** when you create your new solution.
+여기에서 만드는 장치는 미리 구성된 [원격 모니터링][lnk-remote-monitoring] 솔루션의 인스턴스에 데이터를 전송하게 됩니다. Azure 계정을 만들고 IoT Suite에 프로비전하려면 [Azure IoT Suite 시작][lnk-getstarted]을 방문하세요. 새 솔루션을 만드는 경우 **원격 모니터링**을 선택합니다.
 
-When the remote monitoring solution has been provisioned, click **Launch** to open the solution dashboard.
+원격 모니터링 솔루션이 프로비전되면 **시작**을 클릭하여 솔루션 대시보드를 엽니다.
 
 ![][img-dashboard]
 
-### Provision your device in the remote monitoring solution
+### 원격 모니터링 솔루션에서 장치 프로비전
 
-> [AZURE.NOTE] If you have already provisioned a device in your solution, you can skip this step. You will need to know the device credentials when you create the client application.
+> [AZURE.NOTE]솔루션에 장치가 이미 프로비전되어 있으면 이 단계를 건너뜁니다. 클라이언트 응용 프로그램을 만들 때 장치 자격 증명을 알아야 합니다.
 
-For a device to connect to the preconfigured solution, it must be able to identify itself using valid credentials. You can get the device credentials from the solution dashboard and then include them in your client application. 
+미리 구성된 솔루션에 연결하는 장치는 유효한 자격 증명을 사용하여 자신을 식별할 수 있어야 합니다. 장치 자격 증명을 솔루션 대시보드에서 가져와서 클라이언트 응용 프로그램에 포함시킬 수 있습니다.
 
-To add a new device to your remote monitoring solution, complete the following steps in the solution dashboard:
+원격 모니터링 솔루션에 새 장치를 추가하려면 솔루션 대시보드에서 다음 단계를 완료합니다.
 
-1.  In the lower left-hand corner of the dashboard, click **Add a device**.
+1.  대시보드의 왼쪽 아래 모서리에서 **장치 추가**를 클릭합니다.
 
     ![][1]
 
-2.  In the **Custom Device** panel, click on **Add new**.
+2.  **사용자 지정 장치** 패널에서 **새로 추가**를 클릭합니다.
 
     ![][2]
 
-3.  Choose **Let me define my own Device ID**, enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't in use, and then click **Create** to provision the device.
+3.  **나만의 장치 ID 정의**를 선택하고 장치 ID(예: **mydevice**)를 입력하고 **ID 확인**을 클릭하여 해당 이름이 이미 사용되고 있는지 확인한 후 **만들기**를 클릭하여 장치를 프로비전합니다.
 
     ![][3]
 
-5. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key), your client application will need them to connect your device to the remote monitoring solution. Then click **Done**.
+5. 장치 자격 증명(장치 ID, IoT Hub 호스트 이름, 장치 키)을 기록해 둡니다. 이 정보는 장치를 원격 모니터링 솔루션에 연결할 때 클라이언트 응용 프로그램에 필요합니다. **완료**를 클릭합니다.
 
     ![][4]
 
-6. Make sure your device displays correctly in the devices section. The status is **Pending** until the device establishes a connection to the remote monitoring solution.
+6. 장치가 장치 섹션에 제대로 표시되는지 확인합니다. 장치가 원격 모니터링 솔루션에 연결될 때까지 상태는 **보류 중**으로 표시됩니다.
 
     ![][5]
 
@@ -64,3 +64,5 @@ To add a new device to your remote monitoring solution, complete the following s
 [lnk-getstarted]: http://www.microsoft.com/server-cloud/internet-of-things/getting-started.aspx
 [lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
+
+<!---HONumber=Nov15_HO4-->

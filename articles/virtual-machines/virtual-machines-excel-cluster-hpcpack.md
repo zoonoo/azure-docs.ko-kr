@@ -61,9 +61,9 @@ Azure 빠른 시작 템플릿을 사용하여 빠르고 쉽게 Azure Preview 포
 
     ![매개 변수 입력][parameters]
 
-    >[AZURE.NOTE]헤드 노드 VM은 Windows Server 2012 R2에 있는 HPC 팩 2012 R2의 [최신 마켓플레이스 이미지](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)에서 자동으로 생성됩니다. 현재 이미지는 HPC Pack 2012 R2 업데이트 2를 기반으로 합니다.
+    >[AZURE.NOTE]헤드 노드 VM은 Windows Server 2012 R2에 있는 HPC 팩 2012 R2의 [최신 마켓플레이스 이미지](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)에서 자동으로 생성됩니다. 현재 이미지는 HPC Pack 2012 R2 업데이트 3을 기반으로 합니다.
     >
-    >컴퓨터 노드 VM은 선택한 컴퓨터 노드 제품군의 최신 이미지에서 생성됩니다. 범용 최신 HPC 팩 2012 R2 업데이트 2 컴퓨터 이미지에 대해 **ComputeNode** 옵션을 선택합니다. Microsoft Excel Professional Plus 2013 평가 버전을 포함하는 최신 HPC 팩 계산 노드 이미지에 대해 **ComputeNodeWithExcel** 옵션을 선택합니다. 일반 SOA 세션 또는 Excel UDF 오프로딩에 대해 클러스터를 배포하려는 경우 **ComputeNode** 옵션을 선택합니다(Excel이 설치되어 있지 않음).
+    >컴퓨터 노드 VM은 선택한 컴퓨터 노드 제품군의 최신 이미지에서 생성됩니다. 범용 최신 HPC 팩 2012 R2 업데이트 3 컴퓨터 이미지에 대해 **ComputeNode** 옵션을 선택합니다. Microsoft Excel Professional Plus 2013 평가 버전을 포함하는 최신 HPC 팩 계산 노드 이미지에 대해 **ComputeNodeWithExcel** 옵션을 선택합니다. 일반 SOA 세션 또는 Excel UDF 오프로딩에 대해 클러스터를 배포하려는 경우 **ComputeNode** 옵션을 선택합니다(Excel이 설치되어 있지 않음).
     >
     >프로덕션 작업에 대해 **ComputeNodeWithExcel**을 사용하는 경우 계산 노드에서 Excel을 활성화하려면 유효한 Excel 라이선스를 제공해야 합니다. 그렇지 않은 경우 평가 버전의 Excel은 30일 내에 만료될 수 있으며 Excel 통합 문서 실행은 COMExeption(0x800AC472)으로 지속적으로 실패합니다. 이 문제가 발생하면 HPC 클러스터 관리자 콘솔을 통해 모든 Excel 계산 노드의 clusrun "%ProgramFiles(x86) %\\Microsoft Office\\Office15\\OSPPREARM.exe"에 헤드 노드를 로그온하여 다른 30일의 평가 시간에 대해 Excel을 재무장할 수 있습니다. 유예 기간에 대한 최대 재무장 횟수는 2이며 그 후 유효한 Excel 라이선스를 제공해야 합니다.
 
@@ -97,7 +97,7 @@ HPC Pack IaaS 배포 스크립트는 HPC Pack 클러스터를 배포하는 다�
 
 * **Azure PowerShell** - 클라이언트 컴퓨터에 [Azure PowerShell(버전 0.8.10 이상)을 설치 및 구성](../powershell-install-configure.md)합니다.
 
-* **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인합니다. 이 문서는 4.4.0 이상 버전의 스크립트를 기반으로 합니다.
+* **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인합니다. 이 문서는 4.5.0 이상 버전의 스크립트를 기반으로 합니다.
 
 **구성 파일 만들기**
 
@@ -133,21 +133,21 @@ HPC Pack IaaS 배포 스크립트는 HPC Pack 클러스터를 배포하는 다�
     <VMSize>Large</VMSize>
     <EnableRESTAPI/>
     <EnableWebPortal/>
-<PostConfigScript>C:\tests\PostConfig.ps1</PostConfigScript>
+    <PostConfigScript>C:\tests\PostConfig.ps1</PostConfigScript>
   </HeadNode>
   <ComputeNodes>
     <VMNamePattern>HPCExcelCN%00%</VMNamePattern>
     <ServiceName>HPCExcelCN01</ServiceName>
     <VMSize>Medium</VMSize>
     <NodeCount>18</NodeCount>
-    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4868.0-WS2012R2-ENU</ImageName>
+    <ImageName>HPCPack2012R2_ComputeNodeWithExcel</ImageName>
   </ComputeNodes>
 </IaaSClusterConfig>
 ```
 
 **구성 파일에 대한 참고 사항**
 
-* 헤드 노드의 **VMName**은 **ServiceName**과 정확히 같아야 합니다. 그렇지 않으면 SOA 작업이 실행되지 않습니다.
+* 헤드 노드의 **VMName**은 **ServiceName**과 정확히 **같아야** 합니다. 그렇지 않으면 SOA 작업이 실행되지 않습니다.
 
 * 헤드 노드 인증서를 생성하고 내보내도록 **EnableWebPortal**을 지정하세요.
 
@@ -215,7 +215,7 @@ Azure의 HPC Pack 클러스터에서 실행할 Excel 통합 문서를 오프로�
 
 2. 클라이언트 컴퓨터에서 Cert:\\CurrentUser\\Root 아래의 클러스터 인증서를 가져옵니다.
 
-3. Excel이 설치되어 있는지 확인합니다. 클라이언트 컴퓨터에서 Excel.exe와 동일한 폴더에 다음과 같은 내용으로 Excel.exe.config 파일을 만듭니다. 이렇게 하면 HPC Pack 2012 R2 Excel COM 추가 기능 및 Azure 저장소 라이브러리가 로드됩니다. 아래 'href'는 클라이언트 컴퓨터의 "%CCP\_HOME%Bin\\Microsoft.WindowsAzure.Storage.dll"을 가리켜야 합니다.
+3. Excel이 설치되어 있는지 확인합니다. 클라이언트 컴퓨터에서 Excel.exe와 동일한 폴더에 다음과 같은 내용으로 Excel.exe.config 파일을 만듭니다. 이렇게 하면 HPC Pack 2012 R2 Excel COM 추가 기능이 로드됩니다.
 
     ```
 <?xml version="1.0"?>
@@ -223,17 +223,9 @@ Azure의 HPC Pack 클러스터에서 실행할 Excel 통합 문서를 오프로�
     <startup useLegacyV2RuntimeActivationPolicy="true">
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
     </startup>
-    <runtime>
-        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-            <dependentAssembly>
-                <assemblyIdentity name="Microsoft.WindowsAzure.Storage"  culture="neutral" publicKeyToken="31bf3856ad364e35"/>
-                <codeBase version="4.3.0.0" href="C:\Program Files\Microsoft HPC Pack 2012\Bin\Microsoft.WindowsAzure.Storage.dll"/>
-            </dependentAssembly>
-        </assemblyBinding>
-    </runtime>
 </configuration>
 ```
-4.	전체 [HPC 팩 2012 R2 업데이트 2 설치](http://www.microsoft.com/download/details.aspx?id=47755)를 다운로드하고 HPC 팩 클라이언트를 설치하거나 [HPC 팩 2012 R2 업데이트 2 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=47754) 및 사용자 컴퓨터에 적절한 Visual C++ 2010 재배포 가능 패키지([x64](http://www.microsoft.com/download/details.aspx?id=14632)[x86](https://www.microsoft.com/download/details.aspx?id=5555))를 다운로드 및 설치합니다.
+4.	전체 [HPC 팩 2012 R2 업데이트 3 설치](http://www.microsoft.com/download/details.aspx?id=49922)를 다운로드하고 HPC 팩 클라이언트를 설치하거나 [HPC 팩 2012 R2 업데이트 3 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=49923) 및 사용자 컴퓨터에 적절한 Visual C++ 2010 재배포 가능 패키지([x64](http://www.microsoft.com/download/details.aspx?id=14632)[x86](https://www.microsoft.com/download/details.aspx?id=5555))를 다운로드 및 설치합니다.
 
 5.	이 예제에서는 [여기](https://www.microsoft.com/ko-KR/download/details.aspx?id=2939)서 다운로드할 수 있는 ConvertiblePricing\_Complete.xlsb라는 샘플 Excel 통합 문서를 사용합니다.
 
@@ -272,7 +264,7 @@ Azure의 HPC Pack 클러스터에서 실행할 Excel 통합 문서를 오프로�
 
 Excel UDF를 실행하려면 앞의 1-3단계에 따라 클라이언트 컴퓨터를 설정합니다. Excel UDF의 경우 컴퓨터 노드에 Excel 응용 프로그램이 설치되어 있을 필요가 없으므로 Excel이 포함된 컴퓨터 노드 이미지 대신 1단계에서 일반 컴퓨터 노드 이미지를 선택할 수 있습니다.
 
->[AZURE.NOTE]Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 전체 클러스터 이름이 더 긴 경우(예: hpcexcelhn01.southeastasia.cloudapp.azure.com) 대화 상자에 맞지 않습니다. 문제 해결 방법은 클라이언트 컴퓨터의 SOA 세션 API에 업데이트 2 QFE KB3085833([여기](http://www.microsoft.com/ko-KR/download/details.aspx?id=48725)에서 다운로드)을 적용한 다음 컴퓨터를 긴 클러스터 이름 값으로 컴퓨터 전체 변수(예: *CCP\_IAASHN*)를 설정하고 대화 상자에 클러스터 헤드 노드 이름으로 *%CCP\_IAASHN%*를 입력합니다.
+>[AZURE.NOTE]Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 전체 클러스터 이름이 더 긴 경우(예: hpcexcelhn01.southeastasia.cloudapp.azure.com) 대화 상자에 맞지 않습니다. 문제 해결 방법은 긴 클러스터 이름 값으로 컴퓨터 전체 변수(예: *CCP\_IAASHN*)를 설정하고 대화 상자에 클러스터 헤드 노드 이름으로 *%CCP\_IAASHN%*를 입력합니다. 업데이트 2 클러스터의 경우 이 문제 해결 방법을 지원하려면 클라이언트 컴퓨터에 SOA 세션 API용 업데이트 2 QFE KB3085833([여기](http://www.microsoft.com/ko-KR/download/details.aspx?id=48725)에서 다운로드)이 필요합니다.
 
 클러스터가 배포된 후 다음 단계를 계속 진행하여 샘플 기본 제공 Excel UDF를 실행합니다. 사용자 지정 Excel UDF의 경우 다음 [리소스](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx)를 참조하여 XLL을 빌드하고 IaaS 클러스터에 배포하세요.
 
@@ -280,7 +272,7 @@ Excel UDF를 실행하려면 앞의 1-3단계에 따라 클라이언트 컴퓨�
 
     ![UDF 선택][udf]
 
-2.	**파일** > **옵션** > **고급**을 클릭합니다. **수식** 아래에서 **사용자 정의 XLL 함수가 계산 클러스터를 실행할 수 있도록 허용**을 선택합니다. 그런 다음 **옵션**을 클릭하고 **클러스터 헤드 노드 이름**에 전체 클러스터 이름을 입력합니다. 앞에서 언급한 대로 이 입력 상자는 34자로 제한되므로 긴 클러스터 이름은 맞지 않을 수 있습니다. 클라이언트에 업데이트 2 QFE KB3085833을 적용한 다음 여기서 긴 클러스터 이름에 대해 컴퓨터 전체 변수를 설정할 수 있습니다.
+2.	**파일** > **옵션** > **고급**을 클릭합니다. **수식** 아래에서 **사용자 정의 XLL 함수가 계산 클러스터를 실행할 수 있도록 허용**을 선택합니다. 그런 다음 **옵션**을 클릭하고 **클러스터 헤드 노드 이름**에 전체 클러스터 이름을 입력합니다. 앞에서 언급한 대로 이 입력 상자는 34자로 제한되므로 긴 클러스터 이름은 맞지 않을 수 있습니다. 긴 클러스터 이름에 여기의 컴퓨터 전체 변수를 사용할 수 있습니다.
 
     ![UDF 구성][options]
 
@@ -296,7 +288,7 @@ HPC Pack IaaS 클러스터에서 일반 SOA 응용 프로그램을 실행하려�
 
 1. 클러스터 인증서를 검색한 후 클라이언트 컴퓨터의 Cert:\\CurrentUser\\Root 아래로 가져옵니다.
 
-2. SOA 클라이언트 응용 프로그램을 개발 및 실행할 수 있도록 [HPC 팩 2012 R2 업데이트 2 SDK](http://www.microsoft.com/download/details.aspx?id=47756) 및 [HPC 팩 2012 R2 업데이트 2 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=47754)를 설치합니다.
+2. SOA 클라이언트 응용 프로그램을 개발 및 실행할 수 있도록 [HPC 팩 2012 R2 업데이트 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) 및 [HPC 팩 2012 R2 업데이트 3 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=49923)를 설치합니다.
 
 3. HellowWorldR2 [샘플 코드](https://www.microsoft.com/download/details.aspx?id=41633)를 다운로드합니다. Visual Studio 2010 또는 2012에서 HelloWorldR2.sln을 엽니다.
 
@@ -389,4 +381,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

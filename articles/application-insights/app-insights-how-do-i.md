@@ -143,9 +143,9 @@
 
     MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*`같이 버전을 설정합니다.
 
-## 백엔드 서버 모니터링
+## 백엔드 서버 및 데스크톱 앱 모니터링
 
-[기본 API 사용](app-insights-windows-desktop.md)
+[Windows Server SDK 모듈을 사용합니다](app-insights-windows-desktop.md).
 
 
 ## 데이터 가상화
@@ -185,15 +185,15 @@
 
 ## 속성 이름 또는 값 수정
 
-필터(app-insights-api-filtering-sampling.md#filtering)를 만듭니다. 그러면 원격 분석을 수정하거나 필터링한 후 앱에서 Application Insights로 전송할 수 있습니다.
+[필터](app-insights-api-filtering-sampling.md#filtering)를 만듭니다. 그러면 원격 분석을 수정하거나 필터링한 후 앱에서 Application Insights로 전송할 수 있습니다.
 
 ## 특정 사용자와 그 사용 방법을 나열
 
-[특정 사용자만 검색](#search-specific-users)하려는 경우 [인증된 사용자 ID](app-insights-api-custom-events-metrics/#authenticated-users)를 설정할 수 있습니다.
+[특정 사용자만 검색](#search-specific-users)하려는 경우 [인증된 사용자 ID](app-insights-api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다.
 
 사용자가 보는 페이지, 로그인 빈도 등과 같은 데이터와 사용자 목록이 필요한 경우 두 가지 옵션이 있습니다.
 
-* [인증된 사용자 ID를 설정하고](app-insights-api-custom-events-metrics/#authenticated-users) [데이터베이스로 내보내](app-insights-code-sample-export-sql-stream-analytics.md) 적합한 도구를 사용하여 사용자 데이터를 분석합니다.
+* [인증된 사용자 ID를 설정하고](app-insights-api-custom-events-metrics.md#authenticated-users) [데이터베이스로 내보내](app-insights-code-sample-export-sql-stream-analytics.md) 적합한 도구를 사용하여 사용자 데이터를 분석합니다.
 * 사용자 수가 적은 경우, 관심이 있는 데이터를 사용하는 사용자 지정 이벤트나 메트릭을 메트릭 값 또는 이벤트 이름 형태로 보내고 사용자 ID를 속성으로 설정합니다. 페이지 보기를 분석하려면 표준 JavaScript trackPageView 호출을 대체합니다. 서버 측 원격 분석을 분석하려면 원격 분석 이니셜라이저를 사용하여 사용자 ID를 모든 서버 원격 분석에 추가합니다. 그런 다음 메트릭과 사용자 ID에 대한 검색을 필터링 및 분할할 수 있습니다.
 
 
@@ -204,7 +204,7 @@
 * [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 계산합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
 
 
-[가격 및 할당량](app-insights-pricing.md)에 대해 자세히 확인합니다.
+[가격 책정 및 할당량](app-insights-pricing.md)에 대해 자세히 확인합니다.
 
 ## 원격 분석 사용 안 함  
 
@@ -241,4 +241,4 @@
 * 먼저 [새 차트를 추가하고](app-insights-metrics-explorer.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
 * 없으면 [성능 카운터 모듈에서 수집한 집합에 카운터를 추가합니다](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

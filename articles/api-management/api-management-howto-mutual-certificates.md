@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 상호 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법
@@ -54,7 +54,7 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 
 ![업로드된 인증서][api-management-certificate-uploaded]
 
-업로드된 인증서는 **클라이언트 인증서** 탭에 표시됩니다. 인증서가 여러 개인 경우 제목이나 지문의 마지막 4자를 적어 둡니다. 이러한 항목은 인증서를 사용하도록 API를 구성할 때 인증서를 선택하는 데 사용됩니다. 여기에 대해서는 다음 섹션인 [프록시 인증에 상호 인증서를 사용하도록 API 구성][]에서 설명합니다.
+업로드된 인증서는 **클라이언트 인증서** 탭에 표시됩니다. 인증서가 여러 개인 경우 제목이나 지문의 마지막 4자를 적어 둡니다. 이러한 항목은 인증서를 사용하도록 API를 구성할 때 인증서를 선택하는 데 사용됩니다. 여기에 대해서는 다음 섹션인 [게이트웨이 인증에 상호 인증서를 사용하도록 API 구성][]에서 설명합니다.
 
 ## <a name="step1a"> </a>클라이언트 인증서 삭제
 
@@ -70,7 +70,7 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 
 ![삭제 확인][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>프록시 인증에 상호 인증서를 사용하도록 API 구성
+## <a name="step2"> </a>게이트웨이 인증에 상호 인증서를 사용하도록 API 구성
 
 왼쪽의 **API 관리** 메뉴에서 **API**를 클릭하고 원하는 API의 이름을 클릭한 후에 **보안** 탭을 클릭합니다.
 
@@ -90,7 +90,7 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 
 ![API 변경 내용 저장][api-management-save-api]
 
->API의 백 엔드 서비스에 대해 프록시 인증용으로 지정된 인증서는 해당 API의 정책에 포함되며 정책 편집기에서 볼 수 있습니다.
+>API의 백 엔드 서비스에 대해 게이트웨이 인증을 위해 지정된 인증서는 해당 API의 정책에 포함되며 정책 편집기에서 볼 수 있습니다.
 
 ![인증서 정책][api-management-certificate-policy]
 
@@ -133,7 +133,7 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[프록시 인증에 상호 인증서를 사용하도록 API 구성]: #step2
+[게이트웨이 인증에 상호 인증서를 사용하도록 API 구성]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

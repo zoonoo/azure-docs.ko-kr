@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # Windows 런타임 8.1 범용 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -79,14 +77,13 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
 1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. `Microsoft.Azure.NotificationHubs`를 검색한 다음 **설치**를 클릭합니다. 알림 허브 클라이언트 라이브러리를 설치합니다.
 
-3. 서버 프로젝트에서 **컨트롤러** > **TodoItemController.cs**를 열고 다음 using 문을 추가합니다.
+2. 서버 프로젝트에서 **컨트롤러** > **TodoItemController.cs**를 열고 다음 using 문을 추가합니다.
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
-	
 
-2. **PostTodoItem** 메서드에서 **InsertAsync**에 대한 호출 뒤에 다음 코드를 추가합니다.
+3. **PostTodoItem** 메서드에서 **InsertAsync**에 대한 호출 뒤에 다음 코드를 추가합니다.
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -130,32 +127,24 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
 ##<a id="update-service"></a>앱에 푸시 알림 추가
 
-1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다. 
-
-    그러면 NuGet 패키지 관리 대화 상자가 표시됩니다.
-
-2. 관리된 항목용 앱 서비스 모바일 앱 클라이언트 SDK를 검색하고 **설치**를 클릭한 후 솔루션의 모든 클라이언트 프로젝트를 선택하고 사용 약관에 동의합니다.
-
-    그러면 Windows용 Azure 모바일 푸시 라이브러리가 다운로드 및 설치되고 해당 참조가 모든 클라이언트 프로젝트에 추가됩니다.
-
-3. 공유 **App.xaml.cs** 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
+1. 공유 **App.xaml.cs** 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
 
 		using System.Threading.Tasks;  
         using Windows.Networking.PushNotifications;       
 
-4. 동일한 파일에서 다음 **InitNotificationsAsync** 메서드 정의를 **App** 클래스에 추가합니다.
+2. 동일한 파일에서 다음 **InitNotificationsAsync** 메서드 정의를 **App** 클래스에 추가합니다.
     
         private async Task InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+            await MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     이 코드는 WNS에서 앱의 ChannelURI를 검색한 후 해당 ChannelURI를 앱 서비스 모바일 앱에 등록합니다.
     
-5. **App.xaml.cs**의 **OnLaunched** 이벤트 처리기 맨 위에서 다음 예제와 같이 메서드 정의에 **async** 한정자를 추가하고 새 **InitNotificationsAsync** 메서드에 다음 호출을 추가합니다.
+3. **App.xaml.cs**의 **OnLaunched** 이벤트 처리기 맨 위에서 다음 예제와 같이 메서드 정의에 **async** 한정자를 추가하고 새 **InitNotificationsAsync** 메서드에 다음 호출을 추가합니다.
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -166,17 +155,22 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
     이제 응용 프로그램을 시작할 때마다 단기 ChannelURI가 등록됩니다.
 
-6. 솔루션 탐색기에서 Windows 스토어 앱의 **Package.appxmanifest**를 두 번 클릭하고 **알림**에서 **알림 가능**을 **예**로 설정합니다.
+4. 솔루션 탐색기에서 Windows 스토어 앱의 **Package.appxmanifest**를 두 번 클릭하고 **알림**에서 **알림 가능**을 **예**로 설정합니다.
 
     **파일** 메뉴에서 **모두 저장**을 클릭합니다.
 
-7. Windows Phone 스토어 앱 프로젝트에서 이전 단계를 반복합니다.
+5. Windows Phone 스토어 앱 프로젝트에서 이전 단계를 반복합니다.
 
 이제 앱에서 알림을 받을 수 있습니다.
 
 ##<a id="test"></a>앱에서 푸시 알림 테스트
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
+
+##<a id="more"></a>추가
+
+* 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. [Azure 모바일 앱에 관리된 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md)은 템플릿을 등록하는 방법을 보여줍니다.
+* 태그를 사용하면 푸시를 사용하여 여러 조각으로 나뉜 고객을 대상으로 할 수 있습니다. [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)은 장치 설치에 태그를 추가하는 방법을 보여줍니다.
 
 <!-- Anchors. -->
 
@@ -185,4 +179,4 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

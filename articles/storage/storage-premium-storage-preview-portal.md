@@ -43,7 +43,7 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 
 - 프리미엄 저장소 계정은 로컬에서 중복(LRS)되며 단일 지역 내에 데이터 복사본 3개를 유지합니다. 프리미엄 저장소 사용 시 지역에서 복제와 관련된 고려 사항은 이 문서의 [프리미엄 저장소 사용 시 Blob 스냅숏 생성 및 복사](#snapshots-and-copy-blob-whko-KRing-premium-storage)를 참조하세요.
 
-- VM 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈 또는 GS 시리즈의 VM을 사용해야 합니다. DS 시리즈 또는 GS 시리즈의 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 그러나 DS 시리즈 또는 GS 시리즈가 아닌 VM의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+- VM 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈 또는 GS 시리즈의 VM을 사용해야 합니다. DS 시리즈 또는 GS 시리즈의 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 그러나 DS 시리즈 또는 GS 시리즈가 아닌 VM의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요.
 
 - VM용 프리미엄 저장소 디스크를 설정하는 프로세스는 표준 저장소 디스크와 유사합니다. Azure 디스크와 VM에 가장 적합한 프리미엄 저장소 옵션을 선택해야 합니다. 프리미엄 제품의 성능 특성에 따라 VM 크기가 작업에 적합해야 합니다. 자세한 내용은 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
 
@@ -59,7 +59,7 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 
 Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테이너로 사용합니다. 즉, Azure DS 시리즈 또는 GS 시리즈 VM을 만들고 Azure 프리미엄 저장소 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 저장소 계정에 저장됩니다.
 
-기존 가상 컴퓨터를 프리미엄 저장소로 마이그레이션하는 것과 관련한 정보는 [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)을 참조하세요.
+기존 가상 컴퓨터를 프리미엄 저장소로 마이그레이션하는 것과 관련된 정보는 [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)을 참조하세요.
 
 프리미엄 저장소의 혜택을 활용하려면 먼저 *Premium\_LRS* 계정 유형을 사용하여 프리미엄 저장소 계정을 만듭니다. 이렇게 하려면 [Microsoft Azure Preview 포털](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) 또는 [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)를 사용할 수 있습니다. 단계별 지침은 [디스크용 프리미엄 저장소 계정 만들기 및 사용](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
 
@@ -71,7 +71,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 	이러한 한도는 캐시 적중 수 및 네트워크 트래픽을 포함하지 않는 디스크 트래픽에만 단독으로 적용됩니다. VM 네트워크 트래픽에 사용할 수 있는 별도 대역폭이 있으며, 프리미엄 저장소 디스크 전용 대역폭과는 다릅니다.
 	
-	DS 시리즈 및 GS 시리즈 VM에 대 한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션의 테이블을 참조하세요.
+	DS 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션의 테이블을 참조하세요.
 
 > [AZURE.NOTE]캐시 적중 수는 디스크의 할당된 IOPS/처리량으로 제한되지 않습니다. 즉, DS 시리즈 VM 또는 GS 시리즈 VM에서 읽기 전용 캐시 설정된 데이터 디스크를 사용하는 경우 캐시에서 제공 하는 읽기는 프리미엄 저장소 디스크의 대상이 아닙니다. 따라서 워크로드가 대부분 읽기인 경우 디스크에서 상당히 높은 처리량을 얻을 수 있습니다. 캐시는 VM 크기에 기반한 VM 단계에서 별도의 IOPS/처리량으로 제한됩니다. DS 시리즈 VM은 대략 캐시 및 로컬 SSD IO에 대해 코어당 4000 IOPS 및 33MB/초여야 합니다.
 
@@ -333,11 +333,11 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Azure 프리미엄 저장소와 함께 Blob 서비스 작업 사용](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
 - [Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial-azure-preview.md)
-- [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+- [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](../virtual-machines/virtual-machines-size-specs.md)
 - [저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 - [MSDN 참조](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

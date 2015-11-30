@@ -23,11 +23,11 @@
 행위자는 기본 클래스에서 `RegisterTimer` 및 `UnregisterTimer` 메서드를 사용하여 해당 타이머를 등록 및 등록 취소할 수 있습니다. 아래 예제에서는 타이머 API의 사용 방법을 보여줍니다. API는 .NET 타이머와 매우 유사합니다. 아래 예에서 타이머가 만료되면 `MoveObject` 메서드가 행위자 런타임에 의해 호출되며 턴 기반 동시성 준수가 보장됩니다. 따라서 이 콜백이 실행을 완료할 때까지 다른 행위자 메서드 또는 타이머/미리 알림 콜백은 진행되지 않습니다.
 
 ```csharp
-class VisualObjectActor : Actor<VisualObject>, IVisualObject
+class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
 {
     private IActorTimer _updateTimer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         ...
 
@@ -40,7 +40,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
         return base.OnActivateAsync();
     }
 
-    public override Task OnDeactivateAsync()
+    protected override Task OnDeactivateAsync()
     {
         if (_updateTimer != null)
         {
@@ -53,7 +53,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
     private Task MoveObject(object state)
     {
         ...
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```
@@ -87,7 +87,7 @@ Task<IActorReminder> reminderRegistration = RegisterReminder(
 미리 알림을 사용하는 행위자는 아래 예에 나온 대로 `IRemindable` 인터페이스를 구현해야 합니다.
 
 ```csharp
-public class ToDoListActor : Actor<ToDoList>, IToDoListActor, IRemindable
+public class ToDoListActor : StatefulActor<ToDoList>, IToDoListActor, IRemindable
 {
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 위에 나온 것처럼 `UnregisterReminder` 메서드는 `IActorReminder` 인터페이스를 허용합니다. 행위자 기본 클래스는 미리 알림 이름에 전달하여 `IActorReminder` 인터페이스를 검색하는 데 사용할 수 있는 `GetReminder` 메서드를 지원합니다. 이 방법은 행위자가 `RegisterReminder` 메서드에서 반환된 `IActorReminder` 인터페이스를 유지할 필요가 없기 때문에 편리합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

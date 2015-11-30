@@ -29,7 +29,7 @@ Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방�
 
 이 문서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 사용자 지정 만들기를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
-> [AZURE.NOTE]VSO(Visual Studio Online)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 Azure 빠른 시작 또는 대시보드에서 VSO 게시를 설정합니다. 자세한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService](영문)을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하십시오.
+> [AZURE.NOTE]VSTS(Visual Studio Team Services)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 Azure 빠른 시작 또는 대시보드에서 VSTS 게시를 설정합니다. 자세한 내용은 [Visual Studio Team Services를 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService](영문)을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
 
 ## 개념
 Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다음과 같은 세 가지 구성 요소가 필요합니다.
@@ -114,4 +114,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,16 +1,17 @@
 <properties
    pageTitle="Azure 백업 FAQ | Microsoft Azure"
-   description="Azure 백업 서비스에 대한 질문과 대답"
+   description="– Azure 백업 솔루션에 대한 질문과 대답 - 백업 에이전트, 백업 및 보존, 복구, 보안 및 Azure 백업 솔루션에 대한 기타 일반적인 질문입니다."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
-   editor=""/>
+   editor=""
+   keywords="백업 솔루션; 백업 서비스"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
-# Azure 백업 - FAQ
-다음은 Azure 백업에 대한 질문과 대답 목록입니다. Azure 백업에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)으로 이동하여 질문을 게시하세요. 커뮤니티의 구성원이 답변을 얻는 데 도움을 줄 것입니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+# Azure 백업 서비스 - FAQ
+다음은 Azure 백업에 대한 질문과 대답 목록입니다. Azure 백업 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)으로 이동하여 질문을 게시하세요. 커뮤니티의 구성원이 답변을 얻는 데 도움을 줄 것입니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 ## 설치 및 구성
 **Q1. 어떤 운영 체제에서 Azure 백업을 사용하여 Azure에 백업할 수 있나요?** <br/> A1. 다음 운영체제 목록은 Azure 백업이 지원하는 운영체제입니다.
@@ -175,4 +176,4 @@
 
 새 캐시 위치로 성공적으로 백업되면 원래 캐시 폴더를 제거할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

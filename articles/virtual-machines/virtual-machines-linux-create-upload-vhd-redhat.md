@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure에서 RedHat Linux VHD 만들기 및 업로드" 
+	pageTitle="Red Hat Enterprise Linux VHD 만들기 및 Azure에서 사용하도록 업로드" 
 	description="RedHat Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -36,6 +36,9 @@
 - OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
+
+- qemu-img를 사용하여 디스크 이미지를 VHD 형식으로 변환할 때는 qemu-img 버전 >=2.2.1로 인해 VHD 형식이 잘못 지정됩니다. 이는 알려진 버그입니다. 이 문제는 향후 qemu-img 릴리스에서 수정될 예정입니다. 현재에는 qemu-img 2.2.0 이하 버전을 이용하는 것이 좋습니다.
+
 
 ###RHEL 6.6/6.7
 
@@ -74,11 +77,11 @@
 
         # sudo chkconfig network on
 
-8.	RHEL 리포지토리에서 패키지 설치를 사용하려면 Red Hat 구독을 등록합니다.
+8.	RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었으므로, EPEL 리포지토리를 사용하도록 설정합니다.
+9.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 EPEL 리포지토리를 사용하도록 설정합니다.
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -111,7 +114,7 @@
 
     **참고:** WALinuxAgent 패키지를 설치하면 NetworkManager 및 NetworkManager-gnome 패키지가 2단계에서 설명된 대로 아직 제거되지 않은 경우 이러한 패키지를 제거합니다.
 
-13.	OS 디스크에 스왑 공간을 만들지 마십시오. Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+13.	OS 디스크에 스왑 공간을 만들지 마세요. Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -130,9 +133,10 @@
         # logout
 
 16.	Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+
 ###RHEL 7.0/7.1
 
-1.	Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
+1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
 2.	연결을 클릭하여 가상 컴퓨터의 콘솔 창을 엽니다.
 
@@ -155,7 +159,7 @@
 
         # sudo chkconfig network on
 
-6.	RHEL 리포지토리에서 패키지 설치를 사용하려면 Red Hat 구독을 등록합니다.
+6.	RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -178,7 +182,7 @@
 
         ClientAliveInterval 180
 
-10.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 7 리포지토리에 푸시되었으므로, EPEL 리포지토리를 사용하도록 설정합니다.
+10.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 EPEL 리포지토리를 사용하도록 설정합니다.
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -256,7 +260,7 @@
 
         # chkconfig network on
 
-8.	RHEL 리포지토리에서 패키지 설치를 사용하려면 Red Hat 구독을 등록합니다.
+8.	RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -289,7 +293,7 @@
 
 		# service sshd restart
 
-12.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 **Fedora EPEL 6** 리포지토리에 푸시되었으므로, EPEL 리포지토리를 사용하도록 설정합니다.
+12.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 EPEL 리포지토리를 사용하도록 설정합니다.
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -324,12 +328,20 @@
          # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
     원시 이미지의 크기를 1MB에 맞추어 조정해야 합니다. 그렇지 않으면 1MB에 맞추어 크기를 올림합니다.
 
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
+
          # qemu-img resize rhel-6.6.raw $rounded_size
 
     원시 디스크를 고정 크기 vhd로 변환합니다.
 
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+
  
+
+
 ###RHEL 7.0/7.1
 
 1.	Red Hat 웹 사이트에서 RHEL 7.0의 KVM 이미지를 다운로드합니다.
@@ -372,7 +384,7 @@
 
         # chkconfig network on
 
-7.	RHEL 리포지토리에서 패키지 설치를 사용하려면 Red Hat 구독을 등록합니다.
+7.	RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -409,7 +421,7 @@
 
         systemctl restart sshd	
 
-12.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 **Fedora EPEL 7** 리포지토리에 푸시되었으므로, EPEL 리포지토리를 사용하도록 설정합니다.
+12.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 EPEL 리포지토리를 사용하도록 설정합니다.
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -450,6 +462,11 @@
 
     원시 이미지의 크기를 1MB에 맞추어 조정해야 합니다. 그렇지 않으면 1MB에 맞추어 크기를 올림합니다.
 
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
+
          # qemu-img resize rhel-7.0.raw $rounded_size
 
     원시 디스크를 고정 크기 vhd로 변환합니다.
@@ -474,12 +491,12 @@
 
     **참고:** 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
 
-2.	다음 텍스트가 포함된 **network**파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
+2.	다음 텍스트가 포함된 **network**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-3.	다음 텍스트가 포함된 **ifcfg-eth0** 파일을 /etc/sysconfig/network-scripts/ 디렉터리에 만듭니다.
+3.	다음 텍스트가 포함된 **ifcfg-eth0**이라는 파일을 /etc/sysconfig/network-scripts/ 디렉터리에 만듭니다.
 
         DEVICE=eth0
         ONBOOT=yes
@@ -499,11 +516,11 @@
 
         # sudo chkconfig network on
 
-6.	RHEL 리포지토리에서 패키지 설치를 사용하려면 Red Hat 구독을 등록합니다.
+6.	RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었으므로, EPEL 리포지토리를 사용하도록 설정합니다.
+7.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 EPEL 리포지토리를 사용하도록 설정합니다.
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -530,7 +547,7 @@
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-11.	OS 디스크에 스왑 공간을 만들지 마십시오.
+11.	OS 디스크에 스왑 공간을 만들지 마세요.
     
     Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
@@ -558,20 +575,26 @@
 
     원시 이미지의 크기를 1MB에 맞추어 조정해야 합니다. 그렇지 않으면 1MB에 맞추어 크기를 올림합니다.
 
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+
         # qemu-img resize rhel-6.6.raw $rounded_size
 
     원시 디스크를 고정 크기 vhd로 변환합니다.
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
 
+
 ###RHEL 7.0/7.1
 
-1.	다음 텍스트가 포함된 **network**파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
+1.	다음 텍스트가 포함된 **network**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-2.	다음 텍스트가 포함된 **ifcfg-eth0** 파일을 /etc/sysconfig/network-scripts/ 디렉터리에 만듭니다.
+2.	다음 텍스트가 포함된 **ifcfg-eth0**이라는 파일을 /etc/sysconfig/network-scripts/ 디렉터리에 만듭니다.
 
         DEVICE=eth0
         ONBOOT=yes
@@ -585,7 +608,7 @@
 
         # sudo chkconfig network on
 
-4.	RHEL 리포지토리에서 패키지 설치를 사용하려면 Red Hat 구독을 등록합니다.
+4.	RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -619,7 +642,7 @@
 
         ClientAliveInterval 180
 
-9.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 7 리포지토리에 푸시되었으므로, EPEL 리포지토리를 사용하도록 설정합니다.
+9.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 EPEL 리포지토리를 사용하도록 설정합니다.
 
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -655,6 +678,11 @@
         # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
 
     원시 이미지의 크기를 1MB에 맞추어 조정해야 합니다. 그렇지 않으면 1MB에 맞추어 크기를 올림합니다.
+
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
 
         # qemu-img resize rhel-7.0.raw $rounded_size
 
@@ -820,4 +848,4 @@ Hyper-V 및 Azure에서 RHEL 6.6, 7.0, 7.1 사용 시 알려진 문제가 두 �
 
     # sudo yum update
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -107,7 +107,7 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 
 #### 내 데이터는 어느 정도 안전한가요? 
 
-데이터는 Microsoft Azure 서버에 저장됩니다. Azure 포털 계정의 경우 [Azure 보안, 개인 정보 및 규정 준수 문서](http://go.microsoft.com/fwlink/?linkid=392408)에 계정 제한 사항이 설명되어 있습니다. Visual Studio Online 포털 계정의 경우 [Visual Studio Online 데이터 보호](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) 문서가 적용됩니다.
+데이터는 Microsoft Azure 서버에 저장됩니다. Azure 포털 계정의 경우 [Azure 보안, 개인 정보 및 규정 준수 문서](http://go.microsoft.com/fwlink/?linkid=392408)에 계정 제한 사항이 설명되어 있습니다. Visual Studio Team Services 포털의 경우 [Visual Studio Team Services 데이터 보호](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) 문서가 적용됩니다.
 
 Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있습니다. Microsoft에서는 사용자가 허락한 경우에만, 그리고 Application Insights 사용을 지원하는 데 필요한 경우에 사용자 데이터에 액세스합니다.
 
@@ -250,4 +250,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 트래픽 관리자 모니터링 정보
@@ -108,15 +108,11 @@ Azure 트래픽 관리자는 관리 포털에서 프로필 및 끝점 서비스 
 
 ## 참고 항목
 
-[트래픽 관리자란?](traffic-manager-overview.md)
+[프로필 만들기](traffic-manager-manage-profiles.md)
 
-[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)
-
-[클라우드 서비스](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[끝점 추가](traffic-manager-endpoints.md)
 
 [Azure 트래픽 관리자의 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

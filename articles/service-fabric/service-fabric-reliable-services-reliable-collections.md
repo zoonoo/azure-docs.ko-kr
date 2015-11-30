@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/15/2015"
+   ms.date="11/11/2015"
    ms.author="mcoskun"/>
 
 # 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
@@ -108,6 +108,7 @@
 
 - 모든 신뢰할 수 있는 컬렉션 API의 기본 제한 시간은 4초입니다. 대부분의 사용자는 이를 무시해서는 안됩니다.
 - 기본 취소 토큰은 신뢰할 수 있는 모든 컬렉션 API의 `CancellationToken.None`입니다.
+- 신뢰할 수 있는 사전의 키 형식 매개 변수(TKey)는 GetHashCode() 및 Equals()를 정확히 구현해야 합니다. 키는 변경하지 않아야 합니다.
 - 열거형은 컬렉션 내에서 일관된 스냅숏입니다. 그러나 여러 컬렉션의 열거는 컬렉션에서 일관되지 않습니다.
 - 신뢰할 수 있는 컬렉션의 높은 가용성을 달성하려면 각 서비스에 하나 이상의 대상 및 최소 복제본 세트 크기 3이 있어야 합니다.
 
@@ -118,4 +119,4 @@
 - [신뢰할 수 있는 서비스 프로그래밍 모델 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 - [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

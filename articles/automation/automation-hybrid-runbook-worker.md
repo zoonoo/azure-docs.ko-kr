@@ -155,9 +155,9 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 
 다음 조건을 사용하여 Azure 자동화 Hybrid Runbook Worker와 Service Management Automation 중 어떤 것이 요구 사항에 보다 적합한지 결정할 수 있습니다.
 
-- SMA에는 로컬 Runbook Worker에 에이전트를 설치하기만 하면 되는 Azure 자동화보다 로컬 리소스 및 유지 관리 비용이 더 많이 드는 Microsoft Azure 팩의 로컬 설치가 필요합니다. Azure 자동화에서는 에이전트가 Operations Management Suite에 의해 관리되므로 유지 관리 비용이 절감됩니다.
+- SMA에는 로컬 Runbook Worker에 에이전트를 설치하기만 하면 되는 Azure 자동화보다 많은 로컬 리소스 및 높은 유지 관리 비용이 드는 Microsoft Azure 팩의 로컬 설치가 필요합니다. Azure 자동화에서는 에이전트가 Operations Management Suite에 의해 관리되므로 유지 관리 비용이 절감됩니다.
 - Azure 자동화는 해당 Runbook을 클라우드에 저장하여 온-프레미스 Hybrid Runbooks Worker에 전달합니다. 보안 정책에서 이 동작을 허용하지 않는 경우에는 SMA를 사용해야 합니다.
-- Microsoft Azure 팩은 무료로 다운로드할 수 있지만 Azure 자동화에는 구독 요금이 발생할 수 있습니다. 고유해야 합니다. SMA에 대한 여러 데이터베이스를 유지 관리해야 합니다.
+- Microsoft Azure 팩은 무료로 다운로드할 수 있지만 Azure 자동화에는 구독 요금이 발생할 수 있습니다.
 - Azure 자동화 Hybrid Runbook Worker를 사용하면 Azure 자동화와 SMA를 둘 다 별도로 관리할 필요 없이 클라우드 리소스와 로컬 리소스의 Runbook을 한 곳에서 관리할 수 있습니다.
 - Azure 자동화에는 SMA에서 사용할 수 없는 그래픽 작성 등의 고급 기능이 있습니다.
 
@@ -168,4 +168,4 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 - [Azure 자동화에서 Runbook 편집](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

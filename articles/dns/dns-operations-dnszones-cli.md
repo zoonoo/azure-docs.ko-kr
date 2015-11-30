@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/02/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # CLI를 사용하여 DNS 영역을 관리하는 방법
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
-- [Azure Powershell](dns-operations-dnszones.md)
+- [PowerShell](dns-operations-dnszones.md)
 
 이 가이드에서는 DNS 영역을 관리하는 방법을 보여 줍니다. DNS 영역을 관리하기 위해 수행하는 작업 시퀀스를 이해하는 데 도움이 됩니다.
 
@@ -76,4 +76,4 @@ Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으
 
 [.NET SDK로 작업 자동화](dns-sdk.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
