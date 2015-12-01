@@ -1,6 +1,7 @@
 <properties
 	pageTitle="엔터프라이즈 SaaS에 모바일 앱 연결 | Microsoft Azure"
 	description="SharePoint Online과 같은 엔터프라이즈 리소스를 호출하는 방법을 알아봅니다."
+	keywords="azure 앱 서비스,앱 서비스,모바일 앱,모바일 백 엔드,saas,azure saas,엔터프라이즈 모바일"
 	documentationCenter=""
 	authors="mattchenderson"
 	manager="dwrede"
@@ -187,4 +188,4 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [Azure Active Directory 인증 라이브러리 Single Sign-On]: app-service-mobile-ios-aad-sso.md
 [모바일 앱 .NET 백 엔드 앱 서비스 확장]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

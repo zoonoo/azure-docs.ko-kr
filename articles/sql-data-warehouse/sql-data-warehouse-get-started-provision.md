@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm;barbkess"/>
 
-# Azure Preview 포털을 사용하여 SQL 데이터 웨어하우스 만들기#
+# SQL 데이터 웨어하우스 만들기
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-data-warehouse-get-started-provision.md)
@@ -46,6 +46,7 @@
 
 
 ## 2단계: 서버 구성 및 만들기
+
 SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터베이스는 서버에 할당되고 각 서버는 지리적 위치에 할당됩니다. 이 서버를 논리적 SQL server라고 합니다.
 
 > [AZURE.NOTE]<a name="note"></a>논리적 SQL server:
@@ -75,6 +76,7 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
     ![새 서버 구성](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
 ## 3단계: 데이터베이스 구성 및 만들기
+
 이제 논리 SQL server를 선택했으므로 데이터베이스를 만들 준비가 된 것입니다.
  
 2. **SQL 데이터 웨어하우스** 블레이드에서 나머지 필드를 작성합니다. 
@@ -103,6 +105,7 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
 
 ## 4단계: 클라이언트 IP에 대한 서버 방화벽 액세스 구성
+
 현재 사용자의 IP 주소에서 서버에 연결하려면 클라이언트 IP 주소를 방화벽 규칙에 추가해야 합니다. 다음 단계는 이 작업을 수행하는 방법을 보여줍니다.
 
 1. **찾아보기** > **SQL 서버** > 서버 선택 > **설정** > **방화벽**을 클릭합니다.
@@ -123,9 +126,8 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
 이제 방화벽을 구성했으므로 바탕 화면에서 방금 만든 Azure SQL 데이터 웨어하우스 데이터베이스에 연결할 수 있습니다.
 
-
 ## 다음 단계
 
 이제 SQL 데이터 웨어하우스의 샘플 데이터베이스를 만들었으므로 데이터베이스에 [연결](./sql-data-warehouse-get-started-connect.md)할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

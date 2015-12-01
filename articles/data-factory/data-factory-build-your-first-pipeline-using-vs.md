@@ -69,7 +69,7 @@
 
 	![새 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-vs/new-linked-service-dialog.png)
  
-3. **accountname** 및 **accountkey**를 Azure 저장소 계정 및 해당 키로 바꿉니다.
+3. **accountname** 및 **accountkey**를 Azure 저장소 계정 이름 및 해당 키로 바꿉니다.
 
 	![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 
@@ -102,7 +102,6 @@ Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터�
 	버전 | 생성되는 HDInsight 버전을 3.1로 지정합니다. 
 	ClusterSize | 노드가 하나인 HDInsight 클러스터를 만듭니다. 
 	TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
-	JobsContainer | HDInsight에 의해 생성되는 로그를 저장하기 위해 만드는 작업 컨테이너의 이름을 지정합니다.
 	linkedServiceName | HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다.
 
 4. **HDInsightOnDemandLinkedService1.json** 파일을 저장합니다.
@@ -112,7 +111,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 1. **솔루션 탐색기**에서 마우스 오른쪽 단추를 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다. 
 2. 목록에서 **Azure Blob**을 선택하고 **추가**를 클릭합니다. 
-3. 편집기에서 **JSON**을 다음으로 바꿉니다. JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **데이터** Blob 컨테이너와 **partitioneddata** 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
+3. 편집기에서 **JSON**을 다음과 같이 변경합니다. JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **data**라는 Blob 컨테이너와 **partitioneddata** 폴더에 저장되도록 지정합니다. **availability** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -179,13 +178,13 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
  	JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 	
-	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**AzureStorageLinkedService1**이라고 하는 scriptLinkedService에 의해 지정됨)과 **스크립트** 컨테이너에 저장됩니다.
+	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**AzureStorageLinkedService1**이라고 하는 scriptLinkedService에 의해 지정됨)과 **script**라는 컨테이너에 저장됩니다.
 
-	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
+	**defines** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
 	파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
-	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에서 지정된 계산에 실행되도록 지정합니다.
+	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에 지정된 컴퓨터에서 실행되도록 지정합니다.
 3. **HiveActivity1.json** 파일을 저장합니다.
 
 ### 종속성으로 Partitionweblogs.hql 추가 
@@ -213,7 +212,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 	3. **구독** 필드에서 올바른 구독을 선택합니다. 
 	4. 생성되는 데이터 팩터리의 **리소스 그룹**을 선택합니다. 
 	5. 데이터 팩터리의 **지역**을 선택합니다. 
-	6. **다음**을 클릭하여 **항목 게시** 페이지로 전환합니다. **다음** 단추를 사용할 수 없는 경우 **탭** 키를 눌러 이름 필드에서 나갑니다. 
+	6. **다음**을 클릭하여 **항목 게시** 페이지로 전환합니다. **다음** 단추를 사용할 수 없는 경우 **Tab** 키를 눌러 이름 필드에서 나갑니다. 
 23. **항목 게시** 페이지에서 모든 데이터 팩터리 엔터티가 선택되었는지 확인하고 **다음**을 클릭하여 **요약** 페이지로 전환합니다.     
 24. 요약을 검토한 후 **다음**을 클릭하여 배포 프로세스를 시작하고 **배포 상태**를 봅니다.
 25. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다. 
@@ -244,4 +243,4 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!----HONumber=Nov15_HO3-->
+<!----HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 배치 기술 개요 | Microsoft Azure"
+	pageTitle="Azure 배치 서비스 기본 사항 | Microsoft Azure"
 	description="대규모 병렬 및 HPC 워크로드의 경우 Azure 배치 서비스의 개념, 워크플로 및 시나리오에 대해 알아봅니다."
 	services="batch"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/19/2015"
 	ms.author="danlep"/>
 
+# Azure 배치의 기본 사항
 
-# 대규모 병렬 및 HPC 작업을 위해 Azure 배치의 기술 개요
 Azure 배치는 클라우드에서 효율적으로 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 실행하도록 도와줍니다. 가상 컴퓨터의 관리된 컬렉션에서 실행되는 계산 집약적인 작업을 예약하는 플랫폼 서비스이며 작업의 요구를 충족하도록 계산 리소스의 크기를 조정할 수 있습니다. 배치 서비스를 사용하면 요청 시 또는 일정에 따라 실행하는 Azure 계산 리소스 및 대규모 일괄 처리 작업을 프로그래밍 방식으로 정의하며 HPC 클러스터, 개별 VM, 가상 네트워크 또는 작업 스케줄러를 수동으로 구성하고 관리할 필요가 없습니다.
 
 ## 사용 사례
@@ -48,7 +48,7 @@ Azure에서 다른 HPC 솔루션 옵션과 배치의 비교는 [배치 및 HPC �
 
 계산 노드의 풀을 만들고 관리하며 실행할 작업 및 태스크를 예약하려면 배치 API를 사용하여 개발합니다. 요구에 따라, 일정에 따라 또는 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)와 같은 도구로 관리하는 더 큰 워크플로의 일부로서 작업 및 태스크를 실행하기 위해 클라이언트 앱 또는 프런트 엔드를 작성합니다.
 
-배치 개념에 대한 자세한 사항은 [Azure 대한 API 기본 사항](batch-api-basics.md)을 참조하세요.
+배치 개념에 대한 자세한 사항은 [Azure 배치 기능 개요](batch-api-basics.md)를 참조하세요.
 
 ### 필요한 계정
 
@@ -103,4 +103,4 @@ Visual Studio와 함께 이러한 .NET 라이브러리 및 도구를 사용하�
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

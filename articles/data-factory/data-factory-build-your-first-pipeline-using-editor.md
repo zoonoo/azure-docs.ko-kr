@@ -81,7 +81,7 @@
 	![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	편집기에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다. 
-4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 선택키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 5. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
 	![배포 단추](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -102,7 +102,6 @@ Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터�
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -115,7 +114,6 @@ Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터�
 	버전 | 생성되는 HDInsight 버전을 3.1로 지정합니다. 
 	ClusterSize | 노드가 하나인 HDInsight 클러스터를 만듭니다. 
 	TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
-	JobsContainer | HDInsight에 의해 생성되는 로그를 저장하기 위해 만드는 작업 컨테이너의 이름을 지정합니다.
 	linkedServiceName | HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다.
 3. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다. 
 4. 왼쪽의 트리 뷰에서 StorageLinkedService 및 HDInsightOnDemandLinkedService가 모두 표시되는지 확인합니다.
@@ -128,7 +126,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob 저장소**를 선택합니다.  
 
 	![새 데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. 아래 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **데이터** Blob 컨테이너와 **partitioneddata** 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
+2. 아래 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **data**라는 Blob 컨테이너와 **partitioneddata** 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -202,13 +200,13 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
  
 	JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 	
-	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**StorageLinkedService**라는 scriptLinkedService에 의해 지정되는)과 **스크립트**라는 컨테이너에 저장됩니다.
+	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**StorageLinkedService**라는 scriptLinkedService에 의해 지정되는)과 **script**라는 컨테이너에 저장됩니다.
 
-	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
+	**defines** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
-	파이프라인의 **시작** 및 **끝** 속성은 파이프라인의 활성 기간을 지정합니다.
+	파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
-	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에서 지정된 계산에 실행되도록 지정합니다.
+	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에 지정된 컴퓨터에서 실행되도록 지정합니다.
 3. 명령 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다.
 4. 트리 뷰에 파이프라인이 표시되는지 확인합니다.
 
@@ -223,7 +221,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 8. 다이어그램 뷰에서 **AzureBlobOutput** 데이터 집합을 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. 처리가 완료되면 **준비** 상태에 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다. 
+9. 처리가 완료되면 **Ready**(준비) 상태에 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다. 
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
 10. 조각이 **Ready**(준비) 상태에 있으면 Blob 저장소의 **data** 컨테이너에 있는 **partitioneddata** 폴더에서 출력 데이터를 확인합니다.  
@@ -235,4 +233,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](./data-factory-get-started.md)를 참조하세요.
   
 
-<!----HONumber=Nov15_HO3-->
+<!----HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  온-프레미스 VMM 사이트와 Azure 간 보호 설정
@@ -153,29 +153,31 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 8. *다음*을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **서버** 페이지에서 *VMM 서버* 탭에 표시됩니다.
 
 >[AZURE.NOTE]다음 명령줄을 사용하여 Azure Site Recovery 공급자를 설치할 수도 있습니다. 이 방법은 Windows Server 2012 R2용 Server CORE에 대한 공급자를 설치하는 데 사용할 수 있습니다.
->
->1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
->2. System Center Virtual Machine Manager 서비스 중지
->3. **관리자** 권한으로 명령 프롬프트에서 아래 명령을 실행하여 공급자 설치 관리자 추출
->
+
+1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
+1. System Center Virtual Machine Manager 서비스 중지
+1. **관리자** 권한으로 명령 프롬프트에서 아래 명령을 실행하여 공급자 설치 관리자 추출
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. 다음 명령을 사용하여 공급자 설치
->
+1. 다음 명령을 사용하여 공급자 설치
+
 		C:\ASR> setupdr.exe /i
->5. 다음 명령을 실행하여 공급자 등록
->
+1. 다음 명령을 실행하여 공급자 등록
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####명령줄 설치 매개 변수 목록####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+
+  
+#### 명령줄 설치 매개 변수 목록
+
  - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.  
  - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
  - **/EncryptionEnabled** : Azure에서 미사용 중인 가상 컴퓨터의 암호화해야 하는 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지를 확인하세요.
  - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
  - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
  - **/proxyUsername** : (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
- - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
+ - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.  
 
 
 ## 4단계: Azure 저장소 계정 만들기
@@ -267,7 +269,16 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 4. 가상 컴퓨터 속성의 구성 탭에서 다음 네트워크 속성을 수정해야 합니다.
 
-    1. 대상 가상 컴퓨터의 네트워크 어댑터 수 - 대상 가상 컴퓨터의 네트워크 어댑터 수는 선택한 가상 컴퓨터의 크기에 다라 달라집니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 네트워크 어댑터 수 이상이어야 하며 선택한 가상 머신 크기에서 지원하는 네트워크 어댑터 수 이하여야 합니다.  
+
+	1.  대상 가상 컴퓨터 네트워크 어댑터의 수 - 네트워크 어댑터의 수는 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-size-specs.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요. 
+
+		가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 네트워크 어댑터 수 이상이어야 하며 선택한 가상 컴퓨터 크기에서 지원하는 네트워크 어댑터 수 이하여야 합니다. 아래 설명을 참조하세요.
+
+
+		- 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
+		- 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
+		- 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다. 	
+
 
 	1. 대상 가상 컴퓨터의 네트워크 - 가상 컴퓨터가 연결하는 네트워크는 네트워크 원본 가상 컴퓨터의 네트워크 매핑으로 결정됩니다. 원본 가상 컴퓨터에 둘 이상의 네트워크 어댑터가 있고 원본 네트워크가 대상의 다른 네트워크에 매핑된 경우 사용자는 대상 네트워크 중 하나를 선택해야 합니다.
 
@@ -276,6 +287,8 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 	1. 대상 IP - 원본 가상 컴퓨터의 네트워크 어댑터가 정적 IP를 사용하도록 구성된 경우 사용자는 대상 가상 컴퓨터의 IP를 입력할 수 있습니다. 사용자는 이 기능을 사용하여 장애 조치(Failover) 후 원본 가상 컴퓨터의 IP를 유지할 수 있습니다. 제공된 IP가 없을 경우 장애 조치(Failover) 시 사용 가능한 임의 IP가 네트워크 어댑터로 제공됩니다. 사용자가 입력한 대상 IP를 이미 Azure에서 실행 중인 다른 가상 컴퓨터에서 사용하고 있을 경우 장애 조치(Failover)가 실패합니다.
 
 		![네트워크 속성 수정](./media/site-recovery-vmm-to-azure/MultiNic.png)
+
+>[AZURE.NOTE]고정 IP를 사용하는 Linux 가상 컴퓨터는 지원되지 않습니다.
 
 ## 배포 테스트
 배포를 테스트하려면 단일 가상 컴퓨터에 대한 테스트 장애 조치(Failover)를 실행하거나, 여러 개의 가상 컴퓨터로 구성된 복구 계획을 만들고 이 계획에 대한 테스트 장애 조치(Failover)를 실행하면 됩니다. 테스트 장애 조치(Failover)에서는 격리된 네트워크에서 장애 조치(Failover) 및 복구 메커니즘을 시뮬레이션합니다. 다음 사항에 유의하세요.
@@ -306,7 +319,7 @@ Azure로의 테스트 장애 조치(Failover)를 실행하는 두 가지 방법�
 - Azure 네트워크를 사용하지 않는 테스트 장애 조치(Failover) - 이 유형의 테스트 장애 조치(Failover)는 Azure에서 가상 컴퓨터가 제대로 작동하는지 확인합니다. 장애 조치(Failover) 후에 가상 컴퓨터가 Azure 네트워크에 연결되지 않습니다.
 - Azure 네트워크를 사용하는 테스트 장애 조치(Failover) - 이 유형의 테스트 장애 조치(Failover)는 전체 복제 환경이 예상대로 작동하고 장애 조치(Failover)된 가상 컴퓨터가 지정한 대상 Azure 네트워크에 연결되는지 확인합니다. 테스트 장애 조치(Failover)에 대한 서브넷 처리의 경우 테스트 가상 컴퓨터의 서브넷이 복제본 가상 컴퓨터의 서브넷에 따라 확인됩니다. 이는 복제본 가상 컴퓨터의 서브넷이 원본 가상 컴퓨터의 서브넷을 기반으로 하는 일반 복제의 경우와 다릅니다.
 
-Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정된 가상 컴퓨터에 대해 테스트 장애 조치(Failover)를 실행하려는 경우 아무 것도 준비할 필요가 없습니다. Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치 실행](site-recovery-failover.md#run-a-test-failover)하는 방법을 살펴봅니다.
+Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정된 가상 컴퓨터에 대해 테스트 장애 조치(Failover)를 실행하려는 경우 아무 것도 준비할 필요가 없습니다. Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치를 실행](site-recovery-failover.md#run-a-test-failover)하는 방법을 살펴봅니다.
 
 
 또한 예상 대로 작동하는 복제된 가상 컴퓨터에 대한 인프라를 설정해야 합니다. 예를 들어, 도메인 컨트롤러 및 DNS와 가상 컴퓨터를 Azure Site Recovery를 사용하여 Azure에 복제할 수 있으며 테스트 장애 조치를 사용하여 테스트 네트워크에서 만들 수 있습니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(failover) 시 고려 사항](site-recovery-active-directory.md#considerations-for-test-failover) 섹션을 살펴봅니다.
@@ -347,4 +360,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 <LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

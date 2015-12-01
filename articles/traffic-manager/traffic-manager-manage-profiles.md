@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/18/2015"
    ms.author="joaoma" />
 
 # Azure 트래픽 관리자 프로필 관리
@@ -85,4 +85,4 @@ Azure 포털의 관리 서비스에서 트래픽 관리자 프로필의 변경 �
 
 [트래픽 관리자 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

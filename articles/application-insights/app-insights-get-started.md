@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="11/17/2015"
 	ms.author="awills"/>
 
 # Visual Studio Application Insights 시작하기
@@ -41,8 +41,7 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Java 프로젝트에 SDK 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![성능 및 사용량 모니터링](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
 <a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">웹 페이지에 Application Insights 스크립트 삽입</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![페이지 보기 및 브라우저 성능](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
 <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">웹 테스트 만들기</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
-<a href="app-insights-windows-get-started.md">![Windows 및 Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Windows 앱 프로젝트에 Application Insights 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![충돌 및 사용 현황 데이터](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
-<a href="app-insights-platforms.md">![iOS, Android 등](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="app-insights-platforms.md">iOS 또는 Android 앱 프로젝트에 Application Insights 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![충돌 및 사용 현황 데이터](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-platforms.md">![iOS, Android 및 Windows 장치](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="http://hockeyapp.net">HockeyApp 사용</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="http://hockeyapp.net">![충돌 및 사용 현황 데이터](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
 ## 지원 및 피드백
 
@@ -75,4 +74,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -24,9 +24,7 @@
 
 ## 개요
 
-이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 클라우드 기반 백 엔드 서비스를 iOS 모바일 앱에 추가하는 방법을 보여 줍니다. 새 모바일 앱 백 엔드와 앱 데이터를 Azure에 저장하는 간단한 _할 일 모음_ iOS 앱을 만듭니다.
-
-이 자습서를 완료해야 Azure 앱 서비스에서 모바일 앱 기능을 사용하는 방법에 대한 다른 모든 iOS 자습서를 진행할 수 있습니다.
+이 자습서는 iOS 모바일 앱에 클라우드 기반 백 엔드 서비스([Azure 모바일 앱](app-service-mobile-value-prop.md))를 사용하는 방법을 보여줍니다. 새 모바일 앱 백 엔드를 만들고 앱 데이터를 Azure에 저장하는 간단한 _할 일 모음_ iOS 앱을 만듭니다.
 
 ## 필수 조건
 
@@ -42,7 +40,11 @@
 
 ## 새 Azure 모바일 앱 백 엔드 만들기
 
+다음 단계에 따라 새 모바일 앱 백 엔드를 만드세요.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+이제 모바일 클라이언트 응용 프로그램에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 “할 일 목록” 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
 
 ## 서버 프로젝트 다운로드
 
@@ -50,11 +52,10 @@
 
 2. 모바일 앱 블레이드에서 **설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **iOS(Objective-C)**를 클릭합니다. Swift를 원하는 경우 **빠른 시작** > **iOS(Swift)**를 대신 클릭합니다.
 
-3. **서버 프로젝트 다운로드 및 실행**에서 **다운로드**를 클릭합니다. 귀하의 PC에 압축된 프로젝트 파일을 추출하고 Visual Studio에서 솔루션을 엽니다.
+## 서버 프로젝트 구성
 
-## Azure에 서버 프로젝트 게시
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ## iOS 앱 다운로드 및 실행
 
@@ -68,4 +69,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

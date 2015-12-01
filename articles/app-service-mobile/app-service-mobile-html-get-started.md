@@ -47,13 +47,17 @@
 
 ##새 모바일 앱 백 엔드 만들기
 
+다음 단계에 따라 새 모바일 앱 백 엔드를 만드세요.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+이제 모바일 클라이언트 응용 프로그램에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 “할 일 목록” 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
 
 ## 서버 프로젝트 다운로드
 
 1. [Azure 포털]에서 **모두 찾아보기** > **웹앱**을 클릭한 다음 방금 만든 모바일 앱 백 엔드를 클릭합니다. 
 
-2. 모바일 앱 백엔드에서 **모든 설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **HTML/JavaScript**를 클릭합니다.
+2. 모바일 앱 백 엔드에서 **모든 설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **HTML/JavaScript**를 클릭합니다.
 
 3. **서버 프로젝트 다운로드 및 실행**의 **새 앱 만들기**에서 **다운로드**를 클릭하고, 압축된 프로젝트 파일을 로컬 컴퓨터에 추출하고 Visual Studio에서 솔루션을 엽니다.
 
@@ -61,7 +65,7 @@
 
 ##서버 프로젝트에서 CORS 사용
 
-CORS(크로스-원본 리소스 공유)는 웹 기반 앱이 어느 도메인 요청이 안전한지 표시하는 방법으로 브라우저에서 허용되어야 합니다. 모바일 앱 백 엔드에 액세스하는 모든 웹 사이트에 대한 CORS 항목을 추가해야 합니다. 표준 ASP.NET 웹 API 동작을 사용하여 CORS 설정을 제어합니다. 자세한 내용은 [ASP.NET 웹 API에서 크로스-원본 리소스 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors)을 참조하세요.
+CORS(크로스-원본 리소스 공유)는 웹 기반 앱이 어느 도메인 요청이 안전한지 표시하는 방법으로 브라우저에서 허용되어야 합니다. 모바일 앱 백 엔드에 액세스하는 모든 웹 사이트에 대한 CORS 항목을 추가해야 합니다. 표준 ASP.NET 웹 API 동작을 사용하여 CORS 설정을 제어합니다. 자세한 내용은 [ASP.NET Web API에서 크로스-원본 리소스 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors)을 참조하세요.
 
 기본적으로 포털에서 다운로드하는 클라이언트 빠른 시작 프로젝트는 포트 8000의 로컬 호스트에서 실행됩니다. 이 때문에 다음에 서버 프로젝트에서 `http://localhost:8000`에 대한 CORS를 사용하도록 설정합니다.
 
@@ -123,4 +127,4 @@ CORS(크로스-원본 리소스 공유)는 웹 기반 앱이 어느 도메인 �
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -75,32 +75,31 @@ ARM cmdlet을 사용하려면 PowerShell 모드를 전환해야 합니다. 자�
 
 ### 1단계
 
-    Switch-AzureMode -Name AzureResourceManager
+		PS C:\> Login-AzureRmAccount
+
+
 
 ### 2단계
 
-Azure 계정에 로그인
+계정에 대한 구독을 확인합니다.
+
+		PS C:\> get-AzureRmSubscription 
+
+자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.<BR>
+
+### 3단계 
+
+사용할 Azure 구독을 선택합니다. <BR>
 
 
-    Add-AzureAccount
-
-자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
-
-
-### 3단계
-
-사용할 Azure 구독을 선택합니다.
-
-    Select-AzureSubscription -SubscriptionName "MySubscription"
-
-사용 가능한 구독 목록을 보려면 ‘Get-AzureSubscription’ cmdlet을 사용합니다.
+		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### 4단계
 
 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
-    New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 응용 프로그램 게이트웨이를 만들기 위한 모든 명령이 동일한 리소스 그룹을 사용하는지 확인합니다.
 
@@ -112,12 +111,12 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 1단계	
 	
-	$subnet = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 주소 범위 10.0.0.0/24를 가상 네트워크를 만드는 데 사용할 서브넷 변수에 할당합니다.
 
 ### 2단계	
-	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 접두사 10.0.0.0/16과 서브넷 10.0.0.0/24를 사용하여 미국 서부 지역에 대해 리소스 그룹 "appw-rg"에서 "appgwvnet"이라는 가상 네트워크를 만듭니다.
 
@@ -127,7 +126,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ## 프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
-	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
+	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
 미국 서부 지역에 대해 리소스 그룹 "appw-rg"에서 공용 IP 리소스 "PublicIP01"을 만듭니다.
 
@@ -136,67 +135,67 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 1단계
 
-	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 "gatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
  
 ### 2단계
 
-	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
 이 단계에서는 IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 위의 IP 주소를 바꿉니다.
 
 ### 3단계
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 응용 프로그램 게이트웨이 설정 "poolsetting01"을 구성합니다.
 
 ### 4단계
 
-	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
 공용 IP 끝점의 경우 여기서 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합니다.
 
 ### 5단계
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
+	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 "fipconfig01"이라는 프런트 엔드 IP 구성을 만들고 프런트 엔드 IP 구성에 공용 IP 주소를 연결합니다.
 
 ### 6단계
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 "listener01"이라는 수신기를 만들고 프런트 엔드 IP 구성에 프런트 엔드 포트를 연결합니다.
 
 ### 7단계 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 부하 분산 장치 동작을 구성하는 "rule01"이라는 부하 분산 장치 라우팅 규칙을 만듭니다.
 
 ### 8단계
 
-	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 응용 프로그램 게이트웨이의 인스턴스 크기를 구성합니다.
 
->[AZURE.NOTE]*InstanceCount*에 대한 기본값은 2이고, 최대값은 10입니다. *GatewaySize*에 대한 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
+>[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 Medium입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
 
 ## New-AzureApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 위 단계의 모든 구성 항목으로 응용 프로그램 게이트웨이를 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 합니다.
 
 
 ## 응용 프로그램 게이트웨이 시작
 
-게이트웨이가 구성되면, `Start-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 시작합니다. 응용 프로그램 게이트웨이에 대한 청구는 게이트웨이가 성공적으로 작동된 후 시작합니다.
+게이트웨이가 구성되면, `Start-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이를 시작합니다. 응용 프로그램 게이트웨이에 대한 청구는 게이트웨이가 성공적으로 작동된 후 시작합니다.
 
 
-**참고:** `Start-AzureApplicationGateway` cmdlet을 완료하려면 최대 15-20분까지 걸릴 수 있습니다.
+**참고:** `Start-AzureRmApplicationGateway` cmdlet을 완료하려면 최대 15-20분까지 걸릴 수 있습니다.
 
 아래 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 하고 리소스 그룹을 "app-rg"라고 합니다.
 
@@ -205,23 +204,23 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 게이트웨이 응용 프로그램 개체를 가져오고 "$getgw" 변수에 연결합니다.
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName app-rg
 
 ### 2단계
 	 
-`Start-AzureApplicationGateway`를 사용하여 응용 프로그램 게이트웨이를 시작합니다.
+`Start-AzureRmApplicationGateway`를 사용하여 응용 프로그램 게이트웨이를 시작합니다.
 
-	 Start-AzureApplicationGateway -ApplicationGateway $getgw  
+	 Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 	
 
 ## 응용 프로그램 게이트웨이 상태 확인
 
-`Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. *시작 AzureApplicationGateway*가 이전 단계에서 성공한 경우, 상태가 *실행*이 되어야 하고, Vip와 DNS 이름은 유효한 항목을 가져야 합니다.
+`Get-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. 이전 단계에서 *Start-AzureApplicationGateway*를 성공했으면, State는 *Running*이 되며, Vip와 DnsName에 유효한 항목이 표시됩니다.
 
-이 샘플은 작동되어 실행 중이고 `http://<generated-dns-name>.cloudapp.net`으로 전송된 트래픽을 받아들일 준비가 된 응용 프로그램 게이트웨이를 보여 줍니다.
+이 샘플은 작동되어 실행 중이고 `http://<generated-dns-name>.cloudapp.net`으로 전송되는 트래픽을 받아들일 준비가 된 응용 프로그램 게이트웨이를 보여 줍니다.
 
-	Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	Sku                               : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewaySku
 	GatewayIPConfigurations           : {gatewayip01}
@@ -371,51 +370,51 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 응용 프로그램 게이트웨이를 삭제하려면 다음을 순서대로 수행해야 합니다.
 
-1. `Stop-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 중지합니다. 
-2. `Remove-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 제거합니다.
-3. `Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이가 제거되었는지 확인합니다.
+1. `Stop-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이를 중지합니다. 
+2. `Remove-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이를 제거합니다.
+3. `Get-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이가 제거되었는지 확인합니다.
 
 
 ### 1단계
 
 게이트웨이 응용 프로그램 개체를 가져오고 "$getgw" 변수에 연결합니다.
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### 2단계
 	 
-`Stop-AzureApplicationGateway`를 사용하여 응용 프로그램 게이트웨이를 중지합니다.
+`Stop-AzureRmApplicationGateway`를 사용하여 응용 프로그램 게이트웨이를 중지합니다.
 
-	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
-
-
-응용 프로그램 게이트웨이가 중지됨 상태이면 `Remove-AzureApplicationGateway` cmdlet을 사용하여 서비스를 제거합니다.
+	Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 
-	Remove-AzureApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
+응용 프로그램 게이트웨이의 State가 Stopped가 되면 `Remove-AzureRmApplicationGateway` cmdlet을 사용하여 서비스를 제거합니다.
+
+
+	Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
 
 	
 
 >[AZURE.NOTE]'-force' 스위치를 사용하여 제거 확인 메시지가 표시되지 않도록 할 수 있습니다.
 >
 
-서비스가 제거되었는지 확인하려면 `Get-AzureApplicationGateway` cmdlet을 사용합니다. 이 단계는 필요 하지 않습니다.
+서비스가 제거되었는지 확인하려면 `Get-AzureRmApplicationGateway` cmdlet을 사용합니다. 이 단계는 필요 하지 않습니다.
 
 
-	Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
 
 	
 
 
 ## 다음 단계
 
-SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
+SSL 오프로드를 구성하려는 경우, [SSL 오프로드에 대해 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
 
-ILB에 사용하기 위해 응용 프로그램 게이트웨이를 구성하려는 경우 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
+ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
 보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
 
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
