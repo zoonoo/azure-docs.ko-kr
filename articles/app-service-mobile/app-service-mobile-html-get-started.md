@@ -19,7 +19,9 @@
 
 #HTML 앱 만들기
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
+&nbsp;  
+<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
 >[AZURE.IMPORTANT]Azure 포털에서 HTML/JavaScript 앱에 대한 빠른 시작이 일시적으로 제거되었기 때문에 이 항목은 현재 모바일 앱에서 지원되지 않습니다. 가까운 미래에 다시 적용할 예정입니다. 모바일 앱 미리 보기를 완료하도록 기다려 주셔서 감사합니다.
 
