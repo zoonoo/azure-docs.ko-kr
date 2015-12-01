@@ -229,11 +229,18 @@ PS D:\temp>
 
 ## 다음 단계
 
-[응용 프로그램 배포 및 제거][10] [여러 환경에 대한 응용 프로그램 매개 변수 관리][11] [RunAs: 다양 한 보안 권한으로 서비스 패브릭 응용 프로그램 실행][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Image1]: media/service-fabric-application-model/Service1.jpg [Image2]: media/service-fabric-application-model/Service2.jpg
+[응용 프로그램 배포 및 제거][10]
+[여러 환경에 대한 응용 프로그램 매개 변수 관리][11]
+[RunAs: 다양 한 보안 권한으로 서비스 패브릭 응용 프로그램 실행][12]
+<!--Image references-->
+[1]: ./media/service-fabric-application-model/application-model.jpg
+[2]: ./media/service-fabric-application-model/vs-package-command.png
+[Image1]: media/service-fabric-application-model/Service1.jpg
+[Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO4-->
+<!------HONumber=Nov15_HO4-->
