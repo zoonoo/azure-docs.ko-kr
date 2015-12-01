@@ -32,7 +32,7 @@
 
 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
-> [AZURE.IMPORTANT] [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+> [AZURE.IMPORTANT][자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 >   
 > 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
 >    
@@ -112,7 +112,6 @@ Hive 스크립트를 실행하는데 사용될 주문형 Azure HDInsight 클러�
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -125,7 +124,6 @@ Hive 스크립트를 실행하는데 사용될 주문형 Azure HDInsight 클러�
 	버전 | 생성되는 HDInsight 버전을 3.1로 지정합니다.
 	ClusterSize | 노드가 하나인 HDInsight 클러스터를 만듭니다.
 	TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
-	JobsContainer | HDInsight에 의해 생성되는 로그를 저장하기 위해 만드는 작업 컨테이너의 이름을 지정합니다.
 	linkedServiceName | HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다.
 2. **New-AzureDataFactoryLinkedService** cmdlet을 실행하여 HDInsightOnDemandLinkedService라는 연결된 서비스를 만듭니다.
 
@@ -156,7 +154,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 		  }
 		}
 
-	이전 예제에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **데이터** Blob 컨테이너와 **partitioneddata** 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
+	이전 예제에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **data**라는 Blob 컨테이너와 **partitioneddata** 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
 
 2. Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 
@@ -203,11 +201,11 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 	이전 예제에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 
-	Hive 스크립트 파일 partitionweblogs.hql은 Azure 저장소 계정(StorageLinkedService라는 scriptLinkedService에 의해 지정되는)과 **스크립트**라는 컨테이너에 저장됩니다.
+	Hive 스크립트 파일 partitionweblogs.hql은 Azure 저장소 계정(StorageLinkedService라고 하는 scriptLinkedService에 의해 지정되는)과 **script** 컨테이너에 저장됩니다.
 
-	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예를 들어 ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는데 사용됩니다.
+	**defines** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
-	파이프라인의 **시작** 및 **끝** 속성은 파이프라인의 활성 기간을 지정합니다.
+	파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
 
 	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에서 지정된 컴퓨터에서 실행되도록 지정합니다.
 2. 다음 명령을 실행하여 데이터 팩터리 테이블을 만듭니다.
@@ -274,4 +272,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

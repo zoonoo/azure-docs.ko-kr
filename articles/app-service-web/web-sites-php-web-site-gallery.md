@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="11/13/2015"
 	ms.author="tomfitz"/>
 
 # Azure 앱 서비스에서 WordPress 웹앱 만들기
@@ -40,7 +40,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **새로 만들기 > 마켓플레이스**를 클릭합니다.
+2. **새로 만들기**를 클릭합니다.
 	
     ![새로 만들기][5]
 	
@@ -124,4 +124,4 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

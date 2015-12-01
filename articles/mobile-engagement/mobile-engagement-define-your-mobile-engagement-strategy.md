@@ -117,6 +117,9 @@ Mobile Engagement 전략을 구축하려면 먼저 앱의 목표 및 KPI(핵심 
 
 ### 다음 단계
 - Mobile Engagement의 기본 개념에 대해 자세히 알아보려면 [Mobile Engagement 개념]을 방문합니다.
+- 세부적인 내용으로 들어가려면 [모범 사례](mobile-engagement-getting-started-best-practices.md)를 참조하세요.
+- 샘플 게임 앱에 Mobile Engagement를 구현하는 것에 대해 알아보려면 [게임 앱 시나리오(영문)](mobile-engagement-gaming-scenario.md)를 참조하세요. 
+- 샘플 미디어 앱에 Mobile Engagement를 구현하는 것에 대해 알아보려면 [미디어 앱 시나리오(영문)](mobile-engagement-media-scenario.md)를 참조하세요. 
 - 구현에 대해 자세히 알아보려면 [자습서]를 방문합니다.
 
 <!-- Images. -->
@@ -127,4 +130,4 @@ Mobile Engagement 전략을 구축하려면 먼저 앱의 목표 및 KPI(핵심 
 [Mobile Engagement 개념]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [자습서]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="get-started-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 # Azure의 Django 및 MySQL과 Python Tools 2.2 for Visual Studio 
 
@@ -98,14 +98,13 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 다음 단계에 따라 무료로 데이터베이스를 만들 수 있습니다.
 
-1.  [Azure 포털]에 로그인합니다.
+1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-1.  탐색 창 맨 아래에 있는 **NEW**를 클릭합니다. 그런 다음 **데이터 + 저장소** > **Azure 마켓플레이스**를 클릭합니다.
+1.  탐색 창 상단에서 **새로 만들기**를 클릭합니다. 그런 다음 **데이터 + 저장소** > **MySQL 데이터베이스**를 클릭합니다.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
+  
 
 1.  검색 상자에 "**mysql**"을 입력하고 **MySQL 데이터베이스**를 클릭한 다음 **만들기**를 클릭합니다.
-
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  새 리소스 그룹을 만들어 새 MySQL 데이터베이스를 구성하고 적절한 위치를 선택합니다.
@@ -203,7 +202,7 @@ Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보�
 [Azure 클라우드 서비스]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -218,4 +217,4 @@ Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보�
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

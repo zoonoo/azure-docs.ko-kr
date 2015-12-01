@@ -31,7 +31,7 @@
 일시적 오류는 해당 원인이 자체적으로 곧 해결되는 오류입니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이 재구성 기간 중에는 Azure SQL 데이터베이스에 대한 연결이 끊어질 수 있습니다.
 
 
-클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException**이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다. **숫자** 속성을 본 항목 윗부분의 [SQL 데이터베이스 클라이언트 프로그램의 오류 메시지](sql-database-develop-error-messages)에서 나열된 일시적 오류 목록과 비교할 수 있습니다.
+클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException**이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다. **숫자** 속성을 본 항목 윗부분의 [SQL 데이터베이스 클라이언트 프로그램의 오류 메시지](sql-database-develop-error-messages.md)에서 나열된 일시적 오류 목록과 비교할 수 있습니다.
 
 
 ### 연결과 명령 비교
@@ -94,7 +94,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [
 
 재시도 논리가 포함된 코드 샘플은 다음에서 다양한 언어로 다운로드할 수 있습니다.
 
-- [빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md) 
+- [빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

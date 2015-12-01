@@ -18,7 +18,7 @@
 
 # Visual Studio에서 서비스 패브릭 응용 프로그램 처음 만들기
 
-서비스 패브릭 SDK는 비스 패브릭 응용 프로그램 만들기, 디버깅 및 서배포에 대한 템플릿 및 도구를 제공하는 Visual Studio에 대한 추가 기능을 포함합니다. 이 항목에서는 Visual Studio에서 응용 프로그램을 처음 만드는 과정을 안내합니다.
+서비스 패브릭 SDK는 서비스 패브릭 응용 프로그램을 만들고, 배포하고, 디버그하는 도구를 제공하는 Visual Studio용 추가 기능을 포함합니다. 이 항목에서는 Visual Studio에서 응용 프로그램을 처음 만드는 과정을 안내합니다.
 
 ## 필수 조건
 
@@ -44,7 +44,7 @@
 
 	Visual Studio는 응용 프로그램 프로젝트 및 상태 저장 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
-	![상태 저장 서비스를 사용하여 응용 프로그램 만든기를 수행하는 솔루션 탐색기][3]
+	![상태 저장 서비스를 사용하여 응용 프로그램 만들기를 수행하는 솔루션 탐색기][3]
 
 	응용 프로그램 프로젝트는 코드를 직접 포함하지 않습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 추가로 3가지 다른 형식을 포함합니다.
 
@@ -54,11 +54,11 @@
 
 	- **응용 프로그램 정의**: 응용 프로그램 매니페스트 및 관련된 응용 프로그램 매개 변수 파일은 응용 프로그램을 정의하고 지정된 환경에 대해 해당 응용 프로그램을 구체적으로 구성할 수 있습니다.
 
-  서비스 프로젝트의 내용에 대한 개요는 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
+    서비스 프로젝트의 내용에 대한 개요는 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
 
 ## 응용 프로그램 배포 및 디버깅
 
-이제 응용 프로그램을 실행해 보겠습니다.
+이제 응용 프로그램이 있으니 실행해 보겠습니다.
 
 1. Visual Studio에서 F5 키를 눌러 응용 프로그램을 디버깅하기 위해 배포합니다.
 
@@ -88,11 +88,11 @@
 
 5. 로컬 클러스터 관리자 시스템 트레이 앱을 마우스 오른쪽 단추로 클릭하고 로컬 클러스터 관리를 선택하여 서비스 패브릭 탐색기를 시작합니다.
 
-  ![로컬 클러스터 관리자에서 서비스 패브릭 탐색기 시작][systray-launch-sfx]
+    ![로컬 클러스터 관리자에서 서비스 패브릭 탐색기 시작][systray-launch-sfx]
 
-  서비스 패브릭 탐색기는 클러스터의 시각적 표현을 제공하며 이는 여기에 배포된 응용 프로그램 집합 및 만드는 실제 노드 집합을 포함합니다.
+    서비스 패브릭 탐색기는 클러스터의 시각적 표현을 제공하며 이는 여기에 배포된 응용 프로그램 집합 및 만드는 실제 노드 집합을 포함합니다. 서비스 패브릭 탐색기에 대해 자세히 알아보려면 [클러스터 시각화(영문)](service-fabric-visualizing-your-cluster)를 참조하세요.
 
-6. 왼쪽된 창에서 **클러스터 > 노드**를 확장하고 코드가 실행될 노드를 찾습니다.
+6. 왼쪽 창에서 **클러스터 > 노드**를 확장하고 코드가 실행될 노드를 찾습니다.
 
 7. **작업 > 비활성화(다시 시작)**를 클릭하여 컴퓨터 다시 시작을 시뮬레이션합니다.
 
@@ -102,14 +102,25 @@
 
 8. 진단 이벤트 뷰어로 돌아가서 메시지를 관찰합니다. 이벤트가 실제로 다른 노드에서 들어오더라도 카운터는 계속 증분합니다.
 
-  ![장애 조치 후 진단 이벤트 뷰어][diagnostic-events-viewer-detail-post-failover]
+    ![장애 조치 후 진단 이벤트 뷰어][diagnostic-events-viewer-detail-post-failover]
+
+### 정리
+
+  마무리하기 전에, 로컬 클러스터가 실제로 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하고 Visual Studio를 닫은 후에도 응용 프로그램은 백그라운드에서 계속 실행됩니다. 앱의 특성에 따라서, 이 백그라운드 작업은 컴퓨터에서 상당한 리소스를 차지할 수 있습니다. 이것을 관리하는 옵션이 몇 가지 있습니다.
+
+  1. 개별적인 응용 프로그램과 그 데이터를 모두 제거하려면 서비스 패브릭 탐색기에서 **응용 프로그램 제거** 작업을 사용합니다.
+
+  2. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **클러스터 중지**를 클릭합니다.
+
+  3. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **클러스터 제거**를 클릭합니다. 이 옵션을 사용하면 Visual Studio에서 다음에 F5 키를 누를 때 배포 속도가 느려지므로, 한동안 로컬 클러스터를 사용하지 않으려는 경우나 리소스 회수가 절실하게 필요한 경우에만 사용해야 합니다.
+
 
 
 ## 다음 단계
 
+- [WebAPI을 사용하여 인터넷에 서비스를 노출할 수 있는 방법을 참조하기](service-fabric-add-a-web-frontend.md)
 - [Azure에서 클러스터를 만드는 방법 알아보기](service-fabric-cluster-creation-via-portal.md)
 - [Reliable Services에 대해 알아보기](service-fabric-reliable-services-quick-start.md)
-- [WebAPI을 사용하여 인터넷에 서비스를 노출할 수 있는 방법을 참조하기](service-fabric-add-a-web-frontend.md)
 - [신뢰할 수 있는 작업자 프로그래밍 모델을 사용하여 서비스 만들어 보기](service-fabric-reliable-actors-get-started.md)
 
 <!-- Image References -->
@@ -125,4 +136,4 @@
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

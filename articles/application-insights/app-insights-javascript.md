@@ -12,32 +12,39 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="awills"/>
 
 # JavaScript 웹앱 Application Insights
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-웹 페이지의 성능 및 사용 현황에 대해 알아봅니다. Visual Studio Application Insights를 페이지에 추가하면 사용자가 몇 명인지, 몇 명이 다시 방문하는지, 어떤 페이지를 가장 많이 사용하는지 확인할 수 있습니다. 또한 로드 시간 및 모든 예외에 대한 보고서를 얻을 수 있습니다. 몇 가지 [사용자 지정 이벤트 및 메트릭][track]을 추가하고 가장 인기 있는 기능, 가장 일반적인 실수를 자세히 분석하고 사용자와 더불어 성공적인 결과를 얻을 수 있게 페이지를 조정합니다.
+웹 페이지의 성능 및 사용 현황에 대해 알아봅니다. Visual Studio Application Insights를 페이지에 추가하면 사용자가 몇 명인지, 몇 명이 다시 방문하는지, 어떤 페이지를 가장 많이 사용하는지 확인할 수 있습니다. 또한 로드 시간 및 모든 예외에 대한 보고서를 얻을 수 있습니다. 몇 가지 [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)을 추가하고 가장 인기 있는 기능, 가장 일반적인 실수를 자세히 분석하고 사용자와 더불어 성공적인 결과를 얻을 수 있게 페이지를 조정합니다.
 
 ![새로 만들기, 개발자 서비스, Application Insights를 선택합니다.](./media/app-insights-javascript/16-page-views.png)
 
-[ASP.NET][greenbrown] 또는 [Java][java] 웹앱에 대해 이미 서버 원격 분석을 설정한 경우 클라이언트와 서버에 대한 정보를 모두 얻을 수 있습니다. 두 스트림은 Application Insights 포털에 통합될 것입니다.
+[ASP.NET](app-insights-asp-net.md) 또는 [Java](app-insights-java-get-started.md) 웹 앱에 대해 이미 서버 원격 분석을 설정한 경우 클라이언트와 서버에 대한 정보를 모두 얻을 수 있습니다. 두 스트림은 Application Insights 포털에 통합될 것입니다.
 
 #### 빠른 데모
 
 Azure 구독이 없고 웹 페이지에서 Application Insights를 사용하려는 경우에 [Application Insights 사용하기](http://aka.ms/ainow)를 방문하세요.
 
-## Application Insights 리소스 만들기
+## Application Insights 리소스 열기
 
 Application Insights 리소스는 페이지의 성능 및 사용 현황에 대한 데이터가 표시되는 위치입니다. 웹 서버에서 데이터를 수집하기 위해 이미 리소스를 만든 경우 이 단계를 건너뜁니다.
 
-[Azure 포털](http://portal.azure.com)에서 새 Application Insights 리소스를 만듭니다.
+[Azure 포털](http://portal.azure.com)에 로그인합니다.
+
+응용 프로그램의 서버측에 대한 모니터링을 이미 설정한 경우 리소스가 있습니다.
+
+![찾아보기, 개발자 서비스, Application Insights를 선택합니다.](./media/app-insights-javascript/01-find.png)
+
+계정이 없는 경우 계정을 만듭니다.
 
 ![새로 만들기, 개발자 서비스, Application Insights를 선택합니다.](./media/app-insights-javascript/01-create.png)
 
-*벌써 질문이 있나요?* [리소스 만들기에 대해 자세히 알아보세요][new].
+
+*벌써 질문이 있나요?* [리소스 만들기에 대해 자세히 알아보세요](app-insights-create-new-resource.md).
 
 
 ## 앱 또는 웹 페이지에 SDK 스크립트를 추가합니다.
@@ -53,7 +60,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 스크립트에는 Application Insights 리소스에 데이터를 전달하는 계측 키가 포함됩니다.
 
-([스크립트의 자세한 설명.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+([스크립트에 대한 자세한 설명.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 *(잘 알려진 웹 페이지 프레임워크를 사용하는 경우 Application Insights 어댑터를 찾아보세요. 예를 들어 [AngularJS 모듈](http://ngmodules.org/modules/angular-appinsights)이 있습니다.)*
 
@@ -72,7 +79,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 ![](./media/app-insights-javascript/05-browser-page-load.png)
 
 
-*아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결][qna]을 참조하세요.*
+*아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.*
 
 해당 차트를 클릭하면 보다 자세한 버전을 가져올 수 있습니다.
 
@@ -143,9 +150,9 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 보다 자세한 정보를 확인하려면 원하는 이벤트를 선택합니다. 세부 정보 페이지에서 더 자세한 정보를 보려면 "..."를 클릭합니다.
 
-> [AZURE.NOTE] [검색][diagnostic]을 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않지만 "Abou*"는 일치합니다. 또한 검색 용어는 와일드로 시작할 수 없습니다. 예를 들어 "*bou"로 검색해도 "About"는 검색되지 않습니다.
+> [AZURE.NOTE][검색](app-insights-diagnostic-search.md)을 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않지만 "Abou*"는 일치합니다. 또한 검색 용어는 와일드로 시작할 수 없습니다. 예를 들어 "*bou"로 검색해도 "About"는 검색되지 않습니다.
 
-> [진단 검색에 대해 자세히 알아보기][diagnostic]
+> [진단 검색에 대해 자세히 알아보기](app-insights-diagnostic-search.md)
 
 ### 페이지 보기 속성
 
@@ -155,16 +162,20 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 사용자가 앱으로 어떤 작업을 수행하려고 하는지 확인하고 싶나요? 클라이언트 및 서버 코드에 호출을 삽입하여 사용자 고유의 원격 분석을 Application Insights로 보낼 수 있습니다. 예를 들어 주문은 작성했으나 완료하지 않은 사용자의 수, 가장 자주 발생하는 유효성 검사 오류 또는 게임의 평균 점수를 확인할 수 있습니다.
 
-* [사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보세요][track].
+* [사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보세요](app-insights-api-custom-events-metrics.md).
 * [API 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## 서버 원격 분석
 
-아직 서버 원격 분석을 수행하지 않은 경우 서버에 대한 정보를 얻어서 클라이언트 쪽 데이터와 함께 표시하면 서버의 성능을 평가하고 모든 문제를 진단할 수 있습니다.
+아직 서버 원격 분석을 수행하지 않은 경우 서버에 대한 정보를 얻어서 클라이언트 쪽 데이터와 함께 표시하면 서버의 성능을 평가하고 모든 문제를 진단할 수 있습니다. 앱에 Application Insights SDK를 추가하세요.
 
-* [ASP.NET 앱에 Application Insights 추가][greenbrown]
-* [Java 웹앱에 Application Insights 추가][java]
+* [ASP.NET 앱에 SDK 추가](app-insights-asp-net.md)
+* [Java 웹앱에 SDK 추가](app-insights-java-get-started.md)
 
+웹앱이 이미 라이브 상태라도, 다시 빌드하거나 배포하지 않고 서버 원격 분석을 추가할 수 있습니다.
+
+* [라이브 ASP.NET 앱 모니터링](app-insights-monitor-performance-live-website-now.md)
+* [라이브 Java 앱 모니터링](app-insights-java-live.md)
 
 ## <a name="video"></a> 비디오: 사용 현황 추적
 
@@ -172,18 +183,8 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ## <a name="next"></a> 다음 단계
 
-[사용자 지정 이벤트 및 메트릭으로 사용량 추적(영문)][track]
+* [사용 현황 추적](app-insights-web-track-usage.md)
+* [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
+* [빌드 - 측정 - 학습](app-insights-overview-usage.md)
 
-
-
-
-<!--Link references-->
-
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[new]: app-insights-create-new-resource.md
-[qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-api-custom-events-metrics.md
-
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

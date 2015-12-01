@@ -55,13 +55,11 @@
 
     ![][1]
 
-> [AZURE.IMPORTANT]Azure Mobile Engagement는 Windows 10 유니버설 Windows 앱을 아직 지원하지 않습니다.
-
 이제 Azure Mobile Engagement SDK를 통합할 새 Windows 유니버설 앱 프로젝트가 만들어졌습니다.
 
 ###Mobile Engagement 백 엔드에 앱 연결
 
-1. 프로젝트에서 [MicrosoftAzure.MobileEngagement] Nuget 패키지를 설치합니다. Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 두 프로젝트에 대해 이 작업을 수행해야 합니다. 동일한 Nuget 패키지는 각 프로젝트에서 올바른 플랫폼 특정 이진 파일을 배치합니다.
+1. 프로젝트에서 [MicrosoftAzure.MobileEngagement] Nuget 패키지를 설치합니다. Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 두 프로젝트에 대해 이 작업을 수행해야 합니다. Windows 8.x 및 Windows Phone 8.1에 대해 동일한 Nuget 패키지는 각 프로젝트에 올바른 플랫폼별 이진 파일을 배치합니다.
 
 2. **Package.appxmanifest**를 열고 다음 기능이 추가되어 있는지 확인합니다.
 
@@ -81,11 +79,20 @@
 
 			using Microsoft.Azure.Engagement;
 
-	b. **OnLaunched** 메서드에서 SDK 초기화:
+	b. Engagement 초기화 및 설정 전용 메서드 추가:
+
+           private void InitEngagement(IActivatedEventArgs e)
+           {
+             EngagementAgent.Instance.Init(e);
+
+			 //... rest of the code
+           }
+
+    c. **OnLaunched** 메서드에서 SDK 초기화:
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -94,7 +101,7 @@
 
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -137,17 +144,9 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 ###도달률 SDK 초기화
 
-1. `App.xaml.cs`에서 에이전트 초기화 직후 **OnLaunched** 함수에서 **EngagementReach.Instance.Init();**를 호출합니다.
+`App.xaml.cs`에서 에이전트 초기화 직후 **InitEngagement** 함수에서 **EngagementReach.Instance.Init(e);**를 호출합니다.
 
-		protected override void OnLaunched(LaunchActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.Init(e);
-		   EngagementReach.Instance.Init(e);
-		}
-
-2. `App.xaml.cs`에서 에이전트 초기화 직후 **OnActivated** 함수에서 **EngagementReach.Instance.Init(e);**를 호출합니다.
-
-		protected override void OnActivated(IActivatedEventArgs e)
+        private void InitEngagement(IActivatedEventArgs e)
 		{
 		   EngagementAgent.Instance.Init(e);
 		   EngagementReach.Instance.Init(e);
@@ -214,4 +213,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->
