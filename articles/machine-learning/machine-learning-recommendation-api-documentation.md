@@ -47,11 +47,14 @@ Azure 기계 학습 권장 사항 API는 다음 10개의 논리 그룹으로 나
 
 ### 2\.2. 순위 빌드
 
-기능은 권장 사항 모델을 개선할 수 있지만 그러려면 의미 있는 기능을 사용해야 합니다. 이를 위해 순위 빌드라는 새 빌드가 도입되었습니다. 이 빌드는 기능의 유용성 순위를 매깁니다. 의미 있는 기능은 순위 점수가 2 이상인 기능입니다. 의미 있는 기능을 이해한 후에는 의미 있는 기능 목록(또는 하위 목록)으로 권장 사항 빌드를 트리거합니다. 이러한 기능을 사용하여 웜 항목과 콜드 항목 모두를 개선할 수 있습니다. 웜 항목에 사용하려면 `UseFeatureInModel` 빌드 매개 변수를 설정해야 합니다. 콜드 항목에 사용하려면 `AllowColdItemPlacement` 빌드 매개 변수를 설정해야 합니다. 참고: `UseFeatureInModel`을 설정하지 않고 `AllowColdItemPlacement`를 사용할 수 없습니다.
+기능은 권장 사항 모델을 개선할 수 있지만 그러려면 의미 있는 기능을 사용해야 합니다. 이를 위해 순위 빌드라는 새 빌드가 도입되었습니다. 이 빌드는 기능의 유용성 순위를 매깁니다. 의미 있는 기능은 순위 점수가 2 이상인 기능입니다.
+의미 있는 기능을 이해한 후에는 의미 있는 기능 목록(또는 하위 목록)으로 권장 사항 빌드를 트리거합니다. 이러한 기능을 사용하여 웜 항목과 콜드 항목 모두를 개선할 수 있습니다. 웜 항목에 사용하려면 `UseFeatureInModel` 빌드 매개 변수를 설정해야 합니다. 콜드 항목에 사용하려면 `AllowColdItemPlacement` 빌드 매개 변수를 설정해야 합니다.
+참고: `UseFeatureInModel`을 설정하지 않고 `AllowColdItemPlacement`를 사용할 수 없습니다.
 
 ### 2\.3. 권장 사항 추론
 
-권장 사항 추론은 기능 사용의 또 다른 측면입니다. 실제로 Azure 기계 학습 권장 사항 엔진은 기능을 사용하여 권장 사항 설명(추론이라고도 함)을 제공할 수 있으며, 이는 권장 소비자에게 권장 항목에 대한 확신을 심어 줍니다. 추론을 사용하려면 권장 사항 빌드를 요청하기 전에 `AllowFeatureCorrelation` 및 `ReasoningFeatureList` 매개 변수를 설정해야 합니다.
+권장 사항 추론은 기능 사용의 또 다른 측면입니다. 실제로 Azure 기계 학습 권장 사항 엔진은 기능을 사용하여 권장 사항 설명(추론이라고도 함)을 제공할 수 있으며, 이는 권장 소비자에게 권장 항목에 대한 확신을 심어 줍니다.
+추론을 사용하려면 권장 사항 빌드를 요청하기 전에 `AllowFeatureCorrelation` 및 `ReasoningFeatureList` 매개 변수를 설정해야 합니다.
 
 ## 3\. 제한 사항
 
@@ -98,7 +101,8 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 
 HTTP 상태 코드: 200
 
-- `feed/entry/content/properties/id` – 모델 ID를 포함합니다. **참고**: 모델 ID는 대/소문자를 구분합니다.
+- `feed/entry/content/properties/id` – 모델 ID를 포함합니다.
+**참고**: 모델 ID는 대/소문자를 구분합니다.
 
 OData XML
 
@@ -262,7 +266,9 @@ OData XML
 
 ### 5\.4. 모델 업데이트
 
-모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br> <ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br> 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
+모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br>
+<ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br>
+이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
 
 | HTTP 메서드 | URI |
@@ -793,7 +799,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 ## 7\. 모델 비즈니스 규칙
-4가지 유형의 규칙이 있습니다. <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. <strong>Upsale</strong> - 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다. <strong>WhiteList</strong> - 권장 사항 결과로 반환할 수 있는 항목 목록만 제공할 수 있습니다(BlockList와 반대). <strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
+4가지 유형의 규칙이 있습니다.
+<strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다.
+<strong>Upsale</strong> - 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다.
+<strong>WhiteList</strong> - 권장 사항 결과로 반환할 수 있는 항목 목록만 제공할 수 있습니다(BlockList와 반대).
+<strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
 
 
 ### 7\.1. 모델 규칙 가져오기
@@ -864,8 +874,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| 
-| 요청 본문 | <ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>WhiteList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+|||
+| 요청 본문 | 
+<ins>비즈니스 규칙에 항목 ID를 제공할 때마다 항목의 외부 ID를 사용해야 합니다(카탈로그 파일에서 사용한 동일한 ID)</ins><br>
+<ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>WhiteList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **응답**:
 
@@ -979,7 +991,9 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-이 API는 가져오기 보고서를 반환합니다. - `feed\entry\content\properties\LineCount` – 허용되는 줄 수 - `feed\entry\content\properties\ErrorCount` – 오류로 인해 삽입되지 않은 줄 수
+이 API는 가져오기 보고서를 반환합니다.
+- `feed\entry\content\properties\LineCount` – 허용되는 줄 수
+- `feed\entry\content\properties\ErrorCount` – 오류로 인해 삽입되지 않은 줄 수
 
 OData XML
 
@@ -1324,7 +1338,8 @@ OData XML
   		</EventData>
 		</Event>
 
-**응답**: HTTP 상태 코드: 200
+**응답**:
+HTTP 상태 코드: 200
 
 ### 9\.2. 모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다.
@@ -1494,7 +1509,24 @@ OData XML
 
 HTTP 상태 코드: 200
 
-응답은 원시 텍스트 형식으로 반환됨: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
+응답은 원시 텍스트 형식으로 반환됨:
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+</pre>
 
 
 ### 9\.5. 모델 사용 파일 가져오기
@@ -1517,7 +1549,42 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-응답은 원시 텍스트 형식으로 반환됨: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15 ,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15 ,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15 ,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
+응답은 원시 텍스트 형식으로 반환됨:
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15 ,True,1
+213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15 ,True,1
+54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+</pre>
 
 ### 9\.6. 사용 파일 삭제
 지정한 모델 사용 파일을 삭제합니다.
@@ -1558,7 +1625,9 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 ## 10\. 기능
-이 섹션에서는 가져온 기능과 해당 값, 해당 순위 및 이 순위가 할당된 시점 등 기능 정보를 검색하는 방법을 보여 줍니다. 기능은 카탈로그 데이터의 일부로 가져오며, 순위 빌드가 완료되면 해당 순위가 연결됩니다. 기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다. 기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
+이 섹션에서는 가져온 기능과 해당 값, 해당 순위 및 이 순위가 할당된 시점 등 기능 정보를 검색하는 방법을 보여 줍니다. 기능은 카탈로그 데이터의 일부로 가져오며, 순위 빌드가 완료되면 해당 순위가 연결됩니다.
+기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다.
+기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
 
 ### 10\.1. 기능 정보 가져오기(마지막 순위 빌드)
 마지막으로 성공한 순위 빌드에 대해 순위를 포함한 기능 정보를 검색합니다.
@@ -1728,9 +1797,19 @@ OData
 
   이 섹션에서는 빌드와 관련된 다른 API를 설명합니다. 세 가지 유형의 빌드(권장 사항 빌드, 순위 빌드 및 FBT(자주 함께 구매됨) 빌드)가 있습니다.
 
-권장 빌드는 예측에 사용되는 권장 사항 모델을 생성하는 데 사용됩니다. 예측(이 유형의 빌드 관련)은 다음 두 가지 유형으로 제공됩니다. * I2I (항목-항목 권장 사항) - 항목 또는 항목 목록이 제공될 경우 이 옵션은 가장 높은 관심을 받을 항목 목록을 예측합니다. * U2I (사용자-항목 권장 사항) - 사용자 ID(필요에 따라 항목 목록)가 제공될 경우 이 옵션은 지정된 사용자(및 추가 선택 항목)에 대해 가장 높은 관심을 받을 항목 목록을 예측합니다. U2I 권장 사항은 모델이 작성되었을 때까지 사용자에 대해 관심을 받은 항목의 기록을 기반으로 합니다.
+권장 빌드는 예측에 사용되는 권장 사항 모델을 생성하는 데 사용됩니다. 예측(이 유형의 빌드 관련)은 다음 두 가지 유형으로 제공됩니다.
+* I2I (항목-항목 권장 사항) - 항목 또는 항목 목록이 제공될 경우 이 옵션은 가장 높은 관심을 받을 항목 목록을 예측합니다.
+* U2I (사용자-항목 권장 사항) - 사용자 ID(필요에 따라 항목 목록)가 제공될 경우 이 옵션은 지정된 사용자(및 추가 선택 항목)에 대해 가장 높은 관심을 받을 항목 목록을 예측합니다. U2I 권장 사항은 모델이 작성되었을 때까지 사용자에 대해 관심을 받은 항목의 기록을 기반으로 합니다.
 
-순위 빌드는 기능의 유용성에 대해 알아볼 수 있는 기술 빌드입니다. 일반적으로 기능과 관련된 권장 사항 모델에 대한 최상의 결과를 얻으려면 다음 단계를 수행해야 합니다. - 순위 빌드를 트리거(기능 점수가 안정적이지 않은 경우)하고 기능 점수를 얻을 때까지 기다립니다. - [기능 정보 가져오기](#101-get-features-info-for-last-rank-build) API를 호출하여 기능의 순위를 검색합니다. - 다음 매개 변수를 사용하여 권장 사항 빌드를 구성합니다. - `useFeatureInModel` - True로 설정합니다. - `ModelingFeatureList` - 점수가 2.0 이상인 기능의 쉼표로 구분된 목록으로 설정합니다(이전 단계에서 검색한 순위에 따름). - `AllowColdItemPlacement` - True로 설정합니다. - 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고 `ReasoningFeatureList`를 설명에 사용할 기능 목록(일반적으로 모델링에 사용된 기능 목록 또는 하위 목록과 동일)으로 설정합니다. - 구성된 매개 변수를 사용하여 권장 사항 빌드를 트리거합니다.
+순위 빌드는 기능의 유용성에 대해 알아볼 수 있는 기술 빌드입니다. 일반적으로 기능과 관련된 권장 사항 모델에 대한 최상의 결과를 얻으려면 다음 단계를 수행해야 합니다.
+- 순위 빌드를 트리거(기능 점수가 안정적이지 않은 경우)하고 기능 점수를 얻을 때까지 기다립니다.
+- [기능 정보 가져오기](#101-get-features-info-for-last-rank-build) API를 호출하여 기능의 순위를 검색합니다.
+- 다음 매개 변수를 사용하여 권장 사항 빌드를 구성합니다.
+	- `useFeatureInModel` - True로 설정합니다.
+	- `ModelingFeatureList` - 점수가 2.0 이상인 기능의 쉼표로 구분된 목록으로 설정합니다(이전 단계에서 검색한 순위에 따름).
+	- `AllowColdItemPlacement` - True로 설정합니다.
+	- 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고 `ReasoningFeatureList`를 설명에 사용할 기능 목록(일반적으로 모델링에 사용된 기능 목록 또는 하위 목록과 동일)으로 설정합니다.
+- 구성된 매개 변수를 사용하여 권장 사항 빌드를 트리거합니다.
 
 참고: 매개 변수를 구성하지 않은 경우(예: 매개 변수 없이 권장 사항 빌드를 호출한 경우) 또는 기능 사용을 명시적으로 해제하지 않은 경우(예: `UseFeatureInModel`을 False로 설정) 순위 빌드가 있으면 기능 관련 매개 변수가 위에 설명된 값으로 자동으로 설정됩니다.
 
@@ -1745,7 +1824,7 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 
 각 빌드 형식은 매개 변수 집합(아래 설명)을 통해 구성될 수 있습니다. 매개 변수를 구성하지 않으면 빌드를 트리거할 때 존재한 정보에 따라 매개 변수 값이 자동으로 할당됩니다.
 
-#####11\.1.1. 사용 콘덴서
+##### 11\.1.1. 사용 콘덴서
 사용 포인트가 거의 없는 사용자 또는 항목은 정보보다 노이즈를 더 많이 포함할 수 있습니다. 시스템에서는 모델에서 사용할 사용자/항목당 최소 사용 포인트 수를 예측합니다. 이 수는 항목의 경우 ItemCutoffLowerBound 및 ItemCutoffUpperBound 매개 변수로 정의되는 범위 내에 속하며, 사용자의 경우 UserCutOffLowerBound 및 UserCutoffUpperBound 매개 변수로 정의되는 범위 내에 속합니다. 항목 또는 사용자에 대한 콘덴서 효과는 해당 경계 중 하나 이상을 0으로 설정하여 최소화할 수 있습니다.
 
 ##### 11\.1.2. 순위 빌드 매개 변수
@@ -1981,9 +2060,18 @@ HTTP 상태 코드: 200
 - `feed/entry/content/properties/ExecutionTime` – 빌드 기간
 - `feed/entry/content/properties/ProgressStep` – 진행 중인 빌드의 현재 단계에 대한 세부 정보
 
-유효한 빌드 상태: - Created – 빌드 요청 항목이 만들어짐 - Queued – 빌드 요청이 트리거되고 쿼리됨 - Building – 빌드 진행 중 - Success – 빌드가 성공적으로 종료됨 - Error – 오류로 인해 빌드가 종료됨 - Cancelled – 빌드가 취소됨 - Cancelling – 빌드 취소 중
+유효한 빌드 상태:
+- Created – 빌드 요청 항목이 만들어짐
+- Queued – 빌드 요청이 트리거되고 쿼리됨
+- Building – 빌드 진행 중
+- Success – 빌드가 성공적으로 종료됨
+- Error – 오류로 인해 빌드가 종료됨
+- Cancelled – 빌드가 취소됨
+- Cancelling – 빌드 취소 중
 
-유효한 빌드 형식 값: - Rank - 순위 빌드 - Recommendation - 권장 사항 빌드
+유효한 빌드 형식 값:
+- Rank - 순위 빌드
+- Recommendation - 권장 사항 빌드
 
 
 OData XML
@@ -2056,10 +2144,19 @@ HTTP 상태 코드: 200
 - `feed/entry/content/properties/ExecutionTime` – 빌드 기간
 - `feed/entry/content/properties/ProgressStep` – 진행 중인 빌드의 현재 단계에 대한 세부 정보
 
-유효한 빌드 상태: - Created – 빌드 요청 항목이 만들어짐 - Queued – 빌드 요청이 트리거되고 쿼리됨 - Building – 빌드 진행 중 - Success – 빌드가 성공적으로 종료됨 - Error – 오류로 인해 빌드가 종료됨 - Cancelled – 빌드가 취소됨 - Cancelling – 빌드 취소 중
+유효한 빌드 상태:
+- Created – 빌드 요청 항목이 만들어짐
+- Queued – 빌드 요청이 트리거되고 쿼리됨
+- Building – 빌드 진행 중
+- Success – 빌드가 성공적으로 종료됨
+- Error – 오류로 인해 빌드가 종료됨
+- Cancelled – 빌드가 취소됨
+- Cancelling – 빌드 취소 중
 
 
-유효한 빌드 형식 값: - Rank - 순위 빌드 - Recommendation - 권장 사항 빌드
+유효한 빌드 형식 값:
+- Rank - 순위 빌드
+- Recommendation - 권장 사항 빌드
 
 
 OData XML
@@ -2148,7 +2245,9 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-이 API는 키/값 요소의 컬렉션을 반환합니다. 각 요소는 매개 변수와 해당 값을 나타냅니다. - `feed/entry/content/properties/Key` – 빌드 매개 변수 이름 - `feed/entry/content/properties/Value` – 빌드 매개 변수 값
+이 API는 키/값 요소의 컬렉션을 반환합니다. 각 요소는 매개 변수와 해당 값을 나타냅니다.
+- `feed/entry/content/properties/Key` – 빌드 매개 변수 이름
+- `feed/entry/content/properties/Value` – 빌드 매개 변수 값
 
 아래 표에서는 각 키가 나타내는 값을 설명합니다.
 
@@ -2358,7 +2457,11 @@ OData XML
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id` – 권장 항목 ID
+- `Feed\entry\content\properties\Name` – 항목의 이름
+- `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
+- `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 아래 예제 응답은 10개의 권장 항목을 포함합니다.
 
@@ -2535,7 +2638,11 @@ OData XML
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id` – 권장 항목 ID
+- `Feed\entry\content\properties\Name` – 항목의 이름
+- `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
+- `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 12\.1의 응답 예제 참조
 
@@ -2561,7 +2668,13 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id1` – 권장 항목 ID - `Feed\entry\content\properties\Name1` – 항목의 이름 - `Feed\entry\content\properties\Id2` – 두 번째 권장 항목 ID(선택 사항) - `Feed\entry\content\properties\Name2` - 두 번째 항목의 이름(선택 사항) - `Feed\entry\content\properties\Rating` – 권장 사항의 등급(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id1` – 권장 항목 ID
+- `Feed\entry\content\properties\Name1` – 항목의 이름
+- `Feed\entry\content\properties\Id2` – 두 번째 권장 항목 ID(선택 사항)
+- `Feed\entry\content\properties\Name2` - 두 번째 항목의 이름(선택 사항)
+- `Feed\entry\content\properties\Rating` – 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
+- `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 아래 예제 응답은 3개의 권장 항목 집합을 포함합니다.
 
@@ -2647,7 +2760,13 @@ OData XML
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id1` – 권장 항목 ID - `Feed\entry\content\properties\Name1` – 항목의 이름 - `Feed\entry\content\properties\Id2` – 두 번째 권장 항목 ID(선택 사항) - `Feed\entry\content\properties\Name2` - 두 번째 항목의 이름(선택 사항) - `Feed\entry\content\properties\Rating` – 권장 사항의 등급(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id1` – 권장 항목 ID
+- `Feed\entry\content\properties\Name1` – 항목의 이름
+- `Feed\entry\content\properties\Id2` – 두 번째 권장 항목 ID(선택 사항)
+- `Feed\entry\content\properties\Name2` - 두 번째 항목의 이름(선택 사항)
+- `Feed\entry\content\properties\Rating` – 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
+- `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 12\.3의 응답 예제 참조
 
@@ -2657,7 +2776,9 @@ HTTP 상태 코드: 200
 
 API는 사용자의 사용 기록에 따라 예측된 항목의 목록을 반환합니다.
 
-참고: 1. FBT 빌드에 대한 사용자 권장 사항은 없습니다. 2. 활성 빌드가 FBT이면 이 메서드는 오류를 반환합니다.
+참고: 
+ 1. FBT 빌드에 대한 사용자 권장 사항은 없습니다. 
+ 2. 활성 빌드가 FBT이면 이 메서드는 오류를 반환합니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -2676,7 +2797,11 @@ API는 사용자의 사용 기록에 따라 예측된 항목의 목록을 반환
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id` – 권장 항목 ID
+- `Feed\entry\content\properties\Name` – 항목의 이름
+- `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
+- `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 12\.1의 응답 예제 참조
 
@@ -2686,7 +2811,9 @@ HTTP 상태 코드: 200
 
 API는 사용자의 사용 기록에 따른 예측된 항목의 목록과 제공된 추가 항목을 반환합니다.
 
-참고: 1. FBT 빌드에 대한 사용자 권장 사항은 없습니다. 2. 활성 빌드가 FBT이면 이 메서드는 오류를 반환합니다.
+참고: 
+ 1. FBT 빌드에 대한 사용자 권장 사항은 없습니다.
+ 2. 활성 빌드가 FBT이면 이 메서드는 오류를 반환합니다.
 
 
 | HTTP 메서드 | URI |
@@ -2707,7 +2834,11 @@ API는 사용자의 사용 기록에 따른 예측된 항목의 목록과 제공
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id` – 권장 항목 ID
+- `Feed\entry\content\properties\Name` – 항목의 이름
+- `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
+- `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 12\.1의 응답 예제 참조
 
@@ -2738,7 +2869,11 @@ API는 사용자의 사용 기록에 따라 예측된 항목의 목록을 반환
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id` – 권장 항목 ID
+- `Feed\entry\content\properties\Name` – 항목의 이름
+- `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
+- `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 12\.1의 응답 예제 참조
 
@@ -2772,12 +2907,17 @@ API는 사용자의 사용 기록에 따른 예측된 항목 목록과 추가 �
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id` – 권장 항목 ID
+- `Feed\entry\content\properties\Name` – 항목의 이름
+- `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
+- `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 12\.1의 응답 예제 참조
 
 ## 13\. 사용자 사용 기록
-권장 모델이 작성되면 시스템은 작성에 사용된 사용자 기록(특정 사용자와 관련된 항목)을 검색할 수 있습니다. 이 API를 통해 사용자 기록을 검색할 수 있습니다.
+권장 모델이 작성되면 시스템은 작성에 사용된 사용자 기록(특정 사용자와 관련된 항목)을 검색할 수 있습니다.
+이 API를 통해 사용자 기록을 검색할 수 있습니다.
 
 참고: 이 사용자 기록은 현재 권장 사항 작성에만 사용할 수 있습니다.
 
@@ -2801,7 +2941,11 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 해당 없음.- `Feed\entry\content\properties\Reasoning` – 해당 없음
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
+- `Feed\entry\content\properties\Id` – 권장 항목 ID
+- `Feed\entry\content\properties\Name` – 항목의 이름
+- `Feed\entry\content\properties\Rating` – 해당 없음
+- `Feed\entry\content\properties\Reasoning` – 해당 없음
 
 OData XML
 
@@ -2831,7 +2975,10 @@ OData XML
 </feed>
 
 ## 14\. 알림
-Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 발생한 경우 알림을 생성합니다. 다음과 같은 세 가지 유형의 알림이 있습니다. 1. 빌드 오류 – 이 알림은 모든 빌드 오류에 대해 트리거됩니다. 2. 데이터 취득 처리 오류 - 이 알림은 지난 5분간의 사용 이벤트 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다. 3. 권장 사항 소비 오류 - 이 알림은 지난 5분간의 권장 사항 요청 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
+Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 발생한 경우 알림을 생성합니다. 다음과 같은 세 가지 유형의 알림이 있습니다.
+1.	빌드 오류 – 이 알림은 모든 빌드 오류에 대해 트리거됩니다.
+2.	데이터 취득 처리 오류 - 이 알림은 지난 5분간의 사용 이벤트 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
+3.	권장 사항 소비 오류 - 이 알림은 지난 5분간의 권장 사항 요청 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
 
 
 ### 14\.1. 알림 가져오기
@@ -2927,7 +3074,10 @@ HTTP 상태 코드: 200
 
 
 ## 15\. 법적 정보
-이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br> 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br> 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br> © 2015 Microsoft. All rights reserved.
+이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br>
+여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br>
+이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br>
+© 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

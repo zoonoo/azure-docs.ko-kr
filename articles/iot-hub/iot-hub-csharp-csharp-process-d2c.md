@@ -99,6 +99,7 @@ IoT Hub에 대한 추가 정보:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 [Transient Fault Handling]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
+[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub 지침 - 이벤트 허브 호환성]: iot-hub-guidance.md#eventhubcompatible
 
@@ -109,6 +110,7 @@ IoT Hub에 대한 추가 정보:
 
 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
+[장치-클라우드 메시지 처리]: iot-hub-csharp-csharp-process-d2c.md
 [장치에서 파일 업로드]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT Hub 개요]: iot-hub-what-is-iot-hub.md
@@ -119,4 +121,4 @@ IoT Hub에 대한 추가 정보:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

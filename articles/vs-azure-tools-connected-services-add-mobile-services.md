@@ -49,7 +49,9 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
 1. **Azure 모바일 서비스** 대화 상자에서 기존 모바일 서비스가 있는 경우 이를 선택합니다. 새 Azure 모바일 서비스를 만들어야 하는 경우 이렇게 하려면 다음 절차를 따르십시오. 그렇지 않은 경우 다음 단계로 건너뜁니다.
 
-    새 모바일 서비스 계정을 만들려면, 1. 대화 상자 맨 아래의 **서비스 만들기 **링크를 선택합니다. ![새 모바일 연결된 서비스 추가](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    새 모바일 서비스 계정을 만들려면,
+    1. 대화 상자 맨 아래의 **서비스 만들기 **링크를 선택합니다.
+        ![새 모바일 연결된 서비스 추가](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 
@@ -89,4 +91,4 @@ Visual Studio가 프로젝트를 수정하는 방법은 프로젝트 형식에 �
 
  - [azure.microsoft.com의 Azure 모바일 서비스 설명서](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
