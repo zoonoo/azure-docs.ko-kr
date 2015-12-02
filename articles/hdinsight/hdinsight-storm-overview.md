@@ -53,7 +53,7 @@ Storm 사용을 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]�
 
 새 HDInsight Storm 클러스터를 몇 분 내에 프로비전할 수 있습니다. 클러스터 이름, 크기, 관리자 계정 및 저장소 계정을 지정합니다. Azure에서 샘플 토폴로지 및 웹 관리 대시보드가 포함된 클러스터를 만듭니다.
 
-> [AZURE.NOTE][Azure CLI](../xplat-cli-install.md) 또는 [Azure PowerShell](../powershell-install-configure.md)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
+> [AZURE.NOTE] [Azure CLI](../xplat-cli-install.md) 또는 [Azure PowerShell](../powershell-install-configure.md)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
 
 요청을 제출한 후 15분 이내에 새 Storm 클러스터가 실행되고 첫 번째 실시간 분석 파이프라인에 사용할 수 있는 준비가 완료됩니다.
 
@@ -219,4 +219,4 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
