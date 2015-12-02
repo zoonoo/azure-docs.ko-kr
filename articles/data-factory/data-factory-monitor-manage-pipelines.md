@@ -96,7 +96,6 @@ Azure Preview 포털을 사용하면 데이터 팩터리를 다이어그램으�
 <td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
 </tr>
 <td></td>
@@ -522,4 +521,4 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 	Parameters        :
 	Outputs           
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

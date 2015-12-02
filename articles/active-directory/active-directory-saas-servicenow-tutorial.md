@@ -145,7 +145,9 @@
     e. **형식**으로 **저장소 인증서 신뢰**를 선택합니다.
 
     f. 다운로드한 인증서에서 Base-64로 인코딩한 파일을 만듭니다.
+
     > [AZURE.NOTE] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+
     
     g. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **PEM 인증서** 텍스트 상자에 붙여 넣습니다.
 
@@ -262,7 +264,7 @@
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **ServiceNow ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-servicenow-tutorial/IC769499.png "사용자 할당")
 
@@ -278,4 +280,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!-----HONumber=Nov15_HO2-->
+<!------HONumber=Nov15_HO2-->
