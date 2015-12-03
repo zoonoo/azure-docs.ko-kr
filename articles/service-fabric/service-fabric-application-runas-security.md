@@ -88,11 +88,25 @@ SetupEntryPoint가 있도록 서비스를 구성했으면 응용 프로그램 �
 
 ![SetupEntryPoint 배치 파일에 대한 Visual Studio CopyToOutput][Image1]
 
-이제 MySetup.bat 파일을 열고 다음 명령을 추가합니다. ~~~ REM Set a system environment variable. This requires administrator privilege setx -m TestVariable "MyValue" echo System TestVariable set to > test.txt echo %TestVariable% >> test.txt
+이제 MySetup.bat 파일을 열고 다음 명령을 추가합니다.
+~~~
+REM Set a system environment variable. This requires administrator privilege
+setx -m TestVariable "MyValue"
+echo System TestVariable set to > test.txt
+echo %TestVariable% >> test.txt
 
-REM To delete this system variable us REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f ~~~
+REM To delete this system variable us
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+~~~
 
-다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. 서비스가 시작되면 서비스 패브릭 탐색기에 보이는 것처럼 MySetup.bat이 두 가지 방법으로 성공한 것을 볼 수 있습니다. PowerShell 명령 프롬프트를 열고 다음을 입력합니다. ~~~ [Environment]::GetEnvironmentVariable("TestVariable","Machine") ~~~ 예: ~~~ PS C:\\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue ~~~
+다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. 서비스가 시작되면 서비스 패브릭 탐색기에 보이는 것처럼 MySetup.bat이 두 가지 방법으로 성공한 것을 볼 수 있습니다. PowerShell 명령 프롬프트를 열고 다음을 입력합니다.
+~~~
+ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+~~~
+예:
+~~~
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+~~~
 
 서비스 패브릭 탐색기에서 서비스가 배포되어 시작된 노드 이름을 확인합니다. 예를 들어 노드 1로 이동한 후 응용 프로그램 인스턴스 작업 폴더로 이동하여 **TestVariable** 값을 보여주는 .txt 파일을 찾아봅니다. 예를 들어 서비스가 노드 2에 배포된 경우 이 경로로 이동하여 MyApplicationType을 찾아볼 수 있습니다.
 
@@ -103,9 +117,16 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  SetupEntryPoint에서 PowerShell 명령 실행
 **SetupEntryPoint**에서 PowerShell을 실행하려면 PowerShell 파일을 가리키는 배치 파일에서 PowerShell.exe를 실행하면 됩니다. 먼저, 서비스 프로젝트(예: MySetup.ps1)에 PowerShell 파일을 추가합니다. 이 파일도 서비스 패키지에 포함되도록 *변경된 내용만 복사*로 설정해야 합니다. 아래는 시스템 환경 변수 *TestVariable*을 설정하는 PowerShell 파일 MySetup.ps1을 실행하는 간단한 배치 파일을 보여주는 예입니다.
 
-PowerShell 파일을 실행하는 MySetup.bat입니다. ~~~ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1" ~~~
+PowerShell 파일을 실행하는 MySetup.bat입니다.
+~~~
+powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+~~~
 
-PowerShell 파일에서 다음을 추가하여 시스템 환경 변수를 설정합니다. ~~~ [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine") [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt ~~~
+PowerShell 파일에서 다음을 추가하여 시스템 환경 변수를 설정합니다.
+~~~
+[Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
+[Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
+~~~
 
 ## 서비스에 RunAs 정책 적용 
 위의 단계에서 SetupEntryPoint에 RunAs 정책을 적용하는 방법을 살펴보았습니다. 이번에는 서비스 정책으로 적용할 수 있는 다양한 주체를 만드는 방법을 좀 더 자세히 살펴보겠습니다.
@@ -266,4 +287,4 @@ https 끝점의 경우 응용 프로그램 매니페스트의 인증서 섹션�
 
 [Image1]: media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
