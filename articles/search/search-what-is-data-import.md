@@ -39,7 +39,7 @@ Azure 검색에서 서비스는 인덱스를 처리하거나 쿼리를 실행하
 
 ##데이터 끌어오기(탐색) 
 
-끌어오기 모델은 지원되는 데이터 소스를 탐색하고 사용자에 대한 인덱스를 로드합니다. Azure 검색에서 이 기능은 *인덱서*를 통해 구현되며 Azure SQL 데이터베이스, DocumentDB 및 Azure VM의 SQL Server에 사용할 수 있습니다. [인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 참조하여 Azure SQL 데이터의 업로드에 대해 알아봅니다.
+끌어오기 모델은 지원되는 데이터 소스를 탐색하고 사용자에 대한 인덱스를 로드합니다. Azure 검색에서 이 기능은 *인덱서* 를 통해 구현되며 Azure SQL 데이터베이스, DocumentDB 및 Azure VM의 SQL Server에 사용할 수 있습니다. [인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 참조하여 Azure SQL 데이터의 업로드에 대해 알아봅니다.
 
 인덱스에 데이터를 끌어오려면 포털, REST API 또는.NET SDK를 사용할 수 있습니다.
 
@@ -60,4 +60,4 @@ JSON 구조로 세우는 스키마 및 데이터 집합을 공식화하는 하�
 |예약된 데이터 새로 고침|인덱서를 사용합니다(위 참조).|
 |코드가 없는 프로토타입 또는 편집|포털에는 인덱서를 구성하는 데이터 가져오기 마법사가 있어, 기본 데이터 집합에 충분한 정보가 있는 경우 예비 스키마를 생성합니다. 마법사에는 예약된 데이터 새로 고침을 설정에 대한 옵션이 있습니다. 필요에 따라 언어 분석기 또는 CORS 옵션을 추가할 수 있습니다. 몇 가지 단점도 있습니다. 점수 매기기 프로필을 추가하거나 코드에서 사용하기 위해 포털에서 만든 스키마를 JSON 파일로 내보낼 수 없습니다.| 
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
