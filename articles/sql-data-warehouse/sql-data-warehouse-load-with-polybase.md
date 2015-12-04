@@ -61,7 +61,6 @@ Azure blob 저장소에 액세스하려면 Azure 저장소 계정에 대한 인�
     ```
     -- 기존 데이터베이스 범위 자격 증명을 확인합니다.
     SELECT * FROM sys.database\_credentials;
-    ```
 
 3. [CREATE CREDENTIAL(Transact-SQL)][]을 사용하여 액세스하려는 각 Azure 저장소 계정에 대한 데이터베이스 범위 자격 증명을 만듭니다. 이 예에서는 IDENTITY가 자격 증명에 대한 친근한 이름입니다. 이 이름은 Azure 저장소에 대한 인증에 영향을 주지 않습니다. SECRET는 Azure 저장소 계정 키입니다.
 
@@ -360,4 +359,4 @@ $write.Dispose()
 [CREATE CREDENTIAL(Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189450.aspx
 
-<!----HONumber=Nov15_HO3-->
+<!-----HONumber=Nov15_HO3-->
