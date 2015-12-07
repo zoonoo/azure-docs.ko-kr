@@ -26,6 +26,7 @@ Azure 데이터 레이크 분석을 서비스 개발로 지원하고 일반 사�
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
 U-SQL | 분산 쿼리 | 1 | 보류 | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | WASB와 ADLS 간의 데이터 이동 | 1 | Pending | tbd | Ye Xing(ml)
+U-SQL | UDO 모델에 대한 단위 테스트 지침 | 1 | Pending | tbd | [@ddobric](https://github.com/ddobric) 
 U-SQL | JSON 처리 | 2 | Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 부여 | Curl 조작 | 3 |Pending |[@mumian](https://github.com/mumian)
 U-SQL | 분할된 테이블 |1 | 진행 중 | [@edmacauley](https://github.com/edmacauley) | 
@@ -45,7 +46,7 @@ U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트
 
 영역 |항목 | location
 ------------- | ------------- | -------------- 
-부여 | ARM 템플릿을 사용하여 데이터 레이크 분석의 배포를 다른 Azure 서비스와 조정 | [위치](https://azure.microsoft.com/ko-KR/documentation/articles/data-lake-analytics-manage-use-powershell/)
+부여 | ARM 템플릿을 사용하여 데이터 레이크 분석의 배포를 다른 Azure 서비스와 조정 | [위치](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## 백로그에서 피드백을 제공하는 방법
 백로그에서 피드백을 제공하는 몇 가지 옵션이 있습니다.
@@ -54,4 +55,4 @@ U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

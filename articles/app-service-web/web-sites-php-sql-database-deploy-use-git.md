@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="11/19/2015" 
 	ms.author="tomfitz"/>
 
 # PHP-SQL 웹 앱 만들기 및 Git를 사용하여 Azure 앱 서비스에 배포하기
 
-이 자습서에서는 Azure SQL 데이터베이스에 연결하는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 PHP 웹앱을 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서는 컴퓨터에 [PHP][install-php], [SQL Server Express][install-SQLExpress], [PHP용 SQL Server를 위한 Microsoft 드라이버](http://www.microsoft.com/download/en/details.aspx?id=20098)(영문), 웹 서버 및 [Git][install-git]가 설치되어 있다고 가정합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 웹 앱이 완성됩니다.
+이 자습서에서는 Azure SQL 데이터베이스에 연결하는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 PHP 웹앱을 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서는 컴퓨터에 [PHP][install-php], [SQL Server Express][install-SQLExpress], [PHP용 SQL Server를 위한 Microsoft 드라이버](http://www.microsoft.com/download/en/details.aspx?id=20098)(영문) 및 [Git][install-git]가 설치되어 있다고 가정합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 웹 앱이 완성됩니다.
 
-> [AZURE.NOTE]PHP, SQL Server Express, PHP용 SQL Server를 위한 Microsoft 드라이버 및 IIS(인터넷 정보 서비스)는 [Microsoft 웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치하고 구성할 수 있습니다.
+> [AZURE.NOTE]PHP, SQL Server Express 및 PHP용 SQL Server를 위한 Microsoft 드라이버는 [Microsoft 웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치하고 구성할 수 있습니다.
 
 다음 내용을 배웁니다.
 
@@ -41,9 +41,9 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 
 1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **마켓플레이스** 아이콘을 클릭하거나 대시보드 왼쪽 아래에 있는 **새로 만들기** 아이콘을 클릭하고 맨 아래에서 **웹 + 모바일**, **Azure 마켓플레이스**를 순서대로 선택하여 Azure 마켓플레이스를 엽니다.
+2. 대시보드 왼쪽 위에 있는 **새로 만들기** 아이콘을 클릭하여 Azure 마켓플레이스를 열고 마켓플레이스 옆의 **모두 선택**을 클릭한 다음 **웹 + 모바일**을 선택합니다.
 	
-3. 마켓플레이스에서 **웹앱**을 선택합니다.
+3. 마켓플레이스에서 **웹 + 모바일**을 선택합니다.
 
 4. **웹앱 + SQL** 아이콘을 클릭합니다.
 
@@ -65,15 +65,15 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 
 	![웹앱의 리소스 그룹](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 
-5. **연속 배포 설정** > **소스 선택**을 클릭합니다. **로컬 Git 리포지토리**를 선택하고 **확인**을 클릭합니다.
+5. **설정**에서 **연속 배포** > **필요한 설정 구성**을 클릭합니다. **로컬 Git 리포지토리**를 선택하고 **확인**을 클릭합니다.
 
 	![소스 코드 위치](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	이전에 Git 리포지토리를 설정하지 않았으면 사용자 이름과 암호를 제공해야 합니다. 이를 위해서는 웹앱 블레이드에서 **배포 자격 증명 설정**을 클릭합니다.
+	이전에 Git 리포지토리를 설정하지 않았으면 사용자 이름과 암호를 제공해야 합니다. 이를 위해서는 웹앱 블레이드에서 **설정** > **배포 자격 증명**을 클릭합니다.
 
 	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 
-6. **연속 배포 설정**은 **배포 없음**이 됩니다. 나중에 PHP 앱을 배포하는 데 사용할 Git 원격 URL을 보려면 클릭합니다.
+6. 나중에 PHP 앱을 배포하는 데 사용할 Git 원격 URL을 보려면 **설정**에서 **속성**을 클릭합니다.
 
 ##SQL 데이터베이스 연결 정보 가져오기
 
@@ -81,7 +81,7 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 
 1. 리소스 그룹 블레이드에서 다시 SQL 데이터베이스 아이콘을 클릭합니다.
 
-2. SQL 데이터베이스 블레이드에서 **속성**을 클릭하고 **데이터베이스 연결 문자열 표시**를 클릭합니다.
+2. SQL 데이터베이스 블레이드에서 **설정** > **속성**을 클릭하고 **데이터베이스 연결 문자열 표시**를 클릭합니다.
 
 	![데이터베이스 속성 보기](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
@@ -94,7 +94,7 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 * **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
 * **createtable.php**: 응용 프로그램용 SQL 데이터베이스 테이블을 만듭니다. 이 파일은 한 번만 사용됩니다.
 
-응용 프로그램을 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, SQL Server Express 및 웹 서버가 설정되어 있으며 [SQL Server용 PDO 확장][pdo-sqlsrv](영문)이 사용하도록 설정되어 있다는 것을 전제로 합니다.
+응용 프로그램을 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP 및 SQL Server Express가 설정되어 있으며 [SQL Server용 PDO 확장][pdo-sqlsrv](영문)이 사용하도록 설정되어 있다는 것을 전제로 합니다.
 
 1. `registration`이라는 SQL Server 데이터베이스를 만듭니다. 이는 `sqlcmd` 명령 프롬프트에서 다음 명령으로 수행할 수 있습니다.
 
@@ -103,7 +103,7 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 		2> GO	
 
 
-2. 웹 서버의 루트 디렉터리에서 `registration`이라는 폴더를 만들고 이 폴더 내에 `createtable.php` 및 `index.php`라는 두 파일을 만듭니다.
+2. 응용 프로그램의 루트 디렉터리에 `createtable.php`, `index.php`(이)라는 두 파일을 만듭니다.
 
 3. 텍스트 편집기 또는 IDE에서 `createtable.php` 파일을 열고 아래 코드를 추가합니다. 이 코드는 `registration` 데이터베이스에 `registration_tbl` 테이블을 만드는 데 사용됩니다.
 
@@ -132,7 +132,11 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 
 	<code>$user</code> 및 <code>$pwd</code>의 값을 로컬 SQL Server 사용자 이름 및 암호로 업데이트해야 합니다.
 
-4. 웹 브라우저를 열고 ****http://localhost/registration/createtable.php**(으)로 이동합니다. 그러면 데이터베이스에 `registration_tbl` 테이블이 만들어집니다.
+4. 터미널의 응용 프로그램의 루트 디렉터리에서 다음 명령을 입력합니다.
+
+		php -S localhost:8000
+
+4. 웹 브라우저를 열고 ****http://localhost:8000/createtable.php**(으)로 이동합니다. 그러면 데이터베이스에 `registration_tbl` 테이블이 만들어집니다.
 
 5. 텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 페이지의 기본 HTML 및 CSS 코드를 추가합니다(PHP 코드는 이후 단계에서 추가 예정).
 
@@ -228,7 +232,7 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-이제 ****http://localhost/registration/index.php**(으)로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 ****http://localhost:8000/index.php**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 ##응용 프로그램 게시
 
@@ -292,4 +296,4 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

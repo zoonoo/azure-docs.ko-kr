@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="10/28/2015"
+   ms.date="11/23/2015"
    ms.author="coreyp"/>
 
 # Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드
@@ -36,7 +36,7 @@ Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니�
 Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하는 구성 관리를 위해 Azure 가상 컴퓨터(기본)를 간편하게 온보드할 수 있습니다. 내부적으로, VM에 대한 관리자의 원격 작업 없이 Azure VM 필요 상태 구성 확장이 VM을 Azure 자동화 DSC에 등록합니다. Azure VM 필요 상태 구성 확장은 비동기적으로 실행되므로 진행 상황을 추적하거나 문제를 해결하기 위한 절차는 아래의 [**Azure 가상 컴퓨터 온보드 문제 해결**](#troubleshooting-azure-virtual-machine-onboarding) 섹션에서 제공합니다.
 
 
-### Azure 가상 컴퓨터
+### Azure 포털
 
 [Azure Preview 포털](http://portal.azure.com/)에서 **찾아보기** -> **가상 컴퓨터(기본)**를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 컴퓨터의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure 자동화 DSC** -> **만들기**를 클릭합니다. 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), 자동화 계정의 등록 키 및 등록 URL과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
@@ -102,7 +102,7 @@ Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하�
      -ExtensionName DSC `
      -Version 2.6 `
      -PublicConfiguration $PublicConfiguration `
-     -PrivateConfiguration $PrivateConfiguration
+     -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
 
     $VM | Update-AzureVM
@@ -132,9 +132,9 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 
 ### PowerShell
 
-The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt244097.aspx?f=255&MSPPError=-2147217396) cmdlet를 PowerShell을 통한 Azure Preview 포털의 가상 컴퓨터를 온보드하는 데 사용할 수 있습니다.
+[Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet를 PowerShell을 통한 Azure Preview 포털의 가상 컴퓨터를 온보드하는 데 사용할 수 있습니다.
 
-### 온-프레미스나 Azure 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
+## 온-프레미스나 Azure 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
 
 온-프레미스 Windows 컴퓨터와 비 Azure 클라우드(예: Amazon Web Services)의 Windows 컴퓨터도 인터넷에 대한 아웃바운드 액세스 권한이 있다면 Azure 자동화 DSC에 간단한 절차를 통해 온보드할 수 있습니다.
 
@@ -158,7 +158,7 @@ The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt244
 
 8. Azure 포털 또는 cmdlet를 사용하여 Azure 자동화 계정에서 등록된 DSC 노드로 온보드할 컴퓨터가 표시되는지 확인합니다.
 
-### 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
+## 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
 
 온-프레미스 Linux 컴퓨터, Azure의 Linux 컴퓨터 및 비 Azure 클라우드의 Linux 컴퓨터 또한 몇 가지 간단한 절차를 통해 인터넷으로의 아웃 바운드 액세스 권한만큼 Azure 자동화 DSC에 온보드할 수 있습니다.
 
@@ -236,4 +236,4 @@ Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하�
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC 가격 책정](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

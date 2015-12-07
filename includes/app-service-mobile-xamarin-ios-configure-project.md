@@ -1,6 +1,6 @@
-###Xamarin Studio
+####Xamarin Studio에서 iOS 프로젝트를 구성합니다.
 
-1. Xamarin.Studio에서 **Info.plist**를 열고 앞에서 만든 ID를 사용하여 **Bundle Identifier**를 업데이트합니다.
+1. Xamarin.Studio에서 **Info.plist**를 열고 앞에서 앱 ID로 만든 Bundle ID를 사용하여 **Bundle 식별자**를 업데이트합니다.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
 
@@ -16,7 +16,7 @@
 
     이제 프로젝트에서 코드 서명에 새 프로필을 사용하게 됩니다. 공식 Xamarin 장치 프로비저닝 설명서를 보려면 [Xamarin 장치 프로비저닝]을 참조하세요.
 
-### Visual Studio에서
+####Visual Studio에서 iOS 프로젝트를 구성합니다.
 
 1. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
 
@@ -33,4 +33,4 @@
 
 [Xamarin 장치 프로비저닝]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -92,8 +92,13 @@ Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서
 
 이 과정을 보다 쉽게 하려면 [코드 샘플](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)의 집합이 SCIM 웹 서비스 끝점을 만들고 자동 프로비전을 보여주도록 제공됩니다. 한 가지 샘플은 사용자 및 그룹을 나타내는 쉼표로 구분된 값의 행이 있는 파일을 유지 관리하는 공급자입니다. 다른 샘플은 Amazon 웹 서비스 ID 및 액세스 관리 서비스에서 작동하는 공급자입니다.
 
+**필수 구성 요소**
 
-**필수 구성 요소** * Visual Studio 2013 이상 * [.NET용 Azure SDK](https://azure.microsoft.com/ko-KR/downloads/) * ASP.NET framework 4.5를 SCIM 끝점으로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다 * [Azure AD Premium의 평가판 또는 사용이 허가된 버전으로 Azure 구독](https://azure.microsoft.com/ko-KR/services/active-directory/) * Amazon AWS 샘플을 사용하려면 [Visual Studio용 AWS Toolkit](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)에서 라이브러리가 필요합니다. 추가 세부 정보는 샘플에 포함된 추가 정보 파일을 참조하세요.
+* Visual Studio 2013 이상
+* [Azure SDK for .NET](https://azure.microsoft.com/ko-KR/downloads/)
+* ASP.NET framework 4.5를 SCIM 끝점으로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
+* [Azure AD Premium의 평가판 또는 사용이 허가된 버전을 사용하여 Azure 구독](https://azure.microsoft.com/ko-KR/services/active-directory/)
+* Amazon AWS 샘플에는 [Visual Studio용 AWS Toolkit](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)의 라이브러리가 필요합니다. 추가 세부 정보는 샘플에 포함된 추가 정보 파일을 참조하세요.
 
 ###시작하기
 
@@ -109,8 +114,8 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
     Install-Package Microsoft.SystemForCrossDomainIdentityManagement Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory Install-Package Microsoft.Owin.Diagnostics Install-Package Microsoft.Owin.Host.SystemWeb
 
 5.	FileProvisioningAgent 프로젝트를 빌드합니다.
-6.	Windows에서 명령 프롬프트 응용 프로그램을 시작하고(관리자로) **cd** 명령을 사용하여 디렉터리를 **\\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug** 폴더로 변경합니다.
-7.	아래의 명령을 실행하여 <ip-address>을 Windows 컴퓨터의 IP 또는 도메인 이름으로 바꿉니다.
+6.	관리자 권한으로 Windows에서 명령 프롬프트 응용 프로그램을 시작하고 **cd** 명령을 사용하여 디렉터리를 **\\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug** 폴더로 변경합니다.
+7.	아래 명령을 실행하여 <ip-address>을 Windows 컴퓨터의 IP 또는 도메인 이름으로 바꿉니다.
 
     FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
 
@@ -120,20 +125,20 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 
 **Azure AD에서 샘플 SCIM 끝점을 등록하려면:**
 
-1.	웹 브라우저에서 https://manage.windowsazure.com에 Azure 관리 포털을 시작합니다.
+1.	웹 브라우저에서 https://manage.windowsazure.com을 통해 Azure 관리 포털을 시작합니다.
 2.	**Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
 3.	왼쪽에서 **사용자 지정** 탭을 선택하고 "SCIM 테스트 앱"과 같은 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 응용 프로그램 개체는 SCIM 끝점 뿐만 아니라 Single Sign-On을 프로비전하고 구현하는 대상 앱을 나타내도록 합니다.
 
 ![][2]
 
 4.	결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
-5.	대화 상자에서 인터넷에 노출된 URL 및 프로그램 SCIM 끝점의 포트를 입력합니다. <ip-address>이 인터넷 노출된 IP 주소인 경우 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/와 같은 것입니다.  
-6.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 SCIM 끝점에 연결하는 데 Azure Active Directory를 시도합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
-7.	웹 서비스에 연결하려는 시도가 성공하면 남아 있는 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
+5.	대화 상자에서 인터넷에 노출된 URL 및 프로그램 SCIM 끝점의 포트를 입력합니다. <ip-address>이 인터넷 노출된 IP 주소인 경우 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 같은 것입니다.  
+6.	**다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도하게 합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
+7.	웹 서비스에 연결하려는 시도가 성공하면 나머지 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
 8.	결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
 9.	사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
-10.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다. 
-11.	**도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
+10.	**계정 프로비전**에서 상태가 켜짐으로 설정되었는지 확인합니다. 
+11.	**도구**에서 **계정 프로비전 다시 시작**을 클릭하여 프로비전 프로세스를 시작합니다.
 
 프로비전 프로세스가 SCIM 끝점에 요청을 보내려고 시작하기 전에 5-10분이 경과될 수 있습니다. 연결 시도의 요약은 응용 프로그램의 대시보드 탭에서 제공되고 프로비전 활동에 대한 보고서 및 프로비전 오류는 모두 디렉터리의 보고서 탭에서 다운로드할 수 있습니다.
 
@@ -147,11 +152,11 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
 
 ![][3]
 
-**2:** [Express 경로 처리기](http://expressjs.com/guide/routing.html)는 (SCIM 사양에 정의된) 호출을 나타내는 node.js 요청 개체를 구문 분석하는 데 사용할 수 있는습니다.
+**2:** [Express 경로 처리기](http://expressjs.com/guide/routing.html)는 node.js 웹 서비스에 수행된(SCIM 사양에 정의된 대로) 호출을 나타내는 node.js 요청 개체를 구문 분석하는 데 사용할 수 있습니다.
 
 ###사용자 지정 SCIM 끝점 빌드
 
-위에서 설명한 라이브러리를 사용하여 해당 라이브러리를 사용하는 개발자는 실행 가능한 공용 언어 인프라 어셈블리 또는 인터넷 정보 서비스 내에서 해당 서비스를 호스팅할 수 있습니다. 다음은 http://localhost:9000 주소에 실행 가능한 어셈블리 내에서 서비스를 호스팅하기 위한 샘플 코드입니다.
+위에서 설명한 라이브러리를 사용하여 해당 라이브러리를 사용하는 개발자는 실행 가능한 공용 언어 인프라 어셈블리 또는 인터넷 정보 서비스 내에서 해당 서비스를 호스팅할 수 있습니다. 다음은 http://localhost:9000 주소에 있는 실행 가능한 어셈블리 내에서 서비스를 호스트하기 위한 샘플 코드입니다.
 
     private static void Main(string[] arguments)
     {
@@ -327,9 +332,9 @@ SCIM 서비스 구축을 위해 Microsoft에서 제공하는 공용 언어 인�
 
 Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프로비전할 수 있습니다. 이러한 형식의 리소스는 사용자 및 그룹입니다.
 
-사용자 리소스는 스키마 식별자인 urn: ietf:params:scim:schemas:extension:enterprise:2.0:User로 식별되고 이는 이 프로토콜 사양에 포함됩니다. http://tools.ietf.org/html/draft-ietf-scim-core-schema urn: ietf:params:scim:schemas:extension:enterprise:2.0:User 리소스의 특성에 Azure Active Directory에서 사용자의 특성을 기본 매핑한 작업은 아래 테이블 1에서 제공됩니다.
+사용자 리소스는 http://tools.ietf.org/html/draft-ietf-scim-core-schema 프로토콜 사양에 포함된 스키마 식별자 urn: ietf:params:scim:schemas:extension:enterprise:2.0:User로 식별됩니다. urn: ietf:params:scim:schemas:extension:enterprise:2.0:User 리소스의 특성에 Azure Active Directory에서 사용자의 특성을 기본 매핑한 작업은 아래 테이블 1에서 제공됩니다.
 
-그룹 리소스는 스키마 식별자로 식별됩니다. http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 아래 테이블 2에서는 Azure Active Directory에서 그룹의 특성을 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 리소스의 특성에 기본 매핑한 작업을 보여줍니다.
+그룹 리소스는 스키마 식별자 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group으로 식별됩니다. 아래 표 2에서는 Azure Active Directory의 그룹 특성과 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 리소스 특성 간의 기본 매핑을 보여 줍니다.
 
 ###테이블 1: 기본 사용자 특성 매핑
 
@@ -370,9 +375,9 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 
 아래 그림은 다른 ID 저장소에 사용자의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메세지를 보여줍니다. 또한 다이어그램은 이러한 서비스 구축을 위해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 구현된 SCIM 서비스가 이러한 요청을 어떻게 공급자의 메서드에 호출로 번역하는지를 보여줍니다.
 
-![][4] 그림: 사용자 프로비전 및 시퀀스 프로비전 해제
+![][4] *그림: 사용자 프로비전 및 시퀀스 프로비전 해제*
 
-**1:** Azure Active Directory는 externalId 특성 값이 Azure Active Directory에 있는 사용자의 mailNickname 특성 값과 일치하는 사용자를 위해 서비스를 쿼리합니다. jyoung이 Azure Active Directory에서 사용자의 mailNickname의 샘플인 것처럼 쿼리는 Hypertext Transfer Protocol 요청으로 표현됩니다.
+**1:** Azure Active Directory는 externalId 특성 값이 Azure Active Directory의 사용자 mailNickname 특성 값과 일치하는 사용자를 서비스에 쿼리합니다. jyoung이 Azure Active Directory에서 사용자의 mailNickname의 샘플인 것처럼 쿼리는 Hypertext Transfer Protocol 요청으로 표현됩니다.
 
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
@@ -433,7 +438,7 @@ Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 인터페이�
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-**2:** Azure Active Directory에서 사용자의 mailNickname 특성 값과 일치하는 externalId 특성 값을 사용하는 사용자에 대한 서비스의 쿼리에 응답할 때 사용자를 반환하지 않는 경우 Azure Active Directory는 서비스가 Azure Active Directory의 사용자에 해당하는 사용자를 프로비전하도록 요청합니다. 다음은 그러한 요청의 예제입니다.
+**2:** externalId 특성 값이 Azure Active Directory의 사용자 mailNickname 특성 값과 일치하는 사용자를 서비스에 쿼리할 때 응답으로 사용자가 반환되지 않는 경우 Azure Active Directory는 서비스가 Azure Active Directory의 사용자에 해당하는 사용자를 프로비전하도록 요청합니다. 다음은 그러한 요청의 예제입니다.
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -476,7 +481,7 @@ SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인�
 
 사용자를 프로비전할 요청의 경우 리소스 인수의 값은 Microsoft.SystemForCrossDomainIdentityManagement의 인스턴스입니다. Microsoft.SystemForCrossDomainIdentityManagement.Schemas 라이브러리에 정의된 Core2EnterpriseUser 클래스입니다. 사용자를 프로비전하는 요청인 성공하는 경우 메서드의 구현은 Microsoft.SystemForCrossDomainIdentityManagement의 인스턴스를 반환할 것으로 예상됩니다. 새로 프로비전된 사용자의 고유 식별자에 설정된 식별자 속성의 값을 가진 Core2EnterpriseUser 클래스입니다.
 
-**3:** SCIM가 향하는 ID 저장소에 있는 것으로 알려진 사용자를 업데이트하려면 Azure Active Directory는 서비스에서 이 이와 같은 요청으로 해당 사용자의 현재 상태를 요청하여 진행합니다.
+**3:** SCIM에 의해 제어되는 ID 저장소에 있는 것으로 알려진 사용자를 업데이트하기 위해 Azure Active Directory는 다음과 같은 요청으로 서비스에서 해당 사용자의 현재 상태를 요청합니다.
 
     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -514,7 +519,7 @@ SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인�
 * 식별자: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-**4:** 참조 특성이 업데이트될 경우 Azure Active Directory는 서비스를 쿼리하여 서비스에서 이미 향하는 ID 저장소의 참조 특성의 현재 값이 Azure Active Directory의 해당 특성 값과 일치하는지를 확인합니다. 사용자의 경우 현재 값이 이 방식으로 쿼리된 유일한 특성은 관리자 특성입니다. 특정 사용자 개체의 관리자 특성 값에 현재 특정 값이 있는지 여부를 결정하는 요청의 예는 다음과 같습니다.
+**4:** 참조 특성을 업데이트해야 하는 경우 Azure Active Directory는 서비스를 쿼리하여 서비스에 의해 제어되는 ID 저장소에 있는 참조 특성의 현재 값이 Azure Active Directory의 해당 특성 값과 이미 일치하는지를 확인합니다. 사용자의 경우 현재 값이 이 방식으로 쿼리된 유일한 특성은 관리자 특성입니다. 특정 사용자 개체의 관리자 특성 값에 현재 특정 값이 있는지 여부를 결정하는 요청의 예는 다음과 같습니다.
 
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
@@ -649,7 +654,7 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-**6:** SCIM 서비스가 향하는 ID 저장소에서 사용자의 프로비전을 해제하려면 Azure Active Directory가 이와 같은 요청을 보냅니다.
+**6:** SCIM 서비스에 의해 제어되는 ID 저장소에서 사용자의 프로비전을 해제하기 위해 Azure Active Directory에서 다음과 같은 요청을 보냅니다.
 
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -673,11 +678,11 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 
 아래 그림은 다른 ID 저장소에 그룹의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메세지를 보여줍니다. 이러한 메시지는 세 가지 부분에서 사용자에 관련된 메시지가 다릅니다.
 
-* 그룹 리소스의 스키마는 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group로 식별됩니다.  
+* 그룹 리소스의 스키마는 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group으로 식별됩니다.  
 * 그룹을 검색하는 요청은 멤버 특성이 요청에 대한 응답에서 제공된 리소스로부터 제외된다고 규정합니다.  
 * 참조 특성에 특정 값에 있는지를 확인하는 요청은 멤버 특성에 대한 요청입니다.  
 
-![][5] 그림: 사용자 프로비전 및 시퀀스 프로비전 해제
+![][5] *그림: 그룹 프로비전 및 시퀀스 프로비전 해제*
 
 	
 <!--Image references-->
@@ -687,4 +692,4 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

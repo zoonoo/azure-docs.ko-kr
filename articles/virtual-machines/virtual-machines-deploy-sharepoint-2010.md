@@ -73,11 +73,11 @@ Azure의 이미지 갤러리는 미리 구성된 사용 가능한 가상 컴퓨�
 
 **그림 2: 이미지 업로드 단계 개요**
 
-## Azure에서 SharePoint 2010 배포 
+## Azure에서 SharePoint 2010 배포
 
 다음 단계에 따라 클래식 배포 모델을 사용하여 Azure에 SharePoint 2010을 배포할 수 있습니다.
 
-1. Azure 구독 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판에 등록합니다](http://azure.microsoft.com/pricing/free-trial/).
+1. Azure 구독 계정을 사용하여 [Azure 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판에 등록합니다](http://azure.microsoft.com/pricing/free-trial/).
 2. 기본 운영 체제로 가상 컴퓨터를 만들려면 Azure 포털에서 **새로 만들기 > 계산 > 가상 컴퓨터 > 갤러리에서**를 클릭합니다.
 3. **이미지 선택** 대화 상자가 나타납니다. **Windows Server 2008 R2 SP1** 플랫폼 이미지를 클릭하고 오른쪽 화살표를 클릭합니다.
 4. **Virtual machine configuration** 대화 상자가 나타납니다. 다음 정보를 지정합니다.
@@ -225,7 +225,7 @@ Azure에서 BI 환경을 확장하려면 다음 단계를 따르세요.
 1. 프로비전:
 	- Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간 VPN 연결을 프로비전합니다. 자세한 내용을 보려면 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)로 이동합니다.
 	- Azure 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 가상 컴퓨터를 프로비전합니다. SharePoint Server 또는 SQL Server BI 워크로드 이미지를 이미지 갤러리에 업로드할 수 있으며, 권한 있는 사용자는 해당 BI 구성 요소 가상 컴퓨터를 선택하여 확장된 환경을 빌드할 수 있습니다.
-2. 설치: 
+2. 설치:
 	- 조직에 SharePoint Server 또는 SQL Server BI 구성 요소의 미리 빌드된 이미지가 없는 경우 원격 데스크톱 연결을 사용하여 SharePoint Server 및 SQL Server를 가상 컴퓨터에 설치합니다.
 	- SharePoint 설치에 대한 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/library/cc262839.aspx) 또는 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)로 이동하세요.
 	- SQL Server를 설치하는 방법에 대한 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하세요.
@@ -288,4 +288,4 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 
 [Azure에서 SharePoint Server 2016 IT Preview 테스트](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

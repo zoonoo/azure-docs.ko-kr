@@ -41,7 +41,7 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 
 	![SSH 구성 재설정을 보여주는 스크린샷](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. 가상 컴퓨터를 **다시 시작합니다**. [Azure preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다. [Azure 관리 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **인스턴스**를 열고 **다시 시작**을 클릭합니다.
+2. 가상 컴퓨터를 **다시 시작합니다**. [Azure preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다. [Azure 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **인스턴스**를 열고 **다시 시작**을 클릭합니다.
 
 3. [가상 컴퓨터 **크기를 조정합니다**](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -174,9 +174,9 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 
 ### 문제 해결 전 단계
 
-가장 먼저, Azure 포털에서 가상 컴퓨터의 상태를 확인합니다.
+먼저 포털에 있는 가상 컴퓨터의 상태를 확인합니다.
 
-[Azure 관리 포털](https://manage.windowsazure.com)에서 클래식 배포 모델의 가상 컴퓨터에 대해 다음을 수행합니다.
+[Azure 포털](https://manage.windowsazure.com)에서 클래식 배포 모델의 가상 컴퓨터에 대해 다음을 수행합니다.
 
 1. **가상 컴퓨터** > *VM 이름*을 클릭합니다.
 2. VM의 **대시보드**를 클릭하여 상태를 확인합니다.
@@ -287,4 +287,4 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

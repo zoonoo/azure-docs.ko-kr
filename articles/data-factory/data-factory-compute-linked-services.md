@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="연결된 서비스 계산 | Microsoft Azure" 
-	description="데이터의 변환/처리를 위해 Azure 데이터 팩터리 파이프라인에서 사용할 수 있는 계산 환경을 알아봅니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="연결된 서비스 계산 | Microsoft Azure"
+	description="데이터의 변환/처리를 위해 Azure 데이터 팩터리 파이프라인에서 사용할 수 있는 계산 환경을 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/09/2015" 
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/09/2015"
 	ms.author="spelluru"/>
 
 # 연결된 서비스 계산
@@ -33,7 +33,7 @@ Azure 데이터 팩터리 서비스에서 데이터를 처리하도록 주문형
 주문형 HDInsight 연결된 서비스에 대해 다음 **중요한** 점에 유의하십시오.
 
 - Azure 구독에서 만든 주문형 HDInsight 클러스터는 표시되지 않습니다. Azure 데이터 팩터리 서비스는 사용자를 대신해 주문형 HDInsight 클러스터를 관리합니다.
-- 주문형 HDInsight 클러스터에서 실행하는 작업에 대한 로그는 HDInsight 클러스터와 연결된 저장소 계정에 복사됩니다. **작업 실행 세부 정보** 블레이드의 Azure 포털에서 이러한 로그에 액세스할 수 있습니다. 세부 정보는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하십시오. 
+- 주문형 HDInsight 클러스터에서 실행하는 작업에 대한 로그는 HDInsight 클러스터와 연결된 저장소 계정에 복사됩니다. **작업 실행 세부 정보** 블레이드의 Azure 포털에서 이러한 로그에 액세스할 수 있습니다. 세부 정보는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하십시오.
 - HDInsight 클러스터가 작업을 실행 중인 경우에 대해서만 청구됩니다.
 
 > [AZURE.IMPORTANT]일반적으로 **15분**이 더 걸려서 필요한 Azure HDInsight 클러스터를 프로비전합니다.
@@ -46,7 +46,6 @@ Azure 데이터 팩터리 서비스에서 데이터를 처리하도록 주문형
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
 	      "clusterSize": 4,
-	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
 		  "osType": "linux",
@@ -64,13 +63,12 @@ Azure 데이터 팩터리 서비스에서 데이터를 처리하도록 주문형
 속성 | 설명 | 필수
 -------- | ----------- | --------
 type | 형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. | 예
-clusterSize | 주문형 클러스터의 크기입니다. 이 주문형 클러스터에 포함하려는 노드 수를 지정합니다. | 예 
-jobscontainer | Pig/hive/패키지 작업에서 사용하는 데이터를 보유하고 클러스터 로그를 저장할 blob 컨테이너입니다. | 예
-timetolive | <p>주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없는 경우 활동이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.</p><p>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.</p><p>주문형 HDInsight 클러스터를 만드는 것은 비용이 많이 드는 작업이므로(시간이 걸림) 주문형 HDInsight 클러스터를 다시 사용하여 데이터 팩터리의 성능 향상을 위해 필요한 만큼 이 설정을 사용합니다.</p><p>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.</p><p>Timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 동일한 인스턴스를 공유할 수 있습니다.</p> | 예
+clusterSize | 주문형 클러스터의 크기입니다. 이 주문형 클러스터에 포함하려는 노드 수를 지정합니다. | 예
+timetolive | <p>주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없는 경우 활동이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.</p><p>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.</p><p>주문형 HDInsight 클러스터를 만드는 것은 비용이 많이 드는 작업이므로(시간이 걸림) 주문형 HDInsight 클러스터를 다시 사용하여 데이터 팩터리의 성능 향상을 위해 필요한 만큼 이 설정을 사용합니다.</p><p>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.</p><p>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 동일한 인스턴스를 공유할 수 있습니다.</p> | 예
 버전 | HDInsight 클러스터의 버전 | 아니요
 linkedServiceName | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 blob 저장소입니다. | 예
 additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. | 아니요
-osType | 운영 체제 유형 허용되는 값은 windows(기본값) 및 linux입니다. | 아니요 
+osType | 운영 체제 유형입니다. 허용되는 값은 windows(기본값) 및 linux입니다. | 아니요
 
 ### 고급 속성
 
@@ -95,7 +93,6 @@ yarnConfiguration | HDInsight 클러스터에 대한 Yarn 구성 매개 변수(y
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
 	      "clusterSize": 16,
-	      "jobsContainer": "adfjobs",
 	      "timeToLive": "01:30:00",
 	      "version": "3.1",
 	      "linkedServiceName": "adfods1",
@@ -123,14 +120,14 @@ yarnConfiguration | HDInsight 클러스터에 대한 Yarn 구성 매개 변수(y
 	  }
 	}
 
-## 사용자 고유의 계산 환경 가져오기 
+## 사용자 고유의 계산 환경 가져오기
 
 이 구성의 형식에서는 사용자가 이미 기존 컴퓨팅 환경을 데이터 팩터리에서 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다.
- 
+
 이 구성의 형식은 다음의 계산 환경에 대해 지원됩니다.
 
 - Azure HDInsight
-- Azure 배치 
+- Azure 배치
 - Azure 기계 학습입니다.
 
 ## Azure HDInsight 연결된 서비스
@@ -169,10 +166,10 @@ linkedServiceName | 이 HDInsight 클러스터에서 사용하는 blob 저장소
 Azure 일괄 처리 연결된 서비스를 만들어 데이터 팩터리에 가상 컴퓨터(VM)의 일괄 처리 풀을 등록합니다. Azure 일괄 처리 또는 Azure HDInsight를 사용하여 .NET 사용자 지정 활동을 실행할 수 있습니다.
 
 Azure 일괄 처리 서비스가 처음이라면 다음 항목을 참조하십시오.
- 
 
-- Azure 일괄 처리 서비스의 개요는 [Azure 일괄 처리 기술 개요](../batch/batch-technical-overview.md)입니다.
-- Azure Batch 계정을 만드는 [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet (또는) Azure 관리 포털을 사용하여 Azure Batch 계정을 만드는 [Azure 관리 포털](../batch/batch-technical-overview.md)입니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 항목를 참조하십시오.
+
+- Azure 배치 서비스의 개요에 대한 [Azure 배치 기본 사항](../batch/batch-technical-overview.md)입니다.
+- Azure 배치 계정을 만드는 [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet (또는) Azure 관리 포털을 사용하여 Azure 배치 계정을 만드는 [Azure 관리 포털](../batch/batch-account-create-portal.md)입니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure Batch 계정 관리](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 항목를 참조하십시오.
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet을 사용하여 Azure 배치 풀을 만듭니다.
 
 ### 예
@@ -191,8 +188,8 @@ Azure 일괄 처리 서비스가 처음이라면 다음 항목을 참조하십�
 	}
 
 Batch 계정의 이름에 **accountName** 속성으로 "**.<지역 이름**"을 추가합니다. 예제:
-	
-			"accountName": "mybatchaccount.eastus" 
+
+			"accountName": "mybatchaccount.eastus"
 
 다른 옵션은 아래와 같이 batchUri 끝점을 제공합니다.
 
@@ -237,7 +234,7 @@ apiKey | 게시된 작업 영역 모델의 API입니다. | 예
 
 
 ## Azure 데이터 레이크 분석 연결된 서비스
-파이프라인에서 [데이터 레이크 분석 U-SQL 작업](data-factory-usql-activity.md)을 사용하기 전에 **Azure 데이터 레이크 분석** 연결된 서비스를 만들어 Azure 데이터 레이크 분석 계산 서비스를 Azure Data Factory에 연결합니다.
+파이프 라인에서 [데이터 레이크 분석 U-SQL 작업](data-factory-usql-activity.md) 을 사용하기 전에 Azure 데이터 레이크 분석 계산 서비스와 Azure 데이터 팩토리에 연결하는 **Azure 데이터 레이크 분석** 연결된 서비스를 만듭니다.
 
 다음 예제에서는 Azure 데이터 레이크 분석 연결된 서비스에 JSON 정의를 제공합니다.
 
@@ -249,7 +246,7 @@ apiKey | 게시된 작업 영역 모델의 API입니다. | 예
 	            "accountName": "adftestaccount",
 	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
 	            "authorization": "<authcode>",
-				"sessionId": "<session ID>", 
+				"sessionId": "<session ID>",
 	            "subscriptionId": "<subscription id>",
 	            "resourceGroupName": "<resource group name>"
 	        }
@@ -263,9 +260,9 @@ apiKey | 게시된 작업 영역 모델의 API입니다. | 예
 -------- | ----------- | --------
 형식 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예
 accountName | Azure 데이터 레이크 분석 계정 이름입니다. | 예
-dataLakeAnalyticsUri | Azure 데이터 레이크 분석 URI입니다. | 아니요 
-권한 부여 | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. | 예 
-subscriptionId | Azure 구독 ID | 아니요(지정하지 않으면 Data Factory의 구독이 사용됨). 
+dataLakeAnalyticsUri | Azure 데이터 레이크 분석 URI입니다. | 아니요
+권한 부여 | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. | 예
+subscriptionId | Azure 구독 ID | 아니요(지정하지 않으면 Data Factory의 구독이 사용됨).
 resourceGroupName | Azure 리소스 그룹 이름 | 아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨).
 sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며 Data Factory 편집기에서 자동으로 생성됩니다. | 예
 
@@ -274,13 +271,4 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
 
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md)에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 문서를 참조하세요.
 
-
-  
-
-
-
-     
- 
-   
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

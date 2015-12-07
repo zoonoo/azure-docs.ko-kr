@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Azure Active Directory Single Sign-On과 SaaS 앱 통합 | Microsoft Azure"
-   description="Azure Active Directory에서 SaaS 앱의 Single Sign-On 인증과 사용자 프로비저닝 집중식 액세스 관리를 사용하도록 설정합니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Azure Active Directory Single Sign-On과 SaaS 앱 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 SaaS 앱의 Single Sign-On 인증과 사용자 프로비전 집중식 액세스 관리를 사용하도록 설정합니다. SaaS 앱에 Azure AD를 통합하는 방법의 개요입니다."
+    services="active-directory"
+	keywords="Azure AD와 SaaS 앱 통합"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
    <tags
       ms.service="active-directory"
@@ -13,7 +14,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/28/2015"
+      ms.date="11/20/2015"
       ms.author="curtand"/>
 
 # Azure Active Directory (Azure AD) Single Sign-On과 SaaS 앱 통합  
@@ -48,15 +49,15 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 사용자의 ID에는 일반적으로 전자 메일 주소 또는 범용 개인 이름(UPN)일 수 있는 고유 식별자가 있습니다. 각 사용자의 응용 프로그램 ID를 해당 Azure AD ID에 링크(맵핑)해야 합니다. 응용 프로그램 인증이 요구하는 방법에 따라 이 작업을 수행하는 몇 가지 방법이 있습니다.
 
-응용 프로그램 ID를 Azure AD ID와 매핑하는 방법에 대한 자세한 내용은 [SAML 토큰에서 발급된 클레임 사용자 지정](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) 및 [프로비저닝을 위한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
+응용 프로그램 ID를 Azure AD ID와 매핑하는 방법에 대한 자세한 내용은 [SAML 토큰에서 발급된 클레임 사용자 지정](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) 및 [프로비전을 위한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
 
 ### 사용자의 로그인 환경 이해
 
 이미 사용 중인 응용 프로그램에 대한 SSO를 통합할 때 사용자 환경이 영향을 받게 된다는 사실을 알고 있어야 합니다. 모든 응용 프로그램의 경우 사용자는 먼저 Azure AD 자격 증명을 사용하여 로그인합니다. 또한 다른 포털을 사용하여 응용 프로그램에 액세스해야 할 수도 있습니다.
 
-응용 프로그램에 따라 SSO가 응용 프로그램의 로그인 인터페이스에서 수행될 수도 있고, 사용자가 중앙 포털([내 앱](http://myapps.microsoft.com) 또는 [Office365](http://portal.office.com/myapps)와 같은)을 통해 로그인해야 할 수도 있습니다. 다양한 유형의 SSO 및 해당 사용자 환경에 대한 자세한 내용은 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)를 참조하세요.
+응용 프로그램에 따라 SSO가 응용 프로그램의 로그인 인터페이스에서 수행될 수도 있고, 사용자가 [내 앱](http://myapps.microsoft.com) 또는 [Office365](http://portal.office.com/myapps)와 같은 중앙 포털을 통해 로그인해야 할 수도 있습니다. 다양한 유형의 SSO 및 해당 사용자 환경에 대한 자세한 내용은 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
-중요한 리소스는 [개발자 가이드](active-directory-applications-guiding-developers-for-lob-applications.md) 문서에 있는 *사용자 동의 억제*입니다.
+또 다른 중요한 리소스는 [개발자 가이드](active-directory-applications-guiding-developers-for-lob-applications.md) 문서에 있는 *사용자 동의 억제*입니다.
 
 ## 다음 단계
 
@@ -67,4 +68,4 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)부터 시작하여 Azure.com 라이브러리에는 이러한 모든 문제에 대한 자세한 내용이 포함되어 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

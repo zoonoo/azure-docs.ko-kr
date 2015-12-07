@@ -81,4 +81,4 @@ Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

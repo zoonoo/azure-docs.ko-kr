@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/23/2015" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -27,7 +27,7 @@ Cortana Analytics 프로세스(CAP)는 고급 분석을 이용하여 지능형 �
 
 프로세스는 **반복적**입니다. 즉, 새로운 기능과 기존 기능 또는 모델의 구체화된 기능에 대한 이해가 변화해 가며 순서에서 이전에 완료한 단계를 다시 작업해야 합니다. 조직의 기존 개발 및 프로젝트 계획 프로세스는 CAP에서 정의한 단계 순서에서 작동하도록 **쉽게 개조**됩니다.
 
-프로세스의 단계는 [CAP 학습 경로](https://azure.microsoft.com/ko-KR/documentation/learning-paths/cortana-analytics-process/)에 다이어그램 및 링크가 제공되어 있으며 아래에 설명되어 있습니다.
+프로세스의 단계는 [CAP 학습 경로](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에 다이어그램 및 링크가 제공되어 있으며 아래에 설명되어 있습니다.
 
 ## 준비 단계 
 
@@ -83,7 +83,7 @@ Cortana Analytics 프로세스에 대한 분석 환경은 여러 구성 요소�
 
 ## 요약 및 다음 단계
 
-[Cortana Analytics 프로세스](https://azure.microsoft.com/ko-KR/documentation/learning-paths/cortana-analytics-process/)는 고급 분석을 사용하여 지능형 응용 프로그램을 만드는 데 필요한 작업에 대한 **지침을 제공**하는 일련의 반복 단계로 모델링됩니다. 또한 각 단계는 다양한 Microsoft 기술을 사용하여 기술된 작업을 완료하는 방법에 대한 세부 정보를 제공합니다.
+[Cortana Analytics 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)는 고급 분석을 사용하여 지능형 응용 프로그램을 만드는 데 필요한 작업에 대한 **지침을 제공**하는 일련의 반복 단계로 모델링됩니다. 또한 각 단계는 다양한 Microsoft 기술을 사용하여 기술된 작업을 완료하는 방법에 대한 세부 정보를 제공합니다.
 
 CAP에 특정 유형의 **설명서** 아티팩트가 규정되어 있지 않지만, 데이터 탐색, 모델링 및 평가의 결과를 문서화하고 필요한 경우 분석을 반복할 수 있도록 관련 코드를 저장하는 것이 모범 사례입니다. 이렇게 하면 유사한 데이터 및 예측 작업을 수반하는 다른 응용 프로그램에 대해 작업할 때에도 분석 작업을 다시 사용할 수 있습니다.
 
@@ -91,4 +91,4 @@ CAP에 특정 유형의 **설명서** 아티팩트가 규정되어 있지 않지
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

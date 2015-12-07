@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="설정에서 Azure AD으로 Windows 10 장치 설정| Microsoft Azure" 
-	description="Windows 10에서 설정 메뉴를 통해 Azure AD에 조인시킬 수 있는 방법에 대해 설명합니다." 
+	description="사용자가 설정 메뉴를 통해 Azure AD에 조인시킬 수 있는 방법에 대해 설명합니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 설정에서 Azure AD으로 Windows 10 장치 설정
@@ -37,11 +37,12 @@
 
 
 ## 추가 정보
-* [엔터프라이즈를 위한 Windows 10: 작업에 장치를 사용하는 방법](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
+* [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
+* [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 * [Microsoft Passport를 통해 암호 없이 ID 인증](active-directory-azureadjoin-passport.md)
 * [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

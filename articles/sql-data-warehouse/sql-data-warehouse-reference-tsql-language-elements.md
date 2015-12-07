@@ -21,7 +21,7 @@
 ## 핵심 요소
 
 - [구문 규칙](https://msdn.microsoft.com/library/ms177563.aspx)
-- 개체 명명 규칙
+- [개체 명명 규칙](https://msdn.microsoft.com/library/ms175874.aspx)
 - [예약된 키워드](https://msdn.microsoft.com/library/ms189822.aspx)
 - [데이터 정렬](https://msdn.microsoft.com/library/ff848763.aspx)
 - [설명](https://msdn.microsoft.com/library/ms181627.aspx)
@@ -38,7 +38,7 @@
 
 - [시작... 끝](https://msdn.microsoft.com/library/ms190487.aspx)
 - [나누기](https://msdn.microsoft.com/library/ms181271.aspx)
-- 선언
+- [DECLARE @Local\_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 - [다음과 같은 경우...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 - [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 - [SET@local\_variable](https://msdn.microsoft.com/library/ms189484.aspx)
@@ -70,7 +70,6 @@
 - [NULL이 [아님]](https://msdn.microsoft.com/library/ms188795.aspx)
 - [마찬가지로](https://msdn.microsoft.com/library/ms179859.aspx)
 - [다음이 아님](https://msdn.microsoft.com/library/ms189455.aspx)
-- NULL 및 알 수 없음
 - [또는](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### 비트 연산자
@@ -80,8 +79,8 @@
 - [^ (비트 단독 OR)](https://msdn.microsoft.com/library/ms190277.aspx)
 - [~ (비트 NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (비트 단독 OR 같음)](https://msdn.microsoft.com/library/cc627413.aspx)
-- |= (비트 OR 같음)
-- ? |= (비트 AND 같음)
+- [|= (비트 OR 같음)](https://msdn.microsoft.com/library/cc627409.aspx)
+- [&= (비트 AND 같음)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## 함수
 
@@ -172,7 +171,7 @@
 - [전원](https://msdn.microsoft.com/library/ms174276.aspx)
 - [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 - [라디안](https://msdn.microsoft.com/library/ms189742.aspx)
-- VRANK
+- [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 - [바꾸기](https://msdn.microsoft.com/library/ms186862.aspx)
 - [복제](https://msdn.microsoft.com/library/ms174383.aspx)
 - [역방향](https://msdn.microsoft.com/library/ms180040.aspx)
@@ -183,8 +182,7 @@
 - [SCHEMA\_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 - [SCHEMA\_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 - [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
-- SESSION\_ID
-- SESSION\_USER
+- [SESSION\_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 - [로그인](https://msdn.microsoft.com/library/ms188420.aspx)
 - [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 - [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
@@ -219,7 +217,6 @@
 - [USER\_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 - [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 - [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-- 버전
 - [연도](https://msdn.microsoft.com/library/ms186313.aspx)
 - [XACT\_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
@@ -290,4 +287,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

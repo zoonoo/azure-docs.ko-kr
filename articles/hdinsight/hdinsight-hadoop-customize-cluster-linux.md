@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/20/2015"
 	ms.author="larryfr"/>
 
 # 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Linux)
@@ -60,7 +60,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 2. 아래와 같이, __선택적 구성__의 **스크립트 작업** 블레이드에 대해 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
-	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
+	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
 
 	| 속성 | 값 |
 	| -------- | ----- |
@@ -80,8 +80,8 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 ### 시작하기 전에
 
 * HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
-* ARM 템플릿을 만드는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-* 이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](powershell-azure-resource-manager)을 참조하세요.
+* ARM 템플릿을 만드는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+* 이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
 ### 스크립트 작업을 사용하여 클러스터 만들기
 
@@ -333,11 +333,27 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 	| 매개 변수 | 스크립트에 필요한 매개 변수입니다. |
 	| Uri | 실행되는 스크립트의 URI를 지정합니다. |
 
+4. 클러스터에 대한 관리자/HTTPS 사용자를 설정합니다.
+
+        $httpCreds = get-credential
+        
+    메시지가 표시되면 이름으로 '관리'를 입력하고 암호를 제공합니다.
+
+5. SSH 자격 증명을 설정합니다.
+
+        $sshCreds = get-credential
+    
+    메시지가 표시되면 SSH 사용자 이름 및 암호를 입력합니다. 암호 대신 인증서를 사용하여 SSH 계정을 보호하려는 경우 빈 암호를 사용하고 `$sshPublicKey`를 사용하려는 인증서 공개 키의 내용으로 설정합니다. 예:
+    
+        $sshPublicKey = Get-Content .\path\to\public.key -Raw
+    
 4. 끝으로, 클러스터를 만듭니다.
         
-        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
+    
+    공개 키를 사용하여 SSH 계정을 보호하려는 경우 `-SshPublicKey $sshPublicKey`를 매개 변수로 지정해야 합니다.
 
-메시지가 나타나면 클러스터에 대한 자격 증명을 입력합니다. 클러스터가 생성되는 데 몇 분 정도 걸릴 수 있습니다.
+클러스터가 생성되는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## HDInsight.NET SDK에서 스크립트 작업 사용
 
@@ -380,7 +396,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
         private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
         private const string NewClusterVersion = "3.2";
         private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Windows;
+        private const OSType NewClusterOSType = OSType.Linux;
 
         private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
         private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
@@ -549,4 +565,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

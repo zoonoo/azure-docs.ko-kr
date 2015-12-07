@@ -95,25 +95,27 @@ Web API는 웹 서버 앱, 데스크톱 및 모바일 앱, 단일 페이지 앱,
 
 ![웹앱 Web API 스윔 레인 이미지](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-authorization\_code, refresh\_token 및 access\_token을 가져오는 세부 단계에 대한 자세한 내용은 [OAuth 2.0 프로토콜](active-directory-v2-protocols.md#oauth2-authorization-code-flow)을 참조하세요.
+authorization\_code, refresh\_token 및 access\_token을 가져오는 세부 단계에 대한 자세한 내용은 [OAuth 2.0 프로토콜](active-directory-v2-protocols-oauth-code.md)을 참조하세요.
 
 v2.0 앱 모델 및 OAuth 2.0 access\_token을 사용하여 Web API 보안을 유지하는 방법을 알아보려면 [시작 섹션](active-directory-appmodel-v2-overview.md#getting-started)에서 Web API 코드 샘플을 확인하세요.
 
 
 ## 모바일 및 네이티브 앱
-모바일 및 데스크톱 앱과 같은 장치에 설치된 앱은 데이터를 저장하고 사용자 대신 다양한 기능을 수행하는 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 이러한 앱은 v2.0 모델 및 [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols.md#oauth2-authorization-code-flow)을 사용하여 백 엔드 서비스에 로그인 및 권한 부여를 추가할 수 있습니다.
+모바일 및 데스크톱 앱과 같은 장치에 설치된 앱은 데이터를 저장하고 사용자 대신 다양한 기능을 수행하는 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 이러한 앱은 v2.0 모델 및 [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols-oauth-code.md)을 사용하여 백 엔드 서비스에 로그인 및 권한 부여를 추가할 수 있습니다.
 
 이 흐름에서 앱은 사용자 로그인 시 v2.0 끝점에서 authorization\_code를 받습니다. 이 코드는 현재 로그인한 사용자 대신 백 엔드 서비스를 호출할 수 있는 앱의 권한을 나타냅니다. 앱은 백그라운드에서 authoriztion\_code를 OAuth 2.0 access\_token 및 refresh\_token으로 교환할 수 있습니다. 앱은 access\_token을 사용하여 HTTP 요청 시 Web API에 인증할 수 있고 refresh\_token을 사용하여 이전 토큰 만료 시 새 access\_token을 가져올 수 있습니다.
 
 ![네이티브 앱 스윔 레인 이미지](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
+## 단일 페이지 앱(Javascript)
+대부분의 최신 앱에는 주로 Javascript로 작성되고 AngularJS, Ember.js, Durandal 등과 같은 SPA 프레임워크로도 작성되는 단일 페이지 앱 프런트 엔드가 있습니다. Azure AD 응용 프로그램 모델 v 2.0은 [OAuth 2.0 암시적 흐름](active-directory-v2-protocols-implicit.md)을 사용하여 이러한 앱을 지원합니다.
+
+이 흐름에서 앱은 v 2.0 인증 끝점에서 바로 토큰을 수신하며, 백엔드 서버 대 서버 교환을 수행하지 않습니다. 이렇게 하면 모든 인증 논리 및 세션 처리가 추가 페이지 리디렉션을 수행하지 않고 전적으로 javascript 클라이언트에서 발생합니다.
+
+이 시나리오의 작동 방식을 확인하려면 [시작](active-directory-appmodel-v2-overview.md#getting-started) 섹션의 단일 페이지 앱 코드 샘플 중 하나를 시도해 보세요.
+
 ## 현재 미리 보기 제한 사항
 이러한 형식의 앱은 현재 v2.0 앱 모델 미리 보기에서 지원되지 않지만 조만간 일반 공급될 예정입니다. v2.0 앱 모델 공개 미리 보기에 대한 추가 제한 사항은 [v2.0 미리 보기 제한 사항 문서](active-directory-v2-limitations.md)에서 설명합니다.
-
-### 단일 페이지 앱(Javascript)
-대부분의 최신 앱에는 주로 Javascript로 작성되고 AngularJS, Ember.js, Durandal 등과 같은 SPA 프레임워크로도 작성되는 단일 페이지 앱 프런트 엔드가 있습니다. 일반 공급 Azure AD 서비스는 [OAuth 2.0 암시적 흐름](active-directory-v2-protocols.md#oauth2-implicit-flow)을 사용하여 이러한 앱을 지원하지만 v2.0 앱 모델에서는 이 흐름을 아직 사용할 수 없습니다. 곧 제공될 예정입니다.
-
-v2.0 앱 모델에서 SPA를 작동하려면 위에서 설명한 [웹 서버 앱 흐름](#web-apps)을 사용하여 인증을 구현할 수 있습니다. 그러나 권장 방법은 아니며 이 시나리오에 대한 설명서는 제한됩니다. SPA 시나리오를 사용하려면 [일반 공급 Azure AD SPA 코드 샘플](active-directory-devquickstarts-angular.md)을 확인할 수 있습니다.
 
 ### 디먼/서버 쪽 앱
 장기 실행 프로세스를 포함하거나 사용자 없이 작동하는 앱은 Web API아 같은 보안 리소스에 액세스하는 방법도 필요합니다. 이러한 앱은 [OAuth 2.0 클라이언트 자격 증명 흐름](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow)을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다.
@@ -125,4 +127,4 @@ v2.0 앱 모델에서 SPA를 작동하려면 위에서 설명한 [웹 서버 앱
 
 [On-Behalf-Of 흐름](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 v2.0 앱 모델 미리 보기에 구현되어 있지 않습니다. 일반 공급 Azure AD 서비스에서 이 흐름이 작동하는 방식을 확인하려면 [GitHub의 On-Behalf-Of 코드 샘플](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

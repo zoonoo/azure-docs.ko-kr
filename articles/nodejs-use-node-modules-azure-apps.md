@@ -1,6 +1,6 @@
-<properties pageTitle="Node.js 모듈 작업" description="Azure 웹 사이트 또는 클라우드 서비스를 사용할 때 Node.js 모듈로 작업하는 방법을 알아봅니다." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Node.js 모듈 작업" description="Azure 웹 사이트 또는 클라우드 서비스를 사용할 때 Node.js 모듈로 작업하는 방법을 알아봅니다." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/20/2015" ms.author="robmcm"/>
 
 
 
@@ -78,4 +78,4 @@ Azure 웹 사이트는 일부 네이티브 모듈을 지원하지 않으며 매�
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

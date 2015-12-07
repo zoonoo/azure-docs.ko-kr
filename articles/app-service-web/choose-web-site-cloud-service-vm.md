@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/10/2015"
+	ms.date="11/19/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교
@@ -153,11 +153,11 @@ GIT, FTP를 사용하여 코드 배포|X||X|
 WebMatrix 지원|X||X|
 서비스 버스, 저장소, SQL 데이터베이스 등의 서비스에 대한 액세스|X|X|X|
 다중 계층 아키텍처의 웹 또는 웹 서비스 계층 호스트|X|X|X|
-다중 계층 아키텍처의 중간 계층 호스트|X|X|X|앱 서비스 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. 미리 보기 [API 앱](../app-service-api/app-service-api-apps-why-best-platform/) 기능은 REST 서비스를 호스트하기 위한 추가 기능을 제공합니다.
+다중 계층 아키텍처의 중간 계층 호스트|X|X|X|앱 서비스 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. 미리 보기 [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 기능은 REST 서비스를 호스트하기 위한 추가 기능을 제공합니다.
 통합된 MySQL-as-a-Service 지원|X|X|X|클라우드 서비스는 ClearDB 제공 항목을 통해 MySQL-as-a-Service를 통합할 수 있지만 관리 포털 워크플로에는 포함되지 않습니다.
 ASP.NET, 클래식 ASP, Node.js, PHP, Python 지원|X|X|X|
 다시 배포하지 않고 여러 인스턴스로 규모 확장|X|X|X|가상 컴퓨터는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 컴퓨터 간에 요청을 라우팅하는 부하 분산 장치를 구성하고 유지 관리 또는 하드웨어 오류로 인해 모든 인스턴스가 동시에 다시 시작되지 않도록 선호도 그룹을 만들어야 합니다.
-SSL 지원|X|X|X|앱 서비스 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](../app-service-web/web-sites-configure-ssl-certificate/)을 참조하세요.
+SSL 지원|X|X|X|앱 서비스 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](../app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
 Visual Studio 통합|X|X|X|
 원격 디버깅|X|X|X|
 TFS를 사용하여 코드 배포|X|X|X|
@@ -204,4 +204,4 @@ ETW 이벤트 수신 가능||X|X|
   [저장소]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -70,9 +70,9 @@ Azure 리소스 관리자는 미리 빌드된 응용 프로그램 템플릿을 �
 
 개발 및 플랫폼 배포에 사용하는 다양한 도구를 활용하여 Azure 템플릿을 시작할 수 있습니다.
 
-### Azure 포털
+### Azure 미리 보기 포털
 
-Azure 포털에서는 가상 컴퓨터와 가상 컴퓨터(미리 보기)를 동시에 배포할 수 있는 옵션을 계속 제공합니다. 또한 Azure 포털에서는 사용자 지정 템플릿 배포도 지원합니다.
+Azure Preview 포털에 클래식 배포 모델로 가상 컴퓨터를 배포하고 동시에 리소스 관리자 배포 모델로 가상 컴퓨터를 배포하는 옵션이 계속 제공됩니다. 또한 Azure Preview 포털에서는 사용자 지정 템플릿 배포도 지원합니다.
 
 ### Azure PowerShell
 
@@ -116,4 +116,4 @@ Azure CLI(Azure 명령줄 인터페이스)에는 **AzureServiceManagement** 모�
 
 [Azure 리소스 관리자 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

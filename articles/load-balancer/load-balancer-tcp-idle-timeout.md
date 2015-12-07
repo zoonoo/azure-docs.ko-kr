@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # 부하 분산 장치에 대한 TCP 유휴 시간 제한 설정을 변경하는 방법
@@ -166,4 +166,4 @@ Azure SDK for .NET 2.4를 사용하여 클라우드 서비스를 업데이트할
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -33,7 +33,7 @@
 
 * Azure AD 팀에서 사용할 수 있는 응용 프로그램을 사용하는 테스트 테넌트 또는 계정에 대한 자격 증명을 제공하여 통합을 테스트합니다.  
 
-* Azure AD 팀이 [Azure AD 동의 프레임워크](https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework)를 사용하여 로그인하고 응용 프로그램에 Azure AD의 인스턴스를 연결하는 방법에 대한 지침을 제공합니다.
+* Azure AD 팀이 [Azure AD 동의 프레임워크](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework)를 사용하여 로그인하고 응용 프로그램에 Azure AD의 인스턴스를 연결하는 방법에 대한 지침을 제공합니다.
 
 * 응용 프로그램을 사용하여 Single Sign-On을 테스트하기 위해 Azure AD 팀에 필요한 추가 지침을 제공합니다.
 
@@ -65,11 +65,11 @@
 
 ##SAML 통합
 
-SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가하기 위해 다음 지침](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)을 사용하여 Azure AD 테넌트로 직접 통합될 수 있습니다. 응용 프로그램 통합이 Azure AD를 사용하여 작동하는지 테스트하면 다음 정보를 <waadpartners@microsoft.com>로 보냅니다.
+SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가하기 위해 다음 지침](active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트로 직접 통합될 수 있습니다. 응용 프로그램 통합이 Azure AD를 사용하여 작동하는지 테스트하면 다음 정보를 <waadpartners@microsoft.com>로 보냅니다.
 
 * Azure AD 팀에서 사용할 수 있는 응용 프로그램을 사용하는 테스트 테넌트 또는 계정에 대한 자격 증명을 제공하여 통합을 테스트합니다.  
 
-* [여기](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)에 설명한 대로 응용 프로그램에 대한 SAML 로그온 URL, 발급자 URL(엔터티 ID) 및 회신 URL(어설션 소비자 서비스) 값을 제공합니다. 일반적으로 SAML 메타데이터 파일의 일부로 이러한 값을 제공하는 경우 또한 해당 파일을 보냅니다.
+* [여기](active-directory-saas-custom-apps.md)에 설명한 대로 응용 프로그램에 대한 SAML 로그온 URL, 발급자 URL(엔터티 ID) 및 회신 URL(어설션 소비자 서비스) 값을 제공합니다. 일반적으로 SAML 메타데이터 파일의 일부로 이러한 값을 제공하는 경우 또한 해당 파일을 보냅니다.
 
 * SAML 2.0을 사용하여 응용 프로그램에서 Azure AD를 ID 공급자로 구성하는 방법에 대한 간략한 설명을 제공합니다. 응용 프로그램에서 셀프 서비스 관리 포털을 통해 Azure AD를 ID 공급자로 구성하도록 지원하는 경우 위에 제공된 자격 증명이 이를 설정할 기능을 포함하도록 합니다.
 
@@ -89,7 +89,7 @@ SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가�
 > 
 > 고객이 응용 프로그램에 등록하거나 구입하기 위해 이동하는 응용 프로그램 등록 URL:
 > 
-> 응용 프로그램을 나열할 범주를 최대 세 가지 선택합니다.(사용 가능한 범주는 [Azure Active Directory 마켓플레이스](https://azure.microsoft.com/ko-KR/marketplace/active-directory/) 참조)
+> 응용 프로그램을 나열할 범주를 최대 세 가지 선택합니다(사용 가능한 범주는 [Azure Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/) 참조).
 > 
 > 응용 프로그램 연결 작은 아이콘(PNG 파일, 45x45px, 단색 배경):
 > 
@@ -97,4 +97,4 @@ SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가�
 > 
 > 응용 프로그램 연결 로고(PNG 파일, 150x122px, 투명 배경색):
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

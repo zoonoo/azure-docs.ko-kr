@@ -130,9 +130,11 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 | 상태 | 설명 |
 | ---- | ----- |
 | 성공 | 암호가 성공적으로 동기화되었습니다. |
-| SourceConnectorNotPresent | 개체를 온-프레미스 Active Directory Connector 공간에서 찾을 수 없습니다. |
+| FilteredByTarget | **다음 로그인할 때 반드시 암호 변경**으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |
 | NoTargetConnection | 메타버스에 또는 Azure AD 커넥터 공간에 개체가 없습니다. |
+| SourceConnectorNotPresent | 개체를 온-프레미스 Active Directory Connector 공간에서 찾을 수 없습니다. |
 | TargetNotExportedToDirectory | Azure AD 커넥터 공간에 있는 개체가 아직 내보내지지 않았습니다. |
+| MigratedCheckDetailsForMoreInfo | 로그 항목 1.0.9125.0 빌드 전에 만들어졌으며 레거시 상태로 표시됩니다. |
 
 
 ### 모든 암호의 전체 동기화를 트리거합니다.
@@ -158,4 +160,4 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -44,6 +44,8 @@
 
 ### /overlay 폴더
 
+- `EngagementBaseOverlay.cs` : `Announcement` 및 `Notification` 오버레이에서 사용되는 기본 코드입니다.
+
 - `EngagementOverlayAnnouncement.xaml` : `Announcement` xaml 디자인.
 
 - `EngagementOverlayAnnouncement.xaml.cs` : `EngagementOverlayAnnouncement.xaml` 연결된 코드.
@@ -55,4 +57,4 @@
 - `EngagementPageOverlay.cs` : `Overlay` 공지 및 알림 표시 코드.
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

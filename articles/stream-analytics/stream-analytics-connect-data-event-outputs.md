@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="스트림 분석 출력 만들기 | Microsoft Azure" 
+	pageTitle="스트림 분석 출력 연결 | Microsoft Azure" 
 	description="스트림 분석 솔루션에 대한 출력 대상에 연결하고 구성하는 방법을 알아봅니다." 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -16,7 +16,7 @@
 	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
-# 스트림 분석 출력 만들기
+# 스트림 분석 출력 소스 연결
 
 ## 스트림 분석 출력 이해 ##
 ---
@@ -306,4 +306,4 @@ Azure 저장소 계정이 작업을 만드는 데 사용되는 것과 동일한 
 [graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
 [graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

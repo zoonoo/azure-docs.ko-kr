@@ -165,13 +165,13 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 이제 Azure가 두 새 도메인 컨트롤러의 IP 주소를 DNS 서버로 사용하도록 가상 컴퓨터에 할당할 수 있게 DNS 서버를 업데이트해야 합니다. 이 절차에서는 가상 네트워크 설정에 대해 표 V(가상 네트워크 설정용) 및 표 M(가상 컴퓨터용) 값을 사용합니다.
 
-1.	[Azure Preview 포털](https://portal.azure.com/)의 왼쪽 창에서 **모두 찾아보기 > 가상 네트워크**를 클릭하고 가상 네트워크의 이름(표 V - 항목 1 - 값 열)을 클릭합니다.
-2.	가상 네트워크에 대한 창에서 **모든 설정**을 클릭합니다.
+1.	Azure Preview 포털의 왼쪽 창에서 **모두 찾아보기 > 가상 네트워크**를 클릭하고 가상 네트워크의 이름(표 V - 항목 1 - 값 열)을 클릭합니다.
+2.	가상 네트워크 창에서 **모든 설정**을 클릭합니다.
 3.	**설정** 창에서 **DNS 서버**를 클릭합니다.
-4.	**DNS 서버** 창에서 다음을 입력합니다.
+4.	**DNS 서버** 창에 다음을 입력합니다.
 	- **주 DNS 서버**: 표 V – 항목 6 – 값 열
 	- **보조 DNS 서버**: 표 V – 항목 7 – 값 열
-5.	Azure 미리 보기 포털의 왼쪽 창에서 **모두 찾아보기 > 가상 컴퓨터**를 클릭합니다.
+5.	Azure Preview 포털의 왼쪽 창에서 **모두 찾아보기 > 가상 컴퓨터**를 클릭합니다.
 6.	**가상 컴퓨터 창**에서 첫 번째 도메인 컨트롤러의 이름(표 M - 항목 1 - 가상 컴퓨터 이름 열)을 클릭합니다.
 7.	가상 컴퓨터의 창에서 **다시 시작**을 클릭합니다.
 8.	첫 번째 도메인 컨트롤러가 시작되면 **가상 컴퓨터 창**에서 두 번째 도메인 컨트롤러의 이름(표 M - 항목 2 - 가상 컴퓨터 이름 열)을 클릭합니다.
@@ -196,7 +196,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 ## 다음 단계
 
-이 워크로드를 계속 구성하려면 [3단계: SQL Server 인프라 구성](virtual-machines-workload-high-availability-LOB-application-phase3.md)으로 진행하세요.
+이 워크로드를 계속 구성하려면 [3단계: SQL Server 인프라 구성](virtual-machines-workload-high-availability-LOB-application-phase3.md)으로 진행합니다.
 
 ## 추가 리소스
 
@@ -210,4 +210,4 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 [Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

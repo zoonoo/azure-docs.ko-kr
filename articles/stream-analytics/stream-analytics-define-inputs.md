@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
-# 스트림 분석 입력 이해
+# 스트림 분석 입력 연결 이해
 
 Azure 스트림 분석 입력은 데이터 원본에 대한 연결로 정의됩니다. 스트림 분석은 작업이 실행 중인 Azure 구독 내부 및 외부의 Azure 소스 이벤트 허브, IoT 허브 및 Blob 저장소와 높은 수준으로 통합됩니다. 데이터가 해당 데이터 원본에 푸시되면 스트림 분석 작업에서 사용되고 실시간으로 처리됩니다. 입력은 데이터 스트림 입력과 참조 데이터 입력의 두 가지 고유한 형식으로 나뉩니다.
 
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

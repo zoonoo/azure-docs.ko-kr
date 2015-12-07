@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/20/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma"/>
 # .NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 .NET DNS 관리 라이브러리와 함께 DNS SDK를 사용하여 DNS 영역, 레코드 집합 및 레코드를 만들거나 삭제하거나 업데이트하는 작업을 자동화할 수 있습니다. 전체 Visual Studio 프로젝트는 [여기](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)서 사용할 수 있습니다.
@@ -102,10 +102,6 @@ Azure DNS는 [Etag](dns-getstarted-create-dnszone.md#Etags-and-tags)라는 낙�
 	}
 ## 다음 단계
 
-[트래픽 관리자란?](traffic-manager-overview.md)
-
-[Azure DNS란?](dns-overview.md)
-
 [Visual Studio SDK 샘플 프로젝트](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

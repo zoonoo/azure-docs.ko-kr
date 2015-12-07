@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/31/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # 리소스 링크 - 템플릿 스키마
@@ -54,7 +54,7 @@
 
 | 이름 | 형식 | 필수 | 허용된 값 | 설명 |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| tagetId | string | 예 | | 연결할 대상 리소스의 식별자입니다. |
+| 대상 ID | string | 예 | | 연결할 대상 리소스의 식별자입니다. |
 | 정보 | string | 아니요 | 512자 | 잠금에 대한 설명입니다. |
 
 
@@ -129,4 +129,4 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
 
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -6,7 +6,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림
 
 서명된 푸시 인증서를 생성하기 위해 Apple에서 사용하는 CSR(인증서 서명 요청) 파일을 생성합니다.
 
-1. Mac에서 Keychain Access 도구를 실행합니다. **유틸리티** 폴더 또는 **다른** 폴더에서 Keychain Access 도구를 열 수 있습니다.
+1. Mac에서 Keychain Access 도구를 실행합니다. **Utilities** 폴더 또는 **Other** 폴더에서 Keychain Access 도구를 열 수 있습니다.
 
 2. **Keychain Access**를 클릭하고 **Certificate Assistant**를 확장한 다음 **Request a Certificate from a Certificate Authority...**를 클릭합니다.
 
@@ -37,7 +37,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
 	* **이름**: **응용 프로그램 ID 설명** 섹션의 **이름** 필드에서 앱에 대한 설명이 포함된 이름을 입력합니다.
 	
-	* **번들 식별자**: **명시적 앱 ID**에 [앱 배포 가이드](http://go.microsoft.com/fwlink/?LinkId=613485)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용할 조직 식별자 및 제품 이름과 일치해야 합니다. 아래 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용할 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
+	* **번들 식별자**: **명시적 앱 ID**에 [앱 배포 가이드](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용할 조직 식별자 및 제품 이름과 일치해야 합니다. 아래 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용할 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
 	
 	* **푸시 알림**: **앱 서비스** 섹션에서 **푸시 알림** 옵션을 선택합니다.
 
@@ -79,7 +79,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
-   	서명 인증서가 다운로드되어 컴퓨터의 다운로드 폴더에 저장됩니다.
+   	인증서가 다운로드되어 컴퓨터의 다운로드 폴더에 저장됩니다.
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
@@ -135,4 +135,4 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

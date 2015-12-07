@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/24/2015"
 	ms.author="jgao"/>
 
 # Azure 미리 보기 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -157,7 +157,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 ##클러스터 크기 조정
 클러스터 크기 조정 기능을 사용하여 클러스터를 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 작업자 노드 수를 변경합니다.
 
->[AZURE.NOTE]HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 포털 인터페이스에 대해 알아보기](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)를 참조하세요.
+>[AZURE.NOTE]HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 나열 및 표시](hdinsight-adminster-use-management-portal/#list-and-show-clusters)를 참조하세요.
 
 HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노드 수를 변경하는 영향은 다음과 같습니다.
 
@@ -277,7 +277,7 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹과 생성�
 - 클러스터 목록에 **리소스 그룹** 열이 있습니다.
 - 클러스터 **Essential** 타일.  
 
-[클러스터 나열 및 표시](list-and-show-clusters)를 참조하세요.
+[클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
    
 ##HDInsight 쿼리 콘솔 열기
 
@@ -339,7 +339,7 @@ HDInsight 클러스터 블레이드의 __사용량__ 섹션은 해당 클러스�
 
 ##Yarn UI 열기
 
-Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 **Hadoop UI**를 클릭합니다. [HDInsight 쿼리 콘솔 열기](#open-hdinsight-query-console)를 참조하세요.
+Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 **Yarn UI**를 클릭합니다. [HDInsight 쿼리 콘솔 열기](#open-hdinsight-query-console)를 참조하세요.
 
 ##RDP를 사용하여 클러스터에 연결
 
@@ -400,4 +400,4 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

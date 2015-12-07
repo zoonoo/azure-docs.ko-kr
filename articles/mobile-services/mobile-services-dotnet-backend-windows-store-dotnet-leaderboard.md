@@ -2,9 +2,9 @@
 	pageTitle=".NET 백 엔드를 사용하여 Windows 스토어 Leaderboard 앱 만들기 | Azure 모바일 서비스" 
 	description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 Leaderboard 앱을 빌드하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
-	authors="MikeWasson" 
-	manager="dwrede" 
-	editor="" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe" 
 	services="mobile-services"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="glenga"/>
 
 # Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기
@@ -762,4 +762,4 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

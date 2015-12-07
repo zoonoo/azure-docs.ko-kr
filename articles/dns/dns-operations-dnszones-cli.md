@@ -23,7 +23,8 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 이 가이드에서는 DNS 영역을 관리하는 방법을 보여 줍니다. DNS 영역을 관리하기 위해 수행하는 작업 시퀀스를 이해하는 데 도움이 됩니다.
-
+ 
+ 
 ## 새 DNS 영역 만들기
 
 도메인을 호스트할 새 DNS 영역을 만들려면 `azure network dns zone create`를 사용합니다.
@@ -76,4 +77,4 @@ Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으
 
 [.NET SDK로 작업 자동화](dns-sdk.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

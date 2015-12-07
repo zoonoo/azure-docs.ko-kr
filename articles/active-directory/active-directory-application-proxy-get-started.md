@@ -3,8 +3,8 @@
 	description="Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법을 설명합니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="msStevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # 온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법
 
@@ -61,4 +61,4 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 * [조직으로 Azure 등록](../sign-up-organization.md)
 * [Azure ID](../fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

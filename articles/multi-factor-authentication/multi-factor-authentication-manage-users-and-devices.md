@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
@@ -80,4 +80,4 @@
 <li>위쪽에서 사용자를 클릭합니다.</li>
 <li>페이지의 아래쪽에서 Multi-Factor Auth 관리를 클릭합니다. 다단계 인증 페이지가 열립니다. <li>관리하고 이름 옆에 있는 상자에 체크 표시하려는 사용자를 찾습니다. 위쪽에서 보기를 변경해야 할 수도 있습니다.</li> <li>이렇게 하면 오른쪽에 **사용자 설정 관리** 링크가 표시됩니다. 이 단추를 클릭합니다.</li> <li>일시 중단된 모든 장치에서 Multi-factor Authentication 복원에 체크 표시합니다.</li> ![앱 암호 삭제](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>저장을 클릭합니다.</li> <li>닫기를 클릭합니다.</li>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

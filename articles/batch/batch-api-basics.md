@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 배치에 대한 API 기본 사항 | Microsoft Azure"
-	description="개발자의 관점에서 배치 서비스와 해당 API에 대한 기본 개념을 알아봅니다."
+	pageTitle="Azure 배치 기능 개요 | Microsoft Azure"
+	description="개발자의 관점에서 배치 서비스와 해당 API에 대한 기능을 알아봅니다."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="10/15/2015"
+	ms.date="11/19/2015"
 	ms.author="yidingz;v-marsma"/>
 
-# Azure 배치에 대한 API 기본 사항
+# Azure 배치 기능 개요
 
 이 문서에서는 Azure 배치 서비스의 핵심 API 기능에 대한 기본 개요를 제공합니다. 분산 컴퓨팅 솔루션을 개발할 때 [Batch REST][batch_rest_api] API를 사용하든 [Batch .NET][batch_net_api] API를 사용하든 상관없이 대부분 아래 설명된 엔터티와 기능을 사용하게 됩니다.
 
-> [AZURE.TIP]배치에 대한 보다 수준 높은 기술 개요는 [Azure 배치 기술 개요](batch-technical-overview.md)를 참조하세요.
+> [AZURE.TIP]배치에 대한 보다 수준 높은 기술 개요는 [Azure 배치 기본 사항](batch-technical-overview.md)을 참조하세요.
 
 ## <a name="workflow"></a>배치 서비스의 워크플로
 
@@ -354,4 +354,4 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

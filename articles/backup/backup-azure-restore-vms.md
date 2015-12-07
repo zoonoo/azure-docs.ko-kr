@@ -101,8 +101,36 @@ Azure에 DSRM 모드가 없으면 문제가 됩니다. 따라서 이러한 VM을
 
 [USN 롤백 문제](https://technet.microsoft.com/library/dd363553) 및 수정을 위한 제안 전략에 대해 알아보세요.
 
+## 특수 네트워크 구성을 가진 Vm 복원
+Azure 백업은 다음 가상 컴퓨터의 특수 네트워크 구성에 대한 백업을 지원합니다.
+
+- 부하 분산 장치에서의 VM(내부 및 외부)
+- 다중의 예약된 IP가 있는 VM
+- 다중 NIC가 있는 VM
+
+이러한 구성은 복원 중 다음의 고려 사항을 위임합니다.
+
+>[AZURE.TIP]VM 사후 복원의 특수 네트워크 구성을 다시 만들려면 PowerShell 기반 복원 흐름을 사용하십시오.
+
+### UI에서 복원:
+UI에서 복원하는 동안 **항상 새 클라우드 서비스를 선택**합니다. 포털은 복원 흐름 동안 필수 매개 변수만 사용하므로 UI를 사용하여 복원된 VM이 보유하고 있는 특수 네트워크 구성을 손실할 수 있음에 유의하세요. 즉, 복원 VM은 부하 분산 장치 또는 다중 NIC 또는 다중 예약된 IP의 구성이 없는 기본 VM입니다.
+
+### PowerShell에서 복원:
+PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만들지 않을 수 있습니다. 이는 앞에서 언급된 특수 네트워크 구성을 요구하는 가상 컴퓨터를 복원하는 경우에 유용합니다.
+
+가상 컴퓨터 사후 복원 디스크를 완전히 다시 만들려면 다음이 단계를 따르십시오.
+
+1. [Azure 백업 PowerShell](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm)을 사용하여 백업 자격 증명 모음에서 디스크 복원
+
+2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중의 예약된 IP에 필요한 VM 구성을 만들어 원하는 구성의 VM을 만드는데 사용합니다.
+	- [내부 부하 분산 장치](https://azure.microsoft.com/ko-KR/documentation/articles/load-balancer-internal-getstarted/)를 사용하여 클라우드 서비스에서 VM 만들기
+	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/ko-KR/documentation/articles/load-balancer-internet-getstarted)에 연결할 VM 만들기
+	- [다중 NIC](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics)를 사용하여 VM 만들기
+	- [다중의 예약된 IP](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)가 있는 VM 만들기
+  
+
 ## 다음 단계
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -78,11 +78,11 @@ Azure에 대한 온-프레미스 간 및 온-프레미스 간 복제는 *Hyper-V
 ## 버전 지원
 
 ### 어떤 버전의 Windows Server 호스트 및 클러스터가 지원됩니까?
-Hyper-V 복제본을 선택하여 Hyper-V 사이트 사이에서 복제와 보호를 활성화할 때 Windows Server 2012 및 Windows Server 2012 R2를 사용할 수 있습니다.
+Hyper-V 복제본을 선택하여 두 개의 온-프레미스 Hyper-V 사이트 사이에서 복제와 보호를 활성화할 때 Windows Server 2012 및 Windows Server 2012 R2를 사용할 수 있습니다. Windows Server 2012 R2는 Hyper-V 서버에서 Azure로 복제를 설정하려는 경우 필요합니다.
 
 
-### 어떤 버전의 Hyper-V 게스트 운영 체제가 지원됩니까?
-지원되는 게스트 운영 체제의 최신 목록은 [가상 컴퓨터 및 게스트 운영 체제에 대하여](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)라는 제목의 항목에서 볼 수 있습니다.
+### 어떤 버전의 게스트 운영 체제가 지원됩니까?
+온-프레미스에서 온-프레미스 보호에 대해서는 [가상 컴퓨터 및 게스트 운영 체제 정보](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)라는 제목의 항목에서 지원되는 게스트 운영 체제의 최신 목록을 볼 수 있습니다. Hyper-V-Azure 시나리오에 대해서는 Azure Site Recovery가 Azure에서 지원하는 모든 게스트 운영 체제를 지원합니다. VMware-Azure 시나리오에 대해서는 [이 문서](site-recovery-vmware-to-azure.md#before-you-start)를 참조하세요.
 
 ### 클라이언트 운영 체제에서 Hyper-V를 실행하는 경우 가상 컴퓨터 보호를 구성할 수 있습니까?
 
@@ -114,7 +114,7 @@ DR에 대해 서비스 공급자가 소유하고 있는 사이트를 사용할 �
 예.
 
 ### 현재 어떤 플랫폼이 지원됩니까?
-저희는 Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반의 Hyper 2012 이상의 배포를 지원합니다. ASR 및 Azure Pack 통합에 대한 자세한 내용은 [가상 컴퓨터에 대한 보호 구성](https://technet.microsoft.com/library/dn850370.aspx)을 참조하세요.
+저희는 Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반의 Hyper 2012 이상의 배포를 지원합니다. ASR 및 Azure Pack 통합에 대한 자세한 내용은 [가상 컴퓨터에 대한 보호 구성](https://technet.microsoft.com/library/dn850370.aspx)을 참조하십시오.
 
 ### 단일 Azure Pack 및 단일 VMM 서버 배포도 지원합니까?
 예, 서비스 공급자 사이트 사이의 DR 및 서비스 공급자 사이트와 Azure 사이의 DR, 두 가지 시나리오에 대해 단일 SCVMM 배포가 지원됩니다.
@@ -124,7 +124,7 @@ DR에 대해 서비스 공급자가 소유하고 있는 사이트를 사용할 �
 ## Hyper-v사이트와 Azure 간 배포(VMM 없이)
 
 ### ASR는 사이트 대 사이트 VPN을 활성화해야 합니까?
-아니요. 필수는 아닙니다. ASR는 공용 인터넷을 통해서도 작동합니다. 그러나 사이트 대 사이트 VPN을 구성한 경우 이전과 동일한 방식으로 가상 컴퓨터를 통해 장애 조치에 액세스할 수 있습니다. Azure에 재해 복구를 활성화할 때 네트워킹 고려사항에 대한 자세한 내용은 [재해 복구 사이트로 Microsoft Azure용 네트워킹 인프라 설정 블로그](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)를 참조하세요.
+아니요. 필수는 아닙니다. ASR는 공용 인터넷을 통해서도 작동합니다. 그러나 사이트 대 사이트 VPN을 구성한 경우 이전과 동일한 방식으로 가상 컴퓨터를 통해 장애 조치에 액세스할 수 있습니다. Azure에 재해 복구를 활성화할 때 네트워킹 고려사항에 대한 자세한 내용은 [재해 복구 사이트로 Microsoft Azure용 네트워킹 인프라 설정 블로그](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)를 참조하십시오.
 
 ### ASR 보호 충전 외에 요금을 지불해야 합니까?
 안정적인 상태에서 지리적 중복 Azure 저장소에 변경 사항을 복제하며, 어떤 Azure IaaS 가상 컴퓨터 요금도 지불할 필요가 없습니다(큰 장점). Azure에 장애 조치를 수행하면 Azure에서 소비한 계산 리소스에 대한 요금이 청구된 후에 ASR가 Azure IaaS 가상 컴퓨터를 자동으로 만듭니다.
@@ -148,12 +148,6 @@ ASR를 사용하여 모든 지사의 재해 복구 요구사항을 관리할 때
 ### Hyper-V 서버는 도메인 구성원이어야 합니까?
 
 서버는 도메인에 있을 필요가 없습니다
-
-### 어떤 버전의 Windows Server 호스트 및 클러스터가 지원됩니까?
-Hyper-V 사이트 및 Azure 사이에서 ASR 및 Hyper-V 복제본을 사용하는 경우 Windows Server 2012 및 Windows Server 2012 R2를 사용할 수 있습니다.
-
-### 어떤 버전의 게스트 운영 체제가 지원됩니까?
-지원되는 게스트 운영 체제의 최신 목록은 [가상 컴퓨터 및 게스트 운영 체제에 대하여](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)라는 제목의 문서에서 볼 수 있습니다.
 
 ## 두 VMM 데이터 센터 간에 배포
 
@@ -195,7 +189,7 @@ NetApp, EMC 및 HP는 해당 SMI-S 공급자에 대한 업데이트로 Azure 사
 예, 예, 예!
 
 ### Net-net: 이것을 작동시키려면 온-프레미스를 설치해야 합니까?
-(SAN) 배열 기반 복제를 사용하여 Hyper-V 사이트 간에 복제와 보호를 활성화하면 SCVMM 서버에 ASR DR 공급자만 설치하면 됩니다. 이것은 또한 인터넷에 연결이 필요한 *유일한* 호스트임을 기억하세요.
+(SAN) 배열 기반 복제를 사용하여 Hyper-V 사이트 간에 복제와 보호를 활성화하면 SCVMM 서버에 ASR DR 공급자만 설치하면 됩니다. 이것은 또한 인터넷에 연결이 필요한 *유일한* 호스트임을 기억하십시오.
 
 
 또한 배열은 각 저장소 공급업체에서 제공하는 업데이트된 SMI-S 공급자를 사용하여 SCVMM에 의해 발견되어야 합니다.
@@ -256,4 +250,4 @@ ASR의 배포를 시작하려면:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

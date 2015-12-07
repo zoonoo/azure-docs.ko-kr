@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="11/23/2015"
    ms.author="chackdan"/>
 
 # 서비스 패브릭 클러스터 업그레이드
@@ -74,15 +74,17 @@ Microsoft는 클러스터에서 실행하는 패브릭 코드 및 구성을 유�
 
 1. **적절한 부하 분산 장치에 새 프로브 추가**
 
- 포털을 사용하여 클러스터를 배포한 경우 부하 분산 장치는 각 노드 형식에 대해 "loadBalancer 0", "loadBalancer-1" 등으로 이름이 지정됩니다. 부하 분산 장치 이름은 리소스 그룹(RG)에만 고유하므로 주어진 RG 아래에 대해 검색하는 것이 가장 좋습니다.
+    포털을 사용하여 클러스터를 배포한 경우 부하 분산 장치는 각 노드 형식에 대해 "loadBalancer 0", "loadBalancer-1" 등으로 이름이 지정됩니다. 부하 분산 장치 이름은 리소스 그룹(RG)에만 고유하므로 주어진 RG 아래에 대해 검색하는 것이 가장 좋습니다.
 
- ![AddingProbes][addingProbes]
+    ![AddingProbes][AddingProbes]
+
 
 2. **부하 분산 장치에 새 규칙 추가**
 
-  동일한 부하 분산 장치에 이전 단계에서 만든 프로브를 사용하여 새 규칙을 추가합니다.
+    동일한 부하 분산 장치에 이전 단계에서 만든 프로브를 사용하여 새 규칙을 추가합니다.
 
-  ![AddingLBRules][AddingLBRules]
+    ![AddingLBRules][AddingLBRules]
+
 
 ### 배치 속성
 
@@ -92,7 +94,7 @@ Microsoft는 클러스터에서 실행하는 패브릭 코드 및 구성을 유�
 
 ### 용량 메트릭
 
-각 노드 형식의 경우 부하를 보고하도록 사용하려는 사용자 용량 메트릭을 응용 프로그램에 추가할 수 있습니다. 부하 보고를 위한 용량 메트릭 사용에 대한 세부 정보는 [동적 부하 보고 개요](service-fabric-resource-balancer-dynamic-load-reporting.md)를 참조하세요.
+각 노드 형식의 경우 부하를 보고하도록 사용하려는 사용자 용량 메트릭을 응용 프로그램에 추가할 수 있습니다. 로드 보고를 위한 용량 메트릭 사용에 대한 세부 정보는 [동적 로드 보고 개요](service-fabric-resource-balancer-dynamic-load-reporting.md)를 참조하세요.
 
 ### 클러스터를 구성하는 가상 컴퓨터에 OS 패치 적용
 들어오는 기능입니다. VM에 패치해야 할 의무가 있습니다. 한 번에 하나의 VM에 이를 수행하여 한 번에 둘 이상의 VM이 작동 중지되지 않도록 해야 합니다.
@@ -103,7 +105,7 @@ Microsoft는 클러스터에서 실행하는 패브릭 코드 및 구성을 유�
 
 ## 다음 단계
 
-- [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md) 방법 알아보기
+- [클러스터를 확장 및 축소](service-fabric-cluster-scale-up-down.md)하는 방법 알아보기
 - [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에 대해 알아보기
 
 <!--Image references-->
@@ -111,4 +113,4 @@ Microsoft는 클러스터에서 실행하는 패브릭 코드 및 구성을 유�
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

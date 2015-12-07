@@ -1,20 +1,20 @@
-**Virtual machine disks: per account limits**
+**가상 컴퓨터 디스크: 계정 제한당**
 
-Resource|Default Limit
+리소스|기본 제한
 ---|---
-Total disk capacity per account|35 TB
-Total snapshot capacity per account|10 TB
-Max bandwidth per account (ingress + egress<sup>1</sup>)|<=50 Gbps
+계정당 총 디스크 용량|35TB
+계정당 총 스냅숏 용량|10TB
+계정당 최대 대역폭(수신 + 송신<sup>1</sup>)|<=50 Gbps
 
-<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
+<sup>1</sup>*수신*은 저장소 계정으로 전송되는 모든 데이터(요청)를 가리킵니다. *송신*은 저장소 계정에서 수신되는 모든 데이터(응답)를 가리킵니다.
 
-**Virtual machine disks: per disk limits**
+**가상 컴퓨터 디스크: 디스크 제한당**
 
-Premium Storage Disk Type | P10 | P20 | P30
+프리미엄 저장소 디스크 유형 | P10 | P20 | P30
 ---|---|---|---
-Disk size | 128 GiB | 512 GiB | 1024 GiB (1 TB)
-Max IOPS per disk | 500 | 2300 | 5000
-Max throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second
-Max number of highly utilized disks | 62 | 41 | 31
+디스크 크기 | 128GiB | 512GiB | 1024GiB(1TB)
+디스크당 최대 IOPS | 500 | 2300 | 5000
+디스크당 최대 처리량 | 초당 100MB | 초당 150MB | 초당 200MB
+자주 활용된 디스크의 최대 수 | 62 | 41 | 31
 
-
+<!---HONumber=AcomDC_1125_2015-->

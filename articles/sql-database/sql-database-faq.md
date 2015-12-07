@@ -72,6 +72,6 @@ Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경�
 백업 저장소는 지정 시간 복원 및 지역 복원에 사용되는 자동 데이터베이스 백업과 관련된 저장소입니다. Microsoft Azure SQL 데이터베이스에서는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%까지 백업 저장소가 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소가 제공됩니다. 데이터베이스가 제공된 백업 저장소를 초과하는 경우 Azure 지원에 문의하여 보존 기간을 줄이도록 선택하거나 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금으로 청구되는 추가 백업 저장소에 대해 비용을 지불할 수 있습니다. RA-GRS 청구에 대한 자세한 내용은 저장소 가격 세부 정보를 참조하세요.
 
 ## Web/Business에서 새 서비스 계층으로 옮기려고 합니다. 알아야 할 사항은 무엇인가요?
-Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니다. Basic, Standard, Premium 및 Elastic 계층이 사용되지 않는 Web 및 Business 데이터베이스를 대체합니다. 이 전환 기간에 도움이 될 추가 FAQ를 제공합니다. [Web 및 Business 버전 지원 종료 FAQ](sql-database-web-business-faq.md)
+Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니다. Basic, Standard, Premium 및 Elastic 계층이 사용되지 않는 Web 및 Business 데이터베이스를 대체합니다. 이 전환 기간에 도움이 될 추가 FAQ를 제공합니다. [Web 및 Business 버전 지원 종료 FAQ](sql-database-web-business-sunset-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server 및 Azure Site Recovery를 사용한 재해 복구" 
+	pageTitle="SQL Server 및 Azure Site Recovery를 사용한 재해 복구 | Microsoft Azure" 
 	description="Azure Site Recovery는 보조 온-프레미스 사이트 또는 Azure에 SQL Server의 복제, 장애 조치 및 복구를 조정합니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="11/18/2015" 
 	ms.author="raynew"/>
 
 
@@ -32,7 +32,7 @@
 
 1. 독립 실행형 SQL Server: SQL Server 및 모든 데이터베이스는 단일 컴퓨터(물리적 컴퓨터 또는 가상 컴퓨터)에서 호스트됩니다. 가상화된 경우 로컬 고가용성(HA)을 위해 호스트 클러스터링이 사용되며 게스트 수준 HA는 구현되지 않습니다. 
 2.	SQL Server 장애 조치(Failover) 클러스터링 인스턴스(즉, 항상 ON FCI): 이 설정에서는 공유된 디스크와 함께 SQL Server 인스턴스의 노드가 2개 이상 Windows 장애 조치 클러스터에 구성됩니다. SQL 장애 조치(failover) 클러스터 인스턴스 중 하나가 작동 중단되는 경우 클러스터는 SQL을 다른 인스턴스로 장애 조치할 수 있습니다. 이 설정은 일반적으로 기본 사이트에서 HA를 위해 사용됩니다. 공유 저장소 계층에서 정전이나 오류에 대해서는 보호하지 않습니다. 공유 디스크는 ISCSI, 파이버 채널 또는 공유 VHDx를 사용하여 구현할 수 있습니다.
-3.	SQL Always ON 가용성 그룹: 이 설정에서 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 두 노드를 설정합니다.
+3.	SQL Always ON 가용성 그룹: 이 설정에서 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 2개의 노드를 설정합니다.
 
 SQL Server는 또한 Enterprise 버전에서 데이터베이스를 원격 사이트로 복구하기 위한 네이티브 재해 복구 기술도 제공합니다. 해당되는 경우 Azure Site Recovery 기반 재해 복구 계획을 구축하기 위해 다음과 같은 네이티브 SQL 재해 복구 기술을 활용하고 통합합니다.
 
@@ -65,8 +65,8 @@ SQL Server는 또한 Enterprise 버전에서 데이터베이스를 원격 사이
 
 **기능** |**세부 정보** | **SQL Server 버전** 
 ---|---|---
-**AlwaysOn 가용성 그룹** | <p>SQL Server의 여러 독립 실행형 인스턴스는 여러 노드가 있는 장애 조치(failover) 클러스터에서 실행됩니다.</p> <p>SQL Server 인스턴스에서 복사(미러링)할 수 있는 장애 조치(failover) 그룹으로 데이터베이스를 그룹화하여 공유 저장소가 필요하지 않습니다.</p> <p>주 사이트 및 하나 이상의 보조 사이트 간에 재해 복구를 제공합니다. 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 두 노드를 설정할 수 있습니다.</p> | SQL Server 2014/2012 Enterprise 버전
-**장애 조치 클러스터링(AlwaysOn FCI)** | <p>SQL Server는 온-프레미스 SQL Server 작업의 고가용성을 위해 Windows 장애 조치(failover) 클러스터링을 활용합니다.</p><p>공유 디스크를 사용하는 SQL Server의 인스턴스를 실행하는 노드는 장애 조치(failover) 클러스터에서 구성됩니다. 인스턴스가 작동 중단되는 경우 클러스터는 다른 인스턴스로 장애 조치(failover)됩니다.</p> <p>클러스터는 공유 저장소의 오류 또는 중단을 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 공유 VHDX로 구현할 수 있습니다.</p> | SQL Server Enterprise 버전</p><p>SQL Server Standard 버전(노드가 두 개로 제한됨)
+**AlwaysOn 가용성 그룹** | <p>SQL Server의 여러 독립 실행형 인스턴스는 여러 노드가 있는 장애 조치(failover) 클러스터에서 실행됩니다.</p> <p>SQL Server 인스턴스에서 복사(미러링)할 수 있는 장애 조치(failover) 그룹으로 데이터베이스를 그룹화하여 공유 저장소가 필요하지 않습니다.</p> <p>기본 사이트 및 하나 이상의 보조 사이트 간에 재해 복구를 제공합니다. 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 두 노드를 설정할 수 있습니다.</p> | SQL Server 2014/2012 Enterprise 버전
+**장애 조치 클러스터링(AlwaysOn FCI)** | <p>SQL Server는 온-프레미스 SQL Server 작업의 고가용성을 위해 Windows 장애 조치(failover) 클러스터링을 활용합니다.</p><p>공유 디스크를 사용하는 SQL Server의 인스턴스를 실행하는 노드는 장애 조치(failover) 클러스터에서 구성됩니다. 인스턴스가 작동 중단되는 경우 클러스터는 다른 인스턴스로 장애 조치(failover)됩니다.</p> <p>클러스터는 공유 저장소의 오류 또는 중단을 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 공유 VHDX로 구현할 수 있습니다.</p> | SQL Server Enterprise 버전</p> <p>SQL Server Standard 버전(노드가 두 개로 제한됨)
 **데이터베이스 미러링(높은 보안 모드)** | 하나의 보조 복사본으로 단일 데이터베이스를 보호합니다. 높은 보안(동기) 및 고성능(비동기) 복제 모드에서 모두 사용할 수 있습니다. 장애 조치 클러스터가 필요하지 않습니다. | <p>SQL Server 2008 R2</p><p>SQL Server Enterprise 모든 버전</p>
 **독립 실행형 SQL Server** | SQL Server 및 데이터베이스는 단일 서버(실제 또는 가상)에서 호스팅됩니다. 호스트 클러스터링은 가상 서버인 경우 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 없습니다. | Enterprise 또는 Standard 에디션
 
@@ -75,7 +75,7 @@ SQL Server는 또한 Enterprise 버전에서 데이터베이스를 원격 사이
 
 다음 표에서는 사이트 복구 배포에 SQL Server BCDR 기술을 통합하기 위한 권장 사항을 요약합니다.
 
-**버전** |**에디션** | **배포**웹사이트를 | **온-프레미스에서 온-프레미스로** | **온-프레미스에서 Azure로** 
+**버전** |**에디션** | **배포웹사이트를** | **온-프레미스에서 온-프레미스로** | **온-프레미스에서 Azure로** 
 ---|---|---|---|---
 SQL Server 2014 또는 2012 | Enterprise | 장애 조치 클러스터 인스턴스 | AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹
  | Enterprise | 고가용성을 위한 AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹
@@ -83,7 +83,7 @@ SQL Server 2014 또는 2012 | Enterprise | 장애 조치 클러스터 인스턴�
  | Enterprise 또는 Standard | 독립 실행형 | 사이트 복구 복제 | 사이트 복구 복제 
 SQL Server 2008 R2 | Enterprise 또는 Standard | 장애 조치 클러스터 인스턴스(FCI) | 로컬 미러를 사용하는 사이트 복구 복제 | 로컬 미러를 사용하는 사이트 복구 복제
  | Enterprise 또는 Standard | 독립 실행형 | 사이트 복구 복제 | 사이트 복구 복제
-SQL Server(모든 버전) | Enterprise 또는 Standard | 장애 조치 클러스터 인스턴스 - DTC 응용 프로그램 | 사이트 복구 복제 | 지원되지 않음
+SQL Server(모든 버전) | Enterprise 또는 Standard | 장애 조치(failover) 클러스터 인스턴스 - DTC 응용 프로그램 | 사이트 복구 복제 | 지원되지 않음
 
 ## 배포 필수 조건
 
@@ -105,7 +105,7 @@ SQL Server(모든 버전) | Enterprise 또는 Standard | 장애 조치 클러스
 
 이 문서의 지침에서는 도메인 컨트롤러를 보조 위치에서 사용할 수 있다고 가정합니다. AD DR 솔루션 지침은 [여기](http://aka.ms/asr-ad)에서 확인할 수 있습니다.
 
-##SQL AlwaysOn 가용성 그룹의 보호 설정
+## SQL AlwaysOn을 Azure에 통합
 
 ### 온-프레미스와 Azure 간
 
@@ -126,16 +126,16 @@ ASR 자격 증명 모음을 표시하면 '보호된 항목' 탭에 'SQL Servers'
 - 온-프레미스 SQL Server와 Azure에서 실행되는 SQL server 간 SQL 가용성 그룹 설정
 - 온-프레미스 SQL Server에 PowerShell 원격을 사용하도록 설정해야 합니다. VMM Server는 SQL Server에 원격 PowerShell 호출을 수행할 수 있어야 함
 - 온-프레미스 SQL Server에서 최소한 다음과 같은 사용 권한이 있는 SQL 사용자 그룹에 사용자 계정을 추가해야 합니다.
-	- 가용성 그룹 수정 - [참조 1](https://msdn.microsoft.com/ko-KR/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/ko-KR/library/ff878601.aspx#Anchor_3)
-	- 데이터베이스 수정 - [참조 1](https://msdn.microsoft.com/ko-KR/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP - [참조 1](https://msdn.microsoft.com/ko-KR/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/ko-KR/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [참조 1](https://msdn.microsoft.com/ko-KR/library/ff877956.aspx#Security)
 - 이전 단계의 계정에 대해 VMM Server에 실행 계정을 만들어야 함
 - 온-프레미스 및 Azure 가상 컴퓨터에서 실행되는 SQL Server에 SQL PS 모듈을 설치해야 함
 - Azure에서 실행되는 가상 컴퓨터에 VM 에이전트를 설치해야 함
 - NTAUTHORITY\\시스템은 Azure의 가상 컴퓨터에서 실행되는 SQL Server에 다음과 같은 권한이 있어야 함
-	- 가용성 그룹 수정 - [참조 1](https://msdn.microsoft.com/ko-KR/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/ko-KR/library/ff878601.aspx#Anchor_3)
-	- 데이터베이스 수정 - [참조 1](https://msdn.microsoft.com/ko-KR/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP - [참조 1](https://msdn.microsoft.com/ko-KR/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/ko-KR/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [참조 1](https://msdn.microsoft.com/ko-KR/library/ff877956.aspx#Security)
 
-##### SQL Server 추가
+##### 1\. SQL Server 추가
 
 새 SQL Server를 추가하려면 SQL 추가를 클릭합니다.
 
@@ -146,17 +146,17 @@ SQL Server 및 VMM 정보와 SQL Server를 관리하는 사용할 자격 증명�
 ![SQL 대화 상자 추가](./media/site-recovery-sql/add-sql-dialog.png)
 
 ###### 매개 변수
-1. 이름: 이 SQL Server를 가리키는 데 사용할 이름
-2. SQL Server(FQDN): 추가하려는 원본 SQL Server의 FQDN(정규화된 도메인 이름) SQL Server를 장애 조치(failover) 클러스터에 설치한 경우 클러스터의 FQDN을 입력합니다. 클러스터 노드의 FQDN은 입력하지 않습니다. 
-3. SQL Server 인스턴스: 기본 SQL 인스턴스를 선택하거나 사용자 지정 SQL 인스턴스의 이름을 입력합니다.
-4. VMM 서버: 이미 ASR(Azure Site Recovery)에 등록된 VMM Server 중 하나를 선택합니다. ASR는 이 VMM 서버를 사용하여 SQL Server와 통신합니다.
-5. 실행 계정: 위에서 선택한 VMM 서버에서 만든 실행 계정 중 하나의 이름을 입력합니다. 이 실행 계정은 SQL Server에 액세스하는 데 사용하며 SQL Server의 가용성 그룹에서 읽기 및 장애 조치(failover) 권한이 있어야 합니다. 
+ - 이름: 이 SQL Server를 가리키는 데 사용할 이름
+ - SQL Server(FQDN): 추가하려는 원본 SQL Server의 FQDN(정규화된 도메인 이름) SQL Server를 장애 조치(failover) 클러스터에 설치한 경우 클러스터의 FQDN을 입력합니다. 클러스터 노드의 FQDN은 입력하지 않습니다. 
+ - SQL Server 인스턴스: 기본 SQL 인스턴스를 선택하거나 사용자 지정 SQL 인스턴스의 이름을 입력합니다.
+ - VMM 서버: 이미 ASR(Azure Site Recovery)에 등록된 VMM Server 중 하나를 선택합니다. ASR는 이 VMM 서버를 사용하여 SQL Server와 통신합니다.
+ - 실행 계정: 위에서 선택한 VMM 서버에서 만든 실행 계정 중 하나의 이름을 입력합니다. 이 실행 계정은 SQL Server에 액세스하는 데 사용하며 SQL Server의 가용성 그룹에서 읽기 및 장애 조치(failover) 권한이 있어야 합니다. 
 
 SQL Server를 추가하면 'SQL Servers' 탭에 표시됩니다.
 
 ![SQL Server 목록](./media/site-recovery-sql/sql-server-list.png)
 
-##### SQL 가용성 그룹 추가
+##### 2\. SQL 가용성 그룹 추가
 
 SQL Server를 추가한 다음에는 ASR에 가용성 그룹을 추가해야 합니다. 그러려면 이전 단계에서 추가한 SQL Server 안을 드릴다운하고 'SQL 가용성 그룹 추가'를 클릭합니다.
 
@@ -170,7 +170,7 @@ SQL 가용성 그룹은 Azure에서 하나 이상의 가상 컴퓨터로 복제�
 
 >[AZURE.NOTE]위 단계에서 추가한 SQL Server의 기본 가용성 그룹만 ASR에 추가할 수 있습니다. 가용성 그룹을 SQL Server의 기본으로 지정하거나 추가한 다음 SQL Server에 가용성 그룹을 추가한 경우 SQL Server에서 사용 가능한 새로 고침 옵션을 사용하여 새로 고칩니다.
 
-#### 복구 계획 만들기
+#### 3\. 복구 계획 만들기
 
 다음으로 가상 컴퓨터와 가용성 그룹을 사용하여 복구 계획을 만듭니다. 1단계에서 사용한 것과 동일한 VMM 서버를 원본으로 선택하고 Microsoft Azure를 대상으로 선택합니다.
 
@@ -184,7 +184,7 @@ SQL 가용성 그룹은 Azure에서 하나 이상의 가상 컴퓨터로 복제�
 
 ![복구 계획 사용자 지정](./media/site-recovery-sql/customize-rp.png)
 
-#### 장애 조치(Failover)
+#### 4\. 장애 조치(Failover)
 
 가용성 그룹을 복구 계획에 추가하면 다른 장애 조치(failover) 옵션을 사용할 수 있습니다.
 
@@ -201,7 +201,7 @@ SQL 가용성 그룹에 대한 테스트 장애 조치(failover)는 지원되지
 
 대신 다음과 같은 옵션을 고려합니다.
 
-######옵션 1
+###### 옵션 1
 
 
 
@@ -209,12 +209,12 @@ SQL 가용성 그룹에 대한 테스트 장애 조치(failover)는 지원되지
 
 2. 읽기 전용 모드에서 복제 복사본에 액세스하도록 응용프로그램 계층을 업데이트하고 응용프로그램의 읽기 전용 테스트를 수행합니다.
 
-######옵션 2
+###### 옵션 2
 
 1.	복제본 SQL Server 가상 컴퓨터 인스턴스(사이트간 또는 Azure 백업용 VMM 복제 사용)를 만들고 이를 테스트 네트워크로 가져옵니다.
 2.	복구 계획을 사용하여 테스트 장애 조치를 수행합니다.
 
-##### 장애 복구
+#### 장애 복구
 
 온-프레미스 SQL Server에서 가용성 그룹을 다시 기본으로 지정하려면 복구 계획에서 계획된 장애 조치(failover)를 트리거하고 Microsoft Azure에서 온-프레미스 VMM 서버로 방향을 선택합니다.
 
@@ -312,9 +312,9 @@ SQL Server가 고가용성을 위해 고가용성 그룹 또는 장애 조치 �
 6. 가용성 그룹 수신기를 만들거나 비동기 복제 가상 컴퓨터를 포함하도록 기존 수신기를 업데이트합니다.
 7. 수신기를 사용하여 응용프로그램 팜이 설정되었는지 확인합니다. 데이터베이스 서버 이름을 사용하여 설정하는 경우, 수신기를 사용하도록 업데이트하여 장애 조치 후에 이를 다시 인식할 필요가 없도록 합니다.
 
-분산된 트랜잭션을 사용하는 응용 프로그램의 경우, [SAN 복제로 사이트 복구](site-recovery-vmm-san.md) 또는 [VMWare 사이트간 복제](site-recovery-vmware-to-vmware.md)를 사용하는 것이 좋습니다.
+분산된 트랜잭션을 사용하는 응용 프로그램의 경우 [SAN 복제로 사이트 복구](site-recovery-vmm-san.md) 또는 [VMWare 사이트 간 복제](site-recovery-vmware-to-vmware.md)를 사용하는 것이 좋습니다.
 
-####복구 계획 고려 사항
+#### 복구 계획 고려 사항
 
 1. 이 샘플 스크립트를 기본 및 보조 사이트의 VMM 라이브러리에 추가합니다.
 
@@ -359,9 +359,9 @@ Azure로 복제할 때 사이트 복구는 게스트 클러스터 지원을 지�
 ![표준 클러스터](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)
 
 
-### 장애 복구 고려 사항
+### 장애 복구(failback) 고려 사항
 
-SQL 표준 클러스터의 경우, 계획되지 않은 장애 조치 후의 장애 복구는 SQL 백업이 필요하며 미러 인스턴스에서 원래 클러스터로 복구한 다음 미러를 다시 설정해야 합니다.
+SQL 표준 클러스터의 경우 계획되지 않은 장애 조치(failover) 후의 장애 복구(failback)에서는 미러 인스턴스에서 원래 클러스터로의 SQL 백업 및 복구를 수행한 후에 미러를 다시 설정해야 합니다.
 
 
 
@@ -374,4 +374,4 @@ SQL 표준 클러스터의 경우, 계획되지 않은 장애 조치 후의 장�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

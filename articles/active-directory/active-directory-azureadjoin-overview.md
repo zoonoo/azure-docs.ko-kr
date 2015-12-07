@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장 | Microsoft Azure" 
-	description="Azure AD 조인을 설명하는 항목입니다." 
+	description="Windows 10 장치가 Azure AD 조인을 활용하여 Azure Active Directory에 등록할 수 있는 방법의 자세한 개요를 제공합니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장
@@ -68,6 +68,7 @@ Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니�
 | 데스크톱에서 SSO를 사용하여 회사 앱/웹 사이트/리소스에 연결(온-프레미스 및 인증에 Azure AD를 사용하는 클라우드 앱 둘 다 해당) | 엔터프라이즈 디렉터리(Azure AD) 및 MDM에서 자동 등록 (Azure AD Premium 기능) | 이 회사 계정을 사용하여 앱 간 및 웹 사이트/리소스에 대한 SSO 제공 |
 | 사용자는 엔터프라이즈 데이터에 영향을 주지 않으면서 개인 MSA를 추가하여 개인 사진/파일에 액세스할 수 있습니다(로밍 설정이 회사 계정에도 계속 작동). MSA 계정이 있으면 SSO를 사할 수 있으며 설정 로밍이 진행되지 않습니다. | winlogon에서 (SSPR)(셀프 서비스 암호 재설정)(잊어버린 암호 재설정 기능)(이를 위해 AzureAD Premium 필요) | 사용자가 개인 장치에서 LoB 앱을 획득하고 사용할 수 있도록 엔터프라이즈 스토어 전면/섹션에 대한 액세스 권한 제공 | |
 
+
 ## 추가 정보
 * [엔터프라이즈를 위한 Windows 10: 작업에 장치를 사용하는 방법](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
@@ -76,4 +77,4 @@ Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

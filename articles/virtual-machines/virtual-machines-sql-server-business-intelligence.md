@@ -41,7 +41,7 @@ Microsoft Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함�
 
 ![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) 다음 PowerShell 스크립트는 ImageName에 "SQL-Server"가 포함된 Azure 이미지 목록을 반환합니다.
 
-	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Microsoft Azure Management Portal
+	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure portal.
 	
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -431,4 +431,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

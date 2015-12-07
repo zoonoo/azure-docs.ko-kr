@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
 
 
@@ -195,4 +195,4 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 포털에서 VM에 FQDN 만들기 | Microsoft Azure"
+   pageTitle="Azure Preview 포털에서 VM에 FQDN 만들기 | Microsoft Azure"
    description="Azure Preview 포털에서 가상 컴퓨터를 기반으로 하는 정규화된 도메인 이름 또는 리소스 관리자용 FQDN을 만드는 방법을 알아봅니다."
    services="virtual-machines"
    documentationCenter=""
@@ -54,4 +54,4 @@
 
     이제 이 DNS 이름을 사용하여 원격으로 가상 컴퓨터에 연결할 수 있습니다. 예를 들어 정규화된 도메인 이름이 `testdnslabel.eastus.cloudapp.azure.com`이고 사용자 이름이 `adminuser`인 Linux 가상 컴퓨터에 연결하는 경우 `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`을 사용합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

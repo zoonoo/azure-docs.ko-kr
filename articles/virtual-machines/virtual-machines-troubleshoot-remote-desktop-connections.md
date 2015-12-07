@@ -34,7 +34,7 @@ Windows 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 원격 �
 
 이 단계는 클래식 배포 모델을 통해 만든 가상 컴퓨터에서 대부분의 일반적인 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계를 수행한 후 VM에 다시 연결을 시도합니다.
 
-- [Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하여 RDP 서버와 시작 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
+- [Azure Preview 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하여 RDP 서버와 시작 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
 
     ![RDP 구성 재설정을 보여주는 스크린샷](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -89,7 +89,7 @@ Windows 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 원격 �
 
 원인: 원격 데스크톱 서버 역할에 대한 120일 라이선스 유예 기간이 만료되었고 라이선스를 설치해야 합니다.
 
-대안으로 Azure 포털에서 RDP 파일의 로컬 복사본을 저장하고 Windows PowerShell 명령 프롬프트에서 이 명령을 실행하여 연결합니다.
+대안으로 포털에서 RDP 파일의 로컬 복사본을 저장하고 Windows PowerShell 명령 프롬프트에서 이 명령을 실행하여 연결합니다.
 
 		mstsc <File name>.RDP /admin
 
@@ -107,7 +107,7 @@ Windows 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 원격 �
 가능한 해결 방법:
 
 - 조직 인트라넷을 사용하는 경우 컴퓨터가 프록시 서버에 액세스할 수 있고 HTTPS 트래픽을 보낼 수 있는지 확인합니다.
-- 로컬 컴퓨터에 저장된 RDP 파일을 사용하는 경우 Azure 포털에서 생성된 파일을 사용해 보십시오. 이때 가상 컴퓨터 또는 클라우드 서비스 및 가상 컴퓨터의 끝점 포트에 대한 올바른 DNS 이름을 사용해야 합니다. Azure 포털에서 생성된 RDP 파일의 샘플은 다음과 같습니다.
+- 로컬 컴퓨터에 저장된 RDP 파일을 사용하는 경우 포털에서 생성한 파일을 사용해 보십시오. 이때 가상 컴퓨터 또는 클라우드 서비스 및 가상 컴퓨터의 끝점 포트에 대한 올바른 DNS 이름을 사용해야 합니다. 포털에서 생성된 RDP 파일의 샘플은 다음과 같습니다.
 
 		full address:s:tailspin-azdatatier.cloudapp.net:55919
 		prompt for credentials:i:1
@@ -169,4 +169,4 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

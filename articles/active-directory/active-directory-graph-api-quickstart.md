@@ -15,21 +15,23 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="08/24/2015"
+      ms.date="11/17/2015"
       ms.author="v-jibran@microsoft.com"/>
 
 # Azure AD Graph API 빠른 시작
 
-Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 구성원 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Graph API 기능 및 응용 프로그램 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/library/azure/hh974464.aspx)을 참조하세요.
+Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 구성원 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Graph API 기능 및 응용 프로그램 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/ko-KR/library/hh974476(Azure.100).aspx)을 참조하세요.
+
+> [AZURE.IMPORTANT]Azure AD Graph API 기능은 [Microsoft Graph](https://graph.microsoft.io/)를 통해서도 사용 가능하며, Outlook, OneDrive, OneNote, Planner 및 Office Graph와 같은 다른 Microsoft 서비스의 API를 포함하는 통합 API로, 단일 끝점과 단일 액세스 토큰을 통해 액세스 가능합니다.
 
 ## Graph API URL을 생성하는 방법
 
 Graph API에서 디렉터리 데이터 및 CRUD 작업을 수행하려는 개체(즉, 리소스 또는 엔터티)에 액세스하려면 OData(개방형 데이터) 프로토콜을 기반으로 하는 URL을 사용할 수 있습니다. Graph API에서 사용되는 URL은 서비스 루트, 테넌트 식별자, 리소스 경로 및 쿼리 문자열 옵션의 네 가지 주요 부분으로 구성됩니다. `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. 다음 URL을 예로 들어보겠습니다. `https://graph.windows.net/contoso.com/groups?api-version=1.5`.
 
 - **서비스 루트**: Azure AD Graph API에서 서비스 루트는 항상 https://graph.windows.net입니다.
-- **테넌트 식별자**: 확인된(등록된) 도메인 이름일 수 있습니다(위 예제에서는 contoso.com). 테넌트 개체 ID나 "myorganiztion" 또는 "me" 별칭일 수도 있습니다. 자세한 내용은 [Graph API의 엔터티 및 작업 주소 지정](https://msdn.microsoft.com/library/azure/dn424880.aspx)을 참조하세요.
+- **테넌트 식별자**: 확인된(등록된) 도메인 이름일 수 있습니다(위 예제에서는 contoso.com). 테넌트 개체 ID나 "myorganiztion" 또는 "me" 별칭일 수도 있습니다. 자세한 내용은 [Graph API의 엔터티 및 작업 주소 지정](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)을 참조하세요.
 - **리소스 경로**: URL의 이 섹션에서는 조작할 리소스(사용자, 그룹, 특정 사용자 또는 특정 그룹 등)를 식별합니다. 위의 예제에서는 해당 리소스 집합의 주소를 지정하는 최상위 "그룹"입니다. 특정 엔터티 주소를 지정할 수도 있습니다(예: "users/{objectId}" 또는 "users/userPrincipalName").
-- **쿼리 매개 변수**: ?는 리소스 경로 섹션과 쿼리 매개 변수 섹션을 구분합니다. Graph API의 모든 요청에는 "api-version" 쿼리 매개 변수가 필요합니다. 또한 Graph API는 다음과 같은 OData 쿼리 옵션을 지원합니다. **$filter**, **$orderby**, **$expand**, **$top** 및 **$format**. 다음 쿼리 옵션은 현재 지원되지 않습니다. **$count**, **$inlinecount** 및 **$skip**. 자세한 내용은 [Azure AD Graph API에서 지원되는 쿼리, 필터 및 페이징 옵션](https://msdn.microsoft.com/library/azure/dn727074.aspx)을 참조하세요.
+- **쿼리 매개 변수**: ?는 리소스 경로 섹션과 쿼리 매개 변수 섹션을 구분합니다. Graph API의 모든 요청에는 "api-version" 쿼리 매개 변수가 필요합니다. 또한 Graph API는 다음과 같은 OData 쿼리 옵션을 지원합니다. **$filter**, **$orderby**, **$expand**, **$top** 및 **$format**. 다음 쿼리 옵션은 현재 지원되지 않습니다. **$count**, **$inlinecount** 및 **$skip**. 자세한 내용은 [Azure AD Graph API에서 지원되는 쿼리, 필터 및 페이징 옵션](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options)을 참조하세요.
 
 ## Graph API 버전
 
@@ -40,7 +42,7 @@ Graph API에 대해 출시된 버전은 다음과 같습니다.
 * 버전 2013-11-08
 * 버전 2013-04-05
 
-"api-version" 쿼리 매개 변수에 Graph API 요청에 대한 버전을 지정합니다. 버전 1.5의 경우 숫자 버전 값 api-version=1.5를 사용합니다. 이전 버전의 경우 YYYY-MM-DD 형식을 준수하는 날짜 문자열을 사용합니다(예: api-version=2013-11-08). 미리 보기 기능의 경우 문자열 "beta"를 사용합니다(예: api-version=beta). Graph API 버전 간의 차이점에 대한 자세한 내용은 [Azure AD Graph API 버전 관리](https://msdn.microsoft.com/library/azure/dn835125.aspx)를 참조하세요.
+"api-version" 쿼리 매개 변수에 Graph API 요청에 대한 버전을 지정합니다. 버전 1.5의 경우 숫자 버전 값 api-version=1.5를 사용합니다. 이전 버전의 경우 YYYY-MM-DD 형식을 준수하는 날짜 문자열을 사용합니다(예: api-version=2013-11-08). 미리 보기 기능의 경우 문자열 "beta"를 사용합니다(예: api-version=beta). Graph API 버전 간의 차이점에 대한 자세한 내용은 [Azure AD Graph API 버전 관리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning)를 참조하세요.
 
 ## Graph API 메타데이터
 
@@ -48,7 +50,7 @@ Graph API 메타데이터 파일을 반환하려면 URL에서 테넌트 식별�
 
 ## 일반 쿼리
 
-[Azure AD Graph API 일반 쿼리](https://msdn.microsoft.com/library/azure/jj126255.aspx)는 디렉터리의 최상위 리소스에 액세스하는 데 사용할 수 있는 쿼리 및 디렉터리에서 작업을 수행하는 쿼리를 포함하여 Azure AD Graph에서 사용할 수 있는 일반 쿼리를 나열합니다.
+[Azure AD Graph API 일반 쿼리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries)는 디렉터리의 최상위 리소스에 액세스하는 데 사용할 수 있는 쿼리 및 디렉터리에서 작업을 수행하는 쿼리를 포함하여 Azure AD Graph에서 사용할 수 있는 일반 쿼리를 나열합니다.
 
 예를 들어 `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.5`는 contoso.com 디렉터리에 대한 회사 정보를 반환합니다.
 
@@ -89,7 +91,7 @@ Graph Explorer의 다음 기능 및 제한 사항을 확인합니다. 리소스 
 **쿼리 작성 및 실행**: 다음 단계를 완료합니다.
 
 1. Fiddler Web Debugger를 열고 **Composer** 탭으로 전환합니다.
-2. 새 보안 그룹을 생성하려고 하므로 풀다운 메뉴에서 **Post**를 HTTP 메서드로 선택합니다. 그룹 개체의 작업 및 사용 권한에 대한 자세한 내용은 [Azure AD Graph REST API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 내에서 [그룹](https://msdn.microsoft.com/library/azure/hh974486.aspx)을 참조하세요.
+2. 새 보안 그룹을 생성하려고 하므로 풀다운 메뉴에서 **Post**를 HTTP 메서드로 선택합니다. 그룹 개체의 작업 및 사용 권한에 대한 자세한 내용은 [Azure AD Graph REST API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 내에서 [그룹](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity)을 참조하세요.
 3. **Post** 옆에 있는 필드에 다음을 요청 URL로 입력합니다. `https://graph.windows.net/mytenantdomain/groups?api-version=1.5`.
 
     > [AZURE.NOTE]mytenantdomain을 고유한 Azure AD 디렉터리의 도메인 이름으로 대체해야 합니다.
@@ -115,7 +117,7 @@ Content-Type: application/json
         }
 ```
 
-    그룹을 만드는 방법에 대한 자세한 내용은 [그룹 만들기](https://msdn.microsoft.com/library/azure/dn151614.aspx)를 참조하세요.
+    그룹을 만드는 방법에 대한 자세한 내용은 [그룹 만들기](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup)를 참조하세요.
 
 Graph에 의해 노출되는 Azure AD 엔터티 및 형식에 대한 자세한 내용 및 Graph를 사용하여 수행할 수 있는 작업에 대한 자세한 내용은 [Azure AD Graph REST API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 참조하세요.
 
@@ -123,4 +125,4 @@ Graph에 의해 노출되는 Azure AD 엔터티 및 형식에 대한 자세한 �
 
 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)에 대해 자세히 알아보세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

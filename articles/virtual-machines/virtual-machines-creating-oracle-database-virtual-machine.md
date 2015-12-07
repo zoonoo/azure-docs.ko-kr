@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure 포털을 사용하여 Oracle 데이터베이스 VM 만들기 | Microsoft Azure" 
-	description="클래식 배포 모델 및 Azure 미리 보기 포털을 통해 Oracle 데이터베이스를 사용하여 가상 컴퓨터를 만드는 방법에 알아봅니다." 
-	services="virtual-machines" 
-	authors="bbenz" 
+<properties
+	pageTitle="Azure 포털을 사용하여 Oracle 데이터베이스 VM 만들기 | Microsoft Azure"
+	description="클래식 배포 모델 및 Azure 미리 보기 포털을 통해 Oracle 데이터베이스를 사용하여 가상 컴퓨터를 만드는 방법에 알아봅니다."
+	services="virtual-machines"
+	authors="bbenz"
 	documentationCenter=""
 	tags="azure-service-management"/>
-	
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="Windows" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="Windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
 	ms.author="bbenz" />
-	
+
 #Azure에서 Oracle 데이터베이스 가상 컴퓨터를 만들기
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
@@ -24,7 +24,7 @@
 
 ##Azure에서 Oracle 데이터베이스 VM 만들기
 
-1.	[Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1.	[Azure Preview 포털](https://ms.portal.azure.com/)에 로그인합니다.
 
 2.	**Marketplace**를 클릭하고 **계산**을 클릭한 다음 검색 상자에 **Oracle**을 입력합니다.
 
@@ -57,7 +57,7 @@
 
 ##Azure에서 Oracle 데이터베이스 VM을 사용하여 데이터베이스를 만들려면
 
-1.	[Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1.	[Azure Preview 포털](https://ms.portal.azure.com/)에 로그인합니다.
 
 2.	**가상 컴퓨터**를 클릭합니다.
 
@@ -149,7 +149,7 @@
 
 ### 포트 1521에 대한 공용 끝점 만들기
 
-1.	[Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1.	[Azure Preview 포털](https://ms.portal.azure.com/)에 로그인합니다.
 
 2.	**찾아보기**를 클릭합니다.
 
@@ -200,4 +200,4 @@ Oracle 데이터베이스 엔터프라이즈 관리자에 대한 원격 액세�
 
 -	[Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

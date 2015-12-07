@@ -48,7 +48,7 @@ Azure AD를 사용하여 Azure 리소스 관리자에 요청을 인증하려면,
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 포털의 Active Directory 섹션에서 응용 프로그램의 클라이언트 id 필드에서 응용 프로그램 ID를 찾을 수 있습니다.
+	>[AZURE.NOTE]다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 Azure Preview 포털의 Active Directory 섹션에서 응용 프로그램의 클라이언트 ID 필드에서 응용 프로그램 ID를 찾을 수 있습니다.
 
 3. {application-id}를 방금 기록된 식별자로 바꾼 다음 해당 응용 프로그램에 대한 서비스 사용자를 만듭니다.
 
@@ -447,4 +447,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 	![AD 응용 프로그램 만들기](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

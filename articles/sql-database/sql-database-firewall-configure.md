@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Azure SQL 데이터베이스 방화벽을 구성하는 방법
@@ -133,7 +133,9 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 
 [방법: 데이터베이스 방화벽 설정 구성(Azure SQL 데이터베이스)](sql-database-configure-firewall-settings.md)
 
+[SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)
+
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

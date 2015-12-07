@@ -76,7 +76,7 @@
 
 ## 다음 단계
 
-* 배치 개념에 대한 자세한 사항은 [Azure 배치의 API 기본 사항](batch-api-basics.md)을 참조하세요.
+* 배치 개념에 대한 자세한 사항은 [Azure 배치 기능 개요](batch-api-basics.md)를 참조하세요.
 
 * [배치 .NET 클라이언트 라이브러리](batch-dotnet-get-started.md)를 사용하여 첫 번째 응용 프로그램 개발을 시작하겠습니다.
 
@@ -84,4 +84,4 @@
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

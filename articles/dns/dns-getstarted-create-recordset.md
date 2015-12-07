@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="Adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -60,7 +60,7 @@ Time-to-Live, 즉 TTL은 각 레코드가 다시 쿼리되기 전에 클라이�
 
 레코드 집합을 만들고 $rs 변수에 할당합니다.
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 레코드 집합은 DNS 영역 'contoso.com'에서 상대 이름 'www'를 가지므로 레코드의 정규화된 이름은 'www.contoso.com'입니다. 레코드 형식은 'A'이고 TTL은 60초입니다.
 
@@ -72,21 +72,21 @@ Time-to-Live, 즉 TTL은 각 레코드가 다시 쿼리되기 전에 클라이�
 
 1단계에서 레코드 집합을 만들 때 할당된 $rs 변수를 사용하여 "www" 레코드 집합에 IPv4 A 레코드를 추가합니다.
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
-Add-AzureDnsRecordConfig를 사용하여 레코드 집합에 레코드를 추가하는 작업은 오프라인 작업입니다. 지역 변수 $rs만 업데이트됩니다.
+Add-AzureRmDnsRecordConfig를 사용하여 레코드 집합에 레코드를 추가하는 작업은 오프라인 작업입니다. 지역 변수 $rs만 업데이트됩니다.
 
 ### 3단계
-레코드 집합의 변경 내용을 커밋합니다. Set-AzureDnsRecordSet를 사용하여 레코드 집합의 변경 내용을 Azure DNS로 업로드합니다.
+레코드 집합의 변경 내용을 커밋합니다. Set-AzureRmDnsRecordSet를 사용하여 레코드 집합의 변경 내용을 Azure DNS로 업로드합니다.
 
 
-	Set-AzureDnsRecordSet -RecordSet $rs
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-변경이 완료되었습니다. Get-AzureDnsRecordSet를 사용하여 Azure DNS에서 레코드 집합을 가져올 수 있습니다.
+변경이 완료되었습니다. Get-AzureRmDnsRecordSet를 사용하여 Azure DNS에서 레코드 집합을 가져올 수 있습니다.
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -117,6 +117,7 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 
 
 ## 다음 단계
+
 [DNS 영역을 관리하는 방법](dns-operations-dnszones.md)
 
 [DNS 레코드를 관리하는 방법](dns-operations-recordsets.md)<BR>
@@ -124,4 +125,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

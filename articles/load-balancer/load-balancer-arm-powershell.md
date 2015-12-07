@@ -109,7 +109,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
->[AZURE.NOTE]공용 IP 주소 도메인 이름 레이블 속성은 부하 분산 장치에 대한 FQDN이 됩니다.
+>[AZURE.NOTE]공용 IP 주소 도메인 이름 레이블 속성은 부하 분산 장치의 FQDN에 대한 접두사가 됩니다.
 
 ## 프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
 
@@ -282,4 +282,4 @@ Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

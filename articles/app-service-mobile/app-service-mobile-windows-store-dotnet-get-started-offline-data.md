@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/22/2015"
 	ms.author="wesmc"/>
 
 # Windows 앱에 대해 오프라인 동기화 사용
@@ -36,7 +36,7 @@
 
 * Windows 8.1에서 실행 중인 Visual Studio 2013
 * [Windows 앱 만들기][create a windows app] 완료.
-* [Azure 모바일 서비스 SQLite 저장소 버전 2.0.0-beta][sqlite store nuget]
+* [Azure 모바일 서비스 SQLite 저장소 버전 2.0.0-beta2][sqlite store nuget]
 * [Windows 8.1용 SQLite](http://www.sqlite.org/downloads)
 
 ## 오프라인 기능을 지원하도록 클라이언트 앱 업데이트
@@ -184,11 +184,10 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 1. 공유 프로젝트에서 App.xaml.cs를 편집합니다. **MobileServiceClient**의 초기화를 주석 처리하고 잘못된 모바일 앱 URL을 사용하는 다음 줄을 추가합니다.
 
-         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://your-service.azurewebsites.fail",
-            "https://your-gateway.azurewebsites.fail",
-            ""
-        );
+         public static MobileServiceClient MobileService = 
+				new MobileServiceClient("https://your-service.azurewebsites.fail");
+
+	응용 프로그램이 인증 또한 사용하는 경우 로그인에 실패할 수 있습니다. 장치에서 wifi 및 celluar 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
 
 2. **F5**를 눌러 응용 프로그램을 빌드 및 실행합니다. 앱을 시작하는 경우 동기화는 새로 고침에 실패합니다.
 3. 새 todo 항목을 몇 개 입력하고 각각에 대해 **저장**을 클릭합니다. `PushResult.Status=CancelledByNetworkError`를 사용하는 각각에 대해 푸시가 실패합니다. 새 todo 항목은 모바일 앱 백 엔드에 푸시할 수 있을 때까지 로컬 저장소에만 있습니다. 
@@ -197,11 +196,9 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 4. 앱을 닫았다가 다시 시작하여 만든 새 항목이 로컬 저장소에 유지되는지 확인합니다.
 
-5. (선택 사항) Azure SQL 데이터베이스 테이블을 보는 Visual Studio를 사용하여 백 엔드 데이터베이스에서 데이터가 변경되지 않았음을 확인합니다.
+5. (선택 사항) Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다. 백 엔드 데이터베이스의 데이터가 변경되지 않은 것을 확인합니다.
 
-   Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다.
-
-6. (선택 사항) Fiddler 또는 Postman와 같은 REST 도구를 사용하여 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 형식의 GET 쿼리를 통해 모바일 백 엔드를 쿼리합니다. 
+6. (선택 사항) Fiddler 또는 Postman와 같은 REST 도구를 사용하여 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 형식의 GET 쿼리를 통해 모바일 백 엔드를 쿼리합니다.
 
 ## <a name="update-online-app"></a>모바일 앱 백 엔드를 다시 연결하도록 앱 업데이트
 
@@ -251,7 +248,7 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [Cloud Cover: Azure 모바일 서비스의 오프라인 동기화](참고: 동영상은 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 * [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]
 
@@ -277,7 +274,7 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 [azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/2.0.0-beta
  
-[Cloud Cover: Azure 모바일 서비스의 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015--->

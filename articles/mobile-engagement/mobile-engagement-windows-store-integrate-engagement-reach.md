@@ -16,51 +16,43 @@
 	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Windows 유니버설 앱 도달률 SDK 통합
+# Windows 유니버설 앱 도달률 SDK 통합
 
 이 가이드의 작업을 수행하기 전에 [Windows 유니버설 Engagement SDK 통합](mobile-engagement-windows-store-integrate-engagement.md)에 설명된 통합 절차를 수행해야 합니다.
 
-##Windows 유니버설 프로젝트에 Engagement 도달률 SDK 포함
+## Windows 유니버설 프로젝트에 Engagement 도달률 SDK 포함
 
 별도로 추가할 항목은 없습니다. `EngagementReach` 참조 및 리소스가 이미 프로젝트에 포함되어 있습니다.
 
 > [AZURE.TIP]프로젝트의 `Resources` 폴더에 있는 이미지, 특히 기본적으로 Engagement 아이콘을 사용하는 브랜드 아이콘을 사용자 지정할 수 있습니다. 유니버설 앱에서 공유 프로젝트의 `Resources` 폴더를 이동하여 앱 사이의 콘텐츠를 공유할 수도 있지만 플랫폼에 종속된 기본 위치에 `Resources\EngagementConfiguration.xml` 파일을 유지해야 합니다.
 
-##Windows 알림 서비스를 사용하도록 설정
+## Windows 알림 서비스를 사용하도록 설정
+
+### Windows 8.x 및 Windows Phone 8.1만 해당
 
 `Application UI`의 `Package.appxmanifest` 파일에서 **Windows 알림 서비스**(WNS라고 함)를 사용하려면 왼쪽 bot 박스에서 `All Image Assets`을(를) 클릭합니다. `Notifications`의 오른쪽 상자에서 `toast capable`을(를) `(not set)`에서 `(Yes)`(으)로 변경합니다.
 
-또한 Microsoft 계정 및 Engagement 플랫폼에 앱을 동기화해야 합니다. 이를 위해 계정을 만들거나 [Windows 개발자 센터](https://dev.windows.com)에 로그온해야 합니다. 그다음에 새 응용 프로그램을 만들고 SID 및 암호 키를 찾습니다. Engagement 프런트 엔드에서 `native push`의 앱 설정으로 이동하여 자격 증명을 붙여넣습니다. 그런 다음 프로젝트를 마우스 오른쪽 단추로 클릭하고 `store` 및 `Associate App with the Store...`을(를) 선택합니다. 동기화하기 전에 만든 응용 프로그램을 선택하면 됩니다.
+### 모든 플랫폼
 
-##Engagement 도달률 SDK 초기화
+Microsoft 계정 및 Engagement 플랫폼에 앱을 동기화해야 합니다. 이를 위해 계정을 만들거나 [Windows 개발자 센터](https://dev.windows.com)에 로그온해야 합니다. 그다음에 새 응용 프로그램을 만들고 SID 및 암호 키를 찾습니다. Engagement 프런트 엔드에서 `native push`의 앱 설정으로 이동하여 자격 증명을 붙여넣습니다. 그런 다음 프로젝트를 마우스 오른쪽 단추로 클릭하고 `store` 및 `Associate App with the Store...`을(를) 선택합니다. 동기화하기 전에 만든 응용 프로그램을 선택하면 됩니다.
+
+## Engagement 도달률 SDK 초기화
 
 `App.xaml.cs` 수정:
 
--   `using` 구문에 추가:
+-   `InitEngagement` 메서드에서 `EngagementAgent.Instance.Init` 바로 다음에 `EngagementReach.Instance.Init` 삽입:
 
-		using Microsoft.Azure.Engagement;
-
--   `OnLaunched`에서 `EngagementAgent.Instance.Init` 바로 다음에 `EngagementReach.Instance.Init` 삽입:
-
-		protected override void OnLaunched(LaunchActivatedEventArgs args)
+		private void InitEngagement(IActivatedEventArgs e)
 		{
-		  EngagementAgent.Instance.Init(args);
-		  EngagementReach.Instance.Init(args);
-		}
-
--   명령, 또 다른 응용 프로그램 또는 사용자 지정 체계로 앱을 활성화할 때 Engagement 도달률을 사용하도록 설정하려면 `OnActivated` 메서드를 재정의합니다.
-
-		protected override void OnActivated(IActivatedEventArgs args)
-		{
-		  EngagementAgent.Instance.Init(args);
-		  EngagementReach.Instance.Init(args);
+		  EngagementAgent.Instance.Init(e);
+		  EngagementReach.Instance.Init(e);
 		}
 
 	`EngagementReach.Instance.Init`은(는) 전용 스레드에서 실행됩니다. 직접 실행할 필요가 없습니다.
 
-> [AZURE.TIP]`<channelName></channelName>`에서 프로젝트의 `Resources\EngagementConfiguration.xml` 파일에서 응용 프로그램의 WNS 푸시 채널 이름을 지정할 수 있습니다. 기본적으로는 appId를 기준으로 이름이 생성됩니다. Engagement 외부에서 푸시 채널을 사용하려는 경우를 제외하면 이름을 직접 지정할 필요가 없습니다.
+> [AZURE.NOTE]응용 프로그램의 다른 곳에서 푸시 알림을 사용 중인 경우 Engagement 도달률에 [푸시 채널을 공유](#push-channel-sharing)해야 합니다.
 
-##통합
+## 통합
 
 Engagement는 도달률 알림 및 공지를 구현하는 두 가지 방법(오버레이 및 웹 보기 통합)을 제공합니다.
 
@@ -80,7 +72,7 @@ Engagement에서는 알림(notification 및 announcement) 표시를 위한 오�
 
 -   다음 줄을 네임스페이스 선언에 추가합니다.
 
-			xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
 -   `engagement:EngagementPage` 및 `engagement:EngagementPageOverlay` 교체:
 
@@ -161,22 +153,31 @@ Engagement 오버레이는 xaml 파일에서 발견되는 첫 번째 "Grid" 요�
 
 Engagement 콘텐츠를 표시하려면 각 페이지에 xaml WebView 2개를 통합하고 공지 및 알림을 표시해야 합니다. 다음 코드를 xaml 파일에 추가합니다.
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
+			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
 > **8.1 통합:**
 
 			<engagement:EngagementPage
 			    xmlns:engagement="using:Microsoft.Azure.Engagement">
 			    <Grid>
-			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-			      <!-- layout -->
+			      <!-- Your layout -->
+			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 			    </Grid>
 			</engagement:EngagementPage>
 
 연결된 .cs 파일은 다음과 같이 표시됩니다.
 
+    using Microsoft.Azure.Engagement;
+    using System;
+    using Windows.ApplicationModel.Core;
+    using Windows.UI.ViewManagement;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Navigation;
+
+    namespace My.Namespace.Example
+    {
 			/// <summary>
 			/// An empty page that can be used on its own or navigated to within a Frame.
 			/// </summary>
@@ -186,36 +187,48 @@ Engagement 콘텐츠를 표시하려면 각 페이지에 xaml WebView 2개를 �
 			  {
 			    this.InitializeComponent();
 			
-			   /* Set your webview elements to the correct size */
+			    /* Set your webview elements to the correct size. */
 			    SetWebView(width, height);
-			
-			    Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
 			  }
 			
 			  #region to implement
-			  /* Allow webview script to notify system */
-			  private void scriptEvent(object sender, NotifyEventArgs e)
-			  {
-			  }
-			
-			  /* When page is left ensure to detach SizeChanged handler */
+              /* Attach events when page is navigated. */
+              protected override void OnNavigatedTo(NavigationEventArgs e)
+              {
+                /* Update the webview when the app window is resized. */
+                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
+
+                /* Update the webview when the app/status bar is resized. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
+    #endif
+                base.OnNavigatedTo(e);
+              }
+
+			  /* When page is left ensure to detach SizeChanged handler. */
 			  protected override void OnNavigatedFrom(NavigationEventArgs e)
 			  {
 			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
+    #endif
 			    base.OnNavigatedFrom(e);
 			  }
-			
-			  /* "width" is the current width of your application display */
-			  double width = Window.Current.Bounds.Width;
-			
-			  /* "height" is the current height of your application display */
-			  double height = Window.Current.Bounds.Height;
+			  
+			  /* "width" and "height" are the current size of your application display. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+    #else
+			  double width =  Window.Current.Bounds.Width;
+			  double height =  Window.Current.Bounds.Height;
+    #endif
 			
 			  /// <summary>
-			  /// Set your webview elements to the correct size
+			  /// Set your webview elements to the correct size.
 			  /// </summary>
-			  /// <param name="width">The width of your current display</param>
-			  /// <param name="height">The height of your current display</param>
+			  /// <param name="width">The width of your current display.</param>
+			  /// <param name="height">The height of your current display.</param>
 			  private void SetWebView(double width, double height)
 			  {
 			    #pragma warning disable 4014
@@ -229,24 +242,41 @@ Engagement 콘텐츠를 표시하려면 각 페이지에 xaml WebView 2개를 �
 			  }
 			
 			  /// <summary>
-			  /// Handler that take the Windows.Current.SizeChanged and indicate that webview have to be resized
+			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
 			  /// </summary>
-			  /// <param name="sender">Original event trigger</param>
-			  /// <param name="e">Window Size Changed Event argument</param>
+			  /// <param name="sender">Original event trigger.</param>
+			  /// <param name="e">Window Size Changed Event arguments.</param>
 			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
 			  {
 			    double width = e.Size.Width;
 			    double height = e.Size.Height;
 			
-			    /* Set your webview elements to the correct size */
+			    /* Set your webview elements to the correct size. */
 			    SetWebView(width, height);
 			  }
+
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
+			  /// <summary>
+			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
+			  /// </summary>
+			  /// <param name="sender">The related application view.</param>
+			  /// <param name="e">Related event arguments.</param>
+			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
+			  {
+			    double width = sender.VisibleBounds.Width;
+			    double height = sender.VisibleBounds.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+    #endif
 			  #endregion
 			}
+    }
 
 > 이 경우 장치 화면을 회전하면 포함된 웹 보기 크기 조정이 구현됩니다.
 
-##datapush 처리(선택 사항)
+## datapush 처리(선택 사항)
 
 응용 프로그램이 도달률 데이터 푸시를 수신할 수 있도록 하려면 EngagementReach 클래스의 두 이벤트를 구현해야 합니다.
 
@@ -269,7 +299,7 @@ App.xaml.cs의 "Public App(){}"에 다음 코드를 추가합니다.
 
 > [AZURE.WARNING]Engagement는 데이터 푸시에 대해 여러 피드백을 수신할 수 없습니다. 이벤트에 대해 여러 처리기를 설정하려는 경우 피드백은 마지막으로 전송된 항목에 해당합니다. 이 경우에는 프런트 엔드에서 피드백을 혼동하지 않도록 항상 같은 값을 반환하는 것이 좋습니다.
 
-##UI 사용자 지정(선택 사항)
+## UI 사용자 지정(선택 사항)
 
 ### 첫 번째 단계
 
@@ -377,9 +407,38 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 
 > [AZURE.TIP]UI 스레드에서 각 처리기를 호출합니다. 따라서 MessageBox 또는 UI 관련 항목을 사용할 때는 별도의 작업을 수행할 필요가 없습니다.
 
-##사용자 지정 체계 팁
+##<a id="push-channel-sharing"></a> 푸시 채널 공유
 
-사용자 지정 체계 사용법이 제공됩니다. Engagement 응용 프로그램에서 사용할 여러 URI 유형을 Engagement 프런트 엔드에서 보낼 수 있습니다. `http, ftp, ...`와(과) 같은 기본 체계는 Windows에서 관리되며 장치에 기본 응용 프로그램이 설치되어 있지 않으면 해당 메시지가 포함된 창이 표시됩니다. 응용 프로그램 체계 등의 기타 체계를 사용할 수도 있습니다. 또한 응용 프로그램에 대해 사용자 지정 체계를 사용할 수도 있습니다.
+응용 프로그램에서 푸시 알림을 다른 용도로 사용 하는 경우 Engagement SDK의 푸시 채널 공유 기능을 사용해야 합니다. 이는 푸시 누락을 방지하기 위함입니다.
+
+- Engagement 도달률 초기화에 푸시 채널을 제공할 수 있습니다. SDK는 새 항목을 요청하는 대신 이것을 사용합니다.
+
+`App.xaml.cs` 파일의 `InitEngagement` 메서드에서 푸시 채널을 사용한 Engagement 도달률 초기화를 업데이트합니다.
+    
+    /* Your own push channel logic... */
+    var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    
+    /*...Engagement initialization */
+    EngagementAgent.Instance.Init(e);
+	EngagementReach.Instance.Init(e,pushChannel);
+
+- 또한, 도달률 초기화 후 푸시 채널을 사용하려는 경우 Engagement 도달률에 콜백을 설정하여 푸시 채널을 SDK에 의해 생성하여 만들 수 있습니다.
+
+도달률 초기화 **후** 모든 위치에서 콜백을 설정합니다.
+
+    /* Set action on the SDK push channel. */
+    EngagementReach.Instance.SetActionOnPushChannel((PushNotificationChannel channel) => 
+    {
+      /* The forwarded channel can be null if its creation fails for any reason. */
+      if (channel != null)
+      {
+		/* Your own push channel logic... */
+      });
+	}
+
+## 사용자 지정 체계 팁
+
+사용자 지정 체계 사용법이 제공됩니다. Engagement 응용 프로그램에서 사용할 여러 URI 유형을 Engagement 프런트 엔드에서 보낼 수 있습니다. `http, ftp, ...`와(과) 같은 기본 체계는 Windows에서 관리되며 장치에 기본 응용 프로그램이 설치되어 있지 않으면 해당 메시지가 포함된 창이 표시됩니다. 또한 응용 프로그램에 대해 사용자 지정 체계를 사용할 수도 있습니다.
 
 응용 프로그램에서 사용자 지정 체계를 간편하게 설정하는 방법은 `Package.appxmanifest`을(를) 열고 `Declarations` 패널로 이동합니다. 사용 가능한 선언 스크롤 상자에서 `Protocol`을(를) 선택하여 추가합니다. 새 프로토콜의 원하는 이름을 입력하여 `Name` 필드를 편집합니다.
 
@@ -410,4 +469,4 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 			  #endregion
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

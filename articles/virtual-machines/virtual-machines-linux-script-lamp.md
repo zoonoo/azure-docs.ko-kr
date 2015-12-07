@@ -32,7 +32,7 @@ Azure 포털, Windows PowerShell 또는 Azure 명령줄 인터페이스(Azure CL
 
 이 예제에서는 먼저 Ubuntu 14.04 이상을 실행하는 두 개의 Azure VM을 만듭니다. VM의 이름은 *script-vm* 및 *lamp-vm*입니다. VM을 만드는 경우 고유한 이름을 사용하세요. 하나는 CLI 명령을 실행하고 다른 하나는 LAMP 앱을 배포하는 데 사용합니다.
 
-또한 Azure 저장소 계정과 해당 계정에 액세스하는 데 키도 필요합니다. 계정 및 키는 Azure 포털에서 가져올 수 있습니다.
+또한 Azure 저장소 계정과 해당 계정에 액세스하는 데 사용할 키도 필요합니다. 계정 및 키는 Azure 포털에서 가져올 수 있습니다.
 
 Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md)를 참조하세요
 
@@ -110,4 +110,4 @@ Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 �
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

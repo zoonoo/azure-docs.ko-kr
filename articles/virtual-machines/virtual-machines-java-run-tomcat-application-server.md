@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="robmcm"/>
 
 # 클래식 배포 모델을 사용하여 만든 가상 컴퓨터에서 Java 응용 프로그램 서버를 실행하는 방법
@@ -63,7 +63,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
 
 ## 가상 컴퓨터에 원격으로 로그인하려면 다음을 수행합니다.
 
-1. [관리 포털](https://manage.windowsazure.com)에 로그온합니다.
+1. [Azure 포털](https://manage.windowsazure.com)에 로그온합니다.
 2. **가상 컴퓨터**를 클릭합니다.
 3. 로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4. 가상 컴퓨터가 시작되면 페이지 아래쪽의 팝업 메뉴를 통해 연결이 가능합니다.
@@ -89,7 +89,7 @@ Java 응용 프로그램 서버를 가상 컴퓨터로 복사하거나 설치 �
 Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들고 포트를 열어야 합니다.
 
 ## 가상 컴퓨터의 끝점을 만드는 방법
-1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. **가상 컴퓨터**를 클릭합니다.
 3. Java 응용 프로그램 서버를 실행하는 가상 컴퓨터의 이름을 클릭합니다.
 4. **끝점**을 클릭합니다.
@@ -146,4 +146,4 @@ Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

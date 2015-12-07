@@ -1,4 +1,4 @@
-<properties pageTitle="Azure에서 Linux 환경의 Cassandra 실행 | Microsoft Azure" description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법" services="virtual-machines" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="" azure-service-management"/>
+<properties pageTitle="Azure에서 Linux 환경의 Cassandra 실행 | Microsoft Azure" description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법" services="virtual-machines" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -6,8 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 # Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 
@@ -111,7 +111,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Mcrosoft Azure 포털](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
 </table>
 
 JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 하므로 배포를 간소화하려면 클러스터 배포 전에 만들려는 Ubuntu 템플릿 이미지에 나중에 업로드할 필수 소프트웨어를 데스크톱에 모두 다운로드합니다.
@@ -124,7 +124,7 @@ JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 �
 Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 필요로 합니다. Azure에서 Linux와 함께 SSH를 사용하는 방법에 설명된 지침에 따라 공개/개인 키 쌍을 생성합니다. Windows 또는 Linux에서 putty.exe를 SSH 클라이언트로 사용할 계획이면 PEM 인코딩된 RSA 개인 키를 puttygen.exe를 사용하여 PPK 형식으로 변환해야 합니다. 이에 대한 지침은 위의 웹 페이지를 참조하세요.
 
 ####2단계: Ubuntu 템플릿 VM 만들기
-템플릿 VM을 만들려면, azure.microsoft.com 포털에 로그인하고 다음 시퀀스를 사용합니다. NEW, COMPUTE, VIRTUAL MACHINE, FROM GALLERY, UBUNTU, Ubuntu Server 14.04 LTS를 클릭한 다음 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 Linux를 실행하는 가상 컴퓨터 만들기를 참조하세요.
+템플릿 VM을 만들려면 Azure 포털에 로그인하고 다음 시퀀스를 사용합니다. NEW, COMPUTE, VIRTUAL MACHINE, FROM GALLERY, UBUNTU, Ubuntu Server 14.04 LTS를 클릭한 다음 오른쪽 화살표를 클릭합니다. Linux VM을 만드는 방법을 설명하는 자습서는 Linux를 실행하는 가상 컴퓨터 만들기를 참조하세요.
 
 "가상 컴퓨터 구성" 화면 #1에서 다음 정보를 입력합니다.
 
@@ -293,7 +293,7 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS\
 이 작업은 몇 초 정도 걸리며, 이미지 갤러리의 내 이미지 섹션에서 해당 이미지를 사용할 수 있습니다. 이미지가 성공적으로 캡처되면 원본 VM이 자동으로 삭제됩니다.
 
 ##단일 지역 배포 프로세스
-**1단계: 가상 네트워크 만들기** 관리 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [관리 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
+**1단계: 가상 네트워크 만들기** Azure 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
 
 <table>
 <tr><th>VM 특성 이름</th><th>값</th><th>설명</th></tr>
@@ -340,7 +340,7 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
 3.	클라우드 서비스에 내부 부하 분산 장치를 추가하고 "data" 서브넷에 연결합니다.
 4.	이전에 만든 각 VM에 대해 이전에 만든 내부 부하 분산 장치에 연결된 부하 분산 집합을 통해 쓰리프트 트래픽에 대한 부하 분산 끝점을 추가합니다.
 
-위 프로세스는 Azure 관리 포털을 사용하여 실행할 수 있습니다. Windows 컴퓨터를 사용하고(Windows 컴퓨터에 대한 액세스 권한이 없는 경우 Azure에서 VM 사용) 다음 PowerShell 스크립트를 사용하여 VM 8개를 모두 자동으로 프로비전합니다.
+위 프로세스는 Azure 포털을 사용하여 실행할 수 있습니다. Windows 컴퓨터를 사용하고(Windows 컴퓨터에 대한 액세스 권한이 없는 경우 Azure에서 VM 사용) 다음 PowerShell 스크립트를 사용하여 VM 8개를 모두 자동으로 프로비전합니다.
 
 **List1: 가상 컴퓨터 프로비전을 위한 PowerShell 스크립트**
 		
@@ -459,7 +459,7 @@ VM에 로그인하고 다음을 수행합니다.
 완료된 단일 지역 배포를 활용하며 두 번째 지역 설치를 위해 동일한 프로세스를 반복합니다. 단일 지역 배포와 다중 지역 배포 간의 주요 차이점은 지역 간 통신을 위한 VPN 터널 설정입니다. 네트워크 설치에서 시작하여 VM을 프로비전하고 Cassandra를 구성하겠습니다.
 
 ###1단계: 2번째 지역에 가상 네트워크 만들기
-관리 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [관리 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
+Azure 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
 
 <table>
 <tr><th>특성 이름    </th><th>값	</th><th>설명</th></tr>
@@ -488,7 +488,7 @@ Azure 가상 네트워킹의 로컬 네트워크는 개인 클라우드 또는 �
 
 
 ###3단계: "로컬" 네트워크를 해당 VNET에 매핑
-서비스 관리 포털에서 다음 세부 정보당 각 vnet을 선택하고 "구성"을 클릭한 다음 "로컬 네트워크에 연결", 로컬 네트워크를 차례로 선택합니다.
+Azure 포털에서 다음 세부 정보당 각 vnet을 선택하고 "구성"을 클릭한 다음 "로컬 네트워크에 연결", 로컬 네트워크를 차례로 선택합니다.
 
 
 | 가상 네트워크 | 로컬 네트워크 |
@@ -512,7 +512,7 @@ Azure 가상 네트워킹의 로컬 네트워크는 개인 클라우드 또는 �
 각 VPN 게이트웨이의 IPSec 키를 업데이트하려면 다음 Powershell 스크립트를 사용하여 [두 게이트웨이에서 sake 키 사용]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
 ###6단계: VNET 간 연결 설정
-Azure 서비스 관리 포털에서 두 가상 네트워크의 "대시보드" 메뉴를 사용하여 게이트웨이 간 연결을 설정합니다. 아래쪽 도구 모음의 "연결" 메뉴 항목을 사용합니다. 몇 분 후에 대시보드에 연결 정보가 그래픽으로 표시되어야 합니다.
+Azure 포털에서 두 가상 네트워크의 "대시보드" 메뉴를 사용하여 게이트웨이 간 연결을 설정합니다. 아래쪽 도구 모음의 "연결" 메뉴 항목을 사용합니다. 몇 분 후에 대시보드에 연결 정보가 그래픽으로 표시되어야 합니다.
 
 ###7단계: 지역 #2에 가상 컴퓨터 만들기 
 동일한 단계를 수행하여 지역 #1 배포에서 설명한 대로 Ubuntu 이미지를 만들거나 이미지 VHD 파일을 지역 #2에 있는 Azure 저장소 계정에 복사하여 이미지를 만듭니다. 이 이미지를 사용하고 새 클라우드 서비스 hk-c-svc-east-us에 다음 가상 컴퓨터 목록을 만듭니다.
@@ -692,4 +692,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

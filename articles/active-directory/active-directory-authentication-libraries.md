@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
+   ms.date="11/17/2015"
    ms.author="mbaldwin" />
 
 # Azure Active Directory 인증 라이브러리
@@ -63,4 +63,4 @@ Azure AD에 대한 인증을 사용하여 이 시나리오를 설명하는 코�
 
 [Azure Active Directory 코드 샘플](active-directory-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

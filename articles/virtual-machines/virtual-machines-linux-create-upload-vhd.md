@@ -156,7 +156,7 @@ Azure CLI를 사용하여 이미지를 업로드합니다. 다음 명령을 사�
 
 VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을 선택하거나 새로 만들 수 있습니다. 저장소 계정을 만들려면 [저장소 계정 만들기](../storage-create-storage-account.md)를 참조하세요.
 
-.vhd 파일을 업로드하는 경우 Blob 저장소 내 임의의 위치에 .vhd 파일을 배치할 수 있습니다. 다음 명령 예제에서 **BlobStorageURL**은 사용하려는 저장소 계정의 URL이고, **YourImagesFolder**는 이미지를 저장할 Blob 저장소 내 컨테이너입니다. **VHDName**은 가상 하드 디스크를 식별하기 위해 [관리 포털](http://manage.windowsazure.com)에 표시되는 레이블입니다. **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름입니다.
+.vhd 파일을 업로드하는 경우 Blob 저장소 내 임의의 위치에 .vhd 파일을 배치할 수 있습니다. 다음 명령 예제에서 **BlobStorageURL**은 사용하려는 저장소 계정의 URL이고, **YourImagesFolder**는 이미지를 저장할 Blob 저장소 내 컨테이너입니다. **VHDName**은 가상 하드 디스크를 식별하기 위해 [Azure 포털](http://manage.windowsazure.com)에 표시되는 레이블입니다. **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름입니다.
 
 이전 단계에서 사용한 Azure PowerShell 창에서 다음을 입력합니다.
 
@@ -171,4 +171,4 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015--->

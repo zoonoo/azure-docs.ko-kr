@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="스트림 분석 입력 만들기 | Microsoft Azure" 
+	pageTitle="스트림 분석 입력 연결 | Microsoft Azure" 
 	description="스트림 분석 솔루션에 대한 입력 소스에 연결하고 구성하는 방법을 알아봅니다."
 	documentationCenter=""
 	services="stream-analytics"
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 스트림 분석 입력 만들기
+# 스트림 분석 입력 소스 연결
 
 ## 스트림 분석 입력 이해
 ---
@@ -151,4 +151,4 @@ Blob 저장소를 스트림 분석 작업에 대한 참조 데이터를 정의�
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

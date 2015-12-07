@@ -68,13 +68,15 @@
 ## 다음 단계
 
 
-[자습서 업그레이드](service-fabric-application-upgrade-tutorial.md)
+[Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-[고급 항목](service-fabric-application-upgrade-advanced.md)
+[PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade-powershell.md)
+
+[수동 업그레이드 및 Diff 패키지로 업그레이드](service-fabric-application-upgrade-advanced.md)
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
 
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

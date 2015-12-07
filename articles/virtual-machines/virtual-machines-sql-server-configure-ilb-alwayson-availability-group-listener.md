@@ -84,7 +84,7 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 
 1. 변수를 설정한 후에는 텍스트 편집기에서 해당 스크립트를 Azure PowerShell 세션에 복사하여 실행합니다. 프롬프트에 >>가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다. 참고:
 
->[AZURE.NOTE]Azure 관리 포털은 현재 내부 부하 분산 장치를 지원하지 않으므로 포털에서 ILB나 끝점이 표시되지 않습니다. 그러나 포털에서 부하 분산 장치를 실행하는 경우 **Get-AzureEndpoint**에서 내부 IP주소가 반환됩니다. 그렇지 않은 경우 null을 반환합니다.
+>[AZURE.NOTE]Azure 포털은 현재 내부 부하 분산 장치를 지원하지 않으므로 Azure 포털에서 ILB나 끝점이 표시되지 않습니다. 그러나 포털에서 부하 분산 장치를 실행하는 경우 **Get-AzureEndpoint**에서 내부 IP주소가 반환됩니다. 그렇지 않은 경우 null을 반환합니다.
 
 ## 필요한 경우 KB2854082가 설치되었는지 확인합니다.
 
@@ -138,4 +138,4 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

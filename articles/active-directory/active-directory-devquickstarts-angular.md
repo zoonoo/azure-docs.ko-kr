@@ -125,7 +125,7 @@ $scope.logout = function () {
 };
 ...
 ```
-- 앱의 UI에 사용자 정보를 표시하려고 할 수도 있습니다. adal 서비스가 `userDataCtrl` 컨트롤러에 이미 추가되었으므로 관련 뷰 `App/Scripts/UserData.html`에서 `userInfo` 개체에 액세스할 수 있습니다.
+- 앱의 UI에 사용자 정보를 표시하려고 할 수도 있습니다. adal 서비스가 `userDataCtrl` 컨트롤러에 이미 추가되었으므로 관련 뷰 `App/Views/UserData.html`에서 `userInfo` 개체에 액세스할 수 있습니다.
 
 ```js
 <p>{{userInfo.userName}}</p>
@@ -151,4 +151,4 @@ Adal.js는 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

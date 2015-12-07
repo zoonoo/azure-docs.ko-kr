@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/18/2015"
+   ms.date="11/19/2015"
    ms.author="juliako"/>
 
 # Azure SDK for .NET 2.8
@@ -35,8 +35,7 @@
 
 ###알려진 문제
 
-Azure .NET SDK 2.8을 사용하여 .NET 4.5.2 클라우드 서비스 패키지를 만들 수 있습니다. 그러나 .NET 4.5.2 프레임워크는 기본 게스트 OS 이미지에 설치되지 않습니다(게스트 OS 2016년 1월 버전까지). 그전에는 .NET 4.5.2 프레임워크를 별도 게스트 OS 릴리스 버전(2015년 11월-02)을 통해 사용할 수 있습니다. 이미지가 릴리스되는 시기를 추적하려면 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](http://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/) 페이지를 참조하세요. 2015년 11월-02 이미지가 릴리스되면 클라우드 서비스 구성 파일(.cscfg)을 업데이트하여 해당 이미지를 사용하도록 선택할 수 있습니다. 서비스 구성 파일에서 ServiceConfiguration 요소의 osVersion 특성을 문자열 "WA-GUEST-OS-4.26\_201511-02"로 설정합니다.
-
+Azure .NET SDK 2.8을 사용하여 .NET 4.5.2 클라우드 서비스 패키지를 만들 수 있습니다. 그러나 .NET 4.5.2 프레임워크는 기본 게스트 OS 이미지에 설치되지 않습니다(게스트 OS 2016년 1월 버전까지). 그전에는 .NET 4.5.2 프레임워크를 별도 게스트 OS 릴리스 버전(2015년 11월-02)을 통해 사용할 수 있습니다. 이미지가 릴리스되는 시기를 추적하려면 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](http://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/) 페이지를 참조하세요. 2015년 11월-02 이미지가 릴리스되면 클라우드 서비스 구성 파일(.cscfg)을 업데이트하여 해당 이미지를 사용하도록 선택할 수 있습니다. 서비스 구성 파일에서 ServiceConfiguration 요소의 osVersion 특성을 문자열 "WA-GUEST-OS-4.26\_201511-02"로 설정합니다. 이 이미지를 사용하도록 선택한 경우 더 이상 게스트 OS에 대한 자동 업데이트를 받지 않습니다. 자동 업데이트를 받으려면 osVersion이 “*”로 설정되어 있어야 하며 .NET 4.5.2는 2016년 1월 자동 업데이트를 통해서만 사용할 수 있습니다.
 
 ##Azure 데이터 팩터리
 
@@ -57,15 +56,6 @@ Azure 리소스 그룹 프로젝트에서 제공한 PowerShell 스크립트가 �
 
 SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다. 다른 모든 버전의 SDK를 사용하려면 Azure PowerShell cmdlet 버전 0.9.8이 필요합니다. 자세한 내용은 [이 블로그](http://go.microsoft.com/fwlink/?LinkID=623011)를 참조하세요.
 
-##Azure HDInsight 도구
-
-새 업데이트는 다음과 같습니다.
-
-- 거의 오버헤드 없이 HiveServer2를 통해 클러스터에서 Hive 쿼리를 실행하고 작업 기록을 실시간으로 볼 수 있습니다.
-- 새 Hive 작업 실행 보기를 사용하여 작업을 자세히 살펴볼 수 있으며 자세한 정보를 찾아 잠재적인 문제를 식별할 수 있습니다.
-
-자세한 내용은 [Visual Studio 2013 및 Visual Studio 2015용 Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)을 참조하세요.
-
 ##웹 도구 확장
 
 ###알려진 문제
@@ -75,11 +65,22 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 - 비프로덕션 환경(예: Azure China 또는 Azure 스택 고객)에서는 앱 서비스 관련 클라우드 및 서버 탐색기 제스처가 작동하지 않습니다. 이러한 영향을 받는 지역의 고객은 Azure 포털에서 게시 프로필을 다운로드하면 게시 기능을 사용할 수 있습니다. 향후 릴리스에서 Azure China 및 스택 고객에 대한 "디버거 연결" 및 "스트리밍 로그 보기"와 같은 제스처가 복구됩니다. 
 - 배포하려는 App Insights 인스턴스가 미국 동부 이외의 지역에 있는 경우 앱 서비스를 만드는 동안 오류가 표시될 수 있습니다. 이러한 시나리오에서는 포털에서 앱 서비스를 만들고 게시 프로필을 다운로드하면 게시 시나리오를 사용할 수 있습니다. 
 
+##Azure HDInsight 도구
 
+###새 업데이트
+
+- 거의 오버헤드 없이 HiveServer2를 통해 클러스터에서 Hive 쿼리를 실행하고 작업 기록을 실시간으로 볼 수 있습니다.
+- 새 Hive 작업 실행 보기를 사용하여 작업을 자세히 살펴볼 수 있으며 자세한 정보를 찾아 잠재적인 문제를 식별할 수 있습니다.
+
+자세한 내용은 [Visual Studio 2013 및 Visual Studio 2015용 Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)을 참조하세요.
+
+##다른 업데이트
+
+다른 업데이트는 [Azure SDK 2.8 발표 게시물](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)을 참조하세요.
 ##참고 항목
 
 [Azure SDK 2.8 발표 게시물](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

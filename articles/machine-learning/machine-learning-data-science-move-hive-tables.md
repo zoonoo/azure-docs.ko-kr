@@ -128,23 +128,9 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 
 *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*
 
-입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 로그인하려면 Hadoop 클러스터 자격 증명을 입력하라는 메시지가 표시됩니다. 또는 [PowerShell을 사용하여 Hive 작업을 제출](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)할 수 있습니다.
+입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 로그인하려면 Hadoop 클러스터 자격 증명을 입력하라는 메시지가 표시됩니다.
 
-
-## Hive 쿼리를 제출하는 방법(이전)
-
-이 문서에서는 Azure의 HDInsight 서비스에서 관리하는 Hadoop 클러스터에 Hive 쿼리를 제출하는 다양한 방법에 대해 설명합니다.(이전 소개 - TBD 포함)
-
-
-Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출할 수 있습니다. 이렇게 하려면 Hadoop 클러스터의 헤드 노드에 로그인하여 Hadoop 명령줄 콘솔을 열고 여기에서 Hive 쿼리를 제출합니다. 이 작업을 수행하는 방법에 대한 지침은 [고급 분석 프로세스에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출](machine-learning-data-science-process-hive-tables.md)을 참조하세요.
-
-사용자는 웹 브라우저에 URL
-
-https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor
-
-입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 로그인하려면 Hadoop 클러스터 자격 증명을 입력하라는 메시지가 표시되므로 이 자격 증명이 도움이 됩니다.
-
-또는 [PowerShell을 사용하여 Hive 작업을 제출](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)할 수 있습니다.
+또는 [PowerShell을 사용하여 Hive 쿼리를 실행](../hdinsight/hdinsight-hadoop-use-hive-powershell.md)할 수 있습니다.
 
 
 ## <a name="create-tables"></a> Hive 데이터베이스 및 테이블 만들기
@@ -264,4 +250,4 @@ Hive 테이블 분할 외에도 Hive 데이터를 ORC(Optimized Row Columnar) �
 
 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해 설명합니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

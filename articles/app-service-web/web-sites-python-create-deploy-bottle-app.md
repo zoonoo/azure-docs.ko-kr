@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 
 # Azure에서 Bottle을 사용하여 웹앱 만들기
@@ -56,7 +56,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 앱을 만드는 첫 번째 단계는 [Azure Preview 포털](https://portal.azure.com)을 통해 웹앱을 만드는 것입니다.
 
 1. Azure Preview 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다. 
-2. **웹 + 모바일** > **Azure 마켓플레이스** > **웹앱**을 클릭합니다.
+2. **웹 + 모바일**을 클릭합니다.
 3. 검색 상자에 "python"을 입력합니다.
 4. 검색 결과에서 선택 **Bottle**을 선택하고 **만들기**를 클릭합니다.
 5. 새 Bottle 앱을 구성(예: 새 앱 서비스 계획 만들기)하고 해당 앱의 새 리소스 그룹을 구성합니다. 그런 다음에 **만들기**를 클릭합니다.
@@ -297,6 +297,7 @@ Python 2.7:
 Python 3.4:
 
     python -m venv env
+또는 pyvenv env
 
 응용 프로그램에 필요한 모든 외부 패키지를 설치합니다. 리포지토리의 루트에 있는 requirements.txt 파일을 사용하여 가상 환경에 패키지를 설치합니다.
 
@@ -397,4 +398,4 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Bottle 설명서]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

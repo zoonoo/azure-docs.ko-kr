@@ -64,7 +64,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 ![E2E 토폴로지](./media/site-recovery-vmm-to-vmm/E2ETopology.png)
 
-
+ 
 ### 네트워크 매핑 필수 조건
 네트워크 매핑은 장애 조치(Failover) 후 복제본 가상 컴퓨터가 Hyper-V 호스트 서버에 최적으로 배치되고 적절한 VM 네트워크에 연결할 수 있도록 합니다. 네트워크 매핑을 구성하지 않으면 장애 조치(Failover) 후 복제본 가상 컴퓨터가 VM 네트워크에 연결되지 않습니다. 네트워크 매핑을 배포하려면 다음이 필요합니다.
 
@@ -168,23 +168,25 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 8. *다음*을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **서버** 페이지에서 *VMM 서버* 탭에 표시됩니다.
 
->[AZURE.NOTE] 다음 명령줄을 사용하여 Azure Site Recovery 공급자를 설치할 수도 있습니다. 이 방법은 Windows Server 2012 R2용 Server CORE에 대한 공급자를 설치하는 데 사용할 수 있습니다.
->
->1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
->2. System Center Virtual Machine Manager 서비스 중지
->3. **관리자** 권한으로 명령 프롬프트에서 아래 명령을 실행하여 공급자 설치 관리자 추출 
->
+>[AZURE.NOTE]다음 명령줄을 사용하여 Azure Site Recovery 공급자를 설치할 수도 있습니다. 이 방법은 Windows Server 2012 R2용 Server CORE에 대한 공급자를 설치하는 데 사용할 수 있습니다.
+
+1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
+1. System Center Virtual Machine Manager 서비스 중지
+1. **관리자** 권한으로 명령 프롬프트에서 아래 명령을 실행하여 공급자 설치 관리자 추출
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. 다음 명령을 사용하여 공급자 설치
->
+1. 다음 명령을 사용하여 공급자 설치
+
 		C:\ASR> setupdr.exe /i
->5. 다음 명령을 실행하여 공급자 등록
->
+1. 다음 명령을 실행하여 공급자 등록
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####명령줄 설치 매개 변수 목록####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
+
+    
+#### 명령줄 설치 매개 변수 목록
+
  - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.  
  - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
  - **/EncryptionEnabled** : Azure에서 미사용 중인 가상 컴퓨터의 암호화해야 하는 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지를 확인하세요.
@@ -345,7 +347,7 @@ Hyper-V 복제본을 사용하여 복제되는 기존 가상 컴퓨터가 VMM에
 
 - **수행하는 작업**: 가상 컴퓨터를 보호할 수 있도록 서버를 서비스에 등록합니다.
 - **수집 정보**: 등록되면 서비스가 VMM 서버의 서비스 이름과 VMM 서버의 가상 컴퓨터 클라우드의 이름을 사용하여 재해 복구를 제공하도록 지정된 VMM 서버에서 관리 인증서 정보를 수집, 처리, 전송합니다.
-- **정보 사용**: 
+- **정보 사용**:
 	- 관리 인증서 - 등록된 VMM 서버를 식별하고 서비스에 액세스할 수 있도록 인증하는 데 사용됩니다. 서비스는 인증서의 공개 키 부분을 사용하여 등록된 VMM 서버만 액세스할 수 있는 토큰을 보호합니다. 서버는 서비스 기능에 액세스하기 위해 이 토큰을 사용해야 합니다.
 	- VMM 서버 이름 - VMM 서버 이름은 클라우드가 있는 해당 VMM 서버를 식별하고 통신하는 데 필요합니다.
 	- VMM 서버의 클라우드 이름 - 클라우드 이름은 아래에 설명된 서비스 클라우드 연결/연결 해제 기능을 사용할 때 필요합니다. 기본 데이터 센터의 클라우드를 복구 데이터 센터의 다른 클라우드와 연결하는 경우 복구 데이터 센터의 모든 클라우드 이름이 제공됩니다.
@@ -398,4 +400,4 @@ VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 
 
 - **선택**: 이 정보는 서비스의 핵심 부분이며 해제할 수 없습니다. 이 정보를 서비스로 보내지 않으려면 이 서비스를 사용하지 마세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

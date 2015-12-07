@@ -1,20 +1,21 @@
 <properties
-   pageTitle="Microsoft Azure Active Directory 라이선스란? | Microsoft Azure"
-   description="Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여, Microsoft Azure AD 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Microsoft Azure Active Directory 라이선스란? | Microsoft Azure"
+    description="Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여, Microsoft Azure AD 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
+    services="active-directory"
+	keywords="Azure AD 라이선스"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="11/20/2015"
+    ms.author="curtand"/>
 
 # Microsoft Azure Active Directory 라이선스란?
 
@@ -25,7 +26,7 @@ Azure AD(Active Directory)는 Microsoft의 IDaaS(Identity as a Service) 솔루�
 
 > [AZURE.NOTE]Azure AD 관리 포털은 Azure 관리 포털의 일부입니다. Azure AD를 사용하기 위해 Azure를 구매할 필요는 없지만 이 포털에 액세스하려면 활성 Azure 구독 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)이 필요합니다.
 
-Azure AD 서비스 기능에 대한 광범위한 개요는 [Azure AD란?](active-directory-whatis.md)을 참조하세요. [Azure AD 서비스 수준에 대한 자세한 정보](http://azure.microsoft.com/support/legal/sla/)
+Azure AD 서비스 기능의 광범위한 개요는 [Azure AD란](active-directory-whatis.md)을 참조하세요. [Azure AD 서비스 수준에 대한 자세한 정보](http://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]Azure 종량제 구독은 다릅니다. 디렉터리에 표시되기도 하지만 이러한 구독을 통해 Azure 리소스를 만들 수 있고 지불 방법에 매핑할 수도 있습니다. 이 경우 구독과 연결된 라이센스 수가 없습니다. 사용자와 구독과의 연결, 관리되는 구독 리소스에 대한 사용자 액세스는 구독에 매핑된 Azure 리소스에 대해 작동하는 권한을 부여하여 수행됩니다.
 
@@ -131,4 +132,4 @@ Office 365 포털을 통해 평가판을 셀프 서비스로 확장할 수 있�
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Azure AD Premium 라이선스 직접 구매](http://aka.ms/buyaadp)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

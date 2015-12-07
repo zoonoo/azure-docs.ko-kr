@@ -4,7 +4,7 @@
 	description="Azure 앱 서비스에서 웹 앱으로 사용자 지정 도메인 이름을 구입하는 방법에 대해 알아봅니다."
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 사용자 지정 도메인 이름 구입 및 구성
 
@@ -93,9 +93,9 @@
 
 > [AZURE.NOTE]5일 이내에 "구매 취소"하면 전액 환불이 가능합니다. 5일 후에는 "구매 취소"를 할 수 없으며, 도메인 "삭제" 옵션이 대신 표시됩니다. 도메인을 삭제하면 환불 없이 구독에서 해제되어 사용 가능한 도메인이 됩니다.
 
-	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+구성이 완료되면 사용자 지정 도메인 이름이 웹 앱의 **호스트 이름 바인딩** 섹션에 표시됩니다.
 
-이때 브라우저에서 사용자 지정 도메인 이름을 입력해야 웹 앱으로 이동하는지 확인할 수 있습니다.
+이때 브라우저에서 사용자 지정 도메인 이름을 입력해야 웹앱으로 이동하는지 확인할 수 있습니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

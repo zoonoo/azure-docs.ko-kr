@@ -38,11 +38,11 @@ Azure의 디스크 I/O 처리량 및 I/O 응답 시간은 RAID를 통해 크게 
 이 문서에서는 Linux 가상 컴퓨터를 이미 만들고 MYSQL을 설치 및 구성하는 것으로 가정합니다. 시작 방법에 대한 자세한 내용은 Azure에서 MySQL을 설치하는 방법을 참조하세요.
 
 ###Azure에서 RAID 설치
-다음 단계에서는 Azure 관리 포털을 사용하여 Azure에서 RAID를 만드는 방법을 보여줍니다. Windows PowerShell 스크립트를 사용하여 RAID를 설치할 수도 있습니다. 이 예제에서는 디스크 4개를 사용하여 RAID 0을 구성합니다.
+다음 단계에서는 Azure 포털을 사용하여 Azure에서 RAID를 만드는 방법을 보여줍니다. Windows PowerShell 스크립트를 사용하여 RAID를 설치할 수도 있습니다. 이 예제에서는 디스크 4개를 사용하여 RAID 0을 구성합니다.
 
 ####1단계: 가상 컴퓨터에 데이터 디스크 추가  
 
-Azure 관리 포털의 가상 컴퓨터 페이지에서 데이터 디스크를 추가할 가상 컴퓨터를 클릭합니다. 이 예제의 가상 컴퓨터는 mysqlnode1입니다.
+Azure 포털의 가상 컴퓨터 페이지에서 데이터 디스크를 추가할 가상 컴퓨터를 클릭합니다. 이 예제의 가상 컴퓨터는 mysqlnode1입니다.
 
 ![][1]
 
@@ -348,4 +348,4 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스 웹 앱에 Java 응용 프로그램 추가
@@ -40,4 +40,4 @@ Tomcat 웹 앱에 대한 참고 사항: **webapps** 폴더에 WAR 파일을 업�
 <!-- External Links -->
 [Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -58,7 +58,7 @@
 
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
 
-[고급 항목](service-fabric-application-upgrade-advanced.md)
+[수동 업그레이드 및 Diff 패키지로 업그레이드](service-fabric-application-upgrade-advanced.md)
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -67,4 +67,4 @@
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

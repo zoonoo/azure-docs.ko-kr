@@ -3,7 +3,7 @@
    description="여러 응용 프로그램을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager=""
    editor=""/>
 
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 
-# 여러 기존 응용 프로그램 배포
+# 여러 사용자 지정 응용 프로그램 배포
 
 이 문서에서는 http://aka.ms/servicefabricpacktool에서 사용할 수 있는 서비스 패브릭 패키징 도구의 Preview 버전을 사용하여 여러 응용 프로그램을 패키지하고 서비스 패브릭에 배포하는 방법을 설명합니다.
 
-서비스 패브릭 패키지를 수동으로 빌드하는 방법은 [Azure 서비스 패브릭에서 기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
+서비스 패브릭 패키지를 수동으로 빌드하는 방법은 [Azure 서비스 패브릭에서 기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md) 문서를 확인합니다.
 
 이 연습에서는 MongoDB를 데이터 저장소로 사용하는 Node.js 프런트 엔드를 통해 응용 프로그램을 배포하는 방법을 보여 줍니다. 이 단계는 다른 응용 프로그램에 종속된 모든 응용 프로그램에 적용할 수 있습니다.
 
@@ -194,8 +194,8 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 이 자습서에서는 고가용성 및 상태 시스템 통합 등 서비스 패브릭의 일부 기능을 사용하기 위해 두 개의 기존 응용 프로그램을 하나의 서비스 패브릭 응용 프로그램으로 패키지하고 서비스 패브릭에 배포하는 방법을 학습했습니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+## 다음 단계
 
-[서비스 패브릭 패키징 형식 ](service-fabric-deploy-existing-app.md)
+[단일 응용 프로그램을 수동으로 패키지](service-fabric-deploy-existing-app.md)하는 방법 알아보기
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -3,8 +3,8 @@
 	description="Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 응용 프로그램을 게시하는 방법을 설명합니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="StevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
@@ -74,8 +74,7 @@ Microsoft Azure AD 응용 프로그램 프록시를 사용하도록 설정하면
 경로는 내부 URL 필드에 지정되고 외부 URL에 표시됩니다. 내부 경로와 외부 경로는 동일해야 합니다. HTTP 호스트 헤더를 변환하지 않아도 되는 응용 프로그램(예: 일부 SharePoint 구성)의 경우 '아니요'로 설정합니다. 이 경우 요청과 응답 헤더에 대한 헤더 변환을 사용할 수 없게 됩니다. 내부 인증 방법.
 사전 인증에 응용 프로그램 프록시를 사용하는 경우 이 응용 프로그램에 SSO(Single-Sign On)의 장점을 활용할 수 있도록 내부 인증 방법을 설정할 수 있습니다. <p> 응용 프로그램이 IWA를 사용하며, 이 응용 프로그램에 SSO를 사용하도록 KCD(Kerberos 제한 위임)를 구성한 경우 **IWA(Windows 통합 인증)**를 선택합니다. <p> 응용 프로그램이 IWA를 사용하지 않는 경우 **없음**을 선택합니다. <p> IWA를 사용하는 응용 프로그램을 KCD를 사용하여 구성해야 합니다. 그렇지 않으면 응용 프로그램 프록시가 이러한 응용 프로그램을 게시할 수 없습니다. <p> 자세한 내용은 앱 프록시 내부 응용 프로그램 SPN에서 KCD를 사용하여 온-프레미스 IWA 앱에 대한 SSO를 참조하세요 | 이는 온-프레미스 응용 프로그램 프록시에서 구성된 내부 응용 프로그램의 SPN(서비스 주체 이름)입니다. SPN은 응용 프로그램 프록시 커넥터가 KCD(Kerberos 제한 위임)를 사용하여 응용 프로그램에 대한 Kerberos 토큰을 가져오는 데 사용합니다. <p> 자세한 내용은 [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)을 참조하세요.
 
-Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시하면 Azure AD의 응용 프로그램 목록에 표시되므로 해당 위치에서 관리할 수 있습니다.
-응용 프로그램을 게시한 후 응용 프로그램 프록시 서비스를 사용하지 않도록 설정하면 응용 프로그램이 삭제되지 않지만, 개인 네트워크 외부에서 액세스할 수 없습니다.
+Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프로그램을 게시하면 Azure AD의 응용 프로그램 목록에 표시되므로 해당 위치에서 관리할 수 있습니다. 응용 프로그램을 게시한 후 응용 프로그램 프록시 서비스를 사용하지 않도록 설정하면 응용 프로그램이 삭제되지 않지만, 개인 네트워크 외부에서 액세스할 수 없습니다.
 응용 프로그램을 확인하고 액세스할 수 있는지 확인하려면 응용 프로그램의 이름을 두 번 클릭합니다. 응용 프로그램 프록시 서비스를 사용할 수 없고 응용 프로그램을 사용할 수 없는 경우 화면 위쪽에 경고 메시지가 나타납니다. 응용 프로그램을 삭제하려면 목록에서 응용 프로그램을 선택한 다음 **삭제**를 클릭합니다.
 
 ## 참고 항목
@@ -97,4 +96,4 @@ Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프�
 
 * [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # Facebook 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
@@ -26,9 +26,7 @@
 
 이 토픽의 절차를 완료하려면 검증된 전자 메일 주소와 휴대폰 번호가 포함된 Facebook 계정이 있어야 합니다. 새 Facebook 계정을 만들려면 [facebook.com]으로 이동하세요.
 
-
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]이 항목에서는 앱 서비스 인증/권한 부여 기능을 사용하는 과정을 보여 줍니다. 이는 대부분의 응용 프로그램에 대한 앱 서비스 게이트웨이를 대체합니다. 게이트웨이 사용에 적용되는 차이가 항목 전체적으로 명시되어 있습니다.
 
 
 ## <a name="register"> </a>Facebook을 사용하여 응용 프로그램 등록
@@ -39,7 +37,7 @@
 
 3. (옵션) 아직 등록하지 않은 경우 **Apps**, **Register as a Developer**를 차례로 클릭하고 정책에 동의한 후 등록 단계를 따릅니다.
 
-4. **내 앱**을 클릭한 후 **새 앱 추가**를 클릭합니다.
+4. **My Apps**를 클릭한 후 **Add a New App**을 클릭합니다.
 
 5. 플랫폼으로 **Website**를 선택합니다. 앱의 고유한 이름을 선택하고 **Create New Facebook App ID**를 클릭합니다.
 
@@ -51,13 +49,13 @@
 
 	> [AZURE.NOTE]**보안 정보** 앱 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 클라이언트 응용 프로그램 내에 배포하지 마세요.
 
-9. 왼쪽 탐색 모음에서 **Settings**를 클릭합니다. **앱 도메인**에 모바일 앱의 **URL**을 입력하고 **전자 메일 연락처**를 입력합니다.
+9. 왼쪽 탐색 모음에서 **Settings**를 클릭합니다. **App Domains**에 모바일 앱의 **URL**을 입력하고 **Contact Email**을 입력합니다.
 
     ![][0]
 
-10. 아래에 웹 사이트 섹션이 표시되지 않는 경우 **Add Platform**을 클릭하고 **Website**를 선택합니다. **사이트 URL** 필드에 모바일 앱의 **URL**을 입력하고 **변경 내용 저장**을 클릭합니다.
+10. 아래에 웹 사이트 섹션이 표시되지 않는 경우 **Add Platform**을 클릭하고 **Website**를 선택합니다. **사이트 URL** 필드에 모바일 앱의 **URL**을 입력하고 **Save Changes**를 클릭합니다.
 
-11. **고급** 탭을 클릭하고 응용 프로그램의 **리디렉션 URI**를 **유효한 OAuth 리디렉션 URI**에 추가합니다. 그런 다음 **Save Changes**를 클릭합니다. 리디렉션 URI는 경로 _/.auth/login/facebook/callback_이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/facebook/callback` HTTPS 체계를 사용 중인지 확인합니다.
+11. **Advanced** 탭을 클릭하고 응용 프로그램의 **Redirect URI**를 **Valid OAuth redirect URIs**에 추가합니다. 그런 다음 **Save Changes**를 클릭합니다. 리디렉션 URI는 경로 _/.auth/login/facebook/callback_이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/facebook/callback` HTTPS 체계를 사용 중인지 확인합니다.
 
 
 	> [AZURE.NOTE]앱 서비스 인증 / 권한 부여 기능 대신 앱 서비스 게이트웨이를 사용 중인 경우 리디렉션 URL은 _/signin-facebook_ 경로가 있는 게이트웨이 URL을 대신 사용합니다.
@@ -68,23 +66,22 @@
 
 ## <a name="secrets"> </a>응용 프로그램에 Facebook 정보 추가
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]앱 서비스 게이트웨이를 사용하는 경우 이 섹션을 무시하고 대신 포털에서 게이트웨이로 이동합니다. **Settings**, **Identity**, **Facebook**을 차례로 선택합니다. 앞에서 얻은 값을 붙여넣고 **Save**를 클릭합니다.
 
 
-13. [Azure 관리 포털]로 돌아가서 응용 프로그램으로 이동합니다. **설정**을 클릭한 다음 **인증/권한 부여**를 클릭합니다.
+13. [Azure 관리 포털]로 돌아가서 응용 프로그램으로 이동합니다. **Settings**를 클릭한 다음 **Authentication / Authorization**을 클릭합니다.
 
-14. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **설정**으로 전환합니다.
+14. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **On**으로 전환합니다.
 
 15. **Facebook**을 클릭합니다. 이전에 가져온 앱 ID 및 앱 암호 값을 붙여넣고 필요에 따라 응용 프로그램에 필요한 범위를 설정합니다. 그런 후 **OK**를 클릭합니다.
 
     ![][1]
 	
-16. 기본적으로 앱 서비스는 로그인을 제공하지만 사이트 콘텐츠 및 API에 대한 액세스를 제한하지 않습니다. 이는 앱 코드에서 처리합니다. Facebook 로그인으로 사이트를 완전히 보호하려면 **Facebook** 옵션을 사용하도록 **요청이 인증되지 않은 경우 수행할 동작** 드롭다운을 변경합니다. 이렇게 하려면 모든 요청이 인증되어야 합니다. 인증되지 않은 요청은 Facebook으로 로그인하도록 리디렉션됩니다.
+	기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
+
+17. (선택 사항) Facebook에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **Facebook**에 **요청이 인증되지 않으면 수행할 동작**을 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Facebook에 리디렉션되어야 합니다.
 
 17. **Save**를 클릭합니다.
-
 
 이제 앱에서 Facebook을 인증에 사용할 준비가 되었습니다.
 
@@ -102,4 +99,4 @@
 [Get started with authentication]: /ko-KR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 관리 포털]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

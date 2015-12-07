@@ -1,7 +1,7 @@
 <properties
 	pageTitle="리소스 관리자에서 Azure CLI 사용 | Microsoft Azure"
 	description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure 리소스 관리자 모드에서 CLI를 사용하여 Azure 리소스를 관리하는 방법을 알아봅니다."
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용
@@ -45,16 +45,16 @@ Azure CLI에서 리소스 관리자 모드를 사용하기 위한 설정 요구 
 
 - Azure 계정([여기에서 무료 평가판 받기](http://azure.microsoft.com/pricing/free-trial/))
 - [Azure CLI 설치](../xplat-cli-install.md)
-- Azure Active Directory ID 또는 서비스 주체를 사용하도록 [Azure CLI 구성](../xplat-cli-connect.md)
+
 
 계정이 있고 Azure CLI가 설치되었으면 다음을 수행해야 합니다.
 
+- [Azure CLI를 구성](../xplat-cli-connect.md)하여 회사나 학교 계정 또는 Microsoft 계정 ID를 사용합니다. 
 - `azure config mode arm`을 입력하여 리소스 관리자 모드로 전환합니다.
-- `azure login`을 입력하고 프롬프트에서 회사 또는 학교 ID를 사용하여 Azure 계정에 로그인
 
 
-## azure account: 계정 정보 및 게시 설정 관리
-Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 여기에 설명한 대로 Azure 포털에서 이 정보를 게시 설정 파일로 가져올 수 있습니다. 도구에서 후속 작업에 사용할 영구 로컬 구성 설정으로 게시 설정 파일을 가져올 수 있습니다. 게시 설정을 한 번만 가져와야 합니다.
+## Azure account: 계정 정보 관리
+Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 **가져온 구독 나열**
 
@@ -1760,4 +1760,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

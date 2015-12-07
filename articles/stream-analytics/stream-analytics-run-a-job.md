@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="작업 실행 | Microsoft Azure" 
-	description="작업 실행 학습 경로 세그먼트입니다."
+	description="스트림 분석 작업 실행 | 학습 경로 세그먼트."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 작업 실행
+# 스트림 분석 작업을 실행하는 방법
 
 작업 입력, 쿼리 및 출력을 모두 지정했으면 스트림 분석 작업을 시작할 수 있습니다.
 
@@ -53,4 +53,4 @@
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

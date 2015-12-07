@@ -33,11 +33,12 @@
 ## 응용 프로그램 업그레이드
 응용 프로그램을 업그레이드하는 방법에 대해 알아보려면 다음을 읽어보세요.
 
-- [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-- [매개 변수 업그레이드](service-fabric-application-upgrade-parameters.md)
-- [고급 항목](service-fabric-application-upgrade-advanced.md)
-- [응용 프로그램 업그레이드 실패 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
+- [Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+- [PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade-powershell.md)
 - [응용 프로그램 업그레이드 연습](service-fabric-application-upgrade-tutorial.md)
+- [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
+- [수동 업그레이드 및 Diff 패키지로 업그레이드](service-fabric-application-upgrade-advanced.md)
+- [응용 프로그램 업그레이드 실패 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
 - [서비스 패브릭 응용 프로그램 업그레이드: 데이터 Serialization](service-fabric-application-upgrade-data-serialization.md)
 
 ## 응용 프로그램 서비스 크기 조정 및 분할
@@ -49,4 +50,4 @@
 ## 클러스터 관리
 - [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

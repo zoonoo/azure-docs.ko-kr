@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # 도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록
@@ -34,7 +34,7 @@ Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Dir
 4. **발급 변환 규칙** 탭에서 **규칙 추가**를 선택합니다.
 5. **클레임 규칙** 템플릿 드롭다운 상자에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택합니다. **다음**을 선택합니다.
 6. **클레임 규칙 이름:** 텍스트 상자에 *인증 방법 클레임 규칙*을 입력합니다.
-7. **클레임 규칙:** 텍스트 상자에 다음 클레임 규칙을 입력합니다.****
+7. **클레임 규칙:** 텍스트 상자에 다음 클레임 규칙을 입력합니다.
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
@@ -43,7 +43,7 @@ Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Dir
 
 Azure Active Directory 신뢰 당사자 트러스트 인증 클래스 참조 추가 구성
 -----------------------------------------------------------------------------------------------------
-9. 페더레이션 서버에서 Windows PowerShell 명령 창을 열고 다음을 입력합니다.
+페더레이션 서버에서 Windows PowerShell 명령 창을 열고 다음을 입력합니다.
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
@@ -52,21 +52,32 @@ Azure Active Directory 신뢰 당사자 트러스트 인증 클래스 참조 추
 
 AD FS 전역 인증 정책
 -----------------------------------------------------------------------------
-1. 인트라넷에 대해 Windows 통합 인증을 허용하도록 AD FS 전역 기본 인증 정책을 구성합니다(기본값임).
+인트라넷에 대해 Windows 통합 인증을 허용하도록 AD FS 전역 기본 인증 정책을 구성합니다(기본값임).
 
 
 Internet Explorer 구성
 ------------------------------------------------------------------------------
-1. Windows 장치의 Internet Explorer에서 로컬 인트라넷 보안 영역에 대해 다음 설정을 구성합니다.
-    * 인증서가 하나만 있는 경우 클라이언트 인증서 선택 안 함: **사용**
-    * 스크립팅 허용: **사용**
-    * 인트라넷 영역에서만 자동으로 로그온: **선택**
+Windows 장치의 Internet Explorer에서 로컬 인트라넷 보안 영역에 대해 다음 설정을 구성합니다.
+
+- 인증서가 하나만 있는 경우 클라이언트 인증서 선택 안 함: **사용**
+- 스크립팅 허용: **사용**
+- 인트라넷 영역에서만 자동으로 로그온: **선택**
 
 이러한 설정은 Internet Explorer 로컬 인트라넷 보안 영역에 대한 기본 설정입니다. **인터넷 옵션** > **보안** > 로컬 인트라넷 > 사용자 지정 수준으로 이동하여 Internet Explorer에서 설정을 보거나 관리할 수 있습니다. Active Directory 그룹 정책을 사용하여 설정을 구성할 수도 있습니다.
 
 네트워크 연결
 -------------------------------------------------------------
 도메인 가입 Windows 장치가 Azure AD에 자동으로 등록되려면 AD FS 및 Active Directory 도메인 컨트롤러에 연결되어 있어야 합니다. 일반적으로 이는 컴퓨터가 회사 네트워크에 연결되어 있어야 함을 의미합니다. 여기에는 유선 연결, Wi-Fi 연결, DirectAccess 또는 VPN이 포함될 수 있습니다.
+
+## Azure Active Directory Device Registration 검색 구성
+Windows 7 및 Windows 8.1 장치는 사용자 계정 이름을 잘 알려진 장치 등록 서버 이름과 결합하여 장치 등록 서버를 검색합니다. Azure Active Directory Device Registration 서비스와 연결된 A 레코드를 가리키는 DNS CNAME 레코드를 만들어야 합니다. CNAME 레코드는 잘 알려진 접두사 **enterpriseregistration**과 조직에서 사용자 계정에 사용되는 UPN 접미사를 순서대로 사용해야 합니다. 조직에서 여러 UPN 접미사를 사용하는 경우 DNS에 여러 CNAME 레코드를 만들어야 합니다.
+
+예를 들어 조직에서 @contoso.com 및 @region.contoso.com이라는 두 개의 UPN 접미사를 사용하는 경우 다음과 같은 DNS 레코드를 만듭니다.
+
+| 항목 | 형식 | 주소 |
+|-------------------------------------------|-------|------------------------------------|
+| enterpriseregistration.contoso.com | CNAME | enterpriseregistration.windows.net |
+| enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
 ##Windows 7 및 Windows 8.1 도메인 가입 장치에 대해 자동 장치 등록 구성
 
@@ -83,6 +94,12 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 
 모바일 및 기존 장치를 둘 다 사용하거나 Office 365, Azure AD 또는 다른 Microsoft 서비스를 사용하는 회사는 Azure AD 장치 등록 서비스를 사용하여 Azure AD에 장치를 등록해야 합니다. 회사에서 모바일 장치를 사용하지 않으며 office 365 또는 Microsoft Intune과 같은 Microsoft 서비스를 사용하지 않고 대신 온-프레미스 응용 프로그램만 호스트하는 경우 AD FS를 사용하여 Active Directory에 장치를 등록할 수 있습니다.
 
-[여기](https://technet.microsoft.com/en-us/library/dn486831.aspx)서 AD FS를 사용하여 장치 등록을 배포하는 방법에 대해 자세히 알아볼 수 있습니다.
+[여기](https://technet.microsoft.com/library/dn486831.aspx)서 AD FS를 사용하여 장치 등록을 배포하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+## 추가 항목
+
+- [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md)
+- [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+<!---HONumber=AcomDC_1125_2015-->

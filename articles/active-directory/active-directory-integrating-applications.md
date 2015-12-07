@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="11/24/2015"
    ms.author="mbaldwin" />
 
 # Azure Active Directory와 응용 프로그램 통합
@@ -349,6 +349,6 @@ ConsentReturnUrl을 회신 URL과 별도로 지정하면 앱이 회신 URL(일�
 
 - [Azure Active Directory 응용 프로그램 매니페스트](active-directory-application-manifest.md) 이해
 
-- [Active Directory 개발자 가이드](active-directory-developer's guide.md) 방문
+- [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 확인하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -123,7 +123,7 @@ Azure 서비스 전반에서 원활하고 일관적인 사용 환경을 조성�
 모바일 앱 개발자는 다음 워크플로에서 알림 허브를 활용할 수 있습니다.
 
 1. 장치 PNS 핸들을 검색합니다.
-2. 편리한 모바일 앱 클라이언트 SDK 등록 API를 통해 장치와 [템플릿](optional)을 알림 허브에 등록합니다.
+2. 편리한 모바일 앱 클라이언트 SDK 등록 API를 통해 장치와 [템플릿]을 알림 허브에 등록합니다.
     + 모바일 앱은 등록 시 보안을 목적으로 모든 태그를 제거합니다. 백 엔드에서 알림 허브와 직접 작업하여 장치와 태그를 연결합니다.
 3. 알림 허브를 통해 앱 백 엔드에서 알림을 보냅니다.
 
@@ -161,8 +161,8 @@ Azure 서비스 전반에서 원활하고 일관적인 사용 환경을 조성�
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [앱 서비스 모바일 앱]: https://azure.microsoft.com/ko-KR/documentation/articles/app-service-mobile-value-prop/
-  [templates]: https://msdn.microsoft.com/ko-KR/library/azure/dn530748.aspx
+  [템플릿]: https://msdn.microsoft.com/ko-KR/library/azure/dn530748.aspx
   [Azure 포털]: https://portal.azure.com
   [태그]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

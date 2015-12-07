@@ -90,11 +90,15 @@ SSH를 사용하여 VM에 로그인합니다.
 
   대부분의 Linux에서는 다음을 사용합니다.
 
-      #sudo cp waagent /usr/sbin
+    #sudo cp waagent /usr/sbin
 
   CoreOS의 경우 다음을 사용합니다.
 
     #sudo cp waagent /usr/share/oem/bin/
+
+  Azure Linux 에이전트를 새로 설치하는 경우 아래를 실행합니다.
+ 
+    #sudo /usr/sbin/waagent -install -verbose
 
 ###버전 2.1.x의 경우 다음을 사용합니다.
 
@@ -126,4 +130,4 @@ Linux 에이전트 버전이 새 버전으로 업데이트된 것을 확인할 �
 
 Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트 추가 정보](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

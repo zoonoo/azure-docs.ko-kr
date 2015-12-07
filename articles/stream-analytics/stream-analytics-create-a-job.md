@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="작업 만들기 | Microsoft Azure" 
-	description="작업 만들기 학습 경로 세그먼트입니다."
+	description="스트림 분석에 작업 만들기 | 학습 경로 세그먼트."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 작업 만들기
+# 스트림 분석 작업 만들기
 
 Azure 스트림 분석에서 최상위 리소스는 스트림 분석 작업입니다. 하나 이상의 입력 데이터 원본, 데이터 변환을 표현하는 쿼리 및 결과가 기록되는 하나 이상의 출력 대상으로 이루어져 있습니다.
 
@@ -60,4 +60,4 @@ Azure 스트림 분석에서 최상위 리소스는 스트림 분석 작업입�
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

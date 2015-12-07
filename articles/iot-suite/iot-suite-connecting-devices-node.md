@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## node.js를 사용하여 장치 데이터를 원격 모니터링 솔루션에 보내기
+## node.js 샘플 솔루션 빌드 및 실행
 
 1. *Microsoft Azure IoT SDK* GitHub 리포지토리를 복제하고 Linux 데스크톱 환경에 *Node.js용 Microsoft Azure IoT 장치 SDK*를 설치하려면 [개발 환경 준비][lnk-github-prepare] 지침을 따르세요.
 
@@ -61,4 +61,4 @@
 [lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

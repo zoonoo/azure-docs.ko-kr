@@ -18,7 +18,8 @@
 
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -51,8 +52,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 `MobileServiceClient` 개체를 만듭니다.
 
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 Azure Preview 포털의 모바일 앱 블레이드에서 찾을 수 있습니다.
 
@@ -80,7 +80,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 - [특정 열 선택]
 - [ID를 기준으로 데이터 조회]
 
->[AZURE.NOTE]모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환]에서 설명하는 대로 `Take` 메서드를 사용하십시오.
+>[AZURE.NOTE] 모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환]에서 설명하는 대로 `Take` 메서드를 사용하십시오.
 
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
 
@@ -167,7 +167,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 이것은 하드 코드된 페이징 값을 `Take` 및 `Skip` 메서드에 전달하는 간소화된 시나리오입니다. 실제 앱에서는 Pager 컨트롤이나 이와 비슷한 UI에서 위와 비슷한 쿼리를 사용하여 사용자가 이전 및 다음 페이지로 이동하도록 만들 수 있습니다.
 
->[AZURE.NOTE]모바일 앱 백 엔드에서 50행 제한을 재정의하려면 [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx)를 public GET 메서드에도 적용하고 페이징 동작을 지정해야 합니다. 메서드에 적용할 때 다음은 최대 반환 행을 1000으로 설정합니다.
+>[AZURE.NOTE] 모바일 앱 백 엔드에서 50행 제한을 재정의하려면 [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx)를 public GET 메서드에도 적용하고 페이징 동작을 지정해야 합니다. 메서드에 적용할 때 다음은 최대 반환 행을 1000으로 설정합니다.
 
     [EnableQuery(MaxTop=1000)]
 
@@ -255,7 +255,12 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 	await todoTable.UpdateAsync(todoItem);
 
-형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다. JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다.
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 업데이트할 때 ID를 지정해야 합니다. 백 엔드가 업데이트할 인스턴스를 식별하는 방법입니다. ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. "ID" 값을 제공하지 않고 항목을 업데이트하려고 할 때 `ArgumentException`이 발생합니다.
 
@@ -307,7 +312,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 <!--- Remove until Xamarin.Android push is supported.
 Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
+>[AZURE.NOTE] 특정 등록 사용자에게 알림을 보내야 하는 경우, 등록하기 전에 인증을 요청한 다음 해당 사용자가 특정 태그로 등록하도록 인증되었는지 확인하는 것이 중요합니다. 예를들어, 사용자가 다른 사람의 사용자 ID인 태그로 등록하지 않았는지 확인해야 합니다. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
 ## 방법: 플랫폼 간 알림을 보내기 위해 푸시 템플릿 등록
@@ -343,11 +348,13 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 
         MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 
-이러한 등록된 템플릿을 사용하여 알림을 보내려면 [알림 허브 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)를 사용하여 작업합니다.
+보안에 대한 모든 태그는 제거될 것입니다. 설치에 태그를 추가하거나 설치 내에 템플릿을 추가하려면 [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업]은 장치 설치에 태그를 추가하는 방법을 참조하세요.
+
+이러한 등록된 템플릿을 활용하여 알림을 보내려면 [알림 허브 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)로 작업합니다.
 
 ##<a name="optimisticconcurrency"></a>방법: 낙관적 동시성 사용
 
-일부 시나리오에서 두 개 이상의 클라이언트가 동시에 동일 항목의 변경 내용을 작성할 수 있습니다. 충돌 검색 없이, 마지막으로 쓴 내용이 원하는 결과가 아닌 경우에도 이전 업데이트를 덮어씁니다. *낙관적 동시성 제어*에서는 각 트랜잭션이 커밋할 수 있으므로 리소스 잠금을 사용하지 않는다고 가정합니다. 트랜잭션을 커밋하기 전에 낙관적 동시성 제어는 다른 트랜잭션에서 데이터를 수정하지 않았음을 확인합니다. 데이터가 수정된 경우에는 커밋 중인 트랜잭션이 롤백됩니다.
+일부 시나리오에서 두 개 이상의 클라이언트가 동시에 동일 항목의 변경 내용을 작성할 수 있습니다. 충돌 검색 없이, 마지막으로 쓴 내용이 원하는 결과가 아닌 경우에도 이전 업데이트를 덮어씁니다. *낙관적 동시성 제어*에서는 각 트랜잭션을 커밋할 수 있으므로 리소스 잠금을 사용하지 않는다고 가정합니다. 트랜잭션을 커밋하기 전에 낙관적 동시성 제어는 다른 트랜잭션에서 데이터를 수정하지 않았음을 확인합니다. 데이터가 수정된 경우에는 커밋 중인 트랜잭션이 롤백됩니다.
 
 모바일 앱은 모바일 앱 백 엔드의 각 테이블에 대해 정의된 `__version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 모바일 앱은 해당 레코드의 `__version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `__version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>`을 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 응용 프로그램은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `__version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
 
@@ -451,7 +458,7 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-관리되는 런타임의 일부 컨트롤은 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916)이라는 인터페이스를 지원합니다. 이 인터페이스에서는 사용자가 스크롤할 때 컨트롤이 추가 데이터를 요청할 수 있습니다. 컨트롤에서 발생하는 호출을 자동으로 처리하는 `MobileServiceIncrementalLoadingCollection`을 통해 유니버설 Windows 8.1 앱용으로 이 인터페이스를 기본적으로 지원합니다. Windows 앱에서 `MobileServiceIncrementalLoadingCollection`을 사용하려면 다음을 수행합니다.
+관리되는 런타임의 일부 컨트롤은 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916)이라는 인터페이스를 지원합니다. 이 인터페이스에서는 사용자가 스크롤할 때 컨트롤이 추가 데이터를 요청할 수 있습니다. 컨트롤에서 발생하는 호출을 자동으로 처리하는 `MobileServiceIncrementalLoadingCollection`을 통해 이 유니버설 Windows 8.1 앱용 인터페이스를 기본적으로 지원합니다. Windows 앱에서 `MobileServiceIncrementalLoadingCollection`을 사용하려면 다음을 수행합니다.
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -461,14 +468,14 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 		lb.ItemsSource = items;
 
 
-Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `IMobileServiceTableQuery<T>` 및 `IMobileServiceTable<T>`에 대해 `ToCollection` 확장 메서드를 사용합니다. 실제로 데이터를 로드하려면 `LoadMoreItemsAsync()`을(를) 호출합니다.
+Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `IMobileServiceTableQuery<T>` 및 `IMobileServiceTable<T>`에서 `ToCollection` 확장 메서드를 사용합니다. 실제로 데이터를 로드하려면 `LoadMoreItemsAsync()`을(를) 호출합니다.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 `ToCollectionAsync` 또는 `ToCollection`을(를) 호출하여 만들어진 컬렉션을 사용하는 경우 UI 컨트롤에 바인딩할 수 있는 컬렉션을 얻게 됩니다. 이 컬렉션은 페이징을 인식합니다. 다시 말해서, 컨트롤은 "더 많은 항목을 로드"하도록 컬렉션에 요청할 수 있고 컬렉션은 이를 수행합니다. 이때 사용자 코드가 사용되지 않으며 컨트롤에서 흐름을 시작합니다. 하지만 컬렉션이 네트워크에서 데이터를 로드하기 때문에 로딩에 실패하는 경우도 있습니다. 이 오류를 처리하려면 컨트롤에서 수행한 `LoadMoreItemsAsync` 호출의 결과로 발생한 예외를 처리하도록 `MobileServiceIncrementalLoadingCollection`에 대한 `OnException` 메서드를 재정의할 수 있습니다.
 
-마지막으로, 테이블에 필드가 많지만 컨트롤에 일부 필드만 표시하려는 경우를 가정하겠습니다. 위에 나온 ["특정 열 선택"](#selecting) 섹션의 지침에 따라 UI에 표시할 특정 열을 선택할 수 있습니다.
+마지막으로, 테이블에 필드가 많지만 컨트롤에 일부 필드만 표시하려는 경우를 가정하겠습니다. 위에 나온 “[특정 열 선택](#selecting)” 섹션의 지침에 따라 UI에 표시할 특정 열을 선택할 수 있습니다.
 
 <!--- We want to just point to the authentication topic when it's done
 ##<a name="authentication"></a>How to: Authenticate users
@@ -722,6 +729,7 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 
 <!-- URLs. -->
 [Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
@@ -741,4 +749,4 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
