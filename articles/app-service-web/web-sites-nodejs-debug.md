@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/18/2015"
 	ms.author="tarcher"/>
 
 # Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법
@@ -63,7 +63,7 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
 	npm install azure-cli -g
 
-설치한 도구에는 'azure' 명령을 사용하여 액세스할 수 있습니다. 먼저 Azure 구독을 사용하도록 명령줄 도구를 구성해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 명령줄 도구를 사용하는 방법] 문서의 **게시 설정을 다운로드하여 가져오는 방법** 섹션을 참조하세요.
+설치한 도구에는 'azure' 명령을 사용하여 액세스할 수 있습니다. 먼저 Azure 구독을 사용하도록 명령줄 도구를 구성해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 **Azure 명령줄 도구 사용 방법**(영문) 문서의 [게시 설정을 다운로드하여 가져오는 방법](../xplat-cli-connect) 섹션을 참조하십시오.
 
 ###FTP
 
@@ -73,7 +73,7 @@ FTP를 통해 진단 정보에 액세스하려면 [Azure 미리 보기 포털](h
 
 대시보드에 반환된 FTP URL은 다음 하위 디렉터리를 포함하는 **LogFiles** 디렉터리에 대한 것입니다.
 
-* [배포 방법] - Git와 같은 배포 방법을 사용하는 경우 동일한 이름의 디렉터리가 만들어지고 배포와 관련된 정보가 포함됩니다.
+* [배포 방법](web-sites-deploy) - Git와 같은 배포 방법을 사용하는 경우 동일한 이름의 디렉터리가 만들어지고 배포와 관련된 정보가 포함됩니다.
 
 * nodejs - 응용 프로그램의 모든 인스턴스에서 캡처된 stdout 및 stderr 정보(loggingEnabled가 True인 경우)
 
@@ -89,7 +89,7 @@ FTP를 통해 진단 정보에 액세스하려면 [Azure 미리 보기 포털](h
 
 * LogFiles
 
-	* [배포 방법] - Git와 같은 배포 방법을 사용하는 경우 동일한 이름의 디렉터리가 만들어지고 배포와 관련된 정보가 포함됩니다.
+	* [배포 방법](web-sites-deploy) - Git와 같은 배포 방법을 사용하는 경우 동일한 이름의 디렉터리가 만들어지고 배포와 관련된 정보가 포함됩니다.
 
 	* nodejs - 응용 프로그램의 모든 인스턴스에서 캡처된 stdout 및 stderr 정보(loggingEnabled가 True인 경우)
 
@@ -106,7 +106,7 @@ FTP를 통해 진단 정보에 액세스하려면 [Azure 미리 보기 포털](h
 
 이 문서에서는 Azure에 대한 진단 정보를 사용하고 액세스하는 방법을 알아보았습니다. 이 정보는 응용 프로그램에서 발생하는 문제를 이해하는 데 유용하며, 사용 중인 모듈의 문제를 나타내거나 앱 서비스 웹 앱에 사용된 Node.js 버전이 배포 환경에 사용된 버전과 다르다는 점을 나타낼 수 있습니다.
 
-Azure에서 모듈 작업에 대한 자세한 내용은 [Azure 응용 프로그램에 Node.js 모듈 사용]을 참조하십시오.
+Azure에서 모듈 작업에 대한 자세한 내용은 [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps)을 참조하십시오.
 
 Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azure 응용 프로그램에서 Node.js 버전 지정]을 참조하십시오.
 
@@ -121,10 +121,10 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode 추가 정보]: https://github.com/tjanczuk/iisnode#readme
 [How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
-[Azure 응용 프로그램에 Node.js 모듈 사용]: ../nodejs-use-node-modules-azure-apps.md
+[Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [Azure 응용 프로그램에서 Node.js 버전 지정]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

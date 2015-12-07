@@ -1,11 +1,4 @@
-<properties 
-	pageTitle="트래픽 관리자를 사용하는 Azure 앱 서비스의 사용자 지정 도메인 이름 구성" 
-	description="부하 분산을 위해 트래픽 관리자를 포함하는 Azure 앱 서비스의 웹 앱에 대한 사용자 지정 도메인 이름을 사용합니다." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties pageTitle="트래픽 관리자를 사용하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 구성합니다."wpickett"부하 분산을 위해 트래픽 관리자를 포함하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 사용합니다." description="부하 분산을 위해 트래픽 관리자를 포함하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 사용합니다." services="app-service\\web" documentationCenter="" authors="rmcmurray" manager="wpickett" editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +6,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/18/2015" 
+	ms.author="robmcm"/>
 
 #트래픽 관리자를 사용하는 Azure 앱 서비스의 웹 앱에 대한 사용자 지정 도메인 이름 구성
 
@@ -41,9 +34,7 @@
 <a name="bkmk_configurecname"></a>
 ## 사용자 지정 도메인에 대한 DNS 레코드 추가
 
-
-> [AZURE.NOTE]Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 다음 단계를 생략하고 <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">웹앱 도메인 구입</a> 문서의 최종 단계를 참조하세요.
-
+> [AZURE.NOTE]Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 다음 단계를 생략하고 [웹앱 도메인 구입](custom-dns-web-site-buydomains-web-app.md) 문서의 최종 단계를 참조하세요.
 
 사용자 지정 도메인을 Azure 앱 서비스의 웹 앱에 연결하려면 도메인 이름을 구입한 도메인 등록 기관에서 제공하는 도구를 사용하여 DNS 테이블에 사용자 지정 도메인에 대한 새 항목을 추가해야 합니다. DNS 도구를 찾아 사용하려면 다음 단계를 사용하세요.
 
@@ -70,4 +61,4 @@
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

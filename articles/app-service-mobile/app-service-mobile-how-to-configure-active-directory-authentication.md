@@ -13,32 +13,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/20/2015" 
 	ms.author="mahender"/>
 
 # Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
+
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 이 항목에서는 Azure Active Directory를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
 
-
-	> [AZURE.NOTE] This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. If using the gateway, please see the [alternative method]. Differences that apply to using the gateway are called out in notes throughout that section.
+> [AZURE.NOTE]이 항목에서는 앱 서비스 인증/권한 부여 기능을 사용하는 과정을 보여 줍니다. 이는 대부분의 응용 프로그램에 대한 앱 서비스 게이트웨이를 대체합니다. 게이트웨이를 사용하는 경우 [대체 방법]을 참조하세요. 게이트웨이 사용에 적용되는 차이가 해당 섹션의 참고에 설명되어 있습니다.
 
 
 ## <a name="express"> </a>기본 설정을 사용하여 Azure Active Directory 구성
 
-13. [Azure 관리 포털]에서 응용 프로그램으로 이동합니다. **설정**을 클릭한 다음 **인증 / 권한 부여**를 클릭합니다.
+13. [Azure 관리 포털]에서 응용 프로그램으로 이동합니다. **설정**을 클릭한 다음 **인증/권한 부여**를 클릭합니다.
 
-14. 인증 / 권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **설정**으로 전환합니다.
+14. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **On**으로 전환합니다.
 
 15. **Azure Active Directory**를 클릭한 다음 **관리 모드**에서 **Express**(기본)를 클릭합니다.
 
-16. Azure Active Directory에서 응용 프로그램을 등록하려면 **확인**을 클릭합니다. 이렇게 하면 새롭게 등록됩니다. 기존 등록을 대신 선택하려는 경우 **Select an existing app**(기존 앱 선택)을 클릭한 다음 테넌트 내에서 이전에 만든 등록 이름을 검색합니다. 등록을 클릭하여 선택하고 **확인**을 클릭합니다. Azure Active Directory 설정 블레이드에서 **확인**을 클릭합니다.
+16. Azure Active Directory에서 응용 프로그램을 등록하려면 **확인**을 클릭합니다. 이렇게 하면 새롭게 등록됩니다. 기존 등록을 대신 선택하려는 경우 **기존 앱 선택**을 클릭한 다음 테넌트 내에서 이전에 만든 등록 이름을 검색합니다. 등록을 클릭하여 선택하고 **확인**을 클릭합니다. Azure Active Directory 설정 블레이드에서 **확인**을 클릭합니다.
 
     ![][0]
 	
-16. 기본적으로 앱 서비스는 로그인을 제공하지만 사이트 콘텐츠 및 API에 대한 액세스를 제한하지 않습니다. 이는 앱 코드에서 처리합니다. Azure Active Directory 로그인으로 사이트를 완전히 보호하려면 **Azure Active Directory** 옵션을 사용하도록 **Action to take when request is not authenticated**(요청이 인증되지 않은 경우 수행 동작) 드롭다운을 변경합니다. 이렇게 하려면 모든 요청이 인증되어야 합니다. 인증되지 않은 요청은 Azure Active Directory로 로그인하도록 리디렉션됩니다.
+	기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
+
+17. (옵션) Azure Active Directory에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작**을 **Azure Active Directory**로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
 
 17. **Save**를 클릭합니다.
 
@@ -68,31 +71,31 @@
     ![][3]
 	
 	
-	> [AZURE.NOTE]앱 서비스 인증 / 권한 부여 기능 대신 앱 서비스 게이트웨이를 사용 중인 경우 회신 URL은 _/signin-aad_ 경로가 추가된 게이트웨이 URL을 대신 사용합니다.
+	> [AZURE.NOTE]앱 서비스 인증/권한 부여 기능 대신 앱 서비스 게이트웨이를 사용 중인 경우 회신 URL은 _/signin-aad_ 경로가 추가된 게이트웨이 URL을 대신 사용합니다.
 
 
 9. **Save**를 클릭합니다. 그런 다음 앱의 **클라이언트 ID**를 복사합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
 
 10. 맨 아래 명령 모음에서 **끝점 보기**를 클릭한 다음 **페더레이션 메타데이터 문서** URL을 복사하고 해당 문서를 다운로드하거나 브라우저에서 이 문서로 이동합니다.
 
-11. 루트 **EntityDescriptor** 요소 내에 테넌트에 관련된 GUID(“테넌트 ID”라고 함) 앞에 양식 `https://sts.windows.net/`의 **entityID** 특성이 있어야 합니다. 이 값은 복사하여 **발급자 URL**로 사용합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
+11. 루트 **EntityDescriptor** 요소 내에 테넌트에 관련된 GUID(“테넌트 ID”라고 함) 앞에 양식 `https://sts.windows.net/`의 **entityID** 특성이 있어야 합니다. 이 값을 복사하여 **발급자 URL**로 사용합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
 
 ### <a name="secrets"> </a>응용 프로그램에 Azure Active Directory 정보 추가
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Azure Active Directory**. Paste in the ClientID and add the tenant ID to the **Allowed Tenants** list. Click **Save**.
+> [AZURE.NOTE]앱 서비스 게이트웨이를 사용하는 경우 이 섹션을 무시하고 대신 포털에서 게이트웨이로 이동합니다. **설정**, **ID**, **Azure Active Directory**를 차례로 선택합니다. ClientID를 붙여넣고 **허용된 테넌트** 목록에 테넌트 ID를 추가합니다. **저장**을 클릭합니다.
 
 
-13. [Preview Azure 관리 포털]로 돌아가서 응용 프로그램으로 이동합니다. **설정**을 클릭한 다음 **인증 / 권한 부여**를 클릭합니다.
+13. [Preview Azure 관리 포털]로 돌아가서 응용 프로그램으로 이동합니다. **설정**을 클릭한 다음 **인증/권한 부여**를 클릭합니다.
 
-14. 인증 / 권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **설정**으로 전환합니다.
+14. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **On**으로 전환합니다.
 
 15. **Azure Active Directory**를 클릭한 다음 **관리 모드**에서 **고급**을 클릭합니다. 앞에서 얻은 클라이언트 ID 및 발급자 URL 값을 붙여넣습니다. 그런 후 **OK**를 클릭합니다.
 
     ![][1]
 	
-16. 기본적으로 앱 서비스는 로그인을 제공하지만 사이트 콘텐츠 및 API에 대한 액세스를 제한하지 않습니다. 이는 앱 코드에서 처리합니다. Azure Active Directory 로그인으로 사이트를 완전히 보호하려면 **Azure Active Directory** 옵션을 사용하도록 **Action to take when request is not authenticated**(요청이 인증되지 않은 경우 수행 동작) 드롭다운을 변경합니다. 이렇게 하려면 모든 요청이 인증되어야 합니다. 인증되지 않은 요청은 Azure Active Directory로 로그인하도록 리디렉션됩니다.
+	기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
+
+17. (옵션) Azure Active Directory에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작**을 **Azure Active Directory**로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
 
 17. **Save**를 클릭합니다.
 
@@ -114,6 +117,6 @@
 [Preview Azure 관리 포털]: https://portal.azure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
-[alternative method]: #advanced
+[대체 방법]: #advanced
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

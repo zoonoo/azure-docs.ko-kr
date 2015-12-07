@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Azure MFA 서버와 Active Directory 간의 디렉터리 통합
@@ -137,4 +137,4 @@ LDAP를 사용하도록 구성하고 LDAP 디렉터리가 DirSync 컨트롤을 �
 
 ![Multi-Factor-Auth 서버](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

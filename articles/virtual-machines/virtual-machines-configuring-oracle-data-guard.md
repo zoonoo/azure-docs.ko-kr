@@ -313,7 +313,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 ##실제 대기 데이터베이스 만들기
 이 섹션에서는 실제 대기 데이터베이스를 준비하기 위해 Machine2에서 수행해야 하는 단계에 초점을 맞춥니다.
 
-먼저, Azure 포털을 통해 Machine2에 원격 데스크톱이 필요합니다.
+먼저, Azure 포털을 통해 Machine2에 원격 데스크톱을 연결해야 합니다.
 
 그런 다음 대기 서버(Machine2)에서 C:\\<YourLocalFolder>\\TEST와 같이 대기 데이터베이스에 필요한 모든 폴더를 만듭니다. 이 자습서를 수행하는 동안 controlfile, datafiles, redologfiles, udump, bdump 및 cdump 파일과 같이 필요한 모든 파일을 유지하기 위해 해당 폴더 구조와 Machine1의 폴더 구조가 일치해야 합니다. 또한 Machine2에서 ORACLE\_HOME 및 ORACLE\_BASE 환경 변수를 정의합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 이를 환경 변수로 정의합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. **시스템 변수**에서 **새로 만들기** 단추를 클릭하여 환경 변수를 설정합니다. 환경 변수를 설정한 후 변경 내용을 보기 위해 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 열어야 합니다.
 
@@ -625,4 +625,4 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

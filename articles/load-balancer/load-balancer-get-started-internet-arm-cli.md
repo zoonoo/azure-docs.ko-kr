@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. Azure 클래식 배포 모델을 찾는 경우 [클래식 배포를 사용하는 인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-classic-portal.md)으로 이동합니다.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. 또한 [클래식 배포를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 배울 수 있습니다](load-balancer-get-started-internet-classic-portal.md).
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -143,12 +143,7 @@ NAT 규칙을 만듭니다.
 	
 	
 
-**-g** - 리소스 그룹
-**-l** - 부하 분산 장치 집합의 이름
-**-n** - 상태 프로브의 이름
-**-p** - 상태 프로브에서 사용되는 프로토콜
-**-i** - 프로브 간격(초)
-**-c** - 검사 횟수
+**-g** - 리소스 그룹 **-l** - 부하 분산 장치 집합의 이름 **-n** - 상태 프로브의 이름 **-p** - 상태 프로브에서 사용되는 프로토콜 **-i** - 프로브 간격(초) **-c** - 검사 횟수
 
 ### 4단계
 
@@ -314,14 +309,7 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 매개 변수:
 
-**-g** - 리소스 그룹 이름<br>
-**-l** - 부하 분산 장치 이름<BR>
-**-n** - 부하 분산 장치 규칙 이름<BR>
-**-p** - 프로토콜<BR>
-**-f** - 프런트 엔드 포트<BR>
-**-b** - 백 엔드 포트<BR>
-**-t** - 프런트 엔드 풀 이름<BR>
-**-b** - 백 엔드 풀 이름<BR>
+**-g** - 리소스 그룹 이름<br> **-l** - 부하 분산 장치 이름<BR> **-n** - 부하 분산 장치 규칙 이름<BR> **-p** - 프로토콜<BR> **-f** - 프런트 엔드 포트 <BR> **-b** - 백 엔드 포트<BR> **-t** - 프런트 엔드 풀 이름<BR> **-b** - 백 엔드 풀 이름<BR>
 
 ## 부하 분산 장치 삭제 
 
@@ -340,4 +328,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="davidmu"/>
+	ms.date="11/18/2015"
+	ms.author="davidmu;marsma"/>
 
 # Azure Batch 풀에서 자동으로 계산 노드 크기 조정
 
-Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 응용 프로그램에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 이러한 손쉬운 조정을 통해 시간과 비용을 절약할 수 있습니다. 계산 노드 및 풀에 대한 자세한 내용은 [Azure Batch 기술 개요](batch-technical-overview.md)를 참조하세요.
+Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 응용 프로그램에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 이러한 손쉬운 조정을 통해 시간과 비용을 절약할 수 있습니다. 계산 노드 및 풀에 대한 자세한 내용은 [Azure Batch 기본 사항](batch-technical-overview.md)을 참조하세요.
 
 자동 크기 조정은 이 기능이 풀에서 사용하도록 설정되어 있고 수식이 풀과 연결되어 있는 경우 발생합니다. 수식은 응용 프로그램 처리에 필요한 계산 노드 수를 결정하는 데 사용됩니다. 주기적으로 수집되는 샘플에 작용하면서 풀에서 사용할 수 있는 계산 노드 수는 연결된 식에 따라 15분마다 조정됩니다.
 
@@ -336,15 +336,15 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
 
 위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
 
-	doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?
+`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*doubleVecList* 값은 평가 전 단일 *doubleVec*로 변환됩니다. 예를 들어 v = [1,2,3]인 경우 avg(v) 호출은 avg(1,2,3) 호출에 해당하며 avg(v, 7) 호출은 avg(1,2,3,7) 호출에 해당합니다.
+*doubleVecList* 값은 평가 전 단일 *doubleVec*로 변환됩니다. 예를 들어 `v = [1,2,3]`인 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출에 해당하며 `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출에 해당합니다.
 
 ### 샘플 데이터 가져오기
 
 위에서 설명된 시스템 정의 변수는 연결된 데이터에 액세스할 메서드를 제공하는 개체입니다. 예를 들어, 다음 식은 최근 5분 동안의 CPU 사용률을 얻기 위한 요청을 보여줍니다.
 
-	$CPUPercent.GetSample(TimeInterval_Minute*5)
+`$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 이들 메서드는 샘플 데이터를 얻는 데 사용할 수 있습니다.
 
@@ -359,15 +359,17 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
   </tr>
   <tr>
     <td>GetSample()</td>
-    <td><p>데이터 샘플의 벡터를 반환합니다. 예:</p>
+    <td><p>데이터 샘플의 벡터를 반환합니다.
+	<p>하나의 샘플은 30초 동안의 메트릭 데이터입니다. 다시 말해서 샘플은 30초마다 가져오지만 아래에서 설명하듯이 샘플 수집 시간과 이를 수식에 사용하는 시간 사이에 지연이 존재합니다. 따라서 지정된 기간 동안 일부 샘플을 수식에 의한 평가에 사용할 수 없을지도 모릅니다.
         <ul>
-          <li><p><b>doubleVec GetSample(double count)</b> - 가장 최근 샘플에서 필요한 샘플 수를 지정합니다.</p>
-				  <p>하나의 샘플은 5초 동안의 메트릭 데이터입니다. GetSample(1)은 사용 가능한 마지막 샘플을 반환하지만 $CPUPercent 같은 메트릭의 경우 샘플 수집 시기를 알 수 없으므로 이 메서드를 사용하지 않아야 합니다. 최근 샘플일 수도 있지만 시스템 문제로 인해 훨씬 오래된 샘플일 수도 있습니다. 아래 표시된 것처럼 시간 간격을 사용하는 것이 좋습니다.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – 샘플 데이터를 수집할 시간 프레임을 지정하고 선택적으로 요청 범위에 있어야 하는 샘플의 백분율을 지정합니다.</p>
-          <p>마지막 10분 동안의 모든 샘플이 CPUPercent 기록에 있는 경우 $CPUPercent.GetSample(TimeInterval\_Minute*10)은 200개의 샘플을 반환해야 합니다. 마지막 1분의 기록이 아직 없는 경우 180개의 샘플만 반환됩니다.</p>
-					<p>$CPUPercent.GetSample(TimeInterval\_Minute*10, 80)이 성공하면 $CPUPercent.GetSample(TimeInterval_Minute*10,95)이 실패합니다.</p></li>
+          <li><p><b>doubleVec GetSample(double count)</b> - 최근 수집한 샘플에서 가져올 샘플 수를 지정합니다.</p>
+				  <p>GetSample(1)은 마지막 사용 가능한 샘플을 반환합니다. 그러나 $CPUPercent 같은 메트릭의 경우 샘플이 수집된 <em>시기</em>를 알 수 없기 때문에 또는 시스템 문제로 인해 너무 오래되었을 수 있기 때문에 이를 사용해서는 안 됩니다. 그러한 경우 아래에 표시된 것처럼 시간 간격을 사용하는 것이 좋습니다.</p></li>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – 샘플 데이터를 수집할 시간 프레임을 지정하고, 선택적으로 요청한 시간 프레임에서 사용할 수 있어야 하는 샘플의 백분율을 지정합니다.</p>
+          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em>은 마지막 10분 동안의 모든 샘플이 CPUPercent 기록에 있는 경우 20개의 샘플을 반환합니다. 그러나 내역의 마지막 분을 사용할 수 없으면 다음과 같은 경우 샘플 18개만 반환될 것입니다.<br/>
+		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em>는 샘플의 90%만 사용할 수 있으므로 실패할 것이며, <br/>
+		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em>은 성공할 것입니다.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – 시작 시간과 종료 시간이 모두 포함된 데이터 수집 시간 프레임을 지정합니다.</p></li></ul>
-		  <p>샘플을 수집할 때와 수식에 사용할 수 있을 때 사이 지연이 있습니다. GetSample 메서드를 사용하는 경우 이를 고려해야 합니다. 아래 GetSamplePercent를 참조하세요.</td>
+		  <p>위에서 언급했듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. <em>GetSample</em> 메서드를 사용할 때 이 점을 고려해야 합니다. - 아래 <em>GetSamplePercent</em>를 참조하십시오.</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -463,7 +465,7 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
 
 > [AZURE.NOTE]위 기술 중 하나를 사용하여 풀을 만들 때 자동 크기 조정을 설정하는 경우, 풀을 만들 때 풀의 *targetDedicated* 매개 변수를 지정하지 않습니다(지정해서는 안 됩니다). 또한 자동 크기 조정 풀의 크기를 수동으로 조정하려는 경우(예로서 [BatchClient.PoolOperations.ResizePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx)를 사용하는 경우), 먼저 풀에서 자동 크기 조정을 사용하지 않도록 다음 풀의 크기를 조정해야 합니다.
 
-다음 코드 조각은 자동 크기 조정 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx)을 만드는 방법을 보여줍니다. 이는 수식이 노드의 대상 수를 월요일에는 5에, 일주일 내 격일에는 1에 설정하는 [배치.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 라이브러리를 사용합니다. 조각 내에서 "myBatchClient"는 다음과 같은 [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) 인스턴스를 적절하게 초기화합니다.
+다음 코드 조각은 자동 크기 조정 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx)을 만드는 방법을 보여줍니다. 이는 수식이 노드의 대상 수를 월요일에는 5에, 일주일 내 격일에는 1에 설정하는 [배치.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 라이브러리를 사용합니다. 이 코드 조각에서 "myBatchClient"는 다음과 같은 [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx)의 적절히 초기화된 인스턴스임):
 
 		CloudPool pool myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
 		pool.AutoScaleEnabled = true;
@@ -599,6 +601,32 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
 		// Keep the nodes active until the tasks finish
 		$NodeDeallocationOption = taskcompletion;
 
+### 예제 4
+
+이 예제는 초기 기간 동안 풀 크기를 특정 노드 수로 설정한 다음, 초기 기간이 경과한 후 실행 중이고 활성화된 작업 수를 기반으로 풀 크기를 조정하는 자동 크기 조정 수식을 보여 줍니다.
+
+```
+string now = DateTime.UtcNow.ToString("r");
+string formula = string.Format(@"
+
+	$TargetDedicated = {1};
+	lifespan         = time() - time(""{0}"");
+	span             = TimeInterval_Minute * 60;
+	startup          = TimeInterval_Minute * 10;
+	ratio            = 50;
+
+	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+	", now, 4);
+```
+
+위 코드 조각의 수식은 다음과 같은 특성을 가지고 있습니다.
+
+- 초기 풀 크기를 4 노드로 설정합니다.
+- 풀의 수명 주기의 처음 10분 이내에는 풀 크기를 조정하지 않습니다.
+- 10 분 후 지난 60분 이내에 실행 중이고 활성화된 작업 수의 최대값을 가져옵니다.
+  - 두 값이 모두 0이면(마지막 60분 동안 실행 중이거나 활성화된 작업이 없었음을 나타냄) 풀 크기가 0입니다.
+  - 값 중 하나가 0보다 큰 경우 변경되지 않습니다.
+
 ## 다음 단계
 
 1. 응용 프로그램의 효율성을 완전하게 평가하려면, 계산 노드에 액세스해야 할 수 있습니다. 원격 액세스를 활용하려면 액세스하려는 노드에 사용자 계정이 추가되어야 하며 해당 노드에 대해 RDP 파일이 검색되어야 합니다.
@@ -612,4 +640,4 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – 이 PowerShell cmdlet은 지정된 계산 노드에서 RDP 파일을 가져와 지정된 파일 위치 또는 스트림에 저장합니다.
 2.	일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

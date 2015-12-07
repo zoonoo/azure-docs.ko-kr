@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="11/19/2015"
 	ms.author="tomfitz"/>
 
 #Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
@@ -27,7 +27,7 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-이 자습서에서는 PHP-MySQL 웹앱을 만들고 Git를 사용하여 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다. 컴퓨터에 설치된 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부), 웹 서버 및 [Git][install-git]를 사용합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 앱이 완성됩니다.
+이 자습서에서는 PHP-MySQL 웹앱을 만들고 Git를 사용하여 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다. 컴퓨터에 설치된 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부) 및 [Git][install-git]를 사용합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 앱이 완성됩니다.
 
 다음 내용을 배웁니다.
 
@@ -40,9 +40,8 @@
 
 ##개발 환경 설정
 
-이 자습서의 내용은 컴퓨터에 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부), 웹 서버 및 [Git][install-git]가 설치되어 있다는 것을 전제로 합니다.
+이 자습서의 내용은 컴퓨터에 [PHP][install-php], MySQL 명령줄 도구([MySQL][install-mysql]의 일부) 및 [Git][install-git]가 설치되어 있다는 것을 전제로 합니다.
 
-> [AZURE.NOTE]Windows에서 이 자습서의 내용을 수행하는 경우 <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">PHP용 Azure SDK</a>를 설치하여 PHP용 컴퓨터를 설정하고 자동으로 IIS(Windows에서 기본 제공되는 웹 서버)를 구성할 수 있습니다.
 
 ##<a id="create-web-site-and-set-up-git"></a>웹앱 만들기 및 Git 게시 설정
 
@@ -51,9 +50,9 @@
 1. [Azure 포털][management-portal]에 로그인합니다.
 2. **새로 만들기** 아이콘을 클릭합니다.
 
-3. **웹 + 모바일**, **Azure 마켓플레이스**를 차례로 클릭합니다.
+3. **마켓플레이스** 옆의 **모두 보기**를 클릭합니다.
 
-4. **웹앱**, **웹앱 + MySQL**을 클릭합니다. 그런 다음에 **만들기**를 클릭합니다.
+4. **웹 + 모바일**, **웹앱 + MySQL**을 차례로 클릭합니다. 그런 다음에 **만들기**를 클릭합니다.
 
 4. 리소스 그룹의 올바른 이름을 입력합니다.
 
@@ -67,9 +66,9 @@
 
 	![새 MySQL 데이터베이스 만들기][new-mysql-db]
 
-7. 웹 앱이 만들어지면 새 리소스 그룹이 보입니다. 웹 앱의 이름을 클릭하여 해당 설정을 구성합니다.
+7. 웹 앱이 만들어지면 새 웹앱 블레이드가 보입니다.
 
-7. **연속 배포 설정**을 클릭합니다.
+7. **설정**에서 **연속 배포**를 클릭하고 _필요한 설정 구성_을 클릭합니다.
 
 	![Git 게시 설정][setup-publishing]
 
@@ -91,7 +90,7 @@
 
 	![데이터베이스 선택][select-database]
 
-2. 데이터베이스 요약에서 **속성**을 선택합니다.
+2. 데이터베이스 **설정**에서 **속성**을 선택합니다.
 
     ![속성 선택][select-properties]
 
@@ -107,7 +106,7 @@
 
 * **index.php**: 등록 양식 및 등록자 정보가 포함된 테이블을 표시합니다.
 
-응용 프로그램을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 명령줄 도구(MySQL의 일부) 및 웹 서버가 설정되어 있으며 [PDO Extension for MySQL][pdo-mysql]이 사용하도록 설정되어 있다는 것을 전제로 합니다.
+응용 프로그램을 빌드하여 로컬에서 실행하려면 아래 단계를 따릅니다. 이러한 단계는 로컬 컴퓨터에 PHP, MySQL 명령줄 도구(MySQL의 일부)가 설정되어 있으며 [PDO Extension for MySQL][pdo-mysql]을 사용하도록 설정했다는 것을 전제로 합니다.
 
 1. 이전에 검색한 `Data Source`, `User Id`, `Password` 및 `Database` 값을 사용하여 원격 MySQL 서버에 연결합니다.
 
@@ -119,9 +118,9 @@
 
 3. 다음 `CREATE TABLE` 명령을 붙여 넣어 데이터베이스에 `registration_tbl` 테이블을 만듭니다.
 
-		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
+		CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. 웹 서버의 루트 디렉터리에서 `registration`이라는 폴더를 만들고 이 폴더 내에 `index.php`라는 파일을 만듭니다.
+4. 로컬 응용 프로그램 폴더의 루트에 **index.php** 파일을 만듭니다.
 
 5. 텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 다음 코드를 추가하여 `//TODO:` 주석으로 표시된 필수 변경을 완료합니다.
 
@@ -210,7 +209,11 @@
 		</body>
 		</html>
 
-이제 ****http://localhost/registration/index.php**(으)로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+4.  터미널에서 응용 프로그램 폴더로 이동 하고 다음 명령을 입력합니다.
+
+		php -S localhost:8000
+
+이제 ****http://localhost:8000/**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 
 ##응용 프로그램 게시
@@ -300,4 +303,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

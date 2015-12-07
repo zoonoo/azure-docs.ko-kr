@@ -3,9 +3,9 @@
 	description="이 자습서에서는 WebMatrix를 사용하여 Node.js 응용 프로그램을 개발하고 Azure 앱 서비스 웹앱에 배포하는 방법을 설명합니다." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # WebMatrix를 사용하여 Node.js 웹앱 빌드 및 Azure에 배포
 
-이 자습서에서는 WebMatrix를 사용하여 Node.js 응용 프로그램을 개발하고 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱에 배포하는 방법을 보여 줍니다. WebMatrix는 웹 사이트 또는 웹앱 개발에 필요한 모든 기능이 포함된 Microsoft의 무료 웹 개발 도구입니다. WebMatrix에는 코드 완성, 미리 빌드된 템플릿, Jade, LESS 및 CoffeeScript에 대한 편집기 지원 등 Node.js를 쉽게 사용할 수 있는 몇 가지 기능이 포함되어 있습니다. [Azure용 WebMatrix](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)(영문)에 대해 자세히 알아보십시오.
+이 자습서에서는 WebMatrix를 사용하여 Node.js 응용 프로그램을 개발하고 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱에 배포하는 방법을 보여 줍니다. WebMatrix는 웹 사이트 또는 웹앱 개발에 필요한 모든 기능이 포함된 Microsoft의 무료 웹 개발 도구입니다. WebMatrix에는 코드 완성, 미리 빌드된 템플릿, Jade, LESS 및 CoffeeScript에 대한 편집기 지원 등 Node.js를 쉽게 사용할 수 있는 몇 가지 기능이 포함되어 있습니다. [WebMatrix](https://www.microsoft.com/web/webmatrix/)에 대해 자세히 알아봅니다.
 
 이 가이드를 완료하면 Azure 앱 서비스에서 실행되는 Node.js 웹앱이 완성됩니다.
  
@@ -86,7 +86,7 @@ Azure 앱 서비스에서 웹앱을 만들려면 다음 단계를 따르세요.
 
 	![index.jade를 표시하는 WebMatrix][webmatrix-modify-index]
 
-2. 두 번째 줄을 다음과 같이 변경합니다.
+2. 단락 줄을 다음으로 변경합니다.
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
@@ -127,4 +127,4 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

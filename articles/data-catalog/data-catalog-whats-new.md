@@ -24,11 +24,11 @@
 
 2015년 11월 20일 주를 기준으로 다음과 같은 기능이 **Azure 데이터 카탈로그**에 추가되었습니다.
 
-- **Azure 데이터 카탈로그** 포털 내에서 SQL Server(Azure SQL 데이터베이스 포함) 데이터 원본에 대핸 연결 문자열을 보고 복사할 수 있습니다. 사용자는 SQL Server 테이블, 뷰 또는 데이터베이스의 연결 정보에서 "연결 문자열 보기" 링크를 클릭하여 데이터 원본에 연결할 때 사용되는 ADO.NET, ODBC, OLEDB 및 JDBC 연결 문자열을 볼 수 있습니다.
+- **Azure 데이터 카탈로그** 포털 내에서 SQL Server(Azure SQL 데이터베이스 포함) 및 Oracle 데이터 원본에 대한 연결 문자열을 보고 복사할 수 있습니다. 사용자는 SQL Server 또는 Oracle 테이블, 뷰 또는 데이터베이스의 연결 정보에서 "연결 문자열 보기" 링크를 클릭하여 데이터 원본에 연결할 때 사용되는 연결 문자열을 볼 수 있습니다. ADO.NET, ODBC, OLEDB 및 JDBC 연결 문자열은 SQL Server 데이터 원본에 대해 제공됩니다. ODBC 및 OLEDB 연결 문자열은 Oracle 데이터 원본에 대해 제공됩니다.
 - Teradata 테이블 및 뷰를 등록할 때 데이터 프로필을 포함할 수 있습니다.
-- SQL Server(Azure SQL DB 및 Azure SQL 데이터 웨어하우스 포함) 및 SQL Server Analysis Services 데이터 원본에 대해 "Power BI Desktop에서 열기"가 지원됩니다.
+- SQL Server(Azure SQL DB 및 Azure SQL 데이터 웨어하우스 포함) 및 SQL Server Analysis Services, Azure 저장소 및 HDFS 원본에 대해 "Power BI Desktop에서 열기"가 지원됩니다.  
 
-> [AZURE.NOTE]"Power BI Desktop에서 열기"를 사용하려면 최신 버전의 Power BI Desktop 응용 프로그램이 설치되어 있어야 합니다. 이 기능 사용 중 문제 또는 오류가 발생한 경우 [PowerBI.com](https://powerbi.com)에서 제공하는 최신 버전의 Power BI Desktop이 있는지 확인하세요.
+> [AZURE.NOTE]"Power BI Desktop에서 열기"를 사용하려면 최신 버전의 Power BI Desktop 응용 프로그램이 설치되어 있어야 합니다. 이 기능을 사용하는 중에 문제 또는 오류가 발생한 경우 [PowerBI.com](https://powerbi.com)에서 제공하는 최신 버전의 Power BI Desktop을 사용하고 있는지 확인하세요.
 
 ## 2015년 11월 13일 주 릴리스의 새로운 기능
 
@@ -147,4 +147,4 @@
 - Standard Edition에만 해당: 이제 데이터 자산에 소유자를 추가하는 경우 **Azure 데이터 카탈로그**에서 사용자 계정과 보안 그룹을 모두 소유자로 지원합니다. 선택한 데이터 자산에 대해 소유자로 보안 그룹을 추가하려면 있는 경우 그룹의 표시 이름 또는 그룹의 UPN 전자 메일 주소를 입력할 수 있습니다.
 - Azure Blob 저장소의 데이터 원본에 대한 지원입니다. 이제 사용자는 Azure 저장소 Blob 및 디렉터리를 등록하고 검색할 수 있습니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 서비스 패브릭에서 기존 응용 프로그램 배포 | Microsoft Azure"
+   pageTitle="Azure 서비스 패브릭에서 사용자 지정 응용 프로그램 배포 | Microsoft Azure"
    description="Azure 서비스 패브릭 클러스터에 배포할 수 있도록 기존 응용 프로그램을 패키지 하는 방법에 대한 연습"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# 서비스 패브릭에 기존 응용 프로그램 배포
+# 서비스 패브릭에 사용자 지정 응용 프로그램 배포
 
 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로그램과 같은 모든 유형의 기존 응용 프로그램을 실행할 수 있습니다. 서비스 패브릭은 상태 비저장 서비스와 마찬가지로 이러한 응용 프로그램을 처리하고 가용성 및 기타 메트릭에 따라 클러스터의 노드에 배치합니다. 이 문서에서는 서비스 패브릭 클러스터에 기존 응용 프로그램을 패키징 및 배포하는 방법을 설명합니다.
 
-## 서비스 패브릭에서 기존 응용 프로그램을 실행할 때의 이점
+## 서비스 패브릭에서 사용자 지정 응용 프로그램을 실행할 때의 이점
 
 서비스 패브릭 클러스터에서 응용 프로그램을 실행할 때 함께 제공되는 몇 가지 이점이 있습니다.
 
@@ -46,7 +46,6 @@
 
   서비스 매니페스트는 서비스의 구성 요소를 설명합니다. 서비스의 이름 및 유형(서비스 패브릭에서 서비스를 관리하는 데 사용하는 정보), 해당 코드, 구성 및 데이터 구성 요소와 배포되면 서비스를 구성하는 데 사용할 수 있는 일부 추가 매개 변수 등의 데이터를 포함합니다. 서비스 매니페스트에서 사용할 수 있는 모든 다른 매개 변수의 정보로 이동하지 않으며 서비스 패브릭에서 기존 응용 프로그램을 실행하는 데 필요한 하위 집합으로 이동합니다.
 
-서비스 패브릭 패키징 형식에 대한 자세한 정보는 [이것](service-fabric-develop-your-service-index.md)을 참조하세요.
 
 ## 응용 프로그램 패키지 파일 구조
 응용 프로그램을 서비스 패브릭에 배포하기 위해 응용 프로그램은 미리 정의된 디렉터리 구조를 따라야 합니다. 다음은 해당 구조의 예입니다.
@@ -65,7 +64,7 @@
 루트는 응용 프로그램을 정의하는 ApplicationManifest.xml 파일을 포함합니다. 응용 프로그램에 포함된 각 서비스에 대한 하위 디렉터리 서비스는 서비스가 필요한 모든 아티팩트를 포함하는 데 사용됩니다. ServiceManifest.xml 및 일반적으로 3개의 디렉터리를 포함합니다.
 
 - *code*: 서비스 코드를 포함합니다.
-- *config*: 런타임에 서비스에서 특정 구성 설정을 검색하도록 액세스할 수 있는 settings.xml 파일(및 필요한 경우 다른 파일)을 포함합니다.
+- *config*: 런타임에서 서비스가 액세스하여 특정 구성 설정을 검색할 수 있는 settings.xml 파일(필요한 경우 다른 파일도 포함)을 포함합니다.
 - *data*: 서비스가 필요할 수 있는 추가 로컬 데이터를 저장하는 추가 디렉터리입니다. 참고: 데이터는 ephymeral 데이터만을 저장하는 데 사용되어야 하며, 예를 들어, 장애 조치 중에 서비스를 다시 배치해야 하는 경우 서비스 패브릭은 변경 내용을 데이터 디렉터리에 복사/복제하지 않습니다.
 
 참고: 필요하지 않은 경우 `config` 및 `data` 디렉터리를 만들지 않아도 됩니다.
@@ -79,7 +78,7 @@
 - 서비스 매니페스트 파일 업데이트
 - 응용 프로그램 매니페스트 업데이트
 
->[AZURE.NOTE]\: ApplicationPackage를 자동으로 만들 수 있도록 해주는 패키징 도구를 제공합니다. 이 도구는 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [여기](http://aka.ms/servicefabricpacktool)에서 찾을 수 있습니다.
+>[AZURE.NOTE]\: ApplicationPackage를 자동으로 만들 수 있도록 해주는 패키징 도구를 제공합니다. 이 도구는 현재 미리 보기로 제공되고 있습니다. [여기](http://aka.ms/servicefabricpacktool)에서 다운로드할 수 있습니다.
 
 ### 패키지 디렉터리 구조 만들기
 앞에서 설명한 것처럼 디렉터리 구조를 만들어서 시작할 수 있습니다.
@@ -170,12 +169,12 @@ SetupEntrypoint는 서비스의 코드를 시작하기 전에 실행되어야 �
 </EntryPoint>
 ```
 
-서비스 매니페스트 파일의 `Entrypoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다. 서비스를 시작하는 데 사용되어야 하는 `ExeHost` 요소는 실행 파일(및 인수)을 지정합니다.
+서비스 매니페스트 파일의 `Entrypoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다. `ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다.
 
 - `Program`: 서비스를 시작하기 위해 실행되어야 하는 실행 파일의 이름을 지정합니다.
 - `Arguments`: 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수의 목록일 수 있습니다.
 - `WorkingFolder`: 시작하고자 하는 프로세스에 대한 작업 디렉터리를 지정합니다. 두 값을 지정할 수 있습니다.
-	- `CodeBase`: 작업 디렉터리는 응용 프로그램 패키지의 코드 디렉터리에 설정됩니다(아래 표시된 구조의 `Code` 디렉터리).
+	- `CodeBase`: 작업 디렉터리는 응용 프로그램 패키지의 코드 디렉터리(아래 표시된 구조의 `Code` 디렉터리)에 설정됩니다.
 	- `CodePackage`: 작업 디렉터리가 응용 프로그램 패키지(`MyServicePkg`)의 루트로 설정됩니다.
 - `WorkingDirectory` 요소는 응용 프로그램 또는 초기화 스크립트에서 상대 경로를 사용할 수 있도록 올바른 작업 디렉터리를 설정하는 데 유용합니다.
 
@@ -191,7 +190,7 @@ SetupEntrypoint는 서비스의 코드를 시작하기 전에 실행되어야 �
 
 ## 응용 프로그램 매니페스트 파일
 
-`servicemanifest.xml` 파일을 구성하면 `ApplicationManifest.xml` 파일에 대한 일부 변경 내용을 작성하여 올바른 서비스 유형 및 이름이 사용되는지 확인해야 합니다.
+`servicemanifest.xml` 파일을 구성하면 `ApplicationManifest.xml` 파일을 변경하여 올바른 서비스 유형 및 이름이 사용되는지 확인해야 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -253,9 +252,9 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ```
 서비스 패브릭 서비스는 다양한 '구성'으로 배포될 수 있습니다. 예를 들어, 서비스 패브릭 클러스터의 각 노드에 서비스의 단일 인스턴스가 있는 방식으로 단일 또는 여러 인스턴스로 배포될 수 있습니다.
 
-`New-ServiceFabricService` cmdlet의 `InstanceCount` 매개 변수는 서비스 패브릭 클러스터에서 실행되어야 하는 서비스의 인스턴스 개수를 지정하는 데 사용됩니다. 배포하는 응용 프로그램의 유형에 따라 `InstanceCount` 값을 설정할 수 있습니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다. * `InstanCount = "1"`: 이 경우 단 한 개의 서비스 인스턴스가 클러스터에 배포됩니다. 서비스 패브릭의 스케줄러는 배포할 서비스 노드를 결정합니다.
+`New-ServiceFabricService` cmdlet의 `InstanceCount` 매개 변수는 서비스 패브릭 클러스터에서 실행되어야 하는 서비스의 인스턴스 개수를 지정하는 데 사용됩니다. 배포하는 응용 프로그램의 유형에 따라 `InstanceCount` 값을 설정할 수 있습니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다. * `InstanCount = "1"`: 이 경우 서비스의 단일 인스턴스만 클러스터에 배포됩니다. 서비스 패브릭의 스케줄러는 배포할 서비스 노드를 결정합니다.
 
-* `InstanceCount ="-1"`: 단 한 개의 서비스 인스턴스가 서비스 패브릭 클러스터의 모든 노드에 배포됩니다. 최종 결과로 클러스터의 각 노드에 대한 서비스의 인스턴스를 하나(및 하나만) 갖게 됩니다. 끝점을 사용하도록 클라이언트 응용 프로그램이 클러스터의 노드에 '연결'해야 하기 때문에 프런트엔드 응용 프로그램(예: REST 끝점)에 유용한 구성입니다. 예를 들어, 서비스 패브릭 클러스터의 모든 노드가 부하 분산 장치에 연결된 경우 이 구성을 사용할 수도 있으므로, 클라이언트 트래픽을 클러스터의 모든 노드에서 실행되는 서비스에 분산될 수 있습니다.
+* `InstanceCount ="-1"`: 서비스의 단일 인스턴스가 서비스 패브릭 클러스터의 모든 노드에 배포됩니다. 최종 결과로 클러스터의 각 노드에 대한 서비스의 인스턴스를 하나(및 하나만) 갖게 됩니다. 끝점을 사용하도록 클라이언트 응용 프로그램이 클러스터의 노드에 '연결'해야 하기 때문에 프런트엔드 응용 프로그램(예: REST 끝점)에 유용한 구성입니다. 예를 들어, 서비스 패브릭 클러스터의 모든 노드가 부하 분산 장치에 연결된 경우 이 구성을 사용할 수도 있으므로, 클라이언트 트래픽을 클러스터의 모든 노드에서 실행되는 서비스에 분산될 수 있습니다.
 
 ### 실행 중인 응용 프로그램 확인
 
@@ -275,8 +274,8 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ## 다음 단계
 이 문서에서는 기존 응용 프로그램을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 다음 단계로 이 항목에 대한 추가 콘텐츠를 확인할 수 있습니다.
 
-- 패키징 도구의 시험판을 포함하는 [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)의 기존 응용 프로그램 패키징 및 배포에 대한 샘플
-- [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)의 여러 응용 프로그램 패키징에 대한 샘플
+- 패키징 도구의 시험판을 포함하는 [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication)의 사용자 지정 응용 프로그램 패키징 및 배포에 대한 샘플
+- [여러 사용자 지정 응용 프로그램을 배포](service-fabric-deploy-multiple-apps.md)하는 방법 알아보기
 - [Visual Studio를 사용하여 첫 번째 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)를 시작하는 방법
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

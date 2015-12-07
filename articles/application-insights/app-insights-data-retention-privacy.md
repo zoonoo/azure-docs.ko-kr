@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights 데이터 수집, 보존 및 저장소 
@@ -63,6 +63,11 @@ Application Insights는 미리 보기 상태의 Azure 서비스입니다. 미리
 
 * 데이터 볼륨 차트를 보려면 설정/할당량 및 가격을 엽니다.
 * 또는 메트릭 탐색기에서 새 차트를 추가하고 **데이터 요소 볼륨**을 메트릭으로 선택합니다. 그룹화로 전환한 다음 **데이터 형식**을 기준으로 그룹화합니다.
+
+*내 앱이 보내는 데이터의 양을 어떻게 줄일 수 있나요?*
+
+* [샘플링](app-insights-sampling.md)을 사용합니다. 이 기술은 메트릭을 왜곡하지 않으며 검색에서 관련 항목 간 이동 기능을 중단하지 않고 데이터 속도를 낮춥니다.
+* 불필요한 [원격 분석 수집기를 끕니다](app-insights-configuration-with-applicationinsights-config.md).
 
 
 #### 데이터가 얼마 동안 보존되나요? 
@@ -250,4 +255,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

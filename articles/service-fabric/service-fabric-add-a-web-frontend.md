@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,32 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/17/2015"
+   ms.date="11/21/2015"
    ms.author="seanmck"/>
+
 
 # 응용 프로그램에 대한 웹 서비스 프런트엔드 구축
 
 기본적으로 서비스 패브릭 서비스는 웹에 공용 인터페이스를 제공하지 않습니다. HTTP 클라이언트에 응용 프로그램의 기능을 표시하려면 진입점 역할을 할 웹 프로젝트를 만든 후 그 곳에서 개별 서비스와 통신해야 합니다.
 
-이 자습서에서는 이미 상태 저장 서비스가 포함된 응용 프로그램에 ASP.NET 5 Web API 프런트엔드를 추가하는 방법을 살펴볼 것입니다. 아직 응용 프로그램을 만들지 않은 경우 이 자습서를 시작하기 전에 우선 [Visual Studio에서 응용 프로그램을 만드세요](service-fabric-create-your-first-application-in-visual-studio.md).
+이 자습서에서는 이미 상태 저장 서비스 프로젝트 템플릿을 기반으로 한 Reliable Service가 포함된 응용 프로그램에 ASP.NET 5 Web API 프런트 엔드를 추가하는 방법을 살펴볼 것입니다. 아직 응용 프로그램을 만들지 않은 경우 이 자습서를 시작하기 전에 우선 [Visual Studio에서 응용 프로그램을 만드세요](service-fabric-create-your-first-application-in-visual-studio.md).
+
 
 ## 응용 프로그램에 ASP.NET 5 서비스 추가
 
 ASP.NET 5는 최신 웹 UI 및 Web API를 만들 수 있는 가벼운 크로스 플랫폼 웹 개발 프레임워크입니다. 기존 응용 프로그램에 ASP.NET Web API 프로젝트를 추가하겠습니다.
 
-1. 솔루션 탐색기에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 패브릭 서비스**를 선택합니다.
+1. 솔루션 탐색기에서 응용 프로그램 프로젝트 내의 **서비스**를 마우스 오른쪽 단추로 클릭하고 **패브릭 서비스 추가**를 선택합니다.
 
 	![기존 응용 프로그램에 새 서비스 추가][vs-add-new-service]
 
-2. 새 서비스 대화 상자에서 ASP.NET 5 웹 서비스를 선택하고 이름을 입력합니다.
+2. 새 서비스 대화 상자에서 **ASP.NET 5**를 선택하고 이름을 입력합니다.
 
 	![새 서비스 대화 상자에서 ASP.NET 웹 서비스 선택][vs-new-service-dialog]
 
-3. 그 다음에 나타나는 대화 상자에는 ASP.NET 5 프로젝트 템플릿 집합이 제공됩니다. 이러한 템플릿은 서비스 패브릭 응용 프로그램 외부에서 ASP.NET 5 프로젝트를 만든 경우에 표시되는 템플릿과 동일한 템플릿입니다. 이 자습서에서는 Web API를 선택할 예정이지만 전체 웹 응용 프로그램을 구축할 때와 동일한 개념을 적용해도 됩니다.
+3. 그 다음에 나타나는 대화 상자에는 ASP.NET 5 프로젝트 템플릿 집합이 제공됩니다. 이러한 템플릿은 서비스 패브릭 응용 프로그램 외부에서 ASP.NET 5 프로젝트를 만든 경우에 표시되는 템플릿과 동일한 템플릿입니다. 이 자습서에서는 **Web API**를 선택할 예정이지만 전체 웹 응용 프로그램을 구축할 때와 동일한 개념을 적용해도 됩니다.
 
 	![ASP.NET 프로젝트 유형 선택][vs-new-aspnet-project-dialog]
 
-  Web API 프로젝트를 만들었으면 응용 프로그램에 두 개의 서비스가 있을 것입니다. 계속해서 응용 프로그램을 구축하는 동안 똑같은 방법으로 더 많은 서비스를 추가하게 되며, 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
+    Web API 프로젝트를 만들었으면 응용 프로그램에 두 개의 서비스가 있을 것입니다. 계속해서 응용 프로그램을 구축하는 동안 똑같은 방법으로 더 많은 서비스를 추가하게 되며, 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
+
 
 ## 응용 프로그램 실행
 
@@ -50,15 +53,17 @@ ASP.NET 5는 최신 웹 UI 및 Web API를 만들 수 있는 가벼운 크로스 
 
 3. 브라우저에서 해당 위치에 `/api/values`를 추가합니다. 이렇게 하면 Web API 템플릿의 ValuesController에 `Get` 메서드가 호출되고, 템플릿에서 제공하는 기본 응답, 다시 말해서 다음 두 문자열을 포함하는 JSON 배열이 반환됩니다.
 
-  ![ASP.NET 5 Web API 템플릿에서 반환되는 기본값][browser-aspnet-template-values]
+    ![ASP.NET 5 Web API 템플릿에서 반환되는 기본값][browser-aspnet-template-values]
 
-  이 자습서가 끝나기 전에 이러한 기본 값을 상태 저장 서비스의 가장 최신 카운터 값으로 바꿀 것입니다.
+    이 자습서가 끝나기 전에 이러한 기본 값을 상태 저장 서비스의 가장 최신 카운터 값으로 바꿀 것입니다.
+
 
 ## 서비스 연결
 
 서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 응용 프로그램 내에서 어떤 서비스는 TCP를 통해 액세스할 수 있고, 어떤 서비스는 HTTP REST API를 통해 액세스할 수 있고, 또 어떤 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요. 이 자습서에서는 보다 간단한 방법 중 하나를 선택하여 SDK에 제공되는 `ServiceProxy`/`ServiceCommunicationListener` 클래스를 사용하겠습니다.
 
 `ServiceProxy` 접근 방식(원격 프로시저 호출 또는 RPC에서 모델링)에서는 서비스에 대한 공용 계약의 역할을 수행하도록 인터페이스를 정의한 후 해당 인터페이스를 사용하여 서비스와 상호 작용하기 위한 프록시 클래스를 생성합니다.
+
 
 ### 인터페이스 만들기
 
@@ -68,23 +73,28 @@ ASP.NET 5 프로젝트를 비롯한 상태 저장 서비스와 클라이언트 �
 
 2. 왼쪽의 탐색 창에서 Visual C# 항목을 선택한 다음 **클래스 라이브러리** 템플릿을 선택합니다. .NET Framework 버전이 4.5.1로 설정되어 있는지 확인합니다.
 
-  ![상태 저장 서비스에 대한 인터페이스 프로젝트 만들기][vs-add-class-library-project]
+    ![상태 저장 서비스에 대한 인터페이스 프로젝트 만들기][vs-add-class-library-project]
 
-3. `ServiceProxy`에서 인터페이스를 사용할 수 있으려면 인터페이스가 서비스 패브릭 NuGet 패키지 중 하나에 포함된 IService 인터페이스에서 파생되어야 합니다. 패키지에 추가하려면 새 클래스 라이브러리 프로젝트를 마우스 오른쪽 단추로 클릭하고 선택 **NuGet 패키지 관리**를 선택합니다.
+3. `ServiceProxy`에서 인터페이스를 사용할 수 있으려면 인터페이스가 서비스 패브릭 NuGet 패키지 중 하나에 포함된 IService 인터페이스에서 파생되어야 합니다. 패키지에 추가하려면 새 클래스 라이브러리 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
 4. **시험판 포함** 확인란을 선택한 다음 **Microsoft.ServiceFabric.Services** 패키지를 검색하여 설치합니다.
 
-  ![서비스 NuGet 패키지 추가][vs-services-nuget-package]
+    ![서비스 NuGet 패키지 추가][vs-services-nuget-package]
 
 5. 클래스 라이브러리에서 단일 메서드 `GetCountAsync`를 사용하여 인터페이스를 만들고, IService에서 해당 인터페이스를 확장합니다.
 
-  ```c# namespace MyStatefulService.Interfaces { using Microsoft.ServiceFabric.Services;
+    ```c#
+    namespace MyStatefulService.Interfaces
+    {
+        using Microsoft.ServiceFabric.Services.Remoting;
 
-      public interface ICounter: IService
-      {
-          Task<long> GetCountAsync();
-      }
-  } ```
+        public interface ICounter: IService
+        {
+            Task<long> GetCountAsync();
+        }
+    }
+    ```
+
 
 ### 상태 저장 서비스에서 인터페이스 구현
 
@@ -92,25 +102,33 @@ ASP.NET 5 프로젝트를 비롯한 상태 저장 서비스와 클라이언트 �
 
 1. 상태 저장 서비스에서 인터페이스가 포함된 클래스 라이브러리 프로젝트에 참조를 추가합니다.
 
-  ![상태 저장 서비스의 클래스 라이브러리 프로젝트에 참조 추가][vs-add-class-library-reference]
+    ![상태 저장 서비스의 클래스 라이브러리 프로젝트에 참조 추가][vs-add-class-library-reference]
 
 2. `MyStatefulService`처럼 `StatefulService`에서 상속하는 클래스를 찾아 확장하여 `ICounter` 인터페이스를 구현합니다.
 
-  ```c#
-  public class MyStatefulService : StatefulService, ICounter
-  {        
-        // ...
-  }
-  ``` 3. 이제 `ICounter` 인터페이스에 정의된 단일 메서드 `GetCountAsync`를 구현합니다.
+    ```c#
+    public class MyStatefulService : StatefulService, ICounter
+    {        
+          // ...
+    }
+    ```
 
-  ```c# public async Task<long> GetCountAsync() { var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string  long>>("myDictionary");
+3. 이제 `ICounter` 인터페이스에 정의된 단일 메서드 `GetCountAsync`를 구현합니다.
 
-      using (var tx = this.StateManager.CreateTransaction())
-      {          
-          var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-          return result.HasValue ? result.Value : 0;
-      }
-  } ```
+    ```c#
+    public async Task<long> GetCountAsync()
+    {
+      var myDictionary =
+        await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
+
+        using (var tx = this.StateManager.CreateTransaction())
+        {          
+            var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
+            return result.HasValue ? result.Value : 0;
+        }
+    }
+    ```
+
 
 ### ServiceCommunicationListener를 사용하여 상태 저장 서비스 표시
 
@@ -141,30 +159,35 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 2. 앞에서 클래스 라이브러리 프로젝트에 수행한 것처럼 Microsoft.ServiceFabric.Services 패키지를 ASP.NET 프로젝트에 추가합니다. 이렇게 하면 `ServiceProxy` 클래스가 제공됩니다.
 
-3. Controllers 폴더에서 `ValuesController` 클래스를 엽니다. `Get` 메서드가 현재는 하드 코드된 문자열 "value1" 및 "value2"만 반환하며, 이 문자열은 앞서 브라우저에서 본 것과 일치합니다. 이것을 다음 코드로 바꿉니다.
+3. Controllers 폴더에서 `ValuesController` 클래스를 엽니다. `Get` 메서드가 현재는 하드 코드된 문자열 배열 "value1" 및 "value2"만 반환하며, 이 문자열은 앞서 브라우저에서 본 것과 일치합니다. 이것을 다음 코드로 바꿉니다.
 
-  ```c# public async Task<IEnumerable<string>> Get() { ICounter counter = ServiceProxy.Create<ICounter>(0, new Uri("fabric:/MyApp/MyStatefulService"));
+    ```c#
+    public async Task<IEnumerable<string>> Get()
+    {
+        ICounter counter =
+            ServiceProxy.Create<ICounter>(0, new Uri("fabric:/MyApp/MyStatefulService"));
 
-      long count = await counter.GetCountAsync();
+        long count = await counter.GetCountAsync();
 
-      return new string[] { count.ToString() };
-  } ```
+        return new string[] { count.ToString() };
+    }
+    ```
 
-  코드의 첫 번째 줄이 핵심입니다. 상태 저장 서비스에 ICounter 프록시를 만들려면 두 가지 정보, 즉 파티션 ID와 서비스 이름을 제공해야 합니다.
+    코드의 첫 번째 줄이 핵심입니다. 상태 저장 서비스에 ICounter 프록시를 만들려면 두 가지 정보, 즉 파티션 ID와 서비스 이름을 제공해야 합니다.
 
-  파티션을 나누면 고객 ID, 우편 번호 등 사용자가 정의하는 키를 기반으로 상태를 여러 버킷으로 분류하여 상태 저장 서비스를 확장할 수 있습니다. 이 예의 간단한 응용 프로그램에서는 상태 저장 서비스에 파티션이 하나밖에 없어서 키 때문에 문제가 발생할 일이 없습니다. 아무 키를 입력해도 같은 파티션으로 연결됩니다.
+    파티션을 나누면 고객 ID, 우편 번호 등 사용자가 정의하는 키를 기반으로 상태를 여러 버킷으로 분류하여 상태 저장 서비스를 확장할 수 있습니다. 이 예의 간단한 응용 프로그램에서는 상태 저장 서비스에 파티션이 하나밖에 없어서 키 때문에 문제가 발생할 일이 없습니다. 아무 키를 입력해도 같은 파티션으로 연결됩니다. 서비스 분할에 대해 자세히 알아보려면 [서비스 패브릭 Reliable Services 분할 방법](service-fabric-concepts-partitioning)을 참조하세요.
 
-  서비스 이름은 양식 패브릭의 URI입니다(예: /&lt;application\_name&gt;/&lt;service\_name&gt;).
+    서비스 이름은 양식 패브릭의 URI입니다(예: /&lt;application\_name&gt;/&lt;service\_name&gt;).
 
-  서비스 패브릭에서는 이러한 두 가지 정보를 사용하여 요청을 보낼 컴퓨터를 식별할 수 있습니다. `ServiceProxy` 또한 상태 저장 서비스 파티션을 호스팅하는 컴퓨터에 장애가 발생하여 다른 컴퓨터가 그 역할을 대신해야 하는 시나리오를 원활하게 처리할 수 있습니다. 이 추상화를 사용하면 다른 서비스를 처리하기 위한 클라이언트 코드 쓰기 작업이 훨씬 간단해집니다.
+    서비스 패브릭에서는 이러한 두 가지 정보를 사용하여 요청을 보낼 컴퓨터를 식별할 수 있습니다. `ServiceProxy` 또한 상태 저장 서비스 파티션을 호스트하는 컴퓨터에 장애가 발생하여 다른 컴퓨터가 그 역할을 대신해야 하는 시나리오를 원활하게 처리할 수 있습니다. 이 추상화를 사용하면 다른 서비스를 처리하기 위한 클라이언트 코드 쓰기 작업이 훨씬 간단해집니다.
 
-  프록시가 있으면 `GetCountAsync` 메서드만 호출하면 그 결과가 반환됩니다.
+    프록시가 있으면 `GetCountAsync` 메서드만 호출하면 그 결과가 반환됩니다.
 
 4. 수정된 응용 프로그램을 실행하려면 F5 키를 다시 누르면 됩니다. 이전과 마찬가지로, Visual Studio에서 자동으로 웹 프로젝트의 루트에 브라우저를 실행합니다. "api/values" 경로를 추가하면 반환되는 현재 카운터 값이 보일 것입니다.
 
-  ![브라우저에 표시되는 상태 저장 카운터 값][browser-aspnet-counter-value]
+    ![브라우저에 표시되는 상태 저장 카운터 값][browser-aspnet-counter-value]
 
-  브라우저를 주기적으로 새로 고쳐 카운터 값 업데이트를 확인하세요.
+    브라우저를 주기적으로 새로 고쳐 카운터 값 업데이트를 확인하세요.
 
 
 ## 행위자의 경우는 어떨까요?
@@ -177,7 +200,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 일반적으로 로컬 클러스터에 배포한 다중 컴퓨터 클러스터에 똑같은 서비스 패브릭 응용 프로그램을 배포할 수 있으며, 응용 프로그램이 예상대로 작동할 것으로 확신할 수 있습니다. 왜냐하면 로컬 클러스터는 단순히 단일 컴퓨터로 축소된 5노드 구성이기 때문입니다.
 
-그러나 웹 서비스는 결정적인 차이가 하나 있습니다. Azure처럼 클러스터가 부하 분산 장치 뒤에 있는 경우 모든 컴퓨터에 웹 서비스를 배포해야 합니다. 부하 분산 장치가 단순히 라운드 로빈 방식으로 컴퓨터 간에 트래픽을 분산하기 때문입니다. 이 작업은 서비스의 `InstanceCount`를 특수 값인 -1로 설정하여 처리할 수 있습니다. 이와 반대로, 로컬로 실행할 경우 서비스의 인스턴스 중 하나만 실행되어야 합니다. 그렇지 않으면 같은 경로 및 포트에서 수신하는 여러 프로세스에서 충돌이 발생합니다. 결과적으로 로컬 deployments.git에 대해 웹 서비스 인스턴스 수를 1로 설정해야 합니다.
+그러나 웹 서비스는 결정적인 차이가 하나 있습니다. Azure처럼 클러스터가 부하 분산 장치 뒤에 있는 경우 모든 컴퓨터에 웹 서비스를 배포해야 합니다. 부하 분산 장치가 단순히 라운드 로빈 방식으로 컴퓨터 간에 트래픽을 분산하기 때문입니다. 이 작업은 서비스의 `InstanceCount`를 특수 값인 -1로 설정하여 처리할 수 있습니다. 이와 반대로, 로컬로 실행할 경우 서비스의 인스턴스 중 하나만 실행되어야 합니다. 그렇지 않으면 같은 경로 및 포트에서 수신하는 여러 프로세스에서 충돌이 발생합니다. 결과적으로 로컬 배포에 대해 웹 서비스 인스턴스 수를 1로 설정해야 합니다.
 
 여러 환경에 대한 여러 가지 구성 방법을 알아보려면 [여러 환경에 대한 응용 프로그램 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
 
@@ -198,4 +221,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

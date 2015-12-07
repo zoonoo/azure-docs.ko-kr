@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="출력 추가 | Microsoft Azure" 
-	description="출력 추가 학습 경로 세그먼트입니다."
+	description="스트림 분석 작업에 출력 추가 | 학습 경로 세그먼트."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 출력 추가
+# 스트림 분석 작업에 **출력을 추가**하는 방법
 
 Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정의하는 하나 이상의 출력에 연결할 수 있습니다. 스트림 분석 작업이 들어오는 데이터를 처리 및 변환하면 출력 이벤트 스트림이 작업의 출력에 기록됩니다.
 
@@ -63,4 +63,4 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

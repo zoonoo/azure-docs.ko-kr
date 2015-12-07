@@ -29,15 +29,15 @@ ms.service="virtual-machines"
 
 ### Azure VM 이미지
 
-* [HPC Pack on Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)(영문)
+* [HPC Pack on Windows Server 2012 R2(영문)](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
 
-* [HPC Pack compute node on Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)(영문)
+* [HPC Pack compute node on Windows Server 2012 R2(영문)](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
 
-* [HPC Pack compute node with Excel on Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)(영문)
+* [HPC Pack compute node with Excel on Windows Server 2012 R2(영문)](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
 ### Azure 빠른 시작 템플릿
 
-* [HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)(영문)
+* [HPC 클러스터 만들기(영문)](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
 
 * [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
 
@@ -74,11 +74,10 @@ ms.service="virtual-machines"
 * [Azure에서 HPC Pack 클러스터에 작업 제출](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
-
 ## HPC Pack 클러스터에 작업자 역할 노드 추가
 
 
-* [HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)
+* [HPC 팩을 사용한 Azure 작업자 인스턴스에 버스트](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [자습서: Azure에서 HPC 팩을 사용하여 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
@@ -86,11 +85,16 @@ ms.service="virtual-machines"
 
 * [HPC Pack 클러스터에서 Azure 계산 리소스 확장 및 축소](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
+## Azure 배치와의 통합 
+
+* [HPC 팩을 사용하여 Azure 배치로 버스트](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## MPI 작업에 대한 RDMA 클러스터 만들기
 
 * [MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정](virtual-machines-windows-hpcpack-cluster-rdma.md)
 
+* [자습서: Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFOAM 실행](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

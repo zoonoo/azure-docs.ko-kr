@@ -24,14 +24,14 @@
 
 암호를 잊었거나 원격 데스크톱 서비스 구성의 문제로 Windows 가상 컴퓨터에 연결할 수 없는 경우 Azure Preview 포털이나 VMAccess 확장을 사용하여 로컬 관리자 암호를 재설정하거나 원격 데스크톱 서비스 구성을 재설정합니다.
 
-## Preview 포털
+## Azure 미리 보기 포털
 
-[Preview 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하려면 **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **원격 액세스 다시 설정**을 클릭합니다. 다음 페이지가 나타납니다.
+[Azure Preview 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 재설정하려면, **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **원격 액세스 재설정**을 클릭합니다. 다음 페이지가 나타납니다.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-[Preview 포털](https://portal.azure.com)에서 로컬 관리자 계정의 이름과 암호를 다시 설정하려면 **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 다시 설정**을 클릭합니다. 다음 페이지가 나타납니다.
+[Azure Preview 포털](https://portal.azure.com)에서 로컬 관리자 계정의 이름과 암호를 재설정하려면, **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 재설정**을 클릭합니다. 다음 페이지가 나타납니다.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -57,7 +57,7 @@ VMAccess 확장은 설치하지 않아도 사용할 수 있습니다. VM 에이�
 
 **write-host** 명령에서 **True**가 표시되면 VM 에이전트가 설치되어 있는 것입니다. **False**가 표시되면 [VM 에이전트 및 확장 - 2부](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure 블로그 게시물에서 지침 및 다운로드 링크를 참조합니다.
 
-Azure 포털을 사용하여 가상 컴퓨터를 만든 경우 다음 추가 명령을 실행합니다.
+포털을 사용하여 가상 컴퓨터를 만든 경우 다음 추가 명령을 실행합니다.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -114,4 +114,4 @@ Azure IaaS(Windows) 진단 패키지를 실행할 수 없거나 실행해도 문
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

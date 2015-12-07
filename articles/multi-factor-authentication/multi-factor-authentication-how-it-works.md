@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 #Azure Multi-Factor Authentication 작동 방법
@@ -102,4 +102,4 @@ Azure Multi-Factor Authentication을 사용할 때 두 가지의 대금 청구 �
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,20 +1,21 @@
+
+
 <properties 
 	pageTitle="개인 장치를 조직에 조인| Microsoft Azure" 
-	description="사용자가 자신의 개인 Windows 10 컴퓨터를 회사 네트워크에 등록하는 방법에 대해 설명하는 항목이며 BYOD 시나리오에 대한 배포 단계를 제공합니다." 
+	description="사용자가 자신의 개인 Windows 10 컴퓨터를 회사 네트워크에 등록하는 방법에 대해 설명하며 BYOD 시나리오에 대한 배포 단계를 제공합니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 개인 장치를 조직에 조인
@@ -39,4 +40,4 @@ Windows 10 장치를 조직에 조인하려면
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -89,10 +89,10 @@ Azure 지원에서 사용자에게 연락합니다. 요청을 완료하려면 �
 
 * [Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md)
 
-* [Azure 배치에 대한 API 기본 사항](batch-api-basics.md)
+* [Azure 배치 기능 개요](batch-api-basics.md)
 
 * [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

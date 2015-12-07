@@ -36,7 +36,7 @@ Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 **Copy-Serv
 
 ## 2단계: 시각적 개체 샘플 업데이트
 
-1단계에서 배포된 버전에서 알 수 있듯이 시각적 개체는 회전하지 않습니다. 이 응용 프로그램을 시각적 개체도 회전하도록 업그레이드하겠습니다.
+1단계에서에서 배포된 버전에서 알 수 있듯이 시각적 개체는 회전하지 않습니다. 이 응용 프로그램을 시각적 개체도 회전하도록 업그레이드하겠습니다.
 
 VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택하고, StatefulVisualObjectActor.cs 파일을 엽니다. 해당 파일 내에서 `MoveObject` 메서드로 이동하고 `this.State.Move()`를 주석 처리하고 `this.State.Move(true)`의 주석 처리를 제거합니다. 이렇게 변경하면 서비스 업그레이드 후 개체가 회전됩니다.
 
@@ -60,7 +60,7 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 ```
 
 
-이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 빌드를 선택하여 프로젝트를 빌드합니다(모두 다시 빌드를 선택하면 코드를 변경해야 하기 때문에 **VisualObjects.WebService**는 물론 **VisualObjects.Common" 프로젝트의 *ServiceManifest.xml* 및 *ApplicationManifest.xml*에서 버전을 업데이트해야 합니다). 이제 *VisualObjectsApplication*을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 패키지를 선택하여 업데이트된 응용 프로그램을 패키지화합니다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
+이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 빌드를 선택하여 프로젝트를 빌드합니다(모두 다시 빌드를 선택하면 코드를 변경해야 하기 때문에 *ServiceManifest.xml* 및 *ApplicationManifest.xml*의 다른 프로젝트에 대한 버전도 업데이트해야 합니다). 이제 *VisualObjectsApplication*을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 패키지를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
 
 
 ## 3단계: 상태 정책 결정 및 매개 변수 업그레이드
@@ -78,7 +78,7 @@ UpgradeTimeout = 3000
 
 ## 4단계: 업그레이드를 위한 응용 프로그램 준비
 
-이제 응용 프로그램이 빌드되고 업그레이드 준비되었습니다. 관리자로 PowerShell 창을 열고 **Get-ServiceFabricApplication**을 입력하면 배포된 **VisualObjects**의 Application Type 1.0.0.0임을 알려줍니다. 이 응용 프로그램 패키지는 서비스 패브릭 SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug* 디렉터리에서 응용 프로그램이 저장된 “Package” 폴더를 찾을 수 있습니다. 타임 스탬프를 확인하여 최신 빌드인지 확인하십시오(경로를 적절하게 수정해야 할 수 있습니다).
+이제 응용 프로그램이 빌드되고 업그레이드 준비되었습니다. 관지자로 PowerShell 창을 열고 **Get-ServiceFabricApplication**을 입력하면 배포된 **VisualObjects**의 Application Type 1.0.0.0임을 알려줍니다. 이 응용 프로그램 패키지는 서비스 패브릭 SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug* 디렉터리에서 응용 프로그램이 저장된 “Package” 폴더를 찾을 수 있습니다. 타임 스탬프를 확인하여 최신 빌드인지 확인하십시오(경로를 적절하게 수정해야 할 수 있습니다).
 
 이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore*는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 “VisualObjects\_V2”에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
 
@@ -121,8 +121,8 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md) 사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 
-[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법을 알아봅니다.
+[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
 
 #  Application Insights의 샘플링
@@ -20,47 +20,67 @@
 *Application Insights는 미리 보기 상태입니다.*
 
 
-샘플링은 응용 프로그램 데이터의 통계적으로 올바른 분석을 유지하면서 원격 분석의 축소된 집합을 수집하고 저장할 수 있도록 하는 Application Insights의 옵션입니다. 일반적으로 트래픽을 줄이고 [제한](app-insights-pricing.md#data-rate)을 방지하는 데 사용됩니다. 데이터는 관련된 항목이 허용한 방법으로 필터링되므로 감소된 데이터 집합이 포함된 진단 조사를 수행할 수 있습니다. 클라이언트 및 서버 측은 자동으로 조정하여 관련된 항목을 필터링합니다. 포털에서 메트릭 개수가 나타나면 통계에 영향을 최소화하기 위해 샘플링을 고려하도록 다시 정상화됩니다.
+샘플링은 응용 프로그램 데이터의 통계적으로 올바른 분석을 유지하면서 원격 분석의 축소된 집합을 수집하고 저장할 수 있도록 하는 Application Insights의 기능입니다. 이는 트래픽을 줄이고 [제한](app-insights-pricing.md#data-rate)을 방지하는 데 도움을 줍니다. 데이터는 관련된 항목이 허용한 방법으로 필터링되므로 진단 조사를 수행할 때 항목 간 이동을 할 수 있습니다. 포털에서 메트릭 개수가 나타나면 통계에 영향을 최소화하기 위해 샘플링을 고려하도록 다시 정상화됩니다.
 
+적응 샘플링은 ASP.NET, 버전 2.0.0-beta3 이상인 경우 Application Insights SDK에서 기본적으로 사용되도록 설정되어 있습니다. 샘플링은 현재 베타에 있으며 향후 변경될 수 있습니다.
 
-샘플링은 현재 베타에 있으며 향후 변경될 수 있습니다.
+다음과 같은 두 가지 대체 샘플링 모듈이 있습니다.
 
-## 응용 프로그램에 대한 샘플링 구성
+* 적응 샘플링은 특정 요청 볼륨을 달성하기 위해 샘플링 비율을 자동으로 조정합니다. 현재 ASP.NET 서버 측 원격 분석만 사용할 수 있습니다.  
+* 고정 비율 샘플링을 사용할 수도 있습니다. 사용자가 샘플링 비율을 지정합니다. ASP.NET 웹앱 코드 및 JavaScript 웹 페이지에서 사용할 수 있습니다. 클라이언트와 서버는 샘플링을 동기화하므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
 
-샘플링은 ASP.NET SDK 또는 [웹 페이지](#other-web-pages)에 대해 현재 사용할 수 있습니다.
+## 적응 샘플링 사용
 
-### ASP.NET 서버
+최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **Include prerelease(시험판 포함)**를 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다.
 
-1. 프로젝트의 NuGet 패키지를 최신 *시험판* 버전의 Application Insights로 업데이트합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **Include prerelease**(시험판 포함)를 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
+[ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)의 `AdaptiveSamplingTelemetryProcessor` 노드에서 매개 변수 수를 조정할 수 있습니다. 표시된 수치는 기본값입니다.
 
-2. 다음 코드 조각을 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에 추가합니다.
+* `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
 
-```XML
+    대상 비율은 **하나의 단일 서버 호스트에** 대한 것을 목표로 하는 적응 알고리즘입니다. 여러 호스트에서 웹앱을 실행하는 경우 Application Insights 포털에서 트래픽을 대상 비율 범위 내에서 유지하기 위해 이 값을 줄입니다.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+* `<EvaluationInterval>00:00:15</EvaluationInterval>`
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    현재 비율의 원격 분석 간격이 다시 평가됩니다. 평가는 이동 평균으로 수행됩니다. 원격 분석이 급격히 증가하는 경우 이 간격을 줄일 수 있습니다.
 
-```
+* `<SamplingPercentageDecreaseTimeout>00:02:00</SamplingPercentageDecreaseTimeout>`
 
-> [AZURE.NOTE]샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다. 현재 샘플링은 다른 값을 지원하지 않습니다.
+    샘플링 비율 값을 변경한 후 더 적은 데이터를 캡처하기 위해 샘플링 비율을 다시 낮출 수 있는 시간 제한입니다.
+
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+
+    샘플링 비율 값을 변경한 후 더 많은 데이터를 캡처하기 위해 샘플링 비율을 다시 높일 수 있는 시간 제한입니다.
+
+* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+
+    샘플링 비율이 변경됨에 따라 사용자가 설정할 수 있는 최소값입니다.
+
+* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+
+    샘플링 비율이 변경됨에 따라 사용자가 설정할 수 있는 최대값입니다.
+
+* `<MovingAverageRatio>0.25</MovingAverageRatio>`
+
+    이동 평균 계산에서 가중치는 가장 최근의 값에 할당됩니다. 1보다 작거나 같은 값을 사용합니다. 값이 작을수록 알고리즘은 갑작스런 변화에 덜 반응합니다.
+
+* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+
+    앱을 막 시작했을 때 할당된 값입니다. 디버깅하는 동안 이 값을 줄이지 마십시오.
 
 <a name="other-web-pages"></a>
-### JavaScript를 사용하는 웹 페이지
+## JavaScript를 사용하는 웹 페이지에 대한 샘플링
 
-서버에서 샘플링에 대한 웹 페이지를 구성할 수 있습니다. ASP.NET 서버의 경우 클라이언트와 서버 양쪽을 구성합니다.
+서버에서 고정 비율 샘플링에 대한 웹 페이지를 구성할 수 있습니다.
 
-[Application Insights에 대한 웹 페이지를 구성](app-insights-javascript.md)할 때 Application Insights 포털에서 얻는 코드 조각을 수정합니다. (ASP.NET의 \_Layout.cshtml에 위치합니다.) 계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입합니다.
+[Application Insights에 대한 웹 페이지를 구성](app-insights-javascript.md)할 때 Application Insights 포털에서 얻는 코드 조각을 수정합니다. (ASP.NET 앱에서 코드 조각은 일반적으로 \_Layout.cshtml로 이동합니다.) 계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입합니다.
 
     <script>
 	var appInsights= ... 
 	}({ 
 
+
+    // Value must be 100/N where N is an integer.
+    // Valid examples: 50, 25, 20, 10, 5, 1, 0.1, ...
 	samplingPercentage: 10, 
 
 	instrumentationKey:...
@@ -70,15 +90,52 @@
 	appInsights.trackPageView(); 
 	</script> 
 
-서버 측에서 수행한 대로 JavaScript에서 동일한 샘플링 비율을 제공해야 합니다.
+샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다. 현재 샘플링은 다른 값을 지원하지 않습니다.
 
-[Web API에 대해 자세히 알아봅니다](app-insights-api-custom-events-metrics.md).
+서버에서도 고정 비율 샘플링을 사용하도록 설정하는 경우 클라이언트와 서버가 동기화되므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
+
+
+## 서버에서 고정 비율 샘플링 사용
+
+1. 최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **Include prerelease(시험판 포함)**를 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
+
+2. **적응 샘플링을 사용하지 않도록 설정**: [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 `AdaptiveSamplingTelemetryProcessor` 노드를 제거하거나 주석으로 처리합니다.
+
+    ```xml
+
+    <TelemetryProcessors>
+    <!-- Disabled adaptive sampling:
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    -->
+    
+
+    ```
+
+2. **고정 비율 샘플링 모듈을 사용하도록 설정합니다.** 다음 코드 조각을 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에 추가합니다.
+
+    ```XML
+
+    <TelemetryProcessors>
+     <Add  Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+      <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+      <SamplingPercentage>10</SamplingPercentage>
+      </Add>
+    </TelemetryProcessors>
+
+    ```
+
+> [AZURE.NOTE]샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다. 현재 샘플링은 다른 값을 지원하지 않습니다.
+
 
 
 ### 대체: 서버 코드에서 샘플링 설정
 
 
-.config 파일에 샘플링 매개 변수를 설정하는 대신 코드를 사용할 수 있습니다. 이렇게 하면 샘플링을 켜거나 끌 수 있습니다.
+.config 파일에 샘플링 매개 변수를 설정하는 대신 코드를 사용할 수 있습니다.
 
 *C#*
 
@@ -86,26 +143,42 @@
 
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
 
-    // It's recommended to set SamplingPercentage in the .config file instead.
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.UseSampling(10.0); // percentage
 
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
 
 ```
 
+([원격 분석 프로세서에 대해 알아봅니다](app-insights-api-filtering-sampling/#filtering).)
 
 ## 언제 샘플링을 사용합니까?
+
+ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이 자동으로 사용되도록 설정됩니다.
 
 대부분의 중소 응용 프로그램은 샘플링하지 않아도 됩니다. 가장 유용한 진단 정보 및 가장 정확한 통계는 모든 사용자 활동에서 데이터를 수집하여 구합니다.
 
  
-샘플링을 사용하는 중요한 이유는 다음과 같습니다.
-
+샘플링의 주요 장점은 다음과 같습니다.
 
 * 앱이 짧은 시간 간격으로 매우 높은 비율의 원격 분석을 전송할 때 Application Insights 서비스는 ("제한") 데이터 요소를 삭제합니다. 
-* 가격 책정 계층에 대한 데이터 요소의 [할당량](app-insights-pricing.md)을 유지하려고 합니다. 
-* 원격 분석의 컬렉션에서 네트워크 트래픽을 줄이려면 
+* 가격 책정 계층에 대한 데이터 요소의 [할당량](app-insights-pricing.md)을 유지합니다. 
+* 원격 분석의 컬렉션에서 네트워크 트래픽을 줄입니다. 
+
+### 고정 비율 샘플링 또는 적응 샘플링?
+
+다음과 같은 경우 고정 비율 샘플링을 사용합니다.
+
+* 사용자가 클라이언트 및 서버 간의 동기화된 샘플링을 원하는 경우, [검색](app-insights-diagnostic-search.md)에서 이벤트를 조사하고 있을 때 클라이언트 및 서버에서 페이지 보기 및 http 요청과 같은 관련된 이벤트 사이를 탐색할 수 있습니다.
+* 사용자가 앱에 대한 적절한 샘플링 비율을 확신하는 경우입니다. 샘플링 비율은 정확한 메트릭을 가져오기 위해 충분히 높아야 하지만 가격 책정 할당량 및 조정 제한을 초과하는 비율보다 낮아야 합니다. 
+* 사용자가 앱을 디버깅하지 않는 경우입니다. F5를 눌러 사용자 앱의 몇 페이지를 디버깅하면 모든 원격 분석을 볼 수 있습니다.
+
+그렇지 않은 경우 적응 샘플링을 사용하는 것이 좋습니다.
 
 ## 샘플링은 어떻게 작동되나요?
 
@@ -120,6 +193,10 @@ SDK는 어떤 원격 분석 항목을 삭제하고 어떤 항목을 유지할지
 근사치의 정확도는 주로 구성된 샘플링 비율에 따라 다릅니다. 또한 아주 많은 사용자에게서 많은 양의 일반적으로 비슷한 요청을 처리하는 응용 프로그램에 대해 정확도가 증가합니다. 반면에 상당한 부하가 있을 때 작동하지 않는 응용 프로그램의 경우 이러한 응용 프로그램이 일반적으로 할당량 내에 있으면서 제한에서 데이터 손실이 발생하지 않고 해당 원격 분석을 모두 보낼 수 있기에 샘플링은 필요하지 않습니다.
 
 이러한 자릿수의 형식 감소가 매우 바람직하지 않을 수 있기 때문에 Application Insights는 메트릭 및 세션 원격 분석 형식을 샘플링하지 않습니다.
+
+### 적응 샘플링
+
+적응 샘플링은 SDK에서 현재의 전송 속도를 모니터링하는 구성 요소를 추가하여 샘플링 비율이 대상 최대 비율 안에서 유지되도록 조정합니다. 조정은 정기적으로 다시 계산되고 발신 전송 속도의 이동 평균에 기반합니다.
 
 ## 샘플링 및 JavaScript SDK
 
@@ -140,11 +217,15 @@ SDK는 어떤 원격 분석 항목을 삭제하고 어떤 항목을 유지할지
 
 *샘플링 비율은 시간이 지나면서 달라질 수 있습니까?*
 
- * 오늘날의 구현에는 응용 프로그램 시작 시에 설정한 후에 일반적으로 샘플링 비율을 변경하지 않습니다. 샘플링 비율 런타임을 제어하더라도 제한 논리를 실행하거나 월별 데이터 할당량에 도달하기 전에 어떤 샘플링 비율이 최적이고 "딱 적당한 수준의 데이터 양"을 수집하는지를 결정할 방법은 없습니다. Application Insights SDK의 향후 버전에는 원격 분석 및 기타 요인의 현재 관찰된 양에 기반하여 즉석에서 샘플링 비율을 위 아래로 조정하는 샘플링을 포함합니다. 
+ * 예, 적응 샘플링은 원격 분석의 현재 관찰된 양에 따라 샘플링 비율을 점차적으로 변경합니다.
 
-*내 앱에 가장 적합한 샘플링 비율을 어떻게 알 수 있습니까?*
+*적응 샘플링을 사용하는 샘플링 비율을 확인할 수 있습니까?*
 
-* 현재 추측할 필요가 있습니다. AI에서 현재 원격 분석 사용량을 분석하고 제한과 관련된 데이터 삭제를 관찰하며 수집된 원격 분석의 양을 추정합니다. 선택된 가격 책정 계층과 함께 이러한 세 번의 입력은 수집된 원격 분석의 양을 얼마나 줄여야 할지 제안합니다. 그러나 원격 분석 양의 패턴의 변화는 최적으로 구성된 샘플링 비율을 무효화시킬 수 있습니다.(예: 사용자 수의 증가) 구현되는 경우 적응 샘플링은 샘플링 비율을 관찰된 원격 분석 양에 따라 최적의 수준에 맞춰 자동으로 제어합니다.
+ * 현재 버전에서는 지원되지 않습니다.
+
+*고정 비율 샘플링을 사용하는 경우 내 앱에 가장 적합한 샘플링 비율을 어떻게 알 수 있습니까?*
+
+* 현재 추측할 필요가 있습니다. AI에서 현재 원격 분석 사용량을 분석하고 제한과 관련된 데이터 삭제를 관찰하며 수집된 원격 분석의 양을 추정합니다. 선택된 가격 책정 계층과 함께 이러한 세 번의 입력은 수집된 원격 분석의 양을 얼마나 줄여야 할지 제안합니다. 그러나 원격 분석 양의 패턴의 변화는 최적으로 구성된 샘플링 비율을 무효화시킬 수 있습니다.(예: 사용자 수의 증가)
 
 *샘플링 비율을 너무 낮게 구성하는 경우 어떻게 됩니까?*
 
@@ -156,12 +237,10 @@ SDK는 어떤 원격 분석 항목을 삭제하고 어떤 항목을 유지할지
 
 *샘플링을 어떤 플랫폼에서 사용할 수 있습니까?*
 
-* 현재 샘플링은 모든 웹 페이지, 두 클라이언트 및 .NET 웹 응용 프로그램의 서버 측에 사용할 수 있습니다.
+* 현재 적응 샘플링은 ASP.NET 웹앱(Azure 또는 사용자 서버에서 호스트된)의 서버 측에서 사용할 수 있습니다. 고정 비율 샘플링은 모든 웹 페이지, .NET 웹 응용 프로그램의 클라이언트 측 및 서버 측에서 사용할 수 있습니다.
 
-*장치 앱(Windows Phone, iOS, Android 또는 데스크톱 앱)으로 샘플링을 사용할 수 있습니까?*
+*항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 
-* 아니요, 지금 시점에 장치 응용 프로그램에 대한 샘플링은 지원되지 않습니다. 
+ * 별도의 TelemetryConfiguration을 사용하여 TelemetryClient의 별도 인스턴스를 만듭니다. 이를 사용하여 드문 이벤트를 보냅니다.
 
->>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

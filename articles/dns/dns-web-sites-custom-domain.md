@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/23/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 # 사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기
@@ -32,7 +32,7 @@ A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. �
  
 A 레코드를 만들고 $rs 변수에 할당합니다.
 	
-	PS C:\>$rs=New-AzureDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
+	PS C:\>$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
 
 ### 2단계
 
@@ -40,13 +40,13 @@ A 레코드를 만들고 $rs 변수에 할당합니다.
 
 > [AZURE.NOTE]웹앱의 IP 주소를 찾으려면 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)의 단계를 따르세요.
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
 ### 3단계
 
-레코드 집합의 변경 내용을 커밋합니다. Set-AzureDnsRecordSet를 사용하여 레코드 집합의 변경 내용을 Azure DNS로 업로드합니다.
+레코드 집합의 변경 내용을 커밋합니다. Set-AzureRMDnsRecordSet를 사용하여 레코드 집합의 변경 내용을 Azure DNS로 업로드합니다.
 
-	Set-AzureDnsRecordSet -RecordSet $rs
+	Set-AzureRMDnsRecordSet -RecordSet $rs
 
 ## 사용자 지정 도메인에 대한 CNAME 레코드 만들기
 
@@ -56,7 +56,7 @@ Azure DNS에서 이미 도메인을 관리하고 있는 경우([DNS 도메인 �
 
 PowerShell을 열고 새 CNAME 레코드 집합을 만든 다음 $rs 변수에 할당합니다.
 
-	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+	PS C:\> $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -75,7 +75,7 @@ CNAME 레코드 집합을 만든 후에는 웹앱을 가리키는 별칭 값을 
 
 이전에 할당된 변수 "$rs"를 통해 아래 PowerShell 명령을 사용하여 웹앱 contoso.azurewebsites.net에 대한 별칭을 만들 수 있습니다.
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -88,9 +88,9 @@ CNAME 레코드 집합을 만든 후에는 웹앱을 가리키는 별칭 값을 
 
 ### 3단계
 
-Set-AzureDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
+Set-AzureRMDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
-	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
 
 아래와 같이 nslookup으로 "www.contoso.com"을 쿼리하여 레코드가 올바르게 생성되었는지 확인할 수 있습니다.
 
@@ -111,13 +111,13 @@ Set-AzureDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
 ## 웹앱에 대한 awverify 레코드 만들기(A 레코드만 해당)
 
-웹앱에 대해 A 레코드를 사용하려는 경우 Azure에서 사용자 지정 도메인의 소유자가 맞는지 확인할 수 있도록 검증 프로세스를 수행해야 합니다. 이 검증 단계는 "awverify"라는 특수 CNAME 레코드를 만들어 수행됩니다.
+웹앱에 대해 A 레코드를 사용하려는 경우 사용자 지정 도메인의 소유자가 맞는지 확인하도록 검증 프로세스를 수행해야 합니다. 이 검증 단계는 "awverify"라는 특수 CNAME 레코드를 만들어 수행됩니다.
 
 아래 예제에서는 contoso.com에 대한 "awverify" 레코드를 만들어 사용자 지정 도메인에 대한 소유권을 검증합니다.
 
 ### 1단계
 
-	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
+	PS C:\> $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -133,7 +133,7 @@ Set-AzureDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
 레코드 집합 awverify를 만든 후에는 아래 명령과 같이 awverify.contoso.azurewebsites.net에 CNAME 레코드 집합 별칭을 할당해야 합니다.
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -146,9 +146,9 @@ Set-AzureDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
 ### 3단계
 
-아래 명령과 같이 Set-AzureDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
+아래 명령과 같이 Set-AzureRMDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
-	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
 
 이제 계속해서 [앱 서비스에 대한 사용자 지정 도메인 이름 구성](../web-sites-custom-domain-name)의 단계에 따라 사용자 지정 도메인을 사용하도록 웹앱을 구성할 수 있습니다.
 
@@ -165,4 +165,4 @@ Set-AzureDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -32,13 +32,19 @@
 
 ![서비스 패브릭 탐색기 클러스터 대시보드][sfx-cluster-dashboard]
 
-클러스터에는 두 개의 하위 트리가 포함되어 있습니다. 하나는 응용 프로그램용이고 다른 하나는 노드용입니다.
+### 클러스터 맵
+
+서비스 패브릭 클러스터의 노드는 오류 도메인 및 업그레이드 도메인의 2차원 그리드에 배치되어 하드웨어 오류 시와 응용 프로그램 업그레이드 시에 응용 프로그램을 사용 가능하도록 유지합니다. 클러스터 맵을 사용하여 현재 클러스터의 레이아웃 방식을 볼 수 있습니다.
+
+![서비스 패브릭 탐색기 클러스터 맵][sfx-cluster-map]
 
 ### 응용 프로그램 및 서비스 보기
 
+클러스터에는 두 개의 하위 트리가 포함되어 있습니다. 하나는 응용 프로그램용이고 다른 하나는 노드용입니다.
+
 응용 프로그램 보기를 통해 서비스 패브릭의 논리 계층인 응용 프로그램, 서비스, 파티션 및 복제를 탐색할 수 있습니다.
 
-아래 예제에서 응용 프로그램 **MyApp**은 두 개의 서비스, **MyStatefulService**와 **WebSvcService**로 구성되어 있습니다. **MyStatefulService**는 상태 저장이므로 한 개의 주 복제본과 두 개의 보조 복제본이 있는 파티션이 들어 있습니다. 이와 반대로 WebSvcService는 상태 비저장이며 단일 인스턴스가 들어 있습니다.
+아래 예제에서 응용 프로그램 **MyApp**은 두 개의 서비스, **MyStatefulService**와 **WebService**로 구성되어 있습니다. **MyStatefulService**는 상태 저장이므로 한 개의 주 복제본과 두 개의 보조 복제본이 있는 파티션을 포함합니다. 이와 반대로 WebSvcService는 상태 비저장이며 단일 인스턴스가 들어 있습니다.
 
 ![서비스 패브릭 탐색기 응용 프로그램 보기][sfx-application-tree]
 
@@ -70,9 +76,11 @@
 
 ### 서비스 패브릭 탐색기에서 원격 클러스터의 끝점 검색
 
-서비스 패브릭 포털에서 클러스터 끝점을 검색할 수 있습니다. 지정된 클러스터를 위한 서비스 패브릭 탐색기에 도달하려면 19007 포트에서 해당 끝점에 연결하기만 하면 됩니다.
+지정된 클러스터를 위한 서비스 패브릭 탐색기에 도달하려면 브라우저를 다음으로 연결하기만 하면 됩니다.
 
-http://&lt;your-cluster-endpoint&gt;:19007
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+
+전체 URL은 Azure 포털의 클러스터 필수 창에서도 사용 가능합니다.
 
 ### 보안 클러스터에 연결
 
@@ -87,14 +95,10 @@ http://&lt;your-cluster-endpoint&gt;:19007
 - [PowerShell을 사용하여 서비스 패브릭 응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
-[clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
-[connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
-[replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
-[servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

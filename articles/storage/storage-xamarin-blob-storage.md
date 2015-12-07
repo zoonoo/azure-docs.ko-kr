@@ -3,8 +3,8 @@
 	description="Xamarin 미리 보기용 Azure 저장소 클라이언트 라이브러리를 사용하면 개발자들이 기본 사용자 인터페이스를 가진 iOS, Android 및 Windows Store 앱을 만들 수 있습니다. 이 자습서에서는 Xamarin을 사용하여 Azure Blob 저장소를 사용하는 Android 응용 프로그램을 만드는 방법을 보여줍니다." 
 	services="storage" 
 	documentationCenter="xamarin" 
-	authors="tamram" 
-	manager="carolz" 
+	authors="micurd" 
+	manager="" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="11/18/2015" 
 	ms.author="tamram"/>
 
 # Xamarin에서 Blob 저장소를 사용하는 방법(미리 보기)
@@ -173,10 +173,7 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 
 다음 링크를 확인하여 blob, 테이블 및 큐에 대해 자세히 알아봅니다.
 
-[Microsoft Azure 저장소 소개](storage-introduction.md)  
-[.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)  
-[.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)  
-[.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
+[Microsoft Azure 저장소 소개](storage-introduction.md) [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md) [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md) [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

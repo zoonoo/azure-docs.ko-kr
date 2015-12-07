@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 정의" 
+	pageTitle="Azure Multi-Factor Authentication 정의 | Microsoft Azure" 
 	description="Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다." 
+	keywords="MFA 소개, mfa 개요"
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="11/20/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 정의
@@ -131,12 +132,12 @@ Office 365 사용자 또는 Azure 구독자가 아닌 경우 Azure Multi-Factor 
 
 Azure Multi-Factor Authentication을 사용할 때 두 가지의 대금 청구 옵션이 있습니다.
 
-- **사용자 당**. 규칙적으로 인증이 필요한 고정된 수의 직원에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
-- **인증 당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
+- **사용자당**. 규칙적으로 인증이 필요한 고정된 수의 직원에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
+- **인증당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
 
-가격 책정에 대한 자세한 내용은 [Azure MFA 가격 책정](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)을 참조하세요.
+가격 책정에 대한 자세한 내용은 [Azure MFA 가격 책정](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)을 참조하십시오.
 
-여러분의 조직에 가장 적합한 모델을 선택하십시오. 그런 다음 시작하려면 [시작](multi-factor-authentication-get-started.md)을 참조하세요.
+여러분의 조직에 가장 적합한 모델을 선택하십시오. 그런 다음 시작하려면 [시작](multi-factor-authentication-get-started.md)을 참조하십시오.
 
 ## 다단계 보안 솔루션 선택
 
@@ -204,4 +205,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

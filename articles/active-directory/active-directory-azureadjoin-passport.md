@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Microsoft Passport를 통해 암호 없이 ID 인증
@@ -29,6 +29,7 @@ Microsoft Passport는 조직과 소비자를 위한 보안 방법으로, 암호 
 공개 키는 Azure Active Directory 및 Windows Server Active Directory에 등록됩니다(온-프레미스용). IDP(ID 공급자)는 사용자의 공개 키를 개인 키에 매핑하여 사용자의 유효성을 검사하고 OTP(일회용 암호), Phonefactor 또는 다른 알림 메커니즘을 통해 로그인 정보를 제공합니다.
 
 ## 기업에서 Microsoft Passport를 채택해야 하는 이유
+
 기업에서는 Microsoft Passport를 사용하여 다음과 같은 방법으로 리소스를 좀 더 안전하게 관리할 수 있습니다.
 
 * 하드웨어 기본 설정 옵션을 통해 Microsoft Passport 설정: TPM이 사용 가능한 경우 TPM 1.2 또는 TPM 2.0에서 키가 생성되며, TPM이 사용 가능하지 않으면 소프트웨어에 의해 키가 생성됩니다. 
@@ -52,7 +53,7 @@ Microsoft Passport는 조직과 소비자를 위한 보안 방법으로, 암호 
 
 1. 사용자는 여러 기본 제공 교정 방법(제스처, 실제 스마트 카드, 다단계 인증)을 통해 자신의 신분을 증명하고 이 정보를 Azure Active Directory 또는 Active Directory와 같은 IDP(ID 공급자)로 보냅니다.
 
-2.  그러면 장치는 키를 만들고, 키를 증명하고, 이 키의 공개 부분을 스테이션 문에 추가하고, 로그인한 후 키를 IDP로 보내 등록합니다.
+2. 그러면 장치는 키를 만들고, 키를 증명하고, 이 키의 공개 부분을 스테이션 문에 추가하고, 로그인한 후 이 키를 IDP로 보내 등록합니다.
 
 3. 키의 공개 부분이 IDP에 등록되는 즉시, IDP는 장치에 키의 비공개 부분을 사용하여 서명하도록 요구합니다. 그런 다음 IDP는 유효성을 검사하고 인증 토큰을 발급하여 사용자가 보호된 리소스에 액세스할 수 있도록 합니다.
 
@@ -71,13 +72,13 @@ Microsoft Passport는 조직과 소비자를 위한 보안 방법으로, 암호 
 
 자세한 배포 지침은 [조직에서 작업에 Microsoft Passport 사용](active-directory-azureadjoin-passport-deployment.md)을 참조하세요.
 
+
 ## 추가 정보
 
 * [엔터프라이즈를 위한 Windows 10: 작업에 장치를 사용하는 방법](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
 * [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [조직에서 작업에 Microsoft Passport 사용](active-directory-azureadjoin-passport-deployment.md)
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

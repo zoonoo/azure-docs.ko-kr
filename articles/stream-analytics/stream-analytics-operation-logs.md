@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 작업 로그
+# 스트림 분석 작업 로그 이해
 
 모든 Azure 서비스는 관리 작업과 관련된 세부 정보를 기록하는 작업 로깅 메시지를 사용자에게 제공합니다. Azure 스트림 분석에서 이 정보는 작업 상태, 작업 진행률 및 오류 메시지를 보고 시작부터 출력 처리까지 시간에 따른 작업 진행 상황을 추적하는 등 디버깅 목적으로 사용할 수 있습니다.
 
@@ -96,4 +96,4 @@ Azure Preview 포털에서 **중요** 이벤트를 보려면 메시지의 수준
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

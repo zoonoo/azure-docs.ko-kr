@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/23/2015"
 	ms.author="raynew"/>
 
 # 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버와 Azure 간의 보호 설정
@@ -273,12 +273,12 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	- **다음**을 클릭하면 프록시 연결을 확인하는 테스트가 실행됩니다.
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/ko-kr/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/ko-KR/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -346,7 +346,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 내부 Azure 사용을 위해 모든 서브넷의 맨 앞 4개 IP 주소가 예약됩니다. 사용 가능한 다른 IP 주소를 사용하세요.
 
->[AZURE.NOTE][프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 사용하여 IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
+>[AZURE.NOTE] [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 사용하여 IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
 
 
 3. Windows 마스터 대상 서버 가상 컴퓨터는 이러한 끝점(배포 유형이 공용 인터넷인 경우에만 공용 끝점이 생성됩니다)을 사용하여 생성됩니다.
@@ -381,9 +381,8 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 8. Linux를 실행하는 경우 다음을 수행합니다.
 	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/ko-KR/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
 	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
-	2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
-	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***,를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다. 
-	![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
+2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
+	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
 	4. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
 	5. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
 	6. "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**" 명령을 실행합니다.
@@ -456,7 +455,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 프로세스 서버를 등록할 때 모바일 서비스에 대해 서명 검증을 사용하지 않도록 설정하지 않은 경우 나중에 다음과 같이 설정할 수 있습니다.
 
-1. 관리자 권한으로 프로세스 서버에 로그온한 다음 편집을 위해 C:\pushinstallsvc\pushinstaller.conf 파일을 엽니다. **[PushInstaller.transport]** 섹션에서 **SignatureVerificationChecks=”0”** 줄을 추가합니다. 파일을 저장하고 닫습니다.
+1. 관리자 권한으로 프로세스 서버에 로그온한 다음 편집을 위해 C:\\pushinstallsvc\\pushinstaller.conf 파일을 엽니다. **[PushInstaller.transport]** 섹션에서 **SignatureVerificationChecks=”0”** 줄을 추가합니다. 파일을 저장하고 닫습니다.
 2. InMage PushInstall 서비스를 다시 시작합니다.
 
 
@@ -467,8 +466,11 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 1. 구성 서버
 2. 프로세스 서버
 3. 마스터 대상 서버
+4. 장애 복구(failback) 도구(vContinuum)
 
 사이트 복구 **대시보드**에서 업데이트를 다운로드할 수 있습니다. Linux 설치에 대해 Gzip 설치 프로그램에서 파일을 추출한 다음 “sudo ./install” 명령을 실행하여 업데이트를 설치합니다.
+
+[여기](http://go.microsoft.com/fwlink/?LinkID=533813)에서 **장애 복구(failback) 도구(vContinuum)**에 대한 최신 업데이트를 다운로드합니다.
 
 이미 모바일 서비스가 설치된 가상 컴퓨터 또는 물리적 서버를 실행할 경우 서비스에 대해 다음과 같은 업데이트를 다운로드할 수 있습니다.
 
@@ -478,7 +480,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	- [Oracle Enterprise Linux 6.4,6.5(64비트만 해당)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
 	- [SUSE Linux Enterprise Server SP3(64비트만 해당)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
 - 또는 프로세스 서버를 업데이트한 다음 프로세스 서버의 C:\\pushinstallsvc\\repository 폴더에서 모바일 서비스의 업데이트된 버전을 다운로드할 수 있습니다.
-- 모바일 서비스가 설치된 이전 버전의 보호된 컴퓨터가 있는 경우 관리 포털에서 보호된 컴퓨터에 모바일 서비스를 자동으로 업그레이드할 수도 있습니다. 이를 실행하려면 컴퓨터가 속한 보호 그룹을 선택하고 보호된 컴퓨터를 강조 표시하고 아래에 있는 모바일 서비스 업데이트 단추를 클릭합니다. 모바일 서비스 업데이트 단추는 최신 버전의 모바일 서비스를 사용할 수 있는 경우에 활성화됩니다. 모바일 서비스를 업데이트하기 전에 프로세스 서버가 최신 버전의 프로세스 서버 소프트웨어를 실행 중인지 확인 하십시오. 모바일 서비스 업데이트를 작동하려면 보호된 서버가 모든 [자동 푸시 설치 필수 구성 요소](#install-the-mobility-service-automatically)를 충족해야 합니다.
+- 모바일 서비스가 설치된 이전 버전의 보호된 컴퓨터가 있는 경우 관리 포털에서 보호된 컴퓨터에 모바일 서비스를 자동으로 업그레이드할 수도 있습니다. 이를 실행하려면 컴퓨터가 속한 보호 그룹을 선택하고 보호된 컴퓨터를 강조 표시하고 아래에 있는 모바일 서비스 업데이트 단추를 클릭합니다. 모바일 서비스 업데이트 단추는 최신 버전의 모바일 서비스를 사용할 수 있는 경우에 활성화됩니다. 모바일 서비스를 업데이트하기 전에 프로세스 서버가 최신 버전의 프로세스 서버 소프트웨어를 실행 중인지 확인 하십시오. 모바일 서비스 업데이트를 작동하려면 보호된 서버가 모든 [자동 푸시 설치 필수 조건](#install-the-mobility-service-automatically)을 충족해야 합니다.
 
 ![vCenter 서버 선택](./media/site-recovery-vmware-to-azure/ASRVmware_UpdateMobility1.png)
 
@@ -605,7 +607,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 	![모바일 서비스 설치](./media/site-recovery-vmware-to-azure/ASRVMWare_MobilityServiceInstall2.png)
 
-7. 구성 서버 암호를 지정하고 **확인**을 클릭하여 구성 서버에 모바일 서버를 등록합니다.
+7. 구성 서버 암호를 지정하고 **확인**을 클릭하여 구성 서버에 모바일 서비스를 등록합니다.
 
 **명령줄에서 실행하려면:**
 
@@ -663,7 +665,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 	![vCenter Server 추가](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
 
-4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
+4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
 
 	![vCenter Server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
@@ -682,7 +684,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 ### 보호된 컴퓨터 속성 설정
 
-1. 컴퓨터가 **보호됨** 상태이면 해당 장애 조치 속성을 구성할 수 있습니다. 보호 그룹 정보에서 컴퓨터를 선택하고 **구성** 탭을 엽니다.
+1. 컴퓨터가 **보호됨** 상태이면 해당 장애 조치(failover) 속성을 구성할 수 있습니다. 보호 그룹 정보에서 컴퓨터를 선택하고 **구성** 탭을 엽니다.
 2. 장애 조치(Failover) 후에 Azure에서 컴퓨터에 지정될 이름과 Azure 가상 컴퓨터 크기를 수정할 수 있습니다. 장애 조치(Failover) 후에 컴퓨터가 연결되는 Azure 네트워크를 선택할 수도 있습니다.
 
 	![가상 컴퓨터 등록 설정](./media/site-recovery-vmware-to-azure/ASRVMWare_VMProperties.png)
@@ -744,8 +746,8 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 
 필요에 따라, 온-프레미스 VMware 가상 컴퓨터 및 물리적 서버 중 일부 또는 전체 복제본을 다른 프로세스 서버로 이동할 수 있습니다. 예:
 
-- **실패** - 프로세스 서버에 장애가 발생하거나 사용할 수 없을 경우 보호된 컴퓨터 복제를 다른 프로세스 서버로 이동할 수 있습니다. 원본 컴퓨터 및 복제 컴퓨터의 메타데이터가 새 프로세스 서버로 이동하고 데이터가 다시 동기화됩니다. 새 프로세스 서버가 vCenter Server에 자동으로 연결되고 자동 검색을 수행합니다. Site Recovery 대시보드에서 프로세스 서버 상태를 모니터링할 수 있습니다.
-- **RPO 조정을 위한 부하 분산** - 부하 분산을 향상하려면 사이트 복구 포털에서 다른 프로세스 서버를 선택하고 하나 이상의 컴퓨터 복제본을 선택한 서버로 이동하여 수동 부하 분산을 수행할 수 있습니다. 이 경우에는 선택한 원본 및 복제 컴퓨터의 메타데이터가 새 프로세스 서버로 이동했습니다. 원본 프로세스 서버는 vCenter Server에 연결된 상태를 유지합니다. 
+- **실패**—프로세스 서버에 장애가 발생하거나 사용할 수 없을 경우 보호된 컴퓨터 복제를 다른 프로세스 서버로 이동할 수 있습니다. 원본 컴퓨터 및 복제 컴퓨터의 메타데이터가 새 프로세스 서버로 이동하고 데이터가 다시 동기화됩니다. 새 프로세스 서버가 vCenter Server에 자동으로 연결되고 자동 검색을 수행합니다. Site Recovery 대시보드에서 프로세스 서버 상태를 모니터링할 수 있습니다.
+- **RPO 조정을 위한 부하 분산**—부하 분산을 향상하려면 사이트 복구 포털에서 다른 프로세스 서버를 선택하고 하나 이상의 컴퓨터 복제본을 선택한 서버로 이동하여 수동 부하 분산을 수행할 수 있습니다. 이 경우에는 선택한 원본 및 복제 컴퓨터의 메타데이터가 새 프로세스 서버로 이동했습니다. 원본 프로세스 서버는 vCenter Server에 연결된 상태를 유지합니다. 
 
 ### 프로세스 서버 모니터링
 
@@ -756,20 +758,20 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 1. **서버** 아래의 **구성 서버** 페이지로 이동합니다.
 2. 구성 서버 이름을 클릭하고 **서버 세부 정보**로 이동합니다.
 3. **프로세스 서버** 목록에서 수정하려는 서버 옆에 있는 **프로세스 서버 변경**을 클릭합니다.![프로세스 서버 1 변경](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. **프로세스 서버 변경** 대화 상자의 **대상 프로세스 서버**에서 새 서버를 선택한 다음 새 서버로 복제할 가상 컴퓨터를 선택합니다. 서버 이름 옆의 정보 아이콘을 클릭하면 사용 가능 공간, 사용된 메모리 등의 정보를 가져올 수 있습니다. 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시되므로 부하 결정을 할 때 도움이 됩니다. ![프로세스 서버 2 변경](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+4. **프로세스 서버 변경** 대화 상자의 **대상 프로세스 서버**에서 새 서버를 선택한 다음 새 서버로 복제할 가상 컴퓨터를 선택합니다. 서버 이름 옆의 정보 아이콘을 클릭하면 사용 가능한 공간, 사용된 메모리 등의 정보를 가져올 수 있습니다. 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시되므로 부하 결정을 할 때 도움이 됩니다. ![프로세스 서버 2 변경](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다. 프로세스 서버에서 심각한 상태였던 모든 가상 컴퓨터를 제거할 경우 대시보드에 더 이상 심각한 상태 경고가 표시되지 않습니다.
 
 
 ## 타사 소프트웨어 통지 및 정보
 
-번역 또는 지역화 금지
+Do Not Translate or Localize
 
-Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어는 아래 나열된 프로젝트의 자료(총체적으로 "타사 코드")를 기반으로 하거나 통합합니다. Microsoft는 타사 코드의 원래 작성자가 아닙니다. Microsoft가 이러한 타사 코드를 받을 때 적용된 원래 저작권 표시 및 라이선스는 아래에 명시되어 있습니다.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-섹션 A의 정보는 아래 나열된 프로젝트의 타사 코드 구성 요소와 관련된 것입니다. 해당 라이선스와 정보는 정보 제공 목적으로만 제공됩니다. 이 타사 코드는 Microsoft 제품 또는 서비스에 대한 Microsoft 소프트웨어 사용 조건에 의거하여 Microsoft에 의해 사용이 재허용됩니다.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
 
-섹션 B의 정보는 원래 사용 조건에 의거하여 Microsoft에서 제공하는 타사 구성 요소와 관련된 것입니다.
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

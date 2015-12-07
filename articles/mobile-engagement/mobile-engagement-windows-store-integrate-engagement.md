@@ -16,7 +16,7 @@
 	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Windows 유니버설 앱 Engagement SDK 통합
+# Windows 유니버설 앱 Engagement SDK 통합
 
 > [AZURE.SELECTOR] 
 - [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
@@ -28,22 +28,40 @@
 
 다음 단계만 수행하면 사용자, 세션, 활동, 작동 중단 및 기술과 관련된 모든 통계를 계산하는 데 필요한 로그 보고를 활성화할 수 있습니다. 이벤트, 오류, 작업 등의 기타 통계는 응용 프로그램별로 다르므로, 해당 통계를 계산하는 데 필요한 로그 보고는 Engagement API를 사용하여 수동으로 수행해야 합니다. 관련 설명은 [Windows 유니버설 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-windows-store-use-engagement-api.md)을 참조하세요.
 
-##지원되는 버전
+## 지원되는 버전
 
-Windows 유니버설 앱용 Mobile Engagement SDK는 다음을 대상으로 하는 Windows 런타임 응용 프로그램에만 통합할 수 있습니다.
+Windows 유니버설 앱용 Mobile Engagement SDK는 다음을 대상으로 하는 Windows 런타임 및 유니버설 Windows 플랫폼 응용 프로그램에만 통합할 수 있습니다.
 
 -   Windows 8
 -   Windows 8.1
 -   Windows Phone 8.1
+-   Windows 10(데스크톱 및 모바일 제품군)
 
-> [AZURE.NOTE]Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone Silverlight 통합 절차](mobile-engagement-windows-phone-integrate-engagement.md)를 참조하세요.
+> [AZURE.NOTE]Windows Phone Silverlight를 대상으로 하는 경우 [Windows Phone Silverlight 통합 절차](mobile-engagement-windows-phone-integrate-engagement.md)를 참조하세요.
 
+## Mobile Engagement 유니버설 Apps SDK 설치
 
-##Mobile Engagement 유니버설 Apps SDK 설치
+### 모든 플랫폼
 
 Windows 유니버설 앱용 Mobile Engagement SDK는 *MicrosoftAzure.MobileEngagement*로 불리는 Nuget 패키지로 사용할 수 있습니다. Visual Studio Nuget 패키지 관리자에서 설치할 수 있습니다.
 
-##기능 추가
+### Windows 8.x 및 Windows Phone 8.1
+
+NuGet은 응용 프로그램 프로젝트의 루트에 있는 `Resources` 폴더에서 SDK 리소스를 자동으로 배포합니다.
+
+### Windows 10 유니버설 Windows 플랫폼 응용 프로그램
+
+NuGet이 아직 UWP 응용 프로그램에서 SDK 리소스를 자동으로 배포하지 않습니다. NuGet에서 리소스 배포가 다시 도입될 때까지 수동으로 배포해야 합니다.
+
+1.  파일 탐색기를 엽니다.
+2.  다음 위치로 이동합니다(**x.x.x**는 설치하는 Engagement 버전임). *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x**\\content\\win81*
+3.  파일 탐색기에서 **Resources** 폴더를 Visual Studio의 프로젝트 루트에 끌어다 놓습니다.
+4.  Visual Studio에서 프로젝트를 선택하고 **솔루션 탐색기** 맨 위에서 **모든 파일 표시** 아이콘을 활성화합니다.
+5.  일부 파일이 프로젝트에 포함되지 않았습니다. 한 번에 가져오려면 **Resources** 폴더를 마우스 오른쪽 단추로 클릭하고 **프로젝트에서 제외**를 클릭한 다음 **Resources** 폴더를 다시 한 번 마우스 오른쪽 단추로 클릭하고 **프로젝트에 포함**을 다시 클릭하여 전체 폴더를 다시 포함합니다. 이제 **Resources** 폴더의 모든 파일이 프로젝트에 포함되었습니다.
+
+또한 추출된 Engagement 패키지는 *$(Solutiondir)\\Packages*에서 또는 *NuGet.config* 파일에 정의된 위치에서 찾을 수 있습니다.
+
+## 기능 추가
 
 Engagement SDK가 올바르게 작동하려면 Windows SDK의 일부 기능이 필요합니다.
 
@@ -51,7 +69,7 @@ Engagement SDK가 올바르게 작동하려면 Windows SDK의 일부 기능이 �
 
 -   `Internet (Client)`
 
-##Engagement SDK 초기화
+## Engagement SDK 초기화
 
 ### Engagement 구성
 
@@ -66,20 +84,13 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-        #if WINDOWS_PHONE_APP
-          /* Connection string for my Windows Phone App. */
-          engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #else
           /* Connection string for my Windows Store App. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #endif
 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
 응용 프로그램의 연결 문자열은 Azure 포털에 표시됩니다.
-
-> [AZURE.WARNING]하나의 플랫폼만 있는 경우처럼 독립 실행형 Windows 런타임 앱에서 다른 구성을 정의하기 위해 조건부 컴파일 기호 `WINDOWS_PHONE_APP`을(를) 사용할 필요가 없습니다.
 
 ### Engagement 초기화
 
@@ -91,31 +102,34 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 		using Microsoft.Azure.Engagement;
 
--   `OnLaunched` 메서드에 `EngagementAgent.Instance.Init` 삽입:
+-   모든 호출에 대해 한 번씩 Engagement 초기화를 공유하도록 메서드를 정의합니다.
 
-		protected override void OnLaunched(LaunchActivatedEventArgs args)
-		{
-		  EngagementAgent.Instance.Init(args);
+        private void InitEngagement(IActivatedEventArgs e)
+        {
+          EngagementAgent.Instance.Init(e);
 		
 		  // or
 		
-		  EngagementAgent.Instance.Init(args, engagementConfiguration);
+		  EngagementAgent.Instance.Init(e, engagementConfiguration);
+        }
+        
+-   `OnLaunched` 메서드에서 `InitEngagement`를 호출합니다.
+
+		protected override void OnLaunched(LaunchActivatedEventArgs e)
+		{
+          InitEngagement(e);
 		}
 
--   사용자 지정 체계, 다른 응용 프로그램 또는 명령줄을 사용하여 응용 프로그램을 시작하면 `OnActivated` 메서드가 호출됩니다. 또한 앱을 활성화할 때 Engagement 에이전트도 초기화해야 합니다. 이렇게 하려면 `OnActivated` 메서드를 재정의합니다.
+-   사용자 지정 체계, 다른 응용 프로그램 또는 명령줄을 사용하여 응용 프로그램을 시작하면 `OnActivated` 메서드가 호출됩니다. 또한 앱을 활성화할 때 Engagement SDK를 시작해야 합니다. 이렇게 하려면 `OnActivated` 메서드를 재정의합니다.
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
-		  EngagementAgent.Instance.Init(args);
-		
-		  // or
-		
-		  EngagementAgent.Instance.Init(args, engagementConfiguration);
+          InitEngagement(args);
 		}
 
 > [AZURE.IMPORTANT]응용 프로그램의 다른 위치에는 Engagement 초기화를 추가하지 않는 것이 좋습니다.
 
-##기본 보고
+## 기본 보고
 
 ### 권장 방법: `Page` 클래스 오버로드
 
@@ -222,7 +236,7 @@ Engagement에서 사용자, 세션, 활동, 작동 중단 및 기술 통계를 �
 > 
 > 응용 프로그램을 닫을 때 Windows 유니버설 SDK는 `EndActivity` 메서드를 자동으로 호출합니다. 따라서 사용자 활동이 변경될 때마다 `StartActivity` 메서드를 호출하는 것이 **상당히** 좋으며 `EndActivity` 메서드는 호출하지 **않는** 것이 좋습니다. 이 메서드는 현재 사용자가 응용 프로그램을 떠난 Engagement 서버에 보내며 이는 모든 응용 프로그램 로그에 영향을 미칩니다.
 
-##고급 보고
+## 고급 보고
 
 필요에 따라 응용 프로그램 관련 이벤트, 오류 및 작업을 보고할 수 있습니다. 이렇게 하려면 `EngagementAgent` 클래스에 포함된 다른 메서드를 사용합니다. Engagement API에서는 Engagement의 모든 고급 기능을 사용할 수 있습니다.
 
@@ -271,4 +285,4 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

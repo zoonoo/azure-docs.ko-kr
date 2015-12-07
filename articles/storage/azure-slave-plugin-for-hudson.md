@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/19/2015" 
 	ms.author="v-dedomi"/>
 
 #Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
@@ -213,4 +213,4 @@ Hudson용 Azure 종속 플러그인을 사용하면 분산된 빌드를 실행�
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

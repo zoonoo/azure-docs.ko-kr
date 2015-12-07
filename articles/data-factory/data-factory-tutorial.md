@@ -238,7 +238,6 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 1. 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **주문형 HDInsight 클러스터**를 선택합니다.
 2. JSON 스크립트에서 다음을 수행합니다. 
 	1. **clusterSize** 속성에 대해 HDInsight 클러스터의 크기를 지정합니다.
-	2. **jobsContainer** 속성에 대해 클러스터 로그를 저장할 기본 컨테이너의 이름을 지정합니다. 이 자습서에서는 **adfjobscontainer**를 지정합니다.
 	3. **timeToLive** 속성에 대해 고객이 삭제되기 전에 유휴 상태로 유지될 수 있는 기간을 지정합니다. 
 	4. **version** 속성에 대해 사용할 HDInsight 버전을 지정합니다. 이 속성을 제외하면 최신 버전이 사용됩니다.  
 	5. **linkedServiceName**에 대해 시작 자습서에서 만든 **HDInsightStorageLinkedService**를 지정합니다. 
@@ -248,7 +247,6 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 				    "properties": {
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
 		    	    "timeToLive": "00:05:00",
 		    	    "version": "3.1",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
@@ -398,7 +396,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 	조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready(준비되지 않은 업스트림 조각)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
  
-	조각의 가능한 모든 상태에 대해 알아보려면 [Azure Data Factory 개발자 참조][developer-reference](영문)를 참조하세요.
+	조각의 가능한 모든 상태에 대해 알아보려면 [Azure 데이터 팩터리 개발자 참조][developer-reference](영문)를 참조하세요.
 
 12.	**데이터 조각** 블레이드의 **작업 실행** 목록에서 실행을 클릭합니다. 해당 조각의 Activity Run 블레이드가 표시됩니다. 다음과 같은 **작업 실행 세부 정보** 블레이드가 표시됩니다.
 
@@ -526,4 +524,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

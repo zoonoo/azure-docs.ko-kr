@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -383,13 +383,34 @@
 | mailNickName| X| X| X| |
 | member| | | X| |
 | objectSID| X| | | 기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다.|
-| proxyAddresses| X| X| x| |
+| proxyAddresses| X| X| X| |
 | pwdLastSet| X| | | 기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 동기화 및 페더레이션 모두 사용됩니다.|
 | sn| X| X| | |
 | sourceAnchor| X| X| X| 기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다.|
 | usageLocation| X| | | 기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다.|
 | userPrincipalName| X| | | UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다.|
 
+## Windows 10
+Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
+
+| 특성 이름| 장치| 주석 |
+| --- | :-: | --- |
+| accountEnabled| X| |
+| deviceTrustType| X| 도메인에 가입된 컴퓨터에 대해 하드 코딩된 값입니다. |
+| displayName | X| |
+| ms-DS-CreatorSID | X| registeredOwnerReference라고도 합니다.|
+| objectGUID | X| deviceID라고도 합니다.|
+| objectSID | X| omPremisesSecurityIdentifier라고도 합니다.|
+| operatingSystem | X| deviceOSType이라고도 합니다.|
+| operatingSystemVersion | X| deviceOSVersion이라고도 합니다.|
+| userCertificate | X| |
+
+이 특성은 선택한 다른 앱 외에 사용자에 대해서도 있습니다.
+
+| 특성 이름| 사용자| 주석 |
+| --- | :-: | --- |
+| domainFQDN| X| dnsDomainName이라고도 합니다. 예: contoso.com.|
+| domainNetBios| X| netBiosName이라고도 합니다. 예: CONTOSO.|
 
 ## Exchange 하이브리드 쓰기 저장
 이 특성들은 Exchange 하이브리드를 사용하도록 설정할 때 Azure AD에서 온-프레미스 Active Directory로 다시 기록됩니다. Exchange 버전에 따라 더 적은 특성을 동기화 할 수 있습니다.
@@ -414,4 +435,4 @@
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

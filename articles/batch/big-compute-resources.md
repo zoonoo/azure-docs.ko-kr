@@ -50,14 +50,16 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC 솔루션으로, Windows와 Linux HPC 작업을 모두 실행할 수 있습니다.
 
-* [HPC Pack 2012 R2 업데이트 2 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=47755)(영문)
+* [HPC 팩 2012 R2 업데이트 3 다운로드](https://www.microsoft.com/ko-KR/download/details.aspx?id=49922)(영문)
 
 * [설명서](https://technet.microsoft.com/library/jj899572.aspx)
 
 
 * [Azure에서 Microsoft HPC 팩을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 
-* [HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)
+* [HPC 팩을 사용한 Azure 작업자 인스턴스에 버스트](https://technet.microsoft.com/library/gg481749.aspx)
+
+* [HPC 팩을 사용하여 Azure 배치로 버스트](https://technet.microsoft.com/library/mt612877.aspx)
 
 
 * [Windows HPC 포럼](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -77,7 +79,7 @@ Azure 빠른 시작 템플릿을 사용하여 Linux HPC 클러스터와 오픈 �
 
 * [MS-MPI 다운로드](http://go.microsoft.com/FWLink/p/?LinkID=389556)
 
-* [MS-MPI 참조](https://msdn.microsoft.com/library/dn473458.aspx)(영문)
+* [MS-MPI 참조(영문)](https://msdn.microsoft.com/library/dn473458.aspx)
 
 * [MPI 포럼](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
@@ -121,4 +123,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](http://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](http://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](http://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

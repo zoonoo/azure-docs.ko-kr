@@ -62,7 +62,6 @@ Azure 데이터 팩터리 엔터티를 만드는 데 사용할 수 있는 도구
 2. 오른쪽의 편집기 캔버스에서 계산 연결 서비스를 만들기 위한 JSON 템플릿이 나타납니다. 다음을 수행합니다.
 	1. **주문형 HDInsight 클러스터**의 경우, 다음 속성에 대한 값을 지정합니다. 
 		1. **clusterSize** 속성의 경우, 데이터 팩터리 서비스에서 런타임에 만드는 HDInsight 클러스터의 크기를 지정합니다. 
-		2. **jobsContainer** 속성의 경우, 클러스터 로그를 저장할 기본 Blob 컨테이너의 이름을 지정합니다.
 		3. **timeToLive** 속성의 경우, HDInsight 클러스터를 삭제하기 전에 허용된 유휴 시간을 지정합니다. 예를 들어, 00:05:00은 5분의 유휴 시간 후 클러스터가 삭제되어야 함을 나타냅니다.
 		4. **version** 속성의 경우, 클러스터에 대 한 HDInsight 버전을 지정합니다(기본값: 버전 3.1).
 		5. **linkedServiceName** 속성의 경우, Azure 저장소 연결 서비스가 HDInsight 클러스터와 연결되도록 지정합니다. 
@@ -221,4 +220,4 @@ Azure 데이터 팩터리 엔터티(연결 서비스, 테이블 또는 파이프
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

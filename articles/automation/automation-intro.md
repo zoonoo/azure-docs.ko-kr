@@ -3,7 +3,7 @@
 	description="Azure 자동화가 제공하는 가치 및 일반적인 질문에 대한 답을 얻으므로 사용자가 Runbook 및 Azure 자동화 DSC를 사용하여 시작할 수 있습니다."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="SnehaGunda"
 	manager="stevenka"
 	editor=""/>
 
@@ -19,14 +19,14 @@
 # Azure 자동화 개요
 
 
-Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 엔터프라이즈 환경에서 장시간 동안 수동으로 실행되며 오류가 발생하기 쉬운 자주 반복되는 작업을 자동화할 수 있습니다. 시간을 절약하며 일반 관리 작업의 안정성을 향상시키고 정기적으로 자동으로 수행되도록 예약합니다. Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화할 수 있습니다. 이 문서는 Azure 자동화의 간단한 개요 및일반적인 질문에 대한 답변을 제공합니다. 이 라이브러리의 다른 문서를 참조하여 다른 항목에 대한 자세한 내용을 얻을 수 있습니다.
+Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 엔터프라이즈 환경에서 장시간 동안 수동으로 실행되며 오류가 발생하기 쉬운 자주 반복되는 작업을 자동화할 수 있습니다. 시간을 절약하며 일반 관리 작업의 안정성을 향상시키고 정기적으로 자동으로 수행되도록 예약합니다. Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화할 수 있습니다. 이 문서에서는 Azure 자동화의 간단한 개요 및 일반적인 질문에 대한 답변을 제공합니다. 이 라이브러리의 다른 문서를 참조하여 다른 항목에 대한 자세한 내용을 얻을 수 있습니다.
 
 
 ## Runbook을 사용하여 프로세스 자동화
 
 Runbook은 Azure 자동화에서 일부 자동화 된 프로세스를 수행하는 작업의 집합입니다. 가상 컴퓨터를 시작하고 로그 항목을 만드는 것과 같은 단순한 프로세스이거나 여러 리소스 또는 여러 클라우드와 온-프레미스 환경에 걸쳐 복잡한 프로세스를 수행하는 다른 작은 Runbook을 결합하는 복잡한 Runbook이 있을 수 있습니다.
 
-예를 들어 SQL 데이터베이스가 서버에 연결, 데이터베이스에 연결, 데이터베이스의 현재 크기를 가져오기, 임계값을 초과하는지 여부 및 자르기와 사용자에게 알리기와 같은 여러 단계를 포함하는 최대 크기에 도달하는 경우 해당 SQL 데이터베이스를 자르기 위해 기존의 수동 프로세스가 있을 수 있습니다. 이러한 각 단계를 수동으로 수행하는 대신 단일 프로세스로 이러한 작업을 모두 수행하는 runbook을 만들 수 있습니다. Runbook을 실행하면 SQL 서버 이름, 데이터베이스 이름 및 이메일 수취인 등 요구하는 정보만 제공하고 프로세스를 완료하는 동안 가만히 앉아서 기다리기만 하면 됩니다.
+예를 들어 SQL 데이터베이스가 서버에 연결, 데이터베이스에 연결, 데이터베이스의 현재 크기를 가져오기, 임계값을 초과하는지 여부 및 자르기와 사용자에게 알리기와 같은 여러 단계를 포함하는 최대 크기에 도달하는 경우 해당 SQL 데이터베이스를 자르기 위해 기존의 수동 프로세스가 있을 수 있습니다. 이러한 각 단계를 수동으로 수행하는 대신 단일 프로세스로 이러한 작업을 모두 수행하는 runbook을 만들 수 있습니다. Runbook을 실행하고 SQL Server 이름, 데이터베이스 이름, 받는 사람 메일 등의 필수 정보를 입력한 후에 프로세스가 완료될 때까지 기다리기만 하면 됩니다.
 
 
 ## Runbook 자동화가 할 수 있는것은 무엇입니까?
@@ -42,6 +42,10 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 ## Azure 자동화를 사용하여 Runbook 만들기 
 
 처음부터 [고유한 Runbook 만들기](http://msdn.microsoft.com/library/azure/dn643637.aspx)를 사용하거나 [Runbook 갤러리](http://msdn.microsoft.com/library/azure/dn781422.aspx)에서 사용자 요구 사항으로 Runbook을 수정할 수 있습니다. 요구 사항 및 PowerShell 환경에 따라 선택할 수 있는 세 가지 [Runbook 형식](automation-runbook-types.md)이 있습니다. PowerShell 코드로 직접 작업하려는 경우, 오프라인으로 편집하거나 Azure 포털에서 [텍스트 편집기를 사용](http://msdn.microsoft.com/library/azure/dn879137.aspx)하여 편집하는 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 사용할 수 있습니다. 기본 코드에 노출되지 않고 Runbook을 편집하려는 경우, Azure Preview 포털에서 [그래픽 편집기](automation-graphical-authoring-intro.md)를 사용하여 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만들 수 있습니다.
+
+읽기보다 비디오를 시청하기가 편하신가요? 2015년 5월 Microsoft Ignite 세션에서 발표된 아래 동영상을 살펴보세요. 참고: 이 동영상에 언급된 개념 및 기능은 정확하지만 이 동영상이 녹화된 이후에 Azure 자동화는 많이 발전되었으며 현재 Azure 포털에서 보다 광범위한 UI를 제공하며 추가 기능을 지원합니다.
+
+> [AZURE.VIDEO microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation]
 
 
 ## 원하는 상태 구성을 사용하여 구성 관리 자동화 
@@ -90,11 +94,11 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 * [Azure PowerShell cmdlet](http://msdn.microsoft.com/library/jj156055.aspx)은 Windows PowerShell을 사용하여 Azure 작업을 자동화하는 방법에 대한 정보를 제공합니다. Runbook에서는 이러한 cmdlet을 사용하여 Azure 리소스로 작업합니다. 
 * [관리 블로그](https://azure.microsoft.com/ko-KR/blog/tag/azure-automation/)는 Azure 자동화 및 Microsoft의 기타 관리 기술에 대한 최신 정보를 제공합니다. Azure 자동화 팀에서 제공하는 최신 정보를 받으려면 Azure 자동화 블로그를 구독하세요. 
 * [자동화 포럼](http://go.microsoft.com/fwlink/p/?LinkId=390561)에서는 Microsoft 및 자동화 커뮤니티에서 다루는 Azure 자동화에 대한 질문을 게시할 수 있습니다. 
-* [Azure 자동화 cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)은 관리 작업을 자동화하는 것에 대한 정보를 제공합니다. 자동화 계정, 자산, Runbook, DSC을 관리하는 cmdlet을 포함합니다.
+* [Azure 자동화 cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)은 관리 작업을 자동화하는 방법에 대한 정보를 제공합니다. 자동화 계정, 자산, Runbook, DSC을 관리하는 cmdlet을 포함합니다.
 
 
 ## 피드백을 제공할 수 있습니까? 
 
 **사용자 의견을 보내 주세요!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

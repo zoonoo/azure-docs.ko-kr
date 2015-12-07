@@ -3,9 +3,9 @@
 	description="Azure에서 호스트되는 node.js 웹 앱에서 socket.io를 사용하는 방법을 보여 주는 자습서입니다."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
 
 # Azure 앱 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 만들기
 
-Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 실시간 통신을 제공합니다. 또한 이전 브라우저에서 작동하는 다른 전송(예: 긴 폴링)으로의 대체를 지원합니다. 이 자습서는 Azure 웹 앱으로 Socket.IO를 기반으로 하는 호스팅을 안내하고 [Azure Redis Cache](http://azure.microsoft.com/documentation/services/cache)를 사용하여 응용 프로그램을 [크기 조정하는](#scale-out) 방법을 보여줍니다. Socket.IO에 대한 자세한 내용은 [http://socket.io/][socketio](영문)를 참조하십시오.
+Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 실시간 통신을 제공합니다. 또한 이전 브라우저에서 작동하는 다른 전송(예: 긴 폴링)으로의 대체를 지원합니다. 이 자습서는 Azure 웹 앱으로 Socket.IO를 기반으로 하는 호스팅을 안내하고 [Azure Redis Cache](/documentation/services/cache)를 사용하여 응용 프로그램을 [크기 조정하는](#scale-out) 방법을 보여줍니다. Socket.IO에 대한 자세한 내용은 [http://socket.io/][socketio](영문)를 참조하십시오.
 
 > [AZURE.NOTE]이 작업의 절차는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 적용됩니다. 클라우드 서비스에 대해서는 <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드</a>를 참조하세요.
 
@@ -119,7 +119,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 ###Redis 캐시 만들기
 
-[Azure Redis 캐시에서 캐시 만들기](https://azure.microsoft.com/ko-KR/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)의 단계를 수행하여 새 캐시를 만듭니다.
+[Azure Redis 캐시에서 캐시 만들기](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)의 단계를 수행하여 새 캐시를 만듭니다.
 
 > [AZURE.NOTE]캐시의 __호스트 이름__ 및 __기본 키__를 저장합니다. 이러한 정보는 다음 단계에서 필요합니다.
 
@@ -285,4 +285,4 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

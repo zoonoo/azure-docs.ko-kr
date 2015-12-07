@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Windows 인증 및 Azure Multi-Factor Authentication 서버
@@ -49,4 +49,4 @@ Windows 인증 섹션에서 관리자는 하나 이상의 응용 프로그램에
 10. 서브넷 표기법을 사용하여 IP 범위를 지정하려면 서브넷을 선택합니다. 시작 IP 서브넷을 입력하고 드롭다운 목록에서 적절한 네트워크 마스크를 선택합니다. 
 11. 확인 단추를 클릭합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

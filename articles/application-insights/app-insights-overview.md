@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Application Insights란?
@@ -21,7 +21,7 @@ Application Insights는 라이브 응용 프로그램을 모니터링하는 확�
 
 ![사용자 활동 통계, 차트 또는 특정 이벤트를 드릴합니다.](./media/app-insights-overview/00-sample.png)
 
-다양한 플랫폼에서 웹과 독립 실행형 앱과 함께 사용합니다: .NET 또는 J2EE, 호스팅된 온-프레미스 또는 클라우드, Windows의 장치 앱, iOS, 안드로이드, OSX 및 다른 플랫폼.
+NET 또는 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 웹과 독립 실행형 앱과 함께 사용합니다.
 
 Application Insights는 개발팀을 목표로 합니다. 함께 다음을 수행할 수 있습니다.
 
@@ -32,7 +32,7 @@ Application Insights는 개발팀을 목표로 합니다. 함께 다음을 수�
  *  성능 변화 또는 충돌에 대한 경고
  *  응답 시간, CPU 사용량, 종속성 추적 등의 성능 문제 진단에 도움을 주는 메트릭
  *  웹앱의 가용성 테스트
- *  충돌 및 예외에 대한 보고서 및 경고
+ *  예외에 대한 보고서 및 경고
  *  강력한 진단 로그 검색(선호하는 로깅 프레임워크의 로그 추적 포함)
 
 상자에서 꺼낸 앱을 모니터링하는 모듈의 범위를 포함하는 각 플랫폼에 대한 SDK. 또한 고유 원격 분석을 보다 자세하고 맞춤형 분석으로 코딩할 수 있습니다.
@@ -53,13 +53,10 @@ Application Insights는 개발팀을 목표로 합니다. 함께 다음을 수�
  * [Azure 클라우드 서비스](app-insights-cloudservices.md)
  * [J2EE 서버][java]
  * [웹 페이지][client]\: HTML + JavaScript
- * [Windows Phone, Windows Store, Windows 10 유니버설 앱 및 Windows 10 개발자 포털과 직접 통합][windows]
- * [Windows 데스크톱][desktop]
- * [iOS][ios]
- * [Android][android]
+ * [Windows 데스크톱 및 서버 앱][desktop]
  * [다른 플랫폼][platforms] - Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
-Application Insights 다시 작성하지 않는 IIS상의 기존 ASP.NET 웹앱으로부터 원격 분석을 가져올 수 있습니다.
+Application Insights는 다시 작성하지 않는 기존 ASP.NET 웹앱으로부터 원격 분석을 가져올 수 있습니다.
 
 앱이 클라이언트, 서버 및 다른 구성 요소가 있다면 모두를 계측할 수 있습니다. Application Insights 포털에서 데이터를 통합할 수 있습니다. 예를 들면, 서버의 이벤트와 함게 클라이언트에서 이벤트를 상호 연결할 수 있습니다.
 
@@ -72,7 +69,7 @@ Application Insights 다시 작성하지 않는 IIS상의 기존 ASP.NET 웹앱�
 
 SDK에는 사용자, 세션 및 성능을 계산하는 모듈을 비롯하여 원격 분석을 수집하는 여러 모듈이 있습니다. 또한 포털에 원격 분석 데이터를 보내도록 사용자 지정 코드를 작성할 수도 있습니다. 사용자 지정 원격 분석은 사용자 스토리를 추적할 때 특히 유용합니다. 단추 클릭, 특정 목표 달성, 사용자 실수 등의 이벤트를 계산할 수 있습니다.
 
-ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상태 모니터][redfield]도 설치할 수 있습니다. 상태 모니터의 기능은 다음과 같습니다.
+ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [상태 모니터][redfield]도 설치할 수 있습니다. 상태 모니터의 기능은 다음과 같습니다.
 
 * 웹앱을 다시 작성하거나 다시 설치하지 않고 모니터링합니다.
 * 종속 모듈에 대한 호출을 추적합니다.
@@ -89,7 +86,7 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
 1. [Microsoft Azure](http://azure.com)를 구독해야 합니다. Application Insights의 무료 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)을 선택하여 무료로 등록할 수 있습니다.
 
-2. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+2. [Azure 포털](http://portal.azure.com) 로그인
 3. Application Insights 리소스 만들기 이곳에서 응용 프로그램의 데이터를 볼 수 있습니다.
 
     ![새로 만들기, 개발자 서비스, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -110,7 +107,7 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
 [샘플 및 연습](app-insights-code-samples.md)
 
-[SDK 실습](https://www.myget.org/gallery/applicationinsights-sdk-labs) - Application Insights SDK 외에 설치(및 제거)할 수 있는 NuGet 패키지입니다. 직접 사용해보고 의견을 보내주세요.
+[SDK 랩](https://www.myget.org/gallery/applicationinsights-sdk-labs) - Application Insights SDK 외에 설치(및 제거)할 수 있는 NuGet 패키지입니다. 직접 사용해보고 의견을 보내주세요.
 
 
 ## 지원 및 피드백
@@ -154,4 +151,4 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

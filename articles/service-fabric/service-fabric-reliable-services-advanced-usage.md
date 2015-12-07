@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # 신뢰할 수 있는 서비스 프로그래밍 모델 고급 사용법
 서비스 패브릭은 신뢰할 수 있는 상태 비저장 및 상태 저장 서비스의 작성과 관리를 단순화합니다. 이 가이드는 서비스에 대한 더 많은 제어와 유연성을 확보할 수 있는 신뢰할 수 있는 서비스 프로그래밍 모델의 고급 사용법에 대해 설명합니다. 이 가이드를 읽기 전에 [신뢰할 수 있는 서비스 프로그래밍 모델](service-fabric-reliable-services-introduction.md)에 대해 숙지하세요.
 
 ## 상태 비저장 서비스 기본 클래스
-StatelessService 기본 클래스는 대부분의 상태 비저장 서비스에 충분한 CreateCommunicationListener() 및 RunAsync()를 제공합니다. StatelessServiceBase 클래스는 StatelessService의 기반이 되고 추가 서비스 수명 주기 이벤트를 노출합니다. 추가 제어 또는 유연성이 필요한 경우 StatelessServiceBase에서 파생시킬 수 있습니다. 자세한 내용은 [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) 및 [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx)에서 개발자 참조 설명서를 참조하세요.
+StatelessService 기본 클래스는 대부분의 상태 비저장 서비스에 충분한 RunAsync() 및 CreateCommunicationListener()를 제공합니다. StatelessServiceBase 클래스는 StatelessService의 기반이 되고 추가 서비스 수명 주기 이벤트를 노출합니다. 추가 제어 또는 유연성이 필요한 경우 StatelessServiceBase에서 파생시킬 수 있습니다. 자세한 내용은 [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) 및 [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx)에서 개발자 참조 설명서를 참조하세요.
 
 - `void OnInitialize(StatelessServiceInitializiationParameters)` OnInitialize는 서비스 패브릭에서 호출하는 첫 번째 메서드입니다. 서비스 이름, 파티션 ID, 인스턴스 ID 및 코드 패키지 정보와 같은 서비스 초기화 정보가 제공됩니다. 여기에서는 복잡한 처리를 수행하지 않습니다. OnOpenAsync에서는 긴 초기화를 수행해야 합니다.
 
@@ -35,11 +35,7 @@ StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충�
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` 상태 저장 서비스가 역할을 변경할 경우(예: 주 또는 보조) OnChangeRoleAsync가 호출됩니다. 주 복제본에는 쓰기 상태가 지정되고(신뢰할 수 있는 컬렉션을 만들고 쓸 수 있음), 보조 복제본에는 읽기 상태가 지정됩니다(기존의 신뢰할 수 있는 컬렉션에서 읽을 수만 있음). 보조 복제본에서 읽기 전용 유효성 검사, 보고서 생성 또는 데이터 마이닝을 수행하는 등의 역할 변경에 대한 응답으로 백그라운드 작업을 시작하거나 업데이트할 수 있습니다.
 
-- `IStateProviderReplica CreateStateProviderReplica()` 상태 저장 서비스는 신뢰할 수 있는 상태 제공자가 있어야 합니다. StatefulService는 신뢰할 수 있는 컬렉션(예: 사전 및 큐)을 제공하는 ReliableStateManager 클래스를 사용합니다. 직접 상태를 관리하거나 기본 제공 상태 제공자 중 하나의 기능을 확장하려는 경우 고유한 제공자를 제공할 수도 있습니다.
-
-- `bool EnableCommunicationListenerOnSecondary { get; }` 기본적으로 통신 수신기는 주 복제본에서만 생성됩니다. StatefulService와 StatefulServiceBase는 모두 보조 복제본에 통신 수신기를 생성할 수 있도록 이 속성의 재정의를 지원합니다. 읽기 작업이 많은 워크로드의 처리량을 개선하기 위해 보조 복제본이 읽기 전용 요청을 처리하도록 할 수 있습니다.
-
-    > [AZURE.NOTE]보조 복제본이 신뢰할 수 있는 컬렉션을 만들거나 데이터를 쓰지 않도록 하는 것은 사용자의 책임입니다. 보조 복제본에 쓰기를 시도할 경우 예외가 발생하고, 처리되지 않을 경우 복제본이 닫히고 다시 열립니다.
+- `IStateProviderReplica CreateStateProviderReplica()` 상태 저장 서비스는 신뢰할 수 있는 상태 제공자가 있어야 합니다. StatefulService는 신뢰할 수 있는 컬렉션(예: 사전 및 큐)을 제공하는 ReliableStateManager 클래스를 사용합니다. 이 메서드를 재정의하여 ReliableStateManagerConfiguration을 해당 생성자에게 전달하는 방식으로 ReliableStateManager 클래스를 구성할 수 있습니다. 이렇게 하면 사용자 지정 상태 직렬 변환기를 제공하고, 데이터가 손실되었을 경우 수행할 작업을 지정하며 복제자/상태 제공자를 구성할 수 있습니다.
 
 또한 StatefulServiceBase는 StatelessServiceBase와 동일한 4개의 수명 주기 이벤트와 동일한 의미 체계 및 동일한 사용 사례를 제공합니다.
 
@@ -59,4 +55,4 @@ StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충�
 
 - [배치 제약 조건 개요](service-fabric-placement-constraint.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

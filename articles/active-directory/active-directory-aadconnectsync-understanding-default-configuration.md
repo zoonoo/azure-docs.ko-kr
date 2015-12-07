@@ -36,7 +36,7 @@
 
 ## 동기화 규칙 편집기
 
-구성은 동기화 규칙 편집기(SRE) 도구를 사용하여 확인하고 변경하며 해당 바로 가기는 시작 메뉴에서 찾을 수 있습니다.
+구성은 SRE(동기화 규칙 편집기) 도구를 사용하여 확인하고 변경하며 해당 바로 가기는 시작 메뉴에서 찾을 수 있습니다.
 
 ![동기화 규칙 편집기](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
 
@@ -56,7 +56,7 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 
 ![동기화 규칙 인바운드](./media/active-directory-aadconnectsync-understanding-default-configuration/warningeditrule.png)
 
-동기화 규칙에는 네 가지 구성 섹션이 있습니다: 설명, 범위 지정 필터, 조인 규칙 및 변환.
+동기화 규칙에는 설명, 범위 지정 필터, 조인 규칙 및 변환의 네 가지 구성 섹션이 있습니다.
 
 ### 설명
 
@@ -70,7 +70,7 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 
 ### 범위 지정 필터
 
-범위 지정 필터 섹션은 동기화 규칙을 적용 해야하는 경우 구성하는데 사용됩니다. 검색하려는 동기화 규칙의 이름이 활성된 사용자에게만 적용되어야 함을 표시하므로, AD 특성 **userAccountControl**은 비트 2가 설정되어서는 안됩니다. AD에서 사용자를 찾은 경우 **userAccountControl**이 10진수 값 512(활성화된 일반 사용자)로 설정된 경우 이 동기화 규칙을 적용하지만 찾은 사용자에서 **userAccountControl**이 514(비활성화된 일반 사용자)로 설정된 경우 적용하지 않습니다.
+범위 지정 필터 섹션은 동기화 규칙을 적용할 시기를 구성하는 데 사용됩니다. 검색하려는 동기화 규칙의 이름을 보면 활성화된 사용자에게만 적용해야 함을 알 수 있으므로 AD 특성 **userAccountControl**에는 비트 2가 설정되지 않도록 범위가 구성됩니다. AD에서 사용자를 찾은 경우 **userAccountControl**이 10진수 값 512(활성화된 일반 사용자)로 설정된 경우 이 동기화 규칙을 적용하지만 찾은 사용자에서 **userAccountControl**이 514(비활성화된 일반 사용자)로 설정된 경우 적용하지 않습니다.
 
 ![인바운드 동기화 규칙 편집](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulescopingfilter.png)
 
@@ -143,11 +143,11 @@ NULL
 | AD에서 들어오기 – Exchange에서 사용자 공통 | 전체 주소 목록에 있는 특성. 사용자의 사서함이 위치한 포리스트에서 데이터 품질이 가장 훌륭하다고 가정합니다. |
 | AD에서 들어오기 – 사용자 공통 | 전체 주소 목록에 있는 특성. 사서함을 찾지 못한 경우에 다른 조인된 개체가 특성 값을 제공할 수 있습니다. |
 | AD에서 들어오기 – 사용자 Exchange | Exchange가 감지되는 경우 존재합니다. 인프라 Exchange 특성을 전송합니다. |
-| AD에서 들어오기 – 사용자 Lync | Lync가 감지되는 경우 존재합니다. 인프라 Lync 특성을 전송합니다. |
+| AD에서 들어오기 – 사용자 Lync | Lync가 감지된 경우에만 존재합니다. 모든 인프라 Lync 특성을 전송합니다. |
 
 ## 추가 리소스
 
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

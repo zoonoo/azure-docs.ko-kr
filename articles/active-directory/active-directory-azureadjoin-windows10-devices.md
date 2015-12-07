@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="작업 공간에서 Windows 10 장치 사용 | Microsoft Azure" 
-	description="사용자 및 IT가 얻는 기능의 스탭샷을 제공하며 Windows 10을 사용하여 엔터프라이즈에서 장치를 프로비전 및 사용하는 다양한 방법을 비교합니다." 
+	description="사용자 및 IT가 얻는 기능의 스냅숏을 제공하며 Windows 10을 사용하여 엔터프라이즈에서 장치를 프로비전 및 사용하는 다양한 방법을 비교합니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 작업 공간에서 Windows 10 장치 사용
@@ -173,4 +173,4 @@ Windows 8.1에서 작업 공간 가입은 BYOD를 활성화하는 데 사용되�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

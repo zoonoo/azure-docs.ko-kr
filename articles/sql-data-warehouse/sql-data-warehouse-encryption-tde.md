@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) 포털 시작 | Microsoft Azure" 
-	description="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) 포털 시작" 
+	pageTitle="SQL 데이터 웨어하우스에서 투명한 데이터 암호화(TDE) 시작| Microsoft Azure" 
+	description="SQL 데이터 웨어하우스에서 투명한 데이터 암호화(TDE) 시작" 
 	services="sql-data-warehouse" 
 	documentationCenter="" 
 	authors="twounder" 
-	manager="" 
+	manager="barbkess" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="11/20/2015" 
 	ms.author="twounder"/>
  
-# 투명한 데이터 암호화(TDE) 시작
+# SQL 데이터 웨어하우스에서 투명한 데이터 암호화(TDE) 시작
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
@@ -49,7 +49,7 @@ SQL 데이터 웨어하우스에 대한 TDE를 비활성화하려면 다음 단�
 
 
 <!--Anchors-->
-[투명한 데이터 암호화(TDE)]: https://msdn.microsoft.com/ko-KR/library/bb934049.aspx
+[투명한 데이터 암호화(TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
@@ -61,4 +61,4 @@ SQL 데이터 웨어하우스에 대한 TDE를 비활성화하려면 다음 단�
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

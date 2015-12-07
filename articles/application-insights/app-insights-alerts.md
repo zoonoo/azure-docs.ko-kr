@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 경고 설정
@@ -215,6 +215,11 @@ remoteDependencyFailed| [종속성](app-insights-configuration-with-applicationi
 request,<br/>requestFailed|[서버 요청](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
+## 참고 항목
+
+
+* [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](app-insights-powershell.md)
+
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -225,4 +230,4 @@ request,<br/>requestFailed|[서버 요청](app-insights-configuration-with-appli
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

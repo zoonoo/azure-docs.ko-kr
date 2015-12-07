@@ -286,14 +286,14 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 * 클러스터의 각 노드에서 1초에 대해 각각 숫자 1에서 10을 표시하는 셸 스크립트를 만들고 실행한 다음 노드에서 즉시 출력을 표시합니다.
 
     ```
-    > clusrun /interleaved echo "for i in {1..10}; do echo \"\$i\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE]**clusrun** 명령에 특정 이스케이프 문자를 사용해야 할 수도 있습니다. 이 예와 같이 명령 창의 ^를 사용하여 ">" 기호를 이스케이프합니다.
 
 ## 다음 단계
 
-* 클러스터에서 Linux 워크로드를 실행합니다. 예제는 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-cluster-hpcpack-namd.md)을 참조하세요.
+* 클러스터에서 Linux 워크로드를 실행합니다. 예를 보려면 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-cluster-hpcpack-namd.md) 또는 [Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFOAM 실행](virtual-machines-linux-cluster-hpcpack-openfoam.md)을 참조합니다.
 
 * 클러스터를 더 많은 노드로 확장하거나 MPI 작업을 실행할 크기 [A8 또는 A9](virtual-machines-a8-a9-a10-a11-specs.md) 계산 노드를 배포합니다.
 
@@ -313,4 +313,4 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="11/24/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect Sync: 운영 작업 및 고려 사항
@@ -44,21 +44,21 @@
 
 **준비**
 
-1. Azure AD Connect를 설치하고 **스테이징 모드**를 선택하고 설치 마법사의 마지막 페이지에서 **동기화 시작**의 선택을 취소합니다. 그러면 동기화 엔진을 수동으로 실행할 수 있습니다.
+1. Azure AD Connect를 설치하고 **스테이징 모드**를 선택하고 설치 마법사의 마지막 페이지에서 **동기화 시작**의 선택을 취소합니다. 그러면 동기화 엔진을 수동으로 실행할 수 있습니다.![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. 시작 메뉴에서 로그오프/로그온하고 **동기화 서비스**를 선택합니다.
 
 **가져오기 및 동기화**
 
 1. **커넥터**를 선택하고 **Active Directory 도메인 서비스** 형식을 가진 첫 번째 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다. 이 형식인 모든 커넥터에 이 작업을 수행합니다.
-2. **Azure Active Directory (Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다.
+2. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다.
 4. 커넥터가 여전히 선택되어 있는지 확인하고 **Active Directory 도메인 서비스** 형식인 각 커넥터의 경우 **실행**을 클릭하고 **델타 동기화** 및 **확인**을 선택합니다.
-5. **Azure Active Directory (Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **델타 동기화** 및 확인을 차례로 선택합니다.
+5. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **델타 동기화** 및 확인을 차례로 선택합니다.
 
 이제 Azure AD 및 온-프레미스 AD에 스테이지된 내보내기 변경 사항이 있습니다.(Exchange 하이브리드 배포를 사용하는 경우) 다음 단계를 사용하면 디렉터리에 실제로 내보내기를 시작하기 전에 무엇이 변경될지를 검사할 수 있습니다.
 
 **Verify**
 
-1. cmd 프롬프트를 시작하고 `%Program Files%\Microsoft Azure AD Sync\bin`로 이동
+1. cmd 프롬프트를 시작하고 `%Program Files%\Microsoft Azure AD Sync\bin`로 이동합니다.
 2. 실행: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> 동기화 서비스에서 커넥터의 이름을 찾을 수 있습니다. Azure AD에 "contoso.com – AAD"와 유사한 이름이 있습니다.
 3. 실행: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. 이제 Microsoft Excel에서 검사할 수 있는 export.csv 라는 %temp%의 파일이 있습니다. 이 파일은 내보낼 수 있는 모든 변경 내용을 포함합니다.
@@ -76,7 +76,7 @@
 **활성 서버 전환**
 
 1. Azure AD로 내보내지 않으므로 현재 활성 서버에서 서버를 해제하거나(DirSync/FIM Azure AD Sync) 스테이징 모드로 설정합니다.(Azure AD Connect)
-2. "스테이징 모드" 서버에서 설치 마법사를 실행하고 "스테이징 모드"를 사용하지 않도록 설정합니다.
+2. **스테이징 모드** 서버에서 설치 마법사를 실행하고 **스테이징 모드**를 사용하지 않도록 설정합니다. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## 재해 복구
 구현 설계의 일부는 동기화 서버를 분실한 경우 재해 발생 시 수행할 작업을 계획합니다. 사용할 다른 모델이 있고 어떤 것을 사용하는지는 다음을 포함한 여러 요인에 따라 달라집니다.
@@ -114,4 +114,4 @@ Azure AD Connect와 함께 제공하는 SQL Server Express를 사용하지 않�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,10 +1,20 @@
-<properties pageTitle="Node.js 버전 지정" description="Azure 웹 사이트 및 클라우드 서비스에서 사용하는 Node.js의 버전을 지정하는 방법에 대해 알아봅니다." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties
+	pageTitle="Node.js 버전 지정"
+	description="Azure 웹 사이트 및 클라우드 서비스에서 사용하는 Node.js의 버전을 지정하는 방법에 대해 알아봅니다."
+	services=""
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
-
-
-
-
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Azure 응용 프로그램에서 Node.js 버전 지정
 
@@ -12,13 +22,7 @@ Node.js 응용 프로그램을 호스트하는 경우 응용 프로그램에서 
 
 ##기본 버전
 
-Azure에서 제공하는 Node.js 버전은 지속적으로 업데이트됩니다. 별도로 지정되지 않은 경우 사용 가능한 최신 버전이 사용됩니다. 다음 포함된 버전은 다음과 같습니다.
-
-- 4\.x.x: 4.0.0
-- 0\.12.x: 0.12.6, 0.12.3, 0.12.2, 0.12.0
-- 0\.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
-- 0\.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
-- 0\.6.x: 0.6.20, 0.6.17
+Azure에서 제공하는 Node.js 버전은 지속적으로 업데이트됩니다. 별도로 지정되지 않은 경우 사용 가능한 최신 버전이 사용됩니다.
 
 > [AZURE.NOTE]Azure 클라우드 서비스(웹 또는 작업자 역할)에서 응용 프로그램을 호스트하며 응용 프로그램을 처음 배포하는 것이면 Azure는 Azure에서 사용 가능한 기본 버전 중 하나와 일치할 경우 개발 환경에 설치한 것과 동일한 버전의 Node.js를 사용하려고 합니다.
 
@@ -98,4 +102,4 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
 [Node.js 웹 사이트 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -31,6 +31,8 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 1. [Azure Active Directory Graph API](active-directory-graph-api.md): Azure Active Directory Graph API를 사용하여 프로그래밍 방식으로 REST API 끝점을 통해 Azure Active Directory에 액세스하세요.
 
+    > [AZURE.IMPORTANT]Azure AD Graph API 기능은 [Microsoft Graph](https://graph.microsoft.io/)를 통해서도 사용 가능하며, Outlook, OneDrive, OneNote, Planner 및 Office Graph와 같은 다른 Microsoft 서비스의 API를 포함하는 통합 API로, 단일 끝점과 단일 액세스 토큰을 통해 액세스 가능합니다.
+
 1. [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md): 사용자가 Azure 인증 라이브러리를 사용하여 액세스 토큰을 얻을 수 있도록 쉽게 인증할 수 있습니다.
 
 
@@ -117,16 +119,16 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 엔지니어링 팀에서 직접 작업하는 Azure Active Directory 기능 스피커를 사용하여 앱을 개발하는 것을 보여주는 개요 프레젠테이션입니다. 프레젠테이션은 IDMaaS, 인증, ID 페더레이션 및 단일 로그인을 비롯한 기본 항목을 다룹니다.
 
-- [Azure Active Directory: 최신 응용 프로그램에 대한 ID 관리 서비스](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)(영문)
-- [Azure Active Directory를 사용하여 최신 웹 응용 프로그램 개발](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)(영문)
-- [Azure Active Directory를 사용하여 최신 네이티브 응용 프로그램 개발](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)(영문)
+- [Azure Active Directory: 최신 응용 프로그램에 대한 ID 관리 서비스(영문)](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)
+- [Azure Active Directory를 사용하여 최신 웹 응용 프로그램 개발(영문)](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)
+- [Azure Active Directory를 사용하여 최신 네이티브 응용 프로그램 개발(영문)](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/)는 금요일마다 전문가를 대상으로 진행되는 다양한 Azure 토픽과 관련된 10-15분 정도의 짧은 인터뷰를 집중적으로 소개하는 1:1 동영상 시리즈입니다. 이 페이지의 서비스 필터 기능을 사용하여 모든 Azure Active Directory 비디오를 시청할 수 있습니다.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/)는 금요일마다 전문가를 대상으로 진행되는 다양한 Azure 토픽과 관련된 10~15분 정도의 짧은 인터뷰를 집중적으로 소개하는 1:1 동영상 시리즈입니다. 이 페이지의 서비스 필터 기능을 사용하여 모든 Azure Active Directory 비디오를 시청할 수 있습니다.
 
-- [Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)(영문)
-- [Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)(영문)
-- [Azure Identity 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)(영문)
+- [Azure Identity 101(영문)](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
+- [Azure Identity 102(영문)](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
+- [Azure Identity 103(영문)](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
 
 ## 소셜
 
@@ -138,4 +140,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread)(영문): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

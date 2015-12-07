@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Data Factory 파이프라인에서 사용자 지정 작업 사용" 
-	description="사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Azure Data Factory 파이프라인에서 사용자 지정 작업 사용"
+	description="사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
@@ -39,15 +39,15 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 1.	.NET 클래스 라이브러리 프로젝트를 만듭니다.
 	<ol type="a">
 	<li><b>Visual Studio 2012</b> 또는 <b>Visual Studio 2013</b>을 시작합니다.</li>
-	<li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li> 
-	<li><b>템플릿</b>을 확장하고 <b>Visual C#</b>을 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li> 
+	<li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
+	<li><b>템플릿</b>을 확장하고 <b>Visual C#</b>을 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li>
 	<li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다.</li>
-	<li><b>MyDotNetActivity</b>를 <b>이름</b>으로 입력합니다.</li> 
+	<li><b>MyDotNetActivity</b>를 <b>이름</b>으로 입력합니다.</li>
 	<li><b>C:\ADFGetStarted</b>를 <b>위치</b>로 선택합니다.</li>
 	<li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
 </ol>
 2.  <b>도구</b>를 클릭하고 <b>NuGet 패키지 관리자</b>를 가리킨 다음 <b>패키지 관리자 콘솔</b>을 클릭합니다.
-3.	<b>패키지 관리자 콘솔</b>에서 다음 명령을 실행하여 <b>Microsoft.Azure.Management.DataFactories</b>를 가져옵니다. 
+3.	<b>패키지 관리자 콘솔</b>에서 다음 명령을 실행하여 <b>Microsoft.Azure.Management.DataFactories</b>를 가져옵니다.
 
 		Install-Package Microsoft.Azure.Management.DataFactories
 
@@ -61,13 +61,13 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 		using System.Globalization;
 		using System.Diagnostics;
 		using System.Linq;
-	
+
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
 
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
-  
+
 6. **네임스페이스** 이름을 **MyDotNetActivityNS**로 변경합니다.
 
 		namespace MyDotNetActivityNS
@@ -91,8 +91,8 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
             Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
             inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
 
-            // using First method instead of Single since we are using the same 
-            // Azure Storage linked service for input and output. 
+            // using First method instead of Single since we are using the same
+            // Azure Storage linked service for input and output.
             inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputDataset.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             string output = string.Empty;
@@ -206,11 +206,11 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
             return blobDataset.FolderPath;
         }
-   
+
 
 10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\\debug** 또는 **bin\\release** 폴더로 이동합니다.
-12. <project folder>\\bin\\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.pdb 파일을 포함할 수 있습니다. 
+12. <project folder>\\bin\\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.pdb 파일을 포함할 수 있습니다.
 13. **ADFTutorialDataFactory**의 연결된 서비스 **StorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactvitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
 
 > [AZURE.NOTE]데이터 팩터리 프로젝트를 포함하는 Visual Studio의 솔루션에 이 .NET 작업 프로젝트를 추가하는 경우에는 zip 파일을 만들고 Azure Blob 저장소에 수동으로 업로드하는 마지막 두 단계를 수행할 필요가 없습니다. Visual Studio를 사용하여 데이터 팩터리 엔터티를 게시하면 이러한 단계가 게시 프로세스에서 자동으로 수행됩니다. Visual Studio를 사용하여 데이터 팩터리 엔터티를 만들고 게시하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline-using-vs.md) 및 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started-using-vs.md) 문서를 참조하세요.
@@ -219,10 +219,10 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 ## 2단계: 파이프라인에서 사용자 지정 작업 사용
 이 단계에서 수행하는 단계는 다음과 같습니다.
 
-1. 사용자 지정 작업이 맵 전용 작업으로 실행되는 HDInsight 클러스터에 대한 연결된 서비스를 만듭니다. 
+1. 사용자 지정 작업이 맵 전용 작업으로 실행되는 HDInsight 클러스터에 대한 연결된 서비스를 만듭니다.
 2. 이 샘플의 파이프라인에서 생성하는 출력 테이블을 만듭니다.
-3. 1단계에서 만든 사용자 지정 작업을 사용하는 파이프라인을 만들고 실행합니다. 
- 
+3. 1단계에서 만든 사용자 지정 작업을 사용하는 파이프라인을 만들고 실행합니다.
+
 ### 사용자 지정 활동을 실행하는데 사용할 수 있는 HDInsight 클러스터에 대한 연결된 서비스 만들기
 Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다.
 
@@ -235,12 +235,11 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 1. **Azure 포털**의 데이터 팩터리 홈페이지에서 **작성자 및 배포**를 클릭합니다.
 2. 데이터 팩터리 편집기의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **주문형 HDInsight 클러스터**를 선택합니다.
-2. JSON 스크립트에서 다음을 수행합니다. 
+2. JSON 스크립트에서 다음을 수행합니다.
 	1. **clusterSize** 속성에 대해 HDInsight 클러스터의 크기를 지정합니다.
-	2. **jobsContainer** 속성에 대해 클러스터 로그를 저장할 기본 컨테이너의 이름을 지정합니다. 이 자습서에서는 **adfjobscontainer**를 지정합니다.
-	3. **timeToLive** 속성에 대해 고객이 삭제되기 전에 유휴 상태로 유지될 수 있는 기간을 지정합니다. 
+	3. **timeToLive** 속성에 대해 고객이 삭제되기 전에 유휴 상태로 유지될 수 있는 기간을 지정합니다.
 	4. **version** 속성에 대해 사용할 HDInsight 버전을 지정합니다. 이 속성을 제외하면 최신 버전이 사용됩니다.  
-	5. **linkedServiceName**에 대해 시작 자습서에서 만든 **StorageLinkedService**를 지정합니다. 
+	5. **linkedServiceName**에 대해 시작 자습서에서 만든 **StorageLinkedService**를 지정합니다.
 
 			{
 			  "name": "HDInsightOnDemandLinkedService",
@@ -256,16 +255,16 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 			}
 
 2. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
-   
-#### 고유한 HDInsight 클러스터를 사용하려면 
+
+#### 고유한 HDInsight 클러스터를 사용하려면
 
 1. **Azure 포털**의 데이터 팩터리 홈페이지에서 **작성자 및 배포**를 클릭합니다.
 2. **데이터 팩터리 편집기**의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **HDInsight 클러스터**를 선택합니다.
-2. JSON 스크립트에서 다음을 수행합니다. 
+2. JSON 스크립트에서 다음을 수행합니다.
 	1. **clusterUri** 속성에 대해 HDInsight의 URL을 입력합니다. 예를 들어 https://<clustername>.azurehdinsight.net/을 입력합니다.     
 	2. **UserName** 속성에 대해 HDInsight 클러스터에 액세스할 수 있는 사용자 이름을 입력합니다.
-	3. **password** 속성에 대해 사용자 암호를 입력합니다. 
-	4. **LinkedServiceName** 속성에 대해 **StorageLinkedService**를 입력합니다. 시작 자습서에서 만든 연결된 서비스입니다.. 
+	3. **password** 속성에 대해 사용자 암호를 입력합니다.
+	4. **LinkedServiceName** 속성에 대해 **StorageLinkedService**를 입력합니다. 시작 자습서에서 만든 연결된 서비스입니다..
 
 2. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
@@ -305,10 +304,10 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 
 ### 사용자 지정 작업을 사용하는 파이프라인 만들기 및 실행
-   
-1. 데이터 팩터리 편집기의 명령 모음에서 **새 파이프라인**을 클릭합니다. 명령이 표시되지 않으면 **... (줄임표)**을 클릭하여 표시합니다. 
-2. 오른쪽 창의 JSON을 다음 JSON 스크립트로 바꿉니다. 사용자 고유의 클러스터를 사용하려고 하며 **HDInsightLinkedService** 연결된 서비스를 만드는 단계를 따른 경우 다음 JSON에서 **HDInsightOnDemandLinkedService**를 **HDInsightLinkedService**로 바꿉니다. 
-		
+
+1. 데이터 팩터리 편집기의 명령 모음에서 **새 파이프라인**을 클릭합니다. 명령이 표시되지 않으면 **... (줄임표)**을 클릭하여 표시합니다.
+2. 오른쪽 창의 JSON을 다음 JSON 스크립트로 바꿉니다. 사용자 고유의 클러스터를 사용하려고 하며 **HDInsightLinkedService** 연결된 서비스를 만드는 단계를 따른 경우 다음 JSON에서 **HDInsightOnDemandLinkedService**를 **HDInsightLinkedService**로 바꿉니다.
+
 		{
 		  "name": "ADFTutorialPipelineCustom",
 		  "properties": {
@@ -361,16 +360,16 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 	- 다음 단계에서 만들 새 출력 테이블 **OutputTableForCustom**을 사용합니다.
 	- **AssemblyName**을 DLL의 이름 **MyActivities.dll**로 설정합니다.
 	- **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다.
-	- **PackageLinkedService**를 **MyBlobStore**로 설정합니다. 이 Blob 저장소는 [Azure Data Factory 시작][adfgetstarted] 자습서에서 만들었고, 사용자 지정 작업 Zip 파일을 포함합니다.
+	- **PackageLinkedService**를 **MyBlobStore**로 설정합니다. 이 Blob 저장소는 [Azure 데이터 팩터리 시작][adfgetstarted] 자습서에서 만들었고, 사용자 지정 작업 Zip 파일을 포함합니다.
 	- **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다.
-     
+
 4. 명령 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다.
 8. 출력 파일이 **adftutorial** 컨테이너의 Blob 저장소에 생성되었는지 확인합니다.
 
 	![사용자 지정 작업의 출력][image-data-factory-ouput-from-custom-activity]
 
 9. 출력 파일을 열면 다음과 유사한 출력이 표시됩니다.
-	
+
 	adftutorial/,emp.txt,2,WORKERNODE0,03/27/2015 19:23:28
 
 	(Blob 위치), (Blob의 이름), (Blob의 줄 수), (작업이 실행된 노드), (날짜 시간 스탬프)
@@ -378,15 +377,15 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 10.	[Azure 포털][azure-preview-portal] 또는 Azure PowerShell cmdlet을 사용하여 데이터 팩터리, 파이프라인 및 데이터 집합을 모니터링합니다. 포털을 통해서나 cmdlet을 사용하여 다운로드할 수 있는 로그(특히 user-0.log)에 있는 사용자 지정 활동의 코드에서 **ActivityLogger**의 메시지를 확인할 수 있습니다.
 
 	![사용자 지정 작업의 로그 다운로드][image-data-factory-download-logs-from-custom-activity]
-	
-   
+
+
 데이터 집합 및 파이프라인 모니터링에 대한 자세한 단계는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md)를 참조하세요.
 
 ## 사용자 지정 작업 업데이트
 사용자 지정 작업의 코드를 업데이트하는 경우 코드를 작성하고 새 이진이 포함된 zip 파일을 Blob 저장소로 업로드합니다.
-    
-## <a name="AzureBatch"></a> Azure 배치 연결된 서비스 사용 
-> [AZURE.NOTE]Azure 배치 서비스에 대한 개요는 [Azure Batch Technical Overview][batch-technical-overview]를 참조하고, Azure 배치 서비스를 빨리 시작하려면 [.NET용 Azure 배치 라이브러리 시작][batch-get-started]을 참조하세요.
+
+## <a name="AzureBatch"></a> Azure 배치 연결된 서비스 사용
+> [AZURE.NOTE]Azure 배치 서비스에 대한 개요는 [Azure Batch 기본 사항][batch-technical-overview]을 참조하고, Azure 배치 서비스를 빨리 시작하려면 [.NET용 Azure 배치 라이브러리 시작][batch-get-started]을 참조하세요.
 
 컴퓨팅 리소스로 Azure Batch를 사용하여 사용자 지정.NET 작업을 실행할 수 있습니다. 자체적인 Azure Batch 풀을 만들고 다른 구성과 함께 몇 가지 VM을 지정해야 합니다. Azure Batch 풀이 고객에게 제공하는 기능은 다음과 같습니다.
 
@@ -399,11 +398,11 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 이전 섹션에서 설명한 연습에서 Azure 배치 연결된 서비스를 사용하는 대략적인 단계는 다음과 같습니다.
 
-1. Azure 관리 포털을 사용하여 Azure 배치 계정을 만듭니다. 지침은 [Azure 배치 기술 개요][batch-create-account] 문서를 참조하세요. Azure 배치 계정 이름 및 계정 키를 적어둡니다. 
+1. Azure 관리 포털을 사용하여 Azure 배치 계정을 만듭니다. 지침은 [Azure 배치 계정 만들기 및 관리][batch-create-account]를 참조하세요. Azure 배치 계정 이름 및 계정 키를 적어둡니다.
 
-	[New-AzureBatchAccount][new-azure-batch-account] cmdlet을 사용하여 Azure 배치 계정을 만들 수도 있습니다. 이 cmdlet 사용에 관한 자세한 지침은 [Azure PowerShell을 사용하여 Azure 배치 계정 관리][azure-batch-blog]를 참조하세요. 
+	[New-AzureBatchAccount][new-azure-batch-account] cmdlet을 사용하여 Azure 배치 계정을 만들 수도 있습니다. 이 cmdlet 사용에 관한 자세한 지침은 [Azure PowerShell을 사용하여 Azure 배치 계정 관리][azure-batch-blog]를 참조하세요.
 2. Azure 배치 풀을 만듭니다. [Azure Batch 탐색기 도구][batch-explorer]의 소스 코드를 다운로드하여 컴파일하여 사용하거나 [.NET용 Azure Batch 라이브러리][batch-net-library]를 사용하여 Azure Batch 풀을 만들 수 있습니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습][batch-explorer-walkthrough]을 참조하세요.
-	
+
 	[New-AzureBatchPool][new-azure-batch-pool] cmdlet을 사용하여 Azure 배치 풀을 만들 수도 있습니다.
 
 2. 다음 JSON 템플릿을 사용하여 Azure 배치 연결된 서비스를 만듭니다. 데이터 팩터리 편집기에 표시되는 유사한 템플릿을 사용하여 시작할 수 있습니다. JSON 조각에서 Azure 배치 계정 이름, 계정 키 및 풀 이름을 지정합니다.
@@ -423,13 +422,13 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 		}
 
 	> [AZURE.IMPORTANT]**Azure 배치 계정 블레이드**의 **URL**은 accountname.region.batch.azure.com 형식을 사용합니다. JSON **batchUri** 속성의 경우 URL에서 **"accountname."을 제거**하고 **accountName** JSON 속성에 대해 **accountname**을 사용해야 합니다.
-	  
+
 	**poolName** 속성의 경우 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
 
 	이러한 속성에 대한 설명은 [Azure 배치 연결된 서비스 MSDN 토픽](https://msdn.microsoft.com/library/mt163609.aspx)을 참조하세요.
 
 2.  데이터 팩터리 편집기에서 연습에서 만든 파이프라인에 대한 JSON 정의를 열고 **HDInsightLinkedService**를 **AzureBatchLinkedService**로 바꿉니다.
-3.  Azure 배치 서비스를 사용한 시나리오를 테스트할 수 있도록 파이프라인의 시작 시간과 종료 시간을 변경하는 것이 좋습니다. 
+3.  Azure 배치 서비스를 사용한 시나리오를 테스트할 수 있도록 파이프라인의 시작 시간과 종료 시간을 변경하는 것이 좋습니다.
 4.  다음 다이어그램과 같이 Azure 배치 탐색기에서 조각 처리와 관련된 Azure 배치 작업을 확인할 수 있습니다.
 
 	![Azure 배치 작업][image-data-factory-azure-batch-tasks]
@@ -443,7 +442,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch-create-account]: ../batch/batch-technical-overview.md/#batch-concepts
+[batch-create-account]: ../batch/batch-account-create-portal.md
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -474,6 +473,5 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

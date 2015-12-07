@@ -181,6 +181,10 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
   - **Linux**: Azure 인증 배포 목록은 [여기](../virtual-machines-linux-endorsed-distributions.md)서 확인할 수 있습니다. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
   - **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 - 다중 DC 구성의 일부인 도메인 컨트롤러 VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#restoring-domain-controller-vms)에 대해 자세히 알아보세요.
+- 다음과 같은 특수 네트워크 구성을 포함하는 가상 컴퓨터 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 사용하여 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations)을 참조하세요. 
+	- 부하 분산 장치 구성에서의 가상 컴퓨터(내부 및 외부)
+	- 다중의 예약된 IP가 있는 가상 컴퓨터
+	- 다중 NIC가 있는 가상 컴퓨터
 
 ## 질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
@@ -191,4 +195,4 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
 - [가상 컴퓨터 설정](backup-azure-vms.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

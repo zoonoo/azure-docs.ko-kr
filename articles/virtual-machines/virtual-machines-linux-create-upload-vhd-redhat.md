@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/23/2015" 
 	ms.author="mingzhan"/>
 
 
 # Azure용 RedHat 기반 가상 컴퓨터 준비
-이 문서에서는 Azure용 Red Hat Enterprise Linux(RHEL) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에서 다루는 RHEL 버전은 6.6, 6.7, 7.0, 7.1이며 이 문서에서 다루는 준비에 대한 하이퍼바이저는 Hyper-V, KVM, VMWare입니다.
+이 문서에서는 Azure용 Red Hat Enterprise Linux(RHEL) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에서 다루는 RHEL 버전은 6.7 및 7.1이며 이 문서에서 다루는 준비에 대한 하이퍼바이저는 Hyper-V, KVM, VMWare입니다.
 
 
 
@@ -40,7 +40,7 @@
 - qemu-img를 사용하여 디스크 이미지를 VHD 형식으로 변환할 때는 qemu-img 버전 >=2.2.1로 인해 VHD 형식이 잘못 지정됩니다. 이는 알려진 버그입니다. 이 문제는 향후 qemu-img 릴리스에서 수정될 예정입니다. 현재에는 qemu-img 2.2.0 이하 버전을 이용하는 것이 좋습니다.
 
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
 1.	Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
@@ -134,7 +134,7 @@
 
 16.	Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
@@ -214,9 +214,9 @@
 
 
 ##KVM에서 이미지 준비 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
-1.	Red Hat 웹 사이트에서 RHEL 6.6/6.7의 KVM 이미지를 다운로드합니다.
+1.	Red Hat 웹 사이트에서 RHEL 6.7의 KVM 이미지를 다운로드합니다.
 
 2.	루트 암호를 설정합니다.
 
@@ -325,26 +325,19 @@
 
 18.	qcow2 이미지를 vhd 형식으로 변환합니다. 우선 이미지를 원시 형식으로 변환합니다.
          
-         # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
-    원시 이미지의 크기를 1MB에 맞추어 조정해야 합니다. 그렇지 않으면 1MB에 맞추어 크기를 올림합니다.
+         # qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
+    원시 이미지의 크기를 1MB에 맞게 조정해야 합니다. 1MB에 정확하게 맞출 수 없는 경우 1MB에 맞게 크기를 반올림합니다. # MB=$((1024*1024)) # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \\ gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}') # rounded\_size=$((($size/$MB + 1)*$MB))
 
-         # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
-                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-         # rounded_size=$((($size/$MB + 1)*$MB))
-
-         # qemu-img resize rhel-6.6.raw $rounded_size
+         # qemu-img resize rhel-6.7.raw $rounded_size
 
     원시 디스크를 고정 크기 vhd로 변환합니다.
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
-
- 
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.0/7.1
+###RHEL 7.1
 
-1.	Red Hat 웹 사이트에서 RHEL 7.0의 KVM 이미지를 다운로드합니다.
+1.	Red Hat 웹 사이트에서 RHEL 7.1의 KVM 이미지를 다운로드합니다.
 
 2.	루트 암호를 설정합니다.
 
@@ -458,25 +451,25 @@
 
     우선 이미지를 원시 형식으로 변환합니다.
 
-         # qemu-img convert -f qcow2 –O raw rhel-7.0.qcow2 rhel-7.0.raw
+         # qemu-img convert -f qcow2 –O raw rhel-7.1.qcow2 rhel-7.1.raw
 
     원시 이미지의 크기를 1MB에 맞추어 조정해야 합니다. 그렇지 않으면 1MB에 맞추어 크기를 올림합니다.
 
          # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+         # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                   gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
          # rounded_size=$((($size/$MB + 1)*$MB))
 
-         # qemu-img resize rhel-7.0.raw $rounded_size
+         # qemu-img resize rhel-7.1.raw $rounded_size
 
     원시 디스크를 고정 크기 vhd로 변환합니다.
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##VMWare에서 이미지 준비
 ###필수 조건
-이 섹션은 VMWare에 RHEL 가상 컴퓨터가 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 방법은 [VMWare Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html)(VMWare 게스트 운영 체제 설치 가이드)를 참조하세요.
+이 섹션은 VMWare에 RHEL 가상 컴퓨터가 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 방법은 [VMWare 게스트 운영 체제 설치 가이드](http://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
  
 - Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.
 
@@ -484,7 +477,7 @@
 
 - 가상 하드 디스크를 만들 때 **Store virtual disk as a single file**(가상 디스크를 단일 파일로 저장)을 선택합니다.
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 1.	다음 명령을 실행하여 NetworkManager를 제거합니다.
 
          # sudo rpm -e --nodeps NetworkManager
@@ -571,23 +564,21 @@
 
     우선 이미지를 원시 형식으로 변환합니다.
 
-        # qemu-img convert -f vmdk –O raw rhel-6.6.vmdk rhel-6.6.raw
+        # qemu-img convert -f vmdk –O raw rhel-6.7.vmdk rhel-6.7.raw
 
     원시 이미지의 크기를 1MB에 맞추어 조정해야 합니다. 그렇지 않으면 1MB에 맞추어 크기를 올림합니다.
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
         # rounded_size=$((($size/$MB + 1)*$MB))
-
-        # qemu-img resize rhel-6.6.raw $rounded_size
+        # qemu-img resize rhel-6.7.raw $rounded_size
 
     원시 디스크를 고정 크기 vhd로 변환합니다.
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1.	다음 텍스트가 포함된 **network**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
@@ -675,26 +666,25 @@
 
     우선 이미지를 원시 형식으로 변환합니다.
 
-        # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
+        # qemu-img convert -f vmdk –O raw rhel-7.1.vmdk rhel-7.1.raw
 
     원시 이미지의 크기를 1MB에 맞추어 조정해야 합니다. 그렇지 않으면 1MB에 맞추어 크기를 올림합니다.
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
         # rounded_size=$((($size/$MB + 1)*$MB))
-
-        # qemu-img resize rhel-7.0.raw $rounded_size
+        # qemu-img resize rhel-7.1.raw $rounded_size
 
     원시 디스크를 고정 크기 vhd로 변환합니다.
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##kickstart 파일을 사용하여 ISO에서 자동으로 준비
-###RHEL 7.0/7.1
+###RHEL 7.1
 
-1.	아래 콘텐츠를 사용하여 kickstart 파일을 만들고 저장합니다. kickstart 설치에 대한 내용은 [Kickstart Installation Guide](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)(Kickstart 설치 가이드)를 참조하세요.
+1.	아래 콘텐츠를 사용하여 kickstart 파일을 만들고 저장합니다. kickstart 설치에 대한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -824,28 +814,20 @@
 
 7.	설치를 마칠 때까지 대기합니다. 완료되면 VM이 자동으로 종료됩니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-##알려진 문제:
-Hyper-V 및 Azure에서 RHEL 6.6, 7.0, 7.1 사용 시 알려진 문제가 두 가지 있습니다.
+##알려진 문제
+Hyper-V 및 Azure에서 RHEL 7.1 사용 시 알려진 문제가 있습니다.
 
-###문제 1: 프로비전 시간 초과
-이 문제는 Hyper-V 및 Azure에서 RHEL로 부팅 시 발생할 수 있습니다. 이 문제는 RHEL 6.6에서 더 많이 발생합니다.
+###문제: 디스크 I/O 중지 
 
-발생 비율:
-
-일시적인 문제입니다. 단일 vCPU를 사용하는 소형 VM에서 가장 자주 발생하며 보다 많이 사용되는 서버에서 더 많이 발생됩니다.
-
-
-###문제 2: 디스크 I/O 중지 
-
-이 문제는 Hyper-V 및 Azure에서 RHEL 6.6, 7.0, 7.1을 사용하여 저장소 디스크 I/O 작업이 빈번하게 이뤄지는 동안 발생할 수 있습니다.
+이 문제는 Hyper-V 및 Azure에서 RHEL 7.1을 사용하여 저장소 디스크 I/O 작업이 빈번하게 이뤄지는 동안 발생할 수 있습니다.
 
 발생 비율:
 
-일시적인 문제이나 Hyper-V 및 Azure에서 디스크 I/O 작업이 빈번하게 이뤄지는 동안 더 자주 발생할 수 있습니다.
+일시적인 문제이지만 Hyper-V 및 Azure에서 디스크 I/O 작업이 빈번하게 이뤄지는 동안 더 자주 발생할 수 있습니다.
 
     
-[AZURE.NOTE]Red Hat에서는 이 두 가지 문제에 대한 대처 방안을 내놓았습니다. 관련된 픽스를 설치하려면, 다음 명령을 실행합니다.
+[AZURE.NOTE]알려진 이 문제는 Red Hat에서 이미 해결했습니다. 연결된 수정 프로그램을 설치하려면 다음 명령을 실행합니다.
 
     # sudo yum update
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

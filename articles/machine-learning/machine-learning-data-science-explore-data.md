@@ -27,7 +27,6 @@
 - **Azure blob 컨테이너** 데이터는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 탐색합니다.
 - **SQL Server 데이터** 데이터는 SQL을 사용하거나 Python과 같은 프로그래밍 언어를 사용하여 탐색합니다.
 - **Hive 테이블** 데이터는 Hive 쿼리를 사용하여 탐색합니다.
-- Azure 기계 학습 스튜디오 
 - **Azure 기계 학습(AML) 스튜디오** 데이터는 AML 모듈을 사용하여 탐색합니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

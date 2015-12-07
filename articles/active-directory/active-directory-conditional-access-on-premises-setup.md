@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정 | Microsoft Azure"
 	description="Windows Server 2012 R2에서 AD FS(Active Directory Federation Service)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다."
@@ -14,8 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
+
 
 # Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정
 
@@ -43,7 +43,7 @@
 * Windows Server 2012 R2에서 업데이트된 스키마
 * Azure Active Directory Premium 구독
 * Azure AD에 대해 SSO로 구성된 Windows Server 2012 R2 페더레이션 서비스
-* Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/en-us/download/details.aspx?id=47594).
+* Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/ko-KR/download/details.aspx?id=47594).
 * 확인된 도메인. 
 
 이 릴리스의 알려진 문제
@@ -75,8 +75,7 @@ Azure Active Directory Device Registration 서비스 및 Azure Active Directory 
 | Azure Active Directory 테넌트에서 장치 등록을 사용하도록 설정하여 장치가 작업 공간에 연결할 수 있게 합니다. 기본적으로 다단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우 다단계 인증을 사용하는 것이 좋습니다. ADRS에서 다단계 인증을 사용하도록 설정하기 전에 다단계 인증 공급자에 대해 AD FS가 구성되었는지 확인합니다. | [Azure Active Directory Device Registration 사용](active-directory-conditional-access-device-registration-overview.md) |
 | 장치는 잘 알려진 DNS 레코드를 찾아 Azure Active Directory Device Registration 서비스를 검색합니다. 장치가 Azure Active Directory Device Registration 서비스를 검색할 수 있도록 회사 DNS를 구성해야 합니다. | [Azure Active Directory Device Registration 검색 구성](active-directory-conditional-access-device-registration-overview.md) |
 
-##2부: Windows Server 2012 R2 Active Directory Federation Services를 배포 및 구성하고 Azure Active Direct와의 페더레이션 관계를 설정합니다.
-
+##2부: Windows Server 2012 R2 Active Directory Federation Services를 배포 및 구성하고 Azure AD와의 페더레이션 관계를 설정합니다.
 
 | 작업 | 참조 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -212,7 +211,7 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 9. **마침**을 선택한 다음 **적용**을 선택합니다.
 10. 방금 만든 규칙보다 더 허용되는 규칙을 모두 제거합니다. 예를 들어 기본값인 **모든 사용자에 게 액세스 허용** 규칙을 제거합니다.
 
-이제 응용 프로그램이 사용자가 작업 공간에 등록 및 연결한 장치에서 들어오는 경우에만 액세스를 허용하도록 구성되었습니다. 고급 액세스 정책의 경우 [다단계 액세스 제어를 사용하여 위험 관리](https://technet.microsoft.com/en-us/library/dn280949.aspx)를 참조하세요.
+이제 응용 프로그램이 사용자가 작업 공간에 등록 및 연결한 장치에서 들어오는 경우에만 액세스를 허용하도록 구성되었습니다. 고급 액세스 정책의 경우 [다단계 액세스 제어를 사용하여 위험 관리](https://technet.microsoft.com/library/dn280949.aspx)를 참조하세요.
 
 다음에는 응용 프로그램에 대한 사용자 지정 오류 메시지를 구성합니다. 오류 메시지를 통해 사용자는 장치를 작업 공간에 연결해야 응용 프로그램에 액세스할 수 있음을 알게 됩니다. 사용자 지정 HTML 및 Windows PowerShell을 사용하여 사용자 지정 응용 프로그램 액세스 거부 메시지를 만들 수 있습니다.
 
@@ -238,4 +237,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 ![사용자가 Azure AD로 자신의 장치를 등록하지 않은 경우 표시되는 오류의 스크린샷](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

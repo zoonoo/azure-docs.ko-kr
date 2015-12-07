@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication을 위해 Office 365 포털에서 앱 암호 만들기 또는 삭제
@@ -68,4 +68,4 @@ Office 365에서 Multi-Factor Authentication을 사용하는 경우 Office 365 �
 <li>삭제를 확인하는 팝업 메시지가 표시됩니다.</li>
 <li>**예**를 클릭합니다.</li>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

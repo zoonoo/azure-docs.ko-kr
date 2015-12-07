@@ -29,7 +29,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 - 기존 AlwaysOn 가용성 그룹 온-프레미스. 가용성 그룹에 대한 자세한 내용은 [AlwaysOn 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
-- Azure 가상 네트워크와 온-프레미스 네트워크 간의 연결. 이 가상 네트워크 만들기에 대한 자세한 내용은 [관리 포털에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
+- Azure 가상 네트워크와 온-프레미스 네트워크 간의 연결. 이 가상 네트워크 만들기에 대한 자세한 내용은 [Azure 포털에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
@@ -103,4 +103,4 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

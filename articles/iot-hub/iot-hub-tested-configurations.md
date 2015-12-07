@@ -92,7 +92,7 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 
 ## CSharp
 
-[.NET용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md)는 다음 구성에서 테스트되었습니다.
+[.NET용 Microsoft Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md)는 다음 구성에서 테스트되었습니다.
 
 |OS 플랫폼| 버전|프로토콜|
 |:---------|:----------:|:----------:|
@@ -130,4 +130,4 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 
 **IoT 장치에 대한 인증**을 사용하여 솔루션을 개발하는 방법에 대한 자세한 정보는 [여기](http://azure.com/iotdev)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

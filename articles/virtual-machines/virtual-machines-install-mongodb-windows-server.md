@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-[MongoDB][MongoDB]는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. [Azure 포털][AzureManagementPortal]에서 클래식 배포 모델을 사용하여 이미지 갤러리에서 Windows Server를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음, MongoDB 데이터베이스를 가상 컴퓨터에 설치하고 구성할 수 있습니다.
+[MongoDB][MongoDB]는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. [Azure 포털][AzurePortal]에서 클래식 배포 모델을 사용하여 이미지 갤러리에서 Windows Server를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음, MongoDB 데이터베이스를 가상 컴퓨터에 설치하고 구성할 수 있습니다.
 
 
 ## Windows Server를 실행하는 가상 컴퓨터 만들기
@@ -49,6 +49,6 @@
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
-[AzureManagementPortal]: http://manage.windowsazure.com
+[AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

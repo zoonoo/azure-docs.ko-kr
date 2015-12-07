@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # 하이브리드 연결을 사용하여 Azure 앱 서비스의 웹 앱에서 온-프레미스 SQL Server에 연결
@@ -139,7 +139,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 <a name="CreateHC"></a>
 ## C. 하이브리드 연결 및 BizTalk 서비스 만들기 ##
 
-1. 포털로 돌아가서 웹앱의 블레이드를 아래로 스크롤하고 **네트워크 기능 상태** > **하이브리드 연결 끝점 구성**을 클릭합니다.
+1. 포털로 돌아와서 설정으로 이동하고 **네트워킹** > **하이브리드 연결 끝점 구성**을 클릭합니다.
 
 	![하이브리드 연결][CreateHCHCIcon]
 
@@ -363,4 +363,4 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

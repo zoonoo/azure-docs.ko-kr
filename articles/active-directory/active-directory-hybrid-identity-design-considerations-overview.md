@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/10/2015"
+	ms.date="11/24/2015"
 	ms.author="yuridio"/>
 
 # Azure Active Directory 하이브리드 ID 설계 고려 사항
@@ -49,6 +49,10 @@
 | 강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획 | [데이터 보호 요구 사항 확인](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [콘텐츠 관리 요구 사항 확인](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [액세스 제어 요구 사항 확인](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [인시던트 대응 요구 사항 확인](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | 하이브리드 ID 수명 주기에 대한 계획 | [하이브리드 ID 관리 작업 확인](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) <br> [동기화 관리](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br> [하이브리드 ID 관리 채택 전략 확인](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |     
 
+
+##이 가이드 다운로드
+[Technet 갤러리](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288)에서 하이브리드 ID 설계 고려 사항 가이드의 pdf 버전을 다운로드할 수 있습니다.
+
                                                              
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

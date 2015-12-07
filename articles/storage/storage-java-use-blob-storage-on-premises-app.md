@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 # Blob 저장소를 사용하는 온-프레미스 응용 프로그램
@@ -358,7 +358,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 - [Azure 저장소 REST API][]
 - [Azure 저장소 팀 블로그][]
 
-  [Java용 Azure SDK 다운로드]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [저장소 계정을 만드는 방법]: storage-create-storage-account.md#create-a-storage-account
   [저장소 계정을 관리하는 방법]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Java에서 Blob 저장소 서비스를 사용하는 방법]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
   [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

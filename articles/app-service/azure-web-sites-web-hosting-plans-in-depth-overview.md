@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스 계획의 포괄 개요" 
 	description="Azure 앱 서비스에 대한 앱 서비스 계획의 작동 방식 및 이러한 계획을 통해 관리 환경을 향상시킬 수 있는 방법을 알아봅니다." 
+	keywords="앱 서비스, Azure 앱 서비스, 규모, 확장성, 앱 서비스 계획, 앱 서비스 비용"
 	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
@@ -100,4 +101,4 @@
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

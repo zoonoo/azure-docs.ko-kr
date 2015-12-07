@@ -1,10 +1,10 @@
 
-1. In the MainPage.xaml.cs project file, add the following **using** statements:
+1. MainPage.xaml.cs 프로젝트 파일에서 다음 **using** 문을 추가합니다.
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
 
-2. Replace the **AuthenticateAsync** method with the following code:
+2. **AuthenticateAsync** 메서드를 다음 코드로 바꿉니다.
 
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -71,10 +71,12 @@
             return success;
         }
 
-	In this version of **AuthenticateAsync**, the app tries to use credentials stored in the **PasswordVault** to access the service. A regular sign-in is also performed when there is no stored credential.
+	이 버전의 **AuthenticateAsync**에서는 앱이 **PasswordVault**에 저장된 자격 증명을 사용하여 서비스에 액세스합니다. 일반 로그인은 저장된 자격 증명이 없는 경우에도 수행됩니다.
 
-	>[AZURE.NOTE]A cached token may be expired, and token expiration can also occur after authentication when the app is in use. To learn how to determine if a token is expired, see [Check for expired authentication tokens](http://aka.ms/jww5vp). For a solution to handling authorization errors related to expiring tokens, see the post [Caching and handling expired tokens in Azure Mobile Services managed SDK]( hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+	>[AZURE.NOTE]캐시된 토큰은 만료될 수 있으며, 토큰 만료는 인증 후 앱을 사용할 때 발생할 수도 있습니다. 토큰이 만료되었는지 확인하는 방법을 알아보려면 [만료된 인증 토큰 확인](http://aka.ms/jww5vp)을 참조하세요. 토큰 만료와 관련된 권한 부여 오류를 처리하는 방법은 [Azure 모바일 서비스 관리 SDK에서 만료된 토큰 캐시 및 처리](hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx) 게시물을 참조하세요.
 
-3. Restart the app twice.
+3. 앱을 두 번 다시 시작합니다.
 
-	Notice that on the first start-up, sign-in with the provider is again required. However, on the second restart the cached credentials are used and sign-in is bypassed. 
+	첫 번째 시작에서는 공급자를 사용한 로그인이 다시 필요합니다. 그러나 두 번째 다시 시작에서는 캐시된 자격 증명이 사용되고 로그인이 무시됩니다.
+
+<!---HONumber=AcomDC_1125_2015-->

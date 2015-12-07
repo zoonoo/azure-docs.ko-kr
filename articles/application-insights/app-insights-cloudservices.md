@@ -58,6 +58,7 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
 
     ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-cloudservices/03-nuget.png)
 
+
 2. [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지를 추가합니다. 이 버전의 SDK는 역할 정보와 같은 서버 컨텍스트를 추가하는 모듈을 포함합니다. 작업자 역할의 경우 Windows 서비스용 Application Insights를 사용합니다.
 
     !["Application Insights" 검색](./media/app-insights-cloudservices/04-ai-nuget.png)
@@ -68,18 +69,19 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
     `ServiceConfiguration.Cloud.cscfg` 파일에서 구성 설정으로 계측 키를 설정합니다. ([샘플 코드](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
  
     ```XML
-     
      <Role name="WorkerRoleA"> 
-      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="YOUR IKEY" /> 
      </Role>
     ```
  
     적합한 시작 함수에서 구성 설정의 계측 키를 설정합니다.
 
     ```C#
-
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```
+
+    구성 설정의 동일한 이름 `APPINSIGHTS_INSTRUMENTATIONKEY`가 Azure 진단 보고에서 사용됩니다.
+
 
     응용 프로그램에서 각 역할에 대해 이 작업을 수행합니다. 예제 참조:
  
@@ -91,34 +93,91 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
 
     .config 파일에서 해당 위치에 계측 키를 배치할지 묻는 메시지가 표시됩니다. 그러나 클라우드 응용 프로그램의 경우에는 .cscfg 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
 
-## Azure 진단 사용
 
-Azure 진단은 응용 프로그램에서 Application Insights로 성능 카운터, Windows 이벤트 로그 및 추적 로그를 보냅니다.
+#### 앱 실행 및 게시
 
-솔루션 탐색기에서 각 역할의 속성을 엽니다. **Application Insights에서 진단 보내기**를 사용하도록 설정합니다.
+앱을 실행하고 Azure에 로그인합니다. 직접 만든 Application Insights 리소스를 열면 개별 데이터 요소가 [검색](app-insights-diagnostic-search.md)에 표시되고 집계 데이터가 [메트릭 탐색기](app-insights-metrics-explorer.md)에 표시됩니다.
 
-![속성에서 진단을 사용하도록 설정하고 Application Insights로 보냅니다.](./media/app-insights-cloudservices/05-wad.png)
-
-다른 역할에 대해 반복합니다.
-
-### 라이브 앱 또는 Azure VM에 Azure 진단을 사용하도록 설정
-
-또한 Visual Studio의 서버 탐색기 또는 클라우드 탐색기에서 속성을 열어 Azure에서 앱이 이미 실행된 경우에 진단을 사용하도록 설정할 수 있습니다.
+원격 분석을 더 추가한 다음(아래 섹션 참조) 앱을 게시하여 라이브 진단 및 사용 피드백을 가져옵니다.
 
 
-## SDK를 사용하여 원격 분석 보고
-### 보고서 요청
- * 웹 역할에서 요청 모듈은 자동으로 HTTP 요청에 대한 데이터를 수집합니다. 기본 컬렉션 동작을 재정의할 수는 방법에 대한 예제는 [샘플 MVCWebRole](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)을 참조하세요. 
- * HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 대한 호출의 성능을 캡처할 수 있습니다. Application Insights에서 요청 원격 분석 유형은 시간을 제한할 수 있고 독립적으로 성공 또는 실패할 수 있는 명명된 서버 쪽 작업의 단위를 측정합니다. HTTP 요청은 SDK에서 자동으로 캡처하지만 사용자 고유의 코드를 삽입하여 작업자 역할에 대한 요청을 추적할 수 있습니다.
- * 보고서 요청에서 대해 계측된 두 샘플 작업자 역할: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) 및 [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)를 참조하세요.
+#### 데이터가 없나요?
 
-### 보고서 종속성
-  * Application Insights SDK는 REST API 및 SQL 서버와 같은 외부 종속성에 대해 앱이 작성하는 호출을 보고할 수 있습니다. 이렇게 하면 특정 종속성으로 응답이 느린지 또는 오류를 일으키는지 여부를 확인할 수 있습니다.
-  * 종속성을 추적하려면, "상태 모니터" 라고도 하는 [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)로 웹/작업자 역할을 설정해야 합니다.
-  * 웹/작업자 역할로 Application Insights Agent를 사용하려면
-    * [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) 폴더 및 폴더 내의 두 파일을 웹/작업자 역할 프로젝트에 추가합니다. 출력 디렉토리에 항상 복사되도록 해당 빌드 속성을 설정해야 합니다. 이 파일은 에이전트를 설치합니다.
-    * [여기](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18)에 표시된 것처럼 시작 작업을 CSDEF 파일에 추가합니다.
-    * 참고: *작업자 역할*은 [여기](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44)에서 표시된 것처럼 세 환경 변수가 필요합니다. 웹 역할에는 필요하지 않습니다.
+* [검색][diagnostic] 타일을 열고 개별 이벤트를 봅니다.
+* 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
+* 몇 초 정도 기다렸다가 새로고침을 클릭합니다.
+* [문제 해결][qna]을 참조하세요.
+
+
+
+## 추가 원격 분석
+
+다음 섹션에서는 응용 프로그램의 여러 측면에서 추가 원격 분석을 가져오는 방법을 보여 줍니다.
+
+
+## 작업자 역할의 요청 추적
+
+웹 역할에서 요청 모듈은 자동으로 HTTP 요청에 대한 데이터를 수집합니다. 기본 컬렉션 동작을 재정의할 수는 방법에 대한 예제는 [샘플 MVCWebRole](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)을 참조하세요.
+
+HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 대한 호출의 성능을 캡처할 수 있습니다. Application Insights에서 요청 원격 분석 유형은 시간을 제한할 수 있고 독립적으로 성공 또는 실패할 수 있는 명명된 서버 쪽 작업의 단위를 측정합니다. HTTP 요청은 SDK에서 자동으로 캡처하지만 사용자 고유의 코드를 삽입하여 작업자 역할에 대한 요청을 추적할 수 있습니다.
+
+보고서 요청에서 대해 계측된 두 샘플 작업자 역할: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) 및 [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)를 참조하세요.
+
+## Azure 진단
+
+[Azure 진단](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 데이터에는 역할 관리 이벤트, 성능 카운터 및 응용 프로그램 로그가 포함됩니다. 이러한 내용을 Application Insights로 보내면 나머지 원격 분석과 함께 표시하여 문제를 더 쉽게 진단할 수 있습니다.
+
+Azure 진단은 역할이 예기치 않게 실패하거나 시작되지 않을 경우에 특히 유용합니다.
+
+1. 역할(프로젝트 아님!)을 마우스 오른쪽 단추로 클릭하여 해당 속성을 열고 **진단 사용**, **Application Insights에 진단 보내기**를 차례로 선택합니다.
+
+    !["Application Insights" 검색](./media/app-insights-cloudservices/21-wad.png)
+
+    **또는 앱이 이미 게시되어 실행되고 있는 경우** 서버 탐색기 또는 클라우드 탐색기를 열고 앱을 마우스 오른쪽 단추로 클릭한 다음 동일한 옵션을 선택합니다.
+
+3.  다른 원격 분석과 동일한 Application Insights 리소스를 선택합니다.
+
+    원할 경우 다른 서비스 구성(클라우드, 로컬)에서 다른 리소스를 설정하여 개발 데이터를 라이브 데이터와 별도로 유지할 수 있습니다.
+
+3. 필요에 따라 Application Insights로 전달하려는 [Azure 진단 중 일부를 제외](app-insights-azure-diagnostics.md)합니다. 기본값은 모든 항목입니다.
+
+### Azure 진단 이벤트 보기
+
+진단 유틸리티를 찾을 수 있는 위치:
+
+* 성능 카운터는 사용자 지정 메트릭으로 표시됩니다. 
+* Windows 이벤트 로그는 추적 및 사용자 지정 이벤트로 표시됩니다.
+* 응용 프로그램 로그, ETW 로그 및 진단 인프라 로그는 추적으로 표시됩니다.
+
+성능 카운터 및 이벤트 개수를 보려면 [메트릭 탐색기](app-insights-metrics-explorer.md)를 열고 새 차트를 추가합니다.
+
+
+![](./media/app-insights-cloudservices/23-wad.png)
+
+[검색](app-insights-diagnostic-search.md)을 사용하여 Azure 진단에서 보낸 다양한 추적 로그를 검색합니다. 예를 들어 역할에 처리되지 않은 예외가 있어 역할이 충돌 및 재활용되는 경우 해당 정보가 Windows 이벤트 로그의 응용 프로그램 채널에 표시됩니다. 검색 기능을 사용하여 Windows 이벤트 로그 오류를 확인하고 예외에 대한 전체 스택 추적을 가져와서 문제의 근본 원인을 찾을 수 있습니다.
+
+
+![](./media/app-insights-cloudservices/25-wad.png)
+
+## 앱 진단
+
+Azure 진단에는 앱이 System.Diagnostics.Trace를 사용하여 생성하는 로그 항목이 자동으로 포함됩니다.
+
+그러나 Log4N 또는 NLog 프레임워크를 이미 사용하는 경우 [해당 로그 추적을 캡처][netlogs]할 수도 있습니다.
+
+클라이언트나 서버 또는 둘 다에서 [사용자 지정 이벤트 및 메트릭을 추적][api]하여 응용 프로그램의 성능 및 사용에 대해 자세히 알아봅니다.
+
+## 종속성
+
+Application Insights SDK는 REST API 및 SQL 서버와 같은 외부 종속성에 대해 앱이 작성하는 호출을 보고할 수 있습니다. 이렇게 하면 특정 종속성으로 응답이 느린지 또는 오류를 일으키는지 여부를 확인할 수 있습니다.
+
+종속성을 추적하려면, "상태 모니터" 라고도 하는 [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)로 웹/작업자 역할을 설정해야 합니다.
+
+웹/작업자 역할로 Application Insights Agent를 사용하려면
+
+* [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) 폴더 및 폴더 내의 두 파일을 웹/작업자 역할 프로젝트에 추가합니다. 출력 디렉토리에 항상 복사되도록 해당 빌드 속성을 설정해야 합니다. 이 파일은 에이전트를 설치합니다.
+* [여기](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18)에 표시된 것처럼 시작 작업을 CSDEF 파일에 추가합니다.
+* 참고: *작업자 역할*은 [여기](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44)에서 표시된 것처럼 세 환경 변수가 필요합니다. 웹 역할에는 필요하지 않습니다.
 
 Application Insights 포털에서 표시된 예는 다음과 같습니다.
 
@@ -134,17 +193,21 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 
     ![](./media/app-insights-cloudservices/a5R0PBk.png)
 
-### 보고 예외 사항
+## 예외
 
-* 다른 웹 응용 프로그램 유형에서 처리되지 않은 예외를 수집할 수 있는 방법에 대한 자세한 내용은 [Application Insights에서 예외 모니터링](app-insights-asp-net-exceptions.md)을 참조하세요.
-* 샘플 웹 역할에는 MVC5 및 Web API 2 컨트롤러에 있습니다. 2에서 처리되지 않은 예외는 다음으로 캡처됩니다.
-    * MVC5 컨트롤러에 대해 [여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12)에서 [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) 설정
-    * Web API 2 컨트롤러에 대해 [여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25)에서 [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) 설정
-* 작업자 역할: 예외를 추적하는 두가지 방법이 있습니다.
-    * TrackException(ex)
-    * Application Insights 추적 수신기 NuGet 패키지를 추가한 경우 System.Diagnostics.Trace를 사용하여 예외를 기록합니다. [코드 예제.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+다른 웹 응용 프로그램 유형에서 처리되지 않은 예외를 수집할 수 있는 방법에 대한 자세한 내용은 [Application Insights에서 예외 모니터링](app-insights-asp-net-exceptions.md)을 참조하세요.
 
-### 성능 카운터
+샘플 웹 역할에는 MVC5 및 Web API 2 컨트롤러에 있습니다. 2에서 처리되지 않은 예외는 다음으로 캡처됩니다.
+
+* MVC5 컨트롤러에 대해 [여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12)에서 [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) 설정
+* Web API 2 컨트롤러에 대해 [여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25)에서 [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) 설정
+
+작업자 역할: 예외를 추적하는 두 가지 방법이 있습니다.
+
+* TrackException(ex)
+* Application Insights 추적 수신기 NuGet 패키지를 추가한 경우 System.Diagnostics.Trace를 사용하여 예외를 기록합니다. [코드 예제.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+
+## 성능 카운터
 
 다음 카운터가 기본적으로 수집됩니다.
 
@@ -165,7 +228,7 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 
   ![](./media/app-insights-cloudservices/OLfMo2f.png)
 
-### 작업자 역할에 대한 상호 관련된 원격 분석
+## 작업자 역할에 대한 상호 관련된 원격 분석
 
 실패 또는 높은 대기 시간을 초래하는 것이 무엇인지 알 수 있다면 풍부한 진단 경험이 있는 것입니다. 웹 역할과 함께 SDK는 관련된 원격 분석 간의 상관관계를 자동으로 설정합니다. 작업자 역할의 경우, 사용자 지정 원격 분석 이니셜라이저를 사용하여 모든 원격 분석이 이를 설정하도록 공통 Operation.Id 컨텍스트 특성을 설정할 수 있습니다. 이렇게 하면 대기 시간/실패 문제를 한 눈에 코드 또는 종속성으로 인해 발생했는지 여부를 확인할 수 있습니다!
 
@@ -179,32 +242,26 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 
 ![](./media/app-insights-cloudservices/bHxuUhd.png)
 
-#### 데이터가 없나요?
-
-* [검색][diagnostic] 타일을 열고 개별 이벤트를 봅니다.
-* 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
-* 몇 초 정도 기다렸다가 새로고침을 클릭합니다.
-* [문제 해결][qna]을 참조하세요.
 
 
-## 설치 완료
+## 클라이언트 원격 분석
 
-응용 프로그램의 모든 부분을 완벽하게 살펴보려면 몇 가지 할 일이 더 있습니다.
+[JavaScript SDK를 웹 페이지에 추가][client]하여 페이지 보기 수, 페이지 로드 시간, 스크립트 예외 사항과 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 작성합니다.
 
+## 가용성 테스트
 
-* [JavaScript SDK를 웹 페이지에 추가][client]하여 페이지 보기 수, 페이지 로드 시간, 스크립트 예외 사항과 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 작성합니다.
-* 데이터베이스 또는 앱에서 사용하는 다른 구성 요소에 따른 문제를 진단하는 종속성 추적을 추가합니다.
- * [Azure 웹앱 또는 VM에서][azure]
- * [온-프레미스 IIS 서버에서][redfield]
-* 즐겨찾는 로깅 프레임워크에서 [로그 추적 캡처][netlogs]
-* [사용자 지정 이벤트 및 메트릭을 추적][api]하여 클라이언트나 서버 또는 둘 다에서 응용 프로그램이 어떻게 사용되는지 알아볼 수 있습니다.
-* [웹 테스트를 설정][availability]하여 응용 프로그램이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
+[웹 테스트를 설정][availability]하여 응용 프로그램이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
 
 
 
 ## 예
 
 [예제](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)는 웹 역할 및 두 작업자 역할이 포함되는 서비스를 모니터링합니다.
+
+## 관련된 항목
+
+* [Application Insights에 Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)
+* [PowerShell을 사용하여 Application Insights에 Azure 진단 보내기])(app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -222,4 +279,4 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

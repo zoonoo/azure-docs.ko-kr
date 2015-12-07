@@ -91,8 +91,12 @@ SDK에 사용할 수 있는 iKey에는 두 가지가 있습니다:
 
 
 
+## 참고 항목
 
+* [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](app-insights-powershell.md)
+* [PowerShell 사용한 Azure 진단의 모니터링 설정](app-insights-powershell-azure-diagnostics.md) 
+* [PowerShell을 사용하여 경고 설정](app-insights-alerts.md#set-alerts-by-using-powershell)
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->
