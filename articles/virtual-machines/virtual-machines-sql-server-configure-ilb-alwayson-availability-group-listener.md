@@ -19,8 +19,8 @@
 # Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성
 
 > [AZURE.SELECTOR]
-- [Internal Listener](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
-- [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
+- [내부 청취자](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [외부 수신기](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 ## 개요
 

@@ -86,7 +86,16 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 1.	사용자가 만든 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 추가합니다.
 
-    using Microsoft.Azure; using Microsoft.IdentityModel.Clients.ActiveDirectory; using Microsoft.Azure.Management.Resources; using Microsoft.Azure.Management.Resources.Models; using Microsoft.Azure.Management.Storage; using Microsoft.Azure.Management.Storage.Models; using Microsoft.Azure.Management.Network; using Microsoft.Azure.Management.Network.Models; using Microsoft.Azure.Management.Compute; using Microsoft.Azure.Management.Compute.Models;
+        using Microsoft.Azure;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.Resources.Models;
+		using Microsoft.Azure.Management.Storage;
+		using Microsoft.Azure.Management.Storage.Models;
+		using Microsoft.Azure.Management.Network;
+		using Microsoft.Azure.Management.Network.Models;
+		using Microsoft.Azure.Management.Compute;
+		using Microsoft.Azure.Management.Compute.Models;
 
 
 2. 자격 증명을 만드는 데 필요한 토큰을 가져올 프로그램 클래스에 다음 메서드를 추가합니다.
@@ -333,14 +342,14 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
           }
         }
 
-	>[AZURE.NOTE]이미지 vhd 이름은 이미지 갤러리에서 정기적으로 변경되므로, 가상 컴퓨터를 배포하는 데 현재 이미지 이름을 가져와야 합니다. 이렇게 하려면 [Windows PowerShell을 사용하여 이미지 Windows 관리](https://msdn.microsoft.com/library/azure/dn790330.aspx)를 참조한 다음 , {source-image-name}을 사용 하려는 vhd 파일의 이름으로 바꿉니다. 예를 들면, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"입니다.
+	>[AZURE.NOTE]이미지 vhd 이름은 이미지 갤러리에서 정기적으로 변경되므로, 가상 컴퓨터를 배포하는 데 현재 이미지 이름을 가져와야 합니다. 이렇게 하려면 [Windows PowerShell을 사용하여 이미지 Windows 관리](https://msdn.microsoft.com/library/azure/dn790330.aspx)를 참조한 다음 , {source-image-name}을 사용 하려는 vhd 파일의 이름으로 바꿉니다. 예를 들면, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"입니다.
 
 	{subscription-id}를 사용자의 구독 ID로 바꿉니다.
 
 2.	방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
 		CreateVirtualMachine(credential);
-    Console.ReadLine();
+        Console.ReadLine();
 
 ##5단계: 코드를 추가하여 리소스 삭제
 
