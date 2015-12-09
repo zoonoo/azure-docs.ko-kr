@@ -12,6 +12,7 @@
 # Windows 컴퓨터를 백업하기 위한 환경 준비
 
 이 문서에서는 Windows Server와 함께 Azure 백업을 사용하는 준비 단계를 안내합니다. Windows Server 또는 Windows 클라이언트를 Azure에 백업하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+
 >[AZURE.NOTE]이전에는 백업 서버를 등록하려면 X.509 v3 인증서를 만들거나 얻어야 했습니다. 인증서는 계속 지원되지만 이제는 Azure 저장소를 서버에 보다 간단히 등록할 수 있도록 하기 위해 빠른 시작 페이지에서 바로 저장소 자격 증명을 생성할 수 있습니다.
 
 ## 시작하기 전에

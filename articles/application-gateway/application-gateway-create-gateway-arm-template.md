@@ -193,9 +193,9 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
+**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
 
-**-l (or --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *Eastus*입니다.
+**-l (or --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *Eastus* 입니다.
 
 4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 

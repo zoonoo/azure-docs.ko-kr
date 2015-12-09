@@ -43,7 +43,7 @@ C# 쿼리 코드 샘플을 실행하려면 다음이 있어야 합니다.
  - 몇 분 안에 [데모 데이터베이스를 만듭니다.](sql-database-get-started.md)
 
 
-- Visual Studio 2013 업데이트 4(이후) Microsoft는 이제 Visual Studio 커뮤니티를 *무료*로 제공합니다.
+- Visual Studio 2013 업데이트 4(이후) Microsoft는 이제 Visual Studio 커뮤니티를 *무료* 로 제공합니다.
  - [Visual Studio Community, 다운로드](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [무료 Visual Studio에 대한 더 많은 옵션](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
  - 이 항목의 뒷부분에 나오는 [단계](#InstallVSForFree)는 [Azure 포털](http://portal.azure.com/)이 Visual Studio의 설치를 어떻게 안내하는지를 설명합니다.
@@ -324,7 +324,8 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 
 
 
-자세한 내용은<br/> [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+자세한 내용은<br/>
+[방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
 

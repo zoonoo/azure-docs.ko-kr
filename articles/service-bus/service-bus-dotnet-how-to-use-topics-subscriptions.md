@@ -147,7 +147,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-> [AZURE.NOTE][NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 개체의 [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) 메서드를 사용하여 네임스페이스 내에 지정된 이름의 토픽이 이미 있는지 확인할 수 있습니다.
+> [AZURE.NOTE] [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 개체의 [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) 메서드를 사용하여 네임스페이스 내에 지정된 이름의 토픽이 이미 있는지 확인할 수 있습니다.
 
 ## 구독 만들기
 
@@ -327,4 +327,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [서비스 버스 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

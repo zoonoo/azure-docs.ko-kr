@@ -487,18 +487,18 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 <!-- URLs. -->
 [모바일 서비스 iOS SDK 버전 1.2.4]: http://aka.ms/kymw2g
-[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[모바일 서비스 iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure portal]: https://manage.windowsazure.com/
+[Azure 포털]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[모바일 서비스에서 푸시 알림 시작]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-ios-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-send-breaking-news.md
 

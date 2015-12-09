@@ -39,7 +39,20 @@ Azure Site Recovery를 사용하면 고객이 조직의 비즈니스 연속성 �
 
 사이트 복구 복제 기술은 가상 컴퓨터에서 실행 중인 모든 응용프로그램과 호환됩니다. 또한 각 앱에 추가 지원을 하기 위해 응용 프로그램 제품팀과 협력하여 추가 테스트를 수행했습니다.
 
-**워크로드** | <p>**Hyper-V VM 복제**</p> <p>**(보조 사이트에)**</p> | <p>**Hyper-V VM 복제**</p> <p>**(Azure에)**</p> | <p>**VMware VM 복제**</p> <p>**(보조 사이트에)**</p> | <p>**VMware VM 복제**</p><p>**(Azure에)****</p>---|---|---|---|---Active Directory, DNS | Y | Y | Y | Y 웹앱(IIS, SQL) | Y | Y | Y | Y SCOM | Y | Y | Y | Y Sharepoint | Y | Y | Y | Y<p>SAP</p><p>비클러스터에 대해 Azure에 SAP 사이트 복제</p>| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) Exchange(비 DAG) | Y | 서비스 예정 | Y | Y 원격 데스크톱/VDI | Y | Y | Y | 해당 없음 <p>Linux</p> <p>(운영 체제 및 앱)</p>| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) Dynamics AX | Y | Y | Y | Y Dynamics CRM | Y | 서비스 예정 | Y | 서비스 예정 Oracle| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) Windows 파일 서버 | Y | Y | Y | Y
+**워크로드** | <p>**Hyper-V VM 복제**</p> <p>**(보조 사이트에)**</p> | <p>**Hyper-V VM 복제**</p> <p>**(Azure에)**</p> | <p>**VMware VM 복제**</p> <p>**(보조 사이트에)**</p> | <p>**VMware VM 복제**</p><p>**(Azure에)****</p>
+---|---|---|---|---
+Active Directory, DNS | Y | Y | Y | Y
+웹앱(IIS, SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+Sharepoint | Y | Y | Y | Y
+<p>SAP</p><p>비클러스터에 대해 Azure에 SAP 사이트 복제</p>| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트)
+Exchange(비 DAG) | Y | 서비스 예정 | Y | Y
+원격 데스크톱/VDI | Y | Y | Y | 해당 없음
+<p>Linux</p> <p>(운영 체제 및 앱)</p>| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트)
+Dynamics AX | Y | Y | Y | Y
+Dynamics CRM | Y | 서비스 예정 | Y | 서비스 예정
+Oracle| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트)
+Windows 파일 서버 | Y | Y | Y | Y
 
 ##Active Directory 및 DNS 보호
 

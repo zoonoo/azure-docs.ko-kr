@@ -76,7 +76,7 @@ iSCSI 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성
 FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 하드 디스크 형식| VHD <br/><br/> VHDX | 현재 Azure에서는 VHDX가 지원되지 않지만 Azure로 장애 조치하면 사이트 복구가 자동으로 VHDX를 VHD로 변환합니다. 온-프레미스에 장애 복구 시 가상 컴퓨터에서 계속해서 VHDX 형식을 사용합니다.
 가상 컴퓨터 이름| 1 자에서 63자 사이입니다. 문자, 숫자 및 하이픈으로 제한됩니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. | 사이트 복구에서 가상 컴퓨터 속성 내 값 업데이트
-가상 컴퓨터 유형 | <p>1세대</p> <p>2세대 Windows</p> | 300GB보다 작은 VHDX의 디스크 형식인 데이터 볼륨 1 또는 2를 포함하는 기본 디스크의 OS 디스크 형식인 2세대 가상 컴퓨터입니다. Linux 2세대 가상 컴퓨터는 지원되지 않습니다. [자세한 정보](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
+가상 컴퓨터 유형 | <p>1세대</p> <p>2세대 Windows</p> | 300GB보다 작은 VHDX의 디스크 형식인 데이터 볼륨 1 또는 2를 포함하는 기본 디스크의 OS 디스크 형식인 2세대 가상 컴퓨터입니다. Linux 2세대 가상 컴퓨터는 지원되지 않습니다. [자세한 정보](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) 
 
 
 

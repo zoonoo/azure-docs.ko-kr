@@ -72,7 +72,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 ##<a id="Config"></a> 3단계: 앱의 구성 설정
 
-원하는 텍스트 편집기에서 *config.js*를 엽니다.
+원하는 텍스트 편집기에서 *config.js* 를 엽니다.
 
 그런 다음 *config*이라는 제목의 빈 개체를 만들고 DocumentDB 끝점 및 권한 부여 키에 *config.endpoint* 및 *config.authKey* 속성을 설정합니다. 이러한 구성은 모두 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
 
@@ -83,7 +83,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     config.endpoint = "https://YOUR_ENDPOINT_URI.documents.azure.com:443/";
     config.authKey = "oqTveZeWlbtnJQ2yMj23HOAViIr0ya****YOUR_AUTHORIZATION_KEY****ysadfbUV+wUdxwDAZlCfcVzWp0PQg==";
 
-이제 *데이터베이스 ID*, *컬렉션 ID*, 및 *JSON 문서*를 *config* 개체에 추가해보겠습니다. *config.endpoint* 및 *config.authKey* 속성을 설정한 아래에 다음 코드를 추가합니다. 데이터베이스에 저장하려는 데이터가 이미 있다면 문서 정의를 추가하는 대신 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용할 수 있습니다.
+이제 *데이터베이스 ID*, *컬렉션 ID* , 및 *JSON 문서* 를 *config* 개체에 추가해보겠습니다. *config.endpoint* 및 *config.authKey* 속성을 설정한 아래에 다음 코드를 추가합니다. 데이터베이스에 저장하려는 데이터가 이미 있다면 문서 정의를 추가하는 대신 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용할 수 있습니다.
 
     config.dbDefinition = {"id": "FamilyRegistry"};
     config.collDefinition = {"id": "FamilyCollection"};
@@ -176,14 +176,14 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     var documentClient = require("documentdb").DocumentClient;
     var config = require("./config");
 
-다음으로 이전에 저장된 *config.endpoint* 및 *config.authKey*를 사용하여 새 DocumentClient를 만들려고 합니다.
+다음으로 이전에 저장된 *config.endpoint* 및 *config.authKey* 를 사용하여 새 DocumentClient를 만들려고 합니다.
 
     var client = new documentClient(config.endpoint, {"masterKey": config.authKey});
 
 DocumentDB 계정에 연결했으므로 DocumentDB 리소스와 함께 작동하는지 살펴보겠습니다.
 
 ## 5단계: 노드 데이터베이스 만들기
-**DocumentClient** 클래스의 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 문서 저장소의 논리적 컨테이너입니다. *config* 개체에 지정된 *id*를 사용하여 app.js 파일에서 새 데이터베이스를 만들기 위해 함수를 추가합니다. 동일한 *FamilyRegistry* ID를 가진 데이터베이스가 이미 있는지 먼저 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 데이터베이스를 반환합니다.
+**DocumentClient** 클래스의 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 문서 저장소의 논리적 컨테이너입니다. *config* 개체에 지정된 *id* 를 사용하여 app.js 파일에서 새 데이터베이스를 만들기 위해 함수를 추가합니다. 동일한 *FamilyRegistry* ID 를 가진 데이터베이스가 이미 있는지 먼저 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 데이터베이스를 반환합니다.
 
     var getOrCreateDatabase = function(callback) {
         var querySpec = {
@@ -214,7 +214,7 @@ DocumentDB 계정에 연결했으므로 DocumentDB 리소스와 함께 작동하
 
 > [AZURE.WARNING]**CreateDocumentCollectionAsync**는 가격의 의미가 포함된 새 S1 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
 
-**DocumentClient** 클래스의 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 새로 만든 컬렉션은 [S1 성능 수준](documentdb-performance-levels.md)에 매핑됩니다. *config* 개체에 지정된 *id*를 사용하여 app.js 파일에서 새 컬렉션을 만들기 위해 함수를 추가합니다. 다시 동일한 *FamilyCollection* ID를 가진 컬렉션이 이미 있는지 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 컬렉션을 반환합니다.
+**DocumentClient** 클래스의 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 새로 만든 컬렉션은 [S1 성능 수준](documentdb-performance-levels.md)에 매핑됩니다. *config* 개체에 지정된 *id* 를 사용하여 app.js 파일에서 새 컬렉션을 만들기 위해 함수를 추가합니다. 다시 동일한 *FamilyCollection* ID 를 가진 컬렉션이 이미 있는지 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 컬렉션을 반환합니다.
 
     var getOrCreateCollection = function(callback) {
 
@@ -325,7 +325,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 
 함수 호출의 순서는 다음과 같습니다. * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *정리*
 
-*app.js*에서 코드의 아래쪽에 다음 코드 조각을 추가합니다.
+*app.js* 에서 코드의 아래쪽에 다음 코드 조각을 추가합니다.
 
     getOrCreateDatabase(function(err, db) {
         if(err) return console.log(err);

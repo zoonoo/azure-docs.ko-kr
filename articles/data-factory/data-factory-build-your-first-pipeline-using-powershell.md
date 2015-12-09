@@ -32,7 +32,7 @@
 
 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
-> [AZURE.IMPORTANT][자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+> [AZURE.IMPORTANT] [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 >   
 > 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
 >    
@@ -272,4 +272,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

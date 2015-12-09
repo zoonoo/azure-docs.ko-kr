@@ -22,7 +22,7 @@ Visual Studio 2013 이상에서 검색 환경에 Microsoft Azure에서 클라우
 
 이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 클래식 포털](https://portal.azure.com)에서 등록할 수 있습니다.
 
-> [AZURE.TIP][Azure 검색 .NET 샘플](http://go.microsoft.com/fwlink/p/?LinkId=530196)에서 이 자습서의 원본 코드를 다운로드하세요. [.NET 응용 프로그램에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)에서 연결을 설정하고 요청을 보내는 방법을 알아봅니다.
+> [AZURE.TIP] [Azure 검색 .NET 샘플](http://go.microsoft.com/fwlink/p/?LinkId=530196)에서 이 자습서의 원본 코드를 다운로드하세요. [.NET 응용 프로그램에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)에서 연결을 설정하고 요청을 보내는 방법을 알아봅니다.
 
 ## 데이터 정보
 
@@ -794,4 +794,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

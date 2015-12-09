@@ -71,7 +71,7 @@
 
 5. **솔루션 탐색기**에서 다시 **연결된 서비스** 노드를 마우스 오른쪽 단추로 다시 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다. 
 6. 이번에는 **Azure SQL 연결된 서비스**를 선택하고 **추가**를 클릭합니다. 
-7. **AzureSqlLinkedService1.json 파일**에서 **servername**, **databasename**, ****username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
+7. **AzureSqlLinkedService1.json 파일**에서 **servername**, **databasename**, **username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
 8.  **AzureSqlLinkedService1.json** 파일을 저장합니다. 
 
 
@@ -209,7 +209,8 @@
 	1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
 	2. **이름**에 **VSTutorialFactory**를 입력합니다.  
 	
-		> [AZURE.NOTE]Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 데이터 팩터리의 이름에 대한 오류를 받은 경우 데이터 팩터리의 이름(예: yournameVSTutorialFactory)을 변경하고 다시 게시하도록 시도합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+		> [AZURE.NOTE]  
+		> Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 데이터 팩터리의 이름에 대한 오류를 받은 경우 데이터 팩터리의 이름(예: yournameVSTutorialFactory)을 변경하고 다시 게시하도록 시도합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 		> 
 		> 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 	3. **구독** 필드에서 올바른 구독을 선택합니다. 
@@ -224,8 +225,10 @@
 ## 서버 탐색기를 사용하여 데이터 팩터리 엔터티를 검토합니다.
 
 1. **Visual Studio**의 메뉴에서 **보기**를 클릭한 다음 **서버 탐색기**를 클릭합니다.
-2. 서버 탐색기 창에서 **Azure**를 확장한 다음 **데이터 팩터리**를 확장합니다. **Visual Studio에 로그인**이 표시되면 Azure 구독과 연결된 **계정**을 입력하고 **계속**을 클릭합니다. **암호**를 입력하고 **로그인**을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **데이터 팩터리 작업 목록** 창에 이 작업의 상태가 표시됩니다. ![서버 탐색기](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 새 프로젝트로 데이터 팩터리 내보내기를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다. ![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. 서버 탐색기 창에서 **Azure**를 확장한 다음 **데이터 팩터리**를 확장합니다. **Visual Studio에 로그인**이 표시되면 Azure 구독과 연결된 **계정**을 입력하고 **계속**을 클릭합니다. **암호**를 입력하고 **로그인**을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **데이터 팩터리 작업 목록** 창에 이 작업의 상태가 표시됩니다.  
+	![서버 탐색기](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 새 프로젝트로 데이터 팩터리 내보내기를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다.  
+	![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Visual Studio용 데이터 팩터리 도구 업데이트
 Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 수행합니다.

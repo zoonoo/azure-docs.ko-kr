@@ -47,7 +47,7 @@
 
 이 자습서를 완료해야 다른 모든 Xamarin.Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
-> [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)을 참조하세요.
 
 ##Google Cloud Messaging 사용
 
@@ -86,7 +86,7 @@
 
 	**Package name**의 첫 문자는 소문자여야 합니다.
 
-	> [AZURE.IMPORTANT]패키지 이름의 첫 문자는 소문자여야 합니다. 그렇지 않으면 아래에서 푸시 알림에 대한 **BroadcastReceiver** 및 **IntentFilter**를 등록할 때 응용 프로그램 매니페스트 오류가 표시됩니다.
+	> [AZURE.IMPORTANT] 패키지 이름의 첫 문자는 소문자여야 합니다. 그렇지 않으면 아래에서 푸시 알림에 대한 **BroadcastReceiver** 및 **IntentFilter**를 등록할 때 응용 프로그램 매니페스트 오류가 표시됩니다.
 
    	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 
@@ -115,7 +115,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 	- **GoogleProjectNumber**: Google 개발자 포털의 앱 개요에서 이 프로젝트의 번호 값을 가져옵니다. 앞서 포털에서 앱을 생성할 때 이 값을 기입해 두었습니다.
 	- **연결 문자열 수신 대기**: Azure 포털의 대시보드에서 **연결 문자열 보기**를 클릭합니다. 이 값에 대해 *DefaultListenSharedAccessSignature* 연결 문자열을 복사합니다.
-	- **허브 이름**: Azure 포털에서 허브의 이름입니다. 예를 들어 *mynotificationhub2*입니다.
+	- **허브 이름**: Azure 포털에서 허브의 이름입니다. 예를 들어 *mynotificationhub2* 입니다.
 
 	Xamarin 프로젝트에 대해 **Constants.cs** 클래스를 만들고 클래스에 다음 상수 값을 정의합니다. 자리 표시자는 해당 값으로 바꿉니다.
 
@@ -170,7 +170,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 4. **MyBroadcastReceiver**라는 새 클래스를 만듭니다.
 
-	> [AZURE.NOTE]아래에서 **BroadcastReceiver** 클래스를 처음부터 만드는 과정을 설명합니다. 그러나 수동으로 **MyBroadcastReceiver.cs**를 만드는 대신 [NotificationHubs 샘플][GitHub]에 포함된 샘플 Xamarin.Android 프로젝트에 있는 **GcmService.cs** 파일을 참조하면 더 빠르게 만들 수 있습니다. 또한 **GcmService.cs**를 복제하고 클래스 이름을 변경하면 빨리 시작할 수 있습니다.
+	> [AZURE.NOTE] 아래에서 **BroadcastReceiver** 클래스를 처음부터 만드는 과정을 설명합니다. 그러나 수동으로 **MyBroadcastReceiver.cs**를 만드는 대신 [NotificationHubs 샘플][GitHub]에 포함된 샘플 Xamarin.Android 프로젝트에 있는 **GcmService.cs** 파일을 참조하면 더 빠르게 만들 수 있습니다. 또한 **GcmService.cs**를 복제하고 클래스 이름을 변경하면 빨리 시작할 수 있습니다.
 
 5. 다음 using 문을 **MyBroadcastReceiver.cs**에 추가합니다.(앞에서 만든 구성 요소 및 어셈블리 참조)
 
@@ -261,7 +261,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 			}
 		}
 
-	> [AZURE.NOTE]위의 **OnRegistered()** 코드에서 태그를 지정하여 특정 메시징 채널에 등록하는 기능을 확인해야 합니다.
+	> [AZURE.NOTE] 위의 **OnRegistered()** 코드에서 태그를 지정하여 특정 메시징 채널에 등록하는 기능을 확인해야 합니다.
 
 10. 다음 코드를 사용하여 **PushHandlerService**의 **OnMessage** 메서드를 재정의합니다.
 
@@ -290,7 +290,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 11. 알림이 수신되면 사용자에게 알리도록 다음 **createNotification** 및 **dialogNotify** 메서드를 **PushHandlerService**에 추가합니다.
 
-	>[AZURE.NOTE]Android 버전 5.0 이후의 알림 설계는 이전 버전과 상당한 차이가 있습니다. Android 5.0에서 이를 테스트할 때는 알림 수신을 위해 앱을 실행해야 합니다. 자세한 내용은 [Android 알림](http://go.microsoft.com/fwlink/?LinkId=615880)을 참조하세요.
+	>[AZURE.NOTE] Android 버전 5.0 이후의 알림 설계는 이전 버전과 상당한 차이가 있습니다. Android 5.0에서 이를 테스트할 때는 알림 수신을 위해 앱을 실행해야 합니다. 자세한 내용은 [Android 알림](http://go.microsoft.com/fwlink/?LinkId=615880)을 참조하세요.
 
         void createNotification(string title, string desc)
         {
@@ -358,9 +358,9 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 에뮬레이터에서 이 앱을 실행하는 경우 Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다.
 
-> [AZURE.IMPORTANT]푸시 알림을 받으려면 Android 가상 장치에서 Google 계정을 설정해야 합니다. (에뮬레이터에서 **설정**으로 이동하고 **계정 추가**를 클릭함.) 에뮬레이터가 인터넷에 연결되어 있어야 합니다.
+> [AZURE.IMPORTANT] 푸시 알림을 받으려면 Android 가상 장치에서 Google 계정을 설정해야 합니다. (에뮬레이터에서 **설정**으로 이동하고 **계정 추가**를 클릭함.) 에뮬레이터가 인터넷에 연결되어 있어야 합니다.
 
->[AZURE.NOTE]Android 버전 5.0 이후의 알림 설계는 이전 버전과 상당한 차이가 있습니다. 자세한 내용은 [Android 알림](http://go.microsoft.com/fwlink/?LinkId=615880)을 참조하세요.
+>[AZURE.NOTE] Android 버전 5.0 이후의 알림 설계는 이전 버전과 상당한 차이가 있습니다. 자세한 내용은 [Android 알림](http://go.microsoft.com/fwlink/?LinkId=615880)을 참조하세요.
 
 
 1. **Tools**에서 **Open Android Emulator Manager**를 클릭하고 해당 장치를 선택한 후 **Edit**를 클릭합니다.

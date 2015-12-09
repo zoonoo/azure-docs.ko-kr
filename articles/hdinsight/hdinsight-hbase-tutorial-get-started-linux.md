@@ -86,14 +86,16 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 **HBase 셸을 사용하려면**
 
->[AZURE.NOTE]여기의 단계는 Windows 컴퓨터에서 제공합니다. Linux, Unix 또는 OS X에서 Linux 기반 HDInsight 클러스터로 연결하는 데 대한 지침은 [Linux, Unix, 또는 OS X의 HDInsight에서 Linux 기반 Hadoop로 SSH 사용(미리 보기)](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.1. **PuTTY**를 엽니다. 문서의 시작에 나열된 필수 구성 요소를 참조하세요. 2. 생성 과정에서 사용자 계정을 생성할 때 SSH 키를 제공한 경우 다음 단계를 수행하여 클러스터에 인증할 때 사용하려는 개인 키를 선택해야 합니다.
+>[AZURE.NOTE] 여기의 단계는 Windows 컴퓨터에서 제공합니다. Linux, Unix 또는 OS X에서 Linux 기반 HDInsight 클러스터로 연결하는 데 대한 지침은 [Linux, Unix, 또는 OS X의 HDInsight에서 Linux 기반 Hadoop로 SSH 사용(미리 보기)](hdinsight-hadoop-linux-use-ssh-unix.md)
+1. 을 참조하세요. **PuTTY**를 엽니다. 문서의 시작에 나열된 필수 구성 요소를 참조하세요.
+2. 생성 과정에서 사용자 계정을 생성할 때 SSH 키를 제공한 경우 다음 단계를 수행하여 클러스터에 인증할 때 사용하려는 개인 키를 선택해야 합니다.
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
 3. **Category**에서 **Session**을 클릭합니다.
 4. PuTTY 세션 화면에 대한 기본 옵션에서 다음 값을 입력합니다.
 
-	- 호스트 이름: 호스트 이름에서 HDInsight 서버의 SSH 주소(또는 IP 주소) 필드입니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 *mycluster-ssh.azurehdinsight.net*과 같습니다.
+	- 호스트 이름: 호스트 이름에서 HDInsight 서버의 SSH 주소(또는 IP 주소) 필드입니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 *mycluster-ssh.azurehdinsight.net* 과 같습니다.
 	- 포트: 22. 헤드 노드 0에서 SSH 포트는 22입니다. [Linux에서 HDInsight 사용에 관한 정보(미리 보기)](hdinsight-hadoop-linux-information.md#remote-access-to-services)를 참조하세요.
 4. **Open**을 클릭하여 클러스터에 연결합니다.
 5. 메시지가 표시되면 클러스터를 생성할 때 입력한 사용자를 입력합니다. 사용자에 대한 암호를 제공한 경우 사용자를 입력하라는 메시지도 나타납니다.
@@ -148,7 +150,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 텍스트 파일을 만들고 원하는 경우 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침은 [HDInsight에서 Hadoop 작업에 대한 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
-> [AZURE.NOTE]이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
+> [AZURE.NOTE] 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
 
 1. **PuTTY**를 열고 클러스터에 연결합니다. 이전 절차의 지침을 참조하세요.
 3. 데이터 파일을 StoreFiles로 변환하고 Dimporttsv.bulk.output에서 지정된 상대 경에 저장하려면 다음 명령을 실행합니다.
@@ -201,8 +203,8 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
   이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+    * **-u** - 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
+    * **-G** - GET 요청임을 나타냅니다.
 
 2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
 
