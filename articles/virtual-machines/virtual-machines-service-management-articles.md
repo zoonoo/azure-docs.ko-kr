@@ -24,7 +24,7 @@
 
 ## 시작
 
-[Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial-classic-portal.md)
+[Azure 클래식 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial-classic-portal.md)
 
 [Azure에서 Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기](virtual-machines-windows-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

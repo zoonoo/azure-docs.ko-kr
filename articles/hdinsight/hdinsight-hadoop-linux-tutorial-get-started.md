@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="11/29/2015"
    	ms.author="nitinme"/>
 
 # Hadoop 자습서: Linux의 HDInsight에서 Hive와 Hadoop 사용 시작
@@ -51,10 +51,10 @@
 
 다음 단계에 따라 새 클러스터를 만듭니다.
 
-1. [Azure 미리 보기 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
-    ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
+    ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Azure 포털에서 새 클러스터 만들기")
 
 3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
@@ -230,7 +230,7 @@ SSH를 통해 클러스터에 연결한 후에는 다음 명령을 사용하여 
 
 ## <a name="nextsteps"></a>다음 단계
 
-이 문서에서는 Azure Preview 포털을 사용하여 Linux 기반 HDInsight 클러스터를 만들고, SSH를 사용하여 클러스터에 연결하는 방법과 기본 Hive 쿼리를 수행하는 방법을 배웠습니다.
+이 문서에서는 Azure 포털을 사용하여 Linux 기반 HDInsight 클러스터를 만들고, SSH를 사용하여 클러스터에 연결하는 방법과 기본 Hive 쿼리를 수행하는 방법을 배웠습니다.
 
 HDInsight를 사용해서 데이터를 분석하는 데 대한 자세한 내용은 다음을 참조하세요.
 
@@ -283,4 +283,4 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

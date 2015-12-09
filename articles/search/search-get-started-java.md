@@ -28,7 +28,7 @@
 
 - [Apache는 Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 관리 포털](https://portal.azure.com)에서 등록할 수 있습니다.
+이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 클래식 포털](https://portal.azure.com)에서 등록할 수 있습니다.
 
 > [AZURE.TIP]Github의 [Azure 검색 Java 데모](http://go.microsoft.com/fwlink/p/?LinkId=530197)에서 이 자습서의 원본 코드를 다운로드하세요.
 
@@ -55,7 +55,7 @@
 
 ## 서비스 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 이동 표시줄에서 **새로 만들기** > **데이터 + 저장소** > **검색**을 클릭합니다.
 
@@ -123,7 +123,7 @@
 
 1. **Project Explorer**에서 **config.properties**를 두 번 클릭하여 서버 이름 및 api-key가 포함된 구성 설정을 편집합니다.
 
-2. [Azure 포털](https://portal.azure.com)에서 서비스 URL 및 api-key를 찾은 이 문서의 이전 단계를 참조하여 **config.properties**에 입력할 값을 가져옵니다.
+2. [Azure 클래식 포털](https://portal.azure.com)에서 서비스 URL 및 api-key를 찾은 이 문서의 이전 단계를 참조하여 **config.properties**에 입력할 값을 가져옵니다.
 
 3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 그러면 서비스 이름(URL http://servicename.search.windows.net의 첫 번째 구성 요소)이 동일한 파일의 "service name"을 대체합니다.
 
@@ -231,4 +231,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

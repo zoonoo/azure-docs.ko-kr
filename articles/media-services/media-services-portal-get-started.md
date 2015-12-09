@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 포털을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Azure"
-	description="이 자습서에서는 Azure 포털을 사용한 Azure 미디어 서비스로 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
+	pageTitle="Azure 클래식 포털을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Azure"
+	description="이 자습서에서는 Azure 클래식 포털을 사용한 Azure 미디어 서비스로 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -17,13 +17,13 @@
 	ms.author="juliako"/>
 
 
-# Azure 포털을 사용한 주문형 콘텐츠 제공 시작
+# Azure 클래식 포털을 사용한 주문형 콘텐츠 제공 시작
 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
-이 자습서에서는 Azure 포털을 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
+이 자습서에서는 Azure 클래식 포털을 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
 
 > [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
@@ -39,7 +39,7 @@
 
 ## Azure 미디어 서비스 계정 만들기
 
-1. [Azure 포털](https://manage.windowsazure.com/)에서 **새로 만들기**, **미디어 서비스** 및 **빠른 생성**을 차례로 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **새로 만들기**, **미디어 서비스** 및 **빠른 생성**을 차례로 클릭합니다.
 
 	![미디어 서비스 빠른 생성](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
@@ -79,7 +79,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 스트리밍 예약 단위의 수를 변경하려면 다음을 수행합니다.
 
-1. [Azure 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
 
 2. 스트리밍 끝점 페이지를 선택합니다. 그리고 수정할 스트리밍 끝점을 클릭합니다.
 
@@ -98,7 +98,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 ## 콘텐츠 업로드
 
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)에서 **미디어 서비스**를 클릭한 후 미디어 서비스 계정 이름을 클릭합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)에서 **미디어 서비스**를 클릭한 후 미디어 서비스 계정 이름을 클릭합니다.
 2. 콘텐츠 페이지를 선택합니다.
 3. 페이지나 포털 맨 아래에 있는 **업로드** 단추를 클릭합니다.
 4. **콘텐츠 업로드** 대화 상자에서 원하는 자산 파일로 이동합니다. 파일을 클릭한 후 **열기**를 클릭하거나 Enter 키를 누릅니다.
@@ -137,7 +137,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 ### 인코딩
 
-이 섹션에서는 Azure 포털을 사용하여 Azure 미디어 인코더로 콘텐츠를 인코딩할 수 있는 단계를 설명합니다.
+이 섹션에서는 Azure 클래식 포털을 사용하여 Azure 미디어 인코더로 콘텐츠를 인코딩할 수 있는 단계를 설명합니다.
 
 1.  인코딩하려는 파일을 선택합니다. 이 파일 형식에 대해 인코딩이 지원되는 경우에는 콘텐츠 페이지 아래쪽에서 **프로세스** 단추를 사용할 수 있습니다.
 4. **프로세스** 대화 상자에서 **Azure 미디어 인코더** 프로세서를 선택합니다.
@@ -172,7 +172,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 콘텐츠 스트림 또는 다운로드에 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. 미디어 서비스는 두 가지 유형의 로케이터를 지원합니다.하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다.
 
-Azure 포털을 사용하여 자산을 게시할 때 해당 로케이터가 만들어지며 URL(자산에 .ism 파일이 포함된 경우) 또는 SAS URL을 기반으로 하는 OnDemand가 제공됩니다.
+Azure 클래식 포털을 사용하여 자산을 게시할 때 해당 로케이터가 만들어지며 URL(자산에 .ism 파일이 포함된 경우) 또는 SAS URL을 기반으로 하는 OnDemand가 제공됩니다.
 
 SAS URL의 형식은 다음과 같습니다.
 
@@ -209,7 +209,7 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 
 ## 포털에서 콘텐츠 재생
 
-Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘텐츠 플레이어를 제공합니다.
+Azure 클래식 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘텐츠 플레이어를 제공합니다.
 
 원하는 비디오를 클릭하고 포털 맨 아래에 있는 **재생** 단추를 클릭합니다.
 
@@ -244,7 +244,7 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 <!-- Images -->
@@ -260,4 +260,4 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -237,7 +237,7 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 
 ### 1단계 
-[Click to deploy Application Gateway](https://azure.microsoft.com/ko-KR/documentation/templates/101-application-gateway-public-ip/)(응용 프로그램 게이트웨이 클릭하여 배포) 링크를 사용하면 응용 프로그램 게이트웨이에 대한 포털 템플릿 페이지로 리디렉션됩니다.
+[클릭하여 응용 프로그램 게이트웨이 배포](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) 링크를 사용하면 응용 프로그램 게이트웨이에 대한 포털 템플릿 페이지로 리디렉션됩니다.
 
 
 ### 2단계 
@@ -273,4 +273,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -396,7 +396,7 @@
 		
 		module.exports = config;
 
-3. **config.js** 파일에서 [Microsoft Azure Preview 포털](http://portal.azure.com)의 DocumentDB 계정 키 블레이드에 있는 값을 사용해서 HOST 및 AUTH\_KEY 값을 업데이트합니다.
+3. **config.js** 파일에서 [Microsoft Azure 포털](http://portal.azure.com)의 DocumentDB 계정 키 블레이드에 있는 값을 사용해서 HOST 및 AUTH\_KEY 값을 업데이트합니다.
 
 4. **config.js** 파일을 저장하고 닫습니다.
  
@@ -569,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

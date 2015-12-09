@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -35,9 +40,9 @@
 
 ## 새 iOS 앱 만들기
 
-관리 포털에서 쉬운 빠른 시작을 수행하여 모바일 서비스에 연결된 새 앱을 만들 수 있습니다.
+Azure 클래식 포털에서 쉬운 빠른 시작을 수행하여 모바일 서비스에 연결된 새 앱을 만들 수 있습니다.
 
-1. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+1. [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
 2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **iOS**를 클릭하고 **새 iOS 앱 만들기**를 확장합니다. 모바일 서비스에 연결된 iOS 앱을 만드는 단계가 표시됩니다.
 
@@ -49,7 +54,7 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다. 이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.<p></li></ol></p>
+<ol start="4"> <li><p>[Azure 클래식 포털]에 돌아와서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다. 이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>다음 단계
 모바일 서비스에서 중요한 추가 작업을 수행하는 방법에 대해 알아봅니다.
@@ -86,8 +91,8 @@
 
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 백 엔드 버전]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

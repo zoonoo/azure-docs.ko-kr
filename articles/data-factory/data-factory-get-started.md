@@ -38,7 +38,7 @@
 ### Azure 저장소 계정의 계정 이름과 계정 키를 수집합니다.
 이 자습서를 수행하려면 Azure 저장소 계정의 계정 이름과 계정 키가 필요합니다. 아래 지침에 따라 Azure 저장소 계정의 **계정 이름**과 **계정 키**를 적어둡니다.
 
-1. [Azure Preview 포털][azure-preview-portal]에 로그인합니다.
+1. [Azure 포털][azure-portal]에 로그인합니다.
 2. 왼쪽의 **찾아보기** 허브를 클릭하고 **저장소 계정**을 선택합니다.
 3. **저장소 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure 저장소 계정**을 선택합니다.
 4. **저장소** 블레이드에서 **키** 타일을 클릭합니다.
@@ -49,7 +49,7 @@
 ### Azure SQL 데이터베이스의 서버 이름, 데이터베이스 이름 및 사용자 계정을 수집합니다.
 이 자습서를 수행하려면 Azure SQL Server, 데이터베이스 및 사용자의 이름이 필요합니다. 아래 지침에 따라 Azure SQL 데이터베이스의 **서버**, **데이터베이스** 및 **사용자**의 이름을 적어둡니다.
 
-1. **Azure Preview 포털**에서 왼쪽의 **찾아보기**를 클릭하고 **SQL 데이터베이스**를 선택합니다.
+1. **Azure 포털**에서 왼쪽의 **찾아보기**를 클릭하고 **SQL 데이터베이스**를 선택합니다.
 2. **SQL 데이터베이스 블레이드**에서, 이 자습서에서 사용하려는 **데이터베이스**를 선택합니다. **데이터베이스 이름**을 적어둡니다.  
 3. **SQL 데이터베이스** 블레이드에서 **속성** 타일을 클릭합니다.
 4. **서버 이름** 및 **서버 관리자 로그인**의 값을 적어둡니다.
@@ -88,22 +88,22 @@
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**SQL Server 2012/2014가 컴퓨터에 설치된 경우:** [2단계: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리의 SQL 데이터베이스에 연결][sql-management-studio] 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다. 이 문서에서는 릴리스 관리 포털(http://manage.windowsazure.com), Preview 포털 http://portal.azure.com) 아님)을 사용하여 Azure SQL Server의 방화벽을 구성합니다.
+	**SQL Server 2012/2014가 컴퓨터에 설치된 경우:** [2단계: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리의 SQL 데이터베이스에 연결][sql-management-studio] 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다. 이 문서에서는 [Azure 포털](http://portal.azure.com)이 아닌 [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하여 Azure SQL Server의 방화벽을 구성합니다.
 
-	**Visual Studio 2013이 컴퓨터에 설치된 경우:** [Azure Preview 포털](http://portal.azure.com)에서 왼쪽의 **찾아보기** 허브를 클릭하고 **SQL Server**를 클릭한 다음 데이터베이스를 선택하고 도구 모음의 **Visual Studio에서 열기** 단추를 클릭하여 Azure SQL Server에 연결한 다음 스크립트를 실행합니다. 클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 위의 문서를 참조하세요.
+	**Visual Studio 2013이 컴퓨터에 설치된 경우:** [Azure 포털](http://portal.azure.com)에서 왼쪽의 **찾아보기** 허브를 클릭하고 **SQL Server**를 클릭한 다음 데이터베이스를 선택하고 도구 모음의 **Visual Studio에서 열기** 단추를 클릭하여 Azure SQL Server에 연결한 다음 스크립트를 실행합니다. 클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 위의 문서를 참조하세요.
 
 
 다음을 수행합니다.
 
-- 맨 위의 [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md) 링크를 클릭하여 Azure 포털의 일부인 데이터 팩터리 편집기를 통해 자습서를 수행합니다.
+- 맨 위의 [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md) 링크를 클릭하여 Azure 클래식 포털의 일부인 데이터 팩터리 편집기를 통해 자습서를 수행합니다.
 - 맨 위의 [PowerShell 사용](data-factory-monitor-manage-using-powershell.md) 링크를 클릭하여 Azure PowerShell을 통해 자습서를 수행합니다.
-- 맨 위의 [Visual Studio 사용](data-factory-get-started-using-vs.md) 링크를 클릭하여 Visual Studio 2013을 통해 자습서를 수행합니다.
+- Visual Studio 2013을 사용해서 자습서를 수행하려면 맨 위의 [Visual Studio 사용](data-factory-get-started-using-vs.md) 링크를 클릭합니다.
  
 
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -111,4 +111,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

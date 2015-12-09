@@ -36,7 +36,7 @@
 
 데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(****servername**.database.windows.net*)이 필요합니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 연결하려는 데이터베이스를 찾습니다.
 3. 전체 서버 이름을 찾습니다.(다음 단계에서 사용)
 
@@ -83,4 +83,4 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서](https://msdn.microsoft.com/lib
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

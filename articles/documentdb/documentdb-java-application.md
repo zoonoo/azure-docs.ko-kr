@@ -52,7 +52,7 @@ Azure에서 DocumentDB 데이터베이스 계정을 프로비전하려면 다음
 1. 데이터베이스 계정이 아직 없으면 [데이터베이스 계정 만들기](documentdb-create-account.md)의 지침에 따라 계정을 만듭니다. 이미 계정이 있으면 2단계를 계속합니다.
 2. 다음 그림에 표시된 **키** 블레이드를 사용해서 끝점 **URI** 및 **PRIMARY KEY**를 클립보드에 복사하고 다음에 만드는 웹 응용 프로그램에서 이러한 값을 사용할 수 있도록 잘 보관합니다.
 
-![DocumentDB 계정 만들기 – 데이터베이스 자습서 활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷][1]
+![DocumentDB 계정 만들기 – 데이터베이스 자습서 활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure 포털의 스크린샷][1]
 
 
 ##<a id="CreateJSP"></a>2단계: Java JSP 응용 프로그램 만들기
@@ -786,4 +786,4 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

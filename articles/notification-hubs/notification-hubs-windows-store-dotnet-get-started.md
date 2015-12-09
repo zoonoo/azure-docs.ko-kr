@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/23/2015"
 	ms.author="wesmc"/>
 
 # Windows 스토어 앱에 대한 알림 허브 시작
@@ -37,7 +37,7 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ Microsoft Visual Studio Express 2013 for Windows 업데이트 2<br/>범용 앱 프로젝트를 만들려면 이 버전의 Visual Studio가 필요합니다. Windows 스토어 앱을 만들려면 Visual Studio 2012 Express for Windows 8이 필요합니다.
++ Microsoft Visual Studio Express 2013 for Windows 업데이트 2 이상<br/>유니버설 앱 프로젝트를 만들려면 이 Visual Studio 버전이 필요합니다. Windows 스토어 앱을 만들려면 Visual Studio 2012 Express for Windows 8이 필요합니다.
 
 + 활성 Windows 스토어 계정
 
@@ -284,4 +284,4 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

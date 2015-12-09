@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/25/2015"
 	ms.author="awills"/>
 
 
@@ -24,7 +24,7 @@ Visual Studio Application Insights의 상태 모니터를 사용하여 ASP.NET �
 
 ![예제 차트](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] [라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure 클라우드 서비스](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서가 있습니다.
+> [AZURE.TIP][라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure 클라우드 서비스](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서가 있습니다.
 
 
 Application Insights를 IIS 웹 응용 프로그램에 적용하는 세 가지 방법이 있습니다.
@@ -120,7 +120,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 또한 차트를 필터링하여 특정 종속성, 유형 또는 성능 버킷을 살펴볼 수 있습니다. 필터를 클릭합니다.
 
-#### 성능 카운터
+## 성능 카운터
 
 (Azure 웹앱용이 아님) 개요 블레이드에서 서버를 클릭하여 CPU 선점 및 메모리 사용과 같은 서버 성능 카운터의 차트를 확인합니다.
 
@@ -128,11 +128,15 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 또한 [SDK에서 보고된 성능 카운터 집합을 변경](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)할 수 있습니다.
 
-#### 예외
+## 예외
 
 ![서버 예외 차트를 클릭합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
 특정 예외로 드릴다운(지난 7일부터)하고 스택 추적 및 컨텍스트 데이터를 가져올 수 있습니다.
+
+## 샘플링
+
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다](app-insights-sampling.md).
 
 
 ## 문제 해결
@@ -211,9 +215,9 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

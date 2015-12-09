@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="11/03/2015"
+	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
 # Baidu를 사용하여 알림 허브 시작
@@ -187,7 +187,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
     ![][26]
 
-5. [모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notificationhubs** 폴더를 연 후 **notification-hubs-x.y.jar** 파일을 Eclipse 프로젝트의 **libs** 폴더에 복사한 다음 *libs* 폴더를 새로 고칩니다.
+5. [Bintray의 Notification-Hubs-Android-SDK](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4)의 **파일** 탭에서 notification-hubs-0.4.jar 파일을 다운로드합니다. Eclipse 프로젝트의 **libs** 폴더에 파일을 추가하고 *libs* 폴더를 새로 고칩니다.
 
 6. [Baidu 푸시 Android SDK]를 다운로드하여 압축을 풀고 **libs** 폴더를 연 후 **pushservice-x.y.z** jar 파일 및 Android 응용 프로그램의 **libs** 폴더에 있는 **armeabi** 및 **mips** 폴더를 복사합니다.
 
@@ -503,4 +503,4 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 [Azure 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

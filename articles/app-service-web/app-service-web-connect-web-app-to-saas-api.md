@@ -30,7 +30,7 @@
 
 ## API 앱을 공개적으로 액세스할 수 있도록 설정
 
-[Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 API 앱을 선택합니다. 명령 모음에서 **설정** 단추를 클릭합니다. **응용 프로그램 설정** 블레이드에서 **액세스 수준**을 **공용(익명)**으로 변경합니다.
+[Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 API 앱을 선택합니다. 명령 모음에서 **설정** 단추를 클릭합니다. **응용 프로그램 설정** 블레이드에서 **액세스 수준**을 **공용(익명)**으로 변경합니다.
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
@@ -70,20 +70,18 @@
 	![HomeController.cs 코드 업데이트](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
 1. 아래 코드를 사용하여 동적 연락처 목록을 반영하도록 `Contact` 보기를 업데이트합니다.
-	<pre>// Add to the very top of the view file
-	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Replace the default email addresses with the following
-    &lt;h3&gt;Public Contacts&lt;/h3&gt;
-    &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
-            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
-    &lt;/ul&gt; 
-	</pre>
+	<pre>// 뷰 파일의 최상위에 추가
+@model IList&lt;MyContactsList.Web.Models.Contact>
 
-	![Contact.cshtml Code Updates](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+// 기본 메일 주소를 다음 메일 주소로 바꿉니다.
+&lt;h3>Public Contacts&lt;/h3>
+&lt;ul>
+    @foreach (var contact in Model)
+    {
+        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+    }
+&lt;/ul> 
+</pre>![Contact.cshtml 코드 업데이트](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## 앱 서비스에서 웹앱에 웹 응용 프로그램 배포
 
@@ -93,7 +91,6 @@
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

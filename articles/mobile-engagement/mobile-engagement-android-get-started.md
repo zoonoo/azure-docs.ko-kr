@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="12/02/2015"
 	ms.author="piyushjo" />
 
 # Android 앱용 Azure Mobile Engagement 시작
@@ -56,7 +56,7 @@
     ![][2]
 
 3. 대상 폼 팩터 및 API 수준을 선택하고 **다음**을 클릭합니다.
-	
+
 	>[AZURE.NOTE]Mobile Engagement를 사용하려면 API 수준 10 이상(Android 2.3.3)이 필요합니다.
 
     ![][3]
@@ -102,7 +102,7 @@ SDK 라이브러리를 다운로드하여 통합합니다.
 		import com.microsoft.azure.engagement.EngagementAgent;
 		import com.microsoft.azure.engagement.EngagementConfiguration;
 
-3. Azure 포털의 앱 **연결 정보** 페이지로 돌아가서 **연결 문자열**을 복사합니다.
+3. Azure 클래식 포털의 앱 **연결 정보** 페이지로 돌아가서 **연결 문자열**을 복사합니다.
 
 	  ![][9]
 
@@ -224,7 +224,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 >[AZURE.TIP]올바른 아이콘 해상도를 사용하는지 확인하려면 [해당 예제](https://www.google.com/design/icons)를 확인하세요. **알림** 섹션이 나올 때까지 아래로 스크롤하고 아이콘을 클릭한 다음 `PNGS`를 클릭하여 아이콘 drawable 집합을 다운로드합니다. 각 아이콘 버전에 사용할 drawable 폴더와 해상도를 확인할 수 있습니다.
 
-##API 키를 가진 Google Cloud Messaging 프로젝트 만들기 
+##API 키를 가진 Google Cloud Messaging 프로젝트 만들기
 
 [AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
@@ -263,16 +263,16 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 1. Mobile Engagement 포털로 이동합니다.
 
-	Azure 포털에서 현재 이 프로젝트에 사용하고 있는 앱에 있는지 확인한 다음 아래쪽에서 **연결** 단추를 클릭합니다.
+	Azure 클래식 포털에서 현재 이 프로젝트에 사용하고 있는 앱에 있는지 확인한 다음 아래쪽에서 **연결** 단추를 클릭합니다.
 
 	![][15]
 
 2. **설정** -> **네이티브 푸시** 섹션을 클릭하여 GCM 키를 입력합니다.
-	  
+
 	![][16]
 
 3. 아래와 같이 **GCM 설정** 섹션의 **API 키** 앞에 있는 **편집** 아이콘을 클릭합니다.
-	  
+
 	![][17]
 
 4. 팝업에서 전에 가져온 GCM 서버 키를 붙여넣은 다음 **확인**을 클릭합니다.
@@ -284,13 +284,13 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 이제 앱에 푸시 알림을 보내는 간단한 푸시 알림 캠페인을 만들겠습니다.
 
 1. Mobile Engagement 포털에서 **도달률** 탭으로 이동합니다.
-	 
+
 2. **새 공지**를 클릭하여 푸시 알림 캠페인을 만듭니다.
-	 
+
 	![][20]
 
 3. 다음 단계를 수행하여 캠페인의 첫 번째 필드를 설정합니다.
-	 
+
 	![][21]
 
 	a. 캠페인 이름을 지정합니다.
@@ -310,12 +310,12 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 5. 가능한 가장 기본적인 캠페인 설정을 완료했습니다. 이제 다시 아래로 스크롤하고 **만들기** 단추를 클릭하여 캠페인을 저장합니다.
 
 6. 마지막 단계: **활성화**를 클릭하여 푸시 알림을 보내기 위해 캠페인을 활성화합니다.
-    
+
 	![][24]
 
 <!-- URLs. -->
-[Mobile Engagement Android SDK]: http://go.microsoft.com/?linkid=9863935
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Mobile Engagement Android SDK]: https://aka.ms/vq9mfn
+[Mobile Engagement Android SDK documentation]: https://aka.ms/tujlkm
 [고급 Android 통합]: https://azure.microsoft.com/ko-KR/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
 
 <!-- Images. -->
@@ -339,4 +339,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

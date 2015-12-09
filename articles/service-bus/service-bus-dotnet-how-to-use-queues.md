@@ -54,7 +54,7 @@
 
 ### 클라우드 서비스를 사용하는 경우 연결 문자열 구성
 
-서비스 구성 메커니즘은 Azure 클라우드 서비스 프로젝트에 고유하며, 응용 프로그램을 다시 배포하지 않고도 Azure 포털에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(*.csdef) 파일에 `Setting` 레이블을 추가합니다.
+서비스 구성 메커니즘은 Azure 클라우드 서비스 프로젝트에 고유하며, 응용 프로그램을 다시 배포하지 않고도 [Azure 클래식 포털][]에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(.csdef) 파일에 `Setting` 레이블을 추가합니다.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -82,7 +82,7 @@
 </ServiceConfiguration>
 ```
 
-이전 섹션에서 설명한 대로 Azure 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
+이전 섹션에서 설명한 대로 Azure 클래식 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
 
 ### 웹 사이트 또는 Azure 가상 컴퓨터를 사용하는 경우 연결 문자열 구성
 
@@ -97,7 +97,7 @@
 </configuration>
 ```
 
-이전 섹션에서 설명한 대로 Azure 포털에서 검색된 SAS 이름 및 키 값을 사용합니다.
+이전 섹션에서 설명한 대로 Azure 클래식 포털에서 검색된 SAS 이름 및 키 값을 사용합니다.
 
 ## 큐 만들기
 
@@ -183,7 +183,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-서비스 버스 큐는 [256KB의 최대 메시지 크기](service-bus-quotas.md)를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [메시징 엔터티 분할](service-bus-partitioning.md)을 참조하세요.
+서비스 버스 큐는 [메시지 크기를 최대 256KB](service-bus-quotas.md)까지 지원합니다.(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 크기는 최대 64KB임) 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [메시징 엔터티 분할](service-bus-partitioning.md)을 참조하세요.
 
 ## 큐에서 메시지를 받는 방법
 
@@ -236,7 +236,7 @@ Client.OnMessage((message) =>
 
 큐 내에서 잠긴 메시지와 연결된 시간 제한도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-응용 프로그램이 메시지를 처리한 후 [Complete][] 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지하는 메시지의 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 속성을 사용합니다.
+응용 프로그램이 메시지를 처리한 후 [완료][] 요청이 실행되기 전에 충돌하는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지하는 메시지의 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 속성을 사용합니다.
 
 ## 다음 단계
 
@@ -246,7 +246,7 @@ Client.OnMessage((message) =>
 -   [서비스 버스 조정된 메시징 .NET 자습서][]를 사용하여 서비스 버스 큐로 메시지를 보내고 받는 작동하는 응용 프로그램을 만듭니다.
 -   [Azure 샘플][]에서 서비스 버스 샘플을 다운로드하거나 [서비스 버스 샘플 개요][]를 참조하세요.
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [큐, 토믹 및 구독]: service-bus-queues-topics-subscriptions.md
   [서비스 버스 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
@@ -259,5 +259,6 @@ Client.OnMessage((message) =>
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
   [Abandon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
+  [완료]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

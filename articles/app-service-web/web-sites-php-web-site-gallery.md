@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 WordPress 웹앱 만들기 | Microsoft Azure"
-	description="Azure Preview 포털을 사용하여 WordPress 블로그에 새 Azure 웹앱을 만드는 방법을 알아봅니다."
+	description="Azure 포털을 사용하여 WordPress 블로그에 새 Azure 웹앱을 만드는 방법을 알아봅니다."
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -30,15 +30,15 @@
 * 템플릿을 기반으로 하는 Azure 앱 서비스에서 웹앱을 만드는 방법.
 * 새 웹앱 및 MySQL 데이터베이스에 대한 Azure 앱 서비스 설정을 구성하는 방법.
 
-Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨어에서 개발된 다양한 인기 웹앱을 사용할 수 있습니다. 웹앱은 이 WordPress 예제에서 [PHP](/develop/nodejs/), [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), 및 [Python](/develop/python/) 등과 같은 광범위하고 인기있는 프레임워크에서 작성됩니다. Azure 마켓플레이스에서 웹앱을 만들려면 유일하게 필요한 소프트웨어는 [Azure Preview 포털](https://portal.azure.com/)에 대해 사용하는 브라우저입니다.
+Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨어에서 개발된 다양한 인기 웹앱을 사용할 수 있습니다. 웹앱은 이 WordPress 예제에서 [PHP](/develop/nodejs/), [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), 및 [Python](/develop/python/) 등과 같은 광범위하고 인기있는 프레임워크에서 작성됩니다. Azure 마켓플레이스에서 웹앱을 만들려면 유일하게 필요한 소프트웨어는 [Azure 포털](https://portal.azure.com/)에 대해 사용하는 브라우저입니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
 ## WordPress 선택 및 Azure 앱 서비스에 대한 구성
 
-1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2. **새로 만들기**를 클릭합니다.
 	
@@ -60,7 +60,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 5. **리소스 그룹**을 선택하거나 새로 만듭니다.
 
-	리소스 그룹에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](../resource-group-portal.md)를 참조하세요.
+	리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../resource-group-portal.md)를 참조하세요.
 
 5. **앱 서비스 계획/위치**을 선택하거나 새로 만듭니다.
 
@@ -88,7 +88,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 ## WordPress 웹앱 시작 및 관리
 	
-7. 웹앱 만들기가 완료되면 포털에서 응용 프로그램을 만든 리소스 그룹으로 이동하고 웹앱 및 데이터베이스를 볼 수 있습니다.
+7. 웹앱 만들기가 완료되면 Azure 포털에서 응용 프로그램을 만든 리소스 그룹으로 이동하고 웹앱 및 데이터베이스를 볼 수 있습니다.
 
 	전구 아이콘이 있는 추가 리소스는 [Application Insights](/services/application-insights/)이며 웹앱에 대한 모니터링 서비스를 제공합니다.
 
@@ -118,10 +118,9 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

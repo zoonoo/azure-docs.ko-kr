@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/20/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # PowerShell cmdlet을 사용하여 새 SQL 데이터베이스 만들기 및 일반적인 데이터베이스 설치 작업 수행하기 
@@ -22,7 +22,7 @@
 **단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure Portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -144,4 +144,4 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 
 - [Azure SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

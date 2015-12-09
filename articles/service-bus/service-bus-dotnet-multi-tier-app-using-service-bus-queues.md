@@ -87,13 +87,13 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 다음 단계에서는 서비스 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 얻습니다. 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
-### Azure 포털을 사용하여 네임스페이스 설정
+### Azure 클래식 포털을 사용하여 네임스페이스 설정
 
-1.  [Azure 포털][]에 로그온합니다.
+1.  [Azure 클래식 포털][]에 로그온합니다.
 
-2.  Azure 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
+2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
-3.  Azure 포털의 아래쪽 창에서 **만들기**를 클릭합니다.
+3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다.
 
     ![][6]
 
@@ -269,7 +269,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 2.  클래스 이름을 QueueConnector.cs로 지정합니다. **추가**를 클릭하여 클래스를 만듭니다.
 
-3.  이제 연결 정보를 캡슐화하고 서비스 버스 큐에 대한 연결을 초기화하는 코드를 추가합니다. QueueConnector.cs에서 다음 코드를 추가하고 **Namespace**(서비스 네임스페이스) 및 **yourKey**(이전에 [Azure 포털][Azure portal]에서 얻은 SAS 키) 값을 입력합니다.
+3.  이제 연결 정보를 캡슐화하고 서비스 버스 큐에 대한 연결을 초기화하는 코드를 추가합니다. QueueConnector.cs에서 다음 코드를 추가하고 **Namespace**(서비스 네임스페이스) 및 **yourKey**(이전에 [Azure 클래식 포털][]에서 얻은 SAS 키) 값을 입력합니다.
 
         using System;
         using System.Collections.Generic;
@@ -286,7 +286,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Azure portal.
+                // Obtain these values from the portal.
                 public const string Namespace = "your service bus namespace";
 
                 // The name of your queue.
@@ -510,8 +510,7 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Azure portal]: http://manage.windowsazure.com
-  [Azure 포털]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -545,4 +544,4 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

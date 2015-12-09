@@ -1,6 +1,6 @@
 <properties
 	pageTitle="DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드 | Microsoft Azure"
-	description="DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드하는 Azure Preview 포털 도구인 DocumentDB 문서 탐색기에 대해 알아봅니다."
+	description="DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드하는 Azure 포털 도구인 DocumentDB 문서 탐색기에 대해 알아봅니다."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -18,7 +18,7 @@
 
 # DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드 #
 
-이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드할 수 있는 Azure Preview 포털 도구인 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대해 개괄적으로 설명합니다.
+이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드할 수 있는 Azure 포털 도구인 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대해 개괄적으로 설명합니다.
 
 이 자습서를 완료하면 다음 질문에 대답할 수 있습니다.
 
@@ -145,4 +145,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

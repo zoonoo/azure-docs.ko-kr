@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Preview 포털에서 SQL 데이터 웨어하우스 데이터베이스 만들기 | Microsoft Azure"
-	description="Azure Preview 포털에서 SQL 데이터 웨어하우스를 만드는 방법 알아보기"
+	pageTitle="Azure 포털에서 SQL 데이터 웨어하우스 데이터베이스 만들기 | Microsoft Azure"
+	description="Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다."
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -19,11 +19,11 @@
 # SQL 데이터 웨어하우스 만들기
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-이 자습서에서는 Azure Preview 포털에서 Azure SQL 데이터 웨어하우스 데이터베이스를 몇 분 이내에 만드는 방법을 보여줍니다.
+이 자습서에서는 Azure 포털에서 Azure SQL 데이터 웨어하우스 데이터베이스를 몇 분 이내에 만드는 방법을 보여줍니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -34,7 +34,7 @@
 
 ## 1단계: 로그인 및 시작
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터 웨어하우스**를 클릭합니다.
 
@@ -49,12 +49,7 @@
 
 SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터베이스는 서버에 할당되고 각 서버는 지리적 위치에 할당됩니다. 이 서버를 논리적 SQL server라고 합니다.
 
-> [AZURE.NOTE]<a name="note"></a>논리적 SQL server:
-  >
-  > + 지리적으로 같은 위치 내에서 여러 데이터베이스를 구성하는 일관된 방법을 제공합니다.
-  > + 온-프레미스 서버처럼 실제 하드웨어는 아닙니다. 서비스 소프트웨어의 일부입니다. 이러한 이유로 *논리적 서버*라고 합니다.
-  > + 성능에 영향을 주지 않으면서 여러 데이터베이스를 호스팅할 수 있습니다.
-  > + 이름에 소문자 *s*를 사용합니다. SQL **s**erver는 Azure 논리적 서버인 반면 SQL **S**erver는 Microsoft의 온-프레미스 데이터베이스 제품입니다.
+> [AZURE.NOTE]<a name="note"></a>논리적 SQL server: >> + 지리적으로 같은 위치 내에서 여러 데이터베이스를 구성하는 일관된 방법을 제공합니다. > + 온-프레미스 서버처럼 실제 하드웨어는 아닙니다. 서비스 소프트웨어의 일부입니다. 이러한 이유로 *논리적 서버*라고 합니다. > + 성능에 영향을 주지 않으면서 여러 데이터베이스를 호스팅할 수 있습니다. > + 이름에 소문자 *s*를 사용합니다. SQL **s**erver는 Azure 논리적 서버인 반면 SQL **S**erver는 Microsoft의 온-프레미스 데이터베이스 제품입니다.
 
 1. **서버** > **새 서버 만들기**를 클릭합니다. 서버에 대한 요금은 부과되지 않습니다. 사용할 V12 논리 SQL server가 이미 있는 경우 기존 서버를 선택하고 다음 단계로 이동합니다. 
 
@@ -99,7 +94,7 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
 1. **만들기**를 클릭하여 SQL 데이터 웨어하우스 데이터베이스를 만듭니다.
 
-1. 몇 분 정도 지나면 데이터베이스가 준비됩니다. 완료하면 [Azure Preview 포털](https://portal.azure.com)로 돌아가야 합니다. SQL 데이터 웨어하우스 데이터베이스가 대시보드에 추가된 것을 알 수 있습니다.
+1. 몇 분 정도 지나면 데이터베이스가 준비됩니다. 완료하면 [Azure 포털](https://portal.azure.com)로 돌아가야 합니다. SQL 데이터 웨어하우스 데이터베이스가 대시보드에 추가된 것을 알 수 있습니다.
 
     ![포털 보기](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -130,4 +125,4 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
 이제 SQL 데이터 웨어하우스의 샘플 데이터베이스를 만들었으므로 데이터베이스에 [연결](./sql-data-warehouse-get-started-connect.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

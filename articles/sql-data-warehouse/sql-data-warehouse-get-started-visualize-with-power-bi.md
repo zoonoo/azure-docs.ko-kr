@@ -31,7 +31,7 @@
 
 Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
-1. [Azure Preview 포털][]에 로그인합니다.
+1. [Azure 포털][]에 로그인합니다.
 2. **SQL 데이터베이스**를 클릭하고 AdventureWorks SQL 데이터 웨어하우스 데이터베이스를 선택합니다. 
 
     ![데이터베이스 찾기][1]
@@ -106,9 +106,9 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 [개발]: ./sql-data-warehouse-overview-develop.md
 [로드]: ./sql-data-warehouse-overview-load.md
 [샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure Preview 포털]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

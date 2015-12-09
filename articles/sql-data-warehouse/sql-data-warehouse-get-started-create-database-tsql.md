@@ -20,7 +20,7 @@
 # TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -32,7 +32,7 @@
 
 - Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
 - 있습니다. Visual Studio의 무료 버전은 [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs) 페이지를 참조하세요.
-- V12 논리 SQL server SQL 데이터 웨어하우스에 만들려면 V12 SQL server가 필요합니다. V12 논리 SQL server가 없는 경우 [Azure Preview 포털 자습서][]가 만드는 방법을 보여줍니다.
+- V12 논리 SQL server SQL 데이터 웨어하우스에 만들려면 V12 SQL server가 필요합니다. V12 논리 SQL server가 없는 경우 [Azure 포털 자습서][]가 만드는 방법을 보여줍니다.
 
 ## Visual Studio를 사용하여 데이터베이스 만들기
 
@@ -53,7 +53,7 @@ SERVICE\_OBJECTIVE는 인스턴스에서 시작할 DWU 값을 나타내고 다�
 ## 다음 단계
 SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이터를 로드][]하거나 [개발][], [로드][] 또는 [마이그레이션][] 방법을 확인할 수 있습니다.
 
-[Azure Preview 포털 자습서]: ./sql-data-warehouse-get-started-provision.md
+[Azure 포털 자습서]: ./sql-data-warehouse-get-started-provision.md
 [연결 및 쿼리]: ./sql-data-warehouse-get-started-connect.md
 [마이그레이션]: ./sql-data-warehouse-overview-migrate.md
 [개발]: ./sql-data-warehouse-overview-develop.md
@@ -61,4 +61,4 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 [샘플 데이터를 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [가격 책정 페이지]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

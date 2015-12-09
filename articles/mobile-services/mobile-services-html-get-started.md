@@ -57,11 +57,11 @@
 
 ## 새 HTML 앱 만들기
 
-모바일 서비스를 만든 후 관리 포털에서 쉬운 퀵 스타트를 따라 모바일 서비스에 연결할 새 앱을 만들거나 기존 앱을 수정할 수 있습니다.
+모바일 서비스를 만든 후 Azure 클래식 포털에서 쉬운 빠른 시작을 따라 모바일 서비스에 연결할 새 앱을 만들거나 기존 앱을 수정할 수 있습니다.
 
 이 섹션에서는 모바일 서비스에 연결할 새로운 HTML 앱을 만듭니다.
 
-1.  관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+1.  [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
 
 2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Windows**를 클릭하고 **Create a new HTML app**을 확장합니다.
@@ -108,7 +108,7 @@
 
 	> [AZURE.NOTE]모바일 서비스에 액세스하는 코드를 검토하여 데이터를 쿼리 및 삽입할 수 있습니다(page.js 파일에 있음).
 
-4. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
+4. [Azure 클래식 포털]에 돌아와서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
    	![][11]
 
@@ -147,11 +147,11 @@
 <!-- URLs. -->
 [앱에 인증 추가]: mobile-services-html-get-started-users.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [Microsoft 웹 플랫폼 설치 관리자]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [Python의 최신 버전]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

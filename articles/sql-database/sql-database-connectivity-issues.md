@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/17/2015"
+	ms.date="11/30/2015"
 	ms.author="genemi"/>
 
 
@@ -134,17 +134,53 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [
 ## 연결: 연결 문자열
 
 
-Azure SQL 데이터베이스에 연결하는 데 필요한 연결 문자열은 Microsoft SQL Server에 연결하기 위한 문자열과 약간 다릅니다. [Azure Preview 포털](http://portal.azure.com/)에서 데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
+Azure SQL 데이터베이스에 연결하는 데 필요한 연결 문자열은 Microsoft SQL Server에 연결하기 위한 문자열과 약간 다릅니다. [Azure 포털](http://portal.azure.com/)에서 데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 
-#### 연결 시간 제한 30초
+### 연결 다시 시도에 대한 .NET SqlConnection 매개 변수
 
 
-인터넷을 통한 연결은 사설 네트워크보다 안전하지 않습니다. 따라서 연결 문자열에서 **연결 시간 제한** 매개 변수를 15초가 아닌 **30**초로 설정하는 것이 좋습니다.
+클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**를 사용하여 Azure SQL 데이터베이스에 연결되면 .NET 4.5.1 이상을 사용하여 해당 연결 다시 시도 기능을 활용할 수 있도록 합니다. 기능의 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?linkid=393996)에 있습니다.
+
+
+<!--
+2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
+-->
+
+
+**SqlConnection** 개체에 대한 [연결 문자열](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정해야 합니다.
+
+- ConnectRetryCount &nbsp;&nbsp;*(기본값은 0입니다. 범위는 0에서 255입니다.)*
+- ConnectRetryInterval &nbsp;&nbsp;*(기본값은 1초입니다. 범위는 1에서 60입니다.)*
+- 연결 제한 시간 &nbsp;&nbsp;*(기본값은 15초입니다. 범위는 0에서 2147483647입니다.)*
+
+
+특히 선택한 값은 다음 같음을 true로 만들어야 합니다.
+
+- 연결 제한 시간 = ConnectRetryCount * ConnectionRetryInterval
+
+예를 들어 개수 = 3 및 간격 = 10초인 경우 시간 제한이 29초이면 연결의 3번째 및 마지막 재시도에 대해 시스템에 충분한 시간을 제공하지 않게 됩니다. 29 < 3 * 10입니다.
+
+
+#### 연결과 명령 비교
+
+
+**ConnectRetryCount** 및 **ConnectRetryInterval** 매개 변수를 사용하면 **SqlConnection** 개체는 프로그램에 제어를 반환하는 등 프로그램에 전달하거나 신경쓰지 않고 연결 작업을 다시 시도합니다. 다시 시도는 다음과 같은 상황에서 발생할 수 있습니다.
+
+- mySqlConnection.Open 메서드 호출
+- mySqlConnection.Execute 메서드 호출
+
+미묘한 문제가 있습니다. 임시 오류가 발생할 경우 *쿼리*가 실행되는 동안 **SqlConnection** 개체는 연결 작업을 다시 시도하지 않고 확실히 쿼리를 다시 시도하지 않습니다. 그러나 **SqlConnection**는 매우 신속하게 실행에 쿼리를 보내기 전에 연결을 검사합니다. 빠른 검사가 연결 문제를 감지하면 **SqlConnection**은 연결 작업을 다시 시도합니다. 다시 시도가 성공하면 쿼리는 실행을 위해 전송됩니다.
+
+
+#### ConnectRetryCount가 응용 프로그램 다시 시도 논리와 결합해야 합니까?
+
+응용 프로그램에는 강력한 사용자 지정 다시 시도 논리가 있다고 가정합니다. 연결 작업을 4번 다시 시도할 수 있습니다. **ConnectRetryInterval** 및 **ConnectRetryCount** =3을 연결 문자열에 추가하는 경우 다시 시도 횟수가 4 * 3 = 12로 늘어납니다. 이러한 많은 수의 다시 시도를 할 의도가 아닐 수 있습니다.
+
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
@@ -152,7 +188,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 문자열은 M
 ## 연결: IP 주소
 
 
-SQL 데이터베이스 서버가 사용자의 클라이언트 프로그램을 호스팅하는 컴퓨터의 IP 주소의 통신을 수락하도록 구성해야 합니다. 이 작업은 [Azure Preview 포털](http://portal.azure.com/)에서 방화벽 설정을 편집하여 수행할 수 있습니다.
+SQL 데이터베이스 서버가 사용자의 클라이언트 프로그램을 호스팅하는 컴퓨터의 IP 주소의 통신을 수락하도록 구성해야 합니다. 이 작업은 [Azure 포털](http://portal.azure.com/)에서 방화벽 설정을 편집하여 수행할 수 있습니다.
 
 
 IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 오류 메시지로 필요한 IP 주소를 표시합니다.
@@ -478,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

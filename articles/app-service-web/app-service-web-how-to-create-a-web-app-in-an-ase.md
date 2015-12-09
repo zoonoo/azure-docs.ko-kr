@@ -30,7 +30,7 @@
 
 ## 웹앱 만들기
 
-1. [Azure Preview 포털](https://portal.azure.com/)에서 **새로 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다. 
+1. [Azure 포털](https://portal.azure.com/)에서 **새로 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다. 
 
 	![][1]
 
@@ -118,4 +118,4 @@ ASE에서 웹앱을 실행하고 앱 서비스 계획을 관리하기 위해 고
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="11/26/2015" ms.author="aashishr"; "jimpark"/>
 
 # Azure 백업 시작
 Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 시작하는데 도움이 됩니다.
@@ -46,4 +46,4 @@ Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 �
 - [Windows 서버 백업](backup-azure-backup-windows-server.md)
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

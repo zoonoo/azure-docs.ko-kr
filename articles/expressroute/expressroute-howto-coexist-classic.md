@@ -1,6 +1,6 @@
 <properties
    pageTitle="공존할 수 있는 Express 경로 및 사이트 간 VPN 연결구성 | Microsoft Azure"
-   description="이 자습서에서는 Express 경로와 사이트 간 VPN 연결을 공존할 수 있도록 구성하는 과정을 안내합니다."
+   description="이 문서에서는 공존할 수 있는 Express 경로와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc"/>
 
 # Express 경로 및 사이트 간 VPN 연결을 구성하여 VNet와 함께 사용
@@ -29,7 +29,8 @@ Express 경로 회로는 아래 지침을 수행하기 전에 미리 구성되�
 
 - **통과 라우팅은 지원되지 않습니다:**사이트 간 VPN을 통해 연결된 로컬 네트워크와 Express 경로를 통해 연결된 로컬 네트워크 간에는 Azure를 통해 라우팅할 수 없습니다.
 - **지점 및 사이트 간은 지원되지 않습니다:** 지점 및 사이트 간 VPN을 Express 경로에 연결된 동일한 VNet에 연결할 수 없습니다. 동일한 VNet에 대해 지점 및 사이트 간 VPN과 Express 경로를 함께 사용할 수 없습니다.
-- **표준 또는 높은 성능 게이트웨이:** Express 경로 게이트웨이 및 사이트 간 VPN 게이트웨이 모두에 표준 또는 높은 성능 게이트웨이를 사용해야 합니다. 게이트웨이 SKU에 대한 자세한 내용은 [게이트웨이 SKU](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
+- **강제 터널링은 사이트 간 VPN 게이트웨이에서 사용할 수 없습니다:** Express 경로를 통해 온-프레미스 네트워크에 인터넷 바인딩된 트래픽을 모두 다시 "강제"할 수 있습니다. 
+- **표준 또는 높은 성능 게이트웨이:** Express 경로 게이트웨이 및 사이트 간 VPN 게이트웨이 모두에 표준 또는 높은 성능 게이트웨이를 사용해야 합니다. 게이트웨이 SKU에 대한 내용은 [게이트웨이 SKU](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 - **정적 경로 요구 사항:** 로컬 네트워크가 Express 경로 및 사이트 간 VPN 둘 다에 연결된 경우 로컬 네트워크에서 사이트 간 VPN 연결을 공용 인터넷으로 라우팅하는 정적 경로를 구성해야 합니다.
 - **Express 경로 게이트웨이가 먼저 구성되어야 합니다:** 사이트 간 VPN 게이트웨이를 추가하기 전에 Express 경로 게이트웨이를 먼저 만들어야 합니다.
 
@@ -68,7 +69,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 1. PowerShell cmdlet의 최신 버전이 있는지 확인합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
 
-2. 가상 네트워크의 스키마를 만듭니다. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+2. 가상 네트워크의 스키마를 만듭니다. 네트워크 구성 파일을 사용하는 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
 	스키마를 만들 때 다음 값을 사용해야 합니다.
 
@@ -141,7 +142,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 7. 로컬 사이트 VPN 게이트웨이 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN 게이트웨이를 구성하지 않습니다. 대신, Azure VPN 게이트웨이를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
 
-	> [AZURE.IMPORTANT]사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. 관리 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.
+	> [AZURE.IMPORTANT]사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. Azure 클래식 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.
 
 	다음 샘플(사용자 고유의 값으로 대체)을 사용합니다.
 
@@ -188,7 +189,7 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
 
-3. 게이트웨이 서브넷이 /27 또는 더 짧은 접두사가 되도록 네트워크 구성 파일 스키마를 편집합니다.(/26 또는 /25와 같이) 다음 예제를 참조하세요. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+3. 게이트웨이 서브넷이 /27 또는 더 짧은 접두사가 되도록 네트워크 구성 파일 스키마를 편집합니다.(/26 또는 /25와 같이) 다음 예제를 참조하세요. 네트워크 구성 파일을 사용하는 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -210,4 +211,4 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -40,11 +40,11 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에 제출된 토폴로지 및 로그 파일을 저장합니다. 다음 단계를 사용하여 클러스터에서 사용할 Azure 저장소 계정을 만들 수 있습니다.
 
-1. [Azure 미리 보기 포털][preview-portal]에 로그인합니다.
+1. [Azure 포털][preview-portal]에 로그인합니다.
 
 2. **새로 만들기**를 선택하고 __데이터 분석__, __HDInsight__를 차례로 선택합니다.
 
-	![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
+	![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
 
 3. __클러스터 이름__을 입력한 후 __클러스터 형식__에 대해 __Storm__을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 __클러스터 이름__ 옆에 녹색 확인 표시가 나타납니다.
 
@@ -233,4 +233,4 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

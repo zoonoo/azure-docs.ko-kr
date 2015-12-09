@@ -39,11 +39,11 @@
 
 ## 새 유니버설 Windows 앱 만들기
 
-모바일 서비스를 만든 후 관리 포털에서 쉬운 빠른 시작을 따라 새 유니버설 Windows 앱을 만들거나 모바일 서비스에 연결하도록 기존 Windows 스토어 또는 Windows Phone 앱을 수정할 수 있습니다.
+모바일 서비스를 만든 후 Azure 클래식 포털에서 쉬운 빠른 시작을 따라 새 유니버설 Windows 앱을 만들거나 모바일 서비스에 연결하도록 기존 Windows 스토어 또는 Windows Phone 앱을 수정할 수 있습니다.
 
 이 섹션에서는 모바일 서비스에 연결된 새 유니버설 Windows 앱을 만듭니다.
 
-1.  관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+1.  [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
 
 2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Windows**를 클릭하고 **새 Windows 스토어 앱 만들기**를 확장합니다.
@@ -95,7 +95,7 @@
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

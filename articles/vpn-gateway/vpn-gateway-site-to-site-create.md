@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기 | Microsoft Azure"
+   pageTitle="Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기 | Microsoft Azure"
    description="클래식 배포 모델을 사용하여 프레미스 간 구성과 하이브리드 구성에 대해 사이트 간 VPN 연결로 가상 네트워크를 만듭니다."
    services="vpn-gateway"
    documentationCenter=""
@@ -17,10 +17,10 @@
    ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
-# Azure 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
+# Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 이 문서는 클래식 배포 모델에 적용됩니다.
@@ -43,7 +43,7 @@
 
 ## 가상 네트워크 만들기
 
-1. **Azure 포털**에 로그인합니다.
+1. **Azure 클래식 포털**에 로그인합니다.
 
 2. 화면의 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 탐색 창에서 **네트워크 서비스**를 클릭한 다음 **가상 네트워크**를 클릭합니다. **사용자 지정 만들기**를 클릭하여 구성 마법사를 시작합니다.
 
@@ -84,13 +84,13 @@
 - **서브넷 추가**: 시작 IP 및 주소 수를 포함합니다. 추가 서브넷은 필요하지 않지만 고정 DIPS가 있는 VM에 대해 별도의 서브넷을 만들 수 있습니다. 또는 기타 역할 인스턴스와 별도의 서브넷에 VM을 배치할 수 있습니다.
 - **게이트웨이 서브넷 추가**: 게이트웨이 서브넷을 추가하려면 클릭합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이에 대해서만 사용되며 이 구성에 필요합니다.
 
-페이지 아래에 있는 확인 표시를 클릭하면 가상 네트워크 만들기가 시작됩니다. 완료되면 Azure 포털의 **네트워크** 페이지에 있는 **상태**에 **생성됨**이 표시됩니다. VNet를 만든 후에 가상 네트워크 게이트웨이를 구성할 수 있습니다.
+페이지 아래에 있는 확인 표시를 클릭하면 가상 네트워크 만들기가 시작됩니다. 완료되면 Azure 클래식 포털의 **네트워크** 페이지에 있는 **상태**에 **생성됨**이 표시됩니다. VNet를 만든 후에 가상 네트워크 게이트웨이를 구성할 수 있습니다.
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## 가상 네트워크 게이트웨이 구성
 
-다음으로, 안전한 사이트 간 VPN 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성하겠습니다. [Azure 포털에서 가상 네트워크 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
+다음으로, 안전한 사이트 간 VPN 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성하겠습니다. [Azure 클래식 포털에서 가상 네트워크 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
 
 ## 다음 단계
 
@@ -102,4 +102,4 @@
 
 클래식 가상 네트워크와 Azure 리소스 관리자 모드를 사용하여 만든 가상 네트워크 간의 연결을 구성하려는 경우 [Azure 리소스 관리자 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

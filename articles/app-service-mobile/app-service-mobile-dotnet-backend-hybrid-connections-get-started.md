@@ -113,7 +113,7 @@
 
 그 다음, 새 연결 문자열에 대한 앱 설정을 추가하여 Azure에서 사용합니다.
 
-1. 모바일 앱에 대한 웹앱 백 엔드 코드의 [Azure 포털]로 돌아가서 **모든 설정** 그런 다음 **응용 프로그램 설정**을 클릭합니다.
+1. 모바일 앱에 대한 웹앱 백 엔드 코드의 [Azure 포털]로 돌아가서 **모든 설정** 및 **응용 프로그램 설정**을 차례로 클릭합니다.
 
 3. **웹앱 설정** 블레이드에서 **연결 문자열** 아래로 스크롤하고 `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`와 같은 값을 가지는 `OnPremisesDBConnection`로 지정한 새 **SQL Server** 연결 문자열을 추가합니다.
 
@@ -159,7 +159,7 @@
 
 <!-- Links -->
 [Azure 포털]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

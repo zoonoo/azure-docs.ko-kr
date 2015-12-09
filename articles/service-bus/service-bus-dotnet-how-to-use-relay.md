@@ -39,11 +39,11 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 서비스 네임스페이스를 만들려면
 
-1.  [Azure 포털][]에 로그온합니다.
+1.  [Azure 클래식 포털][]에 로그온합니다.
 
-2.  Azure 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
+2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
-3.  Azure 포털의 아래쪽 창에서 **만들기**를 클릭합니다.
+3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -59,7 +59,7 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	만든 네임스페이스가 Azure 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
+	그런 다음 만든 네임스페이스가 포털에 표시되고 활성화하려면 약간의 시간이 걸립니다. 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
@@ -273,9 +273,9 @@ using (var ch = cf.CreateChannel())
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Azure 포털]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [서비스 버스를 사용한 공유 액세스 서명 인증]: service-bus-shared-access-signature-authentication.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [서비스 버스 샘플 개요]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

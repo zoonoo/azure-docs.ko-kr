@@ -32,7 +32,7 @@
 
 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
-> [AZURE.IMPORTANT] [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+> [AZURE.IMPORTANT][자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 >   
 > 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
 >    
@@ -43,9 +43,9 @@
 이 단계에서는 Azure PowerShell을 사용하여 ADFTutorialDataFactoryPSH라는 Azure Data Factory를 만듭니다.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
-	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
+	- **Add-AzureAccount**를 실행하고 Azure 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
-	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 미리 보기 포털에서 사용한 것과 같아야 합니다.
+	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
 2. AzureResourceManager 모드로 전환합니다. Azure Data Factory cmdlet은 이 모드에서 사용할 수 있습니다.
 
 		Switch-AzureMode AzureResourceManager
@@ -109,7 +109,7 @@ Hive 스크립트를 실행하는데 사용될 주문형 Azure HDInsight 클러�
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -121,7 +121,7 @@ Hive 스크립트를 실행하는데 사용될 주문형 Azure HDInsight 클러�
 
 	속성 | 설명
 	-------- | -----------
-	버전 | 생성되는 HDInsight 버전을 3.1로 지정합니다.
+	버전 | 생성되는 HDInsight 버전을 3.2로 지정합니다.
 	ClusterSize | 노드가 하나인 HDInsight 클러스터를 만듭니다.
 	TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
 	linkedServiceName | HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다.
@@ -272,4 +272,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

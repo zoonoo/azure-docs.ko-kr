@@ -22,8 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 이 자습서에서는 Azure Media Services(AMS) SDK for .NET를 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
 
@@ -46,21 +45,21 @@ Media Services SDK for .NET을 사용하여 개발을 시작하려면 다음 필
 
 다음 작업은 이 빠른 시작에 표시됩니다.
 
-1.  Azure 포털을 사용하여 미디어 서비스 계정 만들기
+1.  Azure 클래식 포털을 사용하여 미디어 서비스 계정 만들기
 2.  포털을 사용하여 스트리밍 끝점 구성
 3.  Visual Studio 프로젝트 만들기 및 구성
 5.  미디어 서비스 계정에 연결합니다.
 6.  새 자산을 만들고 비디오 파일을 업로드합니다.
 7.  원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
-8.  자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기  
+8.  자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기
 9.  콘텐츠를 재생합니다.
 
 
 ##포털을 사용하여 미디어 서비스 계정 만들기
 
-1. Azure 포털에서 **새로 만들기**, **미디어 서비스** 및 **빠른 생성**을 차례로 클릭합니다.
+1. Azure 클래식 포털에서 **새로 만들기**, **미디어 서비스** 및 **빠른 생성**을 차례로 클릭합니다.
 
-	![미디어 서비스 빠른 생성](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+![미디어 서비스 빠른 생성](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. **이름**에 새 계정의 이름을 입력합니다. 미디어 서비스 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
 
@@ -72,15 +71,15 @@ Media Services SDK for .NET을 사용하여 개발을 시작하려면 다음 필
 
 6. 양식 맨 아래에 있는 **빠른 생성**을 클릭합니다.
 
-	창 맨 아래에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
+창 맨 아래에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
 
-	계정이 만들어지면 상태가 **활성**으로 변경됩니다.
+계정이 성공적으로 만들어지면 상태가 **활성**으로 변경됩니다.
 
-	페이지의 맨 아래에 **키 관리** 단추가 나타납니다. 이 단추를 클릭하면 미디어 서비스 계정 이름과 기본 키 및 보조 키가 포함된 대화 상자가 표시됩니다. 프로그래밍 방식으로 미디어 서비스 계정에 액세스하려면 계정 이름과 기본 키 정보가 필요합니다.
+페이지의 맨 아래에 **키 관리** 단추가 나타납니다. 이 단추를 클릭하면 미디어 서비스 계정 이름과 기본 키 및 보조 키가 포함된 대화 상자가 표시됩니다. 프로그래밍 방식으로 미디어 서비스 계정에 액세스하려면 계정 이름과 기본 키 정보가 필요합니다.
 
-	![미디어 서비스 페이지](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
+![미디어 서비스 페이지](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
 
-	계정 이름을 두 번 클릭하면 기본적으로 **빠른 시작** 페이지가 표시됩니다. 이 페이지를 통해 포털의 다른 페이지에서도 사용할 수 있는 몇 가지 관리 작업을 수행할 수 있습니다. 예를 들어 이 페이지에서 비디오 파일을 업로드하거나 콘텐츠 페이지에서 업로드할 수 있습니다.
+계정 이름을 두 번 클릭하면 기본적으로 **빠른 시작** 페이지가 표시됩니다. 이 페이지를 통해 포털의 다른 페이지에서도 사용할 수 있는 몇 가지 관리 작업을 수행할 수 있습니다. 예를 들어 이 페이지에서 비디오 파일을 업로드하거나 콘텐츠 페이지에서 업로드할 수 있습니다.
 
 ##포털을 사용하여 스트리밍 끝점 구성
 
@@ -90,7 +89,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 동적 패키징을 이용하려면 다음을 수행해야 합니다.
 
-- mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).  
+- mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).
 - 콘텐츠를 배달하는 출발점이 될 **스트리밍 끝점**에 하나 이상의 스트리밍 단위를 구성합니다.
 
 동적 패키징에서는 단일 저장소 형식으로 파일을 저장하고 비용을 지불하기만 하면 됩니다. 그러면 미디어 서비스가 클라이언트의 요청에 따라 적절한 응답을 빌드 및 제공합니다.
@@ -103,15 +102,15 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 3. 스트리밍 단위 수를 지정하려면 크기 조정 탭을 클릭한 다음 **예약된 용량** 슬라이더를 움직입니다.
 
-	![크기 조정 페이지](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+![크기 조정 페이지](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. **저장**을 눌러 변경 내용을 저장합니다.
 
-	새 단위를 할당하는 작업은 완료하는 데 20분 정도 걸립니다.
+새 단위를 할당하는 작업은 완료하는 데 20분 정도 걸립니다.
 
-	>[AZURE.NOTE]현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 스트리밍을 사용하지 않을 수 있습니다.
-	>
-	> 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
+>[AZURE.NOTE]현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 스트리밍을 사용하지 않을 수 있습니다.
+>
+> 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 책정 정보에 대한 자세한 내용은 [미디어 서비스 가격 책정 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
 
 
 
@@ -123,14 +122,9 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 3. System.Configuration 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 **System.Configuration.ConfigurationManager** 클래스를 포함합니다.
 
-4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 얻으려면 Azure 포털을 열고 미디어 서비스 계정을 선택한 다음 **키 관리** 단추를 클릭합니다.
+4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 얻으려면 Azure 클래식 포털을 열고 미디어 서비스 계정을 선택한 다음 **키 관리** 단추를 클릭합니다.
 
-		<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
+<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
 		  
 		</configuration>
 
@@ -447,4 +441,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -30,7 +30,7 @@
 ## 자습서 개요
 이 자습서는 처음 파이프라인을 사용하여 데이터 팩터리를 가져오는 데 필요한 단계를 안내합니다. 파이프라인을 만들고 필요한 모든 리소스를 처음부터 지정합니다.
 
-데이터 팩터리를 처음부터 만들지 않고도 데이터 팩터리의 다양한 기능을 신속하게 알아보려면 Azure Preview 포털에 제공되는 샘플을 사용합니다. Azure Preview 포털을 사용하여 사용 사례 기반 샘플을 배포하는 방법은 [Azure Data Factory Update: Simplified sample deployment(Azure Data Factory 업데이트: 간소화된 샘플 배포)](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/)(영문)을 참조하세요.
+데이터 팩터리를 처음부터 만들지 않고 데이터 팩터리의 다양한 기능을 신속하게 알아보려면 Azure 포털에서 제공하는 샘플을 사용합니다. Azure 포털을 사용하여 사용 사례 기반 샘플을 배포하는 방법은 [Azure Data Factory 업데이트: 간소화된 샘플 배포](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/)를 참조하세요.
 
 ## 필수 구성 요소
 이 자습서를 시작하기 전에 다음과 같은 필수 구성 요소가 반드시 필요합니다.
@@ -168,8 +168,8 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 
 다음을 수행합니다.
 
-- 맨 위의 [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md) 링크를 클릭하여 Azure 포털의 일부인 데이터 팩터리 편집기를 통해 자습서를 수행합니다.
+- 맨 위의 [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md) 링크를 클릭하여 Azure 클래식 포털의 일부인 데이터 팩터리 편집기를 통해 자습서를 수행합니다.
 - 맨 위의 [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md) 링크를 클릭하여 Azure PowerShell을 통해 자습서를 수행합니다.
 - 맨 위의 [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md) 링크를 클릭하여 Visual Studio를 사용해서 자습서를 수행합니다. 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

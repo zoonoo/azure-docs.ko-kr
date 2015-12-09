@@ -40,11 +40,11 @@ HDInsight 시작 갤러리는 HDInsight에서 샘플 응용 프로그램을 실�
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-대시보드는 http://<YourHDInsightClusterName>.azurehdinsight.net/으로 이동하여 액세스하거나 Azure Preview 포털에서 액세스할 수 있습니다.
+대시보드는 http://<YourHDInsightClusterName>.azurehdinsight.net/으로 이동하거나 Azure 포털에서 액세스할 수 있습니다.
 
 **시작 갤러리에서 샘플을 실행하려면**
 
-1. [Azure Preview 포털][azure.portal]에 로그인합니다.
+1. [Azure 포털][azure.portal]에 로그인합니다.
 2. 왼쪽 메뉴에서 **찾아보기**를 클릭하고 **HDInsight 클러스터**를 클릭한 다음 클러스터 이름을 클릭합니다.
 3. 위쪽 메뉴에서 **대시보드**를 클릭합니다.
 4. HTTP 사용자(클러스터 사용자라고도 함)에 대한 사용자 이름 및 암호를 입력합니다.
@@ -68,4 +68,4 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

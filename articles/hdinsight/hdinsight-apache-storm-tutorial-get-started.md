@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Apache Storm 자습서: 스톰 시작 | Microsoft Azure"
 	description="HDInsight에서 Storm Starter 샘플을 실행하여 Apache Storm을 사용한 빅 데이터 분석을 시작합니다. Storm을 사용하여 실시간으로 데이터를 처리하는 방법을 알아봅니다."
-	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+	keywords="apache storm, apache storm 자습서, 빅 데이터 분석, storm 시작"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -23,7 +23,7 @@
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Microsoft Azure HDInsight의 Storm을 사용하여 실시간 빅 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
 
-[AZURE.INCLUDE [Preview 포털](../../includes/hdinsight-azure-preview-portal.md)]
+[AZURE.INCLUDE [포털](../../includes/hdinsight-azure-preview-portal.md)]
 
 * [Apache Storm 자습서: Storm Starter 샘플을 사용하여 HDInsight에서 빅 데이터 분석 시작](hdinsight-apache-storm-tutorial-get-started-v1.md)
 
@@ -41,13 +41,13 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에 제출된 토폴로지 및 로그 파일을 저장합니다. 다음 단계를 사용하여 클러스터에서 사용할 Azure 저장소 계정을 만들 수 있습니다.
 
-1. [Azure Preview 포털][preview-portal]에 로그인합니다.
+1. [Azure 포털][preview-portal]에 로그인합니다.
 
 2. **새로 만들기**를 선택하고 __데이터 분석__, __HDInsight__를 차례로 선택합니다.
 
-	![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+	![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. __클러스터 이름__을 입력한 후 __클러스터 형식__에 대해 __Storm__을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 __클러스터 이름__ 옆에 녹색 확인 표시가 나타납니다.
+3. __클러스터 이름__을 입력한 후 __클러스터 형식__에 대해 __Storm__을 선택합니다. __클러스터 이름__을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
 	![클러스터 이름, 클러스터 유형 및 OS 유형](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
@@ -67,7 +67,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 __데이터 원본__ 블레이드의 항목을 이해합니다.
 
-	- __선택 방법__: 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 __From all subscriptions__(모든 구독에서)로 설정합니다. 기존 저장소 계정의 __저장소 이름__ 및 __선택키__를 입력하려면 __선택키__로 설정합니다.
+	- __선택 방법__: 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 __From all subscriptions(모든 구독에서)__로 설정합니다. 기존 저장소 계정의 __저장소 이름__ 및 __선택키__를 입력하려면 __선택키__로 설정합니다.
 
 	- __새로 만들기__: 새 저장소 계정을 만들려면 사용합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
@@ -95,7 +95,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 프로비전](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인합니다.
+	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인하세요.
 
 ## HDInsight에서 Storm Starter 샘플 실행
 
@@ -203,7 +203,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
-	이 데이터에서 **seven**이라는 단어가 1,493,957번 발생했음을 알 수 있습니다. 이는 이 토폴로지가 시작된 이후에 발생한 횟수입니다.
+	이 데이터에서 **seven**이라는 단어가 1493957번 발생했음을 알 수 있습니다. 이는 이 토폴로지가 시작된 이후에 발생한 횟수입니다.
 
 ### 토폴로지 중지
 
@@ -245,4 +245,4 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

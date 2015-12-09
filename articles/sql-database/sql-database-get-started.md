@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/09/2015"
+	ms.date="12/01/2015"
 	ms.author="jeffreyg"/>
 
 # SQL 데이터베이스 자습서: 샘플 데이터 및 Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기
@@ -27,7 +27,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-이 SQL 데이터베이스 자습서에서는 Azure Preview 포털에서 샘플 데이터로 몇 분 만에 첫 번째 SQL 데이터베이스를 만드는 방법을 보여 줍니다. 이 문서에서 배울 내용은 다음과 같습니다.
+이 SQL 데이터베이스 자습서에서는 Azure 포털에서 샘플 데이터로 몇 분 만에 첫 번째 SQL 데이터베이스를 만드는 방법을 보여 줍니다. 이 문서에서 배울 내용은 다음과 같습니다.
 
 - 만든 데이터베이스를 호스팅할 서버를 만든 후 방화벽 규칙을 설정합니다.
 - 데이터를 재생할 수 있는 AdventureWorks 샘플의 SQL 데이터베이스를 만듭니다.
@@ -37,7 +37,7 @@
 > [AZURE.NOTE]이 SQL 데이터베이스 자습서에서는 클라우드, Azure SQL 데이터베이스에서 Microsoft의 관계형 데이터베이스 관리 서비스를 사용하여 데이터베이스를 설정을 다룹니다. 다른 옵션은 Azure 가상 컴퓨터에서 SQL Server를 실행합니다. 빠른 비교를 위한 [Azure VM에서 Azure SQL 데이터베이스 및 SQL Server 이해](data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하거나 [SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하여 가상 컴퓨터를 시작합니다.
 
 ## 1단계: 로그인 및 SQL 데이터베이스 설정 시작
-1. [Azure Preview 포털](http://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](http://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터베이스**를 클릭합니다.
 
 	![SQL 데이터베이스 자습서: 새 SQL 데이터베이스를 만듭니다.](./media/sql-database-get-started/create-db.png)
@@ -117,4 +117,4 @@ Azure 시작 보드로 돌아갑니다. 여기에는 데이터베이스가 생�
 
 - 온-프레미스 SQL 서버 데이터베이스를 Azure로 이동하려면 [Azure SQL 데이터베이스로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)에서 자세히 알아보세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -61,7 +61,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 **Microsoft Azure SQL 데이터베이스(Azure SQL 데이터베이스)**는 *SaaS(software-as-a-service)* 및 *PaaS(platform-as-a-service)* 산업으로 분류되는 Azure 클라우드에서 호스팅되는 관계형 DaaS(Database-as-a-Service)입니다. Azure SQL 데이터베이스는 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어 및 소프트웨어를 기반으로 구축됩니다. SQL 데이터베이스에서는 기본 제공 기능을 사용하여 서비스를 직접 개발할 수 있습니다. SQL 데이터베이스를 사용할 경우 필요한 추가 성능에 맞게 강화 및 규모 확장하는 옵션으로 사용량에 따라 지불합니다.
 
-**Azure VM(가상 컴퓨터)의 SQL Server**는 업계 범주에 속하는 *IaaS(Infrastructure as a service)* 산업 부분으로 분류되며 클라우드의 가상 컴퓨터 내에서 SQL Server를 실행할 수 있도록 지원합니다. Azure SQL 데이터베이스와 마찬가지로 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어를 기반으로 구축됩니다. VM의 SQL Server를 사용할 경우 고유한 SQL Server 라이선스를 Azure로 가져오거나 Azure 포털에 미리 구성된 SQL Server 이미지 중 하나를 사용할 수 있습니다.
+**Azure VM(가상 컴퓨터)의 SQL Server**는 업계 범주에 속하는 *IaaS(Infrastructure as a service)* 산업 부분으로 분류되며 클라우드의 가상 컴퓨터 내에서 SQL Server를 실행할 수 있도록 지원합니다. Azure SQL 데이터베이스와 마찬가지로 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어를 기반으로 구축됩니다. VM에서 SQL Server를 사용할 경우 고유한 SQL Server 라이선스를 Azure로 가져오거나 Azure 클래식 포털에 미리 구성된 SQL Server 이미지 중 하나를 사용할 수 있습니다.
 
 일반적으로 이러한 두 SQL 옵션은 다음과 같이 최적의 용도가 서로 다릅니다.
 
@@ -263,4 +263,4 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

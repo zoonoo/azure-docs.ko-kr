@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="09/01/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 시도: C&#x23;을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기 
@@ -22,7 +22,7 @@
 **단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -63,7 +63,7 @@ C#으로 SQL 데이터베이스를 설정하려면 [패키지 관리자 콘솔](
 
 [Azure 리소스 관리자 REST API](https://msdn.microsoft.com/library/azure/dn948464.aspx)는 인증을 위해 Azure Active Directory를 사용합니다.
 
-현재 사용자에 기반을 두고 클라이언트 응용 프로그램을 인증하려면 먼저 Azure 리소스가 생성한 구독과 관련된 AAD 도메인에 응용 프로그램을 등록해야 합니다. 회사 또는 학교 계정이 아닌 Microsoft 계정으로 Azure 구독을 생성한 경우 이미 기본 AAD 도메인을 가지고 있습니다. 응용 프로그램은 [Azure 포털](https://manage.windowsazure.com/)에서 등록할 수 있습니다.
+현재 사용자에 기반을 두고 클라이언트 응용 프로그램을 인증하려면 먼저 Azure 리소스가 생성한 구독과 관련된 AAD 도메인에 응용 프로그램을 등록해야 합니다. 회사 또는 학교 계정이 아닌 Microsoft 계정으로 Azure 구독을 생성한 경우 이미 기본 AAD 도메인을 가지고 있습니다. 응용 프로그램은 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 등록할 수 있습니다.
 
 새 응용 프로그램을 만들고 올바른 active directory에 등록하려면 다음을 수행합니다.
 
@@ -113,7 +113,7 @@ C#으로 SQL 데이터베이스를 설정하려면 [패키지 관리자 콘솔](
 
 코드에 대한 도메인 이름이 필요합니다. 적절한 도메인 이름을 식별하는 간단한 방법은 다음과 같습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 오른쪽 위에 있는 이름 위로 마우스를 이동하고 팝업 창에 나타나는 도메인을 참고합니다.
 
     ![도메인 이름을 식별합니다.][3]
@@ -436,4 +436,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

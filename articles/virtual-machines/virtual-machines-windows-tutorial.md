@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기 | Microsoft Azure"
-	description="Azure Preview 포털의 Azure 마켓플레이스를 사용하여 Windows를 실행하는 Azure VM 또는 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
+	pageTitle="Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기 | Microsoft Azure"
+	description="Azure 포털의 Azure 마켓플레이스를 사용하여 Windows를 실행하는 Azure VM 또는 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
 	keywords="azure vm, 가상 컴퓨터 만들기, 가상 컴퓨터, 가상 컴퓨터 설정"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,17 +17,17 @@
 	ms.date="08/14/2015"
 	ms.author="cynthn"/>
 
-# Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기#
+# Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기#
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure portal](virtual-machines-windows-tutorial.md)
+- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 <br>
 
-이 자습서에서는 Azure Preview 포털에서 Azure 가상 컴퓨터를 몇 분 이내에 간편하게 만드는 방법을 보여 줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 가상 컴퓨터를 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
+이 자습서에서는 Azure 포털에서 Azure 가상 컴퓨터를 몇 분 이내에 간편하게 만드는 방법을 보여 줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 가상 컴퓨터를 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
@@ -43,7 +43,7 @@
 
 ## 가상 컴퓨터 이미지 선택
 
-1. Azure Preview 포털에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 
 2. 허브 메뉴에서 **새로 만들기** > **계산** > **Windows Server 2012 R2 Datacenter**를 클릭합니다.
 
@@ -87,7 +87,7 @@
 
 >[AZURE.NOTE]자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)을 참조하십시오.
 
-1. 아직 로그인하지 않은 경우 Azure Preview 포털에 로그인합니다.
+1. 아직 로그인하지 않은 경우 Azure 포털에 로그인합니다.
 
 2. 시작 보드에서 가상 컴퓨터를 클릭합니다. 가상 컴퓨터를 찾아야 하는 경우 **모두 찾아보기** > **최근** 또는 **모두 찾아보기** > **가상 컴퓨터**를 클릭합니다. 그런 다음 목록에서 가상 컴퓨터를 선택합니다.
 
@@ -110,4 +110,4 @@
 * Azure PowerShell 및 Azure CLI를 사용하여 [가상 컴퓨터 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
 * [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터와 워크로드 배포 및 관리를 자동화합니다.
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

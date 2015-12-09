@@ -19,7 +19,7 @@
 # Powershell을 사용하여 SQL 데이터 웨어하우스 만들기
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -71,4 +71,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [firewall rules]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-database-configure-firewall-settings/
 [Azure PowerShell을 설치 및 구성하는 방법]: powershell-install-configure.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

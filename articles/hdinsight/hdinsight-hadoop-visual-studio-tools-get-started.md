@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/21/2015"
+	ms.date="11/30/2015"
 	ms.author="jgao"/>
 
 # HDInsight용 Visual Studio Hadoop 도구를 사용하여 Hive 쿼리 실행 시작
@@ -66,9 +66,9 @@ Visual Studio용 HDInsight 도구를 사용하면 HDInsight 클러스터에 연�
 2.	**보기** 메뉴에서 **서버 탐색기**를 클릭하여 서버 탐색기 창을 엽니다.
 3.	**Azure**를 확장한 다음 **HDInsight**를 확장합니다.
 
-	>[AZURE.NOTE]**HDInsight 작업 목록** 창이 열립니다. 이 창이 표시되지 않는 경우 **보기** 메뉴에서 **다른 창**을 클릭한 후 **HDInsight 작업 목록 창**를 클릭합니다.  
+	>[AZURE.NOTE]**HDInsight 작업 목록** 창이 열려야 합니다. 이 창이 표시되지 않는 경우 **보기** 메뉴에서 **다른 창**을 클릭한 후 **HDInsight 작업 목록 창**를 클릭합니다.  
 4.	Azure 구독 자격 증명을 입력한 후 **로그인**을 클릭합니다. 이 과정은 이 워크스테이션에서 Visual Studio를 통해 Azure 구독에 연결한 적이 없는 경우에만 필요합니다.
-5.	서버 탐색기에서 기존 HDInsight 클러스터 목록이 표시됩니다. 클러스터가 없는 경우 Azure Preview 포털, Azure PowerShell 또는 HDInsight SDK를 사용하여 클러스터를 프로비전할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
+5.	서버 탐색기에서 기존 HDInsight 클러스터 목록이 표시됩니다. 클러스터가 없는 경우 Azure 포털, Azure PowerShell 또는 HDInsight SDK를 사용하여 클러스터를 프로비전할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
 	![Hadoop 도구: Visual Studio용 HDInsight 도구 서버 탐색기 클러스터 목록][5]
 6.	HDInsight 클러스터를 확장합니다. **Hive 데이터베이스**, 기본 저장소 계정, 연결된 저장소 계정 및 **Hadoop 서비스 로그**가 표시됩니다. 엔터티를 더 확장할 수 있습니다.
@@ -194,10 +194,21 @@ HDInsight 클러스터 버전 3.2 이상의 경우 **HiveServer2를 통해 실�
  
 ![hdinsight visual studio 도구 빠른 경로 hive 실행](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
+**HiveServer2를 통한 쿼리 실행과 WebHCat을 통한 쿼리 제출 간의 차이**
+
+HiveServer2를 통한 쿼리 실행에 다양한 성능 이점이 있지만 몇 가지 제한 사항이 있습니다. 일부 제한 사항은 프로덕션 사용에 적합하지 않습니다. 다음 테이블은 차이점을 보여줍니다.
+
+| |HiveServer2를 통한 실행 |WebHCat을 통한 제출|
+|---|---|---|
+|쿼리 실행|("TempletonControllerJob"이라는 MapReduce 작업을 시작하는)WebHCat의 오버헤드를 제거합니다.|WebHCat을 통해 쿼리를 실행하는 한 WebHCat은 추가 대기 시간을 도입하는 MapReduce 작업을 시작합니다.|
+|로그 다시 스트리밍|거의 실시간으로.|작업 실행 로그는 작업이 완료될 때 사용할 수 있습니다.|
+|작업 기록 보기|HiveServer2를 통해 쿼리를 실행하는 경우 작업 기록(작업 로그, 작업 출력)은 유지되지 않습니다. 제한된 정보로 YARN UI에서 응용 프로그램을 볼 수 있습니다.|WebHCat을 통해 쿼리를 실행하는 경우 작업 기록(작업 로그, 작업 출력)은 유지되고 Visual Studio/HDInsight SDK/PowerShell을 사용하여 볼 수 있습니다. |
+|창 닫기| 	HiveServer2를 통한 실행은 "동기적인" 방식이므로 창을 열어 두어야 합니다. 창을 닫은 경우 쿼리 실행은 취소됩니다.|WebHCat을 통한 제출은 "비동기적인" 방식이므로 WebHCat을 통해 쿼리를 제출하고 Visual Studio를 닫을 수 있습니다. 돌아와서 언제든지 결과를 참조할 수 있습니다.|
+
 
 ### Tez Hive 작업 성능 그래프
 
-HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 대한 성능 그래프를 보여 줍니다. Tez를 사용하도록 설정하는 방법에 대한 자세한 내용은 [HDInsight에서 Hive 사용][hdinsight.hive]을 참조하세요. Visual Studio에서 Hive 작업을 제출하면 Visual Studio가 작업이 완료될 때 그래프를 보여줍니다. 최신 작업 상태를 가져오기 위해 **새로 고침** 단추를 클릭해야 할 수도 있습니다.
+HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 대한 성능 그래프를 보여 줍니다. Tez를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hive 사용][hdinsight.hive]을 참조하세요. Visual Studio에서 Hive 작업을 제출하면 Visual Studio가 작업이 완료될 때 그래프를 보여줍니다. 최신 작업 상태를 가져오기 위해 **새로 고침** 단추를 클릭해야 할 수도 있습니다.
 
 > [AZURE.NOTE]이 기능은 HDInsight 클러스터의 3.2.4.593 상위 버전에서만 사용할 수 있으며 완료된 작업에 대해서만 동작할 수 있습니다. Windows 및 Linux 기반 클러스터 모두에 대해 동작합니다.
 
@@ -258,4 +269,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

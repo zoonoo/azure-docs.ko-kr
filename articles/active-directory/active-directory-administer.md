@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Azure AD 디렉터리 관리"
+	pageTitle="Azure AD 디렉터리 관리 | Microsoft Azure"
 	description="Azure AD 테넌트의 정의 및 Azure AD 디렉터리를 관리하는 방법을 설명하는 항목입니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="Markusvi"
+	authors="markusvi"
 	writer="markvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="12/01/2015"
 	ms.author="markvi"/>
 
 # Azure AD 디렉터리 관리
@@ -145,4 +145,4 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

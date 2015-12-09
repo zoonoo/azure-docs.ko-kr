@@ -22,7 +22,7 @@
 
 Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. IoT 프로젝트가 직면하는 큰 과제 중 하나는 장치를 안정적이고 안전하게 백 엔드 응용 프로그램에 연결하는 방법입니다. 이 시나리오를 단순화하려면 Azure IoT Hub는 안정적인 장치-클라우드 및 클라우드-장치 하이퍼-메시징을 제공하고 장치 단위 보안 자격 증명 및 액세스 제어를 사용하여 보안 통신을 사용하며 인기 있는 언어 및 플랫폼에 대한 장치 라이브러리를 포함합니다.
 
-이 자습서에서는 Azure Preview 포털을 사용하여 IoT Hub를 만드는 방법을 보여 줍니다. 또한 IoT Hub에 장치 ID를 만들고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치를 만들며 클라우드 백 엔드에서 이러한 메시지를 수신하는 방법을 보여줍니다.
+이 자습서에서는 Azure 포털을 사용하여 IoT Hub를 만드는 방법을 보여 줍니다. 또한 IoT Hub에 장치 ID를 만들고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치를 만들며 클라우드 백 엔드에서 이러한 메시지를 수신하는 방법을 보여줍니다.
 
 이 자습서의 끝 부분에서 다음의 세 가지 Windows 콘솔 응용 프로그램이 만들어집니다.
 
@@ -40,7 +40,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 ## IoT Hub 만들기
 
-1. [Azure Preview 포털]에 로그인합니다.
+1. [Azure 포털]에 로그온합니다.
 
 2. 점프 모음에서 **새로 만들기**를 클릭하고 **사물 인터넷**을 클릭한 다음 **IoT Hub**를 클릭합니다.
 
@@ -115,7 +115,7 @@ IoT Hub에 대한 추가 정보:
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[Azure Preview 포털]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 
 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
 [장치-클라우드 메시지 처리]: iot-hub-csharp-csharp-process-d2c.md
@@ -129,4 +129,4 @@ IoT Hub에 대한 추가 정보:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

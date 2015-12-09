@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/11/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 개요
 
-이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 저장소 클라이언트 라이브러리는 Blob 저장소 REST API와의 상호작용을 단순화하는 SDK입니다. 이 가이드에서 다루는 시나리오는 Blob의 **업로드**, **나열**, **다운로드** 및 **삭제**를 포함하며 완료하는 데 한시간 정도가 걸려야 합니다. 비디오 시작을 시청하려면 [5분 만에 저장소 소개](https://azure.microsoft.com/ko-KR/documentation/videos/azure-storage-5-minute-overview/) 를 참조하거나 [5분 만에 저장소 시작](https://azure.microsoft.com/ko-KR/documentation/articles/storage-getting-started-guide/) 가이드를 읽을 수 있습니다.
+이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 저장소 클라이언트 라이브러리는 Blob 저장소 REST API와의 상호작용을 단순화하는 SDK입니다. 이 가이드에서 다루는 시나리오는 Blob의 **업로드**, **나열**, **다운로드** 및 **삭제**를 포함하며 완료하는 데 한시간 정도가 걸려야 합니다. 비디오 시작을 시청하려면 [5분 만에 Azure 저장소 소개](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/)를 참조하거나 [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)을 읽을 수 있습니다.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -359,11 +359,10 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

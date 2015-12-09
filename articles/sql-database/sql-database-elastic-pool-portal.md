@@ -11,21 +11,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/06/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Azure Preview 포털에서 SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀 만들기
+# Azure 포털에서 SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀 만들기
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-이 문서에서는 Azure preview 포털을 사용하여 확장성 있는 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여줍니다. 탄력적 데이터베이스 풀이 있는 SQL 데이터베이스는 여러 데이터베이스 간에 공유되는 관리 및 리소스를 단순화합니다.
+이 문서에서는 Azure 포털을 사용하여 확장성 있는 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법을 보여줍니다. 탄력적 데이터베이스 풀이 있는 SQL 데이터베이스는 여러 데이터베이스 간에 공유되는 관리 및 리소스를 단순화합니다.
 
 > [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server.md)를 할 수 있습니다.
 
@@ -38,7 +38,7 @@
 서버에 새 풀을 추가하여 탄력적 데이터베이스 풀을 만듭니다. 서버에 여러 풀을 추가할 수 있지만, 각 풀에는 서버 하나만 연결할 수 있습니다. 또한 서버에 있는 데이터베이스 전체 또는 일부를 풀에 추가할 수 있습니다.
 
 
-[Azure Preview 포털](https://ms.portal.azure.com/)에서 **SQL Server**를 클릭하고 풀에 추가할 데이터베이스를 호스트하는 서버를 클릭한 다음 **풀 추가**를 클릭합니다.
+[Azure 포털](https://portal.azure.com/)에서 **SQL Server**를 클릭하고 풀에 추가할 데이터베이스를 호스트하는 서버를 클릭한 다음 **풀 추가**를 클릭합니다.
 
 ![서버에 풀 추가](./media/sql-database-elastic-pool-portal/elastic-pool-add-pool.png)
 
@@ -202,4 +202,4 @@ SQL 데이터베이스 V12 서버로 이동하면 서버에 대해 권장되는 
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

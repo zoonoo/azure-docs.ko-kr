@@ -92,7 +92,7 @@ GA, 일반 공급:
 
 ## A. 메모리 내 OLTP 샘플 설치
 
-[Azure Preview 포털](http://portal.azure.com/)에서 몇 번 클릭으로 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 AdventureWorksLT 데이터베이스를 보강할 수는 방법을 설명합니다.
+[Azure 포털](http://portal.azure.com/)에서 몇 번 클릭으로 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 AdventureWorksLT 데이터베이스를 보강할 수는 방법을 설명합니다.
 
 - 메모리 내 테이블.
 - 고유하게 컴파일된 저장 프로시저.
@@ -100,7 +100,7 @@ GA, 일반 공급:
 
 #### 설치 단계
 
-1. [Azure Preview 포털](http://portal.azure.com/)에서 V12 서버의 Premium 데이터베이스를 만듭니다. AdventureWorksLT [V12] 샘플 데이터베이스에 **소스**를 설정합니다.
+1. [Azure 포털](http://portal.azure.com/)에서 V12 서버의 Premium 데이터베이스를 만듭니다. AdventureWorksLT [V12] 샘플 데이터베이스에 **소스**를 설정합니다.
  - 자세한 지침은 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
 
 2. SQL Server Management Studio[(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
@@ -525,4 +525,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -16,7 +16,7 @@
 	ms.date="11/17/2015"
 	ms.author="wesmc"/>
 
-# 알림 허브 시작
+# Android용 Xamarin을 통해 알림 허브 시작
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -25,6 +25,15 @@
 이 자습서에서는 Azure 알림 허브를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 확인할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
+
+
+## 시작하기 전에
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid)서 찾을 수 있습니다.
+
+
 
 ##필수 조건
 
@@ -173,7 +182,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 		using Gcm.Client;
 		using WindowsAzure.Messaging;
 
-5. **MyBroadcastReceiver.cs**에서 **using** 문과 **namespace** 선언 사이에 다음 사용 권한 요청을 추가합니다.
+5. **MyBroadcastReceiver.cs**에서 **using** 문과 **네임스페이스** 선언 사이에 다음 사용 권한 요청을 추가합니다.
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -514,4 +523,4 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

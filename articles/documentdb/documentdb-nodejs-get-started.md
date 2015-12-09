@@ -74,9 +74,9 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 원하는 텍스트 편집기에서 *config.js*를 엽니다.
 
-그런 다음 *config*이라는 제목의 빈 개체를 만들고 DocumentDB 끝점 및 권한 부여 키에 *config.endpoint* 및 *config.authKey* 속성을 설정합니다. 이러한 구성은 모두 [Azure Preview 포털](https://portal.azure.com)에서 찾을 수 있습니다.
+그런 다음 *config*이라는 제목의 빈 개체를 만들고 DocumentDB 끝점 및 권한 부여 키에 *config.endpoint* 및 *config.authKey* 속성을 설정합니다. 이러한 구성은 모두 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
 
-![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷][keys]
+![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure 포털의 스크린샷][keys]
 
     var config = {}
 
@@ -442,4 +442,4 @@ npm을 통해 **documentdb** 모듈을 설치합니다. 다음 명령을 사용�
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

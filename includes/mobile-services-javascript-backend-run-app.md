@@ -13,10 +13,10 @@
 
 	앱이 시작된 후 이전 단계에서 저장한 데이터가 모바일 서비스에서 로드됩니다.
  
-4. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
+4. [Azure 클래식 포털](https://manage.windowsazure.com/)에 돌아와서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
    	이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->
