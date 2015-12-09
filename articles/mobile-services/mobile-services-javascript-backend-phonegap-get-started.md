@@ -50,7 +50,7 @@
 
 이 섹션에서는 모바일 서비스에 연결된 새 PhoneGap 앱을 만듭니다.
 
-1.  관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+1.  [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
 2. 빠른 시작 탭의 **플랫폼 선택** 아래에서 **PhoneGap**을 클릭하고 **새 PhoneGap 앱 만들기**를 확장합니다.
 
@@ -111,7 +111,7 @@
 
 	> [AZURE.IMPORTANT]PhoneGap 도구로 기본 프로젝트를 다시 빌드하는 경우 이 플랫폼 프로젝트에 대한 변경 사항을 덮어쓰게 됩니다. 대신 아래의 섹션에서 설명하는 것처럼 프로젝트의 루트 www 디렉터리에서 변경하세요.
 
-4. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
+4. [Azure 클래식 포털]에 돌아와서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -157,7 +157,7 @@
 
 * **[앱에 푸시 알림 추가](https://msdn.microsoft.com/magazine/dn879353.aspx)** 앱에 등록하고 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* **[모바일 서비스 HTML/JavaScript 사용 방법 개념 참조](mobile-services-html-how-to-use-client-library.md)** JavaScript 클라이언트 라이브러리를 사용하여 데이터에 액세스하고, 사용자 지정 API를 호출하고, 인증을 수행하는 방법에 대해 자세히 알아봅니다.
+* **[모바일 서비스 HTML/JavaScript 사용 방법 개념 참조](mobile-services-html-how-to-use-client-library.md)** JavaScript 클라이언트 라이브러리를 사용하여 데이터에 액세스하고 사용자 지정 API를 호출하며 인증을 수행하는 방법에 대해 자세히 알아봅니다.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -171,9 +171,9 @@
 <!-- URLs. -->
 [앱에 인증 추가]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -35,9 +35,7 @@
 ## Visual Studio를 사용하여 데이터 팩터리 엔터티 만들기 및 배포 
 
 ### 필수 구성 요소
-다음 항목이 컴퓨터에 설치되어 있어야 합니다:
-- Visual Studio 2013
-- Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
+컴퓨터에 Visual Studio 2013이 설치되어 있어야 합니다. Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
 
 ### 연습
 
@@ -47,7 +45,7 @@
 
 	![새 프로젝트 대화 상자](./media/data-factory-get-started-using-vs/new-project-dialog.png)
 
-3. 프로젝트의 **이름**, **위치**, **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
+3. 프로젝트의 **이름**, **위치** 및 **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
 
 	![솔루션 탐색기](./media/data-factory-get-started-using-vs/solution-explorer.png)
 
@@ -58,7 +56,7 @@
 
 ##### Azure 저장소 연결된 서비스 만들기
 
-4. 솔루션 탐색기에서 **연결된 서비스** 노드를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
+4. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
 5. **새 항목 추가** 대화 상자의 목록에서 **Azure 저장소 연결된 서비스**를 선택한 다음 **추가**를 클릭합니다. 
 
 	![새 연결된 서비스](./media/data-factory-get-started-using-vs/new-linked-service-dialog.png)
@@ -239,6 +237,6 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 �
 2. 왼쪽 창에서 **업데이트**를 선택한 다음 **Visual Studio 갤러리**를 선택합니다.
 4. **Visual Studio용 Azure Data Factory 도구**를 선택하고 **업데이트**를 클릭합니다. 이 항목이 표시되지 않으면 이미 최신 버전의 도구가 있는 것입니다. 
 
-Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)을 참조하세요.
+Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)을 참조하세요.
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

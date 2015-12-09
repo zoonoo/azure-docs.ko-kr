@@ -54,7 +54,7 @@
 
 ### 클라우드 서비스를 사용하는 경우 연결 문자열 구성
 
-서비스 구성 메커니즘은 Azure 클라우드 서비스 프로젝트에 고유하며, 응용 프로그램을 다시 배포하지 않고도 Azure 포털에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(****.csdef**) 파일에 `Setting` 레이블을 추가합니다.
+서비스 구성 메커니즘은 Azure 클라우드 서비스 프로젝트에 고유하며, 응용 프로그램을 다시 배포하지 않고도 [Azure 클래식 포털][]에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(****.csdef**) 파일에 `Setting` 레이블을 추가합니다.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -83,7 +83,7 @@
 </ServiceConfiguration>
 ```
 
-이전 섹션에서 설명한 대로 Azure 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
+이전 섹션에서 설명한 대로 Azure 클래식 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
 
 ### Azure 웹 사이트 또는 Azure 가상 컴퓨터를 사용하는 경우 연결 문자열 구성
 
@@ -98,7 +98,7 @@
 </configuration>
 ```
 
-이전 섹션에서 설명한 대로 Azure 포털에서 검색된 SAS 이름 및 키 값을 사용합니다.
+이전 섹션에서 설명한 대로 Azure 클래식 포털에서 검색된 SAS 이름 및 키 값을 사용합니다.
 
 ## 토픽 만들기
 
@@ -291,7 +291,7 @@ Client.OnMessage((message) =>
 
 구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-응용 프로그램이 메시지를 처리한 후 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 속성을 사용합니다.
+응용 프로그램이 메시지를 처리한 후 [완료](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 요청이 실행되기 전에 충돌되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 속성을 사용합니다.
 
 ## 토픽 및 구독 삭제
 
@@ -317,7 +317,7 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 -   서비스 버스 큐로 메시지를 보내고 받는 작동하는 응용 프로그램 만들기: [서비스 버스 조정된 메시징 .NET 자습서][].
 -   서비스 버스 샘플: [Azure 샘플][]에서 다운로드하거나 [개요](service-bus-samples.md)를 참조하세요.
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -327,4 +327,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [서비스 버스 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015--->

@@ -20,6 +20,10 @@
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -34,7 +38,7 @@
 
 다운로드한 퀵 스타트 프로젝트에는 Android용 모바일 서비스 SDK가 포함되어 있습니다.
 
-> [AZURE.IMPORTANT]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하세요.
+> [AZURE.IMPORTANT]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하십시오.
 
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
@@ -67,7 +71,7 @@
 
 이 섹션에서는 모바일 서비스에 연결된 새 Android 앱을 만듭니다.
 
-1. [관리 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+1. [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
 2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Android**를 클릭하고 **새 Android 앱 만들기**를 확장합니다.
 
@@ -88,7 +92,7 @@
 
 * [앱에 푸시 알림 추가] <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [사용자의 앱에 인증 추가] <br/>사용자 앱의 특정 등록된 사용자에게 사용자의 백엔드 데이터 액세스를 제한하는 방법을 알아봅니다.
+* [앱에 인증 추가] <br/>앱의 특정 등록된 사용자에 대한 백 엔드 데이터에 액세스를 제한하는 방법을 알아봅니다.
 
 * [모바일 서비스 .NET 백 엔드 문제 해결] <br/> 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단 및 해결하는 방법을 알아봅니다.
 
@@ -118,12 +122,12 @@
 <!-- URLs. -->
 [Get started (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
 [앱에 푸시 알림 추가]: mobile-services-dotnet-backend-android-get-started-push.md
-[사용자의 앱에 인증 추가]: mobile-services-dotnet-backend-android-get-started-auth.md
+[앱에 인증 추가]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

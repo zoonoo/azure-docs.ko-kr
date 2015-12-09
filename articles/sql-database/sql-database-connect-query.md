@@ -46,7 +46,7 @@ C# 쿼리 코드 샘플을 실행하려면 다음이 있어야 합니다.
 - Visual Studio 2013 업데이트 4(이후) Microsoft는 이제 Visual Studio 커뮤니티를 *무료* 로 제공합니다.
  - [Visual Studio Community, 다운로드](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [무료 Visual Studio에 대한 더 많은 옵션](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - 이 항목의 뒷부분에 나오는 [단계](#InstallVSForFree)는 [Azure Preview 포털](http://portal.azure.com/)이 Visual Studio의 설치를 어떻게 안내하는지를 설명합니다.
+ - 이 항목의 뒷부분에 나오는 [단계](#InstallVSForFree)는 [Azure 포털](http://portal.azure.com/)이 Visual Studio의 설치를 어떻게 안내하는지를 설명합니다.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ C# 쿼리 코드 샘플을 실행하려면 다음이 있어야 합니다.
 Visual Studio를 설치해야 하는 경우 다음을 수행할 수 있습니다.
 
 - 무료 다운로드 및 기타 옵션을 제공하는 Visual Studio 제품 웹 페이지에 브라우저를 탐색하여 Visual Studio 커뮤니티를 무료로 설치합니다.
-- [Azure Preview 포털](http://portal.azure.com/)은 다음에 설명할 다운로드 웹 페이지를 안내 합니다.
+- [Azure 포털](http://portal.azure.com/)은 다음에 설명할 다운로드 웹 페이지를 안내합니다.
 
 
-### Azure Preview 포털을 통한 Visual Studio
+### Azure 포털을 통한 Visual Studio
 
 
-1. [Azure Preview 포털](http://portal.azure.com/)(http://portal.azure.com/) 을 통해 로그인합니다.
+1. [Azure 포털](http://portal.azure.com/)(http://portal.azure.com/)을 통해 로그인합니다.
 
 2. **모두*찾아보기** > **SQL 데이터베이스**를 클릭합니다. 블레이드는 데이터베이스에 대한 해당 검색을 엽니다.
 
@@ -127,7 +127,7 @@ C# 샘플이 .NET Framework 어셈블리 **System.Configuration.dll**를 사용�
 ## 4단계: 연결 문자열 가져오기
 
 
-[Azure Preview 포털](http://portal.azure.com/)을 사용하여 SQL 데이터베이스에 필요한 연결 문자열을 복사합니다.
+[Azure 포털](http://portal.azure.com/)을 사용하여 SQL 데이터베이스에 필요한 연결 문자열을 복사합니다.
 
 첫 번째로 Azure SQL 데이터베이스 **AdventureWorksLT** 데이터베이스에 Visual Studio를 연결합니다.
 
@@ -316,7 +316,7 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 클라이언트 컴퓨터의 IP 주소가 SQL 데이터베이스 방화벽에 추가될 때까지 클라이언트 C# 프로그램은 SQL 데이터베이스에 연결할 수 없습니다. 프로그램은 필요한 IP 주소를 보고하는 유용한 오류 메시지에 실패합니다.
 
 
-[Azure Preview 포털](http://portal.azure.com/) 사용하여 IP 주소를 추가할 수 있습니다.
+[Azure 포털](http://portal.azure.com/) 사용하여 IP 주소를 추가할 수 있습니다.
 
 
 
@@ -359,4 +359,4 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

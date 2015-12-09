@@ -22,7 +22,7 @@
 
 이 코드를 개발하고 테스트하는 데에는 [NodeJS](https://nodejs.org) 및 NPM, [Sublime Text 3](http://www.sublimetext.com/3) 및 Windows 8.1의 Windows PowerShell이 사용되었습니다.
 
-이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다.
+이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 클래식 포털](https://portal.azure.com)에서 등록할 수 있습니다.
 
 > [AZURE.TIP] [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198)에서 이 자습서의 원본 코드를 다운로드하세요.
 
@@ -36,7 +36,7 @@
 
 ## 서비스 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 이동 표시줄에서 **새로 만들기** > **데이터 + 저장소** > **검색**을 클릭합니다.
 
@@ -147,4 +147,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015--->

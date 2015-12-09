@@ -41,7 +41,7 @@
 
 ## 필수 조건
 
-이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
 개발 환경 설정을 설정하려면 [Visual Studio 2013 업데이트 4](http://go.microsoft.com/fwlink/?LinkId=390521) 이상 및 최신 버전의 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)를 설치해야 합니다. 이 문서는 Visual Studio 업데이트 4 및 SDK 2.7.1에 대해 작성되었습니다. Visual Studio 2015는 설치된 최신 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)와 동일한 지침으로 작동하지만 일부 화면이 그림과 다르게 표시됩니다.
 
@@ -628,7 +628,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 4. 웹앱을 마우스 오른쪽 단추로 클릭하고 **중지**를 선택합니다.
 
-	또는 [Azure 미리 보기 포털](https://portal.azure.com/)에서 웹앱의 블레이드로 이동한 다음 블레이드 맨 위에서 **중지** 아이콘을 클릭할 수 있습니다.
+	또는 [Azure 포털](https://portal.azure.com/)에서 웹앱의 블레이드로 이동한 다음 블레이드 맨 위에서 **중지** 아이콘을 클릭할 수 있습니다.
 
 	![웹앱 포털 중지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 
@@ -737,7 +737,6 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 ## 변경된 내용
 
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -798,4 +797,4 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

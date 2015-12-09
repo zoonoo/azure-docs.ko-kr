@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure Site Recovery: 성능 및 확장성 테스트: 온-프레미스 간"
-	description="이 문서에서는 온-프레미스에서 Azure Site Recovery를 사용하여 온-프레미스 배포에 대한 복제의 성능 영향 테스트에 대해 설명합니다."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: 온-프레미스 Hyper-V 복제에 성능 테스트 및 온-프레미스에 대한 규모 결과"
+	description="이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 복제에 온-프레미스에 대한 성능 테스트에 대하여 정보를 제공합니다."
+	services="site-recovery" 
 	documentationCenter=""
-	authors="csilauraa"
+	authors="rayne-wiselman"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -13,24 +13,25 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
-	ms.author="lauraa"/>
+	ms.date="12/01/2015"
+	ms.author="raynew"/>
 
-# 성능 및 확장성 테스트: 온-프레미스 간
+# Azure Site Recovery: 온-프레미스 Hyper-V 복제에 성능 테스트 및 온-프레미스에 대한 규모 결과
 
-Microsoft Azure Site Recovery는 기본 데이터센터의 복제를 보조 위치로 오케스트레이션 및 관리하여 예정 및 예정되지 않은 작동 중단 시 데이터를 백업하고 복구할 수 있도록 합니다. 시스템 센터 VMM(Virtual Machine Manager)에 있는 온-프레미스 사설 클라우드를 다른 온-프레미스 위치 또는 Microsoft Azure 저장소로 백업할 수 있습니다. 복제를 수행하기 위해 VMM은 Hyper-V 복제본, Windows Server 2012 및 Windows Server 2012 R2에서 Hyper-V에 내장되어 있는 복제 메커니즘을 사용합니다. 두 호스팅 서버 간에 Hyper-V 가상 컴퓨터의 비동기 복제를 제공합니다. Hyper-V에서 가상화할 수 있는 모든 서버 워크로드를 복제할 수 있습니다. 일반 IP 기반 네트워크 Hyper-V 복제본을 통한 복제 작업은 독립 실행형 서버, 복구 조치 클러스터 또는 둘 다의 혼합과 함께 동작합니다.
+Microsoft Azure Site Recovery를 사용하여 가상 컴퓨터 및 물리적 서버의 복제를 Azure 또는 보조 데이터 센터에 오케스트레이션하고 관리합니다. 이 문서는 두 개의 온-프레미스 데이터 센터 사이에 Hyper-v 가상 컴퓨터를 복제할 때 수행한 성능 테스트의 결과를 제공합니다.
 
-이 토픽은 온-프레미스에서 Azure Site Recovery를 사용하여 온-프레미스 배포에 대한 복제의 성능 영향 테스트에 대해 설명합니다. 테스트에서 사용되는 매개 변수 및 구성 설정에 대한 세부 정보를 제공하고, 테스트 배포 단계 및 자세하게 제공된 테스트 결과를 보여줍니다.
 
-## 테스트 목표
 
-목표는 안정적인 상태로 복제하는 동안 Azure Site Recovery가 수행하는 방법에 대해 검사하는 것입니다. 안정적 상태 복제는 가상 컴퓨터가 초기 복제를 완료하고 델타 변경 내용을 동기화하는 경우에 발생합니다. 안정적 상태를 사용하여 성능을 측정하는 것은 예상치 못한 중단이 발생하지 않는 한 대부분의 가상 컴퓨터에서의 상태가 안정적 상태이기 때문에 중요합니다.
+## 개요
 
-## 테스트 배포 실행
+테스트의 목표는 안정적인 상태로 복제하는 동안 Azure Site Recovery가 수행하는 방법에 대해 검사하는 것입니다. 안정적 상태 복제는 가상 컴퓨터가 초기 복제를 완료하고 델타 변경 내용을 동기화하는 경우에 발생합니다. 안정적 상태를 사용하여 성능을 측정하는 것은 예상치 못한 중단이 발생하지 않는 한 대부분의 가상 컴퓨터에서의 상태가 안정적 상태이기 때문에 중요합니다.
 
-테스트 배포는 각각 VMM 서버를 사용하는 두 개의 온-프레미스 사이트로 구성됩니다. 두 VMM 서버 모두 Azure Site Recovery 자격 증명 모음에 등록됩니다. 이 테스트 배포는 기본 사이트 역할을 하는 본사 및 보조 또는 복구 사이트 역할을 하는 지점을 포함하여 일반적으로 본사/지점 배포를 대표합니다.
 
-### 테스트 배포 단계
+테스트 배포는 각 사이트에서 VMM 서버를 사용하는 두 개의 온-프레미스 사이트로 구성됩니다. 이 테스트 배포는 기본 사이트 역할을 하는 본사 및 보조 또는 복구 사이트 역할을 하는 지점을 포함하여 일반적으로 본사/지점 배포를 대표합니다.
+
+### 수행한 내용
+
+테스트 통과에서 한 내용은 다음과 같습니다.
 
 1. VMM 템플릿을 사용하여 가상 컴퓨터 생성.
 
@@ -104,9 +105,9 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 ### 결론
 
-결과는 Hyper-V 복제본과 관련하여 Azure Site Recovery가 대량 클러스터에 대해 최소한의 오버헤드로 확장 가능함을 명백하게 보여줍니다. Azure Site Recovery는 간단한 배포, 복제, 관리 및 모니터링을 제공합니다. Hyper-V 복제본은 성공적인 복제 크기 조정에 대해 필요한 인프라를 제공합니다. 최적의 배포 계획을 위해 [Hyper-V Replica Capacity Planner](https://www.microsoft.com/ko-KR/download/details.aspx?id=39057)를 다운로드하는 것이 좋습니다.
+결과는 Hyper-V 복제본과 관련하여 Azure Site Recovery가 대량 클러스터에 대해 최소한의 오버헤드로 확장 가능함을 명백하게 보여줍니다. Azure Site Recovery는 간단한 배포, 복제, 관리 및 모니터링을 제공합니다. Hyper-V 복제본은 성공적인 복제 크기 조정에 대해 필요한 인프라를 제공합니다. 최적의 배포 계획을 위해 [Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057)를 다운로드하는 것이 좋습니다.
 
-## 테스트 배포 환경
+## 테스트 환경 세부 정보
 
 ### 기본 사이트
 
@@ -205,13 +206,8 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 ## 다음 단계
 
-ASR의 배포를 시작하려면:
-
-- [온-프레미스 VMM 사이트와 Azure 간 보호 설정](site-recovery-vmm-to-azure.md)
-- [온-프레미스 Hyper-V 사이트와 Azure 간 보호 설정](site-recovery-hyper-v-site-to-azure.md)
 - [2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-to-vmm.md)
-- [SAN으로 2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-san.md)
-- [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
+
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

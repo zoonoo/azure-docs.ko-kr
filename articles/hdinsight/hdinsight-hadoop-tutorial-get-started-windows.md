@@ -1,7 +1,7 @@
 <properties
    pageTitle="Hadoop 자습서: Windows에서 Hadoop 시작 | Microsoft Azure"
-   description="HDInsight에서 Hadoop을 시작합니다. Windows에서 Hadoop 클러스터를 프로비전하고, 데이터에 대해 Hive 쿼리를 실행하고 Excel에서 결과를 분석하는 방법을 알아봅니다."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
+   description="HDInsight에서 Hadoop을 시작합니다. Windows에서 Hadoop 클러스터를 만들고 데이터에 대해 Hive 쿼리를 실행하며 Excel에서 결과를 분석하는 방법을 알아봅니다."
+   keywords="hadoop 자습서, windows의 hadoop, hadoop 클러스터, hadoop 알아보기, hive 쿼리"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -15,11 +15,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/03/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 
-# Hadoop 자습서: Windows의 HDInsight에서 Hadoop 및 Hive 쿼리 시작
+# Hadoop 자습서: Windows의 HDInsight에서 Hadoop 사용 시작
 
 > [AZURE.SELECTOR]
 - [Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -27,15 +27,9 @@
 
 Windows의 Hadoop에 대해 알아보고 HDInsight를 사용하여 시작하는 데 도움이 되도록 이 자습서에서는 Hadoop 클러스터의 구조화되지 않은 데이터에서 Hive 쿼리를 실행하고 Microsoft Excel에서 결과를 분석하는 방법을 보여줍니다.
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Windows의 HDInsight에서 Hadoop 시작](hdinsight-hadoop-tutorial-get-started-windows-v1.md)
-
-## 이 Hadoop 자습서의 목표
-
 구조화되지 않은 대량의 데이터 집합이 있고 Hive 쿼리를 실행하여 의미 있는 일부 정보를 추출하려고 한다면 이 자습서를 통해 적절한 도움을 얻을 수 있을 것입니다. 해당 방법은 다음과 같습니다.
 
-   !["Hadoop 자습서: 계정 만들기, Hadoop 클러스터 프로비전, Hive 쿼리 제출, Excel에서 데이터 분석.][image-hdi-getstarted-flow]
+   !["Hadoop 자습서: 계정 만들기, Hadoop 클러스터 만들기, Hive 쿼리 제출, Excel에서 데이터 분석.][image-hdi-getstarted-flow]
 
 이 자습서의 데모 비디오를 통해 HDInsight의 Hadoop에 알아보세요.
 
@@ -43,112 +37,66 @@ Windows의 Hadoop에 대해 알아보고 HDInsight를 사용하여 시작하는 
 
 **[YouTube에서 HDInsight용 Hadoop 자습서 보기](https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS)**
 
-
 Azure HDInsight의 일반적인 가용성과 더불어 Microsoft는 Azure용 HDInsight Emulator(이전의 *Microsoft HDInsight Developer Preview*)도 제공합니다. 이 Emulator는 개발자 시나리오를 대상으로 하기 때문에 단일 노드 배포만 지원합니다. HDInsight Emulator 사용에 대한 자세한 내용은 [HDInsight Emulator 시작][hdinsight-emulator]을 참조하세요.
 
-## 필수 조건
+### 필수 조건
 
 Windows의 Hadoop에 대해 이 자습서를 시작하기 전에 다음이 있어야 합니다.
-
 
 - **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus가 있는 **워크스테이션 컴퓨터**
 
+##Hadoop 클러스터 만들기
 
-##<a name="provision"></a>Hadoop 클러스터 프로비전
-
-클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 HDInsight 버전 3.2 클러스터를 프로비전합니다. 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
+클러스터를 만들 때는 Hadoop 및 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 만듭니다. 이 섹션에서는 HDInsight 버전 3.2 클러스터를 만듭니다. 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 만들기][hdinsight-provision]를 참조하세요. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
 
 
-**Hadoop 클러스터를 프로비전하려면**
+**Hadoop 클러스터를 만들려면**
 
-1. [Azure 미리 보기 포털](https://ms.portal.azure.com/)에 로그인합니다.
-2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
+1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
+2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다. 포털은 **새 HDInsight 클러스터** 블레이드를 엽니다.
 
-    ![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
+    ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Azure 포털에서 새 클러스터 만들기")
 
-3. **클러스터 이름**을 입력하고 **클러스터 유형**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Windows Server 2012 R2 Datacenter**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. 다음을 입력하거나 선택합니다.
 
 	![클러스터 이름 및 유형 입력](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.2.png "클러스터 이름 및 유형 입력")
-
-4. 둘 이상의 구독이 있는 경우 **구독** 항목을 클릭하여 클러스터에 사용할 Azure 구독을 선택합니다.
-
-5. **리소스 그룹**을 클릭하여 기존 리소스 그룹 목록을 표시한 다음 클러스터를 만들 리소스 그룹을 선택합니다. 또는 **새로 만들기**를 클릭한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
-
-	> [AZURE.NOTE]사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
-
-6. **자격 증명**을 클릭한 다음 **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**를 입력합니다. 클러스터 노드에 대해 원격 데스크톱을 사용하도록 설정하려면 **원격 데스크톱 사용**에 대해 **예**를 클릭한 다음 필요한 값을 지정합니다. 이 자습서에서는 원격 데스크톱이 필요하지 않으므로 이를 건너뛸 수 있습니다. 아래쪽의 **선택**을 클릭하여 자격 증명 구성을 저장합니다.
-
-	![클러스터 자격 증명 제공](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.3.png "클러스터 자격 증명 제공")
-
-7. **데이터 원본**을 클릭하여 클러스터의 기존 데이터 원본을 선택하거나 새로 만듭니다. HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정을 지정합니다. Hadoop 분산 파일 시스템(HDFS)의 경우처럼 해당 계정의 특정 Blob 저장소 컨테이너는 기본 파일 시스템으로 지정됩니다. HDInsight 클러스터는 기본적으로 사용자가 지정한 저장소 계정과 동일한 데이터 센터에 프로비전됩니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
-
-	![데이터 원본 블레이드](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.4.png "데이터 원본 구성 제공")
 	
-	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
-	
-	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
-	
-	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
-	
-	- **기본 컨테이너 선택**: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
-	
-	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지역입니다.
-	
-		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
-		
-	**선택**을 클릭하여 데이터 원본 구성을 저장합니다.
+	|필드 이름| 값|
+	|----------|------|
+	|클러스터 이름| 클러스터를 식별하기 위한 고유 이름|
+	|클러스터 유형| 이 자습서에 대한 **Hadoop**을 선택합니다. |
+	|클러스터 운영 체제| 이 자습서에 대한 **Windows Server 2012 R2 Datacenter**를 선택합니다.|
+	|HDInsight 버전| 이 자습서에 대한 최신 버전을 선택합니다.|
+	|구독| 이 클러스터에 사용할 Azure 구독을 선택합니다.|
+	|리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 기본 HDInsight 클러스터는 클러스터 및 해당 기본 저장소 계정을 포함합니다. 쉽게 관리하기 위해 둘을 리소스 그룹으로 그룹화할 수 있습니다.|
+	|자격 증명| 클러스터 로그인 사용자 이름 및 암호를 입력합니다. Windows 기반 클러스터에는 2개의 사용자 계정이 있을 수 있습니다. 클러스터 사용자(또는 HTTP 사용자)는 클러스터를 관리하고 작업을 제출하는 데 사용됩니다. 경우에 따라 원격 데스크톱(RDP) 사용자 계정을 만들어 클러스터에 원격으로 연결할 수 있습니다. 원격 데스크톱을 사용하도록 선택하면 RDP 사용자 계정을 만듭니다.|
+	|데이터 원본| 새로 만들기를 클릭하여 새 기본 Azure 저장소 계정을 만듭니다. 클러스터 이름을 기본 컨테이너 이름으로 사용합니다. 모든 HDinsight 클러스터에는 Azure 저장소 계정의 기본 Blob 컨테이너가 있습니다. 기본 Azure 저장소 계정의 위치는 HDInsight 클러스터의 위치를 결정합니다.|
+	|노드 가격 책정 계층| 이 자습서에 대해 기본 작업자 노드 및 헤드 메모 가격 책정 계층으로 1 또는 2개의 작업자 노드를 사용합니다.|
+	|선택적 구성| 이 부분을 건너뜁니다.|
 
-8. **노드 가격 책정 계층**을 클릭하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 클러스터에 필요한 작업자 노드 수를 설정합니다. 클러스터의 예상 비용이 블레이드 내에 표시됩니다.
+9. **새 HDInsight 클러스터** 블레이드에서 **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 클릭합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘은 클러스터를 만드는 중임을 나타내고 생성이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
 
-	![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.5.png "클러스터 노드 수 지정")
-	
-	**선택**을 클릭하여 노드 가격 책정 구성을 저장합니다.
-
-9. **새 HDInsight 클러스터** 블레이드에서 **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 클릭합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비전 중임을 나타내고 프로비전이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
-
-	| 프로비전 중 | 프로비전 완료 |
+	| 생성 중 | 만들기 완료 |
 	| ------------------ | --------------------- |
-	| ![시작 보드에 표시기 프로비전](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioned.png) |
+	| ![시작 보드에 표시기 만들기](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioning.png) | ![만든 클러스터 타일](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인하세요.
+	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 생성 프로세스를 확인하세요.
 
-10. 프로비전이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다.
-
-
-##<a name="sample"></a>포털에서 샘플 데이터 실행
-
-올바르게 프로비전된 HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위해 시작 갤러리를 포함하는 쿼리 콘솔을 제공합니다. 샘플을 통해 몇 가지 기본 시나리오를 단계별로 수행하여 HDInsight를 사용하는 방법을 익힐 수 있습니다. 이러한 샘플에는 분석할 데이터, 데이터에 대해 실행할 쿼리 등의 필요한 구성 요소가 모두 함께 제공됩니다. 시작 갤러리의 샘플에 대한 자세한 내용은 [HDInsight 시작 갤러리를 사용하여 HDInsight의 Hadoop에 대해 알아보기](hdinsight-learn-hadoop-use-sample-gallery.md)를 참조하세요.
-
-**샘플을 실행하려면**
-
-1. Azure Preview 포털 시작 보드에서 방금 만든 클러스터의 타일을 클릭합니다.
- 
-2. 새 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터의 관리자 사용자 이름 및 암호를 입력합니다.
-
-	![클러스터 대시보드 시작](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "클러스터 대시보드 시작")
- 
-3. 열리는 웹 페이지에서 **갤러리 시작** 탭을 클릭한 다음 **샘플 데이터를 사용하는 솔루션** 범주에서 실행할 샘플을 클릭합니다. 웹 페이지의 지침에 따라 샘플을 완료합니다. 다음 표에는 몇 가지 샘플이 나열되어 있으며 각 샘플이 수행하는 내용에 대한 자세한 정보를 제공합니다.
-
-샘플 | 수행하는 작업
------- | ---------------
-[센서 데이터 분석][hdinsight-sensor-data-sample] | HDInsight를 사용하여 HVAC(공기조화 냉난방) 시스템에서 생성하는 기록 데이터를 처리해 설정된 온도를 안정적으로 유지할 수 없는 시스템을 식별하는 방법에 대해 알아봅니다.
-[웹 사이트 로그 분석][hdinsight-weblogs-sample] | HDInsight를 사용하여 웹 사이트 로그 파일을 분석해 외부 웹 사이트로부터의 일일 웹 사이트 방문 빈도를 파악하고 사용자에게 발생하는 웹 사이트 오류의 요약을 확인하는 방법에 대해 알아봅니다.
-[Twitter 추세 분석](hdinsight-analyze-twitter-data.md) | HDInsight를 사용하여 Twitter에서 추세를 분석하는 방법에 대해 알아봅니다.
+10. 생성이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다.
 
 
-
-##<a name="hivequery"></a>포털에서 Hive 쿼리 실행
-HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업을 실행하여 샘플 Hive 테이블을 쿼리하는 것입니다. HDInsight 클러스터와 함께 제공되는 *hivesampletable*을 사용합니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블의 Hive 쿼리는 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
+## 포털에서 Hive 쿼리 실행
+HDInsight 클러스터를 만들었으므로 다음 단계는 Hive 작업을 실행하여 샘플 Hive 테이블을 쿼리하는 것입니다. HDInsight 클러스터와 함께 제공되는 *hivesampletable*을 사용합니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블의 Hive 쿼리는 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
 
 > [AZURE.NOTE]Visual Studio용 HDInsight 도구는 Azure SDK for .NET 버전 2.5 이상과 함께 제공됩니다. Visual Studio에서 이 도구를 사용하여 HDInsight 클러스터에 연결하고, Hive 테이블을 만들고, Hive 쿼리를 실행할 수 있습니다. 자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]을 참조하세요.
 
 **클러스터 대시보드에서 Hive 작업 실행**
 
-1. [Azure 미리 보기 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
 2. **모두 찾아보기**를 클릭한 후 **HDInsight 클러스터**를 클릭하면 이전 섹션에서 방금 만든 클러스터를 포함하여 클러스터 목록이 표시됩니다.
 3. Hive 작업을 실행하는 데 사용할 클러스터 이름을 클릭하고 블레이드 위쪽에서 **대시보드**를 클릭합니다.
-4. 웹 페이지가 다른 브라우저 탭에서 열립니다. Hadoop 사용자 계정과 암호를 입력합니다. 기본 사용자 이름은 **admin**이고 암호는 클러스터를 프로비전하는 동안 입력한 암호입니다.
+4. 웹 페이지가 다른 브라우저 탭에서 열립니다. Hadoop 사용자 계정과 암호를 입력합니다. 기본 사용자 이름은 **admin**이고 암호는 클러스터를 만드는 동안 입력한 암호입니다.
 5. 대시보드에서 **하이브 편집기** 탭을 클릭합니다. 다음 웹 페이지가 열립니다.
 
 	![HDInsight 클러스터 대시보드의 Have 편집기 탭.][img-hdi-dashboard]
@@ -182,7 +130,7 @@ HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업�
    	![파일 브라우저 탭에 나열된 Hive 쿼리 출력 파일 GUID.][img-hdi-dashboard-query-browse-output]
 
 
-##<a name="powerquery"></a>Excel용 Microsoft 비즈니스 인텔리전스 도구에 연결
+##Excel용 Microsoft 비즈니스 인텔리전스 도구에 연결
 
 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작업 출력을 Excel로 내보낼 수 있습니다. 그런 다음 Microsoft 비즈니스 인텔리전스 도구를 사용하여 결과를 추가적으로 분석할 수 있습니다.
 
@@ -209,9 +157,30 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 
 9. 왼쪽 위 구석에서 **닫은 후 로드**를 클릭하여 Hive 작업 출력을 Excel로 가져옵니다.
 
+##샘플 실행
 
-##<a name="nextsteps"></a>다음 단계
-이 Hadoop 자습서에서는 HDInsight에서 Windows에 Hadoop 클러스터를 프로비전하고, 데이터에 대해 Hive 쿼리를 실행한 후, 비즈니스 인텔리전스 도구를 사용하여 추가 처리하고 그래픽으로 표시할 수 있는 Excel로 결과를 가져오는 방법을 배웠습니다. 자세한 내용은 다음 자습서를 참조하세요.
+HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위해 시작 갤러리를 포함하는 쿼리 콘솔을 제공합니다. 샘플을 통해 몇 가지 기본 시나리오를 단계별로 수행하여 HDInsight를 사용하는 방법을 익힐 수 있습니다. 이러한 샘플에는 분석할 데이터, 데이터에 대해 실행할 쿼리 등의 필요한 구성 요소가 모두 함께 제공됩니다. 시작 갤러리의 샘플에 대한 자세한 내용은 [HDInsight 시작 갤러리를 사용하여 HDInsight의 Hadoop에 대해 알아보기](hdinsight-learn-hadoop-use-sample-gallery.md)를 참조하세요.
+
+**샘플을 실행하려면**
+
+1. Azure 포털 시작 보드에서 방금 만든 클러스터의 타일을 클릭합니다.
+ 
+2. 새 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터의 관리자 사용자 이름 및 암호를 입력합니다.
+
+	![클러스터 대시보드 시작](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "클러스터 대시보드 시작")
+ 
+3. 열리는 웹 페이지에서 **갤러리 시작** 탭을 클릭한 다음 **샘플 데이터를 사용하는 솔루션** 범주에서 실행할 샘플을 클릭합니다. 웹 페이지의 지침에 따라 샘플을 완료합니다. 다음 표에는 몇 가지 샘플이 나열되어 있으며 각 샘플이 수행하는 내용에 대한 자세한 정보를 제공합니다.
+
+샘플 | 수행하는 작업
+------ | ---------------
+[센서 데이터 분석][hdinsight-sensor-data-sample] | HDInsight를 사용하여 HVAC(공기조화 냉난방) 시스템에서 생성하는 기록 데이터를 처리해 설정된 온도를 안정적으로 유지할 수 없는 시스템을 식별하는 방법에 대해 알아봅니다.
+[웹 사이트 로그 분석][hdinsight-weblogs-sample] | HDInsight를 사용하여 웹 사이트 로그 파일을 분석해 외부 웹 사이트로부터의 일일 웹 사이트 방문 빈도를 파악하고 사용자에게 발생하는 웹 사이트 오류의 요약을 확인하는 방법에 대해 알아봅니다.
+[Twitter 추세 분석](hdinsight-analyze-twitter-data.md) | HDInsight를 사용하여 Twitter에서 추세를 분석하는 방법에 대해 알아봅니다.
+
+
+
+##다음 단계
+이 Hadoop 자습서에서는 HDInsight에서 Windows에 Hadoop 클러스터를 만들고 데이터에 대해 Hive 쿼리를 실행하며 Excel로 결과를 가져오는 방법을 배웠습니다. 여기서 비즈니스 인텔리전스 도구를 사용하여 추가 처리하고 그래픽으로 표시할 수 있습니다. 자세한 내용은 다음 자습서를 참조하세요.
 
 - [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]
 - [HDInsight Emulator 시작][hdinsight-emulator]
@@ -282,4 +251,4 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

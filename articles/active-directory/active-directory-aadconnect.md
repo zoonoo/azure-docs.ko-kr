@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory와 온-프레미스 ID 통합 | Microsoft Azure"
+	pageTitle="Azure AD Connect: Azure Active Directory와 온-프레미스 ID 통합 | Microsoft Azure"
 	description="Azure AD Connect의 정의 및 사용해야 하는 이유를 설명합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/04/2015"
+	ms.date="12/02/2015"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -48,19 +48,19 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
 | 해결 방법 | 시나리오 |
 | ----- | ----- |
+| 시작하기 전에 | <li>[Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md)</li> |
 | [Express 설정](active-directory-aadconnect-get-started-express.md) | <li>단일 포리스트 AD가 있는 경우 권장되는 기본 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li>
 | [사용자 지정된 설정](active-directory-aadconnect-get-started-custom.md) | <li>여러 포리스트가 있는 경우 사용됩니다. 다양한 온-프레미스 [토폴로지](active-directory-aadconnect-topologies.md)를 지원합니다.</li> <li>페더레이션에 ADFS와 같은 로그인 옵션을 사용자 지정하거나 타사 ID 공급자를 사용합니다.</li> <li>필터링 및 쓰기 저장 등의 동기화 기능을 사용자 지정합니다.</li>
 | [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>기존 DirSync 서버를 이미 실행 중인 경우입니다.</li>
 | Azure AD Sync에서 업그레이드 | <li>원활하게 바로 업그레이드합니다.</li>
 
 
-[설치 후](active-directory-aadconnect-whats-next.md) 예상 대로 작동되는지 확인하고 사용자에게 라이선스 할당해야 합니다.
+[설치 후](active-directory-aadconnect-whats-next.md) 예상 대로 작동되는지 확인하고 사용자에게 라이선스를 할당해야 합니다.
 
 ### Azure AD Connect를 설치하기 위한 다음 단계
 
 | 항목 | |
 | --------- | --------- |
-| 하드웨어 및 필수 조건 | [Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md) |
 | Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md) |
 | 사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) |
@@ -77,6 +77,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 | 설계 개념 | [Azure AD Connect 설계 개념](active-directory-aadconnect-design-concepts.md) |
 | 설치에 사용되는 계정 | [Azure AD Connect 자격 증명 및 권한에 대한 자세한 정보](active-directory-aadconnect-accounts-permissions.md) |
 | 운영 계획 | [Azure AD Connect Sync: 운영 작업 및 고려 사항](active-directory-aadconnectsync-operations.md) |
+| 사용자 로그인 옵션 | [Azure AD Connect 사용자 로그인 옵션](active-directory-aadconnect-user-signin.md) |
 
 ## 기능 구성
 Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있는 몇 가지 기능이 함께 제공됩니다. 일부 기능은 일부 경우에 특정한 시나리오 및 토폴로지에서 추가 구성을 필요로 할 수 있습니다.
@@ -139,4 +140,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

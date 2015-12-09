@@ -54,7 +54,7 @@ Azure에서 다른 HPC 솔루션 옵션과 배치의 비교는 [배치 및 HPC �
 
 + **Azure 계정 및 구독** - 계정이 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 
-+ **배치 계정** - 배치 API를 호출할 때 배치 계정 및 선택키의 이름 및 URL를 자격 증명으로 사용합니다. 배치 계정과 연관된 계산 노드, 풀, 작업 및 태스크와 같은 모든 배치 리소스입니다. 배치 계정을 만들고 계정에 대한 액세스 키를 관리하는 방법은 [Azure Preview 포털](batch-account-create-portal.md)을 사용하는 것입니다.
++ **배치 계정** - 배치 API를 호출할 때 배치 계정 및 선택키의 이름 및 URL를 자격 증명으로 사용합니다. 배치 계정과 연관된 계산 노드, 풀, 작업 및 태스크와 같은 모든 배치 리소스입니다. 배치 계정을 만들고 계정에 대한 액세스 키를 관리하는 방법은 [Azure 포털](batch-account-create-portal.md)을 사용하는 것입니다.
 
 + **저장소 계정** - 대부분의 배치 시나리오에서는 데이터 입력 및 출력과 계산 노드에서 실행되는 스크립트 또는 실행 파일을 저장할 Azure 저장소 계정이 필요합니다. 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
@@ -103,4 +103,4 @@ Visual Studio와 함께 이러한 .NET 라이브러리 및 도구를 사용하�
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

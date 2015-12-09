@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # 온-프레미스 StorSimple 장치 배포
@@ -72,7 +72,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | **장치 구성 및 등록** | 데이터 0 네트워크 설정 | Data 0 IP 주소:</br>서브넷 마스크:</br>게이트웨이:</br>기본 DNS 서버:</br>기본 NTP 서버:</br>웹 프록시 서버 IP/FQDN (선택 사항):</br>웹 프록시 포트:| |
 | | 장치 관리자 암호 | 암호는 8~15자이며 소문자, 대문자, 숫자 및 특수 문자를 포함해야 합니다. | |
 | | StorSimple 스냅숏 관리자 암호 | 암호는 14 또는 15자이며 소문자, 대문자, 숫자 및 특수 문자를 포함해야 합니다.| |
-| | 서비스 등록 키 | Azure 포털에서 이 키가 생성됩니다. | |
+| | 서비스 등록 키 | Azure 클래식 포털에서 이 키가 생성됩니다. | |
 | | 서비스 데이터 암호화 키 | 이 키는 장치가 StorSimple용 Windows PowerShell을 통해 관리 서비스와 등록될 때 생성됩니다. 이 키를 복사하고 안전한 위치에 저장합니다.| |
 | | | | |
 | **최소 장치 설정 완료** | 장치의 친숙한 이름 | 장치에 대한 설명이 포함된 이름입니다. | |
@@ -164,13 +164,14 @@ StorSimple 관리자 서비스의 새 인스턴스를 만들려면 다음 단계
 
 > [AZURE.IMPORTANT]서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
-> 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요. 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
+> 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요.
+> 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
 
 ## 2단계: 서비스 등록 키 받기
 
 StorSimple 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
 
-Azure 포털에서 다음 단계를 수행합니다.
+Azure 클래식 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -191,7 +192,7 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 - 하나 이상의 네트워크 인터페이스에서 iSCSI를 사용하도록 설정합니다.
 - 두 컨트롤러에 고정된 IP 주소를 할당합니다.
 
-최소 장치 설정을 완료하려면 Azure 포털에서 다음 단계를 수행합니다.
+최소 장치 설정을 완료하려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup.md)]
 
@@ -202,13 +203,13 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 
 볼륨 컨테이너에는 저장소 계정, 대역폭 및 그 안에 포함된 모든 볼륨에 대한 암호화 설정이 있습니다. StorSimple 장치에서 볼륨 프로비저닝을 시작하려면 볼륨 컨테이너를 만들어야 합니다.
 
-볼륨 컨테이너를 만들려면 Azure 포털에서 다음 단계를 수행합니다.
+볼륨 컨테이너를 만들려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## 6단계: 볼륨 만들기
 
-볼륨 컨테이너를 만든 후에 서버에 대한 StorSimple 장치에 저장소 볼륨을 프로비전할 수 있습니다. 볼륨을 만들려면 Azure 포털에서 다음 단계를 수행합니다.
+볼륨 컨테이너를 만든 후에 서버에 대한 StorSimple 장치에 저장소 볼륨을 프로비전할 수 있습니다. 볼륨을 만들려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
 > [AZURE.IMPORTANT]StorSimple 관리자는 씬 프로비저닝된 볼륨만 만들 수 있습니다. 완전히 또는 부분적으로 프로비저닝 볼륨을 만들 수 없습니다.
 
@@ -230,7 +231,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 StorSimpl
 
 백업은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 장치에서 두 유형(로컬 스냅숏 및 클라우드 스냅숏)의 백업을 수행할 수 있습니다. 이러한 각 유형의 백업은 **예약됨** 또는 **수동**이 될 수 있습니다.
 
-예약된 백업을 만들려면 Azure 포털에서 다음 단계를 수행합니다.
+예약된 백업을 만들려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -242,7 +243,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 StorSimpl
 
 다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
-**StorSimple 관리자 서비스** 페이지의 Azure 포털에서 다음 단계를 수행합니다.
+**StorSimple 관리자 서비스** 페이지의 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -279,7 +280,7 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 
 ## 수동 백업 만들기
 
-StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만들려면 Azure 포털에서 다음 단계를 수행합니다.
+StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만들려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [수동 백업 만들기](../../includes/storsimple-create-manual-backup.md)]
 
@@ -290,4 +291,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 - [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

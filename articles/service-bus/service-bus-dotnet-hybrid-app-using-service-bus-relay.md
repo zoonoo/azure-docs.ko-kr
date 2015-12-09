@@ -73,15 +73,15 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 
 Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
-[Azure 포털][] 또는 Visual Studio 서버 탐색기를 사용하여 네임스페이스와 서비스 버스 메시징 엔터티를 관리할 수 있지만 포털 내부에서 새 네임스페이스를 만들 수는 없습니다.
+[Azure 클래식 포털][] 또는 Visual Studio 서버 탐색기를 사용하여 네임스페이스와 서비스 버스 메시징 엔터티를 관리할 수 있지만 포털 내부에서 새 네임스페이스를 만들 수는 없습니다.
 
-### 포털을 사용하여 네임스페이스를 만들려면
+### Azure 클래식 포털을 사용하여 네임스페이스 만들기
 
-1.  [Azure 포털][]에 로그인합니다.
+1.  [Azure 클래식 포털][]에 로그인합니다.
 
-2.  Azure 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
+2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
-3.  Azure 포털의 아래쪽 창에서 **만들기**를 클릭합니다.
+3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다.
 
     ![][5]
 
@@ -95,7 +95,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 	![][38]
 
-만든 네임스페이스가 Azure 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
+만든 네임스페이스가 Azure 클래식 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
@@ -247,7 +247,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
             }
         }
 
-13. 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. **&lt;system.ServiceModel&gt;**의 내용을 다음 XML 코드로 바꿉니다. *yourServiceNamespace*를 서비스 네임스페이스의 이름으로 바꾸고 *yourKey*를 앞에서 Azure 포털에서 검색한 SAS 키로 바꿔야 합니다.
+13. 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. **&lt;system.ServiceModel&gt;**의 내용을 다음 XML 코드로 바꿉니다. *yourServiceNamespace*를 서비스 네임스페이스의 이름으로 바꾸고 *yourKey*를 앞에서 Azure 클래식 포털에서 검색한 SAS 키로 바꿔야 합니다.
 
         <system.serviceModel>
           <extensions>
@@ -541,7 +541,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 
 다음 단계에 따라 응용 프로그램을 중지 및 제거할 수 있습니다.
 
-1.  [Azure 포털]에 로그인하고, **클라우드 서비스**를 클릭한 다음 서비스의 이름을 클릭합니다.
+1.  [Azure 클래식 포털][]에 로그인하고, **클라우드 서비스**를 클릭한 다음 서비스의 이름을 클릭합니다.
 
 2.  응용 프로그램을 일시 중단하려면 **대시보드** 탭을 클릭한 후 **중지**를 클릭합니다. **시작**을 클릭하여 다시 시작할 수 있습니다. Azure에서 응용 프로그램을 완전히 제거하여 복원할 수 있도록 하려면 **삭제**를 클릭합니다.
 
@@ -563,7 +563,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
   [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
-  [Azure 포털]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 
@@ -610,4 +610,4 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

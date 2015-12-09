@@ -26,4 +26,4 @@ Microsoft는 장치 devOps에 대해, devOps 워크플로 및 충돌 분석을 �
 * [Android용 Application Insights 시작(영문)](https://github.com/Microsoft/ApplicationInsights-Android).
 * [Android용 HockeyApp 시작(영문)](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

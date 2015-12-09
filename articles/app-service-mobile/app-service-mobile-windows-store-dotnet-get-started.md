@@ -36,7 +36,7 @@
 
 * [Visual Studio Community 2013] 이상 버전
 
->[AZURE.NOTE]Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 체험](https://tryappservice.azure.com/?appServiceName=mobile)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
 
 ##새 Azure 모바일 앱 백 엔드 만들기
 
@@ -60,7 +60,7 @@
 
 4. 시작 프로젝트인 Windows 스토어 앱을 사용하여 프로젝트를 다시 빌드하고 Windows 스토어 앱을 시작하려면 F5 키를 누릅니다.
 
-5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료* 와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
@@ -85,4 +85,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

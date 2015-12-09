@@ -3,9 +3,9 @@
 	description="Java API 앱 패키지를 만들고 Azure 엡 서비스에 배포하는 방법을 알아봅니다."
 	services="app-service\api"
 	documentationCenter="java"
-	authors="pkefal"
+	authors="bradygaster"
 	manager="mohisri" 
-	editor="jimbe"/>
+	editor="tdykstra"/>
 
 <tags
 	ms.service="app-service-api"
@@ -13,267 +13,284 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
-	ms.author="pakefali"/>
+	ms.date="11/27/2015"
+	ms.author="bradygaster"/>
 
 # Azure 앱 서비스에서 Java API 앱 빌드 및 배포
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
-
-이 자습서에서는 Java 응용 프로그램을 만들고 [Git](http://git-scm.com)를 사용하여 Azure 앱 서비스 API 앱에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 또한 이 자습서에서는 [Gradle](https://gradle.org)을 사용하여 Java 응용 프로그램에 대한 빌드 자동화 및 패키지 종속성 확인을 사용하도록 설정합니다. 마지막으로, [RESTEasy](http://resteasy.jboss.org/)를 사용하여 [JaxRS](https://jax-rs-spec.java.net/) 사양을 완전히 구현하는 RESTful 서비스를 만듭니다.
-
-다음은 완성된 응용 프로그램의 스크린샷입니다.
-
-![][sample-api-app-page]
-
-## Azure 포털에서 API 앱 만들기
-
-> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)하거나 [무료 평가판을 등록](/pricing/free-trial/)할 수 있습니다. 또한 무료 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
-
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
-
-2. 포털의 왼쪽 아래에서 **새로 만들기**를 클릭합니다.
-
-3. **웹 + 모바일 > API 앱**을 클릭합니다.
-
-	![][portal-quick-create]
-
-4. **이름** 값(예: JavaAPIApp)을 입력합니다.
-
-5. 앱 서비스 계획을 선택하거나 새로 만듭니다. 새 계획을 만드는 경우 가격 책정 계층, 위치 및 기타 옵션을 선택합니다.
-
-	![][portal-create-api]
-
-6. **만들기**를 클릭합니다.
-
-	![][api-app-blade]
-
-	**시작 보드에 추가** 확인란을 선택된 상태로 두면 API 앱의 블레이드를 만든 후 포털에서 해당 블레이드가 자동으로 열립니다. 이 확인란의 선택을 취소한 경우 포털 홈 페이지에서 **알림**을 클릭하여 API 앱 만들기 상태를 보고, 알림을 클릭하여 새 API 앱의 블레이드로 이동합니다.
-
-7. **설정 > 응용 프로그램 설정**을 클릭합니다.
-
-9. 액세스 수준을 **공용(익명)**으로 설정합니다.
-
-11. **Save**를 클릭합니다.
-
-	![][set-api-app-access-level]
-
-## 새 API 앱에 Git 게시 사용
-
-[Git](http://git-scm.com)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. API 앱에 대해 작성한 코드를 로컬 Git 리포지토리에 저장하고, 원격 리포지토리로 푸시하여 Azure에 코드를 배포합니다. API 앱은 웹앱을 기반으로 하기 때문에 이 배포 방법은 API 앱에서 사용할 수 있는 앱 서비스 웹앱의 기능입니다. Azure 앱 서비스의 API 앱은 웹 서비스를 호스트하는 추가 기능이 있는 웹앱입니다.
-
-포털에서는 **API 앱** 블레이드에서 API 앱 관련 기능을 관리하고, **API 앱 호스트** 블레이드에서 웹앱과 공유되는 기능을 관리할 수 있습니다. 따라서 이 섹션에서는 **API 앱 호스트** 블레이드로 이동하여 Git 배포 기능을 구성합니다.
-
-1. API 앱 블레이드에서 **API 앱 호스트**를 클릭합니다.
-
-	![][api-app-host]
-
-2. **API 앱** 블레이드의 **배포** 섹션을 찾아 **연속 배포 설정**을 클릭합니다. 블레이드의 이 부분을 보려면 아래로 스크롤해야 할 수도 있습니다.
-
-	![][deployment-part]
-
-3. **원본 선택 > 로컬 Git 리포지토리**를 클릭합니다.
-
-5. **확인**을 클릭합니다.
-
-	![][setup-git-publishing]
-
-6. 이전에 API 앱 또는 다른 앱 서비스 앱을 게시하기 위해 배포 자격 증명을 설정하지 않은 경우 지금 설정합니다.
-
-	* **배포 자격 증명 설정**을 클릭합니다.
-
-	* 사용자 이름 및 암호를 만듭니다.
-
-	* **Save**를 클릭합니다.
-
-	![][deployment-credentials]
-
-1. **API 앱 호스트** 블레이드에서 **설정 > 속성**을 클릭합니다. 배포할 원격 Git 리포지토리의 URL이 "GIT URL" 아래에 표시됩니다.
-
-2. 이 자습서의 뒷부분에서 사용하기 위해 URL을 복사합니다.
-
-	![][git-url]
-
-## 새 API 앱에서 Java 런타임 사용
-
-API 앱에서 Java 앱을 성공적으로 호스트할 수 있도록 하려면 Java 런타임을 설정하고 응용 프로그램 서버를 선택해야 합니다. 포털에서 이 작업을 간편하게 수행할 수 있습니다. 이 예제에서는 Java 7 및 Jetty에서 응용 프로그램을 호스트하도록 설정합니다.
-
-1. API 앱 블레이드에서 **API 앱 호스트**를 클릭합니다.
-
-	![][api-app-host]
-
-2. **설정 > 응용 프로그램 설정**을 클릭합니다. Java를 사용하도록 설정하고 응용 프로그램 서버로 Jetty를 선택합니다. **저장**을 클릭합니다.
-
-	![][api-app-enable-java]
-
-그러면 API 앱에서 **Java 런타임이 설정**되고 사이트의 루트에 **webapps/** 폴더가 생성됩니다. 이 폴더에는 응용 프로그램의 모든.war 파일이 들어 있습니다.
-
-## Java API 앱에 대한 코드 다운로드 및 검사
-
-이 섹션에서는 JavaAPIApp 샘플의 일부분으로 제공되는 코드를 다운로드하여 살펴봅니다.
-
-1. [이 GitHub 리포지토리](http://go.microsoft.com/fwlink/?LinkId=571009)에서 코드를 다운로드합니다. 리포지토리를 복제하거나 **Zip 다운로드**를 클릭하여 .zip 파일로 다운로드할 수 있습니다. .zip 파일을 다운로드한 경우 로컬 디스크에서 압축을 풉니다.
-
-2. 샘플의 압축을 푼 폴더로 이동한 후 `build\libs` 폴더로 이동합니다.
-
-	![][api-app-folder-browse]
-
-3. 텍스트 편집기에서 **apiapp.json** 파일을 열고 내용을 검사합니다.
-
-	![][apiapp-json]
-
-	Azure 앱 서비스에서 Java 응용 프로그램을 API 앱으로 인식하기 위한 두 가지 전제 조건이 있습니다.
-
-	+ *apiapp.json*이라는 파일이 응용 프로그램의 루트 디렉터리에 있어야 합니다.
-	+ Swagger 2.0 메타데이터 끝점이 응용 프로그램에 의해 노출되어야 합니다. 이 끝점의 URL은 *apiapp.json* 파일에 지정되어 있습니다.
-
-	**apiDefinition** 속성을 확인합니다. 이 URL의 경로는 API의 URL에 상대적이며, Swagger 2.0 끝점을 가리킵니다. Azure 앱 서비스에서는 이 속성을 사용하여 API의 정의를 검색하고 다양한 앱 서비스 API 앱 기능을 사용하도록 설정합니다.
-
-4. `src\main\java\com\microsoft\trysamples\javaapiapp`으로 이동하여 **App.java** 파일을 열고 코드를 검사합니다.
-
-	![][app-java]
-
-	이 코드는 JaxRS용 Swagger 패키지를 사용하여 Swagger 2.0 끝점을 만듭니다.
-
-		beanConfig.setVersion("1.0.0");
-		beanConfig.setBasePath("/JavaAPIApp/api");
-		beanConfig.setHost(websitehostname);
-		beanConfig.setResourcePackage("com.microsoft.trysamples.javaapiapp");
-		beanConfig.setSchemes(new String[]{"http", "https"});
-		beanConfig.setScan(true);
-
-	`setVersion` 메서드는 Swagger에서 제공하는 메타데이터에 API 버전을 설정합니다.
-
-	`setBasePath` 메서드는 Swagger에서 메타데이터를 생성하는 데 사용하는 기본 경로를 설정합니다. 이 URL은 API 앱의 기본 경로에 상대적입니다.
-
-	`setHost` 메서드는 API에서 수신 대기하는 호스트를 설정합니다. 이 예제에서는 로컬로 실행되는 경우 `localhost`, 응용 프로그램이 Azure 앱 서비스에서 실행되는 경우 API 앱 호스트 이름으로 동적으로 설정되도록 미리 몇 줄을 할당해 둔 `websitehostname` 변수를 사용합니다.
-
-	`setResourcePackage` 메서드는 Swagger에서 검색하여 API 메타데이터가 포함된 Swagger.json 파일에 포함할 패키지를 설정합니다.
-
-	`setSchemes` 메서드는 지원되는 스키마를 정의합니다.
-
-	`setScan` 메서드는 Swagger에서 앱 설명서를 생성하도록 합니다.
-
-	RESTEasy를 사용할 때 Swagger의 출력을 사용자 지정하는 데 사용할 수 있는 추가 메서드는 Swagger의 [Wiki 페이지](https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#using-swaggers-beanconfig)에서 확인할 수 있습니다.
-
-	> [AZURE.NOTE]Swagger 메타데이터 파일은 `/JavaAPIApp/api/swagger.json`에서 액세스할 수 있습니다.
-
-## 로컬로 API 앱 코드 실행
-
-이 섹션에서는 응용 프로그램을 배포하기 전에 로컬로 실행하여 작동 상태를 확인합니다.
-
-1. 샘플을 다운로드한 폴더로 이동합니다.
-
-2. 명령줄 프롬프트를 열고 다음 명령을 입력합니다.
-
-		gradlew.bat
-
-3. 명령이 완료되면 다음 명령을 입력합니다.
-
-		gradlew.bat jettyRunWar
-
-	명령줄 창 출력에 다음이 표시됩니다.
-
-		17:25:49 INFO  JavaAPIApp runs at:
-		17:25:49 INFO    http://localhost:8080/JavaAPIApp
-
-5. 브라우저에서 `http://localhost:8080/JavaAPIApp/`로 이동합니다.
-
-	다음 페이지가 표시됩니다.
-
-	![][sample-api-app-page]
-
-6. Swagger.json 파일을 보려면 `http://localhost:8080/JavaAPIApp/api/Swagger.json`로 이동합니다.
-
-## Azure 앱 서비스에 API 앱 코드 게시
-
-이 섹션에서는 Azure 앱 서비스에서 실행되는 API 앱에 샘플 응용 프로그램을 배포하기 위해 로컬 Git 리포지토리를 만들고 해당 리포지토리에서 Azure에 푸시합니다.
-
-1. Git가 설치되지 않은 경우 [Git 다운로드 페이지](http://git-scm.com/download)에서 설치합니다.
-
-1. 명령줄에서 샘플 응용 프로그램 디렉터리와 `build\libs`로 이동한 후 다음 명령을 입력하여 로컬 Git 리포지토리를 초기화합니다.
+[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+
+이 자습서에서는 Java 응용 프로그램을 만들고 [Git](http://git-scm.com)를 사용하여 Azure 앱 서비스 API 앱에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 자습서의 코드는 [Maven](https://maven.apache.org/)을 사용하여 만들어집니다. [Jax-RS](https://jax-rs-spec.java.net/)는 RESTful 서비스를 만드는 데 사용되고 [Swagger 편집기](http://editor.swagger.io/)를 사용하여 [Swagger](http://swagger.io) 메타데이터 사양을 기반으로 생성됩니다.
+
+## 필수 조건
+
+1. [Java 개발자 키트 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)(또는 이상)
+1. [Microsoft Azure](https://azure.microsoft.com)에 대한 유료 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 구독
+1. 개발 컴퓨터에 [Maven](https://maven.apache.org/) 설치됨
+1. 개발 컴퓨터에 Git 설치됨 
+
+## Swagger.IO를 사용하여 API 스캐폴드
+swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swagger JSON 또는 YAML 코드에서 입력할 수 있습니다. API 노출 영역이 설계되면 다양한 플랫폼 및 프레임 워크로 코드를 내보낼 수 있습니다. 다음 섹션에서 스캐폴드된 코드는 모의 기능을 포함하도록 수정됩니다.
+
+이 데모는 swagger.io 편집기에 붙여 넣는 Swagger JSON 본문으로 시작되며 그런 다음 JAX-RS가 REST API 끝점에 액세스하기 위해 사용한 코드를 생성하는 데 사용됩니다. 그러면 스캐폴드된 코드를 편집하여 모의 데이터를 반환하며 이는 데이터 지속성 메커니즘을 기반으로 한 REST API를 시뮬레이션합니다.
+
+1. Swagger JSON 코드를 아래 클립보드에 복사합니다.
+
+		{
+			"swagger": "2.0",
+			"info": {
+				"version": "v1",
+				"title": "Contact List",
+				"description": "A Contact list API based on Swagger and built using Java"
+			},
+			"host": "localhost",
+			"schemes": [
+				"http",
+				"https"
+			],
+			"basePath": "/api",
+			"paths": {
+				"/contacts": {
+					"get": {
+						"tags": [
+							"Contact"
+						],
+						"operationId": "contacts_get",
+						"consumes": [],
+						"produces": [
+							"application/json",
+							"text/json"
+						],
+						"responses": {
+							"200": {
+								"description": "OK",
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Contact"
+									}
+								}
+							}
+						},
+						"deprecated": false
+					}
+				},
+				"/contacts/{id}": {
+					"get": {
+						"tags": [
+							"Contact"
+						],
+						"operationId": "contacts_getById",
+						"consumes": [],
+						"produces": [
+							"application/json",
+							"text/json"
+						],
+						"parameters": [
+							{
+								"name": "id",
+								"in": "path",
+								"required": true,
+								"type": "integer",
+								"format": "int32"
+							}
+						],
+						"responses": {
+							"200": {
+								"description": "OK",
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Contact"
+									}
+								}
+							}
+						},
+						"deprecated": false
+					}
+				}
+			},
+			"definitions": {
+				"Contact": {
+					"type": "object",
+					"properties": {
+						"Id": {
+							"format": "int32",
+							"type": "integer"
+						},
+						"Name": {
+							"type": "string"
+						},
+						"EmailAddress": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+		
+1. [온라인 Swagger 편집기](http://editor.swagger.io/)로 이동합니다. 이동하면 **파일-> JSON 붙여넣기** 메뉴 항목을 클릭합니다.
+
+    ![Json 붙여넣기](media/app-service-api-java-api-app/paste-json.png)
+
+1. 연락처 목록에 앞에서 복사한 API Swagger JSON를 붙여 넣습니다.
+
+    ![붙여넣은 Swagger](media/app-service-api-java-api-app/pasted-swagger.png)
+
+1. 설명서 페이지 및 편집기에서 렌더링된 API 요약을 봅니다.
+
+    ![Swagger로 생성된 문서 보기](media/app-service-api-java-api-app/view-swagger-generated-docs.png)
+
+1. **서버 생성 -> JAX-RS** 메뉴 옵션을 선택하여 모의 구현을 추가하기 위해 나중에 편집할 서버 쪽 코드를 스캐폴드합니다.
+
+    ![코드 메뉴 항목 생성](media/app-service-api-java-api-app/generate-code-menu-item.png)
+	
+	코드가 생성되면 다운로드할 ZIP 파일을 제공합니다. 이 파일은 Swagger 코드 생성기 및 모든 관련된 작성 스크립트로 인해 스캐폴드된 코드를 포함합니다. 개발 워크스테이션의 디렉터리에 전체 라이브러리의 압축을 풉니다.
+
+## 코드를 편집하여 API 구현 추가
+이 섹션에서는 사용자 지정 코드로 생성된 코드의 서버 측 구현을 바꿉니다. 새 코드는 클라이언트를 호출하는 데 연락처의 ArrayList 엔터티를 반환합니다.
+
+1. [Visual Studio Code](https://code.visualstudio.com)를 사용하거나 원하는 텍스트 편집기에서 *src/gen/java/swagger/model* 폴더에 위치한 *Contact.java* 모델 파일을 엽니다. 
+
+    ![연락처 모델 파일 열기](media/app-service-api-java-api-app/open-contact-model-file.png)
+
+1. **연락처** 클래스에 다음 생성자를 추가합니다.
+
+        public Contact(Integer id, String name, String email) 
+		{
+			this.id = id;
+			this.name = name;
+			this.emailAddress = email;
+		}
+
+1. [Visual Studio Code](https://code.visualstudio.com)를 사용하거나 원하는 텍스트 편집기에서 *src/main/java/swagger/api/impl* 폴더에 위치한 *ContactsApiServiceImpl.java* 서비스 구현 파일을 엽니다.
+
+    ![연락처 서비스 코드 파일 열기](media/app-service-api-java-api-app/open-contact-service-code-file.png)
+
+1. 이 새 코드를 사용하여 파일의 코드를 덮어써서 모의 구현을 서비스 코드에 추가합니다.
+
+        package io.swagger.api.impl;
+
+        import io.swagger.api.*;
+        import io.swagger.model.*;
+        import com.sun.jersey.multipart.FormDataParam;
+        import io.swagger.model.Contact;
+        import java.util.*;
+        import io.swagger.api.NotFoundException;
+        import java.io.InputStream;
+        import com.sun.jersey.core.header.FormDataContentDisposition;
+        import com.sun.jersey.multipart.FormDataParam;
+        import javax.ws.rs.core.Response;
+
+        @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
+        public class ContactsApiServiceImpl extends ContactsApiService {
+  
+            private ArrayList<Contact> loadContacts()
+            {
+                ArrayList<Contact> list = new ArrayList<Contact>();
+                list.add(new Contact(1, "Barney Poland", "barney@contoso.com"));
+                list.add(new Contact(2, "Lacy Barrera", "lacy@contoso.com"));
+                list.add(new Contact(3, "Lora Riggs", "lora@contoso.com"));
+                return list;
+            }
+  
+            @Override
+            public Response contactsGet()
+            throws NotFoundException {
+                ArrayList<Contact> list = loadContacts();
+                return Response.ok().entity(list).build();
+                }
+  
+            @Override
+            public Response contactsGetById(Integer id)
+            throws NotFoundException {
+                ArrayList<Contact> list = loadContacts();
+                Contact ret = null;
+            
+                for(int i=0; i<list.size(); i++)
+                {
+                    if(list.get(i).getId() == id)
+                    {
+                        ret = list.get(i);
+                    }
+                }
+                return Response.ok().entity(ret).build();
+            }
+        }
+
+1. 명령 프롬프트를 엽니다.
+
+1. 로컬로 Jetty 앱 서버를 사용하여 코드를 작성하고 실행하려면 다음 Maven 명령을 실행합니다.
+
+		mvn package jetty:run
+		
+1. Jetty가 포트 8080에서 코드를 시작했음을 반영하는 명령 창이 표시되어야 합니다.
+
+	![연락처 서비스 코드 파일 열기](media/app-service-api-java-api-app/run-jetty-war.png)
+	
+1. [Postman](https://www.getpostman.com/)을 사용하여 http://localhost:8080/api/contacts에 있는 "모든 연락처 가져오기" API 메서드에 요청합니다.
+
+	![연락처 API 호출](media/app-service-api-java-api-app/calling-contacts-api.png)
+	
+1. [Postman](https://www.getpostman.com/)을 사용하여 http://localhost:8080/api/contacts/2에 있는 "특정 연락처 가져오기" API 메서드에 요청합니다.
+
+	![연락처 API 호출](media/app-service-api-java-api-app/calling-specific-contact-api.png)
+	
+1. 마지막으로 콘솔에서 다음 Maven 명령을 실행하여 Java WAR(웹 보관) 파일을 작성합니다.
+
+		mvn package war:war
+		
+	WAR 파일을 작성하면 **대상** 폴더에 둘 수 있습니다. **대상** 폴더로 이동하고 **ROOT.war** WAR 파일 이름을 바꿉니다.(대/소문자가 이 형식과 일치하도록 합니다)
+	
+		rename swagger-jaxrs-server-1.0.0.war ROOT.war
+		
+	마지막으로 다음 명령을 실행하여 WAR 파일을 Azure에 배포하는 데 사용할 **배포** 폴더를 만듭니다.
+	
+		mkdir deploy
+		mkdir deploy\webapps
+		copy target\ROOT.war deploy\webapps
+		cd deploy
+	
+## Azure 앱 서비스에 출력 게시
+이 섹션에서는 Azure 포털을 사용 하여 새 API 앱을 만들고 Java 응용 프로그램을 호스팅하기 위해 해당 API 앱을 준비하며 새 API 앱을 실행하기 위해 Azure 앱 서비스에 새로 만든 WAR 파일을 배포하는 방법을 알아봅니다.
+
+1. **새로 만들기 -> 웹 + 모바일 -> API 앱** 메뉴 항목을 클릭하여 [Azure 포털](http://portal.azure.com)에서 새 API 앱을 만듭니다.
+	
+	![새 API 앱 만들기](media/app-service-api-java-api-app/create-api-app.png)
+
+1. API 앱의 설정 블레이드에서 **응용 프로그램 설정** 옵션을 클릭합니다. 그런 다음 Java 버전 메뉴에서 최신 Java 버전을 선택하고 웹 컨테이너 메뉴에서 최신 Tomcat을 선택합니다.
+
+	![API 앱 블레이드에서 Java 설정](media/app-service-api-java-api-app/set-up-java.png)
+
+1. **배포 자격 증명** 설정 메뉴 항목을 클릭하고 API 앱에 파일을 게시하는 데 사용하려는 사용자 이름 및 암호를 제공합니다.
+
+	![배포 자격 증명 설정](media/app-service-api-java-api-app/deployment-credentials.png)
+
+1. **연속 배포** 설정 메뉴 항목을 클릭합니다. 일단 이동하면 **원본 선택** 단추를 클릭하고 **로컬 Git 리포지토리** 옵션을 선택합니다. API 앱을 사용하는 연결이 있는 Azure에서 실행되는 Git 리포지토리가 만들어집니다. Git 리포지토리의 *마스터* 분기로 코드를 커밋할 때마다 코드는 라이브 실행 중인 API 앱 인스턴스에 게시됩니다.
+
+	![새 로컬 Git 리포지토리 설정](media/app-service-api-java-api-app/select-git-repo.png)
+
+1. 새 Git 리포지토리의 URL을 클립보드에 복사합니다. 잠시 후에 중요하다고 생각되면 저장합니다.
+
+	![앱에 대한 새 Git 리포지토리 설정](media/app-service-api-java-api-app/copy-git-repo-url.png)
+
+1. Git는 온라인 리포지토리에 WAR 파일을 푸시합니다. 이 작업을 수행하려면 앞에서 만든 **배포** 폴더로 이동하므로 코드를 앱 서비스에서 실행하는 리포지토리까지 쉽게 커밋할 수 있습니다. 콘솔 창에 위치하고 webapps 폴더가 있는 폴더로 이동하면 다음 Git 명령을 발급하여 프로세스를 시작하고 배포를 시작합니다.
 
 		git init
-
-
-2. 다음 명령을 입력하여 리포지토리에 파일을 추가합니다.
-
 		git add .
-		git commit -m "Initial commit of the API App"
-
-3. 앞에서 복사한 Git URL을 사용하여 이전에 만든 웹앱(API 앱 호스트)에 업데이트를 푸시하기 위한 원격 참조를 만듭니다.
-
-		git remote add azure [URL for remote repository]
-
-4. 다음 명령을 입력하여 변경 내용을 Azure에 푸시합니다.
-
+		git commit -m "initial commit"
+		git remote add azure [YOUR GIT URL]		
 		git push azure master
+		
+	**푸시** 요청을 발급하면 이전에 배포 자격 증명에 대해 만든 암호를 요청하는 메시지가 표시됩니다. 입력하면 업데이트가 도착하고 배포되었다는 메시지가 포털에 표시되어야 합니다.
+		
+1. 다시 한 번 Postman을 사용하여 Azure 앱 서비스에서 실행되는 새로 배포된 API 앱을 누르면 동작이 일관되고 예상 대로 연락처 데이터를 반환하며 Swagger.io로 스캐폴드된 Java 코드에 간단한 코드 변경 내용을 사용하는 것을 확인할 수 있습니다.
 
-	이전에 만든 암호를 입력하라는 메시지가 나타납니다.
-
-	이 명령의 출력은 배포에 성공했다는 메시지로 종료됩니다.
-
-		remote: Deployment successful.
-		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	 	* [new branch]      master -> master
-
-## Azure 포털에서 API 정의 보기
-
-API 앱에 API를 배포했으므로 이제 Azure 포털에서 API 정의를 볼 수 있습니다. 먼저 Azure에서 API 앱의 API 정의가 변경된 것을 인식할 수 있 *게이트웨이*를 다시 시작합니다. 게이트웨이는 리소스 그룹의 API 앱에 대한 API 관리 및 권한 부여를 처리하는 웹앱입니다.
-
-6. Azure 포털에서 이전에 만든 API 앱에 대한 **API 앱** 블레이드로 이동하여 **게이트웨이** 링크를 클릭합니다.
-
-	![][click-gateway]
-
-7. **게이트웨이** 블레이드에서 **다시 시작**을 클릭합니다. 이제 이 블레이드를 닫을 수 있습니다.
-
-	![][restart-gateway]
-
-8. **API 앱** 블레이드에서 **API 정의**를 클릭합니다.
-
-	![][api-definition-click]
-
-	**API 정의** 블레이드에 한 가지 Get 메서드가 표시됩니다.
-
-	![][api-definition-blade]
-
-## Azure에서 샘플 응용 프로그램 실행
-
-Azure 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드로 이동하여 **찾아보기**를 클릭합니다.
-
-![][browse-api-app-page]
-
-이전에 샘플 앱을 로컬로 실행할 때 표시된 홈 페이지가 브라우저에 표시됩니다.
-
+	![Azure에서 Java 연락처 REST API 라이브 사용](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
+	
 ## 다음 단계
+이 문서에서는 Swagger.io 편집기에서 가져온 Swagger JSON 파일 및 스캐폴드된 Java 코드를 시작할 수 있었습니다. 여기서부터 간단한 변경 내용 및 Git 배포 프로세스가 Java로 작성된 기능 API 앱을 갖게 됩니다. 이제 JSON blob를 유지하기 위해 다시 [Java용 저장소 SDK](../storage/storage-java-how-to-use-blob-storage.md)에 대한 자세한 정보를 알아볼 수 있습니다. 또는 [Document DB Java SDK](../documentdb/documentdb-java-application.md)를 사용하여 Azure Document DB에 연락처 데이터를 저장할 수 있습니다.
 
-API 앱 백 엔드를 사용하는 Java 웹 응용 프로그램을 Azure에 배포했습니다. Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
+Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-[앱 서비스 평가](http://tryappservice.azure.com)에서 이 샘플 API 앱을 사용해 볼 수 있습니다.
-
-[portal-quick-create]: ./media/app-service-api-java-api-app/portal-quick-create.png
-[portal-create-api]: ./media/app-service-api-java-api-app/portal-create-api.png
-[api-app-blade]: ./media/app-service-api-java-api-app/api-app-blade.png
-[api-app-folder-browse]: ./media/app-service-api-java-api-app/api-app-folder-browse.png
-[api-app-host]: ./media/app-service-api-java-api-app/api-app-host.png
-[deployment-part]: ./media/app-service-api-java-api-app/continuous-deployment.png
-[set-api-app-access-level]: ./media/app-service-api-java-api-app/set-api-app-access.png
-[setup-git-publishing]: ./media/app-service-api-java-api-app/local-git-repo.png
-[deployment-credentials]: ./media/app-service-api-java-api-app/deployment-credentials.png
-[git-url]: ./media/app-service-api-java-api-app/git-url.png
-[apiapp-json]: ./media/app-service-api-java-api-app/apiapp-json.png
-[app-java]: ./media/app-service-api-java-api-app/app-java.png
-[sample-api-app-page]: ./media/app-service-api-java-api-app/sample-api-app-page.png
-[browse-api-app-page]: ./media/app-service-api-java-api-app/browse-api-app-page.png
-[api-app-enable-java]: ./media/app-service-api-java-api-app/api-app-enable-java.png
-[click-gateway]: ./media/app-service-api-java-api-app/clickgateway.png
-[restart-gateway]: ./media/app-service-api-java-api-app/gatewayrestart.png
-[api-definition-click]: ./media/app-service-api-java-api-app/apidef.png
-[api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

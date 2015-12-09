@@ -78,9 +78,9 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 > [AZURE.IMPORTANT]이 NoSQL 자습서를 완료하려면 위의 종속성을 추가했는지 확인합니다.
 
-다음으로 DocumentDB 계정 끝점과 기본 또는 보조 선택키를 저장합니다. [Azure Preview 포털](https://portal.azure.com)에서 확인할 수 있습니다.
+다음으로 DocumentDB 계정 끝점과 기본 또는 보조 선택키를 저장하며 이는 [Azure 포털](https://portal.azure.com)에서 확인할 수 있습니다.
 
-![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷][keys]
+![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure 포털의 스크린샷][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
@@ -480,4 +480,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

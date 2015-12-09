@@ -1,6 +1,6 @@
 <properties
 	pageTitle="데이터 팩터리 편집기를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드"
-	description="이 자습서에서는 Azure 포털의 데이터 팩터리 편집기를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
+	description="이 자습서에서는 Azure 클래식 포털의 데이터 팩터리 편집기를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# 데이터 팩터리 편집기를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드(Azure 포털)
+# 데이터 팩터리 편집기를 사용하여 처음으로 Azure Data Factory 파이프라인 작성(Azure 클래식 포털)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -24,7 +24,7 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
 
-이 문서에서는 [Azure Preview 포털](https://portal.azure.com/)을 사용하여 첫 번째 파이프라인을 만드는 방법을 알아봅니다. 이 자습서는 다음과 같은 단계로 구성됩니다.
+이 문서에서는 [Azure 포털](https://portal.azure.com/)을 사용하여 처음으로 파이프라인을 만드는 방법을 알아봅니다. 이 자습서는 다음과 같은 단계로 구성됩니다.
 
 1.	데이터 팩터리 만들기
 2.	연결된 서비스(데이터 저장소, 계산) 및 데이터 집합 만들기
@@ -36,7 +36,7 @@
 
 ## 1단계: 데이터 팩터리 만들기
 
-1.	[Azure Preview 포털](http://portal.azure.com/)에 로그인한 후 다음을 수행합니다.
+1.	[Azure 포털](http://portal.azure.com/)에 로그인한 후에 다음을 수행합니다.
 	1.	왼쪽 메뉴에서 **새로 만들기**를 클릭합니다. 
 	2.	**만들기** 블레이드에서 **데이터 분석**을 클릭합니다.
 	3.	**데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다.
@@ -60,7 +60,7 @@
 		![리소스 그룹 만들기](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	리소스 그룹을 선택한 후에 데이터 팩터리를 만들려는 구독을 사용하고 있는지 확인합니다.
 5.	**새 데이터 팩터리** 블레이드에서 **만들기**를 클릭합니다.
-6.	다음과 같이 Azure Preview 포털의 **시작 보드**에 생성되는 데이터 팩터리가 표시됩니다.   
+6.	다음과 같이 Azure 포털의 **시작 보드**에 생성되는 데이터 팩터리가 표시됩니다.   
 
 	![데이터 팩터리 만들기 상태](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. 축하합니다. 첫 번째 데이터 팩터리 만들기가 완료되었습니다. 데이터 팩터리 만들기를 완료한 후에는 데이터 팩터리 페이지가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다. 	
@@ -99,7 +99,7 @@ Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터�
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -111,7 +111,7 @@ Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터�
 	
 	속성 | 설명
 	-------- | -----------
-	버전 | 생성되는 HDInsight 버전을 3.1로 지정합니다. 
+	버전 | 생성되는 HDInsight 버전을 3.2로 지정합니다. 
 	ClusterSize | 노드가 하나인 HDInsight 클러스터를 만듭니다. 
 	TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
 	linkedServiceName | HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다.
@@ -233,4 +233,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](./data-factory-get-started.md)를 참조하세요.
   
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

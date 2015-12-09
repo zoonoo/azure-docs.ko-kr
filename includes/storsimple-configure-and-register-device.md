@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/17/15-->
+<!--author=alkohli last changed: 12/01/15-->
 
 
 #### 장치를 구성 및 등록하려면
@@ -61,7 +61,7 @@
 
 13. 직렬 콘솔을 종료합니다.
 
-14. 관리 포털로 돌아가 다음 단계를 완료합니다.
+14. Azure 클래식 포털로 돌아가 다음 단계를 완료합니다.
   1. StorSimple 관리자 서비스를 두 번 클릭하여 **퀵 스타트** 페이지에 액세스합니다.
   2. **연결된 장치 보기**를 클릭합니다.
   3. **장치** 페이지에서 상태를 조회하여 장치가 서비스에 성공적으로 연결되었는지 확인합니다. 장치 상태는 **온라인**이어야 합니다. 장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
@@ -76,4 +76,4 @@
 
 StorSimple용 Windows PowerShell을 통해 장치를 구성 및 등록하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/)를 클릭하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

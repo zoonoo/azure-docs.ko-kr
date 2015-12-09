@@ -19,10 +19,8 @@
 
 5. **연결 정보**를 클릭하여 모바일 앱의 SDK 통합에 적용할 연결 설정을 표시합니다.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
-
 6. **연결 문자열** 복사 - 응용 프로그램 코드에서 이 앱을 식별하고 앱에서 Mobile Engagement와 연결하는 데 필요합니다.
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -291,7 +291,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 ### Azure SQL 데이터베이스 및 저장소 계정을 사용하도록 웹앱을 구성합니다.
 
-[연결 문자열과 같은 민감한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)(영문)이 보안 모범 사례입니다. Azure에서 이 작업을 수행할 수 있습니다. 즉, Azure 환경에서 연결 문자열 및 기타 설정 값을 지정하면 앱이 Azure에서 실행될 때 ASP.NET 구성 API가 해당 값을 자동으로 선택합니다. **서버 탐색기**, 포털, Windows PowerShell 또는 플랫폼 간 명령줄 인터페이스를 사용하여 Azure에서 이러한 값을 설정할 수 있습니다. 자세한 내용은 [응용 프로그램 문자열 및 연결 문자열 작동 방식](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
+[연결 문자열과 같은 민감한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)(영문)이 보안 모범 사례입니다. Azure에서 이 작업을 수행할 수 있습니다. 즉, Azure 환경에서 연결 문자열 및 기타 설정 값을 지정하면 앱이 Azure에서 실행될 때 ASP.NET 구성 API가 해당 값을 자동으로 선택합니다. **서버 탐색기**, Azure 포털, Windows PowerShell 또는 플랫폼 간 명령줄 인터페이스를 사용하여 Azure에서 이러한 값을 설정할 수 있습니다. 자세한 내용은 [응용 프로그램 문자열 및 연결 문자열 작동 방식](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
 
 이 섹션에서는 **서버 탐색기**를 사용하여 Azure에서 연결 문자열 값을 설정합니다.
 
@@ -309,7 +309,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 9. **Save**를 클릭합니다.
 
-	![Azure 포털에서 연결 문자열](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+	![Azure 포털의 연결 문자열](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
 10. **서버 탐색기**에서 웹앱을 마우스 오른쪽 단추로 클릭하고 **중지**를 클릭합니다.
 
@@ -327,11 +327,11 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 11.	몇 초 후에 페이지를 새로 고치면 미리 보기가 나타납니다.
 
-	축소판 그림이 표시되지 않으면 WebJob을 다시 시작하기 위해 일 분 정도 대기해야 합니다. 잠시 후에도 페이지를 새로 고칠 때 축소판 그림이 여전히 표시되지 않으면 WebJob은 자동으로 시작되지 않을 수 있습니다. 이 경우에 웹앱에 대한 [Azure 포털](https://manage.windowsazure.com) 페이지에서 WebJob 탭으로 이동한 다음 **시작**을 클릭합니다.
+	축소판 그림이 표시되지 않으면 WebJob을 다시 시작하기 위해 일 분 정도 대기해야 합니다. 잠시 후에도 페이지를 새로 고칠 때 축소판 그림이 여전히 표시되지 않으면 WebJob은 자동으로 시작되지 않을 수 있습니다. 이 경우에 웹앱에 대한 [클래식 포털](https://manage.windowsazure.com) 페이지에서 WebJob 탭으로 이동한 다음 **시작**을 클릭합니다.
 
 ### WebJob SDK 대시보드 보기
 
-1. [Azure 포털](https://manage.windowsazure.com)에서 해당 웹앱을 선택합니다.
+1. [클래식 포털](https://manage.windowsazure.com)에서 해당 웹앱을 선택합니다.
 
 2. **WebJob** 탭을 클릭합니다.
 
@@ -349,7 +349,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	이 페이지의 **Replay Function(함수 재생)** 단추를 클릭하면 WebJob SDK 프레임워크가 해당 함수를 다시 호출하며 처음에 함수에 전달된 데이터를 변경할 기회가 제공됩니다.
 
->[AZURE.NOTE]테스트를 마치면 웹앱 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹앱은 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. Azure 포털에서 웹앱에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 웹앱에 액세스하지 못하도록 하려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
+>[AZURE.NOTE]테스트를 마치면 웹앱 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹앱은 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. 클래식 포털에서 웹앱에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 웹앱에 액세스하지 못하도록 하려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
 
 ## <a id="create"></a>처음부터 응용 프로그램 만들기
 
@@ -803,7 +803,7 @@ WebJob이 항상 실행되고 웹앱의 모든 인스턴스에서 실행되도�
 
 ### WebJob 외부에서 WebJob SDK 사용
 
-WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필요가 없습니다. 로컬에서 실행할 수 있고 클라우드 서비스 작업자 역할 또는 Windows 서비스와 같은 다른 환경에서도 실행할 수 있습니다. 하지만 WebJob SDK 대시보드에는 Azure 웹앱을 통해서만 액세스할 수 있습니다. 이 대시보드를 사용하려면 Azure 포털의 **구성** 탭에서 AzureWebJobsDashboard 연결 문자열을 설정하여 사용 중인 저장소 계정에 웹앱을 연결해야 합니다. 그런 후 다음 URL을 사용하여 대시보드로 이동할 수 있습니다.
+WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필요가 없습니다. 로컬에서 실행할 수 있고 클라우드 서비스 작업자 역할 또는 Windows 서비스와 같은 다른 환경에서도 실행할 수 있습니다. 하지만 WebJob SDK 대시보드에는 Azure 웹앱을 통해서만 액세스할 수 있습니다. 이 대시보드를 사용하려면 클래식 포털의 **구성** 탭에서 AzureWebJobsDashboard 연결 문자열을 설정하여 사용 중인 저장소 계정에 웹앱을 연결해야 합니다. 그런 후 다음 URL을 사용하여 대시보드로 이동할 수 있습니다.
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -813,4 +813,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

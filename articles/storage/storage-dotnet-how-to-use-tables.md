@@ -414,24 +414,13 @@
 
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-<ul>
-<li>사용 가능한 API에 대한 자세한 내용은 테이블 서비스 참조 설명서를 참조하세요.
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 참조</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 참조</a></li>
-  </ul>
-</li>
-<li>Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Azure 저장소 설명서</a>를 참조하세요.</li>
-<li><a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK</a>를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법에 대해 알아봅니다.</li>
-<li>Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
-  <ul>
-    <li><a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob 저장소</a>를 사용하여 구조화되지 않은 데이터를 저장합니다.</li>
-    <li><a href="/documentation/articles/storage-dotnet-how-to-use-queues/">큐 저장소</a>를 사용하여 구조화된 데이터를 저장합니다.</li>
-    <li><a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL 데이터베이스</a>를 사용하여 관계형 데이터를 저장합니다.</li>
-  </ul>
-</li>
-</ul>
+- 사용 가능한 API에 대한 자세한 내용은 테이블 서비스 참조 설명서를 참조하세요.
+    - [Storage Client Library for .NET 참조](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
+- [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.
+- Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
+    - [Blob 저장소](storage-dotnet-how-to-use-blobs.md)를 사용하여 구조화되지 않은 데이터를 저장합니다.
+    - [SQL 데이터베이스](sql-database-dotnet-how-to-use.md)를 사용하여 관계형 데이터를 저장합니다.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -444,7 +433,6 @@
 
   [Upsert 및 쿼리 프로젝션 소개 블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -452,4 +440,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

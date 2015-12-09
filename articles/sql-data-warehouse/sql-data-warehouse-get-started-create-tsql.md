@@ -20,7 +20,7 @@
 #TSQL을 사용하여 SQL 데이터 웨어하우스 만들기 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
 - [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
 
@@ -28,7 +28,7 @@
 
 - Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
 - 있습니다. Visual Studio의 무료 버전은 [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs) 페이지를 참조하세요.
-- V12 SQL Server. SQL 데이터 웨어하우스에 만들려면 V12 SQL server가 필요합니다. V12 SQL 서버를 사용할 수 없는 경우 미리 보기 포털에서 만들어서 새 서버에서 SQL 데이터 웨어하우스를 만들 수 있도록 하는 것이 좋습니다.
+- V12 SQL Server. SQL 데이터 웨어하우스에 만들려면 V12 SQL server가 필요합니다. V12 SQL 서버를 사용할 수 없는 경우 포털에서 만들어서 새 서버에서 SQL 데이터 웨어하우스를 만들 수 있도록 하는 것이 좋습니다.
 
 이 문서에서는 Visual Studio를 사용하여 올바르게 설치 및 연결하는 방법을 다루지 않습니다. 해당 사항을 수행하는 방법에 대한 전체 설명은 [연결 및 쿼리][] 설명서를 참조하세요. 시작하려면 Visual Studio에서 SQL Server 개체 탐색기를 열고 SQL 데이터 웨어하우스 데이터베이스를 만드는 데 사용할 서버에 연결해야 합니다. 이렇게 하면 마스터 데이터베이스에 대해 다음 명령을 실행하여 SQL 데이터 웨어하우스를 만들 수 있습니다.
 
@@ -76,4 +76,4 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 [샘플 데이터를 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [가격 책정 페이지]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

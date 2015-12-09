@@ -38,7 +38,7 @@
 
 * [Xcode] v7.0 이상 및 [Xamarin Studio]가 설치된 Mac입니다. Visual Studio를 사용하여 Windows 컴퓨터에 앱을 빌드하려면 여전히 네트워크에 연결된 Mac에 액세스해야 합니다.
  
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](https://tryappservice.azure.com/?appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 새 Azure 모바일 앱 백 엔드 만들기
 
@@ -84,7 +84,7 @@
 
 	![][8]
 
-###(선택 사항) iOS 프로젝트 실행
+##(선택 사항) iOS 프로젝트 실행
 
 이 섹션에서는 iOS 장치용 Xamarin iOS 프로젝트를 실행합니다. iOS 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
@@ -107,7 +107,7 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 
 > [AZURE.NOTE]솔루션의 이식 가능한 클래스 라이브러리 프로젝트의 TodoItemManager.cs C# 파일에서 모바일 앱 백 엔드에 액세스하는 코드를 찾을 수 있습니다.
 
-###(선택 사항) Android 프로젝트 실행
+##(선택 사항) Android 프로젝트 실행
 
 이 섹션에서는 Android용 Xamarin Android 프로젝트를 실행합니다. Android 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
@@ -131,7 +131,7 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 > [AZURE.NOTE]솔루션의 이식 가능한 클래스 라이브러리 프로젝트의 TodoItemManager.cs C# 파일에서 모바일 앱 백 엔드에 액세스하는 코드를 찾을 수 있습니다.
 
 
-###(선택 사항) Windows 프로젝트 실행
+##(선택 사항) Windows 프로젝트 실행
 
 
 이 섹션에서는 Windows 장치용 Xamarin WinApp 프로젝트를 실행합니다. Windows 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
@@ -179,4 +179,4 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

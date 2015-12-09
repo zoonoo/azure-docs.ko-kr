@@ -59,7 +59,7 @@
 
 ## Azure Data Factory 사용
 
-이제 모든 항목이 설정되었으므로 Azure Preview 포털에서 Azure Data Factory 인스턴스를 탐색하여 파이프라인 설정을 시작할 수 있습니다. 이 작업을 수행하려면 [Azure 포털](portal.azure.com)로 이동한 다음 왼쪽 메뉴에서 사용자의 데이터 팩터리를 선택합니다.
+이제 모든 항목이 설정되었으므로 Azure 포털에서 Azure Data Factory 인스턴스를 탐색하여 파이프라인 설정을 시작할 수 있습니다. 이 작업을 수행하려면 [Azure 클래식 포털](portal.azure.com)로 이동한 다음 왼쪽 메뉴에서 사용자의 데이터 팩터리를 선택합니다.
 
 여기에서 3단계(서비스 연결, 데이터 집합 정의, 파이프라인 만들기)를 거쳐 Azure Data Factory 파이프라인을 설정하고 데이터 웨어하우스로 데이터를 전송합니다.
 
@@ -206,4 +206,4 @@
 	}
 	
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

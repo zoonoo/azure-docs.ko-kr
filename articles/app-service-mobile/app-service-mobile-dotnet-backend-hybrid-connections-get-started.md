@@ -89,13 +89,13 @@
          MultipleActiveResultSets=True"
          providerName="System.Data.SqlClient" />
 
-	이 문자열에서 `<**secure_password**>`을 *HybridConnectionLogin*에 대해 만든 암호로 대체해야 합니다.
+	이 문자열에서 `<**secure_password**>`을 *HybridConnectionLogin* 에 대해 만든 암호로 대체해야 합니다.
 
 3. Visual Studio에서 **저장**을 클릭하여 Web.config 파일을 저장합니다.
 
 	> [AZURE.NOTE]이 연결 설정은 로컬 컴퓨터에서 실행할 때 사용됩니다. Azure에서 실행하는 경우 이 설정은 포털에 정의된 연결 설정으로 재정의됩니다.
 
-4. **Models** 폴더를 확장하여 *Context.cs*로 끝나는 데이터 모델 파일을 엽니다.
+4. **Models** 폴더를 확장하여 *Context.cs* 로 끝나는 데이터 모델 파일을 엽니다.
 
 6. **DbContext** 인스턴스 생성자를 변형하여 다음 코드 조각과 비슷한 기본 **DbContext** 생성자에 `OnPremisesDBConnection` 값을 전달합니다.
 
@@ -113,7 +113,7 @@
 
 그 다음, 새 연결 문자열에 대한 앱 설정을 추가하여 Azure에서 사용합니다.
 
-1. 모바일 앱에 대한 웹앱 백 엔드 코드의 [Azure 포털]로 돌아가서 **모든 설정** 그런 다음 **응용 프로그램 설정**을 클릭합니다.
+1. 모바일 앱에 대한 웹앱 백 엔드 코드의 [Azure 포털]로 돌아가서 **모든 설정** 및 **응용 프로그램 설정**을 차례로 클릭합니다.
 
 3. **웹앱 설정** 블레이드에서 **연결 문자열** 아래로 스크롤하고 `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`와 같은 값을 가지는 `OnPremisesDBConnection`로 지정한 새 **SQL Server** 연결 문자열을 추가합니다.
 
@@ -159,7 +159,7 @@
 
 <!-- Links -->
 [Azure 포털]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

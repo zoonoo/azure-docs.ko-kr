@@ -35,7 +35,7 @@
 
 정규화된 서버 이름을 찾으려면
 
-1. [Azure Preview 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. **SQL 데이터베이스**를 클릭하고 연결하려는 데이터베이스를 클릭합니다. 이 예제에서는 AdventureWorksDW 샘플 데이터베이스를 사용합니다.
 3. 전체 서버 이름을 찾습니다.
 
@@ -108,4 +108,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

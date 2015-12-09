@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기" 
-	description="이 자습서에서는 Azure 포털의 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다." 
+	description="이 자습서에서는 Azure 클래식 포털의 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -34,13 +34,13 @@
 [2단계: 연결된 서비스 만들기](#CreateLinkedServices) | 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService는 Azure 저장소를 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 ADFTutorialDataFactory에 연결합니다. 파이프라인에 대한 입력 데이터는 Azure Blob 저장소의 Blob 컨테이너에 있고, 출력 데이터는 Azure SQL 데이터베이스의 테이블에 저장됩니다. 따라서 이러한 두 데이터 저장소를 연결된 서비스로 데이터 팩터리에 추가합니다.      
 [3단계: 입력 및 출력 테이블 만들기](#CreateInputAndOutputDataSets) | 이전 단계에서는 입출력 데이터가 포함된 데이터 저장소를 참조하는 연결된 서비스를 만들었습니다. 이 단계에서는 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 팩터리 테이블 **EmpTableFromBlob** 및 **EmpSQLTable**을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 데이터 구조, 데이터 가용성 등의 기타 속성도 지정합니다. 
 [4단계: 파이프라인 만들기 및 실행](#CreateAndRunAPipeline) | 이 단계에서는 ADFTutorialDataFactory에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure SQL 테이블로 입력 데이터를 복사하는 **복사 작업**이 있습니다.
-[5단계: 조각 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure Preview 포털을 사용하여 입력 및 출력 테이블의 조각을 모니터링합니다.
+[5단계: 조각 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure 포털을 사용하여 입력 및 출력 테이블의 조각을 모니터링합니다.
  
 
 ## <a name="CreateDataFactory"></a>1단계: Azure Data Factory 만들기
-이 단계에서는 Azure Preview 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
+이 단계에서는 Azure 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
 
-1.	[Azure Preview 포털][azure-preview-portal]에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
+1.	[Azure 포털][azure-portal]에 로그인한 후에 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
 
 	![새로 만들기->DataFactory][image-data-factory-new-datafactory-menu]
 
@@ -310,9 +310,9 @@
  
 
 ## <a name="MonitorDataSetsAndPipeline"></a>5단계: 데이터 집합 및 파이프라인 모니터링
-이 단계에서는 Azure 포털을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 cmdlet을 사용하는 방법에 대한 자세한 내용은 [PowerShell Cmdlet을 사용하여 데이터 팩터리 모니터링 및 관리][monitor-manage-using-powershell]를 참조하세요.
+이 단계에서는 Azure 클래식 포털을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 cmdlet을 사용하는 방법에 대한 자세한 내용은 [PowerShell Cmdlet을 사용하여 데이터 팩터리 모니터링 및 관리][monitor-manage-using-powershell]를 참조하세요.
 
-1. 아직 열지 않은 경우 [Azure 포털(Preview)][azure-preview-portal]로 이동합니다. 
+1. 아직 열지 않은 경우 [Azure 클래식 포털(미리 보기)][azure-portal]로 이동합니다. 
 2. **ADFTutorialDataFactory**에 대한 블레이드가 열려 있지 않으면 **시작 보드**에서 **ADFTutorialDataFactory**를 클릭하여 엽니다. 
 3. 만든 테이블과 파이프라인의 개수 및 이름이 이 블레이드에 표시됩니다.
 
@@ -371,7 +371,7 @@
 
 
 ## 요약 
-이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만들었습니다. Azure Preview 포털을 사용하여 데이터 팩터리, 연결된 서비스, 테이블 및 파이프라인을 만들었습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.
+이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만들었습니다. Azure 포털을 사용하여 데이터 팩터리, 연결된 서비스, 테이블 및 파이프라인을 만들었습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.
 
 1.	Azure **데이터 팩터리**를 만듭니다.
 2.	데이터 저장소와 계산(**연결된 서비스**라고 함)을 데이터 팩터리에 연결하는** 연결된 서비스**를 만듭니다.
@@ -393,7 +393,7 @@ Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerSh
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
 [data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
@@ -488,8 +488,6 @@ Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerSh
 
 [image-data-factory-create-resource-group]: ./media/data-factory-get-started-using-editor/CreateNewResourceGroup.png
 
-[image-data-factory-preview-storage-key]: ./media/data-factory-get-started-using-editor/PreviewPortalStorageKey.png
-
 [image-data-factory-database-connection-string]: ./media/data-factory-get-started-using-editor/DatabaseConnectionString.png
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-get-started-using-editor/NewDataFactoryMenu.png
@@ -501,4 +499,4 @@ Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerSh
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

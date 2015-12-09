@@ -1,252 +1,243 @@
 <properties
-	pageTitle="Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포 | Microsoft Azure"
+	pageTitle="Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포"
 	description="Node.js API 앱 패키지를 만들고 Azure 앱 서비스에 배포하는 방법을 알아봅니다."
 	services="app-service\api"
-	documentationCenter="nodejs"
-	authors="pkefal"
-  manager="" 
-  editor=""/>
+	documentationCenter="node"
+	authors="bradygaster"
+	manager="mohisri" 
+	editor="tdykstra "/>
 
 <tags
 	ms.service="app-service-api"
-	ms.workload="na"
+	ms.workload="web"
 	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
+	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
-	ms.author="pakefali"/>
+	ms.date="11/27/2015"
+	ms.author="bradygaster"/>
 
 # Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
+[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-이 자습서에서는 [Node.js](http://nodejs.org) 응용 프로그램을 만들고 [Git](http://git-scm.com)를 사용하여 Azure 앱 서비스 API 앱에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Node를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
+## 필수 조건
+1. 개발 컴퓨터에서 실행되는 [Node.js](nodejs.org)(이 샘플에서는 Node.js 버전 4.2.2가 설치된 것으로 가정함)
+1. [GitHub](https://github.com/) 계정
+1. Microsoft Azure [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)
+1. 로컬 개발 워크스테이션에 설치된 Git
 
-아래 스크린샷은 완성된 응용 프로그램을 보여 줍니다.
+## 설치 지침
+아래 명령은 Node.js 명령줄을 사용하여 수행해야 합니다. Swaggerize Yo 생성기를 사용하면 Swagger JSON 파일에 정의된 HTTP 요청을 처리하는 데 필요한 기준선 Node.js 코드를 스캐폴드할 수 있습니다.
+ 
+1. **yo** 및 **generator-swaggerize** NPM 모듈을 전역적으로 설치합니다.
 
-![][sample-api-app-page]
+        npm install -g yo
+	    npm install -g generator-swaggerize
+		
+1. [샘플 코드가 포함된 GitHub 리포지토리](https://github.com/Azure-Samples/app-service-api-node-contact-list)를 복제합니다.
 
-> [AZURE.NOTE]또한 Azure 앱 서비스에서 Node.js API 앱을 빌드하고 배포하기 위해 Visual Studio 코드를 사용할 수 있습니다. Visual Studio 코드 및 Node.js에 대한 자세한 내용은 [Visual Studio 코드](http://code.visualstudio.com/Docs/) 및 [노드 응용 프로그램 개발](http://code.visualstudio.com//Docs/nodejs)을 참조하십시오.
+		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
+				
+1. 소스 코드에 포함된 **api.json** 파일에 따라 API를 스캐폴드하는 명령을 실행합니다. **api.json** 파일은 다음 단계에서 "yo swaggerize" 명령을 사용하여 스캐폴드할 실제 API를 나타내는 Swagger 파일입니다.
 
-## Azure Preview 포털에서 API 앱 만들기
+        yo swaggerize
+        
+    **참고:** API.json은 API 앱 미리 보기 기간부터 *apiapp.json* 파일과 다릅니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)하거나 [무료 평가판을 등록](/pricing/free-trial/)할 수 있습니다. 또한 무료 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
+1. Swaggerize는 **api.json**에 포함된 Swagger 메타데이터의 처리기 및 구성을 스캐폴드합니다. 스캐폴딩 프로세스 동안 GitHub 사용자 이름 및 전자 메일 주소 등을 묻는 다양한 질문이 나타납니다. 이 정보는 응용 프로그램의 폴더에 **package.json** 파일을 생성하는 데 사용됩니다. 스캐폴딩 프로세스 중에 나타나는 모든 질문 중에서 **express**를 선택해야 하는 질문이 가장 중요합니다. 이 샘플에서는 express 뷰 엔진을 사용하여 나중에 Azure에서(또는 로컬로) API 앱를 실행할 때 Swagger 도움말 페이지를 생성하기 때문입니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+	![Swaggerize 명령줄](media/app-service-api-nodejs-api-app/swaggerize-command-line.png)
+    
+1. 스캐폴드된 코드가 들어 있는 폴더(이 예제의 경우 *ContactList* 하위 폴더)로 이동합니다. 그런 다음 **jsonpath** NPM 모듈을 설치합니다.
 
-2. 포털의 왼쪽 아래에서 **새로 만들기**를 클릭합니다.
+        npm install --save jsonpath
+        
+    명령줄 환경에 설치 결과가 표시됩니다.
 
-3. **웹 + 모바일** > **API 앱**을 클릭합니다.
+    ![Jsonpath 설치](media/app-service-api-nodejs-api-app/jsonpath-install.png)
 
-	![][portal-quick-create]
+1. **swaggerize ui** NPM 모듈을 설치합니다.
 
-4. **이름** 값(예: NodejsAPIApp)을 입력합니다.
+        npm install --save swaggerize-ui
+        
+    명령줄 환경에 설치 결과가 표시됩니다.
 
-5. 앱 서비스 계획을 선택하거나 새로 만듭니다. 새 계획을 만드는 경우 가격 책정 계층, 위치 및 기타 옵션을 선택합니다.
+    ![Swaggerize Ui 설치](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-	![][portal-create-api]
+1. **start** 폴더의 **lib** 폴더를 scaffolder에서 만든 **ContactList** 폴더에 복사합니다.
 
-6. **만들기**를 클릭합니다.
+1. **handlers/contacts.js** 파일의 코드를 아래 코드로 바꿉니다. 이 코드는 **lib/contactRepository.js**에서 제공하는 **lib/contacts.json** 파일에 저장된 JSON 데이터를 사용합니다. 아래의 새 contats.js 코드는 이 코드를 사용하여 모든 연락처를 가져오는 HTTP 요청에 응답합니다.
 
-	![][api-app-blade]
+        'use strict';
+        
+        var repository = require('../lib/contactRepository');
+        
+        module.exports = {
+            get: function contacts_get(req, res) {
+                res.json(repository.all())
+            }
+        };
 
-	**시작 보드에 추가** 확인란을 선택된 상태로 두면 API 앱의 블레이드를 만든 후 포털에서 해당 블레이드가 자동으로 열립니다. 이 확인란의 선택을 취소한 경우 포털 홈 페이지에서 **알림**을 클릭하여 API 앱 만들기 상태를 보고, 알림을 클릭하여 새 API 앱의 블레이드로 이동합니다.
+1. **handlers/contacts/{id}.js** 파일의 코드를 아래 코드로 바꿉니다. 아래 코드는 **lib/contactRepository.js**를 사용하여 HTTP 요청에서 요청된 연락처를 가져오고 이를 JSON 페이로드로 반환합니다.
 
-7. **설정** > **응용 프로그램 설정**을 클릭합니다.
+        'use strict';
 
-9. 액세스 수준을 **공용(익명)**으로 설정합니다.
+        var repository = require('../../lib/contactRepository');
+        
+        module.exports = {
+            get: function contacts_get(req, res) {
+                res.json(repository.get(req.params['id']))
+            }    
+        };
 
-11. **Save**를 클릭합니다.
+1. **server.js**의 코드를 아래 코드로 바꿉니다. 적용된 변경 내용을 볼 수 있도록 server.js 파일에 적용된 변경 내용이 주석으로 강조 표시됩니다.
 
-	![][set-api-app-access-level]
+        'use strict';
 
-## 새 API 앱에 Git 게시 사용
+        var port = process.env.PORT || 8000; // first change
 
-[Git](http://git-scm.com/%20target="_blank)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. API 앱에 대해 작성한 코드를 로컬 Git 리포지토리에 저장하고, 원격 리포지토리로 푸시하여 Azure에 코드를 배포합니다. API 앱은 웹앱을 기반으로 하기 때문에 이 배포 방법은 API 앱에서 사용할 수 있는 앱 서비스 웹앱의 기능입니다. Azure 앱 서비스의 API 앱은 웹 서비스를 호스트하는 추가 기능이 있는 웹앱입니다.
+        var http = require('http');
+        var express = require('express');
+        var bodyParser = require('body-parser');
+        var swaggerize = require('swaggerize-express');
+        var swaggerUi = require('swaggerize-ui'); // second change
+        var path = require('path');
 
-포털에서는 **API 앱** 블레이드에서 API 앱 관련 기능을 관리하고, **API 앱 호스트** 블레이드에서 웹앱과 공유되는 기능을 관리할 수 있습니다. 따라서 이 섹션에서는 **API 앱 호스트** 블레이드로 이동하여 Git 배포 기능을 구성합니다.
+        var app = express();
 
-1. API 앱 블레이드에서 **API 앱 호스트**를 클릭합니다.
+        var server = http.createServer(app);
 
-	![][api-app-host]
+        app.use(bodyParser.json());
 
-2. **API 앱** 블레이드의 **배포** 섹션을 찾아 **연속 배포 설정**을 클릭합니다. 블레이드의 이 부분을 보려면 아래로 스크롤해야 할 수도 있습니다.
+        app.use(swaggerize({
+            api: path.resolve('./config/api.json'), // third change
+            handlers: path.resolve('./handlers'),
+            docspath: '/swagger' // fourth change
+        }));
 
-	![][deployment-part]
+        // change four
+        app.use('/docs', swaggerUi({
+          docs: '/swagger'  
+        }));
 
-3. **원본 선택 > 로컬 Git 리포지토리**를 클릭합니다.
+        server.listen(port, function () { // fifth change
+            app.setHost(undefined); // sixth and final change
+        });
 
-5. **확인**을 클릭합니다.
+1. Node.js 명령줄 실행 파일을 사용하여 서버를 활성화합니다.
 
-	![][setup-git-publishing]
+        node server.js
 
-6. 이전에 API 앱 또는 다른 앱 서비스 앱을 게시하기 위해 배포 자격 증명을 설정하지 않은 경우 지금 설정합니다.
+    이 명령을 실행하면 Node.js HTTP 서버가 시작되고 API가 제공되기 시작합니다.
 
-	* **배포 자격 증명 설정**을 클릭합니다.
+1. ****http://localhost:8000/contacts**로 이동하면 연락처 목록의 JSON 출력이 표시됩니다(또는 사용 중인 브라우저에 따라 다운로드할지 묻는 메시지가 표시됨).
 
-	* 사용자 이름 및 암호를 만듭니다.
+    ![모든 연락처 Api 호출](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-	* **Save**를 클릭합니다.
+1. ****http://localhost:8000/contacts/2**로 이동하면 해당 id 값이 나타내는 연락처가 표시됩니다.
 
-	![][deployment-credentials]
+    ![특정 연락처 Api 호출](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
-1. **API 앱 호스트** 블레이드에서 **설정 > 속성**을 클릭합니다. 배포할 원격 Git 리포지토리의 URL이 "GIT URL" 아래에 표시됩니다.
+1. Swagger JSON 데이터는 **/swagger** 끝점을 통해 제공됩니다.
 
-2. 이 자습서의 뒷부분에서 사용하기 위해 URL을 복사합니다.
+    ![연락처 Swagger Json](media/app-service-api-nodejs-api-app/contacts-swagger-json.png)
 
-	![][git-url]
+1. Swagger UI는 **/docs** 끝점을 통해 제공됩니다. Swagger UI에서 리치 HTML 클라이언트 기능을 사용하여 API를 테스트할 수 있습니다.
 
-## Node.js API 앱에 대한 코드 다운로드 및 검사
+    ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-이 섹션에서는 NodeAPIApp 샘플의 일부분으로 제공되는 코드를 다운로드하여 살펴봅니다.
+## Azure 포털에서 새 API 앱 만들기
+이 섹션에서는 Azure에서 비어 있는 새 API 앱을 만드는 과정을 안내합니다. 그런 다음 코드 변경 내용을 지속적으로 전달할 수 있도록 이 앱을 Git 리포지토리에 연결합니다.
 
-1. [이 GitHub 리포지토리](http://go.microsoft.com/fwlink/?LinkID=534023&clcid=0x409)에서 코드를 다운로드합니다. 리포지토리를 복제하거나 **Zip 다운로드**를 클릭하여 .zip 파일로 다운로드할 수 있습니다. .zip 파일을 다운로드한 경우 로컬 디스크에서 압축을 풉니다.
+소스 코드를 복제한 GitHub 리포지토리는 배포를 위해 코드를 푸시할 리포지토리와 다릅니다. 샘플 GitHub 리포지토리에는 "Start" 상태의 코드가 포함되어 있으며, 이제 "end" 상태의 코드를 스캐폴드했으므로 이 코드를 API 앱과 연결된 Git 리포지토리에 푸시하기만 하면 됩니다. 먼저 Azure 포털을 사용하여 API 앱을 만든 후 다음 단계를 수행합니다.
 
-2. 샘플의 압축을 푼 폴더로 이동합니다.
+1. [Azure 포털](http://portal.azure.com)로 이동합니다. 
 
-	![][api-app-folder-browse]
+1. 새 API 앱을 만듭니다.
 
-3. 텍스트 편집기에서 **apiapp.json** 파일을 열고 내용을 검사합니다.
+    ![새 Api 앱 포털](media/app-service-api-nodejs-api-app/new-api-app-portal.png)
 
-	![][apiapp-json]
+1. 새 API 앱을 기존 리소스 그룹 및/또는 앱 서비스 계획에 추가하거나, 아래 스크린샷에 표시된 것처럼 새 리소스 그룹 및 앱 서비스 계획을 만들 수 있습니다.
 
-	Azure 앱 서비스에서 Node.js 응용 프로그램을 API 앱으로 인식하기 위한 두 가지 전제 조건이 있습니다.
+    ![Api 앱 만들기 블레이드](media/app-service-api-nodejs-api-app/api-app-creation-blade.png)
 
-	+ *apiapp.json*이라는 파일이 응용 프로그램의 루트 디렉터리에 있어야 합니다.
-	+ Swagger 2.0 메타데이터 끝점이 응용 프로그램에 의해 노출되어야 합니다. 이 끝점의 URL은 *apiapp.json* 파일에 지정되어 있습니다.
+1. 포털에서 API 앱을 만든 후에는 아래와 같이 API 앱에 대한 설정이 포함된 블레이드로 이동합니다.
 
-	**apiDefinition** 속성을 확인합니다. 이 URL의 경로는 API의 URL에 상대적이며, Swagger 2.0 끝점을 가리킵니다. Azure 앱 서비스에서는 이 속성을 사용하여 API의 정의를 검색하고 다양한 앱 서비스 API 앱 기능을 사용하도록 설정합니다.
+    ![포털 탐색 설정](media/app-service-api-nodejs-api-app/portal-nav-to-settings.png)
 
-	> [AZURE.NOTE]끝점은 Swagger 2.0 사양이어야 합니다. 이전 버전(예: 1.2)은 플랫폼에서 지원되지 않습니다. 샘플 응용 프로그램에서는 swaggerize-express를 사용하여 Swagger 2.0 사양 끝점을 만듭니다.
+1. 설정 메뉴에서 **배포 자격 증명** 탐색 항목을 클릭합니다. 블레이드가 열리면 Node.js 코드를 API 앱에 게시하는 데 사용할 사용자 이름 및 암호를 추가합니다. 그런 다음 **배포 자격 증명 설정** 블레이드에서 **저장** 단추를 클릭합니다.
 
-4. **server.js** 파일을 열고 코드를 검사합니다.
+    ![배포 자격 증명](media/app-service-api-nodejs-api-app/deployment-credentials.png)
 
-	![][server-js]
+1. 배포 자격 증명을 설정한 후에는 앱 서비스와 연결된 Git 리포지토리를 만들 수 있습니다. 이 저장소에 코드를 푸시할 때마다 Azure 앱 서비스에서 변경 내용을 선택하여 API 앱 인스턴스에 직접 배포합니다. 사이트와 연결된 Git 리포지토리를 만들려면 아래와 같이 설정 메뉴 블레이드에서 **연속 배포** 메뉴 항목을 클릭합니다. 그런 다음 **원본 선택** 블레이드에서 **로컬 Git 리포지토리** 옵션을 선택합니다. 확인 단추를 클릭하면 Git 리포지토리가 만들어집니다.
 
-	이 코드는 swaggerize-express 모듈을 사용하여 Swagger 2.0 끝점을 만듭니다.
+    ![Git 리포지토리 만들기](media/app-service-api-nodejs-api-app/create-git-repo.png)
 
-		app.use(swaggerize({
-		    api: require('./api.json'),
-		    docspath: '/swagger',
-		    handlers: './handlers/'
-		}));
+1. Git 리포지토리를 만들어지면 블레이드가 변경되고 활성 배포가 표시됩니다. 이 리포지토리는 새 리포지토리이므로 목록에 활성 배포가 없어야 합니다.
 
-	`api` 속성은 API의 Swagger 2.0 사양 정의가 포함된 api.json 파일을 가리킵니다. 텍스트 편집기에서 수동으로 파일을 만들거나, 온라인 [Swagger 편집기](http://editor.swagger.io)를 사용하여 JSON 파일을 다운로드할 수 있습니다. *api.json* 파일은 `host` 속성을 지정하지만 이 속성의 값은 런타임에 동적으로 결정되고 대체됩니다.
+    ![활성 배포 없음](media/app-service-api-nodejs-api-app/no-active-deployments.png)
 
-	`docspath` 속성은 Swagger 2.0 끝점을 가리킵니다. 이 URL은 API의 기본 경로에 상대적입니다. 기본 경로는 api.json 파일에 선언됩니다. 이 예제에서는 기본 경로가 */api/data*이므로 swagger 끝점의 상대 경로는 */api/data/swagger*입니다.
+1. 마지막 단계로, 포털에서 Git 리포지토리 URL을 복사합니다. 이렇게 하려면 새 API 앱의 블레이드로 이동하여 **필수 패키지** 섹션을 확인합니다. 필수 패키지 섹션에 **Git 복제 URL**이 표시되어야 합니다. 그 옆에는 URL을 클립보드에 복사하는 아이콘이 있습니다. 이 아이콘을 클릭하여 URL을 복사(URL 위에 마우스를 놓으면 단추가 표시됨)하거나, 전체 URL을 선택하여 클립보드에 복사합니다.
 
-	> [AZURE.NOTE]기본 경로는 *api.json* 파일에 선언되기 때문에 API 앱 URL의 상대 경로인 */swagger* 끝점에 액세스하려고 하면 404가 반환됩니다. 이는 swagger 끝점에 액세스할 때 저지르는 일반적인 실수입니다.
+    ![포털에서 Git Url 가져오기](media/app-service-api-nodejs-api-app/get-the-git-url-from-the-portal.png)
 
-	`handlers` 속성은 Express.js 모듈에 대한 경로 처리기가 포함된 로컬 폴더를 가리킵니다.
+    **참고**: Git 복제 URL은 다음 단계에서 임의 위치에 임시로 저장하는 데 필요합니다.
 
-## 로컬로 API 앱 코드 실행
+이제 백업 Git 리포지토리가 있는 새 API 앱을 만들었으므로 코드를 리포지토리에 푸시하고 Azure의 연속 배포 기능을 사용하여 변경 내용을 자동으로 배포할 수 있습니다.
 
-이 섹션에서는 응용 프로그램을 배포하기 전에 로컬로 실행하여 작동 상태를 확인합니다.
+## Azure에 API 앱 코드 배포
+Azure 앱 서비스에서 기본 제공하는 지속적인 업데이트 기능을 사용하여 앱 서비스와 연결된 Git 리포지토리에 코드를 간편하게 커밋할 수 있습니다. 그러면 Azure에서 소스 코드를 선택하여 API 앱에 배포합니다.
 
-1. 샘플을 다운로드한 폴더로 이동합니다.
+1. GitHub에서 복제한 기본 리포지토리(getting-started 코드 포함) 외부에 있어야 하는 새 로컬 Git 리포지토리를 만들 것이므로 swaggerize scaffolder에서 만든 **src/end/ContactList** 폴더를 바탕 화면이나 다른 폴더에 복사합니다. 
 
-2. 명령줄 프롬프트를 열고 다음 명령을 입력합니다.
+1. Node.js 명령줄 환경을 사용하여 새 폴더로 이동합니다. 여기에서 다음 명령을 실행하여 새 로컬 Git 리포지토리를 만듭니다.
 
-		npm install
+        git init
 
-3. *install* 명령이 완료되면 다음 명령을 입력합니다.
+    이 명령은 로컬 Git 리포지토리를 만들고 새 리포지토리가 초기화되었음을 확인하는 메시지를 표시합니다.
 
-		node server.js
+    ![새 로컬 Git 리포지토리](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
 
-	명령줄 창 출력에 "Server started .."가 표시됩니다.
+1. Node.js 명령줄 환경을 사용하여 로컬 리포지토리에 Git remote를 추가하는 다음 명령을 실행합니다. 방금 만들어 Azure에서 실행 중인 API 앱에 연결한 리포지토리가 원격 리포지토리가 됩니다.
 
-5. 브라우저에서 http://localhost:1337/로 이동합니다.
+        git remote add azure YOUR_GIT_CLONE_URL_HERE
 
-	다음 페이지가 표시됩니다.
+    **참고**: 위에서 "YOUR\_GIT\_CLONE\_URL\_HERE" 문자열을 이전에 복사한 사용자 고유의 Git 복제 URL로 바꿀 수 있습니다.
 
-	![][sample-api-app-page]
+1. 다음으로, Node.js 명령줄 환경에서 아래의 두 명령을 실행합니다.
 
-6. Swagger.json 파일을 보려면 http://localhost:1337/api/data/swagger로 이동합니다.
+        git add .
+        git commit -m "initial revision"
 
-## Azure 앱 서비스에 API 앱 코드 게시
+    이 두 명령을 완료하면 명령줄 창에 아래 스크린샷과 같은 코드가 표시됩니다.
 
-이 섹션에서는 Azure 앱 서비스에서 실행되는 API 앱에 샘플 응용 프로그램을 배포하기 위해 로컬 Git 리포지토리를 만들고 해당 리포지토리에서 Azure에 푸시합니다.
+    ![Git 커밋 출력](media/app-service-api-nodejs-api-app/git-commit-output.png)
 
-1. Git가 설치되지 않은 경우 [Git 다운로드 페이지](http://git-scm.com/download)에서 설치합니다.
+1. API 앱에 대한 배포를 트리거하는 코드를 Azure에 푸시하기 위해 Node.js 명령줄에서 다음 명령을 실행합니다. 암호를 묻는 메시지가 나타나면 이전에 Azure 포털에서 배포 자격 증명을 만들 때 사용한 암호를 사용합니다.
 
-1. 명령줄에서 샘플 응용 프로그램 디렉터리로 이동한 후 다음 명령을 입력하여 로컬 Git 리포지토리를 초기화합니다.
+        git push azure master
 
-		git init
+1. API 앱의 **연속 배포** 블레이드로 다시 이동하면 배포가 진행 중인 것을 볼 수 있습니다.
 
-2. 다음 명령을 입력하여 리포지토리에 파일을 추가합니다.
+    ![배포 진행](media/app-service-api-nodejs-api-app/deployment-happening.png)
 
-		git add .
-		git commit -m "Initial commit of the API App"
+    이와 동시에 Node.js 명령줄에 진행 중인 배포의 상태가 반영됩니다.
 
-3. 앞에서 복사한 Git URL을 사용하여 이전에 만든 웹앱(API 앱 호스트)에 업데이트를 푸시하기 위한 원격 참조를 만듭니다.
+    ![Node Js 배포 진행](media/app-service-api-nodejs-api-app/node-js-deployment-happening.png)
 
-		git remote add azure [URL for remote repository]
+1. 배포가 완료되면 **연속 배포** 블레이드에 코드 변경 내용이 API 앱에 성공적으로 배포되었음이 반영됩니다. API 앱 블레이드의 **필수 패키지** 섹션에서 **URL**을 복사합니다.
 
-4. 다음 명령을 입력하여 변경 내용을 Azure에 푸시합니다.
+    ![배포 완료](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
-		git push azure master
+1. Postman 또는 Fiddler(또는 사용 중인 웹 브라우저)와 같은 REST API 클라이언트를 사용하여 연락처 API 호출 URL을 제공합니다. 이는 API 앱의 **/contacts** 끝점이어야 합니다.
 
-	이전에 만든 암호를 입력하라는 메시지가 나타납니다.
+    **참고:** URL은 http://myapiapp.azurewebsites.net/contacts와 유사합니다.
 
-	이 명령의 출력은 배포에 성공했다는 메시지로 종료됩니다.
+    이 끝점으로 GET 요청을 실행하면 API 앱의 JSON 출력이 표시됩니다.
 
-		remote: Deployment successful.
-		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	 	* [new branch]      master -> master
+    ![Postman 연결 Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## Azure Preview 포털에서 API 정의 보기
+## 요약
+이제 Node.js를 사용하여 첫 번째 API 앱을 만들고 배포했습니다. 여기에서 데이터베이스 또는 API 앱 인스턴스의 디스크에 데이터를 저장하는 코드를 처리기에 추가할 수 있습니다. 연속 배포를 연결했으므로 코드를 변경하고 Git 리포지토리에 푸시하는 간단한 방법으로 API 앱의 기능을 변경하고 확장할 수 있습니다.
 
-API 앱에 API를 배포했으므로 이제 Azure Preview 포털에서 API 정의를 볼 수 있습니다. 먼저 Azure에서 API 앱의 API 정의가 변경된 것을 인식할 수 있 *게이트웨이*를 다시 시작합니다. 게이트웨이는 리소스 그룹의 API 앱에 대한 API 관리 및 권한 부여를 처리하는 웹앱입니다.
-
-6. Azure Preview 포털에서 이전에 만든 API 앱에 대한 **API 앱** 블레이드로 이동하여 **게이트웨이** 링크를 클릭합니다.
-
-	![](./media/app-service-api-nodejs-api-app/clickgateway.png)
-
-7. **게이트웨이** 블레이드에서 **다시 시작**을 클릭합니다. 이제 이 블레이드를 닫을 수 있습니다.
-
-	![](./media/app-service-api-nodejs-api-app/gatewayrestart.png)
-
-8. **API 앱** 블레이드에서 **API 정의**를 클릭합니다.
-
-	![](./media/app-service-api-nodejs-api-app/apidef.png)
-
-	**API 정의** 블레이드에 두 가지 Get 메서드가 표시됩니다.
-
-	![](./media/app-service-api-nodejs-api-app/apidefblade.png)
-
-## Azure에서 샘플 응용 프로그램 실행
-
-Azure Preview 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드로 이동하여 **찾아보기**를 클릭합니다.
-
-![][browse-api-app-page]
-
-이전에 샘플 앱을 로컬로 실행할 때 표시된 홈 페이지가 브라우저에 표시됩니다.
-
-[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
-
-## 다음 단계
-
-API 앱 백 엔드를 사용하는 Node.js 웹 응용 프로그램을 Azure에 배포했습니다. Azure에서 Node.js를 사용하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
-
-* [앱 서비스 평가](http://tryappservice.azure.com)에서 이 샘플 API 앱을 사용해 볼 수 있습니다.
-
-[portal-quick-create]: ./media/app-service-api-nodejs-api-app/portal-quick-create.png
-[portal-create-api]: ./media/app-service-api-nodejs-api-app/portal-create-api.png
-[api-app-blade]: ./media/app-service-api-nodejs-api-app/api-app-blade.png
-[api-app-folder-browse]: ./media/app-service-api-nodejs-api-app/api-app-folder-browse.png
-[api-app-host]: ./media/app-service-api-nodejs-api-app/api-app-host.png
-[deployment-part]: ./media/app-service-api-nodejs-api-app/continuous-deployment.png
-[set-api-app-access-level]: ./media/app-service-api-nodejs-api-app/set-api-app-access.png
-[setup-git-publishing]: ./media/app-service-api-nodejs-api-app/local-git-repo.png
-[deployment-credentials]: ./media/app-service-api-nodejs-api-app/deployment-credentials.png
-[git-url]: ./media/app-service-api-nodejs-api-app/git-url.png
-[apiapp-json]: ./media/app-service-api-nodejs-api-app/apiapp-json.png
-[server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
-[sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
-[browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

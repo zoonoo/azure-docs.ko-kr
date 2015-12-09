@@ -19,7 +19,7 @@
 
 ## Azure 포털을 사용하여 작업을 쉽고 빠르게 만들 수 있게 스케줄러 구성
 
-이 자습서를 완료하려면 Azure 스케줄러 기능이 사용되는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+이 자습서를 완료하려면 Azure 스케줄러 기능이 사용되는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## 시작
 
@@ -261,4 +261,4 @@ Azure 스케줄러는 여러 조건에 따라 할당량을 구현 합니다. 이
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

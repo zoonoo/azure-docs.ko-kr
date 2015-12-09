@@ -26,7 +26,7 @@
 
 ## 미디어 서비스 계정 만들기
 
-Azure 포털, .NET SDK 또는 REST API를 사용하여 Azure 미디어 서비스 계정을 만듭니다.
+Azure 클래식 포털, .NET SDK 또는 REST API를 사용하여 Azure 미디어 서비스 계정을 만듭니다.
 
 <a id="setup_dev_env"></a>
 ## 개발 환경 설정  
@@ -51,4 +51,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 .NET 또는 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

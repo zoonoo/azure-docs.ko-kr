@@ -1,7 +1,7 @@
 <properties
    pageTitle="Hadoop 자습서: Windows에서 Hadoop 시작 | Microsoft Azure"
    description="HDInsight에서 Hadoop을 시작합니다. Windows에서 Hadoop 클러스터를 프로비전하고, 데이터에 대해 Hive 쿼리를 실행하고 Excel에서 결과를 분석하는 방법을 알아봅니다."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
+   keywords="hadoop 자습서, windows의 hadoop, hadoop 클러스터, hadoop 알아보기, hive 쿼리"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="11/29/2015"
    ms.author="nitinme"/>
 
 
@@ -71,10 +71,10 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 **Azure 저장소 계정을 만들려면**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다.
+1. [Azure 클래식 포털][azure-management-portal]에 로그인합니다.
 2. 왼쪽 하단에서 **새로 만들기**를 클릭하고 이미지에 표시된 대로 값을 입력합니다.
 
-	![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 포털.][image-hdi-storageaccount-quickcreate]
+	![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 클래식 포털.][image-hdi-storageaccount-quickcreate]
 
 >[AZURE.NOTE]클러스터에 대해 지원되는 위치에 저장소 계정을 만들어야 합니다. **동아시아**, **동남아시아**, **북유럽**, **서유럽**, **미국 동부**, **미국 서부**, **미국 중북부**, **미국 중남부**입니다.
 
@@ -82,14 +82,14 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 ##<a name="provision"></a>Hadoop 클러스터 프로비전
 
-클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 Hadoop 버전 2.4를 기반으로 하는 HDInsight 버전 3.1 클러스터를 프로비전합니다. Azure 포털, HDInsight PowerShell cmdlet 또는 HDInsight .NET SDK를 사용하여 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
+클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 Hadoop 버전 2.4를 기반으로 하는 HDInsight 버전 3.1 클러스터를 프로비전합니다. Azure 클래식 포털, HDInsight PowerShell cmdlet 또는 HDInsight .NET SDK를 사용하여 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
 
 **Hadoop 클러스터를 프로비전하려면**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다.
+1. [Azure 클래식 포털][azure-management-portal]에 로그인합니다.
 
 2. 왼쪽 하단에서 **새로 만들기**를 클릭하고 이미지에 표시된 대로 값을 입력합니다.
 
@@ -127,7 +127,7 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 올바르게 프로비전된 HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위해 시작 갤러리를 포함하는 쿼리 콘솔을 제공합니다. 샘플을 통해 몇 가지 기본 시나리오를 단계별로 수행하여 HDInsight를 사용하는 방법을 익힐 수 있습니다. 이러한 샘플에는 분석할 데이터, 데이터에 대해 실행할 쿼리 등의 필요한 구성 요소가 모두 함께 제공됩니다. 시작 갤러리의 샘플에 대한 자세한 내용은 [HDInsight 시작 갤러리를 사용하여 HDInsight의 Hadoop에 대해 알아보기](hdinsight-learn-hadoop-use-sample-gallery.md)를 참조하세요.
 
-**샘플을 실행하려면** Azure 포털에서 샘플을 실행할 클러스터 이름을 클릭한 다음 페이지 아래쪽에서 **쿼리 콘솔**을 클릭합니다. 그러면 열리는 웹 페이지에서 **시작 갤러리** 탭을 클릭하고 **샘플** 범주에서 실행할 샘플을 클릭합니다. 그런 다음 웹 페이지의 지침에 따라 샘플을 완료합니다. 다음 표에는 몇 가지 샘플이 나열되어 있으며 각 샘플이 수행하는 내용에 대한 자세한 정보를 제공합니다.
+**샘플을 실행하려면** Azure 클래식 포털에서 샘플을 실행할 클러스터 이름을 클릭한 다음 페이지 아래쪽에서 **쿼리 콘솔**을 클릭합니다. 그러면 열리는 웹 페이지에서 **시작 갤러리** 탭을 클릭하고 **샘플** 범주에서 실행할 샘플을 클릭합니다. 그런 다음 웹 페이지의 지침에 따라 샘플을 완료합니다. 다음 표에는 몇 가지 샘플이 나열되어 있으며 각 샘플이 수행하는 내용에 대한 자세한 정보를 제공합니다.
 
 샘플 | 수행하는 작업
 ------ | ---------------
@@ -144,7 +144,7 @@ HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업�
 
 **클러스터 대시보드에서 Hive 작업 실행**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다.
+1. [Azure 클래식 포털][azure-management-portal]에 로그인합니다.
 2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 이전 섹션에서 방금 만든 클러스터를 포함하여 클러스터의 목록이 표시됩니다.
 3. Hive 작업을 실행하는 데 사용할 클러스터 이름을 클릭하고 페이지 아래쪽에서 **쿼리 콘솔**을 클릭합니다.
 4. 웹 페이지가 다른 브라우저 탭에서 열립니다. Hadoop 사용자 계정과 암호를 입력합니다. 기본 사용자 이름은 **admin**이고 암호는 클러스터를 프로비전하는 동안 입력한 암호입니다. 대시보드는 다음과 유사하게 표시됩니다.
@@ -280,4 +280,4 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

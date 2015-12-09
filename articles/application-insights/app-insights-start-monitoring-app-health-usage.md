@@ -135,6 +135,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 [이 문제 해결 항목](app-insights-troubleshoot-faq.md#NuGetBuild)을 참조하세요.
 
+> [AZURE.NOTE]앱에서 다양한 원격 분석을 생성하는 경우(ASP.NET SDK 버전 2.0.0-beta3 이상 사용), 적응 샘플링 모듈 이벤트의 대표적인 일부만 전송하여 포털에 전송되는 볼륨이 자동으로 줄어듭니다. 그러나, 동일한 요청과 관련된 이벤트가 그룹으로 선택되거나 선택 취소되므로 관련 이벤트 간을 이동할 수 있습니다. [샘플링에 대해 알아봅니다](app-insights-sampling.md).
 
 
 ## 5\. 종속성 추적(및 IIS 성능 카운터 추가)
@@ -160,7 +161,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 #### Azure 클라우드 서비스 프로젝트 만들기인 경우
 
-[웹 및 작업자 역할에 스크립트를 추가합니다](app-insights-cloudservices.md).
+[웹 및 작업자 역할에 스크립트 추가](app-insights-cloudservices.md)
 
 
 
@@ -180,7 +181,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## 응용 프로그램 버전 추적
 
-MS 빌드 프로세스에서 `buildinfo.config`가 생성되었는지 확인합니다. .csproj 파일에서 다음을 추가합니다.
+MS 빌드 프로세스에서 `buildinfo.config`가 생성되도록 합니다. .csproj 파일에서 다음을 추가합니다.
 
 ```XML
 
@@ -232,7 +233,7 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 
 프로젝트를 처음 만드는 경우 Microsoft Azure Preview에 로그인하거나 등록하라는 메시지가 표시됩니다.
 
-이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리소스 그룹에 넣고자 할 수 있습니다.
+이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리스소 그룹에 넣고자 할 수 있습니다.
 
 *Application Insights 옵션이 표시되지 않는 경우 Visual Studio 2013 업데이트 3 이상을 사용 중이고, 확장 및 업데이트에서 Application Insights Tools를 사용하도록 설정되어 있는지 확인합니다.*
 
@@ -268,4 +269,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

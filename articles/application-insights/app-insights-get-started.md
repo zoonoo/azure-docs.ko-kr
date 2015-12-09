@@ -35,7 +35,7 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 원하는 작업 | 수행할 작업 | 결과
 ---|---|---
- <a href="app-insights-start-monitoring-app-health-usage.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-start-monitoring-app-health-usage.md">웹 프로젝트에 Application Insights SDK 추가</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-start-monitoring-app-health-usage.md">![성능 및 사용량 모니터링](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
+ <a href="app-insights-asp-net.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-asp-net.md">웹 프로젝트에 Application Insights SDK 추가</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-asp-net.md">![성능 및 사용량 모니터링](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
 <a href="app-insights-monitor-performance-live-website-now.md">![이미 라이브 상태인 ASP.NET 사이트](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![종속성 및 성능 모니터링](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">IIS 서버에 상태 모니터 설치</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![ASP.NET 종속성 모니터링](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
 <a href="insights-perf-analytics.md">![Azure 웹앱 또는 VM](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">Azure 웹앱 또는 VM에서 Insights 사용</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![종속성 및 성능 모니터링](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Java 프로젝트에 SDK 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![성능 및 사용량 모니터링](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
@@ -74,4 +74,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

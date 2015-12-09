@@ -35,9 +35,9 @@
 
 ## 새 Windows 스토어 앱 만들기
 
-모바일 서비스를 만들고 나면 관리 포털에서 쉬운 빠른 시작에 따라 모바일 서비스에 연결하는 새 Windows Store 8.1 JavaScript 앱을 만들 수 있습니다.
+모바일 서비스를 만들고 나면 Azure 클래식 포털에서 쉬운 빠른 시작에 따라 모바일 서비스에 연결하는 새 Windows Store 8.1 JavaScript 앱을 만들 수 있습니다.
 
-1.  관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+1.  [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
 
 2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Windows**를 클릭하고 **새 Windows 스토어 앱 만들기**를 확장합니다.
@@ -64,7 +64,7 @@
 
 4. (선택 사항) 다시 앱을 실행하고 앱이 시작된 후 이전 단계에서 저장한 데이터가 모바일 서비스에서 로드되는 것을 확인합니다.
  
-4. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
+4. [Azure 클래식 포털]에 돌아와서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
    	이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.
 
@@ -86,6 +86,6 @@
 <!-- URLs. -->
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

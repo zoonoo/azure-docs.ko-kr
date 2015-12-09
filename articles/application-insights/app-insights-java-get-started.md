@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Java 웹 프로젝트에서 Application Insights 시작하기
@@ -43,7 +43,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
     ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-get-started/01-create.png)
 3. Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
 
-    ![이름을 채우고 Java 웹앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
+    ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
 4. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 곧바로 붙여넣어야 합니다.
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-get-started/03-key.png)
@@ -267,7 +267,7 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 처리되지 않은 예외는 자동으로 수집됩니다.
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![아래로 스크롤하여 실패 타일을 클릭합니다.](./media/app-insights-java-get-started/21-exceptions.png)
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
@@ -364,11 +364,13 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 
 ## 가용성 웹 테스트
 
-Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. 개요 블레이드에서 빈 웹 테스트 차트를 클릭하여 설치하면 공용 URL을 제공합니다.
+Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. [설정][availability]하려면 아래로 스크롤하여 가용성을 클릭합니다.
+
+![아래로 스크롤하여 가용성 다음 웹 추가 테스트를 클릭합니다.](./media/app-insights-java-get-started/31-config-web-test.png)
 
 사이트가 다운되는 경우 응답 시간 차트는 물론 이메일 알림을 얻게 됩니다.
 
-![웹 테스트의 예](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![웹 테스트의 예](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [가용성 웹 테스트에 대한 자세히 알아봅니다.][availability]
 
@@ -383,7 +385,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 ## 다음 단계
 
-자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
 <!--Link references-->
 
@@ -396,4 +398,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->
