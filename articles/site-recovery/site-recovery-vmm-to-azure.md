@@ -82,18 +82,19 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 
 
 2. 확장
-3. *데이터 서비스*, *복구 서비스*를 차례로 확장하고 *사이트 복구 자격 증명 모음*을 클릭합니다.*
-3. *새로 만들기*를 클릭한 다음 *빠른 생성*을 클릭합니다.
+3. *데이터 서비스* , *복구 서비스* 를 차례로 확장하고 *사이트 복구 자격 증명 모음* 을 클릭합니다.
+*
+3. *새로 만들기* 를 클릭한 다음 *빠른 생성* 을 클릭합니다.
 
 
-4. *이름*에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
+4. *이름* 에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
 
-5. *지역*에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 사용 가능한 지리적 지역에는 동아시아, 서유럽, 미국 서부, 미국 동부, 북유럽, 동남아시아
-6. *자격 증명 모음 만들기*를 클릭합니다.
+5. *지역* 에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 사용 가능한 지리적 지역에는 동아시아, 서유럽, 미국 서부, 미국 동부, 북유럽, 동남아시아
+6. *자격 증명 모음 만들기* 를 클릭합니다.
 
 	![새 자격 증명 모음](./media/site-recovery-vmm-to-azure/ASRE2AVMM_HvVault.png)
 
-<P>상태 표시줄을 점검하여 자격 증명 모음이 성공적으로 만들어졌는지 확인합니다. 자격 증명 모음은 기본 복구 서비스 페이지에서 *활성*으로 나열됩니다.</P>
+<P>상태 표시줄을 점검하여 자격 증명 모음이 성공적으로 만들어졌는지 확인합니다. 자격 증명 모음은 기본 복구 서비스 페이지에서 *활성* 으로 나열됩니다.</P>
 
 
 ## 2단계: 자격 증명 모음 등록 키 생성
@@ -111,32 +112,43 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 
 ## 3단계: Azure Site Recovery 공급자 설치
 
-4. *빠른 시작* 페이지의 **VMM 서버 준비**에서 *VMM 서버에 설치할 Microsoft Azure 사이트 복구 공급자 다운로드*를 클릭하여 최신 버전의 공급자 설치 파일을 받습니다.
+4. *빠른 시작* 페이지의 **VMM 서버 준비**에서 *VMM 서버에 설치할 Microsoft Azure 사이트 복구 공급자 다운로드* 를 클릭하여 최신 버전의 공급자 설치 파일을 받습니다.
 
 2. 원본 VMM 서버에서 이 파일을 실행합니다. VMM이 클러스터에 배포되고 공급자를 처음 설치하는 경우 활성 노드에 설치하고 설치를 완료하여 VMM 서버를 자격 증명 모음에 등록합니다. 그런 후에 다른 노드에 공급자를 설치합니다. 공급자를 업그레이드하는 경우 모두 동일한 공급자 버전을 실행해야 하므로 모든 노드에서 업그레이드해야 합니다.
 
 
-3. 설치 관리자는 몇 가지 **사전 요구 사항 확인**을 수행하고 공급자 설정을 시작하기 위해 VMM 서비스를 중지하는 권한을 요청합니다. 설정이 완료되면 VMM 서비스가 자동으로 다시 시작됩니다. VMM 클러스터에 설치하는 경우 클러스터 역할을 중지하라는 메시지가 표시됩니다.
+3. 설치 관리자는 몇 가지 **사전 요구 사항 확인** 을 수행하고 공급자 설정을 시작하기 위해 VMM 서비스를 중지하는 권한을 요청합니다. 설정이 완료되면 VMM 서비스가 자동으로 다시 시작됩니다. VMM 클러스터에 설치하는 경우 클러스터 역할을 중지하라는 메시지가 표시됩니다.
 
-4. **Microsoft 업데이트**에서 업데이트를 선택할 수 있습니다. 이 설정이 사용되면 공급자가 Microsoft 업데이트 정책에 따라 설치됩니다.
+4. **Microsoft 업데이트** 에서 업데이트를 선택할 수 있습니다. 이 설정이 사용되면 공급자가 Microsoft 업데이트 정책에 따라 설치됩니다.
 
 	![Microsoft 업데이트](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
 
 
-1.  설치 위치는 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**으로 설정됩니다. 공급자 설치를 시작하려면 설치 단추를 클릭합니다. ![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
+1.  설치 위치는 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin** 으로 설정됩니다. 공급자 설치를 시작하려면 설치 단추를 클릭합니다.
+	![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
 
 
-1. 공급자가 설치된 후 '등록' 단추를 클릭하여 자격 증명 모음에 서버를 등록합니다. ![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
+1. 공급자가 설치된 후 '등록' 단추를 클릭하여 자격 증명 모음에 서버를 등록합니다.
+	![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
 
-5. VMM 서버에서 실행 중인 공급자를 인터넷에 연결하는 방법을 **인터넷 연결**에서 지정합니다. 서버에 구성되어 있는 기본 인터넷 연결 설정을 사용하려면 *기본 시스템 프록시 설정 사용*을 선택합니다.
+5. VMM 서버에서 실행 중인 공급자를 인터넷에 연결하는 방법을 **인터넷 연결** 에서 지정합니다. 서버에 구성되어 있는 기본 인터넷 연결 설정을 사용하려면 *기본 시스템 프록시 설정 사용* 을 선택합니다.
 
-	![인터넷 설정](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하는 경우 프록시 연결 상태를 확인하기 위한 테스트가 실행됩니다. - 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요할 경우 프록시 주소와 포트를 포함한 프록시 상세 정보를 입력해야 합니다. - 다음 URL은 VMM 서버 및 Hyper-v 호스트에서 액세스할 수 있어야 합니다. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Allow the IP addresses described in [Azure 데이터 센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용하십시오. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+	![인터넷 설정](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png)
+	- 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하는 경우 프록시 연결 상태를 확인하기 위한 테스트가 실행됩니다.
+	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요할 경우 프록시 주소와 포트를 포함한 프록시 상세 정보를 입력해야 합니다.
+	- 다음 URL은 VMM 서버 및 Hyper-v 호스트에서 액세스할 수 있어야 합니다.
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Allow the IP addresses described in [Azure 데이터 센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용하십시오. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	- 사용자 지정 프록시를 사용하는 경우 지정된 프록시 자격 증명을 사용하여 VMM 실행 계정(DRAProxyAccount)이 자동으로 만들어집니다. 이 계정이 성공적으로 인증될 수 있도록 프록시 서버를 구성합니다. VMM 콘솔에서 VMM 실행 계정 설정을 수정할 수 있습니다. 이렇게 하려면 설정 작업 영역을 열고 보안을 확장한 다음 실행 계정을 클릭하고 DRAProxyAccount의 암호를 수정합니다. 이 설정이 적용되도록 VMM 서비스를 다시 시작해야 합니다.
 
 6. **등록 키**에서 Azure 사이트 복구를 다운로드하고 VMM 서버에 복사했다는 것을 선택합니다.
-7. **자격 증명 모음 이름**에서 서버를 등록할 자격 증명 모음의 이름을 확인합니다. *다음*을 클릭합니다.
+7. **자격 증명 모음 이름**에서 서버를 등록할 자격 증명 모음의 이름을 확인합니다. *다음* 을 클릭합니다.
 
 
 	![서버 등록](./media/site-recovery-vmm-to-azure/VMMASRRegisterVaultCreds.png)
@@ -147,10 +159,11 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 
 8. 자격 증명 모음에서 VMM 서버를 식별하기 위한 이름을 **서버 이름**에서 지정합니다. 클러스터 구성에서 VMM 클러스터 역할 이름을 지정합니다.
 
-8. **초기 클라우드 메타데이터** 동기화에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지 여부를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다. ![서버 등록](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
+8. **초기 클라우드 메타데이터** 동기화에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지 여부를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다.
+	![서버 등록](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
 
 
-8. *다음*을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **서버** 페이지에서 *VMM 서버* 탭에 표시됩니다.
+8. *다음* 을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **서버** 페이지에서 *VMM 서버* 탭에 표시됩니다.
 
 >[AZURE.NOTE]다음 명령줄을 사용하여 Azure Site Recovery 공급자를 설치할 수도 있습니다. 이 방법은 Windows Server 2012 R2용 Server CORE에 대한 공급자를 설치하는 데 사용할 수 있습니다.
 
@@ -345,11 +358,11 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 	- **참고**를 클릭하여 테스트 장애 조치(Failover)와 연관된 항목을 기록한 후 저장합니다.
 
 ## <a id="runtest" name="runtest" href="#runtest"></a> 작업 모니터
-<p>*작업* 및 *대시보드* 탭을 사용하여 Azure 사이트 복구 자격 증명 모음에서 수행한 주 작업을 보고 모니터링할 수 있습니다. 이러한 작업에는 클라우드에 대한 보호 구성, 가상 컴퓨터의 보호 설정 및 해제, 장애 조치(Failover) 실행(계획됨, 계획되지 않음 또는 테스트), 계획되지 않은 장애 조치(Failover) 커밋이 포함됩니다.</p>
+<p> *작업* 및 *대시보드* 탭을 사용하여 Azure 사이트 복구 자격 증명 모음에서 수행한 주 작업을 보고 모니터링할 수 있습니다. 이러한 작업에는 클라우드에 대한 보호 구성, 가상 컴퓨터의 보호 설정 및 해제, 장애 조치(Failover) 실행(계획됨, 계획되지 않음 또는 테스트), 계획되지 않은 장애 조치(Failover) 커밋이 포함됩니다.</p>
 
-<p>*작업* 탭에서 작업을 보고, 작업 세부 정보 및 오류를 드릴다운하고, 쿼리 작업을 실행하여 특정 조건과 일치하는 작업을 검색하고, 작업을 Excel로 내보내고, 실패한 작업을 다시 시작합니다.</p>
+<p> *작업* 탭에서 작업을 보고, 작업 세부 정보 및 오류를 드릴다운하고, 쿼리 작업을 실행하여 특정 조건과 일치하는 작업을 검색하고, 작업을 Excel로 내보내고, 실패한 작업을 다시 시작합니다.</p>
 
-<p>*대시보드*에서는 최신 버전의 공급자 및 에이전트 설치 파일을 다운로드하고, 자격 증명 모음에 대한 구성 정보를 가져오고, 자격 증명 모음에서 보호를 관리하는 가상 컴퓨터의 수를 확인하고, 최근 작업을 보고, 자격 증명 모음 인증서를 관리하고, 가상 컴퓨터를 재동기화할 수 있습니다.</p>
+<p>*대시보드* 에서는 최신 버전의 공급자 및 에이전트 설치 파일을 다운로드하고, 자격 증명 모음에 대한 구성 정보를 가져오고, 자격 증명 모음에서 보호를 관리하는 가상 컴퓨터의 수를 확인하고, 최근 작업을 보고, 자격 증명 모음 인증서를 관리하고, 가상 컴퓨터를 재동기화할 수 있습니다.</p>
 
 <p>작업 및 대시보드와의 상호 작용에 대한 자세한 내용은 <a href="http://go.microsoft.com/fwlink/?LinkId=398534">작업 및 모니터링 가이드</a>를 참조하세요.</p>
 
@@ -358,6 +371,7 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 <LI>정식 프로덕션 환경에서 Azure Site Recovery를 계획하고 배포하려면 <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Azure Site Recovery용 계획 가이드</a> 및 <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Azure Site Recovery용 배포 가이드</a>를 참조하세요.</LI>
 
 
-<LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
+<LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI>
+</UL>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

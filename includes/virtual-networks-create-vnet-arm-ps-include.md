@@ -3,7 +3,7 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 	
-3. 필요에 따라 아래와 같이 새 리소스 그룹을 만듭니다. 이 시나리오의 경우 이름이 *TestRG*인 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+3. 필요에 따라 아래와 같이 새 리소스 그룹을 만듭니다. 이 시나리오의 경우 이름이 *TestRG* 인 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
 		New-AzureRmResourceGroup -Name TestRG -Location centralus
 
@@ -20,7 +20,7 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 		
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG	
 
-4. 아래와 같이 이름이 *TestVNet*인 새 VNet을 만듭니다.
+4. 아래와 같이 이름이 *TestVNet* 인 새 VNet을 만듭니다.
 
 		New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
@@ -49,7 +49,7 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 
 		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP]**$vnet = New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**을 실행하여 4단계와 5단계를 결합할 수 있습니다.
+	>[AZURE.TIP] **$vnet = New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**을 실행하여 4단계와 5단계를 결합할 수 있습니다.
 
 6. 아래와 같이 새 VNet 변수에 서브넷을 추가합니다.
 
@@ -137,4 +137,4 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
