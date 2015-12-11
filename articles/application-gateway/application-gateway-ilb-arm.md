@@ -161,7 +161,7 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 
 응용 프로그램 게이트웨이의 인스턴스 크기를 구성합니다.
 
->[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
+>[AZURE.NOTE] *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 의 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
 
 ## New-AzureApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -203,7 +203,7 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 
 ## 응용 프로그램 게이트웨이 상태 확인
 
-`Get-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. 이전 단계에서 *Start-AzureApplicationGateway*를 성공했으면 State는 *Running*입니다.
+`Get-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. 이전 단계에서 *Start-AzureApplicationGateway* 를 성공했으면 State는 *Running* 입니다.
 
 
 ## 응용 프로그램 게이트웨이 삭제
@@ -269,4 +269,4 @@ ILB를 사용하도록 응용 프로그램 게이트웨이를 구성하려는 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

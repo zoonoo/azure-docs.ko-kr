@@ -201,7 +201,7 @@ ostress.exe를 실행하는 경우 모두에게 설계된 매개 변수 값을 �
 이 섹션에서는 ostress.exe 명령줄에 포함된 T-SQL 스크립트를 표시합니다. 스크립트는 이전에 설치한 T-SQL 스크립트에 의해 생성된 항목을 사용합니다.
 
 
-다음 스크립트는 다음과 같은 메모리 액세스에 최적화된 *테이블*에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
+다음 스크립트는 다음과 같은 메모리 액세스에 최적화된 *테이블* 에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
 
 - SalesLT.SalesOrderHeader\_inmem
 - SalesLT.SalesOrderDetail\_inmem
@@ -307,7 +307,7 @@ ostress.exe가 완료되면 출력의 마지막 줄로 실행 기간을 RML Cmd 
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. ostress.exe 명령줄을 편집하여 모든 *\_inmem*을 *\_ondisk*로 대체합니다.
+2. ostress.exe 명령줄을 편집하여 모든 *\_inmem* 을 *\_ondisk* 로 대체합니다.
 
 3. ostress.exe를 두 번째로 실행하고 기간 결과를 캡처합니다.
 
@@ -527,4 +527,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
