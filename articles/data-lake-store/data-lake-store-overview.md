@@ -20,7 +20,7 @@
 
 Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Azure 데이터 레이크를 사용하면 작동 및 예비 분석에 대해 한 곳에서 모든 크기, 형식 및 수집 속도의 데이터를 캡처할 수 있습니다.
 
-> [AZURE.TIP][데이터 레이크 저장소 학습 경로](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/)를 사용하여 Azure 데이터 레이크 저장소 서비스 탐색을 시작합니다.
+> [AZURE.TIP] [데이터 레이크 저장소 학습 경로](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/)를 사용하여 Azure 데이터 레이크 저장소 서비스 탐색을 시작합니다.
 
 Azure 데이터 레이크 저장소는 WebHDFS 호환 REST API를 사용하여 Hadoop(HDInsight 클러스터에서 사용 가능)에서 액세스할 수 있습니다. 저장된 데이터에 대한 분석을 사용하도록 특별히 설계되었으며 데이터 분석 시나리오에 대한 성능을 위해 조정됩니다. 기본적으로 실제 엔터프라이즈 사용 사례에 필수적인 모든 엔터프라이즈급 기능-보안, 관리 효율성, 확장성, 안정성 및 가용성-을 포함합니다.
 
@@ -86,4 +86,4 @@ Azure 포털을 사용하여 데이터 레이크 저장소를 프로비전하는
 - [.NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

@@ -236,7 +236,7 @@ CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XM
             </EntityType>
         </Schema>
 
-> [AZURE.TIP][CSDL을 통해 기존 웹 서비스를 Odata에 매핑하는 예](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서에서 더 많은 CSDL 웹 서비스 예를 살펴보세요.
+> [AZURE.TIP] [CSDL을 통해 기존 웹 서비스를 Odata에 매핑하는 예](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서에서 더 많은 CSDL 웹 서비스 예를 살펴보세요.
 
 ###DataService CSDL 예
 
@@ -298,4 +298,4 @@ CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XM
 - 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 - Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

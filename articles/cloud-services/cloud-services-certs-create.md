@@ -74,7 +74,7 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 ## 다음 단계
 
-[서비스 인증서를 Azure 클래식 포털(또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
+서비스 인증서를 Azure 포털(또는[Preview 포털](cloud-services-configure-ssl-certificate-portal.md))에 [업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
 
 [관리 API 인증서](../azure-api-management-certs.md)를 Azure 클래식 포털에 업로드합니다.
 

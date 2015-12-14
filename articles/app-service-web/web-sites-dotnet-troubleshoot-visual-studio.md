@@ -567,7 +567,8 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 1. Visual Studio **Azure 웹 앱** 창에서 **로그** 탭을 클릭한 다음 **관리 포털에서 로깅 구성**을 클릭합니다.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![로깅 구성](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![로깅 구성](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	웹앱의 클래식 포털에서 **구성** 탭이 열립니다.
 

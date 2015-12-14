@@ -105,7 +105,7 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	**http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
+     **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -165,7 +165,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 위의 단계에 따라 이 컨트롤러 작업을 설정하려면 다음을 수행합니다.
 
-1. *\\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
+1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
 
 
         using System;
@@ -505,25 +505,44 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 4. Azure 웹앱에 다시 게시하고 홈페이지에 액세스합니다.
 5. 페이지의 HTML 코드를 확인합니다. 다음과 비슷한 삽입 스크립트가 표시됩니다.    
 	
-	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
+	```
+	...
+	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() {
+                var loadFallback,
+                    len = document.styleSheets.length;
+                for (var i = 0; i < len; i++) {
+                    var sheet = document.styleSheets[i];
+                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+                        var meta = document.createElement('meta');
+                        meta.className = 'sr-only';
+                        document.head.appendChild(meta);
+                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+                        document.head.removeChild(meta);
+                        if (value !== '1px') {
+                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
+                        }
+                    }
+                }
+                return true;
+            }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
 	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
-	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+ 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
  	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	그러나 || 식의 첫 부분이 항상 true(바로 위의 줄에서)를 반환하므로 document.write() 함수가 실행되지 않습니다.
 
 6. 대체(fallback) 스크립트가 작동 중인지를 테스트하려면 CDN 끝점의 대시보드로 돌아간 후 **끝점 사용 안 함**을 클릭합니다.
 

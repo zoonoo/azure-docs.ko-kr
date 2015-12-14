@@ -18,7 +18,8 @@
 
 # 서비스, 지역 및 API 버전에 대한 리소스 관리자 지원
 
-Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다. 모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
+Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다.
+모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
 
 리소스를 배포할 때는 이러한 리소스를 지원하는 지역 및 리소스에 사용할 수 있는 API 버전도 알아야 합니다. [지원되는 지역](#supported-regions) 섹션에서는 구독 및 리소스에 대해 작동할 지역을 확인하는 방법을 보여줍니다. 섹션 [지원되는 API 버전](#supported-api-versions)에서는 사용할 수 있는 API 버전을 결정하는 방법을 보여줍니다.
 
@@ -32,7 +33,9 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 가상 컴퓨터 | 예 | 예, 다양한 옵션 | 아니요 | [VM 만들기](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 배치 | 예 | [예(클래식에만 해당)](https://portal.azure.com/#create/Microsoft.BatchAccount) | 예 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | 예 | 아니요 | | | |
-| 가상 컴퓨터(클래식) | 제한됨 | 예, 다양한 옵션 | 부분적(아래 참조) | - | - | | RemoteApp | 아니요 | 아니요 | - | - | - | | 서비스 패브릭 | 아니요 | 아니요 | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 예, 다양한 옵션 | 부분적(아래 참조) | - | - |
+| RemoteApp | 아니요 | 아니요 | - | - | - |
+| 서비스 패브릭 | 아니요 | 아니요 | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -59,7 +62,8 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | SQL 데이터베이스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 검색 | 예 | [예](https://portal.azure.com/#create/Microsoft.Search) | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 데이터 웨어하우스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | 아니요 | 아니요 | - | - | - | | 관리된 캐시 | 아니요 | 아니요 | - | - | - |
+| StorSimple | 아니요 | 아니요 | - | - | - |
+| 관리된 캐시 | 아니요 | 아니요 | - | - | - |
 
 ## 웹 및 모바일
 
@@ -85,7 +89,8 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 스트림 분석 | 예 | [예](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | 예 | [예](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | 예 | | |
 | 데이터 팩터리 | 예 | [예](https://portal.azure.com/#create/Microsoft.DataFactory) | 예 | [데이터 팩터리 만들기](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 기계 학습 | 아니요 | 아니요 | - | - | - | | 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
+| 기계 학습 | 아니요 | 아니요 | - | - | - |
+| 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
 
 ## 미디어 및 CDN
 
@@ -101,13 +106,16 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk 서비스 | 예 | 아니요 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | 서비스 버스 | 예 | 아니요 | | [서비스 버스 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| 백업 | 아니요 | 아니요 | - | - | - | | 사이트 복구 | 아니요 | 아니요 | - | - | - |
+| 백업 | 아니요 | 아니요 | - | - | - |
+| 사이트 복구 | 아니요 | 아니요 | - | - | - |
 
 ## ID 및 액세스 관리 
 
 | 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 아니요 | 아니요 | - | - | - | | Azure Active Directory B2C | 아니요 | 아니요 | - | - | - | | Multi-Factor Authentication | 아니요 | 아니요 | - | - | - |
+| Azure Active Directory | 아니요 | 아니요 | - | - | - |
+| Azure Active Directory B2C | 아니요 | 아니요 | - | - | - |
+| Multi-Factor Authentication | 아니요 | 아니요 | - | - | - |
 
 ## 개발자 서비스 
 

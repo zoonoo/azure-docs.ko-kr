@@ -82,7 +82,7 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
 
 ## 진단 저장소 계정을 매개 변수로 지정 
 
-위의 진단 저장소 JSON 코드 조각은 진단 데이터가 저장되는 진단 저장소 계정을 지정하기 위해 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageAccountName*이라는 두 가지 매개 변수를 가정합니다. 진단 저장소 계정을 매개 변수로 지정하면 다양한 환경에서 진단 저장소 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 저장소 계정을 사용할 수 있습니다.
+위의 진단 저장소 JSON 코드 조각은 진단 데이터가 저장되는 진단 저장소 계정을 지정하기 위해 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageAccountName* 이라는 두 가지 매개 변수를 가정합니다. 진단 저장소 계정을 매개 변수로 지정하면 다양한 환경에서 진단 저장소 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 저장소 계정을 사용할 수 있습니다.
 
         "existingdiagnosticsStorageAccountName": {
             "type": "string",
@@ -151,7 +151,7 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 
 - **PartitionKey**: partitionkey는 *resourceID* 값을 기반으로 구성되어 VM 리소스를 고유하게 식별합니다. (예: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>)  
 - **RowKey** : <Descending time tick>:<Performance Counter Name> 형식을 따릅니다. 감소하는 시간 틱 계산식은 최대 시간 틱 빼기 집계 기간이 시작된 시간입니다. 예를 들어, 샘플 기간이 10-Nov-2015 00:00Hrs UTC에 시작되었으면 계산식은 DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)이 됩니다. 사용 가능 메모리 바이트 성능 카운터의 row key는 2519551871999999999\_\_:005CMemory:005CAvailable:0020Bytes가 됩니다.
-- **counterName** : 성능 카운터의 이름입니다. 이것은 XML config에 정의된 *counterSpecifier*와 일치합니다.
+- **counterName** : 성능 카운터의 이름입니다. 이것은 XML config에 정의된 *counterSpecifier* 와 일치합니다.
 - **Maximum** : 집계 기간 동안 성능 카운터의 최대 값입니다.
 - **Minimum** : 집계 기간 동안 성능 카운터의 최소 값입니다.
 - **Total** : 집계 기간 동안 보고된 모든 성능 카운터 값의 합계입니다.

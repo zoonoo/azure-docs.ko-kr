@@ -26,7 +26,7 @@
 		};
 
 
-> [AZURE.NOTE][Express.js 라이브러리](http://go.microsoft.com/fwlink/p/?LinkId=309046)를 사용하여 구현된 사용자 지정 API 함수에 [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx)와 [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) 개체가 제공됩니다.
+> [AZURE.NOTE] [Express.js 라이브러리](http://go.microsoft.com/fwlink/p/?LinkId=309046)를 사용하여 구현된 사용자 지정 API 함수에 [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx)와 [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) 개체가 제공됩니다.
 
 <!-- Anchors. -->
 
@@ -35,4 +35,4 @@
 <!-- URLs. -->
 [mssql 개체]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

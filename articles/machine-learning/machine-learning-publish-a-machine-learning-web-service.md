@@ -96,7 +96,8 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 Azure 클래식 포털에서 **기계 학습** 서비스를 클릭하고 기계 학습 작업 영역을 연 다음 **웹 서비스** 탭에서 웹 서비스를 열어 웹 서비스를 관리할 수 있습니다. 이 페이지에서 웹 서비스를 모니터링하고 업데이트하며 삭제할 수 있습니다. 배포할 때 생성되는 기본 끝점 외에, 웹 서비스의 두 번째 끝점도 추가할 수 있습니다.
 
-자세한 내용은 [Azure 기계 학습 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요. <!-- When this article gets published, fix the link and uncomment
+자세한 내용은 [Azure 기계 학습 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요.
+<!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 

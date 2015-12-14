@@ -42,15 +42,15 @@
 
 - 다음 방법 중 하나를 통해 만들어집니다.
 
-  - [Azure 포털](https://portal.azure.com/)입니다.
+  - [미리 보기 포털](https://portal.azure.com/).
 
-        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        계산, 저장, 네트워킹 리소스에 리소스 관리자를 사용할지 클래식 배포를 사용할지 선택할 수 있습니다. **리소스 관리자**를 선택합니다.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Azure PowerShell 1.0 이전 버전의 경우 명령이 **AzureResourceManager** 모드에서 실행됩니다.
+  - PowerShell 명령은 **AzureResourceManager** 모드에서 실행합니다.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
@@ -77,7 +77,7 @@
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        또는 Preview 포털과 **클래식** 배포(계산, 저장소 및 네트워킹의 경우)를 지정합니다.
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 

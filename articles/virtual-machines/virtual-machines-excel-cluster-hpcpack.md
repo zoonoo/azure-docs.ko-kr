@@ -57,7 +57,7 @@ Azure 빠른 시작 템플릿을 사용하여 Azure 포털에서 HPC 팩 클러�
 
     ![템플릿 저장][template]
 
-    b. **매개 변수** 페이지에서 템플릿 매개 변수의 값을 입력합니다. 도움말 정보를 보려면 각 설정 옆에 있는 아이콘을 클릭합니다. 다음 화면에는 샘플 값이 표시되어 있습니다. 이 예제에서는 *hpc.local* 도메인에 헤드 노드 1개와 계산 노드 2개로 구성된 *hpc01*이라는 새 HPC 팩 클러스터를 만듭니다. 컴퓨터 노드는 Microsoft Excel을 포함하는 HPC Pack VM 이미지에서 생성됩니다.
+    b. **매개 변수** 페이지에서 템플릿 매개 변수의 값을 입력합니다. 도움말 정보를 보려면 각 설정 옆에 있는 아이콘을 클릭합니다. 다음 화면에는 샘플 값이 표시되어 있습니다. 이 예제에서는 *hpc.local* 도메인에 헤드 노드 1개와 계산 노드 2개로 구성된 *hpc01* 이라는 새 HPC 팩 클러스터를 만듭니다. 컴퓨터 노드는 Microsoft Excel을 포함하는 HPC Pack VM 이미지에서 생성됩니다.
 
     ![매개 변수 입력][parameters]
 
@@ -85,7 +85,7 @@ Azure 빠른 시작 템플릿을 사용하여 Azure 포털에서 HPC 팩 클러�
 
      ![헤드 노드에 연결][connect]
 
-    b. 표준 절차에 따라 인증서 관리자를 사용하여 개인 키 없이 Cert:\\LocalMachine\\My 아래에 있는 헤드 노드 인증서를 내보냅니다. 이 예제에서는 *CN = hpc01.eastus.cloudapp.azure.com*을 내보냅니다.
+    b. 표준 절차에 따라 인증서 관리자를 사용하여 개인 키 없이 Cert:\\LocalMachine\\My 아래에 있는 헤드 노드 인증서를 내보냅니다. 이 예제에서는 *CN = hpc01.eastus.cloudapp.azure.com* 을 내보냅니다.
 
     ![인증서 내보내기][cert]
 
@@ -264,7 +264,7 @@ Azure의 HPC Pack 클러스터에서 실행할 Excel 통합 문서를 오프로�
 
 Excel UDF를 실행하려면 앞의 1-3단계에 따라 클라이언트 컴퓨터를 설정합니다. Excel UDF의 경우 컴퓨터 노드에 Excel 응용 프로그램이 설치되어 있을 필요가 없으므로 Excel이 포함된 컴퓨터 노드 이미지 대신 1단계에서 일반 컴퓨터 노드 이미지를 선택할 수 있습니다.
 
->[AZURE.NOTE]Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 전체 클러스터 이름이 더 긴 경우(예: hpcexcelhn01.southeastasia.cloudapp.azure.com) 대화 상자에 맞지 않습니다. 문제 해결 방법은 긴 클러스터 이름 값으로 컴퓨터 전체 변수(예: *CCP\_IAASHN*)를 설정하고 대화 상자에 클러스터 헤드 노드 이름으로 *%CCP\_IAASHN%*를 입력합니다. 업데이트 2 클러스터의 경우 이 문제 해결 방법을 지원하려면 클라이언트 컴퓨터에 SOA 세션 API용 업데이트 2 QFE KB3085833([여기](http://www.microsoft.com/ko-KR/download/details.aspx?id=48725)에서 다운로드)이 필요합니다.
+>[AZURE.NOTE] Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 전체 클러스터 이름이 더 긴 경우(예: hpcexcelhn01.southeastasia.cloudapp.azure.com) 대화 상자에 맞지 않습니다. 문제 해결 방법은 긴 클러스터 이름 값으로 컴퓨터 전체 변수(예: *CCP\_IAASHN* )를 설정하고 대화 상자에 클러스터 헤드 노드 이름으로 *%CCP\_IAASHN%*를 입력합니다. 업데이트 2 클러스터의 경우 이 문제 해결 방법을 지원하려면 클라이언트 컴퓨터에 SOA 세션 API용 업데이트 2 QFE KB3085833([여기](http://www.microsoft.com/ko-KR/download/details.aspx?id=48725)에서 다운로드)이 필요합니다.
 
 클러스터가 배포된 후 다음 단계를 계속 진행하여 샘플 기본 제공 Excel UDF를 실행합니다. 사용자 지정 Excel UDF의 경우 다음 [리소스](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx)를 참조하여 XLL을 빌드하고 IaaS 클러스터에 배포하세요.
 

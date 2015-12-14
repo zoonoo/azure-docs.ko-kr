@@ -58,7 +58,7 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 
 1. 복제본을 호스트하는 VM이 포함된 서브넷의 **서브넷** 이름을 적어 둡니다. 이 이름은 스크립트의 **$SubnetName** 매개 변수에서 사용됩니다.
 
-1. 그런 다음 복제본을 호스트하는 VM이 포함된 서브넷의 **VirtualNetworkSite** 이름과 시작 **AddressPrefix**를 적어 둡니다. 두 값을 **Test-AzureStaticVNetIP** 명령에 전달하고 **AvailableAddresses**를 검사하여 사용 가능한 IP 주소를 찾습니다. 예를 들어 VNet 이름이 *MyVNet*이고 서브넷 주소 범위가 *172.16.0.128*에서 시작한다면 다음 명령을 통해 사용 가능한 주소를 나열할 수 있습니다.
+1. 그런 다음 복제본을 호스트하는 VM이 포함된 서브넷의 **VirtualNetworkSite** 이름과 시작 **AddressPrefix**를 적어 둡니다. 두 값을 **Test-AzureStaticVNetIP** 명령에 전달하고 **AvailableAddresses**를 검사하여 사용 가능한 IP 주소를 찾습니다. 예를 들어 VNet 이름이 *MyVNet* 이고 서브넷 주소 범위가 *172.16.0.128* 에서 시작한다면 다음 명령을 통해 사용 가능한 주소를 나열할 수 있습니다.
 
 		(Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 

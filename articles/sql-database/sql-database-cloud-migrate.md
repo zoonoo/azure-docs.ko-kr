@@ -213,7 +213,7 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 배포 마
 
 1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 클래식 포털의 업데이트와 동기화 상태를 유지합니다.
 
-	> [AZURE.IMPORTANT][최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
+	> [AZURE.IMPORTANT] [최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
 
 2. Management Studio를 열고 개체 탐색기에서 원본 데이터베이스에 연결합니다.
 
@@ -277,4 +277,4 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 배포 마
 
 - SQL Server Management Studio. **ALTER DATABASE**와 같은 다양한 Transact-SQL 명령을 사용하여 Management Studio에서 문제를 해결할 수 있습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

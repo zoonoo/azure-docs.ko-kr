@@ -63,17 +63,17 @@
 
 	![HPC Pack 2012 설치][install_hpc1]
 
-4. **Microsoft Software User Agreement page**에서 **Next**를 클릭합니다.
+4. **새로 설치하거나 기존 설치에 새로운 기능을 추가합니다**에서 **다음**를 클릭합니다.
 
-5. **Select Installation Type** 페이지에서 **Create a new HPC cluster by creating a head node**를 클릭한 후 **Next**를 클릭합니다.
+5. **설치 유형 선택** 페이지에서 **헤드 노드를 생성하여 새로운 HPC 클러스터를 생성합니다**를 클릭한 후 **다음**를 클릭합니다.
 
 	![설치 유형 선택][install_hpc2]
 
-6. 마법사에서 여러 개의 사전 설치 테스트를 실행합니다. 테스트를 모두 통과한 경우 **Installation Rules** 페이지에서 **Next**를 클릭합니다. 그렇지 않으면 제공된 정보를 검토하고 필요에 따라 환경을 변경합니다. 다시 테스트를 실행하거나 필요한 경우 Installation Wizard를 다시 시작합니다.
+6. 마법사에서 여러 개의 사전 설치 테스트를 실행합니다. 테스트를 모두 통과한 경우 **설치 유형 선택** 페이지에서 **다음**를 클릭합니다. 그렇지 않으면 제공된 정보를 검토하고 필요에 따라 환경을 변경합니다. 다시 테스트를 실행하거나 필요한 경우 Installation Wizard를 다시 시작합니다.
 
 	![설치 규칙][install_hpc3]
 
-7. **HPC DB Configuration** 페이지에서 모든 HPC 데이터베이스에 대해 **Head Node**가 선택되었는지 확인하고 **Next**를 클릭합니다.
+7. **HPC DB Configuration** 페이지에서 모든 HPC 데이터베이스에 대해 **Head Node**가 선택되었는지 확인하고 **다음**를 클릭합니다.
 
 	![DB 구성][install_hpc4]
 
@@ -81,7 +81,7 @@
 
 	![설치][install_hpc6]
 
-9. 설치가 완료되면 **Start HPC Cluster Manager**를 선택 취소하고 **Finish**를 클릭합니다. 이후 단계에서 HPC Cluster Manager를 시작하여 헤드 노드 구성을 완료할 것입니다.
+9. 설치가 완료되면 **HPC 클러스터 관리자 시작**를 선택 취소하고 **완료**를 클릭합니다. 이후 단계에서 HPC Cluster Manager를 시작하여 헤드 노드 구성을 완료할 것입니다.
 
 	![마침][install_hpc7]
 
@@ -107,7 +107,7 @@ HPC 팩은 Azure 관리 인증서로 업로드할 수 있는 자체 서명된 �
 
 	![인증서 설정][upload_cert1]
 
-4. 헤드 노드에서 C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer 파일을 찾은 다음 **선택 단추**를 클릭합니다.
+4. 헤드 노드에서 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 파일을 찾은 다음 **선택 단추**를 클릭합니다.
 
 	![인증서 업로드][install_hpc10]
 

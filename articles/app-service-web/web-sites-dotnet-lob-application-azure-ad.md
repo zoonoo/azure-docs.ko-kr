@@ -63,7 +63,8 @@
 
 1.	[WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)에서 로컬 디렉터리에 예제 솔루션을 복제하거나 다운로드합니다.
 
-2.	[단일 테넌트 앱으로 샘플을 실행하는 방법](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)의 지침에 따라 Azure Active Directory 응용 프로그램 및 프로젝트를 설정합니다. 모든 지침을 따라 다중 테넌트에서 단일 테넌트로 응용 프로그램을 변환해야 합니다.
+2.	[단일 테넌트 앱으로 샘플을 실행하는 방법](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)의 지침에 따라 Azure Active Directory 응용 프로그램 및 프로젝트를 설정합니다.
+모든 지침을 따라 다중 테넌트에서 단일 테넌트로 응용 프로그램을 변환해야 합니다.
 
 3.	방금 만든 Azure Active Directory 응용 프로그램에 대한 [Azure 클래식 포털](https://manage.windowsazure.com) 보기에서 **사용자** 탭을 클릭합니다. 그런 다음 원하는 역할에 원하는 사용자를 할당합니다.
 
@@ -147,7 +148,9 @@
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>ida:PostLogoutRedirectUri 값은 슬래시("/")로 끝나야 합니다.
+&lt;/appSettings></pre>
+
+	ida:PostLogoutRedirectUri 값은 슬래시("/")로 끝나야 합니다.
 
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -189,14 +192,14 @@
 
 6.	DAL\\RoleClaimContext.cs를 열고 강조 표시된 코드를 추가합니다.
 	<pre class="prettyprint">
-public class RoleClaimContext : DbContext
-{
-    public RoleClaimContext() : base("RoleClaimContext") { }
+    public class RoleClaimContext : DbContext
+    {
+        public RoleClaimContext() : base("RoleClaimContext") { }
 
-    public DbSet&lt;Task> Tasks { get; set; }
-    <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
-    public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
-}</pre>
+        public DbSet&lt;Task&gt; Tasks { get; set; }
+        <mark>public DbSet&lt;WorkItem&gt; WorkItems { get; set; }</mark>
+        public DbSet&lt;TokenCacheEntry&gt; TokenCacheEntries { get; set; }
+    }</pre>
 
 7.	프로젝트를 빌드하여 새 모델이 Visual Studio에서 스캐폴딩 논리에 액세스할 수 있도록 합니다.
 
@@ -212,39 +215,44 @@ public class RoleClaimContext : DbContext
 
 11. 강조 표시된 [Authorize] 장식을 아래의 각 작업에 추가합니다.
 	<pre class="prettyprint">
-...
-
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public ActionResult Create()
-    ...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> Delete(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> DeleteConfirmed(int id)
-    ...
-}</pre>Azure 클래식 포털 UI에서 역할 매핑에 주의했기 때문에 각 작업에서 올바른 역할에 권한을 부여하는지만 확인하면 됩니다.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
 
-	> [AZURE.NOTE]일부 작업에서 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)의 [Brock Allen](https://twitter.com/BrockLAllen)에 설명된 동작으로 인해 HTTP POST가 위조 방지 토큰의 유효성을 검사하지 못할 수 있습니다. 이유: + Azure Active Directory가 위조 방지 토큰에 기본적으로 필요한 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider를 전송하지 않습니다. + Azure Active Directory가 AD FS와 동기화된 디렉터리인 경우 기본적으로 AD FS 트러스트는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 전송하지 않습니다. 이 클레임을 전송하도록 AD FS를 수동으로 구성할 수 있습니다. 다음 단계에서 이 문제를 해결할 수 있습니다.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
+	}</pre>
+
+	Azure 포털 UI에서 역할 매핑에 주의했기 때문에 각 작업에서 올바른 역할에 권한을 부여하는지만 확인하면 됩니다.
+
+	> [AZURE.NOTE] 일부 작업에서 <code>[ValidateAntiForgeryToken]</code> 장식이 표시될 수 있습니다. [MVC 4, AntiForgeryToken 및 클레임](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)의 [Brock Allen](https://twitter.com/BrockLAllen)에 설명된 동작으로 인해 HTTP POST가 위조 방지 토큰의 유효성을 검사하지 못할 수 있습니다. 이유:
+	> + Azure Active Directory가 위조 방지 토큰에 기본적으로 필요한 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider를 전송하지 않습니다.
+	> + Azure Active Directory가 AD FS와 동기화된 디렉터리인 경우 기본적으로 AD FS 트러스트는 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 클레임을 전송하지 않습니다. 이 클레임을 전송하도록 AD FS를 수동으로 구성할 수 있습니다.
+	> 다음 단계에서 이 문제를 해결할 수 있습니다.
 
 12.  App\_Start\\Startup.Auth.cs에서 `ConfigureAuth` 메서드에 다음 코드 줄을 추가합니다. 해결할 각 이름 지정 해결 방법 오류를 마우스 오른쪽 단추로 클릭합니다.
 
@@ -270,70 +278,72 @@ public class WorkItemsController : Controller
 		
 14.	Views\\WorkItems\\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-{
-    @Html.AntiForgeryToken()
+	{
+	    @Html.AntiForgeryToken()
 
-    &lt;div class="form-horizontal">
-        &lt;h4>WorkItem&lt;/h4>
-        &lt;hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	    &lt;div class="form-horizontal">
+	        &lt;h4>WorkItem&lt;/h4>
+	        &lt;hr />
+	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        &lt;div class="form-group">
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
-                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
+	        &lt;div class="form-group">
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
+	                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 
-        &lt;div class="form-group">
-            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-            &lt;div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-            &lt;/div>
-        &lt;/div>
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+	                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 
-        &lt;div class="form-group">
-            &lt;div class="col-md-offset-2 col-md-10">
-                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
-            &lt;/div>
-        &lt;/div>
-    &lt;/div>
+	        &lt;div class="form-group">
+	            &lt;div class="col-md-offset-2 col-md-10">
+	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
+	            &lt;/div>
+	        &lt;/div>
+	    &lt;/div>
 
-    <mark>&lt;script>
-            // People/Group Picker Code
-            var maxResultsPerPage = 14;
-            var input = document.getElementById("AssignedToName");
-            var token = "@ViewData["token"]";
-            var tenant = "@ViewData["tenant"]";
+	    <mark>&lt;script>
+	            // People/Group Picker Code
+	            var maxResultsPerPage = 14;
+	            var input = document.getElementById("AssignedToName");
+	            var token = "@ViewData["token"]";
+	            var tenant = "@ViewData["tenant"]";
 
-            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
+	            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 
-            // Submit the selected user/group to be asssigned.
-            $("#submit-button").click({ picker: picker }, function () {
-                if (!picker.Selected())
-                    return;
-                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
-            });
-    &lt;/script></mark>
+	            // Submit the selected user/group to be asssigned.
+	            $("#submit-button").click({ picker: picker }, function () {
+	                if (!picker.Selected())
+	                    return;
+	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+	            });
+	    &lt;/script&gt;</mark>
+	
+	}</pre>
 
-}</pre>스크립트에서 AadPicker 개체는 [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 호출하여 입력과 일치하는 사용자 및 그룹을 검색합니다.
+	스크립트에서 AadPicker 개체는 [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 호출하여 입력과 일치하는 사용자 및 그룹을 검색합니다.  
 
 15. [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 열고**Enable-Migrations –EnableAutomaticMigrations**를 실행합니다. 앱을 Azure에 게시했을 때 선택한 옵션과 유사하게 이 명령을 사용하면 Visual Studio에서 디버깅하는 경우 [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)에서 앱의 데이터베이스 스키마를 업데이트할 수 있습니다.
 

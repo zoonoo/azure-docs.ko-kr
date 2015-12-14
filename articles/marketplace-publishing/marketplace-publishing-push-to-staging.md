@@ -144,7 +144,9 @@
 ## 다음 단계
 마켓플레이스 콘텐츠를 로드했으므로 스테이징에서 제품 테스트를 진행하겠습니다. 그러나 제품 유형별로 다양한 단계에 따라 아래 목록에서 적절한 제품 유형을 선택해야 합니다.
 
-||가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 | |---|---|---|---|---| | **3단계. 스테이징에 제품을 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 스테이징에서 개발자 서비스 제품 테스트 | [스테이징에서 데이터 서비스 제품 테스트](marketplace-publishing-data-service-test-in-staging.md) | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) |
+||가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
+|---|---|---|---|---|
+| **3단계. 스테이징에 제품을 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 스테이징에서 개발자 서비스 제품 테스트 | 스테이징에서 데이터 서비스 제품 테스트 | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)

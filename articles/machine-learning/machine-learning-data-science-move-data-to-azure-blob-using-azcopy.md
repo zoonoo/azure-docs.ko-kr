@@ -28,7 +28,7 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
 
 AzCopy 설치 지침 및 Azure 플랫폼에서 사용하는 방법에 대한 추가 정보는 [AzCopy 명령줄 유틸리티 시작](../storage-use-azcopy.md)을 참조하세요.
 
-> [AZURE.NOTE][Azure의 데이터 과학 가상 컴퓨터](machine-learning-data-science-virtual-machines.md)에서 제공하는 스크립트를 통해 설정된 VM을 사용하는 경우 AzCopy가 VM에 이미 설치되어 있습니다.
+> [AZURE.NOTE] [Azure의 데이터 과학 가상 컴퓨터](machine-learning-data-science-virtual-machines.md)에서 제공하는 스크립트를 통해 설정된 VM을 사용하는 경우 AzCopy가 VM에 이미 설치되어 있습니다.
 
 > [AZURE.NOTE]Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](../storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
 
@@ -71,4 +71,4 @@ Azure 컨테이너 간 Blob을 전송하려면 명령줄 AzCopy의 다음 명령
 
 > [AZURE.TIP]1. 파일을 업로드하는 경우 /S는 파일을 재귀적으로 업로드합니다. 이 매개 변수가 없으면 하위 디렉터리의 모든 파일이 업로드되지 않습니다. 2. 파일을 다운로드하는 경우 /S는 지정된 디렉터리 및 하위 디렉터리의 모든 파일 또는 제공된 디렉터리 및 하위 디렉터리에 지정된 패턴과 일치하는 모든 파일이 다운로드될 때까지 컨테이너를 재귀적으로 검색합니다. 3. /Source 매개 변수를 사용하여 특정 blob 파일을 다운로드하도록 지정할 수 없습니다. 특정 파일을 다운로드하려면 /Pattern 매개 변수를 사용하여 다운로드할 blob 파일 이름을 지정하세요. /S 매개 변수를 사용하면 AzCopy에서 파일 이름 패턴을 재귀적으로 검색할 수 있습니다. 패턴 매개 변수가 없으면 AzCopy는 해당 디렉터리의 모든 파일을 다운로드합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

@@ -18,7 +18,9 @@
 
 # 특정 사용자에게 크로스 플랫폼 알림 전송
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 이 항목에서는 모바일 백 엔드에서 특정 사용자의 모든 등록된 장치에 알림을 전송하는 방법을 보여 줍니다. 등록 시 클라이언트 응용 프로그램이 자유롭게 페이로드 형식과 변수 자리 표시자를 지정할 수 있게 하는 [템플릿]을 소개합니다. 서버에서 템플릿 알림을 보내면 알림 허브는 자리 표시자가 포함 된 모든 플랫폼에 플랫폼 간 알림 사용을 지시합니다.
 
@@ -102,4 +104,4 @@
 [푸시 알림 시작]: app-service-mobile-xamarin-ios-get-started-push.md
 [템플릿]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

@@ -68,7 +68,7 @@ Azure 테이블 저장소 등, 기본적으로 JSON을 사용하는 데이터 �
 
 6. 응용 프로그램을 중지하고 인덱스를 삭제하여 공간을 확보합니다.
 
-    > [AZURE.TIP][포털](https://portal.azure.com)을 사용하여 인덱스를 삭제할 수 있습니다. 인덱스 이름을 클릭하여 인덱스 블레이드를 열고 **Delete** 명령을 사용할 수 있습니다.
+    > [AZURE.TIP] [포털](https://portal.azure.com)을 사용하여 인덱스를 삭제할 수 있습니다. 인덱스 이름을 클릭하여 인덱스 블레이드를 열고 **Delete** 명령을 사용할 수 있습니다.
 
 ## 사용자 데이터로 스키마 및 데이터 JSON 파일을 교체합니다.
 
@@ -133,4 +133,4 @@ JSON 파일에 데이터를 가져올 수 있는 경우, 해당 데이터로 기
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

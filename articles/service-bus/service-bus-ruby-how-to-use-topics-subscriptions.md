@@ -56,7 +56,7 @@ Azure 서비스 버스 네임스페이스를 만들 때 실행한 PowerShell cmd
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE][Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인하여 서비스 버스 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
+> [AZURE.NOTE] [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인하여 서비스 버스 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
 
 ## Ruby 응용 프로그램 만들기
 
@@ -216,4 +216,4 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 -	GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

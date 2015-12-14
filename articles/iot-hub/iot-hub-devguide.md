@@ -250,7 +250,7 @@ SASL PLAIN의 경우 **사용자 이름**은 다음이 될 수 있습니다.
 
 두 가지 경우 모두 암호 필드는 [토큰 형식](#tokenformat) 섹션에서 설명된 토큰을 포함합니다.
 
-> [AZURE.NOTE][Azure IoT Hub SDK][lnk-apis-sdks]는 서비스에 연결할 때 토큰을 자동으로 생성합니다. 경우에 따라 지원하는 프로토콜 또는 사용할 수 있는 인증 방법에서 SDK가 제한됩니다. 자세한 내용은 [Azure IoT Hub SDK][lnk-apis-sdks] 문서를 참조하세요.
+> [AZURE.NOTE] [Azure IoT Hub SDK][lnk-apis-sdks]는 서비스에 연결할 때 토큰을 자동으로 생성합니다. 경우에 따라 지원하는 프로토콜 또는 사용할 수 있는 인증 방법에서 SDK가 제한됩니다. 자세한 내용은 [Azure IoT Hub SDK][lnk-apis-sdks] 문서를 참조하세요.
 
 #### CBS에 비해 SASL PLAIN
 
@@ -533,4 +533,4 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

@@ -106,7 +106,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
         wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
 
-	> [AZURE.TIP][jq](http://stedolan.github.io/jq/)를 설치한 경우 다음을 사용하여 `fs.defaultFS` 항목만 반환할 수 있습니다.
+	> [AZURE.TIP] [jq](http://stedolan.github.io/jq/)를 설치한 경우 다음을 사용하여 `fs.defaultFS` 항목만 반환할 수 있습니다.
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
 
@@ -116,7 +116,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 4. 반환되는 JSON 데이터에서 `fs.azure.account.key`로 시작하는 항목을 찾습니다. 항목 이름의 나머지 부분은 저장소 계정 이름입니다. 예: `fs.azure.account.key.mystorage.blob.core.windows.net` 이 항목에 저장된 값은 저장소 계정 인증에 사용되는 키입니다.
 
-	> [AZURE.TIP][jq](http://stedolan.github.io/jq/)를 설치한 경우, 다음을 사용하여 키 및 값의 목록을 반환할 수 있습니다.
+	> [AZURE.TIP] [jq](http://stedolan.github.io/jq/)를 설치한 경우, 다음을 사용하여 키 및 값의 목록을 반환할 수 있습니다.
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
@@ -252,4 +252,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->
