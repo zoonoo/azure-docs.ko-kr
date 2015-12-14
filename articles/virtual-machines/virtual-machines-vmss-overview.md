@@ -83,7 +83,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 	PaaS v1 작업자 역할은 플랫폼/런타임 지원(Windows 플랫폼 이미지에 대해서만)에 관해서는 제한되어 있지만 VIP 교환, 구성 가능한 업그레이드 설정, VM 규모 집합에 _아직_ 제공되지 않는 또는 서비스 패브릭 같은 다른 높은 수준의 PaaS 서비스에 의해 제공될 예정인 런타임/앱 배포별 설정 같은 서비스를 포함합니다. 이것을 고려하여 VM 규모 집합을 PaaS를 지원하는 인프라의 하나로 주목할 수 있습니다. 즉, 서비스 패브릭 같은 PaaS 솔루션 또는 Mesos 같은 클러스터 관리자는 VM 규모 집합을 기반으로 확장성 있는 계산 계층으로 구축될 수 있습니다.
 
-	독립 실행형 VM으로 동일한 VNET에 VM 규모 집합을 배포하는 Mesos 클러스터의 예제가 있습니다. 독립 실행형 VM은 Mesos 마스터이며, VM 규모 집합은 슬레이브 노드 집합을 나타냅니다. [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). 앞으로 출시할 [Azure 컨테이너 서비스](https://azure.microsoft.com/ko-KR/blog/azure-container-service-now-and-the-future/) 버전은 VM 규모 집합을 기반으로 더 복잡하고/확정적인 버전의 시나리오를 배포할 예정입니다.
+	독립 실행형 VM으로 동일한 VNET에 VM 규모 집합을 배포하는 Mesos 클러스터의 예제가 있습니다. 독립 실행형 VM은 Mesos 마스터이며, VM 규모 집합은 슬레이브 노드 집합을 나타냅니다. [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). 앞으로 출시할 [Azure 컨테이너 서비스](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) 버전은 VM 규모 집합을 기반으로 더 복잡하고/확정적인 버전의 시나리오를 배포할 예정입니다.
 
 ## VM 규모 집합 성능 및 크기 조정 지침
 
@@ -153,4 +153,4 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 **A.** 예. VM 규모 집합은 FD 3개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

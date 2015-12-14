@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 편집기
-Azure 데이터 팩터리 편집기는 Azure 미리 보기 포털의 일부인 경량 웹 편집기로, 모든 Azure 데이터 팩터리 엔터티의 JSON 파일을 만들기, 편집 및 배포할 수 있습니다. 그러면 데이터 팩터리 서비스와 함께 제공되는 JSON 템플릿을 사용하여 연결된 서비스, 데이터 집합 및 파이프라인을 만들 수 있습니다. 새 PowerShell인 경우, 이렇게 하면 Azure PowerShell에 설치하고 늘려 Azure 데이터 팩터리를 만들지 않아도 됩니다.
+Azure 데이터 팩터리 편집기는 Azure 포털의 일부인 경량 웹 편집기로 모든 Azure 데이터 팩터리 엔터티의 JSON 파일을 만들기, 편집 및 배포할 수 있습니다. 그러면 데이터 팩터리 서비스와 함께 제공되는 JSON 템플릿을 사용하여 연결된 서비스, 데이터 집합 및 파이프라인을 만들 수 있습니다. 새 PowerShell인 경우, 이렇게 하면 Azure PowerShell에 설치하고 늘려 Azure 데이터 팩터리를 만들지 않아도 됩니다.
 
 ## 데이터 팩터리 편집기 시작
 데이터 팩터리 편집기를 시작하려면 Azure 데이터 팩터리에 대한 **데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭합니다.
@@ -220,4 +220,4 @@ Azure 데이터 팩터리 엔터티(연결 서비스, 테이블 또는 파이프
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="클라우드 앱 보안 및 개인정보 취급 방침 고려 사항"
+	pageTitle="클라우드 앱 검색 보안 및 개인정보 취급 방침 고려 사항 | Microsoft Azure"
 	description="이 항목에서는 클라우드 앱 검색과 관련된 보안 및 개인정보 취급 방침 고려 사항을 설명 합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/01/2015"
 	ms.author="markusvi"/>
 
 # 클라우드 앱 보안 및 개인정보 취급 방침 고려 사항
@@ -177,4 +177,4 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -17,26 +17,35 @@
    ms.author="sumukhs"/>
 
 # 상태 저장 신뢰할 수 있는 서비스 구성
-상태 저장 신뢰할 수 있는 서비스의 기본 구성은 응용 프로그램의 각 서비스에 대한 Visual Studio 패키지 루트의 "Config" 폴더에 생성된 "settings.xml" 파일을 변경하여 수정할 수 있습니다.
+상태 저장 Reliable Service의 기본 구성은 구성 패키지(구성) 또는 서비스 구현(코드)을 통해 수정할 수 있습니다.
 
-서비스 패브릭 런타임은 "settings.xml" 파일에서 미리 정의된 섹션 이름을 찾아서 기본 런타임 구성 요소를 만드는 동안 해당 구성 값을 사용합니다.
++ **구성** - 구성 패키지를 통한 구성은 응용 프로그램의 각 서비스에 대한 Visual Studio 패키지 루트의 "Config" 폴더에 생성된 "Settings.xml" 파일을 변경하여 수행됩니다.
++ **코드** - 코드를 통한 구성은 StatefulService.CreateReliableStateManager를 재정의하고 적절한 옵션 집합을 가진 ReliableStateManagerConfiguration 개체를 사용하여 ReliableStateManager를 만들어 수행됩니다.
 
-> [AZURE.NOTE]Visual Studio 솔루션에서 생성된 "settings.xml" 파일에서 다음 구성의 섹션 이름을 삭제/수정하지 **않도록** 합니다.
+기본적으로 서비스 패브릭 런타임은 "Settings.xml" 파일에서 미리 정의된 섹션 이름을 찾아서 기본 런타임 구성 요소를 만드는 동안 해당 구성 값을 사용합니다.
+
+> [AZURE.NOTE]코드를 통해 서비스를 구성할 예정이 아니면 Visual Studio 솔루션에서 생성된 "Settings.xml" 파일에서 다음 구성의 섹션 이름을 삭제하지 **않도록** 합니다. ReliableStateManager를 구성할 때 구성 패키지 또는 섹션의 이름을 바꾸려면 코드를 변경해야 합니다.
+
 
 ## 복제자 보안 구성
 복제자 보안 구성은 복제하는 동안 사용되는 통신 채널을 보호하는 데 사용됩니다. 따라서 서비스는 서로의 복제 트래픽을 볼 수 없으므로 항상 사용 가능하게 설정한 데이터를 안전하게 보호할 수 없습니다. 기본적으로 빈 보안 구성 섹션에서는 복제 보안이 사용되지 않습니다.
 
-### 섹션 이름
+### 기본 섹션 이름
 ReplicatorSecurityConfig
+
+> [AZURE.NOTE]이 섹션의 이름을 변경하려면 이 서비스에 대한 ReliableStateManager를 만들 때 replicatorSecuritySectionName 매개 변수를 ReliableStateManagerConfiguration 생성자로 재정의합니다.
+
 
 ## 복제자 구성
 복제자 구성은 상태를 로컬로 복제하고 유지하여 상태 저장 신뢰할 수 있는 서비스의 상태를 매우 안정적으로 만드는 일을 담당하는 복제자를 구성하는 데 사용됩니다. 기본 구성은 Visual Studio 템플릿에 의해 생성되며 충분해야 합니다. 이 섹션에서는 복제자 조정에 사용할 수 있는 추가 구성에 대해 설명합니다.
 
-### 섹션 이름
+### 기본 섹션 이름
 ReplicatorConfig
 
-### 구성 이름
+> [AZURE.NOTE]이 섹션의 이름을 변경하려면 이 서비스에 대한 ReliableStateManager를 만들 때 replicatorSettingsSectionName 매개 변수를 ReliableStateManagerConfiguration 생성자로 재정의합니다.
 
+
+### 구성 이름
 |이름|단위|기본값|설명|
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|초|0\.05|작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다.|
@@ -50,8 +59,22 @@ ReplicatorConfig
 |SharedLogId|GUID|""|이 복제본과 함께 사용되는 공유 로그 파일을 식별하는 데 사용할 고유한 GUID를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 되지만 SharedLogId가 지정된 경우 SharedLogPath도 지정해야 합니다.|
 |SharedLogPath|정규화된 경로 이름|""|이 복제본의 공유 로그 파일을 생성할 정규화된 경로를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 되지만 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다.|
 
-## 샘플 구성 파일
 
+## 코드를 통한 샘플 구성
+```csharp
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(
+        new ReliableStateManagerConfiguration(
+            new ReliableStateManagerReplicatorSettings
+            {
+                RetryInterval = TimeSpan.FromSeconds(3)
+            }));
+}
+```
+
+
+## 샘플 구성 파일
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -72,6 +95,7 @@ ReplicatorConfig
 </Settings>
 ```
 
+
 ## 설명
 BatchAcknowledgementInterval은 복제 대기 시간을 제어합니다. '0' 값은 처리량을 희생하여 가장 낮은 대기 시간을 제공합니다(더 많은 승인 메시지를 보내고 처리해야 하므로 각각에 포함된 승인은 적음). BatchAcknowledgementInterval의 값이 클수록 전체적인 복제 처리량은 높아지고 작업 대기 시간은 더욱 길어집니다. 이 값은 트랜잭션 커밋의 대기 시간으로 직접 변환됩니다.
 
@@ -83,4 +107,4 @@ MaxRecordSizeInKB는 복제자가 로그 파일에 쓸 수 있는 레코드의 �
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며, 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 허용합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 헤드 이동 경합이 감소하도록 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 합니다. 이 값은 드문 경우에만 변경해야 합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

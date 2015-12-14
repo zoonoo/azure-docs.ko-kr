@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자로 Azure PowerShell 사용
@@ -34,9 +34,7 @@ Azure 리소스 관리자는 Azure 리소스에 대해 완전히 새로운 방�
   + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
   
   + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
-- Azure PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+- Azure PowerShell 1.0 이 릴리즈에 대한 정보 및 설치하는 방법은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 이 자습서는 PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](http://technet.microsoft.com/library/hh857337.aspx)(영문)을 참조하십시오.
 
@@ -83,7 +81,7 @@ cmdlet에 대한 전체 도움말을 가져오려면 다음 형식으로 명령�
 
 솔루션에서 작업을 하기 전에 본인의 계정에 로그인해야 합니다.
 
-Azure 계정에 로그인하려면 **Login-AzureRmAccount** Cmdlet을 사용합니다. Azure PowerShell 1.0 Preview보다 이전 버전에서는 **Add-AzureAccount** 명령을 사용합니다.
+Azure 계정에 로그인하려면 **Login-AzureRmAccount** Cmdlet을 사용합니다.
 
     PS C:\> Login-AzureRmAccount
 
@@ -394,9 +392,9 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 		
 		...
 
-- 리소스 그룹에서 리소스를 가져오려면 **Get-AzureRmResource** Cmdlet과 ResourceGroupName 매개 변수를 사용합니다. 매개 변수를 사용하지 않고 Get-AzureRmResource를 입력하면 Azure 구독에서 모든 리소스를 가져옵니다.
+- 리소스 그룹에서 리소스를 가져오려면 **Get-AzureRmResource** Cmdlet과 **ResourceGroupName** 매개 변수를 사용합니다. 매개 변수를 사용하지 않고 Find-AzureRmResource를 입력하면 Azure 구독에서 모든 리소스를 가져옵니다.
 
-		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
+		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
 		Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
@@ -443,4 +441,4 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./virtual-machines/resource-group-deploy-debug.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

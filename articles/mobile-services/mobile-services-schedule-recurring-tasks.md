@@ -18,11 +18,16 @@
 
 # 모바일 서비스에서 되풀이 작업 예약
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-이 항목에서는 관리 포털의 작업 스케줄러 기능을 사용하여 정의한 일정에 따라 실행되는 서버 스크립트 코드를 정의하는 방법을 보여 줍니다. 이 경우 스크립트는 원격 서비스(이 예에서는 Twitter)를 주기적으로 확인하여 결과를 새 테이블에 저장합니다. 예약할 수 있는 다른 정기 작업에는 다음이 포함됩니다.
+이 항목에서는 Azure 클래식 포털의 작업 스케줄러 기능을 사용하여 정의한 일정에 따라 실행되는 서버 스크립트 코드를 정의하는 방법을 보여 줍니다. 이 경우 스크립트는 원격 서비스(이 예에서는 Twitter)를 주기적으로 확인하여 결과를 새 테이블에 저장합니다. 예약할 수 있는 다른 정기 작업에는 다음이 포함됩니다.
 
 + 오래되었거나 중복된 데이터 레코드 보관
 + 트윗, RSS 항목, 위치 정보 등의 외부 데이터 요청 및 저장
@@ -38,11 +43,11 @@
 
 다음으로, 트윗을 저장할 새 테이블을 만들어야 합니다.
 
-2. 관리 포털에서 모바일 서비스의 **데이터** 탭을 클릭한 후 **+만들기**를 클릭합니다.
+2. [Azure 클래식 포털]에서 모바일 서비스의 **데이터** 탭을 클릭한 후 **+만들기**를 클릭합니다.
 
 3. **테이블 이름**에 _Updates_를 입력한 후 확인 단추를 클릭합니다.
 
-##<a name="add-job"></a>새 예약된 작업 만들기  
+##<a name="add-job"></a>새 예약된 작업 만들기
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만들 수 있습니다.
 
@@ -161,9 +166,9 @@
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

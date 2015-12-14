@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/06/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Application Insights를 사용하여 사용량 분석
@@ -37,7 +37,7 @@ Application Insights는 독립 실행형 앱(iOS, Android 및 Windows)과 웹앱
 
 ![빠른 시작을 열고 내 웹 페이지를 모니터링하는 코드를 얻기를 클릭합니다. 마스터 웹 페이지의 머리글에 스크립트를 복사합니다.](./media/app-insights-overview-usage/02-monitor-web-page.png)
 
-클라이언트와 서버 둘 다의 원격 분석을 결합하기 위해 Application Insights를 [ASP.NET](app-insights-start-monitoring-app-health-usage.md) 또는 [J2EE](app-insights-java-get-started.md) 서버 코드에 추가할 수도 있습니다.
+클라이언트와 서버 둘 다의 원격 분석을 결합하기 위해 Application Insights를 [ASP.NET](app-insights-asp-net.md) 또는 [J2EE](app-insights-java-get-started.md) 서버 코드에 추가할 수도 있습니다.
 
 
 ### 프로젝트 실행 및 첫 번째 결과 보기
@@ -286,10 +286,6 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
-
-<!--Link references-->
-
-[start]: app-insights-overview.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

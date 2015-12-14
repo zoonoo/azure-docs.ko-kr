@@ -28,7 +28,7 @@
 
 ## <a name="register-scripts"></a>스크립트 등록
 
-1. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 다음 사용자의 모바일 서비스를 클릭합니다. **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
+1. [Azure 클래식 포털]에 로그인하고 **모바일 서비스**를 클릭한 후 모바일 서비스를 클릭합니다. **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
 2. **스크립트**를 클릭하고 **삽입** 작업을 선택한 후 기존 스크립트를 다음 함수로 바꾸고 **저장**을 클릭합니다.
 
@@ -39,7 +39,7 @@
 
 	이 스크립트는 삽입하기 전에 인증된 사용자의 사용자 ID를 항목에 추가합니다.
 
-    >[AZURE.NOTE][동적 스키마](https://msdn.microsoft.com/library/azure/jj193175.aspx)를 사용하도록 설정했는지 확인합니다. 그렇지 않은 경우 *userId* 열이 자동으로 추가되지 않습니다. 이 설정은 새 모바일 서비스에 대해 기본적으로 설정됩니다.
+    >[AZURE.NOTE] [동적 스키마](https://msdn.microsoft.com/library/azure/jj193175.aspx)를 사용하도록 설정했는지 확인합니다. 그렇지 않은 경우 *userId* 열이 자동으로 추가되지 않습니다. 이 설정은 새 모바일 서비스에 대해 기본적으로 설정됩니다.
 
 3. 마찬가지로, 기존 **읽기** 작업을 다음 함수로 바꿉니다. 이 스크립트는 사용자가 자신이 직접 삽입한 항목만 받을 수 있도록 반환된 TodoItem 개체를 필터링합니다.
 
@@ -67,7 +67,7 @@
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [기존 모바일 서비스 앱에 인증 추가]: /develop/mobile/tutorials/get-started-with-users-ios
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

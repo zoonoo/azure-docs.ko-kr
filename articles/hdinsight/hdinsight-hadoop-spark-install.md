@@ -41,7 +41,7 @@ Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수�
 
 이 항목에서는 HDInsight 클러스터를 사용자 지정하여 Spark를 설치하는 방법에 대한 지침을 제공합니다.
 
-## Azure Preview 포털을 사용하여 Spark 설치
+## Azure 포털을 사용하여 Spark 설치
 
 HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1))에서 다운로드할 수 있습니다. 이 스크립트는 만든 HDInsight 클러스터의 버전에 따라 Spark 1.2.0 또는 Spark 1.0.2를 설치할 수 있습니다.
 
@@ -86,7 +86,7 @@ Spark는 Scala, Python 및 Java의 API를 제공합니다. 대화형 Spark 셸�
 ###<a name="sparkshell"></a>Spark 셸을 사용하여 대화형 쿼리 실행
 대화형 Spark 셸에서 Spark 쿼리를 실행하려면 다음 단계를 수행합니다. 이 섹션에서는 기본적으로 HDInsight 클러스터에서 사용할 수 있는 샘플 데이터 파일(/example/data/gutenberg/davinci.txt)에 대한 Spark 쿼리를 실행합니다.
 
-1. Azure 포털에서 Spark를 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
+1. Azure 포털에서 Spark를 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)을 참조하세요.
 
 2. RDP(원격 데스크톱 프로토콜) 세션의 데스크톱에서 Hadoop 명령줄을 열고(바탕 화면 바로 가기에서) Spark가 설치된 위치(예: C:**C:\\apps\\dist\\spark-1.2.0**)로 이동합니다.
 
@@ -120,7 +120,7 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 >[AZURE.NOTE]아래 샘플은 HDInsight 3.2 클러스터를 만드는 동안 스크립트 작업을 실행하는 경우에 설치되는 **Spark 1.2.0**에 맞게 만들어졌습니다.
 
-1. Azure 포털에서 Spark를 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
+1. Azure 포털에서 Spark를 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)을 참조하세요.
 
 2. RDP 세션의 데스크톱에서 Hadoop 명령줄을 열고(바탕 화면 바로 가기에서) Spark가 설치된 위치(예: C:**C:\\apps\\dist\\spark-1.2.0**)로 이동합니다.
 
@@ -317,4 +317,4 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

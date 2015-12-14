@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 백 엔드 서버는 리소스 그룹에서 구현하고 다른 모든 구성 요소는 다른 보안 그룹에서 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 백 엔드 서버는 리소스 그룹에서 구현하고 다른 모든 구성 요소는 다른 보안 그룹에서 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory*라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
 
 ## 필수 조건
 
@@ -63,7 +63,7 @@
 
 		"dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 
-5. 백 엔드에서 SQL을 실행하는 Windows VM을 배포하기로 결정하는 경우, *osType* 의 값은 *Windows* 이고, *dbVMSetting* 변수에는 다음과 같은 요소가 포함됩니다. 이 요소는 *dbVMSettings* 변수의 첫 번째 값을 나타냅니다.
+5. 백 엔드에서 SQL을 실행하는 Windows VM을 배포하기로 결정하는 경우, *osType*의 값은 *Windows*이고, *dbVMSetting* 변수에는 다음과 같은 요소가 포함됩니다. 이 요소는 *dbVMSettings* 변수의 첫 번째 값을 나타냅니다.
 
 	      "Windows": {
 	        "vmSize": "Standard_DS3",
@@ -82,7 +82,7 @@
 	        "dbPort": 1433
 	      },
 
-6. *vmSize* 에는 값 *Standard\_DS3* 이 포함되어 있습니다. 특정 VM 크기만 여러 NIC를 사용할 수 있습니다. 여러 NIC를 사용할 수 있는 VM 크기를 확인하려면 [다중 NIC 개요](virtual-networks-multiple-nics.md)를 참조하세요.
+6. *vmSize*에는 값 *Standard\_DS3*이 포함되어 있습니다. 특정 VM 크기만 여러 NIC를 사용할 수 있습니다. 여러 NIC를 사용할 수 있는 VM 크기를 확인하려면 [다중 NIC 개요](virtual-networks-multiple-nics.md)를 참조하세요.
 7. 아래로 스크롤하여 **resources**로 이동한 후 첫 번째 요소를 확인합니다. 여기에는 저장소 계정이 설명되어 있습니다. 이 저장소 계정은 각 데이터베이스 VM에서 사용하는 데이터 디스크를 유지 관리하는 데 사용됩니다. 이 시나리오의 각 데이터베이스 VM에는 일반 저장소에 OS 디스크가 있고 SSD(프리미엄) 저장소에 두 개의 데이터 디스크가 저장되어 있습니다.
 
 	    {
@@ -193,7 +193,7 @@
 		    "count": "[parameters('dbCount')]"
 		  },
 
-12. VM 리소스에서 아래로 스크롤하여 다음과 같은 **networkProfile** 요소로 이동합니다. 각 VM의 참조가 되는 두 개의 NIC가 있습니다. 단일 VM에 대해 여러 개의 NIC를 만들 때는 NIC 중 하나의 *primary* 속성을 *true* 로, 나머지의 속성을 *false* 로 설정해야 합니다.
+12. VM 리소스에서 아래로 스크롤하여 다음과 같은 **networkProfile** 요소로 이동합니다. 각 VM의 참조가 되는 두 개의 NIC가 있습니다. 단일 VM에 대해 여러 개의 NIC를 만들 때는 NIC 중 하나의 *primary* 속성을 *true*로, 나머지의 속성을 *false*로 설정해야 합니다.
 
         "networkProfile": {
           "networkInterfaces": [
@@ -269,7 +269,7 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 
 		info:    New mode is arm
 
-3. [매개 변수 파일](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json)을 열고 해당 내용을 선택한 후 컴퓨터의 파일에 저장합니다. 이 예에서는 매개 변수 파일을 *parameters.json* 에 저장했습니다.
+3. [매개 변수 파일](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json)을 열고 해당 내용을 선택한 후 컴퓨터의 파일에 저장합니다. 이 예에서는 매개 변수 파일을 *parameters.json*에 저장했습니다.
 
 4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수 파일을 사용하여 새 VNet을 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
@@ -292,4 +292,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 		data:
 		info:    group create command OK
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

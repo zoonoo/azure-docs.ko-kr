@@ -3,8 +3,8 @@
 	description="Azure Active Directory와 Moxtra 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # 자습서: Moxtra와 Azure Active Directory 통합
@@ -22,7 +22,7 @@
 이 자습서는 Azure AD(Azure Active Directory)에 Moxtra를 통합하는 방법을 보여 주기 위한 것입니다.<br>Azure AD에 Moxtra를 통합하면 다음과 같은 이점을 얻을 수 있습니다.
 
 - Moxtra에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
-- 사용자가 해당 Azure AD 계정으로 Moxtra에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+- 사용자가 해당 Azure AD 계정으로 Moxtra에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
@@ -32,7 +32,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 Moxtra와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- Moxtra Single Sign-on이 설정된 구독
+- Moxtra Single Sign-On이 설정된 구독
 
 
 > [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -64,10 +64,10 @@ Moxtra의 Azure AD 통합을 구성하려면 갤러리의 Moxtra를 관리되는
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **Moxtra**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
-7. 결과 창에서 **Moxtra**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **Moxtra**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
-이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Moxtra에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
+이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Moxtra에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위한 것입니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Moxtra 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Moxtra의 관련 사용자 간에 연결이 형성되어야 합니다.<br> 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Moxtra의 **Username** 값으로 할당하여 설정합니다.
  
@@ -76,26 +76,26 @@ Moxtra에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Moxtra 테스트 사용자 만들기](#creating-a-moxtra-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Moxtra에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 Moxtra 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
+이 섹션은 Azure AD 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Moxtra 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
 
 Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png) <br>
 
 
 
-**Moxtra에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+**Moxtra에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **Moxtra** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+1. Azure AD 포털의 **Moxtra** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
 
-2. **Moxtra에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png)<br>
+2. **Moxtra에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png) <br>
 
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png) <br>
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png) <br>
 
-    a. **로그인 URL** 텍스트 상자에서 다음 URL을 입력합니다. * ***https://www.moxtra.com/service/#login**
+    a. **로그인 URL** 텍스트 상자에서 다음 URL을 입력합니다. ****https://www.moxtra.com/service/#login**
 
     b. **다음**을 클릭합니다.
  
@@ -114,15 +114,15 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 
 1. **SAML** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png) <br>
 
-    a. **이름** 텍스트 상자에서 구성할 이름을 입력합니다.(예: *SAML*)
+    a. **이름** 텍스트 상자에서 구성할 이름을 입력합니다(예: *SAML*).
 
-    b. Azure 포털의 **Moxtra에서 Single Sign-on 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **IdP 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    b. Azure 포털의 **Moxtra에서 Single Sign-On 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **IdP 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-    c. Azure 포털의 **Moxtra에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+    c. Azure 포털의 **Moxtra에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
     d. **AuthnContextClassRef** 텍스트 상자에 **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**를 입력합니다.
 
-    e. Azure 포털의 **Moxtra에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **이름 식별자 서식** 값을 복사한 다음 **이름 ID 서식** 텍스트 상자에 붙여넣습니다.
+    e. Azure 포털의 **Moxtra에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **이름 식별자 서식** 값을 복사한 다음 **이름 ID 서식** 텍스트 상자에 붙여넣습니다.
 
     f. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **인증서** 텍스트 상자에 붙여넣습니다.
 
@@ -150,7 +150,7 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
     | idpid | *<Azure 포털의 **Moxtra에 있는 Single Sign-On 구성** 대화 상자에서 **엔터티 ID** 값 >* |
 
  
-    a. 사용자 특성 추가를 클릭합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_general_81.png) <br>
+    a. 사용자 특성 추가를 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_general_81.png) <br>
 
     b. **사용자 특성 추가** 대화 상자에서 테이블의 해당 행에 표시되는 특성 이름 및 특성 값을 입력합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_general_82.png) <br>
 
@@ -158,7 +158,7 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 
 
 
-1. **변경 내용 적용**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_general_84.png) <br>
+1. **변경 내용 적용**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_general_84.png)<br>
 
 
 
@@ -178,9 +178,9 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_03.png) <br>
  
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_04.png)<br>
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_04.png) <br>
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_05.png) <br>
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_05.png) <br>
 
     a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
 
@@ -188,7 +188,7 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 
     c. **다음**을 클릭합니다.
 
-6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_06.png) <br>
+6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_06.png) <br>
  
     a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
 
@@ -198,11 +198,11 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 
     d. **역할** 목록에서 **사용자**를 선택합니다. e. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_07.png)<br>
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_07.png) <br>
  
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/create_aaduser_08.png) <br>
   
-    a. **새 암호** 값을 적어둡니다.
+    a. **새 암호** 값을 적어 둡니다.
 
     b. **완료**를 클릭합니다.
 
@@ -226,9 +226,9 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 
     b. **성** 텍스트 상자에 **Simon**을 입력합니다.
 
-    c. **전자 메일** 텍스트 상자에 Azure 포털에 있는 Britta의 메일 주소를 입력합니다.
+    c. **메일** 텍스트 상자에 Azure 포털에 있는 Britta의 메일 주소를 입력합니다.
 
-    d. **나누기** 텍스트 상자에 **Dev**를 입력합니다.
+    d. **사업부** 텍스트 상자에 **Dev**를 입력합니다.
 
     e. **부서** 텍스트 상자에 **IT**를 입력합니다.
 
@@ -242,15 +242,15 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 Moxtra에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
+이 섹션은 Britta Simon에게 Moxtra에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하기 위한 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 Moxtra에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br>![사용자 할당][201]<br>
+1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 
 2. 응용 프로그램 목록에서 **Moxtra**를 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_50.png) <br>
 
-1. 위쪽 메뉴에서 **사용자**를 클릭합니다.<br> <br>![사용자 할당][203]<br>
+1. 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
 
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
@@ -260,7 +260,7 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 
 ### Single Sign-On 테스트
 
-이 섹션의 목적은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하는 것입니다.<br> 액세스 패널에서 Moxtra 타일을 클릭하면 Moxtra 응용 프로그램에 자동으로 로그온됩니다.
+이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.<br> 액세스 패널에서 Moxtra 타일을 클릭하면 Moxtra 응용 프로그램에 자동으로 로그온됩니다.
 
 
 ## 추가 리소스
@@ -287,4 +287,4 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 [204]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,7 +18,7 @@
 
 
 # Azure용 RedHat 기반 가상 컴퓨터 준비
-이 문서에서는 Azure용 Red Hat Enterprise Linux(RHEL) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에서 다루는 RHEL 버전은 6.7 및 7.1이며 이 문서에서 다루는 준비에 대한 하이퍼바이저는 Hyper-V, KVM, VMWare입니다.
+이 문서에서는 Azure용 Red Hat Enterprise Linux(RHEL) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에서 다루는 RHEL 버전은 6.7 및 7.1이며 이 문서에서 다루는 준비에 대한 하이퍼바이저는 Hyper-V, KVM, VMWare입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)를 참조하세요.
 
 
 
@@ -621,7 +621,7 @@
 
 7.	Hyper-V 모듈을 initramfs에 추가합니다.
 
-    `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
+    `/etc/dracut.conf`를 편집하고 다음 콘텐츠를 추가합니다.
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
@@ -684,7 +684,7 @@
 ##kickstart 파일을 사용하여 ISO에서 자동으로 준비
 ###RHEL 7.1
 
-1.	아래 콘텐츠를 사용하여 kickstart 파일을 만들고 저장합니다. kickstart 설치에 대한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
+1.	아래 콘텐츠를 사용하여 kickstart 파일을 만들고 저장합니다. Kickstart 설치에 대한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -830,4 +830,4 @@ Hyper-V 및 Azure에서 RHEL 7.1 사용 시 알려진 문제가 있습니다.
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

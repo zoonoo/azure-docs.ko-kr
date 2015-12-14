@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # 두 Azure 가상 네트워크 간의 VPN 연결 구성  
@@ -71,7 +71,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 
 **북유럽에서 Contoso-VNet-EU라는 가상 네트워크를 만들려면**
 
-1.	[Azure 포털][azure-portal]에 로그인합니다.
+1.	[Azure 클래식 포털][azure-portal]에 로그인합니다.
 2.	**새로 만들기**, **네트워크 서비스**, **가상 네트워크**, **사용자 지정 만들기**를 클릭합니다.
 3.	다음을 입력합니다.
 
@@ -144,7 +144,7 @@ VNet 간 구성을 만드는 경우 서로를 로컬 네트워크 사이트로 �
 
 **Contoso-VNet-EU 네트워크 주소 공간과 일치하는 Contoso-LNet-EU라는 로컬 네트워크를 만들려면**
 
-1. Azure 포털에서 **새로 만들기**, **네트워크 서비스**, **가상 네트워크**, **로컬 네트워크 추가**를 클릭합니다.
+1. Azure 클래식 포털에서 **새로 만들기**, **네트워크 서비스**, **가상 네트워크**, **로컬 네트워크 추가**를 클릭합니다.
 3. 다음을 입력합니다.
 
 	- **이름**: Contoso-LNet-EU
@@ -175,7 +175,7 @@ VNet 간 구성을 만드는 경우 서로를 로컬 네트워크 사이트로 �
 
 **Contoso-LNet-US에 대한 Contoso-VNet-EU 사이트 간 연결을 구성하려면**
 
-1.	Azure 포털의 왼쪽 창에서 **네트워크**를 클릭합니다.
+1.	Azure 클래식 포털의 왼쪽 창에서 **네트워크**를 클릭합니다.
 2.	**Contoso-VNet-EU**를 클릭합니다.
 3.	**구성** 탭을 클릭합니다.
 4.	**로컬 네트워크에 연결**을 선택합니다.
@@ -187,7 +187,7 @@ VNet 간 구성을 만드는 경우 서로를 로컬 네트워크 사이트로 �
 
 **Contoso-VNet-EU에 대한 VPN 게이트웨이를 만들려면**
 
-1.	Azure 포털에서 **대시보드** 탭을 클릭합니다.
+1.	Azure 클래식 포털에서 **대시보드** 탭을 클릭합니다.
 4.	페이지 아래쪽에서 **게이트웨이 만들기**를 클릭한 다음 **동적 라우팅**을 클릭합니다.
 5.	**예**를 클릭하여 확인합니다. 페이지의 게이트웨이 그래픽이 노란색으로 변경되고 게이트웨이를 만드는 중이 표시됩니다. 일반적으로 게이트웨이를 만드는 데 약 15분이 소요됩니다.
 
@@ -205,7 +205,7 @@ VNet 간 구성을 만드는 경우 서로를 로컬 네트워크 사이트로 �
 
 **Contoso-LNet-EU에 대한 VPN 장치 IP 주소를 구성하려면**
 
-1.	Azure 포털의 왼쪽 창에서 **네트워크**를 클릭합니다.
+1.	Azure 클래식 포털의 왼쪽 창에서 **네트워크**를 클릭합니다.
 2.	위쪽에서 **로컬 네트워크**를 클릭합니다.
 3.	**Contoso-LNet-EU**를 클릭한 다음 아래쪽에서 **편집**을 클릭합니다.
 4.	**VPN 장치 IP 주소**를 업데이트합니다. 이는 Contoso-VNET-EU의 대시보드 탭에서 가져온 주소입니다.
@@ -218,7 +218,7 @@ VNet 간 구성을 만드는 경우 서로를 로컬 네트워크 사이트로 �
 
 ###VNet 게이트웨이 키 설정
 
-VNet 게이트웨이는 공유 키를 사용하여 가상 네트워크 간의 연결을 인증합니다. Azure 포털에서는 키를 구성할 수 없습니다. PowerShell 또는.NET SDK를 사용해야 합니다.
+VNet 게이트웨이는 공유 키를 사용하여 가상 네트워크 간의 연결을 인증합니다. Azure 클래식 포털에서는 키를 구성할 수 없습니다. PowerShell 또는.NET SDK를 사용해야 합니다.
 
 **키를 설정하려면**
 
@@ -233,7 +233,7 @@ VNet 게이트웨이는 공유 키를 사용하여 가상 네트워크 간의 �
 
 ##VPN 연결 확인 
 
-VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이어그램인 Azure 포털의 VNet 대시보드 페이지를 사용하여 연결 상태를 확인할 수 있습니다.
+VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이어그램인 Azure 클래식 포털의 VNet 대시보드 페이지를 사용하여 연결 상태를 확인할 수 있습니다.
 
 ![HDInsight HBase 복제 가상 네트워크 VPN 연결 상태][img-vpn-status]
   
@@ -270,4 +270,4 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

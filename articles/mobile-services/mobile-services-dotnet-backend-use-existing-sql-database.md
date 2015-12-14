@@ -12,12 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
 # 모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 모바일 서비스 .NET 백 엔드를 사용하면 모바일 서비스를 구축할 때 기존 자산을 쉽게 활용할 수 있습니다. 특히 한 가지 흥미로운 시나리오는 다른 응용 프로그램에서 이미 사용 중일 수 있는 기존의 SQL 데이터베이스(온-프레미스 또는 클라우드)를 사용해서 기존 데이터를 모바일 클라이언트에서도 사용할 수 있다는 점입니다. 이 경우에는 기존 솔루션이 계속 작동할 수 있도록 데이터베이스 모델(또는 *스키마*)이 변경되지 않은 상태로 유지되어야 합니다.
 
@@ -26,7 +31,7 @@
 
 이 자습서에서는 모바일 서비스에서 생성된 데이터베이스를 사용하지만 생성된 기본 모델을 사용하지 않습니다. 대신 사용자가 이미 갖고 있을 수 있는 기존 응용 프로그램을 나타내는 임의의 모델을 수동으로 만듭니다. 대신 온-프레미스 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결](mobile-services-dotnet-backend-hybrid-connections-get-started.md)을 참조하세요.
 
-1. 시작하려면 **Visual Studio 2013 업데이트 2**에서 모바일 서비스 서버 프로젝트를 만들거나 [Azure 관리 포털](http://manage.windowsazure.com)의 모바일 서비스 탭에서 다운로드할 수 있는 빠른 시작 프로젝트를 사용합니다. 이 자습서에서는 서버 프로젝트 이름이 **ShoppingService**라고 가정합니다.
+1. 시작하려면 **Visual Studio 2013 업데이트 2**에서 모바일 서비스 서버 프로젝트를 만들거나 [Azure 클래식 포털](http://manage.windowsazure.com)의 모바일 서비스 탭에서 다운로드할 수 있는 빠른 시작 프로젝트를 사용합니다. 이 자습서에서는 서버 프로젝트 이름이 **ShoppingService**라고 가정합니다.
 
 2. **Models** 폴더 안에 **Customer.cs** 파일을 만들고 다음 구현을 사용합니다. **System.ComponentModel.DataAnnotations**에 대한 어셈블리 참조를 프로젝트에 추가해야 합니다.
 
@@ -614,4 +619,4 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
 
 다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

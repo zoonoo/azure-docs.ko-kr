@@ -56,7 +56,7 @@ Azure 서비스 버스 네임스페이스를 만들 때 실행한 PowerShell cmd
 
 ![키 복사](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE][Azure 포털](http://manage.windowsazure.com/)에 로그인하여 서비스 버스 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
+> [AZURE.NOTE][Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인하여 서비스 버스 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
 
 ## Ruby 응용 프로그램 만들기
 
@@ -151,4 +151,4 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 이 문서에서 설명한 Azure 서비스 버스 큐와 [Azure 큐 서비스를 사용하는 방법](/develop/ruby/how-to-guides/queue-service/)(영문) 문서에서 설명한 Azure 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하십시오.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

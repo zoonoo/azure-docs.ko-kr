@@ -25,7 +25,7 @@
 
 Azure SQL 데이터베이스 서비스는 TCP 포트 1433을 통해서만 사용할 수 있습니다. 사용자의 컴퓨터에서 SQL 데이터베이스에 액세스하려면 방화벽이 TCP 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다. 연결 프로세스의 일부로 Azure 가상 컴퓨터에서 연결은 각 작업자 역할에 대한 고유한 다른 IP 주소 및 포트에 리디렉션됩니다. 포트 번호의 범위는 11000에서 11999입니다.
 
-처음으로 Azure SQL 데이터베이스 서버에 연결하기 전에 [Azure 포털](https://portal.azure.com) 또는 [Azure 플랫폼 관리 포털](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard)을 사용하여 Azure SQL 데이터베이스 방화벽을 구성해야 합니다. 컴퓨터 또는 Azure에서 Azure SQL 데이터베이스 서버로 연결을 시도할 수 있는 서버 수준 방화벽 설정을 만들어야 합니다. 또한 Azure SQL 데이터베이스 서버에서 특정 데이터베이스에 액세스를 제어하려면 해당 데이터베이스에 대한 데이터베이스 수준 방화벽 규칙을 만듭니다. 자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
+처음으로 Azure SQL 데이터베이스 서버에 연결하기 전에 [Azure 클래식 포털](https://portal.azure.com) 또는 [Azure 플랫폼 클래식 포털](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard)을 사용하여 Azure SQL 데이터베이스 방화벽을 구성해야 합니다. 컴퓨터 또는 Azure에서 Azure SQL 데이터베이스 서버로 연결을 시도할 수 있는 서버 수준 방화벽 설정을 만들어야 합니다. 또한 Azure SQL 데이터베이스 서버에서 특정 데이터베이스에 액세스를 제어하려면 해당 데이터베이스에 대한 데이터베이스 수준 방화벽 규칙을 만듭니다. 자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 
 ## 연결 암호화 및 인증서 유효성 검사
 
@@ -111,4 +111,4 @@ GO
 
 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@ DocumentDB는 간편한 확장 및 고가용성이 필요한 JSON 데이터를 �
 이 JSON 데이터베이스에 대해 알아보고 작동 방식을 확인하는 빠른 방법은 다음 세 단계를 수행하는 것입니다.
 
 1. DocumentDB의 사용 이점을 소개하는 [DocumentDB 정의](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) 동영상(2분)을 시청합니다.
-2. Azure Preview 포털에서 DocumentDB를 시작하는 방법을 강조하는 [Azure에서 DocumentDB 만들기](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 동영상(3분)을 시청합니다.
+2. Azure 포털을 사용하여 DocumentDB를 시작하는 방법을 강조하는 [Azure에서 DocumentDB 만들기](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 동영상(3분)을 시청합니다.
 3. 다양한 활동을 통해 DocumentDB에서 사용할 수 있는 풍부한 쿼리 기능에 대해 알아볼 수 있는 [쿼리 실습](http://www.documentdb.com/sql/demo)을 방문합니다. 샌드박스 탭으로 이동하여 고유한 사용자 지정 SQL 쿼리를 실행하고 DocumentDB를 시험해 보세요.
 
 그런 다음 이 문서로 돌아와서 다음 내용을 자세히 살펴보세요.
@@ -99,7 +99,7 @@ DocumentDB를 사용하면 JavaScript로만 작성된 명명된 프로그램으�
 DocumentDB 내의 JavaScript 실행은 JavaScript를 Transact-SQL의 최신 대체로 사용하여 관계형 데이터베이스 시스템이 지원하는 개념을 따라 모델링됩니다. 모든 JavaScript 논리는 스냅숏 격리를 사용하여 앰비언트 ACID 트랜잭션 내에서 실행됩니다. 실행 중 JavaScript에서 예외가 발생하면 전체 트랜잭션이 중단됩니다.
 
 ## 다음 단계
-Azure 계정이 이미 있는 경우 [Azure Preview 포털](https://portal.azure.com/#gallery/Microsoft.DocumentDB)에서 [DocumentDB 데이터베이스 계정을 만들어](documentdb-create-account.md) DocumentDB를 시작할 수 있습니다.
+Azure 계정이 이미 있는 경우 [Azure 포털](https://portal.azure.com/#gallery/Microsoft.DocumentDB)에서 [DocumentDB 데이터베이스 계정을 만들기](documentdb-create-account.md)로 DocumentDB를 시작할 수 있습니다.
 
 Azure 계정이 없는 경우
 
@@ -112,4 +112,4 @@ Azure 계정이 없는 경우
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

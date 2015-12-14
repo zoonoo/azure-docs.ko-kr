@@ -72,11 +72,11 @@ Azure 저장소 API를 호출하려는 파일에 다음 import 문을 포함해�
 
 > [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ]연결된 저장소 계정에 대한 전체 읽기/쓰기 액세스를 부여하는 계정 이름 및 계정 키가 앱을 다운로드한 모든 사람에게 배포됩니다. 이 방법은 신뢰할 수 없는 클라이언트가 키를 손상시킬 수 있는 위험이 있으므로 좋은 방법은 **아닙니다**.
 
-공유 키 인증을 사용하면 "연결 문자열"이 만들어집니다. 연결 문자열은 다음과 같이 구성됩니다.
+공유 키 인증을 사용하면 연결 문자열이 만들어집니다. 연결 문자열은 다음과 같이 구성됩니다.
 
-- **DefaultEndpointsProtocol** - http 또는 https를 선택할 수 있습니다. 그러나 https를 사용하는 것이 좋습니다.
-- **계정 이름** - 저장소 계정의 이름
-- **계정 키** - [관리 포털](manage.windowsazure.com)을 사용하는 경우 *액세스 키 관리*를 클릭하여 확인할 수 있습니다. [미리 보기 포털](portal.azure.com)을 사용하는 경우 키 아이콘을 클릭하여 이 정보를 찾을 수 있습니다.
+- **DefaultEndpointsProtocol** - HTTP 또는 HTTPS를 선택할 수 있습니다. 그러나 HTTPS를 사용하는 것이 좋습니다.
+- **계정 이름** - 저장소 계정의 이름입니다.
+- **계정 키** - [Azure 포털](portal.azure.com)을 사용 중인 경우 저장소 계정으로 이동하고 **키** 아이콘을 클릭하여 이 정보를 찾습니다. [Azure 클래식 포털](manage.windowsazure.com)을 사용하는 경우 포털에서 저장소 계정으로 이동하고 **액세스 키 관리**를 클릭합니다. 
 
 응용 프로그램에서의 모양은 다음과 같습니다.
 
@@ -86,7 +86,7 @@ Azure 저장소 API를 호출하려는 파일에 다음 import 문을 포함해�
 ###공유 액세스 서명(SAS)
 iOS 응용 프로그램에서 Blob 저장소에 대해 클라이언트의 요청을 인증하는 데 권장되는 방법은 공유 액세스 서명(SAS)을 사용하는 것입니다. SAS를 사용하면 지정된 사용 권한 집합과 함께 지정된 기간 동안 리소스에 대한 클라이언트 액세스를 부여할 수 있습니다. 저장소 계정 소유자는 iOS 클라이언트에서 사용할 SAS를 생성해야 합니다. SAS를 생성하려면 클라이언트로 배포되는 SAS를 생성하는 별도의 서비스를 작성할 수 있습니다. 테스트를 위해 Azure CLI를 사용하여 SAS를 생성할 수도 있습니다. 공유 키 자격 증명이 SAS를 생성하는 데 사용되지만 클라이언트는 SAS URL에 캡슐화된 인증 정보를 사용하여 생성된 SAS 사용할 수 있습니다. SAS를 만들 때, SAS가 유효한 시간 간격 및 SAS가 클라이언트에 부여하는 사용 권한을 지정할 수 있습니다. 예를 들어 Blob 컨테이너에 대해, SAS는 컨테이너에서 Blob에 대한 읽기, 쓰기 또는 삭제 권한을 부여하고 컨테이너에서 Blob를 나열하는 나열 권한을 부여할 수 있습니다.
 
-다음 예제에서는 Azure CLI를 사용하여 2015년 9월 5일 오전 12:00시(UTC)까지, 컨테이너 *sascontainer*에 대한 읽기 및 쓰기 권한을 부여하는 SAS 토큰을 생성하는 방법을 보여줍니다.
+다음 예제에서는 Azure CLI를 사용하여 2015년 9월 5일 오전 12:00시(UTC)까지, 컨테이너 *sascontainer*에 대한 읽기 및 쓰기 권한을 부여하는 SAS 토큰을 생성하는 방법을 보여 줍니다.
 
 1. 먼저 이 [가이드](../xplat-cli/#how-to-install-the-azure-cli)를 따라 Azure CLI를 설치하고 Azure 구독에 연결하는 방법을 알아봅니다.
 
@@ -117,7 +117,7 @@ iOS 응용 프로그램에서 Blob 저장소에 대해 클라이언트의 요청
 > [AZURE.NOTE]서비스에 대한 요청을 수행하는 모든 메서드는 비동기 작업입니다. 코드 샘플에서 이러한 메서드에는 완료 처리기가 있음을 확인할 수 있습니다. 완료 처리기 내에 있는 코드는 요청이 완료된 **후** 실행됩니다. 완료 처리기 이후 코드는 요청이 이루어지는 **동안** 실행됩니다.
 
 ## 컨테이너 만들기
-Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예제에서는 *newcontainer*라는 컨테이너를 저장소 계정에 만드는 방법을 보여줍니다(아직 없는 경우). 컨테이너에 대한 이름을 선택할 때 위에서 언급한 명명 규칙을 따릅니다.
+Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예제에서는 *newcontainer*라는 컨테이너를 저장소 계정에 만드는 방법을 보여 줍니다(아직 없는 경우). 컨테이너에 대한 이름을 선택할 때 위에서 언급한 명명 규칙을 따릅니다.
 
      -(void)createContainer{
         // Create a storage account object from a connection string.
@@ -137,7 +137,7 @@ Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 다음 �
         }];
     }
 
-[포털](portal.azure.com) 또는 [저장소 탐색기](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)를 확인하고 저장소 계정에 대한 컨테이너 목록에 *newcontainer*가 있는지 확인하여 이 작업을 확인할 수 있습니다.
+[Azure 포털](portal.azure.com) 또는 [저장소 탐색기](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)를 확인하고 저장소 계정에 대한 컨테이너 목록에 *newcontainer*가 있는지 확인하여 이 작업을 확인할 수 있습니다.
 
 ## 컨테이너 사용 권한 설정
 기본적으로 컨테이너의 사용 권한은 **개인** 액세스용으로 구성됩니다. 그러나 컨테이너는 컨테이너 액세스에 대한 몇 가지 다른 옵션을 제공합니다.
@@ -148,7 +148,7 @@ Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 다음 �
 
 - **컨테이너**: 익명 요청을 통해 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
-다음 예제에서는 인터넷에서 모든 사용자의 공용, 읽기 전용 액세스를 허용할 **컨테이너** 액세스 권한으로 컨테이너를 만드는 방법을 보여줍니다.
+다음 예제에서는 인터넷에서 모든 사용자의 공용, 읽기 전용 액세스를 허용할 **컨테이너** 액세스 권한으로 컨테이너를 만드는 방법을 보여 줍니다.
 
      -(void)createContainerWithPublicAccess{
         // Create a storage account object from a connection string.
@@ -202,7 +202,7 @@ Azure 저장소의 모든 Blob는 컨테이너에 있어야 합니다. 다음 �
          }];
      }
 
-[포털](portal.azure.com) 또는 [저장소 탐색기](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)를 확인하고 컨테이너 *containerpublic*이 Blob *sampleblob*를 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 작업을 확인할 수도 있습니다.
+[Azure 포털](portal.azure.com) 또는 [저장소 탐색기](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)를 확인하고 컨테이너 *containerpublic*이 Blob *sampleblob*을 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 작업을 확인할 수도 있습니다.
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -211,14 +211,14 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 ## 컨테이너의 Blob 나열
 다음 예제에서는 컨테이너의 모든 Blob를 나열하는 방법을 보여줍니다. 이 작업을 수행할 때는 다음 매개 변수를 염두에 두어야 합니다.
 
-- **continuationToken** - 연속 토큰은 목록 작업을 시작할 위치를 나타냅니다. 토큰이 제공되지 않는 경우 처음부터 Blob를 나열합니다. 0에서 최대 설정까지 개수에 관계 없이 Blob를 나열할 수 있습니다. 이 메서드가 0개의 결과를 반환하더라도 `results.continuationToken`이 nil이 아니면 서비스에 나열되지 않은 더 많은 Blob가 있을 수 있습니다.
+- **continuationToken** - 연속 토큰은 목록 작업을 시작할 위치를 나타냅니다. 토큰이 제공되지 않는 경우 처음부터 Blob를 나열합니다. 0에서 최대 설정까지 개수에 관계 없이 Blob를 나열할 수 있습니다. 이 메서드가 0개의 결과를 반환하더라도 `results.continuationToken`이 nil이 아니면 서비스에 나열되지 않은 더 많은 Blob이 있을 수 있습니다.
 - **prefix** - Blob 목록에 사용할 접두사를 지정할 수 있습니다. 이 접두사로 시작하는 Blob만 나열됩니다.
-- **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](#naming-and-referencing-containers-and-blobs) 섹션에서 설명한 것처럼 Blob 서비스가 플랫 저장소 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층을 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않으며 곧 제공될 예정입니다. 지금은 이 값이 `YES`여야 합니다.
-- **blobListingDetails** - Blob를 나열할 때 포함할 항목을 지정할 수 있습니다.
+- **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](#naming-and-referencing-containers-and-blobs) 섹션에서 설명한 것처럼 Blob 서비스가 플랫 저장소 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않으며 곧 제공될 예정입니다. 지금은 이 값이 `YES`여야 합니다.
+- **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
 	- `AZSBlobListingDetailsNone`: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
 	- `AZSBlobListingDetailsSnapshots`: 커밋된 Blob 및 Blob 스냅숏을 나열합니다.
 	- `AZSBlobListingDetailsMetadata`: 목록에 반환된 각 Blob에 대한 Blob 메타데이터를 검색합니다.
-	- `AZSBlobListingDetailsUncommittedBlobs`: 커밋 및 커밋되지 않은 Blob를 나열합니다.
+	- `AZSBlobListingDetailsUncommittedBlobs`: 커밋 및 커밋되지 않은 Blob을 나열합니다.
 	- `AZSBlobListingDetailsCopy`: 목록에 복사 속성을 포함합니다.
 	- `AZSBlobListingDetailsAll`: 사용 가능한 모든 커밋된 Blob, 커밋되지 않은 Blob 및 스냅숏을 나열하고 모든 메타데이터와 해당 Blob에 대한 복사 상태를 반환합니다.
 - **maxResults** - 이 작업에 대해 반환할 결과의 최대 수입니다. 제한을 설정하지 않으려면 -1을 사용합니다.
@@ -352,10 +352,10 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 - [Azure 저장소 REST API]
 - [Azure 저장소 팀 블로그]
 
-이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/ko-KR/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure 저장소에 대한 기능 제안은 [Azure 저장소 피드백](http://feedback.azure.com/forums/217298-storage)에 제공해 주세요.
+이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure 저장소에 대한 기능 제안 사항이 있는 경우 [Azure 저장소 피드백](http://feedback.azure.com/forums/217298-storage)에 게시해 주세요.
 
 [Azure 저장소 iOS 라이브러리]: https://github.com/azure/azure-storage-ios
-[Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

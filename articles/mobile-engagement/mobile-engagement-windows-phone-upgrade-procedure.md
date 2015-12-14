@@ -122,7 +122,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 		/* Initialize Engagement angent with above configuration. */
 		EngagementAgent.Instance.Init(engagementConfiguration);
 
-응용 프로그램의 연결 문자열은 Azure 관리 포털에 표시됩니다.
+응용 프로그램의 연결 문자열은 Azure 클래식 포털에 표시됩니다.
 
 ### 항목 이름 변경
 
@@ -142,4 +142,4 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

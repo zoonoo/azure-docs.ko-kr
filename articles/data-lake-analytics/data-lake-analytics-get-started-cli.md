@@ -38,7 +38,7 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - **Azure CLI**. [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하세요.
 	- 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases)를 다운로드하여 설치합니다.
 - **인증**. 다음 명령을 사용합니다.
@@ -95,7 +95,7 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 
 이 자습서에서는 몇 가지 검색 로그를 처리합니다. 검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다.
 
-Azure Preview 포털은 검색 로그 파일을 포함하는 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 기본 데이터 레이크 저장소 계정에 데이터를 업로드하려면 [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data)를 참조하세요.
+Azure 포털은 검색 로그 파일을 포함하는 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 기본 데이터 레이크 저장소 계정에 데이터를 업로드하려면 [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data)를 참조하세요.
 
 CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니다.
 
@@ -166,7 +166,7 @@ CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니�
 - 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 - U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 - U-SQL을 알아보려면 [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
-- 관리 작업을 보려면 [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
+- 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

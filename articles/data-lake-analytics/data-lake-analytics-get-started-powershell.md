@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # 자습서: Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작
@@ -38,30 +38,14 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
-- **Azure PowerShell 1.0 이상**. [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. Azure PowerShell 1.0 이상을 설치한 후 Azure 데이터 레이크 분석 모듈을 설치하려면 다음 cmdlet을 실행합니다.
-
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
-
-	**AzureRM.DataLakeStore** 모듈에 대한 자세한 내용은 [PowerShell 갤러리](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore)를 참조하세요. **AzureRM.DataLakeAnalytics** 모듈에 대한 자세한 내용은 [PowerShell 갤러리](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics)를 참조하세요.
-
-	처음으로 데이터 레이크 계정을 만드는 경우 다음을 실행합니다.
-
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	Azure에 연결하려면 다음 cmdlet을 사용합니다.
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 1.0 이상 설치](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater)를 참조하세요.
 
 ##데이터 레이크 분석 계정 만들기
 
 모든 작업을 실행하기 전에 데이터 레이크 분석 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
 
-- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure 리소스 관리자](resource-group-overview.md)를 사용하면 응용 프로그램에서 리소스를 그룹으로 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
+- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure 리소스 관리자](resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
 
 	구독에 대한 리소스 그룹을 나열하려면:
     
@@ -151,7 +135,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]Azure Preview 포털은 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account)을 참조하세요.
+>[AZURE.NOTE]Azure 포털은 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 자세한 내용은 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account)을 참조하세요.
 
 데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다. Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure PowerShell 사용](storage-powershell-guide-full.md)을 참조하세요.
 
@@ -230,7 +214,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 - 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 - U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 - U-SQL을 알아보려면 [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
-- 관리 작업을 보려면 [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
+- 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

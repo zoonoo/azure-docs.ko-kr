@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect에 대한 토폴로지 | Microsoft Azure"
+   pageTitle="Azure AD Connect: 지원되는 토폴로지 | Microsoft Azure"
    description="이 항목은 Azure AD Connect에 대해 지원되고 지원되지 않는 토폴로지에 대해 자세히 설명합니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect에 대한 토폴로지
@@ -167,4 +167,4 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다. 디렉터리 간�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

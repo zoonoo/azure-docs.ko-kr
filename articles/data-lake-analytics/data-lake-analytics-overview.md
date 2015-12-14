@@ -52,7 +52,7 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
 ## 참고 항목
 
 - 시작
-    - [Azure Preview 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+    - [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
     - [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
     - [Azure .NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
     - [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
@@ -64,9 +64,9 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
     - [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
     
 - 관리
-    - [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
+    - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
     - [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-powershell.md)
-    - [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - 종단간 자습서
     - [Azure 데이터 레이크 분석 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
@@ -77,4 +77,4 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
     - [기능 요청 제출](http://aka.ms/adlafeedback)
     - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

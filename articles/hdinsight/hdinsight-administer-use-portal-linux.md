@@ -17,14 +17,14 @@
 	ms.date="11/19/2015"
 	ms.author="larryfr"/>
 
-# Azure 미리 보기 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
+# Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
 [AZURE.INCLUDE [선택기](../../includes/hdinsight-portal-management-selector.md)]
 
 
-[Azure 미리 보기 포털][preview-portal]을 사용하여 Azure HDInsight에서 Linux 기반 Hadoop 클러스터를 프로비전 및 관리할 수 있습니다.
+[Azure 포털][preview-portal]을 사용하여 Azure HDInsight에서 Linux 기반 Hadoop 클러스터를 프로비전 및 관리할 수 있습니다.
 
-> [AZURE.NOTE]이 문서의 단계는 Linux 기반 Hadoop 클러스터를 사용한 작업을 대상으로 합니다. Windows 기반 클러스터를 사용한 작업에 대한 자세한 내용은 [Azure 미리 보기 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md)를 참조하세요.
+> [AZURE.NOTE]이 문서의 단계는 Linux 기반 Hadoop 클러스터를 사용한 작업을 대상으로 합니다. Windows 기반 클러스터를 사용한 작업에 대한 자세한 내용은 [Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md)를 참조하세요.
 
 
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
@@ -47,11 +47,11 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 
 다음 단계를 사용하여 Azure 포털에서 HDInsight 클러스터를 프로비전할 수 있습니다.
 
-1. [Azure 미리 보기 포털][preview-portal]에 로그인합니다.
+1. [Azure 포털][preview-portal]에 로그인합니다.
 
 2. **새로 만들기**를 선택하고 __데이터 분석__, __HDInsight__를 차례로 선택합니다.
 
-	![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
+	![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
 
 3. __클러스터 이름__을 입력한 다음 만들려는 __클러스터 유형__을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 __클러스터 이름__ 옆에 녹색 확인 표시가 나타납니다.
 
@@ -115,7 +115,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 		>
 		> 현재(2015/8/25) 하나의 Linux 기반 HDInsight 클러스터만 Azure 가상 네트워크에 있을 수 있다는 제한 사항이 있습니다.
         >
-        > Linux 기반 HDInsight와 함께 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure Preview 포털에서 HDInsight 클러스터를 생성하는 동안 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
+        > Linux 기반 HDInsight로 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure 포털에서 HDInsight 클러스터를 생성하는 동안 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
         >
         > v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하여 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 확인하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
 
@@ -137,7 +137,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 
 ## 클러스터 관리
 
-Azure 미리 보기 포털에서 클러스터를 선택하면 이름, 리소스 그룹, 운영 체제 및 클러스터 대시보드(Linux 클러스터용 Ambari 웹에 액세스하는데 사용됨)에 대한 URL과 같은 클러스터에 대한 중요한 정보를 표시합니다.
+Azure 포털에서 클러스터를 선택하면 이름, 리소스 그룹, 운영 체제 및 클러스터 대시보드(Linux 클러스터용 Ambari 웹에 액세스하는데 사용됨)에 대한 URL과 같은 클러스터에 대한 중요한 정보를 표시합니다.
 
 ![클러스터 세부 정보](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
@@ -157,7 +157,7 @@ Azure 미리 보기 포털에서 클러스터를 선택하면 이름, 리소스 
 
 * __사용자(![사용자 아이콘](./media/hdinsight-administer-use-portal-linux/users.png))__: Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
-	> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
+	> [AZURE.IMPORTANT]이는 _오직_ Azure 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
 * __태그(![태그 아이콘](./media/hdinsight-administer-use-portal-linux/tags.png))__: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
@@ -193,4 +193,4 @@ HDInsight 클러스터 블레이드의 __사용량__ 섹션은 해당 클러스�
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -73,7 +73,7 @@
 
 2. Visual Studio를 사용하여 솔루션을 배포하는 동안 "원격 데스크톱 연결 구성..."을 선택합니다. 원격 데스크톱 연결 구성에 대한 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](https://msdn.microsoft.com/library/gg443832.aspx)을 참조하세요.
 
-3. Microsoft Azure 관리 포털에서 인스턴스 상태가 **준비**로 표시되면 역할 인스턴스 중 하나를 클릭합니다.
+3. Microsoft Azure 클래식 포털에서 인스턴스 상태가 **준비**로 표시되면 역할 인스턴스 중 하나를 클릭합니다.
 
 4. 리본의 **원격 액세스** 영역에서 **연결** 아이콘을 클릭합니다.
 
@@ -165,4 +165,4 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 
 클라우드 서비스에 대한 [문제해결 문서](..\?tag=top-support-issue&service=cloud-services)를 더 봅니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

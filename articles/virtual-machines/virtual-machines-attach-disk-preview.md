@@ -1,6 +1,6 @@
 <properties
 	pageTitle="데이터 디스크 연결 | Microsoft Azure"
-	description="리소스 관리자 배포 모델을 사용하여 Azure Preview 포털에서 새 데이터 디스크 또는 기존 데이터 디스크를 VM에 연결하는 방법"
+	description="리소스 관리자 배포 모델을 사용하여 Azure 포털의 VM에 신규 및 기존 데이터 디스크를 연결하는 방법."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,11 +17,11 @@
 	ms.date="09/14/2015"
 	ms.author="cynthn"/>
 
-# Azure Preview 포털에서 데이터 디스크를 연결하는 방법
+# Azure 포털에서 데이터 디스크를 연결하는 방법
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](storage-windows-attach-disk.md).
 
-이 문서에서는 Azure Preview 포털을 통해 새 디스크와 기존 디스크를 모두 가상 컴퓨터에 연결하는 방법을 보여줍니다. 이 작업을 수행 하기 전에 다음 팁을 검토하세요.
+이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 가상 컴퓨터에 연결하는 방법을 보여줍니다. 이 작업을 수행 하기 전에 다음 팁을 검토하세요.
 
 - 가상 컴퓨터의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
 - 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 컴퓨터가 필요합니다. 이 가상 컴퓨터를 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage-preview-portal.md)를 참조하세요.
@@ -31,7 +31,7 @@
 
 ## 가상 컴퓨터 찾기
 
-1. Azure Preview 포털에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 
 2. 허브 메뉴에서 **찾아보기**를 클릭합니다.
 
@@ -41,7 +41,7 @@
 
 4.	목록에서 가상 컴퓨터를 선택합니다.
 
-5. 오른쪽의 **Essentials** 아래에서 **모든 설정**을 클릭한 다음 **디스크**를 클릭합니다.
+5. 오른쪽의 **필수 항목** 아래에서 **모든 설정**을 클릭한 다음 **디스크**를 클릭합니다.
 
 	![디스크 설정 열기](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
@@ -55,7 +55,7 @@
 
  	![디스크 설정 검토](./media/virtual-machines-attach-disk-preview/attach-new.png)
 
-3.	Azure가 디스크를 만들고 가상 컴퓨터에 연결한 후 가상 컴퓨터의 디스크 설정에서 **데이터 디스크** 아래에 새 디스크가 나열됩니다.
+3.	Azure가 디스크를 만들고 가상 컴퓨터에 연결하면 가상 컴퓨터의 디스크 설정의 **데이터 디스크** 아래에 새 디스크가 나열됩니다.
 
 ## 옵션 2: 기존 디스크 연결
 
@@ -73,7 +73,7 @@
 
 5.	**기존 디스크 연결**에서 방금 선택한 파일이 **VHD 파일** 아래에 나열됩니다. **확인**을 클릭합니다.
 
-6.	Azure가 디스크를 가상 컴퓨터에 연결한 후 가상 컴퓨터의 디스크 설정에서 **데이터 디스크** 아래에 해당 디스크가 나열됩니다.
+6.	Azure가 디스크를 가상 컴퓨터에 연결한 후 가상 컴퓨터의 디스크 설정의 **데이터 디스크** 아래에 해당 디스크가 나열됩니다.
 
 ## 다음 단계
 
@@ -90,4 +90,4 @@
 
 [Azure 저장소 계정 정보]: ../storage-whatis-account/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

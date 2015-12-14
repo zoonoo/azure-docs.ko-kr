@@ -48,7 +48,7 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
 
 ## 가상 컴퓨터를 만드는 방법
 
-1. [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. **새로 만들기**를 클릭합니다.
 3. **가상 컴퓨터**를 클릭합니다.
 4. **빠른 생성**을 클릭합니다.
@@ -57,11 +57,11 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
 7. **사용자 이름** 필드에 관리자의 이름을 입력합니다. 입력하는 이름 및 암호는 나중에 가상 컴퓨터에 원격으로 로그인할 때 사용합니다.
 8. **새 암호** 필드에 암호를 입력하고 **확인** 필드에 다시 입력합니다.
 9. **위치** 드롭다운 목록에서 가상 컴퓨터의 데이터 센터 위치를 선택합니다.
-10. **가상 컴퓨터 만들기**를 클릭합니다. Azure 포털의 **가상 컴퓨터** 섹션에서 상태를 모니터링할 수 있습니다. 상태가 **활성**으로 표시된 경우 가상 컴퓨터에 로그인할 수 있습니다.
+10. **가상 컴퓨터 만들기**를 클릭합니다. Azure 클래식 포털의 **가상 컴퓨터** 섹션에서 상태를 모니터링할 수 있습니다. 상태가 **활성**으로 표시된 경우 가상 컴퓨터에 로그인할 수 있습니다.
 
 ## 가상 컴퓨터에 원격으로 로그인하는 방법
 
-1. [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. **가상 컴퓨터**를 클릭합니다.
 3. 로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4. **연결**을 클릭합니다.
@@ -73,9 +73,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 서비스 네임스페이스를 만들려면
 
-1.  [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
-2.  Azure 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
-3.  Azure 포털의 아래쪽 창에서 **만들기**를 클릭합니다.
+1.  [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+2.  Azure 클래식 포털 왼쪽의 탐색 창에서 **서비스 버스**를 클릭합니다.
+3.  Azure 클래식 포털 아래쪽 창에서 **만들기**를 클릭합니다.
 
     ![새 서비스 버스 만들기][create_service_bus]
 4.  **네임스페이스 만들기** 대화 상자에서 네임스페이스 이름을 입력합니다. 이 이름은 고유해야 하므로, 입력한 이름을 사용할 수 있는지 시스템에서 즉시 확인합니다.
@@ -90,7 +90,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 	![만들기 클릭 스크린샷][click_create]
 
-만든 네임스페이스가 Azure 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
+생성한 네임스페이스가 Azure 클래식 포털에 표시되며, 잠시 후에 활성화됩니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
@@ -539,7 +539,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 해 찾기 및 클라이언트 응용 프로그램을 정상적인 완료 이전에 종료하고 싶으면 Ctrl+C를 누르면 됩니다.
 
 ## TSPSolver를 사용한 큐 만들기 및 제거의 대안
-TSPSolver를 사용하여 큐를 만들거나 삭제하는 대신 [Azure 포털](https://manage.windowsazure.com)을 사용하여 큐를 만들거나 삭제할 수 있습니다. Azure 포털의 서비스 버스 섹션에서 큐를 만들거나 삭제할 뿐만 아니라 연결 문자열, 발급자 및 액세스 키를 검색하는 데 사용되는 사용자 인터페이스에 액세스할 수 있습니다. 서비스 버스 큐의 대시보드를 표시하여 여기서 들어오는 메시지와 보내는 메시지의 메트릭을 볼 수도 있습니다.
+TSPSolver를 사용하는 대신 [Azure 클래식 포털](https://manage.windowsazure.com)을 사용하여 큐를 만들거나 삭제할 수 있습니다. 큐를 만들거나 삭제할 때 뿐만 아니라, 연결 문자열, 발급자 및 액세스 키를 검색할 때도 Azure 클래식 포털의 서비스 버스 섹션을 통해 사용자 인터페이스에 액세스합니다. 서비스 버스 큐의 대시보드를 표시하여 여기서 들어오는 메시지와 보내는 메시지의 메트릭을 볼 수도 있습니다.
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
@@ -550,4 +550,4 @@ TSPSolver를 사용하여 큐를 만들거나 삭제하는 대신 [Azure 포털]
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

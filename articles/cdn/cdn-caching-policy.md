@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/02/2015" 
 	ms.author="juliako"/>
 
 #미디어 서비스 확장의 CDN 캐싱 정책
@@ -43,4 +43,4 @@ Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 
 3. 라이브 스트리밍에는 Azure 미디어 또는 Azure 저장소 구성에 상관없이 기본적으로 2초 캐시 헤더가 적용되며, 이 값은 재정의할 수 없습니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

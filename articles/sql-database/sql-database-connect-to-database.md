@@ -30,7 +30,7 @@ SSMS(SQL Server Management Studio)를 사용하여 SQL 데이터베이스를 연
 
 데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(****servername**.database.windows.net*)이 필요합니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 연결하려는 데이터베이스를 찾습니다.
 3. 전체 서버 이름을 찾습니다.
 
@@ -95,4 +95,4 @@ Transact-SQL 문을 사용하여 데이터베이스를 만들거나 관리할 �
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="rajram"/>
    
 # Azure 저장소 Blob 커넥터 시작 및 논리 앱에 추가 
@@ -104,4 +104,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 식은 논리 앱 트
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

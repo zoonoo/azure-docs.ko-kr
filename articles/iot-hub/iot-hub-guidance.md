@@ -78,7 +78,7 @@ IoT Hub [장치 ID 레지스트리][lnk-devguide-identityregistry]를 사용하�
 
 토큰 서비스 패턴의 주요 단계는 다음과 같습니다.
 
-1. IoT Hub에 대한 **DeviceConnect** 권한으로 [IoT Hub 공유 액세스 정책][lnk-devguide-security]을 만듭니다. [Preview 포털][lnk-preview-portal] 또는 프로그래밍 방식으로 이 정책을 만들 수 있습니다. 토큰 서비스는 이 정책을 사용하여 만들어지는 토큰을 서명합니다.
+1. IoT Hub에 대한 **DeviceConnect** 권한으로 [IoT Hub 공유 액세스 정책][lnk-devguide-security]을 만듭니다. [Azure 포털][lnk-portal] 또는 프로그래밍 방식으로 이 정책을 만들 수 있습니다. 토큰 서비스는 이 정책을 사용하여 만들어지는 토큰을 서명합니다.
 2. 장치에서 IoT Hub에 액세스해야 하는 경우 토큰 서비스에 서명된 토큰을 요청합니다. 장치는 사용자 지정 장치 ID 레지스트리/인증 체계로 인증하여 토큰 서비스가 토큰을 만드는 데 사용하는 장치 ID를 확인할 수 있습니다.
 3. 토큰 서비스에서 [IoT Hub 개발자 가이드 - 보안][lnk-devguide-security]에 따라 `deviceId`를 인증할 장치로 함께 `resourceURI`로 `/devices/{deviceId}`를 사용하여 생성된 토큰을 반환합니다. 토큰 서비스는 공유 액세스 정책을 사용하여 토큰을 생성합니다.
 4. 장치는 IoT Hub에서 직접 토큰을 사용합니다.
@@ -112,11 +112,11 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
-[lnk-preview-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.com
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

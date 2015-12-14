@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 
@@ -36,7 +36,7 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 
 ![정책 편집기][policies-editor]
 
-정책을 구성하려면 먼저 정책을 적용할 범위를 선택해야 합니다. 아래 스크린샷에서는 Starter 제품이 선택되어 있습니다. 정책 이름 옆의 사각형 기호는 정책이 이 수준에서 이미 적용되었음을 나타냅니다.
+정책을 구성하려면 먼저 정책을 적용할 범위를 선택해야 합니다. 아래 스크린샷에서는 **Starter** 제품이 선택되어 있습니다. 정책 이름 옆의 사각형 기호는 정책이 이 수준에서 이미 적용되었음을 나타냅니다.
 
 ![범위][policies-scope]
 
@@ -48,17 +48,17 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 
 ![편집][policies-edit]
 
-정책 정의는 일련의 인바운드 및 아웃바운드 명령문을 설명하는 단순한 XML 문서입니다. 정의 창에서 XML을 직접 편집할 수 있습니다. 명령문 목록이 오른쪽에 제공되고 현재 범위에 적용할 수 있는 명령문이 사용 가능해지며 강조 표시됩니다. 위의 스크리샷에서는 호출 비율 제한 문이 표시되어 있습니다.
+정책 정의는 일련의 인바운드 및 아웃바운드 명령문을 설명하는 단순한 XML 문서입니다. 정의 창에서 XML을 직접 편집할 수 있습니다. 명령문 목록이 오른쪽에 제공되고 현재 범위에 적용할 수 있는 명령문이 사용 가능해지며 강조 표시됩니다. 위의 스크린샷에서는 **호출 비율 제한** 문이 표시되어 있습니다.
 
 사용할 수 있는 명령문을 클릭하면 정의 뷰에서 커서의 위치에 적절한 XML이 추가됩니다.
 
 정책 명령문 및 설정의 전체 목록은 [정책 참조][]에서 확인할 수 있습니다.
 
-예를 들어 들어오는 요청을 지정된 IP 주소로 제한하는 새로운 문을 추가하려면 "inbound" XML 요소의 콘텐츠 바로 안에 커서를 놓고 호출자 IP 제한 문을 클릭합니다.
+예를 들어 들어오는 요청을 지정된 IP 주소로 제한하는 새로운 문을 추가하려면 `inbound` XML 요소의 콘텐츠 바로 안에 커서를 놓고 **호출자 IP 제한** 문을 클릭합니다.
 
 ![제한 정책][policies-restrict]
 
-그러면 명령문을 구성하는 방법에 대한 지침을 제공하는 XML 코드 조각이 "inbound" 요소에 추가됩니다.
+그러면 명령문을 구성하는 방법에 대한 참고 자료를 제공하는 XML 코드 조각이 `inbound` 요소에 추가됩니다.
 
 	<ip-filter action="allow | forbid">
 		<address>address</address>
@@ -73,22 +73,40 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 
 ![저장][policies-save]
 
-정책에 대한 명령문을 구성한 후에는 저장을 클릭합니다. 그러면 변경 내용이 바로 API 관리 게이트웨이에 전파됩니다.
+정책에 대한 명령문을 구성한 후에는 **저장**을 클릭합니다. 그러면 변경 내용이 바로 API 관리 게이트웨이에 전파됩니다.
 
 ##<a name="sections"> </a>정책 구성 이해
 
-정책은 요청 및 응답의 순서로 실행되는 일련의 명령문입니다. 구성은 스크린샷과 같이 inbound(요청) 및 outbound(정책)으로 적절히 나뉩니다.
+정책은 요청 및 응답의 순서로 실행되는 일련의 명령문입니다. 다음 구성에서 표시된 대로 `inbound`, `backend`, `outbound` 및 `on-error` 섹션으로 적절히 구성을 나눕니다.
 
 	<policies>
-		<inbound>
-			<!-- statements to be applied to the request go here -->
-		</inbound>
-		<outbound>
-			<!-- statements to be applied to the response go here -->
-		</outbound>
-	</policies>
+	  <inbound>
+	    <!-- statements to be applied to the request go here -->
+	  </inbound>
+	  <backend>
+	    <!-- statements to be applied before the request is forwarded to 
+	         the backend service go here -->
+	  </backend>
+	  <outbound>
+	    <!-- statements to be applied to the response go here -->
+	  </outbound>
+	  <on-error>
+	    <!-- statements to be applied if there is an error condition go here -->
+	  </on-error>
+	</policies> 
 
-정책은 여러 수준(전역, 제품, api 및 작업)으로 지정할 수 있으므로, 구성을 통해 부모 정책과 관련하여 이 정의의 명령문이 실행되는 순서를 지정할 수 있습니다.
+요청을 처리하는 동안 오류가 발생하는 경우 `inbound`, `backend` 또는 `outbound` 섹션에 남아 있는 모든 단계를 건너뛰고 `on-error` 섹션의 문을 바로 실행합니다. `on-error` 섹션에 정책 문을 배치하면 `context.LastError` 속성을 사용하여 오류를 검토할 수 있으며 `set-body` 정책을 사용하여 오류 응답을 검사하고 사용자 지정할 수 있습니다. 그리고 오류가 발생하면 수행할 작업을 구성할 수 있습니다. 기본 제공 단계에 대한 오류 코드와 정책 문을 처리하는 동안 발생할 수 있는 오류에 대한 오류 코드가 있습니다. 자세한 내용은 [API 관리 정책에서 오류 처리](https://msdn.microsoft.com/library/azure/mt629506.aspx)를 참조하세요.
+
+정책은 여러 수준(전역, 제품, api 및 작업)으로 지정할 수 있으므로, 구성을 통해 부모 정책과 관련하여 정책 정의의 명령문이 실행되는 순서를 지정할 수 있습니다.
+
+정책 범위는 다음 순서로 평가됩니다.
+
+1. 전역 범위
+2. 제품 범위
+3. API 범위
+4. 작업 범위
+
+정책 범위 내의 문은 `base` 요소(있는 경우)의 위치에 따라 평가됩니다.
 
 예를 들어 글로벌 수준의 정책 및 API에 대해 구성된 정책이 있는 경우 특정 API가 사용될 때마다 두 정책이 모두 적용됩니다. API 관리는 기본 요소를 통해 결합된 정책 명령문의 결정적인 순서를 허용합니다.
 
@@ -100,9 +118,11 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
     	</inbound>
 	</policies>
 
-위의 정책 정의 예제에서, 상위 정책 전에 도메인 간 명령문이 실행된 다음 find-and-replace 정책이 실행됩니다.
+위의 정책 정의 예제에서는 상위 정책 전에 `cross-domain` 문이 실행된 다음 `find-and-replace` 정책이 실행됩니다.
 
-참고: 글로벌 정책에는 부모 정책이 없으며 해당 정책 안의 `<base>` 요소를 사용해도 아무 효과가 없습니다.
+동일한 정책이 정책 문에 두 번 표시되는 경우 가장 최근에 평가된 정책이 적용됩니다. 이를 통해 상위 범위에서 정의된 정책을 재정의할 수 있습니다. 정책 편집기에서 현재 범위의 정책을 보려면 **Recalculate effective policy for selected scope**(선택한 범위에 대한 실제 정책 다시 계산)을 클릭합니다.
+
+글로벌 정책에는 부모 정책이 없으며 해당 정책 안의 `<base>` 요소를 사용해도 아무 효과가 없습니다.
 
 ## 다음 단계
 
@@ -128,4 +148,4 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -36,7 +36,7 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 
 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md)
 
-[Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)
+[Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)
 
 이 자습서는 가상 컴퓨터를 신속하게 만들 수 있도록 안내하기 위해 가상 컴퓨터를 만들 때 사용할 수 있는 다양한 도구들을 설명하는 대신 한 가지 방법만 제공합니다. 이러한 도구와 지침에 대한 링크 요약을 보려면 다음을 참조하세요.
 
@@ -52,4 +52,4 @@ Azure 가상 컴퓨터에 대해 잘 모르는 경우 [질문과 대답](virtual
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

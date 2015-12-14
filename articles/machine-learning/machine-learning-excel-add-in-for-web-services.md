@@ -73,4 +73,4 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

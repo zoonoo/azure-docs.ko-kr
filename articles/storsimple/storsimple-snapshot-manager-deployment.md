@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자 MMC 스냅인 배포
@@ -35,9 +35,7 @@ Microsoft Management Console(MMC)용 StorSimple 스냅숏 관리자 스냅인을
 
 다음 단계에서는 StorSimple 스냅숏 관리자를 설치하기 전에 완료해야 하는 구성 작업의 대략적인 개요를 제공합니다. 시스템 요구 사항 및 단계별 지침을 포함한 전체 Microsoft Azure StorSimple 구성 및 설치 정보는 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)를 참조하세요.
 
->[AZURE.IMPORTANT]시작하기 전에 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서
-> [배포 구성 검사 목록](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) 및 [배포 필수 조건](storsimple-deployment-walkthrough.md#deployment-prerequisites)을 검토하세요.
-<br>
+>[AZURE.IMPORTANT]시작하기 전에 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서 [배포 구성 검사 목록](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) 및 [배포 필수 조건](storsimple-deployment-walkthrough.md#deployment-prerequisites)을 검토하세요.<br>
  
 ### StorSimple 스냅숏 관리자를 설치하기 전에
 
@@ -129,7 +127,7 @@ StorSimple 스냅숏 관리자의 새로운 설치를 완료하려면 다음 단
 
     ![장치 구성](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. **장치** 목록 상자에서 Microsoft Azure StorSimple 장치 또는 가상 장치의 IP 주소를 선택합니다. **암호** 텍스트 상자에 Azure 포털에서 장치에 대해 만든 StorSimple 스냅숏 관리자 암호를 입력합니다. **확인**을 클릭합니다.
+3. **장치** 목록 상자에서 Microsoft Azure StorSimple 장치 또는 가상 장치의 IP 주소를 선택합니다. **암호** 텍스트 상자에 Azure 클래식 포털에서 장치에 대해 만든 StorSimple 스냅숏 관리자 암호를 입력합니다. **확인**을 클릭합니다.
 
 4. StorSimple 스냅숏 관리자에서 사용자가 지정한 장치를 검색합니다. 장치를 사용할 수 있으면 StorSimple 스냅숏 관리자가 연결을 추가합니다. [장치에 대한 연결 확인](#to-verify-the-connection)을 통해 연결이 성공적으로 추가되었는지 확인할 수 있습니다.
 
@@ -203,7 +201,7 @@ StorSimple 스냅숏 관리자를 업그레이드하거나 다시 설치하는 �
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다.
+2. C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
     >[AZURE.NOTE]ProgramData는 숨겨진 폴더입니다.
 
@@ -235,7 +233,7 @@ StorSimple 스냅숏 관리자를 다시 설치하려면 [새 StorSimple 스냅�
 
     4. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 중지**를 클릭합니다.
 
-2. C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다.
+2. C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
      >[AZURE.NOTE]ProgramData는 숨겨진 폴더입니다.
 
@@ -257,4 +255,4 @@ StorSimple 스냅숏 관리자를 다시 설치하려면 [새 StorSimple 스냅�
 
 - StorSimple 스냅숏 관리자를 사용하는 방법에 대해 자세히 알아보려면 [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션 관리](storsimple-snapshot-manager-admin.md)로 이동하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

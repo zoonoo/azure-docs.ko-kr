@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기
@@ -111,7 +111,7 @@ Preview 포털에서 액세스 제어를 시작하려면 **액세스** 아이콘
 
 ![사용자 선택](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-사용자, 응용 프로그램 및 역할 작업에 대한 자세한 내용은 [Azure 관리 포털을 사용하여 액세스 관리](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal)를 참조하세요.
+포털을 통해 역할에 사용자 및 응용 프로그램 할당에 대한 자세한 내용은 [Azure 관리 포털을 사용하여 액세스 관리](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal)를 참조하세요.
 
 ## 코드에서 액세스 토큰 가져오기
 
@@ -162,4 +162,4 @@ Preview 포털에서 액세스 제어를 시작하려면 **액세스** 아이콘
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

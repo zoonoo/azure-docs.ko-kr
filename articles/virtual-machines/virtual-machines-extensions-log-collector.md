@@ -92,7 +92,7 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
 
 다음 두 개의 단계 중 하나를 따라 각 VM에 컬렉션을 트리거하여 지정된 Azure 계정에 수집된 파일을 실행 및 전송하는 선택한 역할의 클라우드 서비스 또는 가상 컴퓨터의 하나 이상의 인스턴스에 AzureLogCollector를 추가할 수 있습니다.
 
-## 서비스 확장으로 AzureLogCollector 추가
+## 서비스 확장으로 추가
 
 1. 다음 지침을 따라 구독에 Azure PowerShell을 연결합니다.
 
@@ -186,7 +186,7 @@ Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 �
       { 문자열 이름, 문자열 위치, 문자열 SearchPattern, Bool 재귀 }
              
             
-## VM 확장으로 AzureLogCollector 추가
+## VM 확장으로 추가
 
 다음 지침을 따라 구독에 Azure PowerShell을 연결합니다.
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 이제 매우 간단한 위치에서 로그를 검사하거나 복사할 수 있습니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - 질문과 대답
@@ -57,7 +57,7 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
   
 ### 고객이 데이터 팩터리에 액세스하려면 어떻게 해야 하나요?
 
-고객은 [Azure Preview 포털][azure-preview-portal]을 통해 데이터 팩터리에 액세스할 수 있습니다.
+고객은 [Azure 포털][azure-portal]을 통해 데이터 팩터리에 액세스할 수 있습니다.
 
 ### 데이터 팩터리의 지역 가용성은 얼마나 되나요?
 
@@ -72,7 +72,7 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 
 다음 중 하나를 사용하여 데이터 팩터리를 작성/생성할 수 있습니다.
 
-- **Azure Preview 포털**. Azure Preview 포털의 데이터 팩터리 블레이드는 데이터 팩터리 및 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 편집기 개요는 [데이터 팩터리 편집기][data-factory-editor]를 참조하고, 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [데이터 팩터리 시작][datafactory-getstarted]을 참조하세요.   
+- **Azure 포털** Azure 포털의 데이터 팩터리 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 편집기 개요는 [데이터 팩터리 편집기][data-factory-editor]를 참조하고, 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [데이터 팩터리 시작][datafactory-getstarted]을 참조하세요.   
 - **Azure PowerShell**. PowerShell 사용자이며 포털 UI 대신 PowerShell을 사용하려는 경우 Azure PowerShell의 일부로 제공되는 Azure 데이터 팩터리 cmdlet을 사용하여 데이터 팩터리를 만들고 배포할 수 있습니다. 간단한 예제는 [Azure PowerShell을 사용하여 Azure 데이터 팩터리 만들기 및 모니터링][create-data-factory-using-powershell]을 참조하고, PowerShell cmdlet을 사용하여 데이터 팩터리를 만들고 배포하는 고급 예제는 [자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial]를 참조하세요. 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조하세요.  
 - **Visual Studio**. 또한 Visual Studio를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들고, 모니터링하고, 관리할 수 있습니다. 자세한 내용은 [데이터 팩터리 .NET SDK를 사용하여 Azure 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically) 문서를 참조하세요.  
 - **.NET 클래스 라이브러리**. 데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리][create-factory-using-dotnet-sdk]를 참조하세요. 데이터 팩터리 .NET SDK의 포괄적인 설명서는 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference]를 참조하세요.  
@@ -168,7 +168,7 @@ cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure
 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
@@ -177,4 +177,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

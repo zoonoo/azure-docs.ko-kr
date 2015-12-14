@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기" 
-	description="이 자습서에서는 Azure 포털을 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다." 
+	pageTitle="Azure 클래식 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기" 
+	description="이 자습서에서는 Azure 클래식 포털을 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Azure 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기
+#Azure 클래식 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -58,7 +58,7 @@
 
 ##자습서 내용
 
-이 자습서에서는 Azure 관리 포털을 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 Azure 클래식 포털을 사용하여 다음 작업을 수행합니다.
 
 2.  스트리밍 끝점을 구성합니다.
 3.  라이브 인코딩을 수행할 수 있는 채널 만들기
@@ -85,7 +85,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 스트리밍 예약 단위의 수를 변경하려면 다음을 수행합니다.
 
-1. [관리 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
 
 2. 스트리밍 끝점 페이지를 선택합니다. 그리고 수정할 스트리밍 끝점을 클릭합니다.
 
@@ -105,7 +105,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
  
 ##채널 만들기
 
-1.	[관리 포털](http://manage.windowsazure.com/)에서 미디어 서비스를 클릭한 후 미디어 서비스 계정 이름을 클릭합니다.
+1.	[Azure 클래식 포털](http://manage.windowsazure.com/)에서 미디어 서비스를 클릭한 후 미디어 서비스 계정 이름을 클릭합니다.
 2.	채널 페이지를 선택합니다.
 3.	추가+를 선택하여 새 채널을 추가합니다.
 
@@ -276,4 +276,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

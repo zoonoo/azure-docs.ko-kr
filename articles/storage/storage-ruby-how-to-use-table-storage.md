@@ -58,13 +58,13 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 
 이러한 값을 얻으려면
 
-1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 포털](portal.azure.com)에 로그인합니다.
 
-2. 사용하려는 저장소 계정으로 이동합니다.
+2. 저장소 계정으로 이동합니다.
 
-3. 탐색 창 아래쪽에서 **키 관리**를 클릭합니다.
+3. **설정** 블레이드에서 **키**를 선택합니다.
 
-4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키로 기본 액세스 키, 보조 액세스 키 중 하나를 사용할 수 있습니다.
+4. 원하는 액세스 키 값을 복사합니다.
 
 ## 테이블 만들기
 
@@ -154,8 +154,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 
 더 복잡한 저장소 작업에 대해 알아보려면 다음 링크를 따라가세요.
 
-- MSDN 참조: [Azure 저장소](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub의 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

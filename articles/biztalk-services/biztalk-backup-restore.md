@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
 # BizTalk 서비스: 백업 및 복원
 
-Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니다. 이 항목에서는 Azure 관리 포털을 사용하여 BizTalk 서비스를 백업하고 복원하는 방법에 대해 설명합니다.
+Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니다. 이 항목에서는 Azure 클래식 포털을 사용하여 BizTalk 서비스를 백업하고 복원하는 방법에 대해 설명합니다.
 
 [BizTalk 서비스 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584)를 사용하여 BizTalk 서비스를 백업할 수도 있습니다.
 
@@ -29,7 +29,7 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 	**참고** 하이브리드 연결은 버전에 상관없이 백업되지 않습니다.
 
-- Azure 관리 포털을 사용하여 주문형 백업 또는 예약된 백업을 만들 수 있습니다.
+- Azure 클래식 포털을 사용하여 주문형 백업 또는 예약된 백업을 만들 수 있습니다.
 
 - 백업 콘텐츠는 동일한 BizTalk 서비스 또는 새로운 BizTalk 서비스로 복원할 수 있습니다. 동일한 이름을 사용하여 BizTalk 서비스를 복원하려면 기존 BizTalk 서비스를 삭제해야 하며 이름을 사용할 수 있어야 합니다. BizTalk 서비스를 삭제한 후 동일한 이름의 서비스를 사용하려면 시간이 좀 더 오래 걸릴 수 있습니다. 동일한 이름의 서비스를 사용할 수 있을 때까지 기다릴 수 없으면 새 BizTalk 서비스로 복원합니다.
 
@@ -48,14 +48,14 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 ## 백업 만들기
 
-언제든 백업을 만들어 완벽하게 제어할 수 있습니다. 이 섹션에서는 다음을 비롯해 Azure 관리 포털을 사용하여 백업을 만드는 단계를 설명합니다.
+언제든 백업을 만들어 완벽하게 제어할 수 있습니다. 이 섹션에서는 다음을 비롯해 Azure 클래식 포털을 사용하여 백업을 만드는 단계를 설명합니다.
 
 [주문형 백업](#backupnow)
 
 [백업 예약](#backupschedule)
 
 #### <a name="backupnow"></a>주문형 백업
-1. Azure 관리 포털에서 **BizTalk 서비스**를 선택한 후 백업할 BizTalk 서비스를 선택합니다.
+1. Azure 클래식 포털에서 **BizTalk 서비스**를 선택한 후 백업할 BizTalk 서비스를 선택합니다.
 2. **대시보드** 탭에서 페이지 맨 아래에 있는 **백업**을 선택합니다.
 3. 백업 이름을 입력합니다. 예를 들어 *myBizTalkService*BU*Date*를 입력합니다.
 4. Blob 저장소 계정을 선택한 후 확인 표시를 선택하여 백업을 시작합니다.
@@ -64,7 +64,7 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 #### <a name="backupschedule"></a>백업 예약
 
-1. Azure 관리 포털에서 **BizTalk 서비스**를 선택하고 백업을 예약할 BizTalk 서비스 이름을 선택한 후 **구성** 탭을 선택합니다.
+1. Azure 클래식 포털에서 **BizTalk 서비스**를 선택하고 백업을 예약할 BizTalk 서비스 이름을 선택한 후 **구성** 탭을 선택합니다.
 2. **백업 상태**를 **자동**으로 설정합니다. 
 3. 백업을 저장할 **저장소 계정**을 선택하고 백업을 만들 **빈도** 및 백업을 유지할 기간(**보존 기간(일)**)를 입력합니다.
 
@@ -86,7 +86,7 @@ BizTalk 서비스 대시보드에 **실패** 상태가 표시된 경우:
 
 ## 복원
 
-Azure 관리 포털 또는 [BizTalk 서비스 REST API 복원](http://go.microsoft.com/fwlink/p/?LinkID=325582)에서 백업을 복원할 수 있습니다. 이 섹션에서는 관리 포털을 사용하여 복원하는 단계를 설명합니다.
+Azure 클래식 포털 또는 [BizTalk 서비스 REST API 복원](http://go.microsoft.com/fwlink/p/?LinkID=325582)에서 백업을 복원할 수 있습니다. 이 섹션에서는 클래식 포털을 사용하여 복원하는 단계를 설명합니다.
 
 #### 복원하기 전에
 
@@ -96,7 +96,7 @@ Azure 관리 포털 또는 [BizTalk 서비스 REST API 복원](http://go.microso
 
 #### 백업 복원
 
-1. Azure 관리 포털에서 **새로 만들기** > **앱 서비스** > **BizTalk 서비스** > **복원**을 선택합니다.
+1. Azure 클래식 포털에서 **새로 만들기** > **앱 서비스** > **BizTalk 서비스** > **복원**을 선택합니다.
 
 	![백업 복원][Restore]
 
@@ -119,7 +119,7 @@ Azure 관리 포털 또는 [BizTalk 서비스 REST API 복원](http://go.microso
 
 7. 확인 표시를 선택하여 복원을 시작합니다.
 
-복원이 완료되면 Azure 관리 포털의 BizTalk 서비스 페이지에서 새로운 BizTalk 서비스가 일시 중단 상태로 나열됩니다.
+복원이 완료되면 Azure 클래식 포털의 BizTalk 서비스 페이지에서 새로운 BizTalk 서비스가 일시 중단 상태로 나열됩니다.
 
 
 
@@ -135,7 +135,7 @@ BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상
 
 - 새로 복원한 BizTalk 서비스 환경에서 자동 백업을 구성하는 것이 좋습니다.
 
-Azure 관리 포털에서 BizTalk 서비스를 시작하려면 복원된 BizTalk 서비스를 선택한 후 작업 표시줄에서 **계속**을 선택합니다.
+Azure 클래식 포털에서 BizTalk 서비스를 시작하려면 복원된 BizTalk 서비스를 선택한 후 작업 표시줄에서 **계속**을 선택합니다.
 
 
 
@@ -214,13 +214,13 @@ Azure 관리 포털에서 BizTalk 서비스를 시작하려면 복원된 BizTalk
 
 ## 다음
 
-Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동하세요. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하세요.
+Azure 클래식 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동하세요. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하세요.
 
 ## 참고 항목
 - [BizTalk 서비스 백업](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 - [백업에서 BizTalk 서비스 복원](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 - [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-- [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+- [BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 - [BizTalk 서비스: 프로비저닝 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 - [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 - [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)
@@ -233,4 +233,4 @@ Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

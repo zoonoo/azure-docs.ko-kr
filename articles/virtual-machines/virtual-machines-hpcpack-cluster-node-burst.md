@@ -41,7 +41,7 @@ A8 또는 A9 계산 집약적 인스턴스 크기를 사용하려는 경우 [A8,
 
 ## 1단계: Azure 노드를 추가할 클라우드 서비스 및 저장소 계정을 만듭니다.
 
-Azure 포털 또는 동급의 도구를 사용하여 Azure 노드 배포에 필요한 다음 항목을 구성합니다.
+Azure 클래식 포털 또는 동급의 도구를 사용하여 Azure 노드 배포에 필요한 다음 항목을 구성합니다.
 
 * 새 Azure 클라우드 서비스
 * 새 Azure 저장소 계정
@@ -69,7 +69,7 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 
 
-이 시나리오에서 Azure 노드를 추가 및 시작하는 단계는 온-프레미스 헤드 노드에서 사용하는 방법과 일반적으로 동일합니다. 자세한 내용은 [Microsoft HPC 팩을 사용하여 Azure 노드를 배포하는 단계](https://technet.microsoft.com/library/gg481758(v=ws.10).aspx)에서 다음 섹션을 참조하세요.
+이 시나리오에서 Azure 노드를 추가 및 시작하는 단계는 온-프레미스 헤드 노드에서 사용하는 방법과 일반적으로 동일합니다. 자세한 내용은 [Microsoft HPC 팩을 사용하여 Azure 노드를 배포하는 단계]에서 다음 섹션을 참조하세요(https://technet.microsoft.com/library/gg481758(v=ws.10).aspx)).
 
 * Azure 노드 템플릿 만들기
 
@@ -79,7 +79,7 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 노드를 추가 및 시작하면 클러스터 작업을 실행하는 데 사용할 수 있습니다.
 
-Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 사용하여 Azure 노드 배포 시 문제 해결](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx)을 참조하세요.
+Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 사용하여 Azure 노드 배포 시 문제 해결]을 참조하세요(http://technet.microsoft.com/library/jj159097(v=ws.10).aspx)).
 
 ## 다음 단계
 
@@ -88,4 +88,4 @@ Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 �
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

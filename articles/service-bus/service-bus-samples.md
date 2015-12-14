@@ -29,7 +29,7 @@
 
 ### Azure 서비스 버스에 대한 연결 문자열을 가져오려면
 
-1. [Azure 포털](http://manage.windowsazure.com)에 로그온합니다.
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에 로그온합니다.
 
 1. 왼쪽 열에서 **서비스 버스**를 클릭합니다.
 
@@ -132,4 +132,4 @@
 - [서비스 버스 아키텍처](service-bus-architecture.md)
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-이 문서에서는 Windows가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 모든 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로이 이미즈를 사용하여 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
+이 문서에서는 Windows가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 모든 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로, 이미지를 사용하는 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
 
 Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용자가 업로드한 모든 이미지도 이 위치에 저장됩니다. 이미지에 대한 자세한 내용은 [가상 컴퓨터 이미지 정보](virtual-machines-images.md)를 참조하세요.
 
@@ -40,7 +40,7 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 
 ##가상 컴퓨터 캡처
 
-1. [Azure 포털](http://manage.windowsazure.com)에서 가상 컴퓨터에 **연결**합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법][]을 참조하세요.
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에서, 가상 컴퓨터를 **연결**합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법][]을 참조하세요.
 
 2.	관리자로 명령 프롬프트 창을 엽니다.
 
@@ -56,9 +56,9 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 
 	![Sysprep 실행](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep에서 가상 컴퓨터를 종료합니다. 그러면 Azure 포털의 가상 컴퓨터 상태가 **중지됨**으로 변경됩니다.
+7.	Sysprep는 Azure 클래식 포털에서 가상 컴퓨터의 상태를 변경하는 가상 컴퓨터를 **중지**하기 위해 차단시킵니다.
 
-8.	Azure 포털에서 **가상 컴퓨터**를 클릭한 후 캡처하려는 가상 컴퓨터를 선택합니다.
+8.	Azure 클래식 포털에서, **가상 컴퓨터**를 클릭하고 캡쳐할 가상 컴퓨터를 선택합니다.
 
 9.	명령 모음에서 **캡처**를 클릭합니다.
 
@@ -76,7 +76,7 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 
 ##다음 단계
 
-이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. 이렇게 하려면 **갤러리에서** 메뉴 항목을 사용하여 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 지침에 대해서는 [이미지에서 가상 컴퓨터 만들기](virtual-machines-create-custom.md)를 참조하세요.
+이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. 이렇게 하려면**갤러리에서** 메뉴 항목을 사용하여 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 지침에 대해서는 [이미지에서 가상 컴퓨터 만들기](virtual-machines-create-custom.md)를 참조하세요.
 
 
 
@@ -90,4 +90,4 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

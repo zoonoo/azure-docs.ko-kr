@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="범용 Windows 앱에서 Azure Blob 저장소에 이미지 업로드 | Microsoft Azure" 
-	description=".NET 백엔드 모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 범용 Windows 앱에서 이미지에 액세스하는 방법 알아보기" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	services="mobile-services,storage" 
-	manager="dwrede" 
+<properties
+	pageTitle="범용 Windows 앱에서 Azure Blob 저장소에 이미지 업로드 | Microsoft Azure"
+	description=".NET 백엔드 모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 범용 Windows 앱에서 이미지에 액세스하는 방법 알아보기"
+	documentationCenter="windows"
+	authors="ggailey777"
+	services="mobile-services,storage"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
@@ -52,7 +57,7 @@
 + [모바일 서비스 .NET 방법 개념 참조](../mobile-services-windows-dotnet-how-to-use-client-library.md)
 
      모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아보십시오.
- 
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -66,9 +71,7 @@
 
 <!-- URLs. -->
 [모바일 서비스 시작하기]: ../mobile-services-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

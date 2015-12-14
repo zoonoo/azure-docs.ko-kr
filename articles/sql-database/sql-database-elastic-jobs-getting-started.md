@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh; ddove" />
 
 # 탄력적 데이터베이스 작업 시작
@@ -33,15 +33,15 @@ Azure SQL 데이터베이스에 대한 탄력적 데이터베이스 작업(미�
 
 	![명령 프롬프트][1]
 
-2.  명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
+2.  명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter** 키를 누릅니다. 이 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
 
-3.  [Azure Preview 포털](https://portal.azure.com)에서 사용자의v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
+3.  [Azure 포털](https://portal.azure.com)에서 사용자의v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
 
 	![Visual Studio 확인][2]
 
 	이 시점에서 분할된 데이터베이스 맵에 있는 모든 데이터베이스를 반영하는 사용자 지정 데이터베이스 컬렉션을 만듭니다. 그러면 분할된 데이터베이스에서 새 테이블을 추가하는 작업을 만들고 실행할 수 있습니다.
 
-이제 일반적으로 여기서 **New-AzureSqlJobTarget** cmdlet을 사용하여 분할된 데이터베이스 맵 대상을 만듭니다. 분할된 데이터베이스 맵 관리자 데이터베이스를 데이터베이스 대상으로 설정해야 하며, 그러면 분할된 특정 데이터베이스 맵이 대상으로 지정됩니다. 대신, 서버에 있는 모든 데이터베이스를 열거하고 master 데이터베이스 이외의 데이터베이스를 새 사용자 지정 컬렉션에 추가하겠습니다.
+일반적으로 여기서 **New-AzureSqlJobTarget** cmdlet을 사용하여 분할된 데이터베이스 맵 대상을 만듭니다. 분할된 데이터베이스 맵 관리자 데이터베이스를 데이터베이스 대상으로 설정해야 하며, 그러면 분할된 특정 데이터베이스 맵이 대상으로 지정됩니다. 대신, 서버에 있는 모든 데이터베이스를 열거하고 master 데이터베이스 이외의 데이터베이스를 새 사용자 지정 컬렉션에 추가하겠습니다.
 
 ##사용자 지정 컬렉션을 만들고 마스터를 제외한 서버의 모든 데이터베이스를 사용자 지정 컬렉션에 추가합니다.
 
@@ -379,7 +379,7 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 
 ## 작업 트리거를 사용하여 작업 실행 일정 만들기
 
-다음 PowerShell 스크립트를 사용하여 되풀이 일정을 만들 수 있습니다. 이 스크립트는 분 간격을 사용하지만 New-AzureSqlJobSchedule은 -DayInterval, -HourInterval, -MonthInterval 및 -WeekInterval 매개 변수도 지원합니다. -OneTime을 전달하여 한 번만 실행되는 일정을 만들 수 있습니다.
+다음 PowerShell 스크립트를 사용하여 되풀이 일정을 만들 수 있습니다. 이 스크립트는 1분 간격을 사용하지만 New-AzureSqlJobSchedule은 -DayInterval, -HourInterval, -MonthInterval 및 -WeekInterval 매개 변수도 지원합니다. -OneTime을 전달하여 한 번만 실행되는 일정을 만들 수 있습니다.
 
 새 일정을 만듭니다.
 
@@ -447,4 +447,4 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

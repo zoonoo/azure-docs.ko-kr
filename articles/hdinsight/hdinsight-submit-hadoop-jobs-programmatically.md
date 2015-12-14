@@ -31,8 +31,8 @@ Azure PowerShell을 사용하여 MapReduce, Hive 작업을 제출하는 방법�
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure HDInsight 클러스터**. 자세한 내용은 [HDInsight 시작][hdinsight-get-started] 또는 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision]을 참조하세요.
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
+- **Azure HDInsight 클러스터**. 자세한 내용은 [HDInsight 시작][hdinsight-get-started] 또는 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 1.0 이상 설치](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)를 참조하세요.
 
 ##PowerShell을 사용하여 MapReduce 작업 제출
 
@@ -266,4 +266,4 @@ Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 및 Pig 스크립�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

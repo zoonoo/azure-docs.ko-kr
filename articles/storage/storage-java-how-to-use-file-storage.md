@@ -217,8 +217,8 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 [Java용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 저장소 클라이언트 SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

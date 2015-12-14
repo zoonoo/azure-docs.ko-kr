@@ -26,7 +26,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 첫 번째 패턴은 [Azure Blob]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. *콜드 경로* 분석을 구현하는 경우 이 시나리오는 매우 일반적이며 여기서 blob에 저장된 데이터는 [Azure 데이터 팩터리] 또는 [Hadoop] 스택과 같은 도구로 제어되는 분석에 대한 입력으로 사용됩니다.
 
-두 번째 패턴은 *대화형* 장치-클라우드 메시지의 신뢰할 수 있는 처리입니다. 장치-클라우드로 메시지는 분석 엔진에 공급되는 *데이터 요소* 메시지와 달리 응용 프로그램 백 엔드에서 일련의 작업에 즉각적인 트리거인 경우 *대화형*입니다. 예를 들어 CRM 시스템에서 티켓의 삽입을 트리거해야 하는 장치에서 보내는 경보는 *대화형* 장치-클라우드 메시지이며 이는 온도 샘플을 포함한 원격 분석 메시지와 달리 *데이터 요소* 메시지입니다.
+두 번째 패턴은 *대화형* 장치-클라우드 메시지의 신뢰할 수 있는 처리입니다. 장치-클라우드 메시지는 분석 엔진에 공급되는 *데이터 요소* 메시지와 달리 응용 프로그램 백 엔드에서 일련의 작업에 즉각적인 트리거인 경우 *대화형*입니다. 예를 들어 CRM 시스템에서 티켓의 삽입을 트리거해야 하는 장치에서 보내는 경보는 *대화형* 장치-클라우드 메시지이며 이는 온도 샘플을 포함한 원격 분석 메시지와 달리 *데이터 요소* 메시지입니다.
 
 IoT Hub가 이벤트 허브 호환 끝점을 노출하여 장치-클라우드 메시지를 받기 때문에 이 자습서에서는 [EventProcessorHost]를 사용하여 다음과 같은 이벤트 프로세서 클래스를 호스트합니다.
 
@@ -99,18 +99,16 @@ IoT Hub에 대한 추가 정보:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 [Transient Fault Handling]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
-[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub 지침 - 이벤트 허브 호환성]: iot-hub-guidance.md#eventhubcompatible
 
 [Azure 저장소]: https://azure.microsoft.com/ko-KR/documentation/services/storage/
 [Azure 서비스 버스]: https://azure.microsoft.com/ko-KR/documentation/services/service-bus/
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[장치-클라우드 메시지 처리]: iot-hub-csharp-csharp-process-d2c.md
 [장치에서 파일 업로드]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT Hub 개요]: iot-hub-what-is-iot-hub.md
@@ -121,4 +119,4 @@ IoT Hub에 대한 추가 정보:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
 
-이 항목에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 응용 프로그램을 배포하는 방법을 설명합니다. 여기서는 Azure PowerShell, Azure CLI, REST API 또는 Microsoft Azure Preview 포털을 사용하여 응용 프로그램을 배포합니다.
+이 항목에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 응용 프로그램을 배포하는 방법을 설명합니다. 여기서는 Azure PowerShell, Azure CLI, REST API 또는 Azure 포털을 사용하여 응용 프로그램을 배포합니다.
 
 리소스 관리자에 대한 소개는 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요. 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
@@ -32,17 +32,7 @@
 
 1. Azure 계정에 로그인합니다. 자격 증명을 제공하면 사용자 계정에 대한 정보가 반환됩니다.
 
-    Azure PowerShell 1.0 Preview 이전 버전:
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-        ...
-        PS C:\> Add-AzureAccount
-
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-    Azure PowerShell 1.0 Preview:
+    Azure PowerShell 1.0.
 
          PS C:\> Login-AzureRmAccount
 
@@ -219,13 +209,13 @@ Visual Studio를 사용하여 리소스 그룹 프로젝트를 만들고 사용�
 
 Visual Studio를 리소스 그룹과 함께 사용하는 방법은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
-## 미리 보기 포털로 배포
+## 포털로 배포
 
-어떤 혜택이 있을까요? Azure 리소스 관리자 템플릿은 [Preview 포털](https://portal.azure.com/)을 통해 만든 모든 응용 프로그램을 지원합니다. 포털을 통해 가상 컴퓨터, 가상 네트워크, 저장소 계정, 앱 서비스 또는 데이터베이스를 만들기만 하면 추가적인 작업 없이도 Azure 리소스 관리자의 혜택을 만끽할 수 있습니다. **새로 만들기** 아이콘을 선택하기만 하면 Azure 리소스 관리자를 통해 응용 프로그램을 배포하는 과정이 진행됩니다.
+어떤 혜택이 있을까요? Azure 리소스 관리자 템플릿은 [포털](https://portal.azure.com/)을 통해 만든 모든 응용 프로그램을 지원합니다. 포털을 통해 가상 컴퓨터, 가상 네트워크, 저장소 계정, 앱 서비스 또는 데이터베이스를 만들기만 하면 추가적인 작업 없이도 Azure 리소스 관리자의 혜택을 만끽할 수 있습니다. **새로 만들기** 아이콘을 선택하기만 하면 Azure 리소스 관리자를 통해 응용 프로그램을 배포하는 과정이 진행됩니다.
 
 ![새로 만들기](./media/resource-group-template-deploy/new.png)
 
-Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
+Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
 
 
 ## 매개 변수 파일
@@ -259,4 +249,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@
 
 **관련된 문서**
 
-- [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Azure Preview 포털을 사용하여 Giraph를 설치합니다.
+- [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Azure 포털을 사용하여 Giraph를 설치합니다.
 - [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
 - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
@@ -171,7 +171,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 ## 참고 항목
 
-- [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Azure Preview 포털을 사용하여 Giraph를 설치합니다.
+- [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Azure 포털을 사용하여 Giraph를 설치합니다.
 - [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
 - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
@@ -190,4 +190,4 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

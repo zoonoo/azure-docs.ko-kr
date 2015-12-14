@@ -31,7 +31,7 @@
 
 - **Azure 구독**: Azure 구독에서 사용 가능한 코어 수를 확인합니다. 권장되는 VM 크기인 **A3**을 만드는 경우 **4**개의 사용 가능한 코어가 필요합니다. **A2**의 VM 크기를 사용하는 경우 **2**개의 사용 가능한 코어가 필요합니다.
 	
-	- Azure 포털에서 구독에 대한 코어 제한을 확인하려면 왼쪽 창에서 설정을 클릭한 다음 최상위 메뉴에서 사용을 클릭합니다.
+	- 구독의 코어 제한을 확인하려면, Azure 클래식 포털의 왼쪽 창에서 설정을 클릭하고 위쪽 메뉴에서 사용을 클릭합니다.
 	
 	- 코어 할당량을 늘리려면 [Azure 지원](http://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하세요.
 
@@ -43,7 +43,7 @@
 
 ## 1단계: Azure 가상 컴퓨터 프로비전
 
-1. Azure 포털로 이동합니다.
+1. Azure 클래식 포털로 이동합니다.
 
 1. 왼쪽 창에서 **가상 컴퓨터**를 클릭합니다.
 
@@ -143,7 +143,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
 
 1. 로컬 VM에서 인증서의 루트 CA를 신뢰하려면 인증서를 **신뢰할 수 있는 루트 인증 기관**에 추가합니다. 다음은 필요한 단계에 대한 요약입니다. CA를 신뢰하는 방법에 대한 자세한 단계는 [서버 인증서 설치](https://technet.microsoft.com/library/cc740068)를 참조하세요.
 
-	1. Azure 포털에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
+	1. Azure 클래식 포털에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
 	
 		![Azure 가상 컴퓨터에 연결](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다.
 	
@@ -193,7 +193,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
 
 Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하려면 다음 단계를 완료합니다. 구성에 HTTPS가 아닌 HTTP가 포함됩니다.
 
-1. Azure 포털에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
+1. Azure 클래식 포털에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
 
 	![Azure 가상 컴퓨터에 연결](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다.
 
@@ -334,7 +334,7 @@ Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하려
 
 Windows PowerShell을 사용하여 보고서 서버를 구성하려면 다음 단계를 완료합니다. 구성에 HTTP가 아닌 HTTPS가 포함됩니다.
 
-1. Azure 포털에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
+1. Azure 클래식 포털에서 VM을 선택하고 연결을 클릭합니다. 브라우저 구성에 따라 VM에 연결하기 위해 .rdp 파일을 저장하라는 메시지가 표시될 수 있습니다.
 
 	![Azure 가상 컴퓨터에 연결](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) VM을 만들 때 구성한 사용자 VM 이름, 사용자 이름 및 암호를 사용합니다.
 
@@ -557,11 +557,11 @@ Windows PowerShell을 사용하여 보고서 서버를 구성하려면 다음 �
 
 PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으려는 경우 이 섹션의 단계를 따라 Reporting Services 기본 모드 구성 관리자를 사용하여 보고서 서버를 구성합니다.
 
-1. Azure 포털에서 VM을 선택하고 연결을 클릭합니다. VM을 만들 때 구성한 사용자 이름 및 암호를 사용합니다.
+1. Azure 클래식 포털에서 VM을 선택하고 연결을 클릭합니다. VM을 만들 때 구성한 사용자 이름 및 암호를 사용합니다.
 
 	![Azure 가상 컴퓨터에 연결](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif)
 
-1. Windows 업데이트를 실행하고 VM에 대한 업데이트를 설치합니다. VM을 다시 시작해야 하는 경우 VM을 다시 시작하고 Azure 포털에서 VM에 다시 연결합니다.
+1. Windows 업데이트를 실행하고 VM에 대한 업데이트를 설치합니다. VM 재시작이 필요한 경우, VM을 재시작하고 Azure 클래식 포털에서 VM을 재연결합니다.
 
 1. VM의 시작 메뉴에서 **Reporting Services**를 입력하고 **Reporting Services 구성 관리자**를 엽니다.
 
@@ -633,7 +633,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 		http://localhost/Reports
 
-- 로컬 컴퓨터의 VM에서 **원격** 보고서 관리자로 이동합니다. 다음 예제에서 DNS 이름을 적절하게 업데이트합니다. 암호를 입력하라는 메시지가 표시되면 VM이 프로비전되었을 때 만든 관리자 자격 증명을 사용합니다. 사용자 이름은 [도메인]\[사용자 이름] 형식이며, 여기서 도메인은 VM 컴퓨터 이름입니다. 예를 들어 ssrsnativecloud\\testuser입니다. HTTP**S**를 사용하지 않는 경우 URL에서 **s**를 제거합니다. VM에서 추가 사용자를 만드는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
+- 로컬 컴퓨터의 VM에서 **원격** 보고서 관리자로 이동합니다. 다음 예제에서 DNS 이름을 적절하게 업데이트합니다. 암호를 입력하라는 메시지가 표시되면 VM이 프로비전되었을 때 만든 관리자 자격 증명을 사용합니다. 사용자 이름은 [도메인][사용자 이름] 형식이며, 여기서 도메인은 VM 컴퓨터 이름입니다. 예를 들어 ssrsnativecloud\\testuser입니다. HTTP**S**를 사용하지 않는 경우 URL에서 **s**를 제거합니다. VM에서 추가 사용자를 만드는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -683,7 +683,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 ## VM을 사용하지 않는 경우 비용 최소화
 
->[AZURE.NOTE]Azure 가상 컴퓨터를 사용하지 않는 경우 이에 대한 요금을 최소화하려면 Azure 포털에서 VM을 종료합니다. VM 내의 Windows 전원 옵션을 사용하여 VM을 종료하면 VM에 대해 동일한 요금이 계속 청구됩니다. 요금을 줄이려면 Azure 포털에서 VM을 종료해야 합니다. VM이 더 이상 필요하지 않은 경우 저장소 요금이 부과되지 않도록 VM 및 연결된 .vhd 파일을 삭제해야 합니다. 자세한 내용은 [가상 컴퓨터 가격 책정 정보](http://azure.microsoft.com/pricing/details/virtual-machines)의 FAQ 섹션을 참조하세요.
+>[AZURE.NOTE]Azure 가상 컴퓨터를 사용하지 않을 때 요금을 최소화하려면, Azure 클래식 포털에서 VM을 종료합니다. VM 내의 Windows 전원 옵션을 사용하여 VM을 종료하면 VM에 대해 동일한 요금이 계속 청구됩니다. 요금을 줄이려면 Azure 클래식 포털에서 VM을 종료해야 합니다. VM이 더 이상 필요하지 않은 경우 저장소 요금이 부과되지 않도록 VM 및 연결된 .vhd 파일을 삭제해야 합니다. 자세한 내용은 [가상 컴퓨터 가격 책정 정보](http://azure.microsoft.com/pricing/details/virtual-machines)의 FAQ 섹션을 참조하세요.
 
 ## 추가 정보
 
@@ -705,4 +705,4 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

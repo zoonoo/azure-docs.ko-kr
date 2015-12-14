@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # 리소스 관리자로 작업 감사
@@ -27,7 +27,7 @@
 1. 감사 로그는 90일 동안만 유지됩니다.
 2. 15일 이하의 범위에 대한 쿼리만 수행할 수 있습니다.
 
-Azure PowerShell, Azure CLI, REST API 또는 Azure 미리 보기 포털을 통해 감사 로그에서 정보를 검색할 수 있습니다.
+Azure PowerShell, Azure CLI, REST API 또는 Azure 포털을 통해 감사 로그에서 정보를 검색할 수 있습니다.
 
 ## PowerShell
 
@@ -144,9 +144,9 @@ Azure PowerShell, Azure CLI, REST API 또는 Azure 미리 보기 포털을 통�
 
 감사 로그로 작업하기 위한 REST 작업은 [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)의 일부입니다. 감사 로그 이벤트를 검색하려면 [구독에서 관리 이벤트 나열](https://msdn.microsoft.com/library/azure/dn931934.aspx)을 참조하세요.
 
-## Preview 포털
+## 포털
 
-또한 미리 보기 포털을 통해 기록된 작업을 볼 수 있습니다. 감사 로그 블레이드를 선택하면 됩니다.
+또한 포털을 통해 기록된 작업을 볼 수 있습니다. 감사 로그 블레이드를 선택하면 됩니다.
 
 ![감사 로그 선택](./media/resource-group-audit/select-audit.png)
 
@@ -162,4 +162,4 @@ Azure PowerShell, Azure CLI, REST API 또는 Azure 미리 보기 포털을 통�
 - 서비스 주체에게 액세스를 부여하는 방법에 대한 내용은 [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 - 모든 사용자에 대한 리소스의 작업 방법에 대한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

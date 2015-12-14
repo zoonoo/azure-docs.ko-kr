@@ -18,6 +18,11 @@
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##개요
@@ -155,7 +160,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
     내보낸 인증서의 파일 이름과 위치를 적어둡니다.
 
-2. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
+2. [Azure 클래식 포털]에 로그온하고 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
     ![][18]
 
@@ -273,11 +278,11 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             DeviceToken = deviceToken
         };
 
-이제 앱이 푸시 알림을 지원하도록 업데이트되었습니다.
+이제 앱이 푸시 알림을 지원하도록 업데이트됩니다.
 
-## <a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
+## <a name="update-scripts"></a>Azure 클래식 포털에서 등록된 삽입 스크립트 업데이트
 
-1. 관리 포털에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
+1. [Azure 클래식 포털]에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
     ![][21]
 
@@ -392,10 +397,10 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [Xamarin 장치 프로비저닝]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

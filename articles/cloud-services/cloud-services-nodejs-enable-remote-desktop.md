@@ -58,9 +58,9 @@
 
 업데이트 서비스 정의를 게시한 후에 역할 인스턴스에 연결할 수 있습니다.
 
-1.  [Azure 관리 포털]에서 **클라우드 서비스**를 선택한 다음 해당 서비스를 선택합니다.
+1.  [Azure 클래식 포털]에서 **클라우드 서비스**를 선택한 다음 해당 서비스를 선택합니다.
 
-	![azure 관리 포털][cloud-services]
+	![Azure 클래식 포털][cloud-services]
 
 2.  **인스턴스**를 클릭한 다음 **프로덕션**이나 **스테이징**을 클릭하여 해당 서비스의 인스턴스를 확인합니다. 인스턴스를 선택하고 페이지 아래쪽에서 **연결**을 클릭합니다.
 
@@ -74,7 +74,7 @@
 
     ![Windows 보안 프롬프트][5]
 
-4.  **연결**을 클릭하면 인스턴스에 액세스할 자격 증명을 입력하기 위한 보안 프롬프트가 나타납니다. [1단계](1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스를 구성)에서 생성한 암호를 입력한 후 **확인**을 클릭합니다.
+4.  **연결**을 클릭하면 인스턴스에 액세스할 자격 증명을 입력하기 위한 보안 프롬프트가 나타납니다. [1단계][1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스를 구성]에서 생성한 암호를 입력한 후 **확인**을 클릭합니다.
 
     ![사용자 이름/암호 프롬프트][6]
 
@@ -102,7 +102,7 @@
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[Azure 관리 포털]: http://manage.windowsazure.com
+[Azure 클래식 포털]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
@@ -116,4 +116,4 @@
   [Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

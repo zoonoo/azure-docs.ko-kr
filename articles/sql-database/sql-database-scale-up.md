@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,10 +22,10 @@
 **단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-이 문서에서는 [Azure Preview 포털](https://portal.azure.com)을 사용하여 SQL 데이터베이스의 서비스 계층 및 성능 수준을 변경하는 방법을 보여 줍니다.
+이 문서에서는 [Azure 포털](https://portal.azure.com)을 사용하여 SQL 데이터베이스의 서비스 계층 및 성능 수준을 변경하는 방법을 보여 줍니다.
 
 [SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-new-service-tiers.md) 및 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)의 정보를 사용하여 Azure SQL 데이터베이스에 대해 적절한 서비스 계층 및 성능 수준을 결정합니다.
 
@@ -50,7 +50,7 @@
 
 규모 확장 또는 축소할 데이터베이스에 대한 SQL 데이터베이스 블레이드를 엽니다.
 
-1.	[Azure Preview 포털](https://portal.azure.com)로 이동합니다.
+1.	[Azure 포털](https://portal.azure.com)로 이동합니다.
 2.	**모두 찾아보기**를 클릭합니다.
 3.	**SQL 데이터베이스**를 클릭합니다.
 2.	변경할 데이터베이스를 클릭합니다.
@@ -98,4 +98,4 @@
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

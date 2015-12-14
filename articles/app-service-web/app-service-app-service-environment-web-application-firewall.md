@@ -35,7 +35,7 @@
 Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대한 [자세한 문서](https://techlib.barracuda.com/WAF/AzureDeploy)가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
 
 ### 클라우드 서비스에 끝점 추가 ###
-클라우드 서비스 내에 2개나 그 이상의 WAF VM이 있다면, [Azure 관리 포털](https://portal.azure.com)을 사용하여 아래의 그림처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 끝점을 추가할 수 있습니다.
+클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com)을 사용하여 아래의 그림처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 끝점을 추가할 수 있습니다.
 
 ![끝점 구성][ConfigureEndpoint]
 
@@ -66,11 +66,11 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 > 참고: 응용 프로그램이 어떻게 구성되었는지, 앱 서비스 환경에서 어떤 기능들이 쓰이고 있는지에 따라서 트래픽을 80 및 443이 아닌 TCP 포트로 전달해야 합니다(예: 웹앱에 대한 IP SSL을 설치한 경우). 앱 서비스 환경에서 사용되는 네트워크 포트의 목록은 [인바운드 트래픽을 제어 설명서](app-service-app-service-environment-control-inbound-traffic.md)의 네트워크 포트 섹션을 참조하세요.
 
 ## Microsoft Azure 트래픽 관리자를 구성합니다. (선택 사항) ##
-응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure 트래픽 관리자](traffic-manager.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 아래의 그림처럼 트래픽 관리자 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure 관리 포털](https://manage.azure.com)에서 끝점을 추가합니다.
+응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure 트래픽 관리자](traffic-manager.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 아래의 그림처럼 트래픽 관리자 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure 클래식 포털](https://manage.azure.com)에서 끝점을 추가합니다.
 
 ![트래픽 관리자 끝점][TrafficManagerEndpoint]
 
-응용 프로그램에 대해 인증이 필요한 경우, 응용 프로그램의 가용성에 대해 ping하는 트리팩 관리자에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 아래 그림처럼 [Azure 관리 포털](https://manage.azure.com)의 구성 섹션에서 URL을 구성할 수 있습니다.
+응용 프로그램에 대해 인증이 필요한 경우, 응용 프로그램의 가용성에 대해 ping하는 트리팩 관리자에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 아래 그림처럼 [Azure 클래식 포털](https://manage.azure.com)의 구성 섹션에서 URL을 구성할 수 있습니다.
 
 ![트래픽 관리자를 구성하는 방법][ConfigureTrafficManager]
 
@@ -99,4 +99,4 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

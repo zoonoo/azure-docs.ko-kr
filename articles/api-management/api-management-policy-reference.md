@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리 정책 참조
@@ -34,6 +34,11 @@
 	-	[흐름 제어][] - 부울 [식][]의 평가 결과에 따라 정책 문을 조건부로 적용합니다.
 	-	[요청 전달][] - 백 엔드 서비스에 요청을 전달합니다.
 	-	[로그 이벤트 허브를][] - [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) 엔터티가 정의한 메시지 대상에 지정된 형식으로 메시지를 보냅니다.
+	-	[응답 반환](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다.
+	-	[단방향 요청 전송](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - 지정된 URL에 대한 응답을 기다리지 않고 요청을 보냅니다.
+	-	[요청 전송](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - 지정된 URL로 요청을 보냅니다.
+	-	[요청 메서드 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.
+	-	[상태 코드 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.
 	-	[변수 설정][] - 나중에 액세스할 수 있도록 명명된 [context][] 변수의 값을 유지합니다.
 -	[인증 정책][]
 	-	[기본 사용 인증][] - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.
@@ -110,4 +115,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

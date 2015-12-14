@@ -46,7 +46,7 @@
 웹 앱 및 MySQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
 1. [Azure 포털][management-portal]에 로그인합니다.
-2. 포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+2. Azure 포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
 	![새 Azure 웹 사이트 만들기][new-website]
 
@@ -300,4 +300,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

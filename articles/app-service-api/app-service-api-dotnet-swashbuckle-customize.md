@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/16/2015" 
+	ms.date="11/24/2015" 
 	ms.author="bradyg"/>
 
 # Swashbuckle 생성 API 정의 사용자 지정 
@@ -250,4 +250,4 @@ Visual Studio를 사용하여 REST API에 대한 클라이언트 코드를 다�
 이 문서에서는 Swashbuckle이 작업 ID 및 유효한 응답 코드를 생성하는 방법을 사용자 지정하는 방법을 설명했습니다. 자세한 내용은 [GitHub의 Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)을 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

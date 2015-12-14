@@ -82,9 +82,9 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 
 | 이름 | 의미 | | | | |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | Azure 포털에서 얻은 서비스 버스 네임스페이스입니다. | | | | |
-| `[username]` | Azure 포털에서 얻은 서비스 발급자 이름입니다. | | | | |
-| `[password]` | Azure 포털에서 얻은 URL 인코딩된 형식의 서비스 버스 발급자 키입니다. | | | | |
+| `[namespace]` | [Azure 클래식 포털][]에서 얻은 서비스 버스 네임스페이스입니다. | | | | |
+| `[username]` | [Azure 클래식 포털][]에서 얻은 서비스 버스 발급자 이름입니다. | | | | |
+| `[password]` | [Azure 클래식 포털][]에서 얻은 URL 인코딩된 형식의 서비스 버스 발급자 키입니다. | | | | |
 
 > [AZURE.NOTE]수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
 
@@ -95,7 +95,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 | 발급자 이름: | owner |
 | 발급자 키: | abcdefg |
 
-이 경우 `SBCONNECTIONFACTORY`(이)라는 **ConnectionFactory** 개체를 정의하기 위해 구성 문자열이 다음과 같이 표시됩니다.
+이 경우 `SBCONNECTIONFACTORY`라는 **ConnectionFactory** 개체를 정의하기 위해 구성 문자열이 다음과 같이 표시됩니다.
 
 ```
 connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
@@ -110,7 +110,7 @@ queue.[jndi_name] = [physical_name]
 topic.[jndi_name] = [physical_name]
 ```
 
-여기서 `[jndi\_name]` 및 `[physical\_name]`은(는) 다음과 같은 의미가 있습니다.
+여기서 `[jndi\_name]` 및 `[physical\_name]`은 다음과 같은 의미가 있습니다.
 
 | 이름 | 의미 |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------|
@@ -119,7 +119,7 @@ topic.[jndi_name] = [physical_name]
 
 다음 사항에 유의하세요.
 
-- `[physical\name]` 값은 서비스 버스 큐 또는 항목이 될 수 있습니다.
+- `[physical\name]` 값은 서비스 버스 큐 또는 토픽이 될 수 있습니다.
 - 서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다.
 - 서비스 버스 토픽 구독을 JMS 큐로 처리하는 것도 가능합니다. 이 방법의 장점은 다음과 같습니다. 동일한 수신자 코드를 큐와 토픽 구독에 대해 사용할 수 있으며 모든 주소 정보(항목 및 구독 이름)는 속성 파일에서 구체화됩니다.
 - 서비스 버스 토픽 구독을 JMS 큐로 처리하려면 속성 파일의 항목이 양식 `queue.[jndi\_name] = [topic\_name]/Subscriptions/[subscription\_name]`이어야 합니다.|
@@ -132,7 +132,7 @@ topic.TOPIC = topic1
 
 ### JMS를 사용하여 메시지 전송
 
-다음 코드는 서비스 버스 토픽에 메시지를 전송하는 방법을 보여 줍니다. `SBCONNECTIONFACTORY` 및 `TOPIC`은(는) 이전 섹션에서 설명한대로 **servicebus.properties** 구성 파일에서 정의된 것으로 간주됩니다.
+다음 코드는 서비스 버스 토픽에 메시지를 전송하는 방법을 보여 줍니다. `SBCONNECTIONFACTORY` 및 `TOPIC`은 이전 섹션에서 설명한대로 **servicebus.properties** 구성 파일에서 정의된 것으로 간주됩니다.
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -153,7 +153,7 @@ producer.send(message);
 
 ### JMS를 사용하여 메시지 수신
 
-다음 코드는 서비스 버스 토픽 구독에서 메시지를 수신하는 `how`을 보여 줍니다. `SBCONNECTIONFACTORY` 및 TOPIC은 이전 섹션에서 설명한대로 **servicebus.properties** 구성 파일에서 정의된 것으로 간주됩니다. 구독 이름은 `subscription1`(으)로 간주됩니다.
+다음 코드는 서비스 버스 토픽 구독에서 메시지를 수신하는 `how`을 보여 줍니다. `SBCONNECTIONFACTORY` 및 TOPIC은 이전 섹션에서 설명한대로 **servicebus.properties** 구성 파일에서 정의된 것으로 간주됩니다. 또한 구독 이름은 `subscription1`로 간주됩니다.
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -178,7 +178,7 @@ JMS 사양은 이러한 예외를 처리하도록 API 메서드 및 응용 프�
 
 -   **connection.setExceptionListener**를 사용하여 JMS 연결로 **ExceptionListener**를 등록합니다. 이렇게 하면 클라이언트에게 문제를 비동기적으로 알려줍니다. 이 알림은 메시지를 사용하는 연결은 연결 실패를 알 수 있는 다른 방법이 없으므로 특히 중요합니다. 기본 AMQP 연결, 세션 또는 링크에 문제가 있을 경우 **ExceptionListener**가 호출됩니다. 이 경우 응용 프로그램은 **JMS 연결**, **세션**, **MessageProducer** 및 **MessageConsumer** 개체를 처음부터 다시 만들어야 합니다.
 
--   메시지가 **MessageProducer**에서 서비스 버스 엔터티로 성공적으로 전송되었는지 확인하려면 응용 프로그램이 **qpid.sync\_publish** 시스템 속성 설정으로 구성되었는지 확인합니다. 응용 프로그램을 시작할 때 명령줄에서 설정된 **-Dqpid.sync\_publish=true** Java VM 옵션으로 프로그램을 시작하여 실행할 수 있습니다. 이 옵션 설정은 서비스 버스에서 메시지 수락했다는 확인을 수신할 때까지 전송 호출로부터 반환되지 않도록 라이브러리를 구성합니다. 전송 작업 중에 문제가 발생하는 경우 **JMSException**이 발생합니다. 다음 두 가지 가능한 원인이 있습니다.
+-   메시지가 **MessageProducer**에서 서비스 버스 엔터티로 성공적으로 전송되었는지 확인하려면 응용 프로그램이 **qpid.sync\_publish** 시스템 속성 집합으로 구성되었는지 확인합니다. 응용 프로그램을 시작할 때 명령줄에서 설정된 **-Dqpid.sync\_publish=true** Java VM 옵션으로 프로그램을 시작하여 실행할 수 있습니다. 이 옵션 설정은 서비스 버스에서 메시지 수락했다는 확인을 수신할 때까지 전송 호출로부터 반환되지 않도록 라이브러리를 구성합니다. 전송 작업 중에 문제가 발생하는 경우 **JMSException**이 발생합니다. 다음 두 가지 가능한 원인이 있습니다.
 	1. 서비스 버스가 전송되는 특정 메시지를 거부하는 방식으로 인해 문제가 발생한 경우 **MessageRejectedException** 예외가 발생합니다. 이 오류는 일시적이거나 메시지의 문제로 인해 발생됩니다. 일부 백오프 논리로 작업을 다시 시도하는 것이 좋습니다. 문제가 지속되면 메시지는 로컬로 로그온한 오류와 함께 중단되어야 합니다. 이 경우 **JMS 연결**, **세션** 또는 **MessageProducer** 개체를 다시 만들 필요가 없습니다. 
 	2. 서비스 버스가 AMQP 링크를 닫는 것으로 인해 문제가 발생한 경우 **InvalidDestinationException** 예외가 발생합니다. 이는 일시적인 문제 또는 삭제되는 메시지 엔터티로 인한 문제일 수 있습니다. 두 경우 모두 **JMS 연결**, **세션** 및 **MessageProducer** 개체를 다시 만들어야 합니다. 오류 상태가 일시적이었다면 이 작업은 결국 성공적으로 수행될 것입니다. 엔터티가 삭제된 경우 오류가 영구적이 됩니다.
 
@@ -186,7 +186,7 @@ JMS 사양은 이러한 예외를 처리하도록 API 메서드 및 응용 프�
 
 ### 메시지 본문
 
-JMS는 다섯 가지 다른 메시지 유형: **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** 및 **TextMessage**를 정의합니다. 서비스 버스 .NET API에는 단일 메시지 형식, [BrokeredMessage][]가 있습니다.
+JMS는 다섯 가지 다른 메시지 유형 **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** 및 **TextMessage**를 정의합니다. 서비스 버스 .NET API에는 단일 메시지 유형, [BrokeredMessage][]가 있습니다.
 
 #### JMS에서 서비스 버스 .NET API
 
@@ -286,7 +286,7 @@ message = new BrokeredMessage("this is a text string");
 
 ####JMS에서 서비스 버스 .NET API
 
-JMS 메시지는 다음과 같은 형식의 응용 프로그램 속성을 지원합니다. **boolean**, **byte**, **short**, **int**, **long**, **float**, **double**, and **String** 다음 Java 코드는 이러한 각 형식의 속성을 사용하여 메시지에서 속성을 설정하는 방법을 보여 줍니다.
+JMS 메시지는 다음과 같은 형식의 응용 프로그램 속성을 지원합니다. **boolean**, **byte**, **short**, **int**, **long**, **float**, **double** 및 **String** 다음 Java 코드는 이러한 각 형식의 속성을 사용하여 메시지에서 속성을 설정하는 방법을 보여 줍니다.
 
 ```
 message.setBooleanProperty("TestBoolean", true); 
@@ -322,7 +322,7 @@ if (message.Properties.Keys.Count > 0)
 | Boolean | bool |
 | String | string |
 
-[BrokeredMessage][] 형식은 다음과 같은 형식의 응용 프로그램 속성을 지원합니다. **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** 및 **TimeSpan** 다음 .NET 코드는 이러한 각 형식의 속성을 사용하여 [BrokeredMessage][]에서 속성을 설정하는 방법을 보여 줍니다.
+[BrokeredMessage][] 형식은 다음과 같은 형식의 응용 프로그램 속성을 지원합니다. **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** 및 **TimeSpan** 다음 .NET 코드는 이러한 각 형식의 속성을 사용하여 [BrokeredMessage][] 개체에서 속성을 설정하는 방법을 보여 줍니다.
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -407,5 +407,6 @@ while (propertyNames.hasMoreElements())
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
+[Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

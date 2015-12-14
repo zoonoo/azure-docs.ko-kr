@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK 통합" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK 통합"
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 #GCM과 Mobile Engagement를 통합하는 방법
@@ -24,16 +24,11 @@
 
 ##소개
 
-GCM을 통합하면 응용 프로그램이 실행되지 않을 때에도 응용 프로그램을 푸시할 수 있습니다.
+GCM을 통합하면 응용 프로그램을 푸시할 수 있습니다.
 
-캠페인 데이터는 GCM을 통해 실제로 전송되지 않으며, 단지 응용 프로그램에 Engagement 푸시를 가져오도록 지시하는 백그라운드 신호입니다. GCM 푸시를 수신하는 동안 응용 프로그램이 실행되지 않으면 Engagement 서버에 대한 연결이 트리거되어 푸시를 가져오며 사용자가 푸시에 응답하여 응용 프로그램을 시작할 경우를 위해 Engagement 연결은 1분 정도 활성 상태로 남아 있습니다.
+SDK로 푸시된 GCM 페이로드는 데이터 개체에 항상 `azme` 키를 포함합니다. 따라서 응용 프로그램에서 다른 용도로 GCM을 사용하는 경우 해당 키에 따라 푸시를 필터링할 수 있습니다.
 
-참고로, Engagement에서는 `engagement.tickle` 축소 키와 함께 [Send-to-Sync] 메시지만 사용합니다.
-
-> [AZURE.IMPORTANT]Android 2.2 이상을 실행하고, Google Play를 설치하고, Google 백그라운드 연결이 활성화된 장치만 GCM을 통해 응용 프로그램의 절전 모드가 해제될 수 있지만 Android SDK의 이전 버전 및 GCM을 지원할 수 없는 장치(단지 의도만 이용하는 장치)에서 이 코드를 안전하게 통합할 수 있습니다. GCM을 통해 응용 프로그램의 절전 모드가 해제되면 다음에 응용 프로그램이 시작될 때 Engagement 알림이 수신됩니다.
-
-
-> [AZURE.WARNING]Engagement SDK가 GCM을 사용하도록 구성되어 있고 고유한 클라이언트 코드에서 C2DM 등록 식별자를 관리하는데 등록 식별자에 대한 충돌이 발생하는 경우 고유한 코드에서 C2DM을 사용하지 않는 경우에만 Engagement에서 GCM을 사용하세요.
+> [AZURE.IMPORTANT]Android 2.2 이상을 실행하고, Google Play를 설치하고, Google 백그라운드 연결이 활성화된 장치만 GCM을 사용해 푸시될 수 있지만 지원되지 않는 장치(단지 의도만 이용하는 장치)에서 이 코드를 안전하게 통합할 수 있습니다.
 
 ##GCM에 등록 및 GCM 서비스 사용
 
@@ -74,7 +69,7 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			  </intent-filter>
 			</receiver>
-			
+
 			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			  <intent-filter>
 			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -115,12 +110,9 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 이제 Android에서 Engagement 통합을 테스트하는 방법을 읽어보고 통합을 확인하세요.
 
 
-[Send-to-Sync]: http://developer.android.com/google/gcm/adv.html#collapsible
 [<http://developer.android.com/guide/google/gcm/gs.html>]: http://developer.android.com/guide/google/gcm/gs.html
 [Google Developers Console]: https://cloud.google.com/console
 [GCM 클라이언트 라이브러리]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google 개발자 콘솔]: https://cloud.google.com/console
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

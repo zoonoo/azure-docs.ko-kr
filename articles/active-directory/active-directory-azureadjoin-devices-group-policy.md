@@ -55,7 +55,7 @@ PKI 배포 요구 사항에 대한 대안으로 다음을 수행할 수 있습�
 
 Azure AD Connect를 사용하면 컴퓨터 온-프레미스를 클라우드에서 장치 개체로 프로비전할 수 있습니다. Azure AD Connect를 배포하려면 Azure AD Connect를 사용하여 하이브리드 관리에 디렉터리 사용을 참조합니다.
 
- - [Azure AD 연결에 대한 사용자 지정 설치](https://azure.microsoft.com/ko-KR/documentation/articles/active-directory-aadconnect-get-started-custom/)(Express 설치 아님)를 수행한 경우 아래에 설명한 **온-프레미스 Active Directory에 SCP(서비스 연결 지점) 만들기**의 절차를 따라야 합니다.
+ - [Azure AD Connect를 위한 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) (Express 설치 아님)를 수행한 경우 아래에 설명한 **온-프레미스 Active Directory에 SCP(서비스 연결 지점) 만들기**의 절차를 따라야 합니다.
  - Azure AD Connect를 설치하기 전에 Azure AD를 사용하여 페더레이션된 구성이 있는 경우(예: 이전에 AD FS(Active Directory Federation Services)를 배포한 경우) 아래의 **AD FS 클레임 규칙 구성** 절차를 따라야 합니다.
 
 ### 온-프레미스 Active Directory에서 서비스 연결 지점(SCP) 만들기
@@ -137,4 +137,4 @@ Active Directory 그룹 정책을 사용하여 Windows 10 도메인 가입 장�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -3,8 +3,8 @@
 	description="Azure Active Directory 및 QuickHelp 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # 자습서: QuickHelp와 Azure Active Directory 통합
@@ -81,15 +81,15 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 QuickHelp에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.<br>
+이 섹션은 Azure AD 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 QuickHelp에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.<br>
 
 **QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **QuickHelp** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][6] <br>
+1. Azure AD 포털의 **QuickHelp** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
 
-2. **QuickHelp에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.<br><br>![Azure AD Single Sign-On][7]<br>
+2. **QuickHelp에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Azure AD Single Sign-On][7] <br>
 
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![앱 설정 구성][8] <br>
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![앱 설정 구성][8] <br>
  
      a. **로그온 URL** 텍스트 상자에 사용자가 QuickHelp 사이트에 로그온하는 데 사용하는 URL(예: *https://quickhelp.com/bsiazure/*))을 입력합니다.
 
@@ -98,13 +98,13 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
      b. **다음**을 클릭합니다.
 
  
-4. **QuickHelp에서 Single Sign-On 구성** 페이지에서 다음을 수행합니다. **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 로컬로 저장합니다.<br><br>![Azure AD Connect의 정의][9] <br>
+4. **QuickHelp에서 Single Sign-On 구성** 페이지에서 다음을 수행합니다. **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 로컬로 저장합니다. <br><br>![Azure AD Connect의 정의][9] <br>
 
 
 
 1. QuickHelp 회사 사이트에 관리자로 로그인합니다.
 
-2. 위쪽의 메뉴에서 **관리자**를 클릭합니다. <br><br>![Single Sign-On 구성][21]<br>
+2. 위쪽 메뉴에서 **관리자**를 클릭합니다. <br><br>![Single Sign-On 구성][21]<br>
 
 
 1. **QuickHelp 관리자** 메뉴에서 **설정**을 클릭합니다. <br><br>![Single Sign-On 구성][22]<br>
@@ -183,22 +183,22 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션은 QuickHelp에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 QuickHelp 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 QuickHelp의 관련 사용자 간에 연결이 형성되어야 합니다.
 
-QuickHelp는 적시에 프로비전을 지원합니다. 즉, 필요한 경우 사용자 계정이 QuickHelp에 자동으로 만들어지고 계정이 Azure AD 계정에 연결됩니다.
+QuickHelp는 Just-In-Time 프로비전을 지원합니다. 즉, 필요한 경우 사용자 계정이 QuickHelp에 자동으로 만들어지고 계정이 Azure AD 계정에 연결됩니다.
 
 이 섹션에 작업 항목이 없습니다.
 
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 QuickHelp에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다.<br><br>![사용자 할당][200]<br>
+이 섹션은 Britta Simon에게 QuickHelp에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하기 위한 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 QuickHelp에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br>![사용자 할당][201]<br>
+1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 
-2. 응용 프로그램 목록에서 **QuickHelp**를 선택합니다. <br><br>![사용자 할당][202]<br>
+2. 응용 프로그램 목록에서 **QuickHelp**를 선택합니다. <br><br>![사용자 할당][202] <br>
 
-1. 위쪽 메뉴에서 **사용자**를 클릭합니다.<br> <br>![사용자 할당][203]<br>
+1. 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
 
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
@@ -255,4 +255,4 @@ QuickHelp는 적시에 프로비전을 지원합니다. 즉, 필요한 경우 �
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

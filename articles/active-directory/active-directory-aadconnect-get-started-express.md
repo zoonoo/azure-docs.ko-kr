@@ -1,5 +1,5 @@
 <properties
-	pageTitle="기본 설정을 사용하여 Azure AD Connect 시작 | Microsoft Azure"
+	pageTitle="Azure AD Connect: 기본 설정을 사용하여 시작 | Microsoft Azure"
 	description="Azure AD Connect용 설치 마법사를 다운로드, 설치 및 실행하는 방법을 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
@@ -49,7 +49,7 @@
 	- 선택적으로 구성 준비 페이지에서 "**구성이 완료되자마자 동기화 프로세스를 시작합니다.**"의 선택을 취소할 수 있습니다. 이 작업을 수행하는 경우 마법사는 동기화를 구성하지만 작업을 비활성화 상태로 두어 작업 스케줄러에서 수동으로 사용할 때까지 실행되지 않습니다. 작업을 사용하도록 설정하면 3시간마다 동기화가 실행됩니다.
 	- 또한 필요에 따라 해당 확인란을 선택하여 **Exchange 하이브리드 배포**에 대한 동기화 서비스를 구성하도록 선택할 수 있습니다. 클라우드 및 온-프레미스 모두에 Exchange 사서함이 없게 하려는 경우, 필요하지 않습니다. ![Azure AD Connect 시작](./media/active-directory-aadconnect-get-started/readyinstall.png)<br>
 8. 설치가 완료되면 **끝내기**를 클릭합니다.
-
+9. 설치가 완료된 후 로그오프하고 동기화 서비스 관리자 또는 동기화 규칙 편집기를 사용하기 전에 다시 로그인합니다.
 
 <br> <br>
 
@@ -63,4 +63,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

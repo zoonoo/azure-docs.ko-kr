@@ -13,30 +13,28 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="wesmc"/>
 
 # Xamarin.iOS 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
 이 자습서는 먼저 완료해야 하는 [Xamarin.iOS 빠른 시작 자습서](app-service-mobile-xamarin-ios-get-started.md)를 기반으로 합니다. 푸시 알림을 Xamarin.iOS 빠른 시작 프로젝트에 추가하여 레코드가 삽입될 때마다 푸시 알림이 전송됩니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 푸시 알림 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-[iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) 실제 iOS 장치를 사용해야 합니다. [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에 등록해야 합니다.
-
 ##필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 모바일 앱을 가져옵니다. 평가판이 종료된 후에도 계속 사용할 수 있습니다. [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 모바일 앱 백 엔드를 가져옵니다. 평가판이 종료된 후에도 계속 사용할 수 있습니다. [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* [Xamarin Studio] 및 [Xcode] v4.4 이상이 설치되어 있는 Mac. 원하는 경우 Windows 컴퓨터에서 Visual Studio를 사용하여 Xamarin.iOS 앱을 실행할 수 있지만 Xamarin.iOS 빌드 호스트를 실행하는 네트워크에 연결된 Mac에 연결해야 하기 때문에 좀 더 복잡합니다. 실행에 관심이 있다면 [Windows에서 Xamarin.iOS 설치]를 참조하세요.
+* [Xamarin Studio] 및 [Xcode] v4.4 이상이 설치되어 있는 Mac. 원하는 경우 Windows 컴퓨터에서 Visual Studio를 사용하여 Xamarin.iOS 앱을 실행할 수 있지만 Xamarin.iOS 빌드 호스트를 실행하는 네트워크에 연결된 Mac에 연결해야 하기 때문에 좀 더 복잡합니다. 실행에 대해 더 자세히 보려면 [Windows에서 Xamarin.iOS 설치]를 참조하세요.
 
 * 실제 iOS 장치. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
+
+* [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에는 APNS(Apple 푸시 알림 서비스)의 등록이 필요합니다.
 
 * [Xamarin.iOS 빠른 시작 자습서](app-service-mobile-xamarin-ios-get-started.md)를 완료합니다.
 
@@ -49,7 +47,7 @@
 
 알림을 보내도록 앱을 구성하려면 새 허브를 만들어 사용하려는 플랫폼 알림 서비스로 구성합니다.
 
-1. Azure 포털에서 **찾아보기** > **모바일 앱** > 모바일 앱 > **설정** > **모바일** > **푸시** > **알림 허브** > **+ 알림 허브**를 클릭하고 새 알림 허브에 대한 이름 및 네임스페이스를 입력한 다음 **확인** 단추를 클릭합니다.
+1. [Azure 포털](https://portal.azure.com/)에서 **찾아보기** > **모바일 앱** > 모바일 앱 > **설정** > **모바일** > **푸시** > **알림 허브** > **+ 알림 허브**를 클릭하고, 새 알림 허브에 대한 이름 및 네임스페이스를 입력한 다음 **확인** 단추를 클릭합니다.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
@@ -67,7 +65,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-##Xamarin.Forms 프로젝트 구성
+##Xamarin.iOS 프로젝트 구성
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
@@ -88,7 +86,8 @@
 
 1. 다음 `using` 문을 **AppDelegate.cs** 파일의 맨 위에 추가합니다.
 
-        using Microsoft.WindowsAzure.MobileServices;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
 
 2. **AppDelegate**에서 **FinishedLaunching** 이벤트를 재정의합니다.
 
@@ -107,16 +106,28 @@
             return true;
         }
 
-3. 동일한 파일에서 **RegisteredForRemoteNotifications** 이벤트를 재정의합니다.
+3. 동일한 파일에서 **RegisteredForRemoteNotifications** 이벤트를 재정의합니다. 이 코드에서는 서버에서 지원하는 모든 플랫폼에서 전송되는 간단한 템플릿 알림을 등록하게 됩니다.
+ 
+	알림 허브를 사용하는 템플릿에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates.md)을 참조하세요.
+
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             MobileServiceClient client = QSTodoService.DefaultService.GetClient;
 
+            const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
+
+            JObject templates = new JObject();
+            templates["genericMessage"] = new JObject
+            {
+                {"body", templateBodyAPNS}
+            };
+
             // Register for push with your mobile app
             var push = client.GetPush();
-            push.RegisterAsync(deviceToken);
+            push.RegisterAsync(deviceToken, templates);
         }
+
 
 4. 그런 다음 **DidReceivedRemoteNotification** 이벤트를 재정의합니다.
 
@@ -144,7 +155,7 @@
 	
 	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
-2. 앱에서 작업을 입력하고 더하기(**+**) 아이콘을 클릭합니다.
+2. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
 
 3. 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다.
 
@@ -159,10 +170,8 @@
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
-[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 
  
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@
 
 다음 내용을 배웁니다.
 
-* [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 Azure 웹앱 및 SQL 데이터베이스를 만드는 방법. PHP는 앱 서비스 웹 앱에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+* [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 Azure 웹앱 및 SQL 데이터베이스를 만드는 방법. PHP는 앱 서비스 웹 앱에서 기본적으로 사용하도록 설정되어 있으므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
 * Git를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
  
 이 자습서의 지침에 따라 PHP에서 간단한 등록 웹 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램은 Azure 웹 사이트에 호스트됩니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
@@ -39,7 +39,7 @@
 
 Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
-1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2. 대시보드 왼쪽 위에 있는 **새로 만들기** 아이콘을 클릭하여 Azure 마켓플레이스를 열고 마켓플레이스 옆의 **모두 선택**을 클릭한 다음 **웹 + 모바일**을 선택합니다.
 	
@@ -284,7 +284,6 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 포털에서 미리 보기 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 
 
@@ -296,4 +295,4 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

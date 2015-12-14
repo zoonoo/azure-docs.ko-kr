@@ -1,27 +1,32 @@
-<properties 
-	pageTitle="명령줄에서 모바일 서비스 관리 | Microsoft Azure" 
-	description="명령줄 도구를 사용하여 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="Mobile" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="명령줄에서 모바일 서비스 관리 | Microsoft Azure"
+	description="명령줄 도구를 사용하여 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter="Mobile"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
-# 명령줄 도구를 사용하여 모바일 서비스 자동화 
+# 명령줄 도구를 사용하여 모바일 서비스 자동화
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##개요
 
 이 항목에서는 Azure 명령줄 도구를 사용하여 Azure 모바일 서비스 생성과 관리를 자동화하는 방법을 보여 줍니다. 명령줄 도구를 설치 및 시작하고 주요 모바일 서비스 작업을 수행하는 데 사용하는 방법을 보여 줍니다.
- 
+
 단일 스크립트 또는 배치 파일에 결합될 경우 이러한 개별 명령은 모바일 서비스의 생성, 검증 및 삭제 프로세스를 자동화합니다.
 
 이 항목에서는 Azure 명령줄 도구가 지원하는 몇 개의 일반적인 관리 작업에 대해 다룹니다. 자세한 내용은 [Azure 명령줄 도구 설명서][reference-docs]를 참조하십시오.
@@ -46,7 +51,7 @@
 
 	azure account download
 
-기본 브라우저가 열리고 관리 포털에 로그인하라는 메시지가 표시됩니다. 로그인하면 `.publishsettings` 파일이 다운로드됩니다. 이 저장된 파일의 위치를 기록해 둡니다.
+기본 브라우저가 열리고 Azure 클래식 포털에 로그인하라는 메시지가 표시됩니다. 로그인하면 `.publishsettings` 파일이 다운로드됩니다. 이 저장된 파일의 위치를 기록해 둡니다.
 
 다음 명령을 실행하여 `.publishsettings` 파일을 가져옵니다. `<path-to-settings-file>`을(를) 해당 `.publishsettings` 파일의 경로로 바꿉니다.
 
@@ -104,9 +109,9 @@
 
 	azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-다음 표는 스크립트 사용 권한 값과 [Azure 관리 포털]의 사용 권한 값을 비교해서 보여 줍니다.
+다음 표는 스크립트 사용 권한 값과 [Azure 클래식 포털]의 사용 권한 값을 비교해서 보여 줍니다.
 
-|스크립트 값|관리 포털 값| |========|========| |`public`|모든 사람| |`application`(기본값)|응용 프로그램 키가 있는 모든 사용자| |`user`|인증된 사용자만| |`admin`|스크립트 및 관리자만|
+|스크립트 값|포털 값| |========|========| |`public`|모든 사람| |`application`(기본값)|응용 프로그램 키가 있는 모든 사용자| |`user`|인증된 사용자만| |`admin`|스크립트 및 관리자만|
 
 지정한 테이블이 이미 있을 경우 `mobile table create` 명령이 실패합니다. 자동화 스크립트에서 테이블을 삭제한 후 다시 만들어야 합니다.
 
@@ -132,7 +137,7 @@
 
 	azure mobile script upload <service-name> table/<table-name>.<operation>.js
 
-이 작업은 로컬 컴퓨터에서 JavaScript(.js) 파일을 업로드합니다. 파일의 이름은 테이블 및 작업 이름으로부터 구성해야 하고, 명령이 실행되는 위치를 기준으로 `table` 하위 폴더에 위치해야 합니다. 예를 들어 다음 작업은 `TodoItems` 테이블에 속하는 새 `insert` 스크립트를 업로드하고 등록합니다.
+이 작업은 로컬 컴퓨터에서 JavaScript(.js) 파일을 업로드합니다. 파일의 이름은 테이블 및 작업 이름으로부터 구성해야 하고, 명령이 실행되는 위치를 기준으로 `table` 하위 폴더에 위치해야 합니다. 예를들어 다음 작업은 `TodoItems` 테이블에 속하는 새 `insert` 스크립트를 업로드하고 등록합니다.
 
 	azure mobile script upload todolist table/todoitems.insert.js
 
@@ -140,7 +145,7 @@
 
 	function insert(item, user, request) {
 	    ...
-	} 
+	}
 
 스크립트 등록에 대한 자세한 내용은 [모바일 서비스 서버 스크립트 참조](영문)를 참조하십시오.
 
@@ -173,7 +178,7 @@
 <!-- URLs. -->
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
@@ -182,6 +187,4 @@
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

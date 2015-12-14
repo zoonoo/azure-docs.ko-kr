@@ -67,12 +67,64 @@
 
     앱을 막 시작했을 때 할당된 값입니다. 디버깅하는 동안 이 값을 줄이지 마십시오.
 
+### 대체: 코드에서 적응 샘플링 구성
+
+.config 파일의 샘플링을 조정하는 대신 코드를 사용할 수 있습니다. 이를 통해 샘플링 속도가 다시 계산될 때마다 호출되는 콜백 함수를 지정할 수 있습니다. 예를 들어 이를 사용하여 샘플링 속도를 사용하는 작업을 찾을 수 있습니다.
+
+.config 파일에서 `AdaptiveSamplingTelemetryProcessor` 노드를 제거합니다.
+
+
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
+
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
+
+    // Optional: here you can adjust the settings from their defaults.
+
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
+
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
+
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
+
+```
+
+([원격 분석 프로세서에 대해 알아봅니다](app-insights-api-filtering-sampling.md#filtering).)
+
+
 <a name="other-web-pages"></a>
 ## JavaScript를 사용하는 웹 페이지에 대한 샘플링
 
 서버에서 고정 비율 샘플링에 대한 웹 페이지를 구성할 수 있습니다.
 
-[Application Insights에 대한 웹 페이지를 구성](app-insights-javascript.md)할 때 Application Insights 포털에서 얻는 코드 조각을 수정합니다. (ASP.NET 앱에서 코드 조각은 일반적으로 \_Layout.cshtml로 이동합니다.) 계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입합니다.
+[Application Insights에 대한 웹 페이지를 구성](app-insights-javascript.md)할 때 Application Insights 포털에서 얻은 코드 조각을 수정합니다. (ASP.NET 앱에서 코드 조각은 일반적으로 \_Layout.cshtml로 이동합니다.) 계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입합니다.
 
     <script>
 	var appInsights= ... 
@@ -97,7 +149,7 @@
 
 ## 서버에서 고정 비율 샘플링 사용
 
-1. 최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **Include prerelease(시험판 포함)**를 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
+1. 최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **시험판 포함**을 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다. 
 
 2. **적응 샘플링을 사용하지 않도록 설정**: [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 `AdaptiveSamplingTelemetryProcessor` 노드를 제거하거나 주석으로 처리합니다.
 
@@ -132,7 +184,7 @@
 
 
 
-### 대체: 서버 코드에서 샘플링 설정
+### 대체: 서버 코드에서 고정 비율 샘플링을 사용하도록 설정
 
 
 .config 파일에 샘플링 매개 변수를 설정하는 대신 코드를 사용할 수 있습니다.
@@ -155,7 +207,7 @@
 
 ```
 
-([원격 분석 프로세서에 대해 알아봅니다](app-insights-api-filtering-sampling/#filtering).)
+([원격 분석 프로세서에 대해 알아봅니다](app-insights-api-filtering-sampling.md#filtering).)
 
 ## 언제 샘플링을 사용합니까?
 
@@ -174,7 +226,7 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 
 다음과 같은 경우 고정 비율 샘플링을 사용합니다.
 
-* 사용자가 클라이언트 및 서버 간의 동기화된 샘플링을 원하는 경우, [검색](app-insights-diagnostic-search.md)에서 이벤트를 조사하고 있을 때 클라이언트 및 서버에서 페이지 보기 및 http 요청과 같은 관련된 이벤트 사이를 탐색할 수 있습니다.
+* 사용자가 클라이언트 및 서버 간의 동기화된 샘플링을 원하는 경우 [검색](app-insights-diagnostic-search.md)에서 이벤트를 조사하고 있을 때 클라이언트 및 서버에서 페이지 보기 및 http 요청과 같은 관련 이벤트 사이를 탐색할 수 있습니다.
 * 사용자가 앱에 대한 적절한 샘플링 비율을 확신하는 경우입니다. 샘플링 비율은 정확한 메트릭을 가져오기 위해 충분히 높아야 하지만 가격 책정 할당량 및 조정 제한을 초과하는 비율보다 낮아야 합니다. 
 * 사용자가 앱을 디버깅하지 않는 경우입니다. F5를 눌러 사용자 앱의 몇 페이지를 디버깅하면 모든 원격 분석을 볼 수 있습니다.
 
@@ -221,11 +273,13 @@ SDK는 어떤 원격 분석 항목을 삭제하고 어떤 항목을 유지할지
 
 *적응 샘플링을 사용하는 샘플링 비율을 확인할 수 있습니까?*
 
- * 현재 버전에서는 지원되지 않습니다.
+ * 예, 적응 샘플링 구성의 코드 메서드를 사용하면 샘플링 비율을 가져오는 콜백을 제공할 수 있습니다.
 
 *고정 비율 샘플링을 사용하는 경우 내 앱에 가장 적합한 샘플링 비율을 어떻게 알 수 있습니까?*
 
-* 현재 추측할 필요가 있습니다. AI에서 현재 원격 분석 사용량을 분석하고 제한과 관련된 데이터 삭제를 관찰하며 수집된 원격 분석의 양을 추정합니다. 선택된 가격 책정 계층과 함께 이러한 세 번의 입력은 수집된 원격 분석의 양을 얼마나 줄여야 할지 제안합니다. 그러나 원격 분석 양의 패턴의 변화는 최적으로 구성된 샘플링 비율을 무효화시킬 수 있습니다.(예: 사용자 수의 증가)
+* 한 가지 방법은 적응 샘플링으로 시작하고 안정적인 비율(위 질문 참조)을 찾은 다음 해당 비율을 사용하여 고정 비율 샘플링으로 전환하는 것입니다. 
+
+    그렇지 않으면 추측해야 합니다. AI에서 현재 원격 분석 사용량을 분석하고 발생하는 모든 제한을 관찰하며 수집된 원격 분석의 양을 추정합니다. 선택된 가격 책정 계층과 함께 이러한 세 번의 입력은 수집된 원격 분석의 양을 얼마나 줄여야 할지 제안합니다. 그러나 사용자 수가 증가하거나 원격 분석의 양이 약간 다르게 변화되면 추정치가 무효화될 수도 있습니다.
 
 *샘플링 비율을 너무 낮게 구성하는 경우 어떻게 됩니까?*
 
@@ -241,6 +295,6 @@ SDK는 어떤 원격 분석 항목을 삭제하고 어떤 항목을 유지할지
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 
- * 별도의 TelemetryConfiguration을 사용하여 TelemetryClient의 별도 인스턴스를 만듭니다. 이를 사용하여 드문 이벤트를 보냅니다.
+ * 기본 활성값이 아닌 새 TelemetryConfiguration을 사용하여 별도의 TelemetryClient 인스턴스를 초기화합니다. 이를 사용하여 드문 이벤트를 보냅니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

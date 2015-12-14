@@ -59,7 +59,7 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 1.  새 **터미널** 창을 시작합니다.
     
-1.  다음 명령을 입력하여 Azure VM에 연결합니다. FQDN을 만들지 않았으면, Azure 포털의 가상 컴퓨터 요약에 표시되는 공용 IP 주소를 사용하여 연결할 수 있습니다.
+1.  다음 명령을 입력하여 Azure VM에 연결합니다. FQDN을 만들지 않았으면, Azure 클래식 포털의 가상 컴퓨터 요약에 표시되는 공용 IP 주소를 사용하여 연결할 수 있습니다.
 
 		$ ssh yourusername@yourVmUrl
 
@@ -126,4 +126,4 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 
 이 자습서를 완료했으므로 새로 만든 Azure 가상 컴퓨터를 종료하거나 종료한 후 제거하여 다른 자습서에 사용할 리소스를 늘리고 Azure 사용량에 따른 요금 부과를 방지하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

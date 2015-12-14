@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 
@@ -66,7 +66,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY, 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
+Azure 웹 사이트의 [Azure 포털](portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## 큐를 만드는 방법
 
@@ -82,7 +82,7 @@ Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법�
 	  }
 	});
 
-큐가 만들어지면 `result`true가 됩니다. 큐가 있을 경우는 `result`false가 됩니다.
+큐가 만들어지면 `result`는 true가 됩니다. 큐가 있을 경우 `result`는 false가 됩니다.
 
 ### 필터
 
@@ -121,7 +121,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
 	});
 
-`result` 메시지를 포함 합니다.
+`result`에 메시지가 포함됩니다.
 
 > [AZURE.NOTE]큐에 메시지가 없을 때 **peekMessages**를 사용하면 오류가 반환되지 않지만 메시지도 반환되지 않습니다.
 
@@ -147,7 +147,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
 	});
 
-> [AZURE.NOTE]기본적으로 메시지는 30초 동안만 숨겨져 있다가 다른 클라이언트에 표시됩니다. `options.visibilityTimeout`과 **getMessages**를 사용하여 다른 값을 지정할 수 있습니다.
+> [AZURE.NOTE]기본적으로 메시지는 30초 동안만 숨겨져 있다가 다른 클라이언트에 표시됩니다. `options.visibilityTimeout`와 **getMessages**를 사용하여 다른 값을 지정할 수 있습니다.
 
 > [AZURE.NOTE]큐에 메시지가 없을 때 **getMessages**를 사용하면 오류가 반환되지 않지만 메시지도 반환되지 않습니다.
 
@@ -309,13 +309,12 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
 -   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
 -   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
   [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: ../web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [Node.js 웹 응용 프로그램 및 저장소]: ../storage-nodejs-use-table-storage-web-site.md
@@ -328,9 +327,8 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   
   
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
- [WebMatrix를 사용하는 웹 사이트]: ../web-sites-nodejs-use-webmatrix.md
+  [WebMatrix를 사용하는 웹 사이트]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

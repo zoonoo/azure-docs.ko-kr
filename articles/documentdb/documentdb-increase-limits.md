@@ -47,7 +47,7 @@
 ##<a id="RequestQuotaIncrease"></a> 할당량 조정 요청
 다음 단계에서는 할당량 조정을 요청하는 방법을 보여 줍니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에서 **찾아보기**를 클릭한 다음 **도움말+지원**을 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에서 **찾아보기**를 클릭한 다음 **도움말+지원**을 클릭합니다.
 
 	![도움말 및 지원 시작의 스크린샷](media/documentdb-increase-limits/helpsupport.png)
 
@@ -75,4 +75,4 @@
 ##<a name="NextSteps"></a> 다음 단계
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

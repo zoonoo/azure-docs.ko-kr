@@ -28,7 +28,7 @@ Azure Active Directory를 강화하려면 Azure Active Directory Basic 및 Premi
 Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active Directory 기능을 포함합니다.
 
 
-> [AZURE.NOTE]이러한 버전의 가격 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/ko-KR/pricing/details/active-directory/)을 참조하세요. <br>Azure Active Directory Premium 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. 자세한 내용은 Azure Active Directory 포럼에 문의하세요.
+> [AZURE.NOTE]이러한 버전의 가격 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요. <br>Azure Active Directory Premium 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. 자세한 내용은 Azure Active Directory 포럼에 문의하세요.
 
 
 - **Azure Active Directory Basic** - 클라우드를 주로 필요로 하는 작업자를 위해 설계된 이 버전은 클라우드 중심 응용 프로그램 액세스 및 셀프 서비스 ID 관리 솔루션을 제공합니다. Azure Active Directory Basic 버전을 사용하면 그룹 기반 액세스 관리, 클라우드 응용 프로그램에 대한 셀프 서비스 암호 재설정 및 Azure Active Directory 응용 프로그램 프록시(Azure Active Directory를 사용하여 온-프레미스 웹 응용 프로그램을 게시하는 데 필요)와 같은 생산성 강화 및 비용 절감 기능을 활용할 수 있고 이는 모두 엔터프라이즈급의 99.9% 가동 시간 SLA에서 지원됩니다.
@@ -65,7 +65,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 | | [클라우드 사용자를 위한 셀프 서비스 암호 재설정](active-directory-passwords.md)| Office 365 구독에 포함됨 [4]| ![확인][12]| ![확인][12]|
 | | [응용 프로그램 프록시: 온-프레미스 웹 응용 프로그램에 대한 원격 액세스 및 SSO 보안 유지](active-directory-application-proxy-get-started.md)| | ![확인][12]| ![확인][12]|
 | | [그룹 기반 응용 프로그램 액세스 관리 및 프로비전](active-directory-accessmanagement-group-saasapps.md)| | ![확인][12]| ![확인][12]|
-| | [높은 가용성의 SLA 작동 시간(99.9%)](https://azure.microsoft.com/ko-KR/support/legal/sla/)| Microsoft Online Services SLA [5]| ![확인][12]| ![확인][12]|
+| | [높은 가용성의 SLA 작동 시간(99.9%)](https://azure.microsoft.com/support/legal/sla/)| Microsoft Online Services SLA [5]| ![확인][12]| ![확인][12]|
 | **프리미엄 전용 기능**| [고급 응용 프로그램 사용 현황 보고](active-directory-view-access-usage-reports.md)| | | ![확인][12]|
 | | [클라우드 사용자를 위한 셀프 서비스 그룹 관리](Azure AD에서 사용자를 위한 셀프 서비스 그룹 관리)| | | ![확인][12]|
 | | [온-프레미스 나중 쓰기를 사용한 셀프 서비스 암호 재설정 ](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![확인][12]|
@@ -102,4 +102,4 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

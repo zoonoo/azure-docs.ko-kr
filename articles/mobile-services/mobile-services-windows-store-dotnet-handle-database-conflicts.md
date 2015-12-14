@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="낙관적 동시성을 사용하여 데이터베이스 쓰기 충돌 처리(Windows 스토어) | Microsoft Azure" 
-	description="서버와 Windows 스토어 응용 프로그램 둘 다에서 데이터베이스 쓰기 충돌을 처리하는 방법을 알아봅니다." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="낙관적 동시성을 사용하여 데이터베이스 쓰기 충돌 처리(Windows 스토어) | Microsoft Azure"
+	description="서버와 Windows 스토어 응용 프로그램 둘 다에서 데이터베이스 쓰기 충돌을 처리하는 방법을 알아봅니다."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 # 데이터베이스 쓰기 충돌 처리
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 
 
@@ -32,10 +37,10 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Microsoft Visual Studio 2013 이상
-+ 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기]를 완료해야 합니다. 
++ 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기]를 완료해야 합니다.
 + [Azure 계정]
 + Azure 모바일 서비스 NuGet 패키지 1.1.0 이상. 최신 버전을 얻으려면 아래 단계를 따르십시오.
-	1. Visual Studio에서 프로젝트를 열고 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Nuget 패키지 관리**를 클릭합니다. 
+	1. Visual Studio에서 프로젝트를 열고 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Nuget 패키지 관리**를 클릭합니다.
 
 		![][19]
 
@@ -44,7 +49,7 @@
 		![][20]
 
 
- 
+
 
 ##업데이트를 허용하도록 응용 프로그램 업데이트
 
@@ -85,7 +90,7 @@
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -94,7 +99,7 @@
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
@@ -111,18 +116,18 @@
 
 		public class TodoItem
 		{
-			public string Id { get; set; }			
+			public string Id { get; set; }
 			[JsonProperty(PropertyName = "text")]
-			public string Text { get; set; }			
+			public string Text { get; set; }
 			[JsonProperty(PropertyName = "complete")]
-			public bool Complete { get; set; }			
+			public bool Complete { get; set; }
 			[JsonProperty(PropertyName = "__version")]
 			public string Version { set; get; }
 		}
 
 	> [AZURE.NOTE]형식화되지 않은 테이블을 사용할 경우 테이블의 SystemProperties에 Version 플래그를 추가하여 낙관적 동시성을 사용하도록 설정합니다.
 	>
-	>````` 
+	>`````
 	//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
@@ -132,7 +137,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -145,7 +150,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 if (exception is MobileServicePreconditionFailedException)
@@ -168,27 +173,27 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
         {
             //Ask user to choose the resolution between versions
-            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n", 
-                                                        serverItem.Text, localItem.Text), 
+            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n",
+                                                        serverItem.Text, localItem.Text),
                                                         "CONFLICT DETECTED - Select a resolution:");
             UICommand localBtn = new UICommand("Commit Local Text");
             UICommand ServerBtn = new UICommand("Leave Server Text");
             msgDialog.Commands.Add(localBtn);
-            msgDialog.Commands.Add(ServerBtn);			
+            msgDialog.Commands.Add(ServerBtn);
             localBtn.Invoked = async (IUICommand command) =>
             {
-                // To resolve the conflict, update the version of the 
+                // To resolve the conflict, update the version of the
                 // item being committed. Otherwise, you will keep
                 // catching a MobileServicePreConditionFailedException.
-                localItem.Version = serverItem.Version;				
-                // Updating recursively here just in case another 
+                localItem.Version = serverItem.Version;
+                // Updating recursively here just in case another
                 // change happened while the user was making a decision
                 await UpdateToDoItem(localItem);
-            };			
+            };
             ServerBtn.Invoked = async (IUICommand command) =>
             {
 				RefreshTodoItems();
-            };			
+            };
             await msgDialog.ShowAsync();
         }
 
@@ -218,7 +223,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 5. 패키지 폴더 "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test"를 두 번째 컴퓨터에 복사합니다. 아래와 같이 두 번째 컴퓨터에서 패키지 폴더를 열고 **Add-AppDevPackage.ps1** PowerShell 스크립트를 마우스 오른쪽 단추로 클릭하고 **PowerShell에서 실행**을 클릭합니다. 프롬프트에 따라 앱을 설치합니다.
 
 	![][12]
-  
+
 5. **디버그**->**디버깅 시작**을 클릭하여 Visual Studio에서 앱의 인스턴스 1을 실행합니다. 두 번째 컴퓨터의 시작 화면에서 아래쪽 화살표를 클릭하여 "이름별 앱"을 표시합니다. 그런 다음 **todolist** 앱을 클릭하여 앱의 인스턴스 2를 실행합니다.
 
 	앱 인스턴스 1 ![][2]
@@ -227,7 +232,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 6. 앱의 인스턴스 1에서 마지막 항목의 텍스트를 **테스트 쓰기 1**로 업데이트한 다음 `LostFocus` 이벤트 처리기가 데이터베이스를 업데이트하도록 다른 텍스트 상자를 클릭합니다. 예제는 아래 스크린샷을 참조하십시오.
-	
+
 	앱 인스턴스 1 ![][3]
 
 	앱 인스턴스 2 ![][2]
@@ -255,7 +260,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 다음 단계에서는 서버 업데이트 스크립트를 추가하여 테스트하는 과정을 안내합니다.
 
-1. [Azure 관리 포털]에 로그인하여 **Mobile Services**를 클릭한 후 앱을 클릭합니다. 
+1. [Azure 클래식 포털]에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
    	![][7]
 
@@ -269,8 +274,8 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 4. 기존 스크립트를 다음 함수로 바꾼 후 **Save**를 클릭합니다.
 
-		function update(item, user, request) { 
-			request.execute({ 
+		function update(item, user, request) {
+			request.execute({
 				conflict: function (serverRecord) {
 					// Only committing changes if the item is not completed.
 					if (serverRecord.complete === false) {
@@ -282,8 +287,8 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 						request.respond(statusCodes.FORBIDDEN, 'The item is already completed.');
 					}
 				}
-			}); 
-		}   
+			});
+		}
 5. 두 컴퓨터 모두에서 **todolist** 앱을 실행합니다. 인스턴스 2에서 마지막 항목에 대한 TodoItem `text`을(를) 변경합니다. 그런 다음 `LostFocus` 이벤트 처리기가 데이터베이스를 업데이트하도록 다른 텍스트 상자를 클릭합니다.
 
 	앱 인스턴스 1 ![][4]
@@ -321,7 +326,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 * [앱에 인증 추가] <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [앱에 푸시 알림 추가] <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
- 
+
 
 
 <!-- Images. -->
@@ -359,12 +364,10 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [앱에 인증 추가]: /develop/mobile/tutorials/get-started-with-users-dotnet
 [앱에 푸시 알림 추가]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [시스템 속성]: http://go.microsoft.com/fwlink/?LinkId=331143
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -33,9 +33,9 @@
 
 ## <a id="update-scripts"></a>푸시 알림을 전송하도록 백 엔드 스크립트 업데이트
 
-* 관리 포털에서 **데이터** 탭을 클릭하고 **TodoItem**을 클릭합니다. **TodoItem**에서 **스크립트** 탭을 클릭하고 **삽입**을 선택합니다. **TodoItem** 테이블에 삽입 시 호출되는 함수가 표시됩니다.
+* [Azure 클래식 포털]에서 **데이터** 탭을 클릭한 후 **TodoItem**을 클릭합니다. **TodoItem**에서 **스크립트** 탭을 클릭하고 **삽입**을 선택합니다. **TodoItem** 테이블에 삽입 시 호출되는 함수가 표시됩니다.
 
-* 삽입 함수를 다음 코드로 바꾸고 **저장**을 클릭합니다. 새 삽입 스크립트가 등록되며, 이 스크립트는 [apns 개체]를 사용하여 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다. 이 스크립트는 앱을 닫고 푸시 알림을 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
+* 삽입 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다. 새 삽입 스크립트가 등록되며, 이 스크립트는 [apns 개체]를 사용하여 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다. 이 스크립트는 앱을 닫고 푸시 알림을 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
 
 
 ```
@@ -106,7 +106,7 @@
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -117,4 +117,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

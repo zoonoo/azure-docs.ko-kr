@@ -114,4 +114,4 @@ Azure AD Connect와 함께 제공하는 SQL Server Express를 사용하지 않�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

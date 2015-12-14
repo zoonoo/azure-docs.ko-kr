@@ -22,7 +22,7 @@
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli-install.md)
 
-Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. Azure CLI는 웹 사이트, 가상 컴퓨터, 모바일 서비스, SQL 데이터베이스 및 Azure 플랫폼에서 제공하는 기타 서비스를 관리하는 기능과 같이 Azure 관리 포털에서 제공하는 기능과 동일한 기능을 대부분 제공합니다.
+Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. Azure CLI는 웹 사이트, 가상 컴퓨터, 모바일 서비스, SQL 데이터베이스 및 Azure 플랫폼에서 제공하는 기타 서비스를 관리하는 기능과 같이 Azure 포털에서 제공하는 기능과 동일한 기능을 대부분 제공합니다.
 
 Azure CLI는 JavaScript로 작성되므로 Node.js가 필요합니다. Node.js용 Azure SDK를 사용하여 구현되고, Apache 2.0 라이선스에 릴리스되었습니다. 프로젝트 리포지토리는 [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli)에 있습니다.
 
@@ -281,4 +281,4 @@ Azure CLI는 오류 정보를 STDERR에 기록하지만 스크립트가 실행�
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

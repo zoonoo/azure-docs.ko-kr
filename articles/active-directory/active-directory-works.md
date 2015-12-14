@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD는 어떻게 작동하나요?"
-	description="Azure AD는 클라우드에서 사용자가 사용할 ID 환경을 만듭니다. 이 환경을 온-프레미스 ID 시스템에 연결할 수도 있고 독립적으로 사용할 수도 있습니다."
+	pageTitle="Azure Active Directory는 어떻게 작동되나요? | Microsoft Azure"
+	description="Azure Active Directory는 클라우드에서 사용자가 사용할 ID 환경을 만듭니다. 이 환경을 온-프레미스 ID 시스템에 연결할 수도 있고 독립적으로 사용할 수도 있습니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
 
 
 # Azure Active Directory는 어떻게 작동하나요?
 
-
 ###이 항목에 대한 다른 문서
 [Azure AD란?](active-directory-whatis.md)<br> [작동 원리](active-directory-works.md)<br> [시작](active-directory-get-started.md)<br> [다음 단계](active-directory-next-steps.md)<br> [자세한 정보](active-directory-learn-map.md)
 
 
-Azure AD는 클라우드에서 사용자가 사용할 ID 환경을 만듭니다. 이 환경을 온-프레미스 ID 시스템에 연결할 수도 있고 독립적으로 사용할 수도 있습니다.
+Azure Active Directory(Azure AD)는 클라우드에서 사용자가 사용할 ID 환경을 만듭니다. 이 환경을 온-프레미스 ID 시스템에 연결할 수도 있고 독립적으로 사용할 수도 있습니다.
 
 Azure AD 계정은 클라우드를 사용하기 위한 운전 면허증에 비유할 수 있습니다. 온라인 서비스에 액세스하는 데 필요한 고유의 ID입니다. 같은 맥락에서, Azure AD는 클라우드에서 운전 면허증을 관리하는 사설 등록 기관의 역할을 합니다. 클라우드 내 어디에서나 ID를 사용할 수 있게 해주고 온-프레미스 리소스에 액세스하는 사용자의 이동성을 개선합니다.
 
@@ -49,4 +48,4 @@ Azure AD를 관리하는 방법, 디렉터리를 얻는 방법, 디렉터리를 
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

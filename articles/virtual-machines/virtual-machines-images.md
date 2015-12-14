@@ -35,7 +35,7 @@ Azure의 가상 컴퓨터나 다른 곳에서 실행 중이지만 복사하여 �
 
 ## 이미지 작업
 
-Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux 및 Windows 또는 Azure PowerShell 모듈에 대한 Azure 명령줄 인터페이스(CLI)를 사용할 수 있습니다. 또한 일부 이미지 작업에 Azure 포털을 사용할 수 있지만 명령줄에는 추가 옵션이 있습니다.
+Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux 및 Windows 또는 Azure PowerShell 모듈에 대한 Azure 명령줄 인터페이스(CLI)를 사용할 수 있습니다. 또한 일부 이미지 작업에 Azure 클래식 포털을 사용할 수 있지만 명령줄에는 추가 옵션이 있습니다.
 
 이러한 도구를 사용하여 리소스 관리자를 배포하는 방법에 대한 자세한 내용은 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](resource-groups-vm-searching.md)을 참조하세요.
 
@@ -59,4 +59,4 @@ Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

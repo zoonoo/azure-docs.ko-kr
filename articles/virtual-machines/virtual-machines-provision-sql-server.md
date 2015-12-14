@@ -21,7 +21,7 @@
 # Azure에서 SQL Server 가상 컴퓨터 프로비전
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-provision-sql-server.md)
+- [Azure classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## 개요
@@ -32,7 +32,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
 이 자습서에서는 다음을 수행합니다.
 
-* [Azure 포털에 연결 및 갤러리에서 가상 컴퓨터 프로비전](#Provision)
+* [Azure 클래식 포털에 연결 및 갤러리에서 가상 컴퓨터 프로비전](#Provision)
 * [원격 데스크톱을 사용하여 가상 컴퓨터 열기 및 설치 완료](#RemoteDesktop)
 * [다른 컴퓨터의 SQL Server Management Studio를 사용하여 가상 컴퓨터에 연결하는 구성 단계 완료](#SSMS)
 * [다음 단계](#Optional)
@@ -41,9 +41,9 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
 ##<a id="Provision">갤러리에서 SQL Server 가상 컴퓨터 프로비전</a>
 
-1. 사용자 계정을 사용하여 [Azure 포털](http://manage.windowsazure.com)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
+1. 사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
 
-2. Azure 포털 웹 페이지의 왼쪽 아래에서 **+새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
+2. Azure 클래식 포털 웹 페이지의 왼쪽 아래에서 **+새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 
 3. **이미지 선택** 페이지에서 **SQL SERVER**를 클릭합니다. 그런 다음 SQL Server 이미지를 선택합니다. 페이지 오른쪽 아래에 있는 다음 화살표를 클릭합니다.
 
@@ -51,7 +51,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
 Azure에서 지원되는 SQL Server 이미지에 관한 최신 정보는 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
->[AZURE.NOTE] 플랫폼 이미지인 SQL Server 평가 버전을 사용하여 만든 가상 컴퓨터가 있는 경우 갤러리에서 분당 유료 버전 이미지로 업그레이드할 수 없습니다. 두 가지 옵션 중에서 선택할 수 있습니다.
+>[AZURE.NOTE]플랫폼 이미지인 SQL Server 평가 버전을 사용하여 만든 가상 컴퓨터가 있는 경우 갤러리에서 분당 유료 버전 이미지로 업그레이드할 수 없습니다. 두 가지 옵션 중에서 선택할 수 있습니다.
 >
 > - 갤러리에서 분당 유료 SQL Server 버전을 사용하여 새 가상 컴퓨터를 만들고 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database)의 단계에 따라 데이터베이스 파일을 이 새로운 가상 컴퓨터로 마이그레이션할 수 있습니다.
 > - 또는 [다른 버전의 SQL Server로 업그레이드](https://msdn.microsoft.com/library/cc707783.aspx)의 단계를 수행하여 [Azure에서 Software Assurance를 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/) 계약에 따라 SQL Server 평가판 버전의 기존 인스턴스를 다른 버전의 SQL Server로 업그레이드할 수 있습니다. 라이선스가 부여된 SQL Server를 구입하는 방법에 대한 자세한 내용은 [SQL Server 구매 방법](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)(영문)을 참조하십시오.
@@ -66,7 +66,7 @@ Azure에서 지원되는 SQL Server 이미지에 관한 최신 정보는 [Azure 
 
 	![VM 구성](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
-	>[AZURE.NOTE] 가상 컴퓨터의 크기는 프로비전 중 지정합니다.
+	>[AZURE.NOTE]가상 컴퓨터의 크기는 프로비전 중 지정합니다.
  	>
 	> - 프로덕션 작업의 경우 최소 권장 크기를 가진 프리미엄 저장소(SQL Server Enterprise Edition의 경우 **DS3**, SQL Server Standard Edition의 경우 **DS2**)를 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 참조하세요.
 	> - 선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하십시오.
@@ -77,7 +77,7 @@ Azure에서 지원되는 SQL Server 이미지에 관한 최신 정보는 [Azure 
 	- **클라우드 서비스** 상자에서 **새 클라우드 서비스 만들기**를 선택합니다.
 	- **클라우드 서비스 DNS 이름** 상자에 **TESTNAME.cloudapp.net** 형식으로 이름이 완성되도록 선택한 DNS 이름의 첫 번째 부분을 입력합니다. 
 	- 선택할 수 있는 여러 구독이 있는 경우 **구독**을 선택합니다. 선택 항목에 따라 사용할 수 있는 **저장소 계정**이 결정됩니다.
-	- **지역/선호도 그룹/가상 네트워크** 상자에서 이 가상 이미지를 호스트할 영역을 선택합니다.
+- **지역/선호도 그룹/가상 네트워크** 상자에서 이 가상 이미지를 호스트할 영역을 선택합니다.
 	- **저장소 계정**에서 계정을 자동으로 생성하거나 목록에서 선택합니다. **구독**을 변경하여 추가 계정을 확인합니다. 
 	- **가용성 집합** 상자에서 **(없음)**을 선택합니다.
 	- 약관을 읽고 동의합니다.
@@ -155,4 +155,4 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

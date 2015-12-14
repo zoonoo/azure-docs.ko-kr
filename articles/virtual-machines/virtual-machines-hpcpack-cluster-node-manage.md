@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **ServiceName** - 새 계산 노드 VM이 추가될 클라우드 서비스의 이름입니다.
 
-* **ImageName** - Azure VM 이름으로, Azure 포털 또는 Azure PowerShell cmdlet **Get-AzureVMImage**를 통해 가져올 수 있습니다. 이 이미지는 다음 요구 사항을 충족해야 합니다.
+* **ImageName** - Azure VM 이름으로, Azure 클래식 포털 또는 Azure PowerShell cmdlet **Get-AzureVMImage**를 통해 가져올 수 있습니다. 이 이미지는 다음 요구 사항을 충족해야 합니다.
 
     1. Windows 운영 체제를 설치해야 합니다.
 
@@ -178,4 +178,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Azure 컴퓨팅 리소스를 현재 작업 워크로드 및 클러스터 작업에 따라 자동으로 증가 또는 축소하려는 경우 [HPC 팩 클러스터에서 Azure 계산 리소스 증가 및 축소](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

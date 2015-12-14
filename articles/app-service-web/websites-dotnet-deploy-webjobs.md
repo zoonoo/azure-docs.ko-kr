@@ -20,7 +20,7 @@
 
 ## 개요
 
-이 항목에서는 Visual Studio를 사용하여 콘솔 응용 프로그램 프로젝트를 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹 앱에 [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226)으로 배포하는 방법을 설명합니다. [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 WebJob을 배포하는 방법에 대한 내용은 [Webjob으로 백그라운드 작업 실행](web-sites-create-web-jobs.md)을 참조하세요.
+이 항목에서는 Visual Studio를 사용하여 콘솔 응용 프로그램 프로젝트를 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹 앱에 [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226)으로 배포하는 방법을 설명합니다. [Azure 포털](https://portal.azure.com)을 사용하여 WebJob을 배포하는 방법에 대한 내용은 [Webjob으로 백그라운드 작업 실행](web-sites-create-web-jobs.md)을 참조하세요.
 
 Visual Studio는 WebJob 지원 콘솔 응용 프로그램 프로젝트를 배포할 때 다음 두 가지 작업을 수행합니다.
 
@@ -127,7 +127,7 @@ SDK 2.4 릴리스에서 WebJob new-project 템플릿은 콘솔 응용 프로그�
 
 ![Add Azure WebJob(Azure WebJob 추가) 대화 상자](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-이 대화 상자의 필드는 Azure 관리 포털의 **새 작업** 대화 상자에 있는 필드에 해당합니다. 자세한 내용은 [WebJobs를 사용하여 백그라운드 작업 실행](web-sites-create-web-jobs.md)을 참조하세요.
+이 대화 상자의 필드는 Azure 포털의 **새 작업** 대화 상자에 있는 필드에 해당합니다. 자세한 내용은 [WebJobs를 사용하여 백그라운드 작업 실행](web-sites-create-web-jobs.md)을 참조하세요.
 
 예약된 WebJob(연속 WebJob 아님)의 경우 Visual Studio는 [Azure 스케줄러](/services/scheduler/) 작업 컬렉션이 아직 없으면 만들고 이 컬렉션에 작업을 만듭니다.
 
@@ -197,7 +197,5 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

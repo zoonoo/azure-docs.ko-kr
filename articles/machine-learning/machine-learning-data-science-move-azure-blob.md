@@ -30,13 +30,13 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 > [AZURE.NOTE]Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](../storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
 
-> [AZURE.TIP]하나의 대안으로, [Azure 데이터 팩터리](https://azure.microsoft.com/ko-KR/services/data-factory/)를 사용하여 Azure blob 저장소에서 데이터를 다운로드하여 게시된 Azure 기계 학습 웹 서비스로 전달하고, 예측 분석 결과를 받아 이를 저장소에 업로드하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure 데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기](../data-factory/data-factory-create-predictive-pipelines.md)를 참조하세요.
+> [AZURE.TIP]하나의 대안으로, [Azure 데이터 팩터리](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure blob 저장소에서 데이터를 다운로드하여 게시된 Azure 기계 학습 웹 서비스로 전달하고, 예측 분석 결과를 받아 이를 저장소에 업로드하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure 데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기](../data-factory/data-factory-create-predictive-pipelines.md)를 참조하세요.
 
 ## 필수 조건
 
 이 문서에서는 사용자에게 Azure 구독, 저장소 계정 및 계정에 해당하는 저장소 키가 있다고 가정합니다. 데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다.
 
-- Azure 구독을 설정하려면 [무료 1개월 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage-create-storage-account.md)를 참조하세요.
 
 
@@ -44,4 +44,4 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

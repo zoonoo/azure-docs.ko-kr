@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect - 사용자 로그인 | Microsoft Azure"
+	pageTitle="Azure AD Connect: 사용자 로그인 | Microsoft Azure"
 	description="사용자 지정 설정을 위한 Azure AD Connect 사용자 로그인."
 	services="active-directory"
 	documentationCenter=""
@@ -63,4 +63,8 @@ Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사
 	- 소프트 계정 잠금 또는 AD 암호 및 작업 시간 정책과 같은 Active Directory 통합 기능
 	- 장치 등록, Azure AD 연결 또는 Intune MDM 정책을 사용하여 온-프레미스 및 클라우드 리소스 모두에 대한 조건부 액세스
 
-<!---HONumber=Oct15_HO3-->
+
+## 다음 단계
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
+
+<!---HONumber=AcomDC_1203_2015-->

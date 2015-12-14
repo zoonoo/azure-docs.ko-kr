@@ -25,7 +25,7 @@ Azure 무료 평가판 구독에 등록하려면 전화번호, 신용 카드, [M
 
 >[AZURE.NOTE]전화번호 및 신용카드 세부 정보는 오직 신원 확인을 위해 사용됩니다. 신용 카드에 요금이 부과되지 않아도 Microsoft는 신용 카드가 유효한지 확인하기 위해 최소 기간 동안 권한 부여를 보류합니다. 보류는 3-5일 이내에 금융 기관의 정책에 따라 해제됩니다.
 
-1. [Azure 무료 평가판 페이지](https://azure.microsoft.com/ko-KR/pricing/free-trial/)를 열고, **지금 평가판 사용**을 선택합니다.
+1. [Azure 무료 평가판 페이지](https://azure.microsoft.com/pricing/free-trial/)를 열고, **지금 평가판 사용**을 선택합니다.
 2. Microsoft 계정 또는 학교/직장 계정으로 로그인합니다.
 3. **사용자 정보** 섹션에 개인 정보를 입력합니다. ![개인 정보 스크린샷](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
@@ -61,4 +61,4 @@ Azure 무료 평가판 구독에 등록하려면 전화번호, 신용 카드, [M
 2. 제품 키를 입력하고 규약 옵션을 확인합니다.</br>![OSA 키](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. **활성화**를 선택합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -23,25 +23,29 @@
 
 >[AZURE.TIP] [Azure 모바일 앱용 .NET 서버 SDK](https://github.com/Azure/azure-mobile-apps-net-server)는 GitHub의 오픈 소스입니다. 리포지토리에는 전체 서버 SDK 단위 테스트 도구 모음과 일부 샘플 프로젝트가 포함되어 있습니다.
 
-## 방법: 모바일 응용 프로그램에 대 한.NET 백 엔드 만들기
+## 참조 설명서
 
-새 프로젝트를 시작하는 경우 [Azure 미리 보기 관리 포털] 또는 Visual Studio 중 하나를 사용하여 앱 서비스 응용 프로그램을 만들 수 있습니다. 이 섹션에서 다음 중 하나를 사용하여 간단한 ToDo List API를 호스팅하는 새 모바일 응용 프로그램 백 엔드를 만들 수 있습니다. 이 작업을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
+서버 SDK에 대한 참조 설명서는 [Azure 모바일 앱 .NET 참조](https://msdn.microsoft.com/library/azure/dn961176.aspx)를 참조하세요.
 
-기존 프로젝트에 모바일 기능을 추가 하는 경우 아래 [SDK 다운로드 및 초기화](#install-sdk) 섹션을 참조하세요.
+## <a name="create-app"></a>방법: 모바일 응용 프로그램에 대한 .NET 백 엔드 만들기
+
+새 프로젝트를 시작하는 경우 [Azure 포털]과 Visual Studio 중 하나를 사용하여 앱 서비스 응용 프로그램을 만들 수 있습니다. 이 섹션에서 다음 중 하나를 사용하여 간단한 ToDo List API를 호스팅하는 새 모바일 응용 프로그램 백 엔드를 만들 수 있습니다. 이 작업을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
+
+기존 프로젝트에 모바일 기능을 추가하는 경우 아래 [SDK 다운로드 및 초기화](#install-sdk) 섹션을 참조하세요.
 
 ### Azure 포털을 사용하여 .NET 백 엔드 만들기
 
-[Azure 미리 보기 관리 포털]에서 바로 새 모바일 응용 프로그램을 만들 수 있습니다. 아래 단계를 수행하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 새 클라이언트 및 서버를 만들 수 있습니다.
+바로 [Azure 포털]에서 새 모바일 응용 프로그램을 만들 수 있습니다. 아래 단계를 수행하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 새 클라이언트 및 서버를 함께 만들 수 있습니다.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-&nbsp;&nbsp;9. _시작_ 블레이드로 돌아가 **테이블 API 만들기** 아래에서 **백 엔드 언어**로 **C#**를 선택합니다.
+&nbsp;&nbsp;9. _시작_ 블레이드로 돌아가서 **테이블 API 만들기** 아래에서 **백 엔드 언어**로 **C#**을 선택합니다.
 
 &nbsp;&nbsp;10. 다운로드를 클릭하고 로컬 컴퓨터에 압축된 프로젝트 파일을 풀고 Visual Studio에서 솔루션을 엽니다.
 
 ### Visual Studio 2013 및 Visual Studio 2015를 사용하여 .NET 백 엔드 만들기
 
-Visual Studio에서 모바일 앱 프로젝트를 만들려면 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/), 버전 2.8.1 이상을 설치해야 합니다. SDK를 설치한 후 새 ASP.NET 응용 프로그램을 만듭니다.
+Visual Studio에서 모바일 앱 프로젝트를 만들려면 [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.8.1 이상의 버전을 설치해야 합니다. SDK를 설치한 후 새 ASP.NET 응용 프로그램을 만듭니다.
 
 1. **새 프로젝트** 대화 상자를 엽니다(*파일* > **새로 만들기** > **프로젝트...**에서).
 
@@ -61,11 +65,11 @@ SDK는 [NuGet.org]에서 사용할 수 있습니다. 이 패키지는 SDK를 사
 
 ###SDK 설치
 
-SDK를 설치하려면 Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 누른 다음 **NuGet 패키지 관리**를 선택합니다. [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) 패키지를 검색한 다음 **설치**를 클릭합니다.
+SDK를 설치하려면 Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) 패키지를 검색한 다음 **설치**를 클릭합니다.
 
 ###<a name="server-project-setup"></a> 서버 프로젝트 초기화
 
-A .NET 백 엔드 서버 프로젝트는 OWIN 시작 클래스를 포함하여 다른 ASP.NET 프로젝트와 유사하게 초기화됩니다. Visual Studio에서 이 클래스를 추가하려면 서버 프로젝트를 마우스 오른쪽 단추로 누른 다음 **추가** -> **새 항목** -> **웹** -> **일반 ** -> **OWIN 시작 클래스**를 차례로 선택합니다.
+A .NET 백 엔드 서버 프로젝트는 OWIN 시작 클래스를 포함하여 다른 ASP.NET 프로젝트와 유사하게 초기화됩니다. NuGet 패키지 `Microsoft.Owin.Host.SystemWeb`을 참조하도록 확인합니다. Visual Studio에서 이 클래스를 추가하려면 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목** -> **웹** -> **일반 ** -> **OWIN 시작 클래스**를 차례로 선택합니다.
 
 그러면 다음과 같은 특성의 클래스가 생성됩니다.
 
@@ -85,13 +89,17 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
 	    app.UseWebApi(config);
 	}
 
-개별 기능을 사용하려면 **ApplyTo**를 호출하기 전에 **MobileAppConfiguration** 개체에서 확장 메서드를 호출해야 합니다. 예를 들어 다음 코드는 초기화하는 동안 모든 API 컨트롤러에 기본 경로를 추가합니다.
+개별 기능을 사용하려면 **ApplyTo**를 호출하기 전에 **MobileAppConfiguration** 개체에서 확장 메서드를 호출해야 합니다. 예를 들어 다음 코드는 초기화하는 동안 `[MobileAppController]` 특성을 포함하는 모든 API 컨트롤러에 기본 경로를 추가합니다.
 
 	new MobileAppConfiguration()
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-기능 확장 메서드 대부분을 포함할 수 있는 추가 NuGet 패키지를 통해 사용할 수 있으며 이를 아래 섹션에서 설명합니다. Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호출합니다. 이것은 다음 설정과 같습니다.
+`MapApiControllers`는 `[MobileAppController]` 특성을 포함하는 컨트롤러만 매핑합니다.
+
+기능 확장 메서드 대부분을 포함할 수 있는 추가 NuGet 패키지를 통해 사용할 수 있으며 이를 아래 섹션에서 설명합니다.
+
+Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호출합니다. 이것은 다음 설정과 같습니다.
     
 		new MobileAppConfiguration()
 			.AddMobileAppHomeController()             // from the Home package
@@ -108,9 +116,9 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
 
 ### SDK 확장
 
-다음 NuGet 기반 확장 패키지는 응용 프로그램에서 사용할 수 있는 다양한 모바일 기능을 제공합니다. **MobileAppConfiguration** 개체를 사용하여 초기화하는 동안 확장을 사용할 수 있습니다.
+다음 NuGet 기반 확장 패키지는 응용 프로그램에서 사용할 수 있는 다양한 모바일 기능을 제공합니다. **MobileAppConfiguration** 개체를 사용하여 초기화하는 동안 확장을 사용하도록 설정합니다.
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] 기본 모바일 앱 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가합니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. Azure 포털에서 다운로드하는 빠른 시작 서버 프로젝트와 같습니다.
+- [Microsoft.Azure.Mobile.Server.Quickstart] 기본 모바일 앱 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가됩니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. Azure 포털에서 다운로드하는 빠른 시작 서버 프로젝트와 같습니다.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지*를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
 
@@ -141,7 +149,9 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
 		//...
 	}
 
-테이블 컨트롤러가 **AddTables** 확장 메서드를 사용하여 초기화됩니다. 다음 예제는 데이터 액세스를 위한 Entity Framework를 사용하는 테이블 컨트롤러를 초기화합니다.
+테이블 컨트롤러가 **AddTables** 확장 메서드를 사용하여 초기화됩니다. 이것은 `TableController`의 모든 하위 클래스에 대해 `/tables/` 하위 경로를 추가합니다.
+
+다음 예제는 데이터 액세스를 위한 Entity Framework를 사용하는 테이블 컨트롤러를 초기화합니다.
 
     new MobileAppConfiguration().AddTables(
         new MobileAppTableConfiguration()
@@ -150,12 +160,11 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
  
 Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 액세스하는 테이블 컨트롤러의 예제는 Azure 포털의 빠른 시작 서버 프로젝트 다운로드에서 **TodoItemController** 클래스를 참조하세요.
 
-
 ## 방법: 사용자 지정 API 컨트롤러 정의
 
-사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. 사용자 지정 API 컨트롤러
+사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. `MobileAppControllerAttribute` 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. 이 특성은 경로를 등록하고 모바일 앱 JSON 직렬 변환기를 설정합니다.
 
-1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 누른 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 컨트롤러&mdash;비어 있음**을 선택한 후 **추가**를 클릭합니다.
+1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 컨트롤러&mdash;비어 있음**을 선택한 후 **추가**를 클릭합니다.
 
 2. `CustomController`와 같은 **컨트롤러 이름**을 제공하고 **추가**를 클릭합니다. 이렇게 하면 **ApiController**에서 상속한 새 **CustomController** 클래스가 만들어집니다.
 
@@ -179,7 +188,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
     
 	**UseDefaultConfiguration**을 대신 호출하는 경우 **MapApiControllers**를 호출하지 않아도 되며 이는 모든 기능을 초기화합니다.
 
-**MobileAppControllerAttribute**가 적용되지 않는 모든 컨트롤러는 클라이언트에서 여전히 액세스할 수 있지만 모든 모바일 앱 클라이언트 SDK로 올바르게 사용되지 않습니다.
+**MobileAppControllerAttribute**가 적용되지 않는 모든 컨트롤러는 클라이언트에서 여전히 액세스할 수 있지만 모든 모바일 앱 클라이언트 SDK로 올바르게 사용되지 않을 수 있습니다.
 
 
 ## 방법: 서버 프로젝트에 인증 추가
@@ -238,7 +247,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 			}
 		}
 
-`MobileAppLoginHandler.CreateToken()` 메서드는 _audience_ 및 _issuer_ 매개 변수를 포함하고 있습니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 _secretKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 _WEBSITE\_AUTH\_SIGNING\_KEY_ 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
+`MobileAppLoginHandler.CreateToken()` 메서드는 _audience_ 및 _issuer_ 매개 변수를 포함합니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 _secretKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 _WEBSITE\_AUTH\_SIGNING\_KEY_ 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
 
 발급된 토큰 및 포함하고자 하는 클레임에 대한 수명도 제공해야 합니다. 예제 코드에 나오는 것처럼 제목 클레임을 제공해야 합니다.
 
@@ -246,7 +255,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 **MobileAppConfiguration** 개체를 확장하고 알림 허브 클라이언트를 만들어 서버 프로젝트에 푸시 알림을 추가할 수 있습니다. [Microsoft.Azure.Mobile.Server.Quickstart] 패키지를 설치하고 **UseDefaultConfiguration** 확장 메서드를 호출하는 경우 3단계로 건너뛸 수 있습니다.
 
-1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 누른 다음 **NuGet 패키지 관리**를 클릭합니다. Microsoft.Azure.Mobile.Server.Notifications를 검색한 다음 **설치**를 클릭합니다. 그러면 [Microsoft.Azure.Mobile.Server.Notifications] 패키지가 설치됩니다.
+1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. Microsoft.Azure.Mobile.Server.Notifications를 검색한 다음 **설치**를 클릭합니다. 그러면 [Microsoft.Azure.Mobile.Server.Notifications] 패키지가 설치됩니다.
  
 3. 이 단계를 반복하여 알림 허브 클라이언트 라이브러리를 포함하는 `Microsoft.Azure.NotificationHubs` 패키지를 설치합니다.
 
@@ -282,7 +291,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 이제 등록된 장치에 푸시 알림을 보내는 데 알림 허브 클라이언트를 사용할 수 있습니다. 자세한 내용은 [앱에 푸시 알림 추가](app-service-mobile-ios-get-started-push.md)를 참조하세요. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](../notification-hubs/notification-hubs-overview.md)를 참조하세요.
 
-## 방법: 태그에 푸시를 사용하도록 설정하기 위해 장치 설치에 태그 추가
+##<a name="tags"></a>방법: 태그에 푸시를 사용하도록 설정하기 위해 장치 설치에 태그 추가
 
 위의 **방법: 사용자 지정 API 컨트롤러 정의**를 따라 특정 장치 설치에 태그를 추가하려면 알림 허브를 사용하여 작업하도록 백 엔드에 사용자 지정 API를 설정하는 것이 좋습니다. 클라이언트 로컬 저장소에 저장된 설치 ID와 추가하려는 태그(백 엔드에서 직접 태그를 지정할 수 있으므로 선택적임)를 전달해야 합니다. 태그를 장치 설치 ID에 태그를 추가하려면 알림 허브를 사용하여 작업하도록 다음 코드 조각을 컨트롤러에 추가해야 합니다.
 
@@ -321,7 +330,7 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 
 ### <a name="local-debug"></a>인증을 사용하여 로컬 디버깅
 
-응용 프로그램을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 많은 앱의 경우 Visual Studio에 있는 동안 *F5*를 누르기만 하면 됩니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.
+응용 프로그램을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 앱이 많은 경우에도 Visual Studio에 있는 동안 *F5*를 누르기만 하면 됩니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.
 
 클라우드 기반 모바일 앱에서 앱 서비스 인증/권한 부여를 구성해야 하며 클라이언트가 클라우드 끝점을 대체 로그인 호스트로 지정해야 합니다. 필요한 구체적인 단계는 선택한 클라이언트 플랫폼([iOS](app-service-mobile-ios-how-to-use-client-library.md), [Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md))에 대한 설명서를 참조하세요.
 
@@ -335,16 +344,16 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 			TokenHandler = config.GetMobileAppTokenHandler()
 		});
 
-위의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 _authAudience_ 및 _authIssuer_ 응용 프로그램 설정을 응용 프로그램 루트의 URL로 구성해야 합니다. 마찬가지로 _authSigningKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 이 값을 가져오려면 [Azure 미리 보기 관리 포털] 내에서 앱으로 이동하고 **도구**를 클릭합니다. 그런 다음 **Kudu**, **이동**을 차레로 클릭합니다. 그러면 사이트에 대한 Kudu 관리 끝점으로 이동됩니다. **환경**을 클릭하고 _WEBSITE\_AUTH\_SIGNING\_KEY_ 아래에서 값을 찾습니다. 이 값은 로컬 앱 구성에서 _authSigningKey_에 대해 사용해야 하는 값입니다.
+위의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 _authAudience_ 및 _authIssuer_ 응용 프로그램 설정을 응용 프로그램 루트의 URL로 구성해야 합니다. 마찬가지로 _authSigningKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 이 값을 가져오려면 [Azure 포털] 내에서 앱으로 이동하고 **도구**를 클릭합니다. 그런 다음 **Kudu**, **이동**을 차례로 클릭합니다. 그러면 사이트에 대한 Kudu 관리 끝점으로 이동됩니다. **환경**을 클릭하고 _WEBSITE\_AUTH\_SIGNING\_KEY_ 아래에서 값을 찾습니다. 이 값은 로컬 앱 구성에서 _authSigningKey_에 대해 사용해야 하는 값입니다.
 
 로컬로 실행 중인 서버가 이제 클라이언트가 클라우드 기반 끝점에서 가져오는 토큰을 확인하게 됩니다.
 
 
-[Azure 미리 보기 관리 포털]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

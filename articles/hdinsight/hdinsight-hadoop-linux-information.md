@@ -120,9 +120,9 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-또한 Azure 미리 보기 포털을 사용하여 저장소 정보를 찾을 수 있습니다.
+또한 Azure 포털을 사용하여 저장소 정보를 찾을 수 있습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
+1. [Azure 포털](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
 
 2. __필수__ 섹션에서 __모든 설정__을 선택합니다.
 
@@ -207,7 +207,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 미리 보기 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scaling)
+* [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scaling)
 
 * [Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scaling)
 
@@ -252,4 +252,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

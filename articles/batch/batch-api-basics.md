@@ -66,7 +66,7 @@ Azure 배치 서비스를 사용하는 경우 다음 리소스를 활용할 수 
 
 ### <a name="account"></a>계정
 
-배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다. 배치 서비스를 사용하여 작업을 수행하는 경우 계정 이름 및 계정 키가 필요합니다. 배치 계정을 만들려면 [Azure Preview 포털에서 Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md)를 참조하세요.
+배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다. 배치 서비스를 사용하여 작업을 수행하는 경우 계정 이름 및 계정 키가 필요합니다. 배치 계정을 만들려면 [Azure 포털에서 Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md)를 확인하세요.
 
 ### <a name="computenode"></a>계산 노드
 
@@ -354,4 +354,4 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

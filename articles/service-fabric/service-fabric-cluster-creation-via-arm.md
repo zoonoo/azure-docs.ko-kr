@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # ARM 템플릿을 사용하여 서비스 패브릭 클러스터 설정
@@ -45,7 +45,7 @@
 
 ## Azure PS를 사용하여 Azure에 ARM 템플릿 배포
 
-방법에 대한 자세한 지침은 [PS를 사용하여 ARM 템플릿 배포](https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-template-deploy/)를 참조하세요.
+방법에 대한 자세한 지침은 [PS를 사용하여 ARM 템플릿 배포](resource-group-template-deploy.md)를 참조하세요.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
@@ -56,4 +56,4 @@
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

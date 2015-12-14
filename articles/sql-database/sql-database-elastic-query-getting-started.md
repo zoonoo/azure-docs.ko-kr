@@ -33,7 +33,7 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 	![명령 프롬프트][1]
 
 2.  명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
-3.  [Azure Preview 포털](https://portal.azure.com)에서 사용자의v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
+3.  [Azure 포털](https://portal.azure.com)에서 사용자의 v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
 
 	![Visual Studio 확인][2]
 
@@ -43,7 +43,7 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 
 ## 탄력적 쿼리 데이터베이스 만들기
 
-1. [Azure Preview 포털](https://portal.azure.com)을 열고 로그인 합니다.
+1. [Azure 포털](https://portal.azure.com)을 열고 로그인 합니다.
 2. 분할 된 데이터베이스를 설치한 동일 서버에서 새 Azure SQL 데이터베이스를 만듭니다. 데이터베이스 이름을"ElasticDBQuery."로 합니다. 가격 책정 계층의 경우 프리미엄 제공 중 하나를 선택 해야 합니다. 탄력적 데이터베이스 쿼리는 현재 premium 계층 에서만 사용할 수 있습니다.
 
 	![Azure 포털 및 가격 책정 계층][3]
@@ -142,4 +142,4 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

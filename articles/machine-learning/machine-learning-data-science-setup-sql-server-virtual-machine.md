@@ -28,11 +28,11 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
  >[AZURE.NOTE]SQL Server 2012 SP2 Enterprise 이미지에는 **데이터 디스크가 포함되어 있지 않습니다**. 데이터를 저장할 하나 이상의 가상 하드 디스크를 추가 및/또는 연결해야 합니다. Azure 가상 컴퓨터를 만들면 C 드라이브에 매핑되는 운영 체제용 디스크와 D 드라이브에 매핑되는 임시 디스크가 있습니다. D 드라이브는 데이터 저장에 사용하지 마세요. 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다.
 
 
-##<a name="Provision"></a>Azure 관리 포털에 연결 및 SQL Server 가상 컴퓨터 프로비전
+##<a name="Provision"></a>Azure 클래식 포털에 연결 및 SQL Server 가상 컴퓨터 프로비전
 
-1.  사용자 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/)을 방문하십시오.
+1.  사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/)을 방문하십시오.
 
-2.  Azure 관리 포털 웹 페이지의 왼쪽 아래에서 **+새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
+2.  Azure 클래식 포털 웹 페이지의 왼쪽 아래에서 **+새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 
 3.  **가상 컴퓨터 만들기** 페이지에서 데이터 요구 사항에 따라 SQL Server가 포함된 가상 컴퓨터 이미지를 선택한 후 페이지의 오른쪽 아래에서 다음 화살표를 클릭합니다. Azure에서 지원되는 SQL Server 이미지에 대한 최신 정보는 [Azure 가상 컴퓨터의 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294720) 문서 집합의 [Azure 가상 컴퓨터에서 SQL Server 시작](http://go.microsoft.com/fwlink/p/?LinkId=294719) 토픽을 참조하십시오.
 
@@ -223,7 +223,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 다른 컴퓨터에서 SQL Server 데이터베이스 엔진에 연결하려면 가상 컴퓨터의 DNS(Domain Name System) 이름을 알아야 합니다. 이 이름은 인터넷에서 가상 컴퓨터를 식별하는 이름입니다. IP 주소를 사용할 수 있지만 Azure가 중복 또는 유지 관리를 위해 리소스를 이동할 경우 IP 주소가 변경될 수 있습니다. DNS 이름은 새 IP 주소로 리디렉션할 수 있으므로 안정적입니다.
 
-1.  Azure 관리 포털(또는 이전 단계)에서 **가상 컴퓨터**를 선택합니다.
+1.  Azure 클래식 포털(또는 이전 단계)에서 **가상 컴퓨터**를 선택합니다.
 
 2.  **가상 컴퓨터 인스턴스** 페이지의 **DNS 이름** 열에서 ****http://**로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다. 사용자 인터페이스에 전체 이름이 표시되지 않을 수도 있지만 이름을 마우스 오른쪽 단추로 클릭하고 복사를 선택합니다.
 
@@ -259,11 +259,11 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
 
-> [AZURE.NOTE]Windows 전원 옵션을 사용하여 내부에서 가상 컴퓨터를 종료하면 VM이 중지되지만 여전히 할당된 상태로 유지됩니다. 비용이 청구되지 않도록 하려면 항상 [Azure 관리 포털](http://manage.windowsazure.com/)에서 가상 컴퓨터를 중지하세요. "PostShutdownAction"이 "StoppedDeallocated"와 동일한 ShutdownRoleOperation을 호출하여 Powershell을 통해 VM을 중지할 수도 있습니다.
+> [AZURE.NOTE]Windows 전원 옵션을 사용하여 내부에서 가상 컴퓨터를 종료하면 VM이 중지되지만 여전히 할당된 상태로 유지됩니다. 비용이 청구되지 않도록 하려면 항상 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 가상 컴퓨터를 중지하세요. "PostShutdownAction"이 "StoppedDeallocated"와 동일한 ShutdownRoleOperation을 호출하여 Powershell을 통해 VM을 중지할 수도 있습니다.
 
 가상 컴퓨터를 종료하고 할당을 해제하려면 다음을 수행합니다.
 
-1. 사용자 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다.  
+1. 사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다.  
 
 2. 왼쪽 탐색 모음에서 **가상 컴퓨터**를 선택합니다.
 
@@ -273,7 +273,7 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 ![VM 종료][15]
 
-가상 컴퓨터가 할당 해제되지만 삭제되지는 않습니다. Azure 관리 포털에서 언제든지 가상 컴퓨터를 다시 시작할 수 있습니다.
+가상 컴퓨터가 할당 해제되지만 삭제되지는 않습니다. Azure 클래식 포털에서 언제든지 가상 컴퓨터를 다시 시작할 수 있습니다.
 
 ## Azure SQL Server VM을 사용할 준비가 되었습니다. 다음 단계는 무엇입니까?
 
@@ -298,4 +298,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

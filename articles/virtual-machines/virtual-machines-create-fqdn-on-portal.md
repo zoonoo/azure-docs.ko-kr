@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Preview 포털에서 VM에 FQDN 만들기 | Microsoft Azure"
-   description="Azure Preview 포털에서 가상 컴퓨터를 기반으로 하는 정규화된 도메인 이름 또는 리소스 관리자용 FQDN을 만드는 방법을 알아봅니다."
+   pageTitle="Azure 포털에서 VM에 대한 FQDN 만들기 | Microsoft Azure"
+   description="Azure 포털에서 가상 컴퓨터를 기반으로 한 리소스 관리자에 대한 정규화된 도메인 이름 또는 FQDN을 만드는 방법에 대해 알아봅니다."
    services="virtual-machines"
    documentationCenter=""
    authors="dsk-2015"
@@ -17,12 +17,12 @@
    ms.date="08/21/2015"
    ms.author="dkshir"/>
 
-# Azure Preview 포털에서 정규화된 도메인 이름 만들기
+# Azure 포털에서 정규화된 도메인 이름 만들기
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 
-[Azure Preview 포털](https://portal.azure.com)에서 **리소스 관리자** 배포 모델을 사용하여 가상 컴퓨터를 만들 경우 포털은 가상 컴퓨터용 공용 IP 리소스를 만듭니다. 이 IP 주소를 사용하여 가상 컴퓨터에 원격으로 액세스할 수 있습니다. 그러나 포털은 기본적으로 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 또는 FQDN를 만들지 않습니다. IP 주소 대신 FQDN을 기억하고 사용하기 쉽기 때문에 이 문서는 가상 컴퓨터에 이를 추가하는 방법을 보여 줍니다.
+**리소스 관리자** 배포 모델을 사용하여 [Azure 포털](https://portal.azure.com)에서 가상 컴퓨터를 만들 때, 포털은 가상 컴퓨터에 대해 공용 IP 리소스를 만듭니다. 이 IP 주소를 사용하여 가상 컴퓨터에 원격으로 액세스할 수 있습니다. 그러나 포털은 기본적으로 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 또는 FQDN를 만들지 않습니다. IP 주소 대신 FQDN을 기억하고 사용하기 쉽기 때문에 이 문서는 가상 컴퓨터에 이를 추가하는 방법을 보여 줍니다.
 
 문서에서는 **리소스 관리자**를 사용하여 포털에서 구독에 로그인하고 사용 가능한 이미지로 가상 컴퓨터를 만들었다고 가정합니다. 가상 컴퓨터가 실행되기 시작되면 다음 단계를 수행합니다.
 
@@ -54,4 +54,4 @@
 
     이제 이 DNS 이름을 사용하여 원격으로 가상 컴퓨터에 연결할 수 있습니다. 예를 들어 정규화된 도메인 이름이 `testdnslabel.eastus.cloudapp.azure.com`이고 사용자 이름이 `adminuser`인 Linux 가상 컴퓨터에 연결하는 경우 `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`을 사용합니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -51,11 +51,11 @@ Git의 경우 [Windows용 Git] 또는 [Windows용 GitHub]를 설치하는 것이
 Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3.4여야 합니다.
 
 
-## Azure Preview 포털에서 웹앱 만들기
+## Azure 포털에서 웹앱 만들기
 
-앱을 만드는 첫 번째 단계는 [Azure Preview 포털](https://portal.azure.com)을 통해 웹앱을 만드는 것입니다.
+앱을 만드는 첫 번째 단계는 [Azure 포털](https://portal.azure.com)을 통해 웹앱을 만드는 것입니다.
 
-1. Azure Preview 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다. 
+1. Azure 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다. 
 2. **웹 + 모바일**을 클릭합니다.
 3. 검색 상자에 "python"을 입력합니다.
 4. 검색 결과에서 선택 **Bottle**을 선택하고 **만들기**를 클릭합니다.
@@ -132,7 +132,7 @@ Python 가상 환경. 호환되는 가상 환경이 웹앱에 없는 경우 배�
 
 ### 리포지토리 복제
 
-먼저 Azure Preview 포털에서 제공된 url을 사용하여 리포지토리를 복제합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
 
 리포지토리의 루트에 포함된 솔루션 파일(.sln)을 엽니다.
 
@@ -144,7 +144,7 @@ Python 가상 환경. 호환되는 가상 환경이 웹앱에 없는 경우 배�
 
 - 환경 이름이 `env`인지 확인합니다.
 
-- 기본 해석기를 선택합니다. 웹앱에 대해 선택(runtime.txt 또는 Azure Preview 포털에서 웹앱의 **응용 프로그램 설정** 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
+- 기본 해석기를 선택합니다. 웹앱에 대해 선택(runtime.txt 또는 Azure 포털에서 웹앱의 **응용 프로그램 설정** 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
 
 - 패키지를 다운로드하여 설치하는 옵션이 선택되어 있는지 확인합니다.
 
@@ -199,7 +199,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 ### 리포지토리 복제
 
-먼저 Azure Preview 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
 
     git clone <repo-url>
     cd <repo-folder>
@@ -209,7 +209,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 개발을 위해 새 가상 환경을 만듭니다(리포지토리에 추가 안 함). Python의 가상 환경은 재할당할 수 없으므로 응용 프로그램에서 작업하는 모든 개발자가 각자 로컬로 만듭니다.
 
-웹앱에 대해 선택(runtime.txt 또는 Azure Preview 포털에서 웹앱의 응용 프로그램 설정 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
+웹앱에 대해 선택(runtime.txt 또는 Azure 포털에서 웹앱에 대한 응용 프로그램 설정 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
 
 Python 2.7:
 
@@ -278,7 +278,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 ### 리포지토리 복제
 
-먼저 Azure Preview 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
+먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](web-sites-publish-source-control.md)를 참조하세요.
 
     git clone <repo-url>
     cd <repo-folder>
@@ -288,7 +288,7 @@ Azure URL로 이동하여 변경 내용을 확인합니다.
 
 개발을 위해 새 가상 환경을 만듭니다(리포지토리에 추가 안 함). Python의 가상 환경은 재할당할 수 없으므로 응용 프로그램에서 작업하는 모든 개발자가 각자 로컬로 만듭니다.
 
-웹앱에 대해 선택(runtime.txt 또는 Azure Preview 포털에서 웹앱의 응용 프로그램 설정 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
+웹앱에 대해 선택(runtime.txt 또는 Azure 포털에서 웹앱의 응용 프로그램 설정 블레이드를 통해)된 Python의 동일한 버전을 사용해야 합니다.
 
 Python 2.7:
 
@@ -378,7 +378,6 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 
 <!--Link references-->
@@ -398,4 +397,4 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Bottle 설명서]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

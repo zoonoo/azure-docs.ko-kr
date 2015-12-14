@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="11/26/2015" 
 	ms.author="bradsev" />
 
 
@@ -51,39 +51,39 @@ Microsoft 데이터 과학 가상 컴퓨터를 만들려면 먼저 다음이 있
 
 Microsoft 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계는 다음과 같습니다.
 
-1.	[Azure 포털](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 가상 컴퓨터 목록으로 이동합니다.
+1.	[Azure 클래식 포털](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 가상 컴퓨터 목록으로 이동합니다.
 2.	 마법사로 이동하려면 아래에 있는 **만들기** 단추를 클릭합니다.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 다음 섹션에서는 Microsoft 데이터 과학 가상 컴퓨터를 만드는 데 사용되는 마법사의 각 **5단계**(위의 그림 오른쪽에 열거됨)에 **입력**을 제공합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
 
   **a. 기본 사항**:
 
-    - **Name**: Name of your data science server you are creating.
-    - **User Name**: Admin account login id
-    - **Password**: Admin account password
-    - **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed
-    - **Resource Group**: You can create a new one or use an existing group
-    - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
+   - **이름**: 만들려는 데이터 과학 서버 이름
+   - **사용자 이름**: 관리자 계정 로그인 ID
+   - **암호**: 관리자 계정 암호
+   - **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다.
+   - **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
+   - **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다.
 
   **b. 크기**:
 
-    - Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
+   - 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. "모두 보기"를 선택하면 보다 다양한 VM 크기를 선택할 수 있습니다.
 
   **c. 설정**
 
-    - **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
-    - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
-    - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
+   - **디스크 유형**: SSD(반도체 드라이브)를 선호하는 경우 프리미엄을 선택하고 그렇지 않은 경우 "표준"을 선택합니다.
+   - **저장소 계정**: 구독에서 새 Azure 저장소 계정을 만들거나 마법사의 기본 단계에서 선택했던 것과 동일한 *위치*에 있는 기존 계정을 사용할 수 있습니다.
+   - **기타 매개 변수**: 대부분의 경우, 기본값을 사용합니다. 기본값이 아닌 것을 사용하려는 경우 특정 필드의 정보 링크를 가리키면 도움말을 볼 수 있습니다.
 
   **d. 요약**:
 
-    - Verify that all information you entered is correct.
+   - 입력한 모든 정보가 올바른지 확인합니다.
 
   **e. 구입**:
 
-    - Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+   - **구입**을 클릭하여 프로비전을 시작합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 
 
 
-프로비전은 약 10-20분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
+프로비전은 약 10-20분 정도 소요됩니다. 프로비저닝의 상태는 Azure 클래식 포털에 표시됩니다.
 
 ## Microsoft 데이터 과학 가상 컴퓨터에 액세스하는 방법
 
@@ -97,13 +97,13 @@ VM이 만들어지고 프로비전되면 여기에 설치 및 구성되는 도�
 분석에 R을 사용하려는 경우 VM에 Revolution R Open (RRO)이 설치되어야 합니다. 이는 R의 공개 소스 배포이며 CRAN-R와 완벽하게 호환됩니다. Intel Math Kernel Library와 함께 최신 공개 소스 R 엔진이 포함되어 있습니다. "RRO RGui"라고 하는 IDE도 VM에 포함되어 있습니다. 무료로 다운로드하여 [RStudio](http://www.rstudio.com)와 같은 다른 IDE도 사용할 수 있습니다.
 
 ### Python
-Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7이 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. Visual Studio 2015 Community 버전 또는 IDLE이나 Spyder 등의 Anaconda와 함께 제공되는 IDE 중 하나에 설치된 PTVS(Python Tools for Visual Studio)를 사용할 수 있습니다. 검색 표시줄에서 검색하여 다음 중 하나를 시작할 수 있습니다(**Win** + **S** 키).
+Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7이 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. Visual Studio 2015 Community 버전 또는 IDLE이나 Spyder 등의 Anaconda와 함께 제공되는 IDE 중 하나에 설치된 PTVS(Python Tools for Visual Studio)를 사용할 수 있습니다. 검색 표시줄에서 검색(**Win** + **S** 키)하여 다음 중 하나를 시작할 수 있습니다.
 
 ### IPython Notebook
 Anaconda 배포는 코드 및 분석을 공유 하는 환경인 IPython notebook도 제공됩니다. IPython Notebook 서버는 미리 구성되어 있습니다. Notebook 서버에 액세스하려면 브라우저를 시작하는 바탕 화면 아이콘이 있습니다. 원격 데스크톱을 통해 VM을 사용 중인 경우 [https://localhost:9999/](https://localhost:9999/)에 방문하여 IPython Notebook 서버에 액세스할 수도 있습니다(참고: 인증서 경고가 발생하더라도 계속 진행하세요.).
 
 ### Visual Studio 2015 Community edition
-VM에 설치된 Visual Studio Community edition 평가 목적이나 매우 작은 팀에 사용할 수 있는 Microsoft의 인기 있는 IDE의 무료 버전입니다. 사용 조건은 [여기](https://www.visualstudio.com/support/legal/mt171547)에서 확인할 수 있습니다. 바탕 화면 아이콘이나 **시작** 메뉴를 두 번 클릭하여 Visual Studio를 엽니다. 또한 **Win** + **S** 키를 누른 후 "Visual Studio"를 입력하여 프로그램을 검색할 수도 있습니다.
+VM에 설치된 Visual Studio Community edition 평가 목적이나 매우 작은 팀에 사용할 수 있는 Microsoft의 인기 있는 IDE의 무료 버전입니다. 사용 조건은 [여기](https://www.visualstudio.com/support/legal/mt171547)에서 확인할 수 있습니다. 바탕 화면 아이콘이나 **시작** 메뉴를 두 번 클릭하여 Visual Studio를 엽니다. 또한 **Win** + **S**를 누른 후 "Visual Studio"를 입력하여 프로그램을 검색할 수도 있습니다.
 
 참고: 평가 기간이 만료되었다는 메시지가 나타날 수 있습니다. Microsoft 계정 자격 증명을 입력하거나 새로 만들어 입력하여 Visual Studio Community Edition에 액세스할 수 있습니다. 여기서 C#, Python과 같은 언어로 된 프로젝트를 만들 수 있습니다.
 
@@ -122,4 +122,4 @@ SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함�
 ## 추가 Microsoft 개발 도구
 [**Microsoft 웹 플랫폼 설치 관리자**](https://www.microsoft.com/web/downloads/platform.aspx)는 다른 Microsoft 개발 도구를 검색하고 다운로드하는 데 사용할 수 있습니다. 또한 Microsoft 데이터 과학 가상 컴퓨터 데스크톱에서 제공되는 도구에 대한 바로 가기도 있습니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

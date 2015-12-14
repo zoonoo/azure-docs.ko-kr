@@ -23,15 +23,15 @@ Web 및 Business 데이터베이스 업그레이드를 지원하기 위해 SQL �
 
 **가격 책정 계층 권장 사항 가져오기:**
 
-- [Azure 포털](sql-database-v12-upgrade.md)을 사용하여 SQL 데이터베이스 V12로 업그레이드
-- [PowerShell을 사용하여 SQL 데이터베이스 V12로 업그레이드 준비](sql-database-upgrade-server.md)
+- [Azure 포털](sql-database-upgrade-server-portal.md)을 사용하여 SQL 데이터베이스 V12로 업그레이드
+- [PowerShell을 사용하여 SQL 데이터베이스 V12로 업그레이드 준비](sql-database-upgrade-server-powershell.md)
 - [Web 또는 Business 데이터베이스의 가격 책정 계층 변경](sql-database-service-tier-advisor.md)
  
 
 
-## Azure 관리 포털이 내 Web 및 Business edition 데이터베이스를 사용되지 않음으로 표시하는 이유가 무엇입니까?
+## Azure 포털이 내 Web 및 Business edition 데이터베이스를 사용되지 않음으로 표시하는 이유가 무엇입니까?
 
-Web 및 Business 버전 데이터베이스는 2015 년 9 월 후 사용할 수 없으므로 관리 포털은 Web 및 Business 데이터베이스를 사용되지 않음으로 표시합니다. Web 및 Business 데이터베이스를 여전히 프로비전 및 관리할 수 있지만, 사용되지 않음 레이블은 새 데이터베이스에 Basic, Standard 또는 Premium 서비스 계층을 사용하는 것이 최선이라는 알림입니다. 또한 사용되지 않는 레이블은 Web 및 Business 데이터베이스를 Standard, Basic 또는 Premium으로 업그레이드 해야 한다는 알림을 제공합니다. 기존 Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레이드에 대한 자세한 내용은 [새 서비스 계층으로 SQL 데이터베이스 Web/Business 데이터베이스 업그레이드](sql-database-upgrade-new-service-tiers.md)를 참조하세요.
+Web 및 Business 버전 데이터베이스는 2015 년 9 월 후 사용할 수 없으므로 포털은 Web 및 Business 데이터베이스를 사용되지 않음으로 표시합니다. Web 및 Business 데이터베이스를 여전히 프로비전 및 관리할 수 있지만, 사용되지 않음 레이블은 새 데이터베이스에 Basic, Standard 또는 Premium 서비스 계층을 사용하는 것이 최선이라는 알림입니다. 또한 사용되지 않는 레이블은 Web 및 Business 데이터베이스를 Standard, Basic 또는 Premium으로 업그레이드 해야 한다는 알림을 제공합니다. 기존 Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레이드에 대한 자세한 내용은 [새 서비스 계층으로 SQL 데이터베이스 Web/Business 데이터베이스 업그레이드](sql-database-upgrade-new-service-tiers.md)를 참조하세요.
 
 ## 내 기존 Web 또는 Business 데이터베이스를 업그레이드하기 위한 새 서비스 계층은 무엇입니까?
 
@@ -68,4 +68,4 @@ Web 및 Business 버전에서 페더레이션 기능이 사용되지 않습니�
 
 [SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

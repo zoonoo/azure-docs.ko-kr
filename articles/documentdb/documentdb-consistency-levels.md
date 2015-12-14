@@ -56,7 +56,7 @@
 
 ### 데이터베이스 일관성 수준 변경
 
-1.  [Azure Preview 포털](https://portal.azure.com/)의 점프 모음에서 **DocumentDB 계정**을 클릭합니다.
+1.  [Azure 포털](https://portal.azure.com/)의 이동 표시줄에서 **DocumentDB 계정**을 클릭합니다.
 
 2. **DocumentDB 계정** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
 
@@ -88,4 +88,4 @@
 -	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

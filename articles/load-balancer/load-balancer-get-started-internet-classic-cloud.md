@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/30/2015"
    ms.author="joaoma" />
 
 # 클라우드 서비스를 위한 인터넷 연결 부하 분산 장치 만들기 시작
@@ -27,6 +27,8 @@
 
 클라우드 서비스는 자동으로 부하 분산 장치를 사용하여 구성되며 서비스 모델을 통해 사용자 지정될 수 있습니다.
 
+## 서비스 정의 파일을 사용하여 부하 분산 장치 만들기
+ 
 Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할 수 있습니다. 클라우드 서비스에 대한 끝점 설정은 [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef 파일에서 수행합니다.
 
 다음 예제에서는 클라우드 배포에 대한 servicedefinition.csdef 파일이 구성되는 방식을 보여 줍니다.
@@ -56,7 +58,7 @@ Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할
 
 
 
-### 클라우드 서비스에 대한 부하 분산 장치 상태 확인
+## 클라우드 서비스에 대한 부하 분산 장치 상태 확인
 
 
 다음은 상태 프로브의 예입니다.
@@ -81,4 +83,4 @@ Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

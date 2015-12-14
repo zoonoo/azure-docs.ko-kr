@@ -142,7 +142,7 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
 1. 두 방법 모두에 대해, 인증서에서 X509Certificate 개체를 만들고 키 값을 검색합니다. 인증서 경로 및 인증서 암호를 사용합니다.
 
-        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+        $cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate -ArgumentList @("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
 2. 키 자격 증명을 사용하는 경우 키 자격 증명 개체를 만들고 그 값을 이전 단계의 `$keyValue`로 설정합니다.
@@ -312,4 +312,4 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

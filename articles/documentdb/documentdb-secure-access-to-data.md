@@ -68,7 +68,7 @@ DocumentDB는 DocumentDB 리소스에 대한 액세스를 제어하기 위해 �
 앞에서 설명한 것처럼, DocumentDB 마스터 키는 DocumentDB 계정 내에서 모든 리소스에 대해 모든 관리 액세스 권한을 제공하며, 읽기 전용 키는 해당 계정 내의 모든 리소스에 대한 읽기 액세스를 가능하게 해줍니다. 다음 코드 조각에서는 DocumentDB 계정 끝점 및 마스터 키를 사용해서 DocumentClient를 인스턴스화하고 새 데이터베이스를 만듭니다.
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Management Portal on the DocumentDB Account Blade under "Keys".
+    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
 	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -163,4 +163,4 @@ DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다. 각 사�
 - DocumentDB 권한 부여 토큰을 생성하는 방법에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn783368.aspx)를 클릭합니다.
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

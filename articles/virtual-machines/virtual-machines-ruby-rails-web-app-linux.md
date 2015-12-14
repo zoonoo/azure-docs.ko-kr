@@ -34,11 +34,11 @@
 
 Linux 이미지와 Azure VM을 만들어 시작합니다.
 
-VM을 만들려면 Azure 포털 또는 Azure 명령줄 인터페이스(CLI)를 사용할 수 있습니다.
+VM을 만들려면 Azure 클래식 포털 또는 Azure 명령줄 인터페이스(CLI)를 사용할 수 있습니다.
 
 ### Azure 관리 포털
 
-1. [Azure 포털](http://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에 로그인하기
 2. **새로 만들기** > **계산** > **가상 컴퓨터** > **빨리 만들기**를 클릭합니다. Linux 이미지를 선택합니다.
 3. 암호를 입력합니다.
 
@@ -97,7 +97,7 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
 
 ## 끝점 추가
 
-1. [Azure 포털][management-portal]로 이동한 다음 VM을 선택합니다.
+1. [Azure 클래식 포털][management-portal]로 이동한 다음 VM을 선택합니다.
 
 	![가상 컴퓨터 목록][vmlist]
 
@@ -175,4 +175,4 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

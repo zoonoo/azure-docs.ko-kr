@@ -33,7 +33,7 @@
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-##작업 만들기 
+##작업 만들기
 
 작업은 태스크 집합(예: 인코딩 또는 인덱싱)에 대한 메타데이터를 포함하는 엔터티입니다. 각 태스크는 입력 자산에 대한 원자성 작업을 수행합니다. 인코딩 작업을 만드는 방법에 대한 예제는 다음을 참조하세요.
 
@@ -43,22 +43,22 @@
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-##인코딩 
+##인코딩
 
-**Azure 관리 포털**, **.NET** 또는 **REST API**를 사용하여 **Azure 미디어 인코더**로 인코딩합니다.
- 
+**Azure 클래식 포털**, **.NET** 또는 **REST API**를 사용하여 **Azure 미디어 인코더**로 인코딩합니다.
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ##작업 진행 상태 모니터링
 
-**Azure 관리 포털**, **.NET** 또는 **REST API**를 사용하여 작업 진행 상태를 모니터링합니다.
+**Azure 클래식 포털**, **.NET** 또는 **REST API**를 사용하여 작업 진행 상태를 모니터링합니다.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
 ##관련 링크
 
 [할당량 및 제한 사항](media-services-quotas-and-limitations.md) – 미디어 서비스 인코더의 제한 사항 및 사용된 할당량에 대해 설명합니다.
- 
+
 
 ##미디어 서비스 학습 경로
 
@@ -68,4 +68,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

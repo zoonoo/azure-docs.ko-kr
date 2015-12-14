@@ -92,7 +92,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 CoreOS, Docker 및 **fleet** 사용 시 한 가지 이점은 가용성이 높은 방식으로 손쉽게 서비스를 실행할 수 있다는 것입니다. 이 예제에서는 nginx 웹 서버를 실행하는 동일한 컨테이너 3개로 구성된 서비스를 배포합니다. 컨테이너는 클러스터의 세 VM에서 실행됩니다. 이 예제는 [fleet로 컨테이너 시작]과 유사하며 [nginx Docker Hub 이미지]를 사용합니다.
 
->[AZURE.IMPORTANT]항상 사용 가능한 웹 서버를 실행하려면 가상 컴퓨터(공용 포트 80, 개인 포트 80)에서 부하 분산된 HTTP 끝점을 구성해야 합니다. CoreOS 클러스터를 만든 후 Azure 포털 또는 **azure vm endpoint** 명령을 사용하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [부하 분산된 집합 구성]을 참조하십시오.
+>[AZURE.IMPORTANT]항상 사용 가능한 웹 서버를 실행하려면 가상 컴퓨터(공용 포트 80, 개인 포트 80)에서 부하 분산된 HTTP 끝점을 구성해야 합니다. CoreOS 클러스터를 만든 후 Azure 클래식 포털 또는 **azure vm endpoint** 명령을 사용하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [부하 분산된 집합 구성]을 참조하십시오.
 
 클라이언트 컴퓨터에서 원하는 텍스트 편집기를 사용하여 nginx@.service라는 이름의 **systemd** 템플릿 단위 파일을 만드십시오. 이 간단한 템플릿은 nginx@1.service, nginx@2.service 및 nginx@3.service라고 명명된 세 가지 개별 인스턴스를 시작하는 데 사용됩니다.
 
@@ -192,4 +192,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [nginx Docker Hub 이미지]: https://hub.docker.com/_/nginx/
 [Azure의 오픈 소스 컴퓨팅 및 Linux]: virtual-machines-linux-opensource.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -98,7 +98,7 @@ ADAL을 사용하여 사용자를 인증하려면 먼저 AAD(Azure Active Direct
             }];
         }
 
-4. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/tenant-name.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 관리 포털]에서 Azure Active Directory의 도메인 탭에서 복사할 수 있습니다.
+4. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/tenant-name.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
 
 5. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 앱에 대한 **앱 ID URI**로 바꿉니다. [Azure Active Directory로 모바일 앱을 구성하는 방법] 항목을 따른 경우 앱 ID URI는 https://contosogateway.azurewebsites.net/login/aad와 유사해야 합니다.
 
@@ -118,9 +118,9 @@ ADAL을 사용하여 사용자를 인증하려면 먼저 AAD(Azure Active Direct
 
 <!-- URLs. -->
 [Azure Active Directory로 모바일 앱을 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [모바일 앱 시작 자습서]: app-service-mobile-ios-get-started.md
 [앱에 인증 추가]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

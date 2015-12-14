@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="사용자 지정 인증 시작 | Microsoft Azure" 
-	description="사용자 이름 및 암호를 사용하여 사용자를 인증하는 방법에 대해 알아봅니다." 
-	documentationCenter="Mobile" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="사용자 지정 인증 시작 | Microsoft Azure"
+	description="사용자 이름 및 암호를 사용하여 사용자를 인증하는 방법에 대해 알아봅니다."
+	documentationCenter="Mobile"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="mahender"/>
 
 # 사용자 지정 인증 시작
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ## 개요
 이 항목에서는 고유 모바일 서비스 인증 토큰을 발행하여 Azure 모바일 서비스 .NET 백 엔드에서 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 앱에 대해 사용자 지정 사용자 이름 및 암호를 사용해서 빠른 시작 프로젝트에 인증을 추가합니다.
@@ -35,7 +40,7 @@
 
 2. 다음 `using` 문을 추가합니다.
 
-		using Microsoft.WindowsAzure.Mobile.Service;  
+		using Microsoft.WindowsAzure.Mobile.Service;
 
 3. 클래스 정의를 다음 코드로 바꿉니다.
 
@@ -45,7 +50,7 @@
 	        public byte[] Salt { get; set; }
 	        public byte[] SaltedAndHashedPassword { get; set; }
 	    }
-    
+
     이것은 사용자 이름, 해당 사용자의 솔트 및 안전하게 저장된 암호를 포함하는 새 계정 테이블의 행을 나타냅니다.
 
 2. **Models** 폴더 아래에는 모바일 서비스 이름에 따라 지정된 **DbContext** 클래스가 있습니다. 컨텍스트를 열고 다음을 포함하여 데이터 모델에 계정 테이블을 추가합니다.
@@ -53,7 +58,7 @@
         public DbSet<Account> Accounts { get; set; }
 
 	>[AZURE.NOTE]이 자습서 사용에서 코드 조각은 컨텍스트 이름으로 `todoContext`을(를) 사용합니다. 프로젝트의 컨텍스트에 대한 코드 조각을 업데이트해야 합니다. &nbsp; 다음으로,이 데이터로 작업하기 위한 보안 기능을 설정합니다.
- 
+
 5. `CustomLoginProviderUtils`(이)라는 클래스를 만들고 여기에 다음 `using` 문을 추가합니다.
 
 		using System.Security.Cryptography;
@@ -113,14 +118,14 @@
 		using <my_project_namespace>.Models;
 
 	위의 코드에서 프로젝트의 네임 스페이스를 가진 자리 표시자를 바꿉니다.
- 
+
 4. 클래스 정의를 다음 코드로 바꿉니다.
 
 	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 	    public class CustomRegistrationController : ApiController
 	    {
 	        public ApiServices Services { get; set; }
-	
+
 	        // POST api/CustomRegistration
 	        public HttpResponseMessage Post(RegistrationRequest registrationRequest)
 	        {
@@ -132,7 +137,7 @@
 	            {
 	                return this.Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid password (at least 8 chars required)");
 	            }
-	
+
 	            todoContext context = new todoContext();
 	            Account account = context.Accounts.Where(a => a.Username == registrationRequest.username).SingleOrDefault();
 	            if (account != null)
@@ -154,7 +159,7 @@
 	                return this.Request.CreateResponse(HttpStatusCode.Created);
 	            }
 	        }
-	    }   
+	    }
 
     *todoContext* 변수를 프로젝트의 **DbContext** 이름으로 바꾸어야 합니다. 이 컨트롤러는 다음 특성을 사용하여 모든 트래픽을 이 끝점으로 허용합니다.
 
@@ -173,7 +178,7 @@
 		using Newtonsoft.Json.Linq;
 		using Owin;
 		using System.Security.Claims;
- 
+
 3. **CustomLoginProvider** 클래스 정의를 다음 코드로 바꿉니다.
 
         public class CustomLoginProvider : LoginProvider
@@ -250,12 +255,12 @@
         }
 
 	이 메서드는 [ClaimsIdentity]를 [ProviderCredentials] 개체로 변환합니다. 이 개체는 인증 토큰 발행 단계에서 사용됩니다. 여기에서 추가 클레임을 다시 캡처해야 합니다.
-	
+
 6. App\_Start 폴더에서 WebApiConfig.cs 프로젝트 파일을 열면 **ConfigOptions** 뒤에 다음 줄의 코드가 작성됩니다.
-		
+
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
-	
+
 
 ## 로그인 끝점 만들기
 
@@ -277,7 +282,7 @@
 	    {
 	        public string UserId { get; set; }
 	        public string MobileServiceAuthenticationToken { get; set; }
-	
+
 	    }
 
 	이 클래스는 사용자 ID 및 인증 토큰을 사용한 성공적인 로그인을 나타냅니다. 이 클래스에는 클라이언트의 MobileServiceUser 클래스와 동일한 모양이 있으며, 이는 강력한 형식의 클라이언트에서 로그인 응답을 더 쉽게 처리할 수 있도록 합니다.
@@ -290,13 +295,13 @@
 		using <my_project_namespace>.Models;
 
 3. **CustomLoginController** 클래스 정의를 다음 코드로 바꿉니다.
- 
+
 	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 	    public class CustomLoginController : ApiController
 	    {
 	        public ApiServices Services { get; set; }
 	        public IServiceTokenHandler handler { get; set; }
-	
+
 	        // POST api/CustomLogin
 	        public HttpResponseMessage Post(LoginRequest loginRequest)
 	        {
@@ -307,7 +312,7 @@
 	            {
 	                byte[] incoming = CustomLoginProviderUtils
 	                    .hash(loginRequest.password, account.Salt);
-	
+
 	                if (CustomLoginProviderUtils.slowEquals(incoming, account.SaltedAndHashedPassword))
 	                {
 	                    ClaimsIdentity claimsIdentity = new ClaimsIdentity();
@@ -342,7 +347,7 @@
 
 클라이언트 앱에서는 사용자 이름과 암호를 가져와서 이를 등록 및 로그인 끝점에 대한 JSON 페이로드로 보내는 사용자 지정 로그인 화면을 개발해야 합니다. 이 자습서를 완료할 때는 대신 모바일 서비스 .NET 백 엔드에 대해 기본 제공되는 테스트 클라이언트만 사용합니다.
 
-1. Visual Studio에서 모바일 서비스 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **디버그** 및 **새 인스턴스 시작**을 클릭합니다.  
+1. Visual Studio에서 모바일 서비스 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **디버그** 및 **새 인스턴스 시작**을 클릭합니다.
 
 	그러면 모바일 서비스 백 엔드 프로젝트의 새 디버깅 인스턴스가 시작됩니다. 서비스가 성공적으로 시작되면 **이제 코드가 실행되고 있습니다**라는 시작 페이지가 시작됩니다.
 
@@ -389,13 +394,13 @@
 2. 클라이언트 라이브러리의 **MobileServiceClient**에서 적합한 **invokeApi** 메서드를 사용하여 메시지 본문에서 런타임 제공 사용자 이름 및 암호를 전달하는 **CustomRegistration** 끝점을 호출합니다.
 
 	계정 테이블에서 사용자 로그인 정보를 유지할 뿐 아니라 지정된 사용자의 계정을 만들기 위해 **CustomRegistration** 끝점을 한 번 호출해야 합니다. 다양한 지원 클라이언트 플랫폼에서 사용자 지정 API를 호출하는 방법의 예시는 [Azure 모바일 서비스의 사용자 지정 API - 클라이언트 SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx) 문서를 참조하세요.
-	 
+
 	> [AZURE.IMPORTANT]이 사용자 프로비저닝 단계는 한 번만 발생하기 때문에 일부 대역 외 방식에서 사용자 계정 만들기를 고려해야 합니다. 공용 등록 끝점의 경우, SMS 기반 또는 이메일 기반 확인 프로세스 구현을 고려하거나 사기성 계정을 생성하지 않도록 다른 보호책을 고려해야 합니다. Twilio를 사용하여 모바일 서비스에서 SMS 메시지를 보낼 수 있습니다. 모바일 서비스에서 이메일을 보내려면 SendGrid를 사용할 수도 있습니다. SendGrid 사용에 대한 자세한 내용은 [SendGrid로 모바일 서비스에서 전자 메일 보내기](store-sendgrid-mobile-services-send-email-scripts.md)를 참조하세요.
-	
+
 3. 이번에는 적합한 **invokeApi** 메서드를 다시 사용하여 메시지 본문에서 런타임 제공 사용자 이름 및 암호를 전달하는 **CustomLogin** 끝점을 호출합니다.
 
 	이번에는 성공적인 로그인 후에 응답 개체에서 반환되는 *userId* 및 *authenticationToken* 값을 캡처해야 합니다.
-	
+
 4. [기존 앱에 인증 추가](mobile-services-dotnet-backend-ios-get-started-users.md) 항목에 표시된 대로 반환되는 *userId* 및 *authenticationToken* 값을 사용하여 새 **MobileServiceUser** 개체를 만들고 **MobileServiceClient** 인스턴스에 대해 현재 사용자로 설정합니다. CustomLogin 결과는 **MobileServiceUser** 개체와 같은 형태이므로 결과를 직접적으로 캐스트할 수 있어야 합니다.
 
 이제 자습서를 마쳤습니다.
@@ -418,6 +423,5 @@
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

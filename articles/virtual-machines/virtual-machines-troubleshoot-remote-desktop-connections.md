@@ -34,7 +34,7 @@ Windows 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 원격 �
 
 이 단계는 클래식 배포 모델을 통해 만든 가상 컴퓨터에서 대부분의 일반적인 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계를 수행한 후 VM에 다시 연결을 시도합니다.
 
-- [Azure Preview 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하여 RDP 서버와 시작 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
+- [Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하여 RDP 서버와 시작 문제를 해결합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
 
     ![RDP 구성 재설정을 보여주는 스크린샷](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -169,4 +169,4 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

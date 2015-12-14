@@ -69,8 +69,6 @@ function insert(item, user, request) {
 <!-- URLs. -->
 [인증 시작]: mobile-services-ios-get-started-users.md
 [푸시 알림 시작]: mobile-services-javascript-backend-ios-get-started-push.md
-
-[Azure 관리 포털]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

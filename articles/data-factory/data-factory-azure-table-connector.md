@@ -348,7 +348,7 @@ Azure 저장소 계정을 Azure 저장소 연결된 서비스로 Azure 데이터
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | type | 형식 속성은 AzureStorage로 설정되어야 합니다. | 예 |
-| connectionString | connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. Azure 포털에서 Azure 저장소에 대한 connectionString을 얻을 수 있습니다. | 예 |
+| connectionString | connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. Azure 클래식 포털에서 Azure 저장소에 대한 connectionString을 얻을 수 있습니다. | 예 |
 
 ## Azure 테이블 데이터 집합 형식 속성
 
@@ -504,4 +504,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

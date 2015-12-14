@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL 데이터베이스 동적 데이터 마스킹 시작(Azure Preview 포털)"
-   description="Azure Preview 포털에서 SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법"
+   pageTitle="SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 포털)"
+   description="Azure 포털에서 SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -17,10 +17,10 @@
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
-# SQL 데이터베이스 동적 데이터 마스킹 시작(Azure Preview 포털)
+# SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 포털)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+- [Dynamic Data Masking - Azure Classic Portal](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## 개요
 
@@ -32,7 +32,7 @@ SQL 데이터베이스 동적 데이터 마스킹에서는 권한이 없는 사�
 
 ## SQL 데이터베이스 동적 데이터 마스킹 관련 기본 사항
 
-SQL 데이터베이스 구성 블레이드 또는 설정 블레이드에서 동적 데이터 마스킹 작업을 선택하여 Azure Preview 포털에서 동적 데이터 마스킹 정책을 설정합니다.
+SQL 데이터베이스 구성 블레이드 또는 설정 블레이드에서 동적 데이터 마스킹 작업을 선택하여 Azure 포털에서 동적 데이터 마스킹 정책을 설정합니다.
 
 
 ### 동적 데이터 마스킹 사용 권한
@@ -62,9 +62,9 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 
 DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 대상이 될 만한 데이터베이스의 특정 필드를 플래그합니다. 포털의 동적 데이터 마스킹 블레이드에는 데이터베이스에 대한 권장 열이 표시됩니다. 이 필드에 마스크를 적용하려면 하나 이상의 열에 대해 **마스크 추가**를 클릭한 다음 **저장**을 클릭하기만 하면 됩니다.
 
-## Azure Preview 포털을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
+## Azure 포털을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Preview 포털을 시작합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure 포털을 시작합니다.
 
 2. 마스킹할 중요 데이터가 포함된 데이터베이스의 설정 블레이드로 이동합니다.
 
@@ -109,4 +109,4 @@ DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 �
 
 [Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

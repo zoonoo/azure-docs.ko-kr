@@ -22,4 +22,4 @@
 
 	자세한 내용은 [Azure 모바일 앱 Node.js SDK를 사용 하는 방법](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md)에서 [테이블에 대한 액세스 인증 요구](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)를 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

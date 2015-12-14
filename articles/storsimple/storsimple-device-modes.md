@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에서 장치 모드 변경
@@ -63,7 +63,7 @@ StorSimple용 Windows PowerShell을 통해서만 시스템을 유지 관리 모�
 
 StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 유지 관리를 수행하거나 유지 관리 모드 업데이트를 설치할 수 있습니다. 유지 관리 모드로 들어가거나 종료하려면 다음 절차를 수행하세요.
 
-> [AZURE.IMPORTANT]유지 관리 모드에 들어가기 전에 관리 포털의 **유지 관리** 페이지에서 **하드웨어 상태**에 액세스하여 두 장치 컨트롤러 모두가 정상 상태인지 확인합니다. 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)를 참조하세요.
+> [AZURE.IMPORTANT]유지 관리 모드에 들어가기 전에 Azure 클래식 포털의 **유지 관리** 페이지에서 **하드웨어 상태**에 액세스하여 두 장치 컨트롤러 모두가 정상 상태인지 확인합니다. 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)를 참조하세요.
 
 #### 유지 관리 모드로 전환하려면
 
@@ -75,7 +75,7 @@ StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 �
 
 	`Enter-HcsMaintenanceMode`
 
-4. 유지 관리 모드에서는 모든 I/O 요청이 중단되며 관리 포털에 대한 연결이 끊어짐을 알리는 경고 메시지와 확인 요청 메시지가 표시됩니다. **Y**를 입력하여 유지 관리 모드로 전환합니다.
+4. 유지 관리 모드에서는 모든 I/O 요청이 중단되며 Azure 클래식 포털에 대한 연결이 끊어짐을 알리는 경고 메시지와 확인 요청 메시지가 표시됩니다. **Y**를 입력하여 유지 관리 모드로 전환합니다.
 
 5. 두 컨트롤러가 모두 다시 시작됩니다. 다시 시작이 완료되면 장치가 유지 관리 모드임을 나타내는 다른 메시지가 표시됩니다.
 
@@ -97,4 +97,4 @@ StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 �
 
 StorSimple 장치에서 [표준 및 유지 관리 모드 업데이트를 적용](storsimple-update-device.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

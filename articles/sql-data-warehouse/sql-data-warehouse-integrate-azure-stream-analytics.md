@@ -53,7 +53,7 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 	- SQL 데이터 웨어하우스가 스트림 분석 작업과 동일한 구독 내에 있는 경우 현재 구독에서 SQL 데이터베이스 사용을 선택할 수 있습니다.
 	- 데이터베이스가 다른 구독에 있는 경우 다른 구독에서 SQL 데이터베이스 사용을 선택합니다.
 - *데이터베이스*: 대상 데이터베이스의 이름을 지정합니다.
-- *서버 이름*: 방금 지정한 데이터베이스에 대한 서버 이름을 지정합니다. Azure 포털을 사용하여 찾을 수 있습니다.
+- *서버 이름*: 방금 지정한 데이터베이스에 대한 서버 이름을 지정합니다. Azure 클래식 포털을 사용하여 찾을 수 있습니다.
 
 ![][server-name]
 
@@ -96,4 +96,4 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

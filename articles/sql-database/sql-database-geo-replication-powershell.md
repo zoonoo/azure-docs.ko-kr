@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/10/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # PowerShell로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-geo-replication-portal.md)
+- [Azure portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
@@ -37,7 +37,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 지역에서 복제를 구성하려면 다음이 필요합니다.
 
 - Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
-- Azure SQL 데이터베이스 - 다른 지리적 영역으로 복제하려는 주 데이터베이스입니다.
+- Azure SQL 데이터베이스 - 다른 지역으로 복제하려는 주 데이터베이스입니다.
 - Azure PowerShell 1.0 Preview. [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)에 따라 Azure PowerShell 모듈을 다운로드하여 설치할 수 있습니다.
 
 > [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet을 더 이상 사용할 수 없으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 이 문서의 예제에서는 새 PowerShell 1.0 Preview 명명 규칙을 사용합니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
@@ -123,7 +123,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 보조 데이터베이스 제거
 
-**Remove-AzureRmSqlDatabaseSecondary** cmdlet을 사용하여 보조 데이터베이스와 주 데이터베이스 간의 복제 파트너 관계를 영구적으로 종료합니다. 관계가 종료된 후 보조 데이터베이스는 읽기-쓰기 데이터베이스가 됩니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후 보조는 읽기-쓰기가 됩니다. 자세한 내용은 [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) 및 [서비스 계층](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/)을 참조하세요.
+**Remove-AzureRmSqlDatabaseSecondary** cmdlet을 사용하여 보조 데이터베이스와 주 데이터베이스 간의 복제 파트너 관계를 영구적으로 종료합니다. 관계가 종료된 후 보조 데이터베이스는 읽기-쓰기 데이터베이스가 됩니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후 보조는 읽기-쓰기가 됩니다. 자세한 내용은 [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
 이 cmdlet은 복제를 위한 Stop-AzureSqlDatabaseCopy를 대체합니다.
 
@@ -143,7 +143,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 계획된 장애 조치(failover) 시작
 
-**Set-AzureRmSqlDatabaseSecondary** cmdlet을 **-Failover** 매개 변수와 함께 사용하여 기존 주가 보조가 되도록 강등시키는 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다. 이 기능은 재해 복구 훈련 중과 같은 계획된 장애 조치에 대해 설계되었으며 주 데이터베이스는 사용할 수 있어야 합니다.
+**Set-AzureRmSqlDatabaseSecondary** cmdlet을 **-Failover** 매개 변수와 함께 사용하여 기존 주가 보조가 되도록 강등시키는 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다. 이 기능은 재해 복구 훈련 중과 같은 계획된 장애 조치(failover)에 대해 설계되었으며 주 데이터베이스는 사용할 수 있어야 합니다.
 
 명령은 다음 워크플로 수행합니다.
 
@@ -154,7 +154,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 이 시퀀스는 데이터 손실이 발생하지 않음을 보장합니다. 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다. 자세한 내용은 [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx)를 참조하세요.
 
 
-> [AZURE.NOTE]명령이 실행될 때 주 데이터베이스를 사용할 수 없는 경우 기본 서버를 사용할 수 없음을 나타내는 오류 메시지와 함께 명령이 실패합니다. 드문 경우로 작업을 완료할 수 없으며 중지될 수 있습니다. 이 경우 사용자는 강제 장애 조치 명령(계획되지 않은 장애 조치)을 호출하고 데이터 손실을 허용할 수 있습니다.
+> [AZURE.NOTE]명령이 실행될 때 주 데이터베이스를 사용할 수 없는 경우 주 서버를 사용할 수 없음을 나타내는 오류 메시지와 함께 명령이 실패합니다. 드문 경우로 작업을 완료할 수 없으며 중지될 수 있습니다. 이 경우 사용자는 강제 장애 조치(failover) 명령(계획되지 않은 장애 조치(failover))을 호출하고 데이터 손실을 허용할 수 있습니다.
 
 
 
@@ -172,7 +172,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 **Set-AzureRmSqlDatabaseSecondary** cmdlet과 **–Failover** 및 **-AllowDataLoss** 매개 변수를 함께 사용하여 주 데이터베이스를 더 이상 사용할 수 없는 경우 보조가 되도록 기존 주의 수준 내리기를 강제하는 계획되지 않은 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다.
 
-이 기능은 데이터베이스의 가용성 복원이 중요하고 일부 데이터 손실이 허용되는 경우 재해 복구를 위해 설계되었습니다. 강제 장애 조치가 호출되면 지정된 보조 데이터베이스는 즉시 주 데이터베이스가 되며 쓰기 트랜잭션 승인을 시작합니다. 강제 장애 조치 작업 후, 기존 주 데이터베이스가 이 새 주 데이터베이스와 다시 연결할 수 있는 즉시 기존 주 데이터베이스에서 증분 백업이 수행되고 이어서 이전 주 데이터베이스는 새 주 데이터베이스에 대한 보조 데이터베이스로 만들어지며 이는 단순히 새 주의 복제본입니다.
+이 기능은 데이터베이스의 가용성 복원이 중요하고 일부 데이터 손실이 허용되는 경우 재해 복구를 위해 설계되었습니다. 강제 장애 조치가 호출되면 지정된 보조 데이터베이스는 즉시 주 데이터베이스가 되며 쓰기 트랜잭션 승인을 시작합니다. 강제 장애 조치(failover) 작업 후, 기존 주 데이터베이스가 이 새 주 데이터베이스와 다시 연결할 수 있는 즉시 기존 주 데이터베이스에서 증분 백업이 수행되고 이어서 이전 주 데이터베이스는 새 주 데이터베이스에 대한 보조 데이터베이스로 만들어지며 이는 단순히 새 주의 복제본입니다.
 
 하지만 보조 데이터베이스에서는 특정 시점 복원이 지원되지 않으므로 새로운 주 데이터베이스로 복제되지 않은 커밋된 데이터를 이전 주 데이터베이스로 복구하려면 데이터베이스를 알려진 로그 백업으로 복원하는 CSS를 활용해야 합니다.
 
@@ -218,4 +218,4 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

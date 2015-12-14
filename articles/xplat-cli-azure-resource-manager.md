@@ -204,10 +204,10 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 ## 다음 단계
 
 * Azure PowerShell을 사용하여 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-* Azure Preview 포털에서 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][psrm]를 참조하세요.
+* Azure 포털에서 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][psrm]를 참조하세요.
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

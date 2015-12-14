@@ -2,9 +2,9 @@
 
 0. 저장소 계정을 만들지 않았다면 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 참조하세요.
 
-1. 관리 포털에서 **저장소**를 클릭하고 저장소 계정을 클릭한 후 **키 관리**를 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭하고 저장소 계정을 클릭한 후 **키 관리**를 클릭합니다.
 
-2. **저장소 계정 이름**과 **액세스 키**를 적어 두십시오.
+2. **저장소 계정 이름**과 **액세스 키**를 적어 두세요.
 
    	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
 
@@ -91,4 +91,4 @@
 <!-- URLs. -->
 [앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

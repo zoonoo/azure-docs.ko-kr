@@ -50,7 +50,7 @@ Azure 리소스 관리자 및 이 배포에 사용할 템플릿과 관련된 자
 
 ### 1-a단계: PowerShell을 사용하여 템플릿 파일 다운로드
 
-JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\Azure\Templates\DataStax).
+JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\\Azure\\Templates\\DataStax).
 
 로컬 폴더의 폴더 이름을 대신 입력하여 다음 명령 집합을 실행합니다.
 
@@ -90,8 +90,7 @@ JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니�
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-복제가 완료되면 C:\Azure\Templates 디렉터리에서 datastax-enterprise 폴더를 찾습니다.
-<!--Wrapping name of folder in bold typeface is not corp style  -->
+복제가 완료되면 C:\\Azure\\Templates 디렉터리에서 datastax-enterprise 폴더를 찾습니다. <!--Wrapping name of folder in bold typeface is not corp style  -->
 ### 2단계: (선택 사항) 템플릿 매개 변수 파악
 
 DataStax를 기반으로 Apache Cassandra 클러스터와 같은 중요한 솔루션을 배포하는 경우 여러 필수 설정을 처리할 구성 매개 변수 집합을 지정해야 합니다. 템플릿 정의에서 이러한 매개 변수를 선언하면 외부 파일을 통해 또는 명령줄에서 배포하는 동안 값을 지정할 수 있습니다.
@@ -252,7 +251,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 
 배포하는 동안과 배포한 후 발생한 모든 오류를 포함하여 프로비전 중에 실행된 모든 요청을 확인할 수 있습니다.
 
-이렇게 하려면 [Azure Preview 포털](https://portal.azure.com)로 이동하여 다음을 수행합니다.
+이렇게 하려면 [Azure 포털](https://portal.azure.com)로 이동하여 다음을 수행합니다.
 
 - 왼쪽 탐색 모음에서 "찾아보기”를 클릭하고 아래로 스크롤하여 "리소스 그룹”을 클릭합니다.
 - 방금 만든 리소스 그룹을 클릭하면 "리소스 그룹” 블레이드가 나타납니다.
@@ -279,9 +278,7 @@ Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 �
 
 ## DataStax Enterprise 클러스터 템플릿 구조 및 파일 구성 살펴보기
 
-강력하고 재사용 가능한 리소스 관리자 템플릿을 디자인하려면 DataStax Enterprise와 같은 복잡한 솔루션을 배포하는 동안 필요한 상호 관련된 일련의 복잡한 작업을 구성해야 합니다. 관련된 확장을 통해 스크립트를 실행하는 것 외에 ARM **템플릿 연결** 및 **리소스 루핑**을 활용하면 거의 모든 복잡한 템플릿 기반 배포에서 재사용할 수 있는 모듈식 방법을 구현할 수 있습니다.
-<!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. -->
-다음 다이어그램에서는 이 배포를 위해 GitHub에서 다운로드한 모든 파일 간의 관계를 설명합니다.
+강력하고 재사용 가능한 리소스 관리자 템플릿을 디자인하려면 DataStax Enterprise와 같은 복잡한 솔루션을 배포하는 동안 필요한 상호 관련된 일련의 복잡한 작업을 구성해야 합니다. 관련된 확장을 통해 스크립트를 실행하는 것 외에 ARM **템플릿 연결** 및 **리소스 루핑**을 활용하면 거의 모든 복잡한 템플릿 기반 배포에서 재사용할 수 있는 모듈식 방법을 구현할 수 있습니다. <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. --> 다음 다이어그램에서는 이 배포를 위해 GitHub에서 다운로드한 모든 파일 간의 관계를 설명합니다.
 
 ![datastax-enterprise-files](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
@@ -386,12 +383,7 @@ azuredeploy.json의 "parameters" 섹션은 이 템플릿에 데이터를 입력�
 
 이 첫 번째 예제에서는 이 시나리오의 azuredeploy.json이 일종의 오케스트레이션 메커니즘으로 구성되어 각각 필요한 배포 활동의 일부를 담당하는 여러 템플릿 파일을 호출합니다.
 
-특히 다음과 같은 연결된 템플릿이 이 배포에 사용됩니다.
-<!-- In list format, using bold typeface in the following manner is ok -->
--	**shared-resource.json**: 배포 간에 공유할 모든 리소스의 정의를 포함합니다. 예제는 VM의 OS 디스크 및 가상 네트워크를 저장하는 데 사용되는 저장소 계정입니다.
--	**opscenter-resources.json**: OpsCenter VM 및 모든 관련 리소스(네트워크 인터페이스 및 공용 IP 주소 포함)를 배포합니다.
--	**opscenter-install-resources.json**: 해당 VM 내에 OpsCenter 서비스를 설치하는 데 필요한 특정 bash 스크립트 파일(opscenter.sh)을 호출하는 OpsCenter VM 확장(Linux용 사용자 지정 스크립트)을 배포합니다.
--	**ephemeral-nodes-resources.json**: 모든 클러스터 노드 VM 및 연결된 리소스(예: 네트워크 카드 및 개인 IP)를 배포합니다. 또한 이 템플릿은 각 노드에 Apache Cassandra 비트를 물리적으로 설치하기 위해 VM 확장(Linux용 사용자 지정 스크립트)을 배포하고 bash 스크립트(dsenode.sh)를 호출합니다.
+특히 다음과 같은 연결된 템플릿이 이 배포에 사용됩니다. <!-- In list format, using bold typeface in the following manner is ok --> - **shared-resource.json**: 배포 간에 공유할 모든 리소스의 정의를 포함합니다. 예제는 VM의 OS 디스크 및 가상 네트워크를 저장하는 데 사용되는 저장소 계정입니다. - **opscenter-resources.json**: OpsCenter VM 및 모든 관련 리소스(네트워크 인터페이스 및 공용 IP 주소 포함)를 배포합니다. - **opscenter-install-resources.json**: 해당 VM 내에 OpsCenter 서비스를 설치하는 데 필요한 특정 bash 스크립트 파일(opscenter.sh)을 호출하는 OpsCenter VM 확장(Linux용 사용자 지정 스크립트)을 배포합니다. - **ephemeral-nodes-resources.json**: 모든 클러스터 노드 VM 및 연결된 리소스(예: 네트워크 카드 및 개인 IP)를 배포합니다. 또한 이 템플릿은 각 노드에 Apache Cassandra 비트를 물리적으로 설치하기 위해 VM 확장(Linux용 사용자 지정 스크립트)을 배포하고 bash 스크립트(dsenode.sh)를 호출합니다.
 
 이 마지막 템플릿은 템플릿 사용 방법은 템플릿 개발 관점에서 가장 흥미로운 것 중 하나이므로 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념을 리소스 루핑이라고 합니다.
 
@@ -462,7 +454,7 @@ azuredeploy.json의 "parameters" 섹션은 이 템플릿에 데이터를 입력�
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 shared_scripts\ubuntu 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
+vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 shared\_scripts\\ubuntu 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
 
 또 다른 흥미로운 조각은 CustomScriptForLinux VM 확장과 관련된 조각입니다. 이러한 확장은 별도의 리소스 유형으로 설치되며 각 클러스터 노드(및 OpsCenter 인스턴스)에 대한 종속성이 적용됩니다. 가상 컴퓨터에 대해 설명하는 동일한 리소스 루핑 메커니즘을 활용합니다.
 
@@ -504,4 +496,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 sha
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

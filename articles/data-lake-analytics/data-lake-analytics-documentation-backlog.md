@@ -38,6 +38,7 @@ U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트
 부여 | 데이터 레이크 분석의 작업, 데이터 및 테이블 보안 |1| 진행 중 | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 부여 | Data Factory를 사용하여 작업 출력을 SQL 데이터 웨어하우스로 이동 |1 | 진행 중 | [@mumian](https://github.com/mumian) | 
 도구 | 진단 도구 사용 | 1 | Pending | [@mumian](https://github.com/mumian) | 
+U-SQL | 범위 기반 JOIN을 수행 하기 위한 기술 설명 | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -46,7 +47,7 @@ U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트
 
 영역 |항목 | location
 ------------- | ------------- | -------------- 
-부여 | ARM 템플릿을 사용하여 데이터 레이크 분석의 배포를 다른 Azure 서비스와 조정 | [위치](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
+부여 | ARM 템플릿을 사용하여 데이터 레이크 분석의 배포를 다른 Azure 서비스와 조정 | [위치](../data-lake-analytics-manage-use-powershell.md)
 
 ## 백로그에서 피드백을 제공하는 방법
 백로그에서 피드백을 제공하는 몇 가지 옵션이 있습니다.
@@ -55,4 +56,4 @@ U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,7 +18,7 @@
 
 # Azure 검색을 사용하여 StackExchange 데이터를 검색하는 방법
 
-이 문서에서는 [Azure 검색](https://azure.microsoft.com/ko-KR/services/search/)으로 수행할 수 있는 핵심 전체 텍스트 검색 기능 중 몇 가지를 조명합니다. 다음 [속성](http://blog.stackoverflow.com/2009/06/attribution-required/)을 통해 Stack Exchange가 Creative Commons에 [제공한](https://archive.org/details/stackexchange) 데이터를 사용합니다.
+이 문서에서는 [Azure 검색](https://azure.microsoft.com/services/search/)으로 수행할 수 있는 핵심 전체 텍스트 검색 기능 중 몇 가지를 조명합니다. 다음 [속성](http://blog.stackoverflow.com/2009/06/attribution-required/)을 통해 Stack Exchange가 Creative Commons에 [제공한](https://archive.org/details/stackexchange) 데이터를 사용합니다.
 
 ## 시작
 
@@ -104,9 +104,9 @@ Brent는 SQL 데이터베이스에 데이터를 준비하는 방법을 설명하
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-이 작업이 완료되면 [Azure 포털](https://portal.azure.com) 을 사용하여 위의 Azure SQL 뷰에서 “데이터를 가져와" 이 뷰의 필드 스키마를 기초로 Azure 검색 인덱스를 만들 수 있습니다. 준비한 Azure SQL 데이터베이스를 사용하려면 이 읽기 전용 연결 문자열을 사용할 수 있습니다.
+이 작업이 완료되면 [Azure 클래식 포털](https://portal.azure.com)을 사용하여 위의 Azure SQL 뷰에서 “데이터를 가져와" 이 뷰의 필드 스키마를 기초로 Azure 검색 인덱스를 만들 수 있습니다. 준비한 Azure SQL 데이터베이스를 사용하려면 이 읽기 전용 연결 문자열을 사용할 수 있습니다.
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

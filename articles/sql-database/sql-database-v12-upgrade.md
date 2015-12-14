@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Preview 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure" 
-	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 Azure Preview 포털을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다." 
+	pageTitle="Azure 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure" 
+	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 Azure 포털을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,15 +17,15 @@
 	ms.author="sstein"/>
 
 
-# Azure Preview 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
+# Azure 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure Portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-SQL 데이터베이스 V12가 최신 버전이므로 SQL 데이터베이스 V12로 업그레이드하는 것이 좋습니다. SQL 데이터베이스 V12에는 [이전 버전에 비해 다양한 이점](sql-database-v12-whats-new.md)이 있으며 예를 들면 다음과 같습니다.
+SQL 데이터베이스 V12가 최신 버전이므로 SQL 데이터베이스 V12로 업그레이드하는 것이 좋습니다. SQL 데이터베이스 V12에는 [이전 버전에 비해 다양한 이점](sql-database-v12-whats-new.md)이 있습니다.
 
 - SQL Server와의 호환성 증가
 - 향상된 프리미엄 성능과 새로운 성능 수준
@@ -47,14 +47,14 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 ## 업그레이드 준비
 
 - **모든 Web 및 Business 데이터베이스 업그레이드**: 아래의 [모든 Web 및 Business 데이터베이스 업그레이드](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) 섹션을 참조하거나 [PowerShell을 사용하여 데이터베이스 및 서버 업그레이드](sql-database-upgrade-server-powershell.md)를 수행하세요.
-- **지역 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성 및 [지역 복제 중지](sql-database-geo-replication-portal.md#remove-secondary-database)를 문서화해야 합니다. 업그레이드가 완료된 후 지역에서 복제 데이터베이스를 다시 구성하세요.
+- **지역에서 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역에서 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성 및 [지역에서 복제 중지](sql-database-geo-replication-portal.md#remove-secondary-database)를 문서화해야 합니다. 업그레이드가 완료된 후 지역에서 복제 데이터베이스를 다시 구성하세요.
 - **클라이언트가 Azure VM에 있는 경우 열 포트**: Azure VM(가상 컴퓨터)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우 VM에서 포트 범위 11000-11999 및 14000-14999를 열어야 합니다. 자세한 내용은 [SQL 데이터베이스 V12용 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
 
 
 ## 업그레이드 시작
 
-1. [Azure Preview 포털](http://portal.azure.com/)에서 **모두 찾아보기** > **SQL Servers**를 선택한 후 원하는 서버를 선택하여 업그레이드하려는 서버로 이동합니다.
+1. [Azure 포털](http://portal.azure.com/)에서 **모두 찾아보기** > **SQL Server**를 선택한 후 원하는 서버를 선택하여 업그레이드하려는 서버로 이동합니다.
 2. **최신 SQL 데이터베이스 업데이트**를 선택한 다음 **이 서버 업그레이드**를 선택합니다.
 
       ![서버 업그레이드][1]
@@ -99,7 +99,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 
 ## 탄력적 데이터베이스 풀로 데이터베이스 이동
 
-[Azure Preview 포털](https://ms.portal.azure.com/)에서 V12 서버로 이동하고 **풀 추가**를 클릭합니다.
+[Azure 포털](https://ms.portal.azure.com/)에서 V12 서버로 이동하고 **풀 추가**를 클릭합니다.
 
 또는
 
@@ -168,4 +168,4 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

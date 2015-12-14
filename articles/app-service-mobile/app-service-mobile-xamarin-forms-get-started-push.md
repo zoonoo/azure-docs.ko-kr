@@ -10,17 +10,15 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc"/>
 
 # Xamarin.Forms 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -64,39 +62,6 @@
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
-## 이식 가능한 클래스 라이브러리 프로젝트 업데이트 
-
-공유 프로젝트에 정의된 `TodoItemManager` 클래스는 모바일 앱 백엔드에서 호스팅되는 테이블에 대해 수행할 작업과 함께 모바일 앱 백엔드에 대한 클라이언트 연결을 래핑합니다. 여기서는 푸시 알림에 대해 등록할 수 있도록 클라이언트 연결을 노출합니다.
-
-1. Visual Studio 또는 Xamarin Studio의 공유 프로젝트에서 TodoItemManager.cs를 엽니다. 다음과 같은 정적 멤버 및 접근자를 `TodoItemManager` 클래스에 추가합니다. 여기서는 이 방법을 사용하여 플랫폼 특정 `Microsoft.WindowsAzure.MobileServices.Push` 개체를 가져와야 할 때 `MobileServiceClient`에 액세스합니다. 
-
-        static TodoItemManager defaultInstance = null;
-
-        public static TodoItemManager DefaultInstance
-        {
-            get
-            {
-                return defaultInstance;
-            }
-            private set
-            {
-                defaultInstance = value;
-            }
-        }
-
-		public MobileServiceClient CurrentClient
-		{
-			get { return client; }
-		}
-
-
-2. `TodoItemManager` 클래스에 대한 생성자의 시작 부분에 `DefaultInstance`을 초기화할 코드를 추가합니다.
-
-        DefaultClient = this;
-
-
-
-
 ##(선택 사항) Android 프로젝트 구성 및 실행
 
 이 섹션에서는 Android용 Xamarin Android 프로젝트를 실행합니다. Android 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
@@ -117,7 +82,7 @@
 
 ####droid 프로젝트에 푸시 알림 추가
 
-1. Components 폴더를 마우스 오른쪽 단추로 클릭하고 Get More Components...를 클릭하고 **Google Cloud Messaging Client** 구성 요소를 검색하여 이를 프로젝트에 추가합니다. 이 구성 요소는 Xamarrin Android 프로젝트를 사용하여 푸시 알림 작동을 단순화하는 데 도움이 됩니다.
+1. Components 폴더를 마우스 오른쪽 단추로 클릭하고 Get More Components...를 클릭하고 **Google Cloud Messaging Client** 구성 요소를 검색하여 프로젝트에 추가합니다. 이 구성 요소는 Xamarrin Android 프로젝트를 사용하여 푸시 알림 작동을 단순화하는 데 도움이 됩니다.
 
 2. MainActivity.cs 프로젝트 파일을 열고 파일의 맨 위에 있는 문을 사용하여 다음을 추가합니다.
 
@@ -176,7 +141,7 @@
 		// Set the current instance of MainActivity.
 		instance = this;
 
-7. 새 클래스 파일을 **Droid** 프로젝트에 추가합니다. 새 클래스 이름을 **GcmService**로 지정합니다.
+7. 새 클래스 파일을 **Droid** 프로젝트에 추가합니다. 새 클래스 파일의 이름을 **GcmService**로 지정합니다.
 
 8. 파일의 맨 위에 다음과 같은 `using` 문이 포함되었는지 확인합니다.
 
@@ -227,7 +192,7 @@
 
 12. OnRegistered 이벤트 처리기를 재정의하고 `Register` 메서드를 구현하는 다음 코드를 GcmService 클래스에 추가합니다.
 
-	이 코드는 `messageParam` 매개 변수를 사용하여 템플릿 알림을 수신하기 위해 템플릿 본문을 등록합니다. 템플릿 알림을 사용하여 플랫폼 간에 알림을 보낼 수 있습니다. 자세한 내용은 [템플릿](https://msdn.microsoft.com/library/azure/dn530748.aspx)을 사용하세요.
+	이 코드는 `messageParam` 매개 변수를 사용하여 템플릿 알림을 수신하기 위해 템플릿 본문을 등록합니다. 템플릿 알림을 사용하여 플랫폼 간에 알림을 보낼 수 있습니다. 자세한 내용은 [템플릿](https://msdn.microsoft.com/library/azure/dn530748.aspx)을 참조하세요.
 		
 		protected override void OnRegistered(Context context, string registrationId)
 		{
@@ -236,7 +201,7 @@
 		
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 		
-            var push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 		
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
 		
@@ -264,7 +229,7 @@
             }
         }
 
-13. 들오어는 푸시 알림을 처리하려면 `OnMessage` 를 구현해야 합니다. 이 코드에서는 알림을 처리하고 이를 알림 관리자에게 전송합니다.
+13. 들어오는 푸시 알림을 처리하려면 `OnMessage`를 구현해야 합니다. 이 코드에서는 알림을 처리하고 이를 알림 관리자에게 전송합니다.
 
 		protected override void OnMessage(Context context, Intent intent)
 		{
@@ -363,7 +328,7 @@
 
 ####APNS에 대한 알림 허브 구성
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱 ** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱 ** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택해야 합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -422,7 +387,7 @@
                 };
 
             // Register for push with your mobile app
-            Push push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            Push push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
             push.RegisterAsync(deviceToken, templates);
         }
 
@@ -448,9 +413,9 @@
 
 ####iOS 앱에서 푸시 알림 테스트
 
-1. iOS 프로젝트를 마우스 오른쪽 단추로 누른 다음 **StartPp 프로젝트로 설정**을 클릭합니다.
+1. iOS 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
 
-2. Visual Studio에서 **실행** 단추 또는 **F5**를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
+2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 	
 	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
@@ -505,7 +470,7 @@
                   {"headers", headers} // Only needed for WNS & MPNS
                 };
 
-            await TodoItemManager.DefaultInstance.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+            await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
 3. App.xaml.cs에서 `async` 특성으로 `OnLaunched` 이벤트 처리기를 업데이트하고 `InitNotificationsAsync`을 호출합니다.
@@ -572,10 +537,6 @@
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

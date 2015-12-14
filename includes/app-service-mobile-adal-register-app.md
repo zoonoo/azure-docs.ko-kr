@@ -1,6 +1,6 @@
 1. [Azure Active Directory로 모바일 앱을 구성하는 방법] 항목에 따라 Azure Active Directory 테넌트로 모바일 앱 백엔드를 등록합니다.
 
-2. **Azure 관리 포털**의 [Active Directory]로 이동합니다.
+2. [Azure 클래식 포털]에서 **Active Directory**로 이동합니다.
 
    ![](./media/app-service-mobile-adal-register-app/app-service-navigate-aad.png)
 
@@ -24,7 +24,7 @@
 
 응용 프로그램은 이제 AAD에서 AAD 로그인을 사용하여 사용자가 로그온할 수 있도록 구성되었습니다.
 
-[Active Directory]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [Azure Active Directory로 모바일 앱을 구성하는 방법]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

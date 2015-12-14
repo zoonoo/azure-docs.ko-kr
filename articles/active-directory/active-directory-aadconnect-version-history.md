@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/03/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -27,6 +27,16 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 - 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 - [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.0.9131.0
+릴리스 날짜: 2015년 12월
+
+**수정된 문제:**
+
+- 암호 동기화는 암호를 설정할 때는 작동하지만 AD DS에서 암호를 변경하면 작동하지 않을 수 있습니다.
+- 프록시 서버를 보유한 경우 구성 페이지에서 설치 또는 업그레이드하는 동안 Azure AD에 대한 인증이 실패할 수 있습니다.
+- 전체 SQL Server를 사용하여 Azure AD Connect의 이전 릴리스에서 업데이트를 하면 SQL에 SA가 없는 경우 실패합니다.
+- 원격 SQL Server를 사용하여 Azure AD Connect의 이전 릴리스에서 업데이트를 하면 "ADSync SQL 데이터베이스에 액세스할 수 없습니다."라는 오류가 표시됩니다.
+
 ## 1\.0.9125.0
 릴리스 날짜: 2015년 11월
 
@@ -39,12 +49,12 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 
 **새로운 미리 보기 기능:**
 
-- [동기화를 위한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
-- [Azure AD 도메인 서비스](active-directory-ds-getting-started.md) 암호 동기화에 대한 지원
+- [동기화를 위한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md).
+- [Azure AD 도메인 서비스](active-directory-ds-getting-started.md) 암호 동기화를 지원합니다.
 
 **지원되는 새 시나리오:**
 
-- 여러 온-프레미스 Exchange 조직을 지원합니다. 자세한 내용은 [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/ko-KR/library/jj873754.aspx)를 참조하세요.
+- 여러 온-프레미스 Exchange 조직을 지원합니다. 자세한 내용은 [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)를 참조하세요.
 
 **수정된 문제:**
 
@@ -53,7 +63,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
     - 동기화에 포함할 새 OU를 선택하는 데에는 전체 암호 동기화가 필요하지 않습니다.
     - 비활성화된 사용자가 설정된 경우 암호가 동기화되지 않습니다.
     - 암호 다시 시도 큐에는 제한이 없으며, 사용 중지될 개체 5, 000개에 대한 이전의 제한이 제거되었습니다.
-    - [개선된 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)
+    - [개선된 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
 - Windows Server 2016 포리스트 기능 수준으로 Active Directory에 연결할 수 없습니다.
 - 초기 설치 후 그룹 필터링에 사용된 그룹을 변경할 수 없습니다.
 - 비밀번호 쓰기 저장을 사용하도록 설정한 경우 암호 변경을 수행하는 모든 사용자에 대해 새 사용자 프로필을 Azure AD Connect 서버에 더 이상 만들 수 없습니다.
@@ -95,10 +105,10 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 **새로운 기능:**
 
 - [Express 설정](active-directory-aadconnect-get-started-express.md) 설치
-- [ADFS를 구성](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)할 수 있습니다.
-- [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)할 수 있습니다.
+- [ADFS 구성](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) 가능
+- [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) 가능
 - [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-- 도입된 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)
+- [스테이징 모드](active-directory-aadconnectsync-operations.md#staging-mode) 도입
 
 **새로운 미리 보기 기능:**
 
@@ -199,4 +209,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

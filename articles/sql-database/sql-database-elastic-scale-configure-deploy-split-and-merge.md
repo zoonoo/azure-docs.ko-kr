@@ -1,11 +1,11 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="탄력적 데이터베이스 분할/병합 도구 자습서 | Microsoft Azure"
 	description="탄력적 데이터베이스 도구를 사용하는 분할 및 병합"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database"  
+	documentationCenter=""
+	authors="sidneyh"
 	manager="jeffreyg"
-	authors="sidneyh"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh" />
 
 # 탄력적 데이터베이스 분할/병합 도구 자습서
@@ -33,9 +33,9 @@
 
     ![허용된 서비스][1]
 
-3. 진단 출력에 사용할 Azure 저장소 계정을 만듭니다. Azure Preview 포털로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **데이터 + 저장소**, **저장소**를 차례로 클릭합니다.
+3. 진단 출력에 사용할 Azure 저장소 계정을 만듭니다. Azure 포털로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **데이터 + 저장소**, **저장소**를 차례로 클릭합니다.
 
-4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다. Azure Preview 포털로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **계산**, **클라우드 서비스**, **만들기**를 차례로 클릭합니다.
+4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다. Azure 포털로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **계산**, **클라우드 서비스**, **만들기**를 차례로 클릭합니다.
 
 
 ## 분할/병합 서비스 구성하기
@@ -60,7 +60,7 @@
 ### 보안 구성
 서비스의 보안을 구성하는 자세한 지침은 [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)을 참조하세요.
 
-이 자습서를 완료하기에 적합한 간단한 테스트를 배포하기 위해 서비스를 작동하고 실행하는 데 필요한 최소 구성 단계가 수행됩니다. 이러한 단계에서는 단계를 실행하는 데 사용하는 컴퓨터/계정 하나만 서비스와 통신할 수 있습니다.
+이 자습서에 대한 간단한 테스트를 배포하기 위해 서비스를 작동하고 실행하는 데 필요한 최소 구성 단계가 수행됩니다. 이러한 단계에서는 단계를 실행하는 데 사용하는 컴퓨터/계정 하나만 서비스와 통신할 수 있습니다.
 
 ### 자체 서명된 인증서 만들기
 
@@ -91,7 +91,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ### 클라우드 서비스에 PFX 파일 업로드
 
-[Azure Preview 포털](https://portal.azure.com)로 이동합니다.
+[Azure 포털](https://portal.azure.com)로 이동합니다.
 
 1. **클라우드 서비스**를 선택합니다.
 2. 분할/병합 서비스에 대해 위에서 만든 클라우드 서비스를 선택합니다.
@@ -154,7 +154,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ### 웹 브라우저로 연결
 
-분할/병합 서비스의 웹 끝점을 확인합니다. Azure 관리 포털에서 클라우드 서비스의 **대시보드**로 이동한 다음 오른쪽의 **사이트 URL**에서 이 끝점을 찾아 확인할 수 있습니다. 기본 보안 설정에서는 HTTP 끝점을 사용할 수 없으므로 ****http://**를 ****https://**로 바꿉니다. 이 URL에 해당하는 페이지를 브라우저에 로드합니다.
+분할/병합 서비스의 웹 끝점을 확인합니다. Azure 클래식 포털에서 클라우드 서비스의 **대시보드**로 이동한 다음 오른쪽의 **사이트 URL**에서 이 끝점을 찾아 확인할 수 있습니다. 기본 보안 설정에서는 HTTP 끝점을 사용할 수 없으므로 ****http://**를 ****https://**로 바꿉니다. 이 URL에 해당하는 페이지를 브라우저에 로드합니다.
 
 ### PowerShell 스크립트로 테스트
 
@@ -334,4 +334,4 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

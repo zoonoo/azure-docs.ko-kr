@@ -86,7 +86,7 @@ bower install adal-angular#experimental
 REST API 작동 방식에 대해서는 항상 많은 논의가 이뤄지고 있습니다. 코드를 자세히 살펴보고, Azure AD를 사용한 웹 API 보안 설정에 대해 자세히 알아보려면 [이 문서](active-directory-v2-devquickstarts-dotnet-api.md)를 참조하세요.
 
 ## 사용자 로그인
-이제 ID 코드를 작성해 보겠습니다. 이미 눈치채셨겠지만, adal.js는 AngularJS 공급자를 포함하며, 이것은 Angular 라우팅 메커니즘을 잘 활용합니다. adal 모듈을 앱에 추가하는 것으로 시작합니다.
+이제 ID 코드를 작성해 보겠습니다. 이미 눈치채셨겠지만, adal.js는 AngularJS 공급자를 포함하며, 이것은 Angular 라우팅 메커니즘을 잘 활용합니다. 먼저 adal 모듈을 앱에 추가합니다.
 
 ```js
 // app/scripts/app.js
@@ -122,7 +122,7 @@ adalProvider.init({
     }, $httpProvider);
 ```
 
-잘하셨습니다. 이제 adal.js에 앱 보안과 사용자 로그인에 필요한 모든 정보가 준비되었습니다. 앱의 특정 경로에 대해 강제 로그인을 설정하려면, 코드 한 줄만 추가하면 됩니다.
+adal.js에 앱 보안과 사용자 로그인에 필요한 모든 정보가 준비되었습니다. 앱의 특정 경로에 대해 강제 로그인을 설정하려면 코드 한 줄만 추가하면 됩니다.
 
 ```js
 // app/scripts/app.js
@@ -162,7 +162,7 @@ angular.module('todoApp')
 ```
 
 ## 사용자 정보 표시
-사용자가 로그인 했으니, 응용 프로그램에서 로그인한 사용자의 인증 데이터에 대한 액세스가 필요할 수 있습니다. Adal.js는 이 정보를 `userInfo` 개체에 노출합니다. 보기에서 이 개체에 액세스하려면, 우선 adal.js를 해당 컨트롤러의 루트 범위에 추가합니다.
+사용자가 로그인 했으니, 응용 프로그램에서 로그인한 사용자의 인증 데이터에 대한 액세스가 필요할 수 있습니다. Adal.js는 이 정보를 `userInfo` 개체에 노출합니다. 보기에서 이 개체에 액세스하려면 우선 adal.js를 해당 컨트롤러의 루트 범위에 추가합니다.
 
 ```js
 // app/scripts/userDataCtrl.js
@@ -205,9 +205,9 @@ angular.module('todoApp')
 ## REST API 호출
 마지막으로 작업에 대한 생성, 읽기, 업데이트, 삭제를 위해 토큰을 가져오고 REST API를 호출하겠습니다. 무엇이 필요할까요? *아무것도* 할 필요가 없습니다. Adal.js에서 토큰 가져오기, 캐싱, 새로 고침 작업을 자동으로 처리합니다. REST API에 보내는 AJAX 요청에 토큰을 연결하는 작업도 수행합니다.
 
-작동 원리는 바로 이렇습니다. 모두 [AngularJS 인터셉터](https://docs.angularjs.org/api/ng/service/$http)의 덕분입니다. 이것은 나가고 들어오는 http 메시지를 adal.js에서 확인하도록 허용합니다. 또한 adal.js에서는 창과 동일한 도메인에 보내는 모든 요청이 AngularJS 앱과 같은 응용 프로그램 ID용 토큰을 사용하는 것으로 가정합니다. 이런 이유 때문에 Angular 앱과 NodeJS REST API에서 동일한 응용 프로그램 ID를 사용합니다. 물론, 필요하면 이러한 작동을 무시하고 adal.js에서 다른 REST API용 토큰을 가져오도록 작성할 수 있지만, 이 샘플 시나리오에서는 기본 사항대로 진행하겠습니다.
+작동 원리는 바로 이렇습니다. 모두 [AngularJS 인터셉터](https://docs.angularjs.org/api/ng/service/$http)의 덕분입니다. 이것은 나가고 들어오는 http 메시지를 adal.js에서 확인하도록 허용합니다. 또한 adal.js에서는 창과 동일한 도메인에 보내는 모든 요청이 AngularJS 앱과 동일한 응용 프로그램 ID용 토큰을 사용하는 것으로 가정합니다. 이런 이유 때문에 Angular 앱과 NodeJS REST API에서 동일한 응용 프로그램 ID를 사용합니다. 물론, 필요한 경우 이러한 동작을 무시하고 adal.js에서 다른 REST API용 토큰을 가져오도록 작성할 수 있지만 이 샘플 시나리오에서는 기본 사항대로 진행하겠습니다.
 
-아래 코드 조각은 Azure AD의 전달자 토큰을 사용하여 손쉽게 요청을 보낼 수 있는 방법을 보여줍니다.
+아래 코드 조각은 Azure AD의 전달자 토큰을 사용하여 손쉽게 요청을 보낼 수 있는 방법을 보여 줍니다.
 
 ```js
 // app/scripts/todoListSvc.js
@@ -217,7 +217,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-축하합니다. Azure AD 통합 단일 페이지 앱이 완성되었습니다. 수고 많으셨습니다. 이제 앱에서 사용자를 인증하고, OpenID Connect를 사용하여 백 엔드 REST API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있습니다 기본적으로, 개인 Microsoft 계정이나 Azure AD의 회사/학교 계정이 있는 모든 사용자를 지원합니다. 앱을 실행하고 브라우저에서 `https://localhost:44326/`으로 이동합니다. 개인 Microsoft 계정 또는 회사/학교 계정을 사용하여 로그인합니다. 사용자의 할 일 모음에 작업을 추가하고 로그아웃합니다. 다른 유형의 계정으로 로그인을 시도합니다. Azure AD 테넌트에서 회사/학교 사용자를 만들어야 하는 경우에는 [여기에서 만드는 방법을(무료로) 알아봅니다](active-directory-howto-tenant.md).
+축하합니다. Azure AD 통합 단일 페이지 앱이 완성되었습니다. 수고 많으셨습니다. 이제 앱에서 사용자를 인증하고, OpenID Connect를 사용하여 백 엔드 REST API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있습니다. 기본적으로, 개인 Microsoft 계정이나 Azure AD의 회사/학교 계정이 있는 모든 사용자를 지원합니다. 앱을 실행하고 브라우저에서 `https://localhost:44326/`으로 이동합니다. 개인 Microsoft 계정 또는 회사/학교 계정을 사용하여 로그인합니다. 사용자의 할 일 모음에 작업을 추가하고 로그아웃합니다. 다른 유형의 계정으로 로그인을 시도합니다. Azure AD 테넌트에서 회사/학교 사용자를 만들어야 하는 경우에는 [여기에서 만드는 방법을(무료로) 알아봅니다](active-directory-howto-tenant.md).
 
 앱 모델 v2.0 미리 보기에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-directory-appmodel-v2-overview.md)로 돌아가세요. 추가 리소스는 다음을 확인해보세요.
 
@@ -225,4 +225,4 @@ return $http.get('/api/tasks');
 - [스택 오버플로의 Azure AD(영문) >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

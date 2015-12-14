@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Preview 포털 대화형 자습서를 사용하여 데이터 레이크 분석 및 U-SQL 알아보기 | Azure" 
+   pageTitle="Azure 포털 대화형 자습서를 사용하여 데이터 레이크 분석 및 U-SQL 알아보기 | Azure" 
    description="데이터 레이크 분석 및 U-SQL 학습을 빠르게 시작합니다." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -19,7 +19,7 @@
 
 # Azure 데이터 레이크 분석 대화형 자습서 사용
 
-Azure Preview 포털은 데이터 레이크 분석을 시작하기 위한 대화형 자습서를 제공합니다. 이 문서에서는 웹 사이트 로그 분석에 대한 자습서를 진행하는 방법을 보여 줍니다.
+Azure 포털은 데이터 레이크 분석을 시작하기 위한 대화형 자습서를 제공합니다. 이 문서에서는 웹 사이트 로그 분석에 대한 자습서를 진행하는 방법을 보여 줍니다.
 
 
 >[AZURE.NOTE]Visual Studio를 사용하여 같은 자습서를 진행하려는 경우 [데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요. 포털에 더 많은 대화형 자습서가 추가되어 있습니다.
@@ -27,7 +27,7 @@ Azure Preview 포털은 데이터 레이크 분석을 시작하기 위한 대화
 
 다른 자습서를 보려면 다음을 참조하세요.
 
-- [Azure Preview 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+- [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
 - [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
 - [.NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
 - [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md) 
@@ -36,7 +36,7 @@ Azure Preview 포털은 데이터 레이크 분석을 시작하기 위한 대화
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **데이터 레이크 분석 계정**. [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
+- **데이터 레이크 분석 계정**. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
 
 ##데이터 레이크 분석 계정 만들기 
 
@@ -46,7 +46,7 @@ Azure Preview 포털은 데이터 레이크 분석을 시작하기 위한 대화
 
 **데이터 레이크 분석 계정을 만들려면**
 
-1. [Azure Preview 포털](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute)에 로그온합니다.
+1. [Azure 포털](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute)에 로그인합니다.
 2. 왼쪽 위 모서리에서 **Microsoft Azure**를 클릭하여 시작 보드를 엽니다.
 3. **마켓플레이스** 타일을 클릭합니다.  
 3. **모두** 블레이드의 검색 상자에 **Azure 데이터 레이크 분석**을 입력하고 **ENTER** 키를 누릅니다. 목록에 **Azure 데이터 레이크 분석**이 표시됩니다.
@@ -70,7 +70,7 @@ Azure Preview 포털은 데이터 레이크 분석을 시작하기 위한 대화
 
 **웹 사이트 로그 분석 대화형 자습서를 열려면**
 
-1. Preview 포털의 왼쪽 메뉴에서 **Microsoft Azure**를 클릭하고 시작 보드를 엽니다.
+1. 포털의 왼쪽 메뉴에서 **Microsoft Azure**를 클릭하고 시작 보드를 엽니다.
 2. 데이터 레이크 분석 계정에 연결된 타일을 클릭합니다.
 3. **필수** 모음에서 **Explore interactive tutorials**(대화형 자습서 탐색)를 클릭합니다.
 
@@ -83,9 +83,9 @@ Azure Preview 포털은 데이터 레이크 분석을 시작하기 위한 대화
 ##참고 항목
 
 - [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-- [Azure Preview 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+- [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
 - [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
 - [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 - [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

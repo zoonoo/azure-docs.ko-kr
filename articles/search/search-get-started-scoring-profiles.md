@@ -46,8 +46,8 @@
 ## app.config 편집
 
 1. 파일 압축을 푼 후 Visual Studio에서 솔루션을 열어 구성 파일을 편집합니다.
-1. 솔루션 탐색기에서 **app.config**를 두 번 클릭합니다. 이 파일은 서비스 끝점 및 요청을 인증하는 데 사용되는 `api-key`를 지정합니다. 관리 포털에서 이러한 값을 가져올 수 있습니다.
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. 솔루션 탐색기에서 **app.config**를 두 번 클릭합니다. 이 파일은 서비스 끝점 및 요청을 인증하는 데 사용되는 `api-key`를 지정합니다. 클래식 포털에서 이러한 값을 가져올 수 있습니다.
+1. [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다.
 1. Azure 검색에 대한 서비스 대시보드로 이동합니다.
 1. **속성** 타일을 클릭하여 서비스 URL을 복사합니다.
 1. **키** 타일을 클릭하여 `api-key`를 복사합니다.
@@ -126,4 +126,4 @@ URL 및 `api-key`를 app.config에 추가하고 나면 응용 프로그램 설�
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,29 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # 서비스, 지역 및 API 버전에 대한 리소스 관리자 지원
 
-Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다.
-모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
+Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다. 모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
 
 리소스를 배포할 때는 이러한 리소스를 지원하는 지역 및 리소스에 사용할 수 있는 API 버전도 알아야 합니다. [지원되는 지역](#supported-regions) 섹션에서는 구독 및 리소스에 대해 작동할 지역을 확인하는 방법을 보여줍니다. 섹션 [지원되는 API 버전](#supported-api-versions)에서는 사용할 수 있는 API 버전을 결정하는 방법을 보여줍니다.
 
-다음 표에서는 리소스 관리자를 통해 배포 및 관리를 지원 또는 지원하지 않는 서비스 목록을 보여줍니다. **리소스 이동**이라는 열은 새 리소스 그룹 및 새 구독 모두에 이 유형의 리소스를 이동할 수 있는지 여부를 나타냅니다. **Preview 포털**이라는 열은 Preview 포털을 통해 서비스를 만들 수 있는지 여부를 나타냅니다.
+다음 표에서는 리소스 관리자를 통해 배포 및 관리를 지원 또는 지원하지 않는 서비스 목록을 보여줍니다. **리소스 이동**이라는 열은 새 리소스 그룹 및 새 구독 모두에 이 유형의 리소스를 이동할 수 있는지 여부를 나타냅니다. **포털**이라는 열은 [Azure 포털](https://portal.azure.com)을 통해 서비스를 만들 수 있는지 여부를 나타냅니다.
 
 
 ## 계산
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | 가상 컴퓨터 | 예 | 예, 다양한 옵션 | 아니요 | [VM 만들기](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 배치 | 예 | [예(클래식에만 해당)](https://portal.azure.com/#create/Microsoft.BatchAccount) | 예 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | 예 | 아니요 | | | |
-| 가상 컴퓨터(클래식) | 제한됨 | 예, 다양한 옵션 | 부분적(아래 참조) | - | - |
-| RemoteApp | 아니요 | 아니요 | - | - | - |
-| 서비스 패브릭 | 아니요 | 아니요 | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 예, 다양한 옵션 | 부분적(아래 참조) | - | - | | RemoteApp | 아니요 | 아니요 | - | - | - | | 서비스 패브릭 | 아니요 | 아니요 | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -43,7 +40,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 ## 네트워킹
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | 응용 프로그램 게이트웨이 | 예 | | | | |
 | DNS | 예 | | | [DNS 영역 만들기](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
@@ -54,7 +51,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 ## 데이터 및 저장소
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | 예 | [예](https://portal.azure.com/#create/Microsoft.DocumentDB) | 예 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
 | 저장소 | 예 | [예](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | 아니요 | [저장소 만들기](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [저장소 계정](resource-manager-template-storage.md) |
@@ -62,12 +59,11 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | SQL 데이터베이스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 검색 | 예 | [예](https://portal.azure.com/#create/Microsoft.Search) | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 데이터 웨어하우스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | 아니요 | 아니요 | - | - | - |
-| 관리된 캐시 | 아니요 | 아니요 | - | - | - |
+| StorSimple | 아니요 | 아니요 | - | - | - | | 관리된 캐시 | 아니요 | 아니요 | - | - | - |
 
 ## 웹 및 모바일
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | API 관리 | 예 | 아니요 | 예 | [API 만들기](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
 | API 앱 | 예 | [예](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
@@ -83,18 +79,17 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 ## 분석
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | 이벤트 허브 | 예 | 아니요 | | [이벤트 허브 만들기](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | 스트림 분석 | 예 | [예](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | 예 | [예](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | 예 | | |
 | 데이터 팩터리 | 예 | [예](https://portal.azure.com/#create/Microsoft.DataFactory) | 예 | [데이터 팩터리 만들기](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 기계 학습 | 아니요 | 아니요 | - | - | - |
-| 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
+| 기계 학습 | 아니요 | 아니요 | - | - | - | | 데이터 카탈로그 | 아니요 | 아니요 | - | - | - |
 
 ## 미디어 및 CDN
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | CDN | 예(Preview) | 아니요 | | | |
 | 미디어 서비스 | 아니요 | 아니요 | | | |
@@ -102,24 +97,21 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 ## 하이브리드 통합
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk 서비스 | 예 | 아니요 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | 서비스 버스 | 예 | 아니요 | | [서비스 버스 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| 백업 | 아니요 | 아니요 | - | - | - |
-| 사이트 복구 | 아니요 | 아니요 | - | - | - |
+| 백업 | 아니요 | 아니요 | - | - | - | | 사이트 복구 | 아니요 | 아니요 | - | - | - |
 
 ## ID 및 액세스 관리 
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 아니요 | 아니요 | - | - | - |
-| Azure Active Directory B2C | 아니요 | 아니요 | - | - | - |
-| Multi-Factor Authentication | 아니요 | 아니요 | - | - | - |
+| Azure Active Directory | 아니요 | 아니요 | - | - | - | | Azure Active Directory B2C | 아니요 | 아니요 | - | - | - | | Multi-Factor Authentication | 아니요 | 아니요 | - | - | - |
 
 ## 개발자 서비스 
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
 | Application Insights | 예 | [예](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | 아니요 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing 지도 | 예 | [예](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
@@ -127,7 +119,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 ## 관리 
 
-| 부여 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | 자동화 | 예 | [예](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | 예 | | |
 | 키 자격 증명 모음 | 예 | 아니요 | 예 | [키 자격 증명 모음 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
@@ -137,7 +129,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 ## 리소스 관리자
 
-| 기능 | 리소스 관리자 사용 | Preview 포털 | 리소스 이동 | REST API | 스키마 |
+| 기능 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | 권한 부여 | 예 | 해당 없음 | 해당 없음 | [관리 잠금](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[역할 기반 액세스 제어](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [리소스 잠금](resource-manager-template-lock.md)<br />[역할 할당](resource-manager-template-role.md) |
 | 리소스 | 예 | 해당 없음 | 해당 없음 | [연결된 리소스](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [리소스 링크](resource-manager-template-links.md) |
@@ -155,7 +147,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 ### PowerShell
 
-다음 예에서는 Azure PowerShell 1.0 미리 보기를 사용하여 웹 사이트에 대해 지원되는 지역을 가져오는 방법을 보여줍니다. 1.0 Preview 릴리스에 대한 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+다음 예에서는 Azure PowerShell 1.0을 사용하여 웹 사이트에 대해 지원되는 지역을 가져오는 방법을 보여줍니다. 1.0 릴리스에 대한 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -185,7 +177,7 @@ Azure PowerShell 0.9.8의 경우 다음 명령을 사용합니다.
 
     azure location list
 
-또한 **jq**와 같은 도구를 사용하여 위치 결과를 필터링할 수도 있습니다. jq와 같은 도구에 대해 자세히 알아보려면 [Azure를 조작하는 데 유용한 도구](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure)를 참조하세요.
+또한 **jq**와 같은 도구를 사용하여 위치 결과를 필터링할 수도 있습니다. jq와 같은 도구에 대해 자세히 알아보려면 [Azure와 상호작용하는 유용한 도구](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure)를 참조하세요.
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -207,7 +199,7 @@ Azure PowerShell 0.9.8의 경우 다음 명령을 사용합니다.
 
 ### PowerShell
 
-다음 예제에서는 Azure PowerShell 1.0 Preview를 사용하여 특정 리소스에 사용할 수 있는 API 버전을 가져오는 방법을 보여줍니다.
+다음 예제에서는 Azure PowerShell 1.0을 사용하여 특정 리소스에 사용할 수 있는 API 버전을 가져오는 방법을 보여줍니다.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
@@ -241,4 +233,4 @@ Azure PowerShell 0.9.8의 경우 다음을 사용합니다.
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/01/2015"
 	ms.author="szark"/>
 
 
@@ -37,12 +37,13 @@ Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치
 
 배포|버전|드라이버|에이전트
 ---|---|---|---
-Canonical Ubuntu|Ubuntu 12.04, 14.04, 15.04 및 15.10|커널에 있음|패키지: "walinuxagent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-OpenLogic의 CentOS |CentOS 6.3 이상, 7.0 이상| CentOS 6.3:[LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음|패키지: "WALinuxAgent"의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Ubuntu|Ubuntu 12.04, 14.04, 15.04 및 15.10|커널에 있음|패키지: "walinuxagent"의 리포지토리에 있음<p><p>원본: [GitHub](https://github.com/Azure/WALinuxAgent)
+OpenLogic의 CentOS |CentOS 6.3 이상, 7.0 이상| CentOS 6.3:[LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음|패키지: "WALinuxAgent"의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 리포지토리에 있음<p><p>원본: [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 이상 |커널에 있음|원본: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4 이상, 7.0 이상|커널에 있음|패키지: "WALinuxAgent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ 및 SAP 11.3+용 <p><p> SLES |커널에 있음|패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |OpenSUSE 13.1 이상|커널에 있음|패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<p><p>원본 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |OpenSUSE 13.1 이상|커널에 있음|패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<p><p>원본 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
+Debian by Credativ |Debian 7.9 이상, 8.2 이상|커널에 있음|패키지: "waagent"에서 리포지토리의 <p><p>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent)
 
 ## 파트너
 
@@ -79,4 +80,9 @@ Oracle의 전략은 공용 및 사설 클라우드에 대한 솔루션의 다양
 
 SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수한 안정성과 보안을 제공하는 검증된 플랫폼입니다. SUSE의 다양한 Linux 플랫폼은 Azure 클라우드 서비스와 자연스럽게 통합되어 쉽게 관리할 수 있는 클라우드 환경을 제공합니다. 1,800곳이 넘는 SUSE Linux Enterprise Server의 독립 소프트웨어 공급업체에서 9,200개 이상의 인증된 응용 프로그램을 통해 SUSE는 데이터 센터에서 지원되는 실행 중인 작업이 확실히 Azure에 배포될 수 있도록 합니다.
 
-<!---HONumber=Nov15_HO4-->
+### Credativ
+[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+
+Credativ는 독립적인 컨설팅 회사로써, 무료 소프트웨어를 이용한 전문 솔루션 개발 및 제공이 주요 사업 분야입니다. 오픈 소스 전문가의 선두 주자로서, 저희의 지원을 받는 많은 IT 부서들과 함께 국제적인 승인을 받고 있습니다. Microsoft와 공동으로 제작한 Credativ는 현재 Debian 8(제시) 및 Azure에서 실행하도록 특별히 제작되고 플랫폼을 통해 쉽게 관리할 수 있는 7 전의 Debian(위지)에 상응하는 Debian 이미지를 준비 중입니다. Credativ는 또한 자체적인 오픈 소스 지원 센터를 통해 장기적인 유지 및 Azure의 Debian 이미지 업데이트를 지원합니다.
+
+<!---HONumber=AcomDC_1203_2015-->

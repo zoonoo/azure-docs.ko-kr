@@ -18,6 +18,6 @@
 
 # Azure AD 도메인 서비스*(미리 보기)*
 
-Azure 서비스를 사용할 수 있는 지역을 알아보려면 [지역에 따른 서비스](https://azure.microsoft.com/ko-KR/regions/#services)를 참조하세요.
+Azure 서비스를 사용할 수 있는 지역을 알아보려면 [지역별 서비스](https://azure.microsoft.com/regions/#services)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

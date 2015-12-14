@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
@@ -27,35 +27,55 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정, 데이
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판]https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
-- **Azure PowerShell 1.0 이상**. [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. Azure PowerShell 1.0 이상을 설치한 후 Azure 데이터 레이크 분석 모듈을 설치하려면 다음 cmdlet을 실행합니다.
+
+
+<!-- ################################ -->
+<!-- ################################ -->
+
+
+##Azure PowerShell 1.0 이상 설치
+
+먼저 0.9x 버전을 제거해야 합니다.
+
+설치된 PowerShell 버전을 확인하려면:
+
+	Get-Module *azure*
 	
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
+이전 버전을 제거하려면 제어판에서 프로그램 및 기능을 실행합니다.
 
-	**AzureRM.DataLakeStore** 모듈에 대한 자세한 내용은 [PowerShell 갤러리](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore)를 참조하세요. **AzureRM.DataLakeAnalytics** 모듈에 대한 자세한 내용은 [PowerShell 갤러리](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics)를 참조하세요.
+Azure PowerShell을 설치하기 위한 두 가지 주요 옵션이 있습니다.
 
-	처음으로 데이터 레이크 계정을 만드는 경우 다음을 실행합니다.
+- [PowerShell 갤러리](https://www.powershellgallery.com/). 관리자 권한 PowerShell ISE 또는 관리자 권한 Windows PowerShell 콘솔에서 다음 명령을 실행합니다.
 
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	Azure에 연결하려면 다음 cmdlet을 사용합니다.
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
 		
-**Cmdlet을 나열하려면**:
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	자세한 내용은 [PowerShell 갤러리](https://www.powershellgallery.com/)를 참조하세요.
+
+- [Microsoft WebPI(웹 플랫폼 설치 관리자)](http://aka.ms/webpi-azps). Azure PowerShell 0.9.x가 설치되어 있는 경우 0.9.x를 제거하라는 메시지가 표시됩니다. PowerShell 갤러리에서 Azure PowerShell 모듈을 설치한 경우 일관성 있는 Azure PowerShell 환경이 보장되도록 설치하기 전에 설치 관리자에서 모듈을 제거해야 합니다. 자세한 내용은 [WebPI를 통해 Azure PowerShell 1.0 설치](https://azure.microsoft.com/blog/azps-1-0/)를 참조하세요.
+
+WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적으로 업데이트를 받습니다. PowerShell 갤러리에서 설치가 익숙하다면 이는 Azure PowerShell에서 가장 유용한 최신의 첫 번째 채널이 될 것입니다.
+
+**cmdlet을 나열하려면**:
 
 	Get-Command *Azure*DataLakeAnalytics*
 
-<!-- ################################ -->
-<!-- ################################ -->
+**Azure에 연결하려면 다음 cmdlet을 사용합니다**.
 
-
-
-<!-- ################################ -->
-<!-- ################################ -->
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # for finding the Azure Subscription ID
+	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+	
 ## 계정 관리
 
 데이터 레이크 분석 작업을 실행하려면 데이터 레이크 분석 계정이 있어야 합니다. Azure HDInsight와 달리 작업을 실행하지 않는 경우 분석 계정에 대해 비용을 지불하지 않습니다. 작업이 실행되는 시간에 대해서만 비용을 지불합니다. 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
@@ -350,9 +370,9 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 ##참고 항목 
 
 - [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-- [Azure Preview 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
-- [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md)
-- [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md)
+- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##부록 A - 데이터 레이크 분석 ARM 템플릿
 
@@ -411,4 +431,4 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 		}
 	}
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

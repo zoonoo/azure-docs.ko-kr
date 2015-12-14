@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Visual Studio Application Insights
 
 Application Insights는 라이브 응용 프로그램을 모니터링하는 확장 가능한 분석 서비스입니다. 성능 문제를 감지 및 진단하고 실제로 앱을 사용하여 작업하는 사용자를 이해하는데 도움이 됩니다. 개발자가 성능 및 응용 프로그램의 가용성을 지속적으로 향상 시킬 수 있도록 설계 되었습니다.
 
-![사용자 활동 통계, 차트 또는 특정 이벤트를 드릴합니다.](./media/app-insights-overview/00-sample.png)
+![사용자 활동 통계, 차트 또는 특정 이벤트를 드릴합니다.](./media/app-service-app-insights-get-started/00-sample.png)
 
 NET 또는 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 웹과 독립 실행형 앱과 함께 사용합니다.
 
@@ -43,13 +43,13 @@ Application Insights는 개발팀을 목표로 합니다. 함께 다음을 수�
 
 훨씬 긴밀한 수준의 분석이 필요합니까? 데이터를 [SQL](app-insights-code-sample-export-telemetry-sql-database.md), [Power BI](app-insights-export-power-bi.md) 또는 자체 도구로 [내보내기](app-insights-export-telemetry.md)합니다.
 
-![Power BI에서 데이터 보기](./media/app-insights-overview/210.png)
+![Power BI에서 데이터 보기](./media/app-service-app-insights-get-started/210.png)
 
 ## 플랫폼 및 언어
 
 플랫폼의 증가하는 범위에 대한 SDKrk 있습니다. 현재 목록에 포함 됩니다.
 
- * Azure 또는 IIS 서버의 [ASP.NET 서버][greenbrown]
+ * Azure에서 [ASP.NET 서버][greenbrown] 또는 IIS 서버
  * [Azure 클라우드 서비스](app-insights-cloudservices.md)
  * [J2EE 서버][java]
  * [웹 페이지][client]\: HTML + JavaScript
@@ -65,7 +65,7 @@ Application Insights 다시 작성하지 않는 IIS상의 기존 ASP.NET 웹앱�
 
 응용 프로그램에 작은 SDK를 설치하고 Application Insights 포털에서 계정을 설정합니다. SDK에서 앱을 모니터링하여 포털에 원격 분석 데이터를 보냅니다. 포털에서 통계 차트를 표시하고 모든 문제를 진단하는 데 도움이 되는 강력한 검색 도구를 제공합니다.
 
-![앱의 Application Insights SDK는 Azure 포털의 Application Insights 리소스로 원격 분석을 보냅니다.](./media/app-insights-overview/01-scheme.png)
+![앱의 Application Insights SDK는 Azure 포털의 Application Insights 리소스로 원격 분석을 보냅니다.](./media/app-service-app-insights-get-started/01-scheme.png)
 
 SDK에는 사용자, 세션 및 성능을 계산하는 모듈을 비롯하여 원격 분석을 수집하는 여러 모듈이 있습니다. 또한 포털에 원격 분석 데이터를 보내도록 사용자 지정 코드를 작성할 수도 있습니다. 사용자 지정 원격 분석은 사용자 스토리를 추적할 때 특히 유용합니다. 단추 클릭, 특정 목표 달성, 사용자 실수 등의 이벤트를 계산할 수 있습니다.
 
@@ -132,7 +132,7 @@ Visual Studio를 사용하지 않거나 프로젝트에서 이러한 옵션을 �
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
@@ -144,4 +144,4 @@ Visual Studio를 사용하지 않거나 프로젝트에서 이러한 옵션을 �
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

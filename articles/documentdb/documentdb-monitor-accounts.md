@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Preview 포털을 사용하여 DocumentDB 계정 모니터링 | Microsoft Azure" 
+	pageTitle="Azure 포털을 사용하여 DocumentDB 계정 모니터링 | Microsoft Azure" 
 	description="성능 메트릭(예: 요청 및 서버 오류) 및 사용 현황 메트릭(예: 저장소 사용량)에 대해 DocumentDB 계정을 모니터링하는 방법을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -18,10 +18,10 @@
 
 # DocumentDB 계정 모니터링 
 
-[Microsoft Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정을 모니터링할 수 있습니다. 각 DocumentDB 계정에 대해 성능 메트릭(예: 요청 및 서버 오류)과 사용량 메트릭(예: 저장소 사용)을 사용할 수 있습니다.
+[Microsoft Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정을 모니터링할 수 있습니다. 각 DocumentDB 계정에 대해 성능 메트릭(예: 요청 및 서버 오류)과 사용량 메트릭(예: 저장소 사용)을 사용할 수 있습니다.
 
 ## 방법: DocumentDB 계정의 성능 메트릭 보기
-1.	[Azure Preview 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
+1.	[Azure 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
 2.	**모니터링** 렌즈에서 기본적으로 다음을 확인할 수 있습니다.
 	*	오늘의 총 요청 수
 	*	오늘의 초당 평균 요청 수 
@@ -48,7 +48,7 @@
 
 
 ## 병렬 성능 메트릭 차트 만들기
-Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
+Azure 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 
 1.	먼저, 복제 및 수정할 차트를 마우스 오른쪽 단추로 클릭하고 **사용자 지정**을 선택합니다. 
 
@@ -62,7 +62,7 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 이제 파트에 표시되는 메트릭 및 시간 범위를 사용자 지정하면서 이 파트를 다른 메트릭 파트로 처리할 수 있습니다. 이렇게 하면 두 가지 다른 메트릭 차트를 동시에 병렬로 볼 수 있습니다. ![총 요청 차트 및 지난 1시간의 새로운 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb8.png)
 
 ## DocumentDB 계정의 사용량 메트릭 보기
-1.	[Azure Preview 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 사용량 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
+1.	[Azure 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 사용량 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
 2.	**사용량** 렌즈 내에서 기본적으로 다음을 확인할 수 있습니다.
 	*	현재 청구 기간에 대한 DocumentDB 계정의 지금까지의 예상 비용.
 	*	계정 내에서 소비되는 저장소.
@@ -73,7 +73,7 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 	![사용량 렌즈의 스크린샷](./media/documentdb-monitor-accounts/madocdb9.png)
  
 ## DocumentDB 계정의 성능 메트릭 경고 설정
-1.	[Azure Preview 포털](https://portal.azure.com/)에서 **모두 찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭 경고를 설정할 DocumentDB 계정의 이름을 클릭합니다.
+1.	[Azure 포털](https://portal.azure.com/)에서 **모두 찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭 경고를 설정할 DocumentDB 계정의 이름을 클릭합니다.
 2.	**작업** 렌즈에서 **경고 규칙** 파트를 클릭합니다. ![경고 규칙 파트가 선택된 작업 렌즈의 스크린샷](./media/documentdb-monitor-accounts/madocdb10.png)
 
 3.	경고 규칙 블레이드에서 **경고 추가**를 클릭합니다. ![경고 추가 단추가 강조 표시된 경고 규칙 블레이드의 스크린샷](./media/documentdb-monitor-accounts/madocdb11.png)
@@ -90,4 +90,4 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 DocumentDB에 대한 자세한 내용은 [DocumentDB 용량 관리](documentdb-manage.md)를 참조하세요.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -21,15 +21,15 @@
 
 이 문서의 항목별 오류 메시지를 통해 Azure HDInsight의 Hadoop 사용자는 Azure PowerShell을 사용하여 서비스를 관리할 때 발생할 수 있는 가능한 오류 상태에 대해 이해할 수 있으며, 오류를 복구하기 위해 수행할 수 있는 단계에 대해 도움을 받을 수 있습니다.
 
-이러한 오류 메시지 중 일부는 Azure Preview 포털에서 HDInsight 클러스터를 관리할 때도 발생할 수 있습니다. 하지만 이때 발생할 수 있는 다른 오류 메시지는 해당 컨텍스트에서 가능한 수정 작업의 제약 조건으로 인해 세분화하기 어렵습니다. 다른 오류 메시지는 뚜렷한 해결 방법이 있는 경우 제공됩니다. 예를 들면 매개 변수의 제약 조건이 위반된 경우 값이 입력된 상자의 오른쪽에 팝업 메시지가 표시됩니다. 여기서는 너무 많은 데이터 노드가 요청된 경우입니다. 이를 해결하는 방법은 33 이하의 허용된 값으로 숫자를 줄이는 것입니다.
+이러한 오류 메시지 중 일부는 Azure 포털에서 HDInsight 클러스터를 관리할 때도 발생할 수 있습니다. 하지만 이때 발생할 수 있는 다른 오류 메시지는 해당 컨텍스트에서 가능한 수정 작업의 제약 조건으로 인해 세분화하기 어렵습니다. 다른 오류 메시지는 뚜렷한 해결 방법이 있는 경우 제공됩니다. 예를 들면 매개 변수의 제약 조건이 위반된 경우 값이 입력된 상자의 오른쪽에 팝업 메시지가 표시됩니다. 여기서는 너무 많은 데이터 노드가 요청된 경우입니다. 이를 해결하는 방법은 33 이하의 허용된 값으로 숫자를 줄이는 것입니다.
 
-![HDInsight 미리 보기 포털 오류 메시지][image-hdi-debugging-error-messages-portal]
+![HDInsight 포털 오류 메시지][image-hdi-debugging-error-messages-portal]
 
-오류가 Azure HDInsight에 특정되는 상황에서 오류가 무엇인지 이해하는 것이 좋습니다. [HDInsight 오류 코드](#hdi-error-codes)를 참조하여 각종 오류 코드 및 이를 수정하는 방법을 이해합니다. 일부 상황에서 Hadoop 로그 자체에 액세스하려고 할 수도 있습니다. 지금 Azure Preview 포털에서 직접 수행할 수 있습니다.
+오류가 Azure HDInsight에 특정되는 상황에서 오류가 무엇인지 이해하는 것이 좋습니다. [HDInsight 오류 코드](#hdi-error-codes)를 참조하여 각종 오류 코드 및 이를 수정하는 방법을 이해합니다. 일부 상황에서 Hadoop 로그 자체에 액세스하려고 할 수도 있습니다. 지금 Azure 포털에서 직접 수행할 수 있습니다.
 
 ## 클러스터 상태 및 작업 로그 보기
 
-* **Hadoop UI에 액세스**합니다. Azure Preview 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다.
+* **Hadoop UI에 액세스**합니다. Azure 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다.
 
 	![클러스터 대시보드 시작](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
   
@@ -37,7 +37,7 @@
 
 	![Hadoop UI 시작](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-* **Yarn UI에 액세스**합니다. Azure Preview 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **YARN UI**를 클릭합니다.
+* **Yarn UI에 액세스**합니다. Azure 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **YARN UI**를 클릭합니다.
 
 	YARN UI를 사용하여 다음을 수행할 수 있습니다.
 
@@ -49,11 +49,11 @@
 
 	* **작업 상태를 모니터링**합니다. 왼쪽 창에서 **클러스터**를 확장하고 **응용 프로그램**을 클릭하여 클러스터의 모든 작업을 나열합니다. 특정 상태(새로움, 제출됨, 실행 중과 같은)에 있는 작업을 확인하려면 **응용 프로그램**에서 적절한 링크를 클릭합니다. 더 자세한 내용을 보려면 작업 이름을 클릭하여 출력, 로그 등을 비롯하여 작업에 대해 자세히 확인할 수 있습니다.
 
-* **HBase UI에 액세스**합니다. Azure Preview 포털에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **HBase UI**를 클릭합니다.
+* **HBase UI에 액세스**합니다. Azure 포털에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **HBase UI**를 클릭합니다.
 
 ## <a id="hdi-error-codes"></a>HDInsight 오류 코드
 
-Azure PowerShell 또는 Preview 포털에서 발생할 수 있는 오류는 아래에서 사전순으로 나열됩니다. 오류는 오류에 대한 다음 정보를 제공하는 [오류 설명 및 완화](#discription-mitigation-errors) 섹션에서 항목에 차례로 링크됩니다.
+Azure PowerShell 또는 포털에서 발생할 수 있는 오류는 아래에서 사전순으로 나열됩니다. 오류는 오류에 대한 다음 정보를 제공하는 [오류 설명 및 완화](#discription-mitigation-errors) 섹션에서 항목에 차례로 링크됩니다.
 
 - **설명**: 사용자에게 표시되는 오류 메시지
 - **해결 방법**: 오류를 복구하기 위해 수행할 수 있는 단계입니다.
@@ -129,7 +129,7 @@ Azure PowerShell 또는 Preview 포털에서 발생할 수 있는 오류는 아�
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 - **설명**: *yourClusterName* 클러스터 이름을 사용할 수 없습니다. 다른 이름을 선택하세요.  
-- **해결 방법**: 사용자가 고유하며 기존에 존재하지 않던 클러스터 이름을 지정한 후 다시 시도해야 합니다. 사용자가 미리 보기 포털을 사용하는 경우 클러스터 이름을 만드는 단계에서 이미 사용 중인 이름을 선택하면 UI에서 이를 알려 줍니다.
+- **해결 방법**: 사용자가 고유하며 기존에 존재하지 않던 클러스터 이름을 지정한 후 다시 시도해야 합니다. 사용자가 포털을 사용하는 경우 클러스터 이름을 만드는 단계에서 이미 사용 중인 이름을 선택하면 UI에서 이를 알려 줍니다.
 
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
@@ -258,7 +258,7 @@ Azure PowerShell 또는 Preview 포털에서 발생할 수 있는 오류는 아�
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 - **설명**: 저장소 계정 *yourStorageAccountName*이(가) *currentRegionName* 지역에 있습니다. 지역은 클러스터 지역인 *클러스터지역이름*과(와) 동일해야 합니다.  
-- **해결 방법**: 클러스터가 있는 지역과 동일한 지역에서 저장소 계정을 지정하거나, 사용 중인 데이터가 저장소 계정에 이미 존재하는 경우 기존 저장소 계정과 동일한 지역에서 새 클러스터를 만드세요. 미리 보기 포털을 사용하는 경우 UI에서 이 문제에 대해 사전에 알려 줍니다.
+- **해결 방법**: 클러스터가 있는 지역과 동일한 지역에서 저장소 계정을 지정하거나, 사용 중인 데이터가 저장소 계정에 이미 존재하는 경우 기존 저장소 계정과 동일한 지역에서 새 클러스터를 만드세요. 포털을 사용하는 경우 UI에서 이 문제에 대해 사전에 알려 줍니다.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 - **설명**: 지정된 구독 ID *yourSubscriptionId*가 활성이 아닙니다.  
@@ -300,4 +300,4 @@ Azure PowerShell 또는 Preview 포털에서 발생할 수 있는 오류는 아�
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,16 +22,16 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 
-암호를 잊었거나 원격 데스크톱 서비스 구성의 문제로 Windows 가상 컴퓨터에 연결할 수 없는 경우 Azure Preview 포털이나 VMAccess 확장을 사용하여 로컬 관리자 암호를 재설정하거나 원격 데스크톱 서비스 구성을 재설정합니다.
+암호를 잊거나 원격 데스크톱 서비스 구성에 문제가 생겨 Windows 가상 컴퓨터에 연결할 수 없는 경우, Azure 포털 또는 VMAccess 확정을 사용하여 로컬 관리자 암호를 재설정하거나 원격 데스크톱 서비스 구성을 재설정합니다.
 
-## Azure 미리 보기 포털
+## Azure 포털
 
-[Azure Preview 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 재설정하려면, **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **원격 액세스 재설정**을 클릭합니다. 다음 페이지가 나타납니다.
+[Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하려면, **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **원격 액세스 재설정**을 차례로 클릭합니다. 다음 페이지가 나타납니다.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-[Azure Preview 포털](https://portal.azure.com)에서 로컬 관리자 계정의 이름과 암호를 재설정하려면, **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 재설정**을 클릭합니다. 다음 페이지가 나타납니다.
+[Azure 포털](https://portal.azure.com)에서 로컬 관리자 계정의 이름과 암호를 다시 설정하려면, **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 재설정**을 차례로 클릭합니다. 다음 페이지가 나타납니다.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -114,4 +114,4 @@ Azure IaaS(Windows) 진단 패키지를 실행할 수 없거나 실행해도 문
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

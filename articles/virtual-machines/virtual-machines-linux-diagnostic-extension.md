@@ -39,9 +39,9 @@ Linux 진단 확장을 통해 사용자는 다음과 같은 기능으로 Microso
 
 
 ## 확장을 사용하도록 설정하는 방법
-[Azure Preview 포털](https://ms.portal.azure.com/#), Azure PowerShell 또는 Azure CLI 스크립트를 통해 확장을 사용하도록 설정할 수 있습니다.
+[Azure 포털](https://ms.portal.azure.com/#), Azure PowerShell 또는 Azure CLI 스크립트를 통해 확장을 사용하도록 설정할 수 있습니다.
 
-Azure Preview 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [단계](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 블로그의 URL")를 따르세요.
+Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [단계](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 블로그의 URL")를 따르세요.
 
 
 이 문서에서는 Azure CLI 명령을 통해 확장을 사용하도록 설정하고 구성하는 과정을 중점적으로 다룹니다. 이 옵션을 통해 저장소 테이블에서 데이터를 직접 읽고 볼 수 있습니다.
@@ -144,4 +144,4 @@ Azure Preview 포털에서 직접 시스템 및 성능 데이터를 보고 구�
 - 버전 2.0의 경우 스크립팅을 통해 Rsyslog 정보 및 고객이 지정한 로그 파일에만 액세스할 수 있습니다.
 - 버전 2.0의 경우 먼저 스크립트를 통해 Linux 진단 확장을 사용하도록 설정하면 포털에서 데이터를 볼 수 없습니다. 먼저 포털에서 확장을 사용하도록 설정하면 스크립트가 계속 작동합니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

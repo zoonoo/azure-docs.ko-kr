@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK 통합" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK 통합"
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
@@ -25,11 +25,11 @@
 
 ##소개
 
-ADM을 통합하면 응용 프로그램이 실행되지 않을 때에도 응용 프로그램을 푸시할 수 있습니다.
+ADM을 통합하면 Amazon Android 장치를 대상으로 할 때 응용 프로그램을 푸시할 수 있습니다.
 
-캠페인 데이터는 ADM을 통해 실제로 전송되지 않으며, 단지 응용 프로그램에 Engagement 푸시를 가져오도록 지시하는 백그라운드 신호입니다. ADM 푸시를 수신하는 동안 응용 프로그램이 실행되지 않으면 Engagement 서버에 대한 연결이 트리거되어 푸시를 가져오며 사용자가 푸시에 응답하여 응용 프로그램을 시작할 경우를 위해 Engagement 연결은 1분 정도 활성 상태로 남아 있습니다.
+SDK로 푸시된 ADM 페이로드는 데이터 개체에 항상 `azme` 키를 포함합니다. 따라서 응용 프로그램에서 다른 용도로 ADM을 사용하는 경우 해당 키에 따라 푸시를 필터링할 수 있습니다.
 
-> [AZURE.IMPORTANT]Android 4.0.3 이상을 실행하는 Amazon Kindle 장치만 Amazon 장치 메시징을 통해 지원되지만 다른 장치에서 안전하게 이 코드를 통합할 수 있습니다. ADM을 통해 응용 프로그램의 절전 모드가 해제되면 다음에 응용 프로그램이 시작될 때 Engagement 알림이 수신됩니다.
+> [AZURE.IMPORTANT]Android 4.0.3 이상을 실행하는 Amazon Kindle 장치만 Amazon 장치 메시징을 통해 지원되지만 다른 장치에서 안전하게 이 코드를 통합할 수 있습니다.
 
 ##ADM에 등록
 
@@ -65,7 +65,7 @@ ADM을 아직 통합하지 않은 경우 Engagement를 통해 응용 프로그�
 		<amazon:enable-feature
 		   android:name="com.amazon.device.messaging"
 		   android:required="false"/>
-		
+
 		<meta-data android:name="engagement:adm:register" android:value="true" />
 
 -   Amazon 태그를 추가한 후 프로젝트 빌드 대상이 Android 2.1 이하인 경우 빌드 오류가 발생할 수 있습니다. **Android 2.1 이상**의 빌드 대상을 사용해야 합니다(여전히 `minSdkVersion`을(를) 4로 설정할 수 있음).
@@ -83,7 +83,7 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 		    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
 		  </intent-filter>
 		</receiver>
-		
+
 		 <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
 		   android:permission="com.amazon.device.messaging.permission.SEND">
 		  <intent-filter>
@@ -111,6 +111,5 @@ $/#application/YOUR\_APPID/native-push에서 OAuth 자격 증명(클라이언트
 [ADM 클라이언트 라이브러리]: https://developer.amazon.com/sdk/adm/setup.html
 [ADM을 통합]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [이 절차]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

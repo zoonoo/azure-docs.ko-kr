@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 ASP.NET에 대한 로그, 예외 및 사용자 지정 진단
@@ -34,6 +34,11 @@ SDK가 자동으로 전송하는 원격 분석을 보려면 진단 검색을 엽
 ![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
 
 하나의 응용 프로그램 유형과 다른 응용 프로그램은 세부 정보가 달라집니다. 자세한 내용을 보려면 개별 이벤트를 통해 클릭할 수 있습니다.
+
+## 샘플링 
+
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+
 
 ##<a name="events"></a>사용자 지정 이벤트
 
@@ -271,6 +276,11 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
 각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는 7일 동안 보존됩니다.
 
+### 내 이벤트 또는 추적의 일부가 표시 되지 않습니다.
+
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+
+
 ## <a name="add"></a>다음 단계
 
 * [가용성 및 응답성 테스트 설정][availability]
@@ -285,7 +295,7 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -295,4 +305,4 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

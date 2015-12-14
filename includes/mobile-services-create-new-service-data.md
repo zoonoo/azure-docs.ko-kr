@@ -2,7 +2,7 @@
 
 다음으로는 데이터 저장소를 위한 메모리 내 목록 대신 사용할 새 모바일 서비스를 만듭니다. 다음 단계에 따라 새 모바일 서비스를 만드십시오.
 
-1. [Azure 관리 포털](https://manage.windowsazure.com/)에 로그인합니다. 
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다. 
 2.	탐색 창 맨 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
 	![plus-new](./media/mobile-services-create-new-service-data/plus-new.png)
@@ -33,4 +33,4 @@
 
 이제 모바일 앱에 사용할 수 있는 새 모바일 서비스를 만들었습니다. 다음 과정에서는 앱 데이터를 저장할 새 테이블을 추가합니다. 앱에서는 메모리 내 컬렉션 대신 이 테이블을 사용하게 됩니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

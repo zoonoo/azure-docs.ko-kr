@@ -92,7 +92,7 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **데이터 원본 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다. 
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 [Azure 관리 포털](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 [Azure 클래식 포털](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 <a name="CreateDataSourceRequestSyntax"></a> **요청 본문 구문**
 
@@ -120,8 +120,8 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 	- `documentdb` - Azure DocumentDB
 - `credentials`:
 	- 필수 `connectionString` 속성은 데이터 원본의 연결 문자열을 지정합니다. 연결 문자열의 형식은 데이터 원본 유형에 따라 달라 집니다. 
-		- Azure SQL의 경우 일반적인 SQL Server 연결 문자열입니다. Azure 관리 포털을 사용하여 연결 문자열을 검색하는 경우 `ADO.NET connection string` 옵션을 사용합니다.
-		- DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure 관리 포털](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.   
+		- Azure SQL의 경우 일반적인 SQL Server 연결 문자열입니다. Azure 클래식 포털을 사용하여 연결 문자열을 검색하는 경우 `ADO.NET connection string` 옵션을 사용합니다.
+		- DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure 클래식 포털](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.   
 		
 - `container`:
 	- 필수 `name` 속성은 인덱싱할 테이블/보기(Azure SQL 데이터 원본의 경우) 또는 컬렉션(DocumentDB 데이터 원본의 경우)을 지정합니다. 
@@ -776,4 +776,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

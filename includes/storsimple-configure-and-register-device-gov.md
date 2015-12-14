@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/01/15-->
 
 ### 장치를 구성 및 등록하려면
 
@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    다음 버전이 표시되어야 합니다.
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    다음 버전이 표시되어야 합니다. - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. 펌웨어 업데이트가 제대로 적용되었는지 확인하려면 다음 cmdlet을 실행합니다.
 
@@ -90,7 +87,7 @@
 
      펌웨어 상태는 **UpToDate**여야 합니다.
 
-10. 장치가 Microsoft Azure 정부 포털을 가리키도록 다음 cmdlet을 실행합니다(기본적으로 공용 Azure 관리 포털을 가리키기 때문임). 두 컨트롤러가 모두 다시 시작됩니다. 두 PuTTY 세션을 사용하여, 각 컨트롤러가 다시 시작되면 볼 수 있도록 두 컨트롤러에 동시에 연결하는 것이 좋습니다.
+10. 장치가 Microsoft Azure Government 포털을 가리키도록 다음 cmdlet을 실행합니다(기본적으로 공용 Azure 클래식 포털을 가리키기 때문임). 두 컨트롤러가 모두 다시 시작됩니다. 두 PuTTY 세션을 사용하여, 각 컨트롤러가 다시 시작되면 볼 수 있도록 두 컨트롤러에 동시에 연결하는 것이 좋습니다.
 
      `Set-CloudPlatform -AzureGovt_US`
 
@@ -110,7 +107,7 @@
 
 	<br/>![StorSimple 등록 장치 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
-14. 설치 마법사의 마지막 단계에서는 StorSimple 관리자 서비스에 장치를 등록합니다. 이 경우 [2단계: 서비스 등록 키 가져오기](storsimple-get-service-registration-key-gov.md)에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 장치가 등록되려면 2\~3분 정도 기다려야 할 수 있습니다.
+14. 설치 마법사의 마지막 단계에서는 StorSimple 관리자 서비스에 장치를 등록합니다. 이 경우 [2단계: 서비스 등록 키 가져오기](storsimple-get-service-registration-key-gov.md)에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 장치가 등록되려면 2~3분 정도 기다려야 할 수 있습니다.
 
       >[AZURE.NOTE]Ctrl + C를 눌러 언제든지 설치 마법사를 종료할 수 있습니다. 모든 네트워크 설정(Data 0, 서브넷 마스크 및 게이트웨이 IP 주소)를 입력한 경우, 항목이 유지됩니다.
 
@@ -124,17 +121,17 @@
 
 16. 직렬 콘솔을 종료합니다.
 
-17. 정부 포털로 돌아가서 다음 단계를 완료합니다.
+17. Azure Government 포털로 돌아가서 다음 단계를 완료합니다.
   1. StorSimple 관리자 서비스를 두 번 클릭하여 **퀵 스타트** 페이지에 액세스합니다.
   2. **연결된 장치 보기**를 클릭합니다.
   3. **장치** 페이지에서 상태를 조회하여 장치가 서비스에 성공적으로 연결되었는지 확인합니다. 장치 상태는 **온라인**이어야 합니다.
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        장치 상태가 **오프라인** 이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        몇 분 후에도 장치가 여전히 오프라인 상태인 경우에는 [StorSimple 장치에 대한 네트워크 요구 사항](https://msdn.microsoft.com/library/dn772371.aspx)에서 설명한 대로 방화벽 네트워크를 구성했는지 확인해야 합니다. HTTP 1.1이 지원되지 않으면 포트 9354가 아웃바운드 통신용으로 열려 있는지 확인합니다. 이 포트는 StorSimple 관리자 서비스와 StorSimple 장치 간의 통신에 사용됩니다.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

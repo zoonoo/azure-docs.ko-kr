@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="11/22/2015"
+ ms.date="11/25/2015"
  ms.author="danlep"/>
 
 # Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFoam 실행
@@ -114,7 +114,7 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 
 2. 표준 Windows Server 절차를 사용하여 클러스터의 Active Directory 도메인에 도메인 사용자 계정을 만듭니다. 예를 들어 헤드 노드에서 Active Directory 사용자 및 컴퓨터 도구를 사용합니다. 이 문서의 예에서는 hpclab\\hpcuser라는 이름의 도메인 사용자를 만든다고 가정합니다.
 
-3.	C:\\cred.xml이라는 이름의 파일을 만들고 RSA 키 데이터를 여기에 복사합니다. 이 파일에 대한 예는 이 문서 끝에 있는 부록에서 확인할 수 있습니다.
+3.	C:\\cred.xml이라는 이름의 파일을 만들고 RSA 키 데이터를 여기에 복사합니다. 이 파일에 대한 예는 이 문서 끝에 있는 샘플 파일에서 확인할 수 있습니다.
 
     ```
     <ExtendedData>
@@ -176,7 +176,7 @@ Intel MPI에 대해 다운로드된 설치 패키지(이 예제에서 l\_mpi\_p\
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
     ```
 
-2.  Intel MPI Library를 자동으로 설치하려면 silent.cfg 파일을 사용합니다. 이 파일에 대한 예는 이 문서 끝에 있는 부록에서 확인할 수 있습니다. 이 파일을 공유 폴더 /openfoam에 넣습니다. silent.cfg 파일에 대한 자세한 내용은 [Linux 설치 가이드용 Intel MPI Library - 자동 설치](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall)를 참조하세요.
+2.  Intel MPI Library를 자동으로 설치하려면 silent.cfg 파일을 사용합니다. 이 문서의 끝에 있는 샘플 파일에서 예제를 확인할 수 있습니다. 이 파일을 공유 폴더 /openfoam에 넣습니다. silent.cfg 파일에 대한 자세한 내용은 [Linux 설치 가이드용 Intel MPI Library - 자동 설치](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall)를 참조하세요.
 
     >[AZURE.TIP]silent.cfg 파일을 Linux 줄 끝(CR LF가 아닌 LF만)을 사용하여 텍스트 파일로 저장합니다. 이렇게 해야 Linux 노드에서 제대로 실행됩니다.
 
@@ -188,20 +188,20 @@ Intel MPI에 대해 다운로드된 설치 패키지(이 예제에서 l\_mpi\_p\
     
 ### MPI 구성
 
-테스트를 위해 Linux 노드의 /etc/security/limits.conf에 다음 줄을 추가해야 합니다.
+테스트를 위해 각 Linux 노드에서 /etc/security/limits.conf에 다음 줄을 추가해야 합니다.
 
 ```
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 ```
 
-C:\\OpenFoam에 파일 limits.conf를 만들어서 이 작업을 수행하고 다음 명령을 실행하여 Linux 노드에 복사할 수 있습니다.
+limits.conf 파일을 업데이트한 후 Linux 노드를 다시 시작합니다. 예를 들어 다음 **clusrun** 명령을 사용합니다.
 
 ```
-clusrun /nodegroup:LinuxNodes cp /openfoam/limits.conf /etc/security
+clusrun /nodegroup:LinuxNodes systemctl reboot
 ```
 
-limits.confile을 업데이트한 후 Linux 노드를 다시 시작합니다. 다시 시작한 후 공유 폴더가 /openfoam으로 탑재되었는지 확인합니다.
+다시 시작한 후 공유 폴더가 /openfoam으로 탑재되었는지 확인합니다.
 
 ### OpenFOAM 컴파일 및 설치
 
@@ -218,25 +218,33 @@ OpenFOAM 소스 팩에 대해 다운로드된 설치 패키지(이 예제에서 
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
-2.  Intel MPI Library와 함께 OpenFOAM을 컴파일하려면 먼저 Intel MPI 및 OpenFOAM에 대한 몇 가지 환경 변수를 설정합니다. settings.sh라는 bash 스크립트를 사용하여 이 작업을 수행합니다. 이 파일에 대한 예는 이 문서 끝에 있는 부록에서 확인할 수 있습니다. 공유 폴더 /openfoam에 이 파일(Linux 줄 끝으로 저장됨)을 저장합니다. 이 파일에는 OpenFOAM 작업을 실행하기 위해 나중에 사용하는 MPI 및 OpenFOAM 런타임에 대한 설정이 포함되어 있습니다.
+2.  Intel MPI Library와 함께 OpenFOAM을 컴파일하려면 먼저 Intel MPI 및 OpenFOAM에 대한 몇 가지 환경 변수를 설정합니다. settings.sh라는 bash 스크립트를 사용하여 이 작업을 수행합니다. 이 문서의 끝에 있는 샘플 파일에서 예제를 확인할 수 있습니다. 공유 폴더 /openfoam에 이 파일(Linux 줄 끝으로 저장됨)을 저장합니다. 이 파일에는 OpenFOAM 작업을 실행하기 위해 나중에 사용하는 MPI 및 OpenFOAM 런타임에 대한 설정이 포함되어 있습니다.
 
-3. OpenFOAM을 컴파일하는 데 필요한 종속 패키지를 설치합니다. Linux 배포에 따라 이 작업을 수행하도록 리포지토리의 번호를 먼저 추가해야 할 수 있습니다. 리포지토리 및 패키지는 이 문서 끝의 부록에 나열됩니다. 제대로 실행하는지 확인하도록 각 Linux 노드에 ssh를 사용하여 명령을 실행하는 것이 좋습니다.
+3. OpenFOAM을 컴파일하는 데 필요한 종속 패키지를 설치합니다. Linux 배포에 따라 리포지토리를 먼저 추가해야 할 수 있습니다. 다음과 유사하게 **clusrun** 명령을 실행합니다.
 
-4.  다음 명령을 실행하여 OpenFOAM을 컴파일합니다. 컴파일 프로세스를 완료하는 데 시간이 걸리며 표준 출력으로 많은 양의 로그 정보를 생성하므로 **/인터리브** 옵션을 사용하여 출력 인터리브를 표시합니다.
+    ```
+    clusrun /nodegroup:LinuxNodes zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ opensuse
+    
+    clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
+    ```
+    
+    필요한 경우 제대로 실행하는지 확인하도록 각 Linux 노드에 ssh를 사용하여 명령을 실행하는 것이 좋습니다.
+
+4.  다음 명령을 실행하여 OpenFOAM을 컴파일합니다. 컴파일 프로세스를 완료하는 데 시간이 걸리며 표준 출력으로 많은 양의 로그 정보를 생성하므로 **/interleaved** 옵션을 사용하여 출력 인터리브를 표시합니다.
 
     ```
     clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
     ```
-
->[AZURE.NOTE]명령의 "'" 기호는 PowerShell의 이스케이프 기호입니다. “`&”는 “&”가 명령의 일부임을 의미합니다.
+    
+    >[AZURE.NOTE]명령의 "'" 기호는 PowerShell의 이스케이프 기호입니다. “`&”는 “&”가 명령의 일부임을 의미합니다.
 
 ## OpenFOAM 작업 실행 준비
 
-이제 2개의 Linux 노드에서 OpenFoam 샘플 중 하나인 sloshingTank3D라는 MPI 작업을 실행할 준비를 합니다. 이 예제에서는 /opt/openfoam231은 Linux 노드에서 OpenFOAM의 설치 경로입니다.
+이제 2개의 Linux 노드에서 OpenFoam 샘플 중 하나인 sloshingTank3D라는 MPI 작업을 실행할 준비를 합니다.
 
 ### 런타임 환경 설정
 
-모든 Linux 노드에서 MPI 및 OpenFOAM에 대한 런타임 환경을 설정하려면 헤드 노드의 Windows PowerShell 창에서 다음 명령을 실행합니다.
+모든 Linux 노드에서 MPI 및 OpenFOAM에 대한 런타임 환경을 설정하려면 헤드 노드의 Windows PowerShell 창에서 다음 명령을 실행합니다. (이 명령은 SUSE Linux에 대해서만 유효합니다.)
 
 ```
 clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
@@ -305,7 +313,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     **Bash 스크립트 래퍼**
 
-    많은 Linux 노드가 있고 그 중 일부에 대해 작업이 실행되는 경우 어떤 노드가 작업에 할당되는지 모르므로 고정된 호스트 파일을 사용하는 것은 좋지 않습니다. 이 경우 **mpirun**에 대한 bash 스크립트 래퍼를 작성하여 호스트 파일을 자동으로 만듭니다. 이 문서 끝의 부록에서 hpcimpirun.sh라는 예제 bash 스크립트 래퍼를 찾고 /openfoam/hpcimpirun.sh로 저장할 수 있습니다. 이 예제 스크립트에서는 다음을 수행합니다.
+    많은 Linux 노드가 있고 그 중 일부에 대해 작업이 실행되는 경우 어떤 노드가 작업에 할당되는지 모르므로 고정된 호스트 파일을 사용하는 것은 좋지 않습니다. 이 경우 **mpirun**에 대한 bash 스크립트 래퍼를 작성하여 호스트 파일을 자동으로 만듭니다. 이 문서 끝에 있는 샘플 파일에서 hpcimpirun.sh라는 예제 bash 스크립트 래퍼를 찾고 /openfoam/hpcimpirun.sh로 저장할 수 있습니다. 이 예제 스크립트에서는 다음을 수행합니다.
 
     1.	**mpirun** 및 일부 추가 명령 매개 변수에 대한 환경 변수를 설정하여 RDMA 네트워크를 통해 MPI 작업을 실행합니다. 이 경우 다음을 설정합니다.
 
@@ -327,7 +335,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
         
         * `<Name of node_n_...>`: 이 작업에 할당된 각 노드의 이름입니다.
         
-        * `<Cores of node_n_...>`: 이 작업에 할당된 노드의 코어 이름입니다.
+        * `<Cores of node_n_...>`: 이 작업에 할당된 노드의 코어 수입니다.
 
         예를 들어 작업에 실행할 노드가 2개 필요한 경우 $CCP\_NODES\_CORES는 다음과 유사합니다.
         
@@ -335,9 +343,9 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
         2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
         ```
         
-    3.	**mpirun** 명령을 호출하고 명령줄에 두 개의 매개 변수를 추가합니다.
+    3.	**mpirun** 명령을 호출하고 명령줄에 2개의 매개 변수를 추가합니다.
 
-        * `--hostfile <hostfilepath>: <hostfilepath>` - 스크립트가 만드는 호스트 파일의 경로
+        * `--hostfile <hostfilepath>: <hostfilepath>` - 스크립트가 만드는 호스트 파일의 경로입니다.
 
         * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` - 이 작업에 할당된 총 코어 수를 저장하는 HPC 팩 헤드 노드로 설정된 환경 변수입니다. 이 경우 **mpirun**에 대한 프로세스의 수를 지정합니다.
 
@@ -371,6 +379,8 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
         *   **명령줄** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
     
         *   **작업 디렉터리** -/ openfoam/sloshingTank3D
+        
+        다음 그림을 참조하세요. 나머지 작업을 비슷하게 구성합니다.
 
         ![작업 1 세부 정보][task_details1]
 
@@ -382,8 +392,6 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
         *   **작업 디렉터리** -/ openfoam/sloshingTank3D
 
-        ![작업 2 세부 정보][task_details2]
-
     *   **작업 3**. **reconstructPar**를 실행하여 각 processor\_N\_ 디렉터리에서 시간 디렉터리 단일 집합으로 시간 디렉터리의 집합을 병합합니다.
 
         *   작업에 하나의 노드 할당
@@ -392,8 +400,6 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
         *   **작업 디렉터리** -/ openfoam/sloshingTank3D
 
-        ![작업 3 세부 정보][task_details3]
-
     *   **작업 4**. 병렬로 **foamToEnsight**를 실행하여 OpenFOAM 결과 파일을 EnSight 형식으로 변환하고 사례 디렉터리의 EnSight라는 디렉터리에 EnSight 파일을 놓습니다.
 
         *   작업에 2개의 노드 할당
@@ -401,8 +407,6 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
         *   **명령줄** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
 
         *   **작업 디렉터리** -/ openfoam/sloshingTank3D
-
-        ![작업 4 세부 정보][task_details4]
 
 6.	오름차순 작업 순서로 이러한 작업에 종속성을 추가합니다.
 
@@ -433,7 +437,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
 ## EnSight에서 결과 보기
 
-필요에 따라 [EnSight](https://www.ceisoftware.com/)를 사용하여 OpenFOAM 작업의 결과를 시각화하고 분석합니다. EnSight에서 시각화 및 애니메이션하는 방법에 대한 자세한 내용은 이 [비디오 가이드](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html)를 참조하세요.
+필요에 따라 [EnSight](https://www.ceisoftware.com/)를 사용하여 OpenFOAM 작업의 결과를 시각화하고 분석합니다. EnSight에서 시각화 및 애니메이션에 대한 자세한 내용은 이 [비디오 가이드](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html)를 참조하세요.
 
 1.  헤드 노드에서 EnSight를 설치한 후 시작합니다.
 
@@ -451,9 +455,9 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![Isosurface 색상 편집][isosurface_color]
 
-5.  **부품** 패널에서 **벽**을 선택하여 **벽**에서 **Iso-볼륨**을 만들고 도구 모음에서 **Isosurfaces** 단추를 클릭합니다.
+5.  **부품** 패널에서 **벽**을 선택하여 **벽**에서 **Iso-volume**을 만들고 도구 모음에서 **Isosurfaces** 단추를 클릭합니다.
 
-6.	대화 상자에서 **Isovolume**으로 **형식**을 선택하고 **Isovolume 범위**의 최소를 0.5로 설정합니다. **선택한 부품으로 만들기**를 클릭하여 isovolume을 만듭니다.
+6.	대화 상자에서 **Isovolume**으로 **형식**을 선택하고 **Isovolume 범위**의 최소를 0.5로 설정합니다. **Create with selected parts**(선택한 부품으로 만들기)를 클릭하여 isovolume을 만듭니다.
 
 7.	이전 단계에서 만든 **Iso\_volume\_part**에 대한 색을 설정합니다. 예를 들어 딥 워터 블루로 설정합니다.
 
@@ -463,8 +467,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![탱크 결과][tank_result]
 
-
-## 부록
+## 샘플 파일
 
 
 ### 샘플 cred.xml 파일
@@ -576,27 +579,6 @@ source /opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
 export WM_MPLIB=INTELMPI
 ```
 
-### Linux 노드에 리포지토리 및 종속 패키지를 추가하는 샘플 명령
-
-```
-sudo zypper ar ftp://ftp.muug.mb.ca/mirror/opensuse/factory-snapshot/repo/oss/ update1
-
-sudo zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ update2
-
-sudo zypper ar ftp://ftp.pbone.net/mirror/ftp.opensuse.org/factory-snapshot/repo/oss/ update3
-
-sudo zypper ar ftp://mirror.switch.ch/pool/4/mirror/opensuse/opensuse/distribution/13.2/repo/oss/ update4
-
-sudo zypper ar ftp://bo.mirror.garr.it/pub/1/opensuse/distribution/13.2/repo/oss/ update6
-
-sudo zypper ar ftp://ftp.pbone.net/mirror/ftp.opensuse.org/distribution/13.2/repo/oss/ update7
-
-sudo zypper ar ftp://ftp.icm.edu.pl/vol/rzm5/linux-opensuse/distribution/13.2/repo/oss/ update8
-
-sudo zypper install -t pattern devel_C_C++
-
-sudo zypper install cmake boost-devel gnuplot mpfr-devel openmpi-devel glu-devel  
-```
 
 ###샘플 hpcimpirun.sh 스크립트
 
@@ -664,9 +646,6 @@ exit ${RTNSTS}
 [job_details]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_details.png
 [job_resources]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_resources.png
 [task_details1]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details1.png
-[task_details2]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details2.png
-[task_details3]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details3.png
-[task_details4]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details4.png
 [task_dependencies]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_dependencies.png
 [creds]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/creds.png
 [heat_map]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/heat_map.png
@@ -676,4 +655,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

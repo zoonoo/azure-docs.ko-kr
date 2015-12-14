@@ -125,7 +125,7 @@ VSO 프로젝트에 대한 자세한 내용은 [Visual Studio에 연결](https:/
 
 ### 서비스 패브릭 SDK 설치
 
-[서비스 패브릭 SDK](https://azure.microsoft.com/ko-KR/campaigns/service-fabric/)를 설치합니다.
+[서비스 패브릭 SDK](https://azure.microsoft.com/campaigns/service-fabric/)를 설치합니다.
 
 ### 서비스 패브릭 SDK의 NuGet 리포지토리 등록
 
@@ -339,4 +339,4 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 서비스 패브릭 응용 프로그램과의 연속 통합에 대한 자세한 내용은 다음 문서에서 확인합니다. [빌드 설명서 홈](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

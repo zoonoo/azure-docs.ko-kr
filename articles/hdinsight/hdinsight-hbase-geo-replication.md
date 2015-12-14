@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # HDInsight에서 HBase 지역에서 복제 구성
@@ -67,7 +67,7 @@
 
 [두 Azure 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-replication-vnet]에서 유럽 데이터 센터와 미국 데이터 센터에 각각 하나의 가상 네트워크를 만들었습니다. 두 가상 네트워크는 VPN을 통해 연결됩니다. 이 세션에서는 각 가상 네트워크에서 HBase 클러스터를 프로비전합니다. 이 자습서의 뒷부분에서는 HBase 클러스터 중 하나에서 다른 HBase 클러스터를 복제합니다.
 
-Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스터 프로비전을 지원하지 않습니다. 예를 들어 *hbase.replication*을 *true*로 설정합니다. 클러스터를 프로비전한 후 구성 파일에서 값을 설정한 경우 클러스터를 이미지로 다시 설치한 후 설정이 손실됩니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision]을 참조하세요. 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 프로비전하는 옵션 중 하나는 Azure PowerShell을 사용하는 것입니다.
+Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클러스터 프로비전을 지원하지 않습니다. 예를 들어 *hbase.replication*을 *true*로 설정합니다. 클러스터를 프로비전한 후 구성 파일에서 값을 설정한 경우 클러스터를 이미지로 다시 설치한 후 설정이 손실됩니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision]을 참조하세요. 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 프로비전하는 옵션 중 하나는 Azure PowerShell을 사용하는 것입니다.
 
 
 **Contoso-VNet-EU에서 HBase 클러스터를 프로비전하려면**
@@ -156,7 +156,7 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 
 **두 HBase 클러스터의 도메인 접미사를 찾으려면**
 
-1. **Contoso-HBase-EU**로 RDP를 연결합니다. 자세한 내용은 [Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-manage-portal]를 참조하세요. 이는 실제로 클러스터의 headnode0입니다.
+1. **Contoso-HBase-EU**로 RDP를 연결합니다. 자세한 내용은 [Azure 클래식 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-manage-portal]를 참조하세요. 이는 실제로 클러스터의 headnode0입니다.
 2. Windows PowerShell 콘솔 또는 명령 프롬프트를 엽니다.
 3. **ipconfig**를 실행하고 **연결별 DNS 접미사**를 적어 둡니다.
 4. RDP 세션을 닫지 마세요. 나중에 도메인 이름 확인을 테스트할 때 필요합니다.
@@ -311,4 +311,4 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

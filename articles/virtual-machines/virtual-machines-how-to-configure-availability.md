@@ -1,6 +1,6 @@
 <properties
 	pageTitle="VM에 대한 가용성 집합 구성 | Microsoft Azure"
-	description="Azure 포털 및 Azure PowerShell을 사용하여 클래식 배포 모델에서 새 가상 컴퓨터 또는 기존 가상 컴퓨터에 대한 가용성 집합을 구성합니다."
+	description="Azure 클래식 포털 및 Azure PowerShell을 사용하여 클래식 배포 모델에서 신규 또는 기존 가상 컴퓨터에 대한 가용성 집합을 구성합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -35,11 +35,11 @@
 
 ## <a id="createset"> </a>옵션 1: 동시에 가상 컴퓨터 및 가용성 집합 만들기##
 
-Azure 포털 또는 Azure PowerShell 명령을 사용하여 이 작업을 수행할 수 있습니다.
+Azure 클래식 포털 또는 Azure PowerShell 명령을 사용하여 다음을 수행할 수 있습니다.
 
-Azure 포털을 사용하려면
+Azure 클래식 포털을 사용하기
 
-1. 아직 로그인하지 않은 경우 Azure 포털에 로그인합니다.
+1. 아직 로그인하지 않은 경우, Azure 클래식 포털에 로그인합니다.
 
 2. 명령 모음에서 **New**를 클릭합니다.
 
@@ -72,9 +72,9 @@ Azure PowerShell 명령을 사용하여 Azure 가상 컴퓨터를 만들고 새 
 
 ## <a id="addmachine"> </a>옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가##
 
-Azure 포털에서 기존 가상 컴퓨터를 기존 가용성 집합에 추가하거나 가상 컴퓨터용으로 새 가용성 집합을 만들 수 있습니다. 동일한 가용성 집합의 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다. 이 옵션에서도 단계는 거의 동일합니다. Azure PowerShell에서 기존 가용성 집합에 가상 컴퓨터를 추가할 수 있습니다.
+Azure 클래식 포털에서 기존 가용성 집합에 기존 가상 컴퓨터를 추가하거나 해당 새로 만들기를 추가할 수 있습니다. 동일한 가용성 집합의 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다. 이 옵션에서도 단계는 거의 동일합니다. Azure PowerShell에서 기존 가용성 집합에 가상 컴퓨터를 추가할 수 있습니다.
 
-1. 아직 로그인하지 않은 경우 Azure 포털에 로그인합니다.
+1. 아직 로그인하지 않은 경우, Azure 클래식 포털에 로그인합니다.
 
 2. 명령 모음에서 **가상 컴퓨터**를 클릭합니다.
 
@@ -112,4 +112,4 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 [가상 네트워크 개요(영문)]: virtual-networks-overview.md
 [서비스 관리의 가상 컴퓨터 관련 문서]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Visual Studio 연결된 서비스를 사용하여 모바일 서비스를 추가한 후 내 .NET 프로젝트의 변경 내용 | Microsoft Azure" 
-	description="연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Visual Studio .NET 프로젝트의 변경 내용에 대해 설명합니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
+<properties
+	pageTitle="Visual Studio 연결된 서비스를 사용하여 모바일 서비스를 추가한 후 내 .NET 프로젝트의 변경 내용 | Microsoft Azure"
+	description="연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Visual Studio .NET 프로젝트의 변경 내용에 대해 설명합니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 내 Visual Studio .NET 프로젝트의 변경 내용
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
@@ -30,7 +35,7 @@
 - **Microsoft.WindowsAzure.Mobile.Ext**
 - **Newtonsoft.Json**
 - **System.Net.Http.Extensions**
-- **System.Net.Http.Primitives** 
+- **System.Net.Http.Primitives**
 
 ## 모바일 서비스에 대한 연결 문자열 값
 
@@ -43,4 +48,4 @@ App.xaml.cs 파일에 선택한 모바일 서비스의 응용 프로그램 URL �
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

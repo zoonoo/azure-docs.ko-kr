@@ -18,6 +18,10 @@
 
 # Android 장치에서 Azure 저장소에 이미지 업로드
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 이 항목에서는 Azure 모바일 서비스 Android 앱을 활성화하여 Azure 저장소에 이미지를 업로드하는 방법을 보여줍니다.
@@ -50,7 +54,7 @@
 ## 코드 샘플
 [여기](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)는 해당 앱의 완료된 클라이언트 원본 코드 부분입니다. 실행하려면 이 자습서의 모바일 서비스 백 엔드 부분을 완료해야 합니다.
 
-## 관리 포털에서 등록된 삽입 스크립트 업데이트
+## Azure 클래식 포털에서 등록된 삽입 스크립트 업데이트
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
@@ -369,7 +373,7 @@
 
 4. **업로드**를 누릅니다. 어떻게 ToDoItem이 평소 대로 목록에 추가되었는지 확인합니다.
 
-5. Microsoft Azure 포털에서 저장소 계정으로 이동하고 **컨테이너** 탭을 누근 다음 목록에서 컨테이너의 이름을 누릅니다.
+5. Azure 클래식 포털에서 저장소 계정으로 이동하고 **컨테이너** 탭을 누근 다음 목록에서 컨테이너의 이름을 누릅니다.
 
 6. 업로드된 Blob 파일의 목록이 표시됩니다. 하나를 선택하고 **다운로드**를 누릅니다.
 
@@ -416,10 +420,10 @@
 [모바일 서비스 서버 스크립트 참조]: mobile-services-how-to-use-server-scripts.md
 [모바일 서비스 시작]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,7 +58,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
 ###Active Directory 서비스 만들기
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 
 2. 왼쪽 탐색 창에서 아래로 스크롤하여 **Active Directory**를 클릭합니다.
 
@@ -204,4 +204,4 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

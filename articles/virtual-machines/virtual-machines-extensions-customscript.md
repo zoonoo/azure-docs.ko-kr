@@ -71,9 +71,9 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 로그인하지 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Azure Preview 포털에서 사용자 지정 스크립트 확장 추가
+### Azure 포털에서 사용자 지정 스크립트 확장 추가
 
-<a href="https://portal.azure.com/ " target="_blank">Azure Preview 포털</a>에서 VM으로 이동한 다음 실행할 스크립트 파일을 지정하여 확장을 추가합니다.
+<a href="https://portal.azure.com/ " target="_blank">Azure 포털</a>에서 VM으로 이동한 다음 실행할 스크립트 파일을 지정하여 확장을 추가합니다.
 
   ![][5]
 
@@ -91,4 +91,4 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 로그인하지 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

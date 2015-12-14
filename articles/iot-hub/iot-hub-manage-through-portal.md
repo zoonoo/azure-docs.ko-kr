@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Azure preview 포털을 사용하여 IoT Hub 관리 | Microsoft Azure"
-	 description="Azure preview 포털을 통해 Azure IoT Hub를 만들고 관리하는 방법 개요"
+	 pageTitle="Azure 포털을 사용하여 IoT Hub 관리 | Microsoft Azure"
+	 description="Azure 포털을 통해 Azure IoT Hub를 만들고 관리하는 방법 개요"
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# Azure preview 포털을 통해 IoT Hub 관리
+# Azure 포털을 통해 IoT Hub 관리
 
 ## 소개
 
-이 문서에서는 Azure preview 포털을 통해 Azure IoT Hub를 시작하는 방법, IoT Hub를 찾는 방법, IoT Hub를 만들고 관리하는 방법에 대해 설명합니다.
+이 문서에서는 Azure 포털을 통해 Azure IoT Hub를 시작하는 방법, IoT Hub를 찾는 방법, IoT Hub를 만들고 관리하는 방법에 대해 설명합니다.
 
 ## IoT Hub를 찾을 위치
 
@@ -153,4 +153,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

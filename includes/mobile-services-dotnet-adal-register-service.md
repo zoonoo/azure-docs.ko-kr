@@ -5,7 +5,7 @@
 
 1. [Azure Active Directory에 등록하는 방법] 항목을 따라 Azure Active Directory에 응용 프로그램을 등록합니다.
 
-2. [Azure 관리 포털]에서, Azure Active Directory 확장으로 다시 이동하고 활성 디렉터리를 클릭합니다.
+2. [Azure 클래식 포털](https://manage.windowsazure.com/)에서, Azure Active Directory 확장으로 다시 이동하고 활성 디렉터리를 클릭합니다.
 
 3. **응용 프로그램** 탭을 클릭한 다음, 응용 프로그램을 클릭합니다.
 
@@ -33,10 +33,9 @@
             }
         ],
 
-6. Azure 관리 포털에서 응용 프로그램에 대한 **매니페스트 관리**를 다시 클릭하고 **매니페스트 업로드**를 클릭합니다. 방금 업로드한 응용 프로그램 매니페스트의 위치로 이동하여 매니페스트를 업로드합니다.
+6. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 응용 프로그램에 대한 **매니페스트 관리**를 다시 클릭하고 **매니페스트 업로드**를 클릭합니다. 방금 업로드한 응용 프로그램 매니페스트의 위치로 이동하여 매니페스트를 업로드합니다.
 
 <!-- URLs. -->
 [Azure Active Directory에 등록하는 방법]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
-[Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,11 @@
 
 # 인증된 사용자에게 푸시 알림 보내기
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 이 항목에서는 iOS에서 인증된 사용자에게 푸시 알림을 보내는 방법에 대해 배웁니다. 이 자습서를 시작하기 전에 [인증 시작] 및 [푸시 알림 시작]을 먼저 완료합니다.
@@ -46,8 +51,6 @@
 <!-- URLs. -->
 [인증 시작]: mobile-services-dotnet-backend-ios-get-started-users.md
 [푸시 알림 시작]: mobile-services-dotnet-backend-ios-get-started-push.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

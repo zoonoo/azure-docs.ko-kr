@@ -73,7 +73,7 @@ HDInsight 클러스터를 만들려면 먼저 ARM(Azure 리소스 관리) 및 Az
 
 	> [AZURE.NOTE]저장소 계정은 데이터 센터에 HDInsight와 함께 배치되어야 합니다. ZRS는 테이블을 지원하지 않으므로 저장소 계정 유형은 ZRS일 수 없습니다.
 
-	Azure Preview 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]를 참조하세요.
+	Azure 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]를 참조하세요.
 	
 	저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
 	
@@ -84,7 +84,7 @@ HDInsight 클러스터를 만들려면 먼저 ARM(Azure 리소스 관리) 및 Az
 		-- Lists the keys for a Storage account
 		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-	Azure Preview 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]의 "저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
+	Azure 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]의 "저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
 
 - **(선택 사항) 기본 Blob 컨테이너**: **azure hdinsight cluster create** 명령은 컨테이너가 없는 경우 컨테이너를 만듭니다. 미리 컨테이너를 만들도록 선택하는 경우 다음 명령을 사용할 수 있습니다.
 
@@ -160,7 +160,7 @@ Azure PowerShell을 사용하여 Hadoop 클러스터 크기를 변경하려면 �
 ##다음 단계
 이 문서에서는 HDInsight 클러스터 관리 작업을 수행하는 여러 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Preview 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]
+* [Azure 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]
 * [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
 * [Azure HDInsight 시작][hdinsight-get-started]
 * [Azure CLI를 사용하는 방법][azure-command-line-tools]
@@ -182,4 +182,4 @@ Azure PowerShell을 사용하여 Hadoop 클러스터 크기를 변경하려면 �
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

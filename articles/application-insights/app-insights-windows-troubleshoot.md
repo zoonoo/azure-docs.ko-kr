@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Windows 장치용 Application Insights 문제 해결 및 질문과 대답
@@ -25,7 +25,7 @@
 
 *Application Insights를 추가하고 내 앱을 실행했는데 포털에 데이터가 표시되지 않습니다.*
 
-* 잠시 기다린 후 새로 고침을 클릭합니다. 현재 새로 고침이 자동으로 수행되지 않습니다.
+* 잠시 기다린 후 새로 고침을 클릭합니다.
 * ApplicationInsights.config 파일에 정의된 계측 키가 있고 Application Insights 포털의 키와 동일한지 확인합니다. 키를 보려면 개요 블레이드에서 필수 패키지를 클릭합니다.
 * 앱에서 [나가는 네트워크 액세스를 요청](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx)하는지 확인합니다.
 * 에뮬레이터 또는 테스트 장치와 Application Insights 포털 사이에 방화벽이 있나요? dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
@@ -40,7 +40,11 @@
 
 ## Application Insights를 유니버설 앱에 추가하려면 어떻게 해야 하나요?
 
-솔루션의 각 장치 프로젝트에 NuGet 패키지를 수동으로 추가합니다. [시작 - 유니버설 앱][universal]을 참조하세요.
+Visual Studio 2015의 새로운 솔루션을 만들려면 바로 새 프로젝트 대화 상자에서 Application Insights 추가 옵션을 선택합니다. 모든 대상 앱 형식에서 같은 Application Insights 리소스로 원격 분석이 전송됩니다.
+
+유니버셜 앱 솔루션을 이미 만든 경우 각 기본 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights 추가**를 선택합니다.
+
+
 
 ## 원격 분석 사용 안 함
 
@@ -120,4 +124,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

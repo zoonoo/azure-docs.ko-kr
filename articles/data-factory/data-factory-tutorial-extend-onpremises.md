@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure 포털)" 
-	description="이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure 포털의 데이터 팩터리 편집기를 사용하는 자습서를 확장합니다."
+	pageTitle="온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure 클래식 포털)" 
+	description="이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure 클래식 포털의 데이터 팩터리 편집기를 사용하는 자습서를 확장합니다."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -51,7 +51,7 @@
 
 사용할 수 있는 기존 데이터 게이트웨이가 있는 경우 이 단계를 건너뜁니다.
 
-1.	논리 데이터 게이트웨이를 만듭니다. **Azure 미리 보기 포털**에서, 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **연결 서비스**를 클릭합니다.
+1.	논리 데이터 게이트웨이를 만듭니다. **Azure 포털**에서, 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **연결 서비스**를 클릭합니다.
 2.	명령 모음에서 **데이터 게이트웨이 추가(+)**를 클릭합니다.  
 3.	**새 데이터 게이트웨이** 블레이드에서 **만들기**를 클릭합니다.
 4.	**만들기** 블레이드에서, **MyGateway**를 데이터 게이트웨이 **이름**으로 입력하세요.
@@ -97,7 +97,7 @@
 
 ### 연결된 서비스 만들기
 
-1.	**Azure 미리 보기 포털**에서 **LogProcessingFactory**의 **데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭합니다.
+1.	**Azure 포털**에서 **LogProcessingFactory**의 **데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭합니다.
 2.	**데이터 팩터리 편집기**의 도구 모음에서 **새로운 데이터 저장소**를 클릭하고 **온-프레미스 SQL Server 데이터베이스**를 선택합니다.
 3.	JSON 스크립트에서 다음을 수행합니다. 
 	1.	**<servername>**를 SQL Server 데이터베이스를 호스팅하는 서버의 이름으로 대체합니다.
@@ -153,7 +153,7 @@
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -169,4 +169,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

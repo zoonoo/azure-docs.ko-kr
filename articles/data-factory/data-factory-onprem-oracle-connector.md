@@ -224,7 +224,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
-tableName | 연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. | 예
+tableName | 연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. | 아니요(**SqlSource**의 **oracleReaderQuery**가 지정된 경우)
 
 ## Oracle 복사 작업 형식 속성
 
@@ -234,12 +234,12 @@ tableName | 연결된 서비스가 참조하는 Oracle 데이터베이스에 있
 
 반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
 
-원본이 SqlSource 형식인 복사 작업의 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
+원본이 **OracleSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 속성 | 설명 |허용되는 값 | 필수
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 
-예: select * from MyTable <p>지정하지 않는 경우 실행되는 SQL 문: select * from MyTable</p> | 아니요
+예: select * from MyTable <p>지정하지 않는 경우 실행되는 SQL 문: select * from MyTable</p> | 아니요(**dataset**의 **tableName**이 지정된 경우)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -300,4 +300,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

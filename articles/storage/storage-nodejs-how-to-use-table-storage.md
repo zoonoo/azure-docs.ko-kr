@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="12/01/2015"
 	ms.author="robmcm"/>
 
 
@@ -71,7 +71,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY, 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 Azure 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
+Azure 웹 사이트의 [Azure 포털](portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## 테이블 만들기
 
@@ -145,13 +145,13 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 		}
 	});
 
-작업에 성공할 경우에는 삽입한 레코드의[ETag](http://en.wikipedia.org/wiki/HTTP_ETag)가 `result`포함되고`response`에는 작업에 대한 정보가 포함됩니다.
+작업에 성공할 경우 `result` 값에는 삽입한 레코드의[ETag](http://en.wikipedia.org/wiki/HTTP_ETag)가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
 
 예제 응답:
 
 	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
-> [AZURE.NOTE]기본적으로 **insertEntity**는 삽입된 엔터티를 `response`정보의 일부로 반환하지 않습니다. 이 엔터티에서 다른 작업을 수행할 계획이거나 정보를 캐시하고 싶은 경우 `result`의 일부로 반환하면 유용합니다. 다음과 같이 **echoContent**를 사용하도록 설정하면 됩니다.
+> [AZURE.NOTE]기본적으로 **insertEntity**는 삽입된 엔터티를 `response` 정보의 일부로 반환하지 않습니다. 이 엔터티에서 다른 작업을 수행할 계획이거나 정보를 캐시하고 싶은 경우 `result`의 일부로 반환하면 유용합니다. 다음과 같이 **echoContent**를 사용하도록 설정하면 됩니다.
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -177,17 +177,17 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 > [AZURE.NOTE]기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 다른 프로세서에서 이전에 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
 >
-> 1. 업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서의 `response`일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
+> 1. 업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서의 `response`의 일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
 >
 > 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예:
 >
 >     `entity2['.metadata'].etag = currentEtag;`
 >    
-> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용`error`의가 반환됩니다.
+> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
 
 **updateEntity** 및 **mergeEntity**를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 사용합니다.
 
-`result`업데이트 작업이 성공할 경우에는 업데이트된 엔터티의 **Etag**가 포함됩니다.
+업데이트 작업이 성공할 경우 `result` 값에는 업데이트된 엔터티의 **Etag**가 포함됩니다.
 
 ## 엔터티 그룹 작업
 
@@ -219,11 +219,11 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
 	});
 
-일괄 처리 작업에 성공할 경우에는 `result`일괄 처리의 각 작업에 대한 정보가 포함됩니다.
+일괄 처리 작업에 성공할 경우 `result` 값에는 일괄 처리의 각 작업에 대한 정보가 포함됩니다.
 
 ### 일괄 처리 작업
 
-배치에 추가된 작업은 `operations`속성을 보고 검사할 수 있습니다. 작업에 다음 메서드를 사용할 수도 있습니다.
+배치에 추가된 작업은 `operations` 속성을 보고 검사할 수 있습니다. 작업에 다음 메서드를 사용할 수도 있습니다.
 
 * **clear** - 배치에서 모든 작업을 지웁니다.
 
@@ -245,7 +245,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
     });
 
-이 작업이 완료되면 `result`에 엔터디가 포함됩니다.
+이 작업이 완료되면 `result`에 엔터티가 포함됩니다.
 
 ## 엔터티 집합 쿼리
 
@@ -255,9 +255,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 * **where** - where 절입니다.
 
-	* **and** - `and`where 조건입니다.
+	* **and** - `and` where 조건입니다.
 
-	* **or** - `or`where 조건입니다.
+	* **or** - `or` where 조건입니다.
 
 * **top** - 가져올 항목의 수입니다.
 
@@ -276,7 +276,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
 	});
 
-성공할 경우에는 쿼리와 일치하는 엔터티의 배열이 `result.entries`포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null*이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null*을 사용합니다.
+성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null*이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null*을 사용합니다.
 
 ### 엔터티 속성 하위 집합 쿼리
 
@@ -410,7 +410,7 @@ ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구
 	  }
 	];
 
-다음 예에서는 **hometasks** 테이블의 현재 ACL을 가져온 다음 **setTableAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
+다음 예제에서는 **hometasks** 테이블의 현재 ACL을 가져온 다음 **setTableAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
 
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
       if(!error){
@@ -432,7 +432,6 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 
 자세한 내용은 다음 리소스를 참조하세요.
 
--   MSDN 참조: [Azure에 데이터 저장 및 액세스][]
 -   [Azure 저장소 팀 블로그][]
 -   GitHub의 [Azure Storage SDK for Node][] 리포지토리
 -   [Node.js 개발자 센터](/develop/nodejs/)
@@ -440,14 +439,13 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [Node.js 웹 응용 프로그램 및 저장소]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

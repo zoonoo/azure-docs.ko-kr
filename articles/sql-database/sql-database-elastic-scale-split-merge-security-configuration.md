@@ -453,7 +453,7 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 ## 인증서 업로드
 
-[Azure 관리 포털](http://portal.azure.com/)에서 다음을 수행합니다.
+[Azure 클래식 포털](http://portal.azure.com/)에서
 
 1. **클라우드 서비스**를 선택합니다.
 2. 클라우드 서비스를 선택합니다.
@@ -473,4 +473,4 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

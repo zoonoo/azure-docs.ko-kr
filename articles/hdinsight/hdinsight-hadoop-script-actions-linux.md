@@ -26,7 +26,7 @@
 
 스크립트 작업은 프로비전하는 동안 클러스터 노드에서 실행되는 Bash 스크립트입니다. 스크립트 작업은 루트로 실행되며 클러스터 노드에 대한 모든 액세스 권한을 제공합니다.
 
-__Azure Preview 포털__, __Azure PowerShell__ 또는 __HDInsight .NET SDK__를 사용하여 클러스터를 프로비전할 경우 스크립트 작업을 사용할 수 있습니다.
+__Azure 포털__, __Azure PowerShell__ 또는 __HDInsight .NET SDK__를 사용하여 클러스터를 프로비전할 경우 스크립트 작업을 사용할 수 있습니다.
 
 스크립트 동작을 사용하여 클러스터를 사용자 지정하는 연습은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
@@ -220,4 +220,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

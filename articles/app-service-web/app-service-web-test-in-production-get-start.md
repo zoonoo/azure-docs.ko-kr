@@ -41,7 +41,7 @@
 
 >[AZURE.NOTE]여기에서 단계는 [비-프로덕션 배포 슬롯](web-sites-staged-publishing.md) 및 웹앱 콘텐츠가 이미 [배포](web-sites-publish-source-control.md)되었기를 원합니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 웹앱의 블레이드에서 **설정** > **트래픽 라우팅**을 클릭합니다. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. 라우트하려는 슬롯을 **저장**하면 트래픽 라우팅을 하려는 슬롯 및 원하는 총 트래픽의 비율을 선택합니다.
 
@@ -86,4 +86,4 @@
 -   [Azure 앱 서비스를 사용하여 Agile 소프트웨어 개발](app-service-agile-software-development.md)
 -	[웹 앱에서 DevOps 환경을 효과적으로 사용하기](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

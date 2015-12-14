@@ -18,6 +18,8 @@
 
 # Azure 앱 서비스에서 API 앱 및 모바일 앱 인증
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 개요
 
 이 문서에서는 [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 및 [모바일 앱](../app-service-mobile/app-service-mobile-value-prop-preview.md)에 대한 기본 제공 인증 기능을 설명합니다.
@@ -214,4 +216,4 @@ Azure에서 [ASP.NET Identity](http://www.asp.net/identity) 또는 [Thinktecture
 
 * [모바일 앱에서 액세스 토큰 가져오기 및 SharePoint API 호출](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 포털을 사용하여 미디어 처리를 확장하는 방법"
+	pageTitle="Azure 클래식 포털을 사용하여 미디어 처리를 확장하는 방법"
 	description="계정에서 프로비전할 주문형 스트리밍 예약 단위 및 인코딩 예약 단위의 수를 지정하여 미디어 서비스를 확장하는 방법에 대해 알아봅니다."
 	services="media-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Azure 포털을 사용하여 미디어 처리를 확장하는 방법
+# Azure 클래식 포털을 사용하여 미디어 처리를 확장하는 방법
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -35,7 +35,7 @@
 
 예약 단위 유형 및 인코딩 예약 단위 수를 변경하려면 다음을 수행합니다.
 
-1. [관리 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
 
 2. **ENCODING** 페이지를 선택합니다.
 
@@ -69,4 +69,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

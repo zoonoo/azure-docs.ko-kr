@@ -35,13 +35,13 @@
 
 ## 개요
 
-외부 도메인 이름에 아직 등록하지 않은 경우(즉, *.azurewebsites.net이 아님) 사용자 지정 도메인을 설정하는 가장 쉬운 방법은 [Azure Preview 포털](https://portal.azure.com)에서 직접 도메인을 구입하는 것입니다. 프로세스를 사용하면 관리할 GoDaddy 등의 타사 사이트로 이동하는 대신 포털에서 직접 웹앱의 도메인 이름을 관리할 수 있습니다. 마찬가지로 웹앱에서 도메인 이름을 구성하는 것은 웹앱이 [Azure 트래픽 관리자](web-sites-traffic-manager-custom-domain-name.md)를 사용하는지 여부와 무관하게 매우 간소화됩니다. 자세한 내용은 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구입 및 구성](custom-dns-web-site-buydomains-web-app.md)을 참조하세요.
+외부 도메인 이름에 아직 등록하지 않은 경우(즉, *.azurewebsites.net이 아님) 사용자 지정 도메인을 설정하는 가장 쉬운 방법은 [Azure 포털](https://portal.azure.com)에서 직접 도메인을 구입하는 것입니다. 프로세스를 사용하면 관리할 GoDaddy 등의 타사 사이트로 이동하는 대신 포털에서 직접 웹앱의 도메인 이름을 관리할 수 있습니다. 마찬가지로 웹앱에서 도메인 이름을 구성하는 것은 웹앱이 [Azure 트래픽 관리자](web-sites-traffic-manager-custom-domain-name.md)를 사용하는지 여부와 무관하게 매우 간소화됩니다. 자세한 내용은 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구입 및 구성](custom-dns-web-site-buydomains-web-app.md)을 참조하세요.
 
 도메인 이름이 이미 있거나 다른 도메인 등록 기관에서 도메인을 예약하려는 경우 웹앱에서 사용자 지정 도메인 이름을 가져오는 일반적인 단계는 다음과 같습니다([GoDaddy.com의 특정 지침](web-sites-godaddy-custom-domain-name.md) 참조):
 
 1. 도메인 이름을 예약합니다. 이 문서에서는 해당 과정을 다루지 않습니다. 여러 등록 기관 중에서 선택할 수 있습니다. 가입하면 해당 사이트에서 프로세스를 안내해 줍니다.
 1. 도메인을 Azure 웹 앱에 매핑하는 DNS 레코드를 만듭니다.
-1. 도메인 이름을 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715) 내에 추가합니다.
+1. 도메인 이름을 [Azure 포털](https://portal.azure.com) 내에 추가합니다.
 
 이 기본적인 개요 내에서 고려해야 할 특정 사례가 있습니다.
 
@@ -144,7 +144,6 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 <!-- Anchors. -->
 [Overview]: #overview
@@ -156,4 +155,4 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

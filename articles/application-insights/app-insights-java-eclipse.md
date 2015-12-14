@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Eclipse에서 Java를 사용하여 Application Insights 시작하기
@@ -99,7 +99,7 @@ HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
 
 #### 클라이언트쪽 데이터 보기
 
-업데이트 된 웹 페이지를 열고 사용 합니다. 1~2분 정도 기다린 후, Application Insights로 돌아가 사용량 블레이드를 새로 고침합니다.
+업데이트 된 웹 페이지를 열고 사용 합니다. 1~2분 정도 기다린 후, Application Insights로 돌아가 사용량 블레이드를 엽니다. (개요 블레이드에서 아래로 스크롤하고 사용량을 클릭합니다.)
 
 페이지 보기, 사용자 및 세션 메트릭이 사용량 블레이드에 표시됩니다.
 
@@ -129,7 +129,7 @@ HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
 
 처리되지 않은 예외는 자동으로 수집됩니다.
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![](./media/app-insights-java-eclipse/21-exceptions.png)
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
@@ -144,10 +144,10 @@ HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
 
 ## 성능 카운터
 
-**서버** 타일을 클릭하면 다양한 성능 카운터가 표시됩니다.
+개요 블레이드에서 아래로 스크롤하고 **서버** 타일을 클릭합니다. 다양한 성능 카운터가 표시됩니다.
 
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![아래로 스크롤하여 서버 타일 클릭](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### 성능 카운터 수집 사용자 지정
 
@@ -198,7 +198,7 @@ HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
 
 성능 카운터에서가 [메트릭 탐색기][metrics]에서 사용자 지정 메트릭으로 보입니다.
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
 
 ### Unix 성능 카운터
@@ -207,7 +207,9 @@ HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
 
 ## 가용성 웹 테스트
 
-Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. 개요 블레이드에서 빈 웹 테스트 차트를 클릭하여 설치하면 공용 URL을 제공합니다.
+Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. [설정][availability]을 위해 아래로 스크롤하여 가용성을 클릭합니다.
+
+![아래로 스크롤하여 가용성, 추가 웹 테스트를 차례로 클릭](./media/app-insights-java-eclipse/31-config-web-test.png)
 
 사이트가 다운되는 경우 응답 시간 차트는 물론 이메일 알림을 얻게 됩니다.
 
@@ -258,4 +260,4 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

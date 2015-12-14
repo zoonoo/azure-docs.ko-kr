@@ -26,7 +26,7 @@
 
 > [AZURE.IMPORTANT]이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
 >    
-> Azure PowerShell 1.0 Preview를 사용하는 경우 [여기](https://msdn.microsoft.com/library/dn820234.aspx)에서 설명된 cmdlet을 사용해야 합니다. 예를 들어 New-AzureDataFactory를 사용하는 대신 New-AzureRMDataFactory를 사용합니다.
+> Azure PowerShell 1.0을 사용하는 경우 [여기](https://msdn.microsoft.com/library/dn820234.aspx)에 설명된 cmdlet을 사용해야 합니다. 예를 들어 New-AzureDataFactory를 사용하는 대신 New-AzureRMDataFactory를 사용합니다.
 
 ## 사전 필수 구성 요소
 
@@ -44,7 +44,7 @@
 2. [2단계: 온-프레미스 SQL Server에 대한 연결 서비스를 만듭니다.](#OnPremStep2) 이 단계에서는 먼저 온-프레미스 SQL Server 컴퓨터에서 데이터베이스와 테이블을 만든 다음 연결된서비스 **OnPremSqlLinkedService**를 만듭니다.
 3. [3단계: 테이블 및 파이프라인을 만듭니다.](#OnPremStep3) 이 단계에서는 **MarketingCampaignEffectivenessOnPremSQLTable** 테이블과 **EgressDataToOnPremPipeline** 파이프라인을 만듭니다. 
 
-4. [4단계: 파이프라인을 모니터링하고 결과를 봅니다.](#OnPremStep4) 이 단계에서는 Azure 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
+4. [4단계: 파이프라인을 모니터링하고 결과를 봅니다.](#OnPremStep4) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
 
 
 ## <a name="OnPremStep1"></a> 1단계: 데이터 관리 게이트웨이를 만듭니다.
@@ -55,7 +55,7 @@
 
 사용할 수 있는 기존 데이터 게이트웨이가 있는 경우 이 단계를 건너뜁니다.
 
-1.	논리 데이터 게이트웨이를 만듭니다. **Azure Preview 포털**의 **데이터 팩터리** 블레이드에서 **연결된 서비스**를 클릭합니다.
+1.	논리 데이터 게이트웨이를 만듭니다. **Azure 포털**의 **데이터 팩터리** 블레이드에서 **연결된 서비스**를 클릭합니다.
 2.	명령 모음에서 **데이터 게이트웨이 추가(+)**를 클릭합니다.  
 3.	**새 데이터 게이트웨이** 블레이드에서 **만들기**를 클릭합니다.
 4.	**만들기** 블레이드에서, **MyGateway**를 데이터 게이트웨이 **이름**으로 입력하세요.
@@ -101,7 +101,7 @@
 
 ### 연결된 서비스 만들기
 
-1.	**Azure Preview 포털**에서 **LogProcessingFactory**의 **데이터 팩터리** 블레이드에 있는 **연결된 서비스** 타일을 클릭합니다.
+1.	**Azure 포털**에서 **LogProcessingFactory**의 **데이터 팩터리** 블레이드에 있는 **연결된 서비스** 타일을 클릭합니다.
 2.	**연결된 서비스** 블레이드에서 **데이터 저장소 추가(+)**를 클릭합니다.
 3.	**새 데이터 저장소** 블레이드에서 **OnPremSqlLinkedService**를 **이름**으로 입력합니다. 
 4.	**유형(필요한 설정)**을 클릭하고 **SQL Server**를 선택합니다. 이제 **새 데이터 저장소** 블레이드에 **데이터 게이트웨이**, **서버**, **데이터베이스** 및 **자격 증명** 설정이 표시됩니다. 
@@ -158,7 +158,7 @@
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -174,4 +174,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

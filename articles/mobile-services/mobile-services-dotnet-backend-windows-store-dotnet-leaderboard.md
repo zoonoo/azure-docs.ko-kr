@@ -1,22 +1,27 @@
-<properties 
-	pageTitle=".NET 백 엔드를 사용하여 Windows 스토어 Leaderboard 앱 만들기 | Azure 모바일 서비스" 
-	description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 Leaderboard 앱을 빌드하는 방법에 대해 알아봅니다." 
-	documentationCenter="windows" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" 
+<properties
+	pageTitle=".NET 백 엔드를 사용하여 Windows 스토어 Leaderboard 앱 만들기 | Azure 모바일 서비스"
+	description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 Leaderboard 앱을 빌드하는 방법에 대해 알아봅니다."
+	documentationCenter="windows"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/19/2015"
 	ms.author="glenga"/>
 
 # Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 이 자습서에서는 .NET 백 엔드와 함께 Azure 모바일 서비스를 사용해서 Windows 스토어 앱을 작성하는 방법을 보여 줍니다. Azure 모바일 서비스는 모바일 앱 작성을 위한 크로스 플랫폼 클라이언트 라이브러리와 함께 기본 제공되는 인증, 모니터링, 푸시 알림 및 기타 기능이 포함된 확장 가능한 보안 백 엔드를 제공합니다. 모바일 서비스를 위한 .NET 백 엔드는 [ASP.NET Web API](http://asp.net/web-api)를 기반으로 하며, .NET 개발자가 REST API를 생성하기 위한 최상의 방법을 제공합니다.
 
@@ -24,9 +29,9 @@
 
 Web API는 .NET 개발자가 REST API를 생성하기 위한 최상의 방법을 제공하는 오픈 소스 프레임워크입니다. Web API 솔루션은 Azure 웹 사이트 또는 .NET 백 엔드를 사용하는 Azure 모바일 서비스에서 호스팅하거나 사용자 지정 프로세스로 직접 호스팅할 수도 있습니다. 모바일 서비스는 모바일 앱을 위해 특별히 디자인된 호스팅 환경입니다. 모바일 서비스에서 Web API 서비스를 호스팅할 때는 데이터 저장소 외에도 다음과 같은 이점을 얻을 수 있습니다.
 
-- 소셜 공급자 및 AAD(Azure Active Directory)를 포함하는 기본 제공 인증. 
+- 소셜 공급자 및 AAD(Azure Active Directory)를 포함하는 기본 제공 인증.
 - 장치별 알림 서비스를 사용한 앱에 대한 푸시 알림.
-- 어떤 앱에서도 서비스에 쉽게 액세스할 수 있게 해주는 완벽한 클라이언트 라이브러리 집합. 
+- 어떤 앱에서도 서비스에 쉽게 액세스할 수 있게 해주는 완벽한 클라이언트 라이브러리 집합.
 - 기본 제공되는 로깅 및 진단.
 
 이 자습서에서는 다음 작업을 수행합니다.
@@ -71,11 +76,11 @@ Visual Studio를 실행하고 새 ASP.NET 웹 응용 프로그램 프로젝트�
 Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azure 모바일 서비스에 대한 템플릿이 포함됩니다. 이 템플릿을 선택하고 **확인**을 클릭합니다.
 
 ![][4]
- 
+
 프로젝트 템플릿에는 예제 컨트롤러 및 데이터 개체가 포함됩니다.
 
 ![][5]
- 
+
 이러한 개체는 자습서에 필요하지 않으므로 프로젝트에서 삭제할 수 있습니다. 또한 WebApiConfig.cs 및 LeaderboardContext.cs에서 TodoItem에 대한 참조를 제거합니다.
 
 ## 데이터 모델 추가
@@ -83,7 +88,7 @@ Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azur
 [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst)를 사용하여 데이터베이스 테이블을 정의합니다. DataObjects 폴더 아래에서 `Player`(이)라는 클래스를 추가합니다.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
-	
+
 	namespace Leaderboard.DataObjects
 	{
 	    public class Player : EntityData
@@ -96,14 +101,14 @@ Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azur
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	using System.ComponentModel.DataAnnotations.Schema;
-	
+
 	namespace Leaderboard.DataObjects
 	{
 	    public class PlayerRank : EntityData
 	    {
 	        public int Score { get; set; }
 	        public int Rank { get; set; }
-	
+
 	        [ForeignKey("Id")]
 	        public virtual Player Player { get; set; }
 	    }
@@ -124,10 +129,10 @@ Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azur
 **스캐폴드 추가** 대화 상자에서 왼쪽에 있는 **일반**을 확장하여 **Azure 모바일 서비스**를 선택합니다. 그런 다음 **Azure 모바일 서비스 테이블 컨트롤러**를 선택합니다. **추가**를 클릭합니다.
 
 ![][7]
- 
+
 **컨트롤러 추가** 대화 상자에서 다음을 수행합니다.
 
-1.	**모델 클래스** 아래에서 Player를 선택합니다. 
+1.	**모델 클래스** 아래에서 Player를 선택합니다.
 2.	**데이터 컨텍스트 클래스** 아래에서 MobileServiceContext를 선택합니다.
 3.	컨트롤러 이름을 “PlayerController”로 지정합니다.
 4.	**추가**를 클릭합니다.
@@ -138,9 +143,9 @@ Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azur
 ![][8]
 
 이 컨트롤러는 **TableController<T>**에서 파생됩니다. 이 클래스는 **ApiController**를 상속하지만 Azure 모바일 서비스에 맞게 특별히 설정됩니다.
- 
+
 - 라우팅: **TableController**의 기본 경로는 `/tables/{table_name}/{id}`입니다. 여기서 *table\_name*은 엔터티 이름과 일치합니다. 따라서 Player 컨트롤러의 경로는 */tables/player/{id}*입니다. 이 라우팅 규칙에 따라 **TableController**가 모바일 서비스 [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx)와 일치하게 됩니다.
-- 데이터 액세스: 데이터베이스 작업의 경우 **TableController** 클래스는 데이터 액세스의 추상을 정의하는 **IDomainManager** 인터페이스를 사용합니다. 스캐폴딩에는 EF 컨텍스트를 래핑하는 **IDomainManager**의 구체적 구현인 **EntityDomainManager**가 사용됩니다. 
+- 데이터 액세스: 데이터베이스 작업의 경우 **TableController** 클래스는 데이터 액세스의 추상을 정의하는 **IDomainManager** 인터페이스를 사용합니다. 스캐폴딩에는 EF 컨텍스트를 래핑하는 **IDomainManager**의 구체적 구현인 **EntityDomainManager**가 사용됩니다.
 
 이제 PlayerRank 엔터티에 대한 보조 컨트롤러를 추가합니다. 동일한 단계를 수행하지만 모델 클래스에 대해 PlayerRank를 선택합니다. 동일한 데이터 컨텍스트 클래스를 사용하고 새 클래스를 만들지 않습니다. 컨트롤러 이름을 “PlayerRankController”로 지정합니다.
 
@@ -167,7 +172,7 @@ Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azur
 	Expires: 0
 	Server: Microsoft-IIS/8.0
 	Date: Mon, 21 Apr 2014 17:58:43 GMT
-	
+
 	[{"id":"1","rank":1,"score":150},{"id":"2","rank":3,"score":100},{"id":"3","rank":1,"score":150}]
 
 `Player`은(는) 개체 그래프에 포함되지 않았습니다. 플레이어를 포함하려면 DTO(*데이터 전송 개체*)를 정의하여 개체 그래프를 평면화할 수 있습니다.
@@ -198,7 +203,7 @@ DTO는 네트워크에서 데이터를 전송하는 방법을 정의하는 개�
 	        Rank = x.Rank
 	    });
 	}
-	
+
 	// GET tables/PlayerRank/48D68C86-6EA6-4C25-AA33-223FC9A27959
 	public SingleResult<PlayerRankDto> GetPlayerRank(string id)
 	{
@@ -209,7 +214,7 @@ DTO는 네트워크에서 데이터를 전송하는 방법을 정의하는 개�
 	        Score = x.Score,
 	        Rank = x.Rank
 	    });
-	
+
 	    return SingleResult<PlayerRankDto>.Create(result);
 	}
 
@@ -223,7 +228,7 @@ DTO는 네트워크에서 데이터를 전송하는 방법을 정의하는 개�
 	Expires: 0
 	Server: Microsoft-IIS/8.0
 	Date: Mon, 21 Apr 2014 19:57:08 GMT
-	
+
 	[{"id":"1","playerName":"Alice","score":150,"rank":1},{"id":"2","playerName":"Bob","score":100,"rank":3},{"id":"3","playerName":"Charles","score":150,"rank":1}]
 
 JSON 페이로드에는 이제 플레이어 이름이 포함됩니다.
@@ -264,8 +269,8 @@ LINQ Select 문을 사용하는 대신 AutoMapper를 사용하는 옵션도 있�
 
 `PlayerRankController`에서 다음 메서드를 삭제합니다.
 
-- `PatchPlayerRank` 
-- `PostPlayerRank` 
+- `PatchPlayerRank`
+- `PostPlayerRank`
 - `DeletePlayerRank`
 
 이어서 다음 코드를 `PlayerRankController`에 추가합니다.
@@ -327,7 +332,7 @@ LINQ Select 문을 사용하는 대신 AutoMapper를 사용하는 옵션도 있�
 새로운 Windows 스토어 앱 프로젝트를 솔루션에 추가합니다. 여기에서는 비어 있는 앱(Windows) 템플릿이 사용되었습니다.
 
 ![][10]
- 
+
 NuGet 패키지 관리자를 사용해서 모바일 서비스 클라이언트 라이브러리를 추가합니다. Visual Studio의 **도구** 메뉴에서 **NuGet 패키지 관리자**를 선택합니다. 그런 후 **패키지 관리자 콘솔**을 선택합니다. 패키지 관리자 콘솔 창에서 다음 명령을 입력합니다.
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
@@ -345,7 +350,7 @@ Models라는 폴더를 만들고 다음 클래스를 추가합니다.
 	        public string Id { get; set; }
 	        public string Name { get; set; }
 	    }
-	
+
 	    public class PlayerRank
 	    {
 	        public string Id { get; set; }
@@ -353,7 +358,7 @@ Models라는 폴더를 만들고 다음 클래스를 추가합니다.
 	        public int Score { get; set; }
 	        public int Rank { get; set; }
 	    }
-	
+
 	    public class PlayerScore
 	    {
 	        public string PlayerId { get; set; }
@@ -362,13 +367,13 @@ Models라는 폴더를 만들고 다음 클래스를 추가합니다.
 	}
 
 이러한 클래스는 모바일 서비스에 있는 데이터 엔터티와 직접적으로 연관됩니다.
- 
+
 ## 뷰 모델 만들기
 
 MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입니다. MVVM 패턴은 프레젠테이션에서 응용 프로그램 논리를 구분하는 데 유용합니다.
 
 - 이 모델은 도메인 데이터(플레이어, 플레이어 순위 및 플레이어 점수)를 나타냅니다.
-- 이 뷰 모델은 뷰에 대한 추상 표현입니다. 
+- 이 뷰 모델은 뷰에 대한 추상 표현입니다.
 - 이 뷰는 뷰 모델을 표시하고 사용자 입력을 뷰 모델로 전송합니다. Windows 스토어 앱의 경우 뷰는 XAML로 정의됩니다.
 
 ![][11]
@@ -380,13 +385,13 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 	using System.ComponentModel;
 	using System.Net.Http;
 	using System.Threading.Tasks;
-	
+
 	namespace LeaderboardApp.ViewModel
 	{
 	    class LeaderboardViewModel : INotifyPropertyChanged
 	    {
 	        MobileServiceClient _client;
-	
+
 	        public LeaderboardViewModel(MobileServiceClient client)
 	        {
 	            _client = client;
@@ -416,7 +421,7 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
                 PropertyChanged(this,
                     new PropertyChangedEventArgs(propertyName));
             }
-        }    
+        }
     }
 
 그런 다음 관측 가능한 속성을 추가합니다. XAML은 이러한 속성에 데이터를 바인딩합니다.
@@ -540,8 +545,8 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
             {
                 PlayerId = player.Id,
                 Score = score
-            }; 
-            
+            };
+
             try
             {
                 await _client.InvokeApiAsync<PlayerScore, object>("score", playerScore);
@@ -583,7 +588,7 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
             {
                 IsPending = false;
             }
-         }    
+         }
     }
 
 ## MobileServiceClient 인스턴스 추가
@@ -592,7 +597,7 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
-	
+
 	namespace LeaderboardApp
 	{
 	    sealed partial class App : Application
@@ -601,8 +606,8 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 	        // TODO: Replace 'port' with the actual port number.
 	        const string serviceUrl = "http://localhost:port/";
 	        public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl);
-	
-	
+
+
 	        // ...
 	    }
 	}
@@ -632,7 +637,7 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 
 플레이어 목록은 **ListBox**에 표시됩니다.
 
-	<ListBox Width="200" Height="400" x:Name="PlayerListBox" 
+	<ListBox Width="200" Height="400" x:Name="PlayerListBox"
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
 순위는 **ListView**에 표시됩니다.
@@ -662,13 +667,13 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 이 단계에서는 모바일 서비스를 Microsoft Azure에 게시하고 라이브 서비스를 사용하도록 앱을 수정합니다.
 
 솔루션 탐색기에서 Leaderboard 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
- 
+
 ![][12]
 
 **게시** 대화 상자에서 **Azure 모바일 서비스**를 클릭합니다.
 
 ![][13]
- 
+
 아직 Azure 계정에 로그인되지 않은 경우 **로그인**을 클릭합니다.
 
 ![][14]
@@ -677,7 +682,7 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 기존 모바일 서비스를 선택하거나 **새로 만들기**를 클릭하여 새 항목을 만듭니다. 그런 다음 **확인**을 클릭하여 게시합니다.
 
 ![][15]
- 
+
 게시 프로세스에서는 데이터베이스가 자동으로 생성되며, 사용자가 연결 문자열을 구성할 필요가 없습니다.
 
 이제는 leaderboard 앱을 라이브 서비스에 연결할 준비가 되었습니다. 다음 두 가지 항목이 필요합니다.
@@ -685,15 +690,15 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 - 서비스의 URL
 - 응용 프로그램 키
 
-두 가지 항목 모두 Azure 관리 포털에서 가져올 수 있습니다. 관리 포털에서 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다. 서비스 URL은 대시보드 탭에 나열됩니다. 응용 프로그램 키를 가져오려면 **키 관리**를 클릭합니다.
+두 가지 항목 모두 Azure 클래식 포털에서 가져올 수 있습니다. 포털에서 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다. 서비스 URL은 대시보드 탭에 나열됩니다. 응용 프로그램 키를 가져오려면 **키 관리**를 클릭합니다.
 
 ![][16]
- 
+
 **액세스 키 관리** 대화 상자에서 응용 프로그램 키 값을 복사합니다.
 
 ![][17]
 
- 
+
 서비스 URL 및 응용 프로그램 키를 **MobileServiceClient** 생성자에 전달합니다.
 
     sealed partial class App : Application
@@ -760,6 +765,4 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 [푸시 알림 추가]: ../notification-hubs-windows-store-dotnet-get-started.md
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
- 
-
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

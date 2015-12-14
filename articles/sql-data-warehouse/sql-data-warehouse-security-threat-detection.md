@@ -30,7 +30,7 @@
 
 ## 데이터베이스에 대한 위협 감지 설정
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Preview 포털을 시작합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure 포털을 시작합니다.
 
 2. 모니터링할 SQL 데이터 웨어하우스의 구성 블레이드로 이동합니다. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다.
 
@@ -55,7 +55,7 @@
 
 	![탐색 창][4]
 
-2. 이메일에서 **Azure SQL 감사 로그** 링크를 클릭하면 Azure 포털이 열리고 의심스러운 이벤트가 발생한 무렵의 시간에 해당하는 감사 레코드가 표시됩니다.
+2. 이메일에서 **Azure SQL 감사 로그** 링크를 클릭하면 Azure 클래식 포털이 열리고 의심스러운 이벤트가 발생한 무렵의 시간에 해당하는 감사 레코드가 표시됩니다.
 
 	![탐색 창][5]
 
@@ -89,4 +89,4 @@
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

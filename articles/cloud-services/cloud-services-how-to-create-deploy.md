@@ -22,12 +22,12 @@
 # 클라우드 서비스를 만들고 배포하는 방법
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-create-deploy.md)
-- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 
-Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 **빨리 만들기** 및 **사용자 지정 만들기**를 제공합니다.
+Azure 클래식 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 **빨리 만들기** 및 **사용자 지정 만들기**를 제공합니다.
 
-이 토픽에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다.
+이 토픽에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 클래식 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
 > [AZURE.NOTE]VSTS(Visual Studio Team Services)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 VSTS 게시를 설정합니다. 자세한 내용은 [Visual Studio Team Services를 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService](영문)을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
 
@@ -61,14 +61,14 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 - 역할 인스턴스에 인증서가 필요한 경우 인증서를 만듭니다. 클라우드 서비스에는 개인 키가 포함된 .pfx 파일이 필요합니다. 클라우드 서비스를 만들고 배포할 때 Azure에 인증서를 업로드할 수 있습니다. 인증서에 대한 자세한 내용은 [인증서 관리](http://msdn.microsoft.com/library/gg981929.aspx)를 참조하세요.
 
-- 클라우드 서비스를 선호도 그룹에 배포하려면 선호도 그룹을 만듭니다. 선호도 그룹을 사용하면 클라우드 서비스 및 다른 Azure 서비스를 지역의 동일한 위치에 배포할 수 있습니다. 선호도 그룹은 관리 포털의 **네트워크** 영역에 있는 **선호도 그룹** 페이지에서 만들 수 있습니다. 자세한 내용은 [관리 포털에서 선호도 그룹 만들기](http://msdn.microsoft.com/library/jj156209.aspx)를 참조하세요.
+- 클라우드 서비스를 선호도 그룹에 배포하려면 선호도 그룹을 만듭니다. 선호도 그룹을 사용하면 클라우드 서비스 및 다른 Azure 서비스를 지역의 동일한 위치에 배포할 수 있습니다. 선호도 그룹은 Azure 클래식 포털의 **네트워크** 영역에 있는 **선호도 그룹** 페이지에서 만들 수 있습니다. 자세한 내용은 [Azure 클래식 포털에서 선호도 그룹 만들기](http://msdn.microsoft.com/library/jj156209.aspx)를 참조하세요.
 
 
 ## 방법: 빠른 생성을 사용하여 클라우드 서비스 만들기
 
-1. [관리 포털](http://manage.windowsazure.com/)에서 **새로 만들기** > **계산** > **클라우드 서비스** > **빨리 만들기**를 차례로 클릭합니다.
+1. [Azure 클래식 포털](http://manage.windowsazure.com/)에서 **새로 만들기** > **계산** > **클라우드 서비스** > **빨리 만들기**를 차례로 클릭합니다.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. **URL**에서 프로덕션 배포의 클라우드 서비스에 액세스하기 위한 공용 URL에 사용할 하위 도메인을 입력합니다. 프로덕션 배포의 URL 형식은 http://*myURL*.cloudapp.net입니다.
 
@@ -76,20 +76,20 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 4. **클라우드 서비스 만들기**를 클릭합니다.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	창 맨 아래에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
 
 	**클라우드 서비스** 영역이 열리고 새 클라우드 서비스가 표시됩니다. 상태가 만들어짐으로 바뀌면 클라우드 서비스 만들기가 완료된 것입니다.
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+	![CloudServices\_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## 방법: 클라우드 서비스에 대한 인증서 업로드
 
-1. [관리 포털](http://manage.windowsazure.com/)에서 **클라우드 서비스**, 클라우드 서비스의 이름, **인증서**를 차례로 클릭합니다.
+1. [Azure 클래식 포털](http://manage.windowsazure.com/)에서 **클라우드 서비스**를 클릭한 다음 클라우드 서비스의 이름을 클릭하고 **인증서**를 클릭합니다.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
 
 2. **인증서 업로드** 또는 **업로드**를 클릭합니다.
@@ -100,15 +100,15 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 5. **확인**(확인 표시)을 클릭합니다.
 
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+	![CloudServices\_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
 	아래와 같이 메시지 영역에서 업로드의 진행률을 확인할 수 있습니다. 업로드가 완료되면 인증서가 테이블에 추가됩니다. 메시지 영역에서 확인을 클릭하여 메시지를 닫습니다.
 
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+	![CloudServices\_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
 ## 방법: 클라우드 서비스 배포
 
-1. [관리 포털](http://manage.windowsazure.com/)에서 **클라우드 서비스**, 클라우드 서비스의 이름, **대시보드**를 차례로 클릭합니다.
+1. [Azure 클래식 포털](http://manage.windowsazure.com/)에서 **클라우드 서비스**를 클릭한 다음 클라우드 서비스의 이름을 클릭하고 **대시보드**를 클릭합니다.
 
 	프로덕션 환경에서 대시보드가 열립니다. 이 시점에서 스테이징을 선택하여 스테이징 환경에서 응용 프로그램을 배포할 수 있습니다. 자세한 내용은 [Azure에서 배포 관리](http://msdn.microsoft.com/library/gg433027.aspx)를 참조하세요.
 
@@ -121,17 +121,17 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 4. **구성**에서 **찾아보기**를 사용하여 사용할 서비스 구성 파일(.cscfg)을 선택합니다.
 
-5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
+5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **Deploy even if one or more roles contain a single instance** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
 
     Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 6. **확인**(확인 표시)을 클릭하여 클라우드 서비스 배포를 시작합니다.
 
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+	![CloudServices\_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
 	메시지 영역에서 배포의 상태를 모니터링할 수 있습니다. 확인을 클릭하여 메시지를 숨깁니다.
 
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+	![CloudServices\_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## 배포가 완료되었는지 확인
 
@@ -141,7 +141,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 2. **간략 상태**에서 사이트 URL을 클릭하여 웹 브라우저에서 클라우드 서비스를 엽니다.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
@@ -153,4 +153,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

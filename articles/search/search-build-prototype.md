@@ -44,7 +44,7 @@ Azure 테이블 저장소 등, 기본적으로 JSON을 사용하는 데이터 �
 
 ## 시스템에서 프로토타입 솔루션 테스트
 
-1. [Azure 포털에서 Azure 검색서비스 만들기](search-create-service-portal.md)
+1. [Azure 클래식 포털에서 Azure 검색서비스 만들기](search-create-service-portal.md)
 
     모든 기존 Azure 구독에 공유(무료) 버전의 서비스를 추가할 수 있습니다. 공유 서비스는 프로토타입에 자주 사용됩니다. 공유 서비스는 총 50MB 데이터 또는 10,000개 문서 중 먼저 도달하는 쪽을 제공합니다. 또한 데이터와 문서를 최대 3개 인덱스에 분산할 수 있습니다.
 
@@ -133,4 +133,4 @@ JSON 파일에 데이터를 가져올 수 있는 경우, 해당 데이터로 기
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

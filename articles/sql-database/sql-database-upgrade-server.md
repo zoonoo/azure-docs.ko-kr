@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 준비 | Microsoft Azure" 
+	pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure" 
 	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 PowerShell을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -16,11 +16,11 @@
 	ms.date="11/11/2015" 
 	ms.author="sstein"/>
 
-# PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 준비
+# PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure Portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -32,23 +32,23 @@ SQL 데이터베이스 V12가 최신 버전이므로 SQL 데이터베이스 V12�
 
 이 문서에서는 기존 SQL 데이터베이스 V11 서버 및 데이터베이스를 SQL 데이터베이스 V12로 업그레이드하는 방법에 대해 지침을 제공합니다.
 
-V12로 업그레이드하는 프로세스 동안 Web/Business 데이터베이스를 새로운 서비스 계층으로 업데이트하게 됩니다. 따라서 Web/Business 데이터베이스 업그레이드에 대한 지침도 포함되어 있습니다.
+V12로 업그레이드하는 과정에서 Web/Business 데이터베이스를 새로운 서비스 계층으로 업데이트하게 됩니다. 따라서 Web/Business 데이터베이스 업그레이드에 대한 지침도 포함되어 있습니다.
 
-또한 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)로 마이그레이션하는 것이 단일 데이터베이스에 대한 개별 성능 수준(가격 책정 계층)으로 업그레이드하는 것보다 비용 면에서 효율적일 수 있습니다. 개별 데이터베이스의 성능 수준을 개별적으로 관리하지 않고 풀의 성능 설정을 관리하기만 하면 되므로, 풀은 단순히 데이터베이스 관리이기도 합니다. 여러 서버에 데이터베이스가 있는 경우에는 이 데이터베이스를 동일한 서버로 이동해서 풀로 유용하게 관리하는 것이 좋습니다.
+또한 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)로 마이그레이션하는 것이 단일 데이터베이스에 대한 개별 성능 수준(가격 책정 계층)으로 업그레이드하는 것보다 비용 면에서 효율적일 수 있습니다. 개별 데이터베이스의 성능 수준을 개별적으로 관리하지 않고 풀의 성능 설정만 관리하면 되므로, 풀은 데이터베이스 관리를 간소화합니다. 여러 서버에 데이터베이스가 있는 경우에는 이 데이터베이스를 동일한 서버로 이동해서 풀로 유용하게 관리하는 것이 좋습니다.
 
 이 문서의 단계를 따르면 손쉽게 V11 서버에서 탄력적 데이터베이스 풀로 직접 데이터베이스를 자동 마이그레이션할 수 있습니다.
 
 데이터베이스는 업그레이드 작업 동안 온라인 상태로 유지되며 계속 작동합니다. 실제로 새 성능 수준으로 전환할 때 아주 짧은 시간(보통 90초 정도이지만 최대 5분일 수도 있음) 동안 데이터베이스 연결이 일시적으로 끊어질 수 있습니다. 응용 프로그램에 [연결 종료에 대한 일시적인 오류 처리](sql-database-connect-central-recommendations.md) 기능이 있을 경우 업그레이드 종료 시의 연결 끊김을 방지할 수 있습니다.
 
-SQL 데이터베이스 V12로 업그레이드하면 이를 실행 취소할 수 없습니다. 업그레이드 후에 서버를 V11로 되돌릴 수 없습니다.
+SQL 데이터베이스 V12로 업그레이드하고 난 후에는 취소할 수 없습니다. 업그레이드 후에는 서버를 V11로 되돌릴 수 없습니다.
 
 V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드를 평가할 때까지 일정 시간 동안 [서비스 계층 권장 사항](sql-database-service-tier-advisor.md) 및 [탄력적 풀 권장 사항](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier)을 사용할 수 없습니다. V11 서버 권장 사항 기록은 유지되지 않으므로 V12 서버에 적용되지 않습니다.
 
 ## 업그레이드 준비
 
 - **모든 Web 및 Business 데이터베이스 업그레이드**: 아래의 [모든 Web 및 Business 데이터베이스 업그레이드](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) 섹션을 참조하거나 [PowerShell을 사용하여 데이터베이스 및 서버 업그레이드](sql-database-upgrade-server-powershell.md)를 수행하세요.
-- **지역에서 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역에서 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성 및 [지역에서 복제 중지](sql-database-geo-replication-portal.md#remove-secondary-database)를 문서화해야 합니다. 업그레이드가 완료된 후 지역에서 복제에 대해 데이터베이스를 다시 구성하세요.
-- **클라이언트가 Azure VM에 있는 경우 열 포트**: Azure VM(가상 컴퓨터)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우 VM에서 포트 범위 11000-11999 및 14000-14999를 열어야 합니다. 자세한 내용은 [SQL 데이터베이스 V12용 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
+- **지역에서 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역에서 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성을 문서에 기록해 놓고 [지역에서 복제를 중지](sql-database-geo-replication-portal.md#remove-secondary-database)해야 합니다. 업그레이드가 완료된 후 지역에서 복제 데이터베이스를 다시 구성하세요.
+- **Azure VM에 클라이언트가 있는 경우 열어야 하는 포트**: Azure VM(가상 컴퓨터)에서 클라이언트가 실행되면서 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우에는 VM에서 11000-11999 및 14000-14999 범위의 포트를 열어야 합니다. 자세한 내용은 [SQL 데이터베이스 V12용 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
 
 ## 필수 조건 
@@ -68,7 +68,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
 
-사용할 구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
+사용할 구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이전 단계에서 해당 정보를 복사하거나, 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
 
 현재 구독을 설정 하 여 구독 정보로 다음 cmdlet을 실행 합니다.
 
@@ -165,7 +165,7 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 개별 데이터베이스를 모니터링하는 것 외에, [포털을 사용](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)하거나 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)을 사용하여 탄력적 데이터베이스 풀을 모니터링할 수도 있습니다.
 
 
-**리소스 사용량 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 사용량 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
+**리소스 소비 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 소비 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -203,4 +203,4 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

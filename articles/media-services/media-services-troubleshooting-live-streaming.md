@@ -65,7 +65,7 @@
 
 	**문제 해결 단계**: AMSE 도구에서 "스트리밍 끝점" 탭으로 이동하고 하나의 스트리밍 단위를 사용하여 실행 중인 스트리밍 끝점이 있는지 확인합니다.
 	
->[AZURE.NOTE]문제 해결 단계를 수행한 후에도 여전히 성공적으로 스트리밍되지 않으면 Azure 관리 포털을 사용하여 지원 티켓을 제출하세요.
+>[AZURE.NOTE]문제 해결 단계를 수행한 후에도 여전히 성공적으로 스트리밍되지 않으면 Azure 클래식 포털을 사용하여 지원 티켓을 제출하세요.
 
 ##미디어 서비스 학습 경로
 
@@ -75,4 +75,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

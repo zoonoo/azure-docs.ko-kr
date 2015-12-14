@@ -32,7 +32,7 @@
 
 클러스터의 작업자 노드 수를 늘리면 더 많은 매퍼와 리듀서를 활용하여 병렬로 실행할 수 있습니다. HDInsight에서 크기를 확장할 수 있는 두 가지 방법이 있습니다.
 
-- 프로비전 시 Azure Preview 포털, Azure PowerShell 또는 플랫폼 간 명령줄 인터페이스를 사용하여 작업자 노드의 수를 지정할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요. 다음 화면은 Azure Preview 포털에서 작업자 노드 구성을 표시합니다.
+- 프로 비전 시 Azure 포털, Azure PowerShell 또는 플랫폼 간 명령줄 인터페이스를 사용하여 작업자 노드의 수를 지정할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요. 다음 화면은 Azure 포털에서 작업자 노드 구성을 표시합니다.
 
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 
@@ -226,4 +226,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

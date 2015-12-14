@@ -205,7 +205,7 @@ Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DN
 
 ### MAC 주소가 만들어진 후 VM에 대해 동일하게 유지됩니까?
 
-아니요. VM의 MAC 주소는 다른 이유로 변경할 수 있습니다. VM 상태가 중지(할당 해제)에 있는 경우, VM 크기를 변경하는 경우 또는 서비스 복구 또는 계획된 유지 관리 호스트 서버가 있는 경우 MAC 주소가 유지되지 않습니다.
+아니요, 그러나 VM의 상태가 중지될(할당 취소) 경우에만 변경됩니다. VM 크기, 재부팅을 변경하거나 서비스 복구 또는 호스트 서버 유지 관리를 계획한 경우, MAC 주소는 그대로 유지됩니다.
 
 ### VNet의 VM에서 인터넷에 연결할 수 있습니까?
 
@@ -222,7 +222,7 @@ VNet 내에서 계산 서비스만 사용할 수 있습니다. 계산 서비스�
 예. ASE(앱 서비스 환경)를 사용하여 VNet 내부에 웹앱을 배포할 수 있습니다. 또한 VNet에 대해 지점 및 사이트 간 구성된 경우 Azure VNet에서 웹앱을 안전하게 연결하고 리소스에 액세스할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 
-- [앱 서비스 환경에서 웹앱 만들기](https://azure.microsoft.com/ko-KR/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+- [앱 서비스 환경에서 웹앱 만들기](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
 - [웹앱 가상 네트워크 통합](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
@@ -266,4 +266,4 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 
 예. 다양한 플랫폼에 대해 PowerShell 및 명령줄 도구를 사용할 수 있습니다. 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?LinkId=317721)를 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

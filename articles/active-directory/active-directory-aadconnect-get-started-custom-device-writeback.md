@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect에서 장치 쓰기 저장 사용 | Microsoft Azure"
+	pageTitle="Azure AD Connect: 장치 쓰기 저장 사용 | Microsoft Azure"
 	description="이 문서는 Azure AD Connect를 사용하여 장치 쓰기 저장을 사용하는 방법을 자세히 설명합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -24,10 +24,11 @@
 
 응용 프로그램에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](active-directory-conditional-access.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](https://msdn.microsoft.com/library/azure/dn788908.aspx)을 참조하세요.
 
->[AZURE.NOTE]Azure Active Directory 장치 등록 서비스 조건부 액세스 정책에 등록된 장치를 사용하는 경우 Office 365 또는 Azure AD Premium에 대한 구독이 필요합니다. 여기에는 AD FS(Active Directory Federation Services)에 의해 온-프레미스 리소스에 적용되는 정책이 포함됩니다.
+>[AZURE.NOTE]Azure AD Premium에 대한 구독에는 장치 쓰기 저장이 필요합니다.
+
 
 ## 1부: Azure AD Connect 설치
-1. 사용자 지정 또는 기본 설정을 사용하여 Azure AD Connect를 설치합니다. 장치 쓰기 저장을 사용하도록 설정하기 전에 모든 사용자 및 그룹을 성공적으로 동기화하고 시작하는 것이 좋습니다.
+1. 사용자 지정 또는 Express 설정을 사용하여 Azure AD Connect를 설치합니다. 장치 쓰기 저장을 사용하도록 설정하기 전에 모든 사용자 및 그룹을 성공적으로 동기화하고 시작하는 것이 좋습니다.
 
 ## 2부: Active Directory 준비
 쓰기 저장 장치를 사용하기 위한 준비는 다음 단계를 따릅니다.
@@ -125,4 +126,4 @@ Active Directory의 구성 확인: - 장치 등록 서비스가 구성 명명 �
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

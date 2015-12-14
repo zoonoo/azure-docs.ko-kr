@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Windows Server VM에 로그온 | Microsoft Azure"
-	description="Azure Preview 포털 및 리소스 관리자 배포 모델을 사용하여 Windows Server VM에 로그온하는 방법을 알아봅니다."
+	description="Azure 포털 및 리소스 관리자 배포 모델을 사용하여 Windows Server VM에 로그온하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -21,11 +21,11 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-log-on-windows-server.md).
 
-Azure Preview 포털의 **연결** 단추를 사용하여 원격 데스크톱 세션을 시작합니다. 먼저 가상 컴퓨터에 연결한 다음 로그온합니다.
+Azure 포털의 **연결** 단추를 사용하여 원격 데스크톱 세션을 시작합니다. 먼저 가상 컴퓨터에 연결한 다음 로그온합니다.
 
 ## 가상 컴퓨터에 연결
 
-1. 아직 로그인하지 않은 경우 [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
+1. 아직 로그인하지 않은 경우 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2.	허브 메뉴에서 **찾아보기**를 클릭합니다.
 
@@ -47,4 +47,4 @@ Azure Preview 포털의 **연결** 단추를 사용하여 원격 데스크톱 �
 
 로그온에 대한 팁이 도움이 되지 않거나 필요한 정보가 아닌 경우[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

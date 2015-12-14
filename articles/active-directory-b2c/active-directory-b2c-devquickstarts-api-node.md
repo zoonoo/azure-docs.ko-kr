@@ -20,9 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 웹 API를 호출하는 데 집중합니다.
-아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
+
+> [AZURE.NOTE]이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 Web API를 호출하는 데 집중합니다. 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
+
 
 > [AZURE.NOTE]이 샘플은 [iOS B2C 샘플 응용 프로그램](active-directory-b2c-devquickstarts-ios.md)에 연결되어 쓰여졌습니다. 이 연습을 먼저 수행한 다음 해당 샘플도 함께 수행하세요.
 
@@ -256,6 +256,8 @@ server.js 파일이 Web API 서버의 기능 대부분을 제공하게 됩니다
 /**
 * Module dependencies.
 */
+var fs = require('fs');
+var path = require('path');
 var util = require('util');
 var assert = require('assert-plus');
 var mongoose = require('mongoose/');
@@ -263,7 +265,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 ```
 
 파일을 저장합니다. 잠시 후에 이 파일로 다시 돌아갈 것입니다.
@@ -284,7 +286,7 @@ var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>',
-identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
+identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration', // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>',
 };
@@ -706,7 +708,7 @@ Date: Tue, 14 Jul 2015 05:43:38 GMT
 
 그런 다음 다음과 같은 방식으로 작업을 추가할 수 있습니다.
 
-`$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`
+`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
 응답은 다음과 같습니다.
 
@@ -842,7 +844,7 @@ next();
 });
 ```
 
-## 18: 서버 응용 프로그램을 다시 실행하고 사용자를 거부하는지 확인
+## 20: 서버 응용 프로그램을 다시 실행하고 사용자를 거부하는지 확인
 
 `curl`을 다시 사용하여 끝점에 대해 OAuth2 보호가 적용되는지 확인해 보겠습니다. 이 끝점에 대해 클라이언트 SDK 중 하나를 실행하기 전에 이 작업을 수행할 것입니다. 반환되는 헤더에는 올바른 경로를 따르고 있음을 알려줄 수 있는 충분한 정보가 포함되어야 합니다.
 
@@ -887,4 +889,4 @@ Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정
 
 [B2C로 iOS를 사용하여 웹 API에 연결 >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

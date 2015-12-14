@@ -23,7 +23,7 @@ Windows Server, IIS 및 ASP.NET에서 사용할 수 있는 성능 카운터를 �
 
 성능 카운터 데이터 1을 검사할 수 있습니다. 원격 데스크톱 2를 사용하여 액세스된 성능 모니터 도구와 응용 프로그램 호스트에서 직접. Azure 관리 팩 3을 사용하여 System Center Operations Manager를 통해. Azure 저장소로 전송되는 진단 데이터에 액세스하는 다른 모니터링 도구를 통해. 자세한 내용은 [Azure 저장소에서 진단 데이터 저장 및 보기](https://msdn.microsoft.com/library/azure/hh411534.aspx)를 참조하세요.
 
-[Azure 관리 포털](http://manage.azure.com/)에서의 응용 프로그램 성능 모니터링에 대한 내용은 [클라우드 서비스를 모니터링하는 방법](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)을 참조하세요.
+[Azure 클래식 포털](http://manage.azure.com/)에서의 응용 프로그램 성능 모니터링에 대한 내용은 [클라우드 서비스를 모니터링하는 방법](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)을 참조하세요.
 
 문제를 해결하고 Azure 응용 프로그램을 최적화하기 위한 로깅 및 추적 전략 만들기와 진단 및 기타 기술 사용에 대한 더 많은 세부 지침은 [Azure 응용 프로그램 개발 문제 해결 모범 사례](https://msdn.microsoft.com/library/azure/hh771389.aspx)(영문)를 참조하십시오.
 
@@ -83,7 +83,7 @@ Azure는 기타 진단 정보와 함께 성능 카운터 데이터를 캐시합�
 
 ## 1단계: 성능 카운터에서 데이터 수집 및 저장
 
-진단 파일을 Visual Studio 솔루션에 추가하면 Azure 응용 프로그램에서 성능 카운터 데이터의 수집 및 저장을 구성할 수 있습니다. 이렇게 하려면 성능 카운터를 진단 파일에 추가하면 됩니다. 성능 카운터를 포함한 진단 데이터는 인스턴스에서 먼저 수집됩니다. 그런 다음 그 데이터는 Azure 테이블 서비스의 WADPerformanceCountersTable 테이블에 보관되므로 응용 프로그램에서 저장소 계정도 지정해야 합니다. 계산 에뮬레이터에서 응용 프로그램을 로컬로 테스트하는 중이면 진단 데이터도 저장소 에뮬레이터에 로컬로 저장할 수 있습니다. 진단 데이터를 저장하기 전에 먼저 [Azure 관리 포털](http://manage.windowsazure.com/)로 이동하여 저장소 계정을 만들어야 합니다. 외부 대역폭 비용을 지불하지 않고 대기 시간을 줄이기 위해 Azure 응용 프로그램과 동일한 지리적 위치에 저장소 계정을 두는 것이 가장 좋습니다.
+진단 파일을 Visual Studio 솔루션에 추가하면 Azure 응용 프로그램에서 성능 카운터 데이터의 수집 및 저장을 구성할 수 있습니다. 이렇게 하려면 성능 카운터를 진단 파일에 추가하면 됩니다. 성능 카운터를 포함한 진단 데이터는 인스턴스에서 먼저 수집됩니다. 그런 다음 그 데이터는 Azure 테이블 서비스의 WADPerformanceCountersTable 테이블에 보관되므로 응용 프로그램에서 저장소 계정도 지정해야 합니다. 계산 에뮬레이터에서 응용 프로그램을 로컬로 테스트하는 중이면 진단 데이터도 저장소 에뮬레이터에 로컬로 저장할 수 있습니다. 진단 데이터를 저장하기 전에 먼저 [Azure 클래식 포털](http://manage.windowsazure.com/)로 이동하여 저장소 계정을 만들어야 합니다. 외부 대역폭 비용을 지불하지 않고 대기 시간을 줄이기 위해 Azure 응용 프로그램과 동일한 지리적 위치에 저장소 계정을 두는 것이 가장 좋습니다.
 
 ### 진단 파일에 성능 카운터 추가
 
@@ -136,7 +136,7 @@ Azure SDK 2.5에서는 저장소 계정이 diagnostics.wadcfgx 파일에서 지�
 
 연결 문자열을 설정하려면
 
-1. 원하는 텍스트 편집기를 사용하여 ServiceConfiguration.Cloud.cscfg 파일을 열고 저장소에 대한 연결 문자열을 설정합니다. *AccountName* 및 *AccountKey* 값은 저장소 계정 대시보드의 관리 포털에서 키 관리 아래에 있습니다.
+1. 원하는 텍스트 편집기를 사용하여 ServiceConfiguration.Cloud.cscfg 파일을 열고 저장소에 대한 연결 문자열을 설정합니다. *AccountName* 및 *AccountKey* 값은 저장소 계정 대시보드의 Azure 클래식 포털에서 키 관리 아래에 있습니다.
 
     ```
     <ConfigurationSettings>
@@ -313,4 +313,4 @@ Azure 진단 모니터가 사용자 지정 성능 카운터 데이터를 수집�
 
 [클라우드 서비스를 모니터링하는 방법](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

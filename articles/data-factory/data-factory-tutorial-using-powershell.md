@@ -51,9 +51,9 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	- **Azure SQL 데이터베이스** - 서버, 데이터베이스, 사용자 이름 및 암호
 	- **Azure HDInsight 클러스터** - HDInsight 클러스터 이름, 사용자 이름, 암호 및 이 클러스터와 연결된 Azure 저장소의 계정 이름과 계정 키. 사용자 고유의 HDInsight 클러스터 대신 주문형 HDInsight 클러스터를 사용하려는 경우 이 단계를 건너뛸 수 있습니다.  
 8. **Azure PowerShell**을 시작하고 다음 명령을 실행합니다. Azure PowerShell을 열어둡니다. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
-	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
+	- **Add-AzureAccount**를 실행하고 Azure 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
-	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 미리 보기 포털에서 사용한 것과 같아야 합니다.
+	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
 	
 
 ## 개요
@@ -101,7 +101,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [6단계: 파이프라인 및 데이터 조각 모니터링](#MainStep6) 이 단계에서는 Azure 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
+6. [6단계: 파이프라인 및 데이터 조각 모니터링](#MainStep6) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
 
 ## <a name="MainStep1"></a> 1단계: 샘플 데이터 및 스크립트 업로드
 이 단계에서는 모든 샘플 데이터(로그 및 참조 데이터 모두 포함)와 워크플로에서 호출되는 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 **MarketingCampaigns**라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
@@ -122,7 +122,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	
 	또는 C:\\ADFWalkthrough\\Scripts 폴더의 파일을 사용하여 pig/hive 스크립트 및 샘플 파일을 blob 저장소의 adfwalkthrough 컨테이너로 업로드하고 MarketingCamapaigns Azure SQL 데이터베이스에 MarketingCampaignEffectiveness 테이블을 만들 수 있습니다.
    
-2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 액세스할 수 있게 하려면 **Azure 관리 포털**이나 master 데이터베이스의 **sp\_set\_firewall\_rule**을 사용하여 컴퓨터의 IP 주소에 대한 방화벽 규칙을 만듭니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. [Azure SQL에 대한 방화벽 규칙 설정][azure-sql-firewall]을 참조하세요.
+2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 액세스할 수 있게 하려면 [Azure 클래식 포털](http://manage.windowsazure.com)이나 master 데이터베이스의 **sp\_set\_firewall\_rule**을 사용하여 컴퓨터의 IP 주소에 대한 방화벽 규칙을 만듭니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. [Azure SQL에 대한 방화벽 규칙 설정][azure-sql-firewall]을 참조하세요.
 4. Azure PowerShell에서 샘플의 압축을 푼 위치(**C:\\ADFWalkthrough**)로 이동합니다.
 5. **uploadSampleDataAndScripts.ps1** 실행 
 6. 스크립트가 성공적으로 실행되면 다음이 표시됩니다.
@@ -160,7 +160,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 ## <a name="MainStep2"></a> 2단계: Azure 데이터 팩터리 만들기
 이 단계에서는 **LogProcessingFactory**라는 Azure 데이터 팩터리를 만듭니다.
 
-1.	[Azure Preview 포털][azure-preview-portal]에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭하고 **새로 만들기** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
+1.	[Azure 포털][azure-portal]에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭하고 **새로 만들기** 블레이드에서 **Data Factory**를 클릭합니다. 
 
 	![새로 만들기->DataFactory][image-data-factory-new-datafactory-menu]
 	
@@ -178,7 +178,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	
 		![리소스 그룹 만들기][image-data-factory-tutorial-create-resourcegroup]
 7. **리소스 그룹 이름**으로 **ADF**를 선택합니다.  
-8.	**새 데이터 팩터리** 블레이드에서는 **시작 보드에 추가**가 기본적으로 선택되어 있습니다. 선택된 경우 데이터 팩터리에 대한 링크가 시작 보드(Azure 미리 보기 포털에 로그인할 때 표시되는 페이지)에 추가됩니다.
+8.	**새 데이터 팩터리** 블레이드에서는 **시작 보드에 추가**가 기본적으로 선택되어 있습니다. 선택된 경우 데이터 팩터리에 대한 링크가 시작 보드(Azure 포털에 로그인할 때 표시되는 페이지)에 추가됩니다.
 
 	![데이터 팩터리 만들기 블레이드][image-data-factory-tutorial-create-datafactory]
 
@@ -197,7 +197,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
  
 ## <a name="MainStep3"></a> 3단계: 연결된 서비스 만들기
 
-> [AZURE.NOTE]이 문서에서는 Azure PowerShell을 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure 포털, 특히 데이터 팩터리 편집기를 사용하여 이 자습서를 수행하려는 경우 [데이터 팩터리 편집기를 사용한 자습서][adftutorial-using-editor]를 참조하세요.
+> [AZURE.NOTE]이 문서에서는 Azure PowerShell을 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure 클래식 포털, 특히 Data Factory 편집기를 사용하여 이 자습서를 수행하려는 경우 [Data Factory 편집기를 사용한 자습서][adftutorial-using-editor]를 참조하세요.
 
 이 단계에서는 연결된 서비스 StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService 및 HDInsightLinkedService를 만듭니다.
 
@@ -236,16 +236,16 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		
  		![Azure SQL 설정][image-data-factory-tutorial-azuresql-settings]
 
-		Azure 관리 포털에서 이러한 값을 가져오려면 MarketingCampaigns 데이터베이스에 대한 SQL 데이터베이스 연결 문자열 보기를 클릭합니다.
+		[Azure 클래식 포털](http://manage.windowsazure.com)에서 이러한 값을 가져오려면 MarketingCampaigns 데이터베이스에 대한 SQL 데이터베이스 연결 문자열 보기를 클릭합니다.
 
 		![Azure SQL 데이터베이스 연결 문자열][image-data-factory-tutorial-azuresql-database-connection-string]
 
 12. 다음 3개의 데이터 저장소가 모두 만들어져 표시되는지 확인합니다. **StorageLinkedService**, **HDInsightStorageLinkedService** 및 **AzureSqlLinkedService**.
 13. 다른 연결된 서비스를 만들어야 하지만 하나는 계산 서비스, 특히 **Azure HDInsight 클러스터**여야 합니다. 아직은 포털에서 계산 연결된 서비스를 만들 수 없습니다. 따라서 이 연결된 서비스를 만들려면 Azure PowerShell을 사용해야 합니다. 
 14. **Azure PowerShell**이 이미 열려있거나 시작되어 있는 경우 **Azure PowerShell**로 전환합니다. Azure PowerShell을 닫았다가 다시 연 경우 다음 명령을 실행해야 합니다. 
-	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
+	- **Add-AzureAccount**를 실행하고 Azure 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
-	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 미리 보기 포털에서 사용한 것과 같아야 합니다. 
+	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다. 
 15. **AzureResourceManager** 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 이 모드에서 사용할 수 있습니다.
 
 		Switch-AzureMode AzureResourceManager
@@ -296,7 +296,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
  
 위 그림에서는 가운데 행에는 파이프라인을, 위쪽과 아래쪽 행에는 테이블을 표시합니다.
 
-이 릴리스에서는 Azure 포털을 통해 데이터 집합/테이블을 만들 수 없으므로 Azure PowerShell을 사용하여 테이블을 만들어야 합니다.
+이 릴리스에서는 Azure 클래식 포털을 통해 데이터 집합/테이블을 만들 수 없으므로 Azure PowerShell을 사용하여 테이블을 만들어야 합니다.
 
 ### 테이블을 만들려면
 
@@ -324,7 +324,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 
 
-4. **Azure Preview 포털**에서 **LogProcessingFactory**의 **데이터 팩터리** 블레이드에서 **데이터 집합**을 클릭하고 데이터 집합이 모두 표시되는지 확인합니다(테이블은 사각형 데이터 집합).
+4. **Azure 포털**에서 **LogProcessingFactory**의 **DATA FACTORY** 블레이드에서 **데이터 집합**을 클릭하고 데이터 집합이 모두 표시되는지 확인합니다(테이블은 사각형 데이터 집합).
 
 	![데이터 집합 모두][image-data-factory-tutorial-datasets-all]
 
@@ -390,7 +390,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 			
 			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
-11. **Azure Preview 포털**에서 **LogProcessingFactory**의 **데이터 팩터리** 블레이드에서 파이프라인 이름이 아니라 **파이프라인** 타일을 클릭하면 만든 파이프라인이 표시됩니다.
+11. **Azure 포털**에서 **LogProcessingFactory**의 **DATA FACTORY** 블레이드에서 파이프라인 이름이 아니라 **파이프라인** 타일을 클릭하면 만든 파이프라인이 표시됩니다.
 
 	![모든 파이프라인][image-data-factory-tutorial-pipelines-all]
 
@@ -474,7 +474,7 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 [tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -562,4 +562,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

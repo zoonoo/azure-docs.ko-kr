@@ -20,7 +20,7 @@
 
 이 항목에서는 [Azure 앱 서비스] 웹 앱에 사용자 지정 Java 웹 앱을 업로드하는 방법을 설명합니다. 이 항목에는 모든 Java 웹 사이트이나 웹 앱에 적용되는 정보와 특정 응용 프로그램의 일부 예제도 포함되어 있습니다.
 
-Azure에서는 [Azure 앱 서비스에서 Java 웹 앱 만들기](web-sites-java-get-started.md)에서 설명한 대로 Azure 미리보기 포털의 구성 UI 및 Azure 마켓플레이스를 사용하여 Java 웹 앱을 만드는 방법을 제공합니다. 이 자습서는 포털 구성 UI 또는 Azure 마켓플레이스를 사용하지 않는 시나리오용입니다.
+[Azure 앱 서비스에서 자바 웹앱 만들기](web-sites-java-get-started.md)에서 설명한 대로 Azure는 Azure 포털의 구성 UI, Azure 마켓플레이스를 사용하여 Java 웹앱을 만드는 방법을 제공합니다. 이 자습서는 Azure 포털 구성 UI 또는 Azure 마켓플레이스를 사용하지 않으려는 경우의 시나리오입니다.
 
 ## 구성 지침
 
@@ -257,4 +257,4 @@ Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참
 <!-- External Links -->
 [Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

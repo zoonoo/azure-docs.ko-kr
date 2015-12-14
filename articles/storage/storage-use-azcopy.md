@@ -3,8 +3,8 @@
 	description="AzCopy를 사용하여 Blob 및 파일 내용을 업로드, 다운로드 및 복사하는 방법에 대해 알아봅니다." 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="micurd" 
+	manager="jahogg" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.date="12/02/2015" 
+	ms.author="micurd"/>
 
 # AzCopy 명령줄 유틸리티 시작
 
@@ -22,19 +22,14 @@
 
 AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성능으로 데이터 업로드, 다운로드 및 복사를 수행하도록 디자인된 명령줄 유틸리티입니다. 이 설명서는 AzCopy 사용의 개요를 제공합니다.
 
-> [AZURE.NOTE]이 설명서에서는 AzCopy 3.2.0 이상을 설치했다고 가정합니다. AzCopy 3.x는 이제 일반 공급으로 제공됩니다.
-> 
-> 이 설명서에서는 AzCopy의 미리 보기 릴리스인 AzCopy 4.2.0 사용에 대해서도 설명합니다. 이 설명서 전체에서 미리 보기 릴리스로만 제공되는 기능은 *미리 보기*로 지정됩니다.
-> 
-> AzCopy 4.x의 경우 명령줄 옵션 및 기능이 향후 릴리스에서 변경될 수 있습니다.
+> [AZURE.NOTE]이 설명서에서는 AzCopy 5.0 이상이 설치되어 있다고 가정합니다.
 
-
-AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공개 소스 라이브러리도 릴리스했습니다. 자세한 내용은 [Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/ko-KR/blog/introducing-azure-storage-data-movement-library-preview-2/)에 나와 있습니다.
+AzCopy를 구동하는 핵심 데이터 이동 프레임워크를 기반으로 하는 공개 소스 라이브러리도 릴리스했습니다. 자세한 내용은 [Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)를 참조하세요.
 
 ## AzCopy 다운로드 및 설치
 
-1. [최신 버전의 AzCopy](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다.
-2. 설치를 실행합니다. 기본적으로 AzCopy 설치는 `%ProgramFiles(x86)%\Microsoft SDKs\Azure`(64비트 Windows 실행 컴퓨터) 또는 `%ProgramFiles%\Microsoft SDKs\Azure`(32비트 Windows 실행 컴퓨터) 아래에 `AzCopy`라는 폴더를 만듭니다. 그렇지만 설치 마법사에서 설치 경로를 변경할 수 있습니다.
+1. [최신 버전의 AzCopy](http://aka.ms/downloadazcopy)를 다운로드합니다.
+2. 설치를 실행합니다. 기본적으로 AzCopy는 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy\AzCopy.exe`(64비트 Windows 실행 컴퓨터) 또는 `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy\AzCopy.exe`(32비트 Windows 실행 컴퓨터)에 설치됩니다. 그렇지만 설치 마법사에서 설치 경로를 변경할 수 있습니다.
 3. 원할 경우 시스템 경로에 AzCopy 설치 위치를 추가할 수 있습니다.
 
 ## AzCopy 명령줄 구문 이해
@@ -66,22 +61,22 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
     <th>옵션 이름</th>
     <th>설명</th>
     <th>Blob 저장소 해당 여부(Y/N)</th>
-    <th>파일 저장소 해당 여부(Y/N)(미리 보기 릴리스 전용)</th>
-    <th>테이블 저장소 해당 여부(Y/N)(미리 보기 릴리스 전용)</th>
+    <th>파일 저장소 해당 여부(Y/N)</th>
+    <th>테이블 저장소 해당 여부(Y/N)</th>
   </tr>
   <tr>
     <td><b>/Source:&lt;source></b></td>
     <td>복사할 소스 데이터를 지정합니다. 소스는 파일 시스템 디렉터리, Blob 컨테이너, Blob 가상 디렉터리, 저장소 파일 공유, 저장소 파일 디렉터리 또는 Azure 테이블일 수 있습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/Dest:&lt;destination></b></td>
     <td>복사할 대상을 지정합니다. 대상은 파일 시스템 디렉터리, Blob 컨테이너, Blob 가상 디렉터리, 저장소 파일 공유, 저장소 파일 디렉터리 또는 Azure 테이블일 수 있습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/Pattern:&lt;file-pattern></b></td>
@@ -98,15 +93,15 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
           <br/>
           파일 패턴을 지정하지 않을 때 사용되는 기본 파일 패턴은 파일 시스템 위치의 경우 *.* 이고 Azure 저장소 위치의 경우에는 빈 접두사입니다. 여러 파일 패턴을 지정할 수는 없습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/DestKey:&lt;storage-key></b></td>
     <td>대상 리소스에 대한 저장소 계정 키를 지정합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td class="auto-style1"><b>/DestSAS:&lt;sas-token></b></td>
@@ -114,15 +109,15 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         대상 리소스가 Blob 컨테이너, 파일 공유 또는 테이블이면 이 옵션을 지정하고 SAS 토큰을 지정하거나 이 옵션 없이 대상 Blob 컨테이너, 파일 공유 또는 테이블 URI의 일부로 SAS를 지정할 수 있습니다.<br />
         소스와 대상이 모두 Blob이면 대상 Blob은 소스 Blob과 같은 저장소 계정 내에 있어야 합니다.</td>
     <td class="auto-style1">Y</td>
-    <td class="auto-style1">Y<br /> (미리 보기 전용)</td>
-    <td class="auto-style1">Y<br /> (미리 보기 전용)</td>
+    <td class="auto-style1">Y<br /></td>
+    <td class="auto-style1">Y<br /></td>
   </tr>
   <tr>
     <td><b>/SourceKey:&lt;storage-key></b></td>
     <td>소스 리소스에 대한 저장소 계정 키를 지정합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/SourceSAS:&lt;sas-token></b></td>
@@ -132,14 +127,14 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         <br />
         소스가 파일 공유 또는 테이블이면 키나 SAS를 지정해야 합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/S</b></td>
     <td>복사 작업의 재귀 모드를 지정합니다. 재귀 모드에서 AzCopy는 하위 폴더의 Blob 또는 파일을 비롯하여 지정된 파일 패턴과 일치하는 모든 Blob 또는 파일을 복사합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
@@ -157,7 +152,7 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
 	<br />
     AzCopy는 Azure Blob 또는 파일을 서비스로 업로드하기 전에 항상 해당 Content-MD5 속성을 설정합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
@@ -175,8 +170,8 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
     <td><b>/V:[verbose log-file]</b></td>
     <td>세부 정보 표시 상태 메시지를 로그 파일로 출력합니다. 기본적으로 세부 정보 표시 로그 파일 이름은 <code>%LocalAppData%\Microsoft\Azure\AzCopy</code>의 <code>AzCopyVerbose.log</code>입니다. 이 옵션에 기존 파일 위치를 지정하면 세부 정보 표시 로그가 해당 파일에 추가됩니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/Z:[journal-file-folder]</b></td>
@@ -191,8 +186,8 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
 		<br />
 		이전 버전의 AzCopy에서 만들어진 저널 파일에서 작업을 다시 시작하는 것은 지원되지 않습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/@:parameter-file</b></td>
@@ -203,15 +198,15 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         <br />
         여러 지시 파일을 지정할 수 있습니다. 그렇지만 AzCopy는 중첩된지시 파일을 지원하지 않습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/Y</b></td>
     <td>모든 AzCopy 확인 프롬프트를 표시하지 않습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/L</b></td>
@@ -223,35 +218,35 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
     <br />
     AzCopy는 이 옵션을 사용하는 경우 이 원본 위치에 대한 목록 및 읽기 권한이 필요합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/MT</b></td>
     <td>다운로드한 파일의 마지막으로 수정한 시간을 소스 Blob 또는 파일과 동일하게 설정합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XN</b></td>
     <td>최신 소스 리소스를 제외합니다. 원본이 마지막으로 수정된 시간이 대상과 동일하거나 더 최신인 경우 리소스가 복사되지 않습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XO</b></td>
     <td>오래된 소스 리소스를 제외합니다. 원본이 마지막으로 수정된 시간이 대상과 동일하거나 더 오래된 경우 리소스가 복사되지 않습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/A</b></td>
     <td>Archive 특성 집합이 있는 파일만 업로드합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
@@ -279,7 +274,7 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         <br />
         I&#160;&#160;&#160;인덱싱되지 않은 파일</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
@@ -307,7 +302,7 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         <br />
         I&#160;&#160;&#160;인덱싱되지 않은 파일</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
@@ -328,22 +323,22 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         <br />
 		동시 작업의 상한은 512개입니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/SourceType:Blob|Table</b></td>
     <td><code>원본</code> 리소스를 저장소 에뮬레이터에서 실행되는 로컬 개발 환경에서 사용할 수 있는 Blob로 지정합니다.</td>
     <td>Y</td>
     <td>N</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/DestType:Blob|Table</b></td>
     <td><code>대상</code> 리소스를 저장소 에뮬레이터에서 실행되는 로컬 개발 환경에서 사용할 수 있는 Blob로 지정합니다.</td>
     <td>Y</td>
     <td>N</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><strong>/PKRS:&lt;"key1#key2#key3#..."></strong></td>
@@ -360,7 +355,7 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         &#160;&#160;&#160;[bb, &lt;마지막 파티션 키>] </td>
     <td>N</td>
     <td>N</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><strong>/SplitSize:</strong><file-size><strong>&lt;file-size></strong></td>
@@ -371,7 +366,7 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         테이블 데이터를 Blob로 내보내는데 내보낸 파일 크기가 Blob 크기에 대한 제한인 200GB에 도달하면 AzCopy는 이 옵션을 지정하지 않은 경우에도 내보낸 파일을 분할합니다. </td>
     <td>N</td>
     <td>N</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/EntityOperation:&lt;InsertOrSkip | InsertOrMerge | InsertOrReplace> </b>
@@ -385,7 +380,7 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
         InsertOrReplace - 기존 엔터티를 바꾸거나 테이블에 엔터티가 없으면 새 엔터티를 삽입합니다. </td>
     <td>N</td>
     <td>N</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/Manifest:&lt;manifest-file></b></td>
@@ -395,14 +390,14 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
     이 옵션은 데이터 파일 찾기를 위한 가져오기 작업 중에 필요합니다.</td>
     <td>N</td>
     <td>N</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
   </tr>
   <tr>
     <td><b>/SyncCopy</b></td>
     <td>두 Azure 저장소 끝점 간에 Blob 또는 파일을 동기적으로 복사할지 여부를 나타냅니다. <br />
 		기본적으로 AzCopy에서는 서버 쪽 비동기 복사를 사용합니다. Blob 또는 파일을 로컬 메모리에 다운로드한 다음 Azure 저장소에 업로드하는 동기 복사를 수행하려면 이 옵션을 지정합니다. Blob 저장소 내에서, 파일 저장소 내에서 또는 Blob 저장소에서 파일 저장소로 혹은 그 반대로 파일을 복사할 때 이 옵션을 사용할 수 있습니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
   <tr>
@@ -410,7 +405,7 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
     <td>대상 Blob 또는 파일의 MIME 콘텐츠 형식을 지정합니다. <br />
 		기본적으로 AzCopy에서는 Blob 또는 파일의 콘텐츠 형식을 <code>application/octet-stream</code>으로 설정합니다. 이 옵션에 대해 값을 명시적으로 지정하면 모든 Blob 또는 파일의 콘텐츠 형식을 설정할 수 있습니다. 값 없이 이 옵션을 지정하면 AzCopy에서 각 Blob 또는 파일의 콘텐츠 형식을 파일 확장명에 따라 설정합니다.</td>
     <td>Y</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
     <td>N</td>
   </tr>
     <tr>
@@ -419,7 +414,7 @@ AzCopy를 구동하는 핵심 데이터 이동 프레임워크에 기반한 공�
     이 옵션을 지정하지 않으면 기본적으로 AzCopy는 JSON 형식으로 테이블 데이터 파일을 내보냅니다.</td>
     <td>N</td>
     <td>N</td>
-    <td>Y<br /> (미리 보기 전용)</td>
+    <td>Y<br /></td>
   </tr>
 </table>
 <br/>
@@ -777,7 +772,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
 
-## AzCopy를 사용하여 Azure 파일 저장소의 파일 복사(미리 보기 버전 전용)
+## AzCopy를 사용하여 Azure 파일 저장소에 파일 복사
 
 아래 예에서는 AzCopy를 사용하여 Azure 파일을 복사하기 위한 다양한 시나리오를 보여 줍니다.
 
@@ -838,7 +833,7 @@ Azure 파일 저장소는 서버 쪽 비동기 복사를 지원합니다.
 `/SyncCopy`는 비동기 복사와 비교하여 추가적인 송신 비용이 발생할 수 있으므로 송신 비용을 방지하려면 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하는 것이 좋습니다.
 
 
-## AzCopy를 사용하여 Azure 테이블의 엔터티 복사(미리 보기 버전 전용)
+## AzCopy를 사용하여 Azure 테이블에 엔터티 복사
 
 아래 예에서는 AzCopy를 사용하여 Azure 테이블 엔터티를 복사하기 위한 다양한 시나리오를 보여 줍니다.
 
@@ -919,7 +914,7 @@ AzCopy는 데이터 전송 속도를 높이기 위해 컴퓨터 리소스를 최
 #### "암호화, 해시 및 서명에 FIPS 호환 알고리즘을 사용"할 경우 AzCopy에 대해 FIPS 규격 MD5 알고리즘을 사용하도록 설정합니다.
 기본적으로 AzCopy는 개체를 복사할 때 .NET MD5 구현을 사용하여 MD5를 계산하지만 보안 요구 때문에 FIPS 규격 MD5 설정을 사용하도록 설정하는 데 AzCopy가 필요합니다.
 
-`AzCopy.exe.config` 속성 `AzureStorageUseV1MD5`를 사용하여 app.config 파일을 만든 후 AzCopy.exe를 통해 일단 사용을 보류할 수 있습니다.
+`AzureStorageUseV1MD5` 속성을 사용하여 app.config 파일(`AzCopy.exe.config`)을 만들고 AzCopy.exe를 통해 일단 사용을 보류할 수 있습니다.
 
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
@@ -938,8 +933,9 @@ FIPS 규격 알고리즘은 Windows 컴퓨터에는 기본적으로 사용되지
 
 | 버전 | 새로운 기능 | 참조된 .NET 클라이언트 라이브러리 버전 | 대상 저장소 REST API 버전 |
 |---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
-| [**V4.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-4-2-0-preview/MicrosoftAzureStorageTools.msi) | **최신 미리 보기 버전으로, V3.2.0의 모든 기능을 포함합니다. 또한 파일 저장소 공유 SAS, 파일 저장소 비동기 복사, 테이블 엔터티를 CSV로 내보내기 및 테이블 엔터티를 내보낼 때 매니페스트 이름 지정도 지원합니다.** | **V5.0.0** | **2015-02-21**
-| [**V3.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-3-2-0/MicrosoftAzureStorageTools.msi) | **최신 릴리스 버전입니다. 추가 Blob 및 FIPS 규격 MD5 설정을 지원합니다.** | **V5.0.0** | **2015-02-21**
+| [**V5.0.0**](http://xdmrelease.blob.core.windows.net/azcopy-5-0-0/MicrosoftAzureStorageTools.msi) | **최신 릴리스 버전입니다. V4.2.0 이후의 모든 기능을 포함합니다. 파일 및 테이블 저장소에 대한 모든 기능은 이제 GA입니다.** | **V6.0.0** | **2015-04-05**
+| [V4.2.0](http://xdmrelease.blob.core.windows.net/azcopy-4-2-0-preview/MicrosoftAzureStorageTools.msi) | V3.2.0의 모든 기능을 포함합니다. 또한 파일 저장소 공유 SAS, 파일 저장소 비동기 복사, 테이블 엔터티를 CSV로 내보내기 및 테이블 엔터티를 내보낼 때 매니페스트 이름 지정도 지원합니다. | V5.0.0 | 2015-02-21
+| [V3.2.0](http://xdmrelease.blob.core.windows.net/azcopy-3-2-0/MicrosoftAzureStorageTools.msi) | 추가 Blob 및 FIPS 규격 MD5 설정 지원 | V5.0.0 | 2015-02-21
 | [V4.1.0](http://xdmrelease.blob.core.windows.net/azcopy-4-1-0-preview/MicrosoftAzureStorageTools.msi) | V3.1.0 이후의 모든 기능을 포함합니다. Blob 및 파일의 동기식 복사와 대상 Blob 및 파일의 콘텐츠 형식 지정을 지원합니다. | V4.3.0 | 2014-02-14
 | [V3.1.0](http://xdmrelease.blob.core.windows.net/azcopy-3-1-0/MicrosoftAzureStorageTools.msi) | Blob의 동기식 복사와 대상 Blob의 콘텐츠 형식 지정을 지원합니다.| V4.3.0 | 2014-02-14
 | [V4.0.0](http://xdmrelease.blob.core.windows.net/azcopy-4-0-0-preview/MicrosoftAzureStorageTools.msi) | V3.0.0 이후의 모든 기능을 포함합니다. 또한 Azure 파일 저장소에 대한 파일 복사와 Azure 테이블 저장소에 대한 엔터티 복사도 지원합니다.| V4.2.1 | 2014-02-14
@@ -966,7 +962,7 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [파일 저장소를 사용하여 Azure에서 SMB 파일 공유 만들기](storage-dotnet-how-to-use-files.md)
 
 ### Azure 저장소 블로그 게시물:
-- [DML: Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/ko-KR/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- [DML: Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 - [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](http://go.microsoft.com/fwlink/?LinkId=507682)
@@ -976,4 +972,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -74,7 +74,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	설치가 끝나면 Web App Migration Assistant가 자동으로 시작합니다.
   
-6.	**원격 서버에서 Azure로 사이트 및 데이터베이스 마이그레이션**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
+6.	**Migrate sites and databases from a remote server to Azure**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
 
 	![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
 
@@ -123,7 +123,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
  
 20.	Azure 웹 앱에 대한 링크를 클릭하고 마이그레이션이 성공했는지 확인합니다.
 
-21. 이제 Azure 앱 서비스에서 마이그레이션된 웹 앱을 관리할 수 있습니다. 이를 위해서는 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에 로그인합니다.
+21. 이제 Azure 앱 서비스에서 마이그레이션된 웹 앱을 관리할 수 있습니다. 이를 위해서는 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 22. Azure 포털에서 마이그레이션된 웹 사이트(웹 앱으로 표시)를 보려면, 웹 앱 블레이드를 연 다음 그 중 하나를 클릭하여 연속 게시 구성, 백업 만들기, 자동 크기 조정 및 사용 또는 성능 모니터링과 같은 웹 앱 관리를 시작합니다.
 
@@ -133,7 +133,6 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

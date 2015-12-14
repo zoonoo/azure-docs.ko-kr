@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 웹 프록시 구성
@@ -33,7 +33,7 @@
 
 - 설치 마법사 및 cmdlet을 사용하여 웹 프록시 구성
 - Cmdlet을 사용하여 웹 프록시 활성화
-- 관리 포털에서 웹 프록시 설정 보기
+- Azure 클래식 포털에서 웹 프록시 설정 보기
 - 웹 프록시 구성하는 동안 오류 해결
 
 
@@ -75,7 +75,7 @@
 
 처음으로 장치를 등록하는 경우 등록을 계속합니다. 이미 장치가 등록된 경우 마법사가 종료됩니다. 구성된 설정은 저장됩니다.
 
-웹 프록시를 사용할 수 있습니다. [웹 프록시 활성화](#enable-web-proxy) 단계를 건너 뛰고 [관리 포털에서 웹 프록시 설정 보기](#view-web-proxy-settings-in-the-management-portal)로 바로 이동할 수 있습니다.
+웹 프록시를 사용할 수 있습니다. [웹 프록시 활성화](#enable-web-proxy) 단계를 건너 뛰고 [Azure 클래식 포털에서 웹 프록시 설정 보기](#view-web-proxy-settings-in-the-azure-classic-portal)로 바로 이동할 수 있습니다.
 
 
 ## StorSimple cmdlet용 Windows PowerShell을 통해 웹 프록시 구성
@@ -116,9 +116,9 @@
 
 	![StorSimple 장치4에서 웹 프록시 구성](./media/storsimple-configure-web-proxy/IC751832.png)
 
-## 관리 포털에서 웹 프록시 설정 보기
+## Azure 클래식 포털에서 웹 프록시 설정 보기
 
-웹 프록시 설정은 Windows PowerShell 인터페이스를 통해 구성되고 관리 포털 내에서 변경할 수 없습니다. 그러나 관리 포털에서 이러한 구성된 설정을 볼 수 있습니다. 다음 단계를 수행하여 웹 프록시를 봅니다.
+웹 프록시 설정은 Windows PowerShell 인터페이스를 통해 구성되고 클래식 포털 내에서 변경할 수 없습니다. 그러나 클래식 포털에서 이러한 구성된 설정을 볼 수 있습니다. 다음 단계를 수행하여 웹 프록시를 봅니다.
 
 #### 웹 프록시 설정을 보려면
 1. **StorSimple 관리자 서비스 > 장치**로 이동합니다. 장치를 선택하고 클릭한 다음 **구성**으로 이동합니다.
@@ -143,7 +143,7 @@
 > [AZURE.NOTE]
 > 
 > -  위의 오류 메시지 목록은 전체 목록이 아닙니다. 
-> - 웹 프록시 설정에 관련된 오류는 StorSimple 관리자 서비스의 관리 포털에 나타나지 않습니다. 구성이 완료된 후에 웹 프록시에 문제가 있다면 관리 포털에서 장치 상태가 **오프라인**으로 변경됩니다. |
+> - 웹 프록시 설정에 관련된 오류는 StorSimple 관리자 서비스의 Azure 클래식 포털에 나타나지 않습니다. 구성이 완료된 후에 웹 프록시에 문제가 있다면 클래식 포털에서 장치 상태가 **오프라인**으로 변경됩니다. |
 
 ## 다음 단계
 
@@ -151,4 +151,4 @@
 
 - StorSimple Manager 서비스를 사용하는 방법을 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

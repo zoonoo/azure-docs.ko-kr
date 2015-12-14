@@ -57,7 +57,7 @@ ms.service="virtual-machines"
 
 
 
-### Azure 포털을 사용하여 수동 배포
+### Azure 클래식 포털을 사용하여 수동 배포
 
 
 
@@ -97,4 +97,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

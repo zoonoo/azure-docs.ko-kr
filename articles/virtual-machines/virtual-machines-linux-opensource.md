@@ -77,7 +77,7 @@ Debian은 Linux 및 오픈 소스 환경에 중요한 배포판으로, dpgk 및 
 CentOS Linux 배포판은 RHEL(Red Hat Enterprise Linux) 원본에서 파생된 안정적이고, 예측 가능하며, 관리가 용이하고, 재현 가능한 플랫폼입니다.
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [이미지 갤러리](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [이미지 갤러리](http://azure.microsoft.com/marketplace/partners/OpenLogic/)
 3. [방법: Azure에 대한 사용자 지정 CentOS 기반 VM 준비](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [블로그: OpenLogic에서 CentOS VM 이미지를 배포하는 방법](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [방법: AMQP 및 서비스 버스용 Apache Qpid Proton-C 설치](http://msdn.microsoft.com/library/azure/dn235560.aspx)
@@ -96,7 +96,7 @@ CentOS Linux 배포판은 RHEL(Red Hat Enterprise Linux) 원본에서 파생된 
 
 CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용으로 최적화된 소규모 Linux 배포판입니다.
 
-10. [이미지 갤러리](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [이미지 갤러리](http://azure.microsoft.com/marketplace/partners/coreos/)  
 11. [방법: Azure에서 CoreOS를 사용하는 방법](virtual-machines-linux-coreos-how-to.md)
 12. [방법: Azure의 CoreOS에서 Fleet 및 Docker 시작](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [블로그: TechEd Europe - Windows Docker 클라이언트 및 Linux 컨테이너](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -121,7 +121,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 1. [기본 사항: Azure 명령줄 인터페이스(Azure CLI)](../xplat-cli-install.md)
 4. [기본 사항: 인증서 사용 및 관리](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [기본 사항: Linux 사용자 이름 선택](virtual-machines-linux-usernames.md)
-6. [기본 사항: Azure 포털을 사용하여 Linux VM에 로그온](virtual-machines-linux-how-to-log-on.md)
+6. [기본 사항: Azure 클래식 포털을 사용하여 Linux VM에 로그온](virtual-machines-linux-how-to-log-on.md)
 7. [기본 사항: SSH](virtual-machines-linux-use-ssh-key.md)
 8. [기본 사항: Linux에 대한 암호 또는 SSH 속성을 다시 설정하는 방법](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [기본 사항: 루트 사용](virtual-machines-linux-use-root-privileges.md)
@@ -150,7 +150,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 
 1. [이미지](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
 2. [방법: AMQP 1.0을 사용하여 Java에서 서비스 버스 사용](http://msdn.microsoft.com/library/azure/jj841073.aspx)
-3. [방법: Azure 포털을 사용하여 Linux에 Tomcat7 설치](virtual-machines-linux-setup-tomcat7-linux.md)
+3. [방법: Azure 클래식 포털을 사용하여 Linux에 Tomcat7 설치](virtual-machines-linux-setup-tomcat7-linux.md)
 4. [비디오: 서비스 관리용 Azure Java SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
 5. [블로그: Java 용 Azure 관리 라이브러리 블로그: 시작](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
 5. [GitHub 리포지토리: Azure Toolkit for Eclipse with Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
@@ -263,7 +263,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 1. Docker
 	- [Azure의 Linux용 Docker VM 확장](virtual-machines-docker-vm-extension.md)
 	- [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-docker-with-../xplat-cli-install.md)
-	- [Azure 미리 보기 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md)
+	- [Azure 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md)
 	- [Azure 마켓플레이스에서 신속하게 Docker 시작](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Azure에서 docker-machine을 사용하는 방법](virtual-machines-docker-machine.md)
 	- [Azure에서 swarm과 함께 Docker를 사용하는 방법](virtual-machines-docker-swarm.md)
@@ -311,4 +311,4 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

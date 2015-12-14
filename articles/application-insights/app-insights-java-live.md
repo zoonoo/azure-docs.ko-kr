@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # 이미 라이브 상태인 Java 웹앱용 Application Insights
@@ -21,7 +21,7 @@
 
 J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 코드를 변경하거나 프로젝트를 다시 컴파일할 필요 없이 [Appliction Insight](app-insights-overview.md)를 사용하여 모니터링을 시작할 수 있습니다. 이 옵션을 사용하면 서버로 전송된 HTTP 요청, 처리되지 않은 예외 및 성능 카운터에 대한 정보를 얻을 수 있습니다.
 
-[Microsoft Azure](http://azure.com)를 구독해야 합니다.
+[Microsoft Azure](https://azure.com)를 구독해야 합니다.
 
 > [AZURE.NOTE]이 페이지의 절차는 런타임에서 웹앱에 SDK를 추가합니다. 소스 코드를 업데이트하거나 다시 작성하지 않을 경우에 유용한 방식입니다. 하지만 가능하면 [소스 코드에 SDK를 추가](app-insights-java-get-started.md)할 것을 권장합니다. 그러면 사용자 활동을 추적하는 코드를 작성하는 등 추가 옵션이 제공됩니다.
 
@@ -30,13 +30,13 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인
 2. 새 Application Insights 리소스 만들기
 
-    ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-get-started/01-create.png)
+    ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-live/01-create.png)
 3. Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
 
-    ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
+    ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-live/02-create.png)
 4. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 곧바로 붙여넣어야 합니다.
 
-    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-get-started/03-key.png)
+    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-live/03-key.png)
 
 ## 2\. SDK 다운로드
 
@@ -111,18 +111,18 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 
 HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.)
 
-![샘플 데이터](./media/app-insights-java-get-started/5-results.png)
+![샘플 데이터](./media/app-insights-java-live/5-results.png)
  
 
 차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다.
 
-![](./media/app-insights-java-get-started/6-barchart.png)
+![](./media/app-insights-java-live/6-barchart.png)
 
  
 
 또한 요청 속성 검토 시 요청 및 예외 사항과 관련된 원격 분석 이벤트를 볼 수 있습니다.
  
-![](./media/app-insights-java-get-started/7-instance.png)
+![](./media/app-insights-java-live/7-instance.png)
 
 
 [메트릭에 대해 자세히 알아봅니다.](app-insights-metrics-explorer.md)
@@ -139,4 +139,4 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

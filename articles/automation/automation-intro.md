@@ -81,7 +81,7 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 ## Azure 자동화는 다른 자동화 도구와 어떤 관계가 있습니까?
 
-[SMA(서비스 관리 자동화)](http://technet.microsoft.com/library/dn469260.aspx)는 사설 클라우드의 관리 작업을 자동화하는 데 사용됩니다. [Microsoft Azure Pack](https://www.microsoft.com/ko-KR/server-cloud/)의 구성 요소로 데이터 센터에 로컬로 설치됩니다. SMA와 Azure 자동화는 Windows PowerShell 및 Windows PowerShell 워크플로를 기반으로 하는 동일한 Runbook을 사용하지만, SMA는 [그래픽 Runbook](automation-graphical-authoring-intro.md)을 지원하지 않습니다.
+[SMA(서비스 관리 자동화)](http://technet.microsoft.com/library/dn469260.aspx)는 사설 클라우드의 관리 작업을 자동화하는 데 사용됩니다. [Microsoft Azure 팩](https://www.microsoft.com/ko-KR/server-cloud/)의 구성요소로 데이터 센터에 로컬로 설치됩니다. SMA와 Azure 자동화는 Windows PowerShell 및 Windows PowerShell 워크플로를 기반으로 하는 동일한 Runbook을 사용하지만, SMA는 [그래픽 Runbook](automation-graphical-authoring-intro.md)을 지원하지 않습니다.
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx)는 온-프레미스 리소스의 자동화에 사용됩니다. Azure 자동화 및 서비스 관리 자동화와 다른 runbook 형식을 사용하고 스크립팅 필요없이 runbook을 만드는 그래픽 인터페이스가 있습니다. 해당 runbook은 Ochestrator에 대해 구체적으로 적힌 통합 팩의 활동들로 구성됩니다.
 
@@ -92,7 +92,7 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 * 현재 위치는 **Azure 자동화 라이브러리**입니다. 이 문서에서는 Azure 자동화를 구성 및 관리하고 사용자 고유의 Runbook을 만드는 방법에 대한 전체 설명서를 제공합니다. 
 * [Azure PowerShell cmdlet](http://msdn.microsoft.com/library/jj156055.aspx)은 Windows PowerShell을 사용하여 Azure 작업을 자동화하는 방법에 대한 정보를 제공합니다. Runbook에서는 이러한 cmdlet을 사용하여 Azure 리소스로 작업합니다. 
-* [관리 블로그](https://azure.microsoft.com/ko-KR/blog/tag/azure-automation/)는 Azure 자동화 및 Microsoft의 기타 관리 기술에 대한 최신 정보를 제공합니다. Azure 자동화 팀에서 제공하는 최신 정보를 받으려면 Azure 자동화 블로그를 구독하세요. 
+* [관리 블로그](https://azure.microsoft.com/blog/tag/azure-automation/)는 Azure 자동화 및 Microsoft의 기타 관리 기술에 대한 최신 정보를 제공합니다. Azure 자동화 팀에서 제공하는 최신 정보를 받으려면 Azure 자동화 블로그를 구독하세요. 
 * [자동화 포럼](http://go.microsoft.com/fwlink/p/?LinkId=390561)에서는 Microsoft 및 자동화 커뮤니티에서 다루는 Azure 자동화에 대한 질문을 게시할 수 있습니다. 
 * [Azure 자동화 cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)은 관리 작업을 자동화하는 방법에 대한 정보를 제공합니다. 자동화 계정, 자산, Runbook, DSC을 관리하는 cmdlet을 포함합니다.
 
@@ -101,4 +101,4 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 **사용자 의견을 보내 주세요!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

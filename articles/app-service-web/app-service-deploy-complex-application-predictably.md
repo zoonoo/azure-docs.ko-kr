@@ -58,7 +58,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 
 ### Azure 리소스 탐색기 ###
 
-이 [미리 보기 도구](https://resources.azure.com)는 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다. 이 도구에서 현재 사용 가능한 정보는 리소스, 올바른 값 등 특정 형식에 대해 설정해야 하는 속성을 보여주기 때문에 템플릿 작성에 매우 유용합니다. [Azure Preview 포털](https://portal.azure.com)에서 리소스 그룹을 만들 수도 있고 그런 다음 리소스 그룹을 템플릿화할 수 있도록 탐색기 도구에서 JSON 정의를 검사합니다.
+이 [미리 보기 도구](https://resources.azure.com)는 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다. 이 도구에서 현재 사용 가능한 정보는 리소스, 올바른 값 등 특정 형식에 대해 설정해야 하는 속성을 보여주기 때문에 템플릿 작성에 매우 유용합니다. [Azure 포털](https://portal.azure.com)에서 리소스 그룹을 만들 수도 있고, 그런 다음 리소스 그룹을 템플릿화할 수 있도록 탐색기 도구에서 JSON 정의를 검사합니다.
 
 ### Azure 단추에 배포 ###
 
@@ -82,7 +82,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 
 	UI는 앱이 이제 시작하기 때문에 먼저 탐색할 때 약간 느릴 수 있지만 완벽하게 작동하는 응용 프로그램임을 직접 확인하세요.
 
-5.	배포 페이지로 돌아와서 Azure Preview 포털에서 새 응용 프로그램을 보려면 **관리** 링크를 클릭합니다.
+5.	배포 페이지로 돌아와서 Azure 포털에서 새 응용 프로그램을 보려면 **관리** 링크를 클릭합니다.
 
 6.	**필수** 드롭다운에서 리소스 그룹 링크를 클릭합니다. 웹 앱이 **외부 프로젝트** 아래 GitHub 리포지토리에 이미 연결되었습니다.
 
@@ -188,11 +188,11 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 `dependsOn` 요소에서 웹 앱 리소스 자체 외에도 `sourcecontrols/web`는 `config/appsettings` 및 `config/connectionstrings`에 따라서 달라집니다. 일단 `sourcecontrols/web`가 구성되기 때문에 Azure 배포 프로세스는 응용 프로그램 코드를 자동으로 배포, 빌드 및 시작하려 합니다. 따라서 이 종속성을 삽입하면 응용 프로그램이 코드를 실행하기 전에 응용 프로그램에 필요한 앱 설정 및 연결 문자열에 액세스할 수 있는지 확인할 수 있습니다. [TODO:이것이 true인지 확인해야 함.]
 
->[AZURE.NOTE]또한 `IsManualIntegration`은 `true`로 설정됩니다. 실제로 GitHub 리포지토리를 소유하지 않고 따라서 연속 게시를 구성하려면 Azure에 실제로 권한을 부여할 수 없기 때문에 이 속성은 이 자습서에 필요합니다.[ToDoApp](https://github.com/azure-appservice-samples/ToDoApp)(즉, Azure에 자동 저장소 업데이트 밀어넣기) [Azure Preview 포털](https://portal.azure.com)에서 소유자의 GitHub 자격 증명을 사용하도록 구성한 경우에만 지정된 리포지토리에 기본값 `false`을 사용할 수 있습니다. 즉, [Azure Preview 포털](https://portal.azure.com)에 먼저 모든 앱용 GitHub 또는 BitBucket에 소스 제어를 설정하는 경우, 사용자 자격 증명을 사용하여 Azure가 자격 증명을 기억하고 이후에 GitHub 또는 BitBucket에서 모든 앱을 배포할 때마다 이것을 사용합니다. 그러나 이것을 미리 수행하지 않은 경우 Azure 리소스 관리자가 리포지토리 소유자의 자격 증명으로 GitHub 또는 BitBucket에 로그인할 수 없기 때문에 웹 앱의 소스 제어 설정을 구성할 때 JSON 템플릿 배포는 실패합니다.
+>[AZURE.NOTE]또한 `IsManualIntegration`은 `true`로 설정됩니다. 실제로 GitHub 리포지토리를 소유하지 않고 따라서 연속 게시를 구성하려면 Azure에 실제로 권한을 부여할 수 없기 때문에 이 속성은 이 자습서에 필요합니다.[ToDoApp](https://github.com/azure-appservice-samples/ToDoApp)(즉, Azure에 자동 저장소 업데이트 밀어넣기) [Azure Preview 포털](https://portal.azure.com)에서 소유자의 GitHub 자격 증명을 사용하도록 구성한 경우에만 지정된 리포지토리에 기본값 `false`을 사용할 수 있습니다. 즉, [Azure 포털](https://portal.azure.com)에 먼저 모든 앱용 GitHub 또는 BitBucket에 소스 제어를 설정하는 경우, 사용자 자격 증명을 사용하여 Azure가 자격 증명을 기억하고 이후에 GitHub 또는 BitBucket에서 모든 앱을 배포할 때마다 이것을 사용합니다. 그러나 이것을 미리 수행하지 않은 경우 Azure 리소스 관리자가 리포지토리 소유자의 자격 증명으로 GitHub 또는 BitBucket에 로그인할 수 없기 때문에 웹 앱의 소스 제어 설정을 구성할 때 JSON 템플릿 배포는 실패합니다.
 
 ## 배포된 리소스 그룹과 JSON 템플릿 비교 ##
 
-[미리 보기 포털](https://portal.azure.com)에서 모든 웹 앱의 블레이드를 진행할 수 있지만, 더 그렇지 않은 경우 유용 한 다른 도구가 있습니다. [Azure 리소스 탐색기](https://resources.azure.com) 미리 보기 도구로 이동하면 구독하는 모든 리소스 그룹이 Azure 백엔드에 실제로 존재하기에 그 JSON 표현을 제공합니다. Azure에서 리소스 그룹의 JSON 계층이 어떻게 그것을 만드는데 사용되는 템플릿 파일의 계층 구조와 일치하는지를 볼 수 있습니다.
+[Azure 포털](https://portal.azure.com)에서 모든 웹 앱의 블레이드를 진행할 수 있지만, 더 사용할 수 없는 경우 유용한 다른 도구가 있습니다. [Azure 리소스 탐색기](https://resources.azure.com) 미리 보기 도구로 이동하면 구독하는 모든 리소스 그룹이 Azure 백엔드에 실제로 존재하기에 그 JSON 표현을 제공합니다. Azure에서 리소스 그룹의 JSON 계층이 어떻게 그것을 만드는데 사용되는 템플릿 파일의 계층 구조와 일치하는지를 볼 수 있습니다.
 
 예를 들어 [Azure 리소스 탐색기](https://resources.azure.com) 도구로 이동하고 탐색기에서 노드를 확장하는 경우 해당 리소스 형식에서 수집되는 리소스 그룹 및 루트 수준 리소스를 볼 수 있습니다.
 
@@ -268,7 +268,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 	
 16.	**배포**를 클릭합니다. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
 
-끝났습니다. 이제 응용 프로그램에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Preview 포털](https://portal.azure.com) 및 [Azure 리소스 탐색기](https://resources.azure.com)로 이동하면 됩니다.
+끝났습니다. 이제 응용 프로그램에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure 포털](https://portal.azure.com) 및 [Azure 리소스 탐색기](https://resources.azure.com)로 이동하면 됩니다.
 
 이 섹션의 단계에서 주로 다음을 수행합니다.
 
@@ -305,4 +305,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

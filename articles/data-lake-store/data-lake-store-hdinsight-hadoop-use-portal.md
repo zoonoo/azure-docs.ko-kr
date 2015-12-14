@@ -1,6 +1,6 @@
 <properties 
    pageTitle="포털을 사용하여 Azure 데이터 레이크 저장소로 HDInsight Hadoop 클러스터 프로비전 | Azure" 
-   description="Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소로 HDInsight Hadoop 클러스터 구성 및 사용" 
+   description="Azure 포털을 사용하여 Azure 데이터 레이크 저장소로 HDInsight Hadoop 클러스터 구성 및 사용" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -16,21 +16,21 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Azure Preview 포털을 사용하여 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 프로비전
+# Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 프로비전
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소와 함께 작동하도록 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 구성하는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항:
+Azure 포털을 사용하여 Azure 데이터 레이크 저장소와 함께 작동하도록 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 구성하는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항:
 
 * **Hadoop 및 Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)입니다.
 
 * **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다.
 
 
-이 문서에서 데이터 레이크 저장소를 추가 저장소로 사용하여 Hadoop 클러스터를 프로비저닝합니다. Azure Preview 포털을 사용하여 데이터 레이크 저장소와 함께 작동하도록 HDInsight를 구성하는 단계는 다음과 같습니다.
+이 문서에서 데이터 레이크 저장소를 추가 저장소로 사용하여 Hadoop 클러스터를 프로비저닝합니다. Azure 포털을 사용하여 데이터 레이크 저장소와 함께 작동하도록 HDInsight를 구성하는 단계는 다음과 같습니다.
 
 * Azure Active Directory 서비스 주체에 대한 인증을 통해 HDInsight 클러스터 만들기
 * 동일한 서비스 주체를 사용하여 데이터 레이크 저장소 액세스 구성
@@ -40,7 +40,7 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소와 함�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 
 
@@ -48,7 +48,7 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소와 함�
 
 이 섹션에서는 추가 저장소로 데이터 레이크 저장소를 사용하는 HDInsight Hadoop 클러스터를 만듭니다. 이 릴리스에서 Hadoop 클러스터의 경우 데이터 레이크 저장소는 클러스터에 대해 추가 저장소로만 사용될 수 있습니다. 기본 저장소는 여전히 Azure 저장소 Blob(WASB)이 됩니다. 따라서 먼저 클러스터에 필요한 저장소 계정 및 저장소 컨테이너를 만들어 보겠습니다.
 
-1. 새로운 [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal)에서 단계를 따라 HDInsight 클러스터 프로비전을 시작합니다.
  
@@ -83,9 +83,9 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소와 함�
 
 ## <a name="acl"></a>데이터 레이크 저장소 파일 시스템에 액세스하기 위한 서비스 주체 구성
 
-1. 새로운 [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. 데이터 레이크 저장소 계정이 없는 경우 만듭니다. [Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)의 지침을 따릅니다.
+2. 데이터 레이크 저장소 계정이 없는 경우 만듭니다. [Azure 포털을 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)의 지침을 따릅니다.
 
 	데이터 레이크 저장소 계정이 있는 경우 왼쪽 창에서 **찾아보기**, **데이터 레이크 저장소**를 차례로 클릭한 다음 액세스 권한을 부여하려는 계정 이름을 클릭합니다.
 
@@ -167,7 +167,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 데이터 레이크 저장소를 사용하도록 HDInsight 클러스터를 구성한 후 HDFS 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.
 
-1. 새로운 [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **찾아보기**를 클릭하고 **HDInsight 클러스터**를 클릭한 다음 만든 HDInsight 클러스터를 클릭합니다.
 
@@ -207,4 +207,4 @@ HBase 클러스터의 경우 데이터 레이크 저장소 계정을 기본 저�
 [makecert]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

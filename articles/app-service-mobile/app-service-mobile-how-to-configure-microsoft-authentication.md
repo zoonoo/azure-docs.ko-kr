@@ -30,7 +30,7 @@
 
 ## <a name="register"> </a>Microsoft 계정을 사용하여 응용 프로그램 등록
 
-1. [Azure 관리 포털]에 로그인한 다음 응용 프로그램으로 이동합니다. **URL**을 복사합니다. Microsoft 계정 앱을 구성하는 데 사용합니다.
+1. [Azure 포털]에 로그인한 다음 응용 프로그램으로 이동합니다. **URL**을 복사합니다. Microsoft 계정 앱을 구성하는 데 사용합니다.
 
 2. Microsoft 계정 개발자 센터의 [내 응용 프로그램] 페이지로 이동하고 필요한 경우 Microsoft 계정으로 로그온합니다.
 
@@ -55,7 +55,7 @@
 > [AZURE.NOTE]앱 서비스 게이트웨이를 사용하는 경우 이 섹션을 무시하고 대신 포털에서 게이트웨이로 이동합니다. **Settings**, **Identity**, **Microsoft 계정**을 차례로 선택합니다. 앞에서 얻은 값을 붙여넣고 **Save**를 클릭합니다.
 
 
-7. [Azure 관리 포털]로 돌아가서 응용 프로그램으로 이동합니다. **Settings**를 클릭한 다음 **Authentication / Authorization**을 클릭합니다.
+7. [Azure 포털]로 돌아가서 응용 프로그램으로 이동합니다. **Settings**를 클릭한 다음 **Authentication / Authorization**을 클릭합니다.
 
 8. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **On**으로 전환합니다.
 
@@ -88,6 +88,6 @@
 <!-- URLs. -->
 
 [내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Azure 관리 포털]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

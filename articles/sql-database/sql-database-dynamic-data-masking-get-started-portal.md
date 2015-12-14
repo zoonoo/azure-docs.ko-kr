@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 포털)"
-   description="Azure 포털에서 SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법"
+   pageTitle="SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 클래식 포털)"
+   description="Azure 클래식 포털에서 SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -16,10 +16,10 @@
    ms.date="10/20/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
-# SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 포털)
+# SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 클래식 포털)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Preview portal](sql-database-dynamic-data-masking-get-started.md)
+- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 
 ## 개요
 
@@ -31,10 +31,10 @@ SQL 데이터베이스 동적 데이터 마스킹에서는 권한이 없는 사�
 
 ## SQL 데이터베이스 동적 데이터 마스킹 관련 기본 사항
 
-데이터베이스에 대한 Azure 포털의 감사 및 보안 탭에서 동적 데이터 마스킹 정책을 설정합니다.
+데이터베이스에 대한 Azure 클래식 포털의 감사 및 보안 탭에서 동적 데이터 마스킹 정책을 설정합니다.
 
 
-> [AZURE.NOTE]Azure Preview 포털에서 동적 데이터 마스킹을 설정하려면 [SQL 데이터베이스 동적 데이터 마스킹(Azure 미리 보기 포털)](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
+> [AZURE.NOTE]Azure 포털에서 동적 데이터 마스킹을 설정하려면 [SQL 데이터베이스 동적 데이터 마스킹(Azure 포털)](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
 
 
 ### 동적 데이터 마스킹 사용 권한
@@ -61,9 +61,9 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 
 <a name="Anchor1"></a>
 
-## Azure 포털을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
+## Azure 클래식 포털을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 
-1. Azure 포털[(https://manage.windowsazure.com)](https://manage.windowsazure.com)을 시작합니다.
+1. [https://manage.windowsazure.com](https://manage.windowsazure.com)에서 기존 Azure 클래식 포털을 시작합니다.
 
 2. 마스킹할 데이터베이스를 클릭하고 **감사 및 보안** 탭을 클릭합니다.
 
@@ -96,4 +96,4 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 
 [Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

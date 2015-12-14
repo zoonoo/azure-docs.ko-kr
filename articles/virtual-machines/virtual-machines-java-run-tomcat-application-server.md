@@ -40,7 +40,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
 
 ## 가상 컴퓨터를 만드는 방법
 
-1. [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. **새로 만들기**를 클릭하고, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 3. **가상 컴퓨터 이미지 선택** 대화 상자에서 **JDK 7 Windows Server 2012**를 선택합니다. JDK 7에서 실행할 준비가 되지 않은 레거시 응용 프로그램이 있는 경우 **JDK 6 Windows Server 2012**를 사용할 수 있습니다.
 4. **다음**을 클릭합니다.
@@ -63,7 +63,7 @@ Azure에서 가상 컴퓨터를 사용하여 서버 기능을 제공할 수 있�
 
 ## 가상 컴퓨터에 원격으로 로그인하려면 다음을 수행합니다.
 
-1. [Azure 포털](https://manage.windowsazure.com)에 로그온합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그온합니다.
 2. **가상 컴퓨터**를 클릭합니다.
 3. 로그인할 가상 컴퓨터의 이름을 클릭합니다.
 4. 가상 컴퓨터가 시작되면 페이지 아래쪽의 팝업 메뉴를 통해 연결이 가능합니다.
@@ -89,7 +89,7 @@ Java 응용 프로그램 서버를 가상 컴퓨터로 복사하거나 설치 �
 Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들고 포트를 열어야 합니다.
 
 ## 가상 컴퓨터의 끝점을 만드는 방법
-1. [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. **가상 컴퓨터**를 클릭합니다.
 3. Java 응용 프로그램 서버를 실행하는 가상 컴퓨터의 이름을 클릭합니다.
 4. **끝점**을 클릭합니다.
@@ -114,7 +114,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 9. **프로필** 화면에서 **도메인**, **개인** 및 **공용**이 선택되었는지 확인하고 **다음**을 클릭합니다. ![새 인바운드 규칙 프로필][NewRuleProfile]
 10. **이름** 화면에서 규칙 이름(예: **HttpIn**)(규칙 이름은 끝점 이름과 일치하지 않아도 됨)을 지정하고 **마침**을 클릭합니다. ![새 인바운드 규칙 이름][NewRuleName]
 
-이제 외부 브라우저에서 **http://*your\_DNS\_name*.cloudapp.net** 형식의 URL을 사용하여 Tomcat 웹 사이트를 볼 수 있습니다. 여기서 ***your\_DNS\_name***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
+이제 외부 브라우저에서 ****http://*your\_DNS\_name*.cloudapp.net** 형식의 URL을 사용하여 Tomcat 웹 사이트를 볼 수 있습니다. 여기서 ***your\_DNS\_name***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
 
 ## 응용 프로그램 수명 주기 고려 사항
 * 사용자 고유의 WAR(웹 응용 프로그램 보관)을 만들어 **webapps** 폴더에 추가할 수 있습니다. 예를 들어, 기본 JSP(Java 서비스 페이지) 동적 웹 프로젝트를 만들어 WAR 파일로 내보내고, 가상 컴퓨터의 Apache Tomcat **webapps** 폴더로 WAR 파일을 복사한 후 브라우저에서 실행합니다.
@@ -146,4 +146,4 @@ Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

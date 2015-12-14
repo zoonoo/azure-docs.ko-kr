@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -39,7 +39,7 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 
 ### 액세스 제어 발급자 이름 및 발급자 키를 복사하여 붙여 넣으려면
 
-1. [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택합니다.
 3. BizTalk 서비스를 선택합니다. 
 4. 작업 표시줄에서 **연결 정보**를 선택합니다. 액세스 제어 네임스페이스, 기본 발급자(발급자 이름) 및 기본 키(발급자 키)가 나열되며 이러한 항목은 복사하여 붙여넣을 수 있습니다.  
@@ -49,7 +49,7 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 
 **ACS 관리 포털 열기**를 선택하여 액세스 제어 값을 가져올 수도 있습니다.
 
-1. [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택합니다.
 3. BizTalk 서비스를 선택합니다.
 4. 연결 정보 단추를 선택하고 **ACS 관리 포털 열기**를 선택합니다.
@@ -67,13 +67,11 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 
 ### 서비스 버스 발급자 이름 및 발급자 키를 검색하려면
 
-1. [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **Service Bus**를 선택합니다.
 3. 네임스페이스를 선택합니다. 작업 표시줄에서 **연결 정보**를 선택합니다. 그러면 **기본 발급자**(발급자 이름) 및 **기본 키**(발급자 키)가 표시됩니다. 이 값은 복사할 수 있습니다.  
 
-요약하면 다음과 같습니다.  
-발급자 이름 = 기본 발급자  
-발급자 키 = 기본 키
+요약하면 다음과 같습니다.발급자 이름 = 기본 발급자 발급자 키 = 기본 키
 
 ## 다음
 추가 Azure BizTalk 서비스 항목:
@@ -87,11 +85,11 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 ## 참고 항목
 -  [방법: ACS 관리 서비스를 사용하여 서비스 ID 구성](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 - [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk 서비스: 프로비저닝 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [BizTalk 서비스: 백업 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

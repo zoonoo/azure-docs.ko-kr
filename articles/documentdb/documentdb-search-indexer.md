@@ -121,7 +121,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 ##<a id="CreateIndex"></a>2단계: 인덱스 만들기
 
-대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 포털 UI](../search-get-started.md#test-service-operations) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
+대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 클래식 포털 UI](../search-get-started.md#test-service-operations) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
  - Azure 검색에 대해 자세히 알아보려면 [여기](/services/search/)를 클릭하십시오.
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

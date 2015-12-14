@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 StorSimple 장치 연결 및 관리
@@ -30,7 +30,7 @@ StorSimple 스냅숏 관리자의 **범위** 창에서 노드를 사용하여 �
 
 | 결과 열 |설명 |
 |:----------------|:--------------------| 
-| 이름 | Microsoft Azure 관리 포털에서 구성한 장치의 이름|
+| 이름 | 장치의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다.|
 | 모델 | 장치의 모델 번호|
 | 버전 | 장치에 설치된 소프트웨어 버전 |
 | 상태 | 장치를 사용할 수 있는지 여부 |
@@ -82,7 +82,7 @@ StorSimple 스냅숏 관리자의 **범위** 창에서 노드를 사용하여 �
 
 3. **장치** 드롭다운 상자에서 장치 또는 가상 장치의 IP 주소를 선택합니다.
 
-4. **암호** 텍스트 상자에 Azure 관리 포털에서 장치에 대해 만든 StorSimple 스냅숏 관리자 암호를 입력합니다. **확인**을 클릭합니다. StorSimple 스냅숏 관리자에서 사용자가 지정한 장치를 검색합니다.
+4. 암호 **텍스트 상자**에 Azure 클래식 포털에서 장치에 대한 StorSimple 스냅숏 관리자 암호를 입력합니다. **확인**을 클릭합니다. StorSimple 스냅숏 관리자에서 사용자가 지정한 장치를 검색합니다.
 
     - 장치를 사용할 수 있으면 StorSimple 스냅숏 관리자가 연결을 추가합니다. 
 
@@ -190,11 +190,11 @@ StorSimple 스냅숏 관리자의 **범위** 창에서 노드를 사용하여 �
 
 ## 만료된 장치 암호 변경
 
-다음 절차에 따라 StorSimple 스냅숏 관리자에서 StorSimple 장치를 인증하기 위한 암호를 입력할 수 있습니다. Windows PowerShell 인터페이스를 사용하여 장치를 설정할 때 이 암호를 구성합니다. 그러나 암호는 만료될 수 있습니다. 이 경우 Microsoft Azure 관리 포털을 사용하여 암호를 변경할 수 있습니다. 그런 다음, 암호가 만료되기 전에 StorSimple 스냅숏 관리자에서 장치를 구성했기 때문에 StorSimple 스냅숏 관리자에서 장치를 다시 인증해야 합니다.
+다음 절차에 따라 StorSimple 스냅숏 관리자에서 StorSimple 장치를 인증하기 위한 암호를 입력할 수 있습니다. Windows PowerShell 인터페이스를 사용하여 장치를 설정할 때 이 암호를 구성합니다. 그러나 암호는 만료될 수 있습니다. 이 경우에는 Azure 클래식 포털을 사용하여 암호를 변경할 수 있습니다. 그런 다음, 암호가 만료되기 전에 StorSimple 스냅숏 관리자에서 장치를 구성했기 때문에 StorSimple 스냅숏 관리자에서 장치를 다시 인증해야 합니다.
 
 #### 만료된 암호를 변경하려면
 
-1. Azure 관리 포털에서 StorSimple 관리자 서비스를 시작합니다.
+1. Azure 클래식 포털에서 StorSimple 관리자 서비스를 시작합니다.
 
 2. 해당 장치에 대해 **장치** > **구성**을 클릭합니다.
 
@@ -263,4 +263,4 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 - [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 - [StorSimple 스냅숏 관리자를 사용하여 볼륨을 보고 관리](storsimple-snapshot-manager-manage-volumes.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

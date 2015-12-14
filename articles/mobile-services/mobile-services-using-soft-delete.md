@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="모바일 서비스에서 일시 삭제 사용(Windows 스토어) | Microsoft Azure" 
-	description="응용 프로그램에서 Azure 모바일 서비스 일시 삭제 기능을 사용하는 방법에 대해 알아봅니다." 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="모바일 서비스에서 일시 삭제 사용(Windows 스토어) | Microsoft Azure"
+	description="응용 프로그램에서 Azure 모바일 서비스 일시 삭제 기능을 사용하는 방법에 대해 알아봅니다."
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="wesmc"/>
 
 # 모바일 서비스에서 일시 삭제 사용
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##개요
 
@@ -44,7 +49,7 @@ JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택�
 다음 단계에서는 .NET 백 엔드 모바일 서비스에 대해 일시 삭제를 사용하도록 설정하는 방법을 안내합니다.
 
 1. Visual Studio에서 .NET 백 엔드 모바일 서비스 프로젝트를 엽니다.
-2. .NET 백 엔드 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. 
+2. .NET 백 엔드 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다.
 3. 패키지 관리자 대화 상자에서 업데이트 아래의 **Nuget.org**를 클릭하고 [Microsoft Azure 모바일 서비스 .NET 백 엔드](http://go.microsoft.com/fwlink/?LinkId=513165) NuGet 패키지 1.0.402 이상 버전을 설치합니다.
 3. Visual Studio의 솔루션 탐색기에서 .NET 백 엔드 프로젝트 아래의 **컨트롤러** 노드를 확장하고 *TodoItemController.cs* 등의 컨트롤러 원본을 엽니다.
 4. 컨트롤러의 `Initialize()` 메서드에서 `enableSoftDelete: true` 매개 변수를 EntityDomainManager 생성자로 전달합니다.
@@ -65,7 +70,7 @@ JavaScript 또는 .NET 백 엔드를 사용하여 만든 테이블에서 선택�
 
 JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하도록 설정하려면
 
-1. [관리 포털]에서 모바일 서비스를 클릭한 다음 데이터 탭을 클릭합니다.
+1. [Azure 클래식 포털]에서 모바일 서비스를 클릭합니다. 데이터 탭을 클릭합니다.
 2. 데이터 페이지에서 원하는 테이블을 클릭하여 선택합니다. 그런 다음 명령 모음에서 **일시 삭제 사용** 단추를 클릭합니다. 테이블에 대해 일시 삭제가 이미 사용하도록 설정되어 있으면 이 단추는 표시되지 않습니다. 그러나 테이블의 **찾아보기** 또는 **열** 탭을 클릭하면 *\_\_deleted* 열을 확인할 수 있습니다.
 
     ![][0]
@@ -82,23 +87,23 @@ JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하�
     public class SampleJob : ScheduledJob
     {
         private MobileService1Context context;
-     
-        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
             CancellationToken cancellationToken)
         {
             base.Initialize(scheduledJobDescriptor, cancellationToken);
             context = new MobileService1Context();
         }
-     
+
         public override Task ExecuteAsync()
         {
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
-     
+
             var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
             context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
-     
+
             return Task.FromResult(true);
         }
     }
@@ -113,12 +118,12 @@ JavaScript 백 엔드의 기존 테이블에 대해 일시 삭제를 사용하�
 테이블 스크립트를 사용하여 JavaScript 백 엔드 모바일 서비스의 일시 삭제 기능과 관련된 논리를 추가합니다.
 
 삭제 취소 요청을 검색하려면 업데이트 테이블 스크립트에서 "undelete" 속성을 사용합니다.
-    
+
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
 스크립트의 쿼리 결과에 삭제된 레코드를 포함하려면 "includeDeleted" 매개 변수를 true로 설정합니다.
-    
+
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
         success: function (results) {
@@ -158,9 +163,6 @@ JavaScript 백 엔드 모바일 서비스와 예약된 작업에 대해 자세�
 <!-- URLs. -->
 [SQL 비트 유형]: http://msdn.microsoft.com/library/ms177603.aspx
 [모바일 서비스용 오프라인 데이터 동기화]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

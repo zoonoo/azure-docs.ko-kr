@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SharePoint Server 팜 만들기 | Microsoft Azure"
-	description="Azure Preview 포털 마켓플레이스를 통해 새로운 기본 또는 고가용성 SharePoint Server 2013 팜을 신속하게 만들 수 있습니다."
+	description="Azure 포털 마켓플레이스를 사용하여 새로운 기본 또는 고가용성 SharePoint Server 2013 팜을 빠르게 생성하기"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 모델입니다.
 
-Microsoft Azure Preview 포털 마켓플레이스를 사용하면 신속히 사전 구성된 SharePoint Server 2013 팜을 만들 수 있습니다. 그러면 개발 및 테스팅 환경을 위해 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013 을 조직의 협업 솔루션으로 평가하는 경우 상당한 시간이 줄어들 수 있습니다.
+Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 SharePoint Server 2013 팜을 신속하게 만들 수 있습니다. 그러면 개발 및 테스팅 환경을 위해 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013 을 조직의 협업 솔루션으로 평가하는 경우 상당한 시간이 줄어들 수 있습니다.
 
-> [AZURE.NOTE]Azure Preview 포털의 Azure 마켓플레이스에서 **SharePoint 서버 팜** 항목이 제거되었습니다.
+> [AZURE.NOTE]Azure 포털에서 Azure 마켓플레이스의 **SharePoint 서버 팜** 항목이 제거되었습니다.
 
 기본 SharePoint 팜은 다음 구성의 3가지 가상 컴퓨터로 구성됩니다.
 
@@ -59,7 +59,7 @@ Microsoft Azure Preview 포털 마켓플레이스를 사용하면 신속히 사�
 
 중앙 관리 SharePoint 사이트에서 내 사이트, SharePoint 응용 프로그램 및 기타 기능을 구성할 수 있습니다. 자세한 내용은 [SharePoint 2013 구성](http://technet.microsoft.com/library/ee836142.aspx)을 참조하세요.
 
-> [AZURE.NOTE]Azure Preview 포털은 인터넷 연결 웹 서비스를 사용하는 클라우드 전용 가상 네트워크에서 이러한 팜을 모두 만듭니다. 조직 네트워크에 대한 사이트 간 VPN 또는 ExpressRoute 연결은 없습니다.
+> [AZURE.NOTE]Azure 포털은 인터넷 연결 웹 서비스를 사용하여 클라우드 전용 가상 네트워크에 이러한 팜을 모두 만듭니다. 조직 네트워크에 대한 사이트 간 VPN 또는 ExpressRoute 연결은 없습니다.
 
 ## 추가 리소스
 
@@ -69,4 +69,4 @@ Microsoft Azure Preview 포털 마켓플레이스를 사용하면 신속히 사�
 
 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

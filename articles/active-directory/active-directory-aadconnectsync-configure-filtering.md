@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect 동기화 필터링 구성 | Microsoft Azure"
+	pageTitle="Azure AD Connect 동기화: 필터링 구성 | Microsoft Azure"
 	description="Azure AD Connect 동기화에서 필터링을 구성하는 방법을 설명합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -281,4 +281,4 @@ Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -204,7 +204,7 @@ C:\\chef\\cookbooks\\webserver\\recipes\\default.rb를 수정하고 다음 줄�
 
 > [AZURE.NOTE]명령줄에서 –tcp-endpoints 매개변수를 사용하여 끝점 네트워크 필터 규칙을 자동화해 보겠습니다. 포트 80 및 3389를 열어 내 웹 페이지 및 RDP 세션에 대한 액세스를 제공합니다.
 
-명령을 실행하고 나면 Azure Preview 포털로 이동하며 프로비전을 시작할 컴퓨터를 확인할 수 있습니다.
+명령을 실행하고 나면 Azure 포털로 이동하며 프로비전을 시작할 컴퓨터가 표시됩니다.
 
 ![][13]
 
@@ -218,7 +218,7 @@ C:\\chef\\cookbooks\\webserver\\recipes\\default.rb를 수정하고 다음 줄�
 
 보시는 바와 같이 HTML 코드를 독창적으로 수정했습니다.
 
-포트 3389에서도 Azure 포털에서 RDP 세션을 통해 연결할 수 있다는 점을 기억하세요.
+포트 3389에서도 Azure 클래식 포털에서 RDP 세션을 통해 연결할 수 있다는 점을 기억하세요.
 
 유익한 정보가 되셨기 바랍니다. 이제 Azure의 Infrastructure as Code 과정을 시작해 보세요.
 
@@ -239,4 +239,4 @@ C:\\chef\\cookbooks\\webserver\\recipes\\default.rb를 수정하고 다음 줄�
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

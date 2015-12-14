@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Azure 등록 문제 해결
 이 문서는 Azure에 등록할 때 발생할 수 있는 문제의 공통 원인을 해결하는 데 도움이 됩니다.
@@ -60,4 +60,4 @@ Azure 사용 약관에는 이전에 Azure를 사용하지 않은 사용자에게
 ## 여전히 등록할 수 없습니까?
 여전히 등록 문제를 경험하거나 이 문서에서 문제를 다루지 않은 경우 지원에 대해서는 [Azure 지원에 문의](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하십시오.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

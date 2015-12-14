@@ -351,4 +351,4 @@ ConsentReturnUrl을 회신 URL과 별도로 지정하면 앱이 회신 URL(일�
 
 - [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 확인하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,11 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 
 # Azure AD Reporting API 시작하기
+
+## Reporting 설명서
+
+ - [Reporting API](active-directory-reporting-api-getting-started.md)
+ - [감사 이벤트](active-directory-reporting-audit-events.md)
+ - [보존](active-directory-reporting-retention.md)
+ - [미리 보기](active-directory-reporting-previews.md)
+ - [이를 통해 검색](active-directory-reporting-search.md)
+ - [백필](active-directory-reporting-backfill.md)
+ - [대기 시간](active-directory-reporting-latencies.md)
+ - ["알 수 없는 작업자" 이벤트](active-directory-reporting-unknown-actor.md)
 
 Azure Active Directory는 다양한 작업, 보안 및 감사 보고서를 제공합니다. 이 데이터는 Azure 포털을 통해 사용할 수 있지만 SIEM 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 다른 많은 응용 프로그램에서도 매우 유용할 수 있습니다.
 
@@ -160,7 +171,7 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 ## 참고
 
 - Azure AD Reporting API에서 (OData 페이지 매김을 사용하여) 반환되는 이벤트의 수가 제한됩니다.
-	- 데이터 보고에서 보존 제한은 [보존 정책 보고](active-directory-reporting-retention.md)를 확인하세요.
+	- 데이터 보고에서 보존 제한은 [Reporting 보존 정책](active-directory-reporting-retention.md)을 확인하세요.
 
 
 ## 다음 단계
@@ -168,4 +179,4 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

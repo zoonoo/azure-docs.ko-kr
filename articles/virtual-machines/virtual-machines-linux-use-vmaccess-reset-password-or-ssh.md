@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure CLI에서 Linux VM 암호 재설정 | Microsoft Azure"
-	description="Azure 포털 또는 CLI에서 VMAccess 확장을 사용하여 Linux VM 암호 및 SSH 키, SSH 구성을 재설정하고 사용자 계정을 삭제하는 방법입니다."
+	description="Azure 클래식 포털 또는 CLI에서 VMAccess 확장을 사용하여 Linux 가상 컴퓨터 암호 및 SSH 키, SSH 구성과 사용자 계정을 삭제하는 방법."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -22,15 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-암호를 잊어버리거나, SSH(Secure Shell) 키가 잘못되었거나, SSH 구성 문제가 발생하여 Linux 가상 컴퓨터에 연결할 수 없는 경우, Azure 미리 보기 포털이나 VMAccessforLinux 확장을 사용하여 암호 또는 SSH 키를 다시 설정하거나 SSH 구성을 수정할 수 있습니다. 이 문서는 **클래식** 배포 모델을 사용하여 만든 가상 컴퓨터에 적용됩니다.
+암호를 잊거나 SSH(보안 셸) 키가 맞지 않거나 SSH 구성에 문제가 생겨 Linux 가상 컴퓨터에 연결할 수 없는 경우, Azure 포털 또는 VMAccessForLinux 확장을 사용하여 암호, SSH 키, 또는 SSH 구성을 다시 설정합니다. 이 문서는 **클래식** 배포 모델을 사용하여 만든 가상 컴퓨터에 적용됩니다.
 
-## Azure 미리 보기 포털
+## Azure 포털
 
-[Azure 미리 보기 포털](https://portal.azure.com)에서 SSH 구성을 재설정하려면, **찾아보기** > **가상 컴퓨터** > *Linux 가상 컴퓨터* > **원격 액세스 재설정**을 클릭합니다. 다음은 예제입니다.
+[Azure 포털](https://portal.azure.com)에서 SSH 구성을 다시 설정하려면, **찾아보기** >**가상 컴퓨터**>*사용자 Linux 가상 컴퓨터*>**원격 액세스 재설정**을 차례로 클릭합니다. 다음은 예제입니다.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-[Azure 미리 보기 포털](https://portal.azure.com)에서 sudo 권한이 있는 사용자 계정의 이름과 암호 또는 SSH 공개 키를 재설정하려면, **찾아보기** > **가상 컴퓨터** > *Linux 가상 컴퓨터* > **모든 설정** > **암호 재설정**을 클릭합니다. 다음은 예제입니다.
+sudo 권한 또는 [Azure 포털](https://portal.azure.com)의 SSH 공개 키를 사용하여 사용자 계정의 이름과 암호를 재설정하려면, **찾아보기**>**가상 컴퓨터**>*사용자 Linux 가상 컴퓨터*>**모든 설정**>**암호 재설정**을 차례로 클릭합니다. 다음은 예제입니다.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -165,7 +165,7 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 
 > [AZURE.NOTE]$로 시작하는 명령줄에서는 나중에 PowerShell 명령에서 사용되는 PowerShell 변수를 설정합니다.
 
-Azure 포털을 사용하여 가상 컴퓨터를 만든 경우 다음 추가 명령을 실행합니다.
+Azure 클래식 포털을 사용하여 가상 컴퓨터를 만든 경우, 다음 추가 명령을 실행합니다.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -266,4 +266,4 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 [Azure VM 확장 및 기능]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

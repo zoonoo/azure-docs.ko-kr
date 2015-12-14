@@ -42,7 +42,7 @@ AzureML은 고급 분석 솔루션을 손쉽게 빌드, 배포 및 공유할 수
 
 ##API 관리 인스턴스 만들기
 
-API 관리를 사용하여 AzureML 웹 서비스를 관리하는 단계는 다음과 같습니다. 먼저 서비스 인스턴스를 만듭니다. [관리 포털](https://manage.windowsazure.com/)에 로그인하고 **새로 만들기** > **앱 서비스** > **API 관리** > **만들기**를 클릭합니다.
+API 관리를 사용하여 AzureML 웹 서비스를 관리하는 단계는 다음과 같습니다. 먼저 서비스 인스턴스를 만듭니다. [클래식 포털](https://manage.windowsazure.com/)에 로그인하고 **새로 만들기** > **앱 서비스** > **API 관리** > **만들기**를 클릭합니다.
 
 ![create-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-instance.png)
 
@@ -60,11 +60,11 @@ API 관리를 사용하여 AzureML 웹 서비스를 관리하는 단계는 다�
 
 서비스 인스턴스를 만든 후 다음 단계는 API를 만드는 것입니다. API는 클라이언트 응용 프로그램에서 호출할 수 있는 작업 집합으로 구성됩니다. API 작업은 기존 웹 서비스로 프록시 처리됩니다. 이 가이드는 기존 AzureML RRS 및 BES 웹 서비스에 대한 프록시인 API를 만듭니다.
 
-API는 Azure 관리 포털을 통해 액세스할 수 있는 API 게시자 포털에서 생성 및 구성됩니다. 게시자 포털에 연결하려면 서비스 인스턴스를 선택하세요.
+API는 Azure 클래식 포털을 통해 액세스할 수 있는 API 게시자 포털에서 생성 및 구성됩니다. 게시자 포털에 연결하려면 서비스 인스턴스를 선택하세요.
 
 ![select-service-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-service-instance.png)
 
-API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다.
+API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
 
 ![manage-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/manage-service.png)
 
@@ -116,7 +116,7 @@ API에 AzureML BES 작업을 추가하려면 **작업 추가**를 클릭합니�
 
 ##개발자 포털에서 작업 호출
 
-개발자 포털에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다. 이 가이드의 단계에서 **AzureML 데모 API**에 추가된 **RRS 실행** 메서드를 호출합니다. 관리 포털의 오른쪽 위에 있는 메뉴에서 **개발자 포털**을 클릭합니다.
+개발자 포털에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다. 이 가이드의 단계에서 **AzureML 데모 API**에 추가된 **RRS 실행** 메서드를 호출합니다. 클래식 포털의 오른쪽 위에 있는 메뉴에서 **개발자 포털**을 클릭합니다.
 
 ![developer-portal](./media/machine-learning-manage-web-service-endpoints-using-api-management/developer-portal.png)
 
@@ -384,4 +384,4 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

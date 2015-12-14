@@ -46,4 +46,6 @@
 
     이 코드는 알림 허브가 "messageParam"을 포함하는 모든 템플릿 등록에 템플릿 알림을 보내도록 지시합니다. 문자열은 "messageParam"을 사용하여 등록된 각 PNS에서 messageParam 대신 삽입됩니다. 이를 통해 APNS, GCM, WNS 또는 기타 모든 PNS에 알림을 보낼 수 있습니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+	알림 허브를 사용하는 템플릿에 대한 자세한 내용은 [템플릿](notification-hubs-templates.md)을 참조하세요.
+
+<!---HONumber=AcomDC_1203_2015-->

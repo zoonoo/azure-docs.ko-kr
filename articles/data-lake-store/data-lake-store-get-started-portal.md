@@ -16,7 +16,7 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소 시작
+# Azure 포털을 사용하여 Azure 데이터 레이크 저장소 시작
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-get-started-portal.md)
@@ -24,19 +24,19 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법을 알아봅니다. 데이터 레이크 저장소에 대한 자세한 내용은 [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)를 참조하세요.
+Azure 포털을 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법을 알아봅니다. 데이터 레이크 저장소에 대한 자세한 내용은 [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)를 참조하세요.
 
 ## 필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="signup"></a>데이터 레이크 저장소 공개 미리 보기를 위한 Azure 구독 사용
 
 먼저 데이터 레이크 저장소 공개 미리 보기에 대해 사용하도록 설정하기 위해 Azure 구독을 요청해야 합니다. 다음 단계를 따르세요.
 
-1. 새로운 [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기**를 클릭하고 **데이터 + 저장소**를 클릭한 다음 **Azure 데이터 레이크 저장소**를 클릭합니다.
 3. **새 데이터 레이크 저장소** 블레이드에서 **미리 보기 등록**을 클릭합니다. 정보를 읽은 후 **확인**을 클릭합니다. 공개 미리 보기에 대한 구독을 사용하도록 설정한 후에 전자 메일을 받습니다.
 
@@ -44,7 +44,7 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 저장소 계정�
 
 ## Azure 데이터 레이크 저장소 계정 만들기
 
-1. 새로운 [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **새로 만들기**를 클릭하고 **데이터 + 저장소**를 클릭한 다음 **Azure 데이터 레이크 저장소**를 클릭합니다. **Azure 데이터 레이크 저장소** 블레이드에서 정보를 읽은 다음 블레이드의 왼쪽 아래 모서리에서 **만들기**를 클릭합니다.
 
@@ -133,4 +133,4 @@ Azure 데이터 레이크 저장소 계정을 삭제하려면 데이터 레이�
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

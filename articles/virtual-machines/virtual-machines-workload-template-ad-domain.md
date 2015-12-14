@@ -1,6 +1,6 @@
 <properties
 	pageTitle="고가용성 Active Directory 도메인 서비스 ARM 템플릿 | Microsoft Azure"
-	description="리소스 관리자 및 Azure Preview 포털, Azure PowerShell 또는 Azure CLI를 사용하여 Active Directory 도메인 서비스 도메인 컨트롤러 역할을 하는 두 서버를 쉽게 배포합니다."
+	description="리소스 관리자 및 Azure 포털, Azure PowerShell 또는 Azure CLI를 사용하여 Active Directory 도메인 서비스 도메인 컨트롤러 역할을 하는 두 서버를 쉽게 배포합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -26,11 +26,11 @@
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
 
-Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행할 수 있습니다.
+Azure 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행할 수 있습니다.
 
-## Azure Preview 포털
+## Azure 포털
 
-리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 워크로드를 배포하려면 [여기](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json)를 클릭합니다.
+리소스 관리자 템플릿과 Azure 포털을 사용하여 이 워크로드를 배포하려면 [여기](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json)를 클릭합니다.
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
@@ -108,4 +108,4 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 [Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

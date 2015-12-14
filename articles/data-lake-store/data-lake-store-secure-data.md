@@ -32,7 +32,7 @@ Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
 ## Azure Active Directory의 보안 그룹 만들기
@@ -125,7 +125,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
 
 ## Azure 데이터 레이크 저장소 계정에 대한 보안 그룹 제거
 
-Azure 데이터 레이크 저장소 계정에서 보안 그룹을 제거하는 경우 Azure preview 포털 및 Azure 리소스 관리자 API를 사용하여 계정의 관리 작업에 대한 액세스를 변경합니다.
+Azure 데이터 레이크 저장소 계정에서 보안 그룹을 제거하는 경우 Azure 포털 및 Azure 리소스 관리자 API를 사용하여 계정의 관리 작업에 대한 액세스를 변경합니다.
 
 1. 데이터 레이크 저장소 계정 블레이드에서 사용자 아이콘을 클릭합니다.
 
@@ -164,4 +164,4 @@ Azure 데이터 레이크 저장소 파일 시스템에서 보안 그룹 ACL을 
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 - [.NET SDK를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

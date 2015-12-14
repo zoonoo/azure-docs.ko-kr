@@ -18,14 +18,14 @@
 	ms.author="rasquill"/>
 
 
-# Azure 포털에서 Docker VM 확장 사용
+# Azure 클래식 포털에서 Docker VM 확장 사용
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
 [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트]에서 관리되는 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
 
-> [AZURE.NOTE]이 항목에서는 Azure 포털에서 Docker VM을 만드는 방법을 설명합니다. 명령줄에서 Docker VM을 만드는 방법을 확인하려면 [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]을 참조하세요. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
+> [AZURE.NOTE]이 항목에서는 Azure 클래식 포털에서 Docker VM을 만드는 방법을 설명합니다. 명령줄에서 Docker VM을 만드는 방법을 확인하려면 [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]을 참조하세요. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
 ## 이미지 갤러리에서 새 VM 만들기
 첫 단계를 수행하려면 Docker VM 확장을 지원하는 Linux 이미지의 Azure VM이 필요합니다. 여기서는 이미지 갤러리의 Ubuntu 14.04 LTS 이미지를 예제 서버 이미지로, Ubuntu 14.04 Desktop을 클라이언트로 사용합니다. 포털의 왼쪽 아래에서 **+ 새로 만들기**를 클릭하여 새 VM 인스턴스를 만들고 아래에 나와 있는 것처럼 선택 가능한 항목 또는 전체 이미지 갤러리에서 Ubuntu 14.04 LTS 이미지를 선택합니다.
@@ -147,4 +147,4 @@ WARNING: No swap limit support
 [https를 사용하여 Docker 실행]: http://docs.docker.com/articles/https/
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

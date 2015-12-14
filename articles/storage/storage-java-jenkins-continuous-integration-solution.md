@@ -80,9 +80,9 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
 1. Jenkins 대시보드 내에서 **Manage Jenkins**를 클릭합니다.
 2. **Manage Jenkins** 페이지에서 **시스템 구성**을 클릭합니다.
 3. **Microsoft Azure Storage Account Configuration** 섹션에서:
-    1. Azure 포털 <https://manage.windowsazure.com>에서 가져올 수 있는 저장소 계정 이름을 입력합니다.
-    2. 역시 Azure 포털에서 얻을 수 있는 저장소 계정 키를 입력합니다.
-    3. 공용 Azure 클라우드를 사용 중이면 **Blob Service Endpoint URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 저장소 계정의 Azure 관리 포털에 지정된 대로 끝점을 사용합니다. 
+    1. [Azure 포털](portal.azure.com)에서 가져올 수 있는 저장소 계정 이름을 입력합니다.
+    2. [Azure 포털](portal.azure.com)에서 확인 가능한 저장소 계정 키도 입력합니다.
+    3. 공용 Azure 클라우드를 사용 중이면 **Blob Service Endpoint URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure 포털](portal.azure.com)에서 저장소 계정에 대해 지정된 끝점을 사용합니다. 
     4. **Validate storage credentials**를 클릭하여 저장소 계정의 유효성을 검사합니다. 
     5. [옵션] Jenkins CI에서 더 많은 저장소 계정을 사용할 수 있게 하려면 **Add more Storage Accounts**를 클릭합니다.
     6. **Save**를 클릭하여 설정을 저장합니다.
@@ -117,7 +117,7 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
 12. **Save**를 클릭하여 설정을 저장합니다.
 13. Jenkins 대시보드에서 **Build Now**를 클릭하여 **MyJob**을 실행합니다. 콘솔 출력을 점검하여 상태를 확인합니다. 빌드 후 작업이 빌드 아티팩트를 업로드하기 시작하면 Azure 저장소 상태 메시지가 콘솔 출력에 포함됩니다.
 14. 작업이 성공적으로 완료되었을 때 공용 Blob을 열어 빌드 아티팩트를 검사할 수 있습니다.
-    1. Azure 관리 포털 <https://manage.windowsazure.com>에 로그인합니다.
+    1. [Azure 포털](portal.azure.com)에 로그인합니다.
     2. **저장소**를 클릭합니다.
     3. Jenkins에 사용한 저장소 계정 이름을 클릭합니다.
     4. **컨테이너**를 클릭합니다.
@@ -150,7 +150,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
     
-    (위 형식은 공용 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 Azure 관리 포털 내의 끝점을 사용하여 URL 끝점을 확인합니다.)
+    (위 형식은 공용 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 [Azure 포털](portal.azure.com) 내의 끝점을 사용하여 URL 끝점을 확인합니다.)
 
     위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시(**/**)로 구분하여 여러 경로를 포함할 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD\_ID}/${BUILD\_NUMBER}**는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
 
@@ -162,4 +162,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -26,7 +26,7 @@ ms.service="virtual-machines"
 
 ## 필수 조건
 
-* **Azure VM에 배포된 HPC 팩 헤드 노드** - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/ko-KR/documentation/templates/) 또는 [Azure PowerShell 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)와 같은 자동화된 도구를 사용하여 헤드 노드 및 클러스터를 배포하거나 온-프레미스 클러스터와 같은 방식으로 Azure에 클러스터를 수동으로 배포할 수 있습니다. 이 문서의 단계를 완료하려면 헤드 노드의 DNS 이름 및 클러스터 관리자 자격 증명이 필요합니다.
+* **Azure VM에 배포된 HPC 팩 헤드 노드** - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 또는 [Azure PowerShell 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)와 같은 자동화된 도구를 사용하여 헤드 노드 및 클러스터를 배포하거나 온-프레미스 클러스터와 같은 방식으로 Azure에 클러스터를 수동으로 배포할 수 있습니다. 이 문서의 단계를 완료하려면 헤드 노드의 DNS 이름 및 클러스터 관리자 자격 증명이 필요합니다.
 
     헤드 노드를 수동으로 배포한 경우 VM에 HTTPS 끝점이 구성되어 있는지 확인하십시오. 그렇지 않은 경우 해당 끝점을 설정합니다. [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)을 참조하세요.
 
@@ -183,4 +183,4 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

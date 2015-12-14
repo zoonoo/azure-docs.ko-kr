@@ -20,7 +20,7 @@
 # 배치 관리 .NET으로 Azure 배치 계정 및 할당량 관리
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
 [배치 관리 .NET][api_mgmt_net] 라이브러리를 사용하여 배치 계정 만들기, 삭제, 키 관리 및 할당량 검색을 자동화하므로 Azure 배치 응용 프로그램에서 유지 관리 오버헤드가 줄어듭니다.
@@ -30,7 +30,7 @@
 - **계정 할당량을 확인**하고 어떤 배치 계정에 어떤 제한이 있는지를 확인하는 데 시행 착오 추측을 배제합니다. 작업을 시작하고 풀을 만들거나 계산 노드를 추가하기 전에 계정 할당량을 확인하여 이러한 계산 리소스를 만드는 위치 또는 시기를 사전에 조정할 수 있습니다. 해당 계정에 추가 리소스를 할당하기 전에 어떤 계정에 할당량 증가가 필요한지 확인할 수 있습니다.
 - 배치 관리 .NET, [Azure Active Directory][aad_about] 및 [Azure 리소스 관리자][resman_overview]를 동일한 응용 프로그램에서 함께 활용하고 **다른 Azure 서비스의 기능을 결합**하여 모든 기능을 갖춘 관리 환경을 제공합니다. 이러한 기능과 해당 API를 사용하여 종단 간 관리 솔루션에 대해 위에 설명된 기능, 리소스 그룹의 생성 및 삭제, 원활한 인증 환경을 제공할 수 있습니다.
 
-> [AZURE.NOTE]이 문서에서 배치 계정, 키 및 할당량을 프로그래밍 방식으로 관리하는 방법에 대해 주로 설명하는 동안 [Azure Preview 포털][azure_portal]을 사용하여 이러한 다양한 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Preview 포털에서 Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md) 및 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+> [AZURE.NOTE]이 문서에서 배치 계정, 키 및 할당량을 프로그래밍 방식으로 관리하는 방법에 대해 주로 설명하는 동안 [Azure 포털][azure_portal]을 사용하여 이러한 다양한 작업을 수행할 수 있습니다. 자세한 내용은 [Azure 포털에서 Azure 배치 계정 만들기 및 관리](batch-account-create-portal.md)와 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 ## 배치 계정 만들기 및 삭제
 
@@ -119,7 +119,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT]Azure 구독 및 서비스에 기본 할당량이 있기는 하지만 [Azure Preview 포털][azure_portal]에서 요청을 실행하여 이러한 여러 제한을 늘릴 수 있습니다. 예를 들어 배치 계정 할당량을 늘리는 방법에 대한 지침은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+> [AZURE.IMPORTANT]Azure 구독 및 서비스에 기본 할당량이 있기는 하지만 [Azure 포털][azure_portal]에서 요청을 실행하여 이러한 여러 제한을 늘릴 수 있습니다. 예를 들어 배치 계정 할당량을 늘리는 방법에 대한 지침은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 ## 배치 관리 .NET, AAD 및 리소스 관리자
 
@@ -133,7 +133,7 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 
 ### 리소스 관리자
 
-배치 관리 .NET 라이브러리로 배치 계정을 만들 때는 일반적으로 [리소스 그룹][resman_overview] 내에서 만듭니다. [리소스 관리자 .NET][resman_api] 라이브러리에 있는 [ResourceManagementClient][resman_client]를 사용하여 프로그래밍 방식으로 리소스 그룹을 만들거나 [Azure Preview 포털][azure_portal]을 사용하여 이전에 만든 기존 리소스 그룹에 계정을 추가할 수 있습니다.
+배치 관리 .NET 라이브러리로 배치 계정을 만들 때는 일반적으로 [리소스 그룹][resman_overview] 내에서 만듭니다. [리소스 관리자 .NET][resman_api] 라이브러리에 있는 [ResourceManagementClient][resman_client]를 사용하여 프로그래밍 방식으로 리소스 그룹을 만들거나, [Azure 포털][azure_portal]을 사용하여 이전에 만든 기존 리소스 그룹에 계정을 추가할 수 있습니다.
 
 ## <a name="sample"></a>GitHub에서 샘플 프로젝트
 
@@ -159,9 +159,9 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
   - 새로 만든 계정 삭제
 7. 리소스 그룹 삭제
 
-새로 만든 배치 계정 및 리소스 그룹을 삭제하기 전에 [Azure Preview 포털][azure_portal]에서 둘 다 검사할 수 있습니다.
+새로 만든 배치 계정 및 리소스 그룹을 삭제하기 전에 [Azure 포털][azure_portal]에서 둘 다 검사할 수 있습니다.
 
-![리소스 그룹 및 배치 계정을 표시하는 Azure Preview 포털][1] <br /> *새 리소스 그룹 및 배치 계정을 표시하는 Azure Preview 포털*
+![리소스 그룹 및 배치 계정을 표시하는 Azure 포털][1] <br /> *새 리소스 그룹 및 배치 계정을 표시하는 Azure 포털*
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -190,4 +190,4 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -59,7 +59,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 
 ##<a id="subheading-2"></a>데이터베이스에 대한 감사 설정
 
-1. <a href="https://portal.azure.com" target="_blank">Azure Preview 포털</a>을 시작합니다.
+1. <a href="https://portal.azure.com" target="_blank">Azure 포털</a>을 시작합니다.
 
 2. 감사할 SQL 데이터 웨어하우스 데이터베이스 / SQL Server의 구성 블레이드로 이동합니다. 맨 위의 **설정**을 클릭한 다음 블레이드 설정에서 **감사**를 선택합니다.
 
@@ -102,7 +102,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 
 
 ##<a id="subheading-4">프로덕션에서 사용하기 위한 연습</a>
-이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. <a href="https://portal.azure.com" target="_blank">Azure Preview 포털</a> 또는 <a href= "https://manage.windowsazure.com/" target="_bank">기존 Azure 포털</a>을 사용할 수 있습니다.
+이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. <a href="https://portal.azure.com" target="_blank">Azure 포털</a> 또는 <a href= "https://manage.windowsazure.com/" target="_bank">기존 Azure 클래식 포털</a>을 사용할 수 있습니다.
  
 
 ##<a id="subheading-5"></a>저장소 키 다시 생성
@@ -141,4 +141,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="디렉터리 통합 도구 비교 | Microsoft Azure"
+	pageTitle="Azure AD Connect: 디렉터리 통합 도구 비교 | Microsoft Azure"
 	description="이 페이지는 다양한 디렉터리 통합 도구를 비교하는 포괄적인 표를 제공합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -91,4 +91,4 @@ AD에서 Azure AD로의 흐름에서 특성 제거 허용 | ● | ● | |
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

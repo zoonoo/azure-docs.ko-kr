@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD 동기화 연결: 함수 참조 | Microsoft Azure"
-	description="Azure AD 연결 동기화의 선언적 프로비전 식을 참조하세요."
+	description=" Azure AD Connect 동기화의 선언적 프로비전 식을 참조하세요."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -1058,4 +1058,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

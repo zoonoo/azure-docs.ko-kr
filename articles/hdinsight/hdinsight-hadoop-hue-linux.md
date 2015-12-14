@@ -34,7 +34,7 @@ Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 �
 
 ## 스크립트 동작을 사용하여 Hue 설치
 
-[https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) 스크립트 작업을 사용하여 HDInsight 클러스터에서 Hue를 설치합니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전할 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
+[https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) 스크립트 작업을 사용하여 HDInsight 클러스터에서 Hue를 설치합니다. 이 섹션에서는 Azure 클래식 포털을 사용하여 클러스터를 프로비전할 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
 > [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
@@ -46,16 +46,16 @@ Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 �
 
 	![색상에 대한 스크립트 작업 매개 변수 제공](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "색상에 대한 스크립트 작업 매개 변수 제공")
 
-	* __NAME__: 스크립트 작업의 이름을 입력합니다.
-	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
-	* __HEAD__:이 옵션 선택
+	* __이름__: 스크립트 동작의 이름을 입력합니다.
+	* __스크립트 URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
+	* __헤드__: 이 옵션을 선택합니다.
 	* __작업자__: 비워둡니다.
 	* __ZOOKEEPER__: 비워둡니다.
 	* __매개 변수__: 스크립트는 **클러스터 관리자 암호**를 매개 변수로 예상합니다. 클러스터를 프로비전하는 동안 지정한 암호입니다. 암호 입력 시의 중요 고려 사항:
 		* 클러스터 사용자 이름이 "admin" 인 경우 작은 따옴표 안에 암호를 지정해야 합니다.
-		* 클러스터 사용자 이름 "admin" 이외의 값 암호를 `-u [username] [password in single quotes]`로 지정해야 합니다.
+		* 클러스터 사용자 이름이 "admin" 이외의 이름인 경우 암호를 `-u [username] [password in single quotes]`로 지정해야 합니다.
 
-3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
+3. **스크립트 동작**의 아래쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
 
 4. [Linux에서 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md#portal)에 설명된 대로 클러스터를 계속 프로비전합니다.
 
@@ -89,7 +89,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 	![Hive 쿼리 실행](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Hive 쿼리 실행")
 
-	**차트** 탭을 사용하여 결과를 시각적으로 표시할 수 있습니다.
+	또한 **차트** 탭을 사용하여 결과를 시각적으로 표시할 수 있습니다.
 
 ### 클러스터 저장소 찾아보기
 
@@ -99,7 +99,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 	![파일 브라우저 사용](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "파일 브라우저 사용")
 
-3. 파일 또는 폴더를 마우스 오른쪽 단추로 클릭하여 사용 가능한 작업을 참조하세요. 오른쪽 구석에서 **업로드** 단추를 사용하여 현재 디렉터리에 파일을 업로드합니다. **새로 만들기** 단추를 사용하여 새 파일 또는 디렉터리를 만듭니다.
+3. 파일 또는 폴더를 마우스 오른쪽 단추로 클릭하여 사용 가능한 작업을 참조하세요. 오른쪽 모서리에서 **업로드** 단추를 사용하여 현재 디렉터리에 파일을 업로드합니다. **새로 만들기** 단추를 사용하여 새 파일 또는 디렉터리를 만듭니다.
 
 > [AZURE.NOTE]Hue 파일 브라우저는 HDInsight 클러스터와 연결된 기본 컨테이너의 콘텐츠만을 표시할 수 있습니다. 클러스터와 연결된 모든 추가 저장소 계정/컨테이너는 파일 브라우저를 사용하여 액세스할 수 없습니다. 그러나 클러스터와 관련된 추가 컨테이너는 항상 Hive 작업에 액세스할 수 있습니다. 예를 들어 하이브 편집기에 명령 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net`을 입력하는 경우 추가 컨테이너의 내용도 볼 수 있습니다. 이 명령에서 **newcontainer**는 클러스터와 연결된 기본 컨테이너가 아닙니다.
 
@@ -137,4 +137,4 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

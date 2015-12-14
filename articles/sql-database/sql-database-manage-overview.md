@@ -22,12 +22,12 @@
 
 
 
-## Azure 포털
+## Azure 클래식 포털
 
 
-[Azure 포털](http://portal.azure.com)은 데이터베이스 및 논리 서버를 생성, 업데이트 및 삭제하고 데이터베이스 작업을 모니터링할 수 있는 웹 기반 관리 포털입니다. Azure를 방금 시작했거나 관리하는 데이터베이스 수가 적거나 신속하게 작업을 수행해야 하는 경우에 매우 유용한 도구입니다.
+[Azure 클래식 포털](http://portal.azure.com)은 데이터베이스 및 논리 서버를 생성, 업데이트 및 삭제하고 데이터베이스 작업을 모니터링할 수 있는 웹 기반 클래식 포털입니다. Azure를 방금 시작했거나 관리하는 데이터베이스 수가 적거나 신속하게 작업을 수행해야 하는 경우에 매우 유용한 도구입니다.
 
-포털 사용에 대한 자세한 내용은 [Azure 포털을 사용하여 SQL 데이터베이스 관리](sql-database-manage-portal.md)를 참조하세요.
+포털 사용에 대한 자세한 내용은 [Azure 클래식 포털을 사용하여 SQL 데이터베이스 관리](sql-database-manage-portal.md)를 참조하세요.
 
 ## SQL Server Management Studio 및 Visual Studio의 SQL Server Data Tools
 
@@ -44,4 +44,4 @@ PowerShell 같은 명령줄 도구를 사용하여 데이터베이스 및 탄력
 명령줄 도구를 사용하여 Azure SQL 데이터베이스를 관리하는 방법에 대한 자세한 내용은 [PowerShell를 사용하여 SQL 데이터베이스 관리](sql-database-command-line-tools.md)를 참조하세요.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

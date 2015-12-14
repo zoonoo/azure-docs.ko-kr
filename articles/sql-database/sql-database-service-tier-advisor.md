@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="10/02/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 가격 책정 계층 권장 사항
 
  기존 Azure SQL 데이터베이스의 작업을 실행하는 데 가장 적합한 서비스 계층과 성능 수준을 추천하는 가격 책정 계층 권장 사항이 제공됩니다.
 
-> [AZURE.NOTE]가격 책정 계층 권장 사항은 Web 및 Business 데이터베이스와 탄력적 데이터베이스 풀에 대해서만 제공되며 [Azure Preview 포털](https://portal.azure.com/)에서만 사용할 수 있습니다.
+> [AZURE.NOTE]가격 책정 계층 권장 사항은 Web 및 Business 데이터베이스와 탄력적 데이터베이스 풀에 대해서만 제공되며 [Azure 포털](https://portal.azure.com/)에서만 사용할 수 있습니다.
 
 
 다음 작업 중 가격 책정 계층 권장 사항을 가져옵니다.
@@ -58,7 +58,7 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
 기존 Web 또는 Business 데이터베이스를 선택하고 **가격 책정 계층** 타일을 클릭하여 가격 책정 계층 권장 사항을 가져옵니다. 가격 책정 계층 권장 사항은 [Azure SQL Server를 V12로 업그레이드](sql-database-v12-upgrade.md)하는 경우에도 제공됩니다.
 
-1. [Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **찾아보기** > **SQL 데이터베이스**를 클릭합니다.
 4. **SQL 데이터베이스** 블레이드에서 다음에 대한 권장 사항을 보려면 데이터베이스를 클릭합니다.
 
@@ -87,7 +87,7 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
 ## 다음 단계
 
-특정 데이터베이스의 세부 정보에 따라 일반적으로 업그레이드 또는 다운그레이드가 즉시 수행되지는 않습니다. 데이터베이스가 새 계층으로 전환되면 관리 포털에서 알림을 제공합니다. 또는 사용자가 SQL 데이터베이스 서버의 마스터 데이터베이스에서 [sys.dm\_operation\_status(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn270022.aspx) 보기를 쿼리하여 업그레이드 상태를 모니터링할 수 있습니다.
+특정 데이터베이스의 세부 정보에 따라 일반적으로 업그레이드 또는 다운그레이드가 즉시 수행되지는 않습니다. 데이터베이스가 새 계층으로 전환되면 포털에서 알림을 제공합니다. 또는 사용자가 SQL 데이터베이스 서버의 마스터 데이터베이스에서 [sys.dm\_operation\_status(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn270022.aspx) 보기를 쿼리하여 업그레이드 상태를 모니터링할 수 있습니다.
 
 
 <!--Image references-->
@@ -100,4 +100,4 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

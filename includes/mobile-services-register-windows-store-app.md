@@ -41,7 +41,7 @@
 
     >[AZURE.NOTE]클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마십시오.
 
-10. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
+10. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그온하고 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
 11. **ID** 탭을 클릭하고 4단계 WNS에서 얻은 **클라이언트 암호** 값과 **패키지 SID** 값을 입력한 후 **저장**을 클릭합니다.
 
@@ -60,6 +60,5 @@
 <!-- URLs. -->
 [모바일 서비스 시작]: /develop/mobile/tutorials/get-started/#create-new-service
 [앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

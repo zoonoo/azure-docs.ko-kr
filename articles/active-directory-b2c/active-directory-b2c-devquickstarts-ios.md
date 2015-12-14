@@ -615,4 +615,4 @@ API 가 받는 액세스 토큰에서 사용자의 ID를 추출하므로 API에 
 
 [B2C 앱의 UX 사용자 지정 >>]()
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

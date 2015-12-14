@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # PowerShell을 사용하여 Application Insights 리소스 만들기
@@ -76,7 +76,7 @@
 
 2. [Azure 리소스 관리자](https://resources.azure.com/)를 엽니다. subscriptions, resourceGroups, components 앱 리소스로 이동합니다.
 
-    ![](./media/app-insights-create-powershell/01.png)
+    ![](./media/app-insights-powershell/01.png)
 
     *구성 요소*는 응용 프로그램을 표시하기 위한 기본 Application Insights 리소스입니다. 연결된 경고 규칙 및 가용성 웹 테스트에 대한 별도의 리소스가 있습니다.
 
@@ -288,4 +288,4 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,7 +58,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 웹앱에서 Git 리포지토리를 사용할 수 있도록 하려면 다음 단계를 수행합니다.
 
-1. [Azure Preview 포털]에 로그인합니다.
+1. [Azure 포털]에 로그인합니다.
 
 2. 웹 앱의 블레이드에서 **배포** 섹션까지 아래로 스크롤하고 **연속 배포 설정**을 클릭합니다. **소스 선택**을 클릭한 다음 **로컬 Git 리포지토리**를 클릭하고 **확인**을 클릭합니다.
 
@@ -269,10 +269,9 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 [Azure Developer Center]: http://azure.microsoft.com/develop/overview/
-[Azure Preview 포털]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Azure용 PowerShell 사용 방법]: ../articles/install-configure-powershell.md
@@ -298,4 +297,4 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Visual Studio Team Services를 사용한 지속적인 업데이트]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -25,7 +25,7 @@
 - 최상위 DTU 사용 쿼리는 향상된 성능을 위해 잠재적으로 조정될 수 있습니다. 
 - 쿼리에 대한 세부 정보로 드릴다운할 수 있습니다.
 
-> [AZURE.NOTE]쿼리 성능 Insight는 현재 미리 보기로 제공되며 [Azure 미리 보기 포털](https://portal.azure.com/)에서만 사용할 수 있습니다.
+> [AZURE.NOTE]쿼리 성능 Insight는 현재 미리 보기로 제공되며 [Azure 포털](https://portal.azure.com/)에서만 사용할 수 있습니다.
 
 
 
@@ -62,7 +62,7 @@
 
 ## 최상위 DTU 소비 쿼리 검토
 
-[미리 보기 포털](https://portal.azure.com)에서 다음을 수행합니다.
+[포털](https://portal.azure.com)에서 다음을 수행합니다.
 
 1. SQL 데이터베이스를 찾아 **쿼리 성능 Insight**를 클릭합니다. 
 
@@ -109,4 +109,4 @@ SQL 데이터베이스의 성능 향상을 위해 추가 권장 사항에 대해
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -3,8 +3,8 @@
 	description="Azure Active Directory 및 UserEcho 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # 자습서: UserEcho와 Azure Active Directory 통합
@@ -64,7 +64,7 @@ UserEcho의 Azure AD 통합을 구성하려면 갤러리의 UserEcho를 관리�
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **UserEcho**를 입력합니다<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_01.png)<br>
-7. 결과 창에서 **UserEcho**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **UserEcho**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -76,7 +76,7 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[UserEcho 테스트 사용자 만들기](#creating-a-userecho-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 UserEcho에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -88,13 +88,13 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **UserEcho에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **UserEcho** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+1. Azure AD 포털의 **UserEcho** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
 
-2. **UserEcho에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png)<br>
+2. **UserEcho에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png) <br>
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_04.png) <br>
 
-    a. **로그온 URL** 텍스트 상자에 사용자가 UserEcho 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://fabrikam.UserEcho.com/*))
+    a. **로그온 URL** 텍스트 상자에 사용자가 UserEcho 응용 프로그램에 로그인하는 데 사용하는 URL(예: **https://fabrikam.UserEcho.com/*))을 입력합니다.
 
     b. **다음**을 클릭합니다.
  
@@ -108,25 +108,25 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. 다른 웹 브라우저 창에서 UserEcho 회사 사이트에 관리자로 로그인합니다.
 
-1. 위쪽에 도구 모음에서 메뉴를 확장하려면 사용자 이름을 클릭한 다음 **설치**를 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
+1. 위쪽 도구 모음에서 메뉴를 확장하려면 사용자 이름을 클릭한 다음 **설정**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
 1. **통합**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png) <br>
 
 
-1. **웹사이트**를 클릭한 다음 **Single Sign-On(SAML2)**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) <br>
+1. **웹 사이트**를 클릭한 다음 **Single Sign-On(SAML2)**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) <br>
 
 
 1. **Single Sign-On(SAML)** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_09.png) <br>
 
     a. **SAML 사용**을 **예**로 선택합니다.
 
-    b. Azure 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On Service URL** 값을 복사하고 붙여넣습니다. 메모장에서 다운로드한 인증서를 연 다음 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사하고 붙여넣습니다. 메모장에서 다운로드한 인증서를 연 다음 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
 
     c. Azure 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사하고 메모장에서 다운로드한 인증서를 연 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
+    d. 다운로드한 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
 
-    e. **Save**를 클릭합니다.
+    e. **저장**을 클릭합니다.
 
 
 6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
@@ -147,7 +147,7 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png) <br>
  
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png) <br>
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png) <br>
 
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-userecho-tutorial/create_aaduser_05.png) <br>
 
@@ -185,7 +185,7 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. UserEcho 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. 위쪽에 도구 모음에서 메뉴를 확장하려면 사용자 이름을 클릭한 다음 **설치**를 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
+1. 위쪽 도구 모음에서 메뉴를 확장하려면 사용자 이름을 클릭한 다음 **설정**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
 1. **사용자**를 클릭하여 **사용자** 섹션을 확장합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png) <br>
 
@@ -198,7 +198,7 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
 
-    b. **전자 메일** 텍스트 상자에 Azure 포털에 있는 Britta의 메일 주소를 입력합니다.
+    b. **메일** 텍스트 상자에 Azure 포털에 있는 Britta의 메일 주소를 입력합니다.
 
     c. **초대**를 클릭합니다.
 
@@ -208,15 +208,15 @@ UserEcho를 사용하여 시작할 수 있는 초대장이 Britta에게 전송�
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 UserEcho에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
+이 섹션은 Britta Simon에게 UserEcho에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하기 위한 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 UserEcho에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br>![사용자 할당][201]<br>
+1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 
 2. 응용 프로그램 목록에서 **UserEcho**를 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
 
-1. 위쪽 메뉴에서 **사용자**를 클릭합니다.<br> <br>![사용자 할당][203]<br>
+1. 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
 
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
@@ -253,4 +253,4 @@ UserEcho를 사용하여 시작할 수 있는 초대장이 Britta에게 전송�
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

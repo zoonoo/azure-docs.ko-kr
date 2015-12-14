@@ -176,7 +176,7 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 * 새 NIC를 동일한 가상 네트워크 또는 다른 가상 네트워크에 만듭니다.
 * 수정된 템플릿 JSON 파일을 사용하여, 가상 네트워크를 설정한 리소스 그룹에 배포를 만듭니다.
 
-이미지에서 VM을 만들 때 네트워크에서 자동으로 설정되도록 하려면 GitHub의 [101-vm-from-user-image 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용합니다. 이 템플릿은 사용자 지정 이미지에서 VM을 만들고 필요한 가상 네트워크, 공용 IP 주소, NIC 리소스를 만듭니다. Azure Preview 포털에서 템플릿을 사용하는 방법에 대한 자세한 설명을 보려면 [How to create a virtual machine from a custom image using an ARM template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)(ARM 템플릿을 사용하여 사용자 지정 이미지에서 가상 컴퓨터를 만드는 방법)을 참조하세요.
+이미지에서 VM을 만들 때 네트워크에서 자동으로 설정되도록 하려면 GitHub의 [101-vm-from-user-image 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용합니다. 이 템플릿은 사용자 지정 이미지에서 VM을 만들고 필요한 가상 네트워크, 공용 IP 주소, NIC 리소스를 만듭니다. Azure 포털에서 템플릿 사용에 대한 안내는 [ARM 템플릿을 사용하여 사용자 지정 이미지에서 가상 컴퓨터 만드는 방법](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)을 참조하십시오.
 
 ## azure vm create 명령 사용
 
@@ -200,4 +200,4 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-azure-cli.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

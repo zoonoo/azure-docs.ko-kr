@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/24/2015" 
 	ms.author="cephalin"/>
 
 #Azure 앱 서비스에서 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스
 
 Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레미스 리소스(예: SQL Server, MySQL, HTTP 웹 API, 모바일 서비스 및 대부분의 사용자 지정 웹 서비스)에 연결할 수 있습니다. 이 문서에서는 앱 서비스의 웹 앱과 온-프레미스 SQL Server 데이터베이스 간 하이브리드 연결을 만드는 방법을 보여 줍니다.
 
-> [AZURE.NOTE] 하이브리드 연결 기능의 웹 앱 부분은 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.
+> [AZURE.NOTE]하이브리드 연결 기능의 웹 앱 부분은 [Azure 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.
 
 ## 필수 조건
 - Azure 구독. 무료 구독에 대해서는 [Azure 1개월 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
@@ -37,15 +37,13 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 
 ## Azure 포털에서 웹 앱 만들기 ##
 
-> [AZURE.NOTE] 이 자습서에 사용하려는 Azure 포털에서 웹 앱을 이미 만들었으면 앞의 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)로 건너뛰어 거기에서 시작합니다.
+> [AZURE.NOTE]이 자습서에 사용하려는 Azure 포털에서 웹 앱을 이미 만들었으면 앞의 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)로 건너뛰어 거기에서 시작합니다.
 
-1. [Azure 포털](https://portal.azure.com)의 왼쪽 아래 모서리에서 **새로 만들기** > **웹 + 모바일** > **웹 사이트**를 클릭합니다.
-	
-	![새 단추][New]
+1. [Azure 포털](https://portal.azure.com) 왼쪽 상단에서 **새로 만들기** > **웹+모바일** > **웹앱**을 차례로 클릭합니다.
 	
 	![새 웹 앱][NewWebsite]
 	
-2. **웹 앱** 블레이드에서 URL > **만들기**를 지정합니다.
+2. **웹앱** 블레이드에서 URL을 입력하고 **만들기**를 클릭합니다.
 	
 	![웹 사이트 이름][WebsiteCreationBlade]
 	
@@ -64,7 +62,7 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 <a name="CreateHC"></a>
 ## 하이브리드 연결 및 BizTalk 서비스 만들기 ##
 
-1. 웹 앱에 대한 블레이드까지 아래로 스크롤하고 **하이브리드 연결**을 선택합니다.
+1. 웹앱 블레이드에서 **모든 설정** > **네트워킹** > **하이브리드 연결 끝점 구성**을 차례로 클릭합니다.
 	
 	![하이브리드 연결][CreateHCHCIcon]
 	
@@ -77,11 +75,7 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 	
 	![하이브리드 연결 만들기][TwinCreateHCBlades]
 	
-	**하이브리드 연결 블레이드 만들기**에서
-	- **이름**에 연결 이름을 입력하고
-	- **호스트 이름**에는 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다.
-	- **포트**에는 온-프레미스 리소스가 사용하는 포트 번호를 입력합니다(SQL Server 기본 인스턴스의 경우 1433).
-	- **Biz Talk 서비스**를 클릭합니다.
+	**하이브리드 연결 블레이드 만들기**에서 **이름**에 연결 이름을 입력하고 **호스트 이름**에는 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다. **포트**에는 온-프레미스 리소스가 사용하는 포트 번호를 입력합니다(SQL Server 기본 인스턴스의 경우 1433). **Biz Talk 서비스**를 클릭합니다.
 
 
 4. **BizTalk 서비스 만들기** 블레이드가 열립니다. BizTalk 서비스의 이름을 입력한 다음 **확인**을 클릭합니다.
@@ -94,19 +88,19 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 	
 	![확인 클릭][CreateBTScomplete]
 	
-6. 프로세스가 완료되면 포털의 알림 영역에서 연결이 설정되었다는 메시지를 표시합니다.
+6. 프로세스가 완료되면 포털의 알림 영역에서 연결이 설정되었다는 메시지가 표시됩니다.
 	<!-- TODO
 
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. 웹 앱 블레이드에서 이제 **하이브리드 연결** 아이콘이 1개의 하이브리드 연결이 설정되었음을 보여 줍니다.
 	
 	![1개의 하이브리드 연결 생성됨][CreateHCOneConnectionCreated]
@@ -116,7 +110,7 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 <a name="InstallHCM"></a>
 ## 온-프레미스 하이브리드 연결 관리자를 설치하여 연결 완료 ##
 
-1. 웹 앱 블레이드에서 하이브리드 연결 아이콘을 클릭합니다. 
+1. 웹앱의 블레이드에서 **모든 설정** > **네트워킹** > **하이브리드 연결 끝점 구성**을 차례로 클릭합니다. 
 	
 	![하이브리드 연결 아이콘][HCIcon]
 	
@@ -183,7 +177,6 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 앱 서비스에서 웹 사이트 및 웹 앱에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -211,4 +204,4 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

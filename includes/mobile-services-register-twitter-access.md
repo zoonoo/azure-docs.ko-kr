@@ -15,7 +15,7 @@
 	+ **액세스 토큰**
 	+ **액세스 토큰 암호**
 
-4. [Azure 관리 포털]에 로그온하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
+4. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인하고 **모바일 서비스**를 클릭한 후 모바일 서비스를 클릭합니다.
 
 5. **ID** 탭을 클릭하고 Twitter에서 가져온 **Consumer key** 및 **Consumer secret** 값을 입력하고 **저장**을 클릭합니다.
 
@@ -32,9 +32,8 @@
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Azure 관리 포털]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [앱 설정]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

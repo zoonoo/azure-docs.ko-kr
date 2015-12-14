@@ -37,7 +37,7 @@ Azure VM 및 SQL 서비스 포함 Azure VM을 IPython Notebook 서버로 설정�
 프로비전 및 구성한 후에는 데이터 탐색 및 처리, Azure 기계 학습 및 Cortana Analytics 프로세스(CAP)와 함께 수행할 다른 작업 등에 이러한 가상 컴퓨터를 IPython Notebook 서버로 사용할 준비가 완료됩니다. 데이터 과학 프로세스의 다음 단계는 [CAP 학습 경로](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 SQL Server 또는 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
 
 
-> [AZURE.NOTE]Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 [Azure 관리 포털](http://manage.windowsazure.com/)에서 **중지(할당 해제)** 상태에 있어야 합니다. 가상 컴퓨터를 할당 해제하는 방법 및 단계별 지침은 [사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제](machine-learning-data-science-setup-virtual-machine.md#shutdown)를 참조하세요.
+> [AZURE.NOTE]Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 **중지(할당 해제)** 상태에 있어야 합니다. 가상 컴퓨터를 할당 해제하는 방법 및 단계별 지침은 [사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제](machine-learning-data-science-setup-virtual-machine.md#shutdown)를 참조하세요.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

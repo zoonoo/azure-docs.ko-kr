@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치 컨트롤러 관리
@@ -47,14 +47,11 @@
 
 > - 다음 절차는 물리적 StorSimple 장치에만 적용됩니다. 가상 장치를 시작, 중지 및 다시 시작하는 방법에 대한 자세한 내용은 [가상 장치로 작업](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device)을 참조하세요.
 
-다음을 사용하여 단일 장치 컨트롤러를 다시 시작하거나 종료할 수 있습니다.
+StorSimple용 Windows PowerShell 또는 StorSimple Manager 서비스의 Azure 클래식 포털을 사용하여 단일 장치 컨트롤러를 다시 시작하거나 종료할 수 있습니다.
 
-- StorSimple 관리자 서비스의 관리 포털
-- StorSimple용 Windows PowerShell입니다. 
+Azure 클래식 포털에서 장치 컨트롤러를 관리 하려면 다음 단계를 수행합니다.
 
-관리 포털에서 장치 컨트롤러를 관리 하려면 다음 단계를 수행합니다.
-
-#### 관리 포털에서 컨트롤러를 다시 시작 하거나 종료하려면
+#### 클래식 포털에서 컨트롤러를 다시 시작 하거나 종료하려면
 
 1. **장치 > 유지 관리**로 이동합니다.
 
@@ -62,7 +59,7 @@
 
 	![StorSimple 장치 컨트롤러가 정상임을 확인](./media/storsimple-manage-device-controller/IC766017.png)
 
-1. **유지 관리** 페이지 아래 쪽에서 **컨트롤러 관리**를 클릭합니다.
+1. **유지 관리** 페이지 아래쪽에서 **컨트롤러 관리**를 클릭합니다.
 
 	![StorSimple 장치 컨트롤러 관리](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
@@ -77,7 +74,7 @@
 	
 
 
-	- **동작 선택** 드롭다운 목록에서 **컨트롤러 다시 시작** 또는 **컨트롤러 종료**를 선택합니다.
+	- **작업 선택** 드롭다운 목록에서 **컨트롤러 다시 시작** 또는 **컨트롤러 종료**를 선택합니다.
 	
 		![StorSimple 장치 수동 컨트롤러 다시 시작](./media/storsimple-manage-device-controller/IC766020.png)
  
@@ -96,7 +93,7 @@
 
 
 #### StorSimple용 Windows PowerShell에서 컨트롤러를 다시 시작하거나 종료합니다.
-다음 단계를 수행하여 관리 포털에서 StorSimple 장치에 단일 컨트롤러를 종료 하거나 다시 시작합니다.
+다음 단계를 수행하여 Azure 클래식 포털에서 StorSimple 장치에 단일 컨트롤러를 종료 하거나 다시 시작합니다.
 
 
 1. 직렬 콘솔 또는 원격 컴퓨터에서 텔넷 세션을 사용하여 장치에 액세스합니다. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console) 단계를 수행하여 컨트롤러 0 또는 컨트롤러 1에 연결합니다.
@@ -128,7 +125,7 @@
 
 #### StorSimple 장치 종료하려면
 
-1. [컨트롤러 다시 시작 또는 종료](#restart-or-shut-down-a-single-controller) 프로시저를 사용하여 장치에서 수동 컨트롤러를 식별하고 종료합니다. 관리 포털 또는 StorSimple용 Windows PowerShell에서 이 작업을 수행할 수 있습니다.
+1. [컨트롤러 다시 시작 또는 종료](#restart-or-shut-down-a-single-controller) 프로시저를 사용하여 장치에서 수동 컨트롤러를 식별하고 종료합니다. Azure 클래식 포털 또는 StorSimple용 Windows PowerShell에서 이 작업을 수행할 수 있습니다.
 2. 활성 컨트롤러를 종료하려면 위의 단계를 반복합니다.
 3. 이제 장치 뒤쪽 평면을 살펴봐야 합니다. 두 컨트롤러를 완전히 종료한 후에 두 컨트롤러에서 상태 LED가 빨간색으로 깜박여야 합니다. 이번에 장치를 완전히 해제해야 하면 전원 및 냉각 모듈(PCM) 모두에서 전원 스위치를 끄기 위치에 둡니다. 이 장치를 해제해야 합니다.
 
@@ -184,7 +181,7 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 **A.** 장치에서 컨트롤러가 모두 정상이고 켜져 있는 경우 확인을 위한 메시지가 표시됩니다. 선택할 수 있습니다.
 
-- **활성 컨트롤러 다시 시작** – 활성 컨트롤러를 다시 시작하면 장치가 수동 컨트롤러로 장애 조치(Failover)된다는 알림이 표시됩니다. 컨트롤러가 다시 시작됩니다.
+- **활성 컨트롤러 다시 시작** – 활성 컨트롤러를 다시 시작하면 장치가 수동 컨트롤러로 장애 조치(failover)된다는 알림이 표시됩니다. 컨트롤러가 다시 시작됩니다.
 
 - **활성 컨트롤러 종료** – 활성 컨트롤러를 종료하면 가동이 중지된다는 알림이 표시됩니다. 컨트롤러를 켜기 위해 장치에서 전원 단추를 눌러야 합니다.
 
@@ -224,4 +221,4 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 - StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

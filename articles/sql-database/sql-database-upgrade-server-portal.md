@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Preview 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure" 
-	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 Azure Preview 포털을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다." 
+	pageTitle="Azure 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure" 
+	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 Azure 포털을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,15 +13,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/11/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein"/>
 
 
-# Azure Preview 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
+# Azure 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -33,13 +33,13 @@ SQL 데이터베이스 V12가 최신 버전이므로 SQL 데이터베이스 V12�
 
 이 문서에서는 기존 SQL 데이터베이스 V11 서버 및 데이터베이스를 SQL 데이터베이스 V12로 업그레이드하는 방법에 대해 지침을 제공합니다.
 
-V12로 업그레이드하는 프로세스 동안 Web/Business 데이터베이스를 새로운 서비스 계층으로 업데이트하게 됩니다. 따라서 Web/Business 데이터베이스 업그레이드에 대한 지침도 포함되어 있습니다.
+V12로 업그레이드하는 과정에서 Web/Business 데이터베이스를 새로운 서비스 계층으로 업데이트하게 됩니다. 따라서 Web/Business 데이터베이스 업그레이드에 대한 지침도 포함되어 있습니다.
 
-또한 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)로 마이그레이션하는 것이 단일 데이터베이스에 대한 개별 성능 수준(가격 책정 계층)으로 업그레이드하는 것보다 비용 면에서 효율적일 수 있습니다. 개별 데이터베이스의 성능 수준을 개별적으로 관리하지 않고 풀의 성능 설정을 관리하기만 하면 되므로, 풀은 단순히 데이터베이스 관리이기도 합니다. 여러 서버에 데이터베이스가 있는 경우에는 이 데이터베이스를 동일한 서버로 이동해서 풀로 유용하게 관리하는 것이 좋습니다. [PowerShell을 사용하여 V11 서버에서 탄력적 데이터베이스 풀로 직접 데이터베이스를 자동 마이그레이션](sql-database-upgrade-server.md)하는 작업을 손쉽게 수행할 수 있습니다. 포털을 사용하여 V11 데이터베이스를 풀로 마이그레이션할 수도 있지만, 포털에 이미 V12 서버가 있어야 풀을 만들 수 있습니다. [풀을 활용할 수 있는 데이터베이스](sql-database-elastic-pool-guidance.md)가 이미 있는 경우에는 이 문서 뒷부분에서 제공되는 서버 업그레이드 후 풀 만들기 지침을 참조하세요.
+또한 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)로 마이그레이션하는 것이 단일 데이터베이스에 대한 개별 성능 수준(가격 책정 계층)으로 업그레이드하는 것보다 비용 면에서 효율적일 수 있습니다. 개별 데이터베이스의 성능 수준을 개별적으로 관리하지 않고 풀의 성능 설정만 관리하면 되므로, 풀은 데이터베이스 관리를 간소화합니다. 여러 서버에 데이터베이스가 있는 경우에는 이 데이터베이스를 동일한 서버로 이동해서 풀로 유용하게 관리하는 것이 좋습니다. [PowerShell을 사용하여 V11 서버에서 탄력적 데이터베이스 풀로 직접 데이터베이스를 자동 마이그레이션](sql-database-upgrade-server.md)하는 작업을 손쉽게 수행할 수 있습니다. 포털을 사용하여 V11 데이터베이스를 풀로 마이그레이션할 수도 있지만, 포털에 이미 V12 서버가 있어야 풀을 만들 수 있습니다. [풀을 활용할 수 있는 데이터베이스](sql-database-elastic-pool-guidance.md)가 이미 있는 경우에는 이 문서 뒷부분에서 제공되는 서버 업그레이드 후 풀 만들기 지침을 참조하세요.
 
 데이터베이스는 업그레이드 작업 동안 온라인 상태로 유지되며 계속 작동합니다. 실제로 새 성능 수준으로 전환할 때 아주 짧은 시간(보통 90초 정도이지만 최대 5분일 수도 있음) 동안 데이터베이스 연결이 일시적으로 끊어질 수 있습니다. 응용 프로그램에 [연결 종료에 대한 일시적인 오류 처리](sql-database-connect-central-recommendations.md) 기능이 있을 경우 업그레이드 종료 시의 연결 끊김을 방지할 수 있습니다.
 
-SQL 데이터베이스 V12로 업그레이드하면 이를 실행 취소할 수 없습니다. 업그레이드 후에 서버를 V11로 되돌릴 수 없습니다.
+SQL 데이터베이스 V12로 업그레이드하고 난 후에는 취소할 수 없습니다. 업그레이드 후에는 서버를 V11로 되돌릴 수 없습니다.
 
 V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드를 평가할 때까지 일정 시간 동안 [서비스 계층 권장 사항](sql-database-service-tier-advisor.md) 및 [탄력적 풀 권장 사항](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier)을 사용할 수 없습니다. V11 서버 권장 사항 기록은 유지되지 않으므로 V12 서버에 적용되지 않습니다.
 
@@ -47,21 +47,21 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 ## 업그레이드 준비
 
 - **모든 Web 및 Business 데이터베이스 업그레이드**: 아래의 [모든 Web 및 Business 데이터베이스 업그레이드](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) 섹션을 참조하거나 [PowerShell을 사용하여 데이터베이스 및 서버 업그레이드](sql-database-upgrade-server-powershell.md)를 수행하세요.
-- **지역에서 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역에서 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성 및 [지역에서 복제 중지](sql-database-geo-replication-portal.md#remove-secondary-database)를 문서화해야 합니다. 업그레이드가 완료된 후 지역에서 복제에 대해 데이터베이스를 다시 구성하세요.
+- **지역에서 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역에서 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성 및 [지역에서 복제 중지](sql-database-geo-replication-portal.md#remove-secondary-database)를 문서화해야 합니다. 업그레이드가 완료된 후 지역에서 복제 데이터베이스를 다시 구성하세요.
 - **클라이언트가 Azure VM에 있는 경우 열 포트**: Azure VM(가상 컴퓨터)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우 VM에서 포트 범위 11000-11999 및 14000-14999를 열어야 합니다. 자세한 내용은 [SQL 데이터베이스 V12용 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
 
 
 ## 업그레이드 시작
 
-1. [Azure Preview 포털](http://portal.azure.com/)에서 **모두 찾아보기** > **SQL Servers**를 선택한 후 원하는 서버를 선택하여 업그레이드하려는 서버로 이동합니다.
+1. [Azure 포털](http://portal.azure.com/)에서 **모두 찾아보기** > **SQL Server**를 선택한 후 원하는 서버를 선택하여 업그레이드하려는 서버로 이동합니다.
 2. **최신 SQL 데이터베이스 업데이트**를 선택한 다음 **이 서버 업그레이드**를 선택합니다.
 
       ![서버 업그레이드][1]
 
 ## 모든 Web 및 Business 데이터베이스 업그레이드
 
-서버에 We 또는 Business 데이터베이스가 있는 경우 데이터베이스를 업그레이드해야 합니다. SQL 데이터베이스 V12로 업그레이드하는 프로세스 도중에 모든 Web 및 Business 데이터베이스를 새 서비스 계층으로 업데이트하게 됩니다.
+서버에 We 또는 Business 데이터베이스가 있는 경우 데이터베이스를 업그레이드해야 합니다. SQL 데이터베이스 V12로 업그레이드하는 과정에서 모든 Web 및 Business 데이터베이스를 새 서비스 계층으로 업데이트하게 됩니다.
 
 업그레이드를 지원하기 위해 SQL 데이터베이스 서비스는 각 데이터베이스에 적절한 서비스 계층 및 성능 수준(가격 책정 계층)을 권장합니다. 서비스는 데이터베이스의 기존 사용량을 분석하여 기존 데이터베이스의 워크로드를 실행하는 데 가장 적합한 계층을 권장합니다.
     
@@ -82,7 +82,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 
 ## 업그레이드 확인
 
-3. 서버에 있는 모든 데이터베이스가 업그레이드 가능해지면 **서버 이름을 입력**하여 업그레이드를 수행할 것임을 확인한 후 **확인**을 클릭합니다. 
+3. 서버에 있는 모든 데이터베이스의 업그레이드가 가능해지면 **서버 이름을 입력**하여 업그레이드를 수행할 것임을 확인한 후 **확인**을 클릭합니다. 
 
     ![업그레이드 확인][3]
 
@@ -99,11 +99,11 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 
 ## 탄력적 데이터베이스 풀로 데이터베이스 이동
 
-[Azure Preview 포털](https://ms.portal.azure.com/)에서 V12 서버로 이동하고 **풀 추가**를 클릭합니다.
+[Azure 포털](https://portal.azure.com/)에서 V12 서버로 이동하고 **풀 추가**를 클릭합니다.
 
 또는
 
-**Click here to view the recommended elastic database pools for this server(이 서버에 대해 권장되는 탄력적 데이터베이스 풀을 보려면 클릭)**이라는 메시지가 나타나는 경우 클릭하면 서버의 데이터베이스에 최적화된 풀을 쉽게 만들 수 있습니다. 자세한 내용은 [권장되는 탄력적 데이터베이스 풀](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)을 참조하세요.
+**여기를 클릭하여 이 서버에 권장되는 탄력적 데이터베이스 풀을 확인하세요.**라는 메시지가 나타나면 이 메시지를 클릭하여 서버의 데이터베이스에 최적화된 풀을 쉽게 만들 수 있습니다. 자세한 내용은 [권장되는 탄력적 데이터베이스 풀](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)을 참조하세요.
 
 ![서버에 풀 추가][7]
    
@@ -168,4 +168,4 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에서 DATA 0 네트워크 인터페이스 설정 수정
@@ -41,7 +41,7 @@ StorSimple 장치의 Windows PowerShell 인터페이스에 연결하고 설치 �
 
 3. 장치의 DATA 0 인터페이스 구성을 도와주는 설치 마법사가 나타납니다. IP 주소, 게이트웨이 및 네트워크 마스크에 대한 새 값을 제공합니다.
 
-> [AZURE.NOTE]Azure 관리 포털에서 StorSimple 장치 **구성** 페이지를 통해 고정된 컨트롤러 IP를 다시 구성해야 합니다. 자세한 내용은 [네트워크 인터페이스 수정](storsimple-modify-device-config.md#modify-network-interfaces)을 참조하세요.
+> [AZURE.NOTE]Azure 클래식 포털에서 StorSimple 장치 **구성** 페이지를 통해 고정된 컨트롤러 IP를 다시 구성해야 합니다. 자세한 내용은 [네트워크 인터페이스 수정](storsimple-modify-device-config.md#modify-network-interfaces)을 참조하세요.
 
 
 ## Set-HcsNetInterface cmdlet을 통해 DATA 0 네트워크 설정 수정
@@ -69,6 +69,7 @@ StorSimple 장치의 Windows PowerShell 인터페이스에 연결하고 설치 �
 
 ## 다음 단계
 
-DATA 0 이외의 네트워크 인터페이스를 구성하려면 [관리 포털에서 페이지 구성](storsimple-modify-device-config.md)을 사용할 수 있습니다. 네트워크 인터페이스를 구성할 때 문제가 발생하는 경우 [배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
+- DATA 0 이외의 네트워크 인터페이스를 구성하려면 [Azure 클래식 포털에서 페이지 구성](storsimple-modify-device-config.md)을 사용할 수 있습니다. 
+- 네트워크 인터페이스를 구성할 때 문제가 발생하는 경우 [배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

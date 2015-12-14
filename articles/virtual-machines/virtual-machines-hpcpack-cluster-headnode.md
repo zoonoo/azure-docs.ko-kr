@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure VM에서 HPC 팩 헤드 노드 만들기 | Microsoft Azure"
- description="Azure 포털 및 클래식 배포 모델을 사용하여 Azure VM에 Microsoft HPC 팩 헤드 노드를 만드는 방법을 알아보세요."
+ description="Azure 클래식 포털과 클래식 배포 모델을 사용하여 Azure VM에서 Microsoft HPC Pack 헤드 노드를 만드는 방법에 대해 알아봅니다."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -42,7 +42,7 @@ Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포
 다음은 HPC 팩 헤드 노드용 Azure VM을 만드는 개략적 단계입니다. 다양한 Azure 도구를 사용하여 Azure 클래식(서비스 관리) 배포 모델로 이러한 단계를 수행할 수 있습니다.
 
 
-1. 헤드 노드 VM에 VNet을 만들려는 경우 [Azure Preview 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요.
+1. 헤드 노드 VM에 대한 VNet을 만들려면,[ Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요.
 
     **고려 사항**
 
@@ -58,7 +58,7 @@ Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포
 
     * 간단한 개념 증명 배포의 경우 이 단계를 생략하고 나중에 헤드 노드 VM을 도메인 컨트롤러로 승격할 수 있습니다.
 
-3. Azure 포털 또는 Azure Preview 포털의 Azure 마켓플레이스에서 HPC 팩 2012 R2 이미지를 선택하여 클래식 VM을 만듭니다. ([여기](virtual-machines-windows-tutorial-classic-portal.md)에서 Azure 포털 단계를 참조하세요.)
+3. Azure 클래식 포털 또는 Azure 포털에서 Azure 마켓플레이스의 HPC Pack 2012 R2 이미지를 선택하여 클래식 VM을 만듭니다. ([여기](virtual-machines-windows-tutorial-classic-portal.md)에서 Azure 클래식 포털에 대한 단계를 참조하세요.)
 
     **고려 사항**
 
@@ -102,4 +102,4 @@ Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -236,7 +236,7 @@ require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### 스테이징 환경 설정
-Azure 웹에서 이미 WordPress 웹을 실행 중이라고 가정하고 [Azure Management Preview 포털](http://portal.azure.com)에서 WordPress 웹앱으로 이동합니다. 앱이 없으면 마켓플레이스에서 만들 수 있습니다. 자세히 알아보려면 [여기](web-sites-php-web-site-gallery)를 클릭하세요. 설정 -> 배포 슬롯 -> 추가를 클릭하여 이름 스테이지로 배포 슬롯을 만듭니다. 배포 슬롯은 위에서 만든 기본 웹앱과 동일한 리소스를 공유하는 다른 웹 응용 프로그램입니다.
+Azure 웹에서 이미 WordPress 웹앱을 실행 중이라고 가정하고, [Azure 포털](http://portal.azure.com)에 로그인한 다음 WordPress 웹앱으로 이동합니다. 앱이 없으면 마켓플레이스에서 만들 수 있습니다. 자세히 알아보려면 [여기](web-sites-php-web-site-gallery)를 클릭하세요. 설정 -> 배포 슬롯 -> 추가를 클릭하여 이름 스테이지로 배포 슬롯을 만듭니다. 배포 슬롯은 위에서 만든 기본 웹앱과 동일한 리소스를 공유하는 다른 웹 응용 프로그램입니다.
 
 ![스테이지 배포 슬롯 만들기](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -278,7 +278,7 @@ WebMatrix나, FTP , Git, PhpMyAdmin 등과 같은 사용자 선택 도구를 사
 
 ![Wordpress에 대한 변경 내용 미리 보기 교환](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]> 파일 푸시만 필요한 시나리오의 경우(데이터베이스 업데이트 없음), 교환을 수행하기 전에 Azure Preview 포털 내에서 모든 데이터에베이스 관련 **앱 설정** 및 **연결 문자열 설정**에 대해 *슬롯 설정*을 *선택*합니다. 이 경우 **교환**을 수행할 때DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, 기본 연결 문자열 설정이 변경 내용 미리 보기에 표시되지 않아야 합니다. 이 시점에서 **교환** 작업을 완료하면 WordPress 웹앱에 업데이트 파일**만** 있습니다.
+ >[AZURE.NOTE]> 파일 푸시만 필요한 시나리오의 경우(데이터베이스 업데이트 없음), 교환을 수행하기 전에 Azure 포털 내의 웹앱 블레이드에서 모든 데이터베이스 관련 *앱 설정* 및 *연결 문자열 설정*에 대해 **슬롯 설정**을 **선택**합니다. 이 경우 **교환**을 수행할 때DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, 기본 연결 문자열 설정이 변경 내용 미리 보기에 표시되지 않아야 합니다. 이 시점에서 **교환** 작업을 완료하면 WordPress 웹앱에 업데이트 파일**만** 있습니다.
 
 교환 수행 전 프로덕션 WordPress 웹앱 ![슬롯 교환 전 프로덕션 웹앱](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -362,21 +362,14 @@ Courier2 패키지를 [여기](https://our.umbraco.org/projects/umbraco-pro/umbr
   </repositories>
  ```
 
-`<repositories>`에서 프로덕션 사이트 URL 및 사용자 정보를 입력하세요. 기본 Umbraco 멤버 자격 공급자를 사용 중인 경우 <user> 섹션에서 관리 사용자의 ID를 추가하세요. 사용자 정의 Umbraco 멤버 자격 공급자를 사용 중인 경우 `<login>`,`<password>`을(를) Courier2 모듈에 사용하세요.  자세한 정보는 Courier 모듈 [설명서](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) 를 확인하세요.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-마찬가지로, 여기에 표시된 대로 프로덕션 사이트에 Courier 모듈을 설치하고 각 courier.config 파일에서 스테이지 웹 앱에 연결하도록 구성하세요.
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 Umbraco CMS 웹앱 대시보드에서 Courier2 탭을 클릭하고 위치를 선택합니다. `courier.config`에서 설명한 대로 리포지토리 이름이 표시됩니다. 프로덕션과 스테이징 웹앱 모두에 대해 이 작업을 수행합니다.
 
@@ -429,4 +422,4 @@ Courier는 Umbraco CMS의 한 버전을 다른 버전으로 업그레이드하�
 
 [비 프로덕션 배포 슬롯에 대한 웹 액세스를 차단하는 방법](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

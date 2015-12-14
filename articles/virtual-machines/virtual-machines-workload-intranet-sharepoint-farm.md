@@ -102,11 +102,11 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 이 구성에 대한 추정 비용을 계산하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요.
 
-1. 필요한 만큼 **모듈**에서 **계산**을 클릭하고 **가상 컴퓨터**를 클릭하여 9개 가상 컴퓨터의 목록을 만듭니다.
+1. **모듈**에서, **계산**을 클릭한 다음 9개의 **가상 컴퓨터**의 목록을 만들도록 충분히 가상 컴퓨터를 클릭합니다.
 2. 각 가상 컴퓨터에 대해 다음을 선택합니다.
 	- 원하는 지역
-	- 유형에 **Windows**
-	- 가격 책정 계층에 **표준**
+	- 유형에 관한 **Windows**
+	- 가격 책정 계층에 관한 **표준**
 	- 이전 테이블의 기본 크기 또는 원하는 **인스턴스 크기**
 
 > [AZURE.NOTE]Azure 가격 계산기에는 SQL Server 2014 Enterprise에서 실행되는 두 대의 가상 컴퓨터의 SQL Server 라이선스에 대한 추가 비용이 포함되지 않습니다. 자세한 내용은 [가상 컴퓨터 가격 책정 - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
@@ -117,7 +117,7 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 - 1단계: Azure 구성
 
-	Azure 포털 및 Azure PowerShell을 사용하여 저장소 계정, 클라우드 서비스 및 프레미스 간 가상 네트워크를 만듭니다. 자세한 구성 단계는 [1단계](virtual-machines-workload-intranet-sharepoint-phase1.md)를 참조하세요.
+	Azure 클래식 포털과 Azure PowerShell을 사용하여 저장소 계정, 클라우드 서비스, 및 크로스-프레미스 가상 네트워크를 만듭니다. 자세한 구성 단계는 [1단계](virtual-machines-workload-intranet-sharepoint-phase1.md)를 참조하세요.
 
 - 2단계: 도메인 컨트롤러 구성
 
@@ -153,4 +153,4 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

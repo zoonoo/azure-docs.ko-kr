@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 설계 개념 | Microsoft Azure"
+   pageTitle="Azure AD Connect: 설계 개념 | Microsoft Azure"
    description="이 항목에서는 특정 구현 설계 영역을 자세히 설명합니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect의 설계 개념
@@ -69,4 +69,4 @@ sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

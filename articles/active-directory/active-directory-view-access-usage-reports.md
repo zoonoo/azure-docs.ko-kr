@@ -13,10 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
+
 # 액세스 및 사용 보고서 보기
+
+## Reporting 설명서
+
+ - [Reporting API](active-directory-reporting-api-getting-started.md)
+ - [감사 이벤트](active-directory-reporting-audit-events.md)
+ - [보존](active-directory-reporting-retention.md)
+ - [미리 보기](active-directory-reporting-previews.md)
+ - [이를 통해 검색](active-directory-reporting-search.md)
+ - [백필](active-directory-reporting-backfill.md)
+ - [대기 시간](active-directory-reporting-latencies.md)
+ - ["알 수 없는 작업자" 이벤트](active-directory-reporting-unknown-actor.md)
 
 Azure Active Directory의 액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 볼 수 있습니다 이 정보를 사용하면 디렉터리 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다.
 
@@ -96,7 +108,7 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 ## 비정상적인 활동 보고서
 <p>비정상적인 로그인 활동 보고서는 Office365, Azure 관리 포털, Azure AD 액세스 패널, Sharepoint Online, Dynamics CRM Online 및 기타 Microsoft 온라인 서비스에 대한 의심스러운 로그인 활동에 플래그를 지정합니다.</p>
 <p>"여러 번의 실패 후 로그인" 보고서를 제외하고 이러한 모든 보고서는 페더레이션 공급자에 관계없이 앞서 언급한 서비스에 대한 의심스러운 <i>페더레이션</i> 로그인에도 플래그를 지정합니다. </p>
-<p>다음과 같은 보고서를 사용할 수 있습니다. </p><ul> <li>[알 수 없는 원본에서 로그인](active-directory-reporting-sign-ins-from-unknown-sources.md)</li> <li>[여러 번의 실패 후 로그인](active-directory-reporting-sign-ins-after-multiple-failures.md)</li> <li>[여러 지역에서의 로그인](active-directory-reporting-sign-ins-from-multiple-geographies.md)</li> <li>[의심스러운 활동을 포함하는 IP 주소의 로그인](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)</li> <li>[비정상적인 로그인 활동](active-directory-reporting-irregular-sign-in-activity.md)</li> <li>[감염 가능성이 있는 장치에서의 로그인](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)</li> <li>[비정상적인 로그인 활동을 포함하는 사용자](active-directory-reporting-users-with-anomalous-sign-in-activity.md)</li> <li>자격 증명이 손실된 사용자</li></ul>
+<p>다음과 같은 보고서를 사용할 수 있습니다. </p><ul> <li>[알 수 없는 원본에서의 로그인](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[여러 번의 실패 후 로그인](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[여러 지역에서의 로그인](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[의심스러운 활동을 포함하는 IP 주소의 로그인](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[비정상적인 로그인 활동](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[감염 가능성이 있는 장치에서의 로그인](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[비정상적인 로그인 활동을 포함하는 사용자](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>자격 증명이 손실된 사용자</li></ul>
 
 
 
@@ -268,11 +280,11 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 
 ## 자동 전자 메일 알림
 
-Azure AD의 보고 알림에 대한 자세한 내용은 [Azure Active Directory 보고 알림](active-directory-reporting-notifications.md)을 확인하세요.
+Azure AD의 보고 알림에 대한 자세한 내용은 [Azure Active Directory Reporting 알림](active-directory-reporting-notifications.md)을 확인하세요.
 
 ## 다음 단계
 
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

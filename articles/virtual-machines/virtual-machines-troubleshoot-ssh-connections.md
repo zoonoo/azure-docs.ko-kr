@@ -37,11 +37,11 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 
 클래식 배포 모델을 사용하여 만든 가상 컴퓨터의 보다 일반적인 SSH 연결 오류를 해결하려면 다음 단계를 시도합니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에서 **원격 액세스를 다시 설정**합니다. **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에서 **원격 액세스를 다시 설정**합니다. **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
 
 	![SSH 구성 재설정을 보여주는 스크린샷](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. 가상 컴퓨터를 **다시 시작합니다**. [Azure preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다. [Azure 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **인스턴스**를 열고 **다시 시작**을 클릭합니다.
+2. 가상 컴퓨터를 **다시 시작합니다**. [Azure 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **재시작**을 차례로 클릭합니다. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **인스턴스**를 열고 **재시작**을 클릭합니다.
 
 3. [가상 컴퓨터 **크기를 조정합니다**](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -110,7 +110,7 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
 	```
 
-2. 포털에서 Linux VM을 **다시 시작**합니다. [Azure Preview 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
+2. 포털에서 Linux VM을 **다시 시작**합니다. [Azure 포털](https://portal.azure.com)에서 **모두 찾아보기** > **가상 컴퓨터** > Windows 가상 컴퓨터 > **재시작**을 차례로 클릭합니다.
 
 	![V2 가상 컴퓨터 재시작을 보여주는 스크린샷](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
 
@@ -176,14 +176,14 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 
 먼저 포털에 있는 가상 컴퓨터의 상태를 확인합니다.
 
-[Azure 포털](https://manage.windowsazure.com)에서 클래식 배포 모델의 가상 컴퓨터에 대해 다음을 수행합니다.
+[Azure 클래식 포털](https://manage.windowsazure.com)에서 클래식 배포 모델의 가상 컴퓨터에 대하여:
 
 1. **가상 컴퓨터** > *VM 이름*을 클릭합니다.
 2. VM의 **대시보드**를 클릭하여 상태를 확인합니다.
 3. **모니터**를 클릭하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 봅니다.
 4. **끝점**을 클릭하여 SSH 트래픽의 끝점이 있는지 확인합니다.
 
-[Azure Preview 포털에서](https://portal.azure.com) 다음을 수행합니다.
+[Azure portal](https://portal.azure.com)에서:
 
 1. 클래식 배포 모델에서 만든 가상 컴퓨터의 경우 **찾아보기** > **가상 컴퓨터(클래식)** > *VM 이름*을 클릭합니다. 리소스 관리자를 사용하여 만든 가상 컴퓨터의 경우, **찾아보기** > **가상 컴퓨터** > *VM 이름*을 클릭합니다. 가상 컴퓨터에 대한 상태 창에 **실행 중**이 표시됩니다. 아래로 스크롤하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
 2. **설정**을 클릭하여 끝점, IP 주소 및 기타 설정을 확인합니다. 리소스 관리자로 만든 가상 컴퓨터에서 끝점을 식별하려면 [네트워크 보안 그룹](../traffic-manager/virtual-networks-nsg.md)이 정의되어 있고 여기에 규칙이 적용되었으며 서브넷에서 참조되는지 확인합니다.
@@ -253,7 +253,7 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 
 동일한 가상 네트워크의 VM에 SSH 연결을 만들 수 있는 경우 다음을 확인합니다.
 
-- 대상 VM의 SSH 트래픽에 대한 끝점 구성. 끝점의 개인 TCP 포트는 VM에서 SSH 서비스가 수신 대기 중인 TCP 포트(기본값 22)와 일치해야 합니다. 템플릿을 사용하여 리소스 관리자 배포 모델로 만든 VM의 경우 **찾아보기** > **가상 컴퓨터(v2)** > *VM 이름* > **설정** > **끝점**을 사용하여 Azure Preview 포털의 SSH TCP 포트 번호를 확인합니다.
+- 대상 VM의 SSH 트래픽에 대한 끝점 구성. 끝점의 개인 TCP 포트는 VM에서 SSH 서비스가 수신 대기 중인 TCP 포트(기본값 22)와 일치해야 합니다. 템플릿을 사용한 리소스 관리자 배포 모델에서 생성된 VMs에 대한 SSH TCP 포트 번호를 확인하려면 Azure 포털에서 **찾아보기** > **가상 컴퓨터(v2)** > *가상 컴퓨터 이름* > **설정** > **끝점**으로 이동합니다.
 - 대상 가상 컴퓨터의 SSH 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인합니다. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](../virtual-network/virtual-networks-acl.md)를 참조하세요.
 
 문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 새 끝점을 만든 다음 **SSH** 이름(공용 및 개인 포트 번호에 TCP 포트 22)을 지정합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](virtual-machines-set-up-endpoints.md)을 참조하세요.
@@ -287,4 +287,4 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -28,7 +28,7 @@
 
 먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)은 계산(가상 컴퓨터), 저장소(저장소 계정) 및 네트워크(공용 IP 주소, 가상 네트워크 및 네트워크 인터페이스) 리소스에 태그를 배치합니다.
 
-[템플릿 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)에서 **Azure에 배포** 단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure Preview 포털](http://portal.azure.com/)로 이동합니다.
+[템플릿 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)에서 **Azure에 배포** 단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](http://portal.azure.com/)로 이동합니다.
 
 ![태그가 포함된 간단한 배포](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -47,7 +47,7 @@
 
 이어서 **매개 변수 편집** 섹션에서 태그의 값을 입력할 수 있습니다.
 
-![Azure Preview 포털에서 태그 편집](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![Azure 포털에서 태그 편집](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 **만들기**를 클릭하여 태그 값과 함께 이 템플릿을 배포합니다.
 
@@ -58,15 +58,15 @@
 
 태그 아이콘을 선택하여 태그를 표시합니다.
 
-![Azure Preview 포털의 태그 아이콘](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Azure 포털의 태그 아이콘](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 사용자 고유의 키/값 쌍을 정의하여 포털을 통해 새 태그를 추가하고 저장합니다.
 
-![Azure Preview 포털에서 새로운 태그 추가](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![Azure 포털에서 새 태그 추가](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 이제 리소스에 대한 태그 목록에 새 태그가 나타납니다.
 
-![Azure Preview 포털에 저장된 새로운 태그](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![Azure 포털에서 저장된 새 태그](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## PowerShell을 사용한 태그 지정
@@ -159,15 +159,15 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 
 **사용량 세부 정보 다운로드**를 클릭하여 구독의 사용량 세부 정보를 표시합니다.
 
-![Azure Preview 포털의 사용량 세부 정보](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Azure 포털의 사용량 세부 정보](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
 청구서 및 **버전 2** 사용량 세부 정보를 선택합니다.
 
-![Azure Preview 포털의 버전 2 미리 보기 사용량 세부 정보](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Azure 포털의 버전 2 미리 보기 사용량 세부 정보](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
 사용량 세부 정보의 **태그** 열에서 모든 태그를 확인할 수 있습니다.
 
-![Azure Preview 포털의 태그 열](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Azure 포털의 태그 열](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 조직에서는 사용량과 함께 이러한 태그를 분석하여 소비 데이터에 대한 새로운 통찰력을 얻을 수 있습니다.
 
@@ -190,4 +190,4 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

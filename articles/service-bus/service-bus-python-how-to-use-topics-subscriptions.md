@@ -43,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-[Azure 포털][] **연결 정보** 창에서 SAS 키 이름 값 및 키 값을 가져올 수 있습니다.
+[Azure 클래식 포털][] **연결 정보** 창에서 SAS 키 이름 값 및 키 값을 가져올 수 있습니다.
 
 ```
 bus_service.create_topic('mytopic')
@@ -157,7 +157,7 @@ msg.delete()
 
 ## 토픽 및 구독 삭제
 
-토픽과 구독은 영구적이므로, Azure 포털 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제에서는 이름이 `mytopic`인 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적이므로, [Azure 클래식 포털][] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제에서는 이름이 `mytopic`인 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```
 bus_service.delete_topic('mytopic')
@@ -176,10 +176,10 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 -   [큐, 토픽 및 구독][]을 참조하세요.
 -   [SqlFilter.SqlExpression][]에 대한 참조
 
-[Azure 포털]: http://manage.windowsazure.com
+[Azure 클래식 포털]: http://manage.windowsazure.com
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
 [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

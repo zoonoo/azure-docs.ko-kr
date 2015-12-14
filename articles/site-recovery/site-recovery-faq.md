@@ -1,253 +1,226 @@
 <properties 
 	pageTitle="Azure Site Recovery: 질문과 대답" 
-	description="이 문서는 Azure Site Recovery를 사용하는 방법에 대한 일반적인 질문을 설명합니다." 
+	description="이 문서에서는 Azure Site Recovery에 대한 일반적인 질문에 대답합니다." 
 	services="site-recovery" 
 	documentationCenter=""
-	authors="csilauraa"
+	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
-	ms.service="site-recovery"
+	ms.service="get-started-article"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="08/26/2015" 
-	ms.author="lauraa"/>
+	ms.date="12/01/2015" 
+	ms.author="raynew"/>
 
 
-# Azure Site Recovery: 질문과 대답
+# Azure Site Recovery: FAQ(질문과 대답)
 ## 이 문서의 내용
 
-이 문서는 Azure Site Recovery에 대한 질문과 대답을 제공합니다. 사이트 복구 및 관련 배포 시나리오에 대한 소개는 [사이트 복구 개요](site-recovery-overview.md)를 읽으세요.
-
-이 문서를 읽은 후 다른 질문이 있다면 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
+이 문서는 Site Recovery에 대한 질문과 대답을 제공합니다. FAQ를 읽은 후 질문이 있다면 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주십시오.
 
 
-## 일반
-### ASR은 안전합니까? Azure에 어떤 데이터를 보냅니까?
+## 지원
 
-예, ASR는 안전합니다. 응용 프로그램 데이터를 가로채지도 않고 가상 컴퓨터 내에 실행 중인 항목에 대해 어떤 정보도 가지고 있지 않습니다. Hyper-V 호스트 또는 가상 컴퓨터로부터 어떤 인터넷 연결도 필요하지 않습니다.
+###Site Recovery의 기능은 무엇입니까?
 
-복제가 사용자 고유의 엔터프라이즈와 서비스 공급자 사이트 사이에서 수행되므로 응용프로그램 데이터가 Azure에 전송되지 않습니다. 장애 조치를 오케스트레이션하는 데 필요한 VM 또는 클라우드 이름과 같은 메타데이터만 Azure에 전송됩니다. ASR는 응용프로그램 데이터를 가로챌 수 있는 능력이 없으며, 해당 데이터는 항상 온-프레미스에 남습니다.
+Site Recovery는 온-프레미스 가상 컴퓨터 및 물리적 서버에서 Azure 또는 보조 데이터 센터로의 복제 작업을 오케스트레이션 및 자동화하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. [자세히 알아봅니다](site-recovery-overview.md).
 
-ASR은 ISO 27001:2005 인증이며, HIPAA, DPA 및 FedRAMP JAB 평가를 완료하는 중입니다.
 
-### 준수 요구 사항은 온-프레미스 환경의 메타데이터까지 동일한 지리적인 하위 지역 내에 남아있을 것을 요구합니다. ASR은 요구 사항을 준수하도록 보장할 수 있습니까?
+### Site Recovery로 무엇을 보호할 수 있습니까?
 
-예. 사용자가 선택한 영역에 사이트 복구 자격 증명 모음을 만들 때 유지하는 모든 메타 데이터를 사용하도록 설정하고 해당 지역의 지리적 경계 내에 남도록 복구 설치 프로그램을 조정해야 합니다.
+- **VMware 가상 컴퓨터**: Site Recovery는 Hyper-V VM에서 실행 중인 모든 워크로드를 보호할 수 있습니다. 
+- **물리적 서버**: Site Recovery는 Windows 또는 Linux를 실행하는 물리적 서버를 보호할 수 있습니다.
+- **VMware 가상 컴퓨터**: Site Recovery는 VMware VM에서 실행 중인 모든 워크로드를 보호할 수 있습니다.
+
+
+###어떤 Hyper-V VM을 보호할 수 있습니까?
+
+배포 시나리오에 따라 다릅니다.
+
+다음 문서에서 Hyper-V 호스트 서버 필수 조건을 확인하세요.
+
+- [Azure로 Hyper-V VM 복제(VMM 없이)](site-recovery-hyper-v-site-to-azure/#before-you-start)
+- [Azure로 Hyper-V VM 복제(VMM 사용)](site-recovery-vmm-to-azure/#before-you-start)
+- [보조 데이터 센터에 Hyper-V VM 복제](site-recovery-vmm-to-vmm/#before-you-start)
+
+게스트 운영 체제 관련:
+
+- 보조 데이터 센터에 복제하는 경우에는 [Hyper-V VM에서 지원되는 게스트 운영 체제](https://technet.microsoft.com/library/mt126277.aspx)에서 Hyper-V 호스트 서버에서 실행 중인 VM에 지원되는 게스트 운영 체제 목록을 참조하세요.
+- Azure에 복제하는 경우에는 [Azure에서 지원되는](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx) 모든 게스트 운영 체제를 Site Recovery에서도 지원합니다.
+
+Site Recovery는 지원되는 VM에서 실행 중인 모든 워크로드를 보호할 수 있습니다.
+
+### Hyper-V가 클라이언트 운영 체제에서 실행 중인 경우 VM을 보호할 수 있습니까?
+
+아니요, 이 기능은 지원되지 않습니다. 그 대신 Azure 또는 보조 데이터 센터에 [물리적 클라이언트 컴퓨터를 복제](site-recovery-vmware-to-azure.md)해야 합니다.
+
+
+### Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
+
+Site Recovery를 사용하여 가상 컴퓨터 또는 물리적 서버에서 실행되는 대부분의 워크로드를 보호할 수 있습니다. Site Recovery는 응용 프로그램 인식 DR을 배포하는 데 도움이 됩니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory를 포함한 Microsoft 응용 프로그램과 통합되고, Oracle, SAP, IBM, Red Hat 등의 선두 공급 업체 제품과 긴밀하게 작동하므로 특정 응용 프로그램에 맞게 재해 복구 솔루션을 사용자 지정할 수 있습니다. 워크로드 보호에 대해 [자세히 알아보세요](site-recovery-workload.md).
+
+
+### Hyper-V 가상 컴퓨터를 보호하려면 항상 System Center VMM 서버가 필요합니까? 
+
+아니요. Azure에 복제하는 경우에는 VMM 클라우드에 있는/없는 Hyper-V 호스트 서버에 위치한 Hyper-V VM을 복제할 수 있습니다. 보조 데이터 센터에 복제하는 경우에는 VMM 클라우드에서 Hyper-V 호스트 서버를 관리해야 합니다. [자세히 알아보기](site-recovery-hyper-v-site-to-azure.md)
+
+### VMM 서버가 하나밖에 없는 경우 VMM을 사용하여 Site Recovery를 배포할 수 있습니까? 
+
+예. 클라우드의 Hyper-V VM을 VMM 서버에서 Azure로 복제하거나 같은 서버의 VMM 클라우드 간에 복제할 수 있습니다. 온-프레미스 간 복제는 기본 사이트와 보조 사이트에 VMM 서버가 있는 경우에 사용하는 것이 좋습니다. [자세히 알아보기](site-recovery-single-vmm.md)
+
+### 어떤 물리적 서버를 보호할 수 있습니까?
+
+Windows 및 Linux를 실행하는 물리적 서버를 Azure 또는 보조 사이트로 복제하여 보호할 수 있습니다. 운영 체제 요구 사항은 [무엇이 필요한가요?](site-recovery-vmware-to-azure/#what-do-i-need)를 참조하세요. 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
+
+온-프레미스 서버가 중지되면 물리적 서버가 Azure에서 VM으로 실행됩니다. 온-프레미스 물리적 서버로의 장애 복구는 현재 지원되지 않지만 Hyper-V 또는 VMware에서 실행되는 가상 컴퓨터로의 장애 복구는 가능합니다.
+
+### 어떤 VMware VM을 보호할 수 있습니까?
+
+이 시나리오의 경우 VMware vCenter 서버, vSphere 하이퍼바이저 및 VMware 도구를 실행 중인 가상 컴퓨터가 필요합니다. 정확한 요구 사항은 [무엇이 필요한가요?](site-recovery-vmware-to-azure/#what-do-i-need)를 참조하세요. 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
+
+### Azure에 가상 컴퓨터를 복제하기 위한 필수 조건은 무엇입니까?
+
+Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery-best-practices/#virtual-machines)을 충족해야 합니다.
+
+### Hyper-V 2세대 가상 컴퓨터를 Azure로 복제할 수 있습니까?
+
+예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세히 알아보기](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+
+### Azure로 복제할 경우 Azure VM 요금을 어떻게 결제합니까? 
+
+주기적 복제 동안 데이터가 지역 중복 저장소에 복제되므로 어떤 Azure IaaS 가상 컴퓨터 요금도 지불할 필요가 없습니다(큰 장점). Azure로 장애 조치(failover)를 수행하면 Site Recovery에서 자동으로 Azure IaaS 가상 컴퓨터를 만듭니다. 그 후 Azure에서 소비한 계산 리소스만큼 요금이 청구됩니다.
+
+### Site Recovery로 지사의 재해 복구를 관리할 수 있습니까?
+
+예. 지사에서 Site Recovery를 사용하여 복제를 오케스트레이션하고 장애 조치(failover)를 수행하면 중앙의 한 위치에 모든 지사 워크로드의 통합되지 않은 오케스트레이션 및 보기가 표시됩니다. 지사를 방문하지 않고 본사에서 간편하게 모든 지사의 장애 조치(failover)를 수행하고 재해 복구를 관리할 수 있습니다.
 
 ### ASR 워크플로 자동화에 사용할 수 있는 SDK가 있습니까?
 
-예. ASR 워크플로는 Rest API, PowerShell 또는 Azure SDK를 사용하여 자동화할 수 있습니다. [Azure Site Recovery를 위한 PowerShell 지원 소개](http://azure.microsoft.com/blog/2014/11/05/introducing-powershell-support-for-azure-site-recovery/)라는 제목의 블로그 게시물에서 자세한 내용을 볼 수 있습니다.
+예. Rest API, PowerShell 또는 Azure SDK를 사용하여 Site Recovery 워크플로를 자동화할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Site Recovery 배포](site-recovery-deploy-with-powershell.md)를 참조하세요.
 
-### ASR은 복제를 암호화합니까? 
-Azure에 대한 온-프레미스 간 및 온-프레미스 간 복제는 *Hyper-V 및 VMM 보호 시나리오*에 대한 전송 중에 암호화를 지원합니다. Azure에 대한 *Hyper-V 및 VMM 보호*는 휴지 상태에서도 암호화를 지원합니다. 자세한 내용은 [이 문서](https://azure.microsoft.com/blog/2014/09/02/azure-site-recovery-privacy-security-part1/)를 참조하세요.
 
-### 복제/복사 빈도를 15분 보다 높게 늘릴 수 있습니까?
-* **Hyper-V 및 VMM 시나리오**: 아니요, 호스트 기반 복제를 사용한 Hyper-V 가상 컴퓨터 복제는 30초, 5분 및 15분으로만 구성할 수 있습니다.
-* **VMware/실제 시나리오**: 기술은 지속적인 데이터 보호를 사용하기 때문에 게스트 내 기반 복제에 적용할 수 없습니다.
+## 보안 및 규정 준수
 
-### ASR을 사용하여 특정 디스크를 복제에서 제외할 수 있습니까?
-지원되지 않습니다. [Azure 사이트 복구 피드백 포럼 - 복제에서 디스크 제외](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication)를 통해 사용자 의견을 보내 주세요.
+### 내 데이터가 Site Recovery 서비스로 전송되나요?
 
-### 가상 컴퓨터를 기반으로 동적 디스크를 복제할 수 있습니까?
-*Hyper-V 및 VMM 시나리오*는 동적 디스크를 지원합니다. *VMware 가상 컴퓨터 또는 물리적 컴퓨터 시나리오*는 동적 디스크를 지원하지 않습니다. [Azure 사이트 복구 피드백 포럼](http://feedback.azure.com/forums/256299-site-recovery)을 통해 사용자 의견을 보내 주세요.
+아니요, Site Recovery는 응용 프로그램 데이터를 가로채거나 사용자의 가상 컴퓨터 또는 물리적 서버에서 실행 중인 항목에 대한 정보를 보유하지 않습니다.
 
-### 어떤 종류의 저장소 계정 유형이 지원됩니까?
-[표준 지역 중복 저장소](../storage/storage-redundancy.md#geo-redundant-storage)가 지원됩니다. [프리미엄 저장소 계정]((../storage/storage-premium-storage-preview-portal/)은 [VMware 가상 컴퓨터 또는 물리적 컴퓨터 시나리오](site-recovery-vmware-to-azure.md)에만 지원됩니다. 표준 로컬 중복 저장소에 대한 지원은 백로그에 있으며 [로컬 중복 저장소 지원에 대한 지원](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support)을 통해 사용자 의견을 보내 주세요.
+복제 데이터는 Hyper-V 호스트, VMware 하이퍼바이저 또는 기본 및 보조 데이터 센터의 물리적 서버 간에 교환되거나 데이터 센터와 Azure 저장소 간에 교환됩니다. Site Recovery는 데이터를 가로챌 수 있는 기능이 없습니다. 복제 오케스트레이션 및 장애 조치(failover)에 필요한 메타데이터만 Site Recovery 서비스로 전송됩니다.
+
+Site Recovery는 ISO 27001:2005 인증이며, HIPAA, DPA 및 FedRAMP JAB 평가를 완료하는 중입니다.
+
+### 규정 준수를 위해 온-프레미스 환경의 메타데이터까지도 지리적으로 같은 지역에 남아 있어야 합니다. Site Recovery가 도움이 되나요?
+
+예. 사용자가 한 지역에 Site Recovery 자격 증명 모음을 만들면 복제 및 장애 조치(failover)를 활성화하고 오케스트레이션하는 데 필요한 모든 메타데이터가 해당 지역의 지리적 경계 내에 남아 있습니다.
+
+### Site Recovery는 복제를 암호화합니까?
+온-프레미스 사이트 간에 가상 컴퓨터와 물리적 서버를 복제할 때 전송 중 암호화가 지원됩니다. 온-프레미스 사이트와 Azure 간에 가상 컴퓨터와 물리적 서버를 복제할 때 전송 중 암호화 및 Azure 내 암호화가 모두 지원됩니다.
+
+
+
+
+## 복제 및 장애 조치(Failover)
+
+### Azure로 복제할 때 어떤 유형의 저장소 계정이 필요합니까?
+
+[표준 지역 중복 저장소](../storage/storage-redundancy/#geo-redundant-storage) 계정이 필요합니다. [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal/)은 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우에만 지원됩니다.
+
+표준 로컬 중복 저장소에 대한 지원은 백로그에 있습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support)을 통해 이 기능에 대한 의견을 보내 주세요.
+
+### 데이터를 얼마나 자주 복제할 수 있나요?
+- **Hyper-V:** Hyper-V VM을 30초, 5분 또는 15분마다 복제할 수 있습니다. SAN 복제를 설정하면 복제가 동기화됩니다.
+- **VMware 및 물리적 서버:** 복제 빈도는 이와 관련이 없습니다. 복제는 지속적으로 수행됩니다. 
 
 ### 기존 복구 사이트에서 3차 사이트로 복제를 확장할 수 있습니까?
-지원되지 않습니다. [Azure 사이트 복구 피드백 포럼 - 복제 확장에 대한 지원](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 사용자 의견을 보내 주세요.
+확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
 
-### 오프라인 메커니즘을 사용하여 Azure에 초기 디스크를 시드할 수 있습니까?
-지원되지 않습니다. [Azure 사이트 복구 피드백 포럼 - 오프라인 복제에 대한 지원](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 사용자 의견을 보내 주세요.
 
-### 원본으로 hyper-v를 사용하는 경우 복제 트래픽에 할당된 대역폭을 제한할 수 있습니다?
-- 두 온-프레미스 사이트 간에 복제를 수행하는 경우 Windows QoS를 사용할 수 있습니다. 다음은 샘플 스크립트입니다. 
+### Azure에 처음으로 복제할 때 오프라인으로 복제할 수 있습니까? 
+
+지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
+
+
+### 특정 디스크를 복제에서 제외할 수 있습니까?
+
+지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
+
+### 동적 디스크를 사용하여 가상 컴퓨터를 복제할 수 있습니까?
+
+동적 디스크는 Hyper-V 가상 컴퓨터를 복제할 때 지원됩니다. VMware 가상 컴퓨터 또는 물리적 서버를 복제할 때에는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery)을 통해 이 기능에 대한 의견을 보내 주세요.
+
+### Azure로 장애 조치(Failover)하는 경우 장애 조치(Failover) 후에 어떻게 Azure 가상 컴퓨터에 액세스할 수 있습니까? 
+
+보안 인터넷 연결 또는 사이트 간 VPN(또는 Azure Express 경로)이 있다면 이를 통해 Azure VM에 액세스할 수 있습니다. VPN 연결을 사용할 경우 VM이 있는 Azure 네트워크의 내부 포트와 통신이 이루어집니다. 인터넷을 통한 통신은 VM에 대한 Azure 클라우드 서비스의 공용 끝점에 매핑됩니다. [자세히 알아보기](site-recovery-network-design/#connectivity-after-failover)
+
+### Azure로 장애 조치(Failover)하는 경우 Azure는 어떻게 데이터 복원을 보장합니까?
+
+Azure는 서비스 복원을 위해 설계되었습니다. Site Recovery는 이미 Azure SLA를 따라 보조 Azure 데이터 센터에 대한 장애 조치(Failover)를 위해 엔지니어링되었습니다. 이 상황이 발생하면 사용자가 자격 증명 모음에 대해 선택한 지리적으로 동일한 지역에 메타데이터 및 자격 증명 모음이 남아 있습니다.
+
+### 두 데이터 센터 간에 복제하는 동안 주 데이터 센터에서 예기치 않게 정전이 발생하면 어떻게 됩니까?
+
+보조 사이트에서 계획되지 않은 장애 조치(Failover)를 트리거할 수 있습니다. Site Recovery는 기본 사이트가 연결되지 않아도 장애 조치(Failover)를 수행할 수 있습니다.
+
+
+### 장애 조치(Failover)는 자동입니까?
+
+자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치(Failover)를 시작하거나 [Site Recovery PowerShell](https://msdn.microsoft.com/library/dn850420.aspx)을 사용하여 장애 조치(Failover)를 트리거할 수 있습니다. 장애 복구(failback) 작업 역시 Site Recovery 포털에서 간단하게 수행할 수 있습니다. 온-프레미스 Orchestrator 또는 Operations Manager를 사용하여 가상 컴퓨터 오류를 감지하면 SDK를 사용하여 장애 조치(Failover)를 트리거하도록 자동화할 수 있습니다.
+
+### Hyper-V VM을 복제할 때 Hyper-V 복제 트래픽에 할당된 대역폭을 제한할 수 있습니까?
+- Hyper-V VM과 두 온-프레미스 사이트 간에 복제를 수행하는 경우 Windows QoS를 사용할 수 있습니다. 다음은 샘플 스크립트입니다. 
 
     	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
     	gpupdate.exe /force
 
-- Azure에 복제를 수행하는 경우 다음 샘플 powershell cmdlet을 사용하여 이를 구성할 수 있습니다.
+- Azure에 Hyper-V VM을 복제할 경우 다음 샘플 PowerShell cmdlet을 사용하여 제한을 구성할 수 있습니다.
 
     	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
 
 
-## 버전 지원
 
-### 어떤 버전의 Windows Server 호스트 및 클러스터가 지원됩니까?
-Hyper-V 복제본을 선택하여 두 개의 온-프레미스 Hyper-V 사이트 사이에서 복제와 보호를 활성화할 때 Windows Server 2012 및 Windows Server 2012 R2를 사용할 수 있습니다. Windows Server 2012 R2는 Hyper-V 서버에서 Azure로 복제를 설정하려는 경우 필요합니다.
+## 서비스 공급자 배포
 
+### Site Recovery는 전용 또는 공유 인프라 모델에 대해 작동합니까?
+예, Site Recovery는 전용 및 공유 인프라 모델 모두에 대해 작동합니다.
 
-### 어떤 버전의 게스트 운영 체제가 지원됩니까?
-온-프레미스에서 온-프레미스 보호에 대해서는 [가상 컴퓨터 및 게스트 운영 체제 정보](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)라는 제목의 항목에서 지원되는 게스트 운영 체제의 최신 목록을 볼 수 있습니다. Hyper-V-Azure 시나리오에 대해서는 Azure Site Recovery가 Azure에서 지원하는 모든 게스트 운영 체제를 지원합니다. VMware-Azure 시나리오에 대해서는 [이 문서](site-recovery-vmware-to-azure.md#before-you-start)를 참조하세요.
-
-### 클라이언트 운영 체제에서 Hyper-V를 실행하는 경우 가상 컴퓨터 보호를 구성할 수 있습니까?
-
-Azure에 가상 컴퓨터를 복제하는 클라이언트 운영 체제에서 실행하는 Hyper-V를 구성할 수 없습니다. Hyper-V 복제본만이 서버 운영 체제에서 지원됩니다. [이 문서](site-recovery-vmware-to-azure.md)를 사용하여 실제 클라이언트 컴퓨터를 Azure에 복제할 수 있습니다.
-
-### ASR은 2세대 컴퓨터를 지원합니까?
-
-예, ASR은 Azure에 Hyper-V의 2세대 가상 컴퓨터 복제를 지원합니다. ASR은 장애 조치 중 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터는 1세대로 다시 변환됩니다. 추가 정보는 [자세히 알아보기](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)를 참조하세요.
+### 내 테넌트의 ID가 Site Recovery 서비스와 공유됩니까?
+아니요. 사실 사용자의 테넌트는 Site Recovery 포털에 액세스할 필요가 없습니다. 서비스 공급자 관리자만 포털에서 작업을 수행합니다.
 
 
-## 서비스 공급자 사이트 간 배포 
+### 테넌트 응용 프로그램 데이터가 Azure로 이동될까요?
+서비스 공급자가 소유하고 있는 사이트 간에 복제할 경우 응용 프로그램 데이터가 Azure로 이동되지 않습니다. 데이터는 전송 중에 암호화되어 서비스 공급자 사이트 간에 직접 복제됩니다.
 
-### 이 솔루션은 전용 또는 공유 인프라 모델에 대 해 작동합니까?
-예, ASR는 전용 및 공유 인프라 모델을 모두 지원합니다.
+Azure로 복제하는 경우 응용 프로그램 데이터가 Azure 저장소로 전송되지만 Site Recovery 서비스로는 전송되지 않습니다. 데이터는 전송 중에 암호화되어 Azure에 암호화된 상태로 남아 있습니다.
 
-### 내 테넌트의 ID가 Azure와 공유됩니까?
-아니요. 사실 귀하의 테넌트는 ASR 포털에 액세스할 필요가 없습니다. 서비스 공급자 관리자만 Azure 내 ASR 포털에서 작업을 수행합니다.
+### 내 테넌트로 Azure 서비스에 대한 청구서가 발급됩니까?
 
-### 내 테넌트가 Azure로부터 자재 명세서를 받게 됩니까?
-아니요. Microsoft Azure의 청구 관계는 서비스 공급자와 직접 유지 됩니다. 서비스 공급자는 해당 테넌트에 대한 특정 청구서를 생성하는 일을 담당합니다.
+아니요. Azure의 청구 관계는 서비스 공급자와 직접 유지됩니다. 서비스 공급자는 해당 테넌트에 대한 특정 청구서를 생성하는 일을 담당합니다.
 
-### 테넌트 응용프로그램 데이터가 Azure로 이동될까요?
-DR에 대해 서비스 공급자가 소유하고 있는 사이트를 사용할 때 응용프로그램 데이터는 Azure로 이동하지 않습니다. 데이터가 서비스 공급자 사이트 간에 직접 암호화 및 복제됩니다. Azure를 DR 사이트로 사용하면 응용프로그램 데이터가 움직이지 않는 Azure – Data에 전송되고 전송 중인 항목은 암호화되지 않은 상태로 유지됩니다. 또한, VPN, Express 경로 또는 공용 인터넷을 사용하여 Azure에 연결을 설정할 수도 있습니다.
+### Azure로 복제할 때 항상 Azure에서 가상 컴퓨터를 실행해야 합니까?
 
-### Azure를 DR 사이트로 사용할 때는 항상 Azure에서 가상 컴퓨터를 실행해야 합니까?
-아니요, ASR는 최고급 공용 클라우드 DRaaS 솔루션으로 설계되었습니다. 데이터가 자신의 구독에 있는 지리적 중복 Azure 저장소 계정에 복제됩니다. DR 드릴 또는 실제 장애 조치를 수행하면 ASR가 구독에서 자동으로 가상 컴퓨터를 만듭니다.
+아니요, 데이터가 자신의 구독에 있는 지역 중복 Azure 저장소 계정에 복제됩니다. 테스트 장애 조치(Failover)(DR 드릴) 또는 실제 장애 조치(Failover)를 수행하면 Site Recovery가 구독에서 자동으로 가상 컴퓨터를 만듭니다.
 
-### Azure를 DR 사이트로 사용하도록 선택했다면 테넌트 수준의 격리가 보장됩니까?
+### Azure에 복제할 때 테넌트 수준의 격리가 보장되나요?
+
 예.
 
 ### 현재 어떤 플랫폼이 지원됩니까?
-저희는 Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반의 Hyper 2012 이상의 배포를 지원합니다. ASR 및 Azure Pack 통합에 대한 자세한 내용은 [가상 컴퓨터에 대한 보호 구성](https://technet.microsoft.com/library/dn850370.aspx)을 참조하십시오.
 
-### 단일 Azure Pack 및 단일 VMM 서버 배포도 지원합니까?
-예, 서비스 공급자 사이트 사이의 DR 및 서비스 공급자 사이트와 Azure 사이의 DR, 두 가지 시나리오에 대해 단일 SCVMM 배포가 지원됩니다.
+Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 이상)의 배포가 지원됩니다. Azure Pack 및 Site Recovery 통합에 대한 자세한 내용은 [가상 컴퓨터에 대한 보호 구성](https://technet.microsoft.com/library/dn850370.aspx)을 참조하세요.
 
-서비스 공급자 사이트 사이에 DR를 활성화하면 단일 Azure 팩 배포도 지원됩니다. 하지만 이 토폴로지에 대해 ASR Runbook 통합은 사용할 수 없습니다.
+### 단일 Azure Pack 및 단일 VMM 서버 배포가 지원되나요?
 
-## Hyper-v사이트와 Azure 간 배포(VMM 없이)
+예, Hyper-V 가상 컴퓨터와 Azure 간에 또는 서비스 공급자 사이트 간에 복제할 수 있습니다. 서비스 공급자 사이트 간에 복제할 경우 Azure Runbook 통합을 사용할 수 없습니다.
 
-### ASR는 사이트 대 사이트 VPN을 활성화해야 합니까?
-아니요. 필수는 아닙니다. ASR는 공용 인터넷을 통해서도 작동합니다. 그러나 사이트 대 사이트 VPN을 구성한 경우 이전과 동일한 방식으로 가상 컴퓨터를 통해 장애 조치에 액세스할 수 있습니다. Azure에 재해 복구를 활성화할 때 네트워킹 고려사항에 대한 자세한 내용은 [재해 복구 사이트로 Microsoft Azure용 네트워킹 인프라 설정 블로그](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)를 참조하십시오.
-
-### ASR 보호 충전 외에 요금을 지불해야 합니까?
-안정적인 상태에서 지리적 중복 Azure 저장소에 변경 사항을 복제하며, 어떤 Azure IaaS 가상 컴퓨터 요금도 지불할 필요가 없습니다(큰 장점). Azure에 장애 조치를 수행하면 Azure에서 소비한 계산 리소스에 대한 요금이 청구된 후에 ASR가 Azure IaaS 가상 컴퓨터를 자동으로 만듭니다.
-
-### 저희 지점에는 VMM이 설치되어 있지 않습니다. 지사에서 Azure에 워크로드의 보호를 활성화할 수 있습니까? 이를 위해 ASR을 사용할 때의 주요 이점은 무엇입니까?
-예, ASR를 사용하여 SCVMM에서 관리하지 않는 Hyper-V 호스트에서 실행 중인 가상 컴퓨터를 보호할 수 있습니다.
-
-ASR를 사용하여 모든 지사의 재해 복구 요구사항을 관리할 때 모든 지사의 워크로드를 하나의 중앙 위치에서 통합적으로 볼 수 있습니다. 또한 지사에 방문하지 않고도 본사에서 모든 지사에 대해 원클릭으로 장애 조치 및 재해 복구 관리를 수행할 수 있습니다. 현재 지사의 재해 복구의 경우 네트워킹 매핑 및 정지된 암호화는 지원되지 않습니다.
-
-### 지사의 경우, 보호할 수 있는 가상 컴퓨터의 수에 제한이 있습니까?
-아니요. 엔터프라이즈 시나리오에서와 마찬가지로 지원이 동일하게 유지됩니다.
-
-### 보호 하려는 가상 컴퓨터에 에이전트를 설치해야 합니까?
-
-가상 컴퓨터에 에이전트가 필요하지 않습니다. 보호하려는 가상 컴퓨터를 실행 중인 Hyper-V 서버마다 Site Recovery 공급자 및 복구 서비스 에이전트를 설치해야 합니다. 이 두 구성 요소는 사이트 복구 배포 중에 다운로드할 수 있는 단일 공급자 파일과 함께 설치됩니다.
-
-### Hyper-V 서버에서 실행되는 공급자는 특별한 방화벽 설정이 필요합니까?
-
-특정 설정은 필요하지 않습니다. 서버의 공급자 구성 요소는 Azure에 대한 HTTPS 연결을 통해 통신하고 지 정해놓은 경우가 아니면 Hyper-V 호스트 서버의 기본 인터넷 설정을 사용합니다.
-
-### Hyper-V 서버는 도메인 구성원이어야 합니까?
-
-서버는 도메인에 있을 필요가 없습니다
-
-## 두 VMM 데이터 센터 간에 배포
-
-### Azure로 보조 사이트를 복제하는 가상 컴퓨터를 복제할 수 있습니까? 
-
-아니요,이 유형의 체인으로 연결된 복제는 지원되지 않습니다.
-
-### 두 VMM 데이터 센터 간의 보호를 구성하는 인증서가 필요합니까?
-
-아니요. VMM 클라우드 간의 보호를 구성하는 동안 ASR에서 인증 유형을 지정합니다. 작동하는 Kerberos 환경이 구성되어 있지 않으면 HTTPS를 선택합니다. Azure Site Recovery가 HTTPS 인증을 위한 인증서를 자동으로 구성합니다. 수동으로 구성할 필요가 없습니다. Kerberos를 선택하면 호스트 서버의 상호 인증에 Kerberos 티켓이 사용됩니다. 기본적으로 Hyper-V 호스트 서버의 Windows 방화벽에서 포트 8083(Kerberos용)과 8084(인증서용)가 열립니다. 이 설정은 Windows Server 2012 R2에서 실행 중인 Hyper-V 호스트 서버와만 관련이 있습니다.
-
-
-
-## SAN을 사용하여 두 VMM 데이터 센터 간에 배포
-
-### 이미 SAN 기반 복제가 설정되어 있고 변경하고 싶지 않으면 어떻게 해야 합니까?
-걱정하지 마세요. ASR는 이미 복제가 설정되어 있는 시나리오를 지원합니다. 이 경우 가상 컴퓨터 중심의 재해 복구 오케스트레이션, 재해 복구 네트워킹 구성, 응용프로그램 인식 복구 계획, 재해 복구 드릴 및 규정 준수 및 감사 보고 요구 사항을 위해 ASR를 활용할 수 있습니다.
-
-
-### VMM이 필요합니까? 양쪽 모두에 VMM이 필요합니까?
-예. 배열별 SMI-S 공급자를 사용하여 VMM에 의한 관리 하에 SAN 배열을 가져와야 합니다.
-
-권장된 구성이 사이트 관리에 별도의 VMM 서버를 사용해도 배열 형식에 기반하여 단일 VMM HA 배포를 지원합니다.
-
-
-### 지원되는 저장소 배열은 무엇입니까?
-
-NetApp, EMC 및 HP는 해당 SMI-S 공급자에 대한 업데이트로 Azure 사이트 복구 SAN 복제에 대한 지원을 활성화했습니다. 자세한 내용은 아래 링크를 참조하세요.
-
-- [NetApp 클러스터형 데이터 ONTAP 8.2](http://community.netapp.com/t5/Technology/NetApp-Unveils-Support-for-Microsoft-Azure-SAN-Replication-with-SMI-S-and/ba-p/94483)
-- [EMC VMAX 시리즈](https://thecoreblog.emc.com/high-end-storage/microsoft-azure-site-recovery-now-generally-available-vmax-srdf-integration-pack-ready-for-public-review/)    
-- [HP 3PAR](http://h20195.www2.hp.com/V2/GetDocument.aspx?docname=4AA5-7068ENW&cc=us&lc=en)
-
-
-### 내 저장소 관리자가 확실하지 않다면 어떻게 해야 합니까?
-저희는 귀하의 저장소 관리자가 설정한 기존의 복제 구성으로 작업합니다. 따라서 저장소 관리자가 배열에 어떠한 변경도 할 필요가 없습니다. 그러나 SCVMM을 통해 저장소 관리를 자동화하고자 하는 조직은 ASR 및 VMM을 사용하여 저장소를 프로비전할 수도 있습니다.
-
-### 동기 복제를 지원할 수 있습니까? 게스트 클러스터? 공유 저장소?
-예, 예, 예!
-
-### Net-net: 이것을 작동시키려면 온-프레미스를 설치해야 합니까?
-(SAN) 배열 기반 복제를 사용하여 Hyper-V 사이트 간에 복제와 보호를 활성화하면 SCVMM 서버에 ASR DR 공급자만 설치하면 됩니다. 이것은 또한 인터넷에 연결이 필요한 *유일한* 호스트임을 기억하십시오.
-
-
-또한 배열은 각 저장소 공급업체에서 제공하는 업데이트된 SMI-S 공급자를 사용하여 SCVMM에 의해 발견되어야 합니다.
-
-## VMware와 Azure 간의 배포
-
-### 복제된 VMware VM이 있습니다. Azure에 대한 복제된 VM을 보호할 수 있나요?
-보호된 VM은 복제할 수 없습니다. 복제된 VM에 모바일 서비스가 설치되어 있지 않으면 Azure에 대한 복제된 VMware VM을 보호할 수 있습니다. 두 VM이 모두 동일한 GUID로 보고하여 복제에 영향을 주기 때문에 모바일 서비스를 설치하기 전에 VM을 복제하여 중복 항목을 방지할 수 있습니다.
-
-### 프로세스 서버 VM을 복제할 수 있나요?
-아니요, 프로세스 서버는 복제하면 안 됩니다. 프로세스 서버는 배포 시 고유 ID를 만듭니다. 복제할 경우 두 프로세스 서버가 동일한 GUID를 사용하므로 기존 복제에 영향을 줍니다.
-
-
-## 물리적 서버와 Azure 간의 배포
-
-### Azure에 대한 내 실제 온-프레미스 서버를 보호할 수 있습니까?
-
-예, ASR을 사용하여 물리적 서버를 복제하고 온-프레미스 서버가 다운되는 Azure에서 VM으로 실행할 수 있습니다. 온-프레미스 물리적 서버로 장애 복구는 현재 지원되지 않습니다. Hyper-V 또는 VMware에서 실행 중인 가상 컴퓨터에 다시 실패할 수 있습니다.
-
-
-## 장애 조치(Failover)
-
-### Azure가 다운되면 어떻게 해야 합니까? VMM으로부터 장애 조치를 트리거할 수 있습니까?
-
-Azure는 서비스 복원력이 뛰어나지만 최악의 상황을 위해 대비하고자 합니다. ASR는 이미 Azure SLA를 따라 보조 Azure 데이터 센터에 대한 장애 조치를 위해 엔지니어링되었습니다. 이러한 경우에도 메타데이터와 ASR 자격 증명 모음이 선택한 동일한 지리적 하위 지역 내의 자격 증명 모음에 남도록 보장합니다.
-
-
-### 주 데이터 센터에 대한 내 ISP에도 재해 중에 중단이 발생하면 어떻게 해야 합니까? 보조 데이터 센터에 대한 내 ISP에도 중단이 발생하면 어떻게 해야 합니까?
-
-ASR 포털을 사용하면 클릭 한 번으로 계획되지 않은 장애 조치를 수행할 수 있습니다. 장애 조치를 수행하기 위해 주 데이터 센터의 연결은 필요 없습니다.
-
-장애 조치 후 보조 데이터 센터에서 실행되어야 하는 응용프로그램에 일종의 인터넷 연결이 필요할 것입니다. 재해 중에 주 사이트 및 ISP가 영향을 받을 수 있음에도 불구하고 ASR는 보조 사이트의 SCVMM 서버가 여전히 ASR에 연결되어 있는 것으로 가정합니다.
-
-### ASR는 장애 복구(failback)를 지원합니까?
-예. Azure로부터 반대로 온-프레미스 사이트에 대한 장애 복구는 간단합니다. ASR 포털을 통해 클릭 한 번 프로세스를 사용하면 됩니다.
-
-### 자동 장애 조치가 가능합니까?
-
-자동 장애 조치 옵션이 없습니다. 장애 조치를 트리거하는 포털에서 단일 단추를 누르거나 [사이트 복구 PowerShell](https://msdn.microsoft.com/library/dn850420.aspx)을 사용하여 장애 조치를 트리거할 수 있습니다. 온-프레미스 Orchestrator 또는 Operations Manager를 사용하여 가상 컴퓨터 오류 시 SDK를 사용하여 장애 조치를 트리거하기로 합니다. 이렇게 하면 자동 프로세스가 됩니다.
-
-
-
-
-## 모니터링
-
-### 내 설정 및 진행 중인 복제를 모니터링하기 위해 어떤 솔루션을 제공합니까?
-주의가 필요한 모든 문제에 대한 알림을 받을 수 있도록 ASR 서비스에서 직접 메일 경고를 구독할 수 있습니다. 또한 SCOM을 사용하여 진행 중인 복제 상태를 모니터링할 수 있습니다.
 
 ## 다음 단계
 
-ASR의 배포를 시작하려면:
-
-- [온-프레미스 VMM 사이트와 Azure 간 보호 설정](site-recovery-vmm-to-azure.md) 
-- [온-프레미스 Hyper-V 사이트와 Azure 간 보호 설정](site-recovery-hyper-v-site-to-azure.md) 
-- [2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-to-vmm.md) 
-- [SAN으로 2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-san.md) 
-- [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md) 
+- [Site Recovery 개요](site-recovery-overview.md) 보기
+- [Site Recovery 아키텍처](site-recovery-components.md)에 대해 알아보기  
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

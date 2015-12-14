@@ -54,7 +54,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 ##<a name="deploy"></a>WebJobs 배포
 
 * [Visual Studio를 사용하여 Azure WebJobs를 배포하는 방법](websites-dotnet-deploy-webjobs.md)
-* [Azure 관리 포털을 사용하여 WebJobs를 배포하는 방법](web-sites-create-web-jobs.md)
+* [Azure 포털을 사용하여 WebJobs를 배포하는 방법](web-sites-create-web-jobs.md)
 * [Azure WebJobs의 명령줄 또는 연속 배달 사용](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [WebJobs를 사용하여 Azure에 .NET 콘솔 앱을 배포하는 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Azure에 F# WebJob 배포](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
@@ -66,7 +66,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 ##<a name="schedule"></a>WebJobs 예약
 
 * [Azure WebJob 추가 대화 상자](websites-dotnet-deploy-webjobs.md#configure)
-* [Azure 관리 포털에서 예약된 WebJob 만들기](web-sites-create-web-jobs.md#CreateScheduled)
+* [Azure 포털에서 예약된 WebJob 만들기](web-sites-create-web-jobs.md#CreateScheduled)
 * [스케줄러 작업을 WebJob에 연결](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [cron 식을 사용하여 Azure WebJob 예약](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
@@ -142,4 +142,4 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

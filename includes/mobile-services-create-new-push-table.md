@@ -1,5 +1,5 @@
 
-1. [Azure 관리 포털]에 로그인하여 **Mobile Services**를 클릭한 후 앱을 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인하여 **모바일 서비스**를 클릭한 후 앱을 클릭합니다.
 
 	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
@@ -17,7 +17,4 @@
 
 다음 과정에서는 앱에서 푸시 알림을 사용하도록 수정합니다.
 
-<!-- URLs -->
-[Azure 관리 포털]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

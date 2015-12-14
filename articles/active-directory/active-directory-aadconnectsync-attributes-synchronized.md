@@ -400,7 +400,7 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | displayName | X| |
 | ms-DS-CreatorSID | X| registeredOwnerReference라고도 합니다.|
 | objectGUID | X| deviceID라고도 합니다.|
-| objectSID | X| omPremisesSecurityIdentifier라고도 합니다.|
+| objectSID | X| onPremisesSecurityIdentifier라고도 합니다.|
 | operatingSystem | X| deviceOSType이라고도 합니다.|
 | operatingSystemVersion | X| deviceOSVersion이라고도 합니다.|
 | userCertificate | X| |
@@ -435,4 +435,4 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

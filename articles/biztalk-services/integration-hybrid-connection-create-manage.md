@@ -31,13 +31,13 @@
 
 ## <a name="CreateHybridConnection"></a>하이브리드 연결 만들기
 
-하이브리드 연결은 웹앱**또는** BizTalk 서비스를 사용하여 Azure 관리 포털에서 만들 수 있습니다.
+하이브리드 연결은 웹앱**또는** BizTalk 서비스를 사용하여 Azure 포털에서 만들 수 있습니다.
 
 **웹앱을 사용하여 하이브리드 연결을 만들려면** [Azure 웹앱을 온-프레미스 리소스에 연결](../web-sites-hybrid-connection-get-started.md)을 참조하세요.
 
 **BizTalk 서비스에서 하이브리드 연결을 만들려면**
 
-1. [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택하고 BizTalk 서비스를 선택합니다. 
 
 	기존 BizTalk 서비스가 없는 경우 [BizTalk 서비스를 만들 수](biztalk-provision-services.md) 있습니다.
@@ -70,7 +70,7 @@ Azure 모바일 앱을 기존 하이브리드 연결에 연결하려면 모바�
 
 하이브리드 연결이 만들어진 후에는 온-프레미스 리소스에 하이브리드 연결 관리자를 설치합니다. 이 관리자는 Azure 웹앱이나 BizTalk 서비스에서 다운로드할 수 있습니다. BizTalk 서비스 단계는 다음과 같습니다.
 
-1. [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택하고 BizTalk 서비스를 선택합니다. 
 3. **하이브리드 연결** 탭을 선택합니다. ![하이브리드 연결 탭][HybridConnectionTab]
 4. 작업 표시줄에서 **온-프레미스 설치**를 선택합니다. ![온-프레미스 설치][HCOnPremSetup]
@@ -112,14 +112,14 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 #### 하이브리드 연결 문자열 복사/다시 생성
 
-1. [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택하고 BizTalk 서비스를 선택합니다. 
 3. **하이브리드 연결** 탭을 선택합니다. ![하이브리드 연결 탭][HybridConnectionTab]
 4. 하이브리드 연결을 선택합니다. 작업 표시줄에서 **연결 관리**를 선택합니다.![옵션 관리][HCManageConnection]
 
 	**연결 관리**에는 응용 프로그램 및 온-프레미스 연결 문자열이 나열됩니다. 연결 문자열을 복사하거나 연결 문자열에 사용된 액세스 키를 다시 생성할 수 있습니다.
 
-	**다시 생성을 선택하면** 연결 문자열에 사용된 공유 선택키가 변경됩니다. 다음을 수행합니다. - Azure 관리 포털의 Azure 응용 프로그램에서 **키 동기화**를 선택합니다. - **온-프레미스 설치**를 다시 실행합니다. 온-프레미스 설치를 다시 실행하면 온-프레미스 리소스가 업데이트된 기본 연결 문자열을 사용하도록 자동으로 구성됩니다.
+	**다시 생성을 선택하면** 연결 문자열에 사용된 공유 선택키가 변경됩니다. 다음을 수행합니다. - Azure 클래식 포털의 Azure 응용 프로그램에서 **키 동기화**를 선택합니다. - **온-프레미스 설치**를 다시 실행합니다. 온-프레미스 설치를 다시 실행하면 온-프레미스 리소스가 업데이트된 기본 연결 문자열을 사용하도록 자동으로 구성됩니다.
 
 
 #### 그룹 정책을 사용하여 하이브리드 연결에 사용되는 온-프레미스 리소스를 제어합니다.
@@ -129,7 +129,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. 그룹 정책을 수정하는 컴퓨터에서 다음을 수행합니다.  
 
 	- .ADMX 파일을 *%WINROOT%\\PolicyDefinitions* 폴더에 복사합니다.
-	- .ADML 파일을 *%WINROOT%\\PolicyDefinitions\\en-us* 폴더에 복사합니다.
+	- .ADML 파일을 *%WINROOT%\\PolicyDefinitions\\ko-KR* 폴더에 복사합니다.
 
 복사되면 그룹 정책 편집기를 사용하여 정책을 변경할 수 있습니다.
 
@@ -143,11 +143,11 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## 참고 항목
 
-[ Microsoft Azure에서 BizTalk 서비스 관리를 위한 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) [BizTalk 서비스: Editions 차트](biztalk-editions-feature-chart.md) [Azure 관리 포털을 사용하여 BizTalk 서비스 만들기](biztalk-provision-services.md) [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)
+[Microsoft Azure에서 BizTalk 서비스 관리를 위한 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) [BizTalk 서비스: Editions 차트](biztalk-editions-feature-chart.md) [Azure 클래식 포털을 사용하여 BizTalk 서비스 만들기](biztalk-provision-services.md) [BizTalk 서비스: 대시보드, 모니터 및 배율 탭](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

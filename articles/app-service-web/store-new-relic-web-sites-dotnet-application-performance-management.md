@@ -38,8 +38,7 @@ New Relic Standard는 Azure 사용자에게 무료입니다. New Relic Pro는 �
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
 
-Azure 마켓플레이스를 사용하여 New Relic에 등록
---
+Azure 마켓플레이스를 사용하여 New Relic에 등록 --
 
 New Relic은 Azure 웹 역할, 작업자 역할 및 Azure 앱 서비스와 원활하게 통합됩니다.
 
@@ -47,7 +46,7 @@ Azure 마켓플레이스에서 직접 New Relic에 등록하려면 다음과 같
 
 ## 1단계. New Relic 계정 만들기
 
-1. [Azure 미리 보기 포털](https://portal.azure.com)에 로그인하여 구석에 있는 **새로 만들기**를 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인하여 모서리에 있는 **새로 만들기**를 클릭합니다.
 3. **개발자 서비스** > **New Relic APM**을 클릭합니다.
 4. 다음을 지정하여 New Relic 계정을 구성한 다음 **만들기**를 클릭합니다.
 	- **Name**
@@ -63,7 +62,7 @@ Azure 마켓플레이스에서 직접 New Relic에 등록하려면 다음과 같
 
 ## 2단계: 웹 앱에 대해 New Relic 통합 구성
 
-1. [Azure 미리 보기 포털](https://portal.azure.com)에서 웹 앱의 블레이드를 엽니다.
+1. [Azure 포털](https://portal.azure.com)에서 웹앱의 블레이드를 엽니다.
 2. 블레이드 맨 위에 있는 "..." 메뉴에서 **타일 추가**를 클릭합니다.
 3. **모니터링**탭에서 **응용 프로그램 요약**을 선택하고 타일이 웹 앱의 블레이드에 나타나도록 하려는 위치로 끕니다.
 4. 완료를 클릭하여 타일 추가 작업을 마칩니다.
@@ -72,9 +71,9 @@ Azure 마켓플레이스에서 직접 New Relic에 등록하려면 다음과 같
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
-	저장 작업이 완료되면 웹 앱의 블레이드에서 **모든 설정**을 클릭한 다음 **응용 프로그램 설정**을 클릭합니다. New Relic 지원을 위해 블레이드의 **앱 설정** 섹션에 추가된 **NEWRELIC_LICENSEKEY** 설정이 보입니다.
+	저장 작업이 완료되면 웹 앱의 블레이드에서 **모든 설정**을 클릭한 다음 **응용 프로그램 설정**을 클릭합니다. New Relic 지원을 위해 블레이드의 **앱 설정** 섹션에 추가된 **NEWRELIC\_LICENSEKEY** 설정이 보입니다.
 
-	>[AZURE.NOTE] 새 앱 설정이 적용되기까지는 최대 30초 정도의 시간이 소요됩니다. 설정이 즉시 적용되도록 하려면 웹 앱을 다시 시작합니다.
+	>[AZURE.NOTE]새 앱 설정이 적용되기까지는 최대 30초 정도의 시간이 소요됩니다. 설정이 즉시 적용되도록 하려면 웹 앱을 다시 시작합니다.
 
 ## 3단계: ASP.NET 웹 앱 게시
 
@@ -84,7 +83,7 @@ Visual Studio를 사용하여 웹앱을 게시합니다. 이전에 웹 앱을 �
 
 New Relic 대시보드를 보려면 다음을 수행합니다.
 
-2. [Azure 미리 보기 포털](https://portal.azure.com)에서 웹 앱의 블레이드를 엽니다.
+2. [Azure 포털](https://portal.azure.com)에서 웹앱의 블레이드를 엽니다.
 3. **응용 프로그램 모니터링** > **응용 프로그램 이름** > **New Relic에서 보기**를 클릭합니다.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -161,11 +160,10 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
  * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring): RUM에서 사용자의 브라우저가 웹 페이지를 로드하는 데 걸리는 시간, 사용자의 위치 및 사용하는 브라우저의 종류를 자세히 표시하는 방법에 대한 개요
  * [도움말 찾기](https://newrelic.com/docs/site/finding-help): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 
 [vswebsite]: web-sites-dotnet-get-started.md
@@ -179,4 +177,4 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

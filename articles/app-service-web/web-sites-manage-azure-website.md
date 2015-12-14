@@ -22,7 +22,7 @@
 
 웹 앱의 수명 주기 동안 초기 배포에서 일반 작업, 유지 관리 및 업데이트를 거치면서 여러 관리 작업을 수행합니다.
 
-Azure 포털에서 다양한 웹 앱 관리 작업을 수행할 수 있습니다.
+Azure 포털에서 다양한 웹앱 관리 작업을 수행할 수 있습니다.
 
 ## 웹 앱을 프로덕션으로 배포하기 전에 수행할 작업
 
@@ -35,7 +35,7 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 
 ### 구성
 
-[Azure 미리 보기 포털](https://portal.azure.com/)을 사용하여 다양한 구성 옵션을 설정합니다. 자세한 내용은 [Azure 앱 서비스에서 웹 앱 구성](web-sites-configure.md)을 참조하세요. 아래에 간단한 검사 목록이 나와 있습니다.
+[Azure 포털](https://portal.azure.com/)을 사용하여 다양한 구성 옵션을 설정합니다. 자세한 내용은 [Azure 앱 서비스에서 웹 앱 구성](web-sites-configure.md)을 참조하세요. 아래에 간단한 검사 목록이 나와 있습니다.
 
 - 필요에 따라 .NET, PHP, Java 또는 Python의 **런타임 버전**을 선택합니다.
 - 웹 앱에서 WebSocket 프로토콜을 사용하는 경우 **WebSockets**을 사용하도록 설정합니다. 여기에는 [ASP.NET SignalR](http://www.asp.net/signalr) 또는 [socket.io](web-sites-nodejs-chat-app-socketio.md)를 사용하는 앱이 포함됩니다.
@@ -59,14 +59,14 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 
 ### 모니터링
 
-- Azure 미리 보기 포털을 통해 CPU 사용량, 클라이언트 요청 수 등의 [성능 메트릭을 추가](web-sites-monitor.md)할 수 있습니다.
+- Azure 포털을 통해 CPU 사용량, 클라이언트 요청 수 등의 [성능 메트릭을 추가](web-sites-monitor.md)할 수 있습니다.
 - 보다 자세한 정보를 확인하려면 New Relic을 사용하여 성능을 모니터링 및 관리합니다. [New Relic 응용 프로그램 성능 관리를 사용하여 Azure 앱 서비스에서의 .NET 웹 앱](store-new-relic-web-sites-dotnet-application-performance-management.md)을 참조하세요.
 - 트래픽에 맞게 [웹 앱 크기를 조정](web-sites-scale.md)합니다. 계층에 따라 VM의 수 및/또는 VM 인스턴스의 크기를 조정할 수 있습니다. 표준 및 프리미엄 계층에서는 자동 크기 조정도 설정할 수 있으므로, 고정된 일정 또는 부하에 따라 웹 앱 크기가 자동으로 조정됩니다.  
  
 ### 백업
 
 - 웹 앱의 [자동 백업](web-sites-backup.md)을 설정합니다. 백업에 대해 자세히 알아보려면 [이 비디오](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/)를 시청하세요.
-- Azure SQL 데이터베이스의 [재해 복구](https://azure.microsoft.com/ko-KR/documentation/articles/sql-database-business-continuity/)용 옵션에 대해서도 알아볼 수 있습니다.
+- Azure SQL 데이터베이스의 [재해 복구](../sql-database-business-continuity.md)용 옵션에 대해서도 알아볼 수 있습니다.
 
 ### 문제 해결
 
@@ -103,4 +103,4 @@ Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 �
 
   
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

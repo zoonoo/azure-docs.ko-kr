@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein"/>
 
 # PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-SQL 데이터베이스 V12가 최신 버전이므로 SQL 데이터베이스 V12로 업그레이드하는 것이 좋습니다. SQL 데이터베이스 V12에는 [이전 버전에 비해 다양한 이점](sql-database-v12-whats-new.md)이 있으며 예를 들면 다음과 같습니다.
+SQL 데이터베이스 V12가 최신 버전이므로 SQL 데이터베이스 V12로 업그레이드하는 것이 좋습니다. SQL 데이터베이스 V12에는 [이전 버전에 비해 다양한 이점](sql-database-v12-whats-new.md)이 있습니다.
 
 - SQL Server와의 호환성 증가
 - 향상된 프리미엄 성능과 새로운 성능 수준
@@ -203,4 +203,4 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

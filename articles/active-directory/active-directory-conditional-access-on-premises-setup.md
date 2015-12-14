@@ -237,4 +237,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 ![사용자가 Azure AD로 자신의 장치를 등록하지 않은 경우 표시되는 오류의 스크린샷](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

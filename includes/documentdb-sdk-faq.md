@@ -22,4 +22,4 @@ Microsoft는 지원되는 SDK로 매끄럽게 전환할 수 있도록 사용 중
 
 가능한 한 빨리 최신 SDK로 업그레이드하는 것이 좋습니다. SDK가 사용 중지로 태깅된 후 12개월 내에 응용 프로그램을 업데이트해야 합니다. 어떤 이유로든 이 기간 내에 응용 프로그램 업데이트를 완료할 수 없는 경우 마감 날짜 전에 [DocumentDB 팀](mailto:askdocdb@microsoft.com)에 연락하여 지원을 요청하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

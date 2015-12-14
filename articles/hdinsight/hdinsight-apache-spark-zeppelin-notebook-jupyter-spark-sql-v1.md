@@ -39,10 +39,10 @@ HDInsight에서 HDInsight 클러스터를 프로비전할 때 Azure 저장소 �
 
 **Azure 저장소 계정을 만들려면**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다.
+1. [Azure 클래식 포털][azure-management-portal]에 로그인합니다.
 2. 왼쪽 하단에서 **새로 만들기**를 클릭하고 이미지에 표시된 대로 값을 입력합니다.
 
-	![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 포털](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 포털")
+	![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 클래식 포털.](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 클래식 포털.")
 
 >[AZURE.NOTE]클러스터에 대해 지원되는 위치에 저장소 계정을 만들어야 합니다.
 
@@ -57,7 +57,7 @@ HDInsight에서 HDInsight 클러스터를 프로비전할 때 Azure 저장소 �
 
 **Spark 클러스터를 프로비전하려면**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다. 
+1. [Azure 클래식 포털][azure-management-portal]에 로그인합니다. 
 
 2. 왼쪽 하단에서 **새로 만들기**를 클릭하고 이미지에 표시된 대로 값을 입력합니다.
 
@@ -70,7 +70,7 @@ HDInsight에서 HDInsight 클러스터를 프로비전할 때 Azure 저장소 �
 
 >[AZURE.NOTE]아래 지침에 따라 만드는 노트북은 클러스터에서 기본적으로 사용 가능합니다. Zeppelin을 시작한 후 **Zeppelin HVAC 자습서** 이름으로 이 노트북을 찾습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다.(Spark 클러스터를 시작 보드에 고정한 경우) **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -156,7 +156,7 @@ HDInsight에서 HDInsight 클러스터를 프로비전할 때 Azure 저장소 �
 
 >[AZURE.NOTE]아래 지침에 따라 만드는 노트북은 클러스터에서 기본적으로 사용 가능합니다. Jupyter를 시작한 후 **HVACTutorial.ipynb** 이름으로 이 Notebook을 찾습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다.(Spark 클러스터를 시작 보드에 고정한 경우) **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -260,4 +260,4 @@ HDInsight에서 HDInsight 클러스터를 프로비전할 때 Azure 저장소 �
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

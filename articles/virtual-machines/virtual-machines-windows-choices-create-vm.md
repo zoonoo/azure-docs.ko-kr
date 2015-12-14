@@ -27,9 +27,9 @@ Azure 리소스 관리자 템플릿은 하나의 논리적 배포 단위로 다�
 
 ## 도구 선택
 
-### GUI: Azure Preview 포털
+### GUI: Azure 포털
 
-Azure 포털의 그래픽 사용자 인터페이스는 특히 Azure로 시작한 경우 쉽게 가상 컴퓨터를 사용해 볼 수 있는 방법입니다. Azure Preview 포털을 사용하여 가상 컴퓨터 만들기:
+Azure 클래식 포털의 그래픽 사용자 인터페이스는 특히 Azure로 시작한 경우 쉽게 가상 컴퓨터를 사용해 볼 수 있는 방법입니다. Azure 포털을 사용하여 가상 컴퓨터를 만듭니다.
 
 [Windows를 실행하는 가상 컴퓨터 만들기][]
 
@@ -79,4 +79,4 @@ Azure PowerShell의 경우 다음 내용 참조:
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

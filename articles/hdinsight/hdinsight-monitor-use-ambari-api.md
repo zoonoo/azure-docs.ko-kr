@@ -35,7 +35,7 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 1.0 이상 설치](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)를 참조하세요.
 
 
 - (선택 사항) [cURL][curl]. 설치하려면 [cURL 릴리스 및 다운로드][curl-download]를 참조하세요.
@@ -50,7 +50,7 @@ HDInsight 클러스터 이름|$clusterName||HDInsight 클러스터의 이름입�
 클러스터 사용자 이름|$clusterUsername||프로비전 시 지정된 클러스터 사용자 이름입니다.
 클러스터 암호|$clusterPassword||클러스터 사용자 암호입니다.
 
-	> [AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -147,7 +147,7 @@ Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{c
 
 Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
-- [Azure Preview 포털을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]
+- [Azure 포털을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]
 - [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
 - [명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리][hdinsight-admin-cli]
 - [HDInsight 설명서][hdinsight-documentation]
@@ -175,4 +175,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

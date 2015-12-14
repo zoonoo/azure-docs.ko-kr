@@ -18,12 +18,14 @@
 
 # 기존 Android 앱에 모바일 서비스 추가(JavaScript 백 엔드)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 ## 요약
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 영구 데이터를 추가하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스와 앱을 통합하여 로컬 대신 Azure 모바일 서비스에서 데이터를 저장하고 업데이트한 후 Azure 관리 포털을 사용하여 앱을 실행할 때 변경된 데이터를 확인합니다.</p>
+<p>이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 영구 데이터를 추가하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스와 앱을 통합하여 로컬 대신 Azure 모바일 서비스에서 데이터를 저장하고 업데이트한 후 Azure 클래식 포털을 사용하여 앱을 실행할 때 변경된 데이터를 확인합니다.</p>
 
 </div>
 
@@ -33,7 +35,7 @@
 </div>
 
 
-<p>이 자습서에서는 Azure 모바일 서비스가 Android 앱에서 데이터를 검색하고 저장할 수 있는 방법에 대해 자세히 설명합니다. 따라서 모바일 서비스 퀵 스타트 자습서에서 이미 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/en-us/develop/mobile/tutorials/get-started-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
+<p>이 자습서에서는 Azure 모바일 서비스가 Android 앱에서 데이터를 검색하고 저장할 수 있는 방법에 대해 자세히 설명합니다. 따라서 모바일 서비스 퀵 스타트 자습서에서 이미 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko-KR/develop/mobile/tutorials/get-started-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
 
 ## 필수 조건
 
@@ -59,7 +61,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code.md)]
 
-## 관리 포털에서 새 모바일 서비스 만들기
+## Azure 클래식 포털에서 새 모바일 서비스를 만듭니다.
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -84,7 +86,7 @@
 
    	그러면 새 항목이 모바일 서비스에 삽입으로 전송됩니다.
 
-3. [관리 포털]에서 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 클릭합니다.
+3. [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 모바일 서비스를 클릭합니다.
 
 4. **데이터** 탭을 클릭한 후 **찾아보기**를 클릭합니다.
 
@@ -143,10 +145,9 @@
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
 [푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [Azure 모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

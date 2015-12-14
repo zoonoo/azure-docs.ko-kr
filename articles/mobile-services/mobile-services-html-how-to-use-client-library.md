@@ -43,7 +43,7 @@
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-자리 표시자 `AppUrl`을(를) 모바일 서비스의 응용 프로그램 URL로 바꾸고 `AppKey`을(를) [Azure 포털](http://manage.windowsazure.com/)에서 가져오는 응용 프로그램 키로 바꿔야 합니다.
+자리 표시자 `AppUrl`을(를) 모바일 서비스의 응용 프로그램 URL로 바꾸고 `AppKey`을(를) [Azure 클래식 포털](http://manage.windowsazure.com/)에서 가져오는 응용 프로그램 키로 바꿔야 합니다.
 
 >[AZURE.IMPORTANT]응용 프로그램 키는 모바일 서비스에 대한 임의 요청을 필터링하기 위한 것이며 응용 프로그램과 함께 배포됩니다. 이 키는 암호화되지 않으므로 안전하다고 볼 수 없습니다. 모바일 서비스 데이터를 안전하게 유지하려면 액세스를 허용하기 전에 사용자를 인증해야 합니다. 자세한 내용은 [방법: 사용자 인증](#authentication)을 참조하세요.
 
@@ -624,7 +624,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 
 ##<a name="hostnames"></a>방법: 크로스-원본 자원 공유 사용
 
-요청을 조작하여 모바일 서비스에 보낼 수 있는 웹 사이트를 제어하려면 호스트하는 데 사용하는 웹 사이트의 호스트 이름을 CORS(Cross Origin Resource Sharing) 허용 목록에 추가해야 합니다. JavaScript 백 엔드 모바일 서비스의 경우, [Azure 관리 포털](https://manage.windowsazure.com)의 구성 탭에서 허용 목록을 구성할 수 있습니다. 필요한 경우 와일드카드를 사용할 수 있습니다. 기본적으로 새 모바일 서비스는 `localhost`에서만 액세스를 허용하도록 브라우저에 지시하며, CORS(크로스-원본 자원 공유)는 브라우저에서 외부 호스트 이름으로 실행되는 JavaScript 코드가 모바일 서비스와 조작할 수 있게 합니다. 이 구성은 WinJS 응용 프로그램의 경우에는 필요 없습니다.
+요청을 조작하여 모바일 서비스에 보낼 수 있는 웹 사이트를 제어하려면 호스트하는 데 사용하는 웹 사이트의 호스트 이름을 CORS(Cross Origin Resource Sharing) 허용 목록에 추가해야 합니다. JavaScript 백 엔드 모바일 서비스의 경우, [Azure 클래식 포털](https://manage.windowsazure.com)의 구성 탭에서 허용 목록을 구성할 수 있습니다. 필요한 경우 와일드카드를 사용할 수 있습니다. 기본적으로 새 모바일 서비스는 `localhost`에서만 액세스를 허용하도록 브라우저에 지시하며, CORS(크로스-원본 자원 공유)는 브라우저에서 외부 호스트 이름으로 실행되는 JavaScript 코드가 모바일 서비스와 조작할 수 있게 합니다. 이 구성은 WinJS 응용 프로그램의 경우에는 필요 없습니다.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -665,4 +665,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@
 이 항목에서는 Azure SQL 데이터베이스를 버전 V11에서 V12로 업그레이드하기 위해 수행해야 하는 계획 및 준비 작업에 대해 설명합니다.
 
 
-새 [Azure 미리 보기 포털](http://portal.azure.com/)을 사용하여 V12로의 업그레이드를 지원할 수 있습니다.
+새 [Azure 포털](http://portal.azure.com/)을 사용하여 V12로 업그레이드를 지원할 수 있습니다.
 
 
 다음 표에는 V12에 대한 기타 도움말 항목이 나열되어 있습니다.
@@ -91,7 +91,7 @@ Web 및 Business 서비스 가격 계층은 V12에서 지원되지 않습니다.
 V11 Azure SQL 데이터베이스가 Web 또는 Business 데이터베이스인 경우 업그레이드 프로세스에서 데이터베이스를 지원되는 계층으로 전환할 수 있게 해줍니다. 업그레이드 중 데이터베이스의 워크로드 기록에 맞는 계층이 권장됩니다. 그러나 지원되는 모든 계층을 선택할 수 있습니다.
 
 
-업그레이드를 시작하기 전에 Web 및 Business 계층에서 V11 데이터베이스를 전환하여 업그레이드 중 필요한 단계를 줄일 수 있습니다. 이 작업은 새 [Azure 미리 보기 포털](http://portal.azure.com/)에서 수행할 수 있습니다.
+업그레이드를 시작하기 전에 Web 및 Business 계층에서 V11 데이터베이스를 전환하여 업그레이드 중 필요한 단계를 줄일 수 있습니다. 이 작업은 [Azure 포털](http://portal.azure.com/)에서 수행할 수 있습니다.
 
 
 전환할 서비스 계층이 확실하지 않은 경우 표준 계층의 S2 수준이 적절한 초기 선택이 될 수 있습니다. 더 낮은 계층은 Web 및 Business 계층 보다 더 적은 리소스를 갖습니다.
@@ -127,17 +127,17 @@ SQL 데이터베이스 V12의 포트에 대한 자세한 내용을 보려면 [�
 Azure용 포털은 3개가 있으며 각각에는 SQL 데이터베이스 V12와 관련된 서로 다른 기능이 있습니다.
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>이 Azure 미리 보기 포털은 새로운 기능이며 아직 미리 보기 상태에 있습니다. 이 포털은 아직 완전히 GA(일반 공급) 상태가 아닙니다. 이 포털에서 다음과 같은 작업을 할 수 있습니다.
+- [http://portal.azure.com/](http://portal.azure.com/)<br/>이 Azure 포털은 새로운 기능이며 아직 미리 보기 상태에 있습니다. 이 포털은 아직 완전히 GA(일반 공급) 상태가 아닙니다. 이 포털에서 다음과 같은 작업을 할 수 있습니다.
  - V12 서버 및 데이터베이스를 관리할 수 있습니다.
  - V11 데이터베이스를 V12로 업그레이드할 수 있습니다.
 
 
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>이 Azure 포털은 단계적으로 중단될 수 있습니다. 이 포털에서 다음과 같은 작업을 할 수 있습니다.
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>이 Azure 클래식 포털은 단계적으로 중단될 수 있습니다. 이 포털에서 다음과 같은 작업을 할 수 있습니다.
  - V12 서버 및 데이터베이스를 관리할 수 있습니다.
  - V11 데이터베이스를 V12로 업그레이드할 수 *없습니다*.
 
 
-- (http://*yourservername*.database.windows.net)<br/> Azure SQL 데이터베이스 관리 포털:
+- (http://*yourservername*.database.windows.net)<br/>Azure SQL 데이터베이스 클래식 포털:
  - V12 서버를 관리할 수 *없습니다*.
 
 
@@ -152,7 +152,7 @@ VS2013(Visual Studio 2013)을 사용하여 Azure SQL 데이터베이스에 연�
 대신 완전한 기능을 갖춘 무료 버전의 VS2013인 [Visual Studio Community 2013](https://www.visualstudio.com/ko-KR/news/vs2013-community-vs.aspx/)에 연결할 수 있습니다.
 
 
-이전 Azure 포털의 데이터베이스 페이지에서 **Visual Studio에서 열기**를 클릭하여 Azure SQL 데이터베이스에 연결할 컴퓨터에서 VS2013을 시작할 수 있습니다.
+이전 Azure 클래식 포털의 데이터베이스 페이지에서 **Visual Studio에서 열기**를 클릭하여 Azure SQL 데이터베이스에 연결할 컴퓨터에서 VS2013을 시작할 수 있습니다.
 
 
 또는 SSMS(SQL Server Management Studio) 2014 [CU6](http://support.microsoft.com/kb/3031047/)을 사용하여 Azure SQL 데이터베이스에 연결할 수 있습니다. 자세한 내용은 블로그 게시물<br/>[Azure SQL 데이터베이스용 클라이언트 도구 업데이트](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/)를 참조하세요.
@@ -184,7 +184,7 @@ V12로 업그레이드하는 동안에도 V11 이전 버전 데이터베이스�
 ### V12로 업그레이드한 *후* 내보내기 및 가져오기
 
 
-[Azure 미리 보기 포털](http://portal.azure.com/)을 사용하여 V12 데이터베이스를 내보내거나 가져올 수 있습니다. 또한 다음 중에서 원하는 도구를 사용할 수도 있습니다.
+[Azure 포털](http://portal.azure.com/)을 사용하여 V12 데이터베이스를 내보내거나 가져올 수 있습니다. 또한 다음 중에서 원하는 도구를 사용할 수도 있습니다.
 
 
 - SSMS(SQL Server Management Studio)
@@ -254,4 +254,4 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

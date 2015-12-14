@@ -28,9 +28,9 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 
 ### 단일 VM에 SQL Server 인스턴스 배포
 
-구독에 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 포털에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-provision-sql-server.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
+구독을 등록한 후, Azure에 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 클래식 포털에 SQL 서버 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-provision-sql-server.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
 
->[AZURE.NOTE]Azure Preview 포털을 사용하여 SQL Server 가상 컴퓨터를 프로비전하고 관리합니다. 기본적으로 프리미엄 저장소를 사용하고 자동화된 패치, 자동화된 백업 및 AlwaysOn 구성을 제공합니다.
+>[AZURE.NOTE]Azure 포털을 사용하여 SQL Server 가상 컴퓨터를 프로비전 및 관리합니다. 기본적으로 프리미엄 저장소를 사용하고 자동화된 패치, 자동화된 백업 및 AlwaysOn 구성을 제공합니다.
 
 다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다.
 
@@ -61,7 +61,7 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 
 ## 고가용성
 
-고가용성이 필요한 경우 SQL Server AlwaysOn 가용성 그룹을 구성하는 것이 좋습니다. 여기에는 가상 네트워크의 여러 Azure VM이 포함됩니다. Azure Preview 포털에 이 구성을 자동으로 설정하는 템플릿이 있습니다. 자세한 내용은 [Azure 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
+고가용성이 필요한 경우 SQL Server AlwaysOn 가용성 그룹을 구성하는 것이 좋습니다. 여기에는 가상 네트워크의 여러 Azure VM이 포함됩니다. Azure 포털에는 사용자를 위해 이 구성을 설정하는 템플릿이 있습니다. 자세한 내용은 [Azure 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
 
 가용성 그룹과 연결된 수신기를 수동으로 구성하려는 경우 다음 문서를 참조하세요.
 
@@ -148,4 +148,4 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 가상 컴퓨터](virtual-machines-about.md) 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

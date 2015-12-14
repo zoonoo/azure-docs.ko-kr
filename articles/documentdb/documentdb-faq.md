@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="DocumentDB 데이터베이스 질문 - 질문과 대답 | Microsoft Azure" 
-	description="Azure DocumentDB NoSql 문서 데이터베이스 서비스에 대한 질문과 대답을 가져옵니다. 용량, 성능 수준 및 크기 조정에 대한 데이터베이스 질문에 대답합니다." 
+	description="JSON용 NoSQL 문서 데이터베이스 서비스인 Azure DocumentDB에 대한 질문과 대답을 가져옵니다. 용량, 성능 수준 및 크기 조정에 대한 데이터베이스 질문에 대답합니다." 
 	keywords="데이터베이스 질문, 질문과 대답, Documentdb, Azure, Microsoft Azure"
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/30/2015" 
 	ms.author="mimig"/>
 
 
@@ -49,7 +49,7 @@ DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성�
 자세한 내용은 [DocumentDB 가격 책정 세부 정보](http://go.microsoft.com/fwlink/p/?LinkID=402317) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다.
 
 ### 무료 평가판이 있나요?
-Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 MSDN 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
+Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 Visual Studio 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 $150의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
 
 ### DocumentDB 추가 도움말은 어떻게 구할 수 있나요?
 도움이 필요한 경우 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), [Azure DocumentDB MSDN 개발자 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하거나 [DocumentDB 엔지니어링 팀과의 1:1 채팅](http://www.askdocdb.com/)을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)에서 Azure DocumentDB를 팔로우하세요.
@@ -57,13 +57,13 @@ Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.micro
 ## Microsoft Azure DocumentDB 설정
 
 ### Microsoft Azure DocumentDB에는 어떻게 등록하나요?
-Microsoft Azure DocumentDB는 [Azure Preview 포털][azure-portal]에 있습니다. 먼저, Microsoft Azure 구독에 등록해야 합니다. Microsoft Azure 구독에 등록하면 사용자의 Azure 구독에 DocumentDB 계정을 추가할 수 있습니다. DocumentDB 계정 추가에 대한 지침은 [DocumentDB 데이터베이스 계정 만들기](documentdb-create-account.md)를 참조하세요.
+Microsoft Azure DocumentDB는 [Azure 포털][azure-portal]에 있습니다. 먼저, Microsoft Azure 구독에 등록해야 합니다. Microsoft Azure 구독에 등록하면 사용자의 Azure 구독에 DocumentDB 계정을 추가할 수 있습니다. DocumentDB 계정 추가에 대한 지침은 [DocumentDB 데이터베이스 계정 만들기](documentdb-create-account.md)를 참조하세요.
 
 ### 마스터 키란 무엇인가요?
-마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure Preview 포털][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](documentdb-manage-account.md#keys)을 참조하세요.
+마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure 포털][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](documentdb-manage-account.md#keys)을 참조하세요.
 
 ### 데이터베이스를 어떻게 만드나요?
-[DocumentDB 데이터베이스 만들기](documentdb-create-database.md)의 설명대로 [Azure Preview 포털]()을 사용하거나 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 데이터베이스를 만들 수 있습니다.
+[DocumentDB 데이터베이스 만들기](documentdb-create-database.md)의 설명대로 [Azure 포털]()을 사용하거나 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 데이터베이스를 만들 수 있습니다.
 
 ### 컬렉션이란 무엇인가요?
 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 쿼리와 트랜잭션의 범위는 컬렉션으로 지정됩니다. 단일 컬렉션 내에서 다른 유형의 JSON 문서 집합을 저장할 수 있으며, 모든 문서는 자동으로 인덱싱됩니다.
@@ -99,7 +99,7 @@ DocumentDB는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통�
 DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 
 - [DocumentDB로 데이터 가져오기](documentdb-import-data.md)에 설명된 데이터 마이그레이션 도구.
-- [문서 탐색기를 사용하여 문서 일괄 추가](documentdb-view-json-document-explorer.md#BulkAdd)에 설명된 Azure Preview 포털의 문서 탐색기.
+- [문서 탐색기를 사용하여 문서 일괄 추가](documentdb-view-json-document-explorer.md#BulkAdd)에 설명된 Azure 포털의 문서 탐색기.
 - [DocumentDB 서버 쪽 프로그래밍](documentdb-programming.md)에 설명된 저장 프로시저.
 
 ### DocumentDB에서 리소스 링크 캐싱을 지원하나요?
@@ -112,4 +112,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

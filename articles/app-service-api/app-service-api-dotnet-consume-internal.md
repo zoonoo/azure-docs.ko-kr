@@ -18,6 +18,8 @@
 
 # .NET 클라이언트의 Azure 앱 서비스에서 내부 API 앱 사용 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 개요
 
 이 자습서에서는 **내부** 액세스 수준에 대해 구성된 다른 API 앱을 호출하는 ASP.NET [API 앱](app-service-api-apps-why-best-platform.md)에 대한 코드를 작성하는 방법을 보여 줍니다. 두 API 앱 모두 동일한 리소스 그룹에 있어야 합니다. 동일한 코드를 사용하여 [모바일 앱](../app-service-mobile/app-service-mobile-value-prop-preview.md)에서 내부 API 앱을 호출할 수 있습니다.
@@ -265,4 +267,4 @@ ContactNames Web API를 빌드합니다. Web API의 Get 메서드는 ContactsLis
 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

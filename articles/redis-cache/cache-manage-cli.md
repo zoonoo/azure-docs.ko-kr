@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법
+
+> [AZURE.SELECTOR]
+- [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+- [Azure CLI](cache-manage-cli.md)
 
 Azure CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적으로 관리할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하는 방법을 보여 줍니다.
 
@@ -209,7 +213,7 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
 
 	azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
 
-`key-type`에 대해 `Primary` 또는 `Secondary`을(를) 지정합니다.
+`key-type`에 대해 `Primary` 또는 `Secondary`를 지정합니다.
 
 이 명령에 대한 자세한 내용은 `azure rediscache renew-key -h` 명령을 실행합니다.
 
@@ -254,4 +258,4 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

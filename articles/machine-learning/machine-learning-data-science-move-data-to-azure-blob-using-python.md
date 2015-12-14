@@ -42,7 +42,7 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 
 이 문서에서는 사용자에게 Azure 구독, 저장소 계정 및 계정에 해당하는 저장소 키가 있다고 가정합니다. 데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다.
 
-- Azure 구독을 설정하려면 [무료 1개월 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage-create-storage-account.md)를 참조하세요.
 
 ## Blob에 데이터 업로드
@@ -123,4 +123,4 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 배포 및 클래식 배포 이해
@@ -42,19 +42,19 @@
 
 - 다음 방법 중 하나를 통해 만들어집니다.
 
-  - [미리 보기 포털](https://portal.azure.com/).
+  - [Azure 포털](https://portal.azure.com/)입니다.
 
-        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Azure PowerShell 1.0 Preview 이전 버전의 경우 명령이 **AzureResourceManager** 모드에서 실행됩니다.
+  - Azure PowerShell 1.0 이전 버전의 경우 명령이 **AzureResourceManager** 모드에서 실행됩니다.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - Azure PowerShell 1.0 Preview의 경우 리소스 관리자 버전의 명령을 사용합니다. 이 명령은 다음과 같이 *동사-AzureRm* 형식을 갖습니다.
+  - Azure PowerShell 1.0의 경우 리소스 관리자 버전의 명령을 사용합니다. 이 명령은 다음과 같이 *동사-AzureRm* 형식을 갖습니다.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -73,19 +73,19 @@
 
 - 다음 방법 중 하나를 통해 만들어집니다.
 
-  - [Azure 포털](https://manage.windowsazure.com)
+  - [클래식 포털](https://manage.windowsazure.com)
 
-        ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - 1\.0 Preview보다 이전 버전의 Azure PowerShell의 경우 **AzureServiceManagement** 모드에서 실행합니다(기본 모드이며, 그렇지 않은 경우 AzureResourceManager로 구체적으로 전환된 경우, AzureServiceManagement 모드에서 실행 중입니다).
+  - 1\.0 보다 이전 버전의 Azure PowerShell의 경우 **AzureServiceManagement** 모드에서 실행합니다(기본 모드이며, 그렇지 않은 경우 AzureResourceManager로 구체적으로 전환된 경우, AzureServiceManagement 모드에서 실행 중입니다).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - Azure PowerShell 1.0 Preview의 경우 서비스 관리 버전의 명령을 사용합니다. 이러한 명령의 이름은 다음과 같이 *동사-AzureRm* 형식을 갖지 **않습니다**.
+  - Azure PowerShell 1.0의 경우 서비스 관리 버전의 명령을 사용합니다. 이러한 명령의 이름은 다음과 같이 *동사-AzureRm* 형식을 갖지 **않습니다**.
 
             PS C:\> Get-AzureDeployment
 
@@ -95,7 +95,7 @@
 
     ![클래식 유형](./media/resource-manager-deployment-model/classic-type.png)
 
-여전히 클래식 배포를 통해 생성된 리소스를 관리하는 미리 보기 포털을 사용할 수 있습니다.
+여전히 클래식 배포를 통해 생성된 리소스를 관리하는 포털을 사용할 수 있습니다.
 
 ## 리소스 관리자 및 리소스 그룹을 사용할 경우의 이점
 
@@ -168,4 +168,4 @@
 - 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

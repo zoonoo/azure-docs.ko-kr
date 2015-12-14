@@ -25,7 +25,7 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 ## 생성 중 샘플 데이터 추가
 다음 단계를 수행하여 배포하는 동안 샘플 데이터가 SQL 데이터 웨어하우스에 로드되는지 확인할 수 있습니다.
 
-1. '+ 새로 만들기', ‘데이터 및 저장소'를 차례로 클릭하거나 Marketplace에서 'SQL 데이터 웨어하우스'를 검색하여 [Azure 포털][]에서 SQL 데이터 웨어하우스를 찾아 생성 프로세스를 시작합니다. 
+1. '+ 새로 만들기', ‘데이터 및 저장소'를 차례로 클릭하거나 Marketplace에서 'SQL 데이터 웨어하우스'를 검색하여 [Azure 클래식 포털][]에서 SQL 데이터 웨어하우스를 찾아 생성 프로세스를 시작합니다. 
  
 2. 프로세스가 시작되면 '원본 선택' 옵션을 클릭하고 '샘플'로 설정합니다. 새 서버를 만들지 않은 경우 만드는데 사용하고 있는 서버에 대한 로그인을 제공하라는 메시지가 표시됩니다.
 
@@ -35,7 +35,7 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 
 ## Power BI를 사용하여 Adventureworks 분석
 
-샘플 데이터 집합을 사용하는 것은 Power BI를 시작하기 위한 좋은 방법이 될 수 있습니다. 샘플 데이터를 로드한 후 Azure 포털에서 ‘Power BI에서 열기’ 단추를 클릭하거나 [Power BI][]로 이동하고 [SQL 데이터 웨어하우스에 연결][]하여 SQL 데이터 웨어하우스에 대한 연결을 열 수 있습니다. 연결 후 데이터 웨어하우스와 동일한 이름을 가진 새 데이터 집합을 만들어야 합니다. 분석을 쉽게 수행할 수 있도록 회사의 판매 분석에 핵심적인 매트릭 중 몇 가지가 있는 'AggregateSales'라는 보기를 만들었습니다. 이 보기의 이름을 클릭하여 확장하고 포함하는 열을 볼 수 있으며 다음 단계를 수행하여 일부 빠른 시각화를 만들 수 있습니다.
+샘플 데이터 집합을 사용하는 것은 Power BI를 시작하기 위한 좋은 방법이 될 수 있습니다. 샘플 데이터를 로드한 후 Azure 클래식 포털에서 ‘Power BI에서 열기’ 단추를 클릭하거나 [Power BI][]로 이동하고 [SQL 데이터 웨어하우스에 연결][]하여 SQL 데이터 웨어하우스에 대한 연결을 열 수 있습니다. 연결 후 데이터 웨어하우스와 동일한 이름을 가진 새 데이터 집합을 만들어야 합니다. 분석을 쉽게 수행할 수 있도록 회사의 판매 분석에 핵심적인 매트릭 중 몇 가지가 있는 'AggregateSales'라는 보기를 만들었습니다. 이 보기의 이름을 클릭하여 확장하고 포함하는 열을 볼 수 있으며 다음 단계를 수행하여 일부 빠른 시각화를 만들 수 있습니다.
 
 1. 시작하려면 'PostalCode' 및 'SalesAmount' 열을 클릭하여 모든 판매의 지도를 쉽게 만들 수 있습니다. Power BI는 이를 지리적 데이터로 자동으로 인식하고 지도에 배치합니다. 
 
@@ -84,7 +84,7 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 [연결 및 쿼리]: ./sql-data-warehouse-get-started-connect.md
 [마이그레이션 코드]: ./sql-data-warehouse-migrate-code.md
 [샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure 포털]: https://portal.azure.com/
+[Azure 클래식 포털]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [SQL 데이터 웨어하우스에 연결]: ./sql-data-warehouse-integrate-power-bi.md
 
@@ -94,4 +94,4 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

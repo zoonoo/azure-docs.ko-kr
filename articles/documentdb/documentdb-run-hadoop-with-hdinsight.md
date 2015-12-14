@@ -78,11 +78,11 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 **Azure 저장소 계정을 만들려면**
 
-1. [Azure 관리 포털][azure-classic-portal]에 로그인합니다.
+1. [Azure 클래식 포털][azure-classic-portal]에 로그인하기
 	
-	> [AZURE.NOTE]Azure HDInsight는 현재 Azure 관리 포털에서 지원되며, Azure DocumentDB는 Microsoft Azure 포털에만 존재합니다.
+	> [AZURE.NOTE]Azure HDInsight는 현재 Azure 클래식 포털에서 지원되며, Azure DocumentDB는 Microsoft Azure 포털에만 존재합니다.
 
-2. 왼쪽 아래에서 **새로 만들기**를 클릭하고 **데이터 서비스**, **저장소**를 차례로 가리킨 후 **빠른 생성**을 클릭합니다.![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 포털.][image-storageaccount-quickcreate]
+2. 왼쪽 아래에서 **새로 만들기**를 클릭하고 **데이터 서비스**, **저장소**를 차례로 가리킨 후 **빠른 생성**을 클릭합니다.![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 클래식 포털.][image-storageaccount-quickcreate]
 
 3. **URL**을 입력하고, **위치** 및 **복제** 값을 선택한 후 **저장소 계정 만들기**를 클릭합니다. 선호도 그룹은 지원되지 않습니다.
 	
@@ -93,9 +93,9 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 4. 새 저장소 계정의 **상태**가 **온라인**으로 변경될 때까지 기다립니다.
 
 ## <a name="ProvisionHDInsight"></a>2단계: 사용자 지정된 HDInsight 클러스터 만들기
-이 자습서에서는 Azure 관리 포털의 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정합니다. 이 자습서에서는 Azure 관리 포털을 사용하여 사용자 지정된 클러스터를 만듭니다. PowerShell cmdlet 또는 HDInsight .NET SDK 사용 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-custom-provision] 문서를 참조하세요.
+이 자습서에서는 Azure 클래식 포털의 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정합니다. 이 자습서에서는 Azure 클래식 포털을 사용하여 사용자 지정된 클러스터를 만듭니다. PowerShell cmdlet 또는 HDInsight .NET SDK 사용 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-custom-provision] 문서를 참조하세요.
 
-1. [Azure 관리 포털][azure-classic-portal]에 로그인합니다. 이전 단계에서 이미 로그인이 수행되었을 수 있습니다.
+1. [Azure 클래식 포털][azure-classic-portal]에 로그인합니다. 이전 단계에서 이미 로그인이 수행되었을 수 있습니다.
 
 2. 페이지 아래에서 **+ 새로 만들기**를 클릭한 후 **데이터 서비스**, **HDInsight**, **사용자 지정 만들기**를 차례로 클릭합니다.
 
@@ -155,7 +155,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 		<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 저장소 계정의 기본 컨테이너를 지정합니다. <strong>저장소 계정</strong> 필드에 대해 <strong>기존 저장소 사용</strong>을 선택한 경우 해당 계정에 기존 컨테이너가 없으면 기본적으로 클러스터 이름과 동일한 이름으로 컨테이너가 만들어집니다. 클러스터의 이름을 가진 컨테이너가 이미 있는 경우에는 컨테이너 이름에 시퀀스 번호가 추가됩니다.
     </td></tr>
 	<tr><td>추가 저장소 계정</td>
-		<td>HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 저장소 계정 페이지를 더합니다.</td></tr>
+		<td>HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 클래식 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 저장소 계정 페이지를 더합니다.</td></tr>
 </table>오른쪽 화살표를 클릭합니다.
 
 7. **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭해서 클러스터를 만들 때 클러스터 사용자 지정을 위해 실행할 PowerShell 스크립트에 대한 세부 정보를 제공합니다. PowerShell 스크립트는 클러스터 생성 중 DocumentDB Hadoop 커넥터를 HDInsight 클러스터에 설치합니다.
@@ -181,7 +181,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 1. Azure PowerShell을 설치합니다. 자세한 내용은 [여기서][powershell-install-configure] 확인할 수 있습니다.
 
-	> [AZURE.NOTE]또는 Hive 쿼리만 해당하는 경우 HDInsight의 온라인 Hive 편집기를 사용할 수 있습니다. 이렇게 하려면 [Azure 관리 포털][azure-classic-portal]에 로그인하고 왼쪽 창에서 **HDInsight**를 클릭하여 HDInsight 클러스터 목록을 확인합니다. Hive 쿼리를 실행하려는 클러스터를 클릭한 후 **쿼리 콘솔**을 클릭합니다.
+	> [AZURE.NOTE]또는 Hive 쿼리만 해당하는 경우 HDInsight의 온라인 Hive 편집기를 사용할 수 있습니다. 이렇게 하려면 [Azure 클래식 포털][azure-classic-portal]에 로그인하고 왼쪽 창에서 **HDInsight**를 클릭하여 HDInsight 클러스터 목록을 확인합니다. Hive 쿼리를 실행하려는 클러스터를 클릭한 후 **쿼리 콘솔**을 클릭합니다.
 
 2. Azure PowerShell 통합 스크립팅 환경을 엽니다.
 	- Windows 8 또는 Windows Server 2012 이상을 실행하는 컴퓨터에서는 기본 제공되는 검색 기능을 사용할 수 있습니다. 시작 화면에서 **powershell ise**를 입력하고 **Enter** 키를 클릭합니다. 
@@ -280,7 +280,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 9. 새 스크립트를 **실행**합니다. 녹색 실행 단추를 **클릭**합니다.
 
-10. 결과를 확인합니다. [Azure Preview 포털][azure-portal]에 로그인합니다.
+10. 결과를 확인합니다. [Azure 포털][azure-portal]에 로그인합니다.
 	1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다. </br>
 	2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다. </br>
 	3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다. </br>
@@ -362,7 +362,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 		
 9. 새 스크립트를 **실행**합니다. 녹색 실행 단추를 **클릭**합니다.
 
-10. 결과를 확인합니다. [Azure Preview 포털][azure-portal]에 로그인합니다.
+10. 결과를 확인합니다. [Azure 포털][azure-portal]에 로그인합니다.
 	1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다. </br>
 	2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다. </br>
 	3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다. </br>
@@ -405,7 +405,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 5. 새 스크립트를 **실행**합니다. 녹색 실행 단추를 **클릭**합니다.
 
-6. 결과를 확인합니다. [Azure Preview 포털][azure-portal]에 로그인합니다.
+6. 결과를 확인합니다. [Azure 포털][azure-portal]에 로그인합니다.
 	1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다.
 	2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다.
 	3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다.
@@ -470,4 +470,4 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

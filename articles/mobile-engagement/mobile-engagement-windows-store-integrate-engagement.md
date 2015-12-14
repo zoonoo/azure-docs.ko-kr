@@ -90,7 +90,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-응용 프로그램의 연결 문자열은 Azure 포털에 표시됩니다.
+응용 프로그램의 연결 문자열은 Azure 클래식 포털에 표시됩니다.
 
 ### Engagement 초기화
 
@@ -285,4 +285,4 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

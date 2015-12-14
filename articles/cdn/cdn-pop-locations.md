@@ -3,7 +3,7 @@
 	description="이 항목은 Azure CDN(콘텐츠 배달 네트워크) POP 위치를 나열합니다." 
 	services="cdn" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,10 +11,10 @@
 	ms.service="cdn" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 
 #Azure CDN(콘텐츠 배달 네트워크) POP 위치
@@ -25,7 +25,7 @@
 ![CDN POP 위치](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
 
-##미국
+##북아메리카
 
 - 애틀랜타
 - 시카고
@@ -39,6 +39,10 @@
 - 워싱턴 DC
 - 보스턴
 
+##남미
+
+- 상파울루
+- 키토
 
 ##유럽
 
@@ -64,11 +68,14 @@
 - 서울
 - 싱가포르
 - 도쿄
-
+- 방갈로르
+- 첸나이
+- 델리
+- 뭄바이
 
 ##오스트레일리아
 
 - 멜버른
 - 시드니 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

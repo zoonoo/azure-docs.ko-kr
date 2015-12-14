@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 계정 및 사용 권한 | Microsoft Azure"
+   pageTitle="Azure AD Connect: 계정 및 사용 권한 | Microsoft Azure"
    description="이 항목에서는 사용되고 만든 계정 및 필요한 권한을 설명합니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="11/02/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -122,4 +122,4 @@ Azure AD의 계정은 동기화 서비스의 사용에 만들어집니다. 이 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

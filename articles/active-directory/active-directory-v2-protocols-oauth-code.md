@@ -230,4 +230,4 @@ Content-Type: application/json
 
 ![OAuth 인증 코드 흐름](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

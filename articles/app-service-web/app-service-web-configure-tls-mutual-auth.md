@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 클라이언트 인증서 인증에 대 한 웹앱을 구성합니다. ##
-클라이언트 인증서를 요구하도록 웹앱을 설치하려면 웹앱에 대해 clientCertEnabled 사이트 설정을 추가하고 true로 설정합니다. 이 설정은 현재 포털의 관리환경을 통해 사용할 수 없으며, REST API를 사용하여 수행해야 합니다.
+클라이언트 인증서를 요구하도록 웹앱을 설치하려면 웹앱에 대해 clientCertEnabled 사이트 설정을 추가하고 true로 설정합니다. 이 설정은 현재 포털의 관리 환경을 통해 사용할 수 없으며, REST API를 사용하여 수행해야 합니다.
 
 [ARMClient 도구](https://github.com/projectkudu/ARMClient)를 사용하여 REST API 호출을 쉽게 만들 수 있습니다. 이 도구를 사용하여 로그인 후 다음 명령을 실행 해야 합니다.
 
@@ -179,4 +179,4 @@
         }
     }
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -81,7 +81,7 @@
 
 [AZURE.INCLUDE [방화벽](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. 외부 부하 분산에서는 복제본을 포함하는 클라우드 서비스의 공용 가상 IP 주소를 구해야 합니다. Azure 포털에 로그인합니다. 가용성 그룹 VM이 포함된 클라우드 서비스로 이동합니다. **대시보드** 보기를 엽니다. 
+1. 외부 부하 분산에서는 복제본을 포함하는 클라우드 서비스의 공용 가상 IP 주소를 구해야 합니다. Azure 클래식 포털에 로그인합니다. 가용성 그룹 VM이 포함된 클라우드 서비스로 이동합니다. **대시보드** 보기를 엽니다. 
 
 3. **공용 VIP(가상 IP) 주소** 아래에 표시된 주소를 적어 둡니다. 솔루션이 Vnet에 걸쳐 있으면 복제본을 호스팅하는 VM이 포함된 각 클라우드 서비스에 대해 이 단계를 반복합니다.
 
@@ -130,4 +130,4 @@ AlwaysOn 복제본이 여러 서브넷에 있는 경우 클라이언트가 연�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

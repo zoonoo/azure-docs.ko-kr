@@ -19,6 +19,11 @@
 
 # .NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 이 항목에서는 Entity Framework의 Code First 마이그레이션을 사용하여 기존 데이터의 손실 없이 기존 Azure SQL 데이터베이스에 대한 데이터 모델을 변경하는 방법을 보여 줍니다. 이 절차에서는 Azure에 .NET 백 엔드 프로젝트를 이미 게시했고, 데이터베이스에 기존 데이터가 있으며, 원격 데이터 모델과 로컬 데이터 모델이 동기화되어 있다고 가정합니다. 또한 이 항목에서는 개발 중에 사용되며 Azure 모바일 서비스를 통해 구현되는 기본 Code First 이니셜라이저에 대해 설명합니다. 이러한 이니셜라이저를 사용하면 기존 데이터를 유지할 필요가 없을 때 Code First 마이그레이션을 사용하지 않고 스키마를 손쉽게 변경할 수 있습니다.
 
 >[AZURE.NOTE]SQL 데이터베이스에 있는 테이블을 접두사 지정하는 데 사용되는 스키마 이름은 web.config 파일에서 MS\_MobileServiceName 앱 설정을 통해 정의됩니다. 포털에서 시작 프로젝트를 다운로드 하면 이 값이 이미 모바일 서비스 이름으로 설정되어 있습니다. 스키마 이름이 모바일 서비스와 일치하면 여러 모바일 서비스에서 동일한 데이터베이스 인스턴스를 안전하게 공유할 수 있습니다.
@@ -41,7 +46,7 @@ Visual Studio를 사용하면 쉽게 새 테이블 컨트롤러를 만들고 새
 
 두 이니셜라이저는 모바일 서비스에서 사용되는 스키마에 있는 모든 테이블, 뷰, 함수 및 프로시저를 데이터베이스에서 삭제합니다.
 
-+ **ClearDatabaseSchemaIfModelChanges** <br/> 스키마 개체는 Code First가 데이터 모델에서 변경을 감지하는 경우에만 삭제됩니다. [Azure 관리 포털]에서 다운로드하는 .NET 백 엔드 프로젝트의 기본 이니셜라이저는 이 기본 클래스에서 상속됩니다.
++ **ClearDatabaseSchemaIfModelChanges** <br/> 스키마 개체는 Code First가 데이터 모델에서 변경을 감지하는 경우에만 삭제됩니다. [Azure 클래식 포털]에서 다운로드하는 .NET 백 엔드 프로젝트의 기본 이니셜라이저는 이 기본 클래스에서 상속됩니다.
 
 + **ClearDatabaseSchemaAlways**: <br/> 스키마 개체는 데이터 모델에 액세스할 때마다 삭제됩니다. 이 기본 클래스를 사용하면 데이터 모델을 변경하지 않으면서 데이터베이스를 재설정할 수 있습니다.
 
@@ -95,7 +100,7 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 
 7.  로컬 컴퓨터에서 모바일 서비스 프로젝트를 시작하려면 F5 키를 누르세요.
 
-	이제 데이터베이스가 데이터 모델과 동기화됩니다. 시드 데이터를 제공한 경우 **연습**, **GET 테이블/todoitem**, **연습** 및 **보내기**를 클릭하여 시드 데이터를 확인할 수 있습니다. 자세한 내용은 [마이그레이션에서 데이터 시드]를 참조하세요.
+	이제 데이터베이스가 데이터 모델과 동기화됩니다. 시드 데이터를 제공한 경우 **연습**, **GET 테이블/todoitem**, **연습** 및 **보내기**를 클릭하여 시드 데이터를 확인할 수 있습니다. 자세한 내용은 [마이그레이션에서 데이터 시드]를 참조하십시오.
 
 8.   이제 데이터 모델을 변경하고(예: TodoItem 유형에 새 UserId 속성 추가), 프로젝트를 다시 빌드한 다음 패키지 관리자에서 다음 명령을 실행합니다.
 
@@ -105,11 +110,11 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 
 9.  로컬 컴퓨터에서 모바일 서비스 프로젝트를 다시 시작하려면 F5 키를 다시 누르세요.
 
-	마이그레이션이 데이터베이스에 적용되고 데이터베이스가 데이터 모델과 다시 동기화됩니다. 시드 데이터를 제공한 경우 **연습**, **GET 테이블/todoitem**, **연습** 및 **보내기**를 클릭하여 시드 데이터를 확인할 수 있습니다. 자세한 내용은 [마이그레이션에서 데이터 시드]를 참조하세요.
+	마이그레이션이 데이터베이스에 적용되고 데이터베이스가 데이터 모델과 다시 동기화됩니다. 시드 데이터를 제공한 경우 **연습**, **GET 테이블/todoitem**, **연습** 및 **보내기**를 클릭하여 시드 데이터를 확인할 수 있습니다. 자세한 내용은 [마이그레이션에서 데이터 시드]를 참조하십시오.
 
 10. 모바일 서비스를 Azure에 다시 게시하고, 클라이언트 앱을 실행하여 데이터에 액세스한 다음 데이터가 로드되고 오류가 발생하지 않는지 확인합니다.
 
-13. (선택 사항) [Azure 관리 포털]에서 모바일 서비스를 선택한 다음 **구성** > **SQL 데이터베이스**를 클릭합니다. 모바일 서비스의 데이터베이스에 대한 SQL 데이터베이스 페이지로 이동합니다.
+13. (선택 사항) [Azure 클래식 포털]에서 모바일 서비스를 선택한 다음 **구성** > **SQL 데이터베이스**를 클릭합니다. 모바일 서비스의 데이터베이스에 대한 SQL 데이터베이스 페이지로 이동합니다.
 
 14. (옵션) **관리**를 클릭하고, SQL 데이터베이스 서버에 로그인한 다음 **디자인**을 클릭하여 Azure에서 스키마가 변경되었는지 확인합니다.
 
@@ -122,7 +127,7 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
         AutomaticMigrationsEnabled = false;
         SetSqlGenerator("System.Data.SqlClient", new EntityTableSqlGenerator());
     }
-    
+
 ##<a name="seeding"></a>마이그레이션에서 데이터 시드
 
 마이그레이션을 실행할 때 마이그레이션에서 데이터베이스에 시드 데이터를 추가하도록 할 수 있습니다. **Configuration** 클래스에는 데이터를 삽입 또는 업데이트하도록 재정의할 수 있는 **Seed** 메서드가 있습니다. 마이그레이션을 사용하도록 설정하면 Configuration.cs 코드 파일이 마이그레이션 폴더에 추가됩니다. 이 예에서는 [TodoItems] 테이블에 데이터를 시드하도록 **Seed** 메서드를 재정의하는 방법을 보여 줍니다. 최신 버전으로 마이그레이션한 후 [Seed] 메서드가 호출됩니다.
@@ -170,11 +175,11 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
 [Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
 [TodoItems]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 [TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,8 @@
 
 # API 앱 보호: Azure Active Directory 또는 소셜 공급자 인증 추가
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 개요
 
 이 자습서에서는 인증된 사용자만 API 앱에 액세스할 수 있도록 API 앱을 보호하는 방법을 보여 줍니다. 또한 자습서는 로그온한 사용자에 대 한 정보를 검색하는 ASP.NET API 앱에서 사용할 수 있는 코드를 보여줍니다.
@@ -31,7 +33,7 @@
 - API 앱을 다시 호출하여 인증된 액세스가 작동하는지 확인
 - 로그온한 사용자에 대한 클레임을 검색하는 코드를 작성하고 테스트합니다.
 
-Azure 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
+Azure 앱 서비스 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
 ## 필수 조건
 
@@ -249,7 +251,7 @@ API 앱이 인증된 요청만 수락하도록 구성하기 위해 해당 접근
 
 	샘플 코드는 Azure Active Directory를 사용합니다. 다른 공급자에 대해 이전 단계에서와 같이 적절한 토큰 이름 및 클레임 식별자를 사용하게 됩니다.
 
-	사용할 수 있는 Azure Active Directory 클레임에 대한 정보는 [지원 토큰 및 클레임 유형](https://msdn.microsoft.com/library/dn195587.aspx)을 참조하세요.
+	사용할 수 있는 Azure Active Directory 클레임에 대한 정보는 [지원 토큰 및 클레임 유형](https://msdn.microsoft.com/library/dn195587.aspx)을 참조하십시오.
 
 3. `Microsoft.Azure.AppService.ApiApps.Service`에 using 문을 추가합니다.
 
@@ -257,7 +259,7 @@ API 앱이 인증된 요청만 수락하도록 구성하기 위해 해당 접근
 
 3. 프로젝트를 다시 배포합니다.
 
-	Visual Studio에서는 [배포](app-service-dotnet-deploy-api-app.md) 자습서를 따르는 동안 프로젝트를 배포할 때 설정을 기억합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하여, **게시**를 클릭하고 **웹 게시** 대화 상자의 **게시**를 클릭하세요.
+	Visual Studio에서는 [배포](app-service-dotnet-deploy-api-app.md) 자습서를 따르는 동안 프로젝트를 배포할 때 설정을 기억합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하여, **게시**를 클릭하고 **웹 게시** 대화 상자의 **게시**를 클릭하십시오.
 
 6. 보호된 API 앱으로 Get 요청을 보내기에 앞서 수행한 절차를 따릅니다.
 
@@ -272,4 +274,4 @@ Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure Preview 포털]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

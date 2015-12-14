@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc;ricksal"/>
 
 # 모바일 서비스 .NET 백 엔드 문제 해결
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 모바일 서비스를 사용한 개발 작업은 일반적으로 쉽고 간편하지만 경우에 따라 문제가 발생할 수도 있습니다. 이 자습서에서는 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 공통적인 문제를 해결할 수 있는 몇 가지 기법에 대해 설명합니다.
 
@@ -36,7 +41,7 @@ HTTP 트래픽을 전송 및 검사하기 위해서는 아무 HTTP 디버거나 
 1. 시작하려면 **Visual Studio 2013 업데이트 2** 이상에서 모바일 서비스 서버 프로젝트를 엽니다. 아직 프로젝트가 없으면 **파일**, **새로 만들기**, **프로젝트**를 선택한 후 **클라우드** 노드를 선택하고** Microsoft Azure 모바일 서비스** 템플릿을 선택하여 만들 수 있습니다.
 2. **F5**를 누르면 프로젝트가 빌드되고 실행됩니다. 시작 페이지에서 **try it out(사용해 보기)**를 선택합니다.
 
-    >[AZURE.NOTE]서비스가 로컬로 호스트되는 경우 링크를 클릭하면 다음 페이지로 이동됩니다. 하지만 클라우드에서 호스팅할 경우에는 자격 증명 집합을 입력하라는 메시지가 표시됩니다. 이 메시지는 인증되지 않은 사용자가 API 및 페이로드에 대한 정보에 액세스할 수 없도록 보장하기 위한 것입니다. 페이지를 표시하려면 **빈 사용자 이름** 및 **응용 프로그램 키**(암호)를 사용해서 로그인해야 합니다. 응용 프로그램 키는 **Azure 관리 포털**에서 모바일 서비스에 대한 **대시보드** 탭으로 이동하고 **키 관리**를 선택하여 확인할 수 있습니다.
+    >[AZURE.NOTE]서비스가 로컬로 호스트되는 경우 링크를 클릭하면 다음 페이지로 이동됩니다. 하지만 클라우드에서 호스팅할 경우에는 자격 증명 집합을 입력하라는 메시지가 표시됩니다. 이 메시지는 인증되지 않은 사용자가 API 및 페이로드에 대한 정보에 액세스할 수 없도록 보장하기 위한 것입니다. 페이지를 표시하려면 **빈 사용자 이름** 및 **응용 프로그램 키**(암호)를 사용해서 로그인해야 합니다. 응용 프로그램 키는 Azure 클래식 포털에서 모바일 서비스에 대한 **대시보드** 탭으로 이동하고 **키 관리**를 선택하여 확인할 수 있습니다.
     >
     > ![도움말 페이지에 액세스하기 위한 인증 프롬프트][HelpPageAuth]
 
@@ -107,9 +112,9 @@ Azure에 서비스를 게시한 후에는 Visual Studio의 **서버 탐색기**�
 
 ![Visual Studio 서버 탐색기의 로그][LogsServerExplorer]
 
-모바일 서비스에 대한 **로그** 탭의 **Azure 관리 포털**에서도 동일한 로그를 사용할 수 있습니다.
+모바일 서비스에 대한 **로그** 탭의 Azure 클래식 포털에서도 동일한 로그를 사용할 수 있습니다.
 
-![Azure 관리 포털의 로그][LogsPortal]
+![Azure 클래식 포털의 로그][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## 클라우드 어셈블리 확인 디버깅
@@ -154,4 +159,4 @@ SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용�
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

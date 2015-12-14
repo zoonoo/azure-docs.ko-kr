@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
 # Azure AD 용어
@@ -31,7 +31,7 @@ Windows PowerShell용 Azure Active Directory 모듈 | Azure Active Directory를 
 Azure Active Directory 연결 | Azure Active Directory 연결 마법사는 온-프레미스 디렉터리를 Azure Active Directory와 연결하는 데 사용되는 단일 도구 및 단계별 환경입니다. 이 마법사는 동기화 서비스, 암호 동기화 또는 AD FS(Active Directory Federation Services) 등의 디렉터리 통합을 실행하고 Azure AD PowerShell 모듈과 같은 필수 조건을 얻는 데 필요한 모든 구성 요소를 배포 및 구성합니다.
 Azure Active Directory 동기화 도구 | 회사의 온-프레미스 Active Directory 서비스에서 Azure Active Directory로 디렉터리 개체를 단방향으로 동기화하는 응용 프로그램입니다.
 디렉터리 통합 | 온-프레미스 디렉터리와 클라우드 디렉터리에서의 ID 유지 관리와 관련된 관리 환경을 개선하기 위해 설정할 수 있는 Azure Active Directory의 기능입니다. 디렉터리 통합 시나리오는 디렉터리 동기화 및 Single Sign-On을 통한 디렉터리 동기화를 포함합니다.
-디렉터리 동기화 | 관리 오버헤드를 줄이기 위해 온-프레미스 디렉터리 개체(사용자, 그룹, 연락처)를 클라우드로 동기화하는 데 사용됩니다. Azure AD 포털 및 Azure 관리 포털에서 이러한 개체를 동기화하는 작업이 디렉터리 동기화입니다. 관리자는 디렉터리 동기화를 설정한 후 온-프레미스에서 Active Directory의 디렉터리 개체를 Azure AD 인스턴스로 프로비전할 수 있습니다.
+디렉터리 동기화 | 관리 오버헤드를 줄이기 위해 온-프레미스 디렉터리 개체(사용자, 그룹, 연락처)를 클라우드로 동기화하는 데 사용됩니다. 디렉터리 동기화는 Azure AD 포털 및 Azure 클래식 포털에서 디렉터리 동기화라고도 합니다. 관리자는 디렉터리 동기화를 설정한 후 온-프레미스에서 Active Directory의 디렉터리 개체를 Azure AD 인스턴스로 프로비전할 수 있습니다.
 Microsoft Online Services 로그인 도우미 | 로그인 도우미는 클라이언트 컴퓨터에 설치되며 한 번 로그인한 다음 로그인 세션 동안 서비스에 원하는 만큼 여러 번 액세스할 수 있게 하는 응용 프로그램입니다. 로그인 도우미가 없는 경우에는 최종 사용자가 서비스에 액세스하려고 할 때마다 이름과 암호를 입력해야 합니다. 로그인 도우미를 Single Sign-On과 혼동해서는 안 됩니다. Single Sign-On은 Microsoft 클라우드 서비스에 원활하게 액세스하기 위해 사용자의 기존 온-프레미스 회사 자격 증명을 활용하도록 배포할 수 있는 Azure Active Directory의 디렉터리 통합 기능입니다.
 다단계 인증(2단계 인증 또는 2FA라고도 함) | 다단계 인증은 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가합니다. Azure AD의 사용자 계정에 다단계 인증을 사용하도록 설정하면 해당 사용자는 조직에서 구독하는 Microsoft 클라우드 서비스에 로그인하고 사용할 때마다 추가 보안 확인 방법으로서 표준 암호 자격 증명 외에 휴대폰도 사용해야 합니다.
 Single Sign-On | 회사 네트워크에 로그온한 동안 Microsoft 클라우드 서비스에 액세스할 때 사용자에게 보다 원활한 인증 환경을 제공하기 위해 사용됩니다. Single Sign-On을 설정하려는 조직은 온-프레미스에서 보안 토큰 서비스를 배포해야 합니다. Single Sign-On이 설정되고 나면 사용자는 Active Directory 회사 자격 증명(사용자 이름 및 암호)을 사용하여 클라우드의 서비스 및 기존 온-프레미스 리소스에 액세스할 수 있습니다.
@@ -43,4 +43,4 @@ Single Sign-On | 회사 네트워크에 로그온한 동안 Microsoft 클라우�
 - [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 서비스 제한 및 제한 사항](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

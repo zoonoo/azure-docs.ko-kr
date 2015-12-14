@@ -1,6 +1,6 @@
 <properties
 	pageTitle="저장된 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용한 사용자 정의 함수 보기 | Microsoft Azure"
-	description="저장된 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 볼 수 있도록 하는 Azure Preview 포털 도구, DocumentDB 스크립트 탐색기에 대해 알아봅니다."
+	description="저장된 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 볼 수 있도록 하는 Azure 포털 도구, DocumentDB 스크립트 탐색기에 대해 알아봅니다."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/02/2015"
+	ms.date="12/01/2015"
 	ms.author="anhoh"/>
 
 # 저장된 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용한 사용자 정의 함수 보기, 편집 및 만들기
 
-이 문서에서는 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 스크립트 탐색기, 저장된 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 볼 수 있도록 하는 Azure Preview 포털 도구를 간략하게 설명합니다. [여기](documentdb-programming.md)에서 DocumentDB 서버 쪽 프로그래밍에 대해 읽어 보세요.
+이 문서에서는 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 스크립트 탐색기, 저장된 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 볼 수 있도록 하는 Azure 포털 도구를 간략하게 설명합니다. [여기](documentdb-programming.md)에서 DocumentDB 서버 쪽 프로그래밍에 대해 읽어 보세요.
 
 이 자습서를 완료하면 다음 질문에 대답할 수 있습니다.
 
@@ -106,4 +106,4 @@
 DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

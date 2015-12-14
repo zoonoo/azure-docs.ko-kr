@@ -39,15 +39,15 @@
 
 ## 1단계. Azure에서 HPC Pack 클러스터 설정
 
-클러스터를 설정하는 두 가지 방법을 보여 드리겠습니다. 첫 번째 방법은 Azure 빠른 시작 템플릿과 Azure Preview 포털을 사용하는 것이고, 두 번째 방법은 Azure PowerShell 배포 스크립트를 사용하는 것입니다.
+클러스터를 설정하는 두 가지 방법을 알아봅니다. 첫번째 방법은 Azure 빠른 시작 템플릿과 Azure 포털을 사용하여 설정합니다. 두번째 방법은 Azure PowerShell 배포 스크립트를 사용하여 설정합니다.
 
 
 ### 빠른 시작 템플릿 사용
-Azure 빠른 시작 템플릿을 사용하여 빠르고 쉽게 Azure Preview 포털에 HPC Pack 클러스터를 배포할 수 있습니다. Preview 포털에서 템플릿을 열면 클러스터에 대한 설정을 입력할 수 있는 간단한 UI가 표시됩니다. 단계는 다음과 같습니다.
+Azure 빠른 시작 템플릿을 사용하여 Azure 포털에서 HPC 팩 클러스터를 쉽고 빠르게 배포합니다. Preview 포털에서 템플릿을 열면 클러스터에 대한 설정을 입력할 수 있는 간단한 UI가 표시됩니다. 단계는 다음과 같습니다.
 
 1. [GitHub의 HPC 클러스터 만들기 템플릿 페이지](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)를 방문합니다. 원하는 경우 템플릿 및 소스 코드에 대한 정보를 검토합니다.
 
-2. **Azure에 배포**를 클릭하여 Azure Preview 포털에서 템플릿을 사용한 배포를 시작합니다.
+2. Azure에 배포를 클릭하면 Azure 포털의 템플릿을 사용하여 **배포**를 시작합니다.
 
     ![Azure에 템플릿 배포][github]
 
@@ -81,7 +81,7 @@ Azure 빠른 시작 템플릿을 사용하여 빠르고 쉽게 Azure Preview 포
 
 3.	배포가 완료되면(일반적으로 약 30분 소요) 클러스터 헤드 노드에서 클러스터 인증서 파일을 내보냅니다. 이후 단계에서 보안 HTTP 바인딩을 위한 서버 쪽 인증을 제공하기 위해 클라이언트 컴퓨터에서 이 공용 인증서를 가져옵니다.
 
-    a. Azure Preview 포털에서 원격 데스크톱을 통해 헤드 노드에 연결합니다.
+    a. Azure 포털에서 원격 데스크톱을 통해 헤드 노드에 연결합니다.
 
      ![헤드 노드에 연결][connect]
 
@@ -347,7 +347,7 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 
 ### NetTcp 바인딩 사용
 
-NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 연결하는 것과 같습니다. 헤드 노드 VM에서 몇 개의 끝점을 열어야 합니다. Azure 포털에서 다음을 수행합니다.
+NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 연결하는 것과 같습니다. 헤드 노드 VM에서 몇 개의 끝점을 열어야 합니다. Azure 클래식 포털에서 다음을 수행합니다.
 
 
 1. VM을 중지합니다.
@@ -381,4 +381,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

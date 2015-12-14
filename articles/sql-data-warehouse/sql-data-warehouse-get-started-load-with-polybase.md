@@ -72,7 +72,7 @@
 
 Blob 서비스 끝점을 찾으려면:
 
-1. Azure 포털에서 **찾아보기** > **저장소 계정**을 선택합니다.
+1. Azure 클래식 포털에서 **찾아보기** > **저장소 계정**을 선택합니다.
 2. 사용하려는 저장소 계정을 클릭합니다.
 3. 저장소 계정 블레이드에서 BLOB을 클릭합니다.
 
@@ -282,4 +282,4 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [데이터베이스 범위 자격 증명 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

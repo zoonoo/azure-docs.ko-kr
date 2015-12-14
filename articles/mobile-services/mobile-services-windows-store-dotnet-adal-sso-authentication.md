@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -85,7 +90,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 ###네이티브 앱 등록 만들기
 
-1. **관리 포털**에서 [Active Directory]로 이동한 다음 디렉터리를 클릭합니다.
+1. **Azure 클래식 포털**에서 [Active Directory]로 이동한 다음 디렉터리를 클릭합니다.
 
     ![][7]
 
@@ -162,7 +167,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
             }
         }
 
-6. 위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/tenant-name.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 관리 포털]에서 Azure Active Directory의 도메인 탭에서 복사할 수 있습니다.
+6. 위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/tenant-name.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
 
 7. 위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 서비스의 **앱 ID URI**로 바꿉니다. [Azure Active Directory에 등록하는 방법] 항목을 따르면 앱 ID URI가 https://todolist.azure-mobile.net/login/aad와(과) 유사합니다.
 
@@ -184,7 +189,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 ##인증을 사용하여 클라이언트 테스트
 
 1. Visual Studio에서 클라이언트 앱을 실행합니다.
-2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.  
+2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.
 3. 앱이 인증하며 todo 항목을 반환합니다.
 
     ![][15]
@@ -212,8 +217,8 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 <!-- URLs. -->
 [Azure Active Directory에 등록하는 방법]: mobile-services-how-to-register-active-directory-authentication.md
 [Active Directory]: https://manage.windowsazure.com/
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 개발자 센터 대시보드]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -274,7 +274,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 > * 응용 프로그램 ID - 서비스 주체를 만들 때 반환
 > * 서비스 주체 암호 - 서비스 주체를 만들 때 사용
 
-[Azure 리소스 관리자를 사용하여 서비스 사용자 인증](https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli) 문서의 _암호를 사용하여 서비스 보안 주체 인증 - Azure CLI_ 섹션에 있는 단계를 따릅니다. 그러면 클러스터 만들기 요청을 인증하는 데 사용할 수 있는 새 서비스 주체가 만들어집니다.
+[Azure 리소스 관리자를 사용하여 서비스 주체 인증](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli) 문서의 _암호를 사용하여 서비스 주체 인증 - Azure CLI_ 섹션에 있는 단계를 따릅니다. 그러면 클러스터 만들기 요청을 인증하는 데 사용할 수 있는 새 서비스 주체가 만들어집니다.
 
 ##인증 토큰 가져오기
 
@@ -355,4 +355,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

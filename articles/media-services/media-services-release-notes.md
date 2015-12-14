@@ -84,7 +84,7 @@ Azure 미디어 서비스에서 제공하는 Widevine 라이선스 배달 서비
 
 ##<a id="oct_changes_15"></a>2015년 10월 릴리스
 
-AMS(Azure 미디어 서비스)는 이제 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 데이터 센터에서도 사용 가능합니다. 이제 Azure 관리 포털을 사용하여 [미디어 서비스 계정을 만들고](media-services-create-account.md#create-a-media-services-account-using-quick-create) [여기](https://azure.microsoft.com/documentation/services/media-services/)에서 설명된 다양한 작업을 수행할 수 있습니다. 그러나 라이브 인코딩은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 모든 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
+AMS(Azure 미디어 서비스)는 이제 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 데이터 센터에서도 사용 가능합니다. 이제 Azure 클래식 포털을 사용하여 [미디어 서비스 계정을 만들고](media-services-create-account.md#create-a-media-services-account-using-quick-create) [여기](https://azure.microsoft.com/documentation/services/media-services/)에서 설명한 다양한 작업을 수행할 수 있습니다. 그러나 라이브 인코딩은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 모든 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
 
 - 브라질 남부: 표준 및 기본 인코딩 예약 단위만 사용 가능
 - 인도 서부, 인도 남부 및 인도 중부: 기본 인코딩 예약 단위만 사용 가능
@@ -275,15 +275,15 @@ Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
 ### <a id="sept_14_breaking_changes"></a>주요 변경 내용
 
 * **Origin**의 이름이 [StreamingEndpoint]로 바뀌었습니다.
-* **Azure 관리 포털**을 사용하여 MP4 파일로 인코딩한 다음 게시할 때의 기본 동작이 변경되었습니다. 
+* **Azure 클래식 포털**을 사용하여 MP4 파일로 인코딩한 다음 게시할 때의 기본 동작이 변경되었습니다.
 
-	이전에는 관리 포털을 사용하여 단일 파일 MP4 비디오 자산을 게시할 때 SAS URL이 생성되었습니다. SAS URL을 통해 Blob 저장소에서 비디오를 다운로드할 수 있습니다. 현재는 관리 포털을 사용하여 단일 파일 MP4 비디오 자산을 인코딩한 다음 게시하면 생성되는 URL이 Azure 미디어 서비스 스트리밍 끝점을 가리킵니다. 이 변경 내용은 미디어 서비스에 직접 업로드되고 Azure 미디어 서비스를 통한 인코딩 없이 게시되는 MP4 비디오에는 영향을 주지 않습니다.
-	
-	현재 다음의 두 가지 옵션을 통해 문제를 해결할 수 있습니다.
-	
-	* 스트리밍 단위를 사용하도록 설정하고 동적 패키징을 사용하여 .mp4 자산을 부드러운 스트리밍 프레젠테이션으로 스트리밍합니다.
-	
-	* .mp4를 다운로드하거나 점진적으로 재생할 SAS URL을 만듭니다. SAS 로케이터를 만드는 방법에 대한 자세한 내용은 [콘텐츠 배달]을 참조하세요.
+이전에는 Azure 클래식 포털을 사용하여 단일 파일 MP4 비디오 자산을 게시할 때 SAS URL이 생성되었습니다. SAS URL을 통해 Blob 저장소에서 비디오를 다운로드할 수 있습니다. 현재는 Azure 클래식 포털을 사용하여 단일 파일 MP4 비디오 자산을 인코딩한 다음 게시하면 생성되는 URL이 Azure 미디어 서비스 스트리밍 끝점을 가리킵니다. 이 변경 내용은 미디어 서비스에 직접 업로드되고 Azure 미디어 서비스를 통한 인코딩 없이 게시되는 MP4 비디오에는 영향을 주지 않습니다.
+
+현재 다음의 두 가지 옵션을 통해 문제를 해결할 수 있습니다.
+
+* 스트리밍 단위를 사용하도록 설정하고 동적 패키징을 사용하여 .mp4 자산을 부드러운 스트리밍 프레젠테이션으로 스트리밍합니다.
+
+* .mp4를 다운로드하거나 점진적으로 재생할 SAS URL을 만듭니다. SAS 로케이터를 만드는 방법에 대한 자세한 내용은 [콘텐츠 배달]을 참조하세요.
 
 
 ### <a id="sept_14_GA_changes"></a>GA 릴리스에 포함된 새 기능/시나리오
@@ -602,7 +602,7 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [Preview features]: http://azure.microsoft.com/services/preview/
 [미디어 서비스 PlayReady 라이선스 템플릿 개요]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [저장소에서 암호화된 콘텐츠 스트리밍]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [동적 패키징]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin의 블로그]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [PlayReady로 부드러운 스트림 및 MPEG DASH 보호]: http://msdn.microsoft.com/library/azure/dn189154.aspx
@@ -621,4 +621,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 
 이 항목은 주로 배포 명령을 사용하여 배포 문제를 해결하는 데 중점을 둡니다. 감사 로그를 사용하여 리소스에서 모든 작업을 추적하기 위한 정보는 [리소스 관리자로 작업 감사](../resource-group-audit.md)를 참조하세요.
 
-이 항목에서는 Azure PowerShell, Azure CLI 및 REST API를 통해 문제 해결 정보를 검색하는 방법을 보여줍니다. 배포 문제를 해결하기 위한 미리 보기 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
+이 항목에서는 Azure PowerShell, Azure CLI 및 REST API를 통해 문제 해결 정보를 검색하는 방법을 보여줍니다. 배포 문제를 해결하기 위한 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
 
 또한 사용자에게 발생할 수 있는 일반적인 오류에 대한 솔루션을 이 항목에서 설명합니다.
 
@@ -136,7 +136,7 @@
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -259,7 +259,7 @@ Azure CLI의 경우 **azure location list**를 사용할 수 있습니다. 위�
     }
 
 ### REST API
-        
+
 REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/dn790534.aspx)를 참조하세요.
 
 ## 고유한 리소스 이름 만들기
@@ -292,29 +292,12 @@ REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://m
 
 이러한 경우 포털로 이동하여 사용자가 배포하고 싶은 지역의 할당량을 올려서 지원 문제를 해결합니다.
 
-> [AZURE.NOTE]리소스 그룹에 대해서는 이것을 기억하세요. 할당량은 개별적인 지역을 위한 것이지, 전체 구독을 위한 것이 아닙니다. 사용자가 미국 서부에 30개의 코어를 배포해야 하면 미국 서부에 30개의 리소스 관리자 코어를 요청해야 합니다. 사용자가 액세스하는 임의적인 지역에 30개의 코어를 배포해야 하는 경우 모든 지역에 30개의 리소스 관리자 코어를 요청해야 합니다.
-<!-- -->
-예를 들어 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래의 명령을 이용하여 적정한 할당량을 요청해야 하는 지역을 확인할 수 있습니다.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE]리소스 그룹에 대해서는 이것을 기억하세요. 할당량은 개별적인 지역을 위한 것이지, 전체 구독을 위한 것이 아닙니다. 사용자가 미국 서부에 30개의 코어를 배포해야 하면 미국 서부에 30개의 리소스 관리자 코어를 요청해야 합니다. 사용자가 액세스하는 임의적인 지역에 30개의 코어를 배포해야 하는 경우 모든 지역에 30개의 리소스 관리자 코어를 요청해야 합니다. <!-- --> 예를 들어 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래의 명령을 이용하여 적정한 할당량을 요청해야 하는 지역을 확인할 수 있습니다. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+
 
 ## 리소스 공급자 등록 확인
 
-리소스 공급자가 리소스를 관리하고, 계정 또는 구독이 특정 공급자를 사용하도록 설정되었을 수 있습니다. 공급자를 사용하도록 설정한 경우 공급자가 사용하도록 등록되어 있어야 합니다. 대부분의 공급자는 Azure Preview 포털이나 사용 중인 명령줄 인터페이스에 의해 자동으로 등록되지만, 그렇지 않은 경우도 있습니다.
+리소스 공급자가 리소스를 관리하고, 계정 또는 구독이 특정 공급자를 사용하도록 설정되었을 수 있습니다. 공급자를 사용하도록 설정한 경우 공급자가 사용하도록 등록되어 있어야 합니다. 대부분의 공급자는 Azure 포털이나 사용 중인 명령줄 인터페이스에 의해 자동으로 등록되지만, 그렇지 않은 경우도 있습니다.
 
 ### PowerShell
 
@@ -433,4 +416,4 @@ PowerShell에는 동일한 절차를 수행하는 몇 가지 기본 명령이 �
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

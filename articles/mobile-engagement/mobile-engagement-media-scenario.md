@@ -101,4 +101,4 @@ John은 AZME 웹 인터페이스를 사용하지 않고도 도달률 캠페인�
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

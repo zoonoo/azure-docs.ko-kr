@@ -76,10 +76,10 @@
 
 PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 설정을 환경 변수로 사용할 수 있으며, 환경 변수 앞에는 연결 형식이 옵니다. 환경 변수 접두사는 다음과 같습니다.
 
-- SQL 서버: SQLCONNSTR_
-- MySQL: MYSQLCONNSTR_
-- SQL 데이터베이스: SQLAZURECONNSTR_
-- 사용자 지정: CUSTOMCONNSTR_
+- SQL 서버: SQLCONNSTR\_
+- MySQL: MYSQLCONNSTR\_
+- SQL 데이터베이스: SQLAZURECONNSTR\_
+- 사용자 지정: CUSTOMCONNSTR\_
 
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
 
@@ -132,7 +132,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 ![](./media/web-sites-configure/configure03.png)
 
 
-전체 FTP 사용자 이름은 “app\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
+전체 FTP 사용자 이름은 “app\\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -175,7 +175,6 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

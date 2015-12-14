@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,7 +34,7 @@ Azure SQL 데이터베이스를 사용하여 작업할 경우 최신 버전의 S
 
 SQL 데이터베이스에 연결하려면 Azure의 서버 이름을 알아야 합니다. 이 정보를 얻기 위해 포털에 등록해야 할 수도 있습니다.
 
-1.  [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다.
+1.  [Azure 클래식 포털](http://manage.windowsazure.com)에 로그인합니다.
 
 2.  왼쪽 창에서 **SQL 데이터베이스**를 클릭합니다.
 
@@ -192,4 +192,4 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

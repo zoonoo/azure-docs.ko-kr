@@ -139,11 +139,11 @@ ASP.NET 5/DNX는 OS X, Linux 및 Windows에서 실행되는 최신 클라우드 
 
 3. 브라우저를 닫습니다. 명령 창에서 **Ctrl+C**를 눌러 응용 프로그램을 종료하거나 명령 창을 닫습니다.
 
-## Azure 미리 보기 포털에 웹 앱 만들기
+## Azure 포털에서 웹 앱 만들기
 
-다음 단계에서는 Azure Preview 포털에서 웹앱을 만드는 과정을 안내합니다.
+다음 단계에서는 Azure 포털에서 웹앱을 만드는 과정을 안내합니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 포털의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 
@@ -165,7 +165,7 @@ ASP.NET 5/DNX는 OS X, Linux 및 Windows에서 실행되는 최신 클라우드 
 
 Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 웹앱에 대해 작성한 코드를 로컬 Git 리포지토리에 저장하고, 원격 리포지토리로 푸시하여 Azure에 코드를 배포합니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **찾아보기**를 클릭합니다.
 
@@ -258,7 +258,7 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* Azure Preview 포털에서 웹앱에 대한 웹앱 블레이드를 찾은 다음 기본 브라우저에서 **찾아보기**를 클릭하여
+* Azure 포털에서 웹앱에 대한 웹앱 블레이드를 찾은 다음 기본 브라우저에서 **찾아보기**를 클릭하여
 * 앱을 확인합니다.
 
 ![Azure 웹앱](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
@@ -266,4 +266,4 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 ## 요약
 이 자습서에서는 VS Code에서 웹앱을 만들고 Azure에 배포하는 방법을 알아보았습니다. VS Code에 대한 자세한 내용은 [Visual Studio Code를 선택해야 하는 이유?](https://code.visualstudio.com/Docs/)를 참조하세요. 앱 서비스 웹앱에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

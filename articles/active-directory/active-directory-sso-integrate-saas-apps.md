@@ -1,8 +1,8 @@
 <properties
     pageTitle="Azure Active Directory Single Sign-On과 SaaS 앱 통합 | Microsoft Azure"
-    description="Azure Active Directory에서 SaaS 앱의 Single Sign-On 인증과 사용자 프로비전 집중식 액세스 관리를 사용하도록 설정합니다. SaaS 앱에 Azure AD를 통합하는 방법의 개요입니다."
+    description="Azure Active Directory에서 SaaS 앱의 Single Sign-On 인증과 사용자 프로비전 집중식 액세스 관리를 사용하도록 설정합니다. SaaS 앱에 Azure Active Directory를 통합하는 방법의 개요입니다."
     services="active-directory"
-	keywords="Azure AD와 SaaS 앱 통합"
+	  keywords="Azure AD와 SaaS 앱 통합"
     documentationCenter=""
     authors="curtand"
     manager="stevenpo"
@@ -14,14 +14,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/20/2015"
+      ms.date="12/01/2015"
       ms.author="curtand"/>
 
-# Azure Active Directory (Azure AD) Single Sign-On과 SaaS 앱 통합  
+# Azure Active Directory Single Sign-On과 SaaS 앱 통합  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-조직으로 가져오는 앱에 대한 Single Sign-On 설정을 시작하려면 Azure Active Directory에서 기존 디렉터리를 사용하게 됩니다. Microsoft Azure, Office 365 또는 Windows Intune을 통해 얻은 Azure AD 디렉터리를 사용할 수 있습니다. 이러한 항목이 두 개 이상 있는 경우 사용할 것을 결정하려면 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요.
+조직으로 가져오는 앱에 대한 Single Sign-On 설정을 시작하려면 Azure AD(Azure Active Directory)에서 기존 디렉터리를 사용하게 됩니다. Microsoft Azure, Office 365 또는 Windows Intune을 통해 얻은 Azure AD 디렉터리를 사용할 수 있습니다. 이러한 항목이 두 개 이상 있는 경우 사용할 것을 결정하려면 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요.
 
 ## 인증
 
@@ -41,7 +41,7 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 ## 이미 사용 중인 응용 프로그램에 대한 추가 고려 사항
 
-조직이 사용하는 응용 프로그램에 Single Sign-On을 설치하는 작업은 새 응용 프로그램에 새 계정을 만드는 것과 다른 프로세스입니다. 다음 몇 가지 준비 단계를 포함합니다. 응용 프로그램에서 Azure Active Directory(AD) ID에 사용자 ID를 매핑하고 통합된 후에 사용자가 응용 프로그램에 로그인하는 방법을 이해합니다.
+조직이 사용하는 응용 프로그램에 Single Sign-On을 설치하는 작업은 새 응용 프로그램에 새 계정을 만드는 것과 다른 프로세스입니다. 다음 몇 가지 준비 단계를 포함합니다. 응용 프로그램에서 Azure AD ID에 사용자 ID를 매핑하고 통합된 후에 사용자가 응용 프로그램에 로그인하는 방법을 이해합니다.
 
 > [AZURE.NOTE]기존 응용 프로그램에 대한 SSO를 설정하려면 Azure AD와 SaaS 응용 프로그램에서 전역 관리자 권한이 있어야 합니다.
 
@@ -62,10 +62,10 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 ## 다음 단계
 
 
-응용 프로그램 갤러리에서 찾은 SaaS 앱의 경우 Azure Active Directory는 [SaaS 앱을 통합하는 방법에 대한 자습서](active-directory-saas-tutorial-list.md)를 다양하게 제공합니다.
+앱 갤러리에서 찾은 SaaS 앱의 경우 Azure AD는 [SaaS 앱을 통합하는 방법에 대한 자습서](active-directory-saas-tutorial-list.md)를 다양하게 제공합니다.
 
-앱이 응용 프로그램 갤러리에 없는 경우 [해당 앱을 사용자 지정 응용 프로그램으로 Azure Active Directory 응용 프로그램 갤러리에 추가](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)할 수 있습니다.
+앱이 앱 갤러리에 없는 경우 [해당 앱을 사용자 지정 응용 프로그램으로 Azure AD 앱 갤러리에 추가](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)할 수 있습니다.
 
 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)부터 시작하여 Azure.com 라이브러리에는 이러한 모든 문제에 대한 자세한 내용이 포함되어 있습니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

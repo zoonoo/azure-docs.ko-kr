@@ -39,7 +39,7 @@
 	- 데모 계정은 이 자습서에 표시된 화산 데이터로 채워집니다. 이 데모 계정은 SLA와 연결되지 않으며 데모용으로만 의미가 있습니다. Microsoft는 계정 종료, 키 변경, 액세스 제한, 데이터 변경 및 삭제 등을 망라하여, 언제든 사전 고지나 이유 없이 이 데모 계정을 수정할 권리가 있습니다. 
 		- URL: https://analytics.documents.azure.com
 		- 읽기 전용 키: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-	- 또는 고유 계정을 만들려면 [Azure Preview 포털을 사용하여 DocumentDB 데이터베이스 계정 만들기](https://azure.microsoft.com/documentation/articles/documentdb-create-account/)를 참조하세요. 그런 다음 이 자습서에서 사용된 것과 유사한 샘플 화산 데이터(GeoJSON 블록 포함 안 함)를 가져오려면 [NOAA 사이트](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)를 참조하고, [DocumentDB 데이터 마이그레이션 도구](https://azure.microsoft.com/documentation/articles/documentdb-import-data/)를 사용하여 데이터를 가져옵니다.
+	- 또는 고유 계정을 만들려면 [Azure 포털을 사용하여 DocumentDB 데이터베이스 계정 만들기](https://azure.microsoft.com/documentation/articles/documentdb-create-account/)를 참조하세요. 그런 다음 이 자습서에서 사용된 것과 유사한 샘플 화산 데이터(GeoJSON 블록 포함 안 함)를 가져오려면 [NOAA 사이트](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)를 참조하고, [DocumentDB 데이터 마이그레이션 도구](https://azure.microsoft.com/documentation/articles/documentdb-import-data/)를 사용하여 데이터를 가져옵니다.
 
 
 PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다. Power BI for Free 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
@@ -86,7 +86,7 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 
 	![Power BI 데스크톱 데이터 가져오기](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
-6. 아래와 같이 데이터를 가져올 DocumentDB 계정 끝점 URL을 지정한 다음 **확인**을 클릭합니다. Azure Preview 포털의 **키** 블레이드에서 URI 상자로부터 URL을 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다. 자세한 내용은 [키](documentdb-manage-account.md#keys)를 참조하세요.
+6. 아래와 같이 데이터를 가져올 DocumentDB 계정 끝점 URL을 지정한 다음 **확인**을 클릭합니다. Azure 포털의 **키** 블레이드에서 URI 상자로부터 URL을 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다. 자세한 내용은 [키](documentdb-manage-account.md#keys)를 참조하세요.
 
 
 	*참고. 이 자습서에서는 데이터베이스 이름, 컬렉션 이름 또는 SQL 문은 선택 사항이므로 지정하지 않습니다. 대신 데이터의 출처를 식별하기 위해 탐색기를 사용하여 데이터베이스와 컬렉션을 선택합니다.*
@@ -95,7 +95,7 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 
 7. 처음으로 이 끝점에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 계정 키를 입력하고 **연결**을 클릭합니다.
 	
-	*참고. 보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다. 이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure Preview 포털의 읽기 전용 키 블레이드에서 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다.*
+	*참고. 보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다. 이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure 포털의 읽기 전용 키 블레이드에서 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다.*
 
     ![Power BI 데스크톱 계정 키](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
@@ -194,4 +194,4 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 - Power BI에 대해 자세히 알아보려면 [여기](https://support.powerbi.com/knowledgebase)를 클릭하세요.
 - DocumentDB에 대해 자세히 알아보려면 [여기](https://azure.microsoft.com/documentation/services/documentdb/)를 클릭하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

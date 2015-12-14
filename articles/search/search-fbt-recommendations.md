@@ -50,7 +50,7 @@ Azure 검색 인덱스를 쿼리할 수 있는 전체 JavaScript 웹 응용 프�
 ## Mahout을 사용하여 추천 사항 만들기를 실행하는 명령
 
 - Azure Blob 저장소에 data\\movie\_usage.txt 파일을 업로드합니다. 
-- HDInsight 인스턴스(원격 데스크톱 사용)를 만들고 원격 데스크톱(Azure 포털에서 사용 가능)을 통해 컴퓨터에 연결합니다.
+- HDInsight 인스턴스(원격 데스크톱 사용)를 만들고 원격 데스크톱(Azure 클래식 포털에서 사용 가능)을 통해 컴퓨터에 연결합니다.
 - HDInsight 컴퓨터에서 "Hadoop 명령줄"을 엽니다.
 - C:\\apps\\dist의 Mahout bin 디렉터리로 변경합니다. 이 디렉터리는 C:\\apps\\dist\\mahout-1.0.0.2.3.3.0-2992\\bin일 수 있지만 이보다 최신 버전의 Mahout을 얻을 수 있습니다.
 - [CONTAINER] 및 [STORAGEACT]를 Azure 저장소 세부 사항(movie\_usage.txt 파일 위치)으로 바꾸는 다음 명령줄을 실행합니다.
@@ -81,4 +81,4 @@ Azure 검색 인덱스를 만든 프로그램이 `Recommendations`라고 하는 
 
 이 데이터의 라이선싱에 대한 자세한 내용은 이 http://files.grouplens.org/datasets/hetrec2011/hetrec2011-movielens-readme.txt 페이지를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

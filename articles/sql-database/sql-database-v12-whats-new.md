@@ -96,7 +96,7 @@ V12에서만 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)의
 - [투명한 데이터 암호화](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx)(TDE)
 - [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
  - 이제 SQL 데이터베이스에서 Azure AD(Azure Active Directory)의 ID를 사용하여 SQL 데이터베이스에 연결하는 메커니즘인 Azure Active Directory 인증을 지원합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다.
-- [항상 암호화](https://msdn.microsoft.com/library/mt163865.aspx)(미리 보기)를 사용하면 암호화가 응용 프로그램에 하며 클라이언트가 SQL Database와 암호화 키를 공유하지 않고도 클라이언트 응용 프로그램 내부에서 중요 데이터를 암호화할 수 있습니다.
+- [항상 암호화](https://msdn.microsoft.com/library/mt163865.aspx)(미리 보기)를 사용하면 암호화가 응용 프로그램에 투명하게 수행되고 클라이언트가 SQL 데이터베이스와 암호화 키를 공유하지 않고도 클라이언트 응용 프로그램 내부에서 중요 데이터를 암호화할 수 있습니다.
 
 
 ## 복구가 필요한 경우 증가되는 비즈니스 연속성
@@ -132,7 +132,7 @@ V12는 대폭 개선된 복구 지점 목표(RPO) 및 예상된 복구 시간 (E
 SQL 데이터베이스 서비스의 이전 버전에서 실행되는 데이터베이스나 논리 서버가 있는지 알 수 있는 쉬운 방법 중 하나는 다음을 수행해 보면 됩니다.
 
 
-1. [Azure Preview 포털](http://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](http://portal.azure.com/)로 이동합니다.
 2. **찾아보기**를 클릭합니다.
 3. **SQL Server**를 클릭합니다.
 4. 서버 또는 데이터베이스 옆의 아이콘이 다음을 표시합니다.
@@ -161,4 +161,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

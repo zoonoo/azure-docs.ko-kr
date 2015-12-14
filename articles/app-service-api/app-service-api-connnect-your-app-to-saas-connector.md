@@ -18,6 +18,8 @@
 
 # Azure 앱 서비스에서 SaaS 커넥터 API 앱을 배포 및 구성
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 개요
 
 이 자습서에서는 [Azure 앱 서비스](/documentation/services/app-service/)에서 [SaaS(Software-as-a-Service) 커넥터](../app-service-logic-what-are-bizTalk-api-apps.md)를 설치 및 구성하고 모바일 앱 등에서의 프로그래밍 방식 호출을 테스트하는 방법을 보여 줍니다. SaaS 커넥터는 Office 365, Salesforce, Facebook 및 Dropbox와 같은 SaaS 플랫폼과의 상호 작용을 단순화하는 [API 앱](app-service-api-apps-why-best-platform.md)입니다. 미리 패키지된 커넥터를 사용하는 대신 사용자 지정 .NET API 앱을 만들려는 경우 [ASP.NET API 앱에서 SaaS 플랫폼에 연결](app-service-api-dotnet-connect-to-saas.md)을 참조하세요.
@@ -179,7 +181,7 @@ Dropbox API를 사용하기 위해 Dropbox 권한 부여를 받으려면 Dropbox
 
 	![동의 URL을 위해 보내기](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	응답에는 Dropbox에서 사용자의 로그인 프로세스를 시작하기 위해 사용할 URL이 포함됩니다. 메서드 드롭다운이 **Post**로 설정되어 있어도 Get 메서드가 지원되지 않음을 나타내는 오류 응답이 표시되는 경우 게이트웨이 URL이 HTTP가 아닌 HTTPS인지 확인합니다.
+	응답에는 Dropbox에서 사용자의 로그인 프로세스를 시작하기 위해 사용할 URL이 포함됩니다. (메서드 드롭다운이 **Post**로 설정되어 있어도 Get 메서드가 지원되지 않음을 나타내는 오류 응답이 표시되는 경우 게이트웨이 URL이 HTTP가 아닌 HTTPS인지 확인합니다.)
 
 	![동의 URL](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
@@ -236,4 +238,4 @@ SaaS 커넥터를 설치, 구성 및 테스트하는 방법을 살펴봤습니�
 [Azure 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

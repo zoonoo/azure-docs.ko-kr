@@ -22,11 +22,11 @@ Azure 데이터 레이크 저장소를 다른 Azure 서비스와 함께 사용�
 
 ## Azure HDInsight에 데이터 레이크 저장소 사용
 
-데이터 레이크 저장소를 사용하는 [Azure HDInsight](https://azure.microsoft.com/ko-KR/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) 클러스터를 HDFS 규격 저장소로 프로비전할 수 있습니다. 이 릴리스의 Windows 및 Linux의 Storm 및 Hadoop 클러스터의 경우 데이터 레이크 저장소를 추가 저장소로만 사용할 수 있습니다. 이러한 클러스트는 여전히 Azure 저장소(WASB)를 기본 저장소로 사용합니다. 그러나 Windows 및 Linux의 HBase 클러스터의 경우에는 데이터 레이크 저장소를 기본 저장소나 추가 저장소 또는 둘 다로 사용할 수 있습니다.
+데이터 레이크 저장소를 사용하는 [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) 클러스터를 HDFS 규격 저장소로 프로비전할 수 있습니다. 이 릴리스의 Windows 및 Linux의 Storm 및 Hadoop 클러스터의 경우 데이터 레이크 저장소를 추가 저장소로만 사용할 수 있습니다. 이러한 클러스트는 여전히 Azure 저장소(WASB)를 기본 저장소로 사용합니다. 그러나 Windows 및 Linux의 HBase 클러스터의 경우에는 데이터 레이크 저장소를 기본 저장소나 추가 저장소 또는 둘 다로 사용할 수 있습니다.
 
 데이터 레이크 저장소를 사용하는 HDInsight 클러스터를 프로비전하는 방법에 대한 지침은 다음을 참조하세요.
 
-* [Azure Preview 포털을 사용하여 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Azure PowerShell을 사용하여 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 프로비전](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
@@ -39,7 +39,7 @@ Azure 데이터 레이크 저장소를 다른 Azure 서비스와 함께 사용�
 
 ## Azure Data Factory에 데이터 레이크 저장소 사용
 
-[Azure Data Factory](https://azure.microsoft.com/ko-KR/services/data-factory/)를 사용하여 Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, Azure 저장소 Blob 및 온-프레미스 데이터베이스에서 데이터를 수집할 수 있습니다. Azure 에코시스템의 첫 번째 클래스가 된 Azure Data Factory를 사용하면 이러한 원본에서 Azure 데이터 레이크 저장소로 데이터를 수집하는 작업을 오케스트레이션할 수 있습니다.
+[Azure Data Factory](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, Azure 저장소 Blob 및 온-프레미스 데이터베이스에서 데이터를 수집할 수 있습니다. Azure 에코시스템의 첫 번째 클래스가 된 Azure Data Factory를 사용하면 이러한 원본에서 Azure 데이터 레이크 저장소로 데이터를 수집하는 작업을 오케스트레이션할 수 있습니다.
 
 Azure Data Factory에 데이터 레이크 저장소를 사용하는 방법에 대한 지침은 [Data Factory를 사용하여 데이터 레이크 저장소에서 데이터 이동](data-factory/data-factory-azure-datalake-connector.md)을 참조하세요.
 
@@ -50,4 +50,4 @@ Azure Data Factory에 데이터 레이크 저장소를 사용하는 방법에 �
 - [포털을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

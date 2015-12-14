@@ -39,7 +39,7 @@ Azure 기계 학습 스튜디오는 주로 *예측 분석 모델*을 개발 및 
 
 ### 학습 실험
 
-***학습 실험***은 기계 학습 스튜디오에서 초기 실험 캔버스입니다. 학습 실험의 목적은 기계 학습 모델을 개발, 테스트, 반복하고 최종적으로 학습할 장소를 제공하는 것입니다. 최적의 솔루션을 찾으면서 여러 모델을 동시에 학습할 수도 있으나 실험을 완료한 후에는 하나의 학습 모델을 선택하고 나머지 모델은 실험에서 제거합니다. 예측 분석 실험 개발의 예를 보려면 [Azure 기계 학습의 신용 위험 평가에 대한 예측 분석 솔루션 개발](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)을 참조하세요.
+***학습 실험***은 기계 학습 스튜디오에서 초기 실험 캔버스입니다. 학습 실험의 목적은 기계 학습 모델을 개발, 테스트, 반복하고 최종적으로 학습할 장소를 제공하는 것입니다. 최적의 솔루션을 찾으면서 여러 모델을 동시에 학습할 수도 있으나 실험을 완료한 후에는 하나의 학습 모델을 선택하고 나머지 모델은 실험에서 제거합니다. 예측 분석 실험 개발의 예를 보려면 [Azure 기계 학습의 신용 위험 평가에 대한 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)을 참조하세요.
 
 ### 예측 실험
 
@@ -57,11 +57,11 @@ Azure 기계 학습 스튜디오는 주로 *예측 분석 모델*을 개발 및 
 
 이 변환 프로세스에서는 학습 실험이 무시되지 않습니다. 프로세스가 완료되면 Studio에 두 개의 탭이 생깁니다. 하나는 학습 실험을 위한 것이고 하나는 예측 실험을 위한 것입니다. 이 방법으로 웹 서비스를 배포하기 전에 학습 실험을 변경하고 예측 실험을 다시 빌드할 수 있습니다. 또는 학습 실험의 복사본을 저장하고 실험의 다른 줄을 시작할 수 있습니다.
 
->[AZURE.NOTE]**웹 서비스 설정**을 클릭하면 학습 실험을 예측 실험으로 변환하는 자동 프로세스를 시작하고 대부분의 경우 잘 작동합니다. 하지만 학습 실험이 복잡한 경우(예를 들어 함께 결합할 학습에 대해 여러 경로가 있는 경우) 수동으로 변환하는 것을 선호할 수 있습니다. 이 변환 프로세스의 동작 방법에 대한 자세한 내용은 [기계 학습 실험을 예측 실험으로 변환](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/)을 참조하세요.
+>[AZURE.NOTE]**웹 서비스 설정**을 클릭하면 학습 실험을 예측 실험으로 변환하는 자동 프로세스를 시작하고 대부분의 경우 잘 작동합니다. 하지만 학습 실험이 복잡한 경우(예를 들어 함께 결합할 학습에 대해 여러 경로가 있는 경우) 수동으로 변환하는 것을 선호할 수 있습니다. 이 변환 프로세스의 동작 방법에 대한 자세한 내용은 [기계 학습 실험을 예측 실험으로 변환](machine-learning-convert-training-experiment-to-scoring-experiment.md)을 참조하세요.
 
 ### 웹 서비스
 
-준비된 예측 실험에 만족하는 경우 **웹 서비스 배포**를 클릭하여 ***Azure 웹 서비스***로 배포하고 모델을 조작 가능한 상태로 만듭니다. 이제 사용자가 웹 서비스 REST API를 사용하여 데이터를 모델로 전송하고 결과를 다시 받을 수 있습니다. 이를 수행하는 방법에 대한 자세한 내용은 [Azure 기계 학습 실험에서 배포된 기계 학습 웹 서비스를 사용하는 방법](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-consume-web-services/)을 참조하세요.
+준비된 예측 실험에 만족하는 경우 **웹 서비스 배포**를 클릭하여 ***Azure 웹 서비스***로 배포하고 모델을 조작 가능한 상태로 만듭니다. 이제 사용자가 웹 서비스 REST API를 사용하여 데이터를 모델로 전송하고 결과를 다시 받을 수 있습니다. 이를 수행하는 방법에 대한 자세한 내용은 [Azure 기계 학습 실험에서 배포된 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 웹 서비스를 배포했으면 예측 실험 및 웹 서비스가 연결된 상태로 유지되며 이들 사이를 자유롭게 이동할 수 있습니다.
 
@@ -69,8 +69,8 @@ Azure 기계 학습 스튜디오는 주로 *예측 분석 모델*을 개발 및 
 | ------------------- | --------------- | ---------------------- |
 |Studio에서 실험 캔버스|**웹 서비스로 이동**|Studio에서 웹 서비스 구성|
 |Studio에서 웹 서비스 구성|**최신 버전 보기**|Studio에서 실험 캔버스|
-|Studio에서 웹 서비스 구성|**끝점 관리...**|Azure 포털에서 끝점 관리|
-|Azure 포털에서 끝점 관리|**Studio에서 편집**|Studio에서 실험 캔버스|
+|Studio에서 웹 서비스 구성|**끝점 관리...**|Azure 클래식 포털에서 끝점 관리|
+|Azure 클래식 포털에서 끝점 관리|**Studio에서 편집**|Studio에서 실험 캔버스|
 
 ![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
 
@@ -134,7 +134,7 @@ Azure 기계 학습 스튜디오는 주로 *예측 분석 모델*을 개발 및 
 
 기계 학습 모델을 유지하려고 하지만 새 데이터로 재학습하려는 경우 두 옵션이 있습니다.
 
-1.  **웹 서비스가 실행되는 동안 모델 재학습** - 예측 웹 서비스가 실행되는 동안 모델을 재학습하려는 경우 학습 실험을 몇 차례 수정하여 ***재학습 실험***으로 만든 후 ***재학습 웹* 서비스**로 배포하여 이 작업을 수행할 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-retrain-models-programmatically/)을 참조하세요.
+1.  **웹 서비스가 실행되는 동안 모델 재학습** - 예측 웹 서비스가 실행되는 동안 모델을 재학습하려는 경우 학습 실험을 몇 차례 수정하여 ***재학습 실험***으로 만든 후 ***재학습 웹* 서비스**로 배포하여 이 작업을 수행할 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](machine-learning-retrain-models-programmatically.md)을 참조하세요.
 
 2.  **원래 학습 실험으로 돌아가 다른 학습 데이터를 사용하여 모델 개발** - 예측 실험이 웹 서비스에 연결되지만 학습 실험은 이 방법으로 직접 연결되지 않습니다. 원래 학습 실험을 수정하고 **웹 서비스 설정**을 클릭하면 *새* 예측 실험이 만들어지고 배포되면 *새* 웹 서비스가 만들어집니다. 원래 웹 서비스는 업데이트되지 않습니다.
 
@@ -148,16 +148,16 @@ Azure 기계 학습 스튜디오는 주로 *예측 분석 모델*을 개발 및 
 
 이 프로세스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
--   실험 변환 - [기계 학습 실험 실험에서 예측 실험으로 변환](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/)
+-   실험 변환 - [기계 학습 실험 실험에서 예측 실험으로 변환](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 
--   웹 서비스 배포 - [Azure 기계 학습 웹 서비스 배포](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-publish-a-machine-learning-web-service/)
+-   웹 서비스 배포 - [Azure 기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
 
--   모델 재학습 - [프로그래밍 방식으로 기계 학습 모델 다시 학습](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-retrain-models-programmatically/)
+-   모델 재학습 - [프로그래밍 방식으로 기계 학습 모델 다시 학습](machine-learning-retrain-models-programmatically.md)
 
 전체 프로세스에 대한 예는 다음을 참조하세요.
 
--   [기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-create-experiment/)
+-   [기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기](machine-learning-create-experiment.md)
 
--   [연습: Azure 기계 학습의 신용 위험 평가에 대한 예측 분석 솔루션 개발](https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)
+-   [연습: Azure 기계 학습의 신용 위험 평가에 대한 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -27,7 +27,7 @@
 
 1. 서비스 네임스페이스를 만드는 방법에 대한 자세한 내용은 [서비스 버스 서비스 네임 스페이스 관리](https://msdn.microsoft.com/library/azure/hh690928.aspx) 섹션에서 [방법: 서비스 버스 서비스 네임스페이스 만들기 또는 수정](https://msdn.microsoft.com/library/azure/hh690931.aspx)을 참조하세요.
 
-1. Azure 포털의 주 창에서 이전 단계에서 만든 네임스페이스의 이름을 클릭합니다.
+1. [Azure 클래식 포털][]의 주 창에서 이전 단계에서 만든 네임스페이스의 이름을 클릭합니다.
 
 1. **구성** 탭을 클릭합니다.
 
@@ -39,7 +39,7 @@
 
 이 자습서의 코드는 다음과 같은 작업을 수행합니다.
 
-- 서비스 네임 스페이스 및 [SAS(공유 액세스 서명)](service-bus-sas-overview.md) 키를 사용하여 서비스 버스 네임스페이스 리소스에 대한 액세스 권한을 얻습니다.
+- 서비스 네임스페이스 및 [SAS](service-bus-sas-overview.md)(공유 액세스 서명) 키를 사용하여 서비스 버스 네임스페이스 리소스에 대한 액세스 권한을 얻습니다.
 
 - 큐를 만들고, 큐에 메시지를 보내며, 큐로부터 메시지를 읽습니다.
 
@@ -55,9 +55,9 @@
 
 ### 콘솔 응용 프로그램 만들기
 
-1. **시작** 메뉴에서 프로그램을 마우스 오른쪽 단추로 누른 다음 **관리자 권한으로 실행**을 클릭하여 Visual Studio를 관리자 권한으로 시작합니다.
+1. **시작** 메뉴에서 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭하여 Visual Studio를 관리자 권한으로 시작합니다.
 
-1. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**, **프로젝트**를 차례로 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**을 클릭하고(**Visual C#**이 보이지 않으면 **다른 언어** 아래 확인) **콘솔 응용 프로그램** 서식 파일을 선택하여 이름을 **Microsoft.ServiceBus.Samples**로 지정합니다. 기본 위치를 사용합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
+1. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**, **프로젝트**를 차례로 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**을 클릭하고(**Visual C#**이 보이지 않으면 **다른 언어** 아래 확인) **콘솔 응용 프로그램** 템플릿을 선택하여 이름을 **Microsoft.ServiceBus.Samples**로 지정합니다. 기본 위치를 사용합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 1. Program.cs에서 `using` 문이 다음과 같이 표시되는지 확인합니다.
 
@@ -160,7 +160,7 @@
 
 ### GetSASToken() 메서드 만들기
 
-`Main()` 메서드 뒤의 `Program` 클래스에 다음 코드를 추가합니다.
+`Main()` 메서드 뒤의 `Program` 클래스에 다음 코드를 붙여넣습니다.
 
 ```
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
@@ -221,7 +221,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 	}
 	```
 
-1. 표준 조정된 메시지 속성은 `BrokerProperties` HTTP 헤더에 배치됩니다. 브로커 속성은 JSON 형식으로 직렬화되어야 합니다. **TimeToLive** 값을 30초로 지정하고 메시지 레이블 “M1”을 메시지에 추가하려면 앞의 예에서 표시된 `webClient.UploadData()` 호출의 바로 앞에 다음 코드를 추가합니다.
+1. 표준 broker 저장 메시지 속성은 `BrokerProperties` HTTP 헤더에 배치됩니다. 브로커 속성은 JSON 형식으로 직렬화되어야 합니다. **TimeToLive** 값을 30초로 지정하고 메시지 레이블 “M1”을 메시지에 추가하려면 앞의 예제에 표시된 `webClient.UploadData()` 호출의 바로 앞에 다음 코드를 추가합니다.
 
 	```
 	// Add brokered message properties "TimeToLive" and "Label"
@@ -294,7 +294,7 @@ private static string CreateTopic(string topicName)
 
 ### 구독 만들기
 
-다음 코드는 이전 단계에서 만든 항목에 대한 구독을 만듭니다. 다음 코드를 `CreateTopic()` 정의 바로 뒤에 추가합니다.
+다음 코드는 이전 단계에서 만든 항목에 대한 구독을 만듭니다. `CreateTopic()` 정의 바로 뒤에 다음 코드를 추가합니다.
 
 ```
 private static string CreateSubscription(string topicName, string subscriptionName)
@@ -377,7 +377,7 @@ private static string FormatXml(string inputXml)
 
 ## 응용 프로그램 빌드 및 실행
 
-이제 응용 프로그램을 빌드 및 실행할 수 있습니다. Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 F6을 누릅니다.
+이제 응용 프로그램을 빌드 및 실행할 수 있습니다. Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 F6 키를 누릅니다.
 
 ### 응용 프로그램 실행
 
@@ -629,4 +629,6 @@ namespace Microsoft.ServiceBus.Samples
 - [Azure 서비스 버스 기본 사항](fundamentals-service-bus-hybrid-solutions.md)
 - [서비스 버스 릴레이 REST 자습서](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Oct15_HO3-->
+[Azure 클래식 포털]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

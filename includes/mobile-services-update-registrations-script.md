@@ -1,6 +1,6 @@
 
 
-1. 관리 포털에서 **Data** 탭을 클릭한 후 **Registrations** 테이블을 클릭합니다. 
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **데이터** 탭을 클릭한 후 **등록** 테이블을 클릭합니다. 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
@@ -28,4 +28,4 @@
 
    이렇게 하면 새 테이블에 등록 정보를 저장하는 새 삽입 스크립트가 등록됩니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/28/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
@@ -163,9 +163,9 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
 
 StorSimple 장치에는 다음이 있어야 합니다.
 
-- iSCSI에 사용 가능한 두 개의 최소 인터페이스입니다. 두 인터페이스가 StorSimple 장치에서 iSCSI를 사용할 수 있는지를 확인하려면 StorSimple 장치의 관리 포털에서 다음 단계를 수행합니다.
+- iSCSI에 사용 가능한 두 개의 최소 인터페이스입니다. 두 인터페이스가 StorSimple 장치에서 iSCSI를 사용할 수 있는지를 확인하려면 StorSimple 장치에 대한 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
-	1. StorSimple 장치의 관리 포털에 로그인합니다.
+	1. StorSimple 장치에 대한 클래식 포털에 로그인합니다.
 
 	1. StorSimple Manager 서비스를 선택하고 **장치**를 클릭한 다음 특정 StorSimple 장치를 선택합니다. **구성**을 클릭하고 네트워크 인터페이스 설정을 검사합니다. 두 가지 iSCSI를 사용하는 네트워크 인터페이스가 있는 스크린샷은 아래와 같습니다. 여기서 데이터 2와 데이터 3은 모두 iSCSI에 10GbE 인터페이스를 사용할 수 있습니다.
 	
@@ -339,10 +339,10 @@ StorSimple 장치에는 다음이 있어야 합니다.
 	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
 
 
-		하나의 호스트 인터페이스 및 두 개의 경로가 표시되면 iSCSI용 호스트에 두 개의 인터페이스를 모두 사용하도록 설정해야 합니다. [Linux 설명서에서 자세한 지침](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)을 수행할 수 있습니다.
+		하나의 호스트 인터페이스 및 두 개의 경로가 표시되면 iSCSI용 호스트에 두 개의 인터페이스를 모두 사용하도록 설정해야 합니다. [Linux 설명서의 자세한 지침](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)을 따르세요.
 
 	
-	1. 볼륨은 StorSimple 장치에서 CentOS 서버에 노출됩니다. 자세한 내용은 StorSimple 장치에서 관리 포털을 통한 [6단계: 볼륨 만들기](https://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/dn772357.aspx) 방법을 참조하세요.
+	1. 볼륨은 StorSimple 장치에서 CentOS 서버에 노출됩니다. 자세한 내용은 StorSimple 장치에서 Azure 클래식 포털을 통한 [6단계: 볼륨 만들기](storsimple-deployment-walkthrough.md#step-6-create-a-volume)를 참조하세요.
 
 	1. 사용 가능한 경로를 확인합니다. 형식:
 
@@ -459,7 +459,7 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
     dm-3 devnode blacklisted, unmonitored
 
 
-자세한 내용은 [다중 경로에 문제 해결 대화형 명령 사용](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)하는 방법을 참조하세요.
+자세한 내용은 [다중 경로에 문제 해결 대화형 명령 사용](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)으로 이동하세요.
 
 ## 유용한 명령 목록
 
@@ -475,4 +475,4 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 - [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 교육 가이드](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -3,8 +3,8 @@
 	description="Azure Active Directory 및 Kindling 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # 자습서: Kindling과 Azure Active Directory 통합
@@ -22,7 +22,7 @@
 이 자습서는 Azure AD(Azure Active Directory)에 Kindling을 통합하는 방법을 보여 주기 위한 것입니다.<br>Azure AD에 Kindling을 통합하면 다음과 같은 이점을 얻을 수 있습니다.
 
 - Kindling에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
-- 사용자가 해당 Azure AD 계정으로 Kindling에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+- 사용자가 해당 Azure AD 계정으로 Kindling에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
@@ -64,10 +64,10 @@ Kindling의 Azure AD 통합을 구성하려면 갤러리의 Kindling을 관리�
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **Kindling**을 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_01.png)<br>
-7. 결과 창에서 **Kindling**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_02.png)<br>
+7. 결과 창에서 **Kindling**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
-이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Kindling에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
+이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Kindling에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위한 것입니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Kindling 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Kindling의 관련 사용자 간에 연결이 형성되어야 합니다.<br> 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Kindling의 **Username** 값으로 할당하여 설정합니다.
  
@@ -81,22 +81,22 @@ Kindling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 Kindling 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 Azure AD 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Kindling 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합니다. 등록된 도메인이 아직 없는 경우 [support@flatterfiles.com](mailto:support@flatterfiles.com)을 통해 Kindling 지원팀에 문의하세요.
-
-
-
-**Kindling에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
-
-1. Azure AD 포털의 **Kindling** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
-
-2. **Kindling에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_03.png)<br>
-
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
+Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합니다. 등록된 도메인이 아직 없는 경우 [support@flatterfiles.com](mailto:support@flatterfiles.com)을 통해 Kindling 지원 팀에 문의하세요.
 
 
-    a. **로그온 URL** 텍스트 상자에 사용자가 Kindling 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://fabrikam.Kindling.com/*))
+
+**Kindling에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+
+1. Azure AD 포털의 **Kindling** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+
+2. **Kindling에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_03.png)<br>
+
+3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
+
+
+    a. **로그온 URL** 텍스트 상자에 사용자가 Kindling 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다(예: **https://fabrikam.Kindling.com/*)).
 
     b. **발급자** 및 **회신 URL** 값을 가져오려면 Kindling 지원팀에 문의합니다.
  
@@ -129,9 +129,9 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png) <br>
  
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png)<br>
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png) <br>
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_05.png) <br>
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_05.png) <br>
 
     a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
 
@@ -139,7 +139,7 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
     c. **다음**을 클릭합니다.
 
-6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png) <br>
+6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png) <br>
  
     a. **이름** 텍스트 상자에 **Britta**를 입력합니다.
 
@@ -149,11 +149,11 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
     d. **역할** 목록에서 **사용자**를 선택합니다. e. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_07.png)<br>
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_07.png) <br>
  
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kindling-tutorial/create_aaduser_08.png) <br>
   
-    a. **새 암호** 값을 적어둡니다.
+    a. **새 암호** 값을 적어 둡니다.
 
     b. **완료**를 클릭합니다.
 
@@ -161,7 +161,7 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
  
 ### Kindling 테스트 사용자 만들기
 
-이 섹션은 Kindling에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Kindling은 적시에 프로비전을 지원합니다. 이미 [Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)에서 사용하도록 설정했습니다.
+이 섹션은 Kindling에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Kindling은 Just-In-Time 프로비전을 지원합니다. 이미 [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)에서 사용하도록 설정했습니다.
 
 이 섹션에 작업 항목이 없습니다.
 
@@ -170,15 +170,15 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 Kindling에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
+이 섹션은 Britta Simon에게 Kindling에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하기 위한 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 Kindling에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br>![사용자 할당][201]<br>
+1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 
-2. 응용 프로그램 목록에서 **Kindling**를 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_50.png) <br>
+2. 응용 프로그램 목록에서 **Kindling**을 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_50.png) <br>
 
-1. 위쪽 메뉴에서 **사용자**를 클릭합니다.<br> <br>![사용자 할당][203]<br>
+1. 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
 
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
@@ -188,7 +188,7 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
 ### Single Sign-On 테스트
 
-이 섹션의 목적은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하는 것입니다.<br> 액세스 패널에서 Kindling 타일을 클릭하면 Kindling 응용 프로그램에 자동으로 로그온됩니다.
+이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.<br> 액세스 패널에서 Kindling 타일을 클릭하면 Kindling 응용 프로그램에 자동으로 로그온됩니다.
 
 
 ## 추가 리소스
@@ -215,4 +215,4 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

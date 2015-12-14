@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="BizTalk 서비스의 대시보드, 모니터, 크기 조정, 구성 및 하이브리드 연결 | Microsoft Azure" 
-	description="대시보드, 모니터, 크기 조정, 구성, 하이브리드 연결 등 BizTalk 서비스에 대한 관리 포털 탭에서 성능을 제어하고 모니터링하는 방법을 알아봅니다. MABS, WABS" 
+	description="대시보드, 모니터, 크기 조정, 구성, 하이브리드 연결 등 BizTalk 서비스에 대한 클래식 포털 탭에서 성능을 제어하고 모니터링하는 방법을 알아봅니다. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,28 +23,25 @@
 
 BizTalk 서비스를 만들고 응용 프로그램을 배포한 후 BizTalk 서비스 설정 중 일부를 변경하고 응용 프로그램 성능을 모니터링할 수 있습니다.
 
-Azure 관리 포털을 처음 열면 **모든 항목** 탭이 자동으로 표시됩니다. BizTalk 서비스를 보려면 **모든 항목** 탭에서 BizTalk 서비스를 선택하거나 **BIZTALK 서비스** 탭을 선택한 후 BizTalk 서비스 이름을 선택합니다.
+Azure 클래식 포털을 열면 **모든 항목** 탭이 자동으로 표시됩니다. BizTalk 서비스를 보려면 **모든 항목** 탭에서 BizTalk 서비스를 선택하거나 **BIZTALK 서비스** 탭을 선택한 후 BizTalk 서비스 이름을 선택합니다.
 
 그러면 다음 탭이 포함된 새 창이 열립니다. 이 항목에서는 이러한 탭에 대해 설명합니다.
 
 ## 빠른 시작(![빠른 시작][QuickStart])
-BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못할 수도 있습니다.
-<table border="1">
-    <tr>
-        <td><strong>도구 얻기</strong></td>
+BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못할 수도 있습니다. <table border="1"> <tr> <td><strong>도구 얻기</strong></td>
 
-        <td>BizTalk 서비스 SDK를 다운로드하여 온-프레미스 개발 컴퓨터에 Visual Studio 프로젝트 템플릿을 설치합니다. 이러한 템플릿은 BizTalk 서비스에 배포되는 <strong>BizTalk 서비스</strong>(브리지) 및 <strong>BizTalk 서비스 아티팩트</strong> (변형) Visual Studio 프로젝트를 만듭니다.
+        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Azure BizTalk 서비스 SDK로 시작하는 방법</a> 및 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Azure BizTalk 서비스 SDK 설치</a>(영문)에서 시작 단계를 나열합니다. 
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
 
     <tr>
-        <td><strong>파트너 계약 만들기</strong></td>
+        <td><strong>Create partner agreements</strong></td>
 
-        <td>Azure에서 호스트되는 Azure BizTalk 서비스 포털을 엽니다. 이 포털에서 파트너를 추가하고 X12, AS2 및 EDIFACT EDI 계약을 생성할 수 있습니다.
+        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">BizTalk 서비스 포털에서 EDI 메시징 구성 요소 구성</a>(영문)에서 시작 단계를 나열합니다.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
     </tr>
 
@@ -72,7 +69,7 @@ BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못�
 <td>액세스 제어 네임스페이스의 <strong>연결 정보</strong></td>
 <td>연결 정보를 선택하면 액세스 제어 네임스페이스, 기본 발급자 및 기본 키가 표시됩니다. 이러한 값은 복사할 수 있습니다.
 <br/><br/>
-또한 액세스 제어 관리 포털을 열 수 있습니다. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">액세스 제어 네임스페이스 만들기</a>에서 액세스 제어 관리 포털에 대한 자세한 정보를 제공합니다.</td>
+또한 액세스 제어 포털을 열 수 있습니다. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">액세스 제어 네임스페이스 만들기</a>에서 액세스 제어 포털에 대한 자세한 정보를 제공합니다.</td>
 </tr>
 
 <tr>
@@ -83,9 +80,9 @@ BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못�
 <br/><br/>
 <ol>
 <li>BizTalk 서비스를 선택한 후 <strong>동기화 키</strong>를 선택합니다. 보조 키를 선택합니다. 이 작업을 수행하면 BizTalk 서비스에서 보조 키를 사용합니다.</li>
-<li>Azure 관리 포털에서 저장소 계정을 선택하고 기본 키를 다시 생성합니다. BizTalk 서비스에서 보조 키를 사용하고 있다는 점에 유의하십시오.</li>
+<li>Azure 클래식 포털에서 저장소 계정을 선택하고 기본 키를 다시 생성합니다. BizTalk 서비스에서 보조 키를 사용하고 있다는 점에 유의하십시오.</li>
 <li>BizTalk 서비스를 선택한 후 <strong>동기화 키</strong>를 선택합니다. 이제 기본 키를 선택합니다. 이 키는 앞서 다시 생성한 새로운 기본 키입니다.</li>
-<li>Azure 관리 포털에서 저장소 계정을 선택하고 보조 키를 다시 생성합니다.</li>
+<li>Azure 클래식 포털에서 저장소 계정을 선택하고 보조 키를 다시 생성합니다.</li>
 </ol>
 <br/>
 이 프로세스를 "키 롤오버"라고 합니다. 이 프로세스의 목적은 사용자가 BizTalk 서비스를 중단하지 않고 기본 키와 보조 키 간에 전환할 수 있도록 하는 것입니다.</td>
@@ -170,7 +167,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 </tr>
 <tr>
 <td><strong>구독 이름</strong></td>
-<td>BizTalk 서비스를 호스트하는 구독을 나열합니다. 구독은 Azure 관리 포털에 대한 액세스를 제어합니다.</td>
+<td>BizTalk 서비스를 호스트하는 구독을 나열합니다. 구독은 Azure 클래식 포털에 대한 액세스를 제어합니다.</td>
 </tr>
 <tr>
 <td><strong>구독 ID</strong></td>
@@ -178,7 +175,7 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 </tr>
 </table>
 
-[BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)에 BizTalk 서비스를 만드는 단계가 나와 있습니다.
+[BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)에 BizTalk 서비스를 만드는 단계가 나와 있습니다.
 
 
 ##### 작업 표시줄의 관리, 연결 정보, 동기화 키 및 삭제:
@@ -197,9 +194,9 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 <td>액세스 제어 네임스페이스의 <strong>연결 정보</strong></td>
 <td>액세스 제어 네임스페이스, 기본 발급자 및 기본 키를 표시하며, 이러한 항목을 복사할 수 있습니다.
 <br/><br/>
-또한 액세스 제어 관리 포털을 열 수 있습니다. 이 액세스 제어 관리 포털은 왼쪽 탐색 창에서 Active Directory 옵션을 사용하는 경우와 동일한 기능을 제공합니다.
+또한 액세스 제어 포털을 열 수 있습니다. 이 액세스 제어 포털은 왼쪽 탐색 창에서 Active Directory 옵션을 사용하는 경우와 동일한 기능을 제공합니다.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">ACS 네임스페이스 관리</a>에서 액세스 제어 관리 포털에 대한 자세한 정보를 제공합니다.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">ACS 네임스페이스 관리</a>에서 액세스 제어 포털에 대한 자세한 정보를 제공합니다.</td>
 </tr>
 <tr>
 <td>저장소 계정의 <strong>동기화 키</strong></td>
@@ -209,9 +206,9 @@ BizTalk 서비스 이름을 선택하면 대시보드 탭이 표시됩니다. �
 <br/><br/>
 <ol>
 <li>BizTalk 서비스를 선택한 후 <strong>동기화 키</strong>를 선택합니다. 보조 키를 선택합니다. 이 작업을 수행하면 BizTalk 서비스에서 보조 키를 사용합니다.</li>
-<li>Azure 관리 포털에서 저장소 계정을 선택하고 기본 키를 다시 생성합니다. BizTalk 서비스에서 보조 키를 사용하고 있다는 점에 유의하십시오.</li>
+<li>Azure 클래식 포털에서 저장소 계정을 선택하고 기본 키를 다시 생성합니다. BizTalk 서비스에서 보조 키를 사용하고 있다는 점에 유의하십시오.</li>
 <li>BizTalk 서비스를 선택한 후 <strong>동기화 키</strong>를 선택합니다. 이제 기본 키를 선택합니다. 이 키는 앞서 다시 생성한 새로운 기본 키입니다.</li>
-<li>Azure 관리 포털에서 저장소 계정을 선택하고 보조 키를 다시 생성합니다.</li>
+<li>Azure 클래식 포털에서 저장소 계정을 선택하고 보조 키를 다시 생성합니다.</li>
 </ol>
 <br/>
 이 프로세스를 "키 롤오버"라고 합니다. 이 프로세스의 목적은 사용자가 BizTalk 서비스를 중단하지 않고 기본 키와 보조 키 간에 전환할 수 있도록 하는 것입니다.</td>
@@ -236,17 +233,14 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 
 ##### 그래프에서 메트릭을 제거하거나 표시하려면
 1. **모니터** 탭을 선택합니다.
-2. 작업 표시줄에서 **메트릭 추가**를 선택합니다.  
-![메트릭 추가 선택][AddMetrics]
+2. 작업 표시줄에서 **메트릭 추가**를 선택합니다.![메트릭 추가 선택][AddMetrics]
 3. 표시할 성능 메트릭을 선택합니다.
 4. 확인 표시를 선택하여 **모니터** 탭으로 돌아갑니다.
 5. 메트릭 옆에 있는 원을 선택하여 그래프에 메트릭 값을 표시합니다.  
 
-	예를 들어 **CPU 사용량** 메트릭이 회색으로 표시되면 이 메트릭의 출력이 그래프에 표시되지 않습니다.  
-![CPU 사용량 메트릭이 회색으로 표시됨][GrayedMetric]  
+	예를 들어 **CPU 사용량** 메트릭이 회색으로 표시되면 이 메트릭의 출력이 그래프에 표시되지 않습니다.![CPU 사용량 메트릭이 회색으로 표시됨][GrayedMetric]
 
-	**CPU 사용량** 메트릭의 출력을 그래프에 표시하려면 회색으로 표시된 원을 선택합니다.  
-![CPU 사용량 메트릭 사용][EnabledMetric]
+	**CPU 사용량** 메트릭의 출력을 그래프에 표시하려면 회색으로 표시된 원을 선택합니다.![CPU 사용량 메트릭 사용][EnabledMetric]
 
 6. 디스플레이 그래프 및 목록에서 메트릭을 제거하려면 작업 표시줄에서 **메트릭 삭제**를 선택합니다. 목록에 메트릭을 다시 추가하려면 작업 표시줄에서 **메트릭 추가**를 선택하고 메트릭을 선택한 후 확인 표시를 선택하여 **모니터** 탭으로 돌아갑니다. 회색으로 표시된 원을 선택하면 해당 메트릭이 활성화됩니다.
 
@@ -335,7 +329,7 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 
 
 ## <a name="HybridConnections"></a>하이브리드 연결
-하이브리드 연결은 웹 사이트 또는 모바일 서비스와 같은 Azure 응용 프로그램을 정적 TCP 포트를 사용하는 온-프레미스 리소스(예: SQL Server, MySQL, HTTP 웹 API 및 대부분의 사용자 지정 웹 서비스)에 연결합니다. 하이브리드 연결은 Azure 관리 포털의 BizTalk 서비스에서 관리됩니다.
+하이브리드 연결은 웹 사이트 또는 모바일 서비스와 같은 Azure 응용 프로그램을 정적 TCP 포트를 사용하는 온-프레미스 리소스(예: SQL Server, MySQL, HTTP 웹 API 및 대부분의 사용자 지정 웹 서비스)에 연결합니다. 하이브리드 연결은 Azure 클래식 포털의 BizTalk 서비스에서 관리됩니다.
 
 Azure 웹 사이트에서 하이브리드 연결을 만들려면 [하이브리드 연결: Azure 웹 사이트를 온-프레미스 리소스에 연결](http://go.microsoft.com/fwlink/p/?LinkId=397538)을 참조하세요.
 
@@ -355,7 +349,7 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 ## 참고 항목
 - [하이브리드 연결](integration-hybrid-connection-overview.md)  
 - [BizTalk 서비스: Developer, Basic, Standard 및 Premium Editions 차트](biztalk-editions-feature-chart.md)  
-- [BizTalk 서비스: Azure 관리 포털을 사용하여 프로비전](biztalk-provision-services.md)  
+- [BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](biztalk-provision-services.md)  
 - [BizTalk 서비스: BizTalk 서비스 상태 차트](biztalk-service-state-chart.md)  
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
@@ -365,4 +359,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

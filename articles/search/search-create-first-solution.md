@@ -70,7 +70,7 @@
 
 > [AZURE.NOTE]"키 'attachdbfilename'에 대한 값이 잘못되었습니다."라는 메시지가 포함된 오류 또는 기타 데이터베이스 연결 오류가 표시되는 경우에는 UAC 충돌이 발생한 것일 수 있습니다. 이 데모에서는 다음을 수행하여 해당 오류를 해결하세요. 인증된 사용자가 액세스할 수 있는 새 폴더나 기존 폴더(예: Temp)에 솔루션을 복사합니다. **관리자 권한으로 실행**을 사용하여 Visual Studio를 시작합니다. 솔루션을 열고 빌드한 다음 **F5** 키를 눌러 인덱스를 만듭니다.
 
-인덱스 만들기 및 문서 업로드를 확인하려면 [Azure 관리 포털](https://portal.azure.com)에서 검색 서비스 대시보드로 이동합니다. 사용량에서 인덱스 수가 1개 늘어나야 하며 데이터베이스의 각 제품에 대해 하나씩 문서가 294개 있어야 합니다.
+인덱스 만들기 및 문서 업로드를 확인하려면 [Azure 클래식 포털](https://portal.azure.com)에서 검색 서비스 대시보드로 이동합니다. 사용량에서 인덱스 수가 1개 늘어나야 하며 데이터베이스의 각 제품에 대해 하나씩 문서가 294개 있어야 합니다.
 
 **인덱스** 타일을 클릭하여 인덱스 목록을 표시합니다. 인덱스 목록이 이동하면서 새 인덱스 및 문서 수가 표시됩니다. 참고로 무료 가격 책정 계층에서 최대 3개의 인덱스를 지정할 수 있습니다. 3개의 인덱스가 이미 있는 경우 새 작업에 대한 사용 가능한 공간을 확보하려면 1개의 인덱스를 삭제해야 합니다.
 
@@ -206,4 +206,4 @@ MSDN에서 [Azure 검색 REST API](http://msdn.microsoft.com/library/azure/dn798
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

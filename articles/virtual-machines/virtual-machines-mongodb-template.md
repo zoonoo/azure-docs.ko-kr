@@ -309,7 +309,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 
 배포하는 동안과 배포한 후 발생한 모든 오류를 포함하여 프로비전 중에 실행된 모든 요청을 확인할 수 있습니다.
 
-이렇게 하려면 [Azure Preview 포털](https://portal.azure.com)로 이동하여 다음을 수행합니다.
+이렇게 하려면 [Azure 포털](https://portal.azure.com)로 이동하여 다음을 수행합니다.
 
 - 왼쪽 탐색 모음에서 **찾아보기**를 클릭하고 아래로 스크롤하여 **리소스 그룹**을 클릭합니다.
 - 방금 만든 리소스 그룹을 클릭하면 리소스 그룹 블레이드가 나타납니다.
@@ -694,4 +694,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates Github 리포지토리 내 sha
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

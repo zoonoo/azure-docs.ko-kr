@@ -1,8 +1,8 @@
-## Retrieve the IoT Hub keys
+## IoT Hub 키 검색
 
-Display the authentication keys for the new IoT Hub.
+새 IoT Hub에 대한 인증 키를 표시합니다.
 
-1. Add the following method to Program.cs:
+1. Program.cs에 다음 메서드를 추가합니다.
 
     ```
     static void ShowIoTHubKeys(ResourceManagementClient client, string token)
@@ -11,7 +11,7 @@ Display the authentication keys for the new IoT Hub.
     }
     ```
 
-2. Add the following code to the **ShowIoTHubKeys** method to print the authentication keys to the console:
+2. 인증 키를 콘솔에 인쇄하려면 다음 코드를 **ShowIoTHubKeys** 메서드에 추가합니다.
 
     ```
     client.HttpClient.DefaultRequestHeaders.Authorization = 
@@ -24,3 +24,5 @@ Display the authentication keys for the new IoT Hub.
     Console.WriteLine("Keys: {0}, 
         httpsRepsonse.Content.ReadAsStringAsync().Result);
     ```
+
+<!---HONumber=AcomDC_1203_2015-->

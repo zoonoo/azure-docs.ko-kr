@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/>
 
 # 스트림 분석 작업에 **출력을 추가**하는 방법
@@ -24,11 +24,11 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 
 스트림 분석 작업에 출력을 추가하려면
 
-1. Azure 포털에서 **출력**을 클릭한 다음 스트림 분석 작업에서 **출력 추가**를 클릭합니다.
+1. Azure 클래식 포털에서 **출력**, **출력 추가**를 클릭하여 스트림 분석 작업에 추가합니다.
 
     ![출력 추가](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
 
-    Azure Preview 포털의 스트림 분석 작업에서 **출력** 타일을 클릭합니다.
+    Azure 포털에서 스트림 분석 작업의 **출력** 타일을 클릭합니다.
 
     ![Azure 포털 출력 추가](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -36,7 +36,7 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 
     ![데이터 형식 선택](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)
 
-    ![Azure Preview 포털 데이터 형식 선택](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
+    ![Azure 포털 데이터 형식 선택](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
 3. **출력 별칭** 상자에 이 출력의 이름을 입력합니다. 이 이름은 나중에 작업 쿼리에서 출력을 참조하는 데 사용할 수 있습니다.
     
@@ -50,7 +50,9 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 
     ![이벤트 허브 추가](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
 
-    ![Azure Preview 포털 이벤트 허브 추가](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
+    ![Azure 포털 추가 이벤트 허브](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
+
+> [Azure.Note]작업에 추가 된 모든 출력 요소는 작업이 시작 및 이벤트 전송이 시작되기 전에 있어야 합니다. 예를 들어, 출력으로 Blob 저장소를 사용한 경우, 작업은 저장소 계정을 자동으로 만들지 않습니다. ASA 작업이 시작되기 전에 사용자가 만들어야 합니다.
 
 ## 도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -63,4 +65,4 @@ Azure 스트림 분석 작업은 기존 데이터 링크에 대한 연결을 정
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

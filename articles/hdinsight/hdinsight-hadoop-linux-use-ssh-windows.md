@@ -81,21 +81,21 @@ SSH 사용자는 인증에 암호 또는 공개 키를 사용할 수 있습니�
 
 6. **Save public key**를 클릭하여 **.txt** 파일로 키를 저장합니다. 이 옵션을 사용하면 추가 Linux 기반 HDInsight 클러스터를 만들 때 공개 키를 나중에 다시 사용할 수 있습니다.
 
-	> [AZURE.NOTE]공개 키는 PuTTYGen의 상단에도 표시됩니다. Azure 미리 보기 포털을 사용하여 클러스터를 만들 때 이 필드를 마우스 오른쪽 단추로 클릭하고 값을 복사한 다음 양식에 붙여 넣을 수 있습니다.
+	> [AZURE.NOTE]공개 키는 PuTTYGen의 상단에도 표시됩니다. Azure 포털을 사용하여 클러스터를 만들 때 이 필드를 마우스 오른쪽 단추로 클릭하고 값을 복사한 다음 양식에 붙여 넣을 수 있습니다.
 
 ##Linux 기반 HDInsight 클러스터 만들기
 
 Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키를 제공해야 합니다. Windows 기반 클라이언트에서는 두 가지의 Linux 기반 HDInsight 클러스터를 만들 수 있습니다.
 
-* **Azure Preview 포털** - 웹 기반 포털을 사용하여 클러스터를 만듭니다.
+* **Azure 포털** - 웹 기반 포털을 사용하여 클러스터를 만듭니다.
 
 * **Mac, Linux 및 Windows용 Azure CLI** - 명령줄 명령을 사용하여 클러스터를 만듭니다.
 
 이러한 각 메서드에는 공개 키가 필요합니다. Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
-###Azure 미리 보기 포털
+###Azure 포털
 
-[Azure Preview 포털][preview-portal]을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 경우 **SSH 사용자 이름**을 입력하고 **암호** 또는 **SSH 공개 키**를 선택하여 입력해야 합니다.
+[Azure 포털][preview-portal]을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 경우 **SSH 사용자 이름**을 입력하고 **암호** 또는 **SSH 공개 키**를 선택하여 입력해야 합니다.
 
 **SSH 공개 키**를 선택하는 경우 PuttyGen의 __Public key for pasting into OpenSSH authorized\_keys file(OpenSSH authorized\_keys 파일에 붙여 넣기 위한 공개 키)__ 필드에 표시되는 공개 키를 __SSH 공개 키__ 필드에 붙여 넣거나 __파일 선택__을 선택하여 공개 키가 포함된 파일을 찾아 선택할 수 있습니다.
 
@@ -229,4 +229,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

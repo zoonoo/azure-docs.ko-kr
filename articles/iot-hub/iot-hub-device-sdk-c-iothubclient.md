@@ -67,7 +67,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 이러한 함수는 모두 API 이름에 "LL"을 포함합니다. 그 외에, 이러한 각 함수의 매개 변수는 비-LL 해당 항목과 동일합니다. 그러나 이러한 함수의 동작은 한 가지 중요한 방식에서 서로 다릅니다.
 
-**IoTHubClient\_CreateFromConnectionString**을 호출하면 기본 라이브러리에서 백그라운드로 실행되는 새 스레드를 만듭니다. 이 스레드는 IoT Hub로 이벤트 전송 및 메시지 수신을 처리합니다. 이러한 스레드는 "LL" API로 작업할 때 만들어지지 않습니다. 백그라운드 스레드를 생성하면 개발자가 편리합니다. 이벤트 전송 및 IoT Hub에서 메시지 수신을 명시적으로 지정하는 것에 대해 신경쓰지 않아도 됩니다. 백그라운드로 자동으로 이루어지기 때문입니다. 이와 반대로, "LL" API는 필요한 경우 IoT Hub와의 통신을 명시적으로 제어합니다.
+**IoTHubClient\_CreateFromConnectionString**을 호출하면 기본 라이브러리에서 백그라운드로 실행되는 새 스레드를 만듭니다. 이 스레드는 IoT Hub로 이벤트 전송 및 메시지 수신을 처리합니다. 이러한 스레드는 "LL" API로 작업할 때 만들어지지 않습니다. 백그라운드 스레드를 생성하면 개발자가 편리합니다. 이벤트 전송 및 IoT Hub에서 메시지 수신을 명시적으로 지정하는 것에 대해 신경 쓰지 않아도 됩니다. 백그라운드로 자동으로 이루어지기 때문입니다. 이와 반대로, "LL" API는 필요한 경우 IoT Hub와의 통신을 명시적으로 제어합니다.
 
 이에 대한 이해를 돕기 위해 예제를 살펴보겠습니다.
 
@@ -239,7 +239,7 @@ iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, A
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-이 문자열에는 IoT Hub 이름, IoT Hub 접미사, 장치 ID 및 공유 액세스 키의 4가지 정보가 있습니다. Azure Preview 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 장치를 IoT Hub에 등록할 때 장치 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
+이 문자열에는 IoT Hub 이름, IoT Hub 접미사, 장치 ID 및 공유 액세스 키의 네 가지 정보가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 장치를 IoT Hub에 등록할 때 장치 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
 
 **IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 다음 코드로 이 작업을 수행합니다.
 
@@ -278,4 +278,4 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 이 문서에서는 **C용 Azure IoT 장치 SDK**에 있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명했습니다. 이 정보로 **IoTHubClient** 라이브러리의 기능에 대해 제대로 이해해야 합니다. [다음 문서](iot-hub-device-sdk-c-serializer.md)에서는 **serializer** 라이브러리에 대한 유사한 세부 정보를 제공합니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

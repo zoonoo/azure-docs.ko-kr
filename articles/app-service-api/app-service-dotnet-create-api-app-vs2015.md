@@ -18,10 +18,7 @@
 
 # Visual Studio 2015를 사용하여 Azure 앱 서비스에서 ASP.NET API 앱 만들기
 
-> [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## 개요
 
@@ -297,4 +294,4 @@ API 앱은 기본적으로 Azure에서 웹 서비스 기능을 위한 추가 기
 Visual Studio 2015 RC를 사용하여 API 앱을 만들고 배포했습니다. API 앱에 대한 추가 설명서는 페이지의 왼쪽(넓은 브라우저 창의 경우) 또는 페이지의 위쪽(좁은 브라우저 창의 경우)에 표시되는 탐색 창의 항목을 참조하세요. 대부분의 API 앱 설명서에는 현재 Visual Studio 2013이 표시되어 있지만 그 중 대부분은 UI가 유사하고 작성하는 코드가 동일하며 포털 UI가 같기 때문에 VS 2015에서 사용할 수 있습니다.
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

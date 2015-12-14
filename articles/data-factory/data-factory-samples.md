@@ -18,8 +18,8 @@
 
 # Azure Data Factory - 샘플
 
-## Azure 포털의 샘플
-Azure 포털의 **샘플 파이프라인** 블레이드를 사용하여 Azure Data Factory 샘플을 신속하게 배포, 검토 및 테스트할 수 있습니다.
+## Azure 클래식 포털의 샘플
+Azure 클래식 포털의 **샘플 파이프라인** 블레이드를 사용하여 Azure 데이터 팩터리 샘플을 신속하게 배포, 검토 및 테스트할 수 있습니다.
 
 1. 새 데이터 팩터리를 만들거나 기존 데이터 팩터리를 엽니다. 데이터 팩터리를 만드는 단계는 [Azure Data Factory 시작][data-factory-get-started]을 참조하세요.
 2. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **샘플 파이프라인** 타일을 클릭합니다.
@@ -57,4 +57,4 @@ Azure 포털의 **샘플 파이프라인** 블레이드를 사용하여 Azure Da
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -55,13 +55,13 @@ SQL 데이터베이스는 기본적으로 모든 데이터베이스를 보호할
 
 ##지역에서 복제를 사용하도록 설정하는 방법
 
-Azure 포털을 사용하거나 REST API 또는 PowerShell 명령을 호출하여 지역에서 복제를 사용하도록 설정할 수 있습니다.
+Azure 클래식 포털을 사용하거나 REST API 또는 PowerShell 명령을 호출하여 지역에서 복제를 사용하도록 설정할 수 있습니다.
 
-###Azure 포털
+###Azure 클래식 포털
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://portal.Azure.com)에 로그인합니다.
 2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 데이터베이스**를 선택합니다.
 3. 데이터베이스 블레이드로 이동한 다음 **지역에서 복제 지도**를 선택하고 **지역에서 복제 구성**을 클릭합니다.
 4. 지역에서 복제 블레이드로 이동 합니다. 대상 지역을 선택합니다. 
@@ -98,4 +98,4 @@ Azure 포털을 사용하거나 REST API 또는 PowerShell 명령을 호출하�
 
 비즈니스 연속성을 위해 응용 프로그램을 설계할 때는 몇 가지 구성 옵션을 고려해야 합니다. 선택할 옵션은 응용 프로그램 배포 토폴로지와 응용 프로그램의 어느 부분이 작동 중단에 가장 취약한지에 따라 달라집니다. 지침은 [지역에서 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

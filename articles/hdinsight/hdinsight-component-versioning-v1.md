@@ -54,7 +54,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 
 
 HDInsight Windows PowerShell cmdlets 또는 HDInsight .NET SDK를 통해 클러스터를 만들 경우 "Version" 매개 변수를 사용하여 HDInsight Hadoop 클러스터의 버전을 선택할 수 있습니다.
 
-**빠른 생성** 옵션을 사용하는 경우 기본적으로 Hadoop 클러스터를 만드는 HDInsight 버전 3.1이 제공됩니다. Azure 포털에서**사용자 지정 만들기** 옵션을 사용하는 경우 **클러스터 세부 정보** 페이지의 **HDInsight 버전** 드롭다운에서 배포할 클러스터의 버전을 선택할 수 있습니다.
+**빠른 생성** 옵션을 사용하는 경우 기본적으로 Hadoop 클러스터를 만드는 HDInsight 버전 3.1이 제공됩니다. Azure 클래식 포털에서**사용자 지정 만들기** 옵션을 사용하는 경우 **클러스터 세부 정보** 페이지의 **HDInsight 버전** 드롭다운에서 배포할 클러스터의 버전을 선택할 수 있습니다.
 
 ##주요 기능
 HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
@@ -68,7 +68,7 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
 - **Storm** - 이제 Azure HDInsight용 Storm은 일반적으로 사용 가능하며, 몇 분 안에 몇 번의 클릭만으로 빠르고 쉽게 실시간 분석을 배포할 수 있습니다. Azure HDInsight용 Apache Storm은 수백만 개의 이벤트를 안정적으로 처리할 수 있는 분석 플랫폼에 액세스할 수 있게 하는 Apache Hadoop 에코 시스템의 오픈 소스 프로젝트입니다. 이제 Hadoop 사용자는 과거 이벤트에 대한 통찰력과 함께 이벤트 발생에 따른 통찰력을 얻을 수 있습니다. Microsoft는 기본적으로 Visual Studio와 통합되어 있으므로, 개발자가 Storm을 쉽게 조작할 수 있습니다. 이제 Visual Studio에서 Storm 토폴로지를 개발, 배포 및 디버깅할 수 있습니다.
 
-- **Linux용 HDInsight** - Azure HDInsight에서는 Linux(Ubuntu) 가상 컴퓨터(VM)에서 실행되는 Hadoop 클러스터를 프로비전하는 옵션을 제공합니다. Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 이 옵션을 사용할 수 있습니다. Azure 포털, Azure CLI 또는 HDInsight .NET SDK(Windows만 해당)를 사용하여 Windows 또는 Linux가 실행 중인 클라이언트 컴퓨터에서 Linux용 HDInsight 클러스터를 프로비전할 수 있습니다.
+- **Linux용 HDInsight** - Azure HDInsight에서는 Linux(Ubuntu) 가상 컴퓨터(VM)에서 실행되는 Hadoop 클러스터를 프로비전하는 옵션을 제공합니다. Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 이 옵션을 사용할 수 있습니다. Azure 클래식 포털, Azure CLI 또는 HDInsight .NET SDK(Windows만 해당)를 사용하여 Windows 또는 Linux가 실행 중인 클라이언트 컴퓨터에서 Linux용 HDInsight 클러스터를 프로비전할 수 있습니다.
 
 - **추가 VM 크기** - 이제 HDInsight 클러스터는 더 많은 VM 유형과 크기로 사용할 수 있습니다. 이제 HDInsight 클러스터는 일반적인 용도로 빌드된 A2 ~ A7 크기(반도체 드라이브(SSD) 기능을 제공하는 D-Series 노드와 60% 더 빠른 프로세서) 및 빠른 네트워킹을 위해 InfiniBand를 지원하는 A8 및 A9 크기를 활용할 수 있습니다. Azure HDInsight용 Apache HBase 고객은 D-Series의 더 큰 메모리 구성을 이용하여 성능을 향상시킬 수 있습니다. Azure HDInsight용 Apache Storm 고객은 더 큰 참조 데이터 세트를 로드하기 위한 추가 메모리와 처리량 향상을 위한 더 빠른 CPU도 이용할 수 있습니다.
 
@@ -103,9 +103,9 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 다음 표는 현재 사용 가능한 HDInsight 버전, 버전에서 사용하는 해당 Hortonworks Data Platform 버전 및 릴리스 날짜를 나열합니다. 알려진 경우 지원 만료 날짜와 사용이 중단된 날짜도 나와 있습니다. 다음 사항에 유의하세요.
 
 * 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 2.1 이상에 대해 배포됩니다. HDInsight 1.6 클러스터에서는 사용할 수 없습니다.
-* 특정 버전에 대한 지원이 만료되면 Azure 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 Windows PowerShell [New-AzureHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
+* 특정 버전에 대한 지원이 만료되면 Azure 클래식 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 클래식 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 Windows PowerShell [New-RmAzureHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 
-<table border="1"> <tr><th>HDInsight 버전</th><th>HDP 버전</a><th>고가용성</th></th><th>릴리스 날짜</th><th>Azure Portal에서 사용 가능</th><th>지원 만료 날짜</th><th>사용 중단 날짜</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>예</td><td>2015/2/18</td><td>예</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>예</td><td>2014/6/24</td><td>예</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td></td><td>2014/02/11</td><td>예</td><td>2014/09/17</td><td>2015/06/30</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>예</td><td>2013/10/28</td><td>아니요</td><td>2014/05/12</td><td>2015/05/31</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>아니요</td><td>2013/10/28</td><td>아니요</td><td>2014/04/26</td><td>2015/05/31</td></tr> </table><br>
+<table border="1"> <tr><th>HDInsight 버전</th><th>HDP 버전</a><th>고가용성</th></th><th>릴리스 날짜</th><th>Azure 클래식 포털에서 사용 가능 여부</th><th>지원 만료 날짜</th><th>사용 중단 날짜</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>예</td><td>2015년 2월 18일</td><td>예</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>예</td><td>2014년 6월 24일</td><td>예</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>예</td><td>2014년 11월 2일</td><td>예</td><td>2014년 9월 17일</td><td>2015년 6월 30일</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>예</td><td>2013년 10월 28일</td><td>아니요</td><td>2014년 12월 5일</td><td>2015년 5월 31일</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>아니요</td><td>2013년 10월 28일</td><td>아니요</td><td>2014년 4월 26일</td><td>2015년 5월 31일</td></tr> </table><br>
 
 **기본이 아닌 클러스터의 배포**
 
@@ -116,7 +116,7 @@ HDInsight 3.1 클러스터는 기본적으로 Hadoop 2.4에서 만들어지므�
 SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. HDInsight 클러스터는 해당 버전의 **지원 만료 날짜**가 현재 날짜를 지난 경우 지원 기간을 넘긴 것입니다. 지원되는 HDInsight 클러스터 버전 목록은 위의 표에서 찾아볼 수 있습니다. 새로운 X+1 버전이 사용 가능해질 경우 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.
 
 - 수식 1: HDInsight 클러스터 버전 X가 릴리스된 날짜에 180일을 추가합니다.
-- 수식 2: HDInsight 클러스터 버전 X+1(X 이후의 후속 버전)을 Azure 포털에서 사용할 수 있는 날짜에 90일을 추가합니다.
+- 수식 2: HDInsight 클러스터 버전 X+1(X 이후의 후속 버전)을 Azure 클래식 포털에서 사용할 수 있는 날짜에 90일을 추가합니다.
 
 **사용 중단 날짜**는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다.
 
@@ -160,4 +160,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

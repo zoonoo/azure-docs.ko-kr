@@ -22,39 +22,39 @@
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [Elemental Live](media-services-configure-elemental-live-encoder.md)
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
-- [FMLE](media-services-configure-fmle-live-encoder.md) 
+- [FMLE](media-services-configure-fmle-live-encoder.md)
 
 이 항목에서는 [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) 라이브 인코더를 구성하여 라이브 인코딩에 대해 활성화된AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다. 자세한 내용은 [Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
-이 자습서에서는 AMSE(Azure 미디어 서비스 탐색기) 도구를 사용하여 AMS(Azure 미디어 서비스)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure 관리 포털을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program)을 만듭니다.
+이 자습서에서는 AMSE(Azure 미디어 서비스 탐색기) 도구를 사용하여 AMS(Azure 미디어 서비스)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure 클래식 포털을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program)을 만듭니다.
 
 
 ##필수 조건
 
 - [Azure 미디어 서비스 계정 만들기](media-services-create-account.md)
-- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-manage-origins.md)를 참조하세요. 
-- 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다. 
+- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-manage-origins.md)를 참조하세요.
+- 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
 - 이 도구를 시작하고 AMS 계정에 연결합니다.
 
 ##팁
 
-- 가능하면 하드웨어에 내장된 인터넷 연결을 사용합니다. 
-- 대역폭 요구 사항을 결정할 때에 가장 좋은 방법은 스트리밍 비트 전송률을 두 배로 하는 것입니다. 이는 필수 요구 사항은 아니지만 네트워크 정체로 인한 영향을 줄이는 데 도움이 됩니다.  
+- 가능하면 하드웨어에 내장된 인터넷 연결을 사용합니다.
+- 대역폭 요구 사항을 결정할 때에 가장 좋은 방법은 스트리밍 비트 전송률을 두 배로 하는 것입니다. 이는 필수 요구 사항은 아니지만 네트워크 정체로 인한 영향을 줄이는 데 도움이 됩니다.
 - 소프트웨어 기반 인코더를 사용하는 경우 불필요한 프로그램을 모두 닫습니다.
 
 
 ## 채널 만들기
 
-1.  AMSE 도구에서 **라이브** 탭으로 이동하고 채널 영역 안을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Create channel...**(채널 만들기...)을 선택합니다.  
+1.  AMSE 도구에서 **라이브** 탭으로 이동하고 채널 영역 안을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Create channel...**(채널 만들기...)을 선택합니다.
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
 2. 채널 이름을 지정합니다. 설명 필드는 선택 사항입니다. 채널 설정에서 라이브 인코딩 옵션에 대해 **표준**을 선택하고 입력 프로토콜은 **RTMP**로 설정합니다. 다른 모든 설정은 그대로 유지할 수 있습니다.
 
 
-	 **Start the new channel now**(새 채널 지금 시작)가 선택되었는지 확인합니다.
- 
-3. **Create Channel**(채널 만들기)을 클릭합니다. ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+**지금 새 채널 시작**이 선택되었는지 확인합니다.
+
+3. **채널 만들기**를 클릭합니다. ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 >[AZURE.NOTE]채널을 시작하는 데 20분 정도 걸릴 수 있습니다.
 
@@ -90,7 +90,7 @@
 3. **확인**을 클릭합니다.
 4. 설정 페이지에서 **대상** 필드를 **Azure 미디어 서비스**로 설정합니다.
  
-	인코딩 프로필은 **Azure H.264 720p 16:9 (1280x720)**로 미리 선택되어 있습니다. 이 설정을 사용자 지정하려면 드롭다운 오른쪽에 있는 기어 아이콘을 선택한 다음 **New Preset**(새 기본 설정)을 선택합니다.
+	인코딩 프로필은 **Azure H.264 720p 16:9(1280x720)**로 미리 선택되어 있습니다. 이 설정을 사용자 지정하려면 드롭다운 오른쪽에 있는 기어 아이콘을 선택한 다음 **New Preset**(새 기본 설정)을 선택합니다.
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 
@@ -121,7 +121,7 @@
 
 7. Wirecast **RTMP 끝점**에 할당하기 위해 채널 입력 URL을 가져옵니다.
 	
-	AMSE 도구로 다시 이동하여 채널 완료 상태를 확인합니다. 상태가 **시작**에서 **실행**으로 변경되었으면 입력 URL을 가져올 수 있습니다.
+	AMSE 도구로 다시 이동하여 채널 완료 상태를 확인합니다. 상태가 **시작 중**에서 **실행 중**으로 변경되었으면 입력 URL을 가져올 수 있습니다.
 	  
 	채널이 실행 중일 때 채널 이름을 마우스 오른쪽 단추로 클릭하고 아래로 이동하여 **Copy Input URL to clipboard**(입력 URL을 클립보드로 복사)를 가리킨 다음 **Primary Input URL**(기본 입력 URL)을 선택합니다.
 	
@@ -134,7 +134,7 @@
 
 9. **확인**을 선택합니다.
 
-10. 기본 **Wirecast** 화면에서 비디오 및 오디오용 입력 소스가 준비되었는지 확인한 다음 왼쪽 위 모서리에서 **스트림**을 누릅니다.
+10. 기본 **Wirecast** 화면에서 비디오 및 오디오용 입력 원본이 준비되었는지 확인한 다음 왼쪽 위 모서리에서 **스트림**을 누릅니다.
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
@@ -148,7 +148,7 @@
 
 스트림이 플레이어에 나타나면 인코더가 AMS에 연결되도록 제대로 구성된 것입니다.
 
-오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 지침을 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
+오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
 
 ##프로그램 만들기
 
@@ -170,7 +170,7 @@
 
 ## 문제 해결
  
-지침을 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
+참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
 
 ##미디어 서비스 학습 경로
 
@@ -180,4 +180,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

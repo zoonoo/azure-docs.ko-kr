@@ -18,9 +18,11 @@
 
 # 하이브리드 연결을 사용하여 Azure 앱 서비스의 API 앱에서 온-프레미스 SQL Server에 연결
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 하이브리드 연결은 정적 TCP 포트를 사용하는 온-프레미스 리소스에 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) API 앱을 연결할 수 있습니다. 지원되는 리소스로는 Microsoft SQL Server, MySQL, HTTP 웹 API, 모바일 서비스, 대부분의 사용자 지정 웹 서비스가 있습니다.
 
-이 자습서에서는 새 하이브리드 연결 기능을 사용 하 여 로컬 온-프레미스 SQL Server 데이터베이스에 연결하는 [Azure 미리 보기](http://go.microsoft.com/fwlink/?LinkId=529715)에서 앱 서비스 API 앱을 만드는 방법에 대해 배웁니다. 이 자습서는 이전에 Azure 또는 SQL 서버를 사용해 본 경험이 없다고 가정합니다.
+이 자습서에서는 새 하이브리드 연결 기능을 사용하여 로컬 온-프레미스 SQL Server 데이터베이스에 연결하는 [Azure 미리 보기](http://go.microsoft.com/fwlink/?LinkId=529715)에서 앱 서비스 API 앱을 만드는 방법에 대해 배웁니다. 이 자습서는 이전에 Azure 또는 SQL 서버를 사용해 본 경험이 없다고 가정합니다.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -73,16 +75,16 @@
 <a name="InstallSQL"></a>
 ## SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스 온-프레미스 만들기
 
-이 섹션에서는 API 앱이 [Azure Preview 포털](https://portal.azure.com)에서 작동하도록 SQL Server Express를 설치하고, TCP/IP를 사용하도록 설정하고, 데이터베이스를 만드는 방법을 보여줍니다.
+이 섹션에서는 API 앱이 [Azure Preview 포털](https://portal.azure.com)에서 작동하도록 SQL Server Express를 설치하고, TCP/IP를 사용하도록 설정하고, 데이터베이스를 만드는 방법을 보여 줍니다.
 
 <a name="InstallSQLDB"></a>
 ### SQL Server Express 설치
 
-1. SQL Server Express를 설치하려면 **SQLEXPRWT\_x64\_ENU.exe**(64 비트 버전) 또는**SQLEXPR\_x86\_ENU.exe**(32 비트 버전) 파일을 원하는 폴더에 압축을 풀어야 합니다. 
+1. SQL Server Express를 설치하려면 **SQLEXPRWT\_x64\_ENU.exe**(64비트 버전) 또는 **SQLEXPR\_x86\_ENU.exe**(32비트 버전) 파일을 원하는 폴더에 압축을 풀어야 합니다. 
 
 2. SQL Server Express 설치 파일의 압축을 푼 후 **setup.exe**를 실행합니다.
 
-3. **SQL Server 설치 센터**가 표시되면, **새 SQL 서버 독립형 설치 또는 기존 설치에 기능 추가**를 선택합니다.
+3. **SQL Server 설치 센터**가 표시되면, **새 SQL Server 독립형 설치 또는 기존 설치에 기능 추가**를 선택합니다.
 
 	![SQL Server 설치 센터](./media/app-service-api-hybrid-on-premises-sql-server/sql-server-installation-center.png)
 
@@ -140,7 +142,7 @@ TCP/IP를 사용하도록 설정하려면 SQL Server Express를 설치할 때 �
 
 	![새 테이블 열](./media/app-service-api-hybrid-on-premises-sql-server/table-def.png)
 
-4. **&lt;Ctrl>S**를 눌러 새 테이블의 정의를 저장합니다. 테이블 이름을 입력하라는 메시지가 표시됩니다. `Speakers`를 입력하고 **확인**을 누릅니다.
+4. **&lt;Ctrl>S** 키를 눌러 새 테이블의 정의를 저장합니다. 테이블 이름을 입력하라는 메시지가 표시됩니다. `Speakers`를 입력하고 **확인**을 누릅니다.
 
 	![새 테이블 저장](./media/app-service-api-hybrid-on-premises-sql-server/save-new-table.png)
 
@@ -158,7 +160,7 @@ TCP/IP를 사용하도록 설정하려면 SQL Server Express를 설치할 때 �
 
 1. Visual Studio 2013을 열고 **파일 > 새로 만들기 > 프로젝트**를 선택합니다. 
 
-2. **Visual C# > 웹 > ASP.NET 웹 응용 프로그램** 템플릿을 선택하고 **프로젝트에 Application Insights 추가** 옵션을 선택 취소한 후, 프로젝트 이름을*SpeakersList*로 지정하고 **확인**을 클릭합니다.
+2. **Visual C# > 웹 > ASP.NET 웹 응용 프로그램** 템플릿을 선택하고 **프로젝트에 Application Insights 추가** 옵션을 선택 취소한 후, 프로젝트 이름을 *SpeakersList*로 지정하고 **확인**을 클릭합니다.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-project.png)
 
@@ -200,7 +202,7 @@ TCP/IP를 사용하도록 설정하려면 SQL Server Express를 설치할 때 �
 
 10. `SpeakersController.cs` 파일의 코드를 아래 코드로 바꿉니다. `connectionString`에서 &lt;serverName> 및 &lt;password> 자리 표시자의 고유 값을 지정해야 합니다. &lt;serverName> 값은 SQL Server가 있는 컴퓨터 이름이며 &lt;password> 값은 SQL Server를 설치하고 구성할 때 설정한 값입니다.
 
-	> [AZURE.NOTE]다음 코드 조각에는 암호 정보가 포함됩니다. 이렇게 데모를 간단하게 유지합니다. 실제 프로덕션 환경에서는 코드에 자격 증명을 저장하지 마십시오. 대신에 [ASP.NET 및 Azure에 암호(및 기타 중요한 데이터)를 배포하기 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)(영문)를 참조하세요.
+	> [AZURE.NOTE]다음 코드 조각에는 암호 정보가 포함됩니다. 이렇게 데모를 간단하게 유지합니다. 실제 프로덕션 환경에서는 코드에 자격 증명을 저장하지 마십시오. 대신에 [ASP.NET 및 Azure에 암호(및 기타 중요한 데이터)를 배포하기 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
 
 		using System;
 		using System.Collections.Generic;
@@ -304,7 +306,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 4. **GET /api/speakers**를 클릭하여 해당 섹션을 확장합니다.
 
-5. **사용해보십시오!**를 클릭하여 이전에 데이터베이스에 입력된 데이터를 볼 수 있습니다.
+5. **사용해보기**를 클릭하여 이전에 데이터베이스에 입력된 데이터를 볼 수 있습니다.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/try-it-out.png)
 
@@ -328,7 +330,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 	- **API 앱 이름** 아래에 앱의 이름을 입력합니다. 
 	- Azure 구독이 여러 개 있는 경우 사용할 구독을 선택합니다.
-	- **앱 서비스 계획**에서 기존 앱 서비스 계획에서 선택하거나 **새 앱 서비스 계획 만들기**를 선택하고 새 계획의 이름을 입력합니다. 
+	- **앱 서비스 계획**에서, 기존 앱 서비스 계획에서 선택하거나 **새 앱 서비스 계획 만들기**를 선택하고 새 계획의 이름을 입력합니다. 
 	- **리소스 그룹**에 대해 기존 리소스 그룹 중에서 선택하거나 **새 리소스 그룹 만들기**를 선택하고 이름을 입력합니다. 이름은 고유해야 합니다. 앱 이름을 접두사로 사용하고 Microsoft ID(@ 기호 없이)와 같은 일부 개인 정보를 추가하는 것이 좋습니다.  
 	- **액세스 수준**에서 **Available to anyone(누구나 사용 가능)**을 선택합니다. 이 옵션은 API를 완전히 공용으로 만들며, 이 자습서에서는 이렇게 해도 괜찮습니다. 나중에 [Azure Preview 포털](https://portal.azure.com)을 통해 액세스를 제한할 수 있습니다.
 	- 지역을 선택합니다.
@@ -349,7 +351,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 	![API 앱 배포](./media/app-service-api-hybrid-on-premises-sql-server/publish2.png)
 
-**Azure 앱 서비스 활동** 창에 배포 진행률이 표시되고 게시 프로세스가 완료 면 표시됩니다.
+**Azure 앱 서비스 활동** 창에 배포 진행률이 표시되고 게시 프로세스가 완료되면 표시됩니다.
 
 ## 하이브리드 연결 및 BizTalk 서비스 만들기 ##
 
@@ -369,7 +371,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 	
 	![하이브리드 연결](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
-7. **하이브리드 연결** 블레이드에서, **추가** > **새 하이브리드 연결**을 클릭합니다.
+7. **하이브리드 연결** 블레이드에서 **추가** > **새 하이브리드 연결**을 클릭합니다.
 	
 8. **하이브리드 연결 블레이드 만들기**에서 다음을 수행합니다.
 	- **이름**에서 연결 이름을 입력합니다.
@@ -381,7 +383,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 		
 9. **확인**을 두 번 클릭합니다.
 
-	프로세스가 완료되면, **알림** 영역은 녹색 **성공**으로 깜박이며 **하이브리드 연결** 블레이드는 **연결되지 않음** 상태와 함께 새 하이브리드 연결을 표시합니다
+	프로세스가 완료되면, **알림** 영역은 녹색 **성공**으로 깜박이며 **하이브리드 연결** 블레이드는 **연결되지 않음** 상태와 함께 새 하이브리드 연결을 표시합니다.
 	
 	![만든 하이브리드 연결](./media/app-service-api-hybrid-on-premises-sql-server/hybrid-not-connected-yet.png)
 	
@@ -405,7 +407,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 4. **GET /api/speakers**를 클릭하여 해당 섹션을 확장합니다.
 
-5. **사용해보십시오!**를 클릭하여 이전에 데이터베이스에 입력된 데이터를 볼 수 있습니다.
+5. **사용해보기**를 클릭하여 이전에 데이터베이스에 입력된 데이터를 볼 수 있습니다.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/try-it-out-azure.png)
 	
@@ -430,4 +432,4 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

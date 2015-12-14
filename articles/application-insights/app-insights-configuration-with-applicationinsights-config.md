@@ -68,7 +68,7 @@ IIS 설치에서 CPU, 메모리 및 네트워크 부하와 같은 [시스템 성
 
 ### 웹 요청 추적
 
-HTTP 요청의 [응답 시간 및 결과 코드](app-insights-start-monitoring-app-health-usage.md)를 보고합니다.
+HTTP 요청의 [응답 시간 및 결과 코드](app-insights-asp-net.md)를 보고합니다.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지
@@ -123,7 +123,7 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-start-monitoring-a
  - `Language`은 `CurrentCulture`의 이름으로 설정됩니다.
 * `DomainNameRoleInstanceTelemetryInitializer`은 웹 응용 프로그램이 실행되는 컴퓨터의 도메인 이름을 사용하여 모든 원격 분석 항목에 대해 `Device` 컨텍스트의 `RoleInstance` 속성을 업데이트합니다.
 * `OperationNameTelemetryInitializer`은 `RequestTelemetry`의 `Name` 속성과 HTTP 메서드를 기반으로 한 모든 원격 분석 아이템의 `Operation` 컨텍스트의 `Name` 속성을 업데이트뿐만 아니라 ASP.NET MVC 컨트롤러와 요청을 처리하는 데 작업을 불러옵니다.
-* `OperationNameTelemetryInitializer`은(는) 자동으로 생성된 `RequestTelemetry.Id`(으)로 요청을 처리하는 동안 추적되는 모든 원격 분석 항목의 `Operation.Id` 컨텍스트 속성을 업데이트합니다.
+* `OperationIdTelemetryInitializer`은 자동으로 생성된 `RequestTelemetry.Id`을 사용하여 요청을 처리하는 동안 추적된 모든 원격 분석 항목의 `Operation.Id` 컨텍스트 속성을 업데이트합니다.
 * `SessionTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application Insights JavaScript 계측 코드에 의해 제공된 `ai_session` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Session` 컨텍스트의 `Id` 속성을 업데이트합니다. 
 * `SyntheticTelemetryInitializer`은 `User`, `Session` 및 가용성 테스트 또는 검색 엔진 봇과 같은 가상 소스에서 요청을 처리하는 경우 모든 원격 분석 항목의 `Operation` 컨텍스트 속성을 업데이트합니다. 기본적으로 [메트릭 탐색기](app-insights-metrics-explorer.md)는 가상 원격 분석을 표시하지 않습니다.
 * `UserAgentTelemetryInitializer`은 `User-Agent` HTTP 헤더 기반의 모든 원격 분석 항목의 `User` 컨텍스트의 `UserAgent` 속성을 업데이트합니다.
@@ -135,6 +135,29 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-start-monitoring-a
 원격 분석 프로세서는 각 원격 분석 항목을 SDK에서 포털에 보내기 전에 필터링하고 수정할 수 있습니다.
 
 [고유한 원격 분석 프로세서를 작성](app-insights-api-filtering-sampling.md#filtering)할 수 있습니다.
+
+
+#### 적응 샘플링 원격 분석 프로세서(2.0.0-beta3부터)
+
+이 옵션은 기본적으로 사용하도록 설정되어 있습니다. 앱에서 다양한 원격 분석을 보내는 경우 이 프로세서는 일부 정보를 제거합니다.
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+매개 변수는 알고리즘을 달성하려고 하는 대상을 제공합니다. SDK의 각 인스턴스가 독립적으로 작동하므로 서버가 여러 컴퓨터의 클러스터인 경우 원격 분석의 실제 볼륨을 적절하게 곱합니다.
+
+[샘플링에 대해 자세히 알아봅니다](app-insights-sampling.md).
+
+
+
+#### 고정 비율 샘플링 원격 분석 프로세서(2.0.0-beta1부터)
 
 또한 표준 [샘플링 원격 분석 프로세서](app-insights-api-filtering-sampling.md#sampling)도 있습니다(2.0.1부터).
 
@@ -256,10 +279,10 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

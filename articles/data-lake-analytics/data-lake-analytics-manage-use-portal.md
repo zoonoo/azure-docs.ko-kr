@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리 | Azure" 
+   pageTitle="Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리 | Azure" 
    description="데이터 레이크 분석 계정, 데이터 원본, 사용자, 작업을 관리하는 방법에 대해 알아봅니다." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -16,17 +16,17 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리
+# Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택기를 클릭합니다.
+Azure 포털을 사용하여 Azure 데이터 레이크 분석 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택기를 클릭합니다.
 
 **필수 구성 요소**
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 
 
@@ -145,7 +145,7 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 계정, �
 
 <a name="upload-data-to-adls"></a> **데이터 레이크 저장소 계정에 파일 업로드**
 
-1. Preview 포털의 왼쪽 메뉴에서 **찾아보기**를 클릭한 후 **데이터 레이크 저장소**를 클릭합니다.
+1. 포털의 왼쪽 메뉴에서 **찾아보기**를 클릭한 후 **데이터 레이크 저장소**를 클릭합니다.
 2. 데이터를 업로드할 데이터 레이크 저장소 계정을 클릭합니다. 기본 데이터 레이크 저장소 계정을 찾으려면 [여기](#default-adl-account)를 참조합니다.
 3. 위쪽 메뉴에서 **데이터 탐색기**를 클릭합니다.
 4. 새 폴더를 만들려면 **새 디렉터리**를 클릭하거나 폴더를 변경하려면 폴더 이름을 클릭합니다.
@@ -256,7 +256,7 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 
 ##U-SQL 카탈로그 보기
 
-[U-SQL 카탈로그](data-lake-analytics-use-u-sql-catalog.md)는 U-SQL 스크립트에서 공유할 수 있도록 데이터 및 코드의 구조를 구성하는 데 사용됩니다. 카탈로그를 사용하면 가능한 가장 높은 성능으로 Azure 데이터 레이크의 데이터를 사용할 수 있습니다. Azure Preview 포털을 통해 U-SQL 카탈로그를 볼 수 있습니다.
+[U-SQL 카탈로그](data-lake-analytics-use-u-sql-catalog.md)는 U-SQL 스크립트에서 공유할 수 있도록 데이터 및 코드의 구조를 구성하는 데 사용됩니다. 카탈로그를 사용하면 가능한 가장 높은 성능으로 Azure 데이터 레이크의 데이터를 사용할 수 있습니다. Azure 포털을 통해 U-SQL 카탈로그를 볼 수 있습니다.
 
 **U-SQL 카탈로그를 탐색하려면**
 
@@ -291,8 +291,8 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 ##참고 항목 
 
 - [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
-- [Azure Preview 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+- [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
 - [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-powershell.md)
-- [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

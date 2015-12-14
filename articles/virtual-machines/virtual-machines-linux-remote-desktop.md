@@ -106,7 +106,7 @@ xrdp 서비스를 다시 시작하고 다음을 사용합니다.
 
 
 ##Windows 컴퓨터에서 Linux VM 연결
-Windows 컴퓨터에서 원격 데스크톱 클라이언트를 시작하고 Linux VM DNS 이름을 입력하거나, Azure 포털에서 VM의 `Dashboard`로 이동하고 `Connect`를 클릭하여 Linux VM을 연결하면 아래 로그인 창이 표시됩니다.
+Windows 컴퓨터에서 원격 데스크톱 클라이언트를 시작하고 Linux VM DNS 이름을 입력하거나, Azure 클래식 포털에서 VM의 `Dashboard`로 이동하고 `Connect`를 클릭하여 Linux VM을 연결하면 아래 로그인 창이 표시됩니다.
 
 ![이미지](./media/virtual-machines-linux-remote-desktop/no2.png)
 
@@ -116,4 +116,4 @@ Linux VM의 `user` 및 `password`를 사용하여 로그인한 다음 Microsoft 
 ##다음
 xrdp를 사용하는 방법에 대한 자세한 내용은 [여기](http://www.xrdp.org/)를 참조할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

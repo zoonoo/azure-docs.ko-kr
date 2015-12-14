@@ -90,9 +90,9 @@
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
-11. 리소스 그룹이 프로비전되면 Azure 포털의 그룹에서 모든 리소스를 볼 수 있습니다. 다음 스크린샷에 표시된 것과 같이 리소스 그룹은 동일한 가용성 집합에 조인된 3개의 VM이 있는 가상 네트워크를 포함합니다. 또한 그룹은 관련 공용 IP가 있는 부하 분산 장치를 포함합니다.
+11. 리소스 그룹이 프로비전되면 Azure 클래식 포털의 그룹에서 모든 리소스를 볼 수 있습니다. 다음 스크린샷에 표시된 것과 같이 리소스 그룹은 동일한 가용성 집합에 조인된 3개의 VM이 있는 가상 네트워크를 포함합니다. 또한 그룹은 관련 공용 IP가 있는 부하 분산 장치를 포함합니다.
 
-  ![Azure 포털에서 프로비전된 리소스 그룹](media/virtual-machines-deis-cluster/resource-group.png)
+  ![Azure 클래식 포털에서 프로비전된 리소스 그룹](media/virtual-machines-deis-cluster/resource-group.png)
 
 ## 클라이언트 설치
 
@@ -113,7 +113,7 @@ Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 
 
         export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
-템플릿은 2223을 인스턴스 1로, 2224를 인스턴스 2로, 2225를 인스턴스 3으로 매핑하는 인바운드 NAT 규칙을 정의합니다. 이는 deisctl 도구를 사용하는 것에 대한 중복성을 제공합니다. Azure 포털에서 이러한 규칙을 검사할 수 있습니다.
+템플릿은 2223을 인스턴스 1로, 2224를 인스턴스 2로, 2225를 인스턴스 3으로 매핑하는 인바운드 NAT 규칙을 정의합니다. 이는 deisctl 도구를 사용하는 것에 대한 중복성을 제공합니다. Azure 클래식 포털에서 이러한 규칙을 검사할 수 있습니다.
 
 ![부하 분산 장치에서 NAT 규칙](media/virtual-machines-deis-cluster/nat-rules.png)
 
@@ -258,4 +258,4 @@ Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

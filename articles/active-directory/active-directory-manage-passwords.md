@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD | Microsoft Azure에서 암호 관리"
-	description="Azure AD에서 암호 관리 방법"
+	pageTitle="Azure Active Directory에서 암호 관리하기 | Microsoft Azure"
+	description="Azure Active Directory에서 암호 관리하는 방법."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Azure AD에서 암호 관리하기
+# Azure Active Directory에서 암호 관리하기
 
-관리자인 경우 Azure 클래식 포털에서 Azure의 사용자 암호를 재설정할 수 있습니다. 디렉터리 이름을 클릭하고 사용자 페이지에서 사용자 이름을 클릭한 다음 포털의 맨 아래에 있는 **암호 재설정**을 클릭하세요.
+관리자인 경우 Azure 클래식 포털에서 Azure AD(Azure Active Directory)의 사용자 암호를 재설정할 수 있습니다. 디렉터리 이름을 클릭하고 사용자 페이지에서 사용자 이름을 클릭한 다음 포털의 맨 아래에 있는 **암호 재설정**을 클릭하세요.
 
-이 항목의 나머지 부분에서는 다음을 포함하여 Azure Active Directory가 지원하는 암호 관리 기능에 대해 전부 다룹니다.
+이 항목의 나머지 부분에서는 다음을 포함하여 Azure AD가 지원하는 암호 관리 기능에 대해 전부 다룹니다.
 
 - **셀프 서비스 암호 변경** 기능을 사용하여 최종 사용자나 관리자는 다른 관리자에게 전화를 하거나 지원 센터에 문의하지 않고도 만료되거나 만료되지 않은 암호를 변경할 수 있습니다.
 - **셀프 서비스 암호 재설정** 기능을 사용하여 최종 사용자나 관리자는 다른 관리자에게 전화를 하거나 지원 센터에 문의하지 않고도 자동으로 암호를 재설정할 수 있습니다. 셀프 서비스 암호 재설정 기능을 사용하려면 Azure AD Premium 또는 Basic이 필요합니다. 자세한 내용은 [Azure Active Directory Edition](active-directory-editions.md)을 참조하세요.
-- **관리자가 시작한 암호 재설정** 기능을 사용하여 관리자는 Azure 관리 포털 내에서 최종 사용자 또는 다른 관리자의 암호를 재설정할 수 있습니다.
+- **관리자가 시작한 암호 재설정** 기능을 사용하여 관리자는 Azure 클래식 포털 내에서 최종 사용자나 다른 관리자의 암호를 재설정할 수 있습니다.
 - **암호 관리 작업 보고서**는 조직에서 발생하는 암호 재설정 및 등록 작업에서의 관리자 이해도를 높여줍니다.
 - **암호 쓰기 저장** 기능을 사용하여 클라우드에서 온-프레미스 암호를 관리할 수 있으므로 위의 모든 시나리오에서 수행되거나 페더레이션 및 암호가 동기화된 사용자가 대신 수행할 수 있습니다. 암호 쓰기 저장 기능을 사용하려면 Azure AD Premium이 필요합니다. 자세한 내용은 [Azure Active Directory Premium 시작하기](active-directory-get-started-premium.md)를 참조하세요.
 
@@ -48,4 +48,4 @@
 - [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -36,11 +36,11 @@ Azure 마켓플레이스에는 Bottle, Django 및 Flask 프레임워크용 템�
 - [Flask를 사용하여 웹앱 만들기](web-sites-python-create-deploy-flask-app.md)
 
 
-## Azure Preview 포털에서 웹앱 만들기
+## Azure 포털에서 웹앱 만들기
 
-이 자습서에서는 기존 Azure 구독 및 Azure Preview 포털에 대한 액세스 권한이 있다고 가정합니다.
+이 자습서에서는 기존 Azure 구독 및 Azure 포털에 대한 액세스 권한이 있다고 가정합니다.
 
-기존 웹앱이 없는 경우 [Azure Preview 포털](https://portal.azure.com)에서 웹앱을 만들 수 있습니다. 왼쪽 아래에 있는 새로 만들기 단추를 클릭한 다음 **웹 + 모바일** > **웹앱**을 클릭합니다.
+기존 웹앱이 없는 경우 [Azure 포털](https://portal.azure.com)에서 웹앱을 만들 수 있습니다. 왼쪽 아래에 있는 새로 만들기 단추를 클릭한 다음 **웹 + 모바일** > **웹앱**을 클릭합니다.
 
 ## Git 게시
 
@@ -378,7 +378,6 @@ Python 3.4용 예제 `web.config`:
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 
 
@@ -386,4 +385,4 @@ Python 3.4용 예제 `web.config`:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

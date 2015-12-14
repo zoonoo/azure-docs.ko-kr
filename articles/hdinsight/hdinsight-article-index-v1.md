@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 포털에 대한 HDInsight 문서 인덱스 | Microsoft Azure"
-   description="Azure 포털에서 HDInsight에 대한 문서 링크를 포함하는 인덱스 페이지입니다. HDInsight의 새 Hadoop 클러스터에는 Azure Preview 포털을 사용하는 것이 좋습니다."
+   pageTitle="Azure 클래식 포털에 대한 HDInsight 문서 인덱스 | Microsoft Azure"
+   description="Azure 클래식 포털에서 HDInsight에 대한 문서 링크를 포함하는 인덱스 페이지입니다. HDInsight의 새 Hadoop 클러스터에는 Azure 포털을 사용하는 것이 좋습니다."
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,25 +16,25 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-# Azure 포털에 대한 HDInsight 문서 인덱스
+# Azure 클래식 포털에 대한 HDInsight 문서 인덱스
 
-이 인덱스 페이지를 사용하여 [Azure 포털](https://manage.windowsazure.com/)에서 HDInsight에 대해 다루는 문서를 찾습니다. Azure HDInsight는 오픈 소스 Hadoop 및 Hortonworks Data Platform의 클라우드 배포입니다.
+이 인덱스 페이지를 사용하여 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 HDInsight에 대해 다루는 문서를 찾습니다. Azure HDInsight는 오픈 소스 Hadoop 및 Hortonworks Data Platform의 클라우드 배포입니다.
 
 
-> [AZURE.IMPORTANT]이 문서 인덱스 페이지는 현재 Azure 포털에 솔루션이 이미 배포된 고객을 위한 것입니다.
+> [AZURE.IMPORTANT]이 문서 인덱스 페이지는 현재 Azure 클래식 포털에 솔루션이 이미 배포된 고객을 위한 것입니다.
 >
-> 새 HDInsight 클러스터에는 **Azure Preview 포털**을 사용하는 것이 좋습니다.
+> 새 HDInsight 클러스터에는 **Azure 포털**을 사용하는 것이 좋습니다.
 >
-> * [HDInsight 미리 보기 포털 설명서로 이동](/documentation/services/hdinsight/)
-> * [Azure Preview 포털](https://portal.azure.com/)로 이동
+> * [HDInsight 포털 설명서로 이동](/documentation/services/hdinsight/)
+> * [Azure 포털로 이동합니다.](https://portal.azure.com/)
 >
-> Preview 포털의 이점에 대한 설명은 [더욱 놀라워진 기능의 DevOps](/overview/preview-portal/)를 참조하세요.
+> 포털의 이점에 대한 설명은 [더욱 놀라워진 기능의 DevOps](/overview/preview-portal/)를 참조하세요.
 >
-> 2015년 7월 이후에는 Azure 포털에서 HDInsight가 업그레이드를 받지 못하고 Azure Preview 포털로 대체됩니다.
+> 2015년 7월 이후에는 Azure 클래식 포털에서 HDInsight가 업그레이드를 받지 못하고 Azure 포털로 대체됩니다.
 
 ## 시작
 
-HDInsight에서 Hadoop을 처음 접하는 경우 [HDInsight 설명서 페이지](/documentation/services/hdinsight/)로 이동하여 Azure Preview 포털을 시작합니다.
+HDInsight에서 Hadoop을 처음 접하는 경우 [HDInsight 설명서 페이지](/documentation/services/hdinsight/)로 이동하여 Azure 포털을 시작합니다.
 
 ## Linux
 
@@ -81,7 +81,7 @@ Linux 및 Linux 클러스터 사용에 대한 전체 문서 집합을 보려면 
 
 ## Apache Spark
 
-Azure Preview 포털에서 네이티브 Apache Spark 사용에 대한 문서를 보려면 [HDInsight 설명서 페이지](/documentation/services/hdinsight/)로 이동합니다.
+Azure 포털에서 네이티브 Apache Spark 사용에 대한 문서를 보려면 [HDInsight 설명서 페이지](/documentation/services/hdinsight/)로 이동합니다.
 
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 * [Hadoop 클러스터에서 Spark 설치 및 사용](hdinsight-hadoop-spark-install.md)
@@ -133,4 +133,4 @@ Azure Preview 포털에서 네이티브 Apache Spark 사용에 대한 문서를 
 * [오류 메시지 해석](hdinsight-debug-jobs.md)
 * [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

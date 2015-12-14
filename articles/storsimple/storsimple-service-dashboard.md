@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 대시보드 사용
@@ -45,7 +45,7 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 ## 서비스 등록 키 보기 또는 다시 생성
 
-서비스 등록 키는 장치가 추가적인 관리 작업을 할 수 있는 Microsoft Azure 관리 포털에 표시되도록 StorSimple 관리자 서비스에 Microsoft Azure StorSimple 장치를 등록하는 데 사용됩니다. 이 키는 첫 번째 장치에서 만들어지고 나머지 장치와 공유됩니다.
+서비스 등록 키는 장치가 추가적인 관리 작업을 할 수 있는 Azure 클래식 포털에 표시되도록 StorSimple 관리자 서비스에 Microsoft Azure StorSimple 장치를 등록하는 데 사용됩니다. 이 키는 첫 번째 장치에서 만들어지고 나머지 장치와 공유됩니다.
 
 **등록 키**(페이지의 맨 아래)를 클릭하면 **서비스 등록 키** 대화 상자가 열리고, 여기서 현재 서비스 등록 키를 클립보드에 복사하거나 서비스 등록 키를 다시 생성할 수 있습니다.
 
@@ -59,7 +59,7 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 서비스 데이터 암호화 키는 3단계 프로세스에 따라 변경됩니다.
 
-1. 관리 포털을 사용하여 장치에 서비스 데이터 암호화 키를 변경할 권한을 부여합니다.
+1. Azure 클래식 포털을 사용하여 장치에 서비스 데이터 암호화 키를 변경할 권한을 부여합니다.
 2. StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경을 시작합니다.
 3. 둘 이상의 StorSimple 장치를 사용하는 경우에는 다른 장치에서 서비스 데이터 암호화 키를 업데이트합니다.
 
@@ -78,4 +78,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

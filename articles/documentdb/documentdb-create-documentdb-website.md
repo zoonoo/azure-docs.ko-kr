@@ -128,11 +128,11 @@
 
 	![샘플 Todo 응용 프로그램](./media/documentdb-create-documentdb-website/image2.png)
 
-7. 계속 진행하여 2개의 작업을 만든 후 [Microsoft Azure Preview 포털](https://portal.azure.com)을 엽니다.
+7. 계속 진행하여 2개의 작업을 만든 후 [Microsoft Azure 포털](https://portal.azure.com)을 엽니다.
 
 8. 리소스 그룹 찾아보기를 선택하고 배포 중에 만든 리소스 그룹(위의 샘플에서는 myDemoResourceGroup임)을 선택합니다.
 
-	![myDemoResourceGroup이 강조 표시된 Azure 포털의 스크린샷](./media/documentdb-create-documentdb-website/image3.png)
+	![myDemoResourceGroup이 강조 표시된 Azure 클래식 포털의 스크린샷](./media/documentdb-create-documentdb-website/image3.png)
 9.  요약 렌즈에서 리소스 맵이 어떻게 모든 관련 리소스(DocumentDB 계정, 앱 서비스 웹앱, 모니터링)를 보여 주는지 살펴봅니다.
 
 	![요약 렌즈의 스크린샷](./media/documentdb-create-documentdb-website/image4.png)
@@ -172,7 +172,7 @@
 	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
 
 4. 배포 출력은 첫 번째 템플릿 예제와 매우 유사합니다.
-5. Azure Preview 포털을 열기 전에 이 템플릿 배포에서 수행한 내용을 살펴보겠습니다.
+5. Azure 포털을 열기 전에 이 템플릿 배포에서 수행한 내용을 살펴보겠습니다.
 
 	- 앱 서비스 웹앱을 만들었습니다.
 
@@ -182,14 +182,14 @@
 
 	- 	일련의 기본 모니터링 규칙을 만들었습니다.
 
-6. [Azure Preview 포털](https://portal.azure.com)을 열고 리소스 그룹 찾아보기를 선택한 후 배포 중에 만든 리소스 그룹(위의 샘플에서는 myOtherDemoResourceGroup임)을 선택합니다.
+6. [Azure 포털](https://portal.azure.com)을 열고 리소스 그룹 찾아보기를 선택한 후 배포 중에 만든 리소스 그룹(위의 샘플에서는 myOtherDemoResourceGroup임)을 선택합니다.
 7. 요약 렌즈에서 방금 배포된 웹앱을 클릭합니다.
 
 	![myotherdocumentdbwebapp 웹앱이 강조 표시된 요약 렌즈의 스크린샷](./media/documentdb-create-documentdb-website/image6.png)
 8. 웹앱 블레이드에서 **모든 설정**을 클릭한 후 **응용 프로그램 설정**을 클릭하고 응용 프로그램 설정이 DocumentDB 끝점 및 각 DocumentDB 마스터 키에 대해 어떻게 제시되어 있는지 확인합니다.
 
 	![웹앱, 설정 및 응용 프로그램 설정 블레이드의 스크린샷](./media/documentdb-create-documentdb-website/image7.png)
-9. 자유롭게 Azure Preview 포털을 계속 탐색하거나 DocumentDB [샘플](http://go.microsoft.com/fwlink/?LinkID=402386)(영문) 중 하나에 따라 고유한 DocumentDB 응용 프로그램을 만듭니다.
+9. 자유롭게 Azure 포털을 계속 탐색하거나 DocumentDB [샘플](http://go.microsoft.com/fwlink/?LinkID=402386) 중 하나에 따라 고유한 DocumentDB 응용 프로그램을 만듭니다.
 
 	
 	
@@ -205,9 +205,9 @@
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
+* 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 클래식 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

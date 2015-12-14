@@ -18,6 +18,11 @@
 
 # Azure 모바일 서비스에 iOS 클라이언트 라이브러리를 사용하는 방법
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 이 가이드에서는 Azure 모바일 서비스 [iOS SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. 모바일 서비스를 처음 접하는 경우, 먼저 [모바일 서비스 퀵 스타트]를 완료하여 계정을 구성하고, 테이블을 만들고, 모바일 서비스를 만듭니다.
@@ -329,4 +334,4 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

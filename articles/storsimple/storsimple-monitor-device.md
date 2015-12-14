@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/05/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 모니터링합니다. 
@@ -21,7 +21,7 @@
 
 StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 특정 장치를 모니터링할 수 있습니다. I/O 성능, 용량 사용률, 네트워크 처리량 및 장치 성능 메트릭을 기준으로 사용자 지정 차트를 만들 수 있습니다.
 
-특정 장치에 대한 모니터링 정보를 보려면 Azure 포털에서 StorSimple Manager 서비스를 선택하고 **모니터**탭을 클릭한 다음 장치 목록에서 선택합니다. **모니터** 페이지에는 다음 정보가 포함됩니다.
+특정 장치에 대한 모니터링 정보를 확인하려면, Azure 클래식 포털에서 StorSimple 관리 서비스를 선택하고, **모니터** 탭을 클릭한 다음, 장치 목록을 선택합니다. **모니터** 페이지에는 다음 정보가 포함됩니다.
 
 ## I/O 성능 
 
@@ -121,4 +121,4 @@ SSD 선형 계층을 포함하므로 기본 저장소 사용률 이상인 장치
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

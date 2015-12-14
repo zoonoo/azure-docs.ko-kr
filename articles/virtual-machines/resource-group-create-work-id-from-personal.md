@@ -28,11 +28,11 @@
 
 > [AZURE.NOTE]관리자가 사용자 이름과 암호를 제공한 경우, 회사 또는 학교 ID(*조직 ID*라고도 부름)가 이미 있을 가능성이 큽니다. 이런 경우, 계정이 필요한 Azure 리소스에 Azure 계정을 사용하여 즉시 액세스를 시작할 수 있습니다. 해당 리소스를 사용할 수 없는 경우는 이 문서의 도움말을 다시 참조해야 할 수 있습니다. 자세한 내용은 [로그인에 사용할 수 있는 계정](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) 및 [Azure 구독과 Azure AD의 연관 관계](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)를 참조하세요.
 
-절차는 간단합니다. Azure 포털에서 로그인한 ID를 찾은 후 기본 Azure Active Directory 도메인을 검색하고 Azure 공동 관리자로 새 사용자를 추가합니다.
+절차는 간단합니다. Azure 클래식 포털에서 로그인한 ID를 찾은 후 기본 Azure Active Directory 도메인을 검색하고 Azure 공동 관리자로 새 사용자를 추가합니다.
 
-## Azure 포털에서 기본 디렉터리 찾기
+## Azure 클래식 포털에서 기본 디렉터리 찾기
 
-먼저 개인 Microsoft 계정 ID를 사용하여 [Azure 포털](https://manage.windowsazure.com)에 로그인합니다. 로그인하고 나서 왼쪽의 파란색 패널을 아래로 스크롤하여 **ACTIVE DIRECTORY**를 클릭합니다.
+먼저 개인 Microsoft 계정 ID를 사용하여 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다. 로그인하고 나서 왼쪽의 파란색 패널을 아래로 스크롤하여 **ACTIVE DIRECTORY**를 클릭합니다.
 
 ![Azure Active Directory](./media/resource-group-create-work-id-from-personal/azureactivedirectorywidget.png)
 
@@ -144,4 +144,4 @@ Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택
     data:
     info:    group create command OK
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

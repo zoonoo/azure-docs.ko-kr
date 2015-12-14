@@ -1,6 +1,6 @@
 <properties
    pageTitle="SQL 데이터베이스 위협 감지 시작"
-   description="Azure Preview 포털에서 SQL 데이터베이스 위협 감지를 시작하는 방법"
+   description="Azure 포털에서 SQL 데이터베이스 위협 감지를 시작하는 방법"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -30,7 +30,7 @@
 
 ## 데이터베이스에 대한 위협 감지 설정
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Preview 포털을 시작합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure 포털을 시작합니다.
 
 2. 모니터링할 SQL 데이터베이스의 구성 블레이드로 이동합니다. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다.
 
@@ -89,4 +89,4 @@
 [8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
 [9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

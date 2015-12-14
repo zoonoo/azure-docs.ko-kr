@@ -69,7 +69,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-응용 프로그램의 연결 문자열은 Azure 관리 포털에 표시됩니다.
+응용 프로그램의 연결 문자열은 Azure 클래식 포털에 표시됩니다.
 
 ### Engagement 초기화
 
@@ -247,4 +247,4 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 > [AZURE.WARNING]1초보다 짧은 기간으로 버스트 임계값을 구성할 수는 없습니다. 버스트 임계값을 1초보다 짧게 구성하면 SDK에는 오류가 포함된 추적이 표시되며, 값은 자동으로 기본값인 0초로 다시 설정됩니다. 그러면 SDK에서 실시간 로그 보고가 트리거됩니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

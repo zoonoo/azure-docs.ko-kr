@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="10/23/2015"
+    ms.date="11/30/2015"
     ms.author="sdanie" />
 
 # 관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션
@@ -42,7 +42,7 @@ Azure 관리된 캐시 서비스 및 Azure Redis Cache는 유사하지만 다른
 |관리된 캐시 서비스 기능|관리된 캐시 서비스 지원|Azure Redis Cache 지원|
 |---|---|---|
 |이름이 지정된 캐시|기본 캐시는 표준 및 프리미엄 캐시 제품에서 구성됩니다. 원하는 경우 최대 9개의 추가 명명된 캐시가 구성될 수 있습니다.|Azure Redis Cache에는 명명된 캐시와 유사한 기능을 구현하는 데 사용할 수 있는 16개의 데이터베이스가 있습니다. 자세한 내용은 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.|
-|고가용성|표준 및 프리미엄 캐시 제품의 캐시에서 항목에 고가용성을 제공합니다. 항목이 오류로 인해 손실된 경우 여전히 캐시에서 항목의 백업 복사본을 사용할 수 있습니다. 보조 캐시에 대한 쓰기는 동기적으로 수행됩니다.|고가용성은 두 개의 노드 기본/복제본 구성(프리미엄 캐시의 각 분할에는 하나의 기본/복제본 쌍이 있음)이 있는 표준 및 프리미엄 캐시 제품에서 사용할 수 있습니다. 복제본에 대한 쓰기는 비동기적으로 수행됩니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/ko-KR/pricing/details/cache/)을 참조하세요.|
+|고가용성|표준 및 프리미엄 캐시 제품의 캐시에서 항목에 고가용성을 제공합니다. 항목이 오류로 인해 손실된 경우 여전히 캐시에서 항목의 백업 복사본을 사용할 수 있습니다. 보조 캐시에 대한 쓰기는 동기적으로 수행됩니다.|고가용성은 두 개의 노드 기본/복제본 구성(프리미엄 캐시의 각 분할에는 하나의 기본/복제본 쌍이 있음)이 있는 표준 및 프리미엄 캐시 제품에서 사용할 수 있습니다. 복제본에 대한 쓰기는 비동기적으로 수행됩니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.|
 |알림|명명된 캐시에서 다양한 캐시 작업이 발생할 때 클라이언트가 비동기 알림을 받을 수 있습니다.|클라이언트 응용 프로그램은 Redis 게시/구독 또는 [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings)을 사용하여 알림에 유사한 기능을 수행할 수 있습니다.|
 |로컬 캐시|매우 빠른 액세스를 위해 클라이언트에서 캐시된 개체의 복사본을 로컬로 저장합니다.|클라이언트 응용 프로그램은 사전 또는 유사한 데이터 구조를 사용하여 이 기능을 구현해야 합니다.|
 |제거 정책|없음 또는 LRU입니다. 기본 정책이 LRU입니다.|Azure Redis Cache는 다음의 제거 정책을 지원합니다. volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. 기본 정책이 volatile-lru입니다. 자세한 내용은 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.|
@@ -56,7 +56,7 @@ Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 -	**기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
 -	**표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
--	**프리미엄** – 현재 미리 보기 상태입니다. 최대 10개 분할 데이터베이스와 2노드 주/복제본 6GB에서 530GB에 이르는 다양한 크기(자세한 내용 문의). 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 미리 보기 기간 동안 SLA는 없습니다.
+-	**프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB에서 530GB에 이르는 다양한 크기(자세한 내용 문의). 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
 
 각 계층은 기능과 가격이 다릅니다. 기능에 대해서는 이 가이드의 뒷부분에서 다룹니다. 가격에 대한 자세한 내용은 [캐시 가격 정보](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요.
 
@@ -195,4 +195,4 @@ Azure Redis Cache에는 ASP.NET 세션 상태 및 페이지 출력 캐싱 모두
 
 자습서, 샘플, 비디오, 등은 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/cache/)를 탐색합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

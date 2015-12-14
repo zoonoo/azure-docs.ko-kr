@@ -29,21 +29,21 @@
 
 자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 3개의 서버(각각 도메인 컨트롤러, SQL Server 및 SharePoint Server용)로 구성됩니다.
 
-Azure Preview 포털의 Azure 마켓플레이스에서 [SharePoint 2013 비 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) 항목이 제거되었습니다. 인터넷 연결 SharePoint 웹사이트에 대한 기본 개발/테스트 팜을 만듭니다. 추가 정보는 [SharePoint 서버 팜 만들기](virtual-machines-sharepoint-farm-azure-preview.md)를 참조하세요.
+Azure 포털에서 Azure 마켓플레이스의 [SharePoint 2013 비 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) 항목을 참조하세요. 인터넷 연결 SharePoint 웹사이트에 대한 기본 개발/테스트 팜을 만듭니다. 추가 정보는 [SharePoint 서버 팜 만들기](virtual-machines-sharepoint-farm-azure-preview.md)를 참조하세요.
 
 Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [3개의 서버 SharePoint 팜 배포](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)를 참조하세요.
 
-> [AZURE.NOTE]Azure Preview 포털의 Azure 마켓플레이스에서 **SharePoint 서버 팜** 항목이 제거되었습니다.
+> [AZURE.NOTE]Azure 포털에서 Azure 마켓플레이스의 **SharePoint 서버 팜** 항목이 제거되었습니다.
 
 ## 고가용성 SharePoint 개발자/테스트 팜
 
 자동으로 만들어진 환경은 클라우드 전용 Azure 가상 네트워크에 있는 9개의 서버(도메인 컨트롤러용 2개, SQL Server 클러스터용 3개, 응용 프로그램 계정 SharePoint Server용 2개 및 웹 계층 SharePoint Server용 2개)로 구성됩니다.
 
-Azure Preview 포털의 Azure 마켓플레이스에서 [SharePoint 2013 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) 항목이 제거되었습니다. 인터넷 연결 SharePoint 웹사이트에 대한 고가용성 개발/테스트 팜을 만듭니다. 추가 정보는 [SharePoint 서버 팜 만들기](virtual-machines-sharepoint-farm-azure-preview.md)를 참조하세요.
+Azure 포털에서 Azure 마켓플레이스의 [SharePoint 2013 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) 항목을 참조하세요. 인터넷 연결 SharePoint 웹사이트에 대한 고가용성 개발/테스트 팜을 만듭니다. 추가 정보는 [SharePoint 서버 팜 만들기](virtual-machines-sharepoint-farm-azure-preview.md)를 참조하세요.
 
 Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [9개의 서버 SharePoint 팜 배포](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm)를 참조하세요.
 
-> [AZURE.NOTE]Azure Preview 포털의 Azure 마켓플레이스에서 **SharePoint 서버 팜** 항목이 제거되었습니다.
+> [AZURE.NOTE]Azure 포털에서 Azure 마켓플레이스의 **SharePoint 서버 팜** 항목이 제거되었습니다.
 
 ## 하이브리드 클라우드 개발/테스트 팜
 
@@ -69,4 +69,4 @@ Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [9개의 �
 
 [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

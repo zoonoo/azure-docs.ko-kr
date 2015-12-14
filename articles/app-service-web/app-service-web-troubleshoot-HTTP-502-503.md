@@ -43,14 +43,14 @@
 2.	[데이터 수집](#collect)
 3.	[문제 완화](#mitigate)
 
-[앱 서비스 웹앱](/services/app-service/web/)은 각 단계 별로 다양한 옵션을 제공합니다.
+[앱 서비스 웹앱](/services/app-service/web/)은 각 단계별로 다양한 옵션을 제공합니다.
 
 <a name="observe" />
 ### 1\. 응용 프로그램 작동을 관찰 및 감시
 
 ####	서비스 상태를 추적합니다.
 
-Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure Preview 포털](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](insights-service-health.md)을 참조하세요.
+Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure 포털](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](insights-service-health.md)을 참조하세요.
 
 ####	웹앱 모니터링
 
@@ -78,7 +78,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 웹앱은 HTTP 로그, 이벤트 로그, 프로세스 덤프 등등을 확인하여 사용자의 웹앱과 연관된 문제 해결 기능을 제공합니다. 저희의 지원 포털 **http://&lt;your app name>.scm.azurewebsites.net/Support**를 사용하여 모든 정보에 액세스할 수 있습니다.
 
-Azure 앱 서비스 지원 포털은 일반적인 문제 해결 시나리오의 세 단계를 지원하기 위해 세 개의 별도 탭을 제공합니다.
+Azure 앱 서비스 지원 포털은 일반적인 문제 해결 시나리오의 세 단계를 지원하기 위해 3개의 별도 탭을 제공합니다.
 
 1.	현재 동작을 관찰하기
 2.	진단 정보 수집 및 기본 제공 분석기를 실행하여 분석하기
@@ -125,17 +125,17 @@ Azure 앱 서비스에서 성능과 처리량의 증가를 위해 사용자가 �
 
 ####	AutoHeal를 사용
 
-AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure Preview 포털 내에서 직접 웹앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작으로 수행하게 해줍니다. 몇 개의 트리거를 웹앱의 root web.config에 추가하기만 하면 됩니다. 이 설정은 사용자의 응용 프로그램이 .Net이 아니라도 같은 방식으로 작동됩니다.
+AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure 포털 내에서 직접 웹앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 몇 개의 트리거를 웹앱의 root web.config에 추가하기만 하면 됩니다. 이 설정은 사용자의 응용 프로그램이 .Net이 아니라도 같은 방식으로 작동됩니다.
 
 자세한 내용은 [Auto-Healing Azure 웹 사이트](/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
 
 
 ####	웹앱 재시작
 
-이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. [Azure preview 포털](https://portal.azure.com) 또는 웹앱의 블레이드에서 응용 프로그램을 멈추거나 재시작하는 옵션을 사용할 수 있습니다.
+이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. [Azure 포털](https://portal.azure.com) 또는 웹앱의 블레이드에서 앱을 멈추거나 재시작 하는 옵션을 사용할 수 있습니다.
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

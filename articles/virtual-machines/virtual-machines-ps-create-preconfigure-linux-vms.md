@@ -159,7 +159,7 @@ Azure 가상 네트워크의 특정 서브넷에 가상 컴퓨터를 할당합�
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-클라우드 서비스의 짧은 이름은 Azure 포털의 Azure 클라우드 서비스 목록에 표시된 이름 또는 Azure 미리 보기 포털의 리소스 그룹 목록에 표시된 이름입니다.
+클라우드 서비스의 짧은 이름은 Azure 클래식 포털의 Azure 클라우드 서비스 목록에 표시된 이름 또는 Azure 포털의 리소스 그룹 목록에 표시된 이름입니다.
 
 **옵션 2**: 기존 클라우드 서비스 및 가상 네트워크에서 가상 컴퓨터를 만듭니다.
 
@@ -178,7 +178,7 @@ Azure 가상 네트워크의 특정 서브넷에 가상 컴퓨터를 할당합�
 명령 집합을 다시 사용하려면 다음을 수행합니다.
 
 - 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
-- Azure 포털의 **자동화** 섹션에서 이 명령 집합을 Azure 자동화 Runbook으로 저장합니다.
+- Azure 클래식 포털의 **자동화** 섹션에서 이 명령 집합을 Azure 자동화 Runbook으로 저장합니다.
 
 ## <a id="examples"></a>예제
 
@@ -280,4 +280,4 @@ Azure 가상 네트워크의 특정 서브넷에 가상 컴퓨터를 할당합�
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

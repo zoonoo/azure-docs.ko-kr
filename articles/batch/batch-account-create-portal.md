@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 배치 계정 만들기 | Microsoft Azure"
-	description="클라우드에서 대규모 병렬 작업을 실행하도록 Azure Preview 포털에서 Azure 배치 계정을 만드는 방법에 대해 알아봅니다."
+	description="클라우드에서 대규모 병렬 작업을 실행하도록 Azure 포털에서 Azure 배치 계정을 만드는 방법에 대해 알아봅니다."
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,19 +18,19 @@
 
 
 
-# Azure Preview 포털에서 Azure 배치 계정 만들기 및 관리
+# Azure 포털에서 Azure 배치 계정 만들기 및 관리
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-이 문서에서는 [Azure Preview 포털](https://portal.azure.com)을 사용하여 Azure 배치 계정 및 계정 키와 같은 설정을 만들고 관리하는 방법을 보여 줍니다. 모든 배치 API 요청을 인증하려면 배치 계정 URL 및 연결된 선택키가 있어야 합니다. 또한 배치 작업에 대한 모든 배치 리소스(예: 풀, 작업(job) 및 작업(task))와 특정 배치 계정을 연결해야 합니다.
+이 문서에서는 [Azure 포털](https://portal.azure.com)을 사용하여 Azure 배치 계정 및 계정 키와 같은 설정을 만들고 관리하는 방법을 보여 줍니다. 모든 배치 API 요청을 인증하려면 배치 계정 URL 및 연결된 선택키가 있어야 합니다. 또한 배치 작업에 대한 모든 배치 리소스(예: 풀, 작업(job) 및 작업(task))와 특정 배치 계정을 연결해야 합니다.
 
 >[AZURE.NOTE]현재 Preview 포털은 배치 계정 관리 및 일부 계정 리소스 보기에 대한 기능을 지원합니다. 전체 배치 기능은 개발자가 배치 API를 통해 사용할 수 있습니다.
 
 ## 배치 계정 만들기
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **새로 만들기** > **계산** > **배치 서비스**를 클릭합니다.
 
@@ -84,4 +84,4 @@
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

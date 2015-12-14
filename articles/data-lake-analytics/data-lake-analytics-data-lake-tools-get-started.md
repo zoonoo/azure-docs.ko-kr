@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # 자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발
@@ -29,19 +29,19 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 **필수 구성 요소**
 
 - **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual C++가 설치된 Visual Studio 2012** 
-- **.NET 버전 2.5 이상용 Microsoft Azure SDK**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
+- **Microsoft Azure SDK for.NET 버전 2.7 이상**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 - **[Visual Studio용 데이터 레이크 도구](http://aka.ms/adltoolsvs)** 
 
     Visual Studio용 데이터 레이크 도구를 설치하면 Visual Studio에서 데이터 레이크 메뉴를 볼 수 있습니다.
     
     ![U-SQL Visual Studio 메뉴](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
-- **[Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)의 다음 두 섹션을 살펴봅니다.**
+- **[Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)의 다음 두 섹션을 살펴봅니다.**
 
 	- [Azure 데이터 레이크 분석 계정 만들기](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
-	데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다. 따라서 Azure Preview 포털, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 해당 계정을 만들어야 합니다. 데이터 레이크 분석 작업을 실행하려면 일부 데이터가 필요합니다. 데이터 레이크 도구가 데이터 업로드를 지원하지만 이 자습서를 더 쉽게 수행하기 위해 해당 포털을 사용하여 샘플 데이터를 업로드합니다.
+	데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다. 따라서 Azure 포털, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 해당 계정을 만들어야 합니다. 데이터 레이크 분석 작업을 실행하려면 일부 데이터가 필요합니다. 데이터 레이크 도구가 데이터 업로드를 지원하지만 이 자습서를 더 쉽게 수행하기 위해 해당 포털을 사용하여 샘플 데이터를 업로드합니다.
 
 ## Azure에 연결
 
@@ -55,7 +55,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 **데이터 레이크 분석 계정 찾아보기**
 
 1. Visual Studio에서 **CTRL+ALT+S**를 눌러 **서버 탐색기**를 엽니다.
-2. **서버 탐색기**에서 **Azure**를 확장한 후 **데이터 레이크 분석**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Visual Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](knoa-get-started-powershell.md)을 참조하세요.
+2. **서버 탐색기**에서 **Azure**를 확장한 후 **데이터 레이크 분석**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Visual Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](knoa-get-started-powershell.md)을 참조하세요.
 
 ## 원본 데이터 파일 업로드
 
@@ -80,7 +80,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 4. 파일을 업로드할 폴더로 이동합니다. 
 5. 빈 공간을 마우스 오른쪽 단추를 클릭한 후 **업로드**를 클릭합니다. 
 
-## U-SQL 스크립트 개발 및 테스트 
+## U-SQL 스크립트 개발 
 
 데이터 레이크 분석 작업은 U-SQL 언어로 작성됩니다. U-SQL에 대한 자세한 내용은 [U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
 
@@ -127,7 +127,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 	- **IntelliSense**
 	 
-		이름이 자동 완성되고 행 집합, 클래스, 데이터베이스, 스키마, 사용자 정의 개채(UDO)에 대해 구성원이 표시됩니다.
+		이름이 자동 완성되고 행 집합, 클래스, 데이터베이스, 스키마, 사용자 정의 개체(UDO)에 대해 구성원이 표시됩니다.
 		 
 		카탈로그 엔터티(데이터베이스, 스키마, 테이블, UDO 등)용 IntelliSense는 사용자의 계산 계정과 관련됩니다. 상단 도구 모음에서 현재 활성 계산 계정, 데이터베이스, 스키마를 확인하고 드롭다운 목록을 통해 전환할 수 있습니다.
  
@@ -149,9 +149,9 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 	- **Azure 경로 삽입**
 		
-		Azure 파일 경로를 기억해뒀다가 스크립트를 작성할 때 수동으로 입력하는 대신, Visual Studio용 데이터 레이크 도구는 편집기를 마우스 오른쪽 단추로 클릭하고 Azure 경로 삽입을 클릭하는 손쉬운 방법을 제공합니다. Azure Blob 브라우저 대화 상자에서 파일로 이동합니다. 확인 단추를 클릭하면 파일 경로가 코드에 삽입됩니다.
+		Azure 파일 경로를 기억해뒀다가 스크립트를 작성할 때 수동으로 입력하는 대신, Visual Studio용 데이터 레이크 도구는 편집기를 마우스 오른쪽 단추로 클릭하고 Azure 경로 삽입을 클릭하는 손쉬운 방법을 제공합니다. Azure Blob 브라우저 대화 상자에서 파일로 이동합니다. **확인**을 클릭하면 파일 경로가 코드에 삽입됩니다.
 
-5. 데이터 레이크 분석 계정, 데이터베이스, 스키마 지정:
+5. 데이터 레이크 분석 계정, 데이터베이스, 스키마를 지정합니다. 테스트를 목적으로 스크립트를 로컬에서 실행하려면 **(로컬)**을 선택합니다. 자세한 내용은 [로컬에서 U-SQL 실행](#run-u-sql-locally)을 참조하세요.
 
 	![U-SQL Visual Studio 프로젝트 제출](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
@@ -202,13 +202,78 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 Visual Studio용 데이터 레이크 도구는 진행률, 데이터 I/O, 실행 시간, 각 단계의 I/O 처리량을 나타내도록 사용자가 선택할 수 있는 색 오버레이를 작업 보기에 제공합니다. 이를 통해 사용자는 잠재적인 문제와 작업 속성의 분포를 직접적이고 직관적으로 파악할 수 있습니다. 표시할 데이터 원본을 드롭다운 목록에서 선택할 수 있습니다.
 
+## 로컬에서 U-SQL 실행
+
+Visual Studio에서 U-SQL 로컬 실행 환경을 사용하면 다음과 같은 작업이 가능합니다.
+
+- C# 어셈블리와 함께 로컬에서 U-SQL 스크립트를 실행합니다. 
+- 로컬에서 C# 어셈블리를 디버그합니다. 
+- Azure 데이터 레이크 분석 서비스에서 하듯이 서버 탐색기에서 로컬 테이블과 어셈블리를 봅니다. 
+
+Visual Studio에 *로컬* 계정이 표시되고 설치 관리자가 *C:\\LocalRunRoot*에 *DataRoot* 폴더를 만듭니다. DataRoot 폴더가 사용되는 경우는 다음과 같습니다.
+
+- 테이블, DB, TVF를 비롯한 메타데이터를 저장합니다.
+- 특정 스크립트에 대해, 상대 경로가 입/출력 경로에 참조되는 경우, DataRoot 폴더(는 물론 입력인 경우 스크립트의 경로)를 찾아봅니다.
+- 어셈블리를 등록하려는 경우에는 DataRoot 폴더를 참조하지 않고 상대 경로를 사용합니다. (자세한 내용은 “로컬에서 실행하는 경우 어셈블리 사용” 부분을 참조하세요.)
+
+### 알려진 문제 및 제한 사항
+
+- U-SQL 로컬 실행은 로컬 파일 집합 쿼리를 지원하지 않습니다. [U-SQL 파일 집합](https://msdn.microsoft.com/library/azure/mt621294.aspx)을 참조하세요. 이것은 나중에 해결될 예정입니다.
+- 작업 계획이 단일 프로세스 내에서 연속적으로 실행되기 때문에, 낮은 병렬 처리로 인한 성능 저하. 
+- 로컬 실행은 Visual Studio에 작업 그래프를 표시할 수 없습니다. 이 기능은 나중에 처리될 예정입니다. 
+- 로컬 계정에 대해 서버 탐색기에서 테이블/DB 등을 만들 수 없습니다.
+- 상대 경로가 참조되는 경우:
+
+    - 스크립트 입력(EXTRACT * FROM “/path/abc”) - DataRoot 경로와 스크립트 경로를 모두 검색합니다. 
+    - 스크립트 출력(OUTPUT TO “path/abc”): DataRoot 경로가 출력 폴더로 사용됩니다. 
+    - 어셈블리 등록(CRREATE ASSEMBLY xyz FROM “/path/abc”): 스크립트 경로를 검색하지만 DataRoot 폴더는 검색하지 않습니다. 
+    - 등록된 TVF/뷰 또는 다른 메타데이터 엔터티: DataRoot 경로를 검색하지만 스크립트 경로는 검색하지 않습니다. 
+    
+    데이터 레이크 서비스에서 실행되는 스크립트의 경우, 기본 저장소 계정이 루트 폴더로 사용되며 따라서 그 폴더가 검색됩니다.
+
+### 로컬에서 U-SQL 스크립트 테스트
+U-SQL 스크립트 개발에 대한 지침은 [U-SQL 스크립트 개발](#develop-and-test-u-sql-scripts)을 참조하세요. 로컬에서 U-SQL 스크립트를 빌드하고 실행하려면 클러스터 드롭다운 목록에서 **(로컬)**을 선택한 다음 **제출**을 클릭합니다. 올바른 데이터가 참조되도록 해야 합니다. 절대 경로를 참조하거나 DataRoot 폴더 아래에 데이터를 둡니다.
+
+![로컬에서 U-SQL Visual Studio 프로젝트 제출](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
+
+스크립트를 마우스 오른쪽 단추로 클릭한 다음 상황에 맞는 메뉴에서 **Run Local Plan**(로컬 계획 실행)을 클릭하거나 **CTRL+F5** 키를 눌러서 로컬 실행을 트리거합니다.
+
+### 로컬 실행에 어셈블리 사용
+
+사용자 지정 C# 파일을 실행하는 방법은 두 가지입니다.
+
+- 코드 숨김 파일에 어셈블리를 작성하면 어셈블리가 자동으로 등록되고 스크립트가 완료된 후에 삭제됩니다. 
+- C# 어셈블리 프로젝트를 만들고 아래와 같은 스크립트를 통해 로컬 계정에 출력 dll을 등록합니다. 경로는 DataRoot 폴더가 아니고 스크립트에 대한 상대 경로입니다.
+
+![U-SQL 로컬 실행에 어셈블리 사용](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
+ 
+### 로컬에서 스크립트 및 C# 어셈블리 디버그
+
+Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 등록하지 않아도 C# 어셈블리를 디버그할 수 있습니다. 코드 숨김 파일 및 참조된 C# 프로젝트 양쪽 모두에 중단점을 설정할 수 있습니다.
+
+**코드 숨김 파일의 로컬 코드를 디버그하려면** 1. 코드 숨김 파일에 중단점을 설정합니다. 2. **F5** 키를 눌러서 스크립트를 로컬에서 디버그합니다.
+
+다음 프로시저는 Visual Studio 2015에만 해당됩니다. 이전 버전의 Visual Studio에서는 pdb 파일을 수동으로 추가해야 합니다.
+
+**참조된 C# 프로젝트의 로컬 코드를 디버그하려면** 1. C# 어셈블리 프로젝트를 만들고 빌드하여 출력 dll을 생성합니다. 2. U-SQL 문을 사용하여 dll을 등록합니다.
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+3.	C# 코드에 중단점을 설정합니다.
+4.	**F5** 키를 눌러서 C# dll을 로컬에서 참조하는 스크립트를 디버그합니다.  
+ 
+
+
+
+
+
+
 
 
 ##참고 항목
 
 다른 도구를 사용하여 데이터 레이크 분석을 시작하려면 다음을 참조하십시오.
 
-- [Azure Preview 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+- [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
 - [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
 - [.NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
 
@@ -219,4 +284,4 @@ Visual Studio용 데이터 레이크 도구는 진행률, 데이터 I/O, 실행 
 - [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
 - [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

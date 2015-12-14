@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 시작 | Azure" 
-   description="Azure Preview 포털을 사용하여 데이터 레이크 분석 계정을 만들고, U-SQL을 사용하여 데이터 레이크 분석 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다." 
+   pageTitle="Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작 | Azure" 
+   description="Azure 포털을 사용하여 데이터 레이크 분석 계정을 만들고, U-SQL을 사용하여 데이터 레이크 분석 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다." 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,11 +16,11 @@
    ms.date="10/22/2015"
    ms.author="jgao"/>
 
-# 자습서: Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 시작
+# 자습서: Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 데이터 레이크 분석 작업을 정의하고, 작업을 데이터 레이크 분석 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
+Azure 포털을 사용하여 Azure 데이터 레이크 분석 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 데이터 레이크 분석 작업을 정의하고, 작업을 데이터 레이크 분석 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
 이 자습서에서는 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환하는 작업을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요. 첫 번째 작업이 완료되면 U-SQL로 더 복잡한 데이터 변환 작성을 시작할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 계정을 
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ##데이터 레이크 분석 계정 만들기
 
@@ -47,7 +47,7 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 계정을 
 
 **데이터 레이크 분석 계정을 만들려면**
 
-1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. 새로운 [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기**, **데이터 + 분석** 및 **데이터 레이크 분석**을 차례로 클릭합니다.
 6. 다음 값을 입력하거나 선택합니다.
 
@@ -70,11 +70,11 @@ Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 계정을 
 
 이 자습서에서는 몇 가지 검색 로그를 처리합니다. 검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다.
 
-Azure Preview 포털은 검색 로그 파일을 포함하는 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다.
+Azure 포털은 검색 로그 파일을 포함하는 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다.
 
 **샘플 데이터 파일 복사하기**
 
-1. Azure Preview 포털의 왼쪽 위 모서리에서 **Microsoft Azure**를 클릭합니다.
+1. Azure 포털의 왼쪽 위 모서리에서 **Microsoft Azure**를 클릭합니다.
 2. 데이터 레이크 분석 계정 이름을 가진 타일을 클릭합니다. 계정을 만들었을 때 여기에 고정되었습니다. 계정이 여기에 고정되어 있지 않은 경우 [포털에서 데이터 레이크 분석 계정 열기](data-lake-analytics-manage-use-portal.md#access-adla-account)를 참조하여 계정을 엽니다.
 3. **Essentials** 창을 확장하고 **샘플 작업 탐색**을 클릭합니다. **샘플 작업**이라는 또 다른 블레이드가 열립니다.
 4. **샘플 데이터 복사**를 클릭하고 **확인**을 클릭합니다.
@@ -158,8 +158,8 @@ Azure Preview 포털은 검색 로그 파일을 포함하는 기본 데이터 �
 - 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 - U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 - U-SQL을 알아보려면 [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
-- 관리 작업을 보려면 [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
+- 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 - 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

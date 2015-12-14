@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="mahender"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -36,7 +41,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * XCode 4.5 및 iOS 6.0(또는 이후 버전)
-* [모바일 서비스 시작] 자습서를 완료합니다.
+* [모바일 서비스 시작] 자습서 완료
 * Microsoft Azure 모바일 서비스 SDK
 * [iOS용 Active Directory 인증 라이브러리]
 
@@ -90,7 +95,7 @@
         }
 
 
-6. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/tenant-name.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 관리 포털]에서 Azure Active Directory의 도메인 탭에서 복사할 수 있습니다.
+6. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/tenant-name.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
 
 7. 위의 `loginAndGetData` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 서비스의 **앱 ID URI**로 바꿉니다. [Azure Active Directory에 등록하는 방법] 항목을 따르면 앱 ID URI가 https://todolist.azure-mobile.net/login/aad와(과) 유사합니다.
 
@@ -106,7 +111,7 @@
 ##인증을 사용하여 클라이언트 테스트
 
 1. 제품 메뉴에서 실행을 클릭하여 앱을 시작합니다.
-2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.  
+2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.
 3. 앱이 인증하며 todo 항목을 반환합니다.
 
    ![](./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png)
@@ -116,7 +121,7 @@
 <!-- URLs. -->
 [모바일 서비스 시작]: mobile-services-dotnet-backend-ios-get-started.md
 [Azure Active Directory에 등록하는 방법]: mobile-services-how-to-register-active-directory-authentication.md
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

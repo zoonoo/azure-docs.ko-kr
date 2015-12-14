@@ -94,7 +94,7 @@ SAS 토큰의 [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servi
 
 ## 네임스페이스에 대한 공유 액세스 권한 부여 규칙 액세스
 
-서비스 버스 네임스페이스 루트에 대한 작업은 인증서 인증이 필요합니다. Azure 구독에 대한 관리 인증서를 업로드해야 합니다. 관리 인증서를 업로드하려면 Azure 포털의 왼쪽 창에서 **설정**을 클릭합니다. Azure 관리 인증서에 대한 자세한 내용은 [Azure용 관리 인증서 만들기](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 참조하십시오.
+서비스 버스 네임스페이스 루트에 대한 작업은 인증서 인증이 필요합니다. Azure 구독에 대한 관리 인증서를 업로드해야 합니다. 관리 인증서를 업로드하려면 [Azure 클래식 포털][]의 왼쪽 창에서 **설정**을 클릭합니다. Azure 관리 인증서에 대한 자세한 내용은 [Azure용 관리 인증서 만들기](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 참조하십시오.
 
 서비스 버스 네임스페이스에 대한 공유 액세스 권한 부여 규칙에 액세스하기 위한 끝점은 다음과 같습니다.
 
@@ -143,7 +143,7 @@ https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespa
 
 ## 엔터티에 대한 공유 액세스 권한 부여 규칙 액세스
 
-해당 [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx), 또는 [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) 개체에서 [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) 컬렉션을 통해 서비스 버스 큐 또는 항목에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) 개체에 액세스할 수 있습니다.
+해당 [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) 또는 [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) 개체에서 [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) 컬렉션을 통해 서비스 버스 큐 또는 항목에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) 개체에 액세스할 수 있습니다.
 
 다음 코드는 큐에 대한 권한 부여 규칙을 추가하는 방법을 보여줍니다.
 
@@ -195,7 +195,7 @@ sendClient.Send(helloMessage);
 
 또한 응용 프로그램은 연결 문자열을 수락하는 메서드에 SAS 연결 문자열을 사용하여 인증에 SAS을 사용합니다.
 
-서비스 버스 릴레이로 SAS 권한 부여를 사용하면 서비스 버스 네임 스페이스에 구성된 SAS 키를 사용할 수 있습니다. 네임스페이스([NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 와 [RelayDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.relaydescription.aspx)) 개체에 명시적으로 릴레이를 만들면를 해당 릴레이 대한 SAS 규칙을 설정할 수 있습니다. 서비스 버스 구독으로 SAS 권한 부여를 사용하려면 서비스 버스 네임 스페이스 또는 항목에 구성된 SAS 키를 사용할 수 있습니다.
+서비스 버스 릴레이로 SAS 권한 부여를 사용하면 서비스 버스 네임 스페이스에 구성된 SAS 키를 사용할 수 있습니다. 네임스페이스([NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx)와 [RelayDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.relaydescription.aspx)) 개체에 명시적으로 릴레이를 만들면 해당 릴레이 대한 SAS 규칙을 설정할 수 있습니다. 서비스 버스 구독으로 SAS 권한 부여를 사용하려면 서비스 버스 네임 스페이스 또는 항목에 구성된 SAS 키를 사용할 수 있습니다.
 
 ## 서비스 버스 작업에 필요한 권한
 
@@ -256,4 +256,6 @@ sendClient.Send(helloMessage);
 
 서비스 버스 인증에 대한 자세한 백그라운드는 [서비스 버스 인증 및 권한 부여](service-bus-authentication-and-authorization.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+[Azure 클래식 포털]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

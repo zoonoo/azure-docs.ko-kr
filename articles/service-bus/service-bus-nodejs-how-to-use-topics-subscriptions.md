@@ -69,7 +69,7 @@ Azure 모듈은 AZURE\_SERVICEBUS\_NAMESPACE 및 AZURE\_SERVICEBUS\_ACCESS\_KEY 
 
 Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 클라우드 서비스 및 저장소][]를 참조하십시오.
 
-Azure 웹 사이트의 Azure 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소][]를 참조하세요.
+Azure 웹 사이트의 [Azure 클래식 포털][]에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소][]를 참조하세요.
 
 ## 토픽 만들기
 
@@ -113,7 +113,7 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 function handle (requestOptions, next)
 ```
 
-요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 `next`을(를) 호출합니다.
+요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 `next`를 호출합니다.
 
 ```
 function (returnObject, finalCallback, next)
@@ -292,7 +292,7 @@ for (i = 0;i < 5;i++) {
 
 ## 토픽 및 구독 삭제
 
-토픽과 구독은 영구적이므로, Azure 포털 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제는 `MyTopic` 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적이므로, [Azure 클래식 포털][] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제는 `MyTopic` 토픽을 삭제하는 방법을 보여 줍니다.
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -317,7 +317,7 @@ for (i = 0;i < 5;i++) {
 -   GitHub에서 [Azure SDK for Node][] 리포지토리를 방문하십시오.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [Node.js 웹 응용 프로그램 및 저장소]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

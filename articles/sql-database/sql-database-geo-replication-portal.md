@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Azure Preview 포털로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성 | Microsoft Azure" 
-    description="Azure Preview 포털을 사용하여 Azure SQL 데이터베이스에 대한 지역에서 복제 구성" 
+    pageTitle="Azure 포털로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성 | Microsoft Azure" 
+    description="Azure 포털을 사용하여 Azure SQL 데이터베이스에 대한 지역에서 복제 구성" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,19 +13,19 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="11/10/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
-# Azure Preview 포털로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
+# Azure 포털로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-geo-replication-portal.md)
+- [Azure portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-이 문서에서는 [Azure Preview 포털](https://portal.azure.com)을 사용하여 SQL 데이터베이스에 대한 지역에서 복제를 구성하는 방법을 보여 줍니다.
+이 문서에서는 [Azure 포털](https://portal.azure.com)을 사용하여 SQL 데이터베이스에 대한 지역에서 복제를 구성하는 방법을 보여 줍니다.
 
 지역에서 복제를 사용하면 서로 다른 데이터 센터 위치(지역)에 최대 4개의 복제본(보조) 데이터베이스를 생성할 수 있습니다. 보조 데이터베이스를 데이터 센터 정전 또는 주 데이터베이스에 연결하지 못하는 경우 사용할 수 있습니다.
 
@@ -56,7 +56,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ### 보조 추가
 
-1. [Azure Preview 포털](https://portal.azure.com)에서 지역에서 복제를 위해 설치하려는 데이터베이스를 찾습니다.
+1. [Azure 포털](https://portal.azure.com)에서 지역에서 복제를 위해 설치하려는 데이터베이스를 찾습니다.
 2. SQL 데이터베이스 블레이드에서 **모든 설정** > **지역에서 복제**를 선택합니다.
 3. 보조 데이터베이스를 만들 지역을 선택합니다. Premium 데이터베이스는 보조로 어떤 지역이든 사용할 수 있지만 Standard 데이터베이스는 권장되는 지역을 사용해야 합니다.
 
@@ -89,7 +89,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 이 작업은 보조 데이터베이스에 대한 복제를 영구적으로 종료하고 보조의 역할을 일반적인 읽기-쓰기 데이터베이스로 변경합니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후에야 보조는 읽기-쓰기가 됩니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
+1. [Azure 포털](https://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
 2. SQL 데이터베이스 블레이드에서 **모든 설정** > **지역에서 복제**를 선택합니다.
 3. **보조** 목록에서 지역에서 복제 파트너 관계에서 제거할 데이터베이스를 선택합니다.
 4. **복제 중지**를 클릭합니다.
@@ -108,7 +108,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 보조 데이터베이스가 주 데이터베이스가 되도록 전환할 수 있습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
+1. [Azure 포털](https://portal.azure.com)에서 지역에서 복제 파트너 관계에 있는 주 데이터베이스를 찾습니다.
 2. SQL 데이터베이스 블레이드에서 **모든 설정** > **지역에서 복제**를 선택합니다.
 3. **보조** 목록에서 새로운 주 데이터베이스가 될 데이터베이스를 선택합니다.
 4. **장애 조치(Failover)**를 클릭합니다.
@@ -151,4 +151,4 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

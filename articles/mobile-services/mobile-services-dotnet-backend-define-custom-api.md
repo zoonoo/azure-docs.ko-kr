@@ -19,6 +19,11 @@
 
 # 방법: .NET 백 엔드 모바일 서비스에서 사용자 지정 API 끝점 정의
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
 - [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
@@ -36,4 +41,4 @@
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

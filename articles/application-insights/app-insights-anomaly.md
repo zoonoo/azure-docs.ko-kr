@@ -128,4 +128,4 @@ Application Insights는 심층 분석 앱 원격 분석을 수행하고 잠재�
 * [검색 탐색기](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

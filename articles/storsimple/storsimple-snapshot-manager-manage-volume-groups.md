@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리
@@ -52,9 +52,9 @@
 이름 | **이름** 열에는 볼륨 그룹의 이름이 포함됩니다.
 응용 프로그램 | **응용 프로그램** 열은 Windows 호스트에 현재 설치되어 실행 중인 VSS 기록기의 수를 표시합니다.
 선택 | **선택** 열은 볼륨 그룹에 포함된 볼륨의 수를 표시합니다. 0이면 볼륨 그룹의 볼륨에 연결된 응용 프로그램이 없음을 나타냅니다.
-가져옴 | **가져옴** 열은 가져온 볼륨의 수를 표시합니다. 이 열이 **True**로 설정되면 볼륨 그룹을 Microsoft Azure 관리 포털에서 가져왔으며 StorSimple 스냅숏 관리자에서 만들지 않았음을 나타냅니다.
+가져옴 | **가져옴** 열은 가져온 볼륨의 수를 표시합니다. 이 열이 **True**로 설정되면 볼륨 그룹을 Azure 클래식 포털에서 가져왔으며 StorSimple 스냅숏 관리자에서 만들지 않았음을 나타냅니다.
  
->[AZURE.NOTE]StorSimple 스냅숏 관리자 볼륨 그룹은 Azure 관리 포털의 **백업 정책** 탭에도 표시됩니다.
+>[AZURE.NOTE]StorSimple 스냅숏 관리자 볼륨 그룹은 Azure 클래식 포털의 **백업 정책** 탭에도 표시됩니다.
  
 ## 볼륨 그룹 만들기
 
@@ -147,4 +147,4 @@
 - [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 - [StorSimple 스냅숏 관리자를 사용하여 백업 정책을 만들고 관리](storsimple-snapshot-manager-manage-backup-policies.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

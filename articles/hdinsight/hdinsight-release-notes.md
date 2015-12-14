@@ -14,11 +14,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/01/2015"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2015/11/30 릴리스 정보
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight(Windows) 2.1.10.757.1923908(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight(Windows) 3.0.6.757.1923908(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight(Windows) 3.1.4.757.1923908(HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight(Windows) 3.2.7.757.1923908(HDP 2.2.7.1-34)
+* HDInsight(Linux) 3.2.1000.0.6392801(HDP 2.2.7.1-34)
+* SDK 1.5.8
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 모든 HDInsight 클러스터의 업데이트된 HDInsight 버전 및 HDInsight 3.2 클러스터의 HDP 버전(Windows 및 Linux) | 이 릴리스에서 HDInsight 및 HDP 버전이 업데이트됨 | 서비스 | 모두| 해당 없음
+
 
 ## HDInsight 10/20/2015 릴리스 정보
 
@@ -36,8 +54,8 @@
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | 기본 HDP 버전 HDP 2.2로 변경됨 | HDInsight Windows 클러스터의 기본 버전이 HDP 2.2로 변경됩니다. HDInsight 버전 3.2(HDP 2.2)는 2015년 2월 이후 일반에서 사용할 수 있습니다. 이 변경에서는 Azure 포털, PowerShell cmdlet 또는 SDK를 사용하여 프로비전하는 동안 명시적 선택이 없을 때 기본 클러스터 버전만 앞으로 이동합니다. | 부여 | 모두| 해당 없음 |
-|단일 가상 네트워크의 Linux 클러스터에서 여러 HDInsight 배포를 위한 VM 이름 형식 변경 | 단일 가상 네트워크에서의 여러 HDInsight Linux 클러스터 배포에 대한 지원이 이 릴리스에 추가되었습니다. 이러한 지원의 일환으로, 클러스터의 가상 컴퓨터 이름 형식이 headnode*, workernode* 및 zookeepernode*에서 각각 hn*, wn*, 및 zk*로 변경되었습니다. 이 내용은 변경될 수 있으므로 가상 컴퓨터 이름의 형식에 직접적인 종속성을 만들지 않는 것이 좋습니다. 로컬 컴퓨터나 Ambari API에서 "hostname -f"를 사용하여 호스트 목록과 호스팅 대상 구성 요소의 매핑을 판단합니다. 자세한 정보는[https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 및 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md)에서 제공합니다. | 부여 | Linux 기반 HDInsight 클러스터 | 해당 없음 |
-| 구성 변경 내용 | HDInsight 3.1 클러스터의 경우 이제 <ul><li>tez.yarn.ats.enabled 및yarn.log.server.url 구성을 사용할 수 있습니다. 이렇게 하면 응용 프로그램 타임라인 서버 및 로그 서버가 아웃 로그를 서비스할 수 있습니다.</li></ul>HDInsight 3.2 클러스터의 경우 <ul><li>mapreduce.fileoutputcommitter.algorithm.version 구성이 2로 설정되었습니다. 이를 통해 FileOutputCommitter의 V2 버전을 사용할 수 있게 됩니다.</li></ul> | 부여 | 모두 | 해당 없음 |
+|단일 가상 네트워크의 Linux 클러스터에서 여러 HDInsight 배포를 위한 VM 이름 형식 변경 | 단일 가상 네트워크에서의 여러 HDInsight Linux 클러스터 배포에 대한 지원이 이 릴리스에 추가되었습니다. 이러한 지원의 일환으로, 클러스터의 가상 컴퓨터 이름 형식이 headnode*, workernode* 및 zookeepernode*에서 각각 hn*, wn*, 및 zk*로 변경되었습니다. 이 내용은 변경될 수 있으므로 가상 컴퓨터 이름의 형식에 직접적인 종속성을 만들지 않는 것이 좋습니다. 로컬 컴퓨터나 Ambari API에서 "hostname -f"를 사용하여 호스트 목록과 호스팅 대상 구성 요소의 매핑을 판단합니다. 자세한 내용은[https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 및 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md)에서 제공합니다. | 부여 | Linux 기반 HDInsight 클러스터 | 해당 없음 |
+| 구성 변경 내용 | HDInsight 3.1 클러스터의 경우 이제 <ul><li>tez.yarn.ats.enabled 및yarn.log.server.url 구성을 사용할 수 있습니다. 이렇게 하면 응용 프로그램 타임라인 서버 및 로그 서버가 로그를 채울 수 있습니다.</li></ul>HDInsight 3.2 클러스터의 경우 <ul><li>mapreduce.fileoutputcommitter.algorithm.version 구성이 2로 설정되었습니다. 이를 통해 FileOutputCommitter의 V2 버전을 사용할 수 있게 됩니다.</li></ul> | 부여 | 모두 | 해당 없음 |
 
 
 ## HDInsight의 2015/09/09 릴리스 정보
@@ -633,7 +651,7 @@
 
 <tr>
 <td>HDInsight 3.2 클러스터</td>
-<td>Hadoop 2.6/HDP2.2는 HDInsight 3.2 클러스터에서 사용할 수 있습니다. 여기에는 모든 오픈 소스 구성 요소에 대한 주요 업데이트가 포함되어 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">HDInsight의 새로운 기능</a> 및 <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 릴리스 정보</a>를 참조하세요.</td>
+<td>Hadoop 2.6/HDP2.2는 HDInsight 3.2 클러스터에서 사용할 수 있습니다. 여기에는 모든 오픈 소스 구성 요소에 대한 주요 업데이트가 포함되어 있습니다. 자세한 내용은 HDInsight의 새로운 기능 및 <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 릴리스 정보</a>를 참조하세요.</td>
 <td>오픈 소스 소프트웨어</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -641,16 +659,16 @@
 
 <tr>
 <td>Linux의 HDInsight(미리 보기)</td>
-<td>Ubuntu Linux에서 실행되는 클러스터를 배포할 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-get-started/" target ="_blank">Linux에서 HDInsight 시작</a>을 참조하세요.</td>
-<td>부여</td>
+<td>Ubuntu Linux에서 실행되는 클러스터를 배포할 수 있습니다. 자세한 내용은 Linux에서 HDInsight 시작을 참조하세요.</td>
+<td>서비스</td>
 <td>Hadoop은</td>
 <td>해당 없음</td>
 </tr>
 
 <tr>
 <td>Storm 일반 공급</td>
-<td>Apache Storm 클러스터가 일반 공급됩니다. 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/" target="_blank">Linux에서 Storm 사용 시작</a>을 참조하세요.</td>
-<td>부여</td>
+<td>Apache Storm 클러스터가 일반 공급됩니다. 자세한 내용은 HDInsight에서 Storm 사용 시작을 참조하세요.</td>
+<td>서비스</td>
 <td>Storm</td>
 <td>해당 없음</td>
 </tr>
@@ -665,15 +683,15 @@
 
 <tr>
 <td>클러스터 크기 조정</td>
-<td>HDInsight 클러스터를 삭제하거나 다시 만들지 않고도 실행 중인 HDInsight 클러스터의 노드 수를 변경할 수 있습니다. 현재는 Hadoop 쿼리 및 Apache Storm 클러스터에만 이 기능이 있지만 Apache HBase 클러스터 유형에도 곧 이 기능이 제공될 예정입니다. 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-cluster-scaling/" target="_blank">HDInsight에서 클러스터 크기 조정</a>을 참조하세요.</td>
-<td>부여</td>
+<td>HDInsight 클러스터를 삭제하거나 다시 만들지 않고도 실행 중인 HDInsight 클러스터의 노드 수를 변경할 수 있습니다. 현재는 Hadoop 쿼리 및 Apache Storm 클러스터에만 이 기능이 있지만 Apache HBase 클러스터 유형에도 곧 이 기능이 제공될 예정입니다. 자세한 내용은 Ambari를 사용하여 HDInsight 관리를 참조하세요.</td>
+<td>서비스</td>
 <td>Hadoop, Storm</td>
 <td>해당 없음</td>
 </tr>
 
 <tr>
 <td>Visual Studio 도구</td>
-<td>Apache Storm용 전체 도구 외에 Visual Studio의 Apache Hive용 도구도 문 완성, 로컬 유효성 검사 및 향상된 디버깅 지원을 포함하도록 업데이트되었습니다. 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Visual Studio용 HDInsight Hadoop 도구 시작</a>을 참조하세요.</td>
+<td>Apache Storm용 전체 도구 외에 Visual Studio의 Apache Hive용 도구도 문 완성, 로컬 유효성 검사 및 향상된 디버깅 지원을 포함하도록 업데이트되었습니다. 자세한 내용은 Visual Studio용 HDInsight Hadoop 도구 시작을 참조하세요.</td>
 <td>도구</td>
 <td>Hadoop은</td>
 <td>해당 없음</td>
@@ -681,8 +699,8 @@
 
 <tr>
 <td>DocumentDB용 Hadoop 커넥터</td>
-<td>DocumentDB용 Hadoop 커넥터를 사용하면 여러 DocumentDB 컬렉션 또는 데이터베이스 계정에 걸쳐 저장된 스키마 없는 JSON 문서에 대해 복잡한 집계, 분석 및 조작을 수행할 수 있습니다. 자세한 내용 및 자습서는 <a href="http://azure.microsoft.com/documentation/articles/documentdb-run-hadoop-with-hdinsight/" target="_blank">DocumentDB 및 HDInsight를 사용하여 Hadoop 작업 실행</a>을 참조하세요.</td>
-<td>부여</td>
+<td>DocumentDB용 Hadoop 커넥터를 사용하면 여러 DocumentDB 컬렉션 또는 데이터베이스 계정에 걸쳐 저장된 스키마 없는 JSON 문서에 대해 복잡한 집계, 분석 및 조작을 수행할 수 있습니다. 자세한 내용 및 자습서는 DocumentDB 및 HDInsight를 사용하여 Hadoop 작업 실행을 참조하세요.</td>
+<td>서비스</td>
 <td>Hadoop은</td>
 <td>해당 없음</td>
 </tr>
@@ -880,8 +898,8 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </tr>
 
 <tr>
-<td><a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">클러스터 사용자 지정 일반 공급</a></td>
-<td><p>사용자 지정 시 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트로 Azure HDInsight 클러스터를 사용자 지정할 수 있습니다. 이 새로운 기능을 사용하여 Hadoop 프로젝트를 실험하고 Azure HDInsight에 배포할 수도 있습니다. 이 기능은 사용자 지정 스크립트를 사용하여 Hadoop 클러스터를 임의의 방식으로 수정할 수 있는 **스크립트 작업** 기능을 통해 사용할 수 있게 됩니다. 이 사용자 지정 방식은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다. 이 기능을 보여 주기 위해 많이 사용하는 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>, <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a> 및 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> 모듈을 설치하는 프로세스를 문서화했습니다. 이 릴리스에서는 고객이 Azure 포털을 통해 사용자 지정 스크립트 작업을 지정할 수 있는 기능도 추가되며 도우미 메서드를 사용하여 사용자 지정 스크립트 작업을 작성하는 방법에 대한 지침 및 모범 사례를 제공하고 스크립트 작업을 테스트하는 방법에 대한 지침도 제공합니다. </p></td>
+<td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">클러스터 사용자 지정 일반 공급</a></td>
+<td><p>사용자 지정 시 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트로 Azure HDInsight 클러스터를 사용자 지정할 수 있습니다. 이 새로운 기능을 사용하여 Hadoop 프로젝트를 실험하고 Azure HDInsight에 배포할 수도 있습니다. 이 기능은 사용자 지정 스크립트를 사용하여 Hadoop 클러스터를 임의의 방식으로 수정할 수 있는 **스크립트 작업** 기능을 통해 사용할 수 있게 됩니다. 이 사용자 지정 방식은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다. 이 기능을 보여 주기 위해 많이 사용하는 <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>, <a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>, <a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a> 및 <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> 모듈을 설치하는 프로세스를 문서화했습니다. 이 릴리스에서는 고객이 Azure 포털을 통해 사용자 지정 스크립트 작업을 지정할 수 있는 기능도 추가되며 도우미 메서드를 사용하여 사용자 지정 스크립트 작업을 작성하는 방법에 대한 지침 및 모범 사례를 제공하고 스크립트 작업을 테스트하는 방법에 대한 지침도 제공합니다. </p></td>
 <td>기능 일반 공급</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -1117,7 +1135,7 @@ HDInsight에서 사용하는 Hortonworks Data Platform에서 YARN 및 MapReduce�
 
 Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*"
 
-* 이 오류는 HDInsight SDK 또는 Azure PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 HDInsight SDK 또는 Azure PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(**Use-AzureHDInsightCluster** 또는 **Invoke-Hive**)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 "*클러스터 <clustername>이 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
+* 이 오류는 HDInsight SDK 또는 Azure PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 HDInsight SDK 또는 Azure PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(**Use-AzureRmHDInsightCluster** 또는 **Invoke-AzureRmHDInsightHiveJob**)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 "*클러스터 <clustername>이 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
 
 * HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure/)에서 얻을 수 있습니다.
 
@@ -1149,7 +1167,7 @@ Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서�
 
 ## 2014/8/15 이전에 만든 클러스터에 대한 참고 사항
 
-Azure PowerShell 또는 HDInsight SDK와 클러스터 간의 버전 차이로 인해 Azure PowerShell 또는 HDInsight SDK 오류 메시지 "<clustername> 클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다." 또는 작업에 따라 "클러스터에 연결할 수 없습니다."와 같은 기타 오류 메시지가 발생할 수 있습니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 Azure PowerShell 또는 HDInsight SDK에서는 이 기능이 올바르게 해석되지 않아 작업을 제출하는 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(예: Use-AzureHDInsightCluster 또는 Invoke-AzureHDInsightHiveJob)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 위에서 설명한 오류 메시지 중 하나가 표시될 수 있습니다.
+Azure PowerShell 또는 HDInsight SDK와 클러스터 간의 버전 차이로 인해 Azure PowerShell 또는 HDInsight SDK 오류 메시지 "<clustername> 클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다." 또는 작업에 따라 "클러스터에 연결할 수 없습니다."와 같은 기타 오류 메시지가 발생할 수 있습니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 Azure PowerShell 또는 HDInsight SDK에서는 이 기능이 올바르게 해석되지 않아 작업을 제출하는 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(예: Use-AzureRmHDInsightCluster 또는 Invoke-AzureRmHDInsightHiveJob)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 위에서 설명한 오류 메시지 중 하나가 표시될 수 있습니다.
 
 HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet][nuget-link]에서 액세스할 수 있고, Azure PowerShell 도구는 [Microsoft 웹 플랫폼 설치 관리자][webpi-link]를 사용하여 액세스할 수 있습니다.
 
@@ -1160,7 +1178,7 @@ HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성
 	* 동아시아
 	* 미국 중북부
 	* 미국 중남부
-* HDInsight 버전 1.6(HDP 1.1 및 Hadoop 1.0.3) 및 HDInsight 버전 2.1(HDP 1.3 및 Hadoop 1.2)이 Azure 포털에서 제거됩니다. Azure PowerShell cmdlet([New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) 또는 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](../hdinsight-component-versioning/) 페이지를 참조하세요.
+* HDInsight 버전 1.6(HDP 1.1 및 Hadoop 1.0.3) 및 HDInsight 버전 2.1(HDP 1.3 및 Hadoop 1.2)이 Azure 포털에서 제거됩니다. Azure PowerShell cmdlet([New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) 또는 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](../hdinsight-component-versioning/) 페이지를 참조하세요.
 * 이 릴리스의 HDP(Hortonworks Data Platform) 변경 내용:
 
 <table border="1"> <tr><th>HDP</th><th>Changes</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>변경 내용 없음</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>변경 내용 없음</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
@@ -1366,4 +1384,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

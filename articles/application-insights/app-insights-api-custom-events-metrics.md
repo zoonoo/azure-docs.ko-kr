@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -104,22 +104,26 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 
     telemetry.trackEvent("WinGame");
 
-여기서 "WinGame"은 Application Insights 포털에 표시되는 이름입니다. 개요 블레이드에서 사용자 지정 이벤트 타일을 클릭합니다.
+여기서 "WinGame"은 Application Insights 포털에 표시되는 이름입니다.
 
-![Portal.azure.com에서 응용 프로그램 리소스를 찾습니다.](./media/app-insights-api-custom-events-metrics/01-custom.png)
+이벤트의 수를 보려면 [메트릭 탐색기](app-insights-metrics-explorer.md) 블레이드를 열고 새 차트를 추가한 다음 이벤트를 선택합니다.
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+여러 이벤트의 수를 비교하려면 차트 유형을 그리드로 설정하고 이벤트 이름으로 그룹화합니다.
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-가장 중요한 이벤트의 상대적인 기여도를 확인할 수 있도록 차트가 이벤트 이름별로 그룹화됩니다. 이를 제어하려면 차트를 선택하고 그룹화 컨트롤을 사용합니다.
-
-![차트를 선택하고 그룹화를 선택합니다.](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-차트 아래에 있는 목록에서 이벤트 이름을 선택합니다. 클릭하여 개별 이벤트 항목을 살펴봅니다.
+그리드에서 이벤트 이름을 클릭하여.해당 이벤트의 개별 항목을 살펴봅니다.
 
 ![이벤트를 드릴스루합니다.](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 원하는 항목을 클릭하여 자세히 살펴볼 수 있습니다.
 
+검색 또는 메트릭 탐색기에서 특정 이벤트를 자세히 살펴보려면 관심 있는 이벤트 이름으로 블레이드 필터를 설정합니다.
 
+![필터를 열고 이벤트 이름을 확장한 다음 하나 이상의 값을 선택합니다.](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## 메트릭 추적
 
@@ -539,9 +543,9 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
     
 개별 원격 분석 호출이 자신의 속성 사전에 있는 기본값을 재정의할 수 있습니다.
 
-**JavaScript 웹 클라이언트의 경우**, [JavaScript 원격 분석 이니셜라이저를 사용합니다](#js-initializer).
+**JavaScript 웹 클라이언트의 경우** [JavaScript 원격 분석 이니셜라이저를 사용합니다](#js-initializer).
 
-표준 컬렉션 모듈에서의 데이터를 포함하여 **속성을 모든 원격 분석에 추가하려면**, [원격 분석 이니셜라이저를 만듭니다](app-insights-api-filtering-sampling.md#add-properties).
+표준 컬렉션 모듈에서의 데이터를 포함하여 **속성을 모든 원격 분석에 추가하려면** [원격 분석 이니셜라이저를 만듭니다](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## 원격 분석 샘플링, 필터링 및 처리 
@@ -557,7 +561,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 ## 원격 분석 사용 안 함
 
-원격 분석의 컬렉션 및 전송을 **동적으로 중지 및 시작**:
+원격 분석의 컬렉션 및 전송을 **동적으로 중지 및 시작하려면**:
 
 *C#*
 
@@ -568,7 +572,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-**선택한 표준 수집기를 해제**하려면(예: 성능 카운터, HTTP 요청 또는 종속성), [ApplicationInsights.config][config]에서 관련 줄을 삭제하거나 주석 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+**선택한 표준 수집기를 해제**하려면(예: 성능 카운터, HTTP 요청 또는 종속성) [ApplicationInsights.config][config]에서 관련 줄을 삭제하거나 주석 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
 ## <a name="debug"></a>개발자 모드
 
@@ -654,16 +658,24 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 ## 제한
 
-응용프로그램당 허용되는 메트릭 및 이벤트 수가 제한되어 있습니다.
+응용 프로그램별(즉, 계측 키별) 메트릭 및 이벤트의 수에 몇 가지 제한이 있습니다.
 
-1. 계측 키마다 초당(즉, 응용 프로그램별로) 최대 500개의 원격 분석 데이터 요소가 허용됩니다. 여기에는 SDK 모듈 및 사용자 지정 이벤트에서 보낸 표준 원격 분석과 코드에서 보낸 메트릭 및 기타 원격 분석이 모두 포함됩니다.
+1. 각 계측 키에 별도로 적용되는 초당 최대 속도입니다. 제한을 초과하면 일부 데이터가 삭제됩니다.
+ * TrackTrace 호출 및 캡처된 로그 데이터의 경우 초당 최대 500개 데이터 요소입니다. (무료 가격 책정 계층의 경우 초당 100개)
+ * 모듈 또는 TrackException 호출에 의해 캡처된 예외의 경우 초당 최대 50개 데이터 요소입니다. 
+ * SDK 모듈 및 사용자 지정 이벤트에서 보낸 표준 원격 분석과 코드에서 보낸 메트릭 및 기타 원격 분석을 비롯하여 다른 모든 데이터의 경우 초당 최대 500개 데이터 요소입니다. (무료 가격 책정 계층의 경우 초당 100개)
+1. 월별 총 데이터 볼륨은 [가격 책정 계층](app-insights-pricing.md)에 따라 다릅니다.
 1.	응용 프로그램에는 최대 200개의 고유한 메트릭 이름과 200개의 고유한 속성 이름이 허용됩니다. 메트릭은 TrackMetric을 통해 전송된 데이터와 이벤트 같은 기타 데이터 유형의 측정을 포함합니다. 메트릭 및 속성 이름의 범위는 데이터 유형으로 한정되지 않고 계측 키마다 전역적입니다.
 2.	속성은 필터링 및 그룹화에만 사용할 수 있으며 각 속성에 허용되는 고유한 값은 100개 미만입니다. 고유한 값이 100개를 초과할 경우 해당 속성을 검색 및 필터링에는 계속 사용할 수 있지만 필터에는 더 이상 사용할 수 없습니다.
 3.	요청 이름 및 페이지 URL 같은 표준 속성은 일주일에 고유한 값 1000개로 제한됩니다. 고유한 값이 1000개를 초과할 경우 초과하는 값이 "기타 값"으로 표시됩니다. 원래 값을 전체 텍스트 검색 및 필터링에 계속 사용할 수 있습니다.
 
-* *Q: 데이터가 얼마 동안 보존되나요?*
+*데이터 속도 제한에 도달하지 않도록 하려면 어떻게 해야 하나요?*
 
-    [데이터 보존 및 개인 정보][data]를 참조하세요.
+* 최신 SDK를 설치하여 [샘플링](app-insights-sampling.md)을 사용합니다.
+
+*데이터는 얼마 동안 보존되나요?*
+
+* [데이터 보존 및 개인 정보][data]를 참조하세요.
 
 
 ## 참조 문서
@@ -715,7 +727,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -724,4 +736,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

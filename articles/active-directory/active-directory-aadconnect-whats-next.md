@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect 관리 | Microsoft Azure"
+	pageTitle="Azure AD Connect: 다음 단계 및 Azure AD Connect 관리 방법 | Microsoft Azure"
 	description="Azure AD Connect에 대한 기본 구성 및 운영 작업을 확장하는 방법을 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
-# Azure AD Connect 관리
+# 다음 단계 및 Azure AD Connect 관리 방법
 다음은 조직 요구 사항 및 요건에 부합하도록 Azure Active Directory Connect를 사용자 지정할 수 있는 고급 운영에 대해 설명합니다.
 
 ## Azure AD Premium 및 엔터프라이즈 이동성 사용자에게 라이선스 할당
@@ -69,4 +69,4 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -112,4 +112,4 @@ Azure Authenticator 앱을 설치한 후 Android 계정 관리자에서 회사 �
 
 **키 저장소 오류**가 표시되는 경우 잠금 화면이 PIN으로 설정되지 않았기 때문일 수 있습니다. 이 문제를 해결하려면 Azure Authenticator 앱을 제거하고 잠금 화면에 대한 PIN을 구성한 다음 앱을 다시 설치합니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -37,7 +37,7 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
  아직 게시하지 않은 분은 이 [방법 설명](machine-learning-walkthrough-5-publish-web-service.md)을 살펴보세요.
 
 ###2단계: 서비스를 프로덕션 환경에 배포하고 API 키 및 OData 끝점 정보 가져오기###
-1. [Azure 관리 포털](http://manage.windowsazure.com)에서,왼쪽에 있는 탐색 모음에서 **기계 학습** 옵션을 선택하고 작업 영역을 선택합니다. 
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에서,왼쪽에 있는 탐색 모음에서 **기계 학습** 옵션을 선택하고 작업 영역을 선택합니다. 
 
 2. **웹 서비스** 탭을 클릭하고 마켓플레이스에 게시할 웹 서비스를 선택합니다.
 
@@ -84,7 +84,7 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 
 	![Azure 마켓플레이스][image2]
 
-9.	위의 2단계에서 설명한 대로 Azure 관리 포털에서 웹 서비스 URL 및 API 키를 가져옵니다.
+9.	위의 2단계에서 설명한 대로 Azure 클래식 포털에서 웹 서비스 URL 및 API 키를 가져옵니다.
 
 10.	마켓플레이스 데이터 서비스 설정 대화 상자에서 OData 끝점 주소를 **서비스 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -109,4 +109,4 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

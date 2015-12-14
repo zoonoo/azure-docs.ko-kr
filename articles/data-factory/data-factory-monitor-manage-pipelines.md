@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리 파이프라인 모니터링 및 관리" 
-	description="Azure 관리 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
+	pageTitle="Azure Data Factory 파이프라인 모니터링 및 관리" 
+	description="Azure 클래식 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -22,10 +22,10 @@
 이 문서는 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 경고를 생성하고 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다.
 
 ## 파이프라인 및 작업 상태 이해
-Azure Preview 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 수 있고 활동을 파이프라인에서 볼 수 있고 입력 및 출력 데이터 집합 등을 볼 수 있습니다. 이 섹션은 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 제공합니다.
+Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 수 있고 활동을 파이프라인에서 볼 수 있고 입력 및 출력 데이터 집합 등을 볼 수 있습니다. 이 섹션은 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 제공합니다.
 
 ### 데이터 팩터리로 이동
-1.	[Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
+1.	[Azure 포털](http://portal.azure.com)에 로그인합니다.
 2.	**모두 찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
 	
 	![모두 찾아보기 -> 데이터 팩터리](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -96,6 +96,7 @@ Azure Preview 포털을 사용하면 데이터 팩터리를 다이어그램으�
 <td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
 </tr>
 <td></td>
@@ -125,19 +126,19 @@ Azure Preview 포털을 사용하면 데이터 팩터리를 다이어그램으�
 
 
 
-**Recently Updated Slices**(최근에 업데이트된 조각) 블레이드에서 조각 항목을 클릭하면 조각에 대한 세부 사항을 볼 수 있습니다.
+**최근에 업데이트된 조각** 블레이드에서 조각 항목을 클릭하면 조각에 대한 세부 사항을 볼 수 있습니다.
 
 ![조각 세부 정보](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
-조각이 여러 번 실행된 경우 **작업 실행** 목록에 여러 행이 표시됩니다.
+조각이 여러 번 실행된 경우 **활동 실행** 목록에 여러 행이 표시됩니다.
 
 ![조각에 대한 작업 실행](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
 
-**작업 실행** 목록에서 실행 항목을 클릭하면 작업 실행에 대한 세부 사항을 볼 수 있습니다. 모든 로그 파일과 함께 오류 메시지가(있다면) 소개됩니다. 데이터 팩터리를 벗어나지 않고 로그를 보면서 디버그하기에 매우 유용합니다.
+**활동 실행** 목록에서 실행 항목을 클릭하면 활동 실행에 대한 세부 사항을 볼 수 있습니다. 모든 로그 파일과 함께 오류 메시지가(있다면) 소개됩니다. 데이터 팩터리를 벗어나지 않고 로그를 보면서 디버그하기에 매우 유용합니다.
 
 ![작업 실행 세부 정보](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready(준비되지 않은 업스트림 조각)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다. 조각이 **Waiting**(대기) 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
+조각이 **준비** 상태가 아닌 경우 **준비되지 않은 업스트림 슬라이스입니다** 목록에서 준비 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다. 조각이 **대기 중** 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
 
 ![준비되지 않은 업스트림 조각](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -148,22 +149,22 @@ Azure Preview 포털을 사용하면 데이터 팩터리를 다이어그램으�
 
 데이터 팩터리의 데이터 집합 상태 전환 흐름에는 Waiting(대기)-> In-Progress/In-Progress (Validating)(진행 중/진행 중(확인 중)) -> Ready/Failed(준비/실패)가 포함됩니다.
 
-조각은 실행 전에 사전 조건이 충족되도록 **Waiting**(대기) 상태에서 시작됩니다. 그 후 작업은 실행을 시작하고 조각은 **In-Progress**(진행 중) 상태가 됩니다. 작업 실행은 성공하거나 실패할 수 있으며 그에 따라 조각은 **Ready**(준비) 또는 **Failed**(실패) 상태가 됩니다.
+조각은 실행 전에 사전 조건이 충족되도록 **대기 중** 상태에서 시작됩니다. 그 후 작업은 실행을 시작하고 조각은 **진행 중** 상태가 됩니다. 활동 실행은 성공하거나 실패할 수 있으며 그에 따라 조각은 **준비** 또는 **실패** 상태가 됩니다.
 
-사용자는 **Ready**(준비) 또는 **Failed**(실패) 상태에서 **Waiting**(대기) 상태로 조각을 재설정할 수 있습니다. 사용자는 조각 상태를 **Skip**(건너뛰기)로 표시할 수도 있으며, 이렇게 하면 작업이 실행되지 않고 조각이 처리되지 않습니다.
+사용자는 **준비** 또는 **실패** 상태에서 **대기 중** 상태로 조각을 재설정할 수 있습니다. 사용자는 조각 상태를 **건너뛰기**로 표시할 수도 있으며, 이렇게 하면 활동이 실행되지 않고 조각이 처리되지 않습니다.
 
 
 ## 파이프라인 관리
 Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 예를 들어 Azure PowerShell cmdlet을 실행하여 파이프라인을 일시 중지하거나 다시 시작할 수 있습니다.
 
 ### 파이프라인 일시 중지 및 다시 시작
-**Suspend-AzureDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중시/다시 시작할 수 있습니다. 데이터에 문제가 있다는 것을 파악한 후에 문제가 수정될 때까지 데이터 처리를 위해 파이프라인을 실행하지 않으려는 경우에 유용합니다.
+**Suspend-AzureDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 데이터에 문제가 있다는 것을 파악한 후에 문제가 수정될 때까지 데이터 처리를 위해 파이프라인을 실행하지 않으려는 경우에 유용합니다.
 
-예를 들어 아래 스크린샷에 **productrecgamalbox1dev** 데이터 팩터리의 **PartitionProductsUsagePipeline**에서 문제가 확인되어 파이프라인을 일시 중지하려고 합니다.
+예를 들어 아래 스크린샷에 **productrecgamalbox1dev** 데이터 팩터리의 **PartitionProductsUsagePipeline**에서 문제가 확인되어 파이프라인을 일시 중단하려고 합니다.
 
 ![일시 중단할 파이프라인](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
-**PartitionProductsUsagePipeline**을 일시 중지하기 위해 다음과 같은 PowerShell 명령을 실행합니다.
+**PartitionProductsUsagePipeline**을 일시 중단하기 위해 다음과 같은 PowerShell 명령을 실행합니다.
 
 	Suspend-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -171,7 +172,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 
 	Suspend-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
-**PartitionProductsUsagePipeline**의 문제가 해결되고 나면 다음과 같은 PowerShell 명령을 실행하여 일시 중지한 파이프라인을 다시 시작합니다.
+**PartitionProductsUsagePipeline**의 문제가 해결되고 나면 다음과 같은 PowerShell 명령을 실행하여 일시 중단한 파이프라인을 다시 시작합니다.
 
 	Resume-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -181,23 +182,23 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 
 
 ## 파이프라인 디버깅
-Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라인 디버그와 문제 해결을 위한 다양한 기능을 제공합니다.
+Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파이프라인 디버그와 문제 해결을 위한 다양한 기능을 제공합니다.
 
 ### 파이프라인에서 오류 찾기
 파이프라인에서 작업이 실패하면 파이프라인에 의해 생성된 데이터 집합은 실패로 인한 오류 상태가 됩니다. 다음과 같은 메커니즘을 사용하여 Azure Data Factory에서 오류의 문제를 해결하고 디버그할 수 있습니다.
 
-#### Azure 포털을 사용한 오류 디버그:
+#### Azure 클래식 포털을 사용한 오류 디버그:
 
-1.	데이터 팩터리 홈페이지의 **데이터 집합** 타일에서 **With errors(오류 있음)**를 클릭합니다.
+1.	데이터 팩터리 홈페이지의 **데이터 집합** 타일에서 **With errors**(오류 있음)를 클릭합니다.
 	
 	![오류가 있는 데이터 집합 타일](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.	**Datasets with errors(오류가 있는 데이터 집합)** 블레이드에서 원하는 테이블을 클릭합니다.
+2.	**Datasets with errors**(오류가 있는 데이터 집합) 블레이드에서 원하는 테이블을 클릭합니다.
 
 	![오류가 있는 데이터 집합 블레이드](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	**테이블** 블레이드에서 **상태**가 **Failed**(실패)로 설정된 문제 조각을 클릭합니다.
+3.	**테이블** 블레이드에서 **상태**가 **실패**로 설정된 문제 조각을 클릭합니다.
 
 	![문제 조각이 있는 테이블 블레이드](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-4.	**데이터 조각** 블레이드에서 실패한 작업 실행을 클릭합니다.
+4.	**데이터 조각** 블레이드에서 실패한 활동 실행을 클릭합니다.
 	
 	![오류가 있는 데이터 조각](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
 5.	**작업 실행 세부 정보** 블레이드에서 HDInsight 처리와 관련된 파일을 다운로드할 수 있습니다. Status/stderr에 대한 다운로드를 클릭하여 오류에 대한 세부 정보를 포함하는 오류 로그 파일을 다운로드합니다.
@@ -209,7 +210,7 @@ Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라�
 2.	**AzureResourceManager** 모드로 전환합니다. 데이터 팩터리 cmdlet은 이 모드에서만 사용할 수 있습니다.
 
 		switch-azuremode AzureResourceManager
-3.	**Get-AzureDataFactorySlice** 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 **Failed**(실패)로 표시됩니다.
+3.	**Get-AzureDataFactorySlice** 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 **실패**로 표시됩니다.
 
 		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
@@ -262,7 +263,7 @@ Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라�
 
 ## 파이프라인에서 실패한 항목을 다시 실행합니다.
 
-### Azure 포털 사용
+### Azure 클래식 포털 사용
 
 파이프라인에서 실패에 대한 문제를 해결하고 디버그한 후에는 오류 조각으로 이동하고 명령 모음의 **실행** 단추를 클릭하여 실패한 항목을 다시 실행할 수 있습니다.
 
@@ -276,7 +277,7 @@ Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라�
 
 	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
-**예:** 다음 예에서는 Azure Data Factory 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 'PendingExecution'으로 설정합니다.
+**예제:** 다음 예제에서는 Azure Data Factory 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 'PendingExecution'으로 설정합니다.
 
 **참고:** UpdateType이 UpstreamInPipeline으로 설정되며 이것은 파이프라인에서 작업의 입력 테이블로 사용되는 테이블과 모든 종속(업스트림) 테이블에 대한 각 조각의 상태를 "PendingExecution"으로 설정합니다. 이 매개 변수에 사용할 수 있는 다른 값은 "Individual"입니다.
 
@@ -391,26 +392,44 @@ OnDemandClusterDeleted | Succeeded
 
 
 #### 사용자 이벤트 문제 해결
-**작업** 타일을 클릭한 후에 생성된 모든 이벤트가 표시되며 **이벤트** 블레이드에 표시되는 모든 작업에 대해 경고를 설정할 수 있습니다.
-
-![작업](./media/data-factory-monitor-manage-pipelines/operations.png)
-
-Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을 실행한 후 생성된 모든 경고를 확인합니다. 리소스 종류를 **microsoft.insights/alertrules**로 지정하여 메트릭과 이벤트에 대해 설정된 경고가 모두 표시됩니다.
-
-	Get-AzureResourceGroup -Name $resourceGroupName
-
-	ResourceGroupName : mdwevent
-	Location          : westus
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                  Type                                 Location
-                    ====================  ===================================  ========
-                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
-                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
-                    FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 
-포털 블레이드에 경고 생성 이벤트가 표시되는데 전자 메일 알림을 수신하지 못한다면 지정된 전자 메일 주소가 외부의 전자 메일을 수신하도록 설정되어 있는지 확인합니다. 경고 전자 메일이 사용자의 전자 메일 설정에서 차단되어 있을 수 있습니다.
+- **작업** 타일을 클릭한 후에 생성된 모든 이벤트가 표시되며 **이벤트** 블레이드에 표시되는 모든 작업에 대해 경고를 설정할 수 있습니다.
+
+	![작업](./media/data-factory-monitor-manage-pipelines/operations.png)
+
+
+- 경고를 추가/가져오기/제거하기 위해 사용할 수 있는 PowerShell cmdlet은 [Azure Insight Cmdlet](https://msdn.microsoft.com/library/mt282452.aspx) 문서를 참조하세요. 다음은 **Get-AlertRule** cmdlet을 사용하는 몇 가지 예입니다.
+
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+
+	Get-AlertRule cmdlet에 대한 세부 정보 및 예를 보려면 다음 get-help 명령을 실행합니다.
+
+		get-help Get-AlertRule -detailed 
+		get-help Get-AlertRule -examples
+
+
+- 포털 블레이드에 경고 생성 이벤트가 표시되는데 전자 메일 알림을 수신하지 못한다면 지정된 전자 메일 주소가 외부의 전자 메일을 수신하도록 설정되어 있는지 확인합니다. 경고 전자 메일이 사용자의 전자 메일 설정에서 차단되어 있을 수 있습니다.
 
 ### 메트릭에 대한 경고
 데이터 팩터리를 사용하면 다양한 메트릭을 캡처하고 메트릭에 대한 경고를 만들 수 있습니다. 데이터 팩터리의 조각의 다음과 같은 메트릭에 대해 경고를 생성하고 모니터링할 수 있습니다.
@@ -521,4 +540,4 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 	Parameters        :
 	Outputs           
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

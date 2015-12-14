@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-#Preview 포털에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
+# Preview 포털에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,7 +30,7 @@
 
 
 
-## Preview 포털을 사용하여 부하 분산 장치 끝점 만들기	
+## Preview 포털을 사용하여 부하 분산 장치 끝점 만들기 시작	
 
 Preview 포털에서 인터넷 연결 부하 분산 장치(클래식) 배포 모델을 만들려면 다음 단계를 수행합니다.
 
@@ -66,4 +66,4 @@ Preview 포털에서 인터넷 연결 부하 분산 장치(클래식) 배포 모
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="12/01/2015"
     ms.author="tamram"/>
 
 
@@ -40,7 +40,7 @@ Azure VM은 여러 프리미엄 저장소 디스크의 연결을 지원하므로
 
 시나리오에 따라 관련 섹션에 지정된 단계를 따릅니다.
 
-## 타 플랫폼에서 Azure 프리미엄 저장소로 VM 마이그레이션
+## 다른 플랫폼에서 Azure 프리미엄 저장소로 VM 마이그레이션
 
 ### 필수 조건
 - Azure 구독이 필요합니다. 구독할 수 없다면, 한 달의 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 구독하거나 [Azure 가격 책정](http://azure.microsoft.com/pricing/)을 방문하여 추가 옵션을 참고합니다.
@@ -50,7 +50,7 @@ Azure VM은 여러 프리미엄 저장소 디스크의 연결을 지원하므로
 ### 고려 사항
 
 #### VM 크기
-Azure VM 크기 사양은 [가상 컴퓨터의 크기](https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-size-specs/)에 나열되어 있습니다. 프리미엄 저장소와 작동하는 가상 컴퓨터의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
+Azure VM 크기 사양은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-size-specs.md)에 나열되어 있습니다. 프리미엄 저장소와 작동하는 가상 컴퓨터의 성능 특징을 검토하고 워크로드에 가장 적합한 VM 크기를 선택합니다. VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다.
 
 
 #### 디스크 크기
@@ -73,10 +73,10 @@ VM에서 사용할 수 있는 디스크에는 세 종류가 있으며 각 종류
 프리미엄 저장소 사양에 대한 자세한 내용은 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
 
 #### 추가 데이터 디스크
-사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우, *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../virtual-machines-linux-configure-raid.md) 문서를 참조하세요.
+사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우 *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../virtual-machines-linux-configure-raid.md) 문서를 참조하세요.
 
 #### 디스크 캐싱 정책
-기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기-쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 응용 프로그램의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 응용 프로그램 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. Azure 포털 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다.
+기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크의 경우 *읽기/쓰기*이고 모든 프리미엄 데이터 디스크의 경우 *읽기 전용*입니다. 응용 프로그램의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 응용 프로그램 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. [Azure 포털](portal.azure.com) 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다.
 
 #### 위치
 Azure 프리미엄 저장소를 사용할 수 있는 위치를 선택합니다. 사용 가능한 위치에 대한 최신 정보는 [지역별 Azure 서비스](http://azure.microsoft.com/regions/#services)를 참조하세요. VM에 대한 디스크를 저장하는 저장소 계정과 동일한 지역에 있는 VM은 별도 영역에 있는 경우보다 뛰어난 성능을 제공합니다.
@@ -115,7 +115,7 @@ Vm을 마이그레이션하려면 다음이 필요 합니다.
 
 여러 일반 Azure VM 인스턴스를 만드는데 사용할 VHD를 업로드하는 경우 , sysprep 유틸리티를 사용하여 VHD를 먼저 일반화해야 합니다. 온-프레미스 또는 클라우드에 있는 VHD에 적용됩니다. Sysprep는 VHD에서 모든 컴퓨터의 특정 정보를 제거합니다.
 
->[AZURE.IMPORTANT]스냅숏을 찍거나 VM을 백업하기 전에 일반화합니다. Sysprep를 실행 중인 VM 인스턴스를 삭제합니다. Windows 운영 체제 VHD를 sysprep 하려면 아래 단계를 따르세요. Sysprep 명령을 가상 컴퓨터 종료를 해야한다는 것을 참고하세요. Sysprep에 대한 자세한 내용은 [Sysprep 개요](http://technet.microsoft.com/library/hh825209.aspx) 또는 [Sysprep 기술 참조](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx)를 참조하세요.
+>[AZURE.IMPORTANT]스냅숏을 찍거나 VM을 백업하기 전에 일반화합니다. Sysprep를 실행 중인 VM 인스턴스를 삭제합니다. Windows 운영 체제 VHD를 sysprep 하려면 아래 단계를 따르세요. Sysprep 명령을 가상 컴퓨터 종료를 해야한다는 것을 참고하세요. Sysprep에 대한 자세한 내용은 [Sysprep 개요](http://technet.microsoft.com/library/hh825209.aspx) 또는 [Sysprep 기술 참조](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx))를 참조하세요.
 
 1. 관리자로 명령 프롬프트 창을 엽니다.
 2. 다음 명령을 입력하여 Sysprep을 엽니다.
@@ -180,7 +180,7 @@ VHD를 복사하기 위한 일부 시나리오를 아래에서 설명하겠습�
 
 ### AzCopy를 사용하여 VHD 복사
 
-AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습니다. 소요되는 시간은 VHD의 크기에 따라 다를 수 있습니다. 이 옵션을 사용하는 경우 저장소 계정 송/수신 제한을 확인해야 합니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
+AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습니다. 소요되는 시간은 VHD의 크기에 따라 다를 수 있습니다. 이 옵션을 사용하는 경우 저장소 계정 송/수신 제한을 확인해야 합니다. 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
 
 1. [최신 버전의 AzCopy](http://aka.ms/downloadazcopy)에서 AzCopy를 다운로드하고 설치합니다.
 2. Azure PowerShell을 열고 AzCopy를 설치한 폴더로 이동합니다.
@@ -252,7 +252,7 @@ OS VHD에서 VM을 만들거나 새 VM에 데이터 디스크를 연결하려면
 
 ### Azure DS 시리즈 또는 GS 시리즈 VM을 만듭니다.
 
-OS 이미지나 OS 디스크가 등록되면, 새 DS 시리즈 또는 GS 시리즈 VM을 만듭니다. 등록된 운영 체제 이미지 또는 운영 체제 디스크 이름을 사용합니다. 프리미엄 저장소 계층에서 VM 종류를 선택합니다. 아래 예제에서는 *Standard\_DS2* VM 크기를 사용 중입니다.
+OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈 또는 GS 시리즈 VM을 만듭니다. 등록된 운영 체제 이미지 또는 운영 체제 디스크 이름을 사용합니다. 프리미엄 저장소 계층에서 VM 종류를 선택합니다. 아래 예제에서는 *Standard\_DS2* VM 크기를 사용 중입니다.
 
 >[AZURE.NOTE]디스크 크기를 업데이트하여 용량, 성능 요구 사항 및 사용 가능한 Azure 디스크 크기가 일치하는지 확인합니다.
 
@@ -332,7 +332,7 @@ OS 이미지나 OS 디스크가 등록되면, 새 DS 시리즈 또는 GS 시리�
 
 2.	VM이 중지되면 해당 VM의 각 VHD를 새로운 프리미엄 저장소 계정에 복사합니다. OS 디스크 VHD Blob 및 모든 데이터 디스크 VHD Blob를 복사해야 합니다. 마이그레이션에는 AzCopy 또는 CopyBlob를 사용하는 것이 좋습니다. 원하는 경우 다른 타사 도구를 사용할 수도 있습니다.
 
-  [AzCopy를 사용하여 VHD 복사](#copy-a-vhd-with-azcopy) 또는 [PowerShell을 사용하여 VHD 복사](#copy-a-vhd-with-powershell)의 이전 섹션을 참조하세요.
+  명령에 대해서는 [AzCopy를 사용하여 VHD 복사](#copy-a-vhd-with-azcopy) 또는 [PowerShell을 사용하여 VHD 복사](#copy-a-vhd-with-powershell)의 이전 섹션을 참조하세요.
 
 3.	복사가 완료된 것을 확인합니다. 모든 디스크가 복사될 때까지 기다립니다. 모든 디스크가 복사되면 새 VM을 만들기 위해 다음 단계로 진행할 준비가 됩니다.
 4.	프리미엄 저장소 계정에 복사한 OS 디스크 VHD Blob를 사용하여 새 OS 디스크를 만듭니다. "Add-AzureDisk" PowerShell cmdlet을 사용하여 수행할 수 있습니다.
@@ -677,4 +677,4 @@ Azure 저장소 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려�
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

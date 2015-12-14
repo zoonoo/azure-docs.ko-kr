@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="범용 Windows 앱에서 오프라인 데이터 사용 | Microsoft Azure" 
-	description="Azure 모바일 서비스를 사용하여 범용 Windows 앱에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." 
-	documentationCenter="mobile-services" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="범용 Windows 앱에서 오프라인 데이터 사용 | Microsoft Azure"
+	description="Azure 모바일 서비스를 사용하여 범용 Windows 앱에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
+	documentationCenter="mobile-services"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/06/2015"
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -26,11 +31,11 @@
 
 > [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
-이 자습서에서는 Azure 모바일 서비스의 오프라인 기능을 지원하도록 [모바일 서비스 시작] 자습서의 범용 앱 프로젝트를 업데이트합니다. 그런 다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
+이 자습서에서는 Azure 모바일 서비스의 오프라인 기능을 지원하도록 [모바일 서비스 시작] 자습서의 범용 앱 프로젝트를 업데이트합니다. 그런 다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 [Azure 클래식 포털]에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
 
 >[AZURE.NOTE]이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
-##필수 조건 
+##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -39,7 +44,7 @@
 * [Azure 모바일 서비스 SDK 버전 1.3.0 이상][Mobile Services SDK Nuget]
 * [Azure 모바일 서비스 SQLite 스토어 버전 1.0.0 이상][SQLite store nuget]
 * [Windows 8.1용 SQLite](http://www.sqlite.org/download.html)
-* Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하세요. 
+* Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하세요.
 
 ## <a name="enable-offline-app"></a>오프라인 기능을 지원하도록 앱 업데이트
 
@@ -47,7 +52,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 >[AZURE.NOTE]이 섹션을 건너뛰고 모바일 서비스용 GitHub 샘플 리포지토리의 오프라인 지원이 이미 포함된 예제 프로젝트를 가져올 수 있습니다. 오프라인 지원을 사용하도록 설정한 샘플 프로젝트는 [TodoList 오프라인 샘플]에 있습니다.
 
-1. Windows 8.1 및 Windows Phone 8.1용 SQLite 런타임을 설치합니다. 
+1. Windows 8.1 및 Windows Phone 8.1용 SQLite 런타임을 설치합니다.
 
     * **Windows 8.1 런타임:**: [Windows 8.1용 SQLite]를 설치합니다.
     * **Windows Phone 8.1:** [Windows Phone 8.1용 SQLite]를 설치합니다.
@@ -211,7 +216,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 2. **F5**를 눌러 앱을 다시 빌드하고 실행합니다. 앱은 이제 모바일 서비스에 연결되지만 데이터는 오프라인 시나리오와 동일하게 보입니다. 이 앱은 항상 로컬 저장소를 가리키는 `IMobileServiceSyncTable`(으)로 작업하기 때문입니다.
 
-3. Microsoft Azure 관리 포털에 로그인하고 데이터베이스에서 모바일 서비스를 찾습니다. 서비스에서 모바일 서비스에 대해 JavaScript 백 엔드를 사용하는 경우 모바일 서비스의 **데이터** 탭에서 데이터를 찾아볼 수 있습니다.
+3. [Azure 클래식 포털]에 로그인하고 모바일 서비스에 대한 데이터베이스를 조회합니다. 서비스에서 모바일 서비스에 대해 JavaScript 백 엔드를 사용하는 경우 모바일 서비스의 **데이터** 탭에서 데이터를 찾아볼 수 있습니다.
 
     모바일 서비스에 .NET 백 엔드를 사용하는 경우 Visual Studio에서 **서버 탐색기** -> **Azure** -> **SQL 데이터베이스**로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다.
 
@@ -232,7 +237,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 6. **새로 고침** 단추를 다시 눌러 `SyncAsync`이(가) 호출되도록 합니다. `SyncAsync`은(는) 푸시와 끌어오기를 모두 호출하지만 이 경우에는 `PushAsync`에 대한 호출이 제거되었을 수 있습니다. **끌어오기 작업에서는 항상 푸시 작업을 먼저 수행하기** 때문입니다. 이는 로컬 저장소의 모든 테이블 및 관계를 동기화된 상태로 유지하기 위해서입니다.
 
     ![][10]
-  
+
 
 ##요약
 
@@ -277,6 +282,6 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
- 
+[Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

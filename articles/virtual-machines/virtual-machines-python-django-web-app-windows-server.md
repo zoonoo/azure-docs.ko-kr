@@ -50,7 +50,7 @@
 1. [여기](virtual-machines-windows-tutorial-classic-portal.md)에 나와 있는 지침에 따라 Windows Server 2012 R2 Datacenter 배포의 Azure 가상 컴퓨터를 만듭니다.
 
 1. 웹을 통해 들어오는 포트 80 트래픽을 가상 컴퓨터의 포트 80으로 보내도록 Azure에 지시합니다.
- - Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고 **끝점** 탭을 클릭합니다.
+ - Azure 클래식 포털에서 새로 만든 가상 컴퓨터로 이동하고 **끝점** 탭을 클릭합니다.
  - 화면 아래쪽에 있는 **추가** 단추를 클릭합니다. ![끝점 추가](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
  - **TCP** 프로토콜의 **공용 포트 80**을 **개인 포트 80**으로 엽니다. ![][port80]
@@ -184,4 +184,4 @@
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

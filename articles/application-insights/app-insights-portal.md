@@ -163,7 +163,7 @@ Application Insights 개요 블레이드의 타일을 포털 대시보드에 고
 
 진단 검색을 엽니다.
 
-![진단 검색 열기](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![진단 검색 열기](./media/app-insights-portal/01-open-Diagnostic.png)
 
 필터 블레이드를 열고 확인하려는 이벤트 유형을 선택합니다. (나중에 열었던 블레이드로 필터를 복원하려는 경우 재설정을 클릭합니다.)
 
@@ -205,4 +205,4 @@ Application Insights 개요 블레이드의 타일을 포털 대시보드에 고
 
 상대 시간 범위로 저장한 경우 다시 열린 블레이드는 최신 데이터입니다. 절대 시간 범위로 저장한 경우 매번 같은 데이터가 보입니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

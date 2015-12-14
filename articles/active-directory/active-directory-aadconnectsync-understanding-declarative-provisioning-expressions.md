@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect Sync: 선언적 프로비전 식 이해 | Microsoft Azure"
+	pageTitle="Azure AD Connect 동기화: 선언적 프로비전 식 이해 | Microsoft Azure"
 	description="선언적 프로비전 식에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -17,19 +17,19 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: 선언적 프로비전 식 이해
+# Azure AD Connect 동기화: 선언적 프로비전 식 이해
 
-Azure AD Connect Sync는 Forefront Identity Manager 2010에 처음 도입된 선언적 프로비전을 기반으로 작성되어 컴파일된 코드를 작성할 필요 없이 전체 ID 통합 비즈니스 논리를 구현할 수 있도록 지원합니다.
+Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입된 선언적 프로비전을 기반으로 작성되어 컴파일된 코드를 작성할 필요 없이 전체 ID 통합 비즈니스 논리를 구현할 수 있도록 지원합니다.
 
 선언적 프로비전의 핵심적인 부분은 특성 흐름에 사용되는 표현 언어입니다. 사용 되는 언어는 VBA(Microsoft® Visual Basic® for Applications)의 하위 집합입니다. 이 언어는 Microsoft Office에서 사용되며, VBScript 경험이 있는 사용자 또한 이 언어를 인식합니다. 선언적 프로비저닝 표현 언어는 함수만 사용하며 구조적 언어는 아닙니다. 메서드 또는 문이 없습니다. 대신, 빠른 프로그램 흐름에 함수가 중첩됩니다.
 
-자세한 내용은 [Office 2013용 Visual basic for Applications 언어 참조 시작 을 참조하십시오](https://msdn.microsoft.com/library/gg264383(v=office.15).aspx).
+자세한 내용은 [Office 2013용 Visual Basic for Applications 언어 참조 시작](https://msdn.microsoft.com/library/gg264383.aspx)을 참조하세요.
 
 특성은 강력한 형식입니다. 단일 값 문자열 특성을 예상하는 함수는 다중 값 또는 다른 유형의 특성을 허용하지 않습니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
 
 ## 언어 정의 및 식별자
 
-- 함수는 다음과 같이 이름 뒤에 대괄호로 인수가 붙습니다. FunctionName (인수 1, 인수 N).
+- 함수는 다음과 같이 이름 뒤에 대괄호로 인수가 붙습니다. FunctionName(인수 1, 인수 N).
 - 특성은 다음과 같이 대괄호로 식별됩니다. [attributeName]
 - 매개 변수는 다음과 같이 백분율 기호로 식별됩니다. % ParameterName %
 - 문자열 상수는 따옴표로 묶입니다. 예: "Contoso"(참고: 곧은 따옴표 ""를 사용해야 하며 둥근 따옴표 “”를 사용해서는 안 됨)
@@ -46,7 +46,7 @@ Azure AD Connect Sync는 Forefront Identity Manager 2010에 처음 도입된 선
 
 ### 매개 변수
 
-매개 변수는 커넥터를 통해 또는 PowerShell을 사용하는 관리자에 의해 정의됩니다. 매개 변수는 일반적으로 시스템별로 서로 다른 값을 포함하게 됩니다(예: 사용자가 위치한 도메인 이름). 이들은 특성 흐름에서 사용할 수 있습니다.
+매개 변수는 Connector를 통해 또는 PowerShell을 사용하는 관리자에 의해 정의됩니다. 매개 변수는 일반적으로 시스템별로 서로 다른 값을 포함하게 됩니다(예: 사용자가 위치한 도메인 이름). 이들은 특성 흐름에서 사용할 수 있습니다.
 
 Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매개 변수를 제공합니다.
 
@@ -74,7 +74,7 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 - **비교**: <, <=, <>, =, >, >=
 - **수학**: +, -, *, -
 - **문자열**: &(연결)
-- **논리**: && (및), || (또는)
+- **논리**: &&(및), ||(또는)
 - **계산 순서**: ( )
 
 연산자는 왼쪽에서 오른쪽으로 계산되며 계산 우선 순위가 같습니다. 즉 *(승수)는 -(빼기) 전에 계산되지 않습니다. 2*(5+3)은 2*5+3과 같지 않습니다. 대괄호 ()는 왼쪽에서 오른쪽 계산 순서가 적절하지 않을 때 계산 순서를 변경하는 데 사용됩니다.
@@ -107,7 +107,7 @@ Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨�
 
 ### NULL과 IgnoreThisFlow 비교
 
-인바운드 동기화 규칙의 경우에는 항상 상수 **NULL**을 사용해야 합니다. 이것은 흐름에 기여할 값이 없으며 다른 규칙이 값을 기여할 수 있음을 나타냅니다. 값을 기여한 규칙이 없다면 메타버스 특성이 제거됩니다.
+인바운드 동기화 규칙의 경우에는 항상 상수 **NULL**을 사용해야 합니다. 이것은 흐름에 기여할 값이 없으며 다른 규칙이 값을 기여할 수 있음을 나타냅니다. 값을 기여한 규칙이 없다면 메타 버스 특성이 제거됩니다.
 
 아웃 바운드 동기화 규칙의 경우에는 NULL 및 IgnoreThisFlow, 2개의 상수를 사용할 수 있습니다. 두 가지 모두 특성 흐름에 기여할 것이 없음을 나타내지만, 둘 사이의 차이점은 다른 규칙에도 기여할 것이 없는 경우 발생하는 일입니다. 연결된 디렉터리에 기존 값이 없는 경우 NULL은 제거하는 특성에서 삭제를 준비하는 반면 IgnoreThisFlow은 기존 값을 유지합니다.
 
@@ -121,7 +121,7 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
 
 `proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
-전체 함수 목록은 [Azure AD Connect Sync: 함수 참조](active-directory-aadconnectsync-functions-reference.md)를 참조하세요.
+전체 함수 목록은 [Azure AD Connect 동기화: 함수 참조](active-directory-aadconnectsync-functions-reference.md)를 참조하세요.
 
 
 ## 추가 리소스
@@ -131,4 +131,4 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

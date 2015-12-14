@@ -39,27 +39,27 @@
 
 1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나에서 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
 
-	이 단계는 채널을 만든 후에도 수행할 수 있습니다.
+이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 
 1. 채널을 만들고 시작합니다.
 
 1. 채널 수집 URL을 검색합니다.
 
-	수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
+수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
 
 1. 채널 미리 보기 URL을 검색합니다.
 
-	이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
+이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
 
 2. 자산을 만듭니다.
 3. 재생하는 동안 자산을 동적으로 암호화하려면 다음을 수행합니다.
-	1. 콘텐츠 키를 만듭니다.
-	1. 콘텐츠 키의 인증 정책을 구성합니다.
-	1. 자산 배달 정책(동적 패키징 및 동적 암호화에서 사용)을 구성합니다.
+1. 콘텐츠 키를 만듭니다.
+1. 콘텐츠 키의 인증 정책을 구성합니다.
+1. 자산 배달 정책(동적 패키징 및 동적 암호화에서 사용)을 구성합니다.
 3. 프로그램을 만들고 만들어진 자산을 사용하도록 지정합니다.
 1. 주문형 로케이터를 만들어 프로그램과 관련된 자산을 게시합니다.
 
-	콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
+콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
 
 1. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
 2. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
@@ -108,18 +108,12 @@
 ##미디어 서비스에 연결
 app.config 파일을 사용하여 미디어 서비스 이름 및 계정 키를 저장하는 것이 좋습니다.
 
->[AZURE.NOTE]이름 및 키 값을 찾으려면 Azure 포털로 이동하여 미디어 서비스 계정을 선택하고 포털 창의 하단에 있는 "키 관리" 아이콘을 클릭합니다. 각 텍스트 상자 옆에 있는 아이콘을 클릭하면 값을 시스템 클립보드에 복사합니다.
+>[AZURE.NOTE]이름 및 키 값을 찾으려면 Azure 클래식 포털로 이동하여 미디어 서비스 계정을 선택하고 포털 창의 하단에 있는 "키 관리" 아이콘을 클릭합니다. 각 텍스트 상자 옆에 있는 아이콘을 클릭하면 값을 시스템 클립보드에 복사합니다.
 
 app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계정 이름 및 계정 키 값을 설정합니다.
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 ##코드 예제
@@ -522,4 +516,4 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 
 이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

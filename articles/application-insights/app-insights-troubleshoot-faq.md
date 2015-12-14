@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # ASP.NET용 Application Insights 문제 해결 및 질문
@@ -152,6 +152,17 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 + Internet Explorer가 호환성 모드에서 사이트를 표시하고 있는지 확인합니다.
 + 데이터가 dc.services.visualstudio.com로 보내지고 있는지 확인하려면 (네트워크 일부 브라우저에서 F12, 그런 다음 네트워크를 선택합니다) 브라우저의 디버그 기능을 사용합니다.
 
+#### 데이터를 보는 데 중지되었습니다.
+
+* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참고하십시오.
+
+
+#### 기대한 모든 데이터가 표시되지 않는 경우
+
+* **샘플링.** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. 비활성화할 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+
+
 #### <a name="q08"></a>Application Insights를 사용하여 인트라넷 웹 서버를 모니터링할 수 있나요?
 
 예, 서버가 공용 인터넷에 데이터를 보낼 수 있는 경우 상태 및 사용량을 모니터링할 수 있습니다. 방화벽에서 dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 엽니다.
@@ -161,11 +172,6 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 #### 공용 인터넷에 액세스할 수 없는 인트라넷 웹 서버를 모니터링할 수 있습니까?
 
 Dc.services.visualstudio.com에 https POST 호출을 릴레이할 수 있는 프록시를 정렬해야 합니다.
-
-#### 데이터를 보는 데 중지되었습니다.
-
-* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참고하십시오.
 
 ## 상태 모니터가 작동하지 않습니다.
 
@@ -216,7 +222,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 <tr><th>표시 내용</th><th>시작 방법</th><th>원하는 이유</th></tr>
 <tr><td>가용성 차트</td><td><a href="../app-insights-monitor-web-app-availability/">웹 테스트</a></td><td>웹 앱이 작동 중인지 확인</td></tr>
 <tr><td>서버 앱 성능: 응답시간. ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">프로젝트에 Application Insights 추가</a><br/>또는 <br/><a href="../app-insights-monitor-performance-live-website-now/">서버에 AI 상태 모니터 설치</a>(또는 자체 코드를 <a href="../app-insights-api-custom-events-metrics/#track-dependency">종속성 추적</a>에 작성)</td><td>성능 문제 검색</td></tr>
+</td><td><a href="../app-insights-asp-net/">프로젝트에 Application Insights 추가</a><br/>또는 <br/><a href="../app-insights-monitor-performance-live-website-now/">서버에 AI 상태 모니터 설치</a>(또는 자체 코드를 <a href="../app-insights-api-custom-events-metrics/#track-dependency">종속성 추적</a>에 작성)</td><td>성능 문제 검색</td></tr>
 <tr><td>종속성 원격 분석</td><td><a href="../app-insights-monitor-performance-live-website-now/">서버에 AI 상태 모니터 설치</a></td><td>데이터베이스 또는 다른 외부 구성 요소의 문제 진단</td></tr>
 <tr><td>예외에서 스택 추적 가져오기</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">TrackException 호출을 코드에 삽입합니다</a> (하지만 일부는 자동으로 보고 됩니다)</td><td>예외 감지 및 진단</td></tr>
 <tr><td>로그 추적 검색</td><td><a href="../app-insights-search-diagnostic-logs/">로깅 어댑터 추가</a></td><td>예외, 성능 문제 진단</td></tr>
@@ -246,4 +252,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

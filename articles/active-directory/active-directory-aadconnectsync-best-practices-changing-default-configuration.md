@@ -1,5 +1,5 @@
 <properties
-	pageTitle="기본 구성 변경에 대한 모범 사례 | Microsoft Azure"
+	pageTitle="Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례 | Microsoft Azure"
 	description="Azure AD Connect 동기화의 기본 구성을 변경의 모범 사례를 제공합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -83,4 +83,4 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="여러 Azure AD 디렉터리 추가 및 관리 | Microsoft Azure"
-   description="Azure AD 디렉터리를 추가 및 관리를 위한 지침 및 모범 사례와 더불어 디렉터리를 완전히 독립된 리소스로 설명합니다."
+   pageTitle="여러 Azure Active Directory 추가 및 관리 | Microsoft Azure"
+   description="Azure Active Directory 추가 및 관리를 위한 지침 및 모범 사례와 더불어 디렉터리를 완전히 독립된 리소스로 설명합니다."
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand"/>
 
-# 여러 Azure AD 디렉터리 추가 및 관리
+# 여러 Azure Active Directory 추가 및 관리
 
-Azure AD 디렉터리의 각 디렉터리는 완전히 독립된 리소스로, 관리하는 다른 디렉터리와 논리적으로 독립된 완전한 기능을 갖춘 피어입니다. 또한 디렉터리 간에는 부모-자식 관계가 없습니다. 디렉터리 간 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함됩니다.
+Azure AD(Azure Active Directory)의 각 디렉터리는 완전히 독립된 리소스로, 관리하는 다른 디렉터리와 논리적으로 독립된 완전한 기능을 갖춘 피어입니다. 또한 디렉터리 간에는 부모-자식 관계가 없습니다. 디렉터리 간 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함됩니다.
 
 ##리소스 독립성
 
@@ -34,10 +34,10 @@ Azure AD 디렉터리의 각 디렉터리는 완전히 독립된 리소스로, �
 
 ##Azure AD 디렉터리 추가
 
-Azure 관리 포털에서 Azure AD 디렉터리를 추가하려면 왼쪽의 Active Directory 확장을 선택하고 **추가**를 탭합니다.
+Azure 클래식 포털에서 Azure AD 디렉터리를 추가하려면 왼쪽의 Azure Active Directory 확장을 선택하고 **추가**를 탭합니다.
 
 > [AZURE.NOTE]다른 Azure 리소스와 달리 디렉터리는 Azure 구독의 자식 리소스가 아닙니다. Azure 구독을 취소하거나 만료를 허용하는 경우에도 Azure PowerShell, Azure Graph API 또는 Office 365 관리 센터와 같은 다른 인터페이스를 사용하여 디렉터리 데이터에 계속 액세스할 수 있습니다. 다른 구독을 디렉터리와 연결할 수도 있습니다.
 
 Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 [Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

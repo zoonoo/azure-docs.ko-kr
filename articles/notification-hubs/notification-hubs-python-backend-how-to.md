@@ -3,7 +3,7 @@
 	description="Python 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777"
 	manager="dwrede" 
 	editor=""/>
 
@@ -42,6 +42,7 @@ MSDN [항목 알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.
 
 예를 들어 클라이언트를 만들려면 다음을 수행합니다.
 
+	isDebug = True
 	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 	
 Windows 알림 메시지를 보내려면
@@ -390,4 +391,4 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

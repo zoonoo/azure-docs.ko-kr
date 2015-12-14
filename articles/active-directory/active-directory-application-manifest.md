@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/03/2015"
+   ms.date="12/01/2015"
    ms.author="dkershaw;bryanla"/>
 
 # Azure Active Directory 응용 프로그램 매니페스트 이해
@@ -24,28 +24,28 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 
 실제로 응용 프로그램의 ID 구성에 속성을 업데이트하는 데 사용할 수 있는 여러 옵션이 있으며 다음을 포함하여 기능 및 난이도에 따라 다양합니다.
 
-- **[Azure 포털의][AZURE-PORTAL] 웹 사용자 인터페이스**를 사용하면 응용 프로그램의 가장 일반적인 속성을 업데이트할 수 있습니다. 응용 프로그램의 속성을 업데이트할 때 빠르고 오류가 적은 방법이지만 다음 두 방법과 마찬가지로 모든 속성에 액세스할 모든 권한은 없습니다.
-- Azure 포털에서 노출되지 않은 속성을 업데이트해야 하는 고급 시나리오의 경우 **응용 프로그램 매니페스트**를 수정할 수 있습니다. 이것이 이 문서의 초점이며 다음 섹션에서 보다 자세히 설명합니다.
+- **[Azure 클래식 포털의][AZURE-CLASSIC-PORTAL] 웹 사용자 인터페이스**를 사용하면 응용 프로그램의 가장 일반적인 속성을 업데이트할 수 있습니다. 응용 프로그램의 속성을 업데이트할 때 빠르고 오류가 적은 방법이지만 다음 두 방법과 마찬가지로 모든 속성에 액세스할 모든 권한은 없습니다.
+- Azure 클래식 포털에서 노출되지 않은 속성을 업데이트해야 하는 고급 시나리오의 경우 **응용 프로그램 매니페스트**를 수정할 수 있습니다. 이것이 이 문서의 초점이며 다음 섹션에서 보다 자세히 설명합니다.
 - 또한 **[Graph API][GRAPH-API]를 사용하는 응용 프로그램을 작성**하여 응용 프로그램을 업데이트할 수 있으며 이는 가장 많은 노력이 필요합니다. 하지만 자동화된 방식으로 정기적으로 관리 소프트웨어를 작성하거나 응용 프로그램 속성을 업데이트해야 하는 경우 매력적인 옵션입니다.
 
 ## 응용 프로그램 매니페스트를 사용하여 응용 프로그램의 ID 구성 업데이트
-[Azure 포털][AZURE-PORTAL]을 통해 JSON 파일 표현을 다운로드 및 업로드하여 응용 프로그램의 ID 구성을 관리할 수 있으며 이를 응용 프로그램 매니페스트라고 합니다. 어떤 실제 파일도 디렉터리에 저장되지 않습니다. 응용 프로그램 매니페스트는 Azure AD Graph API 응용 프로그램 엔터티의 단순한 HTTP GET 작업이며 업로드는 응용 프로그램 엔터티의 HTTP PATCH 작업입니다.
+[Azure 클래식 포털][AZURE-CLASSIC-PORTAL]을 통해 JSON 파일 표현을 다운로드 및 업로드하여 응용 프로그램의 ID 구성을 관리할 수 있으며 이를 응용 프로그램 매니페스트라고 합니다. 어떤 실제 파일도 디렉터리에 저장되지 않습니다. 응용 프로그램 매니페스트는 Azure AD Graph API 응용 프로그램 엔터티의 단순한 HTTP GET 작업이며 업로드는 응용 프로그램 엔터티의 HTTP PATCH 작업입니다.
 
 결과적으로 응용 프로그램 매니페스트의 형식 및 속성을 이해하기 위해 Graph API를 [응용 프로그램 엔터티][APPLICATION-ENTITY] 설명서를 참조해야 합니다. 응용 프로그램 매니페스트 업로드를 통해 수행할 수 있는 업데이트의 예는 다음을 포함합니다.
 
-- 웹 API에서 노출된 사용 권한 범위(oauth2Permissions)를 선언합니다. 사용 권한 범위를 위임한 oauth2Permissions를 사용하여 사용자 가장을 구현하는 방법에 대한 정보는 [Azure Active Directory와 응용 프로그램 통합][INTEGRATING-APPLICATIONS-AAD]에서 "웹 API를 다른 응용 프로그램에 노출" 항목을 참조하세요. 이전에 언급했듯이 [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION] 형식인 oauth2Permissions를 포함하여 Graph API [엔터티 및 복합 형식 참조][APPLICATION-ENTITY] 참조 문서에서 모든 응용 프로그램 엔터티 속성을 설명합니다.
-- 앱에서 노출된 응용 프로그램 역할(appRoles)을 선언합니다. 구현 예제는 [클라우드 응용 프로그램에서 Azure AD를 사용한 역할 기반 액세스 제어][RBAC-CLOUD-APPS-AZUREAD] 문서를 참조하세요.
+- 웹 API에서 노출된 사용 권한 범위(oauth2Permissions)를 선언합니다. 사용 권한 범위를 위임한 oauth2Permissions를 사용하여 사용자 가장을 구현하는 방법에 대한 정보는 [Azure Active Directory와 응용 프로그램 통합][INTEGRATING-APPLICATIONS-AAD]에서 "웹 API를 다른 응용 프로그램에 노출" 항목을 참조하세요. 이전에 언급했듯이 [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION] 형식의 컬렉션인 oauth2Permissions 멤버를 포함하여 Graph API [엔터티 및 복합 형식 참조][APPLICATION-ENTITY] 참조 문서에서 모든 응용 프로그램 엔터티 속성을 설명합니다.
+- 앱에서 노출된 응용 프로그램 역할(appRoles)을 선언합니다. 응용 프로그램 엔터티의 appRole 멤버는 [AppRole][APPLICATION-ENTITY-APP-ROLE] 형식의 컬렉션입니다. 구현 예제는 [클라우드 응용 프로그램에서 Azure AD를 사용한 역할 기반 액세스 제어][RBAC-CLOUD-APPS-AZUREAD] 문서를 참조하세요.
 - 알려진 클라이언트 응용 프로그램을 선언합니다.
 - Azure AD를 요청하여 로그인한 사용자에 대해 그룹 멤버 자격 문제를 제시합니다. 참고: 이를 구성하여 추가적으로 사용자의 디렉터리 역할 멤버 자격에 대한 문제를 제기할 수 있습니다. 구현 예제는 [AD 그룹을 사용하여 클라우드 응용 프로그램에서 권한 부여][AAD-GROUPS-FOR-AUTHORIZATION] 문서를 참조하세요.
 - 응용 프로그램이 OAuth 2.0 암시적 허용 흐름을 지원할 수 있습니다.(포함된 JavaScript 웹 페이지 또는 단일 페이지 응용 프로그램(SPA)에)
-- X509 인증서를 비밀 키로 사용할 수 있습니다. 구현 예제는 [Office 365에서 서비스 및 데몬 앱 빌드][O365-SERVICE-DAEMON-APPS] 문서를 참조하세요.
+- X509 인증서를 비밀 키로 사용할 수 있습니다. 구현 예제는 [Office 365에서 서비스 및 디먼 앱 빌드][O365-SERVICE-DAEMON-APPS]와 [Azure 리소스 관리자 API 인증에 대한 개발자 가이드][DEV-GUIDE-TO-AUTH-WITH-ARM] 문서를 참조하세요.
 
 또한 응용 프로그램 매니페스트는 응용 프로그램 등록의 상태를 추적하는 좋은 방법을 제공합니다. JSON 형식에서 사용할 수 있기 때문에 파일 표시는 응용 프로그램의 소스 코드와 함께 소스 제어에 체크 인할 수 있습니다.
 
 ### 단계별 예제
 이제 응용 프로그램 매니페스트를 통해 응용 프로그램의 ID 구성을 업데이트하는 데 필요한 단계를 살펴보겠습니다.
 
-1. [Azure 포털][AZURE-PORTAL]을 탐색하고 서비스 관리자 또는 공동 관리자 권한이 있는 계정으로 로그인합니다.
+1. [Azure 클래식 포털][AZURE-CLASSIC-PORTAL]을 탐색하고 서비스 관리자 또는 공동 관리자 권한이 있는 계정으로 로그인합니다.
 
 
 2. 인증된 후에 아래로 스크롤하여 왼쪽된 탐색 패널(1)에서 Azure "Active Directory" 확장을 선택한 다음 응용 프로그램이 등록된(2) Azure AD 테넌트를 클릭합니다.
@@ -70,7 +70,7 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 	![JSON 매니페스트 업데이트][UPDATE-MANIFEST]
 
 
-6. 매니페스트의 업데이트가 완료되면 Azure 포털의 Azure AD 응용 프로그램 페이지로 다시 돌아가서 "매니페스트 관리" 기능을 다시(1) 클릭하지만 이번에는 "매니페스트 업로드" 옵션(2)을 선택합니다. 다운로드와 유사하게 두 번째 대화 상자가 표시되어 JSON 파일의 위치에 대한 메시지를 표시합니다. "파일 찾아보기..."(3)를 클릭한 다음 "업로드할 파일 선택" 대화 상자를 사용하여 JSON 파일(4)을 선택하고 "열기"를 누릅니다. 대화 상자가 사라지면 "OK" 확인 표시(5)를 선택하고 매니페스트가 업로드됩니다.
+6. 매니페스트의 업데이트가 완료되면 Azure 클래식 포털의 Azure AD 응용 프로그램 페이지로 돌아가서 "매니페스트 관리" 기능(1)을 다시 클릭하지만 이번에는 "매니페스트 업로드" 옵션(2)을 선택합니다. 다운로드와 유사하게 두 번째 대화 상자가 표시되어 JSON 파일의 위치에 대한 메시지를 표시합니다. "파일 찾아보기..."(3)를 클릭한 다음 "업로드할 파일 선택" 대화 상자를 사용하여 JSON 파일(4)을 선택하고 "열기"를 누릅니다. 대화 상자가 사라지면 "OK" 확인 표시(5)를 선택하고 매니페스트가 업로드됩니다.
 
 	![매니페스트 관리, 업로드 옵션][MANAGE-MANIFEST-UPLOAD]
 
@@ -97,12 +97,14 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
+[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
-[AZURE-PORTAL]: https://manage.windowsazure.com
+[AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
+[DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

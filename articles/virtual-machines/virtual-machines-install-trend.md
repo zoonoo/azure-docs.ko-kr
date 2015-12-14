@@ -31,9 +31,9 @@
 
 ## 새 가상 컴퓨터에 Deep Security Agent 설치
 
-**갤러리에서** 옵션을 사용하여 가상 컴퓨터를 만드는 경우 [Azure 포털](http://manage.windowsazure.com)을 사용하여 VM 에이전트 및 Trend Micro 보안 확장을 설치할 수 있습니다. 이 방법을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
+**갤러리에서** 옵션을 사용하여 가상 컴퓨터를 만드는 경우 [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하여 VM 에이전트 및 Trend Micro 보안 확장을 설치할 수 있습니다. 이 방법을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
 
-이 **갤러리에서** 옵션은 가상 컴퓨터 설치에 도움이 되는 마법사를 엽니다. 마법사 마지막 페이지에서 VM 에이전트 및 Trend Micro 보안 확장을 설치합니다. 일반적인 지침은 [Azure 포털에서 Windows Server를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial-classic-portal.md)를 참조하세요. 마법사 마지막 페이지가 되면 다음을 수행합니다.
+이 **갤러리에서** 옵션은 가상 컴퓨터 설치에 도움이 되는 마법사를 엽니다. 마법사 마지막 페이지에서 VM 에이전트 및 Trend Micro 보안 확장을 설치합니다. 일반적인 지침은 [Azure 클래식 포털에서 Windows Server를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial-classic-portal.md)를 참조하세요. 마법사 마지막 페이지가 되면 다음을 수행합니다.
 
 1.	**VM 에이전트**에서 **VM 에이전트 설치**를 선택합니다.
 
@@ -87,4 +87,4 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: virtual-machines-log-on-windows-server.md
 [Azure VM 확장 및 기능]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

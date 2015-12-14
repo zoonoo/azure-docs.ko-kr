@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/29/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # HDinsight에서 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용  
@@ -29,7 +29,7 @@ HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/)를 사용하는 방
 SQLLine을 시작하려면 다음이 있어야 합니다.
 
 - **HDInsight의 HBase 클러스터**. HBase 클러스터 프로비전에 대한 자세한 내용은 [HDInsight에서 Apache HBase 시작][hdinsight-hbase-get-started]을 참조하세요.
-- **원격 데스크톱 프로토콜을 통해 HBase 클러스터에 연결**. 자세한 내용은 [Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-manage-portal]를 참조하세요.
+- **원격 데스크톱 프로토콜을 통해 HBase 클러스터에 연결**. 자세한 내용은 [Azure 클래식 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-manage-portal]를 참조하세요.
 
 **호스트 이름을 확인하려면**
 
@@ -116,7 +116,7 @@ Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확�
 
 **지점 및 사이트 간 연결을 구성하려면**
 
-1. [Azure 포털][azure-portal]에 로그인합니다.
+1. [Azure 클래식 포털][azure-portal]에 로그인합니다.
 2. 왼쪽에서 **네트워크**를 클릭합니다.
 3. 만든 가상 네트워크를 클릭합니다([Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet] 참조).
 4. 위쪽에서 **구성**을 클릭합니다.
@@ -129,7 +129,7 @@ Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확�
 
 **동적 라우팅 게이트웨이를 만들려면**
 
-1. Azure 포털의 페이지 위쪽에서 **대시보드**를 클릭합니다.
+1. Azure 클래식 포털의 페이지 위쪽에서 **대시보드**를 클릭합니다.
 2. 페이지 아래쪽에서 **게이트웨이 만들기**를 클릭합니다.
 3. **예**를 클릭하여 확인합니다. 게이트웨이가 만들어질 때까지 기다립니다.
 4. 위쪽에서 **대시보드**를 클릭합니다. 가상 네트워크에 대한 시각적 다이어그램이 표시됩니다.
@@ -147,7 +147,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
 1. 워크스테이션에서 명령 프롬프트 창을 엽니다.
 2. Visual Studio Tools 폴더로 이동합니다. 
-3. 아래 예제의 다음 명령은 워크스테이션의 개인 인증서 저장소에 루트 인증서를 만들고 설치하며, 나중에 Azure 포털에 업로드할 해당.cer 파일을 만듭니다. 
+3. 아래 예제의 다음 명령은 워크스테이션의 개인 인증서 저장소에 루트 인증서를 만들고 설치하며, 나중에 Azure 클래식 포털에 업로드할 해당.cer 파일을 만듭니다. 
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -171,9 +171,9 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
 	클라이언트 인증서는 가상 네트워크에 연결하려는 각 컴퓨터에 설치되어야 합니다. 가상 네트워크에 연결 하려는 각 컴퓨터에 대해 고유한 클라이언트 인증서를 만드는 것이 좋습니다. 클라이언트 인증서를 내보내려면 certmgr.msc를 사용합니다.
 
-**Azure 포털에 루트 인증서를 업로드하려면**
+**Azure 클래식 포털에 루트 인증서를 업로드하려면**
 
-1. Azure 포털의 왼쪽에서 **네트워크**를 클릭합니다.
+1. Azure 클래식 포털의 왼쪽에서 **네트워크**를 클릭합니다.
 2. HBase 클러스터가 배포된 가상 네트워크를 클릭합니다.
 3. 위쪽에서 **인증서**를 클릭합니다.
 4. 아래쪽에서 **업로드**를 클릭하고 마지막 이전 절차에서 만든 루트 인증서 파일을 지정합니다. 인증서를 가져올 때까지 기다립니다.
@@ -306,4 +306,4 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

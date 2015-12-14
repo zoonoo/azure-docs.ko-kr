@@ -218,7 +218,7 @@ linkedServiceName | 이전에 만든 HDInsight 연결된 서비스를 말합니�
 [adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Portal]: http://portal.azure.com
+[Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

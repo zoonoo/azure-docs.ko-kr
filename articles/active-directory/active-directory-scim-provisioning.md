@@ -95,9 +95,9 @@ Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서
 **필수 구성 요소**
 
 * Visual Studio 2013 이상
-* [Azure SDK for .NET](https://azure.microsoft.com/ko-KR/downloads/)
+* [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * ASP.NET framework 4.5를 SCIM 끝점으로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
-* [Azure AD Premium의 평가판 또는 사용이 허가된 버전을 사용하여 Azure 구독](https://azure.microsoft.com/ko-KR/services/active-directory/)
+* [Azure AD Premium의 평가판 또는 사용이 허가된 버전을 사용하여 Azure 구독](https://azure.microsoft.com/services/active-directory/)
 * Amazon AWS 샘플에는 [Visual Studio용 AWS Toolkit](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)의 라이브러리가 필요합니다. 추가 세부 정보는 샘플에 포함된 추가 정보 파일을 참조하세요.
 
 ###시작하기
@@ -692,4 +692,4 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

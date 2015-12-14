@@ -18,6 +18,8 @@
 
 # Azure 앱 서비스에서 API 앱 디버그
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 개요
 
 이 자습서에서는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 [API 앱](app-service-api-apps-why-best-platform.md)에서 실행되도록 구성된 ASP.NET Web API 코드를 디버그합니다. 로컬에서 실행되고 Azure에서 원격으로 실행되는 동안 코드를 디버그합니다.
@@ -28,7 +30,7 @@
 
 원격 디버깅을 사용하려면 디버그 빌드를 Azure에 배포해야 합니다.
 
-1. Visual Studio **솔루션 탐색기**에서 [이전 자습서에서 배포된](app-service-dotnet-deploy-api-app.md) 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택하십시오.
+1. Visual Studio **솔루션 탐색기**에서 [이전 자습서](app-service-dotnet-deploy-api-app.md)에서 배포된 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 2. **웹 게시** 대화 상자에서 **설정** 탭을 선택하고 **디버그** 빌드 구성을 선택합니다.
 
@@ -58,7 +60,7 @@
 
 	![디버거 연결](./media/app-service-api-dotnet-debug/rd-attaching.png)
 
-9. 연결이 설정된 후 API 앱 프로젝트에서 **ContactsController.cs** 파일을 열고 메서드에 중단점을 추가`Get`합니다.
+9. 연결이 설정된 후 API 앱 프로젝트에서 **ContactsController.cs** 파일을 열고 `Get` 메서드에 중단점을 추가합니다.
 
 	![컨트롤러에 중단점 적용](./media/app-service-api-dotnet-debug/rd-breakpoints.png)
 
@@ -136,4 +138,4 @@ API 응용 프로그램을 로컬로 디버깅하려는 경우가 있을 수 있
 
 문제해결에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요. 앱 서비스 API 앱은 웹 서비스를 호스트하기 위한 추가 기능이 있는 웹앱이므로 웹앱에 사용하는 것과 동일한 디버깅 및 문제 해결 도구를 API 앱에 사용할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

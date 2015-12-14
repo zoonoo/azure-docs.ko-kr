@@ -60,11 +60,11 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 자산을 업로드하고 인코딩하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 
-**Azure 관리 포털**, **.NET** 또는 **REST API**를 사용하여 파일을 업로드합니다.
+**Azure 클래식 포털**, **.NET** 또는 **REST API**를 사용하여 파일을 업로드합니다.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-**Azure 관리 포털**, **.NET** 또는 **REST API**를 사용하여 **Azure 미디어 인코더**로 인코딩합니다.
+**Azure 클래식 포털**, **.NET** 또는 **REST API**를 사용하여 **Azure 미디어 인코더**로 인코딩합니다.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -85,7 +85,7 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-**Azure 관리 포털** 또는 **.NET**을 사용하여 자산을 게시합니다(로케이터를 만들어서 게시).
+**Azure 클래식 포털** 또는 **.NET**을 사용하여 자산을 게시합니다(로케이터를 만들어서 게시).
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -105,4 +105,4 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

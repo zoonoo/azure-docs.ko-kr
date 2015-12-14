@@ -22,7 +22,7 @@ Azure 검색은 Microsoft Azure에서 클라우드 호스팅되는 검색 서비
 
 ##다양한 버전으로 출시된 기능
 
-기능은 [Azure 포털](https://portal.azure.com) 내에서 [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), 또는 서비스 대시보드를 통해 별도 혹은 통합되어 출시됩니다.
+기능은 [Azure 클래식 포털](https://portal.azure.com) 내에서 [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), 또는 서비스 대시보드를 통해 별도 혹은 통합되어 출시됩니다.
 
 .NET 라이브러리 및 REST API에는 다양한 버전이 있습니다. 새로운 기능을 출시하는 경우 오래된 API도 그대로 운영됩니다. 본사의 버전 관리 정책에 대한 자세한 내용을 보려면 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)를 방문해 주세요.
 
@@ -87,7 +87,7 @@ SDK의 설치 및 사용에 대한 안내를 원하시면 [.NET에서 Azure 검�
 
 - Lucene로 배포된 사용자 지정 언어 분석기에서 다국어 지원을 제공하기 위해 [Lucene 언어 분석기](search-api-2014-10-20-preview.md)가 추가되었습니다. 
 
-- [Azure 관리 포털](https://portal.azure.com)에서 점수 매기기 프로필을 포함하여 인덱스 작성을 위해 도구 지원이 도입되었습니다.
+- [Azure 클래식 포털](https://portal.azure.com)에서 점수 매기기 프로필을 포함하여 인덱스 작성을 위해 도구 지원이 도입되었습니다.
 
 ##Api-버전 2014-07-31-미리 보기
 **릴리스 날짜: 2014년 8월 21일**
@@ -100,7 +100,7 @@ SDK의 설치 및 사용에 대한 안내를 원하시면 [.NET에서 Azure 검�
 
 - 지리 공간적 지원은 처음부터 Azure 검색의 일부인 `Edm.GeographyPoint` 데이터 형식을 통해 제공되며 시작부터 사용 가능합니다.
 
-- [Azure 관리 포털](https://portal.azure.com)의 미리보기 버전에서 대비합니다. Azure 검색은 새 포털에서 사용할 수 있는 몇 가지 서비스 중 하나였습니다.
+- [Azure 클래식 포털](https://portal.azure.com)의 미리보기 버전에서 대비합니다. Azure 검색은 새 포털에서 사용할 수 있는 몇 가지 서비스 중 하나였습니다.
 
 ##관리 api-version 2015-08-19
 **릴리스 날짜: 2015년 9월 11일**
@@ -125,4 +125,4 @@ SDK의 설치 및 사용에 대한 안내를 원하시면 [.NET에서 Azure 검�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

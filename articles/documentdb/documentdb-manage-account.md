@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Preview 포털을 통해 DocumentDB 계정 관리 | Microsoft Azure" 
-	description="Azure Preview 포털을 통해 DocumentDB 계정을 관리하는 방법을 알아봅니다. Azure Preview 포털을 사용하여 계정을 보기, 복사, 삭제 및 액세스하는 방법에 대한 지침을 찾습니다." 
-	keywords="Azure Preview 포털, Documentdb, Azure, Microsoft Azure"
+	pageTitle="Azure 포털을 통해 DocumentDB 계정 관리 | Microsoft Azure" 
+	description="Azure 포털을 통해 DocumentDB 계정을 관리하는 방법을 알아봅니다. Azure 포털을 사용하여 계정을 보기, 복사, 삭제 및 액세스하는 방법에 대한 지침을 찾습니다." 
+	keywords="Azure 포털, Documentdb, Azure, Microsoft Azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="AndrewHoh" 
@@ -19,24 +19,24 @@
 
 # DocumentDB 계정을 관리하는 방법
 
-Azure Preview 포털에서 키와 일관성 설정을 사용하는 방법 및 계정을 삭제하는 방법을 알아봅니다.
+Azure 포털에서 키와 일관성 설정을 사용하는 방법 및 계정을 삭제하는 방법을 알아봅니다.
 
 ## <a id="keys"></a>선택키 보기, 복사 및 다시 생성
 DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키가 생성됩니다. DocumentDB에서는 2개의 액세스 키를 제공해서 사용자가 DocumentDB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다.
 
-[Microsoft Azure Preview 포털](https://portal.azure.com/)에서 **DocumentDB 계정 블레이드**에서 **키** 부분에 액세스하여 DocumentDB 계정에 액세스하는 데 사용되는 선택키를 표시, 복사 및 다시 생성합니다.
+[Microsoft Azure 포털](https://portal.azure.com/)에서 **DocumentDB 계정** 블레이드의 **키** 부분에 액세스하여 DocumentDB 계정에 액세스하는 데 사용되는 선택키를 표시, 복사 및 다시 생성합니다.
 
-![Azure Preview 포털 스크린샷, 키 블레이드](media/documentdb-manage-account/keys.png)
+![Azure 포털 스크린샷, 키 블레이드](media/documentdb-manage-account/keys.png)
 
-### Azure Preview 포털에서 액세스 키 보기 및 복사
+### Azure 포털에서 선택키 보기 및 복사
 
-1.      [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다. 
+1.      [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다. 
 
-2.      **요약 렌즈**에서 **키**를 클릭합니다.
+2.      **요약 렌즈**에서 **키**를 클릭합니다.
 
-3.      **키** 블레이드에서 복사할 키 오른쪽의 **복사** 단추를 클릭합니다.
+3.      **키** 블레이드에서 복사할 키 오른쪽의 **복사** 단추를 클릭합니다.
 
-  ![Azure Preview 포털에서 액세스 키 보기 및 복사, 키 블레이드](./media/documentdb-manage-account/image004.jpg)
+  ![Azure 포털에서 선택키 보기 및 복사, 키 블레이드](./media/documentdb-manage-account/image004.jpg)
 
 ### 액세스 키 다시 생성
 
@@ -46,17 +46,17 @@ DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액�
 
 DocumentDB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서비스가 있는 경우 키를 롤링하지 않고 다시 생성하면 연결이 끊어집니다. 다음 단계에서는 키 롤링에 관련된 프로세스를 간략하게 설명합니다.
 
-1.      DocumentDB 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 액세스 키를 업데이트합니다.
+1.      DocumentDB 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 액세스 키를 업데이트합니다.
 
-2.      DocumentDB 계정의 기본 액세스 키를 다시 생성합니다. [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
+2.      DocumentDB 계정의 기본 액세스 키를 다시 생성합니다. [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다.
 
-3.      요약 렌즈에서 **키**를 클릭합니다.
+3.      요약 렌즈에서 **키**를 클릭합니다.
 
-4.      **키** 블레이드에서 **기본 키 다시 생성** 명령을 클릭하고 **확인**을 클릭하여 새 키를 생성할지 확인합니다.
+4.      **키** 블레이드에서 **기본 키 다시 생성** 명령을 클릭하고 **확인**을 클릭하여 새 키를 생성할지 확인합니다.
 
-5.      키를 다시 생성하고 약 5분 후에 새 키를 사용할 수 있는지 확인한 후 응용 프로그램 코드에서 새 기본 액세스 키를 참조하도록 액세스 키를 업데이트합니다.
+5.      키를 다시 생성하고 약 5분 후에 새 키를 사용할 수 있는지 확인한 후 응용 프로그램 코드에서 새 기본 액세스 키를 참조하도록 액세스 키를 업데이트합니다.
 
-6.      보조 액세스 키를 다시 생성합니다.
+6.      보조 액세스 키를 다시 생성합니다.
 
 *새로 생성된 키를 사용하여 DocumentDB 계정에 액세스할 수 있을 때까지 몇 분 정도 걸릴 수 있습니다.*
 
@@ -75,34 +75,34 @@ DocumentDB는 개발자가 일관성, 가용성 및 대기 시간을 예측 가�
 
 ### DocumentDB 계정의 기본 일관성을 지정하려면
 
-1.      [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다. 
+1.      [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정에 액세스합니다. 
 
-2.      **구성** 렌즈에서 **기본 일관성**을 클릭합니다.
+2.      **구성** 렌즈에서 **기본 일관성**을 클릭합니다.
 
-3.      **기본 일관성** 블레이드에서 DocumentDB 계정에 적용할 기본 일관성 수준을 선택합니다.
+3.      **기본 일관성** 블레이드에서 DocumentDB 계정에 적용할 기본 일관성 수준을 선택합니다.
 
 ![기본 일관성 세션](./media/documentdb-manage-account/image005.png)
 
 ![기본 일관성 제한됨](./media/documentdb-manage-account/image006.png)
 
-4.      **Save**를 클릭합니다.
+4.      **Save**를 클릭합니다.
 
-5.      Azure Preview 포털 알림 허브를 통해 작업 진행률을 모니터링할 수 있습니다.
+5.      Azure 포털 알림 허브를 통해 작업 진행률을 모니터링할 수 있습니다.
 
 *기본 일관성 설정이 DocumentDB 계정에 적용되기 전에는 몇 분 정도 걸릴 수 있음을 참고하세요.*
 
-## Azure Preview 포털에서 DocumentDB 계정을 삭제하는 방법<a id="delete"></a>
-Azure Preview 포털에서 더 이상 사용하지 않는 DocumentDB 계정을 제거하려면 **DocumentDB 계정** 블레이드에서 **삭제** 명령을 사용합니다.
+## <a id="delete"></a> 방법: Azure 포털에서 DocumentDB 계정 삭제
+Azure 포털에서 더 이상 사용하지 않는 DocumentDB 계정을 제거하려면 **DocumentDB 계정** 블레이드에서 **삭제** 명령을 사용합니다.
 
-![Azure Preview 포털에서 DocumentDB 계정을 삭제하는 방법](./media/documentdb-manage-account/image009.png)
+![Azure 포털에서 DocumentDB 계정을 삭제하는 방법](./media/documentdb-manage-account/image009.png)
 
-1.      [Azure Preview 포털](https://portal.azure.com/)에서 삭제할 DocumentDB 계정에 액세스합니다. 
+1.      [Azure 포털](https://portal.azure.com/)에서 삭제할 DocumentDB 계정에 액세스합니다. 
 
-2.      **DocumentDB 계정** 블레이드에서 **삭제** 명령을 클릭합니다.
+2.      **DocumentDB 계정** 블레이드에서 **삭제** 명령을 클릭합니다.
 
-3.      그러면 표시되는 확인 블레이드에서 DocumentDB 계정 이름을 입력하여 계정을 삭제할 것임을 확인합니다.
+3.      그러면 표시되는 확인 블레이드에서 DocumentDB 계정 이름을 입력하여 계정을 삭제할 것임을 확인합니다.
 
-4.      확인 블레이드에서 **삭제** 단추를 클릭합니다.
+4.      확인 블레이드에서 **삭제** 단추를 클릭합니다.
 
 ## <a id="next"></a>다음 단계
 
@@ -113,4 +113,4 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
  
  
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

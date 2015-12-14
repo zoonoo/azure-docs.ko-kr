@@ -53,7 +53,7 @@ Azure 미디어 서비스에서 **채널**은 라이브 스트리밍 콘텐츠�
 
 3. 프로그램을 만듭니다.
 
-	Azure 관리 포털을 사용하는 경우 프로그램을 만들면 자산도 만들어집니다.
+	Azure 클래식 포털을 사용하는 경우 프로그램을 만들면 자산도 만들어집니다.
 
 	.NET SDK 또는 REST를 사용하는 경우 자산을 만들고 프로그램을 만들 때 이 자산을 사용하도록 지정해야 합니다. 
 1. 프로그램과 연결된 자산을 게시합니다.   
@@ -157,7 +157,7 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 
 채널이 데이터 수집을 시작하면 스트림을 미리 볼 수 있습니다.
 
-현재 미리 보기 스트림은 지정된 입력 형식에 상관 없이 조각화된 MP4(부드러운 스트리밍) 형식으로만 배달될 수 있습니다. [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 플레이어를 사용하여 부드러운 스트림을 테스트할 수 있습니다. Azure 관리 포털에 호스팅된 플레이어를 사용하여 스트림을 볼 수도 있습니다.
+현재 미리 보기 스트림은 지정된 입력 형식에 상관 없이 조각화된 MP4(부드러운 스트리밍) 형식으로만 배달될 수 있습니다. [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 플레이어를 사용하여 부드러운 스트림을 테스트할 수 있습니다. Azure 클래식 포털에 호스팅된 플레이어를 사용하여 스트림을 볼 수도 있습니다.
 
 
 ####허용된 IP 주소
@@ -269,4 +269,4 @@ SCTE-35|디지털 신호 시스템이 큐 광고 삽입에 사용됩니다. 다�
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션 
@@ -54,7 +54,7 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 
 - **Microsoft Azure StorSimple 장치** – SSD(반도체 드라이브) 및 HDD(하드 디스크 드라이브)가 포함된 온-프레미스 하이브리드 저장소 배열로, 중복 컨트롤러 및 자동 장애 조치 기능을 함께 제공합니다. 컨트롤러는 현재 사용되는(또는 핫) 데이터를 로컬 저장소(장치 또는 온-프레미스 서버)에 배치하고 덜 자주 사용되는 데이터는 클라우드로 이동하여 저장소 계층화를 관리합니다.
 - **StorSimple 가상 장치** – StorSimple 가상 어플라이언스라고도 하며, 물리적 하이브리드 저장 장치의 아키텍처와 대부분의 기능을 복제하는 StorSimple 장치의 소프트웨어 버전입니다. StorSimple 가상 장치는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. 가상 장치는 테스트 및 소규모 파일럿 시나리오에 사용하기에 적합합니다. 
-- **StorSimple Manager 서비스** – 단일 웹 인터페이스에서 StorSimple 장치 또는 StorSimple 가상 장치를 관리할 수 있는 Azure 포털의 확장입니다. StorSimple Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
+- **StorSimple 관리자 서비스** – 단일 웹 인터페이스에서 StorSimple 장치 또는 StorSimple 가상 장치를 관리할 수 있는 Azure 클래식 포털의 확장입니다. StorSimple Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
 - **StorSimple용 Windows PowerShell** – StorSimple 장치를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
 - **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](https://msdn.microsoft.com/library/dn920427.aspx)를 참조하세요.
 - **StorSimple 스냅숏 관리자** – 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 응용 프로그램에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다. 
@@ -182,7 +182,7 @@ StorSimple는 데이터와 저장소 할당을 조정하여 사용량 패턴 변
 저장소 계층화 프로세스는 다음과 같이 수행됩니다.
 
 1. 시스템 관리자가 Microsoft Azure 클라우드 저장소 계정을 설정합니다.
-2. 관리자는 직렬 콘솔과 Azure 포털에서 실행되는 StorSimple Manager 서비스를 사용하여 장치 및 파일 서버를 구성하고 볼륨 및 데이터 보호 정책을 만듭니다. 온-프레미스 컴퓨터(예: 파일 서버)가 iSCSI(Internet Small Computer System Interface)를 사용하여 StorSimple 장치에 액세스합니다.
+2. 관리자는 직렬 콘솔과 StorSimple 관리 서비스(Azure 클래식 포털에서 실행)를 사용하여 장치 및 파일 서버를 구성하고, 볼륨과 데이터 보호 정책을 만듭니다. 온-프레미스 컴퓨터(예: 파일 서버)가 iSCSI(Internet Small Computer System Interface)를 사용하여 StorSimple 장치에 액세스합니다.
 3. 처음에 StorSimple은 장치의 빠른 SSD 계층에 데이터를 저장합니다.
 4. SSD 계층이 용량에 가까워지면 StorSimple에서 가장 오래된 데이터 블록을 중복 제거 및 압축하고 HDD 계층으로 이동합니다.
 5. HDD 계층이 용량에 가까워지면 StorSimple에서 가장 오래된 데이터 블록을 암호화하고 HTTPS를 통해 Microsoft Azure 저장소 계정으로 안전하게 보냅니다.
@@ -243,12 +243,12 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | 복구 시간 목표(RTO) | 재해 발생 후 비즈니스 프로세스 또는 시스템이 완전히 복원되기 전에 연장해야 하는 최대 시간입니다.| 
 |Serial Attached SCSI(SAS) | HDD(하드 디스크 드라이브)의 한 유형입니다.|
 | 서비스 데이터 암호화 키 | StorSimple Manager 서비스에 등록하는 모든 새 StorSimple 장치에서 사용할 수 있는 키입니다. StorSimple Manager 서비스와 장치 간에 전송되는 구성 데이터는 공용 키를 사용하여 암호화된 후 개인 키를 사용하는 장치에서만 해독할 수 있습니다. 서비스 데이터 암호화 키를 사용하면 서비스에서 암호 해독을 위해 이 개인 키를 얻을 수 있습니다.|
-| 서비스 등록 키 | 추가 관리 작업을 위해 Azure 포털에 표시되도록 StorSimple Manager 서비스에 StorSimple 장치를 등록하는 데 도움이 되는 키입니다.|
+| 서비스 등록 키 | 키는 StorSimple 관리자 서비스를 사용하여 StorSimple 장치 등록을 도와줌으로써 추가 관리 작업에 대한 Azure 클래식 포털에 나타나게 해줍니다.|
 | Small Computer System Interface(SCSI) | 컴퓨터를 물리적으로 연결하고 컴퓨터 간에 데이터를 전달하기 위한 표준 집합입니다.|
 | 반도체 드라이브(SSD) | 움직이는 부분이 없는 디스크(예: 플래시 드라이브)입니다.|
 | 저장소 계정 만들기 | 지정된 클라우드 서비스 공급자에 대해 저장소 계정에 연결된 액세스 자격 증명 집합입니다.| 
 | SharePoint용 StorSimple 어댑터| StorSimple 저장소 및 데이터 보호 기능을 SharePoint 서버 팜으로 투명하게 확장하는 Microsoft Azure StorSimple 구성 요소입니다.|
-| StorSimple 관리자 서비스 | Azure StorSimple 온-프레미스 및 가상 장치를 관리할 수 있게 해주는 Azure 포털의 확장입니다.|
+| StorSimple 관리자 서비스 | Azure 클래식 포털의 확장은 StorSimple 온-프레미스 및 가상 장치를 관리할 수 있게 해줍니다.|
 | StorSimple 스냅숏 관리자 | Microsoft Azure StorSimple에서 백업 및 복원 작업을 관리하기 위한 MMC(Microsoft Management Console) 스냅인입니다.|
 | 백업 수행 | 사용자가 대화형으로 볼륨을 백업할 수 있게 해주는 기능입니다. 정의된 정책을 통해 자동화된 백업을 수행하는 대신 볼륨의 수동 백업을 수행하는 대체 방법입니다.|
 | 씬 프로비저닝 | 사용 가능한 저장소 공간이 저장소 시스템에서 사용되는 효율성을 최적화하는 방법입니다. 씬 프로비저닝에서는 지정된 시간에 각 사용자에게 필요한 최소 공간을 기준으로 여러 사용자 간에 저장소가 할당됩니다. *팻 프로비저닝*도 참조하세요.|
@@ -271,4 +271,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -27,7 +27,7 @@
 
 새 기계 학습 작업 영역을 만들 때 작업 영역 소유자 필드에 입력하는 ID는 유효한 Microsoft 계정(이전의 Windows Live ID)이어야 합니다(예: john-contoso@live.com 또는 john-contoso@hotmail.com). 회사 전자 메일 계정과 같은 타사 계정을 사용할 수 없습니다. 무료 Microsoft 계정을 만들려면 [www.live.com](http://www.live.com)으로 이동합니다.
 
-작업 영역을 만들기 위해 Azure 포털에 로그인하는 데 사용한 계정에는 해당 계정을 소유자로 지정하지 않는 한 작업 영역을 *열* 수 있는 권한이 자동으로 부여되지 않습니다. 기계 학습 스튜디오에서 작업 영역을 열려면 작업 영역의 소유자로 정의된 Microsoft 계정으로 로그인하거나 작업 공간 소유자의 참가 초대를 받아야 합니다. 그러나 Azure 포털에서 소유자를 변경하고 액세스를 구성하는 등 작업 영역을 *관리*할 수 있습니다.
+작업 영역을 만들기 위해 Azure 클래식 포털에 로그인하는 데 사용한 계정에는 해당 계정을 소유자로 지정하지 않는 한 작업 영역을 *열* 수 있는 권한이 자동으로 부여되지 않습니다. 기계 학습 스튜디오에서 작업 영역을 열려면 작업 영역의 소유자로 정의된 Microsoft 계정으로 로그인하거나 작업 공간 소유자의 참가 초대를 받아야 합니다. 그러나 Azure 클래식 포털에서 소유자를 변경하고 액세스를 구성하는 등 작업 영역을 *관리*할 수 있습니다.
 
 작업 영역을 관리하는 방법에 대한 자세한 내용은 [Azure 기계 학습 작업 영역 관리]를 참조하세요.
 
@@ -37,7 +37,7 @@
 
 기계 학습은 현재 제한된 지역에서 사용할 수 있습니다. 구독에 이들 지역 중 한 곳이 포함되어 있지 않으면 “허용되는 지역에 구독이 없습니다.”라는 오류 메시지가 나타납니다.
 
-구독에 영역을 추가하도록 요청하려면, Azure 관리 포털에서 **Microsoft 지원에 문의**를 선택하고, 문제 유형으로 **청구**를 선택한 다음, 프롬프트에 따라 요청을 제출합니다.
+구독에 영역을 추가하도록 요청하려면, Azure 클래식 포털에서 **Microsoft 지원에 문의**를 선택하고, 문제 유형으로 **청구**를 선택한 다음, 프롬프트에 따라 요청을 제출합니다.
 
 ![Microsoft 지원에 문의][screen1]
 
@@ -46,7 +46,7 @@
 기계 학습 서비스에서 데이터를 저장하려면 저장소 계정이 필요합니다. 기존 저장소 계정을 사용하거나, 새 저장소 계정을 만들 수 있는 할당량이 있는 경우 새 기계 학습 작업 영역을 만들 때 새 저장소 계정을 만들 수 있습니다.
 
 <!-- These instructions no longer work, but I'm not sure what to replace them with
-To see if you can create a new storage account, in the management portal, go to **Settings** and then click **Usage**.
+To see if you can create a new storage account, in the Classic Portal, go to **Settings** and then click **Usage**.
 -->
 
 ![작업 영역 만들기][screen2]
@@ -80,4 +80,4 @@ Microsoft는 기계 학습 환경을 가능한 한 원활하게 만들기 위해
 [screen5]: media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

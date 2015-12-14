@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 | Microsoft Azure" 
-	description="SQL 데이터베이스에서 지원하는 모바일 서비스에서 확장성 문제를 진단 및 해결하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 | Microsoft Azure"
+	description="SQL 데이터베이스에서 지원하는 모바일 서비스에서 확장성 문제를 진단 및 해결하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="lindydonna"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/08/2015"
 	ms.author="donnam;ricksal"/>
 
 # Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Azure 모바일 서비스를 사용하면 작업을 매우 쉽게 시작하고 SQL 데이터베이스에 데이터를 저장하는 클라우드 호스팅 백 엔드에 연결되는 앱을 쉽게 작성할 수 있습니다. 앱이 커지면 포털에서 계산 및 네트워킹 용량을 추가하여 크기 조정 설정을 조정하는 것처럼 간단하게 서비스 인스턴스 크기를 조정할 수 있습니다. 하지만 서비스 지원 SQL 데이터베이스를 크기 조정하기 위해서는 서비스의 부하 증가에 따라 사전적인 일부 계획과 모니터링이 필요합니다. 이 문서에서는 SQL 지원 모바일 서비스의 지속적인 성능 향상을 보장하기 위한 몇 가지 모범 사례에 대해 설명합니다.
 
@@ -32,14 +37,14 @@ Azure 모바일 서비스를 사용하면 작업을 매우 쉽게 시작하고 S
 <a name="Diagnosing"></a>
 ## 문제 진단
 
-모바일 서비스에서 로드 중 문제가 발생한다고 의심될 경우 먼저 확인할 곳은 **Azure 관리 포털**에서 서비스에 대한 [대시보드][] 탭입니다. 여기에서 확인할 일부 항목은 다음과 같습니다.
+모바일 서비스에서 로드 중 문제가 발생한다고 의심될 경우 먼저 확인할 곳은 [Azure 클래식 포털]에서 서비스에 대한 **대시보드** 탭입니다. 여기에서 확인할 일부 항목은 다음과 같습니다.
 
 - **API 호출** 및 **활성 장치** 측정기를 포함하는 사용량 측정기가 할당량을 넘지 않는지 확인합니다.
-- **끝점 모니터링** 상태는 서비스가 작동 중인지를 나타냅니다(서비스에서 표준 계층을 사용 중이고 끝점 모니터링이 활성화된 경우에만 사용 가능). 
+- **끝점 모니터링** 상태는 서비스가 작동 중인지를 나타냅니다(서비스에서 표준 계층을 사용 중이고 끝점 모니터링이 활성화된 경우에만 사용 가능).
 
 위 조건이 충족되지 않을 경우 *크기 조정* 탭에서 크기 조정 설정을 조정해야 할 수 있습니다. 그래도 문제가 해결되지 않으면 계속해서 Azure SQL 데이터베이스가 문제의 원인인지 여부를 조사할 수 있습니다. 다음 몇 개의 섹션에서는 발생한 문제를 진단하기 위한 몇 가지 서로 다른 접근 방식에 대해 설명합니다.
 
-### 올바른 SQL 데이터베이스 계층 선택 
+### 올바른 SQL 데이터베이스 계층 선택
 
 현재 앱 요구 사항에 맞게 올바른 계층을 선택했는지 확인하기 위해서는 사용자가 선택한 여러 데이터베이스 계층에 대한 이해가 중요합니다. Azure SQL 데이터베이스는 두 가지 서로 다른 데이터베이스 버전과 3가지 서로 다른 서비스 계층을 제공합니다.
 
@@ -50,9 +55,9 @@ Web 및 Business Edition은 현재 완전히 지원되지만 [Web 및 Business E
 
 Web 및 Business Edition부터 Basic, Standard 및 Premium 서비스 계층을 사용하여 모바일 서비스를 변환하려면 다음 단계를 따르세요.
 
-1. [Azure 관리 포털][]을 실행합니다.
+1. [Azure 클래식 포털]을 시작합니다.
 2. 도구 모음에서 **+NEW**를 선택한 후 **데이터 서비스**, **SQL 데이터베이스**, **빠른 생성**을 선택합니다.
-3. 데이터베이스 이름을 입력한 후 **서버** 필드에서 **새 SQL 데이터베이스 서버**를 선택합니다. 그러면 새로운 Basic, Standard 또는 Premium 서비스 계층을 사용하는 서버가 생성됩니다. 
+3. 데이터베이스 이름을 입력한 후 **서버** 필드에서 **새 SQL 데이터베이스 서버**를 선택합니다. 그러면 새로운 Basic, Standard 또는 Premium 서비스 계층을 사용하는 서버가 생성됩니다.
 4. 나머지 필드를 채우고 **Create SQL Database(SQL 데이터베이스 만들기)**를 선택합니다. 그러면 Basic 계층을 사용하여 100MB 데이터베이스가 생성됩니다.
 5. 바로 전에 만든 데이터베이스를 사용하도록 모바일 서비스를 구성합니다. 해당 서비스에 대한 **구성** 탭으로 이동한 후 도구 모음에서 **데이터베이스 변경**을 선택합니다. 다음 화면의 **SQL Database(SQL 데이터베이스)** 필드에서 **Use an existing SQL database(기존 SQL 데이터베이스 사용)**을 선택한 후 **Next(다음)**을 선택합니다. 다음 화면에서 5단계에서 만든 데이터베이스를 선택했는지 확인한 후 **확인**을 선택합니다.
 
@@ -68,27 +73,27 @@ Web 및 Business Edition부터 Basic, Standard 및 Premium 서비스 계층을 �
 
 여러 데이터베이스 계층에 익숙해진 다음에는 계층 간 및 계층 내 크기 조정에 대한 이유를 알 수 있게 해주는 데이터베이스 성능 메트릭에 대해 알아볼 수 있습니다.
 
-1. [Azure 관리 포털][]을 실행합니다.
+1. [Azure 클래식 포털]을 시작합니다.
 2. 모바일 서비스 탭에서 사용하려는 서비스를 선택합니다.
 3. **구성** 탭을 선택합니다.
 4. **데이터베이스 설정** 섹션에서 **SQL 데이터베이스**를 선택합니다. 그러면 포털의 Azure SQL 데이터베이스로 이동됩니다.
 5. **모니터** 탭으로 이동합니다.
 6. **메트릭 추가** 단추를 사용하여 관련 메트릭이 표시되는지 확인합니다. 여기에는 다음이 포함됩니다.
     - *CPU 비율*(Basic/Standard/Premium 계층에서만 사용 가능)
-    - *물리적 데이터 읽기 비율*(Basic/Standard/Premium 계층에서만 사용 가능) 
+    - *물리적 데이터 읽기 비율*(Basic/Standard/Premium 계층에서만 사용 가능)
     - *로그 쓰기 비율*(Basic/Standard/Premium 계층에서만 사용 가능)
-    - *저장소* 
-7. 서비스에 문제가 발생한 시기의 시간 창에서 메트릭을 조사합니다. 
+    - *저장소*
+7. 서비스에 문제가 발생한 시기의 시간 창에서 메트릭을 조사합니다.
 
-    ![Azure 관리 포털 - SQL 데이터베이스 메트릭][PortalSqlMetrics]
+    ![Azure 클래식 포털 - SQL 데이터베이스 메트릭][PortalSqlMetrics]
 
 특정 메트릭의 사용률이 장시간 동안 80%를 초과할 경우 이는 성능 문제를 나타낼 수 있습니다. 데이터베이스 사용률 이해에 대한 자세한 내용은 [리소스 사용 이해](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource)를 참조하세요.
 
-메트릭으로 데이터베이스 사용량이 높게 나타나면 첫 번째 해결 단계로 **데이터베이스를 더 높은 서비스 계층으로 크기 조정**해야 할 수 있습니다. 문제를 즉시 해결하기 위해서는 데이터베이스에 대한 **크기 조정** 탭을 사용하여 데이터베이스 크기를 늘려야 합니다. 이로 인해 청구 요금이 증가하게 됩니다. ![Azure 관리 포털 - SQL 데이터베이스 크기 조정][PortalSqlScale]
+메트릭으로 데이터베이스 사용량이 높게 나타나면 첫 번째 해결 단계로 **데이터베이스를 더 높은 서비스 계층으로 크기 조정**해야 할 수 있습니다. 문제를 즉시 해결하기 위해서는 데이터베이스에 대한 **크기 조정** 탭을 사용하여 데이터베이스 크기를 늘려야 합니다. 이로 인해 청구 요금이 증가하게 됩니다. ![Azure 클래식 포털 - SQL 데이터베이스 크기 조정][PortalSqlScale]
 
 가능한 한 빠른 시간 내에 다음과 같이 추가적인 완화 단계를 수행합니다.
 
-- **데이터베이스를 튜닝합니다.** 데이터베이스를 최적화하면 데이터베이스 사용량을 줄이고 더 큰 계층으로 확장할 필요가 없는 경우가 많습니다. 
+- **데이터베이스를 튜닝합니다.** 데이터베이스를 최적화하면 데이터베이스 사용량을 줄이고 더 큰 계층으로 확장할 필요가 없는 경우가 많습니다.
 - **서비스 아키텍처를 고려합니다.** 서비스 로드는 시간별로 고르게 분산되지 않고 "갑작스러운" 요구량 증가가 발생하는 경우가 많습니다. 이러한 갑작스러운 증가를 처리하기 위해 데이터베이스를 확장하여, 수요가 낮을 때 활용률 저하를 겪는 대신 서비스 아키텍처를 조정하여 그러한 증가 문제를 방지하거나 데이터베이스 적중 없이 이를 처리할 수 있는 경우가 많습니다.
 
 이 문서의 남은 섹션에서는 이러한 완화 노력을 구현하는 데 도움이 되는 세부적인 지침을 제공합니다.
@@ -100,9 +105,9 @@ Web 및 Business Edition부터 Basic, Standard 및 Premium 서비스 계층을 �
 
 1. 경고를 설정하려는 데이터베이스의 **모니터링** 탭으로 이동합니다.
 2. 이전 섹션에 설명한 것처럼 관련 메트릭이 표시되는지 확인합니다.
-3. 경고에 대해 설정한 메트릭을 선택하고 **규칙 추가**를 선택합니다. ![Azure 관리 포털 - SQL 경고][PortalSqlAddAlert]
-4. 경고의 이름 및 설명을 제공합니다. ![Azure 관리 포털 - SQL 경고 이름 및 설명][PortalSqlAddAlert2]
-5. 경고 임계값으로 사용할 값을 지정합니다. 반응 시간을 일부 허용하려면 **80%** 정도로 사용하는 것이 좋습니다. 또한 적극적으로 모니터링하는 메일 주소를 지정해야 합니다. ![Azure 관리 포털 - SQL 경고 임계값 및 이메일][PortalSqlAddAlert3]
+3. 경고에 대해 설정한 메트릭을 선택하고 **규칙 추가**를 선택합니다. ![Azure 클래식 포털 - SQL 경고][PortalSqlAddAlert]
+4. 경고의 이름 및 설명을 제공합니다. ![Azure 클래식 포털 - SQL 경고 이름 및 설명][PortalSqlAddAlert2]
+5. 경고 임계값으로 사용할 값을 지정합니다. 반응 시간을 일부 허용하려면 **80%** 정도로 사용하는 것이 좋습니다. 또한 적극적으로 모니터링하는 메일 주소를 지정해야 합니다. ![Azure 클래식 포털 - SQL 경고 임계값 및 메일][PortalSqlAddAlert3]
 
 SQL 문제 진단에 대한 자세한 내용은 이 문서 아래에서 [고급 진단](#AdvancedDiagnosing)을 참조하세요.
 
@@ -125,7 +130,7 @@ SQL 문제 진단에 대한 자세한 내용은 이 문서 아래에서 [고급 
 
 - 조건자(예: WHERE 절) 및 조인 조건에서 자주 사용되는 열에는 인덱스를 추가하지만 아래와 같이 데이터베이스 균형을 고려해야 합니다.
 - 여러 개의 쿼리를 사용하여 동일한 행을 업데이트하는 대신 단일 문을 사용하여 가능한 한 많은 행을 삽입 또는 수정하는 쿼리를 작성합니다. 문이 하나만 있으면 데이터베이스 엔진이 유지 관리할 인덱스 수를 보다 효과적으로 최적화할 수 있습니다.
-	
+
 #### 데이터베이스 고려 사항
 
 한 테이블에 인덱스 수가 많을 경우에는 테이블의 데이터가 변경될 때 모든 인덱스를 조정해야 하기 때문에 INSERT, UPDATE, DELETE 및 MERGE 문의 성능에 영향을 줍니다.
@@ -143,7 +148,7 @@ SQL 문제 진단에 대한 자세한 내용은 이 문서 아래에서 [고급 
 
 JavaScript 백 엔드에 있는 열에 대해 인덱스를 설정하려면 다음을 수행합니다.
 
-1. [Azure 관리 포털][]에서 모바일 서비스를 엽니다.
+1. [Azure 클래식 포털]에서 모바일 서비스를 엽니다.
 2. **데이터** 탭을 클릭합니다.
 3. 수정하려는 테이블을 선택합니다.
 4. **Columns** 탭을 클릭합니다.
@@ -164,7 +169,7 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 		[Index]
         public bool Complete { get; set; }
     }
-		 
+
 인덱스에 대한 자세한 내용은 [Entity Framework의 인덱스 주석][]을 참조하세요. 인덱스 최적화에 대한 추가 정보는 이 문서 아래의 [고급 인덱싱](#AdvancedIndexing)을 참조하세요.
 
 <a name="Schema"></a>
@@ -173,7 +178,7 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 다음은 SQL 데이터베이스의 스키마로 변환되는 개체에 대한 데이터 유형을 선택할 때 알고 있어야 하는 몇 가지 문제에 대한 설명입니다. SQL은 여러 데이터 유형에 대한 인덱싱 및 저장소 처리를 위해 최적화된 사용자 지정 방식이 있기 때문에 스키마를 튜닝하면 상당한 성능 개선 효과를 볼 수 있는 경우가 많습니다.
 
 - **제공된 ID 열을 사용합니다**. 모든 모바일 서비스 테이블에는 기본 키로 구성된 기본 ID 열이 포함되며, 여기에 인덱스가 설정되어 있습니다. 추가 ID 열을 만들 필요는 없습니다.
-- **모델에서 올바른 데이터 유형을 사용합니다.** 모델의 특정 속성이 숫자 또는 부울이라는 것을 알고 있으면 모델에서 문자열 대신 해당 방식으로 데이터 유형을 정의해야 합니다. JavaScript 백 엔드에서는 `"true"` 대신 `true` 및 `"5"` 대신 `5`와(과) 같이 리터럴을 사용합니다. .NET 백 엔드에서는 모델의 속성을 선언할 때 `int` 및 `bool` 유형을 사용합니다. 그러면 SQL이 해당 유형에 대해 올바른 스키마를 만들기 때문에 쿼리 효율성이 증가합니다.  
+- **모델에서 올바른 데이터 유형을 사용합니다.** 모델의 특정 속성이 숫자 또는 부울이라는 것을 알고 있으면 모델에서 문자열 대신 해당 방식으로 데이터 유형을 정의해야 합니다. JavaScript 백 엔드에서는 `"true"` 대신 `true` 및 `"5"` 대신 `5`와(과) 같이 리터럴을 사용합니다. .NET 백 엔드에서는 모델의 속성을 선언할 때 `int` 및 `bool` 유형을 사용합니다. 그러면 SQL이 해당 유형에 대해 올바른 스키마를 만들기 때문에 쿼리 효율성이 증가합니다.
 
 <a name="Query"></a>
 ## 쿼리 디자인
@@ -185,7 +190,7 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
     - 모바일 서비스 코드에서 조인을 수행하지 마세요. JavaScript 백 엔드를 사용할 때는 [테이블 개체](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx)가 조인을 처리하지 않습니다. 조인이 데이터베이스에서 수행되도록 [mssql 개체](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx)를 직접 사용하세요. 자세한 내용은 [관계형 테이블 조인](mobile-services-how-to-use-server-scripts.md#joins)을 참조하세요. .NET 백 엔드를 사용하고 LINQ를 통해 쿼리할 때는 데이터베이스 수준에서 Entity Framework에 의해 조인이 자동으로 처리됩니다.
 - **페이징을 구현합니다.** 데이터베이스를 쿼리하면 일부 경우 대량의 레코드가 클라이언트에 반환될 수 있습니다. 작업 크기 및 지연 시간을 최소화하기 위해서는 페이징 구현을 고려해야 합니다.
     - 기본적으로 모바일 서비스는 모든 들어오는 쿼리를 페이지 크기 50으로 제한하며, 사용자는 최대 1,000개까지 레코드를 수동으로 요청할 수 있습니다. 자세한 내용은 [Windows 스토어](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library/#paging) 및 [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging)에 대한 "페이지로 데이터 반환"을 참조하세요.
-    - 모바일 서비스 코드에서 생성되는 쿼리에 대해서는 기본 페이지 크기가 없습니다. 앱에서 페이징이 구현되지 않을 경우 또는 방어적인 수단으로서 쿼리에 대한 기본 제한을 적용할 수 있습니다. JavaScript 백 엔드에서는 **쿼리 개체**에 대해 [take](http://msdn.microsoft.com/library/azure/jj613353.aspx) 연산자를 사용합니다. .NET 백 엔드를 사용할 경우에는 LINQ 쿼리의 일부로 [Take 메서드](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx)를 사용할 수 있습니다.  
+    - 모바일 서비스 코드에서 생성되는 쿼리에 대해서는 기본 페이지 크기가 없습니다. 앱에서 페이징이 구현되지 않을 경우 또는 방어적인 수단으로서 쿼리에 대한 기본 제한을 적용할 수 있습니다. JavaScript 백 엔드에서는 **쿼리 개체**에 대해 [take](http://msdn.microsoft.com/library/azure/jj613353.aspx) 연산자를 사용합니다. .NET 백 엔드를 사용할 경우에는 LINQ 쿼리의 일부로 [Take 메서드](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx)를 사용할 수 있습니다.
 
 쿼리 계획 분석 방법을 포함하여 쿼리 디자인 향상에 대한 자세한 내용은 이 문서 아래에서 [고급 쿼리 디자인](#AdvancedQuery)을 참조하세요.
 
@@ -203,16 +208,16 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 이 섹션에서는 지금까지의 과정을 통해서도 문제가 완전히 해결되지 않았을 때 유용할 수 있는 보다 효과적인 고급 작업에 대해 설명합니다.
 
 ### 필수 조건
-이 섹션의 일부 진단 작업을 수행하기 위해서는 **SQL Server Management Studio**와 같은 SQL 데이터베이스를 위한 관리 도구 또는 **Azure 관리 포털**에서 기본 제공되는 관리 기능에 액세스할 수 있어야 합니다.
+이 섹션의 일부 진단 작업을 수행하기 위해서는 **SQL Server Management Studio**와 같은 SQL 데이터베이스를 위한 관리 도구 또는 **Azure 클래식 포털**에서 기본 제공되는 관리 기능에 액세스할 수 있어야 합니다.
 
 SQL Server Management Studio는 고급 기능을 제공하는 무료 Windows 응용 프로그램입니다. Windows 컴퓨터에 액세스할 수 없는 경우(예: Mac을 사용하는 경우), [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial.md)에 설명된 것처럼 Azure에서 가상 컴퓨터를 프로비전하고 원격으로 연결할 수 있습니다. SQL Server Management Studio 실행을 위해 주로 VM을 사용하려는 경우 **Basic A0**(이전의 "Extra Small") 인스턴스만으로도 충분합니다.
 
-Azure 관리 포털은 보다 제한적이지만 로컬 설치 없이 사용 가능한 기본 제공되는 관리 환경을 제공합니다.
+Azure 클래식 포털은 보다 제한적이지만 로컬 설치 없이 사용 가능한 기본 제공되는 관리 환경을 제공합니다.
 
 다음 단계에서는 모바일 서비스를 지원하는 SQL 데이터베이스에 대한 연결 정보를 얻는 방법과 두 가지 도구를 사용하여 이에 연결하는 방법을 안내합니다. 무엇이든 원하는 도구를 선택할 수 있습니다.
 
-#### SQL 연결 정보 얻기 
-1. [Azure 관리 포털][]을 실행합니다.
+#### SQL 연결 정보 얻기
+1. [Azure 클래식 포털]을 시작합니다.
 2. 모바일 서비스 탭에서 사용하려는 서비스를 선택합니다.
 3. **구성** 탭을 선택합니다.
 4. **데이터베이스 설정** 섹션에서 **SQL 데이터베이스**를 선택합니다. 그러면 포털의 Azure SQL 데이터베이스로 이동됩니다.
@@ -234,7 +239,7 @@ Azure 관리 포털은 보다 제한적이지만 로컬 설치 없이 사용 가
 5. 그러면 이제 서버에 연결됩니다.
 
 #### SQL 데이터베이스 관리 포털
-1. 사용자의 데이터베이스에 대한 Azure SQL 데이터베이스 탭에서 **관리** 단추를 선택합니다. 
+1. 사용자의 데이터베이스에 대한 Azure SQL 데이터베이스 탭에서 **관리** 단추를 선택합니다.
 2. 다음 값을 사용하여 연결을 구성합니다.
     - 서버: *올바른 값으로 미리 설정되어 있어야 함*
     - 데이터베이스: *빈 상태로 둠*
@@ -242,12 +247,12 @@ Azure 관리 포털은 보다 제한적이지만 로컬 설치 없이 사용 가
     - 암호: *서버를 만들 때 선택한 암호*
 3. 그러면 이제 서버에 연결됩니다.
 
-    ![Azure 관리 포털 - SQL 데이터베이스][PortalSqlManagement]
+    ![Azure 클래식 포털 - SQL 데이터베이스][PortalSqlManagement]
 
 <a name="AdvancedDiagnosing" />
 ### 고급 진단
 
-**Azure 관리 포털**에서는 많은 진단 작업을 쉽게 완료할 수 있지만 일부 고급 진단 작업의 경우 **SQL Server Management Studio** 또는 **SQL 데이터베이스 관리 포털**을 통해서만 가능합니다. 여기에서는 데이터베이스에 대한 진단 정보로 자동으로 채워진 일련의 보기인 동적 관리 보기를 사용합니다. 이 섹션에서는 다양한 메트릭을 검사하기 위해 이러한 보기에 대해 실행할 수 있는 쿼리 집합을 제공합니다. 자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][](영문)을 참조하세요.
+**Azure 클래식 포털**에서는 많은 진단 작업을 쉽게 완료할 수 있지만 일부 고급 진단 작업의 경우 **SQL Server Management Studio** 또는 **SQL 데이터베이스 관리 포털**을 통해서만 가능합니다. 여기에서는 데이터베이스에 대한 진단 정보로 자동으로 채워진 일련의 보기인 동적 관리 보기를 사용합니다. 이 섹션에서는 다양한 메트릭을 검사하기 위해 이러한 보기에 대해 실행할 수 있는 쿼리 집합을 제공합니다. 자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][](영문)을 참조하세요.
 
 SQL Server Management Studio에서 데이터베이스에 연결하기 위해 이전 섹션의 단계를 완료한 후 **개체 탐색기**에서 해당 데이터베이스를 선택합니다. **보기**를 확장한 후 **시스템 보기**를 확장하면 관리 보기 목록이 표시됩니다. 아래의 쿼리를 실행하려면 **개체 탐색기**에서 데이터베이스를 선택한 상태에서 **새 쿼리**를 선택한 후 쿼리를 붙여 넣고 **실행**을 선택합니다.
 
@@ -263,11 +268,11 @@ SQL Server Management Studio에서 데이터베이스에 연결하기 위해 이
 
 #### 고급 메트릭
 
-Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 일부 메트릭을 바로 사용할 수 있습니다. 하지만 Web 및 Business 계층을 사용할 경우에는 저장소 메트릭만 포털을 통해 사용할 수 있습니다. 다행스럽게도, 사용 중인 계층에 관계없이 **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 관리 뷰를 사용하면 이러한 메트릭 및 기타 메트릭을 쉽게 가져올 수 있습니다. 다음과 같은 쿼리를 고려해 보세요.
+Basic, Standard 및 Premium 계층을 사용 중인 경우 Azure 클래식 포털에서 일부 메트릭을 바로 사용할 수 있습니다. 하지만 Web 및 Business 계층을 사용할 경우에는 저장소 메트릭만 포털을 통해 사용할 수 있습니다. 다행스럽게도, 사용 중인 계층에 관계없이 **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 관리 뷰를 사용하면 이러한 메트릭 및 기타 메트릭을 쉽게 가져올 수 있습니다. 다음과 같은 쿼리를 고려해 보세요.
 
-    SELECT TOP 10 * 
-    FROM sys.resource_stats 
-    WHERE database_name = 'todoitem_db' 
+    SELECT TOP 10 *
+    FROM sys.resource_stats
+    WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
 > [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.resource\_stats** 뷰는 이 데이터베이스에서만 제공됩니다.
@@ -278,7 +283,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 
 **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 뷰에는 연결 관련 이벤트에 대한 세부 정보가 포함됩니다.
 
-    select * from sys.event_log 
+    select * from sys.event_log
     where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
@@ -306,7 +311,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 - 좁음 - 작은 데이터 유형을 사용하거나 적은 개수의 좁은 열에 대한 [복합 키][Primary and Foreign Key Constraints]입니다.
 - 고유 또는 거의 고유
 - 정적 - 값이 자주 변경되지 않습니다.
-- 계속 증가 
+- 계속 증가
 - (선택 사항) 고정 너비
 - (선택 사항) null 아님
 
@@ -316,8 +321,8 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 
 클러스터형 인덱스는 다음을 수행하는 쿼리의 경우에 가장 유용할 수 있습니다.
 
-- BETWEEN, >, >=, < 및 <=과 같은 연산자를 사용하여 값 범위를 반환하는 경우 
-	- 클러스터형 인덱스를 사용하여 첫 번째 값이 포함된 행을 찾은 다음, 이후 인덱싱된 값을 포함하는 행은 물리적으로 인접성이 보장됩니다. 
+- BETWEEN, >, >=, < 및 <=과 같은 연산자를 사용하여 값 범위를 반환하는 경우
+	- 클러스터형 인덱스를 사용하여 첫 번째 값이 포함된 행을 찾은 다음, 이후 인덱싱된 값을 포함하는 행은 물리적으로 인접성이 보장됩니다.
 - JOIN 절을 사용합니다. 이러한 항목은 일반적으로 외래 키 열입니다.
 - ORDER BY 또는 GROUP BY 절을 사용합니다.
 	- ORDER BY 또는 GROUP BY 절에 지정된 열의 인덱스는 행이 이미 정렬되어 있으므로 데이터베이스 엔진이 데이터를 정렬할 필요를 없앨 수 있습니다. 그러면 쿼리 성능이 향상됩니다.
@@ -342,7 +347,7 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 - [클러스터형 인덱스 만들기][]
 - [고유 인덱스 만들기][]
 
-#### 누락된 최상위 N개 인덱스 찾기 
+#### 누락된 최상위 N개 인덱스 찾기
 개별 쿼리의 리소스 사용에 대한 보다 자세한 정보를 알려주거나 추가할 인덱스에 추론을 제공하는 동적 관리 뷰에 SQL 쿼리를 작성할 수 있습니다. 다음 쿼리는 사용자 쿼리에 대해 가장 예상되는 누적 개선 사항이 발생하는 10개의 누락 인덱스를 내림차순으로 결정합니다.
 
     SELECT TOP 10 *
@@ -352,9 +357,9 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 
 다음 예제 쿼리는 이러한 테이블 간에 조인을 실행하여 각 누락 쿼리에 포함되어야 하는 열 목록을 가져오고 '인덱스 이점'을 계산하여 해당 인덱스를 고려해야 하는지 여부를 결정합니다.
 
-    SELECT * from 
+    SELECT * from
     (
-        SELECT 
+        SELECT
         (user_seeks+user_scans) * avg_total_user_cost * (avg_user_impact * 0.01) AS index_advantage, migs.*
         FROM sys.dm_db_missing_index_group_stats migs
     ) AS migs_adv,
@@ -369,7 +374,7 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][] 및 [누락 인덱스 동적 관리 뷰](sys-missing-index-stats)를 참조하세요.
 
 <a name="AdvancedQuery" />
-### 고급 쿼리 디자인 
+### 고급 쿼리 디자인
 
 데이터베이스에서 가장 비용이 높은 쿼리를 진단하기가 어려운 경우가 많습니다.
 
@@ -377,15 +382,15 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 
 다음 예제는 평균 CPU 시간별로 상위 5개의 쿼리에 대한 정보를 반환합니다. 이 예제는 쿼리 해시에 따라 쿼리를 집계하므로 논리적으로 동일한 쿼리는 해당 누적 리소스 소비량에 따라 그룹화됩니다.
 
-	SELECT TOP 5 query_stats.query_hash AS "Query Hash", 
+	SELECT TOP 5 query_stats.query_hash AS "Query Hash",
 	    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
 	    MIN(query_stats.statement_text) AS "Statement Text"
-	FROM 
-	    (SELECT QS.*, 
+	FROM
+	    (SELECT QS.*,
 	    SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-	    ((CASE statement_end_offset 
+	    ((CASE statement_end_offset
 	        WHEN -1 THEN DATALENGTH(st.text)
-	        ELSE QS.statement_end_offset END 
+	        ELSE QS.statement_end_offset END
 	            - QS.statement_start_offset)/2) + 1) AS statement_text
 	     FROM sys.dm_exec_query_stats AS QS
 	     CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
@@ -426,6 +431,7 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 - [Code First 데이터 주석][]
 
 <!-- IMAGES -->
+
 [SSMS]: ./media/mobile-services-sql-scale-guidance/1.png
 [PortalSqlManagement]: ./media/mobile-services-sql-scale-guidance/2.png
 [PortalSqlMetrics]: ./media/mobile-services-sql-scale-guidance/3.png
@@ -443,8 +449,7 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 
 <!-- LINKS -->
 
-[Azure 관리 포털]: http://manage.windowsazure.com
-[대시보드]: http://manage.windowsazure.com
+[Azure 클래식 포털]: http://manage.windowsazure.com
 
 [Azure SQL 데이터베이스 설명서]: http://azure.microsoft.com/documentation/services/sql-database/
 [Managing SQL Database using SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
@@ -474,6 +479,5 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 
 <!-- BLOG LINKS -->
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

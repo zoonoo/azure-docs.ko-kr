@@ -32,7 +32,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 시작하기 전에 다음을 수행합니다.
 
-* [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md)를 앱에 설치합니다. NuGet 패키지를 수동으로 설치하고 최신 *시험판* 버전을 선택합니다.
+* [Application Insights SDK](app-insights-asp-net.md)를 응용 프로그램에 설치합니다. NuGet 패키지를 수동으로 설치하고 최신 *시험판* 버전을 선택합니다.
 * [Application Insights API](app-insights-api-custom-events-metrics.md)를 사용합니다. 
 
 
@@ -43,11 +43,11 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 [샘플링](app-insights-sampling.md)은 정확한 통계를 유지하면서 트래픽을 줄이는 권장 방법입니다. 필터는 관련된 항목을 선택하여 진단 항목 간을 탐색할 수 있도록 합니다. 이벤트 수는 메트릭 탐색기에서 조정되어 필터링된 항목을 보완합니다.
 
 * 적응 샘플링을 사용하는 것이 좋습니다. 적응 샘플링은 특정 요청 볼륨을 달성하기 위해 샘플링 비율을 자동으로 조정합니다. 현재 ASP.NET 서버 측 원격 분석만 사용할 수 있습니다.  
-* 고정 비율 샘플링을 사용할 수도 있습니다. 사용자가 샘플링 비율을 지정합니다. ASP.NET 웹앱 코드 및 JavaScript 웹 페이지에서 사용할 수 있습니다. 클라이언트와 서버는 샘플링을 동기화하므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
+* [고정 비율 샘플링](app-insights-sampling.md)을 사용할 수도 있습니다. 사용자가 샘플링 비율을 지정합니다. ASP.NET 웹앱 코드 및 JavaScript 웹 페이지에서 사용할 수 있습니다. 클라이언트와 서버는 샘플링을 동기화하므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
 
 ### 샘플링을 사용하도록 설정하려면
 
-Application Insights의 최신 *시험판* 버전을 얻으려면 **해당 프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **시험판 포함**을 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다.
+최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택한 다음 **Include Prerelease(시험판 포함)**를 선택하고 Microsoft.ApplicationInsights.Web을 검색합니다.
 
 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 적응 알고리즘에서 목표로 하는 원격 분석의 최대 비율을 조정할 수 있습니다.
 
@@ -86,7 +86,7 @@ Application Insights의 최신 *시험판* 버전을 얻으려면 **해당 프�
 
 ### 원격 분석 프로세서 만들기
 
-1. Application Insights SDK를 최신 버전(2.0.0-beta2 이상)으로 업데이트합니다. Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 Microsoft.ApplicationInsights.Web을 검색합니다.
+1. Application Insights SDK를 최신 버전(2.0.0-beta2 이상)으로 업데이트합니다. Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. NuGet 패키지 관리자에서 **Include Prerelease(시험판 포함)**를 선택하고 Microsoft.ApplicationInsights.Web을 검색합니다.
 
 1. 필터를 만들려면 ITelemetryProcessor를 구현합니다. 원격 분석 모듈, 원격 분석 이니셜라이저 및 원격 분석 채널와 같은 또 다른 확장성 지점입니다.
 
@@ -358,7 +358,7 @@ ApplicationInsights.config에서:
     </script>
 ```
 
-telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 요약은 [데이터 모델](app-insights-export-data-model.md/#lttelemetrytypegt)을 참조하세요.
+TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 요약은 [데이터 모델](app-insights-export-data-model.md/#lttelemetrytypegt)을 참조하세요.
 
 이니셜라이저를 원하는 수만큼 추가할 수 있습니다.
 
@@ -395,7 +395,7 @@ telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -404,4 +404,4 @@ telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

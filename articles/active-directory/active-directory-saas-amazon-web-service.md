@@ -186,7 +186,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
      a. **특성 이름** 텍스트 상자에 ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**를 입력합니다.
 
-     b. **특성 값** 텍스트 상자에 **mail**을 입력합니다.
+     b. **특성 이름** 텍스트 상자에 **userprincipalname**을 입력합니다.
 
      c. **완료**를 클릭하여 **사용자 특성 추가** 대화 상자를 닫습니다.
 
@@ -249,7 +249,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 5. 사용자 만들기 대화 상자에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성][30]<br>
 
-     a. **사용자 이름 입력** 텍스트 상자에 Azure AD의 Brita Simon 사용자 이름을 입력합니다.
+     a. **사용자 이름 입력** 텍스트 상자에 Azure AD의 Brita Simon 사용자 이름(userprincipalname)을 입력합니다.
 
      b. **만들기**를 클릭합니다.
 
@@ -320,4 +320,4 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

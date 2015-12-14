@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/07/2015"
+	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
 # HDInsight Emulator와 Hadoop 샌드박스를 사용하여 Hadoop 에코 시스템에서 시작
@@ -37,8 +37,7 @@ HDInsight Emulator에서는 Hadoop 샌드박스와 매우 비슷한 로컬 개�
 
 - HDInsight Emulator에는 64비트 버전의 Windows가 필요합니다. 다음 요구 사항 중 하나는 반드시 충족되어야 합니다.
 
-	- Windows 7 서비스 팩 1
-	- Windows Server 2008 R2 서비스 팩 1
+	- Windows 10
 	- Windows 8
 	- Windows Server 2012
 
@@ -397,7 +396,7 @@ HDInsight Emulator는 HDFS를 기본 파일 시스템으로 사용합니다. 그
 
 **컨테이너 만들기**
 
-1. [Azure 미리 보기 포털](https://ms.portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
 2. 왼쪽의 **새로 만들기**를 클릭하고 **데이터 + 저장소**를 클릭한 다음 **저장소**를 클릭합니다.
 3. 저장소 계정 블레이드에서 아래 화면 캡처에 표시된 대로 속성을 구성합니다.
 	
@@ -498,4 +497,4 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

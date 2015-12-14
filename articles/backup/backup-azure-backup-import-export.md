@@ -6,7 +6,7 @@
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="11/25/2015" ms.author="aashishr"; "jimpark"/>
 
 # Azure 백업의 오프라인 백업 워크플로
 
@@ -27,7 +27,7 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 7. [여기](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)에 있는 Azure 가져오기/내보내기 도구를 SATA 드라이브 기록기가 연결된 컴퓨터에 다운로드합니다.
 
 ## 워크플로
-이 섹션에 제공된 정보는 데이터를 Azure 데이터 센터에 배송하고 Azure 저장소에 업로드할 수 있도록 **오프라인 백업** 워크플로를 완료하기 위한 것입니다. 가져오기 서비스 또는 프로세스의 특정 측면에 대 한 질문이 있으면 [위에](../storage-import-export-service.md) 언급된 가져오기 서비스 개요를 참조하세요.
+이 섹션에 제공된 정보는 데이터를 Azure 데이터 센터에 배송하고 Azure 저장소에 업로드할 수 있도록 **오프라인 백업** 워크플로를 완료하기 위한 것입니다. 가져오기 서비스 또는 프로세스의 모든 측면에 대한 질문이 있으면 위에서 언급한 [가져오기 서비스 개요](../storage-import-export-service.md)를 참조하세요.
 
 ### 오프라인 백업 시작
 
@@ -108,4 +108,4 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 - Azure 가져오기/내보내기 워크플로에 대한 질문이 있으면 이 [문서](../storage-import-export-service.md)를 참조하세요.
 - 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](backup-azure-backup-faq.md)의 오프라인 백업 섹션을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

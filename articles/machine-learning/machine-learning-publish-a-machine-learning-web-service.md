@@ -31,7 +31,7 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 웹 서비스를 배포한 후 다음 작업을 수행할 수 있습니다.
 
 - 웹 서비스 API를 통해 **[액세스]**
-- Azure 관리 포털을 통해 **[관리]** 및
+- Azure 클래식 포털을 통해 **[관리]** 및
 - 모델이 변경되는 경우 **[업데이트]**
 
 [학습 실험 만들기]: #create-a-training-experiment
@@ -76,7 +76,7 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 ![웹 서비스 테스트](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-**구성** 탭에서 서비스의 표시 이름을 변경하고 설명을 제공할 수 있습니다. 웹 서비스를 관리하는 Azure 관리 포털에 이름과 설명이 표시됩니다. **입력 스키마**, **출력 스키마** 및 **웹 서비스 매개 변수**의 각 열에 문자열을 입력하여 입력 데이터, 출력 데이터 및 웹 서비스 매개 변수의 설명을 제공할 수 있습니다. 이러한 설명은 웹 서비스에 제공된 샘플 코드 설명서에서 사용합니다. 웹 서비스에 액세스할 때 표시되는 실패를 진단하기 위해 로깅도 사용할 수도 있습니다.
+**구성** 탭에서 서비스의 표시 이름을 변경하고 설명을 제공할 수 있습니다. 웹 서비스를 관리하는 Azure 클래식 포털에 이름과 설명이 표시됩니다. **입력 스키마**, **출력 스키마** 및 **웹 서비스 매개 변수**의 각 열에 문자열을 입력하여 입력 데이터, 출력 데이터 및 웹 서비스 매개 변수의 설명을 제공할 수 있습니다. 이러한 설명은 웹 서비스에 제공된 샘플 코드 설명서에서 사용합니다. 웹 서비스에 액세스할 때 표시되는 실패를 진단하기 위해 로깅도 사용할 수도 있습니다.
 
 자세한 내용은 [기계 학습 웹 서비스에 대해 로깅 사용](machine-learning-web-services-logging.md)을 참조하세요.
 
@@ -92,12 +92,11 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 기계 학습 웹 서비스에 액세스하는 방법에 대한 자세한 내용은 [배포된 Azure 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 
-## Azure 관리 포털에서 웹 서비스 관리
+## Azure 클래식 포털에서 웹 서비스 관리
 
-Azure 관리 포털에서 **기계 학습** 서비스를 클릭하고 기계 학습 작업 영역을 연 다음 **웹 서비스** 탭에서 웹 서비스를 열어 웹 서비스를 관리할 수 있습니다. 이 페이지에서 웹 서비스를 모니터링하고 업데이트하며 삭제할 수 있습니다. 배포할 때 생성되는 기본 끝점 외에, 웹 서비스의 두 번째 끝점도 추가할 수 있습니다.
+Azure 클래식 포털에서 **기계 학습** 서비스를 클릭하고 기계 학습 작업 영역을 연 다음 **웹 서비스** 탭에서 웹 서비스를 열어 웹 서비스를 관리할 수 있습니다. 이 페이지에서 웹 서비스를 모니터링하고 업데이트하며 삭제할 수 있습니다. 배포할 때 생성되는 기본 끝점 외에, 웹 서비스의 두 번째 끝점도 추가할 수 있습니다.
 
-자세한 내용은 [Azure 기계 학습 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요.
-<!-- When this article gets published, fix the link and uncomment
+자세한 내용은 [Azure 기계 학습 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요. <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
@@ -112,4 +111,4 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](machine-learning-retrain-models-programmatically.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -26,7 +26,7 @@ Azure에서 사용하는 인증서에는 개인 또는 공개 키가 포함될 �
 ## 서비스 인증서란 무엇인가요?
 서비스 인증서는 클라우드 서비스에 첨부되며 서비스와 보안 통신을 사용할 수 있도록 해줍니다. 예를 들어 웹 역할을 배포한 경우 노출된 HTTPS 끝점을 인증할 수 있는 인증서를 제공하려고 할 것입니다. 서비스 정의에 있는 서비스 인증서는 자동으로 해당 역할 인스턴스를 실행하는 가상 컴퓨터에 배포됩니다.
 
-관리 포털을 사용하거나 서비스 관리 API를 사용하여 서비스 인증서를 관리 포털에 업로드할 수 있습니다. 서비스 인증서는 특정 클라우드 서비스와 연결되며 서비스 정의 파일에 있는 배포에 할당됩니다.
+Azure 클래식 포털을 사용하거나 서비스 관리 API를 사용하여 서비스 인증서를 Azure 클래식 포털에 업로드할 수 있습니다. 서비스 인증서는 특정 클라우드 서비스와 연결되며 서비스 정의 파일에 있는 배포에 할당됩니다.
 
 서비스 인증서는 서비스와 별도로 관리할 수 있으며 다른 개인이 관리할 수도 있습니다. 예를 들어 개발자는 IT 관리자가 이전에 Azure로 업로드한 인증서를 참조하는 서비스 패키지를 업로드할 수 있습니다. IT 관리자는 새 서비스 패키지를 업로드할 필요 없이 서비스 구성을 변경하는 해당 인증서를 관리하고 갱신할 수 있습니다. 이 작업이 가능한 이유는 인증서의 논리적 이름과 해당 저장소 이름 및 위치는 서비스 정의 파일에 지정되어 있고 인증서 지문은 서비스 구성 파일에 지정되어 있기 때문입니다. 인증서를 업데이트하려면 새 인증서를 업로드하고 서비스 구성 파일의 지문 값을 변경하기만 하면 됩니다.
 
@@ -74,10 +74,10 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 ## 다음 단계
 
-서비스 인증서를 Azure 포털(또는[Preview 포털](cloud-services-configure-ssl-certificate-portal.md))에 [업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
+[서비스 인증서를 Azure 클래식 포털(또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
 
-[관리 API 인증서](../azure-api-management-certs.md)를 Azure 포털에 업로드합니다.
+[관리 API 인증서](../azure-api-management-certs.md)를 Azure 클래식 포털에 업로드합니다.
 
->[AZURE.NOTE]Azure Preview 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
+>[AZURE.NOTE]Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

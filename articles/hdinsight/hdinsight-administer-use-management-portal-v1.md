@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Azure"
+	pageTitle="Azure 클래식 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Azure"
 	description="HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다."
 	services="hdinsight"
 	documentationCenter=""
@@ -16,16 +16,16 @@
 	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
-# Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
+# Azure 클래식 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
-[Azure 포털](https://manage.windowsazure.com)에서 Azure HDInsight의 Hadoop 클러스터를 프로비전하고, Hadoop 사용자 암호를 변경하고, RDP(원격 데스크톱 프로토콜)를 사용하도록 설정하여 클러스터의 Hadoop 명령 콘솔에 액세스할 수 있습니다.
+[Azure 클래식 포털](https://manage.windowsazure.com)에서 Azure HDInsight의 Hadoop 클러스터를 프로비전하고, Hadoop 사용자 암호를 변경하고, RDP(원격 데스크톱 프로토콜)를 사용하도록 설정하여 클러스터의 Hadoop 명령 콘솔에 액세스할 수 있습니다.
 
-[AZURE.INCLUDE [HDinsight-Azure-포털](../../includes/hdinsight-azure-portal.md)]
+[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
-* [Azure 미리 보기 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md)
+* [Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md)
 
 ## HDInsight를 관리하기 위한 기타 도구
-Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구도 있습니다.
+Azure 클래식 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구도 있습니다.
 
 - Azure PowerShell을 사용하여 HDInsight를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
 
@@ -41,7 +41,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 
 ##HDInsight 클러스터 프로비전
 
-빠른 생성 또는 사용자 지정 만들기 옵션을 사용하여 Azure 포털에서 HDInsight 클러스터를 프로비전할 수 있습니다. 자세한 내용은 다음 링크를 참조하세요.
+빠른 생성 또는 사용자 지정 만들기 옵션을 사용하여 Azure 클래식 포털에서 HDInsight 클러스터를 프로비전할 수 있습니다. 자세한 내용은 다음 링크를 참조하세요.
 
 - [빠른 생성을 사용하여 클러스터 프로비전](../hdinsight-get-started.md#provision)
 - [사용자 지정 만들기를 사용하여 클러스터 프로비전](hdinsight-provision-clusters.md#portal)
@@ -70,7 +70,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 
 **HDInsight 클러스터 사용자 이름 및 암호 변경**
 
-1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 배포된 HDInsight 클러스터 목록이 표시됩니다.
 3. 사용자 이름 및 암호를 다시 설정할 HDInsight 클러스터를 클릭합니다.
 4. 페이지 맨 위에서 **구성**을 클릭합니다.
@@ -87,7 +87,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 
 **원격 데스크톱을 사용하도록 설정하려면**
 
-1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 배포된 HDInsight 클러스터 목록이 표시됩니다.
 3. 연결할 HDInsight 클러스터를 클릭합니다.
 4. 페이지 맨 위에서 **구성**을 클릭합니다.
@@ -105,7 +105,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 
 **RDP를 사용하여 클러스터에 연결하려면**
 
-1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 배포된 HDInsight 클러스터 목록이 표시됩니다.
 3. 연결할 HDInsight 클러스터를 클릭합니다.
 4. 페이지 맨 위에서 **구성**을 클릭합니다.
@@ -121,7 +121,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 
 2. 인증서 위치로 이동한 후 인증서를 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 클릭한 후 컴퓨터의 개인 저장소에 인증서를 설치합니다. 인증서 속성을 편집하여 이름을 지정합니다.
 
-3. 인증서를 Azure 포털로 가져옵니다. 포털에서 페이지 왼쪽 아래에 있는 **설정**을 클릭하고 **관리 인증서**를 클릭합니다. 페이지 맨 아래에서 **업로드**를 클릭하고 지침에 따라 이전 단계에서 만든 .cer 파일을 업로드합니다.
+3. 인증서를 Azure 클래식 포털로 가져옵니다. 포털에서 페이지 왼쪽 아래에 있는 **설정**을 클릭하고 **관리 인증서**를 클릭합니다. 페이지 맨 아래에서 **업로드**를 클릭하고 지침에 따라 이전 단계에서 만든 .cer 파일을 업로드합니다.
 
 	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
 
@@ -136,13 +136,13 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 - Oozie
 - Templeton
 
-이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. Azure 포털에서 액세스 권한을 해지/부여할 수 있습니다.
+이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. Azure 클래식 포털에서 액세스 권한을 해지/부여할 수 있습니다.
 
 >[AZURE.NOTE]액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
 **HTTP 웹 서비스 액세스 권한을 부여/해지하려면**
 
-1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 배포된 HDInsight 클러스터 목록이 표시됩니다.
 3. 구성할 HDInsight 클러스터를 클릭합니다.
 4. 페이지 맨 위에서 **구성**을 클릭합니다.
@@ -158,7 +158,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 
 **Hadoop 명령줄을 열려면**
 
-1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 배포된 Hadoop 클러스터 목록이 표시됩니다.
 3. 연결할 HDInsight 클러스터를 클릭합니다.
 3. 페이지 맨 위에서 **구성**을 클릭합니다.
@@ -185,7 +185,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-hadoop-cluster-scaling.md)을 참조하세요.
 
 ##다음 단계
-이 문서에서는 Azure 포털을 사용하여 HDInsight 클러스터를 만드는 방법 및 Hadoop 명령줄 도구를 여는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Azure 클래식 포털을 사용하여 HDInsight 클러스터를 만드는 방법 및 Hadoop 명령줄 도구를 여는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
 * [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
@@ -198,4 +198,4 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

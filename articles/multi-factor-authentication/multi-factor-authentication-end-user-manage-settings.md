@@ -134,9 +134,9 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 이전에 백업 휴대폰을 구성한 경우 로그인 페이지에서 확인 메시지가 표시될 때 해당 휴대폰을 선택하여 다시 시도하는 것이 좋습니다. 구성한 다른 방법이 없는 경우 관리자에게 설정을 삭제하도록 문의하여 다음 번 로그인 시 [Multi-Factor Authentication 설정](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again)을 다시 수행하도록 합니다.
 
 ##앱 암호가 작동하지 않는 경우
-먼저 앱 암호를 올바르게 입력했는지 확인합니다. 계속 작동하지 않으면 로그인을 시도하고 [새 앱 암호를 생성](multi-factor-authentication-end-user-app-passwords)합니다. 계속 작동하지 않으면 관리자에게 [기존 앱 암호를 삭제](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords)하도록 문의한 다음 새 암호를 만들어 사용합니다.
+먼저 앱 암호를 올바르게 입력했는지 확인합니다. 계속 작동하지 않으면 로그인을 시도하고 [새 앱 암호를 생성](multi-factor-authentication-end-user-app-passwords.md)합니다. 계속 작동하지 않으면 관리자에게 [기존 앱 암호를 삭제](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords)하도록 문의한 다음 새 암호를 만들어 사용합니다.
 
 ##이전 장치에서 Azure Authenticator를 제거하고 새 장치로 이동하려는 경우
 장치에서 앱을 제거하거나 장치를 재점멸하는 경우 백 엔드에서 정품 인증을 제거하지 않습니다. [새 장치로 이동](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app)에 설명된 단계를 사용해야 합니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

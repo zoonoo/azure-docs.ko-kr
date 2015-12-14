@@ -36,7 +36,7 @@ ms.service="virtual-machines"
 
 * **Azure CLI 스크립트** - 이 문서의 나머지 부분의 단계에 나와 있는 설명과 같이 Mac, Linux 및 Windows용 [Azure 명령줄 인터페이스](../xplat-cli-install.md)(CLI)를 사용하여Linux 클러스터를 만드는 데 필요한 가상 네트워크 및 기타 구성 요소의 배포를 스크립팅합니다. 클래식(서비스 관리) 배포 모드의 CLI는 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-* **Azure 리소스 관리자 템플릿** - 간단한 Azure 리소스 관리자 JSON 템플릿 파일을 만들고 리소스 관리자에 대한 Azure CLI 명령을 실행하거나 Azure Preview 포털을 사용하여 여러 A8 및 A9 Linux VM을 배포하고 가상 네트워크, 고정 IP 주소, DNS 설정 및 그 밖에 RDMA 네트워크를 활용하여 MPI 작업을 실행할 수 있는 계산 클러스터를 만드는 데 필요한 리소스를 정의합니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿 페이지](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿은 일반적으로 Linux 클러스터를 배포하는 가장 빠르고 안정적인 방법을 제공합니다.
+* **Azure 리소스 관리자 템플릿** - 간단한 Azure 리소스 관리자 JSON 템플릿 파일을 만들고 리소스 관리자에 대한 Azure CLI 명령을 실행하거나 Azure 포털을 사용하여 여러 A8 및 A9 Linux VM을 배포하고 가상 네트워크, 고정 IP 주소, DNS 설정 및 그 밖에 RDMA 네트워크를 활용하여 MPI 작업을 실행할 수 있는 계산 클러스터를 만드는 데 필요한 리소스를 정의합니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿 페이지](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿은 일반적으로 Linux 클러스터를 배포하는 가장 빠르고 안정적인 방법을 제공합니다.
 
 ## Azure 서비스 관리에서 Azure CLI 스크립트를 사용하여 배포
 
@@ -370,4 +370,4 @@ cluster12
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

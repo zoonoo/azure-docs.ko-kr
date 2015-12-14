@@ -29,7 +29,7 @@ Azure SQL 데이터베이스 감사는 데이터베이스 이벤트를 추적하
 
 ##<a id="subheading-1"></a>Azure SQL 데이터베이스 감사 기본 사항
 
-다음 섹션에서는 Azure Preview 포털을 사용하여 감사의 구성에 설명합니다. [기존 Azure 포털을 사용하여 데이터베이스에 대한 감사를 설정]할 수도 있습니다.
+다음 섹션에서는 Azure 포털을 사용하여 감사 구성을 설명합니다. [기존 Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사를 설정]할 수도 있습니다.
 
 SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니다.
 
@@ -62,15 +62,15 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 
 ##<a id="subheading-2"></a>데이터베이스에 대한 감사 설정
 
-1. https://portal.azure.com에서 [Azure Preview 포털](https://portal.azure.com)을 시작합니다. 또는 https://manage.windowsazure.com/에서 [기존 Azure 포털](https://manage.windowsazure.com/)을 시작할 수도 있습니다. 아래에서 자세한 내용을 참조하세요.
+1. https://portal.azure.com에서 [Azure 포털](https://portal.azure.com)을 시작합니다. 또는 https://manage.windowsazure.com/에서 [기존 Azure 클래식 포털](https://manage.windowsazure.com/)을 시작할 수도 있습니다. 아래에서 자세한 내용을 참조하세요.
 
-2. 감사할 SQL 데이터베이스 / SQL 서버의 설정 블레이드로 이동합니다. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다.
+2. 감사할 SQL 데이터베이스 / SQL Server의 설정 블레이드로 이동합니다. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다.
 
 	![탐색 창][1]
 
 3. 감사 구성 블레이드에서 감사를 **켭니다**.
 
-4. **저장소 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그를 저장할 Azure 저장소 계정 및 보존 기간을 선택합니다. **팁:** 감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
+4. **저장소 세부 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그를 저장할 Azure 저장소 계정 및 보존 기간을 선택합니다. **팁:** 감사 보고서 서식 파일을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
 
 	![탐색 창][2]
 
@@ -91,7 +91,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 
 감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
 
-미리 구성된 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 [다운로드 가능 Excel 스프레드시트](http://go.microsoft.com/fwlink/?LinkId=403540)로 사용할 수 있습니다. 감사 로그에 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 [여기](http://www.microsoft.com/download/details.aspx?id=39379)에서 다운로드할 수 있습니다.
+미리 구성된 보고서 서식 파일은 로그 데이터를 빠르게 분석하는 데 도움이 되는 [다운로드 가능 Excel 스프레드시트](http://go.microsoft.com/fwlink/?LinkId=403540)로 사용할 수 있습니다. 감사 로그에 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 [여기](http://www.microsoft.com/download/details.aspx?id=39379)에서 다운로드할 수 있습니다.
 
 파워 쿼리를 사용하여 Azure 저장소 계정에서 직접 감사 로그를 Excel 템플릿에 가져올 수 있습니다. 그런 다음 감사 레코드를 탐색하고 로그 데이터 위에 대시보드와 보고서를 만들 수 있습니다.
 
@@ -99,9 +99,9 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 ![탐색 창][4]
 
 
-##<a id="subheading-4"></a>기존 Azure 포털을 사용하여 데이터베이스에 대한 감사 설정
+##<a id="subheading-4"></a>기존 Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사 설정
 
-1. https://manage.windowsazure.com/에서 [기존 Azure 포털](https://manage.windowsazure.com/)을 시작합니다.
+1. https://manage.windowsazure.com/에서 [기존 Azure 클래식 포털](https://manage.windowsazure.com/)을 시작합니다.
 
 2. 감사할 SQL 데이터베이스 / SQL 서버를 클릭한 다음 **감사 및 보안** 탭을 클릭합니다.
 
@@ -123,7 +123,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 
 
 ##<a id="subheading-5">프로덕션에서 사용하기 위한 연습</a>
-이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. [Azure Preview 포털](https://portal.azure.com) 또는 [기존 Azure 포털](https://manage.windowsazure.com/)을 사용할 수 있습니다.
+이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. [Azure 포털](https://portal.azure.com) 또는 [기존 Azure 클래식 포털](https://manage.windowsazure.com/)을 사용할 수 있습니다.
 
 
 ##<a id="subheading-6"></a>저장소 키 다시 생성
@@ -159,7 +159,7 @@ Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있�
 [Azure SQL 데이터베이스 감사 기본 사항]: #subheading-1
 [데이터베이스에 대한 감사 설정]: #subheading-2
 [감사 로그 및 보고서 분석]: #subheading-3
-[기존 Azure 포털을 사용하여 데이터베이스에 대한 감사를 설정]: #subheading-4
+[기존 Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사를 설정]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7
@@ -178,4 +178,4 @@ Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

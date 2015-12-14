@@ -34,7 +34,7 @@ SELECT의 새 동작 | 스트림 분석의 SELECT가 중첩된 레코드의 속�
 ---|---
 추가 쿼리 언어 기능 | 스트림 분석은 다음 기능을 포함하여 쿼리 언어를 확장합니다. [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) 및 [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 집계 제한 사항이 제거되었습니다. | 이 릴리스는 쿼리에서 15개의 집계 제한 사항을 제거합니다. 쿼리당 집계 수에는 이제 제한이 없습니다.
-GROUP BY System.Timestamp 기능 추가됨 | [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) 기능은 이제 window\_type 또는 [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx)를 허용합니다.
+GROUP BY System.Timestamp 기능 추가됨 | 이제 [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) 기능은 window\_type 또는 [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx)를 허용합니다.
 연속 및 도약 창에 대한 오프셋 추가됨 | 기본적으로 [연속](https://msdn.microsoft.com/library/azure/dn835055.aspx) 및 [도약](https://msdn.microsoft.com/library/azure/dn835041.aspx) 창은 0으로 된 시간에 대해 정렬됩니다(1/1/0001 12:00:00 AM UTC). 새(선택 사항) 매개 변수 'offsetsize'는 사용자 지정 오프셋(또는 맞춤) 지정을 허용합니다.
 
 
@@ -45,7 +45,7 @@ GROUP BY System.Timestamp 기능 추가됨 | [GROUP BY](https://msdn.microsoft.c
 제목 | 설명
 ---|---
 Azure IoT Suite 공개 미리 보기 | 스트림 분석이 Azure IoT Suite의 공개 미리 보기에 포함되어 있습니다.
-Azure Preview 포털 통합 | Azure 관리 포털에서 지속적으로 존재할 뿐만 아니라 이제 스트림 분석은 [Azure Preview 포털](http://azure.microsoft.com/overview/preview-portal/)에서 통합되었습니다. Preview 포털의 스트림 분석 기능은 현재 Azure 관리 포털에서 제공되는 기능의 하위 집합이지만 브라우저 내 쿼리 테스트, Power BI 출력 구성, 액세스한 구독에서 새 입력 및 출력 리소스로 이동 또는 만들기에 대한 지원은 없습니다.
+Azure 포털 통합 | Azure 클래식 포털에서 지속적으로 존재할 뿐만 아니라 이제 스트림 분석은 [Azure 포털](http://azure.microsoft.com/overview/preview-portal/)에서 통합되었습니다. 포털의 스트림 분석 기능은 현재 Azure 클래식 포털에서 제공되는 기능의 하위 집합이지만 브라우저 내 쿼리 테스트, Power BI 출력 구성, 액세스한 구독에서 새 입력 및 출력 리소스로 이동 또는 만들기에 대한 지원은 없습니다.
 DocumentDB 출력에 대한 지원 | 이제 스트림 분석 작업에서 [DocumentDB](http://azure.microsoft.com/services/documentdb/)로 출력할 수 있습니다.
 IoT Hub 입력에 대한 지원 | 이제 스트림 분석 작업이 IoT Hub에서 데이터를 수집할 수 있습니다.
 다른 유형의 이벤트를 위한 TIMESTAMP BY | 단일 데이터 스트림에 서로 다른 필드의 타임스탬프를 가진 여러 이벤트 유형이 포함된 경우 이제 식에서 [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx)를 사용하여 각 사례에 대해 서로 다른 타임스탬프 필드를 지정할 수 있습니다.
@@ -124,4 +124,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,9 +18,7 @@
 
 # Windows 앱에 대해 오프라인 동기화 사용
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 개요
 
@@ -36,7 +34,7 @@
 
 * Windows 8.1에서 실행 중인 Visual Studio 2013
 * [Windows 앱 만들기][create a windows app] 완료.
-* [Azure 모바일 서비스 SQLite 저장소 버전 2.0.0-beta2][sqlite store nuget]
+* [Azure 모바일 서비스 SQLite 저장소][sqlite store nuget]
 * [Windows 8.1용 SQLite](http://www.sqlite.org/downloads)
 
 ## 오프라인 기능을 지원하도록 클라이언트 앱 업데이트
@@ -48,13 +46,9 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
     * **Windows 8.1 런타임:**: [Windows 8.1용 SQLite]를 설치합니다.
     * **Windows Phone 8.1:** [Windows Phone 8.1용 SQLite]를 설치합니다.
 
-    >[AZURE.NOTE]Internet Explorer를 사용하는 경우 SQLite를 설치하기 위해 링크를 클릭하면 .vsix를 .zip 파일로 다운로드할지를 묻는 메시지가 표시될 수 있습니다. 파일을 하드 드라이브의 원하는 위치에 .zip 대신 .vsix 확장명으로 저장합니다. Windows 탐색기에서 .vsix 파일을 두 번 클릭하여 설치를 실행합니다.
+    >[AZURE.NOTE]이러한 지침은 Windows 10 UAP 프로젝트에 대해서도 적용되지만 [Windows 10용 SQLite]를 대신 설치해야 합니다.
 
-2. Visual Studio에서 [Windows 앱 만들기] 자습서에서 완료한 프로젝트를 엽니다. Windows 8.1 런타임 및 Windows Phone 8.1 프로젝트용 **WindowsAzure.MobileServices.SQLiteStore** NuGet 패키지를 설치합니다.
-
-    솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션용 NuGet 패키지 관리**를 클릭하여 NuGet 패키지 관리자를 실행합니다. "Online" 탭에 맨 위의 드롭다운에서 "시험판 포함" 옵션을 선택합니다. **SQLiteStore**를 검색하여 `WindowsAzure.MobileServices.SQLiteStore`의 2.0.0-beta를 설치합니다.
-
-    그런 다음 Windows 스토어 8.1 및 Windows Phone 8.1 프로젝트 모두에 NuGet 참조를 추가합니다.
+2. Visual Studio에서 [Windows 앱 만들기] 자습서에서 완료한 프로젝트를 엽니다. Windows 8.1 런타임 및 Windows Phone 8.1 프로젝트용 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 설치합니다. Windows 스토어 8.1 및 Windows Phone 8.1 프로젝트 모두에 NuGet 참조를 추가합니다.
 
     >[AZURE.NOTE]설치가 추가 참조를 설치한 SQLite의 다른 버전에 만드는 경우 컴파일 오류가 발생합니다. 프로젝트의 **참조** 노드에서 중복을 제거하여 이 오류를 해결해야 합니다.
 
@@ -68,7 +62,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
     **Windows Phone 8.1**
 
-4. SQLite는 네이티브 라이브러리이며 **x86**, **x64**, 또는 **ARM**과 같은 플랫폼 특정 아키텍처를 선택해야 합니다. **임의 CPU**는 지원되지 않습니다. 솔루션 탐색기의 맨 위에 있는 솔루션을 클릭하고 프로세서 아키텍처 드롭다운 상자를 테스트하려는 지원되는 설정 중 하나로 변경합니다.
+4. SQLite는 네이티브 라이브러리이며 **x86**, **x64** 또는 **ARM**과 같은 플랫폼 특정 아키텍처를 선택해야 합니다. **임의 CPU**는 지원되지 않습니다. 솔루션 탐색기의 맨 위에 있는 솔루션을 클릭하고 프로세서 아키텍처 드롭다운 상자를 테스트하려는 지원되는 설정 중 하나로 변경합니다.
 
     ![][13]
 
@@ -77,12 +71,12 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
         using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
 
-6. MainPage.cs에서 `todoTable`을 `IMobileServiceTable`로 초기화하는 코드 줄을 주석으로 처리합니다. `todoTable`을 `IMobileServiceSyncTable`로 초기화하는 코드 줄의 주석을 제거합니다.
+6. MainPage.cs에서 `todoTable`을 `IMobileServiceTable`로 초기화하는 코드 줄을 주석으로 처리합니다. `todoTable`을 `IMobileServiceSyncTable`로 초기화하는 코드 줄의 주석 처리를 제거합니다.
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
 
-7. MainPage.cs의 `Offline sync` 표시된 영역에서 `InitLocalStoreAsync` 및 `SyncAsync` 메서드의 주석 처리를 제거합니다. `InitLocalStoreAsync` 메서드는 SQLite 스토어에서 클라이언트 동기화 컨텍스트를 초기화합니다. Visual Studio에서 주석으로 처리된 모든 줄을 선택하고 **Ctrl**+**K**+**U** 바로 가기 키를 사용하여 주석을 제거합니다.
+7. MainPage.cs의 `Offline sync` 표시된 영역에서 `InitLocalStoreAsync` 및 `SyncAsync` 메서드의 주석 처리를 제거합니다. `InitLocalStoreAsync` 메서드는 SQLite 스토어에서 클라이언트 동기화 컨텍스트를 초기화합니다. Visual Studio에서 주석으로 처리된 모든 줄을 선택하고 **Ctrl**+**K**+**U** 바로 가기 키를 사용하여 주석 처리를 제거합니다.
 
 	`SyncAsync`에서 푸시 작업이 `IMobileServicesSyncTable` 대신 `MobileServiceClient.SyncContext`에서 실행됩니다. 모든 테이블에 대한 클라이언트에서 수행한 변경 내용을 컨텍스트가 추적하기 때문입니다. 그러면 테이블 간에 관계가 존재하는 시나리오가 포함됩니다. 이 동작에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
 
@@ -196,9 +190,9 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 4. 앱을 닫았다가 다시 시작하여 만든 새 항목이 로컬 저장소에 유지되는지 확인합니다.
 
-5. (선택 사항) Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다. 백 엔드 데이터베이스의 데이터가 변경되지 않은 것을 확인합니다.
+5. (옵션) Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다. 백 엔드 데이터베이스의 데이터가 변경되지 않은 것을 확인합니다.
 
-6. (선택 사항) Fiddler 또는 Postman와 같은 REST 도구를 사용하여 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 형식의 GET 쿼리를 통해 모바일 백 엔드를 쿼리합니다.
+6. (옵션) Fiddler 또는 Postman과 같은 REST 도구를 사용하여 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 형식의 GET 쿼리를 통해 모바일 백 엔드를 쿼리합니다.
 
 ## <a name="update-online-app"></a>모바일 앱 백 엔드를 다시 연결하도록 앱 업데이트
 
@@ -248,7 +242,7 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 * [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]
 
@@ -268,13 +262,13 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 [Azure 모바일 앱에서 오프라인 데이터 동기화]: ../app-service-mobile-offline-data-sync.md
 [create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
 [Windows 앱 만들기]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[Windows 8.1용 SQLite]: http://go.microsoft.com/fwlink/?LinkId=394776
-[Windows Phone 8.1용 SQLite]: http://go.microsoft.com/fwlink/?LinkId=397953
+[Windows 8.1용 SQLite]: http://go.microsoft.com/fwlink/?LinkID=716919
+[Windows Phone 8.1용 SQLite]: http://go.microsoft.com/fwlink/?LinkID=716920
+[Windows 10용 SQLite]: http://go.microsoft.com/fwlink/?LinkID=716921
 
-[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/2.0.0-beta
+[sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
  
-[클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

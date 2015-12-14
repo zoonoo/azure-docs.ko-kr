@@ -48,7 +48,7 @@ Azure AD를 사용하여 Azure 리소스 관리자에 요청을 인증하려면,
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 Azure Preview 포털의 Active Directory 섹션에서 응용 프로그램의 클라이언트 ID 필드에서 응용 프로그램 ID를 찾을 수 있습니다.
+	>[AZURE.NOTE]다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 Azure 포털의 Active Directory 섹션에 있는 응용 프로그램의 클라이언트 ID 필드에서 응용 프로그램 식별자를 찾을 수 있습니다.
 
 3. {application-id}를 방금 기록된 식별자로 바꾼 다음 해당 응용 프로그램에 대한 서비스 사용자를 만듭니다.
 
@@ -298,7 +298,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
           }
         }
 
-    >[AZURE.NOTE]이미지 vhd 이름은 이미지 갤러리에서 정기적으로 변경되므로, 가상 컴퓨터를 배포하는 데 현재 이미지 이름을 가져와야 합니다. 이렇게 하려면 [가상 컴퓨터에 대한 이미지 정보](https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-images/)를 참조한 다음, {source-image-name}을 사용하려는 vhd 파일의 이름으로 바꿉니다. 예를 들면 "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd"입니다. {subscription-id}를 사용자의 구독 ID로 바꿉니다.
+    >[AZURE.NOTE]이미지 vhd 이름은 이미지 갤러리에서 정기적으로 변경되므로, 가상 컴퓨터를 배포하는 데 현재 이미지 이름을 가져와야 합니다. 이렇게 하려면 [가상 컴퓨터에 대한 이미지 정보](https://azure.microsoft.com/documentation/articles/virtual-machines-images/)를 참조한 다음, {source-image-name}을 사용하려는 vhd 파일의 이름으로 바꿉니다. 예를 들면 "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd"입니다. {subscription-id}를 사용자의 구독 ID로 바꿉니다.
 
 
 4.	만든 매개 변수 파일을 저장합니다.
@@ -441,10 +441,10 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 2.	각 리소스를 생성하도록 각 상태 코드가 반환된 후 **Enter**를 누릅니다. 가상 컴퓨터를 만든 후 Enter 키를 눌러 모든 리소스를 삭제하기 전에 다음 단계를 수행합니다.
 
-	이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. Enter를 눌러 리소스 삭제를 시작하기 전에, 삭제하기 전 Azure 미리 보기 포털에서 리소스의 생성을 확인하려면 몇 분이 걸릴 수 있습니다.
+	이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. Enter를 눌러 리소스 삭제를 시작하기 전에 삭제하기 전 Azure 포털에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다.
 
-3. 리소스의 상태를 보려면 Azure 미리 보기 포털에서 감사 로그를 찾습니다.
+3. 리소스의 상태를 보려면 Azure 포털에서 감사 로그로 이동합니다.
 
 	![AD 응용 프로그램 만들기](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

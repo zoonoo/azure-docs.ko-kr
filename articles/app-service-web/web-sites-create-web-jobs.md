@@ -22,7 +22,7 @@
 
 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹 앱에서 세 가지 방법, 요청 시, 계속 실행 또는 일정에 따라 웹 작업에서 프로그램이나 스크립트를 실행할 수 있습니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
 
-이 문서에서는 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 웹 작업을 배포하는 방법을 보여줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure 웹 작업을 웹 앱에 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요.
+이 문서에서는 [Azure 포털](https://portal.azure.com)에서 웹 작업을 배포하는 방법을 보여줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure 웹 작업을 웹 앱에 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요.
 
 Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니다. 자세한 내용은 [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)를 참조하세요.
 
@@ -104,9 +104,9 @@ CRON 식은 6개의 필드로 구성되어 있습니다. `{second} {minute} {hou
 
 다음 대체 기술은 Azure 스케줄러를 사용합니다. 이 경우 WebJob에 일정의 직접적인 정보가 없습니다. 대신 Azure 스케줄러는 일정에서 WebJob을 트리거하도록 구성됩니다.
 
-Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 기능이 추가될 때까지 [이전 포털](http://manage.windowsazure.com)을 사용하여 만들 수 있습니다.
+Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 포털](http://manage.windowsazure.com)을 사용하여 기능이 추가될 때까지 예약된 웹 작업을 만들 수 있습니다.
 
-1. [이전 포털](http://manage.windowsazure.com)에서 웹 작업 페이지로 이동하고 **추가**를 클릭합니다.
+1. [클래식 포털](http://manage.windowsazure.com)에서 웹 작업 페이지로 이동하고 **추가**를 클릭합니다.
 
 1. **실행 방법** 상자에서 **일정에 따라 실행**을 선택합니다.
 	
@@ -152,7 +152,7 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 	
 ### <a name="Scheduler"></a>예약된 작업 및 Azure 스케줄러
 
-예약된 작업은 [이전 포털](http://manage.windowsazure.com)의 Azure 스케줄러 페이지에서 추가로 구성할 수 있습니다.
+[클래식 포털](http://manage.windowsazure.com)의 Azure 스케줄러 페이지에서 예약된 작업을 추가로 구성할 수 있습니다.
 
 1.	Azure 스케줄러 포털 페이지로 이동하려면 WebJobs 페이지에서 작업의 **일정** 링크를 클릭합니다. 
 	
@@ -239,4 +239,4 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

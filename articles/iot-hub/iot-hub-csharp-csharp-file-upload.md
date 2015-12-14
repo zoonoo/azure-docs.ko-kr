@@ -53,7 +53,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 1.  Visual Studio 내에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정...**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **SimulatedDevice** 및 **SendCloudToDevice** 앱 모두에 대한 **시작** 동작을 선택합니다.
 
-2.  **F5** 키를 누르고 응용 프로그램이 모두 시작하는지 확인해야 합니다. **SendCloudToDevice** 창을 선택하고 키를 누릅니다. 시뮬레이션된 장치가 파일을 업로드할 때 메시지를 출력하고 **SendCloudToDevice** 앱이 성공적인 피드백을 수신하였음을 표시합니다. [Azure Preview 포털] 또는 Visual Studio 서버 탐색기를 사용하여 저장소 계정에 있는 파일의 현재 상태를 확인할 수 있습니다.
+2.  **F5** 키를 누르고 응용 프로그램이 모두 시작하는지 확인해야 합니다. **SendCloudToDevice** 창을 선택하고 키를 누릅니다. 시뮬레이션된 장치가 파일을 업로드할 때 메시지를 출력하고 **SendCloudToDevice** 앱이 성공적인 피드백을 수신하였음을 표시합니다. [Azure 포털] 또는 Visual Studio 서버 탐색기를 사용하여 저장소 계정에 있는 파일의 현재 상태를 확인할 수 있습니다.
 
   ![][50]
 
@@ -79,9 +79,8 @@ IoT Hub에 대한 추가 정보:
 <!-- Links -->
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
 
-[Azure Preview 포털]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 
 [Azure 데이터 팩터리]: https://azure.microsoft.com/ko-KR/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/ko-KR/documentation/services/hdinsight/
@@ -102,4 +101,4 @@ IoT Hub에 대한 추가 정보:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

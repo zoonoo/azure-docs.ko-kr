@@ -25,7 +25,7 @@
 
 - Visual Studio 2015, Visual Studio 2013 update 4, Visual C++가 설치된 Visual Studio 2012 
 - Microsoft Azure SDK for.NET 버전 2.5 이상. 웹 플랫폼 설치 관리자를 사용하여 설치합니다.
-- 데이터 레이크 분석 계정입니다. [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 시작하기](data-lake-analytics-get-started-portal.md)를 참조합니다.
+- 데이터 레이크 분석 계정입니다. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
 - [AZure 데이터 레이크 분석 U-SQL 스튜디오 시작하기](data-lake-analytics-u-sql-studio-get-started.md) 자습서를 살펴보세요.
 - Azure 연결은 [Azure 데이터 레이크 분석 U-SQL 스튜디오 시작하기](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure)를 참조하세요 . 
 - 원본 데이터 업로드는 [Azure 데이터 레이크 분석 U-SQL 스튜디오 시작하기](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files)를 참조하세요. 
@@ -147,4 +147,4 @@
 - [Azure 포털을 사용하여 데이터 레이크 분석 시작하기](data-lake-analytics-get-started-portal.md)
 - [U-SQL 응용 프로그램 개발에 Visual Studio용 데이터 레이크 도구 사용하기](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

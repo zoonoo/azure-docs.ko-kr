@@ -62,7 +62,7 @@ Linux가 배포된 환경을 사용하는 경우에는 이러한 파일이 컴�
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-2. 인증서의 .cer 파일을 Azure에 업로드합니다. [Azure 포털](https://manage.windowsazure.com)에서 아래에 나와 있는 서비스 영역 왼쪽 아래의 **설정**을 클릭합니다.
+2. 인증서의 .cer 파일을 Azure에 업로드합니다. [Azure 클래식 포털](https://manage.windowsazure.com)에서 아래에 나와 있는 서비스 영역 왼쪽 아래의 **설정**을 클릭합니다.
 
 	![][portalsettingsitem]
 
@@ -214,4 +214,4 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

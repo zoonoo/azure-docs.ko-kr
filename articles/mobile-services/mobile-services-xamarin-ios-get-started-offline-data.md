@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin iOS) | Microsoft Azure" 
-	description="Azure 모바일 서비스를 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
+<properties
+	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin iOS) | Microsoft Azure"
+	description="Azure 모바일 서비스를 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
 	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -42,7 +47,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * [Xamarin 확장]이 포함된 Visual Studio **또는 OS X의 ** [Xamarin Studio]
-* XCode 4.5 및 iOS 6.0(또는 이후 버전) 
+* XCode 4.5 및 iOS 6.0(또는 이후 버전)
 * [모바일 서비스 시작] 자습서 완료
 
 ## <a name="review-offline"></a>모바일 서비스 동기화 코드 검토
@@ -143,11 +148,11 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 1. `QSTodoService.cs`을(를) 엽니다. 잘못된 모바일 서비스 URL을 제거하고 올바른 URL과 앱 키를 다시 추가합니다.
 
-2. 앱을 다시 빌드하고 실행합니다. 앱은 이제 모바일 서비스에 연결되지만 데이터는 오프라인 시나리오와 동일하게 보입니다. 이 앱은 로컬 저장소를 가리키는 `IMobileServiceSyncTable`을(를) 항상 사용하기 때문입니다.
+2. 앱을 다시 빌드하고 실행합니다. 앱은 이제 모바일 서비스에 연결되지만 데이터는 오프라인 시나리오와 동일하게 보입니다. 이 앱은 로컬 저장소를 가리키는 `IMobileServiceSyncTable`를 항상 사용하기 때문입니다.
 
-3. Microsoft Azure 관리 포털에 로그인하고 데이터베이스에서 모바일 서비스를 찾습니다. 서비스에서 JavaScript 백 엔드를 사용하는 경우 모바일 서비스의 **데이터** 탭에서 데이터를 찾아볼 수 있습니다.
+3. [Azure 클래식 포털]에 로그인하고 모바일 서비스에 대한 데이터베이스를 조회합니다. 서비스에서 JavaScript 백 엔드를 사용하는 경우 모바일 서비스의 **데이터** 탭에서 데이터를 찾아볼 수 있습니다.
 
-    모바일 서비스에 .NET 백 엔드를 사용하는 경우 Visual Studio에서 **서버 탐색기** -> **Azure** -> **SQL 데이터베이스**로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다.
+    모바일 서비스에 .NET 백 엔드를 사용하는 경우 Visual Studio에서 **서버 탐색기** > **Azure** > **SQL 데이터베이스**로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다.
 
     데이터베이스와 로컬 저장소의 데이터는 아직 동기화되어 있지 *않습니다*.
 
@@ -181,6 +186,6 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin 확장]: http://xamarin.com/visual-studio
- 
+[Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

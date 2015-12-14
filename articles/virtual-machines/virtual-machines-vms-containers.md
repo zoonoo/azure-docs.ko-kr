@@ -129,7 +129,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 
 최근 Azure는 [Azure 리소스 관리](virtual-machines-azurerm-versus-azuresm.md) REST API와 업데이트된 PowerShell 및 Azure CLI 도구를 배포하여 사용이 더욱 간편해졌습니다. 다음을 사용하면 Azure 리소스 관리 API와 함께 [Azure 리소스 관리자 템플릿](../resource-group-authoring-templates.md)으로 전체 응용 프로그램 토폴로지를 배포, 수정 또는 재배포할 수 있습니다.
 
-- [Azure Preview 포털의 템플릿](https://github.com/Azure/azure-quickstart-templates)(힌트: "DeployToAzure" 버튼을 사용하십시오)
+- [Azure 포털의 템플릿](https://github.com/Azure/azure-quickstart-templates)(힌트: "DeployToAzure" 버튼을 사용하십시오)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - [Azure PowerShell 모듈](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -187,7 +187,7 @@ Microsoft Azure의 Docker:
 - [Azure의 Linux용 Docker VM 확장](virtual-machines-docker-vm-extension.md)
 - [Azure Docker VM 확장 프로그램 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli-install.md)
-- [Azure 미리 보기 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md)
+- [Azure 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md)
 - [Azure 마켓플레이스에서 신속하게 Docker 시작](virtual-machines-docker-ubuntu-quickstart.md)
 - [Azure에서 docker-machine을 사용하는 방법](virtual-machines-docker-machine.md)
 - [Azure에서 swarm과 함께 Docker를 사용하는 방법](virtual-machines-docker-swarm.md)
@@ -240,4 +240,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

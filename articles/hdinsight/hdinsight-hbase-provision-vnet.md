@@ -60,7 +60,7 @@ Azure 리소스 관리자를 사용하면 그룹으로 응용 프로그램에서
 
 **리소스 그룹을 만들려면**
 
-1. [Azure 미리 보기 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기**, **관리** 및 **리소스 그룹**을 차례로 클릭합니다.
 3. 다음 값을 입력하거나 선택합니다.
 
@@ -74,7 +74,7 @@ HBase 클러스터를 프로비전하기 전에 Azure 가상 네트워크가 있
 
 **Azure 포털을 사용하여 가상 네트워크를 만들려면**
 
-1. [Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기**, **네트워킹** 및 **가상 네트워크**를 차례로 클릭합니다.
 3. **배포 모델 선택**에서 Windows 기반 HDInsight 클러스터를 사용하려면 **클래식**을 선택하고 Linux 기반 HDInsight 클러스터를 사용하려면 **리소스 관리자**를 선택합니다. 마지막으로 **만들기**를 클릭합니다.
 
@@ -115,10 +115,10 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 
 **HDInsight 클러스터를 만들려면**
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
-    ![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Azure Preview 포털에서 새 클러스터 만들기")
+    ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Azure 포털에서 새 클러스터 만들기")
 
 3. 다음 값을 입력하거나 선택합니다.
 
@@ -389,4 +389,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

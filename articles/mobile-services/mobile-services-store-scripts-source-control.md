@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015" 
+	ms.date="09/15/2015"
 	ms.author="ggailey777"/>
 
 # 소스 제어에 모바일 서비스 프로젝트 코드 저장
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -36,8 +41,7 @@
 
 	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하십시오.
 
-	> [AZURE.NOTE]
-	> 일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
+	> [AZURE.NOTE]일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
 2. **GitBash**(Windows) 또는 **Bash**(Unix Shell)와 같은 명령줄을 엽니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
@@ -94,7 +98,7 @@
 
 	커밋이 모바일 서비스에 배포됨을 나타내는 일련의 명령이 표시됩니다.
 
-6. 관리 포털로 돌아가서 **데이터** 탭, **TodoItem** 테이블을 차례로 클릭하고 **스크립트**를 클릭하고 나서 **삽입**을 선택합니다. 표시되는 삽입 작업 스크립트는 방금 리포지토리에 업로드한 JavaScript 코드와 같습니다.
+6. [Azure 클래식 포털]로 돌아가서 **데이터** 탭, **TodoItem** 테이블을 차례로 클릭하고 **스크립트**를 클릭하고 나서 **삽입**을 선택합니다. 표시되는 삽입 작업 스크립트는 방금 리포지토리에 업로드한 JavaScript 코드와 같습니다.
 
 ##<a name="use-npm"></a>서버 스크립트에서 공유 코드 및 Node.js 모듈 활용
 
@@ -131,8 +135,7 @@
 
 이 자습서를 완료했으므로 이제 원본 제어에 스크립트를 지정하는 방법을 알게 되었습니다. 서버 스크립트 및 사용자 지정 API 작업에 대해 자세히 알아보세요.
 
-+ [모바일 서비스에서 서버 스크립트 작업]
-	<br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
++ [모바일 서비스에서 서버 스크립트 작업] <br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -151,9 +154,8 @@
 [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 [모바일 서비스에서 서버 스크립트 작업]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [모듈]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

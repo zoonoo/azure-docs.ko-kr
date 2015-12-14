@@ -13,10 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory 감사 보고서 이벤트
+
+## Reporting 설명서
+
+ - [Reporting API](active-directory-reporting-api-getting-started.md)
+ - [감사 이벤트](active-directory-reporting-audit-events.md)
+ - [보존](active-directory-reporting-retention.md)
+ - [미리 보기](active-directory-reporting-previews.md)
+ - [이를 통해 검색](active-directory-reporting-search.md)
+ - [백필](active-directory-reporting-backfill.md)
+ - [대기 시간](active-directory-reporting-latencies.md)
+ - ["알 수 없는 작업자" 이벤트](active-directory-reporting-unknown-actor.md)
+
 Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다. 보고서는 이벤트 이름의 감사 레코드, 작업을 수행한 행위자, 변경으로 인한 영향을 받은 대상 리소스, 날짜 및 시간(UTC)을 제공합니다. 고객은 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)에서 설명한 대로 [Azure 관리 포털](https://manage.windowsazure.com/)을 통해 Azure Active Directory의 감사 이벤트 목록을 검색할 수 있습니다.
 
 
@@ -45,9 +57,9 @@ Azure Active Directory 감사 보고서를 통해 고객은 자신의 Azure Acti
 서비스 주체 제거 | 디렉터리에서 서비스 주체를 제거합니다.
 서비스 주체 자격 증명 추가 | 서비스 주체에 자격 증명을 추가합니다.
 서비스 주체 자격 증명 제거 | 서비스 주체에서 자격 증명을 제거합니다.
-위임 항목 추가 | 디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)을 만들었습니다.
-위임 항목 설정 | 디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)을 업데이트했습니다.
-위임 항목 제거 | 디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)을 삭제했습니다.
+위임 항목 추가 | 디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)를 만들었습니다.
+위임 항목 설정 | 디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)를 업데이트했습니다.
+위임 항목 제거 | 디렉터리에서 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)를 삭제했습니다.
 **역할 이벤트** |
 역할에 역할 멤버 추가 | 디렉터리 역할에 사용자를 추가합니다.
 역할에서 역할 멤버 제거 | 디렉터리 역할에서 사용자를 제거합니다.
@@ -119,4 +131,4 @@ TelephoneNumber | 사용자의 전화 번호입니다.
 
 감사 레코드는 많은 규정 준수 규칙의 필수 컨트롤입니다. Azure Active Directory 감사 보고서를 사용하여 규정 준수 규칙을 충족하려는 고객은 보고서 세부 정보를 설명하는 데 도움이 되도록 내보낸 고객 감사 보고서의 복사본과 함께 이 도움말 항목의 복사본을 제출하는 것이 좋습니다. Azure에서 현재 충족하는 규정 준수 규칙을 알려고 하는 감사자는 직접 Microsoft Azure 보안 센터의 [규정 준수 페이지](http://azure.microsoft.com/support/trust-center/compliance/)로 안내하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

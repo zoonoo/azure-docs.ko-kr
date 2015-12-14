@@ -32,6 +32,6 @@
 
 ### Azure 구독이 취소되었습니다
 
-구독을 다시 활성화하려면 지원 티켓을 만들어야 합니다. Azure 구독을 재활성화하는 지원 티켓을 만들려면 문서 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](../billing-create-billing-support-ticket.md)을 참조하세요.
+구독을 다시 활성화하려면 지원 티켓을 만들어야 합니다. Azure 구독을 재활성화하는 지원 티켓을 만들려면 문서 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](../billing-how-to-create-billing-support-ticket.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

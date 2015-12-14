@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
+	ms.date="11/30/2015"
 	ms.author="jroth" />
 
 # Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
@@ -29,7 +29,7 @@
 
 이 종단 간 자습서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server AlwaysOn을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다.
 
->[AZURE.NOTE]Azure 관리 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [Microsoft Azure 포털 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요. PowerShell을 사용하려면 [PowerShell을 사용하여 Azure에서 AlwaysOn 가용성 그룹 구성](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)에서 동일한 시나리오의 자습서를 참조하세요.
+>[AZURE.NOTE]Azure 관리 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [Microsoft Azure 클래식 포털 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요. PowerShell을 사용하려면 [PowerShell을 사용하여 Azure에서 AlwaysOn 가용성 그룹 구성](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)에서 동일한 시나리오의 자습서를 참조하세요.
 
 자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
 
@@ -61,7 +61,7 @@
 
 ## 가상 네트워크 및 도메인 컨트롤러 서버 만들기
 
-새로운 Azure 평가판 계정으로 시작합니다. 계정 설정을 마쳤으면 Azure 포털의 홈 화면이 표시됩니다.
+새로운 Azure 평가판 계정으로 시작합니다. 계정 설정을 마쳤으면 Azure 클래식 포털의 홈 화면이 표시됩니다.
 
 1. 아래와 같이 페이지 왼쪽 하단에서 **새로 만들기** 단추를 클릭합니다.
 
@@ -88,11 +88,11 @@
 	|Page|설정|
 |---|---|
 |가상 컴퓨터 운영 체제 선택|Windows Server 2012 R2 Datacenter|
-|가상 컴퓨터 구성|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoDC<br/>**계층** = 기본<br/>**크기** = A2(2코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|
+|가상 컴퓨터 구성|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoDC<br/>**계층** = 표준<br/>**크기** = A2(2코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|
 |가상 컴퓨터 구성|**클라우드 서비스** = 새 클라우드 서비스 만들기<br/>**클라우드 서비스 DNS 이름** = 고유한 클라우드 서비스 이름<br/>**DNS 이름** = 고유한 이름(예: ContosoDC123)<br/>**지역/선호도 그룹/가상 네트워크** = ContosoNET<br/>**가상 네트워크 서브넷** = Back(10.10.2.0/24)<br/>**저장소 계정** = 자동으로 생성된 저장소 계정 사용<br/>**가용성 집합** = (없음)|
 |가상 컴퓨터 옵션|기본값 사용|
 
-새 VM을 구성했으면 VM이 프로비전될 때까지 기다립니다. 이 과정은 완료하는 데 다소 시간이 소요되며 Azure 포털에서 **가상 컴퓨터** 탭을 클릭하면 ContosoDC 순환 상태가 **시작 중(프로비전)**에서 **중지됨**, **시작 중**, **실행 중(프로비전)**, 마지막으로 **실행 중**으로 표시될 수 있습니다.
+새 VM을 구성했으면 VM이 프로비전될 때까지 기다립니다. 이 과정은 완료하는 데 다소 시간이 소요되며 Azure 클래식 포털에서 **가상 컴퓨터** 탭을 클릭하면 ContosoDC 순환 상태가 **시작 중(프로비전)**에서 **중지됨**, **시작 중**, **실행 중(프로비전)**, 마지막으로 **실행 중**으로 표시될 수 있습니다.
 
 이제 DC 서버가 성공적으로 프로비전되었습니다. 다음으로 이 DC 서버에 Active Directory 도메인을 구성합니다.
 
@@ -192,14 +192,18 @@ Active Directory 및 사용자 개체 구성을 완료하면 3개의 SQL Server 
 
 ## SQL Server VM 만들기
 
-다음으로 WSFC 클러스터 노드 1개와 SQL Server VM 2개를 포함하는 VM을 3개 만듭니다. 각 VM을 만들려면 Azure 포털로 돌아가 **새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 클릭합니다. 다음으로 아래 표의 템플릿을 사용하면 VM을 만드는 데 도움이 됩니다.
+다음으로 WSFC 클러스터 노드 1개와 SQL Server VM 2개를 포함하는 VM을 3개 만듭니다. 각 VM을 만들려면 Azure 클래식 포털로 돌아가 **새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 클릭합니다. 다음으로 아래 표의 템플릿을 사용하면 VM을 만드는 데 도움이 됩니다.
 
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
 |가상 컴퓨터 운영 체제 선택|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 RTM Enterprise**|**SQL Server 2014 RTM Enterprise**|
-|가상 컴퓨터 구성|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoWSFCNode<br/>**계층** = 기본<br/>**크기** = A2(2코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoSQL1<br/>**계층** = 기본<br/>**크기** = A3(4코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoSQL2<br/>**계층** = 기본<br/>**크기** = A3(4코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|
+|가상 컴퓨터 구성|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoWSFCNode<br/>**계층** = 표준<br/>**크기** = A2(2코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoSQL1<br/>**계층** = 표준<br/>**크기** = A3(4코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|**버전 릴리스 날짜** = (최신)<br/>**가상 컴퓨터 이름** = ContosoSQL2<br/>**계층** = 표준<br/>**크기** = A3(4코어)<br/>**새 사용자 이름** = AzureAdmin<br/>**새 암호** = Contoso!000<br/>**확인** = Contoso!000|
 |가상 컴퓨터 구성|**클라우드 서비스** = 이전에 만든 고유한 클라우드 서비스 DNS 이름(예: ContosoDC123)<br/>**지역/선호도 그룹/가상 네트워크** = ContosoNET<br/>**가상 네트워크 서브넷** = Back(10.10.2.0/24)<br/>**저장소 계정** = 자동으로 생성된 저장소 계정 사용<br/>**가용성 집합** = 가용성 집합 만들기<br/>**가용성 집합 이름** = SQLHADR|**클라우드 서비스** = 이전에 만든 고유한 클라우드 서비스 DNS 이름(예: ContosoDC123)<br/>**지역/선호도 그룹/가상 네트워크** = ContosoNET<br/>**가상 네트워크 서브넷** = Back(10.10.2.0/24)<br/>**저장소 계정** = 자동으로 생성된 저장소 계정 사용<br/>**가용성 집합** = SQLHADR(컴퓨터를 만든 후 가용성 집합을 구성할 수도 있습니다. SQLHADR 가용성 집합에 3개의 컴퓨터를 모두 할당합니다.)|**클라우드 서비스** = 이전에 만든 고유한 클라우드 서비스 DNS 이름(예: ContosoDC123)<br/>**지역/선호도 그룹/가상 네트워크** = ContosoNET<br/>**가상 네트워크 서브넷** = Back(10.10.2.0/24)<br/>**저장소 계정** = 자동으로 생성된 저장소 계정 사용<br/>**가용성 집합** = SQLHADR(컴퓨터를 만든 후 가용성 집합을 구성할 수도 있습니다. SQLHADR 가용성 집합에 3개의 컴퓨터를 모두 할당합니다.)|
 |가상 컴퓨터 옵션|기본값 사용|기본값 사용|기본값 사용|
+
+<br/>
+
+>[AZURE.NOTE]기본 계층 컴퓨터는 나중에 가용성 그룹 수신기를 만드는 데 필요한 부하가 분산된 끝점을 지원하지 않기 때문에 이전 구성은 표준 계층 가상 컴퓨터를 제안합니다. 여기에서 제안하는 컴퓨터 크기는 Azure VM에서 가용성 그룹 테스트를 위해 계획된 것입니다. 프로덕션 작업에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)에서 SQL Server 컴퓨터 크기 및 구성에 대한 권장 사항을 참조하세요.
 
 3개의 VM이 완전히 프로비전되면 VM을 **corp.contoso.com** 도메인에 연결하고 컴퓨터에 CORP\\Install 관리 권한을 부여해야 합니다. 이렇게 하려면 3개의 VM 각각에 대해 다음 단계를 사용합니다.
 
@@ -441,7 +445,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 1. **ContosoSQL1**에 대한 RDP 파일을 시작하고 **CORP\\Install**로 로그인합니다.
 
-1. **파일 탐색기**에서 **C:** 아래에 **backup** 이라는 디렉터리를 만듭니다. 이 디렉터리는 데이터베이스를 백업 및 복원하는 데 사용합니다.
+1. **파일 탐색기**에서 **C:** 아래에 **backup**이라는 디렉터리를 만듭니다. 이 디렉터리는 데이터베이스를 백업 및 복원하는 데 사용합니다.
 
 1. 새 디렉터리를 마우스 오른쪽 단추로 클릭하고 **공유 대상**을 가리킨 후 아래와 같이 **특정 사용자**를 클릭합니다.
 
@@ -533,7 +537,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 1. **서버 관리자**로 돌아가서 **도구**를 선택한 후 **장애 조치(Failover) 클러스터 관리자**를 시작합니다.
 
-1. **Cluster1.corp.contoso.com**과 **서비스 및 응용 프로그램**을 차례로 확장합니다. **역할**을 선택하고 **AG1** 가용성 그룹 역할이 만들어진 것을 확인합니다. AG1에는수신기를 구성하지 않았으므로 데이터베이스 클라이언트가 가용성 그룹에 연결할 수 있는 IP 주소가 없습니다. 읽기/쓰기 작업을 위해 주 노드에 직접 연결하고 읽기 전용 쿼리를 위해 보조 노드에 직접 연결할 수 있습니다.
+1. **Cluster1.corp.contoso.com**과 **서비스 및 응용 프로그램**을 차례로 확장합니다. **역할**을 선택하고 **AG1** 가용성 그룹 역할이 만들어진 것을 확인합니다. AG1에는 수신기를 구성하지 않았으므로 데이터베이스 클라이언트가 가용성 그룹에 연결할 수 있는 IP 주소가 없습니다. 읽기/쓰기 작업을 위해 주 노드에 직접 연결하고 읽기 전용 쿼리를 위해 보조 노드에 직접 연결할 수 있습니다.
 
 	![장애 조치(Failover) 클러스터 관리자에서 AG](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665534.gif)
 
@@ -544,4 +548,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

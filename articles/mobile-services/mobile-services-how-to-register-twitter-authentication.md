@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Twitter 인증 등록 | Microsoft Azure" 
-	description="Azure 모바일 서비스 응용 프로그램에서 Twitter 인증을 사용하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Twitter 인증 등록 | Microsoft Azure"
+	description="Azure 모바일 서비스 응용 프로그램에서 Twitter 인증을 사용하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/15/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/15/2015"
 	ms.author="glenga"/>
 
 #모바일 서비스에서 Twitter 로그인하기 위해 앱 등록
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
 
@@ -29,9 +34,9 @@
 1. [Twitter 개발자](http://go.microsoft.com/fwlink/p/?LinkId=268300) 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 다음 **Create New App**을 클릭합니다.
 
 2. 앱의 **Name**, **Description** 및 **Website** 값을 입력한 다음 **Callback URL**에 다음 URL 형식 중 하나를 입력합니다.
- 
+
 	+ **.NET 백 엔드**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
-	+ **JavaScript 백 엔드**: `https://<mobile_service>.azure-mobile.net/login/twitter` 
+	+ **JavaScript 백 엔드**: `https://<mobile_service>.azure-mobile.net/login/twitter`
 
 	 >[AZURE.NOTE]모바일 서비스 백 엔드 유형에 맞는 리디렉션 URL 경로 형식을 사용하고 있는지 확인합니다. 형식이 올바르지 않으면 인증이 실패합니다. &nbsp;
 
@@ -60,7 +65,4 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-[Azure Management Portal]: https://manage.windowsazure.com/
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -29,16 +29,16 @@ VM을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의
 
 ## 배경 정보
 ### 할당의 작동 원리
-Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 일반적으로 할당 요청은 여러 클러스터에서 시도되지만 할당 요청의 특정한 제약 조건으로 인해 Azure 플랫폼이 하나의 클러스터에만 요청을 시도하게 될 수 있습니다. 이 문서에서는 이것을 “클러스터에 고정된”이라고 하겠습니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여줍니다. 다이어그램 2는 클라우드 서비스 CS\_1 또는 가용성 집합이 호스팅되는 클러스터 2에 고정된 할당의 사례를 보여줍니다.![할당 다이어그램](./media/virtual-machines-allocation-failure/Allocation1.png)
+Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 일반적으로 할당 요청은 여러 클러스터에서 시도되지만 할당 요청의 특정한 제약 조건으로 인해 Azure 플랫폼이 하나의 클러스터에만 요청을 시도하게 될 수 있습니다. 이 문서에서는 이것을 “클러스터에 고정된”이라고 하겠습니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여 줍니다. 다이어그램 2는 클라우드 서비스 CS\_1 또는 가용성 집합이 호스트되는 클러스터 2에 고정된 할당의 사례를 보여 줍니다.![할당 다이어그램](./media/virtual-machines-allocation-failure/Allocation1.png)
 
 ### 할당 오류가 발생하는 이유
-할당 요청이 클러스터에 고정되면 사용 가능한 리소스 풀이 작아지기 때문에 유휴 리소스를 찾는데 실패할 가능성이 높습니다. 할당 요청이 클러스터에 고정되어 있지만 요청하는 리소스 유형이 이 클러스터에서 지원되지 않으면, 클러스터에 유휴 리소스가 있어도 사용자의 요청은 실패합니다. 아래 다이어그램 3은 유일한 후보 클러스터에 유휴 리소스가 없어서 고정된 할당이 실패하는 경우를 보여줍니다. 다이어그램 4는 클러스터에 유휴 리소스가 있지만 유일한 후보 클러스터가 요청한 VM 크기를 지원하지 않기 때문에 고정된 할당이 실패하는 경우를 보여줍니다.![고정된 할당 오류](./media/virtual-machines-allocation-failure/Allocation2.png)
+할당 요청이 클러스터에 고정되면 사용 가능한 리소스 풀이 작아지기 때문에 유휴 리소스를 찾는데 실패할 가능성이 높습니다. 할당 요청이 클러스터에 고정되어 있지만 요청하는 리소스 유형이 이 클러스터에서 지원되지 않으면, 클러스터에 유휴 리소스가 있어도 사용자의 요청은 실패합니다. 아래 다이어그램 3은 유일한 후보 클러스터에 유휴 리소스가 없어서 고정된 할당이 실패하는 경우를 보여줍니다. 다이어그램 4는 클러스터에 유휴 리소스가 있지만 유일한 후보 클러스터가 요청한 VM 크기를 지원하지 않기 때문에 고정된 할당이 실패하는 경우를 보여 줍니다.![고정된 할당 오류](./media/virtual-machines-allocation-failure/Allocation2.png)
 
 ## 클래식 배포 모델의 일반적인 할당 오류 문제 해결
 
 이 단계는 가상 컴퓨터의 다양한 할당 문제를 해결하는데 도움이 됩니다.
 
-- VM을 다른 VM 크기를 조정합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > 사용자의 가상 컴퓨터 > 설정 > **크기**를 클릭합니다. 자세한 단계는 [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)을 참조하세요.
+- VM을 다른 VM 크기로 조정합니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > 사용자의 가상 컴퓨터 > 설정 > **크기**를 클릭합니다. 자세한 단계는 [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)을 참조하세요.
 
 - 클라우드 서비스의 VM을 모두 삭제하고 다시 만듭니다.<br> 모두 찾아보기 > 가상 컴퓨터(클래식) > 사용자의 가상 컴퓨터 > 삭제를 클릭합니다. 그 후 새로 만들기 > 계산 > [가상 컴퓨터 이미지]를 클릭합니다.
 
@@ -81,7 +81,7 @@ VM 크기를 조정하거나 기존 클라우드 서비스에 VM 또는 역할 �
 
 **해결 방법**
 
-오류가 Upgrade\_VMSizeNotSupported*이면, 다른 VM 크기를 시도합니다. 다른 VM 크기를 사용할 수는 없지만 다른 가상 IP 주소(VIP)를 사용하는 것이 허용되면, 새로운 VM을 호스팅할 새 클라우드 서비스를 만들고 새 클라우드 서비스를 기존 VM이 실행되는 지역 가상 네트워크에 추가합니다. 기존 클라우드 서비스가 지역 가상 네트워크를 사용하지 않더라도 새 클라우드 서비스에 새 가상 네트워크를 만든 후 [기존 VNet을 새 VNet](https://azure.microsoft.com/ko-KR/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)에 연결할 수 있습니다. [지역 가상 네트워크](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참고하세요.
+오류가 Upgrade\_VMSizeNotSupported*이면, 다른 VM 크기를 시도합니다. 다른 VM 크기를 사용할 수는 없지만 다른 가상 IP 주소(VIP)를 사용하는 것이 허용되면, 새로운 VM을 호스팅할 새 클라우드 서비스를 만들고 새 클라우드 서비스를 기존 VM이 실행되는 지역 가상 네트워크에 추가합니다. 기존 클라우드 서비스가 지역 가상 네트워크를 사용하지 않더라도 새 클라우드 서비스에 새 가상 네트워크를 만든 후 [기존 VNet을 새 VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)에 연결할 수 있습니다. [지역 가상 네트워크](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요.
 
 오류가 GeneralError*이면 리소스 유형(예: 특정한 VM 크기)이 클러스터에서 지원되지만 해당 시점에 클러스터에 유휴 리소스가 없을 가능성이 있습니다. 위와 유사하게, 새 클라우드 서비스를 만들고(새 클라우드 서비스는 다른 VIP를 사용해야 합니다.) 지역 가상 네트워크를 사용하여 클라우드 서비스로 연결하여 원하는 계산 리소스를 추가하도록 시도합니다.
 
@@ -97,7 +97,7 @@ GeneralError*
 
 **해결 방법**
 
-다른 VIP를 사용하는 것이 허용되면 중지된(할당 취소된) VM을 삭제하고(하지만 연결된 디스크는 유지한 채로) 다른 클라우드 서비스를 통해 VM을 다시 추가합니다. 지역 가상 네트워크를 사용하여 클라우드 서비스에 연결합니다. 1 기존 클라우드 서비스가 지역 가상 네트워크를 사용하면 새 클라우드 서비스를 동일한 가상 네트워크에 간단히 추가합니다. 2. 기존 클라우드 서비스가 지역 가상 네트워크를 사용하지 않더라도 새 클라우드 서비스에 새 가상 네트워크를 만든 후 [기존 VNet을 새 VNet에 연결](https://azure.microsoft.com/ko-KR/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)합니다. [지역 가상 네트워크](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참고하세요.
+다른 VIP를 사용하는 것이 허용되면 중지된(할당 취소된) VM을 삭제하고(하지만 연결된 디스크는 유지한 채로) 다른 클라우드 서비스를 통해 VM을 다시 추가합니다. 지역 가상 네트워크를 사용하여 클라우드 서비스에 연결합니다. 1 기존 클라우드 서비스가 지역 가상 네트워크를 사용하면 새 클라우드 서비스를 동일한 가상 네트워크에 간단히 추가합니다. 2. 기존 클라우드 서비스가 지역 가상 네트워크를 사용하지 않더라도 새 클라우드 서비스에 새 가상 네트워크를 만든 후 [기존 VNet을 새 VNet에 연결](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)합니다. [지역 가상 네트워크](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요.
 
 ### 할당 시나리오: 중지된(할당이 취소된) VM 재시작 - 전체 할당 취소
 **오류**
@@ -149,7 +149,7 @@ New\_General* 또는 New\_VMSizeNotSupported*
 
 **해결 방법**
 
-선호도 그룹이 필요하지 않으면 추가하는 새 리소스에 대해 새로운 지역 가상 네트워크를 만들고 [기존 VNet을 새 VNet에 연결](https://azure.microsoft.com/ko-KR/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)합니다. [지역 가상 네트워크](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참고하세요.
+선호도 그룹이 필요하지 않으면 추가하는 새 리소스에 대해 새로운 지역 가상 네트워크를 만들고 [기존 VNet을 새 VNet에 연결](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)합니다. [지역 가상 네트워크](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요.
 
 아니면 [선호도 그룹 기반 가상 네트워크를 지역 가상 네트워크로 마이그레이션](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)한 후에 원하는 리소스를 다시 추가하도록 시도할 수 있습니다.
 
@@ -228,4 +228,4 @@ GeneralError*
 
 이 문서가 Azure 문제 해결에 도움이 되지 않으면, [MSDN 및 스택 오버플로](http://azure.microsoft.com/support/forums/)에서 Azure 포럼을 찾아봅니다. 사용자의 문제에 관해 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원](http://azure.microsoft.com/support/options/) 사이트로 가서 지원 받기를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

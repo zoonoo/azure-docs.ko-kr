@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-이 문서에서는 PowerShell cmdlet 및 Azure 리소스 관리자 모델을 사용하여 Express 경로 회로를 만드는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
+이 문서에서는 PowerShell cmdlet 및 Azure 리소스 관리자 배포 모델을 사용하여 Express 경로 회로를 만드는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -76,7 +76,7 @@
 		
 3. **Express 경로 회로를 만듭니다.**
 
-	Express 경로 회로를 만들기 전에 리소스 그룹이 없는 경우 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 할 수 있습니다.
+	Express 경로 회로를 만들기 전에 리소스 그룹이 없는 경우 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 수행할 수 있습니다.
 
 		New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
 
@@ -89,7 +89,7 @@
 	올바른 SKU 계층과 SKU 제품군을 지정하는지 확인합니다.
  
 	 - SKU 계층은 Express 경로 표준 또는 Express 경로 Premium 추가 기능이 사용되는지 여부를 결정합니다. *표준*을 지정하여 표준 SKU를 가져오거나 Premium 추가 기능에 대해 *프리미엄*을 지정할 수 있습니다.
-	 - SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제에 대해 *metereddata*를 무제한 데이터 요금제에 대해 *unlimiteddata"를 선택할 수 있습니다. **참고:** 회로가 만들어지면 청구서 유형을 변경할 수 없습니다.
+	 - SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제의 경우 *metereddata*를 선택하고 무제한 데이터 요금제의 경우 *unlimiteddata"를 선택할 수 있습니다. **참고:** 회로가 만들어지면 청구서 유형을 변경할 수 없습니다.
 
 	응답에 서비스 키가 포함됩니다. 다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
@@ -349,13 +349,12 @@
 
 이 작업이 성공하려면 모든 가상 네트워크를 Express 경로에서 연결 해제해야 합니다. 이 작업이 실패할 경우 회로에 연결된 가상 네트워크가 있는지 확인하십시오.
 
-Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
+Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
 
 위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
 
 ## 다음 단계
 
 - [라우팅 구성](expressroute-howto-routing-arm.md)
-- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

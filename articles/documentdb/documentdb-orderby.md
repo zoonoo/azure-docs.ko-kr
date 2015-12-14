@@ -131,7 +131,7 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
 
 향후 서비스 업데이트는 여기에 도입된 Order By 지원에 맞게 확장됩니다. 다음 추가 기능에 대해 작업하고 사용자 의견에 따라 이 개선점 릴리스의 우선순위를 지정합니다.
 
-- 동적 인덱싱 정책: 컬렉션을 만든 후 Azure 포털에서 인덱싱 정책 수정 지원
+- 동적 인덱싱 정책: 컬렉션을 만든 후 Azure 클래식 포털에서 인덱싱 정책 수정 지원
 - 보다 효율적인 Order By 및 여러 속성에 대한 Order By에 대해 복합 인덱스를 지원합니다.
 
 ## FAQ
@@ -177,4 +177,4 @@ Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 �
 * [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

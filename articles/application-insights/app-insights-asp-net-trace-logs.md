@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 .NET 추적 로그 탐색  
@@ -79,6 +79,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 * 동일한 사용자 요청에 관련된, 다시 말해서 OperationId가 같은 다른 원격 분석을 찾습니다. 
 * 이 페이지의 구성을 즐겨찾기로 저장합니다.
 
+> [AZURE.NOTE]**샘플링** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
 ## 다음 단계
 
@@ -104,6 +105,10 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
 각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는 7일 동안 보존됩니다.
 
+### 예상되는 로그 항목의 일부가 표시되지 않습니다.
+
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+
 ## <a name="add"></a>다음 단계
 
 * [가용성 및 응답성 테스트 설정][availability]
@@ -124,4 +129,4 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

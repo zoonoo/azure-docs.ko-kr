@@ -1,5 +1,5 @@
 <properties
-   pageTitle="미리 보기의 Azure AD Connect 기능 | Microsoft Azure"
+   pageTitle="Azure AD Connect: 미리 보기의 기능 | Microsoft Azure"
    description="이 항목에서는 Azure AD Connect의 미리 보기에 있는 기능을 더 자세하게 설명합니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 # 미리 보기 기능에 대한 자세한 내용
@@ -60,4 +60,4 @@ Office 365 그룹에 대한 자세한 내용은 [여기](http://aka.ms/O365g)에
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

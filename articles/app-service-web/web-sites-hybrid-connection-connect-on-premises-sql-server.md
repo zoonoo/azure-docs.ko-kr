@@ -24,7 +24,7 @@
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 >
->하이브리드 연결 기능의 웹 앱 부분은 [Azure Preview 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.
+>하이브리드 연결 기능의 웹 앱 부분은 [Azure 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.
 
 ## 필수 조건 ##
 
@@ -116,11 +116,11 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 	![MembershipDB 생성됨][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
-## B. Azure 미리 보기 포털에 웹 앱 만들기 ##
+## B. Azure 포털에서 웹 앱 만들기 ##
 
-> [AZURE.NOTE]이 자습서에서 사용할 Azure 미리 보기 포털에서 웹 앱을 이미 만든 경우 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)로 건너뛰어 진행할 수 있습니다.
+> [AZURE.NOTE]이 자습서에서 사용하고자 하는 Azure 포털에서 웹앱을 이미 만들었다면, [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)를 건너뛰고 계속 진행합니다.
 
-1. [Azure 미리 보기 포털](https://portal.azure.com)에서 **새로 만들기** > **웹 + 모바일** > **웹 앱**을 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에서 **새로 만들기** > **웹 + 모바일** > **웹앱**을 클릭합니다.
 
 	![새 단추][New]
 
@@ -239,7 +239,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 
 ### 웹 응용 프로그램 게시 ###
 
-1. Azure 미리 보기 포털에서 앱 서비스 웹 앱의 게시 프로필을 다운로드할 수 있습니다. 웹 앱의 블레이드에서 **게시 프로필 얻기**를 선택한 다음, 컴퓨터에 파일을 저장합니다.
+1. Azure 포털에서 앱 서비스 웹앱에 대한 게시 프로필을 다운로드할 수 있습니다. 웹 앱의 블레이드에서 **게시 프로필 얻기**를 선택한 다음, 컴퓨터에 파일을 저장합니다.
 
 	![게시 프로필 다운로드][PortalDownloadPublishProfile]
 
@@ -363,4 +363,4 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

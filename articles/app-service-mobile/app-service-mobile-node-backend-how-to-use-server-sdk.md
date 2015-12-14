@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/02/2015"
 	ms.author="adrianhall"/>
 
 # Azure 모바일 앱 Node.js SDK를 사용하는 방법
 
 이 문서에서는 Azure 앱 서비스 모바일 앱에서 Node.js 백 엔드로 작업하는 방법을 보여주는 자세한 정보와 예를 제공합니다.
 
-> [AZURE.NOTE]이 SDK는 미리 보기로 제공됩니다. 따라서 프로덕션에 이 SDK를 사용하는 것은 권장하지 않습니다. 이 문서의 예제는 [azure 모바일 앱]의 v2.0.0 alpha6를 사용합니다.
+> [AZURE.NOTE]이 SDK는 미리 보기로 제공됩니다. 따라서 프로덕션에 이 SDK를 사용하는 것은 권장하지 않습니다. 이 문서의 예제는 [azure-mobile-apps]의 v2.0.0-beta1을 사용합니다.
 
 ## <a name="Introduction"></a>소개
 
@@ -98,7 +98,7 @@ Visual Studio 2015는 IDE 내에서 Node.js.js 응용 프로그램 개발하도�
 
 5. 마우스 오른쪽 단추로 **npm** 노드를 클릭하고 **새 npm 패키지 설치...**를 선택합니다.
 
-6. 첫 번째 Node.js 응용 프로그램을 만드는 데 npm 카탈로그를 새로 고쳐야 합니다 - **새로 고침**을 클릭합니다.
+6. 첫 번째 Node.js 응용 프로그램을 만드는 데 npm 카탈로그를 새로 고쳐야 할 수 있습니다. 반드시 필요한 경우 **새로 고침**을 클릭하라는 메시지가 표시됩니다.
 
 7. 검색 상자에 _azure-mobile-apps_를 입력합니다. **azure-mobile-apps 2.0.0** 패키지를 클릭한 다음 **패키지 설치**를 클릭합니다.
 
@@ -211,8 +211,8 @@ azure-mobile-apps Node.js 서버 SDK는 SQL Azure에 저장된 데이터 테이�
 Azure 모바일 앱 AzureMobile 앱 노드 SDK는 상자에서 데이터를 처리 하기 위한 세 가지 옵션을 제공합니다. SDK는 상자에서 데이터를 처리 하기 위한 세 가지 옵션을 제공합니다.
 
 - **메모리** 드라이버를 사용하여 비 영구적 예제 저장소를 제공합니다
-- **sql** 드라이버를 사용하여 개발을 위한 SQL Express 데이터 저장소를 제공합니다.
-- **sql** 드라이버를 사용하여 프로덕션을 위한 SQL Azure 데이터 저장소를 제공합니다.
+- **mssql** 드라이버를 사용하여 개발을 위한 SQL Express 데이터 저장소를 제공합니다.
+- **mssql** 드라이버를 사용하여 프로덕션을 위한 SQL Azure 데이터 저장소를 제공합니다.
 
 Azure 모바일 앱 Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL Express 및 SQL Azure에 대한 연결을 설정하고 사용합니다. 이 패키지는 SQL Express 인스턴스에서 TCP 연결을 사용해야 합니다.
 
@@ -222,23 +222,40 @@ Azure 모바일 앱 Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL
 
 2. SQL Server 2014 구성 관리자를 실행합니다.
 
-  a. 왼쪽 위 트리 메뉴에서 **SQL Server 네트워크 구성** 노드를 확장합니다. b. **SQLEXPRESS에 대한 프로토콜**을 클릭합니다. c. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **사용**을 선택합니다. 팝업 대화 상자에서 **확인**을 클릭합니다. d. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **속성**을 선택합니다. e. **IP 주소** 탭을 클릭합니다. f. **IPAll** 노드를 찾습니다. **TCP 포트** 필드에 **1433**을 입력합니다.
-
-  ![TCP/IP에 대한 SQL Express 구성][3]
-
-  g. **확인**을 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭합니다. h. 왼쪽 트리 메뉴에서 **SQL Server 서비스**를 클릭합니다. i. 마우스 오른쪽 단추로 **SQL Server(SQLEXPRESS)**를 클릭하고 **다시 시작**을 선택합니다. j. SQL Server 2014 구성 관리자를 닫습니다.
+  1. 왼쪽 위 트리 메뉴에서 **SQL Server 네트워크 구성** 노드를 확장합니다.
+  2. **SQLEXPRESS에 대한 프로토콜**을 클릭합니다.
+  3. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **사용**을 선택합니다. 팝업 대화 상자에서 **확인**을 클릭합니다.
+  4. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **속성**을 선택합니다.
+  5. **IP 주소** 탭을 클릭합니다.
+  6. **IPAll** 노드를 찾습니다. **TCP 포트** 필드에 **1433**을 입력합니다.
+  
+	 	 ![Configure SQL Express for TCP/IP][3]
+  7. **확인**을 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭합니다.
+  8. 왼쪽 트리 메뉴에서 **SQL Server 서비스**를 클릭합니다.
+  9. 마우스 오른쪽 단추로 **SQL Server (SQLEXPRESS)**를 클릭하고 **다시 시작**을 선택합니다.
+  10. SQL Server 2014 구성 관리자를 닫습니다.
 
 3. SQL Server 2014 Management Studio 실행을 만들고 로컬 SQL Express 인스턴스에 연결합니다.
 
-  a. 개체 탐색기에서 마우스 오른쪽 단추로 인스턴스를 클릭하고 **속성**을 선택합니다. b. **보안** 페이지를 선택합니다. c. **SQL Server 및 Windows 인증 모드**를 선택하도록 합니다. d. **확인**을 클릭합니다.
+  1. 개체 탐색기에서 마우스 오른쪽 단추로 인스턴스를 클릭하고 **속성**을 선택합니다.
+  2. **보안** 페이지를 선택합니다.
+  3. **SQL Server 및 Windows 인증 모드**를 선택하도록 합니다.
+  4. **확인**을 클릭합니다.
 
-  ![SQL Express 인증 구성][4]
+  		![Configure SQL Express Authentication][4]
 
-  e. 개체 탐색기에서 **보안** > **로그인**을 확장합니다. f. 마우스 오른쪽 단추로 **로그인**을 클릭하고 **새 로그인...**을 선택합니다. g. 로그인 이름을 입력합니다. **SQL Server 인증**을 선택합니다. 암호를 입력한 다음 동일한 암호를 **암호 확인**에 입력합니다. 암호는 Windows 복잡성 요구 사항을 충족해야 합니다. h. **확인**을 클릭합니다.
+  5. 개체 탐색기에서 **보안** > **로그인**을 확장합니다.
+  6. 마우스 오른쪽 단추로 **로그인**을 클릭하고 **새 로그인...**을 선택합니다.
+  7. 로그인 이름을 입력합니다. **SQL Server 인증**을 선택합니다. 암호를 입력한 다음 동일한 암호를 **암호 확인**에 입력합니다. 암호는 Windows 복잡성 요구 사항을 충족해야 합니다.
+  8. **확인**을 클릭합니다.
 
-  ![SQL Express에 새 사용자 추가][5]
+  		![Add a new user to SQL Express][5]
 
-  i. 새 로그인을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. j. **서버 역할** 페이지를 선택합니다. k. **dbcreator** 서버 역할 옆에 확인란을 체크합니다. l. **확인**을 클릭합니다. m. SQL Server 2015 Management Studio를 닫습니다.
+  9. 새 로그인을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+  10. **서버 역할** 페이지를 선택합니다.
+  11. **dbcreator** 서버 역할 옆에 확인란을 선택합니다.
+  12. **확인**을 클릭합니다.
+  13. SQL Server 2015 Management Studio를 닫습니다.
 
 사용자 이름 및 선택한 암호를 기록하도록 합니다. 특정 데이터베이스 요구 사항에 따라 추가 서버 역할 또는 사용 권한을 할당해야 합니다.
 
@@ -250,7 +267,7 @@ TCP/IP 연결을 통해 데이터베이스에 액세스하고 연결에 대한 �
 
 ### <a name="howto-config-localdev"></a>로컬 개발에 대한 프로젝트 구성
 
-Azure 모바일 앱은 로컬 파일 시스템에서 _azureMobile.js_라는 JavaScript 파일을 읽습니다. 이 파일을 사용하여 프로덕션에서 Azure 모바일 앱 SDK를 구성하지 않아야 합니다 - 대신 [Azure 포털] 내에서 앱 설정을 사용합니다. _azureMobile.js_ 파일은 구성 개체를 내보내야 합니다. 가장 일반적인 설정은 다음과 같습니다.
+Azure 모바일 앱은 로컬 파일 시스템에서 _azureMobile.js_라는 JavaScript 파일을 읽습니다. 이 파일을 사용하여 프로덕션에서 Azure 모바일 앱 SDK를 구성하지 않아야 합니다. 대신 [Azure 포털] 내에서 앱 설정을 사용합니다. _azureMobile.js_ 파일은 구성 개체를 내보내야 합니다. 가장 일반적인 설정은 다음과 같습니다.
 
 - 데이터베이스 설정
 - 진단 로깅 설정
@@ -263,7 +280,7 @@ Azure 모바일 앱은 로컬 파일 시스템에서 _azureMobile.js_라는 Java
             origins: [ 'localhost' ]
         },
         data: {
-            provider: 'sql',
+            provider: 'mssql',
             server: '127.0.0.1',
             database: 'mytestdatabase',
             user: 'azuremobile',
@@ -274,11 +291,11 @@ Azure 모바일 앱은 로컬 파일 시스템에서 _azureMobile.js_라는 Java
         }
     };
 
-_.gitignore_ 파일에 _azureMobile.js_를 추가하여(또는 기타 원본 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure 포털] 내의 앱 설정에서 프로덕션 설정을 항상 구성합니다.
+_.gitignore_ 파일에 _azureMobile.js_를 추가하여(또는 기타 소스 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure 포털] 내의 앱 설정에서 프로덕션 설정을 항상 구성합니다.
 
 ### <a name="howto-use-sqlazure"></a>SQL Azure를 프로덕션 데이터 저장소로 사용
 
-<!-- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
+<!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
 SQL Azure를 데이터 저장소로 사용하면 모든 Azure 앱 서비스 응용 프로그램 형식에 걸쳐 동일합니다. 아직 수행하지 않은 경우 다음 단계에 따라 새 모바일 앱 백 엔드를 만드세요.
 
@@ -290,7 +307,7 @@ SQL Azure를 데이터 저장소로 사용하면 모든 Azure 앱 서비스 응�
 
 4. 기본 앱 서비스 계획이 선택됩니다. 앱 서비스 계획을 변경하려는 경우 앱 서비스 계획 > **+ 새로 만들기**를 클릭하여 변경합니다. 새 앱 서비스 계획의 이름을 입력하고 적절한 위치를 선택합니다. 가격 책정 계층을 클릭하고 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다. 가격 책정 계층을 선택한 다음 **선택** 단추를 클릭합니다. **앱 서비스 계획** 블레이드로 돌아가서 **확인**을 클릭합니다.
 
-5. **만들기**를 클릭합니다. 그러면 나중에 서버 프로젝트를 배포할 모바일 앱 백 엔드가 만들어집니다. 모바일 앱 백 엔드를 프로비저닝하는 데 몇 분 정도 걸릴 수 있습니다. 모바일 앱 백 엔드가 프로비저닝되면 포털에서 모바일 앱 백 엔드에 대한 **설정** 블레이드가 열립니다.
+5. **만들기**를 클릭합니다. 그러면 나중에 서버 프로젝트를 배포할 모바일 앱 백 엔드가 만들어집니다. 모바일 앱 백 엔드를 프로비저닝하는 데 몇 분 정도 걸릴 수 있습니다. 모바일 앱 백 엔드가 프로비전되면 포털에서 모바일 앱 백 엔드에 대한 **설정** 블레이드가 열립니다.
 
 모바일 앱 백 엔드를 만들면 모바일 앱 백 엔드에 기존 SQL Azure 데이터베이스를 연결하거나 새 SQL Azure 데이터베이스를 만들도록 선택할 수 있습니다. 이 방법에서 새 SQL 데이터베이스를 만듭니다.
 
@@ -310,7 +327,7 @@ SQL Azure를 데이터 저장소로 사용하면 모든 Azure 앱 서비스 응�
 
 11. **데이터 연결 추가** 블레이드로 다시 돌아가서 **확인**을 클릭하여 데이터베이스를 만듭니다.
 
-<!-- END OF ALTERNATE INCLUDE -->
+<!--- END OF ALTERNATE INCLUDE -->
 
 데이터베이스를 만드는 데 몇 분 정도 걸릴 수 있습니다. **알림** 영역을 사용하여 배포의 진행률을 모니터링합니다. 데이터베이스가 성공적으로 배포될 때까지 진행하지 마세요. 성공적으로 배포되면 모바일 백 엔드 앱 설정에서 SQL Azure 데이터베이스 인스턴스에 대한 연결 문자열을 만듭니다. **설정** > **응용 프로그램 설정** > **연결 문자열**에서 이 앱 설정을 볼 수 있습니다.
 
@@ -346,8 +363,8 @@ SQL Azure를 데이터 저장소로 사용하면 모든 Azure 앱 서비스 응�
 
 액세스 속성은 세 가지 값 중 하나를 사용할 수 있습니다
 
-  - *익명*은 클라이언트 응용 프로그램이 인증없이 데이터를 읽을 수 있다는 것을 나타냅니다.
-  - *인증됨*은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다
+  - *익명*은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
+  - *인증됨*은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
   - *사용 안 함*은 이 테이블이 현재 사용되지 않음을 나타냅니다.
 
 액세스 속성을 정의하지 않으면 인증되지 않은 액세스가 허용됩니다.
@@ -356,10 +373,10 @@ SQL Azure를 데이터 저장소로 사용하면 모든 Azure 앱 서비스 응�
 
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
 
-  - *읽기*는 테이블의 RESTful 가져오기 작업입니다.
-  - *삽입*은 테이블의 RESTful 게시 작업입니다.
-  - *업데이트*는 테이블의 RESTful 패치 작업입니다.
-  - *삭제*는 테이블의 RESTful 삭제 작업입니다.
+  - *읽기*는 테이블의 RESTful GET 작업입니다.
+  - *삽입*은 테이블의 RESTful POST 작업입니다.
+  - *업데이트*는 테이블의 RESTful PATCH 작업입니다.
+  - *삭제*는 테이블의 RESTful DELETE 작업입니다.
 
 예를 들어 읽기 전용 인증되지 않은 테이블을 제공하려 할 수도 있습니다. 다음 테이블 정의에서 제공될 수 있습니다.
 
@@ -485,9 +502,9 @@ SQL Azure를 데이터 저장소로 사용하면 모든 Azure 앱 서비스 응�
 
 사용자 지정 API는 거의 동일한 방식으로 테이블 API로 정의됩니다.
 
-1. **API** 디렉터리 만들기
-2. **API** 디렉터리에서 API 정의 JavaScript 파일을 만듭니다.
-3. 가져오기 메서드를 사용하여 **API** 디렉터리를 가져옵니다.
+1. **api** 디렉터리 만들기
+2. **api** 디렉터리에서 API 정의 JavaScript 파일을 만듭니다.
+3. import 메서드를 사용하여 **api** 디렉터리를 가져옵니다.
 
 다음은 이전에 사용된 기본 앱 샘플에 따른 프로토타입 API 정의입니다.
 
@@ -517,11 +534,11 @@ _Date.now()_ 메서드를 사용하여 서버 날짜를 반환하는 간단한 A
 
 	module.exports = api;
 
-각 매개 변수는 가져오기, 게시, 패치 또는 삭제와 같은 RESTful 표준 동사의 하나입니다. 메서드는 필요한 출력을 전송하는 표준 [ExpressJS 미들웨어] 함수입니다.
+각 매개 변수는 GET, POST, PATCH 또는 DELETE와 같은 RESTful 표준 동사의 하나입니다. 메서드는 필요한 출력을 전송하는 표준 [ExpressJS 미들웨어] 함수입니다.
 
 ### <a name="howto-customapi-auth"></a>사용자 지정 API에 대한 액세스 인증 요구
 
-Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 동일한 방식으로 인증을 구현합니다. 이전 섹션에서 개발된 API에 인증을 추가하려면 **액세스** 속성을 추가합니다.
+Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 동일한 방식으로 인증을 구현합니다. 이전 섹션에서 개발된 API에 인증을 추가하려면 **access** 속성을 추가합니다.
 
 	var api = {
 		get: function (req, res, next) {
@@ -590,7 +607,7 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 [노드 버전 지정]: ../nodejs-specify-node-version-azure-apps.md
 [노드 모듈 사용]: ../nodejs-use-node-mobiles-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
-[azure 모바일 앱]: https://www.npmjs.com/package/azure-mobile-apps
+[azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 
 [Azure 포털]: https://portal.azure.com/
@@ -607,4 +624,4 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

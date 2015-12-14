@@ -62,7 +62,7 @@
 
 자동 크기 조정으로 크기를 자동으로 조정하고, Azure Redis Cache로 캐시하고, WebJobs로 백그라운드 작업을 실행하고, Azure 트래픽 관리자로 고가용성을 유지하여 LOB(기간 업무) 응용 프로그램을 최적화할 수 있습니다.
 
-앱 서비스 웹앱의 [수평 및 수직 확장 기능]은 워크로드의 크기에 상관없이 기간 업무 응용프로그램의 요구를 충족합니다. [Azure 관리 포털]을 통해 수동으로, [서비스 관리 API] 또는 [PowerShell 스크립팅]을 통해 프로그래밍 방식으로 또는 자동 크기 조정 기능을 통해 자동으로 웹앱을 확장할 수 있습니다. **표준** 계층에서는 자동 크기 조정을 사용하여 CPU 사용률에 따라 웹앱을 자동으로 확장할 수 있습니다. 모범 사례는 [Troy Hunt]의 [Azure를 사용하여 웹앱을 신속하게 확장하는 방법에 대해 배운 10가지]를 참조하세요.
+앱 서비스 웹앱의 [수평 및 수직 확장 기능]은 워크로드의 크기에 상관없이 기간 업무 응용프로그램의 요구를 충족합니다. [Azure 포털]을 통해 수동으로, [서비스 관리 API] 또는 [PowerShell 스크립팅]을 통해 프로그래밍 방식으로 또는 자동 크기 조정 기능을 통해 자동으로 웹앱을 확장할 수 있습니다. **표준** 계층에서는 자동 크기 조정을 사용하여 CPU 사용률에 따라 웹앱을 자동으로 확장할 수 있습니다. 모범 사례는 [Troy Hunt]의 [Azure를 사용하여 웹앱을 신속하게 확장하는 방법에 대해 배운 10가지]를 참조하세요.
 
 [Azure Redis Cache]는 웹앱 응답 속도를 높여 줍니다. 이를 사용하여 백 엔드 데이터베이스와 그 밖에 [ASP.NET 세션 상태], [출력 캐시] 등에서 데이터를 캐시할 수 있습니다.
 
@@ -72,7 +72,7 @@
 
 Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로 유지할 수 있습니다. 중요한 웹 앱 이벤트에 대한 알림을 받습니다. Application Insight 또는 HDInsight의 웹 로그 분석을 통해 손쉽게 사용자 통찰력을 얻을 수 있으며,
 
-[Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 웹앱 블레이드의 리소스 할당량 및 웹앱의 현재 성능 메트릭을 [한 눈에 볼 수] 있습니다. 가용성, 성능 및 사용량에 대한 응용프로그램의 360° 보기의 경우 [Azure Application Insights]를 사용하여 빠르고 강력한 문제 해결, 진단 및 사용 현황 정보를 얻을 수 있습니다. 또는 [New Relic]과 같은 타사 도구를 사용하여 웹앱에 대한 고급 모니터링 데이터를 제공할 수 있습니다.
+[Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 웹앱 블레이드의 리소스 할당량 및 웹앱의 현재 성능 메트릭을 [한 눈에 볼 수] 있습니다. 가용성, 성능 및 사용량에 대한 응용프로그램의 360° 보기의 경우 [Azure Application Insights]를 사용하여 빠르고 강력한 문제 해결, 진단 및 사용 현황 정보를 얻을 수 있습니다. 또는 [New Relic]과 같은 타사 도구를 사용하여 웹앱에 대한 고급 모니터링 데이터를 제공할 수 있습니다.
 
 **표준** 계층에서는 앱 응답성 모니터링을 통해 앱이 응답하지 않을 때마다 이메일 알림을 받을 수 있습니다. 자세한 내용은 [방법: Azure에서 경고 알림 받기 및 경고 규칙 관리]를 참조하세요.
 
@@ -108,7 +108,7 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 [Azure 가상 네트워크]: web-sites-integrate-with-vnet.md
 
 [수평 및 수직 확장 기능]: web-sites-scale.md
-[Azure 관리 포털]: http://manage.windowsazure.com/
+[Azure 포털]: http://portal.azure.com/
 [서비스 관리 API]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [PowerShell 스크립팅]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]: https://twitter.com/troyhunt
@@ -124,4 +124,4 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

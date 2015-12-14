@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="11/28/2015"
    ms.author="tomfitz"/>
 
 # 리소스에 대한 액세스 관리
@@ -26,10 +26,21 @@ Azure 리소스 관리자를 사용하여 해당 조직의 사용자가 리소�
 
 이해를 위한 역할 기반 액세스 제어의 몇 가지 핵심 개념은 다음과 같습니다.
 
-1. 주체 - 엔터티 부여 권한(예: 사용자, 보안 그룹 또는 응용 프로그램)
-2. 역할 - 허용된 작업 집합
-3. 범위 - 역할 적용 수준(예: 구독, 리소스 그룹 또는 리소스)
-3. 역할 할당 - 역할에 주체를 추가하고 범위를 설정하는 프로세스
+1. 보안 주체 - 엔터티 부여 권한(예: Azure Active Directory 사용자, 보안 그룹 또는 응용 프로그램)
+2. 역할 - 허용된 작업 및 제외된 작업의 집합
+3. 작업 - 리소스에 대해 수행된 작업(예: 읽기, 만들기) 
+4. 범위 - 역할 적용 수준(예: 구독, 리소스 그룹 또는 리소스)
+5. 역할 할당 - 역할에 보안 주체를 추가하고 범위를 설정하는 프로세스
+
+Azure 플랫폼 간(xPlat) CLI 도구 또는 Azure PowerShell 모듈을 사용하여 지원되는 **작업** 목록을 가져올 수 있습니다.
+
+Azure 플랫폼 간 CLI 도구의 경우 다음 명령을 사용하여 모든 리소스 공급자에 대한 **모든** 작업을 나열합니다.
+
+    azure provider operations show --operationSearchString '*';
+
+Azure 리소스 관리자 PowerShell 모듈(AzureRm)을 사용하는 경우 다음 명령을 사용하여 **모든** 리소스 공급자에 대한 **모든** 작업을 나열합니다.
+
+    Get-AzureRmProviderOperation -OperationSearchString *;
 
 ## 역할 예
 RBAC 개념을 이해하기 위해 몇 가지 일반적인 역할 정의에 대해 살펴보겠습니다.
@@ -62,7 +73,7 @@ RBAC 개념을 이해하기 위해 몇 가지 일반적인 역할 정의에 대�
 
 
 ### 사용 가능한 역할 보기
-구독에 사용 가능한 모든 역할을 보려면 **Get AzureRmRoleDefinition** 명령을 실행합니다.
+구독에 사용 가능한 모든 역할을 보려면 **Get-AzureRmRoleDefinition** 명령을 실행합니다.
 
     PS C:\> Get-AzureRmRoleDefinition
     
@@ -99,7 +110,7 @@ RBAC 개념을 이해하기 위해 몇 가지 일반적인 역할 정의에 대�
         NotActions       : {}
         AssignableScopes : {/}
 
-2. **Get AzureRmADGroup** 명령을 실행하여 필요한 보안 그룹을 가져옵니다. 구독에서 그룹의 실제 이름을 제공합니다. ExampleAuditorGroup은 아래와 같습니다.
+2. **Get-AzureRmADGroup** 명령을 실행하여 필요한 보안 그룹을 가져옵니다. 구독에서 그룹의 실제 이름을 제공합니다. ExampleAuditorGroup은 아래와 같습니다.
 
         PS C:\> $group = Get-AzureRmAdGroup -SearchString ExampleAuditorGroup
 
@@ -263,10 +274,10 @@ Azure 리소스 관리자 REST API를 통한 역할 기반 액세스 제어를 �
 ## 다음 단계
 
 - 역할 기반 액세스 제어에 대한 자세한 내용은 [Microsoft Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
-- 구독에서 응용 프로그램에 대한 액세스를 관리하는 데 필요한 서비스 주체 작업과 관련된 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md) 및 [Azure 클래식 포털을 사용하여 Azure 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
+- 구독에서 응용 프로그램에 대한 액세스를 관리하는 데 필요한 서비스 주체 작업과 관련된 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md) 및 [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
 - 조직에서 작업을 감사하는 방법에 대한 자세한 내용은 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
 - 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

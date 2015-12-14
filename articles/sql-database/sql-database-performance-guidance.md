@@ -115,7 +115,7 @@ Standard 및 Premium의 성능 수준 설정으로 필요한 용량에 대해서
 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
 ### 최대 메모리 내 OLTP 저장소
-**최대 메모리 내 OLTP 저장소**는 Premium 데이터베이스를 위한 [메모리 내 OLTP 미리 보기](sql-database-in-memory.md)에 제공되는 최대 저장소 양입니다. 때때로 *XTP 메모리 내 저장소*라고도 합니다. Azure 포털 또는 **sys.dm\_db\_resource\_stats** 뷰를 사용하여 메모리 내 저장소 사용을 모니터링할 수 있습니다. 모니터링에 대한 자세한 내용은 [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)을 참조하세요.
+**최대 메모리 내 OLTP 저장소**는 Premium 데이터베이스를 위한 [메모리 내 OLTP 미리 보기](sql-database-in-memory.md)에 제공되는 최대 저장소 양입니다. 때때로 *XTP 메모리 내 저장소*라고도 합니다. Azure 클래식 포털 또는 **sys.dm\_db\_resource\_stats** 뷰를 사용하여 메모리 내 저장소 사용을 모니터링할 수 있습니다. 모니터링에 대한 자세한 내용은 [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)을 참조하세요.
 
 >[AZURE.NOTE]메모리 내 OLTP 미리 보기는 현재 단일 데이터베이스에 대해서만 지원되고 탄력적 데이터베이스 풀에 대해서는 지원되지 않습니다.
 
@@ -168,7 +168,7 @@ SQL 데이터베이스 분석의 경우 **sys.resource\_stats**를 쿼리하여 
 - [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
->[AZURE.NOTE]또한 Azure 관리 포털을 사용하여 리소스 사용률을 볼 수 있습니다. 이와 관련된 예는 [서비스 계층 - 성능 모니터링](sql-database-service-tiers.md#monitoring-performance)을 참조하세요.
+>[AZURE.NOTE]또한 Azure 클래식 포털을 사용하여 리소스 사용률을 볼 수 있습니다. 이와 관련된 예는 [서비스 계층 - 성능 모니터링](sql-database-service-tiers.md#monitoring-performance)을 참조하세요.
 
 ### sys.dm\_db\_resource\_stats 사용
 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) 뷰는 각 SQL 데이터베이스에 있으며 해당 서비스 계층과 관련된 최신 리소스 사용률 데이터를 제공합니다. CPU, 데이터 IO, 로그 쓰기 및 메모리의 평균 백분율을 15초마다 기록하고 한 시간 동안 보관합니다.
@@ -292,7 +292,7 @@ Azure SQL 데이터베이스는 각 서버에 있는 **마스터** 데이터베�
 이 섹션에서는 Azure SQL 데이터베이스를 튜닝하여 응용 프로그램에서 최고의 성능을 달성하고 최저 성능 수준에서도 실행할 수 있는 몇 가지 기법에 대해 설명합니다. 많은 기법이 기존 SQL Server 튜닝의 모범 사례와 동일하지만 일부 기법은 Azure SQL 데이터베이스에만 해당합니다. 데이터베이스에 사용된 리소스를 조사하고 추가 튜닝 영역을 찾으면 기존 SQL Server 기법을 확장하여 Azure SQL 데이터베이스에서도 사용할 수 있습니다.
 
 ### 쿼리 성능 관련 견해 및 인덱스 관리자
-SQL 데이터베이스는 데이터베이스의 성능 문제를 분석하고 해결할 수 있는 두 가지 도구를 Azure 포털에 제공합니다.
+SQL 데이터베이스는 데이터베이스의 성능 문제를 분석하고 해결할 수 있는 두 가지 도구를 Azure 클래식 포털에 제공합니다.
 
 - [쿼리 성능 Insight](sql-database-query-performance.md)
 - [인덱스 관리자](sql-database-index-advisor.md)
@@ -491,4 +491,4 @@ Azure SQL 데이터베이스 내에서 사용되는 확장형 아키텍처에서
 
 Azure SQL 데이터베이스의 서비스 계층을 사용하면 클라우드에 구축할 수 있는 응용 프로그램 유형이 더욱 다양해집니다. 자세한 응용 프로그램 튜닝과 결합하면 응용 프로그램에 강력하고 예측 가능한 성능을 얻을 수 있습니다. 이 문서는 데이터베이스의 리소스 사용을 최적화하여 한 가지 성능 수준에 맞추기 위한 기법을 간단히 설명했습니다. 튜닝은 클라우드 모델에서 지속적으로 활용하는 방식이며, 관리자는 서비스 계층 및 해당 성능 수준에 따라 성능을 극대화하는 동시에 Microsoft Azure 플랫폼에서 비용을 최고화할 수 있습니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

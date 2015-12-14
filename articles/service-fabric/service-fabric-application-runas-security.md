@@ -290,4 +290,4 @@ https 끝점의 경우 응용 프로그램 매니페스트의 인증서 섹션�
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -3,7 +3,7 @@
    description="문서는 Azure에서 호스팅되는 서비스에서 보안 로그 생성, 수집 및 분석 소개를 제공합니다. 조직의 보안 및 규정 준수 담당자를 포함하여, 매일 정보 자산 관리를 처리하는 IT 전문가 및 보안 분석가를 위한 것입니다."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="11/30/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Microsoft Azure 보안 및 감사 로그 관리
@@ -614,4 +614,4 @@ Azure 구독 리소스와 관련된 작업 로그는 관리 포털의 **작업 �
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

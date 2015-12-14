@@ -68,7 +68,7 @@ Azure 모듈은 AZURE\_SERVICEBUS\_NAMESPACE 및 AZURE\_SERVICEBUS\_ACCESS\_KEY 
 
 Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 클라우드 서비스 및 저장소][]를 참조하십시오.
 
-Azure 웹 사이트의 Azure 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소][]를 참조하세요.
+Azure 웹 사이트의 [Azure 클래식 포털][]에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소][]를 참조하세요.
 
 ## 큐 만들기
 
@@ -192,7 +192,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 -   [Node.js 개발자 센터](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   
   [Node.js 클라우드 서비스]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
@@ -202,4 +202,4 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
   [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -39,7 +39,7 @@ Azure 검색 관리 REST API는 Azure 리소스 관리자의 확장이며 종속
 
 [Azure 검색 관리 REST API 시작](http://go.microsoft.com/fwlink/p/?linkID=516968)에 문서화되어 있는 샘플 응용 프로그램은 각 유형에 대한 인증 기술을 보여줍니다. Active Directory를 사용하기 위한 클라이언트 응용 프로그램 구성 지침은 시작하기에 포함됩니다.
 
-Azure 리소스 관리자를 위한 액세스 제어는 기본 제공 소유자, 참가자 및 독자 역할을 사용합니다. 기본적으로 모든 서비스 관리자는 소유자 역할의 구성원입니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../role-based-access-control-configure.md)를 참조하세요.
+Azure 리소스 관리자를 위한 액세스 제어는 기본 제공 소유자, 참가자 및 독자 역할을 사용합니다. 기본적으로 모든 서비스 관리자는 소유자 역할의 구성원입니다. 자세한 내용은 [Azure 클래식 포털의 역할 기반 액세스 제어](../role-based-access-control-configure.md)를 참조하세요.
 
 
 ### API의 요약 ##
@@ -812,4 +812,4 @@ api 키, 특히 관리 키는 중요한 데이터로서 처리해야 합니다. 
 
 없음
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

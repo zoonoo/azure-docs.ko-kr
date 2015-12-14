@@ -72,7 +72,7 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
    
 *publisher* 속성의 값이 **Microsoft.Azure.Diagnostics**이고 *type* 속성의 값이 **IaaSDiagnostics**이면, Azure 진단 확장이 고유하게 식별됩니다.
 
-*name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 특히, 값을 **Microsoft.Insights.VMDiagnosticsSettings**로 설정하면, Azure 포털에 의해 쉽게 식별되기 때문에 Azure 포털에 모니터링 차트가 제대로 표시될 수 있습니다.
+*name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 특히 **Microsoft.Insights.VMDiagnosticsSettings**는 Azure 클래식 포털에 의해 쉽게 식별할 수 있게 해줍니다. 이 포털은 Azure 클래식 포털에서 모니터링 차트를 올바르게 나타내줍니다.
 
 *typeHandlerVersion*은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true**로 설정하면 사용 가능한 최신의 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion*을 **true**로 설정하는 것이 좋습니다.
 
@@ -119,7 +119,7 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다. 이 메트릭은 Azure Preview 포털에서 차트와 경고를 유도해 내는 요소이기 때문에 포털에서 모니터링 데이터를 보려면 구성에 이 요소를 포함시키는 것이 중요합니다.
+위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다. 이러한 메트릭은 Azure 포털의 차트와 경고의 중요 요소이기 때문에 포털에서 모니터링 데이터를 보고자 하는 경우 구성의 포함 여부가 중요합니다.
 
 다음은 메트릭 정의에 대한 XML 예제입니다.
 
@@ -165,4 +165,4 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 - [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) 또는 [Azure 명령줄](virtual-machines-deploy-rmtemplates-powershell.md)을 사용하여 리소스 관리자 템플릿 배포
 - [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

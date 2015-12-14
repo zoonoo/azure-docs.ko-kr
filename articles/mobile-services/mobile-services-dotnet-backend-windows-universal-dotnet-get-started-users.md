@@ -1,22 +1,26 @@
-<properties 
-	pageTitle="유니버설 Windows 8.1 앱에 인증 추가 | Microsoft Azure" 
-	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 유니버설 Windows 8.1 앱 사용자를 인증하는 방법을 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="유니버설 Windows 8.1 앱에 인증 추가 | Microsoft Azure"
+	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 유니버설 Windows 8.1 앱 사용자를 인증하는 방법을 알아봅니다."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/23/2015"
 	ms.author="glenga"/>
 
-# 모바일 서비스 앱에 인증 추가 
+# 모바일 서비스 앱에 인증 추가
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -42,10 +46,10 @@
 
 &nbsp;&nbsp;7. 공유 프로젝트에서 App.xaml.cs 프로젝트 파일을 열고 [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx)의 정의를 찾은 다음 Azure에서 실행되는 모바일 서비스에 연결하도록 구성되어 있는지 확인합니다.
 
->[AZURE.NOTE]Visual Studio Tools를 사용하여 앱을 모바일 서비스에 연결하면 각 클라이언트 플랫폼에 대해 하나씩 두 개의 **MobileServiceClient** 정의 집합을 생성합니다. 이 시점에서 `#if...#endif` 래핑 **MobileServiceClient** 정의를 앱의 두 버전 모두에서 사용하는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수 있습니다. Azure 관리 포털에서 퀵 스타트 앱을 다운로드할 때는 이 작업을 수행할 필요가 없습니다.
+>[AZURE.NOTE]Visual Studio Tools를 사용하여 앱을 모바일 서비스에 연결하면 각 클라이언트 플랫폼에 대해 하나씩 두 개의 **MobileServiceClient** 정의 집합을 생성합니다. 이 시점에서 `#if...#endif` 래핑 **MobileServiceClient** 정의를 앱의 두 버전 모두에서 사용하는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수 있습니다. [Azure 클래식 포털]에서 퀵 스타트 앱을 다운로드할 때는 이 작업을 수행할 필요가 없습니다.
 
 &nbsp;&nbsp;8. F5 키를 눌러 Windows 스토어 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
-   
+
 &nbsp;&nbsp;이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
@@ -71,7 +75,7 @@
 
 ##참고 항목
 
-+ [향상된 사용자 기능](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> .NET 백 엔드에서 **ServiceUser.GetIdentitiesAsync()** 메서드를 호출하여 모바일 서비스의 ID 공급자로 유지 관리되는 추가 사용자 데이터를 가져올 수 있습니다. 
++ [향상된 사용자 기능](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> .NET 백 엔드에서 **ServiceUser.GetIdentitiesAsync()** 메서드를 호출하여 모바일 서비스의 ID 공급자로 유지 관리되는 추가 사용자 데이터를 가져올 수 있습니다.
 
 + [모바일 서비스 .NET 방법 개념 참조] <br/>.NET 클라이언트에서 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
@@ -95,9 +99,8 @@
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
- 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

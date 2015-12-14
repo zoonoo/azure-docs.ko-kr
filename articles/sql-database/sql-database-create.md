@@ -30,7 +30,7 @@ Microsoft Azure에서 차세대 SQL 데이터베이스를 활용하려면 SQL �
 
 | 데이터베이스 만들기 | 스크린샷 |
 | :--- | :--- |
-| 1\. [http://portal.azure.com/](http://portal.azure.com/)에 로그인합니다. | ![새 Azure 포털][1] |
+| 1\. [http://portal.azure.com/](http://portal.azure.com/)에 로그인합니다. | ![새 Azure 클래식 포털][1] |
 | 2\. 페이지 맨 아래 왼쪽에서 **새로 만들기**를 클릭합니다. | ![새 서비스 시작][2]|
 | 3\. **SQL 데이터베이스**를 클릭합니다.| ![선택할 수 있는 다양한 서비스][3] |
 | 4\. **SQL 데이터베이스** 블레이드가 열립니다. **이름** 필드에서 데이터베이스 이름을 지정합니다. | ![데이터베이스 이름 지정][4] |
@@ -66,4 +66,4 @@ Microsoft Azure에서 차세대 SQL 데이터베이스를 활용하려면 SQL �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

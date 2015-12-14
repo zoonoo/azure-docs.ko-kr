@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory Reporting '알 수 없는 작업자' 이벤트
+
+## Reporting 설명서
+
+ - [Reporting API](active-directory-reporting-api-getting-started.md)
+ - [감사 이벤트](active-directory-reporting-audit-events.md)
+ - [보존](active-directory-reporting-retention.md)
+ - [미리 보기](active-directory-reporting-previews.md)
+ - [이를 통해 검색](active-directory-reporting-search.md)
+ - [백필](active-directory-reporting-backfill.md)
+ - [대기 시간](active-directory-reporting-latencies.md)
+ - ["알 수 없는 작업자" 이벤트](active-directory-reporting-unknown-actor.md)
 
 가끔 Azure AD 보고서의 "작업자" 또는 "사용자" 필드에 비정상적인 값이 표시될 수 있습니다. 이 동작은 예상되었으며 다음 두 이벤트 중 하나 때문에 발생합니다.
 
@@ -38,4 +49,4 @@
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

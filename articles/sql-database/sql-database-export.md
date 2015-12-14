@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/23/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,10 +22,10 @@
 **단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-export.md)
+- [Azure portal](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
-이 문서에서는 [Azure Preview 포털](https://portal.azure.com)을 사용하여 Azure SQL 데이터베이스의 BACPAC를 내보내는 방법에 대한 지침을 제공합니다.
+이 문서에서는 [Azure 포털](https://portal.azure.com)을 사용하여 Azure SQL 데이터베이스의 BACPAC를 내보내는 방법에 대한 지침을 제공합니다.
 
 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)는 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파일입니다. BACPAC의 기본 사용 사례는 하나의 서버에서 다른 서버로 데이터베이스를 이동하고, [로컬 데이터베이스를 클라우드에 마이그레이션](sql-database-cloud-migrate.md)하고, 개방형 형식에서 기존 데이터베이스를 보관하는 것입니다.
 
@@ -47,7 +47,7 @@
 
 > [AZURE.IMPORTANT]BACPAC 파일의 트랜잭션 일관성을 위해 먼저 [데이터베이스의 사본을 만든 다음](sql-database-copy.md) 데이터베이스 사본을 내보냅니다.
 
-1.	[Azure Preview 포털](https://portal.azure.com)로 이동합니다.
+1.	[Azure 포털](https://portal.azure.com)로 이동합니다.
 2.	**모두 찾아보기**를 클릭합니다.
 3.	**SQL 데이터베이스**를 클릭합니다.
 2.	BACPAC으로 내보낼 데이터베이스를 클릭합니다.
@@ -103,4 +103,4 @@
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

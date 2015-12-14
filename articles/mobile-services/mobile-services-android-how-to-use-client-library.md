@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
 # 모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
@@ -31,7 +35,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 
 ##<a name="setup"></a>설정 및 필수 조건
 
-이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://go.microsoft.com/fwlink/p/?LinkId=298592)를 참조하세요. 이 항목에서 사용되는 코드에서 테이블 이름이 *ToDoItem*이고 테이블에 다음과 같은 열이 있다고 가정합니다.
+이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://go.microsoft.com/fwlink/p/?LinkId=298592)를 참조하십시오. 이 항목에서 사용되는 코드에서 테이블 이름이 *ToDoItem*이고 테이블에 다음과 같은 열이 있다고 가정합니다.
 
 - id
 - text
@@ -45,7 +49,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 		private Boolean complete;
 	}
 
-동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/p/?LinkId=296271)를 참조하세요.
+동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/p/?LinkId=296271)를 참조하십시오.
 
 ##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 다음 코드는 모바일 서비스에 액세스하는 데 사용되는 [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 개체를 만듭니다. 이 코드는 *AndroidManifest.xml*에 지정된 Activity 클래스의 `onCreate` 메서드에 **MAIN** 작업 및 **LAUNCHER** 범주로 추가됩니다.
@@ -55,7 +59,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 				"AppKey", 			// replace with the Application Key
 				this)
 
-위 코드에서 `MobileServiceUrl` 및 `AppKey`을(를) 모바일 서비스 URL 및 응용 프로그램 키로 바꿉니다(두 항목 순서 유지). 이 두 항목은 모두 Azure 관리 포털에서 사용할 수 있습니다. 모바일 서비스를 선택한 후 *대시보드*를 클릭하면 됩니다.
+위 코드에서 `MobileServiceUrl` 및 `AppKey`을(를) 모바일 서비스 URL 및 응용 프로그램 키로 바꿉니다(두 항목 순서 유지). 이 두 항목은 모두 Azure 클래식 포털에서 사용할 수 있습니다. 모바일 서비스를 선택한 후 *대시보드*를 클릭하면 됩니다.
 
 ##<a name="instantiating"></a>방법: 테이블 참조 만들기
 
@@ -133,7 +137,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
                     final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
-                		Log.i(TAG, "Read object with ID " + item.id);  
+                		Log.i(TAG, "Read object with ID " + item.id);
 					}
                 } catch (Exception exception) {
                     createAndShowDialog(exception, "Error");
@@ -174,7 +178,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 					(startsWith("text", "PRI0").or().field("duration").gt(10))
 					.execute().get();
 
-필터링에 대한 자세한 내용과 예를 보려면 [모바일 서비스 Android 클라이언트 쿼리 모델의 다양한 기능 알아보기](http://hashtagfail.com/post/46493261719/mobile-services-android-querying)(영문)를 참조하세요.
+필터링에 대한 자세한 내용과 예를 보려면 [모바일 서비스 Android 클라이언트 쿼리 모델의 다양한 기능 알아보기](http://hashtagfail.com/post/46493261719/mobile-services-android-querying)(영문)를 참조하십시오.
 
 ### <a name="sorting"></a>방법: 반환된 데이터 정렬
 
@@ -298,7 +302,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 
 `id`의 값은 고유해야 하며 다음과 같은 문자를 포함해서는 안 됩니다.
 
-+ 제어 문자: [0x0000 0x001F] 및 [0x007F 0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1](영문)을 참조하세요.
++ 제어 문자: [0x0000 0x001F] 및 [0x007F 0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1](영문)을 참조하십시오.
 +  인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  ID "." 및 ".."
 
@@ -371,7 +375,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 	}
 
 
-다음 코드는 이를 수행하는 다른 방법을 보여 줍니다. 이 코드는 삭제할 행의 id 필드 값을 지정하여("2FA404AB-E458-44CD-BC1B-3BC847EF0902"와 동일하다고 가정함) ToDoItem 테이블의 기존 항목을 삭제합니다. 실제 앱에서는 ID를 선택하여 변수로 전달합니다. 여기서는 테스트를 간소화하기 위해 서비스에 대한 Azure 모바일 서비스 포털로 이동하여 **데이터**를 클릭하고 테스트할 ID를 복사할 수 있습니다.
+다음 코드는 이를 수행하는 다른 방법을 보여 줍니다. 이 코드는 삭제할 행의 id 필드 값을 지정하여("2FA404AB-E458-44CD-BC1B-3BC847EF0902"와 동일하다고 가정함) ToDoItem 테이블의 기존 항목을 삭제합니다. 실제 앱에서는 ID를 선택하여 변수로 전달합니다. 여기서는 테스트를 간소화하기 위해 Azure 클래식 포털의 서비스로 이동하여 **데이터**를 클릭하고 테스트할 ID를 복사할 수 있습니다.
 
     public void deleteItem(View view) {
 
@@ -396,7 +400,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
     }
 
 ##<a name="lookup"></a>방법: 특정 항목 조회
-일반적으로 일부 조건을 충족하는 항목 컬렉션을 가져오는 쿼리와 달리, *id*를 기준으로 특정 항목을 조회하려는 경우가 있습니다. 다음 코드는 이 작업을 수행하는 방법을 보여 줍니다(*id* 값은 `0380BAFB-BCFF-443C-B7D5-30199F730335`). 실제 앱에서는 ID를 선택하여 변수로 전달합니다. 여기서는 테스트를 간소화하기 위해 서비스에 대한 Azure 모바일 서비스 포털로 이동하여 **데이터** 탭을 클릭하고 테스트할 ID를 복사할 수 있습니다.
+일반적으로 일부 조건을 충족하는 항목 컬렉션을 가져오는 쿼리와 달리, *id*를 기준으로 특정 항목을 조회하려는 경우가 있습니다. 다음 코드는 이 작업을 수행하는 방법을 보여 줍니다(*id* 값은 `0380BAFB-BCFF-443C-B7D5-30199F730335`). 실제 앱에서는 ID를 선택하여 변수로 전달합니다. 여기서는 테스트를 간소화하기 위해 Azure 클래식 포털의 서비스로 이동하여 **데이터**를 클릭하고 테스트할 ID를 복사할 수 있습니다.
 
     /**
      * Lookup specific item from table and UI
@@ -658,7 +662,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 ##<a name="authentication"></a>방법: 사용자 인증
 
-모바일 서비스는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작](http://go.microsoft.com/fwlink/p/?LinkId=296316)(영문)을 참조하세요.
+모바일 서비스는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작](http://go.microsoft.com/fwlink/p/?LinkId=296316)(영문)을 참조하십시오.
 
 두 가지의 인증 흐름, 즉 *서버* 흐름과 *클라이언트* 흐름이 지원됩니다. 서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 Single Sign-On과 같은 장치 특정 기능을 통해 깊이 있는 통합이 가능합니다.
 
@@ -679,7 +683,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 요청을 수정할 수도 있습니다.
 
-처음 두 가지 작업은 [Azure 관리 포털](https://manage.windowsazure.com/)을 사용하여 수행합니다. 자세한 내용은 [인증 시작](http://go.microsoft.com/fwlink/p/?LinkId=296316)(영문)을 참조하세요.
+처음 두 가지 작업은 [Azure 클래식 포털](https://manage.windowsazure.com/)을 사용하여 수행합니다. 자세한 내용은 [인증 시작](http://go.microsoft.com/fwlink/p/?LinkId=296316)(영문)을 참조하십시오.
 
 ### <a name="caching"></a>방법: 앱에 인증 코드 추가
 
@@ -888,7 +892,7 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 
 지금까지 모든 serialization 예에는 정수 및 JSON뿐만 아니라 모바일 서비스 테이블에도 쉽게 직렬화되는 문자열과 같은 기본 형식이 사용되었습니다. JSON 및 테이블에 자동으로 직렬화되지 않는 클라이언트 유형에 복합 개체를 추가하려는 경우를 가정하겠습니다. 예를 들어 클라이언트 개체에 문자열 배열을 추가할 수 있습니다. 이제 serialization 수행 방법 및 모바일 서비스 테이블에 배열을 저장하는 방법을 지정하면 됩니다.
 
-이를 수행하는 방법의 예를 보려면 블로그 게시물인 <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">모바일 서비스 Android 클라이언트에서 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 라이브러리를 사용하여 serialization 사용자 지정</a>을 확인하세요.
+이를 수행하는 방법의 예를 보려면 블로그 게시물인 <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">모바일 서비스 Android 클라이언트에서 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 라이브러리를 사용하여 serialization 사용자 지정</a>을 확인하십시오.
 
 이 일반적인 방법은 자동으로 JSON 및 모바일 서비스 테이블에 직렬화할 수 없는 복합 개체가 있을 때마다 사용할 수 있습니다.
 
@@ -933,4 +937,4 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 [모바일 서비스 시작]: mobile-services-android-get-started.md
 [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

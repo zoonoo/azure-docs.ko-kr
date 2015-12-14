@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="11/30/2015"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 동일한 구독에서 가상 네트워크의 VNet 간 연결 구성
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 이 문서는 리소스 관리자 배포 모델을 사용하는 단계를 안내합니다. 위에 있는 탭을 사용하여 배포 모델 및 배포 도구에 대한 문서를 선택할 수 있습니다. 현재 다른 구독에 있는 리소스 관리자 배포 방법을 사용하여 만든 가상 네트워크에 대한 VNET 간 연결을 위한 솔루션은 없습니다. 팀은 현재 솔루션을 준비 중이며 올해 안에 마무리되기를 기대하고 있습니다. 사용 가능하게 되면 이 문서에서 해당 절차를 반영할 것입니다. 아래 단계는 동일한 구독에 있는 VNET에 적용됩니다.
@@ -82,11 +82,7 @@
 
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-- Azure PowerShell 0.9.8 cmdlet. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다. 이 문서는 0.9.8용으로 작성되었지만 PowerShell 1.0 Preview에서 이러한 단계를 사용할 수 있습니다(cmdlet을 약간 수정해야 함).
-
-**Azure PowerShell 1.0 Preview에서 다음 단계를 사용할 경우 정보**
-
-	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
+- Azure PowerShell cmdlet(1.0 이상). [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다.
 
 
 ## 1\. IP 주소 범위 계획
@@ -119,17 +115,20 @@ VNet2 값:
 
 ## 2\. 구독에 연결 
 
+리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+
 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 샘플을 사용합니다.
 
-		Add-AzureAccount
+		    Login-AzureRmAccount
 
-구독이 둘 이상 있는 경우 *Select-AzureSubscription*을 사용하여 사용하려는 구독에 연결합니다.
+계정에 대한 구독을 확인합니다.
 
-		Select-AzureSubscription "yoursubscription"
+		    Get-AzureRmSubscription 
 
-다음으로, Azure 리소스 관리자 모드로 전환합니다.
-		
-		Switch-AzureMode -Name AzureResourceManager
+사용할 구독을 지정합니다.
+
+		    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
 
 ## 3\. 가상 네트워크 만들기
 
@@ -138,13 +137,13 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 
 먼저 리소스 그룹을 만듭니다.
 
-			New-AzureResourceGroup -Name testrg1 -Location 'West US'
+			New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
 
 그런 다음 가상 네트워크를 만듭니다. 아래 샘플은 *VNet1*이라는 가상 네트워크와 *GatewaySubnet* 및 *Subnet1*이라는 두 서브넷을 만듭니다. 특히 *GatewaySubnet*이라는 서브넷을 만드는 것이 중요합니다. 다른 이름을 지정하는 경우 연결 구성이 실패합니다. 아래 예제에서는 게이트웨이 서브넷이 /28을 사용합니다. /29만큼 작은 게이트웨이 서브넷을 사용하도록 선택할 수 있습니다. 일부 기능(예: Express 경로/사이트 간 연결 공존)은 더 큰 게이트웨이 /27이 필요하므로 앞으로 사용할 수 있는 추가 기능을 위해 게이트웨이 서브넷을 만들 수 있습니다.
 
- 		$subnet = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
-		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
-		New-AzureVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
+ 		$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
+		$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
+		New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
 
 ## 4\. 공용 IP 주소 요청
 
@@ -154,7 +153,7 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 아래 샘플을 사용합니다. 이 주소의 할당 방법은 동적이어야 합니다.
 
 
-		$gwpip= New-AzurePublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
+		$gwpip= New-AzureRmPublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
 
 ## 5\. 게이트웨이 구성 만들기
 
@@ -162,16 +161,16 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 아래 샘플을 사용하여 게이트웨이 구성을 만듭니다.
 
 
-		$vnet = Get-AzureVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
-		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-		$gwipconfig = New-AzureVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+		$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
+		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
 ## 6\. 게이트웨이 만들기
 
 
 이 단계에서는 VNet용 가상 네트워크 게이트웨이를 만듭니다. VNet-VNet 구성에는 RouteBased VpnType이 필요합니다. 게이트웨이를 만드는 데는 시간이 걸릴 수 있으므로 기다리세요.
 
-		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 ## 7\. VNet2 만들기
 
@@ -186,29 +185,29 @@ VNet1을 구성한 후 이전 단계를 반복하여 VNet2과 해당 게이트�
 
 **VNet1-VNet2**
     
-    $vnetgw1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
-    $vnetgw2 = Get-AzureVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
+    $vnetgw1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
+    $vnetgw2 = Get-AzureRmVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
     
-    New-AzureVirtualNetworkGatewayConnection -Name conn1 -ResourceGroupName testrg1 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'West US' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
+    New-AzureRmVirtualNetworkGatewayConnection -Name conn1 -ResourceGroupName testrg1 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'West US' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
 
 
 **VNet2-VNet1**
     
-    $vnetgw1 = Get-AzureVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
-    $vnetgw2 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
+    $vnetgw1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
+    $vnetgw2 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
     
-    New-AzureVirtualNetworkGatewayConnection -Name conn2 -ResourceGroupName testrg2 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'Japan East' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
+    New-AzureRmVirtualNetworkGatewayConnection -Name conn2 -ResourceGroupName testrg2 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'Japan East' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
     
 
 잠시 후에 연결이 설정됩니다. 현재 Azure 리소스 관리자를 사용하여 만든 게이트웨이 및 연결은 Preview 포털에 표시되지 않습니다.
 
 ## 연결 확인
 
-지금은 리소스 관리자를 사용하여 만든 VPN 연결이 Preview 포털에 표시되지 않습니다. 하지만 *Get-AzureVirtualNetworkGatewayConnection –Debug*를 사용하여 연결이 성공했는지 확인할 수 있습니다. 향후에는 이에 대한 cmdlet이 제공되며 Preview 포털에서 연결을 확인하는 기능도 제공됩니다.
+지금은 리소스 관리자를 사용하여 만든 VPN 연결이 Preview 포털에 표시되지 않습니다. 하지만 *Get-AzureRmVirtualNetworkGatewayConnection –Debug*를 사용하여 연결이 성공했는지 확인할 수 있습니다. 향후에는 이에 대한 cmdlet이 제공되며 Preview 포털에서 연결을 확인하는 기능도 제공됩니다.
 
 다음 cmdlet 예제를 사용할 수 있습니다. 확인하려는 각 연결에 맞게 값을 변경해야 합니다. 메시지가 표시되면 모두 실행하기 위해 *A*를 선택합니다.
 
-		Get-AzureVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
+		Get-AzureRmVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
  cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 예제에서는 연결 상태가 *연결됨*으로 표시되고 송/수신 바이트를 볼 수 있습니다.
 
@@ -247,9 +246,9 @@ Azure 리소스 관리자 모드에서 이미 가상 네트워크를 만들었�
 VNet에 게이트웨이 서브넷을 추가해야 하는 경우 아래 샘플을 사용하여 원하는 값으로 바꿉니다. 게이트웨이 서브넷의 이름을 'GatewaySubnet'으로 지정해야 합니다. 다른 이름을 지정하는 경우 VPN 구성이 예상대로 작동하지 않습니다.
 
 	
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+		Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 게이트웨이 서브넷이 올바르게 구성되었는지 확인한 후 계속 **4단계. 공용 IP 주소 요청**을 진행하여 해당 단계를 수행합니다.
 
@@ -258,10 +257,6 @@ VNet에 게이트웨이 서브넷을 추가해야 하는 경우 아래 샘플을
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [가상 컴퓨터를 만듭니다](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
-
-REST API 정보는 [Azure 네트워크 게이트웨이 REST API 참조](https://msdn.microsoft.com/library/azure/mt163859.aspx)를 확인하세요.
-
 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

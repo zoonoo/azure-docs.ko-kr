@@ -153,4 +153,4 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

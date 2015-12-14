@@ -8,4 +8,4 @@
 | | [NodeJS 웹 API 보안](active-directory-v2-devquickstarts-node-api.md) |
 | | [웹에서 Office 365 REST API 호출](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

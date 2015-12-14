@@ -59,6 +59,10 @@ Application Insights는 미리 보기 상태의 Azure 서비스입니다. 미리
 
 사용자 및 세션 수는 가격 책정 목적으로 할당량에 포함되지 않습니다.
 
+*내 앱이 초당 속도를 초과하게 되면 어떻게 됩니까?*
+
+* 앱에 보내는 데이터의 양은 1분마다 평가됩니다. 해당 분에 대한 평균 초당 속도를 초과하면 서버는 일부 요청을 거부합니다. 그런 다음 SDK의 일부 버전의 경우 몇 분 동안 다시 전송을 시도하고, JavaScript SDK와 같은 다른 SDK만 거부된 데이터를 삭제합니다.
+
 *내 앱이 보내는 데이터 요소 수를 어떻게 알 수 있나요?*
 
 * 데이터 볼륨 차트를 보려면 설정/할당량 및 가격을 엽니다.
@@ -66,7 +70,7 @@ Application Insights는 미리 보기 상태의 Azure 서비스입니다. 미리
 
 *내 앱이 보내는 데이터의 양을 어떻게 줄일 수 있나요?*
 
-* [샘플링](app-insights-sampling.md)을 사용합니다. 이 기술은 메트릭을 왜곡하지 않으며 검색에서 관련 항목 간 이동 기능을 중단하지 않고 데이터 속도를 낮춥니다.
+* [샘플링](app-insights-sampling.md)을 사용합니다. 이 기술은 메트릭을 왜곡하지 않으며 검색에서 관련 항목 간 이동 기능을 중단하지 않고 데이터 속도를 낮춥니다. ASP.NET SDK 2.0.0-beta3에서 적정 샘플링은 기본적으로 사용됩니다.
 * 불필요한 [원격 분석 수집기를 끕니다](app-insights-configuration-with-applicationinsights-config.md).
 
 
@@ -245,7 +249,7 @@ SDK 진단 | 추적 메시지 또는 예외
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
@@ -255,4 +259,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

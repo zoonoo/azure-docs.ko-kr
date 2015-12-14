@@ -30,7 +30,7 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 
 - [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - 사용 가능한 클라이언트 SDK의 하나: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), [Node.js용 Azure 미디어 서비스](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-- 기존 도구: [Azure 관리 포털](http://manage.windowsazure.com/) 또는 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)
+- 기존 도구: [Azure 클래식 포털](http://manage.windowsazure.com/) 또는 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)
 
 
 ##미디어 서비스 학습 경로
@@ -50,7 +50,7 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 Azure 미디어 서비스 사용을 시작하려면 다음이 있어야 합니다.
  
 3. Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](azure.microsoft.com)을 참조하세요.
-2. Azure 미디어 서비스 계정. Azure 관리 포털, .NET 또는 REST API를 사용하여 Azure 미디어 서비스 계정을 만듭니다. 자세한 내용은 [계정 만들기](media-services-create-account.md)를 참조하세요.
+2. Azure 미디어 서비스 계정. Azure 클래식 포털, .NET 또는 REST API를 사용하여 Azure 미디어 서비스 계정을 만듭니다. 자세한 내용은 [계정 만들기](media-services-create-account.md)를 참조하세요.
 3. (선택 사항) 개발 환경 설정. 개발 환경에 .NET 또는 REST API를 선택합니다. 자세한 내용은 [환경 설정](media-services-dotnet-how-to-use.md)을 참조하세요. 
 
 	프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect_programmatically.md)하는 방법도 알아봅니다.
@@ -231,4 +231,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

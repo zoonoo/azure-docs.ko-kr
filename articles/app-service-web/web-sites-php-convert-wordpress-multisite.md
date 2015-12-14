@@ -54,7 +54,7 @@
 
 ![네트워크 설정 화면][wordpress-network-setup]
 
-이 자습서에서는 *Sub-directories* 사이트 스키마가 항상 적절히 작동하므로 이 스키마를 사용하며 이 자습서의 뒷부분에서 각 하위 사이트에 대한 사용자 지정 도메인을 설정합니다. 그러나 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 통해 도메인을 매핑하고 와일드카드 DNS를 제대로 설정한 경우 하위 도메인 설치를 설정할 수 있습니다.
+이 자습서에서는 *Sub-directories* 사이트 스키마가 항상 적절히 작동하므로 이 스키마를 사용하며 이 자습서의 뒷부분에서 각 하위 사이트에 대한 사용자 지정 도메인을 설정합니다. 그러나 [Azure 포털](https://portal.azure.com)을 통해 도메인을 매핑하고 와일드카드 DNS를 제대로 설정한 경우 하위 도메인 설치를 설정할 수 있습니다.
 
 하위 도메인과 하위 디렉터리 설정에 대한 자세한 내용은 WordPress Codex의 [멀티 사이트 네트워크 유형][wordpress-codex-types-of-networks] 문서를 참조하십시오.
 
@@ -138,7 +138,6 @@ Azure 웹 앱에서는 웹 앱에 도메인을 무제한으로 추가할 수 있
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
@@ -154,4 +153,4 @@ Azure 웹 앱에서는 웹 앱에 도메인을 무제한으로 추가할 수 있
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

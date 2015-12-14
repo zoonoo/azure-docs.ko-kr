@@ -44,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-SAS 키 이름 및 값에 대한 값은 [Azure 포털][] 연결 정보 또는 Visual Studio **속성** 창(이전 섹션에 표시된 대로 서버 탐색기에서 서비스 버스 네임스페이스 선택)에서 확인할 수 있습니다.
+SAS 키 이름 및 값에 대한 값은 [Azure 클래식 포털][] 연결 정보 또는 Visual Studio **속성** 창(이전 섹션에 표시된 대로 서버 탐색기에서 서비스 버스 네임스페이스 선택)에서 확인할 수 있습니다.
 
 ```
 bus_service.create_queue('taskqueue')
@@ -109,10 +109,10 @@ msg.delete()
 
 -   [큐, 토픽 및 구독][]을 참조하세요.
 
-[Azure 포털]: http://manage.windowsazure.com
+[Azure 클래식 포털]: http://manage.windowsazure.com
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
 [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
 [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

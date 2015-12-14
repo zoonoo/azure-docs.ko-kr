@@ -23,13 +23,13 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-[MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. [Azure 포털](http://manage.windowsazure.com)을 사용하면 이미지 갤러리에서 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음 해당 가상 컴퓨터를 설치하고 MySQL Server로 구성할 수 있습니다.
+[MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하면 이미지 갤러리에서 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음 해당 가상 컴퓨터를 설치하고 MySQL Server로 구성할 수 있습니다.
 
 Linux에 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설치하는 방법](virtual-machines-linux-install-mysql.md)을 참조하세요.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-- Azure 포털을 사용하여 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 만듭니다.
+- Azure 클래식 포털을 사용하여 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 만듭니다.
 
 - 커뮤니티 버전의 MySQL 5.6.23을 가상 컴퓨터에 설치하고 MySQL Server로 실행합니다.
 
@@ -89,7 +89,7 @@ Linux에 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
 
-19.	또한 C:\Program Files (x86)\MySQL\MySQL Server 5.6\\my-default.ini 파일의 항목을 사용하여 기본/데이터 디렉터리 및 드라이브와 같은 서버 구성 기본 설정을 구성할 수 있습니다. 자세한 내용은 [5.1.2 서버 구성 기본값](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)을 참조하세요.
+19.	또한 C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini 파일의 항목을 사용하여 기본/데이터 디렉터리 및 드라이브와 같은 서버 구성 기본 설정을 구성할 수 있습니다. 자세한 내용은 [5\.1.2 서버 구성 기본값](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)을 참조하세요.
 
 ## 끝점 구성
 
@@ -101,7 +101,7 @@ MySQL 클라이언트 컴퓨터에서 인터넷을 통해 MySQL Server 서비스
 
 MySQL Server 서비스의 끝점을 구성하려면
 
-1.	Azure 포털에서 **가상 컴퓨터**를 클릭하고 MySQL 가상 컴퓨터의 이름을 클릭한 다음 **끝점**을 클릭합니다.
+1.	Azure 클래식 포털에서 **가상 컴퓨터**를 클릭하고 MySQL 가상 컴퓨터의 이름을 클릭한 다음 **끝점**을 클릭합니다.
 2.	명령 모음에서 **추가**를 클릭합니다.
 3.	**가상 컴퓨터에 끝점 추가** 페이지에서 오른쪽 화살표를 클릭합니다.
 4.	기본 MySQL TCP 포트 3306을 사용하는 경우 **이름**에서 **MySQL**을 클릭한 후 확인 표시를 클릭합니다.
@@ -109,7 +109,7 @@ MySQL Server 서비스의 끝점을 구성하려면
 
 ## MySQL 트래픽을 허용하도록 Windows 방화벽 규칙 추가
 
-인터넷에서의 MySQL 트래픽을 허용하는 Windows 방화벽 규칙을 추가하려면 MySQL Server 가상 컴퓨터의 관리자 권한 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+인터넷에서의 MySQL 트래픽을 허용하는 Windows 방화벽 규칙을 추가하려면 MySQL 서버 가상 컴퓨터의 관리자 권한 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
@@ -120,7 +120,7 @@ MySQL Server 서비스의 끝점을 구성하려면
 
 Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원격 연결을 테스트하려면 먼저 MySQL Server를 실행 중인 가상 컴퓨터가 포함된 클라우드 서비스에 해당하는 DNS 이름을 확인해야 합니다.
 
-1.	Azure 포털에서 **가상 컴퓨터**를 클릭하고 MySQL 서버 가상 컴퓨터의 이름을 클릭한 다음 **대시보드**를 클릭합니다.
+1.	Azure 클래식 포털에서 **가상 컴퓨터**를 클릭하고 MySQL 서버 가상 컴퓨터의 이름을 클릭한 다음 **대시보드**를 클릭합니다.
 2.	가상 컴퓨터 대시보드에서 **빠른 보기** 섹션에 있는 **DNS 이름** 값을 적어 둡니다. 다음은 예제입니다.
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_DNSName.png)
@@ -138,4 +138,4 @@ Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원�
 
 MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

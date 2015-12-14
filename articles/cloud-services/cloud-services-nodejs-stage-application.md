@@ -34,7 +34,7 @@
     Publish-AzureServiceProject -Slot staging
     ```
 
-2.  [Azure 관리 포털]에 로그온하고 **클라우드 서비스**를 선택합니다. 클라우드 서비스가 만들어지고 **스테이징** 열 상태가 **실행 중**으로 업데이트된 후 서비스 이름을 클릭합니다.
+2.  [Azure 클래식 포털]에 로그온하고 **클라우드 서비스**를 선택합니다. 클라우드 서비스가 만들어지고 **스테이징** 열 상태가 **실행 중**으로 업데이트된 후 서비스 이름을 클릭합니다.
 
 	![실행 중인 서비스가 표시된 포털][cloud-service]
 
@@ -54,7 +54,7 @@
 
 > [AZURE.NOTE]이 단계에서는 프로덕션에 응용 프로그램을 이미 배포했으며 업그레이드된 버전의 응용 프로그램을 미리 구성했다고 가정합니다.
 
-1.  [Azure 관리 포털]에 로그인하고 **클라우드 서비스**를 클릭한 후 서비스 이름을 선택합니다.
+1.  [Azure 클래식 포털]에 로그인하고 **클라우드 서비스**를 클릭한 후 서비스 이름을 선택합니다.
 
 2.  **대시보드**에서 **스테이징**을 선택한 후 페이지 맨 아래에 있는 **교환**을 클릭합니다. 그러면 VIP 교환 대화 상자가 열립니다.
 
@@ -68,11 +68,11 @@
 
 - [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]
 
-[Azure 관리 포털]: http://manage.windowsazure.com
+[Azure 클래식 포털]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

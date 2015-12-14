@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Azure 포털에서 서비스 패브릭 클러스터 설정
@@ -64,7 +64,7 @@
 
 
 
-1. **선택 사항: 배치 속성**- 사용자는 여기서 구성을 추가할 필요가 없습니다. 시스템에서 기본 배치 속성 "NodeTypeName"을 자동으로 추가합니다. 응용 프로그램에서 구성을 더 추가하라고 요구할 경우에는 더 추가하면 됩니다. 
+10. **선택 사항: 배치 속성**- 사용자는 여기서 구성을 추가할 필요가 없습니다. 시스템에서 기본 배치 속성 "NodeTypeName"을 자동으로 추가합니다. 응용 프로그램에서 구성을 더 추가하라고 요구할 경우에는 더 추가하면 됩니다. 
 
   
 ## 보안 구성
@@ -178,14 +178,11 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
-````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
 
 방금 등록한 응용 프로그램 유형에 새 인스턴스를 만듭니다.
 
-```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
-````
+```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
 
 선택한 브라우저를 열고 응용 프로그램이 수신하는 끝점에 연결합니다. 샘플 응용 프로그램 수의 경우 URL이 다음과 같습니다.
 
@@ -211,4 +208,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!------HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

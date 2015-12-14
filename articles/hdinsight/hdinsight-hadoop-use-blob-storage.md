@@ -94,9 +94,9 @@ Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을
 기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 HDInsight 클러스터의 기본 Blob 컨테이너를 공유하지 마세요. 이로 인해 작업 기록이 손상될 수 있으며 클러스터가 올바르게 작동하지 않습니다. 각 클러스터에 다른 컨테이너를 사용하고 기본 저장소 계정 대신 모든 관련 클러스터 배포에 지정된 연결 저장소 계정에서 공유 데이터를 배치하는 것이 좋습니다. 연결된 저장소 계정에 대한 자세한 내용은 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터의 경우 삭제된 HBase 클러스터에서 사용되었던 기본 Blob 저장소 컨테이너를 사용하여 새로운 HBase 클러스터를 만들어 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
 
 
-### Azure Preview 포털 사용
+### Azure 포털 사용
 
-Preview 포털에서 HDInsight 클러스터를 만들 때 기존 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다.
+포털에서 HDInsight 클러스터를 만들 때 기존 저장소 계정을 사용할지 새 저장소 계정을 만들어서 사용할지 선택할 수 있습니다.
 
 ![HDInsight Hadoop 만들기 데이터 원본](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -297,4 +297,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,8 @@
 
 # Azure 앱 서비스에서 API 앱 관리
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 이 문서에서는 [Azure Preview 포털](https://portal.azure.com/)을 사용하여 API 앱 관리 및 모니터링 작업을 수행하는 방법을 보여 주었습니다. 다음은 일부 가능한 작업입니다:
 
 - 인증 구성 
@@ -134,4 +136,4 @@ Visual Studio의 **서버 탐색기**에서 원격 디버깅 세션을 시작하
 
 명령줄을 사용하여 API 앱을 관리 하는 방법에 대한 정보는 문서의 왼쪽(넓은 브라우저 창) 또는 위쪽(좁은 브라우저 창)에 표시되는 메뉴의 **자동화** 섹션의 문서를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

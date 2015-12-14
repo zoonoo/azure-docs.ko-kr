@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
-Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">웹앱 도메인 구입</a> 문서의 최종 단계를 참조하세요.
+Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도메인 구입](custom-dns-web-site-buydomains-web-app.md)의 최종 단계를 참조하세요.
 
 이 문서에서는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 사용하여 [GoDaddy](https://godaddy.com)에서 직접 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
 
@@ -67,7 +67,7 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 <a href="/doc
 5. **다른 항목 추가**를 클릭합니다.
 6. 레코드 유형으로 **CNAME**를 선택한 다음 **awverify**의 **호스트** 값 및 **awverify.&lt;yourwebappname&gt;.azurewebsites.net**의 **Points to** 값을 지정합니다.
 
-	> [AZURE.NOTE]이 CNAME 레코드는 Azure에서 A 레코드 또는 첫 번째 CNAME 레코드가 설명하는 도메인을 개발자가 소유하고 있는지 확인하는 데 사용됩니다. 도메인이 Azurepreview 포털에서 웹앱으로 매핑되면 **awverify** 항목을 제거할 수 있습니다.
+	> [AZURE.NOTE]이 CNAME 레코드는 Azure에서 A 레코드 또는 첫 번째 CNAME 레코드가 설명하는 도메인을 개발자가 소유하고 있는지 확인하는 데 사용됩니다. 도메인이 Azure 포털에서 웹앱으로 매핑되면 **awverify** 항목을 제거할 수 있습니다.
 
 5. 레코드 추가 또는 수정을 완료하면 **Finish**를 클릭하여 변경 내용을 저장합니다.
 
@@ -80,6 +80,5 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 <a href="/doc
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

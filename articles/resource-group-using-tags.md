@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/02/2015"
 	ms.author="tomfitz"/>
 
 
@@ -51,9 +51,9 @@
         }
     ]
 
-## 미리 보기 포털의 태그
+## 포털의 태그
 
-미리 보기 포털에서 리소스 및 리소스 그룹에 쉽게 태그를 지정할 수 있습니다. 찾아보기 허브를 사용하여 태그를 지정할 리소스 또는 리소스 그룹으로 이동한 후 블레이드 위쪽의 개요 섹션에서 태그 부분을 클릭합니다.
+포털에서 리소스 및 리소스 그룹에 쉽게 태그를 지정할 수 있습니다. 찾아보기 허브를 사용하여 태그를 지정할 리소스 또는 리소스 그룹으로 이동한 후 블레이드 위쪽의 개요 섹션에서 태그 부분을 클릭합니다.
 
 ![리소스 및 리소스 그룹 블레이드에서 태그 파트](./media/resource-group-using-tags/tag-icon.png)
 
@@ -139,7 +139,7 @@
     rbacdemo-group
     tag-demo
 
-Azure PowerShell 1.0 Preview 이전 버전의 경우 다음 명령을 사용하여 특정 태그가 있는 리소스를 가져옵니다.
+Azure PowerShell 1.0 이전 버전의 경우 다음 명령을 사용하여 특정 태그가 있는 리소스를 가져옵니다.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -181,6 +181,6 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 정의한 정책을 사용하려면 모든 리소스에 대해 특정 태그를 설정해야 할 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 - 리소스 배포 시 Azure PowerShell 사용에 대한 소개는 [Azure 리소스 관리자에서 Azure PowerShell 사용](./powershell-azure-resource-manager.md)을 참조하세요.
 - 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하세요.
-- Preview 포털 사용에 대한 소개는 [Azure Preview 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)를 참조하세요.  
+- 포털 사용에 대한 소개는 [Azure 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)를 참조하세요.  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

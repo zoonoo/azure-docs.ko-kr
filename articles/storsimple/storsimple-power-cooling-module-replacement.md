@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치의 전원 및 냉각 모듈 교체
@@ -48,7 +48,7 @@ Microsoft Azure StorSimple 장치에서 PCM(전원 및 냉각 모듈)을 꺼낼 
 
 #### PCM을 꺼내려면
 
-1. 관리 포털에서 **장치** > **유지 관리** > **하드웨어 상태**를 클릭합니다. **공유 구성 요소** 아래에서 PCM 구성 요소의 상태를 확인하여 오류가 발생한 PCM을 식별합니다.
+1. Azure 클래식 포털에서 **장치** > **유지 관리** > **하드웨어 상태**를 클릭합니다. **공유 구성 요소** 아래에서 PCM 구성 요소의 상태를 확인하여 오류가 발생한 PCM을 식별합니다.
 
      - PCM 0의 전원 공급 장치에서 오류가 발생한 경우 **PCM 0의 전원 공급 장치** 상태가 빨강으로 표시됩니다.
 
@@ -144,7 +144,7 @@ StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요.
 
 7. PCM을 켭니다.
 
-8. 교체에 성공했는지 확인합니다. StorSimple Manager 서비스의 관리 포털에서 **장치** > **유지 관리** > **하드웨어 상태**로 이동합니다. **공유 구성 요소** 아래에서 PCM 상태가 녹색이어야 합니다.
+8. 교체에 성공했는지 확인합니다. StorSimple Manager 서비스의 Azure 클래식 포털에서 **장치** > **유지 관리** > **하드웨어 상태**로 이동합니다. **공유 구성 요소** 아래에서 PCM 상태가 녹색이어야 합니다.
 										
     >[AZURE.NOTE]교체 PCM이 완전히 초기화되는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -152,4 +152,4 @@ StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요.
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

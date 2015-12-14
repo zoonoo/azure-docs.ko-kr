@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect FAQ | Microsoft Azure"
+	pageTitle="Azure AD Connect: FAQ | Microsoft Azure"
 	description="이 페이지에는 Azure AD Connect에 대해 자주 묻는 질문과 대답이 있습니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="billmath"/>
 
-# Azure Active Directory Connect FAQ
+# Azure AD Connect FAQ
 
 ## 일반 설치
 **Q: Azure AD 전역 관리자가 2FA를 사용하도록 설정한 경우 설치가 작동하나요?**
@@ -90,4 +90,4 @@
 
 - Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

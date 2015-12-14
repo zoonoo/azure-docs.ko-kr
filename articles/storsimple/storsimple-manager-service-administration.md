@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple 관리자 서비스 관리 | Microsoft Azure"
-   description="Azure 관리 포털에서 StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다."
+   description="Azure 클래식 포털에서 StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리
@@ -30,13 +30,13 @@
 
 ## StorSimple Manager 서비스에 연결
 
-StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 이러한 장치를 관리하는 브라우저에서 실행되는 중앙 Microsoft Azure 관리 포털을 사용합니다. StorSimple Manager 서비스에 연결하려면 다음을 수행합니다.
+StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 이러한 장치를 관리하는 브라우저에서 실행되는 중앙 Microsoft Azure 클래식 포털을 사용합니다. StorSimple Manager 서비스에 연결하려면 다음을 수행합니다.
 
 #### 해당 서비스에 연결하려면
 
 1. [http://azure.microsoft.com](http://azure.microsoft.com/)으로 이동합니다.
 
-1. Microsoft 계정 자격 증명을 사용하여 Microsoft Azure 관리 포털(해당 창의 상단 오른쪽에 있는)로 로그온합니다.
+1. Microsoft 계정 자격 증명을 사용하여 Microsoft Azure 클래식 포털(해당 창의 상단 오른쪽에 있는)로 로그온합니다.
 
 1. StorSimple Manager 서비스에 액세스하려면 왼쪽 탐색 창으로 아래로 스크롤합니다.
 
@@ -57,13 +57,9 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 |방문 페이지|서비스 수준 페이지|장치 수준 페이지|장치 수준 페이지|
 |---|---|---|---|
 |StorSimple 관리자 서비스|서비스 대시보드|장치 대시보드||
-||장치 →|모니터|| 
-||백업 카탈로그|볼륨 컨테이너→|볼륨| 
-||구성(서비스)|백업 정책|| 
-||작업|구성(장치)|| 
-||경고|유지 관리||
+||장치 →|모니터| ||백업 카탈로그|볼륨 컨테이너→|볼륨| ||구성(서비스)|백업 정책|| ||작업|구성(장치)| ||경고|유지 관리|
 
-![ビデオ](./media/storsimple-manager-service-administration/Video_icon.png) **ビデオ**
+![동영상 사용 가능](./media/storsimple-manager-service-administration/Video_icon.png) **동영상 사용 가능**
 
 StorSimple Manager 서비스 사용자 인터페이스를 안내하는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)를 클릭하세요.
 
@@ -116,4 +112,4 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 
 -  [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

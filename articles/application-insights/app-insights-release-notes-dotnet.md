@@ -16,12 +16,12 @@
  
 # Application Insights SDK for .NET에 대한 릴리스 정보
 
-[Application Insights SDK for.NET](app-insights-start-monitoring-app-health-usage.md)은 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
+[Application Insights SDK for.NET](app-insights-asp-net.md)은 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
 
 
 #### 응용 프로그램에 SDK를 설치하려면
 
-[.NET용 Application Insights 시작](app-insights-start-monitoring-app-health-usage.md)을 참조하세요.
+[.NET용 Application Insights 시작](app-insights-asp-net.md)을 참조하세요.
 
 #### 최신 SDK를 업그레이드하려면 
 
@@ -32,8 +32,13 @@
 * 이전 복사본과 ApplicationInsights.config를 비교합니다. 대부분의 변경 내용은 일부 모듈을 제거하고 다른 일부를 매개변수화하기 때문입니다. 이전 파일에 대한 모든 사용자 지정을 복구합니다.
 * 솔루션을 다시 빌드합니다.
 
+
+## 버전 2.0.0-beta3
+
+- [적응 샘플링](app-insights-sampling.md)
+
 ## 버전 2.0.0-beta2
-- ITelemetryProcessor에 대한 지원과 코드 또는 구성을 통해 구성하는 기능이 추가되었습니다. [SDK에서 사용자 지정 필터링을 사용할 수 있습니다](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors).
+- ITelemetryProcessor에 대한 지원과 코드 또는 구성을 통해 구성하는 기능이 추가되었습니다. [SDK에서 사용자 지정 필터링을 사용할 수 있습니다.](app-insights-api-telemetry-processors/#telemetry-processors)
 - 컨텍스트 이니셜라이저가 제거되었습니다. 대신 [원격 분석 이니셜라이저](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)를 사용합니다.
 - .NET Framework 4.6용 Application Insights가 업데이트되었습니다. 
 - 이제 사용자 지정 이벤트 이름을 최대 512자까지 지정할 수 있습니다.
@@ -57,9 +62,9 @@
 
 ## 버전 1.2
 
-- ASP.NET 라이브러리에 종속성이 없는 원격 분석 이니셜라이저가 `Microsoft.ApplicationInsights.Web`에서 새 종속성 nuget `Microsoft.ApplicationInsights.WindowsServer`로 옮겨졌습니다.
+- ASP.NET 라이브러리에 종속성이 없는 원격 분석 이니셜라이저가 `Microsoft.ApplicationInsights.Web`에서 새 종속성 NuGet `Microsoft.ApplicationInsights.WindowsServer`로 옮겨졌습니다.
 - `Microsoft.AI.Web.dll`에서 `Microsoft.ApplicationInsights.Web.dll`의 이름이 변경되었습니다.
-- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`에서 `Microsoft.ApplicationInsights.Web.TelemetryChannel` nuget의 이름이 변경되었습니다. `Microsoft.AI.ServerTelemetryChannel.dll`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 어셈블리의 이름이 변경되었습니다. `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 클래스의 이름이 변경되었습니다.
+- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`에서 `Microsoft.ApplicationInsights.Web.TelemetryChannel` NuGet의 이름이 변경되었습니다. `Microsoft.AI.ServerTelemetryChannel.dll`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 어셈블리의 이름이 변경되었습니다. `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 클래스의 이름이 변경되었습니다.
 - 웹 SDK의 일부인 모든 네임스페이스가 `Extensibility` 부분을 제외하도록 변경되었습니다. 여기에는 ApplicationInsights.config의 모든 원격 분석 이니셜라이저와 web.config의 `ApplicationInsightsWebTracking` 모듈이 포함됩니다.
 - 런타임 계측 에이전트(상태 모니터 또는 Azure 웹사이트 확장을 통해 사용 가능)를 사용하여 수집된 종속성 은 스레드에 HttpContext.Current가 없는 경우 비동기로 표시되지 않습니다.
 - `DependencyTrackingTelemetryModule`의 `SamplingRatio` 속성은 아무 작업도 수행하지 않고 사용되지 않음으로 표시됩니다.
@@ -109,4 +114,4 @@
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

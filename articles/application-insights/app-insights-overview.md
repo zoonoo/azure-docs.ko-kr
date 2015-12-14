@@ -49,7 +49,7 @@ Application Insights는 개발팀을 목표로 합니다. 함께 다음을 수�
 
 플랫폼의 증가하는 범위에 대한 SDKrk 있습니다. 현재 목록에 포함 됩니다.
 
- * Azure 또는 IIS 서버의 [ASP.NET 서버][greenbrown]
+ * Azure에서 [ASP.NET 서버][greenbrown] 또는 IIS 서버
  * [Azure 클라우드 서비스](app-insights-cloudservices.md)
  * [J2EE 서버][java]
  * [웹 페이지][client]\: HTML + JavaScript
@@ -139,7 +139,7 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
@@ -151,4 +151,4 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

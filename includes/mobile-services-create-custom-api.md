@@ -1,6 +1,6 @@
 
 
-1. Azure 관리 포털에 로그인하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 선택합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인하여 **모바일 서비스**를 클릭한 후 해당 모바일 서비스를 선택합니다.
 
 2. **API** 탭을 클릭한 후 **만들기**를 클릭합니다. **Create a new custom API** 대화 상자가 표시됩니다.
 
@@ -35,4 +35,4 @@
 <!-- URLs. -->
 [mssql 개체]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

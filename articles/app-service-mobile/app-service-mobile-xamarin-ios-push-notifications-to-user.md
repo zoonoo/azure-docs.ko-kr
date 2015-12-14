@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="12/01/2015"
 	ms.author="yuaxu"/>
 
 # 특정 사용자에게 크로스 플랫폼 알림 전송
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-이 항목에서는 모바일 백 엔드에서 특정 사용자의 모든 등록된 장치에 알림을 전송하는 방법을 보여 줍니다. 등록 시 클라이언트 응용 프로그램이 자유롭게 페이로드 형식과 변수 자리 표시자를 지정할 수 있게 하는 [템플릿] 개념을 소개했습니다. 이 경우 해당 자리 표시자가 포함된 모든 플랫폼에 전송이 수행되어 크로스 플랫폼 알림을 사용할 수 있습니다.
+이 항목에서는 모바일 백 엔드에서 특정 사용자의 모든 등록된 장치에 알림을 전송하는 방법을 보여 줍니다. 등록 시 클라이언트 응용 프로그램이 자유롭게 페이로드 형식과 변수 자리 표시자를 지정할 수 있게 하는 [템플릿]을 소개합니다. 서버에서 템플릿 알림을 보내면 알림 허브는 자리 표시자가 포함 된 모든 플랫폼에 플랫폼 간 알림 사용을 지시합니다.
 
 > [AZURE.NOTE]크로스 플랫폼 클라이언트에서 푸시가 작동하려면 사용하도록 설정할 각 플랫폼에 대해 이 자습서를 완료해야 합니다. 동일한 모바일 백 엔드를 공유하는 클라이언트의 경우 [모바일 백 엔드 업데이트](#backend)를 한 번만 수행하면 됩니다.
  
@@ -58,20 +56,7 @@
         }
         ...
 
-2. 템플릿 작업을 위해 **AppDelegate.cs**에서 **RegisteredForRemoteNotifications**의 **RegisterAsync** 호출을 다음 코드로 바꿉니다.
 
-        // delete await push.RegisterAsync (deviceToken);
-        
-        var notificationTemplate = "{"aps": {"alert":"$(message)"}}";
-
-        JObject templateBody = new JObject();
-        templateBody["body"] = notificationTemplate;
-
-        JObject templates = new JObject();
-        templates["testApnsTemplate"] = templateBody;
-
-        // register with templates
-        await push.RegisterAsync (deviceToken, templates);
 
 ##<a name="backend"></a>특정 사용자에게 알림을 전송하도록 서비스 백 엔드 업데이트
 
@@ -92,11 +77,14 @@
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
+            // Sending the message so that all template registrations that contain "messageParam"
+            // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+            Dictionary<string,string> templateParams = new Dictionary<string,string>();
+            templateParams["messageParam"] = item.Text + " was added to the list.";
 
             try
             {
-                await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
+                await Hub.SendTemplateNotificationAsync(templateParams, userTag);
             }
             catch (System.Exception ex)
             {
@@ -112,6 +100,6 @@
 <!-- URLs. -->
 [인증 시작]: app-service-mobile-xamarin-ios-get-started-users.md
 [푸시 알림 시작]: app-service-mobile-xamarin-ios-get-started-push.md
-[템플릿]: https://msdn.microsoft.com/ko-KR/library/dn530748.aspx
+[템플릿]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

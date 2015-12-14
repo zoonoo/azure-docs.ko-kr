@@ -34,7 +34,7 @@ U-SQL 데이터베이스에는 다음이 포함됩니다.
 ## 카탈로그 관리
 각 Azure 데이터 레이크 분석 계정은 기본 Azure 데이터 레이크 저장소 계정이 연결되어 있습니다. 이 데이터 레이크 저장소 계정을 기본 데이터 레이크 저장소 계정이라고 합니다. U-SQL 카탈로그는 기본 데이터 레이크 저장소 계정의 /catalog 폴더 아래에 저장됩니다. /catalog 폴더에서 어떤 파일도 삭제하지 마세요.
 
-### Azure Preview 포털 사용
+### Azure 포털 사용
 
 [포털을 사용하여 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md#view-u-sql-catalog)를 참조하세요.
 
@@ -64,7 +64,7 @@ Visual Studio용 데이터 레이크 도구를 사용하여 카탈로그를 관�
 ## 참고 항목
 
 - 시작
-    - [Azure Preview 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+    - [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
     - [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
     - [Azure .NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
     - [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
@@ -76,12 +76,12 @@ Visual Studio용 데이터 레이크 도구를 사용하여 카탈로그를 관�
     - [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analtyics-u-sql-user-defined-operators.md)
 
 - 관리
-    - [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md)
+    - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md)
     - [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-powershell.md)
-    - [Azure Preview 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - 종단간 자습서
     - [Azure 데이터 레이크 분석 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
     - [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

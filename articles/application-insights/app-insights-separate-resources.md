@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 # 개발, 테스트 및 프로덕션용 Application Insights 리소스 구분
@@ -20,7 +20,7 @@
 
 디버깅, 테스트, 응용 프로그램의 프로덕션 버전에서 원격 분석 혼합을 피하려면, 별도의 [Application Insights][start] 리소스를 생성하여 각 버전의 데이터를 수신합니다.
 
-응용 프로그램에서 받은 데이터는 Microsoft Azure 리소스의 Application Insights에 의해 저장되고 처리됩니다. 각 리소스는 해당 계측 키로 식별됩니다. 응용 프로그램에서 올바른 리소스를 수집하는 데이터를 보낼 수 있도록 키 Application Insights SDK를 제공합니다. 코드 또는 ApplicationInsights.config에서 키를 제공 받을 수 있습니다. SDK에 있는 키를 변경하여 데이터를 다른 리소스로 디렉트할 수 있습니다.
+응용 프로그램에서 받은 데이터는 Microsoft Azure *리소스*의 Application Insights에 의해 저장되고 처리됩니다. 각 리소스는 해당 *계측 키*로 식별됩니다. 응용 프로그램에서 올바른 리소스를 수집하는 데이터를 보낼 수 있도록 키 Application Insights SDK를 제공합니다. 코드 또는 ApplicationInsights.config에서 키를 제공 받을 수 있습니다. SDK에 있는 키를 변경하여 데이터를 다른 리소스로 디렉트할 수 있습니다.
 
 
 ## Application Insights 리소스 만들기
@@ -28,7 +28,7 @@
 
 [portal.azure.com](https://portal.azure.com)에서 Application Insights 리소스를 추가합니다.
 
-![새로 만들기, Application Insights 클릭](./media/app-insights-create-new-resource/01-new.png)
+![새로 만들기, Application Insights 클릭](./media/app-insights-separate-resources/01-new.png)
 
 
 * **응용 프로그램 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 웹 페이지에 대해 웹 유형 중 하나를 선택하고 다른 장치에 대해서는 전화 유형 중 하나를 선택합니다.
@@ -46,7 +46,7 @@
 
 계측 키는 사용자가 만든 리소스를 식별합니다.
 
-![Essentials과 계측 키를 차례로 클릭하고, CTRL + C 누릅니다.](./media/app-insights-create-new-resource/02-props.png)
+![Essentials과 계측 키를 차례로 클릭하고, CTRL + C 누릅니다.](./media/app-insights-separate-resources/02-props.png)
 
 사용자의 앱이 데이터를 보낼 모든 리소스의 계측 키가 필요합니다.
 
@@ -98,4 +98,4 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 
  
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 
@@ -33,13 +33,13 @@
 - 지원 패키지 암호 해독 및 편집
 
 
-## 관리 포털에서 지원 패키지 만들기
+## Azure 클래식 포털에서 지원 패키지 만들기
 
-StorSimple 관리 서비스에서 발생할 수 있는 문제를 해결하려면 관리 포털에서 서비스의 **유지 관리** 페이지를 통해 Microsoft 지원 사이트에 지원 패키지를 만들고 업로드할 수 있습니다. 업로드를 허용하려면 지원 패스 키를 제공해야 합니다. 지원 패스 키는 지원 엔지니어가 메일로 제공해야 합니다. 암호화되지 않고 압축된 지원 패키지를 생성합니다.(.cab 파일) 이 패키지는 엔지니어가 패스 키를 제공하는 경우 지원 사이트에서 지원 엔지니어가 검색할 수 있습니다.
+StorSimple 관리 서비스에서 발생할 수 있는 문제를 해결하려면 Azure 클래식 포털에서 서비스의 **유지 관리** 페이지를 통해 Microsoft 지원 사이트에 지원 패키지를 만들고 업로드할 수 있습니다. 업로드를 허용하려면 지원 패스 키를 제공해야 합니다. 지원 패스 키는 지원 엔지니어가 메일로 제공해야 합니다. 암호화되지 않고 압축된 지원 패키지를 생성합니다.(.cab 파일) 이 패키지는 엔지니어가 패스 키를 제공하는 경우 지원 사이트에서 지원 엔지니어가 검색할 수 있습니다.
 
-지원 패키지를 만들려면 관리 포털에서 다음 단계를 수행합니다.
+지원 패키지를 만들려면 클래식 포털에서 다음 단계를 수행합니다.
 
-#### 관리 포털에서 지원 패키지 만들려면
+#### Azure 클래식 포털에서 지원 패키지를 만드는 방법
 
 1. **장치 > 유지 관리**로 이동합니다.
 
@@ -123,7 +123,7 @@ Export-HcsSupportPackage cmdlet과 함께 사용할 수 있는 다른 매개 변
 
 지원 패키지를 생성한 후에 패키지를 편집하여 로그 파일에서 볼륨 이름, 장치 IP 주소 및 백업 이름과 같은 고객과 관련된 정보를 제거해야 할 수도 있습니다.
 
-> [AZURE.IMPORTANT]StorSimple용 Windows PowerShell을 통해 생성된 지원 패키지를 편집할 수 있습니다. StorSimple 관리 서비스로 관리 포털에서 생성한 패키지를 편집할 수 없습니다.
+> [AZURE.IMPORTANT]StorSimple용 Windows PowerShell을 통해 생성된 지원 패키지를 편집할 수 있습니다. StorSimple 관리 서비스로 Azure 클래식 포털에서 생성한 패키지를 편집할 수 없습니다.
 
 Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집하려면 지원 패키지의 암호를 해독하고 파일을 편집한 다음 다시 암호화해야 합니다. 지원 패키지를 편집하려면 다음 단계를 수행합니다.
 
@@ -199,4 +199,4 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
 - [지원 패키지 및 장치 로그를 사용하여 장치 배포 문제를 해결](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)하는 방법을 알아봅니다. 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

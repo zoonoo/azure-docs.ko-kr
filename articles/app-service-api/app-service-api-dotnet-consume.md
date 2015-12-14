@@ -18,6 +18,8 @@
 
 # .NET 클라이언트의 Azure 앱 서비스에서 API 앱 사용 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 개요
 
 이 자습서에서는 앱 서비스 SDK를 사용하여 **공용(익명)** 또는 **공용(인증됨)** 액세스 수준에 대해 구성된 [API 앱](app-service-api-apps-why-best-platform.md)을 호출하는 코드를 작성하는 방법을 보여 줍니다. 이 문서에서 다루는 예제 시나리오는 다음과 같습니다.
@@ -180,9 +182,9 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 
 ### <a id="client-flow"></a>서버 흐름과 클라이언트 흐름 비교
 
-샘플 응용 프로그램에서는 게이트웨이가 ID 공급자의 액세스 토큰을 가져오는 [서버 흐름](../app-service/app-service-authentication-overview.md#server-flow)을 보여 줍니다. 클라이언트 응용 프로그램이 ID 공급자에서 직접 액세스 토큰을 가져온 후 게이트웨이로 전송하는 [클라이언트 흐름](../app-service/app-service-authentication-overview.md#client-flow)의 경우에는 `SetCurrentUser` 대신 `LoginAsync`를 호출합니다.
+샘플 응용 프로그램에서는 게이트웨이가 ID 공급자의 액세스 토큰을 가져오는 [서버 흐름](../app-service/app-service-authentication-overview.md#server-flow)을 보여 줍니다. 클라이언트 응용 프로그램이 ID 공급자에서 직접 액세스 토큰을 가져온 후 게이트웨이로 전송하는 [클라이언트 흐름](../app-service/app-service-authentication-overview.md#client-flow)의 경우에는 `SetCurrentUser` 대신 `LoginAsync`을 호출합니다.
 
-다음 코드 예제에서는 `providerAccessToken`이라는 문자열 변수에 ID 공급자의 액세스 토큰이 있고 `idProvider`이라는 문자열 변수에 ID 공급자 표시기("aad", "microsoftaccount", "google", "twitter" 또는 "facebook")가 있다고 가정합니다.
+다음 코드 예제에서는 `providerAccessToken`이라는 문자열 변수에 ID 공급자의 액세스 토큰이 있고 `idProvider`라는 문자열 변수에 ID 공급자 표시기("aad", "microsoftaccount", "google", "twitter" 또는 "facebook")가 있다고 가정합니다.
 
 		var appServiceClient = new AppServiceClient(GATEWAY_URL);
 		var providerAccessTokenJSON = new JObject();
@@ -205,4 +207,4 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

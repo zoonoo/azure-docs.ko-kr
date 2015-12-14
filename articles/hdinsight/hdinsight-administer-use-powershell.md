@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -30,9 +30,39 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
-	> [AZURE.NOTE]이 문서에서 제공된 PowerShell 스크립트는 Azure 리소스 관리자 모드를 사용합니다. 예제를 작동하려면 Microsoft 웹 플랫폼 설치 관리자를 사용하여 최신 Azure PowerShell을 다운로드하십시오.
+##Azure PowerShell 1.0 이상 설치
+
+먼저 0.9x 버전을 제거해야 합니다.
+
+설치된 PowerShell 버전을 확인하려면
+
+	Get-Module *azure*
+	
+이전 버전을 제거하려면 제어판에서 프로그램 및 기능을 실행합니다.
+
+Azure PowerShell을 설치하기 위한 두 가지 주요 옵션이 있습니다.
+
+- [PowerShell 갤러리](https://www.powershellgallery.com/). 관리자 권한 PowerShell ISE 또는 관리자 권한 Windows PowerShell 콘솔에서 다음 명령을 실행합니다.
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	자세한 내용은 [PowerShell 갤러리](https://www.powershellgallery.com/)를 참조하세요.
+
+- [Microsoft WebPI(웹 플랫폼 설치 관리자)](http://aka.ms/webpi-azps). Azure PowerShell 0.9.x가 설치되어 있는 경우 0.9.x를 제거하라는 메시지가 표시됩니다. PowerShell 갤러리에서 Azure PowerShell 모듈을 설치한 경우 일관성 있는 Azure PowerShell 환경이 보장되도록 설치하기 전에 설치 관리자에서 모듈을 제거해야 합니다. 자세한 내용은 [WebPI를 통해 Azure PowerShell 1.0 설치](https://azure.microsoft.com/blog/azps-1-0/)를 참조하세요.
+
+WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적으로 업데이트를 받습니다. PowerShell 갤러리에서 설치가 익숙하다면 이는 Azure PowerShell에서 가장 유용한 최신의 첫 번째 채널이 될 것입니다.
 
 ##클러스터 만들기
 
@@ -64,7 +94,7 @@ HDInsight 클러스터는 Azure 리소스 그룹 및 Azure 저장소 계정의 B
 [AZURE.INCLUDE [데이터 센터 목록](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-Azure Preview 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)를 참조하세요.
+Azure 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)를 참조하세요.
 
 저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
 
@@ -73,7 +103,7 @@ Azure Preview 포털을 사용하여 Azure 저장소 계정을 만드는 방법�
 	# List the keys for a Storage account
 	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-Preview 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)의 "저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
+포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)의 "저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
 
 **Azure 저장소 컨테이너를 만들려면**
 
@@ -213,11 +243,11 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 
 >[AZURE.NOTE]액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
-이 작업은 미리 보기 포털을 통해서도 수행할 수 있습니다. [Azure Preview 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
+이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
 
 ##HTTP 사용자 자격 증명 업데이트
 
-이는 [HTTP 액세스 권한 부여/해지](#grant/revoke-access)와 절차가 동일합니다. 클러스터에 HTTP 액세스가 부여된 경우 이를 먼저 취소해야 있습니다. 그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
+이는 [HTTP 액세스 권한 부여/해지](#grant/revoke-access)와 절차가 동일합니다. 클러스터에 HTTP 액세스가 부여된 경우 이를 먼저 취소해야 합니다. 그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
 
 
 ##기본 저장소 계정 찾기
@@ -271,7 +301,7 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합�
 
 ## 참고 항목
 * [HDInsight Cmdlet 참조 설명서][hdinsight-powershell-reference]
-* [Azure 미리 보기 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]
+* [Azure 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]
 * [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
@@ -302,4 +332,4 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

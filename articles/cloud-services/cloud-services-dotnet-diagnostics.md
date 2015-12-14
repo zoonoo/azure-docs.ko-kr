@@ -154,7 +154,7 @@ WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][]
 4.	**클라우드 서비스 및 저장소 계정 만들기** 대화 상자에서 **이름**(예: "WadExample")을 입력하고 지역 또는 선호도 그룹을 선택합니다.
 5.	**환경**을 **스테이징**으로 설정합니다.
 6.	다른 **설정**을 적절히 수정하고 **게시**를 클릭합니다.
-7.	배포가 완료되면 Azure 포털에서 클라우드 서비스가 **실행 중** 상태인지 확인합니다.
+7.	배포가 완료되면 Azure 클래식 포털에서 클라우드 서비스가 **실행 중** 상태인지 확인합니다.
 
 ### 4단계: 진단 구성 파일 만들기 및 확장 설치
 1.	다음 PowerShell 명령을 실행하여 공용 구성 파일 스키마 정의를 다운로드합니다.
@@ -511,4 +511,4 @@ EventSource|아니요|테이블|.NET EventSource 클래스를 사용하여 코�
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

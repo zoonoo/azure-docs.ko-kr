@@ -102,6 +102,12 @@
         }
     }
 
+또한 [배포()](resource-group-template-functions.md/#deployment)를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이는 템플릿 위치가 변경되거나(아마도 버전 관리로 인해) 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다.
+
+    "variables": {
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+    }
+
 ## 연결된 템플릿의 값을 다시 전달
 
 연결된 템플릿에서 주 템플릿으로 값을 전달해야 하는 경우 연결된 템플릿의 **출력** 섹션에서 값을 만들 수 있습니다. 예제를 보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
@@ -110,4 +116,4 @@
 - [템플릿 작성](./resource-group-authoring-templates.md)
 - [템플릿 배포](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

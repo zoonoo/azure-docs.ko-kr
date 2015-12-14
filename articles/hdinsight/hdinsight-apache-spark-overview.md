@@ -40,7 +40,7 @@ Azure HDInsight는 완전히 관리되는 Spark 서비스를 제공합니다. HD
 
 | 기능 | 설명 |
 |-------------------------------------|-------------------|
-| 프로비전 편의성 | Azure 관리 포털, Azure PowerShell 또는 HDInsight .NET SDK를 사용하여 몇 분만에 HDInsight에서 새 Spark 클러스터를 프로비전할 수 있습니다. [HDInsight에서 Spark 클러스터 프로비전](hdinsight-apache-spark-provision-clusters.md)을 참조하세요. |
+| 프로비전 편의성 | Azure 클래식 포털, Azure PowerShell 또는 HDInsight .NET SDK를 사용하여 몇 분만에 HDInsight에서 새 Spark 클러스터를 프로비전할 수 있습니다. [HDInsight에서 Spark 클러스터 프로비전](hdinsight-apache-spark-provision-clusters.md)을 참조하세요. |
 | 사용 편의성 | HDInsight 클러스터의 Spark에는 미리 구성된 Zeppelin 및 Jupyter 노트북이 포함되어 있으며 대화형 데이터 처리 및 시각화에 사용할 수 있습니다. 이러한 Notebook에 대한 URL은 https://CLUSTERNAME.azurehdinsight.net/zeppelin 및 https://CLUSTERNAME.azurehdinsight.net/jupyter입니다. __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.|
 | REST API | HDInsight의 Spark에는 Spark 작업 서버가 포함되어 있습니다. 이 서버는 사용자가 실행 중인 작업을 원격으로 제출하고 모니터링할 수 있도록 해주는 REST API 서버입니다. |
 | 동시 쿼리 | HDInsight에서 Spark는 동시 쿼리를 지원합니다. 이를 통해 한 사용자의 여러 개 쿼리 또는 여러 사용자 및 응용 프로그램의 여러 개 쿼리에서 동일한 클러스터 리소스를 공유할 수 있습니다. |
@@ -100,4 +100,4 @@ HDInsight에서 Spark에는 기본적으로 클러스터에서 사용할 수 있
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 원격으로 연결
@@ -37,9 +37,9 @@ Windows PowerShell 인터페이스에 원격으로 연결할 수 있습니다. �
 
 HTTP 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 경우 StorSimple 장치의 직렬 콘솔을 통해 연결하는 것보다 보안이 강화됩니다. 가장 안전한 방법은 아니지만 신뢰할 수 있는 네트워크에서는 적합합니다.
 
-Azure 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
+Azure 클래식 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
 
-- [Azure 포털을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-azure-portal-to-enable-remote-management-over-http)
+- [Azure 클래식 포털을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
 
 - [직렬 콘솔을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@ Azure 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수
 
 - [원격 연결을 위해 클라이언트 준비](#prepare-the-client-for-remote-connection)
 
-### Azure 포털을 사용하여 HTTP를 통한 원격 관리 사용 
+### Azure 클래식 포털을 사용하여 HTTP를 통한 원격 관리 사용 
 
-HTTP를 통한 원격 관리를 사용하도록 설정하려면 Azure 포털에서 다음 단계를 따르세요.
+Azure 클래식 포털에서 다음 단계를 수행하여 HTTP를 통한 원격 관리를 사용할 수 있습니다.
 
-#### Azure 포털을 통해 원격 관리를 사용하도록 설정하려면
+#### Azure 클래식 포털을 통해 원격 관리를 사용하도록 설정하려면
 
 1. 장치에 대한 **장치** > **구성**에 액세스합니다.
 
@@ -122,9 +122,9 @@ HTTP를 통한 원격 관리를 사용하도록 설정하려면 Azure 포털에�
 
 HTTPS 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 것은 Microsoft Azure StorSimple 장치에 원격으로 연결하는 가장 안전하고 권장되는 방법입니다. 다음 절차에서는 HTTPS를 사용 여 StorSimple용 Windows PowerShell에 연결할 수 있도록 직렬 콘솔과 클라이언트 컴퓨터를 설정하는 방법을 설명합니다.
 
-Azure 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
+Azure 클래식 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
 
-- [Azure 포털을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-azure-portal-to-enable-remote-management-over-https)
+- [Azure 클래식 포털을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
 
 - [직렬 콘솔을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@ Azure 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수
 
 - [원격 호스트에서 장치에 연결](#connect-to-the-device-from-the-remote-host)
 
-### Azure 포털을 사용하여 HTTPS를 통한 원격 관리 사용
+### Azure 클래식 포털을 사용하여 HTTPS를 통한 원격 관리 사용
 
-HTTPS를 통한 원격 관리를 사용하도록 설정하려면 Azure 포털에서 다음 단계를 따르세요.
+Azure 클래식 포털에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리를 사용할 수 있습니다.
 
-#### Azure 포털에서 HTTPS를 통한 원격 관리를 사용하도록 설정하려면
+#### Azure 클래식 포털에서 HTTPS를 통한 원격 관리를 사용하도록 설정하려면
 
 1. 장치에 대한 **장치** > **구성**에 액세스합니다.
 
@@ -272,4 +272,4 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

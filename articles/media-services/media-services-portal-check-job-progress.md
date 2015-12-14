@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 관리 포털을 사용하여 작업 진행률 확인하는 방법" 
-	description="Azure 관리 포털을 사용하여 작업 진행률을 추적하는 방법에 대해 알아봅니다." 
+	pageTitle="Azure 클래식 포털을 사용하여 작업 진행률 확인하는 방법" 
+	description="Azure 클래식 포털을 사용하여 작업 진행률을 확인하는 방법을 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -25,7 +25,7 @@
 
 ##포털을 사용하여 작업 상태 확인하기
 
-1. [관리 포털](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)에서 **미디어 서비스**를 클릭한 후 미디어 서비스 계정 이름을 클릭합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)에서 **미디어 서비스**를 클릭한 후 미디어 서비스 계정 이름을 클릭합니다.
 2. **작업** 페이지를 선택합니다. 
 
 	페이지에서 모든 작업 상태를 볼 수 있습니다. 상태, 시간 또는 작업 ID로 필터링할 수도 있습니다.
@@ -50,4 +50,4 @@
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

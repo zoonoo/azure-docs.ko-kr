@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/30/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
@@ -228,7 +228,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 
 | 요소 이름 | 필수 | 설명
 | :----------------------: | :------: | :----------
-| apiVersion | 예 | 리소스를 지원하는 API의 버전입니다. 리소스에 사용할 수 있는 버전 및 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
+| apiVersion | 예 | 리소스를 만들 때 사용하는 REST API의 버전입니다. 특정 리소스 형식에 사용 가능한 버전 번호를 결정하려면 [지원되는 API 버전](../resource-manager-supported-services/#supported-api-versions)을 참조하세요.
 | type | 예 | 리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 공급자가 지원하는 리소스 유형을 조합한 값입니다.
 | name | 예 | 리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다.
 | location | 아니요 | 제공된 리소스의 지역적 위치를 지원합니다.
@@ -418,4 +418,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

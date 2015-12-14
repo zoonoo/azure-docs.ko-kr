@@ -22,7 +22,7 @@
 
 Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-이 문서에서는 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
+이 문서에서는 진단 로그와 같이 작업하기 위해 [Azure 포털](https://portal.azure.com), Azure PowerShell, 그리고 Azure CLI(Azure Command-Line Interface, Azure 명령줄 인터페이스)가 사용됩니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -50,7 +50,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 ## <a name="enablediag"></a>진단을 사용하도록 설정하는 방법
 
-[Azure Preview 포털](https://portal.azure.com)에서 진단을 사용하도록 설정하려면 웹앱에 대한 블레이드로 이동하여 **설정 > 진단 로그**를 클릭합니다.
+[Azure 포털](https://portal.azure.com)에서 진단을 사용하려면, 웹 앱의 블레이드에서 **설정>진단 로그**를 차례로 클릭합니다.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![로그 부분](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -59,16 +59,16 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 > [AZURE.NOTE]web.config 파일을 변경하는 것과 달리, 응용 프로그램 진단을 사용하도록 설정하거나 진단 로그 수준을 변경하면 응용 프로그램이 실행되는 앱 도메인이 재순환되지 않습니다.
 
-[Azure 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에서 **웹 서버 로깅**에 대해 **저장소** 또는 **파일 시스템**을 선택할 수 있습니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
+[클래식 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에서 **웹 서버 로깅**에 대한 **저장소** 또는 **파일 시스템**을 선택할 수 있습니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
 
-[Azure 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에는 응용 프로그램 진단에 대한 다음과 같은 추가 설정도 있습니다.
+[클래식 포털](https://manage.windowsazure.com) 웹앱 구성 탭은 또한 응용 프로그램 진단에 대한 추가 **구성**이 포함됩니다.
 
 * **파일 시스템** - 웹 앱 파일 시스템에 응용 프로그램 진단 정보를 저장합니다. 이러한 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
 * **테이블 저장소** - 지정된 Azure 저장소 계정 및 테이블 이름에 응용 프로그램 진단 정보를 저장합니다.
 * **Blob 저장소** - 지정된 Azure 저장소 계정 및 Blob 컨테이너에 응용 프로그램 진단 정보를 저장합니다.
 * **보존 기간** - 기본적으로 로그는 **Blob 저장소**에서 자동으로 삭제되지 않습니다. 자동으로 로그를 삭제하려면 **set retention**을 선택하고 로그를 보관할 기간(일)을 입력합니다.
 
->[AZURE.NOTE][저장소 계정의 선택키를 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 다음을 수행합니다.
+>[AZURE.NOTE] [저장소 계정의 선택키를 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 다음을 수행합니다.
 >
 > 1. **구성** 탭에서 해당 로깅 기능을 **끄기**로 설정합니다. 설정을 저장합니다.
 > 2. 저장소 계정 Blob 또는 테이블에 로깅을 다시 사용합니다. 설정을 저장합니다.
@@ -99,7 +99,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 ### FTP
 
-FTP를 사용하여 진단 정보에 액세스하려면 [Azure 포털](https://manage.windowsazure.com)에서 웹앱의 **대시보드**로 이동하세요. **간략 상태** 섹션에서 **FTP Diagnostic Logs** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **Deployment/FTP User** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
+FTP를 사용하여 진단 정보에 액세스하려면, [클래식 포털](https://manage.windowsazure.com)에서 웹앱의 **대시보드**를 참조합니다. **간략 상태** 섹션에서 **FTP Diagnostic Logs** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **Deployment/FTP User** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
 
 > [AZURE.NOTE]**배포/FTP 사용자** 항목이 설정되지 않은 경우 또는 이 사용자의 암호를 잊은 경우 **대시보드**의 **간략 상태** 섹션에서 **Reset deployment credentials** 링크를 사용하여 새 사용자 및 암호를 만들 수 있습니다.
 
@@ -132,7 +132,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 2. 추적 수신기 패키지를 프로젝트에 추가 합니다.
  * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. `Microsoft.ApplicationInsights.TraceListener` [자세히 알아보기](../application-insights/app-insights-asp-net-trace-logs.md) 선택
 3. 프로젝트를 업로드하고 실행하여 로그 데이터를 생성합니다.
-4. [Azure preview 포털](http://portal.azure.com/)에서, 새 Application Insights 리소스를 찾고 **검색**을 엽니다. 요청, 사용법 및 다른 원격 분석와 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세히 알아보기](../application-insights/app-insights-diagnostic-search.md)
+4. [Azure 포털](http://portal.azure.com/)에서 새 Application Insights 리소스를 찾아서 **검색**을 엽니다. 요청, 사용법 및 다른 원격 분석와 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세히 알아보기](../application-insights/app-insights-diagnostic-search.md)
 
 [Application Insights로 추적되는 성능에 대해 알아보기](../insights-perf-analytics.md)
 
@@ -259,7 +259,7 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 ##<a name="nextsteps"></a> 다음 단계
 
-- [웹앱을 모니터링하는 방법](/ko-KR/manage/services/web-sites/how-to-monitor-websites/)
+- [웹앱을 모니터링하는 방법](/manage/services/web-sites/how-to-monitor-websites/)
 - [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [HDInsight에서 웹앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -270,4 +270,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

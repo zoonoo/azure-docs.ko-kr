@@ -33,7 +33,7 @@ Azure 서비스 버스에서는 여러 메시지 broker가 메시지를 처리�
 
 Microsoft Azure 서비스 버스로 분할된 큐 및 항목을 사용하려면 Azure SDK 버전 2.2 이상을 사용하거나 HTTP 요청에서 `api-version=2013-10`를 지정합니다.
 
-서비스 버스 큐 및 항목은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure 포털][]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
+서비스 버스 큐 및 항목은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure 클래식 포털][]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 
 분할된 큐 또는 항목을 만들 수 있는 여러 방법이 있습니다. 응용 프로그램에서 큐 또는 항목을 만들 때 [QueueDescription.EnablePartitioning][] 또는 [TopicDescription.EnablePartitioning][] 속성을 각각 **true**로 설정하여 큐 또는 항목에 분할을 설정할 수 있습니다. 이러한 속성은 큐 또는 항목이 만들어진 시점에 설정되어야 합니다. 기존 큐 또는 항목에서 이러한 속성을 변경하는 것은 불가능합니다. 예:
 
@@ -45,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-또는 Visual Studio나 [Azure 포털][]에서 분할된 큐나 항목을 만들 수 있습니다. 포털에서 새 큐 또는 항목을 만들 때 큐 또는 항목 창의 **구성** 탭에서 **분할 사용** 옵션을 확인합니다. Visual Studio에서 **새 큐** 또는 **새 항목** 대화 상자의 **분할 사용** 확인란을 클릭합니다.
+또는 Visual Studio나 [Azure 클래식 포털][]에서 분할된 큐나 항목을 만들 수 있습니다. 포털에서 새 큐 또는 항목을 만들 때 큐 또는 항목 창의 **구성** 탭에서 **분할 사용** 옵션을 확인합니다. Visual Studio에서 **새 큐** 또는 **새 항목** 대화 상자의 **분할 사용** 확인란을 클릭합니다.
 
 ## 파티션 키의 사용
 
@@ -128,7 +128,7 @@ Azure 서비스 버스는 분할된 엔터티 간에 자동 메시지 전달을 
 서비스 버스 분할된 큐 및 항목에 대한 AMQP 1.0 지원 설명을 참조하여(출시 예정!) 메시징 엔터티 분할에 대해 자세히 알아봅니다.
 
   [서비스 버스 아키텍처]: service-bus-architecture.md
-  [Azure 포털]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
@@ -144,4 +144,4 @@ Azure 서비스 버스는 분할된 엔터티 간에 자동 메시지 전달을 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

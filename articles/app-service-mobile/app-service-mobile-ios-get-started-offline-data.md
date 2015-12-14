@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/01/2015"
 	ms.author="krisragh"/>
 
 # iOS 모바일 앱에 대해 오프라인 동기화 사용
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 개요
 
@@ -88,7 +86,7 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 
     `pullWithQuery` 메서드를 사용하면 쿼리를 지정하여 검색하려는 레코드를 필터링할 수 있습니다. 이 예제에서 쿼리는 원격 `TodoItem` 테이블의 모든 레코드를 검색합니다.
 
-    `pullWithQuery`에 대한 두 번째 매개 변수는 *증분 동기화*에 사용되는 쿼리 ID입니다. 증분 동기화는 레코드의 `UpdatedAt` 타임스탬프(로컬 저장소에서는 `ms_updatedAt`이라고 함)를 사용하여 마지막 동기화 이후에 수정된 레코드만 검색합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이 경우 각 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
+    `pullWithQuery`에 대한 두 번째 매개 변수는 *증분 동기화*에 사용되는 쿼리 ID입니다. 증분 동기화는 레코드의 `UpdatedAt` 타임스탬프(로컬 저장소에서는 `updatedAt`이라고 함)를 사용하여 마지막 동기화 이후에 수정된 레코드만 검색합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이 경우 각 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
 
 	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
@@ -105,9 +103,9 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
       * MS\_TableOperations: 서버와 동기화해야 하는 항목 추적
       * MS\_TableOperationErrors: 오프라인 동기화 중에 발생하는 모든 오류를 추적
       * MS\_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
-      * TodoItem: 할 일 항목 저장 시스템 열 **ms\_createdAt**, **ms\_updatedAt** 및 **ms\_version**은 선택적 시스템 속성입니다.
+      * TodoItem: 할 일 항목 저장 시스템 열 **createdAt**, **updatedAt** 및 **version**은 선택적 시스템 속성입니다.
 
->[AZURE.NOTE]Azure 모바일 앱 SDK는 "**`ms_`**"로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
+>[AZURE.NOTE]Azure 모바일 앱 SDK는 "**``**"로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
 
 - 오프라인 동기화 기능을 사용할 경우 아래와 같이 시스템 테이블을 정의해야 합니다.
 
@@ -150,17 +148,16 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 
     ### 데이터 테이블
 
-    ![][defining-core-data-todoitem-entity]
-
     **TodoItem**
-
 
     | 특성 | 형식 | 참고 |
     |-----------   |  ------ | -------------------------------------------------------|
     | id | 문자열, 필수로 표시 | 원격 저장소의 기본 키 |
     | complete | Boolean | todo 항목 필드 |
     | 텍스트 | String | todo 항목 필드 |
-    | ms\_createdAt | Date | (선택 사항) \_\_createdAt 시스템 속성에 매핑됩니다. | | ms\_updatedAt | Date | (선택 사항) \_\_updatedAt 시스템 속성에 매핑됩니다. | | ms\_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 \_\_version에 매핑됩니다. |
+    | createdAt | Date | (옵션) createdAt 시스템 속성에 매핑됩니다. |
+    | updatedAt | Date | (옵션) updatedAt 시스템 속성에 매핑됩니다. |
+    | 버전 | String | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
 
 
 ## <a name="setup-sync"></a>앱의 동기화 동작 변경
@@ -183,20 +180,22 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 
 ## <a name="test-app"></a>앱 테스트
 
+이 섹션에서 오프라인 시나리오를 시뮬레이션하면 잘못된 URL로 연결됩니다. 데이터 항목을 추가하면 모바일 백 엔드에 동기화되지 않고 로컬 핵심 데이터 저장소에 보관됩니다.
 
-이 섹션에서는 오프라인 시나리오를 만들기 위해 시뮬레이터에서 Wi-Fi를 켭니다. 데이터 항목을 추가하면 모바일 백 엔드에 동기화되지 않고 로컬 핵심 데이터 저장소에 보관됩니다.
+1. **QSTodoService.m**의 모바일 앱 URL을 잘못된 URL로 변경하고 앱 다시 실행하기:
 
-1. IOS 시뮬레이터에서 Wi-Fi를 끕니다.
+        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
 
 2. 일부 할 일 항목을 추가하거나 일부 항목을 완료합니다. 시뮬레이터를 끝내고(또는 강제로 앱 닫기) 다시 시작합니다. 변경 내용이 유지되는지 확인합니다.
 
 3. 원격 TodoItem 테이블의 내용 확인
-   - JavaScript 백 엔드의 경우 관리 포털로 가서 데이터 탭을 클릭하여 `TodoItem` 테이블의 내용을 봅니다.
-   - .NET 백 엔드의 경우 SQL Server Management Studio와 같은 SQL 도구나 Fiddler 또는 Postman 같은 REST 클라이언트를 사용하여 테이블 내용을 봅니다.
+
+    + Node.js 백 엔드의 경우 [Azure 포털](https://portal.azure.com/)로 이동하여 모바일 앱 백 엔드에서 **Easy Tables(쉬운 테이블)** > **TodoItem**을 클릭하여 `TodoItem` 테이블의 내용을 봅니다.
+   	+ .NET 백 엔드의 경우 SQL Server Management Studio와 같은 SQL 도구나 Fiddler 또는 Postman 같은 REST 클라이언트를 사용하여 테이블 내용을 봅니다.
 
     새 항목이 서버와 동기화되지 *않았는지* 확인합니다.
 
-4. IOS 시뮬레이터에서 Wi-Fi를 켠 다음 항목의 목록을 아래로 당겨 새로 고침 제스처를 수행합니다. 진행률 회전자와 텍스트 "동기화 중..."이 표시됩니다.
+4. **QSTodoService.m**의 URL을 올바르게 다시 변경하고 해당 앱을 다시 실행합니다. 항목 목록을 아래로 끌어서 새로 고침 제스처를 수행합니다. 진행률 회전자와 텍스트 "동기화 중..."이 표시됩니다.
 
 5. TodoItem 데이터를 다시 봅니다. 이제 새 및 변경된 TodoItems가 나타납니다.
 
@@ -248,4 +247,4 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

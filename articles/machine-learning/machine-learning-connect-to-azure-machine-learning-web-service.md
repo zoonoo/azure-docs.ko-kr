@@ -41,12 +41,12 @@ Azure 기계 학습에는 다음 두 가지 유형의 서비스가 있습니다.
 Azure 기계 학습 웹 서비스에 대한 자세한 내용은 [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 
 ## Azure 기계 학습 권한 부여 키 가져오기 ##
-기계 학습 웹 서비스에서 웹 서비스 API 키를 가져올 수 있습니다. Microsoft Azure 기계 학습 스튜디오 또는 Azure 관리 포털에서 가져올 수 있습니다.
+기계 학습 웹 서비스에서 웹 서비스 API 키를 가져올 수 있습니다. Microsoft Azure 기계 학습 스튜디오 또는 Azure 클래식 포털에서 가져올 수 있습니다.
 ### Microsoft Azure 기계 학습 스튜디오 ###
 1. Microsoft Azure 기계 학습 스튜디오의 왼쪽에서 **웹 서비스**를 클릭합니다.
 2. 웹 서비스를 클릭합니다. "API 키"는 **대시보드** 탭에 있습니다.
 
-### Azure 관리 포털 ###
+### Azure 클래식 포털 ###
 
 1. 왼쪽에서 **기계 학습**을 클릭합니다.
 2. 작업 영역을 클릭합니다.
@@ -103,4 +103,4 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

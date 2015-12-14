@@ -93,7 +93,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 이벤트 허브는 이 예제의 데이터 원본입니다. 다음 단계에 따라 새 이벤트 허브를 만듭니다.
 
-1. [Azure 포털](https://manage.windowsazure.com)에서 **새로 만들기 | 서비스 버스 | 이벤트 허브 | 사용자 지정 만들기**를 선택합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **새로 만들기 | 서비스 버스 | 이벤트 허브 | 사용자 지정 만들기**를 선택합니다.
 
 2. **새 이벤트 허브 추가** 대화 상자에서 **이벤트 허브 이름**을 입력하고 허브를 만들 **하위 지역**을 선택한 다음 새 네임스페이스를 만들거나 기존 네임스페이스를 선택합니다. 마지막으로 화살표를 클릭하여 계속합니다.
 
@@ -113,7 +113,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ### HDInsight의 Storm 클러스터 만들기
 
-1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 
 2. 왼쪽 창에서 **HDInsight**를 클릭하고 페이지 왼쪽 아래에서 **+새로 만들기**를 클릭합니다.
 
@@ -258,7 +258,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 1. 대시보드를 Azure 웹 사이트에 배포하려면 [Node.js 웹 사이트 빌드 및 Azure에 배포](../web-sites-nodejs-develop-deploy-mac.md) 단계를 따릅니다 웹 사이트의 URL(**mywebsite.azurewebsites.net**과 유사함)을 기록해 둡니다.
 
-2. 웹 사이트가 만들어지면 Azure 포털에서 해당 사이트로 이동하여 **구성** 탭을 선택합니다. **웹 소켓**을 사용하도록 설정하고 페이지 아래쪽에서 **저장**을 클릭합니다.
+2. 웹 사이트가 만들어지면 Azure 클래식 포털에서 해당 사이트로 이동하여 **구성** 탭을 선택합니다. **웹 소켓**을 사용하도록 설정하고 페이지 아래쪽에서 **저장**을 클릭합니다.
 
 2. **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java**를 열고 다음 줄을 게시된 대시보드의 URL을 가리키도록 변경합니다.
 
@@ -288,7 +288,7 @@ Storm과 HBase를 함께 사용하려면 Azure 가상 네트워크를 만든 다
 
 이 예제에서 HBase를 사용하려면 HDInsight의 Storm 클러스터와 HDInsight의 HBase 클러스터를 포함할 Azure 가상 네트워크를 만들어야 합니다.
 
-1. [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 
 2. 페이지 아래쪽에서 **+새로 만들기** >**네트워크 서비스** > **가상 네트워크** > **빠른 생성**을 클릭합니다.
 
@@ -324,7 +324,7 @@ Storm과 HBase를 함께 사용하려면 Azure 가상 네트워크를 만든 다
 
 ### 가상 네트워크에서 Storm 및 HBase 클러스터 만들기
 
-1. [Azure 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 
 2. 왼쪽 창에서 **HDInsight**를 클릭하고 페이지 왼쪽 아래에서 **+새로 만들기**를 클릭합니다.
 
@@ -422,4 +422,4 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

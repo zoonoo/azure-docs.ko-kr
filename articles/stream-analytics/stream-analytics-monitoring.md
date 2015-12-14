@@ -21,19 +21,19 @@
 
 ## 모니터 페이지
 
-Azure 관리 포털과 Azure Preview 포털 둘 다 작업을 모니터링하고 문제를 해결하는 데 사용할 수 있는 핵심 성과 메트릭을 표시합니다.
+Azure 클래식 포털 및 Azure 포털은 모니터링 및 작업 문제 해결하는 주요 성능 메트릭을 표면화시킵니다.
 
-Azure 관리 포털에서 실행 중인 스트림 분석 작업의 **모니터** 탭을 클릭하여 이러한 메트릭을 확인합니다. 모니터 페이지에 성능 메트릭이 표시되는 데는 대부분 1분 정도의 지연이 있습니다.
+Azure 클래식 포털에서 실행 스트림 분석 작업의 **모니터** 탭을 클릭하여 이 성능을 볼 수 있습니다. 모니터 페이지에 성능 메트릭이 표시되는 데는 대부분 1분 정도의 지연이 있습니다.
 
   ![모니터링 대시보드](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)
 
-Azure Preview 포털에서 메트릭을 보려고 하는 스트림 분석 작업으로 이동하고 **모니터링** 섹션을 봅니다.
+Azure 포털에서, 찾는 메트릭 중 관심있는 스트림 분석 작업을 찾은 다음 **모니터링** 섹션을 봅니다.
 
-  ![Azure Preview 포털 모니터링 대시보드](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
+  ![Azure 포털 모니터링 대시보드](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
 
 어떤 영역에서 스트림 분석 작업이 처음 만들어지면 해당 영역에 대한 진단을 구성해야 합니다. 이 작업을 수행하려면 **모니터링** 섹션의 아무데나 클릭합니다. 그러면 **진단** 블레이드가 표시됩니다. 여기서 진단을 사용하도록 설정하고 모니터링 데이터를 위한 저장소 계정을 지정할 수 있습니다.
 
-  ![Azure Preview 포털 진단 구성](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
+  ![Azure 포털 구성 진단](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
 ## 스트림 분석에 사용 가능한 메트릭  
 
@@ -46,7 +46,7 @@ Azure Preview 포털에서 메트릭을 보려고 하는 스트림 분석 작업
 | 순서 비지정 이벤트 | 이벤트 순서 지정 정책에 기반하여 조정된 타임스탬프를 받거나 삭제된 순서가 정해지지 않은 수신 이벤트의 수입니다. 잘못된 순서 허용 시간 설정의 구성에 의해 영향을 받을 수 있습니다. |
 | 데이터 변환 오류 | 스트림 분석 작업에 의해 발생하는 데이터 변환 오류 수입니다. |
 | 늦은 입력 이벤트 | 지연 도착 허용 시간 설정의 이벤트 순서 지정 정책 구성에 기반하여 타임스탬프가 조정되었거나 삭제된 소스에서 늦게 도착한 이벤트의 수입니다. |
-## Azure 관리 포털에서 모니터링 사용자 지정 ##
+## Azure 클래식 포털에서 모니터링을 사용자 지정하기 ##
 
 최대 6개의 메트릭을 차트에 표시할 수 있습니다.
 
@@ -62,15 +62,15 @@ Azure Preview 포털에서 메트릭을 보려고 하는 스트림 분석 작업
 
 작업이 정의된 임계값을 초과하는 경우 전자 메일로 알릴 수 있는 규칙을 설정할 수 있습니다.
 
-## Azure Preview 포털에서 모니터링 사용자 지정 ##
+## Azure 포털에서 모니터링 사용자 지정하기 ##
 
 차트 편집 설정에서 차트 유형, 표시되는 메트릭 및 시간 범위를 조정할 수 있습니다. 자세한 내용은 [모니터링을 사용자 지정하는 방법](./azure-portal/insights-how-to-customize-monitoring.md)을 참조하세요.
 
-  ![Azure Preview 포털 시간 단위](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
+  ![Azure 포털 시간 단위](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
 
 ## 작업 상태
 
-작업 목록이 표시되는 Azure 포털에서 스트림 분석 작업의 상태를 볼 수 있습니다. Azure 포털에서 스트림 분석 아이콘을 클릭하여 작업 목록을 볼 수 있습니다.
+작업의 목록을 볼 수 있는 Azure 클래식 포털에서 스트림 분석 작업의 상태를 확인할 수 있습니다. Azure 클래식 포털에서 스트림 분석 아이콘을 클릭하여 작업 목록을 볼 수 있습니다.
 
 | 상태 | 정의 |
 |--------|------------|
@@ -85,7 +85,7 @@ Azure Preview 포털에서 메트릭을 보려고 하는 스트림 분석 작업
 
 ## 진단
 
-Azure 관리 포털에서 작업 대시보드는 진단(즉, 입력, 출력 및/또는 작업 로그)을 위해 확인해야 하는 정보를 제공합니다. 해당 위치로 이동하는 링크를 클릭하여 진단을 확인할 수 있습니다.
+Azure 클래식 포털에서, 작업 대시보드는 진단(즉, 입력, 출력 및/또는 작업 로그)을 위해 확인해야 하는 정보를 제공합니다. 해당 위치로 이동하는 링크를 클릭하여 진단을 확인할 수 있습니다.
 
   ![오류](./media/stream-analytics-monitoring/04-stream-analytics-monitoring.png)
 
@@ -104,4 +104,4 @@ Azure 관리 포털에서 작업 대시보드는 진단(즉, 입력, 출력 및/
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

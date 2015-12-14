@@ -233,7 +233,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 #### 주문형 HDInsight 클러스터를 사용하려면
 
-1. **Azure 포털**의 데이터 팩터리 홈페이지에서 **작성자 및 배포**를 클릭합니다.
+1. **Azure 클래식 포털**의 데이터 팩터리 홈페이지에서 **작성자 및 배포**를 클릭합니다.
 2. 데이터 팩터리 편집기의 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **주문형 HDInsight 클러스터**를 선택합니다.
 2. JSON 스크립트에서 다음을 수행합니다.
 	1. **clusterSize** 속성에 대해 HDInsight 클러스터의 크기를 지정합니다.
@@ -248,7 +248,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 			    "typeProperties": {
 			      "clusterSize": "1",
 			      "timeToLive": "00:05:00",
-			      "version": "3.1",
+			      "version": "3.2",
 			      "linkedServiceName": "StorageLinkedService"
 			    }
 			  }
@@ -374,7 +374,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 	(Blob 위치), (Blob의 이름), (Blob의 줄 수), (작업이 실행된 노드), (날짜 시간 스탬프)
 
-10.	[Azure 포털][azure-preview-portal] 또는 Azure PowerShell cmdlet을 사용하여 데이터 팩터리, 파이프라인 및 데이터 집합을 모니터링합니다. 포털을 통해서나 cmdlet을 사용하여 다운로드할 수 있는 로그(특히 user-0.log)에 있는 사용자 지정 활동의 코드에서 **ActivityLogger**의 메시지를 확인할 수 있습니다.
+10.	[Azure 클래식 포털][azure-preview-portal] 또는 Azure PowerShell cmdlet을 사용하여 데이터 팩터리, 파이프라인 및 데이터 집합을 모니터링합니다. 포털을 통해서나 cmdlet을 사용하여 다운로드할 수 있는 로그(특히 user-0.log)에 있는 사용자 지정 활동의 코드에서 **ActivityLogger**의 메시지를 확인할 수 있습니다.
 
 	![사용자 지정 작업의 로그 다운로드][image-data-factory-download-logs-from-custom-activity]
 
@@ -398,7 +398,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 이전 섹션에서 설명한 연습에서 Azure 배치 연결된 서비스를 사용하는 대략적인 단계는 다음과 같습니다.
 
-1. Azure 관리 포털을 사용하여 Azure 배치 계정을 만듭니다. 지침은 [Azure 배치 계정 만들기 및 관리][batch-create-account]를 참조하세요. Azure 배치 계정 이름 및 계정 키를 적어둡니다.
+1. [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하여 Azure 배치 계정을 만듭니다. 지침은 [Azure 배치 계정 만들기 및 관리][batch-create-account]를 참조하세요. Azure 배치 계정 이름 및 계정 키를 적어둡니다.
 
 	[New-AzureBatchAccount][new-azure-batch-account] cmdlet을 사용하여 Azure 배치 계정을 만들 수도 있습니다. 이 cmdlet 사용에 관한 자세한 지침은 [Azure PowerShell을 사용하여 Azure 배치 계정 관리][azure-batch-blog]를 참조하세요.
 2. Azure 배치 풀을 만듭니다. [Azure Batch 탐색기 도구][batch-explorer]의 소스 코드를 다운로드하여 컴파일하여 사용하거나 [.NET용 Azure Batch 라이브러리][batch-net-library]를 사용하여 Azure Batch 풀을 만들 수 있습니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습][batch-explorer-walkthrough]을 참조하세요.
@@ -474,4 +474,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

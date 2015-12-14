@@ -22,8 +22,8 @@
 # Azure에서 응용 프로그램에 대한 SSL 구성
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
@@ -114,9 +114,9 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 ## 3단계: 인증서 업로드
 
-배포 패키지가 인증서를 사용하도록 업데이트되었으며 HTTPS 끝점이 추가되었습니다. 이제 관리 포털을 사용하여 패키지 및 인증서를 Azure에 업로드할 수 있습니다.
+배포 패키지가 인증서를 사용하도록 업데이트되었으며 HTTPS 끝점이 추가되었습니다. 이제 Azure 클래식 포털을 사용하여 패키지 및 인증서를 Azure에 업로드할 수 있습니다.
 
-1. [Azure 관리 포털][]에 로그인합니다. 
+1. [Azure 클래식 포털][]에 로그인합니다. 
 2. 클릭할 왼쪽 탐색 모음 창의 **클라우드 서비스**를 클릭합니다.
 3. 원하는 클라우드 서비스를 클릭합니다.
 4. **인증서** 탭을 클릭합니다.
@@ -133,7 +133,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 이제 Azure에서 배포가 실행되고 있으므로 HTTPS를 사용하여 연결할 수 있습니다.
 
-1.  관리 포털에서 배포를 선택한 다음 **사이트 URL** 아래의 링크를 클릭합니다.
+1.  Azure 클래식 포털에서 배포를 선택한 다음 **사이트 URL** 아래의 링크를 클릭합니다.
 
     ![사이트 URL 확인][2]
 
@@ -143,7 +143,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
     ![SSL 예제 웹 사이트][3]
 
-프로덕션 배포가 아닌 스테이징 배포에 SSL을 사용하려면 먼저 스테이징 배포에 사용된 URL을 확인해야 합니다. 인증서나 인증서 정보를 포함하지 않고도 스테이징 환경에 클라우드 서비스를 배포할 수 있습니다. 배포된 다음에는 관리 포털의 **사이트 URL** 필드에 나열되는 GUID 기반 URL을 확인할 수 있습니다. GUID 기반 URL(예: **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**)과 동일한 CN(일반 이름)을 사용하여 인증서를 만들고, 관리 포털을 사용하여 스테이징된 클라우드 서비스에 인증서를 추가하고, 인증서 정보를 CSDEF 및 CSCFG 파일에 추가하고, 응용 프로그램을 다시 패키지하고, 새 패키지 및 CSCFG 파일을 사용하도록 스테이징된 배포를 업데이트합니다.
+프로덕션 배포가 아닌 스테이징 배포에 SSL을 사용하려면 먼저 스테이징 배포에 사용된 URL을 확인해야 합니다. 인증서나 인증서 정보를 포함하지 않고도 스테이징 환경에 클라우드 서비스를 배포할 수 있습니다. 배포된 다음에는 Azure 클래식 포털의 **사이트 URL** 필드에 나열되는 GUID 기반 URL을 확인할 수 있습니다. GUID 기반 URL(예: **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**)과 동일한 CN(일반 이름)을 사용하여 인증서를 만들고, Azure 클래식 포털을 사용하여 스테이징된 클라우드 서비스에 인증서를 추가하고, 인증서 정보를 CSDEF 및 CSCFG 파일에 추가하고, 응용 프로그램을 다시 패키지하고, 새 패키지 및 CSCFG 파일을 사용하도록 스테이징된 배포를 업데이트합니다.
 
 ## 다음 단계
 
@@ -153,11 +153,11 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
 
 
-  [Azure 관리 포털]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

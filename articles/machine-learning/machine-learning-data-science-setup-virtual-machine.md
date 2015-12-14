@@ -26,7 +26,7 @@ Azure 가상 컴퓨터가 이미 있는 경우 여기에서 IPython Notebook 서
 
 Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 해당 프로젝트에 대한 데이터를 처리하는 데 필요한 컴퓨터의 크기를 결정해야 합니다. 컴퓨터가 작을수록 메모리가 작고 CPU 코어 수가 적지만 비용도 적게 듭니다. 컴퓨터 유형 및 가격 목록은 <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">가상 컴퓨터 가격</a> 페이지를 참조하세요.
 
-1. <a href="https://manage.windowsazure.com" target="_blank">Azure 포털</a>에 로그인하여 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 팝업 창이 나타납니다. **계산** -> **가상 컴퓨터** -> **갤러리에서**를 선택합니다.
+1. <a href="https://manage.windowsazure.com" target="_blank">Azure 클래식 포털</a>에 로그인하여 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 팝업 창이 나타납니다. **계산** -> **가상 컴퓨터** -> **갤러리에서**를 선택합니다.
 
 	![작업 영역 만들기][24]
 
@@ -60,7 +60,7 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 
 1단계의 지침에 따라 가상 컴퓨터를 만든 경우 IPython Notebook에 대한 끝점이 이미 추가되었으므로 이 단계를 건너뛸 수 있습니다.
 
-가상 컴퓨터가 이미 있는 경우 아래의 3단계에서 설치할 IPython Notebook에 대한 끝점을 추가하려면 먼저 Azure 관리 포털에 로그인하여 가상 컴퓨터를 선택하고 IPython Notebook 서버에 대한 끝점을 추가합니다. 다음 그림에는 IPython Notebook에 대한 끝점이 Windows 가상 컴퓨터에 추가된 후의 포털에 대한 스크린샷이 나와 있습니다.
+가상 컴퓨터가 이미 있는 경우 아래의 3단계에서 설치할 IPython Notebook에 대한 끝점을 추가하려면 먼저 Azure 클래식 포털에 로그인하여 가상 컴퓨터를 선택하고 IPython Notebook 서버에 대한 끝점을 추가합니다. 다음 그림에는 IPython Notebook에 대한 끝점이 Windows 가상 컴퓨터에 추가된 후의 포털에 대한 스크린샷이 나와 있습니다.
 
 ![작업 영역 만들기][17]
 
@@ -79,7 +79,7 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 ## <a name="access"></a>4단계: 웹 브라우저에서 IPython Notebook 액세스
 IPython Notebook 서버에 액세스하려면 웹 브라우저를 열고 URL 텍스트 상자에 *https://&#60;virtual machine DNS name>:&#60;public port number>*를 입력합니다. 여기서 *&#60;public port number>*는 IPython Notebook 끝점을 추가할 때 지정한 포트 번호여야 합니다.
 
-*&#60;virtual machine DNS name>*은 Azure 관리 포털에서 확인할 수 있습니다. 관리 포털에 로그인한 후 **가상 컴퓨터**를 클릭하고, 사용자가 만든 컴퓨터를 선택한 후 **대시보드**를 선택합니다. 그러면 DNS 이름이 다음과 같이 표시됩니다.
+*&#60;virtual machine DNS name>*은 Azure 클래식 포털에서 확인할 수 있습니다. 클래식 포털에 로그인한 후 **가상 컴퓨터**를 클릭하고, 사용자가 만든 컴퓨터를 선택한 후 **대시보드**를 선택합니다. 그러면 DNS 이름이 다음과 같이 표시됩니다.
 
 ![작업 영역 만들기][19]
 
@@ -104,11 +104,11 @@ IPython Notebook은 사용자가 로컬 컴퓨터에 있는 기존 IPython Noteb
 
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
 
-> [AZURE.NOTE]Windows 전원 옵션을 사용하여 VM 내부에서 가상 컴퓨터를 종료하면 VM이 중지되지만 여전히 할당된 상태로 유지됩니다. 비용이 계속 청구되지 않도록 하려면 항상 [Azure 관리 포털](http://manage.windowsazure.com/)에서 가상 컴퓨터를 중지하세요. "PostShutdownAction"이 "StoppedDeallocated"와 동일한 **ShutdownRoleOperation**을 호출하여 Powershell을 통해 VM을 중지할 수도 있습니다.
+> [AZURE.NOTE]Windows 전원 옵션을 사용하여 VM 내부에서 가상 컴퓨터를 종료하면 VM이 중지되지만 여전히 할당된 상태로 유지됩니다. 비용이 계속 청구되지 않도록 하려면 항상 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 가상 컴퓨터를 중지하세요. "PostShutdownAction"이 "StoppedDeallocated"와 동일한 **ShutdownRoleOperation**을 호출하여 Powershell을 통해 VM을 중지할 수도 있습니다.
 
 가상 컴퓨터를 종료하고 할당을 해제하려면 다음을 수행합니다.
 
-1. 사용자 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다.  
+1. 사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다.  
 
 2. 왼쪽 탐색 모음에서 **가상 컴퓨터**를 선택합니다.
 
@@ -118,7 +118,7 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 ![VM 종료][15]
 
-가상 컴퓨터가 할당 해제되지만 삭제되지는 않습니다. Azure 관리 포털에서 언제든지 가상 컴퓨터를 다시 시작할 수 있습니다.
+가상 컴퓨터가 할당 해제되지만 삭제되지는 않습니다. Azure 클래식 포털에서 언제든지 가상 컴퓨터를 다시 시작할 수 있습니다.
 
 ## Azure VM을 사용할 준비가 되었습니다. 다음 단계는 무엇입니까?
 
@@ -143,4 +143,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,7 +18,7 @@
 
 		using Microsoft.Azure.Devices;
 
-5. **Program** 클래스에 다음 필드를 추가하고 자리 표시자 값을 [IoT Hub 시작]에서 만든 IoT Hub 및 IoT Hub 연결 문자열의 이름으로 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가하고 자리 표시자 값을 [IoT Hub 시작]에서 만든 IoT Hub 연결 문자열로 대체합니다.
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -102,4 +102,4 @@
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

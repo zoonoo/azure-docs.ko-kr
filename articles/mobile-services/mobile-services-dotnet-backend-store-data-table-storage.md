@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="SQL 데이터베이스 대신 테이블 저장소를 사용하는 .NET 백 엔드 모바일 서비스 빌드 | Azure 모바일 서비스" 
-	description=".NET 백 엔드 모바일 서비스에서 Azure 테이블 저장소를 사용하는 방법을 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="SQL 데이터베이스 대신 테이블 저장소를 사용하는 .NET 백 엔드 모바일 서비스 빌드 | Azure 모바일 서비스"
+	description=".NET 백 엔드 모바일 서비스에서 Azure 테이블 저장소를 사용하는 방법을 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # 테이블 저장소를 사용하는 .NET 백 엔드 모바일 서비스 빌드
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 이 항목에서는 .NET 백 엔드 모바일 서비스에 대한 비관계형 데이터 저장소를 사용하는 방법을 보여 줍니다. 이 자습서에서는 기본 Azure SQL 데이터베이스 데이터 저장소 대신 Azure 테이블 저장소를 사용하도록 Azure 모바일 서비스 빠른 시작 프로젝트를 수정합니다.
 
@@ -36,10 +41,10 @@
 
 3. 저장소 계정을 만들지 않았다면 [저장소 계정을 만드는 방법](../storage-create-storage-account.md)을 참조하세요.
 
-4. 관리 포털에서 **저장소**를 클릭하고 저장소 계정을 클릭한 후 **키 관리**를 클릭합니다.
+4. [Azure 클래식 포털]에서 **저장소**를 클릭하고 저장소 계정을 클릭한 후 **키 관리**를 클릭합니다.
 
 5. **저장소 계정 이름**과 **액세스 키**를 적어 두세요.
- 
+
 6. 모바일 서비스에서 **구성** 탭을 클릭하고, **연결 문자열**까지 아래로 스크롤하고, `StorageConnectionString`의 **이름**과 저장소 계정 연결 문자열인 **값**을 사용하여 새 연결 문자열을 다음 형식으로 입력합니다.
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
@@ -83,12 +88,12 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
         {
             base.Initialize(controllerContext);
 
-            // Create a new Azure Storage domain manager using the stored 
+            // Create a new Azure Storage domain manager using the stored
             // connection string and the name of the table exposed by the controller.
             string connectionStringName = "StorageConnectionString";
             var tableName = controllerContext.ControllerDescriptor.ControllerName.ToLowerInvariant();
-            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName, 
-                tableName, Request, Services);          
+            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName,
+                tableName, Request, Services);
         }
 
 	저장소 계정 연결 문자열을 사용하여 요청된 컨트롤러에 대한 새 저장소 도메인 관리자가 생성됩니다.
@@ -99,7 +104,7 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
         {
             // Call QueryAsync, passing the supplied query options.
             return DomainManager.QueryAsync(options);
-        } 
+        }
 
 	SQL 데이터베이스와 달리 이 버전은 IQueryable<TEntity>을 반환하지 않으므로 결과가 쿼리에 바인딩될 수 있지만 추가로 쿼리로 작성되지 않습니다.
 
@@ -119,8 +124,8 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 
 ## <a name="test-application"></a>응용 프로그램 테스트
 
-1. (선택 사항) 모바일 서비스 .NET 백 엔드 프로젝트를 다시 게시합니다. 
-	
+1. (선택 사항) 모바일 서비스 .NET 백 엔드 프로젝트를 다시 게시합니다.
+
 	.NET 백 엔드 프로젝트를 Azure에 게시하기 전에 로컬로 모바일 서비스를 테스트할 수도 있습니다. 로컬로 또는 Azure에서 테스트하는지 여부와 관계없이 모바일 서비스에서는 Azure 테이블 저장소를 사용합니다.
 
 4. 모바일 서비스에 연결된 빠른 시작 클라이언트 앱을 실행합니다.
@@ -128,7 +133,7 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 	빠른 시작 자습서를 사용하여 이전에 추가한 항목이 표시되지 않습니다. 이는 테이블 저장소가 현재 비어 있기 때문입니다.
 
 5. 새 항목을 추가하여 데이터베이스 변경 내용을 생성합니다.
- 
+
 	데이터가 SQL 데이터베이스 대신 비관계형 저장소에 저장된다는 점을 제외하고 앱 및 모바일 서비스는 이전과 같이 동작해야 합니다.
 
 ##다음 단계
@@ -150,9 +155,8 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 
 <!-- URLs. -->
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

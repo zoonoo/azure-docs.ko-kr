@@ -46,7 +46,7 @@ stdout 및 stderr 스트림에 대한 로깅을 사용하려면 Node.js 응용 �
 
 > [AZURE.NOTE]Azure 명령줄 도구 또는 Azure PowerShell Cmdlet을 사용하여 웹 앱을 만든 경우 기본 **IISNode.yml** 파일이 자동으로 만들어집니다.
 
-웹 앱을 다시 시작하려면 [Azure 미리 보기 포털](https://portal.azure.com)에서 웹 앱을 선택한 다음 **다시 시작** 단추를 클릭합니다.
+웹앱을 다시 시작하려면 [Azure 포털](https://portal.azure.com)에서 웹앱을 선택한 다음 **다시 시작** 단추를 클릭합니다.
 
 ![다시 시작 단추][restart-button]
 
@@ -67,7 +67,7 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
 ###FTP
 
-FTP를 통해 진단 정보에 액세스하려면 [Azure 미리 보기 포털](https://portal.azure.com)을 방문하고, 웹 앱을 선택한 후 **대시보드**를 선택합니다. **빠른 연결** 섹션에서 **FTP 진단 로그** 및 **FTPS 진단 로그** 링크는 FTP 프로토콜을 사용하여 로그에 액세스할 수 있는 방법을 제공합니다.
+FTP를 통해 진단 정보에 액세스하려면 [Azure 포털](https://portal.azure.com)을 방문하고, 웹앱을 선택한 후 **대시보드**를 선택합니다. **빠른 연결** 섹션에서 **FTP 진단 로그** 및 **FTPS 진단 로그** 링크는 FTP 프로토콜을 사용하여 로그에 액세스할 수 있는 방법을 제공합니다.
 
 > [AZURE.NOTE]FTP 또는 배포의 사용자 이름 및 암호를 아직 구성하지 않은 경우 **배포 자격 증명 설정**을 선택하여 **빠른 시작** 관리 페이지에서 사용자 이름 및 암호를 구성할 수 있습니다.
 
@@ -114,7 +114,6 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -127,4 +126,4 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

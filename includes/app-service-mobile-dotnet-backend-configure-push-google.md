@@ -1,38 +1,52 @@
-1. Visual Studio **솔루션 탐색기**에서 모바일 백 엔드 프로젝트의 **Controllers** 폴더를 확장합니다. **TodoItemController.cs**를 엽니다. 파일 맨 위에 다음 `using` 문을 추가합니다.
+1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭한 후 `Microsoft.Azure.NotificationHubs`를 검색한 다음 **설치**를 클릭합니다. 알림 허브 클라이언트 라이브러리를 설치합니다.
 
-        using System.Collections.Generic;        
-        using Microsoft.Azure.Mobile.Server.Notifications;
+2. 백 엔드의 Visual Studio 프로젝트에서 **Controllers** > **TodoItemController.cs**를 엽니다. 파일 맨 위에 다음 `using` 문을 추가합니다.
 
 
-2. `PostTodoItem` 메서드를 다음 코드로 바꿉니다.
-        
+        using Microsoft.Azure.Mobile.Server.Config;
+        using Microsoft.Azure.NotificationHubs;
+
+
+
+3. `PostTodoItem` 메서드를 다음 코드로 바꿉니다.
+
+      
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
-
-            Dictionary<string, string> data = new Dictionary<string, string>()
-            {
-                { "message", item.Text}
-            };
-
+            // Get the settings for the server project.
             HttpConfiguration config = this.Configuration;
 
-            GooglePushMessage message = new GooglePushMessage(data, System.TimeSpan.FromHours(1));
+            MobileAppSettingsDictionary settings = 
+                this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+
+            // Get the Notification Hubs credentials for the Mobile App.
+            string notificationHubName = settings.NotificationHubName;
+            string notificationHubConnection = settings
+                .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+
+            // Create a new Notification Hub client.
+            NotificationHubClient hub = NotificationHubClient
+            .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+
+            // Android payload
+            var androidNotificationPayload = "{ "data" : {"message":"" + item.Text + ""}}";
 
             try
             {
-                var client = new PushClient(config);
-                var result = await client.SendAsync(message);
+                // Send the push notification and log the results.
+                var result = await hub.SendGcmNativeNotificationAsync(androidNotificationPayload);
 
-                ServiceSettingsDictionary settings = config.GetServiceSettingsProvider().GetServiceSettings();
+                // Write the success result to the logs.
                 config.Services.GetTraceWriter().Info(result.State.ToString());
             }
             catch (System.Exception ex)
             {
-                config.Services.GetTraceWriter().Error(ex.Message, null, "Push.SendAsync Error");
+                // Write the failure result to the logs.
+                config.Services.GetTraceWriter()
+                    .Error(ex.Message, null, "Push.SendAsync Error");
             }
-
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

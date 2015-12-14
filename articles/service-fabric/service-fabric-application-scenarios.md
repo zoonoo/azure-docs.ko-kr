@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/21/2015"
+   ms.date="11/30/2015"
    ms.author="mfussell"/>
 
 # 서비스 패브릭 응용 프로그램 시나리오
@@ -55,9 +55,11 @@ Azure 클라우드 서비스 작업자 역할이 있는 응용 프로그램을 �
 
 또한 다음 항목을 참조하세요.
 
+[마이크로 서비스 정보](service-fabric-overview-microservices.md)
+
 [서비스 상태 정의 및 관리](service-fabric-concepts-state.md)
 
-[서비스 가용성](service-fabric-concepts-availability-services.md)
+[서비스 가용성](service-fabric-availability-services.md)
 
 [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
 
@@ -68,4 +70,4 @@ Azure 클라우드 서비스 작업자 역할이 있는 응용 프로그램을 �
  
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

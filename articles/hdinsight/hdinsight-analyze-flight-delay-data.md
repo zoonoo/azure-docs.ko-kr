@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -51,7 +51,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 
 - **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 1.0 이상 설치](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)를 참조하세요.
 
 **이 자습서에서 사용하는 파일**
 
@@ -70,7 +70,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 
 ##클러스터 만들기 및 Hive/Sqoop 작업 실행
 
-Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 비용면에서 가장 효율적으로 Hive 작업을 실행하는 방법은 작업에 대해 클러스터를 만들고 완료된 작업은 삭제하는 것입니다. 다음 스크립트에 전체 프로세스가 나와 있습니다. HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision] 및 [HDInsight에서 Hive 사용][hdinsight-use-hive]을 참조하세요.
+Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 가장 비용 효율적으로 Hive 작업을 실행하는 방법은 작업의 클러스터를 만들고 완료된 작업은 삭제하는 것입니다. 다음 스크립트에 전체 프로세스가 나와 있습니다. HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision] 및 [HDInsight에서 Hive 사용][hdinsight-use-hive]을 참조하세요.
 
 **Azure PowerShell로 Hive 쿼리를 실행하려면**
 
@@ -742,4 +742,4 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

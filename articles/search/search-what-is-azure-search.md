@@ -29,7 +29,7 @@ Azure 검색은 웹 서비스 및 HTTP를 사용하여 작업하는 방법을 �
 
 Azure 검색은 서버 및 인프라 관리를 Microsoft에 위임하고 개발자와 시스템 통합 업체는 검색 데이터를 채우고 응용 프로그램에서 액세스하는 즉시 사용 가능한 서비스만 처리하게 하는 [PaaS 서비스](https://wikipedia.org/wiki/Platform_as_a_service)입니다. 서비스를 구성하는 방법에 따라 다른 Azure 검색 구독자와 공유되는 무료 서비스 또는 서비스에만 사용하는 전용 리소스를 제공하는 표준 가격 책정 계층을 사용합니다. 표준 검색은 증가된 저장소 또는 쿼리 부하의 수요에 맞는 옵션을 사용하여 확장할 수 있습니다.
 
-Azure 검색은 전체 텍스트 쿼리를 통해 검색할 수 있는 인덱스에 데이터를 저장합니다. 이러한 인덱스의 스키마는 Azure 포털에서 만들거나 클라이언트 라이브러리 또는 REST API를 사용하여 프로그래밍 방식으로 만들 수 있습니다. 스키마를 정의한 다음 데이터를 Azure 검색 서비스에 업로드할 수 있으며 이후에는 이 서비스에서 데이터가 인덱싱됩니다.
+Azure 검색은 전체 텍스트 쿼리를 통해 검색할 수 있는 인덱스에 데이터를 저장합니다. 이러한 인덱스의 스키마는 Azure 클래식 포털에서 만들거나 클라이언트 라이브러리 또는 REST API를 사용하여 프로그래밍 방식으로 만들 수 있습니다. 스키마를 정의한 다음 데이터를 Azure 검색 서비스에 업로드할 수 있으며 이후에는 이 서비스에서 데이터가 인덱싱됩니다.
 
 밀어넣기 또는 끌어오기 모델을 사용하여 데이터를 인덱스에 업로드할 수 있습니다. 끌어오기 모델은 요청 시 또는 예약 업데이트에 맞게 구성할 수 있는 인덱서를 통해 제공되며([인덱서 작업(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx) 참조), Azure DocumentDB, Azure SQL 데이터베이스 또는 Azure VM에서 호스트되는 SQL Server에서 데이터 및 데이터 변경 내용을 쉽게 수집할 수 있습니다. 밀어넣기 모델은 SDK 또는 업데이트된 문서를 인덱스에 보내기 위해 사용되는 REST API를 통해 제공됩니다. JSON 형식으로 되어 있다면 거의 모든 데이터 집합에서 데이터를 밀어넣을 수 있습니다. 데이터 로드에 대한 지침은 [문서 추가, 업데이트 또는 삭제](https://msdn.microsoft.com/library/azure/dn798930.aspx) 또는 [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
@@ -131,4 +131,4 @@ REST API는 내용이 JSON 형식으로 되어 있는 HTTP 요청 및 응답으�
 
 [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md) [Azure 검색 .NET 시작](search-get-started-dotnet.md) [Azure 검색: 자습서, 비디오 데모 및 샘플](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

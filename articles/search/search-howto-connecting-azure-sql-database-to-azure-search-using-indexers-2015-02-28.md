@@ -28,7 +28,7 @@ Azure 검색 서비스는 호스팅되는 클라우드 검색 서비스로, 훌�
 
 Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173)를 호출하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다.
 
-또한 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)의 [인덱서 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)를 사용하거나 [Azure 포털](https://portal.azure.com)의 데이터 가져오기 마법사를 사용하여 인덱스를 만들고 예약할 수 있습니다.
+또한 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)의 [인덱서 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)를 사용하거나 [Azure 클래식 포털](https://portal.azure.com)의 데이터 가져오기 마법사를 사용하여 인덱스를 만들고 예약할 수 있습니다.
 
 **데이터 원본**은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명, Azure 검색에서 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 이는 독립된 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
 
@@ -66,7 +66,7 @@ Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](ht
 	}
 
 
-`ADO.NET connection string` 옵션을 사용하여 [Azure 포털](https://portal.azure.com)에서 연결 문자열을 가져올 수 있습니다.
+`ADO.NET connection string` 옵션을 사용하여 [Azure 클래식 포털](https://portal.azure.com)에서 연결 문자열을 가져올 수 있습니다.
 
 그런 다음 대상 Azure 검색 인덱스가 없는 경우 새로 만듭니다. 이 작업은 [포털 UI](https://portal.azure.com) 또는 [인덱스 만들기 API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 수행할 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환되는지 확인합니다. SQL 및 Azure 검색 데이터 형식 간의 매핑은 다음 표를 참조하세요.
 
@@ -279,4 +279,4 @@ A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -41,7 +41,7 @@
 
 ## 배치 할당량 보기
 
-[Azure Preview 포털](https://portal.azure.com)에서 배치 계정 할당량을 봅니다.
+[Azure 포털](https://portal.azure.com)에서 배치 계정 할당량을 봅니다.
 
 1. Preview 포털에서 **배치 계정**, 배치 계정 이름을 차례로 클릭합니다.
 
@@ -53,7 +53,7 @@
 
 ## 할당량 증가
 
-다음 단계를 사용하여 Azure Preview 포털에서 할당량 증가를 요청합니다([Azure 포털](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)에서도 증가 요청 가능).
+다음 단계를 사용하여 Azure 포털에서 할당량 증가를 요청합니다([Azure 클래식 포털](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)에서도 증가 요청 가능).
 
 1. Preview 포털의 대시보드에서 **도움말+지원**을 클릭합니다.
 
@@ -95,4 +95,4 @@ Azure 지원에서 사용자에게 연락합니다. 요청을 완료하려면 �
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

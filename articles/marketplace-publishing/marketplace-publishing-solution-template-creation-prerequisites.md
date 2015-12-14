@@ -22,10 +22,10 @@
 ## 구성 요소 개발
 게시 포털에서 솔루션 템플릿을 사용하여 계속 진행하기 전에 솔루션의 빌딩 블록을 결정해야 합니다. 다음은 프로세스에 도움이 되는 문서에 대한 일부 링크입니다.
 
-1. [Azure 리소스 관리자 템플릿 설계의 모범 사례](https://azure.microsoft.com/ko-KR/documentation/articles/best-practices-resource-manager-design-templates/)
-2. [Azure 리소스 관리자 템플릿 작성](https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-authoring-templates/)
+1. [Azure 리소스 관리자 템플릿 설계의 모범 사례](../best-practices-resource-manager-design-templates.md)
+2. [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
 3. Azure 빠른 시작 템플릿
-  - [https://azure.microsoft.com/ko-KR/documentation/templates/](https://azure.microsoft.com/ko-KR/documentation/templates/)
+  - [https://azure.microsoft.com/ko-KR/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## 다음 단계
@@ -34,4 +34,4 @@
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -110,4 +110,4 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

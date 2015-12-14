@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 크기를 조정하는 방법
@@ -111,7 +111,7 @@ Preview 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 �
 
 **표준** 캐시를 더 큰 크기로 조정하는 경우 일반적으로 모든 데이터가 유지됩니다. **표준** 캐시를 더 작은 크기로 조정하는 경우 조정된 새 크기에 비해 얼마나 많은 데이터가 캐시에 있는지에 따라 데이터가 손실될 수 있습니다. 크기를 축소하는 경우 데이터가 손실되면 [allkeys-lru](http://redis.io/topics/lru-cache) 제거 정책을 사용하여 키를 제거합니다.
 
-표준 캐시의 가용성에 대한 SLA는 99.9%이나 데이터 손실에 대한 SLA는 없습니다.
+표준 및 프리미엄 캐시의 가용성에 대한 SLA는 99.9%이나 데이터 손실에 대한 SLA는 없습니다.
 
 ## 크기를 조정하는 동안 내 캐시를 사용할 수 있나요?
 
@@ -155,4 +155,4 @@ Preview 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 �
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

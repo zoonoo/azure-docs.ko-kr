@@ -18,6 +18,11 @@
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 오프라인 동기화를 사용하면 네트워크에 연결되어 있지 않은 경우에도 모바일 앱의 데이터를 보거나, 추가하거나, 수정할 수 있습니다. 이 자습서에서는 로컬 오프라인 데이터베이스에서 변경 내용을 자동으로 저장하는 방법 및 온라인으로 돌아갈 때마다 해당 변경 내용을 동기화하는 방법에 대해 알아봅니다.
@@ -196,7 +201,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 3. 원격 TodoItem 테이블의 내용을 확인합니다. 새 항목이 서버와 동기화되지 _않았는지_ 확인합니다.
 
-   - JavaScript 백 엔드의 경우 관리 포털로 가서 데이터 탭을 클릭하여 `TodoItem` 테이블의 내용을 봅니다.
+   - JavaScript 백 엔드의 경우 [Azure 클래식 포털](http://manage.windowsazure.com)로 가서 데이터 탭을 클릭하여 `TodoItem` 테이블의 콘텐츠를 봅니다.
    - .NET 백 엔드의 경우 SQL Server Management Studio와 같은 SQL 도구나 Fiddler 또는 Postman 같은 REST 클라이언트를 사용하여 테이블 내용을 봅니다.
 
 4. iOS 시뮬레이터에서 Wi-Fi를 끕니다. 그런 다음 항목 목록을 아래로 끌어서 새로 고침 제스처를 수행합니다. 진행률 회전자와 텍스트 "동기화 중..."이 표시됩니다.
@@ -270,4 +275,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [모바일 서비스 퀵 스타트 자습서]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

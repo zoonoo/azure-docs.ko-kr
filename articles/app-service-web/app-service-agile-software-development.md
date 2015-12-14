@@ -67,15 +67,15 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹앱)를 사용할 수 있습니다. + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F) 할 수 있음 - 유료 Azure 서비스를 사용해 볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다. + [Visual Studio 구독자 혜택 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)를 할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 프로덕션 환경을 설정합니다. ##
 
 >[AZURE.NOTE]이 자습서에서 사용되는 스크립트는 사용자의 GitHub 저장소에서 자동적으로 구성되어 지속적으로 게시됩니다. 이것은 Azure에 이미 저장되어있는 GitHub 자격 증명이 요구되며, 그렇지 않으면 웹앱에 대한 소스 제어 설정 구성을 시도할 때 스크립트 배포는 실패합니다.
 >
->Azure에서 GitHub 자격 증명을 저장하려면, [Azure Preview 포털](https://portal.azure.com) 및 [GitHub 배포 구성](web-sites-publish-source-control.md#Step7)에서 웹앱을 생성하세요. 이 작업은 한 번만 필요합니다.
+>Azure에서 GitHub 자격 증명을 저장하려면, [Azure 포털](https://portal.azure.com) 및 [GitHub 배포 구성](web-sites-publish-source-control.md#Step7)에서 웹앱을 생성하세요. 이 작업은 한 번만 필요합니다.
 
 일반적인 DevOps 시나리오에서, 사용자는 Azure에서 실시간으로 실행되는 응용 프로그램을 갖게 되며, 지속적인 게시를 통해 원하는 부분을 변경할 수 있습니다. 이 시나리오에서는 개발, 테스트 및 프로덕션 환경에 배포하는 데 사용하는 템플릿을 사용할 수 있습니다. 이 섹션에서는 설정 합니다.
 
@@ -109,7 +109,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 7.	스크립트가 완료되면 프런트 엔드의 주소(http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/)로 돌아가 프로덕션에서 응용 프로그램이 실행되는 것을 확인합니다.
  
-5.	[Azure Preview 포털](https://portal.azure.com)에 로그인하고 생성된 것을 살펴보세요.
+5.	[Azure 포털](https://portal.azure.com)에 로그인하고 생성된 것을 살펴보세요.
 
 	같은 리소스 그룹에서 두 개의 웹앱이 나타나야 하며, 하나는 이름에 `Api` 접미사가 있습니다. 리소스 그룹 보기를 보면 SQL 데이터베이스 및 서버, 앱 서비스 계획 및 웹앱에 대한 스테이징 슬롯도 표시 됩니다. *&lt;repository\_root>*\\ARMTemplates\\ProdAndStage.json을 사용하여 다른 리소스를 통해 검색 및 비교하여 템플릿에서 어떻게 구성되는지 볼 수 있습니다.
 
@@ -281,4 +281,4 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

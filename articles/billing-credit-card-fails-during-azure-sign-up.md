@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Azure에 로그인하려고 할 때 내 신용 카드가 진행되지 않습니다.
 이 문서에서는 신용 카드 또는 직불 카드를 사용하여 등록 문제의 공통적인 원인을 설명합니다.
@@ -64,4 +64,4 @@ Azure 무료 평가판 제품은 무료 평가판 활성화 한 번으로 제한
 ## Azure 지원 문의
 이 문제 해결 단계를 수행한 후 등록 문제가 계속 발생하면 [Azure 지원](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)에 문의하십시오.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

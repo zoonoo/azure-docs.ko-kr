@@ -31,7 +31,7 @@
 Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 
 + [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]
-+ [Azure 포털에서 Docker VM 확장을 사용하는 방법]
++ [Azure 클래식 포털에서 Docker VM 확장을 사용하는 방법]
 + [Azure 마켓플레이스에서 Docker를 신속하게 시작하는 방법]
 
 확장 및 작동 원리에 대한 자세한 내용은 [Docker 확장 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)를 참조하세요.
@@ -69,7 +69,7 @@ Docker VM 확장은 사용자가 만드는 VM 인스턴스에 설치되는 구�
 Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 
 + [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]
-+ [Azure 포털에서 Docker VM 확장을 사용하는 방법]
++ [Azure 클래식 포털에서 Docker VM 확장을 사용하는 방법]
 
 ## Linux 및 Windows용 가상 컴퓨터 확장
 [Azure용 Docker VM 확장](https://github.com/Azure/azure-docker-extension/blob/master/README.md)은 특수 동작을 제공하는 여러 VM 확장 중 하나일 뿐이며 추가 VM이 개발 중입니다. 예를 들어 보안 기능, 커널 및 네트워킹 기능 등을 비롯한 [Linux VM 에이전트 확장](virtual-machines-linux-agent-user-guide.md)의 여러 기능을 사용하여 가상 컴퓨터를 수정하고 관리할 수 있습니다. 예제용 VMAccess 확장을 사용하여 관리자 암호 또는 SSH 키를 다시 설정할 수 있습니다.
@@ -78,10 +78,10 @@ Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 
 <!--Anchors-->
 [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure 포털에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Azure 클래식 포털에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 [Azure 마켓플레이스에서 Docker를 신속하게 시작하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
 [Docker 및 Linux 컨테이너]: #Docker-and-Linux-Containers
 [Azure와 함께 Docker VM 확장을 사용하는 방법]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Linux 및 Windows용 가상 컴퓨터 확장]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

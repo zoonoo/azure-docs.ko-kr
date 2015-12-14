@@ -29,7 +29,7 @@
 
 ## <a name="customize"></a>Azure HDInsight Hadoop 클러스터 사용자 지정
 
-사용자 지정 HDInsight Hadoop 클러스터를 만들려면 [**Azure 관리 포털**](https://manage.windowsazure.com/)에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭한 다음 데이터 서비스 -> HDINSIGHT -> **사용자 지정 만들기**를 선택하여 **클러스터 세부 정보** 창을 불러와야 합니다.
+사용자 지정 HDInsight Hadoop 클러스터를 만들려면 [**Azure 클래식 포털**](https://manage.windowsazure.com/)에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭한 다음 데이터 서비스 -> HDINSIGHT -> **사용자 지정 만들기**를 선택하여 **클러스터 세부 정보** 창을 불러와야 합니다.
 
 ![작업 영역 만들기][1]
 
@@ -68,7 +68,7 @@
 
 RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 Azure에서 Hadoop 클러스터에 대한 원격 액세스를 설정해야 합니다.
 
-1. [**Azure 관리 포털**](https://manage.windowsazure.com/)에 로그인하여 왼쪽에서 **HDInsight**를 선택하고 클러스터 목록에서 Hadoop 클러스터를 선택한 후 **구성** 탭을 클릭하고 페이지 아래쪽에서 **원격 사용** 아이콘을 클릭합니다.
+1. [**Azure 클래식 포털**](https://manage.windowsazure.com/)에 로그인하여 왼쪽에서 **HDInsight**를 선택하고 클러스터 목록에서 Hadoop 클러스터를 선택한 후 **구성** 탭을 클릭하고 페이지 아래쪽에서 **원격 사용** 아이콘을 클릭합니다.
 	
 	![작업 영역 만들기][7]
 
@@ -102,4 +102,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

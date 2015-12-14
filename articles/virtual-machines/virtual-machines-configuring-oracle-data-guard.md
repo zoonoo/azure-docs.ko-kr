@@ -31,7 +31,7 @@ Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 �
 
 - Windows Server에서 Oracle Enterprise Edition 이미지를 제공하는 동일한 플랫폼을 사용하여 Azure에서 두 VM(가상 컴퓨터)을 만들었습니다. 자세한 내용은 [Azure에서 Oracle 데이터베이스 12c 가상 컴퓨터 만들기](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) 및 [Azure 가상 컴퓨터](http://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 하려면 [동일한 클라우드 서비스](virtual-machines-load-balance.md) 및 동일한 [가상 네트워크](azure.microsoft.com/documentation/services/virtual-network/)에 가상 컴퓨터가 있어야 합니다. 또한 Azure이 개별 장애 도메인 및 업그레이드 도메인에 VM을 배치할 수 있도록 동일한 [가용성 집합](virtual-machines-manage-availability.md)에 VM을 배치하는 것이 좋습니다. Oracle Data Guard는 Oracle Database Enterprise Edition으로만 사용할 수 있습니다. 각 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다. 플랫폼에서 제공되는 VM 크기에 대한 최신 정보는 [Azure용 가상 컴퓨터 크기](http://msdn.microsoft.com/library/dn197896.aspx)를 참조하세요. VM에 대한 추가 디스크 볼륨이 필요한 경우 추가 디스크를 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)을 참조하세요.
 
-- Azure 포털에서 기본 VM은 “Machine1”, 대기 VM은 “Machine2”로 가상 컴퓨터 이름을 설정했습니다.
+- Azure 클래식 포털에서 기본 VM은 “Machine1”, 대기 VM은 “Machine2”로 가상 컴퓨터 이름을 설정했습니다.
 
 - `C:\OracleDatabase\product\11.2.0\dbhome_1\database`와(과) 같이 기본 및 대기 가상 컴퓨터에서 동일한 Oracle 루트 설치 경로를 가리키도록 **ORACLE\_HOME** 환경 변수를 설정했습니다.
 
@@ -313,7 +313,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 ##실제 대기 데이터베이스 만들기
 이 섹션에서는 실제 대기 데이터베이스를 준비하기 위해 Machine2에서 수행해야 하는 단계에 초점을 맞춥니다.
 
-먼저, Azure 포털을 통해 Machine2에 원격 데스크톱을 연결해야 합니다.
+먼저, Azure 클래식 포털을 통해 Machine2에 원격 데스크톱을 연결해야 합니다.
 
 그런 다음 대기 서버(Machine2)에서 C:\\<YourLocalFolder>\\TEST와 같이 대기 데이터베이스에 필요한 모든 폴더를 만듭니다. 이 자습서를 수행하는 동안 controlfile, datafiles, redologfiles, udump, bdump 및 cdump 파일과 같이 필요한 모든 파일을 유지하기 위해 해당 폴더 구조와 Machine1의 폴더 구조가 일치해야 합니다. 또한 Machine2에서 ORACLE\_HOME 및 ORACLE\_BASE 환경 변수를 정의합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 이를 환경 변수로 정의합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. **시스템 변수**에서 **새로 만들기** 단추를 클릭하여 환경 변수를 설정합니다. 환경 변수를 설정한 후 변경 내용을 보기 위해 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 열어야 합니다.
 
@@ -625,4 +625,4 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

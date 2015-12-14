@@ -134,7 +134,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 6. **Submit**를 클릭합니다. 가져오기가 성공적으로 수행되었다는 메시지가 표시됩니다.
 
-8. 이러한 모든 단계를 완료하면 [Azure Preview 포털][mgmtportal]의 웹앱 블레이드에서 사이트를 다시 시작합니다.
+8. 모든 단계를 완료하면, [Azure 포털][mgmtportal]의 해당 웹앱 블레이드에서 사이트를 다시 시작합니다.
 
 사이트를 가져온 후에 다음 단계를 수행하여 가져오기 파일에 들어 있지 않은 설정을 사용하도록 구성해야 할 수 있습니다.
 
@@ -161,7 +161,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 4. 새 웹 앱을 Azure 포털에서 만들고 WordPress 백업을 게시 합니다.
 
-	1. **새로 만들기** -> **웹 + 모바일** -> **Azure 마켓플레이스** -> **웹앱** -> **웹앱 + SQL**(또는 **웹앱 + MySQL**) -> **만들기**를 사용하여 [Azure Preview 포털][mgmtportal]에서 데이터베이스가 있는 새 웹앱을 만듭니다. 필요한 모든 설정을 구성하여 빈 웹 앱을 만듭니다.
+	1. 데이터베이스를 사용하여 [Azure 포털][mgmtportal]에서 새 웹앱을 만들려면 **새로 만들기**->**웹+모바일**->**Azure 마켓플레이스**->**웹앱**->**웹앱+SQL**(또는 **웹앱+MySQL**)->**만들기**를 차례로 클릭합니다. 필요한 모든 설정을 구성하여 빈 웹 앱을 만듭니다.
 
 	2. WordPress 백업에서 **wp-config.php** 파일을 찾아 편집기에서 엽니다. 다음 항목을 새 MySQL 데이터베이스에 대한 정보로 바꿉니다.
 
@@ -236,7 +236,6 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 포털에서 미리 보기 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -283,4 +282,4 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->
