@@ -72,9 +72,12 @@ ATOM pub의 확장 기능으로, 각 항목이 결과 집합의 한 행을 나�
 > [AZURE.TIP]문서가 보이지 않으면 **다른 버전** 드롭다운을 클릭하고 다른 버전을 선택하세요.
 
 ### EDM - 항목 데이터 모델
-- 개요: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- 미리 보기: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- 데이터 유형: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- 개요: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
+[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- 미리 보기: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
+[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- 데이터 유형: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink)
+[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 다음은 클라이언트가 OData 문(콘텐츠 공급자의 웹 서비스 호출)을 입력하고 결과/데이터를 받는 순차적 흐름을 자세히 보여 줍니다.
 
@@ -298,4 +301,4 @@ CSDL의 예는 다음과 같습니다. (아래의 예제 CSDL을 복사하여 XM
 - 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 - Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1203_2015--->

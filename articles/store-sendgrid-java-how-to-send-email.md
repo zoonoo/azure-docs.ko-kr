@@ -82,7 +82,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. [방법: 전자 메일 만들기](#bkmk_HowToCreateEmail) 섹션에 나와 있습니다.
-5.  *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][방법: 전자 메일 보내기] 섹션에 나와 있습니다.
+5.  *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기](방법: 전자 메일 보내기) 섹션에 나와 있습니다.
 
 ## 방법: 전자 메일 만들기
 
@@ -205,4 +205,4 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   [트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
   [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

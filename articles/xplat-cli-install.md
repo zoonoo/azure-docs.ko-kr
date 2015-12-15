@@ -69,7 +69,7 @@ Node.js가 시스템에 이미 설치된 경우 다음 명령을 사용하여 Az
 
 Ubuntu 12.04와 같은 기존 배포 중 일부는 node.js의 현재 이진 배포를 설치해야 합니다. 다음 코드는 **curl**을 설치 및 사용하여 이 작업을 수행하는 방법을 보여줍니다.
 
->[AZURE.NOTE][여기](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager)에 있는 명령은 여기에 나와 있는 Joyent 설치 지침에서 가져온 것입니다. 하지만 **sudo**를 파이프 대상으로 사용하는 경우 항상 설치하는 스크립트를 확인하고 **sudo**를 통해 실행하기 전에 원하는 것을 정확하게 수행하는지 확인해야 합니다. 성능이 좋으면 그만큼 책임도 따릅니다.
+>[AZURE.NOTE] [여기](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager)에 있는 명령은 여기에 나와 있는 Joyent 설치 지침에서 가져온 것입니다. 하지만 **sudo**를 파이프 대상으로 사용하는 경우 항상 설치하는 스크립트를 확인하고 **sudo**를 통해 실행하기 전에 원하는 것을 정확하게 수행하는지 확인해야 합니다. 성능이 좋으면 그만큼 책임도 따릅니다.
 
 	sudo apt-get install curl
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -156,4 +156,4 @@ Azure CLI가 설치되었으면 명령줄 사용자 인터페이스(Bash, 터미
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
