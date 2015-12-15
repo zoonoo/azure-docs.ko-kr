@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication 시작
@@ -25,13 +25,13 @@
 클라우드에서 다단계 인증을 사용하기로 결정했으므로 작업을 진행해 보겠습니다. Office 365용 Multi-Factor Authentication 또는 Azure 관리자를 위한 Multi-Factor Authentication을 사용하는 경우 3단계로 건너뛸 수 있습니다. 또한 이 문서에서는 다음 내용을 다룹니다.
 
 
-1. **Azure 구독에 등록**
+1. [Azure 구독에 등록](https://azure.microsoft.com/pricing/free-trial/)
 	- 아직 Azure 구독이 없는 경우 등록해야 합니다. Azure MFA를 시작하고 사용 방법을 간단히 알아보려면 평가판 구독을 사용할 수 있습니다.
-2. **Multi-Factor Auth 공급자 만들기 또는 Azure AD Premium 또는 Enterprise Mobility Suite 라이선스를 사용자에게 할당**
+2. [Multi-Factor Auth 공급자 만들기](#creating-an-azure-multi-factor-auth-provider) 또는 [Azure AD Premium 또는 Enterprise Mobility Suite 라이선스를 사용자에게 할당](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users)
 	- Azure Multi-Factor Auth Provider를 만든 후 디렉터리에 할당하거나 Azure AD Premium 또는 EMS 사용자에게 라이선스를 할당해야 합니다. Azure Multi Factor Authentication은 Azure Active Directory Premium에 포함되어 있으므로 결과적으로는 Enterprise Mobility Suite에도 포함되어 있는 것입니다. Azure AD Premium 또는 EMS가 있고, Multi-Factor Auth 공급자를 만들 필요가 없으며 Azure AD Premium 또는 EMS 사용자에 대해 MFA를 사용하도록 설정하면 될 경우 Azure AD Premium 또는 EMS 라이선스를 해당 사용자에게 할당하면 됩니다. 그러면 관리자가 관리 포털을 통해 사용자에게 MFA를 할당할 수 있습니다. 사용자에게 라이선스를 할당하는 방법은 아래 섹션을 참조하세요.
-3. **사용자를 위해 다단계 인증 켜기** 
+3. [사용자를 위해 다단계 인증 켜기](#turn-on-multi-factor-authentication-for-users)
 	- Office 365 또는 Azure 포털을 통해 사용자에게 Azure MFA를 사용하도록 설정합니다. 이 작업을 수행하는 방법에 자세한 내용은 아래 섹션을 참조하세요.
-4. **최종 사용자에게 MFA에 대해 알리는 메일 보내기**
+4. [최종 사용자에게 MFA에 대해 알리는 메일 보내기](#send-email-to-end-users)
 	- 사용자의 계정에 대해 다단계 인증이 설정되어 있으면 이 사실을 알리는 메일을 보내는 것이 좋습니다. 이 사용자는 미리 알고 있는 상태에서 다음번에 로그인할 때 이 프로세스를 완료하라는 메시지가 표시되므로 당황하지 않을 수 있습니다. 메일 템플릿의 예는 아래 섹션을 참조하세요.
 
 
@@ -68,7 +68,7 @@
 
 Azure AD Premium 또는 Enterprise Mobility Suite가 있으면 Multi-Factor Auth 공급자를 만들 필요가 없습니다. 사용자에게 라이선스를 할당하기만 하면 사용자에 대한 MFA를 켤 수 있습니다.
 
-### Azure AD Premium 또는 Enterprise Mobilitiy Suite 라이선스를 할당하려면
+### Azure AD Premium 또는 엔터프라이즈 이동성 제품군 라이선스를 할당하려면
 --------------------------------------------------------------------------------
 <ol>
 
@@ -156,4 +156,4 @@ Windows PowerShell을 사용하여 사용자의 상태를 변경하려면 다음
 ## 다음 단계
 클라우드에서 다단계 인증을 설정했으므로 [Azure Multi-Factor Authentication 구성](multi-factor-authentication-whats-next.md)으로 이동하여 다음에 수행할 작업을 계속 진행할 수 있습니다. 여기에서 보고, 사기 경고, 음성 메시지 사용자 지정 및 Azure Multi-Factor Authentication에서 제공해야 하는 모든 기능에 대해 알아볼 수 있습니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 첫 번째 API 관리
@@ -61,7 +61,7 @@ Azure API 관리를 통해 원하는 백 엔드를 사용하고 해당 백 엔�
 
 >[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][]을 참조하세요.
 
-API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 것입니다. [Azure 포털][]에 로그인하고 **새로 만들기**, **앱 서비스**, **API 관리**, **만들기**를 클릭합니다.
+API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 것입니다. [Azure 클래식 포털][]에 로그인하고 **새로 만들기**, **앱 서비스**, **API 관리**, **만들기**를 클릭합니다.
 
 ![API 관리 새 인스턴스][api-management-create-instance-menu]
 
@@ -95,7 +95,7 @@ API를 만들고 작업을 수동으로 추가하거나 API를 가져올 수 있
 
 >[AZURE.NOTE]API를 만들고 작업을 수동으로 추가하는 방법에 대해서는 [API를 만드는 방법](api-management-howto-create-apis.md) 및 [API에 작업을 추가하는 방법](api-management-howto-add-operations.md)을 참조하세요.
 
-API는 Azure 포털을 통해 액세스할 수 있는 게시자 포털에서 구성됩니다. 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다.
+API는 Azure 클래식 포털을 통해 액세스할 수 있는 게시자 포털에서 구성됩니다. 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -206,7 +206,7 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [고급 API 구성 시작]: api-management-get-started-advanced.md
 [API 관리 가격]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Azure 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -243,4 +243,4 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

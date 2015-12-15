@@ -32,7 +32,7 @@ Baidu 클라우드 푸시는 모바일 장치로 푸시 알림을 보내는 데 
 + [모바일 서비스 Android SDK]
 + [Baidu 푸시 Android SDK]
 
->[AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)을 참조하십시오.
+>[AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)을 참조하세요.
 
 
 ##Baidu 계정 만들기
@@ -141,7 +141,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
 ##알림 허브 구성
 
-1. [Azure 포털]에 로그인한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
+1. [Azure 클래식 포털]에 로그인한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
 2. **앱 서비스**, **서비스 버스**, **알림 허브** 및 **빠른 생성**을 차례로 클릭합니다.
 
@@ -264,7 +264,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	**API\_KEY** 값을 앞에서 Baidu 클라우드 프로젝트에서 검색한 값으로 설정하고, **NotificationHubName**을 Azure 포털의 알림 허브 이름으로 설정하고, **NotificationHubConnectionString**을 Azure 포털의 DefaultListenSharedAccessSignature로 설정합니다.
+	**API\_KEY** 값을 앞에서 Baidu 클라우드 프로젝트에서 검색한 값으로 설정하고, **NotificationHubName**을 Azure 클래식 포털의 알림 허브 이름으로 설정하고, **NotificationHubConnectionString**을 Azure 클래식 포털의 DefaultListenSharedAccessSignature로 설정합니다.
 
 11. **DemoApplication.java**라는 새 클래스를 추가하고 여기에 다음 코드를 추가합니다.
 
@@ -399,7 +399,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 ##앱에 알림 보내기
 
 
-아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
+아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 클래식 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -459,7 +459,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
 앱이 Baidu 푸시 알림 서비스에서 'userId' 및 'channelId'를 검색하고 알림 허브에 등록합니다.
 
-테스트 알림을 보내려면 포털의 디버그 탭을 사용할 수 있습니다. Visual Studio에 대해 .NET 콘솔 응용 프로그램을 빌드한 경우 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 응용 프로그램은 장치 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
+테스트 알림을 보내려면 Azure 클래식 포털의 디버그 탭을 사용할 수 있습니다. Visual Studio에 대해 .NET 콘솔 응용 프로그램을 빌드한 경우 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 응용 프로그램은 장치 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
 
 
 <!-- Images. -->
@@ -500,7 +500,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 <!-- URLs. -->
 [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu 푸시 Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[Azure 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

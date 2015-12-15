@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="12/04/2015"
 	ms.author="tdykstra"/>
 
 # CORS를 사용하여 JavaScript에서 API 앱 사용
@@ -26,19 +26,23 @@
 
 ![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
  
-이 자습서는 Azure 앱 서비스에서 API 앱으로 작업하는 방법을 보여 주는 자습서 시리즈의 두 번째 자습서입니다. 시리즈에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 ASP.NET 시작](app-service-api-dotnet-get-started.md)을 참조하세요.
+이 자습서는 Azure 앱 서비스에서 API 앱으로 작업에 대해 보여 주는 자습서 시리즈의 두 번째 자습서입니다. 이 시리즈의 처음으로 이동하려면 페이지 맨 위에 있는 **항목** 드롭다운 목록에서 첫 번째 항목을 선택합니다.
 
-## CORS 소개
+## Azure 앱 서비스에서 CORS 지원
 
 보안상의 이유로 브라우저의 기본 동작에서는 JavaScript가 해당 JavaScript와 함께 제공되는 도메인 이외의 다른 도메인을 호출하는 것을 방지합니다. 예를 들어 contoso.com 웹 페이지에서는 contoso.com API 끝점을 호출할 수 있지만 fabrikam.com 끝점을 호출할 수는 없습니다. CORS(원본 간 리소스 공유)는 이러한 도메인 간 API 호출이 필요한 시나리오를 지원하도록 설계된 인터넷 프로토콜입니다. Azure 앱 서비스에서 이러한 시나리오의 예를 들면 JavaScript 클라이언트가 웹앱에서 실행되는 동안 API는 API 앱에서 실행되는 경우입니다.
 
-Web API 프로젝트에서는 CORS NuGet 패키지를 설치하여 API가 JavaScript 호출을 허용할 도메인을 코드에서 지정할 수 있습니다. 또는 Azure 앱 서비스에 기본 제공되는 CORS 기능을 사용하여 API 앱에서 호출을 허용할 도메인을 지정할 수 있습니다. 이 자습서의 전반부에서는 API 앱 서비스에서 지원하는 모든 언어에 대해 작동하는 Azure 기능을 사용하는 방법을 보여 줍니다. 선택 사항인 후반부에서는 ASP.NET Web API와 함께 작동하는 NuGet 패키지 메서드를 보여 줍니다.
+Azure 앱 서비스는 API 앱을 호출할 수 있는 도메인을 구성하는 간편한 방법을 제공하고 CORS 기능은 API 앱 서비스가 지원하는 모든 언어(예: Java 및 Node.js)에 대해 동일하게 작동합니다.
+
+## 이 자습서를 진행하는 방법
+
+이 자습서는 [API 앱 및 ASP.NET 시작 시리즈의 첫 번째 자습서](app-service-api-dotnet-get-started.md)에서 다운로드하여 만든 API 앱에 대한 응용 프로그램 예제에서 작동합니다. Java 또는 Node.js로 작업하려는 경우 모든 API 앱에 적용되는 일반적인 지침은 아래 [CORS 구성 섹션](#corsconfig)을 참조하세요.
 
 ## ContactsList.Angular 샘플 프로젝트
 
-이 자습서에서는 이 시리즈의 첫 번째 자습서에서 다운로드한 샘플 프로젝트 및 첫 번째 자습서에서 만든 Azure 리소스(API 앱 및 웹앱)를 사용합니다.
+[ContactsList 응용 프로그램 예제](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list)에서 ContactsList.Angular 프로젝트는 ContactsList.API Web API 프로젝트의 간단한 AngularJS 클라이언트입니다.
 
-ContactsList.Angular 프로젝트는 ContactsList.API Web API 프로젝트의 간단한 AngularJS 클라이언트입니다. 이 API를 호출하는 AngularJS JavaScript 코드는 ContactsList.Angular 프로젝트의 *index.html* 파일에 있습니다. 이 코드는 아래와 같이 함수를 정의하고 이를 `$scope` 개체에 추가합니다. 여기서 API의 Get 메서드는 `$scope.refresh()`로 정의됩니다.
+이 API를 호출하는 AngularJS JavaScript 코드는 ContactsList.Angular 프로젝트의 *index.html* 파일에 있습니다. 이 코드는 아래와 같이 함수를 정의하고 이를 `$scope` 개체에 추가합니다. 여기서 API의 Get 메서드는 `$scope.refresh()`로 정의됩니다.
 
 		angular.module('myApp', []).controller('contactListCtrl', function ($scope, $http) {
 		    $scope.baseurl = 'http://localhost:51864';
@@ -64,7 +68,7 @@ ContactsList.Angular 프로젝트는 ContactsList.API Web API 프로젝트의 �
 		    $scope.refresh();
 		});
 
-이 코드는 페이지가 로드(위에 표시된 코드 조각이 완료)되고 UI의 **Refresh** 단추에 연결되면 $scope.refresh() 메서드를 호출합니다.
+이 코드는 페이지가 로드(위에 표시된 코드 조각의 끝부분)되고 UI의 **새로 고침** 단추에 연결되면 $scope.refresh() 메서드를 호출합니다.
 
 		<th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
 
@@ -95,7 +99,7 @@ ContactsList.Angular 프로젝트는 ContactsList.API Web API 프로젝트의 �
 
 ### 웹앱에 ContactsList.Angular 프로젝트 배포
 
-AngularJS 프로젝트를 배포할 새 웹앱을 만들 수 있지만 이 자습서에서는 이전에 만든 웹앱에 배포합니다. 웹앱 이름에는 원래 ASP.NET MVC 프로젝트를 배포했다는 사실이 반영될 수 있지만 이 배치 후에는 AngularJS 코드가 실행됩니다.
+AngularJS 프로젝트를 배포할 새 웹앱을 만들 수 있지만 이 자습서에서는 이전 자습서에서 만든 동일한 웹앱에 배포합니다. 웹앱 이름에는 원래 ASP.NET MVC 프로젝트를 배포했다는 사실이 반영될 수 있지만 이 배치 후에는 AngularJS 코드가 실행됩니다.
 
 8. **솔루션 탐색기**에서 ContactsList.Angular 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
@@ -107,7 +111,7 @@ AngularJS 프로젝트를 배포할 새 웹앱을 만들 수 있지만 이 자�
 
 5. **보기**를 기본값인 **리소스 그룹**으로 설정한 상태에서 이 자습서 시리즈에 대해 만든 리소스 그룹을 확장합니다.
 
-7. 첫 번째 자습서에서 만든 웹앱(API 앱이 아님)을 선택하고 **확인**을 클릭합니다.
+7. 첫 번째 자습서에서 만든 웹앱을 선택하고(API 앱을 선택하지 않도록 해야 함) **확인**을 클릭합니다.
 
 8. **설정** 탭을 클릭합니다.
 
@@ -123,17 +127,17 @@ AngularJS 프로젝트를 배포할 새 웹앱을 만들 수 있지만 이 자�
 
 	![](./media/app-service-api-cors-consume-javascript/corserror.png)
 
-## Azure에서 대상 API 앱에 대한 CORS 구성
+## <a id="corsconfig"></a> Azure에서 대상 API 앱에 대한 CORS 구성
 
 8. 다른 브라우저 창에서 [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
-9. 첫 번째 자습서에서 만든 API 앱의 API 앱 블레이드로 이동합니다.
+9. **찾아보기 > API 앱**을 클릭한 후 대상 API 앱을 선택합니다. 이 자습서에서는 ContactsList.API 프로젝트에 대한 첫 번째 자습서에서 만든 API 앱입니다.
 
-10. **설정**을 클릭합니다.
+10. **API 앱** 블레이드에서 **설정**을 클릭합니다.
 
 11. **API** 섹션을 찾은 다음 **CORS**를 클릭합니다.
 
-12. 첫 번째 자습서에서 ASP.NET MVC 프런트 엔드에 대해 만든 웹앱의 URL을 텍스트 상자에 입력합니다. 예를 들어 웹앱 이름을 ContactsListMVC로 지정한 경우 "http://contactslistmvc.azurewebsites.net"을 입력합니다.
+12. 텍스트 상자에서 호출을 허용하려는 URL을 입력합니다. 예를 들어 ContactsListMVC라는 웹앱에 JavaScript 응용 프로그램을 배포한 경우 "http://contactslistmvc.azurewebsites.net"를 입력합니다.
 
 	URL을 입력하는 대신 별표(*)를 입력하여 모든 원본 도메인이 허용되도록 지정할 수 있습니다.
 
@@ -141,35 +145,34 @@ AngularJS 프로젝트를 배포할 새 웹앱을 만들 수 있지만 이 자�
 
 	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-14. Azure 웹앱에서 실행되는 AngularJS 클라이언트가 표시된 브라우저 창으로 돌아가 페이지를 새로 고치거나 **새로 고침** 단추를 클릭합니다.
+14. AngularJS 클라이언트가 표시된 브라우저 창으로 이동하여 페이지를 새로 고치거나 **새로 고침** 단추를 클릭합니다.
 
 	이제 Azure API 앱의 파일 시스템에 저장된 연락처가 페이지에 표시됩니다.
 
 	![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
 
-## Web API 코드에서 대상 API 앱에 대한 CORS 구성
+### Azure 리소스 관리자 도구에서 CORS
 
-Azure 앱 서비스 CORS 지원을 사용하지 않으려는 경우 ASP.NET Web API 코드에서 CORS를 사용하도록 설정할 수 있습니다. 이 프로세스는 [ASP.NET Web API 2에서 원본 간 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)에 자세히 설명되어 있습니다. ASP.NET Web API를 사용하여 빌드된 API 앱의 경우 프로세스가 정확히 동일하지만 여기에 요약되어 있습니다.
+Azure PowerShell, CLI 또는 [리소스 탐색기](https://resources.azure.com/) 등의 Azure 리소스 관리자 도구를 사용하여 API 앱에 대한 CORS를 구성할 수도 있습니다.
 
-이 섹션에서는 Azure 앱 서비스 CORS 지원을 사용하지 않도록 설정한 다음 Web API CORS 지원을 사용하도록 설정합니다. Azure CORS 지원을 사용하지 않도록 설정하는 것은 Web API 지원을 사용하도록 설정하기 전의 선택적 단계가 아닙니다. 두 방법을 함께 사용하는 경우 Azure CORS가 우선적으로 적용되며 Web API CORS는 아무 효과가 없습니다. 예를 들어 Azure에서 하나의 원본 도메인을 사용하도록 설정하고 Web API 코드에서 모든 원본 도메인을 사용하도록 설정한 경우 Azure API 앱은 Azure에서 지정한 도메인의 호출만 허용합니다.
+Microsoft.Web/sites/config 리소스 종류에서 <site name>/web 리소스에 대해 `cors` 속성을 설정합니다. 예를 들어, **리소스 탐색기**에서 **구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Web > 사이트 > {사이트} > 구성 > 웹**으로 이동하면 cors 속성이 표시됩니다.
 
-### Azure CORS 지원 사용 안 함
+		"cors": {
+		    "allowedOrigins": [
+		        "contactslistmvc.azurewebsites.net"
+		    ]
+		}
 
-1. Azure CORS 지원을 사용하지 않도록 설정하려면 Azure 포털로 돌아가 CORS 블레이드에 입력한 URL을 지우고 **저장**을 클릭합니다.
- 
-3.  AngularJS 앱을 배포한 웹앱의 URL로 다시 이동하여 페이지를 새로 고치거나 **새로 고침** 단추를 클릭합니다.
+### 앱 서비스 CORS와 Web API CORS
 
-	"연락처 로드 중 오류가 발생하였습니다."가 다시 표시됩니다.
+ASP.NET Web API 프로젝트의 경우 CORS를 코드로 쉽게 구성할 수 있으며 이에 대한 내용은 다음 섹션에 설명됩니다. 그러나 앱 서비스 CORS와 Web API CORS를 모두 함께 사용하는 경우 앱 서비스 CORS가 우선하며 Web API CORS는 적용되지 않습니다. 예를 들어 앱 서비스에서 하나의 원본 도메인을 사용하도록 설정하고 Web API 코드에서 모든 원본 도메인을 사용하도록 설정한 경우 Azure API 앱은 Azure에서 지정한 도메인의 호출만 허용합니다.
 
-	![](./media/app-service-api-cors-consume-javascript/corserror.png)
 
-### Web API CORS 지원 사용
+## Web API 코드에서 CORS를 구성하는 방법
 
-Web API에 대한 CORS 기능은 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet 패키지에서 제공됩니다. 이 패키지는 다운로드한 샘플 응용 프로그램에 이미 설치되어 있으므로 CORS를 사용하려면 일부 코드의 주석을 제거하기만 하면 됩니다.
+Web API 프로젝트에서는 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet 패키지를 설치하여 API가 JavaScript 호출을 허용할 도메인을 코드에서 지정할 수 있습니다. 이 프로세스는 [ASP.NET Web API 2에서 원본 간 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)에 자세히 설명되어 있습니다. ASP.NET Web API를 사용하여 빌드된 API 앱의 경우 프로세스가 정확히 동일하지만 여기에 요약되어 있습니다.
 
-1. ContactsList.API 프로젝트에서 *App\_Start/WebApiConfig.cs* 파일을 엽니다. **WebApiConfig**의 **Register** 메서드에서 config.EnableCors 코드 줄의 주석을 제거합니다. 
-
-	파일이 업데이트되면 코드가 다음과 같이 표시됩니다.
+1. Web API 프로젝트에서 다음 예제와 같이 **WebApiConfig**의 **Register** 메서드에 `config.EnableCors()` 코드 줄을 포함합니다. 
 
 		public static class WebApiConfig
 	    {
@@ -177,7 +180,7 @@ Web API에 대한 CORS 기능은 [Microsoft.AspNet.WebApi.Cors](https://www.nuge
 	        {
 	            // Web API configuration and services
 	            
-		        // Uncomment the following line to control CORS by using Web API code
+		        // The following line enables you to control CORS by using Web API code
 				config.EnableCors();
 	
 	            // Web API routes
@@ -191,7 +194,7 @@ Web API에 대한 CORS 기능은 [Microsoft.AspNet.WebApi.Cors](https://www.nuge
 	        }
 	    }
 
-1. *Controllers/ContactsController.cs* 파일을 열고 `ContactsController` 클래스에 `EnableCors` 특성을 추가하는 줄의 주석을 제거합니다.
+1. Web API 컨트롤러에서 `EnableCors` 특성을 `ContactsController` 클래스 또는 개별 작업 메서드에 추가합니다. 다음 예제에서 CORS 지원은 전체 컨트롤러에 적용됩니다.
 
 		namespace ContactList.Controllers
 		{
@@ -199,40 +202,10 @@ Web API에 대한 CORS 기능은 [Microsoft.AspNet.WebApi.Cors](https://www.nuge
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]
 		    public class ContactsController : ApiController
  
-	원하는 경우 전체 컨트롤러 대신 개별 동작 메서드에 이 특성을 적용할 수 있습니다.
-
-	> **참고**: `EnableCors` 특성에서 모든 매개 변수에 와일드카드를 사용한 것은 데모만을 위한 것이며, 모든 원본 및 모든 HTTP 요청에 API를 개방합니다. 이 특성을 사용할 때 주의하세요.
-
-### Azure에 API 배포 및 프런트 엔드 다시 테스트
-
-8. **솔루션 탐색기**에서 ContactsList.API 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
-
-	이전에 만든 API 앱의 게시 프로필에 대한 **미리 보기** 단계에서 **웹 게시** 마법사가 자동으로 열립니다. 이는 이 프로젝트를 배포한 마지막 대상이기 때문입니다.
-
-3.  **게시**를 클릭합니다.
-
-	![](./media/app-service-api-cors-consume-javascript/pubapi.png)
-
-	배포가 완료되면 API 앱 URL로 브라우저 창이 열리고 "웹앱을 만들었습니다." 페이지가 표시됩니다.
-
-3.  AngularJS 앱을 배포한 웹앱의 URL로 다시 이동하여 페이지를 새로 고치거나 **새로 고침** 단추를 클릭합니다.
-
-	페이지가 다시 로드됩니다.
-
-	![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
-
-## Azure CORS 지원 다시 사용
-
-다음 자습서에서 기본 제공 Azure 인증 서비스를 사용하려면 Web API CORS 대신 Azure CORS를 사용해야 합니다.
- 
-1. Azure CORS 지원을 사용하도록 설정하려면 API 앱에 대한 Azure 포털 CORS 블레이드로 돌아가 웹앱의 URL을 다시 입력합니다.
-
-13. **Save**를 클릭합니다.
-
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+	> **참고**: `EnableCors` 특성에서 모든 매개 변수에 와일드카드를 사용한 것은 데모만을 위한 것이며, 모든 원본 및 모든 HTTP 요청까지 API를 개방합니다. 이 특성을 사용할 때 주의하세요.
 
 ## 다음 단계 
 
-이 자습서에서는 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있도록 CORS 지원을 사용하도록 설정하는 두 가지 방법을 살펴보았습니다. 다음 자습서에서는 [인증된 사용자만 액세스할 수 있도록 API 앱에 대한 액세스를 제한](app-service-api-dotnet-user-principal-auth.md)하는 방법을 알아봅니다.
+이 자습서에서는 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있도록 앱 서비스 CORS 지원을 사용하도록 설정하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 문서에서는 [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

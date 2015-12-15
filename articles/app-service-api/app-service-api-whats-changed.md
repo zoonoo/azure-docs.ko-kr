@@ -120,9 +120,9 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 2016년 초에 특히 새 API 앱 모델과의 원활한 통합 기능이 논리 앱 디자이너에 추가될 예정입니다. 즉, 논리 앱에 기본 제공되는 HTTP 커넥터는 모든 HTTP 끝점을 호출할 수 있으며, 기본적으로 앱 서비스 인증 서비스에서도 지원되는 서비스 주체 인증을 지원합니다. 논리 앱에서 앱 서비스 호스트되는 API를 사용하는 방법에 대한 자세한 내용은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)을 참조하세요.
 
 ## 다음 단계
-자세한 내용은 [API 앱 설명서 섹션](https://azure.microsoft.com/documentation/services/app-service/api/)의 문서를 참조하세요. 이러한 문서는 API 앱의 새 모델을 반영하도록 업데이트되었습니다. 또한 포럼에서 마이그레이션에 대한 추가 지침 또는 세부 정보를 확인할 수 있습니다.
+자세한 내용은 [API 앱 설명서 섹션](https://azure.microsoft.com/documentation/services/app-service/api/)의 문서를 참조하세요. API 앱에 대한 새 모델을 반영하도록 업데이트되었습니다. 또한 포럼에서 마이그레이션에 대한 추가 지침 또는 세부 정보를 확인할 수 있습니다.
 
 - [MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)
 - [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

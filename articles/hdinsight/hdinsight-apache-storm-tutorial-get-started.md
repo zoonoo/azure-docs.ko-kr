@@ -15,19 +15,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 
 # Apache Storm 자습서: Storm Starter 샘플을 사용하여 HDInsight에서 빅 데이터 분석 시작
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Microsoft Azure HDInsight의 Storm을 사용하여 실시간 빅 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
-
-[AZURE.INCLUDE [포털](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Apache Storm 자습서: Storm Starter 샘플을 사용하여 HDInsight에서 빅 데이터 분석 시작](hdinsight-apache-storm-tutorial-get-started-v1.md)
-
-   
 
 > [AZURE.NOTE]이 문서의 단계는 Windows 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
 
@@ -47,7 +41,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. __클러스터 이름__을 입력한 후 __클러스터 형식__에 대해 __Storm__을 선택합니다. __클러스터 이름__을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. __클러스터 이름__을 입력한 후 __클러스터 형식__에 대해 __Storm__을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 __클러스터 이름__ 옆에 녹색 확인 표시가 나타납니다.
 
 	![클러스터 이름, 클러스터 유형 및 OS 유형](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
@@ -73,7 +67,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	- __기본 컨테이너 선택__: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
 
-	- __위치__: 저장소 계정이 있거나 저장소 계정을 만들 지리적 지역입니다.
+	- __위치__: 저장소 계정이 있거나 저장소 계정을 만들 지리적 하위 지역입니다.
 
 		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
 
@@ -245,4 +239,4 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

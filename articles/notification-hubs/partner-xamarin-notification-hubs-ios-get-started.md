@@ -186,7 +186,7 @@
 ## 알림 보내기
 
 
-아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
+아래 화면과 같이 알림 허브의 디버그 탭을 통해 [Azure 클래식 포털]에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png)
 
@@ -255,7 +255,7 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 
 모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작]을 따른 후 다음을 수행하세요.
 
-1. [Azure 포털]에 로그인하고 모바일 서비스를 선택합니다.
+1. [Azure 클래식 포털]에 로그인하고 모바일 서비스를 선택합니다.
 
 2. 맨 위에 있는 **스케줄러** 탭을 선택합니다.
 
@@ -314,7 +314,7 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [모바일 서비스 시작]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Azure 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
@@ -331,4 +331,4 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

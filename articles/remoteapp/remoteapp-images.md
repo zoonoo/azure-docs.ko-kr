@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure RemoteApp 템플릿 이미지에 있는 항목"
+    pageTitle="Azure RemoteApp 템플릿 이미지에 있는 항목 | Microsoft Azure"
     description="Azure RemoteApp에 포함된 템플릿 이미지에 대해 알아봅니다."
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/02/2015" 
+    ms.date="09/02/2015"
     ms.author="elizapo" />
 
 # Azure RemoteApp 템플릿 이미지에 있는 항목
@@ -25,7 +25,7 @@ Azure RemoteApp 구독에는 다음 세 개의 템플릿 이미지가 포함되�
 - Microsoft Office 2013 Professional Plus(평가판 전용)
 
 > [AZURE.IMPORTANT]Azure RemoteApp 구독은 별도의 구독을 필요로 하는 Office 365 ProPlus 및 프로덕션 환경에서 사용할 수 없는 Office 2013을 제외하고 이미지의 소프트웨어에 대한 액세스 권한을 부여합니다. 이는 템플릿 이미지의 프로그램 또는 응용 프로그램을 사용자와 공유할 수 있다는 것을 의미합니다. 예를 들어 Windows Server 2012 R2 이미지를 사용하는 컬렉션을 만드는 경우 사용자가 RemoteApp을 통해 액세스할 수 있는 System Center Endpoint Protection을 게시할 수 있습니다.
-> 
+>
 > 자세한 내용은 [RemoteApp 라이선스 정보](remoteapp-licensing.md)를 참조하세요. Office 라이선스 정보는 [Azure RemoteApp과 함께 Office 사용](remoteapp-o365.md)을 참조하세요.
 
 각 이미지에 포함된 항목에 대한 내용도 읽어보세요.
@@ -103,6 +103,5 @@ Office 365 ProPlus, Visio Pro 및 Project Pro 라이선스를 별도로 구입�
 - Microsoft Office 언어 교정 도구
 
 > [AZURE.IMPORTANT]**법적 정보:** 이 이미지에는 Microsoft Office 라이선스를 포함하지 않으며 *프로덕션에 사용할 수 없습니다*. Office 2013 Professional Plus 이미지는 평가 용도로만 사용됩니다. 프로덕션에 대해 Azure RemoteApp에서 Office 앱을 사용하려는 경우 Office 365 ProPlus 이미지를 사용해야 합니다. 라이선스 Office에 대한 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md)을 참조하세요.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

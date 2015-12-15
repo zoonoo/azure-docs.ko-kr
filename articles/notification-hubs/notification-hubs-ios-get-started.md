@@ -157,7 +157,7 @@
 ## 알림 보내기
 
 
-아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
+아래 화면과 같이 알림 허브의 디버그 탭을 통해 [Azure 클래식 포털]에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
 
 ![][30]
 
@@ -446,7 +446,7 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 	![][33]
 
-2. Azure 포털에서 테스트 알림을 보낼 수 있습니다. 앱에서 알림을 보내기 위한 코드를 추가한 경우 텍스트 필드 안쪽을 클릭하여 알림 메시지를 입력합니다. 그런 다음 키보드에서 **보내기** 단추 또는 보기에서 **알림 보내기** 단추를 눌러서 알림 메시지를 보냅니다.
+2. [Azure 클래식 포털]에서 테스트 알림을 보낼 수 있습니다. 앱에서 알림을 보내기 위한 코드를 추가한 경우 텍스트 필드 안쪽을 클릭하여 알림 메시지를 입력합니다. 그런 다음 키보드에서 **보내기** 단추 또는 보기에서 **알림 보내기** 단추를 눌러서 알림 메시지를 보냅니다.
 
 	![][34]
 
@@ -487,21 +487,21 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 <!-- URLs. -->
 [모바일 서비스 iOS SDK 버전 1.2.4]: http://aka.ms/kymw2g
-[모바일 서비스 iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[모바일 서비스에서 푸시 알림 시작]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-ios-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-send-breaking-news.md
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

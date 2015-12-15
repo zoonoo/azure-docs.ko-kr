@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/03/2015"  
+	ms.date="12/08/2015"  
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,11 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
+
+> [AZURE.NOTE]Azure 미디어 서비스 계정을 만들려면 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+ 
 Azure 클래식 포털을 통해 Azure 미디어 서비스 계정을 신속하게 만들 수 있습니다. 계정을 사용하여 Azure에서 미디어 콘텐츠를 저장, 암호화, 인코딩, 관리 및 스트리밍할 수 있는 미디어 서비스에 액세스할 수 있습니다. 미디어 서비스 계정을 만들 때 미디어 서비스 계정과 동일한 지역에 관련 저장소 계정도 만들거나 기존 저장소 계정을 사용합니다.
 
 이 문서에서는 빠른 생성 방법을 사용하여 새 미디어 서비스 계정을 만든 후 저장소 계정과 연결하는 방법을 설명합니다.
@@ -35,12 +38,12 @@ Azure 클래식 포털을 통해 Azure 미디어 서비스 계정을 신속하�
 
 -   **미디어 서비스 계정**. 계정을 통해 Azure에서 사용할 수 있는 클라우드 기반 미디어 서비스 집합에 액세스할 수 있습니다. 미디어 서비스 계정은 실제 미디어 콘텐츠를 저장하지 않습니다. 대신, 미디어 콘텐츠 및 미디어 처리 작업에 대한 메타데이터를 계정에 저장합니다. 계정을 만들 때 사용 가능한 미디어 서비스 영역을 선택합니다. 선택한 영역은 계정에 대한 메타데이터 레코드를 저장하는 데이터 센터입니다.
 
-> [AZURE.NOTE]사용 가능한 미디어 서비스(AMS) 지역에는 다음이 포함됩니다. 북유럽, 서유럽, 미국 서부, 미국 동부, 동남 아시아, 동아시아, 일본 서부, 일본 동부 미디어 서비스는 선호도 그룹을 사용하지 않습니다.
->
-> AMS는 이제 다음 데이터 센터에서도 사용 가능합니다. 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 이제 Azure 클래식 포털을 사용하여 [미디어 서비스 계정을 만들고](media-services-create-account.md#create-a-media-services-account-using-quick-create) [여기](https://azure.microsoft.com/documentation/services/media-services/)에서 설명한 다양한 작업을 수행할 수 있습니다. 그러나 라이브 인코딩은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 모든 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
->
->- 브라질 남부: 표준 및 기본 인코딩 예약 단위만 사용 가능
->- 인도 서부, 인도 남부 및 인도 중부: 기본 인코딩 예약 단위만 사용 가능
+	사용 가능한 미디어 서비스(AMS) 지역에는 다음이 포함됩니다. 북유럽, 서유럽, 미국 서부, 미국 동부, 동남 아시아, 동아시아, 일본 서부, 일본 동부 미디어 서비스는 선호도 그룹을 사용하지 않습니다.
+	
+	AMS는 이제 다음 데이터 센터에서도 사용 가능합니다. 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 이제 Azure 클래식 포털을 사용하여 [미디어 서비스 계정을 만들고](media-services-create-account.md#create-a-media-services-account-using-quick-create) [여기](https://azure.microsoft.com/documentation/services/media-services/)에서 설명한 다양한 작업을 수행할 수 있습니다. 그러나 라이브 인코딩은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 모든 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
+	
+	- 브라질 남부: 표준 및 기본 인코딩 예약 단위만 사용 가능
+	- 인도 서부, 인도 남부 및 인도 중부: 기본 인코딩 예약 단위만 사용 가능
 
 
 -   **관련 저장소 계정**. 저장소 계정은 미디어 서비스 계정과 관련된 Azure 저장소 계정입니다. 저장소 계정은 미디어 파일에 대한 Blob 저장소를 제공하며, 미디어 서비스 계정과 동일한 지역에 있어야 합니다. 미디어 서비스 계정을 만들 때 동일한 지역의 기존 저장소 계정을 선택하거나 동일한 지역에 새 저장소 계정을 만들 수 있습니다. 미디어 서비스 계정을 삭제하는 경우 관련 저장소 계정의 Blob은 삭제되지 않습니다.
@@ -103,4 +106,4 @@ Azure 클래식 포털을 통해 Azure 미디어 서비스 계정을 신속하�
 
   [Azure 클래식 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

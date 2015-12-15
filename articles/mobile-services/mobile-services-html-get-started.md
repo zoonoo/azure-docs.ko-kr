@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="11/30/2015"
 	ms.author="glenga"/>
 
 
@@ -90,7 +90,7 @@
 
 1. 압축된 프로젝트 파일을 저장한 위치로 이동하고, 컴퓨터에 파일의 압축을 풀고, **서버** 하위 폴더에서 다음 명령 파일 중 하나를 실행합니다.
 
-	+ **.\\start-iisexpress.ps1**(Windows 컴퓨터)
+	+ **launch-windows**(Windows 컴퓨터)
 	+ **launch-mac.command**(Mac OS X 컴퓨터)
 	+ **launch-linux.sh**(Linux 컴퓨터)
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

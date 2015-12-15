@@ -118,10 +118,7 @@
 	    private static Boolean isVisible = false;
 
 
-	세 개의 자리 표시자를 업데이트해야 합니다.
-	* **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다.
-	* **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다.
-	* **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
+	세 개의 자리 표시자를 업데이트해야 합니다. * **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. * **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 클래식 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. * **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
 
 
 
@@ -295,7 +292,7 @@
 
 
 
-아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
+아래 화면과 같이 알림 허브의 디버그 탭을 통해 [Azure 클래식 포털]에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
 
 ![][30]
 
@@ -350,7 +347,7 @@
 
 3. **MainActivity.java** 파일에서 다음 멤버를 `MainActivity` 클래스 위에 추가합니다.
 
-	허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **대시보드** 탭에서 **연결 문자열 보기**를 클릭하여 [Azure 포털]에서 이 연결 문자열을 복사할 수 있습니다.
+	허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **대시보드** 탭에서 **연결 문자열 보기**를 클릭하여 [Azure 클래식 포털]에서 이 연결 문자열을 복사할 수 있습니다.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -550,12 +547,12 @@
 
 
 <!-- URLs. -->
-[모바일 서비스에서 푸시 알림 시작]: ../mobile-services-javascript-backend-android-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Azure 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-android-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

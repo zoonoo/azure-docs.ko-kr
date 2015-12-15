@@ -24,11 +24,25 @@
 
 API 앱의 속성에서 API 앱에 Swagger 2.0 JSON 메타데이터를 제공하는 끝점을 지정할 수 있습니다. 끝점은 API 앱의 기본 URL 또는 절대 URL에 상대적일 수 있습니다. 절대 URL은 API 앱 외부를 가리킬 수 있습니다.
 
-URL 공개적으로 액세스할 수 있어야 합니다.(사용자 또는 서비스 인증으로 보호되지 않음)
+많은 다운스트림 클라이언트(예: Visual Studio 코드 생성 및 PowerApps "API 추가" 흐름)인 URL은 공개적으로 액세스할 수 있어야 합니다.(사용자 또는 서비스 인증으로 보호되지 않음) 즉, 앱 서비스 인증을 사용하고 자체 앱 내에서 API 정의를 노출하려는 경우 익명 트래픽을 허용하는 인증 옵션을 사용하여 API에 도달해야 합니다. 자세한 내용은 [앱 서비스 API 앱에 대한 인증 및 권한 부여](app-service-api-authentication.md)를 참조하세요.
+
+### 포털 블레이드
 
 [Azure 포털](https://portal.azure.com/)에서 끝점 URL은 **API 정의** 블레이드에서 확인하고 변경할 수 있습니다.
 
 ![](./media/app-service-api-metadata/apidefblade.png)
+
+### Azure 리소스 관리자 속성
+
+Azure PowerShell, CLI 또는 [리소스 탐색기](https://resources.azure.com/) 등의 Azure 리소스 관리자 도구를 사용하여 API 앱에 대한 API 정의 URL을 구성할 수도 있습니다.
+
+Microsoft.Web/sites/config 리소스 형식에서 <site name>/web 리소스에 대해 `apiDefinition` 속성을 설정합니다. 예를 들어, **리소스 탐색기**에서 **구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Web > 사이트 > {사이트} > 구성 > 웹**으로 이동하면 cors 속성이 표시됩니다.
+
+		"apiDefinition": {
+		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
+		}
+
+### 기본값
 
 Visual Studio를 사용하여 API 앱을 만들 때 API 정의 끝점은 API 앱 및 `/swagger/docs/v1`의 기본 URL로 자동으로 설정됩니다. [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet 패키지가 ASP.NET Web API 프로젝트에 대해 동적으로 생성된 Swagger 메타데이터를 사용하기 위해 사용하는 기본 URL입니다.
 
@@ -42,4 +56,4 @@ Visual Studio를 사용하거나 명령줄에서 API 앱에 대한 클라이언�
 
 API 앱을 만들고 배포하며 소비하는 과정을 안내하는 단계별 자습서는 [Azure 앱 서비스에서 API 앱 시작](app-service-api-dotnet-get-started.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

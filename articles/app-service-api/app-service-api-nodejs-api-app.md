@@ -237,7 +237,10 @@ Azure 앱 서비스에서 기본 제공하는 지속적인 업데이트 기능�
 
     ![Postman 연결 Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## 요약
-이제 Node.js를 사용하여 첫 번째 API 앱을 만들고 배포했습니다. 여기에서 데이터베이스 또는 API 앱 인스턴스의 디스크에 데이터를 저장하는 코드를 처리기에 추가할 수 있습니다. 연속 배포를 연결했으므로 코드를 변경하고 Git 리포지토리에 푸시하는 간단한 방법으로 API 앱의 기능을 변경하고 확장할 수 있습니다.
+## 다음 단계
 
-<!---HONumber=AcomDC_1203_2015-->
+이제 Node.js를 사용하여 첫 번째 API 앱을 만들고 배포했습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
+
+이 샘플을 작성하려면 데이터베이스 또는 API 앱 인스턴스의 디스크에 데이터를 저장하는 코드를 처리기에 추가할 수 있습니다. 연속 배포를 연결했으므로 코드를 변경하고 Git 리포지토리에 푸시하는 간단한 방법으로 API 앱의 기능을 변경하고 확장할 수 있습니다.
+
+<!---HONumber=AcomDC_1210_2015-->

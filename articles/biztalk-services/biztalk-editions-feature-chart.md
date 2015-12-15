@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="12/08/2015"
 	ms.author="mandia"/>
 
 
@@ -237,7 +237,10 @@ BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. Bi
 
 #### BizTalk 서비스의 한 단계에서 어떻게 다른 단계로 마이그레이션합니까?
 
-백업을 사용하고 한 단계에서 다른 단계로의 마이그레이션 흐름을 복원합니다. 일부 마이그레이션 경로만 지원됩니다. 지원되는 마이그레이션 경로에 대한 자세한 내용은 [BizTalk 서비스: 백업 및 복원](biztalk-backup-restore.md)을 참조하세요.
+무료 버전은 마이그레이션하거나 다른 계층으로 '확장'할 수 없고 백업 및 다른 계층으로 복원할 수 없습니다. 다른 계층이 필요한 경우 새 계층을 사용하여 새 BizTalk 서비스를 만듭니다. 하이브리드 연결을 비롯한 무료 버전을 사용하여 만든 아티팩트는 새 BizTalk 서비스에서 다시 만들어야 합니다.
+
+나머지 버전의 경우 백업을 사용하고 아티팩트를 마이그레이션하기 위해 한 계층에서 다른 계층으로 복원합니다. 예를 들어 표준 계층에서 아티팩트를 백업한 다음 프리미엄 계층으로 복원합니다. [BizTalk 서비스: 백업 및 복원](biztalk-backup-restore.md)은 지원되는 마이그레이션 경로를 설명하고 백업된 아티팩트를 나열합니다. 하이브리드 연결이 백업되지 않는다는 점에 유의합니다. 백업 및 새 계층으로 복원한 후에 하이브리드 연결을 다시 만듭니다.
+
 
 #### 이 서비스에 BizTalk 어댑터 서비스도 포함되어 있습니까? 소프트웨어를 어떻게 받습니까?
 
@@ -245,7 +248,7 @@ BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. Bi
 
 ## 다음 단계
 
-Azure 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 포털을 사용하여 프로비전](biztalk-provision-services.md)으로 이동하세요. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하세요.
+Azure 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 포털을 사용하여 프로비전](biztalk-provision-services.md)으로 이동하세요. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
 
 ## 추가 리소스
 - [BizTalk 서비스: Azure 포털을 사용하여 프로비전](biztalk-provision-services.md)<br/>
@@ -256,4 +259,4 @@ Azure 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: A
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

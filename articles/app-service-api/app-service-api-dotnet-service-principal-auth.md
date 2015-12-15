@@ -22,21 +22,19 @@
 
 ## 개요
 
-이 자습서에서는 Azure 앱 서비스의 인증 및 권한 부여 기능을 사용하여 API 앱을 보호하는 방법 및 서비스 계정 대신 보호된 API 앱을 사용하는 방법을 보여 줍니다. 서비스 계정을 *서비스 주체*라고도 하며, 이러한 계정을 사용하는 인증을 *서비스 간* 시나리오라고도 합니다. 이 자습서에서는 인증에 Azure Active Directory를 사용하고 .NET 클라이언트에서 API를 사용하여 서비스 간 시나리오에 대해 API 앱을 보호합니다.
+이 자습서에서는 Azure 앱 서비스의 인증 및 권한 부여 기능을 사용하여 API 앱을 보호하는 방법 및 서비스 계정 대신 보호된 API 앱을 사용하는 방법을 보여 줍니다. 자습서에 나와 있는 인증 공급자는 Azure Active Directory이며 클라이언트와 API는 API 앱에서 실행 중인 ASP.NET Web API입니다.
 
-이 자습서에서는 호출하는 클라이언트와 호출된 API 모두에 ASP.NET Web API를 사용하지만 적용된 기술은 Azure 앱 서비스에서 지원되는 다른 언어 및 프레임워크에도 적용됩니다. 여기에 표시된 클라이언트 코드는 서비스 계정에 대한 전달자 토큰을 가져오고 전달하는 표준 Azure Active Directory 코드입니다. 모바일 서비스 Zumo 토큰을 처리하는 데 사용되는 것과 같은 특수한 Azure 전용 코드는 필요 없습니다.
+## Azure 앱 서비스의 인증 및 권한 부여
 
-이 자습서는 Azure 앱 서비스에서 API 앱으로 작업하는 방법을 보여 주는 자습서 시리즈의 네 번째 자습서입니다. 시리즈에 대한 자세한 내용은 첫 번째 자습서인 [Azure 앱 서비스에서 API 앱 및 ASP.NET 시작](app-service-api-dotnet-get-started.md)을 참조하세요. Azure 앱 서비스의 인증 및 권한 부여에 대한 자세한 내용은 시리즈의 이전 자습서인 [Azure 앱 서비스의 API 앱에 대한 사용자 인증](app-service-api-dotnet-user-principal-auth.md)을 참조하세요.
+이 자습서에 사용된 인증 기능에 대한 개요는 시리즈의 이전 자습서인 [Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여](app-service-api-dotnet-get-started.md)을 참조하세요.
 
-## 서비스 간 인증의 다른 옵션
+## 이 자습서를 진행하는 방법
 
-앱 서비스 인증 및 권한 부여를 사용하지 않고 서비스 간 시나리오를 처리하려면(예: 클라이언트 인증서 사용) [다음 단계](#next-steps) 섹션을 참조하세요.
+이 자습서는 [API 앱 및 ASP.NET 시작 시리즈의 첫 번째 자습서](app-service-api-dotnet-get-started.md)에서 다운로드하여 만든 API 앱에 대한 응용 프로그램 예제를 기반으로 작성되었습니다.
 
 ## CompanyUsers.API 샘플 프로젝트
 
-이 자습서에서는 이 시리즈의 [첫 번째 자습서](app-service-api-dotnet-get-started.md)에서 다운로드한 샘플 프로젝트 및 이전 자습서에서 만든 Azure 리소스(API 앱 및 웹앱)를 사용합니다.
-
-CompanyUsers.API 프로젝트는 하드 코드된 연락처 목록을 반환하는 Get 메서드 하나가 포함된 간단한 Web API 프로젝트입니다. 서비스 간 시나리오를 보여 주기 위해 ContactsList.API의 Get 메서드는 CompanyContacts.API Get 메서드를 호출하고 연락처를 추가하여 자체 데이터 저장소로 가져온 후 조합된 목록을 반환합니다.
+[ContactsList 응용 프로그램 예제](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list)에서 CompanyUsers.API 프로젝트는 하드 코드된 연락처 목록을 반환하는 Get 메서드 하나가 포함된 간단한 Web API 프로젝트입니다. 서비스 간 시나리오를 보여 주기 위해 ContactsList.API의 Get 메서드는 CompanyContacts.API의 Get 메서드를 호출하고 연락처를 다시 추가하여 자체 데이터 저장소로 가져온 후 조합된 목록을 반환합니다.
 
 다음은 CompanyUsers.API의 Get 메서드입니다.
 
@@ -70,7 +68,7 @@ ContactsList.API의 Get 메서드는 다음과 같습니다. 이 코드는 Compa
 		    return contactsList;
 		}
 
-CompanyContacts.API의 클라이언트 개체는 생성된 API 앱 클라이언트 코드가 수정된 것으로, HTTP 요청에 토큰을 추가합니다.
+위의 코드에서 `CompanyContactsAPIClientWithAuth()`가 반환한 클라이언트 개체는 생성된 클라이언트 코드를 기반으로 하지만 HTTP 요청에 권한 부여 토큰을 추가합니다.
 
 		private static CompanyContactsAPI CompanyContactsAPIClientWithAuth()
 		{
@@ -90,7 +88,7 @@ CompanyContacts.API의 클라이언트 개체는 생성된 API 앱 클라이언�
 
 4. Azure 계정에 로그인(아직 로그인하지 않은 경우)하거나 자격 증명을 새로 고칩니다(만료된 경우).
 
-4. 앱 서비스 대화 상자에서 사용할 Azure **구독**을 선택하고 **새로 만들기**를 클릭합니다.
+4. **앱 서비스** 대화 상자에서 사용할 Azure **구독**을 선택하고 **새로 만들기**를 클릭합니다.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/clicknew.png)
 
@@ -128,6 +126,8 @@ ContactsList.API 프로젝트에는 생성된 클라이언트 코드가 이미 �
 
 8. **앱 서비스** 대화 상자에서 이 자습서에 사용하는 리소스 그룹을 확장한 다음 방금 만든 API 앱을 선택합니다.
 
+	목록에 API 앱이 보이지 않으면 API 앱을 만들 때 웹앱에서 API 앱으로 형식을 변경하는 단계를 실수로 생략했을 수 있습니다. 이 경우 앞서 수행한 단계를 반복하여 새 API 앱을 만들면 됩니다. 포털로 이동하여 웹앱을 먼저 삭제하지 않는 경우 API 앱에 다른 이름을 선택해야 합니다.
+
 10. **확인**을 클릭합니다.
 
 9. **REST API 클라이언트 추가** 대화 상자에서 **확인**을 클릭합니다.
@@ -152,7 +152,7 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 		     return client;
 		 }
  
-4. Get 메서드에서 `CompanyContactsAPIClientWithAuth`에서 반환된 클라이언트 개체를 사용하는 코드 블록의 주석을 제거합니다.
+4. `Get` 메서드에서 CompanyContacts.API를 호출하는 코드 블럭의 주석 처리를 제거합니다.
 
 		using (var client = CompanyContactsAPIClientWithAuth())
 		{
@@ -168,6 +168,8 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 	이전에 사용한 게시 프로필로 **웹 게시** 마법사가 열립니다.
 
 3. **웹 게시** 마법사에서 **게시**를 클릭합니다.
+
+	Visual Studio에서 프로젝트를 배포하고 API 앱 기본 URL로 브라우저 창을 엽니다. 이 브라우저 창을 닫습니다.
 
 ## Azure에서 새 API 앱에 대한 인증 및 권한 부여 설정
 
@@ -189,7 +191,7 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 
 10. **인증/권한 부여** 블레이드에서 **저장**을 클릭합니다.
  
-11. **클래식 Azure 포털**에서 [Azure Active Directory](https://manage.windowsazure.com/)로 이동합니다.
+11. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **Azure Active Directory**로 이동합니다.
 
 12. **디렉터리** 탭에서 AAD 테넌트를 클릭합니다.
 
@@ -199,23 +201,11 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 
 16. **Configure**를 클릭합니다.
 
-15. 페이지 아래쪽에서 **매니페스트 관리 > 매니페스트 다운로드**를 클릭하고 편집할 수 있는 위치에 파일을 저장합니다.
-
-16. 다운로드한 매니페스트 파일에서 `oauth2AllowImplicitFlow` 속성을 검색합니다. 이 속성의 값을 `false`에서 `true`로 변경하고 파일을 저장합니다.
-
-16. **매니페스트 관리 > 매니페스트 업로드**를 클릭하고 이전 단계에서 업데이트한 파일을 업로드합니다.
-
 17. 자습서의 이후 단계에서 값을 복사하고 붙여 넣으며 페이지에서 값을 업데이트할 수 있도록 이 페이지를 열어 둡니다.
 
 ## ContactsList.API 프로젝트 코드를 실행하는 API 앱의 설정 업데이트
 
-1. [Azure 포털](https://portal.azure.com/)에서 ContactsList.API 프로젝트를 배포한 API 앱에 대한 API 앱 블레이드로 이동합니다. 이는 이 자습서에서 방금 만든 호출되는 API 앱이 아니라 호출하는 API 앱입니다.
-
-2. **설정 > 응용 프로그램 설정**을 클릭합니다.
-
-	여기에서 일부 설정을 추가할 것이지만 Azure 클래식 포털의 다른 페이지에서 해당 설정을 가져와야 합니다.
-
-3. [클래식 Azure 포털](https://manage.windowsazure.com/)에서 ContactsList.API API 앱에 대해 만든 AAD 응용 프로그램의 **구성** 탭으로 이동합니다.
+3. 다른 브라우저 창에서 [클래식 Azure 포털](https://manage.windowsazure.com/)로 이동한 후 ContactsList.API API 앱에 대해 만든 AAD 응용 프로그램의 **구성** 탭으로 이동합니다.
 
 5. **키** 아래의 **기간 선택** 드롭다운 목록에서 **1년**을 선택합니다.
 
@@ -223,12 +213,19 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
 
-
 7. 키 값을 복사합니다.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
-3. Azure 포털 **응용 프로그램 설정** 블레이드의 **앱 설정** 섹션에서 ida:ClientSecret라는 키를 추가하고 값 필드에 방금 만든 키를 붙여 넣습니다.
+1. 다른 브라우저 창에서 [Azure 포털](https://portal.azure.com/)로 이동한 후 ContactsList.API 프로젝트를 배포한 API 앱에 대한 API 앱 블레이드로 이동합니다. (이것은 호출하는 API 앱으로, 호출되는 API 앱인 ContactsList.API가 아니며, CompanyContacts.API가 아닙니다.)
+
+2. **설정 > 응용 프로그램 설정**을 클릭합니다.
+
+3. **앱 설정** 섹션에서 "ida:ClientSecret"라는 키를 추가하고 값 필드에 방금 만든 키를 붙여 넣습니다.
+
+3. "Ida: ClientId"라는 키를 추가하고 값 필드에 동일한 AAD **구성** 페이지의 클라이언트 ID를 붙여 넣습니다.
+
+4. "Ida: Authority"라는 키를 추가하고 값 필드에 "https://login.windows.net/{테넌트}";를 입력합니다. 예를 들어 "https://login.windows.net/contoso.onmicrosoft.com"입니다.
 
 3. 클래식 Azure 포털에서 CompanyContacts.API API 앱에 대해 만든 AAD 응용 프로그램의 **구성** 탭으로 이동합니다.
 
@@ -236,7 +233,7 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 
 3. Azure 포털 **응용 프로그램 설정** 블레이드의 **앱 설정** 섹션에서 ida:Resource라는 키를 추가하고 값 필드에 방금 만든 클라이언트 ID를 붙여 넣습니다.
 
-4. CompanyContactsAPIUrl이라는 키를 추가하고 값 필드에 https://{your api 앱 이름}.azurewebsites.net(예: https://companycontactsapi.azurewebsites.net)을 입력합니다.
+4. "CompanyContactsAPIUrl"이라는 키를 추가하고 값 필드에 "https://{api 앱 이름}.azurewebsites.net"을 입력합니다. 예를 들어 "https://companycontactsapi.azurewebsites.net"입니다.
 
 6. 저장을 클릭합니다.
 
@@ -252,17 +249,43 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 
 	![](./media/app-service-api-dotnet-service-principal-auth/contactspagewithdavolio.png)
 
+이전 자습서와 마찬가지로 localhost SSL URL로 Visual Studio 프로젝트를 설정할 수 있으며 응용 프로그램을 로컬로 실행할 수 있습니다. 이 경우 Azure(클라이언트 ID, 클라이언트 암호 등)에서 실행을 위해 Azure에 저장한 설정을 Web.config 파일에 저장할 수 있습니다. 그러나 클라이언트 암호와 같은 중요한 정보가 포함된 Web.config 파일을 소스 제어에 체크 인하지 않도록 주의하세요. 자세한 내용은 [ASP.NET 및 Azure 앱 서비스에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
+
+## 브라우저 액세스로부터 API 앱 보호
+
+이 자습서에서는 Azure 포털에서 Express 옵션을 사용하여 서비스 주체 인증을 사용하여 액세스할 API 앱에 대한 AAD 인증을 설정합니다. 기본적으로 앱 서비스는 사용자가 브라우저에서 API 앱의 URL로 이동한 후 로그인하도록 하는 방식으로 새 AAD 응용 프로그램을 구성합니다. 즉, 서비스 주체뿐만 아니라 최종 사용자도 API에 액세스할 수 있습니다. 서비스 주체만 API에 액세스할 수 있도록 하려면 AAD 응용 프로그램에서 **회신 URL**을 변경하여 API 앱의 기본 URL을 다르게 하여 브라우저 액세스를 차단할 수 있습니다.
+
+### 브라우저 액세스가 작동하는지 확인
+
+1. 새 브라우저 창에서 CompanyContacts.API 프로젝트에 대해 만든 API 앱의 HTTPS URL로 이동합니다.
+
+	브라우저에 로그인 화면이 표시됩니다.
+	
+2. AAD 테넌트의 사용자에 대한 자격 증명으로 로그인합니다.
+
+3. 브라우저에는 API 앱의 "만들기 성공" 화면이 표시됩니다.
+
+	Swagger UI를 활성화한 경우 `/swagger` URL로 이동하여 API를 호출할 수 있습니다. `/api/contacts/get`을 URL에 추가하여 브라우저에서 API를 호출할 수 있습니다.
+
+### 브라우저 액세스 사용 안 함
+
+1. CompanyContacts.API 프로젝트에 대해 만든 AAD 응용 프로그램에 대한 클래식 포털 **구성** 탭에서 **회신 URL** 필드의 값을 변경하여 API 앱의 URL이 아닌 유효한 URL이 되도록 할 수 있습니다.
+ 
+2. **Save**를 클릭합니다.
+
+### 브라우저 액세스가 더 이상 작동하지 않는지 확인
+
+1. 새 브라우저 창에서 API 앱의 URL로 다시 이동합니다.
+
+2. 이렇게 하라는 메시지가 표시되면 로그인합니다.
+
+3. 로그인에 성공하지만 오류 페이지가 표시됩니다.
+
+	서비스 주체 토큰을 사용하여 계속 API 앱에 액세스할 수 있지만 AAD 테넌트의 사용자는 로그인할 수 없으며 브라우저에서 API에 액세스할 수 없습니다.
+
 ## 다음 단계
 
-이 자습서는 API 앱 시작 시리즈의 마지막 자습서입니다. 이 섹션에서는 API 앱 사용 방법을 자세히 알아보기 위한 추가 제안을 제공합니다.
-
-* Azure 앱 서비스 인증 및 권한 부여를 통해 보호되는 API 앱을 사용하는 다른 방법
-
-	이 문서에서는 API 앱을 보호하고 다른 API 앱에서 실행되는 코드에서 호출하는 방법을 보여 주었습니다. 논리 앱에서 보호된 API 앱을 호출하는 방법에 대한 자세한 내용은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)을 참조하세요.
-
-* 서비스 간 시나리오에 대해 API 앱을 보호하는 다른 방법
-
-	앱 서비스 인증 및 권한 부여 대신, 클라이언트 인증서 또는 기본 인증을 사용하여 API 앱을 보호할 수 있습니다. Azure의 클라이언트 인증서에 대한 자세한 내용은 [웹앱에 대한 TLS 상호 인증을 구성하는 방법](../app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하세요.
+이 자습서는 API 앱 시작 시리즈의 마지막 자습서입니다. 이 섹션에서는 API 앱 작동 방법을 자세히 알아보기 위한 추가 제안을 제공합니다.
 
 * 앱 서비스 앱을 배포하는 다른 방법
 
@@ -281,4 +304,4 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 	* [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)
 	* [Azure 웹 사이트에 HTTPS 사용](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

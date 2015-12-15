@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery 작동 방식"
+	pageTitle="Site Recovery의 작동 방식 | Microsoft Azure"
 	description="이 문서는 사이트 복구 아키텍처의 개요를 제공합니다."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="12/07/2015"
 	ms.author="raynew"/>
 
 # Azure Site Recovery 작동 방식
@@ -25,7 +25,7 @@
 
 ## 개요
 
-조직에서는 계획되 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 비즈니스 연속성 및 재해 복구(BCDR) 전략이 필요합니다. 대부분의 BCDR 전략은 재해가 발생했을 때 비즈니스 데이터를 안전하고 복구 가능하게 하고 워크로드를 지속적으로 가용 상태로 유지하는 솔루션에 초점을 맞추고 있습니다.
+조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 비즈니스 연속성 및 재해 복구(BCDR) 전략이 필요합니다. 대부분의 BCDR 전략은 재해가 발생했을 때 비즈니스 데이터를 안전하고 복구 가능하게 하고 워크로드를 지속적으로 가용 상태로 유지하는 솔루션에 초점을 맞추고 있습니다.
 
 사이트 복구는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 사이트로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다.
 
@@ -43,7 +43,7 @@ VMware VM이나 Windows/Linux 물리적 컴퓨터를 Azure에 복제하여 보�
 
 **위치** | **필요한 항목** 
 --- | --- 
- 온-프레미스 | **프로세스 서버**:이 서버는 보호되는 VMware 가상 컴퓨터 또는 물리적 Windows/Linux 컴퓨터에서 데이터를 Azure로 보내기 전에 최적화합니다. 또한 보호되는 컴퓨터에서 모바일 서비스 구성 요소의 푸시 설치를 처리하며 VMware 가상 컴퓨터의 자동 복구를 수행합니다. <br/><br/> **VMware vCenter 서버**: VMware VM을 보호할 때는 vSphere 하이퍼바이저를 관리하는 VMwave vCenter 서버가 필요합니다.<br/><br/> **ESX 서버**: VMware VM을 보호할 때는 최신 업데이트가 설치된 ESX/ESXi 버전 5.1 도는 5.5를 실행하는 서버가 필요합니다.<br/><br/> **컴퓨터**: VMware를 보호할 때는 VMware 도구가 설치되어 실행 중인 VMware VM이 있어야 합니다. 물리적 컴퓨터를 보호할 때는 지원되는 Windows 또는 Linux 운영 체제를 실행 중이어야 합니다. [지원 대상](site-recovery-vmware-to-azure/#before-you-start)을 참조하세요. <br/><br/> **모바일 서비스**: 변경 내용을 기록하고 프로세스 서버에 전달하기 위해 보호할 컴퓨터에 설치합니다. <br/><br/>타사 구성 요소: 이 배포에서는 일부 [타사 구성 요소](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt)를 사용합니다.
+ 온-프레미스 | **프로세스 서버**:이 서버는 보호되는 VMware 가상 컴퓨터 또는 물리적 Windows/Linux 컴퓨터에서 데이터를 Azure로 보내기 전에 최적화합니다. 또한 보호되는 컴퓨터에서 모바일 서비스 구성 요소의 푸시 설치를 처리하며 VMware 가상 컴퓨터의 자동 복구를 수행합니다. <br/><br/> **VMware vCenter 서버**: VMware VM을 보호할 때는 vSphere 하이퍼바이저를 관리하는 VMwave vCenter 서버가 필요합니다.<br/><br/> **ESX 서버**: VMware VM을 보호할 때는 최신 업데이트가 설치된 ESX/ESXi 버전 5.1 도는 5.5를 실행하는 서버가 필요합니다.<br/><br/> **컴퓨터**: VMware를 보호할 때는 VMware 도구가 설치되어 실행 중인 VMware VM이 있어야 합니다. 물리적 컴퓨터를 보호할 때는 지원되는 Windows 또는 Linux 운영 체제를 실행 중이어야 합니다. [지원 대상](site-recovery-vmware-to-azure.md/#before-you-start)을 참조하세요. <br/><br/> **모바일 서비스**: 변경 내용을 기록하고 프로세스 서버에 전달하기 위해 보호할 컴퓨터에 설치합니다. <br/><br/>타사 구성 요소: 이 배포에서는 일부 [타사 구성 요소](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt)를 사용합니다.
 Azure | **구성 서버**: Azure에서 보호된 컴퓨터, 프로세스 서버 및 마스터 대상 서버 간의 통신을 조정하는 표준 A3 Azure VM입니다. 장애 조치 발생 시 복제를 설정하고 복구를 조정합니다. <br/><br/>**마스터 대상 서버**: Azure 저장소 계정의 Blob 저장소에서 만든 연결된 VHD를 사용하여 보호 대상 컴퓨터에서 복제된 데이터를 유지합니다. 장애 조치 마스터 대상 서버는 온-프레미스로 실행되므로 Azure VM을 VMWare VM으로 다시 복구할 수 있습니다. <br/><br/> **사이트 복구 자격 증명 모음**: 하나 이상의 Azure Site Recovery 자격 증명 모음(사이트 복구 서비스에 대한 구독에서 설정)입니다. <br/><br/> **가상 네트워크**: 구성 서버와 마스터 대상 서버가 위치하는 Azure 네트워크로, 사이트 복구 서비스와 구독 및 지역이 같습니다. <br/><br/> **Azure 저장소**: 복제된 데이터를 저장하는 Azure 저장소 계정입니다. 사이트 복구 구독과 동일한 지역의 표준 지역 중복 또는 프리미엄 계정이어야 합니다.
 
 
@@ -98,7 +98,7 @@ VM이 System Center VMM 클라우드에서 관리되는 Hyper-V 시스템에 있
 
 **위치** | **필요한 항목** 
 --- | --- 
- 기본 데이터센터 | **SAN 어레이**: 기본 VMM 서버에서 관리하며 [지원되는 SAN 어레이](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx)입니다. SAN은 보조 사이트의 다른 SAN 어레이와 네트워크 인프라를 공유합니다. <br/><br/> **VMM 서버**: 하나 이상의 VMM 클라우드와 복제 그룹이 설정된 하나 이상의 VMM 서버입니다. Azure Site Recovery 공급자는 VMM 서버마다 설치됩니다. <br/><br/> **Hyper-V 서버**: 복제 그룹에, 가상 컴퓨터를 포함하는 하나 이상의 Hyper-V 호스트 서버가 있습니다. Hyper-V 호스트 서버에는 마아무 것도 설치되지 않습니다.<br/><br/> **가상 컴퓨터**: 하나 이상의 가상 컴퓨터가 Hyper-V 호스트 서버에서 실행 중입니다. 아무 것도 가상 컴퓨터에 설치되지 않습니다. 
+ 기본 데이터센터 | **SAN 어레이**: 기본 VMM 서버에서 관리하며 [지원되는 SAN 어레이](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx)입니다. SAN은 보조 사이트의 다른 SAN 어레이와 네트워크 인프라를 공유합니다. <br/><br/> **VMM 서버**: 하나 이상의 VMM 클라우드와 복제 그룹이 설정된 하나 이상의 VMM 서버입니다. Azure Site Recovery 공급자는 VMM 서버마다 설치됩니다. <br/><br/> **Hyper-V 서버**: 복제 그룹에, 가상 컴퓨터를 포함하는 하나 이상의 Hyper-V 호스트 서버가 있습니다. Hyper-V 호스트 서버에는 아무 것도 설치되지 않습니다.<br/><br/> **가상 컴퓨터**: 하나 이상의 가상 컴퓨터가 Hyper-V 호스트 서버에서 실행 중입니다. 아무 것도 가상 컴퓨터에 설치되지 않습니다. 
 보조 데이터센터 | **SAN 어레이**: 보조 VMM 서버에서 관리하는 [지원되는 SAN 어레이](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx)입니다. <br/><br/>**VMM 서버**: 하나 이상의 VMM 클라우드를 포함하는 VMM 서버가 하나 이상 있습니다.<br/><br/> **Hyper-V 서버**: Hyper-V 호스트 서버가 하나 이상 있습니다. 
 Azure | **사이트 복구 자격 증명 모음**: 하나 이상의 Azure Site Recovery 자격 증명 모음입니다(사이트 복구 서비스에 대한 구독에서 설정).
 
@@ -113,7 +113,7 @@ Azure | **사이트 복구 자격 증명 모음**: 하나 이상의 Azure Site R
 이 워크플로에서는 Hyper-V 가상 컴퓨터에서의 보호, 복제 및 장애 조치 프로세스를 보여 줍니다.
 
 1. **보호 사용**: 사이트 복구 자격 증명 모음을 설정하고, VMM 클라우드나 Hyper-V 사이트용 복제 설정을 구성하며 VM에 보호를 사용합니다. **보호 사용**이라는 작업이 시작되며 **작업** 탭에서 모니터링할 수 있습니다. 이 작업은 해당 컴퓨터가 전제 조건에 부합하는지 확인한 다음, 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하는 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 메서드를 호출합니다. **보호 사용** 작업도 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 메서드를 호출하여 전체 VM 복제를 초기화합니다.
-2. **초기 복제**: 모두 Azure나 보조 데이터센터에 복제될 때까지 가상 컴퓨터 스냅숏을 만들고 가상 하드 디스크를 하나씩 복제합니다. 이 작업의 완료 시간은 크기및 네트워크 대역폭과, 사용자가 선택한 초기 복제 방법에 따라 결정됩니다. 초기 복제 진행 중에 디스크가 변경될 경우, 디스크와 동일한 폴더에 있는 Hyper-V 복제 로그(.hrl)를 통해 Hyper-V Replica Replication Tracker가 이러한 변경 내용을 추적합니다. 각 디스크에는 보조 저장소로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다. 초기 복제가 완료되면 VM 스냅숏이 삭제되고 로그의 델타 디스크 변경 내용이 동기화 및 병합됩니다.
+2. **초기 복제**: 모두 Azure나 보조 데이터센터에 복제될 때까지 가상 컴퓨터 스냅숏을 만들고 가상 하드 디스크를 하나씩 복제합니다. 이 작업의 완료 시간은 크기 및 네트워크 대역폭과, 사용자가 선택한 초기 복제 방법에 따라 결정됩니다. 초기 복제 진행 중에 디스크가 변경될 경우, 디스크와 동일한 폴더에 있는 Hyper-V 복제 로그(.hrl)를 통해 Hyper-V Replica Replication Tracker가 이러한 변경 내용을 추적합니다. 각 디스크에는 보조 저장소로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다. 초기 복제가 완료되면 VM 스냅숏이 삭제되고 로그의 델타 디스크 변경 내용이 동기화 및 병합됩니다.
 3. **보호 완료**: 초기 복제가 완료된 후는 **보호 완료** 작업이 네트워크와 기타 복제 후 설정을 구성하고 가상 컴퓨터가 보호됩니다. Azure에 복제할 경우 장애 조치를 위해 가상 컴퓨터에 대한 설정을 조정해야 할 수 있습니다. 이 시점에서 테스트 장애 조치(Failover)를 실행하여 모든 것이 예상대로 작동하는지 확인할 수 있습니다.
 4. **복제**: 초기 복제 후에는 복제 설정과 방법에 따라 델타 동기화가 발생합니다. 
 	- **복제 실패**: 델타 복제에 실패했고 전체 복제에는 대역폭이나 시간이 많이 소모될 경우 다시 동기화가 발생합니다. 예를 들어 .hrl 파일이 디스크 크기에 50%에 달한다면 가상 컴퓨터가 다시 동기화되도록 표시됩니다. 다시 동기화는 원본 및 대상 가상 컴퓨터 디스크의 체크섬을 계산하고 델타만 전송하므로 보내는 데이터 크기가 최소화됩니다. 다시 동기화가 완료되면 델타 복제가 다시 시작됩니다. 기본적으로 다시 동기화는 업무 시간 이외에 실행되도록 예약되나 수동으로 가상 컴퓨터를 다시 동기화할 수 있습니다.
@@ -155,4 +155,4 @@ Azure | **사이트 복구 자격 증명 모음**: 하나 이상의 Azure Site R
 
 [배포 준비](site-recovery-best-practices.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,6 +1,6 @@
 
 
-1. [Azure 관리 포털](https://manage.windowsazure.com/)에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
 2. **앱 서비스**, **Service Bus**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
 
@@ -25,4 +25,4 @@
 
 	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

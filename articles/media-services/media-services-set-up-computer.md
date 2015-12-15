@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="12/05/2015"  
 	ms.author="juliako"/>
 
 # 환경 설정
@@ -23,6 +23,8 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
+
+다음 단계에서는 Azure 미디어 서비스를 사용하여 개발할 때 필요한 필수 조건에 대해 설명합니다.
 
 ## 미디어 서비스 계정 만들기
 
@@ -51,4 +53,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 .NET 또는 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

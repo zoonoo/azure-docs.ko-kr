@@ -3,8 +3,8 @@
 	description="Microsoft Azure 큐 저장소를 사용하여 큐를 작성 및 삭제하고 큐 메시지를 삽입하고 미리 보고 가져오고 삭제하는 방법에 대해 알아봅니다."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/21/2015"
-	ms.author="tamram"/>
+	ms.date="12/04/2015"
+	ms.author="robinsh"/>
 
 # .NET에서 큐 저장소를 사용하는 방법
 
@@ -261,4 +261,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Azure API 관리를 사용하여 속도 제한으로 API 보호
@@ -28,7 +28,7 @@
 
 이 단계에서는 구독 승인을 요구하지 않는 무료 평가판 제품을 만듭니다.
 
-시작하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
+시작하려면 API 관리 서비스에 대해 Azure 클래식에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -292,4 +292,4 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [호출 속도 제한]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [사용 할당량 설정]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

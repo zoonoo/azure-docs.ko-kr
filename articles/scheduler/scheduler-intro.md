@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Azure 스케줄러 정의
@@ -34,7 +34,7 @@ Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언
 
  [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
- [Azure 포털에서 스Azure 스케줄러 사용 시작](scheduler-get-started-portal.md)
+ [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
 
  [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
 
@@ -50,4 +50,4 @@ Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 개발자 포털 사용자 지정
@@ -24,7 +24,7 @@
 
 포털 사용자 지정에서 중요한 측면 중 하나는 모든 페이지의 맨 위에 있는 텍스트를 회사 이름이나 로고로 바꾸는 것입니다.
 
-개발자 포털 내의 콘텐츠는 게시자 포털을 통해 수정되며, 이 포털에는 Azure 포털을 통해 액세스합니다. API 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다.
+개발자 포털 내의 콘텐츠는 게시자 포털을 통해 수정되며, 이 포털에는 Azure 클래식 포털을 통해 액세스합니다. API 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -85,7 +85,7 @@
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -99,4 +99,4 @@
 [부트스트랩]: http://getbootstrap.com/
 [LESS 변수]: http://getbootstrap.com/css/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

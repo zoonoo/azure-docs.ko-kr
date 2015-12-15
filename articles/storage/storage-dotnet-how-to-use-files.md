@@ -3,8 +3,8 @@
             description="클라우드에서 파일 공유를 만들고 파일 콘텐츠를 관리합니다. Azure 가상 컴퓨터 또는 온-프레미스 응용 프로그램에서 파일 공유를 마운트합니다."
             services="storage"
             documentationCenter=".net"
-            authors="tamram"
-            manager="adinah"
+            authors="robinsh"
+            manager="carmonm"
             editor="" />
 
 <tags ms.service="storage"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="10/26/2015"
-      ms.author="tamram" />
+      ms.date="12/04/2015"
+      ms.author="robinsh" />
 
 # Windows에서 Azure 파일 저장소 사용 방법
 
@@ -550,4 +550,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

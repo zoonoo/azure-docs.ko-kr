@@ -159,4 +159,4 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 
 [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

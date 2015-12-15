@@ -37,9 +37,8 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 
 Azure PowerShell을 사용하여 탄력적 데이터베이스 풀을 만드는 각각의 단계가 세분화되고 이해하기 쉽게 설명되어 있습니다. 단순히 명령의 요약 목록을 원하는 경우 이 문서의 아래쪽에 있는 **모든 항목 요약** 섹션을 참조하세요.
 
-> [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet을 더 이상 사용할 수 없으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 이 문서의 예제에서는 새 PowerShell 1.0 Preview 명명 규칙을 사용합니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
 
-PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야 하고 Switch-AzureMode를 제거했기 때문에 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 최신 Azure PowerShell을 다운로드하고 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 
 
@@ -62,7 +61,7 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
 
 ## 리소스 그룹, 서버, 방화벽 규칙 만들기
 
-이제 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 탄력적 데이터베이스 풀을 여러 데이터베이스를 포함하도록 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations**를 실행하여 유효한 위치의 목록을 가져옵니다.
+이제 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 탄력적 데이터베이스 풀을 여러 데이터베이스를 포함하도록 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations**를 실행하여 유효한 위치의 목록을 가져옵니다.
 
 이미 리소스 그룹이 있다면 다음 단계로 진행하거나, 아래 명령을 실행하여 새 리소스 그룹을 만들 수 있습니다.
 
@@ -236,4 +235,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

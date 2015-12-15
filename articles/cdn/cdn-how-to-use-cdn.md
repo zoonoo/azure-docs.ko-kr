@@ -139,6 +139,7 @@ CDN HTTP 끝점을 사용자 지정 도메인 이름에 매핑하고 해당 이�
 
 - [Azure에 대해 콘텐츠 배달 네트워크를 사용하도록 설정하는 방법](cdn-create-new-endpoint.md)
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](cdn-overview.md)
+- [Azure CDN 끝점 삭제](cdn-purge-endpoint.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

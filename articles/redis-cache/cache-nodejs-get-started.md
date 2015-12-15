@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/23/2015"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Node.js와 함께 사용하는 방법
@@ -39,34 +39,34 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 
 ## Azure에 Redis 캐시 만들기
 
-[Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
+[Azure 포털](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
 
   ![][1]
 
-DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.net`입니다. **만들기**를 클릭합니다.
+DNS 호스트 이름을 입력합니다. 양식은 `<name>
+  .redis.cache.windows.net`입니다. **만들기**를 클릭합니다.
 
   ![][2]
 
 
-캐시를 만들었으면 미리 보기 포털에서 캐시를 클릭하여 캐시 설정을 봅니다. **키** 아래 링크를 클릭하고 기본 키를 복사합니다. 요청을 인증하려면 이 키가 필요합니다.
+  캐시를 만들면 [탐색하여](cache-configure.md#configure-redis-cache-settings) 캐시 설정을 확인합니다. **키** 아래 링크를 클릭하고 기본 키를 복사합니다. 요청을 인증하려면 이 키가 필요합니다.
 
   ![][4]
 
 
-## 비 SSL 끝점 사용
+  ## 비 SSL 끝점 사용
 
 
-**포트** 아래 링크를 클릭하고 "SSL을 통해서만 액세스 허용"에 대해 **아니요**를 클릭합니다. 이렇게 하면 캐시에 대해 비 SSL 포트를 사용할 수 있습니다. 현재 node\_redis 클라이언트는 SSL을 지원하지 않습니다.
+  **포트** 아래 링크를 클릭하고 "SSL을 통해서만 액세스 허용"에 대해 **아니요**를 클릭합니다. 이렇게 하면 캐시에 대해 비 SSL 포트를 사용할 수 있습니다. 현재 node\_redis 클라이언트는 SSL을 지원하지 않습니다.
 
   ![][3]
 
 
-## 캐시에 항목 추가 및 검색
+  ## 캐시에 항목 추가 및 검색
 
-	var redis = require("redis");
+  var redis = require("redis");
 
-    // Add your cache name and access key.
-	var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
+  // 캐시 이름 및 선택키를 추가합니다. var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth\_pass: '<key>' });
 
 	client.set("foo", "bar", function(err, reply) {
 	    console.log(reply);
@@ -97,4 +97,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 
 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

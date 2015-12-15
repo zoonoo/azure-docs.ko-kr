@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="11/16/2015"
+	ms.date="12/09/2015"
 	ms.author="juliako"/>
 
 
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-drm.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 Microsoft Azure 미디어 서비스를 사용하면 [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/) 라이선스로 보호되는 암호화된 MPEG-DASH, 부드러운 스트리밍 및 HTTP-Live-Streaming(HLS) 스트림을 배달할 수 있습니다. 또한 Widevine DRM 라이선스로 암호화된 DASH 스트림을 전달할 수 있습니다. PlayReady와 Widevine 모두 일반적인 암호화(ISO/IEC 23001-7 CENC) 사양에 따라 암호화됩니다. [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)(버전 3.5.1부터 시작) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.
 
@@ -182,7 +183,7 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 		using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
 		using Newtonsoft.Json;
-
+		
 		namespace DynamicEncryptionWithDRM
 		{
 		    class Program
@@ -261,7 +262,7 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		
 		            // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
 		            // Note that DASH works on IE 11 (via PlayReady), Edge (via PlayReady), Chrome (via Widevine).
-		             
+		
 		            string url = GetStreamingOriginLocator(encodedAsset);
 		            Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);
 		
@@ -303,31 +304,45 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		        }
 		
 		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
+		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
 		        {
-		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
+		            // Declare a new job.
+		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+		            // Get a media processor reference, and pass to it the name of the 
+		            // processor to use for the specific task.
+		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-		                                    inputAsset.Name,
-		                                    encodingPreset));
+		            // Create a task with the encoding details, using a string preset.
+		            // In this case "H264 Multiple Bitrate 720p" preset is used.
+		            ITask task = job.Tasks.AddNew("My encoding task",
+		                processor,
+		                "H264 Multiple Bitrate 720p",
+		                TaskOptions.None);
 		
-		            var mediaProcessors =
-		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-		
-		            var latestMediaProcessor =
-		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-		
-		
-		
-		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
+		            // Specify the input asset to be encoded.
+		            task.InputAssets.Add(asset);
+		            // Add an output asset to contain the results of the job. 
+		            // This output is specified as AssetCreationOptions.None, which 
+		            // means the output asset is not encrypted. 
+		            task.OutputAssets.AddNew("Output asset",
+		                AssetCreationOptions.None);
 		
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
 		            job.Submit();
 		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
 		
 		            return job.OutputMediaAssets[0];
+		        }
+		
+		        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+		        {
+		            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+		            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+		
+		            if (processor == null)
+		                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+		
+		            return processor;
 		        }
 		
 		
@@ -356,14 +371,14 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		            // and create authorization policy          
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		            {
-		                new ContentKeyAuthorizationPolicyRestriction
-		                {
-		                    Name = "Open",
-		                    KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-		                    Requirements = null
-		                }
-		            };
+		                    {
+		                        new ContentKeyAuthorizationPolicyRestriction
+		                        {
+		                            Name = "Open",
+		                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+		                            Requirements = null
+		                        }
+		                    };
 		
 		            // Configure PlayReady and Widevine license templates.
 		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
@@ -376,8 +391,8 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		                        restrictions, PlayReadyLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
-		                _context.ContentKeyAuthorizationPolicyOptions.Create("", 
-		                    ContentKeyDeliveryType.Widevine, 
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("",
+		                    ContentKeyDeliveryType.Widevine,
 		                    restrictions, WidevineLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
@@ -398,14 +413,14 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		            string tokenTemplateString = GenerateTokenRequirements();
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		            {
-		                new ContentKeyAuthorizationPolicyRestriction
-		                {
-		                    Name = "Token Authorization Policy",
-		                    KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-		                    Requirements = tokenTemplateString,
-		                }
-		            };
+		                    {
+		                        new ContentKeyAuthorizationPolicyRestriction
+		                        {
+		                            Name = "Token Authorization Policy",
+		                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+		                            Requirements = tokenTemplateString,
+		                        }
+		                    };
 		
 		            // Configure PlayReady and Widevine license templates.
 		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
@@ -504,13 +519,13 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		                allowed_track_types = AllowedTrackTypes.SD_HD,
 		                content_key_specs = new[]
 		                {
-		                    new ContentKeySpecs
-		                    {
-		                        required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-		                        security_level = 1,
-		                        track_type = "SD"
-		                    }
-		                },
+		                            new ContentKeySpecs
+		                            {
+		                                required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+		                                security_level = 1,
+		                                track_type = "SD"
+		                            }
+		                        },
 		                policy_overrides = new
 		                {
 		                    can_play = true,
@@ -530,8 +545,8 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
-		                    {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		                    {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+		                            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+		                            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
 		
 		                };
 		
@@ -600,7 +615,6 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		    }
 		}
 
-
 ##미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -616,4 +630,4 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
 [Azure 미디어 서비스에서 Google Widevine 라이선스 전달 서비스 공용 미리 보기 발표](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

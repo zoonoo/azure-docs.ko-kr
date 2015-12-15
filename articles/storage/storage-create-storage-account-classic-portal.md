@@ -3,8 +3,8 @@
 	description="Azure 클래식 포털에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법에 대해 알아봅니다."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Azure 저장소 계정 정보
@@ -172,4 +172,4 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 - Azure 저장소에 대한 자세한 내용은 [Azure.com](http://azure.microsoft.com/documentation/services/storage/)의 Azure 저장소 설명서를 참조하세요.
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
