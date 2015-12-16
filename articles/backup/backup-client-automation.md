@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/20/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리

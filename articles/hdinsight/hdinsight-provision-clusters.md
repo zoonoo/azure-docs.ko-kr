@@ -299,7 +299,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
   		
 		* **외부 메타 저장소**: 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장하는 데 사용할 Azure SQL 데이터베이스를 지정합니다.
  
-            > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
+            > [AZURE.NOTE] HBase 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다.
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
