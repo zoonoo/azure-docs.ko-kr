@@ -23,7 +23,7 @@
 
 VM(가상 컴퓨터) 확장은 VM의 기능을 확장하기 위해 Microsoft 및 신뢰할 수 있는 타사 게시자가 작성하는 기능입니다. VM 확장의 개요는 [Azure VM 확장 및 기능](virtual-machines-extensions-features.md)을 참조하세요.
 
-링크:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
+링크:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [리소스 관리자 모델](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## 사용자 지정 스크립트 확장 개요
@@ -86,7 +86,7 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 로그인하지 
 
 ### 템플릿과 함께 사용자 지정 스크립트 확장 사용
 
-템플릿과 함께 사용자 지정 스크립트 확장을 사용하는 방법을 알아보려면 [이] 설명서(virtual-machines-extensions-customscript -with template.md)를 참조하세요.
+템플릿과 함께 사용자 지정 스크립트 확장을 사용하는 방법을 알아보려면 [이](virtual-machines-extensions-customscript -with template.md) 설명서를 참조하세요.
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
