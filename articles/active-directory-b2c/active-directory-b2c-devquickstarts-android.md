@@ -1,4 +1,11 @@
-<properties pageTitle="Azure AD B2C Preview: Calling a Web API from an Android application | Microsoft Azure" description="This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Android 앱과 Web API 모두는 Azure AD B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다." services="active-directory-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
+<properties
+	pageTitle="Azure AD B2C 미리 보기: Android 응용 프로그램에서 Web API 호출하기 | Microsoft Azure"
+	description="이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 node.js Web API를 호출하는 Android "할 일 목록" 앱을 만드는 방법을 보여줍니다. Android 앱과 Web API 모두는 Azure AD B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다."
+	services="active-directory-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -16,10 +23,12 @@ Azure AD B2C를 사용하여 몇가지 간단한 단계에서 강력한 셀프 �
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
  	
-> [AZURE.NOTE]이 빠른 시작이 완벽하게 작동하기 위해 B2C를 사용하여 Azure AD에서 Web API를 보호하는 필수 구성 요소를 포함합니다. .Net 및 node.js 모두에 사용할 수 있도록 만들었습니다. 이 연습에서는 node.js Web API 샘플 구성되었다고 가정합니다. [Node.js 자습서에 대한 Azure AD B2C Web API](active-directory-b2c-devquickstarts-api-node.md)를 참조하세요.
+> [AZURE.NOTE]
+	이 빠른 시작이 완벽하게 작동하기 위해 B2C를 사용하여 Azure AD에서 Web API를 보호하는 필수 구성 요소를 포함합니다. .Net 및 node.js 모두에 사용할 수 있도록 만들었습니다. 이 연습에서는 node.js Web API 샘플 구성되었다고 가정합니다. [Node.js 자습서에 대한 Azure AD B2C Web API](active-directory-b2c-devquickstarts-api-node.md)를 참조하세요.
 
  
-> [AZURE.NOTE]이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 Web API를 호출하는 데 집중합니다. 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
+> [AZURE.NOTE]
+	이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 Web API를 호출하는 데 집중합니다. 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
 
 
 보호된 리소스에 액세스해야 하는 Android 클라이언트의 경우 Azure AD는 Active Directory 인증 라이브러리 또는 ADAL을 제공합니다. ADAL의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다. 액세스 토큰을 얼마나 쉽게 가져올 수 있는지 보여 주기 위해 다음을 수행하는 Android To-Do List 응용 프로그램을 빌드해 보겠습니다.
@@ -189,7 +198,14 @@ public class Constants {
 
 
 ```
-**SCOPES** - 서버에서 사용자 로그인에 대해 요청하려는 서버에 전달하는 범위입니다. B2C 미리 보기의 경우 client\_id를 전달합니다. 그러나 나중에 범위를 읽도록 변경됩니다. 이 문서는 업데이트됩니다. **ADDITIONAL\_SCOPES** - 응용 프로그램에 사용하려는 추가 범위입니다. 나중에 사용됩니다. **CLIENT\_ID** - 포털에서 가져온 응용 프로그램 ID입니다. **REDIRECT\_URL** - 토큰이 다시 게시될 리디렉션입니다. **EXTRA\_QP** - URL로 인코딩된 형식인 서버에 전달하려는 추가 데이터입니다. **FB\_POLICY** - 호출하는 정책입니다. 이 연습에 대한 중요한 부분을 게시합니다. **EMAIL\_SIGNIN\_POLICY** - 호출하는 정책입니다. 이 연습에 대한 중요한 부분을 게시합니다. **EMAIL\_SIGNUP\_POLICY** - 호출하는 정책입니다. 이 연습에 대한 중요한 부분을 게시합니다.
+**SCOPES** - 서버에서 사용자 로그인에 대해 요청하려는 서버에 전달하는 범위입니다. B2C 미리 보기의 경우 client\_id를 전달합니다. 그러나 나중에 범위를 읽도록 변경됩니다. 이 문서는 업데이트됩니다.
+**ADDITIONAL\_SCOPES** - 응용 프로그램에 사용하려는 추가 범위입니다. 나중에 사용됩니다.
+**CLIENT\_ID** - 포털에서 가져온 응용 프로그램 ID입니다.
+**REDIRECT\_URL** - 토큰이 다시 게시될 리디렉션입니다.
+**EXTRA\_QP** - URL로 인코딩된 형식인 서버에 전달하려는 추가 데이터입니다.
+**FB\_POLICY** - 호출하는 정책입니다. 이 연습에 대한 중요한 부분을 게시합니다.
+**EMAIL\_SIGNIN\_POLICY** - 호출하는 정책입니다. 이 연습에 대한 중요한 부분을 게시합니다.
+**EMAIL\_SIGNUP\_POLICY** - 호출하는 정책입니다. 이 연습에 대한 중요한 부분을 게시합니다.
 
 ### 7단계: 프로젝트에 Android ADAL에 대한 참조 추가
 
@@ -891,7 +907,16 @@ Android용 ADAL은 **UserIdentifier** 개체의 형태로 사용자를 나타냅
  
  `ToDoActivity.java`라는 **동일한 파일에서**
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+ ```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -976,12 +1001,17 @@ ADAL은 기본적으로 토큰을 암호화한 후 SharedPreferences에 저장�
 
 #### Webview의 세션 쿠키
 
-앱이 닫힌 후에 Android webview가 세션 쿠키를 지우지 않습니다. 아래 샘플 코드로 이 문제를 처리할 수 있습니다. ```
+앱이 닫힌 후에 Android webview가 세션 쿠키를 지우지 않습니다. 아래 샘플 코드로 이 문제를 처리할 수 있습니다.
+```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` 쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+```
+쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=AcomDC_1125_2015-->
+
+
+
