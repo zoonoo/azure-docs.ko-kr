@@ -74,7 +74,9 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 2. 포털의 왼쪽 위에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소 계정**을 클릭합니다. **만들기**를 클릭하고 저장소 계정에 고유한 이름을 지정한 다음 이를 위한 새 [리소스 그룹](../resource-group-overview.md)을 만듭니다.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->저장소 계정이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이고 저장소 계정의 블레이드가 열려 새로 만든 리소스 그룹에 속한 것을 보여줍니다.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->
+
+	저장소 계정이 만들어지면 **알림** 단추가 녹색 **성공**으로 깜박이고 저장소 계정의 블레이드가 열려 새로 만든 리소스 그룹에 속한 것을 보여줍니다.
 
 5. 저장소 계정 블레이드에서 **설정** 부분을 클릭합니다. 계정 이름 및 기본 키를 기록해 둡니다.
 
@@ -211,4 +213,4 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
