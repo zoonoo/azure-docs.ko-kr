@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 인증 추가 
@@ -35,7 +35,7 @@
 
 3. 앱 디렉터리의 **server** 하위 폴더에서 다음 명령 파일 중 하나를 시작합니다.
 
-	+ **.\\start-iisexpress.ps1**(Windows 컴퓨터) 
+	+ **launch-windows**(Windows 컴퓨터) 
 	+ **launch-mac.command**(Mac OS X 컴퓨터)
 	+ **launch-linux.sh**(Linux 컴퓨터)
 
@@ -135,4 +135,4 @@
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

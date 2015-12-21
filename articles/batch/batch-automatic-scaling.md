@@ -4,7 +4,7 @@
 	description="클라우드 풀에서 자동 크기 조정을 사용하면 풀의 계산 노드 수를 동적으로 조정합니다."
 	services="batch"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="mmacy"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="11/18/2015"
-	ms.author="davidmu;marsma"/>
+	ms.date="12/04/2015"
+	ms.author="marsma"/>
 
 # Azure Batch 풀에서 자동으로 계산 노드 크기 조정
 
@@ -559,11 +559,13 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
 
 아마도 정해진 요일과 시간에 다음에 따라 노드 수를 늘리거나 줄임으로써 풀 크기를 조정하고자 할 것입니다.
 
-		$CurTime=time();
-		$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
-		$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
-		$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
-		$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+```
+$CurTime=time();
+$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
+$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
+$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
+$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+```
 
 이 수식은 먼저 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20 개의 노드로 설정됩니다. 그렇지 않은 경우, 풀 크기는 10에 설정됩니다.
 
@@ -571,35 +573,39 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
 
 이 예에서는 풀 크기는 큐에 있는 작업의 수에 따라 조정 됩니다. 주석과 줄바꿈은 모두 수식 문자열에 허용됩니다.
 
-	    // Get pending tasks for the past 15 minutes.
-	    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
-	    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of
-		// last sample point and the history average.
-	    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-	    // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise half of current dedicated.
-	    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
-	    // The pool size is capped at 20, if target VM value is more than that, set it to 20. This value
-		// should be adjusted according to your use case.
-	    $TargetDedicated = max(0,min($TargetVMs,20));
-	    // Set node deallocation mode - keep nodes active only until tasks finish
-	    $NodeDeallocationOption = taskcompletion;
+```
+// Get pending tasks for the past 15 minutes.
+$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+// If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of
+// last sample point and the history average.
+$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+// If number of pending tasks is not 0, set targetVM to pending tasks, otherwise half of current dedicated.
+$TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+// The pool size is capped at 20, if target VM value is more than that, set it to 20. This value
+// should be adjusted according to your use case.
+$TargetDedicated = max(0,min($TargetVMs,20));
+// Set node deallocation mode - keep nodes active only until tasks finish
+$NodeDeallocationOption = taskcompletion;
+```
 
 ### 예 3
 
 작업의 수에 따라 풀 크기를 조정하는 또 다른 예에서, 이 수식은 또한 풀에 대해 설정된 [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx) 값을 고려합니다. 이는 계산 노드에서 병렬 작업 실행이 필요한 경우에 특히 유용합니다.
 
-		// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
-		$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
-		$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-		// Set the number of nodes to add to one-fourth the number of active tasks (the MaxTasksPerComputeNode
-		// property on this pool is set to 4, adjust this number for your use case)
-		$Cores = $TargetDedicated * 4;
-		$ExtraVMs = ($Tasks - $Cores) / 4;
-		$TargetVMs = ($TargetDedicated+$ExtraVMs);
-		// Attempt to grow the number of compute nodes to match the number of active tasks, with a maximum of 3
-		$TargetDedicated = max(0,min($TargetVMs,3));
-		// Keep the nodes active until the tasks finish
-		$NodeDeallocationOption = taskcompletion;
+```
+// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
+$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+// Set the number of nodes to add to one-fourth the number of active tasks (the MaxTasksPerComputeNode
+// property on this pool is set to 4, adjust this number for your use case)
+$Cores = $TargetDedicated * 4;
+$ExtraVMs = (($Tasks - $Cores) + 3) / 4;
+$TargetVMs = ($TargetDedicated+$ExtraVMs);
+// Attempt to grow the number of compute nodes to match the number of active tasks, with a maximum of 3
+$TargetDedicated = max(0,min($TargetVMs,3));
+// Keep the nodes active until the tasks finish
+$NodeDeallocationOption = taskcompletion;
+```
 
 ### 예제 4
 
@@ -640,4 +646,4 @@ string formula = string.Format(@"
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – 이 PowerShell cmdlet은 지정된 계산 노드에서 RDP 파일을 가져와 지정된 파일 위치 또는 스트림에 저장합니다.
 2.	일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

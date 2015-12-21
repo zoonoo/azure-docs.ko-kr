@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
@@ -29,7 +29,7 @@ API 및 그 작업은 다음 형식으로 가져올 수 있습니다.
 
 ## <a name="import-api"> </a>API 가져오기
 
-게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
+게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
 
 ![게시자 포털][api-management-management-console]
 
@@ -95,4 +95,4 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 [API를 만드는 방법]: api-management-howto-create-apis.md
 [API 설정을 구성하는 방법]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

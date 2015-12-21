@@ -235,7 +235,6 @@
 <!-- URLs. -->
 [알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [알림 허브 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

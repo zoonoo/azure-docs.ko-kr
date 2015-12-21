@@ -16,7 +16,7 @@
     ms.date="11/30/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/ko-KR/library/azure/hh690950.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
 
 # 세션 선호도 사용 #
 
@@ -69,4 +69,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

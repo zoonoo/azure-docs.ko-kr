@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 사용자 계정을 관리하는 방법
@@ -22,7 +22,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 
 ## <a name="create-developer"> </a>새 개발자 만들기
 
-새 개발자를 만들려면 Azure 포털에서 API 관리 서비스에 대해 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
+새 개발자를 만들려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
 
 ![게시자 포털][api-management-management-console]
 
@@ -91,4 +91,4 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 [메일 템플릿 구성]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

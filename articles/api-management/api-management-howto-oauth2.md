@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
@@ -28,7 +28,7 @@
 
 ## <a name="step1"> </a>API 관리에서 OAuth 2.0 권한 부여 서버 구성
 
-시작하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
+시작하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -160,4 +160,4 @@ OAuth 2.0 및 API 관리 사용에 대한 자세한 내용은 다음 비디오 �
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

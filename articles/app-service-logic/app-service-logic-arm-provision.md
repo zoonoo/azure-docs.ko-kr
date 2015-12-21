@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="논리 앱 만들기" 
+	pageTitle="Azure 앱 서비스에서 Azure 리소스 관리자 템플릿을 사용하여 논리 앱 만들기 | Microsoft Azure" 
 	description="Azure 리소스 관리자 템플릿을 사용하여 워크플로를 정의하기 위한 빈 논리 앱을 배포합니다." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="tomfitz"/>
 
 # 템플릿을 사용하여 논리 앱 만들기
 
-이 항목에서는 Azure 리소스 관리자 템플릿을 만들어서 워크플로 정의에 사용할 수 있는 빈 논리 앱을 만드는 방법을 배우게 됩니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+Azure 리소스 관리자 템플릿을 사용하여 워크플로 정의에 사용할 수 있는 빈 논리 앱을 만듭니다. 배포할 리소스를 배포를 실행할 때 매개 변수를 지정하는 방법을 정의할 수 있습니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-논리 앱 속성에 대한 자세한 내용은 [논리 앱 워크플로 관리 API](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오. 정의 자체의 예는 [작성자 논리 앱 정의](app-service-logic-author-definitions.md)를 참조하십시오.
+논리 앱 속성에 대한 자세한 내용은 [논리 앱 워크플로 관리 API](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
+
+정의 자체의 예는 [작성자 논리 앱 정의](app-service-logic-author-definitions.md)를 참조하십시오.
 
 템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
 
@@ -30,7 +32,7 @@
 
 이 서식 파일로 논리 앱을 배포합니다:
 
-배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
+배포를 자동으로 실행하려면 다음 단추를 선택합니다.
 
 [![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)로 바꿉니다.
 
@@ -140,4 +142,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="12/04/2015"
    	ms.author="larryfr"/>
 
 #cURL 및 Azure REST API를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -33,7 +33,7 @@ Azure REST API를 사용하면 Linux 기반 HDInsight 클러스터 등과 같은
 
 - __Azure CLI__ Azure CLI는 서비스 주체를 만드는 데 사용됩니다. 서비스 주체는 Azure REST API에 대한 요청의 인증 토큰을 생성하는 데 사용됩니다.
 
-    CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
+    CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요.
 
 - __cURL__. 이 유틸리티는 패키지 관리 시스템을 통해서나 [http://curl.haxx.se/](http://curl.haxx.se/)에서 다운로드하여 사용할 수 있습니다.
 
@@ -259,7 +259,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
 ##Azure 구독에 로그인
 
-[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](xplat-cli-connect.md)에서 설명된 단계를 따라 __로그인__ 방법을 사용하여 구독에 연결합니다.
+[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계를 따라 __로그인__ 방법을 사용하여 구독에 연결합니다.
 
 ##서비스 주체 만들기
 
@@ -346,13 +346,13 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 
 ###HBase 클러스터
 
-* [HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hdinsight-hbase-build-java-maven-linux)
+* [HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started-linux.md)
+* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Storm 클러스터
 
 * [HDInsight에서 Storm용 Java 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
-* [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python.md)
+* [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

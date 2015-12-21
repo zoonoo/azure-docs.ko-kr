@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법
@@ -22,7 +22,7 @@ API 관리는 특정 이벤트에 대한 알림을 구성하는 기능과 API �
 
 ## <a name="publisher-notifications"> </a>게시자 알림 구성
 
-알림을 구성하려면 Azure 포털에서 API 관리 서비스에 대해 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
+알림을 구성하려면 Azure 클래식 포털에서 API 관리 서비스에 대해 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -54,7 +54,7 @@ API 관리는 특정 이벤트에 대한 알림을 구성하는 기능과 API �
 
 알림 받는 사람을 구성한 후 **저장**을 클릭하여 업데이트된 알림 받는 사람을 적용합니다.
 
->**게시자 알림** 탭 외부로 이동하면 저장되지 않은 변경 내용이 있는 경우 API 관리 포털에서 사용자에게 알립니다.
+>**게시자 알림** 탭 외부로 이동하면 저장되지 않은 변경 내용이 있는 경우 게시자 포털에서 사용자에게 알립니다.
 
 ## <a name="email-templates"> </a>메일 템플릿 구성
 
@@ -114,4 +114,4 @@ API 관리 인스턴스의 메일 템플릿을 보고 구성하려면 왼쪽 **A
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

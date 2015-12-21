@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 작업 사용
@@ -55,6 +55,18 @@
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
+##나열 
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#list-jobs-and-assets)
+- [REST](media-services-rest-manage-entities.md/#querying-entities)
+
+##작업 삭제
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#delete-a-job)
+- [REST](media-services-rest-manage-entities.md/##deleting-entities)
+
 ##관련 링크
 
 [할당량 및 제한 사항](media-services-quotas-and-limitations.md) – 미디어 서비스 인코더의 제한 사항 및 사용된 할당량에 대해 설명합니다.
@@ -68,4 +80,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

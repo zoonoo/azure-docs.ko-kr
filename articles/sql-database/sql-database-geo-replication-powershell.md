@@ -38,10 +38,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 - Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
 - Azure SQL 데이터베이스 - 다른 지역으로 복제하려는 주 데이터베이스입니다.
-- Azure PowerShell 1.0 Preview. [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)에 따라 Azure PowerShell 모듈을 다운로드하여 설치할 수 있습니다.
-
-> [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet을 더 이상 사용할 수 없으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 이 문서의 예제에서는 새 PowerShell 1.0 Preview 명명 규칙을 사용합니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
-
+- Azure PowerShell 1.0 이상 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)에 따라 Azure PowerShell 모듈을 다운로드하여 설치할 수 있습니다.
 
 
 
@@ -58,7 +55,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ### Azure 구독 선택
 
-구독을 선택하려면 구독 ID가 필요합니다. 이전 단계에 표시된 정보에서 구독 ID를 복사하거나, 구독이 여러 개이고 세부 정보가 필요한 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 다음 cmdlet은 구독 ID를 사용하여 현재 구독을 설정합니다.
+구독을 선택하려면 구독 ID가 필요합니다. 이전 단계에 표시된 정보에서 구독 ID를 복사하거나, 구독이 여러 개이고 세부 정보가 필요한 경우 **Get-AzureRmSubscription** cmdlet를 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 다음 cmdlet은 구독 ID를 사용하여 현재 구독을 설정합니다.
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -73,9 +70,9 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
   
 보조를 사용하려면 구독 소유자 또는 공동 소유자여야 합니다.
 
-**New-AzureRmSqlDatabaseSecondary** cmdlet을 사용하여 파트너 서버의 보조 데이터베이스를 연결된 서버(주 데이터베이스)의 로컬 데이터베이스에 추가할 수 있습니다.
+**New-AzureRmSqlDatabaseSecondary** cmdlet를 사용하여 파트너 서버의 보조 데이터베이스를 연결된 서버(주 데이터베이스)의 로컬 데이터베이스에 추가할 수 있습니다.
 
-이 cmdlet은 **Start-AzureSqlDatabaseCopy**를 **–IsContinuous** 매개 변수로 바꿉니다. 다른 cmdlet에서 사용할 수 있는 **AzureRmSqlDatabaseSecondary** 개체를 출력하여 특정 복제 링크를 명확하게 식별합니다. 이 cmdlet은 보조 데이터베이스가 작성되고 완전히 시드되는 경우 반환합니다. 데이터베이스 크기에 따라 몇 분에서 몇 시간이 걸릴 수 있습니다.
+이 cmdlet는 **Start-AzureSqlDatabaseCopy**를 **–IsContinuous** 매개 변수로 바꿉니다. 다른 cmdlet에서 사용할 수 있는 **AzureRmSqlDatabaseSecondary** 개체를 출력하여 특정 복제 링크를 명확하게 식별합니다. 이 cmdlet은 보조 데이터베이스가 작성되고 완전히 시드되는 경우 반환합니다. 데이터베이스 크기에 따라 몇 분에서 몇 시간이 걸릴 수 있습니다.
 
 보조 서버에서 복제된 데이터베이스는 주 서버의 데이터베이스와 동일한 이름을 포함하며 기본적으로 동일한 수준의 서비스입니다. 보조 데이터베이스는 읽을 수 있거나 읽을 수 없을 수 있으며 단일 데이터베이스 또는 탄력적 데이터베이스가 될 수 있습니다. 자세한 내용은 [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요. 보조가 만들어지고 시드된 후 데이터는 주 데이터베이스에서 새로운 보조 데이터베이스로 복제되기 시작합니다. 아래 단계에서는 PowerShell을 사용하여 단일 데이터베이스 또는 탄력적 데이터베이스와 함께 읽을 수 있거나 읽을 수 없는 보조를 만들어 이 작업을 수행하는 방법을 설명합니다.
 
@@ -123,7 +120,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 보조 데이터베이스 제거
 
-**Remove-AzureRmSqlDatabaseSecondary** cmdlet을 사용하여 보조 데이터베이스와 주 데이터베이스 간의 복제 파트너 관계를 영구적으로 종료합니다. 관계가 종료된 후 보조 데이터베이스는 읽기-쓰기 데이터베이스가 됩니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후 보조는 읽기-쓰기가 됩니다. 자세한 내용은 [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+**Remove-AzureRmSqlDatabaseSecondary** cmdlet를 사용하여 보조 데이터베이스와 주 데이터베이스 간의 복제 파트너 관계를 영구적으로 종료합니다. 관계가 종료된 후 보조 데이터베이스는 읽기-쓰기 데이터베이스가 됩니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후 보조는 읽기-쓰기가 됩니다. 자세한 내용은 [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
 이 cmdlet은 복제를 위한 Stop-AzureSqlDatabaseCopy를 대체합니다.
 
@@ -143,7 +140,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 계획된 장애 조치(failover) 시작
 
-**Set-AzureRmSqlDatabaseSecondary** cmdlet을 **-Failover** 매개 변수와 함께 사용하여 기존 주가 보조가 되도록 강등시키는 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다. 이 기능은 재해 복구 훈련 중과 같은 계획된 장애 조치(failover)에 대해 설계되었으며 주 데이터베이스는 사용할 수 있어야 합니다.
+**Set-AzureRmSqlDatabaseSecondary** cmdlet를 **-Failover** 매개 변수와 함께 사용하여 기존 주가 보조가 되도록 강등시키는 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다. 이 기능은 재해 복구 훈련 중과 같은 계획된 장애 조치(failover)에 대해 설계되었으며 주 데이터베이스는 사용할 수 있어야 합니다.
 
 명령은 다음 워크플로 수행합니다.
 
@@ -170,7 +167,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 ## 주 데이터베이스에서 보조 데이터베이스로 계획되지 않은 장애 조치 시작
 
 
-**Set-AzureRmSqlDatabaseSecondary** cmdlet과 **–Failover** 및 **-AllowDataLoss** 매개 변수를 함께 사용하여 주 데이터베이스를 더 이상 사용할 수 없는 경우 보조가 되도록 기존 주의 수준 내리기를 강제하는 계획되지 않은 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다.
+**Set-AzureRmSqlDatabaseSecondary** cmdlet와 **–Failover** 및 **-AllowDataLoss** 매개 변수를 함께 사용하여 주 데이터베이스를 더 이상 사용할 수 없는 경우 보조가 되도록 기존 주의 수준 내리기를 강제하는 계획되지 않은 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다.
 
 이 기능은 데이터베이스의 가용성 복원이 중요하고 일부 데이터 손실이 허용되는 경우 재해 복구를 위해 설계되었습니다. 강제 장애 조치가 호출되면 지정된 보조 데이터베이스는 즉시 주 데이터베이스가 되며 쓰기 트랜잭션 승인을 시작합니다. 강제 장애 조치(failover) 작업 후, 기존 주 데이터베이스가 이 새 주 데이터베이스와 다시 연결할 수 있는 즉시 기존 주 데이터베이스에서 증분 백업이 수행되고 이어서 이전 주 데이터베이스는 새 주 데이터베이스에 대한 보조 데이터베이스로 만들어지며 이는 단순히 새 주의 복제본입니다.
 
@@ -218,4 +215,4 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

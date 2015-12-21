@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2015"
+	ms.date="12/05/2015"
 	ms.author="juliako"/>
 
 
-#동적 패키징
+#동적 패키징 
 
 ##개요
 
@@ -39,13 +39,13 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 ##일반적인 시나리오
 
 1. 입력 파일(mezzanine 파일이라고 함)을 업로드합니다. H.264, MP4 또는 WMV를 예로 들 수 있습니다(지원되는 형식의 목록은 [미디어 서비스 인코더에서 지원하는 형식](media-services-azure-media-encoder-formats) 참조).
-
+ 
 1. mezzanine 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩합니다.
-
+ 
 1. 주문형 로케이터를 만들어 적응 비트 전송률 MP4 집합이 포함된 자산을 게시합니다.
-
+ 
 1. 콘텐츠에 액세스하고 콘텐츠를 스트리밍할 스트리밍 URL을 작성합니다.
-
+ 
 >[AZURE.NOTE]일부 MP4 파일 형식은 동적 패키징에서 지원되지 않습니다. 자세한 내용은 [동적 패키징에 지원되지 않는 형식](media-services-dynamic-packaging-overview.md#unsupported_formats)을 참조하세요.
 
 ##동적 스트리밍을 위한 자산 준비
@@ -105,4 +105,4 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

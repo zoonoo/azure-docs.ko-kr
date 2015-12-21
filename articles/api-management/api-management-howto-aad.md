@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
@@ -26,7 +26,7 @@
 
 ## Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
 
-시작하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
+시작하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -36,7 +36,7 @@
 
 ![외부 ID][api-management-security-external-identities]
 
-**Azure Active Directory**를 클릭합니다. **리디렉션 URL**을 기록해 두고 Azure 포털에서 Azure Active Directory로 전환합니다.
+**Azure Active Directory**를 클릭합니다. **리디렉션 URL**을 기록해 두고 Azure 클래식 포털에서 Azure Active Directory로 전환합니다.
 
 ![외부 ID][api-management-security-aad-new]
 
@@ -228,4 +228,4 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 
 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

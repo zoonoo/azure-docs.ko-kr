@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/09/2015"
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,7 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-manage-origins.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 Microsoft Azure 미디어 서비스에서 **스트리밍 끝점**은 추가 배포를 위해 CDN(콘텐츠 배달 네트워크) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. 미디어 서비스는 매끄러운 Azure CDN 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 라이브 스트림이거나 미디어 서비스 계정의 주문형 비디오 자산일 수 있습니다.
 
@@ -149,4 +150,4 @@ CDN 통합은 모든 Azure 데이터 센터, 미국 서부, 미국 동부, 북�
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

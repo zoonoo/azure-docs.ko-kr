@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Azure RemoteApp 컬렉션에 사용자 추가" 
-    description="Azure RemoteApp 컬렉션에 사용자를 추가하는 방법에 대해 알아봅니다." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Azure RemoteApp 컬렉션에 사용자 추가 | Microsoft Azure"
+    description="Azure RemoteApp 컬렉션에 사용자를 추가하는 방법에 대해 알아봅니다."
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Azure RemoteApp 컬렉션에 사용자를 추가하는 방법
@@ -36,12 +36,12 @@ Office 365 사용자는 Azure Active Directory 사용자입니다. Azure Active 
 |사용자 계정 |클라우드 |하이브리드|
 |--------------|--------|------|
 |Microsoft 계정| 	예|	아니요|
-|Azure AD(Azure Active Directory)| | |	
+|Azure AD(Azure Active Directory)| | |
 |Azure AD 클라우드만 해당 |예 |아니요 |
 |암호 동기화를 사용하는 ADsync |예 |예 |
 |암호 동기화를 사용하지 않는 ADsync|	예 |아니요 |
 |AD FS 포함 ADsync |예 |예 |
-|타사 Azure 지원 ID 공급자(예: Ping) |예 |예|	
+|타사 Azure 지원 ID 공급자(예: Ping) |예 |예|
 |Multi-Factor Authentication |예 |예 |
 
 RemoteApp에 대한 Active Directory 구성에 대한 [자세한 내용](remoteapp-ad.md)을 확인하세요.
@@ -51,6 +51,5 @@ RemoteApp에 대한 Active Directory 구성에 대한 [자세한 내용](remotea
 
 ## Office 365 ProPlus 사용자 계정 정보
 컬렉션에서 Office 365 ProPlus 템플릿 이미지를 사용하는 경우 *또는* Office 365를 사용하는 사용자 지정 이미지를 만든 경우 Office 365 구독이 있는 Azure Active Directory 사용자만 구독의 기본 도메인에 대해 추가할 수 있습니다. 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md)을 참조하세요.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

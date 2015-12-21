@@ -24,7 +24,7 @@ GSM 및 LSM은 분할된 데이터베이스 환경에서 각 데이터베이스�
 RecoveryManager 클래스는 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library)에 포함됩니다.
 
 
-![분할된 데이터베이스 맵][1]
+![분할된 맵][1]
 
 
 용어 정의는 [탄력적 데이터베이스 도구 용어집](sql-database-elastic-scale-glossary.md)을 참조하세요. 분할된 데이터베이스 솔루션에서 데이터를 관리하는 데 **ShardMapManager**가 어떻게 사용되는지 이해하려면 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요.
@@ -68,7 +68,7 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 * 위치 매개 변수는 분할된 데이터베이스 위치, 특히 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다. 
 * shardMapName 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다. 
 
-**중요**:업데이트되는 매핑의 범위가 비어 있는 것이 확실한 경우에만 이 기술을 사용하세요. 위의 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.
+**중요**: 업데이트되는 매핑의 범위가 비어 있는 것이 확실한 경우에만 이 기술을 사용하세요. 위의 방법에서는 이동하는 범위에서 데이터를 확인하지 않으므로 코드에 검사를 포함하는 것이 가장 좋습니다.
 
 아래 예제는 RecoveryManager를 사용하여 분할된 데이터베이스 맵에서 분할된 데이터베이스를 제거합니다. 분할된 데이터베이스 맵은 분할된 데이터베이스를 삭제하기 전 GSM에서 분할된 데이터베이스 위치를 반영합니다. 분할된 데이터베이스는 삭제되었기 때문에 의도적인 것으로 간주되며 분할 키 범위는 더 이상 사용 중이 아닙니다. 이 경우에 해당되지 않는 경우 시점 복원을 실행하여 이전 시점에서 분할된 데이터베이스를 복구할 수 있습니다. (이 경우, 아래 섹션을 검토하여 분할된 데이터베이스의 불일치를 감지하세요.) 데이터베이스 삭제를 의도적인 것으로 가정하므로 최종 관리 정리 작업은 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스에 대한 항목을 삭제하는 것입니다. 이렇게 하면 응용 프로그램에서 예기치 않은 범위에 정보를 실수록 기록하는 일을 방지할 수 있습니다.
 	
@@ -80,12 +80,12 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 
 	rm.DetectMappingDifferences(location, shardMapName);
 
-* *위치* 매개 변수는 분할된 데이터베이스 위치, 특히 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다. 
+* *location* 매개 변수는 분할된 데이터베이스 위치, 특히 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다. 
 * *shardMapName* 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다. 
 
 ## 매핑 차이를 해결하려면
 
-[ResolveMappingDifferences 메서드](https://msdn.microsoft.com/ko-KR/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx)는 원본으로 분할된 데이터베이스 맵(로컬 또는 전역) 중 하나를 선택하고 두 분할된 데이터베이스 맵(GSM 및 LSM)에서 매핑을 조정합니다.
+[ResolveMappingDifferences 메서드](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx)는 원본으로 분할된 데이터베이스 맵(로컬 또는 전역) 중 하나를 선택하고 두 분할된 데이터베이스 맵(GSM 및 LSM)에서 매핑을 조정합니다.
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
    
@@ -99,7 +99,7 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 
 	rm.AttachShard(location, shardMapName) 
 
-* *위치* 매개 변수는 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다. 
+* *location* 매개 변수는 분리 중인 분할된 데이터베이스의 서버 이름 및 데이터베이스 이름입니다. 
 
 * *shardMapName* 매개 변수는 분할된 데이터베이스 맵 이름입니다. 여러 분할된 데이터베이스 맵을 동일한 분할된 데이터베이스 맵 관리자가 관리하는 경우에만 필요합니다. 선택 사항입니다.
 
@@ -157,4 +157,4 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

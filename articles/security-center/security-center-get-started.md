@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -29,12 +29,12 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 
 Azure 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. Azure 보안 센터는 구독을 사용하여 사용하도록 설정됩니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial)을 등록할 수 있습니다.
 
-Azure 보안 센터는 [Microsoft Azure Preview 포털](http://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 더 자세히 알아보려면 [Azure Preview 포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
+Azure 보안 센터는 [Azure 포털](http://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
 
 
 ## Azure 보안 센터 액세스
 
-Azure 포털에서, 다음 단계에 따라 Azure 보안 센터에 액세스합니다.
+포털에서 다음 단계에 따라 Azure 보안 센터에 액세스합니다.
 
 1. **찾아보기**를 선택하고 **보안 센터** 옵션으로 스크롤합니다. ![][1]
 
@@ -103,4 +103,4 @@ Azure 포털에서, 다음 단계에 따라 Azure 보안 센터에 액세스합�
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

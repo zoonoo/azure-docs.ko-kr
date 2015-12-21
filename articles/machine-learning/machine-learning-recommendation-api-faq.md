@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/>
 
 #기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ
@@ -130,4 +130,4 @@ API 설명서는 [Azure 기계 학습 권장 사항 - 빠른 시작 가이드](m
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

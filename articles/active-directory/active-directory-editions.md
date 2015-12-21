@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/04/2015"
 	ms.author="markvi"/>
 
 # Azure Active Directory 버전
@@ -47,48 +47,41 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 <br>
 
-
-
-
-| 기능 형식| 기능| Free Edition| Basic Edition| Premium Edition |
-| --- | --- | --- | --- | --- |
-| **일반 기능**| 서비스로서의 디렉터리| ![확인][12] 최대 50만 명의 사용자 [1]| ![확인][12] 개체 제한 없음| ![확인][12] 개체 제한 없음|
-| | [UI 또는 Windows PowerShell cmdlet을 사용하는 사용자 및 그룹 관리](active-directory-administer.md)| ![확인][12]| ![확인][12]| ![확인][12]|
-| | [장치 등록](active-directory-conditional-access-device-registration-overview.md)| ![확인][12]| ![확인][12]| ![확인][12]|
-| | [SaaS 및 사용자 지정 응용 프로그램에 대한 SSO 기반 사용자 액세스를 위한 액세스 패널 포털](active-directory-saas-access-panel-introduction.md)| ![확인][12] 사용자당 최대 10개 앱 [2]| ![확인][12] 사용자당 최대 1개 앱 [2]| ![확인][12] 앱 제한 없음|
-| | [사용자 기반 응용 프로그램 액세스 관리 및 프로비전](active-directory-saas-app-provisioning.md)| ![확인][12]| ![확인][12]| ![확인][12]|
-| | 클라우드 사용자를 위한 셀프 서비스 암호 변경| ![확인][12]| ![확인][12]| ![확인][12]|
-| | [Azure AD Connect - 온-프레미스 디렉터리와 Azure Active Directory 간 동기화용](active-directory-aadconnect.md)| ![확인][12]| ![확인][12]| ![확인][12]|
-| | [표준 보안 보고서](active-directory-view-access-usage-reports.md)| ![확인][12]| ![확인][12]| ![확인][12]|
-| | [B2B 공동 작업(조직 간 공동 작업)(미리 보기)](active-directory-b2b-collaboration-overview.md)| ![확인][12]| ![확인][12]| ![확인][12]|
-| **Premium 및 Basic 기능**| [로그인 및 액세스 패널 페이지에 사용자 지정한 회사 로고 및 색상 적용](active-directory-add-company-branding.md)| Office 365 구독에 포함됨 [4]| ![확인][12]| ![확인][12]|
-| | [클라우드 사용자를 위한 셀프 서비스 암호 재설정](active-directory-passwords.md)| Office 365 구독에 포함됨 [4]| ![확인][12]| ![확인][12]|
-| | [응용 프로그램 프록시: 온-프레미스 웹 응용 프로그램에 대한 원격 액세스 및 SSO 보안 유지](active-directory-application-proxy-get-started.md)| | ![확인][12]| ![확인][12]|
-| | [그룹 기반 응용 프로그램 액세스 관리 및 프로비전](active-directory-accessmanagement-group-saasapps.md)| | ![확인][12]| ![확인][12]|
-| | [높은 가용성의 SLA 작동 시간(99.9%)](https://azure.microsoft.com/support/legal/sla/)| Microsoft Online Services SLA [5]| ![확인][12]| ![확인][12]|
-| **프리미엄 전용 기능**| [고급 응용 프로그램 사용 현황 보고](active-directory-view-access-usage-reports.md)| | | ![확인][12]|
-| | [클라우드 사용자를 위한 셀프 서비스 그룹 관리](Azure AD에서 사용자를 위한 셀프 서비스 그룹 관리)| | | ![확인][12]|
-| | [온-프레미스 나중 쓰기를 사용한 셀프 서비스 암호 재설정 ](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![확인][12]|
-| | [MIM(Microsoft Identity Manager) 사용자 라이선스 - 온-프레미스 ID 및 액세스 관리용](http://www.microsoft.com/ko-KR/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![확인][12] [3]|
-| | [고급 비정상 보안 보고서(기계 학습 기반)](active-directory-view-access-usage-reports.md)| | | ![확인][12]|
-| | [클라우드 앱 검색](active-directory-cloudappdiscovery-whatis.md)| | | ![확인][12]|
-| | [클라우드 사용자를 위한 다단계 인증 서비스](multi-factor-authentication.md)| Office 365 구독에 포함됨 [4]| | ![확인][12]|
-| | [온-프레미스 사용자를 위한 다단계 인증 서버](multi-factor-authentication.md)| | | ![확인][12]|
-| | [온-프레미스 Active Directory 인프라의 상태를 모니터링하고 사용 현황 분석을 가져오는 Azure Active Directory Connect Health](active-directory-aadconnect-health.md)| | | ![확인][12]|
+| 기능 형식| 기능| Free Edition| Basic Edition| Premium Edition| Office 365 앱만 해당 |
+| --- | --- | --- | --- | --- | --- |
+| **일반 기능**| 디렉터리 개체 [1]| 최대 500,000개의 개체| 개체 제한 없음| 개체 제한 없음| Office 365 사용자 계정에 대한 개체 제한 없음|
+| | [사용자 및 그룹 관리(추가/업데이트/삭제),사용자 기반 프로비전](active-directory-administer.md), [장치 등록](active-directory-conditional-access-device-registration-overview.md)| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| | [SSO-SaaS 앱, 사용자 지정 앱, 응용 프로그램 프록시 앱](active-directory-enable-sso-scenario.md)| 사용자당 앱 10개 [2]| 사용자당 앱 10개 [2]| 제한 없음| 사용자당 앱 10개 [2]|
+| | [클라우드 사용자를 위한 셀프 서비스 암호 변경](active-directory-passwords-update-your-own-password.md)| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| | [연결 - 온-프레미스 디렉터리와 Azure Active Directory 간 동기화용](active-directory-aadconnect.md)| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| | **미리 보기**:[ B2B 공동 작업](active-directory-b2b-collaboration-overview.md)| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| | [보안 / 사용 보고서](active-directory-view-access-usage-reports.md)| 기본 보고서| 기본 보고서| 고급 보고서| 기본 보고서|
+| **Premium 및 Basic 기능**| [그룹 기반 응용 프로그램 액세스 관리 및 프로비전](active-directory-accessmanagement-group-saasapps.md)| | ![확인][12]| ![확인][12]| |
+| | [클라우드 사용자를 위한 셀프 서비스 암호 재설정](active-directory-passwords.md)| | ![확인][12]| ![확인][12]| ![확인][12]|
+| | [회사 브랜딩(로그온 페이지 및 액세스 패널 사용자 지정)](active-directory-add-company-branding.md)| | ![확인][12]| ![확인][12]| ![확인][12]|
+| | [응용 프로그램 프록시](active-directory-application-proxy-get-started.md)| | ![확인][12]| ![확인][12]| |
+| | [높은 가용성의 SLA 작동 시간(99.9%)](https://azure.microsoft.com/support/legal/sla/)| | ![확인][12]| ![확인][12]| ![확인][12]|
+| **프리미엄 전용 기능**| 셀프 서비스 그룹 관리/셀프 서비스 응용 프로그램 추가/동적 그룹 멤버 자격| | | ![확인][12]| |
+| | [셀프 서비스 암호 재설정, 변경, 온-프레미스 쓰기 저장으로 잠금 해제](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![확인][12]| |
+| | [Multi-Factor Authentication(클라우드 및 온-프레미스)](multi-factor-authentication.md)| | | ![확인][12]| Office 365 앱에 대한 클라우드로 제한|
+| | [Microsoft ID 관리자(MIM) 사용자 라이선스 및 MIM 서버 [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![확인][12]| |
+| | [클라우드 앱 검색](active-directory-cloudappdiscovery-whatis.md)| | | ![확인][12]| |
+| | [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)| | | ![확인][12]| |
+| | 그룹 계정에 대한 자동 암호 롤오버| | | ![확인][12]| |
+| | **미리 보기**: 조건부 액세스| | | ![확인][12]| |
+| | **미리 보기**: Privileged Identity Management| | | ![확인][12]| |
+| **Windows 10 및 Azure AD 조인 관련 기능**| Windows 10 장치를 Azure AD, 데스크톱 SSO, Azure AD용 Microsoft Passport, 관리자 BitLocker 복구에 조인| ![확인][12]| ![확인][12]| ![확인][12]| ![확인][12]|
+| | MDM 자동 등록, 셀프 서비스 BitLocker 복구, Azure AD 조인을 통해 추가된 Windows 10 장치에 대한 추가 로컬 관리자| | | ![확인][12]| |
 
 
 
 
-[1] Office 365, Microsoft Intune 또는 디렉터리 서비스로 Azure Active Directory를 사용하는 다른 모든 Microsoft 온라인 서비스에 대해 50만 개 개체 제한이 적용되지 않습니다.
 
-[2] 각 SaaS 앱에 대한 액세스 권한이 할당된 최종 사용자는 Azure Active Directory Free 및 Azure Active Directory Basic을 사용하여 액세스 패널에서 최대 10개의 앱을 볼 수 있고 SSO 방식으로 액세스할 수 있습니다(관리자가 먼저 SSO로 해당 사용자를 구성한 경우). 관리자는 Free 버전을 사용하여 SSO를 구성하고 원하는 수만큼의 SaaS 앱에 사용자 액세스를 할당할 수 있지만 최종 사용자는 액세스 패널에서 한 번에 10개의 앱만 볼 수 있습니다.
+[1] 기본 사용 할당량은 개체 150,000개입니다. 개체는 디렉터리 서비스의 항목이며 고유하게 구별되는 이름으로 표시됩니다. 인증 목적으로 사용되는 사용자 항목을 개체의 예로 들 수 있습니다. 이 기본 할당량을 초과해야 하는 경우 고객 지원으로 문의하세요. Office 365, Microsoft Intune 또는 디렉터리 서비스로 Azure Active Directory를 사용하는 다른 모든 Microsoft 유료 온라인 서비스에 대해 500,000개 개체 제한이 적용되지 않습니다.
 
-[3] Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라이선스(모든 버전)와 함께 부여됩니다. Microsoft Identity Manager는 Windows Server 운영 체제에서 실행되기 때문에 서버가 Windows Server의 유효하고 라이선스가 부여된 복사본을 실행하는 한 Microsoft Identity Manager를 해당 서버에 설치하고 사용할 수 있습니다. Microsoft Identity Manager 서버에는 별도의 다른 라이선스가 필요하지 않습니다.
+[2] Azure AD Free와 Azure AD Basic을 사용하면 SaaS 앱 액세스 권한이 할당된 최종 사용자가 액세스 패널에서 최대 10개의 앱을 보고 해당 앱에 대한 SSO 액세스 권한을 가질 수 있습니다. 관리자는 Free 및 Basic에서 SSO를 구성하고 원하는 수만큼 SaaS 앱에 대한 사용자 액세스 권한을 할당할 수 있지만, 최종 사용자는 액세스 패널에서 한 번에 10개의 앱만 볼 수 있습니다.
 
-[4] Office 365에 포함된 Azure AD 유료 기능은 Office 365 응용 프로그램에 액세스할 때만 사용하도록 제한됩니다.
-
-[5] 디렉터리 서비스에 Azure Active Directory를 사용하는 Microsoft의 Online 비즈니스 서비스, Office 365, Microsoft Intune 또는 기타 Microsoft Online 서비스는 각각 Azure Active Directory의 용도를 확장하는 고유한 SLA 서비스를 수행합니다. 자세히 알아보려면 [Microsoft Online Services SLA](https://gallery.technet.microsoft.com/online-SLA-ea09109e)를 참조하세요.
-
+[3] Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라이선스(모든 버전)와 함께 부여됩니다. Microsoft ID 관리자는 Windows Server OS에서 실행되므로 서버에서 라이선스가 부여된 유효한 Windows Server를 실행하는 한 Microsoft ID 관리자를 해당 서버에 설치하고 사용할 수 있습니다. Microsoft Identity Manager 서버에는 별도의 다른 라이선스가 필요하지 않습니다.
 
 
 
@@ -102,4 +95,4 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -7,35 +7,35 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obtain the connection string from the Azure portal
+### Azure 포털에서 연결 문자열 가져오기
 
 
-Use the [Azure preview portal](http://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database:
+[Azure Preview 포털](http://portal.azure.com/)에서 클라이언트 프로그램이 Azure SQL 데이터베이스와 상호 작용하는 데 필요한 연결 문자열을 가져올 수 있습니다.
 
 
-1. Click **BROWSE** > **SQL databases**.
+1. **찾아보기** > **SQL 데이터베이스**를 클릭합니다.
 
-    ![Select SQL][1-select-sql]
+    ![SQL 선택][1-select-sql]
 
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
+2. **SQL 데이터베이스** 블레이드 왼쪽 위에 있는 필터 텍스트 상자에 데이터베이스 이름을 입력합니다.
 
-    ![Select Database][2-select-database]]
+    ![데이터베이스 선택][2-select-database]]
 
-3. Click the row for your database.
+3. 해당 데이터베이스에 대한 행을 클릭합니다.
 
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering.
+4. 데이터베이스 블레이드가 표시된 후 시각적 편의를 위해 표준 최소화 컨트롤을 클릭하여 검색 및 데이터베이스 필터링에 사용한 블레이드를 축소할 수 있습니다.
 
-5. On the blade for your database, click **Show database connection strings**.
+5. 데이터베이스 블레이드에서 **데이터베이스 연결 문자열 표시**를 클릭합니다.
 
-6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO.NET**.
+6. ADO.NET 연결 라이브러리를 사용하려는 경우 **ADO.NET**이라는 레이블이 지정된 문자열을 복사합니다.
 
-	![Copy the ADO.NET connection string for your database][3-get-connection-string]
+	![데이터베이스에 대한 ADO.NET 연결 문자열 복사][3-get-connection-string]
 
-7. Paste the connection string information into your client program code.  You will need to replace the {your_password_here} with your real password.
+7. 연결 문자열 정보를 클라이언트 프로그램 코드에 붙여 넣습니다. {Your\_password\_here}를 실제 암호로 바꾸어야 합니다.
 
 
 
-For more information, see: [Connection Strings and Configuration Files](http://msdn.microsoft.com/library/ms254494.aspx).
+자세한 내용은 [연결 문자열 및 구성 파일](http://msdn.microsoft.com/library/ms254494.aspx)을 참조하세요.
 
 <!-- Image references. -->
 
@@ -54,3 +54,5 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+
+<!---HONumber=AcomDC_1210_2015-->

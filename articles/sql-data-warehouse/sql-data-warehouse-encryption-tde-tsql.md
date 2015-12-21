@@ -66,11 +66,11 @@ FROM
 
  
 <!--Anchors-->
-[투명한 데이터 암호화(TDE)]: https://msdn.microsoft.com/ko-KR/library/bb934049.aspx
+[투명한 데이터 암호화(TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

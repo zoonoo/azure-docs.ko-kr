@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/10/2015"   
+	ms.date="12/05/2015"   
 	ms.author="juliako"/>
 
 
 # Azure Media Packager를 사용하여 정적 패키징 작업 수행
 
->[AZURE.NOTE]Windows Azure Media Packager 및 Windows Azure Media Encryptor는 2016년 3월 1일에 사용이 만료됩니다. 기간이 만료되면 이러한 구성 요소는 더 이상 사용할 수 없습니다. 형식 변환 및 암호화 기능은 동적 패키징 및 동적 암호화를 통해 사용할 수 있습니다.
+>[AZURE.NOTE]Microsoft Azure Media Packager 및 Microsoft Azure Media Encryptor는 2016년 3월 1일에 사용이 만료됩니다. 기간이 만료되면 이러한 구성 요소는 더 이상 사용할 수 없습니다. 형식 변환 및 암호화 기능은 동적 패키징 및 동적 암호화를 통해 사용할 수 있습니다.
 
 ## 개요
 
@@ -1447,4 +1447,4 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

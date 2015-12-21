@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="12/06/2015"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 응용 프로그램 및 다음 단계
@@ -59,11 +59,15 @@
 ### Azure 클러스터 만들기
 서비스 패브릭 SDK는 개발 및 테스트를 위한 로컬 클러스터를 제공합니다. Azure에서 클러스터를 만들려면 [Azure 포털에서 서비스 패브릭 클러스터 설정][create-cluster-in-portal]을 참조하세요.
 
+### Party 클러스터를 사용하여 무료로 Azure에 배포
+
+사용자 고유의 클러스터를 설정하지 않고 Azure에서 응용 프로그램을 배포 및 관리하려는 경우 무료로 제공되는 [Party 클러스터 서비스](http://aka.ms/tryservicefabric)를 사용할 수 있습니다.
+
 ### Azure에 응용 프로그램 게시
 Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시할 수 있습니다. 방법을 알아보려면 [Azure에 응용 프로그램 게시][publish-app-to-azure]를 참조하세요.
 
 ### 서비스 패브릭 탐색기를 사용하여 클러스터 시각화
-서비스 패브릭 탐색기는 배포된 응용 프로그램 및 물리적 레이아웃을 포함하여 클러스터를 쉽게 시각화할 수 있는 방법을 제공합니다. 알아보려면 [서비스 패브릭 탐색기를 사용하여 클러스터 시각화][visualize-with-sfx]를 참조하세요.
+서비스 패브릭 탐색기는 배포된 응용 프로그램 및 물리적 레이아웃을 포함하여 클러스터를 쉽게 시각화할 수 있는 방법을 제공합니다. 자세한 내용은 [서비스 패브릭 탐색기를 사용하여 클러스터 시각화][visualize-with-sfx]를 참조하세요.
 
 ### 서비스 버전 관리 및 업그레이드
 서비스 패브릭을 통해 응용 프로그램에서 독립적인 서비스의 버전 관리 및 업그레이드를 수행할 수 있습니다. 자세한 내용은 [서비스 버전 관리 및 업그레이드][app-upgrade-tutorial]를 참조하세요.
@@ -81,4 +85,4 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

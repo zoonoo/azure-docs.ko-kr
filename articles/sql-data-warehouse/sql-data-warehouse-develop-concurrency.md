@@ -34,7 +34,7 @@ SQL 데이터 웨어하우스의 동시성은 **동시 쿼리** 및 **동시성 
 2. 사용자가 속한 **리소스 클래스**
 3. 쿼리 또는 작업이 동시성 슬롯 모델에 의해 제어되는지 여부 
 
-> [AZURE.NOTE]모든 쿼리에 동시성 슬롯 쿼리 규칙이 적용되지는 않는다는 점에 주의하세요. 그러나 대부분의 사용자 쿼리에는 적용됩니다. 일부 쿼리 및 작업은 동시성 슬롯을 전혀 사용하지 않습니다. 이러한 쿼리 및 작업은 여전히 동시성 쿼리 제한에 따라 제한되므로 두 규칙을 모두 설명할 필요가 있습니다. 자세한 내용은 아래의 [리소스 클래스 예외](#exceptions) 섹션을 참조하세요.
+> [AZURE.NOTE] 모든 쿼리에 동시성 슬롯 쿼리 규칙이 적용되지는 않는다는 점에 주의하세요. 그러나 대부분의 사용자 쿼리에는 적용됩니다. 일부 쿼리 및 작업은 동시성 슬롯을 전혀 사용하지 않습니다. 이러한 쿼리 및 작업은 여전히 동시성 쿼리 제한에 따라 제한되므로 두 규칙을 모두 설명할 필요가 있습니다. 자세한 내용은 아래의 [리소스 클래스 예외](#exceptions) 섹션을 참조하세요.
 
 다음 표에서는 동시 쿼리와 동시성 슬롯 모두의 제한을 설명합니다. 여기서는 쿼리가 리소스에 따라 제한되는 경우를 가정합니다.
 
@@ -267,7 +267,7 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE]위의 쿼리는 문제 해결 시 워크로드 그룹의 활성 및 사용 기록을 분석하는 데도 사용할 수 있습니다.
+> [AZURE.NOTE] 위의 쿼리는 문제 해결 시 워크로드 그룹의 활성 및 사용 기록을 분석하는 데도 사용할 수 있습니다.
 
 ## 워크로드 관리 예제
 
@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]Azure SQL 데이터베이스 및 SQL 데이터 웨어하우스 모두로 작업할 경우 마스터 데이터베이스에서 로그인을 위한 사용자를 만드는 것도 좋은 방법입니다. 멤버 자격을 부여하기 위해 로그인 시 마스터 수준의 사용자가 필요할 때 사용할 수 있는 두 가지 서버 역할이 있습니다. 역할은 `Loginmanager` 및 `dbmanager`입니다. Azure SQL 데이터베이스 및 SQL 데이터 웨어하우스 모두에서 이러한 역할은 로그인을 관리하고 데이터베이스를 만들 권한을 부여합니다. 이 점이 SQL Server와 다릅니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]를 참조하세요.
+[AZURE.NOTE] Azure SQL 데이터베이스 및 SQL 데이터 웨어하우스 모두로 작업할 경우 마스터 데이터베이스에서 로그인을 위한 사용자를 만드는 것도 좋은 방법입니다. 멤버 자격을 부여하기 위해 로그인 시 마스터 수준의 사용자가 필요할 때 사용할 수 있는 두 가지 서버 역할이 있습니다. 역할은 `Loginmanager` 및 `dbmanager`입니다. Azure SQL 데이터베이스 및 SQL 데이터 웨어하우스 모두에서 이러한 역할은 로그인을 관리하고 데이터베이스를 만들 권한을 부여합니다. 이 점이 SQL Server와 다릅니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]를 참조하세요.
 
 로그인을 만든 후에는 이제 사용자 계정을 추가해야 합니다.
 
@@ -323,7 +323,7 @@ EXEC sp_addrolemember 'largerc', 'newperson'
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
 
-> [AZURE.NOTE]smallrc에서 사용자를 제거하는 것은 불가능합니다.
+> [AZURE.NOTE] smallrc에서 사용자를 제거하는 것은 불가능합니다.
 
 어떤 사용자가 지정된 역할의 멤버인지 보려면 다음 쿼리를 사용합니다.
 
@@ -448,8 +448,8 @@ FROM	sys.dm_pdw_wait_stats w
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/en-us/library/azure/ee336235.aspx
+[Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

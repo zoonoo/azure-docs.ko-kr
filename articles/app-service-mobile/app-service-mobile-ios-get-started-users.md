@@ -22,7 +22,7 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작]에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작 안내서]를 기반으로 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 인증 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작]에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작 안내서]를 기반으로 합니다.
 
 ##<a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 
@@ -47,4 +47,4 @@ Xcode에서 **실행**을 눌러 앱을 시작합니다. 앱이 인증되지 않
 [Azure portal]: https://portal.azure.com
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

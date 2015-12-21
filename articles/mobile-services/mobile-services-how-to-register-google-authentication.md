@@ -7,13 +7,14 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/15/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에 Google 로그인을 사용하기 위해 앱 등록
@@ -33,13 +34,15 @@
 
 3. [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) 웹 사이트로 이동하고 Google 계정 자격 증명으로 로그인하고 **Create Project**를 클릭하고 **Project name**을 제공한 후 **Create**를 클릭합니다.
 
-4. 왼쪽 탐색 모음에서 **API & Auth**를 클릭하고 **Social APIs** 아래에서 **Google + API** > **Enable API**를 클릭합니다.
+4. **Products & services** 드롭다운 메뉴에서 **API Manager**를 클릭하고 **Social APIs** 아래에서 **Google+API** > **Enable API**를 클릭합니다.
 
-5. **API & Auth** > **Credentials** > **OAuth consent screen**을 클릭하고 **Email address**를 선택한 다음 **Product Name**을 입력하고 **Save**를 클릭합니다.
+5. **Credentials** > **OAuth consent screen**을 클릭하고 **Email address**를 선택한 다음 **Product Name**을 입력하고 **Save**를 클릭합니다.
 
 6. **Credentials** 탭에서 **Add credentials** > **OAuth 2.0 client ID**를 클릭하고 **Web application**을 선택합니다.
 
-7. **Authorized JavaScript Origins**에 모바일 서비스 URL을 입력하고 **Authorized Redirect URI**에 생성된 URL을 다음 URL 형식 중 하나로 바꾼 후 **Create client ID**를 클릭합니다.
+
+7. **Authorized JavaScript Origins**에 모바일 서비스 URL을 입력하고 **Authorized Redirect URI**에 생성된 URL을 다음 URL 형식 중 하나로 바꾼 후 **Create**를 클릭합니다.
+ 
 
 	+ **.NET 백 엔드**: `https://<mobile_service>.azure-mobile.net/signin-google`
 	+ **JavaScript 백 엔드**: `https://<mobile_service>.azure-mobile.net/login/google`
@@ -61,4 +64,4 @@
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

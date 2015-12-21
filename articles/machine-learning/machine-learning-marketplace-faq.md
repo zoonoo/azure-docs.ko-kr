@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/>
 
 #Azure 마켓플레이스에서 기계 학습 앱 게시 및 사용: FAQ
@@ -77,4 +77,4 @@ Azure 기계 학습 웹 서비스에 직접 연결하는 경우와 마켓플레�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

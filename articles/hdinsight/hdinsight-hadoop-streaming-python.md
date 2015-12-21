@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #HDInsight용 Python 스트리밍 프로그램 개발
@@ -23,7 +23,7 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 
 > [AZURE.NOTE]이 문서의 Python 코드는 Windows 기반 HDInsight 클러스터에서 사용할 수 있지만 이 문서의 단계는 Linux 기반 클러스터에 해당됩니다.
 
-이 문서는 Michael Noll이 [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Python으로 Hadoop MapReduce 프로그램 작성)에 게시한 정보 및 예제를 기반으로 합니다.
+이 문서는 [Python으로 Hadoop MapReduce 프로그램 작성](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/)에서 Michael Noll이 게시한 정보 및 예제를 기반으로 합니다.
 
 ##필수 조건
 
@@ -205,4 +205,4 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

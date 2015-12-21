@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/04/2015"
    ms.author="tomfitz"/>
 
 # 서비스, 지역 및 API 버전에 대한 리소스 관리자 지원
 
-Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다.
-모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
+Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다. 모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
 
 리소스를 배포할 때는 이러한 리소스를 지원하는 지역 및 리소스에 사용할 수 있는 API 버전도 알아야 합니다. [지원되는 지역](#supported-regions) 섹션에서는 구독 및 리소스에 대해 작동할 지역을 확인하는 방법을 보여줍니다. 섹션 [지원되는 API 버전](#supported-api-versions)에서는 사용할 수 있는 API 버전을 결정하는 방법을 보여줍니다.
 
@@ -59,9 +58,9 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | DocumentDB | 예 | [예](https://portal.azure.com/#create/Microsoft.DocumentDB) | 예 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
 | 저장소 | 예 | [예](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | 아니요 | [저장소 만들기](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [저장소 계정](resource-manager-template-storage.md) |
 | Redis 캐시 | 예 | [예](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | 예 | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL 데이터베이스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| SQL 데이터베이스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDatabase.1.0.3) | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 검색 | 예 | [예](https://portal.azure.com/#create/Microsoft.Search) | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL 데이터 웨어하우스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| SQL 데이터 웨어하우스 | 예 | [예](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.13-preview) | | | |
 | StorSimple | 아니요 | 아니요 | - | - | - |
 | 관리된 캐시 | 아니요 | 아니요 | - | - | - |
 
@@ -70,7 +69,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 | 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | API 관리 | 예 | 아니요 | 예 | [API 만들기](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
-| API 앱 | 예 | [예](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
+| API 앱 | 예 | [예](https://portal.azure.com/#create/Microsoft.ApiApp) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
 | 웹앱 | 예 | [예](https://portal.azure.com/#create/Microsoft.WebSite) | 예, 제한 있음(아래 참조) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
 | 알림 허브 | 예 | [예](https://portal.azure.com/#create/Microsoft.NotificationHub) | 예 | [알림 허브 만들기](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
 | 논리 앱 | 예 | [예](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | 예 | | |
@@ -96,7 +95,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 | 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| CDN | 예(Preview) | 아니요 | | | |
+| CDN | 예 | [예](https://portal.azure.com/#create/Microsoft.CDN) | | | |
 | 미디어 서비스 | 아니요 | 아니요 | | | |
 
 
@@ -121,7 +120,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 | 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | 예 | [예](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | 아니요 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | 예 | [예](https://portal.azure.com/#create/Microsoft.AppInsights) | 아니요 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing 지도 | 예 | [예](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Visual Studio 계정 | 예 | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -129,7 +128,7 @@ Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 �
 
 | 부여 | 리소스 관리자 사용 | 포털 | 리소스 이동 | REST API | 스키마 |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| 자동화 | 예 | [예](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | 예 | | |
+| 자동화 | 예 | [예](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.5) | 예 | | |
 | 키 자격 증명 모음 | 예 | 아니요 | 예 | [키 자격 증명 모음 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | 스케줄러 | 예 | 아니요 | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | 예 | 아니요 | 예 | | |
@@ -185,7 +184,7 @@ Azure PowerShell 0.9.8의 경우 다음 명령을 사용합니다.
 
     azure location list
 
-또한 **jq**와 같은 도구를 사용하여 위치 결과를 필터링할 수도 있습니다. jq와 같은 도구에 대해 자세히 알아보려면 [Azure와 상호작용하는 유용한 도구](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure)를 참조하세요.
+또한 **jq**와 같은 도구를 사용하여 위치 결과를 필터링할 수도 있습니다. jq와 같은 도구에 대해 자세히 알아보려면 [Azure를 조작하는 데 유용한 도구](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure)를 참조하세요.
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -241,4 +240,4 @@ Azure PowerShell 0.9.8의 경우 다음을 사용합니다.
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

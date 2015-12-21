@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="프로그래밍 방식으로 스트림 분석에서 작업 모니터링| Microsoft Azure" 
-	description="REST API, Azure SDK 또는 PowerShell을 통해 생성된 스트림 분석 작업을 프로그래밍 방식으로 모니터링하는 방법에 대해 알아봅니다." 
+	description="REST API, Azure SDK 또는 PowerShell을 통해 생성된 스트림 분석 작업을 프로그래밍 방식으로 모니터링하는 방법에 대해 알아봅니다."
+	keywords=".net 모니터, 작업 모니터, 응용 프로그램 모니터링"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# 프로그래밍 방식으로 스트림 분석 작업 모니터링 
-이 문서에서는 스트림 분석 작업에 대한 모니터링을 사용하는 방법을 보여줍니다. REST API, Azure SDK 또는 PowerShell을 통해 생성된 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 설정하거나 이 문서의 단계를 수행하여 이 프로세스를 자동화할 수 있습니다. 모니터링 데이터는 스트림 분석 작업에 대해 Azure 포털의 “모니터” 탭에서 볼 수 있습니다.
+# 프로그래밍 방식으로 스트림 분석 작업 모니터 만들기
+ 이 문서에서는 스트림 분석 작업에 대한 모니터링을 사용하는 방법을 보여줍니다. REST API, Azure SDK 또는 PowerShell을 통해 생성된 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 설정하거나 이 문서의 단계를 수행하여 이 프로세스를 자동화할 수 있습니다. 모니터링 데이터는 스트림 분석 작업에 대해 Azure 포털의 “모니터” 탭에서 볼 수 있습니다.
 
-![모니터 작업 탭](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+![작업 모니터 작업 탭](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
 ## 필수 조건
 이 문서를 시작하기 전에 다음이 있어야 합니다.
@@ -178,4 +179,4 @@
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

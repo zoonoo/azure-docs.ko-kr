@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 변환" 
+	pageTitle="Azure 앱 서비스의 논리 앱에서 BizTalk 변환 사용 | Microsoft Azure" 
 	description="XML 문서를 한 스키마에서 다른 스키마로 변환하는 방법을 알아봅니다." 
 	authors="anuragdalmia" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="anuragdalmia"/>
 
-#BizTalk 변환
+# BizTalk 변환
 
 
 ## 개요
@@ -45,11 +45,11 @@ API 앱 통계 페이지에서 SQL, SAP 및 SharePoint와 같은 커넥터에 �
 ## 맵 만들기 및 추가
 변한 또는 맵은 Visual Studio에서 무료 다운로드인 [Microsoft Azure BizTalk 서비스 SDK](http://www.microsoft.com/download/details.aspx?id=39087)를 사용하여 만들어집니다.
 
-맵을 만드는 방법에 대한 자세한 내용은 [Visual Studio에서 맵 만들기](http://aka.ms/createamapinvs)를 참조하세요. 맵이 만들어지고 프로덕션에 사용할 준비가 되면 Azure 관리 포털에서 만든 BizTalk 변환 API 앱에 맵(.trfm 파일)을 추가할 수 있습니다.
+맵을 만드는 방법에 대한 자세한 내용은 [Visual Studio에서 맵 만들기](http://aka.ms/createamapinvs)를 참조하세요. 맵이 만들어지고 프로덕션에 사용할 준비가 되면 Azure 포털에서 만든 BizTalk 변환 API 앱에 맵(.trfm 파일)을 추가할 수 있습니다.
 
-맵이 업로드된 후 변경되거나 수정되면 업데이트된 맵을 업로드할 수 있으며, 업데이트된 맵이 변환 API 앱의 기존 맵을 대체합니다.
+맵이 업로드된 후 변경되거나 수정되면 업데이트된 맵을 업로드하여 변환 API 앱의 기존 맵을 대체할 수 있습니다.
 
-1.	Azure 관리 포털(화면 왼쪽)에서 **찾아보기**를 선택한 다음 **API 앱**을 선택합니다. **API 앱**이 표시되지 않는 경우 **모두**를 선택한 다음 사용 가능 목록에서 **API 앱**을 선택합니다.
+1.	Azure 포털(화면 왼쪽)에서 **찾아보기**를 선택한 다음 **API 앱**을 선택합니다. **API 앱**이 표시되지 않는 경우 **모두**를 선택한 다음 사용 가능 목록에서 **API 앱**을 선택합니다.
 
 	![][7]
 
@@ -116,4 +116,4 @@ API 앱 통계 페이지에서 SQL, SAP 및 SharePoint와 같은 커넥터에 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

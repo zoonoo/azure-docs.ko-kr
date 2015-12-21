@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="12/04/2015"
    ms.author="ryanwi"/>
 
 # 서비스 패브릭 서비스 관리
@@ -28,13 +28,13 @@
 - [응용 프로그램 패키지 작성](service-fabric-application-model.md)
 - [응용 프로그램 배포 및 제거](service-fabric-deploy-remove-applications.md)
 - [기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md)
+- [다른 보안 권한으로 서비스 패브릭 응용 프로그램 실행](service-fabric-application-runas-security.md)
 - [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 
 ## 응용 프로그램 업그레이드
 응용 프로그램을 업그레이드하는 방법에 대해 알아보려면 다음을 읽어보세요.
 
 - [Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-- [PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade-powershell.md)
 - [응용 프로그램 업그레이드 연습](service-fabric-application-upgrade-tutorial.md)
 - [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
 - [수동 업그레이드 및 Diff 패키지로 업그레이드](service-fabric-application-upgrade-advanced.md)
@@ -48,6 +48,12 @@
 - [서비스 패브릭 응용 프로그램 크기 조정](service-fabric-concepts-scalability.md)
 
 ## 클러스터 관리
+- [Azure 포털에서 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-portal.md)
+- [ARM 템플릿을 사용하여 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-arm.md)
+- [서비스 패브릭 클러스터 업그레이드](service-fabric-cluster-upgrade.md)
+- [서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)
+- [VM을 추가하거나 제거하여 서비스 패브릭 클러스터 크기 조정](service-fabric-cluster-scale-up-down.md)
+- [Windows 또는 Linux에 서비스 패브릭 클러스터 배포](service-fabric-deploy-anywhere.md)
 - [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

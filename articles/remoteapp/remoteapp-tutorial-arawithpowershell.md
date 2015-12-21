@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure RemoteApp에서 Powershell 시작하기"
+   pageTitle="Azure RemoteApp에서 Powershell 시작하기 | Microsoft Azure"
    description="Azure RemoteApp에서 Powershell을 시작하는 방법을 알아봅니다."
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="12/05/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -22,7 +22,7 @@
 =====================================
 
 
-## cmdlet 받기 
+## cmdlet 받기
 -------------
 먼저 [여기](http://go.microsoft.com/?linkid=9811175)에서 Azure Powershell cmdlet을 받아야 합니다. RemoteApp도 여기에 포함되어 있습니다.
 
@@ -99,6 +99,5 @@ RemoteApp 템플릿 이미지 cmdlet:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -75,13 +75,15 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ### 예
 
-다음 예제는 MyConfigFile.xml 구성 파일을 사용하여 새 HPC 팩 클러스터를 만들며 클러스터 설치를 위한 관리자 자격 증명을 지정합니다. ```
-New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
-<username> –AdminPassword <password>
+다음 예제는 MyConfigFile.xml 구성 파일을 사용하여 새 HPC 팩 클러스터를 만들며 클러스터 설치를 위한 관리자 자격 증명을 지정합니다.
+
 ```
+New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
+```
+
 ### 추가 고려 사항
 
-* 이 스크립트는 Azure 마켓플레이스의 HPC 팩 VM 이미지를 사용하여 클러스터 헤드 노드를 만듭니다. 현재 이미지는 HPC Pack 2012 R2 업데이트 2가 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다.
+* 이 스크립트는 Azure 마켓플레이스의 HPC 팩 VM 이미지를 사용하여 클러스터 헤드 노드를 만듭니다. 현재 이미지는 HPC Pack 2012 R2 업데이트 3이 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다.
 
 * 이 스크립트는 HPC 팩 웹 포털 또는 HPC 팩 REST API를 통한 작업 제출을 선택적으로 활성화할 수 있습니다.
 
@@ -386,8 +388,8 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 
 * 클러스터에서 테스트 워크로드를 실행합니다. 예를 보려면 HPC 팩 [시작하기 가이드](https://technet.microsoft.com/library/jj884144)를 참조하세요.
 
-* 스크립트를 사용하여 클러스터를 만들고 HPC 워크로드를 실행하는 자습서를 보려면 [Azure에서 Excel 및 SOA 작업을 실행할 HPC 팩 클러스터 시작하기](virtual-machines-excel-cluster-hpcpac) 및 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-cluster-hpcpack-namd.md)을 참조하세요.
+* 스크립트를 사용하여 클러스터를 만들고 HPC 워크로드를 실행하는 자습서를 보려면 [Azure에서 Excel 및 SOA 워크로드를 실행할 HPC 팩 클러스터 시작하기](virtual-machines-excel-cluster-hpcpac), [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-cluster-hpcpack-namd.md) 또는 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 OpenFOAM 실행](virtual-machines-linux-cluster-hpcpack-openfoam.md)을 참조하세요.
 
-* 사용자가 만든 클러스터에서 계산 노드를 시작, 중지, 추가, 제거하는 HPC 팩의 도구. [Azure에서 HPC 팩 클러스터의 계산 노드 관리](virtual-machines-hpcpack-cluster-node-manage.md) 참조
+* 사용자가 만든 클러스터에서 계산 노드를 시작, 중지, 추가, 제거하는 HPC 팩의 도구. [Azure에서 HPC 팩 클러스터의 계산 노드 관리](virtual-machines-hpcpack-cluster-node-manage.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

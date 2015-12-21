@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="antonba"/>
 
 # 사용자 등록 및 제품 구독을 위임하는 방법
@@ -117,7 +117,7 @@
 
 ## <a name="delegate-example-code"> </a>예제 코드 ##
 
-이러한 코드 샘플에서는 서명의 유효성을 검사하는 데 사용될 HMAC를 만들어 전달된 returnUrl의 유효성을 증명하기 위해 API 관리 포털의 위임 화면에 설정된 *위임 유효성 검사 키*를 가져오는 방법을 보여 줍니다. 약간만 수정하면 동일한 코드를 productId 및 userId에도 사용할 수 있습니다.
+이러한 코드 샘플에서는 서명의 유효성을 검사하는 데 사용될 HMAC를 만들어 전달된 returnUrl의 유효성을 증명하기 위해 게시자 포털의 위임 화면에 설정된 *위임 유효성 검사 키*를 가져오는 방법을 보여 줍니다. 약간만 수정하면 동일한 코드를 productId 및 userId에도 사용할 수 있습니다.
 
 **returnUrl의 해시를 생성하는 C# 코드**
 
@@ -166,4 +166,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

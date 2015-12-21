@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="11/30/2015"
+    ms.date="12/03/2015"
     ms.author="sdanie" />
 
 # 관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션
@@ -64,9 +64,9 @@ Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 ## 캐시 만들기
 
-Azure Redis Cache의 캐시는 [Azure Preview 포털](https://portal.azure.com)에서 또는 ARM 템플릿, PowerShell 또는 Azure CLI를 사용하여 만들 수 있습니다.
+Azure Redis Cache의 캐시는 [Azure 포털](https://portal.azure.com)에서 또는 ARM 템플릿, PowerShell 또는 Azure CLI를 사용하여 만들 수 있습니다.
 
--	Azure Preview 포털에서 캐시를 만들려면 [캐시 만들기](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)를 참조하세요.
+-	Azure 포털에서 캐시를 만들려면 [캐시 만들기](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)를 참조하세요.
 -	ARM 템플릿을 사용하여 캐시를 만들려면 [템플릿을 사용하여 Redis Cache 만들기](cache-redis-cache-arm-provision.md)를 참조하세요.
 -	Azure PowerShell을 사용하여 캐시를 만들려면 [Azure PowerShell을 사용하여 Azure Redis Cache 관리](cache-howto-manage-redis-cache-powershell.md)를 참조하세요.
 -	Azure CLI를 사용하여 캐시를 만들려면 [Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법](cache-manage-cli.md)을 참조하세요.
@@ -195,4 +195,4 @@ Azure Redis Cache에는 ASP.NET 세션 상태 및 페이지 출력 캐싱 모두
 
 자습서, 샘플, 비디오, 등은 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/cache/)를 탐색합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

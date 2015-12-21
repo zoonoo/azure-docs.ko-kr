@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="10/20/2015" 
+	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
 # 파이프라인 및 활동 이해
@@ -282,9 +282,9 @@ Azure 데이터 팩터리에 파이프라인을 작성하고 배포하려면 Vis
 ### Azure PowerShell 사용
 Azure 데이터 공장에서 파이프라인을 만들려면 Azure PowerShell을 사용할 수 있습니다. 다시 말하면 c:\\DPWikisample.json에 있는 파일에 파이프라인 JSON를 정의했습니다. 다음 예제와 같이 Azure 데이터 팩터리 인스턴스로 업로드할 수 있습니다.
 
-	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-이 cmdlet에 대해 자세히 알아보려면 [New-AzureDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/dn820227.aspx)을 참조하세요.
+이 cmdlet에 대해 자세히 알아보려면 [New-AzureRmDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/mt619358.aspx)를 참조하세요.
 
 ### REST API 사용
 REST API를 사용하여 파이프라인을 만들고 배포할 수 있습니다. 프로그래밍 방식으로 파이프라인을 만들려면 이 메커니즘을 활용할 수 있습니다. 이에 대한 자세한 내용은 [파이프라인 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/dn906741.aspx)를 참조하세요.
@@ -335,4 +335,4 @@ REST API를 사용하여 파이프라인을 만들고 배포할 수 있습니다
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

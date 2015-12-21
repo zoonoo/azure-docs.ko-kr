@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="07/28/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # 스케줄러 제한, 기본값 및 오류 코드
@@ -59,18 +59,23 @@ API 작업 관리 서비스는 관리 서비스가 정의한 오류 정보를 �
 
 ## 참고 항목
 
- [스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
- [관리 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
+ [스케줄러란?](scheduler-intro.md)
+ 
+ [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
- [Azure 스케줄러에서 계획 및 요금 청구](scheduler-plans-billing.md)
+ [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
 
- [Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법](scheduler-advanced-complexity.md)
+ [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
 
- [스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+ [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
 
- [스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
+ [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
 
- [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
+ [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
 
-<!---HONumber=Oct15_HO3-->
+ [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
+ 
+  
+
+<!---HONumber=AcomDC_1210_2015-->

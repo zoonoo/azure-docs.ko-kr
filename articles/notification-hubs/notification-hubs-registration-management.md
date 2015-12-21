@@ -128,7 +128,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
         if (deviceInstallation.installationId == null)
             return HttpStatusCode.BadRequest;
 
-        // Parse connection string (https://msdn.microsoft.com/ko-KR/library/azure/dn495627.aspx)
+        // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
         ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
         string hubResource = "installations/" + deviceInstallation.installationId + "?";
         string apiVersion = "api-version=2015-04";
@@ -137,7 +137,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
         string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
 
         //=== Generate SaS Security Token for Authorization header ===
-		// See, https://msdn.microsoft.com/ko-KR/library/azure/dn495627.aspx
+		// See, https://msdn.microsoft.com/library/azure/dn495627.aspx
         string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
 
         using (var httpClient = new HttpClient())
@@ -332,4 +332,4 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 백 엔드에서 등록 업데이트 간의 동시성을 처리해야 합니다. 서비스 버스는 등록 관리를 위해 낙관적 동시성 제어를 제공합니다. HTTP 수준에서 이 기능은 등록 관리 작업에 ETag를 사용하여 구현 됩니다. 이 기능은 동시성 문제로 인해 업데이트가 거부될 경우 예외를 throw하는 Microsoft SDK에 의해 투명하게 사용됩니다. 앱 백 엔드는 이러한 예외를 처리하고 필요한 경우 업데이트를 다시 시도하는 일을 담당합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

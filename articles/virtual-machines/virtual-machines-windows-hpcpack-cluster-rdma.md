@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 이 문서에서는 Azure에서[Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [크기가 A8 및 A9인 계산 집약적 인스턴스](virtual-machines-a8-a9-a10-a11-specs.md)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Windows RDMA를 설정하는 방법을 보여 줍니다. 지원되는 MPI 구현을 실행하도록 크기가 A8 및 A9인 Windows Server 기반 인스턴스를 구성하는 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
 
->[AZURE.NOTE]Azure Windows RDMA는 현재 Microsoft Network Direct 인터페이스를 사용하여 A8 및 A9 인스턴스 사이에서 통신하는 MPI 응용 프로그램에서 지원됩니다.
+>[AZURE.NOTE] Azure Windows RDMA는 현재 Microsoft Network Direct 인터페이스를 사용하여 A8 및 A9 인스턴스 사이에서 통신하는 MPI 응용 프로그램에서 지원됩니다.
 >
 > 또한 Azure에서는 A8 및 A9 인스턴스와 처리 성능이 동일하지만 RDMA 백 엔드 네트워크에 연결되지 않는 A10 및 A11 계약 집약적 인스턴스도 제공합니다. Azure에서 MPI 작업을 실행하려는 경우 일반적으로 A8 및 A9 인스턴스에서 최상의 성능을 얻을 수 있습니다.
 
@@ -55,7 +55,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 다음은 기존 (일반적으로 온-프레미스) 클러스터에서 A8 또는 A9 Azure 인스턴스로 버스트하는 단계입니다. 유사한 절차를 사용하여 Azure VM에 배포된 HPC 팩 헤드 노드에 작업자 역할 인스턴스를 추가합니다.
 
->[AZURE.NOTE]HPC 팩을 사용하는 Azure로 버스트에 대한 자습서는 [HPC 팩을 사용하여 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. 아래 단계에서 특히 크기가 A8 및 A9인 Azure 노드에 적용되는 고려 사항을 확인하세요.
+>[AZURE.NOTE] HPC 팩을 사용하는 Azure로 버스트에 대한 자습서는 [HPC 팩을 사용하여 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. 아래 단계에서 특히 크기가 A8 및 A9인 Azure 노드에 적용되는 고려 사항을 확인하세요.
 
 ![Azure로 버스트][burst]
 
@@ -63,7 +63,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 4. **HPC 팩 2012 R2 헤드 노드 배포 및 구성**
 
-    [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=47755)에서 최신 HPC 팩 설치 패키지를 다운로드합니다. Azure 버스트 배포를 준비하기 위한 요구 사항 및 지침은 [HPC 팩 시작하기 가이드](https://technet.microsoft.com/library/jj884144.aspx) 및 [Microsoft HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)를 참조하세요.
+    [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=49922)에서 최신 HPC 팩 설치 패키지를 다운로드합니다. Azure 버스트 배포를 준비하기 위한 요구 사항 및 지침은 [HPC 팩 시작하기 가이드](https://technet.microsoft.com/library/jj884144.aspx) 및 [Microsoft HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)를 참조하세요.
 
 5. **Azure 구독에서 관리 인증서 구성**
 
@@ -114,7 +114,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 1. **클라이언트 컴퓨터에서 HPC 팩 IaaS 배포 스크립트를 실행하여 클러스터 헤드 노드 및 계산 노드 VM 만들기**
 
- [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=47755)에서 HPC 팩 IaaS 배포 스크립트 패키지를 다운로드합니다.
+ [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=49922)에서 HPC 팩 IaaS 배포 스크립트 패키지를 다운로드합니다.
 
  클라이언트 컴퓨터를 준비하고 스크립트 구성 파일을 만들어 스크립트를 실행하려면 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-hpcpack-cluster-powershell-script.md)를 참조하세요. 크기가 A8 및 A9인 계산 노드를 배포하려면 이 문서의 뒷부분에 나오는 추가 고려 사항을 참조하세요.
 
@@ -198,8 +198,12 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
     Azure VM에 배포된 HPC 팩 클러스터에서 2단계의 설명과 같이 명령을 수정합니다.
 
-5. 작업이 완료된 다음 출력(이 경우 작업의 작업 1 출력)을 보려면 task view &lt;JobID&gt;.1을 입력합니다.
+5. 작업이 완료된 다음 출력(이 경우 작업의 작업 1 출력)을 보려면 다음과 같이 입력합니다.
 
+    ```
+    task view &lt;JobID&gt;.1
+    ```
+    
   출력에는 다음과 유사한 처리량 결과가 포함 됩니다.
 
   ![핑퐁 처리량][pingpong2]
@@ -246,4 +250,4 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -175,7 +175,6 @@ AAD
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /ko-KR/documentation/services/scheduler/
 [Web Job]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 
@@ -183,6 +182,6 @@ AAD
 [앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
 [앱 서비스 환경]: app-service-app-service-environment-intro.md
 [모바일 서비스 vs. 앱 서비스]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
-[migrate a mobile service to a mobile app on App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[migrate a mobile service to a mobile app on App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

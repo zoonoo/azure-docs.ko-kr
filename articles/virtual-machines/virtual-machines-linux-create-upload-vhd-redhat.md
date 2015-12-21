@@ -18,14 +18,14 @@
 
 
 # Azure용 RedHat 기반 가상 컴퓨터 준비
-이 문서에서는 Azure용 Red Hat Enterprise Linux(RHEL) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에서 다루는 RHEL 버전은 6.7 및 7.1이며 이 문서에서 다루는 준비에 대한 하이퍼바이저는 Hyper-V, KVM, VMWare입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)를 참조하세요.
+이 문서에서는 Azure용 Red Hat Enterprise Linux(RHEL) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에서 다루는 RHEL 버전은 6.7, 7.1 및 7.2이며 이 문서에서 다루는 준비에 대한 하이퍼바이저는 Hyper-V, KVM, VMWare입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/articles/1989673)을 참조하세요.
 
 
 
 
 ##Hyper-V 관리자에서 이미지 준비 
 ###필수 조건
-이 섹션은 RedHat 웹 사이트에서 확보한 ISO 파일로 가상 하드 디스크(VHD)에 RHEL 이미지를 이미 설치한 것으로 가정합니다. Hyper-V 관리자를 사용하여 운영 체제 이미지를 설치하는 방법에 대한 내용은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요.
+이 섹션은 RedHat 웹 사이트에서 확보한 ISO 파일로 가상 하드 디스크(VHD)에 RHEL 이미지를 이미 설치한 것으로 가정합니다. Hyper-V 관리자를 사용하여 운영 체제 이미지를 설치하는 방법에 대한 자세한 내용은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요.
 
 **RHEL 설치 참고 사항**
 
@@ -112,7 +112,7 @@
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **참고:** WALinuxAgent 패키지를 설치하면 NetworkManager 및 NetworkManager-gnome 패키지가 2단계에서 설명된 대로 아직 제거되지 않은 경우 이러한 패키지를 제거합니다.
+    **참고:** WALinuxAgent 패키지를 설치하면 NetworkManager 및 NetworkManager-gnome 패키지가 2단계에서 설명된 대로 아직 제거되지 않은 경우 제거합니다.
 
 13.	OS 디스크에 스왑 공간을 만들지 마세요. Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
@@ -134,9 +134,9 @@
 
 16.	Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
+1.  Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
 2.	연결을 클릭하여 가상 컴퓨터의 콘솔 창을 엽니다.
 
@@ -233,7 +233,7 @@
         ><fs> exit
     루트 사용자의 두 번째 필드를 “!!”에서 암호화된 암호로 변경합니다.
 
-3.	qcow2 이미지에서 KVM으로 가상 컴퓨터를 만들고, 디스크 형식을 **qcow2**로 설정하고, 가상 네트워크 인터페이스 장치 모델을 **virtio**로 설정합니다. 그 후 가상 컴퓨터를 시작하고 루트로 로그인합니다.
+3.	qcow2 이미지에서 KVM에 가상 컴퓨터를 만들고, 디스크 형식을 **qcow2**로 설정하고, 가상 네트워크 인터페이스 장치 모델을 **virtio**로 설정합니다. 그 후 가상 컴퓨터를 시작하고 루트로 로그인합니다.
 
 4.	다음 텍스트가 포함된 **network** 파일을 `/etc/sysconfig/` 디렉터리에 만듭니다.
 
@@ -335,9 +335,9 @@
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1.	Red Hat 웹 사이트에서 RHEL 7.1의 KVM 이미지를 다운로드합니다.
+1.	Red Hat 웹 사이트에서 RHEL 7.1 (또는 7.2)의 KVM 이미지를 다운로드합니다. 여기에서는 RHEL 7.1을 예로 사용합니다.
 
 2.	루트 암호를 설정합니다.
 
@@ -356,7 +356,7 @@
 
     루트 사용자의 두 번째 필드를 “!!”에서 암호화된 암호로 변경합니다.
 
-3.	qcow2 이미지에서 KVM으로 가상 컴퓨터를 만들고, 디스크 형식을 **qcow2**로 설정하고, 가상 네트워크 인터페이스 장치 모델을 **virtio**로 설정합니다. 그 후 가상 컴퓨터를 시작하고 루트로 로그인합니다.
+3.	qcow2 이미지에서 KVM에 가상 컴퓨터를 만들고, 디스크 형식을 **qcow2**로 설정하고, 가상 네트워크 인터페이스 장치 모델을 **virtio**로 설정합니다. 그 후 가상 컴퓨터를 시작하고 루트로 로그인합니다.
 
 4.	다음 텍스트가 포함된 **network** 파일을 `/etc/sysconfig/` 디렉터리에 만듭니다.
 
@@ -469,13 +469,13 @@
 
 ##VMWare에서 이미지 준비
 ###필수 조건
-이 섹션은 VMWare에 RHEL 가상 컴퓨터가 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 방법은 [VMWare 게스트 운영 체제 설치 가이드](http://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
+이 섹션은 VMWare에 RHEL 가상 컴퓨터가 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 자세한 방법은 [VMWare 게스트 운영 체제 설치 가이드](http://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
  
 - Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.
 
 - OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
-- 가상 하드 디스크를 만들 때 **Store virtual disk as a single file**(가상 디스크를 단일 파일로 저장)을 선택합니다.
+- 가상 하드 디스크를 만들 때 **가상 디스크를 단일 파일로 저장**을 선택합니다.
 
 ###RHEL 6.7
 1.	다음 명령을 실행하여 NetworkManager를 제거합니다.
@@ -484,7 +484,7 @@
 
     **참고:** 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
 
-2.	다음 텍스트가 포함된 **network**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
+2.	다음 텍스트가 포함된 **네트워크**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
@@ -578,9 +578,9 @@
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1.	다음 텍스트가 포함된 **network**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
+1.	다음 텍스트가 포함된 **네트워크**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
@@ -621,7 +621,7 @@
 
 7.	Hyper-V 모듈을 initramfs에 추가합니다.
 
-    `/etc/dracut.conf`를 편집하고 다음 콘텐츠를 추가합니다.
+    `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
@@ -682,7 +682,7 @@
 
 
 ##kickstart 파일을 사용하여 ISO에서 자동으로 준비
-###RHEL 7.1
+###RHEL 7.1/7.2
 
 1.	아래 콘텐츠를 사용하여 kickstart 파일을 만들고 저장합니다. Kickstart 설치에 대한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
 
@@ -808,7 +808,7 @@
 
     c. CD에서 부팅하도록 BIOS를 설정합니다.
 
-5.	VM을 시작하고, 설치 가이드가 나타나면 **Tab** 키를 눌러서 부팅 옵션을 구성합니다.
+5.	VM을 시작하고, 설치 가이드가 나타나면 **탭** 키를 눌러서 부팅 옵션을 구성합니다.
 
 6.	부팅 옵션 마지막에 `inst.ks=<the location of the Kickstart file>`을 입력하고 **Enter** 키를 누릅니다.
 
@@ -830,4 +830,8 @@ Hyper-V 및 Azure에서 RHEL 7.1 사용 시 알려진 문제가 있습니다.
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1203_2015-->
+
+## 다음 단계
+이제 Red Hat Enterprise Linux를 사용하여 Azure에 새 Azure 가상 컴퓨터를 만들 준비가 되었습니다. Red Hat Enterprise Linux를 실행하기 위해 인증된 하이퍼바이저에 대한 자세한 내용은 [Red Hat 웹 사이트](https://access.redhat.com/certified-hypervisors)를 방문하세요.
+
+<!---HONumber=AcomDC_1210_2015-->

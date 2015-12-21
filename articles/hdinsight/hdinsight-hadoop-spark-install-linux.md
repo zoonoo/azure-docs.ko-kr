@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/19/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에서 Spark 설치 및 사용
@@ -48,7 +48,7 @@ HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 �
 
 > [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-1. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 만들기 시작하지만 완료하지 마세요.
+1. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)의 단계를 사용하여 클러스터를 만들기 시작하지만 완료하지 마세요.
 
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
 
@@ -232,10 +232,8 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 
 
-[hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

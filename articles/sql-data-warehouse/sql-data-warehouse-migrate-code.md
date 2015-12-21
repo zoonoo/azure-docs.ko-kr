@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스에 SQL 코드 마이그레이션
@@ -34,8 +34,8 @@
 - output 절
 - 인라인 사용자 정의 함수
 - 다중 문 함수
+- [공통 테이블 식](#Common-table-expressions)
 - [재귀 공통 테이블 식(CTE)](#Recursive-common-table-expressions-(CTE)
-- [CTE를 통한 업데이트](#Updates-through-CTEs)
 - CLR 함수 및 프로시저
 - $partition 함수
 - 테이블 변수
@@ -52,13 +52,16 @@
 
 다행히 대부분의 이러한 제한을 해결할 수 있습니다. 위에서 언급한 개발 관련 문서에 대한 설명이 제공됩니다.
 
+### 공통 테이블 식
+현재 구현된 SQL 데이터 웨어하우스 내부의 CTE(공통 테이블 식)에는 다음과 같은 기능 및 제한 사항이 있습니다.
+
+**CTE 기능** + SELECT 문에서 CTE를 지정할 수 있습니다. + CREATE VIEW 문에서 CTE를 지정할 수 있습니다. + CREATE TABLE AS SELECT (CTAS) 문에서 CTE를 지정할 수 있습니다. + CREATE REMOTE TABLE AS SELECT (CRTAS) 문에서 CTE를 지정할 수 있습니다. + CREATE EXTERNAL TABLE AS SELECT (CETAS) 문에서 CTE를 지정할 수 있습니다. + CTE에서 원격 테이블을 참조할 수 있습니다. + CTE에서 외부 테이블을 참조할 수 있습니다. + CTE에서 여러 CTE 쿼리 정의를 정의할 수 있습니다.
+
+**CTE 제한** + 단일 SELECT 문 뒤에 CTE가 와야 합니다. INSERT, UPDATE, DELETE 및 MERGE 문은 지원되지 않습니다. + 그 자체(재귀 공통 테이블 식)에 대한 참조가 포함된 공통 테이블 식은 지원되지 않습니다(아래 섹션 참조). + CTE에서 WITH 절을 두 개 이상 사용하여 지정할 수 없습니다. 예를 들어 CTE\_query\_definition에 하위 쿼리가 포함되어 있는 경우 그 하위 쿼리에 또 다른 CTE를 정의하는 중첩된 WITH 절이 있으면 안 됩니다. + TOP 절이 지정된 경우를 제외하고 ORDER BY 절을 CTE\_query\_definition에 사용할 수 없습니다. + 배치에 포함된 문에 CTE를 사용할 경우 배치 앞에 있는 문 다음에 세미콜론을 붙여야 합니다. + sp\_prepare를 통해 준비된 문에 사용할 경우 CTE는 PDW의 다른 SELECT 문과 동일한 방식으로 작동합니다. 그러나 sp\_prepare를 통해 준비된 CETAS의 일부로 CTE를 사용할 경우 sp\_prepare에 대해 구현되는 바인딩 방식이 다르기 때문에 동작이 SQL Server 및 다른 PDW와 다를 수 있습니다. CTE를 참조하는 SELECT 문이 CTE에 없는 잘못된 열을 사용할 경우 오류를 감지하지 않고 sp\_prepare를 통과합니다. 대신 sp\_execute 동안 오류가 throw됩니다.
+
 ### 재귀 공통 테이블 식(CTE)
 
-빠르게 수정할 방법이 없는 복잡한 시나리오입니다. CTE를 세분화하고 단계별로 처리해야 합니다. 일반적으로 복잡한 루프를 사용할 수 있습니다. 재귀 중간 쿼리를 반복할 때 임시 테이블을 채웁니다. 임시 테이블을 채우고 나면 데이터를 단일 결과 집합으로 반환할 수 있습니다. [롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화][] 문서에서 `GROUP BY WITH CUBE` 해결에 사용한 것과 비슷한 방법입니다.
-
-### CTE를 통한 업데이트
-
-CTE가 비재귀적 경우 하위 쿼리를 사용하도록 쿼리를 다시 작성할 수 있습니다. 재귀 CTE에 대해 결과 집합을 먼저 위 설명과 같이 작성한 다음 최종 결과 집합을 대상 테이블에 결합하고 업데이트를 수행해야 합니다.
+복잡한 마이그레이션 시나리오이며, CTE를 분류하여 단계별로 처리하는 것이 가장 좋은 방법입니다. 재귀 중간 쿼리를 반복할 때 일반적으로 루프를 사용하여 임시 테이블을 채울 수 있습니다. 임시 테이블을 채우고 나면 데이터를 단일 결과 집합으로 반환할 수 있습니다. [롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화][] 문서에서 `GROUP BY WITH CUBE` 해결에 사용한 것과 비슷한 방법입니다.
 
 ### 시스템 함수
 
@@ -114,4 +117,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

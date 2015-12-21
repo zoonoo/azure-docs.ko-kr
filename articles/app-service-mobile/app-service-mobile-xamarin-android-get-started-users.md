@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mahender"/>
 
 # Xamarin Android 앱에 인증 추가
@@ -97,7 +97,11 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
 
-4. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다.
+5. Strings.xml 리소스 파일에 다음 요소를 추가합니다.
+
+		<string name="login_button_text">Sign in</string> 
+
+6. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다.
 
    	성공적으로 로그인하면 앱이 로그인 ID 및 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
 
@@ -106,4 +110,4 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
 [Xamarin Android 앱 만들기]: app-service-mobile-xamarin-android-get-started.md
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

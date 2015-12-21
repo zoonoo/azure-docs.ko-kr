@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="12/03/2015"
 	ms.author="larryfr"/>
 
 # 샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용
@@ -129,10 +129,11 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 
 | 원하는 경우 **이것을 사용**하세요... | ...**대화형** 셸 | ...**배치** 처리 | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [Hive 보기](hdinsight-hadoop-use-hive-ambari-view.md) | ✔ | ✔ | Linux | 모두(브라우저 기반) |
 | [Beeline 명령(SSH 세션에서)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, 또는 Windows |
 | [Hive 명령(SSH 세션에서)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux 또는or Windows | Linux, Unix, Mac OS X, 또는 Windows |
-| [쿼리 콘솔e](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | 브라우저 기반 |
+| [쿼리 콘솔e](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | 모두(브라우저 기반) |
 | [Visual Studio용 HDInsight 도구](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux 또는or Windows | Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux 또는or Windows | Windows |
 | [원격 데스크톱](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
@@ -173,9 +174,9 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/ko-KR/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -200,4 +201,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015--->

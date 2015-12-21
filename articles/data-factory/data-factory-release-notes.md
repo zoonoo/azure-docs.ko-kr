@@ -265,7 +265,7 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 ## 데이터 팩터리의 2015/04/10 릴리스 정보
 이제 **테이블** 블레이드에 **Recently updated slices(최근에 업데이트된 조각)** 및 **Recently failed slices(최근에 실패한 조각)** 목록이 표시됩니다. 이러한 목록은 조각의 업데이트 시간을 기준으로 정렬됩니다. 조각의 업데이트 시간은 다음과 같은 상황에서 변경됩니다.
 
--  **Set-AzureDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
+-  **Set-AzureRmDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
 -  실행(예: 실행 시작, 실행 종료 및 실패, 실행 종료 및 성공 등)으로 인해 조각 상태가 변경됩니다.
 
 목록의 제목 또는 **...(줄임표)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
@@ -304,7 +304,7 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 - **SqlSink**가 새 속성 **WriteBatchTimeout**을 지원합니다. 이 속성은 작업이 시간 초과되기 전에 배치 삽입 작업이 완료되기를 기다리는 기간을 구성할 수 있는 유연성을 제공합니다. 하이브리드 복사(온-프레미스 데이터 원본과 클라우드 데이터 원본을 사용하는 복사 작업)의 경우 이 속성을 사용하려면 버전 1.4 이상의 게이트웨이가 있어야 합니다. 
 - 이제 **SQL Server 연결된 서비스**가 **Windows 인증**을 지원합니다. 
 	- 포털을 사용하여 SQL Server 연결된 서비스를 만드는 경우 이제 Windows 인증을 사용하도록 선택하고 적절한 자격 증명을 설정할 수 있습니다. 이 경우 버전 1.4 이상의 게이트웨이가 있어야 합니다. 
-	- Azure PowerShell을 사용하여 SQL Server 연결된 서비스를 만드는 경우 일반 텍스트로 연결 정보를 지정하거나, 업데이트된 [New-AzureDataFactoryEncryptValue cmdlet][adf-encrypt-value-cmdlet]을 사용하여 연결 정보를 암호화한 다음 연결된 서비스 JSON 페이로드의 연결 문자열 속성에 암호화된 문자열을 사용할 수 있습니다. JSON에서 연결된 서비스를 정의하는 방법에 대한 자세한 내용은 [연결된 서비스][adf-msdn-linked-services]를 참조하십시오. 암호화 기능은 New-AzureDataFactoryEncryptValue cmdlet에서 아직 지원되지 않습니다. 
+	- Azure PowerShell을 사용하여 SQL Server 연결된 서비스를 만드는 경우 일반 텍스트로 연결 정보를 지정하거나, 업데이트된 [New-AzureRmDataFactoryEncryptValue cmdlet](https://msdn.microsoft.com/library/mt603802.aspx)를 사용하여 연결 정보를 암호화한 다음 연결된 서비스 JSON 페이로드의 연결 문자열 속성에 암호화된 문자열을 사용할 수 있습니다. 암호화 기능은 New-AzureRmDataFactoryEncryptValue cmdlet에서 아직 지원되지 않습니다. 
 
 ## 데이터 팩터리의 2014/12/11 릴리스 정보 ##
 
@@ -313,16 +313,16 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 - Azure 기계 학습 통합
 	- 이 릴리스의 Azure 데이터 팩터리 서비스를 통해 **AzureMLLinkedService** 및 **AzureMLBatchScoringActivity**를 사용하여 Azure 데이터 팩터리를 Azure ML(기계 학습)과 통합할 수 있습니다. 자세한 내용은 [데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기][adf-azure-ml]를 참조하십시오. 
 - 게이트웨이 버전 상태가 제공됨
-	- 현재 설치된 버전보다 최신 버전의 게이트웨이를 사용할 수 있는 경우 Azure 포털 및 Get-AzureDataFactoryGateway cmdlet의 출력에 "NewVersionAvailable" 상태가 표시됩니다. 그러면 포털 경로를 따라 새 설치 파일(.msi)을 다운로드한 다음 실행하여 최신 게이트웨이를 설치할 수 있습니다. 추가 구성은 필요하지 않습니다.
+	- 현재 설치된 버전보다 최신 버전의 게이트웨이를 사용할 수 있는 경우 Azure 포털 및 Get-AzureRmDataFactoryGateway cmdlet의 출력에 "NewVersionAvailable" 상태가 표시됩니다. 그러면 포털 경로를 따라 새 설치 파일(.msi)을 다운로드한 다음 실행하여 최신 게이트웨이를 설치할 수 있습니다. 추가 구성은 필요하지 않습니다.
 
 ### 변경 내용
 
 - HdInsightOnDemandLinkedService에서 JobsContainer가 제거되었습니다.
-	- HDInsightOnDemandLinkedService에 대한 JSON 정의에서 더 이상 **jobsContainer** 속성을 지정할 필요가 없습니다. 주문형 연결된 서비스에 대해 지정된 속성이 있는 경우 해당 속성은 무시됩니다. 연결된 서비스에 대한 JSON 정의에서 이 속성을 제거하고 New-AzureDataFactoryLinkedService cmdlet을 사용하여 연결된 서비스 정의를 업데이트할 수 있습니다.
+	- HDInsightOnDemandLinkedService에 대한 JSON 정의에서 더 이상 **jobsContainer** 속성을 지정할 필요가 없습니다. 주문형 연결된 서비스에 대해 지정된 속성이 있는 경우 해당 속성은 무시됩니다. 연결된 서비스에 대한 JSON 정의에서 이 속성을 제거하고 New-AzureRmDataFactoryLinkedService cmdlet를 사용하여 연결된 서비스 정의를 업데이트할 수 있습니다.
 - HDInsightOnDemandLinkedService에 대한 선택적 구성 매개 변수
 	- 이 릴리스에는 HDInsightOnDemandLinked(주문형 HDInsight 클러스터)에 대한 몇 가지 선택적 구성 매개 변수 지원이 도입되었습니다. 자세한 내용은 [ClusterCreateParameters 속성][on-demand-hdi-parameters](영문)을 참조하십시오.
 - 게이트웨이 위치가 제거됨
-	- 포털 또는 PowerShell(New-AzureDataFactoryGateway)을 통해 Azure Data Factory 게이트웨이를 만들 때 더 이상 게이트웨이의 위치를 지정할 필요가 없습니다. 데이터 팩터리 영역이 상속됩니다. 마찬가지로, JSON을 사용하여 SQL Server 연결된 서비스를 구성할 때 더 이상 "gatewayLocation" 속성이 필요하지 않습니다. 데이터 팩터리 .NET SDK도 이러한 변경 내용을 반영하도록 업데이트되었습니다.
+	- 포털 또는 PowerShell(New-AzureRmDataFactoryGateway)을 통해 Azure Data Factory 게이트웨이를 만들 때 더 이상 게이트웨이의 위치를 지정할 필요가 없습니다. 데이터 팩터리 영역이 상속됩니다. 마찬가지로, JSON을 사용하여 SQL Server 연결된 서비스를 구성할 때 더 이상 "gatewayLocation" 속성이 필요하지 않습니다. 데이터 팩터리 .NET SDK도 이러한 변경 내용을 반영하도록 업데이트되었습니다.
 	- 이전 버전의 SDK 및 Azure PowerShell을 사용하는 경우 계속 위치 설정을 제공해야 합니다.
  
      
@@ -354,4 +354,4 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

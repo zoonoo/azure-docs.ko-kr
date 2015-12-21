@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Azure RemoteApp 30일 무료 평가판"
+    pageTitle="Azure RemoteApp 30일 무료 평가판 | Microsoft Azure"
     description="Azure RemoteApp 30일 무료 평가판을 확인해보세요."
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -30,4 +30,4 @@ Azure를 구독하는 경우 [30일 동안 무료로 Azure RemoteApp](https://ww
 
 피드백이 있나요? [토론 포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)에 질문을 게시하세요. [Azure 지원 계획](http://azure.microsoft.com/support/plans/)이 있는 경우 지원 사례를 제출할 수 있습니다. 누구나 [피드백 포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)에 피드백을 제출할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties 
-pageTitle=".NET을 사용하는 클라우드 서비스에 대한 수명 주기 이벤트에 응답합니다." 
+pageTitle="클라우드 서비스 수명 주기 이벤트 처리 | Microsoft Azure" 
 description=".NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용할 수 있는 방법을 알아봅니다." 
 services="cloud-services" 
 documentationCenter=".net" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/08/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # .NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
@@ -80,4 +80,4 @@ public override bool OnStart()
 ## 다음 단계
 [클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md) 방법에 대해 알아봅니다.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015--->

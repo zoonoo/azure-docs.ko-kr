@@ -13,21 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="11/30/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff"/>
 
 # Azure Active Directory Reporting 검색
 
-## Reporting 설명서
-
- - [Reporting API](active-directory-reporting-api-getting-started.md)
- - [감사 이벤트](active-directory-reporting-audit-events.md)
- - [보존](active-directory-reporting-retention.md)
- - [미리 보기](active-directory-reporting-previews.md)
- - [이를 통해 검색](active-directory-reporting-search.md)
- - [백필](active-directory-reporting-backfill.md)
- - [대기 시간](active-directory-reporting-latencies.md)
- - ["알 수 없는 작업자" 이벤트](active-directory-reporting-unknown-actor.md)
+*이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
 Azure Active Directory는 디렉터리 관리자에게 여러 보고서에서 사용자 보안, 작업 및 감사 이벤트를 검색하는 기능을 제공합니다.
 
@@ -67,4 +58,4 @@ RMS 장치 사용 현황 | 아니요
  - [Azure Active Directory 보고서](active-directory-view-access-usage-reports.md)
  - [Azure Active Directory Reporting 감사 이벤트](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

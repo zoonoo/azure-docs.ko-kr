@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -87,4 +87,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
@@ -30,7 +30,7 @@
 
 ## Azure AD 디렉터리 만들기
 
-Azure Active Directory를 사용하여 Web API 백 엔드를 보호하려면 먼저 AAD 테넌트가 있어야 합니다. 이 비디오에서는 **APIMDemo**라는 테넌트가 사용됩니다. AAD 테넌트를 만들려면 [Azure 포털](https://manage.windowsazure.com)에 로그인하고 **새로 만들기**->**앱 서비스**->**Active Directory**->**디렉터리**->**사용자 지정 만들기**를 클릭합니다.
+Azure Active Directory를 사용하여 Web API 백 엔드를 보호하려면 먼저 AAD 테넌트가 있어야 합니다. 이 비디오에서는 **APIMDemo**라는 테넌트가 사용됩니다. AAD 테넌트를 만들려면 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인하고 **새로 만들기**->**앱 서비스**->**Active Directory**->**디렉터리**->**사용자 지정 만들기**를 클릭합니다.
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -143,11 +143,7 @@ Azure에 로그인하라는 메시지가 표시될 수 있으며, 다음 웹앱�
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-    }
+HttpResponseMessage response = Request.CreateResponse(); response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml"); return response; } }
 
 
 **F6**를 눌러 솔루션을 빌드하고 확인합니다.
@@ -156,7 +152,7 @@ Azure에 로그인하라는 메시지가 표시될 수 있으며, 다음 웹앱�
 
 이 단계에서 Visual Studio 프로젝트는 Azure에 게시됩니다. 이 단계의 비디오는 5분 45초에 시작됩니다.
 
-프로젝트를 Azure에 게시하려면, Visual Studio에서 **APIMAADDemo** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **웹 게시** 대화 상자에서 기본 설정을 유지하고 **게시**를 클릭합니다.
+프로젝트를 Azure에 게시하려면 Visual Studio에서 **APIMAADDemo** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **웹 게시** 대화 상자에서 기본 설정을 유지하고 **게시**를 클릭합니다.
 
 ![웹 게시][api-management-web-publish]
 
@@ -170,7 +166,7 @@ Azure에 로그인하라는 메시지가 표시될 수 있으며, 다음 웹앱�
 
 ![권한 추가][api-management-aad-add-permissions]
 
->[AZURE.NOTE]**Windows** **Azure Active Directory**는 다른 응용 프로그램에 대한 사용 권한 아래에 나열되지 않으면 **응용 프로그램 추가**를 클릭하고 목록에서 추가합니다.
+>[AZURE.NOTE]**Windows** **Azure Active Directory**가 다른 응용 프로그램에 대한 사용 권한에 나열되지 않으면 **응용 프로그램 추가**를 클릭하고 목록에서 추가합니다.
 
 Azure AD 응용 프로그램이 API 관리 개발자 포털에 대해 구성된 경우, 다음 단계에서 사용하도록 **앱 ID URI**를 기록합니다.
 
@@ -178,7 +174,7 @@ Azure AD 응용 프로그램이 API 관리 개발자 포털에 대해 구성된 
 
 ## Web API를 API 관리로 가져오기
 
-API는 Azure 관리 포털을 통해 액세스할 수 있는 API 게시자 포털에서 구성됩니다. 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우, [첫 번째 API 관리][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
+API는 Azure 클래식 포털을 통해 액세스할 수 있는 API 게시자 포털에서 구성됩니다. 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. 아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [첫 번째 API 관리][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
 
 ![게시자 포털][api-management-management-console]
 
@@ -186,137 +182,7 @@ API는 Azure 관리 포털을 통해 액세스할 수 있는 API 게시자 포�
 
 다음 내용을 포함한 `calcapi.json`이라는 파일을 만들고 컴퓨터에 저장합니다. `host` 특성이 Web API 백 엔드를 가리키는지 확인합니다. 이 예에서는 `"host": "apimaaddemo.azurewebsites.net"`가 사용됩니다.
 
-	{
-	  "swagger": "2.0",
-	  "info": {
-		"title": "Calculator",
-		"description": "Arithmetics over HTTP!",
-		"version": "1.0"
-	  },
-	  "host": "apimaaddemo.azurewebsites.net",
-	  "basePath": "/api",
-	  "schemes": [
-		"http"
-	  ],
-	  "paths": {
-		"/add?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a sum of two numbers.",
-			"operationId": "Add two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>51</code>.",
-				"required": true,
-				"default": "51",
-				"enum": [
-				  "51"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>49</code>.",
-				"required": true,
-				"default": "49",
-				"enum": [
-				  "49"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/sub?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a difference between two numbers.",
-			"operationId": "Subtract two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>50</code>.",
-				"required": true,
-				"default": "50",
-				"enum": [
-				  "50"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/div?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a quotient of two numbers.",
-			"operationId": "Divide two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/mul?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a product of two numbers.",
-			"operationId": "Multiply two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>5</code>.",
-				"required": true,
-				"default": "5",
-				"enum": [
-				  "5"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		}
-	  }
-	}
+{ "swagger": "2.0", "info": { "title": "Calculator", "description": "Arithmetics over HTTP!", "version": "1.0" }, "host": "apimaaddemo.azurewebsites.net", "basePath": "/api", "schemes": [ "http" ], "paths": { "/add?a={a}&b={b}": { "get": { "description": "Responds with a sum of two numbers.", "operationId": "Add two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. 기본값은 <code>51</code>입니다.", "required": true, "default": "51", "enum": [ "51" ] }, { "name": "b", "in": "query", "description": "Second operand. 기본값은 <code>49</code>입니다.", "required": true, "default": "49", "enum": [ "49" ] } ], "responses": {} } }, "/sub?a={a}&b={b}": { "get": { "description": "Responds with a difference between two numbers.", "operationId": "Subtract two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. 기본값은 <code>100</code>입니다", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. 기본값은 <code>50</code>입니다.", "required": true, "default": "50", "enum": [ "50" ] } ], "responses": {} } }, "/div?a={a}&b={b}": { "get": { "description": "Responds with a quotient of two numbers.", "operationId": "Divide two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. 기본값은 <code>100</code>입니다.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand. 기본값은 <code>20</code>입니다.", "required": true, "default": "20", "enum": [ "20" ] } ], "responses": {} } }, "/mul?a={a}&b={b}": { "get": { "description": "Responds with a product of two numbers.", "operationId": "Multiply two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand. 기본값은 <code>20</code>입니다.", "required": true, "default": "20", "enum": [ "20" ] }, { "name": "b", "in": "query", "description": "Second operand. 기본값은 <code>5</code>.", "required": true, "default": "5", "enum": [ "5" ] } ], "responses": {} } } } }
 
 계산기 API를 가져오려면 왼쪽의 **API 관리 메뉴**에서 **API**를 클릭한 다음 **API 가져오기**를 클릭합니다.
 
@@ -547,4 +413,4 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
 [첫 번째 API 관리]: api-management-get-started.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

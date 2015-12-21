@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Azure 관리된 캐시 서비스 사용 방법
 
 이 가이드에서는 **Azure 관리된 캐시 서비스**를 사용하는 방법을 설명합니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다. **캐시 클러스터 만들기와 구성**, **캐시 클라이언트 구성**, **캐시에서 개체 추가 및 삭제, 캐시에 ASP.NET 세션 상태 저장**, **캐시를 사용하여 ASP.NET 페이지 출력 캐싱 활성화** 등의 시나리오를 다룹니다. Azure 캐시 사용에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
->특정 응용 프로그램에 적합한 Azure 캐시 서비스를 선택하는 방법에 대한 자세한 지침을 보려면 [나에게 적합한 Azure 캐시 서비스][]를 참조하세요.
+>[AZURE.IMPORTANT]2016년 11월 30일부터 Azure 관리 캐시된 서비스 및 Azure In-Role Cache가 사용 중지됩니다. 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. 날짜 및 마이그레이션 지침에 대한 자세한 내용은 [내게 적합한 Azure 캐시 제품은 무엇인가요?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)를 참조하세요.
 
 <a name="what-is"></a>
 ## Azure 관리된 캐시 서비스란?
@@ -59,7 +59,7 @@ Azure 관리된 캐시 서비스의 특성은 다음과 같습니다.
 
 관리된 캐시 서비스의 캐시 인스턴스는 PowerShell cmdlet을 사용하여 만듭니다.
 
->PowerShell cmdlet을 사용하여 만든 관리 캐시 서비스 인스턴스는 [Azure 관리 포털][]에서 보고 구성할 수 있습니다.
+>PowerShell cmdlet을 사용하여 만든 관리 캐시 서비스 인스턴스는 [Azure 클래식 포털][]에서 보고 구성할 수 있습니다.
 
 관리 캐시 서비스 인스턴스를 만들려면 Azure PowerShell 명령 창을 엽니다.
 
@@ -91,7 +91,7 @@ Azure 관리된 캐시 서비스의 특성은 다음과 같습니다.
 
 >캐시를 만들 때 사용할 수 있는 매개 변수 및 값의 전체 목록은 [New-AzureManagedCache][] cmdlet 설명서를 참조하세요.
 
-PowerShell cmdlet을 호출한 후 캐시가 만들어지는 데 몇 분 정도 걸릴 수 있습니다. 캐시가 만들어진 후에는 새 캐시가 `Running` 상태가 되고 기본 설정과 함께 사용할 준비가 완료되며, [Azure 관리 포털][]에서 보고 구성할 수 있습니다. 캐시의 구성을 사용자 지정하려면 다음의 [캐시 구성][] 섹션을 참조하세요.
+PowerShell cmdlet을 호출한 후 캐시가 만들어지는 데 몇 분 정도 걸릴 수 있습니다. 캐시가 만들어진 후에는 새 캐시가 `Running` 상태가 되고 기본 설정과 함께 사용할 준비가 완료되며, [Azure 클래식 포털][]에서 보고 구성할 수 있습니다. 캐시의 구성을 사용자 지정하려면 다음의 [캐시 구성][] 섹션을 참조하세요.
 
 Azure PowerShell 창에서 만들기 진행률을 모니터링할 수 있습니다. 캐시의 사용 준비가 완료되면 [New-AzureManagedCache][] cmdlet에서 다음 예에 표시된 대로 캐시 정보를 표시합니다.
 
@@ -124,7 +124,7 @@ Azure PowerShell 창에서 만들기 진행률을 모니터링할 수 있습니�
 <a name="enable-caching"></a>
 ## 캐시 구성
 
-관리 포털에서 캐시에 대한 **구성** 탭은 캐시의 옵션을 구성할 수 있는 곳입니다. 각 캐시에는 **기본** 명명된 캐시가 있습니다. 표준과 프리미엄에서는 최대 9개의 명명된 캐시가 추가로 지원되어 총 10개의 캐시가 제공됩니다. 명명된 각 캐시에는 자체 옵션 세트가 있으며, 이를 통해 매우 유연하게 캐시를 구성할 수 있습니다.
+Azure 클래식 포털에서 캐시에 대한 **구성** 탭은 캐시의 옵션을 구성할 수 있는 곳입니다. 각 캐시에는 **기본** 명명된 캐시가 있습니다. 표준과 프리미엄에서는 최대 9개의 명명된 캐시가 추가로 지원되어 총 10개의 캐시가 제공됩니다. 명명된 각 캐시에는 자체 옵션 세트가 있으며, 이를 통해 매우 유연하게 캐시를 구성할 수 있습니다.
 
 ![NamedCaches][NamedCaches]
 
@@ -222,11 +222,11 @@ NuGet 패키지는 응용 프로그램의 web.config 또는 app.config에 다음
 
 구성이 추가되었으면 새로 추가된 구성에서 다음 두 항목을 교체합니다.
 
-1. **[Cache role name or Service Endpoint]**를 관리 포털의 대시보드에 표시되는 끝점으로 교체합니다.
+1. **[Cache role name or Service Endpoint]**를 Azure 클래식 포털의 대시보드에 표시되는 끝점으로 바꿉니다.
 
 	![끝점][Endpoint]
 
-2. securityProperties 섹션의 주석 처리를 제거하고 **[Authentication Key]**를 인증 키로 교체합니다. 관리 포털의 캐시 대시보드에서 **키 관리**를 클릭하면 인증 키를 찾을 수 있습니다.
+2. securityProperties 섹션의 주석 처리를 제거하고 **[Authentication Key]**를 인증 키로 바꿉니다. Azure 클래식 포털의 캐시 대시보드에서 **키 관리**를 클릭하면 인증 키를 찾을 수 있습니다.
 
 	![AccessKeys][AccessKeys]
 
@@ -331,7 +331,7 @@ NuGet 패키지는 또한 다음 어셈블리에 참조를 추가합니다.
 <a name="specify-expiration"></a>
 ## 방법: 캐시에서 개체의 만료 지정
 
-기본적으로 캐시에 배치된 항목은 10분 후 만료됩니다. 이 값은 관리 포털의 캐시에 대한 '구성' 탭에 있는 **시간(분)** 설정에서 구성할 수 있습니다.
+기본적으로 캐시에 배치된 항목은 10분 후 만료됩니다. 이 값은 Azure 클래식 포털의 캐시에 대한 '구성' 탭에 있는 **시간(분)** 설정에서 구성할 수 있습니다.
 
 ![NamedCaches][NamedCaches]
 
@@ -449,7 +449,7 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
   
    
 <!-- LINKS -->
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Azure 캐시용 세션 상태 공급자]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -468,7 +468,6 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
 [문제 해결 및 진단]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet 패키지 관리자 설치]: http://go.microsoft.com/fwlink/?LinkId=240311
 [캐시 가격 정보]: http://www.windowsazure.com/pricing/details/cache/
-[Management Portal]: https://manage.windowsazure.com/
 [캐시 기능]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
 [만료 및 제거]: http://go.microsoft.com/fwlink/?LinkId=317278
@@ -482,7 +481,7 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[나에게 적합한 Azure 캐시 서비스]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

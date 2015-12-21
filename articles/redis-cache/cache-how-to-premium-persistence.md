@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 데이터 지속성을 구성하는 방법
@@ -33,7 +33,7 @@ Azure Redis Cache는 [RDB 모델](http://redis.io/topics/persistence)을 사용�
 
 ## 프리미엄 캐시 만들기
 
-캐시를 만들고 지속성을 구성하려면 [Azure Preview 포털](https://portal.azure.com)에 로그인하고 **새로 만들기**->**데이터 + 저장소**>**Redis 캐시**를 클릭합니다.
+캐시를 만들고 지속성을 구성하려면 [Azure 포털](https://portal.azure.com)에 로그인하고 **새로 만들기**->**데이터 + 저장소**>**Redis Cache**를 클릭합니다.
 
 ![Redis Cache 만들기][redis-cache-new-cache-menu]
 
@@ -107,4 +107,4 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -67,9 +67,9 @@ Azure 알림 허브를 사용하려면 Node.js Azure 패키지를다운로드하
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-다음 단계를 수행하여 Azure 관리 포털에서 **connectionstring** 연결 값을 가져올 수 있습니다.
+다음 단계를 수행하여 [Azure 클래식 포털]에서 **connectionstring** 연결 값을 가져올 수 있습니다.
 
-1. Azure 관리 포털에서 **서비스 버스**를 선택한 다음 알림 허브를 포함하는 네임스페이스를 선택합니다.
+1. [Azure 클래식 포털]에서 **서비스 버스**를 선택한 다음 알림 허브를 포함하는 네임스페이스를 선택합니다.
 
 2. **알림 허브**를 선택한 다음 사용할 허브를 선택합니다.
 
@@ -197,7 +197,7 @@ Azure 알림 허브를 사용하려면 Node.js Azure 패키지를다운로드하
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
@@ -213,4 +213,4 @@ Azure 알림 허브를 사용하려면 Node.js Azure 패키지를다운로드하
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

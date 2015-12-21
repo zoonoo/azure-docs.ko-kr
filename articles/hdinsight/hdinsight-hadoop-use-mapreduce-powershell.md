@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/16/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #PowerShell을 사용하여 HDInsight에서 Hadoop과 Hive 쿼리 실행
@@ -53,7 +53,6 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 		#Specify the values
 		$clusterName = "CLUSTERNAME"
-		$creds=Get-Credential
         		
 		# Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -107,7 +106,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
             -HttpCredential $creds
         # Download the output
         Get-AzureStorageBlobContent `
-            -Blob example/data/WordCountOutput/* `
+            -Blob 'example/data/WordCountOutput/part-r-00000' `
             -Container $container `
             -Destination output.txt `
             -Context $context
@@ -183,4 +182,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

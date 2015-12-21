@@ -30,7 +30,7 @@
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 검증된 메일 주소를 사용하는 [Google 계정](http://go.microsoft.com/fwlink/p/?LinkId=268302)
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) - Node.js 백 엔드 프로젝트에는 필요하지 않음
 * [빠른 시작 자습서](../app-service-mobile-android-get-started.md) 완료
 
 ##<a name="create-hub"></a>알림 허브 만들기
@@ -83,4 +83,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Android 빠른 시작]: app-service-mobile-android-get-started.md
 [Android 빠른 시작 안내서]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

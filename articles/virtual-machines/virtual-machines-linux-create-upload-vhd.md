@@ -33,7 +33,7 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 이미지�
 **중요**: [Azure 인증 배포의 Linux](virtual-machines-../linux-endorsed-distributions.md)의 '지원되는 버전'에 지정된 대로 보증 배포판 중 하나가 구성 세부 정보와 함께 사용되는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리의 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
 
 
-## 필수 조건
+##필수 조건##
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
 - **관리 인증서** - VHD를 업로드할 구독에 필요한 관리 인증서를 만들어 .cer 파일로 내보냈습니다. 인증서 만들기에 대한 자세한 내용은 [Azure용 인증서 개요](../cloud-services/cloud-services-certs-create.md)를 참조하세요.
@@ -48,12 +48,12 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 이미지�
 
 - **Azure Powershell 도구** - `Add-AzureVhd` cmdlet을 사용하여 VHD를 업로드할 수도 있습니다. Azure PowerShell cmdlet을 다운로드하려면 [Azure 다운로드](http://azure.microsoft.com/downloads/)를 방문하세요. 참조 정보는 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)(영문)를 참조하십시오.
 
-<a id="prepimage"> </a>
-## 1단계: 업로드할 이미지 준비
+## <a id="prepimage"> </a>1단계: 업로드할 이미지 준비 ##
 
 Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../linux-endorsed-distributions.md) 참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
 
 - **[CentOS 기반 배포판](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES 및 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
@@ -64,8 +64,8 @@ Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../l
 
 위 가이드의 단계를 수행하면 Azure에 업로드할 수 있는 VHD 파일을 만들 수 있습니다.
 
-<a id="connect"> </a>
-## 2단계: Azure 연결 준비
+
+## <a id="connect"> </a>2단계: Azure 연결 준비 ##
 
 .vhd 파일을 업로드하려면 컴퓨터와 Azure의 구독 사이에 보안 연결을 설정해야 합니다.
 
@@ -74,7 +74,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../l
 
 최신 Azure CLI는 리소스 관리자 배포 모델을 기본값으로 하므로 다음 명령을 통해 클래식 배포 모델에 있는지 확인합니다.
 
-		azure change mode asm  
+		azure config mode asm  
 
 이제 다음 로그인 방법 중 하나를 사용하여 Azure 구독에 연결합니다.
 
@@ -143,8 +143,7 @@ Azure AD 메서드를 사용한 로그인:
 
 > [AZURE.NOTE]Azure CLI 또는 Azure PowerShell에서 최신 Azure Active Directory 메서드를 사용하여 Azure 구독에 로그인하는 것이 좋습니다.
 
-<a id="upload"> </a>
-## 3단계: Azure에 이미지 업로드
+## <a id="upload"> </a>3단계: Azure에 이미지 업로드 ##
 
 ### Azure CLI를 사용하는 경우
 
@@ -164,11 +163,11 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 
 자세한 내용은 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)(영문)를 참조하십시오.
 
-> [AZURE.NOTE] [Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대한 cmdlet을 처리하는 방식으로 변경합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
+> [AZURE.NOTE] [Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대한 cmdlet를 처리하는 방식으로 변경합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

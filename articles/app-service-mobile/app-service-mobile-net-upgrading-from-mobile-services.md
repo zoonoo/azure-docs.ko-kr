@@ -28,7 +28,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md)하는 것이 좋습니다. 이러한 방식으로 동일한 앱 서비스 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
+>[AZURE.TIP]업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md)하는 것이 좋습니다. 이러한 방식으로 동일한 앱 서비스 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
 
 ###모바일 앱 .NET 서버 SDK에서 향상된 기능
 
@@ -271,11 +271,10 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure 스케줄러]: /ko-KR/documentation/services/scheduler/
 [웹 작업]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

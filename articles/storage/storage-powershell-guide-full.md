@@ -3,8 +3,8 @@
 	description="Azure 저장소의 PowerShell cmdlets를 생성 및 ; blob, 테이블, 큐, 그리고 파일;을 포함하는 관리 저장소 계정구성과 쿼리 저장소 분석, 공유액세스 서명을 만드는 방법을 알아봅니다."
 	services="storage"
 	documentationCenter="na"
-	authors="tamram" 
-	manager="adinah"/>
+	authors="robinsh" 
+	manager="carmonm"/>
 
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
-	ms.author="selcint"/>
+	ms.date="12/07/2015"
+	ms.author="robinsh"/>
 
 # Azure 저장소와 함께 Azure PowerShell 사용
 
@@ -730,4 +730,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

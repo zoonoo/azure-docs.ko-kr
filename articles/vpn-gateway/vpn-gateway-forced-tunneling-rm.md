@@ -10,7 +10,11 @@
 
 # PowerShell 및 Azure 리소스 관리자를 사용하여 강제 터널링 구성
 
-이 문서는 Azure 리소스 관리자 배포 모델을 사용하여 만든 VNet 및 VPN 게이트웨이에 적용됩니다. 서비스 관리 배포 모델을 사용하여 강제 터널링을 구성하려는 경우 [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+이 문서는 Azure 리소스 관리자 배포 모델을 사용하여 만든 VNet 및 VPN 게이트웨이에 적용됩니다. 서비스 관리(클래시 배포 모델이라고도 함)를 사용하여 만든 VNet에 대해 강제 터널링을 구성하려면 [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -48,7 +52,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 아래 절차를 사용하면 리소스 그룹과 VNet을 만들 수 있습니다. 그런 다음 VPN 게이트웨이를 만들고 강제 터널링을 구성합니다.
 
-이 예제에서 가상 네트워크인 "MultiTier-VNet"에는 3개의 서브넷이 있습니다. 4개의 크로스 프레미스 연결:*DefaultSiteHQ* 및 3개의 *분기*가 있는 *프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷 절차단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ*를 설정하고 *중간 계층* 및 *백 엔드* 서브넷을 구성하여 강제 터널링을 사용합니다.
+이 예제에서 가상 네트워크인 "MultiTier-VNet"에는 3개의 서브넷이 있습니다. 4개의 크로스 프레미스 연결(*DefaultSiteHQ* 및 3개의 *분기*)이 있는 *프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷 절차 단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ*를 설정하고 *중간 계층* 및 *백 엔드* 서브넷을 구성하여 강제 터널링을 사용합니다.
 
 	
 ### 시작하기 전에
@@ -132,4 +136,4 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

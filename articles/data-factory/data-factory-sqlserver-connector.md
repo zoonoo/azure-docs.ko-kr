@@ -397,7 +397,7 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
 | username | Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 |
 | password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 아니요 |
 
-**New-AzureDataFactoryEncryptValue** cmdlet을 사용하여 자격 증명을 암호화하고 다음 예제와 같이 연결 문자열에 해당 자격 증명을 사용할 수 있습니다(**EncryptedCredential** 속성).
+**New-AzureRmDataFactoryEncryptValue** cmdlet를 사용하여 자격 증명을 암호화하고 다음 예제와 같이 연결 문자열에 해당 자격 증명을 사용할 수 있습니다(**EncryptedCredential** 속성).
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -543,4 +543,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

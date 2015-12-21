@@ -204,7 +204,7 @@ HBase 클러스터의 경우 데이터 레이크 저장소 계정을 기본 저�
 
 * [PowerShell: HDInsight 클러스터를 만들어 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-[makecert]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/ko-KR/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

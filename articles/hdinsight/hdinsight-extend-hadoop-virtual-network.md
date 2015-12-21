@@ -26,7 +26,7 @@ Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스�
 
 ##<a id="whatis"></a>Azure 가상 네트워크란?
 
-[Azure 가상 네트워크](/documentation/services/virtual-network/)에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
+[Azure 가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
 
 * 개인 네트워크(클라우드 전용)에서 클라우드 리소스를 연결합니다.
 
@@ -58,7 +58,7 @@ Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스�
 
 가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-> [AZURE.NOTE]HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](/documentation/services/virtual-network/)을 참조하세요.
+> [AZURE.NOTE]HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](http://azure.microsoft.com/documentation/services/virtual-network/)을 참조하세요.
 >
 > Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹을 기반으로 하는 가상 네트워크와는 연동되지 않습니다.
 >
@@ -176,4 +176,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

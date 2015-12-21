@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="12/09/2015"
    ms.author="tomfitz"/>
 
 # 리소스 링크 - 템플릿 스키마
@@ -75,18 +75,18 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
 다음 예제에서는 웹앱에 읽기 전용 잠금을 적용합니다.
 
     {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"hostingPlanName": {
-      			"type": "string"
-   		}
-	},
-	"variables": {
-		"siteName": "[concat('site',uniqueString(resourceGroup().id))]"
-	},
-	"resources": [
-	    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "hostingPlanName": {
+                "type": "string"
+            }
+        },
+        "variables": {
+            "siteName": "[concat('site',uniqueString(resourceGroup().id))]"
+        },
+        "resources": [
+            {
                 "apiVersion": "2015-08-01",
                 "type": "Microsoft.Web/serverfarms",
                 "name": "[parameters('hostingPlanName')]",
@@ -100,17 +100,17 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
                     "numberOfWorkers": 1
                 }
             },
-	    {
+            {
                 "apiVersion": "2015-08-01",
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
-	        "dependsOn": [ "[parameters('hostingPlanName')]" ],
+                "dependsOn": [ "[parameters('hostingPlanName')]" ],
                 "properties": {
                     "serverFarmId": "[parameters('hostingPlanName')]"
                 }
-	    },
-	    {
+            },
+            {
                 "type": "Microsoft.Web/sites/providers/links",
                 "apiVersion": "2015-01-01",
                 "name": "[concat(variables('siteName'),'/Microsoft.Resources/SiteToStorage')]",
@@ -120,8 +120,8 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
                     "notes": "This web site uses the storage account to store user information."
                 }
     	    }
-	],
-	"outputs": {}
+        ],
+        "outputs": {}
     }
 
 
@@ -129,4 +129,4 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
 
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -155,13 +155,13 @@ TPM 인스턴스 이름 | 이전에 만든 **BizTalk 거래 업체 관리** API 
 
 
 ## 파트너, 규약, 인증서 및 스키마 추가 
-Azure 관리 포털에서 TPM API 앱을 엽니다. **구성 요소** 섹션에서 파트너, 규약, 인증서 및 스키마를 추가합니다.
+Azure 포털에서 TPM API 앱을 엽니다. **구성 요소** 섹션에서 파트너, 규약, 인증서 및 스키마를 추가합니다.
 
 AS2 커넥터, X12 API 앱 및 EDIFACT API 앱에 규약을 추가할 수도 있습니다.
 
 
 ## API 앱 모니터링
-Azure 관리 포털에서 TPM API 앱을 엽니다. **작업** 섹션에서 다양한 관리 작업을 볼 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
+Azure 포털에서 TPM API 앱을 엽니다. **작업** 섹션에서 다양한 관리 작업을 볼 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
 - 정보 및 오류 이벤트 보기
 - 작업자 프로세스(w3wp)의 메모리 사용 및 스레드 수 보기
@@ -206,4 +206,4 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

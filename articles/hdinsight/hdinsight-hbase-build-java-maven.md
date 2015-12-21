@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 #Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성
@@ -619,4 +619,4 @@ __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 표준 오류(STDERR)을 확인합니다.
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015--->

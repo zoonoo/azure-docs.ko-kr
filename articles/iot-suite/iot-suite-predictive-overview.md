@@ -45,11 +45,14 @@ Azure IoT 예측 정비 사전 구성 솔루션은 이 템플릿으로부터 생
 
 Azure IoT가 예측 정비 시나리오를 가능하게 하는 방식에 대해 자세히 알아보려면, [Capture value from the Internet of Things][lnk_capture_value](영문)을 참조하세요.
 
+예측 정비 사전 구성 솔루션을 [연습][lnk-predictive-walkthrough]합니다.
+
+[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk_iot_suite]: iot-suite-overview.md
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
-[lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
+[lnk_infographic]: https://www.microsoft.com/ko-KR/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mandia"/>
 
 # 기본 제공 API 앱 및 커넥터 관리 및 모니터
@@ -132,4 +132,4 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Azure CLI(명령줄 인터페이스)를 사용하여 RBAC(역할 기반 액세스 제어) 관리
@@ -107,7 +107,50 @@
 
 ![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
+## 사용자 지정 역할 만들기
+사용자 지정 역할을 만들려면 `azure role create` 명령을 사용합니다.
+
+다음 예제에서는 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고, 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여하는 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다. 이 예제에서는 입력으로 json 파일을 사용합니다.
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role create-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
+
+## 사용자 지정 역할 수정
+
+사용자 지정 역할을 수정하려면 먼저 azure role show 명령을 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 azure role set 명령을 사용하여 수정한 역할 정의를 저장합니다.
+
+다음 예제에서는 Actions에 Microsoft.Insights/diagnosticSettings/* 작업을 추가하고 Virtual Machine Operator 사용자 지정 역할의 AssignableScopes에 Azure 구독을 추가합니다.
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
+
+## 사용자 지정 역할 삭제
+
+사용자 지정 역할을 먼저 삭제하려면 `azure role show` 명령을 사용하여 역할의 **Id**를 확인합니다. 그런 다음 `azure role delete` 명령을 사용하여 **Id**로 지정한 역할을 삭제합니다.
+
+다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 제거합니다.
+
+![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
+
+## 사용자 지정 역할 나열
+
+범위에서 할당할 수 있는 역할을 나열하려면 `azure role list` 명령을 사용합니다.
+
+다음 예제에서는 선택한 구독에 할당할 수 있는 모든 역할을 나열합니다.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+
+다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 *Production4* 구독에서 사용할 수 없습니다. 이 구독이 해당 역할의 **AssignableScopes**에 없기 때문입니다.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+
+
+
+
+
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

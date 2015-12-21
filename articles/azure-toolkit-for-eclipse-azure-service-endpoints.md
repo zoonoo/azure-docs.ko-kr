@@ -16,7 +16,7 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/ko-KR/library/azure/dn268600.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
 
 # Azure 서비스 끝점 #
 
@@ -62,4 +62,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

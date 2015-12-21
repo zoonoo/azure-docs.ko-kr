@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/01/2015"
-    ms.author="tamram"/>
+    ms.date="12/04/2015"
+    ms.author="robinsh"/>
 
 
 # Azure 프리미엄 저장소로 마이그레이션
@@ -677,4 +677,4 @@ Azure 저장소 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려�
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

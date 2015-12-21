@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # 모바일 서비스 .NET 백 엔드 문제 해결
@@ -73,7 +73,7 @@ HTTP 트래픽을 전송 및 검사하기 위해서는 아무 HTTP 디버거나 
 
     ![기호 로드 구성][SymbolLoading]
 
-3. 왼쪽에서 **기호** 노드를 선택하고 [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) URI를 사용해서 (SymbolSource)[http://symbolsource.org] 서버에 참조를 추가합니다. 모바일 서비스 .NET 백 엔드의 기호는 모든 새 릴리스에 제공됩니다.
+3. 왼쪽에서 **기호** 노드를 선택하고 [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) URI를 사용하여 [SymbolSource] 서버에 참조를 추가합니다. 모바일 서비스 .NET 백 엔드의 기호는 모든 새 릴리스에 제공됩니다.
 
     ![기호 서버 구성][SymbolServer]
 
@@ -159,4 +159,8 @@ SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용�
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!-- Links -->
+[SymbolSource]: http://symbolsource.org
+
+<!---HONumber=AcomDC_1210_2015-->

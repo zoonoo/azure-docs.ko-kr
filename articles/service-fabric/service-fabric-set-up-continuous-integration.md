@@ -3,8 +3,8 @@
    description="VSO(Visual Studio Online)를 사용한 서비스 패브릭 응용 프로그램에 대한 연속 통합 설정 방법의 개요를 확인합니다."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawa"
-   manager="paulyuk"
+   authors="cawams"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="multiple"
@@ -339,4 +339,4 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 서비스 패브릭 응용 프로그램과의 연속 통합에 대한 자세한 내용은 다음 문서에서 확인합니다. [빌드 설명서 홈](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

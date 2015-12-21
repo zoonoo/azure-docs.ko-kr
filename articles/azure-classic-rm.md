@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/14/2015"
+   ms.date="12/07/2015"
    ms.author="telmos"/>
 
 # Azure 배포 모델
@@ -68,4 +68,4 @@ CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스�
 - [템플릿 설계](/best-practices-resource-manager-design-templates.md) 방법을 알아봅니다.
 - [모범 사례](/best-practices-resource-manager-examples.md) 사용
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

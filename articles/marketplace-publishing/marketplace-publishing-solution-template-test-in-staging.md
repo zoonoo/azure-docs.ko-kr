@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio; v-divte" />
 
 # 준비 단계에서 솔루션 템플릿 제품 테스트
 준비 단계에서는 제품을 프로덕션에 게시하기 전에 개인 "샌드박스"에 배포하여 기능을 테스트 및 확인할 수 있습니다. 그러면 제안은 배포한 고객에게 표시되는 것처럼 스테이징으로 표시됩니다. 제품이 준비 단계에 푸시되려면 인증되어야 합니다.
 
-제품이 준비되면 [Azure Preview 포털](https://ms.portal.azure.com/)에서 제품을 보고 테스트할 수 있습니다.
+제품이 준비되면 [Azure 포털](https://portal.azure.com/)에서 제품을 보고 테스트할 수 있습니다.
 
-제품을 준비 단계에 푸시하고 [Azure Preview 포털](https://ms.portal.azure.com/)에서 테스트하려면 아래 단계를 수행하세요.
+제품을 준비 단계에 푸시하고 [Azure 포털](https://portal.azure.com/)에서 테스트하려면 아래 단계를 수행하세요.
 
 1.	[게시 포털](https://publish.windowsazure.com) -> **솔루션 템플릿** 탭 -> 제품 -> **게시** -> **준비 단계로 푸시**로 이동합니다.
 2.	제품 미리 보기 및 테스트를 위해 사용할 Azure 구독 목록을 제공합니다.
@@ -39,4 +39,4 @@
 
 모든 게시자 작업에 대한 지침은 [시작: Azure 마켓플레이스를 제공하는 서비스를 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

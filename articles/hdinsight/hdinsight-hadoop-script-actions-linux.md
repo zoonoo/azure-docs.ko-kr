@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/29/2015"
+    ms.date="12/04/2015"
     ms.author="larryfr"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발
@@ -220,4 +220,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

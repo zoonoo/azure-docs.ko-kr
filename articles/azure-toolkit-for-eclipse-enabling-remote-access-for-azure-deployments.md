@@ -16,7 +16,7 @@
     ms.date="11/30/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/ko-KR/library/azure/hh690951.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
 
 # Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정 #
 
@@ -111,4 +111,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

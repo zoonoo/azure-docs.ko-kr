@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/02/2015"
 	ms.author="coreyp"/>
 
 # Azure PowerShell을 설치 및 구성하는 방법#
@@ -36,9 +36,9 @@ Azure PowerShell은 Windows PowerShell로 Azure를 관리하기 위한 cmdlet을
 모듈은 Azure PowerShell에 대한 사용자 지정 콘솔을 설치합니다. 표준 Windows PowerShell 콘솔이나 Azure PowerShell 콘솔에서 cmdlet을 실행할 수 있습니다.
 
 ## 3단계: 연결
-서비스를 관리할 수 있도록 cmdlet에 구독이 필요합니다. Azure 구독이 아직 없는 경우 구매할 수 있습니다. 자세한 내용은 [Azure 시작](http://go.microsoft.com/fwlink/p/?LinkId=320795)을 참조하세요.
+서비스를 관리할 수 있도록 cmdlet에 구독이 필요합니다. Azure 구독이 아직 없는 경우 구매할 수 있습니다. 자세한 내용은 [Azure 구입 방법](http://go.microsoft.com/fwlink/p/?LinkId=320795)을 참조하세요.
 
-1. Add-AzureAccount를 입력합니다.
+1. **Add-AzureAccount**를 입력합니다.
 
 2. 계정과 연결된 메일 주소 및 암호를 입력합니다. Azure가 자격 증명 정보를 인증 및 저장한 후 창을 닫습니다.
 
@@ -49,42 +49,27 @@ Azure PowerShell은 Windows PowerShell로 Azure를 관리하기 위한 cmdlet을
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
 
-	>
-	> [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
-	>
-	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
-	>
-	> 2. If no directory exists, select **Create your directory** and provide the requested information.
-	>
-	> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
-	>
-	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
-	>
-	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
-	>
-	> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
-	>
-	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+> [AZURE.NOTE]이 비 대화형 로그인 방법은 회사 또는 학교 계정으로만 작동합니다. 회사 또는 학교 계정은 회사나 학교에서 관리되는 사용자이며, 회사나 직장에 대한 Azure Active Directory 인스턴스에 정의됩니다. 현재 회사나 학교 계정이 없고 Microsoft 계정을 사용하여 Azure 구독에 로그인하는 경우 다음 단계에 따라 쉽게 만들 수 있습니다.
 
+> 1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그인한 후 **Active Directory**를 클릭합니다.
+
+> 2. 디렉터리가 없는 경우 **디렉터리 만들기**를 선택하고 요청된 정보를 제공합니다.
+
+> 3. 디렉터리를 선택하고 새 사용자를 추가합니다. 이 새 사용자는 회사 또는 학교 계정을 사용하여 서명할 수 있습니다. 사용자를 만드는 동안 사용자의 전자 메일 주소와 임시 암호가 제공됩니다. 이 정보는 아래의 5단계에서 사용되므로 저장해 두세요.
+
+> 4. 관리 포털에서 **설정**을 선택한 후 **관리자**를 선택합니다. **추가**를 선택하고 새 사용자를 공동 관리자로 추가합니다. 따라서 회사 또는 학교 계정이 Azure 구독을 관리할 수 있습니다.
+
+> 5. 마지막으로, Azure 포털에서 로그아웃한 후 새 회사나 학교 계정을 사용하여 다시 로그인합니다. 이 계정으로 처음 로그인하는 경우 암호를 변경하라는 메시지가 표시됩니다.
+
+> 회사 또는 학교 계정을 사용한 Microsoft Azure 서명에 대한 자세한 내용은 [조직으로 Microsoft Azure에 등록](sign-up-organization.md)을 참조하십시오.
 
 ### 계정 및 구독 세부 정보 보기
 
 Azure PowerShell에서 사용 가능한 계정과 구독이 여러 개 있을 수 있습니다. **Add-AzureAccount**를 여러 번 실행하면 여러 계정을 추가할 수 있습니다.
 
-사용 가능한 Azure 계정을 가져오려면 다음을 입력합니다.
+사용 가능한 Azure 계정을 표시하려면 **Get-AzureAccount**를 입력합니다.
 
-	Get-AzureAccount
-
-Azure 구독을 가져오려면 다음을 입력합니다.
-
-	Get-AzureSubscription
-
-
-
-
-
-
-
+Azure 구독을 표시하려면 **Get-AzureSubscription**을 입력합니다.
 
 ## 4단계: 테스트<a id="Ex"></a>
 
@@ -143,4 +128,4 @@ Azure 구독을 가져오려면 다음을 입력합니다.
 - [MSDN의 Azure 포럼](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

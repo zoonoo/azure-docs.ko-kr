@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure 리소스 그룹에 리소스 추가"
-   description="Visual Studio를 사용하여 Azure 리소스 그룹에 리소스를 추가하는 방법에 대해 알아봅니다."
+   pageTitle="Visual Studio를 사용하여 리소스 관리자 템플릿 편집 | Microsoft Azure"
+   description="Visual Studio를 사용하여 Azure 리소스 관리자 템플릿에 리소스를 추가하는 방법에 대해 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Azure 리소스 그룹에 리소스 추가
+# Visual Studio를 사용하여 리소스 관리자 템플릿 편집
 
-리소스 그룹에 리소스를 더 추가 해야하는 경우, Visual Studio의 JSON 개요 창에서 이를 수행할 수 있습니다.
+Visual Studio를 사용하여 리소스 그룹에 대한 리소스 관리자 템플릿을 편집할 수 있습니다. Visual Studio JSON 개요 창을 통해 템플릿을 변경하거나 템플릿 구문을 직접 변경할 수 있습니다.
 
-## 리소스 그룹에 리소스 추가
+## JSON 개요 창을 통해 리소스 그룹에 리소스 추가
 
 ### 리소스 그룹에 리소스를 추가하려면
 
@@ -51,14 +51,22 @@
 
 1. 사용자가 매개 변수를 지정할 필요가 없는 경우, **매개 변수 편집** 대화 상자가 나타납니다. 필요한 모든 값을 입력한 다음 **저장** 단추를 선택합니다. 새 리소스는 Azure 리소스 그룹에 배포됩니다.
 
+## 템플릿 구문 편집
+
+Visual Studio를 사용하여 템플릿을 직접 편집할 수도 있습니다. 템플릿에서 값 편집을 시작하면 편집기에서 입력 가능한 값에 대한 도움말을 제공합니다.
+
+![템플릿 편집](./media/vs-azure-tools-resource-group-adding-resources/arm-edit-template.png)
+
+템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하십시오.
+
 ## 참고 항목
 
-[Azure 리소스 그룹 배포 프로젝트 만들기 및 배포](http://go.microsoft.com/fwlink/p/?LinkID=623073)
+[Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
 
-[Azure 리소스 관리자 Cmdlet](https://msdn.microsoft.com/library/dn654592.aspx)
+[Azure 리소스 관리자 Cmdlet](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
 [Azure 리소스 관리자와 Windows PowerShell 사용](../powershell-azure-resource-manager/)
 
 [Channel9 비디오: Azure 리소스 관리자](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

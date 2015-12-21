@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,9 +39,11 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
 
 -	활성 [Microsoft Azure 계정](/account/)
--	[Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)을 설치한 Visual Studio 2013
+-	[.NET용 Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)을 사용하는 Visual Studio 2015 Visual Studio를 사용하는 경우 단계가 달라질 수 있습니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해 볼 수 있는 크레딧을 받게 되며, 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다. + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹앱)를 사용할 수 있습니다.
+> + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -49,30 +51,29 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 
 이 섹션에서는 Visual Studio 2013의 기본 ASP.NET MVC 응용 프로그램 템플릿을 앱 서비스에 배포한 후 새로운 CDN 끝점과 통합합니다. 아래의 지침을 따르세요.
 
-1. Visual Studio 2013의 메뉴 모음에서 **파일 > 새로 만들기 > 프로젝트 > 웹 >ASP.NET 웹 응용 프로그램**으로 이동하여 새 ASP.NET 웹 응용 프로그램을 만듭니다. 해당 서비스의 이름을 지정하고 **확인**을 클릭합니다.
+1. Visual Studio 2015의 메뉴 모음에서 **파일 > 새로 만들기 > 프로젝트 > 웹 >ASP.NET 웹 응용 프로그램**으로 이동하여 새 ASP.NET 웹 응용 프로그램을 만듭니다. 해당 서비스의 이름을 지정하고 **확인**을 클릭합니다.
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. **MVC**를 선택하고 **구독 관리**를 클릭합니다.
+3. **MVC**를 선택하고 **확인**을 클릭합니다.
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. **로그인**을 클릭합니다.
+4. 아직 Azure 계정에 로그인하지 않은 경우 오른쪽 위 모퉁이에서 계정 아이콘을 클릭하고 Azure 계정에 로그인하는 대화 상자를 따릅니다. 수행하면 아래와 같이 앱을 구성한 다음 **새로 만들기**를 클릭하여 앱에 대한 새 앱 서비스 계획을 만듭니다.
 
-	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-6. 로그인 페이지에서 Azure 계정을 활성화하는 데 사용한 Microsoft 계정으로 로그인합니다.
-7. 로그인했으면 **닫기**를 클릭합니다. 계속하려면 **확인**을 클릭합니다.
+5. 아래와 같이 대화 상자에서 새 앱 서비스 계획을 구성하고 **확인**을 클릭합니다.
 
-	![](media/cdn-websites-with-cdn/4-signed-in.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Azure에서 웹앱을 만들지 않은 경우 Visual Studio에서 쉽게 만들 수 있습니다. **Microsoft Azure 웹 사이트 구성** 대화 상자에서 사이트 이름이 고유한지 확인합니다. 그런 다음 **확인**을 클릭합니다.
+8. **만들기**를 클릭하여 웹앱을 만듭니다.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. ASP.NET 응용 프로그램이 만들어지면 **지금 이 사이트에 `<app name>` 게시**를 클릭하여 웹 게시 활동 창에서 해당 응용 프로그램을 Azure에 게시합니다. **게시**를 클릭하여 프로세스를 완료합니다.
+9. ASP.NET 응용 프로그램이 만들어지면 **지금 웹앱에 `<app name>` 게시**를 클릭하여 Azure 앱 서비스 활동 창에서 Azure에 해당 응용 프로그램을 게시합니다. **게시**를 클릭하여 프로세스를 완료합니다.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	게시가 완료되면 브라우저에 게시된 웹앱이 표시됩니다.
 
@@ -105,7 +106,7 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-     **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
+	**http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -165,7 +166,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 위의 단계에 따라 이 컨트롤러 작업을 설정하려면 다음을 수행합니다.
 
-1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
+1. *\\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
 
 
         using System;
@@ -378,7 +379,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
 
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
@@ -531,7 +532,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
 	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
- 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
  	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
@@ -562,4 +563,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

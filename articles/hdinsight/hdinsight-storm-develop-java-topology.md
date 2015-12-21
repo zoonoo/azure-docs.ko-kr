@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #HDInsight에서 Apache Storm 및 Maven으로 기본 단어 개수 응용 프로그램에 대한 Java 기반 토폴로지를 개발합니다.
@@ -467,4 +467,4 @@ Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 �
 
 Storm 토폴로지에 대한 추가 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

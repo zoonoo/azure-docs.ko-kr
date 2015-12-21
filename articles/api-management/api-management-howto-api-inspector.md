@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법
@@ -34,7 +34,7 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 
 
 
-시작하려면 Azure 포털에서 API 관리 서비스에 대한 **개발자 포털**을 클릭합니다. 개발자 포털에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.
+시작하려면 Azure 클래식 포털에서 API 관리 서비스에 대한 **개발자 포털**을 클릭합니다. 개발자 포털에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.
 
 >아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
 
@@ -245,7 +245,7 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 [Azure API 관리 시작]: api-management-get-started.md
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
 [고급 API 구성 시작]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -261,4 +261,4 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

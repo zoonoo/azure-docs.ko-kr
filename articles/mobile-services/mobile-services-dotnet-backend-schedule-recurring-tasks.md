@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # 모바일 서비스에서 되풀이 작업 예약
@@ -305,4 +305,4 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

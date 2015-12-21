@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #작업 기본 설정을 사용자 지정하여 인코딩 작업 조작 
@@ -518,4 +518,4 @@ Azure 미디어 서비스 인코더를 사용하여 이미지(jpg, bmp, gif, tif
 
 [Azure 미디어 인코더 XML 스키마](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

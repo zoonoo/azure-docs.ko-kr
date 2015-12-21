@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="juliako"/>
 
 
@@ -62,6 +62,8 @@ Azure SDK 2.6에서는 클라우드 서비스 역할에 대상 .NET Framework를
 
 	이번에 Azure 저장소 버전 2011-08-18이 2016년 8월 1일에 제거될 예정입니다. 따라서 2.5 이하부터 2.6 버전의 Azure SDK에 대한 In-Role Cache의 모든 마이그레이션을 이번에 완료해야 합니다. Azure 저장소 버전 2011-08-18의 사용 중지에 대한 자세한 내용은 [Microsoft Azure 저장소 서비스 버전 제거 업데이트: 2016에 확장](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)을 참조하세요.
 
+>[AZURE.IMPORTANT]2016년 11월 30일부터 Azure 관리 캐시된 서비스 및 Azure In-Role Cache가 사용 중지됩니다. 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. 날짜 및 마이그레이션 지침에 대한 자세한 내용은 [내게 적합한 Azure 캐시 제품은 무엇인가요?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)를 참조하세요.
+
 ##Azure 앱 서비스 도구
 
 다음 항목은 Azure SDK 2.6 릴리스에서 업데이트되었습니다.
@@ -106,4 +108,4 @@ Azure SDK 2.6에서는 Azure 계산 에뮬레이터의 진단 로그를 수집�
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

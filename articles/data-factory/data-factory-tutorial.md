@@ -243,17 +243,20 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 	5. **linkedServiceName**에 대해 시작 자습서에서 만든 **HDInsightStorageLinkedService**를 지정합니다. 
 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.2",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "description": "",
+			        "typeProperties": {
+			            "clusterSize": "4",
+			            "timeToLive": "00:30:00",
+			            "version": "3.2",
+			            "linkedServiceName": "StorageLinkedService"
+			        }
+			    }
 			}
 
-		연결된 서비스의 **type**을 **HDInsightOnDemandLinkedService**로 설정합니다.
+		연결된 서비스의 **type**을 **HDInsightOnDemand**로 설정합니다.
 
 2. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
    
@@ -321,12 +324,13 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
         "isPaused": false
 
 	이 연습에서 예제 데이터는 2014년 5월 1일부터 2014년 5월 5일까지이기 때문에 시작 시간과 종료 시간이 2014년 5월 1일부터 2014년 5월 5일까지 설정됩니다.
- 
+ 	
+	주문형 HDInsight 연결된 서비스를 사용하는 경우 **linkedServiceName** 속성을 **HDInsightOnDemandLinkedService**로 설정합니다.
 3. 도구 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다. 편집기의 제목 표시줄에 **파이프라인이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
 4. 다음 파일의 내용으로 1-3단계를 반복합니다. 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. **X**(오른쪽 위)를 눌러 데이터 팩터리 블레이드를 닫으면 데이터 팩터리의 홈 페이지(**DATA FACTORY **블레이드)가 표시됩니다.
+4. **X**(오른쪽 위)를 눌러 데이터 팩터리 블레이드를 닫으면 데이터 팩터리의 홈 페이지(**DATA FACTORY** 블레이드)가 표시됩니다.
 
 ### 다이어그램 뷰
 
@@ -355,11 +359,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 		![모니터링 시작 보드][image-data-factory-monitoring-startboard]
 
-	2. **찾아보기** 허브를 클릭하고 **모두**를 클릭합니다.
-	 	
-		![모니터링 허브 모두][image-data-factory-monitoring-hub-everything]
-
-		**찾아보기** 블레이드에서 **데이터 팩터리**를 선택하고 **데이터 팩터리** 블레이드에서 **LogProcessingFactory**를 선택합니다.
+	2. **찾아보기**를 클릭하고 **찾아보기** 블레이드에서 **데이터 팩터리**를 선택한 후 **데이터 팩터리** 블레이드에서 **LogProcessingFactory**를 선택합니다.
 
 		![모니터링 찾아보기 데이터 팩터리][image-data-factory-monitoring-browse-datafactories]
 2. 여러 가지 방법으로 데이터 팩터리를 모니터링할 수 있습니다. 파이프라인이나 데이터 집합으로 시작할 수 있습니다. 우선 파이프라인부터 자세히 다루겠습니다. 
@@ -375,7 +375,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 	**Recently updated slices(최근에 업데이트된 조각)** 및 **Recently failed slices(최근에 실패한 조각)** 목록은 둘 다 **마지막 업데이트 시간**을 기준으로 정렬됩니다. 조각의 업데이트 시간은 다음과 같은 상황에서 변경됩니다.
 
-	-  **Set-AzureDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
+	-  **Set-AzureRmDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
 	-  실행(예: 실행 시작, 실행 종료 및 실패, 실행 종료 및 성공 등)으로 인해 조각 상태가 변경됩니다.
  
 	목록의 제목 또는 **...(줄임표)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
@@ -524,4 +524,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

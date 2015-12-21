@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -31,7 +31,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 - __HDInsight 클러스터__. 새 Linux 기반 HDInsight 클러스터를 만드는 단계는 [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-- __Azure SQL 데이터베이스__. Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우, [Azure SQL 데이터베이스를 만들도록 구성하는 방법](../sql-database/sql-database-create-configure.md)을 참조하세요.
+- __Azure SQL 데이터베이스__. Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우, [Azure SQL 데이터베이스를 만드는 방법](../sql-database/sql-database-create.md)을 참조하세요.
 
 - __Azure CLI__. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
@@ -63,7 +63,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 	
 	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 	
 3. 연결되면 다음을 사용하여.zip 파일의 압축을 풉니다.
 
@@ -285,7 +285,6 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -305,4 +304,4 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

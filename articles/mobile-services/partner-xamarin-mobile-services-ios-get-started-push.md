@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/03/2015"
 	ms.author="yuaxu"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -267,7 +267,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             }
         }
 
-8. **AppDelegeate**에 저장된 장치 토큰을 가져와서 추가될 **TodoItem**에 이 토큰을 저장하도록 **TodoListViewController**에서 **OnAdd** 동작을 수정합니다.
+8. **AppDelegeate**에 저장된 장치 토큰을 가져와서 추가될 **TodoItem**에 이 토큰을 저장하도록 **QSTodoListViewController**에서 **OnAdd** 동작을 수정합니다.
 
         string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
 
@@ -403,4 +403,4 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

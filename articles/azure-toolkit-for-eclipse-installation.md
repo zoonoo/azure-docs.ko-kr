@@ -16,7 +16,7 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/ko-KR/library/azure/hh690946.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
 # Eclipse용 Azure 도구 키트 설치 #
 
@@ -29,7 +29,7 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 ## 필수 조건 ##
 
 * Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
-* JDK(Java Developer Kit) v1.7 이상 
+* JDK(Java Developer Kit) v1.7 이상. 
 * 운영 체제 - Eclipse용 Azure 도구 키트는 다음 운영 체제에서 테스트되었습니다.
     * Windows 10
     * Windows 8 및 Windows 8.1
@@ -87,4 +87,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

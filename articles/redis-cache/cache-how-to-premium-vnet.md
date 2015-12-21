@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법
@@ -27,7 +27,7 @@ Azure Redis Cache 프리미엄 계층에는 클러스터링, 지속성 및 가�
 [Azure 가상 네트워크(VNET)](https://azure.microsoft.com/services/virtual-network/) 배포는 Azure Redis Cache의 보안과 격리를 강화하며 Azure Redis Cache에 대한 액세스를 추가적으로 제한하기 위한 서브넷, 액세스 제어 정책 및 기타 기능을 제공합니다.
 
 ## 가상 네트워크 지원
-가상 네트워크(VNET) 지원은 캐시를 만드는 중에 **새 Redis 캐시** 블레이드에 구성됩니다. 캐시를 만들려면 [Azure Preview 포털](https://portal.azure.com)에 로그인하고 **새로 만들기** -> **데이터 + 저장소** > **Redis 캐시**를 클릭합니다.
+가상 네트워크(VNET) 지원은 캐시를 만드는 중에 **새 Redis 캐시** 블레이드에 구성됩니다. 캐시를 만들려면 [Azure 포털](https://portal.azure.com)에 로그인하고 **새로 만들기**->**데이터 + 저장소**>**Redis Cache**를 클릭합니다.
 
 ![Redis Cache 만들기][redis-cache-new-cache-menu]
 
@@ -35,9 +35,9 @@ VNET 지원을 구성하려면 먼저 **가격 책정 계층 선택** 블레이�
 
 ![가격 계층 선택][redis-cache-premium-pricing-tier]
 
-Azure Redis Cache VNET 통합은 **가상 네트워크** 블레이드에 구성됩니다. 여기에서 기존 클래식 VNET을 선택할 수 있습니다. 새 VNET을 사용하려면 [Azure Preview 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에 있는 단계를 따른 다음 **Redis 캐시 가상 네트워크** 블레이드로 돌아가 선택합니다.
+Azure Redis Cache VNET 통합은 **가상 네트워크** 블레이드에 구성됩니다. 여기에서 기존 클래식 VNET을 선택할 수 있습니다. 새 VNET을 사용하려면 [Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에 있는 단계를 따른 다음 **Redis Cache 가상 네트워크** 블레이드로 돌아가 선택합니다.
 
->[AZURE.NOTE]Azure Redis Cache는 클래식 VNET과 함께 작동합니다. 클래식 VNET을 만드는 방법에 대한 정보는 [Azure Preview 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요.
+>[AZURE.NOTE]Azure Redis Cache는 클래식 VNET과 함께 작동합니다. 클래식 VNET을 만드는 방법에 대한 정보는 [Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. ARM VNET에 클래식 VNET을 연결하는 내용은 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
 
 ![가상 네트워크][redis-cache-vnet]
 
@@ -80,6 +80,7 @@ Azure Redis Cache VNET 통합은 **가상 네트워크** 블레이드에 구성�
 
 다음은 Azure Redis Cache의 정상 작동에 방해가 될 수 있는 몇 가지 일반적인 구성 오류의 목록입니다.
 
+-	DNS에 액세스할 수 없습니다. VNET의 Azure Redis Cache 인스턴스는 캐시의 모니터링 및 런타임 시스템의 일부에 대해 DNS에 액세스해야 하합니다. 캐시 인스턴스가 DNS에 액세스할 수 없으면 모니터링이 작동하지 않고 캐시가 제대로 작동하지 않습니다.
 -	클라이언트가 Redis 연결에 사용하는 포트, 즉 6379 또는 6380을 차단합니다.
 -	가상 네트워크에서 나가는 HTTPS 트래픽 차단하거나 가로챕니다. Azure Redis Cache에서는 나가는 HTTPS 트래픽을 Azure 서비스, 특히 저장소에 사용합니다.
 -	서브넷 내에서 Redis 역할 인스턴스 VM이 서로 통신하는 것을 차단합니다. Redis 역할 인스턴스는 사용되는 포트에서 TCP를 사용하여 서로 통신하도록 허용해야 합니다. 이 내용은 변경될 수 있으나 최소한 Redis CSDEF 파일에서 모든 포트가 사용된다고 가정할 수 있습니다.
@@ -116,4 +117,4 @@ VNET은 프리미엄 캐시에만 사용할 수 있습니다.
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

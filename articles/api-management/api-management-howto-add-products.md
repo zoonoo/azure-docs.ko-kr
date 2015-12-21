@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 제품을 만들고 게시하는 방법
@@ -22,7 +22,7 @@ Azure API 관리에서 제품은 하나 이상의 API뿐만 아니라 사용 할
 
 ## <a name="create-product"> </a>제품 만들기
 
-게시자 포털에서 작업을 API에 추가하고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다.
+게시자 포털에서 작업을 API에 추가하고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -148,4 +148,4 @@ API 관리에서 제품은 **개방형** 또는 **보호된** 제품일 수 있�
 [Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법]: api-management-howto-create-groups.md
 [Azure API 관리에서 고급 제품 설정을 만들고 구성하는 방법]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

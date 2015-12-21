@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/02/2015"
    ms.author="joaoma" />
 
 # Azure 트래픽 관리자의 성능 저하 상태 문제 해결
@@ -80,4 +80,4 @@ wget은 http://watestsdp2008r2.cloudapp.net/Default.aspx(으)로 리디렉션되
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

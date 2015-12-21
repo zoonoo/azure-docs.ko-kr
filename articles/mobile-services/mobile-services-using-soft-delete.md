@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/07/2015"
 	ms.author="wesmc"/>
 
 # 모바일 서비스에서 일시 삭제 사용
@@ -165,4 +165,4 @@ JavaScript 백 엔드 모바일 서비스와 예약된 작업에 대해 자세�
 [모바일 서비스용 오프라인 데이터 동기화]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

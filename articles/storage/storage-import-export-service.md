@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="가져오기/내보내기를 사용하여 Blob 저장소로 데이터 전송| Microsoft Azure" 
 	description="Blob 저장소로 데이터를 전송하기 위해 Azure 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다." 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송
@@ -269,4 +269,4 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

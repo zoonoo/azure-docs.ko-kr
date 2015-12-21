@@ -73,7 +73,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 
 	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 7. __데이터 원본__의 경우 항목을 선택하여 기존 데이터 원본을 선택하거나 새로 만듭니다.
 
@@ -115,7 +115,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 		>
 		> 현재(2015/8/25) 하나의 Linux 기반 HDInsight 클러스터만 Azure 가상 네트워크에 있을 수 있다는 제한 사항이 있습니다.
         >
-        > Linux 기반 HDInsight로 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure 포털에서 HDInsight 클러스터를 생성하는 동안 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
+        > Linux 기반 HDInsight로 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure 포털에서 HDInsight 클러스터를 만드는 과정 동안 옵션으로 나열하거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
         >
         > v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하여 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 확인하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
 
@@ -188,9 +188,9 @@ HDInsight 클러스터 블레이드의 __사용량__ 섹션은 해당 클러스�
 * [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)
 * [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Azure HDInsight 시작](../hdinsight-get-started.md)
+* [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight에 포함된 Hadoop 버전](hdinsight-component-versioning.md)
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

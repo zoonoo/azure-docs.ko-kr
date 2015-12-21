@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 자동화를 사용하여 Azure RemoteApp 관리"
+	pageTitle="Azure 자동화를 사용하여 Azure RemoteApp 관리 | Microsoft Azure"
 	description="Azure 자동화 서비스를 사용하여 Azure RemoteApp을 관리하는 방법에 대해 알아봅니다."
 	services="remoteapp, automation"
 	documentationCenter=""
@@ -42,4 +42,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure Remote
 
 * Azure 자동화 [시작 자습서](../automation-create-runbook-from-samples.md) 참조
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

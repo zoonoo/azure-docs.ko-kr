@@ -104,11 +104,10 @@
 [Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
-[Management Portal]: https://manage.windowsazure.com/
 [알림 허브를 사용하여 속보 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [알림 허브를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Windows 스토어에 대한 알림 허브 방법]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

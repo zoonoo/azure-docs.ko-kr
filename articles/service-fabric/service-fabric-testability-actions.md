@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="12/04/2015"
    ms.author="heeldin;motanv"/>
 
 # 테스트 용이성 작업
@@ -232,6 +232,5 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 - 서비스를 테스트하는 방법
    - [서비스 작업 중 오류 시뮬레이션](service-fabric-testability-workload-tests.md)
    - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

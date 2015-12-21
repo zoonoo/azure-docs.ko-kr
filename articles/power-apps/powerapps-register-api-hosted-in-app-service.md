@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # 앱 서비스 환경에서 호스트되는 API 등록
@@ -27,11 +27,11 @@ PowerApps는 클라우드 또는 온-프레미스 어디서나 호스트되는 �
 
 앱에서 이러한 API를 사용하려면 Azure 포털에서 API를 "등록"해야 합니다. 사용할 수 있는 옵션은 다음과 같습니다.
 
-- [Microsoft 관리되는 API 또는 IT 관리되는 API](powerapps-register-from-available-apis.md)를 등록합니다.
-- 앱 서비스 환경 내에서 호스트되는 API를 등록합니다.
-- [Swagger 2.0 API 정의](powerapps-register-existing-api-from-api-definition.md)를 사용하여 등록합니다.
+- 미리 빌드된 [Microsoft 관리 API 또는 IT 관리 API](powerapps-register-from-available-apis.md) 등록
+- 앱 서비스 환경 내에서 호스트되는 웹앱, API 앱 및 모바일 앱 등록(이 항목)
+- [Swagger 2.0 API 정의](powerapps-register-existing-api-from-api-definition.md)를 사용하여 사용자 고유의 Swagger API 중 하나 등록
 
-이 문서는 **앱 서비스 환경에서 호스트되는 API 등록** 방법을 보여 줍니다.
+이 문서에서는 **앱 서비스 환경에서 호스트되는 웹앱, API 앱 및 모바일 앱을 등록**하는 방법을 보여 줍니다.
 
 #### 시작하기 위한 필수 조건
 
@@ -57,7 +57,7 @@ API가 앱 서비스 환경에 배포된 후 다음 단계를 사용하여 등�
 2. API 관리에서 **추가**를 선택합니다. ![][12]  
 3. **API 추가**에서 API 속성을 입력합니다.  
 
-	- **이름**에서 API에 대한 이름을 입력합니다. 입력하는 이름은 API의 런타임 URL에 포함됩니다. 조직에서 의미 있고 고유한 이름을 만듭니다.	
+	- **이름**에서 API에 대한 이름을 입력합니다. 여기서 입력하는 이름은 API의 런타임 URL에 포함됩니다. 조직에서 의미 있고 고유한 이름을 만듭니다.	
 	- **원본**에서 **Import from APIs hosted in App Service Environment**(앱 서비스 환경에서 호스트되는 API에서 가져오기)를 선택합니다. ![][13]
 4. **API hosted in App Service Environment**(앱 서비스 환경에서 호스트되는 API)에서 가져오려는 API를 선택합니다. 이 목록은 앱 서비스 환경에서 **apiDefinition.url** 속성이 구성된 모든 웹앱, API 앱 및 모바일 앱을 보여 줍니다. API를 가져오려면 이 속성을 사용하여 노출된 Swagger 2.0 API 정의를 사용합니다. API를 등록할 때 이 URL을 공개적으로 액세스할 수 있는지 확인합니다. ![][14]
 5. **추가**를 선택하여 이 단계를 완료합니다.
@@ -67,8 +67,9 @@ API가 앱 서비스 환경에 배포된 후 다음 단계를 사용하여 등�
 ## 요약 및 다음 단계
 이 항목에서는 앱 서비스 환경에서 호스트되는 API를 등록하는 방법을 살펴보았습니다. 다음은 PowerApps에 대한 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
 
-- [API 구성](../powerapps-configure-apis.md)
-- [새 API 추가](../powerapps-register-from-available-apis.md)
+- [API 속성 구성](powerapps-configure-apis.md)
+- [사용자에게 API에 대한 액세스 부여](powerapps-manage-api-connection-user-access.md)
+- [PowerApps에서 앱 만들기 시작](https://powerapps.microsoft.com/tutorials/)
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
@@ -76,4 +77,4 @@ API가 앱 서비스 환경에 배포된 후 다음 단계를 사용하여 등�
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

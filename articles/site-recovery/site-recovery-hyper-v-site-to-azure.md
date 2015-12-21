@@ -1,5 +1,5 @@
 <properties
-	pageTitle="온-프레미스 Hyper-V 사이트와 Azure 간 보호 설정"
+	pageTitle="사이트 복구로 온-프레미스 Hyper-V 가상 컴퓨터와 Azure(VMM 없음) 간 복제 | Microsoft Azure"
 	description="Azure Site Recovery는 온-프레미스 Hyper-V 서버에 있는 가상 컴퓨터와 Azure 간의 복제, 장애 조치(Failover) 및 복구를 조정합니다."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,25 +13,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/18/2015"
+	ms.date="12/10/2015"
 	ms.author="raynew"/>
 
 
-# 온-프레미스 Hyper-V 사이트와 Azure 간 보호 설정
+# Azure Site Recovery로 온-프레미스 Hyper-V 가상 컴퓨터와 Azure(VMM 없음) 간 복제
 
+Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터 및 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 사이트 복구에 대해 [자세히 알아보세요.](site-recovery-overview.md)
 
 ## 개요
 
-Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. [사이트 복구 개요](site-recovery-overview.md)에서 가능한 배포 시나리오에 관해 읽어봅니다.
+이 문서에서는 Windows Server 2012 R2를 실행하는 Hyper-V 호스트가 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되지 않는 경우 Hyper-V 가상 컴퓨터를 복제하도록 사이트 복구를 배포하는 방법을 설명합니다.
 
-이 문서에서는 Windows Server 2012 R2를 실행하는 온-프레미스 Hyper-V 서버에 있는 가상 컴퓨터를 복제하도록 사이트 복구를 배포하는 방법을 설명합니다. Azure 저장소에 복제는 사이트 복구를 통해 조정됩니다. 이 배포는 Hyper-V 서버를 실행하지만 System Center VMM(가상 컴퓨터 매니저)이 배포되지 않은 경우에 특히 유용합니다.
-
-
-## 이 문서의 내용
-
-이 문서는 복제 설정을 구성하고 가상 컴퓨터에 대한 보호를 설정하도록 돕는 배포 필수 조건을 요약합니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다.
-
-문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
+이 문서는 복제 설정을 구성하고 가상 컴퓨터에 대한 보호를 설정하도록 돕는 배포 필수 조건을 요약합니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다. 문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
 
 
 ## 시작하기 전에
@@ -41,15 +35,15 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 ### Azure 필수 조건
 
 - [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
-- 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 읽어봅니다.
-- 장애 조치 후 복제된 가상 컴퓨터가 네트워크에 연결되도록 Azure 가상 네트워크가 필요합니다.
+- 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. [Azure 저장소에 대해 자세히 알아보세요](../storage/storage-introduction.md).
+- 기본 사이트에서 장애 조치(failover) 시 Azure 가상 컴퓨터가 네트워크에 연결되도록 하기 위해서는 Azure 가상 네트워크가 필요합니다.
 
 ### Hyper-V 필수 조건
 
-- 원본 온-프레미스 사이트에서 Hyper-V 역할로 Windows Server 2012 R2를 실행 중인 서버가 하나 이상 필요합니다.
-- Hyper-V 서버에 가상 컴퓨터가 하나 이상 포함되어야 합니다.
-- Hyper-V 서버가 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다.
-- Hyper-V 서버는 [KB2961977](https://support.microsoft.com/ko-KR/kb/2961977 "KB2961977")에서 언급된 픽스를 설치해야 합니다.
+- 원본 온-프레미스 사이트에서 Hyper-V 역할이 설치된 Windows Server 2012 R2를 실행하는 서버가 하나 이상 있어야 합니다. 이 서버는 다음 조건을 충족해야 합니다.
+- 하나 이상의 가상 컴퓨터를 포함해야 합니다.
+- 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다.
+- 기술 자료 [2961977](https://support.microsoft.com/ko-KR/kb/2961977 "KB2961977")에 설명된 수정 사항을 실행 중이어야 합니다.
 
 ### 가상 컴퓨터 필수 조건
 
@@ -57,20 +51,21 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 
 ### 공급자 및 에이전트 필수 조건
 
-Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 실행 중인 Hyper-V 서버마다 Azure Site Recovery 공급자 및 Azure 복구 서비스 에이전트를 설치합니다. 다음 사항에 유의하세요.
+Azure Site Recovery 배포의 일환으로 Hyper-V 서버마다 Azure Site Recovery 공급자 및 Azure 복구 서비스 에이전트를 설치합니다. 다음 사항에 유의하세요.
 
-- 최신 버전의 공급자 및 에이전트를 실행해야 합니다.
-- 자격 증명 모음상의 모든 Hyper-V 서버는 동일한 버전이어야 합니다.
-- 공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 현재 VMM 서버에 구성된 프록시 설정 또는 공급자 설치 중에 구성하는 사용자 지정 프록시 설정을 사용하여 프록시 없이 이를 수행하도록 선택할 수 있습니다. 기존 프록시 서버를 사용하려면 Azure에 연결하기 위한 URL이 방화벽을 통해 허용되도록 해야 합니다.
+- 항상 최신 버전의 공급자 및 에이전트를 실행하는 것이 좋습니다. 이에 대한 내용은 사이트 복구 포털에서 제공됩니다.
+- 자격 증명 모음의 모든 Hyper-V 서버는 동일한 버전의 공급자 및 에이전트를 포함해야 합니다.
+- 서버에서 실행되는 공급자는 인터넷을 통해 사이트 복구에 연결됩니다. 현재 Hyper-V 서버에 구성된 프록시 설정 또는 공급자 설치 중에 구성하는 사용자 지정 프록시 설정을 사용하여 프록시 없이 이를 수행할 수 있습니다. 사용하려는 프록시 서버가 Azure 연결을 위해 이러한 URL에 액세스할 수 있는지 확인해야 합니다.
 	- *.hypervrecoverymanager.windowsazure.com
 	- *.accesscontrol.windows.net
 	- *.backup.windowsazure.com
 	- *.blob.core.windows.net
 	- *.store.core.windows.net
- 
-- 사용자 지정 프록시를 사용하려면 공급자 설치 전에 프록시 서버를 설정합니다. 공급자를 설치하는 동안 프록시 서버 주소 및 포트와 액세스를 위해 사용할 수 있는 자격 증명을 지정해야 합니다. HTTPS 기반 프록시는 지원되지 않습니다.
+	
+- 또한 [Azure 데이터센터 IP 범위](https://www.microsoft.com/ko-KR/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
-아래 그림에서는 조정 및 복제를 위해 Azure Site Recovery에서 사용되는 다양한 통신 채널을 보여줍니다.
+
+이 그림에서는 조정 및 복제를 위해 사이트 복구에서 사용되는 다양한 통신 채널 및 포트를 보여줍니다.
 
 ![B2A 토폴로지](./media/site-recovery-hyper-v-site-to-azure/B2ATopology.png)
 
@@ -112,7 +107,9 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 
 ## 3단계: 공급자 및 에이전트 설치
-공급자 및 에이전트를 설치합니다. Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 노드에서 5~11단계를 수행합니다. 모든 노드를 등록하고 보호 기능을 설정한 후 가상 컴퓨터는 장애 조치 클러스터 내의 노드 간에 마이그레이션할 경우에도 보호됩니다.
+보호할 VM이 있는 Hyper-V 서버마다 공급자 및 에이전트를 설치합니다.
+
+Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 노드에서 5~11단계를 수행합니다. 모든 노드를 등록하고 보호 기능을 설정한 후 가상 컴퓨터는 클러스터 내의 노드 간에 마이그레이션할 경우에도 보호됩니다.
 
 1. **Hyper-V 서버 준비**에서 **등록 키 다운로드** 파일을 클릭합니다.
 2. **등록 키 다운로드** 페이지에서 사이트 옆의 **다운로드**를 클릭합니다. Hyper-V 서버에서 쉽게 액세스할 수 있는 안전한 위치로 키를 다운로드합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
@@ -140,19 +137,6 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 	![인터넷 설정](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider4.png)
 
-	다음 사항에 유의하세요.
-
-	- Hyper-V 서버에서 기본 프록시에 인증이 필요한 경우 사용자 지정 프록시 서버를 사용하도록 선택해야 합니다. 기본 프록시 세부 정보에서 입력하고 자격 증명을 지정합니다.
-	- 사용자 지정 프록시 서버를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다.
-	- 다음 url은 Hyper-v 호스트에서 액세스할 수 있어야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-
-	- [Azure 데이터센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
-
 9. **자격 증명 모음 설정** 페이지에서 **찾아보기**를 클릭하고 키 파일을 선택합니다. Azure Site Recovery 구독, 자격 증명 모음 이름 및 Hyper-V 서버가 속한 Hyper-V 사이트를 지정합니다.
 
 	![서버 등록](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_SelectKey.png)
@@ -166,37 +150,35 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 	![서버 등록](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider7.png)
 
->[AZURE.NOTE]다음 명령줄을 사용하여 Azure Site Recovery 공급자를 설치할 수도 있습니다. 이 방법은 Windows Server 2012 R2용 Server CORE에 대한 공급자를 설치하는 데 사용할 수 있습니다.
 
-1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
-1. **관리자** 권한으로 명령 프롬프트에서 아래 명령을 실행하여 공급자 설치 관리자 추출
+### 명령줄에서 공급자 설치
+
+또한 명령줄에서 Azure Site Recovery 공급자를 설치할 수도 있습니다. Windows Server Core 2012 R2를 실행하는 컴퓨터에 공급자를 설치하려면 이 방법을 사용해야 합니다. 다음과 같이 명령줄에서 실행합니다.
+
+1. 공급자 설치 파일 및 등록 키를 폴더로 다운로드합니다. 예: C:\\ASR.
+2. 관리자로 명령 프롬프트 창을 실행하고 다음을 입력합니다.
 
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-1. 다음 명령을 사용하여 공급자 설치
+
+3. 다음을 실행하여 공급자를 설치합니다.
 
 		C:\ASR> setupdr.exe /i
-1. 다음 명령을 실행하여 공급자 등록
 
-    	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+4. 등록을 완료하려면 다음을 실행합니다.
 
+    	CD C:\Program Files\Microsoft Azure Site Recovery Provider
+    	C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
+여기서 매개 변수는 다음과 같습니다.
 
-#### 명령줄 설치 매개 변수 목록
-
- - **/Credentials**: 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.  
- - **/FriendlyName**: Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
- - **/EncryptionEnabled**: Azure에서 미사용 중인 가상 컴퓨터의 암호화가 필요한 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지 확인합니다.
- - **/proxyAddress**: 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
- - **/proxyport**: 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
- - **/proxyUsername**: (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
- - **/proxyPassword**: (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.  
-
->[AZURE.TIP]각각의 개별 Hyper-V 호스트에서 다른 네트워크 대역폭 설정을 사용하여 가상 컴퓨터를 Azure로 복제하도록 구성할 수 있습니다. [Azure 보호 네트워크 대역폭 사용에 대한 온-프레미스 관리 방법](https://support.microsoft.com/ko-KR/kb/3056159)에 대해 자세히 알아보세요.
+- **/Credentials**: 다운로드한 등록 키의 위치를 지정합니다.
+- **/FriendlyName**: Hyper-V 호스트 서버를 식별하는 이름을 지정합니다. 이 이름이 포털에 나타납니다.
+- **/EncryptionEnabled**: 선택 사항입니다. Azure(암호화 미사용)에서 복제본 가상 컴퓨터를 암호화할 것인지 여부를 지정합니다.
+- **/proxyAddress**; **/proxyport**; **/proxyUsername**; **/proxyPassword**: 선택 사항입니다. 사용자 지정 프록시를 사용하거나 기존 프록시에 인증이 필요한 경우 프록시 매개 변수를 지정합니다.
 
 
-## 4단계: Azure 리소스 만들기
+## 4단계: Azure 저장소 계정 만들기 
 
 1. **리소스 준비**에서 **저장소 계정 만들기**를 선택하여 Azure 저장소 계정이 없는 경우 만듭니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. Azure Site Recovery 자격 증명 모음과 동일한 하위 지역에 있고 동일한 구독과 연결되어야 합니다.
 
@@ -204,7 +186,9 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 ## 5단계: 보호 그룹 만들기 및 구성
 
-보호 그룹은 동일한 보호 설정을 사용하여 보호하려는 가상 컴퓨터의 논리적 그룹화입니다. 보호 설정을 보호 그룹에 적용하면 이러한 설정은 그룹에 추가한 가상 컴퓨터 모두에 적용됩니다. 1. **보호 그룹 만들기 및 구성**에서 **보호 그룹 만들기**를 클릭합니다. 필수 조건이 갖추어지지 않은 경우 메시지가 표시되며 **세부 정보 보기**를 클릭하여 자세한 내용을 확인할 수 있습니다.
+보호 그룹은 동일한 보호 설정을 사용하여 보호하려는 가상 컴퓨터의 논리적 그룹화입니다. 보호 설정을 보호 그룹에 적용하면 이러한 설정은 그룹에 추가한 가상 컴퓨터 모두에 적용됩니다.
+
+1. **보호 그룹 만들기 및 구성**에서 **보호 그룹 만들기**를 클릭합니다. 필수 조건이 갖추어지지 않은 경우 메시지가 표시되며 **세부 정보 보기**를 클릭하여 자세한 내용을 확인할 수 있습니다.
 
 2. **보호 그룹** 탭에서 보호 그룹을 추가합니다. 이름, 원본 Hyper-V 사이트, 대상 **Azure**, Azure Site Recovery 구독 이름 및 Azure 저장소 계정을 지정합니다.
 
@@ -224,6 +208,8 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 가상 컴퓨터를 보호 그룹에 추가하여 보호를 사용합니다.
 
+>[AZURE.NOTE]고정 IP 주소를 사용하여 Linux를 실행하는 VM 보호는 지원되지 않습니다.
+
 1. 보호 그룹의 **컴퓨터** 탭에서 **가상 컴퓨터를 보호 그룹에 추가하여 보호 사용**을 클릭합니다.
 2. **가상 컴퓨터 보호 사용** 페이지에서 보호할 가상 컴퓨터를 선택합니다.
 
@@ -238,10 +224,15 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 **보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
-		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-size-specs.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요. 
-		
+		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다.
+			- Large(A3) 및 A6: 2
+			- ExtraLarge(A4) 및 A7:
+			- A9: 2
+			- D3: 2
+			- D4: 4
+			- D13: 4
 
 			가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 네트워크 어댑터 수 이상이어야 하며 선택한 가상 머신 크기에서 지원하는 네트워크 어댑터 수 이하여야 합니다. 아래 설명을 참조하세요.
 
@@ -255,26 +246,28 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
 
->[AZURE.NOTE]고정 IP를 사용하는 Linux 가상 컴퓨터는 지원되지 않습니다.
+
 
 
 ## 7단계: 복구 계획 만들기
 
-배포를 테스트하기 위해 단일 가상 컴퓨터에 대한 테스트 장애 조치(failover)를 실행하거나 하나 이상의 가상 컴퓨터를 포함한 복구 계획을 실행할 수 있습니다. 복구 계획을 만들려면 [다음 지침에 따릅니다.](site-recovery-create-recovery-plans.md)
+배포를 테스트하기 위해 단일 가상 컴퓨터에 대한 테스트 장애 조치(failover)를 실행하거나 하나 이상의 가상 컴퓨터를 포함한 복구 계획을 실행할 수 있습니다. 복구 계획 만들기에 대해 [자세히 알아보세요](site-recovery-create-recovery-plans.md).
 
 ## 8단계: 배포 테스트
 
 Azure로의 테스트 장애 조치(Failover)를 실행하는 두 가지 방법이 있습니다.
 
-- Azure 네트워크를 사용하지 않는 테스트 장애 조치(Failover) - 이 유형의 테스트 장애 조치(Failover)는 Azure에서 가상 컴퓨터가 제대로 작동하는지 확인합니다. 장애 조치(Failover) 후에 가상 컴퓨터가 Azure 네트워크에 연결되지 않습니다.
-- Azure 네트워크를 사용하는 테스트 장애 조치(Failover) - 이 유형의 테스트 장애 조치(Failover)는 전체 복제 환경이 예상대로 작동하고 장애 조치(Failover)된 가상 컴퓨터가 지정한 대상 Azure 네트워크에 연결되는지 확인합니다. 테스트 장애 조치(Failover)에 대한 서브넷 처리의 경우 테스트 가상 컴퓨터의 서브넷이 복제본 가상 컴퓨터의 서브넷에 따라 확인됩니다. 이는 복제본 가상 컴퓨터의 서브넷이 원본 가상 컴퓨터의 서브넷을 기반으로 하는 일반 복제의 경우와 다릅니다.
+- **Azure 네트워크를 사용하지 않는 테스트 장애 조치(Failover)** - 이 유형의 테스트 장애 조치는 Azure에서 가상 컴퓨터가 제대로 작동하는지 확인합니다. 장애 조치(Failover) 후에 가상 컴퓨터가 Azure 네트워크에 연결되지 않습니다.
+- **Azure 네트워크를 사용하는 테스트 장애 조치(Failover)** - 이 유형의 테스트 장애 조치는 전체 복제 환경이 예상대로 작동하고 장애 조치된 가상 컴퓨터가 지정한 대상 Azure 네트워크에 연결되는지 확인합니다. 테스트 장애 조치(Failover)의 경우 테스트 가상 컴퓨터의 서브넷이 복제본 가상 컴퓨터의 서브넷에 따라 확인됩니다. 이는 복제본 가상 컴퓨터의 서브넷이 원본 가상 컴퓨터의 서브넷을 기반으로 하는 일반 복제의 경우와 다릅니다.
 
-Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정된 가상 컴퓨터에 대해 테스트 장애 조치(Failover)를 실행하려는 경우 아무 것도 준비할 필요가 없습니다. Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치(Failover)를 실행](site-recovery-failover.md#run-a-test-failover)하는 방법을 살펴봅니다.
+Azure 네트워크를 지정하지 않고 테스트 장애 조치(Failover)를 실행하려는 경우 아무 것도 준비할 필요가 없습니다.
+
+Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치(Failover) 실행](site-recovery-failover.md#run-a-test-failover)을 살펴보세요.
 
 
-또한 예상 대로 작동하는 복제된 가상 컴퓨터에 대한 인프라를 설정해야 합니다. 예를 들어, 도메인 컨트롤러 및 DNS와 가상 컴퓨터를 Azure Site Recovery를 사용하여 Azure에 복제할 수 있으며 테스트 장애 조치를 사용하여 테스트 네트워크에서 만들 수 있습니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(failover) 시 고려 사항](site-recovery-active-directory.md#considerations-for-test-failover) 섹션을 살펴봅니다.
+복제 및 네트워크 배포를 완벽하게 테스트하려면 복제된 가상 컴퓨터가 예상대로 작동하도록 인프라를 설정해야 합니다. 이렇게 하는 한 가지 방법은 DNS를 사용하여 가상 컴퓨터를 도메인 컨트롤러로 설정하고 사이트 복구를 사용하여 이를 Azure에 복제하고 테스트 장애 조치(Failover)를 실행하여 테스트 네트워크에 만드는 것입니다. Active Directory에 대한 테스트 장애 조치 고려 사항에 대해 [자세히 알아보세요.](site-recovery-active-directory.md#considerations-for-test-failover)
 
-테스트 장애 조치를 실행하려면 다음을 수행합니다.
+다음과 같이 테스트 장애 조치(Failover)를 실행합니다.
 
 1. **복구 계획** 탭에서 계획을 선택하고 **테스트 장애 조치**를 클릭합니다.
 2. **테스트 장애 조치 확인** 페이지에서 **없음** 또는 특정 Azure 네트워크를 선택합니다. **없음**을 선택하면 테스트 장애 조치에서 가상 컴퓨터가 Azure로 올바르게 복제되었는지 확인하지만 복제 네트워크 구성은 확인하지 않습니다.
@@ -304,4 +297,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

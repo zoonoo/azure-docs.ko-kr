@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio" />
 
 # Azure 마켓플레이스에 제품을 게시하는 방법
@@ -58,7 +58,11 @@
 - [온-프레미스로 VM 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial/)
 
-**데이터 서비스** - [데이터 서비스 OData 매핑](marketplace-publishing-data-service-creation-odata-mapping.md) - [데이터 서비스 OData 매핑 노드](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) - [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+**데이터 서비스**
+
+- [데이터 서비스 OData 매핑](marketplace-publishing-data-service-creation-odata-mapping.md)
+- [데이터 서비스 OData 매핑 노드](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
+- [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 [suppt-general]: marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]: marketplace-publishing-report-seller-insights.md
@@ -77,4 +81,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

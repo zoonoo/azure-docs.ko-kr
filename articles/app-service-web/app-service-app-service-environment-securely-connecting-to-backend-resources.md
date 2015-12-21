@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결 #
@@ -21,7 +21,7 @@
 ## 개요 ##
 앱 서비스 환경은 항상 지역 클래식 "v1" [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 앱 서비스 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다.
 
-**참고:** "v2" 가상 네트워크에는 앱 서비스 환경을 만들 수 없습니다.
+**참고:** "v2" ARM 관리 가상 네트워크에는 앱 서비스 환경을 만들 수 없습니다.
 
 예를 들어 잠긴 포트 1433을 통해 가상 컴퓨터의 클러스터에서 실행되는 SQL Server가 있을 수 있습니다. 끝점은 동일한 가상 네트워크에 있는 다른 리소스의 액세스만 허용하도록 ACL에 포함될 수 있습니다.
 
@@ -114,4 +114,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

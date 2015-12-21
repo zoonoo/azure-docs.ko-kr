@@ -13,19 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에 문제가 있는 경우
+>[AZURE.IMPORTANT]이 페이지를 개선하도록 도와주세요. 이 페이지에서 문제에 대한 답변을 찾지 못한 경우 이에 대한 내용을 추가할 수 있도록 자세한 피드백을 제공해주세요.
+
 발생할 수 있는 일반적인 문제 중 일부를 도와주는 다음 정보가 제공됩니다.
 
 
 - [상관관계 ID 오류](#correlation-id-errors)
 - [전화를 분실했거나 도난당한 경우](#i-have-lost-my-phone-or-it-was-stolen?)
 - [휴대폰 번호를 변경하려는 경우](#i-want-to-change-my-phone-number)
+- [새 전화를 구입했고 내 전화 번호를 변경해야 하는 경우](#i-have-a-new-phone-and-need-to-change-my-phone-number)
 - [휴대폰에서 코드를 받지 못하는 경우](#i-am-not-receiving-a-code-on-my-phone)
 - [앱 암호가 작동하지 않는 경우](#app-passwords-are-not-working)
 - [이전 장치에서 Azure Authenticator를 제거하고 새 장치로 이동하려는 경우](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+- [문제에 대한 답변을 찾을 수 없는 경우](#i-didn't-find-an-answer-to-my-problem)
 
 ##상관관계 ID 오류
 아래의 문제 해결 단계를 시도해도 여전히 문제가 발생하면 [Azure AD 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)에 질문을 게시하거나, [Microsoft 기술 자료(KB)를 검색하거나](https://www.microsoft.com/ko-KR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport), [지원에 문의하시면](https://support.microsoft.com/ko-KR) 빠른 시일 내에 문제를 살펴보겠습니다.
@@ -37,7 +41,7 @@
  - **ErrorCode** - 수신한 특정 오류 코드
  - **SessionId** - 수신한 특정 세션 ID
  - **상관관계 ID** – 사용자가 오류를 확인했을 때 생성된 상관관계 ID
- - **타임스탭프** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간 정의
+ - **타임스탬프** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간 정의
  
 ![상관관계 ID](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
@@ -81,11 +85,11 @@ Office 365와 함께 다단계 인증을 사용하는 경우 Office 365 포털�
 
 #### Office 365 포털에서 설정을 변경하려면
 
-1. [Office 365 포털](https://login.microsoftonline.com/)에 로그인합니다.
+1. [Office 365 포털](https://login.microsoftonline.com/)에 로그온합니다.
 2. 오른쪽 위 모서리에서 위젯을 선택하고 Office 365 설정을 선택합니다.
 3. 추가 보안 인증을 클릭합니다.
 4. 오른쪽의 **Update my phone numbers used for account security(계정 보안에 사용되는 전화 번호 업데이트)** 링크를 클릭합니다. ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. 이렇게 하면 설정을 변경할 수 있는 페이지로 이동합니다. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
+5. 이렇게 하면 설정을 변경할 수 있는 페이지로 이동합니다.![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
 ### Myapps 포털에서 설정 변경
@@ -113,10 +117,29 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 3. 드롭다운 상자에서 추가 보안 인증을 선택합니다. ![Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
 4. 이렇게 하면 설정을 변경할 수 있는 페이지로 이동합니다.![검사](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
+##새 전화를 구입했고 내 전화 번호를 변경해야 하는 경우
+
+새 전화를 구입했고 mfa에서 사용할 기본 연락처 번호를 변경해야 하는 경우 두 가지 방법 중 하나로 이 작업을 수행할 수 있습니다.
+
+첫 번째 방법은 보조 인증 방법을 사용하는 것입니다. 보조 인증 전화 번호를 지정한 경우 이를 사용하여 로그인할 수 있습니다. ![설정](./media/multi-factor-authentication-end-user-manage/altphone.png) 위의 스크린샷에서 두 개의 전화 번호가 설정되었습니다. 67 및 30에서 하나씩 끝납니다.
+  
+대체 전화 번호를 사용하여 로그인하려면 일반적으로 로그인한 다음 **다른 인증 옵션 사용**을 선택하면 됩니다. ![다양한 확인](./media/multi-factor-authentication-end-user-manage/differentverification.png)
+
+그런 다음 다른 전화번호를 선택합니다. 이 경우 **다음 번호로 호출: +X XXXXXXXX30**을 선택합니다.
+
+![대체 전화](./media/multi-factor-authentication-end-user-manage/altphone2.png)
+
+>[AZURE.IMPORTANT]보조 인증 전화 번호를 구성하는 것이 중요합니다. 기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
+
+두 번째는 관리자 또는 mfa를 설정한 사람에게 문의하는 방법입니다. 보조 인증 전화 번호를 구성하지 않은 경우 이 작업을 수행해야 합니다. 그렇지 않은 경우 관리자 또는 mfa를 설정한 사람에게 설정을 삭제하도록 문의하여 다음 번 로그인 시 [Multi-Factor Authentication 설정](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again)을 다시 하라는 메시지가 나타나도록 해야 합니다.
+
 ##휴대폰에서 코드를 받지 못하는 경우
 
 먼저 다음을 확인해야 합니다.
 
+
+
+- 휴대폰으로 전화 통화를 수신하도록 선택한 경우 적절한 셀 신호가 있는지 확인합니다. 전송 속도 및 가용성은 위치와 서비스 공급자에 따라 달라질 수 있습니다.
 - 텍스트 메시지로 휴대폰에 인증 코드를 받도록 선택한 경우 서비스 요금제를 확인하고 장치가 텍스트 메시지 전송을 지원하는지 확인합니다. 전송 속도 및 가용성은 위치와 서비스 공급자에 따라 달라질 수 있습니다. 또한 이러한 코드를 수신하려고 할 때 적절한 셀 신호가 있는지 확인합니다.
 - 모바일 앱을 통해 인증을 받도록 선택한 경우 명확한 셀 신호가 있는지 확인합니다. 또한 전송 속도 및 가용성은 위치와 서비스 공급자에 따라 달라질 수 있습니다. 
 
@@ -125,7 +148,6 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 로그인 시 **다른 인증 옵션 사용**을 선택하여 모바일 앱을 통해 텍스트 메시지로 인증 코드를 받는 방법 간에 전환할 수 있습니다.
 
 ![다양한 확인](./media/multi-factor-authentication-end-user-manage/differentverification.png)
-
 
 경우에 따라 이러한 서비스 중 한 가지 전송 방법이 다른 것보다 안정적입니다.
 
@@ -139,4 +161,11 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 ##이전 장치에서 Azure Authenticator를 제거하고 새 장치로 이동하려는 경우
 장치에서 앱을 제거하거나 장치를 재점멸하는 경우 백 엔드에서 정품 인증을 제거하지 않습니다. [새 장치로 이동](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app)에 설명된 단계를 사용해야 합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+##문제에 대한 답변을 찾을 수 없는 경우
+이 페이지에서 문제에 대한 답변을 찾을 수 없는 경우 [Azure AD 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)에 질문을 게시하거나, [Microsoft 기술 자료(KB)를 검색하거나](https://www.microsoft.com/ko-KR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport), [지원에 문의](https://support.microsoft.com/ko-KR)할 수 있습니다.
+
+또한, 관리자 또는 Multi-Factor Authentication을 설정한 사람에게 문의하여 도움을 받을 수 있습니다.
+
+마지막으로, 이 페이지를 업데이트하고 보다 많은 정보를 제공하여 지속적으로 개선할 수 있도록 이 페이지에 자세한 피드백을 남겨야 합니다.
+
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 # 웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공 #
@@ -271,4 +271,4 @@ Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 �
 - [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -47,10 +47,8 @@
 - Azure SQL 데이터베이스입니다. SQL 데이터베이스가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 문서의 단계에 따라 만듭니다.
 - Azure PowerShell.
 
-> [AZURE.IMPORTANT]Azure PowerShell 1.0 Preview 릴리스부터는 Switch-AzureMode cmdlet을 더 이상 사용할 수 없으며 Azure ResourceManger 모듈에 있던 cmdlet은 이름이 바뀌었습니다. 이 문서의 예제에서는 새 PowerShell 1.0 Preview 명명 규칙을 사용합니다. 자세한 내용은 [Azure PowerShell에서 Switch-AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
 
-
-PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야 하고 Switch-AzureMode를 제거했기 때문에 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 최신 Azure PowerShell을 다운로드하고 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 
 
@@ -58,17 +56,17 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
 
 먼저 Azure 계정에 액세스 권한을 설정해야 하므로 PowerShell을 시작하고 다음 cmdlet을 실행합니다. 로그인 화면에서 Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 입력합니다.
 
-	Add-AzureAccount
+	Add-AzureRmAccount
 
 로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
 
 
 ### Azure 구독 선택
 
-구독을 선택하려면 구독 ID 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이전 단계에 표시된 정보에서 구독 ID를 복사하거나, 구독이 여러 개이고 세부 정보가 필요한 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
+구독을 선택하려면 구독 ID 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이전 단계에 표시된 정보에서 구독 ID를 복사하거나, 구독이 여러 개이고 세부 정보가 필요한 경우 **Get-AzureSubscription** cmdlet를 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
 
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 성공적으로 **Select-azuresubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다. 둘 이상의 구독이 있는 경우 **Get-azuresubscription**을 실행하고 사용하려는 구독이 **IsCurrent: True**를 표시하는지 확인할 수 있습니다.
 
@@ -78,7 +76,7 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
 
 ## SQL 데이터베이스의 서비스 계층 및 성능 수준 변경
 
-**Set-AzureRMSqlDatabase** Cmdlet을 실행하고 **-RequestedServiceObjectiveName**을 원하는 가격 책정 계층의 성능 수준(예를 들어 *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...)으로 설정합니다.
+**Set-AzureRmSqlDatabase** cmdlet를 실행하고 **-RequestedServiceObjectiveName**을 원하는 가격 책정 계층의 성능 수준(예: *S0*, *S1*, *S2*, *S3*, *P1*, *P2*...)으로 설정합니다.
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -88,7 +86,7 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
     $NewEdition = "Standard"
     $NewPricingTier = "S2"
 
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
 
 
   
@@ -112,10 +110,10 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
     $NewEdition = "Standard"
     $NewPricingTier = "S2"
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureRMSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     
@@ -134,4 +132,4 @@ PowerShell cmdlet을 실행하려면 Azure PowerShell을 설치 및 실행해야
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt163521.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/02/2015" 
+	ms.date="12/05/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -401,4 +401,4 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

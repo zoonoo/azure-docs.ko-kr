@@ -431,7 +431,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 	**Recently updated slices(최근에 업데이트된 조각)** 및 **Recently failed slices(최근에 실패한 조각)** 목록은 둘 다 **마지막 업데이트 시간**을 기준으로 정렬됩니다. 조각의 업데이트 시간은 다음과 같은 상황에서 변경됩니다.
     
 
-	-  **Set-AzureDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
+	-  **Set-AzureRmDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
 	-  실행(예: 실행 시작, 실행 종료 및 실패, 실행 종료 및 성공 등)으로 인해 조각 상태가 변경됩니다.
  
 	목록의 제목 또는 **...(줄임표)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
@@ -528,7 +528,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 Azure 클래식 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사용하여 온-프레미스 데이터 원본에 대한 자격 증명을 설정하는 경우 포털은 게이트웨이 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자의 인증서 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
 
-자격 증명을 암호화하기 위한 API 기반 접근 방식을 하는 경우 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) PowerShell cmdlet을 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환되는 암호화된 자격을 증명하고 [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) cmdlet 또는 포털의 데이터 팩터리 편집기에서 JSON 조각을 사용하는 JSON 파일에서 connectionString의 EncryptedCredential 요소에 추가할 수 있습니다.
+자격 증명을 암호화하기 위한 API 기반 접근 방식을 하는 경우 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet를 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환되는 암호화된 자격을 증명하고 [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet 또는 포털의 데이터 팩터리 편집기에서 JSON 조각을 사용하는 JSON 파일에서 connectionString의 EncryptedCredential 요소에 추가할 수 있습니다.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -546,14 +546,14 @@ Azure 클래식 포털에서 시작된 "자격 증명 설정" 응용 프로그�
         switch-azuremode AzureResourceManager
 
 
-2. 다음과 같이 **New-AzureDataFactoryGateway** cmdlet을 사용하여 논리 게이트웨이를 만듭니다.
+2. 다음과 같이 **New-AzureRmDataFactoryGateway** cmdlet를 사용하여 논리 게이트웨이를 만듭니다.
 
-		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+		New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**예제 명령 및 출력**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -567,15 +567,15 @@ Azure 클래식 포털에서 시작된 "자격 증명 설정" 응용 프로그�
 		ProvisioningState : Succeeded
 
 
-3. **New-AzureDataFactoryGatewayKey** cmdlet을 사용하여 새로 만든 게이트웨이의 등록 키를 생성하고 이 키를 지역 변수 **$Key**에 저장합니다.
+3. **New-AzureRmDataFactoryGatewayKey** cmdlet를 사용하여 새로 만든 게이트웨이의 등록 키를 생성하고 이 키를 지역 변수 **$Key**에 저장합니다.
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
+		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
 	**예제 명령 출력:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. Azure PowerShell에서 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** 폴더로 전환하고 다음 명령에 표시된 대로 지역 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
@@ -584,11 +584,11 @@ Azure 클래식 포털에서 시작된 "자격 증명 설정" 응용 프로그�
 		
 		Agent registration is successful!
 
-5. **Get-AzureDataFactoryGateway** cmdlet을 사용하여 데이터 팩터리의 게이트웨이 목록을 가져올 수 있습니다. **상태**에 **online**이 표시되어 있으면 게이트웨이를 사용할 준비가 되었음을 나타냅니다.
+5. **Get-AzureRmDataFactoryGateway** cmdlet를 사용하여 데이터 팩터리의 게이트웨이 목록을 가져올 수 있습니다. **상태**에 **online**이 표시되어 있으면 게이트웨이를 사용할 준비가 되었음을 나타냅니다.
 
-		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-게이트웨이를 제거하려면 **Remove-AzureDataFactoryGateway** cmdlet을 사용하고 게이트웨이 설명을 업데이트하려면 **Set-AzureDataFactoryGateway** cmdlet을 사용합니다. 이러한 cmdlet에 대한 구문 및 기타 세부 정보는 데이터 팩터리 Cmdlet 참조를 참조하세요.
+게이트웨이를 제거하려면 **Remove-AzureRmDataFactoryGateway** cmdlet를 사용하고 게이트웨이 설명을 업데이트하려면 **Set-AzureRmDataFactoryGateway** cmdlet를 사용합니다. 이러한 cmdlet에 대한 구문 및 기타 세부 정보는 데이터 팩터리 Cmdlet 참조를 참조하세요.
 
 
 ## 데이터 관리 게이트웨이를 사용하는 복사에 대한 데이터 흐름
@@ -609,7 +609,7 @@ Azure 클래식 포털에서 시작된 "자격 증명 설정" 응용 프로그�
 1. 위에서 언급한 것처럼 단계별 연습에서 데이터 팩터리를 사용하여 온-프레미스 데이터 저장소에 대한 자격 증명을 설정하는 여러 방법이 있습니다. 포트 고려 사항은 이러한 옵션에 따라 달라집니다.	
 
 	- **자격 증명 설정** 앱 사용: 기본적으로 데이터 관리 게이트웨이 설치 프로그램이 로컬 windows 방화벽에서 게이트웨이 컴퓨터에 **8050** 및 **8051** 포트를 엽니다. 이러한 포트는 자격 증명 설정 응용 프로그램에서 사용하여 게이트웨이에 자격 증명을 릴레이합니다. 로컬 windows 방화벽에서 컴퓨터에 이러한 포트를 엽니다. 인터넷에서 연결될 수는 없으며, 회사 범위의 방화벽에서 해당 포트를 열 필요도 없습니다.
-	2.	[New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) powershell commandlet을 사용합니다. a. Powershell 명령을 사용하여 자격 증명을 암호화하고 결과적으로 게이트웨이 설치하여 windows 방화벽의 게이트웨이 컴퓨터에서 인바운드 포트를 열기를 원하지 않으면 설치하는 동안 다음 명령을 사용하여 수행할 수 있습니다.
+	2.	[New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) powershell commandlet를 사용합니다. a. Powershell 명령을 사용하여 자격 증명을 암호화하고 결과적으로 게이트웨이 설치하여 windows 방화벽의 게이트웨이 컴퓨터에서 인바운드 포트를 열기를 원하지 않으면 설치하는 동안 다음 명령을 사용하여 수행할 수 있습니다.
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	**자격 증명 설정** 응용 프로그램을 사용하면 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트하려면 데이터 관리 게이트웨이에 연결할 수 있는 컴퓨터에서 시작해야 합니다.
@@ -618,4 +618,4 @@ Azure 클래식 포털에서 시작된 "자격 증명 설정" 응용 프로그�
 	- 	**허용된 IP 주소**에 **게이트웨이 컴퓨터의 IP 주소**를 추가하도록 [Azure SQL 방화벽 설정](https://msdn.microsoft.com/library/azure/jj553530.aspx)을 구성합니다.
 5.	온-프레미스 SQL Server와 대상 간에 데이터를 복사하고 게이트웨이와 SQL Server 컴퓨터가 서로 다른 경우 다음을 수행 합니다. 게이트웨이가 SQL Server 인스턴스에서 수신 대기하는 포트를 통해 데이터베이스에 액세스할 수 있도록 SQL Server 컴퓨터의 [Windows 방화벽을 구성](https://msdn.microsoft.com/library/ms175043.aspx)합니다. 기본 인스턴스의 경우 포트 1433입니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

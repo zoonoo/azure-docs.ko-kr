@@ -3,7 +3,7 @@
    description="클라우드 서비스에서 사용하는 Azure 게스트 OS에 대해 Microsoft가 지원하는 내용에 대한 정보를 제공합니다." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 # Azure 게스트 OS 지원 가능성 및 사용 중지 정책
-이 페이지의 정보는 클라우드 서비스 작업자 및 웹 역할(PaaS)에 대해 Azure 게스트 운영 체제([게스트 OS](https://msdn.microsoft.com/library/azure/ff729422.aspx))와 관련됩니다. 가상 컴퓨터(IaaS)에 적용되지 않습니다.
+이 페이지의 정보는 클라우드 서비스 작업자 및 웹 역할(PaaS)에 대해 Azure 게스트 운영 체제([게스트 OS](cloud-services-guestos-update-matrix.md))와 관련됩니다. 가상 컴퓨터(IaaS)에 적용되지 않습니다.
 
 Microsoft는 게시된 게스트 OS에 대한 [지원 정책을 제공합니다](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). 지금 읽고 있는 페이지는 정책 구현 방식을 설명합니다.
 
@@ -81,13 +81,13 @@ Microsoft의 판단에 따라 고객이 전환하기에 용이하도록 이 기�
 
 1. 최신 제품군으로 마이그레이션 계획을 시작합니다. 
 2. 새 제품군에서 실행 중인 클라우드 서비스를 테스트하려면 임시 테스트 배포를 설정합니다. 
-3. [ 게스트 OS 버전](https://msdn.microsoft.com/library/azure/gg433101.aspx)을 "자동"으로 [.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx) OS 버전으로 자동 설정됩니다.
+3. 새 게스트 OS 버전으로 자동으로 마이그레이션되도록 게스트 OS 버전을 **자동**으로 설정합니다([.cscfg](cloud-services-model-and-package.md#cscfg) 파일에서 osVersion=*).
 
 **내 웹 응용 프로그램을 사용하려면 OS와 밀접하게 통합되어야 하는 경우 어떻게 하나요?**
 
-웹 응용 프로그램 아키텍처가 기본 운영 체제에 대한 심층적 종속성을 요구할 경우 ["시작 작업"](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" 또는 나중에 존재할 수 있는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure 가상 컴퓨터](http://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
+웹 응용 프로그램 아키텍처가 기본 운영 체제에 대한 심층적 종속성을 요구할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 나중에 존재할 수 있는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure 가상 컴퓨터](http://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
  
 ## 다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 
@@ -121,4 +121,4 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 8. 서비스가 다시 시작되면 **Service Actions** 단추를 사용하여 **Turn Off Maintenance Mode**를 지정합니다. 그러면 Ambari에서 서비스에 대한 경고 모니터링을 재개합니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

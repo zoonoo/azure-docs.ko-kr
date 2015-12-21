@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="12/08/2015"
 	ms.author="roalexan" />
 
 
@@ -384,4 +384,4 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

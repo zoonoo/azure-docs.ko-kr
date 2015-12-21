@@ -50,9 +50,9 @@
 
 논리 앱이 Active Directory에 대해 인증하기 위해 사용하는 것입니다. 이 작업은 디렉토리에 한번만 *필요*합니다. 예를 들어 원하는 경우 논리 앱 마다 고유한 ID를 만들 수 있지만 모든 논리 앱에 동일한 ID를 사용하도록 선택할 수 있습니다. UI에서 이 작업을 수행하거나 PowerShell을 사용할 수 있습니다.
 
-#### Azure 포털을 사용하여 응용 프로그램 ID 만들기
+#### Azure 클래식 포털을 사용하여 응용 프로그램 ID 만들기
 
-1. [Azure 포털의 Active directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)로 이동하고 웹앱에 사용할 디렉터리를 선택합니다.
+1. [Azure 클래식 포털의 Active directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)로 이동하고 웹앱에 사용할 디렉터리를 선택합니다.
 2. **응용 프로그램** 탭을 클릭합니다.
 3. 페이지 아래쪽의 명령 모음에서 **추가**를 클릭합니다.
 4. ID에 사용할 이름을 지정하고 다음 화살표를 클릭합니다.
@@ -81,7 +81,7 @@
 
 이 시점에서 응용 프로그램은 사용자에 대해 자동으로 생성됩니다. 이 응용 프로그램의 클라이언트 ID는 3부에 필요하므로 다음을 수행해야 합니다.
 
-1. [Azure 포털의 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)로 이동하고 디렉터리를 선택합니다. 
+1. [Azure 클래식 포털의 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)로 이동하고 디렉터리를 선택합니다. 
 2. 검색 상자에서 앱 검색
 3. 목록에서 클릭
 4. **구성** 탭을 클릭합니다.
@@ -91,7 +91,7 @@
 
 우선 웹앱용 응용 프로그램을 만들어야 합니다. 논리 앱에 사용되는 응용 프로그램과 달라야 합니다. 위의 1부에서 다음 단계를 시작하지만 이제 **홈페이지** 및 **IdentifierUris**의 경우 실제 웹앱의 https://**URL**을 사용합니다.
 
->[AZURE.NOTE]웹앱용 응용 프로그램을 만들 때 PowerShell commandlet가 웹 사이트에 사용자가 로그인하는 데 필요한 사용 권한을 설정하지 않기 때문에 [Azure 포털 접근 방식](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)을 사용해야합니다.
+>[AZURE.NOTE]웹앱용 응용 프로그램을 만들 때 PowerShell commandlet가 웹 사이트에 사용자가 로그인하는 데 필요한 사용 권한을 설정하지 않기 때문에 [Azure 클래식 포털 접근 방식](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)을 사용해야 합니다.
 
 클라이언트 ID가 있으면 테넌트 ID는 배포 템플릿에서 웹앱의 하위 리소스처럼 다음을 포함합니다.
 
@@ -170,4 +170,4 @@ AAD을 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 
 위의 단계를 수행하여 논리 앱에 대한 응용 프로그램 ID를 만들고 해당 ID를 사용하여 API를 호출해야 합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 -   콘텐츠 소스에서 멀리 떨어져 있으며 콘텐츠를 로드하기 위해 많은 '인터넷 트립'이 필요한 응용 프로그램을 사용 중인 최종 사용자의 성능 및 사용자 환경 향상
 -   제품 런칭 등의 이벤트를 시작할 때 순간적인 높은 부하를 더 효율적으로 처리하기 위한 대규모 분산
 
-이제 기존 CDN 고객이 [Azure 관리 포털]에서 Azure CDN을 사용할 수 있습니다. CDN은 구독에 대한 추가 기능이며 별도의 [요금제]를 사용합니다.
+이제 기존 CDN 고객이 [Azure 클래식 포털]에서 Azure CDN을 사용할 수 있습니다. CDN은 구독에 대한 추가 기능이며 별도의 [요금제]를 사용합니다.
 
 <a id="Step1"> </a> <h2>1단계: 저장소 계정 만들기</h2>
 
@@ -26,7 +26,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 
 **Azure 구독에 대한 저장소 계정을 만들려면**
 
-1.  [Azure 관리 포털]에 로그인합니다.
+1.  [Azure 클래식 포털]에 로그인합니다.
 2.  왼쪽 아래에서 **새로 만들기**를 클릭합니다. **새로 만들기** 대화 상자에서 **데이터 서비스**를 선택한 다음 **저장소**, **빠른 생성**을 차례로 클릭합니다.
 
     **Create Storage Account** 대화 상자가 나타납니다.
@@ -43,7 +43,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 
 	이 값은 프로그래밍 방식으로 이 계정에 액세스할 때 또는 포털에서 이 저장소 계정의 이름으로도 사용됩니다.
 
-5.  **Region/Affinity Group** 드롭다운 목록에서 저장소 계정의 지역 또는 선호도 그룹을 선택합니다. 사용 중인 다른 Windows Azure 서비스와 동일한 데이터 센터에 저장소 서비스가 있도록 하려면 지역 대신 선호도 그룹을 선택합니다. 이렇게 하면 성능이 향상될 수 있고 송신 요금이 발생하지 않습니다.
+5.  **Region/Affinity Group** 드롭다운 목록에서 저장소 계정의 지역 또는 선호도 그룹을 선택합니다. 사용 중인 다른 Microsoft Azure 서비스와 동일한 데이터 센터에 저장소 서비스가 있도록 하려면 지역 대신 선호도 그룹을 선택합니다. 이렇게 하면 성능이 향상될 수 있고 송신 요금이 발생하지 않습니다.
 
     **참고:** 선호도 그룹을 만들려면, 관리 포털의 **설정** 영역을 열고 **선호도 그룹**을 클릭한 다음 **선호도 그룹 추가** 또는 **추가**를 클릭합니다. Microsoft Azure 서비스 관리 API를 사용하여 선호도 그룹을 만들고 관리할 수도 있습니다. 자세한 내용은 [선호도 그룹에 대한 작업]을 참조하세요.
 
@@ -57,7 +57,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 
 **저장소 계정에 대한 새 CDN 끝점을 만들려면**
 
-1. [Azure 관리 포털]의 탐색 창에서 **CDN**을 클릭합니다.
+1. [Azure 클래식 포털]의 탐색 창에서 **CDN**을 클릭합니다.
 
 2. 리본에서 **New**를 클릭합니다. **New** 대화 상자에서 **App Services**, **CDN**, **Quick Create**를 차례로 선택합니다.
 
@@ -100,7 +100,7 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 
   [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
   [Azure CDN 노드 위치]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-  [Azure 관리 포털]: https://manage.windowsazure.com/
+  [Azure 클래식 포털]: https://manage.windowsazure.com/
   [요금제]: /pricing/calculator/?scenario=full
   [Azure에서 선호도 그룹을 만드는 방법]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
@@ -111,4 +111,4 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

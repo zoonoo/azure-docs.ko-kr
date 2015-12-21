@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에 R 설치 및 사용
@@ -48,7 +48,7 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 | [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | R 및 C++ 통합 |
 | [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | R 개체를 JSON으로 직렬화/역직렬화 |
 | [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | 정수 벡터에 대한 비트 연산 함수입니다. |
-| [digest](R 개체에 대한 암호화 해시 다이제스트 만들기) | R 개체에 대해 암호화 해시 다이제스트를 만듭니다. |
+| [digest](https://cran.r-project.org/web/packages/digest/index.html) | R 개체에 대해 암호화 해시 다이제스트를 만듭니다. |
 | [functional](https://cran.r-project.org/web/packages/functional/index.html) | Curry, Compose 및 기타 자주 사용되는 함수 |
 | [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | 데이터를 유연하게 재구성하고 집계합니다. |
 | [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | 일반적인 문자열 작업에 대한 단순하고 일관된 래퍼입니다. |
@@ -137,15 +137,13 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 
 - [HDInsight 클러스터에 Spark 설치 및 사용][hdinsight-install-spark] - 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Spark를 설치하고 사용하는 방법에 대한 지침을 제공합니다. Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다.
 
-- [HDInsight 클러스터에 Giraph 설치](../hdinsight-hadoop-giraph-install). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
+- [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install.md). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
 
-- [HDInsight 클러스터에 Solr 설치](../hdinsight-hadoop-solr-install). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
+- [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install.md). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
 - [HDInsight 클러스터에서 Hue를 설치](hdinsight-hadoop-hue-linux.md)합니다. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Hue를 설치합니다. Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 프로그램 집합입니다.
 
-[powershell-install-configure]: install-configure-powershell-linux.md
-[hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

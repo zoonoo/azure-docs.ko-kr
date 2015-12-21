@@ -3,7 +3,7 @@
 
 + **(포털을 통해) Node.js 백 엔드**:  
 	
-	모바일 앱의 **설정**에서 **Easy Table**을 클릭하고 테이블을 선택합니다. **사용 권한 변경**을 클릭하고 모든 사용 권한에 대해 **인증된 액세스만**을 선택한 다음 **저장**합니다.
+	모바일 앱의 **설정**에서 **Easy Table**을 클릭하고 테이블을 선택합니다. **사용 권한 변경**을 클릭하고 모든 사용 권한에 대해 **인증된 액세스만**을 선택한 다음 **저장**을 클릭합니다.
 
 + **.NET 백 엔드(C#)**:
 
@@ -20,6 +20,6 @@
 
         table.access = 'authenticated';
 
-	자세한 내용은 [Azure 모바일 앱 Node.js SDK를 사용 하는 방법](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md)에서 [테이블에 대한 액세스 인증 요구](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)를 참조하세요.
+	자세한 내용은 [방법: 테이블에 대한 액세스 인증 요구](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)를 참조하세요. 사이트에서 빠른 시작 코드 프로젝트를 다운로드하는 방법을 알아보려면 [방법: Git를 사용하여 Node.js 백 엔드 빠른 시작 코드 프로젝트 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
@@ -236,7 +236,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 | 설명 | 아니요 | 템플릿에서 리소스를 문서화하는 내용에 대한 참고
 | dependsOn | 아니요 | 정의 중인 리소스가 종속되는 리소스입니다. 종속된 순서에 따라 리소스 간의 종속성이 평가되고 리소스가 배포됩니다. 리소스가 서로 종속되어 있지 않으면 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록일 수 있습니다.
 | properties | 아니요 | 리소스별 구성 설정입니다.
-| 리소스 | 아니요 | 정의 중인 리소스에 종속되는 하위 리소스입니다.
+| 리소스 | 아니요 | 정의 중인 리소스에 종속되는 하위 리소스입니다. 부모 리소스의 스키마에서 허용되는 리소스 종류만 제공할 수 있습니다. 자식 리소스 종류의 정규화된 이름에는 부모 리소스 종류가 포함됩니다(예: **Microsoft.Web/sites/extensions**).
 
 리소스 이름이 고유하지 않은 경우 아래에 설명된 **resourceId** 도우미 함수를 사용하여 리소스에 대한 고유 식별자를 가져올 수 있습니다.
 
@@ -278,6 +278,9 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
                   "apiVersion": "2014-06-01",
                   "type": "Extensions",
                   "name": "MSDeploy",
+                  "dependsOn": [
+                      "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
+                  ],
                   "properties": {
                     "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
                     "dbType": "None",
@@ -418,4 +421,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

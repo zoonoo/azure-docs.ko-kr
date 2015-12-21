@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/24/2015"
+      ms.date="12/03/2015"
       ms.author="hascipio; avikova" />
 
 # Azure 마켓플레이스에 대한 데이터 서비스 게시 가이드
@@ -23,7 +23,7 @@
 
 [https://publish.windowsazure.com](https://publish.windowsazure.com.)으로 이동합니다.
 
-**처음으로 게시 포털에 로그인할 때는 판매자 대시보드에서 회사의 판매자 프로필이 등록된 계정을 동일하게 사용하세요.** 나중에 게시 포털에서 회사의 직원을 공동 관리자로 추가할 수 있습니다. 게시 포털에서 제품을 만들려면 게시자 계약에 동의해야 합니다.
+**처음으로 게시 포털에 로그인할 때는 개발자 센터에서 회사의 판매자 프로필이 등록된 계정을 동일하게 사용하세요.** 나중에 게시 포털에서 회사의 직원을 공동 관리자로 추가할 수 있습니다.
 
 게시 포털에 처음 로그인하는 경우 **데이터 서비스 게시** 타일을 클릭합니다.
 
@@ -146,4 +146,4 @@ SQL Azure DB를 기반으로 데이터 집합에 대한 CSDL 매핑을 만들려
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

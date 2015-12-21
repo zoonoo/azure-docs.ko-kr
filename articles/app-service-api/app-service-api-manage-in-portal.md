@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/04/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 관리
@@ -136,4 +136,4 @@ Visual Studio의 **서버 탐색기**에서 원격 디버깅 세션을 시작하
 
 명령줄을 사용하여 API 앱을 관리 하는 방법에 대한 정보는 문서의 왼쪽(넓은 브라우저 창) 또는 위쪽(좁은 브라우저 창)에 표시되는 메뉴의 **자동화** 섹션의 문서를 참조하십시오.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

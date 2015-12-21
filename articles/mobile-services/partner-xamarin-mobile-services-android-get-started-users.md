@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015" 
 	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -33,7 +33,7 @@
 2. [테이블 사용 권한을 인증된 사용자로 제한]
 3. [앱에 인증 추가]
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
+이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
 
 이 자습서를 완료하려면 Xamarin.Android 및 Android SDK 4.2 이상 버전이 필요합니다.
 
@@ -47,9 +47,9 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. Eclipse에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다.
+3. Xamarin Studio에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다.
 
-4. **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
+4. **실행** 메뉴에서 **디버깅 시작**을 클릭하여 앱을 시작하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
 
 	 이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 _TodoItem_ 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
@@ -94,7 +94,7 @@
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
-            toDoTable = client.GetTable<ToDoItem>();
+            toDoTable = client.GetSyncTable<ToDoItem>();
 
             textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
@@ -112,7 +112,7 @@
 		await CreateTable();
 
 
-6. **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작하고 원하는 ID 공급자에 로그인합니다.
+6. **실행** 메뉴에서 **디버깅 시작**을 클릭하여 앱을 시작하고 선택한 ID 공급자로 로그인합니다.
 
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
@@ -138,7 +138,8 @@
 [15]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
+[모바일 서비스 시작]: partner-xamarin-mobile-services-android-get-started.md
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

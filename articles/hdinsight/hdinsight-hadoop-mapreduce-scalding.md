@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="10/15/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발
@@ -231,7 +231,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
 
 > [AZURE.NOTE]다음 단계에서는 Windows PowerShell을 사용합니다. MapReduce 작업을 실행하는 다른 방법은 [HDInsight의 Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 
-1. [Azure PowerShell을 설치하고 구성합니다](../install-configure-powershell.md).
+1. [Azure PowerShell을 설치하고 구성합니다](../powershell-install-configure.md).
 
 2. Azure PowerShell을 시작하고 Azure 계정에 로그인합니다. 자격 증명을 제공하면 사용자 계정에 대한 정보가 반환됩니다.
 
@@ -298,7 +298,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
             -HttpCredential $creds
         #Download the output of the job
         Get-AzureStorageBlobContent `
-            -Blob example/wordcountout/part-r-00000 `
+            -Blob example/wordcountout/part-00000 `
             -Container $container `
             -Destination output.txt `
             -Context $context
@@ -344,4 +344,4 @@ Scalding을 사용하여 HDInsight용 MapRedcue 작업을 만드는 방법을 �
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

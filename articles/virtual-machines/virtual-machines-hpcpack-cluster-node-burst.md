@@ -25,7 +25,7 @@ ms.service="virtual-machines"
 
 ![버스트 노드][burst]
 
->[AZURE.TIP] [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에 클러스터를 만들 경우 자동 배포에 Azure 버스트 노드를 포함할 수 있습니다.
+>[AZURE.TIP] [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에 클러스터를 만들 경우 자동 배포에 Azure 버스트 노드를 포함할 수 있습니다.
 
 이 문서의 단계를 통해 Azure 노드를 클라우드 기반 HPC 팩 헤드 노드 VM에 빠르게 추가하여 테스트 또는 개념 증명 배포를 수행할 수 있습니다. 이 절차는 기본적으로 온-프레미스 HPC 팩 클러스터에 클라우드 계산 용량을 추가하는 "Azure로 버스트"와 동일합니다. 자습서를 보려면 [Microsoft HPC 팩을 사용하여 하이브리드 계산 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. 프로덕션 배포에 대한 자세한 지침과 고려 사항을 보려면 [Microsoft HPC 팩을 사용하여 Azure로 버스트](http://go.microsoft.com/fwlink/p/?LinkID=200493)를 참조하세요.
 
@@ -88,4 +88,4 @@ Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 �
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015--->

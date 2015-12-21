@@ -1,5 +1,5 @@
 <properties
-	pageTitle="SQL DB에 대한 Windows의 PHP | Microsoft Azure"
+	pageTitle="SQL 데이터베이스에 연결하는 PHP 재시도 논리 | Microsoft Azure"
 	description="일시적인 오류 처리를 지원하는 Windows 클라이언트에서 Azure SQL 데이터베이스에 연결하는 샘플 PHP 프로그램을 제시하고, 클라이언트에 필요한 필수 소프트웨어 구성 요소의 링크를 제공합니다."
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -29,14 +29,16 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
+### SQL 데이터베이스
 
-## 데이터베이스를 만들고 연결 문자열 검색
-
-
-샘플 데이터베이스를 만들고 연결 문자열을 검색하는 방법을 알아보려면 [시작 항목](sql-database-get-started.md)을 참조하세요. 안내에 따라 **AdventureWorks 데이터베이스 템플릿**을 만드는 것이 중요합니다. 아래 표시된 샘플은 **AdventureWorks 스키마**에서만 작동합니다.
+샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md)를 참조하세요. 안내에 따라 **AdventureWorks 데이터베이스 템플릿**을 만드는 것이 중요합니다. 아래 표시된 샘플은 **AdventureWorks 스키마**에서만 작동합니다.
 
 
-## 데이터베이스에 연결하고 쿼리합니다. 
+## 1단계: 연결 정보 가져오기
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+
+## 2단계: 연결 및 쿼리
 
 데모 프로그램은 연결 시도 중 일시적인 오류로 재시도하도록 디자인되었습니다. 하지만 쿼리 명령 동안 일시적 오류로 프로그램이 연결을 무시하고 쿼리 명령을 다시 시도하기 전에 새 연결을 만듭니다. 이 디자인 선택을 권장하지 않거나, 또는 권장하지도 않습니다. 데모 프로그램은 사용할 수 있는 디자인 유연성 중 일부를 보여줍니다.
 
@@ -59,13 +61,13 @@
 		{
 		    $errorArr = array();
 		    $ctr = 0;
-		    // [A.2] Connect, which proceeds to issue a query command. 
+		    // [A.2] Connect, which proceeds to issue a query command.
 		    $conn = sqlsrv_connect($serverName, $connectionOptions);  
 		    if( $conn == true)
 		    {
-		        echo "Connection was established"; 
+		        echo "Connection was established";
 		        echo "<br>";
-		 
+
 		        $tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
 		        $getProducts = sqlsrv_query($conn, $tsql);
 		        if ($getProducts == FALSE)
@@ -96,8 +98,8 @@
 		        // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
 		        $isTransientError = IsTransientStatic($errorArr);
 		        if ($isTransientError == TRUE)  // Is a static persistent error...
-		        { 
-		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate."); 
+		        {
+		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate.");
 		            echo "<br>";
 		            // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
 		            // Break the loop, let the hopeless program end.
@@ -129,11 +131,9 @@
 		        return TRUE;
 		}
 	?>
-	
+
 ## 다음 단계
 
 PHP 설치 및 사용에 대한 자세한 내용은[PHP로 SQL Server 데이터베이스 액세스](http://technet.microsoft.com/library/cc793139.aspx)를 참조하세요.
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

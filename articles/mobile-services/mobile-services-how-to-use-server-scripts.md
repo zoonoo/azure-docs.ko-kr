@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ricksal"/>
 
 
@@ -289,7 +289,7 @@ JavaScript에서 다음과 같은 긴 동등 항목의 간결한 버전입니다
 
 ###<a name="work-with-users"></a>방법: 사용자 작업
 
-Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 수 있습니다. 자세한 내용은 [인증 시작](영문)을 참조하십시오. 인증된 사용자가 테이블 작업을 호출하면 모바일 서비스에서 [user 개체]를 사용하여 등록된 스크립트 함수에 사용자 정보를 제공합니다. **userId** 속성을 사용하여 사용자별 정보를 저장하고 검색할 수 있습니다. 다음 예제에서는 인증된 사용자의 userId를 기준으로 항목의 owner 속성을 설정합니다.
+Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 수 있습니다. 자세한 내용은 [인증 시작](영문)을 참조하십시오. 인증된 사용자가 테이블 작업을 호출하면 모바일 서비스에서 [user 개체]를 사용하여 등록된 스크립트 함수에 사용자 정보를 제공합니다. **userId** 속성을 사용하여 사용자별 정보를 저장하고 검색할 수 있습니다. 다음 예제에서는 인증된 사용자의 **userId**를 기준으로 항목의 owner 속성을 설정합니다.
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -378,7 +378,7 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 수 있습니다. 자세한 내용은 [인증 시작](영문)을 참조하십시오. 인증된 사용자가 사용자 지정 API를 요청하면 모바일 서비스에서 [user 개체]를 사용하여 사용자 지정 API 코드에 사용자 정보를 제공합니다. [user 개체]는 [request 개체]의 user 속성에서 액세스합니다. **userId** 속성을 사용하여 사용자별 정보를 저장하고 검색할 수 있습니다.
 
-다음 **OrderPizza** 사용자 지정 API 함수는 인증된 사용자의 userId를 기준으로 항목의 owner 속성을 설정합니다.
+다음 **OrderPizza** 사용자 지정 API 함수는 인증된 사용자의 **userId**를 기준으로 항목의 owner 속성을 설정합니다.
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');
@@ -1056,4 +1056,4 @@ Stream|지원되지 않음
 [Azure 모바일 서비스에서 package.json 지원]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

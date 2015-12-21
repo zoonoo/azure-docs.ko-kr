@@ -161,8 +161,8 @@ Azure 서비스 전반에서 원활하고 일관적인 사용 환경을 조성�
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [앱 서비스 모바일 앱]: https://azure.microsoft.com/ko-KR/documentation/articles/app-service-mobile-value-prop/
-  [템플릿]: https://msdn.microsoft.com/ko-KR/library/azure/dn530748.aspx
+  [템플릿]: https://msdn.microsoft.com/library/azure/dn530748.aspx
   [Azure 포털]: https://portal.azure.com
   [태그]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

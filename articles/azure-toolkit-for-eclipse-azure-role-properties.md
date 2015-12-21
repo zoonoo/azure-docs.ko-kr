@@ -16,7 +16,7 @@
     ms.date="11/20/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/ko-KR/library/azure/hh690945.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
 
 # Azure 역할 속성 #
 
@@ -440,4 +440,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

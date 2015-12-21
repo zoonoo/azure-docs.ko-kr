@@ -63,7 +63,7 @@ Express 경로 연결을 사용하면 다음 서비스에 액세스할 수 있�
 
 - Microsoft Azure 서비스
 - Microsoft Office 365 서비스
-- Microsoft CRM Online 서비스(출시 예정) 
+- Microsoft CRM Online 서비스 
  
 Express 경로를 통해 지원되는 서비스에 대한 자세한 목록은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 방문할 수 있습니다.
 
@@ -124,4 +124,4 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

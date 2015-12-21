@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 인증 시작
@@ -80,15 +80,12 @@
 
 3. **OnCreate** 메서드에서 `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
 
-		// Get the Mobile Service Table instance to use
-        toDoTable = client.GetTable <ToDoItem> ();
-
-        await Authenticate(); // add this line
+		await Authenticate(); // add this line
 
 	이 호출은 인증 프로세스를 시작하고 비동기적으로 기다립니다.
 
 
-4. **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작하고 원하는 ID 공급자에 로그인합니다.
+4. **실행** 메뉴에서 **디버깅 시작**을 클릭하여 앱을 시작하고 선택한 ID 공급자로 로그인합니다.
 
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
@@ -115,4 +112,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

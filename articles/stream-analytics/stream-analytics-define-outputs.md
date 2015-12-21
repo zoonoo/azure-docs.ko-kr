@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="출력 정의 | Microsoft Azure" 
-	description="스트림 분석 출력 이해" 
-	keywords="빅 데이터 분석, 클라우드 서비스, 사물 인터넷, 관리되는 서비스, 스트림 처리, 스트리밍 분석, 데이터 스트리밍"
-	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+<properties
+	pageTitle="데이터 변환 출력: 저장소, 분석에 대한 옵션 | Microsoft Azure"
+	description="스트림 분석 데이터 변환 출력을 데이터 저장소 옵션에 연결하는 방법에 대해 알아보세요. 또한 분석 결과에 Power BI를 사용해 보세요."
+	keywords="데이터 변환, 분석 결과, 데이터 저장소 옵션"
+	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="12/01/2015"
 	ms.author="jeffstok"/>
 
-# 스트림 분석 출력 이해
+# 스트림 분석 데이터 변환 출력을 분석 도구 및 데이터 저장소 옵션에 연결
 
-스트림 분석 작업을 작성하는 경우 고려할 사항 하나는 작업의 출력을 사용하는 방법입니다. 데이터 변환 소비자에게 스트림 분석 작업 결과가 어떻게 표시되나요? 출력을 분석하기 위해 어떤 도구를 사용하나요? 데이터 보존 또는 웨어하우징이 요구 사항인가요?
+스트림 분석 작업을 작성할 때 데이터 변환 출력을 사용할 방법을 고려해야 합니다. 스트림 분석 작업 결과를 어떻게 보시겠습니까? 어떤 도구를 사용하여 데이터 분석 결과를 표시하시겠습니까? 데이터 저장소 옵션이 필요합니까?
 
-다양한 응용 프로그램 패턴을 사용하기위해, Azure 스트림 분석은 저장 및 작업 출력을 확인하기 위해 다른 방법을 제공합니다. 작업 출력 확인, 소비의 탄력성, 데이터 웨어 하우징 및 기타 용도에 대한 작업 출력의 저장의 편의를 제공합니다. 작업에서 구성된 모든 출력은 작업 시작 및 이벤트 전송이 시작되기 전에 존재해야 합니다. 예를 들어, 출력으로 Blob 저장소를 사용한 경우, 작업은 저장소 계정을 자동으로 만들지 않습니다. ASA 작업이 시작되기 전에 사용자가 만들어야 합니다.
+다양한 응용 프로그램 패턴을 사용할 수 있도록 Azure 스트림 분석은 출력을 저장하고 분석 결과를 표시하는 다양한 방법을 제공합니다. 따라서 간편하게 작업 출력을 확인하고, 데이터 웨어 하우징 및 기타 용도로 작업 출력을 유연하게 사용하고 저장할 수 있습니다. 작업에서 구성된 모든 출력은 작업 시작 및 이벤트 전송이 시작되기 전에 존재해야 합니다. 예를 들어, 출력으로 Blob 저장소를 사용한 경우, 작업은 저장소 계정을 자동으로 만들지 않습니다. ASA 작업이 시작되기 전에 사용자가 만들어야 합니다.
 
 
 ## SQL 데이터베이스 ##
@@ -116,13 +116,13 @@
 | 형식 | JSON 형식에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. |
 ## Power BI
 
-[Power BI](https://powerbi.microsoft.com/)를 스트림 분석 작업에 대한 출력으로 사용하여 스트림 분석 사용자에게 풍부한 시각화 환경을 제공할 수 있습니다. 작업 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
+[Power BI](https://powerbi.microsoft.com/)를 스트림 분석 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 작업 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
 
-> [AZURE.NOTE]이 때, Power BI 출력의 생성 및 구성은 Azure 포털에서 지원되지 않습니다.
+> [AZURE.NOTE]이때 Power BI 출력의 생성 및 구성은 Azure Preview 포털에서 지원되지 않습니다.
 
 ### Power BI 계정 권한 부여
 
-1.	Azure 클래식 포털에서 출력으로 Power BI를 선택한 경우, 기존 Power BI 사용자에 권한 부여 또는 신규 Power BI 계정 생성에 대한 메시지가 표시됩니다.  
+1.	Azure 관리 포털에서 Power BI를 출력으로 선택하는 경우 메시지가 표시되어 기존 Power BI 사용자 권한을 부여하거나 새 Power BI 계정을 만듭니다.  
 
     ![Power BI 사용자 권한 부여](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -170,7 +170,7 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 | 저장소 계정 키 | 저장소 계정과 연결된 선택키입니다. |
 | 테이블 이름 | 테이블의 이름입니다. 테이블이 존재하지 않는 경우 생성됩니다. |
 | Partition Key | 파티션 키를 포함하는 출력 열의 이름입니다. 파티션 키는 엔터티 기본 키의 첫 번째 부분을 형성하는 지정된 테이블 내에서 분할에 고유한 식별자입니다. 크기가 최대 1KB인 문자열 값입니다. |
-| Row Key | 행 키를 포함하는 출력 열의 이름입니다. 행 키는 주어진 파티션 내 엔터티의 고유 식별자입니다. 엔터티의 기본 키에서 두번째 부분을 형성합니다. 행 키는 크기가 최대 1KB인 문자열 값입니다. |
+| Row Key | 행 키를 포함하는 출력 열의 이름입니다. 행 키는 주어진 파티션 내 엔터티의 고유 식별자입니다. 엔터티의 기본 키에서 두 번째 부분을 형성합니다. 행 키는 크기가 최대 1KB인 문자열 값입니다. |
 | 배치 크기 | 배치 작업에 대한 레코드 수입니다. 일반적으로 대부분의 작업은 기본값으로 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 일괄 작업 사양](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)을 참조하세요. |
 
 ## 서비스 버스 큐
@@ -267,4 +267,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

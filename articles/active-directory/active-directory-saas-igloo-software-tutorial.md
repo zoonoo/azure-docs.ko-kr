@@ -2,17 +2,17 @@
     pageTitle="자습서: Igloo Software와 Azure Active Directory 통합| Microsoft Azure" 
     description="Azure Active Directory에서 Igloo Software를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="prasannas"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="12/04/2015" 
+    ms.author="jeedes" />
 
 #자습서: Igloo Software와 Azure Active Directory 통합
   
@@ -37,7 +37,7 @@
 
 ###Igloo Software에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-igloo-software-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Igloo Software** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Igloo Software** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-igloo-software-tutorial/IC783964.png "Single Sign-On 구성")
 
@@ -103,21 +103,21 @@
     ![일반 구성](./media/active-directory-saas-igloo-software-tutorial/IC783970.png "일반 구성")
 
     1.  **연결 이름** 텍스트 상자에 구성의 사용자 지정 이름을 입력합니다.
-    2.  Azure 포털의 **Igloo Software에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 포털의 **Igloo Software에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **IdP 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **Igloo Software에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
+    3.  Azure 클래식 포털의 **Igloo Software에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **IdP 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
     4.  **로그아웃 응답 및 요청 HTTP 유형**으로 **POST**를 선택합니다.
     5.  다운로드한 인증서에서 텍스트 파일을 만듭니다.
         
 		>[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-    6.  인증서의 텍스트 파일 버전에서 첫 번째 줄(**)과 마지막 줄(**)을 제거하고 나머지 인증서 텍스트를 복사한 다음 **공용 인증서** 텍스트 상자에 붙여넣습니다.
+    6.  인증서의 텍스트 파일 버전에서 첫 번째 줄과 마지막 줄을 제거하고 나머지 인증서 텍스트를 복사한 다음 **공용 인증서** 텍스트 상자에 붙여넣습니다.
 
 10. **응답 및 인증 구성**에서 다음 단계를 수행합니다.
 
     ![응답 및 인증 구성](./media/active-directory-saas-igloo-software-tutorial/IC783971.png "응답 및 인증 구성")
 
     1.  **ID 공급자**로 **Microsoft ADFS**를 선택합니다.
-    2.  **ID 유형**으로 **전자 메일 주소**를 선택합니다.
+    2.  **ID 형식**으로 **전자 메일 주소**를 선택합니다.
     3.  **이메일 특성** 텍스트 상자에 **emailaddress**를 입력합니다.
     4.  **이름 특성** 텍스트 상자에 **givenname**을 입력합니다.
     5.  **성 특성** 텍스트 상자에 **surname**을 입력합니다.
@@ -130,7 +130,7 @@
     2.  **로그인 설정**에서 **"로그인" 화면에서 SAML 단추 사용**을 선택합니다.
     3.  **Save**를 클릭합니다.
 
-12. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+12. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-igloo-software-tutorial/IC783973.png "Single Sign-On 구성")
 ##사용자 프로비저닝 구성
@@ -142,7 +142,7 @@ Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 
 
 ###Igloo Software에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **Igloo Software** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -154,4 +154,4 @@ Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

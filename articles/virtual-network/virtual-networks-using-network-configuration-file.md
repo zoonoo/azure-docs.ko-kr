@@ -4,7 +4,7 @@
 	services="virtual-network" 
 	documentationCenter="" 
 	authors="telmosampaio" 
-	manager="carolz" 
+	manager="carmonm" 
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="08/10/2015"
+	ms.date="12/07/2015"
 	ms.author="telmos"/>
 
 # 네트워크 구성 파일을 사용하여 가상 네트워크 구성
@@ -48,4 +48,4 @@ PowerShell 또는 관리 포털을 사용하여 네트워크 구성 파일에 �
 3. **네트워크 구성 파일 가져오기** 페이지에서 네트워크 구성 파일을 찾은 후 **다음** 화살표를 클릭합니다.
 4. **네트워크 빌드** 페이지의 화면에 변경하거나 만들 네트워크 구성 섹션을 보여 주는 정보가 표시됩니다. 변경 사항이 올바른 경우 확인 표시를 클릭하여 가상 네트워크를 계속 업데이트하거나 만듭니다. 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

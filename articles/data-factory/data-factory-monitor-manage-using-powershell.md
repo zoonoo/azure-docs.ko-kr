@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
 # 자습서: Azure PowerShell을 사용하여 데이터 팩터리 만들기 및 모니터링
@@ -26,14 +26,24 @@
 
 [Azure Data Factory 시작][adf-get-started] 자습서에서는 [Azure 포털][azure-portal]을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory를 만들고 모니터링합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
-> [AZURE.NOTE]이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
->  
->  Azure PowerShell 1.0을 사용하는 경우 [여기](https://msdn.microsoft.com/library/dn820234.aspx)에서 설명된 cmdlet을 사용해야 합니다. 예를 들어 New-AzureDataFactory를 사용하는 대신 New-AzureRMDataFactory를 사용합니다.
-
-
+> [AZURE.IMPORTANT] [자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+>   
+> 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](https://msdn.microsoft.com/library/dn820234.aspx)(영문)를 참조하세요.
+  
 
 ##필수 조건
-자습서 개요 항목에 나열된 필수 조건 외에도 Azure PowerShell이 컴퓨터에 설치되어 있어야 합니다. 아직 없는 경우 컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치합니다.
+자습서 개요 항목에 나열된 필수 조건 외에도 다음이 설치되어 있어야 합니다.
+
+- **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다.
+
+**버전 < 1.0**인 Azure PowerShell을 사용하는 경우 [여기][old-cmdlet-reference]에 설명된 cmdlet을 사용해야 합니다. 또한 데이터 팩터리 cmdlet을 사용하기 전에 다음 명령을 실행해야 합니다.
+
+1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
+	1. **Add-AzureAccount**를 실행하고 Azure 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.
+	2. **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
+	3. **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
+4. AzureResourceManager 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 **Switch-AzureMode AzureResourceManager** 모드에서 사용할 수 있습니다.
+  
 
 ##자습서 내용
 다음 표에서는 자습서의 일부로 수행하는 단계 및 해당 설명을 보여 줍니다.
@@ -49,21 +59,18 @@
 ## <a name="CreateDataFactory"></a>1 단계: 프로그램 Azure 데이터 팩터리 만들기
 이 단계에서는 명명 된는 Azure 데이터 팩터리를 만들려면 Azure PowerShell을 사용 **ADFTutorialDataFactoryPSH**.
 
-1. **Azure PowerShell**을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
-	- **Add-AzureAccount**를 실행하고 Azure 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
+1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
+	- **Login-AzureRmAccount**를 실행하고 Azure 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
-	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다. 
-2. **AzureResourceManager** 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 이 모드에서 사용할 수 있습니다.
-
-		Switch-AzureMode AzureResourceManager 
+	- **Select-AzureSubscription <Name of the subscription>**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
 3. 다음 명령을 실행하여 **ADFTutorialResourceGroup**이라는 Azure 리소스 그룹을 만듭니다.
    
-		New-AzureResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
 	이 자습서의 일부 단계에서는 **ADFTutorialResourceGroup**이라는 리소스 그룹을 사용한다고 가정합니다. 다른 리소스 그룹을 사용하는 경우 이 자습서에서 ADFTutorialResourceGroup 대신 해당 리소스 그룹을 사용해야 합니다. 
-4. **New-AzureDataFactory** cmdlet을 실행하여 **ADFTutorialDataFactoryPSH**라는 데이터 팩터리를 만듭니다.  
+4. **New-AzureRmDataFactory** cmdlet을 실행하여 **ADFTutorialDataFactoryPSH**라는 데이터 팩터리를 만듭니다.  
 
-		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
+		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
 	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactoryPSH”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameADFTutorialDataFactoryPSH). 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 
@@ -89,19 +96,19 @@
 
 	**accountname**을 저장소 계정 이름으로, **accountkey**를 Azure 저장소 계정 키로 바꿉니다.
 2.	**Azure PowerShell**에서 **ADFGetStartedPSH** 폴더로 전환합니다. 
-3.	**New-AzureDataFactoryLinkedService** cmdlet을 사용하여 연결된 서비스를 만들 수 있습니다. 이 cmdlet 및 이 자습서에서 사용하는 다른 데이터 팩터리 cmdlet의 경우 **ResourceGroupName** 및 **DataFactoryName** 매개 변수의 값을 전달해야 합니다. 또는 **Get AzureDataFactory**를 사용하여 DataFactory 개체를 가져온 다음 cmdlet을 실행할 때마다 ResourceGroupName 및 DataFactoryName을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzureDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다. 
+3.	**New-AzureRmDataFactoryLinkedService** cmdlet을 사용하여 연결된 서비스를 만들 수 있습니다. 이 cmdlet 및 이 자습서에서 사용하는 다른 데이터 팩터리 cmdlet의 경우 **ResourceGroupName** 및 **DataFactoryName** 매개 변수의 값을 전달해야 합니다. 또는 **Get-AzureRmDataFactory**를 사용하여 DataFactory 개체를 가져온 다음 cmdlet을 실행할 때마다 ResourceGroupName 및 DataFactoryName을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzureRmDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다. 
 
-		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
-4.	이제 **New-AzureDataFactoryLinkedService** cmdlet을 실행하여 연결된 서비스 **StorageLinkedService**를 만듭니다.
+4.	이제 **New-AzureRmDataFactoryLinkedService** cmdlet을 실행하여 **StorageLinkedService** 연결된 서비스를 만듭니다.
 
-		New-AzureDataFactoryLinkedService $df -File .\StorageLinkedService.json
+		New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
-	**Get AzureDataFactory** cmdlet을 실행하고 출력을 **$df** 변수에 할당하지 않은 경우 ResourceGroupName 및 DataFactoryName 매개 변수의 값을 다음과 같이 지정해야 합니다.
+	**Get-AzureRmDataFactory** cmdlet을 실행하고 출력을 **$df** 변수에 할당하지 않은 경우 ResourceGroupName 및 DataFactoryName 매개 변수의 값을 다음과 같이 지정해야 합니다.
 		
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
-	자습서 중에 Azure PowerShell을 닫은 경우 자습서를 완료하기 위해 다음에 Azure PowerShell을 시작할 때 Get-AzureDataFactory cmdlet을 실행해야 합니다.
+	자습서 중에 Azure PowerShell을 닫은 경우 자습서를 완료하기 위해 다음에 Azure PowerShell을 시작할 때 Get-AzureRmDataFactory cmdlet을 실행해야 합니다.
 
 ### Azure SQL 데이터베이스에 대한 연결된 서비스 만들기
 1.	다음과 같은 내용으로 AzureSqlLinkedService.json이라는 JSON 파일을 만듭니다.
@@ -116,11 +123,11 @@
 		  		}
 			}
 
-	**servername**, **databasename**, ****username@servername** 및 **password**를 Azure SQL Server 이름, 데이터베이스 이름, 사용자 계정 및 암호로 바꿉니다.
+	**servername**, **databasename**, ****username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
 
 2.	다음 명령을 실행하여 연결된 서비스를 만듭니다.
 	
-		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
+		New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
 	Azure SQL Server에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 켜져 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음을 수행합니다.
 
@@ -191,8 +198,9 @@
 			      }
 			    ],
 			    "type": "AzureBlob",
-			    "linkedServiceName": "AzureStorageLinkedService1",
+			    "linkedServiceName": "StorageLinkedService",
 			    "typeProperties": {
+				  "fileName": "emp.txt",
 			      "folderPath": "adftutorial/",
 			      "format": {
 			        "type": "TextFormat",
@@ -209,12 +217,13 @@
 	
 	다음 사항에 유의하세요.
 	
-	- dataset **type**을 **AzureBlob**으로 설정합니다.
+	- 데이터 집합 **형식**을 **AzureBlob**로 설정합니다.
 	- **linkedServiceName**을 **StorageLinkedService**로 설정합니다. 
-	- **folderPath**를 **adftutorial** 컨테이너로 설정합니다. 또한 폴더 내의 Blob 이름을 지정할 수도 있습니다. Blob 이름을 지정하지 않으므로 컨테이너에 있는 모든 Blob의 데이터가 입력 데이터로 간주됩니다.  
+	- **folderPath**를 **adftutorial** 컨테이너로 설정합니다. 
+	- **fileName**을 **emp.txt**로 설정합니다. Blob 이름을 지정하지 않으면 컨테이너에 있는 모든 Blob의 데이터가 입력 데이터로 간주됩니다.  
 	- format **type**을 **TextFormat**으로 설정합니다.
 	- 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(**columnDelimiter**)로 구분되어 있습니다.	
-	- **availability**를 **시간별**로 설정하므로(**frequency**를 **hour**로 설정하고 **interval**을 **1**로 설정함), 데이터 팩터리 서비스가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 입력 데이터를 1시간마다 찾습니다.
+	- **availability**를 **hourly**로 설정하므로(**frequency**를 **hour**로 설정하고 **interval**을 **1**로 설정함), 데이터 팩터리 서비스가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 입력 데이터를 1시간마다 찾습니다.
 
 	**입력** **테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
  
@@ -236,7 +245,7 @@
 
 2.	다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 
-		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
+		New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### 출력 테이블 만들기
 이 단계에서는 **AzureSqlLinkedService** 연결된 서비스가 나타내는 Azure SQL 데이터베이스의 SQL 테이블(**emp**)을 가리키는 **EmpSQLTable**이라는 출력 테이블을 만듭니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다.
@@ -270,15 +279,15 @@
 
      다음 사항에 유의하세요.
 	
-	* dataset **type**을 **AzureSqlTable**로 설정합니다.
+	* 데이터 집합 **형식**을 **AzureSqlTable**로 설정합니다.
 	* **linkedServiceName**을 **AzureSqlLinkedService**로 설정합니다.
 	* **tablename**을 **emp**로 설정합니다.
 	* 데이터베이스의 emp 테이블에는 세 개의 열 **ID**, **FirstName** 및 **LastName**이 있지만 ID는 ID 열이므로 여기서는 **FirstName**과 **LastName**만 지정하면 됩니다.
-	* **availability**는 **시간별**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+	* **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
 2.	다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 	
-		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
+		New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>4단계: 파이프라인 만들기 및 실행
@@ -310,9 +319,7 @@
 			            "type": "BlobSource"
 			          },
 			          "sink": {
-			            "type": "SqlSink",
-			            "writeBatchSize": 10000,
-			            "writeBatchTimeout": "00:60:00"
+			            "type": "SqlSink"
 			          }
 			        },
 			        "Policy": {
@@ -324,8 +331,8 @@
 			        }
 			      }
 			    ],
-			    "start": "2015-07-12T00:00:00Z",
-			    "end": "2015-07-13T00:00:00Z",
+			    "start": "2015-12-09T00:00:00Z",
+			    "end": "2015-12-10T00:00:00Z",
 			    "isPaused": false
 			  }
 			}
@@ -345,20 +352,20 @@
 	JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](http://go.microsoft.com/fwlink/?LinkId=516971)를 참조하세요.
 2.	다음 명령을 실행하여 데이터 팩터리 테이블을 만듭니다. 
 		
-		New-AzureDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+		New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
 
 **축하합니다.** Azure Data Factory, 연결된 서비스, 테이블 및 파이프라인을 성공적으로 만들고 파이프라인을 예약했습니다.
 
 ## <a name="MonitorDataSetsAndPipeline"></a>5단계: 데이터 집합 및 파이프라인 모니터링
 이 단계에서는 Azure PowerShell을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다.
 
-1.	**Get-AzureDataFactory**를 실행하고 출력을 $df 변수에 할당합니다.
+1.	**Get-AzureRmDataFactory**를 실행하고 출력을 $df 변수에 할당합니다.
 
-		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
  
-2.	**Get-AzureDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 **EmpSQLTable**의 모든 조각에 대한 세부 정보를 가져옵니다.
+2.	**Get-AzureRmDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 **EmpSQLTable**의 모든 조각에 대한 세부 정보를 가져옵니다.
 
-		Get-AzureDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+		Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
 	**StartDateTime** 매개 변수의 연도, 월 및 날짜 부분을 현재 연도, 월 및 날짜로 바꿉니다. 파이프라인 JSON의 **Start** 값과 일치해야 합니다.
 
@@ -388,9 +395,9 @@
 		LatencyStatus     : 
 		LongRetryCount    : 0
 
-3.	**Get-AzureDataFactoryRun**을 실행하여 **특정** 조각에 대한 작업 실행의 세부 정보를 가져옵니다. 위 출력의 조각 **Start** 시간과 일치하도록 **StartDateTime** 매개 변수 값을 변경합니다. **StartDateTime** 값은 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-03-03T22:00:00Z.
+3.	**Get-AzureRmDataFactoryRun**을 실행하여 특정 조각에 대한 작업 실행의 **세부** 정보를 가져옵니다. 위 출력의 조각 **Start** 시간과 일치하도록 **StartDateTime** 매개 변수 값을 변경합니다. **StartDateTime** 값은 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-03-03T22:00:00Z.
 
-		Get-AzureDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
+		Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
 	다음과 비슷한 결과가 나타나야 합니다.
 
@@ -421,7 +428,8 @@
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[cmdlet-reference]: https://msdn.microsoft.com/library/dn820234.aspx
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [data-factory-create-storage]: ../storage-create-storage-account.md
 
@@ -435,4 +443,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015--->

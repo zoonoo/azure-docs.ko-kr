@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 # 원격 데스크톱을 사용하는 HDInsight에서 Hadoop과 MapReduce 사용
@@ -96,4 +96,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

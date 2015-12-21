@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mandia"/>
 
 
@@ -41,14 +41,14 @@
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택하고 BizTalk 서비스를 선택합니다. 
 
 	기존 BizTalk 서비스가 없는 경우 [BizTalk 서비스를 만들 수](biztalk-provision-services.md) 있습니다.
-3. 하이브리드 연결 탭을 선택합니다. ![하이브리드 연결 탭][HybridConnectionTab]
+3. **하이브리드 연결** 탭을 선택합니다. ![하이브리드 연결 탭][HybridConnectionTab]
 
 4. **하이브리드 연결 만들기**를 선택하거나 작업 표시줄의 **추가** 단추를 선택합니다. 다음을 입력합니다.
 
 	속성 | 설명
 --- | ---
 이름 | 하이브리드 연결 이름은 고유해야 하며 BizTalk 서비스와 같은 이름일 수 없습니다. 어떤 이름을 입력해도 괜찮지만 용도에 맞는 구체적인 이름을 입력하는 것이 좋습니다. 예:<br/><br/>급여*SQLServer*<br/>SupplyList*SharepointServer*<br/>고객*OracleServer*
-호스트 이름 | 온-프레미스 리소스의 정규화된 호스트 이름, 호스트 이름만 또는 IPv4 주소를 입력합니다. 예제는 다음을 포함합니다.<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+호스트 이름 | 온-프레미스 리소스의 정규화된 호스트 이름, 호스트 이름만 또는 IPv4 주소를 입력합니다. 예는 다음을 포함합니다.<br/><br/>mySQLServer<br/>* mySQLServer *.*도메인*. corp.*yourCompany*.com<br/>* myHTTPSharePointServer *<br/>* myHTTPSharePointServer *.*yourCompany*.com<br/>10.100.10.10
 포트 | 온-프레미스 리소스의 포트 번호를 입력합니다. 예를들어, 웹앱을 사용하는 경우 포트 80 또는 443을 입력합니다. SQL Server를 사용하는 경우 포트 1433을 입력합니다.
 
 5. 설정을 완료하려면 확인 표시를 선택합니다.
@@ -115,11 +115,11 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택하고 BizTalk 서비스를 선택합니다. 
 3. **하이브리드 연결** 탭을 선택합니다. ![하이브리드 연결 탭][HybridConnectionTab]
-4. 하이브리드 연결을 선택합니다. 작업 표시줄에서 **연결 관리**를 선택합니다.![옵션 관리][HCManageConnection]
+4. 하이브리드 연결을 선택합니다. 작업 표시줄에서 **연결 관리**를 선택합니다. ![옵션 관리][HCManageConnection]
 
 	**연결 관리**에는 응용 프로그램 및 온-프레미스 연결 문자열이 나열됩니다. 연결 문자열을 복사하거나 연결 문자열에 사용된 액세스 키를 다시 생성할 수 있습니다.
 
-	**다시 생성을 선택하면** 연결 문자열에 사용된 공유 선택키가 변경됩니다. 다음을 수행합니다. - Azure 클래식 포털의 Azure 응용 프로그램에서 **키 동기화**를 선택합니다. - **온-프레미스 설치**를 다시 실행합니다. 온-프레미스 설치를 다시 실행하면 온-프레미스 리소스가 업데이트된 기본 연결 문자열을 사용하도록 자동으로 구성됩니다.
+	**다시 생성을 선택하면** 연결 문자열에 사용된 공유 선택키가 변경됩니다. 다음을 수행합니다. Azure 클래식 포털의 Azure 응용 프로그램에서 **키 동기화**를 선택합니다. **온-프레미스 설치**를 다시 실행합니다. 온-프레미스 설치를 다시 실행하면 온-프레미스 리소스가 업데이트된 기본 연결 문자열을 사용하도록 자동으로 구성됩니다.
 
 
 #### 그룹 정책을 사용하여 하이브리드 연결에 사용되는 온-프레미스 리소스를 제어합니다.
@@ -150,4 +150,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory 하이브리드 ID 설계 고려 사항 개요 | Microsoft Azure"
+	pageTitle="Azure Active Directory 하이브리드 ID 설계 고려 사항 - 개요 | Microsoft Azure"
 	description="하이브리드 ID 설계 고려 사항 가이드의 개요 및 콘텐츠 맵"
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
+	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
 # Azure Active Directory 하이브리드 ID 설계 고려 사항
@@ -55,4 +55,4 @@
 
                                                              
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

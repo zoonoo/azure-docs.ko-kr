@@ -1,7 +1,7 @@
 <properties
 	pageTitle="처리량을 높이기 위한 스트림 분석 작업 규모 지정 | Microsoft Azure"
 	description="입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 단위를 설정하여 스트림 분석 작업의 크기를 조정하는 방법을 알아봅니다."
-	keywords="분석 작업, 데이터 스트림, 데이터 스트리밍"
+	keywords="데이터 스트리밍, 스트리밍 데이터 처리, 분석 조정"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,22 +14,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
-# 처리량을 높이기 위한 Azure 스트림 분석 작업 규모 지정 #
+# Azure 스트림 분석 작업 크기를 조정하여 스트림 데이터 처리량 증가 #
 
-스트림 분석 작업의 *스트리밍 단위* 계산 방법과 입력 파티션을 구성하고 쿼리 정의를 조정하고 작업 스트리밍 입력을 설정하여 스트림 분석 작업의 크기를 조정하는 방법을 알아봅니다.
+분석 작업을 조정하고 스트림 분석의 *스트리밍 단위*를 계산하는 방법 및 입력 파티션을 구성하고 분석 쿼리 정의를 조정하고 작업 스트리밍 단위를 설정하여 스트림 분석 작업의 크기를 조정하는 방법을 알아봅니다.
 
 ## 스트림 분석 작업은 무엇으로 구성되나요? ##
-Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함됩니다. 입력은 작업이 데이터 스트림을 읽는 위치이고, 쿼리는 데이터 입력 스트림을 변환하는 데 사용되며, 출력은 작업이 작업 결과를 전송하는 위치입니다.
+스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함됩니다. 입력은 작업이 데이터 스트림을 읽는 위치이고, 쿼리는 데이터 입력 스트림을 변환하는 데 사용되며, 출력은 작업이 작업 결과를 전송하는 위치입니다.
 
 작업에는 데이터 스트림에 대해 하나 이상의 입력 소스가 필요합니다. 데이터 스트림 입력 소스는 Azure 서비스 버스 이벤트 허브 또는 Azure Blob 저장소에 저장될 수 있습니다. 자세한 내용은[ Azure 스트림 분석 소개](stream-analytics-introduction.md), [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md) 및 [Azure 스트림 분석 개발자 가이드](../stream-analytics-developer-guide.md)를 참조하세요.
 
 ## 스트리밍 단위 구성 ##
 SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소스 및 능력을 나타냅니다. SU는 CPU, 메모리의 혼합된 측정치 및 읽기/쓰기 속도를 기반으로 상대적 이벤트 처리 용량을 설명하는 방법을 제공합니다. 각 스트리밍 단위는 대략 1MB/초의 처리량에 해당합니다.
 
-특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. Azure 클래식 포털을 사용하여 작업에 대한 스트리밍 단위의 최대 할당량을 선택할 수 있습니다. 기본적으로 각 Azure 구독에는 특정 지역의 모든 분석 작업에 대해 최대 50개의 스트리밍 단위 할당량이 있습니다. 구독의 스트리밍 단위를 늘리려면 [Microsoft 지원](http://support.microsoft.com)에 문의하세요.
+특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. Azure 포털을 사용하여 작업에 대한 스트림 단위에서 최대 할당량을 선택할 수 있습니다. 기본적으로 각 Azure 구독에는 특정 지역의 모든 분석 작업에 대해 최대 50개의 스트리밍 단위 할당량이 있습니다. 구독의 스트리밍 단위를 늘리려면 [Microsoft 지원](http://support.microsoft.com)에 문의하세요.
 
 작업이 활용할 수 있는 스트리밍 단위 수는 입력에 대한 파티션 구성과 작업에 대해 정의된 쿼리에 따라 다릅니다. 또한 스트림 단위에는 유효한 값이 사용되어야 합니다. 유효한 값은 아래와 같이 1, 3, 6 다음으로 6의 증분 이상에서 시작합니다.
 
@@ -147,20 +147,20 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 
 **작업에 대한 스트리밍 단위를 조정하려면**
 
-1. [클래식 포털](https://manage.windowsazure.com)에 로그인 합니다.
+1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
 2. 왼쪽 창에서 **스트림 분석**을 클릭합니다.
 3. 크기를 조정할 스트림 분석 작업을 클릭합니다.
 4. 페이지 위쪽에서 **규모 지정**을 클릭합니다.
 
 ![Azure 스트림 분석 스트림 단위 규모 지정][img.stream.analytics.streaming.units.scale]
 
-Azure 포털의 설정에서 크기 조정을 설정할 수 있습니다.
+Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 있습니다.
 
-![Azure 포털 스트림 분석 작업 구성][img.stream.analytics.preview.portal.settings.scale]
+![Azure Preview 포털 스트림 분석 구성][img.stream.analytics.preview.portal.settings.scale]
 
 ## 작업 성능 모니터링 ##
 
-클래식 포털을 사용하여 이벤트 수/초의 작업에 대한 처리량을 추적할 수 있습니다.
+관리 포털을 사용하여 작업의 처리량(이벤트 수/초)을 추적할 수 있습니다.
 
 ![Azure 스트림 분석 모니터링 작업][img.stream.analytics.monitor.job]
 
@@ -265,4 +265,4 @@ Azure 포털의 설정에서 크기 조정을 설정할 수 있습니다.
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

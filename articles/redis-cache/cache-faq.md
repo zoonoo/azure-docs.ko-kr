@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -84,7 +84,7 @@ Azure Redis Cache 가격 책정에 대해서는 [여기](http://azure.microsoft.
 <a name="cache-monitor"></a>
 ## 내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?
 
-[Azure Preview 포털](https://portal.azure.com)에서 Microsoft Azure Redis Cache 인스턴스를 모니터링할 수 있습니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다. 캐시 모니터링에 대한 자세한 내용은 [Azure Redis Cache 모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)을 참조하세요.
+[Azure 포털](https://portal.azure.com)에서 Microsoft Azure Redis Cache 인스턴스를 모니터링할 수 있습니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다. 캐시 모니터링에 대한 자세한 내용은 [Azure Redis Cache 모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)을 참조하세요.
 
 <a name="cache-disconnect"></a>
 ## 내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?
@@ -157,7 +157,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 <a name="cache-benchmarking"></a>
 ## 내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?
 
--	캐시의 상태를 [모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)할 수 있도록 [캐시 진단을 사용하도록 설정](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)합니다. 미리 보기 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
+-	캐시의 상태를 [모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)할 수 있도록 [캐시 진단을 사용하도록 설정](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)합니다. Azure 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
 -	redis-benchmark.exe를 사용하여 Redis 서버를 부하 테스트할 수 있습니다.
 	-	부하 테스트 클라이언트와 Redis Cache가 동일한 영역에 있는지 확인합니다.
 -	redis-cli.exe를 사용하고 INFO 명령을 통해 캐시를 모니터링합니다.
@@ -169,7 +169,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 [Azure Redis Cache에서 지원되지 않는 Redis 명령](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)에 나열된 명령을 제외하고, [Redis 명령](http://redis.io/commands#)에 나열된 모든 명령을 사용할 수 있습니다. Redis 명령을 실행하는 옵션은 여러 가지가 있습니다.
 
--	표준 또는 프리미엄 캐시를 사용하는 경우 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. 이 방법은 미리 보기 포털에서 Redis 명령을 안전하게 실행하는 방법입니다.
+-	표준 또는 프리미엄 캐시를 사용하는 경우 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. Azure 포털에서 Redis 명령을 안전하게 실행하는 방법을 제공합니다.
 -	Redis 명령줄 도구를 사용할 수도 있습니다. 이 도구를 사용하려면 다음 단계를 수행합니다.
 	-	[Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)를 다운로드합니다.
 	-	`redis-cli.exe`를 사용하여 캐시에 연결합니다. 다음 예제와 같이 -h 스위치를 사용하여 캐시 끝점을 전달하고 -a를 사용하여 키를 전달합니다.
@@ -202,9 +202,20 @@ Azure 캐시에는 현재 다음과 같은 세 가지 제품이 있습니다.
 -	Azure 관리된 캐시 서비스
 -	Azure In-Role Cache
 
+>[AZURE.IMPORTANT]2016년 11월 30일부터 Azure 관리된 캐시 서비스 및 Azure In-Role Cache가 사용 중지됩니다. 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다.
+>
+>Azure Redis Cache는 일반적으로 사용할 수 있게 되었기 때문에 Azure에서 권장되는 캐싱 솔루션입니다. 또한 이제 중국 및 미국 정부를 비롯한 모든 Azure 지역에서 사용할 수 있습니다. 이 가용성으로 인해 관리된 캐시 서비스 및 In-Role Cache 서비스에 대한 사용 중지가 예정되었음을 발표합니다.
+>
+>관리된 캐시 서비스 및 In-Role Cache 서비스는 기존 고객을 위해 이 알림의 날짜인 2015년 11월 30일로부터 최대 12개월 동안 계속 사용할 수 있습니다—두 서비스의 서비스 종료 날짜는 2016년 11월 30일입니다. 이 날짜 후에 관리된 캐시 서비스는 종료되고 In-Role Cache 서비스도 더 이상 지원되지 않습니다.
+>
+>2016년 2월 1일 이후에 발생하는 첫 번째 Azure SDK 릴리스에서 새로운 In-Role Cache를 만드는 지원을 삭제합니다. 고객은 In-Role Cache를 사용하는 기존 프로젝트를 열 수 없게 됩니다.
+>
+>이 기간 동안 모든 기존의 관리된 캐시 서비스 및 In-Role Cache 서비스 고객은 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. Azure Redis Cache는 전체적으로 더 많은 기능과 더 나은 가치를 제공합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](cache-migrate-to-redis.md) 설명서 웹 페이지를 참조하세요.
+>
+>질문이 있으면 [문의](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933)하시기 바랍니다.
 
 ### Azure Redis 캐시(영문)
-Azure Redis Cache가 이제 최대 53GB 크기로 출시되었으며 99.9%의 가용성 SLA를 제공합니다. 새 [프리미엄 계층](cache-premium-tier.md)은 99.9%의 SAL과 함께 최대 530GB 크기와 클러스터링, VNET 및 지속성에 대한 지원을 제공합니다.
+Azure Redis Cache가 이제 최대 53GB 크기로 출시되었으며 99.9%의 가용성 SLA를 제공합니다. 새 [프리미엄 계층](cache-premium-tier.md)은 99.9%의 SAL과 함께 최대 530GB 크기를 제공하며 클러스터링, VNET 및 지속성을 지원합니다.
 
 Azure Redis Cache에서 고객은 Microsoft에서 관리하는 안전한 전용 Redis Cache를 사용할 수 있습니다. Redis에서 제공하는 다양한 기능 집합 및 에코시스템을 활용하면서 Microsoft의 안정적인 호스팅 및 모니터링 기능을 이용할 수 있습니다.
 
@@ -220,4 +231,4 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 ### In-Role Cache
 In-Role Cache를 사용하여 캐시를 자체 호스트하는 경우 계속 그렇게 할 수 있습니다. In-Role Cache는 Microsoft 호스티드 서비스가 아닌 자체 호스트 소프트웨어 구성 요소이므로 SLA를 제공하지 않습니다. In-Role Cache 사용자는 Azure Redis Cache로 마이그레이션하여 풍부한 기능 집합을 활용하고 SLA를 얻을 수 있습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

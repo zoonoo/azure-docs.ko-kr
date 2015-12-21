@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 
@@ -45,7 +45,22 @@ Q: 미디어 서비스 계정 간에 자산을 복사하려면 어떻게 해야 
 
 A: 미디어 서비스 계정 간에 자산을 복사하려면 [Azure 미디어 서비스 .NET SDK 확장](https://github.com/Azure/azure-sdk-for-media-services-extensions/) 리포지토리에서 제공되는 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 확장 메서드를 사용합니다. 자세한 내용은 [이](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) 포럼 스레드를 참조하세요.
 
+Q: 인코딩 프로세스 중에 비디오를 회전하려면 어떻게 해야 하나요?
 
+A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-standard.md)은 90/180/270도 회전을 지원합니다. 기본 동작은 들어오는 MP4/MOV 파일에서 회전 메타데이터를 검색하여 그에 맞게 보정하는 "Auto"입니다. 다음 **소스** 요소를 [여기](http://msdn.microsoft.com/library/azure/mt269960.aspx)에 정의된 json 사전 설정 중 하나에 포함합니다.
+	
+	"Version": 1.0,
+	"Sources": [
+	{
+	  "Streams": [],
+	  "Filters": {
+	    "Rotation": "90"
+	  }
+	}
+	],
+	"Codecs": [
+	
+	...
 
 ##미디어 서비스 학습 경로
 
@@ -55,4 +70,4 @@ A: 미디어 서비스 계정 간에 자산을 복사하려면 [Azure 미디어 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

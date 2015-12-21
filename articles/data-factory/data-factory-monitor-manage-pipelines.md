@@ -96,6 +96,7 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 <td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
 </tr>
 <td></td>
@@ -157,7 +158,7 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 예를 들어 Azure PowerShell cmdlet을 실행하여 파이프라인을 일시 중지하거나 다시 시작할 수 있습니다.
 
 ### 파이프라인 일시 중지 및 다시 시작
-**Suspend-AzureDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 데이터에 문제가 있다는 것을 파악한 후에 문제가 수정될 때까지 데이터 처리를 위해 파이프라인을 실행하지 않으려는 경우에 유용합니다.
+**Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 데이터에 문제가 있다는 것을 파악한 후에 문제가 수정될 때까지 데이터 처리를 위해 파이프라인을 실행하지 않으려는 경우에 유용합니다.
 
 예를 들어 아래 스크린샷에 **productrecgamalbox1dev** 데이터 팩터리의 **PartitionProductsUsagePipeline**에서 문제가 확인되어 파이프라인을 일시 중단하려고 합니다.
 
@@ -165,19 +166,19 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 
 **PartitionProductsUsagePipeline**을 일시 중단하기 위해 다음과 같은 PowerShell 명령을 실행합니다.
 
-	Suspend-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 예:
 
-	Suspend-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 **PartitionProductsUsagePipeline**의 문제가 해결되고 나면 다음과 같은 PowerShell 명령을 실행하여 일시 중단한 파이프라인을 다시 시작합니다.
 
-	Resume-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 예:
 
-	Resume-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 
 ## 파이프라인 디버깅
@@ -209,26 +210,26 @@ Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파�
 2.	**AzureResourceManager** 모드로 전환합니다. 데이터 팩터리 cmdlet은 이 모드에서만 사용할 수 있습니다.
 
 		switch-azuremode AzureResourceManager
-3.	**Get-AzureDataFactorySlice** 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 **실패**로 표시됩니다.
+3.	**Get-AzureRmDataFactorySlice** 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 **실패**로 표시됩니다.
 
-		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	예:
 
 
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-	**StartDateTime**을 Set-AzureDataFactoryPipelineActivePeriod에서 지정한 StartDateTime 값으로 바꿉니다.
-4. 이제 **Get-AzureDataFactoryRun** cmdlet을 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
+	**StartDateTime**을 Set-AzureRmDataFactoryPipelineActivePeriod에 대해 지정한 StartDateTime 값으로 바꿉니다.
+4. 이제 **Get-AzureRmDataFactoryRun** cmdlet를 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
 
-		Get-AzureDataFactoryRun [-ResourceGroupName] <String> [-
+		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
 		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
 		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	예:
 
 
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	StartDateTime 값은 이전 단계에서 기록한 오류/문제 조각의 시작 시간입니다. 날짜-시간은 큰따옴표로 묶어야 합니다.
 5. 	출력에 오류에 대한 세부 정보가 다음과 같이 표시됩니다.
@@ -255,9 +256,9 @@ Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파�
 		Type                	:
 	
 	
-6. 	위의 출력에 표시된 ID 값을 사용하여 **Save-AzureDataFactoryLog** cmdlet을 실행하고 cmdlet에 **-DownloadLogsoption** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
+6. 	위의 출력에 표시된 ID 값을 사용하여 **Save-AzureRmDataFactoryLog** cmdlet를 실행하고 cmdlet에 **-DownloadLogsoption** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
 
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
+	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
 
 ## 파이프라인에서 실패한 항목을 다시 실행합니다.
@@ -272,15 +273,15 @@ Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파�
 
 ### Azure PowerShell 사용
 
-‘Set-AzureDataFactorySliceStatus’ cmdlet을 사용하여 실패 항목을 다시 실행할 수 있습니다.
+‘Set-AzureRmDataFactorySliceStatus’ cmdlet을 사용하여 실패 항목을 다시 실행할 수 있습니다.
 
-	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
 **예제:** 다음 예제에서는 Azure Data Factory 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 'PendingExecution'으로 설정합니다.
 
 **참고:** UpdateType이 UpstreamInPipeline으로 설정되며 이것은 파이프라인에서 작업의 입력 테이블로 사용되는 테이블과 모든 종속(업스트림) 테이블에 대한 각 조각의 상태를 "PendingExecution"으로 설정합니다. 이 매개 변수에 사용할 수 있는 다른 값은 "Individual"입니다.
 
-	Set-AzureDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## 경고 만들기
@@ -322,7 +323,7 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -353,10 +354,12 @@ OnDemandClusterCreateStarted | 시작
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
+위의 예에 사용되는 JSON 요소에 대한 내용은 [경고 규칙 만들기](https://msdn.microsoft.com/library/azure/dn510366.aspx)를 참조하세요.
+
 #### 경고 배포 
 경고를 배포하려면 다음 예제와 같이 Azure PowerShell cmdlet, **New-AzureResourceGroupDeployment**를 사용합니다.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 리소스 그룹 배포가 성공적으로 완료되면 다음 메시지가 표시됩니다.
 
@@ -400,6 +403,33 @@ OnDemandClusterDeleted | Succeeded
 
 - 경고를 추가/가져오기/제거하기 위해 사용할 수 있는 PowerShell cmdlet은 [Azure Insight Cmdlet](https://msdn.microsoft.com/library/mt282452.aspx) 문서를 참조하세요. 다음은 **Get-AlertRule** cmdlet을 사용하는 몇 가지 예입니다.
 
+
+		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+			
+				Properties :
+		        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+		        Condition   :
+				DataSource :
+				EventName             :
+				Category              :
+				Level                 :
+				OperationName         : RunFinished
+				ResourceGroupName     :
+				ResourceProviderName  :
+				ResourceId            :
+				Status                : Failed
+				SubStatus             : FailedExecution
+				Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+		        Condition  	:
+				Description : One or more of the data slices for the Azure Data Factory has failed processing.
+				Status      : Enabled
+				Name:       : ADFAlertsSlice
+				Tags       :
+				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+				Location   : West US
+				Name       : ADFAlertsSlice
+		
 		PS C:\> Get-AlertRule -res $resourceGroup
 	
 				Properties : Microsoft.Azure.Management.Insights.Models.Rule
@@ -515,7 +545,7 @@ OnDemandClusterDeleted | Succeeded
  
 위 샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
 
-현재 *metricName*은 FailedRuns 및 SuccessfulRuns의 두 가지 값을 지원합니다.
+현재 *metricName*은 FailedRuns 및 SuccessfulRuns의 2가지 값을 지원합니다.
 
 **경고 배포:**
 
@@ -539,4 +569,4 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
