@@ -18,7 +18,9 @@
 
 # iOS 앱에 인증 추가
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작]에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작 안내서]를 기반으로 합니다.
 
@@ -45,4 +47,4 @@ Xcode에서 **실행**을 눌러 앱을 시작합니다. 앱이 인증되지 않
 [Azure portal]: https://portal.azure.com
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1210_2015--->

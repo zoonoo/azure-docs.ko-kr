@@ -24,7 +24,7 @@
 <!-- -->
 <br />
 
-> [AZURE.TIP][게스트 OS 업데이트 RSS 피드][rss]를 구독하여 모든 게스트 OS 변경 사항에 가장 시기 적절한 알림을 받을 수 있습니다. 거의 매주마다 해당 피드에서 언급된 변경 사항이 이 페이지로 통합됩니다.
+> [AZURE.TIP] [게스트 OS 업데이트 RSS 피드][rss]를 구독하여 모든 게스트 OS 변경 사항에 가장 시기 적절한 알림을 받을 수 있습니다. 거의 매주마다 해당 피드에서 언급된 변경 사항이 이 페이지로 통합됩니다.
 
 
 ## 새 업데이트
@@ -394,4 +394,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1210_2015--->

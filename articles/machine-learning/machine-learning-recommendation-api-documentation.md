@@ -16,14 +16,14 @@
 	ms.date="12/07/2015" 
 	ms.author="LuisCa"/>
 
-#Azure 기계 학습 권장 사항 API 설명서
+# Azure 기계 학습 권장 사항 API 설명서
 
 이 문서에서는 Microsoft Azure 기계 학습 권장 사항 API에 대해 설명합니다.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##1\. 일반 개요
+## 1\. 일반 개요
 이 문서는 API 참조입니다. “Azure 기계 학습 권장 사항 – 빠른 시작” 문서로 시작해야 합니다.
 
 Azure 기계 학습 권장 사항 API는 다음 10개의 논리 그룹으로 나뉩니다.
@@ -39,21 +39,21 @@ Azure 기계 학습 권장 사항 API는 다음 10개의 논리 그룹으로 나
 9.	<ins>사용자 데이터</ins> - 사용자의 사용 현황 데이터 관련 정보를 가져올 수 있는 API입니다.
 10.	<ins>알림</ins> - API 작업과 관련된 문제에 대한 알림을 받을 수 있는 API입니다. 예를 들어 데이터 취득을 통해 사용 데이터를 보고하고 대부분의 이벤트 처리에 실패한 경우 오류 알림이 발생합니다.
 
-##2\. 고급 항목
+## 2\. 고급 항목
 
-###2\.1. 권장 사항 품질
+### 2\.1. 권장 사항 품질
 
 권장 사항 모델 만들기는 일반적으로 시스템에서 권장 사항을 제공하도록 하는 데 충분합니다. 그러나 권장 사항 품질은 처리한 사용 현황 및 카탈로그의 적용 범위에 따라 달라집니다. 예를 들어 콜드 항목(중요한 사용 현황이 없는 항목)이 많은 경우에는 시스템에서 해당 항목에 대한 권장 사항을 제공하거나 해당 항목을 권장 항목으로 사용하기 어렵습니다. 콜드 항목 문제를 해결하기 위해 시스템에서는 항목의 메타데이터를 사용하여 권장 사항을 개선할 수 있도록 합니다. 이 메타데이터를 기능이라고 합니다. 일반적인 기능은 책의 저자 또는 동영상의 배우입니다. 기능은 키/값 문자열 형식으로 카탈로그를 통해 제공됩니다. 카탈로그 파일의 전체 형식은 [카탈로그 가져오기 섹션](#81-import-catalog-data)을 참조하세요. 다음 섹션에서는 기능을 사용한 권장 사항 모델 개선에 대해 설명합니다.
 
-###2\.2. 순위 빌드
+### 2\.2. 순위 빌드
 
 기능은 권장 사항 모델을 개선할 수 있지만 그러려면 의미 있는 기능을 사용해야 합니다. 이를 위해 순위 빌드라는 새 빌드가 도입되었습니다. 이 빌드는 기능의 유용성 순위를 매깁니다. 의미 있는 기능은 순위 점수가 2 이상인 기능입니다. 의미 있는 기능을 이해한 후에는 의미 있는 기능 목록(또는 하위 목록)으로 권장 사항 빌드를 트리거합니다. 이러한 기능을 사용하여 웜 항목과 콜드 항목 모두를 개선할 수 있습니다. 웜 항목에 사용하려면 `UseFeatureInModel` 빌드 매개 변수를 설정해야 합니다. 콜드 항목에 사용하려면 `AllowColdItemPlacement` 빌드 매개 변수를 설정해야 합니다. 참고: `UseFeatureInModel`을 설정하지 않고 `AllowColdItemPlacement`를 사용할 수 없습니다.
 
-###2\.3. 권장 사항 추론
+### 2\.3. 권장 사항 추론
 
 권장 사항 추론은 기능 사용의 또 다른 측면입니다. 실제로 Azure 기계 학습 권장 사항 엔진은 기능을 사용하여 권장 사항 설명(추론이라고도 함)을 제공할 수 있으며, 이는 권장 소비자에게 권장 항목에 대한 확신을 심어 줍니다. 추론을 사용하려면 권장 사항 빌드를 요청하기 전에 `AllowFeatureCorrelation` 및 `ReasoningFeatureList` 매개 변수를 설정해야 합니다.
 
-##3\. 제한 사항
+## 3\. 제한 사항
 
 - 구독당 최대 모델 수는 10개입니다.
 - 카탈로그에 포함할 수 있는 최대 항목 수는 100,000개입니다.
@@ -61,25 +61,25 @@ Azure 기계 학습 권장 사항 API는 다음 10개의 논리 그룹으로 나
 - POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
 - 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
-##4\. API – 일반 정보
+## 4\. API – 일반 정보
 
-###4\.1. 인증
+### 4\.1. 인증
 인증과 관련된 Microsoft Azure 마켓플레이스 지침을 따르세요. 마켓플레이스에서는 기본 또는 OAuth 인증 방법을 지원합니다.
 
-###4\.2. 서비스 URI
+### 4\.2. 서비스 URI
 Azure 기계 학습 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v3/)입니다.
 
 전체 서비스 URI는 OData 사양의 요소를 사용하여 표현됩니다.
 
-###4\.3. API 버전
+### 4\.3. API 버전
 각 API 호출은 1.0으로 설정해야 하는 apiVersion이라는 쿼리 매개 변수 종료 시 포함됩니다.
 
-###4\.4. ID 대/소문자 구분
+### 4\.4. ID 대/소문자 구분
 API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에서 매개 변수로 전달될 때에도 마찬가지입니다. 예를 들어 모델 ID와 카탈로그 ID는 대/소문자를 구분합니다.
 
-##5\. 모델 기본
+## 5\. 모델 기본
 
-###5\.1. 모델 만들기
+### 5\.1. 모델 만들기
 "모델 만들기" 요청을 만듭니다.
 
 | HTTP 메서드 | URI |
@@ -88,7 +88,10 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | | apiVersion | 1.0 | ||| | Request Body | NONE |
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | 
+| apiVersion | 1.0 | 
+||| 
+| Request Body | NONE |
 
 
 **응답**:
@@ -127,7 +130,7 @@ OData XML
 	  </entry>
 	</feed>
 
-###5\.2. 모델 가져오기
+### 5\.2. 모델 가져오기
 "모델 가져오기" 요청을 만듭니다.
 
 | HTTP 메서드 | URI |
@@ -138,7 +141,8 @@ OData XML
 |:--------			|:--------								|
 |	id |	모델의 고유 식별자(대/소문자 구분) |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -190,7 +194,7 @@ OData XML
 	  </entry>
 	</feed>
 
-###5\.3. 모든 모델 가져오기
+### 5\.3. 모든 모델 가져오기
 현재 사용자의 모든 모델을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -200,7 +204,8 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -255,7 +260,7 @@ OData XML
 		</entry>
 	</feed>
 
-###5\.4. 모델 업데이트
+### 5\.4. 모델 업데이트
 
 모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br> <ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br> 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
@@ -268,13 +273,14 @@ OData XML
 |:--------			|:--------								|
 |	id | 모델의 고유 식별자(대/소문자 구분) |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.|
+||| 
+| 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.|
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-###5\.5. 모델 삭제
+### 5\.5. 모델 삭제
 ID별로 기존 모델을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -285,7 +291,8 @@ ID별로 기존 모델을 삭제합니다.
 |:--------			|:--------								|
 |	id |	모델의 고유 식별자(대/소문자 구분) |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -313,9 +320,9 @@ OData XML
 	  </entry>
 	</feed>
 
-##6\. 모델 고급
+## 6\. 모델 고급
 
-###6\.1. 모델 데이터 정보
+### 6\.1. 모델 데이터 정보
 이 모델을 빌드할 때 사용된 사용 데이터에 대한 통계 데이터를 반환합니다.
 
 권장 사항 빌드에만 사용할 수 있습니다.
@@ -328,7 +335,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -550,7 +558,7 @@ OData XML
     </entry>
     </feed>
 
-###6\.2. 모델 정보
+### 6\.2. 모델 정보
 활성 빌드 또는 특정 빌드(지정된 경우)에 대한 모델 정보를 반환합니다.
 
 권장 사항 빌드에만 사용할 수 있습니다.
@@ -564,7 +572,8 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 |	buildId |	(선택 사항) - 성공적인 빌드를 식별하는 번호 |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -632,7 +641,7 @@ OData XML
 	</entry>
 	</feed>
 
-###6\.3. 모델 샘플 가져오기
+### 6\.3. 모델 샘플 가져오기
 권장 사항 모델의 샘플을 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -643,7 +652,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -782,11 +792,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
-##7\. 모델 비즈니스 규칙
-다음은 지원되는 규칙의 형식입니다:- <strong>BlockList</strong> -BlockList를 사용하면 권장 사항 결과에서 반환하지 않으려는 항목 목록을 제공할 수 있습니다. - <strong>FeatureBlockList</strong> - 기능 BlockList를 사용하면 기능의 값을 기반으로 하는 항목을 차단할 수 있습니다.- <strong>Upsale</strong> - Upsale를 사용하면 권장 사항 결과에서 항목을 반환할 수 있습니다- <strong>허용 목록</strong> -허용 목록을 사용하면 권장 사항 목록에서 항목을 제안할 수 있습니다- <strong>FeatureWhiteList</strong> -기능 허용 목록을 사용하면 특정 기능 값을 갖는 항목을 추천할 수 있습니다. - <strong>PerSeedBlockList</strong> - 시드별 블록 목록을 사용하면 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
+## 7\. 모델 비즈니스 규칙
+4가지 유형의 규칙이 있습니다. <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. <strong>Upsale</strong> - 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다. <strong>WhiteList</strong> - 권장 사항 결과로 반환할 수 있는 항목 목록만 제공할 수 있습니다(BlockList와 반대). <strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
 
 
-###7\.1. 모델 규칙 가져오기
+### 7\.1. 모델 규칙 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -796,7 +806,8 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -853,8 +864,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | <ins>비즈니스 규칙에 대한 항목 ID를 제공할 때마다 항목의 외부 ID를 사용하도록 합니다(카탈로그 파일에서 사용한 것과 동일한 ID)</ins><br> <ins>차단 목록 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>FeatureBlockList 규칙을 추가하려면:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Upsale 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>허용 목록 규칙을 추가하려면:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>FeatureWhiteList 규칙을 추가하려면:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> PerSeedBlockList 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
-
+||| 
+| 요청 본문 | 
+<ins>비즈니스 규칙에 항목 ID를 제공할 때마다 항목의 외부 ID를 사용해야 합니다(카탈로그 파일에서 사용한 동일한 ID)</ins><br>
+<ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>WhiteList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **응답**:
 
@@ -890,7 +903,7 @@ OData XML
 	</entry>
 	</feed>
 
-###7\.3. 규칙 삭제
+### 7\.3. 규칙 삭제
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -901,13 +914,14 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 |	filterId |	필터의 고유 식별자 |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-###7\.4. 모든 규칙 삭제
+### 7\.4. 모든 규칙 삭제
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -917,7 +931,8 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -941,7 +956,11 @@ HTTP 상태 코드: 200
 
 | 이름 | 필수 | 형식 | 설명 |
 |:---|:---|:---|:---|
-| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br>최대 길이: 50 | 항목의 고유 식별자입니다. | | 항목 이름 | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름입니다. | | 항목 범주 | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리 책, 드라마...); 비어 있을 수 있습니다. | | 설명 | 기능이 표시되지 않는 경우(비어 있을 수는 있음) 아니요. | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목의 설명입니다. | | 기능 목록 | 아니요 | 영숫자 문자 <br> 최대 길이: 4000 | 쉼표로 구분된 기능 이름 목록=모델 권장을 강화하기 위해 사용할 수 있는 기능 값; [고급 항목](#2-advanced-topics) 섹션을 참조하세요. |
+| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br>최대 길이: 50 | 항목의 고유 식별자입니다. | 
+| 항목 이름 | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름입니다. | 
+| 항목 범주 | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리 책, 드라마...); 비어 있을 수 있습니다. | 
+| 설명 | 기능이 표시되지 않는 경우(비어 있을 수는 있음) 아니요. | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목의 설명입니다. | 
+| 기능 목록 | 아니요 | 영숫자 문자 <br> 최대 길이: 4000 | 쉼표로 구분된 기능 이름 목록=모델 권장을 강화하기 위해 사용할 수 있는 기능 값; [고급 항목](#2-advanced-topics) 섹션을 참조하세요. |
 
 
 | HTTP 메서드 | URI |
@@ -952,7 +971,10 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | 
+| apiVersion | 1.0 | 
+||| 
+| 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **응답**:
@@ -984,7 +1006,7 @@ OData XML
 	</entry>
 	</feed>
 
-###8\.2. 카탈로그 가져오기
+### 8\.2. 카탈로그 가져오기
 모든 카탈로그 항목을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -995,7 +1017,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1086,7 +1109,7 @@ OData XML
 	</entry>
 	</feed>
 
-###8\.3. 토큰별 카탈로그 항목 가져오기
+### 8\.3. 토큰별 카탈로그 항목 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1097,7 +1120,8 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 |	token |	카탈로그 항목 이름의 토큰 3자 이상 포함해야 합니다. |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+|||
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1151,7 +1175,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>사용자 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 식별자입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자입니다.</td></tr><tr><td>시간</td><td>No</td><td>날짜 형식: YYYY/MM/DDTHH:MM:SS (예: 2013/06/20T10:00:00)</td><td>데이터의 시간.</td></tr><tr><td>이벤트</td><td>아니요; 제공되면 그 다음 날짜를 삽입해야 합니다</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예제:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | 카탈로그의 텍스트 식별자입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 | 
+| apiVersion | 1.0 | 
+||| 
+| 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>사용자 ID</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 ID입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50</td><td>항목의 고유 ID입니다.</td></tr><tr><td>시간</td><td>아니요</td><td>YYYY/MM/DDTHH:MM:SS 형식의 날짜(예: 2013/06/20T10:00:00)</td><td>데이터의 시간입니다.</td></tr><tr><td>이벤트</td><td>아니요. 제공된 다음 날짜를 배치해야 합니다.</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 크기: 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -1186,7 +1213,7 @@ OData XML
 	</feed>
 
 
-####9\.1.2. 데이터 취득 사용
+#### 9\.1.2. 데이터 취득 사용
 이 섹션에서는 일반적으로 웹 사이트에서 Azure 기계 학습 권장 사항에 실시간으로 이벤트를 전송하는 방법을 보여 줍니다.
 
 | HTTP 메서드 | URI |
@@ -1301,7 +1328,7 @@ OData XML
 
 **응답**: HTTP 상태 코드: 200
 
-###9\.2. 모델 사용 파일 나열
+### 9\.2. 모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1312,7 +1339,8 @@ OData XML
 |:--------			|:--------								|
 |	forModelId |	모델의 고유 식별자 |
 |	apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1364,7 +1392,7 @@ OData XML
 	</entry>
 </feed>
 
-###9\.3. 사용 통계 가져오기
+### 9\.3. 사용 통계 가져오기
 사용 통계를 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -1378,7 +1406,8 @@ OData XML
 | endDate |	종료 날짜입니다. 형식: yyyy/MM/ddTHH:mm:ss |
 | eventTypes |	쉼표로 구분된 이벤트 유형 문자열이거나 null(모든 이벤트를 가져오려는 경우) |
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1460,7 +1489,8 @@ OData XML
 | modelId |	모델의 고유 식별자 |
 | fileId |	모델 사용 파일의 고유 식별자 |
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1482,7 +1512,8 @@ HTTP 상태 코드: 200
 | fid |	모델 사용 파일의 고유 식별자 |
 | 다운로드 | 1 |
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1502,7 +1533,8 @@ HTTP 상태 코드: 200
 | modelId |	모델의 고유 식별자 |
 | fileId | 삭제할 파일의 고유 식별자 |
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1520,7 +1552,8 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1541,7 +1574,8 @@ HTTP 상태 코드: 200
 | modelId |	모델의 고유 식별자 |
 |samplingSize| 카탈로그에 있는 데이터에 따라 각 기능에 대해 포함할 값 수 <br/>가능한 값은 다음과 같습니다.<br> -1 - 모든 샘플 <br>0 - 샘플링 없음 <br>N - 각 기능 이름별로 N개의 샘플 반환|
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 
 **응답**:
@@ -1623,7 +1657,8 @@ OData XML
 |samplingSize| 카탈로그에 있는 데이터에 따라 각 기능에 대해 포함할 값 수<br/> 가능한 값은 다음과 같습니다.<br> -1 - 모든 샘플 <br>0 - 샘플링 없음 <br>N - 각 기능 이름별로 N개의 샘플 반환|
 |rankBuildId| 순위 빌드의 고유 식별자 또는 마지막 순위 빌드의 경우 -1|
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 
 **응답**:
@@ -1774,7 +1809,8 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 | modelId |	모델의 고유 식별자 |
 | userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명은 "빌드 매개 변수" 섹션을 참조하세요.`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+||| 
+| 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명은 "빌드 매개 변수" 섹션을 참조하세요.`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **응답**:
 
@@ -1849,7 +1885,8 @@ OData XML
 | userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | buildType | 호출할 빌드의 형식: <br/> - 권장 사항 빌드의 경우 'Recommendation' <br> - 순위 빌드의 경우 'Ranking' <br/> - FBT 빌드의 경우 'Fbt'
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명 및 매개 변수 전체 목록을 보려면 "빌드 매개 변수" 섹션을 참조하세요.`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+||| 
+| 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명 및 매개 변수 전체 목록을 보려면 "빌드 매개 변수" 섹션을 참조하세요.`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **응답**:
 
@@ -2813,7 +2850,8 @@ Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 �
 |:--------			|:--------								|
 | modelId | 선택적 매개 변수. 생략한 경우 모든 모델에 대한 모든 알림을 가져옵니다. <br>유효한 값: 모델의 고유 식별자|
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답:**
 
@@ -2852,7 +2890,7 @@ OData XML
 		</entry>
 	</feed>
 
-###14\.2. 모델 알림 삭제
+### 14\.2. 모델 알림 삭제
 모델에 대한 읽은 알림을 모두 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -2864,7 +2902,8 @@ OData XML
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자 |
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 
@@ -2881,7 +2920,8 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-||| | 요청 본문 | 없음 |
+||| 
+| 요청 본문 | 없음 |
 
 **응답**:
 

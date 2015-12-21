@@ -131,7 +131,7 @@ SQL Azure DB를 기반으로 데이터 집합에 대한 CSDL 매핑을 만들려
 
   ![그리기](media/marketplace-publishing-data-service-creation/step-7.7.png)
 
-> [AZURE.IMPORTANT][CSDL을 통해 기존 서비스를 OData에 매핑](marketplace-publishing-data-service-creation-odata-mapping.md)을 읽고 CSDL 웹 서비스를 만드는 방법에 대한 지침과 예를 살펴보세요.
+> [AZURE.IMPORTANT] [CSDL을 통해 기존 서비스를 OData에 매핑](marketplace-publishing-data-service-creation-odata-mapping.md)을 읽고 CSDL 웹 서비스를 만드는 방법에 대한 지침과 예를 살펴보세요.
 
 ## 다음 단계
 데이터 서비스 제품을 만들었으니, 이제 [마켓플레이스 마케팅 콘텐츠 가이드](marketplace-publishing-push-to-staging.md)의 지침을 완료한 후 [스테이징에서 데이터 서비스 테스트](marketplace-publishing-data-service-test-in-staging.md)를 진행하세요.
@@ -146,4 +146,4 @@ SQL Azure DB를 기반으로 데이터 집합에 대한 CSDL 매핑을 만들려
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1210_2015--->
