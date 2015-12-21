@@ -7,29 +7,29 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obtain the connection string from the Azure portal
+### Azure 포털에서 연결 문자열 가져오기
 
 
-Use the [Azure preview portal](http://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database:
+[Azure Preview 포털](http://portal.azure.com/)에서 클라이언트 프로그램이 Azure SQL 데이터베이스와 상호 작용하는 데 필요한 연결 문자열을 가져올 수 있습니다.
 
 
-1. Click **BROWSE** > **SQL databases**.
+1. **찾아보기** > **SQL 데이터베이스**를 클릭합니다.
 
-    ![Select SQL][1-select-sql]
+    ![SQL 선택][1-select-sql]
 
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
+2. **SQL 데이터베이스** 블레이드 왼쪽 위에 있는 필터 텍스트 상자에 데이터베이스 이름을 입력합니다.
 
-    ![Select Database][2-select-database]]
+    ![데이터베이스 선택][2-select-database]]
 
-3. Click the row for your database.
+3. 해당 데이터베이스에 대한 행을 클릭합니다.
 
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering.
+4. 데이터베이스 블레이드가 표시된 후 시각적 편의를 위해 표준 최소화 컨트롤을 클릭하여 검색 및 데이터베이스 필터링에 사용한 블레이드를 축소할 수 있습니다.
 
-5. Make note of the **SQL database** name and the **Server name**.  The username will be yourusername@yourserver.
+5. **SQL 데이터베이스** 이름 및 **서버 이름**을 적어 둡니다. 사용자 이름은 yourusername@yourserver입니다.
 
-	![Get Connection Details][3-get-connection-details]
+	![연결 정보 가져오기][3-get-connection-details]
 
-7.  Paste the connection details into your client program code.  You will need to replace the {your_password_here} with your real password.
+7.  연결 정보를 클라이언트 프로그램 코드에 붙여 넣습니다. {Your\_password\_here}를 실제 암호로 바꾸어야 합니다.
 
 
 <!--
@@ -55,3 +55,5 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+
+<!---HONumber=AcomDC_1210_2015-->

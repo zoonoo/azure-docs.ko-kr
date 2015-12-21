@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015"   
+	ms.date="12/09/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2015년 12월 릴리스](#dec_changes_15)
 - [2015년 11월 릴리스](#nov_changes_15)
 - [2015년 10월 릴리스](#oct_changes_15)
 - [2015년 9월 릴리스](#september_changes_15)
@@ -75,6 +76,19 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 ##<a id="rest_version_history"></a>REST API 버전 기록
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
+
+##<a id="dec_changes_15"></a>2015년 12월 릴리스
+
+Azure SDK 팀은 Microsoft Azure 미디어 서비스에 대한 업데이트 및 새 기능을 포함하는 [PHP용 Azure SDK](http://github.com/Azure/azure-sdk-for-php) 패키지의 새 릴리스를 게시합니다. 특히, PHP용 Azure 미디어 서비스 SDK는 현재 최신 [콘텐츠 보호](media-services-content-protection-overview.md) 기능(토큰 제한을 사용하거나 사용하지 않는 AES 및 DRM(PlayReady 및 Widevine)을 사용하는 동적 암호화)을 지원합니다. 또한 [인코딩 단위](media-services-dotnet-encoding-units.md) 크기 조정을 지원합니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [PHP용 Microsoft Azure 미디어 서비스 SDK](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 블로그
+- 빨리 시작하는 데 도움이 되는 [코드 샘플](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)은 다음과 같습니다.
+	- **vodworkflow\_aes.php**: AES-128 동적 암호화 및 키 배달 서비스를 사용하는 방법을 보여 주는 PHP 파일입니다. 이 파일은 [이](media-services-protect-with-aes128.md) 문서에 설명되어 있는 .NET 샘플을 기반으로 합니다.
+	- **vodworkflow\_aes.php**: PlayReady 동적 암호화 및 License Delivery 서비스를 사용하는 방법을 보여 주는 PHP 파일입니다. 이 파일은 [이](media-services-protect-with-drm.md) 문서에 설명되어 있는 .NET 샘플을 기반으로 합니다.
+	- **scale\_encoding\_units.php**: 인코딩 예약 단위 크기를 조정하는 방법을 보여 주는 PHP 파일입니다.
+
 
 ##<a id="nov_changes_15"></a>2015년 11월 릴리스
 
@@ -621,4 +635,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

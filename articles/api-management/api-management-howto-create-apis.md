@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 API를 만드는 방법
@@ -24,7 +24,7 @@ API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있
 
 ## <a name="create-new-api"> </a>새 API 만들기
 
-게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다.
+게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
 
 ![게시자 포털][api-management-management-console]
 
@@ -40,7 +40,7 @@ API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있
 
 새 API를 구성하는 데 다음 필드가 사용됩니다.
 
--	**Web API 이름**은 API를 설명하는 고유한 이름을 제공합니다. 개발자 및 관리 포털에 표시됩니다.
+-	**Web API 이름**은 API를 설명하는 고유한 이름을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
 -	**웹 서비스 URL**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다.
 -	**Web API URL 접미사**는 API 관리 서비스의 기준 URL에 추가됩니다. 기본 URL은 API 관리 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API 관리는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
 -	**Web API URL 구성표**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 기본적으로 HTTPS가 지정됩니다.
@@ -97,4 +97,4 @@ API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추�
 [Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법]: api-management-howto-mutual-certificates.md
 [Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법]: api-management-howto-oauth2.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -37,6 +37,7 @@
 * SQL Server Analysis Services 테이블 형식 테이블
 * SQL Server Reporting Services 보고서
 * Azure 저장소 Blob 및 디렉터리
+* Azure 데이터 레이크 저장소
 * HDFS 파일 및 디렉터리
 * Apache Hive 테이블
 * Teradata 테이블 및 뷰
@@ -95,4 +96,4 @@
 ## 요약
 데이터 원본을 **Azure 데이터 카탈로그**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터 원본을 보다 쉽게 검색하고 이해할 수 있게 됩니다. 데이터 원본이 등록되면 **Azure 데이터 카탈로그** 포털을 사용하여 주석을 추가하고, 관리하고, 검색할 수 있습니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

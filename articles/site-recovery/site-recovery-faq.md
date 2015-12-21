@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Site Recovery: 질문과 대답" 
+	pageTitle="Site Recovery: FAQ(질문과 대답) | Microsoft Azure" 
 	description="이 문서에서는 Azure Site Recovery에 대한 일반적인 질문에 대답합니다." 
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -43,9 +43,9 @@ Site Recovery는 온-프레미스 가상 컴퓨터 및 물리적 서버에서 Az
 
 다음 문서에서 Hyper-V 호스트 서버 필수 조건을 확인하세요.
 
-- [Azure로 Hyper-V VM 복제(VMM 없이)](site-recovery-hyper-v-site-to-azure/#before-you-start)
-- [Azure로 Hyper-V VM 복제(VMM 사용)](site-recovery-vmm-to-azure/#before-you-start)
-- [보조 데이터 센터에 Hyper-V VM 복제](site-recovery-vmm-to-vmm/#before-you-start)
+- [Azure로 Hyper-V VM 복제(VMM 없이)](site-recovery-hyper-v-site-to-azure.md/#before-you-start)
+- [Azure로 Hyper-V VM 복제(VMM 사용)](site-recovery-vmm-to-azure.md/#before-you-start)
+- [보조 데이터 센터에 Hyper-V VM 복제](site-recovery-vmm-to-vmm.md/#before-you-start)
 
 게스트 운영 체제 관련:
 
@@ -74,17 +74,17 @@ Site Recovery를 사용하여 가상 컴퓨터 또는 물리적 서버에서 실
 
 ### 어떤 물리적 서버를 보호할 수 있습니까?
 
-Windows 및 Linux를 실행하는 물리적 서버를 Azure 또는 보조 사이트로 복제하여 보호할 수 있습니다. 운영 체제 요구 사항은 [무엇이 필요한가요?](site-recovery-vmware-to-azure/#what-do-i-need)를 참조하세요. 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
+Windows 및 Linux를 실행하는 물리적 서버를 Azure 또는 보조 사이트로 복제하여 보호할 수 있습니다. 운영 체제 요구 사항은 [무엇이 필요하나요?](site-recovery-vmware-to-azure.md/#what-do-i-need)를 참조하세요. 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
 
 온-프레미스 서버가 중지되면 물리적 서버가 Azure에서 VM으로 실행됩니다. 온-프레미스 물리적 서버로의 장애 복구는 현재 지원되지 않지만 Hyper-V 또는 VMware에서 실행되는 가상 컴퓨터로의 장애 복구는 가능합니다.
 
 ### 어떤 VMware VM을 보호할 수 있습니까?
 
-이 시나리오의 경우 VMware vCenter 서버, vSphere 하이퍼바이저 및 VMware 도구를 실행 중인 가상 컴퓨터가 필요합니다. 정확한 요구 사항은 [무엇이 필요한가요?](site-recovery-vmware-to-azure/#what-do-i-need)를 참조하세요. 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
+이 시나리오의 경우 VMware vCenter 서버, vSphere 하이퍼바이저 및 VMware 도구를 실행 중인 가상 컴퓨터가 필요합니다. 정확한 요구 사항은 [무엇이 필요하나요?](site-recovery-vmware-to-azure.md/#what-do-i-need)를 참조하세요. 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
 
 ### Azure에 가상 컴퓨터를 복제하기 위한 필수 조건은 무엇입니까?
 
-Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery-best-practices/#virtual-machines)을 충족해야 합니다.
+Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery-best-practices.md/#virtual-machines)을 충족해야 합니다.
 
 ### Hyper-V 2세대 가상 컴퓨터를 Azure로 복제할 수 있습니까?
 
@@ -127,7 +127,7 @@ Site Recovery는 ISO 27001:2005 인증이며, HIPAA, DPA 및 FedRAMP JAB 평가�
 
 ### Azure로 복제할 때 어떤 유형의 저장소 계정이 필요합니까?
 
-[표준 지역 중복 저장소](../storage/storage-redundancy/#geo-redundant-storage) 계정이 필요합니다. [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal/)은 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우에만 지원됩니다.
+[표준 지역 중복 저장소](../storage/storage-redundancy.md/#geo-redundant-storage) 계정이 필요합니다. [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal/)은 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우에만 지원됩니다.
 
 표준 로컬 중복 저장소에 대한 지원은 백로그에 있습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support)을 통해 이 기능에 대한 의견을 보내 주세요.
 
@@ -154,7 +154,7 @@ Site Recovery는 ISO 27001:2005 인증이며, HIPAA, DPA 및 FedRAMP JAB 평가�
 
 ### Azure로 장애 조치(Failover)하는 경우 장애 조치(Failover) 후에 어떻게 Azure 가상 컴퓨터에 액세스할 수 있습니까? 
 
-보안 인터넷 연결 또는 사이트 간 VPN(또는 Azure Express 경로)이 있다면 이를 통해 Azure VM에 액세스할 수 있습니다. VPN 연결을 사용할 경우 VM이 있는 Azure 네트워크의 내부 포트와 통신이 이루어집니다. 인터넷을 통한 통신은 VM에 대한 Azure 클라우드 서비스의 공용 끝점에 매핑됩니다. [자세히 알아보기](site-recovery-network-design/#connectivity-after-failover)
+보안 인터넷 연결 또는 사이트 간 VPN(또는 Azure Express 경로)이 있다면 이를 통해 Azure VM에 액세스할 수 있습니다. VPN 연결을 사용할 경우 VM이 있는 Azure 네트워크의 내부 포트와 통신이 이루어집니다. 인터넷을 통한 통신은 VM에 대한 Azure 클라우드 서비스의 공용 끝점에 매핑됩니다. [자세히 알아보기](site-recovery-network-design.md/#connectivity-after-failover)
 
 ### Azure로 장애 조치(Failover)하는 경우 Azure는 어떻게 데이터 복원을 보장합니까?
 
@@ -223,4 +223,4 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

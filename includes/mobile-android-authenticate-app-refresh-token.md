@@ -1,24 +1,24 @@
-Our token cache should work in a simple case but, what happens when the token expires or is revoked? The token could expire when the app is not running. This would mean the token cache is invalid. The token could also expire while the app is actually running. The result is an HTTP status code 401 "Unauthorized". 
+단순한 사례에서는 토큰 캐시가 작동하지만 토큰이 만료되거나 취소될 경우 어떻게 해야 할까요? 앱이 실행되지 않을 때 토큰이 만료될 수 있습니다. 이 경우 토큰 캐시가 유효하지 않습니다. 앱이 실제로 실행되는 동안 토큰이 만료될 수도 있습니다. 결과는 HTTP 상태 코드 401 "인증되지 않음"입니다.
 
-We need to be able to detect an expired token, and refresh it. To do this we use a [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) from the [Android client library](http://dl.windowsazure.com/androiddocs/).
+만료된 토큰을 검색하고 새로 고칠 수 있어야 합니다. 이 작업을 위해 [Android 클라이언트 라이브러리](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html)의 [ServiceFilter](http://dl.windowsazure.com/androiddocs/)를 사용합니다.
 
-In this section you will define a ServiceFilter that will detect a HTTP status code 401 response and trigger a refresh of the token and the token cache. Additionally, this ServiceFilter will block other outbound requests during authentication so that those requests can use the refreshed token.
+이 섹션에서는 HTTP 상태 코드 401 응답을 검색하고 토큰 및 토큰 캐시 새로 고침을 트리거할 ServiceFilter를 정의합니다. 또한 이 ServiceFilter는 인증 중 다른 아웃바운드 요청을 차단하여 해당 요청이 새로 고친 토큰을 사용할 수 있도록 합니다.
 
-1. Open the ToDoActivity.java file and add the following import statements:
+1. ToDoActivity.java 파일을 열고 다음 import 문을 추가합니다.
  
         import java.util.concurrent.atomic.AtomicBoolean;
 		import java.util.concurrent.ExecutionException;
 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceException;
  
-2. Add the following members to the `ToDoActivity` class. 
+2. 다음 멤버를 `ToDoActivity` 클래스에 추가합니다.
 
     	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
 
-    These will be used to help synchronize the authentication of the user. We only want to authenticate once. Any calls during an authentication should wait and use the new token from the authentication in progress.
+    이는 사용자 인증을 동기화하는 데 사용됩니다. 한 번만 인증하려고 합니다. 인증 중의 모든 호출은 진행 중인 인증의 새 토큰을 기다려서 사용해야 합니다.
 
-3. In the ToDoActivity.java file, add the following method to the ToDoActivity class that will be used to block outbound calls on other threads while authentication is in progress.
+3. ToDoActivity.java 파일의 ToDoActivity 클래스에 다음 메서드를 추가합니다. 이 메서드는 인증이 진행되는 동안 다른 스레드에서 아웃바운드 호출을 차단하는 데 사용됩니다.
 
 	    /**
     	 * Detects if authentication is in progress and waits for it to complete. 
@@ -49,7 +49,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     	}
     	
 
-4. In the ToDoActivity.java file, add the following method to the ToDoActivity class. This method triggers the wait and then update the token on outbound requests when authentication is complete. 
+4. ToDoActivity.java 파일의 ToDoActivity 클래스에 다음 메서드를 추가합니다. 이 메서드는 대기를 트리거한 다음 인증이 완료되면 아웃바운드 요청의 토큰을 업데이트합니다.
 
     	
     	/**
@@ -74,7 +74,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     	}
 
 
-5. In the ToDoActivity.java file, update the `authenticate` method of the ToDoActivity class so that it accepts a boolean parameter to allow forcing the refresh of the token and token cache. We also need to notify any blocked threads when authentication is completed so they can pick up the new token.
+5. ToDoActivity.java 파일에서 ToDoActivity 클래스의 `authenticate` 메서드를 업데이트하여 토큰 및 토큰 캐시를 강제로 새로 고칠 수 있는 부울 매개 변수를 수락하도록 합니다. 또한 인증이 완료되면 차단된 모든 스레드에 알려 새 토큰을 사용할 수 있도록 해야 합니다.
 
 	    /**
     	 * Authenticates with the desired login provider. Also caches the token. 
@@ -127,7 +127,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 
 
 
-6. In the ToDoActivity.java file, add this code for a new `RefreshTokenCacheFilter` class inside the ToDoActivity class:
+6. ToDoActivity.java 파일에서 ToDoActivity 클래스 내의 새 `RefreshTokenCacheFilter` 클래스에 이 코드를 추가합니다.
 
 		/**
 		* The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
@@ -202,9 +202,9 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 		}
 
 
-    This service filter will check each response for HTTP status code 401 "Unauthorized". If a 401 is encountered, a new login request to obtain a new token will be setup on the UI thread. Other calls will be blocked until the login is completed, or until 5 attempts have failed. If the new token is obtained, the request that triggered the 401 will be retried with the new token and any blocked calls will be retried with the new token. 
+    이 서비스 필터는 각 응답에서 HTTP 상태 코드 401 "인증되지 않음"을 확인합니다. 401이 발견되면 새 토큰을 가져오기 위한 새 로그인 요청이 UI 스레드에 설정됩니다. 로그인이 완료될 때까지 또는 시도가 다섯 번 실패할 때까지 다른 호출은 차단됩니다. 새 토큰을 가져오면 401을 트리거한 요청이 새 토큰으로 다시 시도되며 차단된 모든 호출이 새 토큰으로 다시 시도됩니다.
 
-7. In the ToDoActivity.java file, add this code for a new `ProgressFilter` class inside the ToDoActivity class:
+7. ToDoActivity.java 파일에서 ToDoActivity 클래스 내의 새 `ProgressFilter` 클래스에 이 코드를 추가합니다.
 		
 		/**
 		* The ProgressFilter class renders a progress bar on the screen during the time the App is waiting for the response of a previous request.
@@ -250,9 +250,9 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 			}
 		}
 		
-	This filter will show the progress bar on the beginning of the request and will hide it when the response arrived.
+	이 필터는 요청 시작 시 진행률 표시줄을 나타내며 응답이 도착하면 표시줄을 숨깁니다.
 
-8. In the ToDoActivity.java file, update the `onCreate` method as follows:
+8. ToDoActivity.java 파일에서 `onCreate` 메서드를 다음과 같이 업데이트합니다.
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -283,6 +283,6 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 	    }
 
 
-       In this code, `RefreshTokenCacheFilter` is used in addition to `ProgressFilter`. Also during `onCreate` we want to load the token cache. So `false` is passed in to the `authenticate` method.
+       이 코드에서는 `ProgressFilter` 외에도 `RefreshTokenCacheFilter`이(가) 사용됩니다. 또한 `onCreate` 중 토큰 캐시를 로드하려고 합니다. 따라서 `false`이(가) `authenticate` 메서드에 전달됩니다.
 
-
+<!---HONumber=AcomDC_1210_2015-->

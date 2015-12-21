@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/04/2015"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - Kiteworks에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
 - 사용자가 해당 Azure AD 계정으로 Kiteworks에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure Active Directory에서 계정을 관리할 수 있습니다. 
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -56,7 +56,7 @@ Kiteworks의 Azure AD 통합을 구성하려면 갤러리의 Kiteworks를 관리
 
 **갤러리에서 Kiteworks를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -81,15 +81,15 @@ Kiteworks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 Kiteworks 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 Kiteworks 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-Kiteworks에 Single Sign-On을 구성하려면 등록된 도메인이 필요합니다. 등록된 도메인이 아직 없는 경우 [support@flatterfiles.com](mailto:support@flatterfiles.com)을 통해 Kiteworks 지원팀에 문의하세요.
+Kiteworks에 Single Sign-On을 구성하려면 등록된 도메인이 필요합니다. 등록된 도메인이 아직 없는 경우 Kiteworks 지원팀에 문의하세요.
 
 
 
 **Kiteworks에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **Kiteworks** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+1. Azure 클래식 포털의 **Kiteworks** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
 
 2. **Kiteworks에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_03.png) <br>
 
@@ -122,18 +122,18 @@ Kiteworks에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
     b. **AuthnRequest 시작**을 선택합니다.
 
-    c. Azure 포털의 **Kiteworks에서 Single Sign-on 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **IDP 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    c. Azure 클래식 포털의 **Kiteworks에서 Single Sign-On 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **IDP 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-    d. Azure 포털의 **Kiteworks에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **Single Sign-On 서비스 URL** 텍스트 상자에 붙여넣습니다.
+    d. Azure 클래식 포털의 **Kiteworks에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **Single Sign-On 서비스 URL** 텍스트 상자에 붙여넣습니다.
 
-    e. Azure 포털의 **Kiteworks에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **Single 로그아웃 서비스 URL** 텍스트 상자에 붙여넣습니다.
+    e. Azure 클래식 포털의 **Kiteworks에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **Single 로그아웃 서비스 URL** 텍스트 상자에 붙여넣습니다.
 
     f. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **RSA 공용 키 인증서** 텍스트 상자에 붙여넣습니다.
 
-    g. **저장**을 클릭합니다.
+    g. **Save**를 클릭합니다.
 
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
+6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Single Sign-On][11]
 
@@ -141,17 +141,17 @@ Kiteworks에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png) <br> 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png) <br> 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_03.png) <br>
  
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_04.png) <br>
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_04.png) <br>
 
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_05.png) <br>
 
@@ -175,7 +175,7 @@ Kiteworks에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
  
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_08.png) <br>
   
-    a. **새 암호** 값을 적어둡니다.
+    a. **새 암호** 값을 적어 둡니다.
 
     b. **완료**를 클릭합니다.
 
@@ -196,11 +196,11 @@ Kiteworks에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
 **Britta Simon을 Kiteworks에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br>![사용자 할당][201]<br>
+1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 
 2. 응용 프로그램 목록에서 **Kiteworks**를 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_50.png) <br>
 
-1. 위쪽 메뉴에서 **사용자**를 클릭합니다.<br> <br>![사용자 할당][203]<br>
+1. 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
 
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
@@ -237,4 +237,4 @@ Kiteworks에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 [204]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

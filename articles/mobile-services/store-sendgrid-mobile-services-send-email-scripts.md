@@ -7,13 +7,14 @@
 	manager="sendgrid"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/31/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
 	ms.author="Erikre"/>
 
 
@@ -139,4 +140,4 @@ SendGrid 전자 메일 서비스를 모바일 서비스와 함께 쉽게 사용�
 [트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
 [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

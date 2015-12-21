@@ -66,6 +66,8 @@ Microsoft는 클러스터에서 실행하는 패브릭 코드 및 구성을 유�
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**참고** 클러스터 리소스에 사용할 인증서를 식별하려면 먼저 다음 단계를 완료해야 합니다. 다른 방법으로는 새 인증서가 사용되지 않습니다. 1) keyvault에 새 인증서를 업로드합니다. 지침은 [서비스 패브릭 보안](service-fabric-cluster-security.md)을 참조하세요(이 문서의 2단계부터 시작). 2) 인증서가 배포되도록 클러스터를 구성하는 모든 가상 컴퓨터를 업데이트합니다. 작업 방법은 [이 블로그 게시물](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)을 참조하세요.
+
 ### 응용 프로그램 포트
 
 노드 형식에 연결된 부하 분산 장치 리소스 속성을 변경하여 이렇게 할 수 있습니다. 포털 또는 ARM PowerShell을 직접 사용할 수 있습니다.
@@ -113,4 +115,4 @@ Microsoft는 클러스터에서 실행하는 패브릭 코드 및 구성을 유�
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

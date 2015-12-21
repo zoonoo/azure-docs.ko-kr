@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="10/20/2015" 
+	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
 # 파이프라인 및 활동 이해
@@ -224,18 +224,7 @@ Azure 데이터 팩터리에서 파이프라인을 만드는 경우 일반적인
 
 태그 | 설명 | 필수
 --- | ----------- | --------
-name | 작업 또는 파이프라인의 이름입니다. 작업 또는 파이프라인을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다<br/><ul><li>최대 문자 수: 260개</li><li>문자 숫자 또는 밑줄(\_)로 시작해야 합니다</li><li>다음 문자는 사용할 수 없습니다. ".", "+","?", "/", "<",">", "*", "%", "&", ":",""</li></ul>| 예
-설명 | 작업 또는 파이프라인의 용도를 설명하는 텍스트 | 예
-형식 | 활동의 형식을 지정합니다. 다른 활동의 형식은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 작업](data-factory-data-transformation-activities.md) 문서를 참조하십시오. | 예
-입력 | 활동에서 사용하는 테이블을 입력합니다<p>//한 개의 입력 테이블<br/>"입력": [{"name": "inputtable1"}],</p><p>/ 2 개의 입력 테이블 /<br/>"입력": [{"name": "inputtable1"}, {"name": "inputtable2"}],</p>| 예
-출력 | 활동에서 사용하는 테이블을 출력합니다.<p>//한 개의 출력 테이블<br/>"출력": [{"name": "outputtable1"}],</p><p>//두 개의 출력 테이블<br/>"출력": [{"name": "outputtable1"}, {"name": "outputtable2"}],</p>| 예
-linkedServiceName | 활동에서 사용하는 연결된 서비스의 이름입니다. <p>활동은 필요한 계산 환경에 연결되는 연결된 서비스를 지정할 필요가 있습니다.</p>| HDInsight 활동 및 Azure 기계 학습 일괄 처리 상태 평가 활동에 예<p>다른 모든 사용자에 아니요</p>
-typeProperties | typeProperties 구역의 속성은 활동의 형식에 따라 달라집니다. 이에 대해 자세히 알아보려면 각 개별 활동에 대한 문서를 참조하십시오 | 정책
-이 없음 | 활동의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. 자세한 내용은 아래로 스크롤합니다 | 시작 
-없음 | 파이프라인의 시작 날짜-시간입니다. [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예: 2014-10-14T16:32:41Z. <p>시작 및 끝 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다.</p> | 아니요<p>end 속성에 대한 값을 지정하면 start 속성에 대한 값을 지정해야 합니다.</p><p>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있지만 파이프라인을 실행할 활성 기간을 설정하려면 둘 다 값을 지정해야 합니다. 파이프라인을 만들 때 시작 시간과 종료 시간을 지정하지 않으면 나중에 Set-AzureDataFactoryPipelineActivePeriod cmdlet을 사용하여 설정할 수 있습니다.</p>
-end | 파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예를 들어 2014-10-14T17:32:41Z입니다.<p>파이프라인을 무기한으로 실행하려면 end 속성에 대한 값으로 9999-09-09를 지정합니다.</p>| 아니요 <p>start 속성에 대한 값을 지정하면 end 속성에 대한 값을 지정해야 합니다.</p><p>**start** 속성에 대한 설명을 참조하세요.</p>
-isPaused | true로 설정하면 파이프라인이 실행되지 않습니다. 기본값 = false입니다. 속성을 활성화 또는 비활성화하여 사용할 수 있습니다. | 아니요
-스케줄러가 | "스케줄러" 속성을 작업에 원하는 예정을 정의하는 데 사용합니다. 하위 속성은 [데이터 집합에서 가용성 속성](data-factory-create-datasets.md#Availability)과 같습니다. | 아니요 | 
+name | 작업 또는 파이프라인의 이름입니다. 작업 또는 파이프라인을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다<br/><ul><li>최대 문자 수: 260개</li><li>문자 숫자 또는 밑줄(\_)로 시작해야 합니다</li><li>다음 문자는 사용할 수 없습니다. ".", "+","?", "/", "<",">", "*", "%", "&", ":","\"</li></ul>| 예 설명 | 작업 또는 파이프라인의 용도를 설명하는 텍스트 | 예 형식 | 활동의 형식을 지정합니다. 다른 활동의 형식은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 작업](data-factory-data-transformation-activities.md) 문서를 참조하십시오. | 예 입력 | 활동에서 사용하는 테이블을 입력합니다<p>//한 개의 입력 테이블<br/>"입력": [{"name": "inputtable1"}],</p><p>/ 2 개의 입력 테이블 /<br/>"입력": [{"name": "inputtable1"}, {"name": "inputtable2"}],</p>| 예 출력 | 활동에서 사용하는 테이블을 출력합니다.<p>//한 개의 출력 테이블<br/>"출력": [{"name": "outputtable1"}],</p><p>//두 개의 출력 테이블<br/>"출력": [{"name": "outputtable1"}, {"name": "outputtable2"}],</p>| 예 linkedServiceName | 활동에서 사용하는 연결된 서비스의 이름입니다. <p>활동은 필요한 계산 환경에 연결되는 연결된 서비스를 지정할 필요가 있습니다.</p>| HDInsight 활동 및 Azure 기계 학습 일괄 처리 상태 평가 활동에 예<p>다른 모든 사용자에 아니요</p>typeProperties | typeProperties 구역의 속성은 활동의 형식에 따라 달라집니다. 이에 대해 자세히 알아보려면 각 개별 활동에 대한 문서를 참조하십시오 | 정책이 없음 | 활동의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. 자세한 내용은 아래로 스크롤합니다 | 시작 없음 | 파이프라인의 시작 날짜-시간입니다. [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예: 2014-10-14T16:32:41Z. <p>시작 및 끝 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다.</p> | 아니요<p>end 속성에 대한 값을 지정하면 start 속성에 대한 값을 지정해야 합니다.</p><p>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있지만 파이프라인을 실행할 활성 기간을 설정하려면 둘 다 값을 지정해야 합니다. 파이프라인을 만들 때 시작 시간과 종료 시간을 지정하지 않으면 나중에 Set-AzureRmDataFactoryPipelineActivePeriod cmdlet를 사용하여 설정할 수 있습니다.</p> end | 파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예를 들어 2014-10-14T17:32:41Z입니다.<p>파이프라인을 무기한으로 실행하려면 end 속성에 대한 값으로 9999-09-09를 지정합니다.</p>| 아니요 <p>start 속성에 대한 값을 지정하면 end 속성에 대한 값을 지정해야 합니다.</p><p>**start** 속성에 대한 설명을 참조하세요.</p> isPaused | true로 설정하면 파이프라인이 실행되지 않습니다. 기본값 = false입니다. 속성을 활성화 또는 비활성화하여 사용할 수 있습니다. | 스케줄러가 아님 | "스케줄러" 속성을 작업에 원하는 예정을 정의하는 데 사용합니다. 하위 속성은 [데이터 집합에서 가용성 속성](data-factory-create-datasets.md#Availability)과 같습니다. | 아니요 | 
 
 ### 활동 형식
 Azure 데이터 팩터리는 다양한 [데이터 이동](data-factory-data-movement-activities.md) 및 [데이터 변환](data-factory-data-transformation-activities.md) 활동을 제공합니다.
@@ -282,9 +271,9 @@ Azure 데이터 팩터리에 파이프라인을 작성하고 배포하려면 Vis
 ### Azure PowerShell 사용
 Azure 데이터 공장에서 파이프라인을 만들려면 Azure PowerShell을 사용할 수 있습니다. 다시 말하면 c:\\DPWikisample.json에 있는 파일에 파이프라인 JSON를 정의했습니다. 다음 예제와 같이 Azure 데이터 팩터리 인스턴스로 업로드할 수 있습니다.
 
-	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-이 cmdlet에 대해 자세히 알아보려면 [New-AzureDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/dn820227.aspx)을 참조하세요.
+이 cmdlet에 대해 자세히 알아보려면 [New-AzureRmDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/mt619358.aspx)를 참조하세요.
 
 ### REST API 사용
 REST API를 사용하여 파이프라인을 만들고 배포할 수 있습니다. 프로그래밍 방식으로 파이프라인을 만들려면 이 메커니즘을 활용할 수 있습니다. 이에 대한 자세한 내용은 [파이프라인 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/dn906741.aspx)를 참조하세요.
@@ -335,4 +324,4 @@ REST API를 사용하여 파이프라인을 만들고 배포할 수 있습니다
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

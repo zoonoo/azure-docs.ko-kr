@@ -174,8 +174,8 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [외부 데이터 원본 만들기]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [외부 파일 형식 만들기]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [외부 테이블 만들기]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
-[마스터 키 만들기]: https://msdn.microsoft.com/ko-KR/library/ms174382.aspx
-[데이터베이스 범위 자격 증명 만들기]: https://msdn.microsoft.com/ko-KR/library/mt270260.aspx
+[마스터 키 만들기]: https://msdn.microsoft.com/library/ms174382.aspx
+[데이터베이스 범위 자격 증명 만들기]: https://msdn.microsoft.com/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
 
@@ -183,4 +183,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 [통계]: ./sql-data-warehouse-develop-statistics.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Microsoft Azure 앱 서비스에서 B2B 프로세스 만들기" 
-   description="B2B 프로세스 만들기 개요" 
+   pageTitle="Azure 앱 서비스에서 B2B 프로세스 만들기 | Microsoft Azure" 
+   description="B2B 프로세스를 만드는 방법에 대한 개요" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="12/07/2015"
    ms.author="rajram"/>
 
 
@@ -44,7 +44,7 @@ Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)�
 1. **Azure 저장소 Blob 커넥터**의 인스턴스를 만듭니다. 이 작업에는 Azure 저장소 계정에 대한 자격 증명이 필요합니다. 인스턴스 만들기를 시작하기 전에 준비가 되어 있는지 확인합니다.
 2. **BizTalk 거래 업체 관리**의 인스턴스를 만듭니다. 그렇게 하려면 빈 SQL 데이터베이스가 기능해야 합니다. 인스턴스 만들기를 시작하기 전에 준비가 되어 있는지 확인합니다.
 3. **AS2 커넥터**의 인스턴스를 만듭니다. 그렇게 하려면 빈 SQL 데이터베이스가 기능해야 합니다. 인스턴스 만들기를 시작하기 전에 준비가 되어 있는지 확인합니다. 또한 AS2의 일부로 메시지를 보관하려는 경우 만드는 동안 Azure Blob에 자격 증명을 제공할 수 있습니다.
-4. 생성된 TPM(거래 업체 관리) 서비스를 구성합니다.
+4. 생성된 TPM(거래 업체 관리) 서비스를 구성합니다.  
 	1. 위의 단계의 일부로 만들어진 TPM 서비스의 인스턴스를 찾습니다.
 	2. *구성 요소*에서 **파트너** 옵션을 사용하여 **Contoso**라는 새 파트너를 **추가**하고 해당 프로필에서 필수 AS2 ID를 추가합니다.
 	3. *구성 요소*에서 **파트너** 옵션을 사용하여 **Northwind**라는 새 파트너를 **추가**하고 해당 프로필에서 필수 AS2 ID를 추가합니다.
@@ -52,12 +52,8 @@ Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)�
 
 
 ## 흐름/비즈니스 프로세스 만들기
-1. 첫 번째 단계가 AS2인 새 흐름을 만듭니다. **AS2 커넥터**를 끌어서 놓고 이미 생성된 인스턴스를 선택합니다. 기능으로 트리거를 선택합니다.
-
-![][1]
-
-2. 그런 다음 **Azure 저장소 Blob 커넥터**를 끌어서 놓고 이미 생성된 인스턴스를 선택합니다. 기능으로 작업을 선택하고 그 안에서 필요한 기능으로 Blob 업로드를 선택합니다. 필요에 따라 구성
-
+1. 첫 번째 단계가 AS2인 새 흐름을 만듭니다. **AS2 커넥터**를 끌어서 놓고 이미 생성된 인스턴스를 선택합니다. 기능으로 트리거를 선택합니다. ![][1]  
+2. 그런 다음 **Azure 저장소 Blob 커넥터**를 끌어서 놓고 이미 생성된 인스턴스를 선택합니다. 기능으로 작업을 선택하고 그 안에서 필요한 기능으로 **Blob 업로드**를 선택합니다. 필요에 따라 구성합니다.
 3. 이제 흐름을 만들거나 배포합니다.
 
 
@@ -69,8 +65,8 @@ Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)�
 ![][2]
 
 <!--Image references-->
-[1]: ./media/app-service-logic-create-a-b2b-process/Flow.jpg
-[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
+[1]: ./media/app-service-logic-create-a-b2b-process/Flow.png
+[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

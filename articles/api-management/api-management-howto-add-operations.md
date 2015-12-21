@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 API에 작업을 추가하는 방법
@@ -22,13 +22,13 @@ API 관리에서 API를 사용하려면 먼저 작업을 추가해야 합니다.
 
 ## <a name="add-operation"> </a>작업 추가
 
-게시자 포털에서 작업을 API에 추가하고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다.
+게시자 포털에서 작업을 API에 추가하고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
 
 ![게시자 포털][api-management-management-console]
 
 >아직 API 관리 서비스 인스턴스를 만들지 않은 경우 [Azure API 관리 시작][] 자습서의 [API 관리 서비스 인스턴스 만들기][]를 참조하세요.
 
-API 관리 포털에서 원하는 API를 선택한 다음 **작업** 탭을 선택합니다.
+게시자 포털에서 원하는 API를 선택한 다음 **작업** 탭을 선택합니다.
 
 ![작업][api-management-operations]
 
@@ -164,4 +164,4 @@ API 관리 포털에서 원하는 API를 선택한 다음 **작업** 탭을 선�
 [제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
 [Azure API 관리에서 작업 결과를 캐시하는 방법]: api-management-howto-cache.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

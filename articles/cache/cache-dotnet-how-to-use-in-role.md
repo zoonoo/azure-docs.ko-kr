@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,7 +25,7 @@
 
 이 가이드에서는 **Azure 캐시용 In-Role Cache**를 사용하는 방법에 대해 설명합니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다. **캐시 클러스터 구성**, **캐시 클라이언트 구성**, **캐시에서 개체 추가 및 삭제, 캐시에 ASP.NET 세션 상태 저장**, **캐시를 사용하여 ASP.NET 페이지 출력 캐싱 활성화** 등의 시나리오를 다룹니다. In-Role Cache 사용에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
->[AZURE.NOTE]특정 응용 프로그램에 적합한 Azure 캐시 서비스를 선택하는 방법에 대한 자세한 지침을 보려면 [나에게 적합한 Azure 캐시 서비스][]를 참조하세요.
+>[AZURE.IMPORTANT]2016년 11월 30일부터 Azure 관리 캐시된 서비스 및 Azure In-Role Cache가 사용 중지됩니다. 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. 날짜 및 마이그레이션 지침에 대한 자세한 내용은 [내게 적합한 Azure 캐시 제품은 무엇인가요?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)를 참조하세요.
 
 <a name="what-is"></a>
 ## In-Role Cache란?
@@ -407,10 +407,9 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [In-Role Cache 문제 해결 및 진단]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[나에게 적합한 Azure 캐시 서비스]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -45,6 +45,8 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 
 ###다음 단계:
 
+[Azure Mobile Engagement 계정을 만듭니다](mobile-engagement-create-account.md).
+
 [모범 사례 및 사용자의 Mobile Engagement를 만드는 프로세스](mobile-engagement-getting-started-best-practices.md)
 
 [시작(마케터)](mobile-engagement-define-your-mobile-engagement-strategy.md)
@@ -52,4 +54,4 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 [시작(개발자)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

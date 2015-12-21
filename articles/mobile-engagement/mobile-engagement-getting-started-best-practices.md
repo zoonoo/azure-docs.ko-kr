@@ -391,6 +391,7 @@ Azure Mobile Engagement 설정은 매우 간단합니다. 사용자 인터페이
 
 ## 다음 단계
 
+- [Azure Mobile Engagement 계정을 만듭니다](mobile-engagement-create-account.md).
 - 모바일 고객 관리 전략의 정의에 대한 자세한 내용을 배우려면 [모바일 고객 관리 전략 정의](mobile-engagement-define-your-mobile-engagement-strategy.md)를 방문합니다.
 
 
@@ -403,4 +404,4 @@ Azure Mobile Engagement 설정은 매우 간단합니다. 사용자 인터페이
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

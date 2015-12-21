@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="참조 데이터 사용 | Microsoft Azure" 
-	description="스트림 분석 입력 스트림에서 참조 데이터 사용" 
-	keywords="빅 데이터 분석, 클라우드 서비스, 사물 인터넷, 관리되는 서비스, 스트림 처리, 스트리밍 분석, 데이터 스트리밍"
+	pageTitle="스트림 분석에서 참조 데이터 및 조회 테이블 사용 | Microsoft Azure" 
+	description="스트림 분석 쿼리에서 참조 데이터 사용" 
+	keywords="조회 테이블, 참조 데이터"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -14,12 +14,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# 스트림 분석 입력 스트림에서 참조 데이터 사용
+# 스트림 분석 입력 스트림에서 참조 데이터 또는 조회 테이블 사용
 
-참조 데이터는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. Azure 스트림 분석 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://msdn.microsoft.com/library/azure/dn949258.aspx)을 사용합니다. 스트림 분석에서는 참조 데이터에 대한 저장소 계층으로 Azure Blob 저장소를 사용하고 Azure 데이터 팩터리를 통해 참조 데이터로 사용하기 위해 참조 데이터를 [개수에 관계 없이 클라우드 기반 및 온-프레미스 데이터 저장소](./articles/data-factory-data-movement-activities.md) 형태로 Azure Blob 저장소로 변환 및/또는 복사할 수 있습니다. 참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것**만** 지원됩니다.
+참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. Azure 스트림 분석 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://msdn.microsoft.com/library/azure/dn949258.aspx)을 사용합니다. 스트림 분석에서는 참조 데이터에 대한 저장소 계층으로 Azure Blob 저장소를 사용하고 Azure 데이터 팩터리를 통해 참조 데이터로 사용하기 위해 참조 데이터를 [개수에 관계 없이 클라우드 기반 및 온-프레미스 데이터 저장소](./articles/data-factory-data-movement-activities.md) 형태로 Azure Blob 저장소로 변환 및/또는 복사할 수 있습니다. 참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것**만** 지원됩니다.
 
 ## 참조 데이터 구성
 
@@ -103,4 +103,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

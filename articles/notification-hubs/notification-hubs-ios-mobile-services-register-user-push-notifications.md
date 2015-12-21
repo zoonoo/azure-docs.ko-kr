@@ -118,8 +118,7 @@
 [알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-ios/
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

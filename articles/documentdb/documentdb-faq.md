@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mimig"/>
 
 
@@ -42,6 +42,9 @@ DocumentDB는 JSON 형식으로 데이터를 저장하는 NoSQL 문서 지향 �
 ### DocumentDB의 대표적인 사용 사례는 무엇인가요?  
 DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성능 및 쿼리 기능이 중요한 새로운 웹 및 모바일 응용 프로그램에 적합한 옵션입니다. DocumentDB는 응용 프로그램 데이터 모델의 신속한 개발 및 연속적인 반복 지원에 적합합니다. 사용자 생성 콘텐츠 및 데이터를 관리하는 응용 프로그램은 [DocumentDB의 일반적인 사용 사례](documentdb-use-cases.md)입니다.
 
+### DocumentDB HIPAA 규정을 준수합니까?
+DocumentDB는 현재 HIPAA 규정을 준수하지 않지만 HIPAA 규정 준수 Azure 서비스는 로드맵에 있습니다. Microsoft 및 HIPAA에 대한 자세한 내용은 [HIPAA 및 HITECH 활동](https://www.microsoft.com/ko-KR/TrustCenter/Compliance/HIPAA)을 참조하세요.
+
 ### DocumentDB의 확장 제한 사항은 무엇입니까?
 컬렉션을 추가하여 저장소와 처리량을 기준으로 DocumentDB 계정을 확장할 수 있습니다. 컬렉션의 수에 대한 서비스 할당량은 [DocumentDB 제한](documentdb-limits.md)을 참조하세요. 추가 컬렉션이 필요한 경우 [지원 담당자에게 문의하여](documentdb-increase-limits.md) 계정 할당량을 늘리세요.
 
@@ -52,7 +55,7 @@ DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성�
 Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 Visual Studio 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 $150의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
 
 ### DocumentDB 추가 도움말은 어떻게 구할 수 있나요?
-도움이 필요한 경우 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), [Azure DocumentDB MSDN 개발자 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하거나 [DocumentDB 엔지니어링 팀과의 1:1 채팅](http://www.askdocdb.com/)을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)에서 Azure DocumentDB를 팔로우하세요.
+도움이 필요한 경우 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-documentdb), [Azure DocumentDB MSDN 개발자 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하거나 [DocumentDB 엔지니어링 팀과의 1:1 채팅](http://www.askdocdb.com/)을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)를 팔로우하세요.
 
 ## Microsoft Azure DocumentDB 설정
 
@@ -112,4 +115,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

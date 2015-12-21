@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/06/2015"
    ms.author="v-jeana; hascipio"/>
 
 
@@ -60,7 +60,7 @@ https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증
   - **고객 관리**
   - **제품 관리**
   - **지급**
-  - **판매자 대시보드**
+  - **개발자 센터**
   - **기타**
 
 ## 4\. 지원 요청
@@ -92,4 +92,4 @@ https://publish.windowsazure.com/으로 이동하여 Microsoft 계정 자격 증
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

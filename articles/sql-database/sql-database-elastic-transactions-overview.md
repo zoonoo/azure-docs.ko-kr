@@ -35,9 +35,9 @@ SQL DB용 탄력적 데이터베이스 트랜잭션은 여러 개의 다른 SQL 
 
 ## 설치 및 마이그레이션
 
-SQL DB의 탄력적 데이터베이스 트랜잭션 기능은 .NET 라이브러리 System.Data.dll 및 System.Transactions.dll 업데이트를 통해 제공됩니다. DLL은 원자성을 보장하기 위해 필요한 경우 2단계 커밋이 사용되도록 합니다. 탄력적 데이터베이스 트랜잭션을 사용한 응용 프로그램 개발을 시작하려면 .NET framework [.NET 4.6.1 Release Candidate](http://blogs.msdn.com/b/dotnet/archive/2015/10/29/announcing-net-framework-4-6-1-rc.aspx) 이상 버전을 설치합니다. 이전 버전의 .NET framework를 실행하면, 트랜잭션이 분산 트랜잭션으로 승격하지 못하고 예외가 발생합니다.
+SQL DB의 탄력적 데이터베이스 트랜잭션 기능은 .NET 라이브러리 System.Data.dll 및 System.Transactions.dll 업데이트를 통해 제공됩니다. DLL은 원자성을 보장하기 위해 필요한 경우 2단계 커밋이 사용되도록 합니다. 탄력적 데이터베이스 트랜잭션을 사용하여 응용 프로그램 개발을 시작하려면 [.NET Framework 4.6.1](https://www.microsoft.com/ko-KR/download/details.aspx?id=49981) 이상 버전을 설치합니다. 이전 버전의 .NET framework를 실행하면, 트랜잭션이 분산 트랜잭션으로 승격하지 못하고 예외가 발생합니다.
 
-설치 후에는 SQL DB 연결과 함께 System.Transactions에 분산 트랜잭션 API를 사용할 수 있습니다. 기존 MSDTC 응용 프로그램에서 이러한 API를 사용하고 있는 경우에는 Release Candidate을 설치한 후에 .NET 4.6에 대한 기존 응용 프로그램을 간단히 다시 빌드합니다. 프로젝트가 .NET 4.6을 대상으로 하는 경우에는, Release Candidate의 업데이트된 DLL이 자동으로 사용되고 분산 트랜잭션 API 호출이 SQL DB 연결과 함께 성공합니다.
+설치 후에는 SQL DB 연결과 함께 System.Transactions에 분산 트랜잭션 API를 사용할 수 있습니다. 기존 MSDTC 응용 프로그램에서 이러한 API를 사용하고 있는 경우에는 4.6.1 Framework를 설치한 후에 .NET 4.6에 대한 기존 응용 프로그램을 간단히 다시 빌드합니다. 프로젝트가 .NET 4.6을 대상으로 하는 경우에는, 새 Framework 버전에서 업데이트된 DLL이 자동으로 사용되고 분산 트랜잭션 API 호출이 SQL DB 연결과 함께 성공합니다.
 
 탄력적 데이터베이스 트랜잭션은 MSDTC를 설치할 필요가 없습니다. 대신 탄력적 데이터베이스 트랜잭션은 SQL DB 내에서 SQL DB에 의해 직접적으로 관리됩니다. 분산된 트랜잭션을 SQL DB와 사용하기 위해 MSDTC 배포가 필요하지 않기 때문에 클라우드 시나리오를 상당히 간소화시킵니다. 섹션 4는 탄력적 데이터베이스 트랜잭션 배포 방법 및 필요한 .NET framework를 Azure에 대한 클라우드 응용 프로그램과 함께 보다 자세히 설명합니다.
 
@@ -96,7 +96,7 @@ SQL DB용 탄력적 데이터베이스 트랜잭션은 확장된 데이터 층�
 
 ## Azure 작업자 역할에 대한 설치
 
-Azure에 대한 탄력적 데이터베이스 트랜잭션에 필요한 .NET 버전과 라이브러리의 설치 및 배포를 자동화할 수 있습니다(클라우드 서비스의 게스트 OS로). Azure 작업자 역할에 시작 작업을 사용합니다. 개념 및 단계는 [클라우드 서비스 역할에 .NET 설치](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/)에 문서화되어 있습니다.
+Azure에 대한 탄력적 데이터베이스 트랜잭션에 필요한 .NET 버전과 라이브러리의 설치 및 배포를 자동화할 수 있습니다(클라우드 서비스의 게스트 OS로). Azure 작업자 역할에 시작 작업을 사용합니다. 개념 및 단계는 [클라우드 서비스 역할에 .NET 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)에 문서화되어 있습니다.
 
 .NET 4.6.1용 설치 관리자는 Azure 클라우드 서비스에서 프로세스를 부트스트랩하는 과정에서 .NET 4.6용 설치 관리자보다 더 많은 임시 저장 공간을 필요로 합니다. 성공적인 설치를 위해 다음 예에서처럼 LocalResources 섹션의 ServiceDefinition.csdef 파일과 시작 작업의 환경 설정에서 Azure 클라우드 서비스의 임시 저장 공간을 늘려야 합니다.
 
@@ -140,9 +140,9 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 
 ## 자세한 정보
 
-아직 Azure 응용 프로그램용 탄력적 데이터베이스 기능을 사용하지 않나요? [설명서 맵](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/)을 확인하세요. 의문 사항이 있으면 [SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL 데이터베이스 사용자 의견 포럼](http://feedback.azure.com/forums/217321-sql-database)에 추가하세요.
+아직 Azure 응용 프로그램용 탄력적 데이터베이스 기능을 사용하지 않나요? [설명서 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)을 확인하세요. 의문 사항이 있으면 [SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL 데이터베이스 사용자 의견 포럼](http://feedback.azure.com/forums/217321-sql-database)에 추가하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

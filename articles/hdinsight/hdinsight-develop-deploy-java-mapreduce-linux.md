@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
@@ -31,7 +31,7 @@
 
 - [Apache Maven](http://maven.apache.org/)
 
-- **Azure 구독**: [Azure 무료 평가판 받기](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md)를 참조하세요.
+- **Azure 구독**
 
 - **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
@@ -90,7 +90,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 	이 코드를 통해 Maven은 프로젝트에 특정 버전(&lt;version>에 나열됨)의 라이브러리(&lt;artifactId> 내에 나열됨)가 필요하다는 것을 인식합니다. 컴파일 시간에 이 파일이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar)을 사용하여 자세한 정보를 볼 수 있습니다.
 
-	`<scope>provided</scope>`는 이러한 종속성이 런타임에 HDInsight 클러스터에서 제공되므로 응용 프로그램과 함께 패키징해서는 안 된다는 점을 Maven에 알려 줍니다.
+	`<scope>provided</scope>`는 이러한 종속성은 런타임에 HDInsight 클러스터에서 제공되므로 응용 프로그램과 함께 패키징해서는 안 된다는 점을 Maven에 알려 줍니다.
 
 2. __pom.xml__ 파일에 다음을 추가합니다. 이 코드는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어`</dependencies>`과 `</project>` 사이에 있어야 합니다.
 
@@ -126,7 +126,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
   		  </plugins>
 	    </build>
 
-	첫 번째 플러그 인은 [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)을 구성하고 이는 응용 프로그램에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용됩니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
+	첫 번째 플러그 인은 응용 프로그램에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용되는 [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)을 구성합니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
 
 	두 번째 플러그 인은 이 응용 프로그램에 필요한 Java 버전을 HDInsight 클러스터에서 사용되는 버전으로 설정하는 데 사용되는 Maven 컴파일러를 구성합니다.
 
@@ -213,7 +213,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 ##응용 프로그램 빌드
 
-1. 아직 수행하지 않은 경우 __wordcountjava__ 디렉터리로 변경합니다.
+1. __wordcountjava__ 디렉터리로 변경합니다(아직 이동하지 않은 경우).
 
 2. 다음 명령을 사용하여 응용 프로그램을 포함하는 JAR 파일을 빌드합니다.
 
@@ -223,7 +223,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 3. 명령이 완료되면 __wordcountjava/target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
 
-	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일은 WordCount 작업 뿐만 아니라 런타임 시 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
+	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일은 는 WordCount 작업뿐만 아니라 런타임에 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
 
 
 ##<a id="upload"></a>jar 업로드
@@ -244,7 +244,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
     - [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    - [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    - [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. SSH 세션에서 다음 명령을 사용하여 MapReduce 응용 프로그램을 실행합니다.
 
@@ -270,7 +270,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
 - [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
+자세한 내용은 [Java 개발자 센터](http://azure.microsoft.com/develop/java/)를 참조하세요.
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -282,22 +282,14 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
+
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
-
-
-[image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
-[image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

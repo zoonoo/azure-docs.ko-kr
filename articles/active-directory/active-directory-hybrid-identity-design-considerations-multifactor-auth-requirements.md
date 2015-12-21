@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다단계 인증 요구 사항 확인"
+	pageTitle="Azure Active Directory 하이브리드 ID 디자인 고려 사항 - Multi-Factor Authentication 요구 사항 확인"
 	description="조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # 하이브리드 ID 솔루션에 대한 다단계 인증 요구 사항 확인
@@ -57,4 +57,4 @@
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

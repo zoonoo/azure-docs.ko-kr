@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/28/2015" 
+    ms.date="12/04/2015" 
     ms.author="elizapo" />
 
 
@@ -27,6 +27,9 @@ Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 �
 각 UPD에는 50GB의 영구 저장소가 있으며 사용자 데이터와 응용 프로그램 설정 모두를 포함합니다.
 
 사용자 프로필 데이터에 대한 구체적인 내용을 읽습니다.
+
+>[AZURE.NOTE]UPD를 비활성화해야 하나요? 바로 가능합니다. 자세한 내용은 Pavithra의 블로그 게시물 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx)를 참조하세요.
+
 
 ## 관리자는 데이터를 어떻게 얻을 수 있습니까?
 
@@ -46,6 +49,8 @@ Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 �
 Azure RemoteApp은 세션 간에 Outlook 상태(사서함, PST)를 저장합니다. 이 기능을 사용하려면, PST를 사용자 프로필 데이터(c:\\users<사용자 이름>)에 저장해야 합니다. 데이터에 대한 기본 위치이며, 위치를 변경하지 않으면 데이터는 세션 간에 유지됩니다.
 
 Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인" 모드를 사용하는 것이 좋습니다.
+
+Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](remoteapp-outlook.md)를 참조하세요.
 
 ## 공유된 데이터 솔루션을 사용할 수 있습니까?
 예, Azure RemoteApp은 공유 데이터 솔루션, 특히 비즈니스 사용자와 Dropbox용 OneDrive를 지원합니다. 그러나 OneDrive 소비자(개인 버전) 및 상자는 지원되지 않습니다.
@@ -76,6 +81,14 @@ Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인
 ## 컬렉션에 대한 UPD를 비활성화할 수 있습니까?
 
 예, 구독에 UPD를 사용하지 않도록 Azure RemoteApp을 요청할 수 있지만 직접 수행할 수 없습니다. 즉, UPD는 구독의 모든 컬렉션에 대해 사용할 수 없습니다.
+
+다음 상황 중 하나에서 UPD를 비활성화할 수 있습니다.
+
+- 사용자 데이터에 대한 완전한 액세스 및 제어가 필요합니다(금융 기관처럼 감사 및 검토 목적으로).
+- 타사 사용자 프로필 관리 솔루션이 온-프레미스에 있고 도메인에 가입된 Azure RemoteApp 배포에서 계속 사용하고 싶습니다. 골드 이미지에 프로필 에이전트가 로드되어야 합니다. 
+- 로컬 데이터 저장소가 필요하지 않으며 모든 데이터를 클라우드(예: OneDrive for Business) 또는 파일 공유로 유지하고 Azure RemoteApp을 사용하여 데이터를 로컬로 저장하는 것을 제어하려고 합니다.
+
+자세한 내용은 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx)를 참조하세요.
 
 ## 시스템 드라이브에 데이터를 저장하지 않도록 사용자를 제한할 수 있습니까?
 
@@ -126,4 +139,4 @@ Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인
 
 아니요, Azure RemoteApp에서 지원되지 않습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/08/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,11 +23,11 @@ Azure BizTalk 서비스에는 백업 및 복원 기능이 포함되어 있습니
 
 [BizTalk 서비스 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584)를 사용하여 BizTalk 서비스를 백업할 수도 있습니다.
 
+> [AZURE.NOTE]하이브리드 연결은 버전에 상관없이 백업되지 않습니다. 하이브리드 연결을 다시 만들어야 합니다.
+
 ## 시작하기 전에
 
 - 일부 버전에서는 백업 및 복원을 사용하지 못할 수도 있습니다. [BizTalk 서비스: 버전 차트](biztalk-editions-feature-chart.md)를 참조하세요.
-
-	**참고** 하이브리드 연결은 버전에 상관없이 백업되지 않습니다.
 
 - Azure 클래식 포털을 사용하여 주문형 백업 또는 예약된 백업을 만들 수 있습니다.
 
@@ -214,7 +214,7 @@ Azure 클래식 포털에서 BizTalk 서비스를 시작하려면 복원된 BizT
 
 ## 다음
 
-Azure 클래식 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동하세요. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하세요.
+Azure 클래식 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: Azure 클래식 포털을 사용하여 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동하세요. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
 
 ## 참고 항목
 - [BizTalk 서비스 백업](http://go.microsoft.com/fwlink/p/?LinkID=325584)
@@ -233,4 +233,4 @@ Azure 클래식 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk �
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

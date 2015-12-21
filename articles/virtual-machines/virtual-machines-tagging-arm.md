@@ -132,7 +132,7 @@ PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureResource` 명령
         Value		MyLocation
         Name		Location
 
-PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은 [Azure 리소스 Cmdlet][]을 참조하세요.
+PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은 [Azure 리소스 Cmdlet][]를 참조하세요.
 
 
 ## Azure CLI를 사용하여 태그 지정
@@ -183,11 +183,11 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 
 
 [Azure 리소스 관리자를 사용하여 PowerShell 환경]: ../powershell-azure-resource-manager.md
-[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/ko-KR/library/azure/dn757692.aspx
+[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure CLI 환경]: ./xplat-cli-azure-resource-manager.md
 [Azure 리소스 관리자 개요]: ../resource-group-overview.md
 [태그를 사용하여 Azure 리소스 구성]: ../resource-group-using-tags.md
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

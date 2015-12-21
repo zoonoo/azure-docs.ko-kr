@@ -1,16 +1,18 @@
-Object|Limit
+Object|제한
 ---|---
-Maximum number of indexes|3 per Search service
-Maximum number of fields per index|1000
-Maximum document count|10,000
-Maximum storage size|50 MB
-Maximum partitions|N/A
-Maximum replicas|N/A
-Maximum search units|N/A
-Maximum search services|N/A
-Maximum number of indexers|3
-Maximum number of datasources|3
-Maximum number of documents that can be indexed in a single indexer invocation|10,000
-Maximum indexer running time|3 minutes
-Maximum number of scoring profiles per index|16
-Maximum number of functions per profile|8
+최대 인덱스 수|검색 서비스당 3개
+인덱스 당 최대 필드 수|1000
+최대 문서 수|10000
+최대 저장소 크기|50MB
+최대 파티션|해당 없음
+최대 복제본|해당 없음
+최대 검색 단위|해당 없음
+최대 검색 서비스|해당 없음
+최대 인덱서 수|3
+최대 데이터 원본 수|3
+단일 인덱서 호출에서 인덱싱할 수 있는 최대 문서 수|10000
+최대 인덱서 실행 시간|3분
+인덱스당 최대 평가 프로필 수|16
+프로필당 최대 함수 수|8
+
+<!---HONumber=AcomDC_1210_2015-->

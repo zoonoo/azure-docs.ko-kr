@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/03/2015"
 	ms.author="antonba"/>
 
 # Azure API 관리에서 VPN 연결을 설정하는 방법
@@ -22,9 +22,9 @@ API 관리의 VPN 지원을 사용하여 API 관리 게이트웨이를 Azure 가
 
 ## <a name="enable-vpn"> </a>VPN 연결 사용
 
->VPN 연결은 **프리미엄** 계층에서만 사용할 수 있습니다. 전환하려면 [관리 포털][]에서 API 관리 서비스를 열고 **크기 조정** 탭을 엽니다. **일반** 섹션에서 프리미엄 계층을 선택하고 저장을 클릭합니다.
+>VPN 연결은 **프리미엄** 계층에서만 사용할 수 있습니다. 전환하려면 [Azure 클래식 포털][]에서 API 관리 서비스를 열고 **크기 조정** 탭을 엽니다. **일반** 섹션에서 프리미엄 계층을 선택하고 저장을 클릭합니다.
 
-VPN 연결을 사용하려면 [관리 포털][]에서 API 관리 서비스를 열고 **구성** 탭으로 전환합니다.
+VPN 연결을 사용하려면 [Azure 클래식 포털][]에서 API 관리 서비스를 열고 **구성** 탭으로 전환합니다.
 
 VPN 섹션에서 **VPN 연결**을 **켜기**로 전환합니다.
 
@@ -36,7 +36,7 @@ VPN 및 모든 지역에 대한 서브넷을 선택합니다. VPN 목록은 사�
 
 ![VPN 선택][api-management-setup-vpn-select]
 
-화면 아래쪽에서 **저장**을 클릭합니다. 업데이트하는 동안 Azure 관리 포털에서 API 관리 서비스의 다른 작업을 수행할 수 없습니다. 서비스 게이트웨이는 여전히 사용할 수 있으며 런타임 호출은 영향을 받지 않습니다.
+화면 아래쪽에서 **저장**을 클릭합니다. 업데이트하는 동안 Azure 클래식 포털에서 API 관리 서비스의 다른 작업을 수행할 수 없습니다. 서비스 게이트웨이는 여전히 사용할 수 있으며 런타임 호출은 영향을 받지 않습니다.
 
 게이트웨이의 VIP 주소는 VPN이 사용되거나 사용 해제될 때마다 변경됩니다.
 
@@ -50,8 +50,8 @@ API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 �
 ## <a name="related-content"> </a>관련 콘텐츠
 
 
- * [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기][]
- * [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법][]
+* [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기][]
+* [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -61,10 +61,9 @@ API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 �
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[관리 포털]: https://manage.windowsazure.com/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 
 [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="09/02/2015"
+ ms.date="12/02/2015"
  ms.author="danlep"/>
 
 # Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행
 
-이 문서에서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 가상 클러스터 네트워크의 여러 Linux 계산 노드에서 **charmrun**으로 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 작업을 실행하여 규모가 큰 생체 분자 시스템의 구조를 계산하고 시각화하는 방법을 보여줍니다.
+이 문서에서는 여러 Linux 계산 노드를 사용하여 Azure에 Microsoft HPC 팩 클러스터를 배포하고 **charmrun**으로 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 작업을 실행하여 규모가 큰 생체 분자 시스템의 구조를 계산 및 시각화하는 방법을 보여 줍니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
@@ -26,7 +26,7 @@
 
 NAMD(Nanoscale Molecular Dynamics 프로그램용)는 바이러스, 세포 구조, 거대한 단백질 등의 수백 만 원자를 포함하는 규모가 큰 생체 분자 시스템의 고성능 시뮬레이션을 위해 설계된 병렬 분자 동적 패키지입니다. NAMD는 일반적인 시뮬레이션의 경우 수백 개의 코어로 확장되며 가장 큰 규모의 시뮬레이션의 경우 500,000 코어 이상까지 확장됩니다.
 
-Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. Microsoft HPC 팩 2012 R2 업데이트 2부터는 HPC 팩에서 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-cluster-hpcpack.md)을 참조하세요.
+Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. Microsoft HPC 팩 2012 R2 업데이트 2부터는 HPC 팩에서 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. 소개는 [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-cluster-hpcpack.md)을 참조하세요.
 
 
 ## 필수 조건
@@ -104,16 +104,16 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 
 2. 표준 Windows Server 절차를 사용하여 클러스터의 Active Directory 도메인에 도메인 사용자 계정을 만듭니다. 예를 들어 헤드 노드에서 Active Directory 사용자 및 컴퓨터 도구를 사용합니다. 이 문서의 예에서는 hpclab\\hpcuser라는 이름의 도메인 사용자를 만든다고 가정합니다.
 
-2.	C:\\cred.xml이라는 이름의 파일을 만들고 RSA 키 데이터를 여기에 복사합니다. 이 파일에 대한 예는 이 문서 끝에 있는 부록에서 확인할 수 있습니다.
+2.	C:\\cred.xml이라는 이름의 파일을 만들고 RSA 키 데이터를 여기에 복사합니다. 이 문서의 끝에 있는 샘플 파일에서 예제를 확인할 수 있습니다.
 
     ```
     <ExtendedData>
-      <PrivateKey>Copy the contents of private key here</PrivateKey>
-      <PublicKey>Copy the contents of public key here</PublicKey>
+        <PrivateKey>Copy the contents of private key here</PrivateKey>
+        <PublicKey>Copy the contents of public key here</PublicKey>
     </ExtendedData>
     ```
 
-3.	명령 창을 열고 다음 명령을 입력하여 hpclab\\hpcuser 계정에 대한 자격 증명 데이터를 설정합니다. 키 데이터를 위해 만든 C:\\cred.xml 파일의 이름을 전달하는 데 **extendeddata** 매개 변수를 사용합니다.
+3.	명령 프롬프트를 열고 다음 명령을 입력하여 hpclab\\hpcuser 계정에 대한 자격 증명 데이터를 설정합니다. 키 데이터를 위해 만든 C:\\cred.xml 파일의 이름을 전달하는 데 **extendeddata** 매개 변수를 사용합니다.
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
@@ -129,16 +129,16 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 
 이제 헤드 노드에서 폴더에 대한 표준 SMB 공유를 설정하고 모든 Linux 노드에서 공유 폴더를 탑재하여 Linux 노드에서 일반 경로로 NAMD 파일에 액세스할 수 있도록 합니다. [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-cluster-hpcpack.md)의 파일 공유 옵션 및 단계를 참조하세요. (CentOS 6.6 Linux 노드가 현재 유사한 기능을 제공하는 Azure 파일 서비스를 지원하지 않기 때문에 이 문서에서는 헤드 노드에 공유 폴더를 탑재할 것을 권장합니다. Azure 파일 공유 탑재에 대한 자세한 내용은 [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)(영문)를 참조하세요.)
 
-1.	헤드 노드에서 폴더를 만들고 읽기/쓰기 권한을 설정하여 모든 사용자에게 공유합니다. 이 예에서, \\CentOS66HN\\Namd는 폴더의 이름이고 여기서 CentOS66HN은 헤드 노드의 호스트 이름입니다.
+1.	헤드 노드에서 폴더를 만들고 읽기/쓰기 권한을 설정하여 모든 사용자에게 공유합니다. 이 예에서, \\\CentOS66HN\\Namd는 폴더의 이름이고 여기서 CentOS66HN은 헤드 노드의 호스트 이름입니다.
 
-2. Windows 버전의 **tar** 또는 .tar 보관 파일에 대해 작동하는 다른 Windows 유틸리티를 사용하여 해당 폴더에 NAMD 파일을 추출합니다. NAMD tar 보관 파일을 \\CentOS66HN\\Namd\\namd2로 추출하고 자습서 파일을 \\CentOS66HN\\Namd\\namd2\\namdsample 아래에 추출합니다.
+2. Windows 버전의 **tar** 또는 .tar 보관 파일에 대해 작동하는 다른 Windows 유틸리티를 사용하여 해당 폴더에 NAMD 파일을 추출합니다. NAMD tar 보관 파일을 \\\CentOS66HN\\Namd\\namd2로 추출하고 자습서 파일을 \\\CentOS66HN\\Namd\\namd2\\namdsample 아래에 추출합니다.
 
 2.	Windows PowerShell 창을 열고 다음 명령을 실행하여 공유 폴더를 탑재합니다.
 
     ```
-    PS > clusrun /nodegroup:LinuxNodes mkdir -p /namd2
+    clusrun /nodegroup:LinuxNodes mkdir -p /namd2
 
-    PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
+    clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
 첫 번째 명령은 LinuxNodes 그룹의 모든 노드에 /namd2라는 폴더를 만듭니다. 두 번째 명령은 dir\_mode 및 file\_mode 비트를 777로 설정하여 공유 폴더 //CentOS66HN/Namd/namd2를 폴더에 탑재합니다. 명령의 *username*과 *password*는 헤드 노드 사용자의 자격 증명이어야 합니다.
@@ -182,7 +182,7 @@ host CENTOS66LN-03 ++cpus 2
 ```
 ### nodelist 파일을 생성하는 Bash 스크립트
 
-원하는 텍스트 편집기를 사용하여 NAMD 프로그램 파일을 포함하는 폴더에 다음 Bash 스크립트를 만들고 hpccharmrun.sh로 이름을 지정합니다. 이 파일의 전체 샘플은 이 문서의 부록에 있습니다. bash 스크립트는 다음을 수행합니다.
+원하는 텍스트 편집기를 사용하여 NAMD 프로그램 파일을 포함하는 폴더에 다음 Bash 스크립트를 만들고 hpccharmrun.sh로 이름을 지정합니다. 전체 예제는 이 문서의 끝에 있는 샘플 파일에 있습니다. bash 스크립트는 다음을 수행합니다.
 
 >[AZURE.TIP]스크립트를 Linux 줄 끝(CR LF가 아닌 LF만)을 사용하여 텍스트 파일로 저장하십시오. 이렇게 해야 Linux 노드에서 제대로 실행됩니다.
 
@@ -302,13 +302,13 @@ host CENTOS66LN-03 ++cpus 2
 
 6.	작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-7.	작업 로그는 <headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log에, 출력 파일은 <headnode>\\Namd\\namd2\\namdsample\\1-2-sphere에 있습니다.
+7.	작업 로그는 \<headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log에, 출력 파일은 \<headnode>\\Namd\\namd2\\namdsample\\1-2-sphere에 있습니다.
 
 8.	필요에 따라 VMD를 시작하여 작업 결과를 확인합니다. NAMD 출력 파일을 시각화하는 단계(이 경우, 물 구체에서 유비퀴틴 단백질 분자)는 이 문서의 범위를 벗어납니다. 자세한 내용은 [NAMD 자습서](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf)를 참조하세요.
 
     ![작업 결과][vmd_view]
 
-## 부록
+## 샘플 파일
 
 ### 샘플 hpccharmrun.sh 스크립트
 
@@ -408,4 +408,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

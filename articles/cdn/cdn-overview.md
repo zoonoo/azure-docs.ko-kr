@@ -20,7 +20,7 @@
 
 Azure CDN(콘텐츠 배달 네트워크)은 클라우드 서비스에서 사용하는 Azure Blob 및 정적 콘텐츠를 전략적으로 배치된 위치에 캐시하여 사용자에게 콘텐츠를 배달하는 데 최대 대역폭을 제공합니다.
 
-기존 CDN 고객인 경우 이제 [Microsoft Azure 관리 포털](https://portal.azure.com)을 통해 CDN 끝점을 관리할 수 있습니다.
+기존 CDN 고객인 경우 이제 [Microsoft Azure 포털](https://portal.azure.com)을 통해 CDN 끝점을 관리할 수 있습니다.
 
 
 CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다. CDN 노드 위치의 현재 목록은 [Azure CDN(콘텐츠 배달 네트워크) POP 위치](cdn-pop-locations.md)를 참조하세요.
@@ -48,7 +48,7 @@ CDN에 개체 요청을 처음 수행하는 경우 개체의 소스 원본 위�
 - [HTTPS 지원](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - 부하 분산
 - DDOS 보호
-- 빠른 삭제
+- [빠른 삭제](cdn-purge-endpoint.md)
 
  
 ## 프리미엄 기능
@@ -59,4 +59,4 @@ CDN에 개체 요청을 처음 수행하는 경우 개체의 소스 원본 위�
 - [고급 HTTP 보고서](cdn-advanced-http-reports.md)
 - [실시간 통계](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

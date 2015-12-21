@@ -51,7 +51,7 @@ VPN 장치 지원은 장치 제조업체에 문의하세요.
 | Cisco | ASR | IOS 15.1(고정), IOS 15.2(동적) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Cisco | ISR | IOS 15.0(고정), IOS 15.1(동적) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | CloudBridge MPX 어플라이언스 또는 VPX 가상 어플라이언스 | 해당 없음 | [통합 지침](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | 호환되지 않음 |
-| Dell SonicWALL | TZ 시리즈, NSA 시리즈, SuperMassive 시리즈 E-Class NSA 시리즈 | SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x | [구성 지침](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | 호환되지 않음 |
+| Dell SonicWALL | TZ 시리즈, NSA 시리즈, SuperMassive 시리즈 E-Class NSA 시리즈 | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [지침 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [지침 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [지침 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [지침 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | BIG-IP 시리즈 | 해당 없음 | [구성 지침](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | 호환되지 않음 |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [구성 지침](http://docs.fortinet.com/fortigate/admin-guides) | [구성 지침](http://docs.fortinet.com/fortigate/admin-guides) |
 | IIJ(Internet Initiative Japan) | SEIL 시리즈 | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [구성 지침](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | 호환되지 않음 |
@@ -78,7 +78,7 @@ VPN 장치 지원은 장치 제조업체에 문의하세요.
 **샘플을 편집하려면:**
 
 1. 메모장을 사용하여 샘플을 엽니다. 
-1. 모든 <*텍스트*> 문자열을 검색해서 환경에 관련된 값으로 바꿉니다. < and >을 포함해야 합니다. 이름을 지정할 때 선택하는 이름은 고유해야 합니다. 명령이 작동하지 않는 경우 해당 장치 제조업체 설명서를 참조하세요.
+1. 모든 <*텍스트*> 문자열을 검색하여 환경에 관련된 값으로 바꿉니다. < and >를 포함해야 합니다. 이름을 지정할 때 선택하는 이름은 고유해야 합니다. 명령이 작동하지 않는 경우 해당 장치 제조업체 설명서를 참조하세요.
 
 | **샘플 텍스트** | **변경** |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -156,4 +156,4 @@ VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](v
 
 사이트 간 VPN을 구성하려면 [사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-site-to-site-create.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

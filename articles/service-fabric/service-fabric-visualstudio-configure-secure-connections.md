@@ -46,9 +46,9 @@ Visual Studio에서 서비스 패브릭 프로젝트를 게시하는 경우 **�
 
 4.	[옵션]: 게시 프로필을 편집하여 보안 클러스터 연결을 지정할 수 있습니다.
 
-    게시 프로필 XML 파일을 수동으로 편집하여 인증서 정보를 지정하므로 인증서 저장소 이름, 저장소 위치 및 인증서 지문을 적어 두어야 합니다. 인증서 저장소 이름 및 저장소 위치에 이러한 값을 제공해야 합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://msdn.microsoft.com/ko-KR/library/ms734695(v=vs.110).aspx)을 참조하세요.
+    게시 프로필 XML 파일을 수동으로 편집하여 인증서 정보를 지정하므로 인증서 저장소 이름, 저장소 위치 및 인증서 지문을 적어 두어야 합니다. 인증서 저장소 이름 및 저장소 위치에 이러한 값을 제공해야 합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx)을 참조하세요.
 
-    *ClusterConnectionParameters* 매개 변수를 통해 서비스 패브릭 클러스터에 연결할 때 사용할 PowerShell 매개 변수를 지정할 수 있습니다. 유효한 매개 변수는 Connect-ServiceFabricCluster cmdlet에서 허용하는 모든 매개 변수입니다. 사용 가능한 매개 변수 목록은 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/ko-KR/library/mt125938.aspx)를 참조하세요.
+    *ClusterConnectionParameters* 매개 변수를 통해 서비스 패브릭 클러스터에 연결할 때 사용할 PowerShell 매개 변수를 지정할 수 있습니다. 유효한 매개 변수는 Connect-ServiceFabricCluster cmdlet에서 허용하는 모든 매개 변수입니다. 사용 가능한 매개 변수 목록은 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx)를 참조하세요.
 
     원격 클러스터에 게시하는 경우 해당 특정 클러스터에 적절한 매개 변수를 지정해야 합니다. 다음은 비보안 클러스터에 연결하기 위한 예제입니다.
 
@@ -76,4 +76,4 @@ Visual Studio에서 서비스 패브릭 프로젝트를 게시하는 경우 **�
 [publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

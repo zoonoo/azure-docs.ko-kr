@@ -90,7 +90,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 | ZUMO-API-VERSION | MS\_SkipVersionCheck의 값 | 응답 |
 | ---------------- | ---------------------------- | -------- |
-| 지정되지 않음 | 어떤 | 200 - 확인 |
+| 지정되지 않음 | 모두 | 200 - 확인 |
 | 어떤 값 | True | 200 - 확인 |
 | 어떤 값 | False/지정되지 않음 | 400 - 잘못된 요청 | 
 
@@ -139,7 +139,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[모바일 서비스를 Azure 앱 서비스로 마이그레이션]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
+[모바일 서비스를 Azure 앱 서비스로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

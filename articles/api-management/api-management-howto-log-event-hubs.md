@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법
@@ -24,11 +24,11 @@ Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있
 
 ## Azure 이벤트 허브 만들기
 
-새 이벤트 허브를 만들려면 [Azure 포털](https://manage.windowsazure.com)에 로그인하여 **새로 만들기**->**앱 서비스**->**서비스 버스**->**이벤트 허브**->**빠른 생성**을 차례로 클릭합니다. 이벤트 허브 이름, 지역을 입력하고 구독을 선택한 후 네임스페이스를 선택합니다. 이전에 네임스페이스를 만들지 않은 경우 **네임스페이스** 텍스트 상자에 이름을 입력하여 만들 수 있습니다. 모든 속성이 구성되면 **새 이벤트 허브 만들기**를 클릭하여 이벤트 허브를 만듭니다.
+이벤트 허브를 만들려면 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인하여 **새로 만들기** > **앱 서비스** > **서비스 버스** > **이벤트 허브** > **빠른 생성**을 차례로 클릭합니다. 이벤트 허브 이름, 지역을 입력하고 구독을 선택한 후 네임스페이스를 선택합니다. 이전에 네임스페이스를 만들지 않은 경우 **네임스페이스** 텍스트 상자에 이름을 입력하여 만들 수 있습니다. 모든 속성이 구성되면 **새 이벤트 허브 만들기**를 클릭하여 이벤트 허브를 만듭니다.
 
 ![이벤트 허브 만들기][create-event-hub]
 
-그다음 새 이벤트 허브에 대한 **구성** 탭으로 이동하여 두 개의 **공유 액세스 정책**을 만듭니다. 첫 번째 정책의 이름을 **전송**으로 지정하고 **보내기** 권한을 부여합니다.
+다음으로 새 이벤트 허브에 대한 **구성** 탭으로 이동하여 두 개의 **공유 액세스 정책**을 만듭니다. 첫 번째 정책의 이름을 **전송**으로 지정하고 **보내기** 권한을 부여합니다.
 
 ![전송 정책][sending-policy]
 
@@ -69,7 +69,7 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
       "type" : "AzureEventHub",
       "description" : "Sample logger description",
       "credentials" : {
-        "name" : "Name of the Event Hub from the Azure portal",
+        "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
         }
     }
@@ -86,11 +86,11 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 
 API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-eventhubs 정책을 구성할 수 있습니다. log-to-eventhubs 정책은 인바운드 정책 섹션 또는 아웃바운드 정책 섹션에서 사용할 수 있습니다.
 
-정책을 구성하려면 [Azure 포털](https://manage.windowsazure.com)에 로그인하고 API 관리 서비스로 이동한 후 **게시자 포털** 또는 **관리**를 클릭하여 게시자 포털에 액세스합니다.
+정책을 구성하려면 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인하여 API 관리 서비스로 이동하고 **게시자 포털** 또는 **관리**를 클릭하여 게시자 포털에 액세스합니다.
 
 ![게시자 포털][publisher-portal]
 
-왼쪽의 API 관리 메뉴에서 **정책**을 클릭하고 원하는 제품 및 API를 선택한 후 **정책 추가**를 클릭합니다. 이 예제에서는 **Unlimited** 제품의 **Echo API**에 정책을 추가합니다.
+왼쪽의 API 관리 메뉴에서 **정책**을 클릭하고 원하는 제품 및 API를 선택한 후 **정책 추가**를 클릭합니다. 이 예제에서는 **무제한** 제품의 **Echo API**에 정책을 추가합니다.
 
 ![정책 추가][add-policy]
 
@@ -133,4 +133,4 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

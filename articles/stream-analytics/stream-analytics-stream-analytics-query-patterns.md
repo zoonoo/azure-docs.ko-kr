@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Azure 스트림 분석 쿼리 패턴 | Microsoft Azure"
+	pageTitle="일반적인 스트림 분석 사용 패턴에 대한 쿼리 예제 | Microsoft Azure"
 	description="일반적인 Azure 스트림 분석 쿼리 패턴"
-	keywords="스트림 분석, 샘플, 쿼리, 언어, 가이드, 패턴"
+	keywords="쿼리 예제"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,18 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
-# 일반적인 Azure 스트림 분석 쿼리 패턴  #
+# 일반적인 스트림 분석 사용 패턴에 대한 쿼리 예제 #
 
 ## 소개 ##
-Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azure/dn834998.aspx)에 문서화된 SQL과 유사한 언어로 표현됩니다. 이 문서에서는 실제 시나리오에 따른 몇가지 일반적인 쿼리 패턴에 대한 솔루션을 간략적으로 설명합니다. 이 작업은 진행중이며 새 패턴이 지속적으로 업데이트됩니다.
 
-## 기본 사항 ##
+Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azure/dn834998.aspx)에 문서화된 SQL과 유사한 언어로 표현됩니다. 이 문서에서는 실제 시나리오에 따른 몇 가지 일반적인 쿼리 패턴에 대한 솔루션을 간략하게 설명합니다. 이 작업은 진행 중이며 새 패턴이 지속적으로 업데이트됩니다.
 
-## 데이터 형식 변환 ##
+## 쿼리 예제: 데이터 형식 변환 ##
 **설명**: 입력 스트림의 속성 형식을 정의합니다. 예를 들어 자동차 무게가 입력 스트림에 문자열 형식으로 설정되면 합계를 수행하기 위해 INT로 변환해야 합니다.
 
 **입력**:
@@ -41,7 +40,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 | --- | --- |
 | Honda | 3000 |
 
-**해결 방법**:
+**솔루션**:
 
 	SELECT
     	Make,
@@ -54,8 +53,8 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **설명**: 무게 필드의 CAST 문을 사용하여 해당 형식을 지정합니다(지원되는 데이터 형식의 목록을 보려면[여기](https://msdn.microsoft.com/library/azure/dn835065.aspx)를 참조).
 
-## 패턴을 일치시키기 위해 Like/Not like를 사용합니다. ##
-**설명**: 특정 패턴과 일치시키기 위해 이벤트의 필드 값을 확인합니다. 예를들어 A로 시작하고 9로 끝나는 번호판을 반환합니다.
+## 쿼리 예제: 패턴을 일치시키기 위해 Like/Not like를 사용합니다. ##
+**설명**: 특정 패턴과 일치시키기 위해 이벤트의 필드 값을 확인합니다. 예를 들어 A로 시작하고 9로 끝나는 번호판을 반환합니다.
 
 **입력**:
 
@@ -72,7 +71,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 | Toyota | AAA 999 | 2015-01-01T00:00:02.0000000Z |
 | Nissan | ABC 369 | 2015-01-01T00:00:03.0000000Z |
 
-**해결 방법**:
+**솔루션**:
 
 	SELECT
     	*
@@ -83,7 +82,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **설명**: LIKE 문을 사용하여 LicensePlate 필드 값이 A로 시작하고 0개 이상 문자의 모든 문자열이 있는지와 9로 끝나는지 확인합니다.
 
-## 다른 사례/값(CASE 문)에 대한 논리를 지정합니다. ##
+## 쿼리 예제: 다른 사례/값(CASE 문)에 대한 논리를 지정합니다. ##
 **설명**: 일부 조건에 따른 필드에 대한 다른 계산을 제공합니다. 예를 들어, 1이라는 특수 사례를 가진 동일한 브랜드의 차가 몇 대 통과했는지에 대한 문자열 설명을 제공합니다.
 
 **입력**:
@@ -101,7 +100,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 | 1 Honda | 2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas | 2015-01-01T00:00:10.0000000Z |
 
-**해결 방법**:
+**솔루션**:
 
     SELECT
     	CASE
@@ -117,7 +116,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **설명**: CASE 절을 사용하면 일부 조건에 따른 다른 계산을 제공할 수 있습니다(이 경우에는 집계 창에 있는 자동차의 수).
 
-## 데이터를 여러 출력으로 보내기 ##
+## 쿼리 예제: 데이터를 여러 출력으로 보내기 ##
 **설명**: 데이터를 단일 작업에서 여러 출력 대상으로 보냅니다. 예를 들어 임계점 기반 경고에 대한 데이터를 분석하고 blob 저장소에 모든 이벤트를 보관합니다.
 
 **입력**:
@@ -146,7 +145,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 | --- | --- | --- |
 | Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
 
-**해결 방법**:
+**솔루션**:
 
 	SELECT
 		*
@@ -182,9 +181,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 	SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## 패턴 ##
-
-## 고유 값 계산
+## 쿼리 예제: 고유 값 계산
 **설명**: 시간 창 안의 스트림에 나타나는 고유 필드 값 개수를 계산합니다. 예를 들어, 2초 창 안에 톨게이트를 통과한 고유한 브랜드의 차는 몇 대입니까?
 
 **입력**:
@@ -227,8 +224,8 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **설명:** 창 위에 개수를 포함한 고유한 값을 얻기 위해 초기 집계를 합니다. 그리고 얻은 결과에 대한 집계를 합니다. 창에서 주어진 모든 고유 값이 동일한 타임스탬프를 얻은 경우 두 번째 집계 창은 첫 번째 단계의 2개의 창을 집계하지 않기 위해 최소값이 되어야 합니다.
 
-## 값이 변경되었는지 여부를 확인합니다. ##
-**설명**:현재 값과 다른지 확인하기 위해 이전 값을 살펴봅니다. 예를 들어, 유료 도로에 있는 이전 차의 결과와 현재 찾의 결과가 같은 브랜드인지 살펴봅니다.
+## 쿼리 예제: 값이 변경되었는지 여부를 확인합니다. ##
+**설명**: 현재 값과 다른지 확인하기 위해 이전 값을 살펴봅니다. 예를 들어, 유료 도로에 있는 이전 차의 결과와 현재 차의 결과가 같은 브랜드인지 살펴봅니다.
 
 **입력**:
 
@@ -255,7 +252,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **설명**: LAG을 사용하여 지난 이벤트의 입력 스트림을 살펴보고, Make 값을 얻습니다. 그런 다음 현재 이벤트와 출력 이벤트의 Make를 비교합니다.
 
-## 창에서 첫 번째 이벤트 찾기 ##
+## 쿼리 예제: 창에서 첫 번째 이벤트 찾기 ##
 **설명**: 매 10분 간격으로 첫 번째 자동차를 찾습니다.
 
 **입력**:
@@ -309,7 +306,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 	WHERE 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## 창에서 마지막 이벤트 찾기 ##
+## 쿼리 예제: 창에서 마지막 이벤트 찾기 ##
 **설명**: 매 10분 간격마다 마지막 자동차를 찾습니다.
 
 **입력**:
@@ -354,7 +351,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **설명**: 쿼리에는 두 단계가 있습니다. - 첫 번째는 10분 창에서 최신 타임스탬프를 찾는 것입니다. 두 번째 단계는 각 창의 최신 타임스탬프와 일치하는 이벤트를 찾기 위해 원본 스트림을 사용한 첫 번째 쿼리의 결과를 조인합니다.
 
-## 이벤트의 부재를 검색합니다. ##
+## 쿼리 예제: 이벤트의 부재를 검색합니다. ##
 **설명**: 스트림이 특정 조건에 일치하지 않는 값이 있는지 확인합니다. 예를 들어, 동일한 브랜드의 연속된 2대의 차가 90초 이내에 유료 도로로 진입했는지 확인합니다.
 
 **입력**:
@@ -387,7 +384,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **설명**: LAG을 사용하여 지난 이벤트의 입력 스트림을 살펴보고, Make 값을 얻습니다. 그런 다음 현재 이벤트와 출력 이벤트가 같은지 Make를 비교하고, LAG을 사용하여 이전 자동차에 대한 데이터를 얻습니다.
 
-## 조건의 기간 감지 ##
+## 쿼리 예제: 조건의 기간 감지 ##
 **설명**: 조건의 시간이 얼마인지 알아봅니다. 예를 들어 버그가 생겨서 모든 자동차 결과가 정확하지 않은 경우(20.000파운드 이상) 버그의 기간을 계산하고자 합니다.
 
 **입력**:
@@ -455,4 +452,4 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

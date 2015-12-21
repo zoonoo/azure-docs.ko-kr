@@ -14,10 +14,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/18/2015"
+	ms.date="12/03/2015"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱용 .NET 백엔드 서버 SDK 사용
+
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
+
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 이 항목은 주요 Azure 앱 서비스 모바일 앱 시나리오에서 .NET 백 엔드 서버 SDK를 사용하는 방법을 보여줍니다. Azure 모바일 앱 SDK를 사용하면 ASP.NET 응용 프로그램에서 모바일 클라이언트를 사용하여 작업할 수 있습니다.
 
@@ -47,7 +51,7 @@
 
 Visual Studio에서 모바일 앱 프로젝트를 만들려면 [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.8.1 이상의 버전을 설치해야 합니다. SDK를 설치한 후 새 ASP.NET 응용 프로그램을 만듭니다.
 
-1. **새 프로젝트** 대화 상자를 엽니다(*파일* > **새로 만들기** > **프로젝트...**에서).
+1. **새 프로젝트** 대화를 엽니다.(*파일* > **새로 만들기** > **프로젝트...**에서)
 
 2. **템플릿** > **Visual C#**를 확장하고 **웹**을 선택합니다.
 
@@ -356,4 +360,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

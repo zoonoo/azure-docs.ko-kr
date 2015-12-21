@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="PowerShell을 사용하여 스트림 분석 작업 모니터링 및 관리 | Microsoft Azure" 
 	description="Azure PowerShell 및 cmdlet을 사용하여 스트림 분석 작업을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
-	keywords="azure powershell, azure powershell cmdlet, powershell 명령"	
+	keywords="azure powershell, azure powershell cmdlet, powershell 명령, powershell 스크립팅"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,14 +14,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/17/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
 # Azure PowerShell cmdlet을 사용하여 스트림 분석 작업 모니터링 및 관리
 
-기본 스트림 분석 작업을 실행하는 Azure PowerShell cmdlet을 사용하여 스트림 분석 리소스를 모니터링 및 관리하는 방법을 알아봅니다.
-
+기본 스트림 분석 작업을 실행하는 Azure PowerShell cmdlet 및 PowerShell 스크립팅을 사용하여 스트림 분석 리소스를 모니터링 및 관리하는 방법을 알아봅니다.
 
 ## 스트림 분석에 Azure PowerShell cmdlet을 실행하기 위한 필수 조건
 
@@ -290,4 +289,4 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

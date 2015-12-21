@@ -126,14 +126,14 @@ ASR 자격 증명 모음을 표시하면 '보호된 항목' 탭에 'SQL Servers'
 - 온-프레미스 SQL Server와 Azure에서 실행되는 SQL server 간 SQL 가용성 그룹 설정
 - 온-프레미스 SQL Server에 PowerShell 원격을 사용하도록 설정해야 합니다. VMM Server는 SQL Server에 원격 PowerShell 호출을 수행할 수 있어야 함
 - 온-프레미스 SQL Server에서 최소한 다음과 같은 사용 권한이 있는 SQL 사용자 그룹에 사용자 계정을 추가해야 합니다.
-	- ALTER AVAILABILITY GROUP - [참조 1](https://msdn.microsoft.com/ko-KR/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/ko-KR/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE - [참조 1](https://msdn.microsoft.com/ko-KR/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP - [참조 1](https://msdn.microsoft.com/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [참조 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - 이전 단계의 계정에 대해 VMM Server에 실행 계정을 만들어야 함
 - 온-프레미스 및 Azure 가상 컴퓨터에서 실행되는 SQL Server에 SQL PS 모듈을 설치해야 함
 - Azure에서 실행되는 가상 컴퓨터에 VM 에이전트를 설치해야 함
 - NTAUTHORITY\\시스템은 Azure의 가상 컴퓨터에서 실행되는 SQL Server에 다음과 같은 권한이 있어야 함
-	- ALTER AVAILABILITY GROUP - [참조 1](https://msdn.microsoft.com/ko-KR/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/ko-KR/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE - [참조 1](https://msdn.microsoft.com/ko-KR/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP - [참조 1](https://msdn.microsoft.com/library/hh231018.aspx), [참조 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [참조 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ##### 1\. SQL Server 추가
 
@@ -374,4 +374,4 @@ SQL 표준 클러스터의 경우 계획되지 않은 장애 조치(failover) �
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/29/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Microsoft 관리 API 또는 IT 관리 API 등록
@@ -24,11 +24,11 @@ IT 관리 API를 사용하여 메모리, 연결, 트러스트 등을 포함하�
 
 **Microsoft 관리** 또는 **IT 관리** API를 사용하려면 Azure 포털에 해당 API를 "등록"해야 합니다. 등록한 후 앱에서 이러한 API를 사용할 수 있습니다. 사용할 수 있는 옵션은 다음과 같습니다.
 
-- Microsoft 관리 API 또는 IT 관리 API 등록
-- [앱 서비스 환경](powerapps-register-api-hosted-in-app-service.md) 내에서 호스트되는 API 등록
-- [Swagger 2.0 API 정의](powerapps-register-existing-api-from-api-definition.md)를 사용하여 등록
+- 미리 빌드된 Microsoft 관리 API 또는 IT 관리 API 등록(이 항목)
+- [앱 서비스 환경](powerapps-register-api-hosted-in-app-service.md) 내에서 호스트되는 웹앱, API 앱 및 모바일 앱 등록
+- [Swagger 2.0 API 정의](powerapps-register-existing-api-from-api-definition.md)를 사용하여 사용자 고유의 Swagger API 중 하나 등록
 
-이 문서에서는 **Microsoft 관리 API 및 IT 관리 API 등록**을 집중 설명합니다.
+이 문서에서는 **미리 빌드된 Microsoft 관리 API 및 IT 관리 API 등록**을 중점적으로 설명합니다.
 
 #### 시작하기 위한 필수 조건
 
@@ -124,8 +124,11 @@ API | 설명 | 단계 링크
 
 이 항목에서는 PowerApps가 기본적으로 제공하는 사용 가능한 API 중 자신의 고유한 인스턴스를 등록 하는 방법을 살펴보았습니다. 다음은 PowerApps에 대한 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
 
-- [API 구성](powerapps-configure-apis.md)
-- [새 API 추가](powerapps-register-from-available-apis.md)
+
+- [API 속성 구성](powerapps-configure-apis.md)
+- [사용자에게 API에 대한 액세스 부여](powerapps-manage-api-connection-user-access.md)
+- [PowerApps에서 앱 만들기 시작](https://powerapps.microsoft.com/tutorials/)
+
 
 <!--References-->
 
@@ -148,4 +151,4 @@ API | 설명 | 단계 링크
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

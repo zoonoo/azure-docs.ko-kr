@@ -1,6 +1,7 @@
+
 <properties 
-   pageTitle="Azure 포털을 사용하여 클래식 배포 모델에서 인터넷 연결 부하 분산 장치 만들기 시작 | Microsoft Azure"
-   description="Azure 포털을 사용하여 클래식 배포 모델에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
+   pageTitle="Azure 클래식 포털을 사용하여 클래식 배포 모델에서 인터넷 연결 부하 분산 장치 만들기 시작 | Microsoft Azure"
+   description="Azure 클래식 포털을 사용하여 클래식 배포 모델에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Azure 포털에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
+# Azure 클래식 포털에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -34,7 +35,7 @@
 
 **가상 컴퓨터에 대한 부하 분산 집합을 구성하려면**
 
-1. Azure 포털에서 **가상 컴퓨터**를 클릭한 다음 부하 분산 집합에서 가상 컴퓨터의 이름을 클릭합니다.
+1. Azure 클래식 포털에서 **가상 컴퓨터**를 클릭한 다음 부하 분산 집합에서 가상 컴퓨터의 이름을 클릭합니다.
 2.	**끝점**을 클릭한 후 **Add**를 클릭합니다.
 
 4.	**가상 컴퓨터에 끝점 추가** 페이지에서 오른쪽 화살표를 클릭합니다.
@@ -66,4 +67,4 @@
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

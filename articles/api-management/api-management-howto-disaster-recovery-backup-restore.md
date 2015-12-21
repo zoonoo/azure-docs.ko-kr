@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -36,9 +36,9 @@ Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 �
 -	추가한 응용 프로그램에 대한 권한을 설정합니다.
 -	Azure 리소스 관리자에 대한 요청을 인증하기 위한 토큰을 가져옵니다.
 
-첫번째 단계는 Azure Active Directory 응용 프로그램을 만드는 것입니다. API 관리 서비스 인스턴스를 포함하는 구독을 사용하여 [관리 포털](http://manage.windowsazure.com/)로 로그인하고 기본 Azure Active Directory에 대한 **응용 프로그램** 탭으로 이동합니다.
+첫번째 단계는 Azure Active Directory 응용 프로그램을 만드는 것입니다. API 관리 서비스 인스턴스를 포함하는 구독을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인하고 기본 Azure Active Directory에 대한 **응용 프로그램** 탭으로 이동합니다.
 
->[AZURE.NOTE]Azure Active Directory 기본 디렉토리에 사용자의 계정이 표시되지않는 경우, 계정에 필요한 사용 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요. 기본 디렉토리 찾기에 대한 내용은 [Azure 포털에서 기본 디렉토리 찾기](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal)를 참조하세요.
+>[AZURE.NOTE]Azure Active Directory 기본 디렉토리에 사용자의 계정이 표시되지않는 경우, 계정에 필요한 사용 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요. 기본 디렉터리 찾기에 대한 내용은 [기본 디렉토리 찾기](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal)를 참조하세요.
 
 ![Azure Active Directory 응용 프로그램 만들기][api-management-add-aad-application]
 
@@ -189,4 +189,4 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -3,7 +3,7 @@
     description="Visual Studio Online을 사용하여 Azure 서비스 패브릭 응용 프로그램에 스트레스 테스트를 실행하는 방법을 알아봅니다."
     services="service-fabric"
     documentationCenter="na"
-    authors="cawa"
+    authors="cawams"
     manager="timlt"
     editor="" />
 
@@ -140,4 +140,4 @@ Visual Studio Online 부하 테스트에는 VSO 계정으로 부하 테스트를
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

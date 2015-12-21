@@ -78,7 +78,7 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
 
 10. Keychain Access에서는 **Certificates** 범주에서 방금 만든 새 푸시 인증서를 마우스 오른쪽 단추로 클릭합니다. **Export**를 클릭하고 파일의 이름을 지정한 후 **.p12** 형식을 선택하고 **Save**을 클릭합니다.
 
-	내보낸 .p12 푸시 인증서의 파일 이름과 위치를 기억합니다. Azure 포털에서 업로드하여 APNS에서 인증할 수 있도록 하는 데 사용됩니다.
+	내보낸 .p12 푸시 인증서의 파일 이름과 위치를 기억합니다. Azure 클래식 포털에서 업로드하여 APNS에서 인증할 수 있도록 하는 데 사용됩니다.
 
 
 
@@ -110,4 +110,4 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

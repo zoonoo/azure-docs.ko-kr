@@ -22,7 +22,7 @@ Azure API 관리에서 API 및 해당 작업이 제품에 추가되며, 이를 �
 
 ## <a name="create-apis"> </a>API를 만드는 방법
 
-API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있는 작업 집합을 나타냅니다. 새 API는 API 관리 포털에서 만들어집니다.
+API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있는 작업 집합을 나타냅니다. 새 API는 게시자 포털에서 만듭니다.
 
 이 가이드에서는 API 관리에서 새 API를 만들고 구성하는 방법을 보여 줍니다.
 
@@ -62,4 +62,4 @@ API 관리에서 제품은 하나 이상의 API뿐만 아니라 사용 할당량
 [작업과 함께 API의 정의를 가져오는 방법]: api-management-howto-import-api.md
 [고급 제품 설정을 만들고 구성하는 방법]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

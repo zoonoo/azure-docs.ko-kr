@@ -62,7 +62,7 @@ SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이
 
 ## 내보내기 데이터 계층 응용 프로그램을 사용하여 데이터베이스 호환성 확인
 
-1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 클래식 포털의 업데이트와 동기화 상태를 유지합니다.
+1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 포털의 업데이트와 동기화 상태를 유지합니다.
 
  	 >[AZURE.IMPORTANT] [최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
 
@@ -98,9 +98,9 @@ SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이
 
 > [AZURE.WARNING]이러한 방법 중 하나를 사용하여 데이터베이스를 마이그레이션하려면 마이그레이션하는 동안 트랜잭션 일관성이 유지되도록 활성 트랜잭션이 발생하지 않는지 확인합니다. 클라이언트 연결을 비활성화하는 방법부터 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 방법까지 다양한 방법으로 데이터베이스를 정지할 수 있습니다.
 
-- 중소규모 데이터베이스의 경우 [호환 가능한](#determine-if-your-database-is-compatible) SQL Server 2005 이후의 데이터베이스를 마이그레이션하려면 SQL Server Management Studio에서 [Microsoft Azure 데이터베이스에 배포 마법사](#use-the-deploy-database-to-microsoft-azure-database-wizard)를 실행하기만 하면 됩니다. 연결 문제(연결 없음, 낮은 대역폭, 시간 초과 문제)가 있는 경우 [BACPAC를 사용](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database)하여 SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션할 수 있습니다.
-- 중간-대규모 데이터베이스의 경우나 연결 문제가 있는 경우에는 [BACPAC를 사용](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database)하여 SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션합니다. 이 방법에서는 SQL Server Management Studio를 사용하여 데이터와 스키마를 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일(로컬 또는 Azure BLOB에 저장)로 내보낸 다음 BACPAC 파일을 Azure SQL 인스턴스로 가져옵니다. 또한 BACPAC를 Azure BLOB에 저장하는 경우 [Azure 클래식 포털](sql-database-import.md) 내에서나 [PowerShell을 사용](sql-database-import-powershell.md)하여 BACPAC 파일을 가져올 수 있습니다.
-- 더 큰 데이터베이스의 경우 스키마와 데이터를 개별적으로 마이그레이션하여 최상의 성능을 얻습니다. 이 방법을 사용하여 [데이터 없는 BACPAC 파일](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database)을 만들어서 BACPAC 파일을 Azure SQL 데이터베이스로 가져옵니다. 스키마를 Azure SQL 데이터베이스로 가져온 후 [BCP](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터를 플랫 파일로 추출한 다음 이러한 파일을 Azure SQL 데이터베이스로 가져옵니다.
+- 중소규모 데이터베이스의 경우 [호환 가능한](#determine-if-your-database-is-compatible) SQL Server 2005 이후의 데이터베이스를 마이그레이션하려면 SQL Server Management Studio에서 [Microsoft Azure 데이터베이스에 배포 마법사](#use-deploy-database-to-microsoft-azure-database-wizard)를 실행하기만 하면 됩니다. 연결 문제(연결 없음, 낮은 대역폭, 시간 초과 문제)가 있는 경우 [BACPAC를 사용](#use-a-bacpac-to-migrate-a-sql-server-database-to-azure-sql-database)하여 SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션할 수 있습니다.
+- 중간-대규모 데이터베이스의 경우나 연결 문제가 있는 경우에는 [BACPAC를 사용](#use-a-bacpac-to-migrate-a-sql-server-database-to-azure-sql-database)하여 SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션합니다. 이 방법에서는 SQL Server Management Studio를 사용하여 데이터와 스키마를 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일(로컬 또는 Azure BLOB에 저장)로 내보낸 다음 BACPAC 파일을 Azure SQL 인스턴스로 가져옵니다. 또한 BACPAC를 Azure BLOB에 저장하는 경우 [Azure 포털](sql-database-import.md) 내에서나 [PowerShell을 사용](sql-database-import-powershell.md)하여 BACPAC 파일을 가져올 수 있습니다.
+- 더 큰 데이터베이스의 경우 스키마와 데이터를 개별적으로 마이그레이션하여 최상의 성능을 얻습니다. 이 방법을 사용하여 [데이터 없는 BACPAC 파일](#use-a-bacpac-to-migrate-a-sql-server-database-to-azure-sql-database)을 만들어서 BACPAC 파일을 Azure SQL 데이터베이스로 가져옵니다. 스키마를 Azure SQL 데이터베이스로 가져온 후 [BCP](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터를 플랫 파일로 추출한 다음 이러한 파일을 Azure SQL 데이터베이스로 가져옵니다.
 
 	 ![SSMS 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
@@ -127,7 +127,7 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 배포 마
 
 > [AZURE.NOTE]아래 단계는 사용자가 이미 Azure SQL 논리 인스턴스를 [프로비전](../sql-database-get-started.md)하고 연결 정보를 알고 있는 경우를 가정합니다.
 
-1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 클래식 포털의 업데이트와 동기화 상태를 유지합니다.
+1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 포털의 업데이트와 동기화 상태를 유지합니다.
 
 	 >[AZURE.IMPORTANT] [최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
 
@@ -150,7 +150,7 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 배포 마
 
 6.	데이터베이스를 마이그레이션하도록 마법사를 완료합니다. 데이터베이스의 크기와 복잡성에 따라 배포는 몇 분에서 몇 시간이 걸릴 수 있습니다.
 7.	개체 탐색기를 사용하여 Azure SQL 데이터베이스 서버에서 마이그레이션된 데이터베이스에 연결합니다.
-8.	Azure 클래식 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
+8.	Azure 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
 
 ## BACPAC를 사용하여 SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션
 
@@ -163,14 +163,14 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 배포 마
 
 - [SQL Server Management Studio를 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](#import-from-a-bacpac-file-into-azure-sql-database-using-sql-server-management-studio)
 - [SqlPackage를 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage)
-- [Azure 클래식 포털을 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](sql-database-import.md)
+- [Azure 포털을 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](sql-database-import.md)
 - [PowerShell을 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기](sql-database-import-powershell.md)
 
 ## SQL Server Management Studio를 사용하여 호환되는 SQL Server 데이터베이스를 BACPAC 파일로 내보내기
 
 아래 단계에 따라 Management Studio를 사용하여 [호환되는](#determine-if-your-database-is-compatible) SQL Server 데이터베이스를 BACPAC 파일로 내보냅니다.
 
-1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 클래식 포털의 업데이트와 동기화 상태를 유지합니다.
+1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 포털의 업데이트와 동기화 상태를 유지합니다.
 
 	 >[AZURE.IMPORTANT] [최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
 
@@ -211,9 +211,9 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 배포 마
 
 > [AZURE.NOTE]아래 단계는 사용자가 이미 Azure SQL 논리 인스턴스를 프로비전하고 연결 정보를 알고 있는 경우를 가정합니다.
 
-1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 클래식 포털의 업데이트와 동기화 상태를 유지합니다.
+1. 버전 13.0.600.65 이상의 SQL Server Management Studio가 있는지 확인합니다. 새로운 버전의 Management Studio는 매월 업데이트되어 Azure 포털의 업데이트와 동기화 상태를 유지합니다.
 
-	> [AZURE.IMPORTANT] [최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
+	> [AZURE.IMPORTANT][최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
 
 2. Management Studio를 열고 개체 탐색기에서 원본 데이터베이스에 연결합니다.
 
@@ -235,7 +235,7 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 배포 마
 
 7. 개체 탐색기를 사용하여 Azure SQL 데이터베이스 서버에서 마이그레이션된 데이터베이스에 연결합니다.
 
-8.	Azure 클래식 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
+8.	Azure 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
 
 ## SqlPackage를 사용하여 BACPAC 파일을 Azure SQL 데이터베이스로 가져오기
 
@@ -277,4 +277,4 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 배포 마
 
 - SQL Server Management Studio. **ALTER DATABASE**와 같은 다양한 Transact-SQL 명령을 사용하여 Management Studio에서 문제를 해결할 수 있습니다.
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

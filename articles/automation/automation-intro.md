@@ -36,12 +36,12 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 ## 커뮤니티에서 Runbook 가져오기
 
-[Runbook 갤러리](http://msdn.microsoft.com/library/azure/dn781422.aspx)는 Microsoft Runbook 및 사용자 환경에서 그대로 사용하거나 용도에 맞게 사용자 지정한 커뮤니티 Runbook을 포함합니다. 사용자 고유의 runbook을 만드는 방법에 학습에 대한 참조로 유용할 수도 있습니다. 다른사람들에게도 유용할 것 같은 사용자 고유의 runbook을 갤러리에 제공 할 수도 있습니다.
+[Runbook 갤러리](automation-runbook-gallery.md#runbooks-in-runbook-gallery)는 Microsoft Runbook 및 사용자 환경에서 그대로 사용하거나 용도에 맞게 사용자 지정한 커뮤니티 Runbook을 포함합니다. 사용자 고유의 runbook을 만드는 방법에 학습에 대한 참조로 유용할 수도 있습니다. 다른사람들에게도 유용할 것 같은 사용자 고유의 runbook을 갤러리에 제공 할 수도 있습니다.
 
 
 ## Azure 자동화를 사용하여 Runbook 만들기 
 
-처음부터 [고유한 Runbook 만들기](http://msdn.microsoft.com/library/azure/dn643637.aspx)를 사용하거나 [Runbook 갤러리](http://msdn.microsoft.com/library/azure/dn781422.aspx)에서 사용자 요구 사항으로 Runbook을 수정할 수 있습니다. 요구 사항 및 PowerShell 환경에 따라 선택할 수 있는 세 가지 [Runbook 형식](automation-runbook-types.md)이 있습니다. PowerShell 코드로 직접 작업하려는 경우, 오프라인으로 편집하거나 Azure 포털에서 [텍스트 편집기를 사용](http://msdn.microsoft.com/library/azure/dn879137.aspx)하여 편집하는 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 사용할 수 있습니다. 기본 코드에 노출되지 않고 Runbook을 편집하려는 경우, Azure Preview 포털에서 [그래픽 편집기](automation-graphical-authoring-intro.md)를 사용하여 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만들 수 있습니다.
+처음부터 [고유한 Runbook 만들기](automation-creating-importing-runbook.md)를 사용하거나 [Runbook 갤러리](http://msdn.microsoft.com/library/azure/dn781422.aspx)에서 사용자 요구 사항으로 Runbook을 수정할 수 있습니다. 요구 사항 및 PowerShell 환경에 따라 선택할 수 있는 세 가지 [Runbook 형식](automation-runbook-types.md)이 있습니다. PowerShell 코드로 직접 작업하려는 경우, 오프라인으로 편집하거나 Azure 포털에서 [텍스트 편집기를 사용](http://msdn.microsoft.com/library/azure/dn879137.aspx)하여 편집하는 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 사용할 수 있습니다. 기본 코드에 노출되지 않고 Runbook을 편집하려는 경우, Azure Preview 포털에서 [그래픽 편집기](automation-graphical-authoring-intro.md)를 사용하여 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만들 수 있습니다.
 
 읽기보다 비디오를 시청하기가 편하신가요? 2015년 5월 Microsoft Ignite 세션에서 발표된 아래 동영상을 살펴보세요. 참고: 이 동영상에 언급된 개념 및 기능은 정확하지만 이 동영상이 녹화된 이후에 Azure 자동화는 많이 발전되었으며 현재 Azure 포털에서 보다 광범위한 UI를 제공하며 추가 기능을 지원합니다.
 
@@ -101,4 +101,4 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 **사용자 의견을 보내 주세요!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

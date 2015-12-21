@@ -20,6 +20,8 @@
 Azure 클래식 포털 또는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory 문제를 해결할 수 있습니다. 이 항목의 연습에서는 Data Factory에서 발생하는 오류를 Azure 클래식 포털을 사용하여 신속하게 해결하는 방법을 보여 줍니다.
 
 ## 문제: 데이터 팩터리 cmdlet을 실행할 수 없음
+Azure PowerShell 버전 1.0 미만을 사용하는 경우
+ 
 이 문제를 해결하려면 Azure 모드를 **AzureResourceManager**로 전환합니다.
 
 **Azure PowerShell**을 시작하고 다음 명령을 실행하여 **AzureResourceManager** 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 **AzureResourceManager** 모드에서 사용할 수 있습니다.
@@ -54,7 +56,7 @@ Azure 클래식 포털을 통해 SQL Server 연결된 서비스를 설치 또는
 
 몇 가지 이유로 인해 조각이 **PendingExecution** 또는 **PendingValidation** 상태일 수 있습니다. 일반적인 이유 중 하나는 **external** 속성이 **true**로 설정되지 않은 것입니다. Azure 데이터 팩터리의 외부에서 생성된 데이터 집합은 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부이며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready**로 표시됩니다.
 
-**external** 속성의 사용 방법은 다음 예를 참조하십시오. external을 true로 설정할 경우 선택적으로 **externalData***를 지정할 수 있습니다.
+**external** 속성의 사용 방법은 다음 예제를 참조하세요. external을 true로 설정할 경우 선택적으로 **externalData***를 지정할 수 있습니다.
 
 이 속성에 대한 자세한 내용은 [JSON 스크립팅 참조][json-scripting-reference]의 테이블 항목을 참조하십시오.
 	
@@ -177,7 +179,7 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 4. **Azure PowerShell**에서 다음 명령을 실행하여 파이프라인의 활성 기간을 업데이트합니다. 그러면 파이프라인에서 더 이상 없는 **emp** 테이블에 데이터를 쓰려고 합니다.
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	**StartDateTime**을 현재 날짜로 바꾸고 **EndDateTime** 값을 다음 날로 바꿉니다.
 
@@ -214,17 +216,12 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 
 ### Azure PowerShell cmdlet을 사용하여 오류 해결
 1.	**Azure PowerShell**을 시작합니다. 
-2.	**AzureResourceManager** 모드로 전환합니다. 데이터 팩터리 cmdlet은 이 모드에서만 사용할 수 있습니다.
+3. Get-AzureRmDataFactorySlice 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 Failed로 표시됩니다.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. Get-AzureDataFactorySlice 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 Failed로 표시됩니다.
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	**StartDateTime**을 **Set-AzureDataFactoryPipelineActivePeriod**에서 지정한 StartDateTime 값으로 바꿉니다.
+	**StartDateTime**을 **Set-AzureRmDataFactoryPipelineActivePeriod**에서 지정한 StartDateTime 값으로 바꿉니다.
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -237,9 +234,9 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 		LongRetryCount    		: 0
 
 	출력에서 문제 조각(**상태**가 **Failed**로 설정된 조각)에 대한 **시작** 시간을 기록합니다. 
-4. 이제 **Get-AzureDataFactoryRun** cmdlet을 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
+4. 이제 **Get-AzureRmDataFactoryRun** cmdlet를 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	**StartDateTime** 값은 이전 단계에서 기록한 오류/문제 조각의 시작 시간입니다. 날짜-시간은 큰따옴표로 묶어야 합니다.
 5. 출력에 오류에 대한 세부 정보가 다음과 같이 표시됩니다.
@@ -296,17 +293,12 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
     
 ### 연습: Azure PowerShell을 사용하여 Pig/Hive 처리 관련 오류 해결
 1.	**Azure PowerShell**을 시작합니다. 
-2.	**AzureResourceManager** 모드로 전환합니다. 데이터 팩터리 cmdlet은 이 모드에서만 사용할 수 있습니다.
+3. Get-AzureRmDataFactorySlice 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 Failed로 표시됩니다.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. Get-AzureDataFactorySlice 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 Failed로 표시됩니다.
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	**StartDateTime**을 **Set-AzureDataFactoryPipelineActivePeriod**에서 지정한 StartDateTime 값으로 바꿉니다.
+	**StartDateTime**을 **Set-AzureRmDataFactoryPipelineActivePeriod**에서 지정한 StartDateTime 값으로 바꿉니다.
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -320,9 +312,9 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 
 
 	출력에서 문제 조각(**상태**가 **Failed**로 설정된 조각)에 대한 **시작** 시간을 기록합니다. 
-4. 이제 **Get-AzureDataFactoryRun** cmdlet을 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
+4. 이제 **Get-AzureRmDataFactoryRun** cmdlet를 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	**StartDateTime** 값은 이전 단계에서 기록한 오류/문제 조각의 시작 시간입니다. 날짜-시간은 큰따옴표로 묶어야 합니다.
 5. 출력에 오류에 대한 세부 정보가 다음과 같이 표시됩니다.
@@ -346,7 +338,7 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. 위의 출력에 표시된 ID 값을 사용하여 **Save-AzureDataFactoryLog** cmdlet을 실행하고 cmdlet에 **-DownloadLogs** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
+6. 위의 출력에 표시된 ID 값을 사용하여 **Save-AzureRmDataFactoryLog** cmdlet를 실행하고 cmdlet에 **-DownloadLogs** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
 
 
 
@@ -382,4 +374,4 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

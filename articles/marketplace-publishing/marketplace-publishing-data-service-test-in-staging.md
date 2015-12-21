@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/24/2015"
+   ms.date="12/03/2015"
    ms.author="hascipio; avikova" />
 
 # 스테이징에서 데이터 서비스 제품 테스트
-[판매자 대시보드에 Microsoft 판매자 계정 만들기](marketplace-publishing-accounts-creation-registration.md) 및 [게시 포털에서 데이터 서비스 제품 만들기](marketplace-publishing-data-service-creation.md)(영문)의 처음 두 단계를 완료하고 나면 Azure 마켓플레이스에 제품을 제공할 준비가 된 것입니다. 이 문서는 “스테이징”이라는 첫 번째 중간 단계를 안내합니다.
+[Microsoft 개발자 계정 만들기](marketplace-publishing-accounts-creation-registration.md) 및 [게시 포털에서 데이터 서비스 제품 만들기](marketplace-publishing-data-service-creation.md)의 처음 두 단계를 완료하고 나면 Azure 마켓플레이스에 제품을 제공할 준비가 된 것입니다. 이 문서는 “스테이징”이라는 첫 번째 중간 단계를 안내합니다.
 
 준비 단계에서는 제품을 프로덕션에 게시하기 전에 개인 "샌드박스"에 배포하여 기능을 테스트 및 확인할 수 있습니다. 제품이 해당 제품을 배포한 고객에게 보이는 것처럼 준비 단계에 표시됩니다.
 
@@ -86,4 +86,4 @@ Azure 포털(과 DataMarket 포털)에서 데이터 서비스를 테스트하려
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

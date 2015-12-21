@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="12/04/2015"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
@@ -219,11 +219,11 @@
 
 7. **VNet을 Express 경로 회로에 연결합니다.**
 
-	이제 VNet을 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로를 VNet에 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요. Express 경로에 대한 가상 네트워크를 만들어야 할 경우 지침은 [Express 경로에 대한 가상 네트워크 만들기](expressroute-howto-createvnet-classic.md)를 참조하세요.
+	이제 VNet을 Express 경로 회로에 연결합니다. Azure 리소스 관리자 배포 모드로 작업할 때 [이 서식 파일](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)을 사용할 수 있습니다. 현재 PowerShell 단계를 진행합니다.
 
 ##  Express 경로 회로의 상태를 가져오려면
 
-언제든지 *Get-AzureRmExpressRouteCircuit* cmdlet을 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
+언제든지 *Get-AzureRmExpressRouteCircuit* cmdlet를 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
 		Get-AzureRmExpressRouteCircuit
 
@@ -351,10 +351,10 @@
 
 Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
 
-위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
+위의 cmdlet를 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
 
 ## 다음 단계
 
 - [라우팅 구성](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

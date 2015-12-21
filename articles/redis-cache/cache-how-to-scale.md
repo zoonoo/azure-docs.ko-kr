@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 크기를 조정하는 방법
 
->[AZURE.NOTE]Azure Redis Cache 크기 조정 기능은 현재 미리 보기 상태입니다. 미리 보기 기간 동안 프리미엄 계층 캐시로, 캐시로부터 또는 캐시 내에서 크기를 조정할 수 없습니다.
+>[AZURE.NOTE]Azure Redis Cache 크기 조정 기능은 현재 미리 보기 상태입니다. 미리 보기 기간 동안에는 크기를 프리미엄 계층 캐시로 조정하거나 프리미엄 계층 캐시에서 조정할 수 없지만 프리미엄 캐시 내에서 가격 책정 계층을 변경할 수는 있습니다.
 
-Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 [Azure 미리 보기 포털](https://portal.azure.com)의 **가격 책정 계층 변경** 블레이드를 사용하여 캐시 크기를 조정할 수 있습니다.
+Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 [Azure 포털](https://portal.azure.com)의 **가격 책정 계층 변경** 블레이드를 사용하여 캐시 크기를 조정할 수 있습니다.
 
 ## 크기를 조정하는 경우
 
@@ -36,7 +36,7 @@ Azure Redis Cache의 [모니터링](cache-how-to-monitor.md) 기능을 사용하
 캐시가 더 이상 응용 프로그램 요구 사항을 충족시키지 못한다고 판단되면 응용 프로그램에 적합하도록 더 크거나 더 작은 캐시 가격 책정 계층으로 변경할 수 있습니다. 사용할 캐시 가격 책정 계층 결정에 대한 자세한 내용은 [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
 
 ## 캐시 크기 조정
-캐시 크기를 조정하려면 [Preview 포털](https://portal.azure.com)에서 [캐시를 찾은](cache-configure.md#configure-redis-cache-settings) 다음 **설정**, **가격 책정 계층**을 클릭합니다.
+캐시 크기를 조정하려면 [Azure 포털](https://portal.azure.com)에서 [캐시를 찾은](cache-configure.md#configure-redis-cache-settings) 다음 **설정**, **가격 책정 계층**을 클릭합니다.
 
 **Redis Cache** 블레이드에서 **표준 계층** 또는 **기본 계층** 부분을 클릭할 수도 있습니다.
 
@@ -61,7 +61,7 @@ Azure Redis Cache의 [모니터링](cache-how-to-monitor.md) 기능을 사용하
 
 ## 크기 조정 작업을 자동화하는 방법
 
-Preview 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 아니라 [MAML(Microsoft Azure Management Libraries)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)로 크기를 조정할 수도 있습니다. 캐시 크기를 조정하려면 `IRedisOperations.CreateOrUpdate` 메서드를 호출하고 `RedisProperties.SKU.Capacity`의 새 크기를 전달합니다.
+Azure 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 아니라 [MAML(Microsoft Azure Management Libraries)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)로 크기를 조정할 수도 있습니다. 캐시 크기를 조정하려면 `IRedisOperations.CreateOrUpdate` 메서드를 호출하고 `RedisProperties.SKU.Capacity`의 새 크기를 전달합니다.
 
     static void Main(string[] args)
     {
@@ -89,7 +89,7 @@ Preview 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 �
 
 ## 프리미엄 캐시로, 캐시로부터 또는 캐시 내에서 크기를 조정할 수 있나요?
 
-미리 보기 기간 동안 **프리미엄** 캐시에 대해 크기를 조정할 수 없습니다.
+미리 보기 기간 동안에는 **프리미엄** 캐시에 대해 크기 조정을 사용할 수 없지만 프리미엄 캐시 내에서 가격 책정 계층을 변경할 수는 있습니다.
 
 ## 크기를 조정한 후 내 캐시 이름 또는 액세스 키를 변경해야 하나요?
 
@@ -121,7 +121,7 @@ Preview 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 �
 
 ## 지원되지 않는 작업
 
-**프리미엄** 캐시로, 캐시로부터 또는 캐시 내에서 크기를 조정할 수 없습니다.
+**프리미엄** 캐시로 또는 캐시로부터 크기를 조정할 수 없습니다.
 
 **표준** 캐시에서 **기본** 캐시로 변경할 수 없습니다.
 
@@ -137,7 +137,7 @@ Preview 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 �
 
 ## 크기 조정이 완료되었는지 어떻게 알 수 있나요?
 
-미리 보기 포털에서 진행 중인 크기 조정 작업을 볼 수 있습니다. 크기 조정이 완료되면 캐시 상태가 **실행 중**으로 변경됩니다.
+Azure 포털에서 진행 중인 크기 조정 작업을 볼 수 있습니다. 크기 조정이 완료되면 캐시 상태가 **실행 중**으로 변경됩니다.
 
 ## 이 기능이 미리 보기 상태인 이유는 무엇인가요?
 
@@ -155,4 +155,4 @@ Preview 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 �
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

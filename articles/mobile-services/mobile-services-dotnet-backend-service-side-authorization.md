@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="10/01/2015"
+	ms.date="12/09/2015"
 	ms.author="krisragh"/>
 
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
@@ -41,7 +41,7 @@
 
 2. Visual Studio에서 컨트롤러 폴더를 확장하고, **TodoItemController.cs**를 열고, 아래 문을 사용하여 다음 내용을 추가합니다.
 
-		using Microsoft.Azure.Mobile.Server.Security;
+		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 3. **PostTodoItem** 메서드를 찾아 이 메서드의 시작 부분에 다음 코드를 추가합니다.
 
@@ -84,4 +84,4 @@
 <!-- URLs. -->
 [기존 모바일 서비스 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="작성자 논리 앱 정의" 
+	pageTitle="작성자 논리 앱 정의 | Microsoft Azure" 
 	description="논리 앱에 대한 JSON 정의 작성 방법을 알아봅니다." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="12/07/2015"
 	ms.author="stepsic"/>
 	
-#작성자 논리 앱 정의
+# 작성자 논리 앱 정의
 이 항목에서는 간단하고 선언적인 JSON 언어인 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md) 정의를 사용하는 방법을 설명합니다. 아직 [새 논리 앱 만드는 방법](../app-service-create-a-logic-app.md)을 확인하지 않았다면 먼저 확인하십시오. [MSDN 정의 언어의 전체 참조 자료](https://msdn.microsoft.com/library/azure/dn948512.aspx)를 읽을 수도 있습니다.
 
 ## 목록에서 반복되는 여러 단계
@@ -25,11 +25,11 @@
 
 ![목록 반복](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
-이 예제에서는 3개의 작업이 있습니다.
+이 예제에는 3개의 작업이 있습니다.
 
 1. 문서 목록을 가져옵니다. 이는 배열을 포함하는 개체를 다시 반환합니다.
 
-2. 각 문서에서 링크 속성으로 이동하는 작업은 문서의 실제 위치를 다시 반환하게 됩니다.
+2. 각 문서에서 링크 속성으로 이동하여 문서의 실제 위치를 반환하는 작업입니다.
 
 3. 두 번째 작업에서 실제 문서 다운로드에 이르는 모든 결과를 반복하는 작업입니다.
 
@@ -99,7 +99,7 @@
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
+                "microsoft": "https://www.microsoft.com/ko-KR/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -234,7 +234,7 @@
 }
 ```
 
-[MSDN의 논리 앱 유형 작업](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx)에 대해 읽을 수 있습니다.
+[MSDN의 논리 앱 유형 작업](https://msdn.microsoft.com/library/azure/dn948511.aspx)에 대해 읽을 수 있습니다.
 
 >[AZURE.NOTE]논리 앱 디자이너는 논리 앱 유형 작업을 지원하지 않으므로 정의를 수동으로 편집해야 합니다.
 
@@ -250,7 +250,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/en-us/default.aspx",
+                "https://www.microsoft.com/ko-KR/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -287,7 +287,7 @@
 }
 ```
 
-첫 번째 단계에서 목록을 반복하는 중이므로 두 개의 조건을 사용합니다. 단일 작업만 있는 경우에는 하나의 조건(첫 번째 조건)만 필요합니다. 또한 실패한 URL을 두 번째 단계로 전달하는 재구성 단계에서 실패한 작업에 *입력*을 사용할 수 있음도 기억하십시오.
+첫 번째 단계에서 목록을 반복하는 중이므로 두 개의 조건을 사용합니다. 단일 작업만 있는 경우에는 하나의 조건(첫 번째 조건)만 필요합니다. 또한 실패한 URL을 두 번째 단계로 전달하는 재구성 단계에서 실패한 작업에 *입력*을 사용할 수 있다는 점도 기억하세요.
 
 ![재구성](./media/app-service-logic-author-definitions/remediation.png)
 
@@ -306,7 +306,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/en-us/default.aspx",
+                "https://www.microsoft.com/ko-KR/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -723,4 +723,4 @@ Content-type: application/json
 
 논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

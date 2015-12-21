@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/04/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
  
  
@@ -61,24 +61,25 @@ Azure 스케줄러 작업에 대한 대상 끝점이 연결 불가 상태로 있
 대체 끝점을 구성하는 방법은 [errorAction](scheduler-concepts-terms.md#action-and-erroraction)을 참조하세요.
 
 ## 참고 항목
- 
+
  [스케줄러란?](scheduler-intro.md)
  
- [스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
- 
- [관리 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
- 
- [Azure 스케줄러에서 계획 및 요금 청구](scheduler-plans-billing.md)
- 
+ [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
+
+ [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
+
+ [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
+
  [Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법](scheduler-advanced-complexity.md)
- 
- [스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
- 
- [스케줄러 PowerShell Cmdlet 참조](scheduler-powershell-reference.md)
- 
- [스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
- 
- [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
+
+ [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+
+ [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
+
+
+ [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
+
+ [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
  
  
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
@@ -87,4 +88,4 @@ Azure 스케줄러 작업에 대한 대상 끝점이 연결 불가 상태로 있
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

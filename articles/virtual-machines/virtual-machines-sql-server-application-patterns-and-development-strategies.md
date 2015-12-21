@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
+	ms.date="12/04/2015"
 	ms.author="selcint" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략
@@ -60,7 +60,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 응용 프로그램 
 
 - Azure 환경의 기능을 활용하고자 하나 Azure SQL 데이터베이스에서 응용 프로그램에 필요한 일부 기능을 지원하지 않는 경우. 여기에는 다음과 같은 부분이 해당할 수 있습니다.
 
-	- **데이터베이스 크기**: 이 글 업데이트 시점 현재, SQL 데이터베이스는 최대 500GB의 데이터를 지원합니다. 응용 프로그램에 500GB 이상의 데이터가 필요하고 사용자 지정 분할 솔루션을 구현하지 않으려는 경우, Azure 가상 컴퓨터에서 SQL Server를 사용하는 것이 좋습니다. 최신 정보는 [Azure SQL 데이터베이스 확장](https://msdn.microsoft.com/library/azure/dn495641.aspx) 및 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](../sql-database/sql-database-service-tiers.md)을 참조하세요.
+	- **데이터베이스 크기**: 이 글 업데이트 시점 현재, SQL Database는 최대 500GB의 데이터를 지원합니다. 응용 프로그램에 500GB 이상의 데이터가 필요하고 사용자 지정 분할 솔루션을 구현하지 않으려는 경우, Azure 가상 컴퓨터에서 SQL Server를 사용하는 것이 좋습니다. 최신 정보는 [Azure SQL 데이터베이스 확장](https://msdn.microsoft.com/library/azure/dn495641.aspx) 및 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](https://msdn.microsoft.com/library/azure/dn741336.aspx)을 참조하세요.
 	- **HIPAA 규정 준수**: Azure 가상 컴퓨터의 SQL Server는 HIPAA BAA(Business Associate Agreement)가 적용되므로, 의료 부문 고객 및 독립 소프트웨어 공급업체(ISV)는 [Azure SQL 데이터베이스](../sql-database/sql-database-technical-overview.md) 대신 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 선택할 수 있습니다. 규정 준수에 대한 자세한 내용은 [Microsoft Azure 보안 센터: 규정 준수](http://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
 	- **인스턴스 수준 기능**: 현재 SQL 데이터베이스는 데이터베이스 외부에 상주하는 기능을 지원하지 않습니다(예: 연결 서버, 에이전트 작업, 파일 스트림, 서비스 브로커 등). 자세한 내용은 [Azure SQL 데이터베이스 지침 및 제한 사항](https://msdn.microsoft.com/library/azure/ff394102.aspx)을 참조하세요.
 
@@ -110,7 +110,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 응용 프로그램 
 
 이 표에서 인터넷 프로토콜은 TCP, UDP, HTTP 또는 HTTPS가 될 수 있습니다.
 
->[AZURE.NOTE]Azure에서의 가상 네트워크 설정은 무료입니다. 그러나 온-프레미스에 연결하는 VPN 게이트웨이에는 비용이 부과됩니다. 이 요금은 연결이 프로비전되어 사용 가능한 상태인 시간을 기준으로 부과됩니다.
+>[AZURE.NOTE] Azure에서의 가상 네트워크 설정은 무료입니다. 그러나 온-프레미스에 연결하는 VPN 게이트웨이에는 비용이 부과됩니다. 이 요금은 연결이 프로비전되어 사용 가능한 상태인 시간을 기준으로 부과됩니다.
 
 ## 프레젠테이션 계층 확장이 있는 2계층 및 3계층
 
@@ -327,4 +327,4 @@ Azure에서 다계층 SQL Server 기반 응용 프로그램을 구현하려면 �
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

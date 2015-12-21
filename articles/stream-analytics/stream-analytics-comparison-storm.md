@@ -1,7 +1,7 @@
 <properties
-	pageTitle="비교: Apache Storm 및 Azure 스트림 분석 | Microsoft Azure"
-	description="실시간 Twitter 정서 분석에 대한 스트림 분석을 사용하는 방법에 대해 알아봅니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다."
-	keywords="실시간 twitter, 정서 분석, 소셜 미디어 분석, 소셜 미디어 분석 도구"
+	pageTitle="분석 플랫폼: Apache Storm과 스트림 분석 비교 | Microsoft Azure"
+	description="Apache Storm과 스트림 분석 비교에서 클라우드 분석 플랫폼 선택에 대한 지침을 확인하세요. 기능 및 차이점을 이해하세요."
+	keywords="분석 플랫폼, 클라우드 분석 플랫폼, storm 비교"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,15 +17,13 @@
 	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
-# Apache Storm 및 Azure 스트림 분석 비교 #
+# 스트리밍 분석 플랫폼 선택 도움말: Apache Storm과 Azure 스트림 분석 비교
 
-## 소개 ##
+Apache Storm과 Azure 스트림 분석 비교에서 클라우드 분석 플랫폼 선택에 대한 지침을 확인하세요. Azure HDInsight 기반의 관리 서비스로써 스트림 분석과 Apache Storm이 제공하는 가치 제안을 이해하면 비즈니스에 적합한 솔루션을 선택할 수 있습니다.
 
-이 문서에서는 HDInsight에 대한 관리 서비스로서 Azure 스트림 분석 및 Apache Storm의 위치를 보여줍니다. 두 서비스의 가치 제안을 이해 하 고 있는 자신의 비즈니스 사용 사례에 대한 올바른 선택 결정을 내릴 수 있도록 도와주는 목표가입니다. 고객이두 서비스의 가치 제안을 이해하고 자신의 비즈니스 사용 사례에 대한 올바른 선택 결정을 내릴 수 있도록 돕는 것이 목표입니다.
+두 분석 플랫폼 모두 PaaS 솔루션의 이점을 제공하지만, 서로 구분되는 몇 가지 고유한 기능이 있습니다. 목표를 달성하는 데 필요한 솔루션을 올바르게 선택할 수 있도록 아래에 이러한 서비스의 기능과 제한 사항이 설명되어 있습니다.
 
-두 솔루션 모두 PaaS 솔루션의 이점을 제공하며, 이러한 서비스를 구분 하는 몇 가지 주요 특징적인 기능이 있습니다. 이 서비스들의 기능뿐만 아니라 한계도 제시하면 고객이 자신의 목표를 달성하는데 필요한 해결책을 만드는 데 도움이 될 것입니다.
-
-## 일반 ##
+## Storm과 스트림 분석 비교: 일반 기능 ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -138,7 +136,7 @@
         </tr>
     </tbody>
 </table>
-## 작성 ##
+## 각 분석 플랫폼에서 작성 ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -262,7 +260,7 @@
         </tr>
     </tbody>
 </table>
-## 입력 및 출력 ##
+## 데이터 원본 및 출력 ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -563,7 +561,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    데이터 크기에 제한이 없습니다. 커넥터를 HBase, DocumentDB, SQL Server 및 Azure에 사용할 수 있습니다. 지원되지 않는 커넥터는 사용자 지정 코드를 통해 구현될 수 있습니다. 
+                    데이터 크기에 제한이 없습니다. 커넥터를 HBase, DocumentDB, SQL Server 및 Azure에 사용할 수 있습니다. 지원되지 않는 커넥터는 사용자 지정 코드를 통해 구현될 수 있습니다.
                 </p>
                 <p>
                     참조 데이터 새로 고침은 사용자 지정 코드로 처리해야 합니다.
@@ -590,4 +588,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

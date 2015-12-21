@@ -34,7 +34,7 @@ API 앱은 다음과 같은 기능을 제공합니다.
 
 - **Visual Studio 통합** - Visual Studio의 전용 도구는 API 앱을 생성, 배포, 사용, 디버그 및 관리하는 작업을 간소화합니다. 자세한 내용은 [.NET용 Azure SDK 2.8.1 발표](/blog/announcing-azure-sdk-2-8-1-for-net/)를 참조하세요.
 
-- **논리 앱과 통합** - 사용자가 만드는 API 앱은 [앱 서비스 논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)을 통해 사용할 수 있습니다. API 앱을 논리 앱과 통합하는 방법의 지속적인 변화에 대한 자세한 내용은 [앱 서비스 API 앱 - 변경된 내용](app-service-api-whats-changed.md)을 참조하세요.
+- **논리 앱과 통합** - 사용자가 만드는 API 앱은 [앱 서비스 논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)을 통해 사용할 수 있습니다. [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)에서 방법을 알아보세요. API 앱을 논리 앱과 통합하는 방법의 지속적인 변화에 대한 자세한 내용은 [앱 서비스 API 앱 - 변경된 내용](app-service-api-whats-changed.md)을 참조하세요.
 
 - **기존 API를 그대로 가져오기** - API 앱 기능을 활용하기 위해 기존 API의 코드를 변경할 필요가 없습니다. 사용자의 코드를 API 앱에 배포하세요. API는 ASP.NET 및 C#, Java, PHP, Node.js 및 Python을 포함하여 앱 서비스에서 지원하는 모든 언어 또는 프레임워크를 사용할 수 있습니다.
 
@@ -57,4 +57,4 @@ API 앱의 알려진 문제 목록을 보려면 [API 앱의 알려진 문제 포
 
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

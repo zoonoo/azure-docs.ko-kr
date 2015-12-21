@@ -132,7 +132,7 @@
 
         using Microsoft.Azure.NotificationHubs;
 
-6. `Notifications` 클래스 정의를 다음으로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure 관리 포털](http://manage.windowsazure.com)에서 얻을 수 있음)으로 바꿉니다.
+6. `Notifications` 클래스 정의를 다음으로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure 클래식 포털](http://manage.windowsazure.com)에서 제공)으로 바꿉니다.
 
 		public class Notifications
         {
@@ -285,7 +285,7 @@
 
 3. **NotificationsController** 클래스에 다음 메서드를 추가합니다.
 
-	이 코드는 PNS(Platform Notification Service) `pns` 매개 변수를 기반으로 알림 유형을 보냅니다. `to_tag` 값은 메시지에서 *사용자 이름* 태그를 지정하는 데 사용됩니다. 이 태그는 활성 알림 허브 등록의 사용자 이름 태그와 일치해야 합니다. 알림 메시지는 POST 요청의 본문에서 가져오고 대상 PNS에 맞게 포맷됩니다.
+	이 코드는 PNS(Platform Notification Service) `pns` 매개 변수를 기반으로 알림 유형을 보냅니다. `to_tag` 값은 메시지에서 *사용자 이름* 태그를 지정하는 데 사용됩니다. 이 태그는 활성 알림 허브 등록의 사용자 이름 태그와 일치해야 합니다. 알림 메시지는 POST 요청의 본문에서 가져오고 대상 PNS에 맞게 형식이 지정됩니다.
 
 	알림을 수신하기 위해 지원되는 장치가 사용하는 플랫폼 알림 서비스(PNS)에 따라 다른 형식을 사용하여 다양한 알림을 지원합니다. 예를 들어 Windows 장치에서 다른 PNS에서 직접 지원되지 않는 [WNS로 알림](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)을 사용할 수 있습니다. 따라서 백 엔드는 알림을 지원하려는 장치의 PNS에 지원되는 알림으로 포맷해야 합니다. 그런 다음 [NotificationHubClient 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)에서 적절한 전송 API를 사용합니다.
 
@@ -338,7 +338,7 @@
 
 1. 이제 모든 장치에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-2. 게시 대상으로 **Microsoft Azure 웹 앱**을 선택합니다.
+2. 게시 대상으로 **Microsoft Azure 웹앱**을 선택합니다.
 
     ![][B15]
 
@@ -364,4 +364,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

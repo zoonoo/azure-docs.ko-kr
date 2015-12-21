@@ -23,7 +23,7 @@ Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능�
 - 활성 지역에서 복제[(블로그)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - 표준 지역에서 복제[(블로그)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - 지역 복원[(블로그)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- 새로운 지역에서 복제 기능[(블로그)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- 새로운 지역에서 복제 기능[(블로그)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 재해 대비 및 데이터베이스 복구 시기에 대한 자세한 내용은 [비즈니스 연속성을 위한 설계](sql-database-business-continuity-design.md) 페이지를 참조하세요.
 
@@ -131,4 +131,4 @@ PowerShell 지역 복원을 사용하여 SQL 데이터베이스를 복원하려�
 
 데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

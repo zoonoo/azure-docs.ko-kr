@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # 소스 제어에 모바일 서비스 프로젝트 코드 저장
@@ -65,7 +65,7 @@
 
 ##<a name="deploy-scripts"></a>Git를 사용하여 프로젝트 게시
 
-1. Visual Studio 2013dptj .NET 백 엔드 모바일 서비스 프로젝트를 새로 만들거나 기존 프로젝트를 새 로컬 리포지토리로 이동합니다.
+1. Visual Studio 2013dptj .NET 백 엔드 모바일 서비스 프로젝트를 새로 만들거나 기존 프로젝트를 새 로컬 리포지토리로 이동합니다.  
 
 	간단히 테스트하기 위해 모바일 서비스 퀵 스타트 프로젝트를 다운로드하여 이 폴더에 저장합니다.
 
@@ -105,4 +105,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

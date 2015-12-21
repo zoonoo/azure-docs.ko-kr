@@ -105,11 +105,11 @@ VHD를 미국의 지역에 있는 저장소 계정에 업로드하는 것이 좋
   ![그리기](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### PowerShell을 사용하여 저장소 계정 만들기
-PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet으로 저장소 계정을 만듭니다.
+PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet를 사용 저장소 계정을 만듭니다.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-그런 다음 [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet을 사용하여 해당 저장소 계정 내에 컨테이너를 만들 수 있습니다.
+그런 다음 [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet를 사용하여 해당 저장소 계정 내에 컨테이너를 만들 수 있습니다.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
@@ -127,7 +127,7 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 저장소 계정 및 컨테이너를 만든 후에는 준비된 VHD를 업로드할 수 있습니다. PowerShell, Linux 명령줄 도구 또는 기타 Azure 저장소 관리 도구를 사용할 수 있습니다.
 
 ### PowerShell 통해 VHD 업로드
-[Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet을 사용합니다.
+[Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet를 사용합니다.
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
@@ -138,4 +138,4 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 - [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
 - [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

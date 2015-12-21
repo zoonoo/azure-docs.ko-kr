@@ -10,7 +10,11 @@
 
 # 강제 터널링 구성
 
-이 문서는 클래식 배포 모델을 사용하여 VNets 및 VPN 게이트웨이에 적용됩니다. 리소스 관리지 배포 모델을 사용하여 만든 Vnet 및 VPN 게이트웨이에 대한 강제 터널링을 구성하려면 [PowerShell 및 Azure 리소스 관리자를 사용하여 강제 터널링 구성](vpn-gateway-forced-tunneling-rm.md)을 참조하세요.
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+이 문서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 VNets 및 VPN 게이트웨이에 적용됩니다. 리소스 관리지 배포 모델을 사용하여 만든 Vnet 및 VPN 게이트웨이에 대한 강제 터널링을 구성하려면 [PowerShell 및 Azure 리소스 관리자를 사용하여 강제 터널링 구성](vpn-gateway-forced-tunneling-rm.md)을 참조하세요.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -32,11 +36,11 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 -  각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
 
-	- **로컬 VNet 경로:** 동일한 가상 네트워크의 대상 VM으로 바로 연결하는 경로
+	- **로컬 VNet 경로:** 동일한 가상 네트워크에서 대상 VM으로 직접
 	
-	- **온-프레미스 경로:** Azure VPN 게이트웨이로 연결하는 경로
+	- **온-프레미스 경로:** Azure VPN 게이트웨이로
 	
-	- **기본 경로:** 인터넷으로 직접 연결하는 경로 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
+	- **기본 경로:** 인터넷으로 직접. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
 
 
 
@@ -50,7 +54,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 아래의 절차에 따라 가상 네트워크에 대한 강제 터널링을 지정할 수 있습니다. 구성 단계는 아래의 가상 네트워크 netcfg 파일 예제에 해당합니다.
 
-이 예제에서 가상 네트워크인 "MultiTier-VNet"에는 4개의 크로스 프레미스 연결:*DefaultSiteHQ* 및 3개의 *분기*가 있는 *프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷으로 3개의 서브넷이 있습니다. 절차 단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ*를 설정하고 *중간 계층* 및 *백 엔드* 서브넷을 구성하여 강제 터널링을 사용합니다.
+이 예제에서 가상 네트워크인 "MultiTier-VNet"에는 3개의 서브넷이 있습니다. 4개의 크로스 프레미스 연결(*DefaultSiteHQ* 및 3개의 *분기*)이 있는 *프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷 절차 단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ*를 설정하고 *중간 계층* 및 *백 엔드* 서브넷을 구성하여 강제 터널링을 사용합니다.
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -153,4 +157,4 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

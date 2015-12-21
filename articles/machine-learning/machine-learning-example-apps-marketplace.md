@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/>
 
 # Azure 마켓플레이스의 기계 학습 앱
@@ -33,12 +33,6 @@
 
 [빠른 시작 가이드](machine-learning-recommendation-api-quick-start-guide.md)
   
-##자주 함께 구매됨##
-고객이 카탈로그에서 자주 함께 구매되는 항목을 검색하는 데 도움을 주는 API입니다. 고객 구매 내역을 사용하여 "자주 함께 구매됨" 추천을 웹 사이트에 추가함으로써 디지털 스토어의 구매 전환율을 향상시킬 수 있습니다.
-
-[DataMarket 링크](https://datamarket.azure.com/dataset/amla/mba)
-
-[설명서](machine-learning-apps-frequently-bought-together-api.md)
 
 ##이상 감지##
 시계열 데이터(예: 서버 원격 분석 또는 센서 기반 데이터)에서 비정상적인 이벤트를 확인할 수 있는 API입니다.
@@ -63,4 +57,4 @@
 
 [설명서](https://churn.cloudapp.net/documentation)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

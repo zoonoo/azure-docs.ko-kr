@@ -132,11 +132,11 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.
 
 - 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다. 
-- 조각의 Status를 **PendingExecution**으로 설정하여 **Set-AzureDataFactorySliceStatus** cmdlet을 실행합니다.   
+- 조각의 Status를 **PendingExecution**으로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet를 실행합니다.   
 	
-		Set-AzureDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
-cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status]를 참조하세요.
+cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status]를 참조하세요.
 
 ### 조각을 처리하는 데 얼마나 오래 걸렸나요?
 1. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **데이터 집합** 타일을 클릭합니다.
@@ -147,7 +147,7 @@ cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure
 6. **기간** 필드와 값이 표시됩니다. 이것이 조각을 처리하는 데 소요된 시간입니다.   
 
 ### 실행 중인 조각을 중지하려면 어떻게 해야 하나요?
-파이프라인 실행을 중지해야 하는 경우 [Suspend-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn834939.aspx) cmdlet을 사용할 수 있습니다. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
+파이프라인 실행을 중지해야 하는 경우 [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) cmdlet를 사용할 수 있습니다. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
 
 모든 실행을 즉시 중지하려면 파이프라인을 삭제하고 다시 만들어야 합니다. 파이프라인을 삭제하도록 선택하는 경우 파이프라인에서 사용되는 테이블 및 연결된 서비스를 삭제할 필요는 없습니다.
 
@@ -169,7 +169,7 @@ cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
+[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
@@ -177,4 +177,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

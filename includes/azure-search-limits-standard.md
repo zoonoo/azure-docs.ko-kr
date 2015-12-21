@@ -1,15 +1,17 @@
-Object|Limit
+Object|제한
 ---|---
-Maximum number of indexes|50 per Search service
-Maximum number of fields per index|1000
-Maximum document count|15 million per partition
-Maximum storage size|25 GB per partition
-Maximum partitions|12 per Search service
-Maximum replicas|12 per Search service
-Maximum search units|36 per Search service
-Maximum search services|12 per Azure subscription
-Maximum number of indexers|50 per Search service
-Maximum number of datasources|50 per Search service
-Maximum number of documents that can be indexed in a single indexer invocation|Unlimited
-Maximum number of scoring profiles per index|16
-Maximum number of functions per profile|8
+최대 인덱스 수|검색 서비스 당 50
+인덱스 당 최대 필드 수|1000
+최대 문서 수|파티션당 15백만
+최대 저장소 크기|파티션당 25GB
+최대 파티션|검색 서비스 당 12
+최대 복제본|검색 서비스 당 12
+최대 검색 단위|검색 서비스 당 36
+최대 검색 서비스|Azure 구독 당 12
+최대 인덱서 수|검색 서비스 당 50
+최대 데이터 원본 수|검색 서비스 당 50
+단일 인덱서 호출에서 인덱싱할 수 있는 최대 문서 수|Unlimited
+인덱스당 최대 평가 프로필 수|16
+프로필당 최대 함수 수|8
+
+<!---HONumber=AcomDC_1210_2015-->

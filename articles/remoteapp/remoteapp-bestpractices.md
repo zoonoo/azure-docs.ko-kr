@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure RemoteApp 모범 사례"
+    pageTitle="Azure RemoteApp 모범 사례 | Microsoft Azure"
     description="Azure RemoteApp 구성 및 사용 모범 사례"
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Azure RemoteApp 구성 및 사용 모범 사례
@@ -42,6 +42,5 @@
 	- 공유 데이터를 서비스 외부의 기타 저장소 위치(예: 온-프레미스 파일 공유 또는 OneDrive)에 저장합니다.
 	- 서비스의 개별 가상 컴퓨터 대신 템플릿 이미지에서 시스템 수준 설정을 구성합니다.
 	- 게시된 응용 프로그램에 자동 소프트웨어 업데이트를 사용하지 않도록 설정합니다. 대신, 게시된 응용 프로그램을 템플릿 이미지에 수동으로 적용하고, 템플릿에서 배포하기 전에 테스트합니다.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

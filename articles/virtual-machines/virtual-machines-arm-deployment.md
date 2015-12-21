@@ -48,7 +48,7 @@ Azure AD를 사용하여 Azure 리소스 관리자에 요청을 인증하려면,
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 Azure 포털의 Active Directory 섹션에 있는 응용 프로그램의 클라이언트 ID 필드에서 응용 프로그램 식별자를 찾을 수 있습니다.
+	>[AZURE.NOTE] 다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 Azure 포털의 Active Directory 섹션에 있는 응용 프로그램의 클라이언트 ID 필드에서 응용 프로그램 식별자를 찾을 수 있습니다.
 
 3. {application-id}를 방금 기록된 식별자로 바꾼 다음 해당 응용 프로그램에 대한 서비스 사용자를 만듭니다.
 
@@ -342,14 +342,14 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
           }
         }
 
-	>[AZURE.NOTE]이미지 vhd 이름은 이미지 갤러리에서 정기적으로 변경되므로, 가상 컴퓨터를 배포하는 데 현재 이미지 이름을 가져와야 합니다. 이렇게 하려면 [Windows PowerShell을 사용하여 이미지 Windows 관리](https://msdn.microsoft.com/library/azure/dn790330.aspx)를 참조한 다음 , {source-image-name}을 사용 하려는 vhd 파일의 이름으로 바꿉니다. 예를 들면, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"입니다.
+	>[AZURE.NOTE]이미지 vhd 이름은 이미지 갤러리에서 정기적으로 변경되므로, 가상 컴퓨터를 배포하는 데 현재 이미지 이름을 가져와야 합니다. 이렇게 하려면 [Windows PowerShell을 사용하여 이미지 Windows 관리](https://msdn.microsoft.com/library/azure/dn790330.aspx)를 참조한 다음 , {source-image-name}을 사용 하려는 vhd 파일의 이름으로 바꿉니다. 예를 들면, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"입니다.
 
 	{subscription-id}를 사용자의 구독 ID로 바꿉니다.
 
 2.	방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
 		CreateVirtualMachine(credential);
-    Console.ReadLine();
+        Console.ReadLine();
 
 ##5단계: 코드를 추가하여 리소스 삭제
 
@@ -384,4 +384,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 	![AD 응용 프로그램 만들기](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

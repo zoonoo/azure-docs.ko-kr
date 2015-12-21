@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/08/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
@@ -24,6 +24,21 @@
 
 템플릿을 사용하여 응용 프로그램을 배포할 때는 매개 변수 값을 제공하여 리소스가 만들어지는 방식을 사용자 지정할 수 있습니다. 이 매개 변수의 값은 인라인 또는 매개 변수 파일로 지정할 수 있습니다.
 
+## 증분 및 전체 배포
+
+기본적으로 리소스 관리자는 리소스 그룹에 대한 증분 업데이트로 배포를 처리합니다. 증분 배포를 통해 리소스 관리자는 다음을 수행합니다.
+
+- 리소스 그룹에 존재하지만 템플릿에 지정되지 않는 리소스를 **변경되지 않은 상태로 유지**
+- 템플릿에 지정되어 있지만 리소스 그룹에 없는 리소스를 **추가** 
+- 템플릿에 정의된 동일한 조건으로 리소스 그룹에 존재하는 리소스를 **다시 프로비전하지 않음**
+
+Azure PowerShell 또는 REST API를 통해 리소스 그룹에 대한 전체 업데이트를 지정할 수 있습니다. 현재 Azure CLI는 전체 배포를 지원하지 않습니다. 전체 배포를 통해 리소스 관리자는 다음을 수행합니다.
+
+- 리소스 그룹에 존재하지만 템플릿에 지정되지 않는 리소스를 **삭제**
+- 템플릿에 지정되어 있지만 리소스 그룹에 없는 리소스를 **추가** 
+- 템플릿에 정의된 동일한 조건으로 리소스 그룹에 존재하는 리소스를 **다시 프로비전하지 않음**
+ 
+**Mode** 속성을 통해 배포 유형을 지정합니다.
 
 ## PowerShell을 사용하여 배포
 
@@ -59,7 +74,7 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. 리소스 그룹에 대한 새 배포를 만들려면 **New-AzureRmResourceGroupDeployment** 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름, 만든 템플릿의 경로 또는 URL 및 시나리오에 필요한 기타 매개 변수가 포함됩니다.
+5. 리소스 그룹에 대한 새 배포를 만들려면 **New-AzureRmResourceGroupDeployment** 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름, 만든 템플릿의 경로 또는 URL 및 시나리오에 필요한 기타 매개 변수가 포함됩니다. **Mode** 매개 변수가 지정되지 않으면 기본값 **Incremental**이 사용됩니다.
    
      다음과 같은 방법으로 매개 변수 값을 제공할 수 있습니다.
    
@@ -85,10 +100,18 @@
           Mode              : Incremental
           ...
 
+     전체 배포를 실행하려면 **Mode**를 **Complete**로 설정합니다.
+
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          Confirm
+          Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
+          included in the template will be deleted.
+          [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
 6. 배포 오류에 대한 정보를 가져오려면 다음을 실행합니다.
 
         PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
-
+        
         
 ### 비디오
 
@@ -180,7 +203,7 @@
              }
            }
    
-3. 새 리소스 그룹을 만듭니다. 템플릿의 구독 ID, 배포할 리소스 그룹 이름, 배포 이름 및 템플릿 위치를 제공합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요. 리소스 그룹을 만드는 REST API에 대한 정보는 [템플릿 배포 만들기](https://msdn.microsoft.com/library/azure/dn790564.aspx)를 참조하세요.
+3. 새 리소스 그룹을 만듭니다. 템플릿의 구독 ID, 배포할 리소스 그룹 이름, 배포 이름 및 템플릿 위치를 제공합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요. 리소스 그룹을 만드는 REST API에 대한 정보는 [템플릿 배포 만들기](https://msdn.microsoft.com/library/azure/dn790564.aspx)를 참조하세요. 전체 배포를 실행하려면 **mode**를 **Complete**로 설정합니다.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -249,4 +272,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

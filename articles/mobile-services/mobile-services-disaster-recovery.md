@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/08/2015"
+	ms.date="11/30/2015"
 	ms.author="christopheranderson"/>
 
 # 재해가 발생한 경우 모바일 서비스 복구
@@ -83,11 +83,18 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 	+ Azure 클래식 포털에서 모바일 서비스의 **구성** 탭에서 "데이터베이스 변경"을 선택한 후 새로 복구된 데이터베이스를 선택합니다.
 
 7. 이제 모바일 서비스가 이제 다른 물리적 위치에서 호스트됩니다. 실행 중인 사이트의 업데이트를 허용하려면 게시 및/또는 git 자격 증명을 업데이트해야 합니다.
-	+ **.NET 백엔드**를 사용하는 경우 [모바일 서비스 게시](mobile-services-dotnet-backend-windows-store-dotnet-get-started/#publish-your-mobile-service)에 설명된 대로 게시 프로필을 다시 설정합니다. 그러면 새 서비스 위치를 가리키도록 게시 정보가 업데이트됩니다.
-	+ **Javascript 백 엔드**를 사용하고 Azure 클래식 포털에서 서비스를 관리하는 경우에는 추가 작업을 수행할 필요가 없습니다.
+
+	+ **.NET 백엔드**를 사용하는 경우 [모바일 서비스 게시](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md#publish-your-mobile-service)에 설명된 대로 게시 프로필을 다시 설정합니다. 그러면 새 서비스 위치를 가리키도록 게시 정보가 업데이트됩니다.
+	+ **Javascript 백 엔드**를 사용하고 포털에서 서비스를 관리하는 경우에는 추가 작업을 수행할 필요가 없습니다.
+
 	+ **Javascript 백 엔드**를 사용하고 노드에서 서비스를 관리하는 경우에는 새 저장소를 가리키도록 git 원격을 업데이트합니다. 이렇게 하려면 git 원격에서 .git 파일 경로를 제거합니다.
 
-		1. 현재 원본 원격을 찾습니다. git remote -v origin https://myservice.scm.azure-mobile.net/myservice.git (fetch) origin https://myservice.scm.azure-mobile.net/myservice.git (push)
+		1. 현재 원본 원격을 찾습니다.
+
+				git remote -v
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (fetch)
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (push)
+
 		3. 최종 .git 파일 경로 없이 동일한 URL을 사용하여 원격을 업데이트합니다. git remote set-url origin https://myservice.scm.azure-mobile.net
 		4. 원본에서 끌어와 올바르게 작동하는지 확인합니다.
 
@@ -100,11 +107,11 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 <!-- URLs. -->
 [SQL 데이터베이스 비즈니스 연속성 지침]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
-
+[Github]: https://github.com/
 [소스 제어 기능]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [Azure CLI를 사용]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [비정상]: http://manage.windowsazure.com/
 [Azure 서비스 대시보드]: http://www.windowsazure.com/support/service-dashboard/
 [Azure CLI를 사용하여 모바일 서비스 자동화]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

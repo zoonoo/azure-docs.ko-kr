@@ -32,37 +32,28 @@ Azure DNS는 ARM(Azure 리소스 관리자)을 사용합니다. Azure PowerShell
 
 
 ### 1단계
+Azure 계정에 로그인합니다. 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
-		PS C:\> Login-AzureRmAccount
-
-
+	PS C:\> Login-AzureRmAccount
 
 ### 2단계
+사용할 Azure 구독을 선택합니다.
 
-계정에 대한 구독을 확인합니다.
+	PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-		PS C:\> get-AzureRmSubscription 
+'Get AzureRmSubscription'을 사용하여 사용 가능한 구독을 나열할 수 있습니다.
 
-자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.<BR>
+### 3단계
+새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
-### 3단계 사용할 Azure 구독을 선택합니다. <BR>
+	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 
-
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 그러나 모든 DNS 리소스는 지역별이 아니라 전역이므로 리소스 그룹의 위치 선택이 Azure DNS에 영향을 주지 않습니다.
 
 ### 4단계
-새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.<BR>
-
-		PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
-
-
-Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 그러나 모든 DNS 리소스는 국가별이 아니라 전역이므로 리소스 그룹의 위치 선택이 Azure DNS에 영향을 주지 않습니다.<BR>
-
-### 5단계
-
 Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩니다. Azure DNS를 사용하려면 먼저 이 리소스 공급자를 사용하도록 Azure 구독을 등록해야 합니다. 이 작업은 각 구독에 대해 한 번만 수행하면 됩니다.
 
-	PS c:> Register-AzureRmProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -90,7 +81,7 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 
 New-AzureRmDnsZone cmdlet을 사용하여 DNS 영역을 만듭니다. 아래 예제에서는 'MyResourceGroup'이라는 리소스 그룹에 'contoso.com'이라는 DNS 영역을 만듭니다.<BR>
 
-		PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 >[AZURE.NOTE]Azure DNS에서는 종료하는 '.' 없이 영역 이름을 지정해야 합니다. 예를 들어 'contoso.com.' 대신 'contoso.com'으로 지정합니다.<BR>
 
@@ -104,7 +95,7 @@ New-AzureRmDnsZone cmdlet을 사용하여 DNS 영역을 만듭니다. 아래 예
 
 이러한 레코드를 보려면 Get-AzureRmDnsRecordSet를 사용합니다.
 
-		PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -149,11 +140,9 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
         		expire  = 604800 (7 days)
         		default TTL = 300 (5 mins)
 
-
 ## 다음 단계
-
 
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

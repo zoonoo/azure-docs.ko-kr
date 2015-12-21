@@ -126,7 +126,7 @@ Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변�
 
 ### 원본 제어에서 Azure 자동화에 runbook 동기화 
 
-Runbook 동기화 블레이드에서 동기화 단추를 사용하면 리포지토리의 runbook 폴더 경로에 있는 모든 runbook을 자동화 계정으로 가져올 수 있습니다. 동일한 리포지토리는 둘 이상의 자동화 계정에 동기화될 수 있습니다. Runbook을 동기화하는 단계는 아래와 같습니다.
+리포지토리 동기화 블레이드에서 동기화 단추를 사용하면 리포지토리의 runbook 폴더 경로에 있는 모든 runbook을 자동화 계정으로 가져올 수 있습니다. 동일한 리포지토리는 둘 이상의 자동화 계정에 동기화될 수 있습니다. Runbook을 동기화하는 단계는 아래와 같습니다.
 
 1. 원본 제어를 설정한 자동화 계정에서 **원본 제어 통합/리포지토리 동기화 블레이드**를 열고 **동기화**를 클릭한 다음 확인 메시지가 표시될 때 **예**를 클릭하여 계속합니다.  
 
@@ -158,4 +158,4 @@ GitHub 계정에서 연결을 끊으려면 리포지토리 동기화 블레이�
 
 원본 제어 통합에 대한 자세한 내용은 다음 리소스를 참조하세요.- [Azure 자동화: Azure 자동화의 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Azure 자동화: Visual Studio Online을 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

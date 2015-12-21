@@ -56,7 +56,6 @@ SourceAnchor 특성은 대소문자를 구분합니다. "JohnDoe"의 값은 "joh
 
 다른 솔루션은 변경되지 않는 것을 알고 있는 기존 특성을 선택하는 것입니다. 일반적으로 사용되는 특성에는 **employeeID**가 있습니다. 문자를 포함하는 특성을 고려하는 경우 특성 값의 대/소문자가 변경될 수 있는 가능성이 없는지 확인합니다. 나쁜 속성은 사용자의 이름의 해당 속성을 포함하여 사용할 수 없습니다. 결혼 또는 이혼 해서 이름을 바꿔야하는 경우에도 이 특성에서는 허용되지 않습니다. **userPrincipalName**, **mail** 및 **targetAddress**와 같은 특성을 Azure AD Connect 설치 마법사에서 선택할 수 없는 이유이기도 합니다. 이러한 특성은 sourceAnchor에서 허용하지 않는 @-문자도 포함하고 있습니다.
 
-
 ### SourceAnchor 특성 변경
 sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 후에는 값을 변경할 수 없습니다.
 
@@ -69,4 +68,4 @@ sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

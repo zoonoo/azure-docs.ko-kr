@@ -1,5 +1,5 @@
 <properties 
-pageTitle=".NET을 사용하는 클라우드 서비스에 대한 수명 주기 이벤트에 응답합니다." 
+pageTitle="클라우드 서비스 수명 주기 이벤트 처리 | Microsoft Azure" 
 description=".NET에서 클라우드 서비스 역할의 수명 주기 메서드를 사용할 수 있는 방법을 알아봅니다." 
 services="cloud-services" 
 documentationCenter=".net" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/08/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # .NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
@@ -35,7 +35,7 @@ ms.author="adegeo"/>
 
 사용자의 역할이 시작되지 않거나 초기화, 사용 중 및 중지 상태 사이에서 재활용되는 경우, 코드는 역할이 다시 시작될때마다 수명 주기 이벤트 중 하나에서 처리되지 않은 예외를 발생시킬 수 있습니다. 이 경우에 [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) 이벤트를 사용하여 예외 원인을 확인하고 적절하게 처리합니다. 사용자의 역할은 [실행](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 메서드에서 반환될 수도 있으며 역할을 다시 시작하게 합니다. 배포 상태에 대한 자세한 내용은 [역할을 재활용하게 하는 일반적인 문제](https://msdn.microsoft.com/library/azure/gg465402.aspx)를 참조하세요.
 
-> [AZURE.NOTE] [Azure Tools for Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)을 사용하여 응용 프로그램을 개발하려면 역할 프로젝트 템플릿은 자동으로 WebRole.cs 및 WorkerRole.cs 파일에서 **RoleEntryPoint** 클래스를 확장합니다.
+> [AZURE.NOTE][Azure Tools for Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)을 사용하여 응용 프로그램을 개발하려면 역할 프로젝트 템플릿은 자동으로 WebRole.cs 및 WorkerRole.cs 파일에서 **RoleEntryPoint** 클래스를 확장합니다.
 
 ## Onstart 메서드
 
@@ -80,4 +80,4 @@ public override bool OnStart()
 ## 다음 단계
 [클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md) 방법에 대해 알아봅니다.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

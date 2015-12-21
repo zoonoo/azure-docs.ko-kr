@@ -54,6 +54,7 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 이미지�
 Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../linux-endorsed-distributions.md) 참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
 
 - **[CentOS 기반 배포판](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES 및 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
@@ -74,7 +75,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../l
 
 최신 Azure CLI는 리소스 관리자 배포 모델을 기본값으로 하므로 다음 명령을 통해 클래식 배포 모델에 있는지 확인합니다.
 
-		azure change mode asm  
+		azure config mode asm  
 
 이제 다음 로그인 방법 중 하나를 사용하여 Azure 구독에 연결합니다.
 
@@ -88,7 +89,7 @@ Azure AD 메서드를 사용한 로그인:
 
 	메시지가 표시되면 사용자 이름 및 암호를 입력합니다.
 
-**또는 ** PublishSettings 파일을 대신 사용합니다.
+**또는** PublishSettings 파일을 대신 사용합니다.
 
 1. Azure CLI 창 열기
 
@@ -164,11 +165,11 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 
 자세한 내용은 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)(영문)를 참조하십시오.
 
-> [AZURE.NOTE] [Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대한 cmdlet을 처리하는 방식으로 변경합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
+> [AZURE.NOTE][Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대한 cmdlet를 처리하는 방식으로 변경합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

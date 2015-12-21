@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="스트림 분석으로 실시간 이벤트 처리 | Microsoft Azure" 
+	pageTitle="스트림 분석 이벤트 처리를 사용하여 실시간 이벤트 처리 | Microsoft Azure" 
 	description="실시간 이벤트 처리 및 분석을 구현하기 위해 Azure 서비스가 어떻게 상호 운용되는지 알아보세요." 
+    keywords="실시간 처리, 이벤트 처리, 참조 아키텍처"
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 # 참조 아키텍처: Microsoft Azure 스트림 분석으로 실시간 이벤트 처리
@@ -62,4 +63,4 @@ Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

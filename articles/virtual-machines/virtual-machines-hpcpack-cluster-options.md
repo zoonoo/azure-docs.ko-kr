@@ -49,11 +49,13 @@ ms.service="virtual-machines"
 
 ### 자습서
 
-* [자습서: Azure에서 HPC Pack 클러스터의 Linux 컴퓨터 노드 시작](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+* [자습서: Azure에서 HPC Pack 클러스터의 Linux 컴퓨터 노드 시작](virtual-machines-linux-cluster-hpcpack.md)
 
-* [자습서: Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+* [자습서: Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [자습서: Azure에서 Excel 및 SOA 작업을 실행할 HPC Pack 클러스터 시작](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+* [자습서: Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFOAM 실행](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
+* [자습서: Azure에서 Excel 및 SOA 작업을 실행할 HPC Pack 클러스터 시작](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
@@ -97,4 +99,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -249,9 +249,9 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 
 이제 Mahout을 사용하는 방법을 배웠으므로 HDInsight에서 데이터로 작업하는 다른 방법을 검색합니다.
 
-* [HDInsight에서 Hive 사용](../hadoop-use-hive.md)
-* [HDInsight에서 Pig 사용](../hadoop-use-pig.md)
-* [HDInsight에서 MapReduce 사용](../hadoop-use-mapreduce.md)
+* [HDInsight에서 Hive 사용](hadoop-use-hive.md)
+* [HDInsight에서 Pig 사용](hadoop-use-pig.md)
+* [HDInsight에서 MapReduce 사용](hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
@@ -267,4 +267,4 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -63,7 +63,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 4. **HPC 팩 2012 R2 헤드 노드 배포 및 구성**
 
-    [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=47755)에서 최신 HPC 팩 설치 패키지를 다운로드합니다. Azure 버스트 배포를 준비하기 위한 요구 사항 및 지침은 [HPC 팩 시작하기 가이드](https://technet.microsoft.com/library/jj884144.aspx) 및 [Microsoft HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)를 참조하세요.
+    [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=49922)에서 최신 HPC 팩 설치 패키지를 다운로드합니다. Azure 버스트 배포를 준비하기 위한 요구 사항 및 지침은 [HPC 팩 시작하기 가이드](https://technet.microsoft.com/library/jj884144.aspx) 및 [Microsoft HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)를 참조하세요.
 
 5. **Azure 구독에서 관리 인증서 구성**
 
@@ -114,7 +114,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 1. **클라이언트 컴퓨터에서 HPC 팩 IaaS 배포 스크립트를 실행하여 클러스터 헤드 노드 및 계산 노드 VM 만들기**
 
- [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=47755)에서 HPC 팩 IaaS 배포 스크립트 패키지를 다운로드합니다.
+ [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=49922)에서 HPC 팩 IaaS 배포 스크립트 패키지를 다운로드합니다.
 
  클라이언트 컴퓨터를 준비하고 스크립트 구성 파일을 만들어 스크립트를 실행하려면 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-hpcpack-cluster-powershell-script.md)를 참조하세요. 크기가 A8 및 A9인 계산 노드를 배포하려면 이 문서의 뒷부분에 나오는 추가 고려 사항을 참조하세요.
 
@@ -198,8 +198,12 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
     Azure VM에 배포된 HPC 팩 클러스터에서 2단계의 설명과 같이 명령을 수정합니다.
 
-5. 작업이 완료된 다음 출력(이 경우 작업의 작업 1 출력)을 보려면 task view &lt;JobID&gt;.1을 입력합니다.
+5. 작업이 완료된 다음 출력(이 경우 작업의 작업 1 출력)을 보려면 다음과 같이 입력합니다.
 
+    ```
+    task view &lt;JobID&gt;.1
+    ```
+    
   출력에는 다음과 유사한 처리량 결과가 포함 됩니다.
 
   ![핑퐁 처리량][pingpong2]
@@ -223,7 +227,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 * Azure 인스턴스에 MPI 응용 프로그램을 실행하려면 **hpcfwutil** 명령을 실행하여 인스턴스의 Windows 방화벽에 각 MPI 응용 프로그램을 등록합니다. 그러면 방화벽에서 동적으로 할당한 포트에서 MPI 통신이 이루어집니다.
 
-    >[AZURE.NOTE] Azure로 버스트 배포의 경우 방화벽 제외 명령을 구성하여 클러스터에 추가된 모든 새 Azure 노드에서 자동으로 실행할 수도 있습니다. **hpcfwutil** 명령을 실행하고 응용 프로그램이 작동하는지 확인한 다음 Azure 노드의 시작 스크립트에 명령을 추가합니다. 자세한 내용은 [Azure 노드에 시작 스크립트 사용](https://technet.microsoft.com/library/jj899632(v=ws.10).aspx)을 참조하세요.
+    >[AZURE.NOTE]Azure로 버스트 배포의 경우 방화벽 제외 명령을 구성하여 클러스터에 추가된 모든 새 Azure 노드에서 자동으로 실행할 수도 있습니다. **hpcfwutil** 명령을 실행하고 응용 프로그램이 작동하는지 확인한 다음 Azure 노드의 시작 스크립트에 명령을 추가합니다. 자세한 내용은 [Azure 노드에 시작 스크립트 사용]을 참조하세요(https://technet.microsoft.com/library/jj899632(v=ws.10).aspx).
 
 
 
@@ -246,4 +250,4 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

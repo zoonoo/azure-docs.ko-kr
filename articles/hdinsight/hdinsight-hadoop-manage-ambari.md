@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/27/2015"
+   ms.date="12/03/2015"
    ms.author="larryfr"/>
 
 #Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리
@@ -216,4 +216,12 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save**를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current**를 선택하여 이전 설정으로 롤백할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+##Ambari 뷰
+
+Ambari 뷰를 사용하면 개발자가 [Ambari 보기 프레임워크](https://cwiki.apache.org/confluence/display/AMBARI/Views)를 사용하여 Ambari 웹 UI에 UI 요소를 삽입할 수 있습니다. HDInsight은 Hadoop 클러스터 종류를 사용하여 다음 뷰를 제공합니다.
+
+* Yarn 큐 관리자: 큐 관리자는 YARN 큐를 보고 수정하기 위한 간단한 UI를 제공합니다.
+* Hive 뷰: Hive 뷰를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 저장소에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 뷰 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 뷰 사용](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
+* Tez 뷰: Tez 뷰를 사용하면 Tez 작업 실행 방법 및 작업에서 사용되는 리소스 정보를 확인하여 작업을 더 잘 이해하고 최적화합니다.
+
+<!---HONumber=AcomDC_1210_2015-->

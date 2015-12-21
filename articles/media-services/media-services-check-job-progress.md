@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="12/04/2015"   
 	ms.author="juliako"/>
 
 #방법: 작업 진행 상태 확인
@@ -437,4 +437,4 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

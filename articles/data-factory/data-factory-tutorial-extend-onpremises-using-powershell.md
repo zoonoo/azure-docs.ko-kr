@@ -24,12 +24,6 @@
  
 마케팅 캠페인 효과 데이터를 Azure Blob에서 온-프레미스 SQL Server로 복사하기 위해서는 첫 번째 연습에서 소개한 일련의 cmdlet을 동일하게 사용하여 연결된 서비스, 테이블 및 파이프라인을 추가로 만들어야 합니다.
 
-> [AZURE.IMPORTANT]이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
->    
-> Azure PowerShell 1.0을 사용하는 경우 [여기](https://msdn.microsoft.com/library/dn820234.aspx)에 설명된 cmdlet을 사용해야 합니다. 예를 들어 New-AzureDataFactory를 사용하는 대신 New-AzureRMDataFactory를 사용합니다.
-
-## 사전 필수 구성 요소
-
 [자습서의 연습을 수행**해야** 합니다. 이 문서에서 연습을 수행하기 전에 데이터 팩터리][datafactorytutorial]를 사용하여 로그 파일을 이동하고 처리합니다.
 
 **(권장)** 온-프레미스 SQL Server에서 Azure Blob 저장소로 데이터를 이동하는 파이프라인을 만드는 연습은 [온-프레미스 데이터를 사용할 수 있도록 설정][useonpremisesdatasources] 문서의 연습을 검토하고 연습합니다.
@@ -120,22 +114,22 @@
 ### 온-프레미스 논리 테이블 만들기
 
 1.	**Azure PowerShell**에서 **C:\\ADFWalkthrough\\OnPremises** 폴더로 전환합니다. 
-2.	다음과 같이 **New-AzureDataFactoryDataset** cmdlet을 사용하여 **MarketingCampaignEffectivenessOnPremSQLTable.json**에 대한 테이블을 만듭니다.
+2.	다음과 같이 **New-AzureRmDataFactoryDataset** cmdlet를 사용하여 **MarketingCampaignEffectivenessOnPremSQLTable.json**에 대한 테이블을 만듭니다.
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Azure Blob에서 SQL Server로 데이터를 복사하는 파이프라인 만들기
 
-1.	다음과 같이 **New-AzureDataFactoryPipeline** cmdlet을 사용하여 **EgressDataToOnPremPipeline.json**에 대한 파이프라인을 만듭니다.
+1.	다음과 같이 **New-AzureRmDataFactoryPipeline** cmdlet를 사용하여 **EgressDataToOnPremPipeline.json**에 대한 파이프라인을 만듭니다.
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. **Set-AzureDataFactoryPipelineActivePeriod** cmdlet을 사용하여 **EgressDataToOnPremPipeline**의 활성 기간을 지정합니다.
+2. **Set-AzureRmDataFactoryPipelineActivePeriod** cmdlet를 사용하여 **EgressDataToOnPremPipeline**의 활성 기간을 지정합니다.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	**‘Y’**를 눌러 계속합니다.
 	
@@ -169,9 +163,11 @@
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

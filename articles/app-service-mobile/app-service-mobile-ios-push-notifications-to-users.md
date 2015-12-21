@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="iOS의 특정 사용자에게 크로스 플랫폼 알림 전송" 
 	description="특정 사용자의 모든 장치에 푸시 알림을 전송하는 방법을 알아봅니다."
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="ios" 
 	authors="ysxu" 
 	manager="dwrede" 
@@ -18,9 +18,7 @@
 
 # 특정 사용자에게 크로스 플랫폼 알림 전송
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 이 항목에서는 모바일 백 엔드에서 특정 사용자의 모든 등록된 장치에 알림을 전송하는 방법을 보여 줍니다. 등록 시 클라이언트 응용 프로그램이 자유롭게 페이로드 형식과 변수 자리 표시자를 지정할 수 있게 하는 [템플릿] 개념을 소개했습니다. 이 경우 해당 자리 표시자가 포함된 모든 플랫폼에 전송이 수행되어 크로스 플랫폼 알림을 사용할 수 있습니다.
 
@@ -65,38 +63,11 @@
             }
         }];
 
+	푸시 알림에 등록하기 전에 사용자를 인증해야 합니다. 인증된 사용자가 푸시 알림에 등록하면 사용자 ID가 포함된 태그가 자동으로 추가됩니다.
+
 ##<a name="backend"></a>특정 사용자에게 알림을 전송하도록 서비스 백 엔드 업데이트
 
-1. Visual Studio에서 `PostTodoItem` 메서드 정의를 다음 코드로 업데이트합니다.  
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            // get the current user id and create tag to identify user
-            ServiceUser authenticatedUser = this.User as ServiceUser;
-            string userTag = "_UserId:" + authenticatedUser.Id;
-
-            // build dictionary for template
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
-
-            try
-            {
-            	await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+[AZURE.INCLUDE [app-service-mobile-push-notifications-to-users](../../includes/app-service-mobile-push-notifications-to-users.md)]
 
 ##<a name="test"></a>앱 테스트
 
@@ -105,7 +76,7 @@
 <!-- URLs. -->
 [인증 시작]: app-service-mobile-ios-get-started-users.md
 [푸시 알림 시작]: app-service-mobile-ios-get-started-push.md
-[템플릿]: https://msdn.microsoft.com/ko-KR/library/dn530748.aspx
+[템플릿]: https://msdn.microsoft.com/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

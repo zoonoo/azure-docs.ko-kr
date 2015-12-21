@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="스트림 분석: 입력 및 출력에 대한 로그인 자격 증명 회전 | Microsoft Azure" 
-	description="스트림 분석 입력 및 출력에 대한 자격 증명을 업데이트 하는 방법에 대해 알아봅니다." 
+	description="스트림 분석 입력 및 출력에 대한 자격 증명을 업데이트 하는 방법에 대해 알아봅니다."
+	keywords="로그인 자격 증명"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,15 +14,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-#입/출력 자격 증명 회전
+#로그인 자격 증명 회전
 
 ##요약
 오늘날 Azure 스트림 분석은 작업이 실행되는 동안에 입/출력 시 자격 증명을 대체할 수 없습니다.
 
-Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하지만, 작업의 중지와 시작 사이의 간격을 최소화하기 위해 전체 프로세스를 공유합니다.
+Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하지만, 작업의 중지 및 시작과 로그인 자격 증명 회전 사이의 간격을 최소화하기 위해 전체 프로세스를 공유합니다.
 
 ##1부-새로운 자격 증명 집합을 준비합니다.
 이 부분은 다음 입력/출력에 적용할 수 있습니다.
@@ -34,7 +35,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 다른 입력/출력의 경우 2부를 진행합니다.
 
 ###블로그 저장소/테이블 저장소
-1.  Azure 클래식 포털의 저장소 확장으로 이동합니다.![graphic1][graphic1]
+1.  Azure 관리 포털에서 저장소 확장명으로 이동합니다. ![graphic1][graphic1]
 2.  사용자 작업에서 사용되는 저장소를 찾아 이동합니다. ![graphic2][graphic2]
 3.  액세스 키 관리 명령을 클릭합니다. ![graphic3][graphic3]
 4.  기본 액세스 키 및 보조 액세스 키 사이에서 **작업에서 사용되지 않는 키를 선택합니다**.
@@ -43,7 +44,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 7.  2부를 계속합니다.
 
 ###이벤트 허브(영문)
-1.  Azure 클래식 포털에서 서비스 버스 확장으로 이동합니다.![graphic6][graphic6]
+1.  Azure 관리 포털에서 서비스 버스 확장명으로 이동합니다. ![graphic6][graphic6]
 2.  작업에서 사용하는 서비스 버스 네임스페이스를 찾아 이동합니다. ![graphic7][graphic7]
 3.  작업이 서비스 버스 네임스페이스에서 공유 액세스 정책을 사용하는 경우 6단계로 이동합니다.  
 4.  이벤트 허브 탭으로 이동합니다. ![graphic8][graphic8]
@@ -57,9 +58,9 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 
 ###SQL 데이터베이스
 
->[AZURE.NOTE]참고: SQL 데이터베이스 서비스에 연결해야 합니다. Azure 클래식 포털의 관리 환경을 사용하여 실행하는 방법을 보여주지만, SQL Server Management Studio와 같은 일부 클라이언트 측의 도구를 사용하도록 직접 선택해야 합니다.
+>[AZURE.NOTE]참고: SQL 데이터베이스 서비스에 연결해야 합니다. Azure 관리 포털에서 관리 환경을 사용하여 이를 수행하는 방법을 보여줄 수 있지만 SQL Server Management Studio와 같은 일부 클라이언트측 도구를 함께 사용하 여 선택할 수 있습니다.
 
-1.  Azure 클래식 포털에서 SQL 데이터베이스 확장으로 이동합니다.![graphic14][graphic14]
+1.  Azure 관리 포털에서 SQL 데이터베이스 확장명으로 이동합니다. ![graphic14][graphic14]
 2.  작업에서 사용되는 SQL 데이터베이스를 찾아 동일한 줄에 있는 **서버를 클릭합니다.** ![graphic15][graphic15]
 3.  관리 명령을 클릭합니다. ![graphic16][graphic16]
 4.  데이터베이스 마스터 유형: ![graphic17][graphic17]
@@ -77,7 +78,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 16. 2부를 계속합니다.
 
 ##2부: 스트림 분석 작업 중지
-1.  Azure 클래식 포털에서 스트림 분석 확장으로 이동합니다.![graphic26][graphic26]
+1.  Azure 관리 포털에서 스트림 분석 확장으로 이동합니다. ![graphic26][graphic26]
 2.  작업을 찾아 이동합니다. ![graphic27][graphic27]
 3.  입력 또는 출력의 자격 증명을 회전하는 지 여부에 따라 입력 탭이나 출력 탭으로 이동합니다. ![graphic28][graphic28]
 4.  중지 명령을 클릭하고 작업이 중지되었는지 확인합니다. ![graphic29][graphic29] 작업이 중지될 때까지 대기합니다.
@@ -193,4 +194,4 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

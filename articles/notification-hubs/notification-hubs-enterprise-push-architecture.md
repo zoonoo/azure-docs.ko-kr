@@ -213,7 +213,7 @@
 
 	![][3]
 
-	g. Azure 관리 포털에 로그인할 때 다음과 같은 단계를 거쳐야 하기 때문에 작업이 "계속 실행"되도록 구성합니다.
+	g. [Azure 클래식 포털]에 로그인할 때 다음과 같은 단계를 거쳐야 하기 때문에 작업이 "계속 실행"되도록 구성합니다.
 
 	![][4]
 
@@ -250,7 +250,7 @@
 
 	![][5]
 
-4. 원래 메시지는 웹 작업의 서비스 버스 구독에서 모니터링하는 서비스 버스 항목으로 전송되었습니다. 메시지가 수신되면 알림이 생성되어 모바일 앱으로 전송됩니다. 사용자의 웹 작업에 대한 Azure 관리 포털의 로그 링크로 이동하면 WebJob 로그를 통해 처리 상태를 확인할 수 있습니다.
+4. 원래 메시지는 웹 작업의 서비스 버스 구독에서 모니터링하는 서비스 버스 항목으로 전송되었습니다. 메시지가 수신되면 알림이 생성되어 모바일 앱으로 전송됩니다. 사용자의 웹 작업에 대한 [Azure 클래식 포털]의 로그 링크로 이동하면 WebJob 로그를 통해 처리 상태를 확인할 수 있습니다.
 
 	![][6]
 
@@ -270,5 +270,6 @@
 [Azure WebJob]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [알림 허브 - Windows 범용 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [알림 허브 - Windows 유니버설 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

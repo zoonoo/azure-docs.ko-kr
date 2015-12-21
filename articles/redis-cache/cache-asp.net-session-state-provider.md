@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/23/2015"
+   ms.date="12/03/2015"
    ms.author="sdanie" />
 
 # Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자
@@ -59,7 +59,7 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 주석 처리된 섹션은 특성의 예와 각 특성의 샘플 설정을 제공합니다.
 
-Microsoft Azure Preview 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스 하는 방법은 [Redis 캐시 설정 구성](cache-configure.md#configure-redis-cache-settings)을 참조하세요.
+Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스 하는 방법은 [Redis 캐시 설정 구성](cache-configure.md#configure-redis-cache-settings)을 참조하세요.
 
 -	**호스트** – 캐시 끝점을 지정합니다.
 -	**포트** – ssl 설정에 따라 비-SSL 포트 또는 SSL 포트를 사용합니다.
@@ -106,4 +106,4 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 [Azure Redis Cache에 대한 ASP.NET 출력 캐시 제공자](cache-asp.net-output-cache-provider.md)를 확인합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/04/2015"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - UserEcho에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
 - 사용자가 해당 Azure AD 계정으로 UserEcho에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -56,7 +56,7 @@ UserEcho의 Azure AD 통합을 구성하려면 갤러리의 UserEcho를 관리�
 
 **갤러리에서 UserEcho를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -81,14 +81,14 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 UserEcho 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 UserEcho 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
 
 
 
 
 **UserEcho에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **UserEcho** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+1. Azure 클래식 포털의 **UserEcho** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
 
 2. **UserEcho에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png) <br>
 
@@ -120,16 +120,16 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **SAML 사용**을 **예**로 선택합니다.
 
-    b. Azure 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사하고 붙여넣습니다. 메모장에서 다운로드한 인증서를 연 다음 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure 클래식 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사하고 붙여넣습니다. 메모장에서 다운로드한 인증서를 연 다음 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
 
-    c. Azure 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사하고 메모장에서 다운로드한 인증서를 연 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    c. Azure 클래식 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
     d. 다운로드한 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
 
-    e. **저장**을 클릭합니다.
+    e. **Save**를 클릭합니다.
 
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
+6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Single Sign-On][11]
 
@@ -137,11 +137,11 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png) <br> 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png) <br> 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -198,7 +198,7 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
 
-    b. **메일** 텍스트 상자에 Azure 포털에 있는 Britta의 메일 주소를 입력합니다.
+    b. **메일** 텍스트 상자에 Azure 클래식 포털에 있는 Britta의 메일 주소를 입력합니다.
 
     c. **초대**를 클릭합니다.
 
@@ -212,7 +212,7 @@ UserEcho를 사용하여 시작할 수 있는 초대장이 Britta에게 전송�
 
 **Britta Simon을 UserEcho에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 
 2. 응용 프로그램 목록에서 **UserEcho**를 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
 
@@ -253,4 +253,4 @@ UserEcho를 사용하여 시작할 수 있는 초대장이 Britta에게 전송�
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="온-프레미스 VMWare 사이트 간 보호 설정" 
-	description="이 문서를 사용하여 Azure Site Recovery를 사용하는 두 VMware 사이트 간의 보호를 구성할 수 있습니다." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+<properties
+	pageTitle="온-프레미스 VMWare 사이트 간 보호 설정"
+	description="이 문서를 사용하여 Azure Site Recovery를 사용하는 두 VMware 사이트 간의 보호를 구성할 수 있습니다."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/07/2015" 
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/03/2015"
 	ms.author="raynew"/>
 
 
@@ -60,18 +60,18 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 다음과 같이 설치합니다.
 
-1. [업데이트](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASRScout 8.0.1 Update1.zip) 다운로드 zip 파일입니다. 이 zip 파일에는 다음 파일이 포함됩니다.
+1. [update](http://aka.ms/scoutupdates) zip 파일을 다운로드합니다. 이 zip 파일에는 다음 파일이 포함됩니다.
 
 	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
-	-  CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe
+	-  CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe
 	-  UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe
 	-  UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz
 	-  vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe
 2. zip 파일의 압축을 풉니다.
 2. **RX 서버**: **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-2. **구성 서버/프로세스 서버**: **CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.
+2. **구성 서버/프로세스 서버**: **CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.
 3. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. Windows용으로 통합된 에이전트는 원본 서버에 적용할 수 없습니다. Windows 마스터 대상 서버에만 설치해야 합니다.
-4. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_RHEL6 64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+4. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
 5. **vContinuum 서버**: **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe**를 vContinuum 서버에 복사합니다. VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
 
 ## 4단계: 복제 설정
@@ -86,6 +86,19 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 
 ## 업데이트
+
+### ASR Scout 8.0.1 업데이트 03Dec15
+
+업데이트 03-Dec-15의 수정에 포함되는 내용:
+
+- **구성 서버** - 사이트 복구에 구성 서버가 등록되었을 때 31일 무료 계량 기능이 예상대로 작동하지 않는 문제를 해결합니다.
+- **통합 에이전트** - 버전 8.0에서 8.0.1로 업그레이드할 때 마스터 대상 서버에 업데이트가 설치되지 않는 마스터 대상에 대한 업데이트 1 문제를 해결합니다.
+
+>[AZURE.NOTE]
+>
+>-	모든 ASR 업데이트는 누적됩니다.
+>-	시스템에 적용되면 CS 및 RX 업데이트를 롤백할 수 없습니다.
+
 
 ### ASR Scout 8.0.1 업데이트 1
 
@@ -109,12 +122,12 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 	- 다시 동기화 임계값은 예상대로 적용되지 않으며, 일치하지 않는 복제 동작을 수행합니다.
 	- 구성 서버 인터페이스에 제대로 나타나지 않는 RPO 설정입니다. 압축되지 않은 데이터 값은 압축된 값을 잘못 표시합니다.
 	-  제거 작업은 vContinuum 마법사에서 예상대로 삭제되지 않으며 복제는 구성 서버 인터페이스에서 삭제되지 않습니다.
-	-  VContinuum 마법사에서 MSCS 가상 컴퓨터를 보호하는 동안 디스크 보기에서 **세부 정보**를 클릭하면 디스크는 자동으로 선택되지 않습니다.
+	-  vContinuum 마법사에서 MSCS 가상 컴퓨터를 보호하는 동안 디스크 보기에서 **세부 정보**를 클릭하면 디스크는 자동으로 선택되지 않습니다.
 	- P2V 시나리오가 CIMnotify와 같은 HP 서비스에 필요한 동안, CqMgHost는 복구 가상 컴퓨터에서 수동으로 이동되지 않으므로 추가 부팅 시간이 필요합니다.
 	- 마스터 대상 서버에 26개 이상의 디스크가 있으면 Linux 가상 컴퓨터 보호 작업이 실패합니다.
-	
+
 ## 다음 단계
 
-문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.<
+문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

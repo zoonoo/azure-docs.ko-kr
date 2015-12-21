@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 리소스 그룹 배포 프로젝트 만들기 및 배포 | Microsoft Azure"
-   description="Azure 리소스 그룹 배포 프로젝트 만들기 및 배포"
+   pageTitle="Azure 리소스 그룹 Visual Studio 프로젝트 만들기 및 배포 | Microsoft Azure"
+   description="Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Azure 리소스 그룹 배포 프로젝트 만들기 및 배포
+# Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
 Azure SDK 2.6이 설치될 때 **Azure 리소스 그룹** 배포 프로젝트 템플릿은 Visual Studio에서 제공됩니다. Azure 리소스 그룹 프로젝트를 사용하여 관련된 여러 Azure 리소스를 단일 배포 작업으로 함께 그룹화하고 게시합니다. Azure 리소스 그룹 프로젝트는 **Azure 리소스 관리자**라는 기술을 사용하여 자신의 작업을 수행합니다. **Azure 리소스 관리자**는 Azure 리소스 그룹을 정의할 수 있는 REST API 서비스로, 일반적으로 함께 사용되며 수명 주기가 유사한 여러 Azure 리소스를 포함합니다. 리소스 그룹을 사용하여 각 개별 리소스에 대한 다른 함수를 호출하지 않고 단일 함수 호출로 그룹의 모든 리소스에 대해 작업할 수 있습니다. Azure 리소스 그룹에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요. 자세한 종단 간 Azure 리소스 그룹 배포 시나리오는 [Visual Studio용 Azure 리소스 그룹](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/)을 참조하세요.
 
@@ -49,9 +49,10 @@ Azure 리소스 관리자에는 Ubuntu Server 및 Windows Server 2012 R2와 같�
 
     |파일 이름|설명|
     |---|---|
-    |Deploy-AzureResourceGroup.ps1|Azure 리소스 관리자에 배포하는 PowerShell 명령을 호출하는 PowerShell 스크립트입니다.
-
-    **참고** 이 PowerShell 스크립트는 Visual Studio에서 사용되어 템플릿을 배포합니다. 이 스크립트의 변경 내용은 Visual Studio의 배포에도 영향을 주므로 주의합니다. | !WebSite.json|Azure 리소스 관리자에 배포하려는 모든 세부 정보를 지정하는 구성 파일입니다. | | WebSite.param.dev.json| 구성 파일에 필요한 특정 값을 포함하는 매개 변수 파일입니다. | |AzCopy.exe|PowerShell 스크립트에서 사용 되는 도구로, 로컬 저장소 드롭 경로에서 저장소 계정 컨테이너로 파일을 복사합니다. 이 도구는 템플릿과 함께 코드를 배포하는 배포 프로젝트를 구성하는 경우에만 사용됩니다.|
+    |Deploy-AzureResourceGroup.ps1|Azure 리소스 관리자를 배포할 PowerShell 명령을 호출하는 PowerShell 스크립트입니다.<br />* * 참고 * * 이 PowerShell 스크립트는 Visual Studio에서 템플릿을 배포하는 데 사용됩니다. 이 스크립트를 변경하면 Visual Studio를 이용한 배포에도 영향이 있으므로 신중해야 합니다.|
+    !WebSite.json|Azure에 배포에 배포할 인프라를 정의하는 템플릿입니다.|
+    |WebSite.param.dev.json|구성 파일에 필요한 특정 값을 포함하고 있는 매개 변수 파일입니다.|
+    |AzCopy.exe|PowerShell 스크립트가 로컬 저장소 드롭 경로에서 저장소 계정 컨테이너로 파일을 복사할 때 사용하는 도구입니다. 이 도구는 템플릿과 함께 코드를 배포하는 배포 프로젝트를 구성하는 경우에만 사용됩니다.|
 
     모든 Azure 리소스 그룹 배포 프로젝트는 이러한 4개의 기본 파일을 포함합니다. 다른 프로젝트는 다른 기능을 지원하는 추가 파일을 포함할 수 있습니다.
 
@@ -193,6 +194,6 @@ TFS 자동화된 빌드 및 Microsoft 내 다른 프로젝트에서 명명 규�
 
 ## 다음 단계
 
-Visual Studio에서 Azure 리소스 그룹에 리소스를 추가하는 방법을 알아보려면 [Azure 리소스 그룹에 리소스 추가](vs-azure-tools-resource-group-adding-resources.md)를 참조하세요.
+Visual Studio에서 Azure 리소스 그룹에 리소스를 추가하는 방법은 [Visual Studio를 사용하여 리소스 관리자 템플릿 편집](vs-azure-tools-resource-group-adding-resources.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

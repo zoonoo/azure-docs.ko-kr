@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Windows에서 Java JDBC를 사용하여 SQL 데이터베이스에 연결합니다." 
+<properties
+	pageTitle="Windows에서 Java JDBC를 사용하여 SQL 데이터베이스에 연결합니다."
 	description="Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Java 코드 샘플을 제시합니다. 이 샘플에서는 JDBC를 사용하며, Windows 클라이언트 컴퓨터에서 실행됩니다."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="LuisBosquez" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="LuisBosquez"
+	manager="jeffreyg"
 	editor="genemi"/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="lbosq"/>
 
 
@@ -27,19 +27,20 @@
 이 항목에서는 Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Java 코드 샘플을 제시합니다. Java 샘플을 실행하려면 Java 개발 키트(JDK) 버전 1.8이 필요합니다. 이 샘플에서는 JDBC 드라이버를 사용하여 Azure SQL 데이터베이스에 연결합니다.
 
 
-## 요구 사항
+## 필수 조건
 
+### 드라이버와 라이브러리
 
 - [Microsoft SQL Server용 JDBC 드라이버 - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - [Java 개발 키트 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 실행되는 운영 체제 플랫폼.
-- SQL Azure에 있는 기존 데이터베이스. 샘플 데이터베이스를 만들고 연결 문자열을 검색하는 방법을 알아보려면 [시작 항목](sql-database-get-started.md)을 참조하세요.
 
+### SQL 데이터베이스
 
-## 테스트 환경
+데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md)를 참조하세요.
 
+### SQL 테이블
 
 이 항목에 있는 Java 코드 예제에서는 Azure SQL 데이터베이스 데이터베이스에 다음 테스트 테이블이 이미 있는 것으로 가정합니다.
-
 
 <!--
 Could this instead be a #tempPerson table, so that the Java code sample could be fully self-sufficient and be runnable (with automatic cleanup)?
@@ -55,16 +56,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## SQL 데이터베이스에 대한 연결 문자열
+## 1단계: 연결 문자열 가져오기
+
+[AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
+
+> [AZURE.NOTE]JTDS JDBC 드라이버를 사용하는 경우 연결 문자열의 URL에 "ssl=require"를 추가해야 하며, JVM "-Djsse.enableCBCProtection=false"에 대해 다음 옵션을 설정해야 합니다. 이 JVM 옵션은 보안 취약성에 대한 픽스를 사용하지 않도록 설정하므로 이 옵션을 설정하기 전에 관련된 위험을 이해해야 합니다.
 
 
-이 코드 샘플은 연결 문자열을 사용하여 `Connection` 개체를 만듭니다. 연결 문자열은 [Azure 포털](http://portal.azure.com/)을 사용하여 찾을 수 있습니다. 연결 문자열 찾기에 대한 자세한 내용은 [처음으로 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
-
-
-> [AZURE.NOTE]JTDS JDBC 드라이버. JTDS JDBC 드라이버를 사용하는 경우 연결 문자열의 URL에 "ssl=require"를 추가해야 하며, JVM "-Djsse.enableCBCProtection=false"에 대해 다음 옵션을 설정해야 합니다. 이 JVM 옵션은 보안 취약성에 대한 픽스를 사용하지 않도록 설정하므로 이 옵션을 설정하기 전에 관련된 위험을 이해해야 합니다.
-
-
-## Java 코드 샘플
+## 2단계: Java 코드 샘플 컴파일
 
 
 이 섹션에는 Java 코드 샘플의 대부분이 있습니다. 여기에는 후속 섹션에 나오는 더 작은 Java 세그먼트를 어디에 복사하여 붙여넣어야 하는지 표시하는 주석이 있습니다. 이 섹션의 샘플은 주석 근처에서 복사하여 붙여넣지 않아도 컴파일하고 실행할 수 있지만, 그러면 연결한 뒤 바로 종료됩니다. 다음과 같은 주석을 찾아볼 수 있습니다.
@@ -80,36 +79,36 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 	import java.sql.*;
 	import com.microsoft.sqlserver.jdbc.*;
-	
+
 	public class SQLDatabaseTest {
-	
+
 		public static void main(String[] args) {
 			String connectionString =
-				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
+				"jdbc:sqlserver://your_server.database.windows.net:1433;"
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
 				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
-				+ "loginTimeout=30;"; 
-	
+				+ "loginTimeout=30;";
+
 			// Declare the JDBC objects.
 			Connection connection = null;
 			Statement statement = null;
 			ResultSet resultSet = null;
 			PreparedStatement prepsInsertPerson = null;
 			PreparedStatement prepsUpdateAge = null;
-	
+
 			try {
 				connection = DriverManager.getConnection(connectionString);
-	
+
 				// INSERT two rows into the table.
 				// ...
-	
+
 				// TRANSACTION and commit for an UPDATE.
 				// ...
-	
+
 				// SELECT rows from the table.
 				// ...
 			}
@@ -137,7 +136,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 - your\_password
 
 
-## 테이블에 두 행 삽입
+## 3단계: 행 삽입
 
 
 이 Java 세그먼트는 Person 테이블에 두 행을 삽입하는 Transact-SQL INSERT 문을 발행합니다. 일반적인 순서는 다음과 같습니다.
@@ -157,7 +156,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	String insertSql = "INSERT INTO Person (firstName, lastName, age) VALUES "
 		+ "('Bill', 'Gates', 59), "
 		+ "('Steve', 'Ballmer', 59);";
-	
+
 	prepsInsertPerson = connection.prepareStatement(
 		insertSql,
 		Statement.RETURN_GENERATED_KEYS);
@@ -170,8 +169,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	}
 
 
-## 트랜잭션 및 업데이트에 대한 커밋
-
+## 4단계: 트랜잭션 커밋
 
 다음 Java 코드 세그먼트는 Person 테이블의 모든 행에서 `age` 값을 증가시키는 Transact-SQL UPDATE 문을 발행합니다. 일반적인 순서는 다음과 같습니다.
 
@@ -186,22 +184,22 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 	// Set AutoCommit value to false to execute a single transaction at a time.
 	connection.setAutoCommit(false);
-	
+
 	// Write the SQL Update instruction and get the PreparedStatement object.
 	String transactionSql = "UPDATE Person SET Person.age = Person.age + 1;";
 	prepsUpdateAge = connection.prepareStatement(transactionSql);
-	
+
 	// Execute the statement.
 	prepsUpdateAge.executeUpdate();
-	
+
 	//Commit the transaction.
 	connection.commit();
-	
+
 	// Return the AutoCommit value to true.
 	connection.setAutoCommit(true);
 
 
-## 테이블에서 행 선택
+## 4단계: 쿼리 실행
 
 
 이 Java 세그먼트는 Person 테이블에서 업데이트된 모든 행이 표시되도록 Transact-SQL SELECT 문을 실행합니다. 일반적인 순서는 다음과 같습니다.
@@ -219,7 +217,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	String selectSql = "SELECT firstName, lastName, age FROM dbo.Person";
 	statement = connection.createStatement();
 	resultSet = statement.executeQuery(selectSql);
-	
+
 	// Iterate through the result set and print the attributes.
 	while (resultSet.next()) {
 		System.out.println(resultSet.getString(2) + " "
@@ -230,4 +228,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

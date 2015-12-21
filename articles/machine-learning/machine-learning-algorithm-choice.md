@@ -114,7 +114,7 @@
 |[로컬 심층 지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|큰 기능 집합의 적합|
 |[Bayes 지점 컴퓨터](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**다중 클래스 분류**| | | | | |
-|[로지스틱 회귀](https://msdn.microsoft.com/ko-KR/library/azure/dn905853.aspx)| |●|●|5| |
+|[로지스틱 회귀](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
 |[의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[의사 결정 정글](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|적은 메모리 공간|
 |[신경망](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -237,4 +237,4 @@ Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azu
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->
