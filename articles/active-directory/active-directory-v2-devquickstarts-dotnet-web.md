@@ -23,7 +23,10 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
   > [AZURE.NOTE]
     이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
- 여기서는 OWIN을 사용하여 다음과 같은 작업을 수행합니다. 즉, Azure AD와 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인하고, 사용자에 대한 일부 정보를 표시하고, 사용자를 앱에서 로그아웃합니다.
+ 여기서는 OWIN을 사용하여 다음과 같은 작업을 수행합니다.
+-	즉, Azure AD와 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인하고.
+-	사용자에 대한 일부 정보를 표시하고.
+-	사용자를 앱에서 로그아웃합니다.
 
 이 작업을 수행하려면 다음 작업이 필요합니다.
 
@@ -111,10 +114,10 @@ public void ConfigureAuth(IAppBuilder app)
 			 }
 ```
 
-## 3. Use OWIN to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in and sign out.
+## 3. OWIN을 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
+이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점 끝점과 통신하도록 올바르게 구성되었습니다.  OWIN이 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다.  이제 사용자에게 로그인하고 로그아웃하는 방법을 알려주기만 하면 됩니다.
 
-- You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
+- 컨트롤러에서 권한 부여 태그를 사용하여 사용자가 특정 페이지에 액세스하기 전에 로그인하도록 요구할 수 있습니다.  `Controllers\HomeController.cs`를 열고 About 컨트롤러에 `[Authorize]` 태그를 추가합니다.
 
 ```C#
 [Authorize]
