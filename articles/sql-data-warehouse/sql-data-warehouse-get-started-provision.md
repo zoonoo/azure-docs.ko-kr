@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/15/2015"
    ms.author="lodipalm;barbkess"/>
 
 # SQL 데이터 웨어하우스 만들기
@@ -29,6 +29,10 @@
 
 - 데이터베이스를 호스팅하는 서버를 만듭니다.
 - AdventureWorksDW 예제 데이터베이스를 포함하는 데이터베이스를 만듭니다.
+
+기존 데이터베이스를 SQL 데이터 웨어하우스에 마이그레이션하려는 경우 [마이그레이션 개요](./sql-data-warehouse-get-started-overview-migrate.md)를 참조하거나 [마이그레이션 유틸리티](./sql-data-warehouse-migrate-migration-utility.md)를 사용하세요.
+
+SQL 데이터 웨어하우스로 데이터를 로드하는 경우 [로드 개요](./sql-data-warehouse-overview-load.md)를 참조하세요.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -46,7 +50,6 @@
 
 
 ## 2단계: 서버 구성 및 만들기
-
 SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터베이스는 서버에 할당되고 각 서버는 지리적 위치에 할당됩니다. 이 서버를 논리적 SQL server라고 합니다.
 
 > [AZURE.NOTE]<a name="note"></a>논리적 SQL server:
@@ -54,7 +57,7 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
   > + 지리적으로 같은 위치 내에서 여러 데이터베이스를 구성하는 일관된 방법을 제공합니다.
   > + 온-프레미스 서버처럼 실제 하드웨어는 아닙니다. 서비스 소프트웨어의 일부입니다. 이러한 이유로 *논리적 서버*라고 합니다.
   > + 성능에 영향을 주지 않으면서 여러 데이터베이스를 호스팅할 수 있습니다.
-  > + 이름에 소문자 *s* 를 사용합니다. SQL **s**erver는 Azure 논리적 서버인 반면 SQL **S**erver는 Microsoft의 온-프레미스 데이터베이스 제품입니다.
+  > + 이름에 소문자 *s*를 사용합니다. SQL **s**erver는 Azure 논리적 서버인 반면 SQL **S**erver는 Microsoft의 온-프레미스 데이터베이스 제품입니다.
 
 1. **서버** > **새 서버 만들기**를 클릭합니다. 서버에 대한 요금은 부과되지 않습니다. 사용할 V12 논리 SQL server가 이미 있는 경우 기존 서버를 선택하고 다음 단계로 이동합니다. 
 
@@ -95,7 +98,7 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
     - **리소스 그룹**. 기본값을 유지할 수 있습니다. 리소스 그룹은 컨테이너로, Azure 리소스의 컬렉션을 관리할 수 있도록 디자인되었습니다. [리소스 그룹](../azure-portal/resource-group-portal.md)에 대해 알아봅니다.
     
-    - **구독**. 이 데이터베이스에 대해 요금을 청구할 구독을 선택합니다.
+    - **구독** 이 데이터베이스에 대해 요금을 청구할 구독을 선택합니다.
 
 1. **만들기**를 클릭하여 SQL 데이터 웨어하우스 데이터베이스를 만듭니다.
 
@@ -126,8 +129,9 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
 이제 방화벽을 구성했으므로 바탕 화면에서 방금 만든 Azure SQL 데이터 웨어하우스 데이터베이스에 연결할 수 있습니다.
 
+
 ## 다음 단계
 
 이제 SQL 데이터 웨어하우스의 샘플 데이터베이스를 만들었으므로 데이터베이스에 [연결](./sql-data-warehouse-get-started-connect.md)할 수 있습니다.
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

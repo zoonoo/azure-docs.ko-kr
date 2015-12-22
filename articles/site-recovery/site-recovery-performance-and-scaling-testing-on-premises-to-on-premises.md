@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery: 온-프레미스 Hyper-V 복제에 성능 테스트 및 온-프레미스에 대한 규모 결과"
+	pageTitle="Site Recovery를 사용하여 온-프레미스 간 Hyper-V 복제에 대한 성능 테스트 및 확장 결과 | Microsoft Azure"
 	description="이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 복제에 온-프레미스에 대한 성능 테스트에 대하여 정보를 제공합니다."
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-# Azure Site Recovery: 온-프레미스 Hyper-V 복제에 성능 테스트 및 온-프레미스에 대한 규모 결과
+# Site Recovery를 사용하여 온-프레미스 간 Hyper-V 복제에 대한 성능 테스트 및 확장 결과
 
 Microsoft Azure Site Recovery를 사용하여 가상 컴퓨터 및 물리적 서버의 복제를 Azure 또는 보조 데이터 센터에 오케스트레이션하고 관리합니다. 이 문서는 두 개의 온-프레미스 데이터 센터 사이에 Hyper-v 가상 컴퓨터를 복제할 때 수행한 성능 테스트의 결과를 제공합니다.
 
@@ -210,4 +210,4 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

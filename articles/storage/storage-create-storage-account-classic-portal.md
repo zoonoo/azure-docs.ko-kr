@@ -171,5 +171,6 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 - Azure 저장소에 대한 자세한 내용은 [Azure.com](http://azure.microsoft.com/documentation/services/storage/)의 Azure 저장소 설명서를 참조하세요.
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

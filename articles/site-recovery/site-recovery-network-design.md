@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Site Recovery를 위한 네트워크 인프라 고려 사항" 
+	pageTitle="Site Recovery를 위한 네트워크 인프라 고려 사항 | Microsoft Azure" 
 	description="이 문서에서는 Site Recovery를 사용하여 장애 조치(failover)하기 위한 실제 네트워크 디자인 고려 사항을 알아봅니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  Site Recovery를 위한 네트워크 인프라 고려 사항
@@ -62,10 +62,9 @@ Hyper-V 복제본을 사용하여 VM에 단일 VMM을 배포하려면:
 ### 클러스터된 VMM 서버
 
 
-[클러스터에 VMM을 배포](https://technet.microsoft.com/ko-KR/library/gg610675.aspx)하면 하드웨어 장애 조치(failover)에 대해 고가용성 및 보호를 제공합니다. Site Recovery를 사용하여 VMM 클러스터를 배포하는 경우 다음 사항에 유의합니다.
+[클러스터에 VMM을 배포](https://technet.microsoft.com/library/gg610675.aspx)하면 하드웨어 장애 조치(failover)에 대해 고가용성 및 보호를 제공합니다. Site Recovery를 사용하여 VMM 클러스터를 배포하는 경우 다음 사항에 유의합니다.
 
-지리적으로 떨어져 있는 사이트에서는 VMM 서버가 늘어난(stretched) 클러스터에 배포되어야 합니다.
-VMM에서 사용하는 SQL Server 데이터베이스는 보조 사이트에서 복제를 통해 SQL Server AlwaysOn 가용성 그룹과 함께 보호되어야 합니다. 재해가 VMM 서버에서 발생하는 경우 그에 해당하는 SQL Server가 자동으로 복구 사이트에 장애 조치(failover)됩니다. 그런 다음 Site Recovery를 사용하여 작업을 장애 조치(failover)할 수 있습니다.
+지리적으로 떨어져 있는 사이트에서는 VMM 서버가 늘어난(stretched) 클러스터에 배포되어야 합니다. VMM에서 사용하는 SQL Server 데이터베이스는 보조 사이트에서 복제를 통해 SQL Server AlwaysOn 가용성 그룹과 함께 보호되어야 합니다. 재해가 VMM 서버에서 발생하는 경우 그에 해당하는 SQL Server가 자동으로 복구 사이트에 장애 조치(failover)됩니다. 그런 다음 Site Recovery를 사용하여 작업을 장애 조치(failover)할 수 있습니다.
 
 ![늘어난 VMM 클러스터](./media/site-recovery-network-design/ASR_NetworkDesign1.png)
 
@@ -125,10 +124,7 @@ VMM에서 사용하는 SQL Server 데이터베이스는 보조 사이트에서 �
 3. 동일한 IP 주소를 사용할 수 없는 경우 Site Recovery가 풀에서 다른 주소를 할당합니다.
 4. 보호를 위해 가상 컴퓨터를 사용하도록 설정한 후 다음 샘플 스크립트를 사용하여 가상 컴퓨터에 할당된 IP 주소를 확인할 수 있습니다. 동일한 IP 주소가 장애 조치(failover) IP 주소로 설정되고 장애 조치(failover) 시 VM에 할당됩니다.
 
-    $vm = Get-SCVirtualMachine -Name 
-    $na = $vm[0].VirtualNetworkAdapters
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id 
-    $ip.address
+    $vm = Get-SCVirtualMachine -Name $na = $vm[0].VirtualNetworkAdapters $ip = Get-SCIPAddress -GrantToObjectID $na[0].id $ip.address
 
 가상 컴퓨터가 DHCP를 사용하는 경우 Site Recovery에서 IP 주소 관리를 처리하지 않습니다. 복구 사이트에서 IP 주소를 할당하는 DHCP 서버가 주 사이트의 범위와 동일한 범위에서 주소를 할당할 수 있도록 해야 합니다.
 
@@ -155,12 +151,10 @@ Woodgrove가 복제를 배포하고 IP 주소를 유지 관리하려면 다음�
 
 	![Azure 네트워크](./media/site-recovery-network-design/ASR_NetworkDesign7.png)
 
-- VM에 대한 IP 주소가 유지되도록 하기 위해 Site Recovery의 VM 속성에서 동일한 IP 주소가 사용되도록 지정합니다. 그러면 장애 조치(failover) 후 Site Recovery가 지정된 IP 주소를 VM에 할당합니다.
-	![Azure 네트워크](./media/site-recovery-network-design/ASR_NetworkDesign8.png)
+- VM에 대한 IP 주소가 유지되도록 하기 위해 Site Recovery의 VM 속성에서 동일한 IP 주소가 사용되도록 지정합니다. 그러면 장애 조치(failover) 후 Site Recovery가 지정된 IP 주소를 VM에 할당합니다. ![Azure 네트워크](./media/site-recovery-network-design/ASR_NetworkDesign8.png)
 
 
-- 장애 조치(failover)가 트리거되고 VM이 필요한 IP 주소로 복구 네트워크에 만들어지면 이를 사용하여 VM에 대한 연결을 설정할 수 있습니다. 이 작업은 스크립팅할 수 있습니다. 이전 섹션에서 서브넷 장애 조치(failover)에 대해 설명한 것처럼 Azure로 장애 조치(failover)의 경우에도 라우팅이 해당 192.168.1.0/24가 현재 Azure로 이동했다는 것을 반영하도록 적절하게 수정되어야 합니다.
-	 ![Azure 네트워크](./media/site-recovery-network-design/ASR_NetworkDesign9.png)
+- 장애 조치(failover)가 트리거되고 VM이 필요한 IP 주소로 복구 네트워크에 만들어지면 이를 사용하여 VM에 대한 연결을 설정할 수 있습니다. 이 작업은 스크립팅할 수 있습니다. 이전 섹션에서 서브넷 장애 조치(failover)에 대해 설명한 것처럼 Azure로 장애 조치(failover)의 경우에도 라우팅이 해당 192.168.1.0/24가 현재 Azure로 이동했다는 것을 반영하도록 적절하게 수정되어야 합니다. ![Azure 네트워크](./media/site-recovery-network-design/ASR_NetworkDesign9.png)
 
 ### 옵션 2: 수정된 IP 주소
 
@@ -183,17 +177,10 @@ Woodgrove가 복제를 배포하고 IP 주소를 유지 관리하려면 다음�
 - 가상 컴퓨터가 시작되면 사용 중인 DNS 서버가 업데이트됩니다. DNS 항목은 일반적으로 네트워크 전체에서 변경되거나 플러시되어야 하고, 네트워크 테이블의 캐시된 항목도 업데이트되고 플러시되어야 하므로 이러한 상태가 변경되는 동안 가동 중지 시간이 발생하는 것은 흔한 일입니다. 이는 다음 방법으로 완화할 수 있습니다.
 
 	- 인트라넷 응용 프로그램의 경우 낮은 TTL 값 사용
-	- [Site Recovery와 함께 Azure 트래픽 관리자](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) 인터넷 기반 응용 프로그램의 경우 사용
+	- [Site Recovery와 함께 Azure 트래픽 관리자] 사용(http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ 인터넷 기반 응용 프로그램의 경우)
 	- DNS 서버를 업데이트할 때 제 시간에 업데이트되도록 하기 위해 복구 계획 내에서 다음 스크립트 사용(동적 DNS 등록이 구성되지 않은 경우 스크립트가 필요하지 않음)
 
-    [string]$Zone,
-    [string]$name,
-    [string]$IP
-    )
-    $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-    $newrecord = $record.clone()
-    $newrecord.RecordData[0].IPv4Address  =  $IP
-    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecor
+    [string]$Zone, [string]$name, [string]$IP ) $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name $newrecord = $record.clone() $newrecord.RecordData[0].IPv4Address = $IP Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 #### 예 - Azure로 장애 조치(failover)
 
@@ -203,4 +190,4 @@ Woodgrove가 복제를 배포하고 IP 주소를 유지 관리하려면 다음�
 
 Site Recovery가 원본 및 대상 네트워크를 매핑하는 방법을 [알아봅니다.](site-recovery-network-mapping.md)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

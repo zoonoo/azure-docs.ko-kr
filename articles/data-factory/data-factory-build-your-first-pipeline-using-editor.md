@@ -1,6 +1,6 @@
 <properties
 	pageTitle="데이터 팩터리 편집기를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드"
-	description="이 자습서에서는 Azure 클래식 포털의 데이터 팩터리 편집기를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
+	description="이 자습서에서는 Azure 포털의 데이터 팩터리 편집기를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,12 +16,13 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# 데이터 팩터리 편집기를 사용하여 처음으로 Azure Data Factory 파이프라인 작성(Azure 클래식 포털)
+# 데이터 팩터리 편집기를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드(Azure 포털)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 이 문서에서는 [Azure 포털](https://portal.azure.com/)을 사용하여 처음으로 파이프라인을 만드는 방법을 알아봅니다. 이 자습서는 다음과 같은 단계로 구성됩니다.
@@ -233,4 +234,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](./data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1217_2015--->

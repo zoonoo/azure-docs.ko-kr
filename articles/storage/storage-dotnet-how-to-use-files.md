@@ -531,6 +531,7 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 - [Azure 파일 저장소: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템 ](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Linux에서 Azure 파일 저장소 사용 방법](storage-how-to-use-files-linux.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
 ### 파일 저장소용 도구 지원
 
@@ -550,4 +551,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

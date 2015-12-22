@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # iOS 앱에 대한 알림 허브 시작
@@ -88,6 +88,8 @@
 
 4. [모바일 서비스 iOS SDK 버전 1.2.4]를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
 
+	>[AZURE.NOTE]알림 허브 SDK는 현재 Xcode 7의 bitcode를 지원하지 않습니다. 프로젝터의 **빌드 옵션**에서 **Bitcode 사용**을 **No**로 설정해야 합니다.
+
    	![][10]
 
 5. **HubInfo.h**라는 프로젝트에 새 헤더 파일을 추가합니다. 이 파일에는 알림 허브에 대한 상수가 들어 있습니다. 다음 정의를 추가하고 문자열 리터럴 자리 표시자를 *허브 이름* 및 앞에서 메모해둔 *DefaultListenSharedAccessSignature*으로 바꿉니다.
@@ -102,7 +104,7 @@
 
 6. AppDelegate.h 파일을 열고 import 지시문을 추가합니다.
 
-         #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
+         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 		 #import "HubInfo.h"
 		
 7. AppDelegate.m 파일에서 iOS 버전 기반의 `didFinishLaunchingWithOptions` 메서드에 다음 코드를 추가합니다. 이 코드는 APNS로 장치 핸들을 등록합니다.
@@ -246,13 +248,14 @@
 			}
 		}
 
-6. `viewDidLoad` 뷰가 로드될 때 연결 문자열을 구문 분석하도록 ViewController.m에서 메서드를 업데이트합니다. 아래와 같이 인터페이스 구현에 유틸리티 메서드를 추가합니다.
+6. ViewController.m에서 `viewDidLoad` 메서드를 업데이트하여 뷰가 로드할 때 연결 문자열을 구문 분석합니다. 아래와 같이 인터페이스 구현에 유틸리티 메서드를 추가합니다.
 
 
 		- (void)viewDidLoad
 		{
 			[super viewDidLoad];
 			[self ParseConnectionString];
+			[_notificationMessage setDelegate:self];
 		}
 
 		-(NSString *)CF_URLEncodedString:(NSString *)inputString
@@ -438,6 +441,7 @@
 Apple [로컬 및 푸시 알림 프로그래밍 가이드]에서 가능한 모든 알림 페이로드를 찾아볼 수 있습니다.
 
 
+
 ##앱 테스트
 
 iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합니다. iOS 시뮬레이터를 사용하여 Apple 푸시 알림을 보낼 수 없습니다.
@@ -504,4 +508,4 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

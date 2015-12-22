@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="10/07/2015" 
+	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
 # 인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포
@@ -37,13 +37,13 @@
 
 >[AZURE.NOTE]긴 자습서입니다. Azure 앱 서비스 및 Visual Studio 웹 프로젝트에 대한 간략한 소개를 보려면 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기](web-sites-dotnet-get-started.md)를 참조하세요. 문제 해결 정보는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 >
->Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 필수 조건
 
 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
-개발 환경 설정을 설정하려면 [Visual Studio 2013 업데이트 4](http://go.microsoft.com/fwlink/?LinkId=390521) 이상 및 최신 버전의 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)를 설치해야 합니다. 이 문서는 Visual Studio 업데이트 4 및 SDK 2.7.1에 대해 작성되었습니다. Visual Studio 2015는 설치된 최신 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)와 동일한 지침으로 작동하지만 일부 화면이 그림과 다르게 표시됩니다.
+개발 환경 설정을 설정하려면 [Visual Studio 2013 업데이트 5](http://go.microsoft.com/fwlink/?LinkId=390521) 이상 및 최신 버전의 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)를 설치해야 합니다. 이 문서는 Visual Studio 업데이트 4 및 SDK 2.8.1에 대해 작성되었습니다. Visual Studio 2015는 설치된 최신 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)와 동일한 지침으로 작동하지만 일부 화면이 그림과 다르게 표시됩니다.
 
 ## ASP.NET MVC 5 응용 프로그램 만들기
 
@@ -61,7 +61,7 @@
  
 	**참고:** "ContactManager"를 입력해야 합니다. 나중에 복사할 코드 블록에서는 프로젝트 이름을 ContactManager로 가정합니다.
 
-1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다. **인증**이 **개별 사용자 계정**으로 설정되고 **클라우드에 호스트**가 선택되고 **웹앱**이 선택되었는지 확인합니다.
+1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다. **인증**이 **개별 사용자 계정**으로 설정되고, **Host in the cloud(클라우드에서 호스트)**가 선택되고 **앱 서비스**가 선택되었는지 확인합니다.
 
 	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
@@ -104,6 +104,7 @@
 	Visual Studio는 ContactManager 웹 프로젝트를 만들고 지정한 리소스 그룹 및 앱 서비스 계획을 만들고 지정한 이름을 가진 Azure 앱 서비스에서 웹앱을 만듭니다.
 
 ### 페이지 머리글 및 바닥글 설정
+
 
 1. **Solution Explorer**에서 *Views\\Shared* 폴더의 *Layout.cshtml* 파일을 엽니다.
 
@@ -164,7 +165,7 @@
 
 	응용 프로그램 홈페이지가 기본 브라우저에 나타납니다.
 
-	![로컬로 실행되는 웹앱](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr2.png)
+	![로컬로 실행되는 웹 앱](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr2.png)
 
 Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 하는 작업은 이것뿐입니다.
 
@@ -268,7 +269,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행하는 코드를 자동으로 생성할 수 있습니다.
 
-1. 프로젝트를 빌드합니다**(Ctrl+Shift+B)**. 스캐폴딩 메커니즘을 사용하기 전에 프로젝트를 빌드해야 합니다.
+1. 프로젝트를 빌드합니다**(Ctrl+Shift+B)**. 스캐폴딩 메커니즘을 사용하기 전에 프로젝트를 빌드해야 합니다. 
  
 1. **솔루션 탐색기**에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **컨트롤러**를 클릭합니다.
 
@@ -282,7 +283,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **데이터 컨텍스트 클래스**에서 **ApplicationDbContext(ContactManager.Models)**를 선택합니다. **ApplicationDbContext**는 멤버 자격 DB 및 연락처 데이터 둘 다에 사용됩니다.
 
-1. **컨트롤러 이름** 입력란에 컨트롤러 이름으로 "CmController"를 입력합니다.
+1. **컨트롤러 이름** 입력란에 컨트롤러 이름으로 "CmController"를 입력합니다. 
 
 	![새 데이터 CTX 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -313,11 +314,13 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
 
-3. *Migrations\\Configuration.cs* 파일을 엽니다.
+3. *Migrations\\Configuration.cs* 파일을 엽니다. 
 
 4. 다음 `using` 문을 추가합니다.
 
     	 using ContactManager.Models;
+
+
 
 5. *Seed* 메서드를 다음 코드로 바꿉니다.
 
@@ -374,6 +377,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	이 코드는 연락처 정보를 사용하여 데이터베이스를 초기화(시드)합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 시드 및 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)(영문)를 참조하십시오.
 
+
 6. **패키지 관리자 콘솔**에서 다음 명령을 입력합니다.
 
 		update-database
@@ -387,6 +391,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 	응용 프로그램에서 시드 데이터를 표시하고 편집, 세부 정보 및 삭제 링크를 제공합니다. 데이터를 만들고, 편집, 삭제 및 표시할 수 있습니다.
 
 	![MVC 데이터 뷰][rx2]
+
+
 
 ## OAuth2 공급자 추가
 
@@ -413,8 +419,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. 클래스에 다음과 같은 **AddUserAndRole** 메서드를 추가합니다.
 
-		bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-		{
+		 bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		 {
 		    IdentityResult ir;
 		    var rm = new RoleManager<IdentityRole>
 		        (new RoleStore<IdentityRole>(context));
@@ -423,14 +429,14 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 		        new UserStore<ApplicationUser>(context));
 		    var user = new ApplicationUser()
 		    {
-		        UserName = "user1@contoso.com",
+		       UserName = "user1@contoso.com",
 		    };
 		    ir = um.Create(user, "P_assw0rd1");
 		    if (ir.Succeeded == false)
-		        return ir.Succeeded;
+		       return ir.Succeeded;
 		    ir = um.AddToRole(user.Id, "canEdit");
 		    return ir.Succeeded;
-		}
+		 }
 
 1. **Seed** 메서드에서 새 메서드를 호출합니다.
 
@@ -509,7 +515,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. *App\_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음 내용(두 개의 필터 추가)으로 바꿉니다.
 
-		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void
+		RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -532,7 +539,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	*AllowAnonymous*에 대한 전체 검색을 수행한 경우 Account 컨트롤러의 로그인 및 등록 메서드에서 사용되는 것을 확인하게 됩니다.
 
-1. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다.
+1. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다. 
 
 		// GET: Cm/Create
 		[Authorize(Roles = "canEdit")]
@@ -577,9 +584,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
 1. 이전 세션에서 로그인되어 있는 경우 **로그아웃** 링크를 누릅니다.
-
-1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다.
-
+1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다. 
 1. **새 사용자로 등록** 링크를 클릭하고 메일 **joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
 
 	![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
@@ -587,10 +592,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 1. *CM Demo* 링크를 클릭하고 데이터가 표시되는지 확인합니다.
 
 1. 페이지의 편집 링크를 클릭하면 새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로 로그인 페이지로 리디렉션됩니다.
-
-1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 **user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다.
-
-	해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 **user1@contoso.com*이 추가되었는지 확인합니다.
+1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 **user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/> 해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 **user1@contoso.com*이 추가되었는지 확인합니다.
 
 1. 데이터를 변경할 수 있는지 확인합니다.
 
@@ -622,22 +624,19 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. *요청에서 리디렉션 URI:https://contactmanager{my version}.azurewebsites.net/signin-google은 등록된 리디렉션 URI와 일치하지 않습니다.*라는 메시지와 함께 HTTP 400 오류가 발생한 경우, 변경 내용을 전파할 때까지 대기해야 합니다. 몇 분 후에 이 오류가 발생하면 URI가 올바른지 확인하세요.
 
-### 다른 사용자가 등록할 수 없도록 웹앱 중지  
+### 다른 사용자가 등록할 수 없도록 웹 앱 중지  
 
 1. **서버 탐색기**에서 **Azure > 앱 서비스 > {리소스 그룹} > {웹앱}**으로 이동합니다.
 
-4. 웹앱을 마우스 오른쪽 단추로 클릭하고 **중지**를 선택합니다.
+4. 웹 앱을 마우스 오른쪽 단추로 클릭하고 **중지**를 선택합니다. 
 
 	또는 [Azure 포털](https://portal.azure.com/)에서 웹앱의 블레이드로 이동한 다음 블레이드 맨 위에서 **중지** 아이콘을 클릭할 수 있습니다.
 
-	![웹앱 포털 중지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
+	![웹 앱 포털 중지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 
 ### AddToRoleAsync 제거, 게시 및 테스트
 
-1. Account 컨트롤러의 **ExternalLoginConfirmation** 메서드에서 다음 코드를 주석으로 처리하거나 제거합니다.
-
-		await UserManager.AddToRoleAsync(user.Id, "canEdit");
-
+1. Account 컨트롤러의 **ExternalLoginConfirmation** 메서드에서 다음 코드를 주석으로 처리하거나 제거합니다. `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
 1. 프로젝트를 빌드하여 파일 변경 내용을 저장하고 컴파일 오류가 없는지 확인합니다.
 
 5. **Solution Explorer**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Publish**를 선택합니다.
@@ -645,18 +644,14 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 	   ![프로젝트 상황에 맞는 메뉴의 게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13publish.png)
 	
 4. **Start Preview** 단추를 클릭합니다. 업데이트해야 하는 파일만 배포됩니다.
+5. Visual Studio 또는 포털에서 웹 앱을 시작합니다. **웹 앱이 중지된 동안에는 게시할 수 없습니다.**
 
-5. Visual Studio 또는 포털에서 웹앱을 시작합니다. **웹앱이 중지된 동안에는 게시할 수 없습니다.**
-
-	![웹앱 시작](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss15.png)
+	![웹 앱 시작](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss15.png)
 
 5. Visual Studio로 돌아가서 **게시**를 클릭합니다.
-
-3. Azure 앱이 기본 브라우저에서 열립니다. 로그인되어 있으면 익명 사용자로 홈 페이지를 볼 수 있도록 로그아웃합니다.
-
+3. Azure 앱이 기본 브라우저에서 열립니다. 로그인되어 있으면 익명 사용자로 홈 페이지를 볼 수 있도록 로그아웃합니다.  
 4. **정보** 링크를 클릭합니다. 로그인 페이지로 리디렉션됩니다.
-
-5. 로그인 페이지에서 **등록** 링크를 클릭하고 로컬 계정을 만듭니다. 이 로컬 계정을 사용하여 읽기 전용 페이지에는 액세스할 수 있지만 *canEdit* 역할로 보호된 데이터 변경 페이지에는 액세스할 수 없는 것을 확인할 것입니다. 자습서의 뒷부분에서 로컬 계정 액세스를 제거하겠습니다.
+5. 로그인 페이지에서 **등록** 링크를 클릭하고 로컬 계정을 만듭니다. 이 로컬 계정을 사용하여 읽기 전용 페이지에는 액세스할 수 있지만 *canEdit* 역할로 보호된 데이터 변경 페이지에는 액세스할 수 없는 것을 확인할 것입니다. 자습서의 뒷부분에서 로컬 계정 액세스를 제거하겠습니다. 
 
 	![등록](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss16.PNG)
 
@@ -678,7 +673,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	**참고:** 이 앱을 통해 Google에서 로그아웃한 다음 동일한 브라우저에서 다른 Google 계정으로 로그인할 수 없습니다. 브라우저 한 개를 사용하는 경우 Google로 이동해서 로그아웃해야 합니다. 다른 브라우저에서는 Google과 같은 동일한 타사 인증자의 다른 계정으로 로그온할 수 있습니다.
 
-	Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceException이 발생합니다.
+Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceException이 발생합니다.
+
 
 ## SQL Azure DB 검사 ##
 
@@ -712,7 +708,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 문제를 발생한 경우 해결 방법에 대한 몇 가지 제안은 다음과 같습니다.
 
-* SQL 데이터베이스 프로비전 오류 - 현재 SDK가 설치되었는지 확인합니다. 2.7.1 이전 버전은 VS에서 데이터베이스 서버 또는 데이터베이스를 만들려고 할 때 일부 시나리오에서 오류가 발생하는 버그가 있습니다.
+* SQL 데이터베이스 프로비전 오류 - 현재 SDK가 설치되었는지 확인합니다. 2.8.1 이전 버전은 VS에서 데이터베이스 서버 또는 데이터베이스를 만들려고 할 때 일부 시나리오에서 오류가 발생하는 버그가 있습니다.
 * Azure 리소스를 만들 때 오류 메시지 "구독 제공 형식에서 작업을 지원하지 않습니다" - 위와 동일합니다.
 * 배포 시 오류 - [기본 ASP.NET 배포](web-sites-dotnet-get-started.md) 문서 진행을 고려합니다. 배포 시나리오는 더 간단하고 동일한 문제가 있는 경우 격리시키기 쉽습니다. 예를 들어 일부 엔터프라이즈 환경에서 회사 방화벽은 웹 배포가 Azure에 대한 필요한 종류의 연결을 만들지 못하도록 합니다.
 * 배포 시 웹 게시 마법사에서 연결 문자열 선택 옵션 없음 - 다른 메서드를 사용하여 Azure 리소스를 만든 경우(예: 포털에서 만든 웹앱 및 SQL 데이터베이스에 배포하려는 경우) SQL 데이터베이스는 웹앱에 연결되지 않을 수 있습니다. VS를 사용하여 새 웹앱 및 데이터베이스를 만드는 가장 쉬운 솔루션은 자습서에 표시된 것과 같습니다. 자습서를 다시 시작하지 않아도 됩니다. -- 웹 게시 마법사에서 새 웹앱을 만들도록 선택할 수 있고 프로젝트를 만들 때 얻은 것과 동일한 Azure 리소스 만들기 대화 상자를 가져옵니다.
@@ -797,4 +793,4 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

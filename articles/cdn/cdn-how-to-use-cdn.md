@@ -135,11 +135,16 @@ CDN HTTP 끝점을 사용자 지정 도메인 이름에 매핑하고 해당 이�
 
 사용자 지정 도메인 매핑에 대한 자세한 내용은 [CDN(콘텐츠 배달 네트워크) 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](cdn-map-content-to-custom-domain.md)을 참조하세요.
 
+## 프로그래밍 방식으로 CDN 관리
+
+Microsoft Azure CDN은 [CDN 리소스 공급자 REST API](https://msdn.microsoft.com/library/mt634456.aspx)를 사용하여 프로그래밍 방식으로 관리할 수 있습니다.
+
+
 ## 참고 항목
 
 - [Azure에 대해 콘텐츠 배달 네트워크를 사용하도록 설정하는 방법](cdn-create-new-endpoint.md)
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](cdn-overview.md)
 - [Azure CDN 끝점 삭제](cdn-purge-endpoint.md)
- 
+- [CDN 리소스 공급자 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

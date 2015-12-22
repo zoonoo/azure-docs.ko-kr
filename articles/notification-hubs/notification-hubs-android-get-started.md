@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="11/25/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # Android 앱에 대한 알림 허브 시작
@@ -81,12 +81,21 @@
 
 ###코드 추가
 
-1. [Bintray의 Notification-Hubs-Android-SDK](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4)의 **파일** 탭에서 notification-hubs-0.4.jar 파일을 다운로드합니다. 또한 [notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view)를 프로젝트의 **app\\libs** 디렉터리에 다운로드합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. **libs** 폴더를 새로 고칩니다.
+1. [Bintray의 Notification-Hubs-Android-SDK](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4)의 **파일** 탭에서 notification-hubs-0.4.jar 파일을 다운로드합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어옵니다. 그런 다음 파일을 마우스 오른쪽 단추로 클릭하고 **라이브러리로 추가**를 클릭합니다.
+  
+2. **앱**의 Build.Gradle 파일에서 **종속성** 섹션에 다음 줄을 추가합니다.
 
+	    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
 
-    > [AZURE.NOTE]후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.
+	**종속성** 섹션 다음에 다음 리포지트리를 추가합니다.
 
-2. GCM에서 등록 ID를 가져오도록 응용 프로그램을 설정하고, 이를 사용해 앱 인스턴스를 알림 허브에 등록합니다.
+		repositories {
+		    maven {
+		        url "http://dl.bintray.com/microsoftazuremobile/SDK"
+		    }
+		}
+
+3. GCM에서 등록 ID를 가져오도록 응용 프로그램을 설정하고, 이를 사용해 앱 인스턴스를 알림 허브에 등록합니다.
 
 	AndroidManifest.xml 파일에서 `</application>` 태그 아래에 다음 사용 권한을 추가합니다. `<your package>`를 AndroidManifest.xml 파일의 위쪽에 표시된 패키지 이름(이 예제의 경우 `com.example.testnotificationhubs`)으로 바꿔야 합니다.
 
@@ -106,6 +115,8 @@
 		import com.google.android.gms.gcm.*;
 		import com.microsoft.windowsazure.messaging.*;
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
+		import android.widget.Toast;
+
 
 
 4. 클래스의 맨 위에 다음과 같은 private 멤버를 추가합니다.
@@ -118,9 +129,9 @@
 	    private static Boolean isVisible = false;
 
 
-	자리 표시자 3개를 업데이트해야 합니다.
+	세 개의 자리 표시자를 업데이트해야 합니다. 
 	* **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다.
-	* **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다.
+	* **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 클래식 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다.
 	* **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
 
 
@@ -154,7 +165,7 @@
     	}
 
 
-7. 앱이 실행 중이며 표시되는 경우 알림을 표시하려면 `DialogNotify` 메서드를 활동에 추가합니다. 또한 대화 상자를 표시하기 위해 활동이 표시되는지 확인하려면 `onStart`, `onPause`, `onResume` 및 `onStop`을 재정의합니다.
+7. 앱이 실행 중이며 표시되는 경우 알림을 표시하려면 `ToastNotify` 메서드를 활동에 추가합니다. 또한 알림을 표시하기 위해 활동이 표시되는지 확인하려면 `onStart`, `onPause`, `onResume` 및 `onStop`을 재정의합니다.
 
 	    @Override
 	    protected void onStart() {
@@ -180,39 +191,16 @@
 	        isVisible = false;
 	    }
 
-		/**
-		  * A modal AlertDialog for displaying a message on the UI thread
-		  * when there's an exception or message to report.
-		  *
-		  * @param title   Title for the AlertDialog box.
-		  * @param message The message displayed for the AlertDialog box.
-		  */
-    	public void DialogNotify(final String title,final String message)
-    	{
-	        if (isVisible == false)
-	            return;
-
-        	final AlertDialog.Builder dlg;
-        	dlg = new AlertDialog.Builder(this);
-
-        	runOnUiThread(new Runnable() {
-            	@Override
-            	public void run() {
-                	AlertDialog dlgAlert = dlg.create();
-                	dlgAlert.setTitle(title);
-                	dlgAlert.setButton(DialogInterface.BUTTON_POSITIVE,
-						(CharSequence) "OK",
-						new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                	dlgAlert.setMessage(message);
-                	dlgAlert.setCancelable(false);
-                	dlgAlert.show();
-            	}
-        	});
-    	}
+	    public void ToastNotify(final String notificationMessage)
+	    {
+	        if (isVisible == true)
+	            runOnUiThread(new Runnable() {
+	                @Override
+	                public void run() {
+	                    Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
+	                }
+	            });
+	    }
 
 8. Android는 알림을 표시하지 않기 때문에 수신기를 직접 작성해야 합니다. **AndroidManifest.xml**에서 `<application>` 요소 내에 다음 요소를 추가합니다.
 
@@ -252,7 +240,7 @@
 
 13. `MyHandler` 클래스에 대해 다음 코드를 추가합니다.
 
-	이 코드는 처리기가 받은 알림을 보여 주는 팝업 `AlertDialog`를 표시할 수 있도록 `OnReceive` 메서드를 재정의합니다. 또한 처리기는 `sendNotification()` 메서드를 사용하여 Android Notification Manager에 알림을 보냅니다.
+	이 코드는 처리기가 수신된 알림을 보여주기 위해 알림 팝업을 표시하도록 `OnReceive` 메서드를 재정의합니다. 또한 처리기는 `sendNotification()` 메서드를 사용하여 Android Notification Manager에 알림을 보냅니다.
 
     	public static final int NOTIFICATION_ID = 1;
     	private NotificationManager mNotificationManager;
@@ -267,7 +255,7 @@
         	String nhMessage = bundle.getString("message");
 
         	sendNotification(nhMessage);
-        	mainActivity.DialogNotify("Received Notification",nhMessage);
+	        mainActivity.ToastNotify(nhMessage);
     	}
 
     	private void sendNotification(String msg) {
@@ -325,13 +313,17 @@
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **값**을 확장합니다. **strings.xml** 파일을 열고 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래의 `</resources>` 바로 앞에 이를 추가합니다.
+2. 이 줄을 `android` 아래에 있는 **build.gradle** 파일에 추가합니다.
+
+		useLibrary 'org.apache.http.legacy'
+
+3. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **값**을 확장합니다. **strings.xml** 파일을 열고 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래의 `</resources>` 바로 앞에 이를 추가합니다.
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
 
 
-3. **MainActivity.java** 파일에서 다음 `import` 문을 `MainActivity` 클래스 위에 추가합니다.
+4. **MainActivity.java** 파일에서 다음 `import` 문을 `MainActivity` 클래스 위에 추가합니다.
 
 		import java.net.URLEncoder;
 		import javax.crypto.Mac;
@@ -348,7 +340,7 @@
 		import org.apache.http.impl.client.DefaultHttpClient;
 
 
-3. **MainActivity.java** 파일에서 다음 멤버를 `MainActivity` 클래스 위에 추가합니다.
+5. **MainActivity.java** 파일에서 다음 멤버를 `MainActivity` 클래스 위에 추가합니다.
 
 	허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **대시보드** 탭에서 **연결 문자열 보기**를 클릭하여 [Azure 클래식 포털]에서 이 연결 문자열을 복사할 수 있습니다.
 
@@ -357,7 +349,7 @@
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. 활동에는 허브 이름 및 허브에 대한 전체 공유 액세스 연결 문자열이 유지됩니다. 알림 허브로 메시지를 보낼 POST 요청을 인증하기 위해 SaS(Software Access Signature) 토큰을 만들어야 합니다. 연결 문자열에서 키 데이터를 구문 분석한 다음 [일반적인 개념](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 참조에 설명된 대로 SaS 토큰을 만들면 됩니다.
+6. 활동에는 허브 이름 및 허브에 대한 전체 공유 액세스 연결 문자열이 유지됩니다. 알림 허브로 메시지를 보낼 POST 요청을 인증하기 위해 SaS(Software Access Signature) 토큰을 만들어야 합니다. 연결 문자열에서 키 데이터를 구문 분석한 다음 [일반적인 개념](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 참조에 설명된 대로 SaS 토큰을 만들면 됩니다.
 
 	**MainActivity.java**에서 `MainActivity` 클래스에 다음 메서드를 추가하여 연결 문자열의 구문을 분석합니다.
 
@@ -387,7 +379,7 @@
 	        }
 	    }
 
-5. **MainActivity.java**에서 `MainActivity` 클래스에 다음 메서드를 추가하여 SaS 인증 토큰을 만듭니다.
+7. **MainActivity.java**에서 `MainActivity` 클래스에 다음 메서드를 추가하여 SaS 인증 토큰을 만듭니다.
 
         /**
          * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
@@ -440,7 +432,7 @@
         }
 
 
-6. **MainActivity.java**에서 `MainActivity` 클래스에 다음 메서드를 추가하여 **알림 보내기** 단추 클릭을 처리하고 REST API를 사용하여 허브에 알림 메시지를 보냅니다.
+8. **MainActivity.java**에서 `MainActivity` 클래스에 다음 메서드를 추가하여 **알림 보내기** 단추 클릭을 처리하고 REST API를 사용하여 허브에 알림 메시지를 보냅니다.
 
         /**
          * Send Notification button click handler. This method parses the
@@ -558,4 +550,4 @@
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-android-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

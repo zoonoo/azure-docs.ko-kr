@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="12/14/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 .NET WebJob 만들기
 
-이 자습서에서는 [Azure 큐](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 및 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)로 작업하는 데 [WebJob SDK](websites-dotnet-webjobs-sdk.md)를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다. 이 자습서에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 및 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279)에 응용 프로그램을 배포하는 방법을 보여줍니다.
+이 자습서에서는 [WebJob SDK](websites-dotnet-webjobs-sdk.md)를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다.
+
+[WebJobs SDK](websites-webjobs-resources.md) 목적은 WebJob이 이미지 처리, 큐 처리, RSS 집계, 파일 유지 관리, 전자 메일 보내기 등을 수행한는 일반적인 작업에 대해 작성하는 코드를 간소화하는 것입니다. WebJobs SDK에는 Azure 저장소 및 서비스 버스 작업, 작업 예약 및 오류 처리, 기타 여러 일반적인 시나리오를 위한 기본 제공 기능이 있습니다. 또한 확장이 가능하기 때문에 [확장을 위한 오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)도 있습니다.
 
 샘플 응용 프로그램은 광고 게시판입니다. 사용자는 광고에 대한 이미지를 업로드하고 백 엔드 과정은 이미지를 축소판 그림에 변환합니다. 광고 목록 페이지는 축소판 그림을 보여주고 광고 세부 정보 페이지는 전체 크기 이미지를 보여줍니다. 다음 스크린샷을 참조하세요.
 
 ![광고 목록](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
+
+이 샘플 응용 프로그램은 [Azure 큐](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 및 [Azure blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)와 함께 작동합니다. 이 자습서에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 및 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279)에 응용 프로그램을 배포하는 방법을 보여줍니다.
 
 ## <a id="prerequisites"></a>필수 조건
 
@@ -119,13 +123,11 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	저장소 연결 문자열은 저장소 계정 이름과 액세스 키에 대한 자리 표시자가 있는 예입니다. 이를 저장소 계정의 이름과 키가 포함된 연결 문자열로 바꿉니다.
 
-	<pre class="prettyprint">&lt;connectionStrings&gt;
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
+	<pre class="prettyprint">&lt;connectionStrings>
+  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+&lt;/connectionStrings></pre>저장소 연결 문자열 이름은 WebJob SDK에서 기본적으로 사용하는 이름인 AzureWebJobsStorage입니다. Azure 환경에서 하나의 연결 문자열 값만 설정하면 되도록, 여기서는 같은 이름이 사용됩니다.
 
-	저장소 연결 문자열 이름은 WebJob SDK에서 기본적으로 사용하는 이름인 AzureWebJobsStorage입니다. Azure 환경에서 하나의 연결 문자열 값만 설정하면 되도록, 여기서는 같은 이름이 사용됩니다.
- 
 2. **서버 탐색기**에서 **저장소** 노드 아래에 있는 저장소 계정을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
 	![저장소 계정 속성 클릭](./media/websites-dotnet-webjobs-sdk-get-started/storppty.png)
@@ -349,7 +351,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	이 페이지의 **Replay Function(함수 재생)** 단추를 클릭하면 WebJob SDK 프레임워크가 해당 함수를 다시 호출하며 처음에 함수에 전달된 데이터를 변경할 기회가 제공됩니다.
 
->[AZURE.NOTE]테스트를 마치면 웹앱 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹앱은 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. 클래식 포털에서 웹앱에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 웹앱에 액세스하지 못하도록 하려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
+>[AZURE.NOTE]테스트를 마치면 웹앱 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹앱은 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. 클래식 포털에서 웹앱에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 웹 앱에 액세스하지 못하도록 하려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
 
 ## <a id="create"></a>처음부터 응용 프로그램 만들기
 
@@ -417,7 +419,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 ### NuGet 패키지 추가
 
-WebJob 프로젝트에 대한 new-project 템플릿이 WebJob SDK NuGet 패키지 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)와 해당 종속성을 자동으로 설치합니다.
+WebJob 프로젝트에 대한 new-project 템플릿이 WebJobs SDK NuGet 패키지 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)와 해당 종속성을 자동으로 설치합니다.
 
 WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하나는 Azure SCL(저장소 클라이언트 라이브러리)입니다. 그러나 Blob 및 큐 작업을 수행하려면 웹 프로젝트에 추가해야 합니다.
 
@@ -466,7 +468,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 	- *Global.asax.cs*  
 	- *Controllers* 폴더: *AdController.cs*
 	- *Views\\Shared* 폴더: *\_Layout.cshtml* 파일
-	- *Views\\Home* 폴더: *Index.cshtml*
+	- *Views\\Home* 폴더: *Index.cshtml*.
 	- *Views\\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일<br/><br/>
 
 3. ContosoAdsWebJob 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
@@ -813,4 +815,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

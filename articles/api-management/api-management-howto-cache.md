@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="12/16/2015"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 캐싱을 추가하여 성능 향상
@@ -21,6 +21,8 @@
 응답 캐싱을 위해 API 관리의 작업을 구성할 수 있습니다. 응답 캐싱은 그다지 사용되지 않는 데이터에 대한 API 대기 시간, 대역폭 사용량 및 웹 서비스 부하를 상당히 줄일 수 있습니다.
 
 이 가이드에서는 API에 대해 응답 캐싱을 추가하고 샘플 Echo API 작업에 대한 정책을 구성하는 방법을 보여 줍니다. 그런 다음 개발자 포털에서 작업을 호출하여 캐싱 작동을 확인할 수 있습니다.
+
+>[AZURE.NOTE]정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
 ## 필수 조건
 
@@ -129,6 +131,7 @@
 
 -	[고급 API 구성 시작][] 자습서에서 다른 항목을 확인하세요.
 -	캐싱 정책에 대한 자세한 내용은 [API 관리 정책 참조][]의 [캐싱 정책][]을 참조하세요.
+-	정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
@@ -161,4 +164,4 @@
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

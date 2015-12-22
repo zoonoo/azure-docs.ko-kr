@@ -350,6 +350,7 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 - [.NET용 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
 - [.NET용 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
 - [.NET용 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 - [SQL 데이터베이스를 사용하여 관계형 데이터 저장](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -365,4 +366,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # Windows Phone에 대한 알림 허브 시작
@@ -51,7 +51,7 @@
 
 이제 Windows Phone의 인증되지 않은 알림을 보낼 수 있는 허브가 생성 및 구성되었습니다.
 
-> [AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. 알림 허브는 인증서를 업로드할 수 있도록 하여 [MPNS 인증 모드](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)를 지원합니다.
+> [AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. 알림 허브는 [MPNS 인증된 모드](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx)를 지원합니다.
 <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
 ##알림 허브에 앱 연결
@@ -92,7 +92,12 @@
         channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
         {
             var hub = new NotificationHub("<hub name>", "<connection string>");
-            await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+            var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+
+            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                MessageBox.Show("Registration :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
+            });
         });
 
     허브 이름과 이전 섹션에서 얻은 **DefaultListenSharedAccessSignature**라는 연결 문자열을 삽입해야 합니다. 이 코드는 MPNS에서 앱의 채널 URI를 검색한 후 해당 채널 URI를 알림 허브에 등록합니다. 또한 이 코드는 응용 프로그램이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
@@ -103,11 +108,14 @@
 
    	![][14]
 
+
    	이제 앱이 푸시 알림을 받을 수 있습니다.
 
 7. F5 키를 눌러 앱을 실행합니다.
 
 	등록 메시지가 표시됩니다.
+
+8. 앱을 닫습니다. 알림 메시지를 받으려는 응용 프로그램을 닫아야 합니다.
 
 ##백 엔드에서 알림 보내기
 
@@ -198,4 +206,4 @@ MSDN의 [알림 카탈로그] 및 [타일 카탈로그] 항목에서 가능한 �
 [타일 카탈로그]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

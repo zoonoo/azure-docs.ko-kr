@@ -48,7 +48,7 @@
 
 다음 단계를 수행하여 Azure 앱 서비스에서 웹 앱을 만들고 Git 게시를 설정합니다.
 
-[Git](http://git-scm.com/%20target="_blank)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 웹앱에 대해 작성한 코드를 로컬 Git 리포지토리에 저장하고, 원격 리포지토리로 푸시하여 Azure에 코드를 배포합니다. 이 배포 방법은 앱 서비스 웹앱의 기능입니다.
+[Git](http://git-scm.com/)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 웹앱에 대해 작성한 코드를 로컬 Git 리포지토리에 저장하고, 원격 리포지토리로 푸시하여 Azure에 코드를 배포합니다. 이 배포 방법은 앱 서비스 웹앱의 기능입니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -225,4 +225,4 @@ Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세�
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

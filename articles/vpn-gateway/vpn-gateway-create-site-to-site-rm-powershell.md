@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 리소스 관리자 및 PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기 | Microsoft Azure"
-   description="이 문서에서는 리소스 관리자 모델을 사용하여 VNet을 만들고 사이트 간 VPN 게이트웨이 연결을 사용하여 로컬 온-프레미스 네트워크에 연결하는 과정을 안내합니다. 기존 로컬 사이트에 대한 IP 주소 접두사를 수정하는 추가 단계를 포함합니다."
+   description="이 문서에서는 리소스 관리자 모델을 사용하여 VNet을 만들고 S2S VPN 게이트웨이 연결을 사용하여 로컬 온-프레미스 네트워크에 연결하는 과정을 안내합니다. 사이트간 연결은 하이브리드 구성에 사용할 수 있습니다. 기존 로컬 사이트에 대한 IP 주소 접두사를 수정하는 추가 단계를 포함합니다."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="12/14/2015"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
@@ -23,9 +23,12 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-이 문서에서는 Azure 리소스 관리자 배포 모델을 사용하여 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 위에 있는 탭을 사용하여 배포 모델 및 배포 도구에 대한 문서를 선택할 수 있습니다.
+이 문서에서는 Azure 리소스 관리자 배포 모델을 사용하여 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 이 구성에 대한 다른 배포를 찾고 있다면 위의 탭을 사용하여 원하는 문서를 선택합니다. Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경우 [VNet간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
 
->[AZURE.NOTE]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
+
+**Azure 배포 모델 정보**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## 시작하기 전에
 
@@ -37,8 +40,11 @@
 	
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-- Azure PowerShell cmdlet(1.0 이상). [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다.
-	
+## PowerShell 모듈 설치
+
+연결을 구성하려면 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet이 필요합니다.
+
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
 ## 1\. 구독에 연결 
 
@@ -82,7 +88,7 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 
 ### <a name="gatewaysubnet"></a>VNet에 게이트웨이 서브넷을 추가하려면(선택 사항)
 
-이 단계는 VNet에 게이트웨이 서브넷을 추가해야 하는 경우에만 필요합니다.
+이 단계는 이전에 만든 VNet에 게이트웨이 서브넷을 추가해야 하는 경우에만 필요합니다.
 
 이미 기존 가상 네트워크가 있으며 게이트웨이 서브넷을 추가하려는 경우 아래 샘플을 사용하여 게이트웨이 서브넷을 만들 수 있습니다. 게이트웨이 서브넷의 이름을 'GatewaySubnet'으로 지정해야 합니다. 다른 이름을 지정하는 경우 서브넷이 만들어지지만 Azure에서 게이트웨이 서브넷으로 표시되지 않습니다.
 
@@ -136,7 +142,7 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 
 ## 6\. 게이트웨이 만들기
 
-이 단계에서는 가상 네트워크 게이트웨이를 만듭니다. 게이트웨이 만들기를 완료하는 데는 다소 시간이 소요됩니다.
+이 단계에서는 가상 네트워크 게이트웨이를 만듭니다. 게이트웨이 만들기는 완료하는 데는 다소 시간이 소요됩니다. 20분 이상 걸리기도 합니다.
 
 다음 값을 사용합니다.
 
@@ -158,7 +164,7 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 가상 네트워크 게이트웨이와 VPN 장치 사이에 사이트 간 VPN 연결을 만들겠습니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 장치 구성에 사용한 값과 일치해야 합니다.
 
 		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
 		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
@@ -246,6 +252,6 @@ VPN 연결을 만들었고 로컬 사이트에 포함된 IP 주소 접두사를 
 
 ## 다음 단계
 
-가상 네트워크에 가상 컴퓨터를 추가합니다. [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)
+연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

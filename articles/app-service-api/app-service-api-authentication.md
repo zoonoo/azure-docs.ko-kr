@@ -74,15 +74,15 @@
  
 .NET API에서 `Authorize` 특성을 사용할 수 있으며, 세분화된 권한 부여의 경우 클레임 정보는 .NET 클래스에 자동으로 채워지기 때문에 클레임을 기반으로 코드를 쉽게 작성할 수 있습니다.
 
-## 서비스 주체 인증
+## <a id="internal"></a> 서비스 계정 인증
 
-한 API 앱에서 다른 API 앱을 호출하는 경우와 같은 내부 시나리오에 대해 앱 서비스 인증을 사용할 수도 있습니다. 이 시나리오에서는 인증에 최종 사용자 자격 증명 대신, 서비스 계정에 대한 자격 증명을 사용할 수 있습니다. 서비스 계정을 *서비스 주체*라고도 하며, 이러한 계정을 사용하는 인증을 서비스 간 시나리오라고도 합니다.
+한 API 앱에서 다른 API 앱을 호출하는 경우와 같은 내부 시나리오에 대해 앱 서비스 인증을 사용할 수도 있습니다. 이 시나리오에서는 인증에 최종 사용자 자격 증명 대신, 서비스 계정에 대한 자격 증명을 사용할 수 있습니다. Azure Active Directory에서 서비스 계정은 *서비스 주체*라고도 하며, 이러한 계정을 사용하는 인증을 서비스 간 시나리오라고도 합니다.
 
-내부 시나리오의 경우 Azure Active Directory를 사용하여 호출된 API 앱을 보호하고 API 앱을 호출할 때 AAD 서비스 주체 권한 부여 토큰을 제공할 수 있습니다 AAD 응용 프로그램에서 클라이언트 ID 및 클라이언트 암호를 제공하여 토큰을 요청할 수 있습니다. 모바일 서비스 Zumo 토큰을 처리하는 데 사용되는 것과 같은 특수한 Azure 전용 코드는 필요 없습니다. ASP.NET API 앱을 사용한 이 시나리오의 예는 [API 앱에 대한 서비스 주체 인증](app-service-api-dotnet-service-principal-auth.md) 자습서에서 설명합니다.
+서비스 간 시나리오의 경우 Azure Active Directory를 사용하여 호출된 API 앱을 보호하고 API 앱을 호출할 때 AAD 서비스 주체 권한 부여 토큰을 제공할 수 있습니다 AAD 응용 프로그램에서 클라이언트 ID 및 클라이언트 암호를 제공하여 토큰을 요청할 수 있습니다. 모바일 서비스 Zumo 토큰을 처리하는 데 사용되는 것과 같은 특수한 Azure 전용 코드는 필요 없습니다. ASP.NET API 앱을 사용한 이 시나리오의 예는 [API 앱에 대한 서비스 주체 인증](app-service-api-dotnet-service-principal-auth.md) 자습서에서 설명합니다.
 
-앱 서비스 인증을 사용하지 않고 서비스 간 시나리오를 처리하려면 클라이언트 인증서 또는 기본 인증을 사용하면 됩니다. Azure의 클라이언트 인증서에 대한 자세한 내용은 [웹앱에 대한 TLS 상호 인증을 구성하는 방법](../app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하세요.
+앱 서비스 인증을 사용하지 않고 서비스 간 시나리오를 처리하려면 클라이언트 인증서 또는 기본 인증을 사용하면 됩니다. Azure의 클라이언트 인증서에 대한 자세한 내용은 [웹앱에 대한 TLS 상호 인증을 구성하는 방법](../app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하세요. ASP.NET에서 기본 인증을 구성하는 방법에 대한 자세한 내용은 [ASP.NET Web API 2에서의 인증 필터](http://www.asp.net/web-api/overview/security/authentication-filters)를 참조하세요.
 
-앱 서비스 논리 앱에서 API 앱으로 서비스 주체 인증은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)에 설명된 특수 사례입니다.
+앱 서비스 논리 앱에서 API 앱으로 서비스 계정 인증은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)에 설명된 특수 사례입니다.
 
 ## 자세한 정보
 
@@ -96,4 +96,4 @@ ASP.NET 및 API 앱에 대한 자습서의 시작하기 순서를 진행하는 �
 
 Azure 앱 서비스에서 노드 및 Java를 사용하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/) 및 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

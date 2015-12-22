@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/24/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
 
@@ -35,7 +35,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 	- **복제본 가상 컴퓨터 배치**—저장소 매핑은 Hyper-V 호스트 서버에 복제본 가상 컴퓨터를 최적으로 배치하는 데 사용됩니다. 복제본 가상 컴퓨터는 매핑된 저장소 분류에 액세스할 수 있는 호스트에 배치됩니다.
 	- **저장소 매핑 없음** - 저장소 매핑을 구성하지 않으면 가상 컴퓨터가 복제본 가상 컴퓨터와 연결된 Hyper-V 호스트 서버에 지정된 기본 저장소 위치에 복제됩니다.
 
-- **SAN과 온-프레미스 간 복제**—다음을 수행하려면 지정할 원본 및 대상 VMM 서버에서 저장소 배열 풀을 매핑하여 저장소 매핑을 설정합니다.
+- **SAN과 온-프레미스 간 복제**—원본 및 대상 VMM 서버에서 저장소 배열 풀을 매핑하여 저장소 매핑을 설정합니다.
 	- **풀 지정**—기본 풀에서 복제 데이터를 수신하는 보조 저장소 풀을 지정합니다.
 	- **대상 저장소 풀 식별**—원본 복제 그룹의 LUN이 선택한 매핑된 대상 저장소 풀에 복제됩니다.
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | 해당 없음 | 매핑이 없어 Hyper
 
 저장소 매핑을 보다 이해했으므로 [Azure Site Recovery 배포를 준비](site-recovery-best-practices.md)합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
