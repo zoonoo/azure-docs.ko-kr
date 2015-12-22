@@ -40,7 +40,9 @@ API 시나리오의 경우 관련된 여러 가지 새로운 기능이 있습니
 - AAD 토큰과 세션 토큰을 교환하는 클라이언트 코드 없이 **Azure Active Directory 사용을 직접 지원**: 클라이언트에서 전달자 토큰 사양에 따라 인증 헤더에 AAD 토큰을 포함하기만 하면 됩니다. 이는 클라이언트 또는 서버 쪽에 앱 서비스별 SDK가 필요 없음을 의미하기도 합니다. 
 - **서비스 간 또는 "내부" 액세스**: 디먼 프로세스 또는 인터페이스 없이 API에 액세스해야 하는 다른 클라이언트가 있는 경우 AAD 서비스 주체를 사용하여 토큰을 요청하고 응용 프로그램 인증을 위해 이를 앱 서비스에 전달할 수 있습니다.
 - **지연된 권한 부여**: 대부분의 응용 프로그램은 해당 응용 프로그램의 여러 부분에 대해 액세스 제한 사항이 서로 다릅니다. 일부 API는 공개적으로 사용할 수 있도록 하고 다른 API는 로그인하도록 할 수 있습니다. 원래 인증/권한 부여 기능은 전체 사이트에서 로그인을 요구하므로 전부 아니면 전무였습니다. 이 옵션은 여전히 존재하지만, 앱 서비스에서 사용자를 인증한 후 액세스 결정을 렌더링하도록 응용 프로그램 코드를 허용할 수 있습니다.
-
+ 
+새로운 인증 기능에 대한 자세한 내용은 [인증 및 Azure App Service에서 API 앱 인증](app-service-api-authentication.md)을 참조하세요. 새 이전 API 앱 모델에서 새 모델로 기존 API 앱을 마이그레이션하는 방법에 대한 자세한 내용은 이 문서의 뒷부분에 나오는 [기존 API 앱 마이그레이션](#migrating-existing-api-apps)을 참조하세요.
+ 
 ### CORS
 쉼표로 구분된 **MS\_CrossDomainOrigins** 앱 설정 대신 이제 Azure 관리 포털에 CORS를 구성하는 블레이드가 있습니다. 또는 Azure PowerShell, CLI, [리소스 탐색기](https://resources.azure.com/) 등의 리소스 관리자 도구를 사용하여 구성할 수 있습니다. **&lt;site name&gt;/web** 리소스에 대해 **Microsoft.Web/sites/config** 리소스 종류에서 **cors** 속성을 설정합니다. 예:
 
@@ -62,7 +64,7 @@ API 시나리오의 경우 관련된 여러 가지 새로운 기능이 있습니
         }
     }
 
-이번에는 많은 다운스트림 클라이언트(예: Visual Studio 코드 생성 및 PowerApps "API 추가" 흐름)에서 사용할 수 있도록 메타데이터 끝점을 인증 없이 공개적으로 사용할 수 있도록 해야 합니다. 이는 앱 서비스 인증을 사용하는 경우 앱 자체 내에서 API 정의를 노출하려면 Swagger 메타데이터의 경로가 공개되도록 이전에 설명한 지연된 인증 옵션을 사용해야 함을 의미합니다.
+이번에는 많은 다운스트림 클라이언트(예: Visual Studio REST API 클라이언트 생성 및 PowerApps "API 추가" 흐름)에서 사용할 수 있도록 메타데이터 끝점을 인증 없이 공개적으로 사용할 수 있도록 해야 합니다. 이는 앱 서비스 인증을 사용하는 경우 앱 자체 내에서 API 정의를 노출하려면 Swagger 메타데이터의 경로가 공개되도록 이전에 설명한 지연된 인증 옵션을 사용해야 함을 의미합니다.
 
 ## 관리 포털
 포털에서 **새로 만들기 > 웹 + 모바일 > API 앱**을 선택하면 이 문서에 설명된 새 기능을 반영하는 API 앱이 만들어집니다. **찾아보기 > API 앱**은 이러한 새 API 앱만 표시합니다. API 앱으로 이동하면 블레이드에서 웹 및 모바일 앱과 동일한 레이아웃 및 기능을 공유합니다. 빠른 시작 콘텐츠와 설정 순서만 다릅니다.
@@ -77,7 +79,7 @@ API 시나리오의 경우 관련된 여러 가지 새로운 기능이 있습니
 
 ![API 앱 게시](./media/app-service-api-whats-changed/api-apps-publish.png)
 
-SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-1-for-net)을 참조하세요.
+SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/)을 참조하세요.
 
 또는 관리 포털에서 게시 프로필을 수동으로 가져와 게시를 설정할 수 있습니다. 그러나 클라우드 탐색기, 코드 생성 및 API 앱 선택/만들기에는 SDK 2.8.1 이상이 필요합니다.
 
@@ -119,10 +121,24 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 ### 논리 앱
 2016년 초에 특히 새 API 앱 모델과의 원활한 통합 기능이 논리 앱 디자이너에 추가될 예정입니다. 즉, 논리 앱에 기본 제공되는 HTTP 커넥터는 모든 HTTP 끝점을 호출할 수 있으며, 기본적으로 앱 서비스 인증 서비스에서도 지원되는 서비스 주체 인증을 지원합니다. 논리 앱에서 앱 서비스 호스트되는 API를 사용하는 방법에 대한 자세한 내용은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)을 참조하세요.
 
+### <a id="documentation"></a> 이전 API 앱 모델에 대한 설명서
+이전 API 앱 모델에 대해 작성된 일부 [azure.microsoft.com](https://azure.microsoft.com) 문서는 더 이상 새 모델에 적용되지 않으며 사이트에서 제거됩니다. 이들 URL은 새 모델의 가장 유사한 문서로 리디렉션되지만, [azure.microsoft.com용 GitHub 설명서 리포지토리](https://github.com/Azure/azure-content)의 이전 문서를 참조할 수 있습니다. 가장 자주 찾아보는 문서는 [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api) 폴더에서 찾을 수 있습니다. 여기에 나와 있는 문서는 이전 API 앱을 지원하거나 마켓플레이스로부터 새로운 커넥터 API 앱을 만들 경우 여전히 사용 가능성이 높은 일부 항목으로 직접 연결됩니다.
+
+* [인증 개요](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
+* [API 앱 보호](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
+* [내부 API 앱에서 사용](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-consume-internal.md)
+* [클라이언트 흐름 인증을 통해 사용](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-authentication-client-flow.md)
+* [SaaS 커넥터 API 앱 배포 및 구성](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-connnect-your-app-to-saas-connector.md)
+* [새 게이트웨이로 API 앱을 프로비전](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-arm-new-gateway-provision.md)
+* [API 앱 디버그](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-debug.md)
+* [SaaS 플랫폼에 연결](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-connect-to-saas.md)
+* [논리 앱용 API 앱 향상](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-optimize-for-logic-apps.md)
+* [API 앱 트리거](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-triggers.md)
+
 ## 다음 단계
 자세한 내용은 [API 앱 설명서 섹션](https://azure.microsoft.com/documentation/services/app-service/api/)의 문서를 참조하세요. API 앱에 대한 새 모델을 반영하도록 업데이트되었습니다. 또한 포럼에서 마이그레이션에 대한 추가 지침 또는 세부 정보를 확인할 수 있습니다.
 
 - [MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)
 - [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

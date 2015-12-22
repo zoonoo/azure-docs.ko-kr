@@ -205,10 +205,10 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. 이제 게이트웨이가 없는 VNet이 설정됩니다. 새 게이트웨이를 만들고 연결을 완료하려면 이 문서에서 이 섹션의 **3단계**인 [Express 경로 및 사이트 간 연결로 새 가상 네트워크 만들기](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity)를 계속 진행할 수 있습니다.
+5. 이제 게이트웨이가 없는 VNet이 설정됩니다. 새 게이트웨이를 만들고 연결을 완료하려면 이 문서에서 이 섹션의 **4단계**인 [Express 경로 및 사이트 간 연결로 새 가상 네트워크 만들기](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity)를 계속 진행할 수 있습니다.
 
 ## 다음 단계
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="사이트 복구란?" 
+	pageTitle="사이트 복구란? | Microsoft Azure" 
 	description="Azure Site Recovery는 온-프레미스에 있는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치 및 복구를 Azure 또는 보조 온-프레미스 사이트로 조정합니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="11/29/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  사이트 복구란?
@@ -22,6 +22,7 @@
 
 
 ## 사이트 복구를 사용하는 이유는? 
+
 - **간단한 BCDR 스토리**-사이트 복구는 온-프레미스 워크로드 및 응용 프로그램에 대한 복제, 장애 조치 및 복구를 쉽게 처리합니다.
 - **유연한 복제**-온-프레미스 서버, Hyper-V 가상 컴퓨터 및 VMware 가상 컴퓨터를 복제할 수 있습니다. 사이트 복구는 데이터 블록뿐 아니라 초기 복제에 대한 전체 VHD를 복제하는 스마트 복제를 사용합니다. 진행 중인 복제의 경우 델타 변경만 복제됩니다. 사이트 복구는 오프라인 데이터 전송을 지원하고 WAN 최적화와 작동합니다. 
 - **보조 데이터 센터에 대한 필요성 제거**-사이트 복구는 데이터 센터 간의 복제를 자동화할 수 있지만 또한 Azure에 복제하여 보조 온-사이트 위치를 보류할 기회를 제공합니다. 복제된 데이터는 제공하는 모든 복원력을 사용하여 Azure 저장소에 저장됩니다.
@@ -37,10 +38,10 @@ VMware 가상 컴퓨터 | 온-프레미스 VMware 서버 | Azure 저장소 | [�
 실제 Windows/Linux Server | 온-프레미스 실제 서버 | Azure 저장소 | [배포](site-recovery-vmware-to-azure.md)
 Hyper-V 가상 컴퓨터 | VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | Azure 저장소 | [배포](site-recovery-vmm-to-azure.md)
 Hyper-V 가상 컴퓨터 | 온-프레미스 Hyper-V 사이트 (하나 이상의 Hyper-V 호스트 서버) | Azure 저장소 | [배포](site-recovery-hyper-v-site-to-azure.md)
-온-프레미스 Hyper-V 가상 컴퓨터| VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | 보조 데이터 센터에서 VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | [배포](site-recovery-vmm-to-vmm)
+온-프레미스 Hyper-V 가상 컴퓨터| VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | 보조 데이터 센터에서 VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | [배포](site-recovery-vmm-to-vmm.md)
 Hyper-V 가상 컴퓨터 | SAN 저장소를 사용한 VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버| 보조 데이터 센터에서 SAN 저장소를 사용한 VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | [배포](site-recovery-vmm-san.md)
-VMware 가상 컴퓨터 | 온-프레미스 VMware 서버 | VMware를 실행하는 보조 데이터 센터 | [배포](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
-실제 Windows/Linux Server | 온-프레미스 실제 서버 | 보조 데이터센터 | [배포](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
+VMware 가상 컴퓨터 | 온-프레미스 VMware 서버 | VMware를 실행하는 보조 데이터 센터 | [배포](site-recovery-vmware-to-vmware.md) 
+실제 Windows/Linux Server | 온-프레미스 실제 서버 | 보조 데이터센터 | [배포](site-recovery-vmware-to-vmware.md) 
 
 다음 다이어그램에 요약되어 있습니다.
 
@@ -67,4 +68,4 @@ VMware 가상 컴퓨터 | 온-프레미스 VMware 서버 | VMware를 실행하�
 이 개요를 마친 후에 사이트 복구 아키텍처에 대해 [자세히 알아봅니다](site-recovery-components.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

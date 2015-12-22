@@ -39,8 +39,7 @@
 
 더 복잡한 Node.js 응용 프로그램을 가진 자습서 및 샘플 코드 또는 Azure에서 Node.js를 사용하는 방법에 대한 다른 항목의 경우 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
-> [AZURE.NOTE]
-> 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visaul Studio 구독자 혜택을 활성화](/ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
@@ -48,7 +47,7 @@
 
 다음 단계를 수행하여 Azure 앱 서비스에서 웹 앱을 만들고 Git 게시를 설정합니다.
 
-[Git](http://git-scm.com/%20target="_blank)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 웹앱에 대해 작성한 코드를 로컬 Git 리포지토리에 저장하고, 원격 리포지토리로 푸시하여 Azure에 코드를 배포합니다. 이 배포 방법은 앱 서비스 웹앱의 기능입니다.
+[Git](http://git-scm.com/)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 웹앱에 대해 작성한 코드를 로컬 Git 리포지토리에 저장하고, 원격 리포지토리로 푸시하여 Azure에 코드를 배포합니다. 이 배포 방법은 앱 서비스 웹앱의 기능입니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -112,7 +111,7 @@
 
 이 섹션에서는 [nodejs.org]에서 'Hello World' 예제의 조금 변형된 버전이 포함된 **server.js** 파일을 만듭니다. 코드는 Azure 웹앱에서 실행되는 경우 수신할 포트로 process.env.PORT를 추가합니다.
 
-1. *helloworld* 라는 디렉터리를 만듭니다.
+1. *helloworld*라는 디렉터리를 만듭니다.
 
 2. 텍스트 편집기를 사용하여 *helloworld* 디렉터리에 **server.js**라는 새 파일을 만듭니다.
 
@@ -225,4 +224,4 @@ Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세�
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

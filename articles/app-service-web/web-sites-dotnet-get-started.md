@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/16/2015"
+	ms.date="12/07/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기
@@ -109,23 +109,23 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 
 5. Azure에 아직 로그인하지 않은 경우 로그인하라는 메시지가 Visual Studio에 표시됩니다. Azure 구독을 관리하는 데 사용하는 계정의 ID 및 암호로 로그인합니다.
 
-	로그인하면 만들려는 리소스에 대해 묻는 **Microsoft Azure 웹앱 설정 구성** 대화 상자가 표시됩니다.
+	로그인하면 만들려는 리소스에 대해 묻는 **Create App Service(앱 서비스 만들기)** 대화 상자가 표시됩니다.
 
 	![Azure에 로그인함](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. **Microsoft Azure 웹앱 설정 구성** 대화 상자에 *azurewebsites.net* 도메인에서 고유한 **웹앱 이름**을 입력합니다. 예를 들어, MyExample810처럼 MyExample 오른쪽에 숫자를 더하여 고유의 이름을 지정할 수 있습니다. 기본 웹 이름이 만들어진 경우 해당 이름은 고유하므로 사용할 수 있습니다.
+3. **Create App Service(앱 서비스 만들기)** 대화 상자에 *azurewebsites.net* 도메인에서 고유한 **웹앱 이름**을 입력합니다. 예를 들어, MyExample810처럼 MyExample 오른쪽에 숫자를 더하여 고유의 이름을 지정할 수 있습니다. 기본 웹 이름이 만들어진 경우 해당 이름은 고유하므로 사용할 수 있습니다.
 
 	입력한 이름을 다른 사용자가 이미 사용한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
 
 	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*(**웹앱 이름** 텍스트 상자 옆에 표시)으로 구성됩니다. 예를 들어 이름이 `MyExample810`이면 URL은 `MyExample810.azurewebsites.net`이 됩니다. URL은 고유해야 합니다.
 
-4. **앱 서비스 계획** 드롭다운에서 **새 앱 서비스 계획 만들기**를 선택합니다.
+4. **앱 서비스 계획** 드롭다운 옆의 **새로 만들기** 단추를 클릭합니다.
 
 	[다음 단계](#next-steps) 섹션에 앱 서비스 계획에 대한 정보의 링크가 있습니다.
 
 5. 계획 이름에 **MyExamplePlan** 또는 원하는 다른 이름을 입력합니다.
 
-6. **리소스 그룹** 드롭다운에서 **새 리소스 그룹 만들기**를 선택합니다.
+6. **리소스 그룹** 드롭다운 목록에서 새 리소스 그룹의 이름을 입력합니다.
 
 	[다음 단계](#next-steps) 섹션에 리소스 그룹에 대한 정보의 링크가 있습니다.
 
@@ -225,7 +225,7 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 
 이 기능은 [자세한 오류 메시지를 가져오기 위해 Web.config 파일에서 customErrors를 일시적으로 해제](web-sites-dotnet-troubleshoot-visual-studio.md)하는 경우 유용합니다.
 
-또한 **서버 탐색기**에서 웹앱 노드를 마우스 오른쪽 단추로 클릭하고 Visual Studio 창에서 웹앱 설정에 액세스하며 원격 디버깅 세션을 시작하고 응용 프로그램이 작성하는 순간 실시간으로 응용 프로그램 로그를 볼 수 있습니다.
+또한 **서버 탐색기**에서 웹 서비스 노드를 마우스 오른쪽 단추로 클릭하고 Visual Studio 창에서 웹앱 설정에 액세스하며 원격 디버깅 세션을 시작하고 응용 프로그램이 작성하는 순간 실시간으로 응용 프로그램 로그를 볼 수 있습니다.
 
 ![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
 
@@ -237,7 +237,7 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 
 1. 브라우저에서 [https://portal.azure.com](https://portal.azure.com)으로 이동하여 Azure 자격 증명으로 로그인합니다.
 
-2. **웹앱**을 클릭한 다음 웹앱의 이름을 클릭합니다.
+2. **웹 서비스**를 클릭한 다음 웹앱의 이름을 클릭합니다.
 
 	**웹앱** 블레이드에 웹앱의 설정 개요와 사용량 통계가 표시됩니다.
 
@@ -301,4 +301,4 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스 및 기존 Azure 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="10/07/2015" 
+	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
 # 인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포
@@ -43,7 +43,7 @@
 
 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
-개발 환경 설정을 설정하려면 [Visual Studio 2013 업데이트 4](http://go.microsoft.com/fwlink/?LinkId=390521) 이상 및 최신 버전의 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)를 설치해야 합니다. 이 문서는 Visual Studio 업데이트 4 및 SDK 2.7.1에 대해 작성되었습니다. Visual Studio 2015는 설치된 최신 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)와 동일한 지침으로 작동하지만 일부 화면이 그림과 다르게 표시됩니다.
+개발 환경 설정을 설정하려면 [Visual Studio 2013 업데이트 5](http://go.microsoft.com/fwlink/?LinkId=390521) 이상 및 최신 버전의 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)를 설치해야 합니다. 이 문서는 Visual Studio 업데이트 4 및 SDK 2.8.1에 대해 작성되었습니다. Visual Studio 2015는 설치된 최신 [.NET용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)와 동일한 지침으로 작동하지만 일부 화면이 그림과 다르게 표시됩니다.
 
 ## ASP.NET MVC 5 응용 프로그램 만들기
 
@@ -61,7 +61,7 @@
  
 	**참고:** "ContactManager"를 입력해야 합니다. 나중에 복사할 코드 블록에서는 프로젝트 이름을 ContactManager로 가정합니다.
 
-1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다. **인증**이 **개별 사용자 계정**으로 설정되고 **클라우드에 호스트**가 선택되고 **웹앱**이 선택되었는지 확인합니다.
+1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다. **인증**이 **개별 사용자 계정**으로 설정되고, **Host in the cloud(클라우드에서 호스트)**가 선택되고 **앱 서비스**가 선택되었는지 확인합니다.
 
 	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
@@ -712,7 +712,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 문제를 발생한 경우 해결 방법에 대한 몇 가지 제안은 다음과 같습니다.
 
-* SQL 데이터베이스 프로비전 오류 - 현재 SDK가 설치되었는지 확인합니다. 2.7.1 이전 버전은 VS에서 데이터베이스 서버 또는 데이터베이스를 만들려고 할 때 일부 시나리오에서 오류가 발생하는 버그가 있습니다.
+* SQL 데이터베이스 프로비전 오류 - 현재 SDK가 설치되었는지 확인합니다. 2.8.1 이전 버전은 VS에서 데이터베이스 서버 또는 데이터베이스를 만들려고 할 때 일부 시나리오에서 오류가 발생하는 버그가 있습니다.
 * Azure 리소스를 만들 때 오류 메시지 "구독 제공 형식에서 작업을 지원하지 않습니다" - 위와 동일합니다.
 * 배포 시 오류 - [기본 ASP.NET 배포](web-sites-dotnet-get-started.md) 문서 진행을 고려합니다. 배포 시나리오는 더 간단하고 동일한 문제가 있는 경우 격리시키기 쉽습니다. 예를 들어 일부 엔터프라이즈 환경에서 회사 방화벽은 웹 배포가 Azure에 대한 필요한 종류의 연결을 만들지 못하도록 합니다.
 * 배포 시 웹 게시 마법사에서 연결 문자열 선택 옵션 없음 - 다른 메서드를 사용하여 Azure 리소스를 만든 경우(예: 포털에서 만든 웹앱 및 SQL 데이터베이스에 배포하려는 경우) SQL 데이터베이스는 웹앱에 연결되지 않을 수 있습니다. VS를 사용하여 새 웹앱 및 데이터베이스를 만드는 가장 쉬운 솔루션은 자습서에 표시된 것과 같습니다. 자습서를 다시 시작하지 않아도 됩니다. -- 웹 게시 마법사에서 새 웹앱을 만들도록 선택할 수 있고 프로젝트를 만들 때 얻은 것과 동일한 Azure 리소스 만들기 대화 상자를 가져옵니다.
@@ -797,4 +797,4 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

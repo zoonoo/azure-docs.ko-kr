@@ -26,7 +26,7 @@
 
 ## Azure 앱 서비스의 인증 및 권한 부여
 
-이 자습서에 사용된 인증 기능에 대한 개요는 시리즈의 이전 자습서인 [Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여](app-service-api-dotnet-get-started.md)을 참조하세요.
+이 자습서에 사용된 인증 기능에 대한 개요는 시리즈의 이전 자습서인 [Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여](app-service-api-authentication.md)를 참조하세요.
 
 ## 이 자습서를 진행하는 방법
 
@@ -304,4 +304,4 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 	* [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)
 	* [Azure 웹 사이트에 HTTPS 사용](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

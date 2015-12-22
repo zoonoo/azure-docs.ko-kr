@@ -19,7 +19,7 @@
 
 # Azure 클래식 포털에서 Azure 검색서비스 만들기
 
-Microsoft Azure 검색은 호스팅되는 클라우드 검색 서비스로, 서비스 기능을 사용자 지정 응용 프로그램에 포함할 수 있습니다. Azure 클래식 포털, .NET SDK 또는 REST API를 통해 액세스 및 관리할 수 있는 검색 데이터에 대한 검색 엔진 및 저장소를 제공합니다. 주요 기능에는 자동 완성 쿼리, 유사 항목 일치, 적중 항목 강조 표시, 패싯 탐색, 평가 프로필, 다국어 지원 등이 있습니다. Azure 검색에서 수행하는 작업에 대한 자세한 내용은 [Azure 검색이란?](seach-what-is-search.md)을 참조하세요.
+Microsoft Azure 검색은 호스팅되는 클라우드 검색 서비스로, 서비스 기능을 사용자 지정 응용 프로그램에 포함할 수 있습니다. Azure 클래식 포털, .NET SDK 또는 REST API를 통해 액세스 및 관리할 수 있는 검색 데이터에 대한 검색 엔진 및 저장소를 제공합니다. 주요 기능에는 자동 완성 쿼리, 유사 항목 일치, 적중 항목 강조 표시, 패싯 탐색, 평가 프로필, 다국어 지원 등이 있습니다. Azure 검색에서 수행하는 작업에 대한 자세한 내용은 [Azure 검색이란?](search-what-is-azure-search.md)을 참조하세요.
 
 ## 무료 구독에 Azure 검색 추가
 
@@ -123,4 +123,4 @@ Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

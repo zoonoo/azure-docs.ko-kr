@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/23/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # Windows 스토어 앱에 대한 알림 허브 시작
@@ -49,7 +49,7 @@
 
 Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결해야 합니다. 그런 다음 WNS와 통합되도록 알림 허브를 구성해야 합니다.
 
-1. 앱을 아직 등록하지 않은 경우 <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Windows 개발자 센터</a>로 이동하여 Microsoft 계정으로 로그인한 다음 **새 앱 만들기**를 클릭합니다.
+1. 앱을 아직 등록하지 않은 경우 [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?LinkID=266582)로 이동하여 Microsoft 계정으로 로그인한 다음 **새 앱 만들기**를 클릭합니다.
 
 
 2. 앱의 이름을 입력하고 **앱 이름 예약**을 클릭합니다.
@@ -78,7 +78,7 @@ Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토�
 
 7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4~6단계를 반복합니다.
 
-8. 새 앱을 위한 Windows 개발자 센터 페이지로 돌아가 **서비스**, **푸시 알림**을 클릭한 후 **WNS(Windows 푸시 알림 서비스) 및 Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
+8. 새 앱을 위한 [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?LinkID=266582) 페이지로 돌아가 **서비스**, **푸시 알림**을 클릭한 후 **WNS(Windows 푸시 알림 서비스) 및 Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
 
    	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-live-services.png)
 
@@ -284,4 +284,4 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

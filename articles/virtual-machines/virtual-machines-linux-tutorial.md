@@ -21,10 +21,15 @@
 # Linux를 실행하는 가상 컴퓨터 만들기
 
 > [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-<br> Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서는 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(CLI)를 사용하여 Azure에서 실행하는 Ubuntu Server VM을 신속하게 만들고, **ssh**를 사용하여 연결하고 새 디스크를 작성 및 탑재합니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](virtual-machines-linux-create-upload-vhd.md)를 사용하여 Linux 가상 컴퓨터를 만들 수도 있습니다.
+<br>
+
+Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서는 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(CLI)를 사용하여 Azure에서 실행하는 Ubuntu Server VM을 신속하게 만들고, **ssh**를 사용하여 연결하고 새 디스크를 작성 및 탑재합니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](virtual-machines-linux-create-upload-vhd.md)를 사용하여 Linux 가상 컴퓨터를 만들 수도 있습니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
@@ -63,7 +68,7 @@ _&lt;my-group-name&gt;_을 고유 그룹 이름으로 바꾸는 `azure group cre
 	data:
 	info:    group create command OK
 
-이제 `azure vm quick-create`을 입력하여 VM을 만들면 나머지 매개 변수를 입력하라는 메시지가 나타납니다. 방금 만든 리소스 그룹의 이름 및 **ImageURN** 값과 `canonical:ubuntuserver:14.04.2-LTS:latest`을(를) 사용하여 다음과 유사한 환경을 만들 수 있습니다. `azure vm quick-create` 명령은 Linux VM을 만들고 호스팅하며 연결하는 데 필요한 다음과 같은 기본 정보를 묻습니다.
+이제 `azure vm quick-create`을 입력하면 나머지 매개 변수를 입력하라는 메시지가 나타납니다. 방금 만든 리소스 그룹의 이름 및 **ImageURN** 값과 `canonical:ubuntuserver:14.04.2-LTS:latest`을(를) 사용하여 다음과 유사한 환경을 만들 수 있습니다. `azure vm quick-create` 명령은 Linux VM을 만들고 호스팅하며 연결하는 데 필요한 다음과 같은 기본 정보를 묻습니다.
 
 - 리소스 그룹 이름 및 VM 이름
 - 배포 위치
@@ -323,4 +328,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -82,7 +82,7 @@
 
   	![][9]
 
-	> [AZURE.IMPORTANT]localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank)를 참조하십시오.
+	> [AZURE.IMPORTANT]localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx)를 참조하십시오.
 
 ## HTML 앱 호스트 및 실행
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

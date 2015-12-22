@@ -14,12 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="12/11/2015"
 	ms.author="jodebrui"/>
 
 
 # SQL 데이터베이스에서 메모리 내 시작(미리 보기)
-
 
 메모리 내 기술은 합당한 상황에서 트랜잭션 및 분석 워크로드의 성능을 크게 향상시킵니다.
 
@@ -28,6 +27,7 @@
 - 코드를 사용하여 성능 결과의 차이를 보기 위한 변형을 테스트하거나
 - 코드를 읽어서 시나리오를 이해하고 메모리 내 개체를 만들어서 활용하는 방법을 알아봅니다.
 
+> [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
 #### 메모리 내 OLTP
 
@@ -201,7 +201,7 @@ ostress.exe를 실행하는 경우 모두에게 설계된 매개 변수 값을 �
 이 섹션에서는 ostress.exe 명령줄에 포함된 T-SQL 스크립트를 표시합니다. 스크립트는 이전에 설치한 T-SQL 스크립트에 의해 생성된 항목을 사용합니다.
 
 
-다음 스크립트는 다음과 같은 메모리 액세스에 최적화된 *테이블* 에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
+다음 스크립트는 다음과 같은 메모리 액세스에 최적화된 *테이블*에 다섯 줄 항목의 샘플 판매 주문을 삽입합니다.
 
 - SalesLT.SalesOrderHeader\_inmem
 - SalesLT.SalesOrderDetail\_inmem
@@ -230,7 +230,7 @@ end
 ```
 
 
-ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk* 로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
+ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk*로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
 
 
 ### RML 유틸리티 및 ostress 설치
@@ -276,8 +276,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 위의 ostress.exe 명령줄을 실행하려면:
 
 
-1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스 데이터 콘텐츠를 다시 설정합니다.
-```
+1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스 데이터 콘텐츠를 다시 설정합니다.```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -302,12 +301,11 @@ ostress.exe가 완료되면 출력의 마지막 줄로 실행 기간을 RML Cmd 
 \_Inmem 실행에서 결과를 얻은 후 \_indisk 실행에 대해 다음 단계를 수행합니다.
 
 
-1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다.
-```
+1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다. ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. ostress.exe 명령줄을 편집하여 모든 *\_inmem* 을 *\_ondisk* 로 대체합니다.
+2. ostress.exe 명령줄을 편집하여 모든 *\_inmem*을 *\_ondisk*로 대체합니다.
 
 3. ostress.exe를 두 번째로 실행하고 기간 결과를 캡처합니다.
 
@@ -527,4 +525,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

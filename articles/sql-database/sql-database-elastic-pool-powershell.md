@@ -189,7 +189,9 @@ CSV 파일로 내보내기:
 
 * 이 API의 경우 메트릭이 해당 탄력적 데이터베이스 풀에 대한 databaseDtuMax(또는 CPU, IO 등 기반 메트릭에 대해 동등한 최대값) 집합당 백분율로 표현됩니다. 예를 들어 이 메트릭에서 50% 사용률은 특정 리소스 사용률이 부모 탄력적 데이터베이스 풀의 리소스에 대한 데이터베이스당 최대값 한도의 50%임을 나타냅니다. 
 
-메트릭 가져오기: $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+메트릭 가져오기:
+
+    $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
 필요할 경우 호출을 반복하고 데이터를 추가하여 다른 날짜의 데이터 가져오기:
 
@@ -235,4 +237,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->
