@@ -104,7 +104,7 @@
 
 6. AppDelegate.h 파일을 열고 import 지시문을 추가합니다.
 
-         #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
+         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 		 #import "HubInfo.h"
 		
 7. AppDelegate.m 파일에서 iOS 버전 기반의 `didFinishLaunchingWithOptions` 메서드에 다음 코드를 추가합니다. 이 코드는 APNS로 장치 핸들을 등록합니다.
@@ -439,6 +439,7 @@
 > [AZURE.NOTE]bitcode 지원에 대한 Xcode7에 빌드 오류가 발생하는 경우 "빌드 설정" -> "Bitcode 사용"(ENABLE\_BITCODE)을 '아니요'로 변경해야 합니다. 알림 허브 SDK는 현재 bitcode를 지원하지 않습니다.
 
 Apple [로컬 및 푸시 알림 프로그래밍 가이드]에서 가능한 모든 알림 페이로드를 찾아볼 수 있습니다.
+
 
 
 ##앱 테스트

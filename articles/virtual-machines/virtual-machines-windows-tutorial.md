@@ -52,7 +52,7 @@
 
 	![미리 보기 포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
-	>[AZURE.TIP]다른 이미지를 찾으려면 **마켓플레이스**를 클릭하고 사용 가능한 항목을 검색하거나 필터링합니다.
+	>[AZURE.TIP] 다른 이미지를 찾으려면 **마켓플레이스**를 클릭하고 사용 가능한 항목을 검색하거나 필터링합니다.
 
 3. **Windows Server 2012 R2 Datacenter** 페이지의 **배포 모델 선택**에서 **리소스 관리자**를 선택합니다. **만들기**를 클릭합니다.
 
@@ -88,7 +88,7 @@
 
 가상 컴퓨터를 만든 후 해당 가상 컴퓨터에 로그인하여 자체 설정 및 실행할 응용 프로그램을 관리할 수 있습니다.
 
->[AZURE.NOTE]자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)을 참조하십시오.
+>[AZURE.NOTE] 자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)을 참조하십시오.
 
 1. 아직 로그인하지 않은 경우 Azure 포털에 로그인합니다.
 

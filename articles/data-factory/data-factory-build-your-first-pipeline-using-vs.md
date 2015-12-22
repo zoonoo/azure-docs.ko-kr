@@ -34,7 +34,7 @@
 
 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
-> [AZURE.IMPORTANT][자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+> [AZURE.IMPORTANT] [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 
 ## 연습: Visual Studio를 사용하여 데이터 팩터리 엔터티 만들기 및 배포 
 
@@ -205,7 +205,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 
 21. 데이터 팩터리 구성 페이지에서 다음을 수행합니다.
 	1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
-	2. **이름**에 **FirstPipelineUsingVS**를 입력합니다. 
+	2. **이름**에 **FirstPipelineUsingVS**를 입력합니다.
 	
 		> [AZURE.IMPORTANT]Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 **데이터 팩터리 이름 “FirstPipelineUsingVS”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameFirstPipelineUsingVS). 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 		> 
@@ -244,4 +244,4 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015--->
