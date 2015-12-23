@@ -1912,7 +1912,7 @@ HTTP 상태 코드: 200
 
 유효한 빌드 상태:
 
-- Create – 빌드 요청이 만들어짐
+- Create - 빌드 요청이 만들어짐
 - Queued – 빌드 요청을 보냈으며 큐에 대기됨
 - Building – 빌드가 진행 중임
 - Success – 빌드가 성공적으로 종료됨
@@ -2061,8 +2061,8 @@ HTTP 상태 코드: 200
 
 응답은 빌드당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
 
-- `feed/entry/content/properties/UserName` – 사용자의 이름
-- `feed/entry/content/properties/ModelName` – 모델의 이름
+- `feed/entry/content/properties/UserName` - 사용자의 이름
+- `feed/entry/content/properties/ModelName` - 모델의 이름
 - `feed/entry/content/properties/ModelId` – 모델의 고유 식별자
 - `feed/entry/content/properties/IsDeployed` – 빌드 배포 여부(활성 빌드라고도 함)
 - `feed/entry/content/properties/BuildId` – 빌드의 고유 식별자
@@ -2145,8 +2145,8 @@ HTTP 상태 코드: 200
 
 응답은 빌드당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
 
-- `feed/entry/content/properties/UserName` – 사용자의 이름
-- `feed/entry/content/properties/ModelName` – 모델의 이름
+- `feed/entry/content/properties/UserName` - 사용자의 이름
+- `feed/entry/content/properties/ModelName` - 모델의 이름
 - `feed/entry/content/properties/ModelId` – 모델의 고유 식별자
 - `feed/entry/content/properties/IsDeployed` – 빌드 배포 여부
 - `feed/entry/content/properties/BuildId` – 빌드의 고유 식별자
@@ -2779,7 +2779,7 @@ HTTP 상태 코드: 200
 - `Feed\entry\content\properties\Id1` – 권장 항목 ID
 - `Feed\entry\content\properties\Name1` – 항목의 이름
 - `Feed\entry\content\properties\Id2` – 두 번째 권장 항목 ID(선택 사항)
-- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항)
+- `Feed\entry\content\properties\Name2` - 두 번째 항목의 이름(선택 사항)
 - `Feed\entry\content\properties\Rating` – 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
 - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
@@ -2959,7 +2959,7 @@ HTTP 상태 코드: 200
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
 - `Feed\entry\content\properties\Id` – 권장 항목 ID
 - `Feed\entry\content\properties\Name` – 항목의 이름
-- `Feed\entry\content\properties\Rating` – 해당 없음.
+- `Feed\entry\content\properties\Rating` – 해당 없음
 - `Feed\entry\content\properties\Reasoning` – 해당 없음
 
 OData XML
@@ -3095,4 +3095,4 @@ HTTP 상태 코드: 200
 © 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
