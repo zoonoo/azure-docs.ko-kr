@@ -23,7 +23,8 @@
 - **VMware 가상 컴퓨터 보호**—온-프레미스 VMware 가상 컴퓨터에서 Azure로 복제, 장애 조치(Failover), 복구 조정
 - **물리적 서버 보호**—Azure Site Recovery 서비스를 사용하여 온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구를 조정합니다.
 
-이 문서에는 개요, 배포 필수 조건, 설정 지침이 포함되어 있습니다. 문서 마지막에서 VMware 가상 컴퓨터 또는 물리적 서버를 Azure로 복제합니다. 문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
+이 문서에는 개요, 배포 필수 조건, 설정 지침이 포함되어 있습니다. 문서 마지막에서 VMware 가상 컴퓨터 또는 물리적 서버를 Azure로 복제합니다.
+문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
 
 
 ## Azure Site Recovery란?
@@ -758,21 +759,23 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 
 1. **서버** 아래의 **구성 서버** 페이지로 이동합니다.
 2. 구성 서버 이름을 클릭하고 **서버 세부 정보**로 이동합니다.
-3. **프로세스 서버** 목록에서 수정하려는 서버 옆에 있는 **프로세스 서버 변경**을 클릭합니다.![프로세스 서버 1 변경](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. **프로세스 서버 변경** 대화 상자의 **대상 프로세스 서버**에서 새 서버를 선택한 다음 새 서버로 복제할 가상 컴퓨터를 선택합니다. 서버 이름 옆의 정보 아이콘을 클릭하면 사용 가능한 공간, 사용된 메모리 등의 정보를 가져올 수 있습니다. 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시되므로 부하 결정을 할 때 도움이 됩니다. ![프로세스 서버 2 변경](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+3. **프로세스 서버** 목록에서 수정하려는 서버 옆에 있는 **프로세스 서버 변경**을 클릭합니다.
+	![프로세스 서버 1 변경](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
+4. **프로세스 서버 변경** 대화 상자의 **대상 프로세스 서버**에서 새 서버를 선택한 다음 새 서버로 복제할 가상 컴퓨터를 선택합니다. 서버 이름 옆의 정보 아이콘을 클릭하면 사용 가능한 공간, 사용된 메모리 등의 정보를 가져올 수 있습니다. 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시되므로 부하 결정을 할 때 도움이 됩니다.
+	![프로세스 서버 2 변경](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다. 프로세스 서버에서 심각한 상태였던 모든 가상 컴퓨터를 제거할 경우 대시보드에 더 이상 심각한 상태 경고가 표시되지 않습니다.
 
 
 ## 타사 소프트웨어 통지 및 정보
 
-번역 또는 지역화 금지
+Do Not Translate or Localize
 
-Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어는 아래 나열된 프로젝트의 자료(총체적으로 "타사 코드")를 기반으로 하거나 통합합니다. Microsoft는 타사 코드의 원래 작성자가 아닙니다. Microsoft가 이러한 타사 코드를 받을 때 적용된 원래 저작권 표시 및 라이선스는 아래에 명시되어 있습니다.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-섹션 A의 정보는 아래 나열된 프로젝트의 타사 코드 구성 요소와 관련된 것입니다. 해당 라이선스와 정보는 정보 제공 목적으로만 제공됩니다. 이 타사 코드는 Microsoft 제품 또는 서비스에 대한 Microsoft 소프트웨어 사용 조건에 의거하여 Microsoft에 의해 사용이 재허용됩니다.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
 
-섹션 B의 정보는 원래 사용 조건에 의거하여 Microsoft에서 제공하는 타사 구성 요소와 관련된 것입니다.
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 <!---HONumber=AcomDC_1210_2015-->
