@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+  ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Azure 테이블 저장소 및 Visual Studio 연결 서비스 시작(클라우드 서비스 프로젝트)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-cloud-services-getting-started-tables.md)
-> - [What happened](vs-storage-cloud-services-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
-> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
 ##개요
 
@@ -37,7 +28,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 
 **참고:** Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
-- 프로그래밍 방식으로 테이블을 조작하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)(영문)을 참조하세요.
+- 프로그래밍 방식으로 테이블을 조작하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)을 참조하세요.
 - Azure 저장소에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
 - Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](http://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
 - ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
@@ -278,4 +269,4 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스" 섹션에 설
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

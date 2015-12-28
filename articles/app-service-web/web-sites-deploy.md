@@ -40,7 +40,7 @@
 
 * [MSBuild를 사용하여 배포 자동화](#msbuild)
 * [FTP 도구 및 스크립트를 사용하여 파일 복사](#ftp)
-* Windows PowerShell(#powershell)을 사용하여 배포 자동화
+* [Windows PowerShell을 사용하여 배포 자동화](#powershell)
 * [.NET 관리 API를 사용하여 배포 자동화](#api)
 * [Azure CLI(Azure 명령줄 인터페이스)에서 배포](#cli)
 * [웹 배포 명령줄에서 배포](#webdeploy)
@@ -50,16 +50,16 @@
 * [Visual Studio에서 직접 배포](#vs)
 * [WebMatrix에서 직접 배포](#webmatrix)
 
-다른 배포 옵션은 [Octopus 배포](http://en.wikipedia.org/wiki/Octopus_Deploy)와 같은 클라우드 기반 서비스를 사용하는 것입니다. 자세한 내용은 참조 [Azure 웹사이트에 ASP.NET 응용 프로그램 배포](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)를 참조하세요.
+다른 배포 옵션은 [Octopus 배포](http://en.wikipedia.org/wiki/Octopus_Deploy) 같은 클라우드 기반 서비스를 사용하는 것입니다. 자세한 내용은 참조 [Azure 웹사이트에 ASP.NET 응용 프로그램 배포](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)를 참조하세요.
 
-##<a name="vso"></a>Visual Studio Team Services를 사용한 지속적인 업데이트
+##<a name="vsts"></a>Visual Studio Team Services를 사용한 지속적인 업데이트
 
 [Visual Studio Team Services](http://www.visualstudio.com/)(이전의 Team Foundation Service)는 소스 제어와 팀 공동 작업을 위한 Microsoft 클라우드 기반 솔루션입니다. 서비스는 최대 5명의 개발자로 이루어진 팀에게 무료입니다. 앱 서비스에서 웹 앱에 지속적으로 전송할 수 있으며 리포지토리는 [Git 또는 TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) 중 하나를 사용할 수 있습니다.
 
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Visual Studio Team Services 및 TFVC를 사용하여 Azure에 지속적으로 업데이트](../cloud-services-continuous-delivery-use-vso.md) TFVC를 사용하여 Visual Studio Team Services에서 웹앱으로의 지속적인 업데이트를 설정하는 방법을 보여 주는 단계별 자습서입니다. TFVC는 분산된 소스 제어 옵션인 Git와 대조되는 VSO의 중앙 집중식 소스 제어 옵션입니다.
-* [Visual Studio Team Services 및 Git를 사용하여 Azure에 지속적으로 업데이트](../cloud-services-continuous-delivery-use-vso-git.md) 이 자습서는 이전 자습서와 비슷하지만 TFVC 대신 Git를 사용합니다.
+* [Visual Studio Team Services 및 TFVC를 사용하여 Azure에 대한 지속적인 업데이트](../cloud-services-continuous-delivery-use-vso.md) TFVC를 사용하여 Visual Studio Team Services에서 웹앱으로의 지속적인 업데이트를 설정하는 방법을 보여 주는 단계별 자습서입니다. TFVC는 분산된 소스 제어 옵션인 Git와 대조되는 VSO의 중앙 집중식 소스 제어 옵션입니다.
+* [Visual Studio Team Services 및 Git을 사용하여 Azure에 대한 지속적인 업데이트](../cloud-services-continuous-delivery-use-vso-git.md) 이 자습서는 이전 자습서와 비슷하지만 TFVC 대신 Git를 사용합니다.
 
 ##<a name="git"></a>Git를 사용하는 리포지토리 웹 사이트
 
@@ -79,7 +79,7 @@
 Mercurial을 사용하여 배포하는 방법에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [Git를 사용하여 소스 제어에서 웹 앱으로 게시합니다.](web-sites-publish-source-control.md) 이 자습서에서는 Git 리포지토리를 게시하는 방법을 설명하지만, CodePlex 또는 BitBucket에서 호스트되는 Mercurial 리포지토리에 대한 프로세스도 비슷합니다.
-* [Git, Mercurial 및 DropBox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)(영문).
+* [Git, Mercurial 및 Dropbox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)(영문).
 
 ##<a name="dropbox"></a>Dropbox에서 배포 자동화
 
@@ -87,7 +87,7 @@ Mercurial을 사용하여 배포하는 방법에 대한 자세한 내용은 다�
 
 * [드롭 상자에서 웹 앱으로 배포합니다.](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx) [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 드롭 상자 배포를 설정하는 방법입니다.
 * [웹 앱에 드롭 상자를 배포합니다.](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites) 이 비디오는 Dropbox 폴더를 웹 앱에 연결하는 프로세스를 단계별로 안내하고 빠르게 웹 앱을 실행하거나 간단히 끌어서 놓는 방식의 배포를 사용하여 유지 관리할 수 있는 방법을 보여 줍니다.
-* [Git, Mercurial 및 Dropbox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)(영문).
+* [Git, Mercurial 및 DropBox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)(영문).
 
 ##<a name="vs"></a>Visual Studio에서 직접 배포
 
@@ -142,7 +142,7 @@ MSBuild를 사용한 명령줄 배포에 대한 자세한 내용은 다음 리�
 
 ##<a name="ftp"></a>FTP 도구 및 스크립트를 사용하여 파일 복사
 
-[FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol)를 사용하여 콘텐츠를 앱에 배포하면 파일을 복사할 수 있습니다. 웹앱용 FTP 자격 증명은 만들기가 쉬우며 Internet Explorer와 같은 브라우저 및 [FileZilla](https://filezilla-project.org/)와 같은 모든 기능을 갖춘 무료 유틸리티를 포함하여 FTP와 작동하는 스크립트 또는 응용 프로그램에서 이 자격 증명을 사용할 수 있습니다. 웹 앱은 보다 안전한 FTPS 프로토콜도 지원합니다.
+[FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol)를 사용하여 콘텐츠를 앱에 배포하면 파일을 복사할 수 있습니다. 웹앱용 FTP 자격 증명을 만들기가 쉬우며 Internet Explorer와 같은 브라우저 및 [FileZilla](https://filezilla-project.org/)와 같은 모든 기능을 갖춘 무료 유틸리티를 포함하여 FTP와 작동하는 스크립트 또는 응용 프로그램에서 이 자격 증명을 사용할 수 있습니다. 웹 앱은 보다 안전한 FTPS 프로토콜도 지원합니다.
 
 FTP 유틸리티를 사용하여 웹 앱의 파일을 Azure에 쉽게 복사할 수 있지만, 이 유틸리티는 데이터베이스 배포 또는 연결 문자열 변경과 같은 관련 배포 작업을 자동으로 처리하거나 조정하지 않습니다. 또한 많은 FTP 도구는 변경되지 않은 파일의 복사를 건너뛰기 위해 원본 파일과 대상 파일을 비교하는 과정을 거치지 않습니다. 대규모 앱의 경우 항상 모든 파일을 복사한다면 사소한 업데이트 시에도 항상 모든 파일이 복사되기 때문에 배포 시간이 길어질 수 있습니다.
 
@@ -204,4 +204,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

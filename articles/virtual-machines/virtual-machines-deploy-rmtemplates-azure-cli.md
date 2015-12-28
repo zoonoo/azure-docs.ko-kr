@@ -19,6 +19,14 @@
 
 # Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리
 
+> [AZURE.SELECTOR]
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
+
+
 이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 클래식 배포 모델에서 템플릿을 사용할 수 없습니다.
@@ -37,7 +45,7 @@
 
 ## 준비
 
-Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 Azure 계정이 있어야 합니다. Azure CLI가 없으면 [설치](xplat-cli-install.md)하십시오.
+Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 Azure 계정이 있어야 합니다. Azure CLI가 없으면 [설치](xplat-cli-install.md)하세요.
 
 ### 0\.9.0 이상으로 Azure CLI 버전 업데이트
 
@@ -767,7 +775,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 ### 1단계: JSON 파일에서 템플릿 검사
 
-다음은 템플릿에 대한 JSON 파일의 내용입니다. 최신 버전은 [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json)에서 찾을 수 있습니다. 이 항목에서는 `--template-uri` 스위치를 사용하여 템플릿에서 호출하지만 `--template-file` 스위치를 사용하여 로컬 버전을 전달할 수도 있습니다.
+다음은 템플릿에 대한 JSON 파일의 내용입니다. 최신 버전은 [템플릿의 Github 리포지토리](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json)에 있습니다. 이 항목에서는 `--template-uri` 스위치를 사용하여 템플릿에서 호출하지만 `--template-file` 스위치를 사용하여 로컬 버전을 전달할 수도 있습니다.
 
 
     {
@@ -1301,4 +1309,4 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

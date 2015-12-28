@@ -145,5 +145,6 @@ Blob을 다운로드하려면 **get\_blob()** 메서드를 사용하여 콘텐�
 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub의 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

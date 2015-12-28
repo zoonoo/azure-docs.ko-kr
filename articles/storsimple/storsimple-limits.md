@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/28/2015"
+   ms.date="12/15/2015"
    ms.author="alkohli" />
 
 # StorSimple 시스템 제한
@@ -27,4 +27,4 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소
 
 [StorSimple 시스템 요구 사항](storsimple-system-requirements.md)을 검토하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

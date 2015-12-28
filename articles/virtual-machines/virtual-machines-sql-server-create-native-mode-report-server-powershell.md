@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
+	ms.date="12/11/2015"
 	ms.author="jroth" />
 
 # PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
@@ -705,4 +705,4 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

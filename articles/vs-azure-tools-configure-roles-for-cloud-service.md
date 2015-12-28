@@ -3,9 +3,9 @@
    description="Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할을 설정 및 구성하는 방법에 대해 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성
 
@@ -376,4 +376,4 @@ HTTPS 끝점을 추가하는 경우 SSL 인증서를 사용해야 합니다. 이
 ## 다음 단계
 [Azure 프로젝트 구성](vs-azure-tools-configuring-an-azure-project.md)을 읽고 Visual Studio에서 Azure 프로젝트에 대해 자세히 알아봅니다. [스키마 참조](https://msdn.microsoft.com/library/azure/dd179398)를 읽고 클라우드 서비스 스키마에 대해 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,9 +3,9 @@
    description="Visual Studio를 사용하여 Docker 컨테이너의 웹앱에 호스트하는 방법을 알아봅니다. "
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/20/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Docker에서 웹앱 호스팅
 
@@ -177,4 +177,4 @@ Visual Studio의 Dcoker 사용에 관한 문제는 [Visual Studio를 사용하�
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

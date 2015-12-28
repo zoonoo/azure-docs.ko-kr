@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL 데이터베이스 TRANSACT-SQL 정보 | Microsoft Azure"
-   description="Azure SQL 데이터베이스의 TRANSACT-SQL 문"
+   pageTitle="Azure SQL 데이터베이스 T-SQL에서 지원되지 않는 기능 | Microsoft Azure"
+   description="Azure SQL 데이터베이스에서 완전히 지원되지 않는 TRANSACT-SQL 문"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -14,12 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/09/2015"
+   ms.date="12/14/2015"
    ms.author="rick.byham@microsoft.com"/>
 
-# Azure SQL 데이터베이스 TRANSACT-SQL 정보
+# Azure SQL 데이터베이스 TRANSACT-SQL의 차이점
 
-대부분의 SQL Server 2016 TRANSACT-SQL 문은 Microsoft Azure SQL 데이터베이스에서 완전히 지원됩니다. 여기에는 SQL Server 데이터 형식, 연산자 및 문자열, 산술, 논리, 커서 함수 및 대부분의 응용 프로그램이 사용하는 다른 TRANSACT-SQL 요소가 포함됩니다. 부분적으로 또는 완전히 지원되지 않는 함수는 일반적으로 SQL 데이터베이스에서 데이터베이스를 관리하는 방법의 차이와 관련이 있거나(예: 파일, 고가용성 및 보안 기능) Service Broker와 같은 특수한 용도의 기능입니다. SQL 데이터베이스는 master 데이터베이스에 대한 종속성에서 많은 기능을 격리하므로 많은 서버 수준 작업이 부적절하고 지원되지 않습니다. SQL Server에서 사용되지 않는 기능은 일반적으로 SQL 데이터베이스에서 지원되지 않습니다.
+
+응용 프로그램에서 의존하는 TRANSACT-SQL 기능은 대부분 Microsoft SQL Server와 Azure SQL 데이터베이스 모두에서 지원됩니다. 응용 프로그램에 대해 지원되는 기능의 일부 목록은 다음과 같습니다.
+
+- 데이터 형식
+- 연산자
+- 문자열, 산술, 논리 및 커서 함수
+
+그러나 Azure SQL 데이터베이스는 **마스터** 데이터베이스에 대한 종속성에서 기능을 격리하도록 설계되어 있습니다. 따라서 많은 서버 수준 활동이 SQL 데이터베이스에 적합하지 않으며 지원되지 않습니다. 이 항목에서는 SQL 데이터베이스에서 완전히 지원되지 않는 기능을 자세히 설명합니다.
+
+또한 SQL Server에서 사용되지 않는 기능은 일반적으로 SQL 데이터베이스에서도 지원되지 않습니다.
 
 ## SQL 데이터베이스 V12로 업그레이드
 
@@ -65,6 +74,7 @@ SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 �
 - KILL STATS JOB
 - 연결된 서버, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, 3개 및 4개 부분으로 이루어진 이름
 - 마스터/대상 서버
+- .NET Framework [CLR과 SQL Server 통합](http://msdn.microsoft.com/library/ms254963.aspx)
 - 리소스 관리자
 - 의미 체계 검색
 - 서버 자격 증명
@@ -91,8 +101,10 @@ TRANSACT-SQL 문법, 사용법 및 예제에 대한 자세한 내용은 SQL Serv
 
 ### '적용 대상' 태그 정보
 
-TRANSACT-SQL 참조에는 SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 및 Microsoft Azure SQL 데이터베이스와 관련된 항목이 포함됩니다. 각 항목의 위쪽에는 항목의 주제를 지원하는 제품을 나타내는 섹션이 있습니다. 제품이 생략된 경우 항목에서 설명하는 기능을 해당 제품에서 사용할 수 없습니다. 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다. **가용성 그룹 만들기** 항목에는 SQL Server 2008, SQL Server 2008 R2 또는 Microsoft Azure SQL 데이터베이스에 적용되지 않으므로 **SQL Server(SQL Server 2012부터 현재 버전까지)**에 적용된다고 표시됩니다.
+Transact-SQL 참조에는 현재까지 SQL Server 버전 2008과 관련된 항목이 포함되어 있습니다. 항목 제목 아래에는 일반적으로 SQL Server 버전과 다른 제품 이름이 나열된 "적용 대상" 줄이 있습니다. "적용 대상" 태그에는 종종 Azure SQL 데이터베이스도 나열됩니다. "적용 대상"에 Azure SQL 데이터베이스가 나열되지 않은 경우 항목 콘텐츠는 Azure SQL 데이터베이스에 적용되지 않습니다. 경우에 따라 "적용 대상" 줄에 여러 제품이 나열되고, 각 제품에 항목이 해당 제품에 적용되는지 여부를 나타내는 작은 아이콘이 있을 수 있습니다.
 
-항목의 일반적인 주제는 제품에서 사용할 수 있지만 일부 인수가 지원되지 않는 경우도 있습니다. 예를 들어 포함된 데이터베이스 사용자는 SQL Server 2012에서 도입되었습니다. **CREATE USER** 문은 모든 SQL Server 제품에서 사용할 수 있지만 **WITH PASSWORD** 구문은 이전 버전에서 사용할 수 없습니다. 이 경우 **적용 대상** 섹션이 항목 본문의 해당 인수 설명에 추가로 삽입됩니다.
+ 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다. **가용성 그룹 만들기** 항목에는 SQL Server 2008, SQL Server 2008 R2 또는 Azure SQL 데이터베이스에 적용되지 않으므로 **SQL Server(SQL Server 2012부터 현재 버전까지)**에 적용된다고 표시됩니다.
 
-<!---HONumber=Nov15_HO3-->
+경우에 따라 항목의 일반 제목이 제품에 사용될 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 항목의 중간점에 적절히 표시됩니다.
+
+<!---HONumber=AcomDC_1217_2015-->

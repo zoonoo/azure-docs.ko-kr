@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Azure 테이블 저장소 및 Visual Studio 연결된 서비스를 시작하는 방법
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet5-getting-started-tables.md)
-> - [What Happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 ## 개요
 
@@ -33,7 +24,7 @@
 
 Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.
 
-**연결된 서비스 추가** 작업은 프로젝트의 Azure 저장소에 접근하기 위해 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다.
+**연결된 서비스 추가** 작업은 프로젝트의 Azure 저장소에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다.
 
 Azure 테이블 저장소를 사용하는 방법에 대한 일반적인 정보는 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)을 참조하세요.
 
@@ -58,7 +49,7 @@ ASP.NET 5 프로젝트의 테이블에 액세스하려면 Azure 테이블 저장
 	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 	        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    **참고** - 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
+    **참고:** 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
 
 3. 저장소 계정의 테이블 개체를 참조하려면 **CloudTableClient** 개체를 가져옵니다.
 
@@ -113,7 +104,7 @@ Azure 테이블을 만들려면 **CreateIfNotExistsAsync()**에 대한 호출을
 
 ## 엔터티 일괄 삽입
 
-하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 개의 엔터티 개체("Jeff Smith" 및 "Ben Smith")를 만들고 **Insert** 메서드를 사용하여 **TableBatchOperation** 개체에 이 두 개체를 추가한 다음 CloudTable.ExecuteBatchAsync를 호출하여 작업을 시작합니다.
+하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 개의 엔터티 개체("Jeff Smith" 및 "Ben Smith")를 만들고 Insert 메서드를 사용하여 **TableBatchOperation** 개체에 이 두 개체를 추가한 다음 **CloudTable.ExecuteBatchAsync**를 호출하여 작업을 시작합니다.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -211,4 +202,4 @@ Azure 테이블을 만들려면 **CreateIfNotExistsAsync()**에 대한 호출을
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # NSG(네트워크 보안 그룹)란?
@@ -248,4 +248,4 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 - [리소스 관리자에서 NSG를 배포](virtual-networks-create-nsg-arm-pportal.md)합니다.
 - [NSG 로그를 관리](virtual-network-nsg-manage-log.md)합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

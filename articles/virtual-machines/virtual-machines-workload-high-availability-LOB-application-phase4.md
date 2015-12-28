@@ -20,7 +20,6 @@
 # LOB(기간 업무) 응용 프로그램 워크로드 4단계: 웹 서버 구성
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
- 
 
 Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 이 단계에서는 웹 서버를 구축하여 LOB 응용 프로그램을 로드합니다.
 
@@ -30,11 +29,21 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 
 두 웹 서버 가상 컴퓨터에 ASP.NET 응용 프로그램 또는 Windows Server 2012 R2에서 IIS(Internet Information Services) 8이 호스팅할 수 있는 구형 응용 프로그램을 배포할 수 있습니다.
 
-> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 "-AzureRM"의 모든 인스턴스를 "-Azure"와 대체하고 모든 명령을 실행하기 전에 **Switch-azuremode AzureResourceManager** 명령을 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
-
 먼저 Azure가 두 웹 서버에서 클라이언트 트래픽을 LOB(기간 업무) 응용 프로그램에 균등하게 배분하도록 내부 부하 분산을 구성합니다. 이렇게 하려면 Azure 가상 네트워크에 할당한 서브넷 주소 공간으로부터 할당되는 자체 IP 주소와 이름으로 구성되는 내부 부하 분산 인스턴스를 지정해야 합니다.
 
-변수를 입력하고 다음 명령 집합을 실행합니다.
+> [AZURE.NOTE]다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+
+< and > 문자를 제거하고 변수의 값을 지정합니다. 다음 Azure PowerShell 명령 집합은 다음 표의 값을 사용합니다.
+
+- 가상 컴퓨터의 경우 표 M
+- 가상 네트워크 설정의 경우 표 V
+- 서브넷의 경우 표 S
+- 저장소 계정의 경우 표 ST
+- 가용성 집합의 경우 표 A
+
+[2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의한 테이블 M과, [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의한 테이블 V, S, ST 및 A를 불러옵니다.
+
+적절한 값을 모두 입력한 후 Azure PowerShell 명령 프롬프트에서 완성된 블록을 실행합니다.
 
 	# Set up key variables
 	$rgName="<resource group name>"
@@ -53,15 +62,7 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 
 다음으로 LOB(기간 업무) 응용 프로그램의 정규화된 도메인 이름(예: lobapp.corp.contoso.com)을 내부 부하 분산 장치에 할당된 IP 주소(앞의 Azure PowerShell 명령 블록에서 $privIP의 값)로 확인하는 DNS 주소 레코드를 조직 내부의 DNS 인프라에 추가합니다.
 
-PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴퓨터를 만듭니다. 이 PowerShell 명령 집합은 다음 표의 값을 사용합니다.
-
-- 가상 컴퓨터의 경우 표 M
-- 가상 네트워크 설정의 경우 표 V
-- 서브넷의 경우 표 S
-- 저장소 계정의 경우 표 ST
-- 가용성 집합의 경우 표 A
-
-[2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의한 테이블 M과, [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의한 테이블 V, S, ST 및 A를 불러옵니다.
+PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴퓨터를 만듭니다.
 
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
@@ -99,7 +100,7 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 	$vmSize="<Table M – Item 7 - Minimum size column>"
 	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
 	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second second SQL Server computer." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -118,7 +119,7 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 	Add-Computer -DomainName $domName
 	Restart-Computer
 
-**Add-Computer** 명령을 입력한 후에는 반드시 도메인 계정 자격 증명을 제공해야 합니다.
+**Add-Computer** 명령을 입력한 후에는 도메인 계정 자격 증명을 제공해야 합니다.
 
 다시 시작된 후 로컬 관리자 권한이 있는 계정을 사용하여 다시 연결합니다.
 
@@ -132,7 +133,7 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 6. 메시지가 나타나면 **기능 추가**를 클릭하고 **다음**을 클릭합니다.
 7. 기능 선택 페이지에서 **다음**을 클릭합니다.
 8. 웹 서버(IIS) 페이지에서 **다음**을 클릭합니다.
-9. 역할 서비스 선택 페이지에서 LOB 응용 프로그램에 필요한 서비스의 확인란을 선택하거나 선택 취소하고 **다음**을 클릭합니다. 10.설치 선택 확인 페이지에서 **설치**를 클릭합니다.
+9. 역할 서비스 선택 페이지에서 LOB 응용 프로그램에 필요한 서비스의 확인란을 선택하거나 선택 취소하고 **다음**을 클릭합니다. 10. 설치 선택 확인 페이지에서 **설치**를 클릭합니다.
 
 ## 웹 서버 가상 컴퓨터에서 LOB(기간 업무) 응용 프로그램을 배포합니다.
 
@@ -148,18 +149,6 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 
 ## 다음 단계
 
-이 워크로드를 계속 구성하려면 [5단계: 가용성 그룹을 만들고 응용 프로그램 데이터베이스 추가](virtual-machines-workload-high-availability-LOB-application-phase5.md)로 진행하세요.
+- [5단계](virtual-machines-workload-high-availability-LOB-application-phase5.md)를 사용하여 이 워크로드의 구성을 완료합니다.
 
-## 추가 리소스
-
-[Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[LOB(기간 업무) 응용 프로그램 아키텍처 청사진](http://msdn.microsoft.com/dn630664)
-
-[테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

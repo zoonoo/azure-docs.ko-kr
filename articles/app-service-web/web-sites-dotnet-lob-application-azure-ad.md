@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="10/14/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Azure Active Directory 인증을 통해 Azure 앱 서비스에서 .NET MVC 웹앱 만들기 #
@@ -22,7 +22,7 @@
 
 사용하는 Azure Active Directory 테넌트는 Azure 전용 디렉터리이거나, 온-프레미스 AD(Active Directory)와의 디렉터리 동기화를 통해 온-프레미스 또는 원격에 있는 작업자를 위한 SSO(Single Sign-On) 환경을 만들 수 있습니다.
 
->[AZURE.NOTE]Azure 앱 서비스 웹앱의 경우 몇 번의 단추 클릭만으로 Azure Active Directory 테넌트에 대한 인증을 구성할 수 있습니다. 자세한 내용은 [Azure 앱 서비스에서 인증을 위해 Active Directory 사용](web-sites-authentication-authorization.md)을 참조하세요
+>[AZURE.NOTE] Azure 앱 서비스 웹앱의 경우 몇 번의 단추 클릭만으로 Azure Active Directory 테넌트에 대한 인증을 구성할 수 있습니다. 자세한 내용은 [Azure 앱 서비스에서 인증을 위해 Active Directory 사용](web-sites-authentication-authorization.md)을 참조하세요
 
 <a name="bkmk_build"></a>
 ## 빌드할 내용 ##
@@ -40,14 +40,14 @@
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - 다양한 그룹의 사용자가 포함된 Azure Active Directory 테넌트
 - Azure Active Directory 테넌트에서 응용 프로그램을 만들 수 있는 권한
-- Visual Studio 2013
-- [Azure SDK 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) 이상
+- Visual Studio 2013 이상
+- [Azure SDK 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) 이상
 
 <a name="bkmk_sample"></a>
 ## 기간 업무 템플릿에 예제 응용 프로그램 사용 ##
@@ -91,9 +91,17 @@
 
 4. 로그인되면 **새로 만들기**를 클릭하여 Azure에서 새 웹앱을 만듭니다.
 
-5. 모든 필수 필드를 입력합니다. 이 응용 프로그램이 역할 매핑, 캐시된 토큰 및 모든 응용 프로그램 데이터를 저장하려면 데이터베이스에 연결해야 합니다.
+5. **호스팅**에서 모든 필수 필드를 입력합니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
+
+5. 이 응용 프로그램이 역할 매핑, 캐시된 토큰 및 모든 응용 프로그램 데이터를 저장하려면 데이터베이스에 연결해야 합니다. **앱 서비스 만들기** 대화상자를 클릭하여 **서비스**를 클릭합니다. **SQL 데이터베이스** 옆에서 더하기 기호를 클릭하여 새 데이터베이스를 추가합니다.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-database.png)
+
+5. **SQL 데이터베이스 구성** 대화 상자에서 서버를 선택하거나 만들고 이름을 설정하고 **확인**을 클릭합니다.
+
+	 ![](./media/web-sites-dotnet-lob-application-azure-ad/4-config-database.png)
 
 6. **만들기**를 클릭합니다. 웹앱이 만들어지면 **웹 게시** 대화 상자가 열립니다.
 
@@ -105,11 +113,11 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/6-enable-code-first-migrations.png)
 
-8. **RoleClaimContext**를 확장하고 **Code First 마이그레이션 실행(응용 프로그램 시작 시 실행)**을 선택합니다. [Code First 마이그레이션](https://msdn.microsoft.com/data/jj591621.aspx)(영문)을 사용하면 나중에 추가 Code First 데이터 모델을 정의하는 경우 Azure에서 앱의 데이터베이스 스키마를 업데이트할 수 있습니다.
+8. **RoleClaimContext**를 확장하고 **Code First 마이그레이션 실행(응용 프로그램 시작 시 실행)**을 선택합니다. [Code First 마이그레이션](https://msdn.microsoft.com/data/jj591621.aspx)을 사용하면 나중에 추가 Code First 데이터 모델을 정의하는 경우 Azure에서 앱의 데이터베이스 스키마를 업데이트할 수 있습니다.
 
 9. **게시**를 클릭하여 웹 게시를 진행하는 대신 **닫기**를 클릭합니다. **예**를 클릭하여 게시 프로필에 변경 사항을 저장합니다.
 
-2. [Azure 클래식 포털](https://manage.windowsazure.com)에서 Azure Active Directory 테넌트로 이동하여 **응용 프로그램** 탭을 클릭합니다.
+2. [Azure 클래식 포털](https://manage.windowsazure.com)에서 Azure Active Directory 테넌트로 이동하고 **응용 프로그램** 탭을 클릭합니다.
 
 2. 페이지 맨 아래에 있는 **추가**를 클릭합니다.
 
@@ -133,9 +141,9 @@
 
 8. **다른 응용 프로그램에 대한 권한** 아래의 **위임된 권한** 드롭다운에서 **Azure Active Directory** 항목에 대해 **로그인 및 사용자 프로필 읽기** 및 **디렉터리 데이터 읽기**를 선택합니다.
 
-	> [AZURE.NOTE]여기에서 필요한 정확한 권한은 응용 프로그램의 원하는 기능에 따라 다릅니다. 일부 권한에는 **전역 관리자** 역할을 설정해야 하지만 이 자습서에는 **사용자** 역할만 필요합니다.
+	> [AZURE.NOTE] 여기에서 필요한 정확한 권한은 응용 프로그램의 원하는 기능에 따라 다릅니다. 일부 권한에는 **전역 관리자** 역할을 설정해야 하지만 이 자습서에는 **사용자** 역할만 필요합니다.
 
-9.  **저장**을 클릭합니다.
+9.  **저장**을 클릭합니다.  
 
 10.  저장한 구성 페이지에서 나가기 전에 다음 정보를 텍스트 편집기에 복사합니다.
 
@@ -276,63 +284,63 @@
             return result.AccessToken;
         }
 		
-14.	Views\\WorkItems\\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.
+14.	Views\\WorkItems\\Create.cshtml(자동으로 스캐폴드된 항목)에서 `Html.BeginForm` 도우미 메서드를 찾아 다음과 같이 수정합니다.  
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
 	{
 	    @Html.AntiForgeryToken()
-
-	    &lt;div class="form-horizontal">
-	        &lt;h4>WorkItem&lt;/h4>
-	        &lt;hr />
+	    
+	    &lt;div class="form-horizontal"&gt;
+	        &lt;h4&gt;WorkItem&lt;/h4&gt;
+	        &lt;hr /&gt;
 	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-	        &lt;div class="form-group">
-	            &lt;div class="col-md-10">
-	                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
-	                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
-	            &lt;/div>
-	        &lt;/div>
-
-	        &lt;div class="form-group">
-	            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10">
-	                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
-	            &lt;/div>
-	        &lt;/div>
-
-	        &lt;div class="form-group">
-	            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10">
-	                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-	            &lt;/div>
-	        &lt;/div>
-
-	        &lt;div class="form-group">
-	            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10">
-	                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
-	                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-	            &lt;/div>
-	        &lt;/div>
-
-	        &lt;div class="form-group">
-	            &lt;div class="col-md-offset-2 col-md-10">
-	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
-	            &lt;/div>
-	        &lt;/div>
-	    &lt;/div>
-
-	    <mark>&lt;script>
+	
+	        &lt;div class="form-group"&gt;
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type=&quot;hidden&quot;</mark> } })
+	                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model =&gt; model.Description, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = "form-control" })
+	                @Html.ValidationMessageFor(model =&gt; model.Status, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            &lt;div class="col-md-offset-2 col-md-10"&gt;
+	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> /&gt;
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	    &lt;/div&gt;
+	
+	    <mark>&lt;script&gt;
 	            // People/Group Picker Code
 	            var maxResultsPerPage = 14;
 	            var input = document.getElementById("AssignedToName");
 	            var token = "@ViewData["token"]";
 	            var tenant = "@ViewData["tenant"]";
-
+	
 	            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
-
+	
 	            // Submit the selected user/group to be asssigned.
 	            $("#submit-button").click({ picker: picker }, function () {
 	                if (!picker.Selected())
@@ -343,7 +351,7 @@
 	
 	}</pre>
 
-	스크립트에서 AadPicker 개체는 [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 호출하여 입력과 일치하는 사용자 및 그룹을 검색합니다.  
+}</pre>스크립트에서 AadPicker 개체는 [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 호출하여 입력과 일치하는 사용자 및 그룹을 검색합니다.
 
 15. [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 열고**Enable-Migrations –EnableAutomaticMigrations**를 실행합니다. 앱을 Azure에 게시했을 때 선택한 옵션과 유사하게 이 명령을 사용하면 Visual Studio에서 디버깅하는 경우 [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)에서 앱의 데이터베이스 스키마를 업데이트할 수 있습니다.
 
@@ -382,4 +390,4 @@
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

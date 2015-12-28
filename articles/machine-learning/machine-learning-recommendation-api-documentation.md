@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="12/10/2015" 
 	ms.author="LuisCa"/>
 
 # Azure 기계 학습 권장 사항 API 설명서
@@ -26,37 +26,22 @@
 ## 1\. 일반 개요
 이 문서는 API 참조입니다. “Azure 기계 학습 권장 사항 – 빠른 시작” 문서로 시작해야 합니다.
 
-Azure 기계 학습 권장 사항 API는 다음 10개의 논리 그룹으로 나뉩니다.
+Azure 기계 학습 추천 API는 다음 논리 그룹으로 나뉩니다.
 
-1.	<ins>모델 기본</ins> - 모델에 대한 기본 작업(예: 모델 만들기, 업데이트 및 삭제)을 수행할 수 있는 API입니다.
-2.	<ins>모델 고급</ins> – 모델에 대한 고급 데이터 정보를 얻을 수 있는 API입니다.
-3.	<ins>모델 비즈니스 규칙</ins> – 모델 권장 사항 결과에서 비즈니스 규칙을 관리할 수 있는 API입니다.
-4.	<ins>카탈로그</ins> – 모델 카탈로그에 대한 기본 작업을 수행할 수 있는 API입니다. 카탈로그에는 사용 데이터의 항목에 대한 메타데이터 정보가 포함되어 있습니다.
-5.	<ins>기능</ins> - 항목에 대한 정보를 카탈로그로 작성하고 이 정보를 사용하여 더 나은 권장 사항을 작성하는 방법을 알 수 있도록 하는 API입니다.
-6.	<ins>사용 데이터</ins> - 모델 사용 데이터에 대한 기본 작업을 수행할 수 있는 API입니다. 기본 형식의 사용 데이터는 &#60;userId&#62;,&#60;itemId&#62; 쌍을 포함하는 행으로 구성됩니다.
-7.	<ins>빌드</ins> – 모델 빌드를 트리거하고 이 빌드와 관련된 기본 작업을 수행할 수 있는 API입니다. 유용한 사용 데이터가 있으면 모델 빌드를 트리거할 수 있습니다.
-8.	<ins>권장 사항</ins> – 모델 빌드가 종료되면 권장 사항을 사용할 수 있는 API입니다.
-9.	<ins>사용자 데이터</ins> - 사용자의 사용 현황 데이터 관련 정보를 가져올 수 있는 API입니다.
-10.	<ins>알림</ins> - API 작업과 관련된 문제에 대한 알림을 받을 수 있는 API입니다. 예를 들어 데이터 취득을 통해 사용 데이터를 보고하고 대부분의 이벤트 처리에 실패한 경우 오류 알림이 발생합니다.
+- <ins>제한 사항</ins> - 추천 API 제한 사항입니다.
+- <ins>일반 정보</ins> - 인증, 서비스 URI 및 버전 관리에 대한 정보입니다.
+- <ins>모델 기본</ins> - 모델에 대한 기본 작업(예: 모델 만들기, 업데이트 및 삭제)을 수행할 수 있는 API입니다.
+- <ins>모델 고급</ins> – 모델에 대한 고급 데이터 정보를 얻을 수 있는 API입니다.
+- <ins>모델 비즈니스 규칙</ins> – 모델 권장 사항 결과에서 비즈니스 규칙을 관리할 수 있는 API입니다.
+- <ins>카탈로그</ins> – 모델 카탈로그에 대한 기본 작업을 수행할 수 있는 API입니다. 카탈로그에는 사용 데이터의 항목에 대한 메타데이터 정보가 포함되어 있습니다.
+- <ins>기능</ins> - 항목에 대한 정보를 카탈로그로 작성하고 이 정보를 사용하여 더 나은 권장 사항을 작성하는 방법을 알 수 있도록 하는 API입니다.
+- <ins>사용 데이터</ins> - 모델 사용 데이터에 대한 기본 작업을 수행할 수 있는 API입니다. 기본 형식의 사용 데이터는 &#60;userId&#62;,&#60;itemId&#62; 쌍을 포함하는 행으로 구성됩니다.
+- <ins>빌드</ins> – 모델 빌드를 트리거하고 이 빌드와 관련된 기본 작업을 수행할 수 있는 API입니다. 유용한 사용 데이터가 있으면 모델 빌드를 트리거할 수 있습니다.
+- <ins>권장 사항</ins> – 모델 빌드가 종료되면 권장 사항을 사용할 수 있는 API입니다.
+- <ins>사용자 데이터</ins> - 사용자의 사용 현황 데이터 관련 정보를 가져올 수 있는 API입니다.
+- <ins>알림</ins> - API 작업과 관련된 문제에 대한 알림을 받을 수 있는 API입니다. 예를 들어 데이터 취득을 통해 사용 데이터를 보고하고 대부분의 이벤트 처리에 실패한 경우 오류 알림이 발생합니다.
 
-## 2\. 고급 항목
-
-### 2\.1. 권장 사항 품질
-
-권장 사항 모델 만들기는 일반적으로 시스템에서 권장 사항을 제공하도록 하는 데 충분합니다. 그러나 권장 사항 품질은 처리한 사용 현황 및 카탈로그의 적용 범위에 따라 달라집니다. 예를 들어 콜드 항목(중요한 사용 현황이 없는 항목)이 많은 경우에는 시스템에서 해당 항목에 대한 권장 사항을 제공하거나 해당 항목을 권장 항목으로 사용하기 어렵습니다. 콜드 항목 문제를 해결하기 위해 시스템에서는 항목의 메타데이터를 사용하여 권장 사항을 개선할 수 있도록 합니다. 이 메타데이터를 기능이라고 합니다. 일반적인 기능은 책의 저자 또는 동영상의 배우입니다. 기능은 키/값 문자열 형식으로 카탈로그를 통해 제공됩니다. 카탈로그 파일의 전체 형식은 [카탈로그 가져오기 섹션](#81-import-catalog-data)을 참조하세요. 다음 섹션에서는 기능을 사용한 권장 사항 모델 개선에 대해 설명합니다.
-
-### 2\.2. 순위 빌드
-
-기능은 권장 사항 모델을 개선할 수 있지만 그러려면 의미 있는 기능을 사용해야 합니다. 이를 위해 순위 빌드라는 새 빌드가 도입되었습니다. 이 빌드는 기능의 유용성 순위를 매깁니다. 의미 있는 기능은 순위 점수가 2 이상인 기능입니다.
-의미 있는 기능을 이해한 후에는 의미 있는 기능 목록(또는 하위 목록)으로 권장 사항 빌드를 트리거합니다. 이러한 기능을 사용하여 웜 항목과 콜드 항목 모두를 개선할 수 있습니다. 웜 항목에 사용하려면 `UseFeatureInModel` 빌드 매개 변수를 설정해야 합니다. 콜드 항목에 사용하려면 `AllowColdItemPlacement` 빌드 매개 변수를 설정해야 합니다.
-참고: `UseFeatureInModel`을 설정하지 않고 `AllowColdItemPlacement`를 사용할 수 없습니다.
-
-### 2\.3. 권장 사항 추론
-
-권장 사항 추론은 기능 사용의 또 다른 측면입니다. 실제로 Azure 기계 학습 권장 사항 엔진은 기능을 사용하여 권장 사항 설명(추론이라고도 함)을 제공할 수 있으며, 이는 권장 소비자에게 권장 항목에 대한 확신을 심어 줍니다.
-추론을 사용하려면 권장 사항 빌드를 요청하기 전에 `AllowFeatureCorrelation` 및 `ReasoningFeatureList` 매개 변수를 설정해야 합니다.
-
-## 3\. 제한 사항
+##2\. 제한 사항
 
 - 구독당 최대 모델 수는 10개입니다.
 - 카탈로그에 포함할 수 있는 최대 항목 수는 100,000개입니다.
@@ -64,25 +49,40 @@ Azure 기계 학습 권장 사항 API는 다음 10개의 논리 그룹으로 나
 - POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
 - 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
-## 4\. API – 일반 정보
+##3\. API – 일반 정보
 
-### 4\.1. 인증
+###3\.1. 인증
 인증과 관련된 Microsoft Azure 마켓플레이스 지침을 따르세요. 마켓플레이스에서는 기본 또는 OAuth 인증 방법을 지원합니다.
 
-### 4\.2. 서비스 URI
+###3\.2. 서비스 URI
 Azure 기계 학습 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v3/)입니다.
 
 전체 서비스 URI는 OData 사양의 요소를 사용하여 표현됩니다.
 
-### 4\.3. API 버전
+###3\.3. API 버전
 각 API 호출은 1.0으로 설정해야 하는 apiVersion이라는 쿼리 매개 변수 종료 시 포함됩니다.
 
-### 4\.4. ID 대/소문자 구분
+###3\.4. ID 대/소문자 구분
 API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에서 매개 변수로 전달될 때에도 마찬가지입니다. 예를 들어 모델 ID와 카탈로그 ID는 대/소문자를 구분합니다.
 
-## 5\. 모델 기본
+##4\. 권장 사항 품질 및 콜드 항목
 
-### 5\.1. 모델 만들기
+###4\.1. 권장 사항 품질
+
+권장 사항 모델 만들기는 일반적으로 시스템에서 권장 사항을 제공하도록 하는 데 충분합니다. 그러나 권장 사항 품질은 처리한 사용 현황 및 카탈로그의 적용 범위에 따라 달라집니다. 예를 들어 콜드 항목(중요한 사용 현황이 없는 항목)이 많은 경우에는 시스템에서 해당 항목에 대한 권장 사항을 제공하거나 해당 항목을 권장 항목으로 사용하기 어렵습니다. 콜드 항목 문제를 해결하기 위해 시스템에서는 항목의 메타데이터를 사용하여 권장 사항을 개선할 수 있도록 합니다. 이 메타데이터를 기능이라고 합니다. 일반적인 기능은 책의 저자 또는 동영상의 배우입니다. 기능은 키/값 문자열 형식으로 카탈로그를 통해 제공됩니다. 카탈로그 파일의 전체 형식은 [카탈로그 가져오기 섹션](#81-import-catalog-data)을 참조하세요.
+
+###4\.2. 순위 빌드
+
+기능은 권장 사항 모델을 개선할 수 있지만 그러려면 의미 있는 기능을 사용해야 합니다. 이를 위해 순위 빌드라는 새 빌드가 도입되었습니다. 이 빌드는 기능의 유용성 순위를 매깁니다. 의미 있는 기능은 순위 점수가 2 이상인 기능입니다. 의미 있는 기능을 이해한 후에는 의미 있는 기능 목록(또는 하위 목록)으로 권장 사항 빌드를 트리거합니다. 이러한 기능을 사용하여 웜 항목과 콜드 항목 모두를 개선할 수 있습니다. 웜 항목에 사용하려면 `UseFeatureInModel` 빌드 매개 변수를 설정해야 합니다. 콜드 항목에 사용하려면 `AllowColdItemPlacement` 빌드 매개 변수를 설정해야 합니다. 참고: `UseFeatureInModel`을 설정하지 않고 `AllowColdItemPlacement`를 사용할 수 없습니다.
+
+###4\.3. 권장 사항 추론
+
+권장 사항 추론은 기능 사용의 또 다른 측면입니다. 실제로 Azure 기계 학습 권장 사항 엔진은 기능을 사용하여 권장 사항 설명(추론이라고도 함)을 제공할 수 있으며, 이는 권장 소비자에게 권장 항목에 대한 확신을 심어 줍니다. 추론을 사용하려면 권장 사항 빌드를 요청하기 전에 `AllowFeatureCorrelation` 및 `ReasoningFeatureList` 매개 변수를 설정해야 합니다.
+
+
+##5\. 모델 기본
+
+###5\.1. 모델 만들기
 "모델 만들기" 요청을 만듭니다.
 
 | HTTP 메서드 | URI |
@@ -1881,7 +1881,7 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 |FbtSupportThreshold | 모델의 보수적인 정도입니다. 모델링 시 고려할 항목의 공동 발생 횟수입니다.| Integer | 3-50 (6) |
 |FbtMaxItemSetSize | FBT 집합의 항목 수를 제한합니다.| Integer | 2-3(2) |
 |FbtMinimalScore | 반환된 결과에 포함하기 위해 필요한 FBT 집합의 최소 점수입니다. 높을수록 좋습니다.| Double | 0 이상(0) |
-|FbtSimilarityFunction | 빌드에서 사용할 유사성 함수를 정의합니다. | String | cooccurrence, lift, jaccard (lift) |
+|FbtSimilarityFunction | 빌드에서 사용할 유사성 함수를 정의합니다. Lift는 우연성을 우위에 두고, Co-occurrence는 예측 가능성을 우위에 두며, Jaccard는 이 둘을 적절히 절충합니다. | 문자열 | cooccurrence, lift, jaccard (lift) |
 
 
 ###11\.2. 권장 사항 빌드 트리거
@@ -1912,7 +1912,7 @@ HTTP 상태 코드: 200
 
 유효한 빌드 상태:
 
-- Create - 빌드 요청이 만들어짐
+- Create – 빌드 요청이 만들어짐
 - Queued – 빌드 요청을 보냈으며 큐에 대기됨
 - Building – 빌드가 진행 중임
 - Success – 빌드가 성공적으로 종료됨
@@ -2061,8 +2061,8 @@ HTTP 상태 코드: 200
 
 응답은 빌드당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
 
-- `feed/entry/content/properties/UserName` - 사용자의 이름
-- `feed/entry/content/properties/ModelName` - 모델의 이름
+- `feed/entry/content/properties/UserName` – 사용자의 이름
+- `feed/entry/content/properties/ModelName` – 모델의 이름
 - `feed/entry/content/properties/ModelId` – 모델의 고유 식별자
 - `feed/entry/content/properties/IsDeployed` – 빌드 배포 여부(활성 빌드라고도 함)
 - `feed/entry/content/properties/BuildId` – 빌드의 고유 식별자
@@ -2145,8 +2145,8 @@ HTTP 상태 코드: 200
 
 응답은 빌드당 하나의 항목을 포함합니다. 각 항목에는 다음과 같은 데이터가 있습니다.
 
-- `feed/entry/content/properties/UserName` - 사용자의 이름
-- `feed/entry/content/properties/ModelName` - 모델의 이름
+- `feed/entry/content/properties/UserName` – 사용자의 이름
+- `feed/entry/content/properties/ModelName` – 모델의 이름
 - `feed/entry/content/properties/ModelId` – 모델의 고유 식별자
 - `feed/entry/content/properties/IsDeployed` – 빌드 배포 여부
 - `feed/entry/content/properties/BuildId` – 빌드의 고유 식별자
@@ -2779,7 +2779,7 @@ HTTP 상태 코드: 200
 - `Feed\entry\content\properties\Id1` – 권장 항목 ID
 - `Feed\entry\content\properties\Name1` – 항목의 이름
 - `Feed\entry\content\properties\Id2` – 두 번째 권장 항목 ID(선택 사항)
-- `Feed\entry\content\properties\Name2` - 두 번째 항목의 이름(선택 사항)
+- `Feed\entry\content\properties\Name2` – 두 번째 항목의 이름(선택 사항)
 - `Feed\entry\content\properties\Rating` – 권장 사항의 등급(숫자가 클수록 신뢰도가 높음)
 - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
@@ -2833,7 +2833,7 @@ API는 사용자의 사용 기록에 따른 예측된 항목의 목록과 제공
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
@@ -2959,7 +2959,7 @@ HTTP 상태 코드: 200
 응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
 - `Feed\entry\content\properties\Id` – 권장 항목 ID
 - `Feed\entry\content\properties\Name` – 항목의 이름
-- `Feed\entry\content\properties\Rating` – 해당 없음
+- `Feed\entry\content\properties\Rating` – 해당 없음.
 - `Feed\entry\content\properties\Reasoning` – 해당 없음
 
 OData XML
@@ -3095,4 +3095,4 @@ HTTP 상태 코드: 200
 © 2015 Microsoft. All rights reserved.
  
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

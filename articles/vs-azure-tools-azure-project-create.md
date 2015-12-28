@@ -3,9 +3,9 @@
    description="Visual Studio를 사용하여 Azure 프로젝트 만들기 "
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Visual Studio를 사용하여 Azure 프로젝트 만들기
 
@@ -62,4 +62,4 @@ Azure 클라우드 서비스 솔루션에는 다음 형식의 프로젝트가 �
 
 1. 로젝트에 추가한 역할의 이름을 바꾸려면 **새 Azure 프로젝트** 대화 상자의 역할에 마우스 포인터를 가리키고 역할의 오른쪽에 있는 **이름바꾸기** 아이콘을 선택합니다. 또한 추가 된 후 솔루션 내에서 역할의 이름을 바꿀 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

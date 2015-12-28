@@ -3,9 +3,9 @@
    description="가상 컴퓨터에 웹 응용 프로그램을 배포하는 방법을 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Publish-WebApplicationVM (Windows PowerShell 스크립트)
 
@@ -189,4 +189,4 @@ JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 프�
 
 프로비전한 내용을 변경하도록 JSON 구성 파일을 편집할 수 있습니다. 가상 컴퓨터 및 클라우드 서비스는 필요하지만 데이터베이스 섹션은 선택 사항입니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

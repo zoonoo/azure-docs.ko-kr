@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리 정책 참조
@@ -26,19 +26,21 @@
 
 -	[액세스 제한 정책][]
 	-	[HTTP 헤더 확인][] - HTTP 헤더의 존재 및/또는 값을 적용합니다.
-	-	[호출 속도 제한][] - 호출 및/또는 대역폭 소비율을 제한하여 API 사용량 급증을 방지합니다.
+	-	[구독으로 호출 속도 제한][] - 구독을 기준으로 호출 속도를 제한하여 API 사용량 급증을 방지합니다.
+	-	[키로 호출 속도 제한](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) - 키를 기준으로 호출 속도를 제한하여 API 사용량 급증을 방지합니다.
 	-	[호출자 IP 제한][] - 특정 IP 주소 및/또는 주소 범위의 호출을 필터링(허용/거부)합니다.
-	-	[사용 할당량 설정][] - 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다.
+	-	[구독으로 사용 할당량 설정][] - 구독을 기준으로 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다.
+	-	[키로 사용 할당량 설정](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) - 키를 기준으로 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다.
 	-	[JWT 유효성 검사][] - 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.
 -	[고급 정책][]
 	-	[흐름 제어][] - 부울 [식][]의 평가 결과에 따라 정책 문을 조건부로 적용합니다.
 	-	[요청 전달][] - 백 엔드 서비스에 요청을 전달합니다.
-	-	[로그 이벤트 허브를][] - [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) 엔터티가 정의한 메시지 대상에 지정된 형식으로 메시지를 보냅니다.
+	-	[이벤트 허브에 기록][] - [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) 엔터티가 정의한 메시지 대상에 지정된 형식으로 메시지를 보냅니다.
 	-	[응답 반환](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다.
 	-	[단방향 요청 전송](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - 지정된 URL에 대한 응답을 기다리지 않고 요청을 보냅니다.
 	-	[요청 전송](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - 지정된 URL로 요청을 보냅니다.
 	-	[요청 메서드 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.
-	-	[상태 코드 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.
+	-	[상태 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.
 	-	[변수 설정][] - 나중에 액세스할 수 있도록 명명된 [context][] 변수의 값을 유지합니다.
 -	[인증 정책][]
 	-	[기본 사용 인증][] - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.
@@ -46,6 +48,8 @@
 -	[캐싱 정책][] 
 	-	[캐시에서 가져오기][] - 캐시 조회를 수행하여 사용 가능한 경우 올바르게 캐시된 응답을 반환합니다.
 	-	[캐시에 저장][] - 지정된 캐시 제어 구성에 따라 응답을 캐시합니다.
+	-	[캐시에서 값 가져오기](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - 키로 캐시된 항목을 검색합니다.
+	-	[값을 캐시에 저장](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) - 키로 캐시에 항목을 저장합니다.
 -	[도메인 간 정책][] 
 	-	[도메인 간 호출 허용][] - API를 Adobe Flash 및 Microsoft Silverlight 브라우저 기반 클라이언트에서 액세스할 수 있도록 합니다.
 	-	[CORS][] - CORS(Cross-Origin Resource Sharing) 지원을 작업 또는 API에 추가하여 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.
@@ -69,9 +73,9 @@
 
 [액세스 제한 정책]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [HTTP 헤더 확인]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
-[호출 속도 제한]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
+[구독으로 호출 속도 제한]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
 [호출자 IP 제한]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
-[사용 할당량 설정]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
+[구독으로 사용 할당량 설정]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
 [JWT 유효성 검사]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
 
 [고급 정책]: https://msdn.microsoft.com/library/azure/dn894085.aspx
@@ -81,7 +85,7 @@
 [식]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [context]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
 [요청 전달]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
-[로그 이벤트 허브를]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
+[이벤트 허브에 기록]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [인증 정책]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [기본 사용 인증]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
@@ -115,4 +119,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

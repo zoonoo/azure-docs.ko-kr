@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/11/2015" 
 	ms.author="wesmc"/>
 
 # 알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기
@@ -88,9 +88,6 @@
 
 +  **[Azure 알림 허브 개요][Templates]**<br/>개요 항목에는 템플릿에 대한 세부 정보가 포함되어 있습니다.
 
-+  **[Windows 스토어에 대한 알림 허브 방법]**<br/>템플릿 표현 언어 참조가 포함되어 있습니다.
-
-
 
 <!-- Anchors. -->
 
@@ -108,6 +105,6 @@
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [알림 허브를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Windows 스토어에 대한 알림 허브 방법]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

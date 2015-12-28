@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 작업 보기 및 관리
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## 개요
 
@@ -35,7 +37,7 @@
 
 필터링된 작업은 다음과 같은 특성을 기반으로 표로 정리됩니다.
 
-- **유형** – 백업, 복제, 복원, 장애 조치 또는 업데이트입니다.
+- **유형** – 백업, 복제, 복원, 장애 조치(failover) 또는 업데이트입니다.
 
 - **상태** – 실행 중, 예약, 실패, 완료, 취소 중 또는 취소입니다.
 
@@ -91,4 +93,4 @@
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

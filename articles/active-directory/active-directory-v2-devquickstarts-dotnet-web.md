@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: .NET MVC 웹앱에 로그인 추가
@@ -215,4 +215,4 @@ public ActionResult About()
 - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) 
 - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/09/2015"
+ms.date="12/11/2015"
 ms.author="eugenesh" />
 
 # Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
 
-오랫동안 Azure 검색 고객은 [Azure SQL 데이터베이스](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) 및 [Azure DocumentDB](documentdb-search-indexer.md)에 대한 인덱서를 사용하여 일부 자주 사용하는 데이터 원본을 "자동으로" 인덱싱할 수 있었습니다.
+오랫동안 Azure 검색 고객은 [Azure SQL 데이터베이스](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) 및 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md)에 대한 인덱서를 사용하여 일부 자주 사용하는 데이터 원본을 "자동으로" 인덱싱할 수 있었습니다.
 
 현재 Azure Blob 저장소에 저장된 문서 인덱싱에 대한 지원을 추가하고 있습니다. 많은 고객으로부터 BLOB에 저장된 문서(예: PDF, Office 문서 또는 HTML 페이지)의 인덱싱을 간소화해달라는 요청이 있었습니다. 지금까지는 텍스트 추출을 위해 사용자 지정 코드를 작성하고 문서를 Azure 검색 인덱스에 추가하는 과정이 포함되었습니다.
 
@@ -104,7 +104,7 @@ Azure 검색은 각 문서(BLOB)를 다음과 같이 인덱싱합니다.
 
 검색 인덱스에서 위의 모든 속성에 대한 필드를 정의하지 않아도 되는 경우 응용 프로그램에 필요한 속성만 캡처합니다.
 
-> [AZURE.NOTE]기존 인덱스의 필드 이름이 문서 추출 중에 생성된 필드 이름과 달라지는 경우가 있습니다. **필드 매핑**을 사용하여 Azure 검색에서 제공한 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다.
+> [AZURE.NOTE]기존 인덱스의 필드 이름이 문서 추출 중에 생성된 필드 이름과 달라지는 경우가 있습니다. **필드 매핑**을 사용하여 Azure 검색에서 제공한 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다. 아래에 필드 매핑 사용 예제가 있습니다.
 
 ## 문서 키 필드 선택 및 다른 필드 이름 처리
 
@@ -144,6 +144,8 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
+> [AZURE.NOTE]필드 매핑에 대한 자세한 내용은 [이 문서](search-indexers-customization.md)를 참조하세요.
+
 ## 증분 인덱싱 및 삭제 감지
 
 일정에 따라 실행할 BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `LastModified` 타임스탬프에 지정된 대로 변경된 BLOB만 다시 인덱싱합니다.
@@ -152,9 +154,9 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 인덱스에서 특정 문서를 제거해야 함을 나타내려면 소프트 삭제 전략을 사용합니다. 해당 BLOB를 삭제하는 대신, 삭제됨을 나타내는 사용자 지정 메타데이터 속성을 추가하고 데이터 원본에 대한 소프트 삭제 감지 정책을 설정합니다.
 
-> [AZURE.NOTE]삭제 감지 정책을 사용하는 대신 BLOB를 삭제하려면 해당 문서가 검색 인덱스에서 제거되지 않습니다.
+> [AZURE.WARNING]삭제 감지 정책을 사용하는 대신 BLOB를 삭제하려면 해당 문서가 검색 인덱스에서 제거되지 않습니다.
 
-예를 들어 아래에 표시된 정책은 `true` 값의 메타데이터 속성 `IsDeleted`가 있는 경우 BLOB가 삭제됨을 고려합니다.
+예를 들어 아래에 표시된 정책은 `true` 값의 메타데이터 속성 `IsDeleted`가 있는 경우 BLOB이 삭제됨을 고려합니다.
 
 	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -177,189 +179,33 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 다음 표에서는 각 문서 형식에 대해 수행된 처리를 요약하고 Azure 검색에서 추출한 메타데이터 속성에 대해 설명합니다.
 
-<table style="font-size:12">
-
-<tr>
-<th>문서 형식/콘텐츠 형식</th>
-<th>콘텐츠 형식별 메타데이터 속성</th>
-<th>처리 세부 정보 </th>
-</tr>
-
-<tr>
-<td>HTML('text/html')</td>
-<td>
-'metadata_content_encoding'<br/>
-'metadata_content_type'<br/>
-'metadata_language'<br/>
-'metadata_description'<br/>
-'metadata_keywords'<br/>
-'metadata_title'
-</td>
-<td>HTML 태그를 제거하고 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>PDF('application/pdf')</td>
-<td>
-'metadata_content_type'<br/>
-'metadata_language'<br/>
-'metadata_author'<br/>
-'metadata_title'
-</td>
-<td>포함된 문서를 비롯한 텍스트 추출(이미지 제외)</td>
-</tr>
-
-<tr>
-<td>DOCX(application/vnd.openxmlformats-officedocument.wordprocessingml.document)</td>
-<td>
-'metadata_content_type'<br/>
-'metadata_author'<br/>
-'metadata_character_count'<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-'metadata_page_count'<br/>
-'metadata_word_count'
-</td>
-<td>포함된 문서를 비롯한 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>DOC(application/msword)</td>
-<td>
-'metadata_content_type'<br/>
-'metadata_author'<br/>
-'metadata_character_count'<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-'metadata_page_count'<br/>
-'metadata_word_count'
-</td>
-<td>포함된 문서를 비롯한 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>XLSX(application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)</td>
-<td>
-'metadata_content_type'<br/>
-'metadata_author'<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'
-</td>
-<td>포함된 문서를 비롯한 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>XLS(application/vnd.ms-excel)</td>
-<td>
-'metadata_content_type'<br/>
-'metadata_author'<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'
-</td>
-<td>포함된 문서를 비롯한 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>PPTX(application/vnd.openxmlformats-officedocument.presentationml.presentation)</td>
-<td>
-'metadata_content_type'<br/>
-'metadata_author'<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-'metadata_slide_count'<br/>
-'metadata_title'
-</td>
-<td>포함된 문서를 비롯한 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>PPT(application/vnd.ms-powerpoint)</td>
-<td>
-'metadata_content_type'<br/>
-'metadata_author'<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-'metadata_slide_count'<br/>
-'metadata_title'
-</td>
-<td>포함된 문서를 비롯한 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>MSG(application/vnd.ms-outlook)</td>
-<td>
-'metadata_content_type'<br/>
-'metadata_message_from'<br/>
-'metadata_message_to'<br/>
-'metadata_message_cc'<br/>
-'metadata_message_bcc'<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-'metadata_subject'
-</td>
-<td>첨부 파일을 비롯한 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>ZIP(application/zip)</td>
-<td>
-'metadata_content_type'
-</td>
-<td>보관 파일의 모든 문서에서 텍스트 추출</td>
-</tr>
-
-<tr>
-<td>XML(application/xml)</td>
-<td>
-'metadata_content_type'</br>
-'metadata_content_encoding'</br>
-</td>
-<td>XML 태그를 제거하고 텍스트 추출 </td>
-</tr>
-
-<tr>
-<td>JSON(application/json)</td>
-<td>
-'metadata_content_type'</br>
-'metadata_content_encoding'
-</td>
-<td></td>
-</tr>
-
-<tr>
-<td>일반 텍스트(text/plain)</td>
-<td>
-'metadata_content_type'</br>
-'metadata_content_encoding'</br>
-</td>
-<td></td>
-</tr>
-</table>
+문서 형식/콘텐츠 형식 | 콘텐츠 형식별 메타데이터 속성 | 처리 세부 정보
+-------------------------------|-------------------------------------------|-------------------
+HTML(`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | HTML 태그를 제거하고 텍스트 추출
+PDF(`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| 포함된 문서를 비롯한 텍스트 추출(이미지 제외)
+DOCX(application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | 포함된 문서를 비롯한 텍스트 추출
+DOC(application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | 포함된 문서를 비롯한 텍스트 추출
+XLSX(application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | 포함된 문서를 비롯한 텍스트 추출
+XLS(application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | 포함된 문서를 비롯한 텍스트 추출
+PPTX(application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | 포함된 문서를 비롯한 텍스트 추출
+PPT(application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | 포함된 문서를 비롯한 텍스트 추출
+MSG(application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | 첨부 파일을 비롯한 텍스트 추출
+ZIP(application/zip) | `metadata_content_type` | 보관 파일의 모든 문서에서 텍스트 추출
+XML(application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | XML 태그를 제거하고 텍스트 추출 </td>
+JSON(application/json) | `metadata_content_type`</br>`metadata_content_encoding` | 텍스트 추출<br/>참고: JSON Blob에서 여러 문서 필드를 추출해야 하는 경우 [이 UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)에 응답해 주세요.
+일반 텍스트(text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
 ## 사용자 지정 메타데이터를 사용하여 문서 추출 제어
 
 BLOB에 BLOB 인덱싱 및 문서 추출 프로세스의 특정 측면을 제어하는 메타데이터 속성을 추가할 수 있습니다. 현재는 다음과 같은 속성이 지원됩니다.
 
-<table style="font-size:12">
-
-<tr>
-<th>속성 이름</th>
-<th>속성 값</th>
-<th>설명</th>
-</tr>
-
-<tr>
-<td>AzureSearch_Skip</td>
-<td>"true"</td>
-<td>BLOB 인덱서에 BLOB를 완전히 건너뛰도록 지시합니다. 메타데이터와 콘텐츠 추출을 시도하지 않습니다. 특정 콘텐츠 형식을 건너뛰거나 특정 BLOB가 반복적으로 실패하고 인덱싱 프로세스를 중단하는 경우 유용합니다.
-</td>
-</tr>
-
-</table>
+속성 이름 | 속성 값 | 설명
+--------------|----------------|------------
+AzureSearch\_Skip | "true" | BLOB 인덱서에 BLOB를 완전히 건너뛰도록 지시합니다. 메타데이터와 콘텐츠 추출을 시도하지 않습니다. 특정 콘텐츠 형식을 건너뛰거나 특정 BLOB가 반복적으로 실패하고 인덱싱 프로세스를 중단하는 경우 유용합니다.
 
 ## Azure 검색 개선 지원
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

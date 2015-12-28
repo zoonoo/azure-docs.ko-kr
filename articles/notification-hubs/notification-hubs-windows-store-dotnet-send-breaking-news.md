@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # 알림 허브를 사용하여 속보 보내기
@@ -25,9 +25,9 @@
 
 ##개요
 
-이 항목에서는 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-ios-send-breaking-news.md) 버전을 참조하세요. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
+이 항목에서는 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-windows-phone-send-breaking-news.md) 버전을 참조하세요. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 _태그_를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 지침]을 참조하십시오.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 _태그_를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 라우팅 및 태그 식](notification-hubs-routing-tag-expressions.md)을 참조하세요.
 
 ##필수 조건
 
@@ -78,10 +78,10 @@
             hub = new NotificationHub(hubName, listenConnectionString);
         }
 
-        public async Task StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
         {
             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-            await SubscribeToCategories(categories);
+            return await SubscribeToCategories(categories);
         }
 
 		public IEnumerable<string> RetrieveCategories()
@@ -90,19 +90,34 @@
             return categories != null ? categories.Split(','): new string[0];
         }
 
-        public async Task SubscribeToCategories(IEnumerable<string> categories = null)
+        public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
             if (categories == null)
             {
-                IEnumerable<string> categories = RetrieveCategories();
+                categories = RetrieveCategories();
             }
 
-            await hub.RegisterNativeAsync(channel.Uri, categories);
+            // Using a template registration to support notifications across platforms.
+			// Any template notifications that contain messageParam and a corresponding tag expression
+			// will be delivered for this registration.
+
+            const string templateBodyWNS = "<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
+
+            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
+					categories);
         }
 
-    이 클래스는 로컬 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
+    이 클래스는 로컬 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. *RegisterNativeAsync* 메서드를 호출하는 대신 템플릿 등록을 사용하여 범주에 등록하는 *RegisterTemplateAsync*를 호출합니다.
+	
+	또한 알림 메시지용 템플릿, 타일 알림용 템플릿 등 여러 템플릿을 등록할 수도 있으므로 템플릿의 이름("simpleWNSTemplateExample")을 제공합니다. 그런 다음 템플릿을 업데이트하거나 삭제하려면 해당 이름을 지정해야 합니다.
+
+	장치에서 동일한 태그로 여러 템플릿을 등록한 경우 해당 태그를 대상으로 하는 수신 메시지는 템플릿별로 하나씩 여러 알림을 장치에 제공합니다. 이 동작은 동일한 논리 메시지로 여러 시각적 알림을 나타내야 하는 경우(예: Windows 스토어 응용 프로그램에 배지와 알림을 모두 표시해야 하는 경우)에 유용합니다.
+
+	템플릿 사용에 대한 자세한 내용은 [템플릿](notification-hubs-templates.md)을 참조하세요.
+
+
 
 
 4. App.xaml.cs 프로젝트 파일에서 **App** 클래스에 다음 속성을 추가합니다.
@@ -131,9 +146,9 @@
             if (ScienceToggle.IsOn) categories.Add("Science");
             if (SportsToggle.IsOn) categories.Add("Sports");
 
-            await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
+            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
 
-            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories));
+            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
@@ -148,32 +163,38 @@
 
 > [AZURE.NOTE]WNS(Windows 알림 서비스)에서 할당하는 채널 URI는 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
 
-1. App.xaml.cs 파일을 열고 **async** 한정자를 **OnLaunched** 메서드에 추가합니다.
+1. App.xaml.cs 파일을 열고 범주를 기반으로 구독하는 `notifications` 클래스를 사용하도록 **InitNotificationsAsync** 메서드를 업데이트합니다.
 
-2. **OnLaunched** 메서드에서 **InitNotificationsAsync** 메서드에 대한 기존 호출을 찾아 다음 코드 줄로 교체합니다.
+		// *** Remove or comment out these lines *** 
+	    //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+	    //var hub = new NotificationHub("your hub name", "your listen connection string");
+	    //var result = await hub.RegisterNativeAsync(channel.Uri);
+	
+	    var result = await notifications.SubscribeToCategories();
 
-		await notifications.SubscribeToCategories();
-
-	이제 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다. [알림 허브 시작] 자습서에서 **InitNotificationsAsync** 메서드를 만들었지만 이 항목에서는 필요하지 않습니다.
+	이제 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다. [알림 허브 시작][get-started] 자습서에서 **InitNotificationsAsync** 메서드를 만들었습니다.
 
 3. MainPage.xaml.cs 프로젝트 파일의 *OnNavigatedTo* 메서드에 다음 코드를 추가합니다.
 
-		var categories = ((App)Application.Current).notifications.RetrieveCategories();
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var categories = ((App)Application.Current).notifications.RetrieveCategories();
 
-        if (categories.Contains("World")) WorldToggle.IsOn = true;
-        if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
-        if (categories.Contains("Business")) BusinessToggle.IsOn = true;
-        if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
-        if (categories.Contains("Science")) ScienceToggle.IsOn = true;
-        if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+            if (categories.Contains("World")) WorldToggle.IsOn = true;
+            if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
+            if (categories.Contains("Business")) BusinessToggle.IsOn = true;
+            if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
+            if (categories.Contains("Science")) ScienceToggle.IsOn = true;
+            if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+        }
 
 	전에 저장한 범주의 상태를 기반으로 기본 페이지가 업데이트됩니다.
 
 이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 장치의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
-##백 엔드에서 알림 보내기
+##태그가 지정된 알림 보내기
 
-[AZURE.INCLUDE [notification-hubs-back-end](../../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ##앱 실행 및 알림 생성
 
@@ -207,9 +228,6 @@
 
 	지역화된 알림을 보낼 수 있도록 속보 앱을 확장하는 방법에 대해 알아보세요.
 
-+ [알림 허브를 통해 사용자에게 알림]
-
-	인증된 특정 사용자에게 알림을 푸시하는 방법에 대해 알아보세요. 이 방법은 특정 사용자에게만 알림을 보내기 위한 훌륭한 솔루션입니다.
 
 
 <!-- Anchors. -->
@@ -230,9 +248,9 @@
 <!-- URLs.-->
 [get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
 [알림 허브를 사용하여 지역화된 속보 브로드캐스트]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[알림 허브를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -240,4 +258,4 @@
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

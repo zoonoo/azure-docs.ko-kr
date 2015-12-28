@@ -212,6 +212,7 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 - [Azure 저장소 클라이언트 SDK 참조]
 - [Azure 저장소 REST API]
 - [Azure 저장소 팀 블로그]
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Java용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-java
@@ -221,4 +222,4 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

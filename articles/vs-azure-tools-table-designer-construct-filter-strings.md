@@ -1,11 +1,11 @@
 <properties
-   pageTitle="테이블 디자이너에 대한 필터 문자열 생성하기"
+   pageTitle="테이블 디자이너에 대한 필터 문자열 생성하기 | Microsoft Azure"
    description="테이블 디자이너에 대한 필터 문자열 생성하기"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 테이블 디자이너에 대한 필터 문자열 생성하기
 
@@ -99,4 +99,4 @@ DateTime 값을 필터링하려면 **datetime** 키워드를 지정하고 그 �
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

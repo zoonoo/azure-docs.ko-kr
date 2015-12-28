@@ -1,21 +1,23 @@
-#### To create public endpoints on the virtual device
+#### 가상 장치에 공용 끝점을 만들려면
 
-1. Sign in to the Management Portal.
+1. 관리 포털에 로그인합니다.
 
-- Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
+- **가상 컴퓨터**를 클릭한 다음 가상 장치로 사용 중인 가상 컴퓨터를 선택합니다.
 
-- Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
+- **Endpoints**를 클릭합니다. 끝점 페이지에는 가상 컴퓨터에 대한 모든 끝점이 나열됩니다.
 
-- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
+- **추가**를 클릭합니다. 끝점 추가 대화 상자가 나타납니다. 화살표를 클릭하여 계속합니다.
 
-- For the **Name**, type the following name for the endpoint: **WinRMHttps**.
+- **이름**의 경우, 끝점에 대해 **WinRMHttps**를 입력합니다.
 
-- For the **Protocol**, specify **TCP**.
+- **프로토콜**의 경우 **TCP**를 지정합니다.
 
-- For the **Public Port**, type the port numbers that you want to use for the connection.
+- **공용 포트**의 경우, 연결에 사용할 포트 번호를 입력합니다.
 
-- For the **Private Port**, type **5986**.
+- **개인 포트**로 **5986**을 입력합니다.
 
-- Click the check mark to create the endpoint.
+- 확인 표시를 클릭하여 끝점을 만듭니다.
 
-After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address. Record this address.
+끝점이 생성되면, 세부 정보를 보고 공용 가상 IP(VIP) 주소를 확인할 수 있습니다. 이 주소를 기록합니다.
+
+<!---HONumber=AcomDC_1217_2015-->

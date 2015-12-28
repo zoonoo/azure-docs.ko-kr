@@ -59,7 +59,9 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 
 
 ### 시나리오: Azure Blob 저장소의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
-이 시나리오에서는 Azure 기계 학습 웹 서비스는 Azure Blob 저장소의 파일에서 데이터를 사용하여 예측을 만들고 Blob 저장소에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Azure 데이터 팩터리 파이프라인을 정의합니다. 작업에는 입력으로 데이터 집합 **DecisionTreeInputBlob** 및 출력으로 **DecisionTreeResultBlob**이 있습니다. **DecisionTreeInputBlob**은 **webServiceInput** JSON 속성을 사용하여 웹 서비스에 입력으로 전달되고 **DecisionTreeResultBlob**은 **webServiceOutputs** JSON 속성을 사용하여 웹 서비스에 출력으로 전달됩니다. 작업에 대한 입력/출력인 데이터 집합만 웹 서비스 입력 및 출력으로 전달될 수 있습니다.
+이 시나리오에서는 Azure 기계 학습 웹 서비스는 Azure Blob 저장소의 파일에서 데이터를 사용하여 예측을 만들고 Blob 저장소에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Azure 데이터 팩터리 파이프라인을 정의합니다. 작업에는 입력으로 데이터 집합 **DecisionTreeInputBlob** 및 출력으로 **DecisionTreeResultBlob**이 있습니다. **DecisionTreeInputBlob**은 **webServiceInput** JSON 속성을 사용하여 웹 서비스에 입력으로 전달되고 **DecisionTreeResultBlob**은 **webServiceOutputs** JSON 속성을 사용하여 웹 서비스에 출력으로 전달됩니다.
+
+> [AZURE.NOTE]**webServiceInput** 및 **webServiceOutputs** 속성(**typeProperties**)에서 참조하는 데이터 집합은 **inputs** 및 **outputs** 작업에 포함되어야 합니다.
 
 
 	{
@@ -351,7 +353,96 @@ Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력�
 
 - 배포된 Azure 기계 학습 웹 서비스는 판독기 및 기록기 모듈을 사용하여 Azure SQL 데이터베이스에서/로 데이터를 읽고/쓸 수 있습니다. 이 웹 서비스는 다음 네 개의 매개 변수를 노출합니다. 데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호  
 - **시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
- 
+
+### 기타 시나리오
+
+#### 웹 서비스에는 입력이 필요하지 않습니다.
+
+Azure ML 배치 실행 웹 서비스는 입력이 필요하지 않는 모든 워크플로(예: R 또는 Python 스크립트)를 실행하는 데 사용할 수 있습니다. 또는 어떠한 GlobalParameters도 노출하지 않는 판독기 모듈로 실험을 구성할 수 있습니다. 이 경우 AzureMLBatchExecution 작업은 다음과 같이 구성합니다.
+
+	{
+        "name": "scoring service",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "myBlob"
+            }
+        ],
+        "typeProperties": {
+            "webServiceOutputs": {
+                "output1": "myBlob"
+            }              
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+   
+
+#### 웹 서비스에는 입력/출력이 필요하지 않습니다.
+Azure ML 배치 실행 웹 서비스에는 웹 서비스 출력이 구성되어 있지 않을 수 있습니다. 이 예제에서는 웹 서비스 입력 또는 출력이 없으며 GlobalParameters도 구성되어 있지 않습니다. 작업 자체에 여전에 출력이 구성되어 있지만 webServiceOutput으로 제공된 것이 아닙니다.
+
+	{
+        "name": "retraining",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "placeholderOutputDataset"
+            }
+        ],
+        "typeProperties": {
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+
+#### 웹 서비스는 판독기 및 기록기를 사용하며 작업은 다른 작업이 성공한 경우에만 실행됩니다.
+
+Azure ML 웹 서비스의 판독기 및 기록기 모듈은 GlobalParameters를 포함 또는 포함하지 않고 실행하도록 구성될 수 있습니다. 하지만 파이프라인을 처리하는 중에, 데이터 집합 종속성을 사용하여 일부 업스트림 처리가 완료될 때만 서비스를 호출한 후 배치 실행이 완료된 후 다른 작업을 트리거하는 서비스 호출을 포함할 수 있습니다. 이 경우 웹 서비스 입력 또는 출력으로 이름을 지정하지 않고 입력 및 출력 작업을 사용하여 종속성을 표현할 수 있습니다.
+
+	{
+	    "name": "retraining",
+	    "type": "AzureMLBatchExecution",
+	    "inputs": [
+	        {
+	            "name": "upstreamData1"
+	        },
+	        {
+	            "name": "upstreamData2"
+	        }
+	    ],
+	    "outputs": [
+	        {
+	            "name": "downstreamData"
+	        }
+	    ],
+	    "typeProperties": {
+	     },
+	    "linkedServiceName": "mlEndpoint",
+	    "policy": {
+	        "concurrency": 1,
+	        "executionPriorityOrder": "NewestFirst",
+	        "retry": 1,
+	        "timeout": "02:00:00"
+	    }
+	},
+
+**주요 내용**은 다음과 같습니다.
+
+-   실험 끝점에서 webServiceInput을 사용하면 Blob 데이터 집합으로 표시되고 작업 입력 및 webServiceInput 속성에 포함됩니다. 그렇지 않은 경우 webServiceInput 속성은 생략됩니다. 
+-   실험 끝점에서 webServiceOutput을 사용하면 Blob 데이터 집합으로 표시되고 작업 출력 및 webServicepOutputs 속성에 포함됩니다(실험에서 각 출력의 이름으로 매핑). 그렇지 않은 경우 webServiceOutputs 속성은 생략됩니다.
+-   실험 끝점에서 globalParameter를 노출하는 경우 키, 값 쌍으로 작업 globalParameters 속성에 지정됩니다. 그렇지 않은 경우 globalParameters 속성은 생략됩니다. 키는 대/소문자를 구분합니다. 값에 [Azure Data Factory 함수](data-factory-scheduling-and-execution.md#data-factory-functions-reference)를 사용할 수 있습니다. 
+- 작업 typeProperties 속성에 참조되지 않고도 추가 데이터 집합이 작업 입력 및 출력 속성에 포함될 수 있습니다. 이 내용은 조각 종속성을 사용한 실행에 적용되지만 그렇지 않은 경우 AzureMLBatchExecution 작업에서 무시됩니다. 
+
 
 ## 업데이트 리소스 작업을 사용하여 Azure ML 모델 업데이트
 시간이 지남에 따라 Azure ML 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 ML 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 웹 서비스를 통해 Azure ML 모델을 재학습하고 업데이트하는 일반적인 단계는 다음과 같습니다.
@@ -583,30 +674,88 @@ Azure ML 업데이트 리소스 작업은 출력을 생성하지 않지만 Azure
 	                "name": "AzureML Update Resource",
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
-	        ]
+	        ],
+	    	"start": "2015-02-13T00:00:00Z",
+	   		"end": "2015-02-14T00:00:00Z"
 	    }
 	}
 
 
+### 판독기 및 작성기 모듈
+
+웹 서비스 매개 변수를 사용하는 일반적인 시나리오는 Azure SQL 판독기 및 기록기 사용입니다. 판독기 모듈은 Azure 기계 학습 스튜디오 외부의 데이터 관리 서비스에서 실험으로 데이터를 로드하는 데 사용되고, 기록기 모듈은 실험의 데이터를 Azure 기계 학습 스튜디오 외부의 데이터 관리 서비스에 저장하는 데 사용됩니다.
+
+Azure Blob/Azure SQL 판독기/기록기에 대한 자세한 내용은 MSDN 라이브러리의 [판독기](https://msdn.microsoft.com/library/azure/dn905997.aspx) 및 [기록기](https://msdn.microsoft.com/library/azure/dn905984.aspx) 항목을 참조하세요. 이전 섹션의 예제에서는 Azure Blob 판독기 및 Azure Blob 기록기를 사용했습니다. 이 섹션에서는 Azure SQL 판독기 및 Azure SQL 기록기를 사용하는 방법을 설명합니다.
 
 
 ## 질문과 대답
-
-**Q**: AzureMLBatchScoring 작업을 사용합니다. AzureMLBatchExecution 작업을 사용하도록 전환해야 합니까?
-
-**A:** 예. AzureMLBatchScoring 작업을 사용하여 Azure 기계 학습과 통합하는 경우 최신 AzureMLBatchExecution 작업을 사용하는 것이 좋습니다. AzureMLBatchScoring 작업을 지양하며 향후 릴리스에서 제거될 예정입니다.
-
-AzureMLBatchExecution 작업은2015년 8월 Azure SDK 및 Azure PowerShell 릴리스에서 도입되었습니다.
-
-AzureMLBatchExecution 작업은 입력이 필요하지 않습니다(입력 종속성이 필요하지 않은 경우). 또한 웹 서비스 입력 및 웹 서비스 출력을 사용하거나 둘 다 사용하지 않으려 하는 여부에 대해 명시적이도록 합니다. 웹 서비스 입력/출력을 사용하도록 선택하는 경우 관련 Azure Blob 데이터 집합을 사용하도록 지정할 수 있습니다. 또한 웹 서비스에서 제공하는 웹 서비스 매개 변수의 값을 명확하게 지정할 수 있습니다.
-
-AzureMLBatchScoring 작업을 계속해서 사용하려면 자세한 내용은 [Azure ML 배치 평가 작업](data-factory-create-predictive-pipelines.md) 문서를 참조하세요.
-
 
 **Q:** 빅 데이터 파이프라인에서 생성된 여러 파일이 있습니다. 모든 파일에서 작동하도록 AzureMLBatchExecution 작업을 사용할 수 있습니까?
 
 **A:** 예. 자세한 내용은 **Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용** 섹션을 참조하세요.
 
+## Azure ML 일괄 처리 점수 매기기 작업
+**AzureMLBatchScoring** 작업을 사용하여 Azure 기계 학습과 통합하는 경우 최신 **AzureMLBatchExecution** 작업을 사용하는 것이 좋습니다.
+
+AzureMLBatchExecution 작업은2015년 8월 Azure SDK 및 Azure PowerShell 릴리스에서 도입되었습니다.
+
+AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 읽어보세요.
+
+### 입/출력에 대해 Azure 저장소를 사용하는 Azure ML 일괄 처리 점수 매기기 작업 
+
+	{
+	  "name": "PredictivePipeline",
+	  "properties": {
+	    "description": "use AzureML model",
+	    "activities": [
+	      {
+	        "name": "MLActivity",
+	        "type": "AzureMLBatchScoring",
+	        "description": "prediction analysis on batch input",
+	        "inputs": [
+	          {
+	            "name": "ScoringInputBlob"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "ScoringResultBlob"
+	          }
+	        ],
+	        "linkedServiceName": "MyAzureMLLinkedService",
+	        "policy": {
+	          "concurrency": 3,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
+	}
+
+### 웹 서비스 매개 변수
+파이프라인 JSON의 **AzureMLBatchScoringActivty** 섹션에 **typeProperties** 섹션을 추가하여 다음 예제와 같이 해당 섹션의 웹 서비스 매개 변수 값을 지정합니다.
+
+	"typeProperties": {
+		"webServiceParameters": {
+			"Param 1": "Value 1",
+			"Param 2": "Value 2"
+		}
+	}
+
+
+다음 예제와 같이 웹 서비스 매개 변수 값을 전달하는 데 [데이터 팩터리 함수](https://msdn.microsoft.com/library/dn835056.aspx)를 사용할 수도 있습니다.
+
+	"typeProperties": {
+    	"webServiceParameters": {
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    	}
+  	}
+ 
+> [AZURE.NOTE]웹 서비스 매개 변수는 대/소문자를 구분하므로 작업 JSON에서 지정한 이름이 웹 서비스에 의해 노출된 이름과 일치해야 합니다.
 
 ## 참고 항목
 
@@ -623,4 +772,4 @@ AzureMLBatchScoring 작업을 계속해서 사용하려면 자세한 내용은 [
 
  
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1217_2015-->

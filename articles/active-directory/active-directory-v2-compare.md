@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기 : 어떤 차이가 있습니까?
@@ -26,7 +26,7 @@
 ## Microsoft 계정과 Azure AD 계정
 v2.0 앱 모델은 단일 끝점을 사용하여 Microsoft 계정과 Azure AD 계정 로그인을 허용하는 앱을 개발자가 작성할 수 있게 해줍니다. 이 모델은 완전한 계정 중립적인 앱을 작성할 수 있도록 해주며, 사용자가 로그인할 때 사용하는 계정 형식을 무시할 수 있습니다. 물론, 특정 세션에서 사용 중인 계정 유형을 인식할 수 있도록 *만들 수 있지만*, 그럴 필요가 없습니다.
 
-예를 들어, 앱이 [Office 365 REST APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)를 호출하는 경우, 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 엔터프라이즈 사용자가 사용할 수 있습니다. 하지만 [사용자의 메일을 읽기](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)와 같은 작업 대부분에서 코드는 Microsoft 계정과 Azure AD 계정 두 곳에서 정확히 동일하게 쓰일 수 있습니다.
+예를 들어 앱이 [Office 365 REST API](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)를 호출하는 경우, 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 엔터프라이즈 사용자가 사용할 수 있습니다. 하지만 [사용자의 메일 읽기](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)와 같은 작업 대부분에서 코드는 Microsoft 계정과 Azure AD 계정 두 곳에서 정확히 동일하게 쓰일 수 있습니다.
 
 이제 간단한 하나의 프로세스를 통해 Microsoft 계정과 Azure AD 계정을 사용하여 앱을 통합할 수 있습니다. 끝점의 단일 집합, 단일 라이브러리 및 단일 앱 등록을 사용하여 소비자와 엔터프라이즈 세계에 액세스하는 권한을 얻을 수 있습니다. v2.0 앱 모델 미리 보기에 대한 자세한 내용은 [개요](active-directory-appmodel-v2-overview.md)를 참조하세요.
 
@@ -121,4 +121,4 @@ v2.0 앱 모델 토큰에서 내보내는 특정 클레임에 관한 더 자세�
 ## 미리 보기 제한 사항
 다양한 공용 미리 보기 중 v2.0 App 모델로 응용 프로그램을 작성할 때 주의해야 할 여러 제한 사항이 있습니다. 이 제한 사항들 중 하나라도 특정 시나리오에 적용하는 경우, [v2.0 앱 모델 제한 사항 문서](active-directory-v2-limitations.md)를 참조하십시오.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

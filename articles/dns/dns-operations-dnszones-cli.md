@@ -23,13 +23,16 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 이 가이드에서는 DNS 영역을 관리하는 방법을 보여 줍니다. DNS 영역을 관리하기 위해 수행하는 작업 시퀀스를 이해하는 데 도움이 됩니다.
- 
+
+>[AZURE.NOTE]Azure DNS는 Azure 리소스 관리자 전용 서비스입니다. 여기에는 ASM API가 없습니다. 따라서 'azure config mode arm' 명령을 사용하여 Azure CLI가 리소스 관리자 모드를 사용하도록 구성되었는지 확인해야 합니다.
+
+>"오류: 'dns'가 azure 명령이 아닙니다"가 표시되면 Azure CLI를 리소스 관리자 모드가 아닌 ASM 모드에서 사용하고 있기 때문입니다.
  
 ## 새 DNS 영역 만들기
 
 도메인을 호스트할 새 DNS 영역을 만들려면 `azure network dns zone create`를 사용합니다.
 
-		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 이 작업으로 Azure DNS에 새 DNS 영역이 만들어집니다. 필요한 경우 Azure 리소스 관리자 태그 배열을 지정할 수도 있습니다. 자세한 내용은 [Etag 및 태그](dns-getstarted-create-dnszone.md#Etags-and-tags)를 참조하세요.
 
@@ -77,4 +80,4 @@ Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으
 
 [.NET SDK로 작업 자동화](dns-sdk.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

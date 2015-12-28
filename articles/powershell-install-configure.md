@@ -121,11 +121,11 @@ Azure 구독을 표시하려면 **Get-AzureSubscription**을 입력합니다.
 
 
 
-- Azure 라이브러리에서 Azure PowerShell 모듈의 cmdlet에 대한 참조 정보를 사용할 수도 있습니다. 자세한 내용은 [Azure Cmdlet 참조](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx)를 확인하십시오.
+- Azure 라이브러리에서 Azure PowerShell 모듈의 cmdlet에 대한 참조 정보를 사용할 수도 있습니다. 자세한 내용은 [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/dn708514.aspx)를 확인하십시오.
 
 커뮤니티에서 도움을 얻으려면 다음과 같은 포럼을 참조하십시오.
 
 - [MSDN의 Azure 포럼](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

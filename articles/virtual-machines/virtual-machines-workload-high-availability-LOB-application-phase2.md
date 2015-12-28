@@ -32,8 +32,8 @@ Azure 인프라 서비스에서 고가용성 LOB(기간 업무) 응용 프로그
 
 항목 | 가상 컴퓨터 이름 | 갤러리 이미지 | 최소 크기 
 --- | --- | --- | --- 
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC1 등의 첫 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | Standard\_D1
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC2 등의 두 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | Standard\_D1
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC1 등의 첫 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | Standard\_D2
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC2 등의 두 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | Standard\_D2
 3\. | \_ \_ \_ (주 데이터베이스 서버, 예: SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (보조 데이터베이스 서버, 예: SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(MN1 등의 클러스터에 대한 주 노드) | Windows Server 2012 R2 Datacenter | Standard\_D1
@@ -42,9 +42,9 @@ Azure 인프라 서비스에서 고가용성 LOB(기간 업무) 응용 프로그
 
 **표 M – Azure의 고가용성 LOB(기간 업무) 응용 프로그램을 위한 가상 컴퓨터**
 
-전체 가상 컴퓨터 크기 목록은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+전체 가상 컴퓨터 크기 목록은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
 
-Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤러용 가상 컴퓨터를 만듭니다. < and > 문자를 제거하고 변수의 값을 지정합니다. 이 PowerShell 명령 집합은 다음 값을 사용합니다.
+Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤러용 가상 컴퓨터를 만듭니다. < and > 문자를 제거하고 변수의 값을 지정합니다. 이 PowerShell 명령 블록은 다음 값을 사용합니다.
 
 - 가상 컴퓨터의 경우 표 M
 - 가상 네트워크 설정의 경우 표 V
@@ -54,7 +54,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 표 V, S, ST, A는 [1단계: Azure 구성](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의했습니다.
 
-> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 "-AzureRM"의 모든 인스턴스를 "-Azure"와 대체하고 모든 명령을 실행하기 전에 **Switch-azuremode AzureResourceManager** 명령을 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+> [AZURE.NOTE]다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
@@ -165,17 +165,16 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 이제 Azure가 두 새 도메인 컨트롤러의 IP 주소를 DNS 서버로 사용하도록 가상 컴퓨터에 할당할 수 있게 DNS 서버를 업데이트해야 합니다. 이 절차에서는 가상 네트워크 설정에 대해 표 V(가상 네트워크 설정용) 및 표 M(가상 컴퓨터용) 값을 사용합니다.
 
-1.	Azure 포털의 왼쪽 창에서 **모두 찾아보기 > 가상 네트워크**를 클릭하고 가상 네트워크의 이름(표 V - 항목 1 - 값 열)을 클릭합니다.
-2.	가상 네트워크 창에서 **모든 설정**을 클릭합니다.
-3.	**설정** 창에서 **DNS 서버**를 클릭합니다.
-4.	**DNS 서버** 창에 다음을 입력합니다.
+1.	Azure 포털의 왼쪽 창에서 **가상 네트워크**를 클릭하고 가상 네트워크의 이름(표 V - 항목 1 - 값 열)을 클릭합니다.
+2.	**설정** 창에서 **DNS 서버**를 클릭합니다.
+3.	**DNS 서버** 창에서 다음을 입력합니다.
 	- **주 DNS 서버**: 표 V – 항목 6 – 값 열
 	- **보조 DNS 서버**: 표 V – 항목 7 – 값 열
-5.	Azure 포털의 왼쪽 창에서 **모두 찾아보기 > 가상 컴퓨터**를 클릭합니다.
-6.	**가상 컴퓨터 창**에서 첫 번째 도메인 컨트롤러의 이름(표 M - 항목 1 - 가상 컴퓨터 이름 열)을 클릭합니다.
-7.	가상 컴퓨터의 창에서 **다시 시작**을 클릭합니다.
-8.	첫 번째 도메인 컨트롤러가 시작되면 **가상 컴퓨터 창**에서 두 번째 도메인 컨트롤러의 이름(표 M - 항목 2 - 가상 컴퓨터 이름 열)을 클릭합니다.
-9.	가상 컴퓨터의 창에서 **다시 시작**을 클릭합니다. 두 번째 도메인 컨트롤러가 시작될 때까지 기다립니다.
+4.	Azure 포털의 왼쪽 패널에서 **가상 컴퓨터**를 클릭합니다.
+5.	**가상 컴퓨터 창**에서 첫 번째 도메인 컨트롤러의 이름(표 M - 항목 1 - 가상 컴퓨터 이름 열)을 클릭합니다.
+6.	가상 컴퓨터의 창에서 **다시 시작**을 클릭합니다.
+7.	첫 번째 도메인 컨트롤러가 시작되면 **가상 컴퓨터 창**에서 두 번째 도메인 컨트롤러의 이름(표 M - 항목 2 - 가상 컴퓨터 이름 열)을 클릭합니다.
+8.	가상 컴퓨터의 창에서 **다시 시작**을 클릭합니다. 두 번째 도메인 컨트롤러가 시작될 때까지 기다립니다.
 
 여기서는 두 도메인 컨트롤러를 다시 시작하여 온-프레미스 DNS 서버와 함께 DNS 서버로 구성되지 않도록 합니다. 이 두 도메인 컨트롤러는 모두 DNS 서버이므로 도메인 컨트롤러로 수준을 올릴 때 온-프레미스 DNS 서버와 함께 DNS 전달자로 자동 구성되었습니다.
 
@@ -196,18 +195,6 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 ## 다음 단계
 
-이 워크로드를 계속 구성하려면 [3단계: SQL Server 인프라 구성](virtual-machines-workload-high-availability-LOB-application-phase3.md)으로 진행합니다.
+- [3단계](virtual-machines-workload-high-availability-LOB-application-phase3.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-## 추가 리소스
-
-[Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[LOB(기간 업무) 응용 프로그램 아키텍처 청사진](http://msdn.microsoft.com/dn630664)
-
-[테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

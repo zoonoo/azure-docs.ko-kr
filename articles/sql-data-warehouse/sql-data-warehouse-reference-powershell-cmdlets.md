@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sidneyh"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Azure 데이터 웨어하우스 cmdlet 및 REST API 시작
 
 SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.
 
-**Azure SQL 데이터베이스**에 대해 정의된 명령을 **SQL 데이터 웨어하우스**에도 사용할 수 있습니다. 현재 목록은 [Azure SQL Cmdlet](https://msdn.microsoft.com/library/azure/dn546726.aspx)을 참조하세요. cmdlet **Suspend-AzureSqlDatabase** 및 **Resume-AzureSqlDatabase**(아래)는 SQL 데이터 웨어하우스에 대해 설계된 추가 항목입니다.
+**Azure SQL 데이터베이스**에 대해 정의된 명령을 **SQL 데이터 웨어하우스**에도 사용할 수 있습니다. 현재 목록은 [Azure SQL Cmdlet](https://msdn.microsoft.com/library/mt574084.aspx)을 참조하세요. cmdlet **Suspend-AzureSqlDatabase** 및 **Resume-AzureSqlDatabase**(아래)는 SQL 데이터 웨어하우스에 대해 설계된 추가 항목입니다.
 
 마찬가지로, **SQL Azure 데이터베이스**에 대한 REST Api를 **SQL 데이터 웨어하우스** 인스턴스에도 사용할 수 있습니다. 현재 목록의 경우에는 [Azure SQL 데이터베이스용 작업](https://msdn.microsoft.com/library/azure/dn505719.aspx)을 참조하세요.
 
@@ -111,4 +111,4 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

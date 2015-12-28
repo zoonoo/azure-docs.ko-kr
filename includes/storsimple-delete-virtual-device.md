@@ -1,7 +1,9 @@
-#### To delete a virtual device
+#### 가상 장치를 삭제하려면
 
-1. Sign in to the Management Portal.
+1. 관리 포털에 로그인합니다.
 
-- Click **Virtual Machines**, and then select the virtual device.
+- **가상 컴퓨터**를 클릭한 다음 가상 장치를 선택합니다.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+- **삭제**를 클릭하고 모든 가상 컴퓨터 디스크를 삭제하도록 선택합니다.
+
+<!---HONumber=AcomDC_1217_2015-->

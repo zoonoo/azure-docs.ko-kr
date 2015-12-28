@@ -70,4 +70,4 @@
 <!-- URLs. -->
 [모바일 앱 시작]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1217_2015-->

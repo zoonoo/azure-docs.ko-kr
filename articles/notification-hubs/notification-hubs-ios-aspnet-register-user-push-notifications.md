@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 # ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
@@ -111,7 +111,7 @@
 
 	이 코드는 요청에 대한 장치 토큰을 설정합니다.
 
-	> [AZURE.NOTE]이때 이 메서드에 다른 코드가 있어서는 안 됩니다. [알림 허브 시작](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") 자습서를 완료할 때 추가된 **registerNativeWithDeviceToken** 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
+	> [AZURE.NOTE]이때 이 메서드에 다른 코드가 있어서는 안 됩니다. [알림 허브 시작](/manage/services/notification-hubs/get-started-notification-hubs-ios/) 자습서를 완료할 때 추가된 **registerNativeWithDeviceToken** 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
 
 10.	PushToUserAppDelegate.m 파일에서 다음 처리기 메서드를 추가합니다.
 
@@ -237,4 +237,4 @@
 
 [알림 허브 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

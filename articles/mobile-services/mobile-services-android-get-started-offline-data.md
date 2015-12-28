@@ -39,7 +39,7 @@
 
 ## 오프라인 동기화를 지원하도록 앱 업데이트
 
-오프라인 동기화를 통해 장치의 **SQL Light** 데이터베이스 일부인 *동기화 테이블*에서 읽고 씁니다(*IMobileServiceSyncTable* 인터페이스 사용).
+오프라인 동기화를 통해 장치의 **SQLite** 데이터베이스 일부인 *동기화 테이블*에서 읽고 씁니다(*IMobileServiceSyncTable* 인터페이스 사용).
 
 장치와 Azure 모바일 서비스 간에 변경 내용을 푸시하거나 끌어오려면 데이터를 로컬로 저장하는 데 사용할 로컬 데이터베이스와 함께 초기화하는 *동기화 컨텍스트*(*MobileServiceClient.SyncContext*)를 사용합니다.
 
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [모바일 서비스 빠른 시작 자습서]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

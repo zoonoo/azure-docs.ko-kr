@@ -131,7 +131,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 13. [기본 사항: RAID](virtual-machines-linux-configure-raid.md)
 14. [기본 사항: Linux VM을 캡처하여 템플릿 작성](virtual-machines-linux-capture-image.md)
 15. [기본 사항: Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md)
-16. [기본 사항: Azure VM 확장 및 기능](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+16. [기본 사항: Azure VM 확장 및 기능](virtual-machines-extensions-features.md)
 17. [기본 사항: Cloud-init에서 사용할 VM에 사용자 지정 데이터 주입](virtual-machines-how-to-inject-custom-data.md)
 18. [기본 사항 블로그: 12단계에서 Azure에서 고가용성 Linux 빌드](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [기본 사항 블로그: Azure CLI, node.js, jhawk를 사용하여 Azure에서 Linux 프로비전 자동화](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
@@ -311,4 +311,4 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

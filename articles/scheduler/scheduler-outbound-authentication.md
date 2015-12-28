@@ -234,10 +234,14 @@
 |:--|:--|
 |_인증(부모 요소)_ |ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체입니다.|
 |_type_ |필수입니다. 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다.|
-|_tenant_ |필수입니다. 테넌트 ID는 AD 테넌트를 식별하는 데 사용되는 ID입니다.|
+|_tenant_ |필수입니다. Azure AD 테넌트의 테넌트 식별자입니다.|
 |_audience_ |필수입니다. 이 값은 https://management.core.windows.net/.|로 설정됩니다.
 |_clientId_ |필수입니다. Azure AD 응용 프로그램의 클라이언트 ID를 제공합니다.|
 |_secret_ |필수입니다. 토큰을 요청하는 클라이언트의 암호입니다.|
+
+### 테넌트 식별자 확인
+
+Azure PowerShell에서 `Get-AzureAccount`를 실행하여 Azure AD 테넌트의 테넌트 식별자를 확인할 수 있습니다.
 
 ## ActiveDirectoryOAuth 인증의 응답 본문
 
@@ -247,7 +251,7 @@
 |:--|:--|
 |_인증(부모 요소)_ |ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체입니다.|
 |_type_ |인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다.|
-|_tenant_ |AD 테넌트를 식별하는 데 사용되는 테넌트 ID입니다.|
+|_tenant_ |Azure AD 테넌트의 테넌트 식별자입니다. |
 |_audience_ |이 값은 https://management.core.windows.net/.|로 설정됩니다.
 |_clientId_ |Azure AD 응용 프로그램의 클라이언트 ID입니다.|
 
@@ -272,7 +276,7 @@
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"secret": "&lt;secret-key&gt;",
@@ -310,7 +314,7 @@
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"type":"ActiveDirectoryOAuth"
@@ -356,4 +360,4 @@
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

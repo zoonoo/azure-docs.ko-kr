@@ -63,6 +63,7 @@
 - 여러 규칙이 나열된 순서는 규칙이 처리되는 방식에 영향을 줍니다. 후속 규칙은 이전 규칙에서 지정된 동작을 재정의할 수 있습니다.
 
 ## 참고 항목
+* [규칙 엔진 일치 조건 및 기능 세부 정보](cdn-rules-engine-details.md)
 * [Azure CDN 개요](cdn-overview.md)
 * [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
 * [고급 HTTP 보고서](cdn-advanced-http-reports.md)
@@ -71,4 +72,4 @@
 
 	
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -263,7 +263,7 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 <!--Link references-->
 [Azure Linux 에이전트 사용자 가이드]: virtual-machines-linux-agent-user-guide.md
 [Azure PowerShell을 설치 및 구성하는 방법]: ../install-configure-powershell.md
-[Azure VM 확장 및 기능]: http://msdn.microsoft.com/library/azure/dn606311.aspx
+[Azure VM 확장 및 기능]: virtual-machines-extensions-features.md
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

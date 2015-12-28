@@ -32,12 +32,9 @@
 
 ##릴리스 정보
 
-##3\.2.0(2015/10/08)
+###3\.2.1(2015/12/11)
 
--   **Xcode 7**과 연동되도록 SDK의 Bitcode를 활성화했습니다.
--   앱 내 알림 메시지와 관련된 버그를 수정했습니다.
--   배터리가 부족한 경우 및 기타 이러한 시나리오에서 앱 내 알림 메시지를 더욱 안정적으로 만들었습니다.
--   타사 라이브러리에서 생성하는 추가 콘솔 로그를 제거했습니다.
+-   딥 링크를 사용하는 알림에서 새 앱 인스턴스를 트리거할 때의 지연을 수정했습니다. 
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-ios-release-notes.md)를 참조하세요.
 
@@ -62,4 +59,4 @@ iOS 4.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로�
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

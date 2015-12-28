@@ -3,9 +3,9 @@
    description="ServiceDefinition.csdef 및 ServiceConfiguration.cscfg 파일을 변경하여 Azure 클라우드 서비스 프로젝트를 변경하는 방법에 대해 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 여러 서비스 구성을 사용하여 Azure 프로젝트 구성
 
@@ -110,4 +110,4 @@ Azure 저장소 서비스에 대해 서비스를 테스트할 준비가 되었�
 |개발|이 페이지에서 빌드 구성 지침과 빌드 후 이벤트를 실행할 조건을 지정할 수 있습니다.|
 |웹|이 페이지에서 웹 서버와 관련된 설정을 구성할 수 있습니다.|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

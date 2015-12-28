@@ -19,11 +19,12 @@
 
 #여러 저장소 계정에서 미디어 서비스 자산 관리
 
-Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단일 미디어 서비스 계정에 연결할 수 있습니다. 여러 저장소 계정을 미디어 서비스 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다. 여러 저장소 계정에서 자산 균형 분산.
+Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단일 미디어 서비스 계정에 연결할 수 있습니다. 여러 저장소 계정을 미디어 서비스 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다.
 
-대량의 콘텐츠 처리를 위한 미디어 서비스 크기 조정(현재 단일 저장소 계정의 최대 제한은 500TB).
+- 자산을 여러 저장소 계정에서 부하 분산합니다.
+- 대량의 콘텐츠 처리를 위한 미디어 서비스 크기 조정(현재 단일 저장소 계정의 최대 제한은 500TB). 
 
-이 항목에서는 [Azure 서비스 관리 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)를 사용하여 여러 저장소 계정을 미디어 서비스 계정에 연결하는 방법을 보여줍니다. 또한 미디어 서비스 SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다.
+이 항목에서는 Azure 서비스 관리 REST API를 사용하여 여러 저장소 계정을 미디어 서비스 계정에 연결하는 방법을 보여 줍니다. 또한 미디어 서비스 SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다.
 
 ##고려 사항
 
@@ -39,7 +40,7 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 
 ##Azure 서비스 관리 REST API를 사용하여 저장소 계정을 연결하려면
 
-현재 여러 저장소 계정을 연결하는 유일한 방법은 [Azure 서비스 관리 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)를 사용하는 것입니다. [방법: 미디어 서비스 관리 REST API 사용](https://msdn.microsoft.com/library/azure/dn167656.aspx) 항목의 코드 샘플은 저장소 계정을 지정된 미디어 서비스 계정에 연결하는 **AttachStorageAccountToMediaServiceAccount** 메서드를 정의합니다. 같은 항목에 있는 코드는 지정된 미디어 서비스 계정에 연결된 모든 저장소 계정을 나열하는 **ListStorageAccountDetails** 메서드를 정의합니다.
+현재 여러 저장소 계정을 연결하는 유일한 방법은 [Azure 서비스 관리 REST API](http://msdn.microsoft.com/library/azure/dn167014.aspx)를 사용하는 것입니다. [방법: 미디어 서비스 관리 REST API 사용](https://msdn.microsoft.com/library/azure/dn167656.aspx) 항목의 코드 샘플은 저장소 계정을 지정된 미디어 서비스 계정에 연결하는 **AttachStorageAccountToMediaServiceAccount** 메서드를 정의합니다. 같은 항목에 있는 코드는 지정된 미디어 서비스 계정에 연결된 모든 저장소 계정을 나열하는 **ListStorageAccountDetails** 메서드를 정의합니다.
 
 
 ##여러 저장소 계정에서 미디어 서비스 자산을 관리하려면
@@ -258,4 +259,4 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

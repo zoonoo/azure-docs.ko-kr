@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/06/2015"
+   ms.date="12/10/2015"
    ms.author="mbaldwin"/>
 
 
@@ -29,9 +29,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 1. [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md): Azure Active Directory에서 응용 프로그램을 추가, 업데이트 및 제거하는 방법 및 통합된 앱에 대한 브랜딩 지침에 대해 알아보세요.
 
-1. [Azure Active Directory Graph API](active-directory-graph-api.md): Azure Active Directory Graph API를 사용하여 프로그래밍 방식으로 REST API 끝점을 통해 Azure Active Directory에 액세스하세요.
-
-    > [AZURE.IMPORTANT]Azure AD Graph API 기능은 [Microsoft Graph](https://graph.microsoft.io/)를 통해서도 사용 가능하며, Outlook, OneDrive, OneNote, Planner 및 Office Graph와 같은 다른 Microsoft 서비스의 API를 포함하는 통합 API로, 단일 끝점과 단일 액세스 토큰을 통해 액세스 가능합니다.
+1. [Azure Active Directory Graph API](active-directory-graph-api.md): Azure Active Directory Graph API를 사용하여 프로그래밍 방식으로 REST API 끝점을 통해 Azure Active Directory에 액세스하세요. Azure AD Graph API는 단일 REST API 끝점을 통해 여러 Microsoft 클라우드 서비스 API에 액세스할 수 있도록 하는 통합 API인 [Microsoft Graph](https://graph.microsoft.io/)를 통해, 그리고 단일 액세스 토큰을 사용하여 액세스할 수도 있습니다.
 
 1. [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md): 사용자가 Azure 인증 라이브러리를 사용하여 액세스 토큰을 얻을 수 있도록 쉽게 인증할 수 있습니다.
 
@@ -140,4 +138,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread)(영문): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

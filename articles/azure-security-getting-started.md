@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="12/10/2015"
    ms.author="yuridio"/>
 
 #Microsoft Azure 보안 시작
@@ -241,4 +241,4 @@ Azure에는 위협 해결 방법을 구현하고 고객이 해당 환경에서 �
 
 [Active Directory 블로그](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

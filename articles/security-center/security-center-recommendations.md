@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 보안 센터에서 보안 권장 사항 구현 | Microsoft Azure"
+   pageTitle="Azure 보안 센터에서 보안 권장 사항 관리 | Microsoft Azure"
    description="이 문서에서는 Azure 보안 센터의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
-# Azure 보안 센터에서 보안 권장 사항 구현
+# Azure 보안 센터에서 보안 권장 사항 관리
 
 이 문서에서는 Azure 보안 센터의 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지 알아봅니다.
 
@@ -25,10 +25,12 @@
 ## Azure 보안 센터란?
 Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-##보안 권장 사항이란?
+## 보안 권장 사항이란?
 Azure 보안 센터에서는 Azure 리소스의 보안 상태를 주기적으로 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다.
 
-## 권장 사항 설정
+## 보안 권장 사항 구현
+
+### 권장 사항 설정
 
 [Azure 보안 센터에 보안 정책 설정](security-center-policies.md)에서 다음 방법을 배울 수 있습니다.
 
@@ -38,11 +40,7 @@ Azure 보안 센터에서는 Azure 리소스의 보안 상태를 주기적으로
 
 현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, [끝점에 대한 ACL](virtual-machines-set-up-endpoints.md), 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](virtual-networks-nsg.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다. [보안 정책 설정](security-center-policies.md)은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
-**보안 정책** 블레이드의 **권장 사항 표시** 섹션은 지정된 구독의 리소스에 대해 설정할 수 있는 권장 사항 목록을 제공합니다.
-
-![][1]
-
-## 권장 사항 모니터링
+### 권장 사항 모니터링
 
 보안 정책이 설정되면 Azure 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **보안 센터** 블레이드의 **권장 사항** 타일은 Azure 보안 센터에서 식별한 권장 사항의 총 크기를 알려 줍니다.
 
@@ -84,9 +82,9 @@ Azure 보안 센터에서는 Azure 리소스의 보안 상태를 주기적으로
 | 서버 SQL 감사 활성화 | Azure SQL 서버(Azure SQL 서비스만 해당, 가상 컴퓨터에서 실행되는 SQL 제외)에 대해 감사를 켜라는 권장 사항입니다. |
 | 데이터베이스 SQL 감사 활성화 | Azure SQL 데이터베이스(Azure SQL 서비스만 해당, 가상 컴퓨터에서 실행되는 SQL 제외)에 대해 감사를 켜라는 권장 사항입니다. |
 | SQL 데이터베이스에서 투명한 데이터 암호화 활성화 | SQL 데이터베이스(Azure SQL 서비스에만 해당)에 대해 암호화를 활성화하라는 권장 사항입니다. |
-| VM 에이전트 배포 | VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure 마켓플레이스에서 배포된 VM에 대한 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 -2부](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
+| VM 에이전트 배포 | VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure 마켓플레이스에서 배포된 VM에 대한 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
 
-## 권장 사항 적용
+### 권장 사항 적용
 모든 권장 사항을 검토한 후에는 가장 먼저 적용할 권장 사항을 결정할 수 있을 것입니다. 심각도 등급을 주요 기준으로 삼아 가장 먼저 적용할 권장 사항을 평가하는 것이 좋습니다. 맬웨어 방지 권장 사항을 예로 사용하여 권장 사항 적용 방법을 살펴보겠습니다.
 
 1. **권장 사항** 블레이드에서 **맬웨어 방지 프로그램 활성화**를 선택합니다. ![][5]
@@ -98,7 +96,7 @@ Azure 보안 센터에서는 Azure 리소스의 보안 상태를 주기적으로
 
 이제 선택한 가상 컴퓨터에서 [Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)이 활성화됩니다.
 
-## 통합 파트너 솔루션 배포
+### 권장 파트너 솔루션 배포
 
 Microsoft 파트너의 통합 보안 솔루션을 배포하라는 권장 사항입니다. 어떻게 해야 하는지 그 방법을 살펴보겠습니다.
 
@@ -127,7 +125,6 @@ Microsoft 파트너의 통합 보안 솔루션을 배포하라는 권장 사항�
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
 <!--Image references-->
-[1]: ./media/security-center-recommendations/show-recommendations-for.png
 [2]: ./media/security-center-recommendations/recommendations-tile.png
 [3]: ./media/security-center-recommendations/filter-recommendations.png
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
@@ -138,4 +135,4 @@ Microsoft 파트너의 통합 보안 솔루션을 배포하라는 권장 사항�
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

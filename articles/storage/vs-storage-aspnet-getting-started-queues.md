@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-queues.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 ## 개요
 
@@ -61,7 +52,7 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**참고** 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
+**참고:** 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
 
 ## 코드에서 큐 만들기
 
@@ -179,4 +170,4 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

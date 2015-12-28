@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/25/2015"
+	ms.date="12/11/2015"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - 모범 사례 시작 가이드
@@ -284,7 +284,7 @@ Azure Mobile Engagement는 각 장치에 대해 고유한 식별자를 생성하
 
 세션은 사용자가 실행 중인 앱의 한 인스턴스입니다. 세션은 사용자가 앱을 시작할 때부터 중지할 때까지의 시간에 걸쳐 있습니다.
 
-작업은 세션 중에 앱에서 이루어지는 일련의 일에 대한 논리적 그룹입니다. 일반적으로 이는 앱의 특정 화면이지만 응용 프로그램의 논리에 의해 정의된 무엇이든 작업이 될 수 있습니다. 적어도 앱에 대한 각 화면 또는 작업에 대한 태그를 지정해야 합니다. 그러면 사용자 경로를 이해할 수 있습니다.
+작업은 세션 중에 앱에서 수행할 수 있는 여러 작업에 대한 논리적 그룹화입니다. 일반적으로 이는 앱의 특정 화면이지만 응용 프로그램의 논리에 의해 정의된 무엇이든 작업이 될 수 있습니다. 적어도 앱에 대한 각 화면 또는 작업에 대한 태그를 지정해야 합니다. 그러면 사용자 경로를 이해할 수 있습니다.
 
 
 ###### 이벤트
@@ -404,4 +404,4 @@ Azure Mobile Engagement 설정은 매우 간단합니다. 사용자 인터페이
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

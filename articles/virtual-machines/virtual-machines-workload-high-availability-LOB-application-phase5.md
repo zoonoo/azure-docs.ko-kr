@@ -21,7 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
-
 Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 이 마지막 단계에서는 새 SQL Server AlwaysOn 가용성 그룹을 만들고 응용 프로그램의 데이터베이스를 추가합니다.
 
 모든 단계는 [Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)를 참조하세요.
@@ -59,7 +58,7 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 3.	왼쪽 창에서 **데이터베이스** 노드를 확장합니다.
 4.	백업할 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 다음 **백업**을 클릭합니다.
 5.	**대상** 섹션에서 **제거**를 클릭하여 백업 파일의 기본 파일 경로를 제거합니다.
-6.	**추가**를 클릭합니다. **파일 이름**에 **\[machineName]\\backup[databaseName].bak**를 입력합니다. 여기서 **machineName**은 주 **SQL Server 컴퓨터**의 이름이고 **databaseName**은 데이터베이스의 이름입니다. **확인**을 클릭한 다음 백업 성공 메시지가 표시되면 **확인**을 다시 클릭합니다.
+6.	**추가**를 클릭합니다. **파일 이름**에 **\\[machineName]\\backup[databaseName].bak**를 입력합니다. 여기서 **machineName**은 주 **SQL Server 컴퓨터**의 이름이고 **databaseName**은 데이터베이스의 이름입니다. **확인**을 클릭한 다음 백업 성공 메시지가 표시되면 **확인**을 다시 클릭합니다.
 7.	왼쪽 창에서 **[databaseName]**을 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 다음 **백업**을 클릭합니다.
 8.	**백업 유형**에서 **트랜잭션 로그**를 선택하고 **확인**을 두 번 클릭합니다.
 9.	이 원격 데스크톱 세션을 열어 둡니다.
@@ -72,7 +71,7 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 4.	왼쪽 창에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **데이터베이스 복원**을 클릭합니다.
 5.	**원본** 섹션에서 **장치**를 선택하고 줄임표(...) 단추를 클릭합니다.
 6.	**백업 장치 선택**에서 **추가**를 클릭합니다.
-7.	**백업 파일 위치**에 **\[machineName]\\backup**을 입력하고 **Enter** 키를 누른 다음 **[databaseName].bak**를 선택하고**확인**을 두 번 클릭합니다. 그러면 **복원할 백업 세트** 섹션에 전체 백업 및 로그 백업이 표시됩니다.
+7.	**백업 파일 위치**에 **\\[machineName]\\backup**을 입력하고 **Enter** 키를 누른 다음 **[databaseName].bak**를 선택하고**확인**을 두 번 클릭합니다. 그러면 **복원할 백업 세트** 섹션에 전체 백업 및 로그 백업이 표시됩니다.
 8.	**페이지 선택**에서 **옵션**을 클릭합니다. **복원 옵션** 섹션의 **복구 상태**에서 **RESTORE WITH NORECOVERY**를 선택하고 **확인**을 클릭합니다. 
 9.	메시지가 표시되면 **확인**을 클릭합니다.
 
@@ -116,16 +115,8 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 
 수신기를 구성한 후 모든 웹 서버 가상 컴퓨터가 클러스터의 첫 번째 SQL Server 이름이 아닌 수신기를 사용하도록 구성해야 합니다. 내부 부하 분산 인스턴스의 가상 IP 주소에 매핑되는 새 DNS 이름과 레코드가 아닌 SQL 별칭을 사용하도록 웹 서버 가상 컴퓨터를 구성합니다. 자세한 내용과 단계는 [SharePoint의 SQL 별칭](http://blogs.msdn.com/b/priyo/archive/2013/09/13/sql-alias-for-sharepoint.aspx)을 참조하세요.
 
-## 추가 리소스
+## 다음 단계
 
-[Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)
+- Azure에 자체 IT 워크로드를 배포하려면 이러한 [지침](virtual-machines-infrastructure-services-implementation-guidelines.md)을 참조하세요.
 
-[LOB(기간 업무) 응용 프로그램 아키텍처 청사진](http://msdn.microsoft.com/dn630664)
-
-[테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

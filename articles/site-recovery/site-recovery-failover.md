@@ -1,5 +1,5 @@
 <properties
-	pageTitle="사이트 복구에서 장애 조치" 
+	pageTitle="사이트 복구에서 장애 조치(failover) | Microsoft Azure" 
 	description="Azure Site Recovery는 가상 컴퓨터 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure로 또는 보조 데이터 센터로 장애 조치에 대해 알아봅니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # 사이트 복구에서 장애 조치
@@ -250,4 +250,4 @@ Azure로 장애 조치한 경우 가상 컴퓨터는 가상 컴퓨터에 대한 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

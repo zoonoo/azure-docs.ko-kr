@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="12/04/2015" 
 	ms.author="riande"/>
 
 # Azure 앱 서비스에서 ASP.NET Web API 및 SQL 데이터베이스를 사용하여 REST 서비스 만들기
 
-이 자습서에서는 Visual Studio 2013 또는 Visual Studio 2013 Express for Web의 웹 게시 마법사를 사용하여 ASP.NET 웹 앱을 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여줍니다.
+이 자습서에서는 Visual Studio 2013 또는 Visual Studio 2013 Community Edition의 웹 게시 마법사를 사용하여 ASP.NET 웹앱을 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다.
 
 Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 없는 경우 SDK에서 Web Express용 Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을 무료로 시작할 수 있습니다.
 
@@ -44,9 +44,9 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 1. Visual Studio 2013을 시작합니다.
 1. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
-3. **새 프로젝트** 대화 상자에서 **Visual C#**을 확장하고 **웹**을 선택한 다음 **ASP.NET MVC 5 웹 응용 프로그램**을 선택합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
+3. **새 프로젝트** 대화 상자에서 **Visual C#**을 확장하고 **웹**을 선택한 다음 **ASP.NET 웹 응용 프로그램**을 선택합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
 
-	![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+	![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
 
 1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택하고 **Web API**를 선택한 후 **인증 변경**을 클릭합니다.
 
@@ -58,7 +58,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 	여기서 만드는 샘플 응용 프로그램에는 사용자 로그인을 필요로 하는 기능이 없습니다. 인증 및 권한 부여 기능을 구현하는 방법에 대한 자세한 내용은 이 자습서 끝에 있는 [다음 단계](#nextsteps) 섹션을 참조하세요.
 
-1. **새 ASP.NET 프로젝트** 대화 상자에서 **확인**을 클릭합니다.
+1. **새 ASP.NET 프로젝트** 대화 상자에서 **클라우드에서 호스트**를 선택했는지 확인하고 **확인**을 클릭합니다.
 
 	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
@@ -187,7 +187,7 @@ Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시�
     		}
 		}
 
-**Contacts** 클래스는 각 연락처에 대해 저장할 데이터와 데이터베이스에 필요한 기본 키인 ContactID를 정의합니다. 이 자습서의 후반부에 있는 [다음 단계](#nextsteps) 섹션에서 데이터 모델 관련 정보를 추가로 확인할 수 있습니다.
+**Contact** 클래스는 각 연락처에 대해 저장할 데이터와 데이터베이스에 필요한 기본 키 ContactID를 정의합니다. 이 자습서의 후반부에 있는 [다음 단계](#nextsteps) 섹션에서 데이터 모델 관련 정보를 추가로 확인할 수 있습니다.
 
 ### 앱 사용자가 연락처 작업을 수행할 수 있는 웹 페이지 만들기
 
@@ -500,10 +500,11 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. 패키지 관리자 콘솔에서 다음 명령을 실행하여 Knockout을 설치합니다.
 
-	Install-Package knockoutjs
+		Install-Package knockoutjs
+
 ## Web API RESTful 인터페이스용 컨트롤러 추가
 
-1. **솔루션 탐색기**에서 컨트롤러를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **컨트롤러...**를 클릭합니다.
+1. **솔루션 탐색기**에서 컨트롤러를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **컨트롤러...**를 클릭합니다. 
 
 1. **스캐폴드 추가** 대화 상자에서 **Web API 2 컨트롤러(작업 포함), Entity Framework 사용**을 입력하고 **추가**를 클릭합니다.
 
@@ -624,11 +625,13 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 1. *[ValidateHttpAntiForgeryToken]* 특성에 대한 액세스 권한을 받을 수 있도록 다음 **using** 문을 연락처 컨트롤러에 추가합니다.
 
-	using ContactManager.Filters;
+		using ContactManager.Filters;
 
 1. XSRF 위협으로부터 보호할 수 있도록 **ContactsController**의 Post 메서드에 **[ValidateHttpAntiForgeryToken]** 특성을 추가합니다. "PutContact", "PostContact" 및 **DeleteContact** 작업 메서드에 이 특성을 추가하겠습니다.
 
-	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
+		[ValidateHttpAntiForgeryToken]
+	        public IHttpActionResult PutContact(int id, Contact contact)
+	        {
 
 1. *Views\\Home\\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
 
@@ -683,6 +686,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
                }
                ko.applyBindings(new ContactsViewModel());
             </script>
+		 }
 
 
 ## Azure 및 SQL 데이터베이스에 응용 프로그램 업데이트 게시
@@ -810,4 +814,4 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

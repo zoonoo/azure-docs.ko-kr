@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/25/2015"
+   ms.date="12/10/2015"
    ms.author="devtiw"/>
 
 
@@ -806,4 +806,4 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
 
 [Azure PowerShell를 사용하여 Azure 디스크 암호화 탐색 - 2부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

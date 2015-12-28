@@ -60,7 +60,7 @@
 
 ## 2단계: 주요 자격 증명 모음에 x509 인증서 업로드
 
-이 단계는 복잡한 프로세스이므로 사용자를 위해 Git Repp에 업로드된 powershell 모듈이 있습니다.
+이 단계는 복잡한 프로세스이므로 사용자를 위해 Git Repo에 업로드된 powershell 모듈이 있습니다.
 
 **2.1단계**: 이 폴더를 이 [Git 리포지토리](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers)에서 컴퓨터로 복사합니다.
 
@@ -72,7 +72,9 @@
 Remove-Module ServiceFabricRPHelpers
 ```
 
-다음 내용을 복사하고 경로를 컴퓨터의 해당 .psm1로 변경합니다. 다음은 예제입니다. ```
+다음 내용을 복사하고 경로를 컴퓨터의 해당 .psm1로 변경합니다. 다음은 예제입니다.
+
+```
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
   
@@ -91,8 +93,10 @@ Login-AzureRmAccount
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file> 
 ```
-다음은 채워진 스크립트 예제입니다. ```
-Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ") -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx 
+다음은 채워진 스크립트 예제입니다.
+
+```
+Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password abcd123 -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx 
 ```
 
 스크립트가 성공적으로 완료되면 아래와 같은 출력을 얻게 되며 이 출력은 3단계에 필요합니다.
@@ -125,7 +129,7 @@ Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupNam
 자체 서명된 인증서를 만드는 방법에 대한 일반적인 정보는 [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx)에 있습니다.
 
 다음은 채워진 스크립트 예제입니다. ```
-Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ") -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
+Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password abcd123 -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
 ```
 
 자체 서명된 인증서이므로 이 인증서를 보안 클러스터에 연결하는 데 사용하기 전에 사용자 컴퓨터의 "신뢰할 수 있는 사용자" 저장소로 가져와야 합니다. ```
@@ -240,4 +244,4 @@ X509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호화
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

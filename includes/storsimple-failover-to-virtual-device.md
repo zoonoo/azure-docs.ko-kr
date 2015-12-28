@@ -1,19 +1,21 @@
-#### To restore your physical device to the StorSimple virtual device
+#### StorSimple 가상 장치로 물리적 장치를 복원하려면
 
-1. Verify that the volume container you want to fail over has associated cloud snapshots.
+1. 장애 조치하려는 볼륨 컨테이너에 연결된 클라우드 스냅숏이 있는지 확인합니다.
 
-2. Open the **Device** page, and then click the **Volume Containers** tab.
+2. **장치** 페이지를 연 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
-3. Select a volume container that you would like to fail over to the virtual device. Click the volume container to display the list of volumes within the container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
+3. 가상 장치에 장애 조치하려는 볼륨 컨테이너를 선택합니다. 볼륨 컨테이너를 클릭하여 컨테이너 내에 볼륨의 목록을 표시합니다. 볼륨을 선택하고 **오프라인으로 전환**을 클릭하여 볼륨을 오프라인으로 전환합니다. 볼륨 컨테이너의 모든 볼륨에 이 프로세스를 반복합니다.
 
-4. Repeat the previous step for all the volume containers you want to fail over to the virtual device.
+4. 가상 장치에 장애 조치하려는 모든 볼륨 컨테이너에 대해 이전 단계를 반복합니다.
 
-5. On the **Device** page, select the device that you need to fail over, and then click **Failover** to open the **Device Failover** wizard.
+5. **장치** 페이지에서 장애 조치해야 하는 장치를 선택한 다음 **장애 조치**를 클릭하여 **장치 장애 조치** 마법사를 엽니다.
 
-6. In **Choose volume container to failover**, select the volume containers you would like to fail over. To be displayed in this list, the volume container must contain a cloud snapshot and be offline. If a volume container that you expected to see is not present, cancel the wizard and verify that it is offline.
+6. **장애 조치가 가능 하도록 볼륨 컨테이너 선택**에서, 장애 조치하려는 볼륨 컨테이너를 선택합니다. 이 목록에 표시하기 위해, 볼륨 컨테이너에 클라우드 스냅숏이 포함하고 오프라인 상태가 되어야 합니다. 표시될 볼륨 컨테이너가 나타나지 않으면, 마법사를 취소하고 오프라인 상태인지 확인합니다.
 
-7. On the next page, in **Choose a target device for the volumes** in the selected containers, select the virtual device from the drop-down list of available devices. Only the devices that have the available capacity are displayed on the list. 
+7. 다음 페이지에 있는 **볼륨에 대한 대상 장치 선택**의 선택된 컨테이너에서 사용 가능한 장치의 드롭다운 목록에서 가상 장치를 선택합니다. 사용할 용량이 있는 장치만 목록에 표시됩니다.
 
-8. Review all the failover settings on the **Confirm failover** page. If they are correct, click the check icon.
+8. **장애 조치 확인** 페이지에서 모든 장애 조치 설정을 검토합니다. 올바른 경우 확인 아이콘을 클릭합니다.
 
-The failover process will begin. When the failover is finished, go to the Devices page and select the virtual device that was used as the target for the failover process. Go to the Volume Containers page. All the volume containers, along with the volumes from the old device should appear.
+장애 조치 프로세스가 시작됩니다. 장애 조치가 완료되면 장치 페이지로 이동하고 장애 조치 프로세스에 대한 대상으로 사용된 가상 장치를 선택합니다. 볼륨 컨테이너 페이지로 이동합니다. 이전 장치의 볼륨과 함께 모든 볼륨 컨테이너에서 표시되어야 합니다.
+
+<!---HONumber=AcomDC_1217_2015-->

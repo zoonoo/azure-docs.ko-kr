@@ -66,7 +66,7 @@ SQL Database 테이블의 데이터에 액세스하거나 데이터를 수정하
 	    alert("Error: " + err);
 	});
 
-Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달하여 모바일 서비스에서 `complete` 열에 `false` 값이 포함된 행만 반환하도록 지정합니다. 또한 다음 요청 URI에서 알 수 있듯이 쿼리 문자열 자체를 수정합니다.
+Query 개체에서 `where`를 호출하여 매개 변수로 개체를 전달하여 모바일 서비스에서 `complete` 열에 `false` 값이 포함된 행만 반환하도록 지정합니다. 또한 다음 요청 URI에서 알 수 있듯이 쿼리 문자열 자체를 수정합니다.
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
@@ -504,8 +504,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
 	// Start the sign-in process.
 	authenticate();
 
-이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 앱은 인증에 성공할 때까지 시작되지 않습니다.
-<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 앱은 인증에 성공할 때까지 시작되지 않습니다. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -666,4 +665,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

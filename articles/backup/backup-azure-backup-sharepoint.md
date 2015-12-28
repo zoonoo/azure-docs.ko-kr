@@ -3,11 +3,18 @@
 	description="이 문서에서는 Azure의 SharePoint 팜에 대한 DPM 보호에 관한 개요를 제공합니다."
 	services="backup"
 	documentationCenter=""
-	authors="SamirMehta"
+	authors="giridharreddy"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/22/2015" ms.author="sammehta"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/10/2015"
+	ms.author="giridham;jimpark"/>
 
 
 # Azure에 SharePoint 팜 백업하기
@@ -77,11 +84,11 @@ DPM을 사용하여 SharePoint를 보호하기 전에 **ConfigureSharePoint.exe*
 
     >[AZURE.NOTE]DPM 에이전트를 설치하면, 마법사에서 서버를 볼 수 있습니다. 또한 DPM에서는 해당 구조를 보여줍니다. ConfigureSharePoint.exe가 실행됐기 때문에, DPM은 SharePoint VSS Writer 및 해당하는 SQL 데이터베이스와 통신 및 SharePoint 팜 구조(연결된 된 콘텐츠 데이터베이스 및 모든 해당 항목)를 인식합니다.
 
-4. **데이터 보호 방법 선택** 화면에서, *보호 그룹*의 이름을 입력하고, 선호하는 *보호 방법을* 선택합니다. **다음**을 클릭합니다.
+4. **데이터 보호 방법 선택** 화면에서 *보호 그룹*의 이름을 입력하고 선호하는 *보호 방법*을 선택합니다. **다음**을 클릭합니다.
 
     ![데이터 보호 방법 선택](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
-    >[AZURE.NOTE]디스크 보호 선택은 짧은 보호 시간으로 복구 시간 목표를 충족시키는 데 도움이 됩니다. Azure는 테이프에 비해 비용 효율적인 장기 보호 대상입니다. 자세한 내용은 [이 문서](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)(영문)를 읽어보세요.
+    >[AZURE.NOTE]디스크 보호 선택은 짧은 보호 시간으로 복구 시간 목표를 충족시키는 데 도움이 됩니다. Azure는 테이프에 비해 비용 효율적인 장기 보호 대상입니다. 자세한 내용은 [이 문서](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)를 참조하세요.
 
 5. **단기 목표 지정** 화면에서 원하는 *보존 범위*를 선택하면 백업을 수행하고 싶을 때를 식별합니다.
 
@@ -105,7 +112,7 @@ DPM을 사용하여 SharePoint를 보호하기 전에 **ConfigureSharePoint.exe*
 
     ![DPM SharePoint Protection1](./media/backup-azure-backup-sharepoint/select-online-protection1.png)
 
-10. **온라인 백업 일정 지정**화면에서, 선호하는 일정을 선택하고 **다음**을 클릭합니다.
+10. **온라인 백업 일정 지정**화면에서 선호하는 일정을 선택하고 **다음**을 클릭합니다.
 
     ![Online\_backup\_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
@@ -132,7 +139,7 @@ DPM을 사용하여 SharePoint를 보호하기 전에 **ConfigureSharePoint.exe*
 
     ![DPM SharePoint Protection3](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection4.png)
 
-2. 항목을 복구하기 전에, **복구**탭을 선택합니다.
+2. 항목을 복구하기 전에 **복구**탭을 선택합니다.
 
     ![DPM SharePoint Protection5](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection6.png)
 
@@ -196,7 +203,7 @@ DPM을 사용하여 SharePoint를 보호하기 전에 **ConfigureSharePoint.exe*
 
     > [AZURE.NOTE]SharePoint 팜은 Azure에서 장기 보존으로 보호하고 있기 때문에 DPM 서버에서 사용할 수 있는 카탈로그 정보(메타데이터)가 없습니다. 결과적으로, 지정 시간 SharePoint 콘텐츠 데이터베이스를 복구해야 할 때마다 SharePoint 팜에 카탈로그를 다시 만들어야 합니다.
 
-3. **카탈로그 다시 만들기** 클릭.
+3. **카탈로그 다시 만들기**를 클릭합니다.
 
     ![DPM SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -223,7 +230,7 @@ Q: SharePoint가 SQL AlwaysOn을 사용하여 구성된 경우 SharePoint 데이
 
 ## 다음 단계
 - SharePoint의 DPM 보호에 대한 자세한 정보는[SharePoint의 DPM 보호를 위한 비디오 시리즈](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)를 참조하세요.
-- [System Center 2012-Data Protection Manager의 릴리스](https://technet.microsoft.com/library/jj860415.aspx)를 검토하세요
-- [System Center 2012 s p 1의 Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860394.aspx)를 검토하세요.
+- [System Center 2012 - Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860415.aspx)를 검토하세요
+- [System Center 2012 SP1의 Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860394.aspx)를 검토하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/03/2015"
+ ms.date="12/08/2015"
  ms.author="rasquill"/>
 #가상 컴퓨터 확장 및 기능 정보
 
@@ -24,7 +24,7 @@ Microsoft Azure에서는 Azure Virtual Machine에서의 생산성을 높이는 �
 
 
 
-VM 에이전트 및 VM 확장을 지원하기 위한 VM 에이전트의 작동 방식에 대한 자세한 내용은 [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/dn832621.aspx)를 참조하세요.
+VM 에이전트 및 VM 확장을 지원하기 위한 VM 에이전트의 작동 방식에 대한 자세한 내용은 [VM 에이전트 및 VM 확장 개요](virtual-machines-extensions-install.md)를 참조하세요.
 
 ##Azure VM 확장
 
@@ -36,8 +36,8 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 
 |VM 확장 이름|기능 설명|추가 정보
 |---|---|---|
-|VMAccessAgent(Windows)|사용자 정보 및 RDP와 SSH 연결 구성을 만들고, 업데이트하고, 재설정합니다.|[Windows](https://msdn.microsoft.com/library/dn606308.aspx)
-|VMAccessForLinux(Linux)|사용자 정보 및 RDP와 SSH 연결 구성을 만들고, 업데이트하고, 재설정합니다.|[Linux](http://azure.microsoft.com/blog/2014/08/25/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)
+|VMAccessAgent(Windows)|사용자 정보 및 RDP와 SSH 연결 구성을 만들고, 업데이트하고, 재설정합니다.|[Windows](virtual-machines-extensions-customscript.md)
+|VMAccessForLinux(Linux)|사용자 정보 및 RDP와 SSH 연결 구성을 만들고, 업데이트하고, 재설정합니다.|[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
 ##배포 및 구성 관리
 
@@ -47,14 +47,14 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |---|---|---|
 |**MSEnterpriseApplication**|Windows System Center에서 지원에 대 한 기능을 구현합니다.|[System Center 2012 R2 가상 컴퓨터 역할](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx)|
 |**Octopus Deploy**(DSC 확장 기반)|배포, 테스트 및 프러덕션 환경에서 ASP.NET 웹 응용 프로그램 및 Windows 서비스의 자동 배포를 지원합니다.|[Octopus Deploy 시작하기](http://docs.octopusdeploy.com/display/OD/Getting%20started)|
-|**Visual Studio Release Manager**(DSC 확장 기반)|Visual Studio에서의 연속 배포를 지원합니다.|[릴리스 관리로 배포 자동화](https://msdn.microsoft.com/library/dn217874.aspx)|
+|**Visual Studio Release Manager**(DSC 확장 기반)|Visual Studio에서의 연속 배포를 지원합니다.|[릴리스 관리로 배포 자동화](https://msdn.microsoft.com/Library/vs/alm/Release/overview)|
 |**CentosChefClient**|||
 |**ChefClient**|Windows에서 Chef 클라이언트를 만듭니다. 아래 DSC 확장을 사용할 수도 있습니다.|[Chef 및 Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
 |**DockerExtension**|원격 Docker 명령을 지원하기 위해 Docker 데몬을 설치합니다.|[Docker 가상 컴퓨터 확장을 사용하는 방법](virtual-machines-docker-vm-extension.md)자세한 내용은 [Docker VM 확장 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)를 참조하세요.|
 |**DSC**|PowerShell DSC(Desired State Configuration) 확장|[Azure PowerShell DSC(Desired State Configuration) 확장](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|Puppet Enterprise의 기능을 구현합니다. |[Azure에서의 Puppet](http://puppetlabs.com/solutions/microsoft)|
-|**CustomScriptExtension**(Windows)**CustomScriptForLinux**(Linux)|시작 시 또는 실행 중에 언제든 VM에서 사용자 지정 스크립트를 호출합니다.|[사용자 지정 스크립트 확장](https://msdn.microsoft.com/library/dn781373.aspx)[Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)|
+|**CustomScriptExtension**(Windows)**CustomScriptForLinux**(Linux)|시작 시 또는 실행 중에 언제든 VM에서 사용자 지정 스크립트를 호출합니다.|[사용자 지정 스크립트 확장](virtual-machines-extensions-customscript.md) | [Linux](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)|
 |**AzureCATExtensionHandler**|**IaaSDiagnostics**와 몇 가지 다른 데이터 원본(예: [Azure 저장소 분석 메트릭](https://msdn.microsoft.com/library/azure/hh343270.aspx))에서 수집한 진단 데이터를 사용하고 SAP 호스트 제어 프로세스에서 사용하는 데 적합한 집계 데이터 집합으로 변환합니다.|[SAP용 Azure Enhanced Monitoring](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
 ##보안 및 보호
@@ -64,11 +64,11 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |VM 확장 이름|기능 설명|추가 정보|
 |---|---|---|
 |**CloudLinkSecureVMWindowsAgent**|Microsoft Azure 고객에게, 다중 테넌트 공유 인프라에서 가장 컴퓨터 데이터를 암호화하고 Azure 저장소 인프라에서 암호화된 데이터에 대한 암호화 키를 완벽히 제어하는 기능을 제공합니다.|[BitLocker 및 기본 OS 암호화를 활용하여 Microsoft Azure 가상 커퓨터 보호](http://www.cloudlinktech.com/azure)|
-|**McAfeeEndpointSecurity**|악성 소프트웨어로부터 VM을 보호합니다.|[McAfee](http://www.mcafeeasap.com/)|
-|**TrendMicroDSA**|침입 탐지 및 방지, 방화벽, 맬웨어 방지, 웹 평판, 로그 감사 및 무결성 모니터링을 제공하는 TrendMicro의 Deep Security 플랫폼을 구현합니다.|[Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](http://virtual-machines-install-trend.md)|
+|**McAfeeEndpointSecurity**|악성 소프트웨어로부터 VM을 보호합니다.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
+|**TrendMicroDSA**|침입 탐지 및 방지, 방화벽, 맬웨어 방지, 웹 평판, 로그 감사 및 무결성 모니터링을 제공하는 TrendMicro의 Deep Security 플랫폼을 구현합니다.|[Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](virtual-machines-install-trend.md)|
 |**PortalProtectExtension**|Microsoft SharePoint 환경에 대한 위협으로부터 보호합니다.|[Azure에서의 SharePoint 배포 보호](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
 |**IaaSAntimalware**|Azure 클라우드 서비스 및 가상 컴퓨터에 대한 Microsoft Antimalware는 악성 또는 원치 않는 소프트웨어가 사용자 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 알림을 통해 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능입니다.|[맬웨어 방지 설명서 다운로드](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
-|**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 는 실제 및 가상 시스템 전체에서 보안 및 성능을 구현합니다.|[Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](http://virtual-machines-install-symantec.md)
+|**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 는 실제 및 가상 시스템 전체에서 보안 및 성능을 구현합니다.|[Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](virtual-machines-install-symantec.md)
 
 ##VM 운영 및 관리
 
@@ -76,9 +76,9 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 
 |**VM 확장 이름**|기능 설명|추가 정보|
 |---|---|---|
-|**AzureVmLogCollector**|필요에 따라 **AzureVMLogCollector** 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다. |[AzureLogCollector 확장](https://msdn.microsoft.com/library/dn927183.aspx)|
+|**AzureVmLogCollector**|필요에 따라 **AzureVMLogCollector** 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 전송할 수 있습니다. |[AzureLogCollector 확장](virtual-machines-extensions-log-collector.md)|
 |**IaaSDiagnostics**|Azure 진단을 사용하거나 사용하지 않도록 설정 및 구성하며, **AzureCATExtensionHandler**에서 SAP 모니터링을 지원하는 데도 사용됩니다.|[Azure Diagnostics 확장을 통한Microsoft Azure 가상 컴퓨터 모니터링](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
-|**OSPatchingForLinux**|Azure VM 관리자를 사용하여 사용자 지정 구성으로 VM OS 업데이트를 자동화합니다. OS 패치 업데이트 시기 및 빈도 지정, 설치할 패치 지정, 업데이트 후 재부팅 동작 구성 등, OSPatching 확장을 사용하여 가상 컴퓨터에 대한 OS 업데이트를 구성할 수 있습니다.|[OS 패치 확장 블로그 게시물](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Github의 [OS 패치 확장](https://github.com/Azure/azure-linux-extensions)에서 Readme와 소스도 참조하세요.|
+|**OSPatchingForLinux**|Azure VM 관리자를 사용하여 사용자 지정 구성으로 VM OS 업데이트를 자동화합니다. OS 패치 업데이트 시기 및 빈도 지정, 설치할 패치 지정, 업데이트 후 재부팅 동작 구성 등, OSPatching 확장을 사용하여 가상 컴퓨터에 대한 OS 업데이트를 구성할 수 있습니다.|[OS 패치 확장 블로그 게시물](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Github의 [OS 패치 확장](https://github.com/Azure/azure-linux-extensions)에서 Readme와 원본도 참조하세요.|
 
 ##개발 및 디버깅
 
@@ -103,4 +103,4 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**BGInfo**|RDP를 사용할 때 바탕 화면에 서버에 대한 유용한 통합 정보를 표시합니다.|[BGInfo 확장](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 크기가 A8 또는 A9인 VM에서 RDMA(원격 직접 메모리 액세스) 네트워크 장치 드라이버를 설치, 구성 및 유지 관리합니다. 병렬 MPI 응용 프로그램을 실행할 때 클러스터형 A8 또는 A9 VM에서 RDMA 네트워크를 사용하도록 설정합니다.|[A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

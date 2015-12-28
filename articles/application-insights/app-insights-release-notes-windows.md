@@ -32,15 +32,16 @@
 * 이전 및 새 버전의 ApplicationInsights.config를 비교합니다. 이전 파일에 대한 모든 사용자 지정을 복구합니다.
 * 솔루션을 다시 빌드합니다.
 
-## 버전 1.2
+## 버전 1.1.1
 
-### Windows 앱 SDK
+### Windows SDK
 
-- 앱을 다시 연 후 보관된 원격 분석이 전송되지 않도록 하는 FileNotFound 예외를 수정합니다.
+- Windows Phone Silverlight SDK를 사용할 때 크래시 동안 중단을 수정합니다. 이렇게 변경하면 WindowsAppInitialier.InitializeAsync(...)에 대한 호출 후 ~2초 이후에 발생하는 크래시가 디스크에 보관되고 다음번에 앱을 시작할 때 전송됩니다. 크래시가 호출 후 ~2초 전에 발생하면 무시됩니다.  
+- NuGet의 종속성을 Core 및 Microsoft.ApplicationInsights.PersistenceChannel(v1.2.3)의 특정 버전에 설정합니다.   
 
 ### 핵심 SDK
 
-- [github](http://github.com/microsoft/ApplicationInsights-dotnet)에서 제공되는 Application Insights SDK의 첫 번째 버전입니다.
+- Core는 github에서 관리됩니다. 핵심 SDK의 향후 릴리스 정보는 [github에서](http://github.com/Microsoft/ApplicationInsights-dotnet/releases) 찾을 수 있습니다.
 
 ## 버전 1.1
 
@@ -56,7 +57,7 @@
 - Windows 앱을 새로 초기화 `InitializeAsync()` 메서드를 사용한 새로운 `WindowsAppInitializer` 클래스는 SDK 컬렉션의 초기화를 부트스트래핑을 허용합니다. 이 변경은 보다 정확한 제어 및 이전 ApplicationInsights.config 기법을 통해 중요한 앱 초기화 성능 향상을 가져옵니다.
 - DeveloperMode 더이상 자동으로 설정되지 않습니다. DeveloperMode 동작을 변경하려면 코드에서 지정 해야 합니다.
 - NuGet 패키지는 더이상 ApplicationInsights.config를 삽입하지 않습니다. NuGet 패키지를 수동으로 추가하는 경우 새 WindowsAppInitializer를 사용하는 것을 권장합니다.
-- ApplicationInsights.config은 `<InstrumentationKey>`에 대해 읽기 전용이며, WindowsAppInitializer 설정에 대한 선호도에서 다른 모든 설정은 무시됩니다.
+- ApplicationInsights.config는 `<InstrumentationKey>`에 대해 읽기 전용이며, WindowsAppInitializer 설정에 대한 선호도에서 다른 모든 설정은 무시됩니다.
 - SDK는 Store Market을 자동 수집합니다.
 - 많은 버그를 수정, 안정성 향상, 성능을 강화 시켰습니다.
 
@@ -94,4 +95,4 @@
 
 이전 버전에 대한 릴리스 정보가 없습니다.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

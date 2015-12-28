@@ -1,5 +1,5 @@
 <properties
-	pageTitle="VMM 및 Hyper-v 사이트 보호에 대한 모니터링 및 문제 해결 가이드" 
+	pageTitle="가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결 | Microsoft Auzre" 
 	description="Azure Site Recovery는 온-프레미스 서버에 있는 가상 컴퓨터와 Azure 또는 보조 데이터센터 간의 복제, 장애 조치(Failover) 및 복구를 조정합니다. 이 문서를 사용하여 VMM 또는 Hyper-V 사이트 보호를 모니터링하고 문제를 해결합니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 	
-# VMware, VMM, Hyper-V 및 물리적 사이트를 위한 보호 모니터링 및 문제 해결
+# 가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결
 
 이 모니터링 및 문제 해결 가이드를 사용하면 복제 상태를 추적하고 Azure 사이트 복구에 대 한 문제해결 기술에 대해 배울 수 있습니다.
 
@@ -199,4 +199,4 @@ CS(구성 서버), PS(프로세스 서버), MT(마스터 대상) - [PS/CS가 VM�
 ### 장애 조치(Failover) 후 원격 데스크톱 문제 해결
 -   많은 고객이 Azure에서 장애 조치(Failover)된 VM에 연결하는 데 문제에 직면합니다. [문제 해결 문서를 사용하여 VM에 RDP를 연결합니다.](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,17 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure"
-   ms.date="09/01/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Azure Active Directory에서 회사 또는 학교 ID 만들기
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-개인 Azure 계정을 생성하거나 개인 MSDN 구독이 있고 MSDN Azure 크레딧을 활용하기 위해 Azure 계정을 만든 경우는 *Microsoft 계정* ID를 사용하여 만든 것입니다. Azure의 많은 훌륭한 기능(예: [리소스 그룹 템플릿](../resource-group-overview.md))을 사용하기 위해서는 회사 또는 학교 계정(Azure Active Directory에서 관리하는 ID)이 필요합니다.
+개인 Azure 계정을 생성하거나 개인 MSDN 구독이 있고 MSDN Azure 크레딧을 활용하기 위해 Azure 계정을 만든 경우는 *Microsoft 계정* ID를 사용하여 만든 것입니다. Azure의 많은 훌륭한 기능(예: [리소스 그룹 템플릿](../resource-group-overview.md))을 사용하기 위해서는 회사 또는 학교 계정(Azure Active Directory에서 관리하는 ID)이 필요합니다. 아래 지침을 따라 새로운 회사 또는 학교 계정을 만들 수 있는데 그 이유는 다행히 개인 Azure 계정이 제공하는 최고의 이점 중 하나는, 계정을 필요로 하는 Azure 기능과 함께 사용할 수 있는 새로운 회사 또는 학교 계정을 만드는 데 사용할 수 있는 기본 Azure Active Directory 도메인으로 제공된다는 점 때문입니다.
 
-
-다행히 개인 Azure 계정이 제공하는 최고의 이점 중 하나는, 계정을 필요로 하는 Azure 기능과 함께 사용할 수 있는 새로운 회사 또는 학교 계정을 만드는 데 사용할 수 있는 기본 Azure Active Directory 도메인으로 제공된다는 점입니다.
+그러나 [여기](../xplat-cli-connect.md)에서 설명된 `azure login` 대화형 로그인 메서드를 사용하여 모든 유형의 Azure 계정으로 구독을 관리할 수 있도록 최근 변경되었습니다. 이 메커니즘을 사용하거나 또는 다음 지침을 따를 수 있습니다.
 
 > [AZURE.NOTE]관리자가 사용자 이름과 암호를 제공한 경우, 회사 또는 학교 ID(*조직 ID*라고도 부름)가 이미 있을 가능성이 큽니다. 이런 경우, 계정이 필요한 Azure 리소스에 Azure 계정을 사용하여 즉시 액세스를 시작할 수 있습니다. 해당 리소스를 사용할 수 없는 경우는 이 문서의 도움말을 다시 참조해야 할 수 있습니다. 자세한 내용은 [로그인에 사용할 수 있는 계정](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) 및 [Azure 구독과 Azure AD의 연관 관계](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)를 참조하세요.
 
@@ -62,7 +61,7 @@ Azure에서 사용자 ID에 대한 정보를 검색하여 시작하겠습니다.
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
-Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택해야 합니다. 작업을 제대로 수행하려면 **전역 관리자**를 사용하는 것이 간편하지만 권한이 더 적은 역할을 사용할 수 있는 경우는 그 역할을 사용하는 것이 좋습니다. 이 예제에서는**사용자** 역할을 사용합니다. (이러한 역할에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1)를 참조하세요.) 작업에서 각 로그에 대해 Multi-Factor Authentication을 사용하려는 경우가 아니면 Multi-Factor Authentication을 사용하지 않도록 합니다. 끝나면 다음 화살표를 클릭합니다.
+Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택해야 합니다. 작업을 제대로 수행하려면 **전역 관리자**를 사용하는 것이 간편하지만 권한이 더 적은 역할을 사용할 수 있는 경우는 그 역할을 사용하는 것이 좋습니다. 이 예제에서는**사용자** 역할을 사용합니다. 자세한 내용은 [역할별 관리자 권한](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1)을 참조하세요. 작업에서 각 로그에 대해 Multi-Factor Authentication을 사용하려는 경우가 아니면 Multi-Factor Authentication을 사용하지 않도록 합니다. 끝나면 다음 화살표를 클릭합니다.
 
 ![](./media/resource-group-create-work-id-from-personal/userprofileuseradmin.png)
 
@@ -113,9 +112,9 @@ Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택
 
 ## 다음 단계
 
-이제 새 Azure Active Directory ID를 통해 [Azure 리소스 그룹 템플릿](xplat-cli-azure-resource-manager.md)을 사용할 수 있습니다.
+이제 새 Azure Active Directory ID를 통해 [Azure 리소스 그룹 템플릿](../xplat-cli-azure-resource-manager.md)을 사용할 수 있습니다.
 
-     azure login
+    azure login
     info:    Executing command login
     warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
     Username: ahmet@aztrainpassxxxxxoutlook.onmicrosoft.com
@@ -144,4 +143,4 @@ Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택
     data:
     info:    group create command OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

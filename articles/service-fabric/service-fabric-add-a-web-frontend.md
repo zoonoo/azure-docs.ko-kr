@@ -60,7 +60,7 @@ ASP.NET 5는 최신 웹 UI 및 Web API를 만들 수 있는 가벼운 크로스 
 
 ## 서비스 연결
 
-서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 응용 프로그램 내에서 어떤 서비스는 TCP를 통해 액세스할 수 있고, 어떤 서비스는 HTTP REST API를 통해 액세스할 수 있고, 또 어떤 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요. 이 자습서에서는 보다 간단한 방법 중 하나를 선택하여 SDK에 제공되는 `ServiceProxy`/`ServiceCommunicationListener` 클래스를 사용하겠습니다.
+서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 응용 프로그램 내에서 어떤 서비스는 TCP를 통해 액세스할 수 있고, 어떤 서비스는 HTTP REST API를 통해 액세스할 수 있고, 또 어떤 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요. 이 자습서에서는 보다 간단한 방법 중 하나를 선택하여 SDK에 제공되는 `ServiceProxy`/`ServiceRemotingListener` 클래스를 사용하겠습니다.
 
 `ServiceProxy` 접근 방식(원격 프로시저 호출 또는 RPC에서 모델링)에서는 서비스에 대한 공용 계약의 역할을 수행하도록 인터페이스를 정의한 후 해당 인터페이스를 사용하여 서비스와 상호 작용하기 위한 프록시 클래스를 생성합니다.
 
@@ -130,13 +130,13 @@ ASP.NET 5 프로젝트를 비롯한 상태 저장 서비스와 클라이언트 �
     ```
 
 
-### ServiceCommunicationListener를 사용하여 상태 저장 서비스 표시
+### ServiceRemotingListener를 사용하여 상태 저장 서비스를 표시합니다.
 
 `ICounter` 인터페이스가 구현되었으니, 이제 통신 채널만 열면 다른 서비스에서 상태 저장 서비스를 호출할 수 있습니다. 상태 저장 서비스의 경우 서비스 패브릭에서 재정의 가능한 `CreateServiceReplicaListeners` 메서드를 제공합니다. 이 메서드에서는 서비스에 사용하려는 통신 유형에 따라 하나 이상의 통신 수신기를 지정할 수 있습니다.
 
 >[AZURE.NOTE]상태 비저장 서비스에 대한 통신 채널을 열기 위해 제공되는 메서드는 `CreateServiceInstanceListeners`입니다.
 
-이 예에서는 `ServiceProxy`를 사용하여 클라이언트에서 호출 가능한 RPC 끝점을 생성하는 `ServiceCommunicationListener`가 제공됩니다.
+이 예에서는 `ServiceProxy`를 사용하여 클라이언트에서 호출 가능한 RPC 끝점을 생성하는 `ServiceRemotingListener`가 제공됩니다.
 
 ```c#
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -145,7 +145,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     {
         new ServiceReplicaListener(
             (initParams) =>
-                new ServiceCommunicationListener<ICounter>(initParams, this))
+                new ServiceRemotingListener<ICounter>(initParams, this))
     };
 }
 ```
@@ -194,7 +194,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 이 자습서는 상태 저장 서비스와 통신하는 웹 프런트엔드를 추가하는 방법에 초점을 맞추고 있지만, 매우 비슷한 모델에 따라 행위자와 통신할 수 있습니다. 사실, 방법은 더 간단합니다.
 
-사용자가 행위자 프로젝트를 만들면 Visual Studio에서 자동으로 인터페이스를 생성합니다. 사용자는 이 인터페이스를 사용하여 웹 프로젝트에 행위자와 통신하기 위한 행위자 프록시를 생성할 수 있습니다. 통신 채널이 자동으로 제공되므로 사용자는 앞에서 상태 저장 서비스에서 `ServiceCommunicationListener`를 설정하기 위해 했던 작업을 수행할 필요가 없습니다.
+사용자가 행위자 프로젝트를 만들면 Visual Studio에서 자동으로 인터페이스를 생성합니다. 사용자는 이 인터페이스를 사용하여 웹 프로젝트에 행위자와 통신하기 위한 행위자 프록시를 생성할 수 있습니다. 통신 채널이 자동으로 제공되므로 사용자는 이 자습서에서 상태 저장 서비스에 대해 `ServiceRemotingListener`를 설정하기 위해 했던 작업을 수행할 필요가 없습니다.
 
 ## 로컬 클러스터에서 웹 서비스 실행
 
@@ -221,4 +221,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

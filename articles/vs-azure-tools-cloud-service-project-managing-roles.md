@@ -3,9 +3,9 @@
    description="Azure 클라우드 서비스 프로젝트에 새 역할을 추가 하거나 Visual Studio를 사용하여 기존 역할에서 제거 하는 방법에 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Visual Studio를 사용하여 Azure 클라우드 서비스 프로젝트에서 역할 관리
 
@@ -58,4 +58,4 @@ Azure 클라우드 서비스 프로젝트를 만든 후 새 역할을 추가하�
 
 [Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성](vs-azure-tools-configure-roles-for-cloud-service.md)을 읽고 Visual Studio에서 역할을 구성하는 방법을 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

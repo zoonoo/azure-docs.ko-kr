@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경
@@ -56,9 +56,22 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 
 ## 1단계: 가상 네트워크 만들기
 
-> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 "-AzureRM"의 모든 인스턴스를 "-Azure"와 대체하고 모든 명령을 실행하기 전에 **Switch-azuremode AzureResourceManager** 명령을 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+먼저, Azure PowerShell 프롬프트를 시작합니다.
 
-먼저 Azure PowerShell 프롬프트를 엽니다.
+> [AZURE.NOTE]다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+
+계정에 로그인합니다.
+
+	Login-AzureRMAccount
+
+다음 명령을 사용하여 구독 이름을 가져옵니다.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 다음으로, 기초 구성 테스트 랩에 대한 새 리소스 그룹을 만듭니다. 고유한 리소스 그룹 이름을 확인하려면 다음 명령을 사용하여 기존 리소스 그룹을 나열합니다.
 
@@ -72,7 +85,7 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 
 리소스 관리자 기반 가상 컴퓨터를 사용하려면 리소스 관리자 기반 저장소 계정이 필요합니다. 소문자와 숫자만 포함하는 저장소 계정에 대해서는 전역적으로 고유한 이름을 선택해야 합니다. 이 명령을 사용하여 기존 저장소 계정을 나열할 수 있습니다.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 이러한 명령을 사용하여 새 테스트 환경의 새 저장소 계정을 만듭니다.
 
@@ -118,7 +131,7 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 
 그런 다음 DC1 가상 컴퓨터에 연결합니다.
 
-1.	Azure 포털에서, 왼쪽 창에 있는 **모두 찾아보기**를 클릭하고, **찾아보기** 목록의 **가상 컴퓨터**를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.  
+1.	Azure 포털에서 **가상 컴퓨터**를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.  
 2.	**DC1** 창에서 **연결**을 클릭합니다.
 3.	메시지가 나타나면 다운로드한 DC1.rdp 파일을 엽니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
@@ -147,8 +160,8 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 
 DC1이 다시 시작된 후 DC1 가상 컴퓨터에 다시 연결합니다.
 
-1.	Azure 포털에서, 왼쪽 창에 있는 모두 찾아보기를 클릭하고, 찾아보기 목록의 가상 컴퓨터를 클릭한 다음 DC1 가상 컴퓨터를 클릭합니다.
-2.	DC1 창에서 연결을 클릭합니다.
+1.	Azure 포털에서 **가상 컴퓨터**를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.
+2.	**DC1** 창에서 ** 연결**을 클릭합니다.
 3.	DC1.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
@@ -276,11 +289,9 @@ CLIENT1이 다시 시작되면 CORP\\User1 계정 이름 및 암호로 연결하
 
 Azure 기본 구성이 응용 프로그램 개발 및 테스트 또는 추가적인 테스트 환경에 대한 준비를 마쳤습니다.
 
-## 추가 리소스
+## 다음 단계
 
-[하이브리드 클라우드 테스트 환경](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[기본 구성 테스트 환경](virtual-machines-base-configuration-test-environment.md)
+- 이 구성을 기준으로 사용하여 [시뮬레이트된 하이브리드 클라우드 테스트 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)을 빌드할 수 있습니다.
 
 
 ## <a id="costs"></a>Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화
@@ -310,4 +321,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

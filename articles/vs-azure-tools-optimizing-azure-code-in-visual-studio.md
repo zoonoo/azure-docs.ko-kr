@@ -3,9 +3,9 @@
    description="Visual Studio에서 Azure 코드 최적화 도구를 사용하여 더욱 강력하고 성능이 뛰어난 코드를 만드는 방법에 대해 알아보세요."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Azure 코드 최적화
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Azure 앱 최적화 및 문제 해결에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

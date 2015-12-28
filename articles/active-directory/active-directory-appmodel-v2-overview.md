@@ -22,7 +22,7 @@
 
 과거에 Microsoft 계정과 Azure Active Directory를 지원하려는 앱 개발자는 별도의 두 시스템을 통합해야 했습니다. v2.0 앱 모델을 사용하면 이제 두 유형의 계정으로 사용자가 로그인할 수 있습니다. 간단한 통합을 사용하면 개인 및 작업/학교 계정으로 범위가 수 백만 명의 사용자인 대상에 도달할 수 있습니다.
 
-또한 앱은 계정 중 하나를 사용하여 [Office 365 REST API 집합](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)을 사용할 수 있습니다. 현재, 이러한 API는 Outlook의 메일, 연락처 및 일정 API를 포함합니다. 추가 서비스는 나중에 추가됩니다.
+또한 앱은 계정 중 하나를 사용하여 [Office 365 REST API 집합](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)을 사용할 수 있습니다. 현재, 이러한 API는 Outlook의 메일, 연락처 및 일정 API를 포함합니다. 추가 서비스는 나중에 추가됩니다.
 <!-- TODO: customer reference article -->
 <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
@@ -49,7 +49,7 @@ v2.0 앱 모델을 사용하여 두가지 방법으로 앱을 실행할 수 있�
 - [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 미리 보기에 대한 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AppModelv2:" 구문을 사용해야 찾을 수 있습니다.
 - [앱 모델 v2.0 프로토콜 참조](active-directory-v2-protocols.md)
 - [앱 모델 v2.0 토큰 참조](active-directory-v2-tokens.md)
-- [Office 365 REST API 참조](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Office 365 REST API 참조](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [v2 끝점의 범위 및 동의](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +57,4 @@ v2.0 앱 모델을 사용하여 두가지 방법으로 앱을 실행할 수 있�
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 인스턴스 수준 공용 IP 개요
@@ -123,4 +123,4 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,7 +3,7 @@
 	description="Azure SQL 데이터베이스에서 데이터 및 데이터베이스를 복사, 이동 및 마이그레이션하는 빠른 단계입니다."
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 # 서버 간, 구독 간, Azure 내부 및 외부로 데이터베이스 이동
 ##동일한 구독의 다른 서버에 데이터베이스를 이동하려면
@@ -29,4 +29,4 @@
 ## Azure 외부에서 사용할 데이터베이스 복사본을 만들려면
 - [BACPAC 파일을 내보냅니다.](sql-database-export.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

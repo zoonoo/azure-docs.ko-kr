@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 예약된 IP 개요
@@ -41,7 +41,7 @@ IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니�
 
 예약된 IP를 사용하려면 먼저 구독에 예약된 IP를 추가해야 합니다. *미국 중부* 위치에서 사용할 수 있는 공용 IP 주소 풀에서 예약된 IP를 만들려면 다음 PowerShell 명령을 실행합니다.
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
 그러나 예약할 IP를 지정할 수 없습니다. 구독에서 예약된 IP 주소를 보려면 다음 PowerShell 명령을 실행하고 *ReservedIPName* 및 *Address*의 값을 확인합니다.
 
@@ -67,7 +67,7 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 ## 예약된 IP를 새 클라우드 서비스에 연결하는 방법
 아래 스크립트는 예약된 IP를 새로 만든 후 *TestService*라는 이름의 새 클라우드 서비스에 연결합니다.
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
 	New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
@@ -119,4 +119,4 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 확인합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/09/2015"
 	ms.author="klam"/>
 
 # 논리 앱 템플릿 사용
@@ -44,4 +44,4 @@ Twitter, Yammer 및 메일과 같은 소셜 미디어 서비스와 통합하는 
 템플릿 중 하나를 선택한 후에 고유한 논리 앱을 생성했다면 배포를 완료합니다. 세부 단계는 [논리 앱 만들기](app-service-logic-create-a-logic-app.md)에 있습니다.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

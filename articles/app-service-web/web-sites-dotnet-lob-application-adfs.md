@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="09/29/2015" 
+	ms.date="12/15/2015" 
 	ms.author="cephalin"/>
 
 # AD FS 인증을 통해 Azure 앱 서비스에서 .NET MVC 웹 앱 만들기
@@ -63,7 +63,7 @@ Azure 앱 서비스 웹 앱에서 다음 기능이 있는 기본 ASP.NET 응용 
 
 3.	솔루션을 열고 **솔루션 탐색기**에서 Controllers\AccountController.cs를 엽니다.
 
-	코드가 단순히 인증 챌린지를 실행하여 WS-Federation을 통해 사용자를 인증하는 것을 볼 수 있습니다. 모든 인증은 App\_Start\\Startup.Auth.cs에서 구성됩니다.
+	코드가 단순히 인증 챌린지를 실행하여 WS-Federation을 통해 사용자를 인증하는 것을 볼 수 있습니다. 모든 인증은 App_Start\Startup.Auth.cs에서 구성됩니다.
 
 4.  App_Start\Startup.Auth.cs를 엽니다. `ConfigureAuth` 메서드에서 다음 줄을 기록해 둡니다.
 
@@ -92,21 +92,19 @@ Azure 앱 서비스 웹 앱에서 다음 기능이 있는 기본 ASP.NET 응용 
 
 6.	이제 Web.config를 적절히 변경합니다. Web.config를 열고 아래에 강조 표시된 대로 응용 프로그램 설정을 수정합니다.
 	<pre class="prettyprint">
-	&lt;appSettings&gt;
-	  &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
-	  &lt;add key="webpages:Enabled" value="false" /&gt;
-	  &lt;add key="ClientValidationEnabled" value="true" /&gt;
-	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
-	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
-	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
-	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
+&lt;appSettings>
+  &lt;add key="webpages:Version" value="3.0.0.0" />
+  &lt;add key="webpages:Enabled" value="false" />
+  &lt;add key="ClientValidationEnabled" value="true" />
+  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-	&lt;/appSettings&gt;
-	</pre>
-
-	각 환경을 기반으로 키 값을 입력합니다.
+&lt;/appSettings>
+</pre>각 환경을 기반으로 키 값을 입력합니다.
 
 7.	응용 프로그램을 빌드하여 오류가 없는지 확인합니다.
 
@@ -121,7 +119,7 @@ Azure 앱 서비스 웹 앱에서 다음 기능이 있는 기본 ASP.NET 응용 
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
-2. **Microsoft Azure 웹앱**을 선택합니다.
+2. **Microsoft Azure 앱 서비스**를 선택합니다.
 3. Azure에 로그인하지 않은 경우 **로그인**을 클릭하고 Azure 구독에 대한 Microsoft 계정을 사용하여 로그인합니다.
 4. 로그인되면 **새로 만들기**를 클릭하여 새 웹앱을 만듭니다.
 5. 모든 필수 필드를 입력합니다. 온-프레미스 데이터에는 나중에 연결할 것이므로 이 웹 앱에 대한 데이터베이스는 만들지 않습니다.
@@ -146,7 +144,7 @@ Azure에서 게시된 웹 앱을 디버거에 연결하려는 경우(즉, 게시
 <a name="bkmk_rptrusts"></a>
 ## AD FS 관리에서 신뢰 당사자 트러스트 구성 ##
 
-이제 실제로 AD FS를 사용하여 예제 응용 프로그램을 인증하려면 먼저 AD FS 관리에서 RP 트러스트를 구성해야 합니다. 각각 디버그 환경과 게시된 웹 앱에 대한 별도의 RP 트러스트 두 개를 설정해야 합니다.
+이제 응용 프로그램 예제를 사용하고 실제로 AD FS를 인증하기 전에 AD FS 관리에서 RP 트러스트를 구성해야 합니다. 각각 디버그 환경과 게시된 웹 앱에 대한 별도의 RP 트러스트 두 개를 설정해야 합니다.
 
 > [AZURE.NOTE] 두 환경 모두에 대해 아래의 단계를 반복해야 합니다.
 
@@ -186,7 +184,7 @@ Azure에서 게시된 웹 앱을 디버거에 연결하려는 경우(즉, 게시
 	-	역할로서의 그룹 멤버 자격(http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - `[Authorize(Roles="role1, role2,...")]` 장식과 함께 컨트롤러/작업에 대한 권한을 부여하는 데 사용됩니다. 실제로 이는 역할 권한 부여에 가장 적합한 접근 방식이 아닐 수도 있습니다. 특히 AD 사용자가 SAML 토큰에서 수백 개의 역할 클레임으로 변환되는 수백 개의 보안 그룹에 정기적으로 속하는 경우에는 더욱 그렇습니다. 이 접근 방식의 대안은 특정 그룹에 속한 사용자의 멤버 자격에 따라 단일 역할 클레임을 조건부로 보내는 것입니다. 하지만 이 자습서에서는 이 접근 방식을 단순한 형태로 제공합니다.
 	-	이름 ID(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - 위조 방지 유효성 검사에 사용될 수 있습니다. 위조 방지 유효성 검사와 함께 사용하는 방법에 대한 정보는 [Azure Active Directory 인증으로 Azure 앱 서비스에서 .NET MVC 웹앱 만들기](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud)의 **예제 응용 프로그램에 기간 업무 기능 추가** 섹션을 참조하세요
 
-	> [AZURE.NOTE]응용 프로그램에 대해 구성해야 하는 클레임 유형은 응용 프로그램의 요구 사항에 따라 결정됩니다. 예를 들어, Azure Active Directory 응용 프로그램(즉, RP 트러스트)에서 [지원되는 클레임 목록은 지원되는 토큰 및 클레임 유형](http://msdn.microsoft.com/library/azure/dn195587.aspx)을 참조하세요.
+	> [AZURE.NOTE] 응용 프로그램에 대해 구성해야 하는 클레임 유형은 응용 프로그램의 요구 사항에 따라 결정됩니다. 예를 들어, Azure Active Directory 응용 프로그램(즉, RP 트러스트)에서 [지원되는 클레임 목록은 지원되는 토큰 및 클레임 유형](http://msdn.microsoft.com/library/azure/dn195587.aspx)을 참조하세요.
 
 8.	클레임 규칙 편집 대화 상자에서 **규칙 추가**를 클릭합니다.
 9.	아래에 표시된 대로 이름, UPN 및 역할 클레임을 구성하고 **마침**을 클릭합니다.
@@ -229,7 +227,7 @@ Azure에서 게시된 웹 앱을 디버거에 연결하려는 경우(즉, 게시
 
 	![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)
 
-	> [AZURE.NOTE]즉, 디버그 환경과 게시된 웹 앱 둘 다에 대해 이러한 단계를 반복해야 합니다.
+	> [AZURE.NOTE] 즉, 디버그 환경과 게시된 웹 앱 둘 다에 대해 이러한 단계를 반복해야 합니다.
 
 <a name="bkmk_test"></a>
 ## 응용 프로그램에 대한 페더레이션 인증 테스트
@@ -254,7 +252,7 @@ AD FS 배포의 AD 도메인에 속한 사용자로 로그인하면 가장자리
 - AD FS가 AD 사용자를 성공적으로 인증하고 응용 프로그램의 홈 페이지로 돌아갑니다.
 - 가장자리에 사용자 이름이 표시되어 있다는 사실로 알 수 있듯이, AD FS에서 이름 클레임(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)을 응용 프로그램으로 성공적으로 전송했습니다. 
 
-이름 클레임이 누락된 경우 **안녕하세요, 님!**이 표시됩니다. Views\\Shared\\_LoginPartial.cshtml을 보면 `User.Identity.Name`을 사용하여 사용자 이름을 표시한다는 것을 알 수 있습니다. 앞서 설명한 바와 같이, ASP.NET은 인증된 사용자의 이름 클레임(SAML 토큰에서 사용할 수 있는 경우)으로 이 속성을 하이드레이션합니다. AD FS에서 전송된 모든 클레임을 보려면 Controllers\\HomeController.cs의 Index 작업 메서드에 중단점을 둡니다. 사용자가 인증되고 나면 `System.Security.Claims.Current.Claims` 컬렉션을 조사합니다.
+이름 클레임이 누락된 경우 **안녕하세요, 님!**이 표시됩니다. Views\Shared\_LoginPartial.cshtml을 보면 `User.Identity.Name`을 사용하여 사용자 이름을 표시한다는 것을 알 수 있습니다. 앞서 설명한 바와 같이, ASP.NET은 인증된 사용자의 이름 클레임(SAML 토큰에서 사용할 수 있는 경우)으로 이 속성을 하이드레이션합니다. AD FS에서 전송된 모든 클레임을 보려면 Controllers\HomeController.cs의 Index 작업 메서드에 중단점을 둡니다. 사용자가 인증되고 나면 `System.Security.Claims.Current.Claims` 컬렉션을 조사합니다.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -263,7 +261,7 @@ AD FS 배포의 AD 도메인에 속한 사용자로 로그인하면 가장자리
 
 RP 트러스트 구성에서 그룹 멤버 자격을 역할 클레임으로 포함했기 때문에 이제 컨트롤러 및 작업에 대한 `[Authorize(Roles="...")]` 장식에서 직접 이를 사용할 수 있습니다. CRUD(만들기-읽기-업데이트-삭제) 패턴이 있는 LOB(기간 업무) 응용 프로그램에서는 특정 역할에 각 작업에 대한 액세스 권한을 부여할 수 있습니다. 지금은 기존 Home 컨트롤러에서 이 기능을 사용해 보기만 합니다.
 
-1. Controllers\\HomeController.cs를 엽니다.
+1. Controllers\HomeController.cs를 엽니다.
 2. 인증된 사용자의 보안 그룹 멤버 자격을 사용하여 아래와 유사하게 `About` 및 `Contact` 작업 메서드를 장식합니다.  
 	<pre class="prettyprint">
     <mark>[Authorize(Roles="Test Group")]</mark>
@@ -357,4 +355,4 @@ Azure 앱 서비스 웹앱은 다음의 두 가지 방법으로 온-프레미스
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -67,7 +67,7 @@ Azure 저장소 응용 프로그램에서 종단간 문제 해결 실습 가이�
 + [부록]
 	+ [부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]
 	+ [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]
-	+ [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처"를 참조하세요.]
+	+ [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]
 	+ [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]
 	+ [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]
 
@@ -102,7 +102,7 @@ Azure 저장소 응용 프로그램에서 종단간 문제 해결 실습 가이�
 
 Windows 성능 모니터링에 대해 잘 알고 있는 경우 저장소 메트릭은 Windows 성능 모니터 카운터의 Azure 저장소 버전이라고 생각하면 됩니다. 저장소 메트릭에서는 서비스 가용성, 처리할 총 요청 수, 처리할 성공한 요청의 백분율 등 포괄적인 메트릭(Windows 성능 모니터 용어로는 카운터) 집합이 제공됩니다. 사용 가능한 메트릭의 전체 목록은 MSDN의 <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">저장소 분석 메트릭 테이블 스키마</a>를 참조하세요. 저장소 서비스가 메트릭을 수집 및 집계하는 간격(1시간마다/1분마다)을 지정할 수 있습니다. 메트릭을 사용하도록 설정하고 저장소 계정을 모니터링하는 방법에 대한 자세한 내용은 MSDN의 <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">저장소 메트릭 사용</a>을 참조하세요.
 
-[Azure 포털](portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Azure에서 경고 알림 받기 및 경고 규칙 관리</a>에서 확인하세요) 저장소 서비스는 최상의 노력을 통해 메트릭을 수집하지만 모든 저장소 작업을 기록하지는 못합니다.
+[Azure 포털](portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. (자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Azure에서 경고 알림 받기 및 경고 규칙 관리</a>에서 확인하세요.) 저장소 서비스는 최상의 노력을 통해 메트릭을 수집하지만 모든 저장소 작업을 기록하지는 못합니다.
 
 Azure 포털에서 저장소 계정에 대해 가용성, 총 요청 수, 평균 대기 시간 수 등의 메트릭을 확인할 수 있습니다. 알림 규칙도 설정되어 가용성이 특정 수준 아래로 떨어지면 관리자에게 경고를 보냅니다. 이 데이터를 확인함으로써 조사할 수 있는 한 가지 영역은 테이블 서비스 성공 백분율이 100% 미만이라는 것입니다. 자세한 내용은 "[메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음]" 섹션을 참조하세요.
 
@@ -125,7 +125,7 @@ Azure 응용 프로그램을 지속적으로 모니터링한 후 다음을 수�
 
 [Azure 포털](portal.azure.com)에서는 여러 Azure 서비스에 영향을 주는 문제에 대한 알림도 제공합니다. 참고: 이전에는 이 정보가 Azure 서비스 대시보드(<a href="http://status.azure.com" target="_blank">http://status.azure.com</a>)에서 기록 데이터와 함께 제공되었습니다.
 
-[Azure 포털](portal.azure.com)은 Azure 데이터 센터 내부에서 상태 정보를 수집하는 반면(직접적인 상호 작용 모니터링) 간접적인 방식을 도입해 여러 위치에서 Azure 호스팅 웹 응용 프로그램에 주기적으로 액세스하는 가상 트랜잭션을 생성할 수도 있습니다. 이러한 간접적인 상호 작용 방식의 예로는 <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> 및 Visual Studio Team Services용 Application Insights에서 제공하는 서비스가 있습니다. Visual Studio Team Services용 Application Insights에 대한 자세한 내용은 "[부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]”을 참조하세요.
+[Azure 포털](portal.azure.com)은 Azure 데이터 센터 내부에서 상태 정보를 수집하는 반면(직접적인 상호 작용 모니터링) 간접적인 방식을 도입해 여러 위치에서 Azure 호스팅 웹 응용 프로그램에 주기적으로 액세스하는 가상 트랜잭션을 생성할 수도 있습니다. 이러한 간접적인 상호 작용 방식의 예로는 <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> 및 Visual Studio Team Services용 Application Insights에서 제공하는 서비스가 있습니다. Visual Studio Team Services용 Application Insights에 대한 자세한 내용은 "[부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]"을 참조하세요.
 
 ### <a name="monitoring-capacity"></a>용량 모니터링
 
@@ -149,7 +149,7 @@ Blob 등의 다양한 저장소 개체 크기를 예측하는 방법에 대한 �
 
 저장소 서비스의 성능을 모니터링하려면 시간 및 분 메트릭 테이블에서 다음 메트릭을 사용할 수 있습니다.
 
-- **AverageE2ELatency** 및 **AverageServerLatency**의 값은 저장소 서비스 또는 API 작업 유형이 요청을 처리하는 데 걸리는 평균 시간을 표시합니다. **AverageE2ELatency**는 요청을 읽고 응답을 보내는 데 걸리는 시간과 요청을 처리하는 시간을 포함하는 종단 간 대기 시간을 측정한 것으로, 요청이 저장소 서비스에 도달한 후의 네트워크 대기 시간을 포함합니다. **AverageServerLatency**는 처리 시간만 측정한 것으로, 클라이언트와의 통신과 관련한 네트워크 대기 시간은 제외됩니다. 이 두 값이 크게 다를 수 있는 이유에 대한 설명은 이 가이드 뒷부분의 "[메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨]" 섹션을 참조하세요.
+- **AverageE2ELatency** 및 **AverageServerLatency** 열의 값은 저장소 서비스 또는 API 작업 유형이 요청을 처리하는 데 걸리는 평균 시간을 표시합니다. **AverageE2ELatency**는 요청을 읽고 응답을 보내는 데 걸리는 시간과 요청을 처리하는 시간을 포함하는 종단 간 대기 시간을 측정한 것으로, 요청이 저장소 서비스에 도달한 후의 네트워크 대기 시간을 포함합니다. **AverageServerLatency**는 처리 시간만 측정한 것으로, 클라이언트와의 통신과 관련한 네트워크 대기 시간은 제외됩니다. 이 두 값이 크게 다를 수 있는 이유에 대한 설명은 이 가이드 뒷부분의 "[메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨]" 섹션을 참조하세요.
 - **TotalIngress** 및 **TotalEgress** 열의 값은 저장소 서비스로 들어오거나 저장소 서비스에서 나가는 총 데이터 양 또는 특정 API 작업 유형을 통과하는 총 데이터 양(바이트)을 표시합니다.
 - **TotalRequests** 열의 값은 저장소 서비스 또는 API 작업이 수신하는 총 요청 수를 표시합니다. **TotalRequests**는 저장소 서비스가 수신하는 총 요청 수입니다.
 
@@ -363,7 +363,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 
 #### 클라이언트 성능 문제 조사
 
-사용 가능한 연결 또는 스레드 수가 제한되는 경우 클라이언트의 응답 속도가 느려질 수 있습니다. 저장소 서비스에 대한 비동기 호출을 사용하는 등 클라이언트 코드를 보다 효율적으로 수정하거나, 코어와 메모리가 더 많은 대형 가상 컴퓨터를 사용하면 문제가 해결될 수도 있습니다.
+사용 가능한 연결 또는 스레드 수가 제한되거나 CPU, 메모리 또는 네트워크 대역폭과 같은 리소스가 부족한 경우 클라이언트의 응답 속도가 느려질 수 있습니다. 저장소 서비스에 대한 비동기 호출을 사용하는 등 클라이언트 코드를 보다 효율적으로 수정하거나, 코어와 메모리가 더 많은 대형 가상 컴퓨터를 사용하면 문제가 해결될 수도 있습니다.
 
 테이블 및 큐 서비스의 경우 Nagle 알고리즘으로 인해 **AverageServerLatency**에 비해 **AverageE2ELatency**가 길어질 수 있습니다. 자세한 내용은 Microsoft Azure 저장소 팀 블로그의 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> 게시물을 참조하세요. **System.Net** 네임스페이스에서 **ServicePointManager** 클래스를 사용하여 코드에서 Nagle 알고리즘을 사용하지 않도록 설정할 수 있습니다. 이 작업은 이미 열려 있는 연결에는 영향을 주지 않으므로 응용 프로그램에서 테이블 또는 큐 서비스를 호출하기 전에 이 작업을 수행해야 합니다. 아래에는 작업자 역할의 **Application\_Start** 메서드 예제가 나와 있습니다.
 
@@ -387,7 +387,13 @@ Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하�
 
 이 시나리오에서는 저장소 요청이 저장소 서비스에 도착할 때까지의 대기 시간이 길어지는 경우로 인한 가능성이 가장 높습니다. 클라이언트의 요청이 Blob 서비스에 정상적인 속도로 도착하지 않는 원인을 조사해야 합니다.
 
-사용 가능한 연결 또는 스레드 수가 제한되는 경우 클라이언트의 요청 전송이 지연될 수 있습니다. 클라이언트가 여러 개의 다시 시도를 수행하고 있는지도 확인하고 그러한 경우 원인을 조사해야 합니다. 요청과 연결된 **OperationContext** 개체를 확인하고 **ServerRequestId** 값을 검색하여 이 작업을 프로그래밍 방식으로 수행할 수도 있습니다. 자세한 내용은 "[서버 요청 ID]" 섹션의 코드 샘플을 참조하세요.
+사용 가능한 연결 또는 스레드 수가 제한되는 경우 클라이언트의 요청 전송이 지연될 수 있습니다.
+
+클라이언트가 여러 개의 다시 시도를 수행하고 있는지도 확인하고 그러한 경우 원인을 조사해야 합니다. 다음을 수행하여 클라이언트가 여러 번의 재시도를 수행하고 있는지 확인할 수 있습니다.
+
+- 저장소 분석 로그를 검사합니다. 재시도가 여러 번 발생하는 경우 다른 서버 요청 ID의 동일한 클라이언트 요청 ID로 여러 작업이 표시됩니다.
+- 클라이언트 로그를 검사합니다. 자세한 정보 로깅은 다시 시도가 발생된 것을 표시됩니다.
+- 코드를 디버깅하고 요청과 관련된 **OperationContext** 개체의 속성을 확인합니다. 작업을 다시 시도하는 경우 **RequestResults** 속성은 여러 고유한 서버 요청 ID를 포함합니다. 또한 각 요청에 대한 시작 및 종료 시간을 확인할 수 있습니다. 자세한 내용은 [서버 요청 ID] 섹션의 코드 샘플을 참조하세요. 
 
 클라이언트에 문제가 없으면 패킷 손실 등의 네트워크 문제 가능성을 조사해야 합니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 네트워크 문제를 조사할 수 있습니다.
 
@@ -403,7 +409,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 테이블이나 쿼리의 디자인이 잘못되어 검사 작업이 수행되거나 추가/앞에 추가 방지 패턴을 따르는 경우에도 **AverageServerLatency** 값이 높아지는 증상이 발생할 수 있습니다. 자세한 내용은 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]"을 참조하세요.
 
-> [AZURE.NOTE]주의해야 할 다른 문제를 포함한 통합 검사목록은 여기에서 확인할 수 있습니다. "[확장성과 성능이 뛰어난 저장소 기반 응용 프로그램 디자인 검사 목록](storage-performance-checklist.md)".
+> [AZURE.NOTE]주의해야 할 다른 문제를 포함한 통합 검사목록은 여기에서 확인할 수 있습니다. [Microsoft Azure 저장소 성능 및 확장성 검사 목록](storage-performance-checklist.md)
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>큐에서 메시지 배달 중에 예기치 않은 대기 시간이 발생함
 
@@ -433,7 +439,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 > [AZURE.NOTE]응용 프로그램의 작업량이 많지 않은 기간에도 **PercentThrottlingError** 값이 급증할 수 있습니다. 이러한 현상이 발생하는 경우 부하 분산을 개선하기 위해 저장소 서비스가 파티션을 이동 중일 가능성이 높습니다.
 
-#### <a name="permanent-increase-in-PercentThrottlingError"></a>영구적인 PercentThrottlingError 오류 증가
+#### <a name="permanent-increase-in-PercentThrottlingError"></a>영구적인 PercentThrottlingError 증가
 
 트랜잭션 볼륨을 영구적으로 늘린 후나 처음으로 응용 프로그램 부하 테스트를 수행할 때 **PercentThrottlingError**의 값이 계속 높게 표시되는 경우에는 응용 프로그램의 저장소 파티션 사용 방법과 저장소 계정의 확장성 목표 도달 여부를 평가해야 합니다. 예를 들어 파티션 하나로 계산되는 큐에서 제한 오류가 표시되는 경우 추가 큐를 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 합니다. 테이블에서 제한 오류가 표시되는 경우에는 다른 파티션 구성표를 통해 보다 광범위한 파티션 키 값을 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 할 수 있습니다. 이 문제의 일반적인 원인 중 하나는 날짜를 파티션 키로 선택하면 특정일의 모든 데이터가 파티션 하나에 기록되는 앞에 추가/추가 방지 패턴입니다.: 이 경우 부하가 생성되면 쓰기 병목 현상이 발생할 수 있습니다. 따라서 다른 파티션 디자인을 사용하거나 Blob 저장소를 사용하는 것이 더 효율적인 해결 방법인지 평가해야 합니다. 또한 트래픽 급증으로 인해 제한이 발생하는지 확인하고 요청 패턴을 효율적으로 조정하는 방식을 조사해야 합니다.
 
@@ -481,7 +487,7 @@ Microsoft.WindowsAzure.Storage|오류|1|85d077ab -…|다시 시도 정책에서
 
 - 보통 클라이언트에 대해 즉시 사용할 SAS를 만들 때는 시작 시간을 설정하면 안 됩니다. 현재 시간을 사용하여 SAS를 생성하는 호스트와 저장소 서비스 간에 약간의 클럭 차이가 있는 경우에는 저장소 서비스가 아직 유효하지 않은 SAS를 받을 가능성이 있습니다.
 - SAS에 대해 매우 짧은 만료 시간을 설정해서는 안 됩니다. 마찬가지로 SAS를 생성하는 호스트와 저장소 서비스 간에 클럭 차이가 약간이라도 있으면 SAS가 예상보다 빨리 만료됩니다.
-- SAS 키의 버전 매개 변수(예: **sv=2012-02-12**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 저장소 클라이언트 라이브러리를 사용해야 합니다. SAS 토큰 버전 관리 및 클라이언트 라이브러리 버전에 대한 종속성과 관련된 자세한 내용은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Microsoft Azure 저장소의 새로운 기능</a> 항목을 참조하세요.
+- SAS 키의 버전 매개 변수(예: **sv=2015-04-05**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 [저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용하는 것이 좋습니다. SAS 토큰 버전 관리 및 클라이언트 라이브러리 버전에 대한 종속성과 관련된 자세한 내용은 [Microsoft Azure 저장소의 새로운 기능](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx) 항목을 참조하세요.
 - 저장소 액세스 키를 다시 생성하면 기존 SAS 토큰이 무효화될 수 있습니다. 클라이언트 응용 프로그램이 캐시하도록 만료 시간이 매우 긴 SAS 토큰을 생성하는 경우 문제가 발생할 수 있습니다.
 
 저장소 클라이언트 라이브러리를 사용하여 SAS 토큰을 생성하는 경우에는 유효한 토큰을 쉽게 작성할 수 있습니다. 그러나 저장소 REST API를 사용 중이며 수동으로 SAS 토큰을 생성하는 경우에는 MSDN의 <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">공유 액세스 서명으로 액세스 위임</a> 항목을 자세히 확인해야 합니다.
@@ -897,7 +903,7 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
 [부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]: #appendix-3
 [부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]: #appendix-3
-[부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처"를 참조하세요.]: #appendix-3
+[부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]: #appendix-3
 [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]: #appendix-4
 [부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
 [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
@@ -913,4 +919,4 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

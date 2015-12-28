@@ -3,9 +3,9 @@
    description="Visual Studio에서 Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시하는 방법을 알아보세요."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 개발 및 테스트 환경에 게시하기 위해 Windows PowerShell Scripts 사용하기
 
@@ -351,4 +351,4 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 
 [Windows PowerShell를 사용하여 스크립팅](https://technet.microsoft.com/library/bb978526.aspx)을 읽어 PowerShell 스크립팅에 대해 자세히 알아보고 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/)에서 기타 Azure PowerShell 스크립트에 대해 알아보세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

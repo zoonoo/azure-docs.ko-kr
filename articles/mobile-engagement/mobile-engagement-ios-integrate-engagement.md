@@ -32,7 +32,7 @@
 
 ##IOS 프로젝트에 Engagement SDK를 포함합니다.
 
-iOS 프로젝트에 Engagement SDK를 추가합니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **"Add files to ..."**를 선택하고 `EngagementSDK` 폴더를 선택합니다.
+[여기](http://aka.ms/qk2rnj)에서 iOS SDK를 다운로드합니다. iOS 프로젝트에 Engagement SDK를 추가합니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **"Add files to ..."**를 선택하고 `EngagementSDK` 폴더를 선택합니다.
 
 Engagement가 작동하려면 추가 프레임워크가 필요합니다. 프로젝트 탐색기에서 프로젝트 창을 열고 올바른 대상을 선택합니다. 그런 다음 **"Build phases"** 탭을 열고 **"Link Binary With Libraries"** 메뉴에서 다음 프레임워크를 추가합니다.
 
@@ -43,7 +43,7 @@ Engagement가 작동하려면 추가 프레임워크가 필요합니다. 프로�
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE]AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다(<ios-sdk-engagement-idfa>).
+> [AZURE.NOTE] AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다(<ios-sdk-engagement-idfa>).
 
 ##Engagement SDK 초기화
 
@@ -207,4 +207,4 @@ Engagement에서 로그 전송을 중지하려면 다음을 호출할 수 있습
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

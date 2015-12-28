@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="08/14/2015"
+   ms.workload="na"
+   ms.date="12/09/2015"
    ms.author="sethm"/>
 
 # PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 관리
@@ -24,9 +24,9 @@ Microsoft Azure PowerShell은 Azure 서비스의 배포와 관리를 제어하�
 
 이 작업을 수행하려면 다음이 필요합니다.
 
-- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션], [구성원 제공 항목] 또는 [무료 평가판]을 참조하세요.
+- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][], [구성원 제공 항목][] 또는 [무료 평가판][]을 참조하세요.
 
-- Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성]을 참조하십시오.
+- Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
 
 - PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
@@ -260,7 +260,9 @@ catch [System.Exception]
 - [PowerShell 스크립트를 사용하여 서비스 버스 큐, 토픽 및 구독을 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [PowerShell 스크립트를 사용하여 서비스 버스 네임스페이스 및 이벤트 허브를 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-[서비스 버스 PowerShell 스크립트](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)에서 즉시 사용 가능한 스크립트도 다운로드할 수 있습니다.
+즉시 사용 가능한 스크립트도 다운로드 가능합니다.
+
+- [Service Bus PowerShell 스크립트](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 
@@ -271,7 +273,7 @@ catch [System.Exception]
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[서비스 버스용 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[서비스 버스용 .NET API]: https://msdn.microsoft.com/ko-KR/library/azure/mt419900.aspx
 [Azure PowerShell 설치 및 구성]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

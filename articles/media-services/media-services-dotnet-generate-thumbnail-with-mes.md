@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="12/15/2015"    
 	ms.author="juliako"/>
 
 
@@ -357,7 +357,7 @@
 고려 사항은 다음과 같습니다.
 
 - 시작/단계/범위에 대한 명시적 타임스탬프 사용 시 입력 소스의 길이가 1분 이상이라고 가정합니다.
-- Jpg/Png/BmpVideo 요소는 시작, 단계 및 범위 문자열 특성을 가지고 있으며 - 이들을 다음과 같이 해석할 수 있습니다.
+- Jpg/Png/BmpImage 요소에는 시작, 단계, 범위 문자열 특성이 있으며, 이러한 특성은 다음과 같이 해석될 수 있습니다.
 
 	- 음수가 아닌 정수인 경우 프레임 번호, 예: "Start": "120",
 	- % 접미사로 표시된 경우 원본 기간 기준, 예: "Start": "15%", OR
@@ -383,4 +383,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

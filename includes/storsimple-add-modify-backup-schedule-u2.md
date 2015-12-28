@@ -1,41 +1,42 @@
 
 <!--author=SharS last changed: 11/04/15-->
 
-#### To add or modify a StorSimple backup schedule
+#### StorSimple 백업 일정을 추가 또는 수정하려면
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. 장치 **퀵스타트** 페이지에서 **백업 정책** 탭을 클릭합니다. 이렇게 하면 **백업 정책** 페이지로 이동됩니다.
 
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
+2. 정책, 테이블 형식 목록에서 편집하려는 정책을 선택 및 클릭합니다.
 
-3. Under **General**, you can modify the backup policy name.
+3. **일반**에서 백업 정책 이름을 수정할 수 있습니다.
 
-     ![manage schedules](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
+     ![일정 관리](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
 
-4. Click **Manage Schedules**. 
+4. **일정 관리**를 클릭합니다.
 
-5. In the **Manage Schedule** dialog box, under **Add or Modify a schedule**, do the following:
+5. **일정 관리** 대화상자의 **일정 추가 또는 수정**에서 다음을 수행합니다.
 
-    1. From the drop-down list, choose an existing schedule or select **Add** to create a new schedule.
-    2. Click the check icon ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
+    1. 드롭다운 목록에서 기존 일정을 선택하거나 **추가**를 선택하여 새 일정을 만듭니다.
+    2. 확인 아이콘![일정 1 수정](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png)을 클릭합니다. 
 
-        ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
+        ![일정 1 수정](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
 
-    2. Select the type of backup as local or cloud snapshot.
+    2. 백업 유형을 로컬 또는 클라우드 스냅숏으로 선택합니다.
 
-        ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
+        ![일정 1 수정](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png)
 
-    3. Specify the backup frequency, retention, and starting time for the schedule.
+    3. 백업 빈도, 보존 및 일정의 시작 시간을 지정합니다.
 
-    4. Select the check box to enable or disable the schedule.
+    4. 확인란을 선택하여 일정을 사용하거나 사용하지 않도록 설정합니다.
 
-    5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) to save the schedule.
+    5. 확인 아이콘 ![확인 아이콘](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png)을 클릭하여 일정을 저장합니다.
 
-5. In the **Volumes** section, choose the volumes that this policy will be applied to.
+5. **볼륨** 섹션에서 이 정책을 적용할 볼륨을 선택합니다.
 
-6. At the bottom of the page, click **Save** to save the changes to this policy.
+6. 페이지의 맨 아래에서 **저장**을 클릭하여 변경 내용을 이 정책에 저장합니다.
 
-7. You will prompted for confirmation. Click **Yes** to save the policy.
+7. 확인하라는 메시지가 표시됩니다. **예**를 클릭하여 정책을 저장합니다.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+**백업 정책** 페이지가 정책에 변경 내용을 저장하도록 업데이트 됩니다.
  
 
+<!---HONumber=AcomDC_1217_2015-->

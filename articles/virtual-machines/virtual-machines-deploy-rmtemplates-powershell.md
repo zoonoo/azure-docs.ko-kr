@@ -20,9 +20,11 @@
 # Azure 리소스 관리자 및 PowerShell을 사용하여 가상 컴퓨터 관리
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
 
 Azure PowerShell 및 리소스 관리자 템플릿을 사용하여 제공Microsoft Azure에서 리소스를 관리할 때 많은 성능과 유연성을 제공합니다. 이 문서의 작업을 사용하여 가상 컴퓨터를 만들고 관리할 수 있습니다.
 
@@ -53,7 +55,7 @@ Microsoft Azure에서 실행 중인 대부분의 응용 프로그램은 다양�
 
 JSON 기반 리소스 템플릿을 정의한 후 해당 템플릿을 PowerShell 명령과 함께 사용하여 Azure에서 정의된 리소스를 배포할 수 있습니다. 이러한 명령은 PowerShell 명령 셸 내에서 별도로 실행하거나, 추가 자동화 논리를 포함하는 스크립트 안에 통합할 수 있습니다.
 
-Azure 리소스 관리자 템플릿을 사용하여 만드는 리소스를 새 또는 기존 *Azure 리소스 그룹*에 배포합니다. 리소스 그룹을 사용하면 논리 그룹으로 함께 배포된 여러 리소스를 관리할 수 있습니다. 즉, 그룹 응용 프로그램의 전체 수명 주기를 관리할 수 있습니다.
+Azure 리소스 관리자 템플릿을 사용하여 만드는 리소스를 새로운 또는 기존 *Azure 리소스 그룹*에 배포합니다. 리소스 그룹을 사용하면 논리 그룹으로 함께 배포된 여러 리소스를 관리할 수 있습니다. 즉, 그룹 응용 프로그램의 전체 수명 주기를 관리할 수 있습니다.
 
 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
@@ -376,4 +378,4 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

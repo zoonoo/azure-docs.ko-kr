@@ -1,6 +1,6 @@
     <properties
 	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab"
+	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,10 +20,10 @@
 
 ## 개요
 
-기본적으로 DevTest Lab에는 공식 Azure DevTest Lab 아티팩트 리포지토리의 아티팩트가 포함되어 있습니다. 팀이 만드는 아티팩트를 포함시키기 위해 랩에 Git 리포지토리를 추가할 수 있습니다. 리포지토리는 [GitHub](https://github.com) 또는 [VSO(Visual Studio Online)](https://visualstudio.com)에서 호스트될 수 있습니다.
+기본적으로 DevTest Lab에는 공식 Azure DevTest Lab 아티팩트 리포지토리의 아티팩트가 포함되어 있습니다. 팀이 만드는 아티팩트를 포함시키기 위해 랩에 Git 리포지토리를 추가할 수 있습니다. 리포지토리는 [GitHub](https://github.com) 또는 [VSTS(Visual Studio Team Services)](https://visualstudio.com)에서 호스트될 수 있습니다.
 
 - GitHub 리포지토리를 만드는 방법을 알아보려면 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)를 참조하세요.
-- Git 리포지토리를 사용하여 VSO 프로젝트를 만드는 방법을 알아보려면 [Visual Studio Online에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
+- Git 리포지토리를 사용하여 Team Services 프로젝트를 만드는 방법을 알아보려면 [Visual Studio Team Services에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
 
 다음 스크린샷은 아티팩트가 포함된 리포지토리가 GitHub에서 어떻게 표시될 수 있는지에 대한 예를 보여 줍니다. ![GitHub 아티팩트 리포지토리 샘플](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
@@ -115,4 +115,4 @@
     3. 저장된 **개인 액세스 토큰**을 아티팩트 리포지토리에 입력합니다.
     4. **저장**을 탭합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

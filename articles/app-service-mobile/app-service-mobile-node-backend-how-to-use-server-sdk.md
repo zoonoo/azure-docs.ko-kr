@@ -77,12 +77,13 @@ Azure 앱 서비스 모바일 앱은 모바일에 최적화된 데이터 액세�
 
 이 응용 프로그램은 동적 스키마를 사용하여 기본 SQL 데이터 저장소에 대한 인증되지 않은 액세스를 제공하는 단일 끝점(`/tables/TodoItem`)으로 간단하고 모바일에 최적화된 WebAPI를 만듭니다. 다음의 클라이언트 라이브러리 빠른 시작에 적합합니다.
 
+- [Android 클라이언트 빠른 시작]
 - [iOS 클라이언트 빠른 시작]
+- [Windows 스토어 클라이언트 빠른 시작]
 - [Xamarin.iOS 클라이언트 빠른 시작]
 - [Xamarin.Android 클라이언트 빠른 시작]
 - [Xamarin.Forms 클라이언트 빠른 시작]
-- [Windows 스토어 클라이언트 빠른 시작]
-- [HTML/JavaScript 클라이언트 빠른 시작]
+
 
 [GitHub의 기본 앱 샘플]에서 이 기본 응용 프로그램에 대한 코드를 찾을 수 있습니다.
 
@@ -321,6 +322,33 @@ Azure 모바일 앱은 로컬 파일 시스템에서 _azureMobile.js_라는 Java
     };
 
 _.gitignore_ 파일에 _azureMobile.js_를 추가하여(또는 기타 소스 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure 포털] 내의 앱 설정에서 프로덕션 설정을 항상 구성합니다.
+
+### <a name="howto-appsettings"><a>모바일 앱을 구성하기 위한 앱 설정
+
+_azureMobile.js_ 파일에서 대부분의 설정은 [Azure 포털]에서 동일한 앱 설정을 포함합니다. 다음 목록을 사용하여 앱 설정에서 앱을 구성합니다.
+
+| 앱 설정 | _azureMobile.js_ 설정 | 설명 | 유효한 값 |
+| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
+| **MS\_MobileAppName** | name | 앱의 이름 | string |
+| **MS\_MobileLoggingLevel** | logging.level | 로깅할 메시지의 최소 로그 수준 | error, warning, info, verbose, debug, silly |
+| **MS\_DebugMode** | debug | 디버그 모드를 사용 또는 사용하지 않도록 설정 | true, false |
+| **MS\_TableSchema** | data.schema | SQL 테이블에 대한 기본 스키마 이름 | string(기본값: dbo) |
+| **MS\_DynamicSchema** | data.dynamicSchema | 디버그 모드를 사용 또는 사용하지 않도록 설정 | true, false |
+| **MS\_DisableVersionHeader** | version(undefined로 설정)| X-ZUMO-Server-Version 헤더를 사용하지 않도록 설정 | true, false |
+| **MS\_SkipVersionCheck** | skipversioncheck | 클라이언트 API 버전 검사를 사용하지 않도록 설정 | true, false |
+
+앱 설정을 지정하려면:
+
+1. [Azure 포털]에 로그인합니다.
+2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 모바일 앱의 이름을 클릭합니다.
+3. 기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+4. 일반 메뉴에서 **응용 프로그램 설정**을 클릭합니다.
+5. 앱 설정 섹션으로 스크롤합니다.
+6. 앱 설정이 이미 있는 경우 앱 설정 값을 클릭하여 값을 편집합니다.
+7. 앱 설정이 존재하지 않는 경우 키 상자에 앱 설정을 입력하고 값 상자에 값을 입력합니다.
+8. 완료했으면 **저장**을 클릭합니다.
+
+대부분의 경우 앱 설정을 변경하려면 서비스를 다시 시작해야 합니다.
 
 ### <a name="howto-use-sqlazure"></a>방법: 프로덕션 데이터 저장소로 SQL 데이터베이스 사용
 
@@ -609,7 +637,7 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 
 ## <a name="in-portal-editing"></a>포털에서 코드 편집 환경
 
-Azure 포털의 특수 도구를 사용하면 코드 프로젝트를 다운로드하지 않고 Node.js 백 엔드 프로젝트로 쉽게 작업할 수 있습니다. 포털에서 쉬운 테이블 및 쉬운 API를 통해 포털에서 테이블 및 사용자 지정 API를 만들고 작업할 수 있습니다. Visual Studio Online “Monaco” 편집기를 사용하여 포털에서 테이블 작업 및 API 스크립트를 바로 편집할 수 있습니다.
+Azure 포털의 특수 도구를 사용하면 코드 프로젝트를 다운로드하지 않고 Node.js 백 엔드 프로젝트로 쉽게 작업할 수 있습니다. 포털에서 쉬운 테이블 및 쉬운 API를 통해 포털에서 테이블 및 사용자 지정 API를 만들고 작업할 수 있습니다. Visual Studio Team Services "Monaco" 편집기를 사용하여 포털에서 테이블 작업 및 API 스크립트를 바로 편집할 수 있습니다.
 
 ### <a name="work-easy-tables"></a>방법: Azure 포털에서 테이블로 간편하게 작업
 
@@ -620,7 +648,7 @@ Azure 포털의 특수 도구를 사용하면 코드 프로젝트를 다운로�
 다음 명령을 테이블에 대한 명령 모음에서 사용할 수 있습니다.
 
 + **사용 권한 변경** - 작업 테이블에서 읽기, 삽입, 업데이트 및 삭제에 대한 권한을 변경합니다. 옵션은 익명 액세스를 허용하거나 인증을 요구하거나 작업에 대한 모든 액세스를 사용할 수 없도록 합니다. table.json 프로젝트 코드 파일을 수정합니다.
-+ **스크립트 편집** - 테이블에 대한 스크립트 파일은 Visual Studio Online 편집기에서 열립니다.
++ **스크립트 편집** - 테이블에 대한 스크립트 파일은 Visual Studio Team Services 편집기에서 열립니다.
 + **스키마 관리** - 열을 추가 또는 삭제하거나 테이블 인덱스를 변경합니다.
 + **테이블 지우기** - 기존 테이블을 잘라서 모든 데이터 행을 삭제하지만 스키마를 그대로 둡니다.
 + **행 삭제** - 데이터의 개별 행을 삭제합니다.
@@ -632,15 +660,15 @@ Azure 포털의 특수 도구를 사용하면 코드 프로젝트를 다운로�
 
 ![쉬운 API 작업](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-포털에서 지정된 HTTP 동작에 대한 액세스 권한을 변경하거나 Visual Studio Online 편집기에서 API 스크립트 파일을 편집, 또는 스트리밍 로그를 볼 수 있습니다.
+포털에서 지정된 HTTP 동작에 대한 액세스 권한을 변경하거나 Visual Studio Team Services 편집기에서 API 스크립트 파일을 편집, 또는 스트리밍 로그를 볼 수 있습니다.
 
-###<a name="online-editor"></a>방법: Visual Studio Online에서 코드 편집
+###<a name="online-editor"></a>방법: Visual Studio Team Services에서 코드 편집
 
-Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하지 않고도 Visual Studio Online에서 Node.js 백 엔드 스크립트 파일을 편집할 수 있습니다. 온라인 편집기에서 스크립트 파일을 편집하려면
+Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하지 않고도 Visual Studio Team Services에서 Node.js 백 엔드 스크립트 파일을 편집할 수 있습니다. 온라인 편집기에서 스크립트 파일을 편집하려면
 
-1. 모바일 앱 백 엔드 블레이드에서 **모든 설정** > **쉬운 테이블** 또는 **쉬운 API** 하나를 클릭하고 테이블 또는 API를 클릭한 다음 **스크립트 편집**을 클릭합니다. 스크립트 파일은 Visual Studio Online 편집기에서 열립니다.
+1. 모바일 앱 백 엔드 블레이드에서 **모든 설정** > **쉬운 테이블** 또는 **쉬운 API** 중 하나를 클릭하고 테이블 또는 API를 클릭한 다음 **스크립트 편집**을 클릭합니다. 스크립트 파일은 Visual Studio Team Services 편집기에서 열립니다.
 
-	![Visual Studio Online 코드 편집기](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Visual Studio Team Services 코드 편집기](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. 온라인 편집기에서 코드 파일의 내용을 변경합니다. 변경 내용은 입력할 때 자동으로 저장됩니다.
 
@@ -657,12 +685,13 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
+[Android 클라이언트 빠른 시작]: app-service-mobile-android-get-started.md
 [iOS 클라이언트 빠른 시작]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS 클라이언트 빠른 시작]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android 클라이언트 빠른 시작]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms 클라이언트 빠른 시작]: app-service-mobile-xamarin-forms-get-started.md
 [Windows 스토어 클라이언트 빠른 시작]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/JavaScript 클라이언트 빠른 시작]: app-service-html-get-started.md
+[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [Azure Active Directory 인증을 구성하는 방법]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Facebook 인증을 구성하는 방법]: app-service-mobile-how-to-configure-facebook-authentication.md
@@ -693,4 +722,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

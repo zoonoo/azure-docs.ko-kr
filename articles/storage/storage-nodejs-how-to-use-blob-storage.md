@@ -364,6 +364,7 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 공유 액세스 서명�
 -   [Azure 저장소 팀 블로그][]
 -   GitHub의 [Azure Storage SDK for Node][] 리포지토리
 -   [Node.js 개발자 센터](/develop/nodejs/)
+-   [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
@@ -376,4 +377,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 공유 액세스 서명�
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Node용 Azure 저장소 SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

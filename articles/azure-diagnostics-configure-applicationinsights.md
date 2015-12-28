@@ -7,12 +7,12 @@
    manager=""
    editor="" />
 <tags
-   ms.service="multiple"
+   ms.service="application-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 # Application Insights에 데이터를 보내도록 Azure 진단 구성
@@ -92,7 +92,7 @@ Application Insights(**DiagnosticMonitorConfiguration** 노드에 지정됨) 이
 이 기능을 사용할 경우 주의해야 할 몇 가지 제한 사항이 있습니다.
 
 - 채널은 성능 카운터가 아닌 로그 형식으로만 작업할 수있다는 의미입니다. 성능 카운터 요소를 사용하여 채널을 지정하는 경우 무시됩니다. 
-- 채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다. 예를 들어 로그 요소에서 응용 프로그램 로그 오류를 수집하고 Application Insight 동기화에 자세한 정보 로그를 보내려고 시도할 수 없습니다. *scheduledTransferLogLevelFilter* 특성은 항상 싱크를 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다. 
+- 채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다. 예를 들어 로그 요소에서 응용 프로그램 로그 오류를 수집하고 Application Insight 싱크에 자세한 정보 로그를 보내려고 시도할 수 없습니다. *scheduledTransferLogLevelFilter* 특성은 항상 싱크를 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다. 
 - Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다. 예를 들어 *디렉터리* 노드에 지정된 모든 항목입니다. 크래시 덤프의 경우 실제 크래시 덤프는 Blob 저장소에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다. 
 
 
@@ -101,4 +101,4 @@ Application Insights(**DiagnosticMonitorConfiguration** 노드에 지정됨) 이
 - [PowerShell](cloud-services-diagnostics-powershell.md)을 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다. 
 - [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)를 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다. 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

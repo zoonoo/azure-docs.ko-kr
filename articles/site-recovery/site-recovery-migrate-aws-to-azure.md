@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Amazon 웹 서비스에서 Microsoft Azure에 Windows 가상 컴퓨터 마이그레이션"
+	pageTitle="Site Recovery를 사용하여 Amazon Web Services의 Windows 가상 컴퓨터를 Azure로 마이그레이션 | Microsoft Azure"
 	description="Azure Site Recovery를 사용하여 Amazon 웹 서비스(AWA)에서Azure에 실행되는 Windows 가상 컴퓨터를 마이그레이션합니다."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-#  Amazon 웹 서비스(AWS)에서 Azure에 Windows 가상 컴퓨터 마이그레이션
+#  Azure Site Recovery를 사용하여 AWS(Amazon Web Services)의 Windows 가상 컴퓨터를 Azure로 마이그레이션
 
 
 ## 개요
@@ -71,4 +71,4 @@ Azure Site Recovery는 여러 배포에서 가상 컴퓨터의 복제, 장애 �
 
 의견이나 질문은 [사이트 복구 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

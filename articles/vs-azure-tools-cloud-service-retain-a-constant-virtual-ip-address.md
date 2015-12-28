@@ -3,9 +3,9 @@
    description="Azure 클라우드 서비스의 가상 IP 주소(VIP)가 변경되지 않도록 하는 방법에 대해 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 클라우드 서비스에 대한 일정한 가상 IP 주소를 유지하는 방법
 
@@ -45,4 +45,4 @@ Azure에서 호스팅되는 클라우드 서비스를 업데이트하는 경우 
 
 Visual Studio에서 Azure로 게시하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램 마법사 게시](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

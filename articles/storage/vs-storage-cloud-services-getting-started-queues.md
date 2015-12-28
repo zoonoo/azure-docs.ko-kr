@@ -1,31 +1,22 @@
-<properties 
+<properties
     pageTitle="큐 저장소 및 Visual Studio 연결 서비스 시작(클라우드 서비스) | Microsoft Azure"
 	description="Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure 큐 저장소 사용을 시작하는 방법입니다."
-	services="storage" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor="tglee"/>
+	services="storage"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
+<tags
+	ms.service="storage"
+	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.devlang="na"
+	ms.topic="article"
+  ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-cloud-services-getting-started-queues.md)
-> - [What happened](vs-storage-cloud-services-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
-> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
 ## 개요
 
@@ -76,9 +67,9 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 코드에서 큐를 만들려면 **CreateIfNotExists**에 대한 호출을 추가합니다.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
 	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
@@ -90,7 +81,7 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 다음은 'Hello, World' 메시지를 삽입하는 예입니다.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' as described in 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue' as described in
     // the "Access queues in code" section.
 
 	// Create a message and add it to the queue.
@@ -101,9 +92,9 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 큐에서 메시지를 제거하지 않고도 **PeekMessage** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
@@ -116,9 +107,9 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 다음 코드에서는 메시지가 처리된 직후에 **DeleteMessage**를 호출합니다.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
 	// Get the next message in the queue.
 	CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
 
@@ -137,25 +128,25 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 예를 들면 다음과 같습니다.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
     foreach (CloudQueueMessage message in messageQueue.GetMessages(20, TimeSpan.FromMinutes(5)))
     {
         // Process all messages in less than 5 minutes, deleting each message after processing.
-    
+
         // Then delete the message after processing
         messageQueue.DeleteMessage(message);
-    
+
     }
 
 ## 큐 길이 가져오기
 
 큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. **FetchAttributes** 메서드는 메시지 수를 포함하여 큐 특성을 검색하도록 큐 서비스에 요청합니다. **ApproximateMethodCount** 속성은 큐 서비스를 호출하지 않고도 **FetchAttributes** 메서드를 통해 검색된 마지막 값을 반환합니다.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
 	// Fetch the queue attributes.
 	messageQueue.FetchAttributes();
 
@@ -169,9 +160,9 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 이 예에서는 일반적인 Azure 큐 API와 함께 Async-Await 패턴을 사용하는 방법을 보여 줍니다. 샘플은 지정된 각 메서드의 비동기 버전을 호출합니다. 이것은 각 메서드의 **Async** 사후 수정에서 확인할 수 있습니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async- Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 응용 프로그램의 전반적인 응답성을 향상시킵니다. .NET에서 Async-Await 패턴의 사용에 대한 자세한 내용은 [Async 및 Await(C# 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
 
@@ -191,15 +182,14 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 **Delete** 메서드를 호출합니다.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
     // Delete the queue.
     messageQueue.Delete();
 
 ## 다음 단계
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-			
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

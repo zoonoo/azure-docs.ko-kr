@@ -1,5 +1,5 @@
 <properties
-	pageTitle="복구 계획 만들기" 
+	pageTitle="복구 계획 만들기 | Microsoft Azure" 
 	description="Azure Site Recovery는 온-프레미스 서버에 있는 가상 컴퓨터와 Azure 또는 보조 데이터센터 간의 복제, 장애 조치(Failover) 및 복구를 조정합니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # 복구 계획 만들기
@@ -124,4 +124,4 @@ Azure 자동화 Runbook을 계획의 일환으로 실행하여 복구 계획을 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

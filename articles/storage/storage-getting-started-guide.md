@@ -101,6 +101,7 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하세�
 * [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
 * [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)
 * [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
+* [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 * [Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 * [Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [Azure 저장소 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
@@ -108,4 +109,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하세�
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

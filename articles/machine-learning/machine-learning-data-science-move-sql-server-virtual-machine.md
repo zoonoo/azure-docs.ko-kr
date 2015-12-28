@@ -131,7 +131,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 
 ### <a name="insert-tables-bulkquery"></a>대량 삽입 SQL 쿼리
 
-[대량 삽입 SQL 쿼리](https://msdn.microsoft.com/library/ms188365)를 사용하여 행/열 기반 파일의 데이터베이스로 데이터를 가져올 수 있습니다(지원되는 유형은 [여기](https://msdn.microsoft.com/library/ms188609)서 확인).
+[대량 삽입 SQL 쿼리](https://msdn.microsoft.com/library/ms188365)는 데이터를 행/열 기반 파일에서 데이터베이스로 가져오는 데 사용할 수 있습니다(지원되는 형식은 [대량 내보내기 또는 가져오기를 위한 데이터 준비(SQL Server)](https://msdn.microsoft.com/library/ms188609) 항목에서 설명).
 
 아래는 대량 삽입을 위한 몇 가지 샘플 명령입니다.
 
@@ -176,7 +176,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 
 ### <a name="export-flat-file"></a>플랫 파일로 내보내기
 
-[여기](https://msdn.microsoft.com/library/ms175937.aspx)에 설명된 것처럼 다양한 방법을 사용하여 온-프레미스 SQL Server의 데이터를 대량으로 내보낼 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
+[데이터의 대량 가져오기 및 내보내기(SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) 항목에 설명된 대로 온-프레미스 SQL Server에서 데이터를 대량으로 내보내는 데 다양한 방법을 사용할 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
 
 1. 다음과 같이 bcp 유틸리티를 사용하여 온-프레미스 SQL Server에서 파일로 데이터를 내보냅니다.
 
@@ -184,7 +184,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 
 2. 1단계에서 내보낸 테이블 스키마에 대해 `create database` 및 `create table`을 사용하여 Azure 기반의 SQL Server VM에 데이터베이스 및 테이블을 만듭니다.
 
-3. 내보내는/가져오는 데이터의 테이블 스키마를 설명하는 서식 파일을 만듭니다. 서식 파일에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/ms191516.aspx)에 설명되어 있습니다.
+3. 내보내는/가져오는 데이터의 테이블 스키마를 설명하는 서식 파일을 만듭니다. 서식 파일의 세부 정보는 [서식 파일 만들기(SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx)에 설명되어 있습니다.
 
 	SQL Server 컴퓨터에서 BCP를 실행하는 경우 서식 파일 생성
 
@@ -223,4 +223,4 @@ SQL Server는 다음을 지원합니다.
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

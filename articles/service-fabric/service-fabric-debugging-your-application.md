@@ -55,7 +55,7 @@
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
-- [서비스 패브릭 서비스 테스트](service-fabric-test-your-service-index.md)
+- [서비스 패브릭 서비스 테스트](service-fabric-testability-overview.md)
 - [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
@@ -64,6 +64,5 @@
 [viewdiagnosticevents]: ./media/service-fabric-debugging-your-application/viewdiagnosticevents.png
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

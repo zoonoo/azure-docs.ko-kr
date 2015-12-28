@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure에서 Visual Studio Team Services를 사용한 지속적인 업데이트"
+	pageTitle="Azure에서 Visual Studio Team Services를 사용한 지속적인 업데이트 | Microsoft Azure"
 	description="자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에서 웹앱에 배포되도록 Visual Studio Team Services 팀 프로젝트를 구성하는 방법을 알아봅니다."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/02/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 
 # Visual Studio Team Services를 사용한 지속적인 업데이트
 
@@ -22,8 +22,8 @@ Azure 웹앱 또는 클라우드 서비스에 자동으로 빌드 및 배포하�
 
 이 자습서에서는 Visual Studio 2013 및 Azure SDK가 설치되어 있다고 가정합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.
-> [Visual Studio Online 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다.
+> [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 
 Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
@@ -322,4 +322,4 @@ Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [�
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

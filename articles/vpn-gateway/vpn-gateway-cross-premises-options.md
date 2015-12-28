@@ -17,7 +17,7 @@
 
 # 가상 네트워크에 대한 보안 프레미스 간 연결 정보
 
-온-프레미스 사이트를 가상 네트워크에 안전하게 연결하려는 경우 [사이트 간](#site-to-site-connections), [지점 및 사이트 간](#point-to-site-connections), [Express 경로](#expressroute-connections)의 세 가지 옵션이 있습니다.
+온-프레미스 사이트를 가상 네트워크에 안전하게 연결하려는 경우 사이트 간, 지점 및 사이트 간, Express 경로의 세 가지 옵션이 있습니다.
 
 선택하는 옵션은 다음과 같은 다양한 고려 사항에 따라 달라질 수 있습니다.
 
@@ -31,21 +31,19 @@
 
 아래 표는 솔루션에 대한 최상의 연결 옵션을 결정하는 데 도움이 될 수 있습니다.
 
-| - | **지점 및 사이트 간** | **사이트 간** | **Express 경로 - EXP** | **Express 경로 - NSP** |
-|------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **Azure 지원 서비스** | 클라우드 서비스 가상 컴퓨터 | 클라우드 서비스 가상 컴퓨터 | [서비스 목록](../expressroute/expressroute-faqs.md#supported-azure-services) | [서비스 목록](../expressroute/expressroute-faqs.md#supported-azure-services) |
-| **일반 대역폭** | 일반적으로 100Mbps 미만 집계 | 일반적으로 100Mbps 미만 집계 | 200Mbps, 500Mbps, 1Gbps 및 10Gbps | 10Mbps, 50Mbps, 100Mbps, 500Mbps, 1Gbps |
-| **지원되는 프로토콜** | SSTP(Secure Sockets Tunneling Protocol) | [IPsec](http://go.microsoft.com/fwlink/p/?LinkId=618592) | VLAN을 통해 직접 연결 | NSP의 VPN 기술(예: MPLS, VPLS,...) |
-| **라우팅** | 고정 | 고정 – 정책 기반(고정 라우팅) 및 경로 기반(동적 라우팅 VPN) 지원 | BGP | BGP |
-| **연결 복원력** | 활성-수동 | 활성-수동 | 활성-활성 | 활성-활성 |
-| **일반 사용 사례** | 프로토타입, 클라우드 서비스 및 가상 컴퓨터에 대한 개발 / 테스트 / 랩 시나리오 | 클라우드 서비스 및 가상 컴퓨터에 대한 개발 / 테스트 / 랩 시나리오 및 소규모 프로덕션 작업 | 모든 Azure 서비스에 대한 액세스(유효성이 검사된 목록), 엔터프라이즈급 및 중요 업무용 작업, 백업, 빅 데이터, DR 사이트인 Azure | 모든 Azure 서비스(유효성이 검사된 목록)에 대한 액세스, 엔터프라이즈급 및 중요 업무용 작업, 백업, 빅 데이터, DR 사이트인 Azure |
-| **SLA** | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.Microsoft.com/support/legal/sla/) |
-| **가격 책정** | [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/expressroute/) | [가격 책정](http://azure.microsoft.com/pricing/details/expressroute/) |
-| **기술 문서** | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) | [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **FAQ** | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [Express 경로 FAQ](../expressroute/expressroute-faqs.md) | [Express 경로 FAQ](../expressroute/expressroute-faqs.md) |
-                                                                                 
 
-| - | **지점 및 사이트 간** | **사이트 간** | **Express 경로** | |------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------| | **Azure 지원 서비스** | 클라우드 서비스 및 가상 컴퓨터 | 클라우드 서비스 및 가상 컴퓨터 | [서비스 목록](../expressroute/expressroute-faqs.md#supported-services) | | **일반 대역폭** | 일반적으로 100Mbps 미만 집계 | 일반적으로 100Mbps 미만 집계 | 50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps | | **지원되는 프로토콜** | SSTP(Secure Sockets Tunneling Protocol) | IPsec | VLAN을 통해 직접 연결, NSP의 VPN 기술(예: MPLS, VPLS,...) | | **라우팅** | 경로 기반(동적) | 정책 기반(고정 라우팅) 및 경로 기반(동적 라우팅 VPN) 지원 | BGP | | **연결 복원력** | 활성-수동 | 활성-수동 | 활성-활성 | | **일반 사용 사례** | 프로토타입, 클라우드 서비스 및 가상 컴퓨터에 대한 개발 / 테스트 / 랩 시나리오 | 클라우드 서비스 및 가상 컴퓨터에 대한 개발 / 테스트 / 랩 시나리오 및 소규모 프로덕션 작업 | 모든 Azure 서비스에 대한 액세스(유효성이 검사된 목록), 엔터프라이즈급 및 중요 업무용 작업, 백업, 빅 데이터, DR 사이트인 Azure | | **SLA** | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | | **가격 책정** 가격 책정 [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/expressroute/) | | **기술 문서** | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) | | **FAQ ** | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [xpress 경로 FAQ](../expressroute/expressroute-faqs.md) |
+| - | **지점 및 사이트 간** | **사이트 간** | **Express 경로** | 
+|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------| 
+| **Azure 지원 서비스** | 클라우드 서비스 및 가상 컴퓨터 | 클라우드 서비스 및 가상 컴퓨터 | [서비스 목록](../expressroute/expressroute-faqs.md#supported-services) | 
+| **일반 대역폭** | 일반적으로 100Mbps 미만 집계 | 일반적으로 100Mbps 미만 집계 | 50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps | 
+| **지원되는 프로토콜** | SSTP(Secure Sockets Tunneling Protocol) | IPsec | VLAN을 통해 직접 연결, NSP의 VPN 기술(예: MPLS, VPLS,...) | 
+| **라우팅** | 경로 기반(동적) | 정책 기반(고정 라우팅) 및 경로 기반(동적 라우팅 VPN) 지원 | BGP | 
+| **연결 복원력** | 활성-수동 | 활성-수동 | 활성-활성 |
+| **일반 사용 사례** | 프로토타입, 클라우드 서비스 및 가상 컴퓨터에 대한 개발 / 테스트 / 랩 시나리오 | 클라우드 서비스 및 가상 컴퓨터에 대한 개발 / 테스트 / 랩 시나리오 및 소규모 프로덕션 작업 | 모든 Azure 서비스에 대한 액세스(유효성이 검사된 목록), 엔터프라이즈급 및 중요 업무용 작업, 백업, 빅 데이터, DR 사이트인 Azure | 
+| **SLA** | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | 
+| **가격 책정** 가격 책정 [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/expressroute/) | 
+| **기술 문서** | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) | 
+| **FAQ ** | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [xpress 경로 FAQ](../expressroute/expressroute-faqs.md) |
 
 
 ## 사이트 간 연결
@@ -101,4 +99,4 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 자세한 내용은 [Express 경로 FAQ](../expressroute/expressroute-faqs.md) 및 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="12/10/2015" 
 	ms.author="erikre"/>
 
 
@@ -91,7 +91,7 @@ Azure SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기�
 11. 관리자 **로그인 이름** 및 **암호**를 입력합니다. **New SQL Database server**를 선택한 경우 여기서 기존 이름과 암호를 입력하지 않고 나중에 데이터베이스에 액세스할 때 사용하기 위해 지금 정의하는 새 이름과 암호를 입력합니다. 이전에 만든 SQL Server를 선택한 경우 이전에 만든 SQL Server 계정 이름의 암호를 묻는 메시지가 표시됩니다. 이 자습서에서는 **고급** 확인란을 선택하지 않습니다.
 12. 확인란 오른쪽 맨 아래에 있는 확인 표시를 클릭하여 마쳤음을 표시합니다.
 
-**Azure 클래스 포털**은 **웹앱** 페이지로 돌아가게 해주고, **상태** 창에 사이트를 만드는 중이라고 표시됩니다. 잠시(일반적으로 1분 미만) 후에 **상태** 열에 사이트를 만들었다고 표시됩니다. 왼쪽의 탐색 모음에서 계정에 보유한 사이트 수가 **웹 앱** 아이콘 옆에 표시되고 데이터베이스 수가 **SQL 데이터베이스** 아이콘 옆에 표시됩니다.
+**Azure 클래식 포털**은 **웹앱** 페이지로 돌아가게 해주고, **상태** 열에 사이트를 만드는 중이라고 표시됩니다. 잠시(일반적으로 1분 미만) 후에 **상태** 열에 사이트를 만들었다고 표시됩니다. 왼쪽의 탐색 모음에서 계정에 보유한 사이트 수가 **웹 앱** 아이콘 옆에 표시되고 데이터베이스 수가 **SQL 데이터베이스** 아이콘 옆에 표시됩니다.
 ##ASP.NET Web Forms 응용 프로그램 만들기 
 웹 앱을 만들었지만 아직 콘텐츠가 없습니다. 다음 단계에서는 Azure에 게시할 Visual Studio 웹 앱을 만듭니다.
 ###프로젝트 만들기 
@@ -433,15 +433,11 @@ ASP.NET Web Forms는 멤버 자격 및 인증을 위해 개선된 옵션을 제�
 	다음으로, **Google 개발자 콘솔**이 표시됩니다. 
 	![Google 개발자 콘솔](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
 
-4. **Create Project** 단추를 클릭하여 프로젝트 이름 및 ID(기본값 사용 가능)를 입력합니다. 그리고 나서 **동의 확인란**과 **만들기** 단추를 클릭합니다.  
-	![Google - 새 프로젝트](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png)  
-	몇 초 내에 새 프로젝트가 만들어지고 브라우저에 새 프로젝트 페이지가 표시됩니다.
-5. 왼쪽 탭에서 **APIs & auth**를 클릭한 다음 **Credentials**를 클릭합니다.
-6. **OAuth**에서 **Create New Client ID**를 클릭합니다.  
-	**Create Client ID** 대화 상자가 표시됩니다.
-	![Google - 클라이언트 ID 만들기](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
+4. **프로젝트 선택** > **프로젝트 만들기**를 클릭하여 프로젝트 이름 및 ID(기본값 사용 가능)를 입력합니다. 그리고 나서 **동의 확인란**과 **만들기** 단추를 클릭합니다. ![Google - 새 프로젝트](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png) 몇 초 내에 새 프로젝트가 만들어지고 브라우저에 새 프로젝트 페이지가 표시됩니다.
+5. **Google 개발자 콘솔** 드롭다운 메뉴에서 **API 관리자**를 클릭한 다음 **자격 증명**을 클릭합니다.
+6. **OAuth**에서 **Create New Client ID**를 클릭합니다. **Create Client ID** 대화 상자가 표시됩니다. ![Google - 클라이언트 ID 만들기](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. **Create Client ID** 대화 상자에서 응용 프로그램 유형에 대한 기본값을 **웹 응용 프로그램**으로 유지합니다.  
-8. **Authorized JavaScript Origins**를 이 자습서의 앞부분에서 사용한 SSL URL로 설정합니다(다른 SSL 프로젝트를 만들지 않았다면 ****https://localhost:44300/**). 이 URL이 응용 프로그램의 원점입니다. 이 샘플의 경우 localhost 테스트 URL만 입력합니다. 그러나 실제로는 localhost 및 프로덕션을 담당할 URL을 여러 개 입력할 수 있습니다.
+8. **Authorized JavaScript Origins**를 이 자습서의 앞부분에서 사용한 SSL URL로 설정합니다(다른 SSL 프로젝트를 만들지 않았다면 **https://localhost:44300/**). 이 URL이 응용 프로그램의 원점입니다. 이 샘플의 경우 localhost 테스트 URL만 입력합니다. 그러나 실제로는 localhost 및 프로덕션을 담당할 URL을 여러 개 입력할 수 있습니다.  
 
 9. **Authorized Redirect URI**를 다음으로 설정합니다.
 
@@ -449,7 +445,7 @@ ASP.NET Web Forms는 멤버 자격 및 인증을 위해 개선된 옵션을 제�
 
 	이 값은 ASP.NET OAuth 사용자가 Google OAuth 서버와 통신하는 데 사용하는 URI입니다. 위에서 사용한 SSL URL을 기억해 두세요(다른 SSL 프로젝트를 만들지 않았다면 ****https://localhost:44300/**).
  
-10. **Create Client ID** 단추를 클릭합니다.
+10. **만들기** 단추를 클릭합니다.
 11. Visual Studio에서 **AppId** 및 **App Secret**을 복사하여 메서드에 붙여넣어 *Startup.Auth.cs* 페이지의 `UseGoogleAuthentication` 메서드를 업데이트합니다. 아래 표시된 **AppId** 및 **App Secret** 값은 샘플이며 작동하지 않습니다.  
 
 		using System;
@@ -703,10 +699,7 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 	![기존 웹 사이트 선택 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26.png)  
 7. **구성** 드롭다운 상자를 **디버그**로 설정합니다.
 8. **ApplicationDbContext** 옆에 있는 **아래쪽 화살표** 아이콘을 클릭하고 **ContactDB**로 설정합니다.
-9. **Execute Code First Migrations** 확인란을 선택합니다.  
-
-	>[AZURE.NOTE]  
-	이 예제에서는 응용 프로그램을 처음 게시할 때에만 이 확인란을 선택합니다. 이런 방식으로 *Configuration.cs* 파일의 *Seed* 메서드는 한 번만 호출됩니다.
+9. **Execute Code First Migrations** 확인란을 선택합니다. 이 예제에서는 응용 프로그램을 처음 게시할 때에만 이 확인란을 선택합니다. 이런 방식으로 *Configuration.cs* 파일의 *Seed* 메서드는 한 번만 호출됩니다.  
 
 10. 그런 다음 **게시**를 클릭합니다.  
 	응용 프로그램 Azure에 게시됩니다.
@@ -742,7 +735,7 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 3. 각 웹 앱 인스턴스를 마우스 오른쪽 단추로 클릭하고 **웹 앱 중지**를 선택합니다.  
 	![웹 사이트 중지 메뉴 항목](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26a.png)  
 
-	또는 Microsoft Azure 관리 포털에서 웹 앱을 선택하고 페이지 맨 아래에 있는 **중지** 아이콘을 클릭합니다.  
+	또는 Azure 클래식 포털에서 웹앱을 선택한 다음 페이지 맨 아래에 있는 **중지** 아이콘을 클릭합니다.
 	![새 연락처 추가 페이지](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
 
 ##데이터베이스 검토 
@@ -786,4 +779,4 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft A
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

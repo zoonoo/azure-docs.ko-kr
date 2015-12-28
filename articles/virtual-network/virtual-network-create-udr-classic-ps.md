@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 #PowerShell을 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
@@ -119,4 +119,4 @@ FW1 VM에 IP 전달을 사용하도록 설정하려면 다음 단계를 수행�
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

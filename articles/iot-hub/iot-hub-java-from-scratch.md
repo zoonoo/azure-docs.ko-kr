@@ -20,7 +20,7 @@
 
 이 문서는 Azure IoT Hub와의 통신을 위해서 [Java용 Microsoft Azure IoT 장치 SDK][lnk-java-sdk]를 사용하는 클라이언트 응용 프로그램을 만드는 방법을 설명합니다. 이 자습서는 [Maven][apache-maven] 도구를 사용하여 프로젝트를 만들고 빌드하는 방법을 보여줍니다. 이 지침은 Windows 또는 Linux 컴퓨터에서 따라 할 수 있습니다.
 
-Java API 문서는 [여기][lnk-java-api-docs]에서 찾을 수 있습니다.
+참조로 [Java API 문서][lnk-java-api-docs]를 볼 수 있습니다.
 
 ## 설치
 
@@ -214,7 +214,7 @@ Windows 또는 Linux의 개발 환경 설정 및 필수 구성 요소에 대한 
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]다양한 로깅 수준에 대한 설명은 [여기](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html)를 참조하세요.
+> [AZURE.NOTE]다양한 로깅 수준에 대한 설명은 [로깅 수준](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html)을 참조하세요.
 
 그 후, JVM 속성 `java.util.logging.config.file={Path to your config.properties file}`을 설정합니다.
 
@@ -229,4 +229,4 @@ AMQP 프레임을 로깅하려면 명령 환경에서 환경 변수를 `PN_TRACE
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

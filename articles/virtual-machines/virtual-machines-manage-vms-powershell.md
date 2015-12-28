@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="06/24/2015"
+   ms.date="12/07/2015"
    ms.author="kasing"/>
 
 # Azure PowerShell을 사용하여 가상 컴퓨터 관리
@@ -97,4 +97,12 @@ Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShel
 - 기존 부하 분산 집합의 구성원으로 만들기
 - 고정 IP 주소로 만들기
 
-<!---HONumber=Oct15_HO3-->
+## Linux 기반 VM 만들기
+
+[Azure Powershell을 사용하여 Linux 가상 컴퓨터를 만들고 미리 구성](virtual-machines-ps-create-preconfigure-linux-vms.md)의 지침을 사용하여 미리 구성된 Azure에 Linux 기반 가상 컴퓨터를 만듭니다.
+
+- 추가 디스크를 통해 만들기
+- 기존 부하 분산 집합의 구성원으로 만들기
+- 고정 IP 주소로 만들기
+
+<!---HONumber=AcomDC_1217_2015-->

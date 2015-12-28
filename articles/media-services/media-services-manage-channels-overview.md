@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="11/03/2015"  
+	ms.date="12/15/2015"  
 	ms.author="juliako"/>
 
 #온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
@@ -208,7 +208,7 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 중지 중|중지 중|없음(일시적인 상태)
 중지됨|중지됨|아니요
 
-###선택 캡션 및 광고 삽입 
+##<a id="cc_and_ads"></a>선택 캡션 및 광고 삽입 
 
 다음 표는 지원된 선택 캡션 및 광고 삽입 표준을 설명합니다.
 
@@ -240,7 +240,7 @@ SCTE-35|디지털 신호 시스템이 큐 광고 삽입에 사용됩니다. 다�
 
 ##온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널을 만드는 방법
 
-온-프레미스 라이브 인코더에 대한 자세한 내용은 [Azure 미디어 서비스에서 타사 라이브 인코더 사용](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/)(영문)을 참조하세요.
+온-프레미스 라이브 인코더에 대한 자세한 내용은 [Azure 미디어 서비스에서 타사 라이브 인코더 사용](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/)을 참조하세요.
 
 **포털**, **.NET**, **REST API**를 선택하여 채널과 프로그램을 만들고 관리하는 방법을 살펴봅니다.
 
@@ -269,4 +269,4 @@ SCTE-35|디지털 신호 시스템이 큐 광고 삽입에 사용됩니다. 다�
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

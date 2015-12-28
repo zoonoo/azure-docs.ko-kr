@@ -27,11 +27,9 @@ Microsoft Azure 포털은 모든 최신 데스크톱 및 태블릿 장치와 브
 다음과 같은 최신 버전 브라우저가 지원됩니다.
 
 - Edge(최신)
-- Internet Explorer(11 이상)
-- Safari(7 이상)
+- Internet Explorer 11
+- Safari(최신, Mac 전용)
 - Chrome(최신)
 - Firefox(최신)
 
-*Safari 6 이하는 지원되지 않습니다. OS X을 사용하는 경우 Chrome, Firefox를 사용하거나 OS X Mavericks로 업그레이드하여 Safari 7을 구할 수 있습니다.*
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

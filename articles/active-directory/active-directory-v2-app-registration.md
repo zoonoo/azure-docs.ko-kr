@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: Microsoft에 앱을 등록하는 방법
@@ -41,4 +41,4 @@ Microsoft 앱이 있다면, 앱 모델 v2.0을 작동시키는 빠른 시작 자
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

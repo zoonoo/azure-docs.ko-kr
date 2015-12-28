@@ -28,7 +28,7 @@
  
 ## Azure 앱 서비스의 인증 및 권한 부여
 
-이 자습서에 사용된 인증 기능에 대한 개요는 시리즈의 이전 자습서인 [Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여](app-service-api-dotnet-get-started.md)을 참조하세요.
+이 자습서에 사용된 인증 기능에 대한 개요는 시리즈의 이전 자습서인 [Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여](app-service-api-authentication.md)를 참조하세요.
 
 ## 이 자습서를 진행하는 방법
 
@@ -268,4 +268,4 @@ API 요청을 통한 로깅 및 인증 토큰을 포함하기 위한 추가 코�
 
 이 자습서에서는 인증된 사용자만 호출할 수 있도록 앱 서비스 인증/권한 부여를 사용하여 API 앱에 대한 액세스를 제한했습니다. 시리즈의 다음 자습서에서는 [서비스 간 시나리오에 대해 API 앱에 대한 액세스를 제한](app-service-api-dotnet-service-principal-auth.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

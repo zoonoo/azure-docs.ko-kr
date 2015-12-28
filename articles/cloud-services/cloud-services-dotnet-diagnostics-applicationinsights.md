@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Application Insights를 Azure 진단과 함께 사용하여 클라우드 서비스 문제 해결 | Microsoft Azure"
+   pageTitle="Application Insights를 사용하여 클라우드 서비스 문제 해결 | Microsoft Azure"
    description="Application Insights를 통해 Azure 진단의 데이터를 처리하여 클라우드 서비스 문제를 해결하는 방법에 대해 알아봅니다."
    services="cloud-services"
    documentationCenter=".net"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 
-# Application Insights를 Azure 진단과 함께 사용하여 클라우드 서비스 문제 해결
+# Application Insights를 사용하여 클라우드 서비스 문제 해결
 
 [Azure SDK 2.8](https://azure.microsoft.com/downloads/) 및 Azure 진단 확장 1.5를 사용하면 클라우드 서비스에 대한 Azure 진단 데이터를 Application Insights로 직접 보낼 수 있습니다. 응용 프로그램 로그, Windows 이벤트 로그, ETW 로그 및 성능 카운터를 포함하여 Azure 진단에서 수집한 다양한 형식의 로그를 Application Insights로 보내 Application Insights 포털 UI에서 시각화할 수 있습니다. Application Insights SDK와 함께 사용할 경우 응용 프로그램의 메트릭 및 로그뿐만 아니라 Azure 진단의 시스템 및 인프라 수준 데이터를 이해할 수 있습니다.
   
@@ -78,4 +78,4 @@ Application Insights에서 Azure 진단 데이터를 보려면 다음을 수행�
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

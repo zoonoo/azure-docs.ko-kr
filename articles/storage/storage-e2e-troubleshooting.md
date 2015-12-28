@@ -362,9 +362,9 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 - [저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)
 - [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)
-- [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 - [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

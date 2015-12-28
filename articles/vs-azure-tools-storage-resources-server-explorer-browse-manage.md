@@ -1,11 +1,11 @@
 <properties
-   pageTitle="서버 탐색기로 저장소 리소스 찾아보기 및 관리"
+   pageTitle="서버 탐색기로 저장소 리소스 찾아보기 및 관리 | Microsoft Azure"
    description="서버 탐색기로 저장소 리소스 찾아보기 및 관리"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 서버 탐색기로 저장소 리소스 찾아보기 및 관리
 
@@ -313,4 +313,4 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 Azure 저장소 서비스를 사용하는 방법에 대해 자세히 알아보려면 [Azure 저장소 서비스 액세스](https://msdn.microsoft.com/library/azure/ee405490.aspx)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

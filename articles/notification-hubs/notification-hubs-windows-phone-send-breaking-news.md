@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/15/2015" 
 	ms.author="wesmc"/>
 
 # 알림 허브를 사용하여 속보 보내기
@@ -25,7 +25,7 @@
 
 이 항목에서는 Azure 알림 허브를 사용하여 Windows Phone 8.0/8.1 Silverlight 앱에 속보 알림을 브로드캐스트하는 방법을 보여 줍니다. Windows 스토어 또는 Windows Phone 8.1 앱을 대상으로 하는 경우 [Windows 범용](notification-hubs-windows-store-dotnet-send-breaking-news.md) 섹션을 참조하세요. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 _태그_를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 지침]을 참조하십시오.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 _태그_를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [알림 허브 라우팅 및 태그 식](notification-hubs-routing-tag-expressions.md)을 참조하세요.
 
 ##필수 조건
 
@@ -67,58 +67,134 @@
 		using Microsoft.Phone.Notification;
 		using Microsoft.WindowsAzure.Messaging;
 		using System.IO.IsolatedStorage;
+		using System.Windows;
 
 3. 다음 코드를 새 **Notifications** 클래스에 추가합니다.
 
-		private NotificationHub hub;
+        private NotificationHub hub;
 
-		public Notifications()
-		{
-		    hub = new NotificationHub("<hub name>", "<connection string with listen access>");
-		}
+        // Registration task to complete registration in the ChannelUriUpdated event handler
+        private TaskCompletionSource<Registration> registrationTask;
 
-		public async Task StoreCategoriesAndSubscribe(IEnumerable<string> categories)
-		{
-		    var categoriesAsString = string.Join(",", categories);
-		    var settings = IsolatedStorageSettings.ApplicationSettings;
-		    if (!settings.Contains("categories"))
-		    {
-		        settings.Add("categories", categoriesAsString);
-		    }
-		    else
-		    {
-		        settings["categories"] = categoriesAsString;
-		    }
-		    settings.Save();
+        public Notifications(string hubName, string listenConnectionString)
+        {
+            hub = new NotificationHub(hubName, listenConnectionString);
+        }
 
-		    await SubscribeToCategories(categories);
-		}
+        public IEnumerable<string> RetrieveCategories()
+        {
+            var categories = (string)IsolatedStorageSettings.ApplicationSettings["categories"];
+            return categories != null ? categories.Split(',') : new string[0];
+        }
 
-		public async Task SubscribeToCategories(IEnumerable<string> categories)
-		{
-		    var channel = HttpNotificationChannel.Find("MyPushChannel");
+        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+        {
+            var categoriesAsString = string.Join(",", categories);
+            var settings = IsolatedStorageSettings.ApplicationSettings;
+            if (!settings.Contains("categories"))
+            {
+                settings.Add("categories", categoriesAsString);
+            }
+            else
+            {
+                settings["categories"] = categoriesAsString;
+            }
+            settings.Save();
 
-		    if (channel == null)
-		    {
-		        channel = new HttpNotificationChannel("MyPushChannel");
-		        channel.Open();
-		        channel.BindToShellToast();
-		    }
+            return await SubscribeToCategories();
+        }
 
-		    await hub.RegisterNativeAsync(channel.ChannelUri.ToString(), categories);
-		}
+        public async Task<Registration> SubscribeToCategories()
+        {
+            registrationTask = new TaskCompletionSource<Registration>();
 
-    이 클래스는 로컬 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
+            var channel = HttpNotificationChannel.Find("MyPushChannel");
 
-4. 위 코드에서 `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
+            if (channel == null)
+            {
+                channel = new HttpNotificationChannel("MyPushChannel");
+                channel.Open();
+                channel.BindToShellToast();
+                channel.ChannelUriUpdated += channel_ChannelUriUpdated;
 
-	> [AZURE.NOTE]클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 권한 키가 사용됩니다.
+				// This is optional, used to receive notifications while the app is running.
+                channel.ShellToastNotificationReceived += channel_ShellToastNotificationReceived;
+            }
 
-4. App.xaml.cs 프로젝트 파일에서 **App** 클래스에 다음 속성을 추가합니다.
+            // If channel.ChannelUri is not null, we will complete the registrationTask here.  
+			// If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
+            if (channel.ChannelUri != null)
+            {
+                await RegisterTemplate(channel.ChannelUri);
+            }
+            
+            return await registrationTask.Task;
+        }
 
-		public Notifications notifications = new Notifications();
+        async void channel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
+        {
+            await RegisterTemplate(e.ChannelUri);
+        }
 
-	이 속성은 **Notifications** 인스턴스를 만들고 액세스하는 데 사용됩니다.
+        async Task<Registration> RegisterTemplate(Uri channelUri)
+        {
+            // Using a template registration to support notifications across platforms.
+            // Any template notifications that contain messageParam and a corresponding tag expression
+            // will be delivered for this registration.
+
+            const string templateBodyMPNS = "<wp:Notification xmlns:wp="WPNotification">" +
+                                                "<wp:Toast>" +
+                                                    "<wp:Text1>$(messageParam)</wp:Text1>" +
+                                                "</wp:Toast>" +
+                                            "</wp:Notification>";
+
+			// The stored categories tags are passed with the template registration.
+
+            registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(), 
+				templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
+
+            return await registrationTask.Task;
+        }
+
+		// This is optional. It is used to receive notifications while the app is running.
+        void channel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
+        {
+            StringBuilder message = new StringBuilder();
+            string relativeUri = string.Empty;
+
+            message.AppendFormat("Received Toast {0}:\n", DateTime.Now.ToShortTimeString());
+
+            // Parse out the information that was part of the message.
+            foreach (string key in e.Collection.Keys)
+            {
+                message.AppendFormat("{0}: {1}\n", key, e.Collection[key]);
+
+                if (string.Compare(
+                    key,
+                    "wp:Param",
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.CompareOptions.IgnoreCase) == 0)
+                {
+                    relativeUri = e.Collection[key];
+                }
+            }
+
+            // Display a dialog of all the fields in the toast.
+            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() => 
+            { 
+                MessageBox.Show(message.ToString()); 
+            });
+        }
+
+
+    이 클래스는 격리된 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 또한 [템플릿](notification-hubs-templates.md) 알림 등록을 사용하여 이러한 범주에 등록하는 메서드가 포함됩니다.
+
+
+4. App.xaml.cs 프로젝트 파일에서 **App** 클래스에 다음 속성을 추가합니다. `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
+
+		public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+
+	> [AZURE.NOTE]클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.
 
 5. MainPage.xaml.cs에 다음 줄을 추가합니다.
 
@@ -128,17 +204,18 @@
 
 		private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
 		{
-		    var categories = new HashSet<string>();
-		    if (WorldCheckBox.IsChecked == true) categories.Add("World");
-		    if (PoliticsCheckBox.IsChecked == true) categories.Add("Politics");
-		    if (BusinessCheckBox.IsChecked == true) categories.Add("Business");
-		    if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
-		    if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
-		    if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
-
-		    await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-
-		    MessageBox.Show("Subscribed to: " + string.Join(",", categories));
+		  var categories = new HashSet<string>();
+		  if (WorldCheckBox.IsChecked == true) categories.Add("World");
+		  if (PoliticsCheckBox.IsChecked == true) categories.Add("Politics");
+		  if (BusinessCheckBox.IsChecked == true) categories.Add("Business");
+		  if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
+		  if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
+		  if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
+	
+		  var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
+	
+		  MessageBox.Show("Subscribed to: " + string.Join(",", categories) + " on registration id : " +
+			 result.RegistrationId);
 		}
 
 	이 메서드는 범주 목록을 만들고 **Notifications** 클래스를 사용하여, 로컬 저장소에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
@@ -151,25 +228,23 @@
 
 > [AZURE.NOTE]MPNS(Microsoft 푸시 알림 서비스)에서 할당하는 채널 URI는 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
 
-1. **Notifications** 클래스에 다음 코드를 추가합니다.
 
-		public IEnumerable<string> RetrieveCategories()
-		{
-		    var categories = (string)IsolatedStorageSettings.ApplicationSettings["categories"];
-		    return categories != null ? categories.Split(',') : new string[0];
-		}
+1. App.xaml.cs 파일을 열고 **async** 한정자를 **Application\_Launching** 메서드에 추가하고 [알림 허브 시작]에서 추가한 알림 허브 등록 코드를 다음 코드로 바꿉니다.
 
-	이렇게 하면 클래스에 정의된 범주가 반환됩니다.
+        private async void Application_Launching(object sender, LaunchingEventArgs e)
+        {
+            var result = await notifications.SubscribeToCategories();
 
-1. App.xaml.cs 파일을 열고 **async** 한정자를 **Application\_Launching** 메서드에 추가합니다.
-
-2. **Application\_Launching** 메서드에서 [알림 허브 시작]에서 추가한 알림 허브 등록 코드를 찾아 다음 코드 줄로 바꿉니다.
-
-		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
+            if (result != null)
+                System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    MessageBox.Show("Registration Id :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
+                });
+        }
 
 	이제 앱이 시작될 때마다 로컬 저장소에서 범주를 검색하고, 이러한 범주에 대한 등록을 요청하게 됩니다.
 
-3. MainPage.xaml.cs 프로젝트 파일에서 **OnNavigatedTo** 메서드를 구현하는 다음 코드를 추가합니다.
+2. MainPage.xaml.cs 프로젝트 파일에서 **OnNavigatedTo** 메서드를 구현하는 다음 코드를 추가합니다.
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
@@ -187,9 +262,9 @@
 
 이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 장치의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
-##백 엔드에서 알림 보내기
+##태그가 지정된 알림 보내기
 
-[AZURE.INCLUDE [notification-hubs-back-end](../../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ##앱 실행 및 알림 생성
 
@@ -205,13 +280,7 @@
 
 	![][2]
 
-4. 다음 방법 중 하나로 백 엔드에서 새 알림을 보냅니다.
-
-	+ **콘솔 앱:** 콘솔 앱을 시작합니다.
-
-	+ **Java/PHP:** 앱/스크립트를 실행합니다.
-
-	선택한 범주에 대한 알림이 알림 메시지로 나타납니다.
+3. 범주가 구독 완료되었다는 확인을 받은 후 각 범주에 대한 알림을 보내는 콘솔 앱을 실행합니다. 구독한 범주에 대한 알림만 받는지 확인합니다.
 
 	![][3]
 
@@ -249,7 +318,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

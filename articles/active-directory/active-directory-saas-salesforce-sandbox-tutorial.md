@@ -68,7 +68,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
     ![앱 URL 구성](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "앱 URL 구성")
 
-4. 디렉터리의 다른 Salesforce Sandbox 인스턴스에 대한 Single Sign-On을 이미 구성한 경우 **로그온 URL**과 같은 값으로 **발급자 URL**도 구성해야 합니다. 대화 상자의 **앱 URL 구성** 페이지에서 **고급 설정 표시** 확인란을 선택하여 **발급자 URL** 필드를 찾을 수 있습니다.
+4. 디렉터리의 다른 Salesforce Sandbox 인스턴스에 대한 Single Sign-On을 이미 구성한 경우 **로그온 URL**과 같은 값으로 **식별자**도 구성해야 합니다. 대화 상자의 **앱 URL 구성** 페이지에서 **고급 설정 표시** 확인란을 선택하여 **식별자** 필드를 찾을 수 있습니다.
 
 4.  **Salesforce Sandbox에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -190,4 +190,4 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,9 +3,9 @@
    description="프로젝트의 요구 사항에 따라 Visual Studio에서 Azure 클라우드 서비스 프로젝트를 구성하는 방법을 알아보세요."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Visual Studio에서 Azure 클라우드 서비스 프로젝트 구성
 
@@ -61,4 +61,4 @@
 
 Visual Studio에서 Azure 클라우드 서비스 프로젝트를 구성하는 방법을 자세히 알아보려면 [여러 서비스 구성을 사용하여 Azure 프로젝트 구성](vs-azure-tools-multiple-services-project-configurations.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

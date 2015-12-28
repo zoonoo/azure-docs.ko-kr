@@ -236,10 +236,10 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete\_blob** 
 -	[C++에서 Azure 저장소 리소스 나열](storage-c-plus-plus-enumeration.md)
 -	[C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
-
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

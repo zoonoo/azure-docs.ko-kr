@@ -84,7 +84,7 @@
 새 Azure Active Directory 앱이 만들어졌습니다. 이 앱을 Azure 포털의 Office 365 사용자 API 구성에서 사용할 수 있습니다.
 
 ## 요약 및 다음 단계
-이 항목에서는 PowersApps 엔터프라이즈에 Office 365 Outlook API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
+이 항목에서는 PowersApps 엔터프라이즈에 Office 365 사용자 API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
 
 [연결 추가 및 사용자에게 액세스 권한 부여](powerapps-manage-api-connection-user-access.md)
 
@@ -101,9 +101,5 @@
 [9]: ./media/powerapps-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
-[12]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users.PNG
-[13]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users-permissions.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

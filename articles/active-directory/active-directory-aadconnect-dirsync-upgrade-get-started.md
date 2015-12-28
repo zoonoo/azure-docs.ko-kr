@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect: Windows Azure AD 동기화 도구(DirSync)에서 업그레이드 | Microsoft Azure"
+   pageTitle="Azure AD Connect: Microsoft Azure AD 동기화 도구(DirSync)에서 업그레이드 | Microsoft Azure"
    description="DirSync에서 Azure AD Connect로 업그레이드하는 방법을 알아봅니다. 이 문서에서는 현재 Microsoft Azure AD 동기화 도구(DirSync)에서 Azure AD Connect로 업그레이드하는 단계를 설명합니다."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/02/2015"
+   ms.date="12/16/2015"
    ms.author="shoatman;billmath"/>
 
-# Windows Azure Active Directory 동기화(DirSync)를 Azure AD Connect로 업그레이드
+# Microsoft Azure Active Directory 동기화(DirSync)를 Azure AD Connect로 업그레이드
 
 다음 설명서를 참조하여 기존 DirSync 설치를 Azure AD Connect로 업그레이드할 수 있습니다.
 
@@ -56,6 +56,7 @@
 - 대체 ID(UPN)
 - 암호 동기화 및 Exchange 하이브리드 설정
 - 포리스트/도메인 및 Azure AD 설정
+- 사용자 특성에 기반하여 필터링
 
 다음의 변경 내용은 업그레이드될 수 없습니다. 이러한 변경을 수행한 경우 업그레이드가 차단됩니다.
 
@@ -63,9 +64,7 @@
 
 이러한 경우 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)에서 새 Azure AD Connect 서버를 설치하고 이전 DirSync 및 새 Azure AD Connect 구성을 확인하는 것이 좋습니다. [Azure AD Connect 동기화 사용자 지정 구성](active-directory-aadconnectsync-whatis.md)에서 설명한 대로 사용자 지정 구성을 사용하여 변경 내용을 다시 적용합니다.
 
-
 - 지원되지 않는 DirSync 변경 내용, 예: 제거된 특성 및 사용자 지정 확장 DLL 사용
-- 사용자 특성에 기반하여 필터링
 
 서비스 계정에 DirSync에서 사용한 암호는 검색할 수 없고 마이그레이션되지 않습니다. 이러한 암호는 업그레이드하는 동안 다시 설정됩니다.
 
@@ -198,4 +197,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1217_2015-->

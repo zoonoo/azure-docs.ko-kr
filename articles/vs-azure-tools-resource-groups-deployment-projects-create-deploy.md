@@ -3,9 +3,9 @@
    description="Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
@@ -196,4 +196,4 @@ TFS 자동화된 빌드 및 Microsoft 내 다른 프로젝트에서 명명 규�
 
 Visual Studio에서 Azure 리소스 그룹에 리소스를 추가하는 방법은 [Visual Studio를 사용하여 리소스 관리자 템플릿 편집](vs-azure-tools-resource-group-adding-resources.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

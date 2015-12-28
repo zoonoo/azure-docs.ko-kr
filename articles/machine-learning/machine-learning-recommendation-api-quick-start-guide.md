@@ -18,7 +18,7 @@
 
 # 기계 학습 권장 사항 API에 대한 빠른 시작 가이드
 
-이 문서에서는 Microsoft Azure 기계 학습 권장 사항을 사용하도록 서비스나 응용 프로그램을 등록하는 방법에 대해 설명합니다.
+이 문서에서는 Microsoft Azure 기계 학습 권장 사항을 사용하도록 서비스나 응용 프로그램을 등록하는 방법에 대해 설명합니다. 권장 사항 API에 대한 자세한 내용은 [갤러리](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)에서 확인할 수 있습니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -34,7 +34,7 @@ Azure 기계 학습 권장 사항을 사용하려면 다음 단계를 수행해�
 * 권장 사항 모델 작성 - 이 단계는 권장 사항 시스템이 모든 사용 데이터를 이용하여 권장 사항 모델을 만드는 비동기 작업입니다. 이 작업은 데이터 크기 및 빌드 구성 매개 변수에 따라 몇 분이나 몇 시간이 걸릴 수 있습니다. 빌드를 트리거하면 빌드 ID가 제공됩니다. 이 빌드 ID를 사용하여 권장 사항 소비를 시작하기 전에 빌드 프로세스가 종료된 시간을 확인합니다.
 * 권장 사항 소비 – 특정 항목 또는 항목 목록에 대한 권장 사항을 가져옵니다.
 
-위의 모든 단계는 Azure 기계 학습 권장 사항 API를 통해 수행됩니다.
+위의 모든 단계는 Azure 기계 학습 권장 사항 API를 통해 수행됩니다. 이러한 각 단계를 구현하는 응용 프로그램 예제를 [갤러리에서도](http://1drv.ms/1xeO2F3) 다운로드할 수 있습니다.
 
 ##제한 사항
 
@@ -47,24 +47,23 @@ Azure 기계 학습 권장 사항을 사용하려면 다음 단계를 수행해�
 ##통합
 
 ###인증
-Microsoft Azure 마켓플레이스에서는 기본 또는 OAuth 인증 방법을 지원합니다.
+Microsoft Azure 마켓플레이스에서는 기본 또는 OAuth 인증 방법을 지원합니다. 마켓플레이스의 [계정 설정](https://datamarket.azure.com/account/keys)에서 키로 이동하여 계정 키를 쉽게 찾을 수 있습니다.
 ####기본 인증
 인증 헤더 추가:
 
 	Authorization: Basic <creds>
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 	
 Base64로 변환(C#)
 
-	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
 	
 Base64로 변환(JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-[여기](https://datamarket.azure.com/account/keys)에서 계정 키를 가져옵니다.
 
 
 
@@ -685,4 +684,4 @@ OData XML
 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다. 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="동일한 구독에 있는 VNet에 대해 Azure 리소스 관리자 및 PowerShell을 사용하여 VNet 간 연결 만들기 | Microsoft Azure"
+   pageTitle="동일한 구독에 있는 VNet에 대해 Azure 리소스 관리자 및 PowerShell을 사용하여 VNet 간 VPN 게이트웨이 연결 만들기 | Microsoft Azure"
    description="이 문서에서는 Azure 리소스 관리자 및 PowerShell을 사용하여 가상 네트워크를 함께 연결하는 과정을 안내합니다."
    services="vpn-gateway"
    documentationCenter="na"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="12/14/2015"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 동일한 구독에서 가상 네트워크의 VNet 간 연결 구성
@@ -23,19 +23,23 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-이 문서는 리소스 관리자 배포 모델을 사용하는 단계를 안내합니다. 위에 있는 탭을 사용하여 배포 모델 및 배포 도구에 대한 문서를 선택할 수 있습니다. 현재 다른 구독에 있는 리소스 관리자 배포 방법을 사용하여 만든 가상 네트워크에 대한 VNET 간 연결을 위한 솔루션은 없습니다. 팀은 현재 솔루션을 준비 중이며 올해 안에 마무리되기를 기대하고 있습니다. 사용 가능하게 되면 이 문서에서 해당 절차를 반영할 것입니다. 아래 단계는 동일한 구독에 있는 VNET에 적용됩니다.
+이 문서는 리소스 관리자 배포 모델을 사용하는 단계를 안내합니다. 이 구성에 대한 다른 배포 모델을 찾고 있다면 위의 탭을 사용하여 원하는 문서를 선택합니다.
 
-클래식 배포 모델을 통해 가상 네트워크를 만든 경우 [ VNet 간 연결 만들기](virtual-networks-configure-vnet-to-vnet-connection.md)를 참조하세요. 클래식 배포 모델에서는 다른 구독에 있는 VNET 연결을 지원합니다.
+현재 다른 구독에 있는 리소스 관리자 배포 방법을 사용하여 만든 가상 네트워크에 대한 VNET 간 연결을 위한 솔루션은 없습니다. 팀에서 현재 솔루션을 준비 중이며 올해 안이나 내년 초에 마무리되기를 기대하고 있습니다. 사용 가능하게 되면 이 문서에서 해당 절차를 반영할 것입니다. 아래 단계는 동일한 구독에 있는 VNET에 적용됩니다.
 
-클래식 배포 모델에서 만든 가상 네트워크를 Azure 리소스 관리자에서 만든 가상 네트워크에 연결하려는 경우 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+**Azure 배포 모델 정보**
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+	
+- 클래식 배포 모델을 통해 가상 네트워크를 만든 경우 [ VNet 간 연결 만들기](virtual-networks-configure-vnet-to-vnet-connection.md)를 참조하세요. 클래식 배포 모델에서는 다른 구독에 있는 VNET 연결을 지원합니다.
+	
+- 클래식 배포 모델에서 만든 가상 네트워크를 Azure 리소스 관리자에서 만든 가상 네트워크에 연결하려는 경우 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+
+## 연결 다이어그램
 
 가상 네트워크를 다른 가상 네트워크에 연결(VNet-VNet)하는 것은 VNet을 온-프레미스 사이트 위치에 연결하는 것과 매우 유사합니다. 두 연결 유형 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. 연결하는 VNet은 서로 다른 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. 이렇게 하면 아래 다이어그램에 표시된 것처럼 크로스-프레미스 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
-
 ![VNet 간 연결 다이어그램](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
-
  
 ## 가상 네트워크에 연결하는 이유
 
@@ -82,7 +86,11 @@
 
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-- Azure PowerShell cmdlet(1.0 이상). [다운로드 페이지](http://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다.
+## PowerShell 모듈 설치
+
+연결을 구성하려면 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet이 필요합니다.
+
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
 
 ## 1\. IP 주소 범위 계획
@@ -255,8 +263,6 @@ VNet에 게이트웨이 서브넷을 추가해야 하는 경우 아래 샘플을
 
 ## 다음 단계
 
-가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [가상 컴퓨터를 만듭니다](../virtual-machines/virtual-machines-windows-tutorial.md).
+연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/03/2015"
+   ms.date="12/11/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 통계 관리
@@ -381,7 +381,7 @@ JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
 JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
 JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
 WHERE   1=1 
-AND     sts.[user_created] = 1
+AND     st.[user_created] = 1
 ;
 ```
 
@@ -459,4 +459,4 @@ DBCC SHOW\_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1217_2015-->

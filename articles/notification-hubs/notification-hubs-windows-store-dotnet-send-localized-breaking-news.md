@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="12/15/2015" 
 	ms.author="wesmc"/>
 
 # 알림 허브를 사용하여 지역화된 속보 보내기
@@ -39,7 +39,7 @@
 
 [알림 허브를 사용하여 속보 보내기] 자습서를 이미 완료하고 사용 가능한 코드가 있어야 합니다. 이 자습서는 해당 코드를 기반으로 직접 빌드됩니다.
 
-Visual Studio 2012도 필요합니다.
+Visual Studio 2012 이상도 필요합니다.
 
 
 ##템플릿 개념
@@ -56,7 +56,7 @@ Visual Studio 2012도 필요합니다.
 		"News_Mandarin": "..."
 	}
 
-그런 다음 올바른 속성을 참조하는 템플릿을 사용하여 장치가 등록되도록 합니다. 예를 들어 간단한 알림 메시지를 받으려는 Windows 스토어 앱에 다음 템플릿을 등록합니다.
+그런 다음 올바른 속성을 참조하는 템플릿을 사용하여 장치가 등록되도록 합니다. 예를 들어 간단한 알림 메시지를 받으려는 Windows 스토어 앱에 해당 태그가 있는 다음 템플릿을 등록합니다.
 
 	<toast>
 	  <visual>
@@ -68,16 +68,12 @@ Visual Studio 2012도 필요합니다.
 
 
 
-템플릿은 매우 강력한 기능입니다. 자세한 내용은 [알림 허브 지침] 문서를 참조하십시오. 템플릿 표현 언어에 대한 참조는 [Windows 스토어용 알림 허브 방법]을 참조하십시오.
+템플릿은 매우 강력한 기능입니다. 자세한 내용은 [템플릿](notification-hubs-templates.md) 문서를 참조하세요.
 
 
 ##앱 사용자 인터페이스
 
 이제 템플릿을 사용하여 지역화된 속보를 보내도록, [알림 허브를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정합니다.
-
-
-지역화된 메시지를 받도록 클라이언트 앱을 조정하려면 *기존* 등록(즉, 템플릿을 지정한 등록)을 템플릿 등록으로 바꾸어야 합니다.
-
 
 Windows 스토어 앱에서
 
@@ -109,29 +105,37 @@ Windows 스토어 앱에서
         <ToggleSwitch Header="Technology" Name="TechnologyToggle" Grid.Row="2" Grid.Column="1"/>
         <ToggleSwitch Header="Science" Name="ScienceToggle" Grid.Row="3" Grid.Column="1"/>
         <ToggleSwitch Header="Sports" Name="SportsToggle" Grid.Row="4" Grid.Column="1"/>
-        <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
+        <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
 
 ##Windows 스토어 클라이언트 앱 빌드
 
 1. Notifications 클래스에서 *StoreCategoriesAndSubscribe* 및 *SubscribeToCateories* 메서드에 로캘 매개 변수를 추가합니다.
 
-		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
+        public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
             ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-            await SubscribeToCategories(locale, categories);
+            return await SubscribeToCategories(categories);
         }
 
-        public async Task SubscribeToCategories(string locale, IEnumerable<string> categories)
+        public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-            var template = String.Format(@"<toast><visual><binding template=""ToastText01""><text id=""1"">$(News_{0})</text></binding></visual></toast>", locale);
 
-            await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
+            if (categories == null)
+            {
+                categories = RetrieveCategories();
+            }
+
+            // Using a template registration. This makes supporting notifications across other platforms much easier.
+            // Using the localized tags based on locale selected.
+            string templateBodyWNS = String.Format("<toast><visual><binding template="ToastText01"><text id="1">$(News_{0})</text></binding></visual></toast>", locale);
+
+            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
         }
 
-	여기서는 템플릿이 로캘에 따라 달라지는 특정 알림 형식을 등록할 것이기 때문에 *RegisterNativeAsync* 메서드를 호출하는 대신 *RegisterTemplateAsync*를 호출합니다. 또한 알림 메시지용 템플릿, 타일 알림용 템플릿 등 여러 템플릿을 등록할 수도 있으므로 템플릿의 이름("newsTemplate")을 제공합니다. 그런 다음 템플릿을 업데이트하거나 삭제하려면 해당 이름을 지정해야 합니다.
+	여기서는 템플릿이 로캘에 따라 달라지는 특정 알림 형식을 등록할 것이기 때문에 *RegisterNativeAsync* 메서드를 호출하는 대신 *RegisterTemplateAsync*를 호출합니다. 또한 알림 메시지용 템플릿, 타일 알림용 템플릿 등 여러 템플릿을 등록할 수도 있으므로 템플릿의 이름("localizedWNSTemplateExample")을 제공합니다. 그런 다음 템플릿을 업데이트하거나 삭제하려면 해당 이름을 지정해야 합니다.
 
 	장치에서 동일한 태그로 여러 템플릿을 등록한 경우 해당 태그를 대상으로 하는 수신 메시지는 템플릿별로 하나씩 여러 알림을 장치에 제공합니다. 이 동작은 동일한 논리 메시지로 여러 시각적 알림을 나타내야 하는 경우(예: Windows 스토어 응용 프로그램에 배지와 알림을 모두 표시해야 하는 경우)에 유용합니다.
 
@@ -145,25 +149,42 @@ Windows 스토어 앱에서
 
 3. MainPage.xaml.cs에서 아래와 같이 로캘 콤보 상자의 현재 값을 검색한 후 Notifications 클래스에 대한 호출에 값을 제공하여 단추 클릭 처리기를 업데이트합니다.
 
-		 var locale = (string)Locale.SelectedItem;
+        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var locale = (string)Locale.SelectedItem;
 
-         var categories = new HashSet<string>();
-         if (WorldToggle.IsOn) categories.Add("World");
-         if (PoliticsToggle.IsOn) categories.Add("Politics");
-         if (BusinessToggle.IsOn) categories.Add("Business");
-         if (TechnologyToggle.IsOn) categories.Add("Technology");
-         if (ScienceToggle.IsOn) categories.Add("Science");
-         if (SportsToggle.IsOn) categories.Add("Sports");
+            var categories = new HashSet<string>();
+            if (WorldToggle.IsOn) categories.Add("World");
+            if (PoliticsToggle.IsOn) categories.Add("Politics");
+            if (BusinessToggle.IsOn) categories.Add("Business");
+            if (TechnologyToggle.IsOn) categories.Add("Technology");
+            if (ScienceToggle.IsOn) categories.Add("Science");
+            if (SportsToggle.IsOn) categories.Add("Sports");
 
-         await ((App)Application.Current).Notifications.StoreCategoriesAndSubscribe(locale, categories);
+            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(locale,
+				 categories);
 
-         var dialog = new MessageDialog(String .Format("Locale: {0}; Subscribed to: {1}", locale, string.Join(",", categories)));
-         dialog.Commands.Add(new UICommand("OK"));
-         await dialog.ShowAsync();
+            var dialog = new MessageDialog("Locale: " + locale + " Subscribed to: " + 
+				string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
+        }
 
-4. 마지막으로 App.xaml.cs 파일의 *OnLaunched* 메서드에서 알림 단일 항목에 대한 호출을 업데이트해야 합니다.
 
-		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
+4. 마지막으로 App.xaml.cs 파일에서 로캘을 검색하고 구독할 때 사용하도록 `InitNotificationsAsync` 메서드를 업데이트해야 합니다.
+
+        private async void InitNotificationsAsync()
+        {
+            var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
+
+            // Displays the registration ID so you know it was successful
+            if (result.RegistrationId != null)
+            {
+                var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
 
 
 ##백 엔드에서 지역화된 알림 보내기
@@ -174,9 +195,6 @@ Windows 스토어 앱에서
 
 
 
-## 다음 단계
-
-템플릿 사용에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림: ASP.NET], [알림 허브를 통해 사용자에게 알림: 모바일 서비스] 및 [알림 허브 지침]을 참조하세요. 템플릿 표현 언어에 대한 자세한 내용은 [Windows 스토어용 알림 허브 방법]을 참조하십시오.
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -187,30 +205,10 @@ Windows 스토어 앱에서
 
 <!-- Images. -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[알림 허브를 통해 사용자에게 알림: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[알림 허브를 통해 사용자에게 알림: 모바일 서비스]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
 [알림 허브를 사용하여 속보 보내기]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
@@ -225,8 +223,8 @@ Windows 스토어 앱에서
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

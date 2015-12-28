@@ -108,10 +108,10 @@ Azure IaaS(Windows) 진단 패키지를 실행할 수 없거나 실행해도 문
 
 ## 추가 리소스
 
-[Azure VM 확장 및 기능](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+[Azure VM 확장 및 기능](virtual-machines-extensions-features.md)
 
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
