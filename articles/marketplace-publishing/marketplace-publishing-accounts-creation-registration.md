@@ -164,8 +164,8 @@ Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 
 || 가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
 |----|-----|-----|-----|-----|
 |**2단계: 제품 만들기** |[일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 구성 요소](marketplace-publishing-pre-requisites.md)|
-|| [VM 이미지 필수 기술][link-single-vm-prereq] | 개발자 서비스 필수 기술 구성 요소 | 데이터 서비스 필수 기술 구성 요소 | [솔루션 템플릿 필수 기술 구성 요소](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | 데이터 서비스 게시 가이드 | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |
+|| [VM 이미지 필수 기술][link-single-vm-prereq] | 개발자 서비스 필수 기술 구성 요소 | [데이터 서비스 필수 기술 구성 요소](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 필수 기술 구성 요소](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md) | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |
 || [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] |
 
 ## 참고 항목
