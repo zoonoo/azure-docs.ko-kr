@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2015"
+ ms.date="12/15/2015"
  ms.author="dobett"/>
 
 # IoT Hub에 대한 액세스 구성 및 관리
@@ -42,11 +42,11 @@ IoT Hub에 등록된 장치만 해당 IoT Hub와 통신할 수 있습니다. 등
 이 문서는 IT 전문가 및 개발자를 위해 개발 및 테스트 환경을 구성하는 특정 정보를 포함합니다. Azure IoT Hub 서비스에 대한 자세한 내용을 보려면 다음 링크를 따라가세요.
 
 - [IoT Hub Azure란?][lnk-iothub]
-- [Azure IoT Hub 개발자 가이드의 "보안"][lnk-devguide] 섹션에서 IoT Hub의 토큰 및 권한 시스템에 대한 추가 정보를 제공합니다.
+- [Azure IoT Hub 개발자 가이드의 보안 섹션][lnk-devguide]에서 IoT Hub의 토큰 및 권한 시스템에 대한 추가 정보를 제공합니다.
 - [Azure 포털을 통해 IoT Hub 관리][lnk-manage-portal]에서 Azure 포털을 사용하여 IoT Hub를 관리하는 방법을 설명합니다.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -54,10 +54,9 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 서버를 포함 하는 리소스 그룹을 만듭니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다.
 
-유효한 Azure SQL 데이터베이스의 목록에 대한 서버 위치는 다음 cmdlet을 실행합니다.
+유효한 Azure SQL 데이터베이스 서버 위치 목록을 보려면 다음 cmdlet을 실행합니다.
 
-	$AzureSQLLocations = Get-AzureRmLocation | Where-Object Name -Like "*SQL/Servers"
-	$AzureSQLLocations.Locations
+	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
 이미 리소스 그룹이 있다면 서버를 만드는 단계로 건너뛰거나, 아래 명령을 실행하여 새 리소스 그룹을 만들 수 있습니다.
 
@@ -128,4 +127,4 @@ Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 
 
 - [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

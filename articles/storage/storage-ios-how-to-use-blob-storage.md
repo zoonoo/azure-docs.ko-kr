@@ -350,6 +350,7 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 
 - [Azure 저장소 iOS 라이브러리]
 - [Azure 저장소 REST API]
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 - [Azure 저장소 팀 블로그]
 
 이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure 저장소에 대한 기능 제안 사항이 있는 경우 [Azure 저장소 피드백](http://feedback.azure.com/forums/217298-storage)에 게시해 주세요.
@@ -358,4 +359,4 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 [Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -20,12 +20,18 @@
 # Azure 포털을 사용하여 Linux를 실행하는 가상 컴퓨터 만들기
 
 > [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+<br>
 
-Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 쉽습니다. 이 자습서에서는 Azure 포털을 사용하여 Linux를 실행하는 Azure 가상 컴퓨터를 빨리 만드는 방법과 `~/.ssh/id_rsa.pub`공개 키 파일을 사용하여 VM에 연결된 **SSH** 연결 보안을 설정하는 방법을 보여줍니다. [사용자 고유의 이미지를 템플릿](virtual-machines-linux-create-upload-vhd.md)으로 사용하여 Linux VM을 만들 수도 있습니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+
+Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 쉽습니다. 이 자습서에서는 Azure 포털을 사용하여 Linux를 실행하는 Azure 가상 컴퓨터를 빨리 만드는 방법과 `~/.ssh/id_rsa.pub` 공개 키 파일을 사용하여 VM에 연결된 **SSH** 연결 보안을 설정하는 방법을 보여줍니다. [사용자 고유의 이미지를 템플릿](virtual-machines-linux-create-upload-vhd.md)으로 사용하여 Linux VM을 만들 수도 있습니다.
 
 > [AZURE.NOTE]이 자습서에서는 Azure 리소스 그룹 API에 의해 관리되는 Azure 가상 컴퓨터를 만듭니다. 자세한 내용은 [ Azure 리소스 그룹 개요](resource-group-overview.md)를 참조하세요.
 
@@ -71,7 +77,7 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 
 	![만들기 요약](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
 
-8. Azure에서 VM을 만드는 동안 허브 메뉴의 **알림**에서 진행 상황을 확인할 수 있습니다. Azure에서 VM을 만든 후에, **가상 컴퓨터 만들기** 블레이드에서 **시작 보드에 고정**을 해제하지 않으면, 시작 보드에서 해당 VM을 볼 수 있습니다.
+8. Azure에서 VM을 만드는 동안 허브 메뉴의 **알림**에서 진행 상황을 확인할 수 있습니다. Azure에서 VM을 만든 후 **가상 컴퓨터 만들기** 블레이드에서 **시작 보드에 고정**을 해제하지 않으면 시작 보드에서 해당 VM을 볼 수 있습니다.
 
 	> [AZURE.NOTE]요약에는 서비스 관리 계산 스택을 사용하여 클라우드 서비스 내부에 VM이 만들어진 때와 같은 방식으로 공용 DNS 이름이 포함되지 않습니다.
 
@@ -116,7 +122,7 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE]또한 포털에서 가상 컴퓨터에 정규화된 도메인 이름 (FQDN)을 구성할 수 있습니다. [여기](virtual-machines-create-fqdn-on-portal.md)서 FQDN에 대해 자세히 알아봅니다.
+> [AZURE.NOTE]또한 포털에서 가상 컴퓨터에 정규화된 도메인 이름 (FQDN)을 구성할 수 있습니다. [포털에서 FQDN 만들기](virtual-machines-create-fqdn-on-portal.md)에 대해 자세히 알아봅니다.
 
 ## 다음 단계
 
@@ -130,4 +136,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

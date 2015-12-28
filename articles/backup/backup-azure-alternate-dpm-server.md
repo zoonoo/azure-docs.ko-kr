@@ -7,12 +7,19 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="giridham"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/10/2015"
+	ms.author="giridham;jimpark"/>
 
 # 백업 저장소의 다른 DPM 서버에서 데이터 복구
 이제 Azure 백업 저장소에 보호해 둔 데이터를 해당 저장소에 등록된 모든 DPM 서버에서 복구할 수 있습니다. 이를 위한 절차는 DPM 관리 콘솔에 완전히 통합되었으며 다른 복구 워크플로와 비슷합니다.
 
-백업 저장소에 있는 다른 DPM 서버에서 데이터를 복구하려면 [System Center Data Protection Manager UR7](https://support.microsoft.com/en-us/kb/3065246)과 [최신 Azure 백업 에이전트](http://aka.ms/azurebackup_agent)가 필요합니다.
+백업 저장소에 있는 다른 DPM 서버에서 데이터를 복구하려면 [System Center Data Protection Manager UR7](https://support.microsoft.com/ko-KR/kb/3065246)과 [최신 Azure 백업 에이전트](http://aka.ms/azurebackup_agent)가 필요합니다.
 
 ## 다른 DPM 서버에서 데이터 복구
 다른 DPM 서버에서 데이터를 복구하려면:
@@ -21,7 +28,7 @@
 
     ![외부 DPM 추가](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 
-2. 데이터를 복구할 DPM 서버의 **저장소 자격 증명**을 입력합니다. 백업 저장소에 등록된 DPM 서버 목록에서 **DPM 서버**를 선택하고 데이터를 복구할 DPM 서버에 연결된 **암호화 암호**를 입력하면 됩니다.
+2. 데이터를 복구할 **DPM 서버**와 연결된 자격 증명 모음에서 새 **보관 자격 증명**을 다운로드하고, 백업 자격 증명 모음에 등록된 DPM 서버 목록에서 DPM 서버를 선택하고, 데이터를 복구할 DPM 서버에 연결된 **암호화 암호**를 제공합니다.
 
     ![외부 DPM 자격 증명](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
@@ -94,6 +101,6 @@
     ![외부 DPM 지우기](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 
 ## 다음 단계:
-• [Azure 백업 FAQ](backup-azure-backup-faq.md)
+[Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

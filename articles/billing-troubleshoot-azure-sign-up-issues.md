@@ -60,4 +60,4 @@ Azure 사용 약관에는 이전에 Azure를 사용하지 않은 사용자에게
 ## 여전히 등록할 수 없습니까?
 여전히 등록 문제를 경험하거나 이 문서에서 문제를 다루지 않은 경우 지원에 대해서는 [Azure 지원에 문의](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하십시오.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

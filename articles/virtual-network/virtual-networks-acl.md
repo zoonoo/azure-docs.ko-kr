@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 끝점 ACL(액세스 제어 목록)이란?
@@ -99,4 +99,4 @@ LB 집합(부하 분산된 집합) 끝점에서 네트워크 ACL을 지정할 �
 
 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법](../virtual-networks-acl-powershell)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

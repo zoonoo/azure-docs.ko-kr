@@ -12,16 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 관리
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## 개요
 
 이 자습서는 StorSimple 관리자 서비스를 사용하여 StorSimple 장치 및 StorSimple 가상 장치에서 볼륨을 만들고 관리하는 방법에 대해 설명합니다.
 
-StorSimple 관리자 서비스는 단일 웹 인터페이스에서 StorSimple 솔루션을 관리하는 Azure 클래식 포털의 확장입니다. 볼륨 관리뿐 아니라 StorSimple 관리자 서비스를 사용하여 StorSimple 서비스를 만들고 관리하며, 장치를 보고 관리하며, 경고를 보고, 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
+StorSimple Manager 서비스는 단일 웹 인터페이스에서 StorSimple 솔루션을 관리할 수 있는 Azure 포털의 확장입니다. 볼륨 관리뿐 아니라 StorSimple 관리자 서비스를 사용하여 StorSimple 서비스를 만들고 관리하며, 장치를 보고 관리하며, 경고를 보고, 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
 
 > [AZURE.NOTE]Azure StorSimple은 씬 프로비저닝된 볼륨만 만들 수 있습니다. Azure StorSimple 시스템에서 완전히 프로비전되거나 부분적으로 프로비전된 볼륨은 만들 수 없습니다.
 >
@@ -115,7 +117,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
  
     > [AZURE.NOTE]볼륨에 대해 **이 볼륨에 대해 기본 백업 사용** 옵션을 변경할 수 없습니다.
 
-6. 확인 아이콘![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. Azure 클래식 포털은 업데이트 볼륨 메시지를 표시합니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
+6. 확인 아이콘![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. Azure 포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
 
 7. 볼륨을 확장하는 경우 Windows 호스트 컴퓨터에서 다음 단계를 완료합니다.
 
@@ -195,4 +197,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

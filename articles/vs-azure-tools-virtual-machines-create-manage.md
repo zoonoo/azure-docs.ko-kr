@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리"
+   pageTitle="Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리| Microsoft Azure"
    description="Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="virtual-machines"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리
 
@@ -177,4 +177,4 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 가상 컴퓨터를 만드는 방법을 자세히 알아보려면 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md) 및 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

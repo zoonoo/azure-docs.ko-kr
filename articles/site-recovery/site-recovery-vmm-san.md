@@ -1,5 +1,5 @@
 <properties
-	pageTitle="SAN을 사용하여 온-프레미스 VMM 사이트 간 보호 설정"
+	pageTitle="Azure Site Recovery와 함께 SAN을 사용하여 온-프레미스 VMM 사이트 간 보호 설정 | Microsoft Azure"
 	description="Azure Site Recovery는 SAN 복제를 사용한 온-프레미스 사이트 간의 Hyper-V 가상 컴퓨터 복제, 장애 조치(Failover) 및 복구를 조정합니다."
 	services="site-recovery"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
-# SAN을 사용하여 온-프레미스 VMM 사이트 간 보호 설정
+# Azure Site Recovery와 함께 SAN을 사용하여 온-프레미스 VMM 사이트 간 보호 설정
 
 Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. [Azure Site Recovery 개요](site-recovery-overview.md)에서 가능한 배포 시나리오에 관해 읽어봅니다.
 
@@ -383,4 +383,4 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 작업 및 대시보드와의 상호 작용에 대한 자세한 내용은 [작업 및 모니터링](http://go.microsoft.com/fwlink/?LinkId=398534)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

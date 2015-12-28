@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
 # Azure 스트림 분석 작업 크기를 조정하여 스트림 데이터 처리량 증가 #
@@ -61,7 +61,7 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 
 단계를 분할하려면 다음 조건이 필요합니다.
 
-- 입력 소스는 분할해야 합니다. 자세한 내용은 [Azure 스트림 분석 개발자 가이드](../stream-analytics-developer-guide.md) 및 [이벤트 허브 프로그래밍 가이드](../azure-event-hubs-developer-guide.md)를 참조하세요.
+- 입력 소스는 분할해야 합니다. 자세한 내용은 [Azure 스트림 분석 개발자 가이드](../stream-analytics-developer-guide.md) 및 [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)를 참조하세요.
 - 쿼리의 SELECT 문은 분할된 입력 소스에서 읽어와야 합니다.
 - 단계 내의 쿼리에는 **Partition By** 키워드가 있어야 합니다.
 
@@ -265,4 +265,4 @@ Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 �
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

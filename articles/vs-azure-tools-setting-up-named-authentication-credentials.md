@@ -1,11 +1,11 @@
 <properties
-   pageTitle="명명된 인증 자격 증명 설정"
+   pageTitle="명명된 인증 자격 증명 설정 | Microsoft Azure"
    description="Visual Studio가 사용할 수 있는 자격 증명을 제공하여 Azure에 대한 요청을 인증하고 응용 프로그램을 Visual Studio에서 Azure로 게시하거나 기존 클라우드 서비스를 모니터링하는 방법에 대해 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/02/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 명명된 인증 자격 증명 설정
 
@@ -71,4 +71,4 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
     1. 방금 만든 .cer 파일의 전체 경로를 붙여넣은 다음 지정한 암호를 입력합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

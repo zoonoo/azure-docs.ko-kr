@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="11/09/2015"
+  ms.date="12/15/2015"
   ms.author="donnam"/>
 
 # 모바일 앱 및 모바일 서비스에서 클라이언트 및 서버 버전 관리
@@ -101,21 +101,20 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 버전 확인은 **Azure 모바일 앱**에 대한 클라이언트 SDK의 다음 버전부터 도입됩니다.
 
 | 클라이언트 플랫폼 | 버전 | 버전 헤더 값 |
-| -------------------               | ------------------------                                                  | -----------------    |
-| 관리된 클라이언트(Windows, Xamarin) | [2\.0.0-beta-3](https://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta-3) | 2\.0.0 |
-| iOS | [3\.0.0-beta4](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
-| Android | 3\.0.0-beta1 | 2\.0.0 |
-| HTML | 2\.0.0-beta2 | 2\.0.0 |
+| -------------------               | ------------------------  | -----------------    |
+| 관리된 클라이언트(Windows, Xamarin) | [2\.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2\.0.0 |
+| iOS | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
+| Android | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3\.0.0 |
 
-<!-- TODO: add Android and HTML versions when released -->
+<!-- TODO: add HTML version when released -->
 
 ### 모바일 *앱* 서버 SDK
 
 버전 검사는 다음 서버 SDK 버전에 포함됩니다.
 
-| 서버 플랫폼 | 버전 | 수락된 버전 헤더 |
+| 서버 플랫폼 | SDK) | 수락된 버전 헤더 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [Microsoft.Azure.Mobile.Server.* 버전 0.3.x (또는 이상)](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
+| .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
 | Node.js | [azure-mobile-apps 버전 1.0-beta1 (또는 이상)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
 ### 모바일 앱 백 엔드의 동작
@@ -142,4 +141,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 [모바일 서비스를 Azure 앱 서비스로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

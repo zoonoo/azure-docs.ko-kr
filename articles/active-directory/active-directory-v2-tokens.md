@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: 토큰 참조
@@ -164,4 +164,4 @@ id\_token은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 �
 | 인증 코드(회사 또는 학교 계정) | 10분 | 인증 코드는 의도적으로 수명이 짧으므로 받는 즉시 access\_token 및 refresh\_token으로 교환해야 합니다. |
 | 인증 코드(개인 계정) | 5분 | 인증 코드는 의도적으로 수명이 짧으므로 받는 즉시 access\_token 및 refresh\_token으로 교환해야 합니다. 또한 개인 계정 대신 발급된 인증 코드는 일회용으로 사용됩니다. |
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

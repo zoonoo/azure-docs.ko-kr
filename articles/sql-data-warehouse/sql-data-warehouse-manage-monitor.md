@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="sahajs"/>
 
 # DMV를 사용하여 작업 모니터링
@@ -131,7 +131,7 @@ ORDER BY step_index;
 
 ### 4a단계: SQL 단계의 실행 진행률 찾기
 
-요청 ID와 단계 인덱스를 사용하여 쿼리에서 SQL 단계의 일부로 SQL Server 쿼리 배포에 대한 정보를 검색합니다. 노드 ID 및 SPID를 저장합니다.
+요청 ID와 단계 인덱스를 사용하여 쿼리에서 SQL 단계의 일부로 SQL Server 쿼리 배포에 대한 정보를 검색합니다. 배포 ID 및 SPID를 저장합니다.
 
 ```
 
@@ -149,7 +149,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
--- Replace node_id and spid with values from previous query.
+-- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
@@ -203,4 +203,4 @@ SQL 데이터 웨어하우스 관리에 대한 자세한 팁은 [관리 개요][
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

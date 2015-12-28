@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2015" ms.author="trinadhk";"aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/15/2015"
+	ms.author="trinadhk;aashishr;jimpark"/>
 
 
 # Azure 가상 컴퓨터 백업 문제 해결
@@ -116,9 +123,14 @@ Windows VM에서 VM 에이전트 버전을 확인하는 방법
 
 공용 인터넷 주소를 확인해야 하는 이유는 [여기](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx)에 명시되어 있습니다. VNET에 대한 DNS 구성을 검사하고 Azure URI를 확인할 수 있는지 확인해야 합니다.
 
-이름 확인이 올바르게 완료된 후에는 Azure IP에 대한 액세스 권한을 부여해야 합니다. Azure 인프라에 대한 액세스 차단을 해제하려면 다음 단계를 따르세요.
+이름 확인이 올바르게 완료된 후에는 Azure IP에 대한 액세스 권한을 부여해야 합니다. Azure 인프라에 대한 액세스 차단을 해제하려면 다음 단계 중 하나를 따르세요.
 
-1. 허용 목록에 추가할 [Azure datacenter IP](https://msdn.microsoft.com/library/azure/dn175718.aspx) 목록을 가져옵니다.
-2. [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창(관리자 권한으로 실행)을 통해 Azure VM 내에서 이 commandlet을 실행합니다.
+1. Azure 데이터 센터 IP 범위를 허용 목록에 추가합니다.
+    - 허용 목록에 추가할 [Azure datacenter IP](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 가져옵니다.
+    - [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창(관리자 권한으로 실행)을 통해 Azure VM 내에서 이 cmdlet을 실행합니다.
+    - IP에 대한 액세스를 허용하도록 NSG(있는 경우)에 규칙을 추가합니다.
+2. HTTP 트래픽을 보내는 경로 만들기
+    - 일부 네트워크 제한이 있는 경우(예: 네트워크 보안 그룹) 트래픽을 라우팅하는 HTTP 프록시 서버를 배포합니다. HTTP 프록시 서버를 배포하는 단계는 [여기](backup-azure-vms-prepare.md#2-network-connectivity)에서 찾을 수 있습니다.
+    - HTTP 프록시에서 인터넷에 액세스할 수 있도록 NSG(있는 경우)에 규칙을 추가합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

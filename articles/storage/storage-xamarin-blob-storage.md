@@ -173,7 +173,6 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 
 다음 링크를 확인하여 blob, 테이블 및 큐에 대해 자세히 알아봅니다.
 
-[Microsoft Azure 저장소 소개](storage-introduction.md) [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md) [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md) [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
- 
+[Microsoft Azure 저장소 소개](storage-introduction.md) [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md) [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md) [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md) [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

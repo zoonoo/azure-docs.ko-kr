@@ -1,6 +1,6 @@
 <properties
-	pageTitle="PowerShell을 사용하여 온-프레미스 VMM 사이트와 Azure 간 보호 자동화"
-	description="PowerShell을 사용하여 Azure Site Recovery 배포를 자동화합니다."
+	pageTitle="Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제 | Microsoft Azure"
+	description="Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터의 복제를 자동화하는 방법에 대해 알아봅니다."
 	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
@@ -13,48 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="12/14/2015"
 	ms.author="lauraa"/>
 
-#  PowerShell을 사용하여 Azure Site Recovery 배포
-Windows PowerShell®은 작업 기반 명령줄 셸 및 시스템 관리를 위해 특별히 설계된 스크립트 언어입니다. VMM에서 관리하는 Hyper-V 사이트와 Azure 사이에서 Azure Site Recovery용 PowerShell cmdlet을 사용할 수 있습니다.
+# Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
+
 
 ## 개요
 
 Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 배포 시나리오의 전체 목록은 [Azure Site Recovery 개요](site-recovery-overview.md)를 참조하세요.
 
-이 문서는 VMM 사설 클라우드에 있는 Hyper-V 호스트 서버의 가상 컴퓨터에서 실행되는 워크로드에 대한 보호 자동화 및 오케스트레이션을 포함하여, PowerShell을 사용하여 Azure Site Recovery 배포의 일반 작업을 자동화하는 방법을 보여줍니다. 이 시나리오에서 가상 컴퓨터는 Hyper-V 복제본을 사용하여 기본 VMM 사이트에서 Azure로 복제됩니다.
+이 문서에서는 System Center VMM 클라우드의 Hyper-V 가상 컴퓨터를 Azure 저장소로 복제하도록 Azure Site Recovery를 설정할 때 수행해야 하는 일반적인 작업을 PowerShell을 사용하여 자동화하는 방법을 보여 줍니다.
 
 본 문서에는 시나리오에 대한 필수 조건이 포함되어 있으며, 사이트 복구 자격 증명 모음을 설정하고, 원본 VMM 서버에 Azure Site Recovery 공급자를 설치하며, 서버를 자격 증명 모음에 등록하고, Azure 저장소 계정을 추가하며, Hyper-V 호스트 서버에 Azure 복구 서비스 에이전트를 설치하고, 보호된 모든 가상 컴퓨터에 적용되는 VMM 클라우드에 대한 보호 설정을 구성하고, 해당 가상 컴퓨터에 대해 보호를 사용하도록 설정하는 방법을 설명합니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다.
 
-이 시나리오를 설정하면서 문제가 발생하는 경우 [Azure 복구 서비스 포럼](http://go.microsoft.com/fwlink/?LinkId=313628)에 질문을 게시해 주세요.
+이 시나리오를 설정하는 동안 문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
 
 
 ## 시작하기 전에
 
 다음 필수 조건이 충족되었는지 확인합니다.
+
 ### Azure 필수 조건
 
-- [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. 없는 경우 [무료 평가판](http://aka.ms/try-azure)으로 시작하세요. [Azure Site Recovery Manager 가격](http://go.microsoft.com/fwlink/?LinkId=378268)에 대해 알아볼 수도 있습니다.
-- Azure로 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure 사이트 복구 서비스와 같은 지역에 있고 같은 구독과 연결되어야 합니다. Azure 저장소에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](http://go.microsoft.com/fwlink/?LinkId=398704)를 참조하세요.
-- 보호할 가상 컴퓨터가 Azure 요구 사항을 준수하는지 확인해야 합니다. 자세한 내용은 [가상 컴퓨터 지원](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A)을 참조하세요.
+- [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
+- 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. [Azure 저장소에 대해 자세히 알아보세요](../storage/storage-introduction.md).
+- 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-best-practices.md#virtual-machines)을 준수하는지 확인해야 합니다.
 
 ### VMM 필수 구성 요소
 - System Center 2012 R2에서 실행되는 VMM 서버가 필요합니다.
-- 보호할 가상 컴퓨터를 포함하는 모든 VMM 서버가 Azure Site Recovery 공급자를 실행해야 합니다. 이 공급자는 Azure Site Recovery 배포 중에 설치됩니다.
 - 보호할 VMM 서버에 클라우드가 하나 이상 있어야 합니다. 클라우드에는 다음이 포함되어야 합니다.
 	- 하나 이상의 VMM 호스트 그룹.
 	- 각 호스트 그룹에 있는 하나 이상의 Hyper-V 호스트 서버 또는 클러스터.
 	- 원본 Hyper-V 서버에 있는 하나 이상의 가상 컴퓨터.
-- VMM 클라우드 설정에 대해 자세히 알아봅니다.
-	- [System Center 2012 R2 VMM에서 사설 클라우드의 새로운 기능](http://go.microsoft.com/fwlink/?LinkId=324952)과 [VMM 2012 및 클라우드](http://go.microsoft.com/fwlink/?LinkId=324956)에서 사설 VMM 클라우드에 대해 알아봅니다.
-	- [VMM 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)에 대해 알아봅니다.
-	- 클라우드 패브릭 요소가 구현되면 [VMM에서 사설 클라우드 만들기](http://go.microsoft.com/fwlink/?LinkId=324953) 및 [연습: System Center 2012 SP1 VMM으로 사설 클라우드 만들기](http://go.microsoft.com/fwlink/?LinkId=324954)에 대해 알아보세요.
 
 ### Hyper-V 필수 조건
 
 - 호스트 Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.
-- 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. 자세한 내용은 [Hyper-V 복제본 브로커 구성](http://go.microsoft.com/fwlink/?LinkId=403937)을 참조하세요.
+- 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. 이렇게 하려면 서버 관리자 > 장애 조치(Failover) 클러스터 관리자에서 클러스터에 연결하여 **역할 구성**을 클릭하고 고가용성 마법사의 **역할 선택** 화면에서 **Hyper-V 복제본 브로커**를 선택합니다. 
 - 보호를 관리할 Hyper-V 호스트 서버 또는 클러스터가 모두 VMM 클라우드에 포함되어야 합니다.
 
 ### 네트워크 매핑 필수 조건
@@ -68,10 +64,7 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 
 - 원본 VMM 서버에서 보호할 가상 컴퓨터가 VM 네트워크에 연결되어야 합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
 - 복제된 가상 컴퓨터가 장애 조치(Failover) 후 연결할 수 있는 Azure 네트워크. 이 네트워크는 장애 조치(Failover) 시 선택합니다. 네트워크가 Azure Site Recovery 구독과 동일한 지역에 있어야 합니다.
-- 네트워크 매핑에 대해 자세히 알아봅니다.
-	- [VMM에서 논리적 네트워킹 구성](http://go.microsoft.com/fwlink/?LinkId=386307)
-	- [VMM에서 VM 네트워크 및 게이트웨이 구성](http://go.microsoft.com/fwlink/?LinkId=386308)
-	- [Azure에서 가상 네트워크 구성 및 모니터링](http://go.microsoft.com/fwlink/?LinkId=402555)
+- 네트워크 매핑에 대해 [자세히 알아봅니다.](site-recovery-network-mapping.md)
 
 ###PowerShell 필수 구성 요소
 Azure PowerShell을 사용할 준비가 되었는지 확인하세요. 이미 PowerShell을 사용하고 있는 경우 버전 0.8.10 이상으로 업그레이드해야 합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요. PowerShell을 설정 및 구성하면 [여기](https://msdn.microsoft.com/library/dn850420.aspx)에서 서비스에 사용 가능한 모든 cmdlet을 볼 수 있습니다.
@@ -313,9 +306,9 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 
 ## 9단계: 가상 컴퓨터의 보호 활성화
 
-서버, 클라우드 및 네트워크가 제대로 구성되었으면 클라우드에서 가상 컴퓨터에 대한 보호를 설정할 수 있습니다. 다음 사항에 유의하십시오.
+서버, 클라우드 및 네트워크가 제대로 구성되었으면 클라우드에서 가상 컴퓨터에 대한 보호를 설정할 수 있습니다. 다음 사항에 유의하세요.
 
-가상 컴퓨터는 Azure 요구 사항을 충족해야 합니다. 계획 가이드의 <a href="http://go.microsoft.com/fwlink/?LinkId=402602">필수 조건 및 지원</a>에서 해당 요구 사항을 확인하세요.
+가상 컴퓨터에서 [Azure 가상 컴퓨터 필수 조건](site-recovery-best-practices.md#virtual-machines)을 충족해야 합니다.
 
 보호를 사용하도록 설정하려면 가상 컴퓨터에 대해 운영 체제 및 운영 체제 디스크 속성을 설정해야 합니다. VMM에서 가상 컴퓨터 템플릿을 사용하여 가상 컴퓨터를 만들 때 속성을 설정할 수 있습니다. 가상 컴퓨터 속성의 **일반** 및 **하드웨어 구성** 탭에서 기존 가상 컴퓨터에 대해 이러한 속성을 설정할 수도 있습니다. 이러한 속성을 VMM에서 설정하지 않는 경우 Azure Site Recovery 포털에서 구성할 수 있습니다.
 
@@ -452,13 +445,8 @@ if($isJobLeftForProcessing)
 ```
 
 
-##<a id="next" name="next" href="#next"></a>다음 단계
-<UL>
+## 다음 단계
 
-<LI>Azure Site Recovery PowerShell cmdlet에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/library/dn850420.aspx">여기</a>의 문서를 참조하세요.
+Azure Site Recovery PowerShell cmdlet에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/dn850420.aspx). </a>
 
-<LI>정식 프로덕션 환경에서 Azure Site Recovery를 계획하고 배포하려면 <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Azure Site Recovery용 계획 가이드</a> 및 <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Azure Site Recovery용 배포 가이드</a>를 참조하세요.</LI>
-
-<LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

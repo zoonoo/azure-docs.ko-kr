@@ -274,11 +274,11 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 [여기](http://www.movable-type.co.uk/scripts/latlong.html)서 확인할 수 있습니다. 작성자는 Peter Lapisu입니다. 그의 Javascript에서 toRad() 함수는 단지 도에서 라디안으로 변환하는 `lat_or_lon*pi/180`일 뿐입니다. 여기서 `lat_or_lon`은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 [Wikipedia](http://en.wikipedia.org/wiki/Atan2)의 정의에 따라 `atan2` 함수가 `atan` 함수에 의해 구현됩니다.
+두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html)에서 확인할 수 있습니다. 작성자는 Peter Lapisu입니다. 그의 Javascript에서 toRad() 함수는 단지 도에서 라디안으로 변환하는 `lat_or_lon*pi/180`일 뿐입니다. 여기서 `lat_or_lon`은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 [Wikipedia](http://en.wikipedia.org/wiki/Atan2)의 정의에 따라 `atan2` 함수가 `atan` 함수에 의해 구현됩니다.
 
 ![작업 영역 만들기][1]
 
-Hive 포함 UDF의 전체 목록은 [여기](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions)서 확인할 수 있습니다.
+Hive 포함 UDF의 전체 목록은 [UDF 언어 매뉴얼](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions)에서 확인할 수 있습니다.
 
 ## <a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
 
@@ -325,4 +325,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

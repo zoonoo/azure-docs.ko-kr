@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 자동화용 Runbook 및 모듈 갤러리"
+	pageTitle="Azure 자동화용 Runbook 및 모듈 갤러리 | Microsoft Azure"
 	description="Microsoft 및 커뮤니티의 Runbook과 모듈을 Azure 자동화 환경에 설치하여 사용할 수 있습니다. 이 글에서는 이러한 리소스에 액세스하는 방법과 자신의 Runbook을 갤러리에 올리는 방법을 설명합니다."
 	services="automation"
 	documentationCenter=""
@@ -58,6 +58,8 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 R
 
 - 단일.ps1 또는 .graphrunbook 파일을 업로드해야 합니다. Runbook에 필요한 모듈, 자식 Runbook 또는 자산이 있는 경우 Runbook의 제출 설명과 내용 섹션에 해당 항목을 나열해야 합니다. 여러 Runbook이 필요한 솔루션인 경우 각 Runbook을 개별적으로 업로드하고 설명마다 관련 Runbook의 이름을 나열합니다. 동일한 범주에 표시되도록 동일한 태그를 사용합니다. 솔루션이 작동하기 위해 다른 Runbook이 필요하다는 설명을 사용자가 읽고 알 수 있어야 합니다.
 
+- **코드 섹션 삽입** 아이콘을 사용하여 PowerShell 또는 PowerShell 워크플로 코드 조각을 설명에 삽입합니다.
+
 - 업로드 요약이 Runbook 갤러리 결과에 표시되므로 사용자가 해당 Runbook의 기능을 파악하는 데 도움이 되는 상세한 정보를 제공해야 합니다.
 
 - 업로드에 1~3개의 다음 태그를 할당해야 합니다. Runbook이 마법사에서 태그와 일치하는 범주에 나열됩니다. 이 목록에 없는 태그는 마법사에서 무시됩니다. 일치하는 태그를 지정하지 않는 경우 Runbook이 기타 범주에 나열됩니다.
@@ -86,7 +88,7 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 1. Azure Preview 포털에서 자동화 계정을 엽니다. 
 2. **자산** 타일을 클릭하여 자산 목록을 엽니다.
 3. **모듈** 타일을 클릭하여 모듈 목록을 엽니다.
-3. **PowerShell 갤러리** 버튼을 클릭하여 다른 브라우저 창에 PowerShell 갤러리를 실행합니다. <br> ![PowerShell 갤러리](media/automation-runbook-gallery/powershell-gallery-button.png)
+3. **PowerShell 갤러리** 단추를 클릭하여 다른 브라우저 창에 PowerShell 갤러리를 실행합니다. <br> ![PowerShell 갤러리](media/automation-runbook-gallery/powershell-gallery-button.png)
 4. **모듈** 메뉴를 클릭하여 사용 가능한 모듈 목록에 액세스합니다.<br> ![PowerShell 갤러리 단추](media/automation-runbook-gallery/powershell-gallery.png)
 4. 관심이 있는 모듈을 찾아 선택하여 세부 내용을 확인합니다.
 5. Azure 자동화에 직접 모듈을 설치하려면 **Azure 자동화에 배포** 단추를 클릭합니다.<br> ![PowerShell 갤러리 단추](media/automation-runbook-gallery/powershell-gallery-detail.png)
@@ -99,11 +101,11 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 
 ## Runbook 또는 모듈 요청 중
 
-[사용자 음성](http://feedback.azure.com/forums/246290-azure-automation)에 요청을 보낼 수 있습니다. Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
+[사용자 음성](http://feedback.azure.com/forums/246290-azure-automation)에 요청을 보낼 수 있습니다. Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/ko-KR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
 
 ## 관련된 문서
 
 - [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 - [PowerShell 워크플로 학습](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

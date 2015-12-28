@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/09/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스 웹 앱 고급 구성 및 확장
@@ -26,7 +26,7 @@
 ##<a id="transform"></a>ApplicationHost.config를 통한 고급 구성
 앱 서비스 플랫폼에서는 융통성 있게 웹 앱 구성을 제어할 수 있습니다. 앱 서비스에서 직접적인 편집에 표준 IIS ApplicationHost.config 구성 파일을 사용할 수 없지만, 이 플랫폼은 XDT(XML 문서 변환)를 기반으로 하여 선언적인 ApplicationHost.config 변환 모델을 지원합니다.
 
-이 변환 기능을 활용하려면 XDT 콘텐츠를 사용하여 ApplicationHost.xdt 파일을 만들어 웹 앱 루트에 배치합니다. 변경 내용을 적용하려면 웹 앱을 다시 시작해야 할 수 있습니다.
+이 변환 기능을 활용하려면 XDT 콘텐츠가 있는 ApplicationHost.xdt 파일을 만들어 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)에서 사이트 루트(d:\\home\\site)에 배치합니다. 변경 내용을 적용하려면 웹 앱을 다시 시작해야 할 수 있습니다.
 
 다음 applicationHost.xdt 샘플은 PHP 5.4를 사용하는 웹 앱에 새로운 사용자 지정 환경 변수를 추가하는 방법을 보여 줍니다.
 
@@ -46,7 +46,7 @@
 
 변환 상태가 포함된 로그 파일 및 자세한 정보는 FTP 루트의 LogFiles\\Transform 아래에서 사용할 수 있습니다.
 
-추가 샘플은 [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)(영문)를 참조하세요.
+추가 샘플은 [https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)를 참조하세요.
 
 **참고**<br /> `system.webServer` 아래에 있는 모듈 목록의 요소를 제거하거나 요소의 순서를 바꿀 수 없지만 목록에 추가할 수는 있습니다.
 
@@ -181,4 +181,4 @@ applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

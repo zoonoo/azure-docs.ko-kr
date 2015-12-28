@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server 및 Azure Site Recovery를 사용한 재해 복구 | Microsoft Azure" 
+	pageTitle="SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호 | Microsoft Azure" 
 	description="Azure Site Recovery는 보조 온-프레미스 사이트 또는 Azure에 SQL Server의 복제, 장애 조치 및 복구를 조정합니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 
-# SQL Server 및 Azure Site Recovery를 사용한 재해 복구 
+# SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호 
 
 사이트 복구는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 사이트 복구는 일관된 보호를 위해 다양한 복제 메커니즘을 지원하며, Azure 또는 보조 데이터센터로 컴퓨터를 복제 및 장애 조치합니다. [Azure Site Recovery 개요](site-recovery-overview.md)에서 모든 배포 시나리오의 개요를 참조하세요.
 
@@ -374,4 +374,4 @@ SQL 표준 클러스터의 경우 계획되지 않은 장애 조치(failover) �
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

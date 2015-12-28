@@ -80,7 +80,7 @@ Windows 및 Linux를 실행하는 물리적 서버를 Azure 또는 보조 사이
 
 ### 어떤 VMware VM을 보호할 수 있습니까?
 
-이 시나리오의 경우 VMware vCenter 서버, vSphere 하이퍼바이저 및 VMware 도구를 실행 중인 가상 컴퓨터가 필요합니다. 정확한 요구 사항은 [무엇이 필요하나요?](site-recovery-vmware-to-azure.md/#what-do-i-need)를 참조하세요. 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
+이 시나리오의 경우 VMware vCenter Server, vSphere 하이퍼바이저 및 VMware 도구를 실행 중인 가상 컴퓨터가 필요합니다. 정확한 요구 사항은 [무엇이 필요하나요?](site-recovery-vmware-to-azure.md/#what-do-i-need)를 참조하세요. 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
 
 ### Azure에 가상 컴퓨터를 복제하기 위한 필수 조건은 무엇입니까?
 
@@ -98,7 +98,7 @@ Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery
 
 예. 지사에서 Site Recovery를 사용하여 복제를 오케스트레이션하고 장애 조치(failover)를 수행하면 중앙의 한 위치에 모든 지사 워크로드의 통합되지 않은 오케스트레이션 및 보기가 표시됩니다. 지사를 방문하지 않고 본사에서 간편하게 모든 지사의 장애 조치(failover)를 수행하고 재해 복구를 관리할 수 있습니다.
 
-### ASR 워크플로 자동화에 사용할 수 있는 SDK가 있습니까?
+### 사이트 복구 워크플로 자동화에 사용할 수 있는 SDK가 있나요?
 
 예. Rest API, PowerShell 또는 Azure SDK를 사용하여 Site Recovery 워크플로를 자동화할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Site Recovery 배포](site-recovery-deploy-with-powershell.md)를 참조하세요.
 
@@ -223,4 +223,4 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

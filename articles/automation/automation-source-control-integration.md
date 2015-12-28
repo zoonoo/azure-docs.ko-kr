@@ -156,6 +156,6 @@ GitHub 계정에서 연결을 끊으려면 리포지토리 동기화 블레이�
 
 ## 다음 단계
 
-원본 제어 통합에 대한 자세한 내용은 다음 리소스를 참조하세요.- [Azure 자동화: Azure 자동화의 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Azure 자동화: Visual Studio Online을 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
+원본 제어 통합에 대한 자세한 내용은 다음 리소스를 참조하세요.- [Azure 자동화: Azure 자동화의 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Azure 자동화: Visual Studio Team Services를 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

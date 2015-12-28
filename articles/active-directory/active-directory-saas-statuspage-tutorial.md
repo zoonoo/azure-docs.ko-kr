@@ -94,10 +94,10 @@ StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_04.png) <br>
 
-    > [AZURE.NOTE] [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다.
+    > [AZURE.NOTE][SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다.
 
 
-    a. 메타데이터에서 발급자 값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
+    a. 메타데이터에서 발급자 값을 복사한 다음 **식별자** 텍스트 상자에 붙여넣습니다.
 
     b. 메타데이터에서 회신 URL을 복사한 다음 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -244,4 +244,4 @@ StatusPage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="서비스 패브릭에 대한 연속 통합 | Microsoft Azure"
-   description="VSO(Visual Studio Online)를 사용한 서비스 패브릭 응용 프로그램에 대한 연속 통합 설정 방법의 개요를 확인합니다."
+   description="VSTS(Visual Studio Team Services)를 사용한 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정 방법의 개요를 확인합니다."
    services="service-fabric"
    documentationCenter="na"
    authors="cawams"
@@ -15,19 +15,19 @@
    ms.date="10/16/2015"
    ms.author="cawa" />
 
-# VSO(Visual Studio Online)를 사용한 서비스 패브릭 응용 프로그램에 대한 연속 통합 설정
+# VSTS(Visual Studio Team Services)를 사용한 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정
 
-이 문서에서는 자동화된 방식으로 응용 프로그램을 빌드, 패키지, 배포할 수 있게 VSO(Visual Studio Online)를 사용하여 서비스 패브릭 응용 프로그램에 대한 연속 통합(CI)을 설정하는 과정을 안내합니다. 이 문서는 현재 환경을 반영하며 개발 진행에 따라 변경될 수 있습니다. 또한 이 지침에서는 매번 클러스터를 처음부터 다시 만듭니다.
+이 문서에서는 자동화된 방식으로 응용 프로그램을 빌드, 패키지, 배포할 수 있게 VSTS(Visual Studio Team Services)를 사용하여 서비스 패브릭 응용 프로그램에 대한 CI(지속적인 통합)를 설정하는 과정을 안내합니다. 이 문서는 현재 환경을 반영하며 개발 진행에 따라 변경될 수 있습니다. 또한 이 지침에서는 매번 클러스터를 처음부터 다시 만듭니다.
 
 ## 필수 조건
 
-시작하려면 Visual Studio Online에서 프로젝트를 설정합니다.
+시작하려면 Visual Studio Team Services에서 프로젝트를 설정합니다.
 
-1. 아직 계정이 없으면 [Microsoft 계정](http://www.microsoft.com/account)을 사용하여 VSO 계정을 만듭니다.
-2. Microsoft 계정을 사용하여 VSO에서 새 프로젝트를 만듭니다.
+1. 아직 계정이 없으면 [Microsoft 계정](http://www.microsoft.com/account)을 사용하여 Team Services 계정을 만듭니다.
+2. Microsoft 계정을 사용하여 Team Services에서 새 프로젝트를 만듭니다.
 3. 새 또는 기존 서비스 패브릭 앱에 대한 소스를 이 프로젝트에 푸시합니다.
 
-VSO 프로젝트에 대한 자세한 내용은 [Visual Studio에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
+Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
 
 ## 설정 단계
 
@@ -192,7 +192,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 ### 빌드 에이전트 등록
 
 1.	agent.zip을 다운로드합니다. 다음을 수행합니다.
-    1.	팀 프로젝트에 로그인합니다(예: ****https://[your-VSO-account-name].visualstudio.com**).
+    1.	팀 프로젝트에 로그인합니다(예: ****https://[your-VSTS-account-name].visualstudio.com**).
 1.	화면 오른쪽 위 모퉁이에서 '기어' 아이콘을 선택합니다.
     1.	제어판에서 **에이전트 풀** 탭을 선택합니다.
     1.	**에이전트 다운로드**를 선택하고 agent.zip 파일을 다운로드합니다.
@@ -206,7 +206,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
     |매개 변수|값|
     |---|---|
     |에이전트 이름|기본값(`Agent-[machine name]`)을 적용합니다.
-    |TFS Url|팀 프로젝트 URL을 입력합니다(예: `https://[your-VSO-account-name].visualstudio.com`).
+    |TFS Url|팀 프로젝트에 대한 URL을 입력합니다(예: `https://[your-VSTS-account-name].visualstudio.com`).
     |에이전트 풀|에이전트 풀의 이름을 입력합니다. 에이전트 풀을 만들지 않은 경우 기본 값을 적용합니다.|
     |작업 폴더|기본값을 적용합니다. 빌드 에이전트가 실제로 응용 프로그램을 빌드하는 폴더입니다. 참고: ASP.NET 5 웹 서비스 구축을 계획 중이라면 배포 중 PathTooLongExceptions 오류가 발생하지 않게 이 폴더에 가능한 가장 짧은 이름을 선택하는 것이 좋습니다.|
     |Windows 서비스로 설치?|기본값은 N입니다. 이 값을 Y로 변경합니다.|
@@ -216,9 +216,9 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 1. 자격 증명을 입력하라는 메시지가 표시됩니다. 팀 프로젝트에 대한 권한이 있는 Microsoft 계정의 자격 증명을 입력합니다.
 1. 빌드 에이전트가 등록된 것을 확인합니다. 다음을 수행합니다.
 
-    1. 웹 브라우저로 돌아가(`https://[your-VSO-account-name].visualstudio.com/_admin/_AgentPool` 페이지에 있어야 함) 페이지를 새로 고칩니다.
+    1. 웹 브라우저(`https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool` 페이지에 있어야 함)로 돌아가 페이지를 새로 고칩니다.
     1. 앞서 ConfigureAgent.ps1을 실행할 때 선택한 에이전트 풀을 선택합니다.
-    1. 빌드 에이전트가 목록에 있고 녹색 상태가 강조 표시되었는지 확인합니다. 빨강으로 강조 표시된 경우 빌드 에이전트가 VSO에 연결하는 데 문제가 있는 것입니다.
+    1. 빌드 에이전트가 목록에 있고 녹색 상태가 강조 표시되었는지 확인합니다. 빨강으로 강조 표시된 경우 빌드 에이전트가 Team Services에 연결하는 데 문제가 있는 것입니다.
 
 ![](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
@@ -233,7 +233,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 ### 빌드 정의 만들기
 
 1.	빈 빌드 정의를 만듭니다. 다음을 수행합니다.
-    1.	Visual Studio Online에서 프로젝트를 엽니다.
+    1.	Visual Studio Team Services에서 프로젝트를 엽니다.
     1.	**빌드** 탭을 선택합니다.
     1.	녹색 **+** 기호를 선택하여 새 빌드 정의를 만듭니다.
     1.	**비어 있음**을 선택하고 **다음** 단추를 선택합니다.
@@ -339,4 +339,4 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 서비스 패브릭 응용 프로그램과의 연속 통합에 대한 자세한 내용은 다음 문서에서 확인합니다. [빌드 설명서 홈](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

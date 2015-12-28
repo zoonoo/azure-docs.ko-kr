@@ -268,6 +268,9 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 
 - 하드 드라이브만 배송하고 전원 공급 장치 케이블이나 USB 케이블과 같은 품목은 포함하지 마세요.
 
+## 참고 항목
+
+[AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
 
 [import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
@@ -275,4 +278,4 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,11 +1,11 @@
 <properties
-   pageTitle="프로젝트를 현재 버전의 Azure 도구로 업그레이드하는 방법"
+   pageTitle="프로젝트를 현재 버전의 Azure 도구로 업그레이드하는 방법 | Microsoft Azure"
    description="Azure 프로젝트를 Visual Studio에서 현재 버전의 Azure 도구로 업그레이드하는 방법을 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/28/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 프로젝트를 현재 버전의 Visual Studio 용 Azure 도구로 업그레이드하는 방법
 
@@ -51,4 +51,4 @@ Azure 도구의 현재 릴리스 (또는 1.6 이후 버전인 이전 릴리스)�
 
 1. 프로젝트를 빌드한 후 API 변경으로 인해 발생하는 오류를 해결합니다. 새 버전에 대한 코드를 수정하는 방법에 대한 자세한 내용은 특정 API에 대한 설명서를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

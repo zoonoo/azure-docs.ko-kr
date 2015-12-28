@@ -86,7 +86,7 @@ SetupEntryPoint가 있도록 서비스를 구성했으면 응용 프로그램 �
 
 이제 관리자 권한을 테스트하기 위해 MySetup.bat 파일을 Visual Studio 프로젝트에 추가하겠습니다. Visual Studio에서 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 새 파일 MySetup.bat을 추가합니다. 다음으로 이 파일을 서비스 패키지에 포함합니다. 기본적으로 서비스 패키지에 포함되어 있지 않습니다. MySetup.bat 파일이 패키지에 포함되었는지 확인하려면 파일을 선택하고, 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시하고, 속성을 선택한 후 속성 대화 상자에서 **출력 디렉터리로 복사**가 **변경된 내용만 복사**로 설정되었는지 확인합니다. 이 내용이 아래 스크린샷에 나와 있습니다.
 
-![SetupEntryPoint 배치 파일에 대한 Visual Studio CopyToOutput][image1]
+![SetupEntryPoint 배치 파일에 대한 Visual Studio CopyToOutput][Image1]
 
 이제 MySetup.bat 파일을 열고 다음 명령을 추가합니다.
 
@@ -103,8 +103,8 @@ REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Mana
 다음으로 솔루션을 빌드하여 로컬 개발 클러스터에 배포합니다. 서비스가 시작되면 서비스 패브릭 탐색기에 보이는 것처럼 MySetup.bat이 두 가지 방법으로 성공한 것을 볼 수 있습니다. Azure PowerShell 명령 프롬프트를 열고 입력합니다.
 
 ~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-MyValue
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+
 ~~~
 
 서비스 패브릭 탐색기에서 서비스가 배포되어 시작된 노드 이름을 확인합니다. 예를 들어 노드 1로 이동한 후 응용 프로그램 인스턴스 작업 폴더로 이동하여 **TestVariable** 값을 보여주는 .txt 파일을 찾아봅니다. 예를 들어 서비스가 노드 2에 배포된 경우 이 경로로 이동하여 MyApplicationType을 찾아볼 수 있습니다.
@@ -129,7 +129,7 @@ Powershell 파일에서 다음을 추가하여 시스템 환경 변수를 설정
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## 서비스에 RunAs 정책 적용
+## 서비스에 RunAs 정책 적용 
 위의 단계에서 SetupEntryPoint에 RunAs 정책을 적용하는 방법을 살펴보았습니다. 이번에는 서비스 정책으로 적용할 수 있는 다양한 주체를 만드는 방법을 좀 더 자세히 살펴보겠습니다.
 
 ### 로컬 사용자 그룹 만들기
@@ -169,7 +169,7 @@ Powershell 파일에서 다음을 추가하여 시스템 환경 변수를 설정
   </Users>
 </Principals>
 ~~~
-
+ 
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -184,8 +184,8 @@ Powershell 파일에서 다음을 추가하여 시스템 환경 변수를 설정
 
 ~~~
 <Policies>
-  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
@@ -272,7 +272,7 @@ https 끝점의 경우 응용 프로그램 매니페스트의 인증서 섹션�
       </Users>
    </Principals>
    <Policies>
-      <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+      <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
 	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
@@ -290,4 +290,4 @@ https 끝점의 경우 응용 프로그램 매니페스트의 인증서 섹션�
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

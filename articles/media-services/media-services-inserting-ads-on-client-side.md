@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 이 항목에서는 클라이언트 쪽에 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
 
-라이브 스트리밍 비디오에서 캡션 및 광고 지원에 대한 정보는 [지원되는 캡션 및 Ad 삽입 표준](https://msdn.microsoft.com/library/azure/dn783466.aspx#caption_ad)을 참조하세요.
+라이브 스트리밍 비디오에서 자막 및 광고 지원에 대한 정보는 [지원되는 자막 및 Ad 삽입 표준](media-services-manage-channels-overview.md#cc_and_ads)을 참조하세요.
 
  
 ##<a id="insert_ads_into_media"></a>미디어에 광고 삽입
@@ -812,4 +812,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

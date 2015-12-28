@@ -19,6 +19,17 @@
 
 # 리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 구성
 
+> [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
+
+<br>
+
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 이러한 단계에서는 Azure 가상 컴퓨터를 만들고 구성하는 Azure PowerShell 명령 집합을 생성하는 방법을 보여줍니다. 이 구성 요소 프로세스를 사용하여 빠르게 새 Windows 기반 가상 컴퓨터에 대한 명령 집합을 만들고 기존 배포를 확장할 수 있습니다. 또한 이 프로세스를 사용하여 사용자 지정 개발/테스트 또는 IT 전문가 환경을 빠르게 구축하는 여러 명령 집합을 만들 수도 있습니다.
@@ -384,4 +395,4 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

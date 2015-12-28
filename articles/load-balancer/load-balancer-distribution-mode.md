@@ -40,14 +40,14 @@
  
 가상 컴퓨터에 Azure 끝점을 추가하고 부하 분산 장치 배포 모드 설정
 
-	Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM
+	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
 >[AZURE.NOTE]LoadBalancerDistribution은 2개 튜플(원본 IP, 대상 IP) 부하 분산의 경우 sourceIP로, 3개 튜플(원본 IP, 대상 IP, 프로토콜) 부하 분산의 경우 sourceIPProtocol로 설정할 수 있으며 5개 튜플 부하 분산의 기본 동작을 원하는 경우 none으로 설정할 수 있습니다.
 
 
 끝점 부하 분산 장치 배포 모드 구성 검색
 
-	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -74,7 +74,7 @@ LoadBalancerDistribution 요소가 없으면 Azure 부하 분산 장치는 기�
 
 부하 분산 끝점 집합에 끝점이 포함되어 있으면 부하 분산 끝점 집합에 대해 배포 모드를 설정해야 합니다.
 
-	Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+	Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocol TCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 
 ### 배포 모드를 변경하는 클라우드 서비스 구성
 
@@ -99,7 +99,7 @@ Azure SDK for .NET 2.5(11월 출시 예정)를 활용하여 .csdef에서 지정�
 
 ## API 예제
 
-서비스 관리 API를 사용하여 부하 분산 장치 배포를 구성할 수 있습니다. 이때 x-ms-version 헤더는 버전 2014-09-01 이상으로 설정해야 합니다.
+서비스 관리 API를 사용하여 부하 분산 장치 배포를 구성할 수 있습니다. 이때 `x-ms-version` 헤더는 버전 `2014-09-01` 이상으로 설정해야 합니다.
  
 배포에서 지정한 부하 분산된 집합의 구성 업데이트
 
@@ -149,4 +149,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

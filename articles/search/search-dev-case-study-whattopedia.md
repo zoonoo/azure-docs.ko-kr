@@ -52,7 +52,7 @@ Azure 검색은 우리 프로젝트의 판도를 바꾸어 놓았습니다. Azur
  
 ### 대략적인 구성 요소
 
-우리는 사이트가 아니라 비즈니스를 구축했습니다. 전체 작업을 지원하기 위해 광범위한 도구와 응용 프로그램이 필요했습니다. 우리는 모든 사이트 관련 작업 및 저장소에 Microsoft Azure를 도입했을 뿐만 아니라 개발에 Visual Studio 및 Visual Studio Online을 도입하고, 원본 제어 및 스크럼 관리에 TFS(Team Foundation Service) Online을 도입하고, 통신 및 공동 작업에 Office 365를 도입했습니다. Visual Studio를 통해 IDE는 생산성을 향상시키는 TFS Online과의 통합으로 Azure에 대한 직접 프로비전닝을 제공했습니다.
+우리는 사이트가 아니라 비즈니스를 구축했습니다. 전체 작업을 지원하기 위해 광범위한 도구와 응용 프로그램이 필요했습니다. 우리는 모든 사이트 관련 작업 및 저장소에 Microsoft Azure를 도입했을 뿐만 아니라 개발에 Visual Studio 및 Visual Studio Team Services를 도입하고, 원본 제어 및 스크럼 관리에 TFS(Team Foundation Service) Online을 도입하고, 통신 및 공동 작업에 Office 365를 도입했습니다. Visual Studio를 통해 IDE는 생산성을 향상시키는 TFS Online과의 통합으로 Azure에 대한 직접 프로비전닝을 제공했습니다.
 
 아래 다이어그램에서는 WhatToPedia 인프라에서 사용되는 대략적인 구성 요소를 보여 줍니다.
 
@@ -421,4 +421,4 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

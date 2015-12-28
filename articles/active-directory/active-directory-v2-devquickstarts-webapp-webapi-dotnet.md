@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: .NET 웹앱에서 Web API 호출
@@ -114,13 +114,13 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3. ADAL을 사용하여 사용자 로그인 시 액세스 토큰 가져오기
+## 3\. ADAL을 사용하여 사용자 로그인 시 액세스 토큰 가져오기
 `AuthorizationCodeReceived` 알림에서 [OpenID Connect와 함께 OAuth 2.0](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow)을 사용하여 authorization\_code를 To-Do List Service에 대한 액세스 토큰으로 교환하려고 합니다. ADAL을 통해 이 프로세스를 쉽게 수행할 수 있습니다.
 
 - 먼저 ADAL 미리 보기 버전을 설치합니다.
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- 그리고 ADAL의 `App_Start\Startup.Auth.cs` 파일에 다른 `using` 문을 추가합니다.
+- 그리고 ADAL의 `App_Start\Startup.Auth.cs` 파일에 다른 `using` 문을 추가합니다. 
 - 이제 새 메서드인 `OnAuthorizationCodeReceived` 이벤트 처리기를 추가합니다. 이 처리기는 ADAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 ADAL의 토큰 캐시에 토큰을 저장합니다.
 
 ```C#
@@ -207,4 +207,4 @@ catch (AdalException ee)
 - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md)
 - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

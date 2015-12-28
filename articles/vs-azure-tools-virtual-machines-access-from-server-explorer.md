@@ -1,11 +1,11 @@
 <properties
-   pageTitle="서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)"
+   pageTitle="서버 탐색기에서 Azure 가상 컴퓨터 액세스 | Microsoft Azure"
    description="Visure Studio에서 Azure 서버 탐색기 (VM) 만들기 및 관리하기를 보는 방법에 대한 개요를 가져옵니다."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)
 
@@ -53,4 +53,4 @@ Azure에서 호스팅되는 가상 컴퓨터가 있는 경우 서버 탐색기�
 
 Visual Studio에서 Azure 역할을 사용하는 방법에 대한 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

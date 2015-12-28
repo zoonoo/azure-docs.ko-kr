@@ -1,0 +1,264 @@
+<properties
+	pageTitle="Azure 리소스 관리자로 Azure PowerShell을 사용하여 Azure에 서버 보호 | Microsoft Azure"
+	description="PowerShell 및 Azure 리소스 관리자를 사용하여 Azure Site Recovery로 Azure에 대한 서버 보호를 자동화합니다."
+	services="site-recovery"
+	documentationCenter=""
+	authors="bsiva"
+	manager="abhiag"
+	editor=""/>
+
+<tags
+	ms.service="site-recovery"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="backup-recovery"
+	ms.date="12/09/2015"
+	ms.author="bsiva"/>
+
+# PowerShell 및 Azure 리소스 관리자를 사용하여 Azure Site Recovery.
+
+
+## 개요
+
+Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 배포 시나리오의 전체 목록은 [Azure Site Recovery 개요](site-recovery-overview.md)를 참조하세요.
+
+Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈입니다. Azure 프로필 모듈 또는 Azure 리소스 관리자(ARM) 모듈 등 두 유형의 모듈로 작업할 수 있습니다.
+
+ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recovery(ASR) PowerShell cmdlet을 사용하여 Azure에서 서버를 보호하고 복구할 수 있습니다.
+
+이 문서에서는 예제의 도움으로 Azure에 서버 보호를 구성하고 오케스트레이션하기 위해 ARM과 함께 Windows PowerShell®을 사용하여 Azure Site Recovery를 배포하는 방법을 설명합니다. 이 문서에 사용된 예제는 ARM으로 Azure PowerShell을 사용하여 Azure에 대한 Hyper-V 호스트의 가상 컴퓨터를 보호, 장애 조치하고 복구하는 방법을 보여 줍니다.
+
+> [AZURE.NOTE]Azure Site Recovery PowerShell cmdlet을 사용하여 VMM 사이트에서 VMM 사이트로, VMM 사이트에서 Azure로, Hyper-V 사이트에서 Azure 시나리오로 구성할 수 있습니다. 다른 ASR 시나리오에 대한 지원은 곧 추가될 예정입니다.
+
+이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념을 이해한다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Azure PowerShell을 사용하여 시작](http://technet.microsoft.com/library/hh857337.aspx)을 참조하세요. 자세한 내용은 [Azure 리소스 관리자를 사용하여 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 읽어보세요.
+
+
+## 주요 기능
+
+- Azure에 대한 서버 보호, Azure IaaS(ARM) 또는 Azure IaaS(classic)에 대한 장애 조치 수행 및 복구
+- Cloud Solution Provider(CSP) 프로그램의 일부인 Microsoft 파트너를 통해 고객의 CSP 구독(테넌트 구독)에 대한 고객의 서버 보호를 구성하고 관리할 수 있습니다.
+
+## 시작하기 전에
+
+다음 필수 조건이 충족되었는지 확인합니다.
+
+- [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다. 또한 [Azure Site Recovery Manager 가격](http://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수 있습니다.
+- Azure PowerShell 1.0이 필요합니다. 이 릴리스에 대한 정보 및 설치하는 방법은 [Azure PowerShell 1.0](http://azure.microsoft.com/)을 참조하세요.
+- [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 및 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 모듈을 설치해야 합니다. [PowerShell 갤러리](https://www.powershellgallery.com/)에서 이러한 모듈의 최신 버전을 가져올 수 있습니다.
+
+이 문서에서는 ARM으로 Azure Powershell을 사용하여 예제의 도움을 받아 서버 보호를 구성하고 관리하는 방법을 보여 줍니다. 이 문서에 사용된 예제에서는 Azure에 대한 Hyper-V 호스트에서 실행 중인 가상 컴퓨터를 보호하는 방법을 보여 줍니다. 다음에 나오는 필수 구성 요소는 이 예제에 해당됩니다. 다양한 ASR 시나리오에 대한 포괄적인 요구 사항 집합은 해당 시나리오와 관련된 설명서를 참조하세요.
+
+- 하나 이상의 가상 컴퓨터가 포함된 Windows Server 2012 R2를 실행하는 Hyper-V 호스트가 필요합니다.
+- Hyper-V 서버가 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다.
+- 보호할 가상 컴퓨터는 [가상 컴퓨터 필수 조건](site-recovery-best-practices.md#virtual-machines)에 맞아야 합니다.
+	
+
+## 1단계: Azure 계정에 로그인합니다.
+
+
+1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. cmdlet은 계정 자격 증명에 대한 프롬프트를 표시하는 웹 페이지를 엽니다.
+
+    	Login-AzureRmAccount
+
+	또는 `-Credential` 매개 변수를 사용하여 `Login-AzureRmAccount` cmdlet에 대한 매개 변수로 계정 자격 증명을 포함할 수도 있습니다.
+	
+	사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정해야 합니다.
+
+		Login-AzureRmAccount -Tenant "fabrikam.com"
+
+2. 계정에 여러 구독을 있을 수 있으므로 계정을 사용하려는 구독을 연결해야 합니다.
+
+    	Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+
+3.  다음 명령을 사용하여 복구 서비스와 사이트 복구에 대해 Azure 공급자를 사용하도록 구독이 등록되었는지 확인합니다.
+
+	- `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
+	-  `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
+
+	위의 두 명령의 출력에서 RegistrationState가 Registered로 설정된 경우에 2단계를 진행할 수 있습니다. 그렇지 않은 경우 구독에서 누락된 공급자를 등록해야 합니다.
+
+
+	사이트 복구에 대해 Azure 공급자를 등록하려면 다음을 수행합니다.
+
+    	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery
+	
+	마찬가지로, 구독에서 처음으로 복구 서비스 cmdlet을 사용하는 경우 복구 서비스에 대한 Azure 공급자를 등록해야 합니다. 이 작업을 수행하려면 다음 명령을 실행하여 구독에서 복구 서비스 공급자에 대한 액세스를 먼저 활성화해야 합니다.
+
+		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
+
+	>[AZURE.TIP]위의 명령을 성공적으로 완료한 후 구독에서 복구 서비스 공급자에 대한 액세스를 활성화하려면 최대 1시간까지 걸릴 수 있습니다. `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` 명령을 사용하여 구독에서 복구 서비스 공급자를 등록하려고 시도하는 경우 중간에 실패할 수 있습니다. 이런 문제가 발생하는 경우 잠시 기다린 후 다시 시도합니다.
+
+	구독에서 복구 서비스 공급자에 대한 액세스를 활성화하면 다음 명령을 실행하여 구독에서 공급자를 등록합니다.
+
+		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+
+	`Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` 및 `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery` 명령을 사용하여 공급자가 성공적으로 등록되었는지 확인합니다.
+
+	
+
+## 2단계: 복구 서비스 자격 증명 모음 설정
+
+1. 자격 증명 모음을 만들거나 기존 리소스 그룹을 사용하는 ARM 리소스 그룹을 만듭니다. 다음 명령을 사용하여 새로운 ARM 리소스 그룹을 만들 수 있습니다.
+
+		New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Geo  
+
+	여기서 $ResourceGroupName 변수는 만들려는 ARM 리소스 그룹의 이름을 포함하고 $Geo 변수는 리소스 그룹을 만들 Azure 지역(예: 브라질 남부)을 포함합니다.
+
+	`Get-AzureRmResourceGroup` cmdlet을 사용하여 구독에 ARM 리소스 그룹의 목록을 가져올 수 있습니다.
+
+2. 다음과 같이 새 Azure 복구 서비스 자격 증명 모음을 만듭니다.
+
+		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName <string> -Location <string>
+
+	`Get-AzureRmRecoveryServicesVault` cmdlet을 사용하여 기존 자격 증명 모음의 목록을 검색할 수 있습니다.
+
+> [AZURE.NOTE]클래식 포털 또는 Azure 서비스 관리 PowerShell 모듈을 사용하여 만든 ASR 자격 증명 모음에서 작업을 수행하려는 경우 `Get-AzureRmSiteRecoveryVault` cmdlet을 사용하여 이러한 자격 증명 모음 목록을 검색할 수 있습니다. 모든 새 작업에 대해 새 복구 서비스 자격 증명 모음을 만드는 것이 좋습니다. 앞서 만든 사이트 복구 자격 증명 모음은 계속 지원되지만 최신 기능이 없습니다.
+
+## 3단계: 자격 증명 모음 등록 키 생성
+
+1. 자격 증명 모음에 대한 자격 증명 모음 등록 키를 생성하고 다운로드합니다.
+
+    	Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -Path $path
+2. 자격 증명 모음 컨텍스트를 설정하도록 다운로드한 자격 증명 모음 설정 파일을 가져옵니다.
+ 
+		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $path 
+
+## 4단계: Hyper-V 사이트를 만들고 사이트에 대한 새 자격 증명 모음 등록 키를 생성합니다.
+
+1. 다음과 같이 새 Hyper-V 사이트를 만듭니다.
+		
+		$sitename = "MySite"                #Specify site friendly name
+		New-AzureRmSiteRecoverySite -Name $sitename
+
+	이 cmdlet은 ASR 작업을 시작하여 사이트를 만들고 ASR 작업 개체를 반환합니다. 작업이 완료될 때까지 기다리고 작업이 성공적으로 완료되었는지 확인합니다.
+
+	ASR 작업 개체를 검색할 수 있으므로 Get-AzureRmSiteRecoveryJob cmdlet을 사용하여 작업 상태의 현재 상태를 확인합니다. 
+2. 사이트에 대한 등록 키를 생성하고 다운로드합니다.
+
+		$SiteIdentifier = Get-AzureRmSiteRecoverySite -Name $sitename | Select -ExpandProperty SiteIdentifier
+		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename -Path $Path
+	
+	Hyper-V 호스트에 다운로드한 키를 복사합니다. 사이트에 Hyper-V 호스트를 등록하는 키가 필요합니다.
+
+	
+## 5단계: Hyper-V 호스트에 Azure Site Recovery 공급자와 Azure 복구 서비스 에이전트 설치
+
+1. [여기](https://aka.ms/downloaddra)에서 공급자의 최신 버전에 대한 설치 관리자를 다운로드합니다.
+2. Hyper-V 호스트에서 설치 관리자를 실행하고 설치 끝부분에서 등록 단계를 계속 진행합니다.
+3. 메시지가 표시되면 다운로드한 사이트 등록 키를 제공하고 사이트에 Hyper-V 호스트의 등록을 완료합니다.
+4. 다음을 사용하여 Hyper-V 호스트가 사이트에 등록되었는지 확인합니다.
+
+		$server =  Get-AzureRmSiteRecoveryServer -FriendlyName $server-friendlyname 
+
+## 6단계: 복제 정책을 만들고 보호 컨테이너와 연결
+
+1. 복제 정책 만들기:-
+
+		$ReplicationFrequencyInSeconds = "300";    	#options are 30,300,900
+		$PolicyName = “replicapolicy”
+		$Recoverypoints = 6            		#specify the number of recovery points
+		$storageaccountID = Get-AzureRmStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id 
+
+		$PolicyResult = New-AzureRmSiteRecoveryPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
+
+	반환된 작업을 확인하여 복제 정책 만들기 성공했는지 확인합니다.
+
+	>[AZURE.IMPORTANT]지정된 저장소 계정은 복구 서비스 자격 증명 모음과 같은 Azure 지역에 있어야 하고 지역에서 복제를 활성화해야 합니다.
+	>
+	> - 지정된 복구 저장소 계정이 Azure 저장소 형식(클래식)인 경우 보호된 컴퓨터의 장애 조치는 Azure IaaS(클래식)에 대한 컴퓨터를 복구합니다.
+	> - 지정된 복구 저장소 계정이 Azure 저장소 형식(ARM)인 경우 보호된 컴퓨터의 장애 조치는 Azure IaaS(ARM)에 대한 컴퓨터를 복구합니다.
+	
+ 
+2. 사이트에 해당하는 보호 컨테이너 가져오기:-
+		
+		$protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer
+3.	복제 정책을 사용하여 보호 컨테이너 연결을 시작합니다.
+
+		$Policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $PolicyName
+		$associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy $Policy -PrimaryProtectionContainer $protectionContainer
+
+	연결 작업이 완료될 때까지 기다리고 성공적으로 완료되었는지 확인합니다.
+
+##7단계: 가상 컴퓨터의 보호 활성화
+
+1. 보호하려는 VM에 해당하는 보호 엔터티 가져오기:-
+		
+		$VMFriendlyName = "Fabrikam-app"                    #Name of the VM 
+		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
+
+2. 가상 컴퓨터의 보호를 시작합니다.
+		
+		$Ostype = "Windows"                                 # "Windows" or "Linux"
+		$DRjob = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Policy $Policy -Protection Enable -RecoveryAzureStorageAccountId $storageaccountID  -OS $OStype -OSDiskName $protectionEntity.Disks[0].Name
+
+	>[AZURE.IMPORTANT]지정된 저장소 계정은 복구 서비스 자격 증명 모음과 같은 Azure 지역에 있어야 하고 지역에서 복제를 활성화해야 합니다.
+	>
+	> - 지정된 복구 저장소 계정이 Azure 저장소 형식(클래식)인 경우 보호된 컴퓨터의 장애 조치는 Azure IaaS(클래식)에 대한 컴퓨터를 복구합니다.
+	> - 지정된 복구 저장소 계정이 Azure 저장소 형식(ARM)인 경우 보호된 컴퓨터의 장애 조치는 Azure IaaS(ARM)에 대한 컴퓨터를 복구합니다.
+
+	> 보호하는 VM에 둘 이상의 디스크가 연결된 경우 OSDiskName 매개 변수를 사용하여 운영 체제 디스크를 지정해야 합니다.
+
+3. 가상 컴퓨터가 초기 복제 이후의 보호되는 상태에 도달할 때까지 기다립니다. 복제되는 데이터의 양 및 Azure에 대한 사용 가능한 업스트림 대역폭과 같은 요인에 따라 시간이 많이 걸립니다. 작업 상태 및 StateDescription은 VM이 보호된 상태에 도달함에 따라 다음과 같이 업데이트됩니다.
+
+		
+		PS C:\> $DRjob = Get-AzureRmSiteRecoveryJob -Job $DRjob
+
+		PS C:\> $DRjob | Select-Object -ExpandProperty State
+		Succeeded
+
+		PS C:\> $DRjob | Select-Object -ExpandProperty StateDescription
+		Completed
+
+4. 장애 조치 시에 VM의 NIC를 연결할 VM 역할 크기 및 Azure 네트워크와 같은 복구 속성을 업데이트합니다.
+
+		PS C:\> $nw1 = Get-AzureRmVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
+
+		PS C:\> $VMFriendlyName = "Fabrikam-App"
+
+		PS C:\> $VM = Get-AzureRmSiteRecoveryVM -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
+
+		PS C:\> $UpdateJob = Set-AzureRmSiteRecoveryVM -VirtualMachine $VM -PrimaryNic $VM.NicDetailsList[0].NicId -RecoveryNetworkId $nw1.Id -RecoveryNicSubnetName $nw1.Subnets[0].Name
+
+		PS C:\> $UpdateJob = Get-AzureRmSiteRecoveryJob -Job $UpdateJob
+
+		PS C:\> $UpdateJob
+
+
+		Name             : b8a647e0-2cb9-40d1-84c4-d0169919e2c5
+		ID               : /Subscriptions/a731825f-4bf2-4f81-a611-c331b272206e/resourceGroups/MyRG/providers/Microsoft.RecoveryServices/vault
+		                   s/MyVault/replicationJobs/b8a647e0-2cb9-40d1-84c4-d0169919e2c5
+		Type             : Microsoft.RecoveryServices/vaults/replicationJobs
+		JobType          : UpdateVmProperties
+		DisplayName      : Update the virtual machine
+		ClientRequestId  : 805a22a3-be86-441c-9da8-f32685673112-2015-12-10 17:55:51Z-P
+		State            : Succeeded
+		StateDescription : Completed
+		StartTime        : 10-12-2015 17:55:53 +00:00
+		EndTime          : 10-12-2015 17:55:54 +00:00
+		TargetObjectId   : 289682c6-c5e6-42dc-a1d2-5f9621f78ae6
+		TargetObjectType : ProtectionEntity
+		TargetObjectName : Fabrikam-App
+		AllowedActions   : {Restart}
+		Tasks            : {UpdateVmPropertiesTask}
+		Errors           : {}
+
+
+
+## 8단계: 테스트 장애 조치 실행
+
+1. 테스트 장애 조치 작업을 실행합니다.
+		
+		$nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
+		
+		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMFriendlyName -ProtectionContainer $protectionContainer
+
+		$TFjob = Start-AzureRmSiteRecoveryTestFailoverJob -ProtectionEntity $protectionEntity -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
+
+2. 테스트 VM이 Azure에서 만들어졌는지 확인합니다. (Azure에서 테스트 VM을 만든 후 테스트 장애 조치 작업이 중지됩니다. 다음 단계에 설명된 대로 작업 다시 시작 시 생성된 아티팩트를 정리하여 작업이 완료됩니다.)
+
+3. 테스트 장애 조치 완료
+
+    	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
+
+<!---HONumber=AcomDC_1217_2015-->

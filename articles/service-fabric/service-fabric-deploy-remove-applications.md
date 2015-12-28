@@ -3,7 +3,7 @@
    description="서비스 패브릭에서 응용 프로그램을 배포 및 제거하는 방법"
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"
+   ms.author="seanmck"/>
 
 # 응용 프로그램 배포
 
@@ -217,7 +217,7 @@ PS D:\temp>
 
 [서비스 패브릭 상태 소개](service-fabric-health-introduction.md)
 
-[서비스 패브릭 서비스 진단 및 문제 해결](service-fabric-diagnose-monitor-your-service-index.md)
+[서비스 패브릭 서비스 진단 및 문제 해결](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭에서 응용 프로그램 모델링](service-fabric-application-model.md)
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

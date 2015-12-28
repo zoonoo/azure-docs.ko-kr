@@ -62,7 +62,7 @@
 - [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
-- DBCC PDW\_SHOWEXECUTIONPLAN
+- [DBCC PDW\_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
 - DBCC PDW\_SHOWPARTITIONSTATS
 - DBCC PDW\_SHOWSPACEUSED
 - [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
@@ -116,7 +116,7 @@
 
 
 ## 다음 단계
-더 많은 TSQL 예는 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
+더 많은 TSQL 예제는 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
 
 <!--Image references-->
 
@@ -128,4 +128,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

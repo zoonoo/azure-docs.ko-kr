@@ -109,7 +109,7 @@ Litmos에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 3. Azure 포털의 **앱 설정 구성** 대화 상자에서 다음 단계를 수행합니다. <br><br>![Azure AD Single Sign-On][8] <br>
  
-    a. **Issuer** 텍스트 상자에 사용자가 Litmos 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://azureapptest.litmos.com/account/Login*))
+    a. **식별자** 텍스트 상자에 사용자가 Litmos 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다(예: **https://azureapptest.litmos.com/account/Login*)).
      
     b. **회신 URL** 텍스트 상자에 이전 단계의 Litmos 응용 프로그램에서 복사한 값을 붙여넣습니다.
 
@@ -297,4 +297,4 @@ Litmos에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

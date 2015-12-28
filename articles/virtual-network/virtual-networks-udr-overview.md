@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 사용자 정의 경로 및 IP 전달
@@ -90,4 +90,4 @@ Azure에서 VNet(가상 네트워크)에 VM(가상 컴퓨터)을 추가하면 �
 - [리소스 관리자 배포 모델에서 경로를 만들어](../virtual-network-create-udr-arm-template) 서브넷에 연결하는 방법에 대해 알아봅니다. 
 - [클래식 배포 모델에서 경로를 만들어](../virtual-network-create-udr-classic-ps) 서브넷에 연결하는 방법에 대해 알아봅니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

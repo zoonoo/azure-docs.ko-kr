@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Preview 포털을 사용하여 NSG를 관리하는 방법
@@ -56,4 +56,4 @@ Preview 포털의 기존 NSG에 규칙을 만들려면 다음 단계를 수행�
 
 ![Preview 포털 - 새 규칙](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

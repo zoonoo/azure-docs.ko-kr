@@ -72,8 +72,8 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 ### 서비스 버전 관리 및 업그레이드
 서비스 패브릭을 통해 응용 프로그램에서 독립적인 서비스의 버전 관리 및 업그레이드를 수행할 수 있습니다. 자세한 내용은 [서비스 버전 관리 및 업그레이드][app-upgrade-tutorial]를 참조하세요.
 
-### Visual Studio Online을 사용하여 지속적인 통합 구성
-서비스 패브릭 응용 프로그램에 대해 지속적인 통합 프로세스를 설정할 수 있는 방법을 알아보려면 [Visual Studio Online을 사용하여 지속적인 통합 구성][ci-with-vso]을 참조하세요.
+### Visual Studio Team Services를 사용하여 지속적인 통합 구성
+서비스 패브릭 응용 프로그램에 대해 지속적인 통합 프로세스를 설정할 수 있는 방법을 알아보려면 [Visual Studio Team Services를 사용하여 지속적인 통합 구성][ci-with-vso]을 참조하세요.
 
 
 <!-- Links -->
@@ -85,4 +85,4 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

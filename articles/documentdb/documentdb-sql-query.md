@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
 # DocumentDB에서 SQL 쿼리
@@ -186,7 +186,7 @@ DocumentDB SQL 구문을 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 ## DocumentDB SQL 쿼리의 기본 사항
 ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다.
     
-    SELECT <select_list> 
+    SELECT [TOP <top_expression>] <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
@@ -661,6 +661,37 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 	    "isRegistered": true
 	}]
 
+###TOP 연산자
+쿼리에서 값의 수를 제한하는 데 TOP 키워드를 사용할 수 있습니다. TOP를 ORDER BY 절과 함께 사용하면 결과 집합이 정렬된 값의 처음 N개로 제한되고 그렇지 않은 경우 정의되지 않은 순서의 처음 N개 결과가 반환됩니다. SELECT 문에서는 항상 TOP 절과 함께 ORDER BY 절을 사용하는 것이 좋습니다. TOP의 영향을 받는 행을 예측 가능하게 나타내는 유일한 방법입니다.
+
+
+**쿼리**
+
+	SELECT TOP 1 * 
+	FROM Families f 
+
+**결과**
+
+	[{
+	    "id": "AndersenFamily",
+	    "lastName": "Andersen",
+	    "parents": [
+	       { "firstName": "Thomas" },
+	       { "firstName": "Mary Kay"}
+	    ],
+	    "children": [
+	       {
+	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+	           "pets": [{ "givenName": "Fluffy" }]
+	       }
+	    ],
+	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
+	    "isRegistered": true
+	}]
+
+위에 나와 있는 것처럼 상수 값 또는 매개 변수가 있는 쿼리를 사용하는 변수 값과 함께 TOP를 사용할 수 있습니다. 자세한 내용은 아래의 매개 변수가 있는 쿼리를 참조하세요.
+
 ## ORDER BY 절
 ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다. Order By를 자세히 살펴보려면 [DocumentDB Order By 연습](documentdb-orderby.md)을 참조하세요.
 
@@ -1073,6 +1104,15 @@ DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼�
         "parameters": [          
             {"name": "@lastName", "value": "Wakefield"},         
             {"name": "@addressState", "value": "NY"},           
+        ] 
+    }
+
+아래와 같이 매개 변수가 있는 쿼리를 사용하여 TOP에 대한 인수를 설정할 수 있습니다.
+
+    {      
+        "query": "SELECT TOP @n * FROM Families",     
+        "parameters": [          
+            {"name": "@n", "value": 10},         
         ] 
     }
 
@@ -1603,6 +1643,22 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
+### 지원되는 LINQ 연산자 목록
+다음은 DocumentDB .NET SDK에 포함된 LINQ 공급자에서 지원되는 LINQ 연산자의 목록입니다.
+
+-	**Select**: 프로젝션이 개체 생성을 포함하는 SQL SELECT로 변환합니다.
+-	**Where**: 필터가 SQL WHERE로 변환하고 && , || 및 ! 간의 SQL 연산자로 변환을 지원합니다.
+-	**SelectMany**: SQL JOIN 절에 대한 배열 해제를 허용합니다. 배열 요소를 필터링하는 데 체인/중첩 식을 사용할 수 있습니다.
+-	**OrderBy 및 OrderByDescending**: ORDER BY 오름차순/내림차순으로 변환합니다.
+-	**CompareTo**: 범위 비교로 변환합니다. .NET에서 비교 불가능하므로 문자열에 대해 일반적으로 사용됩니다.
+-	**Take**: 쿼리에서 결과를 제한하기 위해 SQL TOP으로 변환합니다.
+-	**수치 연산 함수**: NET의 Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
+-	**문자열 함수**: .NET의 Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
+-	**배열 함수**: .NET의 oncat, Contains 및 Count를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
+-	**지리 공간 확장 함수**: 스텁 메서드 Distance, Within, IsValid 및 IsValidDetailed에서 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
+-	**사용자 정의 함수 확장 함수**: 스텁 메서드 UserDefinedFunctionProvider.Invoke에서 해당하는 사용자 정의 함수로의 변환을 지원합니다.
+-	**기타**: coalesce 및 조건부 연산자의 변환을 지원합니다. 컨텍스트에 따라 Contains는 문자열 CONTAINS, ARRAY\_CONTAINS 또는 SQL IN으로 변환할 수 있습니다.
+
 ### SQL 쿼리 연산자
 다음은 표준 LINQ 쿼리 연산자 중 일부가 DocumentDB 쿼리로 변환되는 방법을 보여 주는 몇 가지 예제입니다.
 
@@ -2088,4 +2144,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

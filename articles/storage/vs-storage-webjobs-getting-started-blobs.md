@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
 ## 개요
 
@@ -41,7 +32,7 @@
 
 ### 확장명을 포함하는 Blob 이름에 대한 단일 자리 표시자  
 
-다음 코드 샘플은 *input* 컨테이너에 표시된 텍스트 Blob을 *output* 컨테이너에 복사합니다.
+다음 코드 샘플은 *input* 컨테이너에 표시된 텍스트 Blob를 *output* 컨테이너에 복사합니다.
 
 		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
 		    [Blob("output/{name}")] out string output)
@@ -49,7 +40,7 @@
 		    output = input.ReadToEnd();
 		}
 
-특성 생성자는 컨테이너 이름과 Blob 이름의 자리 표시자를 지정하는 문자열 매개 변수를 가져옵니다. 이 예제에서는 *Blob1.txt*라는 Blob이 *input* 컨테이너에 생성된 경우 함수가 *output*컨테이너에 *Blob1.txt*라는 Blob을 만듭니다.
+특성 생성자는 컨테이너 이름과 Blob 이름의 자리 표시자를 지정하는 문자열 매개 변수를 가져옵니다. 이 예제에서는 *Blob1.txt*라는 Blob이 *input* 컨테이너에 생성된 경우 함수가 *output*컨테이너에 *Blob1.txt*라는 Blob를 만듭니다.
 
 다음 코드 샘플과 같이 Blob 이름 자리 표시자를 사용하여 이름 패턴을 지정할 수 있습니다.
 
@@ -61,7 +52,7 @@
 
 이 코드는 이름이 "original-"로 시작하는 Blob만 복사합니다. 예를 들어 *input* 컨테이너의 *original-Blob1.txt*가 *output* 컨테이너의 *copy-Blob1.txt*에 복사됩니다.
 
-이름에 중괄호가 있는 Blob 이름에 대한 이름 패턴을 지정해야 하는 경우 이중 중괄호를 사용합니다. 예를 들어 *images* 컨테이너에서 이름이 다음과 같은 Blob을 찾은 경우
+이름에 중괄호가 있는 Blob 이름에 대한 이름 패턴을 지정해야 하는 경우 이중 중괄호를 사용합니다. 예를 들어 *images* 컨테이너에서 이름이 다음과 같은 Blob를 찾은 경우
 
 		{20140101}-soundfile.mp3
 
@@ -210,13 +201,13 @@ WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 **BlobTr
 
 Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 저장소 계정의 *azure-webjobs-hosts*라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* blob에 대해 호출된 함수("**{WebJob 이름}*.Functions.*{함수 이름}*", 예: "WebJob1.Functions.CopyBlob")
+* Blob에 대해 호출된 함수("**{WebJob 이름}*.Functions.*{함수 이름}*", 예: "WebJob1.Functions.CopyBlob")
 * 컨테이너 이름
 * Blob 유형("BlockBlob" 또는 "PageBlob")
 * Blob 이름
 * ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
-Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다.
+Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다.
 
 ## 큐 문서에서 다루는 관련 항목
 
@@ -238,4 +229,4 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 
 이 문서에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
-> - [What happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
-
 ## 개요
 
-이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 ASP.NET 앱에서 Azure 저장소 계정을 만들거나 참조한 후 Azure Blob 저장소를 사용하는 방법을 설명합니다. 이 문서에서는 Blob 컨테이너를 만들고 Blob 업로드, 나열, 다운로드 및 삭제 등과 같은 기타 일반적인 작업을 수행하는 방법을 보여줍니다. 샘플은 C#으로 작성되었으며 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)을 사용합니다.
+이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 ASP.NET 앱에서 Azure 저장소 계정을 만들거나 참조한 후 Azure Blob 저장소를 사용하는 방법을 설명합니다. 이 문서에서는 Blob 컨테이너를 만들고 Blob 업로드, 나열, 다운로드 및 삭제 등과 같은 기타 일반적인 작업을 수행하는 방법을 보여줍니다. 샘플은 C#으로 작성되었으며 [ Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)을 사용합니다.
 
  - Azure Blob 저장소 사용에 대한 일반적인 정보는 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)을 참조하세요.
  - ASP.NET 프로젝트에 대한 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
@@ -142,7 +133,7 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대�
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-선택적으로, **ListBlobs** 메서드의 **UseFlatBlobListing** 매개 변수를 **true**로 설정할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 **CloudBlockBlob**으로 반환됩니다. 아래 예제에서는 **ListBlobs** 호출을 보여 줍니다.
+선택적으로, **ListBlobs** 메서드의 **UseFlatBlobListing** 매개 변수를 **true**로 설정할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 **CloudBlockBlob**으로 반환됩니다. 다음 예제에서는 **ListBlobs** 호출을 보여 줍니다.
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -246,4 +237,4 @@ Blob을 삭제하려면 **Delete** 메서드를 사용합니다.
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

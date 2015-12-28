@@ -86,7 +86,7 @@ PowerShell cmdlet을 실행하여 Express 경로 회로를 만드는 즉시 아�
 
 PowerShell cmdlet을 실행하여 Express 경로 회로를 삭제하는 즉시 아래에 설명된 상태의 Express 경로 회로를 확인합니다.
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
 
 연결 공급자에 도달하여 Express 경로 회로의 프로비전을 해제해야 합니다. **중요:** Microsoft는 PowerShell cmdlet을 실행하여 회로의 프로비전을 해제할 때까지 회로에 요금을 계속 청구합니다.
@@ -121,4 +121,4 @@ BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사�
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

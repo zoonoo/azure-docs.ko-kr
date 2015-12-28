@@ -1,6 +1,6 @@
-	<properties 
-	pageTitle="Azure Mobile Engagement implementation for Gaming App"
-	description="Gaming app scenario to implement Azure Mobile Engagement" 
+<properties 
+	pageTitle="게임 앱에 대한 Azure Mobile Engagement 구현"
+	description="Azure Mobile Engagement 구현을 위한 게임 앱 시나리오" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo"
@@ -61,7 +61,7 @@ IT 팀의 권고에 따라 다음 질문에 답하기 위해 다음과 같은 �
 * 레벨 20을 통과한 사용자는 1주일에 10달러를 넘게 쓰기 시작합니다.
 * 사용자들은 레벨 16, 24, 32에서 프리미엄 패키지를 구입하는 경향이 있습니다.
 
-이 분석을 이용하여 모바일 프로젝트 책임자는 앱 내 판매를 늘리기 위해 특정 푸시 알림 순서를 만들기로 결정했습니다. 세 가지 푸시 순서, 즉 시작 프로그램, 판매 프로그램 및 비활성 프로그램을 만들고 이대로 호출합니다. 자세한 내용은 [플레이 북](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)을 참조하세요.![][1]
+이 분석을 이용하여 모바일 프로젝트 책임자는 앱 내 판매를 늘리기 위해 특정 푸시 알림 순서를 만들기로 결정했습니다. 세 가지 푸시 순서, 즉 시작 프로그램, 판매 프로그램 및 비활성 프로그램을 만들고 이대로 호출합니다. 자세한 내용은 [플레이 북](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)을 참조하세요. ![][1]
 
 <!--Image references-->
 
@@ -69,4 +69,4 @@ IT 팀의 권고에 따라 다음 질문에 답하기 위해 다음과 같은 �
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

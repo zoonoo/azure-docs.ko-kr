@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/14/2015" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법
@@ -53,7 +53,7 @@ Azure Redis Cache VNET 통합은 **가상 네트워크** 블레이드에 구성�
 
 ![가상 네트워크][redis-cache-vnet-ip]
 
-원하는 **고정 IP 주소**를 클릭하고 **확인**을 클릭하여 VNET 구성을 저장합니다. 선택한 고정 IP가 이미 사용 중인 경우 오류 메시지가 표시됩니다.
+**고정 IP 주소** 필드는 선택 사항입니다. 여기서 지정하지 않으면 선택한 서브넷에서 선택합니다. 특정 고정 IP가 필요한 경우 원하는 **고정 IP 주소**를 입력하고 **확인**을 클릭하여 VNET 구성을 저장합니다. 선택한 고정 IP가 이미 사용 중인 경우 오류 메시지가 표시됩니다.
 
 캐시를 만든 후에는 동일한 VNET 안의 클라이언트에서만 액세스할 수 있습니다.
 
@@ -117,4 +117,4 @@ VNET은 프리미엄 캐시에만 사용할 수 있습니다.
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

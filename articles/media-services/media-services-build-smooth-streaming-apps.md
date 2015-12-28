@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/16/2015" 
 	ms.author="juliako"/>
 
 
 
 #부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법
 
-Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형 및 Live Smooth Streaming 콘텐츠를 재생할 수 있는 Windows 스토어 응용 프로그램을 빌드할 수 있습니다. 부드러운 스트리밍 콘텐츠의 기본 재생뿐 아니라 SDK는 Microsoft PlayReady 보호, 품질 수준 제한, Live DVR, 오디오 스트림 전환, 상태 업데이트(예: 품질 수준 변경) 수신 대기, 오류 이벤트 등의 풍부한 기능도 제공합니다. 지원되는 기능에 대한 자세한 내용은 [릴리스 정보](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)를 참조하십시오.
-
-이 자습서에서는 API를 다룹니다. 플레이어를 개발하는 경우 [Player Framework for Windows 8](http://playerframework.codeplex.com/)을 사용하는 것이 좋습니다. 플레이어 프레임워크를 통해 응용 프로그램을 더 쉽게 빌드할 수 있으며 많은 추가 기능이 제공됩니다.
+Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형 및 Live Smooth Streaming 콘텐츠를 재생할 수 있는 Windows 스토어 응용 프로그램을 빌드할 수 있습니다. 부드러운 스트리밍 콘텐츠의 기본 재생뿐 아니라 SDK는 Microsoft PlayReady 보호, 품질 수준 제한, Live DVR, 오디오 스트림 전환, 상태 업데이트(예: 품질 수준 변경) 수신 대기, 오류 이벤트 등의 풍부한 기능도 제공합니다. 지원되는 기능에 대한 자세한 내용은 [릴리스 정보](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)를 참조하십시오. 자세한 내용은 [Windows 8용 플레이어 프레임워크](http://playerframework.codeplex.com/)를 참조하세요.
 
 이 자습서에는 4개 단원이 포함되어 있습니다.
 
@@ -32,13 +30,21 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 4. 부드러운 스트리밍 트랙 선택
 
 ##필수 조건
+
 - Windows 8 32비트 또는 64비트. MSDN에서 [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx)을 다운로드할 수 있습니다.
-- Windows 8에 설치된 Visual Studio 2012 또는 Visual Studio Express 2012 for Windows 8. [여기](http://www.microsoft.com/visualstudio/11/downloads)에서 평가판을 다운로드할 수 있습니다.
+- Visual Studio 2012 또는 Visual Studio Express 2012(또는 이후 버전). [여기](http://www.microsoft.com/visualstudio/11/downloads)에서 평가판을 다운로드할 수 있습니다.
 - [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
-각 단원에 대해 완성된 솔루션은 MSDN 개발자 코드 샘플(코드 갤러리)에서 다운로드할 수 있습니다([단원 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "간단한 Windows 8 부드러운 스트리밍 미디어 플레이어"), [단원 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "슬라이더 막대 컨트롤이 있는 간단한 Windows 8 부드러운 스트리밍 미디어 플레이어"), [단원 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "스트림 선택 항목이 있는 Windows 8 부드러운 스트리밍 미디어 플레이어") 및 [단원 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "트랙 선택 항목이 있는 Windows 8 부드러운 스트리밍 미디어 플레이어")).
+
+각 단원에 대해 완성된 솔루션은 MSDN 개발자 코드 샘플(코드 갤러리)에서 다운로드할 수 있습니다.
+
+- [단원 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - 간단한 Windows 8 부드러운 스트리밍 미디어 플레이어 
+- [단원 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - 슬라이더 막대 컨트롤이 있는 간단한 Windows 8 부드러운 스트리밍 미디어 플레이어 
+- [단원 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - 스트림 선택 항목이 있는 Windows 8 부드러운 스트리밍 미디어 플레이어  
+- [단원 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - 트랙 선택 항목이 있는 Windows 8 부드러운 스트리밍 미디어 플레이어
 
 ##단원 1: 기본 부드러운 스트리밍 스토어 응용 프로그램 만들기
+
 이 단원에서는 부드러운 스트림 콘텐츠를 재생하기 위해 MediaElement 컨트롤이 포함된 Windows 스토어 응용 프로그램을 만듭니다. 실행 중인 응용 프로그램은 다음과 같이 표시됩니다.
 
 ![부드러운 스트리밍 Windows 스토어 응용 프로그램 예][PlayerApplication]
@@ -980,4 +986,4 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

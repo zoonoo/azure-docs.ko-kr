@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
+	ms.date="12/14/2015" 
 	ms.author="rasquill" 
 />
 
@@ -33,9 +33,9 @@ Azure는 뛰어난 클라우드 솔루션을 제공합니다. 이 솔루션은 �
 - [Azure 리소스 관리자](resource-group-overview.md) 및 [리소스 그룹 템플릿](resource-group-authoring-templates.md)으로 복잡한 분산 응용 프로그램을 간단하게 배포하고 업데이트
 - 여러 독점 및 공개 소스 구성 관리 도구와 통합
 
-Azure상에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 있습니다. 즉, VM 및 컨테이너 *오케스트레이션* 도구를 사용하여 VM(가상 컴퓨터) 그룹을 생성하고 Linux 컨테이너 및 곧 출시될 [Windows Server 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) 내에 응용 프로그램을 배포할 수 있습니다.
+Azure에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 있습니다. 즉, VM 및 컨테이너 *오케스트레이션* 도구를 사용하여 VM(가상 컴퓨터) 그룹을 생성하고 Linux 컨테이너 및 곧 출시될 [Windows 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) 내에 응용 프로그램을 배포할 수 있습니다.
 
-이 문서는 상위 수준에서 이러한 개념들을 논의할 뿐만 아니라, Azure상의 컨테이너 및 클러스터 사용에 대한 수많은 상세 정보, 자습서, 제품 링크를 담고 있습니다. 개념에 대해 모두 알고 있고 링크만 필요한 경우 [바로 여기](#tools-for-working-with-containers)에서 확인하실 수 있습니다.
+이 문서는 상위 수준에서 이러한 개념들을 논의할 뿐만 아니라, Azure상의 컨테이너 및 클러스터 사용에 대한 수많은 상세 정보, 자습서, 제품 링크를 담고 있습니다. 개념에 대해 모두 알고 있고 링크만 필요한 경우 [컨테이너 작업 도구](#tools-for-working-with-containers)에서 확인할 수 있습니다.
 
 ## 가상 컴퓨터와 컨테이너의 차이
 
@@ -47,7 +47,7 @@ Azure상에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 �
 
 정말 멋진 기능이라 할 수 있습니다.
 
-[Windows Server 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)는 Windows에서 실행되는 응용 프로그램에 Linux 컨테이너와 같은 동일한 이점을 제공합니다. Windows Server 컨테이너는 Docker 이미지 형식 및 Docker API를 지원하기 때문에 Windows Server 컨테이너 기반 응용 프로그램에 Mac 및 Linux 기반 응용 프로그램에서 사용된 것과 유사한 명령을 사용하여 개발부터 게시, 검색, 배포까지 수행할 수 있습니다. 또한 [Microsoft Visual Studio에서도 새로운 Docker 지원 기능을 사용할 수 있습니다](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0). 이처럼 넓어진 [컨테이너 환경](https://msdn.microsoft.com/virtualization/windowscontainers/about/container_ecosystem) 덕분에 이제 모든 이들이 컨테이너가 필요한 작업에 도구를 사용할 수 있게 될 것입니다.
+Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 컨테이너와 동일한 이점을 제공합니다. Windows 컨테이너는 Docker 이미지 형식과 Docker API를 지원하지만 PowerShell을 사용하여 관리할 수도 있습니다. 두 개의 컨테이너 런타임을 Windows 컨테이너, Windows Server 컨테이너 및 Hyper-V 컨테이너에서 사용할 수 있습니다. Hyper-V 컨테이너는 최적화된 가상 컴퓨터에서 각 컨테이너를 호스트하여 추가 격리 계층을 제공합니다. Windows 컨테이너에 대한 자세한 내용은 [Windows 컨테이너 정보](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 참조하세요. Azure에서 Windows 컨테이너를 사용하려면 [Windows 컨테이너 Azure 빠른 시작](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup)을 참조하세요.
 
 이것도 아주 멋진 일입니다.
 
@@ -123,13 +123,13 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 
 맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 [이러한 방식으로](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md) PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
 
-이런 기능들은 [Puppet](https://puppetlabs.com/) 및 [Chef](https://www.chef.io/) 같은 도구들로 마이그레이션하여 VM 생성 및 구성을 규모에 맞추어 자동화하는 데 사용되기도 합니다. (Azure에서 이러한 도구를 사용하는 방법에 대한 링크는 [여기](#tools-for-working-with-containers)에서 확인하실 수 있습니다.)
+이런 기능들은 [Puppet](https://puppetlabs.com/) 및 [Chef](https://www.chef.io/) 같은 도구들로 마이그레이션하여 VM 생성 및 구성을 규모에 맞추어 자동화하는 데 사용되기도 합니다. ([Azure에서 이러한 도구를 사용하는 방법](#tools-for-working-with-containers)에 대한 몇 가지 링크는 여기에서 확인하실 수 있습니다.)
 
 ### Azure 리소스 그룹 템플릿
 
 최근 Azure는 [Azure 리소스 관리](virtual-machines-azurerm-versus-azuresm.md) REST API와 업데이트된 PowerShell 및 Azure CLI 도구를 배포하여 사용이 더욱 간편해졌습니다. 다음을 사용하면 Azure 리소스 관리 API와 함께 [Azure 리소스 관리자 템플릿](../resource-group-authoring-templates.md)으로 전체 응용 프로그램 토폴로지를 배포, 수정 또는 재배포할 수 있습니다.
 
-- [Azure 포털의 템플릿](https://github.com/Azure/azure-quickstart-templates)(힌트: "DeployToAzure" 버튼을 사용하십시오)
+- [Azure 포털의 템플릿](https://github.com/Azure/azure-quickstart-templates)(힌트: "DeployToAzure" 버튼을 사용하세요.)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - [Azure PowerShell 모듈](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -166,9 +166,9 @@ Linux에서 배포한 [CoreOS](virtual-machines-linux-coreos-how-to.md)는 최�
 - [공개 컨테이너 프로젝트](http://opencontainers.org/)
 - [RancherOS](http://rancher.com/rancher-os/)
 
-Windows Server 컨테이너 링크:
+Windows 컨테이너 링크:
 
-- [Windows Server 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
+- [Windows 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
 
 Visual Studio Docker 링크:
 
@@ -233,11 +233,11 @@ Linux 배포 도구 및 Azure 예시:
 
 ## 다음 단계
 
-[Docker](https://www.docker.com) 및 [Windows Server 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 확인하세요.
+[Docker](https://www.docker.com) 및 [Windows 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 확인하세요.
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

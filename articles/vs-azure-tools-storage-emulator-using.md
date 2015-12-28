@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Visual Studio에서 저장소 에뮬레이터 구성 및 사용"
+   pageTitle="Visual Studio에서 저장소 에뮬레이터 구성 및 사용 | Microsoft Azure"
    description="Visual Studio에서 저장소 에뮬레이터 구성 및 사용"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Visual Studio에서 저장소 에뮬레이터 구성 및 사용
 
@@ -43,4 +43,4 @@ Visual Studio에서 서비스를 실행하거나 디버깅하는 경우 Visual S
 
 서버 탐색기에서 Azure 저장소 노드를 사용하면 데이터를 보고 저장소 에뮬레이터를 포함한 저장소 계정의 blob 및 테이블 데이터에 대한 설정을 변경할 수 있습니다. 자세한 내용은 [서버 탐색기로 저장소 리소스 탐색 및 관리](https://msdn.microsoft.com/library/azure/ff683677.aspx)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

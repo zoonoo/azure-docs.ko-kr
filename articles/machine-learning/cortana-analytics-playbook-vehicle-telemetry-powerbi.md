@@ -306,7 +306,7 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 • 로컬로 저장
 
-**PowerBI 보고서 구성** • PowerBI 데스크톱을 사용하여 디자이너 파일 ‘VehicleTelemetryAnalytics - 데스크톱 Report.pbix’ 열기. 아직 없는 경우 [여기](http://www.microsoft.com/download/details.aspx?id=45331)에서 PowerBI 데스크톱 설치.
+**PowerBI 보고서 구성** • PowerBI 데스크톱을 사용하여 디자이너 파일 ‘VehicleTelemetryAnalytics - 데스크톱 Report.pbix’ 열기. 아직 없는 경우 [PowerBI Desktop 설치](http://www.microsoft.com/download/details.aspx?id=45331)에서 PowerBI 데스크톱 설치.
 
 • **쿼리 편집** 클릭.
 
@@ -390,4 +390,4 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 축하합니다. 차량 상태 및 운전 습관을 실시간으로 예측 가능하며 배치 통찰력을 얻을 수 있는 보고서 및 대시보드를 성공적으로 만들었습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

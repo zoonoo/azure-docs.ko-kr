@@ -1,5 +1,5 @@
 <properties
-	pageTitle="사이트와 Azure 간 보호 이해" 
+	pageTitle="Azure Site Recovery를 사용한 Hyper-V 복제 이해 | Microsoft Azure" 
 	description="이 문서에서는 Azure Site Recovery를 성공적으로 설치, 구성 및 관리하는 데 도움이 되는 기술 개념을 이해합니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 
 
-# Hyper-V 또는 VMM 사이트와 Azure 간 보호 이해
+# Azure Site Recovery를 사용한 Hyper-V 복제 이해
 
 이 문서에서는 Azure Site Recovery를 사용하여 Hyper-V 사이트 또는 VMM 사이트와 Azure 간 보호를 성공적으로 구성 및 관리하는 데 도움이 되는 기술 개념에 대해 설명합니다.
 
@@ -79,4 +79,4 @@ Hyper-V 복제본 복제 엔진의 일부인 Hyper-V 복제본 복제 추적기�
 - [Microsoft 지원을 위한 연락](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [일반적 ARS 오류 및 해결 방법](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

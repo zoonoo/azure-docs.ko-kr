@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버 보호를 위한 용량 계획
@@ -50,30 +50,26 @@ Capacity Planner 도구를 사용하면 Azure Site Recovery로 Hyper-V VM, VMwar
 3.	**Capacity Planner** 워크시트에서 필요한 정보를 입력합니다. 아래 스크린샷에 빨간색 원이 표시된 모든 필드를 입력해야 합니다.
 
 	- **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
-	- **평균 일일 데이터 변경률**에 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [vSphere 용량 계획 어플라이언스](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)를 사용하여 수집한 정보를 입력합니다.  
-	- **압축** 설정은 VMware VM 또는 물리적 서버를 Azure에 복제할 때 제공되는 압축에만 적용됩니다. 30% 이상으로 추정합니다. 필요에 따라 설정을 수정합니다. Hyper-V VM을 Azure 압축으로 복제하기 위해서는 Riverbed와 같은 타사 어플라이언스를 사용하면 됩니다. 
-	-  **보존 기간**에 복제본을 유지할 기간을 지정합니다. VMware 또는 물리적 서버를 복제하는 경우 일 단위로 값을 입력합니다. Hyper-V를 복제하는 경우 시 단위의 시간을 지정합니다.
+	- **평균 일일 데이터 변경률(%)**에 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [vSphere 용량 계획 어플라이언스](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)를 사용하여 수집한 정보를 입력합니다.  
+	- **압축**은 VMware VM 또는 물리적 서버를 Azure에 복제할 때 제공되는 압축에만 적용됩니다. 30% 이상이 예상되지만 필요에 따라 설정을 수정할 수 있습니다. Hyper-V VM을 Azure 압축으로 복제하기 위해서는 Riverbed와 같은 타사 어플라이언스를 사용하면 됩니다. 
+	-  **보존 입력**은 복제본을 보존해야 하는 기간을 지정합니다. VMware 또는 물리적 서버를 복제하는 경우 일 단위로 값을 입력합니다. Hyper-V를 복제하는 경우 시 단위의 시간을 지정합니다.
 	-  **가상 컴퓨터의 배치에 대한 초기 복제가 완료되어야 하는 시간** 및 **초기 복제 배치당 가상 컴퓨터 수**에서 초기 복제 요구 사항을 계산하는 데 사용된 설정을 입력합니다. 사이트 복구가 배포되면 초기 데이터 집합 전체가 업로드되어야 합니다. 
 
 	![입력](./media/site-recovery-capacity-planner/inputs.png)
 
 2.	원본 환경에 대한 값을 입력하면 표시된 출력에는 다음이 포함됩니다.
 
-	- 네트워크 대역폭 요구 사항:
-		- **델타 복제에 필요한 대역폭**(MB/sec). 평균 일일 데이터 변경률을 토대로 계산됩니다.
-		- **초기 복제에 필요한 대역폭**(MB/sec). 사용자가 입력한 초기 복제 값을 토대로 계산됩니다. 
-	- Azure 요구 사항: Azure에서 필요한 저장소, IOPS, 저장소 계정 및 디스크에 대한 자세한 정보를 제공합니다.
-		- **필요한 저장소(GB)**는 필요한 총 Azure 저장소입니다.
-		- **표준 저장소 계정에 대한 총 IOPS**는 총 표준 저장소 계정에서 8K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 표준 Azure VM에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다. 
-		- **표준 저장소 계정 수**는 VM을 보호하는 데 필요한 총 표준 저장소 계정 수를 제공합니다. 표준 저장소 계정은 표준 저장소의 모든 VM에서 최대 20000 IOPS를 보유할 수 있으며 디스크당 최대 500 IOPS가 지원됩니다. 
-		- **필요한 BLOB 디스크 수**는 Azure 저장소에 생성될 디스크 수를 제공합니다.
-		- **필요한 프리미엄 저장소 계정 수**는 VM을 보호하는 데 필요한 총 프리미엄 저장소 계정 수를 제공합니다. 높은 IOPS(20000 이상)를 포함한 원본 VM에는 프리미엄 저장소 계정이 필요합니다. 프리미엄 저장소 계정은 최대 80000 IOPS를 보유할 수 있습니다.
-		- **프리미엄 저장소 계정에 대한 총 IOPS**는 총 프리미엄 저장소 계정에서 256K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다. 
-
-	- 다른 인프라 요구 사항:
-		- 구성 및 프로세스 서버를 비롯하여 Azure로 VMware/물리적 복제를 위한 추가 요구 사항을 포함합니다.
-		- 필요한 추가 프로세스 서버 수: 추가 프로세스 서버가 필요한지 여부를 보여 줍니다. 구성 서버에 기본적으로 구성된 프로세스 외에 추가 프로세스가 필요한지를 나타냅니다. N
-		- Hyper-V에서 Azure로 복제 시 추가 요구 사항을 포함합니다. 예를 들어 원본에 추가 저장소가 필요한지 여부를 나타냅니다.
+	- **델타 복제에 필요한 대역폭**(MB/sec). 델타 복제의 네트워크 대역폭은 평균 일일 데이터 변경률에서 계산됩니다.
+	- **초기 복제에 필요한 대역폭**(MB/sec). 초기 복제의 네트워크 대역폭은 입력한 초기 복제 값에서 계산됩니다. 
+	- **필요한 저장소(GB)**는 필요한 총 Azure 저장소입니다.
+	- **표준 저장소 계정에 대한 총 IOPS**는 총 표준 저장소 계정에서 8K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 표준 Azure VM에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다. 
+	- **표준 저장소 계정 수**는 VM을 보호하는 데 필요한 총 표준 저장소 계정 수를 제공합니다. 표준 저장소 계정은 표준 저장소의 모든 VM에서 최대 20000 IOPS를 보유할 수 있으며 디스크당 최대 500 IOPS가 지원됩니다. 
+	- **필요한 BLOB 디스크 수**는 Azure 저장소에 생성될 디스크 수를 제공합니다.
+	- **필요한 프리미엄 저장소 계정 수**는 VM을 보호하는 데 필요한 총 프리미엄 저장소 계정 수를 제공합니다. 높은 IOPS(20000 이상)를 포함한 원본 VM에는 프리미엄 저장소 계정이 필요합니다. 프리미엄 저장소 계정은 최대 80000 IOPS를 보유할 수 있습니다.
+	- **프리미엄 저장소에 대한 총 IOPS**는 총 프리미엄 저장소 계정에서 256K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다. 
+	- **필요한 구성 서버 수**는 배포에 필요한 구성 서버 수를 보여 줍니다(1).
+	- **필요한 추가 프로세스 서버 수**는 기본적으로 구성 서버에 구성된 프로세스 서버 외에 추가 프로세스 서버가 필요한지 보여 줍니다.
+	- **원본의 100% 추가 저장소**는 원본 위치에 추가 저장소가 필요한지 보여 줍니다.
 			
 	![출력](./media/site-recovery-capacity-planner/output.png)
  
@@ -94,43 +90,47 @@ Capacity Planner 도구를 사용하면 Azure Site Recovery로 Hyper-V VM, VMwar
 	-  **연결된 디스크 수**에는 원본 서버의 총 디스크 수를 지정합니다.
 	-  **디스크 용량 사용률**에는 평균 사용률을 지정합니다.
 	-  **일일 데이터 변경률(%)**에는 원본 서버의 일일 데이터 변경률을 지정합니다.
-	-  **매핑 Azure 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 하지 않으려면 **IaaS VM 계산**을 클릭합니다.
+	-  **매핑 Azure 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 하지 않으려면 **IaaS VM 계산**을 클릭합니다. 수동 설정을 입력하고 IaaS VM 계산을 클릭한 경우 계산 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문에 수동 입력을 덮어쓸 수도 있습니다.
+
+	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification.png)
 
 4.	**IaaS VM 계산**을 클릭하면 수행되는 작업은 다음과 같습니다.
 
-	- 입력의 유효성을 검사하고 Azure로 복제할 수 있는 각 VM에 최적으로 일치하는 Azure VM을 가져옵니다. Azure VM에 적합한 크기를 감지할 수 없는 경우 오류가 발생합니다. 예를 들어 연결된 디스크 수가 65인 경우 가장 높은 Azure VM이 64이므로 오류가 발생합니다.
+	- 필수 입력의 유효성을 검사합니다.
+	- IOPS를 계산하고 Azure로 복제할 수 있는 각 VM에 최적으로 일치하는 Azure VM 크기를 제안합니다. Azure VM에 적합한 크기를 감지할 수 없는 경우 오류가 발생합니다. 예를 들어 연결된 디스크 수가 65인 경우 가장 높은 Azure VM이 64이므로 오류가 발생합니다.
 	- Azure VM에 대해 사용할 수 있는 저장소 계정을 제안합니다.
 	- 워크로드에 필요한 표준 저장소 계정 및 프리미엄 저장소 계정의 총 수를 계산합니다. 오른쪽에서 아래로 스크롤하면 원본 서버에 사용할 수 있는 Azure 저장소 유형 및 저장소 계정을 볼 수 있습니다.
 	- VM에 할당된 필요한 저장소 유형(표준 또는 프리미엄) 및 연결된 디스크 수를 기반으로 테이블의 나머지 부분을 완료하고 정렬합니다. Azure로 백업을 위한 요구 사항을 충족하는 모든 VM의 경우 A열(VM 적합 여부)이 예(Yes)로 표시됩니다. VM을 Azure로 백업할 수 없는 경우 오류가 표시됩니다.
 
-	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification.png)
+각 VM에 대한 정보를 제공하는 AA~AE 열이 출력됩니다.
+
+![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 
-- **예제**: 테이블에 값이 표시된 6개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure 저장소 요구 사항을 계산 및 할당합니다.
+### 예
+예를 들어 테이블에 값이 표시된 6개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure 저장소 요구 사항을 계산 및 할당합니다.
 
-	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 - 이 예제에 대한 출력에서 다음을 확인할 수 있습니다.
+	
+	- 첫 번째 열은 VM, 디스크 및 이탈에 대한 유효성 검사 열입니다.
 	- VM 5대에 표준 저장소 계정 두 개와 프리미엄 저장소 계정 하나가 필요합니다. 
 	-  VM3은 하나 이상의 디스크가 1TB를 초과하므로 보호하기에 적합하지 않습니다.
 	-  VM1 및 VM2는 첫 번째 표준 저장소 계정을 사용할 수 있습니다.
 	-  VM4는 두 번째 표준 저장소 계정을 사용할 수 있습니다.
 	-  VM5 및 VM6에는 프리미엄 저장소 계정이 필요하고 둘 다 단일 계정을 사용할 수 있습니다.
 
-	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-3.png)
-
-	>[AZURE.NOTE]디스크 수준이 아닌 VM 수준에서 저장소에 대한 IOPS가 계산됩니다. 원본 VM IOPS의 디스크 중 하나가 500을 초과하지만 VM의 총 IOPS가 지원되는 표준 Azure VM 범위 내에 있고 나머지 값(디스크 수, NIC 수, CPU 코어 수, 메모리 크기)이 표준 VM 제한 범위 내에 있으면 이 도구는 프리미엄 저장소 대신 표준 VM을 선택합니다. 사용자는 적절한 DS 또는 GS 시리즈 VM을 사용하여 매핑 Azure 크기 셀을 수동으로 업데이트해야 합니다.
-
-	>[AZURE.NOTE]첫 번째 열은 VM, 디스크 및 이탈에 대한 유효성 검사 열입니다. 디스크 수준이 아닌 VM 수준에서 저장소에 대한 IOPS가 계산됩니다. 원본 VM IOPS의 디스크 중 하나가 500을 초과하지만 VM의 총 IOPS가 지원되는 표준 Azure VM 범위 내에 있고 나머지 값(디스크 수, NIC 수, CPU 코어 수, 메모리 크기)이 표준 VM 제한 범위 내에 있으면 이 도구는 프리미엄 저장소 대신 표준 VM을 선택합니다. 사용자는 적절한 DS 또는 GS 시리즈 VM을 사용하여 매핑 Azure 크기 셀을 수동으로 업데이트해야 합니다.
+	>[AZURE.NOTE]표준 및 프리미엄 저장소의 IOPS는 디스크 수준이 아니라 VM 수준에서 계산됩니다. 표준 가상 컴퓨터는 디스크당 최대 500개의 IOPS를 처리할 수 있습니다. 디스크의 IOPS가 500개보다 많은 경우 프리미엄 저장소가 필요합니다. 그러나 디스크의 IOPS가 500개보다 많지만 총 VM 디스크의 IOPS가 지원되는 표준 Azure VM 제한(VM 크기, 디스크 수, 어댑터 수, CPU, 메모리) 내에 속하는 경우에는 플래너가 DS 또는 GS 시리즈 대신 표준 VM을 선택합니다. 적절한 DS 또는 GS 시리즈 VM을 사용하여 매핑 Azure 크기 셀을 수동으로 업데이트해야 합니다.
 
 5. 모든 세부 정보가 올바르게 배치되었으면 **플래너 도구에 데이터 전송**을 클릭하여 강조 표시된 **Capacity Planner** 워크로드를 열고 보호에 적합한지 여부를 확인합니다.
 
 
-### Capacity Planner 실행
+### Capacity Planner에서 데이터를 제출합니다.
 
-1.	**Capacity Planner** 워크시트를 입력합니다. 인프라 입력 소스 셀에 'Workload'라는 단어가 나타나 입력 **Workload Qualification** 워크시트임을 나타냅니다.  
-2.	변경할 설정을 수정하고 **플래너 도구에 데이터 전송**을 클릭합니다. 
+1.	**Capacity Planne** 워크시트를 열면 지정한 설정에 따라 워크시트가 채워집니다. **인프라 입력 소스** 셀에 'Workload'라는 단어가 나타나 입력 **Workload Qualification** 워크시트임을 나타냅니다. 
+2.	변경하려면 **Workload Qualification** 워크시트를 수정하고 플래너 도구에 데이터 전송을 다시 클릭합니다.  
 
 	![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

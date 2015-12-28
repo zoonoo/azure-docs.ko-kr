@@ -32,7 +32,7 @@
 - **시뮬레이션된 차량 신호 및 진단 데이터 집합** 및 
 - **차량 카탈로그**
 
-차량 텔레매틱스 시뮬레이터가 이 솔루션의 일부로 포함되어 있습니다. 이 기능은 지정된 시기에 차량 상태 및 운전 패턴에 해당하는 신호를 내보냅니다. 요구 사항에 따라 사용자 지정할 **차량 텔레매틱스 시뮬레이터 Visual Studio 솔루션**을 다운로드하려면 [여기](http://go.microsoft.com/fwlink/?LinkId=717075)를 클릭하세요. 차량 카탈로그는 모델 매핑에 대한 VIN이 있는 참조 데이터 집합이 들어 있습니다.
+차량 텔레매틱스 시뮬레이터가 이 솔루션의 일부로 포함되어 있습니다. 이 기능은 지정된 시기에 차량 상태 및 운전 패턴에 해당하는 신호를 내보냅니다. 요구 사항에 따라 사용자 지정할 **차량 텔레매틱스 시뮬레이터 Visual Studio 솔루션**을 다운로드하려면 [차량 텔레매틱스 시뮬레이터](http://go.microsoft.com/fwlink/?LinkId=717075)를 클릭하세요. 차량 카탈로그는 모델 매핑에 대한 VIN이 있는 참조 데이터 집합이 들어 있습니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
 
@@ -130,7 +130,7 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 *그림 7 - 데이터 수집을 위한 스트림 분석 작업 쿼리*
 
 ### 일괄 분석
-또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨을 생성합니다. 이 작업은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Azure Data Factory 워크플로에서 'PrepareSampleDataPipeline'이라는 파이프라인을 사용합니다. 요구 사항에 따라 사용자 지정할 데이터 팩터리 사용자 지정 DotNet Activity Visual Studio 솔루션을 다운로드하려면 [여기](http://go.microsoft.com/fwlink/?LinkId=717077)를 클릭하세요.
+또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨을 생성합니다. 이 작업은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Azure Data Factory 워크플로에서 'PrepareSampleDataPipeline'이라는 파이프라인을 사용합니다. 요구 사항에 따라 사용자 지정할 데이터 팩터리 사용자 지정 DotNet Activity Visual Studio 솔루션을 다운로드하려면 [데이터 팩터리 사용자 지정 작업](http://go.microsoft.com/fwlink/?LinkId=717077)을 클릭하세요.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png)
 
@@ -360,7 +360,7 @@ PCA(주성분 분석)는 기능 선택, 분류 및 이상 감지에 적용할 �
 
 모든 평균은 3초의 TumblingWindow를 통해 계산됩니다. 이 경우 중복되지 않는 연속적인 시간 간격이 필요하므로 TubmlingWindow를 사용합니다.
 
-Azure 스트림 분석에서 모든 '기간 이동' 기능에 대한 자세한 내용을 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn835019.aspx)를 클릭하세요.
+Azure 스트림 분석에서 모든 '창 작업' 기능에 대한 자세한 내용을 알아보려면 [창 작업(Azure 스트림 분석)](https://msdn.microsoft.com/library/azure/dn835019.aspx)을 클릭하세요.
 
 **실시간 예측**
 
@@ -375,7 +375,7 @@ Azure 스트림 분석에서 모든 '기간 이동' 기능에 대한 자세한 �
 
 이 패턴은 LOB(기간 업무) 응용 프로그램을 경고, 알림, 메시징 등의 시나리오를 위한 실시간 분석 흐름과 통합할 시나리오에도 적용할 수 있습니다.
 
-사용자 지정할 RealtimeDashboardApp Visual Studio 솔루션을 다운로드하려면 [여기](http://go.microsoft.com/fwlink/?LinkId=717078)를 클릭하세요.
+사용자 지정할 RealtimeDashboardApp Visual Studio 솔루션을 다운로드하려면 [RealtimeDashboardApp 다운로드](http://go.microsoft.com/fwlink/?LinkId=717078)를 클릭하세요.
 
 ****실시간 대시보드 응용 프로그램을 실행하려면**
 
@@ -696,4 +696,4 @@ PowerBI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

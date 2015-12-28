@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/15/2015"
 	ms.author="saurabh"/>
 
 # Azure 리소스 관리자를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 Azure 진단 확장은 Windows 기반 Azure 가상 컴퓨터에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure 리소스 관리자 템플릿에 속하도록 포함시켜서 가상 컴퓨터에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 컴퓨터 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](virtual-machines-extensions-authoring-templates.md)을 참조하세요. 이 문서는 Azure 진단 확장을 Windows 가상 컴퓨터 템플릿에 추가하는 방법을 설명합니다.
   
@@ -82,7 +82,7 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
 
 ## 진단 저장소 계정을 매개 변수로 지정 
 
-위의 진단 저장소 JSON 코드 조각은 진단 데이터가 저장되는 진단 저장소 계정을 지정하기 위해 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageAccountName* 이라는 두 가지 매개 변수를 가정합니다. 진단 저장소 계정을 매개 변수로 지정하면 다양한 환경에서 진단 저장소 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 저장소 계정을 사용할 수 있습니다.
+위의 진단 저장소 JSON 코드 조각은 진단 데이터가 저장되는 진단 저장소 계정을 지정하기 위해 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageAccountName*이라는 두 가지 매개 변수를 가정합니다. 진단 저장소 계정을 매개 변수로 지정하면 다양한 환경에서 진단 저장소 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 저장소 계정을 사용할 수 있습니다.
 
         "existingdiagnosticsStorageAccountName": {
             "type": "string",
@@ -119,7 +119,9 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다. 이러한 메트릭은 Azure 포털의 차트와 경고의 중요 요소이기 때문에 포털에서 모니터링 데이터를 보고자 하는 경우 구성의 포함 여부가 중요합니다.
+위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다.
+
+> [AZURE.IMPORTANT]이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다. Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 *resourceID* 및 **MetricAggregation**이 있는 **메트릭** 노드가 포함되어 있어야 합니다.
 
 다음은 메트릭 정의에 대한 XML 예제입니다.
 
@@ -128,14 +130,15 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
 			<MetricAggregation scheduledTransferPeriod="PT1M"/>
 		</Metrics>
 
-*resourceID* 속성은 구독 내의 가상 컴퓨터를 고유하게 식별합니다. 구독 및 배포하는 리소스 그룹을 기반으로 템플릿에서 자동으로 값을 업데이트할 수 있도록 subscription() 및 resourceGroup() 함수를 사용해야 합니다.
+*resourceID* 특성은 구독 내의 가상 컴퓨터를 고유하게 식별합니다. 구독 및 배포하는 리소스 그룹을 기반으로 템플릿에서 자동으로 값을 업데이트할 수 있도록 subscription() 및 resourceGroup() 함수를 사용해야 합니다.
 
 루프 내에서 여러 개의 가상 컴퓨터를 만드는 경우에는 각각의 개별적인 VM을 제대로 구별하도록 copyIndex() 함수를 통해 *resourceID* 값을 채워야 합니다. 다음과 같이 *xmlCfg* 값을 업데이트하여 이것을 지원할 수 있습니다.
 
 	"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
-
 MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 집계를 나타냅니다.
+
+## 저장소의 WADMetrics 테이블
 
 위의 Metrics 구성은 다음과 같은 명명 규칙으로 진단 저장소 계정에 테이블을 생성합니다.
 
@@ -149,9 +152,9 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 
 각각의 WADMetrics 테이블은 다음 열을 포함합니다.
 
-- **PartitionKey**: partitionkey는 *resourceID* 값을 기반으로 구성되어 VM 리소스를 고유하게 식별합니다. (예: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>)  
+- **PartitionKey**: partitionkey는 *resourceID* 값을 기반으로 구성되어 VM 리소스를 고유하게 식별합니다(예: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>).  
 - **RowKey** : <Descending time tick>:<Performance Counter Name> 형식을 따릅니다. 감소하는 시간 틱 계산식은 최대 시간 틱 빼기 집계 기간이 시작된 시간입니다. 예를 들어, 샘플 기간이 10-Nov-2015 00:00Hrs UTC에 시작되었으면 계산식은 DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)이 됩니다. 사용 가능 메모리 바이트 성능 카운터의 row key는 2519551871999999999\_\_:005CMemory:005CAvailable:0020Bytes가 됩니다.
-- **counterName** : 성능 카운터의 이름입니다. 이것은 XML config에 정의된 *counterSpecifier* 와 일치합니다.
+- **counterName** : 성능 카운터의 이름입니다. 이것은 XML config에 정의된 *counterSpecifier*와 일치합니다.
 - **Maximum** : 집계 기간 동안 성능 카운터의 최대 값입니다.
 - **Minimum** : 집계 기간 동안 성능 카운터의 최소 값입니다.
 - **Total** : 집계 기간 동안 보고된 모든 성능 카운터 값의 합계입니다.
@@ -165,4 +168,4 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 - [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) 또는 [Azure 명령줄](virtual-machines-deploy-rmtemplates-powershell.md)을 사용하여 리소스 관리자 템플릿 배포
 - [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

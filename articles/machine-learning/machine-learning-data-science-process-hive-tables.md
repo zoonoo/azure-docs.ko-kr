@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/11/2015"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> 고급 분석 프로세스 및 기술에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출 
 
-이 문서에서는 Azure의 HDInsight 서비스에서 관리하는 Hadoop 클러스터에 Hive 쿼리를 제출하는 다양한 방법에 대해 설명합니다. 이 작업은 Azure 기계 학습에서 제공하는 ADAPT(고급 분석 프로세스 및 기술)의 일부입니다. 여러 데이터 랭글링 작업(데이터 탐색 및 기능 생성)에 대해 설명합니다. 데이터를 탐색하거나 기능을 생성하는 방법을 보여 주는 일반 Hive 쿼리를 살펴볼 것입니다. 이러한 Hive 쿼리는 제공되는 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
+이 문서에서는 Azure의 HDInsight 서비스에서 관리하는 Hadoop 클러스터에 Hive 쿼리를 제출하는 다양한 방법에 대해 설명합니다. 이 작업은 CAP(Cortana 분석 프로세스)의 일부입니다. 여러 데이터 랭글링 작업(데이터 탐색 및 기능 생성)에 대해 설명합니다. Azure HDInsight Hadoop 클러스터에서 Hive를 사용하여 데이터를 탐색하거나 기능을 생성하는 방법을 보여 주는 일반 Hive 쿼리를 살펴볼 것입니다. 이러한 Hive 쿼리는 제공되는 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
 
 또한 [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대한 쿼리 예제가 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
 
-마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해 설명합니다.
+마지막 섹션에서는 Hive 쿼리의 성능을 조정하고 개선하는 데 사용할 수 있는 매개 변수에 대해 설명합니다.
 
 ## 필수 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
@@ -34,12 +34,12 @@
 
 
 ## <a name="submit"></a>Hive 쿼리를 제출하는 방법
-다음을 사용하여 Hive 쿼리를 제출할 수 있습니다.
+다음 응용 프로그램을 사용하여 Hive 쿼리를 제출할 수 있습니다.
 
-* 클러스터 헤드 노드의 Hadoop 명령줄
-* IPython Notebook
-* Hive 편집기
-* Azure PowerShell 스크립트
+* 클러스터 헤드 노드의 **Hadoop 명령줄 콘솔**
+* **IPython Notebook**
+* **Hive 편집기**
+* **PowerShell** 스크립트
 
 Hive 쿼리는 SQL과 유사하므로, SQL에 익숙한 사용자에게는 <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-Hive 치트 시트</a>가 유용할 수 있습니다.
 
@@ -67,7 +67,7 @@ Hadoop 클러스터의 헤드 노드에 로그인하고, 헤드 노드 바탕 �
 
 Hadoop 명령줄에서 직접 간단한 Hive 쿼리를 제출할 수 있습니다. 다음은 그 예제입니다. 빨간색 상자는 Hive 쿼리를 제출하는 명령을, 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
 
-![작업 영역 만들기][10]
+![작업 영역 만들기](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
 
 #### .hql 파일로 Hive 쿼리 제출
 
@@ -87,7 +87,7 @@ Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 Hadoop 명령줄
 
 Hadoop 명령줄에서 `hive` 명령을 실행하여 Hive 명령 콘솔로 전환한 후 Hive 명령 콘솔의 **hive>** 프롬프트에서 Hive 쿼리를 제출하는 방법도 있습니다. 다음은 예제입니다.
 
-![작업 영역 만들기][11]
+![작업 영역 만들기](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
 
 이 예제에서 두 빨간색 상자는 각각 Hive 명령 콘솔을 입력하는 데 사용된 명령과 Hive 명령 콘솔에서 제출된 Hive 쿼리를 보여 줍니다. 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
 
@@ -106,13 +106,13 @@ Hive 쿼리 결과를 헤드 노드의 로컬 디렉터리에 출력하려면 �
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-다음 예제에서 Hive 쿼리의 출력은 Hadoop 클러스터의 기본 컨테이너 내에 있는 Blob 디렉터리 `queryoutputdir`에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. **wasb:///queryoutputdir/queryoutput.txt*처럼 디렉터리 이름과 Blob 이름을 모두 입력하면 오류가 발생합니다.
+다음 예제에서 Hive 쿼리의 출력은 Hadoop 클러스터의 기본 컨테이너 내에 있는 blob 디렉터리 `queryoutputdir`에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. **wasb:///queryoutputdir/queryoutput.txt*처럼 디렉터리 이름과 Blob 이름을 모두 입력하면 오류가 발생합니다.
 
-![작업 영역 만들기][13]
+![작업 영역 만들기](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
 Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 blob 저장소에서 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
 
-![작업 영역 만들기][14]
+![작업 영역 만들기](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
 
 ### Hive 편집기 또는 Azure PowerShell 명령을 통해
 
@@ -215,11 +215,11 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 	    	group by <column_name1>, <column_name2>
 	    	)b
 
-이 예에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 완화하도록 설정되었습니다. 위험 범위는 -Inf~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
+이 예에서, 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 완화하도록 설정되었습니다. 위험 범위는 -Inf~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
-###<a name="hive-datefeatures"></a>날짜/시간 필드에서 기능 추출
+###<a name="hive-datefeatures"></a> 날짜/시간 필드에서 기능 추출
 
 Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니다. Hive의 기본 날짜/시간 형식은 'yyyy-MM-dd 00:00:00'입니다(예: '1970-01-01 12:21:32'). 이 섹션에서는 날짜/시간 필드에서 일 및 월을 추출하는 예제와 기본 형식이 아닌 다른 형식으로 된 날짜/시간 문자열을 기본 형식의 날짜/시간 문자열로 변환하는 예제를 보여 줍니다.
 
@@ -272,7 +272,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
 
 두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 그의 Javascript에서 `toRad()` 함수는 단지 도에서 라디안으로 변환하는 *lat\_or\_lon*pi/180*일 뿐입니다. 여기서 *lat\_or\_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
 
-![작업 영역 만들기][1]
+![test](./media/machine-learning-data-science-process-hive-tables/atan2new.png)
 
 Hive에 포함된 UDF 전체 목록은 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>의 **기본 제공 함수** 섹션에서 확인할 수 있습니다.
 
@@ -310,13 +310,8 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
-[10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
-[11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
-[12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png
-[13]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png
-[14]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png
-[15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
+
+
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

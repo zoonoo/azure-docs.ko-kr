@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Visual Studio Online을 사용하여 응용 프로그램 부하 테스트 | Microsoft Azure"
-    description="Visual Studio Online을 사용하여 Azure 서비스 패브릭 응용 프로그램에 스트레스 테스트를 실행하는 방법을 알아봅니다."
+    pageTitle="Visual Studio Team Services를 사용하여 응용 프로그램 부하 테스트 | Microsoft Azure"
+    description="Visual Studio Team Services를 사용하여 Azure 서비스 패브릭 응용 프로그램에 스트레스 테스트를 실행하는 방법을 알아봅니다."
     services="service-fabric"
     documentationCenter="na"
     authors="cawams"
@@ -16,7 +16,7 @@
     ms.date="10/28/2015"
     ms.author="cawa" />
 
-# Visual Studio Online을 사용하여 응용 프로그램 부하 테스트
+# Visual Studio Team Services를 사용하여 응용 프로그램 부하 테스트
 
 이 문서는 Visual Studio 부하 테스트 기능을 사용하여 응용 프로그램에 스트레스 테스트를 실행하는 방법을 보여줍니다. 서비스 패브릭 상태 저장 서비스 백 엔드 및 상태 비저장 서비스 웹 프런트 엔드가 사용됩니다. 여기에 사용되는 예제 응용 프로그램은 항공기 위치 시뮬레이터입니다. 사용자는 항공기 ID, 출발 위치 및 도착 위치를 제공합니다. 응용 프로그램의 백 엔드는 요청을 처리하고 프런트 엔드는 지도의 조건에 일치하는 항공기를 표시합니다.
 
@@ -27,7 +27,7 @@
 ## 필수 조건
 시작하기 전에 다음을 수행해야 합니다.
 
-- Visual Studio Online(VSO) 계정을 등록합니다. [Visual Studio Online](https://www.visualstudio.com)에서 무료로 계정을 등록할 수 있습니다.
+- VSTS(Visual Studio Team Services) 계정을 가져옵니다. [Visual Studio Team Services](https://www.visualstudio.com)에서 무료로 계정을 등록할 수 있습니다.
 - Visual Studio 2013 또는 Visual Studio 2015를 확보하여 설치합니다. 이 문서는 Visual Studio 2015 Enterprise Edition을 사용하지만 Visual Studio 2013 및 기타 버전도 유사하게 작동합니다.
 - 스테이징 환경에 응용 프로그램을 배포합니다. 자세한 내용은 [Visual Studio를 사용하여 원격 클러스터에 응용 프로그램을 배포하는 방법(영문)](service-fabric-publish-app-remote-cluster.md)을 참조하세요.
 - 응용 프로그램 사용 패턴을 이해합니다. 이 정보는 부하 패턴을 시뮬레이션하는 데 사용됩니다.
@@ -94,13 +94,13 @@
 1. **실행 설정** 섹션에서 부하 테스트 지속 시간을 지정합니다.
     >[AZURE.NOTE]**테스트 반복** 옵션은 Visual Studio를 사용하여 로컬에서 부하 테스트를 실행하는 경우에만 사용할 수 있습니다.
 
-1. **실행 설정**의 **위치** 섹션에서 부하 테스트 요청이 생성되는 위치를 지정합니다. 마법사가 VSO 계정에 로그인하라는 메시지를 표시할 수 있습니다. VSO 계정을 사용하여 로그인한 후 지리적 위치를 선택합니다. 완료되면 **마침** 단추를 선택합니다.
+1. **실행 설정**의 **위치** 섹션에서 부하 테스트 요청이 생성되는 위치를 지정합니다. 마법사가 Team Services 계정에 로그인하라는 메시지를 표시할 수 있습니다. Team Services 계정을 사용하여 로그인한 후 지리적 위치를 선택합니다. 완료되면 **마침** 단추를 선택합니다.
 
 1. 부하 테스트를 만든 후에 .loadtest 프로젝트를 열어서 현재 실행 설정을 선택합니다(예: **실행 설정** > **실행 설정1 [활성]**). 그러면 **속성** 창에 실행 설정이 열립니다.
 
-1. **실행 설정** 속성 창의 **결과** 섹션에, **타이밍 정보 저장소** 설정의 기본 값이 **없음**으로 나타납니다. 부하 테스트 결과에 대해 자세한 정보를 보려면 이 값을 **모든 개인 정보**로 변경합니다. Visual Studio Online에 연결하여 부하 테스트를 실행하는 방법을 자세히 보려면 [부하 테스트](https://www.visualstudio.com/load-testing.aspx)를 참조하세요.
+1. **실행 설정** 속성 창의 **결과** 섹션에, **타이밍 정보 저장소** 설정의 기본 값이 **없음**으로 나타납니다. 부하 테스트 결과에 대해 자세한 정보를 보려면 이 값을 **모든 개인 정보**로 변경합니다. Visual Studio Team Services에 연결하여 부하 테스트를 실행하는 방법을 자세히 보려면 [부하 테스트](https://www.visualstudio.com/load-testing.aspx)를 참조하세요.
 
-### Visual Studio Online을 사용하여 부하 테스트 실행
+### Visual Studio Team Services를 사용하여 부하 테스트 실행
 
 **부하 테스트 실행** 명령을 선택하여 테스트 실행을 시작합니다.
 
@@ -124,7 +124,7 @@
 
 ## 부하 테스트 자동화
 
-Visual Studio Online 부하 테스트에는 VSO 계정으로 부하 테스트를 관리하고 결과를 분석할 수 있도록 하는 API가 제공됩니다. 자세한 내용은 [클라우드 부하 테스트 REST API(영문)](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx)를 참조하세요.
+Visual Studio Team Services 부하 테스트에는 Team Services 계정으로 부하 테스트를 관리하고 결과를 분석할 수 있도록 하는 API가 제공됩니다. 자세한 내용은 [클라우드 부하 테스트 REST API(영문)](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx)를 참조하세요.
 
 ## 다음 단계
 - [로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -140,4 +140,4 @@ Visual Studio Online 부하 테스트에는 VSO 계정으로 부하 테스트를
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

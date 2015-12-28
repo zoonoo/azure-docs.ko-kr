@@ -23,11 +23,14 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-이 문서에서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 가상 네트워크를 만들어 하나로 연결하는 과정을 안내합니다. 이 단계에서는 Azure 클래식 포털(Azure 포털 아님)과 PowerShell cmdlet을 조합하여 사용합니다. Azure 리소스 관리자 배포 모델을 사용하여 만든 VNet을 연결하려면 위의 탭을 참조하세요. 단계는 모델마다 각기 다릅니다.
 
-클래식 배포 모델에서 만든 VNet을 리소스 관리자 모델을 사용하여 만든 VNet에 연결할 수도 있습니다. [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+이 문서에서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 가상 네트워크를 만들어 하나로 연결하는 과정을 안내합니다. 이 단계에서는 Azure 클래식 포털(Azure 포털 아님)과 PowerShell cmdlet을 조합하여 사용합니다. 이 구성에 대한 다른 배포 모델을 찾고 있다면 위의 탭을 사용하여 원하는 문서를 선택합니다.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+**Azure 배포 모델 정보**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+	
+클래식 배포 모델에서 만든 VNet을 리소스 관리자 모델을 사용하여 만든 VNet에 연결하려면 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
 
 가상 네트워크를 다른 가상 네트워크에 연결(VNet 간)하는 것은 가상 네트워크를 온-프레미스 사이트 위치에 연결하는 것과 매우 유사합니다. 두 연결 유형 모두 VPN 게이트웨이를 사용하여 IPsec/IKE를 통한 보안 터널을 제공합니다. 연결하는 VNet은 서로 다른 구독 및 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. 이렇게 하면 아래 다이어그램에 표시된 것처럼 크로스-프레미스 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
@@ -114,7 +117,7 @@ VNet2: 주소 공간 = 10.2.0.0/16, 지역 = Japan East
 
 2. 화면의 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 탐색 창에서 **네트워크 서비스**를 클릭한 다음 **가상 네트워크**를 클릭합니다. **사용자 지정 만들기**를 클릭하여 구성 마법사를 시작합니다.
 
-**가상 네트워크 정보** 페이지에서 아래 정보를 입력합니다.
+**가상 네트워크 세부 정보** 페이지에서 아래 정보를 입력합니다.
 
   ![가상 네트워크 세부 정보](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -149,7 +152,7 @@ VNet2: 주소 공간 = 10.2.0.0/16, 지역 = Japan East
 다음으로, 이전 단계를 반복하여 다른 가상 네트워크를 만듭니다. 이 연습에서 나중에 이 두 개의 가상 네트워크를 연결하게 됩니다. 주소 공간이 반드시 중복되거나 겹치지 않도록 해야 합니다. 이 자습서에서는 다음 값을 사용합니다.
 
 - **VNet2**
-- **주소 공간**: 10.2.0.0/16
+- **주소 공간** = 10.2.0.0/16
 - **지역** = 일본 동부
 
 ## 로컬 네트워크 추가
@@ -222,20 +225,11 @@ VNet2의 경우
 
 ## 다음 단계
 
-
-가상 컴퓨터를 가상 네트워크에 추가하려면 [가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md)을 참조하세요.
-
-구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
-
-REST API 정보는 [가상 네트워크 게이트웨이 작업](https://msdn.microsoft.com/library/azure/jj154113.aspx)을 참조하세요.
-
-VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
-
-가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md) 및 [가상 네트워크 FAQ](../virtual-network/virtual-networks-faq.md)를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md)을 참조하세요.
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

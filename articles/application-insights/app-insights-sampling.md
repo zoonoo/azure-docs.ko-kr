@@ -51,11 +51,11 @@
 
     샘플링 비율 값을 변경한 후 더 많은 데이터를 캡처하기 위해 샘플링 비율을 다시 높일 수 있는 시간 제한입니다.
 
-* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
 
     샘플링 비율이 변경됨에 따라 사용자가 설정할 수 있는 최소값입니다.
 
-* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
 
     샘플링 비율이 변경됨에 따라 사용자가 설정할 수 있는 최대값입니다.
 
@@ -63,7 +63,7 @@
 
     이동 평균 계산에서 가중치는 가장 최근의 값에 할당됩니다. 1보다 작거나 같은 값을 사용합니다. 값이 작을수록 알고리즘은 갑작스런 변화에 덜 반응합니다.
 
-* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
 
     앱을 막 시작했을 때 할당된 값입니다. 디버깅하는 동안 이 값을 줄이지 마십시오.
 
@@ -297,4 +297,4 @@ SDK는 어떤 원격 분석 항목을 삭제하고 어떤 항목을 유지할지
 
  * 기본 활성값이 아닌 새 TelemetryConfiguration을 사용하여 별도의 TelemetryClient 인스턴스를 초기화합니다. 이를 사용하여 드문 이벤트를 보냅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

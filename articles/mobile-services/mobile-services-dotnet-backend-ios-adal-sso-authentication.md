@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/15/2015"
 	ms.author="mahender"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
@@ -42,6 +42,7 @@
 
 * XCode 4.5 및 iOS 6.0(또는 이후 버전)
 * [모바일 서비스 시작] 자습서 완료
+* [Azure Active Directory 계정 로그인 사용을 위한 앱 등록] 완료
 * Microsoft Azure 모바일 서비스 SDK
 * [iOS용 Active Directory 인증 라이브러리]
 
@@ -120,8 +121,9 @@
 
 <!-- URLs. -->
 [모바일 서비스 시작]: mobile-services-dotnet-backend-ios-get-started.md
+[Azure Active Directory 계정 로그인 사용을 위한 앱 등록]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Active Directory에 등록하는 방법]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

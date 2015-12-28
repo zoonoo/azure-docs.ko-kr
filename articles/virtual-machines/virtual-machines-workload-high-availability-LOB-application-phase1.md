@@ -66,10 +66,10 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 가상 네트워크에서 도메인 컨트롤러를 처음 설정할 때 사용하려는 두 온-프레미스 DNS 서버의 정보를 표 D에 입력합니다. 각 DNS 서버에는 이름과 단일 IP 주소를 지정합니다. 이 이름은 DNS 서버의 호스트 이름 또는 컴퓨터 이름과 일치하지 않아도 됩니다. 아래에는 빈 칸이 두 개 있지만 항목을 더 추가할 수 있습니다. 추가 항목은 IT 부서에서 확인할 수 있습니다.
 
-항목 | DNS 서버 이름 | DNS 서버 IP 주소 
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
+항목 | DNS 서버 IP 주소 
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
 
 **표 D: 온-프레미스 DNS 서버**
 
@@ -85,13 +85,24 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 **표 L: 로컬 네트워크의 주소 접두사**
 
-> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 "-AzureRM"의 모든 인스턴스를 "-Azure"와 대체하고 모든 명령을 실행하기 전에 **Switch-azuremode AzureResourceManager** 명령을 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+먼저, Azure PowerShell 프롬프트를 시작합니다.
 
-Azure PowerShell 프롬프트를 엽니다.
+> [AZURE.NOTE]다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
-다음으로 LOB(기간 업무) 응용 프로그램에 대한 새 리소스 그룹을 만듭니다.
+먼저 Azure PowerShell 프롬프트를 시작하고 계정에 로그인합니다.
 
-고유한 리소스 그룹 이름을 확인하려면 다음 명령을 사용하여 기존 리소스 그룹을 나열합니다.
+	Login-AzureRMAccount
+
+다음 명령을 사용하여 구독 이름을 가져옵니다.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+다음으로 LOB(기간 업무) 응용 프로그램에 대한 새 리소스 그룹을 만듭니다. 고유한 리소스 그룹 이름을 확인하려면 다음 명령을 사용하여 기존 리소스 그룹을 나열합니다.
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
@@ -114,7 +125,7 @@ Azure PowerShell 프롬프트를 엽니다.
 
 소문자와 숫자만 포함하는 각 저장소 계정에 대해서 전역적으로 고유한 이름을 선택해야 합니다. 이 명령을 사용하여 기존 저장소 계정을 나열할 수 있습니다.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 첫 번째 저장소 계정을 만들려면 다음이 명령을 실행합니다.
 
@@ -174,7 +185,7 @@ Azure PowerShell 프롬프트를 엽니다.
 온-프레미스 VPN 장치를 구성하려면 다음이 필요합니다.
 
 - 가상 네트워크용 Azure VPN 게이트웨이의 공용 IPv4 주소(**Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 명령의 표시에 있음)
-- 사이트 간 VPN 연결용 IPsec 사전 공유 키(테이블 V - 항목 8 - 값 열)
+- 사이트 간 VPN 연결용 IPsec 미리 공유한 키(표 V - 항목 8 - 값 열)
 
 그런 다음 온-프레미스 네트워크에서 가상 네트워크의 주소 공간에 연결할 수 있는지 확인합니다. 이를 위해 일반적으로는 가상 네트워크 주소 공간에 해당하는 경로를 VPN 장치에 추가한 다음 조직 네트워크의 나머지 라우팅 인프라에 해당 경로를 보급합니다. 이 작업을 수행하는 방법은 IT 부서에서 확인할 수 있습니다.
 
@@ -207,18 +218,6 @@ Azure PowerShell 프롬프트를 엽니다.
 
 ## 다음 단계
 
-이 워크로드를 계속 구성하려면 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-high-availability-LOB-application-phase2.md)으로 진행하세요.
+- [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-## 추가 리소스
-
-[Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[LOB(기간 업무) 응용 프로그램 아키텍처 청사진](http://msdn.microsoft.com/dn630664)
-
-[테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

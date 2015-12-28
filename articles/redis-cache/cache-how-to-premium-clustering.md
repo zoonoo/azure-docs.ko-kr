@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/11/2015" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 Redis 클러스터링을 구성하는 방법
@@ -36,7 +36,7 @@ Azure Redis Cache는 [Redis에서 구현된 형태의](http://redis.io/topics/cl
 Azure에서 Redis 클러스터는 각각의 분할된 데이터베이스가 복제본이 있는 주/복제본 쌍을 갖는 주/복제본 모델 형태로 제공됩니다. 여기서는 Azure Redis Cache 서비스가 복제본을 관리합니다.
 
 ## 클러스터링
-클러스터링은 캐시를 만드는 중에 **새 Redis 캐시** 블레이드에 구성됩니다. 캐시를 만들려면 [Azure 포털](https://portal.azure.com)에 로그인하고 **새로 만들기**->**데이터 + 저장소**>**Redis Cache**를 클릭합니다.
+클러스터링은 캐시를 만드는 중에 **새 Redis 캐시** 블레이드에서 사용하도록 설정됩니다. 캐시를 만들려면 [Azure 포털](https://portal.azure.com)에 로그인하고 **새로 만들기**->**데이터 + 저장소**>**Redis Cache**를 클릭합니다.
 
 ![Redis Cache 만들기][redis-cache-new-cache-menu]
 
@@ -77,6 +77,16 @@ Azure에서 Redis 클러스터는 각각의 분할된 데이터베이스가 복�
 	        return lazyConnection.Value;
 	    }
 	}
+
+## 실행 중인 프리미엄 캐시에서 분할된 데이터베이스 추가 또는 제거
+
+클러스터링이 사용하도록 설정되어 있는 실행 중인 프리미엄 캐시에서 분할된 데이터베이스를 추가하거나 삭제하려면 **설정** 블레이드에서 **(미리 보기) Redis 클러스터 크기**를 클릭합니다.
+
+>[AZURE.NOTE]Azure Redis Cache 프리미엄 계층은 일반 공급으로 출시된 반면 Redis 클러스터 크기 기능은 현재 미리 보기 상태입니다.
+
+![Redis 클러스터 크기][redis-cache-redis-cluster-size]
+
+분할된 데이터베이스 수를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력하고 **확인**을 클릭하여 저장합니다.
 
 ## 클러스터링 FAQ
 
@@ -131,7 +141,7 @@ SSL에서는 `1300N`을 `1500N`으로 대체합니다.
 
 ## 이전에 만든된 캐시에 대해 클러스터링을 구성할 수 있나요?
 
-현재 캐시를 만들 때만 클러스터링을 활성화하고 구성할 수 있습니다.
+현재 캐시를 만들 때만 클러스터링을 사용하도록 설정할 수 있습니다. 캐시를 만든 후 분할된 데이터베이스 수를 변경할 수 있지만 캐시를 만든 후 프리미엄 캐시에 클러스터링을 추가하거나 프리미엄 캐시에서 클러스터링을 제거할 수는 없습니다. 클러스터링이 사용하도록 설정되고 분할된 데이터베이스가 하나뿐인 프리미엄 캐시는 클러스터링이 없는 동일한 크기의 프리미엄 캐시와 다릅니다.
 
 ## 기본 또는 표준 캐시에 클러스터링을 구성할 수 있나요?
 
@@ -166,4 +176,6 @@ SSL에서는 `1300N`을 `1500N`으로 대체합니다.
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=AcomDC_1210_2015-->
+[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
+
+<!---HONumber=AcomDC_1217_2015-->

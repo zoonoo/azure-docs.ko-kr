@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="12/11/2015"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소에 저장된 데이터 보호
@@ -159,9 +159,10 @@ Azure 데이터 레이크 저장소 파일 시스템에서 보안 그룹 ACL을 
 ## 참고 항목
 
 - [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
-- [데이터 레이크 저장소와 함께 Azure 데이터 레이크 분석 사용](data-lake-analytics-get-started-portal.md)
+- [Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
+- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
 - [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 - [.NET SDK를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

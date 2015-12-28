@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="복구 계획에 Azure 자동화 runbook 추가" 
+   pageTitle="복구 계획에 Azure 자동화 runbook 추가 | Microsoft Azure" 
    description="이 문서에서는 Azure Site Recovery에서 Azure 자동화를 사용하여 복구 계획을 확장하여 Azure로 복구하는 동안 복잡한 작업을 완료할 수 있도록 하는 방법을 설명합니다." 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,11 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="10/07/2015"
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-  
-   
 
 # 복구 계획에 Azure 자동화 runbook 추가
 
@@ -158,69 +156,68 @@ CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비
 
 1.  **OpenPort80** 이름으로 Azure 자동화 계정에서 새 runbook을 만듭니다.
 
-![](media/site-recovery-runbook-automation/14.png)
+	![](media/site-recovery-runbook-automation/14.png)
 
 2.  runbook의 작성자 보기로 이동하여 초안 모드를 입력합니다.
 
 3.  먼저, 복구 계획 컨텍스트로 사용할 변수를 지정합니다.
-
-```
-	param (
-		[Object]$RecoveryPlanContext
-	)
-
-```
   
+	```
+		param (
+			[Object]$RecoveryPlanContext
+		)
+
+	```
 
 4.  그런 다음, 자격 증명 및 구독 이름을 사용하여 구독에 연결합니다.
 
-```
-	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+	```
+		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
 	
-	# Connect to Azure
-	$AzureAccount = Add-AzureAccount -Credential $Cred
-	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-```
+		# Connect to Azure
+		$AzureAccount = Add-AzureAccount -Credential $Cred
+		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+	```
 
-> 여기에서 Azure 자산, **AzureCredential** 및 **AzureSubscriptionName**을 사용해야 합니다.
+	여기에서 Azure 자산, **AzureCredential** 및 **AzureSubscriptionName**을 사용해야 합니다.
 
-5.  이제 프런트엔드 가상 컴퓨터인 경우, 끝점을 노출하려는 가상 컴퓨터의 GUID 및 끝점 세부 정보를 지정합니다.
+5.  이제 끝점을 노출하려는 가상 컴퓨터의 GUID 및 끝점 세부 정보를 지정합니다. 이 경우 프런트엔드 가상 컴퓨터입니다.
 
-```
-	# Specify the parameters to be used by the script
-	$AEProtocol = "TCP"
-	$AELocalPort = 80
-	$AEPublicPort = 80
-	$AEName = "Port 80 for HTTP"
-	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-```
+	```
+		# Specify the parameters to be used by the script
+		$AEProtocol = "TCP"
+		$AELocalPort = 80
+		$AEPublicPort = 80
+		$AEName = "Port 80 for HTTP"
+		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+	```
 
-Azure 끝점 프로토콜, VM의 로컬 포트 및 매핑된 해당 공용 포트를 지정합니다. 이러한 변수는 VM에 끝점을 추가하는 Azure 명령에 필요한 매개 변수입니다. VMGUID는 작동에 필요한 가상 컴퓨터의 GUID를 보유합니다.
+	Azure 끝점 프로토콜, VM의 로컬 포트 및 매핑된 해당 공용 포트를 지정합니다. 이러한 변수는 VM에 끝점을 추가하는 Azure 명령에 필요한 매개 변수입니다. VMGUID는 작동에 필요한 가상 컴퓨터의 GUID를 보유합니다.
 
 6.  스크립트는 이제 지정한 VM GUID에 대한 컨텍스트를 추출하여 이를 통해 참조되는 가상 컴퓨터에 끝점을 만듭니다.
 
-```
-	#Read the VM GUID from the context
-	$VM = $RecoveryPlanContext.VmMap.$VMGUID
+	```
+		#Read the VM GUID from the context
+		$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-	if ($VM -ne $null)
-	{
-		# Invoke pipeline commands within an InlineScript
+		if ($VM -ne $null)
+		{
+			# Invoke pipeline commands within an InlineScript
 
-		$EndpointStatus = InlineScript {
-			# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
-			# This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
+			$EndpointStatus = InlineScript {
+				# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
+				# Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
 
-			$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-				Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-				Update-AzureVM
-			Write-Output $Status
+				$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+					Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+					Update-AzureVM
+				Write-Output $Status
+			}
 		}
-	}
-```
+	```
 
-7. 이 작업이 완료되면 게시 ![](media/site-recovery-runbook-automation/20.png)를 눌러 스크립트를 실행에 사용할 수 있도록 합니다. 
+7. 이 작업이 완료되면 게시 ![](media/site-recovery-runbook-automation/20.png)를 눌러 스크립트를 실행에 사용할 수 있도록 합니다.
 
 전체 스크립트는 참조를 위해 아래에 제공됩니다.
 
@@ -313,4 +310,4 @@ Azure에 장애 조치(Failover)를 실행할 때 기본 측 스크립트를 실
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

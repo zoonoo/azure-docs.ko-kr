@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 자동화를 사용하여 Azure 서비스 버스 관리"
+	pageTitle="Azure 자동화를 사용하여 Azure 서비스 버스 관리 | Microsoft Azure"
 	description="Azure 자동화 서비스를 사용하여 Azure 서비스 버스를 관리하는 방법에 대해 알아봅니다."
 	services="service-bus, automation"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/09/2015"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 서비
 * [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md) 문서 참조
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

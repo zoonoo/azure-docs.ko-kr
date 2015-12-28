@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/15/2015"
 	ms.author="robb"/>
 
 
@@ -61,6 +61,8 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 		</trace>
 	</system.diagnostics>
 	```
+	>[AZURE.IMPORTANT]Microsoft.WindowsAzure.Diagnostics 어셈블리에 대한 프로젝트 참조가 있어야 합니다. 참조된 Microsoft.WindowsAzure.Diagnostics 어셈블리의 버전과 일치하도록 위의 xml의 버전 번호를 업데이트합니다.
+	
 3. 구성 파일을 저장합니다.
 
 수신기에 대한 자세한 내용은 [추적 수신기](https://msdn.microsoft.com/library/4y5y10s7.aspx)를 참조하세요.
@@ -77,4 +79,4 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 3. 응용 프로그램의 상태에 대한 정보를 캡처하려는 추적 문을 추가합니다. 다양한 메서드를 사용하여 추적 문의 출력을 포맷할 수 있습니다. 자세한 내용은 [방법: 응용 프로그램 코드에 추적 문 추가](https://msdn.microsoft.com/library/zd83saa2.aspx)를 참조하세요.
 4. 소스 파일을 저장합니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

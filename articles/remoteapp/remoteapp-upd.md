@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Azure RemoteApp의 사용자 프로필 데이터 | Microsoft Azure"
-	description="사용자 데이터가 저장되고 Azure RemoteApp에서 액세스되는 방법에 대해 알아봅니다."
+    pageTitle="Office 365 사용자 계정으로 Azure RemoteApp을 사용하는 방법 | Microsoft Azure"
+	description="내 Office 365 사용자 계정으로 Azure RemoteApp을 사용하는 방법을 알아봅니다."
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -15,8 +15,6 @@
     ms.topic="article" 
     ms.date="12/04/2015" 
     ms.author="elizapo" />
-
-
 
 # Azure RemoteApp이 사용자 데이터와 설정을 저장하는 방법
 
@@ -139,4 +137,4 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 
 아니요, Azure RemoteApp에서 지원되지 않습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

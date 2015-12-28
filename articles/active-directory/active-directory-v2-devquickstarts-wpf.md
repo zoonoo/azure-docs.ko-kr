@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: Windows 데스크톱 앱에 로그인 추가
@@ -41,20 +41,20 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 
 전체 앱은 이 자습서 마지막 부분에서도 제공됩니다.
 
-## 1\. 앱 등록
+## 1. 앱 등록
 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
 
 - 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
 - 앱용 **Mobile** 플랫폼을 추가합니다.
 - 포털에서 **Redirect URI**를 복사합니다. `urn:ietf:wg:oauth:2.0:oob`의 기본값을 사용해야 합니다.
 
-## 2\. ADAL 설치 및 구성
+## 2. ADAL 설치 및 구성
 이제 앱을 Microsoft에 등록했으며, ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL에서 v2.0 끝점을 전달할 수 있도록 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
 
 -	패키지 관리자 콘솔을 사용하여 ADAL을 TodoListClient 프로젝트에 추가하여 시작합니다.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
 ```
 
 -	TodoListClient 프로젝트에서 `app.config`를 엽니다. 앱 등록 포털에 입력한 값을 반영하도록 `<appSettings>` 섹션의 요소 값을 바꿉니다. 코드는 ADAL을 사용할 때마다 이러한 값을 참조합니다.
@@ -253,4 +253,4 @@ ADAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

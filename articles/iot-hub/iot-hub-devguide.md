@@ -78,7 +78,7 @@ IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 
 SDK 및 IoT Hub와 사용할 수 있는 통합 목록은 다음과 같습니다.
 
 * [Java 이벤트 허브 클라이언트](https://github.com/hdinsight/eventhubs-client)
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). [여기](https://github.com/apache/storm/tree/master/external/storm-eventhubs)서 Spout 원본에 대한 링크를 찾을 수 있습니다.
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). GitHub의 [spout 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs)을 볼 수 있습니다.
 * [Apache Spark 통합](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 ## 장치 ID 레지스트리
@@ -250,7 +250,7 @@ SASL PLAIN의 경우 **사용자 이름**은 다음이 될 수 있습니다.
 
 두 가지 경우 모두 암호 필드는 [토큰 형식](#tokenformat) 섹션에서 설명된 토큰을 포함합니다.
 
-> [AZURE.NOTE] [Azure IoT Hub SDK][lnk-apis-sdks]는 서비스에 연결할 때 토큰을 자동으로 생성합니다. 경우에 따라 지원하는 프로토콜 또는 사용할 수 있는 인증 방법에서 SDK가 제한됩니다. 자세한 내용은 [Azure IoT Hub SDK][lnk-apis-sdks] 문서를 참조하세요.
+> [AZURE.NOTE][Azure IoT Hub SDK][lnk-apis-sdks]는 서비스에 연결할 때 토큰을 자동으로 생성합니다. 경우에 따라 지원하는 프로토콜 또는 사용할 수 있는 인증 방법에서 SDK가 제한됩니다. 자세한 내용은 [Azure IoT Hub SDK][lnk-apis-sdks] 문서를 참조하세요.
 
 #### CBS에 비해 SASL PLAIN
 
@@ -289,7 +289,8 @@ IoT Hub 메시지에서 시스템 속성의 집합입니다.
 | -------- | ----------- |
 | MessageId | 사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 일반적으로 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 | 숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 C2D 메시지에 할당됩니다. |
-| 받는 사람 | 메시지의 대상에 대한 [클라우드-장치](#c2d)에 사용됩니다.|
+| 받는 사람  
+ | 메시지의 대상에 대한 [클라우드-장치](#c2d)에 사용됩니다.|
 | ExpiryTimeUtc | 메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime | IoT Hub에서 메시지가 수신된 시간입니다. |
 | CorrelationId | 일반적으로 요청-회신 패턴에서 요청의 메시지 ID를 포함하는 문자열 속성입니다. |
@@ -404,7 +405,7 @@ IoT Hub는 다음 속성을 노출하여 D2C 메시징을 제어합니다.
 
 클라우드-장치 메시지를 보낼 때 서비스는 해당 메시지의 최종 상태에 대한 메시지 단위 피드백을 전달하도록 요청할 수 있습니다. **Ack** 속성을 **양수**로 설정하는 경우 클라우드-장치 메시지가 **완료** 상태에 도달하는 경우에만 IoT Hub가 피드백 메시지를 생성합니다. **Ack** 속성을 **음수**로 설정하여 클라우드-장치 메시지가 **효력 상실** 상태에 도달하는 경우에만 IoT Hub가 피드백 메시지를 생성합니다. **Ack** 속성을 **전체**로 설정하여 두 경우에도 IoT Hub가 피드백 메시지를 생성합니다.
 
-[끝점](#endpoints)에 설명된 대로 피드백은 서비스 지향 끝점(`/messages/servicebound/feedback`)을 통해 메시지로 전달됩니다. 피드백에 대한 수신 의미 체계는 동일한 [메시지 수명 주기](#message lifecycle)를 가진 클라우드-장치 메시지의 경우와 동일합니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
+[끝점](#endpoints)에 설명된 대로 피드백은 서비스 지향 끝점(`/messages/servicebound/feedback`)을 통해 메시지로 전달됩니다. 피드백에 대한 수신 의미 체계는 동일한 [메시지 수명 주기]를 가진 클라우드-장치 메시지의 경우와 동일합니다.(#message lifecycle) 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
 
 피드백 끝점에서 검색한 각 메시지에는 다음과 같은 속성이 있습니다.
 
@@ -532,4 +533,4 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1217_2015-->

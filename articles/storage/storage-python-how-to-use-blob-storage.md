@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/11/2015"
 	ms.author="emgerner"/>
 
 # Python에서 Azure Blob 저장소를 사용하는 방법
@@ -106,7 +106,8 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 저장소 작업에 대해 알아보세요.
 
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
+- [Azure 저장소 팀 블로그][](영문)를 방문하세요.
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
 자세한 내용을 보려면 [Python 개발자 센터](/develop/python/)도 참조하세요.
 
@@ -114,4 +115,4 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
 [Python Azure 저장소 패키지]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -48,7 +48,7 @@ Azure AD는 모든 유형의 암호 Single Sign-on 응용 프로그램 전체에
 
 계정에 공유를 사용하는 Azure AD 기능은 다음과 같습니다.
 
-- [암호 SSO(Single sign-on)](active-directory-passwords-getting-started.md)
+- [암호 SSO(Single sign-on)](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - 암호 SSO(Single sign-on) 에이전트
 - [그룹 할당](active-directory-accessmanagement-self-service-group-management.md)
 - 사용자 지정 암호 앱
@@ -72,4 +72,4 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 - [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
 - [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

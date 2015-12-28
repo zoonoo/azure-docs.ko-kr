@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # WebJob SDK를 사용하여 Azure 큐 저장소로 작업하는 방법
@@ -22,7 +22,7 @@
 
 이 가이드에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
+이 가이드에서는 [저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md#configure-storage)을 알고 있는 것으로 가정합니다.
 
 대부분의 코드 조각은 다음 예제와 같이 `JobHost` 개체를 만드는 코드가 아니라 함수만 보여 줍니다.
 
@@ -62,7 +62,8 @@
 	- QueueTrigger 설정 구성
 	- 코드에서 WebJobs SDK 생성자 매개 변수 값 설정
 -   [수동으로 함수를 트리거하는 방법](#manual)
--   [로그를 작성하는 방법](#logs)
+-   [로그를 작성하는 방법](#logs) 
+-   [오류를 처리하고 시간 제한을 구성하는 방법](#errors)
 -   [다음 단계](#nextsteps)
 
 ## <a id="trigger"></a>큐 메시지가 수신될 때 함수를 트리거하는 방법
@@ -131,13 +132,15 @@ SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링
 
 ### <a id="instances"></a> 여러 인스턴스
 
-웹 앱이 여러 인스턴스에서 실행되는 경우 연속적인 WebJob이 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. 일부 시나리오에서는 이로 인해 일부 함수가 동일한 데이터를 두 번 처리하게 될 수 있으므로 함수는 역등원이어야 합니다(같은 입력 데이터로 반복 호출해도 중복된 결과가 나오지 않도록 작성).
+웹앱이 여러 인스턴스에서 실행되는 경우 연속적인 WebJob이 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. WebJobs SDK 큐 트리거는 함수가 큐 메시지를 여러 번 처리하는 것을 방지합니다. 함수를 idempotent로 작성할 필요가 없습니다. 그러나 호스트 웹앱의 여러 인스턴스가 있는 경우에는 함수는 하나의 인스턴스만 실행되도록 하려는 경우 `Singleton` 특성을 사용할 수 있습니다.
 
 ### <a id="parallel"></a> 병렬 실행
 
 여러 함수가 서로 다른 큐에서 수신 대기 중이면 메시지가 동시에 수신될 경우 SDK에서 병렬로 호출합니다.
 
-단일 큐에 대해 여러 메시지가 수신되는 경우에도 마찬가지입니다. 기본적으로 SDK는 한 번에 16개의 큐 메시지를 일괄로 가져오고 해당 메시지를 병렬로 처리하는 함수를 실행합니다. [일괄 처리 크기는 구성 가능합니다](#config). 처리되는 개수가 일괄 처리 크기의 절반으로 감소하면 SDK에서 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 일괄 처리 크기의 1.5배입니다. 이 제한은 `QueueTrigger` 특성이 있는 각 함수에 개별적으로 적용됩니다. 하나의 큐에 수신된 메시지에 대해 병렬 실행을 사용하지 않으려면 일괄 처리 크기를 1로 설정합니다.
+단일 큐에 대해 여러 메시지가 수신되는 경우에도 마찬가지입니다. 기본적으로 SDK는 한 번에 16개의 큐 메시지를 일괄로 가져오고 해당 메시지를 병렬로 처리하는 함수를 실행합니다. [일괄 처리 크기는 구성 가능합니다](#config). 처리되는 개수가 일괄 처리 크기의 절반으로 감소하면 SDK에서 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 일괄 처리 크기의 1.5배입니다. 이 제한은 `QueueTrigger` 특성이 있는 각 함수에 개별적으로 적용됩니다.
+
+하나의 큐에 수신된 메시지에 대해 병렬 실행을 사용하지 않으려면 일괄 처리 크기를 1로 설정하면 됩니다. [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/)에서 **큐 처리에 대한 제어 강화**를 참조하세요.
 
 ### <a id="queuemetadata"></a>큐 또는 큐 메시지 메타데이터 가져오기
 
@@ -581,9 +584,31 @@ Azure Blob에서 응용 프로그램 로그는 다음과 같습니다. 2014-09-2
 
 ![테이블에 대한 오류 로그](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
+사용자 고유의 로거를 연결하려면 [이 예제](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Program.cs)를 참조하세요.
+
+## <a id="errors"></a>오류를 처리하고 시간 제한을 구성하는 방법
+
+WebJobs SDK에는 지정된 기간 내에 완료되지 않는 경우 함수를 취소하는 데 사용할 수 있는 [Timeout](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs) 특성도 포함되어 있습니다. 또한 지정된 기간 내에 너무 많은 오류가 발생한 경우 경고를 표시하는 데 `ErrorTrigger` 특성을 사용할 수 있습니다. 다음은 [ErrorTrigger 예제](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Error-Monitoring)입니다.
+
+```
+public static void ErrorMonitor(
+[ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+[SendGrid(
+    To = "admin@emailaddress.com",
+    Subject = "Error!")]
+ SendGridMessage message)
+{
+    // log last 5 detailed errors to the Dashboard
+   log.WriteLine(filter.GetDetailedMessage(5));
+   message.Text = filter.GetDetailedMessage(1);
+}
+```
+
+구성 스위치(앱 설정이거나 환경 변수 이름일 수 있음)를 사용하여 함수를 동적으로 사용하거나 사용하지 않도록 설정함으로써 함수가 트리거될 수 있는지 여부를 제어할 수도 있습니다. 샘플 코드는 [WebJobs SDK 샘플 리포지토리](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs)에서 `Disable` 특성을 참조하세요.
+
 ## <a id="nextsteps"></a> 다음 단계
 
 이 가이드에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

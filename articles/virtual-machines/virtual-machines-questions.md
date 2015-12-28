@@ -69,7 +69,7 @@ Linux VM에 대한 SSH(보안셸) 또는 Windows VM에 대한 원격 데스크�
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md) 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md) 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
-원격 데스크톱 또는 SSH에 문제가 있는 경우 문제를 해결하는데 도움이 되는 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 확장을 설치 및 사용하세요.
+원격 데스크톱 또는 SSH에 문제가 있는 경우 문제를 해결하는 데 도움이 되는 [VMAccess](virtual-machines-extensions-features.md) 확장을 설치 및 사용하세요.
 
 Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
@@ -103,7 +103,7 @@ Windows Server 마이그레이션을 위한 도구 및 프로세스에 대한 �
 
 Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 필요없습니다. 이러한 이미지 중 하나를 사용하여 가상 컴퓨터를 만들 때, 가상 컴퓨터에 로그온 하는데 사용할 사용자 이름 및 암호를 제공해야 합니다.
 
-사용자 이름 또는 암호를 잊어버리고 VM 에이전트를 설치한 경우 해당 문제를 수정하기 위해 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 확장을 설치하고 사용할 수 있습니다.
+사용자 이름 또는 암호를 잊어버리고 VM 에이전트를 설치한 경우 해당 문제를 수정하기 위해 [VMAccess](virtual-machines-extensions-features.md) 확장을 설치하고 사용할 수 있습니다.
 
 추가 정보:
 
@@ -159,4 +159,4 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

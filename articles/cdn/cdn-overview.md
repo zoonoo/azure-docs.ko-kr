@@ -49,8 +49,9 @@ CDN에 개체 요청을 처음 수행하는 경우 개체의 소스 원본 위�
 - 부하 분산
 - DDOS 보호
 - [빠른 삭제](cdn-purge-endpoint.md)
+- [REST API를 통한 관리](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## 프리미엄 기능
 
 프리미엄 CDN 계층에는 표준 계층의 모든 기능과 함께 이러한 추가 기능이 포함됩니다.
@@ -59,4 +60,4 @@ CDN에 개체 요청을 처음 수행하는 경우 개체의 소스 원본 위�
 - [고급 HTTP 보고서](cdn-advanced-http-reports.md)
 - [실시간 통계](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

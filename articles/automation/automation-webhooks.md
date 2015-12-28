@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="12/07/2015"
    ms.author="bwren;sngun"/>
 
 # Azure 자동화 Webhook
@@ -53,7 +53,24 @@ webhook은 runbook을 시작할 때 사용되는 runbook 매개 변수 값을 �
 
 **$WebhookData** 매개 변수를 지원하는 데 필요한 webhook 구성은 없으며, runbook은 이를 수락할 필요가 없습니다. runbook이 매개 변수를 정의하지 않을 경우 클라이언트에서 전송된 요청의 모든 세부 정보가 무시됩니다.
 
-webhook을 만들 때 $WebhookData에 값을 지정 하면 클라이언트가 요청 본문에 데이터를 포함하지 않을 경우에도 webhook이 클라이언트 POST 요청의 데이터로 runbook을 시작할 때 해당 값이 재정의됩니다. webhook 이외의 방법을 사용하는 $WebhookData가 있는 runbook을 시작하는 경우 runbook에서 인식할 $Webhookdata 값을 제공할 수 있습니다. 이 값은 runbook이 함께 제대로 작동할 수 있도록 $Webhookdata와 동일한 속성을 가진 개체여야 합니다.
+webhook을 만들 때 $WebhookData에 값을 지정 하면 클라이언트가 요청 본문에 데이터를 포함하지 않을 경우에도 webhook이 클라이언트 POST 요청의 데이터로 runbook을 시작할 때 해당 값이 재정의됩니다. webhook 이외의 방법을 사용하는 $WebhookData가 있는 runbook을 시작하는 경우 runbook에서 인식할 $Webhookdata 값을 제공할 수 있습니다. 이 값은 runbook이 webhook에서 전달된 실제 WebhookData로 작동하는 것처럼 제대로 작동할 수 있도록 $Webhookdata와 동일한 [속성](#details-of-a-webhook)을 가진 개체여야 합니다.
+
+예를 들어 Azure 포털에서 다음 runbook을 시작하고 테스트용으로 일부 샘플 WebhookData를 전달하려는 경우 WebhookData는 개체이기 때문에 UI에서 JSON으로 전달해야 합니다.
+
+![UI에서의 WebhookData 매개 변수](media/automation-webhooks/WebhookData-parameter-from-UI.png)
+
+위의 runbook의 경우 WebhookData 매개 변수에 대한 다음 속성을 사용하는 경우:
+
+1. WebhookName: *MyWebhook*
+2. RequestHeader: *From=Test User*
+3. RequestBody: *[“VM1”, “VM2”]*
+
+그런 다음 WebhookData 매개 변수에 대한 UI에서 다음 JSON 값을 전달합니다.
+
+* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"["VM1","VM2"]"}
+
+![UI에서 WebhookData 매개 변수 시작](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
+
 
 >[AZURE.NOTE]모든 입력 매개 변수의 값은 runbook 작업에 기록됩니다. webhook 요청에서 클라이언트에서 제공된 입력이 기록되고 자동화 작업에 액세스할 수 있는 모든 사용자가 사용할 수 있게 된다는 것을 의미합니다. 따라서 webhook 호출에 중요한 정보를 포함할 때는 주의해야 합니다.
 
@@ -90,7 +107,7 @@ Azure Preview 포털에서 runbook에 연결된 새 webhook을 만들려면 다�
 |:---|:----|:---|
 | 202 | 수락됨 | 요청이 수락되었고 runbook에서 대기합니다. |
 | 400 | 잘못된 요청 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook이 만료되었습니다.</li> <li>webhook이 비활성화되었습니다.</li> <li>URL의 토큰이 잘못되었습니다.</li> </ul>|
-| 404 | 찾을 수 없음 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul><li>webhook을 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li></ul> |
+| 404 | 찾을 수 없음 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook을 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li> </ul> |
 | 500 | 내부 서버 오류 | URL은 유효했지만 오류가 발생했습니다. 요청을 다시 제출하십시오. |
 
 요청이 성공했다고 가정하면 webhook 응답은 다음과 같은 JSON 형식의 작업 ID를 포함합니다. 단일 작업 ID를 포함하지만 잠재적인 이후 향상 기능에 대해 JSON 형식이 허용됩니다.
@@ -179,7 +196,7 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 
 가상 컴퓨터, CPU 사용률 등의 Azure 리소스를 주요한 성능 메트릭 중 하나로 고려해야 합니다. CPU 사용률이 100%이거나 장기간 특정 수준 이상이면 가상 컴퓨터를 다시 시작하여 문제를 해결하고자 할 수 있습니다. 이 문제는 가상 컴퓨터에 대한 규칙 경고를 구성하여 해결할 수 있으며 이 규칙에서는 CPU 백분율을 메트릭으로 적용합니다. 여기서 CPU 백분율은 단순한 예일 뿐이며 Azure 리소스에 대해 많은 다른 메트릭을 구성할 수 있습니다. 가상 컴퓨터를 다시 시작하는 것은 문제를 해결하기 위한 조치로, Runbook이 다른 조치를 취하도록 구성할 수 있습니다.
 
-이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](Azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **타임스탬프** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 **WebhookData**의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
+이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](Azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **Timestamp** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 Runbook에 전송된 **WebhookData** 개체의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
 
 
 ### 예
@@ -255,4 +272,4 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 - [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md)
 - [Azure 자동화를 사용하여 Azure 경고에서 조치 취하기](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

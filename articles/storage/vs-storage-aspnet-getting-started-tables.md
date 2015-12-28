@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,18 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # 테이블 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET)
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 ## 개요
 이 문서에서는 Visual Studio의 **연결된 서비스 추가** 대화 상자를 사용하여 Azure 저장소 계정을 ASP.NET 프로젝트에서 생성하거나 참조한 후 Azure 테이블 저장소를 Visual Studio에서 사용하는 방법을 설명합니다. 이 문서에서는 테이블 만들기 및 삭제, 테이블 엔터티 작업 등 Azure 테이블에서 일반적인 작업을 수행하는 방법을 보여 줍니다. 샘플은 C# 코드로 작성되었으며 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)을 사용합니다. Azure 테이블 저장소를 사용하는 방법에 대한 일반적인 정보는 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)을 참조하세요.
@@ -46,7 +38,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    **참고** - 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
+    **참고:** 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
 
 3. 저장소 계정의 테이블 개체를 참조하려면 **CloudTableClient** 개체를 가져옵니다.
 
@@ -167,4 +159,4 @@ Azure 테이블을 만들려면 이전 코드에 **CreateIfNotExistsAsync()**에
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

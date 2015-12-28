@@ -30,6 +30,13 @@
 
 ## 릴리스 정보
 
+### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
+  - 페이징, 조건식 및 범위 비교에 대한 새 연산자를 포함하는 확장 LINQ 지원입니다.
+    - LINQ에서 SELECT TOP 동작을 사용하도록 설정하는 Take 연산자
+    - 문자열 범위 비교를 사용하도록 설정하는 CompareTo 연산자
+    - 조건부(?) 및 병합 연산자(??)
+  - **[수정됨]** 모델 프로젝션을 linq 쿼리의 Where-In과 결합할 때의 ArgumentOutOfRangeException이 수정되었습니다. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[수정됨]** Select가 마지막 식이 아니면 LINQ 공급자는 프로젝션이 없다고 가정하고 SELECT *를 잘못 생성했습니다. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
@@ -84,39 +91,26 @@
 ### <a name="1.0.0"/>[1\.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 - GA SDK
 
-> [AZURE.NOTE]
-미리 보기와 GA 사이에 NuGet 패키지 이름이 변경되었습니다. **Microsoft.Azure.Documents.Client**에서 **Microsoft.Azure.DocumentDB**로 변경되었습니다. <br/>
+> [AZURE.NOTE]미리 보기와 GA 사이에 NuGet 패키지 이름이 변경되었습니다. **Microsoft.Azure.Documents.Client**에서 **Microsoft.Azure.DocumentDB**로 변경되었습니다. <br/>
 
 
 ### <a name="0.9.x-preview"/>[0\.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
 - Preview SDK[사용되지 않음]
 
 ## 릴리스 및 사용 중지 날짜
-Microsoft는 최신/지원 버전으로 매끄럽게 전환할 수 있도록 SDK를 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
+Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
 사용 중지된 SDK를 사용한 DocumentDB에 대한 요청은 서비스로부터 거부됩니다.
 
-> [AZURE.WARNING]
-**1.0.0** 이전 버전의 .NET에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
+> [AZURE.WARNING]**1.0.0** 이전 버전의 .NET에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
  
 <br/>
  
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.5.1](#1.5.1) | 2015년 11월 23일 |---
-| [1\.5.0](#1.5.0) | 2015년 10월 5일 |---
-| [1\.4.1](#1.4.1) | 2015년 8월 25일 |---
-| [1\.4.0](#1.4.0) | 2015년 8월 13일 |---
-| [1\.3.0](#1.3.0) | 2015년 8월 5일 |---
-| [1\.2.0](#1.2.0) | 2015년 7월 6일 |---
-| [1\.1.0](#1.1.0) | 2015년 4월 30일 |---
-| [1\.0.0](#1.0.0) | 2015년 4월 8일 |---
-| [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 
-| [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 
-| [0\.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
-| [0\.9.0-prelease](#0.9.x-preview) | 2014년 8월 21일 | 2016년 2월 29일
+| [1\.5.2](#1.5.2) | 2015년 12월 14일 |--| [1\.5.1](#1.5.1) | 2015년 11월 23일 |--| [1\.5.0](#1.5.0) | 2015년 10월 5일 |--| [1\.4.1](#1.4.1) | 2015년 8월 25일 |--| [1\.4.0](#1.4.0) | 2015년 8월 13일 |--| [1\.3.0](#1.3.0) | 2015년 8월 5일 |--| [1\.2.0](#1.2.0) | 2015년 7월 6일 |--| [1\.1.0](#1.1.0) | 2015년 4월 30일 |--| [1\.0.0](#1.0.0) | 2015년 4월 8일 |--- | [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 | [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 | [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 | [0\.9.0-prelease](#0.9.x-preview) | 2014년 4월 21일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -125,4 +119,4 @@ Microsoft는 최신/지원 버전으로 매끄럽게 전환할 수 있도록 SDK
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

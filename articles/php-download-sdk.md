@@ -2,18 +2,18 @@
 	pageTitle="PHP용 Azure SDK 다운로드"
 	description="Azure SDK for PHP를 다운로드하여 설치하는 방법에 대해 알아봅니다."
 	documentationCenter="php"
-	services=""
+	services="app-service\web"
 	authors="tfitzmac"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #PHP용 Azure SDK 다운로드
@@ -130,4 +130,4 @@ Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서�
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

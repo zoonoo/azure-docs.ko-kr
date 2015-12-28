@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: 범위, 사용 권한 및 동의
@@ -116,4 +116,4 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 획득하는 방법에 대한 자
 
 새로 고침 토큰을 가져오고 사용하는 방법에 대한 자세한 내용은 [앱 모델 v2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

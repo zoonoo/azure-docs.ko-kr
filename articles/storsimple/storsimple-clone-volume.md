@@ -12,16 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 복제
+
+[AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
 ## 개요
 
 StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또는 자동화된 백업을 수행할 때 생성되는 모든 백업 세트를 표시합니다. 이 페이지를 사용하여 백업 정책 또는 볼륨에 대한 모든 백업을 나열하거나, 백업을 선택 또는 삭제하거나 백업을 사용하여 볼륨을 복원 또는 복제할 수 있습니다.
 
-  ![백업 카탈로그 페이지](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+![백업 카탈로그 페이지](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 이 자습서에서는 개별 볼륨 복제에 백업 세트를 사용하는 방법을 설명합니다. *임시* 및 *영구* 복제의 차이점에 대해서도 설명합니다.
 
@@ -43,9 +45,9 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
   1. 대상 장치를 식별합니다. 클론이 만들어지는 위치입니다. 동일한 장치를 선택하거나 다른 장치를 지정할 수 있습니다. 다른 클라우드 서비스 공급자와 연결 된 볼륨을 선택하는 경우 (Azure가 아님), 대상 장치에 대한 드롭다운 목록에는 물리적 장치만 표시 됩니다. 가상 장치에 다른 클라우드 서비스 공급자와 연결된 볼륨을 복제할 수 없습니다.
 
-        >  [AZURE.NOTE] 복제에 필요한 용량은 대상 장치에서 사용 가능한 용량보다 작아야 합니다.
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. 해당 클론에 대한 고유 볼륨 이름을 지정합니다. 이름은 3자에서 127자 사이여야 합니다.
-  3. 화살표 아이콘![화살표 아이콘](./media/storsimple-clone-volume/HCS_ArrowIcon.png)을 클릭하여 다음 페이지로 이동합니다.
+  3. 화살표 아이콘 ![화살표 아이콘](./media/storsimple-clone-volume/HCS_ArrowIcon.png)을 클릭하여 다음 페이지로 이동합니다.
 
 5. **이 볼륨을 사용할 수 있는 호스트 지정** 아래:
 
@@ -61,15 +63,15 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
 >[AZURE.NOTE]모니터링 및 기본 백업은 복제된 볼륨에서 자동으로 비활성화됩니다.
 
-이러한 방식으로 만들어진 클론은 임시 클론입니다. 클론 유형에 대한 자세한 내용은 [임시 및 영구 클론 비교](#transient-vs.-permanent-clones)를 참조하세요.
+이러한 방식으로 만들어진 클론은 임시 클론입니다. 복제 유형에 대한 자세한 내용은 [임시 및 영구 복제본 비교](#transient-vs.-permanent-clones)를 참조하세요.
 
 이 클론은 이제 정규 볼륨이며 볼륨에 사용할 수 있는 모든 작업은 클론에 사용할 수 있습니다. 백업에 대해 이 볼륨을 구성해야 합니다.
 
 ## 임시 및 영구 클론 비교
 
-백업 세트에서 특정 볼륨을 복제할 수 있습니다. 이러한 방식으로 만들어진 클론은 *임시* 클론입니다. 임시 클론에는 원본 볼륨에 대한 참조가 있으며 로컬로 쓰는 동안 읽기위해 해당 볼륨을 사용합니다. 특히 복제된 볼륨이 큰 경우에는 성능이 저하될 수 있습니다.
+백업 세트에서 특정 볼륨을 복제할 수 있습니다. 이러한 방식으로 만들어진 복제본은 *임시* 복제본입니다. 임시 클론에는 원본 볼륨에 대한 참조가 있으며 로컬로 쓰는 동안 읽기위해 해당 볼륨을 사용합니다. 특히 복제된 볼륨이 큰 경우에는 성능이 저하될 수 있습니다.
 
-임시 클론의 클라우드 스냅숏을 수행한 후 결과 클론은 *영구* 클론이 됩니다. 영구 클론은 독립적이며 복제된 원본 볼륨에 대한 참조가 없습니다. 성능 향상을 위해 영구 클론을 만드는 것이 좋습니다.
+임시 복제본의 클라우드 스냅숏을 수행한 후 결과 복제본은 *영구* 복제본이 됩니다. 영구 클론은 독립적이며 복제된 원본 볼륨에 대한 참조가 없습니다. 성능 향상을 위해 영구 클론을 만드는 것이 좋습니다.
 
 ## 임시 및 영구 클론에 대한 시나리오
 
@@ -81,7 +83,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
  
 ![동영상 사용 가능](./media/storsimple-clone-volume/Video_icon.png) **동영상 사용 가능**
 
-StorSimple에서 클론 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
+StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
 
 ### 영구 클론을 사용하여 프로덕션 환경에서 테스트
 
@@ -94,4 +96,4 @@ StorSimple에서 클론 및 복원 기능을 사용하여 삭제된 파일을 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

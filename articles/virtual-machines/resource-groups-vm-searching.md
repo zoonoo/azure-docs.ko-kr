@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="08/25/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 
-이 문서에서는 최근 설치된 Azure CLI 또는 Azure PowerShell을 사용하여 가상 컴퓨터 이미지를 탐색 및 선택하는 방법을 설명합니다. 전제 조건으로 리소스 관리자 모드를 변경해야 할 수 있습니다. Azure CLI로 `azure config mode arm`을(를) 입력하여 해당 모드를 입력합니다. PowerShell을 사용하여 `Switch-AzureMode AzureResourceManager`을(를) 입력합니다. 자세한 업데이트 및 구성 정보를 보려면 [리소스 관리를 이용한 Azure CLI 사용](xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자를 이용한 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+
 
 ## 일반적으로 사용하는 이미지 테이블
 
@@ -51,6 +51,8 @@
 
 
 ## Azure CLI
+
+> [AZURE.NOTE]이 문서에서는 최근 설치된 Azure CLI 또는 Azure PowerShell을 사용하여 가상 컴퓨터 이미지를 탐색 및 선택하는 방법을 설명합니다. 전제 조건으로 리소스 관리자 모드를 변경해야 할 수 있습니다. Azure CLI로 `azure config mode arm`을(를) 입력하여 해당 모드를 입력합니다.
 
 `azure vm quick-create`와 함께 사용하거나 리소스 그룹 템플릿 파일을 만들 이미지를 찾는 가장 쉽고 빠른 방법은 `azure vm image list` 명령을 호출하고 위치, 게시자 이름(대/소문자 구분 없음) 및 제안(제안을 알고 있는 경우)을 전달하는 것입니다. 예를 들어 다음 목록은 "UbuntuServer" 제안에 대한 게시자가 “Canonical"임을 알고 있는 경우의 간단한 예제일 뿐이며, 대부분의 목록은 매우 깁니다.
 
@@ -97,7 +99,7 @@
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
 
-이제 미국 서부 지역에서 Canonical이 Azure에 **UbuntuServer** 제안을 게시함을 알고 있습니다. 하지만 SKU는 무엇입니까? skus를 가져오려면 `azure vm image list-skus`를 호출하고 검색한 위치, 게시자 및 제안으로 프롬프트에 응답합니다.
+이제 미국 서부 지역에서 Canonical이 Azure에 **UbuntuServer** 제안을 게시함을 알고 있습니다. 하지만 SKU는 무엇입니까? SKU를 가져오려면 `azure vm image list-skus`를 호출하고 검색한 위치, 게시자 및 제안으로 프롬프트에 응답합니다.
 
     azure vm image list-skus
     info:    Executing command vm image list-skus
@@ -148,6 +150,11 @@
 
 
 ## PowerShell
+
+PowerShell을 사용하여 `Switch-AzureMode AzureResourceManager`을(를) 입력합니다. 자세한 업데이트 및 구성 정보를 보려면 [리소스 관리를 이용한 Azure CLI 사용](xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자를 이용한 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+
+> [AZURE.NOTE]Azure PowerShell 모듈 1.0 이상에서 `Switch-AzureMode` cmdlet이 제거되었습니다. 해당 버전 이상에서 `Azure` 부분이 있는 아래 명령을 `AzureRm`으로 바꾸세요. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 아래 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`해야 합니다.
+
 
 Azure 리소스 관리자를 사용하여 새 가상 컴퓨터를 만들 때 다음 이미지 속성을 조합하여 이미지를 지정해야 하는 경우도 있습니다.
 
@@ -244,4 +251,4 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->
