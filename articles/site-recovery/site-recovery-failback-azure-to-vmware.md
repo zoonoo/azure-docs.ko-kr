@@ -131,7 +131,7 @@ Linux 가상 컴퓨터에서 각 SCSI 하드 디스크에 대해 SCSI ID를 가�
 
 참고: 추가 패키지를 다운로드하고 설치하기 전에 시스템이 인터넷에 연결되어 있는지 확인합니다.
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 이 명령은 CentOS 6.6 저장소에서 이러한 15개의 패키지를 다운로드 및 설치:
 
@@ -167,21 +167,21 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 참고: 원본 컴퓨터가 루트 또는 부팅 장치에 Reiser 또는 XFS 파일 시스템을 사용하는 경우 보호 전에 다음 패키지를 Linux 마스터 대상에 다운로드하고 설치해야 합니다.
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget
+\# wget
 <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget
+\# wget
 <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
 reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget
+\# wget
 <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### 사용자 지정 구성 변경 내용 적용
 
@@ -410,4 +410,4 @@ Azure에 VMWare 가상 컴퓨터 복제에 대해 [알아보기](site-recovery-v
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->
