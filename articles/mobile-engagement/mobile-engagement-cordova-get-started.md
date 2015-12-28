@@ -40,7 +40,7 @@
 + GCM을 위해 Google 개발자 콘솔에서 가져올 수 있는 GCM 프로젝트 번호
 + [Mobile Engagement Cordova 플러그 인](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
-> [AZURE.NOTE][Github](https://github.com/Azure/azure-mobile-engagement-cordova)에서 Cordova 플러그 인에 대한 소스 코드와 추가 정보를 찾을 수 있습니다.
+> [AZURE.NOTE] [Github](https://github.com/Azure/azure-mobile-engagement-cordova)에서 Cordova 플러그 인에 대한 소스 코드와 추가 정보를 찾을 수 있습니다.
 
 ##<a id="setup-azme"></a>Cordova 앱용 Mobile Engagement 설정
 
@@ -245,4 +245,4 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

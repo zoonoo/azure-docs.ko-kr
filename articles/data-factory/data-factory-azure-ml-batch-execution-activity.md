@@ -19,7 +19,7 @@
 # Azure 기계 학습 작업을 사용하여 예측 파이프라인 만들기   
 ## 개요
 
-> [AZURE.NOTE][Azure 데이터 팩터리 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure 데이터 팩터리 서비스를 빠르게 시작합니다.
+> [AZURE.NOTE] [Azure 데이터 팩터리 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure 데이터 팩터리 서비스를 빠르게 시작합니다.
 
 ## 소개
 
@@ -772,4 +772,4 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

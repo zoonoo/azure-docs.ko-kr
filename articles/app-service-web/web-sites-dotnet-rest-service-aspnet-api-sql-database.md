@@ -46,11 +46,11 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 1. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
 3. **새 프로젝트** 대화 상자에서 **Visual C#**을 확장하고 **웹**을 선택한 다음 **ASP.NET 웹 응용 프로그램**을 선택합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
 
-	![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
+	![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
 
 1. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택하고 **Web API**를 선택한 후 **인증 변경**을 클릭합니다.
 
-	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
+	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 1. **인증 변경** 대화 상자에서 **인증 없음**, **확인**을 차례로 클릭합니다.
 
@@ -60,7 +60,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 1. **새 ASP.NET 프로젝트** 대화 상자에서 **클라우드에서 호스트**를 선택했는지 확인하고 **확인**을 클릭합니다.
 
-	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
+	![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 이전에 Azure에 로그인한 적이 없는 경우 로그인하라는 메시지가 나타납니다.
 
@@ -123,7 +123,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 ### 로컬에서 응용 프로그램 실행
 
-1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램 홈페이지가 기본 브라우저에 나타납니다.![할 일 모음 홈 페이지](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
+1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램 홈페이지가 기본 브라우저에 나타납니다.![할 일 모음 홈 페이지](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 하는 작업은 이것뿐입니다. 나중에 데이터베이스 기능을 추가하겠습니다.
 
@@ -205,11 +205,11 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **스캐폴드 추가** 대화 상자에서 **MVC 컨트롤러(뷰 포함), Entity Framework 사용**을 선택하고 **추가**를 클릭합니다.
 
- ![컨트롤러 추가](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+ ![컨트롤러 추가](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
 6. 컨트롤러 이름을 **HomeController**로 설정합니다. 모델 클래스로 **Contact**를 선택합니다. **새 데이터 컨텍스트** 단추를 클릭하고 **새 데이터 컨텍스트 형식**으로 기본값인 "ContactManager.Models.ContactManagerContext"를 수락합니다. **추가**를 클릭합니다.
 
-	![컨트롤러 추가 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.png)
+	![컨트롤러 추가 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
 	"HomeController라는 파일이 이미 있습니다. 바꾸시겠습니까?"와 같은 메시지가 나타납니다. **예**를 클릭합니다. 새 프로젝트로 만들었던 Home Controller를 덮어쓰겠습니다. 연락처 목록에 새 Home Controller를 사용합니다.
 
@@ -508,7 +508,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **스캐폴드 추가** 대화 상자에서 **Web API 2 컨트롤러(작업 포함), Entity Framework 사용**을 입력하고 **추가**를 클릭합니다.
 
-	![API 컨트롤러 추가](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
+	![API 컨트롤러 추가](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
 4. **컨트롤러 추가** 대화 상자에서 컨트롤러 이름으로 "ContactsController"를 입력합니다. **모델 클래스**에 대해 "Contact(ContactManager.Models)"를 선택합니다. **데이터 컨텍스트 클래스**에 대한 기본값은 그대로 유지합니다.
 
@@ -814,4 +814,4 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

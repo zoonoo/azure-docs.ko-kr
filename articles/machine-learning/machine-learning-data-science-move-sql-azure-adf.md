@@ -94,7 +94,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 
 다음 스크립트 기반 프로시저로 데이터 집합의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 집합](data-factory-create-datasets.md)을 참조하세요.
 
-> [AZURE.NOTE][New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](https://msdn.microsoft.com/library/azure/dn790372.aspx)를 참조하세요.
+> [AZURE.NOTE] [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](https://msdn.microsoft.com/library/azure/dn790372.aspx)를 참조하세요.
 
 테이블에서 JSON 기반 정의는 다음 이름을 사용합니다.
 
@@ -301,4 +301,4 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](http://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

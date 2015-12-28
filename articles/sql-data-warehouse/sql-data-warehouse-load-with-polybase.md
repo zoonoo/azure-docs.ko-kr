@@ -141,9 +141,9 @@ DROP EXTERNAL FILE FORMAT text_file_format
 - 외부 테이블 정의는 SQL 데이터 웨어하우스 데이터베이스에 메타데이터 형태로 저장됩니다. 
 - 데이터는 데이터 원본에서 지정한 외부 위치에 저장됩니다.
 
-[CREATE EXTERNAL TABLE(Transact-SQL)][]을 사용하여 외부 테이블을 정의합니다.
+[CREATE EXTERNAL TABLE (Transact-SQL)][]을 사용하여 외부 테이블을 정의합니다.
 
-위치 옵션은 데이터 원본의 루트에서의 데이터에 대한 경로를 지정합니다. 이 예제에서 데이터는 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'에 있습니다. 동일 테이블의 모든 파일은 Azure Blob 저장소의 동일한 논리 폴더 아래 있어야 합니다.
+위치 옵션은 데이터 원본의 루트에서의 데이터에 대한 경로를 지정합니다. 이 예제에서 데이터는 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'에 있습니다. 동일 테이블의 모든 파일은 Azure BLOB 저장소의 동일한 논리 폴더 아래 있어야 합니다.
 
 필요에 따라 외부 데이터 소스에서 받은 더티 레코드를 PolyBase에서 처리하는 방법을 결정하는 거부 옵션(REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE)을 지정할 수도 있습니다.
 
@@ -353,9 +353,9 @@ $write.Dispose()
 
 
 <!-- External Links -->
-[CREATE EXTERNAL DATA SOURCE(Transact-SQL)]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
-[CREATE EXTERNAL FILE FORMAT(Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
-[CREATE EXTERNAL TABLE(Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
 [DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx

@@ -42,42 +42,45 @@
 
 	그런 다음 다음 코드를 클래스의 본문으로 대체합니다.
 
-	``` class SimpleEventProcessor : IEventProcessor { Stopwatch checkpointStopWatch;
-
-	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
+	```
+		 class SimpleEventProcessor : IEventProcessor 
 	    {
-	        Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
-	        if (reason == CloseReason.Shutdown)
+	        Stopwatch checkpointStopWatch;
+
+	        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	        {
-	            await context.CheckpointAsync();
+	            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
+	            if (reason == CloseReason.Shutdown)
+	            {
+	                await context.CheckpointAsync();
+	            }
 	        }
-	    }
 
-	    Task IEventProcessor.OpenAsync(PartitionContext context)
-	    {
-	        Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
-	        this.checkpointStopWatch = new Stopwatch();
-	        this.checkpointStopWatch.Start();
-	        return Task.FromResult<object>(null);
-	    }
-
-	    async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-	    {
-	        foreach (EventData eventData in messages)
+	        Task IEventProcessor.OpenAsync(PartitionContext context)
 	        {
-	            string data = Encoding.UTF8.GetString(eventData.GetBytes());
-
-	            Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-	                context.Lease.PartitionId, data));
+	            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+	            this.checkpointStopWatch = new Stopwatch();
+	            this.checkpointStopWatch.Start();
+	            return Task.FromResult<object>(null);
 	        }
+
+	        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+	        {
+	            foreach (EventData eventData in messages)
+	            {
+	                string data = Encoding.UTF8.GetString(eventData.GetBytes());
+
+	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+	                    context.Lease.PartitionId, data));
+	            }
 
 	        //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
-	        if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
-            {
-                await context.CheckpointAsync();
-                this.checkpointStopWatch.Restart();
-            }
-	    }
+	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
+                {
+                    await context.CheckpointAsync();
+                    this.checkpointStopWatch.Restart();
+                }
+	        }
 	} ````
 
 	이 클래스는 이벤트 허브에서 받는 이벤트를 처리하기 위해 **EventProcessorHost**에서 호출합니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 따라서 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
@@ -92,13 +95,26 @@
 
 	그런 다음 `Program` 클래스의 `Main` 메서드를 다음과 같이 수정하고 이벤트 허브 이름 및 연결 문자열과 이전 섹션에서 복사한 저장소 계정 및 키로 대체합니다.
 
-    ``` static void Main(string args) { string eventHubConnectionString = "{event hub connection string}"; string eventHubName = "{event hub name}"; string storageAccountName = "{storage account name}"; string storageAccountKey = "{storage account key}"; string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+       ``` static void Main(string[] args)
+        {
+          string eventHubConnectionString = "{event hub connection string}";
+          string eventHubName = "{event hub name}";
+          string storageAccountName = "{storage account name}";
+          string storageAccountKey = "{storage account key}";
+          string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
+              storageAccountName, storageAccountKey);
 
-      string eventProcessorHostName = Guid.NewGuid().ToString(); EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString); Console.WriteLine("Registering EventProcessor..."); eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+          string eventProcessorHostName = Guid.NewGuid().ToString();
+          EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+          Console.WriteLine("Registering EventProcessor...");
+          eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
 
-      Console.WriteLine("Receiving. Press enter key to stop worker."); Console.ReadLine(); eventProcessorHost.UnregisterEventProcessorAsync().Wait(); } ````
+          Console.WriteLine("Receiving. Press enter key to stop worker.");
+          Console.ReadLine();
+          eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+        }````
 
-> [AZURE.NOTE]이 자습서에서는 [EventProcessorHost][]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플][](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정하여 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요][] 및 [이벤트 허브 프로그래밍 가이드][]를 참조하세요.
+> [AZURE.NOTE]이 자습서에서는 [EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정하여 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요] 및 [이벤트 허브 프로그래밍 가이드]를 참조하세요.
 
 <!-- Links -->
 [이벤트 허브 개요]: event-hubs-overview.md

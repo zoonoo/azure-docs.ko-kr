@@ -50,7 +50,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
 2.  명령 프롬프트에서 빌드할 Azure 프로젝트 파일이 포함된 폴더로 이동합니다.
 
-3.  다음 예제와 /target:Publish 옵션을 사용하여 MSBuild를 실행합니다.
+3.  다음 예제와 /target:Publish 옵션을 사용하여 msbuild를 실행합니다.
 
         MSBuild /target:Publish
 

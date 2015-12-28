@@ -425,7 +425,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [하이브리드 환경에서 Power BI 사용](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Microsoft SQL Server Connect를 통해 피드백 및 연락처 정보를 제출하세요.](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### 커뮤니티 콘텐츠
 

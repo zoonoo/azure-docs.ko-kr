@@ -96,7 +96,6 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 <td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
 </tr>
 <td></td>
@@ -323,7 +322,7 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                        "subStatus": "FailedExecution"   
+	                            "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -357,7 +356,7 @@ OnDemandClusterDeleted | Succeeded
 #### 경고 배포 
 경고를 배포하려면 다음 예제와 같이 Azure PowerShell cmdlet, **New-AzureResourceGroupDeployment**를 사용합니다.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
 
 리소스 그룹 배포가 성공적으로 완료되면 다음 메시지가 표시됩니다.
 

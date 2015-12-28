@@ -152,7 +152,7 @@ perl-5.10.1-136.el6\_6.1.x86\_64.rpm
 perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
 
 perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
-	
+
 perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
 
 perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
@@ -169,13 +169,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 # cd /usr/local
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+# wget
+<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
 # rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
@@ -242,8 +246,9 @@ Azure Site Recovery 자격 증명 모음 > **구성 서버** > **서버 세부 �
 
 ### 시작하기 전에
 
-VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 추가됩니다. 이것은 이미 페이지 파일 전용 드라이브를 가지고 있을 수도 있으므로 일반적으로 장애 조치된 VM에서 필요로 하지 않는 추가 드라이브입니다. 가상 컴퓨터의 역방향 보호를 시작하기 전에 보호되지 않도록 드라이브가 오프라인으로 가져와지도록 해야 합니다. 다음과 같이 수행합니다.
+VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 추가됩니다. 이것은 이미 페이지 파일 전용 드라이브를 가지고 있을 수도 있으므로 일반적으로 장애 조치된 VM에서 필요로 하지 않는 추가 드라이브입니다.
 
+가상 컴퓨터의 역방향 보호를 시작하기 전에 보호되지 않도록 드라이브가 오프라인으로 가져와지도록 해야 합니다.
 1.  컴퓨터 관리를 열고 저장소 관리를 선택하여 온라인 디스크와 컴퓨터에 연결된 디스크를 나열시킵니다.
 2.  컴퓨터에 연결된 임시 디스크를 선택하고 오프라인으로 전환을 선택합니다. 
 

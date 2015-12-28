@@ -54,7 +54,7 @@ Azure 포털 또는 Azure Preview 포털을 사용하는 Runbook 갤러리에서
 
 Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 Runbook 갤러리에 추가하도록 장려하고 있습니다. 다음 세부 정보를 고려하여 [스크립트 센터에 업로드](http://gallery.technet.microsoft.com/site/upload)를 선택하면 Runbook을 추가할 수 있습니다.
 
-- **범주**에 *Windows Azure*를, 지정 **하위 범주**에 *자동화*를 지정해야 Runbook이 마법사에 표시됩니다.  
+- **범주**에 *Microsoft Azure*를, 지정 **하위 범주**에 *자동화*를 지정해야 Runbook이 마법사에 표시됩니다.  
 
 - 단일.ps1 또는 .graphrunbook 파일을 업로드해야 합니다. Runbook에 필요한 모듈, 자식 Runbook 또는 자산이 있는 경우 Runbook의 제출 설명과 내용 섹션에 해당 항목을 나열해야 합니다. 여러 Runbook이 필요한 솔루션인 경우 각 Runbook을 개별적으로 업로드하고 설명마다 관련 Runbook의 이름을 나열합니다. 동일한 범주에 표시되도록 동일한 태그를 사용합니다. 솔루션이 작동하기 위해 다른 Runbook이 필요하다는 설명을 사용자가 읽고 알 수 있어야 합니다.
 
@@ -108,4 +108,4 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 - [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 - [PowerShell 워크플로 학습](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

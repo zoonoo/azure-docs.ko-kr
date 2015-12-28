@@ -56,7 +56,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE][Azure 클래식 포털][]에 로그인하여 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
+> [AZURE.NOTE] [Azure 클래식 포털][]에 로그인하여 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
 
 ## Ruby 응용 프로그램 만들기
 
@@ -217,4 +217,4 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
  
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
