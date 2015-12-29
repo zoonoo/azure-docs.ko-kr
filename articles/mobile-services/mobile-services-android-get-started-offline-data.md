@@ -199,7 +199,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [클라우드 커버: Azure 모바일 서비스의 오프라인 동기화]
 
-* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱](참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용)
+* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱] \(참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용)
 
 
 <!-- URLs. -->
