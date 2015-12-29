@@ -51,5 +51,8 @@ Azure 가상 컴퓨터에 대해 잘 모르는 경우 [질문과 대답](virtual
 [App Service]: app-service-choose-me.md
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
+[앱 서비스]: app-service-choose-me.md
+[가상 컴퓨터]: #tellmevm
+[클라우드 서비스]: cloud-services-choose-me.md
 
 <!---HONumber=AcomDC_1203_2015-->

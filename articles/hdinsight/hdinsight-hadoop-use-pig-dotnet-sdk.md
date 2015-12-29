@@ -160,6 +160,7 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-* [HDInsight에서 Hadoop로 MapReduce 사용](hdinsight-use-mapreduce.md)[preview-portal]: https://portal.azure.com/
+* [HDInsight에서 Hadoop로 MapReduce 사용](hdinsight-use-mapreduce.md)
+[미리 보기 포털]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_1210_2015-->
