@@ -30,6 +30,9 @@
 
     이제 프로젝트에서 코드 서명에 새 프로필을 사용하게 됩니다. 공식 Xamarin 장치 프로비저닝 설명서를 보려면 [Xamarin 장치 프로비저닝]을 참조하세요.
 
+4. 두 번 클릭하여 Info.plist를 연 다음 배경 모드에서 **RemoteNotifications**를 사용하도록 설정합니다.
+
+
 [120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
 [88]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
 [122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
