@@ -165,7 +165,7 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
     | ---            | ---             |
     | firstname | givenname |
     | lastname | surname |
-    | idpid | *<Azure 포털의 **Moxtra에 있는 Single Sign-On 구성** 대화 상자에서 **엔터티 ID** 값 >* |
+    | idpid | *\<Azure 포털의 **Moxtra에 있는 Single Sign-On 구성** 대화 상자에서 **엔터티 ID** 값 \>* |
 
  
     a. 사용자 특성 추가를 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_general_81.png) <br>
@@ -322,4 +322,4 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 [204]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
