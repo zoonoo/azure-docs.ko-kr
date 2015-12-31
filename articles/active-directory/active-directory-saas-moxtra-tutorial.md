@@ -72,6 +72,7 @@ Moxtra의 Azure AD 통합을 구성하려면 갤러리의 Moxtra를 관리되는
 <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
 7. 결과 창에서 **Moxtra**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 <br><br>
+![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Moxtra에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위한 것입니다.
@@ -107,7 +108,7 @@ Moxtra 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 <br><br>![Single Sign-On 구성](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png) <br>
 
-    a. **로그인 URL** 텍스트 상자에서 다음 URL을 입력합니다. ****https://www.moxtra.com/service/#login**
+    a. **로그인 URL** 텍스트 상자에서 다음 URL을 입력합니다. **https://www.moxtra.com/service/#login**
 
     b. **다음**을 클릭합니다.
  

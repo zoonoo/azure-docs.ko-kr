@@ -351,8 +351,8 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 409 (모두) | *StatusCode == 409 | 모두 |
 | 낮은 PercentSuccess 또는 분석 로그 항목에 ClientOtherErrors의 트랜잭션 상태인 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 |
 | Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
+| 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 |
+| 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
 
 
 ## 다음 단계
