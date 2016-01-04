@@ -39,6 +39,7 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 
 1.	Azure PowerShell을 설치합니다.
     - PowerShellGet을 설치합니다. 이 작업을 수행하려면 PowerShellGet이 포함된 [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729)을 설치해야 합니다.
+
     >[AZURE.NOTE]최신 업데이트가 설치된 Windows 10을 실행 중인 경우 이 단계를 건너뛸 수 있습니다.
 
 1.	AzureRM 모듈을 설치하고 업데이트합니다.
@@ -339,4 +340,4 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 서비스 패브릭 응용 프로그램과의 연속 통합에 대한 자세한 내용은 다음 문서에서 확인합니다. [빌드 설명서 홈](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

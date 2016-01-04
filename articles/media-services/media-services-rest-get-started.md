@@ -88,12 +88,12 @@ Azure 미디어 서비스에 액세스하려면 두 가지가 필요합니다. A
 	> ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
 3. 새 URL에 후속 API 호출을 게시합니다. 
 	
-	예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
+		예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
 		
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
+		https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
 
 ###액세스 토큰 가져오기
 
@@ -1209,4 +1209,4 @@ MPEG DASH를 스트리밍하려면 "/매니페스트" 뒤에 추가(format=mpd-t
 <!-- URLs. -->
   [Azure 클래식 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

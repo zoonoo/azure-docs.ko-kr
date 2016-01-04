@@ -43,6 +43,7 @@ VHD를 다운로드하려면 먼저 운영 체제 디스크에 대한 Blob URL�
 
 ### VHD 다운로드
 Blob URL을 알고 있는 경우 [Azure 포털](http://manage.windowsazure.com/) 또는 PowerShell을 사용하여 VHD를 다운로드할 수 있습니다.
+
 > [AZURE.NOTE]이 가이드를 작성한 시점에는 VHD를 다운로드하는 기능이 새 Microsoft Azure 포털에 아직 없습니다.
 
 **현재 [Azure 포털](http://manage.windowsazure.com/)을 통해 운영 체제 VHD 다운로드**
@@ -138,4 +139,4 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 - [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
 - [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
