@@ -207,7 +207,7 @@ Azure 저장소에 메시지를 안정적으로 기록하기 위해 기별 블�
 
         using Microsoft.ServiceBus.Messaging;
 
-    그런 다음 아래와 같이 **Main** 메서드를 IoT 허브 **iothubowner** 연결 문자열([IoT 허브 시작] 자습서에서), 저장소 연결 문자열 및 서비스 버스 연결 문자열을 **d2ctutorial**이라는 큐의 **Send** 권한으로 대체하는 **프로그램** 클래스로 수정합니다
+    그런 다음 아래와 같이 **Main** 메서드를 IoT 허브 **iothubowner** 연결 문자열([이벤트 허브 시작] 자습서에서), 저장소 연결 문자열 및 서비스 버스 연결 문자열을 **d2ctutorial**이라는 큐의 **Send** 권한으로 대체하는 **프로그램** 클래스로 수정합니다
 
         static void Main(string[] args)
         {
@@ -324,4 +324,4 @@ Azure 저장소에 메시지를 안정적으로 기록하기 위해 기별 블�
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

@@ -80,9 +80,10 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ### 모바일 *서비스* 서버 SDK
 
-| 서버 플랫폼 | 버전 | 수락된 버전 헤더 |
+| 서버 플랫폼 | 버전                                                                                                       | 수락된 버전 헤더 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ****버전 헤더 없음 ** | | Node.js | (출시 예정) | **버전 헤더 없음** |
+| .NET             | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **버전 헤더 없음 ** |
+| Node.js           | (출시 예정)                        | **버전 헤더 없음** |
 
 <!-- TODO: add Node npm version -->
 
@@ -141,4 +142,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 [모바일 서비스를 Azure 앱 서비스로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
