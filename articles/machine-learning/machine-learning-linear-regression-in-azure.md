@@ -21,7 +21,9 @@
 
 > *Kate Baroni*와 *Ben Boatman*은 Microsoft Data Insights Center of Excellence의 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 이 두 사람이 Azure 기계 학습을 사용하여 기존 선형 분석 모음을 클라우드 기반 솔루션으로 마이그레이션한 경험을 설명합니다.
 
+
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
 
 ## 목표
 
@@ -157,4 +159,4 @@ Azure 기계 학습에서 Excel로 예측 분석을 체계적으로 전송하는
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

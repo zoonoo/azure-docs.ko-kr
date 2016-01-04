@@ -133,7 +133,9 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | **actions** ||
 | ------- | ------ |
 | * | 모든 유형의 리소스 만들기 및 관리 |
-| ****할 수 없는 작업 | | | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 | | Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
+| ****할 수 없는 작업 | |
+| Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
+| Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
 
 ### 데이터 팩터리 참여자
 데이터 팩터리를 관리할 수 있음
