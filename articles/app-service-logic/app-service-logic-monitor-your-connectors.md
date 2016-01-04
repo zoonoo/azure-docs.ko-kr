@@ -112,14 +112,19 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 > 
 > ![][host]
 > 
-> 이 속성은 API 앱을 호스팅하는 웹사이트에 한정됩니다. 기본 제공 API 앱이나 커넥터를 사용할 때 대부분의 속성들이 실제로 적용되지 않기 때문에 이 속성들을 업데이트하는 것을 권장하지는 않습니다. 비주얼 스튜디오에서 API 앱을 생성하거나 Azure 구독을 배포할 때, 호스트와 게이트웨이 블레이드를 사용할 수 있습니다. [API 앱 관리](../app-service-api/app-service-api-manage-in-portal.md)는 사용자가 직접 만든 앱과 함께 이 블레이드에서 수행할 수 있는 더 많은 정보를 제공합니다.
+> 이 속성은 API 앱을 호스팅하는 웹사이트에 한정됩니다. 기본 제공 API 앱이나 커넥터를 사용할 때 대부분의 속성들이 실제로 적용되지 않기 때문에 이 속성들을 업데이트하는 것을 권장하지는 않습니다. 비주얼 스튜디오에서 API 앱을 생성하거나 Azure 구독을 배포할 때, 호스트와 게이트웨이 블레이드를 사용할 수 있습니다. [API 앱 관리](../app-service-api/app-service-api-manage-in-portal.md)는 사용자가 직접 만든 앱과 함께 이 블레이드에서 수행할 수 있는 더 많은 정보를 제공합니다. 
+
 
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드 및 약정은 필요하지 않습니다.
 
+
 ## 자세히 알아보기
 
-[논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/>[ 앱 서비스의 커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/>[Microsoft Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)<br/>[Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)
+[논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/>
+[ 앱 서비스의 커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/>
+[Microsoft Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)<br/>
+[Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
