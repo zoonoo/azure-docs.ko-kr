@@ -43,7 +43,7 @@
 | **SLA**                       | [SLA](https://azure.microsoft.com/support/legal/sla/)                                        | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                    | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                                                 | 
 | **가격 책정** 가격 책정                  | [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/expressroute/) | 
 | **기술 문서** | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) | 
-| **FAQ **                      | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)                                                     | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)                                                                | [xpress 경로 FAQ](../expressroute/expressroute-faqs.md)                                                                              |
+| **FAQ**                      | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)                                                     | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)                                                                | [xpress 경로 FAQ](../expressroute/expressroute-faqs.md)                                                                              |
 
 
 ## 사이트 간 연결

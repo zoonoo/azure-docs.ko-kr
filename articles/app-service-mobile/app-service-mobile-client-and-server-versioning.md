@@ -56,7 +56,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | [모바일 서비스 클라이언트] | 확인 | 오류* |
 | [모바일 앱 클라이언트] | 오류* | 확인 |
 
-***MS\_SkipVersionCheck**를 지정하여 제어될 수 있습니다.
+***MS_SkipVersionCheck**를 지정하여 제어될 수 있습니다.
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
@@ -82,7 +82,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 | 서버 플랫폼 | 버전                                                                                                       | 수락된 버전 헤더 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **버전 헤더 없음 ** |
+| .NET             | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **버전 헤더 없음** |
 | Node.js           | (출시 예정)                        | **버전 헤더 없음** |
 
 <!-- TODO: add Node npm version -->
