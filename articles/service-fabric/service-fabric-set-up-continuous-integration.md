@@ -340,4 +340,4 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 서비스 패브릭 응용 프로그램과의 연속 통합에 대한 자세한 내용은 다음 문서에서 확인합니다. [빌드 설명서 홈](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->
