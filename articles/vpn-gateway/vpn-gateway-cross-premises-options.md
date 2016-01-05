@@ -1,3 +1,4 @@
+
 <properties 
    pageTitle="가상 네트워크에 대한 보안 프레미스 간 연결 정보 | Microsoft Azure"
    description="사이트 간, 지점 및 사이트 간, Express 경로 연결을 포함하여 가상 네트워크에 대한 보안 프레미스 간 연결 형식에 대해 알아봅니다."
@@ -43,7 +44,7 @@
 | **SLA**                       | [SLA](https://azure.microsoft.com/support/legal/sla/)                                        | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                    | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                                                 | 
 | **가격 책정** 가격 책정                  | [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격 책정](http://azure.microsoft.com/pricing/details/expressroute/) | 
 | **기술 문서** | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) | 
-| **FAQ**                      | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)                                                     | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)                                                                | [xpress 경로 FAQ](../expressroute/expressroute-faqs.md)                                                                              |
+| **FAQ**                      | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)                                                     | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)                                                                | [Express 경로 FAQ](../expressroute/expressroute-faqs.md)                                                                              |
 
 
 ## 사이트 간 연결
@@ -99,4 +100,4 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 자세한 내용은 [Express 경로 FAQ](../expressroute/expressroute-faqs.md) 및 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!------HONumber=AcomDC_1217_2015-->

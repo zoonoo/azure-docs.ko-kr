@@ -82,7 +82,7 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ```
 
 ## 2단계: 외부 데이터 원본 만들기
-외부 데이터 원본은 Azure blob 저장소 데이터 및 액세스 정보의 위치를 저장하는 데이터베이스 개체입니다. [CREATE EXTERNAL DATA SOURCE(Transact-SQL)][]를 사용하여 액세스하려는 각 Azure 저장소 BLOB에 대한 외부 데이터 원본을 정의합니다.
+외부 데이터 원본은 Azure blob 저장소 데이터 및 액세스 정보의 위치를 저장하는 데이터베이스 개체입니다. [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][]를 사용하여 액세스하려는 각 Azure 저장소 BLOB에 대한 외부 데이터 원본을 정의합니다.
 
     ```
     -- Create an external data source for an Azure storage blob
@@ -366,4 +366,4 @@ $write.Dispose()
 [CREATE CREDENTIAL(Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL(Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

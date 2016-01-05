@@ -92,19 +92,21 @@ Azure 앱 서비스 웹 앱에서 다음 기능이 있는 기본 ASP.NET 응용 
 
 6.	이제 Web.config를 적절히 변경합니다. Web.config를 열고 아래에 강조 표시된 대로 응용 프로그램 설정을 수정합니다.
 	<pre class="prettyprint">
-&lt;appSettings>
-  &lt;add key="webpages:Version" value="3.0.0.0" />
-  &lt;add key="webpages:Enabled" value="false" />
-  &lt;add key="ClientValidationEnabled" value="true" />
-  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+	&lt;appSettings>
+	  &lt;add key="webpages:Version" value="3.0.0.0" />
+	  &lt;add key="webpages:Enabled" value="false" />
+	  &lt;add key="ClientValidationEnabled" value="true" />
+	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-&lt;/appSettings>
-</pre>각 환경을 기반으로 키 값을 입력합니다.
+	&lt;/appSettings>
+	</pre>
+
+	각 환경을 기반으로 키 값을 입력합니다.
 
 7.	응용 프로그램을 빌드하여 오류가 없는지 확인합니다.
 
@@ -355,4 +357,4 @@ Azure 앱 서비스 웹앱은 다음의 두 가지 방법으로 온-프레미스
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015--->

@@ -351,7 +351,7 @@
 	
 	}</pre>
 
-}</pre>스크립트에서 AadPicker 개체는 [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 호출하여 입력과 일치하는 사용자 및 그룹을 검색합니다.
+	스크립트에서 AadPicker 개체는 [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 호출하여 입력과 일치하는 사용자 및 그룹을 검색합니다.
 
 15. [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 열고**Enable-Migrations –EnableAutomaticMigrations**를 실행합니다. 앱을 Azure에 게시했을 때 선택한 옵션과 유사하게 이 명령을 사용하면 Visual Studio에서 디버깅하는 경우 [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)에서 앱의 데이터베이스 스키마를 업데이트할 수 있습니다.
 
@@ -390,4 +390,4 @@
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
