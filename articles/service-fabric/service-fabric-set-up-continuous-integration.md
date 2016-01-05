@@ -40,7 +40,7 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 1.	Azure PowerShell을 설치합니다.
     - PowerShellGet을 설치합니다. 이 작업을 수행하려면 PowerShellGet이 포함된 [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729)을 설치해야 합니다.
 
-    >[AZURE.NOTE] 최신 업데이트가 설치된 Windows 10을 실행 중인 경우 이 단계를 건너뛸 수 있습니다.
+    >[AZURE.NOTE]최신 업데이트가 설치된 Windows 10을 실행 중인 경우 이 단계를 건너뛸 수 있습니다.
 
 1.	AzureRM 모듈을 설치하고 업데이트합니다.
     1.  이전 버전의 Azure PowerShell이 설치되어 있다면 제거합니다. 시작 단추를 마우스 오른쪽 단추로 누르고 "프로그램 추가/제거"를 선택합니다. "Azure PowerShell"을 검색하여 제거합니다.
@@ -138,7 +138,7 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
     ```
 
 3.	NuGet.config가 아직 없는 경우 다음과 같은 내용으로 만듭니다. `<path to service fabric SDK>`를 빌드 컴퓨터의 서비스 패브릭 SDK 경로로 대체합니다.
->[AZURE.NOTE] `<path to service fabric SDK>`의 기본값은 `%ProgramFiles%\Microsoft SDKs\Service Fabric`입니다.
+>[AZURE.NOTE]`<path to service fabric SDK>`의 기본값은 `%ProgramFiles%\Microsoft SDKs\Service Fabric`입니다.
 
     NuGet.config:
 
@@ -193,8 +193,8 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 ### 빌드 에이전트 등록
 
 1.	agent.zip을 다운로드합니다. 다음을 수행합니다.
-    1.	팀 프로젝트에 로그인합니다(예: ****https://[your-VSTS-account-name].visualstudio.com**).
-1.	화면 오른쪽 위 모퉁이에서 '기어' 아이콘을 선택합니다.
+    1.	팀 프로젝트에 로그인합니다(예: **https://[your-VSTS-account-name].visualstudio.com**).
+	1.	화면 오른쪽 위 모퉁이에서 '기어' 아이콘을 선택합니다.
     1.	제어판에서 **에이전트 풀** 탭을 선택합니다.
     1.	**에이전트 다운로드**를 선택하고 agent.zip 파일을 다운로드합니다.
     1.	앞서 만든 빌드 컴퓨터에 agent.zip을 복사합니다.
@@ -340,4 +340,4 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 서비스 패브릭 응용 프로그램과의 연속 통합에 대한 자세한 내용은 다음 문서에서 확인합니다. [빌드 설명서 홈](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!------HONumber=AcomDC_1217_2015-->

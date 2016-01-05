@@ -35,7 +35,7 @@ ElasticSearch에 추적을 표시하려면 실시간으로 서비스 패브릭 �
 Azure에 ElasticSearch 서비스를 설정하는 가장 간단한 방법은 [**Azure ARM 템플릿**](../resource-group-overview.md)을 통하는 것입니다. 포괄적인 [ElasticSearch에 대한 빠른 시작 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch)은 Azure 빠른 시작 템플릿 리포지토리에서 사용할 수 있습니다. 이 템플릿은 확장 단위(노드 그룹)에 대해 별도 저장소 계정을 사용하고 연결된 다양한 수의 데이터 디스크와 함께 다양한 구성으로 별도 클라이언트 및 서버 노드를 프로비전할 수 있습니다.
 
 이 문서에서는 [Microsoft Patterns & Practices ELK 분기](https://github.com/mspnp/semantic-logging/tree/elk/)의 **ES MultiNode**라는 다른 템플릿을 사용합니다. 이 템플릿은 사용하기 쉬우며 기본적으로 HTTP 기본 인증으로 보호되는 ElasticSearch 클러스터를 만듭니다. 계속하기 전에 GitHub에서 [Microsoft P (& P) "elk" 리포지토리](https://github.com/mspnp/semantic-logging/tree/elk/)를 컴퓨터에 다운로드하세요(리포지토리를 복제하거나 ZIP 파일을 다운로드하여). ES-MultiNode 템플릿은 동일한 이름의 폴더에 있습니다.
->[AZURE.NOTE]ES-MultiNode 템플릿 및 관련된 스크립트는 현재 ElasticSearch 1.7 릴리스를 지원합니다. ElasticSearch 2.0에 대한 지원은 나중에 추가될 예정입니다.
+>[AZURE.NOTE] ES-MultiNode 템플릿 및 관련된 스크립트는 현재 ElasticSearch 1.7 릴리스를 지원합니다. ElasticSearch 2.0에 대한 지원은 나중에 추가될 예정입니다.
 
 ### ElasticSearch 설치 스크립트를 실행하도록 컴퓨터 준비
 ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSearchCluster`(이)라는 제공된 PowerShell 스크립트를 통하는 것입니다. 이 스크립트를 사용하려면 Azure PowerShell 모듈 및 openssl이라는 도구를 설치해야 합니다. 후자는 ElasticSearch 클러스터를 원격으로 관리하는 데 사용될 수 있는 SSH 키를 만들기 위해 필요합니다.
@@ -246,4 +246,4 @@ ElasticSearch 연결 데이터는 서비스 구성 파일(PackageRoot\\Config\\S
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
