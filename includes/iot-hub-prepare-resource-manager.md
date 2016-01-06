@@ -26,9 +26,9 @@ Install-Module Azure
 3. 다음 명령을 사용하여 새 Azure Active Directory 응용 프로그램을 만듭니다. 자리 표시자는 바꿉니다.
 
     - **{표시 이름}:** **MySampleApp**과 같은 응용 프로그램의 표시 이름입니다.
-    - **{홈페이지 URL}:** ****http://mysampleapp/home**과 같은 앱의 홈페이지의 URL입니다. 이 URL이 실제 응용 프로그램을 가리킬 필요는 없습니다.
-- **{응용 프로그램 식별자}:** ****http://mysampleapp**과 같은 고유 식별자입니다. 이 URL이 실제 응용 프로그램을 가리킬 필요는 없습니다.
-- **{암호}:** 앱에서 인증하기 위해 사용할 암호입니다.
+    - **{홈페이지 URL}:** **http://mysampleapp/home**과 같은 앱의 홈페이지의 URL입니다. 이 URL이 실제 응용 프로그램을 가리킬 필요는 없습니다.
+    - **{응용 프로그램 식별자}:** **http://mysampleapp**과 같은 고유 식별자입니다. 이 URL이 실제 응용 프로그램을 가리킬 필요는 없습니다.
+    - **{암호}:** 앱에서 인증하기 위해 사용할 암호입니다.
 
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
@@ -58,4 +58,4 @@ Install-Module Azure
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
