@@ -295,7 +295,23 @@ OData XML
   		</EventData>
 		</Event>
 
-- 'Purchase' 이벤트의 예: <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+- 'Purchase' 이벤트의 예:
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+			<Name>Purchase</Name> 
+			<PurchaseItems>
+			<PurchaseItems>
+				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+				<Count>3</Count>
+			</PurchaseItems>
+		</PurchaseItems>
+		</EventData>
+		</EventData>
+		</Event>
 
 - 두 개의 이벤트 'Click' 및 'AddShopCart'를 보내는 예:
 
@@ -317,7 +333,8 @@ OData XML
   		</EventData>
 		</Event>
 
-**응답**: HTTP 상태 코드: 200
+**응답**:
+HTTP 상태 코드: 200
 
 ###권장 사항 모델 작성
 
@@ -428,9 +445,19 @@ HTTP 상태 코드: 200
 - `feed/entry/content/properties/ExecutionTime` – 빌드 기간
 - `feed/entry/content/properties/ProgressStep` – 진행 중인 빌드의 현재 단계에 대한 세부 정보
 
-유효한 빌드 상태: - Created – 빌드 요청 항목이 만들어짐 - Queued – 빌드 요청이 트리거되고 쿼리됨 - Building – 빌드 진행 중 - Success – 빌드가 성공적으로 종료됨 - Error – 오류로 인해 빌드가 종료됨 - Cancelled – 빌드가 취소됨 - Cancelling – 빌드 취소 중
+유효한 빌드 상태:
+- Created – 빌드 요청 항목이 만들어짐
+- Queued – 빌드 요청이 트리거되고 쿼리됨
+- Building – 빌드 진행 중
+- Success – 빌드가 성공적으로 종료됨
+- Error – 오류로 인해 빌드가 종료됨
+- Cancelled – 빌드가 취소됨
+- Cancelling – 빌드 취소 중
 
-유효한 빌드 형식 값: Rank - 순위 빌드 (순위 빌드에 대한 자세한 내용은 "기계 학습 권장 사항 API 문서" 설명서를 참조하세요.) - Recommendation - 권장 사항 빌드 - Fbt - 자주 함께 구입됨 빌드
+유효한 빌드 형식 값:
+- Rank - 순위 빌드 (순위 빌드에 대한 자세한 내용은 "기계 학습 권장 사항 API 문서" 설명서를 참조하세요.)
+- Recommendation - 권장 사항 빌드
+- Fbt - 자주 함께 구입됨 빌드
 
 OData XML
 
@@ -649,7 +676,8 @@ OData XML
 	</feed>
 
 ###모델 업데이트
-모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다. *활성 빌드 ID* – 모든 모델에 대한 모든 빌드에는 빌드 ID가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.
+모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.
+*활성 빌드 ID* – 모든 모델에 대한 모든 빌드에는 빌드 ID가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.
 
 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
@@ -681,7 +709,9 @@ OData XML
 	</feed>
 
 ##법적 정보
-이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다. 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
+이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다.
+여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.
+ 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

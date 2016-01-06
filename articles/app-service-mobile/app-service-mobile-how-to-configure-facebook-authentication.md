@@ -54,7 +54,7 @@
 11. **Advanced** 탭을 클릭하고 응용 프로그램의 **Redirect URI**를 **Valid OAuth redirect URIs**에 추가한 다음 **Save Changes**를 클릭합니다. 리디렉션 URI는 경로 _/.auth/login/facebook/callback_이 추가된 응용 프로그램의 URL입니다. 예: `https://contoso.azurewebsites.net/.auth/login/facebook/callback` HTTPS 체계를 사용 중인지 확인합니다.
 
 
-	> [AZURE.NOTE]앱 서비스 인증/권한 부여 기능 대신 앱 서비스 게이트웨이를 사용 중인 경우 리디렉션 URL은 _/signin-facebook_ 경로가 있는 게이트웨이 URL을 대신 사용합니다.
+> [AZURE.NOTE]앱 서비스 인증/권한 부여 기능 대신 앱 서비스 게이트웨이를 사용 중인 경우 리디렉션 URL은 _/signin-facebook_ 경로가 있는 게이트웨이 URL을 대신 사용합니다.
 
 
 12. 응용 프로그램을 등록하는 데 사용된 Facebook 계정이 앱의 관리자입니다. 지금은 관리자만 이 응용 프로그램에 로그인할 수 있습니다. 다른 Facebook 계정을 인증하려면 왼쪽 탐색 모음에서 **Status & Review**를 클릭합니다. 그런 다음 **Yes**를 클릭하여 일반 공용 액세스를 사용하도록 설정합니다.
@@ -93,4 +93,4 @@
 [Get started with authentication]: /ko-KR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
