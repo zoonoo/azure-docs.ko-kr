@@ -295,9 +295,9 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 	a. 캠페인 이름을 지정합니다.
 
-	b. **Delivery 형식**을 *시스템 알림 -> 심플*로 선택: 이 알림은 제목 및 몇 줄의 텍스트를 특징으로 하는 간단한 Android 푸시 알림 유형입니다.
+	b. **Delivery 형식**을 *시스템 알림 -> 심플* 로 선택: 이 알림은 제목 및 몇 줄의 텍스트를 특징으로 하는 간단한 Android 푸시 알림 유형입니다.
 
-	c. 앱 시작 여부와 관계없이 앱에서 알림을 받을 수 있도록 **배달 시간**을 *항상*으로 선택합니다.
+	c. 앱 시작 여부와 관계없이 앱에서 알림을 받을 수 있도록 **배달 시간**을 *항상* 으로 선택합니다.
 
 	d. 알림 텍스트에서 푸시에 굵게 표시할 **제목**을 입력합니다.
 
@@ -339,4 +339,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
