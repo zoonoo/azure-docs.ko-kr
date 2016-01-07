@@ -24,9 +24,11 @@ ETW는 서비스 패브릭 런타임에서 진단 정보(추적)를 얻기 위�
 
 ElasticSearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) ElasticSearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
 
-+ **In-process 추적 캡처** 응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(ElasticSearch).
++ **In-process 추적 캡처**  
+응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(ElasticSearch).
 
-+ **Out-of-process 추적 캡처** 별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
++ **Out-of-process 추적 캡처**  
+별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
 
 문서의 나머지 부분에서 Azure에 ElasticSearch를 설정하는 방법을 설명하고 캡처 옵션의 장단점에 대해 알아보고 ElasticSearch에 데이터를 전송하도록 패브릭 서비스를 구성하는 방법을 설명합니다.
 
@@ -34,16 +36,18 @@ ElasticSearch에 추적을 표시하려면 실시간으로 서비스 패브릭 �
 ## Azure에 Elasticsearch 설정
 Azure에 ElasticSearch 서비스를 설정하는 가장 간단한 방법은 [**Azure ARM 템플릿**](../resource-group-overview.md)을 통하는 것입니다. 포괄적인 [ElasticSearch에 대한 빠른 시작 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch)은 Azure 빠른 시작 템플릿 리포지토리에서 사용할 수 있습니다. 이 템플릿은 확장 단위(노드 그룹)에 대해 별도 저장소 계정을 사용하고 연결된 다양한 수의 데이터 디스크와 함께 다양한 구성으로 별도 클라이언트 및 서버 노드를 프로비전할 수 있습니다.
 
-이 문서에서는 [Microsoft Patterns & Practices ELK 분기](https://github.com/mspnp/semantic-logging/tree/elk/)의 **ES MultiNode**라는 다른 템플릿을 사용합니다. 이 템플릿은 사용하기 쉬우며 기본적으로 HTTP 기본 인증으로 보호되는 ElasticSearch 클러스터를 만듭니다. 계속하기 전에 GitHub에서 [Microsoft P (& P) "elk" 리포지토리](https://github.com/mspnp/semantic-logging/tree/elk/)를 컴퓨터에 다운로드하세요(리포지토리를 복제하거나 ZIP 파일을 다운로드하여). ES-MultiNode 템플릿은 동일한 이름의 폴더에 있습니다.
->[AZURE.NOTE] ES-MultiNode 템플릿 및 관련된 스크립트는 현재 ElasticSearch 1.7 릴리스를 지원합니다. ElasticSearch 2.0에 대한 지원은 나중에 추가될 예정입니다.
+이 문서에서는 [Microsoft Patterns & Practices ELK 분기](https://github.com/mspnp/semantic-logging/tree/elk/)의 **ES MultiNode**라는 다른 템플릿을 사용합니다. 이 템플릿은 사용하기 쉬우며 기본적으로 HTTP 기본 인증으로 보호되는 ElasticSearch 클러스터를 만듭니다. 계속하기 전에 GitHub에서 [Microsoft P (& P) "elk" 리포지토리](https://github.com/mspnp/semantic-logging/tree/elk/)를 컴퓨터에 다운로드하세요(리포지토리를 복제하거나 ZIP 파일을 다운로드하여). ES-MultiNode 템플릿은 동일한 이름의 폴더에 있습니다.  
+
+>[AZURE.NOTE] ES-MultiNode 템플릿 및 관련된 스크립트는 현재 ElasticSearch 1.7 릴리스를 지원합니다. ElasticSearch 2.0에 대한 지원은 나중에 추가될 예정입니다.  
 
 ### ElasticSearch 설치 스크립트를 실행하도록 컴퓨터 준비
 ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSearchCluster`(이)라는 제공된 PowerShell 스크립트를 통하는 것입니다. 이 스크립트를 사용하려면 Azure PowerShell 모듈 및 openssl이라는 도구를 설치해야 합니다. 후자는 ElasticSearch 클러스터를 원격으로 관리하는 데 사용될 수 있는 SSH 키를 만들기 위해 필요합니다.
 
 참고: `CreateElasticSearchCluster` 스크립트는 Windows 컴퓨터에서 ES-MultiNode 템플릿을 보다 쉽게 사용할 수 있도록 설계되었습니다. 비Windows 컴퓨터에서 템플릿을 사용할 수도 있지만 해당 시나리오가 이 문서의 범위를 벗어납니다.
 
-1. 아직 설치하지 않은 경우 [**Azure PowerSell 모듈**](http://go.microsoft.com/fwlink/p/?linkid=320376)을 설치합니다. 메시지가 표시되면 실행을 클릭한 다음 설치합니다.
->[AZURE.NOTE]Azure PowerShell은 Azure PowerShell 1.0 릴리스로 큰 변경 사항이 진행되고 있습니다. CreateElasticSearchCluster는 현재 Azure PowerShell 0.9.8로 작동하도록 설계되었으며 Azure PowerShell 1.0 미리 보기를 지원하지 않습니다. Azure PowerShell 1.0 호환 스크립트는 나중에 제공될 예정입니다.
+1. 아직 설치하지 않은 경우 [**Azure PowerSell 모듈**](http://go.microsoft.com/fwlink/p/?linkid=320376)을 설치합니다. 메시지가 표시되면 실행을 클릭한 다음 설치합니다.  
+
+>[AZURE.NOTE] Azure PowerShell은 Azure PowerShell 1.0 릴리스로 큰 변경 사항이 진행되고 있습니다. CreateElasticSearchCluster는 현재 Azure PowerShell 0.9.8로 작동하도록 설계되었으며 Azure PowerShell 1.0 미리 보기를 지원하지 않습니다. Azure PowerShell 1.0 호환 스크립트는 나중에 제공될 예정입니다.  
 
 2. **openssl** 도구는 [**Windows용 Git**](http://www.git-scm.com/downloads)의 배포에 포함되어 있습니다. 아직 수행하지 않은 경우 지금 [Windows용 Git](http://www.git-scm.com/downloads)를 설치하세요. (기본 설치 옵션은 OK입니다.)
 
@@ -78,7 +82,7 @@ ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSea
 CreateElasticSearchCluster -ResourceGroupName <es-group-name>
 ``` 여기서 `<es-group-name>`은(는) 모든 클러스터 리소스를 포함할 Azure 리소스 그룹의 이름입니다.
 
->[AZURE.NOTE]Test-AzureResourceGroup cmdlet에서 NullReferenceException을 받는 경우 Azure에 로그온하는 것을 잊은 것입니다(`Add-AzureAccount`).
+>[AZURE.NOTE] Test-AzureResourceGroup cmdlet에서 NullReferenceException을 받는 경우 Azure에 로그온하는 것을 잊은 것입니다(`Add-AzureAccount`).
 
 스크립트 실행에서 오류가 발생하고 잘못된 템플릿 매개 변수 값으로 오류가 발생한 것을 결정하는 경우 매개 변수 파일을 수정하고 다른 리소스 그룹 이름으로 스크립트를 다시 실행합니다. 동일한 리소스 그룹 이름을 다시 사용하고 `-RemoveExistingResourceGroup` 매개변수를 스크립트 호출에 추가하여 스크립트에서 이전 것을 정리할 수 있습니다.
 
@@ -246,4 +250,4 @@ ElasticSearch 연결 데이터는 서비스 구성 파일(PackageRoot\\Config\\S
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015-->
