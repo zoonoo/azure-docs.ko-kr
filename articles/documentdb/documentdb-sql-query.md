@@ -2133,8 +2133,8 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 7.	Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
+10.	병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, 병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. The Cascades framework for query optimization. IEEE 데이터 Eng. Bull., 18(3): 1995.
 
@@ -2144,4 +2144,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

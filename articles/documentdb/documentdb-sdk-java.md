@@ -26,7 +26,13 @@
 
 ##DocumentDB Java SDK
 
-<table> <tr><td>**다운로드**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**설명서**</td><td>[Java SDK 참조 설명서](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**시작**</td><td>[Java SDK 시작](documentdb-java-application.md)</td></tr> <tr><td>**현재 지원되는 런타임**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
+<table>
+<tr><td>**다운로드**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**설명서**</td><td>[Java SDK 참조 설명서](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**시작**</td><td>[Java SDK 시작](documentdb-java-application.md)</td></tr>
+<tr><td>**현재 지원되는 런타임**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+</table></br>
 
 ## 릴리스 정보
 
@@ -85,4 +91,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

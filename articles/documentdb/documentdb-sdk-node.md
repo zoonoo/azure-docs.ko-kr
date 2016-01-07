@@ -26,7 +26,14 @@
 
 ##DocumentDB Node.js SDK
 
-<table> <tr><td>**다운로드**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr> <tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr> <tr><td>**설명서**</td><td>[Node.js SDK 참조 설명서](http://azure.github.io/azure-documentdb-node/)</td></tr> <tr><td>**샘플**</td><td>[Node.js 코드 샘플](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr> <tr><td>**시작**</td><td>[Node.js SDK 시작](documentdb-nodejs-get-started.md)</td></tr> <tr><td>**현재 지원되는 플랫폼**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr> </table></br>
+<table>
+<tr><td>**다운로드**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**설명서**</td><td>[Node.js SDK 참조 설명서](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**샘플**</td><td>[Node.js 코드 샘플](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**시작**</td><td>[Node.js SDK 시작](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**현재 지원되는 플랫폼**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+</table></br>
 
 ## 릴리스 정보
 
@@ -114,4 +121,4 @@ Microsoft는 최신/지원 버전으로 매끄럽게 전환할 수 있도록 SDK
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

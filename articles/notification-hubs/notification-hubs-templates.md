@@ -98,7 +98,11 @@ Windows 스토어 클라이언트 앱에 대 한 해당 템플릿은 다음과 �
 알림 허브로 전송되는 메시지에는 다음과 같은 속성이 모두 포함되어 있습니다.
 
 
-<table border="1"> <tr><td>day1\_image</td><td>day2\_image</td><td>day3\_image</td><td>day4\_image</td><td>day5\_image</td></tr> <tr><td>day1\_tempC</td><td>day2\_tempC</td><td>day3\_tempC</td><td>day4\_tempC</td><td>day5\_tempC</td></tr> <tr><td>day1\_tempF</td><td>day2\_tempF</td><td>day3\_tempF</td><td>day4\_tempF</td><td>day5\_tempF</td></tr> </table><br/>
+<table border="1">
+<tr><td>day1\_image</td><td>day2\_image</td><td>day3\_image</td><td>day4\_image</td><td>day5\_image</td></tr>
+<tr><td>day1\_tempC</td><td>day2\_tempC</td><td>day3\_tempC</td><td>day4\_tempC</td><td>day5\_tempC</td></tr>
+<tr><td>day1\_tempF</td><td>day2\_tempF</td><td>day3\_tempF</td><td>day4\_tempF</td><td>day5\_tempF</td></tr>
+</table><br/>
 
 
 이 패턴을 사용하면 백 엔드는 앱 사용자에 대한 특정 개인 설정 옵션을 저장할 필요 없이 단일 메시지만 보냅니다. 다음 그림은 이 시나리오를 보여 줍니다.
@@ -153,4 +157,4 @@ Windows 스토어 클라이언트 앱에 대 한 해당 템플릿은 다음과 �
 	  </visual>
 	</tile>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

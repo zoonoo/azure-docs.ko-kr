@@ -34,7 +34,8 @@ SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 Sha
 
 	이름 | 필수 | 설명
 --- | --- | ---
-사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 **https://microsoft.sharepoint.com/teams/wabstest*를 입력합니다. 문서 라이브러리/상대 URL 나열 | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
+사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 **https://microsoft.sharepoint.com/teams/wabstest*를 입력합니다.
+문서 라이브러리/상대 URL 나열 | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
 
 5. 완료되면 패키지 설정은 다음과 유사하게 됩니다. ![][1]
 
@@ -51,7 +52,8 @@ SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 Sha
 
 	이름 | 필수 | 설명
 --- | --- | ---
-사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest*을 입력합니다. 인증 모드 | 예 | SharePoint 사이트에 연결하기 위한 인증 모드를 지정합니다. 옵션은 다음과 같습니다. <ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>기본값을 선택하면 SharePoint 커넥터를 실행 중인 자격 증명을 사용합니다. 사용자 이름/암호는 필요하지 않습니다. 사용자 이름 및 암호는 다른 인증 형식에 필요합니다.<br/><br/>**참고** 익명 인증은 지원되지 않습니다.
+사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest*을 입력합니다.
+인증 모드 | 예 | SharePoint 사이트에 연결하기 위한 인증 모드를 지정합니다. 옵션은 다음과 같습니다. <ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>기본값을 선택하면 SharePoint 커넥터를 실행 중인 자격 증명을 사용합니다. 사용자 이름/암호는 필요하지 않습니다. 사용자 이름 및 암호는 다른 인증 형식에 필요합니다.<br/><br/>**참고** 익명 인증은 지원되지 않습니다.
 사용자 이름 | 아니요 | 인증 모드가 기본값이 아닌 경우 SharePoint 사이트에 연결하려면 유효한 사용자 이름을 입력합니다.
 암호 | 아니요 | 인증 모드가 기본값이 아닌 경우 SharePoint 사이트에 연결하려면 유효한 암호를 입력합니다.
 문서 라이브러리/목록 상대 URL | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
@@ -472,4 +474,4 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

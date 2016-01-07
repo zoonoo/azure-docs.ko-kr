@@ -23,19 +23,25 @@
 
 1. [Azure 포털](https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
  
-2. 작업 표시줄에서 **찾아보기**를 선택합니다. ![][12]
+2. 작업 표시줄에서 **찾아보기**를 선택합니다.  
+![][12]
 
-3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다. ![][13]
+3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다.  
+![][13]
 
-4. **PowerApps**에서 **API 관리**를 선택합니다. ![등록된 API 찾아보기][4]
+4. **PowerApps**에서 **API 관리**를 선택합니다.  
+![등록된 API 찾아보기][4]
 
-5. **API 관리**에서 **추가**를 선택하여 새 API를 추가합니다. ![API 추가][5]
+5. **API 관리**에서 **추가**를 선택하여 새 API를 추가합니다.  
+![API 추가][5]
 
 6. API에 대한 설명이 포함된 **이름**을 입력합니다.
 	
-7. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 표시한 다음 **Dropbox**를 선택합니다. ![Dropbox API 선택][6]
+7. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 표시한 다음 **Dropbox**를 선택합니다.  
+![Dropbox API 선택][6]
 
-8. **설정 - 필수 설정 구성**을 선택합니다. ![Dropbox API 설정 구성][7]
+8. **설정 - 필수 설정 구성**을 선택합니다.  
+![Dropbox API 설정 구성][7]
 
 9. Dropbox 응용 프로그램의 **앱 키**와 **앱 암호**를 입력합니다. 앱 키와 암호 값이 없는 경우 이 항목의 "PowerApps에서 사용할 Dropbox 앱 등록" 섹션을 참조하여 필요한 키와 암호 값을 만듭니다.
 
@@ -53,9 +59,11 @@
 
 1. [Dropbox][1]로 이동하고 계정으로 로그인합니다.
 
-2. Dropbox 개발자 사이트로 이동하여 **My Apps**를 선택합니다. ![Dropbox 개발자 사이트][8]
+2. Dropbox 개발자 사이트로 이동하여 **My Apps**를 선택합니다.  
+![Dropbox 개발자 사이트][8]
 
-3. **Create app**을 선택합니다. ![Dropbox 앱 만들기][9]
+3. **Create app**을 선택합니다.  
+![Dropbox 앱 만들기][9]
 
 4. **Create a new app on the Dropbox platform**에서:
 
@@ -94,4 +102,4 @@
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
