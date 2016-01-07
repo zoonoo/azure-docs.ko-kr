@@ -466,7 +466,22 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 |형식|명령|설명|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|iSCSI 서비스 시작|
-||`service iscsid stop`|iSCSI 서비스 중지| ||`service iscsid restart`|iSCSI 서비스 다시 시작| ||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|지정된 주소에 사용 가능한 대상 검색| ||`iscsiadm -m node --login -T <TARGET_IQN>`|iSCSI 대상에 로그인| ||`iscsiadm -m node --logout -p <Target_IP>`|iSCSI 대상에서 로그아웃| ||`cat /etc/iscsi/initiatorname.iscsi`|iSCSI 초기자 이름 인쇄| ||`iscsiadm –m session –s <sessionid> -P 3`|호스트에서 검색된 iSCSI 세션 및 볼륨 상태 확인| ||`iscsi –m session`|호스트와 StorSimple 장치 간에 설정된 iSCSI 세션 표시| | | | | |**다중 경로**|`service multipathd start`|다중 경로 데몬 시작| ||`service multipathd stop`|다중 경로 데몬 중지| ||`service multipathd restart`|다중 경로 데몬 다시 시작| ||`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y`|다중 경로 데몬이 부팅 시 시작되도록 설정| ||`multipathd –k`|문제 해결을 위한 대화형 콘솔 시작| ||`multipath –l`|다중 경로 연결 및 장치 나열| ||`mpathconf --enable`|`/etc/mulitpath.conf`에 샘플 mulitpath.conf 파일 만들기| ||||
+||`service iscsid stop`|iSCSI 서비스 중지|
+||`service iscsid restart`|iSCSI 서비스 다시 시작|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|지정된 주소에 사용 가능한 대상 검색|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|iSCSI 대상에 로그인|
+||`iscsiadm -m node --logout -p <Target_IP>`|iSCSI 대상에서 로그아웃|
+||`cat /etc/iscsi/initiatorname.iscsi`|iSCSI 초기자 이름 인쇄|
+||`iscsiadm –m session –s <sessionid> -P 3`|호스트에서 검색된 iSCSI 세션 및 볼륨 상태 확인|
+||`iscsi –m session`|호스트와 StorSimple 장치 간에 설정된 iSCSI 세션 표시|
+| | | |
+|**다중 경로**|`service multipathd start`|다중 경로 데몬 시작|
+||`service multipathd stop`|다중 경로 데몬 중지|
+||`service multipathd restart`|다중 경로 데몬 다시 시작|
+||`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y`|다중 경로 데몬이 부팅 시 시작되도록 설정|
+||`multipathd –k`|문제 해결을 위한 대화형 콘솔 시작| ||`multipath –l`|다중 경로 연결 및 장치 나열|
+||`mpathconf --enable`|`/etc/mulitpath.conf`에 샘플 mulitpath.conf 파일 만들기|
+||||
 
 ## 다음 단계
 
@@ -475,4 +490,4 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 - [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 교육 가이드](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

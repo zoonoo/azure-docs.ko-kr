@@ -204,7 +204,8 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |비교 기준|Azure 큐|서비스 버스 큐|
 |---|---|---|
 |관리 프로토콜|**HTTP/HTTPS를 통한 REST**|**HTTPS를 통한 REST**|
-|런타임 프로토콜|**HTTP/HTTPS를 통한 REST**|**HTTPS를 통한 REST**<br/><br/>**AMQP 1.0 Standard(TCP 및 TLS)**| |.NET 관리 API|**예**<br/><br/>(.NET 관리 저장소 클라이언트 API)|**예**<br/><br/>(.NET 관리 조정된 메시징 API)|
+|런타임 프로토콜|**HTTP/HTTPS를 통한 REST**|**HTTPS를 통한 REST**<br/><br/>**AMQP 1.0 Standard(TCP 및 TLS)**|
+|.NET 관리 API|**예**<br/><br/>(.NET 관리 저장소 클라이언트 API)|**예**<br/><br/>(.NET 관리 조정된 메시징 API)|
 |네이티브 C++|**예**|**아니요**|
 |Java API|**예**|**예**|
 |PHP API|**예**|**예**|
@@ -314,4 +315,4 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 [Azure 클래식 포털]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

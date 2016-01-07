@@ -21,7 +21,10 @@
 
 Windows Server, IIS 및 ASP.NET에서 사용할 수 있는 성능 카운터를 수집하여 Azure 웹 역할, 작업자 역할 및 가상 컴퓨터의 상태를 확인하는 데 사용할 수도 있습니다. 사용자 지정 성능 카운터를 만들고 사용할 수도 있습니다.
 
-성능 카운터 데이터 1을 검사할 수 있습니다. 원격 데스크톱 2를 사용하여 액세스된 성능 모니터 도구와 응용 프로그램 호스트에서 직접. Azure 관리 팩 3을 사용하여 System Center Operations Manager를 통해. Azure 저장소로 전송되는 진단 데이터에 액세스하는 다른 모니터링 도구를 통해. 자세한 내용은 [Azure 저장소에서 진단 데이터 저장 및 보기](https://msdn.microsoft.com/library/azure/hh411534.aspx)를 참조하세요.
+성능 카운터 데이터 
+1을 검사할 수 있습니다. 원격 데스크톱 
+2를 사용하여 액세스된 성능 모니터 도구와 응용 프로그램 호스트에서 직접. Azure 관리 팩 
+3을 사용하여 System Center Operations Manager를 통해. Azure 저장소로 전송되는 진단 데이터에 액세스하는 다른 모니터링 도구를 통해. 자세한 내용은 [Azure 저장소에서 진단 데이터 저장 및 보기](https://msdn.microsoft.com/library/azure/hh411534.aspx)를 참조하세요.
 
 [Azure 클래식 포털](http://manage.azure.com/)에서의 응용 프로그램 성능 모니터링에 대한 내용은 [클라우드 서비스를 모니터링하는 방법](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)을 참조하세요.
 
@@ -53,7 +56,16 @@ Azure는 Windows Server, IIS 및 ASP.NET 스택에 사용할 수 있는 성능 �
 |ASP.NET v4.0.30319 |거부된 요청 |ASP.NET용 성능 카운터|
 |메모리 |Available MBytes |메모리 성능 카운터|
 |메모리 |커밋된 바이트 |메모리 성능 카운터|
-|Processor(\_Total) |% Processor Time |Performance Counters for ASP.NET| |TCPv4 |Connection Failures |TCP Object| |TCPv4 |Connections Established |TCP Object| |TCPv4 |Connections Reset |TCP Object| |TCPv4 |Segments Sent/sec |TCP Object| |Network Interface(*) |Bytes Received/sec |Network Interface Object| |Network Interface(*) |Bytes Sent/sec |Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Received/sec|Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Sent/sec|Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Network Interface Object|
+|Processor(\_Total) |% Processor Time |Performance Counters for ASP.NET|
+|TCPv4 |Connection Failures |TCP Object|
+|TCPv4 |Connections Established |TCP Object|
+|TCPv4 |Connections Reset |TCP Object|
+|TCPv4 |Segments Sent/sec |TCP Object|
+|Network Interface(*) |Bytes Received/sec |Network Interface Object|
+|Network Interface(*) |Bytes Sent/sec |Network Interface Object|
+|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Received/sec|Network Interface Object|
+|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Sent/sec|Network Interface Object|
+|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Network Interface Object|
 
 ## 응용 프로그램에 사용자 지정 성능 카운터 만들기 및 추가
 
@@ -313,4 +325,4 @@ Azure 진단 모니터가 사용자 지정 성능 카운터 데이터를 수집�
 
 [클라우드 서비스를 모니터링하는 방법](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
