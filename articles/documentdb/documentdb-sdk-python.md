@@ -26,7 +26,13 @@
 
 ##DocumentDB Python SDK
 
-<table> <tr><td>**다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr> <tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr> <tr><td>**설명서**</td><td>[Python SDK 참조 설명서](http://azure.github.io/azure-documentdb-python/)</td></tr> <tr><td>**시작**</td><td>[Python SDK 시작](documentdb-python-application.md)</td></tr> <tr><td>**현재 지원되는 플랫폼**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr> </table></br>
+<table>
+<tr><td>**다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**설명서**</td><td>[Python SDK 참조 설명서](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**시작**</td><td>[Python SDK 시작](documentdb-python-application.md)</td></tr>
+<tr><td>**현재 지원되는 플랫폼**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
+</table></br>
 
 ## 릴리스 정보
 
