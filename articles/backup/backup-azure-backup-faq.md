@@ -166,8 +166,8 @@
 
 	| 레지스트리 경로 | 레지스트리 키 | 값 |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
 
 
 + 관리자 권한 명령 프롬프트에서 아래 명령을 실행하여 OBEngine을 시작합니다.
