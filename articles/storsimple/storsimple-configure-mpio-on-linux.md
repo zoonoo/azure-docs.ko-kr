@@ -479,7 +479,8 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 ||`service multipathd stop`|다중 경로 데몬 중지|
 ||`service multipathd restart`|다중 경로 데몬 다시 시작|
 ||`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y`|다중 경로 데몬이 부팅 시 시작되도록 설정|
-||`multipathd –k`|문제 해결을 위한 대화형 콘솔 시작| ||`multipath –l`|다중 경로 연결 및 장치 나열|
+||`multipathd –k`|문제 해결을 위한 대화형 콘솔 시작|
+||`multipath –l`|다중 경로 연결 및 장치 나열|
 ||`mpathconf --enable`|`/etc/mulitpath.conf`에 샘플 mulitpath.conf 파일 만들기|
 ||||
 
@@ -490,4 +491,4 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 - [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 교육 가이드](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015-->
