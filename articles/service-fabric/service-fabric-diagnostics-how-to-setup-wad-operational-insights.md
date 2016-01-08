@@ -1,6 +1,6 @@
 <properties
    pageTitle="WAD 및 Operational Insights에서의 로그 수집 방법 | Microsoft Azure"
-   description="이 문서는 Azure를 실행 중인 서비스 패브릭에서 로그를 수집하도록 Windows Azure Diagnostics 및 Operational Insights를 설정하는 방법을 설명합니다."
+   description="이 문서는 Azure를 실행 중인 서비스 패브릭에서 로그를 수집하도록 Microsoft Azure Diagnostics 및 Operational Insights를 설정하는 방법을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
@@ -17,12 +17,12 @@
    ms.author="kunalds"/>
 
 
-# WAD(Windows Azure Diagnostics) 및 Operational Insights를 사용하여 Azure의 서비스 패브릭 클러스터에서 로그 수집
+# WAD(Microsoft Azure Diagnostics) 및 Operational Insights를 사용하여 Azure의 서비스 패브릭 클러스터에서 로그 수집
 
-Azure에서 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하려 합니다. 중앙 위치에 로그를 두면 클러스터나, 해당 클러스터에서 실행 중인 응용 프로그램 및 서비스에서 문제를 간편하게 분석하고 해결할 수 있습니다. 로그를 업로드 및 수집하는 방법 중 하나는 로그를 Azure 테이블 저장소에 업로드하는 WAD(Windows Azure Diagnostics) 확장을 사용하는 것입니다. Operational Insights(Microsoft Operations Management Suite의 일원)는 간편한 로그 분석과 검색을 제공하는 SaaS 솔루션입니다. 아래 단계에서는 클러스터의 VM에서 WAD를 설정하여 로그를 중앙 저장소에 업로드한 뒤 Operational Insights 포털에서 볼 수 있게 Operational Insights가 로그를 가져오도록 구성하는 방법을 설정합니다. Operational Insights는 서비스 패브릭 클러스터로부터 업로드된 다양한 형식의 로그를 저장된 Azure 저장소 테이블의 이름으로 식별하므로, Operational Insights가 검색하는 이름과 일치하는 이름으로 Azure 저장소 테이블에 로그를 업로드하도록 WA를 구성해야 합니다. 이 문서의 구성 설정 예에서는 필요한 저장소 테이블 이름을 보여줍니다.
+Azure에서 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하려 합니다. 중앙 위치에 로그를 두면 클러스터나, 해당 클러스터에서 실행 중인 응용 프로그램 및 서비스에서 문제를 간편하게 분석하고 해결할 수 있습니다. 로그를 업로드 및 수집하는 방법 중 하나는 로그를 Azure 테이블 저장소에 업로드하는 WAD(Microsoft Azure Diagnostics) 확장을 사용하는 것입니다. Operational Insights(Microsoft Operations Management Suite의 일원)는 간편한 로그 분석과 검색을 제공하는 SaaS 솔루션입니다. 아래 단계에서는 클러스터의 VM에서 WAD를 설정하여 로그를 중앙 저장소에 업로드한 뒤 Operational Insights 포털에서 볼 수 있게 Operational Insights가 로그를 가져오도록 구성하는 방법을 설정합니다. Operational Insights는 서비스 패브릭 클러스터로부터 업로드된 다양한 형식의 로그를 저장된 Azure 저장소 테이블의 이름으로 식별하므로, Operational Insights가 검색하는 이름과 일치하는 이름으로 Azure 저장소 테이블에 로그를 업로드하도록 WA를 구성해야 합니다. 이 문서의 구성 설정 예에서는 필요한 저장소 테이블 이름을 보여줍니다.
 
 ## 참고 자료
-* [Windows Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)(클라우드 서비스와 관련이 있지만 여러 좋은 정보와 예 제공)
+* [Microsoft Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)(클라우드 서비스와 관련이 있지만 여러 좋은 정보와 예 제공)
 * [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
 * [Azure 리소스 관리자](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
 
@@ -37,7 +37,7 @@ Azure에서 서비스 패브릭 클러스터를 실행할 때 모든 노드의 �
 2. 응용 프로그램 이벤트: 서비스 코드에서 발생하며 Visual Studio에서 제공하는 EventSource 도우미 클래스를 사용하여 작성된 이벤트입니다. 응용 프로그램에서의 로그 작성 방법에 대한 자세한 내용은 이 [문서](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)를 참조하세요.
 
 
-## WAD(Windows Azure Diagnostics)를 서비스 패브릭 클러스터에 배포하여 로그 수집 및 업로드
+## WAD(Microsoft Azure Diagnostics)를 서비스 패브릭 클러스터에 배포하여 로그 수집 및 업로드
 로그를 수집하는 첫 단계는 서비스 패브릭 클러스터의 각 VM에 WAD 확장을 배포하는 것입니다. WAD는 각 VM에서 로그를 수집하여 사용자가 지정한 저장소 계정에 업로드합니다. 포털 또는 ARM의 사용 여부와, 배포를 클러스터 만들기의 일환으로 수행 중인지 또는 이미 존재하는 클러스터에 대한 것인지에 따라 단계에 약간 차이가 있습니다. 각 시나리오에 대한 단계를 살펴보겠습니다.
 
 ### 포털을 통해 클러스터 만들기의 일환으로 WAD 배포
@@ -164,7 +164,7 @@ Operational Insights 작업 영역을 만드는 단계를 확인하려면 아래
 [Operational Insights 탑재](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### 클러스터 로그를 표시하도록 Operational Insights 작업 영역 구성
-앞에서 설명한 것처럼 Operational Insights 작업 영역을 만든 후에는 WAD를 통해 클러스터로부터 업로드된 Azure 테이블에서 로그를 가져오도록 작업 영역을 구성합니다. 현재 이 구성은 Operational Insights 포털에서 제공되지 않으며 Powershell 명령을 통해서만 가능합니다. 이 PS 스크립트를 실행 합니다. ```powershell <# 이 스크립트는 Operations Management Suite 작업 영역(즉 Operational Insights 작업 영역)이 Azure 저장소 계정에서 Windows Azure Diagnostics을 읽도록 구성합니다.
+앞에서 설명한 것처럼 Operational Insights 작업 영역을 만든 후에는 WAD를 통해 클러스터로부터 업로드된 Azure 테이블에서 로그를 가져오도록 작업 영역을 구성합니다. 현재 이 구성은 Operational Insights 포털에서 제공되지 않으며 Powershell 명령을 통해서만 가능합니다. 이 PS 스크립트를 실행 합니다. ```powershell <# 이 스크립트는 Operations Management Suite 작업 영역(즉 Operational Insights 작업 영역)이 Azure 저장소 계정에서 Microsoft Azure Diagnostics을 읽도록 구성합니다.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
 
