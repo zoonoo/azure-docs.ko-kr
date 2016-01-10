@@ -284,7 +284,8 @@
     단계 별로 안내하겠습니다. T코드는 쿼리 문자열 매개 변수 `lastname`의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 hex 값에서 `A`의 hex 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A'; ```
+    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ```
 
     이 예제에서 파티션당 하나의 파티션 키를 가진 26개의 파티션을 사용합니다. 그런 다음 `servicePartitionResolver` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `partition`을를 가져옵니다. `servicePartitionResolver`는 다음으로 정의됩니다.
 
@@ -336,4 +337,4 @@
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!----HONumber=AcomDC_1125_2015-->
+<!-----HONumber=AcomDC_1125_2015-->

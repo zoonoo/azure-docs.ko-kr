@@ -213,7 +213,7 @@
 
 		php -S localhost:8000
 
-이제 ****http://localhost:8000/**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 **http://localhost:8000/** 로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 
 ##응용 프로그램 게시
@@ -302,4 +302,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

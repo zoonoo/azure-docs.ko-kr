@@ -201,7 +201,8 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-다음 예제에서는 Azure AD 관리자를 제거합니다. ```
+다음 예제에서는 Azure AD 관리자를 제거합니다. 
+```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
@@ -245,7 +246,7 @@ Azure AD 관리 도메인을 사용하여 Azure AD 사용자 이름과 연결할
 Azure와 페더레이션되지 않은 도메인으로부터 자격 증명을 사용하여 Windows에 로그인하거나, 최초 또는 클라이언트 도메인 기반의 Azure AD를 사용하는 Azure AD 인증을 사용할 경우 이 방법을 선택합니다.
 
 1. Management Studio를 시작하고, **데이터베이스 엔진에 연결**(또는 **서버에 연결**) 대화 상자의 **인증** 상자에서 **Active Directory 암호 인증**을 선택합니다.
-2. **사용자 이름** 상자에 ****username@domain.com** 형식으로 Azure Active Directory 사용자 이름을 입력합니다. Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
+2. **사용자 이름** 상자에 **username@domain.com** 형식으로 Azure Active Directory 사용자 이름을 입력합니다. Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
 3. **암호** 상자에 Azure Active Directory 계정이나 페더레이션된 도메인 계정의 사용자 암호를 입력합니다.
 4. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다.
 
@@ -328,4 +329,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

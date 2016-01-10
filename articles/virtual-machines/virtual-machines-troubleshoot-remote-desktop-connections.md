@@ -119,7 +119,7 @@ Windows 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 원격 �
 
 원인: 대상 가상 컴퓨터가 사용자의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾지 못했습니다.
 
-사용자 이름이 *SecurityAuthority*\*UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
+사용자 이름이 *SecurityAuthority\UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
 
 가능한 해결 방법:
 
@@ -134,8 +134,8 @@ Windows 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 원격 �
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-- 로컬 계정의 경우 *ComputerName*\*UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
-- 도메인 계정의 경우 *DomainName*\*UserName* 구문(예: CONTOSO\\johndoe)을 사용합니다.
+- 로컬 계정의 경우 *ComputerName\UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
+- 도메인 계정의 경우 *DomainName\UserName* 구문(예: CONTOSO\\johndoe)을 사용합니다.
 
 또한 가상 컴퓨터를 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 경우 사용자가 로그인할 때 사용한 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 이때 로컬 관리자 계정은 삭제됩니다. 예를 들어 DC1\\DCAdmin 로컬 관리자 계정으로 로그인하고 가상 컴퓨터를 corp.contoso.com 도메인에 대한 새 포리스트의 도메인 컨트롤러로 승격하는 경우 DC1\\DCAdmin 로컬 계정이 삭제되고 같은 암호를 가진 새 도메인 계정 CORP\\DCAdmin이 생성됩니다.
 
@@ -169,4 +169,4 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
