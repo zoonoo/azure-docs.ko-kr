@@ -70,7 +70,7 @@ Azure AD Connect를 사용하면 컴퓨터 온-프레미스를 클라우드에�
 
 >[AZURE.NOTE] [*커넥터 계정 이름*]을 AD 커넥터 계정으로 사용된 도메인 계정으로 바꿉니다.
 
->[AZURE.NOTE]Get-Credential 팝업이 표시될 때 입력한 자격 증명의 사용자 이름은 **user@example.com* 형식이어야 합니다.
+>[AZURE.NOTE]Get-Credential 팝업이 표시될 때 입력한 자격 증명의 사용자 이름은 *user@example.com* 형식이어야 합니다.
 
 ### AD FS 클레임 규칙 구성
 이를 사용하면 컴퓨터가 AD FS를 통해 Kerberos/NTLM을 사용하여 인증하도록 허용함으로써 Azure DRS를 사용하여 컴퓨터를 즉각적으로 등록합니다. 이 단계 없이 컴퓨터는 지연된 방식으로 Azure AD를 가져옵니다.(Azure AD Connect 동기화의 시간에 종속됨)
@@ -137,4 +137,4 @@ Active Directory 그룹 정책을 사용하여 Windows 10 도메인 가입 장�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -6,8 +6,8 @@
 - **온-프레미스 컴퓨터** <br/>하이브리드 연결 관리자를 SQL Server 인스턴스와 동일한 온-프레미스 컴퓨터에서 실행하거나 각각을 별도의 컴퓨터에서 실행할 수 있습니다. 하이브리드 연결 관리자가 실행되는 컴퓨터는 다음 조건을 충족해야 합니다.
 
 	- 포트 5671을 통해 Azure에 연결할 수 있어야 합니다.
-	- SQL Server 인스턴스를 실행 중인 컴퓨터의 *호스트 이름*:*포트 번호*에 액세스할 수 있어야 합니다.  
+	- SQL Server 인스턴스를 실행 중인 컴퓨터의 *hostname*\:*portnumber* 에 액세스할 수 있어야 합니다.  
 
 	자세한 내용은 [하이브리드 연결 개요](../articles/integration-hybrid-connection-overview.md)를 참조하십시오.
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
