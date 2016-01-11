@@ -73,7 +73,7 @@ SDK를 설치하려면 Visual Studio에서 서버 프로젝트를 마우스 오�
 
 ###<a name="server-project-setup"></a> 서버 프로젝트 초기화
 
-A .NET 백 엔드 서버 프로젝트는 OWIN 시작 클래스를 포함하여 다른 ASP.NET 프로젝트와 유사하게 초기화됩니다. NuGet 패키지 `Microsoft.Owin.Host.SystemWeb`을 참조하도록 확인합니다. Visual Studio에서 이 클래스를 추가하려면 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목** -> **웹** -> **일반 ** -> **OWIN 시작 클래스**를 차례로 선택합니다.
+A .NET 백 엔드 서버 프로젝트는 OWIN 시작 클래스를 포함하여 다른 ASP.NET 프로젝트와 유사하게 초기화됩니다. NuGet 패키지 `Microsoft.Owin.Host.SystemWeb`을 참조하도록 확인합니다. Visual Studio에서 이 클래스를 추가하려면 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목** > **웹** > **일반** > **OWIN 시작 클래스**를 차례로 선택합니다.
 
 그러면 다음과 같은 특성의 클래스가 생성됩니다.
 
@@ -138,11 +138,29 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 
 - [Microsoft.Azure.Mobile.Server.Login] MobileAppLoginHandler.CreateToken() 메서드를 통해 사용자 지정 인증에 대한 미리 보기 지원을 제공합니다. 이는 정적 메서드이며 구성에서 사용하도록 설정할 필요는 없습니다.
 
-## 방법: 서버 프로젝트 게시
+## <a name="publish-server-project"></a>방법: 서버 프로젝트 게시
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+이 섹션에서는 Visual Studio에서 .NET 백 엔드 프로젝트를 게시하는 방법을 보여줍니다. [Azure 앱 서비스 배포 설명서](../app-service-web/web-site-deploy.md)에 나오는 Git 또는 다른 메서드를 사용하여 백 엔드 프로젝트를 배포할 수도 있습니다.
 
-[Azure 앱 서비스 배포 설명서](../app-service-web/web-site-deploy.md)에 나오는 다른 메서드를 사용할 수도 있습니다.
+1. Visual Studio에서 NuGet 패키지를 복원하려면 프로젝트를 빌드하십시오.
+
+2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다. 처음 게시할 때는 게시 프로필을 정의해야 합니다. 이미 정의된 프로필이 있을 때 프로필을 선택하고 **게시**를 클릭합니다.
+
+2. 게시 대상을 선택하도록 요청받으면 **Microsoft Azure 앱 서비스** > **다음**을 클릭한 다음 (필요한 경우) Azure 자격 증명을 사용하여 로그인합니다. Visual Studio가 Azure에서 직접 게시 설정을 안전하게 다운로드하고 저장합니다.
+
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
+
+3. **구독**을 선택하고 **보기**에서 **리소스 형식**을 선택하며 **모바일 앱**을 확장하고 모바일 앱 백 엔드를 클릭한 다음 **확인**을 클릭합니다.
+
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
+
+4. 게시 프로필 정보를 확인하고 **게시**를 클릭합니다.
+
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
+
+	모바일 앱 백 엔드가 성공적으로 게시되면 성공했다는 것을 나타내는 방문 페이지가 표시됩니다.
+
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
 ## 방법: 테이블 컨트롤러 정의
 
@@ -194,8 +212,15 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 **MobileAppControllerAttribute**가 적용되지 않는 모든 컨트롤러는 클라이언트에서 여전히 액세스할 수 있지만 모든 모바일 앱 클라이언트 SDK로 올바르게 사용되지 않을 수 있습니다.
 
+## 방법: 인증으로 작업
 
-## 방법: 서버 프로젝트에 인증 추가
+모바일 앱은 앱 서비스 인증 및 ASP.NET의 기능을 앱에 인증을 사용하도록 설정하는 과정에 사용합니다. 이 섹션에서는 .NET 백 엔드 서버 프로젝트에서 다음과 같은 인증 관련 작업을 수행하는 방법을 보여줍니다.
+
++ [방법: 서버 프로젝트에 인증 추가](#add-auth) 
++ [방법: 응용 프로그램에 사용자 지정 인증 사용](#custom-auth) 
++ [방법: 인증된 사용자 정보 검색](#user-info)
+
+### <a name="add-auth"></a>방법: 서버 프로젝트에 인증 추가
 
 **MobileAppConfiguration** 개체를 확장하고 OWIN 미들웨어를 구성하여 서버 프로젝트에 인증을 추가할 수 있습니다. [Microsoft.Azure.Mobile.Server.Quickstart] 패키지를 설치하고 **UseDefaultConfiguration** 확장 메서드를 호출하는 경우 3단계로 건너뛸 수 있습니다.
 
@@ -211,7 +236,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 모바일 앱 백 엔드에 클라이언트를 인증하는 방법에 대해 알아보려면 [앱에 인증 추가](app-service-mobile-ios-get-started-users.md)를 참조하세요.
 
-## <a name="custom-auth"></a>방법: 응용 프로그램에 사용자 지정 인증 사용
+### <a name="custom-auth"></a>방법: 응용 프로그램에 사용자 지정 인증 사용
 
 앱 서비스 인증/권한 부여 공급자 중 하나를 사용하지 않으려면 본인의 고유한 로그인 시스템을 제공할 수 있습니다. 이렇게 하려면 [Microsoft.Azure.Mobile.Server.Login] 패키지를 설치합니다.
 
@@ -254,6 +279,45 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 `MobileAppLoginHandler.CreateToken()` 메서드는 _audience_ 및 _issuer_ 매개 변수를 포함합니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 _secretKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 _WEBSITE\_AUTH\_SIGNING\_KEY_ 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
 
 발급된 토큰 및 포함하고자 하는 클레임에 대한 수명도 제공해야 합니다. 예제 코드에 나오는 것처럼 제목 클레임을 제공해야 합니다.
+
+###<a name="user-info"></a>방법: 인증된 사용자 정보 검색
+
+사용자가 앱 서비스에서 인증을 하는 경우 .NET 백 엔드 코드에서 할당된 사용자 ID와 기타 정보에 액세스할 수 있습니다. 특정 사용자가 테이블 행 또는 다른 리소스에 액세스할 수 있는지 여부와 같이 백 엔드에서 지정된 사용자에 대한 권한 부여 결정에 유용합니다. 다음 코드에서는 로그인한 사용자에 대한 사용자 ID를 가져오는 방법을 보여줍니다.
+
+    // Get the current user SID and create a tag for the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 로그인 공급자에 대해 정적입니다.
+
+또한 앱 서비스는 로그인 공급자에서 특정 클레임을 요청할 수 있습니다. 이렇게 하면 Facebook Graph API를 사용하여 공급자에서 추가 정보를 요청할 수 있습니다. 포털의 공급자 블레이드에서 클레임을 지정할 수 있습니다. 일부 클레임은 공급자를 사용하여 추가 구성이 필요합니다.
+
+다음 코드는 **GetAppServiceIdentityAsync** 확장 메서드를 호출하여 로그인 자격 증명을 가져오며 이는 Facebook Graph API에 대한 요청에 필요한 액세스 토큰을 포함합니다.
+
+    // Get the credentials for the logged-in user.
+    var credentials = 
+        await this.User
+        .GetAppServiceIdentityAsync<FacebookCredentials>(this.Request);
+
+    if (credentials.Provider == "Facebook")
+    {
+        // Create a query string with the Facebook access token.
+        var fbRequestUrl = "https://graph.facebook.com/me/feed?access_token=" 
+            + credentials.AccessToken;
+
+        // Create an HttpClient request.
+        var client = new System.Net.Http.HttpClient();
+
+        // Request the current user info from Facebook.
+        var resp = await client.GetAsync(fbRequestUrl);
+        resp.EnsureSuccessStatusCode();
+
+        // Do something here with the Facebook user information.
+        var fbInfo = await resp.Content.ReadAsStringAsync();
+    }
+
+**GetAppServiceIdentityAsync** 확장 메서드 작업을 만드는 `System.Security.Principal`에 문을 사용하여 추가해야 합니다.
+
 
 ## 방법: 서버 프로젝트에 푸시 알림 추가
 
@@ -327,10 +391,24 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 
 ### 로깅
 
-표준 ASP.NET 추적 작성을 사용하여 앱 서비스 진단 로그에 쓸 수 있습니다.
+표준 ASP.NET 추적 작성을 사용하여 앱 서비스 진단 로그에 쓸 수 있습니다. 로그를 작성하려면 먼저 모바일 앱 백 엔드에서 진단을 활성화해야 합니다.
+
+진단을 사용하도록 설정하고 로그에 쓰려면:
+
+1. [진단을 사용하는 방법](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag)에서 단계를 수행합니다.
+
+2. 코드 파일에 다음 using 문을 추가합니다.
+
+		using System.Web.Http.Tracing;
+
+3. .NET 백 엔드에서 진단 로그에 작성하려면 다음과 같이 추적 작성기를 만듭니다.
 
 		ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
 		traceWriter.Info("Hello, World");  
+
+4. 서버 프로젝트를 다시 게시하고 모바일 앱 백 엔드에 액세스하여 로깅을 통해 코드 경로를 실행합니다.
+
+5. [방법: 로그 다운로드](../app-service-web/web-sites-enable-diagnostic-log.md#download)에 설명된 대로 로그를 다운로드하고 평가합니다.
 
 ### <a name="local-debug"></a>인증을 사용하여 로컬 디버깅
 
@@ -360,4 +438,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="12/17/2015" 
 	ms.author="szark"/>
 
 
@@ -182,4 +182,4 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -3,7 +3,7 @@
 	description="모바일 서비스 응용 프로그램을 앱 서비스 모바일 앱으로 쉽게 마이그레이션하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,175 +13,376 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="mahender"/>
+	ms.date="12/11/2015"
+	ms.author="adrianhall"/>
 
-# 기존 Azure 모바일 서비스를 앱 서비스로 마이그레이션
+# <a name="article-top"></a>기존 Azure 모바일 서비스를 Azure 앱 서비스로 마이그레이션
 
-이 항목에서는 기존 응용 프로그램을 Azure 모바일 서비스에서 새로운 앱 서비스 모바일 앱으로 마이그레이션하는 방법을 보여 줍니다. 기존의 모든 모바일 서비스를 새로운 모바일 앱 백 엔드로 쉽게 마이그레이션할 수 있습니다. 마이그레이션하는 동안 기존 모바일 서비스는 계속 작동합니다.
+[Azure 앱 서비스의 일반적인 가용성]을 사용하여 Azure 모바일 서비스 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure 앱 서비스의 모든 기능을 활용할 수 있습니다. 이 문서에서는 Azure 모바일 서비스에서 Azure 앱 서비스에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.
 
-모바일 서비스가 앱 서비스로 마이그레이션되면 모든 앱 서비스 기능에 액세스할 수 있고 모바일 서비스 가격 책정이 아닌 [앱 서비스 가격 책정]에 따라 요금이 청구됩니다.
+## <a name="what-does-migration-do"></a>사이트에 대한 마이그레이션의 기능
 
-예약된 작업이 Microsoft가 관리하는 Azure 스케줄러 계획에서 고유의 구독 및 제어에 있는 Azure 스케줄러 계획으로 이동한다는 사실을 참고합니다. 앱 서비스에 마이그레이션하는 이점과 마찬가지로 Azure 스케줄러의 모든 기능을 활용할 수 있습니다.
-
-### <a name="why-host"></a>왜 앱 서비스에서 호스팅합니까?
-
-앱 서비스는 응용 프로그램에 대해 더 풍부한 기능의 호스팅 환경을 제공합니다. 앱 서비스에서 호스팅하여 서비스 슬롯, 사용자 지정 도메인, 트래픽 관리자 지원 및 기타에 대해 액세스할 수 있습니다. 모바일 앱 백 엔드에 모바일 서비스를 업그레이드하는 동안 앱 서비스에 마이그레이션하면 일부 고객은 SDK 업데이트를 수행하지 않고 이러한 기능을 즉시 활용하려고 할 수 있습니다.
-
-앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스 vs. 앱 서비스]를 참조하세요.
-
-## 마이그레이션과 업그레이드 비교
+Azure 모바일 서비스의 마이그레이션은 코드에 전혀 영향을 주지 않고 모바일 서비스를 [Azure 앱 서비스] 앱으로 변환합니다. 알림 허브, SQL 데이터 연결, 인증 설정, 예약된 작업 및 도메인 이름은 변경되지 않습니다. Azure 모바일 서비스를 사용하는 모바일 클라이언트는 정상적으로 계속 작동합니다. 마이그레이션이 Azure 앱 서비스에 전송되면 서비스를 다시 시작합니다.
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
-- Node.js 기반 서버 프로젝트의 경우 새로운 [모바일 앱 Node.js SDK](https://github.com/Azure/azure-mobile-apps-node)에서 다양한 새로운 기능을 제공합니다. 예를 들어 이제 로컬 개발 및 디버깅을 수행하고 0.10 이후의 모든 Node.js 버전을 사용할 수 있으며 원하는 Express.js 미들웨어로 사용자 지정할 수 있습니다.
+## <a name="why-migrate"></a>사이트를 마이그레이션해야 하는 이유
 
-- .NET 기반 서버 프로젝트의 경우 새로운 [모바일 앱 SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)는 NuGet 종속성에 대한 유연성을 더 많이 제공하고, 새로운 앱 서비스 인증 기능을 지원하며, MVC를 비롯한 모든 ASP.NET 프로젝트를 사용하여 작성합니다. 업그레이드에 대한 자세한 내용은 [기존 .NET 모바일 서비스를 앱 서비스로 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)를 참조하세요.
+Microsoft는 다음을 비롯한 Azure 앱 서비스의 기능을 활용하기 위해 Azure 모바일 서비스를 마이그레이션하도록 권장합니다.
 
+  *  [WebJobs] 및 [사용자 지정 도메인 이름]을 포함하는 새로운 호스트 기능.
+  *  [하이브리드 연결] 외에 [VNet]을 사용하여 온-프레미스 리소스에 연결.
+  *  New Relic 또는 [Application Insights]를 통한 모니터링 및 문제 해결.
+  *  [스테이징 슬롯], 롤백 및 프로덕션 내 테스트를 포함하는 기본 제공 DevOps 도구.
+  *  [자동 크기 조정], 부하 분산 및 [성능 모니터링].
 
-## <a name="understand"></a>앱 서비스 모바일 앱 이해
+Azure 앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스 vs. 앱 서비스] 항목을 참조하세요.
 
-앱 서비스의 모바일 앱은 Azure를 사용하여 모바일 응용 프로그램을 작성하는 새로운 방법입니다. [모바일 앱 정의]에서 모바일 앱에 대한 자세한 내용을 알아볼 수 있습니다.
+## <a name="why-not-migrate"></a>사이트를 마이그레이션하지 않아야 하는 이유
 
-모바일 앱으로 마이그레이션하는 경우 비즈니스 논리를 포함하는 모든 기존 앱 기능을 보존할 수 있습니다. 또한 응용 프로그램에서 새로운 기능을 사용할 수 있습니다. 모바일 앱 모델에서 코드는 실제로 앱 서비스의 웹앱에서 실행되며 이는 새 버전의 Azure 웹 사이트입니다. 웹앱과 웹앱 작동 방식을 완전히 제어할 수 있습니다. 뿐만 아니라 이전에 모바일 서비스 고객이 사용할 수 없었던 웹앱 기능(예: 트래픽 관리자 및 개발 슬롯)을 이제 사용할 수 있습니다.
+지금 Azure 모바일 서비스를 마이그레이션하지 않아야 하는 몇 가지 이유가 있습니다.
 
-업그레이드의 주요 제한 사항은 모바일 서비스가 예약된 작업이 통합되지 않고 Azure 스케줄러가 사용자 지정 API을 호출하도록 설정되거나 웹 작업 기능이 사용되도록 설정되어야 합니다.
+  *  현재 작업 중이며 이번에는 사이트를 다시 시작할 수 없습니다.
+  *  마이그레이션 프로세스를 테스트하기 전에 프로덕션 사이트에 영향을 주고 싶지 않습니다.
+  *  무료 또는 기본 가격 책정 계층인 여러 사이트가 있고 동시에 모든 사이트를 마이그레이션할 생각이 없습니다.
+  *  마이그레이션하려는 요청에 따라 구성한 작업을 예약했습니다.
 
-## 앱 서비스 마법사에 마이그레이션을 통해 모바일 서비스 마이그레이션
+사용 중일 경우 예약된 유지 관리 기간 동안 마이그레이션을 계획해주십시오. 마이그레이션 프로세스는 사이트를 프로세스의 일부로 다시 시작하고 순간적으로 가용성이 중단될 수 있습니다.
 
-앱 서비스 마법사에 마이그레이션을 사용하여 모바일 서비스를 앱 서비스로 마이그레이션하는 간단하고 권장되는 방법이며 이는 Azure 클래식 포털에서 사용할 수 있습니다. [Azure 클래식 포털]로 이동하고 모바일 서비스를 찾아서 마이그레이션할 모바일 서비스를 선택합니다. 화면 맨 아래에서 모바일 서비스를 마이그레이션하는 과정을 안내하는 **앱 서비스 마이그레이션** 단추가 표시됩니다.
+이 목록의 항목 대부분에 대한 해결 방법이 있습니다. 자세한 내용은 아래에서 [시작하기 전에](#before-you-begin) 섹션을 참조합니다.
 
-### <a name="what-gets-migrated"></a>마이그레이션되는 항목은 무엇입니까?
+## <a name="before-you-begin"></a>시작하기 전에
 
-마이그레이션 마법사는 모바일 서비스에서 관리되다가 앱 서비스에서 관리되는 모바일 서비스를 호스팅하는 서버 팜을 변경합니다. 또한 모바일 서비스가 Microsoft가 관리하는 구독에서 구독으로 관리되는 스케줄러 계획을 이동합니다. 서버 팜이 앱 서비스의 관리 제어를 통해 전송될 때 해당 서버 팜에 연결된 모든 모바일 서비스는 동시에 이동됩니다.
+사이트를 마이그레이션하기 전에 다음 단계를 따라야 합니다.
 
-모바일 서비스는 하위 지역 및 SKU에 따라 서버 팜으로 모바일 서비스를 구성합니다.(무료, 기본, 표준) 하위 지역의 모든 무료 서비스는 동일한 서버 팜에 위치하며 함께 마이그레이션합니다. 하위 지역에서 특정 수의 기본 서비스는 동일한 팜에 함께 호스팅되지만 많은 수의 기본 서비스가 있는 경우 별도의 계획에 위치합니다. 각 표준 서비스는 자체 서버 팜에 위치합니다. 단일 서비스를 마이그레이션하거나 서비스가 다른 사이트를 통해 이동하는 것을 방지하려면 기본으로 업그레이드할 수 있고 고유의 독립적인 계획에 둡니다.
+  *  [모바일 서비스 백업] 스크립트 및 SQL 데이터베이스
+  *  (선택 사항) 모바일 서비스 계층을 표준으로 올리기
 
-또한 예약된 작업을 사용하는 경우 Azure 스케줄러 계획을 구독에 추가해야 합니다. 구독별로 허용된 무료 예약된 작업의 수가 제한되므로 게시 구독을 검토하려는 것과 연관된 비용이 있을 수 있습니다.
+프로덕션 사이트를 마이그레이션하기 전에 마이그레이션 프로세스를 테스트하려는 경우 프로덕션 Azure 모바일 서비스(데이터 원본의 복사본으로 완성)를 복제하고 새 URL에 대한 마이그레이션을 테스트합니다. 또한 올바르게 마이그레이션되는 사이트를 테스트하려면 테스트 사이트를 가리키는 테스트 클라이언트 구현이 필요합니다.
 
-###  마이그레이션 마법사 사용
+### <a name="opt-raise-service-tier"></a>(선택 사항) 모바일 서비스 계층을 표준으로 올리기
 
-1. [Azure 클래식 포털]로 이동하여 모바일 서비스를 클릭합니다. 
+호스팅 계획을 공유하는 모든 모바일 서비스 사이트는 한 번에 마이그레이션됩니다. 무료 또는 기본 가격 책정 계층에서 모바일 서비스는 동일한 가격 책정 계층 및 [Azure 지역]에 있는 다른 서비스를 사용하여 호스팅 계획을 공유합니다. 모바일 서비스가 표준 가격 책정 계층에서 작동하는 경우 자체 호스팅 계획에 위치합니다. 무료 또는 기본 가격 책정 계층에 사이트를 개별적으로 마이그레이션하려는 경우 모바일 서비스 가격 책정 계층을 일시적으로 표준으로 업그레이드합니다. 모바일 서비스에 대한 크기 조정 메뉴에서 수행할 수 있습니다.
 
-2. 모바일 서비스를 마이그레이션하도록 선택한 다음 아래쪽 메뉴 모음에서 "앱 서비스 마이그레이션"을 클릭합니다. 마이그레이션되는 모바일 서비스의 목록을 팝업 창으로 나타냅니다. 표시되는 서비스의 종류 및 원인에 대한 자세한 내용은 [이전 섹션](#what-gets-migrated)을 참조하세요.
+  1.  [Azure 클래식 포털]에 로그인합니다.
+  2.  모바일 서비스를 선택합니다.
+  3.  **크기 조정** 탭을 선택합니다.
+  4.  **모바일 서비스 계층**에서 **표준** 계층을 클릭합니다. 페이지 맨 위에 있는 **저장** 아이콘을 클릭합니다.
 
-3. 모바일 서비스의 이름을 입력하여 마이그레이션을 확인한 다음 계속하려면 확인 표시를 클릭합니다. 여러 모바일 서비스가 마이그레이션에 포함되는 경우 선택된 원래 서비스의 이름을 입력해야 합니다.
+마이그레이션 후에 적절한 설정으로 가격 책정 계층을 설정해야 합니다.
 
-4. 마이그레이션이 시작된 후에 [Azure 클래식 포털]의 모바일 서비스 목록에서 현재 상태를 볼 수 있습니다. 현재 마이그레이션되는 모든 서비스는 "마이그레이션"으로 표시됩니다. 모든 마이그레이션이 완료되었다고 표시되면 모바일 앱의 [Azure 포털]에서 볼 수 있습니다. 마이그레이션하는 동안 및 이후에 모바일 서비스는 계속 작동하고 URL은 변경되지 않습니다.
+## <a name="migrating-site"></a>사이트 마이그레이션
 
-## 모바일 서비스 .NET 백 엔드에 대한 수동 마이그레이션
+사이트를 마이그레이션하려면:
 
->[AZURE.NOTE]모바일 서비스를 마이그레이션하는 권장되는 방법은 이전 섹션에 설명된 앱 서비스 마법사에 마이그레이션을 통한 것입니다. 수동 마이그레이션은 마법사를 사용할 수 없는 상황에만 사용되어야 합니다.
+  1.  [Azure 클래식 포털]에 로그인합니다.
+  2.  모바일 서비스를 선택합니다.
+  3.  **앱 서비스 마이그레이션** 단추를 클릭합니다.
 
-이 섹션에서는 Azure 앱 서비스 내에서 .NET 모바일 서비스 프로젝트를 호스트하는 방법을 보여 줍니다. 앱 서비스 인스턴스의 도메인과 azure-mobile.net 도메인을 사용하여 URL을 대체하는데 필요하지만 이러한 방식으로 호스팅되는 앱은 모든 *모바일 서비스* .NET 런타임 자습서를 사용할 수 있습니다.
+    ![마이그레이션 단추][0]
 
-또한 모바일 서비스 프로젝트는 [앱 서비스 환경]에서 호스팅될 수 있습니다. 이 항목의 내용은 모두 적용되지만 사이트는 `contoso.azurewebsites.net` 대신 `contoso.contosoase.p.azurewebsites.net` 양식을 가집니다.
+  4.  앱 서비스 대화 상자에 마이그레이션을 읽습니다.
+  5.  제공된 상자에 모바일 서비스의 이름을 입력합니다. 예를 들어 도메인 이름이 contoso.azure mobile.net이면 제공된 상자에 _contoso_를 입력합니다.
+  6.  눈금 단추를 클릭합니다.
 
->[AZURE.NOTE]수동 마이그레이션을 수행하는 경우 기존의 **service.azure-mobile.net** URL을 보존할 수 *없습니다*. 이 URL에 연결하는 모바일 클라이언트가 있는 경우 자동 마이그레이션 옵션을 사용하거나 모든 모바일 클라이언트가 새 URL로 업그레이드될 때까지 모바일 서비스를 계속 실행해야 합니다.
+무료 또는 기본 가격 책정 계층에 모바일 서비스를 마이그레이션하는 경우 해당 가격 책정 계층의 모든 모바일 서비스를 동시에 마이그레이션합니다. 마이그레이션하는 동안 [마이그레이션하는 모바일 서비스를 표준으로 올려서](#opt-raise-service-tier) 이를 방지할 수 있습니다.
 
+작업 모니터의 마이그레이션 상태를 모니터링할 수 있고 사이트가 Azure 클래식 포털에서 *마이그레이션*으로 나열됩니다.
 
-### <a name="app-settings"></a>응용 프로그램 설정
-모바일 서비스에는 환경에서 사용 가능한 여러 응용 프로그램 설정이 필요합니다. 이에 대해서는 이 섹션에 설명되어 있습니다.
+  ![마이그레이션 작업 모니터링][1]
 
-모바일 앱 백 엔드의 응용 프로그램을 설정하기 위해 먼저 [Azure 포털]에 로그인합니다. 모바일 앱 백 엔드로 사용하려는 앱 서비스 앱으로 이동하고 **설정** > **응용 프로그램 설정**을 클릭한 다음 **앱 설정**까지 아래로 스크롤합니다. 여기서 다음과 같은 필수 키-값 쌍을 설정할 수 있습니다.
+각 마이그레이션은 마이그레이션되는 모바일 서비스 당 3-15분이 걸릴 수 있습니다. 사이트는 마이그레이션 중 사용할 수 있는 상태로 유지되지만 마이그레이션 프로세스가 끝날 때 다시 시작됩니다. 다시 시작 프로세스 동안 사이트는 사용할 수 없게 되며 몇 초 동안 지속될 수 있습니다.
 
-+ **MS\_MobileServiceName**는 앱의 이름으로 설정해야 합니다. 예를 들어 백 엔드의 URL가 `contoso.azurewebsites.net`인 경우 *contoso*은 올바른 값입니다.
+## <a name="finalizing-migration"></a>마이그레이션 완료
 
-+ **MS\_MobileServiceDomainSuffix**는 웹앱의 이름으로 설정해야 합니다. 예를 들어 백 엔드의 URL가 `contoso.azurewebsites.net`인 경우 *azurewebsites.net*은 올바른 값입니다.
+마이그레이션 프로세스가 끝날 때 모바일 클라이언트에서 사이트를 테스트하도록 계획해야 합니다. 모바일 클라이언트를 변경하지 않고 일반적인 모든 클라이언트 작업을 수행할 수 있도록 합니다. 또한 필요한 경우 마이그레이션에 영향을 주도록 변경한 내용(예: 가격 책정 계층 변경)을 되돌렸는지 확인해야 합니다.
 
-+ **MS\_ApplicationKey**는 임의의 값으로 설정할 수 있지만 클라이언트 SDK에서 사용되는 동일한 값이어야 합니다. GUID는 사용하는 것이 좋습니다.
+### <a name="update-app-service-tier"></a>적절한 앱 서비스 가격 책정 계층 선택
 
-+ **MS\_MasterKey**는 임의의 값으로 설정할 수 있지만 API/클라이언트에서 사용되는 동일한 값이어야 합니다. GUID는 사용하는 것이 좋습니다.
+Azure 앱 서비스를 마이그레이션한 후에 가격 책정에 유연성이 증가합니다.
 
-모바일 서비스를 마이그레이션할 때 마스터 키와 응용 프로그램 키는 모두 [Azure 클래식 포털]의 모바일 서비스 섹션에 있는 **구성** 탭에서 가져올 수 있습니다. 맨 아래에서 **키 관리**를 클릭하고 키를 복사합니다.
+  1.  [Azure 포털]에 로그인합니다.
+  2.  **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3.  기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+  4.  설정 메뉴에서 **앱 서비스 계획**을 클릭합니다.
+  5.  **가격 책정 계층** 타일을 클릭합니다.
+  6.  요구 사항에 적합한 타일을 클릭한 다음 **선택**을 클릭합니다. **모두 보기**를 클릭하여 사용 가능한 가격 책정 계층을 볼 수 있습니다.
 
+시작 지점으로 다음을 권장합니다.
 
-### <a name="client-sdk"></a>방법: 클라이언트 SDK 수정
+| 모바일 서비스 가격 책정 계층 | 앱 서비스 가격 책정 계층 |
+| :-------------------------- | :----------------------- |
+| 무료 | F1 무료 |
+| Basic | B1 기본 |
+| 표준 | S1 표준 |
 
-클라이언트 앱 프로젝트에서 모바일 서비스 클라이언트 개체의 생성자를 수정하여 새로운 앱 URL(예: `https://contoso.azurewebsites.net`) 및 이전에 구성한 응용 프로그램 키를 적용합니다. 클라이언트 SDK 버전은 **모바일 서비스** 버전이어야 하고 업그레이드되지 **않아야** 합니다. iOS 및 Android 클라이언트의 경우 2.x 버전을 사용하고 Windows/Xamarin의 경우 1.3.2를 사용합니다. Javascript 클라이언트는 1.2.7을 사용해야 합니다.
+응용 프로그램에 대한 올바른 가격 책정 계층을 선택하는 데 유연성을 고려합니다. 새 앱 서비스의 가격 책정에 대한 자세한 내용은 [앱 서비스 가격]을 참조합니다.
 
-### <a name="data"></a>방법: 데이터 기능 활성화
+> [AZURE.TIP]앱 서비스 표준 계층은 [스테이징 슬롯], 자동 백업, 자동 크기 조정을 비롯한 사용하려는 다양한 기능에 대한 액세스를 포함합니다. 이 때 새로운 기능을 확인해 보십시오.
 
-모바일 서비스에서 기본 Entity Framework 클래스로 작업하려면 두 가지 추가 설정이 필요합니다.
+### <a name="review-migration-scheduler-jobs"></a>마이그레이션된 스케줄러 작업 검토
 
-연결 문자열은 **앱 설정** 섹션 바로 아래에서 응용 프로그램 설정 블레이드의 **연결 문자열** 섹션에 저장됩니다. 데이터베이스에 대한 연결 문자열은 **MS\_TableConnectionString** 키에서 설정되어야 합니다. 기존 모바일 서비스를 앱 서비스에 마이그레이션할 경우 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 모바일 서비스 **구성** 탭의 **연결 문자열** 섹션으로 이동합니다. **연결 문자열 표시**를 클릭하고 값을 복사합니다.
+스케줄러 작업은 마이그레이션 후에 약 30분까지 표시되지 않습니다. 예약된 작업은 백그라운드에서 계속 실행됩니다. 예약된 작업을 보려면:
 
-기본적으로 사용할 스키마는 **MS\_MobileServiceName**이지만 **MS\_TableSchema** 설정을 사용하여 덮어쓰여질 수 있습니다. 다시 **앱 설정**에서 **MS\_TableSchema**을 사용할 스키마의 이름으로 설정합니다. 기존 모바일 서비스 응용 프로그램을 통해 이동하는 경우 스키마는 Entity Framework를 사용하여 만들어집니다. 이것은 코드를 호스팅하는 앱 서비스 인스턴스가 아니라 모바일 서비스의 이름입니다.
+  1.  [Azure 포털]에 로그인합니다.
+  2.  **찾아보기>**를 선택하고 _필터_ 상자에 **일정**을 입력한 다음 **스케줄러 컬렉션**을 선택합니다.
 
-### <a name="push"></a>방법: 푸시 기능 활성화
+마이그레이션 후에 사용 가능한 무료 스케줄러 작업의 수가 제한됩니다. 사용량 및 [Azure 스케줄러 계획]을 검토해야 합니다.
 
-또한 작동할 푸시의 경우 웹앱은 알림 허브에 대한 정보를 알고 있어야 합니다.
+### <a name="configure-cors"></a>필요한 경우 CORS 구성
 
-**연결 문자열**에서 **MS\_NotificationHubConnectionString**을 알림 허브의 DefaultFullSharedAccessSignature 연결 문자열을 사용하여 설정합니다. 기존 모바일 서비스를 마이그레이션하려면 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 모바일 서비스 **구성** 탭의 **연결 문자열** 섹션으로 이동합니다. **연결 문자열 표시**를 클릭하고 값을 복사합니다.
+원본 간 리소스 공유는 웹 사이트가 다른 도메인의 Web API에 액세스하도록 허용하는 기술입니다. 관련된 웹 사이트를 통해 Azure 모바일 서비스를 사용하면 마이그레이션의 일부로 CORS를 구성해야 합니다. Azure 모바일 서비스를 모바일 장치에서 단독으로 액세스하는 경우 드문 경우를 제외하고 CORS를 구성할 필요는 없습니다.
 
-**MS\_NotificationHubName** 앱 설정은 허브의 이름으로 설정되어야 합니다. 기존 모바일 서비스를 이동할 때 [Azure 클래식 포털](https://manage.windowsazure.com/)에 있는 모바일 서비스의 **푸시** 탭에서 이 값을 가져올 수 있습니다. 이 탭에서 다른 필드는 자체 허브에 연결되고 어디에도 복사할 필요가 없습니다.
+마이그레이션된 CORS 설정은 **MS\_CrossDomainWhitelist** 앱 설정으로 사용할 수 있습니다. 앱 서비스의 CORS 기능에 사이트를 마이그레이션하려면:
 
-### <a name="auth"></a>방법: 인증 기능 활성화
+  1.  [Azure 포털]에 로그인합니다.
+  2.  **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3.  기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+  4.  API 메뉴에서 **CORS**를 클릭합니다.
+  5.  제공된 상자에 허용된 원본을 입력하고 각각 Enter 키를 누릅니다.
+  6.  허용된 원본 목록이 올바르면 저장 단추를 클릭합니다.
 
-또한 ID 기능에는 개별 공급자에 필요한 앱 설정을 요구 사항이 있습니다. 기존 모바일 서비스로 이동하는 경우 Azure 클래식 포털의 **ID** 탭에 있는 각각의 필드에는 해당하는 앱 설정이 있습니다.
+선택적 작업이지만 이후에 더 나은 관리 환경을 제공합니다.
 
-Microsoft 계정
+> [AZURE.TIP]Azure 앱 서비스의 장점 중 하나는 동일한 사이트에서 웹 사이트 및 모바일 서비스를 실행할 수 있다는 점입니다. 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
-* **MS\_MicrosoftClientID**
+## <a name="working-with-your-site"></a>마이그레이션 후에 사이트로 작업
 
-* **MS\_MicrosoftClientSecret**
+마이그레이션 후에 [Azure 포털]에서 새 앱 서비스로 작업을 시작합니다. 다음은 해당하는 앱 서비스와 함께 [Azure 클래식 포털]에서 수행하는 데 사용되는 몇 가지 주의 사항입니다.
 
-* **MS\_MicrosoftPackageSID**
+### <a name="publishing-your-site"></a>마이그레이션된 사이트 다운로드 및 게시
 
-Facebook
+사이트는 git 또는 ftp를 통해 사용될 수 있고 WebDeploy, TFS, Mercurial, GitHub, FTP 등 다양한 메커니즘을 사용하여 다시 게시될 수 있습니다. 배포 자격 증명은 사이트의 나머지 부분을 통해 마이그레이션됩니다. 배포 자격 증명을 설정하지 않거나 기억하지 못하는 경우 다시 설정할 수 있습니다.
 
-* **MS\_FacebookAppID**
+  1. [Azure 포털]에 로그인합니다.
+  2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3. 기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+  4. 게시 메뉴에서 **배포 자격 증명**을 클릭합니다.
+  5. 제공한 상자에 새 배포 자격 증명을 입력한 다음 저장 단추를 클릭합니다.
 
-* **MS\_FacebookAppSecret**
+이러한 자격 증명을 사용하여 git를 통해 사이트를 복제하거나 GitHub, TFS 또는 Mercurial에서 자동화된 배포를 설치할 수 있습니다. 자세한 내용은 [Azure 앱 서비스 배포 설명서]를 참조하세요.
 
-Twitter
+### <a name="appsettings"></a>응용 프로그램 설정
 
-* **MS\_TwitterConsumerKey**
+마이그레이션된 모바일 서비스에 대한 설정은 대부분 앱 설정을 통해 사용할 수 있습니다. [Azure 포털]에서 앱 설정의 목록을 가져올 수 있습니다. 앱 설정을 보거나 변경하려면:
 
-* **MS\_TwitterConsumerSecret**
+  1. [Azure 포털]에 로그인합니다.
+  2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3. 기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+  4. 일반 메뉴에서 **응용 프로그램 설정**을 클릭합니다.
+  5. 앱 설정 섹션으로 스크롤하고 앱 설정을 찾습니다.
+  6. 앱 설정 값을 클릭하여 값을 편집합니다. **저장**을 클릭하여 값을 저장합니다.
 
-Google
+동시에 여러 앱 설정을 업데이트할 수 있습니다.
 
-* **MS\_GoogleClientID**
+> [AZURE.TIP]동일한 값을 가진 두 응용 프로그램 설정이 있는지 알 수 있습니다. 예를 들어 _ApplicationKey_ 및 _MS\_ApplicationKey_를 확인할 수 있습니다. **MS\_**라는 접두사가 붙은 앱 설정을 변경해야 합니다. 그러나 두 가지 앱 설정을 동시에 업데이트하는 것이 좋습니다.
 
-* **MS\_GoogleClientSecret**
+### <a name="authentication"></a>인증
 
-AAD
+모든 인증 설정은 마이그레이션된 사이트에서 앱 설정으로 사용할 수 있습니다. 인증 설정을 업데이트하려면 적절한 앱 설정을 변경해야 합니다. 다음 테이블에서는 인증 공급자에 대한 적절한 앱 설정을 보여줍니다.
 
-* **MS\_AadClientID**
+| 공급자 | 클라이언트 ID | 클라이언트 암호 | 기타 설정 |
+| :---------------- | :------------------------ | :--------------------------- | :------------------------- |
+| Microsoft 계정 | **MS\_MicrosoftClientID** | **MS\_MicrosoftClientSecret** | **MS\_MicrosoftPackageSID** |
+| Facebook | **MS\_FacebookAppID** | **MS\_FacebookAppSecret** | |
+| Twitter | **MS\_TwitterConsumerKey** | **MS\_TwitterConsumerSecret** | |
+| Google | **MS\_GoogleClientID** | **MS\_GoogleClientSecret** | |
+| Azure AD | **MS\_AadClientID** | | **MS\_AadTenants** |
 
-* **MS\_AadTenants** - 참고: **MS\_AadTenants**는 테넌트 도메인의 쉼표로 구분된 목록으로 저장됩니다.(Azure 클래식 포털에서 **허용된 테넌트** 필드)
+참고: **MS\_AadTenants**는 테넌트 도메인의 쉼표로 구분된 목록으로 저장됩니다(모바일 서비스 포털에서 "허용된 테넌트" 필드).
 
-### <a name="publish"></a>방법: 모바일 서비스 프로젝트 게시
+> [AZURE.WARNING]**설정 메뉴에 인증 메커니즘을 사용하지 마십시오**
+>
+> Azure 앱 서비스는 _인증/권한 부여_ 설정 메뉴에서 별도의 "코드 없는" 인증 및 권한 부여 시스템 및 설정 메뉴에서 (사용되지 않는) _모바일 인증_ 옵션을 제공합니다. 이러한 옵션은 마이그레이션된 Azure 모바일 서비스와 호환되지 않습니다. [사이트를 업그레이드]하여 Azure 앱 서비스 인증을 활용할 수 있습니다.
 
-1. [Azure 포털]에서 앱으로 이동하고 명령 모음에서 **게시 프로필 가져오기**를 클릭하며 로컬 컴퓨터에 다운로드한 프로필을 저장합니다.
-2. Visual Studio에서 모바일 서비스 서버 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 클릭합니다. 
-3. 프로필 탭에서 **가져오기**를 선택하고 다운로드한 프로필을 찾습니다.
-3. **게시**를 클릭하여 앱 서비스에 코드를 배포합니다.
+### <a name="easytables"></a>데이터
 
-로그는 표준 앱 서비스 로깅 기능을 통해 처리됩니다. 로깅에 대해 자세히 알아보려면 [Azure 앱 서비스에서 진단 로깅을 사용]을 참조하세요.
+모바일 서비스에서 _데이터_ 탭은 Azure 포털 내에서 _쉬운 테이블_로 대체되었습니다. 쉬운 테이블에 액세스하려면:
 
+  1. [Azure 포털]에 로그인합니다.
+  2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3. 기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+  4. 모바일 메뉴에서 **쉬운 테이블**을 클릭합니다.
 
+**추가** 단추를 클릭하여 새 테이블을 추가하거나 테이블 이름을 클릭하여 기존 테이블에 액세스할 수 있습니다. 다음을 비롯하여 이 블레이드에서 할 수 있는 다양한 작업이 있습니다.
 
-<!-- URLs. -->
+  * 테이블 사용 권한 변경
+  * 작업 스크립트 편집
+  * 테이블 스키마 관리
+  * 테이블 삭제
+  * 테이블 내용 지우기
+  * 테이블의 특정 행 삭제
 
-[Azure 포털]: https://portal.azure.com/
-[Azure 클래식 포털]: https://manage.windowsazure.com/
-[모바일 앱 정의]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /ko-KR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
-[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /ko-KR/documentation/services/scheduler/
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
-[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+### <a name="easyapis"></a>API
 
+모바일 서비스에서 _API_ 탭은 Azure 포털 내에서 _쉬운 API_로 대체되었습니다. 쉬운 API에 액세스하려면:
 
-[Azure 앱 서비스에서 진단 로깅을 사용]: web-sites-enable-diagnostic-log.md
-[앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
-[앱 서비스 환경]: app-service-app-service-environment-intro.md
-[모바일 서비스 vs. 앱 서비스]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
-[migrate a mobile service to a mobile app on App Service]: app-service-mobile-migrating-from-mobile-services.md
+  1. [Azure 포털]에 로그인합니다.
+  2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3. 기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+  4. 모바일 메뉴에서 **쉬운 API**를 클릭합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+마이그레이션된 API는 블레이드에 이미 나열됩니다. 또한 이 블레이드에서 새로운 API를 추가할 수 있습니다. 특정 API를 관리하려면 API를 클릭합니다. 새 블레이드에서 사용 권한을 조정하고 API에 대한 스크립트를 편집할 수 있습니다.
+
+### <a name="on-demand-jobs"></a>요청 시 예약된 작업
+
+요청 시 예약된 작업은 웹 요청을 통해 트리거됩니다. [Postman], [Fiddler] 또는 [curl]과 같은 HTTP 클라이언트를 사용하는 것이 좋습니다. 사이트가 'contoso'라고 하는 경우 요청 시 작업 트리거할 수 있는 끝점 https://contoso.azure-mobile.net/jobs/_yourjobname_가 있습니다. 마스터 키를 사용하여 추가 헤더 **X-ZUMO-MASTER**를 제출해야 합니다.
+
+마스터 키를 다음과 같이 얻을 수 있습니다.
+
+  1. [Azure 포털]에 로그인합니다.
+  2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3. 기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+  4. 일반 메뉴에서 **응용 프로그램 설정**을 클릭합니다.
+  5. **MS\_MasterKey** 응용 프로그램 설정을 검색합니다.
+
+Postman 세션으로 마스터 키를 잘라내기 및 붙여넣기할 수 있습니다. 마이그레이션된 모바일 서비스에서 요청 시 작업을 트리거하는 예는 다음과 같습니다.
+
+  ![Postman을 사용하여 요청 시 작업 트리거][2]
+
+설정을 적어둡니다:
+
+  * 메서드: **게시**
+  * URL: https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
+  * 헤더: X-ZUMO-MASTER: _your-master-key_
+
+또는 [curl]를 사용하여 명령줄에서 요청 시 작업을 트리거할 수 있습니다.
+
+    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
+
+요청 시 작업은 `App_Data/config/scripts/scheduler post-migration`에 위치합니다. 모든 요청 시 작업을 [WebJobs]으로 변환하는 것이 좋습니다.
+
+### <a name="notification-hubs"></a>알림 허브
+
+모바일 서비스는 푸시 알림에 알림 허브를 사용합니다. 마이그레이션 후에 알림 허브를 모바일 서비스에 연결하는 데 다음 앱 설정을 사용합니다.
+
+| 응용 프로그램 설정 | 설명 |
+| :------------------------------------- | :--------------------------------------- |
+| **MS\_PushEntityNamespace** | 알림 허브 네임스페이스 |
+| **MS\_NotificationHubName** | 알림 허브 이름 |
+| **MS\_NotificationHubConnectionString** | 알림 허브 연결 문자열 |
+| **MS\_NamespaceName** | MS\_PushEntityNamespace에 대한 별칭 |
+
+알림 허브는 [Azure 포털]을 통해 관리됩니다. 알림 허브 이름을 적어둡니다.(앱 설정을 사용하여 찾을 수 있습니다)
+
+  1. [Azure 포털]에 로그인합니다.
+  2. **찾아보기**>를 선택한 다음 **알림 허브**를 선택합니다.
+  3. 모바일 서비스와 연결된 알림 허브 이름을 클릭합니다.
+
+> [AZURE.NOTE]알림 허브가 "혼합" 형식인 경우 표시되지 않습니다. "혼합" 형식 알림 허브는 알림 허브 및 레거시 서비스 버스 기능을 모두 활용합니다. [혼합 네임스페이스를 변환]해야 합니다. 변환이 완료되면 알림 허브가 [Azure 포털]에 표시됩니다.
+
+자세한 내용은 [알림 허브] 설명서를 검토합니다.
+
+> [AZURE.TIP] [Azure 포털]의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
+
+### <a name="app-settings"></a>기타 앱 설정
+
+다음 추가 앱 설정은 모바일 서비스에서 마이그레이션되고 *설정* > *앱 설정*에서 사용할 수 있습니다.
+
+| 응용 프로그램 설정 | 설명 |
+| :------------------------------- | :-------------------------------------- |
+| **MS\_MobileServiceName** | 앱의 이름 |
+| **MS\_MobileServiceDomainSuffix** | 도메인 접두사 즉, azure-mobile.net입니다. |
+| **MS\_ApplicationKey** | 응용 프로그램 키 |
+| **MS\_MasterKey** | 앱 마스터 키 |
+
+응용 프로그램 키 및 마스터 키는 원본 모바일 서비스에서 응용 프로그램 키와 동일해야 합니다. 특히 응용 프로그램 키는 모바일 클라이언트에서 전송되어 모바일 API를 사용하는 유효성을 검사합니다.
+
+### <a name="cliequivalents"></a>해당하는 명령줄
+
+더 이상 _Azure 모바일_ 명령을 활용하여 Azure 모바일 서비스 사이트를 관리할 수 없습니다. 대신 많은 기능이 _Azure 사이트_ 명령과 대체됩니다. 아래 테이블을 사용하여 일반적인 명령에 대한 해당 항목을 찾습니다.
+
+| _Azure 모바일_ 명령 | 해당하는 _Azure 사이트_ 명령 |
+| :----------------------------------------- | :----------------------------------------- |
+| 모바일 위치 | 사이트 위치 목록 |
+| 모바일 목록 | 사이트 목록 |
+| 모바일 쇼 _이름_ | 사이트 쇼 _이름_ |
+| 모바일 재시작 _이름_ | 사이트 재시작 _이름_ |
+| 모바일 재배포 _이름_ | 사이트 배포 재배포 _commitId_ _이름_ |
+| 모바일 키 집합 _이름_ _형식_ _값_ | 사이트 appsetting 삭제 _키_ _이름_ <br/> 사이트 appsetting 추가 _키_=\_value\__이름_ |
+| 모바일 구성 목록 _이름_ | 사이트 appsetting 목록 _이름_ |
+| 모바일 구성 가져오기 _이름_ _키_ | 사이트 appsetting 쇼 _키_ _이름_ |
+| 모바일 구성 설정 _이름_ _키_ | 사이트 appsetting 삭제 _키_ _이름_ <br/> 사이트 appsetting 추가 _키_=\_value\__이름_ |
+| 모바일 도메인 목록 _이름_ | 사이트 도메인 목록 _이름_ |
+| 모바일 도메인 추가 _이름_ _도메인_ | 사이트 도메인 추가 _도메인_ _이름_ |
+| 모바일 도메인 삭제 _이름_ | 사이트 도메인 삭제 _도메인_ _이름_ |
+| 모바일 크기 조정 쇼 _이름_ | 사이트 쇼 _이름_ |
+| 모바일 크기 조정 변경 _이름_ | 사이트 크기 조정 모드 _모드_ _이름_ <br /> 사이트 크기 조정 인스턴스 _인스턴스_ _이름_ |
+| 모바일 appsetting 목록 _이름_ | 사이트 appsetting 목록 _이름_ |
+| 모바일 appsetting 추가 _이름_ _키_ _값_ | 사이트 appsetting 추가 _키_=\_value\__이름_ |
+| 모바일 appsetting 삭제 _이름_ _키_ | 사이트 appsetting 삭제 _키_ _이름_ |
+| 모바일 appsetting 쇼 _이름_ _키_ | 사이트 appsetting 삭제 _키_ _이름_ |
+
+적절한 응용 프로그램 설정을 업데이트하여 인증 또는 푸시 알림 설정을 업데이트합니다. ftp 또는 git를 통해 파일을 편집하고 사이트를 게시합니다.
+
+### <a name="diagnostics"></a>진단 및 로깅
+
+Azure 앱 서비스에서 정상적으로 진단 로깅을 사용합니다. 진단 로깅을 사용하려면:
+
+  1. [Azure 포털]에 로그인합니다.
+  2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3. 기본적으로 설정 블레이드가 열립니다. 열리지 않으면 **설정**을 클릭합니다.
+  4. 기능 메뉴에서 **진단 로그**를 선택합니다.
+  5. 다음 로그에서 **켜기**를 클릭합니다. **응용 프로그램 로깅(파일 시스템)**, **자세한 오류 메시지** 및 **실패한 요청 추적**
+  6. 웹 서버 로깅에서 **파일 시스템**을 클릭합니다.
+  7. **저장**을 클릭합니다.
+
+로그를 보려면:
+
+  1. [Azure 포털]에 로그인합니다.
+  2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 마이그레이션된 모바일 서비스의 이름을 클릭합니다.
+  3. **도구** 단추를 클릭합니다.
+  4. 관찰 메뉴에서 **로그 스트림**을 선택합니다.
+
+로그는 생성될 때 제공된 창에 스트리밍합니다. 배포 자격 증명을 사용하여 나중에 분석에 대한 로그를 다운로드할 수 있습니다. 자세한 내용은 [로깅] 설명서를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+응용 프로그램이 앱 서비스에 마이그레이션하지 않지만 더 많은 기능을 활용할 수 있습니다.
+
+  * [스테이징 슬롯]을 배포하면 사이트에 대한 변경 내용을 준비하고 A/B 테스트를 수행할 수 있습니다.
+  * [WebJobs]은 요청 시 예약된 작업을 대체합니다.
+  * TFS, GitHub 또는 Mercurial에 사이트를 연결하여 사이트를 [지속적으로 배포]할 수 있습니다.
+  * [Application Insights]를 사용하여 사이트를 모니터링할 수 있습니다.
+  * 동일한 코드에서 웹 사이트 및 모바일 API를 제공합니다.
+
+### <a name="upgrading-your-site"></a>Azure 모바일 앱 SDK에 모바일 서비스 사이트 업그레이드
+
+  * Node.js 기반 서버 프로젝트의 경우 새로운 [모바일 앱 Node.js SDK]에서 다양한 새로운 기능을 제공합니다. 예를 들어 이제 로컬 개발 및 디버깅을 수행하고 0.10 이후의 모든 Node.js 버전을 사용할 수 있으며 원하는 Express.js 미들웨어로 사용자 지정할 수 있습니다.
+
+  * .NET 기반 서버 프로젝트의 경우 새로운 [모바일 앱 SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)는 NuGet 종속성에 대한 유연성을 더 많이 제공하고, 새로운 앱 서비스 인증 기능을 지원하며, MVC를 비롯한 모든 ASP.NET 프로젝트를 사용하여 작성합니다. 업그레이드에 대한 자세한 내용은 [기존 .NET 모바일 서비스를 앱 서비스로 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)를 참조하세요.
+
+<!-- Images -->
+[0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.PNG
+[1]: ./media/app-service-mobile-migrating-from-mobile-services/migration-activity-monitor.png
+[2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
+
+<!-- Links -->
+[앱 서비스 가격]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
+[Application Insights]: ../application-insights/app-insights-overview.md
+[자동 크기 조정]: ../app-service-web/web-sites-scale.md
+[Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
+[Azure 앱 서비스 배포 설명서]: ../app-service-web/web-sites-deploy.md
+[Azure 클래식 포털]: https://manage.windowsazure.com
+[Azure 포털]: https://portal.azure.com
+[Azure 지역]: https://azure.microsoft.com/ko-KR/regions/
+[Azure 스케줄러 계획]: ../scheduler/scheduler-plans-billing.md
+[지속적으로 배포]: ../app-service-web/web-sites-publish-source-control.md
+[혼합 네임스페이스를 변환]: https://azure.microsoft.com/ko-KR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[curl]: http://curl.haxx.se/
+[사용자 지정 도메인 이름]: ../app-service-web/web-sites-custom-domain-name.md
+[Fiddler]: http://www.telerik.com/fiddler
+[Azure 앱 서비스의 일반적인 가용성]: /blog/announcing-general-availability-of-app-service-mobile-apps/
+[하이브리드 연결]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[로깅]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[모바일 앱 Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
+[모바일 서비스 vs. 앱 서비스]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[알림 허브]: ../notification-hubs/notification-hubs-overview.md
+[성능 모니터링]: ../app-service-web/web-sites-monitor.md
+[Postman]: http://www.getpostman.com/
+[모바일 서비스 백업]: ../mobile-services/mobile-services-disaster-recovery.md
+[스테이징 슬롯]: ../app-service-web/web-sites-staged-publishing.md
+[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
+[WebJobs]: ../app-service-web/websites-webjobs-resources.md
+
+<!---HONumber=AcomDC_1223_2015--->

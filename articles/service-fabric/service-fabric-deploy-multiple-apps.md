@@ -19,9 +19,9 @@
 
 # 여러 사용자 지정 응용 프로그램 배포
 
-이 문서에서는 http://aka.ms/servicefabricpacktool에서 사용할 수 있는 서비스 패브릭 패키징 도구의 Preview 버전을 사용하여 여러 응용 프로그램을 패키지하고 서비스 패브릭에 배포하는 방법을 설명합니다.
+이 문서에서는 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)에서 제공하는 서비스 패브릭 패키징 도구의 Preview 버전을 사용하여 여러 응용 프로그램을 패키지하고 Azure 서비스 패브릭에 배포하는 방법을 설명합니다.
 
-서비스 패브릭 패키지를 수동으로 빌드하는 방법은 [Azure 서비스 패브릭에서 기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md) 문서를 확인합니다.
+서비스 패브릭 패키지를 수동으로 빌드하는 방법은 [서비스 패브릭에서 기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
 
 이 연습에서는 MongoDB를 데이터 저장소로 사용하는 Node.js 프런트 엔드를 통해 응용 프로그램을 배포하는 방법을 보여 줍니다. 이 단계는 다른 응용 프로그램에 종속된 모든 응용 프로그램에 적용할 수 있습니다.
 
@@ -63,9 +63,9 @@
 - **/source**: 패키지할 응용 프로그램의 디렉터리를 가리킵니다.
 - **/target**: 패키지를 만들 디렉터리를 정의합니다. 이 디렉터리는 대상 디렉터리와 달라야 합니다.
 - **/appname**: 기존 응용 프로그램의 응용 프로그램 이름을 정의합니다. 이 이름은 매니페스트에서 서비스 패브릭 응용 프로그램 이름이 아니라 서비스 이름으로 변환된다는 점을 이해하는 것이 중요합니다.
-- **/exe**: 서비스 패브릭이 시작할 실행 파일을 정의합니다. 이 경우에는 `node.exe`입니다.
+- **/exe**: 서비스 패브릭이 시작할 실행 파일을 정의합니다. 이 예에서는 `node.exe`입니다.
 - **/ma**: 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다. `/ma:'bin/www'`는 `bin/ma`를 node.exe 인수로 사용하도록 패키징 도구에 지시합니다.
-- **/AppType**: 서비스 패브릭 응용 프로그램 형식 이름을 정의합니다. 현재
+- **/AppType**: 서비스 패브릭 응용 프로그램 형식 이름을 정의합니다.
 
 /target 매개 변수에서 지정한 디렉터리로 이동하면 다음과 같이 도구가 완벽하게 작동하는 서비스 패브릭 패키지를 만든 것을 볼 수 있습니다.
 
@@ -100,7 +100,7 @@
     </EntryPoint>
 </CodePackage>
 ```
-이 샘플에서 Node.js 웹 서버는 포트 3000에서 수신하므로 ServiceManifest.xml의 끝점 정보를 아래와 같이 업데이트해야 합니다.
+이 샘플에서 Node.js 웹 서버는 포트 3000에서 수신하므로 ServiceManifest.xml 파일의 끝점 정보를 아래와 같이 업데이트해야 합니다.
 
 ```xml
 <Resources>
@@ -109,23 +109,23 @@
       </Endpoints>
 </Resources>
 ```
-Node.js 응용 프로그램을 패키지했으므로 이제 MongoDB를 패키지할 수 있습니다. 앞에서 설명했듯이 지금 진행하는 단계는 Node.js 및 MongoDB에 국한된 것이 아니라, 하나의 서비스 패브릭 응용 프로그램으로 함께 패키지되는 모든 응용 프로그램에 적용됩니다.
+Node.js 응용 프로그램을 패키지했으므로 이제 MongoDB를 패키지할 수 있습니다. 앞서 언급했듯이 이제부터 수행할 단계는 Node.js 및 MongoDB에만 적용되는 것이 아니라 하나의 서비스 패브릭 응용 프로그램으로 패키지되어야 하는 모든 응용 프로그램에 적용됩니다.
 
-MongoDB를 패키지하려면 mongod.exe 및 mongo.exe를 패키지해야 합니다. 이 두 이진 파일은 MongoDB 설치 디렉터리의 `bin` 디렉터리에 있습니다. 디렉터리 구조는 아래와 유사합니다.
+MongoDB를 패키지하려면 Mongod.exe 및 Mongo.exe를 패키지해야 합니다. 이 두 이진 파일은 MongoDB 설치 디렉터리의 `bin` 디렉터리에 있습니다. 디렉터리 구조는 아래와 유사합니다.
 
 ```
 |-- MongoDB
 	|-- bin
         |-- mongod.exe
         |-- mongo.exe
-        |-- etc.
+        |-- anybinary.exe
 ```
 서비스 패브릭에서 아래와 유사한 명령을 사용하여 MongoDB를 시작해야 하므로 MongoDB를 패키지할 때 `/ma` 매개 변수를 사용해야 합니다.
 
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE]노드 오류가 발생할 경우 데이터가 보존되지 않으므로 MongoDB 데이터 디렉터리를 노드의 로컬 디렉터리에 넣습니다. 데이터 손실을 방지하려면 지속형 저장소를 사용하거나 MongoDB ReplicaSet를 구현해야 합니다.
+> [AZURE.NOTE]MongoDB 데이터 디렉터리를 노드의 로컬 디렉터리에 넣으면 노드 오류 발생 시 데이터가 보존되지 않습니다. 데이터 손실을 방지하려면 지속형 저장소를 사용하거나 MongoDB 복제본 세트를 구현해야 합니다.
 
 PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도구를 실행합니다.
 
@@ -133,7 +133,7 @@ PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도�
 .\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
 ```
 
-서비스 패브릭 응용 프로그램 패키지에 MongoDB를 추가하려면 /target 매개 변수에서 응용 프로그램 매니페스트와 Node.js 응용 프로그램이 이미 포함된 디렉터리를 지정하고 동일한 ApplicationType 이름을 사용해야 합니다.
+서비스 패브릭 응용 프로그램 패키지에 MongoDB를 추가하려면 /target 매개 변수가 응용 프로그램 매니페스트와 Node.js 응용 프로그램이 이미 포함된 디렉터리를 가리켜야 합니다. 또한 동일한 ApplicationType 이름을 사용해야 합니다.
 
 해당 디렉터리로 이동하여 도구가 만든 항목을 확인합니다.
 
@@ -192,10 +192,10 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 응용 프로그램을 성공적으로 로컬 클러스터에 게시한 후에는 Node.js 응용 프로그램의 서비스 매니페스트에 입력한 포트(예: http://localhost:3000)에서 Node.js 응용 프로그램에 액세스할 수 있습니다.
 
-이 자습서에서는 고가용성 및 상태 시스템 통합 등 서비스 패브릭의 일부 기능을 사용하기 위해 두 개의 기존 응용 프로그램을 하나의 서비스 패브릭 응용 프로그램으로 패키지하고 서비스 패브릭에 배포하는 방법을 학습했습니다.
+이 자습서에서는 간편하게 두 기존 응용 프로그램을 하나의 서버 패브릭 응용 프로그램으로 패키지하는 방법을 알아보았습니다. 또한 고가용성 및 상태 시스템 통합 같은 서비스 패브릭의 장점을 활용할 수 있도록 응용 프로그램을 서비스 패브릭에 배포하는 방법도 알아보았습니다.
 
 ## 다음 단계
 
-[단일 응용 프로그램을 수동으로 패키지](service-fabric-deploy-existing-app.md)하는 방법 알아보기
+- [단일 응용 프로그램을 수동으로 패키지](service-fabric-deploy-existing-app.md)하는 방법을 알아보세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

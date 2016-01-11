@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/01/2015"
+   ms.date="12/21/2015"
    ms.author="curtand;kareni;ruchic"/>
 
 # Azure 구독 양도
@@ -71,7 +71,7 @@
 
     이는 완전한 목록이 아닙니다. 받는 사람은 리소스에 액세스를 제한해야 하는 경우 서비스와 연결된 암호 업데이트를 고려해야 합니다. 대부분의 리소스는 다음과 같이 업데이트할 수 있습니다.
 
-    1.   Azure 포털로 이동합니다.[**https://portal.azure.com*](https://portal.azure.com)
+    1.   Azure 포털로 이동합니다.[*https://portal.azure.com*](https://portal.azure.com)
 
     2.    모두 찾아보기 -&gt; 모든 리소스를 클릭합니다.
 
@@ -98,7 +98,7 @@
 
 -   **받는 사람이 다른 지불 메커니즘을 사용할 수 있습니까?**
 
-    예, 실제로 송장에서 신용 카드까지 구독에 대한 지불 방법을 변경하려면 이 메커니즘을 사용할 수 있습니다. 소유하고 있는 다른 계정에 양도하고 구독을 수신하는 동안 사용자의 신용 카드를 입력합니다. 여기에 제한 사항이 있습니다. 현재 구독 청구 내역은 두 계정으로 분할됩니다. 하지만 [지원 부서에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)할 필요 없이 이를 수행할 수 있는 장점이 있습니다.
+    예. 여기에 제한 사항이 있습니다. 현재 구독 청구 내역은 두 계정으로 분할됩니다. 하지만 [지원 부서에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)할 필요 없이 이를 수행할 수 있는 장점이 있습니다.
 
 ## 구독 소유권을 수락한 후 다음 단계
 
@@ -111,4 +111,4 @@
 4. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) [자세한 정보](http://go.microsoft.com/fwlink/?LinkID=533292)에서 이 구독에 대한 청구 경고를 업데이트합니다.
 5. 	파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. 이 작업은 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

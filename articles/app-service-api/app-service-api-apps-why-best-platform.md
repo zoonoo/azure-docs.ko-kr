@@ -42,7 +42,7 @@ API 앱은 다음과 같은 기능을 제공합니다.
 
 >[AZURE.NOTE] [Azure API 관리](../api-management/api-management-key-concepts.md)를 사용하여 앱 서비스 API 앱에서 호스트되는 API에 대한 클라이언트 액세스를 제어할 수 있습니다. API 앱이 인증 서비스를 제공하는 반면 액세스 관리 끝점 통합 및 제한 등 API 관리에서 제공하는 다른 기능을 제공하지 않습니다.
 
-## API 앱 개념 ##
+## <a id="concepts"></a> API 앱 개념
 
 - **Swagger** - API 앱에서 기본적으로 사용되는 RESTful API 검색 및 설명서를 위한 프레임워크입니다. 자세한 내용은 [http://swagger.io/](http://swagger.io/)(영문)를 참조하세요.
 - **CORS(Cross Origin Resource Sharing)** - 브라우저에서 실행되는 JavaScript가 웹 페이지가 로드한 것과 다른 도메인에서 호스트되는 API에 호출하도록 허용하는 메커니즘입니다. 자세한 내용은 [CORS를 사용하여 JavaScript에서 API 앱 사용](app-service-api-cors-consume-javascript.md)을 참조하세요. 
@@ -57,4 +57,4 @@ API 앱의 알려진 문제 목록을 보려면 [API 앱의 알려진 문제 포
 
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

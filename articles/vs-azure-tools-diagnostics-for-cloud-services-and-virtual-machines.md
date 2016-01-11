@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성
@@ -357,4 +357,4 @@ RoleEntryPoint 메서드는 IIS가 아닌, WAIISHost.exe 컨텍스트에서 호�
 
 Azure에서 로깅 진단에 대한 자세한 내용은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](cloud-services-dotnet-diagnostics.md) 및 [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정](web-sites-enable-diagnostic-log.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

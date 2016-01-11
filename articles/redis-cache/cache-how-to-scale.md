@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 크기를 조정하는 방법
 
->[AZURE.NOTE]Azure Redis Cache 크기 조정 기능은 현재 미리 보기 상태입니다. 미리 보기 기간 동안에는 크기를 프리미엄 계층 캐시로 조정하거나 프리미엄 계층 캐시에서 조정할 수 없지만 프리미엄 캐시 내에서 가격 책정 계층을 변경할 수는 있습니다.
+>[AZURE.NOTE]Azure Redis Cache 크기 조정 기능은 현재 미리 보기 상태입니다. 미리 보기 기간 동안에는 프리미엄 계층 캐시에서 크기를 조정할 수 없지만 프리미엄 캐시 내에서 가격 책정 계층을 변경하고 클러스터링이 가능한 프리미엄 캐시에서 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다.
 
 Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 [Azure 포털](https://portal.azure.com)의 **가격 책정 계층 변경** 블레이드를 사용하여 캐시 크기를 조정할 수 있습니다.
 
@@ -61,7 +61,25 @@ Azure Redis Cache의 [모니터링](cache-how-to-monitor.md) 기능을 사용하
 
 ## 크기 조정 작업을 자동화하는 방법
 
-Azure 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 아니라 [MAML(Microsoft Azure Management Libraries)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)로 크기를 조정할 수도 있습니다. 캐시 크기를 조정하려면 `IRedisOperations.CreateOrUpdate` 메서드를 호출하고 `RedisProperties.SKU.Capacity`의 새 크기를 전달합니다.
+Azure 포털에서 Azure Redis Cache 인스턴스의 크기를 조정할 뿐만 아니라 Azure Redis Cache PowerShell cmdlet, Azure CLI를 사용하거나 MAML(Microsoft Azure Management Libraries)을 사용하여 크기를 조정할 수 있습니다.
+
+### PowerShell을 사용하여 크기 조정
+
+`Size`, `Sku`, 또는 `ShardCount` 속성은 수정할 때 [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet를 사용하여 PowerShell을 통해 Azure Redis Cache 인스턴스를 확장할 수 있습니다. 다음 예제에서는 `myCache`라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여줍니다.
+
+	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+
+PowerShell을 통한 크기 조정에 대한 자세한 내용은 [Powershell을 사용하여 Redis Cache의 크기 조정](cache-howto-manage-redis-cache-powershell.md#scale)을 참조하세요.
+
+### Azure CLI를 사용한 크기 조정
+
+Azure CLI를 사용하여 Azure Redis Cache 인스턴스 크기를 조정하려면 원하는 크기 조정 작업에 따라 `azure rediscache set` 명령을 호출하고 새 크기, SKU, 또는 클러스터 크기를 포함하는 원하는 구성 변경에 전달합니다.
+
+Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Cache의 설정 변경](cache-manage-cli.md#scale)을 참조하세요.
+
+### MAML을 사용하여 크기 조정
+
+[MAML(Microsoft Azure Management Libraries)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)를 사용하여 Azure Redis Cache 인스턴스의 크기를 조정하려면 `IRedisOperations.CreateOrUpdate` 메서드를 호출하고 `RedisProperties.SKU.Capacity`에 대해 새 크기를 전달합니다.
 
     static void Main(string[] args)
     {
@@ -92,7 +110,7 @@ Azure 포털에서 Azure Redis Cache 인스턴스 크기를 조정할 뿐만 아
 -	**기본** 또는 **표준** 가격 책정 계층에서 **프리미엄** 캐시 가격 책정 계층으로 크기를 조정할 수 없습니다.
 -	**프리미엄** 캐시에서 **기본** 또는 **표준** 가격 책정 계층으로 크기를 조정할 수 없습니다.
 -	하나의 **프리미엄** 캐시 가격 책정 계층에서 다른 프리미엄 캐시 가격 책정 계층으로 크기를 조정할 수 있습니다.
--	**프리미엄** 캐시를 만들 때 클러스터링을 사용하도록 설정했으면 분할된 데이터베이스 수를 위 또는 아래로 크기를 조정할 수 있습니다.
+-	**프리미엄** 캐시를 만들 때 클러스터링을 사용하도록 설정했으면 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다.
 
 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
 
@@ -160,4 +178,4 @@ Azure 포털에서 진행 중인 크기 조정 작업을 볼 수 있습니다. �
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

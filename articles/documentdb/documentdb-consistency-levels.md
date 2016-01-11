@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="12/23/2015" 
 	ms.author="mimig"/>
 
 # 일관성 수준을 사용하여 DocumentDB에서 가용성 및 성능 최대화
@@ -88,4 +88,4 @@
 -	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # 정책을 사용하여 리소스 및 컨트롤 액세스 관리
@@ -52,7 +52,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 
 **조건/논리 연산자:** 논리 연산자 집합을 통해 조작할 수 있는 조건의 집합을 포함합니다.
 
-**효과:** 조건이 충족될 때의 효과 즉, 거부 또는 감사를 설명합니다. 감사 효과는 경고 이벤트 서비스 로그를 내보냅니다. 예를 들어 관리자는 누군가가 큰 VM을 만들 경우 감사를 수행하게 하는 정책을 만든 다음 나중에 로그를 검토할 수 있습니다.
+**효과:** 조건이 충족될 때의 효과, 즉 거부 또는 감사를 설명합니다. 감사 효과는 경고 이벤트 서비스 로그를 내보냅니다. 예를 들어 관리자는 누군가가 큰 VM을 만들 경우 감사를 수행하게 하는 정책을 만든 다음 나중에 로그를 검토할 수 있습니다.
 
     {
       "if" : {
@@ -71,14 +71,14 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 | 연산자 이름 | 구문 |
 | :------------- | :------------- |
 | Not | "not" : {&lt;condition or operator &gt;} |
-| 및 | "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
-| 또는 | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
+| 및 | "allOf" : [ {&lt;조건 또는 연산자 &gt;},{&lt;조건 또는 연산자 &gt;}] |
+| 또는 | "anyOf" : [ {&lt;조건 또는 연산자 &gt;},{&lt;조건 또는 연산자&gt;}] |
 
-중첩 조건은 지원되지 않습니다.
+리소스 관리자를 사용하면 중첩된 연산자를 통해 정책에서 복잡한 논리를 지정할 수 있습니다. 예를 들어 지정된 리소스 종류에 대한 특정 위치에서 리소스 만들기를 거부할 수 있습니다. 아래에 중첩된 연산자의 예제가 나와 있습니다.
 
 ## 조건
 
-조건은 **필드** 또는 **소스**가 특정 기준을 충족하는지를 평가합니다. 지원되는 조건 이름과 구문은 다음과 같습니다.
+조건은 **필드** 또는 **원본**이 특정 기준을 충족하는지를 평가합니다. 지원되는 조건 이름과 구문은 다음과 같습니다.
 
 | 조건 이름 | 구문 |
 | :------------- | :------------- |
@@ -88,7 +88,6 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 | 내용 | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;keyName&gt;" |
 
-
 ## 필드 및 소스
 
 조건은 필드와 소스를 사용하여 형성됩니다. 필드는 리소스 요청 페이로드의 속성을 나타냅니다. 원본은 요청 자체의 특성을 나타냅니다.
@@ -97,9 +96,9 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 
 필드: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
-소스: **action**.
+원본: **action**.
 
-작업에 대한 자세한 내용은 [RBAC - 기본 제공 역할](active-directory/role-based-access-built-in-roles.md)을 참조하세요.
+작업에 대한 자세한 내용은 [RBAC - 기본 제공 역할](active-directory/role-based-access-built-in-roles.md)을 참조하세요. 현재 정책은 PUT 요청에만 작동합니다.
 
 ## 정책 정의 예제
 
@@ -185,6 +184,30 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
         "effect" : "deny"
       }
     }
+    
+### 저장소 리소스 전용 태그 요구 사항
+
+아래 예제에서는 저장소 리소스에만 응용 프로그램 태그를 요구하도록 논리 연산자를 중첩하는 방법을 보여 줍니다.
+
+    {
+        "if": {
+            "allOf": [
+              {
+                "not": {
+                  "field": "tags",
+                  "containsKey": "application"
+                }
+              },
+              {
+                "source": "action",
+                "like": "Microsoft.Storage/*"
+              }
+            ]
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
 
 ## 정책 할당
 
@@ -226,7 +249,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
     }
 
 
-정책 정의를 위에 나오는 예제 중 하나로 정의할 수 있습니다. api-version에는 *2015-10-01-preview*를 사용합니다. 예제 및 자세한 내용은 [정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 참조하세요.
+정책 정의를 위에 나오는 예제 중 하나로 정의할 수 있습니다. api-version에는 *2015-10-01-preview*를 사용합니다. 예제 및 보다 자세한 세부 정보는 [정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 참조하세요.
 
 ### PowerShell을 사용하여 정책 정의 만들기
 
@@ -273,7 +296,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
       "name":"VMPolicyAssignment"
     }
 
-예제 및 자세한 내용은 [정책 할당에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)를 참조하세요.
+예제 및 보다 자세한 세부 정보는 [정책 할당에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)를 참조하세요.
 
 ### PowerShell을 사용하여 정책 할당
 
@@ -291,4 +314,17 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
 
 마찬가지로 Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment 및 Remove-AzureRmPolicyAssignment cmdlet을 통해 각각 정책 할당을 가져오거나 변경 또는 제거할 수 있습니다.
 
-<!---HONumber=Nov15_HO3-->
+##정책 감사 이벤트
+
+정책을 적용한 후 정책 관련 이벤트를 보려면 시작합니다. 포털로 이동하거나 PowerShell을 사용하여 이 데이터를 가져올 수 있습니다.
+
+거부 효과와 관련된 모든 이벤트를 보려면 다음 명령을 사용합니다.
+
+    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+
+감사 효과와 관련된 모든 이벤트를 보려면 다음 명령을 사용합니다.
+
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
+    
+
+<!---HONumber=AcomDC_1223_2015-->

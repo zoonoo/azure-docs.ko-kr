@@ -3,7 +3,7 @@
 	description="Microsoft Azure 저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스를 만들고 관리하는 방법을 설명합니다."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # 저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리
 
@@ -182,4 +182,4 @@ Blob 컨테이너에 대한 액세스를 제어하려면 **Manage Access Control
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

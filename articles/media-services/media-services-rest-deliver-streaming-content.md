@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,6 +46,7 @@
    		
 	점진적으로 다운로드하려는 경우 자산의 MP4 파일의 이름을 가져옵니다. 
    4. 매니페스트 파일 또는 MP4 파일에 URL을 작성합니다. 
+   5. 쓰기 또는 삭제 권한을 포함하는 AccessPolicy를 사용하여 스트리밍 로케이터를 만들 수 없습니다.
 
 
 ###액세스 정책 만들기
@@ -186,4 +187,8 @@ URL: **경로** + 자산 파일 mp4 이름
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+##참고 항목
+
+[자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)
+
+<!---HONumber=AcomDC_1223_2015-->

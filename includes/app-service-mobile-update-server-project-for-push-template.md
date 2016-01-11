@@ -50,9 +50,13 @@
 
 	알림 허브를 사용하는 템플릿에 대한 자세한 내용은 [템플릿](notification-hubs-templates.md)을 참조하세요.
 
+4. 서버 프로젝트를 다시 게시합니다.
+
 ### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
 
-1. todoitem.js 파일의 기존 코드를 다음으로 바꿉니다.
+1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure 포털에서 온라인 편집기](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.
+
+2. todoitem.js 파일의 기존 코드를 다음으로 바꿉니다.
 
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -97,4 +101,4 @@
 
 2. 로컬 컴퓨터에서 파일을 편집할 때 서버 프로젝트를 다시 게시합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

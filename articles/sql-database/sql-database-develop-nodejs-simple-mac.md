@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Ubuntu Linux상의 Tedious와 함께 Node.js를 사용하여 SQL 데이터베이스에 연결
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 이 항목에서는 Mac OS X에서 실행 되는 Node.js 코드 샘플을 제공 합니다. 이 샘플은 Tedious 드라이버를 사용 하여 Azure SQL 데이터베이스에 연결합니다.
@@ -33,9 +36,9 @@
 **노드**가 이미 컴퓨터에 설치되지 않았다면 노드를 설치합니다.
 
 
-OSX 10.10 Yosemite에 node.js를 설치 하려면 깔끔하고 간단하게 설치 하는 미리 컴파일된 이전 패키지를 다운로드할 수 있습니다. [Nodejs.org을 통해 head](http://nodejs.org/) 최신 패키지를 다운로드 하려면 설치 단추를 클릭 합니다.
+OSX 10.10 Yosemite에 node.js를 설치 하려면 깔끔하고 간단하게 설치 하는 미리 컴파일된 이전 패키지를 다운로드할 수 있습니다. [nodejs.org로 이동](http://nodejs.org/)하고 설치 단추를 클릭하여 최신 패키지를 다운로드합니다.
 
-.dmg 받은 패키지를 설치 마법사를 따라 수행하여 **노드** 및 **npm**을 설치합니다.노드 패키지 관리자(NPM)은 node.js에 대한 추가 패키지의 설치를 용이하게 합니다.
+.dmg에서 받은 패키지를 설치 마법사를 따라 설치하여 **노드** 및 **npm**을 설치합니다. npm은 노드 패키지 관리자로, node.js에 대한 추가 패키지의 설치를 용이하게 합니다.
 
 
 컴퓨터에 **노드** 및 **npm**이 구성된 후, Node.js 프로젝트를 만들려는 디렉터리로 이동하고 다음 명령을 입력합니다.
@@ -170,6 +173,6 @@ OSX 10.10 Yosemite에 node.js를 설치 하려면 깔끔하고 간단하게 설�
 
 ## 다음 단계
 
-자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하십시오.
+자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

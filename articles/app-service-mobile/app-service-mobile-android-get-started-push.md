@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="12/18/2015"
 	ms.author="yuaxu"/>
 
 # Android 앱에 푸시 알림 추가
@@ -49,11 +49,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="publish-the-service"></a>Azure에 모바일 백 엔드 게시
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## 앱에 푸시 알림 추가
+
+Android 앱 프로젝트가 푸시 알림을 처리할 준비가 되었는지 확인해야 합니다.
 
 ###Android SDK 버전 확인
 
@@ -75,7 +73,7 @@
 
 USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
-##<a id="more"></a>추가
+##<a id="more"></a>추가 정보
 
 * 태그를 사용하면 푸시를 사용하여 여러 조각으로 나뉜 고객을 대상으로 할 수 있습니다. [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)은 장치 설치에 태그를 추가하는 방법을 보여줍니다.
 
@@ -83,4 +81,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Android 빠른 시작]: app-service-mobile-android-get-started.md
 [Android 빠른 시작 안내서]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

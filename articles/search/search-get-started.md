@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/18/2015" 
 	ms.author="heidist"/>
 
 # Azure 검색 시작
@@ -78,7 +78,7 @@ Microsoft Azure 검색은 호스팅되는 클라우드 검색 서비스로, 서�
 
 **1단계 - 가격 책정 계층을 표준으로 설정하여 새 서비스 만들기**
 
-1. 기존 구독을 사용하여 [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다. 
+1. 기존 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인합니다. 
 
 2. 페이지 아래쪽에서 **새로 만들기**를 클릭합니다.
 
@@ -310,7 +310,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 구성 페이지를 찾을 위치에 리프레셔가 필요한 경우 다음 단계에 따라 서비스 대시보드를 찾으세요.
 
-1.	기존 구독을 사용하여 [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다. 
+1.	기존 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인합니다. 
 2.	**홈**을 클릭한 다음 검색 서비스에 대한 타일을 클릭합니다.
 
  	![][22]
@@ -378,4 +378,4 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

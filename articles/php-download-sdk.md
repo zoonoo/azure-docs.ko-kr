@@ -79,7 +79,7 @@ Azure용 PHP 클라이언트 라이브러리를 PEAR 패키지로 설치하려�
 		pear channel-discover pear.windowsazure.com
 3. PEAR 패키지를 설치합니다.
 
-		pear install pear.windowsazure.com/WindowsAzure-0.4.0
+		pear install pear.windowsazure.com/WindowsAzure-0.4.1
 
 설치를 완료한 후 응용 프로그램에서 클래스 라이브러리를 참조할 수 있습니다.
 
@@ -130,4 +130,4 @@ Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서�
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

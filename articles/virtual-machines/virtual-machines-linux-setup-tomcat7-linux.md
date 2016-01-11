@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #Microsoft Azure를 사용하여 Linux 가상 컴퓨터에 Tomcat7을 설치하는 방법
@@ -306,4 +306,4 @@ tomcat 서비스를 다시 시작하려면：
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

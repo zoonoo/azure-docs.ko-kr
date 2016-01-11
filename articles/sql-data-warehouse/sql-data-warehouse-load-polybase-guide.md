@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/17/2015"
    ms.author="sahaj08;barbkess"/>
 
 
@@ -181,7 +181,7 @@ SQL 데이터 웨어하우스에 데이터를 이동하는 방법에 대한 자�
 
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[PolyBase를 사용하여 데이터 로드]: sql-data-warehouse-load-with-polybase.md
+[PolyBase를 사용하여 데이터 로드]: sql-data-warehouse-get-started-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [통계]: sql-data-warehouse-develop-statistics.md
@@ -210,4 +210,4 @@ SQL 데이터 웨어하우스에 데이터를 이동하는 방법에 대한 자�
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

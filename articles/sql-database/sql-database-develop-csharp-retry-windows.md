@@ -12,19 +12,24 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # 코드 샘플: SQL 데이터베이스에 연결에 대한 C#에서 논리 다시 시도
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
-이 항목에서는 사용자 지정 재시도 논리를 보여 주는 C# 코드 샘플을 제공합니다. 재시도 논리는 프로그램이 잠시 기다렸다가 재시도하는 경우 없어지는 경향이 있는 임시 오류 또는 *일시적인 오류*를 정상적으로 처리하도록 설계되었습니다.
+
+이 항목에서는 사용자 지정 재시도 논리를 보여 주는 C# 코드 샘플을 제공합니다. 재시도 논리는 프로그램이 잠시 기다렸다가 재시도하는 경우 없어지는 경향이 있는 임시 오류 또는 *일시적인 오류*를 정상적으로 처리하도록 디자인되었습니다.
 
 
 로컬 Microsoft SQL 서버에 연결하는 데 사용하는 ADO.NET 클래스는 Azure SQL 데이터베이스에 연결할 수도 있습니다. 그러나 ADO.NET 클래스 단독으로 프로덕션 사용에 필요한 모든 견고성과 안전성을 제공할 수 없습니다. 클라이언트 프로그램은 자체적으로 정상적으로 복구해야 하는 일시적인 오류가 발생할 수 있습니다.
@@ -282,4 +287,6 @@ filetable_updates_2105058535    2105058535
 
 - [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+- [SQL 데이터베이스 시도: C#을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기](sql-database-get-started-csharp.md)
+
+<!---HONumber=AcomDC_1223_2015-->

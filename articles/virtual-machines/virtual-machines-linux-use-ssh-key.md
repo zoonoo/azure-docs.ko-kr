@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/15/2015" 
 	ms.author="rasquill"/>
 
 #Azure에서 Linux 및 Mac과 함께 SSH를 사용하는 방법
@@ -86,7 +86,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 ### 예: id\_rsa.pub 파일을 사용하여 VM 만들기
 
-가장 일반적인 사용법은 명령을 통해 VM을 만들거나 템플릿을 업로드하여 VM을 만드는 경우입니다. 다음 코드 예제에서는 공개 파일 이름(이 예에서는 기본 `~/.ssh/id_rsa` 파일)을 `azure vm create` 명령에 전달하여 안전한 Linux VM을 새로 만드는 방법을 보여줍니다. (다른 인수는 이전에 만들었습니다.)
+가장 일반적인 사용법은 명령을 통해 VM을 만들거나 템플릿을 업로드하여 VM을 만드는 경우입니다. 다음 코드 예제에서는 공개 파일 이름(이 예에서는 기본 `~/.ssh/id_rsa.pub` 파일)을 `azure vm create` 명령에 전달하여 Azure에서 안전한 Linux VM을 새로 만드는 방법을 보여 줍니다. (다른 인수는 이전에 만들었습니다.)
 
 	azure vm create \
 	--nic-name testnic \
@@ -96,7 +96,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 	--storage-account-name computeteststore 
 	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
 	--username ops \
-	-ssh-publickey-file ~/.ssh/id_rsa \
+	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
 
 그 다음 예에서는 리소스 관리자 템플릿 및 Azure CLI와 함께 **ssh-rsa** 형식을 사용하여 Ubuntu VM을 만들고 사용자 이름 및 `~/.ssh/id_rsa.pub`의 내용을 문자열로 입력하여 보호하는 방법을 보여줍니다. (이 예에서는 쉽게 읽을 수 있도록 공개 키 문자열의 길이를 줄였습니다.)
@@ -264,7 +264,7 @@ VM을 만들 때 기본 SSH 포트 22를 사용하지 않았으면 다음 예와
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
 	Saving password to keychain failed
-	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
+	Identity added: /Users/user/.ssh/id_rsa.pub (/Users/user/.ssh/id_rsa.pub)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/
@@ -298,4 +298,4 @@ VM을 만들 때 기본 SSH 포트 22를 사용하지 않았으면 다음 예와
  
 VM에 연결했으니, 선택한 배포를 계속 사용할 수 있도록 업데이트해야 합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

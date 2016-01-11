@@ -262,7 +262,7 @@
 
 8.	RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 9.	Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 `/boot/grub/menu.lst`를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
 
@@ -379,7 +379,7 @@
 
 7.	RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 8.	Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 `/etc/default/grub`을 열고 **GRUB\_CMDLINE\_LINUX** 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
 
@@ -396,12 +396,22 @@
 9.	위의 설명에 따라 `/etc/default/grub` 편집을 완료한 후에는 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
+        
+10.	Hyper-V 모듈을 initramfs에 추가합니다.
 
-10.	Cloud-Init을 제거합니다.
+    `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    initramfs를 다시 빌드합니다.
+
+        # dracut –f -v
+        
+11.	Cloud-Init을 제거합니다.
 
         # yum remove cloud-init
 
-11.	SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
+12.	SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
 
         # systemctl enable sshd
 
@@ -414,12 +424,12 @@
 
         systemctl restart sshd	
 
-12.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 EPEL 리포지토리를 사용하도록 설정합니다.
+13.	WALinuxAgent 패키지 `WALinuxAgent-<version>`가 Fedora EPEL 6 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 EPEL 리포지토리를 사용하도록 설정합니다.
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
 
-13.	다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+14.	다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
         # yum install WALinuxAgent
 
@@ -427,7 +437,7 @@
 
         # systemctl enable waagent.service
 
-14.	OS 디스크에 스왑 공간을 만들지 마십시오. Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
+15.	OS 디스크에 스왑 공간을 만들지 마십시오. Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -435,19 +445,19 @@
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	다음 명령을 실행하여 (필요한 경우) 구독에 대한 등록을 해제합니다.
+16.	다음 명령을 실행하여 (필요한 경우) 구독에 대한 등록을 해제합니다.
 
         # subscription-manager unregister
 
-16.	다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+17.	다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-17.	KVM의 가상 컴퓨터를 종료합니다.
+18.	KVM의 가상 컴퓨터를 종료합니다.
 
-18.	qcow2 이미지를 vhd 형식으로 변환합니다.
+19.	qcow2 이미지를 vhd 형식으로 변환합니다.
 
     우선 이미지를 원시 형식으로 변환합니다.
 
@@ -484,7 +494,7 @@
 
     **참고:** 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
 
-2.	다음 텍스트가 포함된 **네트워크**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
+2.	다음 텍스트가 포함된 **network**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
@@ -580,7 +590,7 @@
 
 ###RHEL 7.1/7.2
 
-1.	다음 텍스트가 포함된 **네트워크**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
+1.	다음 텍스트가 포함된 **network**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
@@ -684,7 +694,7 @@
 ##kickstart 파일을 사용하여 ISO에서 자동으로 준비
 ###RHEL 7.1/7.2
 
-1.	아래 콘텐츠를 사용하여 kickstart 파일을 만들고 저장합니다. Kickstart 설치에 대한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
+1.	아래 콘텐츠를 사용하여 kickstart 파일을 만들고 저장합니다. Kickstart 설치에 대한 자세한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -808,7 +818,7 @@
 
     c. CD에서 부팅하도록 BIOS를 설정합니다.
 
-5.	VM을 시작하고, 설치 가이드가 나타나면 **탭** 키를 눌러서 부팅 옵션을 구성합니다.
+5.	VM을 시작하고, 설치 가이드가 나타나면 **Tab** 키를 눌러서 부팅 옵션을 구성합니다.
 
 6.	부팅 옵션 마지막에 `inst.ks=<the location of the Kickstart file>`을 입력하고 **Enter** 키를 누릅니다.
 
@@ -834,4 +844,4 @@ Hyper-V 및 Azure에서 RHEL 7.1 사용 시 알려진 문제가 있습니다.
 ## 다음 단계
 이제 Red Hat Enterprise Linux를 사용하여 Azure에 새 Azure 가상 컴퓨터를 만들 준비가 되었습니다. Red Hat Enterprise Linux를 실행하기 위해 인증된 하이퍼바이저에 대한 자세한 내용은 [Red Hat 웹 사이트](https://access.redhat.com/certified-hypervisors)를 방문하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

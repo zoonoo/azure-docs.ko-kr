@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # API 구현 지침
@@ -247,26 +247,26 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 	...
 	Content-Length: ...
 	{"CustomerID":2,"CustomerName":"Bert","Links":[
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"PUT",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"DELETE",
-	   "LinkedResourceMIMETypes":[]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"POST",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]}
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"PUT",
+	   "types":["application/x-www-form-urlencoded"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"DELETE",
+	   "types":[]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"POST",
+	   "types":["application/x-www-form-urlencoded"]}
 	]}
 	```
 
@@ -283,10 +283,10 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	public class Link
 	{
-    	public string Relationship { get; set; }
-    	public string HRef { get; set; }
+    	public string Rel { get; set; }
+    	public string Href { get; set; }
     	public string Action { get; set; }
-    	public string [] LinkedResourceMIMETypes { get; set; }
+    	public string [] Types { get; set; }
 	}
 	```
 
@@ -294,11 +294,11 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	- 반환되는 개체와 링크로 설명되는 개체 사이의 관계. 이 경우 "self"는 링크가 개체 스스로를 참조한다는 것을 나타내며(다수의 개체 지향 언어에서 `this` 포인터와 유사한) "orders"는 관련된 주문 정보를 포함하는 컬렉션의 이름입니다.
 
-	- URI 형태의 링크로 설명되는 개체에 대한 하이퍼링크(`HRef`).
+	- URI 형태의 링크로 설명되는 개체에 대한 하이퍼링크(`Href`).
 
 	- 이 URI에 전송될 수 있는 HTTP 요청 유형(`Action`).
 
-	- HTTP 요청에 제공되어야 하는 데이터 형식 또는 요청 유형에 따라 응답으로 반환될 수 있는 데이터의 형식(`LinkedResourceMIMETypes`).
+	- HTTP 요청에 제공되어야 하는 데이터 형식 또는 요청 유형에 따라 응답으로 반환될 수 있는 데이터의 형식(`Types`).
 
 	HTTP 응답 예제에 있는 HATEOAS 링크는 클라이언트 응용 프로그램이 다음 작업을 수행할 수 있다는 것을 나타냅니다.
 
@@ -406,7 +406,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 	Cache-Control: max-age=600, private
 	Content-Type: text/json; charset=utf-8
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	이 예제에서 Cache-Control 헤더는 반환된 데이터가 600초 후에 만료되어야 하고, 단일 클라이언트에만 적합하며, 다른 클라이언트가 사용하는 공유 캐시에 저장되지 말아야 한다고 명시합니다 (_private_입니다.) Cache-Control 헤더는 공유 캐시에 데이터를 저장할 수 있는 경우 _private_이 아닌 _public_을 지정합니다. 클라이언트에서 데이터를 캐싱하지 **말아야** 하는 경우 _no-store_로 지정합니다. 다음 코드 예제는 응답 메시지에서 Cache-Control 헤더를 구성하는 방법입니다.
@@ -514,7 +514,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 	Content-Type: text/json; charset=utf-8
 	ETag: "2147483648"
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	> [AZURE.TIP]보안을 위해 민감한 데이터 또는 인증된(HTTPS) 연결을 통해 반환되는 데이터가 캐시되도록 허용하지 마십시오.
@@ -646,7 +646,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
 	Content-Length: ...
-	ProductID=3&Quantity=5&OrderValue=250
+	productID=3&quantity=5&orderValue=250
 	```
 
 	- Web API의 PUT 작업은 요청된 데이터(위 예제의 order 1)에 대한 현재 ETag를 확보하여 If-Match 헤더에 포함된 값과 비교합니다.
@@ -1152,4 +1152,4 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

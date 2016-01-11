@@ -5,14 +5,14 @@
    documentationCenter="n/a"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 
@@ -54,4 +54,4 @@ Emulator Express를 사용하려면 다음과 같은 몇 가지 제한 사항을
 
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

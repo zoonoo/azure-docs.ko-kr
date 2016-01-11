@@ -36,13 +36,13 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 
 
 ## <a id="packages"></a>NuGet 패키지 추가 ##
-웹 응용 프로그램을 위해 설치해야 하는 3개의 패키지가 있습니다.
+웹 응용 프로그램을 위해 설치해야 하는 2개의 패키지가 있습니다.
 
 - Active Directory 인증 라이브러리 - Azure Active Directory를 조작하고 사용자 ID를 관리하기 위한 메서드를 포함합니다.
 - Azure 주요 자격 증명 모음 라이브러리 - Azure 주요 자격 증명 모음을 조작하기 위한 메서드를 포함합니다.
 
 
-패키지 관리자 콘솔에서 Install-Package 명령을 사용하여 3개의 패키지를 모두 설치할 수 있습니다.
+패키지 관리자 콘솔에서 Install-Package 명령을 사용하여 이러한 패키지를 모두 설치할 수 있습니다.
 
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
@@ -133,7 +133,7 @@ Azure 웹앱이 있는 경우 이제 Azure 포털에서 AppSettings의 실제 �
 
 .pfx에 대한 종료 날짜와 암호를 메모해 둡니다(이 예에서는 07/31/2016 및 test123). 아래에서 필요합니다.
 
-테스트 인증서 만들기에 대한 자세한 내용은 [방법: 사용자 고유의 테스트 인증서 만들기](https://msdn.microsoft.com/en-in/library/ff699202.aspx)를 참조하세요.
+테스트 인증서 만들기에 대한 자세한 내용은 [방법: 사용자 고유의 테스트 인증서 만들기](https://msdn.microsoft.com/library/ff699202.aspx)를 참조하세요.
 
 
 **인증서를 Azure AD 응용 프로그램에 연결** 이제 인증서를 만들었고 Azure AD 응용 프로그램에 연결해야 합니다. 하지만 Azure 관리 포털에서는 당장은 이 기능을 지원하지 않습니다. 대신 Powershell을 사용해야 합니다. 다음은 실행해야 하는 명령입니다.
@@ -243,4 +243,4 @@ StoreLocation은 LocalMachine이 아닌, CurrentUser입니다. 테스트 인증�
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

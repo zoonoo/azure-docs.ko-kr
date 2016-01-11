@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/02/2015"
+   ms.date="12/17/2015"
    ms.author="lodipalm;barbkess"/>
 
 # SQL 데이터 웨어하우스에 데이터 로드
@@ -181,7 +181,7 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[PolyBase를 사용하여 로드]: sql-data-warehouse-load-with-polybase.md
+[PolyBase를 사용하여 로드]: sql-data-warehouse-get-started-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [개발 개요]: sql-data-warehouse-overview-develop.md
 [스키마 마이그레이션]: sql-data-warehouse-migrate-schema.md
@@ -201,4 +201,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [Azure 저장소 설명서]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/
 [Express 경로 설명서]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -48,7 +48,7 @@ Azure 인프라가 라우터의 역할을 수행하여 어떠한 구성도 필�
 - **연결**. VNet은 사이트 간 VPN 연결 또는 Express 경로 연결을 사용하여 상호 연결할 수 있으며 온-프레미스 데이터 센터에도 연결할 수 있습니다. VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](./vpn-gateway-about-vpngateways.md)를 참조하세요. Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](./expressroute-introduction.md)를 참조하세요.
 
     >[AZURE.NOTE]임의의 IaaS VM 또는 PaaS 역할 인스턴스를 Azure 환경에 배포하기 전에 VNet을 만들었는지 확인합니다. ARM 기반 VM은 VNet이 필요하며 기존 VNet을 지정하지 않으면 Azure에서 기본 VNet을 만드는데, 이 기본 VNet은 온-프레미스 네트워크와 CIDR 주소 블록 충돌이 발생할 수 있습니다. 이 문제가 발생하면 VNet을 온-프레미스 네트워크에 연결할 수 없습니다.
-    
+
 ## 서브넷
 
 서브넷은 VNet의 IP 주소 범위이며, 사용자가 구성 및 보안을 목적으로 VNet을 여러 서브넷으로 분할할 수 있습니다. VNet 내부의 서브넷(같은 또는 다른)에 배포된 VM 및 PaaS 역할 인스턴스는 추가 구성 없이 서로 통신할 수 있습니다. 또한 서브넷에 경로 테이블 및 Nsg를 구성할 수 있습니다.
@@ -58,7 +58,7 @@ Azure 인프라가 라우터의 역할을 수행하여 어떠한 구성도 필�
 
 Azure에서 리소스에 할당되는 IP 주소는 *공용* 및 *개인*의 두 종류가 있습니다. 공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/documentation/services/event-hubs/)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다. 개인 IP 주소를 사용하면 가상 네트워크의 리소스 간 통신 그리고 인터넷 라우팅이 가능한 IP 주소를 사용하지 않고 VPN을 통해 연결된 리소스 간 통신이 가능합니다.
 
-Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [가상 네트워크의 IP 주소](virtual-network-ip-addresses-arm.md)를 방문하세요.
+Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [가상 네트워크의 IP 주소](virtual-network-ip-addresses-overview-arm.md)를 방문하세요.
 
 ## Azure 부하 분산 장치
 
@@ -98,4 +98,4 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 - [공용 IP 주소 예약](../virtual-networks-reserved-public-ip.md).
 - [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아보기.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

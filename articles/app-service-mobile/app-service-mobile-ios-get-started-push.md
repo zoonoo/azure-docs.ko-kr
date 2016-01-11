@@ -44,10 +44,6 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a name="publish-the-service"></a>Azure에 서버 프로젝트 배포
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## <a id="add-push"></a>앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
@@ -56,10 +52,10 @@
 
 [AZURE.INCLUDE [앱에서 푸시 알림 테스트](../../includes/test-push-notifications-in-app.md)]
 
-##<a id="more"></a>추가
+##<a id="more"></a>추가 정보
 
-* 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. [Azure 모바일 앱용 iOS 클라이언트 라이브러리 사용 방법](app-service-mobile-ios-how-to-use-client-library.md#templates)은 템플릿을 등록하는 방법을 보여줍니다.
-* 태그를 사용하면 푸시를 사용하여 여러 조각으로 나뉜 고객을 대상으로 할 수 있습니다. [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)은 장치 설치에 태그를 추가하는 방법을 보여줍니다.
+* 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. [Azure 모바일 앱용 iOS 클라이언트 라이브러리 사용 방법](app-service-mobile-ios-how-to-use-client-library.md#templates)은 템플릿을 등록하는 방법을 보여 줍니다.
+* 태그를 사용하면 푸시를 사용하여 여러 조각으로 나뉜 고객을 대상으로 할 수 있습니다. [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)은 장치 설치에 태그를 추가하는 방법을 보여 줍니다.
 
 <!-- Anchors.  -->
 [Generate iOS certificate signing request]: #certificates
@@ -76,4 +72,4 @@
 <!-- URLs. -->
 [iOS 빠른 시작]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

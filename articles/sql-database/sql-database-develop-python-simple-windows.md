@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Windows에서 Python을 사용하여 SQL 데이터베이스 연결
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 이 항목에서는 Python으로 작성된 코드 샘플을 제시합니다. 이 샘플은 Windows 컴퓨터에서 실행됩니다. 이 샘플에서는 **pymssql** 드라이버를 사용하여 Azure SQL 데이터베이스에 연결합니다.
@@ -121,4 +127,4 @@ SQL 데이터베이스에 연결하는 데 [pymssql.connect](http://pymssql.org/
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

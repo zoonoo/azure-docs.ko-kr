@@ -57,12 +57,12 @@ ASP.NET 5 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액�
 3. 저장소 계정의 큐 개체를 참조하려면 **CloudQueueClient** 개체를 가져옵니다.
 
 	    // Create the table client.
-    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
+    	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. 특정 큐를 참조하려면 **CloudQueue** 개체를 가져옵니다.
 
     	// Get a reference to a table named "messageQueue"
-	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
+	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
 **참고:** 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
@@ -176,4 +176,4 @@ ASP.NET 5 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

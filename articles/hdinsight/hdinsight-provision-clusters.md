@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/11/2015"
+   ms.date="12/21/2015"
    ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 클러스터 만들기
@@ -160,7 +160,15 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 ## 고급 구성 옵션
 
+이 섹션은 3개 파트로 구성되어 있습니다.
+
+- HDInsight 클러스터 사용자 지정을 사용하여 클러스터 사용자 지정
+- 스크립트 동작을 사용하여 클러스터 사용자 지정
+- Azure 가상 네트워크 사용
+
 ### HDInsight 클러스터 사용자 지정을 사용하여 클러스터 사용자 지정
+
+HDInsight 클러스터 사용자 지정을 **부트스트랩**이라고도 합니다.
 
 경우에 따라 구성 파일을 구성해야 할 수 있습니다.
 
@@ -171,7 +179,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 - hive-site.xml
 - oozie-site.xml
 
-클러스터는 이미지로 다시 설치하므로 변경 내용을 유지할 수 없습니다. 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)(영문)을 참조하십시오. 클러스터의 수명 동안 변경 내용을 유지하려면 생성 프로세스 중에 HDInsight 클러스터 사용자 지정을 사용할 수 있습니다.
+클러스터는 이미지로 다시 설치하므로 변경 내용을 유지할 수 없습니다. 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)(영문)을 참조하십시오. 클러스터의 수명 동안 변경 내용을 유지하려면 생성 프로세스 중에 HDInsight 클러스터 사용자 지정을 사용할 수 있습니다. 클러스터의 구성을 변경하고 이러한 Azure 이미지로 다시 설치 다시 부팅 다시 시작 이벤트에서 구성을 유지하려면 이 방법을 사용하는 것이 좋습니다. 구성 변경 내용은 서비스가 시작되기 전에 적용되므로 서비스를 다시 시작할 필요가 없습니다.
 
 다음은 Hive 구성을 사용자 지정하는 Azure PowerShell 스크립트 예제입니다.
 
@@ -319,6 +327,7 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
     
 
 			![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
+
 
 4. **만들기**를 클릭합니다. **시작 보드에 고정**을 선택하면 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 만드는 중임을 나타내고 생성이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
 
@@ -755,4 +764,4 @@ SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

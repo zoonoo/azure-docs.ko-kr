@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # BizTalk 거래 업체 관리 시작 및 논리 앱에 추가
@@ -25,7 +25,7 @@ TPM API 앱은 AS2 커넥터, X12 API 앱 및 EDIFACT API 앱의 기본 요구 �
 - 빈 SQL Azure 데이터베이스 - 새 TPM API 앱을 만들기 전에 빈 SQL Azure 데이터베이스를 만들어야 합니다.
 
 ## 파트너, 규약 및 프로필 이해
-거래 업체 규약에 대해 자세히 알아보려면 [여기][1]를 클릭하세요.
+[거래 업체 규약 만들기][1]에 대해 자세히 알아보세요.
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
@@ -39,4 +39,4 @@ TPM API 앱은 AS2 커넥터, X12 API 앱 및 EDIFACT API 앱의 기본 요구 �
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

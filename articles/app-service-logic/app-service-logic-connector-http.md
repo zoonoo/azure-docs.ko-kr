@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/25/2015"
+   ms.date="12/17/2015"
    ms.author="prkumar"/>
 
 
@@ -61,7 +61,7 @@ API 앱을 만들고 나면 이제 HTTP Listener를 논리 앱의 트리거로 �
 9.	마지막으로, 응답을 보내려면 다른 HTTP Listener를 추가하고 Send HTTP Response(HTTP 응답 보내기) 동작을 선택합니다. HTTP Listener에서 얻은 RequestID에 Request ID를 설정하고 다시 반환하려는 응답 본문 및 HTTP 상태를 채웁니다. ![][9]
 
 ## HTTP 동작 사용
-기본적으로 논리 앱에서는 HTTP 동작을 지원하므로 HTTP 동작을 사용하기 위해 먼저 API 앱을 만들 필요가 없습니다. 논리 앱의 어느 지점에든 HTTP 동작을 삽입할 수 있으며 호출의 URI, 헤더 및 본문을 선택할 수 있습니다. HTTP 동작은 클라이언트 쪽 보안을 위한 여러 옵션을 지원합니다. 이러한 옵션을 사용하려면 [이 문서](http://aka.ms/logicapphttpauth)를 검토하세요.
+기본적으로 논리 앱에서는 HTTP 동작을 지원하므로 HTTP 동작을 사용하기 위해 먼저 API 앱을 만들 필요가 없습니다. 논리 앱의 어느 지점에든 HTTP 동작을 삽입할 수 있으며 호출의 URI, 헤더 및 본문을 선택할 수 있습니다. HTTP 동작은 클라이언트 쪽 보안을 위한 여러 옵션을 지원합니다. [클라이언트 쪽 보안 옵션](../scheduler-outbound-authentication.md)을 참조하세요.
 
 HTTP 동작의 출력은 헤더 및 본문이며, 다른 동작 및 커넥터의 출력을 사용하는 방법과 유사하게 흐름의 추가 다운스트림에서 이러한 헤더 및 본문을 사용할 수 있습니다.
 
@@ -86,4 +86,4 @@ HTTP 동작의 출력은 헤더 및 본문이며, 다른 동작 및 커넥터의
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

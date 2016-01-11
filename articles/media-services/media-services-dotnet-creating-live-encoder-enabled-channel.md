@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/08/2015"  
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,13 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
+
 ##개요
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널**을 만드는 단계를 안내합니다.
 
->[AZURE.NOTE]라이브 인코딩에 사용할 수 있는 채널과 관련된 자세한 개념 정보는 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+라이브 인코딩에 사용할 수 있는 채널과 관련된 자세한 개념 정보는 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 
 ##일반적인 라이브 스트리밍 시나리오
@@ -39,17 +41,17 @@
 
 1. 비디오 카메라를 컴퓨터에 연결합니다. RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나에서 단일 비트 전송률 스트림을 출력할 수 있는 온-프레미스 라이브 인코더를 시작하고 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
 
-이 단계는 채널을 만든 후에도 수행할 수 있습니다.
+	이 단계는 채널을 만든 후에도 수행할 수 있습니다.
 
 1. 채널을 만들고 시작합니다.
 
 1. 채널 수집 URL을 검색합니다.
 
-수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
+	수집 URL은 스트림을 채널로 보내기 위해 라이브 인코더를 통해 사용됩니다.
 
 1. 채널 미리 보기 URL을 검색합니다.
 
-이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
+	이 URL을 사용하여 채널이 라이브 스트림을 제대로 받고 있는지 확인합니다.
 
 2. 자산을 만듭니다.
 3. 재생하는 동안 자산을 동적으로 암호화하려면 다음을 수행합니다.
@@ -59,14 +61,14 @@
 3. 프로그램을 만들고 만들어진 자산을 사용하도록 지정합니다.
 1. 주문형 로케이터를 만들어 프로그램과 관련된 자산을 게시합니다.
 
-콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
+	콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
 
 1. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
 2. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
 1. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
 1. 프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.
 
-##항목 내용
+## 학습할 내용
 
 이 항목에서는 미디어 서비스 .NET SDK를 사용하여 채널과 프로그램에 대한 다양한 작업을 실행하는 방법을 보여 줍니다. 많은 작업이 오래 실행되기 때문에 오래 실행되는 작업을 관리하는 .NET API가 사용됩니다.
 
@@ -82,6 +84,18 @@
 1. 채널과 모든 연결된 리소스를 정리합니다.
 
 
+##필수 조건
+
+자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
+
+- 이 자습서를 완료하려면 Azure 계정이 필요합니다. 
+	
+	계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
+- 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
+- Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상 버전.
+- 미디어 서비스 .NET SDK 버전 3.2.0.0 이상을 사용해야 합니다.
+- 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
+
 ##고려 사항
 
 - 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 Microsoft.com에서 amslived에 문의하세요.
@@ -91,14 +105,6 @@
 
 [여기](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)에서 샘플을 가져와서 실행합니다.
 
-##필수 조건
-자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
-
-- 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](azure.microsoft.com)을 참조하세요.
-- 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
-- Visual Studio 2010 SP1 이상.
-- 미디어 서비스 .NET SDK 버전 3.2.0.0 이상을 사용해야 합니다.
-- 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
 ##.NET용 미디어 서비스 SDK를 사용한 개발을 위한 설정
 
@@ -334,6 +340,7 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 	        /// <returns></returns>
 	        public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
 	        {
+             	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 	            var locator = _context.Locators.CreateLocator
 	                (
 	                    LocatorType.OnDemandOrigin,
@@ -516,4 +523,4 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 
 이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

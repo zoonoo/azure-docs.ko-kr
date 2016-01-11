@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="visual-studio-online"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="08/12/2015"
+   ms.date="12/16/2015"
    ms.author="tarcher" />
 
 # Visual Studio 연결 서비스를 사용하여 Azure 저장소 추가
@@ -94,4 +94,4 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
      - [azure.microsoft.com의 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

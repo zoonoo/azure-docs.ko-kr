@@ -60,7 +60,7 @@
 
 이 리소스를 템플릿에 추가하여 리소스에서 지정된 작업을 수행하지 못하도록 할 수 있습니다. 모든 사용자 및 그룹에 잠금을 적용합니다. 일반적으로 제한된 기간(예: 프로세스가 실행되는 중에 조직의 누군가가 실수로 리소스를 수정하거나 삭제하지 못하도록 하려는 경우) 동안만 잠금을 적용합니다.
 
-관리 잠금을 만들거나 삭제하려면 **Microsoft.Authorization/*** 또는 **Microsoft.Authorization/locks/*** 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리](resource-group-rbac.md)를 참조하세요.
+관리 잠금을 만들거나 삭제하려면 **Microsoft.Authorization/*** 또는 **Microsoft.Authorization/locks/*** 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 지정된 리소스 및 모든 하위 리소스에 잠금을 적용합니다. 리소스에 둘 이상의 잠금을 적용하면 가장 제한적인 잠금이 우선적으로 적용됩니다. 예를 들어 부모 수준(예: 리소스 그룹)에서 ReadOnly를 적용하고 해당 그룹 내의 리소스에 CanNotDelete를 적용하면 부모의 더 제한적인 잠금(ReadOnly)이 우선적으로 적용됩니다.
 
@@ -133,4 +133,4 @@ PowerShell 명령 **Remove-AzureRmResourceLock** 또는 REST API의 [삭제 작�
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 잠금에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

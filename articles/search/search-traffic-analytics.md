@@ -14,19 +14,19 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/11/2015" 
+	ms.date="12/17/2015" 
 	ms.author="betorres"
 />
 
 
-# 검색 트래픽 분석 설정 및 사용 #
+# 검색 트래픽 분석 설정 및 사용
 
 검색 트래픽 분석은 검색 서비스에 대한 가시성을 확보하고 사용자와 이들의 동작을 이해할 수 있게 해주는 Azure 검색 기능입니다. 이 기능을 사용하도록 설정하면 검색 서비스 데이터가 선택한 저장소 계정에 복사됩니다. 이 데이터는 검색 서비스 로그 및 집계된 운영 메트릭을 포함합니다. 여기에서 어떤 방식으로든 사용 현황 데이터를 처리 및 조작할 수 있습니다.
 
 
-## 검색 트래픽 분석을 사용하도록 설정하는 방법 ##
+## 검색 트래픽 분석을 사용하도록 설정하는 방법
 
-### 1\. 포털 사용 ###
+### 1\. 포털 사용
 [Azure 포털](http://portal.azure.com)에서 Azure 검색 서비스를 엽니다. 설정에서 검색 트래픽 분석 옵션을 찾습니다.
 
 ![][1]
@@ -40,7 +40,7 @@
 > 
 > 이 저장소 계정에 대해서는 표준 요금이 부과됩니다.
 
-### 2\. PowerShell 사용 ###
+### 2\. PowerShell 사용
 
 또한 다음 PowerShell cmdlet을 실행하여 이 기능을 사용할 수 있습니다.
 
@@ -68,7 +68,7 @@ Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/prov
     insights-metrics-pt1m: aggregated metrics
 
 
-## 데이터 이해 ##
+## 데이터 이해
 
 데이터는 JSON 형식으로 Azure 저장소 Blob에 저장됩니다.
 
@@ -76,13 +76,13 @@ Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/prov
   
 경로 예: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
-### 로그 ###
+### 로그
 
 로그 Blob는 검색 서비스 트래픽 로그를 포함합니다.
 
 각 Blob는 **레코드**라는 하나의 루트 개체를 포함하며 여기에는 로그 개체의 배열이 포함됩니다.
 
-####로그 스키마####
+####로그 스키마
 
 이름 |형식 |예 |참고 사항 
 ------|-----|----|-----
@@ -96,7 +96,7 @@ resultSignature |int |200 |HTTP 결과 코드
 durationMS |int |50 |밀리초 단위의 작업 기간 
 properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 
-####속성 스키마####
+####속성 스키마
 
 |이름 |형식 |예 |참고 사항|
 |------|-----|----|-----|
@@ -105,7 +105,7 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 |문서 |int |42 |처리된 문서 수|
 |IndexName |string |"testindex"|작업과 연결된 인덱스의 이름 |
 
-### 메트릭 ###
+### 메트릭
 
 메트릭 Blob에는 검색 서비스에 대한 집계 값이 포함됩니다. 각 파일은 **레코드**라는 하나의 루트 개체를 포함하며 여기에는 메트릭 개체의 배열이 포함됩니다.
 
@@ -113,7 +113,7 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 
 - 대기 시간
 
-####메트릭 스키마####
+####메트릭 스키마
 
 |이름 |형식 |예 |참고 사항|
 |------|-----|----|-----|
@@ -127,7 +127,7 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 |count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
 |timegrain |string |"PT1M" |ISO 8601에서 메트릭의 시간 조직|
 
-## 데이터 분석 ##
+## 데이터 분석
 
 데이터는 사용자 자신의 저장소 계정에 있고 사례에 가장 적합한 방식으로 이 데이터를 탐색하는 것이 좋습니다.
 
@@ -135,7 +135,7 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 
 Power BI Desktop에서 직접 보고서를 만들 수 있는 다음 샘플 쿼리를 확인하세요.
 
-### 지침 ###
+### 지침
 
 1. 새 PowerBI Desktop 보고서를 엽니다.
 2. 데이터 가져오기 -> 자세히...를 선택합니다.
@@ -147,8 +147,8 @@ Power BI Desktop에서 직접 보고서를 만들 수 있는 다음 샘플 쿼�
 	![][4]
 
 4. 저장소 계정의 이름 및 계정 키를 입력합니다.
-5. insight-logs-operationlogs를 마우스 오른쪽 단추로 클릭하고 로드를 선택합니다.
-6. 쿼리 편집기가 열립니다. 이제 보기 -> 고급 편집기를 선택하여 고급 편집기를 엽니다.
+5. "insight-logs-operationlogs" 및 "insights-metrics-pt1m"을 선택한 다음 편집을 클릭합니다.
+6. 쿼리 편집기가 열리면 왼쪽에서 "insight-logs-operationlogs"가 선택되었는지 확인합니다. 이제 보기 -> 고급 편집기를 선택하여 고급 편집기를 엽니다.
 
 	![][5]
 
@@ -156,7 +156,7 @@ Power BI Desktop에서 직접 보고서를 만들 수 있는 다음 샘플 쿼�
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",288),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
 	>     #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
 	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
 	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
@@ -181,11 +181,33 @@ Power BI Desktop에서 직접 보고서를 만들 수 있는 다음 샘플 쿼�
 	>     in
 	>     #"Changed Type2"
 
-8. 완료를 클릭하고 홈 탭에서 닫기 및 적용을 선택합니다.
+8. 완료를 클릭합니다.
 
-9. 이제 데이터를 사용할 수 있습니다. 진행하여 몇 가지 [시각화](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-desktop-report-view/)를 만듭니다.
+9. 이제 왼쪽 쿼리 목록에서 "insights-metrics-pt1m"을 선택하고 고급 편집기를 다시 엽니다. 처음 두 줄은 유지하고 나머지를 다음 쿼리로 바꿉니다.
 
-## 다음 단계 ##
+	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
+	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+    	#"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+	>     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+	>     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
+	>     #"Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
+	>     #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
+	>     #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
+	>     #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
+	>         Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
+	>     #"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
+	>     #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
+	>     in
+    	#"Inserted Date"
+
+10. 완료를 클릭한 다음 홈 탭에서 닫기 및 적용을 선택합니다.
+
+11. 이제 지난 30일 동안의 데이터가 사용할 준비가 되었습니다. 진행하여 몇 가지 [시각화](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-desktop-report-view/)를 만듭니다.
+
+## 다음 단계
 
 검색 구문 및 쿼리 매개 변수에 대해 알아봅니다. 자세한 내용은 [문서 검색(Azure 검색 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하세요.
 
@@ -199,4 +221,4 @@ Power BI Desktop에서 직접 보고서를 만들 수 있는 다음 샘플 쿼�
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

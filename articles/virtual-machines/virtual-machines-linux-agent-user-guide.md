@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="szark"/>
+	ms.date="12/14/2015" 
+	ms.author="mingzhan"/>
 
 
 
@@ -80,6 +80,7 @@ Azure Linux 에이전트(/usr/sbin/waagent)는 가상 컴퓨터와 Azure 패브�
 * openSUSE 12.3 이상
 * SLES 11 SP2 이상
 * Oracle Linux 6.4 이상
+* Red Hat 6.7+
 
 기타 지원되는 시스템:
 
@@ -320,4 +321,4 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

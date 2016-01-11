@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법 | Microsoft Azure"
+	pageTitle="Azure 관리자 역할을 추가 또는 변경하는 방법 | Microsoft Azure"
 	description="Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법에 대해 설명합니다."
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="msmbaldwin"
 	editor="meerak"
-	tags="billing"
 	/>
 
 <tags
@@ -15,22 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/21/2015"
 	ms.author="genli"/>
 
-# Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법
-## 관리자 역할
+# Azure 관리자 역할을 추가 또는 변경하는 방법
+
+## 관리자 역할 설명
 
 Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 
 | 관리 역할 | 제한 | 설명
 | ------------- | ------------- |---------------|
-|계정 관리자 | Azure 계정당 1개 |Azure 구독을 등록했거나 구입했고, 계정 센터에 액세스하고 다양한 관리 작업을 수행할 권한이 부여된 사용자입니다. 이러한 관리 작업에는 구독 만들기, 구독 취소, 구독에 대한 대금 청구 변경 및 서비스 관리자 변경이 포함됩니다.
-| 서비스 관리자 | Azure 구독당 1개 |할당된 계정에서 구독에 대한 Azure 관리 포털에 액세스할 수 있는 권한이 부여된 사용자입니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다.|
-|공동 관리자|구독당 200개(서비스 관리자 외)|서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 사용자입니다.|
+|계정 관리자(AA) | Azure 계정당 1개 |Azure 구독을 등록했거나 구입했고, [계정 센터](https://account.windowsazure.com/Home/Index)에 액세스하여 다양한 관리 작업을 수행할 권한이 부여된 사용자입니다. 이러한 관리 작업에는 구독 만들기, 구독 취소, 구독에 대한 대금 청구 변경 및 서비스 관리자 변경이 포함됩니다.
+| 서비스 관리자(SA) | Azure 구독당 1개 |이 사용자는 [Azure 포털](https://manage.windowsazure.com/)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다.|
+|공동 관리자(CA)|구독당 200|서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 사용자입니다.|
 
-## 구독에 대한 공동 관리자 추가
-1. [Azure 관리 포털](https://manage.windowsazure.com/)에 로그인합니다.
+**참고** Azure Active Directory 역할 기반 액세스 제어(RBAC)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
+## 구독에 공동 관리자를 추가하는 방법
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. 탐색 창에서 **설정**> **관리자**> **추가**를 선택합니다.</br>![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
 3. 공동 관리자로 추가하려는 사람의 메일 주소를 입력한 다음 공동 관리자가 액세스하기를 원하는 구독을 선택합니다.</br> ![addcoadmin2](./media/billing-add-change-azure-subscription-administrator/addcoadmin2.png)</br>
 
@@ -41,26 +42,28 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 
 **참고**
 
- * Microsoft 계정으로 로그인하는 경우 다른 Microsoft 계정만 공동 관리자로 추가할 수 있습니다. 이는 조직 외부 계정이 특정 계정(예: janedoe@contoso.com)이 유효한 계정인지 탐색하는 것을 방지하기 위한 보안 고려 사항입니다.
- * 조직 계정으로 로그인하는 경우 해당 조직의 다른 조직 계정을 공동 관리자로 추가할 수 있습니다. 예를 들어 abby@contoso.com은 bob@contoso.com을 서비스 관리자 또는 공동 관리자로 추가할 수 있지만 john@notcontoso.com은 추가할 수 없습니다. 조직 계정을 사용하여 로그인한 사용자는 Microsoft 계정 사용자를 서비스 관리자 또는 공동 관리자로 계속해서 추가할 수 있습니다.
+ * 구독은 각각 Azure Active Directory(또는 기본 디렉터리)와 연결됩니다. 구독이 연결된 기본 디렉터리를 찾으려면 [Azure 클래식 포털](https://manage.windowsazure.com/)로 이동하고 **설정** > **구독**을 선택하며 구독 ID를 확인하여 구독이 연결된 기본 디렉터리를 찾습니다.
+
+ * Microsoft 계정으로 로그인하는 경우 다른 Microsoft 계정 또는 기본 디렉터리 내의 사용자를 공동 관리자로 추가할 수 있습니다.
+ * 조직 계정으로 로그인하는 경우 해당 조직의 다른 조직 계정을 공동 관리자로 추가할 수 있습니다. 예를 들어 abby@contoso.com은 bob@contoso.com을 서비스 관리자 또는 공동 관리자로 추가할 수 있지만 john@noncontoso.com이 기본 디렉터리의 사용자가 아닌 한 john@notcontoso.com은 추가할 수 없습니다. 조직 계정을 사용하여 로그인한 사용자는 Microsoft 계정 사용자를 서비스 관리자 또는 공동 관리자로 계속해서 추가할 수 있습니다.
  * 이제 조직 계정으로 Azure에 로그인할 수 있으므로 서비스 관리자 및 공동 관리자 계정 요구 사항이 다음과 같이 변경되었습니다.
 
-| 로그인 방법| Microsoft 계정을 공동 관리자 또는 서비스 관리자로 추가하나요? |같은 조직에 있는 조직 계정을 공동 관리자 또는 서비스 관리자로 추가하나요? |다른 조직에 있는 조직 계정을 공동 관리자 또는 서비스 관리자로 추가하나요?
+| 로그인 방법| Microsoft 계정 또는 기본 디렉터리 내의 사용자를 공동 관리자 또는 서비스 관리자로 추가하나요? |같은 조직에 있는 조직 계정을 공동 관리자 또는 서비스 관리자로 추가하나요? |다른 조직에 있는 조직 계정을 공동 관리자 또는 서비스 관리자로 추가하나요?
 | ------------- | ------------- |---------------|---------------|
 |Microsoft 계정 |예|아니요|아니요|
 |조직 계정|예|예|아니요|
 
-## 구독에 대한 서비스 관리자 변경
+## 구독에 대한 서비스 관리자를 변경하는 방법
 계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다.
 
-1. 계정 관리자를 사용하여[계정 관리 포털](https://account.windowsazure.com/subscriptions)에 로그온합니다.
+1. 계정 관리자를 사용하여.[계정 관리 포털](https://account.windowsazure.com/subscriptions)에 로그온합니다.
 2. 변경하려는 구독을 선택합니다.
 3. 오른쪽에서 **구독 세부 정보 편집**을 클릭합니다. </br> ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
-4. **서비스 관리자** 상자에 새로운 서비스 관리자의 메일 주소를 입력합니다. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+4. **서비스 관리자** 상자에서 새 서비스 관리자의 메일 주소를 입력합니다. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## 계정 관리자 변경
+## 계정 관리자를 변경하는 방법
 
 Azure 계정의 소유권을 다른 계정에 양도하려면 [Azure 구독 양도](../billing-subscription-transfer.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

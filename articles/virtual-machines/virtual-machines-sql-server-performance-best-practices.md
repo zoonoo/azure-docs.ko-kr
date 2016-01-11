@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례
@@ -71,6 +71,8 @@ Azure 가상 컴퓨터를 만들 때 플랫폼에서는 운영 체제 디스크�
 
 D 시리즈 또는 G 시리즈의 VM(가상 컴퓨터)을 사용할 때 **D** 드라이브에 TempDB 및/또는 버퍼 풀 확장만 저장합니다. 다른 VM 시리즈와는 달리 D 시리즈 및 G 시리즈 VM의 **D** 드라이브는 SSD 기반입니다. 임시 개체를 많이 사용하거나 메모리에 맞지 않는 작업 집합이 있는 작업의 성능을 향상할 수 있습니다. 자세한 내용은 [Azure VM에서 SSD를 사용하여 SQL Server TempDB 및 버퍼 풀 확장 저장](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx)을 참조하세요.
 
+프리미엄 저장소를 지원하는 VM의 경우 읽기 캐싱을 사용하도록 설정된 프리미엄 저장소를 지원하는 디스크에 TempDB를 저장하는 것이 좋습니다.
+
 ### 데이터 디스크
 
 - **데이터 및 로그 파일에 대한 데이터 디스크 수**: 최소 2개의 [P30 디스크](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 사용합니다(로그 파일용 1개, 데이터 파일 및 TempDB용 1개). 더 많은 처리량을 위해 추가 데이터 디스크가 필요할 수 있습니다. 데이터 디스크 수를 결정하려면 데이터 및 로그 디스크에 사용할 수 있는 IOPS 수를 분석해야 합니다. 자세한 내용은 [디스크용 프리미엄 저장소 사용](../storage/storage-premium-storage-preview-portal.md) 문서의 [VM 크기](virtual-machines-size-specs.md) 및 디스크 크기당 IOPS에 관한 표를 참조하세요. 더 많은 대역폭이 필요하면 추가 디스크를 연결하여 디스크 스트라이프를 사용할 수 있습니다. 프리미엄 저장소를 사용하지 않는 경우 해당 [VM 크기](virtual-machines-size-specs.md)로 지원되는 최대 수의 데이터 디스크를 추가하고 디스크 스트라이프를 사용하는 것이 좋습니다. 디스크 스트라이프에 대한 자세한 내용은 아래 관련된 섹션을 참조하세요.
@@ -103,16 +105,6 @@ D 시리즈 또는 G 시리즈의 VM(가상 컴퓨터)을 사용할 때 **D** �
 
 - SQL Server 2012를 실행 중인 경우 서비스 팩 1 누적 업데이트 10을 설치합니다. 이 업데이트에는 SQL Server 2012에서 임시 테이블에 대한 select 문을 실행할 때 I/O 성능 저하에 대한 픽스가 포함되어 있습니다. 자세한 내용은 [기술 자료 문서](http://support.microsoft.com/kb/2958012)를 참조하세요.
 
-- 성능 향상을 위해 SQL Server의 시스템 데이터베이스(예: msdb 및 TempDB), 백업 및 기본 데이터와 로그 디렉터리를 캐시되지 않은 데이터 디스크로 이동합니다. 다음 작업을 수행합니다.
-
-	- XEvent 및 추적 파일 경로를 조정합니다.
-	
-	- SQL 오류 로그 경로를 조정합니다.
-	
-	- 기본 백업 경로를 조정합니다.
-	
-	- 기본 데이터베이스 위치를 조정합니다.
-
 - 잠긴 페이지를 설정하여 IO 및 페이징 작업을 줄입니다.
 
 ## 기능별 성능 고려 사항
@@ -133,4 +125,4 @@ SQL Server 및 프리미엄 저장소에 대한 보다 자세한 내용은 문�
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)에서 다른 SQL Server 가상 컴퓨터 항목을 검토하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

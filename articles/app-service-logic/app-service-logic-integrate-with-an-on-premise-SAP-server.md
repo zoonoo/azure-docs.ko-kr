@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="sameerch"/>
 
 
@@ -36,7 +36,7 @@ SAP 커넥터를 사용하여 Azure 앱 서비스 웹, 모바일 및 논리 앱�
 - IDoc 보내기
 
 ## 필수 조건
-하이브리드 수신기가 설치되어 실행 중인 클라이언트 컴퓨터에 SAP용 클라이언트 라이브러리가 필요합니다. 자세한 내용은 [여기][9]의 **SAP 어댑터용** 섹션을 참조하세요.
+하이브리드 수신기가 설치되어 실행 중인 클라이언트 컴퓨터에 SAP용 클라이언트 라이브러리가 필요합니다. 자세한 내용은 [BizTalk 어댑터 팩 설치 가이드][9]의 **SAP 어댑터용** 섹션을 참조하세요.
 
 
 ## 새 SAP 커넥터 만들기
@@ -119,6 +119,6 @@ SAP 커넥터가 생성되면 논리 앱 워크플로에서 해당 커넥터를 
 [6]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.InProgress.PNG
 [7]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
-[9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
+[9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

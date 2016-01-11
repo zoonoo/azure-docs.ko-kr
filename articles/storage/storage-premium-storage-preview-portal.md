@@ -25,9 +25,11 @@ Azure 프리미엄 저장소는 I/O 사용량이 많은 작업을 실행하는 �
 
 Azure VM은 여러 프리미엄 저장소 디스크의 연결을 지원하므로 응용 프로그램이 VM당 최대 64TB의 저장소를 지원할 수 있습니다. 프리미엄 저장소를 사용할 경우 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 80,000 IOPS(초당 입/출력 작업 수) 및 VM당 디스크 처리량 초당 2000MB를 얻을 수 있습니다.
 
+프리미엄 저장소를 사용하여 Azure는 Dynamics AX, Dynamics CRM, Exchange Server, SharePoint Farms 및 SAP Business Suite 등의 까다로운 엔터프라이즈 응용 프로그램을 클라우드로 전환하는 기능을 제공합니다. 일관된 고성능 및 짧은 대기 시간을 필요로 하는 SQL Server, Oracle, MongoDB, MySQL, Redis 등 다양한 성능 집약적 데이터베이스 워크로드를 프리미엄 저장소에서 실행할 수 있습니다.
+
 >[AZURE.NOTE]응용 프로그램이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 컴퓨터 디스크를 Azure 프리미엄 디스크로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 컴퓨터 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저자하는 표준 저장소를 사용하여 비용을 절약할 수 있습니다.
 
-Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기](http://azure.microsoft.com/pricing/free-trial/) 페이지를 방문하세요. 기존 가상 컴퓨터를 프리미엄 저장소로 마이그레이션하는 것과 관련한 정보는 [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)을 참조하세요.
+Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기](http://azure.microsoft.com/pricing/free-trial/) 페이지를 방문하세요. 기존 가상 컴퓨터를 프리미엄 저장소로 마이그레이션하는 것과 관련된 정보는 [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)을 참조하세요.
 
 ## 프리미엄 저장소에 대해 알아야 할 중요 사항
 
@@ -49,7 +51,7 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 
 - 프리미엄 저장소 계정은 사용자 지정 도메인 이름에 매핑할 수 없습니다.
 
-- 프리미엄 저장소에 대한 저장소 분석은 현재 지원되지 않습니다. 프리미엄 저장소 계정에 디스크를 사용하여 VM의 성능 메트릭을 분석하려면 Windows VM용 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 및 Linux VM용 [IOSTAT](http://linux.die.net/man/1/iostat)와 같은 운영 체제 기반 도구를 사용합니다. 또한 Azure Preview 포털에서 Azure VM 진단을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure 진단 확장을 사용한 Microsoft Azure 가상 컴퓨터 모니터링](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)(영문)을 참조하세요.
+- 프리미엄 저장소에 대한 저장소 분석은 현재 지원되지 않습니다. 프리미엄 저장소 계정에 디스크를 사용하여 VM의 성능 메트릭을 분석하려면 Windows VM용 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 및 Linux VM용 [IOSTAT](http://linux.die.net/man/1/iostat)와 같은 운영 체제 기반 도구를 사용합니다. 또한 Azure Preview 포털에서 Azure VM 진단을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure 진단 확장을 사용한 Microsoft Azure 가상 컴퓨터 모니터링](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)을 참조하세요.
 
 ## 디스크용 프리미엄 저장소 사용
 다음 두 가지 방법 중 하나로 디스크용 프리미엄 저장소를 사용할 수 있습니다.
@@ -335,4 +337,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

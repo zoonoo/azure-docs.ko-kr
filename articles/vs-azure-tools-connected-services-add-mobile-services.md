@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="visual-studio-online"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="08/12/2015"
+   ms.date="12/16/2015"
    ms.author="tarcher" />
 
 # Visual Studio 연결된 서비스를 사용하여 모바일 서비스 추가
@@ -91,4 +91,4 @@ Visual Studio가 프로젝트를 수정하는 방법은 프로젝트 형식에 �
 
  - [azure.microsoft.com의 Azure 모바일 서비스 설명서](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="12/17/2015" 
 	ms.author="szark"/>
 
 
@@ -55,4 +55,4 @@ SSH 키 인증을 사용하여 Linux 가상 컴퓨터에 로그인한 후 `sudo`
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

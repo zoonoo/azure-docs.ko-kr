@@ -8,11 +8,11 @@
 
 2. 솔루션 탐색기에서 **CreateDeviceIdentity** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 
-3. **NuGet 패키지 관리자** 창에서 **시험판 포함** 옵션이 선택되었는지 확인합니다. **Microsoft Azure 장치**를 검색한 후, **설치**를 클릭하고 사용 약관에 동의합니다.
+3. **NuGet 패키지 관리자** 창에서 **시험판 포함** 옵션이 선택되었는지 확인합니다. 그런 다음 **Microsoft Azure 장치**를 검색하고, **설치**를 클릭하여 **Microsoft.Azure.Devices** 패키지를 설치하고, 사용 약관에 동의합니다.
 
 	![][11]
 
-4. 그러면 [Microsoft Azure 장치 SDK][lnk-nuget-device-sdk] NuGet 패키지가 다운로드 및 설치되고 해당 참조가 추가됩니다.
+4. 그러면 [Microsoft Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지가 다운로드 및 설치되고 참조가 추가됩니다.
 
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
@@ -57,15 +57,15 @@
 
 ## 장치-클라우드 메시지 받기
 
-이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서는 대규모의 장치-클라우드 메시지를 처리하는 방법을 보여주고 [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브의 메시지를 처리하는 방법에 대한 자세한 정보를 제공합니다.
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서는 대규모의 장치-클라우드 메시지를 처리하는 방법을 보여 주고 [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브의 메시지를 처리하는 방법에 대한 자세한 정보를 제공합니다.
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. 프로젝트 **ReadDeviceToCloudMessages**의 이름을 지정합니다.
 
     ![][10]
 
-2. 솔루션 탐색기에서 **ReadDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
+2. 솔루션 탐색기에서 **ReadDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 
-3. **NuGet 패키지 관리자** 창에서 **시험판 포함** 옵션이 선택되었는지 확인합니다. 그런 다음**WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하여 사용 약관에 동의합니다.
+3. **NuGet 패키지 관리자** 창에서 **시험판 포함** 옵션이 선택되었는지 확인합니다. 그런 다음 **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하여 사용 약관에 동의합니다.
 
     그러면 [Azure 서비스 버스][lnk-servicebus-nuget]가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
 
@@ -117,7 +117,7 @@
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-event-hubs-overview]: event-hubs-overview.md
 
-[lnk-nuget-device-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 <!-- Images -->
@@ -125,4 +125,4 @@
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

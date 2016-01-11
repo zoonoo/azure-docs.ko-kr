@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="12/18/2015" 
 	ms.author="wesmc"/>
 
 # Xamarin.iOS 앱에 푸시 알림 추가
@@ -55,17 +55,15 @@
 
 2. 알림 허브 만들기 블레이드에서 **만들기**를 클릭합니다.
 
-3. **푸시** > **Apple(APNS)** > **인증서 업로드**를 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+3. **푸시** > **Apple(APNS)** > **인증서 업로드**를 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+
+이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
 ##푸시 알림을 전송하도록 서버 프로젝트 업데이트
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
-
-##Azure에 서버 프로젝트 배포
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Xamarin.iOS 프로젝트 구성
 
@@ -157,7 +155,7 @@
 	
 	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
-2. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
+2. 앱에서 작업을 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
 3. 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다.
 
@@ -176,4 +174,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

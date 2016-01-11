@@ -1,0 +1,139 @@
+<properties
+   pageTitle="Azure에서 공용 및 개인 IP 주소 지정(클래식) | Microsoft Azure"
+   description="Azure에서 공용 및 개인 IP 주소 지정 방법에 대해 알아보기"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carmonm"
+   editor="tysonn"
+   tags="azure-service-management" />
+<tags
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="12/14/2015"
+   ms.author="telmos" />
+
+# Azure의 IP 주소(기본)
+다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
+
+공용 IP 주소는 Azure 공용 웹 서비스를 포함한 인터넷과의 통신에 사용됩니다.
+
+개인 IP 주소는 VPN 게이트웨이 또는 Express 경로 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet), 클라우드 서비스 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
+
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [resource manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+
+## 공용 IP 주소
+공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs), [SQL 데이터베이스](sql-database-technical-overview.md) 및 [Azure 저장소](storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
+
+공용 IP 주소는 다음 리소스 유형과 연결됩니다.
+
+- 클라우드 서비스
+- IaaS VM(가상 컴퓨터)
+- PaaS 역할 인스턴스
+- VPN 게이트웨이
+- 응용 프로그램 게이트웨이
+
+### 할당 방법
+공용 IP 주소를 Azure 리소스에 할당해야 하는 경우 리소스가 생성된 위치 내 사용 가능한 공용 IP 주소 풀에서 *동적으로* 할당됩니다. 이 IP 주소는 리소스가 중지되면 해제됩니다. 클라우드 서비스의 경우 모든 역할 인스턴스가 중지되면 이러한 상황이 발생하며, *정적* (예약된) IP 주소를 사용하면 이를 방지할 수 있습니다(아래의 클라우드 서비스 참조).
+
+>[AZURE.NOTE]공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
+
+### DNS 호스트 이름 확인
+클라우드 서비스 또는 IaaS VM을 만들 때는 Azure의 모든 리소스에서 고유한 클라우드 서비스 DNS 이름을 제공해야 합니다. 이는 Azure 관리 DNS 서버에서 *dnsname*.cloudapp.net과 리소스의 공용 IP 주소에 대한 매핑을 만듭니다. 예를 들어, **contoso**라는 클라우드 서비스 DNS 이름으로 클라우드 서비스를 만들면 정규화된 도메인 이름(FQDN) **contoso.cloudapp.net**이 클라우드 서비스의 공용 IP 주소(VIP)로 확인됩니다. 이 FQDN을 사용하여 Azure의 공용 IP 주소를 가리키는 사용자 지정 도메인 CNAME 레코드를 만들 수 있습니다.
+
+### 클라우드 서비스
+클라우드 서비스에는 항상 가상 IP 주소(VIP)라고 하는 공용 IP 주소가 있습니다. 클라우드 서비스 내에 끝점을 만들어 VIP의 여러 포트를 클라우드 서비스 내 VM 및 역할 인스턴스의 내부 포트로 연결할 수 있습니다.
+
+[클라우드 서비스에 여러 VIP](load-balancer-multivip.md)를 할당하고, SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 다중 VIP 시나리오를 구현할 수 있습니다.
+
+[예약된 IP](virtual-networks-reserved-public-ip.md)라고 하는 *정적* 공용 IP 주소를 사용하면 모든 역할 인스턴스가 중지되더라도 클라우드 서비스의 공용 IP 주소를 동일하게 유지할 수 있습니다. 특정 위치에 정적(예약된) IP 리소스를 만들고 해당 위치의 클라우드 서비스에 할당할 수 있습니다. 예약된 IP의 실제 IP 주소는 지정할 수 없습니다. 이는 생성된 위치에서 사용 가능한 IP 주소 풀에서 할당됩니다. 이 IP 주소는 명시적으로 삭제될 때까지 해제되지 않습니다.
+
+정적(예약된) 공용 IP 주소는 일반적으로 클라우드 서비스가 다음과 같은 시나리오에서 사용됩니다.
+
+- 최종 사용자가 방화벽 규칙을 설정해야 하는 경우
+- 외부 DNS 이름 확인에 따라 달라지며, 동적 IP를 위해 A 레코드 업데이트가 필요한 경우
+- IP 기반 보안 모델을 사용하는 외부 웹 서비스를 사용하는 경우
+- IP 주소에 연결된 SSL 인증서를 사용하는 경우
+
+### IaaS VM 및 PaaS 역할 인스턴스
+클라우드 서비스 내에 있는 IaaS [VM](virtual-machines-about.md) 또는 PaaS 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이를 인스턴스 수준 공용 IP 주소([ILPIP](virtual-networks-instance-level-public-ip.md))라고 합니다. 이 공용 IP 주소는 동적 방식만 가능합니다.
+
+### VPN 게이트웨이
+[VPN 게이트웨이](vpn-gateway-about-vpngateways.md)는 Azure VNet를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니다. VPN 게이트웨이는 공용 IP 주소가 *동적으로*할당되며, 원격 네트워크와의 통신을 지원합니다.
+
+### 응용 프로그램 게이트웨이
+Azure [응용 프로그램 게이트웨이](application-gateway-introduction.md)는 HTTP 기반 네트워크 트래픽을 라우팅하는 Layer7 부하 분산에 사용할 수 있습니다. 응용 프로그램 게이트웨이에는 부하 분산된 VIP 역할을 하는 공용 IP 주소가 *동적으로* 할당됩니다.
+
+### 개요
+아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 공용 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
+
+|리소스|동적|정적|여러 IP 주소|
+|---|---|---|---|
+|클라우드 서비스|예|예|예|
+|IaaS VM 또는 PaaS 역할 인스턴스|예|아니요|아니요|
+|VPN 게이트웨이|예|아니요|아니요|
+|응용 프로그램 게이트웨이|예|아니요|아니요|
+
+## 개인 IP 주소
+개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 Express 경로 회로를 통해 클라우드 서비스 또는 [가상 네트워크](virtual-networks-overview.md)(VNet) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
+
+Azure 클래식 배포 모델에서 개인 IP 주소는 다양한 Azure 리소스에 할당됩니다.
+
+- IaaS VM 및 PaaS 역할 인스턴스
+- 내부 부하 분산 장치
+- 응용 프로그램 게이트웨이
+
+### IaaS VM 및 PaaS 역할 인스턴스
+클래식 배포 모델을 사용하여 만든 가상 컴퓨터(VM)는 항상 PaaS 역할 인스턴스와 유사한 클라우드 서비스에 배치됩니다. 따라서 개인 IP 주소의 동작은 이러한 리소스와 비슷합니다.
+
+클라우드 서비스를 배포할 수 있는 방법이 두 가지라는 점을 알아두는 것이 중요합니다.
+
+- 가상 네트워크 내에 있지 않은 *독립 실행형* 클라우드 서비스로 배포
+- 가상 네트워크의 일부로 배포
+
+#### 할당 방법
+*독립 실행형* 클라우드 서비스의 경우 리소스가 Azure 데이터 센터의 개인 IP 주소 범위에서 *동적으로* 할당된 개인 IP 주소를 가져옵니다. 동일한 클라우드 서비스 내 다른 VM과의 통신에만 사용할 수 있습니다. 이 IP 주소는 리소스를 중지하고 시작할 때 변경될 수 있습니다.
+
+가상 네트워크 내에 배포되는 클라우드 서비스의 경우 리소스가 (네트워크 구성에 지정된 대로) 할당된 서브넷의 주소 범위에서 할당된 개인 IP 주소를 가져옵니다. 이 개인 IP 주소는 VNet 내 모든 VM 간의 통신에 사용할 수 있습니다.
+
+또한 VNet 내 클라우드 서비스의 경우 기본적으로 개인 IP 주소가 (DHCP를 사용하여) *동적으로* 할당됩니다. 이는 리소스를 중지 및 시작할 때 변경될 수 있습니다. IP 주소가 동일하게 유지되려면 할당 방법을*정적*으로 설정하고 해당 주소 범위 내에서 유효한 IP 주소를 제공해야 합니다.
+
+ 정적 개인 IP 주소가 일반적으로 사용되는 대상은 다음과 같습니다.
+
+ - 도메인 컨트롤러 또는 DNS 서버 역할을 하는 VM
+ - IP 주소를 사용하는 방화벽 규칙이 필요한 VM
+ - IP 주소를 통해 다른 앱에서 액세스하는 서비스를 실행 중인 VM
+
+#### 내부 DNS 호스트 이름 확인
+모든 Azure VM 및 PaaS 역할 인스턴스는 명시적으로 사용자 지정 DNS 서버를 구성하지 않으면 기본적으로 [Azure 관리 DNS 서버](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)로 구성됩니다. 이러한 DNS 서버는 동일한 VNet 또는 클라우드 서비스 내에 있는 VM 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다.
+
+VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관리 DNS 서버에 추가됩니다. 다중 NIC VM의 경우 기본 NIC의 개인 IP 주소에 호스트 이름이 매핑됩니다. 그러나 이 매핑 정보는 동일한 클라우드 서비스 또는 VNet 내에 있는 리소스로 제한됩니다.
+
+*독립 실행형* 클라우드 서비스의 경우 동일한 클라우드 서비스 내에 있는 모든 VM/역할 인스턴스의 호스트 이름만 확인할 수 있습니다. VNet 내에 있는 클라우드 서비스의 경우 VNet 내에 있는 모든 VM/역할 인스턴스의 호스트 이름을 확인할 수 있습니다.
+
+### ILB(내부 부하 분산 장치) 및 응용 프로그램 게이트웨이
+[Azure 내부 부하 분산 장치](load-balancer-internal-overview.md)(ILB) 또는 [Azure 응용 프로그램 게이트웨이](application-gateway-introduction.md)의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 끝점으로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다. 또한 여러 개인 IP 주소를 할당하여 다중 vip 시나리오를 구현할 수도 있습니다.
+
+### 개요
+아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 개인 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
+
+|리소스|동적|정적|여러 IP 주소|
+|---|---|---|---|
+|VM(*독립 실행형* 클라우드 서비스 내)|예|예|예|
+|PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 내)|예|아니요|예|
+|VM 또는 PaaS 역할 인스턴스(VNet 내)|예|예|예|
+|내부 부하 분산 장치 프런트 엔드|예|예|예|
+|응용 프로그램 게이트웨이 프런트 엔드|예|예|예|
+
+## 다음 단계
+- [정적 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-classic-ps.md)
+- [정적 개인 IP 주소를 사용하여 VM 배포](virtual-networks-static-private-ip-classic-pportal.md)
+- [PowerShell을 사용하여 부하 분산 장치 만들기](load-balancer-get-started-internet-classic-cli.md)
+- [PowerShell을 사용하여 내부 부하 분산 장치 만들기](load-balancer-get-started-ilb-classic-ps.md)
+- [PowerShell을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-gateway.md)
+- [PowerShell을 사용하여 내부 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)
+
+<!---HONumber=AcomDC_1223_2015-->

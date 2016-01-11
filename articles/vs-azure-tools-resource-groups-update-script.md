@@ -3,7 +3,7 @@
 	description="Azure 리소스 그룹 배포 프로젝트와 함께 제공되는 PowerShell 스크립트를 수동으로 업데이트하는데 필요한 단계를 설명합니다."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/20/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Azure 리소스 그룹 프로젝트 PowerShell 스크립트 업데이트
 
@@ -229,4 +229,4 @@ New-AzureRMResourceGroupDeployment `
 
 ```
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

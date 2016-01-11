@@ -30,33 +30,33 @@
 
 Azure에서 SAP을 테스트하려면 SLES 11SP4 및 SLES 12만 사용될 수 있습니다. 특별한 SUSE 이미지를 Azure 이미지 갤러리, "SLES 11 SP3 for SAP CAL"에서 찾을 수 있습니다. 하지만 일반적인 사용을 위한 자료는 아닙니다. SAP "CAL"(<https://cal.sap.com/>)이라는 SAP Cloud Appliance Library 솔루션을 위해 준비된 자료입니다. 이 곳의 이미지를 공개하지 않을 수 없었습니다. 그러니 일반 용도로는 사용하지 마십시오.
 
-Azure의 새로운 테스트는 모두 Azure 리소스 관리자를 통해 수행되어야 합니다. Azure Powershell 또는 CLI를 사용하여 SUSE SLES 이미지나 버전을 찾아보려면 다음 명령을 사용합니다. 그 후 출력 내용은 예를 들면, 새 SUSE Linux VM 배포용 json 템플릿에서 OS 이미지를 정의하는 데 사용할 수 있습니다.
+Azure의 새로운 테스트는 모두 Azure 리소스 관리자를 통해 수행되어야 합니다. Azure Powershell 또는 CLI를 사용하여 SUSE SLES 이미지나 버전을 찾아보려면 다음 명령을 사용합니다. 그 후 출력 내용은 예를 들면, 새 SUSE Linux VM 배포용 json 템플릿에서 OS 이미지를 정의하는 데 사용할 수 있습니다. 아래 PS 명령은 Azure Powershell 1.0.1 이상 버전에 유효합니다.
 
 * SUSE를 포함하는 기존 게시자를 찾습니다.
 
    ```
-   PS  : Get-AzureVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
+   PS  : Get-AzureRmVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
    CLI : azure vm image list-publishers westeurope | grep "US"
    ```
 
 * SUSE에서 기존 제품을 찾습니다.
       
    ```
-   PS  : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
+   PS  : Get-AzureRmVMImageOffer -Location "West Europe" -Publisher "SUSE"
    CLI : azure vm image list-offers westeurope SUSE
    ```
       
 * SUSE SLES 제품을 찾습니다.
       
    ```
-   PS  : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
    CLI : azure vm image list-skus westeurope SUSE SLES
    ```
       
 * 특정 버전의 SLES sku를 찾습니다.
       
    ```
-   PS  : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
    CLI : azure vm image list westeurope SUSE SLES 12
    ```
      
@@ -76,12 +76,16 @@ Azure의 새로운 테스트는 모두 Azure 리소스 관리자를 통해 수�
 
 ## 온-프레미스에서 Azure로 SUSE VM 업로드
 
-<https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-suse/> 블로그에 단계가 설명되어 있습니다.
+다음 블로그에 단계가 설명되어 있습니다.
+
+<https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-suse/>
 
 예를 들면, 기존 SAP 설치는 물론 호스트 이름을 유지하기 위해서 마지막 단계에 프로비전을 해제하지 않고 VM을 업로드하려면 다음 항목을 확인해야 합니다.
 
 * 장치 ID가 아닌 UUID를 통해 OS 디스크가 탑재되어야 합니다. /etc/fstab에서만 UUID로 변경하는 것은 OS 디스크에 충분하지 않습니다. 예컨대, yast를 사용하거나 /boot/grub/menu.lst를 편집하여 부팅 로더를 적용하는 것도 잊지 말아야 합니다.
-* SUSE OS 디스크에 대해 vhdx 형식을 사용하고 Azure에 업로드하기 위해서 이것을 vhd로 변환하면 네트워크 장치가 eth0에서 eth1로 변경될 가능성이 높습니다. 나중에 Azure에서 부팅할 때 문제를 방지하려면 <https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>(영문)의 설명처럼 eth0으로 다시 변경해야 합니다.
+* SUSE OS 디스크에 대해 vhdx 형식을 사용하고 Azure에 업로드하기 위해서 이것을 vhd로 변환하면 네트워크 장치가 eth0에서 eth1로 변경될 가능성이 높습니다. 나중에 Azure에서 부팅할 때 문제를 방지하려면 다음에 설명된 것처럼 eth0으로 다시 변경해야 합니다.
+
+<https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>
 
 문서에 설명되어 있는 내용뿐만 아니라 다음 항목도 삭제하는 것이 좋습니다.
 
@@ -89,9 +93,33 @@ Azure의 새로운 테스트는 모두 Azure 리소스 관리자를 통해 수�
 
 waagent를 설치하면 nic이 여러 개만 아니라면 잠재적인 문제를 방지할 수 있습니다.
 
+## Azure에 SUSE VM 배포
+
+새 VM은 새 Azure 리소스 관리자 모델의 json 템플릿 파일을 통해 만들어져야 합니다. json 템플릿 파일이 만들어지면 Powershell을 대신하여 다음 CLI 명령을 사용해 VM을 배포할 수 있습니다.
+
+   ``` azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
+   
+   ``` json 템플릿 파일에 대한 자세한 내용은 다음에서 확인할 수 있습니다.
+
+<https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/>
+
+<https://azure.microsoft.com/documentation/templates/>
+
+CLI 및 Azure 리소스 관리자에 대한 자세한 내용은 다음에서 확인할 수 있습니다.
+
+<https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/>
+
 ## SAP 라이선스 및 하드웨어 키
 
 공식적인 SAP-Windows-Azure 인증을 위해, SAP 라이선스에 사용되는 SAP 하드웨어 키 계산을 위한 새로운 메커니즘이 도입되었습니다. 이것을 이용하려면 SAP 커널이 적용되어야 합니다. 현재 Linux용 SAP 커널 버전에는 이 코드 변경이 포함되어 있지 않습니다. 따라서 특정한 상황(예: Azure VM 크기 조정)에서 SAP 하드웨어 키 변경 및 SAP 라이선스가 더 이상 유효하지 않게 될 수 있습니다.
+
+## SUSE sapconf 패키지
+
+SUSE는 SAP 관련 설정 집합을 처리하는 "sapconf"라는 패키지를 제공합니다. 이 패키지가 수행하는 작업과 설치 방법 및 사용 방법에 대한 자세한 내용은 다음에서 확인할 수 있습니다.
+
+<https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/>
+
+<http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems>
 
 ## 분산된 SAP 설치에서 NFS 공유
 
@@ -133,4 +161,4 @@ LVM에 대한 유효성 검사가 Azure에서 완전히 이루어지지 않습�
  
 이 항목은 Azure에만 해당하는 내용이 아니고 일반적인 내용입니다. 그렇기는 하지만 상황을 이해하는 것이 중요합니다. 가상화된 환경에서 Linux의 Oracle을 지원하는 것에 관한 제한 사항이 있습니다. 결국은 SAP이 Azure와 같은 공용 클라우드에 있는 SUSE 또는 RedHat에서 Oracle을 지원하지 않는다는 것을 의미합니다. 이 문제를 논의하려면 고객이 Oracle에 직접 문의해야 합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

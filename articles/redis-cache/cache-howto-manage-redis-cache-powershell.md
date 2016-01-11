@@ -28,10 +28,6 @@
 
 ## 필수 조건
 
->[AZURE.IMPORTANT]Azure 포털을 사용하여 구독에 처음으로 Redis 캐시를 만들 때 포털은 해당 구독에 대해 `Microsoft.Cache` 네임스페이스를 등록합니다. PowerShell을 사용하여 구독에서 첫 번째 Redis 캐시를 만드는 경우, 먼저 다음 명령을 사용하여 해당 네임스페이스를 등록해야 하며 그렇지 않은 경우 `New-AzureRmRedisCache` 및 `Get-AzureRmRedisCache`의 cmdlet이 실패합니다.
->
->`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
-
 Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
 
 	Get-Module azure | format-table version
@@ -79,7 +75,7 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 | RedisConfiguration | maxmemory-delta, maxmemory-policy 및 notify-keyspace-events에 대한 Redis 구성 설정을 지정합니다. maxmemory-delta 및 notify-keyspace-events는 표준 및 프리미엄 캐시에만 사용할 수 있습니다. | |
 | EnableNonSslPort | 비 SSL 포트를 사용하는지 여부를 나타냅니다. | False |
 | MaxMemoryPolicy | 이 매개 변수는 더 이상 사용되지 않으며 대신 RedisConfiguration을 사용합니다. | |
-| StaticIP | VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. | |
+| StaticIP | VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. | |
 | 서브넷 | VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. | |
 | VirtualNetwork | VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 VNET의 리소스 ID를 지정합니다. | |
 | KeyType | 액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값: 주, 보조 | | | |
@@ -88,6 +84,10 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 ## Redis Cache를 만들려면
 
 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet을 사용하여 새 Azure Redis Cache 인스턴스를 만듭니다.
+
+>[AZURE.IMPORTANT]Azure 포털을 사용하여 구독에 처음으로 Redis 캐시를 만들 때 포털은 해당 구독에 대해 `Microsoft.Cache` 네임스페이스를 등록합니다. PowerShell을 사용하여 구독에서 첫 번째 Redis 캐시를 만드는 경우, 먼저 다음 명령을 사용하여 해당 네임스페이스를 등록해야 하며 그렇지 않은 경우 `New-AzureRmRedisCache` 및 `Get-AzureRmRedisCache`의 cmdlet이 실패합니다.
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 `New-AzureRmRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -242,9 +242,10 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 
 	Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-## PowerShell로 Redis Cache 크기 조정
+<a name="scale"></a>
+## Redis Cache의 크기를 조정하려면
 
-`Size`, `Sku` 또는 `ShardCount` 속성이 수정될 때 Azure Redis cache 인스턴스 크기를 조정하는 데 `Set-AzureRmRedisCache`를 사용할 수 있습니다.
+`Size`, `Sku` 또는 `ShardCount` 속성이 수정될 때 Azure Redis Cache 인스턴스 크기를 조정하는 데 `Set-AzureRmRedisCache`를 사용할 수 있습니다.
 
 >[AZURE.NOTE]PowerShell을 사용하여 캐시 크기를 조정할 경우 Azure 포털에서 캐시 크기를 조정할 때와 동일한 제한 및 지침이 적용됩니다. 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
 >
@@ -255,7 +256,7 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 >
 >자세한 내용은 [Azure Redis Cache 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
 
-다음 예제에서는 `myCache`라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여줍니다. 이 명령은 기본 또는 표준 캐시 둘 다에 적용할 수 있습니다.
+다음 예제에서는 `myCache`라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 이 명령은 기본 또는 표준 캐시 둘 다에 적용할 수 있습니다.
 
 	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -343,7 +344,7 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 
 	Get-AzureRmRedisCache -ResourceGroupName myGroup
 
-특정 캐시에 대한 정보를 반환하려면 캐시 이름을 포함하는 `Name` 매개 변수와 해당 캐시를 포함하는 리소스 그룹을 포함하는 `ResourceGroupName` 매개 변수와 함께 `Get-AzureRmRedisCache`를 실행합니다.
+특정 캐시에 대한 정보를 반환하려면 캐시 이름을 포함하는 `Name` 매개 변수와 해당 캐시를 포함하는 리소스 그룹이 있는 `ResourceGroupName` 매개 변수와 함께 `Get-AzureRmRedisCache`를 실행합니다.
 
 	PS C:\> Get-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
 	
@@ -568,4 +569,4 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

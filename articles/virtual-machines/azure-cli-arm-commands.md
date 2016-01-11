@@ -49,7 +49,7 @@ Azure CLI에서 리소스 관리자 모드를 사용하기 위한 설정 요구 
 
 계정이 있고 Azure CLI가 설치되었으면 다음을 수행해야 합니다.
 
-- [Azure CLI를 구성](../xplat-cli-connect.md)하여 회사나 학교 계정 또는 Microsoft 계정 ID를 사용합니다. 
+- [Azure CLI를 구성](../xplat-cli-connect.md)하여 회사나 학교 계정 또는 Microsoft 계정 ID를 사용합니다.
 - `azure config mode arm`을 입력하여 리소스 관리자 모드로 전환합니다.
 
 
@@ -1686,9 +1686,9 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
 
-**리소스 그룹 내 가상 컴퓨터 나열**
+**계정 내에서 가상 컴퓨터 나열**
 
-	vm list [options] <resource-group>
+	vm list [options]
 
 **리소스 그룹 내 한 가상 컴퓨터 가져오기**
 
@@ -1710,7 +1710,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 	vm start [options] <resource-group> <name>
 
-**리소스 그룹 내 한 가상 컴퓨터를 종료하고 컴퓨팅 리소스 해제**
+** 리소스 그룹 내 한 가상 컴퓨터를 종료하고 컴퓨팅 리소스 해제**
 
 	vm deallocate [options] <resource-group> <name>
 
@@ -1779,7 +1779,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 	 
 예: Linux 클러스터에 Storm을 만듭니다.
 
-	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 	
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
@@ -1787,7 +1787,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 예: 스크립트 동작으로 클러스터를 만듭니다.
 
-	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 	
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
@@ -1879,4 +1879,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 	hdinsight cluster disable-rdp-access [options] <clusterName>
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

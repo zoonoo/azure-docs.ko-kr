@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="12/18/2015"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect에서 장치 쓰기 저장 사용
@@ -26,6 +26,9 @@
 
 >[AZURE.NOTE]Azure AD Premium에 대한 구독에는 장치 쓰기 저장이 필요합니다.
 
+.
+
+>[AZURE.IMPORTANT]장치는 사용자와 동일한 포리스트에 있어야 합니다. 장치가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.
 
 ## 1부: Azure AD Connect 설치
 1. 사용자 지정 또는 Express 설정을 사용하여 Azure AD Connect를 설치합니다. 장치 쓰기 저장을 사용하도록 설정하기 전에 모든 사용자 및 그룹을 성공적으로 동기화하고 시작하는 것이 좋습니다.
@@ -94,8 +97,8 @@
 	- 시작 메뉴에서 **동기화 서비스**를 엽니다.
 	- **커넥터** 탭을 엽니다.
 	- 형식이 Active Directory 도메인 서비스인 커넥터를 찾아 선택합니다.
-	- **Actions(작업)**에서 **속성**을 선택합니다.
-	- **Connect to Active Directory Forest(Active Directory 포리스트에 연결)**로 이동합니다. 이 화면에 지정된 도메인 및 사용자 이름이 스크립트에 제공된 계정과 일치하는지 확인합니다. ![커넥터 계정](./media/active-directory-aadconnect-get-started-custom-device-writeback/connectoraccount.png)
+	- **작업** 아래에서 **속성**을 선택합니다.
+	- **Active Directory 포리스트에 연결**로 이동합니다. 이 화면에 지정된 도메인 및 사용자 이름이 스크립트에 제공된 계정과 일치하는지 확인합니다. ![커넥터 계정](./media/active-directory-aadconnect-get-started-custom-device-writeback/connectoraccount.png)
 
 Active Directory의 구성 확인: - 장치 등록 서비스가 구성 명명 컨텍스트의 (CN=DeviceRegistrationService,CN=Device Registration Services,CN=Device Registration Configuration,CN=Services,CN=Configuration) 아래 위치에 있는지 확인합니다.
 
@@ -126,4 +129,4 @@ Active Directory의 구성 확인: - 장치 등록 서비스가 구성 명명 �
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="12/21/2015"
    ms.author="jgao"/>
 
 # 자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발
@@ -26,10 +26,10 @@ Visual Studio용 데이터 레이크 도구를 설치하는 방법과 Visual Stu
 U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 분석하기 위한 확장성이 탁월한 언어입니다. 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
 
-**필수 구성 요소**
+###필수 조건
 
 - **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual C++가 설치된 Visual Studio 2012** 
-- **Microsoft Azure SDK for.NET 버전 2.7 이상**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
+- **Microsoft Azure SDK for .NET 버전 2.7.1 이상**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 - **[Visual Studio용 데이터 레이크 도구](http://aka.ms/adltoolsvs)** 
 
     Visual Studio용 데이터 레이크 도구를 설치하면 Visual Studio에서 데이터 레이크 메뉴를 볼 수 있습니다.
@@ -41,6 +41,8 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 	- [Azure 데이터 레이크 분석 계정 만들기](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
+    사용자 편의를 위해 데이터 레이크 분석 서비스를 만들고 원본 데이터 파일을 업로드하기 위한 PowerShell 샘플 스크립트는 [자습서 준비를 위한 Appx-A PowerShell 샘플](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial)에서 찾을 수 있습니다.
+    
 	데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다. 따라서 Azure 포털, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 해당 계정을 만들어야 합니다. 데이터 레이크 분석 작업을 실행하려면 일부 데이터가 필요합니다. 데이터 레이크 도구가 데이터 업로드를 지원하지만 이 자습서를 더 쉽게 수행하기 위해 해당 포털을 사용하여 샘플 데이터를 업로드합니다.
 
 ## Azure에 연결
@@ -48,14 +50,9 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 **데이터 레이크 분석에 연결하기**
 
 1. Visual Studio를 엽니다.
-2. **U-SQL** 메뉴에서 **옵션 및 설정**을 클릭합니다.
-4. **로그인**을 클릭하거나, 다른 사람이 로그인한 경우에는 **사용자 변경**을 클릭하고 지침에 따라 로그인합니다.
-5. **확인**을 클릭하여 옵션 및 설정 대화 상자를 닫습니다.
-
-**데이터 레이크 분석 계정 찾아보기**
-
-1. Visual Studio에서 **CTRL+ALT+S**를 눌러 **서버 탐색기**를 엽니다.
-2. **서버 탐색기**에서 **Azure**를 확장한 후 **데이터 레이크 분석**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Visual Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](knoa-get-started-powershell.md)을 참조하세요.
+2. **보기** 메뉴에서 **서버 탐색기**를 클릭하여 서버 탐색기를 엽니다. 또는 **[CTRL]+[ALT]+S** 키를 누릅니다.
+3. **Azure**를 마우스 오른쪽 단추로 클릭하고 "Microsoft Azure 구독에 연결"을 클릭한 후 지침을 따릅니다.
+4. **서버 탐색기**에서 **Azure**를 확장한 후 **데이터 레이크 분석**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Visual Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics--get-started-powershell.md)을 참조하세요.
 
 ## 원본 데이터 파일 업로드
 
@@ -131,6 +128,12 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 		 
 		카탈로그 엔터티(데이터베이스, 스키마, 테이블, UDO 등)용 IntelliSense는 사용자의 계산 계정과 관련됩니다. 상단 도구 모음에서 현재 활성 계산 계정, 데이터베이스, 스키마를 확인하고 드롭다운 목록을 통해 전환할 수 있습니다.
  
+    - *** 열 확장**
+
+        *의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다. ![데이터 레이크 visual studio 도구 확장*](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+
+        **열 확장**을 클릭하면 도구가 열 이름으로 *을 대체합니다.
+    
 	- **자동 형식**
 	
 		사용자는 편집->고급 아래에서 코드 구조를 기반으로 범위 스크립트의 들여쓰기를 변경할 수 있습니다.
@@ -157,8 +160,8 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
     자세한 내용은 [U-SQL 카탈로그 사용](data-lake-analytics-use-u-sql-catalog.md)을 참조하세요.
 
-5. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 단추로 클릭하고 **스크립트 빌드**를 클릭합니다. 출력 창에서 결과를 확인합니다.
-6. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 단추로 클릭하고 **스크립트 제출**을 클릭합니다. 선택적으로 Script.usql 창에서 **제출**을 클릭할 수도 있습니다. 이전 스크린샷을 참조하세요. 고급 옵션을 사용하여 제출하려면 제출 단추 옆의 아래쪽 화살표를 클릭합니다.
+5. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **빌드 스크립트**를 클릭합니다. 출력 창에서 결과를 확인합니다.
+6. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **스크립트 제출**을 클릭합니다. 선택적으로 Script.usql 창에서 **제출**을 클릭할 수도 있습니다. 이전 스크린샷을 참조하세요. 고급 옵션을 사용하여 제출하려면 제출 단추 옆의 아래쪽 화살표를 클릭합니다.
 7. **작업 이름**을 지정하고 **분석 계정**을 확인한 후 **제출**을 클릭합니다. 제출이 완료되면 Visual Studio용 데이터 레이크 도구 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
 
 	![U-SQL Visual Studio 프로젝트 제출](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
@@ -208,7 +211,7 @@ Visual Studio에서 U-SQL 로컬 실행 환경을 사용하면 다음과 같은 
 
 - C# 어셈블리와 함께 로컬에서 U-SQL 스크립트를 실행합니다. 
 - 로컬에서 C# 어셈블리를 디버그합니다. 
-- Azure 데이터 레이크 분석 서비스에서 하듯이 서버 탐색기에서 로컬 테이블과 어셈블리를 봅니다. 
+- Azure 데이터 레이크 분석 서비스에서 하듯이 서버 탐색기에서 로컬 데이터베이스, 어셈블리, 스키마 및 테이블을 만들고/삭제하고/봅니다. 
 
 Visual Studio에 *로컬* 계정이 표시되고 설치 관리자가 *C:\\LocalRunRoot*에 *DataRoot* 폴더를 만듭니다. DataRoot 폴더가 사용되는 경우는 다음과 같습니다.
 
@@ -263,12 +266,6 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
  
 
 
-
-
-
-
-
-
 ##참고 항목
 
 다른 도구를 사용하여 데이터 레이크 분석을 시작하려면 다음을 참조하십시오.
@@ -284,4 +281,76 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 - [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
 - [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+##자습서 준비를 위한 Appx-A PowerShell 샘플
+
+다음 PowerShell 스크립트는 Azure 데이터 레이크 분석 계정 및 원본 데이터를 준비하여 [U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts)로 건너뛸 수 있습니다.
+
+    #region - used for creating Azure service names
+    $nameToken = "<Enter an alias>" 
+    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+    #endregion
+
+    #region - service names
+    $resourceGroupName = $namePrefix + "rg"
+    $dataLakeStoreName = $namePrefix + "adas"
+    $dataLakeAnalyticsName = $namePrefix + "adla"
+    $location = "East US 2"
+    #endregion
+
+
+    # Treat all errors as terminating
+    $ErrorActionPreference = "Stop"
+
+    #region - Connect to Azure subscription
+    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    try{Get-AzureRmContext}
+    catch{Login-AzureRmAccount}
+    #endregion
+
+    #region - Create an Azure Data Lake Analytics service account
+    Write-Host "Create a resource group ..." -ForegroundColor Green
+    New-AzureRmResourceGroup `
+        -Name  $resourceGroupName `
+        -Location $location
+
+    Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
+    New-AzureRmDataLakeStoreAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $dataLakeStoreName `
+        -Location $location 
+
+    Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
+    New-AzureRmDataLakeAnalyticsAccount `
+        -Name $dataLakeAnalyticsName `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        -DefaultDataLake $dataLakeStoreName
+
+    Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
+    Get-AzureRmDataLakeAnalyticsAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $dataLakeAnalyticsName  
+    #endregion
+
+    #region - prepare the source data
+    Write-Host "Import the source data ..."  -ForegroundColor Green
+    $localFolder = "C:\Tutorials\Downloads" # A temp location for the file. 
+    $storageAccount = "adltutorials"  # Don't modify this value.
+    $container = "adls-sample-data"  #Don't modify this value.
+
+    # Create the temp location  
+    New-Item -Path $localFolder -ItemType Directory -Force 
+
+    # Download the sample file from Azure Blob storage
+    $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
+    $blobs = Azure\Get-AzureStorageBlob -Container $container -Context $context
+    $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
+
+    # Upload the file to the default Data Lake Store account    
+    Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+
+    Write-Host "List the source data ..."  -ForegroundColor Green
+    Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
+    #endregion
+
+<!---HONumber=AcomDC_1223_2015-->

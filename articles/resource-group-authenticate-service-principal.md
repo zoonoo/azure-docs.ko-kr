@@ -78,7 +78,7 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
      이제 디렉터리에서 서비스 사용자를 만들었지만, 아직은 서비스에 할당된 권한 또는 범위가 없습니다. 서비스 사용자에게 일부 범위에서 작업을 수행할 수 있는 권한을 명시적으로 부여해야 합니다.
 
-3. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.
+3. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
         PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -201,7 +201,7 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
     이제 디렉터리에서 서비스 사용자를 만들었지만, 아직은 서비스에 할당된 권한 또는 범위가 없습니다. 서비스 사용자에게 일부 범위에서 작업을 수행할 수 있는 권한을 명시적으로 부여해야 합니다.
 
-5. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.
+5. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
         PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -274,7 +274,7 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
     이제 디렉터리에서 서비스 사용자를 만들었지만, 아직은 서비스에 할당된 권한 또는 범위가 없습니다. 서비스 사용자에게 일부 범위에서 작업을 수행할 수 있는 권한을 명시적으로 부여해야 합니다.
 
-4. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.
+4. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
@@ -304,7 +304,7 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
 ## 다음 단계
   
-- 역할 기반 액세스 제어에 대한 개요는 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.  
+- 역할 기반 액세스 제어의 개요는 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.  
 - 서비스 주체로 포털 사용에 대한 자세한 내용은 [Azure 포털을 사용하여 새 Azure 서비스 주체 만들기](./resource-group-create-service-principal-portal.md)를 참조하세요.  
 - Azure 리소스 관리자에서 보안 구현에 대한 지침은 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 
@@ -312,4 +312,4 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

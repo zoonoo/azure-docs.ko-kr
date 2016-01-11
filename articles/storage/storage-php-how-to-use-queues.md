@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 # PHP에서 큐 저장소를 사용하는 방법
@@ -383,4 +383,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

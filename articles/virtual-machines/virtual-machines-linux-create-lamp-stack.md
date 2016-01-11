@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #Microsoft Azure를 사용하여 LAMP 스택을 만드는 방법
@@ -36,7 +36,7 @@
 
 가상 컴퓨터가 이미 있는 경우 다른 Linux 배포에 LAMP 스택을 설치하는 방법에 대한 기본 사항을 확인하려면 이 항목 외에 [Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치를 참조하세요.](virtual-machines-linux-install-lamp-stack.md).
 
-Azure 마켓플레이스에서 미리 구성된 LAMP 이미지를 배포할 수도 있습니다. 다음 10분 비디오에서는 Azure 마켓플레이스에서 미리 빌드된 LAMP 이미지를 배포하는 방법을 소개합니다[Azure VM의 LAMP 스택](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
+Azure 마켓플레이스에서 미리 구성된 LAMP 이미지를 배포할 수도 있습니다. 다음 10분 비디오에서는 Azure 마켓플레이스에서 미리 빌드된 LAMP 이미지를 배포하는 방법을 소개합니다. [Azure VM의 LAMP 스택](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##1단계: 이미지 만들기
 이 단계에서는 Linux 이미지를 사용하여 Azure에 가상 컴퓨터를 만듭니다.
@@ -46,7 +46,7 @@ SSH는 시스템 관리자에게 중요한 도구입니다. 그러나 사용자�
 
 SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
--	다음 위치에서 puttygen을 다운로드하여 설치합니다. [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	다음 위치에서 puttygen을 다운로드하여 설치합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 -	puttygen.exe를 실행합니다.
 -	**생성**을 클릭하여 키를 생성합니다. 프로세스에서 마우스를 창의 빈 영역 위로 이동하여 임의성을 늘릴 수 있습니다. ![][1]
 -	생성 프로세스 후 Puttygen.exe에서 생성된 키를 표시합니다. 예: ![][2]
@@ -58,7 +58,7 @@ SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
 ![][3]
 
-**호스트 이름**에서 인터넷 클라이언트가 이 가상 컴퓨터에 액세스하는 데 사용할 URL의 이름을 지정합니다. DNS 이름의 마지막 부분(예: LAMPDemo)을 정의하면 Azure에서 URL을 Lampdemo.cloudapp.net으로 생성합니다.
+**호스트 이름**에서 인터넷 클라이언트가 이 가상 컴퓨터에 액세스하는 데 사용할 URL의 이름을 지정합니다. DNS 이름의 마지막 부분(예: LAMPDemo)을 정의하면 Azure에서 URL을 *lampdemo.cloudapp.net*으로 생성합니다.
 
 **사용자 이름 **에서 나중에 가상 컴퓨터에 로그인하는 데 사용할 이름을 선택합니다.
 
@@ -108,7 +108,7 @@ Azure 포털에서 **찾아보기 -> 가상 컴퓨터**를 클릭한 다음 직�
 
 ![][8]
 
-[여기](http://www.putty.org/)에서 Putty를 다운로드합니다
+[여기](http://www.putty.org/)에서 Putty를 다운로드합니다.
 
 다운로드한 후 실행 파일 PUTTY.EXE를 클릭합니다. 가상 컴퓨터의 속성에서 가져온 호스트 이름과 포트 번호를 사용하여 기본 옵션을 구성합니다. 다음은 예제입니다.
 
@@ -147,7 +147,7 @@ Apache를 설치하려면 터미널을 열고 다음 명령을 실행합니다.
 	sudo service httpd start
 
 ####Apache 테스트
-Apache가 성공적으로 설치되었는지 확인하려면 Apache 서버의 DNS 이름을 찾습니다(이 문서의 예제 URL에서는, http://lampdemo.cloudapp.net/)). 페이지에 "It works!"라는 단어가 표시되어야 합니다. ![][14]
+Apache가 성공적으로 설치되었는지 확인하려면 Apache 서버의 DNS 이름을 찾습니다(이 문서의 예제 URL의 경우 http://lampdemo.cloudapp.net/)). 페이지에 "It works!"라는 단어가 표시되어야 합니다. ![][14]
 
 ####문제 해결
 Apache가 실행되고 있지만 위의 Apache 기본 페이지가 표시되지 않는 경우 다음을 확인해야 합니다.
@@ -433,7 +433,7 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 
 -	**가능한 근본 원인** Apache의 서버 이름을 설정하지 않았습니다.
 
--	**해결 방법** /etc/apache2의 httpd.conf(Red Hat 릴리스) 또는 apache2.conf(Debian 릴리스)에 "ServerName localhost" 줄을 삽입하고 Apache를 다시 시작합니다. 알림이 사라집니다.
+-	**솔루션** /etc/apache2의 httpd.conf(Red Hat 릴리스) 또는 apache2.conf(Debian 릴리스)에 "ServerName localhost" 줄을 삽입하고 Apache를 다시 시작합니다. 알림이 사라집니다.
 
 
 
@@ -456,4 +456,4 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

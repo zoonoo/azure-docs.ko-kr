@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # Visual Studio Team Services를 사용한 지속적인 업데이트
@@ -322,4 +322,4 @@ Visual Studio Team Services의 단위 테스트에 대한 자세한 내용은 [�
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

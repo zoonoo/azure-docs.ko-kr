@@ -1,4 +1,11 @@
-<properties pageTitle="What happened to my WebApi project (Visual Studio Azure Active Directory connected service) |Microsoft Azure " description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio services="active-directory" services="active-directory" documentationCenter="" authors="TomArcher" manager="douge" editor="tglee"/>
+<properties
+	pageTitle="내 WebApi 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용 | Microsoft Azure"
+	description="Visual Studio를 사용하여 Azure AD에 연결하는 MVC 프로젝트 WebApi의 변경 내용을 설명합니다."
+  services="active-directory"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # 내 WebApi 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용
@@ -109,4 +116,4 @@ Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함�
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

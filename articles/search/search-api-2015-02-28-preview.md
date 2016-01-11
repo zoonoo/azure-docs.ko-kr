@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure | 호스트된 클라우드 검색 서비스"
-   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 Lucene 쿼리 구문 및 moreLikeThis 검색 같은 실험적 기능이 포함되어 있습니다."
+   pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure"
+   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 Lucene 쿼리 구문 및 사용자 지정 분석 같은 실험적 기능이 포함되어 있습니다."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,26 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="11/04/2015"
+   ms.date="12/21/2015"
    ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
-Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비스입니다. 이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
+이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
 
-- [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)은 [검색 작업](#SearchDocs)에 queryType 매개 변수를 지정할 수 있는 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)의 구현입니다.
-- `moreLikeThis`은(는) [검색 작업](#SearchDocs)에서 또 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
-
-`2015-02-28-Preview`의 몇 가지 추가 기능에 대해서는 별도로 설명합니다. 내용은 다음과 같습니다.
-
-- [점수 매기기 프로필](search-api-scoring-profiles-2015-02-28-preview.md)
-- [인덱서](search-api-indexers-2015-02-28-preview.md)
+- 이제 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx)을 Azure 검색의 쿼리에 사용할 수 있습니다. Lucene 쿼리 파서를 사용하려면 검색 작업에서 `queryType`을 지정하세요.
+- [사용자 지정 분석기](https://msdn.microsoft.com/library/azure/mt605304.aspx)를 사용하여 텍스트를 인덱싱 가능/검색 가능 토큰으로 변환하는 프로세스를 제어할 수 있습니다
+- `moreLikeThis`는 [검색 작업](#SearchDocs)에서 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
 
 Azure 검색 서비스는 여러 버전으로 제공됩니다. 자세한 내용은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
 ##이 문서의 API
-
-Azure 검색 서비스 API는 API 작업을 위한 두 URL 구문, 즉 simple 및 OData(자세한 내용은 [OData(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx)를 참조하세요). 다음 목록에서는 간단한 구문을 보여 줍니다.
 
 [인덱스 만들기](#CreateIndex)
 
@@ -153,7 +147,7 @@ HTTP POST 또는 PUT 요청을 사용하여 Azure 검색 서비스 내에서 새
 - `api-key`: 필수 사항입니다. `api-key`는
 - 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 <a name="RequestData"></a> **요청 본문 구문**
 
@@ -185,8 +179,10 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
           "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
-          "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "retrievable": true (default) | false,		      
+          "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
@@ -267,7 +263,11 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 
 `retrievable` - 검색 결과에서 필드를 반환할 수 있는지 여부를 설정합니다. 이익 등의 필드를 필터, 정렬 또는 점수 매기기 메커니즘으로 사용하며 최종 사용자에게는 필드를 표시하지 않으려는 경우 이 기능을 사용하면 유용합니다. `key` 필드의 경우 이 특성을 `true`로 설정해야 합니다.
 
-`analyzer` - 필드에 사용할 텍스트 분석기의 이름을 설정합니다. 허용되는 값 집합은 [언어 지원](#LanguageSupport)을 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
+`analyzer` - 필드의 검색 시간 및 인덱싱 시간에 사용할 분석기 이름을 설정합니다. 허용되는 값은 [분석기](https://msdn.microsoft.com/library/mt605304.aspx)를 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있으며 `searchAnalyzer` 또는 `indexAnalyzer`와 함께 설정할 수 없습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
+
+`searchAnalyzer` - 필드의 검색 시간에 사용되는 분석기 이름을 설정합니다. 허용되는 값은 [분석기](https://msdn.microsoft.com/library/mt605304.aspx)를 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있습니다. `indexAnalyzer`와 함께 설정해야 하며 `analyzer` 옵션과 함께 설정할 수 없습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
+
+`indexAnalyzer` - 필드의 인덱싱 시간에 사용되는 분석기 이름을 설정합니다. 허용되는 값은 [분석기](https://msdn.microsoft.com/library/mt605304.aspx)를 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있습니다. `searchAnalyzer`와 함께 설정해야 하며 `analyzer` 옵션과 함께 설정할 수 없습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
 
 `suggesters` - 검색 모드 및 제안 내용의 원본인 필드를 설정합니다. 자세한 내용은 [확인기](#Suggesters)를 참조하세요.
 
@@ -455,7 +455,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 	</tr>
     <tr>
 		<td>한국어</td>
-		<td></td>
+		<td>ko.microsoft</td>
 		<td>ko.lucene</td>
 	</tr>
     <tr>
@@ -733,7 +733,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 업데이트** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문 구문**
 
@@ -752,8 +752,10 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
           "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
-          "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "retrievable": true (default) | false, 
+		  "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
@@ -833,7 +835,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 나열** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -900,7 +902,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 가져오기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -915,7 +917,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 <a name="DeleteIndex"></a>
 ## 인덱스 삭제
 
-**인덱스 삭제** 작업은 Azure 검색 서비스에서 인덱스 및 관련 문서를 제거합니다. Azure 클래식 포털의 서비스 대시보드나 API에서 인덱스 이름을 가져올 수 있습니다. 자세한 내용은 [인덱스 나열](#ListIndexes)을 참조하세요.
+**인덱스 삭제** 작업은 Azure 검색 서비스에서 인덱스 및 관련 문서를 제거합니다. Azure 포털의 서비스 대시보드나 API에서 인덱스 이름을 가져올 수 있습니다. 자세한 내용은 [인덱스 나열](#ListIndexes)을 참조하세요.
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
@@ -934,7 +936,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **인덱스 삭제** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -967,7 +969,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 통계 가져오기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1022,7 +1024,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **문서 추가** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](.search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](.search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1174,7 +1176,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `searchFields=[string]`(선택) - 지정한 텍스트를 검색할 쉼표로 구분된 필드 이름의 목록입니다. 대상 필드는 `searchable`로 표시되어야 합니다.
 
-`queryType=simple|full` (선택 사항, 기본값 `simple`) - "simple"로 설정하면 +, * 및 “” 등과 같은 기호에 허용되는 단순 쿼리 언어를 사용하여 검색 텍스트가 해석됩니다. 쿼리는 기본적으로 각 문서의 모든 검색 가능 필드(또는 `searchFields`에 나타난 필드)에 걸쳐 평가됩니다. 쿼리 유형을 `full`(으)로 설정하면 필드별 및 가중치 적용 검색에 허용되는 Lucene 쿼리 언어를 사용하여 검색 텍스트가 해석됩니다. 검색 구문에 대한 구체적인 사항은 [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx) 및 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 참조하세요.
+`queryType=simple|full` (선택 사항, 기본값 `simple`) - "simple"로 설정하면 +, * 및 “” 등과 같은 기호에 허용되는 단순 쿼리 언어를 사용하여 검색 텍스트가 해석됩니다. 쿼리는 기본적으로 각 문서의 모든 검색 가능 필드(또는 `searchFields`에 나타난 필드)에 걸쳐 평가됩니다. 쿼리 유형을 `full`(으)로 설정하면 필드별 및 가중치 적용 검색에 허용되는 Lucene 쿼리 언어를 사용하여 검색 텍스트가 해석됩니다. 검색 구문에 대한 구체적인 사항은 [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx) 및 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx)을 참조하세요.
  
 > [AZURE.NOTE]Lucene 쿼리 언어의 범위 검색은 유사한 기능을 제공하는 $filter를 위해 지원되지 않습니다.
 
@@ -1186,11 +1188,9 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `$top=#`(선택 사항) - 검색할 검색 결과 수입니다. 검색 결과의 클라이언트쪽 페이징을 구현하기 위해 `$skip`과 함께 사용할 수 있습니다.
 
-> [AZURE.NOTE]Azure 검색은 ***서버쪽 페이징***을 사용하여 쿼리가 한 번에 너무 많은 문서를 검색하지 못하도록 합니다. 기본 페이지 크기는 50이고 최대 페이지 크기는 1000입니다. 따라서 `$top`을(를) 지정하지 않으면 기본적으로 **검색**에서 최대 50개를 반환합니다. 결과가 50개를 초과하면 응답에는 최대 50개의 결과가 표시된 다음 페이지를 가져올 수 있는 정보가 포함됩니다([아래 예제](#SearchResponse)의 `@odata.nextLink` 및 `@search.nextPageParameters` 참조). 비슷하게 `$top`에 1000보다 큰 값을 지정한 경우 1000개가 넘는 결과가 있으면 최대 1000개의 결과가 표시된 다음 페이지를 가져올 수 있는 정보와 함께 처음 1000개의 결과만 반환됩니다.
-
 > [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
 
-`$count=true|false`(선택, 기본적으로 `false`) - 총 결과 수를 가져올지 여부를 지정합니다. 이 값을 `true`로 설정하면 성능이 저하될 수 있습니다. 반환되는 개수는 근사값입니다.
+`$count=true|false`(선택, 기본적으로 `false`) - 총 결과 수를 가져올지 여부를 지정합니다. `search` 및 `$filter` 매개 변수와 일치하는 모든 문서의 개수이며 `$top` 및 `$skip`을 무시합니다. 이 값을 `true`로 설정하면 성능이 저하될 수 있습니다. 반환되는 개수는 근사값입니다.
 
 > [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$count` 대신 `count`입니다.
 
@@ -1254,7 +1254,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **검색 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1282,6 +1282,12 @@ POST의 경우:
       "top": #
     }
 
+**부분 검색 응답의 연속 작업**
+
+Azure 검색이 요청된 모든 결과를 단일 검색 응답에서 반환하지 못하는 경우가 종종 있습니다. 이러한 현상이 발생하는 여러 이유가 있는데, `$top`을 지정하지 않거나 `$top`에 너무 큰 값을 지정하여 쿼리에서 너무 많은 문서를 요청하는 경우를 예로 들 수 있습니다. 이러한 경우 Azure 검색에서는 응답 본문에 `@odata.nextLink` 주석을 넣고, 만약 POST 요청인 경우에는 `@search.nextPageParameters`까지 넣습니다. 이러한 주석의 값을 사용하여 검색 응답의 다음 부분을 가져오는 또 다른 검색 요청을 작성할 수 있습니다. 이것을 원래 검색 요청의 ***연속 작업***이라고 부르며, 주석은 일반적으로 ***연속 토큰***이라고 합니다. 이러한 주석의 구문 및 응답 본문에서 이러한 것들이 표시되는 위치에 대한 자세한 내용은 [아래 예](#SearchResponse)를 참조하세요.
+
+Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리고 대상에 따라 다릅니다. 견고한 클라이언트라면 예상보다 적은 문서가 반환되고 문서 검색을 계속할 수 있도록 연속 토큰이 포함되는 상황을 언제든지 처리할 수 있어야 합니다. 또한 검색을 계속하려면 원래 요청과 동일한 HTTP 메서드를 사용해야 합니다. 예를 들어 GET 요청을 보냈으면 보내는 모든 연속 작업 요청에서도 GET을 사용해야 합니다(POST도 마찬가지).
+
 <a name="SearchResponse"></a> **응답**
 
 상태 코드: 응답에 성공하면 ‘200 OK’가 반환됩니다.
@@ -1300,7 +1306,7 @@ POST의 경우:
         ],
         ...
       },
-      "@search.nextPageParameters": { (request body to fetch the next page of results if result count exceeds page size and Search was called with POST)
+      "@search.nextPageParameters": { (request body to fetch the next page of results if not all results could be returned in this response and Search was called with POST)
         "count": ... (value from request body if present),
         "facets": ... (value from request body if present),
         "filter": ... (value from request body if present),
@@ -1332,7 +1338,7 @@ POST의 경우:
         },
         ...
       ],
-      "@odata.nextLink": (URL to fetch the next page of results if result count exceeds page size; Applies to both GET and POST)
+      "@odata.nextLink": (URL to fetch the next page of results if not all results could be returned in this response; Applies to both GET and POST)
     }
 
 **예제:**
@@ -1486,7 +1492,7 @@ POST의 경우:
 
 위에서 `searchMode=all`의 사용에 주의하세요. 이 매개 변수를 포함하면 기본값 `searchMode=any`가 재정의되어 `-motel`이 "OR NOT" 대신 "AND NOT"을 의미하게 됩니다. `searchMode=all`을 사용하지 않으면 검색 결과를 제한하는 것이 아니라 확장하는 "OR NOT"을 가져오므로 일부 사용자에게 직관적으로 보이지 않을 수 있습니다.
 
-15) [Lucene 쿼리 구문](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview)을 사용하여 인덱스에서 문서를 찾습니다. 이 쿼리는 범주 필드에 “예산"이라는 용어가 포함된 호텔 및 “최근 혁신된" 문구가 포함된 모든 검색 가능 필드를 반환합니다. 용어 boost 값(3)의 결과로 "최근 혁신된" 문구가 포함된 문서가 더 높은 순위가 됩니다.
+15) [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx)을 사용하여 인덱스에서 문서를 찾습니다. 이 쿼리는 범주 필드에 “예산"이라는 용어가 포함된 호텔 및 “최근 혁신된" 문구가 포함된 모든 검색 가능 필드를 반환합니다. 용어 boost 값(3)의 결과로 "최근 혁신된" 문구가 포함된 문서가 더 높은 순위가 됩니다.
 
     GET /indexes/hotels/docs?search=category:budget AND "recently renovated"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
 
@@ -1531,7 +1537,7 @@ POST의 경우:
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 조회 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1579,7 +1585,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 - `Accept`: 이 값은 `text/plain`으로 설정해야 합니다.
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 수 계산 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1660,7 +1666,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 > [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$orderby` 대신 `orderby`입니다.
 
-`$select=[string]`(선택) - 검색할 쉼표로 구분된 필드 목록입니다. 지정하지 않으면 문서 키와 제안 텍스트만 반환됩니다.
+`$select=[string]`(선택) - 검색할 쉼표로 구분된 필드 목록입니다. 지정하지 않으면 문서 키와 제안 텍스트만 반환됩니다. 이 매개 변수를 `*`로 설정하여 모든 필드를 명시적으로 요청할 수 있습니다.
 
 > [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$select` 대신 `select`입니다.
 
@@ -1678,7 +1684,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **제안 ** 요청은 관리 키 또는 쿼리 키를 `api-key`로 지정할 수 있습니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 클래식 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1742,4 +1748,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

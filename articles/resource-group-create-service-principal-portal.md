@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/17/2015"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기
 
 ## 개요
-구독에서 리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 포털을 사용하여 Active Directory 응용 프로그램을 만들고 적절한 권한이 있는 역할에 할당할 수 있습니다. 포털을 통해 Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 사용 권한을 설정하는 경우 서비스 주체를 사용합니다.
+구독에서 리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 클래식 포털을 사용하여 Active Directory 응용 프로그램을 만들고 적절한 권한이 있는 역할에 할당할 수 있습니다. 클래식 포털을 통해 Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 사용 권한을 설정하는 경우 서비스 주체를 사용합니다.
 
-이 항목에서는 Azure 포털을 사용하여 새 응용 프로그램 및 서비스 주체를 만드는 방법을 보여줍니다. 현재는 새 Active Directory 응용 프로그램을 만들려면 Microsoft Azure 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure Preview 포털에 추가될 예정입니다. Preview 포털을 사용하여 응용 프로그램을 역할에 할당할 수 있습니다. Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수도 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
+이 항목에서는 클래식 포털을 사용하여 새 응용 프로그램 및 서비스 주체를 만드는 방법을 보여줍니다. 현재는 새 Active Directory 응용 프로그램을 만들려면 클래식 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure 포털에 추가될 예정입니다. 포털을 사용하여 응용 프로그램을 역할에 할당할 수 있습니다. Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수도 있습니다. 서비스 주체와 함께 PowerShell 또는 CLI를 사용하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## 개념
 1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스 빌드입니다. 자세한 내용은 [Azure Active Directory란](active-directory/active-directory-whatis.md)을 참조하세요.
@@ -33,7 +33,7 @@
 
 ## 응용 프로그램 및 서비스 주체 개체 만들기
 
-1. [포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
+1. [클래식 포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
 
 2. 왼쪽 창에서 **Active Directory**를 선택합니다.
 
@@ -101,15 +101,31 @@
 
 ## 응용 프로그램을 역할에 할당
 
-작업 수행 권한을 부여하려면 응용 프로그램을 역할에 할당해야 합니다. [Preview 포털](https://portal.azure.com)을 사용하여 올바른 권한을 가진 역할에 Active Directory 응용 프로그램을 할당할 수 있습니다.
+작업 수행 권한을 부여하려면 응용 프로그램을 역할에 할당해야 합니다. 응용 프로그램에 역할을 할당하려면 클래식 포털에서 [Azure 포털](https://portal.azure.com)로 전환하세요. 응용 프로그램에 어떤 역할을, 어느 범위에서 할당할 것인지 결정해야 합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](./active-directory/role-based-access-built-in-roles.md)을 참조하세요. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
 
-Preview 포털에서 액세스 제어를 시작하려면 **액세스** 아이콘을 선택합니다.
+1. 포털에서 응용 프로그램에 할당하려는 범위 수준으로 이동합니다. 이 항목의 경우 리소스 그룹으로 이동한 다음 리소스 그룹 블레이드에서 **액세스** 아이콘을 선택합니다.
 
-![사용자 선택](./media/resource-group-create-service-principal-portal/select-users.png)
+     ![사용자 선택](./media/resource-group-create-service-principal-portal/select-users.png)
 
-응용 프로그램을 할당할 역할을 선택하고 응용 프로그램을 검색합니다.
+2. **추가**를 선택합니다.
 
-![사용자 선택](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+     ![추가 선택](./media/resource-group-create-service-principal-portal/select-add.png)
+
+3. **읽기 권한자** 역할(또는 응용 프로그램에 할당하고 싶은 역할)을 선택합니다.
+
+     ![역할 선택](./media/resource-group-create-service-principal-portal/select-role.png)
+
+4. 역할에 추가할 수 있는 사용자 목록이 처음 표시될 때에는 응용 프로그램이 표시되지 않고 그룹 및 사용자만 보입니다.
+
+     ![사용자 표시](./media/resource-group-create-service-principal-portal/show-users.png)
+
+5. 응용 프로그램을 찾으려면 응용 프로그램을 검색해야 합니다. 응용 프로그램 이름을 입력하면 사용 가능한 옵션 목록이 변경됩니다. 목록에 응용 프로그램이 표시되면 해당 응용 프로그램을 선택합니다.
+
+     ![역할에 할당](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+6. **확인**을 선택하여 역할 할당을 완료합니다. 이제 목록에서 리소스 그룹에 대한 역할에 할당된 사용자 목록에 응용 프로그램이 표시될 것입니다.
+
+     ![표시](./media/resource-group-create-service-principal-portal/show-app.png)
 
 포털을 통해 역할에 사용자 및 응용 프로그램 할당에 대한 자세한 내용은 [Azure 관리 포털을 사용하여 액세스 관리](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal)를 참조하세요.
 
@@ -141,7 +157,7 @@ Preview 포털에서 액세스 제어를 시작하려면 **액세스** 아이콘
 
 ## 다음 단계
 
-- 보안 정책 지정에 대해 자세히 알아보려면 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.  
+- 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.  
 - 이러한 단계에 대한 비디오 데모를 보려면 [Azure Active Directory에서 Azure 리소스의 프로그래밍 방식 관리 활성화](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)를 참조하세요.
 - Azure PowerShell 또는 Azure CLI를 사용하여 Active Directory 응용 프로그램 및 서비스 주체로 작업 및 인증을 위해 인증서를 사용하는 방법에 대해 자세히 알아보려면 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.
 - Azure 리소스 관리자에서 보안 구현에 대한 지침은 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
@@ -162,4 +178,4 @@ Preview 포털에서 액세스 제어를 시작하려면 **액세스** 아이콘
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

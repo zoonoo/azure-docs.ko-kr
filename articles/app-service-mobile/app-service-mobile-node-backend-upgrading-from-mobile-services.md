@@ -3,7 +3,7 @@
 	description="모바일 서비스 응용 프로그램을 앱 서비스 모바일 앱으로 쉽게 업그레이드하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="christopheranderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -42,13 +42,13 @@
 
 - 플랫폼 간 및 로컬 개발을 위해 작성된 모바일 앱 SDK는 Windows, Linux 및 OSX 플랫폼에서 개발되고 로컬로 실행될 수 있습니다. 배포하기 전에 [Mocha](https://mochajs.org/) 테스트를 실행하는 것 같은 일반적인 노드 개발 기술을 사용하는 것은 쉽습니다.
 
-- [hiredis](https://www.npmjs.com/package/hiredis)와 같은 네이티브 모듈을 통해 Redis를 사용할 수 있습니다. 앱 서비스가 npm 패키지를 설치하기 때문에 배포할 때 배포 패키지에 이진을 포함시킬 필요가 없습니다.
+- [hiredis](https://www.npmjs.com/package/hiredis)와 같은 네이티브 모듈을 통해 Redis를 사용할 수 있습니다. 앱 서비스가 npm을 설치하기 때문에 배포 패키지에 이진 파일을 포함하지 않아도 됩니다.
 
 ## <a name="overview"></a>기본 업그레이드 개요
 
 .NET 모바일 앱 SDK와 달리 모바일 서비스에서 모바일 앱으로 노드 백 엔드를 업그레이드하는 작업은 패키지 교환처럼 간단하지 않습니다. 이제 제어하는 Azure와 반대로 전체 응용 프로그램 스택을 소유합니다. 따라서 기본 Express 앱을 만들어 모바일 백 엔드를 호스팅해야 합니다. 테이블 및 API 컨트롤러의 경우 개념은 비슷하지만 테이블 개체를 내보내야 하고 함수 API는 다소 변경됩니다. 이 문서에서는 업그레이드의 기본 전략을 안내하지만 마이그레이션하기 전에 시작에 앞서 [노드 백 엔드 방법](app-service-mobile-node-backend-how-to-use-server-sdk.md)을 읽습니다.
 
->[AZURE.TIP]업그레이드를 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해하는 것이 좋습니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
+>[AZURE.TIP]업그레이드를 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해합니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
 
 모바일 서비스 클라이언트 SDK는 새 모바일 앱 서버 SDK와 호환할 수 **없습니다**. 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 응용 프로그램을 동일한 앱 서비스 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
 
@@ -56,10 +56,13 @@
 
 업그레이드 프로세스에 대한 전체 개요는 다음과 같습니다.
 
-1. 새 모바일 앱 만들기
-2. 프로젝트를 업데이트하여 새 서버 SDK 사용
-3. 새 버전의 클라이언트 응용 프로그램 릴리스
-4. (선택 사항) 원래 마이그레이션된 모바일 서비스 앱 삭제
+1. 새 모바일 앱 만들기.
+2. 프로젝트를 업데이트하여 새 서버 SDK 사용.
+3. 새 모바일 앱에서 프로젝트 게시.
+4. 새 모바일 앱을 사용하는 새 버전의 클라이언트 응용 프로그램 릴리스
+5. (선택 사항) 원래 마이그레이션된 모바일 서비스 앱 삭제
+
+삭제는 원래 마이그레이션된 모바일 서비스 앱에 트래픽이 표시되지 않을 때 발생할 수 있습니다.
 
 ## <a name="mobile-app-version"></a> 업그레이드 시작
 업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure 포털]을 열고 마이그레이션된 응용 프로그램으로 이동합니다. 앱 서비스 계획에서 실행 중인지 확인합니다.
@@ -110,10 +113,13 @@
            app.use(mobile);
 
            // Start listening on HTTP
-           app.listen(process.env.PORT || 3000);
-           console.log('Now listening on ' + (process.env.PORT || 3000)));
+           var port = process.env.PORT || 3000;
+           app.listen(port, function () {
+               console.log('Now listening on ', port)
+           });
         });
 
+더 많은 샘플의 경우 [GitHub 리포지토리](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples)를 참조합니다.
 
 ## 서버 프로젝트 업데이트
 
@@ -144,7 +150,10 @@ SDK는 메모리 내 데이터 공급자와 함께 빠르고 쉬운 시작 환�
 
 userid에 기반하는 항목을 필터링하는 TodoItem 테이블 및 읽기 작업이 있는 모바일 서비스에서는 다음과 같습니다.
 
-  함수(쿼리, 사용자, 요청) {query.where ({userId: user.userId}); request.execute();}
+    function(query, user, request) {
+        query.where({ userId: user.userId});
+        request.execute();
+    }
 
 Azure 모바일 앱 테이블 코드에 추가하는 함수는 다음과 같습니다.
 
@@ -153,7 +162,22 @@ Azure 모바일 앱 테이블 코드에 추가하는 함수는 다음과 같습�
         return context.execute();
     });
 
-코드를 검사하여 대부분의 함수 매개 변수를 볼 수 있습니다.
+쿼리, 사용자 및 요청을 컨텍스트로 결합합니다. 다음 필드는 컨텍스트 개체 내에서 사용할 수 있습니다.
+
+| 필드 | 형식 | 설명 |
+| :------ | :--------------------- | :---------- |
+| 쿼리 | queryjs/쿼리 | 구문 분석된 OData 쿼리 |
+| id | 문자열 또는 숫자 | 요청과 연결된 ID |
+| 항목 | object | 삽입 또는 삭제되는 항목 |
+| req | express.Request | 현재 express 요청 개체 |
+| res | express.Response | 현재 express 응답 개체 |
+| 데이터 | 데이터 | 구성된 데이터 공급자 |
+| 테이블 | 함수 | 문자열 테이블 이름을 허용하고 테이블 액세스 개체를 반환하는 함수 |
+| 사용자 | 인증/사용자 | 인증된 사용자 개체 |
+| 결과 | object | 실행 작업의 결과 |
+| 푸시 | NotificationHubService | 구성된 경우 알림 허브 서비스 |
+
+자세한 내용은 [현재 API 설명서](http://azure.github.io/azure-mobile-apps-node)를 참조합니다.
 
 ### CORS
 
@@ -264,4 +288,4 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->
