@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/09/2015"
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 #AES-128 동적 암호화 및 키 전달 서비스 사용
@@ -563,6 +563,7 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 		                                        FirstOrDefault();
 		
 		            // Create a 30-day readonly access policy. 
+                	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		            IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		                TimeSpan.FromDays(30),
 		                AccessPermissions.Read);
@@ -620,4 +621,4 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

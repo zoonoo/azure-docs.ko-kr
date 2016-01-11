@@ -23,7 +23,7 @@
 DevTest Lab을 만들려면 다음이 필요합니다.
 
 - Azure 구독. Azure 구입 옵션에 대해 알아보려면 [Azure 구입 방법](http://azure.microsoft.com/pricing/purchase-options/) 또는 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 랩을 만들려면 구독 소유자여야 합니다.
-- 랩에 대한 Azure 리소스 그룹입니다. [Azure 리소스 관리자 개요](resource-group-overview.md) 및 [리소스에 대한 액세스 관리 및 감사](./azure-portal/resource-group-rbac.md)를 참조하세요.
+- 랩에 대한 Azure 리소스 그룹입니다. [Azure 리소스 관리자 개요](resource-group-overview.md) 및 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 
 ## 랩 만들기
@@ -61,4 +61,4 @@ DevTest Lab을 만들려면 다음이 필요합니다.
 
 - [Azure DevTest Lab에 아티팩트를 사용하여 VM 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

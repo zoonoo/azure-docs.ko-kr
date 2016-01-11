@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -48,7 +47,7 @@
 		}
 	}
 	
-첫째, 이 메서드는 새로운 SearchParameters 개체를 만듭니다 이는 정렬, 필터링, 페이징, 패시팅 같은 쿼리에 대한 추가 옵션을 지정하는 데 사용됩니다. 이 예에서는 Filter 속성만 설정합니다.
+첫째, 이 메서드는 새로운 SearchParameters 개체를 만듭니다 이는 정렬, 필터링, 페이징, 패시팅 같은 쿼리에 대한 추가 옵션을 지정하는 데 사용됩니다. 이 예에서는 필터 속성만 설정합니다.
 
 다음 단계를 실제로 검색 쿼리를 실행합니다. 이 작업은 Documents.Search 메서드를 사용하여 수행됩니다. 이 경우, 문자열로 사용할 검색 텍스트와 앞서 만든 검색 매개 변수를 전달합니다. 또한 Hotel을 Documents.Search의 유형 매개 변수로 지정하면 SDK가 검색 결과 내에 문서를 Hotel 유형의 개체로 역직렬화하도록 지정할 수 있습니다.
 
@@ -63,4 +62,4 @@
 
 두 번째 호출을 OData $filter 식, 범주 eq 'Luxury'를 사용합니다. 이는 범주 필드가 문자열 "Luxury"와 일치하는 문서만 반환하기 위해 검색을 제한합니다. [Azure 검색에 대한 OData 식 구문](https://msdn.microsoft.com/library/azure/dn798921.aspx)에서 OData 구문에 대해 자세히 확인할 수 있습니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

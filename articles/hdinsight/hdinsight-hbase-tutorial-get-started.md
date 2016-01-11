@@ -55,7 +55,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Ap
 	- **리소스 그룹** - 새 리소스 그룹을 만들거나 기존 Azure 리소스 그룹을 선택합니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 	- **자격 증명** - Windows 기반 클러스터의 경우 클러스터 사용자(HTTP 사용자, HTTP 웹 서비스 사용자라고도 함) 및 원격 데스크톱 사용자를 만들 수 있습니다. **원격 데스크톱 사용**을 클릭하여 원격 데스크톱 사용자 자격 증명을 추가합니다. 다음 섹션에는 RDP가 필요합니다.
 	- **데이터 원본** - 클러스터의 기본 파일 시스템으로 사용할 기존 Azure 저장소 계정을 선택하거나 새 Azure 저장소 계정을 만듭니다. 기본 저장소 계정 위치는 클러스터 위치를 결정합니다. 기본 저장소 계정 및 클러스터는 같은 데이터 센터에 공동 배치되어야 합니다.
-	- **노드 가격 책정 계층** - HBase 클러스터에 사용할 지역 서버 수를 선택합니다.
+	- **노드 가격 책정 계층** - HBase 클러스터에 사용할 하위 지역 서버 수를 선택합니다.
 
 		> [AZURE.WARNING]HBase 서비스의 고가용성을 위해 **3개** 이상의 노드가 포함된 클러스터를 만들어야 합니다. 이렇게 하면 하나의 노드가 작동이 중지된 경우 다른 노드에서 HBase 데이터 영역을 사용할 수 있습니다.
 
@@ -331,4 +331,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

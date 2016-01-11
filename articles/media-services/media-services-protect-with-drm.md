@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/09/2015"
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -579,6 +579,7 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		                                         FirstOrDefault();
 		
 		            // Create a 30-day readonly access policy. 
+                	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		            IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		                TimeSpan.FromDays(30),
 		                AccessPermissions.Read);
@@ -630,4 +631,4 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
 [Azure 미디어 서비스에서 Google Widevine 라이선스 전달 서비스 공용 미리 보기 발표](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

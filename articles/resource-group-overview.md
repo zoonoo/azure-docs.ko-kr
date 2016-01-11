@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/22/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -57,6 +57,12 @@
 5. 관리 작업에 대한 액세스 제어 범위를 지정하는 데 리소스 그룹을 사용할 수 있습니다.
 6. 두 리소스가 서로 상호작용 해야 하지만 동일한 수명 주기를 공유하지 않는 경우 한 리소스는 다른 리소스 그룹의 리소스에 연결할 수 있습니다.(예: 데이터베이스에 연결된 여러 앱) 자세한 내용은 [Azure 리소스 관리자에서 리소스 연결](resource-group-link-resources.md)을 참조하세요.
 
+## 리소스 공급자
+
+리소스 공급자는 리소스 관리자를 통해 배포하고 관리할 수 있는 리소스를 제공하는 서비스입니다. 각 리소스 공급자는 리소스로 작업하기 위해 REST API 작업을 제공합니다. 예를 들어 키와 암호를 저장하기 위해 Azure 주요 자격 증명 모음을 배포하려는 경우 **Microsoft.KeyVault** 리소스 공급자로 작업합니다. 이 리소스 공급자는 주요 자격 증명 모음을 만드는 데 **자격 증명 모음**이라는 리소스 형식을 제공하고 주요 자격 증명 모음에 암호를 만들기 위해 **자격 증명 모음/암호**라는 리소스 형식을 제공하며 [REST API 작업](https://msdn.microsoft.com/library/azure/dn903609.aspx) 집합을 제공합니다.
+
+인프라를 배포하고 관리하려면 제공하는 리소스 형식, REST API 작업의 버전 수, 지원하는 작업 및 만들려는 리소스 형식의 값을 설정할 때 사용할 스키마와 같은 리소스 공급자에 대한 세부 정보를 파악해야 합니다. 지원되는 리소스 공급자에 대해 알아보려면 [리소스 관리자 공급자, 영역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
+
 ## 템플릿 배포
 
 리소스 관리자로 응용 프로그램의 배포 및 구성을 정의하는 간단한 템플릿을(JSON 형식으로) 만들 수 있습니다. 이 템플릿은 리소스 관리자 템플릿이며 배포를 정의하는 선언적 방법을 제공합니다. 서식 파일을 사용하여 수명 주기 내내 응용 프로그램을 반복적으로 배포하며 안심하고 일관된 상태로 리소스가 배포할 수 있습니다.
@@ -76,8 +82,6 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 마지막으로 템플릿은 앱에 대한 소스 코드의 일부가 됩니다. 소스 코드 리포지토리를 확인하고 앱이 발전하면 업데이트할 수 있습니다. Visual Studio를 통해 템플릿을 편집할 수 있습니다.
 
 템플릿을 정의하는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](./resource-group-authoring-templates.md)를 참조하십시오.
-
-템플릿 스키마에 대해서는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
 배포용 템플릿을 사용하는 방법에 대한 정보는 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
@@ -99,9 +103,7 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 리소스 관리자는 자동으로 감사에 대한 사용자 작업을 기록합니다. 감사 로그를 사용하는 데 대한 내용은 [리소스 관리자를 사용하는 감사 작업](resource-group-audit.md)을 참조하세요.
 
-역할 기반 액세스 제어에 대한 자세한 내용은 [Microsoft Azure Preview 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하십시오. 이 항목은 기본 제공 역할 및 허용된 작업의 목록을 포함합니다. 기본 제공 역할은 소유자, 판독기 및 참여자와 같은 일반 역할 및 가상 컴퓨터 참여자, 가상 네트워크 참여자 및 SQL 보안 관리자와 같은 서비스 관련 역할을 포함합니다.(사용 가능한 역할의 일부에 이름을 지정함)
-
-역할 할당의 예제는 [리소스에 대한 액세스 관리](resource-group-rbac.md)를 참조하세요.
+역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요. [RBAC: 기본 제공 역할](./active-directory/role-based-access-built-in-roles.md) 항목은 기본 제공 역할 및 허용된 작업의 목록을 포함합니다. 기본 제공 역할은 소유자, 판독기 및 참여자와 같은 일반 역할 및 가상 컴퓨터 참여자, 가상 네트워크 참여자 및 SQL 보안 관리자와 같은 서비스 관련 역할을 포함합니다.(사용 가능한 역할의 일부에 이름을 지정함)
 
 또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
@@ -113,7 +115,7 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 ## 일관적인 관리 계층
 
-리소스 관리자는 Mac, Linux 및 Windows, Azure Preview 포털 또는 REST API용 Azure PowerShell, Azure CLI를 통해 완전히 호환되는 작업을 제공합니다. 가장 잘 작동하는 인터페이스를 사용하여 혼동 없이 인터페이스 간을 빠르게 이동할 수 있습니다. 포털은 포털 외부에서 수행된 작업에 대한 알림을 표시합니다.
+리소스 관리자는 Mac, Linux 및 Windows, Azure 포털 또는 REST API용 Azure PowerShell, Azure CLI를 통해 완전히 호환되는 작업을 제공합니다. 가장 잘 작동하는 인터페이스를 사용하여 혼동 없이 인터페이스 간을 빠르게 이동할 수 있습니다. 포털은 포털 외부에서 수행된 작업에 대한 알림을 표시합니다.
 
 Azure PowerShell에 대한 정보는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](./powershell-azure-resource-manager.md) 및 nd [Azure 리소스 관리자 Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx)을 참조하십시오.
 
@@ -121,7 +123,7 @@ Azure CLI에 대한 정보는 [Azure 리소스 관리에서 Mac, Linux 및 Windo
 
 REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https://msdn.microsoft.com/library/azure/dn790568.aspx)를 참조하십시오..
 
-미리 보기 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
+포털 사용에 대한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
 
 Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합니다. CORS를 통해 다른 도메인에 상주하는 웹 응용 프로그램에서 리소스 관리자 REST API 또는 Azure 서비스 REST API를 호출할 수 있습니다. CORS 지원하지 않는 웹 브라우저에서는 한 도메인의 응용 프로그램이 다른 도메인의 리소스에 액세스할 수 없습니다. 리소스 관리자는 유효한 인증 자격 증명을 사용하여 모든 요청에 대해 CORS할 수 있습니다.
 
@@ -136,4 +138,4 @@ Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합�
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

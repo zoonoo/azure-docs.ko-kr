@@ -61,7 +61,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 지원됨 | 지원됨 | 암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
 |**China Telecom Global** | 지원됨 | 지원되지 않음 | 홍콩 |
 |**Cologix** | 서비스 예정 | 지원되지 않음 | 몬트리올+, 토론토+ |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원됨 | 암스테르담, 런던 |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원됨 | 암스테르담, 더블린+, 런던 |
 | **Comcast** | 지원됨 | 지원되지 않음 | 실리콘밸리, 워싱턴 DC |
 | **CoreSite** | 지원됨 | 지원됨 | 로스앤젤레스 | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 지원됨 | 지원됨 | 암스테르담, 애틀랜타, 시카고, 댈러스, 홍콩, 런던, 로스앤젤레스, 멜버른, 뉴욕, 오사카, 상 파울로, 시애틀, 실리콘밸리, 싱가포르, 시드니, 도쿄, 토론토+, 워싱턴 DC |
@@ -74,7 +74,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **MTN** | 지원됨 | 지원됨 | 런던 |
 | **NEXTDC** | 지원됨 | 지원됨 | 멜버른, 시드니 |
 | **NTT Communications** | 지원됨 | 지원되지 않음 | 런던+, 도쿄 |
-| **[Orange](http://www.orange-business.com/)** | 지원됨 | 지원되지 않음 | 암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 워싱턴 DC |
+| **[Orange](http://www.orange-business.com/)** | 지원됨 | 지원됨 | 암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **PCCW Global Limited** | 지원됨 | 지원되지 않음 | 홍콩 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 지원됨 | 지원되지 않음 | 싱가포르 |
 | **Softbank** | 서비스 예정 | 지원되지 않음 | 오사카, 도쿄 | 
@@ -139,4 +139,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

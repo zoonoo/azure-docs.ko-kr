@@ -58,7 +58,7 @@ Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려�
 Office 365 요구 사항에 대한 자세한 내용은 다음 리소스를 검토합니다.
 
 - [Office 365에 대한 네트워크 계획 및 성능 조정](http://aka.ms/tune)
-- [Office 365 네트워크 트래픽 관리](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
+- [Office 365 네트워크 트래픽 관리](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - QoS 요구 사항 및 구성에 대한 자세한 지침은 [Express 경로 서비스 품질(QoS) 요구 사항](expressroute-qos.md) 문서를 참조합니다. 연결 공급자를 확인하여 VPN에 서비스의 여러 클래스를 제공하는지를 확인합니다. 
 
 ## 다음 단계
@@ -71,4 +71,4 @@ Office 365 요구 사항에 대한 자세한 내용은 다음 리소스를 검�
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

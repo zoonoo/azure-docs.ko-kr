@@ -13,14 +13,13 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="heidist"/>
 
 # Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -32,9 +31,9 @@
 
 ## 인덱스 만들기
 
-1. Fiddler를 시작합니다. **File** 메뉴에서 **Capture Traffic**을 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다.
+1. Fiddler를 시작합니다. **파일** 메뉴에서 **트래픽 캡쳐**를 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다.
 
-3. **Composer** 탭에서 다음 스크린샷과 같은 요청을 작성합니다.
+3. **작성기** 탭에서 다음 스크린샷과 같은 요청을 작성합니다.
 
   	![][1]
 
@@ -43,7 +42,7 @@
 3. 서비스 URL을 지정하는 URL, 요청 특성 및 api-version을 입력합니다. 다음 몇 가지 사항에 주의하세요.
    + HTTPS를 접두사로 사용합니다.
    + 요청 특성은 "/indexes/hotels"입니다. 그러면 검색에서 'hotels'라는 인덱스를 만듭니다.
-   + api-version은 소문자이며 "?api-version=2015-02-28"로 지정됩니다. Azure 검색은 주기적으로 업데이트를 배포하므로 API 버전이 중요합니다. 드물긴 하지만 서비스 업데이트에서 새로운 API 변경 사항을 소개할 수도 있습니다. API 버전을 사용하면 기존 버전을 계속 사용하고 편리한 시간에 최신 버전으로 업그레이드할 수 있습니다.
+   + api-version은 소문자이며 "?api-version=2015-02-28"로 지정됩니다. Azure 검색은 주기적으로 업데이트를 배포하므로 API 버전이 중요합니다. 드물긴 하지만 서비스 업데이트에서 새로운 API 변경 사항을 소개할 수도 있습니다. 이러한 이유로 Azure 검색은 각 요청에 API 버전이 필요하므로 어떤 것을 사용할지 전체를 제어합니다.
 
     다음 예제와 같은 전체 URL이 표시됩니다.
 
@@ -63,7 +62,7 @@
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -83,7 +82,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 ## 문서 로드
 
-**Composer** 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요청 본문에 4개 호텔에 대한 검색 데이터가 포함됩니다.
+**작성기** 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요청 본문에 4개 호텔에 대한 검색 데이터가 포함됩니다.
 
    ![][2]
 
@@ -169,7 +168,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 ## 인덱스 쿼리
 
-이제 인덱스와 문서가 로드되었으므로 쿼리를 실행할 수 있습니다. **Composer** 탭에서 서비스를 쿼리하는 **GET** 명령은 다음과 유사합니다.
+이제 인덱스와 문서가 로드되었으므로 쿼리를 실행할 수 있습니다. **작성기** 탭에서 서비스를 쿼리하는 **가져오기** 명령은 다음과 유사합니다.
 
    ![][3]
 
@@ -204,7 +203,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 ## 시스템 쿼리
 
-시스템을 쿼리하여 문서 수와 저장소 사용을 가져올 수도 있습니다. **Composer** 탭에서 요청은 다음과 유사하고, 응답에서 문서 수와 사용된 공간을 반환합니다.
+시스템을 쿼리하여 문서 수와 저장소 사용을 가져올 수도 있습니다. **작성기** 탭에서 요청은 다음과 유사하고, 응답에서 문서 수와 사용된 공간을 반환합니다.
 
  ![][5]
 
@@ -225,14 +224,12 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 5.	**실행**을 클릭합니다. 세션 목록에 HTTP 200 상태 코드가 표시됩니다. 명령에 대해 게시할 항목을 선택합니다.
 
-6.	**Inspectors** 탭과 **Headers**를 차례로 클릭하고 JSON 형식을 선택합니다. 문서 수와 저장소 크기(KB)가 표시됩니다.
+6.	**검사기** 탭과 **헤더** 탭을 차례로 클릭하고 JSON 형식을 선택합니다. 문서 수와 저장소 크기(KB)가 표시됩니다.
 
 ## 다음 단계
 
-다음 링크는 코드를 작성하지 않고 Azure 검색을 관리 및 사용하는 방법에 대한 추가 정보를 제공합니다.
+Azure 검색을 관리 및 사용하는 코드 없는 접근 방식은 [Azure에서 검색 서비스 관리](search-manage.md)를 참조하세요.
 
--  [Azure에서 검색 서비스 관리](search-manage.md)
--  [Azure 검색에서 Chrome Postman을 사용하는 방법](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
@@ -241,4 +238,4 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->
