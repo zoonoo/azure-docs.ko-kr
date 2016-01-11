@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/19/2015"
 	ms.author="glenga"/>
 
 #Windows 앱 만들기
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
+&nbsp;
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
@@ -74,9 +74,11 @@
 
 ##다음 단계
 
-* [앱에 인증 추가](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/> ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* [앱에 인증 추가](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+  <br/> ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+  <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -85,4 +87,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

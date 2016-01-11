@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/10/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
@@ -96,4 +96,4 @@ SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 �
 SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/08/2015"
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -24,27 +24,16 @@
 
 >[AZURE.NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+##개요 
 
 이 자습서에서는 Azure Media Services(AMS) SDK for .NET를 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
 
 
 기본적인 미디어 서비스 워크플로와 미디어 서비스 개발에 필요한 가장 일반적인 프로그래밍 개체 및 작업을 소개합니다. 자습서를 마치면 업로드하고 인코딩하고 다운로드한 샘플 미디어 파일을 스트리밍하거나 점진적으로 다운로드할 수 있습니다.
 
+## 학습할 내용
 
-##샘플 다운로드
-
-[여기](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)에서 샘플을 가져와서 실행합니다.
-
-
-## 필수 조건
-Media Services SDK for .NET을 사용하여 개발을 시작하려면 다음 필수 조건이 필요합니다.
-
-- 운영 체제: Windows 8 이상, Windows 2008 R2, Windows 7
-- .NET Framework 4.5 또는 .NET Framework 4.0
-- Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상.
-
-
-다음 작업은 이 빠른 시작에 표시됩니다.
+이 자습서에서는 다음 작업의 수행 방법을 보여 줍니다.
 
 1.  Azure 클래식 포털을 사용하여 미디어 서비스 계정 만들기
 2.  포털을 사용하여 스트리밍 끝점 구성
@@ -53,8 +42,23 @@ Media Services SDK for .NET을 사용하여 개발을 시작하려면 다음 필
 6.  새 자산을 만들고 비디오 파일을 업로드합니다.
 7.  원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
 8.  자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기
-9.  콘텐츠를 재생합니다.
+9.  콘텐츠를 재생하여 테스트합니다.
 
+## 필수 조건
+
+자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
+
+- 이 자습서를 완료하려면 Azure 계정이 필요합니다. 
+	
+	계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
+- 운영 체제: Windows 8 이상, Windows 2008 R2, Windows 7
+- .NET Framework 4.0 이상
+- Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상 버전.
+
+
+##샘플 다운로드
+
+[여기](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)에서 샘플을 가져와서 실행합니다.
 
 ##포털을 사용하여 미디어 서비스 계정 만들기
 
@@ -111,7 +115,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 >[AZURE.NOTE]현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 스트리밍을 사용하지 않을 수 있습니다.
 >
-> 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 책정 정보에 대한 자세한 내용은 [미디어 서비스 가격 책정 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
+> 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 책정 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
 
 
 
@@ -134,8 +138,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 		  
 		</configuration>
 
-
-5. Program.cs 파일의 앞부분에 있는 기존 **using** 문을 다음 코드로 덮어씁니다.
+5. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 **using** 문을 덮어씁니다.
 
 		using System;
 		using System.Collections.Generic;
@@ -385,7 +388,7 @@ Program 클래스에 다음 메서드를 추가합니다.
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##콘텐츠 재생  
+##콘텐츠를 재생하여 테스트합니다.  
 
 이전 섹션에 정의된 프로그램을 실행하고 나면 다음과 유사한 URL이 콘솔 창에 표시됩니다.
 
@@ -448,4 +451,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

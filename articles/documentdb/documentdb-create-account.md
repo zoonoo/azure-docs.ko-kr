@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/03/2015" 
+	ms.date="12/17/2015" 
 	ms.author="mimig"/>
 
 # Azure 포털을 사용하여 DocumentDB 데이터베이스 계정 만들기
@@ -50,4 +50,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->
