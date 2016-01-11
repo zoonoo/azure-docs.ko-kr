@@ -93,7 +93,7 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) <br>
 
-    > [AZURE.NOTE][Support@small-improvements.com](mailto:support@small-improvements.com)에서 Small Improvements 지원 팀에 문의하여 계정에 대한 도메인 이름을 구성합니다. Single Sign-On 작업에 필요 합니다.
+    > [AZURE.NOTE] [Support@small-improvements.com](mailto:support@small-improvements.com)에서 Small Improvements 지원 팀에 문의하여 계정에 대한 도메인 이름을 구성합니다. Single Sign-On 작업에 필요 합니다.
 
 
     a. **로그온 URL** 텍스트 상자에 사용자가 Small Improvements 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다. b. **다음**을 클릭합니다.
@@ -243,4 +243,4 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 [204]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015---->

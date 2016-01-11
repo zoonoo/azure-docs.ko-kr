@@ -28,7 +28,8 @@
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 - [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
 
-마이그레이션 프로세스를 시작하기 전에 다음 방법 중 하나를 사용하여 SQL 데이터베이스 호환성 문제를 테스트합니다.
+### 옵션 1
+***SQL Server Management Studio를 사용하여 호환 가능한 데이터베이스 마이그레이션 ***
 
 - [SqlPackage 사용](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage는 테스트를 수행하여 호환성 문제가 발견되면 감지된 호환성 문제가 포함된 보고서를 생성하는 명령 프롬프트 유틸리티입니다.
 - [SQL Server Management Studio 사용](sql-database-cloud-migrate-determine-compatibility-ssms.md): SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사는 감지된 오류를 화면에 표시합니다.

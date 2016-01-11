@@ -273,7 +273,7 @@ Postman 세션으로 마스터 키를 잘라내기 및 붙여넣기할 수 있�
 
 자세한 내용은 [알림 허브] 설명서를 검토합니다.
 
-> [AZURE.TIP][Azure 포털]의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
+> [AZURE.TIP] [Azure 포털]의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
 
 ### <a name="app-settings"></a>기타 앱 설정
 
@@ -385,4 +385,4 @@ Azure 앱 서비스에서 정상적으로 진단 로깅을 사용합니다. 진�
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

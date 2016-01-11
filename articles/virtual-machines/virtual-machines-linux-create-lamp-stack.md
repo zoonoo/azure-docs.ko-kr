@@ -49,7 +49,7 @@ SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 -	다음 위치에서 puttygen을 다운로드하여 설치합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 -	puttygen.exe를 실행합니다.
 -	**생성**을 클릭하여 키를 생성합니다. 프로세스에서 마우스를 창의 빈 영역 위로 이동하여 임의성을 늘릴 수 있습니다. ![][1]
--	생성 프로세스 후 puttygen.exe에서 생성된 키를 표시합니다. 예: ![][2]
+-	생성 프로세스 후 Puttygen.exe에서 생성된 키를 표시합니다. 예: ![][2]
 -	**키**에서 공개 키를 선택하여 복사하고 **publicKey.pem** 파일에 저장합니다. 저장된 공개 키의 파일 형식은 원하는 공개 키와 다르므로 **공개 키 저장**을 클릭하지 마세요.
 -	**개인 키 저장**을 클릭하고 **privateKey.ppk** 파일에 저장합니다.
 
@@ -60,7 +60,7 @@ SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
 **호스트 이름**에서 인터넷 클라이언트가 이 가상 컴퓨터에 액세스하는 데 사용할 URL의 이름을 지정합니다. DNS 이름의 마지막 부분(예: LAMPDemo)을 정의하면 Azure에서 URL을 *lampdemo.cloudapp.net*으로 생성합니다.
 
-**사용자 이름**에서 나중에 가상 컴퓨터에 로그인하는 데 사용할 이름을 선택합니다.
+**사용자 이름 **에서 나중에 가상 컴퓨터에 로그인하는 데 사용할 이름을 선택합니다.
 
 **SSH 인증 키**에서 puttygen에 의해 생성된 공개 키가 포함된 **publicKey.pem** 파일의 키 값을 복사합니다.
 
@@ -80,7 +80,7 @@ Azure 포털에서 **찾아보기 -> 가상 컴퓨터**를 클릭한 다음 직�
 
 ![][5]
 
-가상 컴퓨터에 끝점을 추가하려면 **끝점** 확인란을 클릭합니다.
+가상 컴퓨터에 끝점을 추가하려면**끝점** 확인란을 클릭합니다.
 
 ![][6]
 
@@ -351,7 +351,7 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE]/var/www/html/에서 파일을 수정하려는 경우 다시 로그인해야 할 수도 있습니다.
--	SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터의 DNS 이름(예: lampdemo.cloudapp.net)에 연결한 다음 /**var/www/html**로 이동하여 사이트를 게시합니다. ![][18]
+-	SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터의 DNS 이름(예: lampdemo.cloudapp.net)에 연결한 다음 /**var/www/html**로 이동하여 사이트를 게시합니다.![][18]
 
 
 
