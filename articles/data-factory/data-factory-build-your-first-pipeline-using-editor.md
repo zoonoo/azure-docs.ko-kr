@@ -80,7 +80,8 @@
 
 	![배포 단추](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   연결된 서비스를 성공적으로 배포한 후에 **Draft-1** 창은 사라져야 하고 왼쪽의 트리 보기에서 **StorageLinkedService**가 표시됩니다. ![메뉴의 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   연결된 서비스를 성공적으로 배포한 후에 **Draft-1** 창은 사라져야 하고 왼쪽의 트리 보기에서 **StorageLinkedService**가 표시됩니다. 
+   	![메뉴의 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Azure HDInsight 연결된 서비스 만들기
@@ -122,7 +123,7 @@
 
 ### 입력 데이터 집합 만들기
 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob 저장소**를 선택합니다.
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob 저장소**를 선택합니다.  
 
 	![새 데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 2. 아래 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 조각에서 파이프라인의 활동에 대한 입력 데이터를 나타내는 **AzureBlobInput**라는 데이터 집합을 만듭니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 저장되도록 지정합니다.
@@ -205,7 +206,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 2. 아래 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다.
 
 	> [AZURE.IMPORTANT]**storageaccountname**을 JSON의 저장소 계정 이름으로 변경합니다.
-		
+
 		{
 		    "name": "MyFirstPipeline",
 		    "properties": {

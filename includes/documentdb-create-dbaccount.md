@@ -8,7 +8,7 @@
 	![새 DocumentDB 블레이드의 스크린샷](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 
-	- **ID** 상자에 DocumentDB 계정을 식별하기 위한 이름을 입력합니다. **ID**의 유효성이 검사되면 **ID** 상자에 녹색 확인 표시가 나타납니다. **ID** 값은 URI 내의 호스트 이름이 됩니다. **ID**는 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 선택한 끝점 이름에 *documents.azure.com*이 추가되고, 그 결과가 DocumentDB 계정 끝점이 됩니다.
+	- **ID** 상자에 DocumentDB 계정을 식별하기 위한 이름을 입력합니다. **ID**의 유효성이 검사되면 **ID** 상자에 녹색 확인 표시가 나타납니다. **ID** 값은 URI 내의 호스트 이름이 됩니다. **ID**는 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 선택한 끝점 이름에 *documents.azure.com* 이 추가되고, 그 결과가 DocumentDB 계정 끝점이 됩니다.
 	
 
 	- DocumentDB는 단일 표준 계정 계층을 지원하므로 **계정 계층** 렌즈가 잠깁니다. 자세한 내용은 [DocumentDB 가격](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409)을 참조하세요.
@@ -17,9 +17,10 @@
 
 	- **리소스 그룹**에서 DocumentDB 계정에 대한 리소스 그룹을 선택하거나 만듭니다. 기본적으로 새 리소스 그룹이 생성됩니다. 그러나 DocumentDB 계정을 추가할 기존 리소스 그룹을 선택할 수 있습니다. 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
  
-	- **위치**를 사용하여 DocumentDB 계정을 호스트하는 지리적 위치를 지정합니다.
+	- **위치**를 사용하여 DocumentDB 계정을 호스트하는 지리적 위치를 지정합니다.   
 
-4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. DocumentDB 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 시작 보드에서 진행률을 모니터링하면 됩니다. ![시작 보드 만들기 타일 - 온라인 데이터베이스 작성자의 스크린샷](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. DocumentDB 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 시작 보드에서 진행률을 모니터링하면 됩니다. 
+	![시작 보드 만들기 타일 - 온라인 데이터베이스 작성자의 스크린샷](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
   
 	그렇지 않은 경우 알림 허브에서 진행률을 모니터링할 수 있습니다.
 
@@ -33,6 +34,6 @@
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]: ../articles/documentdb/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!---HONumber=AcomDC_1223_2015-->

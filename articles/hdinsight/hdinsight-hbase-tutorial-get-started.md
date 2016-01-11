@@ -299,10 +299,13 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 
 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight HBase 개요][hdinsight-hbase-overview]. HBase는 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
-- [Azure 가상 네트워크에 HBase 클러스터 만들기][hdinsight-hbase-provision-vnet]. 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
+- [HDInsight HBase 개요][hdinsight-hbase-overview]. 
+HBase는 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+- [Azure 가상 네트워크에 HBase 클러스터 만들기][hdinsight-hbase-provision-vnet]. 
+가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
 - [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md) 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
-- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment] HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅 데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법을 알아봅니다.
+- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment] 
+HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅 데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법을 알아봅니다.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

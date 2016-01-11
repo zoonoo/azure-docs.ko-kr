@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="app-service-mobile"
@@ -18,7 +18,9 @@
 
 #Windows 앱 만들기
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+&nbsp;
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -58,7 +60,7 @@
 
 4. 시작 프로젝트인 Windows 스토어 앱을 사용하여 프로젝트를 다시 빌드하고 Windows 스토어 앱을 시작하려면 F5 키를 누릅니다.
 
-5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료* 와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
@@ -72,9 +74,11 @@
 
 ##다음 단계
 
-* [앱에 인증 추가](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/> ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* [앱에 인증 추가](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+  <br/> ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+  <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 <!-- Anchors. -->
 <!-- Images. -->
