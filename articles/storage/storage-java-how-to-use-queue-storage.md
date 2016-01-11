@@ -54,7 +54,7 @@ Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 �
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 이 문자열이 서비스 구성 파일 *ServiceConfiguration.cscfg* 에 저장될 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일에서 이름이 **StorageConnectionString**인 *설정* 요소에서 연결 문자열을 가져오는 예제입니다.
+Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 이 문자열이 서비스 구성 파일 *ServiceConfiguration.cscfg* 에 저장될 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일에서 이름이 *StorageConnectionString* 인 **설정** 요소에서 연결 문자열을 가져오는 예제입니다.
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
