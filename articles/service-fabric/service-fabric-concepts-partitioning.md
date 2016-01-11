@@ -284,7 +284,9 @@
     단계 별로 안내하겠습니다. T코드는 쿼리 문자열 매개 변수 `lastname`의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 hex 값에서 `A`의 hex 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
     ```
 
     이 예제에서 파티션당 하나의 파티션 키를 가진 26개의 파티션을 사용합니다. 그런 다음 `servicePartitionResolver` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `partition`을를 가져옵니다. `servicePartitionResolver`는 다음으로 정의됩니다.
@@ -322,8 +324,10 @@
   </Parameters>
   ```
 
-16. 배포되면 서비스 패브릭 탐색기에서 서비스 및 모든 해당 파티션을 확인할 수 있습니다. ![서비스](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. 브라우저에서 `http://localhost:8090/?lastname=somename`을 입력하여 분할 논리를 테스트할 수 있습니다. 동일한 문자로 시작하는 각 성이 동일한 파티션에 저장되는 것을 확인할 수 있습니다. ![브라우저](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. 배포되면 서비스 패브릭 탐색기에서 서비스 및 모든 해당 파티션을 확인할 수 있습니다.
+![서비스](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. 브라우저에서 `http://localhost:8090/?lastname=somename`을 입력하여 분할 논리를 테스트할 수 있습니다. 동일한 문자로 시작하는 각 성이 동일한 파티션에 저장되는 것을 확인할 수 있습니다.
+![브라우저](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 샘플의 전체 소스 코드는 [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)에서 확인할 수 있습니다.
 

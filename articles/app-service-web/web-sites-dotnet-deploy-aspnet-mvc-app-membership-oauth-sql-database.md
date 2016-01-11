@@ -451,7 +451,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	![코드 이미지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com*을 만든 다음 *canEdit* 역할에 *user1@contoso.com*을 추가합니다. 자세한 내용은 ASP.NET 사이트의 [ASP.NET ID 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
+	이 코드는 *canEdit* 라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com* 을 만든 다음 *canEdit* 역할에 *user1@contoso.com* 을 추가합니다. 자세한 내용은 ASP.NET 사이트의 [ASP.NET ID 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
 
 ## 임시 코드를 사용하여 canEdit 역할에 새 소셜 로그인 사용자 추가  ##
 
@@ -507,7 +507,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 		Update-Database
 
-**데이터베이스 업데이트** 명령은 **시드** 메서드를 실행하고 이전에 추가한 **AddUserAndRole** 메서드를 실행합니다. **AddUserAndRole** 메서드는 사용자 *user1@contoso.com*을 만들고 *canEdit* 역할에 추가합니다.
+**데이터베이스 업데이트** 명령은 **시드** 메서드를 실행하고 이전에 추가한 **AddUserAndRole** 메서드를 실행합니다. **AddUserAndRole** 메서드는 사용자 *user1@contoso.com* 을 만들고 *canEdit* 역할에 추가합니다.
 
 ## SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호 ##
 
@@ -537,9 +537,9 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 		     return View();
 		  }
 
-	*AllowAnonymous*에 대한 전체 검색을 수행한 경우 Account 컨트롤러의 로그인 및 등록 메서드에서 사용되는 것을 확인하게 됩니다.
+	*AllowAnonymous* 에 대한 전체 검색을 수행한 경우 Account 컨트롤러의 로그인 및 등록 메서드에서 사용되는 것을 확인하게 됩니다.
 
-1. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다. 
+1. *CmController.cs* 에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다. 
 
 		// GET: Cm/Create
 		[Authorize(Roles = "canEdit")]
@@ -585,14 +585,14 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. 이전 세션에서 로그인되어 있는 경우 **로그아웃** 링크를 누릅니다.
 1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다. 
-1. **새 사용자로 등록** 링크를 클릭하고 메일 **joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
+1. **새 사용자로 등록** 링크를 클릭하고 메일 *joe@contoso.com* 을 사용하여 로컬 사용자를 추가합니다. *Joe* 가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
 
 	![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. *CM Demo* 링크를 클릭하고 데이터가 표시되는지 확인합니다.
 
 1. 페이지의 편집 링크를 클릭하면 새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로 로그인 페이지로 리디렉션됩니다.
-1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/> 해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 *user1@contoso.com*이 추가되었는지 확인합니다.
+1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com* 으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/> 해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 *user1@contoso.com* 이 추가되었는지 확인합니다.
 
 1. 데이터를 변경할 수 있는지 확인합니다.
 
@@ -616,13 +616,13 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **게시**를 클릭합니다.
 
-1. *user1@contoso.com*으로 로그인하고(암호 "P\_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
+1. *user1@contoso.com* 으로 로그인하고(암호 "P\_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
 
 1. 로그아웃합니다.
 
 1. [Google Developers Console](https://console.developers.google.com/)로 이동하고 **자격 증명** 탭에서 Azure URL을 사용하도록 리디렉션 URIS 및 JavaScript Orgins를 업데이트합니다.
 
-1. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. *요청에서 리디렉션 URI:https://contactmanager{my version}.azurewebsites.net/signin-google은 등록된 리디렉션 URI와 일치하지 않습니다.*라는 메시지와 함께 HTTP 400 오류가 발생한 경우, 변경 내용을 전파할 때까지 대기해야 합니다. 몇 분 후에 이 오류가 발생하면 URI가 올바른지 확인하세요.
+1. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. *요청에서 리디렉션 URI:https://contactmanager{my version}.azurewebsites.net/signin-google은 등록된 리디렉션 URI와 일치하지 않습니다.* 라는 메시지와 함께 HTTP 400 오류가 발생한 경우, 변경 내용을 전파할 때까지 대기해야 합니다. 몇 분 후에 이 오류가 발생하면 URI가 올바른지 확인하세요.
 
 ### 다른 사용자가 등록할 수 없도록 웹 앱 중지  
 
@@ -659,7 +659,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	![로그오프](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss17.PNG)
 
-1. **CM Demo** 링크를 클릭하여 **Cm** 컨트롤러로 이동합니다. 또는 URL에 *Cm*을 추가할 수 있습니다.
+1. **CM Demo** 링크를 클릭하여 **Cm** 컨트롤러로 이동합니다. 또는 URL에 *Cm* 을 추가할 수 있습니다.
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr4.png)
  
@@ -694,7 +694,7 @@ Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceEx
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. 등록 시 사용한 Google 계정의 ID가 **canEdit** 역할에 있고 *user1@contoso.com*의 ID입니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
+1. 등록 시 사용한 Google 계정의 ID가 **canEdit** 역할에 있고 *user1@contoso.com* 의 ID입니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -702,7 +702,7 @@ Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceEx
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. **UserId**가 *user1@contoso.com*에 속하고 등록한 Google 계정인지 확인합니다.
+3. **UserId**가 *user1@contoso.com* 에 속하고 등록한 Google 계정인지 확인합니다.
 
 ## 문제 해결
 
