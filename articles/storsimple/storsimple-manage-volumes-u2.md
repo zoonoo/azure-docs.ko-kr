@@ -15,7 +15,7 @@
    ms.date="12/15/2015"
    ms.author="v-sharos" />
 
-# StorSimple 관리자 서비스를 사용하여 볼륨 관리
+# StorSimple 관리자 서비스를 사용하여 볼륨 관리(업데이트 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
@@ -291,4 +291,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

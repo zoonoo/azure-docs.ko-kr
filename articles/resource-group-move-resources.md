@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/18/2015" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -28,8 +28,8 @@
 
 1. 리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 2. 대상 리소스 그룹은 사용자가 이동하는 리소스와 동일한 응용 프로그램 수명 주기를 공유하는 리소스만 포함해야 합니다.
-3. Azure PowerShell을 사용하는 경우 최신 버전을 사용하고 있는지 확인합니다. **Move-AzureRmResource** 명령은 자주 업데이트됩니다. 사용 중인 버전을 업데이트하려면 Microsoft 웹 플랫폼 설치 관리자를 실행하고 새 버전을 사용할 수 있는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
-4. 이동 작업을 완료하는 데 다소 시간이 걸릴 수 있으며 이 시간 동안 PowerShell 프롬프트는 작업이 완료될 때까지 대기합니다.
+3. Azure PowerShell 또는 Azure CLI를 사용하는 경우 최신 버전을 사용하고 있는지 확인합니다. 사용 중인 버전을 업데이트하려면 Microsoft 웹 플랫폼 설치 관리자를 실행하고 새 버전을 사용할 수 있는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md) 및 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
+4. 이동 작업을 완료하는 데 다소 시간이 걸릴 수 있으며 이 시간 동안 프롬프트는 작업이 완료될 때까지 대기합니다.
 5. 리소스를 이동할 때 원본 그룹과 대상 그룹은 작업 기간 동안 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 그룹에서 차단됩니다.
 
 ## 지원되는 서비스
@@ -89,6 +89,16 @@
 
 새 구독으로 이동하려면 **DestinationSubscriptionId** 매개 변수 값을 포함합니다.
 
+## Azure CLI를 사용하여 리소스 이동
+
+다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 **azure resource move** 명령을 사용합니다. 다음 예제에서는 Redis Cache를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. **-i** 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
+
+    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+    info:    Executing command resource move
+    Move selected resources in OldRG to NewRG? [y/n] y
+    + Moving selected resources to NewRG
+    info:    resource move command OK
+
 ## REST API를 사용하여 리소스 이동
 
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 다음을 실행합니다.
@@ -103,4 +113,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

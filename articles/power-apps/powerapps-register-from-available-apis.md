@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Microsoft 관리 API 또는 IT 관리 API 등록
@@ -55,8 +55,8 @@ API | 설명 | 단계 링크
 ![][33] | **Excel**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-excel.md)
 ![][34] | **Google Drive**<br/><br/>항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-googledrive.md)
 ![][35] | **Microsoft Translator**<br/><br/>텍스트 번역, 언어 감지 등을 수행합니다. | [**시작**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Office365 Outlook**<br/><br/>메일을 관리합니다. | [**시작**](powerapps-create-api-office365-outlook.md)
-![][37] | **Office365 사용자**<br/><br/>사용자 프로필, 사용자의 관리자, 사용자의 직접 보고서 등에 액세스합니다. | [**시작**](powerapps-create-api-office365-users.md)
+![][36] | **Office 365 Outlook**<br/><br/>메일을 관리합니다. | [**시작**](powerapps-create-api-office365-outlook.md)
+![][37] | **Office 365 사용자**<br/><br/>사용자 프로필, 사용자의 관리자, 사용자의 직접 보고서 등에 액세스합니다. | [**시작**](powerapps-create-api-office365-users.md)
 ![][38] | **OneDrive**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-onedrive.md)
 ![][39] | **Salesforce**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-salesforce.md)
 ![][40] | **SharePoint Online**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-sharepointonline.md)
@@ -69,8 +69,8 @@ API | 설명 | 단계 링크
 몇몇 추가 혜택은 다음을 포함합니다.
 
 - 네트워크, 메모리 또는 보안 구성을 포함한 리소스는 사용자가 모니터링합니다. 예를 들어 앱에서 Excel 데이터를 표시하기 위해 더 많은 메모리가 필요한 경우 사용자가 자신의 환경에서 추가할 메모리 양을 제어합니다. 
-- 트러스트를 설정하고 앱 및 API 간의 보안을 제어합니다. 예를 들어 Office365 API를 Microsoft에서 관리할 수 있는지(자동 트러스트) 아니면 사용자 자신의 환경에서 Office365 API를 사용하는지(사용자 자신의 트러스트를 만듦) 여하를 결정합니다. 
-- **모든** Microsoft 관리 API는 IT 관리형일 수도 있습니다. 예를 들어 사용자 자신의 Office365 인스턴스를 만들고 이 인스턴스를 완전히 제어하려면 다음과 같이 할 수 있습니다. 그런 다음 동일한 환경에서 Office365 IT 관리 API 및 Office365 Microsoft 관리 API를 사용할 수 있습니다. 이는 실제로 사용자 앱의 요구에 따라 달라집니다.
+- 트러스트를 설정하고 앱 및 API 간의 보안을 제어합니다. 예를 들어 Office 365 API를 Microsoft에서 관리할 수 있는지(자동 트러스트) 아니면 사용자 고유의 환경에서 Office 365 API를 사용하는지(사용자 자신의 트러스트를 만듦) 여부를 결정합니다. 
+- **모든** Microsoft 관리 API는 IT 관리형일 수도 있습니다. 예를 들어 사용자 고유의 Office 365 인스턴스를 만들고 이 인스턴스를 완전히 제어하려면 다음과 같이 할 수 있습니다. 그런 다음 동일한 환경에서 Office 365 IT 관리 API 및 Office 365 Microsoft 관리 API를 사용할 수 있습니다. 이는 실제로 사용자 앱의 요구에 따라 달라집니다.
 - 온-프레미스 시스템에 연결하거나 Bing 검색 API를 사용하는 경우 보안, 인증, 라이선스 등을 제어합니다.
 
 
@@ -151,4 +151,4 @@ API | 설명 | 단계 링크
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

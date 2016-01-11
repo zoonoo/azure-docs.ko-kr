@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="포털을 사용하여 HDInsight에서 Linux에 Hadoop, HBase 또는 Storm 클러스터 만들기 | Microsoft Azure"
-   	description="웹 브라우저와 Azure 포털을 사용하여 HDInsight의 Linux에 Hadoop, HBase 또는 Storm 클러스터를 만드는 방법을 알아봅니다."
+   	pageTitle="포털을 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터 만들기 | Microsoft Azure"
+   	description="웹 브라우저와 Azure Preview 포털을 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법을 알아봅니다."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -14,29 +14,29 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="12/08/2015"
    	ms.author="nitinme"/>
 
 
-#Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
+#Azure Preview 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
 [AZURE.INCLUDE [선택기](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소스에 대한 웹 기반 관리 도구입니다. 이 문서의 정보를 사용하여 포털과 웹 브라우저를 통해 새로운 Linux 기반 HDInsight 클러스터를 만들 수 있습니다.
+Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소스에 대한 웹 기반 관리 도구입니다. 이 문서의 정보를 사용하여 Preview 포털과 웹 브라우저를 통해 새로운 Linux 기반 HDInsight 클러스터를 만들 수 있습니다.
 
 ##필수 조건
 
 - **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- __최신 웹 브라우저__. Azure 포털은 HTML5 및 Javascript를 사용하며 이전 웹 브라우저에서 제대로 작동하지 않을 수 있습니다.
+- __최신 웹 브라우저__. Azure Preview 포털은 HTML5 및 Javascript를 사용하며 이전 웹 브라우저에서 제대로 작동하지 않을 수 있습니다.
 
 ##클러스터 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
-    ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Azure 포털에서 새 클러스터 만들기")
+    ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
 
 3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택한 다음 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
@@ -144,7 +144,7 @@ Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소
 
 	* **사용자**(![사용자 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
-		> [AZURE.IMPORTANT]이는 _오직_ Azure 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
+		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
 	* **태그**(![태그 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
@@ -169,4 +169,12 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+###Spark 클러스터
+
+* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](hdinsight-apache-spark-create-standalone-application.md)
+* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
+* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
+* [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
+
+<!---HONumber=AcomDC_1223_2015-->

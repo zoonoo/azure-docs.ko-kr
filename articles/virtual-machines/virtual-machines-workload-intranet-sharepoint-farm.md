@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="12/17/2015"
 	ms.author="josephd"/>
 
 # Azure 인프라 서비스 워크로드: 인트라넷 SharePoint 팜
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 배포 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 Microsoft Azure에서 첫 번째 또는 다음 SharePoint 팜을 설정하고, 간편한 구성과 새 용량 또는 주요 기능의 최적화를 포함하도록 팜을 신속하게 확장할 수 있는 기능을 활용하세요. 많은 SharePoint 팜은 가용성이 뛰어난 표준 3계층 구성에서 성능 또는 별도 역할(예: 분산 캐싱 또는 검색)에 최적화된 수십 가지 이상의 서버가 포함된 팜으로 확장됩니다.
 
-Azure 인프라 서비스의 가상 컴퓨터 및 가상 네트워크 기능을 사용하면 온-프레미스 네트워크에 투명하게 연결된 SharePoint 팜에 빠르게 배포하고 실행할 수 있습니다. 예를 들어, 다음 네트워크를 설정할 수 있습니다.
+Azure 인프라 서비스의 가상 컴퓨터 및 가상 네트워크 기능을 사용하면 온-프레미스 네트워크에 투명하게 연결된 SharePoint 팜에 빠르게 배포하고 실행할 수 있습니다. 예를 들어 다음을 설정할 수 있습니다.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
 
@@ -44,7 +44,7 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 - 클라우드 전용 가상 네트워크
 - 프레미스 간 가상 네트워크
 
-[MSDN 구독](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
+[Visual Studio 구독](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
 
 ### 클라우드 전용 가상 네트워크
 
@@ -70,58 +70,19 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 - 웹, 응용 프로그램 및 데이터베이스 계층에 두 서버가 있는 인트라넷 SharePoint 팜
 - 클러스터에 두 SQL 서버 및 과반수 노드 컴퓨터가 있는 SQL Server AlwaysOn 가용성 그룹 구성
-- 두 복제본 도메인 컨트롤러를 사용하는 가상 네트워크의 Azure Active Directory
+- 온-프레미스 Active Directory 도메인의 두 복제본 도메인 컨트롤러
 
 이 구성을 인포그래픽으로 보려면 [SQL Server AlwaysOn을 지원하는 SharePoint](http://go.microsoft.com/fwlink/?LinkId=394788)를 참조하세요.
-
-### 제품 구성 정보
-
-이 기본 구성을 사용하려면 다음과 같은 Azure 서비스 및 구성 요소 집합이 필요합니다.
-
-- 가상 컴퓨터 9대
-- 도메인 컨트롤러 및 SQL Server용 추가 데이터 디스크 4개
-- 클라우드 서비스 3개
-- 가용성 집합 4개
-- 프레미스 간 가상 네트워크 1개
-- 저장소 계정 1개
-- Azure 구독 1개
-
-가상 컴퓨터와, 이 구성에 해당하는 크기 기본값은 다음과 같습니다.
-
-항목 | 가상 컴퓨터 설명 | 갤러리 이미지 | 기본 크기
---- | --- | --- | ---
-1\. | 최초 도메인 컨트롤러 | Windows Server 2012 R2 Datacenter | A2(중형)
-2\. | 보조 도메인 컨트롤러 | Windows Server 2012 R2 Datacenter | A2(중형)
-3\. | 최초 데이터베이스 서버 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-4\. | 보조 데이터베이스 서버 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-5\. | 클러스터에 대한 주 노드 | Windows Server 2012 R2 Datacenter | A1(소형)
-6\. | 최초 SharePoint 응용 프로그램 서버 | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
-7\. | 보조 SharePoint 응용 프로그램 서버 | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
-8\. | 최초 SharePoint 웹 서버 | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
-9\. | 보조 SharePoint 웹 서버 | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
-
-이 구성에 대한 추정 비용을 계산하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요.
-
-1. **모듈**에서, **계산**을 클릭한 다음 9개의 **가상 컴퓨터**의 목록을 만들도록 충분히 가상 컴퓨터를 클릭합니다.
-2. 각 가상 컴퓨터에 대해 다음을 선택합니다.
-	- 원하는 지역
-	- 유형에 관한 **Windows**
-	- 가격 책정 계층에 관한 **표준**
-	- 이전 테이블의 기본 크기 또는 원하는 **인스턴스 크기**
-
-> [AZURE.NOTE]Azure 가격 계산기에는 SQL Server 2014 Enterprise에서 실행되는 두 대의 가상 컴퓨터의 SQL Server 라이선스에 대한 추가 비용이 포함되지 않습니다. 자세한 내용은 [가상 컴퓨터 가격 책정 - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
-
-### 배포 단계
 
 이 구성을 배포하려면 다음 프로세스를 사용합니다.
 
 - 1단계: Azure 구성
 
-	Azure 클래식 포털과 Azure PowerShell을 사용하여 저장소 계정, 클라우드 서비스, 및 크로스-프레미스 가상 네트워크를 만듭니다. 자세한 구성 단계는 [1단계](virtual-machines-workload-intranet-sharepoint-phase1.md)를 참조하세요.
+	Azure PowerShell을 사용하여 저장소 계정, 가용성 집합 및 크로스-프레미스 가상 네트워크를 만들 수 있습니다. 자세한 구성 단계는 [1단계](virtual-machines-workload-intranet-sharepoint-phase1.md)를 참조하세요.
 
 - 2단계: 도메인 컨트롤러 구성
 
-	Azure Active Directory 복제본 도메인 컨트롤러 2개 및 가상 네트워크에 대한 DNS 설정을 구성합니다. 자세한 구성 단계는 [2단계](virtual-machines-workload-intranet-sharepoint-phase2.md)를 참조하세요.
+	Active Directory 복제본 도메인 컨트롤러 2개 및 가상 네트워크에 대한 DNS 설정을 구성합니다. 자세한 구성 단계는 [2단계](virtual-machines-workload-intranet-sharepoint-phase2.md)를 참조하세요.
 
 - 3단계: SQL Server 인프라 구성
 
@@ -135,22 +96,10 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 	SharePoint 데이터베이스를 준비하고, AlwaysOn 가용성 그룹을 만든 다음, 해당 그룹에 SharePoint 데이터베이스를 추가합니다. 자세한 구성 단계는 [단계 5](virtual-machines-workload-intranet-sharepoint-phase5.md)를 참조하세요.
 
-구성된 SharePoint 팜은 [SharePoint 2013용 Microsoft Azure 아키텍처](http://technet.microsoft.com/library/dn635309.aspx)의 지침을 사용하여 확장할 수 있습니다.
+구성된 SharePoint 팜은 [SharePoint 2013용 Microsoft Azure 아키텍처](http://technet.microsoft.com/library/dn635309.aspx)의 참고 자료를 사용하여 확장할 수 있습니다.
 
-## 추가 리소스
+## 다음 단계
 
-[Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포](virtual-machines-workload-deploy-spsqlao-overview.md)
+- 구성에 대해 자세히 알아보기 전에 프로덕션 워크로드의 [개요](virtual-machines-workload-intranet-sharepoint-overview.md)를 확인합니다.
 
-[테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx)
-
-[SQL Server AlwaysOn이 포함된 SharePoint 인포그래픽](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

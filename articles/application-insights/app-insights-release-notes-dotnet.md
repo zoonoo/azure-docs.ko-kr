@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="sergkanz"/>
+	ms.date="12/17/2015" 
+	ms.author="abaranch"/>
  
 # Application Insights SDK for .NET에 대한 릴리스 정보
 
@@ -35,7 +35,17 @@
 
 ## 버전 2.0.0-beta3
 
-- [적응 샘플링](app-insights-sampling.md)
+- 서버 원격 분석 채널에서 기본적으로 켜진 [적응 샘플링](app-insights-sampling.md)입니다. 
+- 원격 분석 프로세서의 ```Use```에 대한 다른 호출을 연결할 수 있는 ```UseSampling```의 고정된 서명입니다.  
+- 반환된 ```Request.ID``` 속성입니다. 이제 ```OperationContext```에는 종단 간 상관 관계에 대한 ```ParentId``` 속성이 있습니다.
+- ```TimestampTelemetryInitializer```가 제거됩니다. ```TelemetryClient```가 타임스탬프를 자동으로 추가합니다.
+- ```OperationCorrelationTelemetryInitializer```을 기본적으로 추가하여 작업 상관 관계를 사용하도록 설정합니다.
+- ```OperationIdTelemetryInitializer``` 대신 ```OperationCorrelationTelemetryInitializer```를 사용합니다.
+- 사용자 에이전트는 기본적으로 수집되지 않습니다. 사용자 에이전트 원격 분석 이니셜라이저가 제거되었습니다.
+- ```DependencyTelemetry.Async``` 필드는 종속성 수집기 원격 분석 모듈에 의해 수집되지 않습니다. 
+- 정적 콘텐츠 및 진단 요청은 요청 원격 분석 모듈에 의해 수집되지 않습니다. ```RequestTrackingTelemetryModule``` 컬렉션의 ```HandlersToFilter```를 사용하여 특정 http 처리기에 의해 생성된 요청을 필터링합니다. 
+- 자동으로 생성된 요청 원격 분석은 HttpContext 확장 메서드를 통해 액세스할 수 있습니다. System.Web.HttpContextExtension.GetRequestTelemetry  
+
 
 ## 버전 2.0.0-beta2
 - ITelemetryProcessor에 대한 지원과 코드 또는 구성을 통해 구성하는 기능이 추가되었습니다. [SDK에서 사용자 지정 필터링을 사용할 수 있습니다.](app-insights-api-telemetry-processors/#telemetry-processors)
@@ -114,4 +124,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

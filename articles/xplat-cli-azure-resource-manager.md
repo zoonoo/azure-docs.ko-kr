@@ -44,7 +44,7 @@ Azure CLI를 통해 Azure 리소스 관리자 작업을 수행하려면 회사 �
 
 Microsoft Azure에 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)을 참조하세요.
 
->[AZURE.NOTE]Azure Active Directory에서 관리하는 회사 또는 학교 계정을 사용하는 경우 Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스 액세스 및 사용을 관리할 수도 있습니다. 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.
+>[AZURE.NOTE]Azure Active Directory에서 관리하는 회사 또는 학교 계정을 사용하는 경우 Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스 액세스 및 사용을 관리할 수도 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 ## Azure 리소스 관리자 모드 설정
 
@@ -77,7 +77,7 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 템플릿으로 작업할 경우 [고유한 템플릿을 만들거나](resource-group-authoring-templates.md) [템플릿 갤러리](https://azure.microsoft.com/documentation/templates/)의 템플릿 중 하나를 사용할 수 있습니다. 템플릿 갤러리의 템플릿은 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서도 제공됩니다.
 
-새 템플릿 만들기는 이 기사의 범위를 벗어나기 때문에 우선 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm)에서 제공하는 _101-simple-vm-from-image_ 템플릿을 사용하겠습니다. 기본적으로 이 템플릿은 미국 서부 지역의 단일 서브넷을 사용하여 새로운 가상 네트워크에 단일 Ubuntu 4.04.2-LTS 가상 컴퓨터를 만듭니다. 사용자는 이 템플릿을 사용할 수 있도록 다음 매개 변수 몇 개만 지정하면 됩니다.
+새 템플릿 만들기는 이 기사의 범위를 벗어나기 때문에 우선 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm)에서 제공하는 _101-simple-vm-from-image_ 템플릿을 사용하겠습니다. 기본적으로 이 템플릿은 미국 서부 지역의 단일 서브넷을 사용하여 새로운 가상 네트워크에 단일 Ubuntu 14.04.2-LTS 가상 컴퓨터를 만듭니다. 사용자는 이 템플릿을 사용할 수 있도록 다음 매개 변수 몇 개만 지정하면 됩니다.
 
 * 고유한 저장소 계정 이름
 * VM의 관리 사용자 이름
@@ -210,4 +210,4 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

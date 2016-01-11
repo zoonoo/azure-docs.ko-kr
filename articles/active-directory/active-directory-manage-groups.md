@@ -52,12 +52,14 @@ Azure Active Directory 내에서 주요 기능 중 하나는 리소스에 대한
 
 이에 대해 자세히 설명하는 짧은 비디오를 볼 수 있습니다.
 
+[Azure AD: 그룹의 동적 멤버 자격 소개](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)
+
 > [AZURE.VIDEO azure-ad--introduction-to-dynamic-memberships-for-groups]
 
 ## Azure Active Directory에서 액세스 관리는 어떻게 작동합니까?
 Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 리소스에 대한 액세스 관리에 보안 그룹을 사용하는 것은 잘 알려진 전형적인 예로, 이를 통해 의도한 사용자 그룹에 리소스에 대한 액세스 권한을 제공하는 방법을 유연하고 쉽게 이해할 수 있습니다. 리소스 소유자(또는 디렉터리 관리자)는 특정한 액세스 권한을 제공할 그룹을 자신이 소유한 리소스에 할당할 수 있습니다. 그룹 구성원에게 액세스 권한이 제공되며, 리소스 소유자는 부서 관리자 또는 기술 지원팀 관리자와 같은 다른 사람에게 그룹 구성원 목록을 관리할 권한을 위임할 수 있습니다.
 
-![Azure Active Directory 액세스 관리 다이어그램](./media/active-directory-access-management-groups/active-directory-access-management-works.png) 그룹 소유자는 해당 그룹이 셀프 서비스 요청을 이용할 수 있도록 할 수 있습니다. 이 과정에서 최종 사용자가 그룹을 검색하고 찾을 수 있으며, 참여하도록 요청하여 그룹을 통해 관리되는 리소스에 액세스할 수 있는 권한을 효과적으로 검색할 수 있습니다. 그룹의 소유자는 참가 요청을 자동으로 승인하거나 그룹 소유자의 승인을 요구하도록 그룹을 설정할 수 있습니다. 사용자가 그룹 가입을 요청하면 가입 요청이 그룹 소유자에게 전달됩니다. 소유자 중 한 명이 요청을 승인하면 요청한 사용자에게 알리고 사용자가 그룹에 가입됩니다. 소유자 중 한 명이 요청을 거부하면 요청한 사용자에게 알리지만 사용자가 그룹에 가입되지 않습니다.
+![Azure Active Directory 액세스 관리 다이어그램](./media/active-directory-access-management-groups/active-directory-access-management-works.png) 그룹 소유자는 해당 그룹이 셀프 서비스 요청을 이용하도록 할 수 있습니다. 이 과정에서 최종 사용자가 그룹을 검색하고 찾을 수 있으며, 참여하도록 요청하여 그룹을 통해 관리되는 리소스에 액세스할 수 있는 권한을 효과적으로 검색할 수 있습니다. 그룹의 소유자는 참가 요청을 자동으로 승인하거나 그룹 소유자의 승인을 요구하도록 그룹을 설정할 수 있습니다. 사용자가 그룹 가입을 요청하면 가입 요청이 그룹 소유자에게 전달됩니다. 소유자 중 한 명이 요청을 승인하면 요청한 사용자에게 알리고 사용자가 그룹에 가입됩니다. 소유자 중 한 명이 요청을 거부하면 요청한 사용자에게 알리지만 사용자가 그룹에 가입되지 않습니다.
 
 
 ## 액세스 관리 시작
@@ -96,4 +98,4 @@ Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 
 
 * [그룹에 대한 그래프 API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

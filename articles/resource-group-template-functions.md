@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 식
@@ -167,6 +167,7 @@
 - [replace](#replace)
 - [분할](#split)
 - [string](#string)
+- [substring](#substring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [trim](#trim)
@@ -294,6 +295,28 @@
         "stringValue": "[string(parameters('appId'))]"
     }
 
+<a id="substring" />
+### substring
+
+**substring(stringToParse, startIndex, length)**
+
+지정된 문자 위치에서 시작하고 지정한 개수의 문자를 포함하는 부분 문자열을 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| stringToParse | 예 | 부분 문자열을 추출할 원래 문자열입니다.
+| startIndex | 아니요 | 부분 문자열의 0부터 시작하는 문자 위치입니다.
+| length | 아니요 | 부분 문자열에 대한 문자 수입니다.
+
+다음 예제에서는 매개 변수에서 처음 세 문자를 추출합니다.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "prefix": "[substring(parameters('inputString'), 0, 3)]"
+    }
+
 <a id="tolower" />
 ### toLower
 
@@ -401,7 +424,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | baseUri | 예 | 기본 uri 문자열입니다.
 | relativeUri | 예 | 기본 uri 문자열에 추가할 상대 uri 문자열입니다.
 
-**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만, URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 ****http://contoso.com/resources/azuredeploy.json**을 baseUri 매개 변수로 전달하면 기본 URI는 ****http://contoso.com/resources/**가 됩니다.
+**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 ****http://contoso.com/resources/azuredeploy.json**을 baseUri 매개 변수로 전달하면 기본 URI는 ****http://contoso.com/resources/**가 됩니다.
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 
@@ -746,4 +769,4 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

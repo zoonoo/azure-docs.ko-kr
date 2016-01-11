@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="클라우드 탐색기를 사용하여 Azure 리소스 관리"
+   pageTitle="클라우드 탐색기를 사용하여 Azure 리소스 관리 | Microsoft Azure"
    description="클라우드 탐색기를 사용하여 Visual Studio 내에서 Azure 리소스를 검색 및 관리하는 방법에 대해 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # 클라우드 탐색기를 사용하여 Azure 리소스 관리
@@ -95,4 +95,4 @@ Azure 계정 구독에서 특정 이름의 리소스를 찾으려면, 클라우�
 
 검색 상자에 문자를 입력하면 해당 문자와 일치하는 리소스만 리소스 트리에 나타납니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

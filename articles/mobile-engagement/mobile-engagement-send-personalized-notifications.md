@@ -59,7 +59,7 @@
 
 ![][4]
 
-> [AZURE.NOTE]user\_name 앱 정보가 설정되지 않은 모든 사용자는 어떠한 알림도 받지 못합니다.
+> [AZURE.NOTE]user\_name 앱 정보가 설정되지 않은 모든 사용자는 어떠한 알림도 받지 못합니다. 테스트 모드에서 알림 캠페인을 실행하고 앱 정보를 설정하지 않으면 '?' 문자를 보내 자리 표시자를 대체합니다.
 
 2) Mobile Engagement에서 이 알림을 보낼 장치를 선택하면 이 앱 정보를 확인하고 자리 표시자의 값을 대체합니다. 예를 들어 사용자에 대해 `str = "Scott"`을 설정한 경우 장치 등록이 이 사용자의 **user\_name = SCOTT** 앱 정보와 연결되고 이 사용자는 다음과 같은 형식으로 앱 푸시 알림을 보게 됩니다.
 
@@ -72,4 +72,4 @@
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

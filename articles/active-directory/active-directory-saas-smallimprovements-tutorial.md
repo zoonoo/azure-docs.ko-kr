@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Small Improvements의 Azure AD 통합을 구성하려면 갤러리의 Small Impr
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **Small Improvements**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_01.png)<br>
-7. 결과 창에서 **Small Improvements**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **Small Improvements**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -76,7 +76,7 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Small Improvements 테스트 사용자 만들기](#creating-a-small-improvements-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Small Improvements에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -93,10 +93,10 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) <br>
 
-    > [AZURE.NOTE] [Support@small-improvements.com](mailto:support@small-improvements.com)에서 Small Improvements 지원 팀에 문의하여 계정에 대한 도메인 이름을 구성합니다. Single Sign-On 작업에 필요 합니다.
+    > [AZURE.NOTE][Support@small-improvements.com](mailto:support@small-improvements.com)에서 Small Improvements 지원 팀에 문의하여 계정에 대한 도메인 이름을 구성합니다. Single Sign-On 작업에 필요 합니다.
 
 
-    a. **로그온 URL** 텍스트 상자에 사용자가 Small Improvements 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.b. **다음**을 클릭합니다.
+    a. **로그온 URL** 텍스트 상자에 사용자가 Small Improvements 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다. b. **다음**을 클릭합니다.
 
 
 4. **Small Improvements에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_05.png) <br>
@@ -192,13 +192,13 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 1. 관련된 텍스트 상자에 프로비전할 유효한 사용자의 **이름**, **성** 및 **메일 주소**를 입력합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_12.png) <br>
 
-1. 또한 **알림 전자 메일 보내기** 상자에 개인 메시지를 입력할 수 있습니다. 알림을 전송하려는 경우 이 확인란의 선택을 취소합니다.
+1. 또한 **알림 메일 보내기** 상자에 개인 메시지를 입력할 수 있습니다. 알림을 전송하려는 경우 이 확인란의 선택을 취소합니다.
 
 1. **사용자 만들기**를 클릭합니다.
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션은 Britta Simon에게 Small Improvements에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하기 위한 것입니다. <br><br>![사용자 할당][200] <br>
+이 섹션은 Britta Simon에게 Small Improvements에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하기 위한 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 Small Improvements에 할당하려면 다음 단계를 수행합니다.**
 
@@ -216,7 +216,7 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 ### Single Sign-On 테스트
 
-이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.<br> 액세스 패널에서 Small Improvements 타일을 클릭하면 Small Improvements 응용 프로그램에 자동으로 로그온됩니다.
+이 섹션의 목적은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하는 것입니다.<br> 액세스 패널에서 Small Improvements 타일을 클릭하면 Small Improvements 응용 프로그램에 자동으로 로그온됩니다.
 
 
 ## 추가 리소스
@@ -243,4 +243,4 @@ Small Improvements에서 Azure AD Single Sign-On을 구성하고 테스트하려
 [204]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_205.png
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

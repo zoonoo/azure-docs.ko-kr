@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # 일시적인 오류 처리를 지원하는 Windows에서 PHP를 사용하여 SQL 데이터베이스에 연결
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 이 항목에서는 Windows에서 실행되는 PHP로 작성된 클라이언트 응용 프로그램으로 Azure SQL 데이터베이스에 연결하는 방법을 보여줍니다.
@@ -136,4 +139,4 @@
 
 PHP 설치 및 사용에 대한 자세한 내용은[PHP로 SQL Server 데이터베이스 액세스](http://technet.microsoft.com/library/cc793139.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

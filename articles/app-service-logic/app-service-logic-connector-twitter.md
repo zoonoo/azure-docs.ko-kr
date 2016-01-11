@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="sameerch"/>
 
 
@@ -53,7 +53,7 @@ New Tweet From Search(새 트윗 검색) | <ul><li>사용자 타임라인 가져
 5. 커넥터 이름, 앱 서비스 및 리소스 그룹 주위에 필요한 다른 설정을 입력합니다.
 6.	**만들기**를 클릭합니다.
 
-> [AZURE.NOTE]리디렉션 URL을 사용하여 Twitter API의 보안을 강화하려는 경우 [여기](app-service-logic-oauth-security.md)서 작업 방법에 대한 세부 정보를 확인할 수 있습니다.
+> [AZURE.NOTE]리디렉션 URL을 사용하여 Twitter API의 보안을 강화하려는 경우 [OAUTH 보안](app-service-logic-oauth-security.md)을 사용할 수 있습니다.
 
 
 ## 논리 앱에서 Twitter 커넥터 사용
@@ -90,4 +90,4 @@ API 앱이 생성되면 이제 논리 앱에 대한 트리거 또는 동작으�
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

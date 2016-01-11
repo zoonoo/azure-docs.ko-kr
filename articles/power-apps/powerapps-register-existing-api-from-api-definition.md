@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Swagger 2.0 API 정의에서 API 등록  
@@ -40,7 +40,7 @@
 	- ``host`` 속성은 기존 API의 실제 끝점을 가리켜야 합니다. 구성표 또는 모든 하위 경로를 사용하지 마세요. 예를 들어 ``api.contoso.com``을 입력합니다. <br/><br/>
 	- ``basePath`` 속성은 기존 API 끝점의 하위 경로(있는 경우)를 나열합니다. 슬래시 ``/``로 시작합니다. 예를 들어 ``/purchaseorderapi``를 입력합니다.
 
-2. 앱 서비스 환경에서 기존 API에 안전하게 액세스할 수 있는지 확인합니다. <br/><br/> a) 인터넷에서 편하게 API에 액세스할 수 있는 경우 앱 서비스 환경과 기존 API 간에 HTTP 기본 액세스 인증을 설정할 수 있습니다. 방법을 보려면 [여기](powerapps-configure-apis.md)로 이동합니다. <br/><br/> b) 조직의 네트워크 내에서 API를 유지하려는 경우 앱 서비스 환경에서 가상 네트워크를 설정하면 조직의 네트워크에 안전하게 액세스할 수 있습니다. 방법을 보려면 [여기](../app-service-app-service-environment-intro.md)로 이동합니다.
+2. 앱 서비스 환경에서 기존 API에 안전하게 액세스할 수 있는지 확인합니다. <br/><br/> a) 인터넷에서 편하게 API에 액세스할 수 있는 경우 앱 서비스 환경과 기존 API 간에 HTTP 기본 액세스 인증을 설정할 수 있습니다. 방법을 보려면 [기존 API를 업데이트](powerapps-configure-apis.md)합니다. <br/><br/> b) 조직의 네트워크 내에서 API를 유지하려는 경우 앱 서비스 환경에서 가상 네트워크를 설정하면 조직의 네트워크에 안전하게 액세스할 수 있습니다. [앱 서비스 환경](../app-service-app-service-environment-intro.md)에 대해 자세히 알아봅니다.
 
 3. [Azure 포털](https://portal.azure.com/)에서 **PowerApps**를 선택한 다음 **API 관리**를 선택합니다. ![][11]
 4. API 관리에서 **추가**를 선택합니다. ![][12]
@@ -67,4 +67,4 @@
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

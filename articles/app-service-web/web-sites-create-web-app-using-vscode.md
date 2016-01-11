@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="12/17/2015" 
 	ms.author="erikre"/>
 
 # Visual Studio 코드에서 5 ASP.NET 웹앱 만들기
 
 ## 개요
 
-이 자습서에서는 [VS Code(Visual Studio Code)](http://code.visualstudio.com//Docs/whyvscode)를 사용하여 ASP.NET 5 웹앱을 만들어 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에 배포하는 방법에 대해 알아봅니다. ASP.NET 5에서는 ASP.NET을 완전히 다시 디자인했습니다. ASP.NET 5는 .NET을 사용하여 최신 클라우드 기반 웹앱을 빌드하기 위한 새로운 오픈 소스 크로스 플랫폼 프레임 워크입니다. 자세한 내용은 [ASP.NET 5 소개](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)를 참조하세요. Azure 앱 서비스 웹앱에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요.
+이 자습서에서는 [VS Code(Visual Studio Code)](http://code.visualstudio.com//Docs/whyvscode)를 사용하여 ASP.NET 5 웹앱을 만들어 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에 배포하는 방법에 대해 알아봅니다.
+
+> [AZURE.NOTE]이 문서는 웹앱을 참조하지만 API 앱 및 모바일 앱에도 적용됩니다.
+
+ASP.NET 5에서는 ASP.NET을 완전히 다시 디자인했습니다. ASP.NET 5는 .NET을 사용하여 최신 클라우드 기반 웹앱을 빌드하기 위한 새로운 오픈 소스 크로스 플랫폼 프레임 워크입니다. 자세한 내용은 [ASP.NET 5 소개](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)를 참조하세요. Azure 앱 서비스 웹앱에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-try-app-service.md](../../includes/app-service-web-try-app-service.md)]
 
@@ -28,7 +32,7 @@
 
 * [VS Code](http://code.visualstudio.com/Docs/setup)를 설치합니다.
 * [Node.js](http://nodejs.org) 설치 - Node.js는 JavaScript를 사용하여 빠르고 확장성이 뛰어난 서버 응용 프로그램을 빌드하기 위한 플랫폼입니다. 노드는 런타임(노드)이고 [npm](http://www.npmjs.com/)은 노드 모듈에 대한 패키지 관리자입니다. 이 자습서에서는 npm을 사용하여 ASP.NET 5 웹앱을 스캐폴딩합니다.
-* Git 설치 - [Chocolatey](https://chocolatey.org/packages/git) 또는 [git-scm.com](http://git-scm.com/downloads)에서 설치할 수 있습니다. Git를 처음 사용하는 경우 [git-scm.com](http://git-scm.com/downloads)을 선택하고 **Windows 명령 프롬프트에서 GitBash와 함께 Git 사용**에 대한 옵션을 선택합니다. Git를 설치한 후 자습서의 뒤에 나오는 VS Code에서 커밋을 수행할 때 필요하므로 Git 사용자 이름과 전자 메일을 설정해야 합니다.  
+* Git 설치 - [Chocolatey](https://chocolatey.org/packages/git) 또는 [git-scm.com](http://git-scm.com/downloads)에서 설치할 수 있습니다. Git를 처음 사용하는 경우 [git-scm.com](http://git-scm.com/downloads)을 선택하고 **Windows 명령 프롬프트에서 Git 사용** 옵션을 선택합니다. Git를 설치한 후 자습서의 뒤에 나오는 VS Code에서 커밋을 수행할 때 필요하므로 Git 사용자 이름과 전자 메일을 설정해야 합니다.  
 
 ## ASP.NET 5 및 DNX 설치
 ASP.NET 5/DNX(.NET 실행 환경)는 OS X, Linux 및 Windows에서 실행되는 최신 클라우드 및 웹앱을 제작하기 위한 린(lean) .NET 스택입니다. ASP.NET 5/DNX는 클라우드에 배포되거나 온-프레미스로 실행될 앱에 최적화된 개발 프레임워크를 제공하기 위해 처음부터 다시 제작되었습니다. 오버헤드를 최소화하는 모듈식 구성 요소로 구성되므로 솔루션을 구성하는 동안 유연성이 유지할 수 있습니다.
@@ -207,7 +211,7 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 
 	이 명령은 CRLF 끝과 LF 끝이 사용된 텍스트에 대한 문제를 방지합니다.
 
-4. VS 코드에서 커밋 메시지를 추가하고 **모두 커밋** 확인 아이콘을 클릭합니다.
+4. VS Code에서 커밋 메시지를 추가하고 **모두 커밋** 확인 아이콘을 클릭합니다.
 
 	![Git 모두 커밋](./media/web-sites-create-web-app-using-vscode/20-git-commit.png)
 
@@ -258,4 +262,4 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 ## 요약
 이 자습서에서는 VS Code에서 웹앱을 만들고 Azure에 배포하는 방법을 알아보았습니다. VS Code에 대한 자세한 내용은 [Visual Studio Code를 선택해야 하는 이유?](https://code.visualstudio.com/Docs/)를 참조하세요. 앱 서비스 웹앱에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

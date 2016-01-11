@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/03/2015"
+   ms.date="12/17/2015"
    ms.author="sdanie" />
 
 # Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자
@@ -29,7 +29,7 @@ Redis 캐시 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 �
 
 온라인 검색 텍스트 상자에 **RedisSessionStateProvider**를 입력하여 결과에서 선택한 후 설치를 클릭합니다.
 
->[AZURE.IMPORTANT]프리미엄 계층에서 클러스터링 기능을 사용하는 경우 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 이상을 사용하지 않으면 예외가 throw됩니다. 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요.
+>[AZURE.IMPORTANT]프리미엄 계층에서 클러스터링 기능을 사용하는 경우 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 throw됩니다. 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요.
 
 ![Azure Redis Cache 세션 상태 제공자](./media/cache-asp.net-session-state-provider/IC751730.png)
 
@@ -106,4 +106,4 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 [Azure Redis Cache에 대한 ASP.NET 출력 캐시 제공자](cache-asp.net-output-cache-provider.md)를 확인합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

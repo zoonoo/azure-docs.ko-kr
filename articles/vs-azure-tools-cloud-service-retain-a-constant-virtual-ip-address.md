@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # 클라우드 서비스에 대한 일정한 가상 IP 주소를 유지하는 방법
@@ -45,4 +45,4 @@ Azure에서 호스팅되는 클라우드 서비스를 업데이트하는 경우 
 
 Visual Studio에서 Azure로 게시하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램 마법사 게시](vs-azure-tools-publish-azure-application-wizard.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

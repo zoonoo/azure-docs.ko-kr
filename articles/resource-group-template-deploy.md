@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
@@ -38,7 +38,7 @@ Azure PowerShell 또는 REST API를 통해 리소스 그룹에 대한 전체 업
 - 템플릿에 지정되어 있지만 리소스 그룹에 없는 리소스를 **추가** 
 - 템플릿에 정의된 동일한 조건으로 리소스 그룹에 존재하는 리소스를 **다시 프로비전하지 않음**
  
-**Mode** 속성을 통해 배포 유형을 지정합니다.
+PowerShell 및 REST API에 대한 아래 예제에 설명된 대로 **Mode** 속성을 통해 배포 유형을 지정합니다.
 
 ## PowerShell을 사용하여 배포
 
@@ -100,9 +100,9 @@ Azure PowerShell 또는 REST API를 통해 리소스 그룹에 대한 전체 업
           Mode              : Incremental
           ...
 
-     전체 배포를 실행하려면 **Mode**를 **Complete**로 설정합니다.
+     전체 배포를 실행하려면 **Mode**를 **Complete**로 설정합니다. 리소스 삭제 작업을 포함할 수 있는 Complete 모드를 사용할 것인지 확인하는 메시지가 표시됩니다.
 
-          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
           Confirm
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
@@ -203,7 +203,7 @@ Azure PowerShell 또는 REST API를 통해 리소스 그룹에 대한 전체 업
              }
            }
    
-3. 새 리소스 그룹을 만듭니다. 템플릿의 구독 ID, 배포할 리소스 그룹 이름, 배포 이름 및 템플릿 위치를 제공합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요. 리소스 그룹을 만드는 REST API에 대한 정보는 [템플릿 배포 만들기](https://msdn.microsoft.com/library/azure/dn790564.aspx)를 참조하세요. 전체 배포를 실행하려면 **mode**를 **Complete**로 설정합니다.
+3. 새 리소스 그룹을 만듭니다. 템플릿의 구독 ID, 배포할 리소스 그룹 이름, 배포 이름 및 템플릿 위치를 제공합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요. 리소스 그룹을 만드는 REST API에 대한 정보는 [템플릿 배포 만들기](https://msdn.microsoft.com/library/azure/dn790564.aspx)를 참조하세요. **mode**가 **Incremental**로 설정되어 있습니다. 전체 배포를 실행하려면 **mode**를 **Complete**로 설정합니다.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -264,12 +264,12 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 매개 변수 파일 크기는 64KB보다 클 수 없습니다.
 
 ## 다음 단계
-- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](arm-template-deployment.md)를 참조하세요.
-- 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
-- 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments-preview-portal.md)을 참조하세요.
+- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예제를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](arm-template-deployment.md)를 참조하세요.
+- 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
+- 다른 환경에 솔루션 배포에 관한 참고 자료는 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments-preview-portal.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # 코드 샘플: C&#x23;의 Enterprise Library 6에서 SQL 데이터베이스 연결을 위한 논리를 재시도합니다.
+
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 이 항목에서는 Enterprise Library(EntLib)를 보여주는 전체 코드 샘플을 제공합니다. EntLib은 Azure SQL 데이터베이스와 같은 클라우드 서비스와 상호 작용하는 클라이언트 프로그램의 많은 작업을 줄여 줍니다. 여기 샘플에서는 일시적인 오류에 대한 재시도 논리를 포함하는 중요한 작업에 중점을 둡니다.
@@ -29,7 +35,11 @@ EntLib 클래스는 다음 두 범주의 런타임 오류를 구분하도록 설
 - 자체 수정되지 않는 오류(예: 철자가 잘못된 서버 이름)
 - 일시적인 오류(예: Azure 시스템이 부하를 분산하는 동안 서버가 몇 초 동안 새로운 연결 수락을 일시 중단)
 
+
 Enterprise Library 6(EntLib60)은 최신 버전이며 2013년 4월에 출시되었습니다.
+
+- Microsoft에서 소스 코드를 공용으로 출시했습니다.
+- Microsoft는 더 이상 소스 코드를 유지 관리할 계획이 없습니다.
 
 
 ## 필수 조건
@@ -320,4 +330,4 @@ SELECT TOP 3
 
 - [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

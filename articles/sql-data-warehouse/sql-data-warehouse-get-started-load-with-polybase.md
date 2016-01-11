@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/17/2015"
    ms.author="sahaj08;barbkess"/>
 
 
@@ -250,9 +250,8 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [1]: ./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-load-with-polybase.md
+[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [통계]: sql-data-warehouse-develop-statistics.md
@@ -282,4 +281,4 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [데이터베이스 범위 자격 증명 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

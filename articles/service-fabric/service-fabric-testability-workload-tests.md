@@ -18,12 +18,12 @@
 
 # 서비스 워크로드 중 오류를 시뮬레이션합니다.
 
-테스트 용이성이 지원되는 시나리오 배송을 통해 개발자들은 개별 결함의 처리에 대해 걱정하지 않아도 됩니다. 그러나 클라이언트 워크로드 및 오류의 명시적인 인터리빙이 필요한 시나리오가 있습니다. 클라이언트 워크로드 및 결함의 인터리빙은 장애가 발생했을 때 서비스가 실제로 일부 작업을 수행하도록 보장합니다. 제공되는 제어 테스트 용이성 수준을 볼 때, 이것은 워크로드 실행의 정확한 지점일 수 있습니다. 응용프로그램 내의 다양한 상태에서 결함의 유도를 통해 버그를 찾고 품질을 향상시킬 수 있습니다.
+Azure 서비스 패브릭의 테스트 용이성 시나리오를 통해 개발자는 개별 결함의 처리에 대해 걱정하지 않아도 됩니다. 그러나 클라이언트 워크로드 및 오류의 명시적인 인터리빙이 필요한 시나리오가 있습니다. 클라이언트 워크로드 및 결함의 인터리빙은 장애가 발생했을 때 서비스가 실제로 일부 작업을 수행하도록 보장합니다. 제공되는 제어 테스트 용이성 수준을 볼 때, 이것은 워크로드 실행의 정확한 지점일 수 있습니다. 응용프로그램 내의 다양한 상태에서 결함의 유도를 통해 버그를 찾고 품질을 향상시킬 수 있습니다.
 
 ## 사용자 지정 샘플 시나리오
-이 테스트는 [정상 및 비정상 오류](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions)가 발생한 비즈니스 워크로드의 인터리빙 시나리오를 보여줍니다. 최상의 결과를 위해 서비스 작업 또는 계산 중에 결함을 유도해야 합니다.
+이 테스트는 [정상 및 비정상 오류](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions)가 발생한 비즈니스 워크로드의 인터리빙 시나리오를 보여 줍니다. 최상의 결과를 위해 서비스 작업 또는 계산 중에 결함을 유도해야 합니다.
 
-A, B, C, D, 4 개의 워크로드를 노출하는 serice의 예를 들어보겠습니다. 각 작업은 일련의 워크플로에 해당되며 계산, 저장소 또는 혼합일 수 있습니다. 간단한 설명을 위해 워크로드를 예를 들어 요약해 보겠습니다. 이 예제에서 실행되는 여러 결함은 다음과 같습니다. + RestartNode: 기계 재시작을 시뮬레이션하기 위한 비정상 결함 + RestartDeployedCodePackage: 서비스 호스트 프로세스 충돌을 시뮬레이션하기 위한 비정상 결함 + RemoveReplica: 복제본 제거를 시뮬레이션하기 위한 정상 결함 + MovePrimary: 서비스 패브릭 부하 분산 장치에 의해 트리거되는 복제본 이동을 시뮬레이션하기 위한 정상 결함
+4개의 워크로드(A, B, C, D)를 노출하는 서비스를 예로 들어보겠습니다. 각 작업은 일련의 워크플로에 해당되며 계산, 저장소 또는 혼합일 수 있습니다. 간단한 설명을 위해 워크로드를 예를 들어 요약해 보겠습니다. 이 예제에서 실행되는 여러 결함은 다음과 같습니다. + RestartNode: 기계 재시작을 시뮬레이트하기 위한 비정상 결함 + RestartDeployedCodePackage: 서비스 호스트 프로세스 충돌을 시뮬레이트하기 위한 비정상 결함 + RemoveReplica: 복제본 제거를 시뮬레이트하기 위한 정상 결함 + MovePrimary: 서비스 패브릭 부하 분산 장치에 의해 트리거되는 복제본 이동을 시뮬레이트하기 위한 정상 결함
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -39,7 +39,7 @@ class Test
 {
     public static int Main(string[] args)
     {
-        // Replace these strings with the actual version for your cluster and appliction.
+        // Replace these strings with the actual version for your cluster and application.
         string clusterConnection = "localhost:19000";
         Uri applicationName = new Uri("fabric:/samples/PersistentToDoListApp");
         Uri serviceName = new Uri("fabric:/samples/PersistentToDoListApp/PersistentToDoListService");
@@ -84,33 +84,33 @@ class Test
 
     public static async Task RunTestAsync(string clusterConnection, Uri applicationName, Uri serviceName)
     {
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
-        // Maximum time to wait for a service to stabilize
+        // Maximum time to wait for a service to stabilize.
         TimeSpan maxServiceStabilizationTime = TimeSpan.FromSeconds(120);
 
-        // How many loops of faults you want to execute
+        // How many loops of faults you want to execute.
         uint testLoopCount = 20;
         Random random = new Random();
 
         for (var i = 0; i < testLoopCount; ++i)
         {
             var workload = SelectRandomValue<ServiceWorkloads>(random);
-            // Start workload and while it is running go and induce some fault
+            // Start the workload.
             var workloadTask = RunWorkloadAsync(workload);
 
-            // While task is executing induce faults into the service. It can be ungraceful faults like
-            // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary
+            // While the task is running, induce faults into the service. They can be ungraceful faults like
+            // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary.
             var fault = SelectRandomValue<ServiceFabricFaults>(random);
 
-            // Create a replica selector which will select a Primary replica from the given service to test
+            // Create a replica selector, which will select a primary replica from the given service to test.
             var replicaSelector = ReplicaSelector.PrimaryOf(PartitionSelector.RandomOf(serviceName));
-            // Run the selected random fault
+            // Run the selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
             // Validate the health and stability of the service.
             await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
-            // Wait for the workload to complete successfully
+            // Wait for the workload to finish successfully.
             await workloadTask;
         }
     }
@@ -137,10 +137,10 @@ class Test
     private static Task RunWorkloadAsync(ServiceWorkloads workload)
     {
         throw new NotImplementedException();
-        // This is where you trigger and complete your service workload
-        // Please note the faults induced while your service workload is running will
-        // fault the Primary service hence you will need to reconnect to complete or check
-        // the status of the workload
+        // This is where you trigger and complete your service workload.
+        // Note that the faults induced while your service workload is running will
+        // fault the primary service. Hence, you will need to reconnect to complete or check
+        // the status of the workload.
     }
 
     private static T SelectRandomValue<T>(Random random)
@@ -151,6 +151,5 @@ class Test
     }
 }
 ```
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

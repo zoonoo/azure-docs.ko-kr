@@ -18,9 +18,7 @@
 
 # Windows 런타임 8.1 범용 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -103,6 +101,8 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 	
 	이 코드는 새 항목을 삽입한 후에 알림 허브에 푸시 알림을 전송하도록 지시합니다.
 
+4. 서버 프로젝트를 다시 게시합니다.
+
 ### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
 
 1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure 포털에서 온라인 편집기](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.
@@ -153,10 +153,6 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
 2. 로컬 컴퓨터에서 파일을 편집할 때 서버 프로젝트를 다시 게시합니다.
 
-## <a name="publish-the-service"></a>Azure에 모바일 백 엔드 게시
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ##<a id="update-service"></a>앱에 푸시 알림 추가
 
 1. 공유 **App.xaml.cs** 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
@@ -202,10 +198,10 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 
-##<a id="more"></a>추가
+##<a id="more"></a>추가 정보
 
-* 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. [Azure 모바일 앱에 관리된 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications)은 템플릿을 등록하는 방법을 보여줍니다.
-* 태그를 사용하면 푸시를 사용하여 여러 조각으로 나뉜 고객을 대상으로 할 수 있습니다. [Azure 모바일 앱용 .NET 백 엔드 서버 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags)은 장치 설치에 태그를 추가하는 방법을 보여줍니다.
+* 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. [Azure 모바일 앱에 관리된 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications)은 템플릿을 등록하는 방법을 보여 줍니다.
+* 태그를 사용하면 푸시를 사용하여 여러 조각으로 나뉜 고객을 대상으로 할 수 있습니다. [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags)은 장치 설치에 태그를 추가하는 방법을 보여 줍니다.
 
 <!-- Anchors. -->
 
@@ -214,4 +210,4 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

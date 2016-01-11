@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #Azure Linux VM에서 MySQL 성능 최적화
@@ -348,4 +348,4 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,0 +1,47 @@
+<properties
+   pageTitle="SqlPackage를 사용하여 SQL Server 데이터베이스를 BACPAC 파일로 내보내기"
+   description="Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 내보내기, BACPAC 파일 내보내기, sqlpackage"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="12/17/2015"
+   ms.author="carlrab"/>
+
+# SqlPackage를 사용하여 SQL Server 데이터베이스를 BACPAC 파일로 내보내기
+
+> [AZURE.SELECTOR]
+- [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+
+이 문서에서는 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령 프롬프트 유틸리티를 사용하여 SQL Server 데이터베이스를 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일로 내보내는 방법을 보여 줍니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다. 최신 버전의 SQL Server Data Tools를 [다운로드](https://msdn.microsoft.com/library/mt204009.aspx)하여 이 유틸리티를 가져올 수도 있습니다.
+
+1. 명령 프롬프트를 열고 sqlpackage.exe 명령줄 유틸리티가 들어 있는 디렉터리를 변경합니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다. 컴퓨터에서 검색을 사용하여 사용자 환경에서 경로를 찾습니다.
+2. 사용자 환경에 대해 다음 인수를 사용하여 다음 sqlpackage.exe 명령을 실행하세요.
+
+	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+
+	| 인수 | 설명 |
+	|---|---|
+	| < server_name > | 원본 서버 이름 |
+	| < database_name > | 원본 데이터베이스 이름 |
+	| < target_file > | 파일 이름 및 BACPAC 파일의 위치 |
+
+	![작업 메뉴에서 데이터 계층 응용 프로그램 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
+
+## 다음 단계: BACPAC 파일에서 SQL 데이터베이스로 가져오기
+
+- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+- [Azure 포털](sql-database-import.md)
+- [PowerShell](sql-database-import-powershell.md)
+
+<!---HONumber=AcomDC_1223_2015-->

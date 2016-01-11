@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/20/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Docker 오류 문제 해결
@@ -100,4 +100,4 @@ A: 한 가지 방법은 서버에서 OpenSSL을 사용하여 CA, 서버 및 클�
 
 다른 옵션은 Windows용 OpenSSL을 다운로드하고 필요한 인증서 및 키를 생성한 다음 Linux 컴퓨터에 CA, 서버 인증서 및 키를 업로드하는 것입니다. Docker의 보안 연결 설정에 대한 자세한 내용은 [HTTPS를 사용한 Docker 데몬 소켓 보호](https://docs.docker.com/articles/https/)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

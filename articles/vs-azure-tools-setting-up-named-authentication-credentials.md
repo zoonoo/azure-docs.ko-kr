@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/02/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # 명명된 인증 자격 증명 설정
@@ -71,4 +71,4 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
     1. 방금 만든 .cer 파일의 전체 경로를 붙여넣은 다음 지정한 암호를 입력합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

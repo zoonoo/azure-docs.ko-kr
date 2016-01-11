@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="mandia"/>
 
 
@@ -104,21 +104,21 @@ BizTalk 서비스 변환의 새로운 기능의 다른 예로는**루프 작업*
 
 ### BizTalk Server 맵 마이그레이션
 
-Microsoft Azure BizTalk 서비스는 BizTalk 서비스 변환 BizTalk Server 맵을 마이그레이션하는 도구를 제공합니다. **BTMMigrationTool**는 BizTalk 서비스 SDK와 함께 제공되는 **도구** 패키지의 일부로 제공되며 [여기](http://go.microsoft.com/fwlink/p/?LinkId=235057)에서 다운로드할 수 있습니다. 이 도구에 대한 자세한 내용은 [BizTalk 맵을 BizTalk 서비스 변환으로 변환](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx)을 참조하세요.
+Microsoft Azure BizTalk 서비스는 BizTalk 서비스 변환 BizTalk Server 맵을 마이그레이션하는 도구를 제공합니다. **BTMMigrationTool**는 [BizTalk 서비스 SDK 다운로드](http://go.microsoft.com/fwlink/p/?LinkId=235057)와 함께 제공되는 **도구** 패키지의 일부로 사용할 수 있습니다. 이 도구에 대한 자세한 내용은 [BizTalk 맵을 BizTalk 서비스 변환으로 변환](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx)을 참조하세요.
 
-BizTalk Server 맵을 BizTalk 서비스 변환으로 마이그레이션하는 방법에 대해서는 Sandro Pereira, BizTalk MVP에 의한 예제 를 찾아볼 수도 있습니다. 이 샘플은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx)에서 사용할 수 있습니다.
+[BizTalk Server 맵을 BizTalk 서비스 변환으로 마이그레이션](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx)하는 방법에 대해서는 BizTalk MVP인 Sandro Pereira가 제공한 샘플을 살펴볼 수도 있습니다.
 
 ## 오케스트레이션
 
 BizTalk Server 오케스트레이션 처리를 Microsoft Azure에 마이그레이션해야 하는 경우 Microsoft Azure는 BizTalk Server 오케스트레이션 실행을 지원하지 않으므로 오케스트레이션은 다시 작성해야 합니다. 오케스트레이션 기능은 Windows Workflow Foundation 4.0 (WF4) 서비스에서 다시 작성할 수 있습니다. 현재 BizTalk Server 오케스트레이션에서 WF4로 마이그레이션이 없으므로, 오케스트레이션 기능은 완전히 다시 작성해야 합니다. 다음은 Windows 워크플로에 대한 몇가지 리소스입니다.
 
-- *WCF 워크플로 서비스를 서비스 버스 큐 및 항목과 통합하는 방법: *Paolo salvatori 작성 [여기](https://msdn.microsoft.com/library/azure/hh709041.aspx)를 참조하세요.
+- [*WCF 워크플로 서비스를 서비스 버스 큐 및 항목과 통합하는 방법*](https://msdn.microsoft.com/library/azure/hh709041.aspx): Paolo salvatori 작성 
 
-- 빌드 2011 컨퍼런스의 *Windows Workflow Foundation 및 Azure로 앱을 빌드하기* 세션. [여기](http://go.microsoft.com/fwlink/p/?LinkId=237314)를 참조하세요.
+- 빌드 2011 컨퍼런스의 [*Windows Workflow Foundation 및 Azure로 앱을 빌드하기* 세션](http://go.microsoft.com/fwlink/p/?LinkId=237314).
 
-- *MSDN의 Windows Workflow Foundation 개발자 센터*. [여기](http://go.microsoft.com/fwlink/p/?LinkId=237315)를 참조하세요.
+- MSDN의 [*Windows Workflow Foundation 개발자 센터*](http://go.microsoft.com/fwlink/p/?LinkId=237315).
 
-- *MSDN의 Windows Workflow Foundation 4 (WF4) 설명서*. [여기](https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx)를 참조하세요.
+- MSDN의 [*WF4(Windows Workflow Foundation 4) 설명서*](https://msdn.microsoft.com/library/dd489441.aspx).
 
 ## 기타 고려 사항
 
@@ -142,4 +142,4 @@ Microsoft Azure BizTalk 서비스는 많은 기능을 추가하기 위해 중요
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

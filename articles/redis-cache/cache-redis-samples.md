@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/17/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 샘플 
@@ -35,6 +35,7 @@
 -	Redis 목록 및 정렬된 집합 작업
 -	JsonConvert serializer를 사용하여.NET 개체 저장
 -	Redis 집합을 사용하여 태그 지정 구현
+-	Redis 클러스터 작업
 
 자세한 내용은 github의 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 설명서를 참조하세요. 추가 사용 시나리오는 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) 단위 테스트를 참조하세요.
 
@@ -75,4 +76,4 @@
 
 [대역폭 모니터](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 샘플을 사용하면 클라이언트에서 사용 되는 대역폭을 모니터링할 수 있습니다. 대역폭을 측정하려면 캐시 클라이언트 컴퓨터에서 샘플을 실행하고, 캐시를 호출하고, 대역폭 모니터 샘플에서 보고하는 대역폭을 관찰합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

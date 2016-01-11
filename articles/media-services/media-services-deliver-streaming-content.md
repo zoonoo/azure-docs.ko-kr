@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -54,6 +54,7 @@
 	{
 	
 	    // Create a 30-day readonly access policy. 
+      	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 	    IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 	        TimeSpan.FromDays(30),
 	        AccessPermissions.Read);
@@ -168,6 +169,6 @@
 
 ##참고 항목
 
-[자산 다운로드](media-services-deliver-asset-download.md)
+[자산 다운로드](media-services-deliver-asset-download.md) [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 
@@ -147,4 +147,4 @@ Blob을 다운로드하려면 **get\_blob()** 메서드를 사용하여 콘텐�
 - GitHub의 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

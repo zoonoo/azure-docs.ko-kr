@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Publish-WebApplicationWebSite (Windows PowerShell 스크립트)"
+   pageTitle="Publish-WebApplicationWebSite(Windows PowerShell 스크립트) | Microsoft Azure"
    description="Azure 웹 사이트에 웹 프로젝트를 게시하는 방법에 대해 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Publish-WebApplicationWebSite (Windows PowerShell 스크립트)
@@ -129,4 +129,4 @@ JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 해�
 
 자세한 내용은 [Publish-WebApplicationVM(Windows PowerShell 스크립트)](vs-azure-tools-publish-webapplicationvm.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

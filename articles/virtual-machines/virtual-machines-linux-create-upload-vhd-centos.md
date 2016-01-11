@@ -322,11 +322,21 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 12.	SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
-13. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+13.	**VMWare, VirtualBox 또는 KVM에서 이미지를 빌드한 경우에만:** Hyper-V 모듈을 initramfs에 추가합니다.
+
+    `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    initramfs를 다시 빌드합니다.
+
+        # dracut –f -v
+
+14. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
 		# sudo yum install WALinuxAgent
 
-14.	OS 디스크에 스왑 공간을 만들지 마십시오.
+15.	OS 디스크에 스왑 공간을 만들지 마십시오.
 
 	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
@@ -336,12 +346,12 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+16.	다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-16. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+17. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # BizTalk X12 API 앱 시작 및 논리 앱에 추가
@@ -33,7 +33,7 @@ BizTalk X12 커넥터를 사용하려면 먼저 BizTalk X12 커넥터 API 앱의
 ## BizTalk X12 커넥터 구성
 거래 업체는 B2B(Business to Business) 통신과 관련된 엔터티입니다. 두 파트너가 관계를 설정하는 경우 이를 규약이라고 합니다. 정의된 규약은 두 파트너가 수행하려고 하는 통신을 기반으로 하며 특정 프로토콜 또는 전송입니다.
 
-거래 업체 규약을 만드는 단계에 대한 문서는 [여기][2]에 있습니다.
+[거래 업체 규약 만들기][2] 단계를 참조하세요.
 
 ## 논리 앱 디자이너 화면에서 X12 커넥터 사용
 X12 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
@@ -83,4 +83,4 @@ Content|string|XML 메시지
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

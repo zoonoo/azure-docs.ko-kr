@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2015" 
+	ms.date="12/17/2015" 
 	ms.author="bradsev" />
 
 
@@ -91,6 +91,20 @@ VM이 만들어지면 기본 섹션의 4단계에서 만든 관리자 계정 자
 
 VM이 만들어지고 프로비전되면 여기에 설치 및 구성되는 도구를 사용하여 시작할 준비가 되었습니다. 바탕 화면 아이콘과 여러 도구의 시작 메뉴 타일이 있습니다.
 
+## 데이터 과학 가상 컴퓨터에 강력한 암호를 만드는 방법
+
+컴퓨터에 사용자 고유의 강력한 암호를 만들려면 데이터 과학 가상 컴퓨터의 명령 프롬프트에서 다음 명령을 실행합니다.
+
+	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
+
+메시지가 표시되면 암호를 입력합니다.
+
+출력에 "sha1:xxxxxx" 형식의 암호 해시가 표시됩니다. 이 암호 해시를 복사하여 매개 변수 이름 ***c.NotebookApp.password***가 포함된 **C:\\Aaqs.ipython\\profile\_nbserver\\ipython\_notebook\_config.py**의 Notebook 구성 파일에서 기존 해시를 바꿉니다.
+
+따옴표 안에 있는 기존 해시 값만 바꿔야 합니다. 따옴표와 매개 변수 값에 대한 ***sha1:*** 접두사는 유지해야 합니다.
+
+마지막으로 "Start\_IPython\_Notebook"이라는 Windows 예약 작업으로 VM에서 실행 중인 Ipython 서버를 중지하고 다시 시작해야 합니다. 이 작업을 다시 시작한 후 새 암호가 허용되지 않으면 가상 컴퓨터를 다시 시작합니다.
+
 ## Microsoft 데이터 과학 가상 컴퓨터에 설치된 도구
 
 ### R
@@ -111,7 +125,7 @@ VM에 설치된 Visual Studio Community edition 평가 목적이나 매우 작�
 SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함되어 있습니다. **SQL Server Management Studio**를 시작하여 SQL Server에 액세스할 수 있습니다. 사용 중인 VM 이름이 서버 이름으로 사용됩니다. Windows의 관리자 권한으로 로그인할 때 Windows 인증을 사용합니다. SQL Server Management Studio에서 다른 사용자를 만들고, 데이터베이스를 만들며, 데이터를 가져오고, SQL 쿼리를 실행할 수 있습니다.
 
 ### Azure 
-몇 개의 Azure 도구가 VM에 설치됩니다. - Azure SDK 설명서에 액세스하는 바탕 화면 바로 가기가 있습니다. - Microsoft Azure 저장소 계정 내부/외부로 데이터를 이동시키는 데 사용되는 **AzCopy**.- Azure 저장소 계정 내에 저장된 개체를 통해 검색하는 데 사용되는 **Azure 저장소 탐색기**.- **Microsoft Azure Powershell** - VM에도 설치된 스크립트 언어로 된 Azure 리소스를 관리하는 데 사용되는 스크립트 언어
+몇 개의 Azure 도구가 VM에 설치됩니다. - Azure SDK 설명서에 액세스하는 바탕 화면 바로 가기가 있습니다. - Microsoft Azure 저장소 계정 내부/외부로 데이터를 이동시키는 데 사용되는 **AzCopy**.- Azure 저장소 계정 내에 저장된 개체를 통해 검색하는 데 사용되는 **Azure 저장소 탐색기**. - **Microsoft Azure Powershell** - VM에도 설치된 스크립트 언어로 된 Azure 리소스를 관리하는 데 사용되는 스크립트 언어
 
 ###Power BI
 
@@ -122,4 +136,4 @@ SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함�
 ## 추가 Microsoft 개발 도구
 [**Microsoft 웹 플랫폼 설치 관리자**](https://www.microsoft.com/web/downloads/platform.aspx)는 다른 Microsoft 개발 도구를 검색하고 다운로드하는 데 사용할 수 있습니다. 또한 Microsoft 데이터 과학 가상 컴퓨터 데스크톱에서 제공되는 도구에 대한 바로 가기도 있습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

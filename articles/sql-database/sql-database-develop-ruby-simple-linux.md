@@ -14,13 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="andrela"/>
 
 
 # Ubuntu Linux에서 Ruby를 사용하여 SQL 데이터베이스에 연결
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
+- [Node.js](sql-database-develop-nodejs-simple-linux.md)
+- [Ruby](sql-database-develop-ruby-simple-linux.md)
+
 
 이 항목에서는 Ubuntu Linux 클라이언트 컴퓨터에서 실행되며 Azure SQL 데이터베이스 데이터베이스에 연결하는 Ruby 코드 샘플을 제시합니다.
 
@@ -91,9 +96,9 @@
 
 이 예제에서는 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 문을 안전하게 실행하고, [SQL 삽입](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 취약성으로부터 응용 프로그램을 보호하는 매개 변수를 전달하며, 자동으로 생성된 [기본 키](https://msdn.microsoft.com/library/ms179610.aspx) 값을 검색하는 방법을 보여 줍니다.
 
-TinyTDS와 Azure를 함께 사용하려면 여러 `SET` 문을 실행하여 현재 세션에서 특정 정보를 처리 하는 방법을 변경하는 것이 좋습니다. 권장되는 `SET` 문은 코드 샘플에 제공됩니다. 예를 들어, `SET ANSI_NULL_DFLT_ON`에서는 열의 Null 허용 여부 상태가 명시적으로 나와 있지 않은 경우에도 Null 값을 허용하도록 새 열을 만들 수 있습니다.
+TinyTDS와 Azure를 함께 사용하려면 여러 `SET` 문을 실행하여 현재 세션에서 특정 정보를 처리 하는 방법을 변경하는 것이 좋습니다. 권장되는 `SET` 문이 코드 샘플에 제공됩니다. 예를 들어 `SET ANSI_NULL_DFLT_ON`에서는 열의 Null 허용 여부 상태가 명시적으로 지정되지 않은 경우에도 Null 값을 허용하도록 새 열을 만들 수 있습니다.
 
-Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx) 형식에 맞게 [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) 함수를 사용하여 해당 날짜/시간 형식으로 캐스팅합니다.
+Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx) 형식에 맞게 [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) 함수를 사용하여 해당 날짜/시간 형식으로 캐스트합니다.
 
     require 'tiny_tds'
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
@@ -116,4 +121,4 @@ Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx)
     puts row
     end
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

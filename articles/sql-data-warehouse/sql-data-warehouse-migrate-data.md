@@ -3,8 +3,8 @@
    description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스로 데이터를 마이그레이션하기 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="12/17/2015"
+   ms.author="barbkess"/>
 
 # 데이터 마이그레이션
 데이터를 마이그레이션하는 주된 목표는 SQLDW 데이터베이스를 채우는 것입니다. 이 프로세스는 다양한 방법으로 구현할 수 있습니다. ADF Copy, SSIS 및 bcp는 모두 이 목표를 달성하기 위해 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
@@ -179,7 +179,7 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 [SQL 데이터 웨어하우스로 솔루션 마이그레이션]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [bcp를 사용하여 SQL 데이터 웨어하우스로 데이터 로드]: sql-data-warehouse-load-with-bcp.md
-[PolyBase를 사용하여 SQL 데이터 웨어하우스로 데이터 로드]: sql-data-warehouse-load-with-polybase.md
+[PolyBase를 사용하여 SQL 데이터 웨어하우스로 데이터 로드]: sql-data-warehouse-get-started-load-with-polybase.md
 
 
 <!--MSDN references-->
@@ -194,4 +194,4 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 [ADO.NET 대상 어댑터]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS 설명서]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

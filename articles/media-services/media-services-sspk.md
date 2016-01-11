@@ -99,6 +99,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
 - Inside Secure
 - Irdeto USA Inc.
@@ -125,7 +126,6 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VimpelCom (OJSC)
 - VisualOn, Inc.
-- WOOJEON & HANDAN Co., Ltd
 - ZTE Corporation
 
 ##Microsoft 부드러운 스트리밍 클라이언트 최종 제품 계약 정식 사용자
@@ -150,6 +150,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
@@ -181,7 +182,6 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOJEON & HANDAN Co., Ltd
 - WOOX Innovations Limited
 - ZTE Corporation
 
@@ -193,4 +193,4 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

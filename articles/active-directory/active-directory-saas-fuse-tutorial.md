@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -64,7 +64,7 @@ Fuse의 Azure AD 통합을 구성하려면 갤러리의 Fuse를 관리되는 Saa
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **Fuse**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_01.png)<br>
-7. 결과 창에서 **Fuse**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **Fuse**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -76,7 +76,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Fuse 테스트 사용자 만들기](#creating-a-fuse-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Fuse에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -89,7 +89,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 1. Azure 클래식 포털의 **Fuse** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
 
-2. **Fuse에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_03.png) <br>
+2. **Fuse에 대한 사용자 로그온 방법을 선택합니다.** 페이지에서 **Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_03.png) <br>
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_04.png) <br>
 
@@ -100,14 +100,14 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     b. **다음**을 클릭합니다.
 
 
-4. **Fuse의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_05.png) <br>
+4. **Fuse에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_05.png) <br>
 
     a. **인증서 다운로드**를 클릭하고 인증서를 컴퓨터에 저장합니다.
 
     b. **발급자 URL**, **Single Sign-On 서비스 URL** 및 **Single Sign-Out 서비스 URL**을 복사합니다.
 
    
-5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 ****support@fusion-universal.com**을 통해 Fuse 지원 팀에 문의한 후 다운로드한 인증서 파일을 연하고 **발급자 URL**, **Single Sign-On 서비스 URL** 및 **Single Sign-Out 서비스 URL**을 포함합니다.
+5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 ****support@fusion-universal.com**을 통해 Fuse 지원 팀에 문의한 후 다운로드한 인증서 파일을 연결하고 **발급자 URL**, **Single Sign-On 서비스 URL** 및 **Single Sign-Out 서비스 URL**을 포함합니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
@@ -164,12 +164,12 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 이 섹션은 Fuse에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Fuse는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다.
 
-이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Fuse에 액세스하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
+이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Fuse에 액세스하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on).
 
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 Fuse에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
+이 섹션의 목적은 Britta Simon에게 Fuse에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 Fuse에 할당하려면 다음 단계를 수행합니다.**
 
@@ -187,7 +187,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 ### Single Sign-On 테스트
 
-이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.<br> 액세스 패널에서 Fuse 타일을 클릭하면 Fuse 응용 프로그램에 자동으로 로그온됩니다.
+이 섹션의 목적은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하는 것입니다.<br> 액세스 패널에서 Fuse 타일을 클릭하면 Fuse 응용 프로그램에 자동으로 로그온됩니다.
 
 
 ## 추가 리소스
@@ -214,4 +214,4 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

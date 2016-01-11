@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="12/21/2015"
    ms.author="joaoma" />
 
 # SQL Always On에 대해 부하 분산 장치 구성
@@ -53,7 +53,7 @@ SQL Server AlwaysOn(수신기) 끝점에 대해 ILB 지원을 사용할 수 있�
 
 위의 예에서는 "sqlsvc1" 및 "sqlsvc2"라는 2개의 VM이 클라우드 서비스 "Sqlsvc"에서 실행 중입니다. "DirectServerReturn" 스위치를 사용하여 ILB를 만든 후 ILB에 부하 분산 끝점을 추가하여 SQL에서 가용성 그룹에 대한 수신기를 구성할 수 있게 합니다.
 
-SQL Alwayson을 만드는 방법에 대한 자세한 내용은 [자습서: Azure의 AlwaysOn 가용성 그룹](https://msdn.microsoft.com/library/dn249504.aspx) 또는 [포털 갤러리 사용](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
+SQL AlwaysOn을 만드는 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 SQL AlwaysOn 배포](virtual-machines-workload-template-sql-alwayson.md) 또는 [포털 갤러리 사용](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)에서 확인할 수 있습니다.
 
 
 ## 참고 항목
@@ -67,4 +67,4 @@ SQL Alwayson을 만드는 방법에 대한 자세한 내용은 [자습서: Azure
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
-# Azure HDInsight 클러스터에서 Spark 작업 서버
+# Azure HDInsight 클러스터에서 Spark 작업 서버(Windows)
+
+> [AZURE.NOTE]이제 HDInsight가 Linux에서 Spark 클러스터를 제공하며 Spark 클러스터에 원격으로 작업을 제출하기 위해 Livy를 사용합니다. Linux에서 HDInsight Spark 클러스터와 함께 Livy를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Spark 클러스터와 함께 Livy를 사용하여 원격으로 Spark 작업 제출(Linux)](hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요.
 
 Azure HDInight에서 Apache Spark 클러스터가 Spark 작업 서버를 클러스터 배포의 일부로 패키징 Spark 작업 서버는 REST API를 제공하여 Spark 컨텍스트를 만들고 Spark 응용 프로그램을 컨텍스트에 제출하며 작업 상태를 확인하고 컨텍스트를 중단합니다. 이 문서는 작업 서버를 사용하여 Spark 클러스터에서 일반적인 작업을 수행하기 위해 Curl을 사용하는 방법에 대한 일부 예제를 제공합니다.
 
->[AZURE.NOTE]Spark 작업 서버에 대한 전체 설명서는 [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver)를 참조하십시오.
+>[AZURE.NOTE]Spark 작업 서버에 대한 전체 설명서는 [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver)를 참조하세요.
 
 ## <a name="uploadjar"></a>Spark 클러스터에 jar 업로드
 
@@ -64,11 +66,11 @@ mypostdata.txt가 응용 프로그램을 정의합니다.
 
 ##<a name="seealso"></a>참고 항목
 
-* [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
-* [HDInsight 클러스터에서 Spark 프로비전](hdinsight-apache-spark-provision-clusters.md)
-* [HDInsight에서 BI 도구로 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
-* [HDInsight에서 Spark를 사용하여 기계 학습 응용 프로그램 구축](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 구축](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview-v1.md)
+* [HDInsight에서 Spark 클러스터 만들기](hdinsight-apache-spark-provision-clusters.md)
+* [BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [HDInsight에서 Spark를 사용하여 기계 학습 응용 프로그램 빌드](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
+* [HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -82,4 +84,4 @@ mypostdata.txt가 응용 프로그램을 정의합니다.
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

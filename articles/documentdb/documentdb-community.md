@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="11/23/2015"
+  ms.date="12/22/2015"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -33,7 +33,7 @@
 
 DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블, 맟 N 차원 큐브) 및 시계열 변환입니다.
 
-[Github](https://github.com/lmaccherone/documentdb-lumenize) 및 [npm](https://www.npmjs.com/package/lumenize)에서 확인합니다.
+[Github](https://github.com/lmaccherone/documentdb-lumenize) 및 [npm](https://www.npmjs.com/package/lumenize)에서 확인하세요.
 
 
 ### DocumentDB 스튜디오
@@ -42,7 +42,7 @@ DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블, 맟 N �
 
 Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기입니다.
 
-[GitHub](https://github.com/mingaliu/DocumentDBStudio)에서 확인합니다.
+[GitHub](https://github.com/mingaliu/DocumentDBStudio)에서 확인하세요.
 
 
 ### DoQmentDB
@@ -52,6 +52,15 @@ Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기�
 DoQmentDB는 DocumentDB 위에 MongoDB와 비슷한 계층을 제공하는 Node.js 프라미스 기반 클라이언트입니다.
 
 [Github](https://github.com/a8m/doqmentdb) 및 [npm](https://www.npmjs.com/package/doqmentdb)에서 확인하세요.
+
+
+### DocumentDB용 Swagger REST API
+
+*Howard Edidin 작성*
+
+API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입니다.
+
+[GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi)에서 확인하세요.
 
 <br/><br/>
 
@@ -70,6 +79,14 @@ DoQmentDB는 DocumentDB 위에 MongoDB와 비슷한 계층을 제공하는 Node.
 <br/>
 
 **커뮤니티 게시물:**
+
+* [**Azure 스트림 분석에 대한 데이터 싱크로 DocumentDB**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *Jan Hentschel 작성*
+
+* [**프로덕션 환경에서 Azure DocumentDB!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - *Alexandre Walsh 및 Marc Olivier Duval 작성*
+
+* [**Azure 검색 인덱서 - DocumentDB 쿼리(스페인어)**](http://www.ealsur.com.ar/wp/index.php/2015/11/19/azure-search-indexers-documentdb-queries/) - *Matthias Quaranta 작성*
+
+* [**Azure DocumentDB のSQLクエリ基礎**](http://beachside.hatenablog.com/entry/2015/12/06/000045) - *Atsushi Yokohama 작성*
 
 * [**데이터 요소 - Aurelia와 DocumentDB의 결합: 매치메이커의 여행**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *Julie Lerman 작성*
 
@@ -105,58 +122,63 @@ DoQmentDB는 DocumentDB 위에 MongoDB와 비슷한 계층을 제공하는 Node.
 
 ### 최근 및 예정된 이벤트
 
-| 이벤트 이름 | 위치 | Date | 해시 태그 |
-| ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [모임: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | 몬트리올, QC, 캐나다 | 2015년 12월 1일 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
+| 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| SQLBits XV | tbd | 리버풀, UK | 2016년 5월 4-7일 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
-*이벤트를 주최하세요? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
+*연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
 
 ### 이전 이벤트 및 기록
 
-| 이벤트 이름 | 위치 | Date | 기록 |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
-| [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | 시애틀, WA | 2015년 11월 12일 | 해당 없음 |
-| [PASS 회담 2015](http://www.sqlpass.org/summit/2015/Home.asp) | 시애틀, WA | 2015년 10월 27-30일 | 해당 없음 |
-| [CloudDevelop 2015](http://www.clouddevelop.org/) | 콜롬버스, OH | 2015년 10월 23일 | 해당 없음 |
-| [SQL Saturday #430 - 소피아 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | 소피아, 불가리아 | 2015년 10월 10일 | 해당 없음 |
-| [SQL Saturday #429 - 오포르토 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | 오포르토, 포르투갈 | 2015년 10월 3일 | 해당 없음 |
-| [AzureCon](https://azure.microsoft.com/azurecon/) | 가상 이벤트 | 2015년 9월 29일 | [Azure 데이터 및 분석 플랫폼](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[DocumentDB에서 NoSQL 데이터 작업](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [SQL Saturday #434 - 홀랜드 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | 위트레흐트, 네덜란드 | 2015년 9월 26일 | [Azure DocumentDB 소개](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
-| [모임: 샌프란시스코만 지역 Azure 개발자](http://www.meetup.com/bayazure/events/223943785/) | 샌프란시스코, CA | 2015년 9월 15일 | 해당 없음 |
-| [벨로루시 Azure 사용자 그룹 모임 접속](https://www.facebook.com/events/786540124800276/) | 민스크, 벨로루시 | 2015년 9월 9일 | [DocumentDB 개념 개요, 일관성 수준, 분할 전략 소개](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
-| [NoSQL Now!](http://nosql2015.dataversity.net/) | 산호세, 캘리포니아 | 2015년 8월 18일-20일 | 해당 없음 |
-| [@Scale Seattle](http://www.atscaleconference.com/) | 시애틀, WA | 2015년 6월 17일 | [Azure DocumentDB로 스키마 제약 없는 인덱싱](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
-| [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | 리스본, 포르투갈 | 2015년 6월 15일 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
-| [데이터베이스 월](http://www.databasemonth.com/database/azure-documentdb) | 뉴욕, NY | 2015년 5월 19일 | [Azure DocumentDB: 대규모 확장 가능한 다중 테넌트 문서 데이터베이스 서비스](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
-| [모임: 런던 SQL Server 사용자 그룹](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | 런던, 영국 | 2015년 5월 19일 | 해당 없음 |
-| [Ignite](http://ignite.microsoft.com/) | 시카코, IL | 2015년 5월 4-8일 | [SELECT Latest FROM DocumentDB 동영상](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB 및 Azure HDInsight: 성능 향상 동영상](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
-| [빌드 2015](http://www.buildwindows.com/) | 샌프란시스코, CA | 2015년 4월 29일 - 5월 1일 | [Azure의 NoSQL 서비스로 향후 중대한 가치 빌드: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
-| [Global Azure Bootcamp 2015 - 스페인](http://azurebootcamp.es/) | 마드리드, 스페인 | 2015년 4월 25일 | [#Azure에서 실행 중인 DEAN DocumentDB + Express + AngularJS + NodeJS](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
-| [모임: 샬럿 Microsoft 클라우드](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | 샬럿, NC | 2015년 4월 8일 | 해당 없음 |
-| [모임: Azure 사용자 그룹 덴마크](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | 코펜하겐, 덴마크 | 2015년 5월 19일 | 해당 없음 |
-| [모임: 시애틀 웹앱 개발자 그룹](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | 시애틀, WA | 2015년 5월 14일 | 해당 없음 |
-| [모임: 이스탄불 Azure 모임](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) | 이스탄불, 터키 | 2015년 3월 7일 | 해당 없음 |
-| [모임: 5대호 지역 .Net 사용자 그룹](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) | 사우스필드, MI | 2015년 2월 18일 | 해당 없음 |
-| [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) | 스톡홀름, 스웨덴 | 2015년 1월 28-29일 | [클라우드용 Azure 새 NoSQL 옵션의 DocumentDB](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
+| 이벤트 이름 | 발표자 | 위치 | Date | 기록 |
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [모임: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | 몬트리올, QC, 캐나다 | 2015년 12월 1일 | 해당 없음 |
+| [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | 시애틀, WA | 2015년 11월 12일 | 해당 없음 |
+| [PASS 회담 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | 시애틀, WA | 2015년 10월 27-30일 | 해당 없음 |
+| [CloudDevelop 2015](http://www.clouddevelop.org/) | David Makogon, Ryan Crawcour | 콜롬버스, OH | 2015년 10월 23일 | 해당 없음 |
+| [SQL Saturday #430 - 소피아 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Leonard Lobel | 소피아, 불가리아 | 2015년 10월 10일 | 해당 없음 |
+| [SQL Saturday #429 - 오포르토 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Leonard Lobel | 오포르토, 포르투갈 | 2015년 10월 3일 | 해당 없음 |
+| [AzureCon](https://azure.microsoft.com/azurecon/) | David Makogon, Ryan Crawcour, John Macintyre | 가상 이벤트 | 2015년 9월 29일 | [Azure 데이터 및 분석 플랫폼](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[DocumentDB에서 NoSQL 데이터 작업](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| [SQL Saturday #434 - 홀랜드 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Leonard Lobel | 위트레흐트, 네덜란드 | 2015년 9월 26일 | [Azure DocumentDB 소개](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
+| [모임: 샌프란시스코만 지역 Azure 개발자](http://www.meetup.com/bayazure/events/223943785/) | Andrew Liu | 샌프란시스코, CA | 2015년 9월 15일 | 해당 없음 |
+| [벨로루시 Azure 사용자 그룹 모임 접속](https://www.facebook.com/events/786540124800276/) | Alex Zyl | 민스크, 벨로루시 | 2015년 9월 9일 | [DocumentDB 개념 개요, 일관성 수준, 분할 전략 소개](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
+| [NoSQL Now!](http://nosql2015.dataversity.net/) | David Makogon, Ryan Crawcour | 산호세, 캘리포니아 | 2015년 8월 18일-20일 | 해당 없음 |
+| [@Scale Seattle](http://www.atscaleconference.com/) | Dharma Shukla | 시애틀, WA | 2015년 6월 17일 | [Azure DocumentDB로 스키마 제약 없는 인덱싱](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
+| [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Bruno Lopes | 리스본, 포르투갈 | 2015년 6월 15일 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
+| [모임:시애틀 확장성 모임](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | 시애틀, WA | 2015년 5월 27일 | 해당 없음 |
+| [데이터베이스 월](http://www.databasemonth.com/database/azure-documentdb) | Dharma Shukla | 뉴욕, NY | 2015년 5월 19일 | [Azure DocumentDB: 대규모 확장 가능한 다중 테넌트 문서 데이터베이스 서비스](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
+| [모임: 런던 SQL Server 사용자 그룹](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | 런던, 영국 | 2015년 5월 19일 | 해당 없음 |
+| [DevIntersection](https://devintersection.com/) | Andrew Liu | 스카츠데일, AZ | 2015년 5월 18-21일 | 해당 없음 |
+| [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | 시카코, IL | 2015년 5월 4-8일 | [SELECT Latest FROM DocumentDB 동영상](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB 및 Azure HDInsight: 성능 향상 동영상](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [빌드 2015](http://www.buildwindows.com/) | Ryan Crawcour | 샌프란시스코, CA | 2015년 4월 29일 - 5월 1일 | [Azure의 NoSQL 서비스로 향후 중대한 가치 빌드: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
+| [Global Azure Bootcamp 2015 - 스페인](http://azurebootcamp.es/) | Luis Ruiz Pavon, Roberto Gonzalez | 마드리드, 스페인 | 2015년 4월 25일 | [#Azure에서 실행 중인 DEAN DocumentDB + Express + AngularJS + NodeJS](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
+| [모임: 샬럿 Microsoft 클라우드](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Jamie Rance | 샬럿, NC | 2015년 4월 8일 | 해당 없음 |
+| [모임: Azure 사용자 그룹 덴마크](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Christian Holm Diget | 코펜하겐, 덴마크 | 2015년 5월 19일 | 해당 없음 |
+| [모임: 시애틀 웹앱 개발자 그룹](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Andrew Liu | 시애틀, WA | 2015년 5월 14일 | 해당 없음 |
+| [모임: 이스탄불 Azure 모임](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) | Daron Yondem | 이스탄불, 터키 | 2015년 3월 7일 | 해당 없음 |
+| [모임: 5대호 지역 .Net 사용자 그룹](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) | Michael Collier | 사우스필드, MI | 2015년 2월 18일 | 해당 없음 |
+| [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) | Magnus Mårtensson | 스톡홀름, 스웨덴 | 2015년 1월 28-29일 | [클라우드용 Azure 새 NoSQL 옵션의 DocumentDB](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
 ### 비디오 및 팟캐스트
 
-| 표시 | Date | 에피소드 |
-| ------------------------------------------- | ------------------ | ------- |
-| 통합 사용자 그룹 | 2015년 11월 9일 | [의료 서비스 통합을 위한 Azure DocumentDB - 2부](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
-| 통합 사용자 그룹 | 2015년 10월 5일 | [의료 서비스 통합을 위한 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
-| DX 이탈리아 - #TecHeroes | 2015년 10월 2일 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
-| Microsoft 클라우드 쇼 - 팟캐스트 | 2015년 9월 30일 | [에피소드 099-Andrew Liu와 Azure DocumentDB](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
-| .NET Rocks! - 팟캐스트 | 2015년 9월 29일 | [Ryan CrawCour와 함께 하는 DocumentDB의 데이터](https://www.dotnetrocks.com/?show=1197) |
-| 데이터 노출 | 2015년 9월 28일 | [GA 이후 Azure DocumentDB의 새로운 기능](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
-| Azure 팟캐스트 | 2015년 9월 17일 | [에피소드 94: azpodcast.com 재설계](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
-| 클라우드 커버 | 2015년 9월 4일 | [에피소드 185: Ryan CrawCour와 함께 하는 DocumentDB 업데이트](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
-| CodeChat 033 | 2015년 7월 28일 | [Azure DocumentDB의 Greg Doerr](https://channel9.msdn.com/Shows/codechat/033) |
-| 메모리 내 기술 PASS 가상 장 | 2015년 5월 25일 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
-| 데이터 노출 | 2015년 4월 8일 | [DocumentDB 일반 가용성 및 새로운 기능!](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
-| 데이터 노출 | 2015년 3월 17일 | [Java DocumentDB용 SDK](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
-| #DevHangout | 2015년 3월 11일 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
-| 데이터 아키텍처 가상 장 PASS | 2015년 2월 25일 | [DocumentDB 소개](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+| 표시 | 발표자 | Date | 에피소드 |
+| ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| NinjaTips | Miguel Quintero | 2015년 12월 10일 | [DocumentDB - Un vistazo 일반](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
+| 통합 사용자 그룹 | Howard Edidin | 2015년 11월 9일 | [의료 서비스 통합을 위한 Azure DocumentDB - 2부](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
+| 통합 사용자 그룹 | Howard Edidin | 2015년 10월 5일 | [의료 서비스 통합을 위한 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
+| DX 이탈리아 - #TecHeroes | Alessandro Melchiori | 2015년 10월 2일 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
+| Microsoft 클라우드 쇼 - 팟캐스트 | Andrew Liu | 2015년 9월 30일 | [에피소드 099-Andrew Liu와 Azure DocumentDB](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
+| .NET Rocks! - 팟캐스트 | Ryan Crawcour | 2015년 9월 29일 | [Ryan CrawCour와 함께 하는 DocumentDB의 데이터](https://www.dotnetrocks.com/?show=1197) |
+| 데이터 노출 | Ryan Crawcour | 2015년 9월 28일 | [GA 이후 Azure DocumentDB의 새로운 기능](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
+| Azure 팟캐스트 | Cale Teeter | 2015년 9월 17일 | [에피소드 94: azpodcast.com 재설계](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
+| 클라우드 커버 | Ryan Crawcour | 2015년 9월 4일 | [에피소드 185: Ryan CrawCour와 함께 하는 DocumentDB 업데이트](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
+| CodeChat 033 | Greg Doerr | 2015년 7월 28일 | [Azure DocumentDB의 Greg Doerr](https://channel9.msdn.com/Shows/codechat/033) |
+| NoSql Central | King Wilder | 2015년 5월 25일 | [골프 추적기 - AngularJS, WebApi 2 및 DocumentDB를 기반으로 웹 응용 프로그램을 빌드하는 방법에 대한 비디오 개요입니다.](http://www.nosqlcentral.net/Story/Details/videos/kahanu/1-documentdb-golf-tracker-overview) |
+| 메모리 내 기술 PASS 가상 장 | Stephen Baron | 2015년 5월 25일 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| 데이터 노출 | Ryan Crawcour | 2015년 4월 8일 | [DocumentDB 일반 가용성 및 새로운 기능!](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
+| 데이터 노출 | Andrew Liu | 2015년 3월 17일 | [Java DocumentDB용 SDK](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
+| #DevHangout | Gustavo Alzate Sandoval | 2015년 3월 11일 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
+| 데이터 아키텍처 가상 장 PASS | Ike Ellis | 2015년 2월 25일 | [DocumentDB 소개](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
 
 
 ### 온라인 클래스
@@ -245,7 +267,8 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 | | | | |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
+| [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) <br/> [Larry Maccherone](https://twitter.com/lmaccherone) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) <br/> [Howard Edidin](https://twitter.com/hsedidin)
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

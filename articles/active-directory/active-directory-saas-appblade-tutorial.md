@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ AppBlade의 Azure AD 통합을 구성하려면 갤러리의 AppBlade를 관리�
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **AppBlade**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_01.png)<br>
-7. 결과 창에서 **AppBlade**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.<br><br>
+7. 결과 창에서 **AppBlade**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -76,7 +76,7 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[AppBlade 테스트 사용자 만들기](#creating-a-appblade-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 AppBlade에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -99,14 +99,14 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     b. **다음**을 클릭합니다.
 
 
-4. **AppBlade의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_05.png) <br>
+4. **AppBlade에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_05.png) <br>
 
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
     b. **다음**을 클릭합니다.
 
 
-5. 응용 프로그램에 SSO를 구성하려면 ****support@appblade.com**을 통해 AppBlade 지원팀에 문의하고 다운로드한 메타데이터 파일을 메일에 첨부합니다. 또한 ****https://appblade.com/saml**로 **SSO 발급자 URL**을 구성하도록 요청하십시오. 이 설정은 single sign-on 작업에 필요 합니다.
+5. 응용 프로그램에 SSO를 구성하려면 ****support@appblade.com**을 통해 AppBlade 지원 팀에 문의하고 다운로드한 메타데이터 파일을 메일에 첨부합니다. 또한 ****https://appblade.com/saml**로 **SSO 발급자 URL**을 구성하도록 요청합니다. 이 설정은 single sign-on 작업에 필요 합니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
@@ -121,11 +121,11 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-appblade-tutorial/create_aaduser_09.png) <br>
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-appblade-tutorial/create_aaduser_09.png) <br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. 사용자 목록을 표시하려면 최상위 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-appblade-tutorial/create_aaduser_03.png) <br>
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-appblade-tutorial/create_aaduser_03.png) <br>
 
 4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-appblade-tutorial/create_aaduser_04.png) <br>
 
@@ -161,18 +161,18 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### AppBlade 테스트 사용자 만들기
 
-이 섹션은 AppBlade에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. AppBlade는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. **사용자 프로비전에 대한 도메인 이름이 AppBlade로 구성되어 있는지 확인하십시오. 그 이후에만 적시에 사용자 프로비전이 작동합니다.**
+이 섹션은 AppBlade에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. AppBlade는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. **사용자 프로비전에 대한 도메인 이름이 AppBlade로 구성되어 있는지 확인합니다. 그 이후에만 적시에 사용자 프로비전이 작동합니다.**
 
 사용자가 계정에 AppBlade로 구성된 도메인으로 끝나는 이메일 주소가 있는 경우 사용자는 자동으로 “기본”(응용 프로그램 설치만 할 수 있는 기본 사용자), “팀 멤버”(새 응용 프로그램 버전을 업로드하고 프로젝트를 관리할 수 있는 사용자) 또는 “관리자”(계정에 관한 전체 관리자 권한) 중의 하나의 지정된 권한 수준을 가진 구성원으로 계정에 가입됩니다. 일반적으로 기본을 선택한 다음 관리자 로그인을 통해 수동으로 사용자를 승격합니다(AppBlade는 사전에 전자 메일 기반 관리자 로그인을 미리 구성하거나 고객을 대신하여 로그인한 후 사용자를 승격할 필요가 있음).
 
-이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 AppBlade에 액세스를 시도하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
+이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 AppBlade에 액세스를 시도하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on).
 
 > [AZURE.NOTE]수동으로 사용자를 만들어야 하는 경우 AppBlade 지원팀에 문의해야 합니다.
 
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션은 Britta Simon에게 AppBlade에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하기 위한 것입니다. <br><br>![사용자 할당][200] <br>
+이 섹션은 Britta Simon에게 AppBlade에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하기 위한 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 AppBlade에 할당하려면 다음 단계를 수행합니다.**
 
@@ -180,7 +180,7 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 2. 응용 프로그램 목록에서 **AppBlade**를 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_50.png) <br>
 
-1. 최상위 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
+1. 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
 
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
@@ -190,7 +190,7 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### Single Sign-On 테스트
 
-이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.<br> 액세스 패널에서 AppBlade 타일을 클릭하면 AppBlade 응용 프로그램에 자동으로 로그인됩니다.
+이 섹션의 목적은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하는 것입니다.<br> 액세스 패널에서 AppBlade 타일을 클릭하면 AppBlade 응용 프로그램에 자동으로 로그인됩니다.
 
 
 ## 추가 리소스
@@ -217,4 +217,4 @@ AppBlade에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [204]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

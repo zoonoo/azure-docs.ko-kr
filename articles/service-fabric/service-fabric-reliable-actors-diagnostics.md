@@ -1,6 +1,6 @@
 <properties
    pageTitle="행위자 진단 및 모니터링 | Microsoft Azure"
-   description="이 문서에서는 서비스 패브릭의 신뢰할 수 있는 행위자 런타임에서 내보낸 이벤트 및 성능 카운터를 포함하여 패브릭 행위자 런타임에 있는 진단 및 성능 모니터링 기능을 설명합니다."
+   description="이 문서에서는 서비스 패브릭 Reliable Actors 런타임에서 내보낸 이벤트 및 성능 카운터를 포함하여 패브릭 행위자 런타임에 있는 진단 및 성능 모니터링 기능을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -16,11 +16,11 @@
    ms.date="10/15/2015"
    ms.author="abhisram"/>
 
-# 신뢰할 수 있는 행위자에 대한 진단 및 성능 모니터링
-신뢰할 수 있는 행위자 런타임은 런타임 작동 방법에 대한 통찰력을 제공하고 문제 해결 및 성능 모니터링을 지원하는 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)와 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보냅니다.
+# Reliable Actors에 대한 진단 및 성능 모니터링
+Reliable Actors 런타임에서는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트 및 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 런타임이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
 
 ## EventSource 이벤트
-신뢰할 수 있는 행위자 런타임의 EventSource 공급자 이름은 "Microsoft-ServiceFabric-Actors"입니다. 이 이벤트 원본의 이벤트는 행위자 응용 프로그램이 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
+Reliable Actors 런타임의 EventSource 공급자 이름은 "Microsoft-ServiceFabric-Actors"입니다. 이 이벤트 원본의 이벤트는 행위자 응용 프로그램이 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
 
 EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예에는 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure 진단](../cloud-services-dotnet-diagnostics.md), [의미 중심 로깅](https://msdn.microsoft.com/library/dn774980.aspx) 및 [Microsoft TraceEvent 라이브러리](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
 
@@ -29,7 +29,7 @@ EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 
 
 |Bit|설명|
 |---|---|
-|0x1|패브릭 행위자 런타임의 작업을 요약하는 중요한 이벤트의 집합|
+|0x1|패브릭 행위자 런타임의 작업을 요약하는 중요한 이벤트의 집합.|
 |0x2|행위자 메서드 호출을 설명하는 이벤트의 집합. 자세한 내용은 [행위자에 대한 소개 항목](service-fabric-reliable-actors-introduction.md#actors)을 참조하세요.|
 |0x4|행위자 상태와 관련된 이벤트의 집합. 자세한 내용은 [상태 저장 행위자](service-fabric-reliable-actors-introduction.md#stateful-actors)에 대한 항목을 참조하세요.|
 |0x8|행위자의 턴 기반 동시성과 관련된 이벤트의 집합. 자세한 내용은 [동시성](service-fabric-reliable-actors-introduction.md#concurrency)에 대한 항목을 참조하세요.|
@@ -39,8 +39,8 @@ EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 
 
 |Category|설명|
 |---|---|
-|서비스 패브릭 행위자|서비스 패브릭 행위자 전용 카운터. 예: 행위자 상태를 저장하는 데 걸리는 시간.|
-|서비스 패브릭 행위자 메서드|서비스 패브릭 행위자에 의해 구현되는 메서드 전용 카운터. 예: 행위자 메서드가 호출되는 빈도.|
+|서비스 패브릭 행위자|Azure 서비스 패브릭 행위자 전용 카운터. 예: 행위자 상태를 저장하는 데 걸리는 시간|
+|서비스 패브릭 행위자 메서드|서비스 패브릭 행위자에 의해 구현되는 메서드 전용 카운터. 예: 행위자 메서드가 호출되는 빈도|
 
 위의 각 범주마다 하나 이상의 카운터가 있습니다.
 
@@ -49,22 +49,22 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 ### 성능 카운터 인스턴스 이름
 많은 수의 행위자 서비스 또는 행위자 서비스 파티션이 있는 클러스터에는 행위자 성능 카운터 인스턴스 수가 많습니다. 성능 카운터 인스턴스 이름은 성능 카운터 인스턴스가 연결된 특정 [파티션](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) 및 행위자 메서드(있는 경우)를 식별하는 데 도움이 될 수 있습니다.
 
-#### `Service Fabric Actor` 범주
+#### 서비스 패브릭 행위자 범주
 `Service Fabric Actor` 범주의 경우 카운터 인스턴스 이름이 다음과 같은 형식으로 표시됩니다.
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* - 성능 카운터 인스턴스와 연결된 서비스 패브릭 파티션 ID의 문자열 표현. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 메서드를 사용하여 생성됩니다.
+*ServiceFabricPartitionID* - 성능 카운터 인스턴스와 연결된 서비스 패브릭 파티션 ID의 문자열 표현. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 메서드를 통해 생성됩니다.
 
 *ActorRuntimeInternalID* - 내부 용도에 맞게 패브릭 행위자 런타임에 의해 생성되는 64비트 정수의 문자열 표현. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
-다음은 '서비스 패브릭 행위자' 범주에 속하는 카운터에 대한 카운터 인스턴스 이름의 예입니다.
+다음은 `Service Fabric Actor` 범주에 속하는 카운터에 대한 카운터 인스턴스 이름의 예입니다.
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046`
 
 위의 예에서 `2740af29-78aa-44bc-a20b-7e60fb783264`는 서비스 패브릭 파티션 ID의 문자열 표현이고 `635650083799324046`은 런타임의 내부 용도에 맞게 생성되는 64비트 ID입니다.
 
-#### `Service Fabric Actor Method` 범주
+#### 서비스 패브릭 행위자 메서드 범주
 `Service Fabric Actor Method` 범주의 경우 카운터 인스턴스 이름이 다음과 같은 형식으로 표시됩니다.
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
@@ -73,11 +73,11 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 *ActorsRuntimeMethodId* - 내부 용도에 맞게 패브릭 행위자 런타임에 의해 생성되는 32비트 정수의 문자열 표현. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
-*ServiceFabricPartitionID* - 성능 카운터 인스턴스와 연결된 서비스 패브릭 파티션 ID의 문자열 표현. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 메서드를 사용하여 생성됩니다.
+*ServiceFabricPartitionID* - 성능 카운터 인스턴스와 연결된 서비스 패브릭 파티션 ID의 문자열 표현. 파티션 ID는 GUID이며 해당 문자열 표현은 형식 지정자 "D"와 함께 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 메서드를 통해 생성됩니다.
 
 *ActorRuntimeInternalID* - 내부 용도에 맞게 패브릭 행위자 런타임에 의해 생성되는 64비트 정수의 문자열 표현. 고유성을 보장하고 다른 성능 카운터 인스턴스 이름과의 충돌을 방지하기 위해 성능 카운터 인스턴스 이름에 포함시킵니다. 사용자는 성능 카운터 인스턴스 이름에서 이 부분을 해석하지 않도록 해야 합니다.
 
-다음은 '서비스 패브릭 행위자 메서드' 범주에 속하는 카운터에 대한 카운터 인스턴스 이름의 예입니다.
+다음은 `Service Fabric Actor Method` 범주에 속하는 카운터에 대한 카운터 인스턴스 이름의 예입니다.
 
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 
@@ -86,7 +86,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 ## 이벤트 및 성능 카운터 목록
 
 ### 행위자 메서드 이벤트 및 성능 카운터
-신뢰할 수 있는 행위자 런타임에서는 다음과 같은 [행위자 메서드](service-fabric-reliable-actors-introduction.md#actors) 관련 이벤트를 내보냅니다.
+Reliable Actors 런타임에서는 다음과 같은 [행위자 메서드](service-fabric-reliable-actors-introduction.md#actors) 관련 이벤트를 내보냅니다.
 
 |이벤트 이름|이벤트 ID|Level|키워드|설명|
 |---|---|---|---|---|
@@ -103,7 +103,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 |서비스 패브릭 행위자 메서드|초당 발생한 예외 수|초당 행위자 서비스 메서드에서 예외가 발생한 횟수|
 
 ### 동시 이벤트 및 성능 카운터
-신뢰할 수 있는 행위자 런타임에서는 다음과 같은 [동시성](service-fabric-reliable-actors-introduction.md#concurrency) 관련 이벤트를 내보냅니다.
+Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-reliable-actors-introduction.md#concurrency) 관련 이벤트를 내보냅니다.
 
 |이벤트 이름|이벤트 ID|Level|키워드|설명|
 |---|---|---|---|---|
@@ -116,7 +116,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 |서비스 패브릭 행위자|행위자 잠금을 기다리는 행위자 호출 수|턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수.|
 
 ### 행위자 상태 관리 이벤트 및 성능 카운터
-신뢰할 수 있는 행위자 런타임에서는 다음과 같은 [행위자 상태 관리](service-fabric-reliable-actors-introduction.md#actor-state-management) 관련 이벤트를 내보냅니다.
+Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](service-fabric-reliable-actors-introduction.md#actor-state-management) 관련 이벤트를 내보냅니다.
 
 |이벤트 이름|이벤트 ID|Level|키워드|설명|
 |---|---|---|---|---|
@@ -130,7 +130,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 |서비스 패브릭 행위자|상태 저장 작업당 평균 시간(밀리초)|행위자 상태를 저장하는 데 걸린 시간(밀리초)|
 
 ### 상태 비저장 행위자 인스턴스 관련 이벤트
-신뢰할 수 있는 행위자 런타임에서는 다음과 같은 [상태 비저장 행위자 인스턴스](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors) 관련 이벤트를 내보냅니다.
+Reliable Actors 런타임에서는 다음과 같은 [상태 비저장 행위자 인스턴스](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors) 관련 이벤트를 내보냅니다.
 
 |이벤트 이름|이벤트 ID|Level|키워드|설명|
 |---|---|---|---|---|
@@ -138,7 +138,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 |ServiceInstanceClose|4|정보 제공|0x1|상태 비저장 행위자 인스턴스가 닫혔습니다. 따라서 이 파티션에 대한 행위자를 이 인스턴스 내부에서 더 이상 만들 수 없습니다. 이 인스턴스 내에 이미 만들어진 행위자로 새 요청이 전달되지 않습니다. 모든 진행 중인 요청이 완료된 후 해당 행위자는 소멸됩니다.|
 
 ### 상태 저장 행위자 복제본 관련 이벤트
-신뢰할 수 있는 행위자 런타임에서는 다음과 같은 [상태 저장 행위자 복제본](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors) 관련 이벤트를 내보냅니다.
+Reliable Actors 런타임에서는 다음과 같은 [상태 저장 행위자 복제본](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors) 관련 이벤트를 내보냅니다.
 
 |이벤트 이름|이벤트 ID|Level|키워드|설명|
 |---|---|---|---|---|
@@ -146,11 +146,11 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 |ReplicaChangeRoleFromPrimary|2|정보 제공|0x1|상태 저장 행위자 복제본이 주 복제본 이외의 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자를 이 복제본 내부에서 더 이상 만들 수 없습니다. 이 복제본 내에 이미 만들어진 행위자로 새 요청이 전달되지 않습니다. 모든 진행 중인 요청이 완료된 후 해당 행위자는 소멸됩니다.|
 
 ### 행위자 활성화 및 비활성화 이벤트
-신뢰할 수 있는 행위자 런타임에서는 다음과 같은 [행위자 활성화 및 비활성화](service-fabric-reliable-actors-lifecycle.md) 관련 이벤트를 내보냅니다.
+Reliable Actors 런타임에서는 다음과 같은 [행위자 활성화 및 비활성화](service-fabric-reliable-actors-lifecycle.md) 관련 이벤트를 내보냅니다.
 
 |이벤트 이름|이벤트 ID|Level|키워드|설명|
 |---|---|---|---|---|
 |ActorActivated|5|정보 제공|0x1|행위자가 활성화되었습니다.|
 |ActorDeactivated|6|정보 제공|0x1|행위자가 비활성화되었습니다.|
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

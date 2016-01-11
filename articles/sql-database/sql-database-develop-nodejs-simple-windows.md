@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Windows에서 Node.js를 사용하여 SQL 데이터베이스에 연결
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 이 항목에서는 Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Node.js 코드 샘플을 제시합니다. Node.js 프로그램은 Windows 클라이언트 컴퓨터에서 실행됩니다. 연결을 관리하는 데에는 msnodesql 드라이버가 사용됩니다.
@@ -228,4 +234,4 @@ Azure SQL 데이터베이스에서는 **conn.beginTransactions** 메소드가 �
 
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

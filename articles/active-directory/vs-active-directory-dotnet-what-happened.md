@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # 내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
@@ -171,4 +171,4 @@ Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함�
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 
@@ -157,4 +157,4 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub의 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

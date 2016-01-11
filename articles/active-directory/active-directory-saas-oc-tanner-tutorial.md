@@ -3,7 +3,7 @@
 	description="Azure Active Directory와 O.C. 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다. Tanner - AppreciateHub."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="markusvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # 자습서: O.C.와 Azure Active Directory 통합 Tanner - AppreciateHub
@@ -223,4 +223,4 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 [204]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_205.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

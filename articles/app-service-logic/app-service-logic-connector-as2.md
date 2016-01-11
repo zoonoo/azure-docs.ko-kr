@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # AS2 커넥터 시작 및 논리 앱에 추가
@@ -59,7 +59,7 @@ TPM 인스턴스 이름 | 이전에 만든 **BizTalk 거래 업체 관리** API 
 
 거래 업체는 B2B(Business to Business) 통신과 관련된 엔터티입니다. 두 파트너가 관계를 설정하는 경우 이를 규약이라고 합니다. 정의된 규약은 두 파트너가 수행하려고 하는 통신을 기반으로 하며 특정 프로토콜 또는 전송입니다.
 
-거래 업체 규약을 만드는 단계에 대한 문서는 [여기][2]에 있습니다.
+[거래 업체 규약 만들기][2] 단계를 참조하세요.
 
 ## 커넥터를 트리거로 사용
 
@@ -117,4 +117,4 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

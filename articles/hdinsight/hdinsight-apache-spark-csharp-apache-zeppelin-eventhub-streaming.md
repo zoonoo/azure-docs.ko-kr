@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
-# Spark 스트리밍: HDInsight의 Apache Spark로 Azure 이벤트 허브에서 이벤트 처리
+# Spark 스트리밍: HDInsight에서 Apache Spark로 Azure 이벤트 허브의 이벤트 처리(Windows)
+
+> [AZURE.NOTE]이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. Hdinsight Spark Linux 클러스터에서 스트리밍 응용 프로그램을 실행하는 방법에 대한 자세한 내용은 [Spark 스트리밍: HDInsight에서 Apache Spark로 Azure 이벤트 허브의 이벤트 처리(Linux)](hdinsight-apache-spark-eventhub-streaming.md)를 참조하세요.
 
 Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높은 처리량, 내결함성 스트림 처리 응용 프로그램을 빌드합니다. 여러 소스에서 데이터를 수집할 수 있습니다. 이 문서에서는 이벤트 허브를 사용하여 데이터를 수집합니다. 이벤트 허브는 초당 수백만의 이벤트를 유입하는 확장성이 뛰어난 수집 시스템입니다.
 
@@ -31,7 +33,7 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 다음이 있어야 합니다.
 
 - Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight의 Apache Spark 클러스터 프로비전](hdinsight-apache-spark-provision-clusters.md)을 참조하세요.
+- Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-provision-clusters.md)를 참조하세요.
 - [Azure 이벤트 허브](service-bus-event-hubs-csharp-ephcs-getstarted.md).
 - Microsoft Visual Studio 2013이 설치된 워크스테이션입니다. 자세한 내용은 [Visual Studio 설치](https://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하세요.
 
@@ -41,13 +43,13 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 2. **새 이벤트 허브 추가** 화면에서 **이벤트 허브 이름**을 입력하고 허브를 만들 **하위 지역**을 선택한 다음 새 네임스페이스를 만들거나 기존 네임스페이스를 선택합니다. **화살표**를 클릭하여 계속합니다.
 
-	![마법사 페이지 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub.png "Azure 이벤트 허브 만들기")
+	![마법사 페이지 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub.png "Azure 이벤트 허브 만들기")
 
 	> [AZURE.NOTE]대기 시간 및 비용을 줄이려면 HDInsight의 Apache Spark 클러스터와 동일한 **위치**를 선택해야 합니다.
 
 3. **이벤트 허브 구성** 화면에서 **파티션 수** 및 **메시지 보존** 값을 입력한 다음 확인 표시를 클릭합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
 
-	![마법사 페이지 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub2.png "이벤트 허브에 대한 파티션 크기 및 보존 일 지정")
+	![마법사 페이지 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub2.png "이벤트 허브에 대한 파티션 크기 및 보존 일 지정")
 
 4. 사용자가 만든 이벤트 허브를 클릭하고 **구성**을 클릭한 다음 이벤트 허브에 대한 두 가지 액세스 정책을 만듭니다.
 
@@ -57,22 +59,22 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 <tr><td>myreceivepolicy</td><td>수신 대기</td></tr>
 </table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(**mysendpolicy**) 수신하는(**myreceivepolicy**) 데 사용되는 공유 액세스 정책이 만들어집니다.
 
-	![정책](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "이벤트 허브 정책 만들기")
+	![정책](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "이벤트 허브 정책 만들기")
 
 	
 5. 같은 페이지에는 두 정책에 대해 생성된 정책 키를 기록합니다. 이러한 키는 나중에 사용되므로 저장합니다.
 
-	![policy keys](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Keys.png "정책 키 저장")
+	![policy keys](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "정책 키 저장")
 
 6. **대시보드** 페이지의 아래에서 검색할 **연결 정보**를 클릭하고 두 정책을 사용하여 이벤트 허브에 대한 연결 문자열을 저장합니다.
 
-	![policy keys](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Connection.Strings.png "정책 연결 문자열 저장")
+	![policy keys](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "정책 연결 문자열 저장")
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
 ##<a name="receivezeppelin"></a>Zeppelin을 사용하여 HDInsight의 Spark에서 메시지 수신
 
-이 섹션에서는 [Zeppelin](https://zeppelin.incubator.apache.org) 노트북을 만들어 HDInsight의 이벤트 허브에서 Spark 클러스터로 메시지를 수신합니다.
+이 섹션에서는 [Zeppelin](https://zeppelin.incubator.apache.org) Notebook을 만들어 이벤트 허브의 메시지를 HDInsight의 Spark 클러스터로 수신합니다.
 
 ### 리소스를 스트리밍 응용 프로그램용 Zeppelin에 할당
 
@@ -86,29 +88,29 @@ Zeppelin을 사용하여 스트리밍 응용 프로그램을 만드는 동안 �
 * Zeppelin에 할당해야 하는 코어의 최소 수는 2입니다.
 * 할당된 코어 수는 항상 이벤트 허브에 있는 파티션 수의 두 배여야 합니다. 
 
-Spark 클러스터의 리소스를 할당하는 방법에 대한 지침은 [HDInsight에 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)를 참조하세요.
+Spark 클러스터의 리소스를 할당하는 방법에 대한 지침은 [HDInsight에 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager-v1.md)를 참조하세요.
 
 ### Zeppelin을 사용하여 스트리밍 응용 프로그램 만들기
 
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
-2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin 노트북**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
 	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Zeppelin Notebook에 도달할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. 새 Notebook을 만듭니다. 헤더 창에서 **Notebook**을 클릭하고 드롭다운에서 **새 메모 만들기**를 클릭합니다.
+2. 새 노트북을 만듭니다. 헤더 창에서 **노트북**을 클릭하고 드롭다운에서 **새 메모 만들기**를 클릭합니다.
 
-	![새 Zeppelin Notebook 만들기](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "새 Zeppelin 노트북 만들기")
+	![새 Zeppelin Notebook 만들기](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.createnewnote.png "새 Zeppelin 노트북 만들기")
 
-	같은 페이지의 **Notebook** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 Notebook이 표시됩니다. 새 노트북을 클릭합니다.
+	같은 페이지의 **노트북** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 노트북이 표시됩니다. 새 노트북을 클릭합니다.
 
-3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 Notebook 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
+3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 노트북 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
 
-	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 상태")
+	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.newnote.connected.png "Zeppelin Notebook 상태")
 
-4. 새 Notebook에서 기본적으로 만들어지는 빈 단락에 다음 코드 조각을 붙여넣고 이벤트 허브 구성을 사용하여 자리 표시자를 바꿉니다. 이 조각에서는 이벤트 허브에서 스트림을 제공하고 이 스트림을 **mytemptable**라는 임시 테이블로 등록합니다. 다음 섹션에서 발신자 응용 프로그램을 시작하겠습니다. 그런 다음 테이블에서 직접 데이터를 읽을 수 있습니다.
+4. 새 노트북에서 기본적으로 만들어지는 빈 단락에 다음 코드 조각을 붙여넣고 이벤트 허브 구성을 사용하여 자리 표시자를 바꿉니다. 이 조각에서는 이벤트 허브에서 스트림을 제공하고 이 스트림을 **mytemptable**라는 임시 테이블로 등록합니다. 다음 섹션에서 발신자 응용 프로그램을 시작하겠습니다. 그런 다음 테이블에서 직접 데이터를 읽을 수 있습니다.
 
 	> [AZURE.NOTE]아래 코드 조각에서 **eventhubs.checkpoint.dir**은 기본 저장소 컨테이너에 디렉터리를 설정해야 합니다. 디렉터리가 없는 경우 스트리밍 응용 프로그램이 디렉터리를 만듭니다. 전체 경로를 "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**"와 같은 디렉터리 또는 상대 경로를 "**/mycheckpointdir**"와 같은 디렉터리에 지정할 수 있습니다.
 
@@ -143,7 +145,7 @@ Spark 클러스터의 리소스를 할당하는 방법에 대한 지침은 [HDIn
 
 	단락의 오른쪽 모서리 상태가 준비, 보류 중, 실행 중, 완료 순서로 진행됩니다. 출력은 같은 단락 하단에 표시됩니다. 스크린샷은 다음과 같습니다.
 
-	![조각의 출력](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Code.Output.png "snipet의 출력")
+	![조각의 출력](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.zeppelin.code.output.png "snipet의 출력")
 
 2. **보낸 사람** 프로젝트를 실행하고 콘솔 창에서 **Enter** 키를 눌러 이벤트 허브로 메시지를 보내기 시작합니다.
 
@@ -154,11 +156,11 @@ Spark 클러스터의 리소스를 할당하는 방법에 대한 지침은 [HDIn
 
 	다음 화면 캡처는 **mytemptable**에서 받은 메시지를 보여 줍니다.
 
-	![Zeppelin에 메시지 수신](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Output.png "Zeppelin Notebook에 메시지 수신")
+	![Zeppelin에 메시지 수신](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.zeppelin.output.png "Zeppelin Notebook에 메시지 수신")
 
 4. 응용 프로그램을 종료하려면 Spark SQL 인터프리터를 다시 시작합니다. 맨 위쪽에서 **인터프리터** 탭을 클릭하고 Spark 인터프리터에 대해 **다시 시작**을 클릭합니다.
 
-	![Zeppelin 인터프리터 다시 시작](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "Zeppelin 인터프리터 다시 시작")
+	![Zeppelin 인터프리터 다시 시작](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.zeppelin.restart.interpreter.png "Zeppelin 인터프리터 다시 시작")
 
 ##<a name="sparkstreamingha"></a>고가용성을 요구하는 스트리밍 응용 프로그램 실행
 
@@ -175,11 +177,11 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 ##<a name="seealso"></a>참고 항목
 
 
-* [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
-* [빠른 시작: HDInsight에서 Apache Spark 프로비전 및 Spark SQL을 사용하여 대화형 쿼리 실행](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
-* [HDInsight에서 Spark를 사용하여 기계 학습 응용 프로그램 구축](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [HDInsight에서 BI 도구로 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
-* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
+* [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview-v1.md)
+* [빠른 시작: HDInsight에서 Apache Spark 만들기 및 Spark SQL을 사용하여 대화형 쿼리 실행](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [HDInsight에서 Spark를 사용하여 기계 학습 응용 프로그램 빌드](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
+* [HDInsight에서 BI 도구로 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager-v1.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -192,4 +194,4 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

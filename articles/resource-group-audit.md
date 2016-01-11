@@ -158,8 +158,8 @@ Azure PowerShell, Azure CLI, REST API 또는 Azure 포털을 통해 감사 로�
 
 ## 다음 단계
 
-- 보안 정책 설정에 대해 자세히 알아보려면 [리소스에 대한 액세스 관리](resource-group-rbac.md)를 참조하세요.
+- 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 - 서비스 주체에게 액세스를 부여하는 방법에 대한 내용은 [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 - 모든 사용자에 대한 리소스의 작업 방법에 대한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

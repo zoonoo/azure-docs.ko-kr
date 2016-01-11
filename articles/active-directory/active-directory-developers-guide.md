@@ -31,7 +31,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 1. [Azure Active Directory Graph API](active-directory-graph-api.md): Azure Active Directory Graph API를 사용하여 프로그래밍 방식으로 REST API 끝점을 통해 Azure Active Directory에 액세스하세요. Azure AD Graph API는 단일 REST API 끝점을 통해 여러 Microsoft 클라우드 서비스 API에 액세스할 수 있도록 하는 통합 API인 [Microsoft Graph](https://graph.microsoft.io/)를 통해, 그리고 단일 액세스 토큰을 사용하여 액세스할 수도 있습니다.
 
-1. [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md): 사용자가 Azure 인증 라이브러리를 사용하여 액세스 토큰을 얻을 수 있도록 쉽게 인증할 수 있습니다.
+1. [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md): 사용자가 [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx), [JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), [Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc), [Android](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/o) [등](active-directory-authentication-libraries.md)에 대한 Azure 인증 라이브러리를 사용하여 액세스 토큰을 얻을 수 있도록 쉽게 인증할 수 있습니다.
 
 
 ## 시작
@@ -86,15 +86,18 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory 오픈 소스 라이브러리](http://github.com/AzureAD): 라이브러리의 소스를 찾는 가장 쉬운 방법은 [라이브러리 목록](active-directory-authentication-libraries.md)을 사용하는 것입니다.
 
-- [Azure Active Directory 샘플](http://github.com/AzureADSamples)(영문): 샘플 목록을 탐색하는 가장 쉬운 방법은 [코드 샘플 인덱스](active-directory-code-samples.md)를 사용하는 것입니다.
+- [Azure Active Directory 샘플](https://github.com/azure-samples?query=active-directory): 샘플 목록을 탐색하는 가장 쉬운 방법은 [코드 샘플 인덱스](active-directory-code-samples.md)를 사용하는 것입니다.
 
 
 ### 그래프 API
 
 - [Graph API 참조](https://msdn.microsoft.com/library/azure/hh974476.aspx): Azure Active Directory Graph API에 대한 REST 참조입니다. [대화형 Graph API 참조 환경을 확인해보세요](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)(영문): 앱이 테넌트의 디렉터리 데이터에 대해 가져야 하는 액세스 권한을 제어하는 데 사용되는 OAuth 2.0 사용 권한 범위입니다.
+- [Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): 앱이 테넌트의 디렉터리 데이터에 대해 가져야 하는 액세스 권한을 제어하는 데 사용되는 OAuth 2.0 사용 권한 범위입니다.
 
+### 인증 라이브러리
+
+- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): .NET 인증 라이브러리에 대한 설명서입니다.
 
 ### 인증 프로토콜
 
@@ -104,7 +107,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 - [OAuth 2.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn645545.aspx): OAuth 2.0 프로토콜을 사용하여 Azure Active Directory 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
 
 
-- [OpenID Connect 1.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn645541.aspx)(영문): OpenID Connect 1.0 프로토콜은 인증 프로토콜로 사용할 수 있게 OAuth 2.0을 확장합니다.
+- [OpenID Connect 1.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn645541.aspx): OpenID Connect 1.0 프로토콜은 인증 프로토콜로 사용할 수 있게 OAuth 2.0을 확장합니다.
 
 
 - [WS-Federation 1.2 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn903702.aspx): Web Services Federation 버전 1.2 사양에 지정된 WS-Federation 1.2 프로토콜입니다.
@@ -130,12 +133,12 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 ## 소셜
 
-- [Active Directory 팀 블로그](http://blogs.technet.com/b/ad/)(영문): Azure Active Directory 분야에서 최근에 진행된 개발을 살펴봅니다.
+- [Active Directory 팀 블로그](http://blogs.technet.com/b/ad/): Azure Active Directory 분야에서 최근에 진행된 개발을 살펴봅니다.
 
 - [Azure Active Directory Graph 팀 블로그](http://blogs.msdn.com/b/aadgraphteam): Graph API와 관련된 Azure Active Directory 정보입니다.
 
-- [클라우드 ID](http://www.cloudidentity.net)(영문): Identity Management as a Service에 대한 선임 Azure Active Directory PM의 견해입니다.
+- [클라우드 ID](http://www.cloudidentity.net): Identity Management as a Service에 대한 선임 Azure Active Directory PM의 견해입니다.
 
-- [Azure Active Directory Twitter](https://twitter.com/azuread)(영문): 140자 이하의 Azure Active Directory 알림입니다.
+- [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
