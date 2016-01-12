@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Azure 포털에서 SQL 데이터 웨어하우스 데이터베이스 만들기 | Microsoft Azure"
-	description="Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Azure 포털에서 SQL 데이터 웨어하우스 데이터베이스 만들기 | Microsoft Azure"
+   description="Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # SQL 데이터 웨어하우스 만들기
@@ -50,6 +51,7 @@ SQL 데이터 웨어하우스로 데이터를 로드하는 경우 [로드 개요
 
 
 ## 2단계: 서버 구성 및 만들기
+
 SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터베이스는 서버에 할당되고 각 서버는 지리적 위치에 할당됩니다. 이 서버를 논리적 SQL server라고 합니다.
 
 > [AZURE.NOTE]<a name="note"></a>논리적 SQL server:
@@ -129,9 +131,10 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
 이제 방화벽을 구성했으므로 바탕 화면에서 방금 만든 Azure SQL 데이터 웨어하우스 데이터베이스에 연결할 수 있습니다.
 
-
 ## 다음 단계
 
 이제 SQL 데이터 웨어하우스의 샘플 데이터베이스를 만들었으므로 데이터베이스에 [연결](./sql-data-warehouse-get-started-connect.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/29/2015"
 	ms.author="heidist"/>
 
 # Azure 검색 개발을 위한 일반적인 워크플로
@@ -42,7 +42,7 @@ Azure 검색은 완벽하게 관리되는 온라인 서비스로, Azure 구독�
 
 서비스를 만든 후에는 스키마 정의부터 시작하여 인덱스를 만들 준비가 된 것입니다.
 
-인덱스를 만드는 가장 쉽고 빠른 방법은 Azure 클래식 포털을 통해 만드는 것입니다. 최소한 각 문서에는 고유 키 및 검색 가능한 데이터가 포함된 최소 하나 이상의 필드가 있어야 합니다. 시작하려면 [포털에서 인덱스 만들기](search-create-index-portal.md)를 참조하세요.
+인덱스를 만드는 가장 쉽고 빠른 방법은 Azure 포털을 통해 만드는 것입니다. 최소한 각 문서에는 고유 키 및 검색 가능한 데이터가 포함된 최소 하나 이상의 필드가 있어야 합니다. 시작하려면 [포털에서 인덱스 만들기](search-create-index-portal.md)를 참조하세요.
 
 > [AZURE.NOTE]Azure 검색 인덱스 살펴보기
 >
@@ -73,7 +73,7 @@ Azure 검색에서 인덱스를 저장한 후 다음 단계는 문서로 인덱�
 - [문서 추가, 업데이트 또는 삭제(REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions 클래스](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-매우 작은 데이터 집합에서 작업하기 위한 세 번째 옵션은 [Fiddler](search-fiddler.md) 또는 [Chrome Postman](search-chrome-postman.md)을 사용하여 문서를 업로드하는 것입니다.
+매우 작은 데이터 집합에서 작업하기 위한 세 번째 옵션은 [Fiddler](search-fiddler.md)를 사용하여 문서를 업로드하는 것입니다.
 
 가장 쉬운 네 번째 옵션은 솔루션에 포함된 데이터베이스(.mdf)에서 문서를 로드하는 [Adventure Works C# REST API 예제](https://azuresearchadventureworksdemo.codeplex.com/) 또는 솔루션에 포함된 JSON 데이터 파일에서 데이터를 로드하는 [점수 매기기 프로필 C# REST API 예제](https://azuresearchscoringprofiles.codeplex.com/) 중 하나에서 코드를 가져오는 것입니다.
 
@@ -83,7 +83,7 @@ Azure 검색에서 인덱스를 저장한 후 다음 단계는 문서로 인덱�
 
 문서가 인덱스에 로드되면 첫 번째 쿼리를 작성할 수 있습니다.
 
-검색 서비스에서 초기 검색 결과를 가져오는 가장 빠른 방법은 [Fiddler](search-fiddler.md) 또는 [Chrome Postman](search-chrome-postman.md)을 사용하여 응답을 보는 것입니다. 하지만 현실적으로, 읽을 수 있는 형식으로 결과를 보기 위해 간단한 UI 코드를 작성 하려고 할 수 있습니다.
+검색 서비스에서 초기 검색 결과를 가져오는 가장 빠른 방법은 [Fiddler](search-fiddler.md)를 사용하여 응답을 보는 것입니다. 하지만 현실적으로 읽을 수 있는 형식으로 결과를 보기 위해 간단한 UI 코드를 작성하려고 합니다.
 
 검색 작업용 API에는 다음이 포함됩니다.
 
@@ -140,7 +140,8 @@ Azure 검색에서는 두 가지 프로그래밍 모델을 제공하는데, 하�
 
 현재 기능의 작은 하위 집합이 아직 .NET 라이브러리에 없으므로 관리 코드를 작성하려면 REST API를 사용하여 원하는 기능을 가져와야 할 수 있습니다. REST API에서만 사용할 수 있는 기능은 다음과 같습니다.
 
-- [Microsoft 자연어 프로세서 - 미리 보기 전용](../search-api-2015-02-28-preview/)
+- [사용자 지정 분석기 - 미리 보기 전용](https://msdn.microsoft.com/library/azure/mt605304.aspx)
+- [Lucene 쿼리 분석기 - 미리 보기 전용](https://msdn.microsoft.com/library/azure/mt589323.aspx)
 - [moreLikeThis 기능 - 미리 보기 전용](../search-api-2015-02-28-preview/)
 - [관리 API](https://msdn.microsoft.com/library/dn832684.aspx)
 
@@ -190,4 +191,4 @@ Azure 검색에서 주목할 만한 기능 중 하나는 요구에 따라 쉽게
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

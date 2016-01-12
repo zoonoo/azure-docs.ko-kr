@@ -48,7 +48,7 @@
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하십시오.
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - [Node.js][] 버전 v0.10.29 이상
 - [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 - [Git][]
@@ -183,7 +183,8 @@
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection은 컬렉션의 제공 유형을 지정하는 데 사용할 수 있는 선택적 requestOptions 매개 변수를 사용합니다. requestOptions.offerType 값을 제공하지 않으면 기본 제공 유형을 사용하여 컬렉션이 생성됩니다. DocumentDB 제공 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
+> [AZURE.TIP]createCollection은 컬렉션의 제공 유형을 지정하는 데 사용할 수 있는 선택적 requestOptions 매개 변수를 사용합니다. requestOptions.offerType 값을 제공하지 않으면 기본 제공 유형을 사용하여 컬렉션이 생성됩니다. 
+> DocumentDB 제공 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
 		
 3. **docdbUtils.js** 파일을 저장하고 닫습니다.
 
@@ -505,7 +506,7 @@
 	
 	응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
 
-5. **public\\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
+5. **public\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
 
 		body {
 		  padding: 50px;
@@ -544,7 +545,7 @@
 
 ## <a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 개발 프로젝트 배포
 
-1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. 작업 방법에 대한 자세한 내용은 [여기](../web-sites-publish-source-control-git.md#step4)서 확인할 수 있습니다.
+1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. [Azure 앱 서비스에서 GIT를 사용하여 연속 배포](../app-service-web/web-sites-publish-source-control.md) 항목에서 이 작업을 수행하는 방법에 대한 지침을 볼 수 있습니다.
 
 2. Azure 웹 사이트를 git 원격으로 추가합니다.
 
@@ -562,11 +563,11 @@
 
 [GitHub][]에서 전체 참조 응용 프로그램의 소스 코드를 다운로드할 수 있습니다.
 
-자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)를 참조하세요.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

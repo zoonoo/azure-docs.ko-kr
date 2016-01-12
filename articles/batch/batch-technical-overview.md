@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 배치 서비스 기본 사항 | Microsoft Azure"
-	description="대규모 병렬 및 HPC 워크로드의 경우 Azure 배치 서비스의 개념, 워크플로 및 시나리오에 대해 알아봅니다."
+	description="대규모 병렬 및 HPC 워크로드의 경우 Azure 배치 서비스를 사용하는 방법에 대해 알아봅니다."
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -38,9 +38,9 @@ Azure 배치는 클라우드에서 효율적으로 대규모 병렬 및 HPC(고�
 * 유전자 서열 분석
 * 소프트웨어 테스트
 
-또한 배치는 말단에 감소 단계가 있는 병렬 계산과 좀 더 복잡한 병렬 작업을 수행할 수도 있습니다.
+또한 배치는 끝에 감소 단계가 있는 병렬 계산 및 메시지 전달 인터페이스(MPI) 응용 프로그램 등 보다 복잡한 HPC 작업을 수행할 수 있습니다.
 
->[AZURE.NOTE] 이 때에 배치는 Windows Server 기반 가상 컴퓨터에서 실행하는 워크로드를 지원합니다. 또한 배치에서는 현재 MPI(메시지 전달 인터페이스) 응용 프로그램을 지원하지 않습니다.
+>[AZURE.NOTE]이 때에 배치는 Windows Server 기반 가상 컴퓨터에서 실행하는 워크로드를 지원합니다.
 
 Azure에서 다른 HPC 솔루션 옵션과 배치의 비교는 [배치 및 HPC 솔루션](batch-hpc-solutions.md)을 참조하세요.
 
@@ -103,4 +103,4 @@ Visual Studio와 함께 이러한 .NET 라이브러리 및 도구를 사용하�
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Power BI로 SQL 데이터 웨어하우스 데이터 시각화 | Microsoft Azure"
-    description="Power BI로 SQL 데이터 웨어하우스 데이터 시각화"
-    services="sql-data-warehouse"
-    documentationCenter="NA"
-    authors="lodipalm"
-    manager="barbkess"
-    editor=""/>
+   pageTitle="Power BI로 SQL 데이터 웨어하우스 데이터 시각화 | Microsoft Azure"
+   description="Power BI로 SQL 데이터 웨어하우스 데이터 시각화"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/21/2015"
-    ms.author="lodipalm"/>
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="01/04/2016"
+   ms.author="lodipalm"/>
 
 # Power BI를 사용하여 데이터 시각화
 
@@ -110,4 +110,4 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

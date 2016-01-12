@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="12/23/2015"
+    ms.date="01/05/2016"
     ms.author="ryancraw"/>
 
 # DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발
@@ -43,6 +43,7 @@
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 [Visual Studio Express]().(무료 버전) 이 자습서의 지침은 특별히 Visual Studio 2015용으로 작성됩니다. 
 - [GitHub](http://microsoft.github.io/PTVS/)에서 Python Tools for Visual Studio. 이 자습서에서는 Python Tools for VS 2015를 사용합니다. 
 - [azure.com](https://azure.microsoft.com/downloads/)에서 사용 가능한 Azure Python SDK for Visual Studio 2.4 버전 이상. Python 2.7용 Microsoft Azure SDK를 사용했습니다.
@@ -422,7 +423,7 @@ def vote():
 
 웹 응용 프로그램에 다른 기능을 추가하려면 [DocumentDB Python SDK](documentdb-sdk-python.md)에서 사용할 수 있는 API를 검토하세요.
 
-Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
+Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요.
 
 추가 Python Flask 자습서는 [Flask Mega-자습서 1부: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)를 참조하세요.
 
@@ -432,4 +433,4 @@ Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

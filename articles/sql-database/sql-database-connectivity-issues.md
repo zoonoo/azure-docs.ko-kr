@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/10/2015"
+	ms.date="01/06/2016"
 	ms.author="daleche"/>
 
 
@@ -130,7 +130,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 프로그램이 첫 번째 연결 시도 전에 의도적으로 사용자 이름의 철자를 잘못 입력할 수 있습니다. 다음과 같은 오류가 표시됩니다.
 - **SqlException.Number** = 18456
-- 메시지: "'WRONG\_MyUserName' 사용자의 로그인이 실패했습니다".
+- 메시지: "'WRONG_MyUserName' 사용자의 로그인이 실패했습니다".
 
 
 프로그램은 첫 번째 재시도 중 오타를 수정한 다음 연결을 시도할 수 있습니다.
@@ -138,9 +138,9 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
 실제로 이 방법을 사용하기 위해 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식할 수 있습니다.
 1. 오류 목록에 일시적 오류로 간주하기 위해 18456을 일시적으로 추가합니다.
-2. 사용자 이름에 의도적으로 'WRONG\_'을 추가합니다.
+2. 사용자 이름에 의도적으로 'WRONG_'을 추가합니다.
 3. 오류가 확인되면 목록에서 18456을 제거합니다.
-4. 사용자 이름에서 'WRONG\_'을 제거합니다.
+4. 사용자 이름에서 'WRONG_'을 제거합니다.
 5. 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
 
 
@@ -159,7 +159,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 문자열은 M
 ### 연결 다시 시도에 대한 .NET SqlConnection 매개 변수
 
 
-클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**를 사용하여 Azure SQL 데이터베이스에 연결되면 .NET 4.5.1 이상을 사용하여 해당 연결 다시 시도 기능을 활용할 수 있도록 합니다. 기능의 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?linkid=393996)에 있습니다.
+클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**를 사용하여 Azure SQL 데이터베이스에 연결되면 .NET 4.6.1 이상을 사용해야 하므로 해당 연결 다시 시도 기능을 활용할 수 있습니다. 기능의 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?linkid=393996)에 있습니다.
 
 
 <!--
@@ -245,22 +245,22 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## 연결: ADO.NET 4.5
+## 연결: ADO.NET 4.6.1
 
 
-프로그램이 Azure SQL 데이터베이스에 연결하는 데 **System.Data.SqlClient.SqlConnection**과 같은 ADO.NET 클래스를 사용할 경우 버전 4.5 이상의 .NET Framework를 사용하는 것이 좋습니다.
+프로그램이 Azure SQL 데이터베이스에 연결하는 데 **System.Data.SqlClient.SqlConnection**과 같은 ADO.NET 클래스를 사용할 경우 버전 4.6.1 이상의 .NET Framework를 사용하는 것이 좋습니다.
 
 
-ADO.NET 4.5:
-- TDS 7.4 프로토콜 지원이 추가되었습니다. 여기에는 4.0보다 향상된 연결 기능, 즉,
+ADO.NET 4.6.1: 
+- TDS 7.4 프로토콜 지원이 추가되었습니다. 여기에는 4.0보다 향상된 연결 기능, 즉, 
 - 연결 풀링 지원이 포함됩니다. 또한 프로그램에 제공하는 연결 개체가 올바르게 작동하는지를 효율적으로 확인합니다.
 
 
 연결 풀에서 연결 개체를 사용할 경우 바로 연결을 사용하지 않을 때 프로그램에서 연결을 일시적으로 닫는 것이 좋습니다. 연결을 다시 열 경우 새로 연결하는 것만큼 많은 비용이 들지 않습니다.
 
 
-ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이드하는 것이 좋습니다.
-- 2015년 7월 현재 [ADO.NET 4.6을 다운로드](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)할 수 있습니다.
+ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이드하는 것이 좋습니다. 
+- 2015년 11월 현재 [ADO.NET 4.6.1을 다운로드](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)할 수 있습니다.
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -271,9 +271,9 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 프로그램에서 Azure SQL 데이터베이스에 연결할 수 없을 경우 한 가지 진단 방법으로 유틸리티 프로그램에 연결해 볼 수 있습니다. 유틸리티는 프로그램에서 사용하는 것과 동일한 라이브러리를 사용하여 연결하는 것이 가장 좋습니다.
 
 
-Windows 컴퓨터에서 유틸리티를 사용해 볼 수 있습니다.
+Windows 컴퓨터에서 
 - ADO.NET를 사용하여 연결하는SQL Server Management Studio (ssms.exe),
-- [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 sqlcmd.exe 
+- [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 sqlcmd.exe 유틸리티를 사용해 볼 수 있습니다.
 
 
 연결된 후에는 짧은 SQL SELECT 쿼리가 작동하는지 테스트합니다.
@@ -297,7 +297,7 @@ Windows에서는 [PortQry.exe](http://www.microsoft.com/download/details.aspx?id
 
 
 ```
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
 
 Querying target system called:
@@ -309,7 +309,7 @@ Name resolved to 23.100.117.95
 querying...
 TCP port 1433 (ms-sql-s service): LISTENING
 
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >>
 ```
 
@@ -325,7 +325,8 @@ TCP port 1433 (ms-sql-s service): LISTENING
 클라이언트에서 발생한 모든 오류를 기록하면 진단에 도움이 될 수 있습니다. 로그 항목과 Azure SQL 데이터베이스에서 내부적으로 기록하는 오류 데이터의 상관 관계를 분석할 수 있습니다.
 
 
-Enterprise Library 6(EntLib60)는 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. [5 - 간단한 응용 프로그램 블록 로깅 사용](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6(EntLib60)는 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 
+- [5 - 간단한 응용 프로그램 블록 로깅 사용](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -374,7 +375,7 @@ ORDER BY
 ```
 
 
-#### sys.fn\_xe\_telemetry\_blob\_target\_read\_file에서 반환된 몇 개 행
+#### sys.fn_xe_telemetry_blob_target_read_file에서 반환된 몇 개 행
 
 
 다음은 반환된 행을 보여줍니다. 여기에 표시된 null 값은 다른 행에서 null이 아닌 경우가 많습니다.
@@ -399,7 +400,8 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 - [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 응용 프로그램 블록 사용](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-재시도 논리에서 EntLib60을 사용하는 간단한 C# 코드 샘플은 [코드 샘플: Enterprise Library 6에서 SQL 데이터베이스에 연결하기 위한 C#의 재시도 논리](sql-database-develop-entlib-csharp-retry-windows.md)에서 다운로드할 수 있습니다.
+재시도 논리에서 EntLib60을 사용하는 간단한 C# 코드 샘플은 
+- [코드 샘플: Enterprise Library 6에서 SQL 데이터베이스에 연결하기 위한 C#의 재시도 논리](sql-database-develop-entlib-csharp-retry-windows.md)에서 다운로드할 수 있습니다.
 
 
 > [AZURE.NOTE]EntLib60에 대한 소스 코드는 공용 [다운로드](http://go.microsoft.com/fwlink/p/?LinkID=290898)에 대해 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 있습니다.
@@ -454,7 +456,8 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 - 로깅 블록은 대상 로깅 저장소의 위치 및 유형과 상관없이 응용 프로그램 코드의 일관성을 유지하도록 로그 대상에서 로깅 기능을 추상화합니다.
 
 
-자세한 내용은 : [5 - 간단한 응용 프로그램 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)을 참조하세요.
+자세한 내용은 : 
+[5 - 간단한 응용 프로그램 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)을 참조하세요.
 
 
 ### EntLib60 IsTransient 메서드 소스 코드
@@ -540,4 +543,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

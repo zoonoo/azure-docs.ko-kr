@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Powershell을 사용하여 SQL 데이터 웨어하우스 만들기
@@ -71,4 +71,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [firewall rules]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-database-configure-firewall-settings/
 [Azure PowerShell을 설치 및 구성하는 방법]: powershell-install-configure.md
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

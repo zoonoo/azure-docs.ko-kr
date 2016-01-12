@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="09/16/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Memcache 프로토콜을 통해 Redis Cache에 Azure 앱 서비스의 웹앱 연결
@@ -30,8 +30,8 @@
 
 이 문서에 설명된 단계를 따르세요.
 
-* [Azure Redis Cache 서비스의 인스턴스 프로비전][1]
-* [Azure에서 확장 가능한 WordPress 사이트 배포][0]
+* [Azure Redis Cache 서비스의 인스턴스 프로비전][0]
+* [Azure에서 확장 가능한 WordPress 사이트 배포][1]
 
 확장 가능한 WordPress 사이트가 배포되고 Redis Cache 인스턴스가 프로비전되면 Azure 앱 서비스 웹앱에서 Memcache shim을 사용하여 진행할 준비가 됩니다.
 
@@ -41,7 +41,7 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 ![Azure Redis 캐시 설정 블레이드](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### REDIS\_HOST 앱 설정 추가
+### REDIS_HOST 앱 설정 추가
 
 만들어야 하는 첫 번째 앱 설정은 **REDIS\_HOST** 앱 설정입니다. 이 설정은 shim이 캐시 정보를 전달하는 대상을 설정합니다. REDIS\_HOST 앱 설정에 필요한 값은 Redis Cache 인스턴스의 **속성** 블레이드에서 검색할 수 있습니다.
 
@@ -49,9 +49,9 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 앱 설정의 키를 **REDIS\_HOST**로, 앱 설정 값을 Redis Cache 인스턴스의 **호스트 이름**으로 설정합니다.
 
-![웹앱 AppSetting REDIS\_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![웹앱 AppSetting REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### REDIS\_KEY 앱 설정 추가
+### REDIS_KEY 앱 설정 추가
 
 만들어야 하는 두 번째 앱 설정은 **REDIS\_KEY** 앱 설정입니다. 이 설정은 Redis Cache 인스턴스에 안전하게 액세스하는 데 필요한 인증 토큰을 제공합니다. REDIS\_KEY 앱 설정에 필요한 값은 Redis Cache 인스턴스의 **액세스 키** 블레이드에서 검색할 수 있습니다.
 
@@ -59,9 +59,9 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 앱 설정의 키를 **REDIS\_KEY**로, 앱 설정 값을 Redis Cache 인스턴스의 **기본 키**로 설정합니다.
 
-![Azure 웹 사이트 AppSetting REDIS\_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
+![Azure 웹 사이트 AppSetting REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### MEMCACHESHIM\_REDIS\_ENABLE 앱 설정 추가
+### MEMCACHESHIM_REDIS_ENABLE 앱 설정 추가
 
 마지막 앱 설정은 웹앱에서 Memcache Shim을 설정하는 데 사용됩니다. Memcache Shim은 Azure Redis Cache에 연결하기 위해 REDIS\_HOST 및 REDIS\_KEY를 사용하며 캐시 호출을 전달합니다. 앱 설정의 키는 **MEMCACHESHIM\_REDIS\_ENABLE**로, 값은 **true**로 설정합니다.
 
@@ -73,7 +73,7 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 Memcache 프로토콜을 읽어주는 응용 프로그램을 위해 Memcache 확장을 PHP로 설치해야 합니다(WordPress 사이트를 위한 언어 프레임워크).
 
-### php\_memcache 확장 다운로드
+### php_memcache 확장 다운로드
 
 [PECL][6]로 이동합니다. 캐싱 범주 아래에서 [memcache][7]를 클릭합니다. 다운로드 열 아래의 DLL 링크를 클릭합니다.
 
@@ -83,14 +83,14 @@ Memcache 프로토콜을 읽어주는 응용 프로그램을 위해 Memcache 확
 
 ![PHP PECL 웹 사이트 Memcache 패키지](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### php\_memcache 확장 사용
+### php_memcache 확장 사용
 
 파일을 다운로드한 후 압축을 풀어 **php\_memcache.dll**을 **d:\\home\\site\\wwwroot\\bin\\ext\** 디렉터리로 업로드합니다. php\_memcache.dll이 웹앱에 업로드된 후 PHP 런타임에 대한 확장을 사용하도록 설정해야 합니다. Azure 포털에서 Memcache 확장을 사용하려면 웹앱에 대한 **응용 프로그램 설정** 블레이드를 열고 **PHP\_EXTENSIONS** 키 및 **bin\\ext\\php\_memcache.dll** 값으로 새 앱 설정을 추가합니다.
 
 
 > [AZURE.NOTE]웹앱에 여러 PHP 확장을 로드해야 하는 경우, PHP\_EXTENSIONS 값은 DLL 파일에 대한 관련 경로 목록을 쉼표로 구분해야 합니다.
 
-![웹앱 AppSetting PHP\_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
+![웹앱 AppSetting PHP_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
 완료되면 **저장**을 클릭합니다.
 
@@ -124,7 +124,7 @@ $memcached_servers = array(
 
 이 코드를 붙여 넣으면 모나코가 문서를 자동으로 저장합니다.
 
-다음 단계는 개체-캐시 플러그임을 사용하도록 설정하는 것입니다. **wp-content/memcached** 폴더에서 **wp-content** 폴더로 **object-cache.php**를 끌어서 놓아 Memcache Object Cache 기능 설정을 완료합니다.
+다음 단계는 개체-캐시 플러그임을 사용하도록 설정하는 것입니다. **wp-content/plugins/memcached** 폴더에서 **wp-content** 폴더로 **object-cache.php**를 끌어 놓아서 Memcache Object Cache 기능 설정을 완료합니다.
 
 ![memcache object-cache.php 플러그인 찾기](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
@@ -166,7 +166,7 @@ Azure 포털에서 이 웹앱에 대해 만들어진 Redis Cache 인스턴스를
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-**<hostname-for-redis-cache>**를 실제 xxxxx.redis.cache.windows.net 호스트 이름으로, **<primary-key-for-redis-cache>**를 캐시에 대한 액세스 키로 바꾸고 **Enter**를 누릅니다. CLI가 Redis Cache 인스턴스에 연결되면 redis 명령을 실행합니다. 아래 스크린샷에서는 키를 나열하도록 선택했습니다.
+**&lt;hostname-for-redis-cache&gt;**를 실제 xxxxx.redis.cache.windows.net 호스트 이름으로, **&lt;primary-key-for-redis-cache&gt;**를 캐시에 대한 선택키로 바꾸고 **Enter 키**를 누릅니다. CLI가 Redis Cache 인스턴스에 연결되면 redis 명령을 실행합니다. 아래 스크린샷에서는 키를 나열하도록 선택했습니다.
 
 ![터미널의 Redis CLI에서 Azure Redis Cache에 연결](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
@@ -182,7 +182,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 * 웹 사이트에서 앱 서비스로 변경하는 방법에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
 
-[0]: http://bit.ly/1F0m3tw
+[0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

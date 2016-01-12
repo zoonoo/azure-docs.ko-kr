@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="12/28/2015"
 	ms.author="tdykstra"/>
 
 # Azure 클라우드 서비스 및 ASP.NET 시작
@@ -58,9 +58,9 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 자습서의 지침은 다음 제품 중 하나에 적용됩니다.
 
 * Visual Studio 2013
-* Visual Studio 2013 Express for Web
+* Visual Studio 2015
 
-위 제품 중 하나도 없는 경우에는 Azure SDK를 설치하면 Visual Studio 2013 Express for Web이 자동으로 설치됩니다.
+위 제품 중 하나도 없는 경우 Azure SDK를 설치하면 Visual Studio 2015가 자동으로 설치됩니다.
 
 ## 응용 프로그램 아키텍처
 
@@ -72,7 +72,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 ![Contoso Ads 아키텍처](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
 
 ## 완료된 솔루션 다운로드 및 실행
 
@@ -87,6 +87,8 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 	기본적으로 Visual Studio는 *.zip* 파일에 포함되지 않은 NuGet 패키지 콘텐츠를 자동으로 복원합니다. 패키지가 복원되지 않는 경우 **솔루션의 NuGet 패키지 관리** 대화 상자로 이동하고 오른쪽 위에서 **복원** 단추를 클릭하여 수동으로 설치합니다.
 
 3. **솔루션 탐색기**에서 시작 프로젝트로**ContosoAdsCloudService**가 선택되었는지 확인합니다.
+
+2. Visual Studio 2015를 사용하는 경우 ContosoAdsWeb 프로젝트의 응용 프로그램 *Web.config* 파일 및 ContosoAdsCloudService 프로젝트의 *ServiceConfiguration.Local.cscfg* 파일에서 SQL Server 연결 문자열을 변경합니다. 각각의 경우에서 "(localdb)\\v11.0"을 "(localdb)\\MSSQLLocalDB"로 변경합니다.
 
 1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
@@ -252,7 +254,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 7. **서비스 구성**을 **클라우드**로 변경합니다.
 
-7. 텍스트를 `ContosoAdsDbConnectionString` 설정에서 선택한 후, 자습서의 이전 섹션에서 복사한 연결 문자열을 붙여넣습니다.
+7. `ContosoAdsDbConnectionString` 설정에서 **값** 필드를 선택한 다음 자습서의 이전 섹션에서 복사한 연결 문자열을 붙여넣습니다.
 
 	![작업자 역할의 데이터베이스 연결 문자열](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 
@@ -341,7 +343,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
 	![Azure 활동 로그 창](./media/cloud-services-dotnet-get-started/waal.png)
 
-1. 배포 완료 상태가 되면 **웹 사이트 URL**을 클릭하여 응용 프로그램을 시작합니다.
+1. 배포 완료 상태가 되면 **웹앱 URL**을 클릭하여 응용 프로그램을 시작합니다.
 
 9. 이제 응용 프로그램을 로컬에서 실행할 때처럼 일부 광고를 만들고, 보고, 편집하는 방법으로 앱을 테스트할 수 있습니다.
 
@@ -387,7 +389,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 9. **솔루션 탐색기**에서 솔루션(프로젝트 중 하나가 아님)을 마우스 오른쪽 단추로 클릭하고 **추가 - 새 프로젝트**를 선택합니다.
 
-11. **새 프로젝트 추가** 대화 상자의 왼쪽 창에서 **Visual C#** 아래에 있는 **Windows 데스크톱**을 선택한 다음 **클래스 라이브러리** 템플릿을 클릭합니다.
+11. **새 프로젝트 추가** 대화 상자의 왼쪽 창에서 **Visual C#**에 있는 **Windows**을 선택한 다음 **클래스 라이브러리** 템플릿을 클릭합니다.
 
 10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
 
@@ -397,15 +399,13 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 11. 솔루션에 대한 **NuGet 패키지 관리** 대화 상자를 엽니다.
 
-12. 왼쪽 창에서 **업데이트**를 선택합니다.
+12. 창 맨 위에서 **업데이트**를 선택합니다.
 
-13. *WindowsAzure.Storage* 패키지를 찾습니다. 이 패키지가 목록에 있는 경우 **업데이트**를 클릭하여 최신 버전의 저장소 클라이언트 라이브러리를 가져옵니다.
-
-	![SCL 업데이트](./media/cloud-services-dotnet-get-started/updstg.png)
+13. *WindowsAzure.Storage* 패키지를 찾고 목록에 있는 경우 선택합니다. 업데이트하려면 웹 및 작업자 프로젝트를 선택한 다음 **업데이트**를 클릭합니다.
 
 	저장소 클라이언트 라이브러리는 Visual Studio 프로젝트 템플릿보다 자주 업데이트됩니다. 따라서 새로 생성된 프로젝트에서 버전을 업데이트해야 하는 경우가 많습니다.
 
-14. 왼쪽 창에서 **온라인**을 선택합니다.
+14. 창 맨 위에서 **찾아보기**를 선택합니다.
 
 16. *EntityFramework* NuGet 패키지를 찾아 세 개의 프로젝트 모두에서 설치합니다.
 
@@ -433,6 +433,8 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
 		</connectionStrings>
 
+	Visual Studio 2015를 사용하는 경우 "v11.0"을 "MSSQLLocalDB"로 바꿉니다.
+
 3. 변경 내용을 저장합니다.
 
 2. ContosoAdsCloudService 프로젝트에서 **역할**아래의 ContosoAdsWeb을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
@@ -455,7 +457,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 	* 이름: ContosoAdsDbConnectionString
 	* 형식: String
-	* 값: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여 넣습니다.
+	* 값: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여 넣습니다. (다음 예제는 Visual Studio 2013입니다. 이 예제를 복사하고 Visual Studio 2015를 사용하는 경우 반드시 데이터 소스를 변경해야 합니다.)
 
 			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
 
@@ -469,10 +471,10 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 3. ContosoAdsWeb 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 	- *Global.asax.cs*  
-	- *Views\\Shared* 폴더: <em>\_Layout.cshtml</em>
-	- *Views\\Home* 폴더: *Index.cshtml*.
+	- *Views\Shared* 폴더: <em>\_Layout.cshtml</em>
+	- *Views\Home* 폴더: *Index.cshtml*.
 	- *Controllers* 폴더: *AdController.cs*
-	- *Views\\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.
+	- *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.
 
 3. ContosoAdsWorker 프로젝트에서 다운로드한 프로젝트에서 가져온 *WorkerRole.cs*를 추가합니다.
 
@@ -593,13 +595,13 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 그런 다음, 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)(영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
-		blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesBlobContainer = blobClient.GetContainerReference("images");
 
 비슷한 코드가 *images* 큐에 대한 참조를 가져옵니다.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("images");
 
 대부분의 컨트롤러 코드는 DbContext 클래스를 사용한 Entity Framework 데이터 모델 작업에 일반적입니다. 예외는 HttpPost `Create` 서드이며, 이 메서드는 파일을 업로드하고 Blob 저장소에 저장합니다. 모델 바인더는 메서드에 [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 개체를 제공합니다.
@@ -800,7 +802,7 @@ Contoso Ads 응용 프로그램은 시작 자습서용으로 의도적으로 단
 다음은 더 실질적인 코딩 방식을 보여 주는 몇 가지 클라우드 서비스 샘플 응용 프로그램입니다. 복잡성이 낮은 것부터 높은 것 순서로 나열되었습니다.
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)(영문). 개념이 Contoso Ads와 비슷하지만, 더 많은 기능과 더 실질적인 코딩 방식을 구현합니다.
-* [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure 저장소 테이블뿐만 아니라 Blob 및 큐에 대해 소개합니다. [단계별 자습서 시리즈](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md)(영문)와 함께 제공됩니다.
+* [테이블, 큐 및 Blob이 포함된 Azure 클라우드 서비스 다중 계층 응용 프로그램](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)(영문). Azure 저장소 테이블 뿐만 아니라 Blob 및 큐를 소개합니다. .NET용 Azure SDK의 이전 버전에 기반하여 현재 버전으로 작업하려면 약간 수정해야 합니다.
 * [Microsoft Azure의 클라우드 서비스 기본 사항(영문)](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). 다양한 모범 사례를 보여 주는 포괄적인 샘플이며 Microsoft 패턴 및 작업 방식 그룹에서 제작했습니다.
 
 클라우드용 개발 관련 일반 정보는 [Azure에서 실제 클라우드 앱 빌드(영문)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)를 참조하세요.
@@ -813,4 +815,4 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
 * [Azure 저장소](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
 # Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기#
@@ -32,7 +32,7 @@
 
 이 자습서에서는 Azure 포털에서 Azure 가상 컴퓨터를 몇 분 이내에 간편하게 만드는 방법을 보여 줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 가상 컴퓨터를 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 사용자 고유의 이미지, 리소스 관리자 템플릿 또는 자동화 도구를 사용하여 가상 컴퓨터를 만들 수도 있습니다. 여러 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)을 참조하세요.
 
@@ -62,12 +62,17 @@
 
 이미지를 선택한 후에는 대부분의 구성에 Azure 기본 설정을 그대로 사용하여 신속하게 가상 컴퓨터를 만들 수 있습니다.
 
-1. **가상 컴퓨터 만들기** 블레이드에서 **기본 사항**을 클릭합니다. 가상 컴퓨터에 대한 원하는 **이름**을 입력하고 **관리 사용자 이름** 및 강력한 **암호**를 입력합니다. 구독이 둘 이상인 경우 새 가상 컴퓨터에 대한 구독을 지정하고 새로운 또는 기존 **리소스 그룹** 및 Azure 데이터 센터 **위치**도 지정합니다.
+1. **가상 컴퓨터 만들기** 블레이드에서 **기본 사항**을 클릭합니다.
+
+2. 가상 컴퓨터에 원하는 **이름**을 입력합니다. 이름은 특수 문자를 포함할 수 없습니다.
+
+3. 관리 **사용자 이름** 및 강력한 **암호**를 입력합니다. 암호의 길이는 8-123자여야 하며 다음 중 적어도 3가지를 포함해야 합니다. 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자. **가상 컴퓨터에 로그온하는 데 이 사용자 이름과 암호가 필요합니다.**
+
+4. 구독이 둘 이상인 경우 새 가상 컴퓨터에 대한 구독을 지정하고 새로운 또는 기존 **리소스 그룹** 및 Azure 데이터 센터 **위치**도 지정합니다.
 
 	![Azure VM에 대해 구성하도록 기본 설정을 보여 주는 스크린샷](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]**사용자 이름**은 서버를 관리하는 데 사용할 관리 계정을 나타냅니다. 자신이 기억할 수 있지만 다른 사람이 추측하기 어려운 암호를 만듭니다. **가상 컴퓨터에 로그온하는 데 이 사용자 이름과 암호가 필요합니다**.
-
+	
 2. **크기**를 클릭하고 필요에 맞는 가상 컴퓨터 크기를 선택합니다. 각각의 크기는 계산 코어, 메모리 및 기타 기능(예: 프리미엄 저장소에 대한 지원)의 수를 지정하며 가격에 영향을 미칩니다. Azure는 선택하는 이미지에 따라 특정 크기를 자동으로 권장합니다.
 
 	![선택할 수 있는 Azure VM 크기를 보여 주는 스크린샷](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
@@ -82,7 +87,7 @@
 
 	![Azure VM에 대한 구성 선택 항목의 요약을 보여 주는 스크린샷](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Azure에서 가상 컴퓨터를 만드는 동안 허브 메뉴의 **알림**에서 진행 상황을 확인할 수 있습니다. Azure에서 가상 컴퓨터를 만든 후, **가상 컴퓨터 만들기** 블레이드에서 **시작 보드에 고정**을 해제하지 않으면 시작 보드에서 해당 가상 컴퓨터를 볼 수 있습니다.
+8. Azure에서 가상 컴퓨터를 만드는 동안 허브 메뉴의 **가상 컴퓨터**에서 진행 상황을 확인할 수 있습니다.
 
 ## 가상 컴퓨터에 로그온
 
@@ -92,7 +97,7 @@
 
 1. 아직 로그인하지 않은 경우 Azure 포털에 로그인합니다.
 
-2. 시작 보드에서 가상 컴퓨터를 클릭합니다. 가상 컴퓨터를 찾아야 하는 경우 **모두 찾아보기** > **최근** 또는 **모두 찾아보기** > **가상 컴퓨터**를 클릭합니다. 그런 다음 목록에서 가상 컴퓨터를 선택합니다.
+2. 대시보드에서 가상 컴퓨터를 클릭하거나 가상 컴퓨터를 클릭하고 목록에서 선택합니다.
 
 3. 가상 컴퓨터 블레이드에서 **연결**을 클릭합니다.
 
@@ -113,4 +118,4 @@
 * Azure PowerShell 및 Azure CLI를 사용하여 [가상 컴퓨터 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
 * [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터와 워크로드 배포 및 관리를 자동화합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->
