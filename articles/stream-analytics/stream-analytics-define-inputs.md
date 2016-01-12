@@ -114,7 +114,7 @@ Azure Iot 허브는 IoT 시나리오에 최적화된, 확장성이 뛰어난 게
 
 클라우드에 저장할 구조화되지 않은 대량 데이터가 있는 시나리오에서 Blob 저장소는 비용 효과적이고 확장성 있는 솔루션을 제공합니다. [Blob 저장소](http://azure.microsoft.com/services/storage/blobs/)의 데이터는 일반적으로 데이터를 "있는 그대로" 간주하지만 스트림 분석으로 데이터 스트림으로 처리될 수 있습니다. 스트림 분석을 사용한 Blob 저장소 입력에 대한 일반적인 시나리오 중 하나는 로그 처리이며 여기에서 원격 분석은 의미 있는 데이터를 추출하려면 시스템에서 캡처되고 구문 분석되고 처리되어야 합니다.
 
-스트림 분석에서 Blob 저장소 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 *isBlobLastModifiedUtcTime*라는 타임스탬프인 점에 유의하세요. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
+스트림 분석에서 Blob 저장소 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 *isBlobLastModifiedUtcTime* 라는 타임스탬프인 점에 유의하세요. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
 
 다음 테이블은 해당 설명과 Blob 저장소의 각 속성을 설명합니다.
 
@@ -207,4 +207,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

@@ -90,7 +90,7 @@ Azure 앱 서비스는 API 앱을 호출할 수 있는 도메인을 구성하는
 
 다음으로, 클라우드에서 AngularJS 프런트 엔드를 실행하고 클라우드에서 실행 중인 API 백 엔드를 호출합니다. 이때 코드에서 이전에 만든 Azure API 앱이 호출되도록 프런트 엔드를 Azure에 배포하기 전에 AngularJS 프로젝트에서 API 끝점을 변경해야 합니다.
 
-1. ContactsList.Angular 프로젝트에서 *index.html*을 엽니다.
+1. ContactsList.Angular 프로젝트에서 *index.html* 을 엽니다.
 
 2. `baseUrl`을 localhost URL로 설정하는 줄을 주석 처리하고 `baseUrl`을 azurewebsites.net URL로 설정하는 줄의 주석을 제거한 후 자리 표시자를 이전에 만든 API 앱의 실제 이름으로 바꿉니다. API 앱 이름을 ContactsListAPI로 지정하면 코드가 다음 예제와 같이 표시됩니다.
 
@@ -208,4 +208,4 @@ Web API 프로젝트에서는 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.o
 
 이 자습서에서는 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있도록 앱 서비스 CORS 지원을 사용하도록 설정하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 문서에서는 [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

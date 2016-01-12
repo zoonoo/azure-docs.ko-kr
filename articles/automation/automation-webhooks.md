@@ -17,7 +17,7 @@
 
 # Azure 자동화 Webhook
 
-*Webhook*을 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.
+*Webhook* 을 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.
 
 ![Webhook](media/automation-webhooks/webhooks-overview.png)
 
@@ -87,10 +87,12 @@ $WebhookData 매개 변수의 **WebhookName** 속성을 확인하여 webhook에�
 Azure Preview 포털에서 runbook에 연결된 새 webhook을 만들려면 다음 절차를 수행합니다.
 
 1. Azure Preview 포털의 **Runbook 블레이드**에서 webhook이 세부 정보 블레이드를 볼 runbook을 클릭합니다. 
-3. 블레이드 맨 위에서 **Webhook**을 클릭하여 **Webhook 추가** 블레이드를 엽니다. <br> ![Webhook 단추](media/automation-webhooks/webhooks-button.png)
+3. 블레이드 맨 위에서 **Webhook**을 클릭하여 **Webhook 추가** 블레이드를 엽니다. <br>
+![Webhook 단추](media/automation-webhooks/webhooks-button.png)
 4. **새 webhook 만들기**를 클릭하여 **webhook 블레이드 만들기**를 엽니다.
 5. webhook의 **이름**, **만료 날짜**와 사용 여부를 지정합니다. 이러한 속성에 대한 자세한 내용은 [webhook 세부 정보](#details-of-a-webhook)를 참조하십시오.
-6. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook을 만들고 나면 URL을 다시 검색할 수 없습니다.** <br> ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
+6. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook을 만들고 나면 URL을 다시 검색할 수 없습니다.** <br>
+![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 3. **매개 변수**를 클릭하여 runbook 매개 변수의 값을 제공합니다. runbook에 필수 매개 변수가 있으면 값을 제공 하지 않는 한 webhook를 만들 수 없습니다.
 1. **만들기**를 클릭하여 webhook을 만듭니다.
 
@@ -272,4 +274,4 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 - [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md)
 - [Azure 자동화를 사용하여 Azure 경고에서 조치 취하기](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

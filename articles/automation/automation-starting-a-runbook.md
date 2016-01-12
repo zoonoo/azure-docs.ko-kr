@@ -188,7 +188,7 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 매개 변수가 [array] 또는 [string]과 같은 배열인 경우 *[Value1,Value2,Value3]* JSON 형식을 사용하여 값 목록으로 전송해야 합니다. 이러한 값은 단순한 형식이어야 합니다.
 
-예를 들어 다음 테스트 Runbook에서는 *user*라는 매개 변수를 허용합니다.
+예를 들어 다음 테스트 Runbook에서는 *user* 라는 매개 변수를 허용합니다.
 
 	Workflow Test-Parameters
 	{
@@ -228,11 +228,11 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 	   $credential.UserName
 	}
 
-*My Credential*이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
+*My Credential* 이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 	My Credential
 
-자격 증명의 사용자 이름을 *jsmith*라고 가정할 경우 다음과 같이 출력됩니다.
+자격 증명의 사용자 이름을 *jsmith* 라고 가정할 경우 다음과 같이 출력됩니다.
 
 	jsmith
 
