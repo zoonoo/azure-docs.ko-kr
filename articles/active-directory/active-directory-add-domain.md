@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Azure Active Directory에 고유한 도메인 이름 추가
@@ -212,4 +212,4 @@ Azure AD에 도메인 이름을 추가한 후 새 사용자 계정을 만들 때
 - [조직으로 Azure에 등록](sign-up-organization.md)
 - [Azure AD에서 도메인 관리](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

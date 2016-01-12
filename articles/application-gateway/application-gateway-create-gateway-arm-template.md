@@ -33,11 +33,6 @@ GitHub에서 기존 ARM 템플릿을 다운로드한 후 수정하고 GitHub, Po
 변경하지 않고 GitHub에서 직접 ARM 템플릿을 배포하는 경우 github에서 템플릿 배포로 건너뜁니다.
 
 
->[AZURE.IMPORTANT]Azure 리소스로 작업하기 전에 Azure에는 현재 리소스 관리자와 클래식 모드의 두 가지 배포 모델이 있다는 것을 이해해야 합니다. Azure 리소스로 작업하기 전에 [배포 모델 및 도구](azure-classic-rm.md)를 이해해야 합니다. 이 문서의 윗부분에 있는 탭을 클릭하여 다양한 도구에 대한 설명서를 볼 수 있습니다. 이 문서에서는 Azure 리소스 관리자를 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 설명합니다. 클래식 버전을 사용하려면 [PowerShell을 사용하여 응용 프로그램 게이트웨이 클래식 배포 만들기](application-gateway-create-gateway.md)로 이동합니다.
-
-
-
-
 ## 시나리오
 
 이 시나리오에서 생성하는 항목:
@@ -122,19 +117,35 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
 ## PowerShell을 사용하여 ARM 템플릿 배포
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
-2. Azure PowerShell 프롬프트에서 다음과 같이 **Switch-AzureMode** cmdlet을 실행하여 리소스 관리자 모드로 전환합니다.
 
-		Switch-AzureMode AzureResourceManager
+### 1단계
+
+		Login-AzureRmAccount
+
+
+
+### 2단계
+
+계정에 대한 구독을 확인합니다.
+
+		get-AzureRmSubscription 
+
+자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.<BR>
+
+### 3단계 
+
+사용할 Azure 구독을 선택합니다. <BR>
+
+
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+
+### 4단계
+
 	
-예상 출력:
+필요한 경우 `New-AzureResourceGroup` cmdlet을 사용하여 새 리소스 그룹을 만듭니다. 아래 예제에서 미국 동부 위치에 AppgatewayRG라고 하는 새 리소스 그룹을 만듭니다.
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
->[AZURE.WARNING]Switch-AzureMode cmdlet은 곧 더 이상 사용되지 않습니다. 이 경우 모든 리소스 관리자 cmdlet의 이름이 바뀝니다.
-	
-3. 필요한 경우 `New-AzureResourceGroup` cmdlet을 사용하여 새 리소스 그룹을 만듭니다. 아래 예제에서 미국 동부 위치에 AppgatewayRG라고 하는 새 리소스 그룹을 만듭니다.
-
-		PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
+	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -149,9 +160,9 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-4. AzureResourceGroupDeployment cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다.
+4. New-AzureRmResourceGroupDeployment cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다.
 
-		New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 명령줄에 의해 생성된 출력은 다음과 같습니다.
@@ -193,9 +204,9 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
+**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
 
-**-l (or --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *Eastus* 입니다.
+**-l (or --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *Eastus*입니다.
 
 4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
@@ -227,9 +238,9 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 **-g (or --resource-group)**. 새 VNet이 만들어지는 리소스 그룹의 이름입니다.
 
-**-f (or --template-file)**. ARM 템플릿 파일에 대한 경로입니다.
+**-f(또는 --template-file)**. ARM 템플릿 파일에 대한 경로입니다.
 
-**-e (or --parameters-file)**. ARM 매개 변수 파일에 대한 경로입니다.
+**-e(또는 --parameters-file)**. ARM 매개 변수 파일에 대한 경로입니다.
 
 ## 클릭하여 배포를 사용하여 ARM 템플릿 배포
 
@@ -237,7 +248,7 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 
 ### 1단계 
-[클릭하여 응용 프로그램 게이트웨이 배포](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) 링크를 사용하면 응용 프로그램 게이트웨이에 대한 포털 템플릿 페이지로 리디렉션됩니다.
+[Click to deploy Application Gateway](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/)(응용 프로그램 게이트웨이 클릭하여 배포) 링크를 사용하면 응용 프로그램 게이트웨이에 대한 포털 템플릿 페이지로 리디렉션됩니다.
 
 
 ### 2단계 
@@ -273,4 +284,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

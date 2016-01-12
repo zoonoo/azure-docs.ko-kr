@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/05/2015"
    ms.author="larryfr"/>
 
 
@@ -51,6 +51,8 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	![클러스터 이름, 클러스터 유형 및 OS 유형](./media/hdinsight-apache-storm-tutorial-get-started-linux/clustername.png)
 
 	__Ubuntu__를 선택하여 Linux 기반 HDInsight 클러스터를 만듭니다.
+    
+    > [AZURE.NOTE]이 문서의 단계에 대한 기본 값에 __버전__ 필드를 둡니다.
 	
 4. 둘 이상의 구독이 있는 경우 __구독__ 항목을 선택하여 클러스터에 사용할 Azure 구독을 선택합니다.
 
@@ -75,6 +77,8 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 __데이터 원본__ 블레이드의 항목을 이해합니다.
 	
 	- __선택 방법__: 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 __From all subscriptions(모든 구독에서)__로 설정합니다. 기존 저장소 계정의 __저장소 이름__ 및 __선택키__를 입력하려면 __선택키__로 설정합니다.
+    
+    - __저장소 계정 선택__: 구독에 저장소 계정이 이미 있는 경우 이를 사용하여 이 클러스터에 사용할 계정을 선택합니다.
 	
 	- __새로 만들기__: 새 저장소 계정을 만들려면 사용합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 	
@@ -83,6 +87,10 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	- __위치__: 저장소 계정이 있거나 저장소 계정을 만들 지리적 지역입니다.
 	
 		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
+    
+    - __클러스터 AAD ID__: 이를 사용하여 Azure 데이터 레이크 저장소에 액세스하는 클러스터에서 사용할 수 있는 Azure Active Directory ID를 선택합니다.
+    
+        > [AZURE.NOTE]이 문서에서 사용되지 않으며 기본 설정에 남아 있을 수 있습니다. 이 항목 및 Azure 데이터 레이크 저장소를 HDInsight와 함께 사용하는 데 대한 자세한 내용은 [Azure 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 		
 	- __선택__: 데이터 원본 구성을 저장하려면 이 항목을 사용합니다.
 	
@@ -90,11 +98,15 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	![노드 가격 책정 계층 블레이드](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
 	
+    클러스터에서 이러한 노드에 사용되는 VM 형식을 변경하려면 각 노드 형식을 선택할 수 있습니다. 이 문서의 단계에 대한 기본 설정에 둡니다.
+    
 	__선택__ 단추를 사용하여 __노드 가격 책정 계층__ 정보를 저장합니다.
 
-8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하여 클러스터 버전을 선택하고 __가상 네트워크__에 가입, Hive 및 Oozie의 데이터를 유지하기 위한 __외부 Metastore__ 설정 등 기타 선택적 설정을 구성할 수 있습니다.
+8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하면 클러스터가 __가상 네트워크__에 조인하고 __스크립트 작업__을 사용하여 클러스터를 사용자 지정하거나 __사용자 지정 메타__를 사용하여 Hive 및 Oozie에 대한 데이터를 확보할 수 있습니다.
 
 	![선택적 구성 블레이드](./media/hdinsight-apache-storm-tutorial-get-started-linux/optionalconfiguration.png)
+    
+    이 문서의 단계에 대한 이러한 설정을 __구성되지 않음__으로 둡니다.
 
 9. __시작 보드에 고정__이 선택되어 있는지 확인한 다음 __만들기__를 선택합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비전 중임을 나타내고 프로비전이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
 
@@ -116,7 +128,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 		
 	Linux 기반 HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 	
-	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.](hdinsight-hadoop-linux-use-ssh-unix.md)
+	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows)
 
@@ -233,4 +245,4 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

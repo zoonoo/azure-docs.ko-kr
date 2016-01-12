@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 자동화의 내 첫 번째 PowerShell 워크플로 Runbook | Microsoft Azure"
-	description="PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook의 생성, 테스트, 게시 과정을 안내하는 자습서입니다. Azure 리소스 인증 및 입력 매개 변수와 같은 여러 개념을 설명합니다."
+	description="PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook의 생성, 테스트, 게시 과정을 안내하는 자습서입니다."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
 - [PowerShell Workflow](automation-first-runbook-textual.md)
+- [PowerShell](automation-first-runbook-textual-PowerShell.md)
 
 이 자습서는 Azure 자동화에서 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powerShell-workflow-runbooks)을 만드는 과정을 안내합니다. 런북 작업의 상태를 추적하는 방법을 설명하는 동안 테스트하고 게시할 단순한 런북부터 시작하겠습니다. 그 다음, 런북을 실제로 Azure 리소스 관리를 통해 수정합니다. 이 경우에는 Azure 가상 컴퓨터를 가동합니다. 그리고 runbook 매개 변수를 추가하여 Runbook을 더욱 강력히 만듭니다.
 
@@ -70,7 +71,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![게시](media/automation-first-runbook-textual/runbook-edit-toolbar-publish.png)
 2. **Runbook** 창의 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
 3. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook-Workflow** 창이 표시됩니다. 위쪽에 표시되는 옵션을 사용하여 Runbook을 시작하거나, 미래의 특정 시간에 시작하도록 예약하거나, [webhook](automation-webhooks.md)을 생성하여 HTTP 호출을 통해 시작할 수 있습니다. 
-4. Runbook을 시작하려면 **시작**을 클릭하고 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![Runbook 시작](media/automation-first-runbook-textual/runbook-toolbar-start.png)
+4. 여기서는 Runbook을 시작하기만 하면 되므로 **시작**을 클릭하고 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![Runbook 시작](media/automation-first-runbook-textual/runbook-toolbar-start.png)
 5. 우리가 방금 만들었던 runbook작업에 대한 작업 창이 열립니다. 창을 닫을 수 있지만, 이 경우에는 작업의 진행 상황을 보기 위해 열어둡니다.
 6.  작업 상태가 **작업 요약**에 표시되며 Runbook을 테스트할 때의 상태와 일치합니다.<br>![작업 요약](media/automation-first-runbook-textual/job-pane-summary.png)
 7.  Runbook 상태가 *완료됨*으로 표시되면 **출력**을 클릭합니다. 출력 창이 열리면 *Hello World*를 볼 수 있습니다.<br> ![작업 요약](media/automation-first-runbook-textual/job-pane-output.png)  
@@ -92,14 +93,14 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 5.  **Get-AutomationPSCredential** 앞에 *$Credential =*을 입력하여 자격 증명을 변수에 할당합니다. 
 3.  다음 줄에 *Add-AzureAccount -Credential $Credential*을 입력합니다.<br>![인증](media/automation-first-runbook-textual/authentication.png) 
 3. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
-10. **시작**을 클릭하여 테스트를 시작합니다. 완료되면 자격 증명의 사용자에 대한 정보를 반환하는 다음과 비슷한 출력이 표시됩니다. 이를 통해 자격 증명이 유효한지 확인됩니다.<br> ![인증](media/automation-first-runbook-textual/authentication-test.png) 
+10. **시작**을 클릭하여 테스트를 시작합니다. 완료되면 자격 증명의 사용자에 대한 정보를 반환하는 다음과 비슷한 출력이 표시됩니다. 이를 통해 자격 증명이 유효한지 확인됩니다.<br>![인증](media/automation-first-runbook-textual/authentication-test.png) 
 
 ## 6단계 - 가상 컴퓨터를 시작하기 위한 코드 추가
 
 Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 있습니다. 가상 컴퓨터를 시작하는 명령을 추가합니다. Azure 구독에서 모든 가상 컴퓨터를 선택 할 수 있지만 지금은 cmdlet의 이름을 하드코딩합니다.
 
 
-1. *Add-AzureAccount* 뒤에 *Start-AzureVM -Name 'VMName' -ServiceName 'VMServiceName'*을 입력하여 시작할 가상 컴퓨터의 이름과 서비스 이름을 제공합니다.<br> ![인증](media/automation-first-runbook-textual/start-azurevm.png) 
+1. *Add-AzureAccount* 다음에 *Start-AzureVM -Name 'VMName' -ServiceName 'VMServiceName'*을 입력하여 시작할 가상 컴퓨터의 이름과 서비스 이름을 제공합니다.<br>![인증](media/automation-first-runbook-textual/start-azurevm.png) 
 9. Runbook을 저장하고 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 10. **시작**을 클릭하여 테스트를 시작합니다. 완료되면, 가상 컴퓨터가 시작되었다는 것을 확인합니다.
 
@@ -108,18 +109,19 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 
 현재 Runbook은 Runbook에 하드 코딩된 가상 컴퓨터를 시작하지만 Runbook이 시작될 때 가상 컴퓨터를 지정할 수 있으면 더욱더 유용할 것입니다. 이제 해당 기능을 제공하도록 Runbook에 입력 매개 변수를 추가합니다.
 
-1. *VMName* 및 *VMServiceName*에 대한 매개 변수를 Runbook에 추가하고 다음 그림과 같이 **Start-azurevm** cmdlet에 이러한 변수를 사용합니다. <br> ![인증](media/automation-first-runbook-textual/params.png) 
+1. *VMName* 및 *VMServiceName*에 대한 매개 변수를 Runbook에 추가하고 다음 그림과 같이 이러한 변수를 **Start-azurevm** cmdlet에서 사용합니다.<br>![인증](media/automation-first-runbook-textual/params.png) 
 9. Runbook을 저장하고 테스트 창을 엽니다. 사용자는 테스트에 사용될 두 개의 입력변수에 대한 값을 제공할 수 있음을 참고하세요. 
 11.  창을 닫습니다.
 12.  **게시**를 클릭하여 Runbook의 새 버전을 게시합니다.
 13.  이전 단계에서 실행시킨 가상 컴퓨터를 중지합니다.
-13.  **시작**을 클릭하여 Runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및**VMServiceName**을 입력합니다.<br> ![Runbook 시작](media/automation-first-runbook-textual/start-runbook-input-params.png) 
+13.  **시작**을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및**VMServiceName**을 입력합니다.<br> ![Runbook 시작](media/automation-first-runbook-textual/start-runbook-input-params.png) 
 
-14.  Runbook이 완료 되 면 가상 컴퓨터 시작 되었다는 것을 확인합니다.
+14.  Runbook이 완료되면 가상 컴퓨터가 시작되었다는 것을 확인합니다.
 
 
 ## 관련된 문서
 
 - [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
+- [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

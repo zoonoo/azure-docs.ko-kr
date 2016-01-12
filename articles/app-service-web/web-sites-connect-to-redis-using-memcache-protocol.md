@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="09/16/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Memcache 프로토콜을 통해 Redis Cache에 Azure 앱 서비스의 웹앱 연결
@@ -30,8 +30,8 @@
 
 이 문서에 설명된 단계를 따르세요.
 
-* [Azure Redis Cache 서비스의 인스턴스 프로비전][1]
-* [Azure에서 확장 가능한 WordPress 사이트 배포][0]
+* [Azure Redis Cache 서비스의 인스턴스 프로비전][0]
+* [Azure에서 확장 가능한 WordPress 사이트 배포][1]
 
 확장 가능한 WordPress 사이트가 배포되고 Redis Cache 인스턴스가 프로비전되면 Azure 앱 서비스 웹앱에서 Memcache shim을 사용하여 진행할 준비가 됩니다.
 
@@ -124,7 +124,7 @@ $memcached_servers = array(
 
 이 코드를 붙여 넣으면 모나코가 문서를 자동으로 저장합니다.
 
-다음 단계는 개체-캐시 플러그임을 사용하도록 설정하는 것입니다. **wp-content/memcached** 폴더에서 **wp-content** 폴더로 **object-cache.php**를 끌어서 놓아 Memcache Object Cache 기능 설정을 완료합니다.
+다음 단계는 개체-캐시 플러그임을 사용하도록 설정하는 것입니다. **wp-content/plugins/memcached** 폴더에서 **wp-content** 폴더로 **object-cache.php**를 끌어 놓아서 Memcache Object Cache 기능 설정을 완료합니다.
 
 ![memcache object-cache.php 플러그인 찾기](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
@@ -166,7 +166,7 @@ Azure 포털에서 이 웹앱에 대해 만들어진 Redis Cache 인스턴스를
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-**<hostname-for-redis-cache>**를 실제 xxxxx.redis.cache.windows.net 호스트 이름으로, **<primary-key-for-redis-cache>**를 캐시에 대한 액세스 키로 바꾸고 **Enter**를 누릅니다. CLI가 Redis Cache 인스턴스에 연결되면 redis 명령을 실행합니다. 아래 스크린샷에서는 키를 나열하도록 선택했습니다.
+**&lt;hostname-for-redis-cache&gt;**를 실제 xxxxx.redis.cache.windows.net 호스트 이름으로, **&lt;primary-key-for-redis-cache&gt;**를 캐시에 대한 선택키로 바꾸고 **Enter 키**를 누릅니다. CLI가 Redis Cache 인스턴스에 연결되면 redis 명령을 실행합니다. 아래 스크린샷에서는 키를 나열하도록 선택했습니다.
 
 ![터미널의 Redis CLI에서 Azure Redis Cache에 연결](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
@@ -182,7 +182,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 * 웹 사이트에서 앱 서비스로 변경하는 방법에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
 
-[0]: http://bit.ly/1F0m3tw
+[0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

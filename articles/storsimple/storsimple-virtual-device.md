@@ -17,11 +17,14 @@
 
 # Azure에서 StorSimple 가상 장치 배포 및 관리
 
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ## 개요
 
-StorSimple 가상 장치는 Microsoft Azure StorSimple 솔루션와 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다. 이 문서에서 다음 항목은 StorSimple 가상 장치에 대해 배우고 구성하고 사용하는 데 도움이 됩니다.
+StorSimple 가상 장치는 Microsoft Azure StorSimple 솔루션과 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다. 이 문서에서 다음 항목은 StorSimple 가상 장치에 대해 배우고 구성하고 사용하는 데 도움이 됩니다.
 
 - 가상 장치와 물리적 장치의 차이
 
@@ -55,7 +58,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 - 가상 장치는 Microsoft Azure 구독을 통해 보안이 설정됩니다. 가상 장치를 사용하고 Azure 구독이 손상되는 경우, 가상 장치에 저장된 데이터도 노출되기 쉬움을 의미합니다.
 
-- Azure StorSimple에 저장된 데이터를 암호화하는 데 사용되는 인증서의 공개키는 Azure 클래식 포털에서 안전하게 사용할 수 있으며 개인 키는 StorSimple 장치에 유지됩니다. StorSimple 가상 장치에서 공개 및 개인 키는 모두 Azure에 저장됩니다.
+- Azure StorSimple에 저장된 데이터를 암호화하는 데 사용되는 인증서의 공개 키는 Azure 클래식 포털에서 안전하게 사용할 수 있으며 개인 키는 StorSimple 장치에 유지됩니다. StorSimple 가상 장치에서 공개 및 개인 키는 모두 Azure에 저장됩니다.
 
 - 가상 장치는 Microsoft Azure 데이터 센터에서 호스팅됩니다.
 
@@ -388,4 +391,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 가상 장치를 관리하려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 자세한 워크플로 목록을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
