@@ -69,7 +69,7 @@ Azure 클래식 포털을 사용하거나 REST API 또는 PowerShell 명령을 �
 6. 보조 유형(*Readable* 또는 *Non-readable*)을 선택합니다.
 7. **만들기**를 클릭하여 구성을 완료합니다.
 
-> [AZURE.NOTE]지역에서 복제 블레이드에서 DR 쌍을 이루는 영역이 *권장*으로 표시됩니다. 프리미엄 계층 데이터베이스를 사용하는 경우 다른 영역을 선택할 수 있습니다. 표준 데이터베이스를 사용하는 경우 변경할 수 없습니다. 프리미엄 데이터베이스의 경우 보조 유형(*Readable* 또는 *Non-readable*)을 선택할 수 있습니다. 표준 데이터베이스에서는 *Non-readable* 보조만 선택할 수 있습니다.
+> [AZURE.NOTE]지역에서 복제 블레이드에서 DR 쌍을 이루는 영역이 *권장*으로 표시됩니다. 프리미엄 계층 데이터베이스를 사용하는 경우 다른 영역을 선택할 수 있습니다. 표준 데이터베이스를 사용하는 경우 변경할 수 없습니다. 프리미엄 데이터베이스의 경우 보조 유형( *Readable* 또는 *Non-readable*)을 선택할 수 있습니다. 표준 데이터베이스에서는 *Non-readable* 보조만 선택할 수 있습니다.
 
 
 ###PowerShell
@@ -89,7 +89,7 @@ Azure 클래식 포털을 사용하거나 REST API 또는 PowerShell 명령을 �
 
 ###REST API 
 
-*NonReadableSecondary* 또는 *Secondary*에 [Create Database](https://msdn.microsoft.com/library/mt163685.aspx) API와 *createMode* set를 사용하여 지역에서 복제 보조 데이터베이스를 프로그래밍 방식으로 만듭니다.
+*NonReadableSecondary* 또는 *Secondary* 에 [Create Database](https://msdn.microsoft.com/library/mt163685.aspx) API와 *createMode* set를 사용하여 지역에서 복제 보조 데이터베이스를 프로그래밍 방식으로 만듭니다.
 
 이 API는 비동기적입니다. 반환 후 [Get Replication Link](https://msdn.microsoft.com/library/mt600778.aspx) API를 사용하여 작업의 상태를 확인합니다. 작업이 완료되면 응답 본문의 *replicationState* 필드가 CATCHUP 값을 가집니다.
 

@@ -108,7 +108,7 @@ Visual Studio 2013 이상에서 검색 환경에 Microsoft Azure에서 클라우
 
 4. 다음으로, Azure 검색 .NET 클라이언트 라이브러리를 설치합니다. 검색을 올바르게 지정해야 합니다. 그러지 않으면 패키지를 쉽게 찾을 수 없습니다. **NuGet 패키지 관리**를 다시 마우스 오른쪽 단추로 클릭합니다.
 
-5. **온라인** > **nuget.org** > **시험판 포함**을 지정한 다음 *azure.search*를 검색합니다. **설치**를 클릭하여 라이브러리를 설치합니다.
+5. **온라인** > **nuget.org** > **시험판 포함**을 지정한 다음 *azure.search* 를 검색합니다. **설치**를 클릭하여 라이브러리를 설치합니다.
 
    ![][12]
 
@@ -127,7 +127,7 @@ Visual Studio 2013 이상에서 검색 환경에 Microsoft Azure에서 클라우
 
 각 프로젝트에는 서비스 이름 및 api-key를 지정하는 구성 파일이 포함되어 있습니다.
 
-1. **DataIndexer**에서 [SERVICE NAME] 및 [SERVICE KEY]를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다. 서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 **https://mysearchsrv.search.microsoft.net*인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv*입니다.
+1. **DataIndexer**에서 [SERVICE NAME] 및 [SERVICE KEY]를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다. 서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 *https://mysearchsrv.search.microsoft.net* 인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv* 입니다.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>

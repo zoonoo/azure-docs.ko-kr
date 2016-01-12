@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 클라우드 서비스에서 사용할 수 없기 때문에 시나리오의 다른 모든 구성 요소와 다른 클라우드 서비스에 백 엔드 서버를 구현하게 됩니다. 다음 단계에서는 기본 리소스에 *IaaSStory*라는 클라우드 서비스를, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 클라우드 서비스에서 사용할 수 없기 때문에 시나리오의 다른 모든 구성 요소와 다른 클라우드 서비스에 백 엔드 서버를 구현하게 됩니다. 다음 단계에서는 기본 리소스에 *IaaSStory* 라는 클라우드 서비스를, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
 
 ## 필수 조건
 
@@ -174,4 +174,4 @@
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

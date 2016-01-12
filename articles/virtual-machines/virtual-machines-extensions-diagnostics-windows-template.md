@@ -68,17 +68,17 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
 
 확장은 가상 컴퓨터와 항상 연결되므로, 가상 컴퓨터의 리소스 노드 아래에 직접적으로 확장을 정의하거나 기본 수준에서 확장을 정의하고 계층적인 명명 규칙을 사용하여 가상 컴퓨터와 확장을 연결할 수 있습니다.
 
-가상 컴퓨터 규모 집합 확장 구성은 *VirtualMachineProfile*의 *extensionProfile* 속성에 지정됩니다.
+가상 컴퓨터 규모 집합 확장 구성은 *VirtualMachineProfile* 의 *extensionProfile* 속성에 지정됩니다.
    
 *publisher* 속성의 값이 **Microsoft.Azure.Diagnostics**이고 *type* 속성의 값이 **IaaSDiagnostics**이면, Azure 진단 확장이 고유하게 식별됩니다.
 
 *name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 특히 **Microsoft.Insights.VMDiagnosticsSettings**는 Azure 클래식 포털에 의해 쉽게 식별할 수 있게 해줍니다. 이 포털은 Azure 클래식 포털에서 모니터링 차트를 올바르게 나타내줍니다.
 
-*typeHandlerVersion*은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true**로 설정하면 사용 가능한 최신의 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion*을 **true**로 설정하는 것이 좋습니다.
+*typeHandlerVersion* 은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true**로 설정하면 사용 가능한 최신의 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion* 을 **true**로 설정하는 것이 좋습니다.
 
-*settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](https://msdn.microsoft.com/library/azure/dn782207.aspx)를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg*에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 저장소 계정의 이름을 지정합니다.
+*settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](https://msdn.microsoft.com/library/azure/dn782207.aspx)를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg* 에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 저장소 계정의 이름을 지정합니다.
  
-*protectedSettings*의 속성은(개인 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings*의 쓰기 전용 특성은 진단 데이터를 기록하는 저장소 계정 키와 같은 중요한 정보를 저장하는 데 유용합니다.
+*protectedSettings* 의 속성은(개인 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings* 의 쓰기 전용 특성은 진단 데이터를 기록하는 저장소 계정 키와 같은 중요한 정보를 저장하는 데 유용합니다.
 
 ## 진단 저장소 계정을 매개 변수로 지정 
 
@@ -169,4 +169,4 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 - [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) 또는 [Azure 명령줄](virtual-machines-deploy-rmtemplates-powershell.md)을 사용하여 리소스 관리자 템플릿 배포
 - [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
