@@ -134,7 +134,8 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 	4. **가상 장치를 만들기 위한 저장소 계정** – 프로비전하는 동안 가상 장치의 이미지를 저장하는데 사용할 저장소 계정입니다. 이 저장소 계정은 가상 장치 및 가상 네트워크와 동일한 지역에 있어야 합니다. 물리적 장치나 가상 장치에서 데이터 저장소에 대해 사용되어서는 안됩니다. 기본적으로 새 저장소 계정은 이 용도로 만들어집니다. 그러나 이 용도에 적합한 저장소 계정을 이미 알고 있는 경우 목록에서 선택할 수 있습니다.
 
-4. 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 이제 가상 장치가 만들어집니다. 가상 장치를 만드는데 45분에서 1시간까지 걸릴 수 있습니다.![StorSimple 가상 장치 만들기 단계](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 이제 가상 장치가 만들어집니다. 가상 장치를 만드는데 45분에서 1시간까지 걸릴 수 있습니다.
+	![StorSimple 가상 장치 만들기 단계](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 물리적 장치만 사용하는 경우, 암호화 키는 사용자 장치와 함께 유지되므로 Microsoft는 해독할 수 없습니다. 가상 장치를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [가상 장치를 사용하기 위한 보안 고려 사항](#security-considerations-for-using-a-virtual-device)을 참조하세요.
 

@@ -41,7 +41,7 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 ![Azure Redis 캐시 설정 블레이드](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### REDIS\_HOST 앱 설정 추가
+### REDIS_HOST 앱 설정 추가
 
 만들어야 하는 첫 번째 앱 설정은 **REDIS\_HOST** 앱 설정입니다. 이 설정은 shim이 캐시 정보를 전달하는 대상을 설정합니다. REDIS\_HOST 앱 설정에 필요한 값은 Redis Cache 인스턴스의 **속성** 블레이드에서 검색할 수 있습니다.
 
@@ -49,9 +49,9 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 앱 설정의 키를 **REDIS\_HOST**로, 앱 설정 값을 Redis Cache 인스턴스의 **호스트 이름**으로 설정합니다.
 
-![웹앱 AppSetting REDIS\_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![웹앱 AppSetting REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### REDIS\_KEY 앱 설정 추가
+### REDIS_KEY 앱 설정 추가
 
 만들어야 하는 두 번째 앱 설정은 **REDIS\_KEY** 앱 설정입니다. 이 설정은 Redis Cache 인스턴스에 안전하게 액세스하는 데 필요한 인증 토큰을 제공합니다. REDIS\_KEY 앱 설정에 필요한 값은 Redis Cache 인스턴스의 **액세스 키** 블레이드에서 검색할 수 있습니다.
 
@@ -59,9 +59,9 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 앱 설정의 키를 **REDIS\_KEY**로, 앱 설정 값을 Redis Cache 인스턴스의 **기본 키**로 설정합니다.
 
-![Azure 웹 사이트 AppSetting REDIS\_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
+![Azure 웹 사이트 AppSetting REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### MEMCACHESHIM\_REDIS\_ENABLE 앱 설정 추가
+### MEMCACHESHIM_REDIS_ENABLE 앱 설정 추가
 
 마지막 앱 설정은 웹앱에서 Memcache Shim을 설정하는 데 사용됩니다. Memcache Shim은 Azure Redis Cache에 연결하기 위해 REDIS\_HOST 및 REDIS\_KEY를 사용하며 캐시 호출을 전달합니다. 앱 설정의 키는 **MEMCACHESHIM\_REDIS\_ENABLE**로, 값은 **true**로 설정합니다.
 
@@ -73,7 +73,7 @@ Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [
 
 Memcache 프로토콜을 읽어주는 응용 프로그램을 위해 Memcache 확장을 PHP로 설치해야 합니다(WordPress 사이트를 위한 언어 프레임워크).
 
-### php\_memcache 확장 다운로드
+### php_memcache 확장 다운로드
 
 [PECL][6]로 이동합니다. 캐싱 범주 아래에서 [memcache][7]를 클릭합니다. 다운로드 열 아래의 DLL 링크를 클릭합니다.
 
@@ -83,14 +83,14 @@ Memcache 프로토콜을 읽어주는 응용 프로그램을 위해 Memcache 확
 
 ![PHP PECL 웹 사이트 Memcache 패키지](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### php\_memcache 확장 사용
+### php_memcache 확장 사용
 
 파일을 다운로드한 후 압축을 풀어 **php\_memcache.dll**을 **d:\\home\\site\\wwwroot\\bin\\ext\** 디렉터리로 업로드합니다. php\_memcache.dll이 웹앱에 업로드된 후 PHP 런타임에 대한 확장을 사용하도록 설정해야 합니다. Azure 포털에서 Memcache 확장을 사용하려면 웹앱에 대한 **응용 프로그램 설정** 블레이드를 열고 **PHP\_EXTENSIONS** 키 및 **bin\\ext\\php\_memcache.dll** 값으로 새 앱 설정을 추가합니다.
 
 
 > [AZURE.NOTE]웹앱에 여러 PHP 확장을 로드해야 하는 경우, PHP\_EXTENSIONS 값은 DLL 파일에 대한 관련 경로 목록을 쉼표로 구분해야 합니다.
 
-![웹앱 AppSetting PHP\_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
+![웹앱 AppSetting PHP_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
 완료되면 **저장**을 클릭합니다.
 

@@ -38,7 +38,7 @@
 
         sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
 
-위의 TSQL 문을 실행할 때 MAXSIZE 및 SERVICE\_OBJECTIVE 매개 변수가 초기 저장소 크기를 결정하고 데이터 웨어하우스 인스턴스에 할당되도록 계산합니다. MAXSIZE는 다음 크기를 허용하며 증가할 공간을 생각하면 큰 크기를 선택하는 것이 좋습니다.
+위의 TSQL 문을 실행할 때 MAXSIZE 및 SERVICE_OBJECTIVE 매개 변수가 초기 저장소 크기를 결정하고 데이터 웨어하우스 인스턴스에 할당되도록 계산합니다. MAXSIZE는 다음 크기를 허용하며 증가할 공간을 생각하면 큰 크기를 선택하는 것이 좋습니다.
 
 + 250GB
 + 500GB
@@ -51,7 +51,7 @@
 + 40960GB
 + 51200GB
 
-SERVICE\_OBJECTIVE는 인스턴스에서 시작할 DWU 값을 나타내고 다음 값을 수락합니다.
+SERVICE_OBJECTIVE는 인스턴스에서 시작할 DWU 값을 나타내고 다음 값을 수락합니다.
 
 + DW100
 + DW200

@@ -34,7 +34,7 @@
 
 ## 정규화된 SQL Azure 서버 이름 가져오기
 
-데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(****servername**.database.windows.net*)이 필요합니다.
+데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(***servername**.database.windows.net*)이 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 연결하려는 데이터베이스를 찾습니다.

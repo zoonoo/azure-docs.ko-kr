@@ -49,7 +49,8 @@ contoso.onmicrosoft.com과 같이 등록 중 클라우드 서비스에서 사용
 
 클라우드 서비스에서 single sign-on을 사용하려는 경우 Microsoft 배포 준비 도구를 실행하여 Active Directory 환경을 준비하는 것이 좋습니다. 이 도구는 Active Directory 환경을 검사하고 single sign-on 설정 준비 여부에 대한 정보를 포함하는 보고서를 제공합니다. 그렇지 않을 경우 single sign-on을 준비하기 위해 변경해야 하는 항목을 나열합니다. 예를 들어 사용자에게 UPN이 있는지 여부와 해당 UPN이 올바른 형식인지 여부를 검사합니다. 이 도구를 다운로드하려면 [Microsoft 배포 준비 도구](http://go.microsoft.com/fwlink/?linkid=235650)를 참조하세요.
 
-> [AZURE.NOTE]Office 365를 사용하고 계시나요? 도메인을 설정한 후에 메일 주소, Lync Online 계정 및 사용자 지정 도메인 이름을 사용하는 메일 그룹 만들기를 시작할 수 있습니다. 또한 SharePoint Online에서 호스트되는 공용 웹사이트에 도메인 이름을 사용할 수 있습니다.
+> [AZURE.NOTE]
+> Office 365를 사용하고 계시나요? 도메인을 설정한 후에 메일 주소, Lync Online 계정 및 사용자 지정 도메인 이름을 사용하는 메일 그룹 만들기를 시작할 수 있습니다. 또한 SharePoint Online에서 호스트되는 공용 웹사이트에 도메인 이름을 사용할 수 있습니다.
 
 - [Azure 클래식 포털을 사용하여 도메인 추가 및 확인](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [클라우드 서비스에 대한 DNS 레코드 편집](#edit-dns-records-for-your-cloud-services)
@@ -69,11 +70,13 @@ contoso.onmicrosoft.com과 같이 등록 중 클라우드 서비스에서 사용
         1. **내 로컬 Active Directory를 사용하는 Single Sign-On에 대해 이 도메인을 구성하려고 함** 확인란을 선택한 다음 **추가** 단추를 클릭합니다.
         2. 도메인이 Azure AD에 추가되었다는 메시지가 표시되면 화살표를 클릭하여 다음 페이지로 이동한 다음 해당 페이지의 지침에 따라 추가한 도메인을 single sign-on으로 구성합니다.
 
-> [AZURE.NOTE]Azure AD에 도메인 이름을 추가한 후에는 새 메일 주소의 기본 도메인 이름을 변경할 수 있습니다. 자세한 내용은 [사용자의 기본 도메인 이름을 변경하려면 어떻게 하나요?](#how-can-i-change-the-primary-domain-name-for-users?)를 참조하세요. 기존 사용자 계정에 대한 프로필을 편집하여 onmicrosoft.com 도메인 대신 사용자 지정 도메인 이름을 사용하도록 메일 주소(사용자 ID이기도 함)를 업데이트할 수도 있습니다.
+> [AZURE.NOTE]
+> Azure AD에 도메인 이름을 추가한 후에는 새 메일 주소의 기본 도메인 이름을 변경할 수 있습니다. 자세한 내용은 [사용자의 기본 도메인 이름을 변경하려면 어떻게 하나요?](#how-can-i-change-the-primary-domain-name-for-users?)를 참조하세요. 기존 사용자 계정에 대한 프로필을 편집하여 onmicrosoft.com 도메인 대신 사용자 지정 도메인 이름을 사용하도록 메일 주소(사용자 ID이기도 함)를 업데이트할 수도 있습니다.
 
 ### 클라우드 서비스에 대한 DNS 레코드 편집
 
-> [AZURE.NOTE]Microsoft Intune을 사용하고 계시나요? Microsoft Intune 클라우드 서비스에 대한 DNS 레코드를 편집할 필요가 없습니다.
+> [AZURE.NOTE]
+> Microsoft Intune을 사용하고 계시나요? Microsoft Intune 클라우드 서비스에 대한 DNS 레코드를 편집할 필요가 없습니다.
 
 사용자 지정 도메인 이름을 추가하고 확인한 후 다음 단계에서는 도메인 등록 기관이나 DNS 호스팅 공급자에서 클라우드 서비스에 트래픽을 전달하는 DNS 레코드를 편집합니다. Azure AD는 필요한 DNS 정보를 제공합니다.
 

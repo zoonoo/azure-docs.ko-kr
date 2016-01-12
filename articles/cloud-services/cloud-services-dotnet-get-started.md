@@ -471,10 +471,10 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 3. ContosoAdsWeb 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 	- *Global.asax.cs*  
-	- *Views\\Shared* 폴더: <em>\_Layout.cshtml</em>
-	- *Views\\Home* 폴더: *Index.cshtml*.
+	- *Views\Shared* 폴더: <em>\_Layout.cshtml</em>
+	- *Views\Home* 폴더: *Index.cshtml*.
 	- *Controllers* 폴더: *AdController.cs*
-	- *Views\\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.
+	- *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.
 
 3. ContosoAdsWorker 프로젝트에서 다운로드한 프로젝트에서 가져온 *WorkerRole.cs*를 추가합니다.
 
