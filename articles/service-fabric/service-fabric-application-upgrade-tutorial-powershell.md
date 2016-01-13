@@ -40,7 +40,8 @@ Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 **Copy-Serv
 
 VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택하고, StatefulVisualObjectActor.cs 파일을 엽니다. 해당 파일 내에서 `MoveObject` 메서드로 이동하고 `this.State.Move()`를 주석 처리하고 `this.State.Move(true)`의 주석 처리를 제거합니다. 이렇게 변경하면 서비스 업그레이드 후 개체가 회전됩니다.
 
-프로젝트 **VisualObjects.ActorService**의 *ServiceManifest.xml* 파일(PackageRoot 아래)도 업데이트해야 합니다. *CodePackage* 및 서비스 버전을 2.0으로 업데이트하고 *ServiceManifest.xml* 파일의 해당 줄을 업데이트합니다. 솔루션을 마우스 오른쪽 단추로 클릭한 다음 Visual Studio *Edit Manifest Files*(매니페스트 파일 편집) 옵션을 사용하여 매니페스트 파일을 변경할 수 있습니다. [서비스 패브릭 응용 프로그램 업그레이드 자습서](service-fabric-application-tutorial.md)를 참조하세요.
+프로젝트 **VisualObjects.ActorService**의 *ServiceManifest.xml* 파일(PackageRoot 아래)도 업데이트해야 합니다. *CodePackage* 및 서비스 버전을 2.0으로 업데이트하고 *ServiceManifest.xml* 파일의 해당 줄을 업데이트합니다.
+솔루션을 마우스 오른쪽 단추로 클릭한 다음 Visual Studio *Edit Manifest Files*(매니페스트 파일 편집) 옵션을 사용하여 매니페스트 파일을 변경할 수 있습니다. [서비스 패브릭 응용 프로그램 업그레이드 자습서](service-fabric-application-tutorial.md)를 참조하세요.
 
 
 변경 후 매니페스트 버전은 다음과 같이 설정됩니다(강조 표시된 글씨가 변경된 부분임).
@@ -51,7 +52,7 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 <CodePackageName="Code"Version="2.0">
 ```
 
-이제 **VisualObjects.ActorService** 프로젝트의 2.0 버전을 사용하기 위해 *ApplicationManifest.xml* 파일(**VisualObjects** 솔루션 내 **VisualObjects** 프로젝트 내에서 찾을 수 있음)을 업데이트하고, 응용 프로그램의 버전도 1.0.0.0에서 2.0.0.0으로 업데이트해야 합니다. 이제 *ApplicationManifest.xml*의 해당 줄은 다음과 같이 읽힙니다.
+이제 **VisualObjects.ActorService** 프로젝트의 2.0 버전을 사용하기 위해 *ApplicationManifest.xml* 파일(**VisualObjects** 솔루션 내 **VisualObjects** 프로젝트 내에서 찾을 수 있음)을 업데이트하고, 응용 프로그램의 버전도 1.0.0.0에서 2.0.0.0으로 업데이트해야 합니다. 이제 *ApplicationManifest.xml* 의 해당 줄은 다음과 같이 읽힙니다.
 
 ```xml
 <ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"ApplicationTypeName="VisualObjects"ApplicationTypeVersion="2.0.0.0"xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -60,12 +61,12 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 ```
 
 
-이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 빌드를 선택하여 프로젝트를 빌드합니다(모두 다시 빌드를 선택하면 코드를 변경해야 하기 때문에 *ServiceManifest.xml* 및 *ApplicationManifest.xml*의 다른 프로젝트에 대한 버전도 업데이트해야 합니다). 이제 *VisualObjectsApplication*을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 패키지를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
+이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 빌드를 선택하여 프로젝트를 빌드합니다(모두 다시 빌드를 선택하면 코드를 변경해야 하기 때문에 *ServiceManifest.xml* 및 *ApplicationManifest.xml* 의 다른 프로젝트에 대한 버전도 업데이트해야 합니다). 이제 *VisualObjectsApplication* 을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 패키지를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
 
 
 ## 3단계: 상태 정책 결정 및 매개 변수 업그레이드
 
-[응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하십시오. 이 연습에서는 서비스 상태 평가 조건을 모든 서비스 및 인스턴스가 업그레이드 후에 _정상_이 되어야 함을 의미하는 기본(및 권장값)으로 남겨둡니다. 그러나 *HealthCheckStableDuration*을 60초로 증가시켜 보겠습니다(그러면 서비스는 다음 업그레이드 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다). 또한 *UpgradeDomainTimeout*을 1200초로, *UpgradeTimeout*을 3000초로 설정해 보겠습니다. 또한 마지막으로 *UpgradeFailureAction*을 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 롤백으로 설정해 보겠습니다. 따라서 업그레이드를 시작할 때(4단계에서) 우리가 지정할 업그레이드 매개 변수는 다음과 같습니다.
+[응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하십시오. 이 연습에서는 서비스 상태 평가 조건을 모든 서비스 및 인스턴스가 업그레이드 후에 _정상_이 되어야 함을 의미하는 기본(및 권장값)으로 남겨둡니다. 그러나 *HealthCheckStableDuration* 을 60초로 증가시켜 보겠습니다(그러면 서비스는 다음 업그레이드 도메인으로 업그레이드를 진행하기 전에 적어도 20초간 정상이 됩니다). 또한 *UpgradeDomainTimeout* 을 1200초로, *UpgradeTimeout* 을 3000초로 설정해 보겠습니다. 또한 마지막으로 *UpgradeFailureAction* 을 업그레이드하는 동안 문제가 발생한 경우 서비스 패브릭이 응용 프로그램을 이전 버전으로 롤백하도록 요청하는 롤백으로 설정해 보겠습니다. 따라서 업그레이드를 시작할 때(4단계에서) 우리가 지정할 업그레이드 매개 변수는 다음과 같습니다.
 
 FailureAction = Rollback
 
@@ -80,7 +81,7 @@ UpgradeTimeout = 3000
 
 이제 응용 프로그램이 빌드되고 업그레이드 준비되었습니다. 관지자로 PowerShell 창을 열고 **Get-ServiceFabricApplication**을 입력하면 배포된 **VisualObjects**의 Application Type 1.0.0.0임을 알려줍니다. 이 응용 프로그램 패키지는 서비스 패브릭 SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug* 디렉터리에서 응용 프로그램이 저장된 “Package” 폴더를 찾을 수 있습니다. 타임 스탬프를 확인하여 최신 빌드인지 확인하십시오(경로를 적절하게 수정해야 할 수 있습니다).
 
-이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore*는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 “VisualObjects\_V2”에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
+이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore* 는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 “VisualObjects\_V2”에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
@@ -125,4 +126,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->
