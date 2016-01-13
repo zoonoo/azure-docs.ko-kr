@@ -220,7 +220,7 @@
       }
     ```
 
-    `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `m_name`.    
+    `ProcessInternalRequest`는 파티션을 호출하는 데 사용되는 쿼리 문자열 매개 변수의 값을 읽고 신뢰할 수 있는 사전 `m_name`에 성을 추가하도록 `AddUserAsync`를 호출합니다.
 
 10. 특정 파티션을 호출할 수 있는 방법을 보도록 프로젝트에 상태 비저장 서비스를 추가하겠습니다. 이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
 11. **서비스 만들기** 대화 상자에서 **상태 비저장** 서비스를 선택하고 아래와 같이 Alphabet.WebApi로 지정합니다. ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
@@ -290,10 +290,13 @@
       }
       ```
 
-    Let's walk through it step by step. The code reads the first letter of the query string parameter `lastname` into a char. Then, it determines the partition key for this letter by subtracting the hexadecimal value of `A` from the hexadecimal value of the last names' first letter.
+    단계 별로 안내하겠습니다. T코드는 쿼리 문자열 매개 변수 `lastname`의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 hex 값에서 `A`의 hex 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A'; ```
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ```
 
     이 예제에서 파티션당 하나의 파티션 키를 가진 26개의 파티션을 사용합니다. 그런 다음 `servicePartitionResolver` 개체의 `ResolveAsync` 메서드를 사용하여 이 키에 대한 서비스 파티션 `partition`을 가져옵니다. `servicePartitionResolver`는 다음으로 정의됩니다.
 
@@ -347,4 +350,4 @@
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
