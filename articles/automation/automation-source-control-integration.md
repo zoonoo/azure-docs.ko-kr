@@ -50,9 +50,9 @@ Azure 자동화에 연결하려는 GitHub 계정 및 리포지토리가 이미 �
 
 3. 예를 들어 **RootFolder**라는 폴더를 포함하는 **PowerShellScripts**라는 리포지토리가 있는 경우 이는 **SubFolder**라는 폴더를 포함합니다. 다음 문자열을 사용하여 각 폴더 수준을 동기화할 수 있습니다.
 
-    1. **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */*입니다.
-    2. **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder*입니다.
-    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder*입니다.
+    1. **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */* 입니다.
+    2. **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder* 입니다.
+    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder* 입니다.
   
 
 4. 매개 변수를 구성한 후에 **원본 제어 설정 블레이드**에 표시됩니다.
@@ -120,7 +120,7 @@ Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변�
 
     ![체크 인 입력](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다. 커밋 메시지(**Azure 자동화에서 업데이트된 *Runbook 이름***)와 함께 리포지토리에 커밋이 있어야 합니다.
+6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다. 커밋 메시지**(Azure 자동화에서 업데이트된 *Runbook 이름* )**와 함께 리포지토리에 커밋이 있어야 합니다.
 
 
 

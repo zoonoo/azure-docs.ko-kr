@@ -58,7 +58,7 @@ ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSea
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
 
-    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 *"C:\\Program Files\\Git"*입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
+    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 *"C:\\Program Files\\Git"* 입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
 
 4. Azure에 로그온하고([*Add-AzureAccount*](https://msdn.microsoft.com/library/azure/dn790372.aspx) cmdlet을 통해) ElasticSearch 클러스터를 만드는 데 사용되어야 하는 구독을 선택했는지 확인합니다([*Select-AzureSubscription*](https://msdn.microsoft.com/library/azure/dn790367.aspx)).
 

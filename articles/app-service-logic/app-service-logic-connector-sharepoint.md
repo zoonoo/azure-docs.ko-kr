@@ -34,7 +34,7 @@ SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 Sha
 
 	이름 | 필수 | 설명
 --- | --- | ---
-사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest*를 입력합니다.
+사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest* 를 입력합니다.
 문서 라이브러리/상대 URL 나열 | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서* 를 입력합니다.
 
 5. 완료되면 패키지 설정은 다음과 유사하게 됩니다.  
@@ -220,7 +220,7 @@ ItemId | 문서 라이브러리에 추가된 문서의 ItemId입니다.
 
 이름 | 필수 | 설명
 --- | --- | ---
-문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders*를 입력합니다.
+문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders* 를 입력합니다.
 
 #### 출력
 
@@ -244,7 +244,7 @@ Param2* | 문서 라이브러리에서 문서의 매개 변수 중 하나입니�
 
 이름 | 필수 | 설명
 --- | --- | ---
-문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders*를 입력합니다.
+문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders* 를 입력합니다.
 
 #### 출력
 
@@ -384,7 +384,7 @@ ContentTransferEncoding | 예 | 메시지의 콘텐츠 전송 인코딩입니다
 
 이름 | 필수 | 설명
 --- | --- | ---
-문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders*를 입력합니다.
+문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders* 를 입력합니다.
 파일 형식 | 예 | 파일이 이진 파일인지 텍스트 파일인지 입력합니다.
 
 #### 출력

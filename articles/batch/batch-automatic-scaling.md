@@ -46,7 +46,7 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
 
 수식에는 시스템 정의 변수와 사용자 정의 변수 모두를 사용할 수 있습니다.
 
-이러한 **시스템 정의 변수** 값을 *가져와서* *설정*하여 풀의 계산 노드 개수를 관리합니다.
+이러한 **시스템 정의 변수** 값을 *가져와서* *설정* 하여 풀의 계산 노드 개수를 관리합니다.
 
 <table>
   <tr>
@@ -334,11 +334,11 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
   </tr>
 </table>
 
-위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
+위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec* 의 조합입니다. 예:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*doubleVecList* 값은 평가 전 단일 *doubleVec*로 변환됩니다. 예를 들어 `v = [1,2,3]`인 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출에 해당하며 `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출에 해당합니다.
+*doubleVecList* 값은 평가 전 단일 *doubleVec* 로 변환됩니다. 예를 들어 `v = [1,2,3]`인 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출에 해당하며 `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출에 해당합니다.
 
 ### 샘플 데이터 가져오기
 
@@ -441,7 +441,7 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
 
 	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
 
-다음 구문은 지난 60분의 평균 CPU 사용량이 20% *이하*인 경우 동일한 변수를 노드에 있는 현재 대상 수의 90%에 설정하여, 낮은 CPU 사용량이 낮을 때 대상 수를 줄입니다. 이 구문은 또한 위 구문의 사용자 정의 변수 *$TotalNodes*를 참조합니다.
+다음 구문은 지난 60분의 평균 CPU 사용량이 20% *이하* 인 경우 동일한 변수를 노드에 있는 현재 대상 수의 90%에 설정하여, 낮은 CPU 사용량이 낮을 때 대상 수를 줄입니다. 이 구문은 또한 위 구문의 사용자 정의 변수 *$TotalNodes* 를 참조합니다.
 
 	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
 
@@ -481,7 +481,7 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
 
 > [AZURE.NOTE]풀을 만들 때 *targetDedicated* 매개 변수에 대해 값이 지정된 경우, 자동 크기 조정 수식이 평가될 때 이 값은 무시됩니다.
 
-이 코드 조각은 [배치.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하는 것을 보여줍니다. 기존 풀에서 수식을 사용하고 업데이트하는 것은 모두 동일한 메서드를 사용합니다. 이 기술은 자동 크기 조정을 이미 사용하고 있던 경우 지정된 풀에서 수식을 *업데이트*합니다. 이 조각은 "myBatchClient"가 [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) 인스턴스를 적절하게 초기화하고 있다고 가정하고, "mypool"는 기존 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx)의 ID입니다.
+이 코드 조각은 [배치.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하는 것을 보여줍니다. 기존 풀에서 수식을 사용하고 업데이트하는 것은 모두 동일한 메서드를 사용합니다. 이 기술은 자동 크기 조정을 이미 사용하고 있던 경우 지정된 풀에서 수식을 *업데이트* 합니다. 이 조각은 "myBatchClient"가 [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) 인스턴스를 적절하게 초기화하고 있다고 가정하고, "mypool"는 기존 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx)의 ID입니다.
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
