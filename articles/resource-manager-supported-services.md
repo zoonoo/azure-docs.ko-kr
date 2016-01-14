@@ -36,7 +36,8 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 배치 | 예 | 예 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Dynamics Lifecycle Services | 예 | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | 서비스 패브릭(미리 보기) | 예 | | [서비스 패브릭 Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| 가상 컴퓨터(클래식) | 제한됨 | 부분적(아래 참조) | - | - | | RemoteApp | 아니요 | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 부분적(아래 참조) | - | - | 
+| RemoteApp | 아니요 | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
@@ -239,4 +240,4 @@ Azure PowerShell 0.9.8의 경우 다음을 사용합니다.
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
