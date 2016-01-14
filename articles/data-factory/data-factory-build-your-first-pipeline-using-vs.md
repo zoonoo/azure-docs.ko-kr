@@ -307,6 +307,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.
+
 	>[AZURE.IMPORTANT]주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분)  
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -340,4 +341,4 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
