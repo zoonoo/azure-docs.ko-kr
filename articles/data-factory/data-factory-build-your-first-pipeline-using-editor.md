@@ -290,7 +290,8 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 12. **다이어그램 보기**에서 **AzureBlobOutput** 데이터 집합을 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.
+9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.  
+
 	>[AZURE.IMPORTANT]주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분)  
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
