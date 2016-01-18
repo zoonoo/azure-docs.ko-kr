@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 파이프라인 모니터링 및 관리
@@ -96,6 +96,7 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 <td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
 </tr>
 <td></td>
@@ -150,7 +151,7 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 
 조각은 실행 전에 사전 조건이 충족되도록 **대기 중** 상태에서 시작됩니다. 그 후 작업은 실행을 시작하고 조각은 **진행 중** 상태가 됩니다. 활동 실행은 성공하거나 실패할 수 있으며 그에 따라 조각은 **준비** 또는 **실패** 상태가 됩니다.
 
-사용자는 **준비** 또는 **실패** 상태에서 **대기 중** 상태로 조각을 재설정할 수 있습니다. 사용자는 조각 상태를 **건너뛰기**로 표시할 수도 있으며, 이렇게 하면 활동이 실행되지 않고 조각이 처리되지 않습니다.
+사용자는 **준비** 또는 **실패** 상태에서 **대기 중** 상태로 조각을 재설정할 수 있습니다. 사용자는 조각 상태를 **Skip**(건너뛰기)로 표시할 수도 있으며, 이렇게 하면 작업이 실행되지 않고 조각이 처리되지 않습니다.
 
 
 ## 파이프라인 관리
@@ -171,7 +172,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 
 	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
-**PartitionProductsUsagePipeline**의 문제가 해결되고 나면 다음과 같은 PowerShell 명령을 실행하여 일시 중단한 파이프라인을 다시 시작합니다.
+**PartitionProductsUsagePipeline**의 문제가 해결되고 나면 다음과 같은 PowerShell 명령을 실행하여 일시 중지한 파이프라인을 다시 시작합니다.
 
 	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -194,7 +195,7 @@ Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파�
 2.	**Datasets with errors**(오류가 있는 데이터 집합) 블레이드에서 원하는 테이블을 클릭합니다.
 
 	![오류가 있는 데이터 집합 블레이드](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	**테이블** 블레이드에서 **상태**가 **실패**로 설정된 문제 조각을 클릭합니다.
+3.	**테이블** 블레이드에서 **상태**가 **Failed**(실패)로 설정된 문제 조각을 클릭합니다.
 
 	![문제 조각이 있는 테이블 블레이드](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	**데이터 조각** 블레이드에서 실패한 활동 실행을 클릭합니다.
@@ -206,9 +207,6 @@ Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파�
 
 #### PowerShell을 사용한 오류 디버그
 1.	**Azure PowerShell**을 시작합니다.
-2.	**AzureResourceManager** 모드로 전환합니다. 데이터 팩터리 cmdlet은 이 모드에서만 사용할 수 있습니다.
-
-		switch-azuremode AzureResourceManager
 3.	**Get-AzureRmDataFactorySlice** 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 **실패**로 표시됩니다.
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -322,7 +320,7 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -354,9 +352,9 @@ OnDemandClusterDeleted | Succeeded
 위의 예에 사용되는 JSON 요소에 대한 내용은 [경고 규칙 만들기](https://msdn.microsoft.com/library/azure/dn510366.aspx)를 참조하세요.
 
 #### 경고 배포 
-경고를 배포하려면 다음 예제와 같이 Azure PowerShell cmdlet, **New-AzureResourceGroupDeployment**를 사용합니다.
+경고를 배포하려면 다음 예제와 같이 Azure PowerShell cmdlet, **New-AzureRmResourceGroupDeployment**를 사용합니다.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 리소스 그룹 배포가 성공적으로 완료되면 다음 메시지가 표시됩니다.
 
@@ -376,9 +374,9 @@ OnDemandClusterDeleted | Succeeded
 	Outputs           :
 
 #### Azure 리소스 그룹 배포의 목록 검색
-배포된 Azure 리소스 그룹 배포의 목록을 검색하려면 다음 예와 같이 cmdlet, **Get-AzureResourceGroupDeployment**를 사용합니다.
+배포된 Azure 리소스 그룹 배포의 목록을 검색하려면 다음 예제와 같이 cmdlet, **Get-AzureRmResourceGroupDeployment**를 사용합니다.
 
-	Get-AzureResourceGroupDeployment -ResourceGroupName adf
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
 	DeploymentName    : ADFAlertFailedSlice
 	ResourceGroupName : adf
@@ -546,9 +544,9 @@ OnDemandClusterDeleted | Succeeded
 
 **경고 배포:**
 
-경고를 배포하려면 다음 예제와 같이 Azure PowerShell cmdlet, **New-AzureResourceGroupDeployment**를 사용합니다.
+경고를 배포하려면 다음 예제와 같이 Azure PowerShell cmdlet, **New-AzureRmResourceGroupDeployment**를 사용합니다.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 배포가 완료되면 다음과 같은 메시지가 표시됩니다.
 
@@ -566,4 +564,7 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1217_2015-->
+
+**Add-AlertRule** cmdlet을 사용하여 경고 규칙을 배포할 수 있습니다. 세부 정보 및 예제는 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 항목을 참조하세요.
+
+<!---HONumber=AcomDC_0107_2016-->

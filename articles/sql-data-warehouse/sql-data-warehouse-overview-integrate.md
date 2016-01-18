@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 #SQL 데이터 웨어하우스와 함께 기타 서비스 활용
@@ -71,4 +71,4 @@ Azure 스트림 분석은 Azure 이벤트 허브에서 생성된 이벤트 데�
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

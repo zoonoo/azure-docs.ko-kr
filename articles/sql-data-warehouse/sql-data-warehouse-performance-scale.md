@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장
@@ -93,4 +93,4 @@ PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell cmdl
 
 [Azure 클래식 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -21,10 +21,7 @@
 # Ubuntu Linux상의 Tedious와 함께 Node.js를 사용하여 SQL 데이터베이스에 연결
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 이 항목에서는 Mac OS X에서 실행 되는 Node.js 코드 샘플을 제공 합니다. 이 샘플은 Tedious 드라이버를 사용 하여 Azure SQL 데이터베이스에 연결합니다.
@@ -175,4 +172,4 @@ OSX 10.10 Yosemite에 node.js를 설치 하려면 깔끔하고 간단하게 설�
 
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

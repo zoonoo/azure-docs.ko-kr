@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/04/2016"
 	ms.author="jgao"/>
 
 # Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -47,74 +47,7 @@
 	
 ##클러스터 만들기
 
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
-
-HDInsight 클러스터를 만들려면 먼저 ARM(Azure 리소스 관리) 및 Azure Blob 저장소 계정이 있어야 합니다. HDInsight 클러스터를 만들려면 다음을 지정해야 합니다.
-
-- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. Azure 리소스 관리자를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 
-
-	구독 중인 리소스 그룹을 나열하려면:
-	
-		azure group list 
-	
-	새 리소스 그룹을 만들려면 다음을 수행합니다.
-	
-		azure group create -n "<Resource Group Name>" -l "<Azure Location>"
-
-- **HDInsight 클러스터 이름**
-
-- **위치**: HDInsight 클러스터를 지원하는 Azure 데이터 센터 중 하나입니다. 지원되는 위치에 대한 목록은 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
-
-- **기본 저장소 계정** - HDInsight는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 Azure 저장소 계정이 필요합니다.
-
-	새 Azure 저장소 계정을 만들려면:
-	
-		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
-
-	> [AZURE.NOTE]저장소 계정은 데이터 센터에 HDInsight와 함께 배치되어야 합니다. ZRS는 테이블을 지원하지 않으므로 저장소 계정 유형은 ZRS일 수 없습니다.
-
-	Azure 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]를 참조하세요.
-	
-	저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
-	
-		-- Lists Storage accounts
-		azure storage account list
-		-- Shows a Storage account
-		azure storage account show "<Storage Account Name>"
-		-- Lists the keys for a Storage account
-		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
-
-	Azure 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]의 "저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
-
-- **(선택 사항) 기본 Blob 컨테이너**: **azure hdinsight cluster create** 명령은 컨테이너가 없는 경우 컨테이너를 만듭니다. 미리 컨테이너를 만들도록 선택하는 경우 다음 명령을 사용할 수 있습니다.
-
-	azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
-
-저장소 계정이 준비되면 클러스터를 만들 준비가 된 것입니다.
-
-	azure hdinsight cluster create --resource-group <Resource Group Name> --clusterName <Cluster Name> --location <Location> --osType <Windows | Linux> --version <Cluster Version> --clusterType <Hadoop | HBase | Spark | Storm> --storageAccountName <Default Storage Account Name> --storageAccountKey <Storage Account Key> --storageContainer <Default Storage Container> --username <HDInsight Cluster Username> --password <HDInsight Cluster Password> --sshUserName <SSH Username> --sshPassword <SSH User Password> --workerNodeCount <Number of Worker Nodes>
-
-
-##구성 파일을 사용하여 클러스터 만들기
-일반적으로 HDInsight 클러스터를 만들고 해당 클러스터에서 작업을 실행한 후에 비용을 줄이기 위해 클러스터를 삭제합니다. 명령줄 인터페이스에는 클러스터를 만들 때마다 다시 사용할 수 있도록 구성을 파일에 저장하는 옵션이 있습니다.
-
-	azure hdinsight config create [options ] <Config File Path> <overwirte>
-	azure hdinsight config add-config-values [options] <Config File Path>
-	azure hdinsight config add-script-action [options] <Config File Path>
-
-예: 클러스터를 만들 때 실행할 스크립트 동작을 포함하는 구성 파일을 만듭니다.
-
-	azure hdinsight config create "C:\myFiles\configFile.config"
-	azure hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <Script Action URI> --name myScriptAction --parameters "-param value"
-	azure hdinsight cluster create --configurationPath "C:\myFiles\configFile.config"
-
-##스크립트 동작을 사용하여 클러스터 만들기
-
-다음은 예제입니다.
-
-	azure hdinsight cluster create -g myarmgroup01 -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
-일반 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정(Linux)](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+[Azure CLI을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-cli.md)를 참조하세요.
 
 ##클러스터 세부 정보 나열 및 표시
 클러스터 세부 정보를 나열하고 표시하려면 다음 명령을 사용합니다.
@@ -173,4 +106,4 @@ Hadoop 클러스터 크기를 변경하려면
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

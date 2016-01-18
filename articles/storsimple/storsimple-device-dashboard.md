@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # StorSimple 관리자 장치 대시보드 사용
@@ -21,7 +21,7 @@
 
 StorSimple 관리자 장치 대시보드는 Microsoft Azure StorSimple 솔루션에 포함된 모든 장치에 대한 정보를 제공하는 서비스 대시보드에 대한 특정 StorSimple 장치에 대한 정보 개요를 제공합니다.
 
-![장치 대시보드 페이지](./media/storsimple-device-dashboard/HCS_DeviceDashboardPage.png)
+![장치 대시보드 페이지](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
 대시보드에는 다음 정보가 포함됩니다.
 
@@ -100,4 +100,4 @@ StorSimple 장치에는 CHAP(Challenge Handshake 인증 프로토콜)를 구성�
 - [StorSimple Manager 서비스 대시보드](storsimple-service-dashboard.md)에 대해 자세히 알아봅니다.
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

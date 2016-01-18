@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/04/2016"
 	ms.author="klam"/>
 
 #논리 앱이란 무엇인가요?
@@ -24,17 +24,17 @@
 | [논리 앱 커넥터 문서](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurelogicapps) |
 
-Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 수 있게 해주는 완전히 관리되는 개발자용 PaaS(Platform as a Service)입니다. 논리 앱은 이 제품군의 일부로, 기술 사용자나 개발자가 사용하기 쉬운 시각적 디자이너를 통해 비즈니스 프로세스 실행 및 워크플로를 자동화할 수 있게 합니다.
+Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 수 있게 해주는 완전히 관리되는 개발자용 PaaS(Platform as a Service)입니다. 논리 앱은 이 제품군의 일부로, 기술 사용자나 개발자가 사용하기 쉬운 비주얼 디자이너를 사용하여 비즈니스 프로세스 실행 및 워크플로를 자동화할 수 있게 합니다.
 
 무엇보다도, 논리 앱을 마켓플레이스의 [커넥터][connectors]와 결합하여 까다로운 통합 시나리오도 쉽게 해결할 수 있습니다.
 
 ![흐름 앱 디자이너](./media/app-service-logic-what-are-logic-apps/Designer.png)
 
-자동으로 SQL DB에 새 레코드를 복제하고 프런트 데스크에 메일을 보내거나 부정적인 트윗을 자동으로 찾아 여유 시간 채널에 보내려는 경우
+자동으로 SQL DB에 새 레코드를 복제하고 프런트 데스크에 메일을 보낼 수 있습니다. 또는 부정적인 트윗을 자동으로 찾아 여유 시간 채널에 보낼 수 있습니다.
 
 ##논리 앱 사용 이유
 
-논리 앱을 통해 개발자는 트리거에서 시작된 다음 검사점 설정 및 지속적 실행과 같은 모범 사례 및 인증을 안전하게 처리하는 동시에 각각 앱 서비스 API 앱을 호출하는 일련의 단계를 실행하는 워크플로를 디자인할 수 있습니다.
+논리 앱을 통해 개발자는 트리거에서 시작된 다음 일련의 단계를 실행하는 워크플로를 디자인할 수 있습니다. 검사점 설정 및 지속적 실행과 같은 모범 사례 및 인증을 안전하게 처리하는 동시에 각각 앱 서비스 API 앱을 호출합니다.
 
 비즈니스 프로세스를 자동화하려는 경우(예: 부정적인 트윗을 찾아 내부 여유 시간 채널에 게시하거나 도착 시 SQL의 새 고객 레코드를 CRM 시스템으로 복제) 논리 앱은 클라우드의 개별 데이터 원본을 온-프레미스로 쉽게 통합할 수 있게 해줍니다. [커넥터][connectors]에서 자세한 내용을 검토하고 지금 [시작][create]하여 어떤 작업을 수행할 수 있는지 확인하세요.
 
@@ -75,4 +75,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -7,15 +7,18 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-<tags ms.service="app-service-logic" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na"
-	
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # 논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용
 
-논리 앱에는 다양한 서비스에 대해 40개가 넘는 다양한 집합의 커넥터가 있으나 고유의 코드를 실행할 수 있는 고유의 사용자 지정 API를 호출하려 할 수 있습니다. 고유의 사용자 지정 Web API를 호스트하는 가장 쉽고 확장성이 뛰어난 방법 중 하나는 앱 서비스를 사용하는 것입니다. 이 문서에서는 앱 서비스 웹앱에서 호스팅되는 Web API를 호출하는 방법을 설명합니다.
+논리 앱에는 다양한 서비스에 대해 40개가 넘는 다양한 집합의 커넥터가 있으나 고유의 코드를 실행할 수 있는 고유의 사용자 지정 API를 호출하려 할 수 있습니다. 고유의 사용자 지정 Web API를 호스트하는 가장 쉽고 확장성이 뛰어난 방법 중 하나는 앱 서비스를 사용하는 것입니다. 이 문서에서는 앱 서비스 API 앱, 웹앱 또는 모바일 앱에서 호스트되는 Web API를 호출하는 방법을 설명합니다.
 
 ## 웹앱 배포
 
@@ -29,15 +32,15 @@
 
 우선 되풀이 트리거를 사용하거나 **수동으로 해당 논리 실행**을 클릭하려고 합니다. 다음으로 실제로 API에 호출을 하려 합니다. 그러려면 오른쪽에서 녹색 **HTTP**를 클릭합니다.
 
-1. **메서드**를 선택합니다. 이는 API의 코드에서 정의됩니다
-2. **URL** 섹션에서 배포된 웹앱에 **URL**을 붙여넣습니다.
+1. **메서드**를 선택합니다. 이는 API의 코드에서 정의됩니다.
+2. **URL** 섹션에서 배포된 웹앱에 대한 **URL**을 붙여넣습니다.
 3. **헤더**가 필요한 경우 다음과 같이 JSON 형식에 포함합니다. `{"Content-type" : "application/json", "Accept" : "application/json" }`
-4. API가 공개이면 **인증**을 비워둘 수 있습니다. API에 호출을 확보하려는 경우 다음 섹션을 참조합니다.
+4. API가 공개이면 **인증**을 비워둘 수 있습니다. API에 호출을 보호하려면 다음 섹션을 참조하세요.
 5. 마지막으로 API에서 정의된 질문의 **본문**을 포함합니다.
 
 명령 모음에서 **저장**을 클릭합니다. **지금 실행**을 클릭하면 실행된 목록에서 API 및 응답에 호출이 표시되어야 합니다.
 
-공용 API가 있다면 이는 훌륭하게 작동하지만 API를 확보하려는 경우 작업을 수행할 수 있는 두 가지 방법이 있습니다.
+이 방식은 공용 API가 있는 경우 효과적입니다. 하지만 API를 보호하려면 두 가지 다른 방법이 있습니다.
 
 1. *코드 변경 필요하지 않음* - Azure Active Directory를 사용하여 코드 변경 또는 다시 배포 없이 API를 보호할 수 있습니다.
 2. API의 코드에서 기본 인증, AAD 인증 또는 인증서 인증을 적용합니다. 
@@ -48,7 +51,7 @@
 
 ### 1부: 논리 앱용 응용 프로그램 ID 설치
 
-논리 앱이 Active Directory에 대해 인증하기 위해 사용하는 것입니다. 이 작업은 디렉토리에 한번만 *필요*합니다. 예를 들어 원하는 경우 논리 앱 마다 고유한 ID를 만들 수 있지만 모든 논리 앱에 동일한 ID를 사용하도록 선택할 수 있습니다. UI에서 이 작업을 수행하거나 PowerShell을 사용할 수 있습니다.
+이는 논리 앱이 Active Directory에 대해 인증하기 위해 사용하는 것입니다. 디렉터리에 대해 한 번만 수행하면 *됩니다*. 예를 들어 모든 논리 앱에 대해 같은 ID를 사용하도록 선택할 수 있지만 원한다면 논리 앱마다 고유한 ID를 만들 수도 있습니다. UI에서 이 작업을 수행하거나 PowerShell을 사용할 수 있습니다.
 
 #### Azure 클래식 포털을 사용하여 응용 프로그램 ID 만들기
 
@@ -79,7 +82,7 @@
 2. **권한 부여/인증**을 클릭합니다. 
 3. **켭니다**.
 
-이 시점에서 응용 프로그램은 사용자에 대해 자동으로 생성됩니다. 이 응용 프로그램의 클라이언트 ID는 3부에 필요하므로 다음을 수행해야 합니다.
+이 시점에서 응용 프로그램은 사용자에 대해 자동으로 만들어집니다. 이 응용 프로그램의 클라이언트 ID는 3부에 필요하므로 다음을 수행해야 합니다.
 
 1. [Azure 클래식 포털의 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)로 이동하고 디렉터리를 선택합니다. 
 2. 검색 상자에서 앱 검색
@@ -115,7 +118,7 @@
 ]
 ```
 
-AAD을 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배포를 실행하려면 다음 단추를 클릭합니다. [![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배포를 실행하려면 다음 단추를 클릭합니다. [![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 전체 템플릿은 [AAD에서 보호하고 앱 서비스에서 호스팅되는 사용자 지정 API로 논리 앱 호출](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json)을 참조하세요.
 
@@ -168,6 +171,6 @@ AAD을 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 
 계속 진행하면 포털 기능을 활용하지 않고 고유의 코드에서 완전히 구현하려는 경우 다음 문서를 읽습니다. [Azure 앱 서비스에서 인증을 위해 Active Directory 사용](web-sites-authentication-authorization.md).
 
-위의 단계를 수행하여 논리 앱에 대한 응용 프로그램 ID를 만들고 해당 ID를 사용하여 API를 호출해야 합니다.
+위의 단계를 계속해서 수행하여 논리 앱에 대한 응용 프로그램 ID를 만들고 해당 ID를 사용하여 API를 호출해야 합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

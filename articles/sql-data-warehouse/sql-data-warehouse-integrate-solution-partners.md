@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="joliang"/>
 
 # SQL 데이터 웨어하우스 솔루션 파트너
@@ -101,4 +101,4 @@ SQL 데이터 웨어하우스와의 통합에 대한 자세한 내용은 [SQL �
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/05/2016" 
 	ms.author="robmcm"/>
 
 # Jenkins 연속 통합 솔루션과 함께 Azure 저장소 사용
@@ -162,4 +162,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/06/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # SQL 데이터 웨어하우스와 함께 Power BI 사용
@@ -63,4 +63,4 @@ Power BI에서 열기 단추를 사용 하는 것 외에도 사용자는 Power B
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

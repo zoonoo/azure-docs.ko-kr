@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -209,8 +209,8 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 |이름| 필수/ 반복 | 형식 | 참고 사항 |
 |--- | ---                 | ---  | ---   |
 | **원본** | 필수 | String | 업데이트할 **원본** 값입니다. |
-| **defaultValue** | 옵션 | String | 원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
-| **key** | 필수 | 문자열 | **원본** 값과 비교할 **Key**입니다. |
+| **defaultValue** | 옵션 | 문자열 | 원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
+| **key** | 필수 | String | **원본** 값과 비교할 **Key**입니다. |
 | **값** | 필수 | 문자열 | 키와 일치하는 **원본**의 대체 값입니다. |
 
 
@@ -279,7 +279,7 @@ SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
-**샘플 입출력:**
+**샘플 입/출력:**
 
 - **입력**(extensionAttribute1): "20150123105347.1Z"
 
@@ -298,7 +298,7 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
-**샘플 입출력:**
+**샘플 입/출력:**
 
 - **입력**(상태): "QLD"
 
@@ -307,4 +307,4 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

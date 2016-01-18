@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="msStevenPo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory(Azure AD) B2B 공동 작업
@@ -69,7 +69,7 @@ Azure B2B 공동 작업에 대한 다른 기사 찾아보기
 - [자세한 연습](active-directory-b2b-detailed-walkthrough.md)
 - [CSV 파일 형식 참조](active-directory-b2b-references-csv-file-format.md)
 - [외부 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md)
-- [외부 사용자 개체 특성 변경](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

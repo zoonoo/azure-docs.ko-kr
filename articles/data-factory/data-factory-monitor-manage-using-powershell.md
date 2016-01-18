@@ -26,7 +26,7 @@
 
 [Azure Data Factory 시작][adf-get-started] 자습서에서는 [Azure 포털][azure-portal]을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory를 만들고 모니터링합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
-> [AZURE.IMPORTANT] [자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+> [AZURE.IMPORTANT][자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 >   
 > 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](https://msdn.microsoft.com/library/dn820234.aspx)(영문)를 참조하세요.
   
@@ -431,7 +431,6 @@
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
 [old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
 [azure-portal]: http://portal.azure.com
@@ -440,7 +439,7 @@
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
-[sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
+[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

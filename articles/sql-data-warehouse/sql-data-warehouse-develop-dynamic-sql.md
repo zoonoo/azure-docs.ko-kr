@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 동적 SQL
@@ -31,6 +31,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 문자열이 짧은 경우 일반적으로 [sp\_executesql][]을 사용할 수 있습니다.
 
+> [AZURE.NOTE]동적 SQL로 실행되는 문은 모든 TSQL 유효성 검사 규칙에 적용됩니다.
 
 ## 다음 단계
 더 많은 개발 팁은 [개발 개요][]를 참조하세요.
@@ -45,4 +46,4 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

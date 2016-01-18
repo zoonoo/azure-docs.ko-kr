@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs 설명서 리소스
 
 ## 개요
 
-이 항목은 Azure WebJob 및 Azure WebJobs SDK를 사용하는 방법에 대한 설명서 리소스에 연결됩니다. Azure WebJob은 쉽게 스크립트 또는 프로그램을 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 백그라운드 프로세스로 실행하는 편리한 방법을 제공합니다. cmd, bat, exe(.NET), ps1, sh, php, py, js 및 jar와 같은 실행 파일을 업로드하고 실행할 수 있습니다. 이러한 프로그램은 일정에 따라(cron) 또는 지속적으로 WebJob으로 실행됩니다.
+이 항목은 Azure WebJob 및 Azure WebJobs SDK를 사용하는 방법에 대한 설명서 리소스에 연결됩니다. Azure WebJobs는 스크립트 또는 프로그램을 [앱 서비스 웹앱, API 앱 또는 모바일 앱](../app-service/app-service-value-prop-what-is.md)의 컨텍스트에서 백그라운드 프로세스로 실행하는 편리한 방법을 제공합니다. cmd, bat, exe(.NET), ps1, sh, php, py, js 및 jar와 같은 실행 파일을 업로드하고 실행할 수 있습니다. 이러한 프로그램은 일정에 따라(cron) 또는 지속적으로 WebJob으로 실행됩니다.
 
-WebJobs SDK를 사용하면 Azure 저장소를 보다 쉽게 사용할 수 있습니다. WebJobs SDK에는 Microsoft Azure 저장소 Blob, 큐 및 테이블 뿐만 아니라 서비스 버스 큐에서 작동하는 바인딩 및 트리거 시스템이 있습니다.
+[WebJobs SDK](websites-webjobs-resources.md) 목적은 WebJob이 이미지 처리, 큐 처리, RSS 집계, 파일 유지 관리, 전자 메일 보내기 등을 수행한는 일반적인 작업에 대해 작성하는 코드를 간소화하는 것입니다. WebJobs SDK에는 Azure 저장소 및 서비스 버스 작업, 작업 예약 및 오류 처리, 기타 여러 일반적인 시나리오를 위한 기본 제공 기능이 있습니다. 또한 확장이 가능하기 때문에 [확장을 위한 오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)도 있습니다.
 
 Visual Studio의 통합 도구를 사용하면 WebJob을 원활하게 만들고, 배포하고, 관리할 수 있습니다. 템플릿에서 WebJob을 만들고, 게시하고 관리(실행/중지/모니터링/디버깅)할 수 있습니다.
 
@@ -35,12 +35,13 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Azure WebJobs 기능](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)
 * [Microsoft Patterns and Practices에 따른 백그라운드 작업 지침](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
-* [Microsoft Azure WebJobs SDK 1.0.0 RTM 발표](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
+* [Microsoft Azure WebJobs SDK의 1.1.0 RTM 발표](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md)
 * [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-* [WebJobs SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
+* [WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
+* [WebJobs SDK에서 Webhook을 사용하는 방법(GitHub, IFTTT 및 HTTP에 대한 예제 포함)](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/WebHooks-Walkthrough)
 * [Azure WebJobs SDK 빠른 참조(PDF 다운로드)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [GitHub의 WebJobs 설정 설명서](https://github.com/projectkudu/kudu/wiki/Web-jobs)
 * 비디오
@@ -48,6 +49,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 	* [Channel 9의 Azure WebJobs 비디오 시리즈](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 	* [WebJobs Tooling for Visual Studio 소개](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [WebJobs Tooling 및 원격 디버깅](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster)
+	* [Pranav Rastogi에서 Azure WebJobs 업데이트 - 릴리스 1.1의 확장성](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-183-Azure-WebJobs-Update-with-Pranav-Rastogi)
 
 [WebJobs 배포](#deploy) 및 [WebJobs 테스트 및 디버깅](#debug)에 대한 다음 섹션도 참조하세요.
 
@@ -69,6 +71,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Azure 포털에서 예약된 WebJob 만들기](web-sites-create-web-jobs.md#CreateScheduled)
 * [스케줄러 작업을 WebJob에 연결](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [cron 식을 사용하여 Azure WebJob 예약](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
+* [WebJobs SDK TimerTrigger를 사용하여 개별 WebJob 기능 예약](websites-dotnet-webjobs-sdk.md#schedule)
 
 ##<a name="debug"></a>WebJob 테스트 및 디버깅
 
@@ -78,7 +81,6 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [원격 디버깅 WebJobs](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 * [Blob 작성 주체](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [클라우드에서 대화형 코드 호스트](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
-* [WebJobs SDK로 로컬 개발을 위한 대시보드 가져오기](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
 * [Azure WebJobs에 추적 추가](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
 * [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting/)
 * 비디오
@@ -106,9 +108,9 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 
 ##<a name="additionalsdk"></a>추가 WebJobs SDK 리소스
 
+* [WebJobs SDK 릴리스 정보](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
+* [WebJobs SDK 확장의 오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions), [확장성 모델에 대한 자세한 가이드](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
 * [WebJobs SDK 소스 코드](https://github.com/Azure/azure-webjobs-sdk)
-* [[BlobTrigger] 작동 방식](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
-* [Azure WebJobs SDK와의 고급 바인딩](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [WebJobs SDK를 사용하여 Azure 저장소에 FREB 파일을 업로드하기 위한 WebJob](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Azure 외부에 Azure WebJobs를 호스트하여 Azure 호스트 WebJob의 로깅 이점 얻기](http://bypassion.dk/?p=510)
 * [Azure WebJobs를 사용하여 데이터 가져오기 도구 구축](http://www.freshconsulting.com/building-data-import-tool-azure-webjobs/)
@@ -137,9 +139,4 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Twitter](http://twitter.com/). 해시 태그 #AzureWebJobs를 사용합니다.
 * [WebJobs 버그 또는 문제 보고](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

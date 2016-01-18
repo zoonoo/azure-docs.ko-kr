@@ -1,6 +1,6 @@
 <properties
    pageTitle="저장소에 대한 리소스 관리자 템플릿 | Microsoft Azure"
-   description="저장소 계정에 대한 리소스 관리자 스키마를 보여 줍니다."
+   description="템플릿을 통해 저장소 계정을 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# 저장소 계정 - 템플릿 스키마
+# 저장소 계정 템플릿 스키마
 
 저장소 계정을 만듭니다.
 
@@ -78,9 +78,22 @@
 	    "outputs": {}
     }
 
+## 빠른 시작 템플릿
+
+저장소 계정을 포함하는 많은 빠른 시작 템플릿이 있습니다. 다음 템플릿은 몇 가지 일반적인 시나리오를 보여 줍니다.
+
+- [표준 저장소 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+- [Windows VM의 간단한 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+- [Linux VM의 간단한 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+- [CDN 프로필, 저장소 계정을 원본으로 사용하여 CDN 끝점 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+- [Powershell DSC 확장을 사용하여 9개의 VM을 가진 고가용성 SharePoint 팜 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+- [WAD가 사용하도록 설정된 상태에서 5 노드 보안 서비스 패브릭 클러스터의 간단한 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)
+- [4개의 빈 데이터 디스크를 사용하여 Windows 이미지에서 가상 컴퓨터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
+
+
 ## 다음 단계
 
 - 저장소에 관한 일반적인 정보는 [Microsoft Azure 저장소 소개](./storage/storage-introduction.md)를 참조하세요.
 - 가상 컴퓨터로 새 저장소 계정을 사용하는 예제 템플릿은 [간단한 Linux VM 배포](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) 또는 [간단한 Windows VM 배포](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/22/2015"
+ ms.date="01/04/2016"
  ms.author="rasquill"/>
 
 #가상 컴퓨터 에이전트 및 확장 정보
 
-Azure 가상 컴퓨터 에이전트(VM 에이전트)는 Azure 가상 컴퓨터 확장(VM 확장)을 설치, 구성, 관리 및 실행하는 데 사용됩니다. VM 확장은 Microsoft 및 기타 타사가 제공하는 동적 기능을 구현합니다. 에이전트 및 확장은 주로 관리 포털을 통해 추가되지만 VM을 만들 때나 기존 VM에서 [Powershell](../install-configure-powershell.md) cmdlet 또는 [Azure CLI](xplat-install.md)를 사용하여 추가 및 구성할 수도 있습니다.
+Azure 가상 컴퓨터 에이전트(VM 에이전트)는 Azure 가상 컴퓨터 확장(VM 확장)을 설치, 구성, 관리 및 실행하는 데 사용됩니다. VM 확장은 Microsoft 및 기타 타사가 제공하는 동적 기능을 구현합니다. 에이전트 및 확장은 주로 관리 포털을 통해 추가되지만 VM을 만들 때나 기존 VM에서 [Powershell](../powershell-install-configure.md) cmdlet 또는 [Azure CLI](../xplat-cli-install.md)를 사용하여 추가 및 구성할 수도 있습니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
@@ -44,9 +44,9 @@ Windows VM용 에이전트와 Linux VM용 에이전트 등, 두 가지 Azure VM 
 
 VM 에이전트는 다음과 같은 상황에서 사용됩니다.
 
--   관리 포털에서 **Quick Create** 메서드를 사용하거나, 관리 포털에서 **Custom Create** 메서드를 사용하고 **VM 에이전트 설치** 확인란을 선택하여(아래 그림 참조) 가상 컴퓨터의 인스턴스를 만들 때. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법](virtual-machines-create-custom.md)을 참조하세요.
+-   관리 포털에서 **Quick Create** 메서드를 사용하거나, 관리 포털에서 **Custom Create** 메서드를 사용하고 **VM 에이전트** 확인란을 선택하여(아래 이미지처럼) 가상 컴퓨터의 인스턴스를 만들 때. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법](virtual-machines-create-custom.md)을 참조하세요.
 
-    ![VM 에이전트 확인란](./media/virtual-machines-extensions-agent-about/IC719409.png "VM 에이전트 확인란")
+    ![VM 에이전트 확인란](media/virtual-machines-extensions-agent-about/IC719409.png)
 
 -   [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) 또는 [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) cmdlet을 사용하여 가상 컴퓨터의 인스턴스를 만들 때. **–DisableGuestAgent** 매개 변수를 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) cmdlet에 추가하면 VM 에이전트 설치 없이 VM을 만들 수 있습니다.
 
@@ -66,4 +66,4 @@ VM 에이전트는 다음과 같은 상황에서 사용됩니다.
 
 이러한 작업에 대한 자세한 내용은 [Azure VM 확장 추가, 찾기, 업데이트 및 제거](virtual-machines-extensions-install.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

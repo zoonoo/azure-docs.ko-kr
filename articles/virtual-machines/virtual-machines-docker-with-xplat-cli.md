@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용
@@ -24,14 +24,9 @@
 
 이 항목에서는 모든 플랫폼에서 Azure CLI의 서비스 관리(asm) 모드에서 Docker VM 확장을 사용하여 VM을 만드는 방법을 설명합니다. [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md)에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
-+ [Azure와 함께 Docker VM 확장을 사용하는 방법]
-+ [Linux 및 Windows용 가상 컴퓨터 확장]
-+ [Azure용 컨테이너 및 컨테이너 관리 리소스]
-+ [다음 단계]
 
 ##Azure와 함께 Docker VM 확장을 사용하는 방법
 Azure와 함께 Docker VM 확장을 사용하려면 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)(Azure CLI) 0.8.6 이상 버전을 설치해야 합니다(이 문서를 작성할 당시 현재 버전은 0.8.10임). Mac, Linux 및 Windows에 Azure CLI를 설치할 수 있습니다.
-
 
 
 Azure에서 Docker를 사용하는 전체 프로세스는 간단합니다.
@@ -160,16 +155,12 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [Subheading 1]: #subheading-1
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
-[다음 단계]: #next-steps
+[Next steps]: #next-steps
 
-[Azure와 함께 Docker VM 확장을 사용하는 방법]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Linux 및 Windows용 가상 컴퓨터 확장]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Azure용 컨테이너 및 컨테이너 관리 리소스]: #Container-and-Container-Management-Resources-for-Azure
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
@@ -181,4 +172,4 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

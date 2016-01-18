@@ -1,5 +1,7 @@
-This setting allows you to specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
+이 설정을 사용하면 이 가상 네트워크에 대한 이름 확인에 사용하려는 DNS 서버를 지정할 수 있습니다. DNS 서버를 만들지 않습니다.
 
-1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to expand.
-2. On the **DNS Servers** page, under **DNS servers**, select **Custom DNS**.
-3. In the **Primary DNS server** field, enter the IP address of the DNS server that you want to use for name resolution.
+1. 가상 네트워크에 대한 **설정** 페이지에서 **DNS 서버**로 이동하고 클릭하여 확장합니다.
+2. **DNS 서버** 페이지의 **DNS 서버**에서 **사용자 지정 DNS**를 선택합니다.
+3. **주 DNS 서버** 필드에서 이름 확인에 사용하려는 DNS 서버의 IP 주소를 입력합니다.
+
+<!---HONumber=AcomDC_0107_2016-->

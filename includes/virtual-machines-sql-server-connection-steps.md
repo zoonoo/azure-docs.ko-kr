@@ -1,40 +1,3 @@
-다음 단계는 SQL Server Management Studio (SSMS)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온 프레미스 및 Azure에서 실행중인 응용 프로그램에 대해 SQL Server 가상 컴퓨터를 액세스할 수 있게 만들도록 적용합니다.
-
-인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 아래의 섹션에 설명된 대로 다음 작업을 완료해야 합니다.
-
-- [가상 컴퓨터에 대한 TCP 끝점 만들기](#create-a-tcp-endpoint-for-the-virtual-machine)
-- [Windows 방화벽에서 TCP 포트 열기](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [TCP 프로토콜에서 수신하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [혼합된 모드 인증에 대한 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
-- [SQL Server 인증 로그인 만들기](#create-sql-server-authentication-logins)
-- [가상 컴퓨터의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
-- [다른 컴퓨터에서 데이터베이스 엔진에 연결](#connect-to-the-database-engine-from-another-computer)
-
-연결 경로는 다음 다이어그램에 요약되어 있습니다.
-
-![SQL Server 가상 컴퓨터에 연결](./media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
-
-### 가상 컴퓨터용 TCP 끝점 만들기
-
-인터넷에서 SQL 서버에 연결하려면, 가상 컴퓨터에 들어오는 TCP 통신을 수신하는 끝점이 있어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
-
->[AZURE.NOTE]동일한 클라우드 서버 또는 가상 네트워크 내에서 연결하는 경우, 공개적으로 엑세스 할 수 있는 끝점을 만들 필요가 없습니다. 이 경우, 다음 단계를 계속 할 수 있습니다. 자세한 내용은 [연결 시나리오](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios)를 참조하세요.
-
-1. Azure 관리 포털에서 **가상 컴퓨터**를 클릭합니다.
-	
-2. 새로 만든 가상 컴퓨터를 클릭합니다. 가상 컴퓨터에 대한 정보가 표시됩니다.
-	
-3. 페이지 맨 위 근처에서 **끝점** 페이지를 선택한 후 페이지 맨 아래에서 **추가**를 클릭합니다.
-	
-4. **가상 컴퓨터에 끝점 추가** 페이지에서 **독립 실행형 끝점 추가**를 클릭한 후 다음 화살표를 클릭하여 계속합니다.
-	
-5. **끝점의 세부 정보를 지정하십시오.** 페이지에서 다음 정보를 제공합니다.
-
-	- **이름** 상자에 끝점의 이름을 입력합니다.
-	- **프로토콜** 상자에서 **TCP**를 선택합니다. **공용 포트** 상자에 **57500**을 입력할 수 있습니다. 마찬가지로, SQL Server의 기본 수신 대기 포트 **1433**를 **개인 포트** 상자에 입력할 수 있습니다. 많은 조직이 악의적인 보안 공격을 방지하기 위해 다른 포트 번호를 선택합니다. 
-
-6. 확인 표시를 클릭하여 계속합니다. 끝점이 만들어집니다.
-
 ### Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
 
 1. Windows 원격 데스크톱을 통해 가상 컴퓨터에 연결합니다. 시작 화면에서 로그인한 후 **WF.msc**를 입력하고 ENTER를 누릅니다. 
@@ -161,26 +124,4 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
 
-### 가상 컴퓨터의 DNS 이름 확인
-
-다른 컴퓨터에서 SQL Server 데이터베이스 엔진에 연결하려면 가상 컴퓨터의 DNS(Domain Name System) 이름을 알아야 합니다. 이 이름은 인터넷에서 가상 컴퓨터를 식별하는 이름입니다. IP 주소를 사용할 수 있지만 Azure가 중복 또는 유지 관리를 위해 리소스를 이동할 경우 IP 주소가 변경될 수 있습니다. DNS 이름은 새 IP 주소로 리디렉션할 수 있으므로 안정적입니다.
-
-1. Azure 관리 포털(또는 이전 단계)에서 **가상 컴퓨터**를 선택합니다. 
-
-2. **가상 컴퓨터 인스턴스** 페이지의 **빠른 보기** 열에서 http://로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다.
-
-	![DNS 이름](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
-	
-
-### 다른 컴퓨터에서 데이터베이스 엔진에 연결
- 
-1. 인터넷에 연결된 컴퓨터에서 SQL Server Management Studio를 엽니다.
-2. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자의 **서버 이름** 상자에 가상 컴퓨터의 DNS 이름(이전 작업에서 확인된 이름) 및 공개 끝점 포트 번호를 *DNS이름,포트 번호* 형식(예: **tutorialtestVM.cloudapp.net,57500**)으로 입력합니다. 포트 번호를 가져오려면 Azure 관리 포털에 로그인하여 가상 컴퓨터를 찾습니다. 대시보드에서 **끝점**을 클릭하고 **MSSQL**에 할당된 **공용 포트**를 사용합니다. ![공용 포트](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. **인증** 상자에 **SQL Server 인증**을 선택합니다.
-5. **로그인** 상자에, 이전 작업에서 만든 로그인 이름을 입력합니다.
-6. **암호** 상자에, 이전 작업에서 만든 로그인의 암호를 입력합니다.
-7. **Connect**를 클릭합니다.
-
-	![SSMS를 사용하여 연결](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

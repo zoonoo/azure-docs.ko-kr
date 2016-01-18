@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/05/2016" 
 	ms.author="v-dedomi"/>
 
 # Java에서 파일 저장소를 사용하는 방법
@@ -222,4 +222,4 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

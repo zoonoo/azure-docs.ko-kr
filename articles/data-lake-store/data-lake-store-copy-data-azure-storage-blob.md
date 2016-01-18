@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="01/05/2016"
    ms.author="nitinme"/>
 
 # Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사
 
-Azure 데이터 레이크 저장소는 Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터를 복사하는 [AdlCopy](http://aka.ms/downloadadlcopy)라는 명령줄 도구를 제공합니다. 두 가지 방법으로 도구를 사용할 수 있습니다.
+Azure 데이터 레이크 저장소는 **Azure 저장소 Blob에서 데이터 레이크 저장소로** 데이터를 복사하는 [AdlCopy](http://aka.ms/downloadadlcopy)라는 명령줄 도구를 제공합니다. 데이터 레이크 저장소에서 Azure 저장소 Blob으로 데이터를 복사하는 데 AdlCopy를 사용할 수 없습니다.
+
+두 가지 방법으로 AdlCopy 도구를 사용할 수 있습니다.
 
 * **독립 실행형**, 여기서 도구는 데이터 레이크 저장소 리소스를 사용하여 작업을 수행합니다.
 * **데이터 레이크 분석 계정 사용**, 여기서 데이터 레이크 분석 계정에 할당된 단위는 복사 작업을 수행하는 데 사용됩니다. 예측 가능한 방식으로 복사 작업을 수행하려는 경우 이 옵션을 사용 수 있습니다.
@@ -68,9 +70,12 @@ Azure 데이터 레이크 저장소는 Azure 저장소 Blob에서 데이터 레�
 		Initializing Copy.
 		Copy Started.
 		...............
-		The total progress of copy operation is 0.00%.
+		0.00% data copied.
 		. . .
-		The total progress of copy operation is 100.00%.
+		. . .
+		100% data copied.
+		Finishing copy.
+		....
 		Copy Completed.
 
 1. 다음 명령을 사용하여 한 컨테이너에서 데이터 레이크 저장소 계정으로 모든 BLOB를 복사할 수 있습니다.
@@ -103,10 +108,14 @@ AdlCopy와 함께 데이터 레이크 분석 계정을 사용하려면 원본(Az
 
 * 데이터 레이크 분석 계정과 함께 AdlCopy 도구를 사용하면 표준 [데이터 레이크 분석 청구 금액](https://azure.microsoft.com/pricing/details/data-lake-analytics/)이 적용 됩니다.
 
+## AdlCopy 사용에 대한 고려 사항
+
+* AdlCopy에서는 전체적으로 1000개보다 많은 파일 및 폴더가 있는 원본에서의 데이터 복사를 지원하지 않습니다. 대체 방법은 파일/폴더를 다른 하위 폴더에 배포하고 해당 하위 폴더에 대한 경로를 원본으로 대신 사용하는 것입니다.
+
 ## 다음 단계
 
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

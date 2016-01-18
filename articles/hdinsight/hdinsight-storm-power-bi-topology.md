@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="01/06/2015"
  ms.author="larryfr"/>
 
 # Power BI(미리 보기)를 사용하여 Apache Storm 토폴로지에서 데이터 시각화
@@ -67,7 +67,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 ## 샘플 구성
 
-1. Visual Studio에서 샘플을 엽니다. **솔루션 탐색기**에서 **SCPHost.exe.config** 파일을 열고 **<OAuth .../>** 요소를 찾습니다. 이 요소의 다음 속성 값을 입력합니다.
+1. Visual Studio에서 샘플을 엽니다. **솔루션 탐색기**에서 **App.config** 파일을 열고 **<OAuth .../>** 요소를 찾습니다. 이 요소의 다음 속성 값을 입력합니다.
 
     * **Client**: 이전에 만든 응용 프로그램 등록을 위한 클라이언트 ID입니다.
 
@@ -105,7 +105,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 3. **Fields** 영역에서 **WordCount**를 확장합니다. **Count** 및 **Word** 항목을 페이지의 가운데 부분으로 끌어옵니다. 그러면 각 단어에 대해 해당 단어가 발생한 횟수를 나타내는 막대가 표시된 새 차트가 만들어집니다.
 
-    ![Wordcount 차트](./media/hdinsight-storm-power-bi-topology/wordcountchart.png)
+    ![WordCount 차트](./media/hdinsight-storm-power-bi-topology/wordcountchart.png)
 
 4. 페이지의 왼쪽 위에서 **Save**를 선택하여 새 보고서를 만듭니다. **Word Count**를 보고서 이름으로 입력합니다.
 
@@ -139,4 +139,4 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

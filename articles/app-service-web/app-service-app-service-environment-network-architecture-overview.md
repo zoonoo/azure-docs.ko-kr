@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/17/2015" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경의 네트워크 아키텍처 개요
@@ -44,7 +44,7 @@
  
 ![아웃 바운드 IP 주소][OutboundIPAddress]
 
-이 주소는 앱 서비스 환경의 앱 생성 및 앱 주소상의 *nslookup* 수행을 통해 결정됩니다. 결과 IP 주소는 공용 VIP, 앱 서비스 환경의 아웃바운드 NAT 주소 둘다 해당됩니다.
+이 주소는 앱 서비스 환경의 앱 생성 및 앱 주소상의 *nslookup* 수행을 통해 결정됩니다. 결과 IP 주소는 공용 VIP, 앱 서비스 환경의 아웃바운드 NAT 주소 둘 다 해당됩니다.
 
 끝점이 가상 네트워크 토폴리지 **내**에서 호출된 경우, 호출한 응용 프로그램의 아웃바운드 주소는 개별 계산 리소스의 내부 IP 주소입니다. 그러나 앱에 내부 IP 주소를 가상 네트워크의 지속적으로 매핑하지 않습니다. 앱은 다른 계산 리소스에 걸쳐 이동할 수 있고, 앱 서비스 환경의 사용 가능한 계산 리소스의 풀은 크기 조정 때문에 변경됩니다.
 
@@ -62,7 +62,7 @@
 ## 앱 서비스 환경 간의 호출 ##
 동일 가상 네트워크의 여러 앱 서비스 환경에 배포하고 다른 앱 서비스 환경에서 다른 앱 서비스 환경으로 아웃바운드 호출을 작성하는 경우 더 복잡한 시나리오가 발생할 수 있습니다. 이러한 종류의 크로스 앱 서비스 환경 호출은 "Internet" 호출로도 처리됩니다.
 
-다음 다이어그램은 두 번째 앱 서비스 환경(예: 내부 백 엔드 API 앱은 인터넷에서 액세스할 수 있도록 하지 않았음)에서 앱을 호출하는 하나의 앱 서비스 환경에서 앱으로 계층화된 아키텍처의 예를 보여 줍니다.(예: "프런트 도어" 웹앱)
+다음 다이어그램은 두 번째 앱 서비스 환경(예: 인터넷에서 액세스할 수 없는 내부 백 엔드 API 앱)에서 앱을 호출하는 하나의 앱 서비스 환경(예: "프런트 도어" 웹앱)에서 앱으로 계층화된 아키텍처의 예제를 보여 줍니다.
 
 ![앱 서비스 환경 간의 호출][CallsBetweenAppServiceEnvironments]
 
@@ -87,4 +87,4 @@
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

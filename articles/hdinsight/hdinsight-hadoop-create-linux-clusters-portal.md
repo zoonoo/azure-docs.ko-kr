@@ -36,9 +36,9 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
-    ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
+    ![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Azure Preview 포털에서 새 클러스터 만들기")
 
-3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택한 다음 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
     > [AZURE.NOTE]HBase 또는 Storm 클러스터를 프로비전하려면 **클러스터 형식** 드롭다운 목록에서 적절한 값을 선택합니다.
 
@@ -54,7 +54,7 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 	![클러스터 자격 증명 제공](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.3.png "클러스터 자격 증명 제공")
 
-	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
+	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -66,13 +66,13 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
 
-	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
+	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **선택키**를 입력하려면 이 항목을 **선택키**로 설정합니다.
 
 	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
 	- **기본 컨테이너 선택**: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
 
-	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지역입니다.
+	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지리적인 지역입니다.
 
 		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
 
@@ -122,11 +122,11 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 	| 프로비전 중 | 프로비전 완료 |
 	| ------------------ | --------------------- |
-	| ![시작 보드에 표시기 프로비저닝](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioned.png) |
+	| ![시작 보드에 표시기 프로비전](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioned.png) |
 
 	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인하세요.
 
-11. 프로비저닝이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다. 클러스터 블레이드는 이름, 속한 리소스 그룹, 위치, 운영 체제, 클러스터 대시보드의 URL 등 클러스터에 대한 필수 정보를 제공합니다.
+11. 프로비전이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다. 클러스터 블레이드는 이름, 속한 리소스 그룹, 위치, 운영 체제, 클러스터 대시보드의 URL 등 클러스터에 대한 필수 정보를 제공합니다.
 
 	![클러스터 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.Cluster.Blade.png "클러스터 속성")
 
@@ -146,7 +146,12 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
-	* **태그**(![태그 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+	* **태그(![태그 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png))**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+
+##클러스터 사용자 지정
+
+- [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md)을 참조하세요.
+- [스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
 
 ##다음 단계
 
@@ -177,4 +182,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

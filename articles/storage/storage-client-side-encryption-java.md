@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 
@@ -234,4 +234,4 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 ## 다음 단계  
 [Java용 Azure 저장소 클라이언트 라이브러리 Maven 패키지](<fix URL>) 다운로드 [GitHub의 Java용 Azure 저장소 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-java) 다운로드 Azure 키 자격 증명 모음 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

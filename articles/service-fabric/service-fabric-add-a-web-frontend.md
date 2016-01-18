@@ -107,6 +107,10 @@ ASP.NET 5 프로젝트를 비롯한 상태 저장 서비스와 클라이언트 �
 2. `MyStatefulService`처럼 `StatefulService`에서 상속하는 클래스를 찾아 확장하여 `ICounter` 인터페이스를 구현합니다.
 
     ```c#
+    using MyStatefulService.Interfaces;
+
+    ...
+
     public class MyStatefulService : StatefulService, ICounter
     {        
           // ...
@@ -136,9 +140,13 @@ ASP.NET 5 프로젝트를 비롯한 상태 저장 서비스와 클라이언트 �
 
 >[AZURE.NOTE]상태 비저장 서비스에 대한 통신 채널을 열기 위해 제공되는 메서드는 `CreateServiceInstanceListeners`입니다.
 
-이 예에서는 `ServiceProxy`를 사용하여 클라이언트에서 호출 가능한 RPC 끝점을 생성하는 `ServiceRemotingListener`가 제공됩니다.
+이 경우에서는 기존 `CreateServiceReplicaListeners` 메서드를 바꾸고 `ServiceRemotingListener`를 제공하며 이는 `ServiceProxy`를 사용하여 클라이언트에서 호출 가능한 RPC 끝점을 만듭니다.
 
 ```c#
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+
+...
+
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new List<ServiceReplicaListener>()
@@ -162,6 +170,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 3. Controllers 폴더에서 `ValuesController` 클래스를 엽니다. `Get` 메서드가 현재는 하드 코드된 문자열 배열 "value1" 및 "value2"만 반환하며, 이 문자열은 앞서 브라우저에서 본 것과 일치합니다. 이것을 다음 코드로 바꿉니다.
 
     ```c#
+    using MyStatefulService.Interfaces;
+    using Microsoft.ServiceFabric.Services.Remoting.Client;
+
+    ...
+
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
@@ -221,4 +234,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

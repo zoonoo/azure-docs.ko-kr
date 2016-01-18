@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션 관리
@@ -39,9 +39,11 @@ StorSimple 스냅숏 관리자의 중앙 관리 콘솔은 로컬 및 클라우�
 
 - StorSimple 스냅숏 관리자 배포 절차에 대해서는 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)로 이동하세요.
 
+>[AZURE.NOTE]StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 장치라고도 함)를 관리할 수 없습니다.
+
 ## StorSimple 스냅숏 관리자 작업 및 워크플로
 
-StorSimple 스냅숏 관리자를 사용하여 현재 백업 작업, 예약된 백업 작업 및 완료된 백업 작업을 모니터링하고 관리할 수 있습니다. 또한 StorSimple 스냅숏 관리자는 최대 64개까지 완료된 백업의 카탈로그를 제공합니다. 이 카탈로그를 사용하여 볼륨 또는 개별 파일을 찾아서 복원할 수 있습니다.
+StorSimple 스냅숏 관리자를 사용하여 현재 백업 작업, 예약된 백업 작업 및 완료된 백업 작업을 모니터링하고 관리할 수 있습니다. 또한 StorSimple 스냅숏 관리자에서는 최대 64개의 완료된 백업에 대한 카탈로그를 제공합니다. 카탈로그를 사용하여 볼륨 또는 개별 파일을 찾아 복원할 수 있습니다.
 
 | 수행하려는 작업 | 자습서의 참조 위치 |
 |:---------------------------|:----------------------|
@@ -60,4 +62,4 @@ StorSimple 스냅숏 관리자를 사용하여 현재 백업 작업, 예약된 �
 
 [StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

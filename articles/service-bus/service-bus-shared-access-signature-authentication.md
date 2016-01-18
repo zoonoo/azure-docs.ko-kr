@@ -25,7 +25,7 @@ SAS 인증 지원은 Azure SDK 버전 2.0 이후에 포함됩니다. 서비스 �
 
 서비스 버스에서 SAS 인증은 서비스 버스 리소스에 연결된 권한이 있는 암호화 키의 구성을 포함합니다. 클라이언트는 SAS 토큰을 발급하여 서비스 버스 리소스에 액세스를 주장합니다. 이 토큰은 액세스된 리소스 URI 및 구성된 키로 서명된 만료 매개 변수로 구성됩니다.
 
-서비스 버스 [릴레이](service-bus-fundamentals-hybrid-solutions.md/#relays), [큐](service-bus-fundamentals-hybrid-solutions.md/#queues), [항목](service-bus-fundamentals-hybrid-solutions.md/#topics) 및 [이벤트 허브](https://azure.microsoft.com/documentation/services/event-hubs/)에서 공유 액세스 서명 권한 부여 규칙을 구성할 수 있습니다.
+서비스 버스 [릴레이](service-bus-fundamentals-hybrid-solutions.md#relays), [큐](service-bus-fundamentals-hybrid-solutions.md#queues), [항목](service-bus-fundamentals-hybrid-solutions.md#topics) 및 [이벤트 허브](https://azure.microsoft.com/documentation/services/event-hubs/)에서 공유 액세스 서명 권한 부여 규칙을 구성할 수 있습니다.
 
 SAS 인증은 다음과 같은 요소를 사용합니다.
 
@@ -258,4 +258,4 @@ sendClient.Send(helloMessage);
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

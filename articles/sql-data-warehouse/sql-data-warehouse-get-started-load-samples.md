@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # SQL 데이터 웨어하우스로 샘플 데이터를 로드
@@ -94,4 +94,4 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

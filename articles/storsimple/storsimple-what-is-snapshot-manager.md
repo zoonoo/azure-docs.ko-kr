@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자란?
@@ -25,6 +25,8 @@ StorSimple 스냅숏 관리자는 Microsoft Azure StorSimple 환경에서 데이
 
 StorSimple 장치, StorSimple 관리자 서비스, StorSimple 스냅숏 관리자, SharePoint용 StorSimple 어댑터 등을 포함한 전체 Microsoft Azure StorSimple 시스템에 대한 개요는 [StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션](storsimple-overview.md)을 참조하세요.
  
+>[AZURE.NOTE]StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 장치라고도 함)를 관리할 수 없습니다.
+
 ## StorSimple 스냅숏 관리자 용도 및 아키텍처
 
 StorSimple 스냅숏 관리자는 로컬 및 클라우드 데이터의 일관된 지정 시간 백업 복사본을 만드는 데 사용할 수 있는 중앙 관리 콘솔을 제공합니다. 예를 들어 콘솔을 사용하여 다음을 수행할 수 있습니다.
@@ -150,4 +152,4 @@ StorSimple 스냅숏 관리자를 사용하여 차후의 백업 작업, 예약�
 
 - [StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

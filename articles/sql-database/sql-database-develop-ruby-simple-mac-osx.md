@@ -21,10 +21,7 @@
 # Mac OS X(Yosemite)에서 Ruby를 사용하여 SQL 데이터베이스에 연결
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 이 항목에서는 Yosemite를 실행 중인 Mac 컴퓨터에서 실행하여 Azure SQL 데이터베이스 데이터베이스에 연결하는 Ruby 코드 샘플을 표시합니다.
@@ -109,4 +106,4 @@ Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx)
     puts row
     end
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

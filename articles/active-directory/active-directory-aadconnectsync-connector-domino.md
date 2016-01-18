@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="12/28/2015"
    ms.author="andkjell"/>
 
 # Lotus Domino 커넥터 기술 참조
@@ -34,7 +34,7 @@ Lotus Domino 커넥터를 사용하면 IBM Lotus Domino 서버를 통해 동기�
 
 | 기능 | 지원 |
 | --- | --- |
-| 연결된 데이터 원본 | 서버: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>클라이언트:<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
+| 연결된 데이터 원본 | 서버: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>클라이언트:<li>Lotus Notes 9.x</li> |
 | 시나리오 | <li>개체 수명 주기 관리</li><li>그룹 관리</li><li>암호 관리</li> |
 | 작업 | <li>전체 및 델타 가져오기</li><li>내보내기</li><li>HTTP 암호에서 암호 설정 및 변경</li> |
 | 스키마 | <li>개인(로밍 사용자, 연락처 (인증서 ㅓ없는 사용자))</li><li>그룹</li><li>리소스(리소스, 공간, 온라인 모임)</li><li>메일 내 데이터베이스</li><li>지원되는 개체에 대한 특성의 동적 검색</li> |
@@ -246,7 +246,7 @@ Lotus Domino의 많은 특성은 다중값입니다. 해당하는 메타버스 �
 
 **가져오기**
 
-내보내기 작업 옵션은 다음과 같은 두 가지 모드를 지원합니다.
+가져오기 작업 옵션은 다음과 같은 두 가지 모드를 지원합니다.
 
 - 기본값
 - 다중값에서 단일 값으로
@@ -539,4 +539,4 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 페이지 사용자 인터페이스(UI) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구
@@ -36,7 +36,7 @@
 
 - [여기](active-directory-b2c-overview.md#getting-started)에 나열된 Azure AD B2C 빠른 시작 응용 프로그램 중 하나를 빌드합니다.
 - 미리 빌드해 놓은 [Azure AD B2C 실습](https://aadb2cplayground.azurewebsites.net) 응용 프로그램을 사용합니다. 실습을 사용하기로 선택하는 경우 **리디렉션 URI** `https://aadb2cplayground.azurewebsites.net/`을 사용하여 B2C 테넌트에 응용 프로그램을 등록해야 합니다.
-- [Azure Preview 포털](https://portal.azure.com)에서 정책의 **지금 실행** 단추를 사용합니다.
+- [Azure 포털](https://portal.azure.com)에서 정책의 **지금 실행** 단추를 사용합니다.
 
 ## 정책 사용자 지정
 
@@ -44,7 +44,7 @@
 
 이 자습서에 대한 일부 샘플 콘텐츠를 이미 만들어서 Azure Blob 저장소에 호스팅해 두었습니다. 샘플 콘텐츠는 "Contoso B2C"라는 가상의 회사를 테마로 하는 매우 기본적인 사용자 지정입니다. 사용자의 정책으로 시도해 보려면 다음 단계를 따릅니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)의 테넌트에 로그인하고 B2C 기능 블레이드로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)의 테넌트에 로그인하고 B2C 기능 블레이드로 이동합니다.
 2. **등록 정책**을 클릭한 다음 사용자의 등록 정책을 클릭합니다.(예: "b2c\_1\_sign\_up")
 3. **페이지 UI 사용자 지정** 및 **ID 공급자 선택 페이지**를 차례로 클릭합니다.
 4. **사용자 지정 템플릿 사용** 스위치를 **예**로 설정/해제합니다. **사용자 지정 페이지 URI** 필드에서 `https://contosob2c.blob.core.windows.net/static/Index.html`을 입력합니다. **확인**을 클릭합니다.
@@ -59,7 +59,7 @@ Azure Blob 저장소를 사용하여 페이지 콘텐츠를 호스팅하려는 �
 
 #### 저장소 계정 만들기
 
-1. [Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **+새로 만들기** -> **데이터 + 저장소** -> **저장소 계정**을 클릭합니다. Azure Blob 저장소 계정을 만들려면 Azure 구독이 필요합니다. [여기](https://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다.
 3. 저장소 계정에 **이름**을 제공하고(예: "contoso") **가격 책정 계층**, **리소스 그룹** 및 **구독**에 적절한 항목을 선택합니다. **시작 보드에 고정** 옵션이 선택되었는지 확인합니다. **만들기**를 클릭합니다.
 4. 시작 보드에 돌아가서 방금 만든 저장소 계정을 클릭합니다.
@@ -90,4 +90,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
         
 이제 **지금 실행** 단추 또는 사용자의 응용 프로그램을 사용하여 정책을 다시 실행할 수 있습니다. 두 경우 모두 동일한 샘플 HTML 및 CSS를 사용했으므로 결과는 거의 동일한 모양이어야 합니다. 하지만 사용자의 정책은 자신의 Azure Blob 저장소 인스턴스를 참조하며 원하는 대로 파일을 편집하고 다시 업로드할 수 있습니다. HTML 및 CSS 사용자 지정에 대한 자세한 내용은 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

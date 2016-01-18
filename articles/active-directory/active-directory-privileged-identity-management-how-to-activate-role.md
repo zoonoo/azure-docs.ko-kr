@@ -20,8 +20,8 @@
 
 ## 역할 활성화 또는 비활성화
 
-1. [http://portal.azure.com](http://portal.azure.com)에 로그인합니다.
-2. [Azure 권위 있는 ID 관리 시작](active-directory-privileged-identity-management-getting-started.md)의 단계에 따라 포털 대시보드에 Azure PIM을 배치합니다.
+1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+2. [Azure 권한 있는 ID 관리 시작](active-directory-privileged-identity-management-getting-started.md)의 단계에 따라 Azure 포털 대시보드에 Azure PIM을 배치합니다.
 3. 보안 마법사의 단계를 완료하면 Azure PIM의 주 메뉴가 표시됩니다.
 4. **내 역할 활성화**를 클릭합니다.
 5. 할당된 역할 목록이 나타납니다.
@@ -38,4 +38,4 @@
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

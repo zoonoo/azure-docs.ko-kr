@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2015"
 	ms.author="markusvi"/>
 
 # 클라우드 앱 보안 및 개인정보 취급 방침 고려 사항
@@ -90,6 +90,8 @@ Azure Active Directory 테넌트(또는 대리자)의 관리자가 Azure 포털�
 
 > [AZURE.NOTE]위의 HTTP 정보는 암호화되지 않은 모든 연결에 대해 수집됩니다. TLS 연결의 경우에는 포털에서 '자세히 검사' 설정이 켜져 있을 때만 이 정보가 캡처됩니다. 설정은 기본적으로 'ON'입니다. 자세한 내용은 아래 내용과 [클라우드 앱 검색 시작](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)을 참조하십시오.
 
+
+에이전트는 네트워크 작업에 대한 데이터뿐만 아니라 소프트웨어 및 하드웨어 구성에 대한 익명 정보, 오류 보고서 및 에이전트 사용 방법에 대한 정보도 수집합니다.
 
 <br><br>
 ### 에이전트의 작동 원리
@@ -177,4 +179,4 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

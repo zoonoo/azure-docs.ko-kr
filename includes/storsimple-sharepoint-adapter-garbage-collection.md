@@ -14,13 +14,13 @@
 
 1. 웹 프런트 엔드 서버에서 SharePoint 2013 관리 셸을 관리자 권한으로 엽니다.
 
-2. <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer 폴더로 이동합니다.
+2. *부팅 드라이브*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer 폴더로 이동합니다.
 
 3. **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config**의 이름을 **web.config**로 바꿉니다.
 
 4. `aspnet_regiis -pdf connectionStrings`를 사용하여 web.config 파일의 암호를 해독합니다.
 
-5. 암호 해독된 web.config 파일에서 **<connectionStrings>** 노드 아래에 해당 SQL Server 인스턴스 및 콘텐츠 데이터베이스 이름에 대한 연결 문자열을 추가합니다. 다음 예제를 참조하세요.
+5. 암호 해독된 web.config 파일의 `connectionStrings` 노드에 SQL Server 인스턴스 및 콘텐츠 데이터베이스 이름에 대한 연결 문자열을 추가합니다. 다음 예제를 참조하세요.
 
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
@@ -64,4 +64,4 @@
 
 2. 웹 프런트 엔드 서버의 **중앙 관리**에서 원하는 콘텐츠 데이터베이스에 대한 **웹 응용 프로그램의 일반 설정**을 편집하여 휴지통을 다시 사용할 수 있도록 설정합니다. 이 작업을 수행하려면 **중앙 관리** -> **응용 프로그램 관리** -> **웹 응용 프로그램(웹 응용 프로그램 관리)** -> **SharePoint - 80** -> **일반 응용 프로그램 설정**을 클릭합니다. 휴지통 상태를 **ON**으로 설정합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

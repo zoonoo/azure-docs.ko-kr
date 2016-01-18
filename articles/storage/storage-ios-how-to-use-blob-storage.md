@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="10/07/2015"
+    ms.date="01/05/2016"
     ms.author="micurd"/>
 
 # iOS에서 Blob 저장소를 사용하는 방법
@@ -86,7 +86,7 @@ Azure 저장소 API를 호출하려는 파일에 다음 import 문을 포함해�
 ###공유 액세스 서명(SAS)
 iOS 응용 프로그램에서 Blob 저장소에 대해 클라이언트의 요청을 인증하는 데 권장되는 방법은 공유 액세스 서명(SAS)을 사용하는 것입니다. SAS를 사용하면 지정된 사용 권한 집합과 함께 지정된 기간 동안 리소스에 대한 클라이언트 액세스를 부여할 수 있습니다. 저장소 계정 소유자는 iOS 클라이언트에서 사용할 SAS를 생성해야 합니다. SAS를 생성하려면 클라이언트로 배포되는 SAS를 생성하는 별도의 서비스를 작성할 수 있습니다. 테스트를 위해 Azure CLI를 사용하여 SAS를 생성할 수도 있습니다. 공유 키 자격 증명이 SAS를 생성하는 데 사용되지만 클라이언트는 SAS URL에 캡슐화된 인증 정보를 사용하여 생성된 SAS 사용할 수 있습니다. SAS를 만들 때, SAS가 유효한 시간 간격 및 SAS가 클라이언트에 부여하는 사용 권한을 지정할 수 있습니다. 예를 들어 Blob 컨테이너에 대해, SAS는 컨테이너에서 Blob에 대한 읽기, 쓰기 또는 삭제 권한을 부여하고 컨테이너에서 Blob를 나열하는 나열 권한을 부여할 수 있습니다.
 
-다음 예제에서는 Azure CLI를 사용하여 2015년 9월 5일 오전 12:00시(UTC)까지, 컨테이너 *sascontainer*에 대한 읽기 및 쓰기 권한을 부여하는 SAS 토큰을 생성하는 방법을 보여 줍니다.
+다음 예제에서는 Azure CLI를 사용하여 2015년 9월 5일 오전 12:00시(UTC)까지, 컨테이너 *sascontainer*에 대한 읽기 및 쓰기 권한을 부여하는 SAS 토큰을 생성하는 방법을 보여줍니다.
 
 1. 먼저 이 [가이드](../xplat-cli/#how-to-install-the-azure-cli)를 따라 Azure CLI를 설치하고 Azure 구독에 연결하는 방법을 알아봅니다.
 
@@ -359,4 +359,4 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 [Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

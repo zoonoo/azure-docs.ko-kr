@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="v-darmi"/>
 
 
@@ -264,4 +264,9 @@ API 관리의 주요 기능은 백 엔드 리소스를 보호하는 것입니다
 ## 요약
 Azure API 관리 서비스는 HTTP 트래픽에 선택적으로 적용할 수 있는 유연한 정책을 제공하고 백 엔드 서비스의 컴퍼지션을 사용할 수 있습니다. 함수, 확인, 유효성 검사 기능의 경고를 통해 API 게이트웨이를 개선하거나 여러 백 엔드 서비스를 기반으로 새 복합 리소스를 만들 경우 `send-request` 및 관련된 정책은 새로운 가능성을 엽니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+## 이러한 정책에 대한 동영상 개요 시청
+이 문서에서 다루는 [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 및 [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 정책에 대한 자세한 내용은 다음 동영상을 시청하세요.
+
+> [AZURE.VIDEO send-request-and-return-response-policies]
+
+<!---HONumber=AcomDC_0107_2016-->

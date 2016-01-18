@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # 여러 Azure Active Directory 추가 및 관리
@@ -40,4 +40,4 @@ Azure 클래식 포털에서 Azure AD 디렉터리를 추가하려면 왼쪽의 
 
 Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 [Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

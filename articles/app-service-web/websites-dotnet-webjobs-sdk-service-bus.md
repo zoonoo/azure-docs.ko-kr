@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법
@@ -26,12 +26,21 @@
 
 코드 조각은 다음 예제와 같이 `JobHost` 개체를 만드는 코드가 아니라 함수만 보여 줍니다.
 
-		static void Main(string[] args)
-		{
-		    JobHost host = new JobHost();
-		    host.RunAndBlock();
-		}
-		
+```
+public class Program
+{
+   public static void Main()
+   {
+      JobHostConfiguration config = new JobHostConfiguration();
+      config.UseServiceBus();
+      JobHost host = new JobHost(config);
+      host.RunAndBlock();
+   }
+}
+```
+
+[전체 서비스 버스 코드 예제](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs)는 GitHub.com의 azure-webjobs-sdk-samples 리포지토리에 있습니다.
+
 ## <a id="prerequisites"></a> 필수 조건
 
 서비스 버스로 작업하려면 다른 WebJobs SDK 패키지와 함께 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet 패키지를 설치해야 합니다.
@@ -146,6 +155,17 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 
 항목에 대한 메시지를 만들려면 큐 이름과 동일한 방식으로 항목 이름에서 `ServiceBus` 특성을 사용합니다.
 
+## 버전 1.1에 추가된 기능
+
+릴리스 1.1에서 다음과 같은 기능이 추가되었습니다.
+
+* `ServiceBusConfiguration.MessagingProvider`를 통해 메시지 처리를 상세하게 사용자 지정할 수 있습니다.
+* `MessagingProvider`가 서비스 버스 `MessagingFactory` 및 `NamespaceManager`의 사용자 지정을 지원합니다.
+* `MessageProcessor` 전략 패턴을 통해 큐/토픽별로 프로세서를 지정할 수 있습니다.
+* 메시지 처리 동시성이 기본적으로 지원됩니다. 
+* `ServiceBusConfiguration.MessageOptions`를 통해 `OnMessageOptions`를 쉽게 사용자 지정할 수 있습니다.
+* 관리 권한이 없을 수 있는 시나리오에 대해 `ServiceBusTriggerAttribute`/`ServiceBusAttribute`에서 [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71)를 지정하는 것을 허용합니다. 
+
 ## <a id="queues"></a>저장소 큐 방법 문서에서 다루는 관련 항목
 
 서비스 버스에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요.
@@ -166,4 +186,4 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 이 가이드에서는 Azure 서비스 버스 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

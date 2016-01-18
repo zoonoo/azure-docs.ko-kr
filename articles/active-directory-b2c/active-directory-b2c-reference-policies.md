@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 확장할 수 있는 정책 프레임워크
@@ -62,11 +62,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
+정책 프레임워크의 심층 분석에 관심이 있는 경우 이 [블로그 게시물](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx)을 참조합니다.
+
 ## 등록 정책을 생성하는 방법
 
 응용 프로그램에 등록을 사용하려면 등록 정책을 만들어야 합니다. 이 정책은 등록하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 등록을 수신하는 토큰의 콘텐츠를 설명합니다.
 
-1. [Azure Preview 포털의 B2C 기능 블레이드로 이동합니다.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. **등록 정책**을 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
 4. **이름**은 응용 프로그램에서 사용하는 등록 정책 이름을 결정합니다. 예를 들어 "SiUp"을 입력합니다.
@@ -86,13 +88,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 응용 프로그램에 로그인을 사용하려면 로그인 정책을 만들어야 합니다. 이 정책은 로그인하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 로그인을 수신하는 토큰의 콘텐츠를 설명합니다.
 
-1. [Azure Preview 포털의 B2C 기능 블레이드로 이동합니다.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. **로그인 정책**을 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
 4. **이름**은 응용 프로그램에서 사용하는 로그인 정책 이름을 결정합니다. 예를 들어 "SiIn"을 입력합니다.
 5. **ID 공급자**를 클릭하고 "메일 주소"를 선택합니다. 또한 필요에 따라 이미 구성되어 있는 소셜 ID 공급자를 선택할 수 있습니다. **확인**을 클릭합니다.
 6. **응용 프로그램 클레임**을 클릭합니다. 여기서 성공적인 로그인 환경 이후에 응용 프로그램으로 다시 전송된 토큰에서 반환하려는 클레임을 선택합니다. 예를 들어 "표시 이름", "ID 공급자", "우편 번호" 및 "사용자의 개체 ID"를 선택합니다. **확인**을 클릭합니다.
-7. **만들기**를 클릭합니다. 방금 만든 정책이 **로그인 정책** 블레이드에서 "**B2C\_1\_SiIn**"(**B2C\_1\_** 조각은 자동으로 추가됨)으로 표시됩니다.
+7. **만들기**를 클릭합니다. 방금 만든 정책은 **로그인 정책** 블레이드에서 "**B2C\_1\_SiIn**"으로 표시됩니다.(**B2C\_1\_** 조각이 자동으로 추가됨)
 8. "**B2C\_1\_SiIn**"을 클릭하여 정책을 엽니다.
 9. **응용 프로그램** 드롭다운에서 "Contoso B2C app" 및 **회신 URL/리디렉션 URI** 드롭다운에서 `https://localhost:44321/`을 선택합니다. **지금 실행** 단추를 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에 로그인한 사용자 환경을 실행할 수 있습니다.
 
@@ -102,7 +104,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 응용 프로그램을 편집하는 프로필을 사용하려면 정책을 편집하는 프로필을 만들어야 합니다. 이 정책은 프로필을 편집하는 동안 소비자가 경험한 환경 및 응용 프로그램이 성공적인 완료를 수신하는 토큰의 콘텐츠를 설명합니다.
 
-1. [Azure Preview 포털의 B2C 기능 블레이드로 이동합니다.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. **정책 편집 프로필**을 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
 4. **이름**은 응용 프로그램에서 사용하는 프로필 편집 정책 이름을 결정합니다. 예를 들어 "SiPe"을 입력합니다.
@@ -115,4 +117,4 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
     > [AZURE.NOTE]정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

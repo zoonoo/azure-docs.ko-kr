@@ -30,7 +30,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 3.	컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치해야 합니다. 데이터 팩터리 cmdlet을 실행하여 샘플 데이터 및 pig/hive 스크립트를 Blob 저장소로 업로드합니다. 
 2.	**(권장)** [Azure Data Factory 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
-3.	**(권장)** [Azure Data Factory에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
+3.	**(권장)** [Azure 데이터 팩터리에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
 4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
 	- **Pipelines:** 파이프라인 정의가 포함된 JSON 파일을 포함합니다.
 	- **Tables:** 테이블 정의가 포함된 JSON 파일을 포함합니다.
@@ -63,7 +63,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
     
 ## 연습: 워크플로 만들기, 배포 및 모니터링
 1. [1단계: 샘플 데이터 및 스크립트 업로드](#MainStep1) 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
-2. [2단계: Azure Data Factory 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
+2. [2단계: Azure 데이터 팩터리 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
 3. [3단계: 연결된 서비스 만들기](#MainStep3) 이 단계에서는 연결된 서비스 
 	
 	- 	**StorageLinkedService**. 원시 게임 이벤트, 분할된 게임 이벤트, 보강된 게임 이벤트, 마케팅 캠페인 효과 정보, 참조 지역 코드 데이터 및 참조 마케팅 캠페인 데이터를 포함하는 Azure 저장소 위치를 LogProcessingFactory에 연결합니다.   
@@ -330,7 +330,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 4. 다음 파일의 내용으로 1-3단계를 반복합니다. 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. **X**(오른쪽 위)를 눌러 데이터 팩터리 블레이드를 닫으면 데이터 팩터리의 홈 페이지(**DATA FACTORY** 블레이드)가 표시됩니다.
+4. **X**(오른쪽 위)를 눌러 데이터 팩터리 블레이드를 닫으면 데이터 팩터리의 홈 페이지(**DATA FACTORY **블레이드)가 표시됩니다.
 
 ### 다이어그램 뷰
 
@@ -458,16 +458,6 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 [image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline.png
 
 
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial/EgreeDataToOnPremPipeline.png
-
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial/SetFirewallRuleForAzureDatabase.png
-
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial/PortalNewEverything.png
-
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial/DataStorageCacheBackup.png
-
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial/DataServicesBlade.png
-
 [image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial/NewDataFactoryBlade.png
 
 [image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial/ResourceGroupBlade.png
@@ -478,35 +468,11 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-tutorial-create-datafactory]: ./media/data-factory-tutorial/CreateDataFactory.png
 
-[image-data-factory-tutorial-linkedservice-tile]: ./media/data-factory-tutorial/LinkedServiceTile.png
-
-[image-data-factory-tutorial-linkedservices-add-datstore]: ./media/data-factory-tutorial/LinkedServicesAddDataStore.png
-
-[image-data-factory-tutorial-datastoretype-azurestorage]: ./media/data-factory-tutorial/DataStoreTypeAzureStorageAccount.png
-
-[image-data-factory-tutorial-azurestorage-settings]: ./media/data-factory-tutorial/AzureStorageSettings.png
-
-[image-data-factory-tutorial-storage-key]: ./media/data-factory-tutorial/StorageKeyFromAzurePortal.png
-
-[image-data-factory-tutorial-linkedservices-blade-storage]: ./media/data-factory-tutorial/LinkedServicesBladeWithAzureStorage.png
-
-[image-data-factory-tutorial-azuresql-settings]: ./media/data-factory-tutorial/AzureSQLDatabaseSettings.png
-
-[image-data-factory-tutorial-azuresql-database-connection-string]: ./media/data-factory-tutorial/DatabaseConnectionString.png
-
-[image-data-factory-tutorial-linkedservices-all]: ./media/data-factory-tutorial/LinkedServicesAll.png
-
-[image-data-factory-tutorial-datasets-all]: ./media/data-factory-tutorial/DataSetsAllTables.png
-
-[image-data-factory-tutorial-pipelines-all]: ./media/data-factory-tutorial/AllPipelines.png
-
 [image-data-factory-tutorial-diagram-link]: ./media/data-factory-tutorial/DataFactoryDiagramLink.png
 
 [image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial/DiagramView.png
 
 [image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial/MonitoringStartBoard.png
-
-[image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial/MonitoringHubEverything.png
 
 [image-data-factory-monitoring-browse-datafactories]: ./media/data-factory-tutorial/MonitoringBrowseDataFactories.png
 
@@ -518,10 +484,6 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial/MonitoringActivityRunDetails.png
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial/DataManagementGatewayConfigurationManager.png
-
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

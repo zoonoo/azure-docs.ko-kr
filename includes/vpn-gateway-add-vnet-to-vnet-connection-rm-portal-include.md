@@ -1,11 +1,13 @@
-When adding a VNet-to-VNet connection, verify that both of your virtual networks have a virtual network gateway and that your virtual networks do not have any overlapping address ranges.
+VNet 간 연결을 추가할 때 가상 네트워크에 모두 가상 네트워크 게이트웨이가 있는지를 확인하고 가상 네트워크에 주소 범위가 겹치지 않는지를 확인합니다.
 
-1. From the **Virtual networks** blade, locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*. You can also configure settings directly from your virtual network gateway without first expanding the VNet.
-2. From the virtual network gateway settings, click **Connections**, and then **Add**.
-3. **Name** your Connection. 
-4. For **Connection type**, select **VNet-to-VNet**
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
-6. For **Second virtual network gateway**, select the gateway you want to create a connection to from this gateway.
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+1. **가상 네트워크** 블레이드에서 가상 네트워크를 찾아 클릭하여 블레이드를 엽니다. 블레이드에서 *연결된 장치*로 나열된 게이트웨이가 표시됩니다. VNet을 첫 번째로 확장하지 않고 가상 네트워크 게이트웨이에서 직접 설정을 구성할 수도 있습니다.
+2. 가상 네트워크 게이트웨이 설정에서 **연결** 및 **추가**를 차례로 클릭합니다.
+3. 연결의 **이름**을 지정합니다. 
+4. **연결 형식**의 경우 **VNet 간**을 선택합니다.
+5. **가상 네트워크 게이트웨이**의 경우 이 게이트웨이에서 연결하기 때문에 값이 고정됩니다.
+6. **두 번째 가상 네트워크 게이트웨이**의 경우 이 게이트웨이에서 연결을 만들려는 게이트웨이를 선택합니다.
+8. **구독**, **리소스 그룹**, 및 **위치**에 대한 나머지 값은 고정됩니다.
+9. **확인**을 클릭하여 사용자 연결을 만듭니다. 화면에서 *연결 만들기* 플래시가 표시됩니다.
+10. 연결이 완료되면 게이트웨이에 대한 **연결** 블레이드에 나타납니다.
+
+<!---HONumber=AcomDC_0107_2016-->

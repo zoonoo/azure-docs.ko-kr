@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="01/06/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -93,7 +93,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_04.png) <br>
 
-    a. 로그인 URL 텍스트 상자에 다음 **“https://azuresso.fusion-universal.com/ ”** 패턴을 사용하여 사용자가 Fuse 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
+    a. 로그인 URL 텍스트 상자에 다음 **“https://<테넌트 이름>.fusion-universal.com/ ”** 패턴을 사용하여 사용자가 Fuse 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
 
     > [AZURE.NOTE]로그온 URL을 모를 경우 [Fuse 지원 팀](mailto:support@fusion-universal.com)에 문의하세요.
     
@@ -214,4 +214,4 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

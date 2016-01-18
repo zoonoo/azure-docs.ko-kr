@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/17/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess"/>
 
 # 데이터 마이그레이션
@@ -194,4 +194,4 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 [ADO.NET 대상 어댑터]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS 설명서]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

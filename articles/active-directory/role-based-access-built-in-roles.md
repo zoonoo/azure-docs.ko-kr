@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 #RBAC: 기본 제공 역할
@@ -133,9 +133,7 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | **actions** ||
 | ------- | ------ |
 | * | 모든 유형의 리소스 만들기 및 관리 |
-| **할 수 없는 작업 |  |
-| Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
-| Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
+| ****할 수 없는 작업 | | | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 | | Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
 
 ### 데이터 팩터리 참여자
 데이터 팩터리를 관리할 수 있음
@@ -381,8 +379,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 
 | **actions** ||
 | ------- | ------ |
-| */read | 암호를 제외한 모든 유형의 리소스 읽기 |
-| Microsoft.Authorization/* | 읽기 권한 부여 |
+| */read | 암호를 제외한 모든 유형의 리소스 읽기 | | Microsoft.Authorization/* | 읽기 권한 부여 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 클래식 가상 컴퓨터 참여자
@@ -483,4 +480,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

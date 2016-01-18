@@ -14,7 +14,7 @@ description="Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure�
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="01/04/2016" 
 	ms.author="rasquill"/>
 
 #Azure에서 Windows와 함께 SSH를 사용하는 방법
@@ -48,7 +48,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 다음은 배포 시나리오 및 각각에 사용되는 파일 형식입니다.
 
 1. **ssh-rsa** 키는 배포 모델과 관계없이 [Preview 포털](https://portal.azure.com)을 사용하는 모든 배포에 필요합니다.
-2. [클래식 포털](https://manage.windowsazure.com)을 사용하는 VM을 만들려면 .pem 파일이 필요합니다. .pem 파일은 [Azure CLI](xplat-cli-install.md)를 사용하는 클래식 배포에서도 지원됩니다.
+2. [클래식 포털](https://manage.windowsazure.com)을 사용하는 VM을 만들려면 .pem 파일이 필요합니다. .pem 파일은 [Azure CLI](../xplat-cli-install.md)를 사용하는 클래식 배포에서도 지원됩니다.
 
 > [AZURE.NOTE]클래식 배포 모델로 배포되는 서비스를 관리하려는 경우 **.cer** 서식 파일을 만들어 포털에 업로드하려고 할 수 있습니다. 여기엔 이 문서의 주제인 Linux VM에 연결 또는 **ssh**는 포함되어 있지 않습니다. Linux 또는 Mac에 해당 파일을 만들려면 다음을 입력하세요.
 
@@ -70,21 +70,21 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 
 > [AZURE.NOTE]위의 `openssl` 명령을 실행할 때 다음 오류가 발생할 수 있습니다.
 
-			Unable to load config info from /usr/local/ssl/openssl.cnf
-	<!-- -->
-		The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
-	<!-- -->
-		**Powershell:**
-	<!-- -->
-			$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-	<!-- -->
-		**CMD:**
-	<!-- -->
-			set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-	<!-- -->
-		**Git Bash:**
-	<!-- -->
-			export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+        Unable to load config info from /usr/local/ssl/openssl.cnf
+
+이를 해결하는 가장 쉬운 방법은 `OPENSSL_CONF` 환경 변수를 설정하는 것입니다. 이 변수를 설정하기 위한 프로세스는 Github에 구성된 셸에 따라 다를 수 있습니다.
+
+**Powershell:**
+
+        $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+
+**CMD:**
+
+        set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+
+**Git Bash:**
+
+        export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
 	
 
 ###Cygwin 사용###
@@ -155,4 +155,4 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

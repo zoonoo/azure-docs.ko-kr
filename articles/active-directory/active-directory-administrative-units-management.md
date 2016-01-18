@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # Azure AD - 공용 미리 보기에서 관리 단위 관리
@@ -36,4 +36,4 @@
 ## 다음 단계
 [Azure Active Directory 버전](active-directory-editions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

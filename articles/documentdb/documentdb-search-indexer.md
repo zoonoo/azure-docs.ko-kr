@@ -20,7 +20,7 @@
 
 DocumentDB 데이터에 대해 뛰어난 검색 환경을 구현하기 위해서는 DocumentDB에 대한 Azure 검색 인덱서를 사용할 수 있습니다. 이 문서에서는 인덱싱 인프라를 유지 관리하기 위해 어떠한 코드도 작성할 필요 없이 Azure DocumentDB를 Azure 검색과 통합하는 방법을 보여 줍니다.
 
-이를 설정하기 위해서는 [Azure 검색 계정을 설정](../search-get-started.md#start-with-the-free-service)하고(표준 검색으로 업그레이드할 필요 없음), [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 호출해서 DocumentDB **데이터 소스** 및 이 데이터 소스에 대한 **인덱서**를 만들어야 합니다.
+이를 설정하기 위해서는 [Azure 검색 계정을 설정](../search/search-get-started.md#start-with-the-free-service)하고(표준 검색으로 업그레이드할 필요 없음), [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 호출해서 DocumentDB **데이터 소스** 및 이 데이터 소스에 대한 **인덱서**를 만들어야 합니다.
 
 ##<a id="Concepts"></a>Azure 검색 인덱서 개념
 
@@ -90,7 +90,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 > [AZURE.NOTE]사용자 지정 프로젝션을 사용할 경우에는 SELECT 절에 속성을 포함해야 합니다.
 
-###<a id="CreateDataSourceExample"></a>요청 본문 예제
+###<a id="CreateDataSourceExample"></a>요청 본문 예
 
 다음 예제에서는 사용자 지정 쿼리 및 정책 힌트를 사용해서 데이터 소스를 만듭니다.
 
@@ -121,7 +121,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 ##<a id="CreateIndex"></a>2단계: 인덱스 만들기
 
-대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 클래식 포털 UI](../search-get-started.md#test-service-operations) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
+대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 클래식 포털 UI](../search/search-get-started.md#test-service-operations) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -265,9 +265,9 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
 
 축하합니다. 지금까지 DocumentDB의 인덱서를 사용해서 Azure 검색에 Azure DocumentDB를 통합하는 방법에 대해 배웠습니다.
 
- - Azure DocumentDB에 대해 자세히 알아보려면 [여기](/services/documentdb/)를 클릭하십시오.
+ - Azure DocumentDB에 대해 알아보려면 [DocumentDB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
 
- - Azure 검색에 대해 자세히 알아보려면 [여기](/services/search/)를 클릭하십시오.
+ - Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/ko-KR/services/search/)를 참조하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

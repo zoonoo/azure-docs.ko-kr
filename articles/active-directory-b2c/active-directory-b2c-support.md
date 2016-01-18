@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: Azure Active Directory B2C에 대 한 지원 요청을 제출하는 방법
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-다음 단계를 사용하여 Azure Preview 포털에서 Azure Active Directory(AD) B2C에 대한 지원 요청을 제출할 수 있습니다.
+다음 단계를 사용하여 Azure 포털에서 Azure AD(Active Directory) B2C에 대한 지원 요청을 제출할 수 있습니다.
 
-1. [Azure Preview 포털의 B2C 기능 블레이드로 이동합니다.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. B2C 테넌트를, 연결된 Azure 구독이 있는 다른 테넌트로 전환합니다. 일반적으로 후자는 직원 테넌트 또는 Azure 구독에 등록할 경우 만들어진 기본 테넌트입니다. Azure 구독과 Azure AD 디렉터리 간의 관계에 대한 자세한 내용을 보려면 [이 문서](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad)를 읽습니다.
 
-    > [AZURE.IMPORTANT]
-    이 단계는 필요하지 않습니다. 이 단계를 수행하지 않으면 프로세스가 실패합니다.
+    > [AZURE.IMPORTANT]이 단계는 필요하지 않습니다. 이 단계를 수행하지 않으면 프로세스가 실패합니다.
 
     ![지원 - 디렉터리 전환](./media/active-directory-b2c-support/support-switch-dir.png)
 
@@ -47,9 +46,8 @@
 
 위에서 설명한 2단계를 누락하고 B2C 테넌트의 컨텍스트에서 지원 요청을 만들려면 다음과 같은 오류가 표시됩니다.
 
-> [AZURE.IMPORTANT]
-> B2C 테넌트에서 새 Azure 구독에 등록하려 하지 마세요.
+> [AZURE.IMPORTANT]B2C 테넌트에서 새 Azure 구독에 등록하려 하지 마세요.
 
 ![지원 - 구독이 없음](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

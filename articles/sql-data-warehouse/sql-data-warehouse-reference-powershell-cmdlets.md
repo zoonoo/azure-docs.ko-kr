@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Azure 데이터 웨어하우스 cmdlet 및 REST API 시작
@@ -111,4 +111,4 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

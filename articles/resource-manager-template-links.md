@@ -1,6 +1,6 @@
 <properties
    pageTitle="리소스 연결을 위한 리소스 관리자 템플릿 | Microsoft Azure"
-   description="관련 리소스 간 링크를 만들기 위한 리소스 관리자 템플릿 스키마를 보여 줍니다."
+   description="템플릿을 통해 관련 리소스 간 링크를 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# 리소스 링크 - 템플릿 스키마
+# 리소스 링크 템플릿 스키마
 
 두 리소스 간의 링크를 만듭니다. 링크는 원본 리소스라고 하는 리소스에 적용됩니다. 링크의 두 번째 리소스는 대상 리소스라고 합니다.
 
@@ -124,9 +124,20 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
         "outputs": {}
     }
 
+## 빠른 시작 템플릿
+
+다음 빠른 시작 템플릿은 링크를 사용하여 리소스를 배포합니다.
+
+- [논리 앱으로 큐에 경고](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+- [논리 앱으로 Slack에 경고](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [기존 게이트웨이로 API 앱을 프로비전](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
+- [새 게이트웨이로 API 앱을 프로비전](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
+- [템플릿을 사용하여 논리 앱과 API 앱 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
+- [경고가 발생할 때 문자 메시지를 전송하는 논리 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+
 
 ## 다음 단계
 
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

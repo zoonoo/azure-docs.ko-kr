@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/24/2015" 
 	ms.author="naziml"/>
 
 # 앱 서비스 환경에 대한 웹 응용 프로그램 방화벽(WAF) 구성
@@ -66,7 +66,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 > 참고: 응용 프로그램이 어떻게 구성되었는지, 앱 서비스 환경에서 어떤 기능들이 쓰이고 있는지에 따라서 트래픽을 80 및 443이 아닌 TCP 포트로 전달해야 합니다(예: 웹앱에 대한 IP SSL을 설치한 경우). 앱 서비스 환경에서 사용되는 네트워크 포트의 목록은 [인바운드 트래픽을 제어 설명서](app-service-app-service-environment-control-inbound-traffic.md)의 네트워크 포트 섹션을 참조하세요.
 
 ## Microsoft Azure 트래픽 관리자를 구성합니다. (선택 사항) ##
-응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure 트래픽 관리자](traffic-manager.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 아래의 그림처럼 트래픽 관리자 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure 클래식 포털](https://manage.azure.com)에서 끝점을 추가합니다.
+응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure 트래픽 관리자](traffic-manager.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 아래 그림처럼 트래픽 관리자 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure 클래식 포털](https://manage.azure.com)에서 끝점을 추가합니다.
 
 ![트래픽 관리자 끝점][TrafficManagerEndpoint]
 
@@ -99,4 +99,4 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

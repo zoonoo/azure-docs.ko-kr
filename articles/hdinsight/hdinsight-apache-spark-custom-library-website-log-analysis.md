@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/04/2016" 
 	ms.author="nitinme"/>
 
 # 사용자 지정 라이브러리(Linux)를 사용하여 HDInsight Spark에서 로그 분석
@@ -100,7 +100,7 @@
 	그런 다음 다음 코드 조각을 실행하여 Spark 클러스터의 모든 작업자 노드에 라이브러리를 배포해야 합니다.
 
 
-		sc.addPyFile('wasb:///example/data/iislogparser.py')
+		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 9. `iislogparser`은(는) 로그 줄이 머리글 행인 경우 함수 `None`을(를) 반환하고 로그 줄을 발견하는 경우 `LogLine` 클래스의 인스턴스를 반환하는 함수 `parse_log_line`을(를) 제공합니다. `LogLine` 클래스를 사용하여 RDD에서 로그 줄만을 추출합니다.
@@ -197,7 +197,7 @@
 
 	![Matplotlib 출력](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Matplotlib 출력")
 
-14. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 노트북의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 노트북이 종료되고 닫힙니다.
+14. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 	
 
 ## <a name="seealso"></a>참고 항목
@@ -231,4 +231,4 @@
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

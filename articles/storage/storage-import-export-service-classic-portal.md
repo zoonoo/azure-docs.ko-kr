@@ -19,8 +19,6 @@
 
 # Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송
 
-[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
-
 ## 개요
 
 네트워크를 통한 업로드가 엄청나게 많은 비용이 들거나 실행 가능하지 않은 경우 Microsoft Azure 가져오기/내보내기 서비스를 사용하여 대량의 파일 데이터를 Azure Blob 저장소로 전송할 수 있습니다. 가져오기/내보내기 서비스를 사용하여 Blob 저장소에 있는 대량의 데이터를 적시에 비용 효율적인 방식으로 온-프레미스 설치로 전송할 수도 있습니다.
@@ -278,4 +276,4 @@ Microsoft Azure 가져오기/내보내기 도구는 각 드라이브가 준비�
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

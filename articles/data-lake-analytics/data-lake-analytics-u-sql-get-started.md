@@ -13,12 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/30/2015"
+   ms.date="01/04/2016"
    ms.author="jgao"/>
 
 # 자습서: Azure 데이터 레이크 분석 U-SQL 언어 시작
-
-U-SQL 스크립트를 개발하는 방법에 대해 알아봅니다.
 
 U-SQL은 모든 규모의 데이터를 처리하도록 SQL의 장점을 사용자 코드의 표현력과 결합하는 언어입니다. U-SQL의 확장 가능한 분산 쿼리 기능을 통해 저장소 및 Azure SQL 데이터베이스와 같은 관계형 저장소의 데이터를 효율적으로 분석할 수 있습니다. 이를 통해, 읽기에 스키마를 적용하여 구조화되지 않은 데이터를 처리하고, 사용자 지정 논리 및 UDF를 삽입하고, 대규모 실행 방법을 정교하게 세분화하여 제어할 수 있도록 확장성을 포함할 수 있습니다. U-SQL의 디자인 원리에 대해 자세히 알아보려면 [Visual Studio 블로그 게시물](http://blogs.msdn.com/b/visualstudio/archive/2015/09/28/introducing-u-sql.aspx)을 참조하세요.
 
@@ -28,105 +26,26 @@ select 절 내부의 식 언어 및 형식 시스템이며 조건자 등이 C#�
 
 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
-**필수 구성 요소**
+###필수 조건
 
-- **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual C++가 설치된 Visual Studio 2012** 
-- **.NET 버전 2.7 이상용 Microsoft Azure SDK**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
-- **[Visual Studio용 데이터 레이크 도구](http://aka.ms/adltoolsvs)** 
-	
-	Visual Studio용 데이터 레이크 도구를 설치하면 Visual Studio에서 **데이터 레이크** 메뉴를 볼 수 있습니다.
-	
-	![U-SQL Visual Studio 메뉴](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+[자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 완료해야 합니다.
 
-- **데이터 레이크 분석 및 Visual Studio용 데이터 레이크 도구에 대한 기본 지식**. 시작하려면 다음을 참조하십시오.
- 
-	- [Azure 포털을 사용하여 Azure 데이터 레이크 분석을 시작합니다](data-lake-analytics-get-started-portal.md).
-	- [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md).
+자습서에서 다음 U-SQL 스크립트를 사용하여 데이터 레이크 분석 작업을 실행했습니다.
 
-- **데이터 레이크 분석 계정**. [Azure 데이터 레이크(ADL) 분석 계정 만들기](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)를 참조하세요.
-- **데이터 레이크 분석 계정에 샘플 데이터를 업로드합니다.** [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account)를 참조하세요.
-
-	데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다. 따라서 Azure 포털, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 해당 계정을 만들어야 합니다. 데이터 레이크 분석 작업을 실행하려면 일부 데이터가 필요합니다. 데이터 레이크 도구가 데이터 업로드를 지원하지만 이 자습서를 더 쉽게 수행하기 위해 해당 포털을 사용하여 샘플 데이터를 업로드합니다.
-
-## Visual Studio에서 Azure에 연결합니다.
-
-U-SQL 스크립트를 빌드하거나 테스트하려면 그 전에 우선 Azure에 연결해야 합니다.
-
-**데이터 레이크 분석에 연결하기**
-
-1. Visual Studio를 엽니다.
-2. **데이터 레이크** 메뉴에서 **옵션 및 설정**을 클릭합니다.
-4. **로그인**을 클릭하거나, 다른 사람이 로그인한 경우에는 **사용자 변경**을 클릭하고 지침에 따라 로그인합니다.
-5. **확인**을 클릭하여 옵션 및 설정 대화 상자를 닫습니다.
-
-**데이터 레이크 분석 계정 찾아보기**
-
-1. Visual Studio에서 **CTRL+ALT+S**를 눌러 **서버 탐색기**를 엽니다.
-2. **서버 탐색기**에서 **Azure**를 확장한 후 **데이터 레이크 분석**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-get-started-powershell.md)을 참조하세요.
-
-
-## 첫 번째 U-SQL 스크립트 개발 
-
-이 섹션의 주요 목적은 Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 응용 프로그램을 작성하고 테스트하는 과정을 이해하는 것입니다. U-SQL 문은 다른 데이터 레이크 분석 자습서에서도 사용됩니다. 탭으로 구분된(tsv) 파일을 읽고 콤마로 구분된(csv) 파일을 출력합니다.
- 
-**데이터 레이크 분석 작업 만들기 및 제출하기**
-
-1. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-2. U-SQL 프로젝트 형식을 선택합니다.
-
-	![새 U-SQL Visual Studio 프로젝트](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-	
-3. **확인**을 클릭합니다. Visual studio는 Script.usql 파일로 솔루션을 만듭니다.
-4. Script.usql 파일에 다음 스크립트를 입력합니다.
-
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-        
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-first-u-sql.csv"
-        USING Outputters.Csv();
-
-		The next section in this article will explain the script in details.  You just need to focus on understanding the development and testing process in this section.
-5. **제출** 단추 옆에서 분석 계정을 지정합니다.
-5. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 단추로 클릭하고 **스크립트 빌드**를 클릭합니다. 출력 창에서 결과를 확인합니다. 스크립트에 오류가 있으면 이 곳에 오류 출력이 표시됩니다. 
-6. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 단추로 클릭하고 **스크립트 제출**을 클릭합니다.
-7. **분석 계정**을 확인하고 **제출**을 클릭합니다. 제출이 완료되면 Visual Studio용 데이터 레이크 도구 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
-8. 최신 작업 상태를 보고 화면을 새로 고치려면 **새로 고침** 단추를 클릭합니다. 작업이 성공적으로 완료될 때까지 기다립니다. 작업이 실패한 경우 대부분 원본 파일이 손실되었을 가능성이 큽니다. 도구의 “오류” 탭을 사용하여 서비스로부터 반환된 오류를 볼 수 있습니다. 이 자습서의 필수 조건 섹션을 참조하세요. 추가적인 문제 해결 정보는 [Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)을 참조하세요.
-
-	
-**작업 출력 보기**
-
-1. **서버 탐색기**에서 **Azure**, **데이터 레이크 분석**, 사용자의 데이터 레이크 분석 계정, **저장소 계정**을 차례로 확장하고 기본 데이터 레이크 저장소 계정을 마우스 오른쪽 단추로 클릭한 다음 **탐색기**를 클릭합니다. 
-2.  **output**을 두 번 클릭하여 폴더를 엽니다.
-3.  **SearchLog-frist-u-sql.csv**를 두 번 클릭합니다.
-4.  출력 파일로 바로 이동하려면 작업 그래프 보기에서 출력 파일을 두 번 클릭합니다.
-
-## 첫 번째 U-SQL 스크립트 이해
-
-지난 섹션에서 작성한 스크립트를 자세히 살펴봅니다.
-
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-        
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-first-usql.csv"
-        USING Outputters.Csv();
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+    
+    OUTPUT @searchlog   
+        TO "/output/SearchLog-first-u-sql.csv"
+    USING Outputters.Csv();
 
 이 스크립트에는 변환 단계가 없습니다. **SearchLog.tsv**라는 원본 파일을 읽어와서 스키마를 만들고, 행 집합을 출력하여 **SearchLog-from-adltools.csv** 파일에 넣습니다.
 
@@ -149,7 +68,7 @@ Duration 필드의 데이터 형식 옆에 있는 물음표에 유의합니다. 
 
 ## 스칼라 변수 사용
 
-스크립트 유지 관리를 간편하게 만들기 위해 스칼라 변수를 사용할 수 있습니다. 첫 번째 U-SQL 스크립트를 다음과 같이 작성할 수 있습니다.
+스크립트 유지 관리를 간편하게 만들기 위해 스칼라 변수를 사용할 수 있습니다. 이전 U-SQL 스크립트를 다음과 같이 작성할 수 있습니다.
 
     DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
     DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
@@ -169,7 +88,7 @@ Duration 필드의 데이터 형식 옆에 있는 물음표에 유의합니다. 
         TO @out
         USING Outputters.Csv();
       
-##변환 행 집합
+## 변환 행 집합
 
 **SELECT**를 사용하여 행 집합을 변환합니다.
 
@@ -224,7 +143,7 @@ WHERE 절에는 [C# 부울 식](https://msdn.microsoft.com/library/6a71f45d.aspx
         
 두 번째 쿼리는 첫 번째 행 집합의 결과를 기반으로 작동하기 때문에 두 필터의 결합이 결과가 됩니다. 변수 이름은 재사용이 가능하며 이름에는 어휘 범위(정적 범위)가 적용됩니다.
 
-##집계 행 집합
+## 집계 행 집합
 
 U-SQL에는 개발자에게 친숙한 **ORDER BY**, **GROUP BY** 및 집계가 제공됩니다.
 
@@ -296,7 +215,6 @@ U-SQL HAVING 절은 HAVING 조건을 만족하는 그룹으로 출력을 제한�
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
-
 
 ## 데이터 조인
 
@@ -501,4 +419,4 @@ U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용
 - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 - [U-SQL에 대한 피드백 제공](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

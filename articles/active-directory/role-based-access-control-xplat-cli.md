@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Azure CLI(명령줄 인터페이스)를 사용하여 역할 기반 액세스 제어 관리 #
@@ -151,4 +151,4 @@ Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법�
 - [Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-powershell.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

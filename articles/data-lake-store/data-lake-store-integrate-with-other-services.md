@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # 데이터 레이크 저장소와 다른 Azure 서비스 통합
@@ -43,6 +43,10 @@ Azure 데이터 레이크 저장소를 다른 Azure 서비스와 함께 사용�
 
 Azure Data Factory에 데이터 레이크 저장소를 사용하는 방법에 대한 지침은 [Data Factory를 사용하여 데이터 레이크 저장소에서 데이터 이동](data-factory/data-factory-azure-datalake-connector.md)을 참조하세요.
 
+## Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사
+
+Azure 데이터 레이크 저장소에서는 Azure Blob 저장소에서 데이터 레이크 저장소 계정에 데이터를 복사할 수 있는 명령줄 도구인 AdlCopy를 제공합니다. 자세한 내용은 [Azure 저장소 Blob에서 데이터 레이크 저장소에 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)를 참조하세요.
+
 
 ## 참고 항목
 
@@ -50,4 +54,4 @@ Azure Data Factory에 데이터 레이크 저장소를 사용하는 방법에 �
 - [포털을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

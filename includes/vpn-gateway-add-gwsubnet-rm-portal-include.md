@@ -1,8 +1,10 @@
-To create a gateway subnet in the Azure portal, do the following:
+Azure 포털에서 게이트웨이 서브넷을 만들려면 다음을 수행합니다.
 
-1. In the portal, navigate to the virtual network to which you want to connect a gateway. Click the name of the virtual network to expand the **Virtual network settings** blade.
-2. On the **Settings** blade, click **Subnets** to expand the settings.
-3. On the **Subnets** blade, click Add to expand the **Add subnet** blade.
-4. On the **Add subnet** blade, name your subnet **GatewaySubnet**. You should not name it anything else, or the gateway will not work.
-5. Add the IP **address range** for your gateway. Please verify the gateway subnet setting is correct for your configuration.
-6. Click **OK** to create the subnet.
+1. 포털에서 게이트웨이에 연결하려는 가상 네트워크로 이동합니다. 가상 네트워크의 이름을 클릭하여 **가상 네트워크 설정** 블레이드를 확장합니다.
+2. **설정** 블레이드에서 **서브넷**을 클릭하여 설정을 확장합니다.
+3. **서브넷** 블레이드에서 추가를 클릭하여 **서브넷 추가** 블레이드를 확장합니다.
+4. **서브넷 추가** 블레이드에서 서브넷 이름을 **GatewaySubnet**로 지정합니다. 다른 이름으로 지정하면 게이트웨이가 작동하지 않습니다.
+5. 게이트웨이에 대한 IP **주소 범위**를 추가합니다. 구성에 대한 게이트웨이 서브넷 설정이 올바른지 확인하세요.
+6. **확인**을 클릭하여 서브넷을 만듭니다.
+
+<!---HONumber=AcomDC_0107_2016-->

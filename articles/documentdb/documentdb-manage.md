@@ -74,7 +74,7 @@ Azure 포털에서 일관성 수준 변경에 대한 지침은 [DocumentDB 계�
 ## 다음 단계
 Azure 포털에서 성능 수준 모니터링에 대한 지침은 [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)을 참조하세요.
 
-컬렉션에 대한 성능 수준 선택에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels)을 참조하세요.
+컬렉션에 대한 성능 수준 선택에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

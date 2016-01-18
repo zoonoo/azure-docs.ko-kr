@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="01/06/2016"
    ms.author="tomfitz"/>
 
-# 리소스 관리자 공급자, 영역, API 버전 및 스키마
+# 리소스 관리자 공급자, 지역, API 버전 및 스키마
 
-Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다.
-모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
+Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다. 모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
 
 리소스를 배포할 때는 이러한 리소스를 지원하는 지역 및 리소스에 사용할 수 있는 API 버전도 알아야 합니다. [지원되는 지역](#supported-regions) 섹션에서는 구독 및 리소스에 대해 작동할 지역을 확인하는 방법을 보여줍니다. 섹션 [지원되는 API 버전](#supported-api-versions)에서는 사용할 수 있는 API 버전을 결정하는 방법을 보여줍니다.
 
@@ -32,36 +31,37 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 
 | 부여 | 리소스 관리자 사용 | 리소스 이동 | REST API | 스키마 | 빠른 시작 템플릿 |
 | ------- | ------------------------ | -------------- |-------- | ------ | ------ |
-| 가상 컴퓨터 | 예 | 아니요 | [VM 만들기](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
+| 가상 컴퓨터 | 예 | 아니요 | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
 | 배치 | 예 | 예 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Dynamics Lifecycle Services | 예 | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | 서비스 패브릭(미리 보기) | 예 | | [서비스 패브릭 Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| 가상 컴퓨터(클래식) | 제한됨 | 부분적(아래 참조) | - | - | 
-| RemoteApp | 아니요 | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 부분(아래 참조) | - | - | | 원격 앱 | 아니요 | - | - | - | | 클라우드 서비스(클래식) | 아니요 | 부분(아래 참조) | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
 
-가상 컴퓨터(클래식) 리소스를 새 구독이 아닌, 새 리소스 그룹으로 이동할 수 있습니다.
+가상 컴퓨터(클래식) 및 클라우드 서비스를 새 구독이 아닌 새 리소스 그룹으로 이동할 수 있습니다.
 
 ## 네트워킹
 
 | 부여 | 리소스 관리자 사용 | 리소스 이동 | REST API | 스키마 | 빠른 시작 템플릿 |
 | ------- | -------  | -------------- | -------- | ------ | ------ |
 | 응용 프로그램 게이트웨이 | 예 | | | | [applicationGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FapplicationGateways%22&type=Code) |
-| DNS | 예 | | [DNS 영역 만들기](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
-| 부하 분산 장치 | 예 | | [부하 분산 장치 만들기](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
-| 가상 네트워크 | 예 | 아니요 | [가상 네트워크 만들기](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
-| 트래픽 관리자 | 예 | | [트래픽 관리자 프로필 만들기](https://msdn.microsoft.com/library/azure/mt163581.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
+| DNS | 예 | | [DNS REST](https://msdn.microsoft.com/library/azure/mt163862.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
+| 부하 분산 장치 | 예 | | [부하 분산 장치 REST](https://msdn.microsoft.com/library/azure/mt163651.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
+| 가상 네트워크 | 예 | 부분(아래 참조) | [가상 네트워크 REST](https://msdn.microsoft.com/ko-KR/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
+| 트래픽 관리자 | 예 | | [트래픽 관리자 REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
 | Express 경로 | 예 | 아니요 | [Express 경로 REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | | [expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
+
+가상 네트워크를 새 구독이 아닌 새 리소스 그룹으로 이동할 수 있습니다.
 
 ## 데이터 및 저장소
 
 | 부여 | 리소스 관리자 사용 | 리소스 이동 | REST API | 스키마 | 빠른 시작 템플릿 |
 | ------- | ------- | -------------- | -------- | ------ | ------- | ------ |
 | DocumentDB | 예 | 예 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | [2015-04-08](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-08/Microsoft.DocumentDB.json) | [Microsoft.DocumentDB](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DocumentDb%22&type=Code) |
-| 저장소 | 예 | 아니요 | [저장소 만들기](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [저장소 계정](resource-manager-template-storage.md) | [Microsoft.Storage](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
+| 저장소 | 예 | 아니요 | [저장소 REST](https://msdn.microsoft.com/library/azure/mt163683.aspx) | [저장소 계정](resource-manager-template-storage.md) | [Microsoft.Storage](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
 | Redis 캐시 | 예 | 예 | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Cache.json) | [Microsoft.Cache](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cache%22&type=Code) |
-| SQL 데이터베이스 | 예 | 예 | [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
+| SQL 데이터베이스 | 예 | 예 | [SQL 데이터베이스 REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | 검색 | 예 | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | SQL 데이터 웨어하우스 | 예 | | | |
 | StorSimple | 아니요 | - | - | - | | 관리된 캐시 | 아니요 | - | - | - |
@@ -70,10 +70,10 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 
 | 부여 | 리소스 관리자 사용 | 리소스 이동 | REST API | 스키마 | 빠른 시작 템플릿 |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| API 관리 | 예 | 예 | [API 만들기](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
+| API 관리 | 예 | 예 | [API 관리 REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) | | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
 | API 앱 | 예 | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) | [API 앱](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
 | 웹앱 | 예 | 예, 제한 있음(아래 참조) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
-| 알림 허브 | 예 | 예 | [알림 허브 만들기](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
+| 알림 허브 | 예 | 예 | [알림 허브 REST](https://msdn.microsoft.com/library/azure/dn495827.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
 | 논리 앱 | 예 | 예 | | | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
 | 모바일 고객 관리 | 예 | 예 | | | [Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
 
@@ -86,10 +86,10 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 
 | 부여 | 리소스 관리자 사용 | 리소스 이동 | REST API | 스키마 | 빠른 시작 템플릿 |
 | ------- | -------  | -------------- | -------- | ------ | ------ |
-| 이벤트 허브 | 예 | | [이벤트 허브 만들기](https://msdn.microsoft.com/library/azure/dn790676.aspx) | | [Microsoft.EventHub](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.EventHub%22&type=Code) |
+| 이벤트 허브 | 예 | | [이벤트 허브 REST](https://msdn.microsoft.com/library/azure/dn790674.aspx) | | [Microsoft.EventHub](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.EventHub%22&type=Code) |
 | 스트림 분석 | 예 | | [스트림 분석 REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| HDInsights | 예 | 예 | [클러스터 만들기](https://msdn.microsoft.com/library/azure/mt622302.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
-| 데이터 팩터리 | 예 | 예 | [데이터 팩터리 만들기](https://msdn.microsoft.com/library/azure/dn906717.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
+| HDInsights | 예 | 예 | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
+| 데이터 팩터리 | 예 | 예 | [데이터 팩터리 REST](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
 | 기계 학습 | 아니요 | - | - | - | | 데이터 카탈로그 | 아니요 | - | - | - |
 
 ## 미디어 및 CDN
@@ -129,9 +129,9 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | 자동화 | 예 | 예 | | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | 키 자격 증명 모음 | 예 | 예 | [키 자격 증명 모음 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [키 자격 증명 모음](resource-manager-template-keyvault.md)<br />[키 자격 증명 모음 암호](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
-| 스케줄러 | 예 | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) | [Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
+| 스케줄러 | 예 | | [스케줄러 REST](https://msdn.microsoft.com/library/azure/mt629143.aspx) | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) | [Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
 | Operational Insights | 예 | 예 | | | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
-| IoTHubs | 예 | | [IoT Hub 만들기](https://msdn.microsoft.com/library/azure/mt589013.aspx) | | [Microsoft.Devices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Devices%22&type=Code) |
+| IoTHubs | 예 | | [IoT Hub REST](https://msdn.microsoft.com/library/azure/mt589014.aspx) | | [Microsoft.Devices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Devices%22&type=Code) |
 | 보안(미리 보기) | 예 | | | | [Microsoft.Security](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
 
 ## 리소스 관리자
@@ -141,6 +141,46 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 권한 부여 | 예 | 해당 없음 | [관리 잠금](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[역할 기반 액세스 제어](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [리소스 잠금](resource-manager-template-lock.md)<br />[역할 할당](resource-manager-template-role.md) | [Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
 | 리소스 | 예 | 해당 없음 | [연결된 리소스](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [리소스 링크](resource-manager-template-links.md) | [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
 
+
+## 리소스 공급자 및 형식
+
+리소스를 배포할 때는 리소스 공급자 및 형식에 대한 정보를 자주 검색하게 됩니다. REST API, Azure PowerShell 또는 Azure CLI를 통해 이 정보를 검색할 수 있습니다.
+
+### REST API
+
+형식, 위치, API 버전 및 등록 상태를 포함한 모든 사용 가능한 리소스 공급자를 가져오려면 [모든 리소스 공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 사용합니다.
+
+### PowerShell
+
+다음 예제는 사용 가능한 모든 리소스 공급자를 가져오는 방법을 보여 줍니다.
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    
+다음과 유사하게 출력됩니다.
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    ...
+
+다음 예제는 특정 리소스 공급자에 대한 리소스 형식을 가져오는 방법을 보여 줍니다.
+
+    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+    
+다음과 유사하게 출력됩니다.
+
+    ResourceTypeName                Locations                                         ApiVersions
+    ----------------                ---------                                         ------
+    sites/extensions                {Brazil South, East Asia, East US, Japan East...} {20...
+    sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
+    ...
+    
+### Azure CLI
+
+다음 명령을 사용하여 리소스 공급자에 대한 정보를 파일로 저장할 수 있습니다.
+
+    azure provider show Microsoft.Web -vv --json > c:\temp.json
 
 ## 지원되는 지역
 
@@ -154,7 +194,7 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 
 ### PowerShell
 
-다음 예에서는 Azure PowerShell 1.0을 사용하여 웹 사이트에 대해 지원되는 지역을 가져오는 방법을 보여줍니다. 1.0 릴리스에 대한 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+다음 예제에서는 웹 사이트에 대해 지원되는 지역을 가져오는 방법을 보여 줍니다.
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -173,10 +213,6 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
     Southeast Asia
     Central US
     East US 2
-
-Azure PowerShell 0.9.8의 경우 다음 명령을 사용합니다.
-
-    PS C:\> ((Get-AzureProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
 ### Azure CLI
 
@@ -206,7 +242,7 @@ Azure PowerShell 0.9.8의 경우 다음 명령을 사용합니다.
 
 ### PowerShell
 
-다음 예제에서는 Azure PowerShell 1.0을 사용하여 특정 리소스에 사용할 수 있는 API 버전을 가져오는 방법을 보여줍니다.
+다음 예제에서는 특정 리소스 종류에 사용할 수 있는 API 버전을 가져오는 방법을 보여 줍니다.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
@@ -223,10 +259,6 @@ Azure PowerShell 0.9.8의 경우 다음 명령을 사용합니다.
     2014-04-01-preview
     2014-04-01
 
-Azure PowerShell 0.9.8의 경우 다음을 사용합니다.
-
-    PS C:\> ((Get-AzureProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
-
 ### Azure CLI
 
 다음 명령을 사용하여 리소스 공급자에 대한 정보(사용할 수 있는 API 버전 포함)를 파일로 저장할 수 있습니다.
@@ -240,4 +272,4 @@ Azure PowerShell 0.9.8의 경우 다음을 사용합니다.
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

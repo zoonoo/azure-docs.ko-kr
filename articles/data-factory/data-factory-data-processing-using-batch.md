@@ -447,7 +447,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		
 		return blobDataset.FolderPath;
 
-5.	이 코드는 파일 이름(Blob 이름)을 검색할 **GetFileName** 메서드를 호출합니다. 이 코드는 폴더 경로를 가져오는 위의 코드와 유사합니다.
+5.	이 코드는 파일 이름(BLOB 이름)을 검색할 **GetFileName** 메서드를 호출합니다. 이 코드는 폴더 경로를 가져오는 위의 코드와 유사합니다.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		
@@ -466,7 +466,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		outputBlob.UploadText(output);
 
 
-### 데이터 팩터리 만들기
+## 데이터 팩터리 만들기
 
 [사용자 지정 작업 만들기](#create-the-custom-activity) 섹션에서 사용자 지정 작업을 만들고 이진과 함께 zip 파일을 업로드하고 PDB 파일을 Azure Blob 컨테이너에 업로드했습니다. 이 섹션에서는 **사용자 지정 작업**을 사용하는 **파이프라인**으로 Azure **데이터 팩터리**를 만듭니다.
 
@@ -935,4 +935,4 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 
     -   [Azure 배치 라이브러리 .NET 시작](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Azure 역할 기반 액세스 제어
@@ -22,7 +22,7 @@
 Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
 ### Azure에서 액세스 관리의 기본 사항
-각 Azure 구독은 Azure Active Directory를 기반으로 합니다. Azure 포털, Azure 명령줄 도구 및 Azure 관리 API를 사용하여 Azure 구독에서 리소스를 관리할 권한을 사용자, 그룹 및 해당 디렉터리의 응용 프로그램에만 부여할 수 있습니다.
+각각의 Azure 구독은 하나의 Azure Active Directory와 연결됩니다. Azure 포털, Azure 명령줄 도구 및 Azure 관리 API를 사용하여 Azure 구독에서 리소스를 관리할 권한을 사용자, 그룹 및 해당 디렉터리의 응용 프로그램에만 부여할 수 있습니다.
 
 올바른 범위에서 사용자, 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 액세스 권한을 부여합니다. 전체 구독에 대한 액세스 권한을 부여하려면 구독 범위에서 역할을 할당합니다. 구독 내의 특정 리소스 그룹에 대한 액세스 권한을 부여하려면 리소스 그룹 범위에서 역할을 할당합니다. 웹 사이트, 가상 컴퓨터 및 서브넷과 같은 특정 리소스에도 역할을 할당하여 리소스에 대한 액세스 권한만 부여할 수 있습니다.
 
@@ -70,7 +70,6 @@ Azure에서 각 구독은 단 하나의 디렉터리에 속하며 각 리소스 
 
 > [AZURE.NOTE]자식 범위에서 상속된 할당을 제거할 수 있습니다. 부모 범위로 이동하여 이러한 할당을 제거합니다.
 
-
 ![](./media/role-based-access-control-configure/remove-access2.png)
 
 ## Azure PowerShell을 사용하여 액세스 관리
@@ -98,6 +97,9 @@ Azure 명령줄 인터페이스에서 Azure RBAC 명령을 사용하여 액세�
 -	액세스 권한을 제거하려면 `azure role assignment delete`를 사용합니다.
 
 Azure CLI를 사용하여 액세스를 관리하는 자세한 예를 보려면 [Azure CLI를 사용하여 액세스 관리](role-based-access-control-manage-access-azure-cli.md)를 참조하세요.
+
+## REST API를 사용하여 액세스 관리
+REST API를 사용하여 액세스 관리에 대한 자세한 예제는 [REST API를 사용하여 역할 기반 액세스 제어 관리](role-based-access-control-manage-access-rest.md)를 참조하세요.
 
 ## 액세스 변경 기록 보고서 사용
 Azure 구독에서 발생하는 모든 액세스 변경 내용은 Azure 이벤트에 기록됩니다.
@@ -173,10 +175,12 @@ Azure 리소스 공급자의 작업을 나열하려면 `Get-AzureRmProviderOpera
 ### not actions
 수행하지 않을 작업을 제외하고 모든 작업 연산자를 포함하는 대신, 특정 작업을 제외하는 방법으로 허용하려는 작업 집합을 쉽게 표현할 수 있는 경우 사용자 지정 역할의 **NotActions** 속성을 사용합니다. 사용자 지정 역할로 부여되는 유효한 액세스 권한은 Actions 작업에서 **NotActions** 작업을 제외하여 계산합니다.
 
-사용자에게 **NotActions**에서 작업을 제외하는 역할이 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 없습니다. **NotActions**는 거부 규칙이 아니며 특정 작업을 제외해야 할 경우 허용된 작업 집합을 만드는 편리한 방법일 뿐입니다.
+> [AZURE.NOTE]사용자에게 **NotActions**에서 작업을 제외하는 역할이 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 없습니다. **NotActions**는 거부 규칙이 아니며 특정 작업을 제외해야 할 경우 허용된 작업 집합을 만드는 편리한 방법일 뿐입니다.
 
 ### AssignableScopes
-사용자 지정 역할의 **AssignableScopes** 속성은 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 할당할 수 있는 범위(구독, 리소스 그룹 또는 리소스)를 지정합니다. **AssignableScopes**를 사용하여 역할이 필요한 구독 또는 리소스 그룹에만 사용자 지정 역할을 할당할 수 있도록 하고 그 외의 구독 또는 리소스 그룹에 대해서는 사용자 환경을 보다 깔끔하게 유지할 수 있습니다. 사용자 지정 역할의 **AssignableScopes**는 어떤 사용자가 해당 역할을 보고 업데이트하며 삭제할 수 있는지도 제어합니다. 다음은 몇 가지 유효한 할당 가능한 범위입니다.
+사용자 지정 역할의 **AssignableScopes** 속성은 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 할당할 수 있는 범위(구독, 리소스 그룹 또는 리소스)를 지정합니다. **AssignableScopes**를 사용하여 역할이 필요한 구독 또는 리소스 그룹에만 사용자 지정 역할을 할당할 수 있도록 하고 그 외의 구독 또는 리소스 그룹에 대해서는 사용자 환경을 보다 깔끔하게 유지할 수 있습니다.
+
+> [AZURE.NOTE]하나 이상의 구독, 리소스 그룹 또는 리소스 ID를 사용해야 합니다.* 사용자 지정 역할의 **AssignableScopes**에서 역할 보기, 업데이트, 삭제가 허용되는 사람을 제어할 수도 있습니다. 다음은 몇 가지 유효한 할당 가능한 범위입니다.
 
 -	"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624": 두 개의 구독에 역할을 할당할 수 있도록 합니다.
 -	"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e": 단일 구독에 역할을 할당할 수 있도록 합니다.
@@ -191,4 +195,4 @@ Azure 리소스 공급자의 작업을 나열하려면 `Get-AzureRmProviderOpera
 
 **범위에서 할당할 수 있는 사용자 지정 역할을 볼 수 있는 사람** 범위에서 `Microsoft.Authorization/roleDefinition/read` 작업을 수행할 수 있는 사용자는 해당 범위에서 할당 가능한 RBAC 역할을 볼 수 있습니다. Azure RBAC에서 모든 기본 제공 역할은 할당 가능한 역할을 볼 수 있습니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

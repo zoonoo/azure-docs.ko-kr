@@ -18,7 +18,7 @@
 
 # DocumentDB의 분할 및 데이터 조정
 
-[Microsoft Azure DocumentDB](../../services/documentdb/)는 신속하고 예측 가능한 성능을 얻을 수 있고, 응용 프로그램 증가에 따라 효율적인 *확장*이 가능하도록 설계되었습니다. DocumentDB는 웹 및 모바일 앱의 MSN 제품군을 지원하는 사용자 데이터 저장소와 같이 Microsoft에서 대규모 프로덕션 서비스를 지원하기 위해 사용됩니다.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)는 신속하고 예측 가능한 성능을 얻을 수 있고, 응용 프로그램 증가에 따라 효율적인 *확장*이 가능하도록 설계되었습니다. DocumentDB는 웹 및 모바일 앱의 MSN 제품군을 지원하는 사용자 데이터 저장소와 같이 Microsoft에서 대규모 프로덕션 서비스를 지원하기 위해 사용됩니다.
 
 일반적으로 **분할(sharding)**이라고 부르는 개념인 데이터 수평 분할을 통해 DocumentDB 응용 프로그램에 대한 저장소 및 처리량 측면에서 거의 무제한적인 확장성을 얻을 수 있습니다. DocumentDB 계정은 **컬렉션**이라고 부르는 스택 가능한 단위를 통해 비용과 비례적으로 확장될 수 있습니다. 컬렉션 간 데이터 분할 효과는 데이터 형식 및 액세스 패턴에 따라 달라집니다.
 
@@ -112,4 +112,4 @@ DocumentDB에서는 언제라도 컬렉션을 추가 및 제거하고, 이를 �
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

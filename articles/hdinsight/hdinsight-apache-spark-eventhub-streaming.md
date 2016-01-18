@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="HDInsight에서 Apache Spark로 Azure 이벤트 허브를 사용하여 스트리밍 데이터 처리 | Microsoft Azure" 
-	description="Azure 이벤트 허브에 데이터를 보내는 방법에 대한 단계별 지침 및 scala 응용 프로그램을 사용하여 Spark에서 해당 이벤트 수신" 
+	description="Azure 이벤트 허브에 데이터 스트림을 보내는 방법에 대한 단계별 지침 및 scala 응용 프로그램을 사용하여 Spark에서 해당 이벤트 수신" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="12/29/2015" 
 	ms.author="nitinme"/>
 
 
@@ -22,7 +22,7 @@
 
 Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높은 처리량, 내결함성 스트림 처리 응용 프로그램을 빌드합니다. 여러 소스에서 데이터를 수집할 수 있습니다. 이 문서에서는 Azure 이벤트 허브를 사용하여 데이터를 수집합니다. 이벤트 허브는 초당 수백만의 이벤트를 유입하는 확장성이 뛰어난 수집 시스템입니다.
 
-이 자습서에서는 Azure 이벤트 허브를 만드는 방법, Java의 콘솔 응용 프로그램을 사용하여 이벤트 허브로 메시지를 수집하고 Scala에서 작성된 Spark 응용 프로그램을 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다. 이 응용 프로그램은 이벤트 허브를 통해 스트리밍된 데이터를 사용하고 서로 다른 출력(Azure Blob 저장소, Hive 테이블 및 SQL 테이블)으로 라우팅합니다.
+이 자습서에서는 Azure 이벤트 허브를 만드는 방법, Java의 콘솔 응용 프로그램을 사용하여 이벤트 허브로 메시지를 수집하고 Scala에서 작성된 Spark 응용 프로그램을 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다. 이 응용 프로그램은 이벤트 허브를 통해 스트리밍된 데이터를 사용하고 서로 다른 출력(Azure 저장소 Blob, Hive 테이블 및 SQL 테이블)으로 라우팅합니다.
 
 > [AZURE.NOTE]이 문서의 지침을 따르려면 Azure 포털의 두 가지 버전을 모두 사용해야 합니다. 이벤트 허브를 만드는 데는 [Azure 포털](https://manage.windowsazure.com)을 사용합니다. HDInsight Spark 클러스터 작업을 하는 데는 [Azure Preview 포털](https://ms.portal.azure.com/)을 사용합니다.
 
@@ -110,7 +110,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 	![프로젝트 보기](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-2. pom.xml을 열고 Spark 버전이 정확한지 확인합니다. <properties> 노드 아래에서 다음 코드 조각을 찾고 Spark 버전을 확인합니다.
+4. pom.xml을 열고 Spark 버전이 정확한지 확인합니다. <properties> 노드 아래에서 다음 코드 조각을 찾고 Spark 버전을 확인합니다.
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
@@ -119,7 +119,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 	**spark.version**에 대한 값이 **1.5.1**로 설정되었는지 확인합니다.
 
-3. 응용 프로그램에는 두 가지는 종속성 jar이 필요합니다.
+5. 응용 프로그램에는 두 가지는 종속성 jar이 필요합니다.
 
 	* **EventHub 수신기 jar**. Spark가 이벤트 허브에서 메시지를 받는데 필요합니다. 이 jar은 `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`의 Spark Linux 클러스터에서 사용할 수 있습니다. pscp를 사용하여 로컬 컴퓨터에 jar을 복사할 수 있습니다.
 
@@ -128,22 +128,23 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 		이렇게 하면 로컬 컴퓨터에 Spark 클러스터에서 jar 파일을 복사합니다.
 
 	* **JDBC 드라이버 jar**. 이벤트 허브에서 받은 메시지를 Azure SQL 데이터베이스에 작성해야 합니다. 이 jar 파일의 v4.1 이상을 [여기](https://msdn.microsoft.com/ko-KR/sqlserver/aa937724.aspx)에서 다운로드할 수 있습니다.
-
-	프로젝트 라이브러리의 이러한 jar에 참조를 추가합니다. 다음 단계를 수행합니다.
-
-	1. 응용 프로그램이 열려 있는 IntelliJ IDEA 창에서 **파일**을 클릭하고 **프로젝트 구조**를 클릭한 다음 **라이브러리**를 클릭합니다. 
-
-		![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "누락된 종속성 jar 추가")
-
-		추가 아이콘(![추가 아이콘](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png))을 클릭하고 **Java**를 클릭한 다음 이벤트 허브 수신기 jar을 다운로드한 위치로 이동합니다. 지시에 따라 프로젝트 라이브러리에 jar 파일을 추가합니다.
-
-	2. 프로젝트 라이브러리에도 JDBC jar을 추가하려면 이전 단계를 반복합니다.
 	
-		![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "누락된 종속성 jar 추가")
 
-	3. **Apply**를 클릭합니다.
+		프로젝트 라이브러리의 이러한 jar에 참조를 추가합니다. 다음 단계를 수행합니다.
 
-4. 출력 jar 파일을 만듭니다. 다음 단계를 수행합니다.
+		1. 응용 프로그램이 열려 있는 IntelliJ IDEA 창에서 **파일**을 클릭하고 **프로젝트 구조**를 클릭한 다음 **라이브러리**를 클릭합니다. 
+
+			![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "누락된 종속성 jar 추가")
+
+			추가 아이콘(![추가 아이콘](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png))을 클릭하고 **Java**를 클릭한 다음 이벤트 허브 수신기 jar을 다운로드한 위치로 이동합니다. 지시에 따라 프로젝트 라이브러리에 jar 파일을 추가합니다.
+
+		1. 프로젝트 라이브러리에도 JDBC jar을 추가하려면 이전 단계를 반복합니다.
+	
+			![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "누락된 종속성 jar 추가")
+
+		1. **Apply**를 클릭합니다.
+
+6. 출력 jar 파일을 만듭니다. 다음 단계를 수행합니다.
 	1. **프로젝트 구조** 대화 상자에서 **아티팩트**를 클릭한 다음 더하기 기호를 클릭합니다. 팝업 대화 상자에서 **JAR**을 클릭한 다음 **종속성이 있는 모듈에서**를 클릭합니다.
 
 		![JAR 만들기](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
@@ -369,4 +370,4 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

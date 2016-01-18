@@ -18,7 +18,7 @@
    	ms.author="nitinme"/>
 
 
-#HDInsight에서 Linux 기반 클러스터 만들기
+#HDInsight에서 Linux 기반 Hadoop 클러스터 만들기
 
 [AZURE.INCLUDE [선택기](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -282,4 +282,4 @@ Metastore 구성 옵션을 사용하여 SQL 데이터베이스를 사용하는 �
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

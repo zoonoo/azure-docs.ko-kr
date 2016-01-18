@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="리소스 관리자와 Azure CLI | Microsoft Azure"
 	description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 여러 리소스를 리소스 그룹으로 배포하세요."
@@ -68,7 +69,7 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 	azure group create -n "testRG" -l "West US"
 
-그런 다음 이 그룹에 리소스를 추가하고 이 그룹을 사용하여 새 가상 컴퓨터 같은 리소스를 구성할 수 있습니다.
+템플릿을 사용하여 Ubuntu VM을 시작하는 경우 이 "testRG" 리소스 그룹을 나중에 배포합니다. 리소스 그룹을 만들었으면 가상 컴퓨터 및 네트워크 또는 저장소 같은 리소스를 추가할 수 있습니다.
 
 
 ## 리소스 그룹 템플릿 사용
@@ -79,48 +80,50 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 새 템플릿 만들기는 이 기사의 범위를 벗어나기 때문에 우선 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm)에서 제공하는 _101-simple-vm-from-image_ 템플릿을 사용하겠습니다. 기본적으로 이 템플릿은 미국 서부 지역의 단일 서브넷을 사용하여 새로운 가상 네트워크에 단일 Ubuntu 14.04.2-LTS 가상 컴퓨터를 만듭니다. 사용자는 이 템플릿을 사용할 수 있도록 다음 매개 변수 몇 개만 지정하면 됩니다.
 
-* 고유한 저장소 계정 이름
-* VM의 관리 사용자 이름
-* 암호
-* VM의 도메인 이름
+* VM의 관리 사용자 이름 = `adminUsername`
+* 암호 = `adminPassword`
+* VM의 도메인 이름 = `dnsLabelPrefix`
 
 >[AZURE.TIP]다음 단계는 Azure CLI를 통해 VM 템플릿을 사용하는 여러 방법 중 하나입니다. 다른 예는 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)를 참조하세요.
 
-1. [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm)에서 로컬 컴퓨터의 작업 폴더로 azuredeploy.json 및 azuredeploy.parameters.json 파일을 다운로드합니다.
+1. [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)에서 로컬 컴퓨터의 작업 폴더로 azuredeploy.json 및 azuredeploy.parameters.json 파일을 다운로드합니다.
 
 2. 텍스트 편집기에서 azuredeploy.parameters.json 파일을 열고 사용 중인 환경에 적합한 매개 변수 값을 입력합니다(**ubuntuOSVersion** 값은 변경하지 않고 그대로 유지).
 
-		{
-	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  	"contentVersion": "1.0.0.0",
-	  	"parameters": {
-		    "newStorageAccountName": {
-		      "value": "MyStorageAccount"
-		    },
-		    "adminUsername": {
-		      "value": "MyUserName"
-		    },
-		    "adminPassword": {
-		      "value": "MyPassword"
-		    },
-		    "dnsNameForPublicIP": {
-		      "value": "MyDomainName"
-		    },
-		    "ubuntuOSVersion": {
-		      "value": "14.04.2-LTS"
-		    }
-		  }
-		}
-	```
-3. azuredeploy.parameters.json 파일을 저장한 후 다음 명령을 사용하여 템플릿에 따라 새 리소스 그룹을 만듭니다. `-e` 옵션은 이전 단계에서 수정한 azuredeploy.parameters.json 파일을 지정합니다. *testRG*는 사용하려는 그룹 이름으로 바꾸고 *testDeploy*는 선택한 배포 이름으로 바꿉니다. 위치는 템플릿 매개 변수 파일에 지정된 것과 동일해야 합니다.
 
-		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
+```
+			{
+			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+			  "contentVersion": "1.0.0.0",
+			  "parameters": {
+			    "adminUsername": {
+			      "value": "azureUser"
+			    },
+			    "adminPassword": {
+			      "value": "GEN-PASSWORD"
+			    },
+			    "dnsLabelPrefix": {
+			      "value": "GEN-UNIQUE"
+			    },
+			    "ubuntuOSVersion": {
+			      "value": "14.04.2-LTS"
+			    }
+			  }
+			}
+
+```
+
+3.  배포 매개 변수가 수정되었으므로 Ubuntu VM을 이전에 만든 리소스 그룹으로 배포합니다. 배포에 대한 이름을 선택하고 다음 명령을 사용하여 시작합니다.
+
+		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+
+	이 예제에서는 리소스 그룹 _testRG_로 배포된 _testRGDeploy_라는 배포를 만듭니다. `-e` 옵션은 이전 단계에서 수정한 azuredeploy.parameters.json 파일을 지정합니다. `-f` 옵션으로 azuredeploy.json 템플릿 파일을 지정합니다.
 
 	이 명령은 배포가 업로드된 후, 배포가 그룹의 리소스에 적용되기 전에 OK를 반환합니다.
 
 4. 배포 상태를 확인하려면 다음 명령을 사용합니다.
 
-		azure group deployment show "testRG" "testDeploy"
+		azure group deployment show "testRG" "testRGDeploy"
 
 	**ProvisioningState**에서 배포 상태를 보여 줍니다.
 
@@ -210,4 +213,4 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tarcher"/>
 
 # Visual Studio 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Javascript 모바일 앱 시작
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
-> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 이 예에서 코드를 따르기 위해 해야 할 첫 번째 단계는 연결할 모바일 서비스 유형에 따라 다릅니다.
 
@@ -80,7 +76,7 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####항목 삭제
+##항목 삭제
 
 데이터 테이블의 행을 삭제합니다. 반환된 [Promise]() 개체에 대한 [done](https://msdn.microsoft.com/library/dn802826.aspx) 메서드를 호출하여 삽입된 개체의 복사본을 가져오고 오류를 처리합니다.
 
@@ -92,4 +88,4 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

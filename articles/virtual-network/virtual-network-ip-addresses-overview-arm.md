@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
-# Azure 리소스 관리자의 IP 주소
+# Azure의 IP 주소
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
 
 공용 IP 주소는 Azure 공용 웹 서비스를 포함한 인터넷과의 통신에 사용됩니다.
@@ -24,6 +24,8 @@
 개인 IP 주소는 VPN 게이트웨이 또는 Express 경로 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet) 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+
+클래식 배포 모델에 익숙한 경우 [클래식과 리소스 관리자 간의 IP 주소 차이](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments)를 확인합니다.
 
 ## 공용 IP 주소
 공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs), [SQL 데이터베이스](sql-database-technical-overview.md) 및 [Azure 저장소](storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
@@ -45,8 +47,8 @@ IP 주소는 *동적* 또는 *정적*의 두 가지 방법으로 *공용 IP 리�
 정적 공용 IP 주소는 일반적으로 다음과 같은 시나리오에서 사용됩니다.
 
 - 최종 사용자가 Azure 리소스와 통신하도록 방화벽 규칙을 업데이트해야 하는 경우
-- DNS 이름을 확인할 때 IP 주소를 변경하려면 A 레코드를 업데이트해야 하는 경우
-- Azure 리소스가 IP 기반 보안 모델을 사용하는 다른 웹 서비스와 통신하는 경우
+- DNS 이름을 확인, IP 주소를 변경하려면 A 레코드를 업데이트해야 하는 경우
+- Azure 리소스가 IP 기반 보안 모델을 사용하는 다른 앱 또는 서비스와 통신하는 경우
 - IP 주소에 연결된 SSL 인증서를 사용하는 경우
 
 >[AZURE.NOTE]공용 IP 주소(동적/정적)를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
@@ -122,19 +124,27 @@ Azure 관리 DNS 서버를 사용하여 구성된 VM은 해당 VNet 내 모든 V
 |내부 부하 분산 장치 프런트 엔드|예|예|예|
 |응용 프로그램 게이트웨이 프런트 엔드|예|예|예|
 
-## 리소스 관리자와 클래식 배포 비교
-아래는 리소스 관리자와 클래식 배포 모델의 IP 주소를 비교한 것입니다.
+## 제한
 
-|| 리소스|클래식|리소스 관리자|
-|---|---|---|---|
-|**공용 IP 주소**| VM|ILPIP라고 함(동적에만 해당)|공용 IP 라고 함(동적 또는 정적)|
-|||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 연결됨|
-||인터넷 연결 부하 분산 장치| VIP(동적) 또는 예약된 IP(정적)라고 함|공용 IP라고 함(동적 또는 정적)|
-|||클라우드 서비스에 할당됨|부하 분산 장치의 프런트 엔드 구성에 연결됨|
-||||
-|**개인 IP 주소**|VM|DIP라고 함|개인 IP 주소라고 함|
-|||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 할당됨|
-||내부 부하 분산 장치(ILB)|ILB에 할당됨(동적 또는 정적)| ILB의 프런트 엔드 구성에 할당됨(동적 또는 정적)|
+아래 테이블은 하위 지역 당, 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 비즈니스에 따라 최대 한도까지 기본 제한을 증가시킬 수 있습니다
+
+||기본 제한|최대 제한| |---|---|---| |공용 IP 주소(동적)|60|지원에 문의| |공용 IP 주소(정적)|20|지원에 문의| |부하 분산 장치 당 공용 프론트 엔드 IP|5|지원에 문의| |부하 분산 장치 당 개인 프론트 엔드 IP|1|지원에 문의|
+
+Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits) 전체 집합을 읽도록 합니다.
+
+## 가격
+
+대부분의 경우에 공용 IP 주소는 무료입니다. 추가 및/또는 정적 공용 IP 주소를 사용하는 데 명목 요금이 있습니다. [공용 IP에 대한 가격 책정 구조](https://azure.microsoft.com/pricing/details/ip-addresses/)를 이해하도록 합니다.
+
+요약하자면 다음과 같은 가격 책정 구조는 공용 IP 리소스에 적용됩니다.
+
+- VPN 게이트웨이 및 응용 프로그램 게이트웨이는 하나의 동적 공용 IP를 사용하며 무료로 제공됩니다.
+- VM은 하나의 공용 IP를 사용하며 동적 IP 주소인 한 무료로 제공됩니다. VM에서 고정 공용 IP를 사용하는 경우 고정(예약된) 공용 IP 사용에 대해 계산됩니다.
+- 각 부하 분산 장치는 여러 공용 IP를 사용할 수 있습니다. 첫 번째 공용 IP는 무료입니다. 동적 IP에 $0.004/hr로 추가 요금이 부과됩니다. 고정 공용 IP는 고정(예약된) 공용 IP 사용에 대해 계산됩니다.
+- 고정(예약된) 공용 IP 주소: 
+	- 첫 번째 5(사용 중)개는 무료입니다. 고정 공용 IP에 $0.004/hr로 추가 요금이 부과됩니다. 
+	- 리소스에 할당되지 않은 고정 공용 IP는 $0.004/hr로 요금이 부과됩니다.
+	- 사용 현황은 구독에서 고정 공용 IP의 총 수를 기반으로 계산됩니다.
 
 ## 다음 단계
 - [정적 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-template.md)
@@ -145,4 +155,4 @@ Azure 관리 DNS 서버를 사용하여 구성된 VM은 해당 VNet 내 모든 V
 - [PowerShell을 사용하여 내부 부하 분산 장치의 프런트 엔드 정적 개인 IP 주소 만들기](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
 - [PowerShell을 사용하여 응용 프로그램 게이트웨이의 정적 개인 IP 주소가 있는 백 엔드 풀 만들기](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
-# 서비스 버스 가격 지정 FAQ(영문)
+# 서비스 버스 가격 책정 FAQ
 
 이 섹션은 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 방문할 수 있습니다. 서비스 버스 가격 책정에 대한 전체 내용은 [서비스 버스 가격 책정 세부 정보](http://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 
@@ -88,7 +88,7 @@ Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의
 
 - **메시지 크기 할당량**
 	- **큐/항목/구독**
-		- **메시지 크기** - 각 메시지는 메시지 헤더를 포함하여 총 크기를 256KB로 제한합니다.
+		- **메시지 크기** -각 메시지는 메시지 헤더를 포함하여 총 크기를 256KB로 제한합니다.
 		- **메시지 헤더 크기** – 각 메시지 헤더는 64KB로 제한합니다.
 
 	- **NetOneway 및 NetEvent 릴레이** - 각 메시지는 메시지 헤더를 포함하여 총 크기를 64KB로 제한합니다.
@@ -111,9 +111,9 @@ Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의
 - [Azure 서비스 버스 프리미엄 메시징 소개(블로그 게시물)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Azure 서비스 버스 프리미엄 메시징 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
-- [Azure 서비스 버스 아키텍처 개요](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

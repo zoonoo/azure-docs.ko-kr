@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="논리 앱 기능 사용" 
+	pageTitle="논리 앱 기능 사용 | Microsoft Azure" 
 	description="논리 앱의 고급 기능을 사용하는 방법을 알아봅니다." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # 논리 앱 기능 사용
@@ -49,7 +49,7 @@
 
 3. 기어 아이콘을 클릭하고 **목록에서 반복**을 선택합니다.
  
-2. **반복** 상자 옆에 있는 `...`을 클릭하고 **본문**을 선택합니다. 그러면
+2. **반복** 상자 옆에 있는 `...`을 클릭하고 **본문**을 선택합니다. 이렇게 하면
 
     	@body('twitterconnector')
 
@@ -57,7 +57,7 @@
 
 3. **콘텐츠** 텍스트 상자에서 모든 텍스트를 선택하고 삭제합니다. 그런 다음 `...`을 클릭하고 **트윗 텍스트**를 선택합니다. 목록에 있는 각 요소를 반환하는 **repeatItem()** 함수가 삽입됩니다.
 
-끝으로, 반복 작업의 출력은 특별합니다. 예를 들어 Dropbox 작업의 결과를 참조하려는 경우 일반적인 `@actions('dropboxconnector').outputs.body`를 수행하지 *않고* 대신 `@actions('dropboxconnector').outputs.repeatItems`를 수행합니다. 그러면 작업이 실행된 모든 시간 목록과 각 실행의 출력이 반환됩니다. 예를 들어 `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath`는 업로드된 첫 번째 파일의 경로를 반환합니다.
+끝으로, 반복 작업의 출력은 특별합니다. 예를 들어 Dropbox 작업의 결과를 참조하려는 경우 일반적인 `@actions('dropboxconnector').outputs.body`를 수행하지 *않을* 수 있습니다. `@actions('dropboxconnector').outputs.repeatItems`를 대신 수행합니다. 그러면 작업이 실행된 모든 시간 목록과 각 실행의 출력이 반환됩니다. 예를 들어 `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath`는 업로드된 첫 번째 파일의 경로를 반환합니다.
 
 ### 조건부
 이 논리 앱은 여전히 많은 파일이 Dropbox로 업로드되게 합니다. 다음 단계에서는 논리를 더 추가하여 트윗에 특정 개수의 리트윗이 있을 경우 파일만 받도록 합니다.
@@ -143,4 +143,4 @@
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

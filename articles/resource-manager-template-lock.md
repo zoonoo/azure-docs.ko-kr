@@ -1,6 +1,6 @@
 <properties
    pageTitle="리소스 잠금에 대한 리소스 관리자 템플릿 | Microsoft Azure"
-   description="리소스 잠금에 대한 리소스 관리자 스키마를 보여 줍니다."
+   description="템플릿을 통해 리소스 잠금을 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# 리소스 잠금 - 템플릿 스키마
+# 리소스 잠금 템플릿 스키마
 
 리소스 및 해당 자식 리소스에 새 잠금을 만듭니다.
 
@@ -46,9 +46,7 @@
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | 예 | 리소스의 경우: <br />**{namespace}/{type}/providers/locks**<br /><br />리소스 그룹의 경우:<br />**Microsoft.Authorization/locks** | 만들려는 리소스 종류입니다. |
 | apiVersion | enum | 예 | **2015-01-01** | 리소스를 만들 때 사용하는 API 버전입니다. |  
-| name | string | 예 | 리소스의 경우:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />리소스 그룹의 경우:<br />**{lockname}****<br /><br />최대 64자<br /><, > %, &, ? 또는 제어 문자를 포함할 수 없습니다. | 잠글 리소스 및 잠금 이름을 지정하는 값입니다. |
-| dependsOn | array| 아니요 | 쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다. | 이 잠금에 따라 달라지는 리소스 컬렉션입니다. 잠근 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다.|
-| properties | object | 예 | (아래 참조) | 잠금 유형을 식별하고 잠금에 대해 설명하는 개체입니다. | 
+| name | string | 예 | 리소스의 경우:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />리소스 그룹의 경우:<br />**{lockname}****<br /><br />최대 64자<br /><, > %, &, ? 또는 제어 문자를 포함할 수 없습니다. | 잠글 리소스 및 잠금 이름을 지정하는 값입니다. | | dependsOn | array| 아니요 | 쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다. | 이 잠금에 따라 달라지는 리소스 컬렉션입니다. 잠근 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다.| properties | object | 예 | (아래 참조) | 잠금 유형을 식별하고 잠금에 대해 설명하는 개체입니다. | 
 
 ### properties 개체
 
@@ -135,4 +133,4 @@ PowerShell 명령 **Remove-AzureRmResourceLock** 또는 REST API의 [삭제 작�
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 잠금에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

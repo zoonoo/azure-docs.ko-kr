@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/24/2015" 
 	ms.author="yochayk"/>
 
 
@@ -61,7 +61,7 @@
 <td align="left">모바일 앱</td>
 <td align="left"><p><li>모바일 서비스는 독립 실행형 서비스로 계속 사용할 수 있으며 완전히 지원됩니다.</p>
 <p><li>모바일 앱은 모바일 서비스의 모든 기능과 추가 기능을 통합하는 앱 서비스의 새로운 앱 유형입니다. 모바일 앱은 공개 미리 보기입니다.</p>
-<p><li>쉽게 <a href="http://azure.microsoft.com/documentation/articles/app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview/">모바일 서비스에서 모바일 앱으로 마이그레이션</a>할 수 있습니다. 모바일 앱은 미리 보기 상태이므로 아직 프로덕션 앱을 실행하는 데 사용하지 않는 것이 좋습니다.</p>
+<p><li>[모바일 서비스에서 모바일 앱으로 마이그레이션]하기는 쉽습니다(../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md). 모바일 앱은 미리 보기 상태이므로 아직 프로덕션 앱을 실행하는 데 사용하지 않는 것이 좋습니다.</p>
 <p><li>앱 서비스의 일부로 모바일 앱에는 온-프레미스 및 SaaS 시스템과 통합, 스테이징 슬롯, WebJobs, 향상된 크기 조정 옵션 등 모바일 서비스의 범위를 초월한 새 기능이 제공됩니다.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">모바일 앱에 대해 자세히 알아봅니다</a>.</p>
 </tr>
@@ -93,4 +93,4 @@
 자세한 내용은 [앱 서비스 설명서](http://azure.microsoft.com/documentation/services/app-service/)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/17/2015" 
 	ms.author="naziml"/>
 
 # 웹앱에 대 한 TLS 상호 인증을 구성하는 방법
@@ -179,4 +179,4 @@
         }
     }
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

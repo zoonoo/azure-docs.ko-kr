@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/17/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # SQL 데이터 웨어하우스에 데이터 로드
@@ -75,7 +75,7 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 
 + **동시 연결**: 대상에 대한 많은 동시 연결을 여는 /NC 매개 변수를 설정하면 한 번에 실행되는 AZCopy 작업 수가 증가하는 것은 물론 AZCopy 작업 자체를 더욱 병렬화할 수 있습니다. 매개변수의 최대 설정은 512이고, 256이 데이터 전송에 최적화되어있지만, 사용자 구성의 최적값을 찾기 위해 많은 값을 테스트하는것을 권장합니다.
 
-+ **Express 경로**: 위에서 설명한 대로, Express 경로를 사용하도록 설정하면 이 프로세스의 속도를 증가시킬 수 있습니다. Express 경로 및 구성 단계에 대한 개요는 [Express 경로 설명서][]에서 확인할 수 있습니다.
++ **Express 경로**: 위에서 설명한 대로, express 경로가 사용 가능한 경우 이 프로세스의 속도를 증가시킵니다. Express 경로 및 구성 단계에 대한 개요는 [Express 경로 설명서][]에서 확인할 수 있습니다.
 
 + **폴더 구조**: PolyBase를 사용하여 더 쉽게 전송하려면 각 테이블을 해당 폴더에 매핑합니다. 이것은 나중에 PolyBase를 사용해 로드할 때 해당 단계를 최소화하고 간소화시킵니다. 테이블이 여러 파일 또는 폴더 내의 하위 디렉터리에 분할된 경우, 아무런 영향도 주지 않습니다.
 	 
@@ -201,4 +201,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [Azure 저장소 설명서]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/
 [Express 경로 설명서]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

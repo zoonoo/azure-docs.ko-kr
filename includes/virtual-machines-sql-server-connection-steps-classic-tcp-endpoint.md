@@ -1,20 +1,22 @@
-### Create a TCP endpoint for the virtual machine
+### 가상 컴퓨터용 TCP 끝점 만들기
 
-In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
+인터넷에서 SQL 서버에 연결하려면, 가상 컴퓨터에 들어오는 TCP 통신을 수신하는 끝점이 있어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
 
->[AZURE.NOTE] If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint. In that case, you could continue to the next step. For more information, see [Connection Scenarios](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
+>[AZURE.NOTE]동일한 클라우드 서버 또는 가상 네트워크 내에서 연결하는 경우, 공개적으로 엑세스 할 수 있는 끝점을 만들 필요가 없습니다. 이 경우, 다음 단계를 계속 할 수 있습니다. 자세한 내용은 [연결 시나리오](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios)를 참조하세요.
 
-1. On the Azure Management Portal, click on **VIRTUAL MACHINES**.
+1. Azure 관리 포털에서 **가상 컴퓨터**를 클릭합니다.
 	
-2. Click on your newly created virtual machine. Information about your virtual machine is presented.
+2. 새로 만든 가상 컴퓨터를 클릭합니다. 가상 컴퓨터에 대한 정보가 표시됩니다.
 	
-3. Near the top of the page, select the **ENDPOINTS** page, and then at the bottom of the page, click **ADD**.
+3. 페이지 맨 위 근처에서 **끝점** 페이지를 선택한 후 페이지 맨 아래에서 **추가**를 클릭합니다.
 	
-4. On the **Add an Endpoint to a Virtual Machine** page, click **Add a Stand-alone Endpoint**, and then click the Next arrow to continue.
+4. **가상 컴퓨터에 끝점 추가** 페이지에서 **독립 실행형 끝점 추가**를 클릭한 후 다음 화살표를 클릭하여 계속합니다.
 	
-5. On the **Specify the details of the endpoint** page, provide the following information.
+5. **끝점의 세부 정보를 지정하십시오.** 페이지에서 다음 정보를 제공합니다.
 
-	- In the **NAME** box, provide a name for the endpoint.
-	- In the **PROTOCOL** box, select **TCP**. You may type **57500** in the **PUBLIC PORT** box. Similarly, you may type SQL Server's default listening port **1433** in the **Private Port** box. Note that many organizations select different port numbers to avoid malicious security attacks. 
+	- **이름** 상자에 끝점의 이름을 입력합니다.
+	- **프로토콜** 상자에서 **TCP**를 선택합니다. **공용 포트** 상자에 **57500**을 입력할 수 있습니다. 마찬가지로, SQL Server의 기본 수신 대기 포트 **1433**를 **개인 포트** 상자에 입력할 수 있습니다. 많은 조직이 악의적인 보안 공격을 방지하기 위해 다른 포트 번호를 선택합니다. 
 
-6. Click the check mark to continue. The endpoint is created.
+6. 확인 표시를 클릭하여 계속합니다. 끝점이 만들어집니다.
+
+<!---HONumber=AcomDC_0107_2016-->

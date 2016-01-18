@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 분할된 메시징 엔터티
@@ -31,7 +31,7 @@ Azure 서비스 버스에서는 여러 메시지 broker가 메시지를 처리�
 
 ## 분할 사용
 
-Microsoft Azure 서비스 버스로 분할된 큐 및 항목을 사용하려면 Azure SDK 버전 2.2 이상을 사용하거나 HTTP 요청에서 `api-version=2013-10`를 지정합니다.
+Azure 서비스 버스로 분할된 큐 및 항목을 사용하려면 Azure SDK 버전 2.2 이상을 사용하거나 HTTP 요청에서 `api-version=2013-10`를 지정합니다.
 
 서비스 버스 큐 및 항목은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure 클래식 포털][]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 
@@ -125,7 +125,7 @@ Azure 서비스 버스는 분할된 엔터티 간에 자동 메시지 전달을 
 
 ## 다음 단계
 
-서비스 버스 분할된 큐 및 항목에 대한 AMQP 1.0 지원 설명을 참조하여(출시 예정!) 메시징 엔터티 분할에 대해 자세히 알아봅니다.
+[서비스 버스 분할된 큐 및 항목에 대한 AMQP 1.0 지원][] 설명을 참조하여 메시징 엔터티 분할에 대해 자세히 알아봅니다.
 
   [서비스 버스 아키텍처]: service-bus-architecture.md
   [Azure 클래식 포털]: http://manage.windowsazure.com
@@ -142,6 +142,6 @@ Azure 서비스 버스는 분할된 엔터티 간에 자동 메시지 전달을 
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
+  [서비스 버스 분할된 큐 및 항목에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

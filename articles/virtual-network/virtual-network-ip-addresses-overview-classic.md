@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
 # Azure의 IP 주소(기본)
@@ -23,7 +23,7 @@
 
 개인 IP 주소는 VPN 게이트웨이 또는 Express 경로 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet), 클라우드 서비스 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [resource manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 ## 공용 IP 주소
 공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs), [SQL 데이터베이스](sql-database-technical-overview.md) 및 [Azure 저장소](storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
@@ -37,7 +37,7 @@
 - 응용 프로그램 게이트웨이
 
 ### 할당 방법
-공용 IP 주소를 Azure 리소스에 할당해야 하는 경우 리소스가 생성된 위치 내 사용 가능한 공용 IP 주소 풀에서 *동적으로* 할당됩니다. 이 IP 주소는 리소스가 중지되면 해제됩니다. 클라우드 서비스의 경우 모든 역할 인스턴스가 중지되면 이러한 상황이 발생하며, *정적* (예약된) IP 주소를 사용하면 이를 방지할 수 있습니다(아래의 클라우드 서비스 참조).
+공용 IP 주소를 Azure 리소스에 할당해야 하는 경우 리소스가 생성된 위치 내 사용 가능한 공용 IP 주소 풀에서 *동적으로* 할당됩니다. 이 IP 주소는 리소스가 중지되면 해제됩니다. 클라우드 서비스의 경우 모든 역할 인스턴스가 중지되면 이러한 상황이 발생하며, *정적* (예약된) IP 주소를 사용하면 이를 방지할 수 있습니다.([클라우드 서비스](#Cloud-services) 참조)
 
 >[AZURE.NOTE]공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
 
@@ -80,7 +80,7 @@ Azure [응용 프로그램 게이트웨이](application-gateway-introduction.md)
 ## 개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 Express 경로 회로를 통해 클라우드 서비스 또는 [가상 네트워크](virtual-networks-overview.md)(VNet) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
 
-Azure 클래식 배포 모델에서 개인 IP 주소는 다양한 Azure 리소스에 할당됩니다.
+Azure 클래식 배포 모델에서 개인 IP 주소는 다음의 Azure 리소스에 할당될 수 있습니다.
 
 - IaaS VM 및 PaaS 역할 인스턴스
 - 내부 부하 분산 장치
@@ -101,7 +101,7 @@ Azure 클래식 배포 모델에서 개인 IP 주소는 다양한 Azure 리소�
 
 또한 VNet 내 클라우드 서비스의 경우 기본적으로 개인 IP 주소가 (DHCP를 사용하여) *동적으로* 할당됩니다. 이는 리소스를 중지 및 시작할 때 변경될 수 있습니다. IP 주소가 동일하게 유지되려면 할당 방법을*정적*으로 설정하고 해당 주소 범위 내에서 유효한 IP 주소를 제공해야 합니다.
 
- 정적 개인 IP 주소가 일반적으로 사용되는 대상은 다음과 같습니다.
+정적 개인 IP 주소가 일반적으로 사용되는 대상은 다음과 같습니다.
 
  - 도메인 컨트롤러 또는 DNS 서버 역할을 하는 VM
  - IP 주소를 사용하는 방화벽 규칙이 필요한 VM
@@ -128,6 +128,23 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 |내부 부하 분산 장치 프런트 엔드|예|예|예|
 |응용 프로그램 게이트웨이 프런트 엔드|예|예|예|
 
+## 제한
+
+아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. [지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 비즈니스에 따라 최대 한도까지 기본 제한을 증가시킬 수 있습니다
+
+|| 기본 제한| 최대 제한| |---|---|---| | 공용 IP 주소 (동적) |5| 지원에 문의 | | 예약된 공용 IP 주소|20| 지원에 문의 | | 배포 당 공용 VIP(클라우드 서비스) |5| 지원에 문의 | | 배포 당 개인 VIP(ILB)(클라우드 서비스) |1|1|
+
+Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits) 전체 집합을 읽도록 합니다.
+
+## 가격
+
+대부분의 경우에 공용 IP 주소는 무료입니다. 추가 및/또는 정적 공용 IP 주소를 사용하는 데 명목 요금이 있습니다. [공용 IP에 대한 가격 책정 구조](https://azure.microsoft.com/pricing/details/ip-addresses/)를 이해하도록 합니다.
+
+## 리소스 관리자와 클래식 배포 간 차이점
+아래는 리소스 관리자와 클래식 배포 모델의 IP 주소 기능을 비교한 것입니다.
+
+|| 리소스|클래식|리소스 관리자| |---|---|---|---| |**공용 IP 주소**| VM|ILPIP라고 함(동적에만 해당)|공용 IP 라고 함(동적 또는 정적)| |||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 연결됨| ||인터넷 연결 부하 분산 장치| VIP(동적) 또는 예약된 IP(정적)라고 함|공용 IP라고 함(동적 또는 정적)| |||클라우드 서비스에 할당됨|부하 분산 장치의 프런트 엔드 구성에 연결됨| |||| |**개인 IP 주소**|VM|DIP라고 함|개인 IP 주소라고 함| |||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 할당됨| ||내부 부하 분산 장치(ILB)|ILB에 할당됨(동적 또는 정적)| ILB의 프런트 엔드 구성에 할당됨(동적 또는 정적)|
+
 ## 다음 단계
 - [정적 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-classic-ps.md)
 - [정적 개인 IP 주소를 사용하여 VM 배포](virtual-networks-static-private-ip-classic-pportal.md)
@@ -136,4 +153,4 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 - [PowerShell을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-gateway.md)
 - [PowerShell을 사용하여 내부 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="09/23/2015" 
+    ms.date="01/05/2016" 
     ms.author="tamram"/>
 
 # C++에서 큐 저장소를 사용하는 방법  
@@ -238,4 +238,4 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

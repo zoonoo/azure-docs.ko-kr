@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"   
+   ms.date="12/30/2015"   
    ms.author="seanmck"/>
 
 # 서비스 패브릭에서 응용 프로그램 모델링
@@ -24,14 +24,16 @@
 
 응용 프로그램은 특정 기능을 수행하는 구성 서비스 컬렉션입니다. 서비스는 완전한 독립 실행형 기능을 수행하며(서비스는 다른 서비스와 독립적으로 시작 및 실행 가능) 코드, 구성 및 데이터로 이루어집니다. 각 서비스에 대해 코드는 실행 가능한 이진으로 구성되고, 구성은 런타임에 로드할 수 있는 서비스 설정으로 이루어지고, 데이터는 서비스에서 사용할 임의의 정적 데이터로 구성됩니다. 이 계층형 응용 프로그램 모델의 각 구성 요소를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
 
-![][1]
+![서비스 패브릭 응용 프로그램 모델][appmodel-diagram]
 
 
 응용 프로그램 유형은 응용 프로그램에 대한 분류이며 여러 서비스 유형으로 구성됩니다. 서비스 유형은 서비스에 대한 분류입니다. 분류에는 다양한 설정과 구성이 포함될 수 있지만 핵심 기능은 동일하게 유지됩니다 서비스 인스턴스는 같은 서비스 유형의 다른 서비스 구성 변형입니다.
 
-응용 프로그램 및 서비스의 클래스(또는 "유형")는 응용 프로그램을 인스턴스화할 수 있는 템플릿인 XML 파일(응용 프로그램 매니페스트 및 서비스 매니페스트)을 통해 설명됩니다. 서로 다른 응용 프로그램 인스턴스에 대한 코드는 동일한 서비스 패브릭 노드에 의해 호스팅되는 경우에도 별도의 프로세스로 실행됩니다. 뿐만 아니라 각 응용 프로그램 인스턴스의 수명 주기를 독립적으로 관리(예: 업그레이드)할 수 있습니다. 다음 다이어그램에서는 응용 프로그램 유형이 어떻게 서비스 유형으로 구성되고, 다시 서비스 유형이 코드, 구성 및 패키지로 구성되는지를 보여줍니다.
+응용 프로그램 및 서비스의 클래스(또는 "유형")는 클러스터의 이미지 저장소에서 응용 프로그램을 인스턴스화할 수 있는 템플릿인 XML 파일(응용 프로그램 매니페스트 및 서비스 매니페스트)을 통해 설명됩니다.
 
-![서비스 패브릭 응용 프로그램 유형 및 서비스 유형][Image1]
+서로 다른 응용 프로그램 인스턴스에 대한 코드는 동일한 서비스 패브릭 노드에 의해 호스팅되는 경우에도 별도의 프로세스로 실행됩니다. 뿐만 아니라 각 응용 프로그램 인스턴스의 수명 주기를 독립적으로 관리(예: 업그레이드)할 수 있습니다. 다음 다이어그램에서는 응용 프로그램 유형이 어떻게 서비스 유형으로 구성되고, 다시 서비스 유형이 코드, 구성 및 패키지로 구성되는지를 보여줍니다. 다이어그램을 간소화하려면 `ServiceType4`에 대한 코드/구성/데이터 패키지만을 표시하지만 각 서비스 형식은 패키지 형식의 일부 또는 모두를 포함합니다.
+
+![서비스 패브릭 응용 프로그램 유형 및 서비스 유형][cluster-imagestore-apptypes]
 
 서로 다른 두 매니페스트 파일, 즉 서비스 매니페스트와 응용 프로그램 매니페스트를 사용하여 응용 프로그램 및 서비스를 설명합니다. 이에 대한 내용은 뒤에 나오는 섹션에서 자세히 다루겠습니다.
 
@@ -39,8 +41,10 @@
 
 다음 다이어그램에서는 응용 프로그램 및 서비스 인스턴스, 파티션, 복제본 간의 관계를 보여 줍니다.
 
-![서비스 내의 파티션 및 복제본][Image2]
+![서비스 내의 파티션 및 복제본][cluster-application-instances]
 
+
+>[AZURE.TIP]http://&lt;yourclusteraddress&gt;:19080/Explorer에서 제공되는 서비스 패브릭 탐색기 도구를 사용하여 클러스터에서 응용 프로그램의 레이아웃을 볼 수 있습니다. 자세한 내용은 [서비스 패브릭 탐색기로 클러스터 시각화하기](service-fabric-visualizing-your-cluster.md)를 참조하세요.
 
 ## 서비스 설명
 
@@ -104,7 +108,9 @@ For more information about other features supported by service manifests, refer 
 ## 응용 프로그램 설명
 
 
-응용 프로그램 매니페스트는 응용 프로그램 유형 및 버전을 선언적으로 설명합니다. 안정적인 이름, 파티션 구성표, 인스턴스 수/복제 요소, 보안/격리 정책, 배치 제약 조건, 구성 재정의, 구성 서비스 유형 등의 서비스 구성 메타데이터를 지정합니다. 또한 응용 프로그램이 배치되는 부하 분산 도메인을 설명합니다. 따라서 응용 프로그램 매니페스트는 응용 프로그램 수준에서 요소를 설명하고 응용 프로그램 유형을 구성하는 하나 이상의 서비스 매니페스트를 참조합니다. 다음은 응용 프로그램 매니페스트의 간단한 예입니다.
+응용 프로그램 매니페스트는 응용 프로그램 유형 및 버전을 선언적으로 설명합니다. 안정적인 이름, 파티션 구성표, 인스턴스 수/복제 요소, 보안/격리 정책, 배치 제약 조건, 구성 재정의, 구성 서비스 유형 등의 서비스 구성 메타데이터를 지정합니다. 또한 응용 프로그램이 배치되는 부하 분산 도메인을 설명합니다.
+
+따라서 응용 프로그램 매니페스트는 응용 프로그램 수준에서 요소를 설명하고 응용 프로그램 유형을 구성하는 하나 이상의 서비스 매니페스트를 참조합니다. 다음은 응용 프로그램 매니페스트의 간단한 예입니다.
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -186,7 +192,7 @@ Visual Studio 2015를 사용하여 응용 프로그램을 만드는 경우 패�
 
 패키지를 만들려면 솔루션 탐색기에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 아래와 같이 패키지 명령을 선택합니다.
 
-![][2]
+![Visual Studio를 통해 응용 프로그램 패키징][vs-package-command]
 
 패키징이 완료되면 **출력** 창에서 패키지의 위치를 찾습니다. Visual Studio에서 응용 프로그램을 배포 또는 디버깅할 때 패키징 단계가 자동으로 발생합니다.
 
@@ -238,14 +244,14 @@ PS D:\temp>
 [RunAs: 다른 보안 권한으로 서비스 패브릭 응용 프로그램 실행][12]
 
 <!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
+[cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
+[cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
+[vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="01/05/2016"
    ms.author="carlrab"/>
 
 # SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션
@@ -28,8 +28,7 @@
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 - [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
 
-### 옵션 1
-***SQL Server Management Studio를 사용하여 호환 가능한 데이터베이스 마이그레이션 ***
+마이그레이션 프로세스를 시작하기 전에 다음 방법 중 하나를 사용하여 SQL 데이터베이스 호환성 문제를 테스트합니다.
 
 - [SqlPackage 사용](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage는 테스트를 수행하여 호환성 문제가 발견되면 감지된 호환성 문제가 포함된 보고서를 생성하는 명령 프롬프트 유틸리티입니다.
 - [SQL Server Management Studio 사용](sql-database-cloud-migrate-determine-compatibility-ssms.md): SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사는 감지된 오류를 화면에 표시합니다.
@@ -56,7 +55,7 @@
 
 가동 중지 시간을 최소로 줄이고 마이그레이션하려면 데이터베이스가 트랜잭션 복제에 대한 요구 사항을 충족하는 경우 [SQL Server 트랜잭션 복제](sql-database-cloud-migrate-compatible-using-transactional-replication.md)를 사용하세요. 약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 다음 세가지 방법 중 하나를 고려해 보세요.
 
-- [SSMS 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): 중소규모 데이터베이스의 경우 호환되는 SQL Server 2005 이상 데이터베이스를 마이그레이션하려면 SQL Server Management Studio에서 [Microsoft Azure 데이터베이스에 배포 마법사](sql-database-cloud-migrate-compatible-using-migration-wizard.md)를 실행하기만 하면 됩니다. 
+- [SSMS 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): 중소규모 데이터베이스의 경우 호환되는 SQL Server 2005 이상 데이터베이스를 마이그레이션하려면 SQL Server Management Studio에서 [Microsoft Azure 데이터베이스에 배포 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)를 실행하기만 하면 됩니다. 
 - [BACPAC 파일로 내보낸](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) 다음 [BACPAC 파일에서 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): 연결 문제(없음 연결, 낮은 대역폭 또는 시간 초과 문제)가 있고 데이터베이스 규모가 중간 이상인 경우 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일을 사용합니다. 이 점을 염두에 두고 SQL Server 스키마 및 데이터를 BACPAC 파일로 내보낸 다음 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사 또는 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령 프롬프트 유틸리티를 사용하여 SQL 데이터베이스로 BACPAC 파일을 가져옵니다.
 - BACPAC과 BCP를 함께 사용: 데이터베이스가 매우 큰 경우에는 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일과 [BCP](https://msdn.microsoft.com/library/ms162802.aspx)를 함께 사용하여 병렬화하면 복잡성이 커지기는 하지만 성능이 향상됩니다. 이 점을 염두에 두고 스키마와 데이터를 따로 마이그레이션합니다. 
  - [BACPAC 파일에만 스키마를 내보냅니다](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
@@ -65,4 +64,4 @@
 
 	 ![SSMS 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

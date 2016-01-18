@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: 코드 샘플 및 연습
@@ -42,7 +42,9 @@
 
 ## 작업 자동화
 
+* [PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기](app-insights-powershell.md)
 * [새 Application Insights 리소스를 만드는 스크립트](app-insights-powershell-script-create-resource.md)
+* [PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -53,4 +55,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

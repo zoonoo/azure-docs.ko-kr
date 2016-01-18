@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="09/23/2015" 
+    ms.date="01/05/2016" 
     ms.author="tamram"/>
 
 # C++에서 Blob 저장소를 사용하는 방법  
@@ -242,4 +242,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete\_blob** 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

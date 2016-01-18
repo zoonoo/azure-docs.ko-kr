@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/14/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 />
 
@@ -83,14 +83,14 @@
 
 ![스트림 분석 기계 학습 자습서 분석 실험](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)
 
-아래와 같이 다운로드한 excel의 웹 서비스 URL과 액세스 키를 기록해 둡니다.
+아래와 같이 다운로드한 excel의 웹 서비스 URL과 선택키를 기록해 둡니다.
 
 ![스트림 분석 기계 학습 자습서 빠른 보기](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)
 
 ## 기계 학습 모델을 사용하는 스트림 분석 작업 만들기
 
 1.	[Azure 관리 포털](https://manage.windowsazure.com)로 이동합니다.  
-2.	**새로 만들기**, **데이터 서비스**, **스트림 분석**, **빨리 만들기**를 차례대로 클릭합니다. **작업 이름**, 작업에 맞는 **지역**을 입력하고 **지역별 모니터링 저장소 계정**을 선택합니다.    
+2.	**새로 만들기**, **데이터 서비스**, **스트림 분석**, **빠른 생성**을 차례대로 클릭합니다. **작업 이름**, 작업에 맞는 **지역**을 입력하고 **지역별 모니터링 저장소 계정**을 선택합니다.    
 3.	작업이 생성되면 **입력** 탭으로 이동하여 **입력 추가**를 클릭합니다.  
 
     ![스트림 분석 기계 학습 자습서 데이터 및 기계 학습 입력](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
@@ -142,7 +142,7 @@
 
 이 자습서에서는 스트리밍 텍스트 데이터를 읽어서 실시간 정서 분석을 적용하는 스트림 분석 작업을 만들었습니다. 여러분은 복잡한 정서 분석 모델 구축에 대한 걱정 없이 이 모든 작업을 수행할 수 있었습니다. 이것이 바로 Cortana Analytics Suite의 장점 중 하나입니다.
 
-Azure 기계 언어 함수 관련 메트릭도 관찰할 수 있습니다. **모니터** 탭을 클릭하세요. 세 가지 함수 관련 메트릭이 있습니다.
+또한 Azure 기계 학습 함수 관련 메트릭을 관찰할 수 있습니다. **모니터** 탭을 클릭하세요. 세 가지 함수 관련 메트릭이 있습니다.
   
 - FUNCTION REQUESTS는 기계 학습 웹 서비스로 전송되는 요청 수를 나타냅니다.  
 - FUNCTION EVENTS는 요청의 이벤트 수를 나타냅니다. 기본적으로 ML 웹 서비스로 전송되는 각 요청에는 최대 1000개의 이벤트가 포함됩니다.  
@@ -150,4 +150,4 @@ Azure 기계 언어 함수 관련 메트릭도 관찰할 수 있습니다. **모
 
     ![스트림 분석 기계 학습 자습서 ml 모니터링 뷰](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

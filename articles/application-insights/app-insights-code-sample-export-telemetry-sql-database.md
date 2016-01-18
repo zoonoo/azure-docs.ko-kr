@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
  
 # 코드 샘플: Application Insights에서 내보낸 데이터 구문 분석
@@ -543,4 +543,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

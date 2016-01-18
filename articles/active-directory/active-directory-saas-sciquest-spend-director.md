@@ -3,7 +3,7 @@
 	description="Azure Active Directory 및 SciQuest Spend Director 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/05/2016"
+	ms.author="jeedes"/>
 
 
 # 자습서: SciQuest Spend Director와 Azure Active Directory 통합
@@ -78,7 +78,7 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[SciQuest Spend Director 테스트 사용자 만들기](#creating-a-halogen-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SciQuest Spend Director에 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[Single Sign-on 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### Azure AD Single Sign-on 구성
 
@@ -113,7 +113,7 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Azure AD Connect의 정의][100] 
+1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD Connect의 정의][100] 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br>![Azure AD Connect의 정의][101] 
 4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD Connect의 정의][102] 
@@ -195,4 +195,4 @@ Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Di
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-   editor="monicar"    
-   tags="azure-service-management"/>
+	editor="monicar"    
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="10/02/2015"
+	ms.date="01/06/2015"
 	ms.author="jroth"/>
 
 # 가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용
@@ -1149,4 +1149,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 #Ambari REST API를 사용하여 HDInsight 클러스터 관리
@@ -103,13 +103,17 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
 
     wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-그런 다음 [Azure CLI](../xplat-cli-install.md)로 이 정보를 사용하여 컨테이너에서 데이터를 업로드하거나 다운로드할 수 있습니다. 예를 들면 다음과 같습니다.
+그런 다음 [Azure CLI](../xplat-cli-install.md)로 이 정보를 사용하여 컨테이너에서 데이터를 업로드하거나 다운로드할 수 있습니다. 예:
 
 1. 저장소 계정에 대한 리소스 그룹을 가져옵니다. __ACCOUNTNAME__을 Ambari에서 검색한 저장소 계정 이름으로 대체합니다.
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
     계정에 대한 리소스 그룹 이름을 반환합니다.
+    
+    > [AZURE.NOTE]이 명령에서 아무 것도 반환되지 않는 경우 Azure CLI를 Azure 리소스 관리자 모드로 변경하고 명령을 다시 실행해야 합니다. Azure 리소스 관리자 모드로 전환하려면 다음 명령을 사용합니다.
+    >
+    > `azure config mode arm`
     
 2. 저장소 계정에 대한 키를 가져옵니다. __GROUPNAME__을 이전 단계의 리소스 그룹으로 대체합니다. __ACCOUNTNAME__을 저장소 계정 이름으로 대체합니다.
 
@@ -131,4 +135,4 @@ REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://git
 
 > [AZURE.NOTE]HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

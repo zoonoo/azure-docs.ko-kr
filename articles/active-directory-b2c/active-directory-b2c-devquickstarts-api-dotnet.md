@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 	
 # Azure AD B2C 미리 보기: .NET 웹 API 빌드
@@ -61,11 +61,11 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 
 완성된 앱도 [.zip으로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
-샘플 코드를 다운로드하면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskWebApp` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskWebApp`은 사용자가 상호 작용하는 MVC 웹 응용 프로그램입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다.
+샘플 코드를 다운로드했으면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskWebApp` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskWebApp`은 사용자가 상호 작용하는 MVC 웹 응용 프로그램입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다.
 
 ## 5\. 작업 웹앱 구성
 
-사용자가 `TaskWebApp`을 조작할 때 클라이언트는 Azure AD로 요청을 보내고 `TaskService` Web API를 호출하는 데 사용할 수 있는 토큰을 받습니다. 사용자를 로그인하고 토큰을 가져오려면 앱에 대한 일부 정보를 `TaskWebApp`에 제공해야 합니다. `TaskWebApp` 프로젝트에서 프로젝트 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다.
+사용자가 `TaskWebApp`을 조작할 때 클라이언트는 Azure AD로 요청을 보내고 `TaskService` Web API를 호출하는 데 사용할 수 있는 토큰을 받습니다. 사용자를 로그인시키고 토큰을 가져오기 위해 응용 프로그램에 대한 정보와 함께 `TaskWebApp`을 제공해야 합니다. `TaskWebApp` 프로젝트에서 프로젝트 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다.
 
 ```
 <appSettings>
@@ -74,8 +74,8 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
     <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
-    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
+    <add key="ida:ClientId" value="{Enter the Application Id assigned to your app by the Azure Portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
+    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure Portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
     <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
     <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
@@ -219,10 +219,8 @@ public IEnumerable<Models.Task> Get()
 
 ## 8\. 청책 편집
 
-이제 Azure AD B2C로 보호된 API가 있으므로 앱의 정책을 진행하고 API에서 효과(또는 부족)를 볼 수 있습니다. 정책에서 **응용 프로그램 클레임**을 조작하고 웹 API에서 사용할 수 있는 사용자 정보를 변경할 수 있습니다. 추가한 추가 클레임은 위에서 설명한 것처럼 `ClaimsPrincipal` 개체의 .NET MVC 웹 API에서 사용할 수 있습니다.
-<!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
--->
+이제 Azure AD B2C로 보호된 API가 있으므로 앱의 정책을 진행하고 API에서 효과(또는 부족)를 볼 수 있습니다. 정책에서 **응용 프로그램 클레임**을 <!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->조작하고 Web API에서 사용할 수 있는 사용자 정보를 변경할 수 있습니다. 위에서 설명한 것처럼, 추가한 모든 클레임은 `ClaimsPrincipal` 개체의 .NET MVC Web API에서 사용할 수 있습니다.
 
 <!--
 
@@ -236,4 +234,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

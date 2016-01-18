@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server 가상 컴퓨터에 연결 | Microsoft Azure"
+	pageTitle="SQL Server 가상 컴퓨터에 연결(클래식) | Microsoft Azure"
 	description="이 항목에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure 가상 컴퓨터에서 실행 중인 SQL Server에 연결하는 방법을 설명합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -13,10 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="12/18/2015"
 	ms.author="jroth" />
 
-# Azure에서 SQL Server 가상 컴퓨터 연결
+# Azure에서 SQL Server 가상 컴퓨터 연결(클래식 배포)
+
+> [AZURE.SELECTOR]
+- [Resource Manager](virtual-machines-sql-server-connectivity-resource-manager.md)
+- [Classic](virtual-machines-sql-server-connectivity.md)
 
 ## 개요
 
@@ -74,7 +78,27 @@ DNS를 구성했다고 가정하면 연결 문자열에 SQL Server VM 호스트 
 
 ## Azure VM에서 SQL Server 연결을 구성하기 위한 단계
 
+다음 단계는 SQL Server Management Studio (SSMS)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온-프레미스 및 Azure에서 실행중인 응용 프로그램에 대해 SQL Server 가상 컴퓨터를 액세스할 수 있게 만들도록 적용합니다.
+
+인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 아래의 섹션에 설명된 대로 다음 작업을 완료해야 합니다.
+
+- [가상 컴퓨터에 대한 TCP 끝점 만들기](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [Windows 방화벽에서 TCP 포트 열기](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [TCP 프로토콜에서 수신하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [혼합 모드 인증에 대한 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
+- [SQL Server 인증 로그인 만들기](#create-sql-server-authentication-logins)
+- [가상 컴퓨터의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
+- [다른 컴퓨터에서 데이터베이스 엔진에 연결](#connect-to-the-database-engine-from-another-computer)
+
+연결 경로는 다음 다이어그램에 요약되어 있습니다.
+
+![SQL Server 가상 컴퓨터에 연결](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+
+[AZURE.INCLUDE [VM 클래식 TCP 끝점에서 SQL server에 연결](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+
 [AZURE.INCLUDE [VM에서 SQL Server에 연결](../../includes/virtual-machines-sql-server-connection-steps.md)]
+
+[AZURE.INCLUDE [VM 클래식 단계에서 SQL server에 연결](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## 다음 단계
 
@@ -86,4 +110,4 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

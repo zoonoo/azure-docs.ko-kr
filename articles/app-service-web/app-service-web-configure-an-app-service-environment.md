@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/04/2016" 
 	ms.author="ccompy"/>
 
 
@@ -45,7 +45,7 @@ ASE와 함께 사용되는 가상 네트워크는 ASE를 만들 때 만들었거
 
 ![][1]
 
-아이콘을 사용하고 또는 사이드바의 아래 쪽에서 펼침 단추(기호 보다 큼) 를 선택하며 앱 서비스 환경을 선택할 수 있습니다. 둘 모두 앱 서비스 환경을 나열하는 UI를 여는 동일한 작업을 수행합니다. 나열된 ASE 중 하나를 선택하면 모니터링하고 관리하는 데 사용되는 UI를 엽니다.
+아이콘을 사용하고 또는 사이드바의 아래 쪽에서 펼침 단추(기호 보다 큼) 를 선택하며 앱 서비스 환경을 선택할 수 있습니다. 둘 다 앱 서비스 환경을 나열하는 UI를 여는 동일한 작업을 수행합니다. 나열된 ASE 중 하나를 선택하면 모니터링하고 관리하는 데 사용되는 UI를 엽니다.
 
 ![][2]
 
@@ -200,4 +200,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

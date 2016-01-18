@@ -45,8 +45,8 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 이제 DocumentDB 데이터베이스를 만드는 방법을 알았으므로 다음 단계에서는 [컬렉션을 만들어야](documentdb-create-collection.md) 합니다.
 
-컬렉션을 만든 후에 포털의 문서 탐색기를 사용하여 [JSON 문서를 추가](../documentdb-view-json-document-explorer.md)하고, DocumentDB 데이터 마이그레이션 도구를 사용하여 컬렉션으로 [문서를 가져오거나](documentdb-import-data.md), [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 하나를 사용하여 CRUD 작업을 수행할 수 있습니다. DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다. 문서 만들기, 제거, 업데이트 및 삭제 방법을 보여주는 .NET 코드 샘플은 GitHub.com의 azure-documentdb-net 리포지토리에 있는 DocumentManagement 프로젝트 내의 [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs)를 참조하세요.
+컬렉션을 만든 후에 포털의 문서 탐색기를 사용하여 [JSON 문서를 추가](documentdb-view-json-document-explorer.md)하고, DocumentDB 데이터 마이그레이션 도구를 사용하여 컬렉션으로 [문서를 가져오거나](documentdb-import-data.md), [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 하나를 사용하여 CRUD 작업을 수행할 수 있습니다. DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다. 문서 만들기, 제거, 업데이트 및 삭제 방법을 보여주는 .NET 코드 샘플은 GitHub.com의 azure-documentdb-net 리포지토리에 있는 DocumentManagement 프로젝트 내의 [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs)를 참조하세요.
 
 컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#executing-queries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

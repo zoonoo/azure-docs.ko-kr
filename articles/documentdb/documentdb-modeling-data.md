@@ -383,7 +383,7 @@ DocumentDB와 같은 문서 저장소에서 데이터 모델링을 시작할 때
 
 화면에 데이터를 표시하는 방법이 하나만 있지 않은 것처럼 데이터를 모델링하는 방법도 하나만 있는 것이 아닙니다. 응용 프로그램을 이해하고 데이터를 생산, 소비 및 처리하는 방법을 이해해야 합니다. 그런 다음 여기에 제공된 일부 지침을 적용해서 응용 프로그램에 즉시 필요한 사항을 처리할 수 있는 모델을 제작 방법을 설정할 수 있습니다. 응용 프로그램에 변경이 필요한 경우에는 스키마가 없는 데이터베이스의 유연성을 활용해서 변경 사항을 포용하고 데이터 모델을 쉽게 발전시킬 수 있습니다.
 
-Azure DocumentDB에 대한 자세한 내용은 서비스의 [설명서](../../services/documentdb/) 페이지를 참조하십시오.
+Azure DocumentDB에 대해 자세히 알아보려면 서비스의 [설명서](https://azure.microsoft.com/documentation/services/documentdb/) 페이지를 참조하세요.
 
 Azure DocumentDB의 인덱스 튜닝에 대한 자세한 내용은 [인덱싱 정책](documentdb-indexing-policies.md) 문서를 참조하십시오.
 
@@ -392,4 +392,4 @@ Azure DocumentDB의 인덱스 튜닝에 대한 자세한 내용은 [인덱싱 �
 끝으로, 다중 테넌트 응용 프로그램에 대한 데이터 모델링 및 분할에 대한 자세한 내용은 [Azure DocumentDB로 다중 테넌트 응용 프로그램 확장](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)을 참조하십시오.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->
