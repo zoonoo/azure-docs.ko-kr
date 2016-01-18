@@ -74,7 +74,7 @@ SQL 데이터 웨어하우스 개발을 시작하는 경우 다음 패턴을 구
 - 정적 배포 열은 자주 업데이트하지 않는 것이 좋습니다.
 - 각 통계 개체가 연속으로 업데이트됩니다. `UPDATE STATISTICS <TABLE_NAME>`의 간단한 구현은 특히 통계 개체가 많은 너비가 넓은 테이블에는 적합하지 않을 수 있습니다.
 
-> [AZURE.NOTE][키 오름차순]에 대한 자세한 내용은 SQL Server 2014 카디널리티 예측 모델 백서를 참조하세요.
+> [AZURE.NOTE] [키 오름차순]에 대한 자세한 내용은 SQL Server 2014 카디널리티 예측 모델 백서를 참조하세요.
 
 자세한 설명은 MSDN에서 [카디널리티 예측][]을 참조하세요.
 
@@ -459,4 +459,4 @@ DBCC SHOW\_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->

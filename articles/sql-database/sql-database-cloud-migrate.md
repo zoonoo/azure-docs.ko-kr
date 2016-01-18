@@ -20,7 +20,7 @@
 
 이 문서에서는 온-프레미스 Azure SQL 2005 이상 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션하는 방법에 대해 배웁니다. 이 마이그레이션 프로세스에서는 기존 데이터베이스가 호환성 테스트를 통과할 경우 현재 환경의 SQL Server 데이터베이스에서 SQL 데이터베이스로 스키마 및 데이터를 마이그레이션합니다. [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)를 사용하면 서버 수준 및 데이터베이스 간 작업 외에는 호환성 문제가 거의 없습니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)에 의존하는 데이터베이스 및 응용 프로그램의 일부를 다시 엔지니어링하여 [이러한 호환성 문제를 해결](sql-database-cloud-migrate-fix-compatibility-issues.md)해야 합니다.
 
-> [AZURE.NOTE]Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)를 참조하세요.
+> [AZURE.NOTE] Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)를 참조하세요.
 
 ## SQL Server 데이터베이스가 SQL 데이터베이스로 마이그레이션하도록 호환되는지 확인
 

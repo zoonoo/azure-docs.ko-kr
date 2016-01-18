@@ -21,7 +21,7 @@
 이 문서에서는 개발, 준비, QA, 프로덕션 등 다양한 응용 프로그램 버전에 대한 웹 응용 프로그램 배포의 설정 및 관리 방법을 보여 줍니다. 응용 프로그램의 각 버전을 배포 프로세스에서 특정 요구에 대한 개발 환경으로 고려할 수 있습니다. 예를 들어 변경 내용을 프로덕션에 푸시하기 전에 개발자 팀에서 QA 환경을 사용하여 응용 프로그램의 품질을 테스트할 수 있습니다. 여러 개발 환경 설정은 이러한 환경 전반에서 리소스(계산, 웹앱, 데이터베이스, 캐시 등)를 추적 및 관리하고 한 환경에서 다른 환경으로 콘텐츠를 배포해야 하기 때문에 어려운 작업일 수 있습니다.
 
 ## 비 프로덕션 환경(스테이지, 개발, QA) 설정
-프로덕션 웹앱을 가동 및 실행한 후 다음 단계는 비 프로덕션 환경을 만드는 것입니다. 배포 슬롯을 사용하려면 **표준** 또는 **프리미엄** 서비스 계획 모드에서 실행 중이어야 합니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 웹 앱입니다. 웹앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
+프로덕션 웹앱을 가동 및 실행한 후 다음 단계는 비 프로덕션 환경을 만드는 것입니다. 배포 슬롯을 사용하려면 **표준** 또는 **프리미엄** 서비스 계획 모드에서 실행 중이어야 합니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 웹 앱입니다. 웹 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
 1. 프로덕션 슬롯과 교환하기 전에 준비 배포 슬롯에서 웹 앱 변경 사항의 유효성을 검사할 수 있습니다.
 2. 먼저 슬롯으로 웹 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 웹 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요하지 않은 경우 [자동 교환](web-sites-staged-publishing.md#configure-auto-swap-for-your-web-app)을 구성하여 이 전체 워크플로를 자동화할 수 있습니다.
@@ -327,7 +327,7 @@ Umbraco CMS 웹앱에 대해 위에서 언급한 배포 슬롯을 만듭니다. 
 
 ![새 스테이징 데이터베이스를 통해 스테이징 웹앱의 연결 문자열 업데이트](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-배포 슬롯 **스테이지**에 대해 **게시 설정 가져오기**를 클릭합니다. 그러면 Visual Studio나 Web Matrix가 로컬 개발 웹앱의 응용 프로그램을 Azure 웹앱에 게시하는 데 필요한 모든 정보가 담긴 게시 설정 파일을 다운로드합니다.
+배포 슬롯 **스테이지**에 대해 **게시 설정 가져오기**를 클릭합니다 . 그러면 Visual Studio나 Web Matrix가 로컬 개발 웹앱의 응용 프로그램을 Azure 웹앱에 게시하는 데 필요한 모든 정보가 담긴 게시 설정 파일을 다운로드합니다.
 
  ![스테이징 웹앱의 게시 설정 가져오기](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 
@@ -371,14 +371,21 @@ Courier2 패키지를 [여기](https://our.umbraco.org/projects/umbraco-pro/umbr
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+`<repositories>`에서 프로덕션 사이트 URL 및 사용자 정보를 입력하세요. 기본 Umbraco 멤버 자격 공급자를 사용 중인 경우 <user> 섹션에서 관리 사용자의 ID를 추가하세요. 사용자 정의 Umbraco 멤버 자격 공급자를 사용 중인 경우 `<login>`,`<password>`을(를) Courier2 모듈에 사용하세요.  자세한 정보는 Courier 모듈 [설명서](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) 를 확인하세요.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+마찬가지로, 여기에 표시된 대로 프로덕션 사이트에 Courier 모듈을 설치하고 각 courier.config 파일에서 스테이지 웹 앱에 연결하도록 구성하세요.
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Umbraco CMS 웹앱 대시보드에서 Courier2 탭을 클릭하고 위치를 선택합니다. `courier.config`에 설명된 대로 리포지토리 이름이 표시됩니다. 프로덕션 및 준비 웹앱 모두에서 이 작업을 수행합니다.
 

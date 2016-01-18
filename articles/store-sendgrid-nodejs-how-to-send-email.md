@@ -21,7 +21,7 @@
 
 ## SendGrid 메일 서비스 정의
 
-SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
+SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달](https://sendgrid.com/email-solutions), 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스](https://sendgrid.com/transactional-email)입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
 
 -   고객에게 확인 메일 자동으로 보내기
 -   월간 전자 전단 및 판촉 행사를 고객에게 보내기 위한 분산 목록 관리
@@ -65,7 +65,7 @@ SendGrid 모듈을 사용하여 전자 메일 메시지를 만들려면 먼저 E
 
 텍스트 속성과 html 속성을 모두 설정하면 HTML 메시지를 지원할 수 없는 클라이언트에서 텍스트 콘텐츠로 안정적으로 대체됩니다.
 
-Email 함수에서 지원하는 모든 속성에 대한 자세한 내용은 [sendgrid-nodejs]를 참조하십시오.
+Email 함수에서 지원하는 모든 속성에 대한 자세한 내용은 [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)를 참조하십시오.
 
 ## 방법: 전자 메일 보내기
 
@@ -114,7 +114,7 @@ sendgrid.send({
 
 ## 방법: 필터를 사용하여 바닥글 및 추적을 사용하도록 설정
 
-SendGrid는 필터 사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정]을 참조하십시오.
+SendGrid는 필터 사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정](https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)을 참조하십시오.
 
 필터는 **filters** 속성을 사용하여 메시지에 적용할 수 있습니다. 각 필터는 필터별 설정을 포함하는 해시에 의해 지정됩니다. 다음 예에서는 바닥글 및 클릭 추적 필터를 보여 줍니다.
 
@@ -168,18 +168,24 @@ SendGrid는 필터 사용을 통해 추가 전자 메일 기능을 제공합니�
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-자세한 내용은 [sendgrid-nodejs]를 참조하십시오.
+자세한 내용은 [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)를 참조하십시오.
 
 ## 방법: 추가 SendGrid 서비스 사용
 
-SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서]를 참조하십시오.
+SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서](https://sendgrid.com/docs)를 참조하십시오.
 
 ## 다음 단계
 
 SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.
 
--   SendGrid Node.js 모듈 리포지토리: [sendgrid-nodejs][]
+-   SendGrid Node.js 모듈 리포지토리: [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)
 -   SendGrid API 설명서: <https://sendgrid.com/docs>
--   Azure 고객을 위한 SendGrid 특가 제공: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) [특별 제공]: https://sendgrid.com/windowsazure.html [sendgrid nodejs]: https://github.com/sendgrid/sendgrid-nodejs [필터 설정]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html [SendGrid API 설명서]: https://sendgrid.com/docs [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/email-solutions [트랜잭션 전자 메일 배달]: https://sendgrid.com/transactional-email
+-   Azure 고객을 위한 SendGrid 특가 제공: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) 
+[특별 제공]: https://sendgrid.com/windowsazure.html 
+[sendgrid nodejs]: https://github.com/sendgrid/sendgrid-nodejs 
+[필터 설정]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html 
+[SendGrid API 설명서]: https://sendgrid.com/docs 
+[클라우드 기반 전자 메일 서비스]: https://sendgrid.com/email-solutions 
+[트랜잭션 전자 메일 배달]: https://sendgrid.com/transactional-email
 
 <!---HONumber=AcomDC_0107_2016-->

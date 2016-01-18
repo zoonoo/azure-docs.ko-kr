@@ -7,7 +7,14 @@
   manager="shreeshd"
   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/15/2015" ms.author="sammehta; jimpark"; "aashishr"/>
+<tags 
+   ms.service="backup" 
+   ms.workload="storage-backup-recovery" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article"
+   ms.date="12/15/2015" 
+   ms.author="sammehta; jimpark"; "aashishr"/>
 
 # Azure 백업 서버를 사용하여 워크로드 백업 준비
 
@@ -77,7 +84,8 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 
     ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
 
-3. 모든 파일을 선택하고 **다음**을 클릭합니다. Microsoft Azure 백업 다운로드 페이지에서 들어오는 모든 파일을 다운로드하고 모든 파일을 동일한 폴더에 배치합니다. ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+3. 모든 파일을 선택하고 **다음**을 클릭합니다. Microsoft Azure 백업 다운로드 페이지에서 들어오는 모든 파일을 다운로드하고 모든 파일을 동일한 폴더에 배치합니다. 
+![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     모든 파일의 다운로드 크기가 >3G이기 때문에 10Mbps 다운로드 링크에서 다운로드를 완료하는 데 최대 60분이 걸릴 수 있습니다.
 

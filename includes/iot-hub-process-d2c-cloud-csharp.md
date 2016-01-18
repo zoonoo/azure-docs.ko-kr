@@ -41,9 +41,11 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
 
 2. 솔루션 탐색기에서 **ProcessDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다. **NuGet 패키지 관리자** 대화 상자가 나타납니다.
 
-3. **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 그러면 [Azure 서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)에 대한 참조 및 해당하는 모든 종속 항목이 다운로드, 설치 및 추가됩니다.
+3. **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다.
+    그러면 [Azure 서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)에 대한 참조 및 해당하는 모든 종속 항목이 다운로드, 설치 및 추가됩니다.
 
-4. **Microsoft Azure 서비스 버스 이벤트 허브 - EventProcessorHost**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 그러면 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
+4. **Microsoft Azure 서비스 버스 이벤트 허브 - EventProcessorHost**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다.
+   그러면 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
 
 5. **ProcessDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. 새 클래스의 이름을 **StoreEventProcessor**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다.
 
@@ -238,7 +240,8 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
 
 2. 솔루션 탐색기에서 **ProcessD2CInteractiveMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다. **NuGet 패키지 관리자** 창이 표시됩니다.
 
-3. **WindowsAzure.Service Bus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 그러면 [Azure 서비스 버스](https://www.nuget.org/packages/WindowsAzure.ServiceBus)가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
+3. **WindowsAzure.Service Bus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 
+    그러면 [Azure 서비스 버스](https://www.nuget.org/packages/WindowsAzure.ServiceBus)가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
 
 4. **Program.cs** 파일 위쪽에 다음 **using** 문을 추가합니다.
 

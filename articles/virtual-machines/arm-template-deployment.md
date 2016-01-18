@@ -74,9 +74,9 @@ Visual Studio에서 다음을 수행합니다.
 
 3. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목**을 클릭합니다.
 
-4. 새 항목 추가 창에서 **텍스트 파일**을 선택하고 *VirtualMachineTemplate.json*을 이름으로 입력한 후 **추가**를 클릭합니다.
+4.	새 항목 추가 창에서 **텍스트 파일**을 선택하고 *VirtualMachineTemplate.json* 을 이름으로 입력한 후 **추가**를 클릭합니다.
 
-5. VirtualMachineTemplate.json 파일을 열고 여는 괄호와 닫는 괄호, 필요한 스키마 요소 및 필요한 contentVersion 요소를 추가합니다.
+5.	VirtualMachineTemplate.json 파일을 열고 여는 괄호와 닫는 괄호, 필요한 스키마 요소 및 필요한 contentVersion 요소를 추가합니다.
 
 	```
 	{
@@ -107,7 +107,7 @@ Visual Studio에서 다음을 수행합니다.
  	}
 	```
 
-7. 템플릿에서 [변수](../resource-group-authoring-templates.md#variables)를 사용하여 자주 변경되는 값 또는 매개 변수 값의 조합에서 만들어야 하는 값을 지정할 수 있습니다.
+7.	템플릿에서 [변수](../resource-group-authoring-templates.md#variables)를 사용하여 자주 변경되는 값 또는 매개 변수 값의 조합에서 만들어야 하는 값을 지정할 수 있습니다.
 
     변수 요소를 매개 변수 섹션 뒤에 추가합니다.
 
@@ -148,7 +148,7 @@ Visual Studio에서 다음을 수행합니다.
 	}
 	```
 
-8. 가상 컴퓨터, 가상 네트워크 및 저장소 계정과 같은 [리소스](../resource-group-authoring-templates.md#resources)는 다음에 템플릿에 정의됩니다.
+8.	가상 컴퓨터, 가상 네트워크 및 저장소 계정과 같은 [리소스](../resource-group-authoring-templates.md#resources)는 다음에 템플릿에 정의됩니다.
 
     리소스 섹션을 변수 섹션 뒤에 추가합니다.
 
@@ -293,17 +293,17 @@ Visual Studio에서 다음을 수행합니다.
 		}
 		```
 
-9. 만든 템플릿 파일을 저장합니다.
+9.	만든 템플릿 파일을 저장합니다.
 
 ### 매개 변수 파일 만들기
 
 템플릿에 정의된 리소스 매개 변수의 값을 지정하려면 값이 포함된 매개 변수 파일을 만들고 템플릿과 함께 리소스 관리자에 제출합니다. Visual Studio에서 다음을 수행합니다.
 
-1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목**을 클릭합니다.
+1.	솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목**을 클릭합니다.
 
-2. 새 항목 추가 창에서 **텍스트 파일**을 선택하고 *Parameters.json*을 이름으로 입력한 후 **추가**를 클릭합니다.
+2.	새 항목 추가 창에서 **텍스트 파일**을 선택하고 *Parameters.json* 을 이름으로 입력한 후 **추가**를 클릭합니다.
 
-3. Parameters.json 파일을 열고 다음 JSON 내용을 추가합니다.
+3.	Parameters.json 파일을 열고 다음 JSON 내용을 추가합니다.
 
 	```
 	{
@@ -321,15 +321,15 @@ Visual Studio에서 다음을 수행합니다.
     >[AZURE.NOTE]이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](resource-groups-vm-searching.md)을 참조하세요.
 
 
-4. 만든 매개 변수 파일을 저장합니다.
+4.	만든 매개 변수 파일을 저장합니다.
 
 ### 파일 업로드
 
 템플릿 파일과 매개 변수 파일은 Azure 저장소 계정에서 Azure 리소스 관리자를 통해 액세스할 수 있습니다. 만든 첫 번째 저장소의 파일을 배치하려면 다음을 수행합니다.
 
-1. 서버 탐색기를 열고 파일을 배치할 저장소 계정의 컨테이너로 이동합니다. 이 자습서에서는 템플릿이 있는 컨테이너의 이름을 templates로 지정합니다.
+1.	서버 탐색기를 열고 파일을 배치할 저장소 계정의 컨테이너로 이동합니다. 이 자습서에서는 템플릿이 있는 컨테이너의 이름을 templates로 지정합니다.
 
-2. templates 컨테이너 창의 오른쪽 위에서 Blob 업로드 아이콘을 클릭하고 사용자가 만든 VirtualMachineTemplate.json 파일을 찾아서 **열기**를 클릭합니다.
+2.	templates 컨테이너 창의 오른쪽 위에서 Blob 업로드 아이콘을 클릭하고 사용자가 만든 VirtualMachineTemplate.json 파일을 찾아서 **열기**를 클릭합니다.
 
 3. Blob 업로드 아이콘을 다시 클릭하고 사용자가 만든 Parameters.json 파일을 찾아서 **열기**를 클릭합니다.
 
@@ -337,11 +337,11 @@ Visual Studio에서 다음을 수행합니다.
 
 NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. Azure 리소스 관리 라이브러리 및 Azure Active Directory 인증 라이브러리를 설치해야 합니다. Visual Studio에서 이 라이브러리를 가져오려면 다음을 수행합니다.
 
-1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
+1.	솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 
-2. 검색 상자에 *Active Directory*를 입력하고 Active Directory 인증 라이브러리 패키지에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
+2.	검색 상자에 *Active Directory* 를 입력하고 Active Directory 인증 라이브러리 패키지에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
 
-3. 페이지의 위쪽에서 **시험판 포함**을 선택합니다. 검색 상자에 *Microsoft.Azure.Management.Resources*를 입력하고 Microsoft Azure 리소스 관리 라이브러리에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
+3. 	페이지의 위쪽에서 **시험판 포함**을 선택합니다. 검색 상자에 *Microsoft.Azure.Management.Resources*를 입력하고 Microsoft Azure 리소스 관리 라이브러리에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
 
 이제 라이브러리를 사용하기 시작하여 응용 프로그램을 만들 준비가 되었습니다.
 
@@ -349,7 +349,7 @@ NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를
 
 Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러리가 설치되었으므로 Azure 리소스 관리자에 요청을 인증하는데 사용되는 자격 증명에 대한 응용 프로그램 정보의 서식을 지정합니다. 다음을 수행합니다.
 
-1. 사용자가 만든 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 추가합니다.
+1.	사용자가 만든 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 추가합니다.
 
 	```
 	using Microsoft.Azure;
@@ -380,21 +380,21 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 	{application-id}를 이전에 기록한 응용 프로그램 ID로 바꾸고, {password}를 AD 응용 프로그램에 대해 선택한 암호로 바꾸고, {tenant-id}를 구독을 위한 테넌트 ID로 바꿉니다. Get-AzureSubscription을 실행하여 테넌트 ID를 찾을 수 있습니다.
 
-3. Program.cs 파일에서 Main 메서드에 다음 코드를 추가하여 자격 증명을 만듭니다.
+3.	Program.cs 파일에서 Main 메서드에 다음 코드를 추가하여 자격 증명을 만듭니다.
 
 	```
 	var token = GetAuthorizationHeader();
 	var credential = new TokenCredentials(token);
 	```
 
-4. Program.cs 파일을 저장합니다.
+4.	Program.cs 파일을 저장합니다.
 
 
-## 5단계: 템플릿을 배포하는 코드 추가
+##5단계: 템플릿을 배포하는 코드 추가
 
 리소스는 항상 템플릿에서 리소스 그룹에 배포됩니다. [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) 및 [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) 클래스를 사용하여 리소스가 배포되는 리소스 그룹을 만듭니다.
 
-1. Program 클래스에 다음 메서드를 추가하여 리소스 그룹을 만듭니다.
+1.	Program 클래스에 다음 메서드를 추가하여 리소스 그룹을 만듭니다.
 
 	```
 	public static void CreateResourceGroup(
@@ -414,7 +414,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 	}
 	```
 
-2. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
+2.	방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
 	```
 	CreateResourceGroup(
@@ -425,9 +425,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 		Console.ReadLine();
 	```
 
-	{group-name}을 리소스 그룹에 사용하려는 이름으로 바꿉니다. {subscription-id}를 구독 식별자로 바꿉니다. Get-AzureSubscription을 실행하여 이를 가져올 수 있습니다. 위치를 "미국 서부" 등의 리소스를 만들려는 지역으로 바꿉니다.
-
-3. Program 클래스에 다음 메서드를 추가하여 사용자가 정의한 템플릿으로 리소스 그룹에 리소스를 배포합니다.
+3.	Program 클래스에 다음 메서드를 추가하여 사용자가 정의한 템플릿으로 리소스 그룹에 리소스를 배포합니다.
 
 	```
 	public static void CreateTemplateDeployment(
@@ -463,7 +461,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 
 	{storage-name}을 이전에 파일을 저장한 계정의 이름으로 바꿉니다.
 
-4. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
+4.	방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
 	```
 	CreateTemplateDeployment(
