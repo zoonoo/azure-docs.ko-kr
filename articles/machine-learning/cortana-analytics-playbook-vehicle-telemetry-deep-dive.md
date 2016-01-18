@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/05/2015" 
 	ms.author="bradsev" />
 
 
@@ -106,7 +106,12 @@ XUF99EW9OIQOMV7Q7 | 가족용 승용차
 3.	응용 프로그램 **CarEventGenerator.exe**를 실행합니다.
 
 ### 참조
-[차량 텔레매틱스 시뮬레이터 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717075) [Azure 이벤트 허브](http://azure.microsoft.com/services/event-hubs/) [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+[차량 텔레매틱스 시뮬레이터 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717075)
+
+[Azure 이벤트 허브](http://azure.microsoft.com/services/event-hubs/)
+
+[Azure 데이터 팩터리](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
 ## 수집
@@ -149,7 +154,12 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 *그림 10 - PrepareSampleDataPipeline 출력*
 
 ### 참조
-[스트림 수집을 위한 Azure 이벤트 허브 SDK](event-hubs-csharp-ephcs-getstarted.md) [Azure Data Factory 이동 기능](data-factory-data-movement-activities.md) [Azure Data Factory DotNet Activity](data-factory-use-custom-activities.md) [샘플 데이터 준비를 위한 Azure Data Factory DotNet Activity visual studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717077)
+
+[스트림 수집을 위한 Azure 이벤트 허브 SDK](event-hubs-csharp-ephcs-getstarted.md)
+
+[Azure 데이터 팩터리 데이터 이동 기능](data-factory-data-movement-activities.md) [Azure 데이터 팩터리 DotNet 작업](data-factory-use-custom-activities.md)
+
+[샘플 데이터 준비를 위한 Azure 데이터 팩터리 DotNet 작업 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717077)
 
 
 ## 준비
@@ -696,4 +706,4 @@ PowerBI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -327,7 +327,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 - dn: 참조 특성 해석
 - ComponentNumber: 반환할 DN 내의 구성 요소
 
-**예:** <br> `DNComponent([dn],1)` <br> dn이 “cn Joe, ou = =..., 일 경우 Joe가 반환됩니다.
+**예:** <br> `DNComponent([dn],1)` <br> dn이 "cn Joe, ou = =..., 일 경우 Joe가 반환됩니다.
 
 
 
@@ -386,7 +386,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 **예:** <br>
 
-`FormatDateTime(CDate(“12/25/2007”),”yyyy-mm-dd”)` <br> "2007-12-25"의 결과입니다.
+`FormatDateTime(CDate(“12/25/2007”),”yyyy-mm-dd”)` <br>"2007-12-25"의 결과입니다.
 
 `FormatDateTime(DateFromNum([pwdLastSet]),”yyyyMMddHHmmss.0Z”)` <br> "20140905081453.0Z"의 결과일 수 있습니다.
 
@@ -700,7 +700,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **구문:** <br> `str Mid(str string, num start, num NumChars)`
 
-- string: <br>에서 문자를 반환할 문자열입니다.
+- string: 문자로 반환될 문자열입니다. <br>
 - start : 문자열 내의 시작지점에서 반환할 문자를 식별하는 번호입니다.
 - NumChars: 문자열의 위치에서 반환될 문자의 수를 식별하는 번호입니다.
 
@@ -742,7 +742,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 **구문:** <br> `num NumFromDate(dt value)`
 
 
-**예:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> 129699324000000000를 반환합니다.
+**예:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> 129699324000000000을 반환합니다.
 
 
 
@@ -804,7 +804,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### PCase
 
-**설명:** <br> PCase 함수는 문자열 내의 공백으로 구분된 각 단어의 첫 문자를 대문자로 변환하고 다른 모든 문자를 소문자로 변환합니다.
+**설명:** <br> PCase 함수는 문자열내의 각 공백으로 구분된 단어의 첫 문자를 대문자로 변환하고 다른 모든 문자를 소문자로 변환합니다.
 
 **구문:** <br> `String PCase(string)`
 
@@ -1002,7 +1002,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Trim
 
-**설명:** <br> Trim 함수는 문자열에서 선행 및 후행 공백을 제거합니다.
+**설명:** <br> Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
 
 **구문:** <br> `str Trim(str value)` <br> `mvstr Trim(mvstr value)`
 
@@ -1058,4 +1058,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

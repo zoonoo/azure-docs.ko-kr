@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/28/2015"
    ms.author="masashin"/>
 
 # 서비스 관련 재시도 지침
@@ -212,8 +212,8 @@ namespace RetryCodeSamples
 
 ## 자세한 정보
 
-- [Azure 저장소 클라이언트 라이브러리 재시도 정책 권장 사항](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)(영문)
-- [저장소 클라이언트 라이브러리 2.0 – 재시도 정책 구현](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)(영문)
+- [Azure 저장소 클라이언트 라이브러리 재시도 정책 권장 사항(영문)](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [저장소 클라이언트 라이브러리 2.0 – 재시도 정책 구현(영문)](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
 ## Entity Framework 6을 사용하는 SQL 데이터베이스 재시도 지침
 
@@ -355,7 +355,7 @@ Entity Framework 재시도 메커니즘 사용에 대한 더 많은 예제는 [�
 
 ## 자세한 정보
 
-* [Azure SQL 데이터베이스 성능 및 탄력성 가이드](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)(영문)
+* [Azure SQL 데이터베이스 성능 및 탄력성 가이드(영문)](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
 ## ADO.NET을 사용하는 SQL 데이터베이스 재시도 지침
 
@@ -487,14 +487,14 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync(retryPolicy))
 
 일시적인 오류 처리 응용 프로그램 블록 사용에 대한 자세한 내용은 다음을 참조하세요.
 
-* [SQL Azure에서 일시적인 오류 처리 응용 프로그램 블록 사용](http://msdn.microsoft.com/library/hh680899.aspx)(영문)
-* [인내, 모든 승리의 비밀: 일시적인 오류 처리 응용 프로그램 블록 사용](http://msdn.microsoft.com/library/dn440719.aspx)(영문)
-* [클라우드 서비스의 기본 데이터 액세스 계층 – 일시적인 오류 처리](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)(영문)
+* [SQL Azure에서 일시적인 오류 처리 응용 프로그램 블록 사용(영문)](http://msdn.microsoft.com/library/hh680899.aspx)
+* [인내, 모든 승리의 비밀: 일시적인 오류 처리 응용 프로그램 블록 사용(영문)](http://msdn.microsoft.com/library/dn440719.aspx)
+* [클라우드 서비스의 기본 데이터 액세스 계층 – 일시적인 오류 처리(영문)](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
 
 SQL 데이터베이스 활용에 대한 일반적인 지침은 다음을 참조하세요.
 
-* [Azure SQL 데이터베이스 성능 및 탄력성 가이드](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)(영문)
-* [SQL Azure에서 연결 풀 오류 최소화](http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx)(영문)
+* [Azure SQL 데이터베이스 성능 및 탄력성 가이드(영문)](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
+* [SQL Azure에서 연결 풀 오류 최소화(영문)](http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx)
 
 ## 서비스 버스 재시도 지침
 
@@ -1108,7 +1108,7 @@ Azure 또는 타사 서비스에 액세스하는 경우 다음 사항을 고려�
 
 ## 자세한 정보
 
-* [회로 차단기 전략](http://msdn.microsoft.com/library/dn589784.aspx)(영문)
+* [회로 차단기 전략(영문)](http://msdn.microsoft.com/library/dn589784.aspx)
 
 ## 일시적인 오류 처리 응용 프로그램 블록(Topaz) 전략
 
@@ -1121,4 +1121,4 @@ Azure 또는 타사 서비스에 액세스하는 경우 다음 사항을 고려�
 | **선형(고정 간격)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1초<br />true | 재시도 횟수입니다.<br />재시도 사이의 지연 시간입니다.<br />첫 번째 재시도가 즉시 수행되는지 여부입니다. |
 일시적인 오류 처리 응용 프로그램 블록 사용에 대한 예제는 이 지침의 앞 부분에서 ADO.NET을 사용하는 SQL 데이터베이스 및 Azure Active Directory에 대한 예제 섹션을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

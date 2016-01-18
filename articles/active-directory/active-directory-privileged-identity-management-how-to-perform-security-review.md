@@ -26,10 +26,10 @@
 ### Me 검토
 1. PIM 주 메뉴에서 **Review administrative access**(관리 액세스 검토)를 클릭합니다. 보안 리뷰 목록이 표시됩니다.
 2. 목록에서 액세스를 변경할 **사용자**를 선택합니다. 참고: 액세스가 실제로 변경됩니다. 이 프로세스는 역할에 대한 액세스를 변경하는 담당자를 위한 검사 목록만 생성합니다. 최소 한 명의 사용자를 선택하면 **Approve access**(액세스 승인) 및 **Deny access**(액세스 거부) 단추를 사용할 수 있습니다.
-3. 선택한 사용자에 대해 **Approve access**(액세스 승인) 또는 **Deny access**(액세스 거부)를 클릭합니다. 포털 주 메뉴에 알림이 표시되고 검토 목록은 사라집니다. **Review Azure AD roles**(Azure AD 역할 검토)를 닫습니다.
+3. 선택한 사용자에 대해 **Approve access**(액세스 승인) 또는 **Deny access**(액세스 거부)를 클릭합니다. Azure 포털 주 메뉴에 알림이 표시되고 검토 목록은 사라집니다. **Review Azure AD roles**(Azure AD 역할 검토)를 닫습니다.
 
 ### 자체 검토
-1. 자신의 액세스를 검토해야 한다는 전자 메일을 사용자가 수신합니다. 메일에는 포털에 로그인하기 위한 링크가 포함됩니다.
+1. 자신의 액세스를 검토해야 한다는 전자 메일을 사용자가 수신합니다. 메일에는 Azure 포털에 로그인하기 위한 링크가 포함됩니다.
 2. 포털에서 사용자는 **Approve access**(액세스 승인) 또는 **Deny access**(액세스 거부) 단추를 클릭하여 자신의 액세스를 승인 또는 거부할 수 있습니다. 목록에서 사용자의 이름이 사라집니다.
 
 ## 검토 관리자용: 보안 검토 관리
@@ -60,4 +60,4 @@ Excel 또는 CSV 파일을 사용할 수 있는 다른 프로그램에서 사용
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

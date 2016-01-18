@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
-# 서비스 버스 broker 저장 메시징을 사용한 성능 향상의 모범 사례
+# 서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례
 
-이 항목에서는 broker 저장 메시지를 교환할 때 Azure 서비스 버스를 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 항목의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
+이 항목에서는 조정된 메시지를 교환할 때 Azure 서비스 버스를 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 항목의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
 
 이 항목 전반적으로 "클라이언트"라는 용어는 서비스 버스에 액세스하는 모든 엔터티를 가리킵니다. 클라이언트는 발신기 또는 수신기의 역할을 수행할 수 있습니다. "발신기"라는 용어는 메시지를 서비스 버스 큐 또는 토픽에 보내는 서비스 버스 큐 또는 토픽 클라이언트에 사용됩니다. "수신기"라는 용어는 서비스 버스 큐 또는 구독에서 메시지를 수신하는 서비스 버스 큐 또는 구독 클라이언트를 가리킵니다.
 
@@ -142,7 +142,7 @@ namespaceManager.CreateTopic(td);
 
 ## 분할된 큐 또는 토픽 사용
 
-서비스 버스는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 항목은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [메시징 엔터티 분할][]을 참조하세요.
+서비스 버스는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 항목은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][]를 참조하세요.
 
 ```
 // Create partitioned queue.
@@ -275,7 +275,7 @@ namespaceManager.CreateQueue(qd);
 
 ## 다음 단계
 
-서비스 버스 성능 최적화에 대한 자세한 내용은 [메시징 엔터티 분할][]을 참조하세요.
+서비스 버스 성능 최적화에 대한 자세한 내용은 [분할된 메시징 엔터티][]를 참조하세요.
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -288,7 +288,7 @@ namespaceManager.CreateQueue(qd);
   [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
   [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
   [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-  [메시징 엔터티 분할]: service-bus-partitioning.md
+  [분할된 메시징 엔터티]: service-bus-partitioning.md
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

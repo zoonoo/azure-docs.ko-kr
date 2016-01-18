@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="lvargas;twounder;barbkess"/>
 
 # SQL 데이터 웨어하우스 미리 보기 기대치
@@ -72,4 +72,4 @@ SQL 데이터 웨어하우스는 해당 데이터에 사용자 데이터 및 제
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

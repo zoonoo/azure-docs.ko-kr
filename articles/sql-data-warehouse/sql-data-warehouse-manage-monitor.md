@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # DMV를 사용하여 작업 모니터링
@@ -124,7 +124,7 @@ ORDER BY step_index;
 장기 실행 쿼리 단계의 *operation\_type* 열을 확인합니다.
 
 - OnOperation, RemoteOperation, ReturnOperation 등의 **SQL 작업**에 대해 4a단계를 진행합니다.
-- ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation 등의 **데이터 이동 작업**에 대해 4b단계를 진행합니다.
+- **데이터 이동 작업**에 ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation 등의 4b 단계를 진행합니다.
 
 
 
@@ -203,4 +203,4 @@ SQL 데이터 웨어하우스 관리에 대한 자세한 팁은 [관리 개요][
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/22/2015"
    ms.author="masashin"/>
 
 # 재시도 일반 지침
@@ -110,9 +110,9 @@
 ## 자세한 정보
 
 * [Azure 서비스 관련 재시도 지침](best-practices-retry-service-specific.md)
-* [일시적인 오류 처리 응용 프로그램 블록](http://msdn.microsoft.com/library/hh680934.aspx)(영문)
-* [회로 차단기 패턴](http://msdn.microsoft.com/library/dn589784.aspx)(영문)
-* [트랜잭션 패턴 보상](http://msdn.microsoft.com/library/dn589804.aspx)(영문)
-* [멱등 패턴](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)(영문)
+* [일시적인 오류 처리 응용 프로그램 블록(영문)](http://msdn.microsoft.com/library/hh680934.aspx)
+* [회로 차단기 패턴(영문)](http://msdn.microsoft.com/library/dn589784.aspx)
+* [트랜잭션 패턴 보상(영문)](http://msdn.microsoft.com/library/dn589804.aspx)
+* [멱등 패턴(영문)](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

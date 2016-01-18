@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 소비자 지향 응용 프로그램에서 Multi-Factor Authentication 사용
@@ -31,7 +31,7 @@ Azure Active Directory(AD) B2C는 [Azure Multi-Factor Authentication](../multi-f
 
 ## Multi-Factor Authentication을 사용하도록 등록 정책을 수정합니다
 
-1. [Azure Preview 포털의 B2C 기능 블레이드로 이동합니다.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. **등록 정책**을 클릭합니다.
 3. 이를 클릭하여 등록 정책을 엽니다.(예: "B2C\_1\_SiUp")
 4. **Multi-Factor Authentication**을 클릭하고 **상태**를 **켜기**로 바꿉니다. **확인**을 클릭합니다.
@@ -43,7 +43,7 @@ Multi-Factor Authentication 단계를 수행하기 전에 디렉터리에서 소
 
 ## Multi-Factor Authentication을 사용하도록 로그인 정책 수정
 
-1. [Azure Preview 포털](htts://portal.azure.com/)의 B2C 기능 블레이드로 이동합니다. 이 작업을 수행하는 방법은 [여기](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)를 읽습니다.
+1. [다음 단계에 따라 Azure 포털의 B2C 기능 블레이드로 이동합니다](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. **로그인 정책**을 클릭합니다.
 3. 이를 클릭하여 로그인 정책을 엽니다.(예: "B2C\_1\_SiIn") 블레이드 위쪽에서 **편집**을 클릭합니다.
 4. **Multi-Factor Authentication**을 클릭하고 **상태**를 **켜기**로 바꿉니다. **확인**을 클릭합니다.
@@ -53,4 +53,4 @@ Multi-Factor Authentication 단계를 수행하기 전에 디렉터리에서 소
 
 소비자가 (소셜 또는 로컬 계정을 사용하여)로그인할 때 확인된 전화번호가 소비자 계정에 연결된 경우 확인하도록 요청을 받습니다. 전화 번호가 연결되지 않으면 소비자에게 번호를 제공하고 확인하도록 요청합니다. 검증이 성공하면 휴대폰 번호가 나중에 사용하도록 소비자 계정에 연결됩니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

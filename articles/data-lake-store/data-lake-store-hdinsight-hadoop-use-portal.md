@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="포털을 사용하여 Azure 데이터 레이크 저장소로 HDInsight Hadoop 클러스터 프로비전 | Azure" 
-   description="Azure 포털을 사용하여 Azure 데이터 레이크 저장소로 HDInsight Hadoop 클러스터 구성 및 사용" 
+   pageTitle="포털을 사용하여 Azure 데이터 레이크 저장소로 HDInsight Hadoop 클러스터 만들기 | Azure" 
+   description="Azure 포털을 사용하여 Azure 데이터 레이크 저장소로 HDInsight Hadoop 클러스터 만들기 및 사용" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 프로비전
+# Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Azure 포털을 사용하여 Azure 데이터 레이크 저장소와 함께 작동하도록 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 구성하는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항:
+Azure 포털을 사용하여 Azure 데이터 레이크 저장소에 대한 액세스 권한을 가진 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 만드는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항:
 
 * **Hadoop 및 Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)입니다.
 
@@ -92,7 +92,7 @@ Azure 포털을 사용하여 Azure 데이터 레이크 저장소와 함께 작�
 	데이터 레이크 저장소 계정에서 다음 작업을 수행합니다.
 
 	* [데이터 레이크 저장소에 폴더를 만듭니다](data-lake-store-get-started-portal.md#createfolder).
-	* [데이터 레이크 저장소에 파일을 업로드합니다](data-lake-store-get-started-portal.md#uploaddata). 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
+	* [데이터 레이크 저장소에 파일을 업로드합니다](data-lake-store-get-started-portal.md#uploaddata). 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 
 	나중에 HDInsight 클러스터로 데이터 레이크 저장소 계정을 테스트할 때 업로드된 파일을 사용합니다.
 
@@ -207,4 +207,4 @@ HBase 클러스터의 경우 데이터 레이크 저장소 계정을 기본 저�
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

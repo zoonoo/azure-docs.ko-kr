@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="SQL Server 가상 컴퓨터 프로비전 | Microsoft Azure" 
-	description="이 자습서에서는 Azure에서 SQL Server VM을 만들고 구성하는 방법에 대해 설명합니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="SQL Server 가상 컴퓨터 프로비전 | Microsoft Azure"
+	description="이 자습서에서는 Azure에서 SQL Server VM을 만들고 구성하는 방법에 대해 설명합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management"
-	/>
+	tags="azure-service-management"	/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/26/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # Azure에서 SQL Server 가상 컴퓨터 프로비전
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-provision-sql-server.md)
+- [Classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
+- [Azure Resource Manager portal](virtual-machines-sql-server-provision-resource-manager.md)
 
 ## 개요
 
@@ -112,13 +112,33 @@ Azure에서 지원되는 SQL Server 이미지에 관한 최신 정보는 [Azure 
 
 4. 도메인 이름, 관리자 이름 순서의 형식으로 컴퓨터 이름을 사용합니다. `machinename\username`. 암호를 입력하고 컴퓨터에 연결합니다.
 
-4. 처음으로 로그온하면, 데스크톱 설정, Windows 업데이트 및 Windows 초기 구성 작업(sysprep) 완료를 포함한 여러 프로세스가 완료됩니다. Windows sysprep이 완료되면 SQL Server 설치 프로세스에서 구성 작업을 완료합니다. 이러한 작업으로 인해 완료되는 동안 잠시 지연이 발생할 수 있습니다. SQL Server 설치가 완료될 때까지 `SELECT @@SERVERNAME`에서 올바른 이름을 반환하지 못할 수 있으며, SQL Server Management Studio가 시작 페이지에 표시되지 않을 수 있습니다.
+4. 처음으로 로그온하면, 데스크톱 설정, Windows 업데이트 및 Windows 초기 구성 작업(sysprep) 완료를 포함한 여러 프로세스가 완료됩니다. Windows sysprep이 완료되면 SQL Server 설치 프로세스에서 구성 작업을 완료합니다. 이러한 작업으로 인해 완료되는 동안 잠시 지연이 발생할 수 있습니다. SQL Server 설치가 완료될 때까지 `SELECT @@SERVERNAME`는 올바른 이름을 반환하지 못할 수 있고 SQL Server Management Studio는 시작 페이지에 표시되지 않을 수 있습니다.
 
 Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 가상 컴퓨터는 다른 컴퓨터와 상당히 유사하게 작동합니다. SQL Server Management Studio(가상 컴퓨터에서 실행 중인)가 설치되어 있는 기본 SQL Server 인스턴스에 일반적인 방식으로 연결합니다.
 
 ##<a id="SSMS">다른 컴퓨터의 SSMS에서 SQL Server VM 인스턴스에 연결</a>
 
+다음 단계는 SSMS(SQL Server Management Studio)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온-프레미스 및 Azure 클래식 배포 모델에서 실행 중인 응용 프로그램에 대해 SQL Server 가상 컴퓨터를 액세스할 수 있게 만들도록 적용합니다. 리소스 관리자 모델에서 가상 컴퓨터를 배포하는 경우 [Azure에서 SQL Server 가상 컴퓨터에 연결(리소스 관리자)](virtual-machines-sql-server-connectivity-resource-manager.md)을 참조하세요.
+
+인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 아래의 섹션에 설명된 대로 다음 작업을 완료해야 합니다.
+
+- [가상 컴퓨터에 대한 TCP 끝점 만들기](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [Windows 방화벽에서 TCP 포트 열기](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [TCP 프로토콜에서 수신하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [혼합 모드 인증에 대한 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
+- [SQL Server 인증 로그인 만들기](#create-sql-server-authentication-logins)
+- [가상 컴퓨터의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
+- [다른 컴퓨터에서 데이터베이스 엔진에 연결](#connect-to-the-database-engine-from-another-computer)
+
+연결 경로는 다음 다이어그램에 요약되어 있습니다.
+
+![SQL Server 가상 컴퓨터에 연결](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+
+[AZURE.INCLUDE [VM 클래식 TCP 끝점에서 SQL server에 연결](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+
 [AZURE.INCLUDE [VM에서 SQL Server에 연결](../../includes/virtual-machines-sql-server-connection-steps.md)]
+
+[AZURE.INCLUDE [VM 클래식 단계에서 SQL server에 연결](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## <a id="cdea">응용 프로그램에서 데이터베이스 엔진에 연결</a>
 
@@ -156,4 +176,4 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

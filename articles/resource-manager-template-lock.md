@@ -1,6 +1,6 @@
 <properties
    pageTitle="리소스 잠금에 대한 리소스 관리자 템플릿 | Microsoft Azure"
-   description="리소스 잠금에 대한 리소스 관리자 스키마를 보여 줍니다."
+   description="템플릿을 통해 리소스 잠금을 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# 리소스 잠금 - 템플릿 스키마
+# 리소스 잠금 템플릿 스키마
 
 리소스 및 해당 자식 리소스에 새 잠금을 만듭니다.
 
@@ -135,4 +135,4 @@ PowerShell 명령 **Remove-AzureRmResourceLock** 또는 REST API의 [삭제 작�
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 잠금에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

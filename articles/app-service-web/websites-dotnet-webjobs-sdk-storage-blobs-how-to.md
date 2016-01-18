@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법
@@ -24,7 +24,7 @@
 
 Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요
 		
-이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
+이 가이드에서는 [저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
 
 ## <a id="trigger"></a> Blob가 만들어지거나 업데이트될 때 함수를 트리거하는 방법
 
@@ -89,9 +89,15 @@ Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사�
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
+* `IEnumerable<CloudPageBlob>`
 * [ICloudBlobStreamBinder](#icbsb)에 의해 deserialize된 다른 유형 
 
 Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `CloudStorageAccount` 매개 변수를 추가할 수도 있습니다.
+
+예제는 [GitHub.com의 azure-webjobs-sdk 리포지토리에 있는 blob 바인딩 코드](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs)를 참조하세요.
 
 ## <a id="string"></a> 문자열에 바인딩하여 텍스트 Blob 콘텐츠 가져오기
 
@@ -152,7 +158,7 @@ Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `
 
 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
-* FunctionId(*{WebJob name}*.Functions.*{Function name}*, 형식, 예: WebJob1.Functions.CopyBlob)
+* FunctionId (*{WebJob name}*.Functions.*{Function name}* 형식, 예: WebJob1.Functions.CopyBlob)
 * BlobType("BlockBlob" 또는 "PageBlob")
 * ContainerName
 * BlobName
@@ -203,7 +209,7 @@ WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 `BlobTri
 
 Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 저장소 계정의 *azure-webjobs-hosts*라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* blob에 대해 호출된 함수("**{WebJob 이름}*.Functions.*{Function 이름}*", 예: "WebJob1.Functions.CopyBlob")
+* Blob에 대해 호출된 함수("**{WebJob 이름}*.Functions.*{함수 이름}*", 예: "WebJob1.Functions.CopyBlob")
 * 컨테이너 이름
 * Blob 유형("BlockBlob" 또는 "PageBlob")
 * Blob 이름
@@ -232,4 +238,4 @@ Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 이 가이드에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

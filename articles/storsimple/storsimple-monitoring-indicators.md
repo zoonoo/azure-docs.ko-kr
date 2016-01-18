@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/31/2015"
+    ms.date="01/05/2016"
     ms.author="v-sharos" />
 
 # StorSimple 모니터링 표시기를 사용하여 장치 관리   
@@ -31,7 +31,7 @@ StorSimple 장치에는 모듈 및 StorSimple 장치의 모듈 및 전반적인 
 
 ## 전면 패널 표시기 LED
 
-*작업 패널* 또는 *ops 패널*이라고도 하는 전면 패널은 시스템에서 모든 모듈의 집계 상태를 표시합니다. 전면 패널은 StorSimple 장비 및 EBOD 인클로저에서 동일하며 아래에서 설명됩니다.
+*작업 패널* 또는 *ops 패널*이라고도 하는 전면 패널은 시스템에서 모든 모듈의 집계 상태를 표시합니다. 전면 패널은 StorSimple 기본 및 EBOD 인클로저에서 동일하며 아래에서 설명됩니다.
 
    ![장치 전면 패널][1]
  
@@ -256,4 +256,4 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

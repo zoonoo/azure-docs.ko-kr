@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자 사용자 인터페이스
@@ -26,8 +26,6 @@ StorSimple 스냅숏 관리자는 로컬 및 클라우드 저장 사본을 포�
 사용자 인터페이스를 보려면 바탕 화면에서 StorSimple 스냅숏 관리자 아이콘을 클릭합니다. 다음 그림과 같이 콘솔 창이 표시됩니다.
 
 ![StorSimple 스냅숏 관리자 창](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
-
-**그림 1: StorSimple 스냅숏 관리자 UI**
 
 콘솔 창에는 5개의 주요 요소가 있습니다. 각 요소의 전체 설명을 보려면 해당 링크를 클릭합니다.
 
@@ -57,8 +55,6 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 ![보기 메뉴 선택](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**그림 2: 보기를 선택한 StorSimple 스냅숏 관리자 메뉴 모음 **
-
 ### 파일 메뉴
 
 **파일** 메뉴에는 표준 Microsoft Management Console(MMC) 명령이 있습니다.
@@ -68,8 +64,6 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 **파일** 메뉴를 보려면 메뉴 모음에서 **파일**을 클릭합니다. 다음과 같은 메뉴가 나타납니다.
 
 ![StorSimple 스냅숏 관리자 파일 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png)
-
-**그림 3: StorSimple 스냅숏 관리자의 파일 메뉴**
 
 #### 메뉴 설명
 
@@ -102,13 +96,9 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
  
 ![StorSimple 스냅숏 관리자 동작 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-**그림 4: StorSimple 스냅숏 관리자 동작 메뉴**
-
 **동작 ** 창(콘솔 오른쪽)에는 **동작** 메뉴와 동일한 목록이 있습니다. 또한 **작업** 창에는 **보기** 메뉴 옵션이 있어 **결과** 창의 사용자 지정 보기를 만들 수 있습니다.
 
 ![보기 메뉴가 열린 작업 창](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-
-**그림 5: StorSimple 스냅숏 관리자 동작 창 보기 메뉴**
 
 #### 메뉴 설명
 
@@ -153,8 +143,6 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 ![StorSimple 스냅숏 관리자 보기 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**그림 6: StorSimple 스냅숏 관리자 보기 메뉴**
-
 #### 메뉴 설명
 
 다음 표에서는 **보기** 메뉴에 표시되는 항목을 설명합니다.
@@ -174,8 +162,6 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 ![StorSimple 스냅숏 관리자 즐겨찾기 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
-**그림 7: StorSimple 스냅숏 관리자 즐겨찾기 메뉴**
-
 #### 메뉴 설명
 
 다음 표에서는 **즐겨찾기** 메뉴에 표시되는 항목을 설명합니다.
@@ -194,8 +180,6 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 메뉴 모음에서 **창** 메뉴에 액세스할 수 있습니다.
 
 ![StorSimple 스냅숏 관리자 창 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
-
-**그림 8: StorSimple 스냅숏 관리자 창 메뉴**
 
 메뉴 하단에 있는 번호가 매겨진 목록은 현재 열린 창을 보여줍니다. 이 목록에서 아무 창이나 클릭하면 해당 창이 포그라운드로 옵니다.
 
@@ -217,8 +201,6 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 메뉴 모음에서 **도움말** 메뉴에 액세스할 수 있습니다. **작업** 창에서 StorSimple 스냅숏 관리자 도움말 항목에 액세스할 수도 있습니다.
 
 ![StorSimple 스냅숏 관리자 도움말 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
-
-**그림 9: StorSimple 스냅숏 관리자 도움말 메뉴**
 
 #### 메뉴 설명
 
@@ -259,8 +241,6 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 **범위** 창에는 트리 구조로 정리된 여러 클릭 가능한 개체(노드)가 있습니다.
 
 ![범위 창](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png)
-
-**그림 10: StorSimple 스냅숏 관리자 범위 창**
 
 - 노드를 확장하거나 축소하려면 노드 이름 옆의 화살표 아이콘을 클릭합니다.
 
@@ -368,7 +348,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 - 사용 가능한 동작 메뉴를 보려면 **작업** 노드 또는 확장된 보기에 표시되는 노드 중 하나를 마우스 오른쪽 단추로 클릭합니다.
 
-- 예약 작업의 목록을 보려면 **작업** 노드를 확장한 다음 **예약**을 클릭합니다. 이전에 구성한 작업과 각 작업에 대한 정보 목록이 **결과** 창에 표시됩니다.
+- 예약 작업의 목록을 보려면 **작업** 노드를 확장한 다음 **예약**을 클릭합니다. 이전에 구성한 작업과 각 작업에 대 한 정보 목록이 **결과** 창에 표시됩니다.
 
 - 최근에 완료된 작업의 목록을 보려면 **작업** 노드를 확장한 다음 **최근 24시간**을 클릭합니다. 최근 24시간 동안 완료된 작업 목록이 **결과** 창에 표시됩니다. **결과** 창에는 완료된 각각의 작업에 대한 정보도 들어 있습니다.
 
@@ -384,8 +364,6 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 ![결과 창](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png)
 
-**그림 11: StorSimple 스냅숏 관리자 결과 창**
-
 **결과** 창에 표시되는 세부 정보를 구성할 수 있습니다. **범위** 창의 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 클릭한 다음 **열 추가/제거**를 클릭합니다.
 
 ## 작업 창
@@ -398,13 +376,9 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 ![작업 창 예약 작업 예제](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png)
 
-**그림 12: StorSimple 스냅숏 관리자 작업 창(예약 작업)**
-
 다른 옵션을 보려면 **범위** 창에서 **작업** 노드를 확장하고, **예약**을 클릭한 다음 **결과** 창에서 예약된 작업을 클릭합니다. **작업** 창은 예약 작업에 사용 가능한 동작을 다음 예에서와 같이 표시합니다.
 
 ![작업 창 작업 동작 예제](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-
-**그림 13: StorSimple 스냅숏 관리자 작업 창(특정 작업의 경우)**
 
 ## 키보드 탐색 및 바로 가기
 
@@ -434,14 +408,14 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 
 ### 메뉴 모음 바로 가기 키
 
-다음 표에서는 메뉴 모음의 바로 가기 키 조합을 설명합니다. 바로 가기 키를 눌러 메뉴가 열리면 메뉴 바로 가기 키(메뉴에서 밑줄 표시된 키)를 사용할 수 있습니다. 메뉴 모음에 대한 자세한 내용은 [메뉴 모음](#menu-bar)을 참조하세요.
+다음 표에서는 메뉴 모음의 바로 가기 키 조합을 설명합니다. 바로 가기 키를 눌러 메뉴가 열리면 메뉴 바로 가기 키(메뉴에서 밑줄 표시된 키)를 사용할 수 있습니다. 메뉴 모음에 대한 자세한 내용은 [메뉴 모음](#menu-bar)을 참조하십시오.
 
 | 바로 가기 | 결과 | 메뉴 바로 가기 키 | 결과 |
 |:---------|:--------------------------|:------------------|:----------------|
 | ALT + F | **파일** 메뉴를 엽니다. | N | 새 콘솔 인스턴스를 엽니다. |
 | | | O | **관리 도구** 페이지를 엽니다. |
 | | | S | StorSimple 스냅숏 관리자 콘솔을 저장합니다.|
-| | | 문자열(UTF-8 형식) 또는 | **다른 이름으로 저장** 페이지를 엽니다. |
+| | | A | **다른 이름으로 저장** 페이지가 열립니다. |
 | | | M | **스냅인 추가/제거** 페이지를 엽니다.|
 | | | P | **옵션** 페이지를 엽니다. |
 | | | H | 온라인 도움말을 엽니다.|
@@ -450,17 +424,17 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 | | | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
 | | | L | **목록 내보내기** 페이지를 엽니다. 
 | | | H | 온라인 도움말을 엽니다.|
-| ALT + V | **보기** 메뉴를 엽니다. | 문자열(UTF-8 형식) 또는 | **열 추가/제거** 페이지를 엽니다. |
+| ALT + V | **보기** 메뉴가 열립니다. | A | **열 추가/제거** 페이지를 엽니다. |
 | | | U | **보기 사용자 지정** 페이지를 엽니다. |
-| ALT + O | **즐겨찾기** 메뉴를 엽니다. | 문자열(UTF-8 형식) 또는 | **즐겨찾기에 추가** 페이지를 엽니다. |
+| ALT + O | **즐겨찾기** 메뉴를 엽니다. | A | **즐겨찾기에 추가** 페이지를 엽니다. |
 | | | O | **즐겨찾기 구성** 페이지를 엽니다.|
-| ALT + W | **창** 메뉴를 엽니다.| N | 다른 StorSimple 스냅숏 관리자 창이 열립니다.|
+| ALT + W | **창** 메뉴가 열립니다.| N | 다른 StorSimple 스냅숏 관리자 창이 열립니다.|
 | | | C | 모든 열려 있는 콘솔 창을 계단식으로 표시합니다.|
 | | | T | 모든 열려 있는 콘솔 창을 그리드 모양으로 표시합니다. |
 | | | I | 화면 아래쪽에서 가로 행으로 아이콘을 정렬합니다.|
 | ALT + H | **도움말** 메뉴를 엽니다. | H | 온라인 도움말을 엽니다.|
 | | | T | Microsoft TechNet Tech Center 웹 페이지가 열립니다.|
-| | | 문자열(UTF-8 형식) 또는 | **Microsoft Management Console 정보** 페이지를 엽니다. |
+| | | A | **Microsoft Management Console 정보** 페이지를 엽니다. |
  
 ### 범위 창 바로 가기 키
 
@@ -479,7 +453,7 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 |:--------------|:-------------------------------------|
 | C | **장치 구성** 페이지를 엽니다. |
 | D | 장치 및 장치 세부 정보 목록을 새로 고칩니다.|
-| V | **보기** 메뉴를 엽니다. |
+| V | **보기** 메뉴가 열립니다. |
 | W | **세부 정보** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다. |
 | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다. |
 | L | **목록 내보내기** 페이지를 엽니다. 
@@ -491,7 +465,7 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 | 메뉴 바로 가기 | 결과 |
 |:----------------|:------------------------------------|
 | V | 볼륨 목록을 업데이트합니다. |
-| V(두 번 누르기) | **보기** 메뉴를 엽니다. |
+| V(두 번 누르기) | **보기** 메뉴가 열립니다. |
 | W | **볼륨** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
 | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
 | L | **목록 내보내기** 페이지를 엽니다. 
@@ -502,7 +476,7 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 | 메뉴 바로 가기 | 결과 |
 |:----------------|:------------------------------------|
 | G | **볼륨 그룹 만들기** 페이지를 엽니다. |
-| V | **보기** 메뉴를 엽니다. |
+| V | **보기** 메뉴가 열립니다. |
 | W | **볼륨 그룹** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
 | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다. |
 | L | **목록 내보내기** 페이지를 엽니다. |
@@ -513,7 +487,7 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 | 메뉴 바로 가기 | 결과 |
 |:----------------|:------------------------------------|
 | B | **정책 만들기** 페이지를 엽니다. |
-| V | **보기** 메뉴를 엽니다. |
+| V | **보기** 메뉴가 열립니다. |
 | W | **볼륨 그룹** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
 | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
 | L | **목록 내보내기** 페이지가 열립니다. | H | 온라인 도움말을 엽니다.|
@@ -530,7 +504,7 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 
 | 메뉴 바로 가기 | 결과 |
 |:----------------|:------------------------------------|
-| V | **보기** 메뉴를 엽니다. |
+| V | **보기** 메뉴가 열립니다. |
 | W | **작업** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
 | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
 | L | **목록 내보내기** 페이지를 엽니다. |
@@ -541,4 +515,4 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 - [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 - [StorSimple 스냅숏 관리자를 사용하여 장치를 연결 및 관리하는 방법](storsimple-snapshot-manager-manage-devices.md)을 학습합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

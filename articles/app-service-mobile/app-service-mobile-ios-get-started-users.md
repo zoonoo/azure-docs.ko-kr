@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/28/2015"
 	ms.author="krisragh"/>
 
 # iOS 앱에 인증 추가
@@ -47,4 +47,4 @@ Xcode에서 **실행**을 눌러 앱을 시작합니다. 앱이 인증되지 않
 [Azure portal]: https://portal.azure.com
  
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016--->

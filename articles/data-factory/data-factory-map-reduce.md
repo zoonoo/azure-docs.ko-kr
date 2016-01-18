@@ -22,7 +22,7 @@
 ## 소개 
 Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서에서는 HDInsight MapReduce 작업을 사용하는 방법을 설명합니다.
  
-HDInsight Pig 및 Hive 작업을 사용하여 Azure 데이터 팩터리 파이프라인에서 Windows/Linux 기반 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [Pig](data-factory-pig-activity) 및 [Hive](data-factory-hive-activity.md) 문서를 참조하세요.
+HDInsight Pig 및 Hive 작업을 사용하여 Azure 데이터 팩터리 파이프라인에서 Windows/Linux 기반 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [Pig](data-factory-pig-activity.md) 및 [Hive](data-factory-hive-activity.md) 문서를 참조하세요.
 
 ## HDInsight MapReduce 작업에 대한 JSON 
 
@@ -221,4 +221,4 @@ linkedServiceName | 이전에 만든 HDInsight 연결된 서비스를 말합니�
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

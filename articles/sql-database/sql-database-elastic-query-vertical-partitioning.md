@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/09/2015"
+    ms.date="01/06/2016"
     ms.author="torsteng;sidneyh" />
 
 # 데이터베이스 간 쿼리를 위한 탄력적 데이터베이스 쿼리(수직 분할)
 
 이 문서에서는 데이터베이스 간 쿼리시나리오(수직 분할)에서의 탄력적 쿼리 설정 방법과 쿼리 수행 방법을 설명합니다. 수직 분할 시나리오의 정의는 [Azure SQL 탄력적 데이터베이스 쿼리 개요(미리 보기)](sql-database-elastic-query-overview.md)를 참조하세요.
+
+![다른 데이터베이스에서 테이블에 대한 쿼리][1]
 
 ## 데이터베이스 개체 만들기
 
@@ -182,6 +184,9 @@ SCHEMA\_NAME 및 OBJECT\_NAME 절은 각각 외부 테이블 정의를 원격 �
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+
+
 <!--anchors-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

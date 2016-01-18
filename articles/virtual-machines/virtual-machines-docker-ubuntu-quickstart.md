@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="10/04/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Azure Marketplace에서 Docker를 신속하게 시작하는 방법
@@ -25,7 +25,7 @@
 
 SSH를 사용하여 VM에 즉시 연결할 수 있으며, 아무 작업도 수행하지 않고 Docker 작업을 직접 수행할 수 있습니다.
 
-> [AZURE.NOTE]Azure Marketplace 템플릿을 통해 만든 VM은 원격 Docker 클라이언트에서 관리하는 데 필요한 Docker 원격 API를 호스트하지 않습니다. 이 VM에서 원격으로 Docker Host를 제어하도록 하려면 [HTTPS를 사용하여 Docker 실행](https://docs.docker.com/articles/https/)을 참조하거나 [Azure 클래식 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md) 또는 [Azure CLI에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli-install.md)의 단계를 따르세요. <!-- --> Windows에서 Azure Docker VM을 자동화하려는 경우 [Docker Toolbox를 설치](https://docs.docker.com/installation/windows/)하거나 [Chocolatey에서](https://chocolatey.org/packages/docker) Docker.exe를 받을 수 있습니다.
+> [AZURE.NOTE]Azure Marketplace 템플릿을 통해 만든 VM은 원격 Docker 클라이언트에서 관리하는 데 필요한 Docker 원격 API를 호스트하지 않습니다. 이 VM에서 원격으로 Docker Host를 제어하도록 하려면 [HTTPS를 사용하여 Docker 실행](https://docs.docker.com/articles/https/)을 참조하거나 [Azure 클래식 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md) 또는 [Azure CLI에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli.md)의 단계를 따르세요. <!-- --> Windows에서 Azure Docker VM을 자동화하려는 경우 [Docker Toolbox를 설치](https://docs.docker.com/installation/windows/)하거나 [Chocolatey에서](https://chocolatey.org/packages/docker) Docker.exe를 받을 수 있습니다.
 
 ## 포털 로그온
 
@@ -78,4 +78,4 @@ Docker 명령을 실행해 보세요. 이 Azure VM의 기본 구성에는 **`sud
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

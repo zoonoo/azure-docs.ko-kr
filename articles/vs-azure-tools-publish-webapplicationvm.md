@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationVM (Windows PowerShell 스크립트)
@@ -189,4 +189,4 @@ JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 프�
 
 프로비전한 내용을 변경하도록 JSON 구성 파일을 편집할 수 있습니다. 가상 컴퓨터 및 클라우드 서비스는 필요하지만 데이터베이스 섹션은 선택 사항입니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

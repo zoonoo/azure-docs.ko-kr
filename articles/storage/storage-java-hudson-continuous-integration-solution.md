@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/12/2015" 
+	ms.date="01/05/2016" 
 	ms.author="robmcm"/>
 
 # Hudson Continuous Integration 솔루션과 함께 Azure 저장소 사용
@@ -177,4 +177,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   [저장소 계정을 만드는 방법]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

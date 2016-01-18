@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 # Linux에서 HDInsight 사용에 관한 정보
@@ -45,7 +45,7 @@ __PASSWORD__를 관리 계정의 암호로 바꾸고 __CLUSTERNAME__을 클러�
 
 	인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-	> [AZURE.IMPORTANT]인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 공용이 아닌 내부 도메인 이름이어야 하므로 인터넷을 통해 일부 기능에 액세스하면 “서버를 찾을 수 없음" 오류가 발생합니다.
+	> [AZURE.IMPORTANT]인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 공용이 아닌 내부 도메인 이름이어야 하므로 인터넷을 통해 일부 기능에 액세스하면 "서버를 찾을 수 없음" 오류가 발생합니다.
 	>
 	> Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -98,27 +98,31 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 클러스터를 만드는 동안 기존 Azure 저장소 계정 및 컨테이너를 사용할지 아니면 새로 만들지를 선택했습니다. 그런 다음 잊어버릴 수 있습니다. Ambari REST API를 사용하여 기본 저장소 계정 및 컨테이너를 찾을 수 있습니다.
 
-1. 다음 명령을 사용하여 HDFS 구성 정보를 검색할 수 있습니다.
+1. curl을 사용하여 HDFS 구성 정보를 검색하도록 다음 명령을 사용하고 [jq](https://stedolan.github.io/jq/)를 사용하여 필터링합니다.
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+    
+    > [AZURE.NOTE]서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환하며 이 정보를 포함합니다. 클러스터를 만든 후 수정된 값을 검색하는 경우 구성 버전을 나열하고 최신 버전을 검색해야 할 수도 있습니다.
 
-2. 반환되는 JSON 데이터에서 `fs.defaultFS` 항목을 찾습니다. 이 항목은 다음과 유사한 형식으로 기본 컨테이너 및 저장소 계정 이름을 포함합니다.
+    다음과 유사한 값을 반환하며 여기서 __CONTAINER__는 기본 컨테이너이고 __ACCOUNTNAME__은 Azure 저장소 계정 이름입니다.
 
-        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
+        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-	> [AZURE.TIP] [jq](http://stedolan.github.io/jq/)를 설치한 경우 다음을 사용하여 `fs.defaultFS` 항목만 반환할 수 있습니다.
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+1. 저장소 계정에 대한 리소스 그룹을 가져오고 [Azure CLI](../xplat-cli-install.md)를 사용합니다. 다음 명령에서 __ACCOUNTNAME__을 Ambari에서 검색한 저장소 계정 이름으로 대체합니다.
 
-3. 클러스터와 연결된 모든 보조 저장소 계정을 찾거나 저장소 계정을 인증하는 데 사용되는 키를 찾으려면 다음을 사용합니다.
+        azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
+    
+    계정에 대한 리소스 그룹 이름을 반환합니다.
+    
+    > [AZURE.NOTE]이 명령에서 아무 것도 반환되지 않는 경우 Azure CLI를 Azure 리소스 관리자 모드로 변경하고 명령을 다시 실행해야 합니다. Azure 리소스 관리자 모드로 전환하려면 다음 명령을 사용합니다.
+    >
+    > `azure config mode arm`
+    
+2. 저장소 계정에 대한 키를 가져옵니다. __GROUPNAME__을 이전 단계의 리소스 그룹으로 대체합니다. __ACCOUNTNAME__을 저장소 계정 이름으로 대체합니다.
 
-		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-4. 반환되는 JSON 데이터에서 `fs.azure.account.key`로 시작하는 항목을 찾습니다. 항목 이름의 나머지 부분은 저장소 계정 이름입니다. 예: `fs.azure.account.key.mystorage.blob.core.windows.net` 이 항목에 저장된 값은 저장소 계정 인증에 사용되는 키입니다.
-
-	> [AZURE.TIP] [jq](http://stedolan.github.io/jq/)를 설치한 경우, 다음을 사용하여 키 및 값의 목록을 반환할 수 있습니다.
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+    계정에 대한 기본 키를 반환합니다.
 
 또한 Azure 포털을 사용하여 저장소 정보를 찾을 수 있습니다.
 
@@ -252,4 +256,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

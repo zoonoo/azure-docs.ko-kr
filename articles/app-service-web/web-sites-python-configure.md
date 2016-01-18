@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
-	ms.author="huguesv"/>
+	ms.date="12/16/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -40,7 +40,7 @@ Azure 마켓플레이스에는 Bottle, Django 및 Flask 프레임워크용 템�
 
 이 자습서에서는 기존 Azure 구독 및 Azure 포털에 대한 액세스 권한이 있다고 가정합니다.
 
-기존 웹앱이 없는 경우 [Azure 포털](https://portal.azure.com)에서 웹앱을 만들 수 있습니다. 왼쪽 아래에 있는 새로 만들기 단추를 클릭한 다음 **웹 + 모바일** > **웹앱**을 클릭합니다.
+기존 웹앱이 없는 경우 [Azure 포털](https://portal.azure.com)에서 웹앱을 만들 수 있습니다. 왼쪽 위에 있는 새로 만들기 단추를 클릭한 다음 **웹 + 모바일** > **웹앱**을 클릭합니다.
 
 ## Git 게시
 
@@ -385,4 +385,4 @@ Python 3.4용 예제 `web.config`:
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

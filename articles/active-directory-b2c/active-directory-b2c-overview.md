@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor=""/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 응용 프로그램에 등록 및 로그인
@@ -28,7 +28,7 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 
 소비자 등록 및 로그인을 수락하는 응용 프로그램을 만들려면 먼저 Azure Active Directory B2C 테넌트를 사용하여 등록해야 합니다. 이 [문서](active-directory-b2c-get-started.md)에서 설명한 단계를 사용하여 고유의 테넌트를 가져옵니다.
 
-[OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) 또는 [Open ID 연결](active-directory-b2c-protocols.md#openid-connect-sign-in-flow)을 사용하여 프로토콜 메시지를 직접 보내도록 선택하거나 작업을 수행하는 라이브러리를 사용하여 Azure Active Directory B2C 서비스에 대해 응용 프로그램을 작성할 수 있습니다.(아래에서 즐겨 찾는 플랫폼을 선택하고 시작함)
+[OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow) 또는 [Open ID 연결](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow)을 사용하여 프로토콜 메시지를 직접 보내도록 선택하거나 작업을 수행하는 라이브러리를 사용하여 Azure Active Directory B2C 서비스에 대해 응용 프로그램을 작성할 수 있습니다.(아래에서 즐겨 찾는 플랫폼을 선택하고 시작함)
 
 [AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
@@ -43,7 +43,7 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 
 특정 Azure Active Directory B2C 미리 보기 기능을 사용하는 방법을 알아봅니다.
 
-- 소비자 지향 응용 프로그램에서 사용하기 위해 ([Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) 및 [LinkedIn](active-directory-b2c-setup-li-app.md))계정을 구성합니다.
+- 소비자 지향 응용 프로그램에서 사용하기 위해 [Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Microsoft 계정](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) 및 [LinkedIn](active-directory-b2c-setup-li-app.md) 계정을 구성합니다.
 - [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](active-directory-b2c-reference-custom-attr.md)
 - [소비자 지향 응용 프로그램에서 Multi-Factor Authentication을 사용합니다.](active-directory-b2c-reference-mfa.md)
 - [소비자를 위해 셀프 서비스 암호 재설정을 설정합니다.](active-directory-b2c-reference-sspr.md)
@@ -54,13 +54,13 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 
 이러한 링크는 서비스를 자세히 탐색하는 데 유용합니다.
 
-- [Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c) 참조
+- [Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c)를 참조하세요.
 - [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
 - [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 미리 보기에 대한 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
 - Azure Active Directory B2C는 "앱 모델 v2.0"이라고 하는 응용 프로그램 등록 모델을 사용하여 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0을 지원합니다.
   - [앱 모델 v2.0 프로토콜 참조](active-directory-b2c-reference-protocols.md)
   - [앱 모델 v2.0 토큰 참조](active-directory-b2c-reference-tokens.md)
 - [Azure Active Directory B2C FAQ](active-directory-b2c-faqs.md)
-- [Azure Active Directory B2C에 대 한 지원 요청 제출](active-directory-b2c-support.md)
+- [Azure Active Directory B2C에 대한 파일 지원 요청](active-directory-b2c-support.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

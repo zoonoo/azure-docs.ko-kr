@@ -39,8 +39,8 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 1.0 이상 설치](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater)를 참조하세요.
-
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure 리소스 관리자로 Azure PowerShell 사용](powershell-azure-resource-manager.md#prerequisites)의 필수 조건 섹션을 참조하세요.
+	
 ##데이터 레이크 분석 계정 만들기
 
 모든 작업을 실행하기 전에 데이터 레이크 분석 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
@@ -217,4 +217,4 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

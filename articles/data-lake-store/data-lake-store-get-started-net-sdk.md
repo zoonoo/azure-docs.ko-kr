@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -53,20 +53,23 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 
 	1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 	2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **Include Prerelease**(시험판 포함) 확인란이 선택되어 있는지 확인합니다.
-	3. 다음 패키지를 검색하고 설치합니다.
+	3. 다음 데이터 레이크 저장소 패키지를 검색하고 설치합니다.
 	
-		* Microsoft.Azure.Common.Authentication
 		* Microsoft.Azure.Management.DataLake.Store
 		* Microsoft.Azure.Management.DataLake.StoreFileSystem
 		* Microsoft.Azure.Management.DataLake.StoreUploader
 
 		![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "새 Azure 데이터 레이크 계정 만들기")
 
+	4. **Microsoft.Azure.Common.Authentication** 패키지도 설치해야 합니다. 이 패키지는 시험판이며 Azure 데이터 레이크 저장소에서 인증이 필요합니다.
+
+		![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "새 Azure 데이터 레이크 계정 만들기")
+
 	4. **NuGet 패키지 관리자**를 닫습니다.
 
 7. **Program.cs**를 열고 기존 코드 블록을 다음 코드로 바꿉니다. 또한 코드 조각에서 매개 변수에 대한 값을 제공합니다.
 
-	이 코드는 데이터 레이크 저장소 만들기, 저장소에서 폴더 만들기, 파일 업로드, 파일 다운로드, 마지막으로 계정을 삭제하는 프로세스를 진행합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
+	이 코드는 데이터 레이크 저장소 만들기, 저장소에서 폴더 만들기, 파일 업로드, 파일 다운로드, 마지막으로 계정을 삭제하는 프로세스를 진행합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 	
 		using System;
 		using System.Collections.Generic;
@@ -224,4 +227,4 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -74,12 +74,12 @@ Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 �
 - [SaaS 응용 프로그램 통합 자습서 목록](active-directory-saas-tutorial-list.md)
 
 ## 응용 프로그램에 대한 액세스 관리
-다음 문서는 응용 프로그램이 Azure AD와 통합되면 Azure 포털에서 Azure AD 커넥터 및 Azure AD를 사용하여 응용 프로그램에 대한 액세스를 관리할 수 있는 방법을 설명합니다.
+다음 문서는 응용 프로그램이 Azure AD와 통합되면 Azure AD 커넥터 및 Azure AD를 사용하여 응용 프로그램에 대한 액세스를 관리할 수 있는 방법을 설명합니다.
 
 - [Azure AD를 사용하는 앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 - [Azure AD 커넥터를 사용하여 자동화](active-directory-saas-app-provisioning.md)
-- [Azure 포털을 사용하여 응용 프로그램에 사용자 할당](active-directory-applications-guiding-developers-assigning-users.md)
-- [Azure 포털을 사용하여 응용 프로그램에 그룹 할당](active-directory-applications-guiding-developers-assigning-groups.md)
+- [응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md)
+- [응용 프로그램에 그룹 지정](active-directory-applications-guiding-developers-assigning-groups.md)
 - [계정 공유](active-directory-sharing-accounts.md)
 
 ## 사용자 지정 응용 프로그램 통합
@@ -87,4 +87,4 @@ Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 �
 
 Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 추가하려는 경우 [Azure AD 셀프 서비스 SAML 구성을 사용하여 "앱 가져오기"](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

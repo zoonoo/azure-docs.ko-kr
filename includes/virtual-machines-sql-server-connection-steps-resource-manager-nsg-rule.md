@@ -1,34 +1,35 @@
-### Configure a Network Security Group inbound rule for the VM
+### VM에 대한 네트워크 보안 그룹 인바운드 규칙 구성
 
-If you want to be able to connect to SQL Server over the internet, you have to configure an inbound rule on the Network Security Group for the port that your SQL Server instance is listening. By default, this is TCP port 1433.
+인터넷을 통해 SQL Server에 연결할 수 있도록 하려는 경우 SQL Server 인스턴스가 수신 중인 포트에 대한 네트워크 보안 그룹에 인바운드 규칙을 구성해야 합니다. 기본적으로 TCP 포트 1433입니다.
 
-1. In the portal, select **Virtual machines**, and then select your SQL Server VM.
+1. 포털에서 **가상 컴퓨터**를 선택한 다음 SQL Server VM을 선택합니다.
 
-2. Click the **All settings** link.
+2. **모든 설정** 링크를 클릭합니다.
 
-3. Expand **Nework interfaces**.
+3. **네트워크 인터페이스**를 확장합니다.
 
-	![network interface](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
+	![네트워크 인터페이스](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
 
-4. Then select the Network Interface for your VM. 
+4. VM에 대한 네트워크 인터페이스를 선택합니다.
 
-4. Click the **Network security group** link.
+4. **네트워크 보안 그룹** 링크를 클릭합니다.
 
-	![network interface](./media/virtual-machines-sql-server-connection-steps/rm-network-security-group.png)
+	![네트워크 인터페이스](./media/virtual-machines-sql-server-connection-steps/rm-network-security-group.png)
 
-6. In the properties of the Network Security Group, expand **Inbound security rules**.
+6. 네트워크 보안 그룹의 속성에서 **인바운드 보안 규칙**을 확장합니다.
 
-5. Click the **Add** button.
+5. **추가** 단추를 클릭합니다.
 
-6. Provide a **Name** of "SQLServerPublicTraffic".
+6. "SQLServerPublicTraffic"의 **이름**을 제공합니다.
 
-7. Change **Protocol** to **TCP**.
+7. **프로토콜**을 **TCP**로 변경합니다.
 
-8. Specify a **Destination port range** of 1433 (or the port that your SQL Server Instance is listening on). 
+8. **대상 포트 범위**인 1433(또는 SQL Server 인스턴스가 수신 중인 포트)을 지정합니다.
 
-9. Verify that **Action** is set to **Allow**. The security rule dialog should look similar to the following screenshot.
+9. **작업**이 **허용**으로 설정되었는지 확인합니다. 보안 규칙 대화 상자는 다음 스크린샷과 유사해야 합니다.
 
-	![network security rule](./media/virtual-machines-sql-server-connection-steps/rm-network-security-rule.png)
+	![네트워크 보안 규칙](./media/virtual-machines-sql-server-connection-steps/rm-network-security-rule.png)
 
-9. Click **OK** to save the rule for your VM.
+9. **확인**을 클릭하여 VM에 대한 규칙을 저장합니다.
 
+<!---HONumber=AcomDC_0107_2016-->

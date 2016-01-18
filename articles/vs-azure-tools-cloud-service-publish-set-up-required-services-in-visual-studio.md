@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비"
+   pageTitle="Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비 | Microsoft Azure"
    description="클라우드 및 저장소 계정 서비스를 설정하고 Azure 응용 프로그램을 구성하는 절차에 대해 알아봅니다."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/28/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비
@@ -50,7 +50,7 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
 
 ### Azure 관리 포털을 사용하여 클라우드 서비스를 만들려면
 
-1. Microsoft 웹 사이트의 [Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkId=253103)에 로그인합니다.
+1. Microsoft 웹사이트의 [Microsoft Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkId=253103)에 로그인합니다.
 
 1. (선택 사항) 이미 만든 클라우드 서비스의 목록을 표시하려면 페이지의 왼쪽에서 클라우드 서비스 링크를 선택합니다.
 
@@ -153,4 +153,4 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
 
 Visual Studio에서 Azure에 앱을 게시하는 방법에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](vs-azure-tools-publishing-a-cloud-service.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

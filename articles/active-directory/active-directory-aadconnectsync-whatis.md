@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -34,7 +34,7 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect Sync)는 클
 - 암호 동기화에 대해 자세히 알아보려면 [암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md)을 참조하십시오.
 - Azure AD Connect Sync의 기본 구성을 이해하려면 [기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md)를 참조하세요.
 - Azure AD Connect 동기화에서 사용자 및 연락처에 대해 자세히 알아보려면 [사용자 및 연락처 이해](active-directory-aadconnectsync-understanding-users-and-contacts.md)를 참조하세요.
-- 기본 구성을 변경하려면 [기본 구성 변경 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)를 참조하세요.
+- 기본 구성을 변경하려면 [기본 구성 변경 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)를 참조하십시오.
 - 동기화 서버를 작동하는 방법에 대해 자세히 알아보려면 [운영 작업 및 고려 사항](active-directory-aadconnectsync-operations.md)을 참조하세요.
 - Azure AD로 동기화되는 특성을 살펴보려면 [Azure Active Directory로 동기화된 특성](active-directory-aadconnectsync-attributes-synchronized.md)을 참조하세요.
 - 선언적 프로비전에 대해 자세히 알아보려면 [선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)를 참조하세요.
@@ -45,4 +45,4 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect Sync)는 클
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

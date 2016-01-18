@@ -25,7 +25,7 @@ Azure 검색 REST 관리 API는 포털에서 프로그래밍 방식으로 관리
 - Visual Studio 2012 또는 2013
 - 샘플 클라이언트 응용 프로그램 다운로드
 
-자습서를 완료하는 과정에서 두 가지 서비스: Azure Search 및 AD(Azure Active Directory)를 프로비전합니다. 또한 Azure에서 클라이언트 응용 프로그램과 리소스 관리자 끝점 간에 트러스트를 설정하는 AD 응용 프로그램을 만듭니다.
+자습서를 완료하는 과정에서 두 가지 서비스: Azure 검색 및 AD(Azure Active Directory)를 프로비전합니다. 또한 Azure에서 클라이언트 응용 프로그램과 리소스 관리자 끝점 간에 트러스트를 설정하는 AD 응용 프로그램을 만듭니다.
 
 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
 
@@ -34,7 +34,7 @@ Azure 검색 REST 관리 API는 포털에서 프로그래밍 방식으로 관리
 
 이 자습서는 Visual Studio 2012 또는 2013에서 편집 및 실행할 수 있는 C#으로 작성된 Windows 콘솔 응용 프로그램을 기반으로 합니다.
 
-[Azure 검색 관리 API 데모](https://azuresearchmgmtapi.codeplex.com/)에서 Codeplex에 대한 클라이언트 응용 프로그램을 찾을 수 있습니다.
+[Azure 검색 관리 API 데모](https://github.com/Azure-Samples/search-dotnet-management-api/)에서 Codeplex에 대한 클라이언트 응용 프로그램을 찾을 수 있습니다.
 
 
 ##응용 프로그램 구성
@@ -58,7 +58,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
 ###Active Directory 서비스 만들기
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
+1. [Azure 포털](https://manage.windowsazure.com)에 로그인합니다.
 
 2. 왼쪽 탐색 창에서 아래로 스크롤하여 **Active Directory**를 클릭합니다.
 
@@ -119,7 +119,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-아직 [Codeplex에서 샘플 응용 프로그램을 다운로드](https://azuresearchmgmtapi.codeplex.com/)하지 않았으면 이 단계를 위해 다운로드해야 합니다.
+아직 [Github에서 샘플 응용 프로그램을 다운로드](https://github.com/Azure-Samples/search-dotnet-management-api/)하지 않았으면 이 단계를 위해 다운로드해야 합니다.
 
 1. Visual Studio에서 **ManagementAPI.sln**을 엽니다.
 
@@ -204,4 +204,4 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: 응용 프로그램의 형식
@@ -23,7 +23,7 @@ Azure AD B2C는 모두 업계 표준 프로토콜 [OAuth 2.0](active-directory-b
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 기본 사항
-Azure AD B2C를 사용하는 모든 앱은 [Azure Preview 포털](https://portal.azure.com)을 통해 [B2C 디렉터리](active-directory-b2c-get-started.md)에 등록해야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
+Azure AD B2C를 사용하는 모든 앱은 [Azure 포털](https://portal.azure.com)을 통해 [B2C 디렉터리](active-directory-b2c-get-started.md)에 등록해야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
 - 앱을 고유하게 식별하는 **응용 프로그램 ID**
 - 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI**
@@ -128,4 +128,4 @@ Azure AD B2C로 Web API를 보호하는 방법을 알아보려면 [시작 섹션
 
 On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C 미리 보기에 구현되어 있지 않습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

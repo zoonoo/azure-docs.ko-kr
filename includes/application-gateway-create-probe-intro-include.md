@@ -1,3 +1,5 @@
-Custom probes allows you to have more granular control about health monitoring status for your back end pool of servers. You can change the interval checks, failed request threshold and timeout settings.
+사용자 지정 프로브를 사용하면 서버의 백 엔드 풀에 대한 상태를 모니터링하는 상태를 더 세부적으로 제어할 수 있습니다. 간격 검사, 실패한 요청 임계값 및 제한 시간 설정을 변경할 수 있습니다.
 
-This article will guide you to create an application gateway with a custom probe or adding a custom probe to an existing application gateway. 
+이 문서는 사용자 지정 프로브를 사용하거나 기존 응용 프로그램 게이트웨이에 사용자 지정 프로브를 추가하여 응용 프로그램 게이트웨이를 만들도록 안내합니다.
+
+<!---HONumber=AcomDC_0107_2016-->

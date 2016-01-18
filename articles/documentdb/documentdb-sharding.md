@@ -98,13 +98,13 @@ foreach (UserProfile activeUser in query)
 ## 해시 파티션 확인자
 해시 분할에서는 분할이 해시 함수 값을 기준으로 지정되기 때문에 여러 분할 간에 요청 및 데이터를 고르게 배포할 수 있습니다. 이 방법은 일반적으로 많은 수의 고유 클라이언트에서 생성 또는 소비되는 데이터를 분할하는 데 사용되며, 사용자 프로필, 카탈로그 항목 및 IoT("사물 인터넷") 원격 분석 데이터를 저장하는 데 유용합니다.
 
-**해시 분할:** ![해시 분할을 통해 파티션 간에 요청을 균등하게 분배하는 방법을 보여 주는 다이어그램](media/documentdb-sharding/partition-hash.png "해시 분할")
+**해시 분할:** ![해시 분할을 통해 파티션 간에 요청을 균등하게 분배하는 방법을 보여 주는 다이어그램](media/documentdb-sharding/partition-hash.png)
 
 *N*개 컬렉션에 걸친 간단한 해시 파티션 구성표는 문서를 받아서 *hash(d) mod N*을 계산하여 문서가 배치된 컬렉션을 확인합니다. 그러나 이 간단한 기술의 문제는 새 컬렉션을 추가하거나 컬렉션을 제거하는 경우 거의 모든 데이터의 순서를 다시 섞어야 하기 때문에 제대로 작동하지 않는다는 것입니다. [일관된 해시](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.3738)는 컬렉션을 추가하거나 제거하는 동안 필요한 데이터 이동량을 최소화하는 해시 체계를 구현하여 이 문제를 해결하는 잘 알려진 알고리즘입니다.
 
 [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) 클래스[IHashGenerator](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.ihashgenerator.aspx) 인터페이스에 지정된 해시 함수를 통해 일관된 해시 링을 작성하는 논리를 구현합니다. 기본적으로는 HashPartitionResolver는 MD5 해시 함수를 사용하지만 사용자 고유의 해시 구현으로 대체할 수 있습니다. HashPartitionResolver는 컬렉션 간의 보다 균일한 문서 분포를 위해 내부적으로 각 컬렉션에 대한 해시 링 내에 16개의 해시, 즉 "가상 노드"를 만들지만 클라이언트 쪽 계산량과 데이터 왜곡도의 균형을 위해 이 개수를 조정할 수 있습니다.
 
-**HashPartitionResolver를 사용한 일관된 해시:** ![HashPartitionResolver가 해시 링을 만드는 방법을 보여 주는 다이어그램](media/documentdb-sharding/HashPartitionResolver.JPG "일관된 해시")
+**HashPartitionResolver를 사용한 일관된 해시:** ![HashPartitionResolver가 해시 링을 만드는 방법을 보여 주는 다이어그램](media/documentdb-sharding/HashPartitionResolver.JPG)
 
 ## 범위 파티션 확인자
 
@@ -114,7 +114,7 @@ foreach (UserProfile activeUser in query)
 
 **범위 분할:**
 
-![범위 분할을 통해 파티션 간에 요청을 균등하게 분배하는 방법을 보여 주는 다이어그램](media/documentdb-sharding/partition-range.png "범위 분할")
+![범위 분할을 통해 파티션 간에 요청을 균등하게 분배하는 방법을 보여 주는 다이어그램](media/documentdb-sharding/partition-range.png)
 
 범위 분할의 특수한 사례는 범위가 단일 불연속 값인 경우로, "조회 분할"이라고도 합니다. 이 분할은 일반적으로 지역별 분할(예: 노르웨이, 덴마크 및 스웨덴이 포함된 스칸디나비아 분할) 또는 다중 테넌트 응용 프로그램의 테넌트 분할에 사용됩니다.
 
@@ -162,9 +162,9 @@ DocumentDB는 다음 몇 가지 이유로 클라이언트 쪽 분할을 지원�
 * [DocumentDB 개념을 사용하여 데이터 분할](documentdb-partition-data.md)
 * [DocumentDB 컬렉션 및 성능 수준](documentdb-performance-levels.md)
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-* [DocumentDB .NET 샘플](https://github.com/Azure/azure-documentdb-net)(영문)
+* [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB 제한](documentdb-limits.md)
 * [성능 팁에 대한 DocumentDB 블로그](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

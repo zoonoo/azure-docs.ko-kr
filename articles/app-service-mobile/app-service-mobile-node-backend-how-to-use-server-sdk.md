@@ -24,7 +24,7 @@
 
 이 문서에서는 Azure 앱 서비스 모바일 앱에서 Node.js 백 엔드로 작업하는 방법을 보여주는 자세한 정보와 예를 제공합니다.
 
-> [AZURE.NOTE]이 SDK는 미리 보기로 제공됩니다. 따라서 프로덕션에 이 SDK를 사용하는 것은 권장하지 않습니다. 이 문서의 예제는 [azure-mobile-apps]의 v2.0.0-beta1을 사용합니다.
+> [AZURE.NOTE]이 SDK는 미리 보기로 제공됩니다. 따라서 프로덕션에 이 SDK를 사용하는 것은 권장하지 않습니다. 이 문서의 예제에서는 [azure-mobile-apps]의 v2.0.0-beta2를 사용합니다.
 
 ## <a name="Introduction"></a>소개
 
@@ -430,7 +430,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
 
-  - *읽기*는 테이블의 RESTful GET 작업입니다.
+  - *읽기*는 테이블의 RESTful 가져오기 작업입니다.
   - *삽입*은 테이블의 RESTful POST 작업입니다.
   - *업데이트*는 테이블의 RESTful PATCH 작업입니다.
   - *삭제*는 테이블의 RESTful DELETE 작업입니다.
@@ -561,7 +561,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 1. **api** 디렉터리 만들기
 2. **api** 디렉터리에서 API 정의 JavaScript 파일을 만듭니다.
-3. import 메서드를 사용하여 **api** 디렉터리를 가져옵니다.
+3. 가져오기 메서드를 사용하여 **API** 디렉터리를 가져옵니다.
 
 다음은 이전에 사용된 기본 앱 샘플에 따른 프로토타입 API 정의입니다.
 
@@ -698,7 +698,7 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [Google 인증을 구성하는 방법]: app-service-mobile-how-to-configure-google-authentication.md
 [Microsoft 인증을 구성하는 방법]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter 인증을 구성하는 방법]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure 앱 서비스 배포 가이드]: ../app-service-web/web-site-deploy.md
+[Azure 앱 서비스 배포 가이드]: ../app-service-web/web-sites-deploy.md
 [Azure 앱 서비스 모니터링]: ../app-service-web/web-sites-monitor.md
 [Azure 앱 서비스에 진단 로그 사용]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Visual Studio에서 Azure 앱 서비스 문제 해결]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
@@ -722,4 +722,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

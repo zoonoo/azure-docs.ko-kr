@@ -1,6 +1,6 @@
 <properties
    pageTitle="SQL 데이터 웨어하우스의 이름 바꾸기 | Microsoft Azure"
-   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 테이블 이름 변경 팁"
+   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 테이블 이름 변경을 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/05/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 이름 바꾸기
@@ -42,7 +42,7 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 
 ## 테이블 이름 변경에는 배타적 테이블 잠금이 필요합니다.
 
-테이블을 사용 중에는 테이블 이름을 변경할 수 없습니다. 테이블 이름 변경에는 테이블에 대한 배타적 잠금이 필요합니다. 테이블을 사용 중인 경우 테이블을 사용하는 세션을 종료해야 할 수 있습니다. 세션을 종료하려면 [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 명령을 사용해야 합니다. ```KILL```을 사용할 때는 세션이 종료되면 커밋되지 않은 모든 작업이 롤백되므로 주의가 필요합니다. SQL 데이터 웨어하우스의 세션에는 'SID'라는 접두어가 붙습니다. KILL 명령을 호출할 때 세션 번호와 이 부분을 포함해야 합니다. 예 ```KILL 'SID1234'```
+테이블을 사용 중에는 테이블 이름을 변경할 수 없습니다. 테이블 이름 변경에는 테이블에 대한 배타적 잠금이 필요합니다. 테이블을 사용 중인 경우 테이블을 사용하는 세션을 종료해야 할 수 있습니다. 세션을 종료하려면 [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 명령을 사용해야 합니다. 세션이 종료되고 커밋되지 않은 모든 작업이 롤백되면 ```KILL```을 사용할 때 주의합니다. SQL 데이터 웨어하우스의 세션에는 'SID'라는 접두어가 붙습니다. KILL 명령을 호출할 때 세션 번호와 이 부분을 포함해야 합니다. 예 ```KILL 'SID1234'```
 
 
 ## 다음 단계
@@ -53,4 +53,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Article references-->
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/23/2015" 
 	ms.author="heidist"/>
 
 #Azure 검색에 최신 업데이트된 새로운 기능#
@@ -125,4 +125,4 @@ SDK의 설치 및 사용에 대한 안내를 원하시면 [.NET에서 Azure 검�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

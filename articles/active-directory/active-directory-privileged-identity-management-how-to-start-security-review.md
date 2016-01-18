@@ -38,7 +38,7 @@ Azure PIM 대시보드에서 시작할 수 있는 경로는 다음과 같습니�
 
 ### 검토할 역할 선택
 
-1. **Select a role to review**(검토할 역할 선택) 블레이드의 역할 목록에서 역할을 선택합니다. 한번에 하나의 역할만 선택할 수 있습니다. **Select a role to review**(검토할 역할 선택) 블레이드가 **Select reviewers blade**(검토자 블레이드 선택)으로 교체됩니다. 검토자를 선택하는 옵션이 두 가지 있습니다.
+1. **검토할 역할 선택** 블레이드의 역할 목록에서 역할을 선택합니다. 한번에 하나의 역할만 선택할 수 있습니다. **Select a role to review**(검토할 역할 선택) 블레이드가 **Select reviewers blade**(검토자 블레이드 선택)으로 교체됩니다. 검토자를 선택하는 옵션이 두 가지 있습니다.
   - Me – 다른 관리자의 관여 없이 보안 검토가 작동하는 방식을 미리 보려면 이 기능을 사용합니다.
   - 역할 멤버에 의한 자체 검토 – 사용자 스스로 자신의 역할 할당을 검토하도록 하려면 이 기능을 사용합니다.
 2. 이들 중 하나를 선택하여 검토 세부 정보 작업을 시작합니다. **기본값 변경** 블레이드가 표시됩니다.
@@ -51,7 +51,7 @@ Azure PIM 대시보드에서 시작할 수 있는 경로는 다음과 같습니�
   - 얼마나 많은 사람들을 검토 중입니까?
   - 사용자들이 얼마나 신속하게 확장을 추가하고 검토를 완료할 수 있습니까?
 4. **기본값 변경** 블레이드에서 확인 단추를 클릭합니다. 블레이드가 닫힙니다.
-5. **Start a review of a role**(역할에 대한 검토 시작) 블레이드에서 확인 단추를 클릭합니다. 블레이드가 닫힙니다. 포털 주 메뉴에 알림이 표시되며 **새로 고침** 단추를 클릭하여 대시보드를 새로 고치면 **Security reviews**(보안 검토) 섹션에 보안 검토가 표시됩니다.
+5. **Start a review of a role**(역할에 대한 검토 시작) 블레이드에서 확인 단추를 클릭합니다. 블레이드가 닫힙니다. Azure 포털 주 메뉴에 알림이 표시되며 **새로 고침** 단추를 클릭하여 대시보드를 새로 고치면 **보안 검토** 섹션에 보안 검토가 표시됩니다.
 6. 역할에 포함된 개별 사용자들에게 확장을 추가해야 하고 자신의 관리 액세스를 검토해야 한다고 알립니다. 다음 단계를 봅니다.
 6. [관리 액세스를 검토합니다.](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
@@ -63,4 +63,4 @@ Azure PIM 대시보드에서 시작할 수 있는 경로는 다음과 같습니�
 ## PIM 목차
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

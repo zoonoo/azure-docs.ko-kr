@@ -21,10 +21,7 @@
 # Ubuntu Linux에서 Python을 사용하여 SQL 데이터베이스에 연결
 
 
-> [AZURE.SELECTOR]
-- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
-- [Node.js](sql-database-develop-nodejs-simple-linux.md)
-- [Ruby](sql-database-develop-ruby-simple-linux.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 이 항목에서는 Ubuntu Linux 클라이언트 컴퓨터에서 실행되며 Azure SQL 데이터베이스 데이터베이스에 연결하는 Python 코드 샘플을 제시합니다.
@@ -120,4 +117,4 @@ SQL 데이터베이스에 연결하는 데 [pymssql.connect](http://pymssql.org/
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

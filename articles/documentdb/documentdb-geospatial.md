@@ -24,7 +24,7 @@
 - SQL 및 LINQ에서 Azure DocumentDB의 지리 공간 데이터를 쿼리하려면 어떻게 해야 하나요?
 - DocumentDB에서 공간 인덱싱을 사용하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 
-코드 샘플은 이 [Github 프로젝트](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)를 참조하세요.
+코드 샘플은 이 [Github 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)를 참조하세요.
 
 ## 공간 데이터 소개
 
@@ -350,9 +350,9 @@ LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며
 ## 다음 단계
 DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.
 
-- [Github의 지리 공간 .NET 코드 샘플](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)을 사용하여 코딩 시작
+- [Github의 지리 공간 .NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)을 사용하여 코딩 시작
 - [DocumentDB 쿼리 실습](http://www.documentdb.com/sql/demo#geospatial)에서 지리 공간 쿼리 실습
 - [DocumentDB 쿼리](documentdb-sql-query.md)에 대해 자세히 알아보기
 - [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에 대해 자세히 알아보기
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

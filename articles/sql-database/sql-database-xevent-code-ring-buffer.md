@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL 데이터베이스에 대한 XEvent 링 버퍼 코드 | Microsoft Azure" 
-	description="Azure SQL 데이터베이스에서 링 버퍼 대상을 사용하여 편리하고 빨라진 TRANSACT-SQL 코드 샘플을 제공합니다." 
+	description="Azure SQL 데이터베이스에서 링 버퍼 대상을 사용하여 편리하고 빨라진 Transact-SQL 코드 샘플을 제공합니다." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="12/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -25,7 +25,7 @@
 테스트 중 확장 이벤트에 대한 정보를 캡처하고 보고하는 가장 쉽고 빠른 방법을 위한 전체 코드 샘플이 필요할 수 있습니다. 확장 이벤트 데이터에 대한 가장 쉬운 대상은 [링 버퍼 대상](http://msdn.microsoft.com/library/ff878182.aspx)입니다.
 
 
-이 항목에서는 다음을 수행하는 TRANSACT-SQL 코드 샘플을 제공합니다.
+이 항목에서는 다음을 수행하는 Transact-SQL 코드 샘플을 제공합니다.
 
 
 1. 시연하는 데 사용할 데이터를 포함하는 테이블을 만듭니다.
@@ -61,7 +61,7 @@
 - SQL Server Management Studio(ssms.exe) 2015년 8월 Preview 이상 버전. 다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
  - [항목의 링크](http://msdn.microsoft.com/library/mt238290.aspx)
  - [직접 다운로드 링크](http://go.microsoft.com/fwlink/?linkid=616025)
- - ssms.exe를 주기적으로 업데이트하는 것이 좋습니다.
+ - ssms.exe를 주기적으로, 주로 월별로 업데이트하는 것이 좋습니다.
 
 
 ## 코드 샘플
@@ -163,32 +163,40 @@ GO
 
 
 SELECT
-		se.name  AS [session-name],
-		ev.event_name,
-		ac.action_name,
-		st.target_name,
-		se.session_source,
-		st.target_data,
-		CAST(st.target_data AS XML)  AS [target_data_XML]
-	FROM
-				   sys.dm_xe_database_session_event_actions  AS ac
-		INNER JOIN sys.dm_xe_database_session_events         AS ev  ON ev.event_name            = ac.event_name
-		                                                           AND ev.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_session_object_columns AS oc  ON oc.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_session_targets        AS st  ON st.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_sessions               AS se  ON ac.event_session_address = se.address
-	WHERE
-		oc.column_name = 'occurrence_number'
-		AND
-		se.name        = 'eventsession_gm_azuresqldb51'
-		AND
-		ac.action_name = 'sql_text'
-	ORDER BY
-		se.name,
-		ev.event_name,
-		ac.action_name,
-		st.target_name,
-		se.session_source;
+    se.name                      AS [session-name],
+    ev.event_name,
+    ac.action_name,
+    st.target_name,
+    se.session_source,
+    st.target_data,
+    CAST(st.target_data AS XML)  AS [target_data_XML]
+FROM
+               sys.dm_xe_database_session_event_actions  AS ac
+
+    INNER JOIN sys.dm_xe_database_session_events         AS ev  ON ev.event_name = ac.event_name
+        AND CAST(ev.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_session_object_columns AS oc
+         ON CAST(oc.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_session_targets        AS st
+         ON CAST(st.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_sessions               AS se
+         ON CAST(ac.event_session_address AS BINARY(8)) = CAST(se.address AS BINARY(8))
+WHERE
+        oc.column_name = 'occurrence_number'
+    AND
+        se.name        = 'eventsession_gm_azuresqldb51'
+    AND
+        ac.action_name = 'sql_text'
+ORDER BY
+    se.name,
+    ev.event_name,
+    ac.action_name,
+    st.target_name,
+    se.session_source
+;
 GO
 
 ---- Step set 6.
@@ -377,4 +385,4 @@ Azure SQL 데이터베이스의 확장 이벤트에 대한 기본 항목은 다�
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

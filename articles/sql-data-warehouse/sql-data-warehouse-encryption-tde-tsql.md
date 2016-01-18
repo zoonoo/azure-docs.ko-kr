@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작 | Microsoft Azure" 
-	description="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작 | Microsoft Azure" 
+   description="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # 투명한 데이터 암호화(TDE) 시작
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

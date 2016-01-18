@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,18 +12,20 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/06/2016"
     ms.author="sidneyh;torsteng" />
 
 # 분할(행 분할)을 위한 탄력적 데이터베이스 쿼리
 
 이 문서에서는 행 분할 시나리오에서의 탄력적 데이터베이스 설정 방법과 쿼리 수행 방법을 설명합니다. 행 분할 시나리오의 정의는 [탄력적 데이터베이스 쿼리 개요(미리 보기)](sql-database-elastic-query-overview.md)를 참조하세요.
 
+![분할된 데이터베이스에 대한 쿼리][1]
+
 이 기능은 Azure SQL [데이터베이스 탄력적 데이터베이스 기능 집합](sql-database-elastic-scale.md)의 일부입니다.
  
 ## 데이터베이스 개체 만들기
 
-탄력적인 데이터베이스 쿼리는 분할(또는 행 분할)을 사용하여 여러 데이터베이스 간에 데이터를 배포하는 데이터 계층을 참조하도록 T-SQL 구문을 확장합니다. 이 섹션에서는 분할된 테이블에서 탄력적 쿼리와 연결된 DDL 문에 대한 개요를 제공합니다. 이 문은 탄력적 쿼리 데이터베이스에서 분할된 데이터 계층의 메타데이터 표현을 만듭니다. 이 문을 실행하기 위한 필수 구성 요소는 탄력적 데이터베이스 클라이언트 라이브러리를 사용하는 분할 맵을 만드는 것입니다. [분할 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하여 자세한 내용을 확인하거나, [탄력적 데이터베이스 도구 시작](sql-database-elastic-scale-get-started.md) 항목의 샘플을 사용하여 하나 만들어 봅니다.
+탄력적 데이터베이스 쿼리는 분할(또는 행 분할)을 사용하여 여러 데이터베이스 간에 데이터를 배포하는 데이터 계층을 참조하도록 T-SQL 구문을 확장합니다. 이 섹션에서는 분할된 테이블에서 탄력적 쿼리와 연결된 DDL 문에 대한 개요를 제공합니다. 이 문은 탄력적 쿼리 데이터베이스에서 분할된 데이터 계층의 메타데이터 표현을 만듭니다. 이 문을 실행하기 위한 필수 구성 요소는 탄력적 데이터베이스 클라이언트 라이브러리를 사용하는 분할 맵을 만드는 것입니다. [분할 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하여 자세한 내용을 확인하거나, [탄력적 데이터베이스 도구 시작](sql-database-elastic-scale-get-started.md) 항목의 샘플을 사용하여 하나 만들어 봅니다.
 
 탄력적 데이터베이스 쿼리에 대한 데이터베이스 개체 정의는 아래의 행 분할 시나리오를 상세히 설명하는 다음 T-SQL 문에 따릅니다.
 
@@ -236,6 +238,7 @@ sp\_execute\_fanout은 호출 매개 변수에서 제공한 분할 맵 정보를
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

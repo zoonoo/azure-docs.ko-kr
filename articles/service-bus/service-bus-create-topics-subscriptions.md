@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기
@@ -27,7 +27,7 @@ Azure 서비스 버스는 신뢰할 수 있는 메시지 큐 및 지속형 게�
 
 이 시나리오를 확대하기 위해 새로운 요구 사항을 시스템에 추가했습니다. 즉 매장 소유자가 실시간으로 매장 운영을 모니터링하고자 합니다.
 
-이 요구 사항에 부합하기 위해 시스템은 판매 데이터 스트림을 “해제"해야 합니다. POS 터미널이 재고 관리 시스템에 보낸 각각의 메시지는 이전처럼 유지하고자 하지만 매장 소유자에게 대시보드 보기를 제시할 때 사용하기 위해 각 메시지의 다른 사본이 필요합니다.
+이 요구 사항에 부합하기 위해 시스템은 판매 데이터 스트림을 "해제"해야 합니다. POS 터미널이 재고 관리 시스템에 보낸 각각의 메시지는 이전처럼 유지하고자 하지만 매장 소유자에게 대시보드 보기를 제시할 때 사용하기 위해 각 메시지의 다른 사본이 필요합니다.
 
 이와 같이 여러 대상이 각 메시지를 소비하는 모든 상황에서 서비스 버스 *토픽*을 사용할 수 있습니다. 토픽은 게시된 각 메시지를 토픽에 등록된 하나 이상의 구독에서 사용할 수 있게 하는 게시/구독 패턴을 제공합니다. 반면 큐에서는 각각의 메시지를 단일 소비자가 수신합니다.
 
@@ -81,7 +81,7 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 MessagingFactory factory = MessagingFactory.Create(uri, tokenProvider);
 ```
 
-서비스 버스 토픽으로 보내고 받은 메시지는 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 클래스 인스턴스입니다. 이 클래스에는 표준 속성 집합(예: [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 및 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), 응용 프로그램 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 직렬화된 개체를 전달하여 본문을 설정할 수 있습니다(다음 예에서는 POS 터미널의 판매 데이터를 나타내는 **SalesData** 개체를 전달함). 개체 직렬화에는 [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx)를 사용합니다. 또는 [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx) 개체를 제공할 수 있습니다.
+서비스 버스 토픽으로 보내고 받은 메시지는 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 클래스 인스턴스입니다. 이 클래스에는 표준 속성 집합(예: [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 및 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), 응용 프로그램 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 직렬화된 개체를 전달하여 본문을 설정할 수 있습니다(다음 예에서는 POS 터미널의 판매 데이터를 나타내는 **SalesData** 개체를 전달함). 개체 직렬화에는 [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx)를 사용합니다. 또는 [스트림](https://msdn.microsoft.com/library/azure/system.io.stream.aspx) 개체를 제공할 수 있습니다.
 
 ```
 BrokeredMessage bm = new BrokeredMessage(salesData);
@@ -119,7 +119,7 @@ catch (Exception e)
 
 ## 구독 필터
 
-지금까지 이 문서에서는 토픽에 보낸 모든 메시지를 모든 등록된 구독에서 사용할 수 있었습니다. 여기서 핵심은 “사용할 수 있다"는 것입니다. 서비스 버스 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 작업은 구독 *필터*를 사용하여 수행합니다. 구독을 만들 때 메시지 속성(예: [레이블](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx))과 응용 프로그램 속성(예: 위 예제에서의 **StoreName**)에 모두 적용되는 SQL92 스타일 조건자 형태로 필터 식을 제공할 수 있습니다.
+지금까지 이 문서에서는 토픽에 보낸 모든 메시지를 모든 등록된 구독에서 사용할 수 있었습니다. 여기서 핵심은 "사용할 수 있다"는 것입니다. 서비스 버스 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 작업은 구독 *필터*를 사용하여 수행합니다. 구독을 만들 때 메시지 속성(예: [레이블](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx))과 응용 프로그램 속성(예: 위 예제에서의 **StoreName**)에 모두 적용되는 SQL92 스타일 조건자 형태로 필터 식을 제공할 수 있습니다.
 
 이를 설명하기 위해 시나리오를 확장해 보겠습니다. 즉 두 번째 매장을 유통업 시나리오에 추가합니다. 여전히 두 매장의 모든 POS 터미널에서 판매 데이터를 중앙 집중식 재고 관리 시스템에 전달해야 하지만 대시보드 도구를 사용하는 매장 관리자는 해당 매장의 성과에만 관심이 있습니다. 이를 위해 구독 필터링을 사용할 수 있습니다. POS 터미널이 메시지를 게시할 때는 메시지에 대해 **StoreName** 응용 프로그램 속성을 설정합니다. 두 매장이 **레드몬드**와 **시애틀**이라고 하면 레드몬드 매장의 POS 터미널은 판매 데이터 메시지에 **StoreName**을 **Redmond**라고 표시하며 시애틀 매장의 POS 터미널은 **StoreName**을 **Seattle**이라고 표시합니다. Redmond 매장의 매장 관리자는 자신의 POS 터미널의 데이터만 보고자 합니다. 시스템은 다음과 같이 나타납니다.
 
@@ -132,7 +132,7 @@ SqlFilter dashboardFilter = new SqlFilter("StoreName = 'Redmond'");
 namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboardFilter);
 ```
 
-이 구독 필터를 사용하면 **StoreName** 속성이 **Redmond**로 설정된 메시지만 **Dashboard** 구독의 가상 큐에 복사됩니다. 이 밖에도 구독 필터링에는 여러 기능이 있습니다. 응용 프로그램은 구독의 가상 큐에 전달되는 메시지 속성을 수정할 수 있을 뿐 아니라 구독마다 여러 필터링 규칙을 적용할 수 있습니다.
+이 구독 필터를 사용하면 **StoreName** 속성이 **Redmond**로 설정된 메시지만 **대시보드** 구독의 가상 큐에 복사됩니다. 이 밖에도 구독 필터링에는 여러 기능이 있습니다. 응용 프로그램은 구독의 가상 큐에 전달되는 메시지 속성을 수정할 수 있을 뿐 아니라 구독마다 여러 필터링 규칙을 적용할 수 있습니다.
 
 ## 요약
 
@@ -148,6 +148,6 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 ## 다음 단계
 
-POS 유통업 시나리오에서 큐를 사용하는 방법은 [서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기](service-bus-create-topics-subscriptions.md)를 참조하세요.
+POS 유통업 시나리오에서 큐를 사용하는 방법에 대한 정보는 [서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

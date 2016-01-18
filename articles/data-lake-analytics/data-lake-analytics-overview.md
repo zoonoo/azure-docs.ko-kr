@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Microsoft Azure 데이터 레이크 분석 개요
@@ -61,7 +61,7 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
 - U-SQL 및 개발
     - [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
     - [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
-    - [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
+    - [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
     
 - 관리
     - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
@@ -77,4 +77,4 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
     - [기능 요청 제출](http://aka.ms/adlafeedback)
     - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

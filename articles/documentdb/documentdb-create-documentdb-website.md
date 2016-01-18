@@ -32,8 +32,8 @@
 이 자습서의 지침을 따르기 전에 다음이 있는지 확인하세요.
 
 - Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- Azure 저장소 계정. 자세한 내용은 [Azure 저장소 계정 정보](../storage-whatis-account.md)를 참조하세요.
-- Azure PowerShell 0.9.8.이 포함된 워크스테이션 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. 이 자습서는 Azure PowerShell 1.0 미리 보기에 대해 아직 업데이트되지 않았습니다. 
+- Azure 저장소 계정. 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
+- Azure PowerShell 0.9.8.이 포함된 워크스테이션 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요. 이 자습서는 Azure PowerShell 1.0 미리 보기에 대해 아직 업데이트되지 않았습니다. 
 
 ##<a id="CreateDB"></a>1단계: 샘플 파일 다운로드 및 압축 풀기 ##
 먼저 이 자습서에서 사용할 샘플 파일을 다운로드합니다.
@@ -210,4 +210,4 @@
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

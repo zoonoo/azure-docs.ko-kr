@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/06/2016"
    ms.author="jonor;sivae"/>
 
 # Microsoft 클라우드 서비스 및 네트워크 보안
@@ -307,7 +307,13 @@ VNETLocal은 항상 특정 네트워크의 VNet의 주소 접두사로 정의됩
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]UDR 및 하이브리드 네트워크에는 현재 제한 사항이 있습니다. 이러한 제한은 향후 릴리스에서 해결될 것입니다. Express 경로나 사이트 간 네트워킹에서의 DMZ 사용 방법의 예는 아래 예 3과 4에서 논의합니다.
+>[AZURE.NOTE]Azure 가상 게이트웨이에서 사용되는 동적 라우팅의 복잡성으로 인해 UDR(사용자 정의 라우팅)을 Express 경로와 함께 사용하는 경우 특정 제한 사항이 있습니다. 이러한 제한 사항은 다음과 같습니다.
+>
+> 1. UDR은 Express 경로에 연결된 Azure 가상 게이트웨이가 연결된 게이트웨이 서브넷에 적용될 수 없습니다.
+> 2. Express 경로에 연결된 Azure 가상 게이트웨이는 UDR에 바인딩된 다른 서브넷에 대한 NextHop 장치가 될 수 없습니다.
+>
+>UDR 및 Express 경로를 완전히 통합하는 기능은 향후 Azure 릴리스에서 지원됩니다. Express 경로 또는 사이트 간 네트워킹에서 DMZ를 사용하도록 설정하는 방법이 아래 예제 3과 4에 설명되어 있습니다.
+
 
 #### IP 전달 설명
 UDR에는 IP 전달이라는 보조 기능이 있습니다. IP 전달은 어플라이언스로 구체적 주소 지정이 되지 않은 트래픽을 수신한 다음 해당 트래픽을 최종 대상으로 전달할 수 있도록 하는 가상 어플라이언스의 설정입니다.
@@ -436,9 +442,15 @@ Express 경로 사설 피어링 연결을 사용한 하이브리드 네트워킹
 
 위의 그림에서처럼 Express 경로 사설 피어링은 온-프레미스 네트워크와 Azure 가상 네트워크 간의 직접 연결을 제공합니다. 트래픽은 서비스 공급자 네트워크와 Microsoft/Azure 네트워크만을 통과하며 인터넷에는 접촉하지 않습니다.
 
->[AZURE.NOTE]UDR(사용자 정의 라우팅) 및 Express 경로를 사용할 경우 Azure Virtual Gateway에 사용된 동적 라우팅의 복잡성으로 인해 제한이 있습니다. Express 경로 연결을 제공하는 Azure 게이트웨이와 통신하는 서브넷은 UDR을 적용하지 않아야 합니다. 또한 Azure 게이트웨이는 다른 UDR 경계 서브넷에 대한 NextHop 장치가 될 수 없습니다. UDR 및 Express 경로를 완전히 통합하는 기능은 향후 Azure 릴리스에서 지원됩니다.
+>[AZURE.NOTE]Azure 가상 게이트웨이에서 사용되는 동적 라우팅의 복잡성으로 인해 UDR(사용자 정의 라우팅)을 Express 경로와 함께 사용하는 경우 특정 제한 사항이 있습니다. 이러한 제한 사항은 다음과 같습니다.
+>
+> 1. UDR은 Express 경로에 연결된 Azure 가상 게이트웨이가 연결된 게이트웨이 서브넷에 적용될 수 없습니다.
+> 2. Express 경로에 연결된 Azure 가상 게이트웨이는 UDR에 바인딩된 다른 서브넷에 대한 NextHop 장치가 될 수 없습니다.
+>
+>UDR 및 ExpressRoute를 완전히 통합하는 기능은 향후 Azure 릴리스에서 지원됩니다.
 
-</br>
+<br />
+
 >[AZURE.TIP]Express 경로를 사용하면 기업 네트워크 트래픽을 인터넷과 분리하여 보안을 높일 수 있으며 성능이 크게 증대되고 Express 경로 공급자가 제공하는 SLA가 가능합니다. Express 경로 성능을 살펴보면, Azure 게이트웨이는 Express 경로를 통해 최대 2Gbps를 전달할 수 있습니다. 사이트 간 VPN의 경우 Azure 게이트웨이 최대 처리량은 200Mbps입니다.
 
 아래 도표에서 보듯 이 옵션에서는 환경에 두 네트워크 가장자리가 있습니다. NVA와 NSG가 Azure 내 네트워크와, Azure 및 인터넷 간 트래픽 흐름을 제어하며 게이트웨이는 온-프레미스와 Azure 간에 완전히 분리 및 격리된 네트워크 가장자리입니다.
@@ -499,4 +511,4 @@ Express 경로 사설 피어링 네트워크 연결을 추가하면 안전하며
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

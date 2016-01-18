@@ -18,7 +18,7 @@
 
 # Pig 작업
 
-데이터 공장 [파이프라인](data-factory-create-pipelines.md)에서 HDInsight Pig 활동은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 작업의 일반적인 개요를 설명하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서를 기반으로 작성되었습니다.
+데이터 팩터리 [파이프라인](data-factory-create-pipelines.md)에서 HDInsight Pig 활동은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 ## 구문
 
@@ -96,7 +96,7 @@ defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/�
 데이터 팩터리 파이프라인에서 이 Pig 스크립트를 실행하려면 다음을 수행해야 합니다
 
 1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 "HDInsightLinkedService"라고 하겠습니다.
-2.	데이터를 호스팅하는 Azure Blob 저장소로의 연결을 구성하기 위해 [연결된 서비스](data-factory-azure-storage-connector.md)를 만듭니다. 이 연결된 서비스를 "StorageLinkedService"라고 하겠습니다.
+2.	데이터를 호스팅하는 Azure Blob 저장소로의 연결을 구성하기 위해 [연결된 서비스](data-factory-azure-blob-connector.md)를 만듭니다. 이 연결된 서비스를 "StorageLinkedService"라고 하겠습니다.
 3.	입력 및 출력 데이터를 가르키는 [데이터 집합](data-factory-create-datasets.md)을 만듭니다. 입력 데이터 집합을 "PigSampleIn"이라고 하고 출력 데이터 집합을 "PigSampleOut"이라고 하겠습니다.
 4.	위의 2단계에서 구성된 Azure Blob 저장소에 Pig 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 연결된 서비스가 이 쿼리 파일을 호스트하는 연결된 서비스와 다른 경우 서비스에 연결된 별도 Azure 저장소를 만들고 작업 구성에서 이를 참조합니다. **scriptPath**을 사용하여 Pig 스크립트 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다.
 	
@@ -186,4 +186,4 @@ defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/�
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

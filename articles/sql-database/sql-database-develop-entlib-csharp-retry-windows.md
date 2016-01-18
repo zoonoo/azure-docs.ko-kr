@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="SQL 데이터베이스에 연결하는 EntLib 재시도 | Microsoft Azure"
 	description="Enterprise Library는 일시적인 오류에 대한 재시도 논리의 통합을 비롯해 클라우드 서비스의 클라이언트 프로그램에 대한 여러 작업을 쉽게 하기 위해 설계되었습니다."
 	services="sql-database"
@@ -8,23 +8,19 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
 # 코드 샘플: C&#x23;의 Enterprise Library 6에서 SQL 데이터베이스 연결을 위한 논리를 재시도합니다.
 
-
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 이 항목에서는 Enterprise Library(EntLib)를 보여주는 전체 코드 샘플을 제공합니다. EntLib은 Azure SQL 데이터베이스와 같은 클라우드 서비스와 상호 작용하는 클라이언트 프로그램의 많은 작업을 줄여 줍니다. 여기 샘플에서는 일시적인 오류에 대한 재시도 논리를 포함하는 중요한 작업에 중점을 둡니다.
@@ -330,4 +326,4 @@ SELECT TOP 3
 
 - [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

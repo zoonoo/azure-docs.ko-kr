@@ -21,10 +21,7 @@
 # Ubuntu Linux상의 Tedious와 함께 Node.js를 사용하여 SQL 데이터베이스에 연결
 
 
-> [AZURE.SELECTOR]
-- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
-- [Node.js](sql-database-develop-nodejs-simple-linux.md)
-- [Ruby](sql-database-develop-ruby-simple-linux.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 이 항목에서는 Ubuntu Linux에서 실행되는 Node.js 코드 샘플을 제시합니다. 이 샘플에서는 Tedious 드라이버를 사용하여 Azure SQL 데이터베이스에 연결합니다.
@@ -175,4 +172,4 @@
 
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

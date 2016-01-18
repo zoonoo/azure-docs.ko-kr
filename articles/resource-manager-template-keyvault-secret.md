@@ -1,6 +1,6 @@
 <properties
    pageTitle="키 자격 증명 모음의 암호에 대한 리소스 관리자 템플릿 | Microsoft Azure"
-   description="키 자격 증명 모음 암호에 대한 리소스 관리자 스키마를 보여 줍니다."
+   description="템플릿을 통해 주요 자격 증명 모음 암호를 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # 키 자격 증명 모음 암호 템플릿 스키마
@@ -227,4 +227,4 @@
 - 키 자격 증명 모음에 대한 일반 정보는 [Azure 키 자격 증명 모음 시작](./key-vault/key-vault-get-started.md)을 참조하세요.
 - 템플릿을 배포할 때 키 자격 증명 모음 암호를 참조하는 예제는 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

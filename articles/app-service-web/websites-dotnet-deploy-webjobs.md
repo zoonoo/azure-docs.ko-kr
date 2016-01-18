@@ -100,8 +100,7 @@ WebJob 배포 기능은 [Visual Studio 2013 Update 3](http://go.microsoft.com/fw
 
 	동일한 솔루션의 웹 프로젝트가 배포될 때 자동으로 WebJob으로 배포되도록 구성된 프로젝트를 만듭니다. 관련 웹 응용 프로그램을 실행하는 동일한 웹 앱에서 WebJob을 실행하려는 경우에 이 옵션을 사용합니다.
 
-SDK 2.4 릴리스에서 WebJob new-project 템플릿은 콘솔 응용 프로그램 프로젝트를 만들고 WebJob 배포를 사용하도록 설정하는 것보다 그렇게 쉽지 않습니다. 앞으로는 해당 WebJob SDK NuGet 패키지가 자동으로 설치되므로 [WebJob SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs) 개발 시 WebJob new-project 템플릿을 좀 더 편리하게 사용할 수 있게 될 것입니다. 그때까지는 [WebJob SDK 자습서](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs)에 나오는 것처럼 패키지를 수동으로 설치하여 WebJob SDK를 사용하도록 프로젝트를 구성할 수 있습니다.
-
+> [AZURE.NOTE]WebJobs new-project 새 프로젝트 템플릿은 자동으로 NuGet 패키지를 설치하고 [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs)에 대한 *Program.cs*에 코드를 포함하고 있습니다. WebJobs SDK를 사용하지 않거나 연속 WebJob이 아닌 예약된 WebJob을 사용하려는 경우 *Program.cs*에서 `host.RunAndBlock` 문을 제거하거나 변경합니다.
 
 ### <a id="createnolink"></a> 독립 WebJob을 위해 WebJob new-project 템플릿 사용
   
@@ -198,4 +197,4 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

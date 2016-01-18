@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -37,7 +37,17 @@ Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Note
 
 ## 클러스터 만들기의 일부로 Zeppelin 설치
 
->[AZURE.NOTE]포털을 사용하여 Spark 클러스터를 만든 경우 이 단계를 건너뜁니다. 이 단계는 HDInsight.NET SDK 또는 Azure PowerShell을 사용하여 만드는 경우에만 필요합니다.
+스크립트 작업을 사용하여 Spark 클러스터에서 Zeppelin을 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. Spark 클러스터에서 Zeppelin을 설치하는 사용자 지정 스크립트는 * ***https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**에서 사용 가능합니다.
+
+### Azure 포털 사용
+
+HDInsight .NET SDK를 사용하여 Zeppelin을 설치하는 스크립트 작업을 실행하는 방법은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal)을 참조하세요. 해당 문서의 지침을 약간 변경해야 합니다.
+
+* Zeppelin을 설치하기 위한 스크립트를 사용해야 합니다. 사용할 스크립트는 ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**입니다.
+
+* 헤드 노드에서만 스크립트 동작을 실행해야 합니다.
+
+* 이 스크립트는 매개 변수가 필요 없습니다.
 
 ### HDInsight .NET SDK 사용
 
@@ -121,7 +131,7 @@ PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니�
 
 1. PuTTY를 열고 연결 정보를 입력합니다. PuTTY를 잘 알고 있지 않다면 HDInsight와 함께 사용하는 방법에 대한 정보에 대해 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조합니다.
 
-2. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
+2. 대화 상자의 왼쪽에 있는 **범주** 섹션에서 **연결**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
 
 3. **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
 
@@ -203,13 +213,13 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 	* **myspar**는 Spark 클러스터의 처음 5개 문자입니다.
 	* **9995**는 Zeppelin Notebook이 액세스할 수 있는 포트입니다.
 
-2. 새 Notebook을 만듭니다. 헤더 창에서 **Notebook**을 클릭하고 **새 메모 만들기**를 클릭합니다.
+2. 새 Notebook을 만듭니다. 헤더 창에서 **노트북**을 클릭하고 **새 메모 만들기**를 클릭합니다.
 
 	![새 Zeppelin 노트북 만들기](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.createnewnote.png "새 Zeppelin 노트북 만들기")
 
-	같은 페이지의 **Notebook** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 Notebook이 표시됩니다. 새 노트북을 클릭합니다.
+	같은 페이지의 **노트북** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 노트북이 표시됩니다. 새 노트북을 클릭합니다.
 
-3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 Notebook 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
+3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 노트북 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
 
 	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.newnote.connected.png "Zeppelin 노트북 상태")
 
@@ -318,4 +328,4 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

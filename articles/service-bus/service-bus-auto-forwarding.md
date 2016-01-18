@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 자동 전달을 사용한 서비스 버스 엔터티 연결
@@ -59,7 +59,7 @@ Alice가 휴가를 가면 ERP 항목이 아닌 그녀의 개인 큐가 채워집
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-서비스 버스 성능 향상에 대한 자세한 내용은 [메시징 엔터티 분할][]을 참조하세요.
+서비스 버스 성능 향상에 대한 자세한 내용은 [분할된 메시징 엔터티][]를 참조하세요.
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,6 +67,6 @@ Alice가 휴가를 가면 ERP 항목이 아닌 그녀의 개인 큐가 채워집
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [메시징 엔터티 분할]: service-bus-partitioning.md
+  [분할된 메시징 엔터티]: service-bus-partitioning.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="rasquill"/>
 
 # Azure에서 docker-machine을 사용하는 방법
@@ -201,7 +201,7 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
-[Docker 사용자 가이드](https://docs.docker.com/userguide/)로 이동하여 Microsoft Azure에서 응용 프로그램을 만들어 봅니다. 또는 Azure](virtual-machines-docker-swarm)에서 [**docker** 및 swarm](https://github.com/docker/swarm)을 사용해 보고 Docker와 Azure에서 swarm을 사용하는 방법을 살펴봅니다.
+[Docker 사용자 가이드](https://docs.docker.com/userguide/)로 이동하여 Microsoft Azure에서 응용 프로그램을 만들어 봅니다. 또는 Azure](virtual-machines-docker-swarm.md)에서 [**docker** 및 swarm](https://github.com/docker/swarm)을 사용해 보고 Docker 및 Azure와 swarm을 사용하는 방법을 살펴봅니다.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -214,4 +214,4 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 관리(업데이트 2)
@@ -108,31 +108,28 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 3. 페이지 맨 아래에 있는 **추가**를 클릭합니다. 볼륨 추가 마법사가 시작됩니다.
 
-     ![볼륨 추가 마법사 기본 설정](./media/storsimple-manage-volumes-u2/AddVolume1.png)
+     ![볼륨 추가 마법사 기본 설정](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
 4. 볼륨 추가 마법사의 **기본 설정**에서 다음을 수행합니다.
 
   1. 볼륨의 **이름**을 지정합니다.
-  2. 드롭다운 목록에서 **사용 유형**을 선택합니다. 장치에서 데이터를 항상 로컬로 사용 가능해야 하는 작업의 경우 **로컬로 고정**을 선택합니다. 다른 모든 데이터 유형에 대해서는 **계층화**를 선택합니다. (**계층화**가 기본값입니다.)
+  2. 드롭다운 목록에서 **사용 형식**을 선택합니다. 장치에서 데이터를 항상 로컬로 사용 가능해야 하는 작업의 경우 **로컬로 고정**을 선택합니다. 다른 모든 데이터 유형에 대해서는 **계층화**를 선택합니다. (**계층화**가 기본값입니다.)
   3. 2단계에서 **계층화**를 선택한 경우 **자주 액세스하지 않는 보관 데이터에 대해 이 볼륨 사용** 확인란을 선택하여 보관 볼륨을 구성할 수 있습니다.
   4. 볼륨의 **프로비전된 용량**을 GB 또는 TB로 입력합니다. 각 장치 및 볼륨 유형에 대한 최대 크기에 대해 [프로비전된 용량](#provisioned-capacity)을 참조하세요. **사용 가능한 용량**을 참조하여 장치에서 실제로 사용 가능한 저장소의 양을 결정합니다.
 
-    로컬로 고정된 볼륨을 구성하는 경우 다음과 같은 메시지가 표시됩니다.
+5. 화살표 아이콘 ![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 클릭합니다. 로컬로 고정된 볼륨을 구성하는 경우 다음과 같은 메시지가 표시됩니다.
 
-    ![볼륨 유형 메시지 변경](./media/storsimple-manage-volumes-u2/LocalVolMessage.png)
-
-    다음 페이지가 나타납니다.
+    ![볼륨 유형 메시지 변경](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+   
+5. 화살표 아이콘 ![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 다시 클릭하여 **추가 설정** 페이지로 이동합니다.
 
     ![볼륨 추가 마법사 추가 설정](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
-   
-5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 클릭하여 **추가 설정** 페이지로 이동합니다.
 
 6. **추가 설정**에서 새 ACR(액세스 제어 레코드)을 추가합니다.
   
   1. 드롭다운 목록에서 ACR(액세스 제어 레코드)을 선택합니다. 또는 새 ACR을 추가할 수 있습니다. ACR은 호스트 IQN을 레코드에 나열된 항목과 비교하여 볼륨에 액세스할 수 있는 호스트를 결정합니다. ACR를 지정하지 않는 경우 다음과 같은 메시지가 표시됩니다.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
-
 
   2. **이 볼륨에 대해 기본 백업 사용** 확인란을 선택하는 것이 좋습니다.
   3. 확인 아이콘![확인 아이콘](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)을 클릭하여 지정된 설정으로 볼륨을 만듭니다.
@@ -206,18 +203,16 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 3. 볼륨을 선택하고 페이지 맨 아래에 있는 **수정**을 클릭합니다. 볼륨 수정 마법사가 시작됩니다.
 
-4. **기본 설정** 페이지에서 **사용 유형** 드롭다운 목록에서 새 유형을 선택하여 사용 유형을 변경합니다.
+4. **기본 설정** 페이지의 **사용 형식** 드롭다운 목록에서 새 형식을 선택하여 사용 형식을 변경합니다.
 
     - 유형을 **로컬로 고정**으로 변경하는 경우 StorSimple에서 충분한 용량이 있는지 확인합니다.
     - 유형을 **계층화**로 변경하고 이 볼륨을 보관 데이터에 대해 사용하는 경우 **자주 액세스하지 않는 보관 데이터에 대해 이 볼륨 사용** 확인란을 선택합니다.
 
-    ![보관 확인란](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+        ![보관 확인란](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 클릭하여 **추가 설정** 페이지로 이동합니다.
+5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 클릭하여 **추가 설정** 페이지로 이동합니다. 로컬로 고정된 볼륨을 구성하는 경우 다음과 같은 메시지가 표시됩니다.
 
-    다음과 같은 메시지가 나타납니다.
-
-    ![볼륨 유형 메시지 변경](./media/storsimple-manage-volumes-u2/TypeChangeMessage.png)
+    ![볼륨 유형 메시지 변경](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
 6. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)을 다시 클릭하여 계속합니다.
 
@@ -282,8 +277,6 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 5. 볼륨 수정 마법사의 **기본 설정**에 있는 **모니터링** 드롭다운 목록에서 **사용** 또는 **사용 안 함**을 선택합니다.
 
-    ![보관 확인란](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
-
 ## 다음 단계
 
 - [StorSimple 볼륨 복제](storsimple-clone-volume.md) 방법에 대해 배웁니다.
@@ -291,4 +284,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

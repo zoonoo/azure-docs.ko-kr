@@ -338,7 +338,7 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
     
   		사용자 지정 작업을 만들어 Azure 데이터 팩터리 파이프라인에서 사용하는 방법에 대한 연습은 [Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용][adf-custom-activities](영문)을 참조하세요.
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 
@@ -354,4 +354,4 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

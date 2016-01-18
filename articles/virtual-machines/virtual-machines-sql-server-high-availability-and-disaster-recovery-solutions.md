@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL Server에 대한 고가용성 및 재해 복구 | Microsoft Azure"
-	description="이 자습서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 다양한 유형의 HADR 전략을 설명합니다."
+	description="Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 다양한 형식의 HADR 전략을 설명합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="01/07/2015"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구
@@ -39,6 +39,7 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 - [데이터베이스 미러링](https://technet.microsoft.com/library/ms189852.aspx)
 - [로그 전달](https://technet.microsoft.com/library/ms187103.aspx)
 - [Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx)
+- [AlwaysOn 장애 조치 클러스터 인스턴스](https://technet.microsoft.com/library/ms189134.aspx) 
 
 이러한 기술을 조합하여 고가용성과 재해 복구 기능을 갖춘 SQL Server 솔루션을 구현하는 것도 가능합니다. 사용하는 기술에 따라, 하이브리드 배포에는 Azure 가상 네트워크와 함께 VPN 터널이 필요할 수도 있습니다. 다음 섹션에서 몇 가지 배포 아키텍처의 예를 소개합니다.
 
@@ -48,8 +49,9 @@ AlwaysOn 가용성 그룹 또는 데이터베이스 미러링을 사용하여 Az
 
 |기술|아키텍처의 예|
 |---|---|
-|**AlwaysOn 가용성 그룹**|고가용성을 위해 Azure VM에서 실행되는 모든 가용성 복제본이 동일한 지역에 위치합니다. Windows Server 장애 조치(Failover) 클러스터링(WSFC)에 Active Directory 도메인이 필요하기 때문에 SQL Server 가상 컴퓨터 외에 도메인 컨트롤러도 구성해야 합니다.<br/> ![AlwaysOn 가용성 그룹](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹 구성(GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)을 참조하세요.|
+|**AlwaysOn 가용성 그룹**|고가용성을 위해 Azure VM에서 실행되는 모든 가용성 복제본이 동일한 지역에 위치합니다. Windows Server 장애 조치 클러스터링(WSFC)에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/> ![AlwaysOn 가용성 그룹](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹 구성(GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)을 참조하세요.|
 |**데이터베이스 미러링**|주 서버, 미러 서버 및 미러링 모니터 서버를 고가용성을 위해 모두 동일한 Azure 데이터 센터에서 실행합니다. 도메인 컨트롤러를 사용하여 배포할 수 있습니다.<br/>![데이터베이스 미러링](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>서버 인증서를 대신 사용하면 도메인 컨트롤러 없이도 동일한 데이터베이스 미러링 구성을 배포할 수 있습니다.<br/>![데이터베이스 미러링](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
+|**AlwaysOn 장애 조치 클러스터 인스턴스**|공유 저장소를 필요로 하는 장애 조치 클러스터 인스턴스(FCI)는 2가지 방법으로 만들 수 있습니다.<br/><br/>1. 타사 클러스터링 솔루션에서 지원하는 저장소를 통해 Azure VM에서 실행하는 2 노드 WSFC의 FCI. SIOS DataKeeper를 사용하는 특정 예제는 [WSFC 및 타사 소프트웨어 SIOS Datakeeper를 사용하는 파일 공유에 대한 고가용성](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)을 참조하세요.<br/><br/>2. Express 경로를 통한 원격 iSCSI 대상 공유 블록 저장소를 사용하여 Azure VM에서 실행하는 2 노드 WSFC의 FCI. 예를 들어 NPS(NetApp Private Storage)는 Azure VM에 Equinix와 Express 경로를 통해 iSCSI 대상을 노출합니다.<br/><br/>타사 공유 저장소 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>[Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/)의 맨 위에 FCI를 사용하는 작업은 이 솔루션이 프리미엄 저장소를 사용하지 않기 때문에 아직 지원되지 않습니다. 빠른 시일 내에 지원하기 위해 노력하고 있습니다.|
 
 ## Azure 전용: 재해 복구 솔루션
 
@@ -63,7 +65,7 @@ AlwaysOn 가용성 그룹, 데이터베이스 미러링 또는 저장소 blob을
 
 ## 하이브리드 IT: 재해 복구 솔루션
 
-AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달, Blob을 사용한 백업 및 복원을 사용하여 하이브리드 IT 환경 내에 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축할 수 있습니다.
+AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달, Azure Blob 저장소를 사용한 백업 및 복원을 사용하여 하이브리드 IT 환경 내에 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축할 수 있습니다.
 
 |기술|아키텍처의 예|
 |---|---|
@@ -143,7 +145,7 @@ Azure 디스크의 지역 복제는 동일한 데이터베이스의 로그 파�
 
 SQL Server가 포함된 Azure 가상 컴퓨터를 만들어야 한다면 [Azure에 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하세요.
 
-Azure VM에서 실행되는 SQL Server에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)의 지침을 참조하세요.
+Azure VM에서 실행되는 SQL Server에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 참조하세요.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
@@ -152,4 +154,4 @@ Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴
 - [Azure에 새 Active Directory 포리스트 설치](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Azure VM에서 AlwaysOn 가용성 그룹을 위한 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

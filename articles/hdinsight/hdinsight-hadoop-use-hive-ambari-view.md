@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="01/04/2015"
    ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop과 Hive 사용
@@ -123,7 +123,7 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
 
 ###Tez
 
-편집기의 오른쪽에 __시각적 개체 설명__ 아이콘을 선택합니다.
+편집기의 오른쪽에 __Tez__ 아이콘을 선택합니다.
 
 ![아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
@@ -131,7 +131,7 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
 
 ###알림
 
-편집기의 오른쪽에 __시각적 개체 설명__ 아이콘을 선택합니다.
+편집기의 오른쪽에 __알림__ 아이콘을 선택합니다.
 
 ![아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
@@ -199,4 +199,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

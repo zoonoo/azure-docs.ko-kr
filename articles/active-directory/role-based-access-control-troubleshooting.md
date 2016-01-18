@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # 역할 기반 액세스 제어 문제 해결
@@ -82,4 +82,4 @@
 
 이러한 타일에 액세스할 수 없는 경우 관리자에게 리소스 그룹에 대한 참여자 권한을 요청해야 합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

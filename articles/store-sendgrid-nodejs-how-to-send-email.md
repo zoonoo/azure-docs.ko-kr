@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="01/05/2016" 
 	ms.author="erikre"/>
 # Node.js에서 SendGrid를 사용하여 메일을 보내는 방법
 
@@ -180,12 +180,12 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 
 -   SendGrid Node.js 모듈 리포지토리: [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)
 -   SendGrid API 설명서: <https://sendgrid.com/docs>
--   Azure 고객을 위한 SendGrid 특가 제공: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
-  [특별 제공]: https://sendgrid.com/windowsazure.html
-  [sendgrid nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [필터 설정]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API 설명서]: https://sendgrid.com/docs
-  [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/email-solutions
-  [트랜잭션 전자 메일 배달]: https://sendgrid.com/transactional-email
+-   Azure 고객을 위한 SendGrid 특가 제공: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) 
+[특별 제공]: https://sendgrid.com/windowsazure.html 
+[sendgrid nodejs]: https://github.com/sendgrid/sendgrid-nodejs 
+[필터 설정]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html 
+[SendGrid API 설명서]: https://sendgrid.com/docs 
+[클라우드 기반 전자 메일 서비스]: https://sendgrid.com/email-solutions 
+[트랜잭션 전자 메일 배달]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

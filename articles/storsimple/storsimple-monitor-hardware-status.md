@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
@@ -21,7 +21,9 @@
 
 이 문서에서는 온-프레미스 StorSimple 장치에서 다양한 물리적 및 논리적 구성 요소를 설명합니다. StorSimple 관리자 서비스의 **유지 관리** 페이지를 사용하여 장치 구성 요소 상태를 모니터링하는 방법도 설명합니다.
 
-**유지 관리** 페이지는 모든 StorSimple 장치 구성 요소의 하드웨어 상태를 보여줍니다. 8100에 대한 구성 요소 목록 아래에는 다음을 설명하는 세 섹션이 있습니다.
+**유지 관리** 페이지는 모든 StorSimple 장치 구성 요소의 하드웨어 상태를 보여줍니다.
+
+8100에 대한 구성 요소 목록 아래에는 다음을 설명하는 세 섹션이 있습니다.
 
 - **공유 구성 요소** – 디스크 드라이브, 엔클로저, PCM 구성 요소와 PCM 온도, 정격 전압 및 전류 센서와 같은 컨트롤러의 일부가 아닙니다.
 
@@ -44,8 +46,9 @@
 
 장치 구성 요소의 하드웨어 상태를 보려면 다음 단계를 수행합니다.
 
-1. **장치**로 이동하여 특정 StorSimple 장치를 선택합니다. 클릭하여 장치 수준 메뉴로 이동한 다음 **유지 관리** 탭을 클릭합니다. 
+1. **장치**로 이동하여 특정 StorSimple 장치를 선택합니다. 클릭하여 장치 수준 메뉴로 이동한 다음 **유지 관리**를 클릭합니다. 
 2. **하드웨어 상태** 섹션을 찾고 사용 가능한 구성 요소(위에서 설명한)를 선택합니다. 구성 요소 레이블 목록 앞의 화살표를 클릭하여 목록을 확장하고 다양한 장치 구성 요소의 상태를 봅니다. [기본 인클로저에 대한 자세한 구성 요소 목록](#component-list-for-primary-enclosure-of-storsimple-device) 및 [EBOD 인클로저에 대한 자세한 구성 요소](#component-list-for-ebod-enclosure-of-storsimple-device)를 참조하세요.
+
 2. 다음 색 코딩 구성표를 사용하여 구성 요소 상태를 해석합니다.
 	-  **녹색 확인 표시** – **정상** 또는 **확인** 구성 요소를 표시합니다.
 	-  **노란색** – **경고** 상태의 구성 요소를 표시합니다.
@@ -125,7 +128,7 @@
 |장치 컨트롤러에 연결|I/O|물리적|Controller|아니요|EBOD I/O 모듈 및 장치 컨트롤러 간의 연결 상태를 나타냅니다.|
 
 ## 다음 단계
-- StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
+- StorSimple Manager 서비스를 사용하여 장치를 관리하려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
  
 - 성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요.
 
@@ -133,4 +136,4 @@
 
 - 장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

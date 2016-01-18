@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+	ms.date="01/05/2015"  
 	ms.author="juliako"/>
 
 #Azure 주문형 미디어 인코더 개요 및 비교
@@ -39,7 +39,7 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 
 이 문서에서는 주문형 미디어 인코더에 대한 간략한 개요와 보다 자세한 정보를 제공하는 문서에 대한 링크를 제공합니다. 또한 항목에서는 인코더에 대한 비교를 제공합니다.
 
-기본적으로 각 미디어 서비스 계정은 한번에 하나의 인코딩 작업을 활성화할 수 있습니다. 구입한 각 예약 인코딩에 대해 하나씩, 여러 인코딩 작업을 동시에 실행할 수 있는 인코딩 단위를 예약할 수 있습니다. 자세한 내용은 [인코딩 단위 크기 조정](media-services-portal-encoding-units.md)을 참조하세요.
+기본적으로 각 미디어 서비스 계정은 한번에 하나의 인코딩 작업을 활성화할 수 있습니다. 구입한 각 인코딩 예약 단위에 대해 하나씩, 여러 인코딩 작업을 동시에 실행할 수 있는 인코딩 단위를 예약할 수 있습니다. 자세한 내용은 [인코딩 단위 크기 조정](media-services-portal-encoding-units.md)을 참조하세요.
 
 ##미디어 인코더 표준
 
@@ -72,13 +72,17 @@ Azure 미디어 인코더에 비해 더 입력 및 출력 형식과 코덱을 �
 
 인코더 출력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에서 설명합니다.
 
-###미리 보기
+###미리 보기 생성
 
-미리 보기를 생성하는 방법에 대한 자세한 내용은 [미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)을 참조하세요.
+내용은 [미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-custom-mes-presets-with-dotnet.md#thumbnails)을 참조하세요.
 
-###오디오 및/또는 비디오 오버레이
+###비디오 자르기(클리핑)
 
-현재 지원되지 않습니다.
+내용은 [미디어 인코더 표준을 사용하여 비디오를 자르는 방법](media-services-custom-mes-presets-with-dotnet.md#trim_video)을 참조하세요.
+
+###오버레이 만들기
+
+내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#overlay)을 참조하세요.
 
 ###참고 항목
 
@@ -265,4 +269,4 @@ Windows Media 오디오|아니요|예|예
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
