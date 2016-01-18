@@ -267,7 +267,7 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
 
  - Azure DocumentDB에 대해 알아보려면 [DocumentDB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
 
- - Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/ko-KR/services/search/)를 참조하세요.
+ - Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->
