@@ -324,7 +324,7 @@
 		}
 
 
-8. Ctrl을 클릭한 상태에서 **알림 전송** 버튼을 ViewController.m으로 끌어 **Touch Down**에 **SendNotificationMessage**이라는 작업을 추가합니다. 다음 코드로 메서드를 업데이트하여 REST API를 사용하여 알림을 전송합니다.
+8. Ctrl을 클릭한 상태에서 **알림 전송** 버튼을 ViewController.m으로 끌어 **Touch Down** 이벤트에 **SendNotificationMessage**라는 작업을 추가합니다. 다음 코드로 메서드를 업데이트하여 REST API를 사용하여 알림을 전송합니다.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -441,7 +441,6 @@
 Apple [로컬 및 푸시 알림 프로그래밍 가이드]에서 가능한 모든 알림 페이로드를 찾아볼 수 있습니다.
 
 
-
 ##앱 테스트
 
 iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합니다. iOS 시뮬레이터를 사용하여 Apple 푸시 알림을 보낼 수 없습니다.
@@ -508,4 +507,4 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -28,7 +28,7 @@ Azure 클래식 포털에서 만들어 Azure 검색의 인덱스를 신속하게
 
 이 작업을 완료하려면 Azure 검색 서비스를 사용할 준비가 되어 있어야 합니다. 설정하는 데 도움이 필요한 경우 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
-1. [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. Azure 검색 서비스의 서비스 대시보드를 엽니다. 대시보드를 찾을 수 있는 몇 가지 방법이 있습니다.
 	- 표시줄에서 **홈**을 클릭합니다. 홈 페이지에는 구독에 포함된 모든 서비스에 대한 타일이 있습니다. 타일을 클릭하면 서비스 대시보드가 열립니다.
@@ -105,4 +105,4 @@ Azure 검색에서는 searchable, facetable 및 filterable과 같은 인덱스 �
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

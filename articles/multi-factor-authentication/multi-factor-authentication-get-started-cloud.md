@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/10/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication 시작
@@ -22,22 +22,22 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/cloud2.png)</center>
 
-클라우드에서 다단계 인증을 사용하기로 결정했으므로 작업을 진행해 보겠습니다. Office 365용 Multi-Factor Authentication 또는 Azure 관리자를 위한 Multi-Factor Authentication을 사용하는 경우 3단계로 건너뛸 수 있습니다. 또한 이 문서에서는 다음 내용을 다룹니다.
+클라우드에서 다단계 인증을 사용하기로 결정했으므로 작업을 진행해 보겠습니다. Office 365용 Multi-Factor Authentication 또는 Azure 관리자를 위한 Multi-Factor Authentication을 사용하는 경우 3단계로 건너뛸 수 있습니다.
 
 
 1. [Azure 구독에 등록](https://azure.microsoft.com/pricing/free-trial/)
-	- 아직 Azure 구독이 없는 경우 등록해야 합니다. Azure MFA를 시작하고 사용 방법을 간단히 알아보려면 평가판 구독을 사용할 수 있습니다.
-2. [Multi-Factor Auth 공급자 만들기](#creating-an-azure-multi-factor-auth-provider) 또는 [Azure AD Premium 또는 Enterprise Mobility Suite 라이선스를 사용자에게 할당](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users)
-	- Azure Multi-Factor Auth Provider를 만든 후 디렉터리에 할당하거나 Azure AD Premium 또는 EMS 사용자에게 라이선스를 할당해야 합니다. Azure Multi Factor Authentication은 Azure Active Directory Premium에 포함되어 있으므로 결과적으로는 Enterprise Mobility Suite에도 포함되어 있는 것입니다. Azure AD Premium 또는 EMS가 있고, Multi-Factor Auth 공급자를 만들 필요가 없으며 Azure AD Premium 또는 EMS 사용자에 대해 MFA를 사용하도록 설정하면 될 경우 Azure AD Premium 또는 EMS 라이선스를 해당 사용자에게 할당하면 됩니다. 그러면 관리자가 관리 포털을 통해 사용자에게 MFA를 할당할 수 있습니다. 사용자에게 라이선스를 할당하는 방법은 아래 섹션을 참조하세요.
+	- 아직 Azure 구독이 없는 경우 등록해야 합니다. Azure MFA를 시작하고 사용하려면 평가판 구독을 사용할 수 있습니다.
+2. [Multi-Factor Auth 공급자 만들기](#creating-an-azure-multi-factor-auth-provider) 또는 [사용자에게 라이선스 할당](multi-factor-authentication-get-started-cloud.md#assigning-an-azure-ad-premium-or-enterprise-mobility-license-to-users)
+	- Azure Multi-Factor Auth Provider를 만들고 디렉터리에 할당하거나 사용자에게 Azure MFA, Azure AD Premium 및/또는 EMS 라이선스를 할당해야 합니다. Azure Multi-Factor Authentication은 Azure Active Directory Premium에 포함되어 있으므로 결과적으로는 Enterprise Mobility Suite 내에도 포함되어 있는 것입니다. 충분한 Azure MFA, Azure AD Premium 및 EMS 라이선스를 소유한 경우 Multi-Factor Authentication을 사용하는 모든 사용자를 다루기 위해 Multi-factor Auth 공급자를 만들 필요가 없습니다. 사용자에게 라이선스를 할당하는 방법은 아래 섹션을 참조하세요.
 3. [사용자를 위해 다단계 인증 켜기](#turn-on-multi-factor-authentication-for-users)
 	- Office 365 또는 Azure 포털을 통해 사용자에게 Azure MFA를 사용하도록 설정합니다. 이 작업을 수행하는 방법에 자세한 내용은 아래 섹션을 참조하세요.
 4. [최종 사용자에게 MFA에 대해 알리는 메일 보내기](#send-email-to-end-users)
-	- 사용자의 계정에 대해 다단계 인증이 설정되어 있으면 이 사실을 알리는 메일을 보내는 것이 좋습니다. 이 사용자는 미리 알고 있는 상태에서 다음번에 로그인할 때 이 프로세스를 완료하라는 메시지가 표시되므로 당황하지 않을 수 있습니다. 메일 템플릿의 예는 아래 섹션을 참조하세요.
+	- 사용자의 계정에 대해 다단계 인증이 설정되어 있으면 이 사실을 알리는 메일을 보내는 것이 좋습니다. 이 사용자는 다음번에 로그인할 때 프로세스를 완료하라는 메시지가 표시되므로 결과를 알려줍니다. 메일 템플릿의 예는 아래 섹션을 참조하세요.
 
 
 
 ## Azure Multi-Factor Auth 공급자 만들기
-다단계 인증은 기본적으로 Azure Active Directory 테넌트가 있는 전역 관리자를 위해 사용할 수 있습니다. 그렇지만 다단계 인증을 모든 사용자에게 확장하고 전역 관리자가 관리 포털, 사용자 지정 인사말, 보고서 등의 기능을 활용할 수 있게 하려면 Multi-Factor Auth 공급자를 구입하고 구성해야 합니다.
+Multi-Factor Authentication은 기본적으로 Azure Active Directory가 있는 전역 관리자를 위해 사용할 수 있습니다. 그러나 Multi-Factor Authentication을 모든 사용자로 확장하고 전역 관리자 및 Office 365 사용자가 신뢰할 수 있는 IP, 사용자 지정 인사말, 보고서 등의 고급 기능을 활용할 수 있게 하려면 Azure MFA의 전체 버전을 구입해야 합니다. 이 작업을 수행하는 한 가지 방법은 Multi-Factor Authentication 공급자를 만드는 것입니다.
 
 
 
@@ -47,16 +47,16 @@
 1. 관리자 권한으로 Azure 포털에 로그온합니다.
 2. 왼쪽 창에서 Active Directory를 선택합니다.
 3. Active Directory 페이지 위쪽에서 Multi-Factor Authentication 공급자를 선택합니다. 아래쪽에서 **새로 만들기**를 클릭합니다.
-4. 앱 서비스에서 활성 인증 공급자를 선택하고 빠른 생성을 선택합니다.
+4. 앱 서비스에서 Multi-Factor Auth를 선택하고 빠른 생성을 선택합니다.
 5. 다음 필드를 채우고 만들기를 선택합니다.
-	1. 이름 – 활성 인증 공급자의 이름입니다.
+	1. 이름 – Multi-Factor Auth 공급자의 이름입니다.
 	2. 사용 모델 – Multi-Factor Authentication 공급자의 사용 모델입니다.
-		- 인증당 - 인증 단위로 요금이 청구되는 구매 모델입니다. 일반적으로 응용 프로그램에서 Azure Multi-Factor Authentication을 사용하는 시나리오에 사용됩니다.
-		- 활성화된 사용자별 – 활성화된 사용자 단위로 요금이 청구되는 구매 모델입니다. 일반적으로 Office 365와 같은 시나리오에 사용됩니다.
+		- 인증당 - 인증 단위로 요금이 청구되는 구매 모델입니다. 일반적으로 소비자 지향 응용 프로그램에서 Azure Multi-Factor Authentication을 사용하는 시나리오에 사용됩니다.
+		- 활성화된 사용자별 – 활성화된 사용자 단위로 요금이 청구되는 구매 모델입니다. 일반적으로 Office 365와 같은 응용 프로그램에 대한 직원 액세스에 사용합니다.
 	2. 디렉터리 – Multi-Factor Authentication 공급자와 연결된 Azure Active Directory 테넌트입니다. 다음에 주의하세요.
 		- Multi-Factor Auth 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않습니다. Azure Multi-factor Authentication 서버 또는 SDK를 사용하려는 경우 이 디렉터리는 비워 둘 수 있습니다.
-		- 다단계 인증을 모든 사용자에게 확장하고 전역 관리자가 관리 포털, 사용자 지정 인사말, 보고서 등의 기능을 활용할 수 있게 하려면 Multi-Factor Auth 공급자를 Azure AD 디렉터리에 연결해야 합니다.
-		- DirSync 또는 AAD Sync는 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우에만 필요합니다. Active Directory의 온-프레미스 인스턴스와 동기화되지 않은 Azure AD 디렉터리만 사용하는 경우에는 DirSync 또는 AAD 동기화가 필요하지 않습니다.
+		- Multi-Factor Authentication을 모든 사용자에게 확장하고 전역 관리자가 신뢰할 수 있는 IP, 사용자 지정 인사말, 보고서 등의 고급 기능을 활용할 수 있게 하려면 Multi-Factor Auth 공급자를 Azure AD 디렉터리에 연결해야 합니다.
+		- Azure AD Connect, AAD Sync 또는 DirSync는 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우에만 필요합니다. Active Directory의 온-프레미스 인스턴스와 동기화되지 않은 Azure AD 디렉터리만 사용하는 경우에는 이런 프로그램이 필요하지 않습니다.
 		
 
 
@@ -64,23 +64,22 @@
 5. 만들기를 클릭하면 Multi-Factor Authentication 공급자가 생성되고 Multi-Factor Authentication 공급자를 만들었다는 메시지가 표시됩니다. 확인을 클릭합니다.
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/provider.png)</center>
-## 사용자에게 Azure AD Premium 또는 Enterprise Mobilitiy Suite 라이선스 할당
+## 사용자에게 Azure MFA, Azure AD Premium 또는 Enterprise Mobilitiy Suite 라이선스 할당
 
-Azure AD Premium 또는 Enterprise Mobility Suite가 있으면 Multi-Factor Auth 공급자를 만들 필요가 없습니다. 사용자에게 라이선스를 할당하기만 하면 사용자에 대한 MFA를 켤 수 있습니다.
+Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있으면 Multi-Factor Auth 공급자를 만들 필요가 없습니다. 단순히 사용자에게 라이선스를 할당한 다음 MFA에 사용하기 시작할 수 있습니다.
 
-### Azure AD Premium 또는 엔터프라이즈 이동성 제품군 라이선스를 할당하려면
+### Azure MFA, Azure AD Premium 또는 엔터프라이즈 이동성 제품군 라이선스를 할당하려면
 --------------------------------------------------------------------------------
-<ol>
 
-<li>관리자 권한으로 Azure 포털에 로그인합니다.</li>
-<li>왼쪽 창에서 **Active Directory**를 선택합니다.</li>
-<li>Active Directory 페이지에서 사용하도록 설정하려는 사용자가 있는 디렉토리를 두 번 클릭합니다.</li>
-<li>디렉토리 페이지의 맨 위에서 **라이센스**를 선택합니다.</li>
-<li>라이선스 페이지에서 Active Directory Premium 또는 엔터프라이즈 이동성 제품군을 선택한 후 **할당**을 클릭합니다.</li>
+1. 관리자 권한으로 Azure 포털에 로그인합니다.
+2. 왼쪽 창에서 **Active Directory**를 선택합니다.
+3. Active Directory 페이지에서 사용하도록 설정하려는 사용자가 있는 디렉토리를 두 번 클릭합니다.
+4. 디렉토리 페이지의 맨 위에서 **라이센스**를 선택합니다.
+5. 라이선스 페이지에서 Azure Multi-Factor Authentication, Active Directory Premium 또는 엔터프라이즈 이동성 제품군을 선택한 후 할당을 클릭합니다.![클라우드](./media/multi-factor-authentication-get-started-cloud/license2.png)
+6. 대화 상자에서 라이선스를 할당하려는 사용자 또는 그룹을 선택하고 확인 표시 아이콘을 클릭하여 변경 내용을 저장합니다.
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-cloud/license.png)</center>
 
-<li>대화 상자에서 라이선스를 할당하려는 사용자를 선택 하고 확인 표시 아이콘을 클릭하여 변경 내용을 저장합니다.</li>
+
 
 
 
@@ -156,4 +155,4 @@ Windows PowerShell을 사용하여 사용자의 상태를 변경하려면 다음
 ## 다음 단계
 클라우드에서 다단계 인증을 설정했으므로 [Azure Multi-Factor Authentication 구성](multi-factor-authentication-whats-next.md)으로 이동하여 다음에 수행할 작업을 계속 진행할 수 있습니다. 여기에서 보고, 사기 경고, 음성 메시지 사용자 지정 및 Azure Multi-Factor Authentication에서 제공해야 하는 모든 기능에 대해 알아볼 수 있습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

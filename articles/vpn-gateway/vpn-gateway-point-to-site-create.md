@@ -14,17 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/16/2015"
+   ms.date="01/11/2016"
    ms.author="cherylmc"/>
 
 # VNet에 지점 및 사이트 간 VPN 연결 구성
 
+> [AZURE.SELECTOR]
+- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
 
-이 문서는 클래식 배포 모드(서비스 관리)에서 만든 가상 네트워크에 대한 지점 및 사이트 간 VPN 게이트웨이 연결에 적용됩니다. 이제 Azure 리소스 관리자 배포 모드에서 만든 가상 네트워크에 대한 지점 및 사이트 간 연결은 REST API 및 PowerShell을 사용하여 사용할 수 있습니다. PowerShell을 사용하는 단계를 안내하는 문서를 개발하고 있습니다. 이 페이지를 업데이트하고 문서가 준비되면 링크를 포함합니다. 현재 1월 초로 계획하고 있습니다.
+지점 및 사이트 간 구성을 사용하면 개별적으로 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 연결을 시작하여 VPN 연결을 설정합니다. 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우에 사용할 수 있는 뛰어난 솔루션입니다. 지점 및 사이트 간 연결은 작동하기 위해 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) 및 [프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요.
 
-**Azure 배포 모델 정보**
+이 문서는 **클래식 배포 모드**(서비스 관리)를 사용하여 만든 가상 네트워크에 대한 지점 및 사이트 간 VPN 게이트웨이 연결에 적용됩니다. 리소스 관리자를 사용하여 만든 VNet에 대한 지점 및 사이트 간 연결을 구성하려는 경우 [이 문서](vpn-gateway-howto-point-to-site-rm-ps.md)를 참조하세요.
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
 
 ## 지점 및 사이트 간 연결 만들기 정보
  
@@ -88,7 +92,8 @@
 
 엔터프라이즈 인증서 솔루션을 사용하지 않는 경우 자체 서명된 루트 인증서를 생성해야 합니다. 다음 단계는 Windows 8에서 작동합니다. Windows 10에 대한 새 단계를 업데이트하는 과정입니다.
 
-1. X.509 인증서를 만드는 한 가지 방법은 인증서 작성 도구(makecert.exe)를 사용하는 것입니다. makecert를 사용하려면 무료 제공되는 [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)를 다운로드하고 설치합니다.
+X.509 인증서를 만드는 한 가지 방법은 인증서 작성 도구(makecert.exe)를 사용하는 것입니다. makecert를 사용하려면 무료 제공되는 [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)를 다운로드하고 설치합니다.
+
 2. Visual Studio Tools 폴더로 이동하여 관리자로 명령 프롬프트를 시작합니다.
 3. 다음 예제의 명령은 컴퓨터의 개인 인증서 저장소에 루트 인증서를 만들어 설치하고 나중에 Azure 클래식 포털에 업로드할 *.cer* 파일도 만듭니다.
 4. .cer 파일을 보관할 디렉터리로 변경하고 다음 명령을 실행합니다. 여기서 *RootCertificateName* 은 인증서에서 사용할 이름입니다. 다음 예제를 변경하지 않고 실행하면 결과는 루트 인증서 및 해당 파일 *RootCertificateName.cer* 입니다.
@@ -192,4 +197,4 @@ VPN 클라이언트를 구성하려면 다음을 순서 대로 수행합니다.
 
 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 설명서](https://azure.microsoft.com/documentation/services/virtual-network/) 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

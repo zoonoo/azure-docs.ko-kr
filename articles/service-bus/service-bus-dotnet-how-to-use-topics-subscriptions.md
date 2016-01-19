@@ -283,7 +283,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-다음 예제에서는 [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx) 개체를 사용하여 [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) 콜백을 구성합니다. [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx)는 받은 메시지에서 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)를 호출할 시점을 수동으로 제어할 수 있도록 **false**로 설정되어 있습니다. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx)은 호출 시간이 초과되기 전에 클라이언트가 최대 1분간 메시지를 대기하고 메시지를 확인하기 위해 새로 호출할 수 있도록 1분으로 설정됩니다. 이 속성 값은 클라이언트가 메시지를 검색하지 않는 유료 호출하는 횟수를 줄입니다.
+다음 예제에서는 [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx) 개체를 사용하여 [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) 콜백을 구성합니다. [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx)는 받은 메시지에서 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)를 호출할 시점을 수동으로 제어할 수 있도록 **false**로 설정되어 있습니다. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx)은 자동 갱신 기능이 종료되기 전에 클라이언트가 최대 1분간 메시지를 대기하고 메시지를 확인하기 위해 새로 호출할 수 있도록 1분으로 설정됩니다. 이 속성 값은 클라이언트가 메시지를 검색하지 않는 유료 호출하는 횟수를 줄입니다.
 
 ## 응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
 
@@ -327,4 +327,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [서비스 버스 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0114_2016--->

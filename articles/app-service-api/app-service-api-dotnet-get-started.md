@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/25/2015"
+	ms.date="01/05/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 및 ASP.NET 시작
@@ -36,7 +36,7 @@ Azure 앱 서비스의 세 가지 기능은 API를 개발 및 호스팅하는 �
 * CORS 지원
 * 인증 및 권한 부여 지원
  
-이러한 기능을 소개하는 시리즈의 첫 번째 자습서입니다. 이 자습서는 API 메타데이터를 중점적으로 다루며 두 번째 자습서는 CORS를, 세 번째 자습서와 네 번째 자습서는 인증 및 권한 부여를 중점적으로 다룹니다.
+이러한 기능을 소개하는 시리즈의 첫 번째 자습서입니다. 이 자습서는 API 메타데이터를 중점적으로 다루며 두 번째 자습서는 CORS를, 나머지 자습서는 인증 및 권한 부여를 중점적으로 다룹니다.
 
 이러한 자습서에서 학습할 내용은 다음과 같습니다.
 
@@ -46,43 +46,31 @@ Azure 앱 서비스의 세 가지 기능은 API를 개발 및 호스팅하는 �
 * 자동으로 생성된 클라이언트 코드를 사용하여 .NET 클라이언트에서 API 앱을 사용하는 방법
 * Azure 포털을 사용하여 API 앱 메타데이터에 대한 끝점 구성하는 방법
 * 클라이언트가 API와 다른 도메인에 있는 경우 CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 호출하는 방법
-* Azure Active Directory를 사용하여 인증되지 않은 액세스로부터 API를 보호하는 방법
-* Azure Active Directory에 로그인한 사용자에 대해 보호된 API를 사용하는 방법
-* 서비스 주체를 사용하여 보호된 API를 사용하는 방법
+* Azure AD(Azure Active Directory)를 사용하여 인증되지 않은 액세스로부터 API를 보호하는 방법
+* Azure AD에 로그인한 사용자에 대해 보호된 API를 사용하는 방법
+* Azure AD 서비스 주체를 사용하여 보호된 API를 사용하는 방법
 
 ## 필수 조건
 
-### ASP.NET Web API
+[AZURE.INCLUDE [필수 조건](../../includes/app-service-api-dotnet-get-started-prereqs.md)]
 
-이 자습서에서는 ASP.NET Web API를 잘 알고 있는 것으로 가정합니다. 소개가 필요한 경우 [ASP.NET Web API 2 시작](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)을 참조하세요.
-
-## Visual Studio 2015
-
-지침 및 스크린샷에서는 Visual Studio 2015를 사용하는 것으로 가정하지만 Visual Studio 2013에도 동일한 지침이 적용됩니다.
-
-## Azure 계정
-
-이 자습서를 완료하려면 Azure 계정이 있어야 합니다. 다음을 수행할 수 있습니다.
-
-* [Azure 계정을 무료로 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=A261C142F). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
-* [Visual Studio 구독자 혜택을 활성화할 수 있습니다](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
-
-Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
-
-[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
+[AZURE.INCLUDE [set-up-dev-environment](../../includes/install-sdk-2015-2013.md)]
 
 이 자습서에는 Azure SDK for .NET 버전 2.8.1 이상이 필요합니다.
 
 ## 샘플 응용 프로그램 개요
 
-이 자습서에서 사용할 API 앱 및 웹앱을 배포하는 코드는 [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list) GitHub 리포지토리에 있습니다. ContactsList Visual Studio 솔루션에는 다음 프로젝트가 포함되어 있습니다.
+이 자습서에서 사용할 API 앱 및 웹앱을 배포하는 코드는 [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list) GitHub 리포지토리에 있습니다. ContactsList Visual Studio 솔루션에는 이 자습서에서 사용되는 다음 프로젝트가 포함되어 있습니다.
 
 * **ContactsList.API** - 이름 및 전자 메일 주소 목록을 반환하는 ASP.NET Web API 프로젝트입니다. 처음에 Get 메서드를 호출하면 하드 코드된 연락처 3개가 반환되고, 이후에 Put, Post 및 Delete 메서드를 호출하면 변경 내용이 로컬 JSON 파일에 저장됩니다.
 * **ContactsList.MVC** - ContactsList API에 대한 ASP.NET MVC 클라이언트입니다.
-* **ContactsList.Angular** - ContactsList API에 대한 간단한 AngularJS UI 클라이언트입니다. 보호되지 않는(인증 없음) API 앱을 호출하는 방법을 보여 줍니다.
-* **ContactsList.Angular.AAD** - Azure Active Directory를 사용하여 사용자를 인증하는 방법을 보여 주는 AngularJS 클라이언트입니다.
-* **CompanyContacts.API** - Get 요청에 대한 응답으로 하드 코드된 연락처 목록을 반환하는 ASP.NET Web API 프로젝트입니다. 서비스 간(서비스 주체) 인증을 사용하여 API를 호출하는 방법을 보여 주기 위해 **ContactsList.API** Get 메서드에 의해 호출됩니다.
- 
+
+이후의 자습서는 동일한 솔루션의 다른 프로젝트를 사용합니다.
+
+* **ContactsList.Angular** - CORS 지원 설명을 위한 AngularJS 클라이언트입니다.
+* **ContactsList.Angular.AAD** - 사용자 인증 설명을 위한 AngularJS 클라이언트입니다.
+* **CompanyContacts.API** - 서비스 계정 인증 설명을 위한 ASP.NET Web API 프로젝트입니다.  
+
 ## 샘플 응용 프로그램 다운로드 
 
 1. [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list) 리포지토리를 다운로드합니다.
@@ -95,15 +83,13 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 
 ## Swagger 메타데이터 및 UI 사용
 
-Azure 앱 서비스에서는 기본적으로 [Swagger](http://swagger.io/) 2.0 API 메타데이터를 지원합니다. 각 API 앱은 API에 대한 메타데이터를 Swagger JSON 형식으로 반환하는 URL 끝점을 정의할 수 있습니다. 해당 끝점에서 반환한 메타데이터는 API를 보다 쉽게 사용할 수 있도록 해주는 클라이언트 코드를 생성하는 데 사용할 수 있습니다.
-
-자습서의 이 섹션에서는 ASP.NET Web API 프로젝트에 대한 메타데이터를 자동으로 생성하는 방법을 보여주며 API 테스트 도구를 실행합니다. Azure 앱 서비스를 아직 사용하지 않는 작업의 경우 API 앱에서 메타데이터를 사용하는 방법을 나중에 확인합니다.
+Azure 앱 서비스에서는 기본적으로 [Swagger](http://swagger.io/) 2.0 API 메타데이터를 지원합니다. 각 API 앱은 API에 대한 메타데이터를 Swagger JSON 형식으로 반환하는 URL 끝점을 정의할 수 있습니다. 해당 끝점에서 반환한 메타데이터는 클라이언트 코드를 생성하는 데 사용할 수 있습니다.
 
 ASP.NET Web API 프로젝트에 대한 Swagger 2.0 메타데이터를 제공하려면 [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet 패키지를 설치합니다. Swashbuckle은 리플렉션을 사용하여 메타데이터를 동적으로 생성합니다. Swashbuckle NuGet 패키지는 다운로드한 ContactsList.API 프로젝트에 이미 설치되어 있으며 **Azure API 앱** 프로젝트 템플릿을 사용하여 새 프로젝트를 만들 때 미리 설치됩니다. (Visual Studio에서: **파일 > 새로 만들기 > 프로젝트 > ASP.NET 웹 응용 프로그램 > Azure API 앱**.)
 
 자습서의 이 섹션에서는 생성된 Swagger 2.0 메타데이터를 살펴본 다음 Swagger 메타데이터를 기반으로 하는 테스트 UI를 사용합니다.
 
-2. ContactsList.API 프로젝트를 시작 프로젝트로 설정합니다. (CompanyContacts.API 프로젝트 아님, 해당 프로젝트는 이후 자습서 중 하나에 사용됨.)
+2. ContactsList.API 프로젝트를 시작 프로젝트로 설정합니다. (CompanyContacts.API 프로젝트 아님, 해당 프로젝트는 이후 자습서 중 하나에 사용됨.) 
  
 4. F5 키를 눌러 디버그 모드에서 프로젝트를 실행합니다.
 
@@ -203,7 +189,7 @@ ASP.NET Web API 프로젝트에 대한 Swagger 2.0 메타데이터를 제공하�
 
 12. Put, Delete 및 Get by ID 메서드도 사용해 본 다음 브라우저를 닫습니다.
 
-Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagger 메타데이터 생성을 기존 프로젝트에 추가하려면 Swashbuckle 패키지를 설치하기만 하면 됩니다. 앱 서비스 API 앱으로 배포할 새 프로젝트를 만들려면 다음 그림처럼 ASP.NET **Azure API 앱** 프로젝트 템플릿을 사용합니다.
+Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagger 메타데이터 생성을 기존 프로젝트에 추가하려면 Swashbuckle 패키지를 설치하기만 하면 됩니다. 새 프로젝트를 만들려면 다음 그림처럼 ASP.NET **Azure API 앱** 프로젝트 템플릿을 사용합니다.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
@@ -230,6 +216,12 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 3. **앱 서비스 만들기** 대화 상자의 **호스팅** 탭에서 **형식 변경**을 클릭한 다음 **API 앱**을 클릭합니다.
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
+
+	**API 앱**으로 형식 변경은 새 앱에 사용할 수 있는 기능을 결정하지 않습니다. API 정의 URL(이 자습서의 뒷부분에서 다룸), CORS 지원(다음 자습서에서 다룸) 및 인증(이 시리즈의 마지막 3개의 자습서에 다룸)은 API 앱 뿐만 아니라 웹앱 및 모바일 앱에 사용할 수 있습니다. API 앱으로 앱 만들기는 다음과 같은 효과가 있습니다.
+
+	a. Azure 포털에서 앱 유형 아이콘 또는 텍스트는 블레이드 제목 및 앱의 목록에 표시되며 **설정** 블레이드에서 API 섹션은 다른 앱 형식에 비해 API 앱 목록의 앞에 표시됩니다.
+
+	b. Azure SDK for.NET 2.8.1을 사용하는 Visual Studio에서 Visual Studio는 다른 앱 형식이 아닌 새 ASP.NET API 앱을 만드는 동안 API 정의 URL을 설정합니다.
 
 4. *azurewebsites.net* 도메인에서 고유한 **API 앱 이름**을 입력합니다.
 
@@ -303,13 +295,13 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 Azure PowerShell, CLI 또는 [리소스 탐색기](https://resources.azure.com/) 등의 Azure 리소스 관리자 도구를 사용하여 API 앱에 대한 API 정의 URL을 구성할 수도 있습니다.
 
-Microsoft.Web/sites/config 리소스 종류에서 <site name>/web 리소스에 대해 `apiDefinition` 속성을 설정합니다. 예를 들어, **리소스 탐색기**에서 **구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Web > 사이트 > {사이트} > 구성 > 웹**으로 이동하면 cors 속성이 표시됩니다.
+`<site name>/web` 리소스에 대해 `Microsoft.Web/sites/config` 리소스 유형에서 `apiDefinition` 속성을 설정합니다. 예를 들어, **리소스 탐색기**에서 **구독 > {구독} > resourceGroups > {리소스 그룹} > 공급자 > Microsoft.Web > 사이트 > {사이트} > 구성 > 웹**으로 이동하면 `apiDefinition` 속성이 표시됩니다.
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
 		}
 
-## <a id="codegen"></a> 생성된 클라이언트 코드를 사용하여 .NET 클라이언트에서 사용 
+## <a id="codegen"></a> 생성된 클라이언트 코드를 사용하여 .NET 클라이언트에서 사용
 
 Azure API 앱에 Swagger를 통합할 경우의 장점 중 하나는 자동 코드 생성입니다. 생성된 클라이언트 클래스는 API 앱을 호출하는 코드를 더욱 쉽게 작성하도록 합니다.
 
@@ -319,7 +311,7 @@ Azure API 앱에 Swagger를 통합할 경우의 장점 중 하나는 자동 코�
 
 Visual Studio를 사용하거나 명령줄에서 API 앱에 대한 클라이언트 코드를 생성할 수 있습니다. 이 자습서에서는 Visual Studio를 사용합니다. 명령줄에서 이 작업을 수행하는 방법에 대한 자세한 내용은 GitHub.com에서 [Azure/autorest](https://github.com/azure/autorest) 리포지토리의 추가 정보 파일을 참조하세요.
 
-ContactsList.MVC 프로젝트에 생성된 클라이언트 코드가 이미 있지만 사용자 고유의 API 앱 URL을 기본 대상 URL로 설정하기 위해 이를 삭제하고 다시 생성합니다.
+ContactsList.MVC 프로젝트에 생성된 클라이언트 코드가 이미 있지만 이를 삭제하고 다시 생성하여 사용자 고유의 API 앱에 기본 대상 URL을 설정합니다.
 
 1. Visual Studio **솔루션 탐색기**의 ContactsList.MVC 프로젝트에서 *ContactsList.API* 폴더를 삭제합니다.
 
@@ -331,7 +323,7 @@ ContactsList.MVC 프로젝트에 생성된 클라이언트 코드가 이미 있�
 
 	![](./media/app-service-api-dotnet-get-started/codegenmenu.png)
 
-3. **REST APi 클라이언트 추가** 대화 상자에서 **Microsoft Azure API 앱에서 다운로드**를 클릭한 다음 **찾아보기**를 클릭합니다.
+3. **REST API 클라이언트 추가** 대화 상자에서 **Microsoft Azure API 앱에서 다운로드**를 클릭한 다음 **찾아보기**를 클릭합니다.
 
 	![](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
@@ -347,9 +339,9 @@ ContactsList.MVC 프로젝트에 생성된 클라이언트 코드가 이미 있�
 
 	![](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
-	또는 찾아보기 대화 상자를 사용하는 대신 URL을 직접 입력할 수 있습니다. 예를 들어 웹앱에 API를 배포했지만 찾아보기 대화 상자에 표시되지 않는 경우 여기에 Swagger 메타데이터를 반환하는 URL을 수동으로 입력할 수 있습니다.
+	코드 생성에 대한 메타데이터를 가져오는 다른 방법은 찾아보기 대화 상자를 사용하는 대신 URL을 직접 입력하는 것입니다. 예를 들어 웹앱에 API를 배포했지만 찾아보기 대화 상자에 표시되지 않는 경우 여기에 Swagger 메타데이터를 반환하는 URL을 수동으로 입력할 수 있습니다.
 
-	**기존 Swagger 메타데이터 파일 선택** 옵션도 있습니다. Azure에 배포하기 전에 코드를 생성하려는 경우 로컬로 실행하고 Swagger JSON 파일을 다운로드하여 여기에서 선택할 수 있습니다.
+	메타데이터를 가져오는 다른 방법은 **기존 Swagger 메타데이터 파일 선택** 옵션을 사용하는 것입니다. 예를 들어 Azure에 배포하기 전에 클라이언트 코드를 생성하려는 경우 로컬로 실행하고 Swagger JSON 파일을 다운로드하여 여기에서 선택할 수 있습니다.
 
 9. **REST API 클라이언트 추가** 대화 상자에서 **확인**을 클릭합니다.
 
@@ -407,7 +399,7 @@ Azure에 배포하기 전에 코드가 배포되면 localhost 대신 이전에 �
 
 1. ContactsList.MVC 프로젝트에서 *Controllers\\ContactsController.cs*를 엽니다.
 
-2. API 기준 URL을 localhost URL로 설정하는 줄을 주석 처리하고, 생성자 매개 변수가 없는 줄의 주석을 제거합니다. 이제 두 줄 모두에 코드를 생성한 API 앱의 이름을 반영하는 클래스 이름이 있는 것을 제외하고 코드가 다음 예제와 같이 표시됩니다.
+2. API 기준 URL을 localhost URL로 설정하는 줄을 주석 처리하고, 생성자 매개 변수가 없는 줄의 주석을 제거합니다. 이제 두 줄 모두에 API 앱의 이름을 반영하는 클래스 이름이 있는 것을 제외하고 코드가 다음 예제와 같이 표시됩니다.
 
 		private ContactsListAPI db = new ContactsListAPI();
 		//private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
@@ -448,6 +440,6 @@ Azure에 배포하기 전에 코드가 배포되면 localhost 대신 이전에 �
 
 ## 다음 단계
 
-이 자습서에서는 API 앱을 만들고, 이 앱에 코드를 배포하고, .NET 클라이언트에서 이를 사용하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
+이 자습서에서는 API 앱을 만들고, 이 앱에 코드를 배포하고, 클라이언트 코드를 생성하고, .NET 클라이언트에서 이를 사용하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

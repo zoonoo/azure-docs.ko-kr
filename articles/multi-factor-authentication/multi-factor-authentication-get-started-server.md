@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 서버로 시작하기
@@ -23,15 +23,14 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-온-프레미스 다단계 인증 사용 여부를 결정했으므로 다음으로 진행합니다. 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. 이미 설치된 Phonefactor 서버가 있고 사용하는 방법을 찾는 경우 Azure Multi-Factor 서버로 업그레이드하기를 참조하거나 웹 서비스만을 설치하는 정보를 찾는 경우 Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포하기를 참조하십시오.
-
+온-프레미스 Multi-Factor Authentication를 사용할지 여부를 결정했으므로 다음으로 진행합니다. 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. 이미 설치된 PhoneFactor 서버가 있고 업그레이드할 방법을 찾는 경우 [Azure Multi-Factor 서버로 업그레이드하기](multi-factor-authentication-get-started-server-upgrade.md)를 참조하거나 웹 서비스만을 설치하는 정보를 찾는 경우 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포하기](multi-factor-authentication-get-started-server-webservice.md)를 참조하십시오.
 
 
 ## Azure Multi-Factor Authentication 서버 다운로드
 
 
 
-Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가지 다른 방식이 있습니다. 두 방식 모두 Azure 포털을 통해 수행할 수 있습니다. 첫 번째는 Multi-Factor Auth 공급자를 직접 관리하여 수행합니다. 두 번째는 서비스 설정을 통해 수행합니다. 두 번째 옵션은 Multi-Factor Auth 공급자 또는 Azure AD Premium 라이선스가 필요합니다.
+Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가지 다른 방식이 있습니다. 두 방식 모두 Azure 포털을 통해 수행할 수 있습니다. 첫 번째는 Multi-Factor Auth 공급자를 직접 관리하여 수행합니다. 두 번째는 서비스 설정을 통해 수행합니다. 두 번째 옵션은 Multi-Factor Auth 공급자 또는 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 필요합니다.
 
 
 ### Azure 포털에서 Azure Multi-Factor Authentication 서버를 다운로드하려면
@@ -55,7 +54,7 @@ Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가�
 3. Azure AD 인스턴스를 두 번 클릭합니다.
 4. 위쪽에서 **구성**을 클릭합니다. ![다운로드](./media/multi-factor-authentication-sdk/download2.png)
 5. Multi-Factor Authentication 아래에서 **서비스 설정 관리**를 선택합니다.
-6. 서비스 설정 페이지의 화면 아래쪽에서 **포털로 이동**을 클릭합니다. ![다운로드](./media/multi-factor-authentication-sdk/download3.png)
+6. 서비스 설정 페이지의 화면 아래쪽에서 **포털로 이동**을 클릭합니다. ![다운로드](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. 그러면 새 페이지가 열립니다. **다운로드**를 클릭합니다.
 8. **정품 인증 자격 증명 생성** 위의 **다운로드**를 클릭합니다.
 9. 다운로드 파일을 저장합니다.
@@ -186,4 +185,4 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 [Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md)|Active Directory와 Azure MFA 서버 간의 동기화 설정 및 구성에 대한 정보입니다.
 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)|Azure MFA 서버 웹 서비스 구성 및 설치에 대한 정보입니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

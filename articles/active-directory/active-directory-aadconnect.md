@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="01/08/2016"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -120,7 +120,7 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 | 사용자 및 연락처 이해 | [Azure AD Connect Sync: 사용자 및 연락처 이해](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | 선언적 프로비전 | [Azure AD Connect Sync: 선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | 선언적 프로비전 함수 참조 | [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md) |
-| 모범 사례 | [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
+| 기본 구성 변경 | [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
 ## 자세한 내용 및 참조
 
@@ -140,4 +140,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

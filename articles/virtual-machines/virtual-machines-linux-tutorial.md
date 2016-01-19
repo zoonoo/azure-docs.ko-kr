@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Linux를 실행하는 가상 컴퓨터 만들기 | Microsoft Azure"
-	description="Azure 및 Azure 명령줄 인터페이스에서 이미지를 사용하여 Azure Linux 가상 컴퓨터 또는 Azure Ubuntu 가상 컴퓨터를 만드는 방법을 알아봅니다."
-	keywords="linux 가상 컴퓨터, 가상 컴퓨터 linux, Azure Linux, azure ubuntu" 
+	pageTitle="Linux 가상 컴퓨터 만들기 | Microsoft Azure"
+	description="Azure 및 Azure 명령줄 인터페이스에서 이미지를 사용하여 Linux 가상 컴퓨터 또는 Ubuntu 가상 컴퓨터를 만드는 방법을 알아봅니다."
+	keywords="linux 가상 컴퓨터, 가상 컴퓨터 linux, ubuntu 가상 컴퓨터" 
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -18,18 +18,16 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Linux를 실행하는 가상 컴퓨터 만들기
+# Linux 가상 컴퓨터 만들기
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
-<br>
-
-Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서는 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(CLI)를 사용하여 Azure에서 실행하는 Ubuntu Server VM을 신속하게 만들고, **ssh**를 사용하여 연결하고 새 디스크를 작성 및 탑재합니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](virtual-machines-linux-create-upload-vhd.md)를 사용하여 Linux 가상 컴퓨터를 만들 수도 있습니다.
+Linux 가상 컴퓨터(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서는 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(CLI)를 사용하여 Azure에서 실행하는 Ubuntu Server VM을 신속하게 만들고, **ssh**를 사용하여 연결하고 새 디스크를 작성 및 탑재합니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](virtual-machines-linux-create-upload-vhd.md)를 사용하여 Linux 가상 컴퓨터를 만들 수도 있습니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
@@ -51,7 +49,7 @@ Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 명령줄 또는 �
 
 > [AZURE.NOTE]회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우 `azure login -u`와(과) 회사 또는 학교 ID를 사용하여 대화형 세션 없이 로그인할 수 있습니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](resource-group-create-work-id-from-personal.md).
 
-## Azure 가상 컴퓨터 만들기
+## Linux 가상 컴퓨터 만들기
 
 _&lt;my-group-name&gt;_을 고유 그룹 이름으로 바꾸는 `azure group create <my-group-name> westus`을 입력합니다(원하는 경우 다른 지역을 사용할 수 있음). 다음과 유사한 출력이 표시됩니다.
 
@@ -328,4 +326,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

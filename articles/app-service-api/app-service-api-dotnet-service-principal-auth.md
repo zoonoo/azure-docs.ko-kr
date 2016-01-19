@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/28/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스의 API 앱에 대한 서비스 주체 인증
@@ -304,4 +304,4 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 	* [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)
 	* [Azure 웹 사이트에 HTTPS 사용](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

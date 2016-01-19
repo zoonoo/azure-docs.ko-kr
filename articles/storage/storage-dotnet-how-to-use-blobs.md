@@ -5,14 +5,14 @@
 	documentationCenter=".net"
 	authors="tamram"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
@@ -146,7 +146,7 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대�
 		}
 	}
 
-위와 같이 이름에 대한 경로 정보를 사용하여 Blob 이름을 지정할 수 있습니다. 이렇게 하면 기존 파일 시스템과 같이 구성 및 트래버스할 수 있는 가상 디렉터리 구조를 만듭니다. 디렉터리 구조는 가상만 해당됩니다. Blob 저장소에서 사용할 수 있는 리소스만 컨테이너 및 Blob입니다. 하지만 저장소 클라이언트 라이브러리는 가상 디렉터리를 참조하는 **CloudBlobDirectory** 개체를 제공하며 이러한 방식으로 구성되는 Blob을 사용한 작업 과정을 단순화합니다.
+위와 같이 이름에 대한 경로 정보를 사용하여 Blob 이름을 지정할 수 있습니다. 이렇게 하면 기존 파일 시스템과 같이 구성 및 트래버스할 수 있는 가상 디렉터리 구조를 만듭니다. 디렉터리 구조는 가상만 해당됩니다. Blob 저장소에서 사용할 수 있는 리소스만 컨테이너 및 Blob입니다. 하지만 저장소 클라이언트 라이브러리는 참조하도록 가상 디렉터리에 **CloudBlobDirectory** 개체를 제공하며 이러한 방식으로 구성되는 Blob을 사용한 작업 과정을 단순화합니다.
 
 예를 들어 `photos` 컨테이너에 있는 다음 블록 Blob 집합을 고려합니다.
 
@@ -364,6 +364,5 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
- 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

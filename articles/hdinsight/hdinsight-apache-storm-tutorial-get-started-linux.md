@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 
@@ -64,7 +64,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	![클러스터 자격 증명 블레이드](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
 
-	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
+	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -148,25 +148,13 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터페이스를 제공하고 HDInsight 클러스터에 포함됩니다.
 
-> [AZURE.IMPORTANT]Storm UI는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. 자세한 내용은 [SSH 터널링을 사용하여 ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 사용합니다.
 
-다음 단계를 사용하여 Storm UI를 봅니다.
+1. https://CLUSTERNAME.azurehdinsight.net/stormui에 웹 브라우저를 엽니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다. Storm UI가 열립니다.
 
-1. 클러스터에 SSH 터널을 만든 후에 https://CLUSTERNAME.azurehdinsight.net에 웹 브라우저를 열며 여기서 __CLUSTERNAME__은 클러스터의 이름입니다. Ambari 웹 UI를 엽니다.
+	> [AZURE.NOTE]사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
 
-	> [AZURE.NOTE]사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다. 브라우저에서 한 번과 Ambari 웹 UI에서 한 번을 더해 두 번 인증하도록 요청을 받을 수 있습니다. 모두 동일한 자격 증명을 사용합니다.
-
-2. 페이지의 왼쪽에 있는 서비스 목록에서 __Storm__을 선택합니다. 그런 다음 __빠른 링크__에서 __Storm UI__를 선택합니다.
-
-    ![빠른 연결에서 Storm UI 항목](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
-
-    그러면 Storm UI가 표시됩니다.
-
-    ![Storm UI](./media/hdinsight-apache-storm-tutorial-get-started-linux/stormui.png)
-	
-	> [AZURE.NOTE]서버를 찾을 수 없다는 오류가 나타나면 클러스터에 SSH 터널을 설정하지 않았을 수 있습니다. 자세한 내용은 [SSH 터널링을 사용하여 ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
-
-4. **토폴로지 요약** 아래의 **이름** 열에서 **wordcount** 항목을 선택합니다. 그러면 토폴로지에 대한 자세한 정보가 표시됩니다.
+2. **토폴로지 요약** 아래의 **이름** 열에서 **wordcount** 항목을 선택합니다. 그러면 토폴로지에 대한 자세한 정보가 표시됩니다.
 
 	![스톰 스타터 WordCount 토폴로지 정보가 있는 스톰 대시보드.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
@@ -192,7 +180,7 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 
 	* **중단** - 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 
-5. 이 페이지의 **Spout** 또는 **Bolt** 섹션에서 항목을 선택합니다. 그러면 선택한 구성 요소에 대한 정보가 표시됩니다.
+3. 이 페이지의 **Spout** 또는 **Bolt** 섹션에서 항목을 선택합니다. 그러면 선택한 구성 요소에 대한 정보가 표시됩니다.
 
 	![선택한 구성 요소에 대한 정보가 있는 스톰 대시보드.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
@@ -210,7 +198,7 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 
 	* **오류** - 이 구성 요소에 의해 생성된 오류입니다.
 
-5. Spout 또는 Bolt에 대한 세부 정보를 볼 때 구성 요소의 특정 인스턴스에 대한 세부 정보를 확인하려면 **실행자** 섹션의 **포트** 열에서 항목을 선택합니다.
+4. Spout 또는 Bolt에 대한 세부 정보를 볼 때 구성 요소의 특정 인스턴스에 대한 세부 정보를 확인하려면 **실행자** 섹션의 **포트** 열에서 항목을 선택합니다.
 
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
@@ -245,4 +233,4 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스 만들기
 
@@ -135,6 +135,4 @@ SQL 데이터베이스 및 SQL 데이터 웨어하우스에에서 각 데이터�
 
 이제 SQL 데이터 웨어하우스의 샘플 데이터베이스를 만들었으므로 데이터베이스에 [연결](./sql-data-warehouse-get-started-connect.md)할 수 있습니다.
 
-
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="Azure Classic Portal"/>
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -25,7 +25,7 @@
 - [REST API](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-Azure 클래식 포털에는 Azure 검색 대시보드에서 Azure 검색에서 데이터 수집을 안내해주는 **데이터 가져오기** 명령이 있습니다. 명령은 기존 데이터 원본을 크롤링하는 기본 제공 인덱서 기능에 의존하여 데이터 원본에 있는 행 집합을 기반으로 문서를 만들고 업로드합니다.
+Azure 포털에는 Azure 검색 대시보드에서 Azure 검색에서 데이터 수집을 안내해주는 **데이터 가져오기** 명령이 있습니다. 명령은 기존 데이터 원본을 크롤링하는 기본 제공 인덱서 기능에 의존하여 데이터 원본에 있는 행 집합을 기반으로 문서를 만들고 업로드합니다.
 
 마법사를 사용한 데이터 가져오기는 다음과 같이 세 부분으로 이루어져 있습니다.
 
@@ -39,7 +39,7 @@ Azure 클래식 포털에는 Azure 검색 대시보드에서 Azure 검색에서 
 
 ##데이터 가져오기 구성
 
-1. [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. Azure 검색 서비스의 서비스 대시보드를 엽니다. 대시보드를 찾을 수 있는 몇 가지 방법이 있습니다.
 	- 표시줄에서 **홈**을 클릭합니다. 홈 페이지에는 구독에 포함된 모든 서비스에 대한 타일이 있습니다. 타일을 클릭하면 서비스 대시보드가 열립니다.
@@ -74,4 +74,4 @@ Azure 클래식 포털에는 Azure 검색 대시보드에서 Azure 검색에서 
 
 서비스 대시보드에서 인덱서 타일을 두 번 클릭하여 구독에 대해 생성된 모든 인덱서 목록을 슬라이드 아웃합니다. 인덱서 중 하나를 두 번 클릭하여 실행하거나 편집하거나 삭제합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

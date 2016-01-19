@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/05/2016"
 	ms.author="tdykstra"/>
 
 # CORS를 사용하여 JavaScript에서 API 앱 사용
@@ -36,7 +36,9 @@ Azure 앱 서비스는 API 앱을 호출할 수 있는 도메인을 구성하는
 
 ## 이 자습서를 진행하는 방법
 
-이 자습서는 [API 앱 및 ASP.NET 시작 시리즈의 첫 번째 자습서](app-service-api-dotnet-get-started.md)에서 다운로드하여 만든 API 앱에 대한 응용 프로그램 예제에서 작동합니다. Java 또는 Node.js로 작업하려는 경우 모든 API 앱에 적용되는 일반적인 지침은 아래 [CORS 구성 섹션](#corsconfig)을 참조하세요.
+이 자습서는 [API 앱 및 ASP.NET 시작 시리즈의 첫 번째 자습서](app-service-api-dotnet-get-started.md)에서 다운로드하여 만든 API 앱에 대한 응용 프로그램 예제에서 작동합니다.
+
+Java 또는 Node.JS 시작 자습서를 수행하는 경우 모든 API 앱에 적용되는 일반적인 지침에 대한 [CORS 구성 섹션](#corsconfig)으로 이동합니다.
 
 ## ContactsList.Angular 샘플 프로젝트
 
@@ -75,6 +77,8 @@ Azure 앱 서비스는 API 앱을 호출할 수 있는 도메인을 구성하는
 ## 로컬로 AngularJS 프로젝트 실행
 
 이 섹션에서는 API가 로컬로 실행되는 동안 클라이언트를 로컬로 실행하고 해당 API를 호출할 수 있는지 확인합니다.
+
+**참고:** 이러한 지침은 해당 브라우저에서 `http://localhost` URL에서/로 크로스-원본 JavaScript 호출을 허용하므로 Internet Explorer 및 Edge 브라우저에서 작동합니다. Chrome을 사용하는 경우 `--disable-web-security` 스위치로 브라우저를 시작합니다. Firefox를 사용하는 경우 이 섹션을 건너뛰십시오.
 
 1. ContactsList.API가 ContactsList.Angular보다 먼저 시작되도록 지정하여 ContactsList.API 및 ContactsList.Angular 프로젝트를 시작 프로젝트로 설정합니다. 
 
@@ -163,14 +167,19 @@ Microsoft.Web/sites/config 리소스 종류에서 <site name>/web 리소스에 �
 		    ]
 		}
 
-### 앱 서비스 CORS와 Web API CORS
+## Web API 코드에서 CORS 지원
 
-ASP.NET Web API 프로젝트의 경우 CORS를 코드로 쉽게 구성할 수 있으며 이에 대한 내용은 다음 섹션에 설명됩니다. 그러나 앱 서비스 CORS와 Web API CORS를 모두 함께 사용하는 경우 앱 서비스 CORS가 우선하며 Web API CORS는 적용되지 않습니다. 예를 들어 앱 서비스에서 하나의 원본 도메인을 사용하도록 설정하고 Web API 코드에서 모든 원본 도메인을 사용하도록 설정한 경우 Azure API 앱은 Azure에서 지정한 도메인의 호출만 허용합니다.
+Web API 프로젝트에서는 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet 패키지를 설치하여 API가 JavaScript 호출을 허용할 도메인을 코드에서 지정할 수 있습니다.
+ 
+Web API CORS 지원은 앱 서비스 CORS 지원보다 유연성이 뛰어납니다. 예를 들어 코드에서 다른 작업 메서드에 대해 다른 허용된 원본을 지정할 수 있는 반면 앱 서비스 CORS의 경우 모든 API 앱의 메서드에 대해 허용된 원본 집합을 지정합니다.
 
+### Web API CORS보다 우선하는 앱 서비스 CORS
 
-## Web API 코드에서 CORS를 구성하는 방법
+하나의 API 앱에서 Web API CORS와 앱 서비스 CORS를 함께 사용하지 마십시오. 앱 서비스 CORS가 우선적으로 적용되며 Web API CORS는 아무 효과가 없습니다. 예를 들어 앱 서비스에서 하나의 원본 도메인을 사용하도록 설정하고 Web API 코드에서 모든 원본 도메인을 사용하도록 설정한 경우 Azure API 앱은 Azure에서 지정한 도메인의 호출만 허용합니다.
 
-Web API 프로젝트에서는 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet 패키지를 설치하여 API가 JavaScript 호출을 허용할 도메인을 코드에서 지정할 수 있습니다. 이 프로세스는 [ASP.NET Web API 2에서 원본 간 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)에 자세히 설명되어 있습니다. ASP.NET Web API를 사용하여 빌드된 API 앱의 경우 프로세스가 정확히 동일하지만 여기에 요약되어 있습니다.
+### Web API 코드에서 CORS를 설정하는 방법
+
+다음 단계는 Web API CORS 지원 설정에 대한 프로세스를 간략하게 설명합니다. 자세한 내용은 [ASP.NET Web API 2에서 크로스-원본 리소스 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)을 참조하세요.
 
 1. Web API 프로젝트에서 다음 예제와 같이 **WebApiConfig**의 **Register** 메서드에 `config.EnableCors()` 코드 줄을 포함합니다. 
 
@@ -208,4 +217,4 @@ Web API 프로젝트에서는 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.o
 
 이 자습서에서는 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있도록 앱 서비스 CORS 지원을 사용하도록 설정하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 문서에서는 [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)에 대해 알아봅니다.
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

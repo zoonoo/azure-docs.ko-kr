@@ -1,20 +1,20 @@
 <properties
 	pageTitle=".NET에서 큐 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Microsoft Azure 큐 저장소를 사용하여 큐를 작성 및 삭제하고 큐 메시지를 삽입하고 미리 보고 가져오고 삭제하는 방법에 대해 알아봅니다."
+	description="큐 저장소를 사용하여 큐를 작성 및 삭제하고 큐 메시지를 삽입하고 미리 보고 가져오고 삭제하는 방법에 대해 알아봅니다."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+	ms.author="gusapost"/>
 
 # .NET에서 큐 저장소를 사용하는 방법
 
@@ -246,7 +246,7 @@
     - [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
 - [Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/)를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.
 - Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
-    - [테이블 저장소](storage-dotnet-how-to-use-tables.md)를 사용하여 구조화된 데이터를 저장합니다. 
+    - [테이블 저장소](storage-dotnet-how-to-use-tables.md)를 사용하여 구조화된 데이터를 저장합니다.
     - [Blob 저장소](storage-dotnet-how-to-use-blobs.md)를 사용하여 구조화되지 않은 데이터를 저장합니다.
     - [SQL 데이터베이스](sql-database-dotnet-how-to-use.md)를 사용하여 관계형 데이터를 저장합니다.
 
@@ -259,6 +259,5 @@
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

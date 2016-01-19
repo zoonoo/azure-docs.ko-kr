@@ -1,11 +1,11 @@
 <properties
 	pageTitle=".NET에서 테이블 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Microsoft Azure 테이블 저장소를 사용하여 테이블을 작성 및 삭제하고 테이블의 엔터티를 삽입 및 쿼리하는 방법에 대해 알아봅니다."
+	description="테이블 저장소를 사용하여 구조화되지 않고 스키마가 없는 데이터를 저장합니다. 테이블 저장소는 NoSQL 키/특성 저장소입니다. .NET 용 저장소 클라이언트 라이브러리는 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위해서만이 아니라 테이블을 만들고 삭제하기 위해 API를 제공합니다."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 
@@ -386,7 +386,7 @@
 
 ## 페이지에서 엔터티를 비동기적으로 검색
 
-많은 수의 엔터티를 읽고 있는데 모든 엔터티가 반환될 때까지 기다리지 않고 엔터티가 검색되는 동안 프로세스/표시하고자 한다면 분할된 쿼리를 사용하여 엔터티를 검색할 수 있습니다. 이 예제에서는 여러 페이지에서 Async-Await 패턴을 사용하여 결과를 반환하는 방법을 보여 주므로 큰 결과 집합이 반환되도록 기다리는 동안 실행이 차단되지 않습니다. .NET에서 Async-Await 패턴의 사용에 대한 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍(C# 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요.
+많은 수의 엔터티를 읽고 있는데 모든 엔터티가 반환될 때까지 기다리지 않고 엔터티가 검색되는 동안 프로세스/표시하고자 한다면 분할된 쿼리를 사용하여 엔터티를 검색할 수 있습니다. 이 예제에서는 여러 페이지에서 Async-Await 패턴을 사용하여 결과를 반환하는 방법을 보여 주므로 큰 결과 집합이 반환되도록 기다리는 동안 실행이 차단되지 않습니다. .NET에서 Async-Await 패턴의 사용에 대한 자세한 내용은 [Async 및 Await(C# 및 Visual Basic)를 사용한 비동기 프로그래밍](https://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요.
 
     // Initialize a default TableQuery to retrieve all the entities in the table.
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
@@ -440,4 +440,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

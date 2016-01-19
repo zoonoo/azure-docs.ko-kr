@@ -1,12 +1,12 @@
 <properties
-	pageTitle="TSQL를 사용하여 SQL 데이터 웨어하우스 만들기 | Microsoft Azure"
-	description="TSQL를 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="TSQL를 사용하여 SQL 데이터 웨어하우스 만들기 | Microsoft Azure"
+   description="TSQL를 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 #TSQL을 사용하여 SQL 데이터 웨어하우스 만들기 
 
@@ -38,7 +38,7 @@
 
         sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
 
-위의 TSQL 문을 실행할 때 MAXSIZE 및 SERVICE_OBJECTIVE 매개 변수가 초기 저장소 크기를 결정하고 데이터 웨어하우스 인스턴스에 할당되도록 계산합니다. MAXSIZE는 다음 크기를 허용하며 증가할 공간을 생각하면 큰 크기를 선택하는 것이 좋습니다.
+위의 TSQL 문을 실행할 때 MAXSIZE 및 SERVICE\_OBJECTIVE 매개 변수가 초기 저장소 크기를 결정하고 데이터 웨어하우스 인스턴스에 할당되도록 계산합니다. MAXSIZE는 다음 크기를 허용하며 증가할 공간을 생각하면 큰 크기를 선택하는 것이 좋습니다.
 
 + 250GB
 + 500GB
@@ -51,7 +51,7 @@
 + 40960GB
 + 51200GB
 
-SERVICE_OBJECTIVE는 인스턴스에서 시작할 DWU 값을 나타내고 다음 값을 수락합니다.
+SERVICE\_OBJECTIVE는 인스턴스에서 시작할 DWU 값을 나타내고 다음 값을 수락합니다.
 
 + DW100
 + DW200
@@ -76,4 +76,4 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 [샘플 데이터를 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [가격 책정 페이지]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -20,18 +20,14 @@
 # Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기#
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
-
-<br>
-
-
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 이 자습서에서는 Azure 포털에서 Azure 가상 컴퓨터를 몇 분 이내에 간편하게 만드는 방법을 보여 줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 가상 컴퓨터를 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
-
+<br>
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 사용자 고유의 이미지, 리소스 관리자 템플릿 또는 자동화 도구를 사용하여 가상 컴퓨터를 만들 수도 있습니다. 여러 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)을 참조하세요.
@@ -52,7 +48,7 @@
 
 	![미리 보기 포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
-	>[AZURE.TIP] 다른 이미지를 찾으려면 **마켓플레이스**를 클릭하고 사용 가능한 항목을 검색하거나 필터링합니다.
+	>[AZURE.TIP]다른 이미지를 찾으려면 **마켓플레이스**를 클릭하고 사용 가능한 항목을 검색하거나 필터링합니다.
 
 3. **Windows Server 2012 R2 Datacenter** 페이지의 **배포 모델 선택**에서 **리소스 관리자**를 선택합니다. **만들기**를 클릭합니다.
 
@@ -87,13 +83,13 @@
 
 	![Azure VM에 대한 구성 선택 항목의 요약을 보여 주는 스크린샷](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Azure에서 가상 컴퓨터를 만드는 동안 허브 메뉴의 **가상 컴퓨터**에서 진행 상황을 확인할 수 있습니다.
+8. Azure에서 가상 컴퓨터를 만드는 동안 허브 메뉴의 **가상 컴퓨터**에서 진행 상황을 추적할 수 있습니다.
 
 ## 가상 컴퓨터에 로그온
 
 가상 컴퓨터를 만든 후 해당 가상 컴퓨터에 로그인하여 자체 설정 및 실행할 응용 프로그램을 관리할 수 있습니다.
 
->[AZURE.NOTE] 자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)을 참조하십시오.
+>[AZURE.NOTE]자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)을 참조하십시오.
 
 1. 아직 로그인하지 않은 경우 Azure 포털에 로그인합니다.
 
@@ -111,11 +107,11 @@
 
 7. **예**를 클릭하여 가상 컴퓨터의 ID를 확인합니다.
 
-	이제 다른 서버처럼 가상 컴퓨터에서 작업할 수 있습니다.
+이제 다른 서버처럼 가상 컴퓨터에서 작업할 수 있습니다.
 
 ## 다음 단계
 
 * Azure PowerShell 및 Azure CLI를 사용하여 [가상 컴퓨터 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
-* [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터와 워크로드 배포 및 관리를 자동화합니다.
+* [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터와 워크로드 배포 및 관리를 자동화합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

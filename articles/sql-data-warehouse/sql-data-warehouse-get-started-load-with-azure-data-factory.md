@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Data Factory를 사용하여 데이터 로드 | Microsoft Azure"
-	description="Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Azure Data Factory를 사용하여 데이터 로드 | Microsoft Azure"
+   description="Azure Data Factory를 사용하여 데이터를 로드하는 방법을 알아보세요."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Azure Data Factory를 사용하여 데이터 로드
 
@@ -206,4 +206,4 @@
 	}
 	
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

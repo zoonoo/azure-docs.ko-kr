@@ -2,7 +2,7 @@
 	pageTitle="Azure Mobile Engagement 시작"
 	description="Android 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="android"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -339,4 +339,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

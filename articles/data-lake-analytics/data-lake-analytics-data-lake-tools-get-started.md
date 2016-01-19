@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/07/2015"
@@ -69,11 +69,11 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 	![U-SQL Visual Studio 프로젝트 U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Azure Blob 저장소 계정에 파일 업로드하기**
+**연결된 Azure Blob 저장소 계정에 파일 업로드**
 
 1. **서버 탐색기**에서 **Azure**를 확장하고 **데이터 레이크 분석**, 데이터 레이크 분석 계정, **저장소 계정**을 차례로 확장합니다. 데이터 레이크 저장소 계정, 연결된 데이터 레이크 저장소 계정, 연결된 Azure 저장소 계정이 표시됩니다. 
 2. Azure 저장소 계정을 확장합니다.
-3. 파일을 업로드할 컨테이너를 마우스 오른쪽 단추로 클릭하고 **탐색기**를 클릭합니다.
+3. 파일을 업로드할 컨테이너를 마우스 오른쪽 단추로 클릭하고 **탐색기**를 클릭합니다. 컨테이너가 없는 경우 Azure 포털, Azure PowerShell 또는 다른 도구를 사용하여 먼저 만들어야 합니다.
 4. 파일을 업로드할 폴더로 이동합니다. 
 5. 빈 공간을 마우스 오른쪽 단추를 클릭한 후 **업로드**를 클릭합니다. 
 
@@ -88,8 +88,6 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 	![새 U-SQL Visual Studio 프로젝트](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-	>[AZURE.NOTE]현재 데이터 레이크 도구는 로컬 실행에서 UNC 프로젝트 경로를 지원하지 않습니다.
-	
 3. **확인**을 클릭합니다. Visual Studio에서 **Script.usql** 파일로 솔루션을 만듭니다.
 4. **Script.usql** 파일에 다음 스크립트를 입력합니다.
 
@@ -362,4 +360,4 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->
