@@ -128,7 +128,12 @@ Azure 관리 DNS 서버를 사용하여 구성된 VM은 해당 VNet 내 모든 V
 
 아래 테이블은 하위 지역 당, 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 비즈니스에 따라 최대 한도까지 기본 제한을 증가시킬 수 있습니다
 
-||기본 제한|최대 제한| |---|---|---| |공용 IP 주소(동적)|60|지원에 문의| |공용 IP 주소(정적)|20|지원에 문의| |부하 분산 장치 당 공용 프론트 엔드 IP|5|지원에 문의| |부하 분산 장치 당 개인 프론트 엔드 IP|1|지원에 문의|
+||기본 제한|최대 제한|
+|---|---|---|
+|공용 IP 주소(동적)|60|지원에 문의|
+|공용 IP 주소(정적)|20|지원에 문의|
+|부하 분산 장치 당 공용 프론트 엔드 IP|5|지원에 문의|
+|부하 분산 장치 당 개인 프론트 엔드 IP|1|지원에 문의|
 
 Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits) 전체 집합을 읽도록 합니다.
 
@@ -156,3 +161,4 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 - [PowerShell을 사용하여 응용 프로그램 게이트웨이의 정적 개인 IP 주소가 있는 백 엔드 풀 만들기](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
 <!---HONumber=AcomDC_0107_2016-->
+<!---Line 131 to 136, add "under break"-->
