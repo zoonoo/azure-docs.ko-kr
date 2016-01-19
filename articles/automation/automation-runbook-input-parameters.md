@@ -49,7 +49,7 @@ PowerShell 워크플로 Runbook의 매개 변수 정의에는 다음과 같은 �
      ) 
 ```
 
->[AZURE.NOTE]매개 변수를 정의할 때 **필수** 특성을 지정하지 않으면 기본적으로 매개 변수는 선택 사항으로 간주됩니다. 또한 PowerShell 워크플로 Runbook의 매개 변수에 대한 기본값을 설정하는 경우 **필수** 특성 값과 관계 없이 PowerShell에서 선택적 매개 변수로 처리됩니다.
+>[AZURE.NOTE] 매개 변수를 정의할 때 **필수** 특성을 지정하지 않으면 기본적으로 매개 변수는 선택 사항으로 간주됩니다. 또한 PowerShell 워크플로 Runbook의 매개 변수에 대한 기본값을 설정하는 경우 **필수** 특성 값과 관계 없이 PowerShell에서 선택적 매개 변수로 처리됩니다.
 
 예를 들어 가상 컴퓨터(단일 VM 또는 서비스 내의 모든 VM)에 대한 세부 정보를 출력하는 PowerShell 워크플로 Runbook에 대한 입력 매개 변수를 구성해보겠습니다. 아래 스크린샷에 표시된 대로 이 Runbook에는 가상 컴퓨터의 이름 및 서비스 이름이라는 두 가지 매개 변수가 있습니다.
 
@@ -97,9 +97,17 @@ Runbook에 [object] 형식 입력 매개 변수가 있는 경우 값에 전달�
 
 4. **Get-AzureVM** 활동에서 사용될 다음 속성을 가진 두 개의 매개 변수를 만듭니다.
 
-    * **매개 변수1:** 이름 - VMName, 형식 – 문자열, 필수 - 아니오
+    * **매개 변수1:** 
+    이름 - VMName,
+    형식 – 문자열,
+    필수 - 아니오
 	
-    * **매개 변수2:** 이름 – ServiceName, 형식 – 문자열, 필수 - 아니오, 기본값 - 사용자 지정, 사용자 지정 기본값 – <가상 컴퓨터를 포함하는 기본 서비스의 이름>
+    * **매개 변수2:** 
+    이름 – ServiceName,
+    형식 – 문자열,
+    필수 - 아니오,
+    기본값 - 사용자 지정,
+    사용자 지정 기본값 – \<가상 컴퓨터를 포함하는 기본 서비스의 이름>
 
 5. 매개 변수를 추가하면 **확인**을 클릭합니다. 이제 **입력 및 출력** 블레이드에서 볼 수 있습니다. 다시 **확인**을 클릭한 다음 Runbook을 **저장**하고 **게시**합니다.
 
@@ -122,7 +130,7 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 ![도움말 Baloon](media/automation-runbook-input-parameters/automation_05_HelpBaloon.png)
 
 
->[AZURE.NOTE]문자열 형식 매개 변수는 **빈** 문자열 값을 지원합니다. 입력 매개 변수 텍스트 상자에 **[EmptyString]**을 입력하면 빈 문자열을 매개 변수에 전달합니다. 또한 문자열 형식 매개 변수는 전달되는 **Null** 값을 지원하지 않습니다. 문자열 매개 변수에 값을 전달하지 않으면 PowerShell이 null로 해석합니다.
+>[AZURE.NOTE] 문자열 형식 매개 변수는 **빈** 문자열 값을 지원합니다. 입력 매개 변수 텍스트 상자에 **[EmptyString]**을 입력하면 빈 문자열을 매개 변수에 전달합니다. 또한 문자열 형식 매개 변수는 전달되는 **Null** 값을 지원하지 않습니다. 문자열 매개 변수에 값을 전달하지 않으면 PowerShell이 null로 해석합니다.
 
 * **PowerShell cmdlet을 사용하여 게시된 Runbook 시작 및 매개 변수 할당**
 
@@ -130,7 +138,8 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 
     **예제:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
@@ -140,12 +149,13 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 
     **예제:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE]전달한 입력 매개 변수와 함께 PowerShell cmdlet을 사용하여 Runbook을 시작할 때 기본 매개 변수인 **MicrosoftApplicationManagementStartedBy**는 **PowerShell** 값을 사용하여 만듭니다. 작업 세부 정보 블레이드에서 이 매개 변수를 볼 수 있습니다.
+>[AZURE.NOTE] 전달한 입력 매개 변수와 함께 PowerShell cmdlet을 사용하여 Runbook을 시작할 때 기본 매개 변수인 **MicrosoftApplicationManagementStartedBy**는 **PowerShell** 값을 사용하여 만듭니다. 작업 세부 정보 블레이드에서 이 매개 변수를 볼 수 있습니다.
 
 * **SDK를 사용하여 Runbook 시작 및 매개 변수 할당**
 
