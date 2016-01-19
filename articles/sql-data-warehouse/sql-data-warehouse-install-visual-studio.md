@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스용 Visual Studio 2015 및/또는 SSDT 설치
 
@@ -49,4 +49,4 @@ Visual Studio가 설치되어 있는지 여부와 상관없이 SQL 데이터 웨
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

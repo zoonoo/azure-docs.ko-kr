@@ -2,7 +2,7 @@
 	pageTitle="Windows 유니버설 앱용 Azure Mobile Engagement 시작"
 	description="Windows 유니버설 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="windows"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -26,15 +26,14 @@
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
-이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다.
-이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. WNS(Windows 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 앱 사용 데이터를 수집하는 빈 Windows 유니버설 앱을 만듭니다.
+이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다. 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. WNS(Windows 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 앱 사용 데이터를 수집하는 빈 Windows 유니버설 앱을 만듭니다.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Visual Studio 2013
 + [MicrosoftAzure.MobileEngagement] Nuget 패키지
 
-> [AZURE.IMPORTANT] 이 자습서를 완료해야 다른 모든 Windows 유니버설 앱용 Mobile Engagement 자습서를 진행할 수 있습니다. 완료하려면 - 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT]이 자습서를 완료해야 다른 모든 Windows 유니버설 앱용 Mobile Engagement 자습서를 진행할 수 있습니다. 완료하려면 - 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##<a id="setup-azme"></a>Windows 유니버설 앱용 Mobile Engagement 설정
 
@@ -72,7 +71,7 @@
 
 	![][3]
 
-	>[AZURE.TIP] 앱이 Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 여전히 지원하는 각 플랫폼에 하나씩 두 개의 Mobile Engagement 응용 프로그램을 만들어야 합니다. 그러면 대상에 올바른 구분을 생성할 수 있고 각 플랫폼을 대상으로 하는 적절한 알림을 보낼 수 있습니다.
+	>[AZURE.TIP]앱이 Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 여전히 지원하는 각 플랫폼에 하나씩 두 개의 Mobile Engagement 응용 프로그램을 만들어야 합니다. 그러면 대상에 올바른 구분을 생성할 수 있고 각 플랫폼을 대상으로 하는 적절한 알림을 보낼 수 있습니다.
 
 4. 파일 `App.xaml.cs`에서:
 
@@ -127,7 +126,7 @@
 
 	b. XML 태그 이름의 **Page**를 **engagement:EngagementPageOverlay**로 바꿉니다.
 	
-> [AZURE.IMPORTANT] 페이지가 `OnNavigatedTo` 메서드를 재정의하는 경우에는 `base.OnNavigatedTo(e)`을(를) 호출해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다. 이 작업은 기본 템플릿에 `OnNavigatedTo` 메서드가 있는 Windows Phone 프로젝트에서 특히 중요합니다.
+> [AZURE.IMPORTANT]페이지가 `OnNavigatedTo` 메서드를 재정의하는 경우에는 `base.OnNavigatedTo(e)`을(를) 호출해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다. 이 작업은 기본 템플릿에 `OnNavigatedTo` 메서드가 있는 Windows Phone 프로젝트에서 특히 중요합니다.
 
 ##<a id="monitor"></a>실시간 모니터링과 앱 연결
 
@@ -135,8 +134,7 @@
 
 ##<a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 
-Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
-다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
+Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다. 다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
 
 ###WNS 푸시 알림을 받도록 앱 설정
 
@@ -191,8 +189,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 [AZURE.INCLUDE [Windows 푸시 캠페인 만들기](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-앱이 실행 중이면 앱 내 알림이 표시되며 그렇지 않고 앱이 닫힌 경우 토스트 알림이 표시됩니다.
-앱 내 알림이 표시되지만 토스트 알림이 표시되지 않고 앱을 Visual Studio의 디버그 모드에서 실행 중인 경우 도구 모음의 **수명 주기 이벤트 -> 일시 중단**을 시도하여 앱이 실제로 일시 중단되었는지 확인해야 합니다. Visual Studio에서 응용 프로그램을 디버깅하는 동안 홈 단추를 클릭한 경우 일시 중단되지 않을 수 있으며 알림이 앱 내 알림으로 표시되어 있는 동안 토스트 알림이 표시되지 않을 수 있습니다.
+앱이 실행 중이면 앱 내 알림이 표시되며 그렇지 않고 앱이 닫힌 경우 토스트 알림이 표시됩니다. 앱 내 알림이 표시되지만 토스트 알림이 표시되지 않고 앱을 Visual Studio의 디버그 모드에서 실행 중인 경우 도구 모음의 **수명 주기 이벤트 -> 일시 중단**을 시도하여 앱이 실제로 일시 중단되었는지 확인해야 합니다. Visual Studio에서 응용 프로그램을 디버깅하는 동안 홈 단추를 클릭한 경우 일시 중단되지 않을 수 있으며 알림이 앱 내 알림으로 표시되어 있는 동안 토스트 알림이 표시되지 않을 수 있습니다.
 
 ![][8]
 
@@ -216,4 +213,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

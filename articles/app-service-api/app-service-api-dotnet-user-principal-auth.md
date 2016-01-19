@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="01/08/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스의 API 앱에 대한 사용자 인증
@@ -190,7 +190,7 @@ API 요청을 통한 로깅 및 인증 토큰을 포함하기 위한 추가 코�
 		    //"https://localhost:44300/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
 		};
 
-9. 또한 *app.js* 의 `adalProvider.init`에 대한 호출에서 "{your tenant url}" 및 "{your client id}"를 실제 값으로 바꿉니다.
+9. 또한 *app.js*의 `adalProvider.init`에 대한 호출에서 "{your tenant url}" 및 "{your client id}"를 실제 값으로 바꿉니다.
 
 	코드는 다음 예제와 유사합니다.
 
@@ -205,7 +205,7 @@ API 요청을 통한 로깅 및 인증 토큰을 포함하기 위한 추가 코�
 		    $httpProvider
 		    );
 
-1. *app/scripts/contactsSvc.js* 파일의 경우 localhost에서 *app.js* 에서 이전에 수행한 API 앱 URL로 동일한 끝점 URL을 변경합니다.
+1. *app/scripts/contactsSvc.js* 파일의 경우 localhost에서 *app.js*에서 이전에 수행한 API 앱 URL로 동일한 끝점 URL을 변경합니다.
 
 	이제 코드는 다음 예제와 유사합니다.
 
@@ -268,4 +268,4 @@ API 요청을 통한 로깅 및 인증 토큰을 포함하기 위한 추가 코�
 
 이 자습서에서는 인증된 사용자만 호출할 수 있도록 앱 서비스 인증/권한 부여를 사용하여 API 앱에 대한 액세스를 제한했습니다. 시리즈의 다음 자습서에서는 [서비스 간 시나리오에 대해 API 앱에 대한 액세스를 제한](app-service-api-dotnet-service-principal-auth.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="12/04/2015"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ Azure 저장소 계정은 Azure 저장소의 Azure Blob, 큐, 테이블 및 파�
 
 저장소 계정에는 다음과 같은 두 종류가 있습니다.
 
-- 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다. 
+- 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다.
 - 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다. 프리미엄 저장소의 자세한 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
 
 ## 저장소 계정 사용 비용
@@ -173,4 +173,4 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

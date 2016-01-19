@@ -73,7 +73,7 @@
 ### Azure 저장소 연결된 서비스 만들기
 이 단계에서는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 동일한 Azure 저장소 계정을 사용하여 입력/출력 데이터 및 HQL 스크립트 파일을 저장합니다.
 
-1. C:\ADFGetStarted 폴더에 다음과 같은 내용으로 StorageLinkedService.json이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFGetStarted 폴더를 만듭니다.
+1. C:\\ADFGetStarted 폴더에 다음과 같은 내용으로 StorageLinkedService.json이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFGetStarted 폴더를 만듭니다.
 
 		{
 	    	"name": "StorageLinkedService",
@@ -106,7 +106,7 @@
 ### Azure HDInsight 연결된 서비스 만들기
 이 단계에서는 데이터 팩터리에 주문형 HDInsight 클러스터를 연결합니다. HDInsight 클러스터는 런타임 시 자동으로 만들어지며 처리가 완료되고 지정된 시간 동안 유휴 상태를 유지한 후에 삭제됩니다. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [연결된 서비스 계산](data-factory-compute-linked-services.md)을 참조하세요.
 
-1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **HDInsightOnDemandLinkedService**.json이라는 JSON 파일을 만듭니다.
+1. **C:\\ADFGetStarted** 폴더에 다음과 같은 내용으로 **HDInsightOnDemandLinkedService**.json이라는 JSON 파일을 만듭니다.
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -139,7 +139,7 @@
 이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타낼 데이터 집합을 만듭니다. 이러한 데이터 집합은 이 자습서의 앞부분에서 만든 **StorageLinkedService**를 참조합니다. 연결된 서비스는 Azure 저장소 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다.
 
 ### 입력 데이터 집합 만들기
-1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **InputTable.json**이라는 JSON 파일을 만듭니다.
+1. **C:\\ADFGetStarted** 폴더에 다음과 같은 내용으로 **InputTable.json**이라는 JSON 파일을 만듭니다.
 
 		{
 			"name": "AzureBlobInput",
@@ -163,7 +163,7 @@
 		    }
 		} 
 
-	앞의 예제에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 JSON 코드 조각을 지정하며 파이프라인의 작업에 대한 입력 데이터를 나타내는 **AzureBlobInput**라는 데이터 집합을 만들었습니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 저장되도록 지정합니다.
+	파이프라인의 작업에 대한 입력 데이터를 나타내는 위의 JSON은 **AzureBlobInput**이라는 데이터 집합을 정의합니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 저장되도록 지정합니다.
 
 	다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
@@ -184,7 +184,7 @@
 ### 출력 데이터 집합 만들기
 Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이터 집합을 만듭니다.
 
-1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **OutputTable.json**이라는 JSON 파일을 만듭니다.
+1. **C:\\ADFGetStarted** 폴더에 다음과 같은 내용으로 **OutputTable.json**이라는 JSON 파일을 만듭니다.
 
 		{
 		  "name": "AzureBlobOutput",
@@ -205,7 +205,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 		  }
 		}
 
-	JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
+	파이프라인의 작업에 대한 출력 데이터를 나타내는 위의 JSON은 **AzureBlobOutput**이라는 데이터 집합을 정의합니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
 
 2. Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 
@@ -215,7 +215,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 이 단계에서는 **HDInsightHive** 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각이 매월(빈도: 월, 간격: 1)이고 출력 조각이 매월 생성되며 작업에 대한 스케줄러 속성도 매월로 설정됩니다.(아래 참조) 출력 데이터 집합 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 이번에는 출력 데이터 집합이 내용을 결정하므로 활동이 출력을 생성하지 않는 경우 출력 데이터 집합을 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 집합 만들기를 건너뛸 수 있습니다. 다음 JSON에서 사용되는 속성은 이 섹션의 끝에 설명되어 있습니다.
 
 
-1. C:\ADFGetStarted 폴더에 다음과 같은 내용으로 MyFirstPipelinePSH.json이라는 JSON 파일을 만듭니다.
+1. C:\\ADFGetStarted 폴더에 다음과 같은 내용으로 MyFirstPipelinePSH.json이라는 JSON 파일을 만듭니다.
 
 	> [AZURE.IMPORTANT]**storageaccountname**을 JSON의 저장소 계정 이름으로 변경합니다.
 		
@@ -342,4 +342,4 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

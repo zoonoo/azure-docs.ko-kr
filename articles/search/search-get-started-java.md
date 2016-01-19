@@ -13,12 +13,14 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="01/11/2016"
 	ms.author="heidist"/>
 
 # Java에서 Azure 검색 시작
 
 검색 환경에 Azure 검색을 사용하는 사용자 지정 Java 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
+
+이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다. 단계별 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 이 샘플을 빌드 및 테스트하는 데 사용된 소프트웨어는 다음과 같습니다.
 
@@ -27,10 +29,6 @@
 - [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 - [Apache는 Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
-
-이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 클래식 포털](https://portal.azure.com)에서 등록할 수 있습니다.
-
-> [AZURE.TIP]Github의 [Azure 검색 Java 데모](http://go.microsoft.com/fwlink/p/?LinkId=530197)에서 이 자습서의 원본 코드를 다운로드하세요.
 
 ## 데이터 정보
 
@@ -52,48 +50,19 @@
 - config.properties: 검색 서비스 URL 및 api-key를 설정합니다.
 - Pom.xml: Maven 종속성입니다.
 
-
-## 서비스 만들기
-
-1. [Azure 클래식 포털](https://portal.azure.com)에 로그인합니다.
-
-2. 이동 표시줄에서 **새로 만들기** > **데이터 + 저장소** > **검색**을 클릭합니다.
-
-     ![][1]
-
-3. 서비스 이름, 가격 책정 계층, 리소스 그룹, 구독 및 위치를 구성합니다. 이러한 설정은 필수 사항이며, 서비스가 프로비전된 후에는 변경할 수 없습니다.
-
-     ![][2]
-
-	- **서비스 이름**은 고유하고 소문자여야 하며, 공백 없이 15자 미만이어야 합니다. 이 이름은 Azure 검색 서비스 끝점의 일부가 됩니다. 이름 지정 규칙에 대한 자세한 내용은 [이름 지정 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요.
-
-	- **가격 책정 계층**은 용량 및 대금 청구를 결정합니다. 두 계층 모두 동일한 기능을 제공하지만 리소스 수준이 다릅니다.
-
-		- **무료**는 다른 구독자와 공유되는 클러스터에서 실행되며, 자습서를 체험하고 개념 증명 코드를 작성하기에 충분한 용량을 제공하지만 프로덕션 응용 프로그램에 사용할 수 없습니다. 일반적으로 무료 서비스를 배포하는 데 몇 분 정도 걸립니다.
-		- **표준**은 전용 리소스에서 실행되고 확장성이 높습니다. 처음에는 하나의 복제본과 하나의 파티션으로 프로비전되지만 서비스를 만든 후 용량을 조정할 수 있습니다. 표준 서비스를 배포하는 데 더 오래 걸립니다(일반적으로 약 15분).
-
-	- **리소스 그룹**은 일반적인 목적에 사용되는 서비스 및 리소스의 컨테이너입니다. 예를 들어 Azure 검색, Azure 웹 사이트, Azure Blob 저장소를 기반으로 하여 사용자 지정 검색 응용 프로그램을 빌드하는 경우 포털 관리 페이지에서 해당 서비스를 결합하는 리소스 그룹을 만들 수 있습니다.
-
-	- **구독**에서는 둘 이상의 구독이 있는 경우 여러 구독 중에서 선택할 수 있습니다.
-
-	- **위치**는 데이터 센터 지역입니다. 현재 모든 리소스는 동일한 데이터 센터에서 실행되어야 합니다. 여러 데이터 센터에 리소스를 분산하는 것은 지원되지 않습니다.
-
-4. **만들기**를 클릭하여 서비스를 프로비전합니다.
-
-표시줄의 알림을 확인합니다. 서비스를 사용할 준비가 되면 알림이 표시됩니다.
-
 <a id="sub-2"></a>
 ## Azure 검색 서비스의 서비스 이름 및 api-key 찾기
 
-서비스를 만든 후 포털로 돌아가 URL 및 `api-key`를 가져올 수 있습니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
+Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를 제공해야 합니다.
 
-1. 이동 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
-
-2. 서비스 대시보드에 필수 정보에 대한 타일 및 관리 키에 액세스할 수 있는 키 아이콘이 표시됩니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 점프 모음에서 **검색 서비스**를 클릭하여 구독에 프로비전된 Azure 검색 서비스를 모두 나열합니다.
+3. 사용하려는 서비스를 선택합니다.
+4. 서비스 대시보드에 필수 정보에 대한 타일 및 관리 키에 액세스할 수 있는 키 아이콘이 표시됩니다.
 
   	![][3]
 
-3. 서비스 URL 및 관리 키를 복사합니다. 나중에 **config.properties** 파일에 추가할 때 필요합니다.
+5. 서비스 URL 및 관리 키를 복사합니다. 나중에 **config.properties** 파일에 추가할 때 필요합니다.
 
 ## 샘플 파일 다운로드
 
@@ -123,7 +92,7 @@
 
 1. **Project Explorer**에서 **config.properties**를 두 번 클릭하여 서버 이름 및 api-key가 포함된 구성 설정을 편집합니다.
 
-2. [Azure 클래식 포털](https://portal.azure.com)에서 서비스 URL 및 api-key를 찾은 이 문서의 이전 단계를 참조하여 **config.properties**에 입력할 값을 가져옵니다.
+2. [Azure 포털](https://portal.azure.com)에서 서비스 URL 및 api-key를 찾은 이 문서의 이전 단계를 참조하여 **config.properties**에 입력할 값을 가져옵니다.
 
 3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 그러면 서비스 이름(URL http://servicename.search.windows.net의 첫 번째 구성 요소)이 동일한 파일의 "service name"을 대체합니다.
 
@@ -145,7 +114,7 @@
 
 	![][7]
 
-6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전* 입니다.
+6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전*입니다.
 
 6. **마침**을 클릭합니다.
 
@@ -231,4 +200,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

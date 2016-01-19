@@ -57,7 +57,7 @@
 
 ## 장치-클라우드 메시지 받기
 
-이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서는 대규모의 장치-클라우드 메시지를 처리하는 방법을 보여 주고 [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브의 메시지를 처리하는 방법에 대한 자세한 정보를 제공합니다.
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서에서는 규모로 장치-클라우드 메시지를 처리하는 방법을 보여 줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브에서 메시지를 처리하는 방법에 대한 추가 정보를 제공하고 IoT Hub 이벤트 허브 호환 끝점에 적용됩니다.
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. 프로젝트 **ReadDeviceToCloudMessages**의 이름을 지정합니다.
 
@@ -94,7 +94,7 @@
             }
         }
 
-    이 메서드는 **EventHubReceiver** 인스턴스를 사용하여 모든 IoT Hub 장치-클라우드 수신 파티션의 메시지를 수신합니다. 시작된 후 보낸 메시지만 수신하도록 **EventHubReceiver** 개체를 만든 경우 `DateTime.Now` 매개 변수를 전달하는 방법을 참조하세요.
+    이 메서드는 **EventHubReceiver** 인스턴스를 사용하여 모든 IoT Hub 장치-클라우드 수신 파티션의 메시지를 수신합니다. 시작된 후 보낸 메시지만 수신하도록 **EventHubReceiver** 개체를 만든 경우 `DateTime.Now` 매개 변수를 전달하는 방법을 참조하세요. 테스트 환경에서 유용하므로 현재 메시지 집합을 볼 수 있지만 프로덕션 환경에서 코드가 모든 메시지를 처리하고 있는지 확인해야 합니다. 자세한 정보는 [IoT Hub가 장치-클라우드 메시지를 처리하는 방법][lnk-processd2c-tutorial] 자습서를 참조하세요.
 
 7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
 
@@ -125,4 +125,4 @@
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

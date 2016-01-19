@@ -5,14 +5,14 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 Java 웹앱 만들기
@@ -29,7 +29,7 @@
 
 > [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화][]하거나 [무료 평가판을 등록][]할 수 있습니다.
 >
-> Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가][]로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
+> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가][]로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
 ## Java 응용 프로그램 옵션
 
@@ -176,4 +176,4 @@ Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 
 
 [앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

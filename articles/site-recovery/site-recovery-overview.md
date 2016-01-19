@@ -34,8 +34,8 @@
 
 **복제** | **다음으로 복제** | **다음에 복제** | **문서**
 ---|---|---|---
-VMware 가상 컴퓨터 | 온-프레미스 VMware 서버 | Azure 저장소 | [배포](site-recovery-vmware-to-azure.md)
-실제 Windows/Linux Server | 온-프레미스 실제 서버 | Azure 저장소 | [배포](site-recovery-vmware-to-azure.md)
+VMware 가상 컴퓨터 | 온-프레미스 VMware 서버 | Azure 저장소 | [배포](site-recovery-vmware-to-azure-classic.md)
+실제 Windows/Linux Server | 온-프레미스 실제 서버 | Azure 저장소 | [배포](site-recovery-vmware-to-azure-classic.md)
 Hyper-V 가상 컴퓨터 | VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | Azure 저장소 | [배포](site-recovery-vmm-to-azure.md)
 Hyper-V 가상 컴퓨터 | 온-프레미스 Hyper-V 사이트 (하나 이상의 Hyper-V 호스트 서버) | Azure 저장소 | [배포](site-recovery-hyper-v-site-to-azure.md)
 온-프레미스 Hyper-V 가상 컴퓨터| VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | 보조 데이터 센터에서 VMM 클라우드의 온-프레미스 Hyper-V 호스트 서버 | [배포](site-recovery-vmm-to-vmm.md)
@@ -68,4 +68,4 @@ VMware 가상 컴퓨터 | 온-프레미스 VMware 서버 | VMware를 실행하�
 이 개요를 마친 후에 사이트 복구 아키텍처에 대해 [자세히 알아봅니다](site-recovery-components.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

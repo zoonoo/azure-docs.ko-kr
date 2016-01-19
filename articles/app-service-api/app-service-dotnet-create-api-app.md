@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 ASP.NET API 앱 만들기
@@ -56,4 +56,4 @@ API 앱의 사용자를 인증하는 방법에 대한 자세한 내용은 [Azure
 
 API 앱 기능에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->
