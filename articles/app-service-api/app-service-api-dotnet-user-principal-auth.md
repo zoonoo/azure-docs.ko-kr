@@ -190,7 +190,7 @@ API 요청을 통한 로깅 및 인증 토큰을 포함하기 위한 추가 코�
 		    //"https://localhost:44300/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
 		};
 
-9. 또한 *app.js*의 `adalProvider.init`에 대한 호출에서 "{your tenant url}" 및 "{your client id}"를 실제 값으로 바꿉니다.
+9. 또한 *app.js* 의 `adalProvider.init`에 대한 호출에서 "{your tenant url}" 및 "{your client id}"를 실제 값으로 바꿉니다.
 
 	코드는 다음 예제와 유사합니다.
 
@@ -205,7 +205,7 @@ API 요청을 통한 로깅 및 인증 토큰을 포함하기 위한 추가 코�
 		    $httpProvider
 		    );
 
-1. *app/scripts/contactsSvc.js* 파일의 경우 localhost에서 *app.js*에서 이전에 수행한 API 앱 URL로 동일한 끝점 URL을 변경합니다.
+1. *app/scripts/contactsSvc.js* 파일의 경우 localhost에서 *app.js* 에서 이전에 수행한 API 앱 URL로 동일한 끝점 URL을 변경합니다.
 
 	이제 코드는 다음 예제와 유사합니다.
 

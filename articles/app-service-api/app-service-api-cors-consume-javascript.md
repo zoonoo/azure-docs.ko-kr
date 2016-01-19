@@ -94,7 +94,7 @@ Java 또는 Node.JS 시작 자습서를 수행하는 경우 모든 API 앱에 �
 
 다음으로, 클라우드에서 AngularJS 프런트 엔드를 실행하고 클라우드에서 실행 중인 API 백 엔드를 호출합니다. 이때 코드에서 이전에 만든 Azure API 앱이 호출되도록 프런트 엔드를 Azure에 배포하기 전에 AngularJS 프로젝트에서 API 끝점을 변경해야 합니다.
 
-1. ContactsList.Angular 프로젝트에서 *index.html*을 엽니다.
+1. ContactsList.Angular 프로젝트에서 *index.html* 을 엽니다.
 
 2. `baseUrl`을 localhost URL로 설정하는 줄을 주석 처리하고 `baseUrl`을 azurewebsites.net URL로 설정하는 줄의 주석을 제거한 후 자리 표시자를 이전에 만든 API 앱의 실제 이름으로 바꿉니다. API 앱 이름을 ContactsListAPI로 지정하면 코드가 다음 예제와 같이 표시됩니다.
 

@@ -79,7 +79,7 @@ Visual Studio 2013 이상에서 검색 환경에 Microsoft Azure에서 클라우
 
 4. 다음으로, Azure 검색 .NET 클라이언트 라이브러리를 설치합니다. 검색을 올바르게 지정해야 합니다. 그러지 않으면 패키지를 쉽게 찾을 수 없습니다. **NuGet 패키지 관리**를 다시 마우스 오른쪽 단추로 클릭합니다.
 
-5. **온라인** > **nuget.org** > **시험판 포함**을 지정한 다음 *azure.search*를 검색합니다. **설치**를 클릭하여 라이브러리를 설치합니다.
+5. **온라인** > **nuget.org** > **시험판 포함**을 지정한 다음 *azure.search* 를 검색합니다. **설치**를 클릭하여 라이브러리를 설치합니다.
 
    ![][12]
 
@@ -98,7 +98,7 @@ Visual Studio 2013 이상에서 검색 환경에 Microsoft Azure에서 클라우
 
 각 프로젝트에는 서비스 이름 및 api-key를 지정하는 구성 파일이 포함되어 있습니다.
 
-1. **DataIndexer**에서 [SERVICE NAME] 및 [SERVICE KEY]를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다. 서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 **https://mysearchsrv.search.microsoft.net*인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv*입니다.
+1. **DataIndexer**에서 [SERVICE NAME] 및 [SERVICE KEY]를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다. 서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 *https://mysearchsrv.search.microsoft.net* 인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv* 입니다.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -533,7 +533,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 
 이 프로그램을 실행하려면 다음 세 가지를 수정해야 합니다.
 
-- 사용자 입력을 허용하는 데 사용되는 **HomeController.cs**를 바꿉니다. 이 예제에서는 *q*라는 변수에 검색 용어가 저장됩니다.
+- 사용자 입력을 허용하는 데 사용되는 **HomeController.cs**를 바꿉니다. 이 예제에서는 *q* 라는 변수에 검색 용어가 저장됩니다.
 
 - 검색 용어 입력을 제공하고 검색 결과를 표시하는 웹 페이지인 **index.cshtml**을 바꿉니다.
 
@@ -730,7 +730,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 
 USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되어 있습니다. 빈 검색 상자에서 **검색**을 클릭하면 기본적으로 상위 50개 항목을 가져옵니다.
 
-검색 용어를 입력하면 검색 범위를 좁힐 수 있는 검색 엔진 조건이 제공됩니다. 지역 이름을 입력해 봅니다. *Roger Williams*는 Rhode Island의 최초 주지사였습니다. 유명한 공원, 빌딩 및 학교가 그의 이름을 따라 이름을 지었습니다.
+검색 용어를 입력하면 검색 범위를 좁힐 수 있는 검색 엔진 조건이 제공됩니다. 지역 이름을 입력해 봅니다. *Roger Williams* 는 Rhode Island의 최초 주지사였습니다. 유명한 공원, 빌딩 및 학교가 그의 이름을 따라 이름을 지었습니다.
 
 ![][9]
 

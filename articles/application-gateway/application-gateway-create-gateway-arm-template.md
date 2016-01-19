@@ -253,7 +253,7 @@ Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을
 
 ### 2단계
 
-**Deploy to Azure**를 클릭합니다.
+"Azure에 배포"를 클릭합니다.
 
 ![Azure에 배포](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
