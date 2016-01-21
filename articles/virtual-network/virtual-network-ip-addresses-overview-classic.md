@@ -132,7 +132,12 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 
 아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. [지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 비즈니스에 따라 최대 한도까지 기본 제한을 증가시킬 수 있습니다
 
-|| 기본 제한| 최대 제한| |---|---|---| | 공용 IP 주소 (동적) |5| 지원에 문의 | | 예약된 공용 IP 주소|20| 지원에 문의 | | 배포 당 공용 VIP(클라우드 서비스) |5| 지원에 문의 | | 배포 당 개인 VIP(ILB)(클라우드 서비스) |1|1|
+|| 기본 제한| 최대 제한|
+|---|---|---|
+| 공용 IP 주소 (동적) |5| 지원에 문의 |
+| 예약된 공용 IP 주소|20| 지원에 문의 |
+| 배포 당 공용 VIP(클라우드 서비스) |5| 지원에 문의 |
+| 배포 당 개인 VIP(ILB)(클라우드 서비스) |1|1|
 
 Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits) 전체 집합을 읽도록 합니다.
 
@@ -143,7 +148,16 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 ## 리소스 관리자와 클래식 배포 간 차이점
 아래는 리소스 관리자와 클래식 배포 모델의 IP 주소 기능을 비교한 것입니다.
 
-|| 리소스|클래식|리소스 관리자| |---|---|---|---| |**공용 IP 주소**| VM|ILPIP라고 함(동적에만 해당)|공용 IP 라고 함(동적 또는 정적)| |||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 연결됨| ||인터넷 연결 부하 분산 장치| VIP(동적) 또는 예약된 IP(정적)라고 함|공용 IP라고 함(동적 또는 정적)| |||클라우드 서비스에 할당됨|부하 분산 장치의 프런트 엔드 구성에 연결됨| |||| |**개인 IP 주소**|VM|DIP라고 함|개인 IP 주소라고 함| |||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 할당됨| ||내부 부하 분산 장치(ILB)|ILB에 할당됨(동적 또는 정적)| ILB의 프런트 엔드 구성에 할당됨(동적 또는 정적)|
+|| 리소스|클래식|리소스 관리자|
+|---|---|---|---|
+|**공용 IP 주소**| VM|ILPIP라고 함(동적에만 해당)|공용 IP 라고 함(동적 또는 정적)|
+|||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 연결됨|
+||인터넷 연결 부하 분산 장치| VIP(동적) 또는 예약된 IP(정적)라고 함|공용 IP라고 함(동적 또는 정적)|
+|||클라우드 서비스에 할당됨|부하 분산 장치의 프런트 엔드 구성에 연결됨|
+||||
+|**개인 IP 주소**|VM|DIP라고 함|개인 IP 주소라고 함|
+|||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 할당됨|
+||내부 부하 분산 장치(ILB)|ILB에 할당됨(동적 또는 정적)| ILB의 프런트 엔드 구성에 할당됨(동적 또는 정적)|
 
 ## 다음 단계
 - [정적 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-classic-ps.md)
@@ -153,4 +167,4 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 - [PowerShell을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-gateway.md)
 - [PowerShell을 사용하여 내부 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->
