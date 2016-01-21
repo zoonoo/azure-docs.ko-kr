@@ -232,6 +232,8 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 응용 프로그램 성능을 테스트하는 것이 좋습니다.
 
 ## 다음 단계  
-[Java용 Azure 저장소 클라이언트 라이브러리 Maven 패키지](<fix URL>) 다운로드 [GitHub의 Java용 Azure 저장소 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-java) 다운로드 Azure 키 자격 증명 모음 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문
+[Java용 Azure 저장소 클라이언트 라이브러리 Maven 패키지](<fix URL>) 다운로드
+[GitHub의 Java용 Azure 저장소 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-java) 다운로드
+Azure 키 자격 증명 모음 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->
