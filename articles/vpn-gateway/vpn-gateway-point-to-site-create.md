@@ -118,7 +118,7 @@ X.509 인증서를 만드는 한 가지 방법은 인증서 작성 도구(makece
 2. 클라이언트 인증서 파일을 저장하려는 위치로 디렉터리를 변경합니다. *RootCertificateName*은 생성된 자체 서명된 루트 인증서를 말합니다. RootCertificateName을 루트 인증서 이름으로 변경하여 다음 예제를 실행하면 결과는 개인 인증서 저장소의 "ClientCertificateName"이라는 클라이언트 인증서입니다.
 3. 다음 명령을 입력합니다.
 
-    makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
+		makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
 
 4. 모든 인증서는 컴퓨터의 개인 인증서 저장소에 저장됩니다. *certmgr* 를 선택하여 확인합니다. 이 절차를 기반으로 필요에 따라 많은 수의 클라이언트 인증서를 생성할 수 있습니다. 가상 네트워크에 연결 하려는 각 컴퓨터에 대해 고유한 클라이언트 인증서를 만드는 것이 좋습니다.
 
@@ -197,4 +197,4 @@ VPN 클라이언트를 구성하려면 다음을 순서 대로 수행합니다.
 
 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 설명서](https://azure.microsoft.com/documentation/services/virtual-network/) 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
