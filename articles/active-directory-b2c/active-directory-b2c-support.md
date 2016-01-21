@@ -30,6 +30,7 @@
 
     ![지원 - 디렉터리 전환](./media/active-directory-b2c-support/support-switch-dir.png)
 
+    
 3. 디렉터리를 전환한 후에 **도움말 + 지원**을 클릭합니다.
 
     ![지원 - 지원](./media/active-directory-b2c-support/support-support.png)
