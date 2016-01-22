@@ -57,7 +57,8 @@
 
 암호화 하는 동안 클라이언트 라이브러리는 임의 IV (Initialization Vector) 32 바이트의 임의의 콘텐츠 암호화 키 (CEK)와 함께 16 바이트를 생성 하고 이 정보를 사용 여 blob 데이터의 봉투 (envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터 서비스에서 암호화 된 blob과 함께 메타 데이터를 blob으로 저장합니다.
 
->**경고:** blob에 대해 고유 메타데이터를 편집하거나 업로드 할 경우, 메타데이터가 유지되는지 확인하세요. 이 메타 데이터 없이 새 메타 데이터를 업로드 하는 경우에는 래핑된 CEK, IV 및 기타 메타 데이터가 손실 되고 blob 콘텐츠를 절대로 다시 검색할 수 없습니다.
+>**경고:**  
+>blob에 대해 고유 메타데이터를 편집하거나 업로드 할 경우, 메타데이터가 유지되는지 확인하세요. 이 메타 데이터 없이 새 메타 데이터를 업로드 하는 경우에는 래핑된 CEK, IV 및 기타 메타 데이터가 손실 되고 blob 콘텐츠를 절대로 다시 검색할 수 없습니다.
 
 암호화 BLOB 다운로드는 **download*/openInputStream** 편리한 메서드를 사용한 전체 BLOB의 콘텐츠 검색을 포함합니다. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
 
@@ -77,7 +78,8 @@
 ### 테이블  
 클라이언트 라이브러리는 작업 삽입 및 삭제의 엔터티 속성 암호화를 지원합니다.
 
->**참고:** 병합은 현재 지원 되지 않습니다. 속성의 하위 집합은 이전에 다른 키를 사용하여 암호화됐을 가능성이 있기 때문에 단순히 새로운 속성을 병합하는 것과 메타데이터를 업데이트 하는 것은 데이터 손실을 불러 올 수 있습니다. 서비스에서 기존 엔터티를 읽을 수 있는 추가 서비스 호출을 수행 하거나 속성 당 새 키를 사용하는 것 모두에 성능상의 이유로 적합하지 않습니다.
+>**참고:**  
+>병합은 현재 지원 되지 않습니다. 속성의 하위 집합은 이전에 다른 키를 사용하여 암호화됐을 가능성이 있기 때문에 단순히 새로운 속성을 병합하는 것과 메타데이터를 업데이트 하는 것은 데이터 손실을 불러 올 수 있습니다. 서비스에서 기존 엔터티를 읽을 수 있는 추가 서비스 호출을 수행 하거나 속성 당 새 키를 사용하는 것 모두에 성능상의 이유로 적합하지 않습니다.
 
 테이블 데이터 암호화는 다음과 같이 작동합니다.
 
@@ -105,7 +107,8 @@ Azure 키 자격 증명 모음은 클라우드 응용 프로그램 및 서비스
 저장소 클라이언트 라이브러리는 Azure 내에서 키를 관리 하기 위한 공통 프레임 워크를 제공 하기 위해 키 자격 증명 모음 핵심 라이브러리를 사용 합니다. 사용자는 또한 키 자격 증명 모음 확장 라이브러리를 사용하여 추가적인 이점을 제공을 받습니다. 이 확장 라이브러리는 간단하고 원활한 대칭/RSA 로컬 및 집계와 캐싱같은 클라우드 키 공급자 관련 유용한 기능을 제공합니다. .
 
 ### 인터페이스 및 종속성  
-세 가지 키 자격 증명 모음 패키지가 있습니다. - azure-keyvault-core는 IKey 및 IKeyResolver를 포함하고 있습니다. 어떤 부속품도 없는 작은 패키지입니다. Java용 저장소 클라이언트 라이브러리는 이를 종속성으로 정의합니다.
+세 가지 키 자격 증명 모음 패키지가 있습니다.  
+- azure-keyvault-core는 IKey 및 IKeyResolver를 포함하고 있습니다. 어떤 부속품도 없는 작은 패키지입니다. Java용 저장소 클라이언트 라이브러리는 이를 종속성으로 정의합니다.  
 
 - azure-keyvault는 키 자격 증명 모음 REST 클라이언트를 포함하고 있습니다.  
 
@@ -133,7 +136,11 @@ Azure 키 자격 증명 모음은 클라우드 응용 프로그램 및 서비스
 >- 암호화된 데이터에만 작동해야 하는 사용자의 기본 요청 옵션에는 **requireEncryption** 플래그를 사용하도록 설정합니다. 자세한 내용은 다음을 참조하세요.
 
 ## 클라이언트 API / 인터페이스  
-EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구현), 확인자만 키를 공급 (IKeyResolver 구현) 또는 둘 모두 키를 공급. IKey 래핑/래핑 해제에 대한 논리를 제공하고 키 식별자를 사용하여 식별 되는 기본 키 유형입니다. IKeyResolver 키는 암호 해독 프로세스에서 키를 해독하기 위해 사용됩니다. 키 식별자가 제공하는 IKey를 반환하는 ResolveKey 메서드를 정의 합니다. 이를 통해 사용자에게 복수 위치에서 관리되는 복수 키 사이에서 선택하는 기능을 제공합니다. - 암호화의 경우, 키는 언제나 사용되며 키가 없으면 오류가 발생합니다. - 암호 해독의 경우: - 키 확인 프로그램은 키를 가져오도록 지정되면 호출됩니다. 확인 프로그램을 지정했지만 키 식별자에 대한 매핑이 없으면 오류가 발생합니다. - 확인 프로그램을 지정하지 않았지만 키를 지정한 경우 키의 식별자가 피수 키 식별자와 일치하면 해당 키가 사용됩니다. 식별자가 일치하지 않으면 오류가 throw됩니다.
+EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구현), 확인자만 키를 공급 (IKeyResolver 구현) 또는 둘 모두 키를 공급. IKey 래핑/래핑 해제에 대한 논리를 제공하고 키 식별자를 사용하여 식별 되는 기본 키 유형입니다. IKeyResolver 키는 암호 해독 프로세스에서 키를 해독하기 위해 사용됩니다. 키 식별자가 제공하는 IKey를 반환하는 ResolveKey 메서드를 정의 합니다. 이를 통해 사용자에게 복수 위치에서 관리되는 복수 키 사이에서 선택하는 기능을 제공합니다.   
+- 암호화의 경우, 키는 언제나 사용되며 키가 없으면 오류가 발생합니다.   
+- 암호 해독의 경우:   
+	- 키 확인 프로그램은 키를 가져오도록 지정되면 호출됩니다. 확인 프로그램을 지정했지만 키 식별자에 대한 매핑이 없으면 오류가 발생합니다.   
+	- 확인 프로그램을 지정하지 않았지만 키를 지정한 경우 키의 식별자가 피수 키 식별자와 일치하면 해당 키가 사용됩니다. 식별자가 일치하지 않으면 오류가 throw됩니다.
 
 	  The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
@@ -232,8 +239,8 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 응용 프로그램 성능을 테스트하는 것이 좋습니다.
 
 ## 다음 단계  
-[Java용 Azure 저장소 클라이언트 라이브러리 Maven 패키지](<fix URL>) 다운로드
-[GitHub의 Java용 Azure 저장소 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-java) 다운로드
-Azure 키 자격 증명 모음 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문
+[Java용 Azure 저장소 클라이언트 라이브러리 Maven 패키지](<fix URL>) 다운로드  
+[GitHub의 Java용 Azure 저장소 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-java) 다운로드   
+Azure 키 자격 증명 모음 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문  
 
 <!----HONumber=AcomDC_0107_2016-->
