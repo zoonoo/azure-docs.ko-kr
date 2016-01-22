@@ -244,6 +244,3 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 Azure 키 자격 증명 모음 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문  
 
 <!----HONumber=AcomDC_0107_2016-->
-
-
-
