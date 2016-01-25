@@ -1,6 +1,6 @@
 <properties
 	pageTitle="가상 컴퓨터 규모 집합의 크기를 자동으로 조정 | Microsoft Azure"
-	description="첫 번째 Azure 가상 컴퓨터 규모 집합 생성 및 관리 시작하기"
+	description="Azure PowerShell을 사용하여 첫 번째 Azure 가상 컴퓨터 규모 집합 생성 및 관리 시작하기"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,41 +14,47 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/05/2016"
 	ms.author="davidmu"/>
 
 # 가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
+> [AZURE.SELECTOR]
+- [Azure CLI](virtual-machines-vmss-walkthrough-cli.md)
+- [Azure PowerShell](virtual-machines-vmss-walkthrough.md)
+
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 가상 컴퓨터 규모 집합은 동일한 가상 컴퓨터를 집합으로 쉽게 배포하고 관리할 수 있습니다. 규모 집합은 대규모 응용 프로그램에 대한 높은 확장성과 사용자 지정 가능한 계산 계층을 제공하고 Windows 플랫폼 이미지, Linux 플랫폼 이미지, 사용자 지정 이미지 및 확장을 지원합니다. 규모 집합에 대한 자세한 내용은 [가상 컴퓨터 규모 집합](virtual-machines-vmss-overview.md)을 참조하세요.
 
 이 자습서에서는 Windows 가상 컴퓨터의 가상 컴퓨터 규모 집합을 만들고 집합에서 컴퓨터를 자동으로 규모 조정하는 방법을 보여 줍니다. Azure 리소스 관리자 템플릿을 작성하고 Azure PowerShell을 사용하여 배포하여 이 작업을 수행합니다. 템플릿에 대한 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요.
 
-이 자습서에서 작성하는 템플릿은 템플릿 갤러리에서 찾을 수 있는 템플릿과 유사합니다. 자세한 내용은 [Windows VM 및 Jumpbox로 간단한 VM 규모 집합 배포](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview)를 참조하세요.
+이 자습서에서 작성하는 템플릿은 템플릿 갤러리에서 찾을 수 있는 템플릿과 유사합니다. 자세한 내용은 [Windows VM 및 Jumpbox로 간단한 VM 규모 집합 배포](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/)를 참조하세요.
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+[AZURE.INCLUDE [virtual-machines-vmss-preview-ps](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
 ## 1단계: 리소스 그룹 및 저장소 계정 만들기
 
-1.	**Microsoft Azure에 로그인합니다**. Microsoft Azure PowerShell 창을 열고 **로그인-AzureRmAccount**를 실행합니다.
+1. **Microsoft Azure에 로그인합니다**. Microsoft Azure PowerShell 창을 열고 **로그인-AzureRmAccount**를 실행합니다.
 
-2.	**리소스 그룹 만들기** – 모든 리소스는 리소스 그룹에 배포되어야 합니다. 이 자습서의 경우 리소스 그룹의 이름을 **vmss-test1**로 지정합니다. [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)을 참조하세요.
+2. **리소스 그룹 만들기** – 모든 리소스는 리소스 그룹에 배포되어야 합니다. 이 자습서의 경우 리소스 그룹의 이름을 **vmsstestrg1**로 지정합니다. [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)을 참조하세요.
 
-3.	**새 리소스 그룹에 저장소 계정 배포** – 이 자습서에서는 여러 저장소 계정을 사용하여 가상 컴퓨터 규모 집합을 용이하게 합니다. [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx)를 사용하여 **vmssstore1**이라는 저장소 계정을 만듭니다. 이 자습서의 뒷부분 단계를 위해 Azure PowerShell 창을 열어 둡니다.
+3. **새 리소스 그룹에 저장소 계정 배포** – 이 자습서에서는 여러 저장소 계정을 사용하여 가상 컴퓨터 규모 집합을 용이하게 합니다. [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx)를 사용하여 **vmsstestsa**라는 저장소 계정을 만듭니다. 이 자습서의 뒷부분 단계를 위해 Azure PowerShell 창을 열어 둡니다.
 
 ## 2단계: 템플릿 만들기
 Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 매개 변수에 대한 JSON 설명을 사용하여 Azure 리소스를 함께 배포하고 관리할 수 있습니다.
 
-1.	원하는 텍스트 편집기에서 C:\\VMSSTemplate.json 파일을 만들고 템플릿을 지원하도록 초기 JSON 구조를 추가합니다.
+1. 원하는 텍스트 편집기에서 C:\\VMSSTemplate.json 파일을 만들고 템플릿을 지원하도록 초기 JSON 구조를 추가합니다.
 
 	```
-{
+	{
 		"$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
-   "contentVersion": "1.0.0.0",
- "parameters": {
+		"contentVersion": "1.0.0.0",
+		"parameters": {
 		}
 		"variables": {
 		}
@@ -57,7 +63,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	}
 	```
 
-2.	매개 변수는 항상 필요한 것은 아니지만 템플릿 관리를 용이하게 합니다. 템플릿 값을 지정하는 방법을 제공하고 값 형식, 기본값(필요한 경우) 및 매개 변수의 허용되는 값을 설명합니다.
+2. 매개 변수는 항상 필요한 것은 아니지만 템플릿 관리를 용이하게 합니다. 템플릿 값을 지정하는 방법을 제공하고 값 형식, 기본값(필요한 경우) 및 매개 변수의 허용되는 값을 설명합니다.
 
 	템플릿에 추가한 매개 변수 부모 요소 아래에 이러한 매개 변수를 추가합니다.
 
@@ -65,35 +71,31 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	- 템플릿이 저장된 저장소 계정의 이름입니다.
 	- 규모 집합에서 처음으로 만들기 위한 가상 컴퓨터의 인스턴스 수입니다.
 	- 가상 컴퓨터의 관리자 계정 이름 및 암호입니다.
-	- 규모 집합의 가상 컴퓨터에서 사용되는 저장소 계정의 이름에 대한 접두사입니다.
+	- 리소스 그룹에 만들어진 리소스의 접두사입니다.
 
 
 	```
 	"vmName": {
 		"type": "string"
-      },
+	},
 	"vmSSName": {
 		"type": "string"
-    },
-    "instanceCount": {
+	},
+	"instanceCount": {
 		"type": "string"
-      },
-    "adminUsername": {
+	},
+	"adminUsername": {
 		"type": "string"
-    },
-    "adminPassword": {
+	},
+	"adminPassword": {
 		"type": "securestring"
 	},
-	"storageAccountName": {
+	"resourcePrefix": {
 		"type": "string"
-	},
-	"vmssStoragePrefix": {
-		"type": "string"
-      }
+	}
 	```
 
-
-3.	템플릿에서 변수를 사용하여 자주 변경되는 값 또는 매개 변수 값의 조합에서 만들어야 하는 값을 지정할 수 있습니다.
+3. 템플릿에서 변수를 사용하여 자주 변경되는 값 또는 매개 변수 값의 조합에서 만들어야 하는 값을 지정할 수 있습니다.
 
 	템플릿에 추가한 변수 부모 요소 아래에 이러한 변수를 추가합니다.
 
@@ -106,15 +108,16 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	- 가상 컴퓨터에 설치되어 있는 진단 확장에 대한 설정입니다. 진단 확장에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용한 모니터링 및 진단으로 Windows 가상 컴퓨터 만들기(영문)](virtual-machines-extensions-diagnostics-windows-template.md)를 참조하세요.
 
 	```
+	"apiVersion": "2015-06-15"
 	"dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
 	"dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
 	"vmSize": "Standard_A0",
 	"imagePublisher": "MicrosoftWindowsServer",
 	"imageOffer": "WindowsServer",
 	"imageVersion": "2012-R2-Datacenter",
-    "addressPrefix": "10.0.0.0/16",
+	"addressPrefix": "10.0.0.0/16",
 	"subnetName": "Subnet",
-    "subnetPrefix": "10.0.0.0/24",
+	"subnetPrefix": "10.0.0.0/24",
 	"publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
 	"publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
 	"loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
@@ -128,8 +131,8 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	"nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName2'))]",
 	"frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
 	"storageAccountType": "Standard_LRS",
-	"storageAccountPrefix": [ "a", "g", "m", "s", "y" ],
-	"diagnosticsStorageAccountName": "[concat('a', parameters('vmssStorageSuffix'))]",
+	"storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
+	"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
 	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
 	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
 	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="ko-KR"/></PerformanceCounterConfiguration>",
@@ -138,7 +141,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	"wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 	```
 
-4.	이 자습서에서는 다음 리소스 및 확장을 배포합니다.
+4. 이 자습서에서는 다음 리소스 및 확장을 배포합니다.
 
  - Microsoft.Storage/storageAccounts
  - Microsoft.Network/virtualNetworks
@@ -155,52 +158,52 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	템플릿에 추가된 리소스 부모 요소 아래에 저장소 계정 리소스를 추가합니다. 이 템플릿은 루프를 사용하여 운영 체제 디스크 및 진단 데이터가 저장되는 권장되는 5개의 저장소 계정을 만듭니다. 이 계정 집합은 현재 최대인 규모 집합에서 최대 100개의 가상 컴퓨터를 지원할 수 있습니다. 템플릿에 대한 매개 변수에서 제공하는 접미사와 결합된 변수에서 정의된 문자 지정자와 함께 각 저장소 계정 이름이 지정됩니다.
 
 	```
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-		"name": "[concat(variables('storagePrefix')[copyIndex()], parameters('vmssStorageSuffix'))]",
+	{
+		"type": "Microsoft.Storage/storageAccounts",
+		"name": "[concat(variables('resourcePrefix'), parameters('storageAccountSuffix')[copyIndex()])]",
 		"apiVersion": "2015-05-01-preview",
-      "copy": {
-        "name": "storageLoop",
-        "count": 5
-      },
+		"copy": {
+			"name": "storageLoop",
+			"count": 5
+		},
 		"location": "[resourceGroup().location]",
-      "properties": {
-        "accountType": "[variables('storageAccountType')]"
-      }
-    },
+		"properties": {
+			"accountType": "[variables('storageAccountType')]"
+		}
+	},
 	```
 
-5.	가상 네트워크 리소스를 추가합니다. 자세한 내용은 [네트워크 리소스 공급자](../virtual-network/resource-groups-networking.md)를 참조하세요.
-
-	```
-    {
-		"apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[variables('virtualNetworkName')]",
-		"location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[variables('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[variables('subnetName')]",
-            "properties": {
-              "addressPrefix": "[variables('subnetPrefix')]"
-            }
-          }
-        ]
-      }
-    },
-	```
-
-6.	부하 분산 장치 및 네트워크 인터페이스에서 사용되는 공용 IP 주소 리소스를 추가합니다.
+5. 가상 네트워크 리소스를 추가합니다. 자세한 내용은 [네트워크 리소스 공급자](../virtual-network/resource-groups-networking.md)를 참조하세요.
 
 	```
 	{
-		"apiVersion": "2015-06-15",
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/virtualNetworks",
+		"name": "[variables('virtualNetworkName')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"addressSpace": {
+				"addressPrefixes": [
+					"[variables('addressPrefix')]"
+				]
+			},
+			"subnets": [
+				{
+					"name": "[variables('subnetName')]",
+					"properties": {
+						"addressPrefix": "[variables('subnetPrefix')]"
+					}
+				}
+			]
+		}
+	},
+	```
+
+6. 부하 분산 장치 및 네트워크 인터페이스에서 사용되는 공용 IP 주소 리소스를 추가합니다.
+
+	```
+	{
+		"apiVersion": "[variables('apiVersion')]",
 		"type": "Microsoft.Network/publicIPAddresses",
 		"name": "[variables('publicIP1')]",
 		"location": "[resourceGroup().location]",
@@ -212,7 +215,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 		}
 	},
 	{
-		"apiVersion": "2015-06-15",
+		"apiVersion": "[variables('apiVersion')]",
 		"type": "Microsoft.Network/publicIPAddresses",
 		"name": "[variables('publicIP2')]",
 		"location": "[resourceGroup().location]",
@@ -225,11 +228,11 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	},
 	```
 
-7.	규모 집합에서 사용되는 부하 분산 장치 리소스를 추가합니다. 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](../load-balancer/oad-balancer-arm.md)을 참조하세요.
+7. 규모 집합에서 사용되는 부하 분산 장치 리소스를 추가합니다. 자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](../load-balancer/load-balancer-arm.md)을 참조하세요.
 
 	```
-    {
-		"apiVersion": "2015-06-15",
+	{
+		"apiVersion": "[variables('apiVersion')]",
 		"name": "[variables('loadBalancerName')]",
 		"type": "Microsoft.Network/loadBalancers",
 		"location": "[resourceGroup().location]",
@@ -270,7 +273,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	},
 	```
 
-8.	Jumpbox 가상 컴퓨터에서 사용되는 네트워크 인터페이스 리소스를 추가합니다.
+8. Jumpbox 가상 컴퓨터에서 사용되는 네트워크 인터페이스 리소스를 추가합니다. 가상 컴퓨터 규모 집합의 컴퓨터는 공용 IP 주소를 사용하여 직접 액세스할 수 없으므로 jumpbox 가상 컴퓨터는 규모 집합으로 동일한 가상 네트워크에 만들어지고 집합의 컴퓨터에 원격으로 액세스하는 데 사용됩니다.
 
 
 	```
@@ -303,7 +306,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	```
 
 
-9.	규모 집합과 동일한 네트워크에 가상 컴퓨터 리소스를 추가합니다. 가상 컴퓨터 규모 집합의 컴퓨터는 공용 IP 주소를 사용하여 직접 액세스할 수 없으므로 jumpbox 가상 컴퓨터는 규모 집합으로 동일한 가상 네트워크에 만들어지고 집합의 컴퓨터에 원격으로 액세스하는 데 사용됩니다.
+9. 규모 집합과 동일한 네트워크에 가상 컴퓨터를 추가합니다.
 
 	```
 	{
@@ -331,9 +334,9 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 					"version": "latest"
 				},
 				"osDisk": {
-					"name": "davidmuos1",
+					"name": "osdisk1",
 					"vhd": {
-						"uri":  "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'os1.vhd')]"
+						"uri":  "[concat('https://',parameters('resourcePrefix'),'saa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
 					},
 					"caching": "ReadWrite",
 					"createOption": "FromImage"        
@@ -350,7 +353,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	},
 	```
 
-10.	가상 컴퓨터 규모 집합 리소스를 추가하고 규모 집합의 모든 가상 컴퓨터에 설치되어 있는 진단 확장을 지정합니다. 이 리소스에 대한 설정 중 대부분은 가상 컴퓨터 리소스와 유사합니다. 주요 차이점은 다음과 같습니다.
+10.	가상 컴퓨터 규모 집합을 추가하고 규모 집합의 모든 가상 컴퓨터에 설치되어 있는 진단 확장을 지정합니다. 이 리소스에 대한 설정 중 대부분은 가상 컴퓨터 리소스와 유사합니다. 주요 차이점은 다음과 같습니다.
 
 	- **용량** - 규모 집합에 초기화해야 할 가상 컴퓨터의 수를 지정합니다. instanceCount 매개 변수의 값을 지정하여 이 값을 설정합니다.
 
@@ -361,64 +364,60 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 	```
 	{
 		"type": "Microsoft.Compute/virtualMachineScaleSets",
-		"apiVersion": "2015-06-15",
+		"apiVersion": "[variables('apiVersion')]",
 		"name": "[parameters('vmSSName')]",
 		"location": "[resourceGroup().location]",
 		"dependsOn": [
-			"[concat('Microsoft.Storage/storageAccounts/a', parameters('vmssStorageSuffix'))]",
-			"[concat('Microsoft.Storage/storageAccounts/g', parameters('vmssStorageSuffix'))]",
-			"[concat('Microsoft.Storage/storageAccounts/m', parameters('vmssStorageSuffix'))]",
-			"[concat('Microsoft.Storage/storageAccounts/s', parameters('vmssStorageSuffix'))]",
-			"[concat('Microsoft.Storage/storageAccounts/y', parameters('vmssStorageSuffix'))]",
+			"storageLoop",
 			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
 			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
-      ],
-      "sku": {
-        "name": "[variables('vmSize')]",
-        "tier": "Standard",
-        "capacity": "[parameters('instanceCount')]"
-      },
-      "properties": {
-         "upgradePolicy": {
-         "mode": "Manual"
-        },
-        "virtualMachineProfile": {
-          "storageProfile": {
-            "osDisk": {
-              "vhdContainers": [
-							"[concat('https://a', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
-							"[concat('https://g', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
-							"[concat('https://m', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
-							"[concat('https://s', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
-							"[concat('https://y', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]"
-              ],
+		],
+		"sku": {
+			"name": "[variables('vmSize')]",
+			"tier": "Standard",
+			"capacity": "[parameters('instanceCount')]"
+		},
+		"properties": {
+			"upgradePolicy": {
+				"mode": "Manual"
+			},
+			"virtualMachineProfile": {
+				"storageProfile": {
+					"osDisk": {
+						"vhdContainers": [
+							"[concat('https://', parameters('resourcePrefix'), 'saa.blob.core.windows.net/vmss')]",
+							"[concat('https://', parameters('resourcePrefix'), 'sag.blob.core.windows.net/vmss')]",
+							"[concat('https://', parameters('resourcePrefix'), 'sam.blob.core.windows.net/vmss')]",
+							"[concat('https://', parameters('resourcePrefix'), 'sas.blob.core.windows.net/vmss')]",
+							"[concat('https://', parameters('resourcePrefix'), 'say.blob.core.windows.net/vmss')]"
+						],
 						"name": "vmssosdisk",
-              "caching": "ReadOnly",
-              "createOption": "FromImage"
-            },
+						"caching": "ReadOnly",
+						"createOption": "FromImage"
+					},
 					"imageReference": {
 						"publisher": "[variables('imagePublisher')]",
 						"offer": "[variables('imageOffer')]",
 						"sku": "[variables('imageVersion')]",
 						"version": "latest"
 					}
-          },
-          "osProfile": {
-            "computerNamePrefix": "[parameters('vmSSName')]",
-            "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPassword')]"
-          },
-          "networkProfile": {
-            "networkInterfaceConfigurations": [
-              {
+				},
+				"osProfile": {
+					"computerNamePrefix": "[parameters('vmSSName')]",
+					"adminUsername": "[parameters('adminUsername')]",
+					"adminPassword": "[parameters('adminPassword')]"
+				},
+				"networkProfile": {
+					"networkInterfaceConfigurations": [
+						{
 							"name": "[variables('nicName2')]",
-                "properties": {
-                  "primary": "true",
-                  "ipConfigurations": [
-                    {
+							"properties": {
+								"primary": "true",
+								"ipConfigurations": [
+									{
 										"name": "ip1",
-                      "properties": {
-                        "subnet": {
+										"properties": {
+											"subnet": {
 												"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
 											},
 											"loadBalancerBackendAddressPools": [
@@ -432,11 +431,11 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 												}
 											]
 										}
-                        }
+									}
 								]
-                      }
-                    }
-                  ]
+							}
+						}
+					]
 				},
 				"extensionProfile": {
 					"extensions": [
@@ -453,15 +452,15 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 								},
 								"protectedSettings": {
 									"storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-									"storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+									"storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
 									"storageAccountEndPoint": "https://core.windows.net"
 								}
-                }
-              }
-            ]
+							}
+						}
+					]
 				}
 			}
-          }
+		}
 	},
 	```
 
@@ -536,7 +535,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 
 1.	Microsoft Azure PowerShell 창에서 1단계에서 배포한 저장소 계정의 이름을 지정하는 변수를 설정합니다.
 
-		$StorageAccountName = "vmssstore1"
+		$StorageAccountName = "vmstestsa"
 
 2.	저장소 계정의 기본 키를 지정하는 변수를 설정합니다.
 
@@ -563,47 +562,46 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 
 템플릿을 만들었으므로 리소스 배포를 시작할 수 있습니다. 이 명령을 사용하여 프로세스를 시작합니다.
 
-		New-AzureRmResourceGroupDeployment -Name "vmss-testdeployment1" -ResourceGroupName "vmss-test1" -TemplateUri "https://vmssstore1.blob.core.windows.net/templates/VMSSTemplate.json"
+		New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 Enter 키를 누르면 지정한 변수에 대한 값을 제공하라는 메시지가 표시됩니다. 다음 값을 제공합니다.
 
-	vmName: vmssvm1
+	vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
-	adminPassword: vmadminpass1
-	storageAccountName: vmssstore1
+	adminPassword: VMpass1
 	resourcePrefix: vmsstest
 
 모든 리소스가 성공적으로 배포되는 데 15분 정도가 소요됩니다.
 
 >[AZURE.NOTE]포털의 기능을 사용하여 리소스를 배포할 수도 있습니다. 이렇게 하려면 이 링크를 사용합니다. https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 
-## 4단계: 리소스 모니터링
+## 5단계: 리소스 모니터링
 
 이러한 메서드를 사용하여 가상 컴퓨터 규모 집합에 대한 정보를 얻을 수 있습니다.
 
  - Azure 포털 - 포털을 사용하여 현재 제한된 양의 정보를 얻을 수 있습니다.
  - [Azure 리소스 탐색기](https://resources.azure.com/) - 규모 집합의 현재 상태를 탐색할 수 있는 최상의 도구입니다. 이 경로를 따르고 사용자가 만든 규모 집합의 인스턴스 보기가 표시되어야 합니다.
 
-		subscriptions > {your subscription} > resourceGroups > vmss-test1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell - 이 명령을 사용하여 몇 가지 정보를 가져옵니다.
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmss-test1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
 
  - 다른 컴퓨터와 마찬가지로 jumpbox 가상 컴퓨터에 연결한 다음 개별 프로세스를 모니터링하도록 규모 집합의 가상 컴퓨터에 원격으로 액세스할 수 있습니다.
 
 >[AZURE.NOTE]규모 집합에 대한 정보를 얻기 위해 전체 REST API를 [가상 컴퓨터 크기 규모 집합](https://msdn.microsoft.com/library/mt589023.aspx)에서 찾을 수 있습니다.
 
-## 5단계: 리소스 제거
+## 6단계: 리소스 제거
 
 Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, 더 이상 필요하지 않은 리소스를 항상 삭제하는 것이 좋습니다. 리소스 그룹에서 각 리소스를 개별적으로 삭제할 필요가 없습니다. 리소스 그룹을 삭제하면 모든 해당 리소스가 자동으로 삭제됩니다.
 
-	Remove-AzureRmResourceGroup -Name vmss-test1
+	Remove-AzureRmResourceGroup -Name vmsstestrg1
 
 리소스 그룹을 유지하려는 경우 규모 집합만을 삭제할 수 있습니다.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

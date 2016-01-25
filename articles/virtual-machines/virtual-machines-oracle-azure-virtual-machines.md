@@ -3,7 +3,7 @@
 	description="Windows 기반 또는 Linux 기반 Azure 가상 컴퓨터에 Oracle 소프트웨어를 설치하는 방법을 설명하는 문서를 찾습니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="bbenz"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/05/2015"
-	ms.author="josephd"/>
+	ms.date="01/12/2016"
+	ms.author="bbenz"/>
 
 # Azure 가상 컴퓨터에 호스트된 Oracle 소프트웨어
 
@@ -56,4 +56,4 @@ Windows 서버 기반 Azure 가상 컴퓨터의 Oracle 소프트웨어에 대한
 
 [Azure용 Oracle GoldenGate 구성](virtual-machines-configuring-oracle-goldengate.md)은 데이터베이스 및 복제를 설정하는 과정을 단계별로 안내합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 루프
 SQL 데이터 웨어하우스는 문 블록을 반복 실행하기 위한 [WHILE][] 루프를 지원합니다. 이 루프는 지정한 조건이 true이거나 코드가 `BREAK` 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 루프는 SQL 코드에 정의된 커서를 대체하는 데 특히 유용합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 [WHILE] 루프는 무언가를 대체해야 하는 경우 좋은 대안입니다.
@@ -82,4 +82,4 @@ DROP TABLE #tbl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

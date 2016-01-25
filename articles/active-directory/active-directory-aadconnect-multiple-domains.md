@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 #복수 도메인 지원
 
-여러분 중 많은 분들이 페더레이션이 포함된 여러 최상위 Office 365 또는 Azure AD 도메인 및 하위 도메인을 구성할 수 있는 방법을 요청했습니다. 백그라운드에서 수행되는 작업들로 인해 대부분 매우 간단한 방법으로 작업이 수행되는 동안 다음과 같은 문제를 방지하기 위해 알아야 할 몇 가지 팁과 요령이 있습니다.
+많은 사용자가 페더레이션이 포함된 여러 최상위 Office 365 또는 Azure AD 도메인 및 하위 도메인을 구성할 수 있는 방법을 요청했습니다. 백그라운드에서 수행되는 작업들로 인해 대부분 매우 간단한 방법으로 작업이 수행되는 동안 다음과 같은 문제를 방지하기 위해 알아야 할 몇 가지 팁과 요령이 있습니다.
 
 - 페더레이션에 대한 추가 도메인 구성을 시도하는 동안 나타나는 오류 메시지
 - 페더레이션을 위해 여러 최상위 도메인을 구성한 후 하위 도메인의 사용자가 로그인할 수 없는 경우
@@ -26,7 +26,7 @@
 ## 여러 최상위 도메인
 fabrikam.com이라는 추가 도메인을 필요로 하는 예제 조직 contoso.com의 설정을 안내합니다.
 
-내 온-프레미스 시스템에서 AD FS가 fs.jenfield.com이라는 페더레이션 서비스로 구성된 경우를 가정해 봅니다.
+내 온-프레미스 시스템에서 AD FS가 fs.contoso100.com이라는 페더레이션 서비스로 구성된 경우를 가정해 봅니다.
 
 처음으로 Office 365 또는 Azure AD에 등록하는 경우 내 첫 번째 로그온 도메인으로 contoso.com을 구성하도록 선택합니다. New-MsolFederatedDomain을 사용하여 Azure AD Connect 또는 Azure AD Powershell을 통해 이 작업을 수행할 수 있습니다.
 
@@ -34,8 +34,8 @@ fabrikam.com이라는 추가 도메인을 필요로 하는 예제 조직 contoso
 
 | 속성 이름 | 값 | 설명|
 | ----- | ----- | -----|
-|IssuerURI | http://fs.jenfield.com/adfs/services/trust| URL과 같이 표시되는 동안 이 속성은 실제로 온-프레미스 인증 시스템의 이름이므로 이 경로는 확인할 필요가 없습니다. 기본적으로 Azure AD는 이 값을 내 온-프레미스 AD FS 구성에서 페더레이션 서비스 식별자의 값으로 설정합니다.
-|PassiveClientSignInUrl|https://fs.jenfield.com/adfs/ls/|This은 수동 로그인 요청이 보내지는 위치이며 내 실제 AD FS 시스템으로 확인됩니다. 실제로 여러 가지 “*Url” 속성이 있지만 여기서는 이 속성과 IssuerURI와 같은 URI의 차이점을 설명하는 하나의 예를 살펴보기만 하면 됩니다.
+|IssuerURI | http://fs.contoso100.com/adfs/services/trust| URL과 같이 표시되는 동안 이 속성은 실제로 온-프레미스 인증 시스템의 이름이므로 이 경로는 확인할 필요가 없습니다. 기본적으로 Azure AD는 이 값을 내 온-프레미스 AD FS 구성에서 페더레이션 서비스 식별자의 값으로 설정합니다.
+|PassiveClientSignInUrl|https://fs.contoso100.com/adfs/ls/|This은 수동 로그인 요청이 보내지는 위치이며 내 실제 AD FS 시스템으로 확인됩니다. 실제로 여러 가지 “*Url” 속성이 있지만 여기서는 이 속성과 IssuerURI와 같은 URI의 차이점을 설명하는 하나의 예를 살펴보기만 하면 됩니다.
 
 이제 내 두 번째 도메인 fabrikam.com을 추가한다고 가정해 봅니다. Azure AD Connect 마법사를 다시 실행하거나 PowerShell을 통해 이 작업을 다시 수행할 수 있습니다.
 
@@ -51,9 +51,9 @@ Azure AD에서 다음 구성을 제공합니다.
 
 - DomainName: fabrikam.com
 - IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 
-IssuerURI가 내 도메인에 기반한 값으로 설정되므로 고유한 끝점 url 값은 원래 contoso.com 도메인의 경우와 마찬가지로 fs.jenfield.com의 내 페더레이션 서비스를 가리키도록 여전히 구성됩니다. 따라서 모든 도메인은 여전히 같은 AD FS 시스템을 가리킵니다.
+IssuerURI가 내 도메인을 기반으로 한 값으로 설정되므로 고유한 끝점 url 값은 원래 contoso.com 도메인의 경우와 마찬가지로 fs.contoso100.com의 내 페더레이션 서비스를 가리키도록 여전히 구성됩니다. 따라서 모든 도메인은 여전히 같은 AD FS 시스템을 가리킵니다.
 
 SupportMultipleDomain이 하는 다른 일은 AD FS 시스템이 Azure AD에 대해 발급된 토큰에서 적절한 발급자 값을 포함하는지 확인하는 것입니다. 사용자 upn의 도메인 부분을 가져오거나 issuerURI 즉, https://{upn suffix}/adfs/services/trust의 도메인으로 이를 설정하여 이 작업을 수행합니다. 따라서 Azure AD 또는 Office 365에 인증하는 동안 사용자 토큰의 발급자 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다. 일치하는 항목이 없는 경우 인증이 실패합니다.
 
@@ -75,10 +75,10 @@ PowerShell에서 SupportMultipleDomain 스위치를 수동으로 제공해야 �
 
 - DomainName: contoso.com
 - IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 - DomainName: fabrikam.com
 - IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 
 이제 contoso.com 및 fabrikam.com 도메인에서 사용자에 대한 페더레이션된 로그온이 작동됩니다. 남아 있는 단 하나의 문제는 하위 도메인의 사용자에 대한 로그온 문제입니다.
 
@@ -91,4 +91,4 @@ Azure AD는 발급자를 도메인의 필수 값이 일치하지 않아 인증�
 
 요약하면 같은 AD FS 서버에 연결된 모든 하위 도메인뿐만 아니라 서로 다른 이름을 가진 여러 도메인을 가질 수 있도록 발급자 값이 모든 사용자에 대해 올바르게 설정되어 있는지 확인하려면 몇 가지 추가 단계만 수행하면 됩니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

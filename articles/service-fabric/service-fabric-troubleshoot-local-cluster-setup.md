@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="01/08/2016"
    ms.author="seanmck"/>
 
 # 로컬 개발 클러스터 설정 문제 해결
 
-로컬 개발 클러스터와 상호 작용하는 동안 문제가 발생할 경우 다음 제안 사항에서 잠재적인 해결 방법이 있는지 검토하십시오.
+로컬 Azure 서비스 패브릭 개발 클러스터와 상호 작용하는 동안 문제가 발생할 경우 다음 제안 사항에서 잠재적인 해결 방법이 있는지 검토하세요.
 
 ## 클러스터 설정 오류
 
@@ -37,15 +37,25 @@ DevClusterSetup 스크립트를 실행하는 동안 다음과 같은 오류가 �
 
 #### 해결 방법
 
-현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 시작합니다. 이제 성공적으로 스크립트를 실행할 수 있어야 합니다.
+현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 엽니다. 이제 성공적으로 스크립트를 실행할 수 있어야 합니다.
 
 ## 클러스터 연결 오류
+
+### 서비스 패브릭 PowerShell cmdlet이 Azure PowerShell에서 인식되지 않습니다.
+
+#### 문제
+
+Azure PowerShell 창에서 `Connect-ServiceFabricCluster`와 같은 서비스 패브릭 PowerShell cmdlet을 실행하려고 하면 cmdlet이 인식되지 않는다는 메시지를 표시하면서 실행되지 않습니다. Azure PowerShell에서는 32비트 버전의 Windows PowerShell을 사용(64비트 OS 버전에서도 동일)하는 반면 서비스 패브릭 cmdlet은 64비트 환경에서만 작동하기 때문입니다.
+
+#### 해결 방법
+
+항상 서비스 패브릭 cmdlet을 Windows PowerShell에서 직접 실행합니다.
 
 ### 형식 초기화 예외
 
 #### 문제
 
-PowerShell 또는 서비스 패브릭 탐색기에서 클러스터에 연결할 때 System.Fabric.Common.AppTrace에 대해 TypeInitializationException이 표시됩니다.
+PowerShell에서 클러스터에 연결할 때 System.Fabric.Common.AppTrace에 대해 TypeInitializationException 오류가 표시됩니다.
 
 #### 해결 방법
 
@@ -66,13 +76,13 @@ PowerShell 또는 서비스 패브릭 탐색기에서 클러스터에 연결할 
 
 #### 해결 방법
 
-현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 시작합니다. 이제 성공적으로 연결할 수 있어야 합니다.
+현재 Powershell 창을 닫고 관리자 권한으로 새 Powershell 창을 엽니다. 이제 성공적으로 연결할 수 있어야 합니다.
 
-### FabricConnectionDeniedException
+### 패브릭 연결 거부 예외
 
 #### 문제
 
-Visual Studio로부터 디버깅 시 FabricConnectionDeniedException이 나타납니다.
+Visual Studio에서 디버그 시 FabricConnectionDeniedException 오류가 나타납니다.
 
 #### 해결 방법
 
@@ -84,6 +94,6 @@ Visual Studio로부터 디버깅 시 FabricConnectionDeniedException이 나타�
 ## 다음 단계
 
 - [시스템 상태 보고서와 함께 클러스터 이해 및 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [서비스 패브릭 탐색기로 클러스터 시각화하기](service-fabric-visualizing-your-cluster.md)
+- [서비스 패브릭 탐색기로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

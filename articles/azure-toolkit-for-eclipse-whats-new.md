@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Eclipse용 Azure 도구 키트의 새로운 기능"
-    description="Eclipse용 Azure 도구 키트의 최신 기능에 대해 알아봅니다."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Eclipse용 Azure 도구 키트의 새로운 기능"
+	description="Eclipse용 Azure 도구 키트의 최신 기능에 대해 알아봅니다."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -23,6 +23,14 @@
 ## Eclipse 릴리스용 Azure 도구 키트 ##
 
 이 문서는 다양한 릴리스 정보 및 Eclipse용 Azure 도구 키트에 대한 최신 업데이트를 포함합니다.
+
+### 2015년 1월 4일 ###
+
+Eclipse용 Azure 도구 키트 - 2016년 1월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
+
+* **Zulu OpenJDK 업데이트에 대한 지원**. 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지][]를 참조하세요.
+* **업데이트된 Tomcat 및 Jetty 배포판**. Eclipse용 Azure 도구 키트와 함께 사용할 Microsoft Azure에서 사용할 수 있는 Jetty 및 Tomcat 배포판이 업데이트되었습니다.
+* **Eclipse 및 IntelliJ Azure용 도구 키트 간 기능 패리티**입니다. 이제 Eclipse용 Azure 도구 키트 및 [IntelliJ용 Azure 도구 키트][]는 동일한 기능 집합을 지원합니다.
 
 ### 2015년 9월 1일 ###
 
@@ -96,19 +104,19 @@ Eclipse용 Azure 도구 키트 - 2014년 10월 릴리스에는 다음과 같은 
 
 Eclipse용 Azure 도구 키트 - 2014년 8월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
 
-* **Azure SDK 2.4에 대한 지원**. 이전 버전의 Eclipse 도구 키트는 새로 출시된 SDK와 함께 작동하지 않습니다.
-* **Zulu OpenJDK v1.6, 1.7 및 v1.8 패키지의 업데이트 버전**. 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지][]를 참조하세요.
+* **Azure SDK 2.4에 대한 지원.** 이전 버전의 Eclipse 도구 키트는 새로 출시된 SDK와 함께 작동하지 않습니다.
+* **Zulu OpenJDK v1.6, 1.7 및 v1.8 패키지의 업데이트 버전.** 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지][]를 참조하세요.
 * **Java 클라이언트 API 라이브러리용 Azure 라이브러리 패키지의 업데이트 된 버전.** 자세한 내용은 [Microsoft Azure 클라이언트 API][]를 참조하세요.
-* **최신 버전의 게시 설정 파일 형식에 대한 지원**. 게시 설정 파일 형식 버전 2.0에 대한 지원이 추가되었습니다.
-* **클라우드에 게시 기능의 아키텍처 변경**. 도구 키트는 이제 클라우드에 게시 지원을 위해 새로 출시된 Java용 Microsoft Azure 클라이언트 API를 사용합니다.
+* **최신 버전의 게시 설정 파일 형식에 대한 지원.** 게시 설정 파일 형식 버전 2.0에 대한 지원이 추가되었습니다.
+* **클라우드에 게시 기능의 아키텍처 변경.** 도구 키트는 이제 클라우드에 게시 지원을 위해 새로 출시된 Java용 Microsoft Azure 클라이언트 API를 사용합니다.
 * **버그 수정.** 이 릴리스는 다양한 사용자 요청 버그 수정을 포함합니다.
 
 ### 2014년 6월 12일 ###
 
 Eclipse용 Azure 도구 키트 - 2014년 6월 릴리스는 다음과 같은 향상된 기능을 제공하는 몇 가지 서비스 업데이트입니다.
 
-* **Zulu OpenJDK 패키지 v1.8에 대한 지원**. 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지][]를 참조하세요.
-* **Zulu OpenJDK v1.6 및 1.7 패키지의 업데이트 버전**. 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지][]를 참조하세요.
+* **Zulu OpenJDK 패키지 v1.8에 대한 지원.** 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지][]를 참조하세요.
+* **Zulu OpenJDK v1.6 및 1.7 패키지의 업데이트 버전.** 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지][]를 참조하세요.
 * **Java 클라이언트 API 라이브러리용 Azure 라이브러리 패키지의 업데이트 된 버전.** 자세한 내용은 [Microsoft Azure 클라이언트 API][]를 참조하세요.
 * **버그 수정.** 이 릴리스는 다양한 사용자 요청 버그 수정을 포함합니다.
 
@@ -116,8 +124,8 @@ Eclipse용 Azure 도구 키트 - 2014년 6월 릴리스는 다음과 같은 향�
 
 2014년 4월 - Eclipse용 Azure 플러그 인 릴리스가 출시되었습니다. 필수 구성 요소이며 플러그 인을 설치할 때 자동으로 다운로드되는 Azure SDK 2.3의 출시와 함께 제공되는 업데이트입니다. 이 업데이트는 2014년 2월 미리 보기 이후의 새 기능, 버그 수정 및 일부 피드백 기반 유용성 향상 기능을 포함합니다.
 
-* **Azure SDK 2.3 릴리스에 대한 지원**. 2014년 4월 - Eclipse용 Azure 플러그 인 릴리스는 Azure SDK 2.3이 필요합니다. Azure SDK 2.3이 아직 없는 경우 새 플러그 인을 사용할 때 설치를 허용하라는 메시지가 표시됩니다. 이전 버전의 플러그 인에는 Azure SDK 2.3을 사용하지 마십시오.
-* **전체 패키지 배포 없이 응용 프로그램 업그레이드**. 프로젝트의 일부인 Java 응용 프로그램을 배포할 때는 선택한 저장소 계정으로 플러그 인이 자동으로 업로드되므로 전체 패키지를 다시 작성하고 다시 배포할 필요 없이 최신 응용 프로그램 비트를 배포하도록 업데이트하고 역할 인스턴스를 재활용할 수 있습니다.
+* **Azure SDK 2.3 릴리스에 대한 지원.** 2014년 4월 - Eclipse용 Azure 플러그 인 릴리스는 Azure SDK 2.3이 필요합니다. Azure SDK 2.3이 아직 없는 경우 새 플러그 인을 사용할 때 설치를 허용하라는 메시지가 표시됩니다. 이전 버전의 플러그 인에는 Azure SDK 2.3을 사용하지 마십시오.
+* **전체 패키지 배포 없이 응용 프로그램 업그레이드.** 프로젝트의 일부인 Java 응용 프로그램을 배포할 때는 선택한 저장소 계정으로 플러그 인이 자동으로 업로드되므로 전체 패키지를 다시 작성하고 다시 배포할 필요 없이 최신 응용 프로그램 비트를 배포하도록 업데이트하고 역할 인스턴스를 재활용할 수 있습니다.
 * **Tomcat 8은 이제 인식된 응용 프로그램 서버입니다.** **Azure 배포 프로젝트** 대화 상자의 **서버** 탭에서 컴퓨터에서 Tomcat 8 설치 디렉터리를 선택하는 경우 플러그 인은 이제 이를 자동으로 감지하고 이미 목록에 있는 이전 버전의 Tomcat과 유사하게 자동으로 Tomcat 8을 배포할 수 있습니다.
 * **Azul Zulu OpenJDK 패키지 업데이트: v 1.7 업데이트 51 및 v1.6 업데이트 47.** 이 릴리스와 함께 효과적으로 Azul Systems의 Zulu Openjdk v7 패키지 업데이트 51을 사용할 수 있습니다. 또한 업데이트 47로 시작하는 Zulu Open JDK v6 패키지는 사용할 수 있습니다. 이전에 제공되었던 Zulu Openjdk v7 패키지 업데이트 45, 업데이트 40 및 업데이트 25 이외의 업데이트입니다.
 * **A8 및 A9 Microsoft Azure 가상 컴퓨터 크기에 대한 지원.** 이제 높은 메모리 A8 및 A9 가상 컴퓨터 크기에 클라우드 서비스를 배포할 수 있습니다. 이러한 VM 크기에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][]를 참조하세요.
@@ -144,7 +152,7 @@ Eclipse용 Azure 도구 키트 - 2014년 6월 릴리스는 다음과 같은 향�
 
 2013년 10월 - Eclipse용 Azure 플러그 인 미리 보기가 출시되었습니다. 이 업데이트는 2013년 9월 미리 보기 이후의 새 기능, 버그 수정 및 일부 피드백 기반 유용성 향상 기능을 포함합니다.
 
-* **Azure SDK 2.2 릴리스에 대한 지원**. 2013년 10월 - Eclipse용 Azure 플러그 인 미리 보기는 Azure SDK 2.2를 지원합니다. 플러그 인은 Azure SDK 2.1에서도 계속 작동하고 Azure SDK 2.1이 아직 설치되지 않은 경우 Azure SDK 2.2를 자동으로 설치합니다.
+* **Azure SDK 2.2 릴리스에 대한 지원.** 2013년 10월 - Eclipse용 Azure 플러그 인 미리 보기는 Azure SDK 2.2를 지원합니다. 플러그 인은 Azure SDK 2.1에서도 계속 작동하고 Azure SDK 2.1이 아직 설치되지 않은 경우 Azure SDK 2.2를 자동으로 설치합니다.
 * **Azul Zulu OpenJDK 패키지 업데이트 40.** 2013년 9월 미리 보기에 발표된 것처럼 이제 플러그 인을 통해 JDK를 직접 업로드하지 않아도 Azure에서 직접 타사 제공 JDK를 사용할 수 있습니다. 2013년 10월 릴리스에서 Azul Systems의 Zulu(Openjdk v7 패키지) 업데이트 40을 사용할 수 있습니다. 원래 게시된 업데이트 25 이외의 것입니다.
 * **활동 로그에 있는 클라우드 배포 링크.** Azure 활동 로그 내에서 배포가 **게시됨**의 상태에 있을 때 이제 배포에 대한 링크이므로 **게시됨**을 클릭할 수 있습니다. 그러면 배포가 브라우저에서 열립니다. (**게시됨**의 상태는 이전에 레이블이 지정된 **실행 중**입니다.)
 * **게시 시간에 사용 가능한 대상 OS 선택.** **Azure에 게시** 대화 상자는 대상 운영 체제를 설정하도록 보다 쉽게 검색할 수 있는 방법을 제공하는 새 필드, **대상 OS**를 포함합니다.
@@ -165,7 +173,7 @@ Eclipse용 Azure 도구 키트 - 2014년 6월 릴리스는 다음과 같은 향�
 2013년 8월 - Eclipse용 Azure 플러그 인 미리 보기가 출시되었습니다. 필수 구성 요소이며 플러그 인을 설치할 때 자동으로 다운로드되는 Azure SDK 2.1의 출시와 함께 제공되는 업데이트입니다. 이 업데이트는 2013년 7월 미리 보기 이후의 새 기능, 버그 수정 및 일부 피드백 기반 유용성 향상 기능을 포함합니다.
 
 * **배포 패키지의 일부로 로컬 JDK 및 로컬 응용 프로그램 서버를 포함하는 옵션 제거.** 더 작은 배포 패키지 크기, 더 빠른 배포 시간 및 손쉬운 유지 관리 결과로 항목을 다운로드하므로 패키지에서 이러한 구성 요소를 포함하도록 배포하는 동안 클라우드 저장소에서 JDK 및 응용 프로그램 서버를 다운로드하는 것이 좋습니다. 결과적으로 배포 패키지에서 JDK 및 응용 프로그램 서버를 포함하는 옵션이 제거되었습니다. 배포 패키지의 일부로 로컬 JDK 및 로컬 응용 프로그램 서버를 포함하도록 구성된 기존 프로젝트는 클라우드 저장소에 JDK 및 응용 프로그램 서버를 자동 업로드하도록 자동으로 변환됩니다.
-* **Azure SDK 2.1 릴리스에 대한 지원**. 2013년 8월 - Eclipse용 Azure 플러그 인 미리 보기에는 Azure SDK 2.1이 필요합니다. 이전 버전의 Azure SDK와 함께 2013년 8월 미리 보기를 사용하지 마십시오. 이전 버전의 Eclipse용 Azure 플러그 인과 함께 Azure SDK 2.1을 사용하지 마십시오.
+* **Azure SDK 2.1 릴리스에 대한 지원.** 2013년 8월 - Eclipse용 Azure 플러그 인 미리 보기에는 Azure SDK 2.1이 필요합니다. 이전 버전의 Azure SDK와 함께 2013년 8월 미리 보기를 사용하지 마십시오. 이전 버전의 Eclipse용 Azure 플러그 인과 함께 Azure SDK 2.1을 사용하지 마십시오.
 * **Eclipse Kepler 릴리스에 대한 지원.** 이와 관련하여 새로운 최소한의 Eclipse IDE 버전은 Indigo입니다. Eclipse용 Azure 플러그 인은 공식적으로 더 이상 Helios에서 테스트되지 않습니다.
 
 ### 2013년 7월 3일 ###
@@ -288,6 +296,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Azure 서비스 끝점]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 저장소 계정 목록]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
+[IntelliJ용 Azure 도구 키트]: https://plugins.jetbrains.com/plugin/8053
 [구성 요소 속성]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Eclipse에서 Azure 응용 프로그램 디버깅]: http://go.microsoft.com/fwlink/?LinkID=699535
@@ -317,4 +326,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

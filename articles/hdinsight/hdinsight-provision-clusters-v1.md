@@ -220,16 +220,7 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 
 	![지점 및 사이트 간 구성 다이어그램](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
-
-> [AZURE.NOTE]HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](../services/virtual-machines/)을 참조하세요.
->
-> Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다. Azure PowerShell cmdlet Get-AzureVNetConfig를 사용하여 기존 Azure 가상 네트워크가 위치 기반인지 여부를 확인합니다. 가상 네트워크가 위치 기반이 아니면 다음과 같은 옵션을 사용할 수 있습니다.
->
-> - 기존 가상 네트워크 구성을 내보낸 다음 새 가상 네트워크를 만듭니다. 모든 새 가상 네트워크는 기본적으로 위치 기반입니다.
-> - 위치 기반 가상 네트워크로 마이그레이션합니다. [지역 범위로 기존 서비스 마이그레이션](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)을 참조하세요.
->
-> 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
+가상 네트워크에 대한 특정 구성 요구 사항을 포함하여 가상 네트워크로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
 ## 프로비전 도구
 
@@ -686,7 +677,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
 	|속성|값|
 	|--------|-----|
-	|Template|Templates/Visual C#/Windows/Console Application|
+	|템플릿|템플릿/시각화 개체 C#/Windows/콘솔 응용 프로그램|
 	|이름|CreateHDICluster|
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
@@ -810,4 +801,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

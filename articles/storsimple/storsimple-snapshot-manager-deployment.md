@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자 MMC 스냅인 배포
@@ -23,11 +23,15 @@ StorSimple 스냅숏 관리자는 Microsoft Azure StorSimple 환경에서 데이
 
 이 자습서에서는 StorSimple 스냅숏 관리자 설치, 제거 및 업그레이드에 대한 절차와 더불어 구성 요구 사항도 설명합니다.
 
+>[AZURE.NOTE]
+>
+>- StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 장치라고도 함)를 관리할 수 없습니다.
+>
+>- StorSimple 장치에 StorSimple 업데이트 2를 설치하려는 경우 StorSimple Snapshot Manager의 최신 버전을 다운로드하여 **StorSimple 업데이트 2를 설치하기 전에** 설치해야 합니다. StorSimple Snapshot Manager의 최신 버전은 이전 버전과 호환되며 릴리스된 모든 버전의 Microsoft Azure StorSimple에서 작동합니다. StorSimple Snapshot Manager의 이전 버전을 사용하고 있다면 업데이트해야 합니다(새 버전을 설치하기 전에 이전 버전을 제거할 필요 없음).
+
 ## StorSimple 스냅숏 관리자 설치
 
-StorSimple 스냅숏 관리자는 Windows Server® 2008 R2 SP1, Windows Server 2012 또는 Windows Server 2012 R2 운영 체제를 실행하는 컴퓨터에 설치할 수 있습니다.
-
->[AZURE.NOTE]Windows 2008 R2를 실행하는 서버에는 Windows Server 2008 SP1 및 Windows Management Framework 3.0도 설치해야 합니다.
+StorSimple Snapshot Manager는 Windows Server 2008 R2 SP1, Windows Server 2012 또는 Windows Server 2012 R2 운영 체제를 실행하는 컴퓨터에 설치할 수 있습니다. Windows 2008 R2를 실행하는 서버에는 Windows Server 2008 SP1 및 Windows Management Framework 3.0도 설치해야 합니다.
 
 Microsoft Management Console(MMC)용 StorSimple 스냅숏 관리자 스냅인을 설치하거나 업그레이드하기 전에 Microsoft Azure StorSimple 장치 및 호스트 서버가 올바르게 구성되었는지 확인합니다.
 
@@ -35,9 +39,7 @@ Microsoft Management Console(MMC)용 StorSimple 스냅숏 관리자 스냅인을
 
 다음 단계에서는 StorSimple 스냅숏 관리자를 설치하기 전에 완료해야 하는 구성 작업의 대략적인 개요를 제공합니다. 시스템 요구 사항 및 단계별 지침을 포함한 전체 Microsoft Azure StorSimple 구성 및 설치 정보는 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)를 참조하세요.
 
->[AZURE.IMPORTANT]시작하기 전에 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서
-> [배포 구성 검사 목록](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) 및 [배포 필수 조건](storsimple-deployment-walkthrough.md#deployment-prerequisites)을 검토하세요.
-<br>
+>[AZURE.IMPORTANT]시작하기 전에 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서 [배포 구성 검사 목록](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) 및 [배포 필수 조건](storsimple-deployment-walkthrough.md#deployment-prerequisites)을 검토하세요.<br>
  
 ### StorSimple 스냅숏 관리자를 설치하기 전에
 
@@ -49,7 +51,7 @@ Microsoft Management Console(MMC)용 StorSimple 스냅숏 관리자 스냅인을
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    >[AZURE.NOTE]StorSimple 가상 장치의 경우 호스트는 Microsoft Azure 가상 컴퓨터여야 합니다.
+    StorSimple 가상 장치의 경우 호스트는 Microsoft Azure 가상 컴퓨터여야 합니다.
 
 3. Microsoft Azure StorSimple 구성 요구 사항이 모두 충족되었는지 확인합니다. 자세한 내용은 [배포 필수 조건](storsimple-deployment-walkthrough.md#deployment-prerequisites)을 참조하세요.
 
@@ -203,7 +205,7 @@ StorSimple 스냅숏 관리자를 업그레이드하거나 다시 설치하는 �
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다.
+2. C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
     >[AZURE.NOTE]ProgramData는 숨겨진 폴더입니다.
 
@@ -235,7 +237,7 @@ StorSimple 스냅숏 관리자를 다시 설치하려면 [새 StorSimple 스냅�
 
     4. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 중지**를 클릭합니다.
 
-2. C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다.
+2. C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
      >[AZURE.NOTE]ProgramData는 숨겨진 폴더입니다.
 
@@ -257,4 +259,4 @@ StorSimple 스냅숏 관리자를 다시 설치하려면 [새 StorSimple 스냅�
 
 - StorSimple 스냅숏 관리자를 사용하는 방법에 대해 자세히 알아보려면 [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션 관리](storsimple-snapshot-manager-admin.md)로 이동하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

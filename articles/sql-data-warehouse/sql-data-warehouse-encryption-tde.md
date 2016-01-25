@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="01/04/2016" 
-   ms.author="twounder"/>
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # SQL 데이터 웨어하우스에서 투명한 데이터 암호화(TDE) 시작
 > [AZURE.SELECTOR]
@@ -61,4 +61,4 @@ SQL 데이터 웨어하우스에 대한 TDE를 비활성화하려면 다음 단�
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

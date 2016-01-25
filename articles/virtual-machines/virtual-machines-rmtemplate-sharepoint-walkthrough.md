@@ -3,7 +3,7 @@
 	description="세 개의 서버 SharePoint 팜용 Azure 리소스 관리자 템플릿 파일의 구조를 단계별로 안내합니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
 # 세 개의 서버 SharePoint 팜 리소스 관리자 템플릿
 
@@ -366,14 +366,8 @@ Azure에서 다중 계층 인프라를 구축하는 사용자 고유의 JSON 템
 1.	배포를 지원하는 데 필요한 Azure 인프라의 일반 요소(저장소 계정, 가상 네트워크), 계층 관련 요소(가용성 집합) 및 가상 컴퓨터 관련 요소(공용 IP 주소, 가용성 집합, 네트워크 인터페이스 및 부하 분산 장치 인스턴스)를 만듭니다.
 2.	응용 프로그램의 각 계층(예: 인증, 데이터베이스, 웹)에 대해 일반 요소(저장소 계정, 가상 네트워크), 계층 관련 요소(가용성 집합) 및 가상 컴퓨터 관련 요소(공용 IP 주소, 가용성 집합, 네트워크 인터페이스 및 부하 분산 장치 인스턴스)를 사용하여 해당 계층에서 서버를 만들고 구성합니다.
 
-자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
+## 다음 단계
 
-## 추가 리소스
+- [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)에 대해 알아보고 자체 템플릿을 작성합니다.
 
-[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md) [Azure 리소스 관리자 개요](../resource-group-overview.md)
-
-[Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
-
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

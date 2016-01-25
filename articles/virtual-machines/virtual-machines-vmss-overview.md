@@ -21,7 +21,7 @@
 
 가상 컴퓨터 규모 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM이 동일하게 설정되는 VM 규모 집합은 자동 크기 조정을 충실하게 지원하도록 설계되었습니다. VM 사전 프로비전이 필요하지 않으며, 큰 계산, 빅 데이터 및 컨테이너식 워크로드를 대상으로 하는 대규모 서비스를 쉽게 구축할 수 있도록 합니다.
 
-[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
 계산 리소스 크기를 조정해야 하는 응용 프로그램의 경우 크기 조정 작업은 장애 도메인 및 업데이트 도메인 간에 암시적으로 균형이 조정됩니다. VM 규모 집합에 대한 소개는 최신 [Azure 블로그 공지](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview)를 참조하세요.
 
@@ -153,4 +153,4 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 **A.** 예. VM 규모 집합은 FD 3개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # CSDL을 통해 기존 웹 서비스를 OData에 매핑하는 노드 스키마 이해
@@ -162,9 +162,8 @@ FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않
 |----|----|
 | **d:Regex** *(선택 사항)* | 매개 변수의 입력 값을 검사하는 데 사용되는 regex 문입니다. 입력 값이 문과 일치하지 않으면 해당 값이 거부됩니다. 이를 이용하여 가능한 값 집합을 지정할 수 있습니다. 예를 들어 ^[0-9]+?$는 숫자만 허용합니다. **예:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:Enum** *(선택 사항)* | 파이프로 구분된 매개 변수에 유효한 값 목록입니다. 값의 유형이 정의된 매개 변수 유형과 일치해야 합니다. 예: `english|metric|raw`. 열거형은 UI(서비스 탐색기)에 선택 가능한 매개 변수 드롭다운 목록으로 표시됩니다. **예:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
-| **d: Nullable** *(선택 사항)* | 매개 변수가 null일 수 있는지 여부를 정의할 수 있습니다. 기본값은 true입니다. 그러나 URI 템플릿에서 경로의 일부로 노출되는 매개 변수는 null일 수 없습니다. 이러한 매개 변수에 대한 특성이 false로 설정되면 사용자 입력이 무시됩니다. 매개 변수가 null일 수 있는지 여부를 정의할 수 있습니다. 기본값은 true입니다. 그러나 URI 템플릿에서 경로의 일부로 노출되는 매개 변수는 null일 수 없습니다. 이러한 매개 변수에 대한 특성이 false로 설정되면 사용자 입력이 무시됩니다. **예:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(선택 사항)* | UI에 클라이언트에 대한 메모로 표시되는 샘플 값입니다. 여러 값을 추가하고 파이프(“|”)로 구분할 수 있습니다. **예:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:UriTemplate** | |
+| **d: Nullable** *(선택 사항)* | 매개 변수가 null일 수 있는지 여부를 정의할 수 있습니다. 기본값은 true입니다. 그러나 URI 템플릿에서 경로의 일부로 노출되는 매개 변수는 null일 수 없습니다. 이러한 매개 변수에 대한 특성이 false로 설정되면 사용자 입력이 무시됩니다. **예:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue** *(선택 사항)* | UI에 클라이언트에 대한 메모로 표시되는 샘플 값입니다. 즉, 파이프로 구분된 목록을 사용하여 여러 값을 추가할 수 있습니다. `a|b|c` **예제:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
 ## EntityType 노드
 
@@ -273,4 +272,4 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 - 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 - Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

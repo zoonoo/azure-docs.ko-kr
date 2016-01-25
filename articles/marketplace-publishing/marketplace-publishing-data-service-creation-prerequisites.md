@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio; avikova" />
 
 # Azure 마켓플레이스용 데이터 서비스 제품 생성을 위한 기술 필수 조건
@@ -66,4 +66,4 @@ OData 서비스는 백 엔드의 데이터베이스에 위배되지만 않으면
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -53,7 +53,7 @@
 ## 탄력적 데이터베이스 작업: 종단 간 
 1.	**탄력적 데이터베이스 작업** 구성 요소를 설치합니다. 자세한 내용은 [탄력적 데이터베이스 작업 설치](sql-database-elastic-jobs-service-installation.md)를 참조하세요. 설치에 실패하는 경우 [제거 방법](sql-database-elastic-jobs-uninstall.md)을 참조하세요.
 2.	PowerShell API를 사용하여 사용자 지정 데이터베이스 컬렉션 만들기, 일정 추가 및/또는 결과 집합 수집 등 더 많은 기능에 액세스할 수 있습니다. **탄력적 데이터베이스 풀**에 대한 실행으로 제한되는 작업의 생성/모니터링 및 간단한 설치에는 포털을 사용합니다. 
-3.	작업 실행을 위한 암호화된 자격 증명을 만들고 [그룹의 각 데이터베이스에 사용자(또는 역할)를 추가](sql-database-elastic-jobs-add-logins-to-dbs.md)합니다.
+3.	작업 실행을 위한 암호화된 자격 증명을 만들고 [그룹의 각 데이터베이스에 사용자(또는 역할)를 추가](sql-database-security.md)합니다.
 4.	그룹의 모든 데이터베이스에 대해 실행할 수 있는 idempotent T-SQL 스크립트를 만듭니다. 
 5.	Azure 포털을 사용하여 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md) 단계에 따라 작업을 만듭니다. 
 6.	또는 PowerShell 스크립트를 사용하여 [PowerShell로 SQL 데이터베이스 탄력적 데이터베이스 작업을 만들고 관리(미리 보기)](sql-database-elastic-jobs-powershell.md)합니다.
@@ -116,7 +116,7 @@
 4.	모든 작업 태스크가 완료된 후 컨트롤러가 작업을 완료 상태로 업데이트합니다. 작업 실행 중 언제든지 PowerShell API를 사용하여 작업 실행의 현재 상태를 볼 수 있습니다. PowerShell API에서 반환되는 모든 시간은 UTC로 표시됩니다. 원하는 경우 취소 요청을 시작하여 작업을 중지할 수 있습니다. 
 
 ## 다음 단계
-[구성 요소를 설치](sql-database-elastic-jobs-service-installation.md)하고 [데이터베이스 그룹의 각 데이터베이스를 만들고 로그인을 추가](sql-database-elastic-jobs-add-logins-to-dbs.md)합니다. 작업 만들기 및 관리를 더 잘 이해하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요.
+[구성 요소를 설치](sql-database-elastic-jobs-service-installation.md)하고 [데이터베이스 그룹의 각 데이터베이스를 만들고 로그인을 추가](sql-database-security.md)합니다. 작업 만들기 및 관리를 더 잘 이해하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

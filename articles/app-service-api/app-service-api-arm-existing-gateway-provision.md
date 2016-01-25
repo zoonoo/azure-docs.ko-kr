@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
 # 기존 게이트웨이로 API 앱을 프로비전
@@ -191,4 +191,4 @@ API 앱을 만듭니다.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

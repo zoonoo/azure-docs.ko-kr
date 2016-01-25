@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
@@ -27,7 +27,7 @@
 
 [Microsoft KB(기술 자료) 검색](http://search.microsoft.com/supportresults.aspx?form=mssupport&q=phonefactor)
 
-- Microsoft KB(기술 자료)에서 Microsoft Azure Multi-factor Authentication 서버(Phone Factor) 지원에 대한 일반적인 고장 수리 문제에 대한 기술 솔루션을 검색하세요.
+- Microsoft KB(기술 자료)에서 Microsoft Azure Multi-Factor Authentication 서버(PhoneFactor) 지원에 대한 일반적인 고장 수리 문제에 대한 기술 솔루션을 검색합니다.
 
 [Microsoft Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
 
@@ -35,15 +35,11 @@
 
 [암호 재설정](mailto:phonefactorsupport@microsoft.com)
 
-- 암호 재설정 쿼리를 사용하거나 사용자 암호 재설정에 대한 도움이 필요한 기존 Phonefactor 고객은 아래 링크를 사용하여 지원 사례를 여세요.
+- 암호 재설정 쿼리를 사용하거나 사용자 암호 재설정에 대한 도움이 필요한 기존 PhoneFactor 고객은 아래 링크를 사용하여 지원 사례를 여세요.
 
-[Microsoft Azure Multi-Factor Authentication 서버(Phone Factor) 고객 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)
+[Microsoft Azure Multi-Factor Authentication 서버(PhoneFactor) 고객 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)
 
-- 이 링크를 사용하여 Microsoft 기술 지원 엔지니어에게 문의합니다. 사용자의 지원 옵션을 확인하기 위해 몇 가지 질문을 할 수 있습니다. 지원 옵션으로 메일, 온라인 제출 또는 전화 지원이 포함될 수 있습니다. 
-
-[Microsoft Azure Multi-Factor Authentication 서버(Phone Factor)에 대한 일반적인 질문](http://azure.microsoft.com/services/multi-factor-authentication)
-
-- Microsoft Azure Multi-Factor Authentication 서버(Phone Factor)에 대한 자세한 정보를 원하거나 제품 구입 방법 및 사용 가능한 다른 지원 옵션에 대해 질문이 있는 경우 [pfsales@microsoft.com](mailto:pfsales@microsoft.com)을 방문하거나 메일을 보내세요. 
+- 이 링크를 사용하여 Microsoft 기술 지원 엔지니어에게 문의합니다. 사용자의 지원 옵션을 확인하기 위해 몇 가지 질문을 할 수 있습니다. 지원 옵션으로 메일, 온라인 제출 또는 전화 지원이 포함될 수 있습니다.
 
 
 
@@ -75,28 +71,53 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 
 모든 비용은 서비스의 사용자 단위 또는 인증 단위 비용으로 산정됩니다. 조직에는 Azure Multi-Factor Authentication을 사용할 때 최종 사용자에게 전달된 개별 전화 통화 또는 문자 메시지에 대한 요금이 부과되지 않습니다. 통신사는 전화 명의자가 전화 또는 문자 메시지를 받을 때 로밍 관련 또는 기타 비용을 부과할 수 있습니다.
 
-**"Q: Azure Multi-Factor Authentication에 대한 요금은 조직에게 어떻게 청구되나요?"**
+**Q: Azure Multi-Factor Authentication에 대한 요금은 조직에 어떻게 청구되나요?**
 
-Azure 관리 포털에서 Multi-Factor Auth 공급자를 만들 때 ‘사용자 단위' 또는 ‘인증 단위' 청구/사용 모델이 선택됩니다. 가상 컴퓨터, 웹 사이트 등이 구독에 따라 대금이 청구되는 것처럼 조직의 Azure 구독에 대해 대금이 청구되는 대상은 사용량 기반 리소스입니다.
+Azure Multi-Factor Authentication은 사용자 및 인증 청구 옵션 당 독립 실행형 서비스로 사용 가능하거나 Azure Active Directory Premium, Enterprise Mobility Suite 및 Enterprise Cloud Suite와 함께 제공됩니다. 독립 실행형 서비스는 Azure 약정 금액에 대해 월별로 또는 Microsoft 기업 계약, 오픈 볼륨 라이선스 프로그램, 클라우드 솔루션 공급자 프로그램 및 Direct를 통해 사용할 수 있는 사용자 당 연간 라이선스로 청구되는 소비를 기반으로 사용할 수 있습니다.
+
+>[AZURE.IMPORTANT]오스트레일리아 지역은 사업 소재지가 오스트레일리아나 뉴질랜드로 되어 있는 고객만 사용할 수 있습니다.
+
+청구 모델 | 가격
+------------- | ------------- |
+사용자 당 소비(Azure 약정 금액)| 1\.40$/월(무제한 인증)
+인증 단위 소비(Azure 약정 금액)|$1.40에 10건 인증
+사용자 당 연간 라이선스(직접)|1\.40$/월(무제한 인증)
+사용자 당 연간 라이선스(볼륨 라이선스)|[기업 계약 담당자](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)에 문의합니다.
 
 **Q: ‘사용자 단위' 청구 모델은 Multi-Factor Authentication이 사용 가능하게 설정된 사용자 수를 기반으로 청구되나요? 아니면 확인을 수행하는 사용자의 수에 따라 요금이 청구되나요?**
 
 대금 청구는 Multi-Factor Authentication이 설정된 사용자 수를 기준으로 합니다.
+
+**Q:Multi-Factor Authentication은 어떤 방식으로 청구됩니까?**
+
+사용자 당 또는 인증 당 소비 청구/사용 모델을 사용하는 경우 관리자는 Microsoft Azure 클래식 포털에서 Multi-Factor Auth 공급자를 만들 때 사용의 형식을 선택합니다. 가상 컴퓨터, 웹 사이트 등과 같은 조직의 Azure 구독에 대해 청구되는 리소스입니다. 라이선스 모델을 사용하는 경우 Azure Multi-Factor Authentication 라이센스를 구입한 다음 Office 365 및 기타 구독 제품과 마찬가지로 사용자에게 할당합니다.
+
+**Q:관리자용 Azure Multi-Factor Authentication의 무료 버전이 있나요?**
+
+‘Azure 관리용 MFA’으로 알려진 Azure Multi-Factor Authentication 기능의 하위집합은 소비 기반 Azure Multi-Factor Auth 공급자가 해당하는 Azure Active Directory에 연결되지 않았을 때 Azure 전역 관리자에게 무료로 제공됩니다. Multi-Factor Auth 공급자를 사용하여 MFA에 사용할 수 있는 디렉터리에 Azure Multi-Factor Authentication의 정식 버전으로 모든 관리자 및 사용자를 업그레이드합니다.
+
+**Q:Office 365 사용자용 Azure Multi-Factor Authentication의 무료 버전이 있나요?**
+
+‘Office 365용 MFA’으로 알려진 Azure Multi-Factor Authentication 기능의 하위집합은 소비 기반 Azure Multi-Factor Auth 공급자가 해당하는 Azure Active Directory에 연결되지 않았을 때 할당된 O365 라이선스가 있는 사용자에게 무료로 제공됩니다. Multi-Factor Auth 공급자를 사용하여 MFA에 사용할 수 있는 디렉터리에 Azure Multi-Factor Authentication의 정식 버전으로 모든 관리자 및 사용자를 업그레이드합니다.
+
+**Q:C사용자 당 청구 모델과 인증 당 청구 모델 간을 전환할 수 있습니까?**
+
+청구 모델은 리소스 생성 시 선택되며 리소스가 프로비전된 후에는 변경할 수 없습니다. 그러나 새로운 Multi-Factor Authentication 리소스를 생성하여 원래 리소스를 대체할 수 있습니다. 단, 사용자 설정 및 구성 옵션은 새로운 리소스로 이전될 수 없습니다.
+
+**Q:언제든지 소비 대금 청구 및 라이선스 모델 간을 전환할 수 있습니까?**
+
+언제든지 Azure Multi-Factor Authentication, Azure Active Directory Premium, Enterprise Mobility Suite 및 Enterprise Cloud Suite 라이선스를 구입할 수 있습니다. 라이선스가 사용자 당 Azure Multi-Factor Auth 공급자를 이미 가지고 있는 디렉터리에 추가되면 사용 기반 청구는 소유된 라이선스의 수로 감소됩니다. MFA에 사용할 수 있는 모든 사용자에 라이선스가 할당되면 관리자는 Azure Multi-Factor Auth 공급자를 삭제할 수 있습니다. 조직은 라이선스 모델을 사용하여 인증 당 소비 청구를 혼합할 수 없습니다. 인증 당 Multi-Factor Auth 공급자가 디렉터리에 연결되면 조직은 소유한 라이선스에 관계 없이 모든 MFA 확인 요청에 대한 요금이 청구됩니다.
+
+**Q:내 조직은 ID를 사용하고 동기화하여 Azure Multi-Factor Authentication을 사용해야 합니까?**
+
+사용량 기반 청구 모델을 사용하는 경우 Azure Active Directory가 필요하지 않습니다. 디렉터리에 Multi-Factor Authentication 공급자를 연결하는 것은 선택 사항입니다. 디렉터리에 연결되지 않으면 조직은 Azure Multi-Factor Authentication 서버 또는 SDK 온-프레미스를 사용할 수 있습니다. 라이선스 모델을 사용하는 경우 디렉터리에서 라이선스를 구입하고 사용자에게 할당할 때 디렉터리에 추가되기 때문에 Azure Active Directory가 필요합니다.
+
 
 ## 유용성
 
 **Q: 휴대폰에서 응답이 수신되지 않거나 휴대폰을 잃어버린 경우 어떻게 해야 하나요?**
 
 이전에 백업 휴대폰을 구성한 경우 로그인 페이지에서 확인 메시지가 표시될 때 해당 휴대폰을 선택하여 다시 시도합니다. 다른 방법을 구성하지 않은 경우 관리자에게 연락하여 기본 전화(휴대폰 또는 사무실 전화)에 할당된 번호를 업데이트할 것을 요청하세요.
-
-**Q: 관리자 역할에서 사용자를 제거했으나 다단계 인증을 사용하지 않도록 설정하는 것을 잊어서 목록에 표시되지 않습니다. 이 기능을 제거하려면 어떻게 해야 하나요?**
-
-- 사용 중인 포털에 따라 왼쪽 창에서 사용자 또는 사용자 및 그룹을 클릭합니다.
-- 편집하려는 사용자 옆의 확인란을 선택하고 편집 또는 편집 아이콘을 클릭합니다.
-- 설정을 클릭하고 역할 할당에서 예를 선택하여 이전 관리 역할에 사용자를 다시 추가합니다.
-- 다단계 인증 페이지로 이동합니다. 이제 페이지의 목록에 해당 계정이 표시됩니다. 
-- 위의 단계에 따라 계정에 대한 다단계 인증을 사용하지 않도록 설정합니다. 
-- 이제 관리자 역할에서 해당 계정을 제거할 수 있습니다.
 
 
 **Q: 사용자가 계정이 잠겨 관리자인 나에게 문의하는 경우 어떻게 해야 하나요?**
@@ -131,6 +152,13 @@ Azure MFA 서버를 사용할 경우 타사 OATH TOTP 토큰을 가져와 MFA에
 
 따라서, ActiveIdentity 토큰이 OATH TOTP 토큰이고 Azure MFA 서버로 가져올 수 있는 CSV 파일로 암호 키 파일을 가져올 수 있다면 해당 토큰을 사용할 수 있습니다. OATH 토큰은 클라이언트 시스템이 액세스 질문 응답을 처리할 수 있을 때 RADIUS와 함께, 그리고 IIS 양식 기반 인증을 통해 AD FS에 사용할 수 잇습니다.
 
+**Q: Azure MFA 서버를 사용하여 터미널 서비스를 보호할 수 있습니까?**
+
+예, 하지만 Windows Server 2012 R2 이상을 사용하는 경우 RD 게이트웨이를 사용해야 수행할 수 있습니다.
+
+Azure MFA 서버는 Windows Server 2012 이전 버전에서 LSA 보안 패키지에 연결하는 방법은 몇 가지 보안 변경 내용으로 인해 Windows Server 2012 R2에서 더 이상 작동하지 않습니다. 따라서 Windows 2012 이전의 터미널 서비스 버전의 경우 [Windows 인증으로 응용 프로그램 보호](multi-factor-authentication-get-started-server-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure)를 간단히 수행할 수 있습니다.
+
+그러나 Windows Server 2012 R2를 사용하는 경우 RD 게이트웨이가 필요합니다.
 
 ## 오류
 
@@ -151,4 +179,4 @@ Azure MFA 서버를 사용할 경우 타사 OATH TOTP 토큰을 가져와 MFA에
 
 이 문제를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능 제공](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1))을 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

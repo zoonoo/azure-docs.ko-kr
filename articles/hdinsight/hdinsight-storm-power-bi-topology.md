@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/06/2015"
+ ms.date="01/08/2016"
  ms.author="larryfr"/>
 
 # Power BI(미리 보기)를 사용하여 Apache Storm 토폴로지에서 데이터 시각화
@@ -139,4 +139,4 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

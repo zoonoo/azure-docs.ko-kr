@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="리소스 관리자에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기 | Microsoft Azure"
    description="리소스 관리자에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다."
    services="application-gateway"
@@ -17,7 +17,7 @@
    ms.date="12/17/2015"
    ms.author="joaoma" />
 
-# Azure 리소스 관리자에 대해 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기
+# Azure 리소스 관리자에 대해 PowerShell을 사용하여 Azure 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -28,7 +28,7 @@
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-### 1단계 
+### 1단계
 
 Login-AzureRmAccount를 사용하여 인증합니다.
 
@@ -38,11 +38,11 @@ Login-AzureRmAccount를 사용하여 인증합니다.
 
 계정에 대한 구독을 확인합니다.
 
-		get-AzureRmSubscription 
+		get-AzureRmSubscription
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.<BR>
 
-### 3단계 
+### 3단계
 
 사용할 Azure 구독을 선택합니다. <BR>
 
@@ -64,14 +64,14 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 다음 단계는 응용 프로그램 게이트웨이에 대한 가상 네트워크 및 서브넷을 만듭니다.
 
-### 1단계	
-	
+### 1단계
+
 
 주소 범위 10.0.0.0/24를 가상 네트워크를 만드는 데 사용할 서브넷 변수에 할당합니다.
 
 	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-### 2단계	
+### 2단계
 
 접두사 10.0.0.0/16과 서브넷 10.0.0.0/24를 사용하여 미국 서부 지역에 리소스 그룹 "appgw-rg"에서 "appgwvnet"이라는 가상 네트워크를 만듭니다.
 
@@ -80,8 +80,8 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 3단계
 
-응용 프로그램 게이트웨이를 만드는 다음 단계에 서브넷 변수 할당
-		
+응용 프로그램 게이트웨이를 만드는 다음 단계에 서브넷 변수를 할당합니다.
+
 	$subnet=$vnet.Subnets[0]
 
 ## 프런트 엔드 구성에 대한 공용 IP 주소 만들기
@@ -90,11 +90,11 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 미국 서부 지역에 리소스 그룹 "appgw-rg"에서 공용 IP 리소스 "publicIP01"을 만듭니다.
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
- 
 
-## 사용자 지정 프로브를 사용하여 응용 프로그램 게이트웨이 구성 개체 만들기 
 
-응용 프로그램 응용 프로그램 게이트웨이를 만들기 전에 모든 구성 항목을 설정해야 합니다. 다음 단계 응용 프로그램 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
+## 사용자 지정 프로브를 사용하여 응용 프로그램 게이트웨이 구성 개체 만들기
+
+응용 프로그램 게이트웨이를 만들기 전에 모든 구성 항목을 설정해야 합니다. 다음 단계 응용 프로그램 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 
 
 ### 1단계
@@ -103,11 +103,11 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
- 
+
 ### 2단계
 
 
-이 단계에서는 IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 위의 IP 주소를 바꿉니다.
+IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 위의 IP 주소를 바꿉니다.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -119,10 +119,10 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 사용되는 매개 변수:
 
-- **-Interval** - 프로브 간격 확인(초) 구성 
-- **-Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한 정의
-- **-Hostname 및 -path** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로. 예: 웹 사이트가 http://contoso.com/이면 프로브 확인을 위해 사용자 지정 프로브를 "http://contoso.com/path/custompath.htm"에 대해 구성하여 성공적으로 HTTP에 응답할 수 있습니다. 
-- **-UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수
+- **-Interval** - 프로브 간격 확인(초)를 구성합니다.
+- **-Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한을 정의합니다.
+- **-호스트 이름 및 -경로** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.
+- **-UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수입니다.
 
 
 
@@ -138,7 +138,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 5단계
 
-공용 IP 끝점의 경우 여기서 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합니다.
+공용 IP 끝점에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합니다.
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
@@ -155,7 +155,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-### 8단계 
+### 8단계
 
 부하 분산 장치 동작을 구성하는 "rule01"이라는 부하 분산 장치 라우팅 규칙을 만듭니다.
 
@@ -180,9 +180,9 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 다음 네 단계에 따라 기존 응용 프로그램 게이트웨이에 사용자 지정 프로브를 추가합니다.
 
-### 1단계 
+### 1단계
 
-`Get-AzureRmApplicationGateway`를 사용하여 PowerShell 변수에 응용 프로그램 게이트웨이 리소스를 로드합니다.
+**Get-AzureRmApplicationGateway**를 사용하여 PowerShell 변수에 응용 프로그램 게이트웨이 리소스를 로드합니다.
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -192,19 +192,19 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 	$probe = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-   
+
 예제에서 사용자 지정 프로브는 URL 경로 contoso.com/path/custompath.htm에 대해 30초마다 확인하도록 구성되어 있습니다. 시간 제한 임계값 120초가 실패한 프로브 요청 최대 수 8과 함께 구성됩니다.
 
 ### 3단계
 
-`-Set-AzureRmApplicationGatewayBackendHttpSettings`을 사용하여 백 엔드 풀 설정 구성 및 시간 제한에 프로브를 추가합니다.
+**-Set-AzureRmApplicationGatewayBackendHttpSettings**를 사용하여 백 엔드 풀 설정 구성 및 제한 시간에 프로브를 추가합니다.
 
 
 	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
 ### 4단계
 
-`Set-AzureRmApplicationGateway`를 사용하여 응용 프로그램 게이트웨이에 구성을 저장합니다.
+**Set-AzureRmApplicationGateway**를 사용하여 구성을 응용 프로그램 게이트웨이에 저장합니다.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
@@ -212,30 +212,30 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 다음은 기존 응용 프로그램 게이트웨이에서 사용자 지정 프로브를 제거하는 단계입니다.
 
-### 1단계 
+### 1단계
 
-`Get-AzureRmApplicationGateway`를 사용하여 PowerShell 변수에 응용 프로그램 게이트웨이 리소스를 로드합니다.
+**Get-AzureRmApplicationGateway**를 사용하여 PowerShell 변수에 응용 프로그램 게이트웨이 리소스를 로드합니다.
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
-### 2단계 
+### 2단계
 
-`Remove-AzureRmApplicationGatewayProbeConfig`를 사용하여 응용 프로그램 게이트웨이에서 프로브 구성을 제거합니다.
+**Remove-AzureRmApplicationGatewayProbeConfig**를 사용하여 응용 프로그램 게이트웨이에서 프로브 구성을 제거합니다.
 
 	$getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
 
-### 3단계 
+### 3단계
 
-백 엔드 풀 설정을 업데이트하여 `-Set-AzureRmApplicationGatewayBackendHttpSettings`를 사용하여 프로브 및 시간 제한 설정을 제거합니다.
+**-Set-AzureRmApplicationGatewayBackendHttpSettings**를 사용하여 프로브 및 제한 시간 설정을 제거하기 위해 백 엔드 풀 설정 구성을 업데이트합니다.
 
 
 	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
 ### 4단계
-	
-`Set-AzureRmApplicationGateway`를 사용하여 응용 프로그램 게이트웨이에 구성을 저장합니다.
+
+**Set-AzureRmApplicationGateway**를 사용하여 구성을 응용 프로그램 게이트웨이에 저장합니다.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,6 +1,6 @@
 <properties pageTitle="Node.js 모듈 작업" description="Azure 웹 사이트 또는 클라우드 서비스를 사용할 때 Node.js 모듈로 작업하는 방법을 알아봅니다." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/20/2015" ms.author="robmcm"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/09/2016" ms.author="robmcm"/>
 
 
 
@@ -40,7 +40,7 @@ Azure 웹 사이트는 일부 네이티브 모듈을 지원하지 않으며 매�
 
 **package.json** 파일을 사용하여 응용 프로그램에서 요구하는 최상위 종속성을 지정할 수 있습니다. 그러면 호스팅 플랫폼이 배포의 일부로 **node\_packages** 폴더를 포함하도록 요구하는 대신 종속성을 설치할 수 있게 됩니다. 응용 프로그램이 배포된 후에는 **npm install** 명령을 사용하여 **package.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다.
 
-개발하는 동안 모듈 설치 시 **package.json** 파일에 모듈의 항목이 자동으로 추가되도록 **--save**, **--save-dev** 또는 **--save-optional** 매개 변수를 사용할 수 있습니다. 자세한 내용은 [npm-install](https://npmjs.org/doc/install.html)(영문)을 참조하세요.
+개발하는 동안 모듈 설치 시 **package.json** 파일에 모듈의 항목이 자동으로 추가되도록 **--save**, **--save-dev** 또는 **--save-optional** 매개 변수를 사용할 수 있습니다. 자세한 내용은 [npm-install](https://npmjs.org/doc/install.html)(영문)을 참조하십시오.
 
 **package.json** 파일의 한 가지 잠재적인 문제점은 이 파일이 최상위 종속성에 대한 버전만 지정한다는 것입니다. 설치된 각 모듈은 종속되는 모듈의 버전을 지정하거나 지정하지 않을 수 있으므로, 개발에서 사용된 것과 다른 종속성 체인을 얻게 될 수 있습니다.
 
@@ -78,4 +78,4 @@ Azure 웹 사이트는 일부 네이티브 모듈을 지원하지 않으며 매�
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

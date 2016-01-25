@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Azure SDK for .NET 정의
@@ -28,7 +28,7 @@ Azure SDK for .NET은 또한 [Azure 서비스를 사용하기 위한 클라이�
 
 Azure SDK for .NET은 다음 제품을 설치합니다.
 
-- [Visual Studio Express for Web](#vwd)도 설치합니다.
+- [Visual Studio Express for Web도 설치합니다.](#vwd)
 - [Visual Studio용 Microsoft ASP.NET 및 웹 도구](#wte)
 - [Microsoft Visual Studio용 Microsoft Azure 도구](#tools)
 - [Microsoft Azure 작성 도구](#auth)
@@ -186,4 +186,4 @@ Azure SDK for .NET 또는 클라이언트 라이브러리를 다운로드하려�
 
 Azure 클라이언트 라이브러리 참조 설명서는 [Azure .NET 참조](/documentation/api/)를 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Java에서 파일 저장소를 사용하는 방법| Microsoft Azure" 
-	description="Azure 파일 서비스를 사용하여 파일을 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Java에서 파일 저장소를 사용하는 방법| Microsoft Azure"
+	description="Azure 파일 서비스를 사용하여 파일을 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe" />
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
-	ms.author="v-dedomi"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="jutang"/>
 
 # Java에서 파일 저장소를 사용하는 방법
 
@@ -45,9 +45,9 @@ Azure 저장소 API를 사용하려면 저장소 서비스를 액세스하고자
 파일 저장소를 사용하려면 Azure 저장소 계정에 연결해야 합니다. 첫 번째 단계는 저장소 계정에 연결하는 데 사용할 연결 문자열을 구성하는 것입니다. 이를 위해 정적 변수를 정의해 보겠습니다.
 
 	// Configure the connection-string with your values
-	public static final String storageConnectionString = 
-	    "DefaultEndpointsProtocol=http;" + 
-	    "AccountName=your_storage_account_name;" + 
+	public static final String storageConnectionString =
+	    "DefaultEndpointsProtocol=http;" +
+	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
 > [AZURE.NOTE]your\_storage\_account\_name과 your\_storage\_account\_key를 자신의 저장소 계정에 대한 실제 값으로 바꿉니다.
@@ -75,7 +75,7 @@ Azure 저장소 API를 사용하려면 저장소 서비스를 액세스하고자
 파일 저장소 클라이언트를 사용하면 공유에 대한 참조를 가져올 수 있습니다..
 
 	// Get a reference to the file share
-	CloudFileShare share = fileClient.getShareReference("sampleshare"); 
+	CloudFileShare share = fileClient.getShareReference("sampleshare");
 
 공유를 실제로 만들고자 한다면 CloudFileShare 개체의 **createIfNotExists** 메서드를 사용합니다.
 
@@ -109,9 +109,9 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
 
-	//Get a reference to the sampledir directory 
+	//Get a reference to the sampledir directory
 	CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-			    
+
 	if (sampleDir.createIfNotExists()) {
 		System.out.println("sampledir created");
 	} else {
@@ -124,7 +124,7 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
-		   
+
 	for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 		System.out.println(fileItem.getUri());
 	}
@@ -136,10 +136,10 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
-	
+
 	//Get a reference to the directory that contains the file
 	CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-			    
+
 	//Get a reference to the file you want to download
 	CloudFile file = sampleDir.getFileReference("SampleFile.txt");
 
@@ -156,7 +156,7 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 
 	// Get a reference to the directory where the file to be deleted is in
 	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
-	
+
 	String filename = "SampleFile.txt"
 	CloudFile file;
 
@@ -174,7 +174,7 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
 
 	// Get a reference to the directory you want to delete
-	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");	
+	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
 
 	// Delete the directory
 	if ( containerDir.deleteIfExists() ) {
@@ -196,10 +196,10 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 
 	   // Get a reference to the file share
 	   CloudFileShare share = fileClient.getShareReference("sampleshare");
-	   
+
 	   if (share.deleteIfExists()) {
 		   System.out.println("sampleshare deleted");
-	   } 
+	   }
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
@@ -220,6 +220,5 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 [Azure 저장소 클라이언트 SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

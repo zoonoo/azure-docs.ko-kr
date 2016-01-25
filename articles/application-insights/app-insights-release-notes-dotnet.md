@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="01/12/2016" 
 	ms.author="abaranch"/>
  
 # Application Insights SDK for .NET에 대한 릴리스 정보
@@ -32,6 +32,18 @@
 * 이전 복사본과 ApplicationInsights.config를 비교합니다. 대부분의 변경 내용은 일부 모듈을 제거하고 다른 일부를 매개변수화하기 때문입니다. 이전 파일에 대한 모든 사용자 지정을 복구합니다.
 * 솔루션을 다시 빌드합니다.
 
+## 버전 2.0.0-beta4
+
+- UseSampling 및 UseAdaptiveSampling 확장 메서드가 Microsoft.ApplicationInsights.Extensibility로 이동되었습니다.
+- 유니버설 Windows Phone 및 스토어 응용 프로그램에 대한 지원이 제거되었습니다.
+- 새 속성 ```ResultCode``` 및 ```Id```를 갖도록 ```DependencyTelemetry```가 업데이트되었습니다. ```ResultCode```는 HTTP 종속성 및 SQL 종속성에 대한 오류 코드의 HTTP 응답 코드를 제공하는 데 사용됩니다. ```Id```는 구성 요소 간 상관 관계에 사용됩니다. 
+- ```ServerTelemetryChannel```이 프로그래밍 방식으로 초기화되는 경우 이제 ```ServerTelemetryChannel.Initialize()``` 메서드를 호출해야 합니다. 그렇지 않으면 영구 저장소는 초기화되지 않습니다(임시 연결에 문제 발생 시 원격 분석을 보낼 수 없는 경우 삭제됨을 의미).
+- ```ServerTelemetryChannel```은 코드 또는 구성을 통해 설정할 수 있는 새 속성 ```StorageFolder```를 갖습니다. 이 속성을 설정하는 경우 ApplicationInsights는 임시 연결에 문제 발생 시 보내지 않은 원격 분석을 저장하는 데 제공된 위치를 사용합니다. 속성이 설정되지 않거나 제공된 폴더에 액세스할 수 없는 경우 ApplicationInsights는 이전처럼 LocalAppData 또는 Temp 폴더를 사용하려고 합니다.
+- ```TelemetryConfiguration.GetTelemetryProcessorChainBuilder``` 확장 메서드가 제거됩니다. 이 메서드 대신 ```TelemetryConfiguration.TelemetryProcessorChainBuilder``` 인스턴스 메서드를 사용합니다.
+- ```TelemetryConfiguration``` 클래스는 ```TelemetryProcessors``` 컬렉션에 읽기 전용 액세스를 제공하는 새 속성 ```TelemetryProcessors```를 갖습니다.
+- ```Use```, ```UseSampling``` 및 ```UseAdaptiveSampling```은 구성에서 로드한 ```TelemetryProcessors```를 유지합니다.
+- 두 개의 원격 분석 프로세서(사용자 에이전트 필터 원격 분석 프로세서 및 요청 처리기 원격 분석 프로세서)가 구성 파일에 기본적으로 제공됩니다. 동작을 사용자 지정할 수 있습니다. AI.config 파일에서 필터링하려는 사용자 에이전트 문자열을 추가할 수 있습니다. 기본적으로 ```AllwaysOn``` 사용자 에이전트 문자열을 필터링합니다. 현재 동작은 대/소문자를 구분하지 않는 전체 일치 비교를 사용하여 구성 파일의 문자열과 사용자 에이전트 문자열을 비교합니다. 또한 요청을 필터링하려는 처리기 목록을 사용자 지정할 수 있습니다. 
+- 종속 Microsoft.ApplicationInsights.Agent.Intercept nuget 버전이 1.2.1로 업데이트되었습니다. SQL 종속성 컬렉션 버그가 수정되었습니다.
 
 ## 버전 2.0.0-beta3
 
@@ -49,7 +61,7 @@
 
 ## 버전 2.0.0-beta2
 - ITelemetryProcessor에 대한 지원과 코드 또는 구성을 통해 구성하는 기능이 추가되었습니다. [SDK에서 사용자 지정 필터링을 사용할 수 있습니다.](app-insights-api-telemetry-processors/#telemetry-processors)
-- 컨텍스트 이니셜라이저가 제거되었습니다. 대신 [원격 분석 이니셜라이저]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)를 사용합니다.
+- 컨텍스트 이니셜라이저가 제거되었습니다. 대신 [원격 분석 이니셜라이저](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)를 사용합니다.
 - .NET Framework 4.6용 Application Insights가 업데이트되었습니다. 
 - 이제 사용자 지정 이벤트 이름을 최대 512자까지 지정할 수 있습니다.
 - ```OperationContext.Name``` 속성의 이름이 ```RootName```으로 변경되었습니다.
@@ -74,7 +86,7 @@
 
 - ASP.NET 라이브러리에 종속성이 없는 원격 분석 이니셜라이저가 `Microsoft.ApplicationInsights.Web`에서 새 종속성 NuGet `Microsoft.ApplicationInsights.WindowsServer`로 옮겨졌습니다.
 - `Microsoft.AI.Web.dll`에서 `Microsoft.ApplicationInsights.Web.dll`의 이름이 변경되었습니다.
-- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`에서 `Microsoft.ApplicationInsights.Web.TelemetryChannel` NuGet의 이름이 변경되었습니다. `Microsoft.AI.ServerTelemetryChannel.dll`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 어셈블리의 이름이 변경되었습니다. `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 클래스의 이름이 변경되었습니다.
+- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`에서 `Microsoft.ApplicationInsights.Web.TelemetryChannel` nuget의 이름이 변경되었습니다. `Microsoft.AI.ServerTelemetryChannel.dll`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 어셈블리의 이름이 변경되었습니다. `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 클래스의 이름이 변경되었습니다.
 - 웹 SDK의 일부인 모든 네임스페이스가 `Extensibility` 부분을 제외하도록 변경되었습니다. 여기에는 ApplicationInsights.config의 모든 원격 분석 이니셜라이저와 web.config의 `ApplicationInsightsWebTracking` 모듈이 포함됩니다.
 - 런타임 계측 에이전트(상태 모니터 또는 Azure 웹사이트 확장을 통해 사용 가능)를 사용하여 수집된 종속성 은 스레드에 HttpContext.Current가 없는 경우 비동기로 표시되지 않습니다.
 - `DependencyTrackingTelemetryModule`의 `SamplingRatio` 속성은 아무 작업도 수행하지 않고 사용되지 않음으로 표시됩니다.
@@ -85,7 +97,7 @@
 ## 버전 1.1
 
 - 응용 프로그램의 종속성 호출(SQL, HTTP 호출 등)에 관한 정보를 보내는 데 사용할 수 있는 새 원격 분석 유형 `DependencyTelemetry`가 추가되었습니다.
-- 종속성 호출에 관한 정보를 보내는 데 사용될 수 있는 새 오버로드 메서드 `TelemetryClient.TrackDependency`가 추가되었습니다.
+- 새 오버 로드 메서드 `TelemetryClient.TrackDependency`에 종속성 호출에 대한 정보를 보낼 수 있도록 하는 기능이 추가되었습니다.
 - TelemetryConfiguration.CreateDefault를 사용할 때 고정된 NullReferenceException은 진단 모듈에 의해 throw 됩니다.
 
 ## 버전 1.0
@@ -124,4 +136,4 @@
 
  
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0114_2016-->

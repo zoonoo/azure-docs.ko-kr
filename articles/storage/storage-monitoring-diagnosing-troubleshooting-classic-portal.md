@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -67,7 +67,7 @@ Azure 저장소 응용 프로그램에서 종단간 문제 해결 실습 가이�
 + [부록]
 	+ [부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]
 	+ [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]
-	+ [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처"를 참조하세요.]
+	+ [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]
 	+ [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]
 	+ [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]
 
@@ -377,7 +377,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-클라이언트 쪽 로그를 통해 클라이언트 응용 프로그램이 제출하는 요청의 수를 확인해야 합니다. 또한 CPU, .NET 가비지 수집, 네트워크 이용률 또는 메모리와 같은 클라이언트의 일반 .NET 관련 성능 병목 현상도 확인해야 합니다. .NET 클라이언트 응용 프로그램 문제 해결을 시작하려면 MSDN의 <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">디버깅, 추적 및 프로파일링</a>을 참조하세요.
+클라이언트 쪽 로그를 통해 클라이언트 응용 프로그램이 제출하는 요청의 수를 확인해야 합니다. 또한 CPU, .NET 가비지 수집, 네트워크 이용률 또는 메모리와 같은 클라이언트의 일반 .NET 관련 성능 병목 현상도 확인해야 합니다. .NET 클라이언트 응용 프로그램 문제 해결을 시작하려면 <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">MSDN의 디버깅, 추적 및 프로파일링</a>을 참조하세요.
 
 #### 네트워크 대기 시간 문제 조사
 
@@ -437,7 +437,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 > [AZURE.NOTE]응용 프로그램의 작업량이 많지 않은 기간에도 **PercentThrottlingError** 값이 급증할 수 있습니다. 이러한 현상이 발생하는 경우 부하 분산을 개선하기 위해 저장소 서비스가 파티션을 이동 중일 가능성이 높습니다.
 
-#### <a name="permanent-increase-in-PercentThrottlingError"></a>영구적인 PercentThrottlingError 오류 증가
+#### <a name="permanent-increase-in-PercentThrottlingError"></a>영구적인 PercentThrottlingError 증가
 
 트랜잭션 볼륨을 영구적으로 늘린 후나 처음으로 응용 프로그램 부하 테스트를 수행할 때 **PercentThrottlingError**의 값이 계속 높게 표시되는 경우에는 응용 프로그램의 저장소 파티션 사용 방법과 저장소 계정의 확장성 목표 도달 여부를 평가해야 합니다. 예를 들어 파티션 하나로 계산되는 큐에서 제한 오류가 표시되는 경우 추가 큐를 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 합니다. 테이블에서 제한 오류가 표시되는 경우에는 다른 파티션 구성표를 통해 보다 광범위한 파티션 키 값을 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 할 수 있습니다. 이 문제의 일반적인 원인 중 하나는 날짜를 파티션 키로 선택하면 특정일의 모든 데이터가 파티션 하나에 기록되는 앞에 추가/추가 방지 패턴입니다.: 이 경우 부하가 생성되면 쓰기 병목 현상이 발생할 수 있습니다. 따라서 다른 파티션 디자인을 사용하거나 Blob 저장소를 사용하는 것이 더 효율적인 해결 방법인지 평가해야 합니다. 또한 트래픽 급증으로 인해 제한이 발생하는지 확인하고 요청 패턴을 효율적으로 조정하는 방식을 조사해야 합니다.
 
@@ -488,7 +488,7 @@ Microsoft.WindowsAzure.Storage|오류|1|85d077ab -…|다시 시도 정책에서
 - SAS 키의 버전 매개 변수(예: **sv=2012-02-12**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 저장소 클라이언트 라이브러리를 사용해야 합니다. SAS 토큰 버전 관리 및 클라이언트 라이브러리 버전에 대한 종속성과 관련된 자세한 내용은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Microsoft Azure 저장소의 새로운 기능</a> 항목을 참조하세요.
 - Azure 클래식 포털의 저장소 계정 내 임의의 페이지에서 **액세스 키 관리**를 클릭하여 저장소 액세스 키를 다시 생성하는 경우 기존 SAS 토큰이 무효화될 수 있습니다. 클라이언트 응용 프로그램이 캐시하도록 만료 시간이 매우 긴 SAS 토큰을 생성하는 경우 문제가 발생할 수 있습니다.
 
-저장소 클라이언트 라이브러리를 사용하여 SAS 토큰을 생성하는 경우에는 유효한 토큰을 쉽게 작성할 수 있습니다. 그러나 저장소 REST API를 사용 중이며 수동으로 SAS 토큰을 생성하는 경우에는 MSDN의 <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">공유 액세스 서명으로 액세스 위임</a> 항목을 자세히 확인해야 합니다.
+저장소 클라이언트 라이브러리를 사용하여 SAS 토큰을 생성하는 경우에는 유효한 토큰을 쉽게 작성할 수 있습니다. 그러나 저장소 REST API를 사용 중이며 수동으로 SAS 토큰을 생성하는 경우에는 MSDN의 <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">공유 액세스 서명으로 액세스 위임 항목</a>을 자세히 확인해야 합니다.
 
 ### <a name="the-client-is-receiving-404-messages"></a>클라이언트에 HTTP 404(찾을 수 없음) 메시지가 표시됨
 클라이언트 응용 프로그램이 서버에서 HTTP 404(찾을 수 없음) 메시지를 수신하는 경우 클라이언트가 사용하려는 엔터티, 테이블, Blob, 컨테이너, 큐 등의 개체가 저장소 서비스에 없는 것입니다. 이러한 현상은 다음과 같은 여러 가지 이유로 인해 발생합니다.
@@ -679,7 +679,7 @@ Timestamp|작업|결과|컨테이너 이름|클라이언트 요청 ID
 
 Azure VM(가상 컴퓨터)에 같은 저장소 계정의 VHD가 여러 개 연결되어 있으면 개별 저장소 계정의 확장성 목표가 초과되어 VM에서 오류가 발생할 수 있습니다. 저장소 계정의 분 메트릭(**TotalRequests**/**TotalIngress**/**TotalEgress**)에서 저장소 계정의 확장성 목표를 초과하는 메트릭 값의 급증 현상을 확인해야 합니다. 저장소 계정에 대해 제한이 적용되었는지를 확인하는 데 도움이 필요하면 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]" 섹션을 참조하세요.
 
-일반적으로 가상 컴퓨터에서 수행하는 VHD의 개별 입력 또는 출력 작업은 기본 페이지 Blob에서 **페이지 가져오기** 또는 **페이지 배치** 작업으로 변환됩니다. 따라서 환경에 대한 예상 IOPS를 사용하여 응용 프로그램의 특정 동작을 기준으로 단일 저장소 계정에 포함할 수 있는 VHD의 수를 조정할 수 있습니다. 단일 저장소 계정에 디스크를 40개 이하로 유지하는 것이 좋습니다. 저장소 계정의 현재 확장성 목표, 특히 사용 중인 저장소 계정 유형에 대한 총 요청 속도 및 총 대역폭에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 저장소 확장성 및 성능 목표</a>를 참조하세요. 저장소 계정의 확장성 목표를 초과 하는 경우에 각 개별 계정에 대한 작업을 줄일 수 있는 여러 다른 저장소 계정에서 Vhd를 배치 해야 합니다.
+일반적으로 가상 컴퓨터에서 수행하는 VHD의 개별 입력 또는 출력 작업은 기본 페이지 Blob에서 **페이지 가져오기** 또는 **페이지 배치** 작업으로 변환됩니다. 따라서 환경에 대한 예상 IOPS를 사용하여 응용 프로그램의 특정 동작을 기준으로 단일 저장소 계정에 포함할 수 있는 VHD의 수를 조정할 수 있습니다. 단일 저장소 계정에 디스크를 40개 이하로 유지하는 것이 좋습니다. 저장소 계정의 현재 확장성 목표, 특히 사용 중인 저장소 계정 유형에 대한 총 요청 속도 및 총 대역폭에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 저장소 확장성 및 성능 목표</a>를 참조하세요. 저장소 계정의 확장성 목표가 초과되는 경우에는 여러 저장소 계정에 VHD를 배치하여 개별 계정의 작업량을 줄여야 합니다. 저장소 계정의 확장성 목표를 초과 하는 경우에 각 개별 계정에 대한 작업을 줄일 수 있는 여러 다른 저장소 계정에서 Vhd를 배치 해야 합니다.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>개발 또는 테스트용으로 저장소 에뮬레이터 사용 시 문제가 발생함
 
@@ -737,7 +737,7 @@ Fiddler 사용에 대한 자세한 내용은 “[부록1: Fiddler를 사용하�
 
 Wireshark 사용에 대한 자세한 내용은 "[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
 
-Microsoft 메시지 분석기 사용에 대한 자세한 내용은 "[부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Microsoft Message Analyzer 사용에 대한 자세한 내용은 [부록3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처]를 참조하세요.
 
 ## <a name="appendices"></a>부록
 
@@ -754,7 +754,7 @@ Fiddler는 사용 중인 Azure 저장소 서비스와 클라이언트 응용 프
 Fiddler를 시작하면 로컬 컴퓨터에서 HTTP 및 HTTPS 트래픽 캡처가 시작됩니다. 아래에는 Fiddler를 제어하는 몇 가지 유용한 명령이 나와 있습니다.
 
 - 트래픽 캡처를 중지 및 시작하려면 주 메뉴에서 **파일**로 이동한 다음 **트래픽 캡처**를 클릭하여 캡처를 설정하거나 해제합니다.
-- 캡처된 트래픽 데이터를 저장하려면 주 메뉴에서 **파일**로 이동한 다음 **저장**, **모든 세션**을 차례로 클릭: 그러면 세션 보관 파일에 트래픽을 저장할 수 있습니다. 세션 보관 파일은 나중에 분석을 위해 다시 로드하거나 Microsoft 지원에서 요청하는 경우 전송할 수 있습니다.
+- 캡처된 트래픽 데이터를 저장하려면 주 메뉴에서 **파일**로 이동한 다음 **저장**, **모든 세션**을 차례로 클릭:그러면 세션 보관 파일에 트래픽을 저장할 수 있습니다. 세션 보관 파일은 나중에 분석을 위해 다시 로드하거나 Microsoft 지원에서 요청하는 경우 전송할 수 있습니다.
 
 Fiddler가 캡처하는 트래픽의 양을 제한하려면 **필터** 탭에서 구성하는 필터를 사용할 수 있습니다. 아래 스크린샷에는 **contosoemaildist.table.core.windows.net** 저장소 끝점으로 전송되는 트래픽만 캡처하는 필터가 나와 있습니다.
 
@@ -900,8 +900,9 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
 [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
 [부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]: #appendix-3
+[부록3: Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처]: #appendix-3
 [부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]: #appendix-3
-[부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처"를 참조하세요.]: #appendix-3
+[부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]: #appendix-3
 [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]: #appendix-4
 [부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
 [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
@@ -918,4 +919,4 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

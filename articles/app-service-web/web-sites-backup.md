@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱을 백업
@@ -49,7 +49,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 <a name="manualbackup"></a>
 ## 수동 백업 만들기
 
-1. Azure 포털의 웹 앱 블레이드에서 웹 앱을 선택 합니다. 이렇게 하면 웹 앱의 세부 정보에서 새 블레이드가 표시 됩니다.
+1. Azure 포털의 웹앱 블레이드에서 웹앱을 선택 합니다. 이렇게 하면 웹 앱의 세부 정보에서 새 블레이드가 표시 됩니다.
 2. 앱의 블레이드에서 **설정**, **백업**을 차례로 선택합니다. **백업** 블레이드가 표시됩니다.
 	
 	![백업 페이지][ChooseBackupsPage]
@@ -122,12 +122,11 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 ### 백업에서 파일 제외
 
-백업에서 파일 및 폴더를 제외하려면 웹앱의 wwwroot 폴더에 `_backup.filter` 파일을 만들고 제외하려는 파일 및 폴더 목록을 지정합니다. 이 폴더는 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)을 통해 쉽게 액세스할 수 있습니다.
+백업에서 파일 및 폴더를 제외하려면 웹앱의 wwwroot 폴더에 `_backup.filter` 파일을 만들고 제외하려는 파일 및 폴더 목록을 지정합니다. 이 곳은 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)을 통해 쉽게 액세스할 수 있습니다.
 
 웹앱에 지난 몇 년 동안의 로그 파일과 정적 이미지가 포함되어 있다고 가정해 보겠습니다. 이러한 항목들은 앞으로도 변하지 않습니다. 여러분은 오래된 이미지가 포함된 웹앱을 이미 완벽히 백업해두었습니다. 이제 매일 웹앱을 백업하려고 하지만 변경되지 않는 정적 이미지 파일 또는 로그 파일을 저장하는 비용은 지불하고 싶지 않습니다.
 
-![Logs 폴더][LogsFolder]	
-![Images 폴더][ImagesFolder]
+![Logs 폴더][LogsFolder] ![Images 폴더][ImagesFolder]
 	
 다음 단계는 백업에서 이들 파일을 제외하는 방법을 보여줍니다.
 
@@ -143,7 +142,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 2. `_backup.filter`라는 파일을 만들고 위 목록을 파일에 저장하지만 `D:\home`을 제거합니다. 줄당 하나의 디렉터리 또는 파일을 나열하세요. 파일의 내용은 다음과 같아야 합니다.
 
-    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
 3. [ftp](web-sites-deploy.md#ftp) 또는 다른 방법을 사용하여 이 파일을 해당 사이트의 `D:\home\site\wwwroot` 디렉터리에 업로드합니다. 필요한 경우 `http://{yourapp}.scm.azurewebsites.net/DebugConsole`에서 직접 파일을 만들고 콘텐츠를 삽입할 수도 있습니다.
 
@@ -167,7 +166,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 <a name="nextsteps"></a>
 ## 다음 단계
-백업에서 웹앱을 복원하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 복원](web-sites-restore.md)을 참조하세요.
+백업에서 웹앱을 복원하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 복원](web-sites-restore.md)을 참조하세요. 또한 REST API를 사용하여 앱 서비스 앱을 백업 및 복원할 수 있습니다([REST를 사용하여 앱 서비스 앱 백업 및 복원](websites-csm-backup.md) 참조).
 
 Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/)을 참조하세요.
 
@@ -190,4 +189,4 @@ Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

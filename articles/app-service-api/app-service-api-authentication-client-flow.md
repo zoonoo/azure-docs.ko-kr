@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Azure API 응용 프로그램을 Azure Active Directory에 의해 인증되는 웹 응용 프로그램 클라이언트에서 호출
@@ -223,9 +223,9 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 
 ## 다음 단계
 
-앱 서비스 API 앱에 대해 클라이언트 흐름 인증하는 방법을 살펴보았습니다. API 앱에서 인증을 처리하는 다른 방법에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
+앱 서비스 API 앱에 대해 클라이언트 흐름 인증하는 방법을 살펴보았습니다. API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure 미리 보기 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

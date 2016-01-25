@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Java CA 인증서 저장소에 인증서 추가
@@ -56,4 +56,4 @@ Azure에서 사용되는 루트 인증서에 대한 자세한 내용은 [Azure �
 
 Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

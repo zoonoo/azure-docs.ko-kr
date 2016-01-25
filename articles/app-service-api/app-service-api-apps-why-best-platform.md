@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # API 앱 개요
@@ -57,4 +57,4 @@ API 앱의 알려진 문제 목록을 보려면 [API 앱의 알려진 문제 포
 
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

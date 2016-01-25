@@ -1,47 +1,47 @@
 <!--author=alkohli last changed: 01/12/15-->
 
-#### To download hotfixes
+#### 핫픽스를 다운로드하려면
 
-Perform the following steps to download the software update from the Microsoft Update Catalog.
+Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운로드하려면 다음 단계를 수행합니다.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
+1. Internet Explorer를 시작하여 [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx)로 이동합니다.
 
-2. If you are a first-time user, you will be prompted to install a Microsoft Update Catalog. Click **Install**.
+2. 처음 사용하는 경우 Microsoft 업데이트 카탈로그를 설치하라는 메시지가 표시됩니다. **Install**을 클릭합니다.
     
-   	![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+   	![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. You will see a catalog search screen. Enter **3121901** in the search box, and click **Search**.
+3. 카탈로그 검색 화면에 표시됩니다. 검색 상자에 **3121901**을 입력하고 **검색**을 클릭합니다.
 
-    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
+    ![카탈로그 검색](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. You will see the **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**. Click **Add**. The update will be added to the basket. 
+4. **StorSimple 8000 시리즈에 대한 누적 소프트웨어 번들 업데이트 2.0**이 표시됩니다. **추가**를 클릭합니다. 업데이트는 장바구니에 추가됩니다.
 
-5. Click **View Basket**.
+5. **바구니 보기**를 클릭합니다.
  
-6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a folder (same name as the update) to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
+6. **다운로드**를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **찾습니다**. 업데이트가 업데이트와 같은 이름으로 폴더의 선택한 위치에 다운로드됩니다. 장치에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
        
-	> [AZURE.NOTE] 
+	> [AZURE.NOTE]
 	> 
-	> - You will also need to download **LSI driver update** (SAS Controller Update 2.0 for StorSimple 8000 Series - KB3121900),  **Storport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3080728), **Spaceport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3090322), and **Disk firmware update** (Cumulative Disk Firmware Update 2.0 for StorSimple 8000 Series - KB3121899) and copy to the same shared folder.
-	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
+	> - 또한 **LSI 드라이버 업데이트**(StorSimple 8000 시리즈용 SAS 컨트롤러 업데이트 2.0 - KB3121900), **Storport 업데이트**(Windows Server 2012 R2 x64 Edition용 핫픽스 - KB3080728), **Spaceport 업데이트**(Windows Server 2012 R2 x64 Edition용 핫픽스 - KB3090322) 및 **디스크 펌웨어 업데이트**(StorSimple 8000 시리즈용 누적 디스크 펌웨어 업데이트 2.0 - KB3121899)도 다운로드하여 동일한 공유 폴더에 복사해야 합니다.
+	> - 피어 컨트롤러의 잠재적 오류 메시지를 검색하려면 두 컨트롤러에서 모두 핫픽스에 액세스할 수 있어야 합니다.
 
-#### To install and  verify regular mode hotfixes
+#### 일반 모드 핫픽스를 설치 및 확인하려면
 
-Perform the following steps to install and verify the regular hotfixes.
+일반 핫픽스를 설치 및 확인하려면 다음 단계를 수행합니다.
 
-1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
+1. 핫픽스를 설치하려면 StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)에서 자세한 지침을 따르세요. 명령 프롬프트에서 **Enter** 키를 누릅니다.
 
-4. Select **Option 1** to log on to the device with full access.
+4. **옵션 1**을 선택하여 모든 권한으로 장치에 로그온합니다.
 
-5. To install the hotfix, at the command prompt, type:
+5. 핫픽스를 설치하려면 명령 프롬프트에 다음을 입력합니다.
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share. 
+    위 명령에서 공유 경로에 DNS 대신 IP를 사용합니다. 자격 증명 매개 변수는 인증된 공유에 액세스하는 경우에만 사용됩니다.
 
-	We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+	자격 증명 매개 변수를 사용하여 공유에 액세스하는 것이 좋습니다. 일반적으로 "모든 사용자"에게 개방된 공유도 인증되지 않은 사용자에게는 개방되지 않습니다.
 
-    A sample output is shown below.
+    샘플 출력은 다음과 같습니다.
 
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -56,11 +56,11 @@ Perform the following steps to install and verify the regular hotfixes.
 
         ````
  
-6. Type **Y** when prompted to confirm the hotfix installation.
+6. 핫픽스 설치를 확인하라는 메시지가 표시되면 **Y**를 입력합니다.
 
-7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet.
+7. `Get-HcsUpdateStatus` cmdlet을 사용하여 업데이트를 모니터링합니다.
 
-    The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
+    다음 샘플 출력에서는 진행 중인 업데이트를 보여줍니다. 업데이트가 진행 중이면 `RunInprogress`가 `True`입니다.
 
         ````
         Controller0>Get-HcsUpdateStatus
@@ -71,7 +71,7 @@ Perform the following steps to install and verify the regular hotfixes.
         Controller1Events   : 
         ````
  
-     The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
+     다음 샘플 출력은 업데이트가 완료되었음을 나타냅니다. 업데이트가 완료되면 `RunInProgress`가 `False`입니다.
 
         ````
         Controller1>Get-HcsUpdateStatus
@@ -85,37 +85,37 @@ Perform the following steps to install and verify the regular hotfixes.
         ````
 		
 
-	> [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed. 
+	> [AZURE.NOTE]업데이트가 진행 중일 때 cmdlet에서 `False`를 보고하는 경우도 있습니다. 핫픽스가 완료되었는지 확인하려면 몇 분 동안 기다린 후 이 명령을 다시 실행하고 `RunInProgress`가 `False`인지 확인합니다. 맞으면 핫픽스가 완료된 것입니다.
 	
-8. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent using the `CisMdsAgentUpdateBundle.exe`. Ensure that `HcsMdsSoftwareUpdate.exe` is installed before `CisMdsAgentUpdateBundle.exe`. 
+8. 소프트웨어 업데이트가 완료되었으면 `CisMdsAgentUpdateBundle.exe`를 사용하여 3-5단계를 반복하고 SaaS 에이전트 및 MDS 에이전트를 설치 및 모니터링합니다. `CisMdsAgentUpdateBundle.exe` 이전에 `HcsMdsSoftwareUpdate.exe`가 설치되었는지 확인합니다.
 
-9. Verify the system software versions. Type:
+9. 시스템 소프트웨어 버전을 확인합니다. 형식:
 
     `Get-HcsSystem`
 
-    You should see the following versions:
+    다음 버전이 표시되어야 합니다.
 
     - HcsSoftwareVersion: 6.3.9600.17673
     - CisAgentVersion: 1.0.9150.0
     - MdsAgentVersion: 30.0.4698.13 
     
-	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
+	업데이트를 적용한 후 버전 번호가 변경되지 않으면 핫픽스를 적용하지 못한 것입니다. 이 경우 추가 지원을 받으려면 [Microsoft 지원](storsimple-contact-microsoft-support.md)에 문의하세요.
     
-9. Repeat steps 3-5 to install and monitor the remaining regular hotfixes.
+9. 나머지 일반 핫픽스를 설치 및 모니터링하려면 3-5단계를 반복합니다.
 
-	- The LSI driver using the `HcsLsiUpdate.exe` package (KB3121900).
-	- The Storport fix using the `Storport-KB3080728-x64.msu` package (KB3080728).
-	- The Spaceport fix using the `spaceport-KB3090322-x64.msu` package (KB3090322).
+	- `HcsLsiUpdate.exe` 패키지를 사용하여 LSI 드라이버(KB3121900).
+	- `Storport-KB3080728-x64.msu` 패키지를 사용하여 Storport 수정(KB3080728).
+	- `spaceport-KB3090322-x64.msu` 패키지를 사용하여 Spaceport 수정(KB3090322).
 
-#### To install and verify maintenance mode hotfix
+#### 유지 관리 모드 핫픽스를 설치 및 확인하려면
 
-Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. To install disk firmware updates, follow the instructions below.
+`DiskFirmwarePackage.exe` 패키지(KB3121899)를 사용하여 디스크 펌웨어 업데이트를 설치합니다. 작업 중단 업데이트이며 완료하는 데 약 30분이 소요됩니다. 장치 직렬 콘솔에 연결하여 계획된 유지 관리 기간에 설치하도록 선택할 수 있습니다. 디스크 펌웨어 업데이트를 설치하려면 아래 지침을 따릅니다.
 
-1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. You will need to run this cmdlet on the device controller when connected through the device serial console. Type:
+1. 장치를 유지 관리 모드로 설정합니다. 유지 관리 모드에서 장치에 연결할 때는 Windows PowerShell 원격을 사용해서는 안 됩니다. 장치 직렬 콘솔을 통해 연결된 경우 장치 컨트롤러에서 이 cmdlet을 실행해야 합니다. 형식:
 		
 	`Enter-HcsMaintenanceMode`
 
-	A sample output is shown below.
+	샘플 출력은 다음과 같습니다.
 
 		Controller0>Enter-HcsMaintenanceMode
 		Checking device state...
@@ -138,13 +138,13 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 		[4] Change language
 		Please enter your choice>
 
-	Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode. 
+	두 컨트롤러가 모두 다시 부팅됩니다. 재부팅이 완료되면 두 컨트롤러는 유지 관리 모드가 됩니다.
 
-3. To install the disk firmware update, type:
+3. 디스크 펌웨어 업데이트를 설치하려면 다음을 입력합니다.
 
 	`Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-	A sample output is shown below.
+	샘플 출력은 다음과 같습니다.
 
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
 		Enter Password:
@@ -155,17 +155,17 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
+1.  `Get-HcsUpdateStatus` 명령을 사용하여 설치 진행률을 모니터합니다. `RunInProgress`가 `False`로 변경되면 업데이트가 완료된 것입니다.
  
-2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type:
+2.  설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 부팅됩니다. 모든 권한이 있는 옵션 1로 로그인하고 디스크 펌웨어 버전을 확인합니다. 형식:
 	
 	`Get-HcsFirmwareVersion`
   
-	The expected disk firmware versions are: 
+	예상된 디스크 펌웨어 버전은 다음과 같습니다.
 
 	`XMGG, XGEG, KZ50, F6C2, VR08`
 
-	A sample output is shown below.
+	샘플 출력은 다음과 같습니다.
 
 
         -----------------------MAINTENANCE MODE------------------------
@@ -221,11 +221,11 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
     	  SEAGATE:ST4000NM0023:XMGG
     	  SEAGATE:ST4000NM0023:XMGG
 
-	 Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
+	 두 번째 컨트롤러에서 `Get-HcsFirmwareVersion` 명령을 실행하여 해당 소프트웨어 버전이 업데이트되었는지 확인합니다. 그런 다음 유지 관리 모드를 끝낼 수 있습니다. 각 장치 컨트롤러에 대해 다음 명령을 입력합니다.
 
     `Exit-HcsMaintenanceMode`
      
-1. The controllers will be rebooted when you exit the Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Maintenance mode updates are not updated on the portal until 24 hours have elapsed. 
+1. 유지 관리 모드를 종료하면 컨트롤러가 다시 부팅됩니다. 디스크 펌웨어 업데이트가 성공적으로 적용되고 장치가 유지 관리 모드를 종료한 후 Azure 클래식 포털로 돌아갑니다. 유지 관리 모드 업데이트는 24시간이 경과할 때까지 포털에서 업데이트되지 않습니다.
 
 
 
@@ -235,3 +235,4 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
  
  
 
+<!---HONumber=AcomDC_0114_2016-->

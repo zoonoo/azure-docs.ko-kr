@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 아키텍처
@@ -73,14 +73,6 @@ Azure 리소스 관리자의 경우, 리소스 공급자는 사용자가 필요�
 
 ## 다음 단계
 
-[Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-azure-cli.md)
+[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)에서 리소스 관리자 배포 모델과 함께 배포할 수 있는 리소스에 대해 알아봅니다.
 
-[리소스 관리자 템플릿 및 PowerShell을 사용하여 Azure 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## 추가 리소스
-
-[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure 리소스 관리자 개요](resource-group-overview.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

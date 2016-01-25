@@ -4,7 +4,7 @@
    services="sql-data-warehouse" 
    documentationCenter="" 
    authors="twounder" 
-   manager="" 
+   manager="barbkess" 
    editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="01/04/2016" 
-   ms.author="twounder"/>
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # SQL 데이터 웨어하우스 데이터베이스 감사 시작 
 Azure SQL 데이터 웨어하우스 감사는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 감사된 이벤트를 작성합니다.
@@ -120,7 +120,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 ##<a id="subheading-6"></a>자동화
 Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있는 여러 가지 PowerShell cmdlet이 있습니다. 감사 cmdlet에 액세스하려면 Azure 리소스 관리자 모드에서 PowerShell을 실행해야 합니다.
 
-> [AZURE.NOTE] [Azure 리소스 관리자](https://msdn.microsoft.com/library/dn654592.aspx) 모듈은 현재 사전 검토 단계에 있습니다. 이 모듈은 Azure 모듈과 동일한 관리 기능을 제공하지 않을 수도 있습니다.
+> [AZURE.NOTE][Azure 리소스 관리자](https://msdn.microsoft.com/library/dn654592.aspx) 모듈은 현재 사전 검토 단계에 있습니다. 이 모듈은 Azure 모듈과 동일한 관리 기능을 제공하지 않을 수도 있습니다.
 
 Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 사용 가능한 cmdlet 목록을 확인할 수 있습니다.
 
@@ -141,4 +141,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0114_2016-->

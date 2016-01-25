@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 # Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하는 방법
 
-사용자 인터페이스를 사용하도록 설정되지 않은 Windows Server 또는 여러 Windows 서버에 설치 스크립트를 보낼 수 있습니다. 이 항목에서는 무인 설치를 사용하도록 설정하고 Azure AD 응용 프로그램 프록시 커넥터를 설치 및 등록하는 Windows PowerShell 스크립트를 만드는 방법에 대해 설명합니다.
+> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+
+사용자 인터페이스를 사용하도록 설정되지 않은 Windows Server 또는 여러 Windows 서버에 설치 스크립트를 보낼 수 있습니다. 이 항목에서는 무인 설치가 Azure AD 응용 프로그램 프록시 커넥터를 설치하고 등록할 수 있도록 하는 Windows PowerShell 스크립트를 만드는 방법에 대해 설명합니다.
 
 ## 액세스 사용
 응용 프로그램 프록시는 네트워크 내부에서 커넥터라고 불리는 간단한 Windows Server 서비스를 설치하여 사용합니다. 응용 프로그램 프록시 커넥터가 작동하려면 전역 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 등록 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력됩니다. 또는 Windows PowerShell을 사용하여 자격 증명 개체를 만들어 등록 정보를 입력하거나, 고유한 토큰을 만들고 이 토큰을 사용하여 등록 정보를 입력할 수 있습니다.
@@ -44,7 +46,7 @@
 ### Windows PowerShell 자격 증명 개체를 사용하여 커넥터 등록
 
 
-1. 다음을 실행하여 Windows PowerShell 자격 증명 개체를 만듭니다. 여기서 "사용자 이름" 및 "암호"는 디렉터리의 사용자 이름 및 암호로 바꿔야 합니다.
+1. 다음을 실행하여 Windows PowerShell 자격 증명 개체를 만듭니다. 여기서 "<username>" 및 "<password>"는 디렉터리의 사용자 이름 및 암호로 바꿔야 합니다.
 
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -142,4 +144,4 @@
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,18 +1,19 @@
 <properties
 	pageTitle="Windows 스토어 앱에서 Azure 저장소 사용 | Microsoft Azure"
-	description="Azure Blob, 큐 및 테이블을 사용하여 Windows 스토어 앱의 데이터를 저장하는 방법에 대해 알아봅니다."
+	description="Azure Blob, 큐, 테이블 또는 파일 저장소를 사용하는 Windows 스토어 앱을 만드는 방법을 알아봅니다."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah" />
+	manager="carmonm" />
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
+	
 # Windows 스토어 앱에서 Azure 저장소를 사용하는 방법
 
 ## 개요
@@ -86,4 +87,4 @@ WCF 데이터 서비스 NuGet 패키지를 참조한 경우 단추의 **Click** 
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

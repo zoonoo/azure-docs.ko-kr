@@ -4,7 +4,7 @@
 	documentationCenter="windows"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	services="mobile-services"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="glenga"/>
 
 # Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기
@@ -765,4 +765,4 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 [푸시 알림 추가]: ../notification-hubs-windows-store-dotnet-get-started.md
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

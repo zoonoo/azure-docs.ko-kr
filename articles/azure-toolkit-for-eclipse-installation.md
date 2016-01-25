@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Eclipse용 Azure 도구 키트 설치"
-    description="Eclipse용 Azure 도구 키트를 설치하는 방법을 알아봅니다."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Eclipse용 Azure 도구 키트 설치"
+	description="Eclipse용 Azure 도구 키트를 설치하는 방법을 알아봅니다."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
@@ -26,23 +26,7 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
 다음 단계는 Eclipse용 Azure 도구 키트를 설치하는 방법을 보여줍니다.
 
-## 필수 조건 ##
-
-* Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
-* JDK(Java Developer Kit) v1.7 이상. 
-* 운영 체제 - Eclipse용 Azure 도구 키트는 다음 운영 체제에서 테스트되었습니다.
-    * Windows 10
-    * Windows 8 및 Windows 8.1
-    * Windows 7
-    * Windows Server 2012
-    * Windows Server 2008
-
-> [AZURE.IMPORTANT]Eclipse용 Azure 도구 키트를 Windows에서 사용하는 경우 도구 키트를 위해 Azure SDK 2.7 이상을 설치해야 합니다. Azure SDK 설치하는 옵션은 두 가지입니다.
-> 
-> * [웹 플랫폼 설치 관리자(WebPI)][]를 사용하여 Azure SDK를 다운로드하고 설치할 수 있습니다.
-> * 첫 번째 Azure 배포 프로젝트를 만들 때 Azure SDK가 설치되어 있지 않으면 Azure SDK 필수 버전을 자동으로 다운로드하고 설치한다는 메시지가 표시됩니다.
-> 
-> Azure SDK는 Windows에서만 필요합니다.
+[AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## Eclipse용 Azure 도구 키트 설치 ##
 
@@ -79,7 +63,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[웹 플랫폼 설치 관리자(WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
+[Web Platform Installer (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
 [Eclipse용 Azure 도구 키트의 새로운 기능]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
@@ -87,4 +71,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/12/2016" 
 	ms.author="cephalin;riande"/>
 
 
@@ -62,37 +62,45 @@ C# 소스 코드를 사용하는 Visual Studio 프로젝트를 다음 항목과 
 
 1.	회의 목록 응용 프로그램 [시작 프로젝트][StarterProject](영문)를 다운로드합니다.
 
-2. 	그런 다음 Windows 탐색기에서 Mvc5Mobile.zip 파일을 마우스 오른쪽 단추로 클릭하고 *속성*을 선택합니다.
+2. 	그런 다음 Windows 탐색기에서 다운로드한 ZIP 파일을 마우스 오른쪽 단추로 클릭하고 *속성*을 선택합니다.
 
-3. 	**Mvc5Mobile.zip 속성** 대화 상자에서 **차단 해제** 단추를 선택합니다. (차단 해제는 웹에서 다운로드한 *.zip* 파일을 사용하려고 할 때 발생하는 보안 경고를 막습니다.)
+3. 	**속성** 대화 상자에서 **차단 해제** 단추를 선택합니다. (차단 해제는 웹에서 다운로드한 *.zip* 파일을 사용하려고 할 때 발생하는 보안 경고를 막습니다.)
 
-4.	*Mvc5Mobile.zip* 파일을 마우스 오른쪽 단추로 클릭하고 **모두 압축 풀기**를 선택하여 파일의 압축을 풉니다.
+4.	ZIP 파일을 마우스 오른쪽 단추로 클릭하고 **모두 압축 풀기**를 선택하여 파일의 압축을 풉니다.
 
-5. 	Visual Studio에서 *Mvc5Mobile.sln* 파일을 엽니다.
+5. 	Visual Studio에서 *C#\\Mvc5Mobile.sln* 파일을 엽니다.
 
 6.  솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
 	![][DeployClickPublish]
 
-7.	웹 게시에서 **Microsoft Azure 웹 앱**을 클릭합니다.
+7.	웹 게시에서 **Microsoft Azure 앱 서비스**를 클릭합니다.
 
 	![][DeployClickWebSites]
 
-8.	**로그인**을 클릭합니다.
+8.	Azure에 아직 로그인하지 않은 경우 **계정 추가**를 클릭합니다.
 
 	![][DeploySignIn]
 
 9.	표시되는 메시지에 따라 Azure 계정에 로그인합니다.
 
-11. 이제 기존 웹 앱 선택 대화 상자에서 로그인된 것으로 표시됩니다. **새로 만들기**를 클릭합니다.
+11. 이제 앱 서비스 대화 상자가 로그인한 것으로 표시되어야 합니다. **새로 만들기**를 클릭합니다.
 
 	![][DeployNewWebsite]
 
-12. **웹 앱 이름** 필드에서 고유한 앱 이름 접두사를 지정합니다. 정규화된 웹 앱 이름은 *&lt;prefix>*.azurewebsites.net입니다. 또한 **앱 서비스 계획**, **리소스 그룹** 및 **지역** 필드를 구성합니다. 그런 다음에 **만들기**를 클릭합니다.
+12. **웹앱 이름** 필드에서 고유한 앱 이름 접두사를 지정합니다. 정규화된 웹 앱 이름은 *&lt;prefix>*.azurewebsites.net입니다. 또한 **리소스 그룹**에서 새 리소스 그룹 이름을 선택하거나 지정합니다. 그런 다음 **새로 만들기**를 클릭하여 새 앱 서비스 계획을 만듭니다.
 
 	![][DeploySiteSettings]
 
-13.	웹 게시 대화 상자에 새 웹 앱의 설정이 채워집니다. **게시**를 클릭합니다.
+13. 새 앱 서비스 계획을 구성하고 **확인**을 클릭합니다.
+
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7a.png)
+
+13. 다시 앱 서비스 만들기 대화 상자에서 **만들기**를 클릭합니다.
+
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7b.png)
+
+13.	Azure 리소스가 만들어진 후 웹 게시 대화 상자에 새 앱의 설정이 채워집니다. **게시**를 클릭합니다.
 
 	![][DeployPublishSite]
 
@@ -102,7 +110,7 @@ C# 소스 코드를 사용하는 Visual Studio 프로젝트를 다음 항목과 
 
 	![][AllTags]
 
->[AZURE.NOTE]Visual Studio 내에서 MVC 5 응용 프로그램을 디버깅할 수도 있고, 웹 앱을 Azure에 다시 게시하여 모바일 브라우저나 브라우저 에뮬레이터에서 라이브 웹 앱을 직접 확인할 수도 있습니다.
+>[AZURE.TIP]Visual Studio 내에서 MVC 5 응용 프로그램을 디버깅할 수도 있고, 웹 앱을 Azure에 다시 게시하여 모바일 브라우저나 브라우저 에뮬레이터에서 라이브 웹 앱을 직접 확인할 수도 있습니다.
 
 이 화면은 모바일 장치에서 가독성이 뛰어납니다. 이미 부트스트랩 CSS 프레임워크에 의해 적용된 시각 효과 중 일부를 알고 있을 수도 있습니다. **ASP.NET** 링크를 클릭합니다.
 
@@ -616,4 +624,4 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

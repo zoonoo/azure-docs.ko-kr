@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자란?
@@ -25,7 +25,11 @@ StorSimple 스냅숏 관리자는 Microsoft Azure StorSimple 환경에서 데이
 
 StorSimple 장치, StorSimple 관리자 서비스, StorSimple 스냅숏 관리자, SharePoint용 StorSimple 어댑터 등을 포함한 전체 Microsoft Azure StorSimple 시스템에 대한 개요는 [StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션](storsimple-overview.md)을 참조하세요.
  
->[AZURE.NOTE]StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 장치라고도 함)를 관리할 수 없습니다.
+>[AZURE.NOTE]
+>
+>- StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 장치라고도 함)를 관리할 수 없습니다.
+>
+>- StorSimple 장치에 StorSimple 업데이트 2를 설치하려는 경우 StorSimple Snapshot Manager의 최신 버전을 다운로드하여 **StorSimple 업데이트 2를 설치하기 전에** 설치해야 합니다. StorSimple Snapshot Manager의 최신 버전은 이전 버전과 호환되며 릴리스된 모든 버전의 Microsoft Azure StorSimple에서 작동합니다. StorSimple Snapshot Manager의 이전 버전을 사용하고 있다면 업데이트해야 합니다(새 버전을 설치하기 전에 이전 버전을 제거할 필요 없음).
 
 ## StorSimple 스냅숏 관리자 용도 및 아키텍처
 
@@ -42,7 +46,7 @@ StorSimple 스냅숏 관리자 백업은 마지막 백업 이후의 변경 내�
 
 ![StorSimple 스냅숏 관리자 아키텍처](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**그림 1: StorSimple 스냅숏 관리자 아키텍처**
+**StorSimple 스냅숏 관리자 아키텍처**
 
 ## 여러 볼륨 유형에 대한 지원
 
@@ -103,7 +107,7 @@ VSS의 StorSimple Snapshot Manager 구현은 SQL 서버 및 일반 NTFS 볼륨�
 
 ![VSS 프로세스](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**그림 2: Windows 볼륨 섀도 복사본 서비스 프로세스**
+**Windows 볼륨 섀도 복사본 서비스 프로세스**
 
 ## 백업 유형 및 백업 정책
 
@@ -152,4 +156,4 @@ StorSimple 스냅숏 관리자를 사용하여 차후의 백업 작업, 예약�
 
 - [StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

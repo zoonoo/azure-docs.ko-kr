@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory 코드 샘플
@@ -151,4 +151,4 @@ PHP | [Azure AD Graph API용 PHP 샘플 앱](http://code.msdn.microsoft.com/PHP-
 
 [OAuth 및 Active Directory Federation Services를 사용하여 최신 응용 프로그램 개발](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

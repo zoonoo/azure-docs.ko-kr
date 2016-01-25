@@ -1,56 +1,53 @@
 
-* **QSAppDelegate.m**에서 iOS SDK 및 **QSTodoService.h**를 가져옵니다.
+**Objective-C**:
 
-```
+1. **QSAppDelegate.m**에서 iOS SDK 및 **QSTodoService.h**를 가져옵니다.
+        
         #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
         #import "QSTodoService.h"
-```
 
-* **QSAppDelegate.m**의 `didFinishLaunchingWithOptions`에서 `return YES;` 바로 앞에 다음 줄을 삽입합니다.
+2. **QSAppDelegate.m**의 `didFinishLaunchingWithOptions`에서 `return YES;` 바로 앞에 다음 줄을 삽입합니다.
 
-```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-```
 
-* **QSAppDelegate.m**에서 다음 처리기 메서드를 추가합니다. 이제 앱이 푸시 알림을 지원하도록 업데이트됩니다. 참고 UIAlertView는 iOS9 및 다음 대상 iOS9에서 더이상 사용되지 않습니다.
+3. **QSAppDelegate.m**에서 다음 처리기 메서드를 추가합니다. 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
-```
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
         didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-
+        
             QSTodoService *todoService = [QSTodoService defaultService];
             MSClient *client = todoService.client;
-
+        
             [client.push registerDeviceToken:deviceToken completion:^(NSError *error) {
                 if (error != nil) {
                     NSLog(@"Error registering for notifications: %@", error);
                 }
             }];
         }
-
+        
         // Handle any failure to register
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
-
+        
         // Use userInfo in the payload to display an alert.
         - (void)application:(UIApplication *)application
               didReceiveRemoteNotification:(NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
-
+        
             NSDictionary *apsPayload = userInfo[@"aps"];
             NSString *alertString = apsPayload[@"alert"];
-
+        
             // Create alert with notification content.
             UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:@"Notification"
                                           message:alertString
                                           preferredStyle:UIAlertControllerStyleAlert];
-    
+        
             UIAlertAction *cancelAction = [UIAlertAction
                                            actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel")
                                            style:UIAlertActionStyleCancel
@@ -79,8 +76,76 @@
             
             // Display alert.
             [currentViewController presentViewController:alertController animated:YES completion:nil];
-
+        
         }
-```
 
-<!---HONumber=AcomDC_1203_2015-->
+**Swift**:
+
+1. 다음과 같은 내용으로 **ClientManager.swift** 파일을 추가합니다. _%AppUrl%_을 Azure 모바일 앱 백 엔드의 URL로 바꿉니다.
+        
+        class ClientManager {
+            static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
+        }
+
+2. **ToDoTableViewController.swift**에서 `MSClient`를 초기화하는 `let client` 줄을 다음 줄로 바꿉니다.
+
+        let client = ClientManager.sharedClient
+ 
+3. **AppDelegate.swift**에서 `func application`의 본문을 다음과 같이 바꿉니다.
+
+        func application(application: UIApplication,
+           didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+           application.registerUserNotificationSettings(
+               UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
+                   categories: nil))
+           application.registerForRemoteNotifications()
+           return true
+        }
+
+2. **AppDelegate.swift**에서 다음 처리기 메서드를 추가합니다. 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
+        
+
+        func application(application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+            ClientManager.sharedClient.push?.registerDeviceToken(deviceToken, completion: { (error) -> Void in
+                NSLog("Error registering for notifications: %@", error!.description)
+            })
+        }
+
+            
+        func application(application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+            NSLog("Failed to register for remote notifications: \n%@", error.description)
+        }
+
+        func application(application: UIApplication,
+        didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+            
+            NSLog("%@", userInfo)
+            
+            let apsNotification = userInfo["aps"] as! NSDictionary
+            let apsString       = apsNotification["alert"] as! String
+            
+            
+            let alert = UIAlertController(title: "Alert", message:apsString, preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default) { _ in
+                NSLog("OK")
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { _ in
+                NSLog("Cancel")
+            }
+            
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            
+            var currentViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController
+            while currentViewController?.presentedViewController != nil {
+                currentViewController = currentViewController?.presentedViewController
+            }
+            
+            currentViewController?.presentViewController(alert, animated: true){}
+            
+        }
+    
+
+<!---HONumber=AcomDC_0114_2016-->

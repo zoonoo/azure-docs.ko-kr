@@ -17,7 +17,7 @@
    ms.author="seanmck"/>
 
 # 서비스 패브릭 응용 프로그램 및 다음 단계
-서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문서에서는 프로젝트와 몇 가지 잠재적인 다음 단계의 구성에 대해 설명합니다.
+Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문서에서는 프로젝트와 몇 가지 잠재적인 다음 단계의 구성에 대해 설명합니다.
 
 ## 응용 프로그램
 모든 새 응용 프로그램에는 응용 프로그램 프로젝트가 포함되어 있습니다. 선택한 서비스의 형식에 따라 하나 또는 두 개의 추가 프로젝트가 있을 수 있습니다.
@@ -27,7 +27,7 @@
 
 - 응용 프로그램을 구성하는 서비스에 대한 참조 집합입니다.
 
-- 클러스터 끝점과 같은 다른 환경에서의 작업에 대한 기본 설정과 기본적으로 업그레이드 배포를 수행하는 여부 사항을 유지하는 데 사용할 수 있는 두 개의 게시 프로필(로컬 및 클라우드)입니다.
+- 클러스터 끝점과 관련된 기본 설정과 같은 다른 환경에서의 작업에 대한 기본 설정과 기본적으로 업그레이드 배포를 수행하는 여부 사항을 유지하는 데 사용할 수 있는 두 개의 게시 프로필(로컬 및 클라우드)입니다.
 
 - 서비스에 대해 만들려는 파티션 수와 같은 환경 관련 응용 프로그램 구성을 유지하는 데 사용할 수 있는 두 응용 프로그램 매개 변수 파일(로컬 및 클라우드)입니다.
 
@@ -46,15 +46,15 @@
 행위자는 다른 서비스에 의해 활성화되어야 하기 때문에 행위자 프로젝트는 기본 시작 동작을 포함하지 않습니다. 행위자를 만들고 조작하기 위해 Reliable Service 또는 ASP.NET 프로젝트를 추가하는 것이 좋습니다.
 
 ### ASP.NET 5
-서비스 패브릭 응용 프로그램에서 사용하기 위해 제공된 ASP.NET 5 템플릿은 독립적으로 만든 ASP.NET 5 프로젝트에 대해 사용할 수 있는 템플릿과 거의 동일합니다. 유일한 차이점은 다음과 같습니다.
+서비스 패브릭 응용 프로그램에서 사용하기 위해 제공된 ASP.NET 5개 템플릿은 독립적으로 만든 ASP.NET 5개 프로젝트에 대해 사용할 수 있는 템플릿과 거의 동일합니다. 유일한 차이점은 다음과 같습니다.
 
-- 프로젝트는 Data 및 Config 패키지와 함께 ServiceManifest를 저장하기 위한 **PackageRoot** 폴더를 포함합니다.
+- 프로젝트는 데이터 및 구성 패키지와 함께 ServiceManifest 파일을 저장하기 위한 **PackageRoot** 폴더를 포함합니다.
 
-- 프로젝트는 DNX와 서비스 패브릭 사이를 연결하는 다리 역할을 하는 추가 NuGet 패키지(Microsoft.ServiceFabric.AspNet.Hosting)를 참조합니다.
+- 프로젝트는 .NET Execution Environment(DNX)와 서비스 패브릭 사이를 연결하는 다리 역할을 하는 추가 NuGet 패키지(Microsoft.ServiceFabric.AspNet.Hosting)를 참조합니다.
 
 ## 다음 단계
 ### 응용 프로그램에 웹 프런트 엔드 추가
-서비스 패브릭은 응용 프로그램에 웹 기반 진입점을 구성하기 위해 ASP.NET 5와의 통합을 제공합니다. ASP.NET WebAPI를 기반으로 REST 인터페이스를 만드는 방법을 알아보려면 [응용 프로그램에 웹 프런트 엔드 추가][add-web-frontend]를 참조하세요.
+서비스 패브릭은 응용 프로그램에 웹 기반 진입점을 구성하기 위해 ASP.NET 5와의 통합을 제공합니다. ASP.NET Web API를 기반으로 REST 인터페이스를 만드는 방법을 알아보려면 [응용 프로그램에 웹 프런트 엔드 추가][add-web-frontend]를 참조하세요.
 
 ### Azure 클러스터 만들기
 서비스 패브릭 SDK는 개발 및 테스트를 위한 로컬 클러스터를 제공합니다. Azure에서 클러스터를 만들려면 [Azure 포털에서 서비스 패브릭 클러스터 설정][create-cluster-in-portal]을 참조하세요.
@@ -76,13 +76,14 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 서비스 패브릭 응용 프로그램에 대해 지속적인 통합 프로세스를 설정할 수 있는 방법을 알아보려면 [Visual Studio Team Services를 사용하여 지속적인 통합 구성][ci-with-vso]을 참조하세요.
 
 
+
 <!-- Links -->
 [add-web-frontend]: ./service-fabric-add-a-web-frontend.md
 [create-cluster-in-portal]: ./service-fabric-cluster-creation-via-portal.md
 [publish-app-to-azure]: ./service-fabric-publish-app-remote-cluster.md
 [visualize-with-sfx]: ./service-fabric-visualizing-your-cluster.md
-[ci-with-vso]: ./service-fabric-configure-continuous-integration-with-vso.md
+[ci-with-vso]: ./service-fabric-set-up-continuous-integration.md
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

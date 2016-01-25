@@ -150,9 +150,6 @@ Azure 테이블을 만들려면 **CreateIfNotExistsAsync()**에 대한 호출을
         }
     } while (token != null);
 
-    return View();
-
-
 ## 단일 엔터티 가져오기
 단일 특정 엔터티를 가져오는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **TableOperation** 개체를 사용하여 'Ben Smith'라는 고객을 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환하며, **TableResult.Result**에서 반환된 값은 **CustomerEntity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 **테이블** 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
@@ -202,4 +199,4 @@ Azure 테이블을 만들려면 **CreateIfNotExistsAsync()**에 대한 호출을
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

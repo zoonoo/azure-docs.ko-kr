@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/14/2015"
    ms.author="andkjell"/>
 
 # 일반 LDAP 커넥터 기술 참조
@@ -49,13 +49,13 @@ IETF RFC를 참조할 때 이 문서는 (RFC [RFC number]/[section in RFC docume
 
 - Microsoft Active Directory Lightweight Directory Services(AD LDS)
     - 델타 가져오기에 모든 작업을 지원합니다.
-    - 암호 설정 및 암호 변경 지원
+    - 암호 설정 지원
 - Microsoft Active Directory 글로벌 카탈로그(AD GC)
     - 델타 가져오기에 모든 작업을 지원합니다.
-    - 암호 설정 및 암호 변경 지원
+    - 암호 설정 지원
 - 389 디렉터리 서버
     - 델타 가져오기에 모든 작업을 지원합니다.
-    - 암호 설정 지원
+    - 암호 설정 및 암호 변경 지원
 - Apache 디렉터리 서버
     - 이 디렉터리에 영구 변경 로그가 없으므로 델타 가져오기를 지원하지 않습니다.
     - 암호 설정 지원
@@ -71,10 +71,10 @@ IETF RFC를 참조할 때 이 문서는 (RFC [RFC number]/[section in RFC docume
     - 암호 설정 및 암호 변경 지원
 - DJ 열기
     - 델타 가져오기에 모든 작업을 지원합니다.
-    - 암호 설정 지원
+    - 암호 설정 및 암호 변경 지원
 - DS 열기
     - 델타 가져오기에 모든 작업을 지원합니다.
-    - 암호 설정 지원
+    - 암호 설정 및 암호 변경 지원
 - LDAP 열기(openldap.org)
     - 델타 가져오기에 모든 작업을 지원합니다.
     - 암호 설정 지원
@@ -211,13 +211,13 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 | Apache 디렉터리 서버 | 사용할 수 없음. |
 | 디렉터리 389 | 변경 로그. 사용할 기본값: **cn=changelog** |
 | IBM Tivoli DS | 변경 로그. 사용할 기본값: **cn=changelog** |
-| Isode 디렉터리 | 변경 로그. 사용할 기본값: **cn=ChangeLog**
+| Isode 디렉터리 | 변경 로그. 사용할 기본값: **cn=changelog**
 | Novell/NetIQ eDirectory | 사용할 수 없음. TimeStamp. 커넥터는 마지막 업데이트된 날짜/시간을 사용하여 추가되거나 업데이트된 레코드를 가져옵니다. |
-| DJ/DS 열기 | 변경 로그. 사용할 기본값: **cn=Changelog** |
+| DJ/DS 열기 | 변경 로그. 사용할 기본값: **cn=changelog** |
 | LDAP 열기 | 액세스 로그. 사용할 기본값: **cn=accesslog** |
 | Oracle DSEE | 변경 로그. 사용할 기본값: **cn=changelog** |
 | RadiantOne VDS | 가상 디렉터리. VDS에 연결된 디렉터리에 따라 다릅니다. |
-| Sun One 디렉터리 서버 | 변경 로그. 사용할 기본값: **cn=Changelog** |
+| Sun One 디렉터리 서버 | 변경 로그. 사용할 기본값: **cn=changelog** |
 
 암호 특성은 커넥터가 암호 변경 및 암호 집합 작업에서 암호를 설정하는 데 사용해야 하는 특성의 이름입니다. 기본적으로 **userPassword**로 설정하지만 특정 LDAP 시스템에 필요한 경우 변경할 수 있습니다.
 
@@ -279,4 +279,4 @@ Novell eDirectory의 경우 델타 가져오기는 개체 삭제를 검색하지
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

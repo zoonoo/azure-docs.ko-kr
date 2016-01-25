@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 # Azure 프리미엄 저장소: 고성능을 위한 설계
 
@@ -33,7 +33,7 @@
 
 프리미엄 저장소에서 실행되는 작업은 성능이 매우 중요하므로 특별히 프리미엄 저장소에 대한 지침을 제공합니다. 적절한 예제를 제공합니다. 표준 저장소 디스크가 있는 IaaS VM에서 실행되는 응용 프로그램에 이러한 지침 중 일부를 적용할 수도 있습니다.
 
-시작하기 전에 프리미엄 저장소가 처음인 경우 먼저 [프리미엄 저장소 소개](storage-premium-storage-preview-portal.md) 문서 및 [Azure 프리미엄 저장소 확장성과 성능 목표](storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 읽으십시오.
+시작하기 전에 프리미엄 저장소에 처음인 경우 먼저 [프리미엄 저장소 소개](storage-premium-storage-preview-portal.md) 문서 및 [Azure 프리미엄 저장소 확장성 및 성능 대상](storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)을 읽으세요.
 
 ## 응용 프로그램 성과 지표  
 응용 프로그램이 사용자 요청을 얼마나 빨리 처리하는지, 응용 프로그램이 요청 당 얼마나 많은 데이터를 처리하는지, 응용 프로그램이 특정 기간 동안 얼마나 많은 요청을 처리하는지, 사용자가 요청을 제출한 후 응답을 받기까지 얼마나 오래 기다려야 하는지와 같은 성과 지표를 사용하여 응용 프로그램이 잘 수행하는지 여부를 평가합니다. 이러한 성과 지표에 대한 기술 용어는 IOPS, 처리량 또는 대역폭 및 대기 시간입니다.
@@ -216,7 +216,7 @@ Azure 프리미엄 저장소는 현재 3개의 디스크 크기를 제공합니�
 
 예를 들어 응용 프로그램 요구 사항이 최대 250MB/초의 처리량이고 단일 P30 디스크와 함께 DS4 VM을 사용하는 경우를 가정합니다. DS4 VM은 최대 256MB/초의 처리량을 제공할 수 있습니다. 그러나 단일 P30 디스크는 200MB/초의 처리량 제한이 있습니다. 따라서 디스크 제한으로 인해 응용 프로그램에 200MB/초로 제한이 적용됩니다. 이 제한을 극복하기 위해 VM에 둘 이상의 데이터 디스크를 프로비전합니다.
 
->**참고:** 캐시에서 제공하는 읽기는 디스크 IOPS 및 처리량에 포함되지 않으므로 디스크 제한을 받지 않습니다. 캐시에는 VM당 별도 IOPS 및 처리량 제한이 있습니다.
+>**참고:** 캐시에서 제공하는 읽기는 디스크 IOPS 및 처리량에 포함되지 않으므로 디스크 제한이 없습니다. 캐시에는 VM당 별도 IOPS 및 처리량 제한이 있습니다.
 >
 >예를 들어 처음에 읽기 및 쓰기는 각각 60MB/초 및 40MB/초입니다. 시간이 지남에 따라 캐시는 가동 준비하고 캐시에서 더 많은 읽기를 제공합니다. 그런 다음 디스크에서 더 높은 쓰기 처리량을 얻을 수 있습니다.
 
@@ -422,10 +422,10 @@ directory=/mnt/nocache
 이전 섹션에서 설명한 설계 지침을 따라 핵심 사항을 기록해 둡니다. 이러한 사양은 최대 IOPS 구동에 필수적입니다. - 256의 높은 큐 크기. - 8KB의 작은 블록 크기. - 임의 쓰기를 수행하는 다중 스레드.
 
 다음 명령을 실행하여 30초 동안 FIO 테스트를 시작합니다.
-				
+
 	sudo fio --runtime 30 fiowrite.ini
 
-테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제와 같이 DS14 VM은 50,000 IOPS의 최대 쓰기 IOPS 제한을 제공합니다. ![](media/storage-premium-storage-performance/image11.png)
+테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 50,000 IOPS의 해당 최대 쓰기 IOPS 제한을 제공합니다. ![](media/storage-premium-storage-performance/image11.png)
 
 *최대 읽기 IOPS* 최대 읽기 IOPS를 얻으려면 다음 사양을 가진 작업 파일을 만듭니다. "fioread.ini"로 이름을 지정합니다.
 
@@ -526,8 +526,8 @@ Azure 프리미엄 저장소에 대한 자세한 정보
 
 SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
 
-- [Azure 가상 컴퓨터에서 
-- SQL Server에 대한 성능 모범 사례](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
+- [Azure 가상 컴퓨터에서
+- SQL Server에 대한 성능 모범 사례](https://msdn.microsoft.com/library/azure/dn133149.aspx)
 - [Azure 프리미엄 저장소는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

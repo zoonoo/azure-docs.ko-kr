@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정
@@ -45,7 +45,7 @@
 여러 배포 슬롯을 사용하려면 웹앱이 **표준** 또는 **프리미엄** 모드에서 실행 중이어야 합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에서 웹앱의 블레이드를 엽니다.
-2. **배포 슬롯**을 클릭합니다. 그런 다음 **배포 슬롯** 블레이드에서 **슬롯 추가**를 클릭합니다.
+2. **설정**을 클릭한 다음 **배포 슬롯**을 클릭합니다. 그런 다음 **배포 슬롯** 블레이드에서 **슬롯 추가**를 클릭합니다.
 
 	![새 배포 슬롯 추가][QGAddNewDeploymentSlot]
 
@@ -65,7 +65,7 @@
 
 	![배포 슬롯 제목][StagingTitle]
 
-5. 슬롯의 블레이드에서 앱 URL을 클릭합니다. 배포 슬롯은 고유의 호스트 이름을 가지고 있고 라이브 앱이기도 합니다. 배포 슬롯에 대한 공용 액세스를 제한하려면 [앱 서비스 웹 앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)을 참조하세요.
+5. 슬롯의 블레이드에서 앱 URL을 클릭합니다. 배포 슬롯은 고유의 호스트 이름을 가지고 있고 Live App이기도 합니다. 배포 슬롯에 대한 공용 액세스를 제한하려면 [앱 서비스 웹 앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)을 참조하세요.
 
 배포 슬롯을 만든 후 콘텐츠가 없습니다. 다른 리포지토리 분기 또는 아예 다른 리포지토리로부터 슬롯에 배포할 수 있습니다. 슬롯의 구성을 변경할 수도 있습니다. 게시 프로필을 사용하거나 콘텐츠 업데이트를 위해 배포 슬롯에 연결된 배포 자격 증명을 사용합니다. 예를 들어 [git를 사용하여 이 슬롯에 게시](web-sites-publish-source-control.md)할 수 있습니다.
 
@@ -259,4 +259,4 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

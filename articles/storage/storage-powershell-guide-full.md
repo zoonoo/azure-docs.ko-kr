@@ -455,7 +455,7 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
     Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
     Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
     Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
-    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 4
 
 #### 테이블 엔터티를 쿼리하는 방법
 테이블을 쿼리하기 위해 [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) 클래스를 사용합니다. 다음 예제에서는 가이드의 엔터티를 추가하는 방법 섹션에 지정된 스크립트 이미 실행한 것으로 가정합니다. 이 예제는 먼저 저장소 계정 이름 및 해당 액세스 키를 포함하는 저장소 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet을 사용하여 앞서 만든 "Employees" 테이블을 검색합니다. Microsoft.WindowsAzure.Storage.Table.TableQuery 클래스에 대해 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet을 호출하면 새 쿼리 개체가 생성됩니다. 이 예제에서는 값이 문자열 필터에 지정된 대로 1 인 'ID' 열을 포함하는 엔터티를 찾습니다. 자세한 내용은 [테이블 및 엔터티 쿼리](http://msdn.microsoft.com/library/azure/dd894031.aspx)를 참조하세요. 이 쿼리를 실행하면 필터 조건과 일치하는 모든 엔터티가 반환됩니다.
@@ -549,7 +549,7 @@ Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데�
 #### 큐에 메시지를 삽입하는 방법
 기존 큐에 메시지를 삽입하려면 먼저 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 클래스의 새 인스턴스를 만듭니다. 그런 다음, [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 메서드를 호출합니다. 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
 
-다음 예제에서는 큐에 메시지를 추가하는 방법을 보여 줍니다. 이 예제는 먼저 저장소 계정 이름 및 해당 액세스 키를 포함하는 저장소 계정 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx) cmdlet을 사용하여 지정된 큐를 검색합니다. 큐가 있는 경우 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet이 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 클래스의 인스턴스를 만드는 데 사용됩니다. 나중에, 이 예제는 이 메시지 개체에 대한 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 메서드를 호출하여 큐에 추가합니다. 다음은 큐를 검색하고 'MessageInfo' 메시지를 삽입하는 코드입니다.
+다음 예제에서는 큐에 메시지를 추가하는 방법을 보여 줍니다. 이 예제는 먼저 저장소 계정 이름 및 해당 액세스 키를 포함하는 저장소 계정 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx) cmdlet을 사용하여 지정된 큐를 검색합니다. 큐가 있는 경우 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet이 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx)클래스의 인스턴스를 만드는 데 사용됩니다. 나중에, 이 예제는 이 메시지 개체에 대한 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 메서드를 호출하여 큐에 추가합니다. 다음은 큐를 검색하고 'MessageInfo' 메시지를 삽입하는 코드입니다.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -599,7 +599,7 @@ Azure 파일 저장소에 대한 자세한 내용은 [Windows에서 Azure 파일
 
 PowerShell을 사용하여 저장소 메트릭 데이터를 사용하도록 설정하고 확인하는 방법을 알아보려면 [PowerShell을 사용하여 저장소 메트릭을 사용하도록 설정하는 방법](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell)을 참조하세요.
 
-PowerShell을 사용하여 저장소 로깅 데이터를 사용하고 검색하는 방법을 알아보려면 [PowerShell을 사용하여 저장소 로깅을 사용하도록 설정하는 방법](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) 및 [저장소 로깅 로그 데이터 찾기](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata)를 참조하세요. 저장소 메트릭 및 저장소 로깅을 사용하여 저장소 문제를 해결하는 방법에 대한 자세한 정보는 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+PowerShell을 사용하여 로깅 데이터 저장소 사용 및 검색하는 방법을 배우려면 [PowerShell을 사용하여 로깅 저장소 사용하는 방법](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell)과 [로그 데이터를 로깅 저장소에서 찾기](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata)를 참조하세요. 저장소 메트릭 및 저장소 로깅을 사용하여 저장소 문제를 해결하는 방법에 대한 자세한 정보는 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 ## SAS(공유 액세스 서명) 및 저장된 액세스 정책을 관리하는 방법
 공유 액세스 서명은 Azure 저장소를 사용하는 모든 응용 프로그램에 대한 보안 모델의 중요한 부분입니다. 공유 액세스 서명은 저장소 계정에 대한 제한된 권한을 계정 키가 필요하지 않은 클라이언트에 제공하는 데 유용합니다. 기본적으로는 저장소 계정 소유자만 해당 계정 내의 Blob, 테이블 및 큐에 액세스할 수 있습니다. 사용하는 서비스 또는 응용 프로그램에서 자신의 액세스 키를 공유하지 않고 다른 클라이언트가 이러한 리소스를 사용할 수 있도록 설정해야 할 경우 다음과 같은 세 가지 옵션이 제공됩니다.
@@ -663,7 +663,7 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 
     	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
-[미국 Azure Government](http://azure.microsoft.com/features/gov/)에서 Azure 저장소를 사용하려면 새 환경을 정의한 다음 이 환경으로 새 저장소 컨텍스트를 생성해야 합니다.
+[U.S. Azure Government](http://azure.microsoft.com/features/gov/)에서 Azure 저장소를 사용하려면 새 환경을 정의한 다음 이 환경으로 새 저장소 컨텍스트를 생성해야 합니다.
 
 1. [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) cmdlet을 호출하여 개인 데이터 센터에 대한 새 Azure 환경을 만듭니다.
 
@@ -730,4 +730,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

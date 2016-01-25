@@ -5,7 +5,7 @@
         documentationCenter="na"
         authors="jasontang501"
         manager="jahogg"
-        editor="" />
+        editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,10 +13,10 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="12/17/2015"
-      ms.author="jutang;tamram" />
+      ms.author="jutang" />
 
 
-# Linux에서 Azure 파일 저장소 사용 방법 
+# Linux에서 Azure 파일 저장소 사용 방법
 
 ## 개요
 
@@ -40,10 +40,10 @@ Linux에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주는
 
 Azure에서 Linux 가상 컴퓨터를 만들 때 SMB 2.1 이상을 지원하는 Linux 이미지를 Azure 이미지 갤러리에서 지정할 수 있습니다. 다음은 권장되는 Linux 이미지의 목록입니다.
 
-- Ubuntu Server 14.04	
-- Ubuntu Server 15.04	
-- CentOS 7.1	
-- Open SUSE 13.2	
+- Ubuntu Server 14.04
+- Ubuntu Server 15.04
+- CentOS 7.1
+- Open SUSE 13.2
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12(Premium 이미지)
 
@@ -60,7 +60,7 @@ Linux를 실행하는 가상 컴퓨터에서 파일 공유를 탑재하려면 �
 또한 /etc/fstab에서 공유를 탑재하는 설정을 추가할 수도 있습니다.
 
 여기서 0777은 모든 사용자에게 실행/읽기/쓰기 권한을 부여하는 디렉터리/파일 사용 권한 코드를 나타냅니다. Linux 파일 사용 권한 문서 다음에 이 코드를 다른 파일 사용 권한 코드와 바꿀 수 있습니다.
- 
+
 또한 다시 부팅 후에 탑재된 파일 공유를 유지하기 위해 /etc/fstab에서 아래와 같은 설정을 추가할 수 있습니다.
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -98,7 +98,7 @@ Open SUSE 13.2를 사용하는 경우 다음과 같이 파일을 탑재할 수 �
 - 파일 공유에 대해 파일 업로드 및 다운로드
 - 각 파일 공유의 실제 사용량 모니터링
 - 파일 공유 크기 할당량 조정
-- Windows 클라이언트에서 파일 공유를 탑재하기 위해 사용할 `net use` 명령을 복사합니다. 
+- Windows 클라이언트에서 파일 공유를 탑재하기 위해 사용할 `net use` 명령을 복사합니다.
 
 또한 Linux에서 Azure CLI(Azure 플랫폼 간 명령줄 인터페이스)를 사용하여 파일 공유를 관리할 수 있습니다. Azure CLI는 파일 저장소를 비롯한 Azure 저장소 작업을 실행하기 위한 공개 소스, 플랫폼 간 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 Azure 포털에 있는 동일한 기능을 대부분 제공합니다. 예제는 [Azure 저장소와 함께 Azure CLI 사용](storage-azure-cli.md)을 참조하세요.
 
@@ -136,8 +136,8 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 ### 블로그 게시물
 
 - [Azure 파일 저장소 일반적으로 사용 가능(영문)](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Azure 파일 저장소 자세히 알아보기](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Azure 파일 저장소 자세히 알아보기](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

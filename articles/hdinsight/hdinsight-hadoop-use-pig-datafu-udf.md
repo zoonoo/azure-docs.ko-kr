@@ -1,6 +1,6 @@
 <properties
-pageTitle="HDInsight에서 pig와 함께 DataFu 사용"
-description="DataFu은 Hadoop과 함께 사용하기 위해 라이브러리의 컬렉션입니다. HDInsight 클러스터에서 Pig와 함께 DataFu를 사용하는 방법에 대해 알아봅니다."
+pageTitle="HDInsight에서 Pig와 함께 DataFu 사용"
+description="DataFu는 Hadoop과 함께 사용하기 위한 라이브러리의 컬렉션입니다. HDInsight 클러스터에서 Pig와 함께 DataFu를 사용하는 방법에 대해 알아봅니다."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/06/2015"
+ms.date="01/08/2016"
 ms.author="larryfr"/>
 
 #HDInsight에서 pig와 함께 DataFu 사용
@@ -36,7 +36,7 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 
 1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
 
-    * [Linux, OS X 또는 Unix의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Linux, OS X 및 Unix의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
     * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
     
 2. 다음 명령을 사용하여 wget 유틸리티를 사용하여 DataFu jar 파일을 다운로드하거나 브라우저에 링크를 복사하여 붙여 넣여 다운로드를 시작합니다.
@@ -107,4 +107,4 @@ DataFu 또는 Pig에 대한 자세한 내용은 다음 문서를 참조하세요
 
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio" />
 
 # Azure 마켓플레이스에 제품 배포
@@ -45,4 +45,4 @@
 [img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -17,6 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 작업 설치 개요
+
 [**탄력적 데이터베이스 작업**](sql-database-elastic-jobs-overview.md)은 Azure 클래식 포털을 통해 설치할 수 있습니다. PowerShell 패키지를 설치한 경우에만 PowerShell API를 사용하여 작업을 만들고 관리할 수 있습니다. 또한 PowerShell API는 현재 포털보다 훨씬 더 많은 기능을 제공합니다.
 
 포털을 통해 기존 **탄력적 데이터베이스 풀**에서 **탄력적 데이터베이스 작업**을 이미 설치한 경우 최신 Powershell 미리 보기에는 기존 설치를 업그레이드하는 스크립트가 포함되어 있습니다. PowerShell API를 통해 노출된 새로운 기능을 활용하려면 최신 **탄력적 데이터베이스 작업** 구성 요소로 설치를 업그레이드하는 것이 좋습니다.
@@ -178,13 +179,13 @@
 
 ## 다음 단계
 
-스크립트 실행에 적절한 권한이 있는 자격 증명이 그룹의 각 데이터베이스에 생성되었는지 확인합니다. 자세한 내용은 [데이터베이스 그룹의 모든 데이터베이스에 사용자를 추가하는 방법](sql-database-elastic-jobs-add-logins-to-dbs.md)을 참조하세요. 시작하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요.
+스크립트 실행에 적절한 권한이 있는 자격 증명이 그룹의 각 데이터베이스에 만들어졌는지 확인합니다. 자세한 내용은 [SQL 데이터베이스 보안](sql-database-security.md)을 참조하세요. 시작하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

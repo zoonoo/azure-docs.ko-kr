@@ -4,8 +4,8 @@
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor="cgronlun"/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -22,7 +22,7 @@
 
 [Azure 포털](portal.azure.com)에서 저장소 계정을 모니터링할 수 있습니다. 포털을 통해 모니터링할 저장소 계정을 구성하면 Azure 저장소에서 [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)을 사용하여 사용자의 계정에 대한 메트릭을 추적하고 요청 데이터를 기록합니다.
 
-> [AZURE.NOTE] [Azure 포털](portal.azure.com)에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하십시오.<br />
+> [AZURE.NOTE][Azure 포털](portal.azure.com)에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하십시오.<br />
 
 > Azure 파일 저장소는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다. [Azure 포털](portal.azure.com)을 통해 Azure 파일 저장소의 메트릭을 사용하도록 설정할 수 있습니다.
 
@@ -157,4 +157,4 @@
 
 진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/azure/hh343262.aspx)를 참조하십시오.
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0114_2016-->

@@ -369,7 +369,19 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | <p>Azure 테이블 쿼리 문자열.</p>**예:****<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | No azureTableSourceIgnoreTableNotFound | 존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. | TRUE<br/>FALSE | No |
+azureTableSourceQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | <p>Azure 테이블 쿼리 문자열. 아래 예제를 참조하세요. | 아니요
+azureTableSourceIgnoreTableNotFound | 존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. | TRUE<br/>FALSE | 아니요 |
+
+### azureTableSourceQuery 예제
+
+Azure 테이블 열이 문자열 형식인 경우:
+
+	azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', SliceStart)"
+
+Azure 테이블 열이 날짜/시간 형식인 경우:
+
+	"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
+
 
 **AzureTableSink**는 typeProperties 섹션에서 다음 속성을 지원합니다.
 
@@ -503,4 +515,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

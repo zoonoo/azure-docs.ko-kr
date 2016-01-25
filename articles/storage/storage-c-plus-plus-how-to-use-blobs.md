@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="Blob 저장소 사용 방법(C++) | Microsoft Azure" 
-    description="Azure에서 Blob 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="Blob 저장소 사용 방법(C++) | Microsoft Azure"
+    description="Azure에서 Blob 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # C++에서 Blob 저장소를 사용하는 방법  
 
@@ -78,7 +78,7 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 
 이 예제에서는 컨테이너가 없는 경우 만드는 방법을 보여 줍니다.
 
-	try 
+	try
 	{
 		// Retrieve storage account from connection string.
 		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -189,7 +189,7 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download\
 
 	std::ofstream outfile("DownloadBlobFile.txt", std::ofstream::binary);
 	std::vector<unsigned char>& data = buffer.collection();
-		
+
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
@@ -238,8 +238,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete\_blob** 
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

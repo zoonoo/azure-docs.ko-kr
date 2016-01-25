@@ -1,24 +1,28 @@
 <properties
    pageTitle="Azure 저장소 샘플 | Microsoft Azure"
-   description="Azure 저장소에 대한 샘플 보기, 다운로드 및 시도합니다. .NET, Java, Node.js 및 C++ 저장소 클라이언트 라이브러리를 사용하여 blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다."
+   description="Azure 저장소에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. .NET, Java, Node.js 및 C++ 저장소 클라이언트 라이브러리를 사용하여 blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다."
    services="storage"
    documentationCenter="na"
    authors="tamram"
    manager="na"
-   editor="na" />
+   editor="tysonn" />
 <tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/01/2015"
+   ms.date="01/06/2016"
    ms.author="tamram" />
 
 # Azure 저장소 샘플
 
 ## 개요
 작업 중인 Azure 저장소 샘플을 보고 다운로드하려면 아래 링크를 사용합니다.
+
+## Azure 코드 샘플 라이브러리
+
+[Azure 코드 샘플 라이브러리](https://azure.microsoft.com/documentation/samples/?service=storage)에는 다운로드하여 로컬로 실행할 수 있는 Azure 저장소에 대한 샘플이 포함되어 있습니다. 코드 샘플 라이브러리에서 .zip 형식으로 샘플 코드를 제공합니다. 또는 각 샘플에 대한 GitHub 리포지토리를 찾아 복제할 수 있습니다.
 
 ## .NET 샘플
 
@@ -81,4 +85,4 @@ C++ 샘플을 탐색하려면 [C++ 저장소 클라이언트 라이브러리](ht
 - [C++ 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-cpp)
 - [C++ 클라이언트 라이브러리 참조](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

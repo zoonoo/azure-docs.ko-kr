@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/05/2016"
 	ms.author="davidmu"/>
 
 # 리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 이 항목에서는 Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 기반 Azure 가상 컴퓨터를 빠르게 만드는 방법을 설명합니다.
 
@@ -123,18 +123,8 @@ Azure 데이터 센터의 위치를 지정해야 합니다. Azure 데이터 센�
 	RequestId           : 98c7b4fb-b26e-4a58-b17a-b0983d896aae
 	StatusCode          : OK
 
-## 추가 리소스
+## 다음 단계
 
-[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
+[Azure 리소스 관리자 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-deploy-rmtemplates-powershell.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-[Azure 리소스 관리자 개요](resource-group-overview.md)
-
-[리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
-
-[PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure PowerShell 설치 및 구성하는 방법](install-configure-powershell.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

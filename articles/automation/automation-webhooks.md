@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화 Webhook"
+   pageTitle="Azure 자동화 webhook | Microsoft Azure"
    description="클라이언트가 Azure 자동화에서 HTTP 호출을 통해 runbook을 시작하는 데 사용되는 webhook입니다. 이 문서는 webhook을 만드는 방법 및 webhook을 호출하여 runbook을 시작하는 방법에 대해 설명합니다."
    services="automation"
    documentationCenter=""
@@ -17,7 +17,7 @@
 
 # Azure 자동화 Webhook
 
-*Webhook* 을 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.
+*Webhook*을 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.
 
 ![Webhook](media/automation-webhooks/webhooks-overview.png)
 
@@ -87,12 +87,10 @@ $WebhookData 매개 변수의 **WebhookName** 속성을 확인하여 webhook에�
 Azure Preview 포털에서 runbook에 연결된 새 webhook을 만들려면 다음 절차를 수행합니다.
 
 1. Azure Preview 포털의 **Runbook 블레이드**에서 webhook이 세부 정보 블레이드를 볼 runbook을 클릭합니다. 
-3. 블레이드 맨 위에서 **Webhook**을 클릭하여 **Webhook 추가** 블레이드를 엽니다. <br>
-![Webhook 단추](media/automation-webhooks/webhooks-button.png)
+3. 블레이드 맨 위에서 **Webhook**을 클릭하여 **Webhook 추가** 블레이드를 엽니다. <br> ![Webhook 단추](media/automation-webhooks/webhooks-button.png)
 4. **새 webhook 만들기**를 클릭하여 **webhook 블레이드 만들기**를 엽니다.
 5. webhook의 **이름**, **만료 날짜**와 사용 여부를 지정합니다. 이러한 속성에 대한 자세한 내용은 [webhook 세부 정보](#details-of-a-webhook)를 참조하십시오.
-6. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook을 만들고 나면 URL을 다시 검색할 수 없습니다.** <br>
-![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
+6. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook을 만들고 나면 URL을 다시 검색할 수 없습니다.** <br> ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 3. **매개 변수**를 클릭하여 runbook 매개 변수의 값을 제공합니다. runbook에 필수 매개 변수가 있으면 값을 제공 하지 않는 한 webhook를 만들 수 없습니다.
 1. **만들기**를 클릭하여 webhook을 만듭니다.
 
@@ -109,7 +107,7 @@ Azure Preview 포털에서 runbook에 연결된 새 webhook을 만들려면 다�
 |:---|:----|:---|
 | 202 | 수락됨 | 요청이 수락되었고 runbook에서 대기합니다. |
 | 400 | 잘못된 요청 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook이 만료되었습니다.</li> <li>webhook이 비활성화되었습니다.</li> <li>URL의 토큰이 잘못되었습니다.</li> </ul>|
-| 404 | 찾을 수 없음 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook을 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li> </ul> |
+| 404 | 찾을 수 없음 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul><li>webhook을 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li> </ul> |
 | 500 | 내부 서버 오류 | URL은 유효했지만 오류가 발생했습니다. 요청을 다시 제출하십시오. |
 
 요청이 성공했다고 가정하면 webhook 응답은 다음과 같은 JSON 형식의 작업 ID를 포함합니다. 단일 작업 ID를 포함하지만 잠재적인 이후 향상 기능에 대해 JSON 형식이 허용됩니다.
@@ -127,8 +125,10 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
 	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
 	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
-    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
-    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+    $vms  = @(
+    			@{ Name="vm01";ServiceName="vm01"},
+    			@{ Name="vm02";ServiceName="vm02"}
+    		)
 	$body = ConvertTo-Json -InputObject $vms 
 
 	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
@@ -198,7 +198,7 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 
 가상 컴퓨터, CPU 사용률 등의 Azure 리소스를 주요한 성능 메트릭 중 하나로 고려해야 합니다. CPU 사용률이 100%이거나 장기간 특정 수준 이상이면 가상 컴퓨터를 다시 시작하여 문제를 해결하고자 할 수 있습니다. 이 문제는 가상 컴퓨터에 대한 규칙 경고를 구성하여 해결할 수 있으며 이 규칙에서는 CPU 백분율을 메트릭으로 적용합니다. 여기서 CPU 백분율은 단순한 예일 뿐이며 Azure 리소스에 대해 많은 다른 메트릭을 구성할 수 있습니다. 가상 컴퓨터를 다시 시작하는 것은 문제를 해결하기 위한 조치로, Runbook이 다른 조치를 취하도록 구성할 수 있습니다.
 
-이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](Azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **Timestamp** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 Runbook에 전송된 **WebhookData** 개체의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
+이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](Azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **Timestamp** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 **WebhookData**의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
 
 
 ### 예
@@ -268,10 +268,10 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 
  
 
-## 관련된 문서
+## 다음 단계
 
-- [Runbook 시작](automation-starting-a-runbook.md)
-- [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md)
+- Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
+- Runbook 작업의 상태 보기에 대한 내용은 [Azure 자동화에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
 - [Azure 자동화를 사용하여 Azure 경고에서 조치 취하기](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

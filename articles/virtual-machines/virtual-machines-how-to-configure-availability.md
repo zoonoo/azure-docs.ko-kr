@@ -1,5 +1,5 @@
 <properties
-	pageTitle="VM에 대한 가용성 집합 구성 | Microsoft Azure"
+	pageTitle="클래식 VM에 대한 가용성 집합 구성 | Microsoft Azure"
 	description="Azure 클래식 포털 및 Azure PowerShell을 사용하여 클래식 배포 모델에서 신규 또는 기존 가상 컴퓨터에 대한 가용성 집합을 구성합니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,24 +14,24 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
 # 클래식 배포 모델에서 가상 컴퓨터에 대한 가용성 집합을 구성하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. 또한 리소스 관리자 배포에서 가용성 집합을 구성할 수 있습니다.
 
 
 가용성 집합을 사용하면 유지 관리 중과 같은 가동 중지 시간 동안에도 가상 컴퓨터를 계속 사용할 수 있습니다. 가용성 집합 내에 비슷하게 구성된 둘 이상의 가상 컴퓨터를 배치하면 가상 컴퓨터가 실행하는 서비스나 응용 프로그램의 가용성을 유지하는 데 필요한 중복성이 생성됩니다. 이 기능이 작동하는 방식에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리][]를 참조하세요.
 
 응용 프로그램을 항상 사용 가능한 상태로 유지하고 효과적으로 실행하려면 가용성 집합과 부하 분산 끝점을 함께 사용하는 것이 가장 좋습니다. 부하 분산 끝점에 대한 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산][]을 참조하세요.
 
-다음 두 옵션 중 하나를 사용하여 가상 컴퓨터를 가용성 집합에 배치할 수 있습니다.
+클래식 배포 모델에서 다음 두 옵션 중 하나를 사용하여 가상 컴퓨터를 가용성 집합에 배치할 수 있습니다.
 
 - [옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만듭니다.][] 그런 다음 새 가상 컴퓨터를 만들 때 집합에 가상 컴퓨터를 추가합니다.
 - [옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가합니다.][]
 
->[AZURE.NOTE]같은 가용성 집합에 배치할 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다.
+>[AZURE.NOTE]클래식 모델에서는 같은 가용성 집합에 배치할 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다.
 
 ## <a id="createset"> </a>옵션 1: 동시에 가상 컴퓨터 및 가용성 집합 만들기##
 
@@ -112,4 +112,4 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 [가상 네트워크 개요(영문)]: virtual-networks-overview.md
 [서비스 관리의 가상 컴퓨터 관련 문서]: virtual-machines-service-management-articles.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

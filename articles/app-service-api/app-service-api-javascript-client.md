@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="bradygaster"/>
 
 # HTML 및 JavaScript를 사용하여 Azure API 앱 사용
@@ -373,4 +373,4 @@ Web API에서 CORS를 사용하도록 설정하는 프로세스는 ASP.NET 문�
 
 이 예제에서는 API 앱에 대한 인증되지 않은 액세스를 보여 줍니다. 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

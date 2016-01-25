@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Microsoft Azure Storage Client Library for C++로 Azure 저장소 리소스 나열 | Microsoft Azure" 
-    description="Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다." 
-    documentationCenter=".net" 
+<properties
+    pageTitle="Microsoft Azure Storage Client Library for C++로 Azure 저장소 리소스 나열 | Microsoft Azure"
+    description="Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다."
+    documentationCenter=".net"
     services="storage"
-    authors="tamram" 
-    manager="carolz" 
-    editor=""/>
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="zhimingyuan;tamram"/>
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # C++에서 Azure 저장소 리소스 나열
 
@@ -54,7 +54,7 @@ Storage Client Library for C++는 [C++ REST 라이브러리(Casablanca 프로젝
 
 분할된 목록 작업에 대한 응답에는 다음이 포함됩니다.
 
--	<i>\_segment</i>은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다. 
+-	<i>\_segment</i>은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다.
 -	*continuation\_token*은 결과의 다음 페이지를 가져오기 위해 다음 호출에 전달됩니다. 더 이상 반환할 결과가 없으면 연속 토큰이 null입니다.
 
 예를 들어 컨테이너의 모든 blob을 나열하는 일반적인 호출은 다음 코드 조각처럼 보일 수 있습니다. 코드는 다음과 같은 [샘플](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp)에서 사용할 수 있습니다.
@@ -75,15 +75,15 @@ Storage Client Library for C++는 [C++ REST 라이브러리(Casablanca 프로젝
 	        process_diretory(it->as_directory());
 	    }
 	}
-	
+
 	    token = segment.continuation_token();
 	}
 	while (!token.empty());
 
 예를 들어, 페이지에 반환되는 결과 수는 각 API의 오버로드에서 *max\_results* 매개 변수를 통해 제어할 수 있습니다.
-	
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
-		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+		blob_listing_details::values includes, int max_results, const continuation_token& token,
 		const blob_request_options& options, operation_context context)
 
 *max\_results* 매개 변수를 지정하지 않는 경우 한 페이지에 최대 5000개의 기본 최대 결과 값이 반환됩니다.
@@ -124,7 +124,7 @@ Storage Client Library for C++ 이전 버전(0.5.0 Preview 버전 이하)에는 
 	    {
 	        process_entity(*it);
 	    }
-	
+
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
@@ -184,4 +184,4 @@ Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은
 -	[Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

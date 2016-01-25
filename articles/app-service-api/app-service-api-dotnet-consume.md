@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # .NET 클라이언트의 Azure 앱 서비스에서 API 앱 사용 
@@ -207,4 +207,4 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

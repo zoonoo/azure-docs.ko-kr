@@ -72,7 +72,7 @@
 
 * 단일 배치 계정에서 여러 배치 작업을 실행하거나 다른 Azure 지역의 배치 계정 간에 작업을 배포할 수 있습니다.
 
-* 여러 대규모 배치 작업을 실행하고 있는 경우 Azure 구독 및 각 배치 계정에 적용하는 특정 [배치 서비스 할당량 및 제한](batch-quota-limit.md)에 유의해야 합니다. 배치 계정의 현재 할당량이 계정 속성의 Preview 포털에 표시됩니다.
+* 여러 대규모 배치 작업을 실행하고 있는 경우 Azure 구독 및 각 배치 계정에 적용하는 특정 [배치 서비스 할당량 및 제한](batch-quota-limit.md)에 유의해야 합니다. 배치 계정의 현재 할당량이 계정 속성의 포털에 표시됩니다.
 
 ## 다음 단계
 
@@ -84,4 +84,4 @@
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

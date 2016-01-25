@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # 리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -285,18 +285,8 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 
 이제 새 리소스 그룹에 MyWindowsVM이라는 새 Windows 가상 컴퓨터가 생성되었습니다.
 
-## 추가 리소스
+## 다음 단계
 
-[Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
+[Azure 리소스 관리자 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-deploy-rmtemplates-powershell.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-[Azure 리소스 관리자 개요](resource-group-overview.md)
-
-[Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager.md)
-
-[PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure PowerShell 설치 및 구성하는 방법](install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

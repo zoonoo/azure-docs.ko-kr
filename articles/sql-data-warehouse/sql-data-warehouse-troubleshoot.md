@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;sonyama;barbkess"/>
 
 # 문제 해결
 다음 항목에서는 Azure SQL 데이터 웨어하우스를 사용하는 고객에게 발생할 수 있는 일반적인 문제 중 일부를 설명합니다.
@@ -90,4 +90,4 @@ WHERE
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 임시 테이블
 임시 테이블은 SQL 데이터 웨어하우스의 세션 수준에서 존재합니다. 로컬 임시 테이블로 정의되며 SQL Server 테이블과 달리 세션 내 어디에서나 액세스할 수 있습니다.
@@ -147,4 +147,4 @@ DROP TABLE #stats_ddl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

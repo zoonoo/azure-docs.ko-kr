@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="01/12/2016"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 개요 및 일반적인 시나리오
@@ -29,7 +29,7 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 미디어 서비스 솔루션을 빌드하려면 다음을 사용할 수 있습니다.
 
 - [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- 사용 가능한 클라이언트 SDK의 하나: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), [Node.js용 Azure 미디어 서비스](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- 사용 가능한 클라이언트 SDK의 하나: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
 - 기존 도구: [Azure 클래식 포털](http://manage.windowsazure.com/) 또는 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)
 
 
@@ -153,7 +153,7 @@ Azure 미디어 서비스 사용을 시작하려면 다음이 있어야 합니�
 
 콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 품질 및 네트워크 상태를 관리하려면 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다. 여러 장치에서 스트리밍을 관리하려면 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
 
-Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoint**는 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
+Azure 미디어 서비스에서 **채널**, **프로그램** 및 **스트리밍 끝점**은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
 
 **채널**은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 현재 채널은 다음 방식으로 라이브 입력 스트림을 수신할 수 있습니다.
 
@@ -231,4 +231,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

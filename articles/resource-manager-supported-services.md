@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/06/2016"
+   ms.date="01/12/2016"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 공급자, 지역, API 버전 및 스키마
 
-Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다.
-모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
+Azure 리소스 관리자는 응용 프로그램을 구성하는 서비스를 배포하고 관리하는 새로운 방법을 제공합니다. 모두는 아니지만, 대부분의 서비스는 리소스 관리자를 지원하고 일부 서비스는 리소스 관리자를 부분적으로만 지원합니다. Microsoft는 향후 솔루션을 위해 중요한 모든 서비스에 리소스 관리자를 사용하도록 할 예정이지만 일관적으로 지원될 때까지 각 서비스의 현재 상태를 알아야 합니다. 이 항목에서는 Azure 리소스 관리자에 대해 지원되는 리소스 공급자 목록을 제공합니다.
 
 리소스를 배포할 때는 이러한 리소스를 지원하는 지역 및 리소스에 사용할 수 있는 API 버전도 알아야 합니다. [지원되는 지역](#supported-regions) 섹션에서는 구독 및 리소스에 대해 작동할 지역을 확인하는 방법을 보여줍니다. 섹션 [지원되는 API 버전](#supported-api-versions)에서는 사용할 수 있는 API 버전을 결정하는 방법을 보여줍니다.
 
@@ -36,11 +35,11 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 배치 | 예 | 예 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Dynamics Lifecycle Services | 예 | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | 서비스 패브릭(미리 보기) | 예 | | [서비스 패브릭 Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| 가상 컴퓨터(클래식) | 제한됨 | 부분(아래 참조) | - | - |
-| 원격 앱 | 아니요 | - | - | - |
-| 클라우드 서비스(클래식) | 아니요 | 부분(아래 참조) | - | - | - |
+| 가상 컴퓨터(클래식) | 제한됨 | 부분(아래 참조) | - | - | | 원격 앱 | 아니요 | - | - | - | | 클라우드 서비스(클래식) | 예(아래 참조) | 부분(아래 참조) | - | - | - |
 
 가상 컴퓨터(클래식)는 리소스 관리자 배포 모델 대신, 클래식 배포 모델을 통해 배포된 리소스를 참조합니다. 일반적으로 이러한 리소스는 리소스 관리자 작업을 지원하지 않지만 일부 작업은 가능합니다. 이러한 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
+
+다른 클래식 리소스에 사용할 수 있도록 클라우드 서비스에 대해 리소스 관리자가 사용하도록 설정됩니다. 그러나 클래식 리소스는 모든 리소스 관리 기능을 사용하지 않으며 향후 솔루션에 적합하지 않습니다. 대신, 응용 프로그램 인프라가 Microsoft.Compute, Microsoft.Storage 및 Microsoft.Network 네임스페이스의 리소스를 사용하도록 변경하는 것이 좋습니다.
 
 가상 컴퓨터(클래식) 및 클라우드 서비스를 새 구독이 아닌 새 리소스 그룹으로 이동할 수 있습니다.
 
@@ -67,8 +66,7 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | SQL 데이터베이스 | 예 | 예 | [SQL 데이터베이스 REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | 검색 | 예 | 예 | [검색 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | SQL 데이터 웨어하우스 | 예 | | | |
-| StorSimple | 아니요 | - | - | - | 
-| 관리된 캐시 | 아니요 | - | - | - |
+| StorSimple | No | - | - | - | - |
 
 ## 웹 및 모바일
 
@@ -77,6 +75,7 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | API 관리 | 예 | 예 | [API 관리 REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) | | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
 | API 앱 | 예 | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) | [API 앱](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
 | 웹앱 | 예 | 예, 제한 있음(아래 참조) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
+| 모바일 앱 | 예 | | | | |
 | 알림 허브 | 예 | 예 | [알림 허브 REST](https://msdn.microsoft.com/library/azure/dn495827.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
 | 논리 앱 | 예 | 예 | | | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
 | 모바일 고객 관리 | 예 | 예 | | | [Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
@@ -94,8 +93,7 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 스트림 분석 | 예 | | [스트림 분석 REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | 예 | 예 | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | 데이터 팩터리 | 예 | 예 | [데이터 팩터리 REST](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| 기계 학습 | 아니요 | - | - | - |
-| 데이터 카탈로그 | 아니요 | - | - | - |
+| 기계 학습 | 아니요 | - | - | - | | 데이터 카탈로그 | 아니요 | - | - | - |
 
 ## 미디어 및 CDN
 
@@ -110,17 +108,12 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 부여 | 리소스 관리자 사용 | 리소스 이동 | REST API | 스키마 | 빠른 시작 템플릿 |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | BizTalk 서비스 | 예 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
-| 서비스 버스 | 예 | | [서비스 버스 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| 백업 | 아니요 | - | - | - | 
-| 사이트 복구 | 아니요 | - | - | - |
+| 서비스 버스 | 예 | | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
+| 백업 | 아니요 | - | - | - | | 사이트 복구 | 아니요 | - | - | - |
 
 ## ID 및 액세스 관리 
 
-| 부여 | 리소스 관리자 사용 | 리소스 이동 | REST API | 스키마 | 빠른 시작 템플릿 |
-| ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | 아니요 | - | - | - | 
-| Azure Actice Directory B2C | 아니요 | - | - | - | 
-| Multi-Factor Authentication | 아니요 | - | - | - |
+Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므로 역할 기반 액세스 제어가 가능합니다. 역할 기반 액세스 제어 및 Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 ## 개발자 서비스 
 
@@ -280,4 +273,4 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

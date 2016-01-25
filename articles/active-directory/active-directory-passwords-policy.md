@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="curtand"/>
 
 
@@ -45,7 +45,7 @@ Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에�
 | 암호 만료 | <ul><li>기본값: **false**일 (암호 만료가 사용됨을 나타냄) </li><li>Set-MsolUser cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다. </li></ul> |
 | 암호 기록 | 마지막 암호를 다시 사용할 수 없습니다. |
 | 암호 기록 기간 | 영구 |
-| 계정 잠금 | <ul><li>10번의 실패한 로그인 시도(잘못된 암호) 후에 사용자는 로그인의 일부로 CAPTCHA 대화 상자를 해결해야 합니다.</li><li>추가로 10번의 실패한 로그인을 시도(잘못된 암호)하고 CAPTCHA 대화 상자를 올바로 해결한 후에 사용자 계정은 일정 시간 동안 잠겨집니다. 추가적인 잘못된 암호는 잠금 시간 기간을 급격하게 증가하는 결과를 가져옵니다.</li></ul> |
+| 계정 잠금 | 로그인 시도를 10번 실패하면(잘못된 암호) 1분 동안 사용자가 잠기게 됩니다. 잘못된 로그인을 더 시도하면 사용자가 잠기는 시간이 더 늘어납니다. |
 
 
 ## 다음 단계
@@ -60,4 +60,4 @@ Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에�
 * [암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
 * [자세한 정보](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

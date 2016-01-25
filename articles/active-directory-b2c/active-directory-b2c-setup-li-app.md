@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory(AD) B2C 미리 보기: 고객에게 LinkedIn 계정으로 등록 및 로그인 제공
+# Azure Active Directory B2C 미리 보기: 고객에게 LinkedIn 계정으로 등록 및 로그인 제공
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -34,9 +34,7 @@ Azure Active Directory(AD) B2C에서 LinkedIn을 ID 공급자로 사용하려면
 
     ![LinkedIn - 앱 등록](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-5. **클라이언트 ID** 및 **클라이언트 암호** 값을 복사합니다.(**인증 키** 섹션에서 찾을 수 있음) 테넌트에서 LinkedIn을 ID 공급자로 구성하려면 둘 다 필요합니다.
-
-> [AZURE.NOTE]**클라이언트 암호**는 중요한 보안 자격 증명입니다.
+5. **클라이언트 ID** 및 **클라이언트 암호** 값을 복사합니다.(**인증 키** 섹션에서 찾을 수 있음) 테넌트에서 LinkedIn을 ID 공급자로 구성하려면 둘 다 필요합니다. 참고: **클라이언트 암호**는 중요한 보안 자격 증명입니다.
 
 6. **OAuth 2.0** 섹션의 **권한이 부여된 URL 리디렉션** 필드에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. 여기서 **{tenant}**는 테넌트의 이름(예: contoso.onmicrosoft.com)으로 바꾸고 **추가**를 클릭합니다. **업데이트**를 클릭합니다.
 
@@ -52,4 +50,4 @@ Azure Active Directory(AD) B2C에서 LinkedIn을 ID 공급자로 사용하려면
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 LinkedIn 응용 프로그램의 **클라이언트 ID** 및 **클라이언트 암호**를 입력합니다.
 7. **확인** 및 **만들기**를 차례로 클릭하여 LinkedIn 구성을 저장합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

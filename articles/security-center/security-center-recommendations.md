@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="01/05/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 보안 권장 사항 관리
@@ -70,7 +70,7 @@ Azure 보안 센터에서는 Azure 리소스의 보안 상태를 주기적으로
 
 | 권장 사항 | 설명 |
 |----- |-----|
-| 구독/가상 컴퓨터에 대해 데이터 수집 활성화 | 보안 정책에서 원하는 VM에 대해 데이터 수집을 켜라는 권장 사항입니다. |
+| 구독/가상 컴퓨터에 대해 데이터 수집 활성화 | 각각의 구독 또는 선택한 VM에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
 | 일치하지 않는 기준 규칙 해결 | OS 구성을 권장 기준과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
 | 시스템 업데이트 적용 | 누락된 시스템 업데이트를 VM(Windows VM만 해당)에 배포하라는 권장 사항입니다. |
 | 끝점에 대한 ACL 구성 | VM(클래식 VM만 해당)에 대한 인바운드 액세스를 제한하는 액세스 제어 목록을 구성하라는 권장 사항입니다. |
@@ -135,4 +135,4 @@ Microsoft 파트너의 통합 보안 솔루션을 배포하라는 권장 사항�
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory Graph API
@@ -44,7 +44,7 @@ Graph API는 다음과 같은 기능을 제공합니다.
 
 - **Azure AD 인증**: 요청의 인증 헤더에서 JSON 웹 토큰(JWT)을 추가하여 Graph API에 대한 모든 요청을 인증해야 합니다. Azure AD의 토큰 끝점에 요청을 하고 유효한 자격 증명을 제공하여 이 토큰을 가져옵니다. OAuth 2.0 클라이언트 자격 증명 흐름 또는 권한 부여 코드 흐름을 사용하여 Graph를 호출하는 토큰을 획득할 수 있습니다. 자세한 내용은 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)을 참조하세요.
 
-- **역할 기반 권한 부여(RBAC)**: 보안 그룹은 Graph API에서 RBAC를 수행하는 데 사용됩니다. 예를 들어 사용자에게 특정 리소스에 대한 액세스 권한이 있는지 확인하려는 경우, 응용 프로그램에서 true 또는 false를 반환하는 [그룹 구성원 자격(전이적) 확인](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#FunctionsandactionsongroupsCheckmembershipinaspecificgrouptransitive) 작업을 호출할 수 있습니다.
+- **RBAC(역할 기반 권한 부여)**: 보안 그룹을 사용하여 Graph API에서 RBAC를 수행합니다. 예를 들어 사용자에게 특정 리소스에 대한 액세스 권한이 있는지 확인하려는 경우, 응용 프로그램에서 true 또는 false를 반환하는 [그룹 구성원 자격(전이적) 확인](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#FunctionsandactionsongroupsCheckmembershipinaspecificgrouptransitive) 작업을 호출할 수 있습니다.
 
 - **차등 쿼리**: Graph API를 자주 쿼리할 필요 없이 두 기간 사이에 디렉터리의 변경 내용을 확인하려는 경우 차등 쿼리 요청을 할 수 있습니다. 이 요청 유형은 이전 차등 쿼리 요청과 현재 요청 간에 발생한 변경 내용만 반환합니다. 자세한 내용은 [Azure AD Graph API 차등 쿼리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)를 참조하세요.
 
@@ -66,4 +66,4 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

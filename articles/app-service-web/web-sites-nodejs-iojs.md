@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm" />
 
 # Azure 앱 서비스 웹앱에서 io.js를 사용하는 방법
@@ -60,4 +60,4 @@ Node.js 앱을 배포하면 앱 서비스 웹앱에서 몇 가지 간단한 명�
 [io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

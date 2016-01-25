@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -417,7 +417,7 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 
 | 특성 이름| 사용자| 연락처| 그룹| 주석 |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X| | | Azure AD의 cloudAnchor에서 파생됩니다.|
+| msDS-ExternalDirectoryObjectID| X| | | Azure AD의 cloudAnchor에서 파생됩니다. Exchange 2016의 새로운 기능입니다.|
 | msExchArchiveStatus| X| | | 온라인 보관: 고객의 메일을 보관합니다.|
 | msExchBlockedSendersHash| X| | | 필터링: 온-프레미스 필터링을 다시 쓰고 온라인 보관 및 보낸 사람의 데이터를 클라이어트로부터 차단합니다.|
 | msExchSafeRecipientsHash| X| | | 필터링: 온-프레미스 필터링을 다시 쓰고 온라인 보관 및 보낸 사람의 데이터를 클라이어트로부터 차단합니다.|
@@ -435,4 +435,4 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

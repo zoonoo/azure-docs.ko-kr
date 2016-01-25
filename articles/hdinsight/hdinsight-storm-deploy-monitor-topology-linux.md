@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -94,23 +94,10 @@ Storm 토폴로지가 일단 시작되면 중지될 때까지 계속 실행됩�
 
 ##Storm UI를 사용한 모니터링 및 관리
 
-Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터페이스를 제공하고 HDInsight 클러스터에 포함됩니다.
+Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터페이스를 제공하고 HDInsight 클러스터에 포함됩니다. Storm UI를 보려면 웹 브라우저를 사용하여 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__을 엽니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
 
-> [AZURE.IMPORTANT]Storm UI는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 생성 및 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+> [AZURE.NOTE]사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
 
-다음 단계를 사용하여 Storm UI를 봅니다.
-
-1. HDInsight 클러스터용 Ambari 웹에 웹 브라우저를 엽니다. Ambari 웹의 URL은 https://CLUSTERNAME.azurehdinsight.net이며 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
-
-2. 페이지의 왼쪽에 있는 서비스 목록에서 __Storm__을 선택합니다. 그런 다음 __빠른 링크__에서 __Storm UI__를 선택합니다.
-
-    ![빠른 연결에서 Storm UI 항목](./media/hdinsight-storm-deploy-monitor-topology-linux/ambari-storm.png)
-
-    그러면 Storm UI가 표시됩니다.
-
-    ![Storm UI](./media/hdinsight-storm-deploy-monitor-topology-linux/storm-ui.png)
-
-> [AZURE.NOTE]Storm UI로 작업할 때 Internet Explorer의 일부 버전이 처음 방문한 후에 UI를 올바르게 새로 고치지 않는다는 것을 알 수 있습니다. 예를 들어 제출한 새 토폴로지가 표시되지 않거나 이전에 비활성화한 토폴로지가 활성 상태로 표시될 수 있습니다. Microsoft는 이 문제를 알고 있으며 해결 방법을 찾기 위해 노력하고 있습니다.
 
 ### 기본 페이지
 
@@ -168,4 +155,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

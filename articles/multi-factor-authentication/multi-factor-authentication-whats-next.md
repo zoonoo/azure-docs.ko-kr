@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 구성
 
 다음 문서는 준비하고 실행 중인 Multi-Factor Authentication을 관리하는데 도움이 됩니다. Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다. 모든 버전의 Multi-Factor Authentication에서 이러한 모든 기능을 사용할 수 없다는 점에 주의하십시오.
+
+아래의 기능 중 일부에 대한 구성은 Azure Multi-Factor Authentication 관리 포털에서 찾을 수 있습니다. 이 포털에 액세스할 수 있는 두 가지 방법은 Azure 포털을 통해 완료됩니다. 첫 번째는 사용량 기반 MFA를 사용하는 경우 Multi-Factor Auth 공급자를 관리하여 수행합니다. 두 번째는 MFA 서비스 설정을 통해 수행합니다. 두 번째 옵션은 Multi-Factor Auth 공급자 또는 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 필요합니다.
+
+Azure Multi-Factor Auth 공급자를 통해 MFA 관리 포털에 액세스하려면 관리자 권한으로 Azure 포털에 로그인하고 Active Directory 옵션을 선택합니다. **Multi-Factor Auth 공급자** 탭을 클릭한 다음 디렉터리를 선택하고 아래쪽에서 **관리** 단추를 클릭합니다.
+
+MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면 관리자 권한으로 Azure 포털에 로그인하고 Active Directory 옵션을 선택합니다. 디렉터리를 클릭한 다음 **구성** 탭을 클릭합니다. Multi-Factor Authentication 섹션에서 **서비스 설정 관리**를 선택합니다. MFA 서비스 설정 페이지의 맨 아래에서 **포털로 이동** 링크를 클릭합니다.
+
 
 기능| 설명| 포함된 내용
 :------------- | :------------- | :------------- | 
@@ -38,16 +45,16 @@
 
 ### 사기 행위 경고 설정 및 구성
 
+1.	http://azure.microsoft.com에 로그온합니다.
+2.	이 페이지 맨 위에 있는 지침에 따라 MFA 관리 포털로 이동합니다.
+3.	Azure Multi-Factor Authentication 관리 포털의 구성 섹션에서 설정을 클릭합니다.
+4.	설정 페이지의 사기 경고 섹션에서 허용 사용자를 선택하여 사기 행위 경고 확인란을 제출합니다.
+5.	사기 보고 시 사용자를 차단하려는 경우 사기 보고 시 사용자 차단에 확인란을 선택합니다.
+6.	**초기 인사말 중 사기 행위 보고 코드** 텍스트 상자에 호출 확인 중 사용할 수 있는 숫자 코드를 입력합니다. 사용자가 # 기호 대신 코드와 #를 입력하면 사기 행위 경고가 보고됩니다. 
+7.	아래쪽에서 저장을 클릭합니다.
 
-1. 여기로 로그온합니다. [http://azure.microsoft.com](http://azure.microsoft.com)
-2. 왼쪽에서 Active Directory를 선택합니다.
-3. 위쪽에서 Multi-Factor Auth 공급자를 선택합니다. 그러면 Multi-Factor Auth 공급자의 목록이 표시됩니다.
-4. 둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사기 행위 경고를 활성화하려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.
-5. Azure Multi-factor Authentication 관리 포털의 왼쪽에서 설정을 클릭합니다.
-6. 사기 행위 경고 섹션 밑에서 사용자가 사기 행위 경고를 제출하도록 선택하십시오.
-7. 사기 보고 시 사용자를 차단하려는 경우 사기 보고 시 사용자 차단에 확인란을 선택합니다.
-8. 초기 인사말 중 사기 행위 보고 코드 아래에 있는 상자에 호출 확인 중 사용할 수 있는 숫자 코드를 입력합니다. 사용자가 # 기호 대신 이 코드를 입력하면 사기 행위 경고가 보고됩니다.
-9. 아래쪽에서 저장을 클릭합니다.
+>[AZURE.NOTE]Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출하기 위해 0# 키를 누르도록 지시합니다. 0이 아닌 코드를 사용하는 경우 적절한 지침과 함께 고유의 사용자 지정 음성 인사말을 기록하고 업로드해야 합니다.
+
 
 <center>![클라우드](./media/multi-factor-authentication-whats-next/fraud.png)</center>
 
@@ -55,18 +62,21 @@
 두가지 방법으로 사기 행위 경고를 보고할 수 있습니다. 모바일 앱 또는 전화를 통해 보고합니다.
 
 ### 모바일 앱으로 사기 행위 경고 보고
-<ol>
-<li>전화에 전송된 확인을 클릭하면 Multi-factor Authentication 앱을 시작합니다.</li>
-<li>사기를 보고하려면 취소 및 사기 보고를 클릭합니다. 그러면 조직의 IT라는 상자가 표시됩니다.</li> 지원 담당자에게 알려줍니다. 사기 행를 보고를 클릭합니다.
-<li>앱에서 닫기를 클릭합니다.</li></ol>
+
+
+
+1. 전화에 전송된 확인을 클릭하면 Multi-factor Authentication 앱을 시작합니다.
+2. 사기를 보고하려면 취소 및 사기 보고를 클릭합니다. 그러면 조직의 IT 지원 담당자에 통지됩니다라는 상자가 표시됩니다. 
+3. 사기 행를 보고를 클릭합니다.
+4. 앱에서 닫기를 클릭합니다.
 
 <center>![클라우드](./media/multi-factor-authentication-whats-next/report1.png)</center>
 
 ### 모바일 앱으로 사기 행위 경고를 보고하려면
-<ol>
-<li>전화로 확인 호출이 들어오면 응답합니다.</li>
-<li>사기 행위를 보고하려면 휴대폰을 통해 사기 행위를 보고하도록 구성된 코드와 # 기호를 입력합니다. 그러면 사기 행위 경고가 전송되었다는 알림이 표시됩니다.</li>
-<li>통화를 종료합니다.</li></ol>
+
+1. 전화로 확인 호출이 들어오면 응답합니다.</li>
+2. 사기 행위를 보고하려면 휴대폰을 통해 사기 행위를 보고하도록 구성된 코드와 # 기호를 입력합니다. 그러면 사기 행위 경고가 전송되었다는 알림이 표시됩니다.
+3. 통화를 종료합니다.
 
 ### 사기 행위 보고서를 보려면
 
@@ -84,21 +94,15 @@
 
 ### 일회성 바이패스를 만들려면
 
-<ol>
-<li>여기로 로그온합니다. [Http://azure.microsoft.com] (http://azure.microsoft.com)</li>
-<li>왼쪽에서 Active Directory를 선택합니다.</li>
-<li>위쪽에서 Multi-Factor Auth 공급자를 선택합니다. 그러면 Multi-Factor Auth 공급자의 목록이 표시됩니다.</li>
-<li>둘 이상의  Multi-Factor Auth 공급자를 사용하는 경우 일회성 바이패스를 만들려는 사용자와 디렉터리가 연결된 것을 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.</li>
-<li>Azure Multi-factor Authentication 관리 포털의 왼쪽, 사용자 관리 아래에서 설정을 클릭합니다.</li>
+1.	http://azure.microsoft.com에 로그온합니다.
+2.	이 페이지 맨 위에 있는 지침에 따라 MFA 관리 포털로 이동합니다.
+3.	Azure Multi-Factor Authentication 관리 포털의 왼쪽에서 옆에 +가 있는 테넌트 또는 Azure MFA 공급자의 이름이 나타날 경우 +를 클릭하여 다른 MFA 서버 복제 그룹 및 Azure 기본 그룹을 참조하세요. 적절한 그룹을 클릭합니다.
+4.	사용자 관리에서 **일회성 바이패스**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/create1.png)
+5.	일회성 바이패스 페이지에서 **새 일회성 바이패스**를 클릭합니다.
+6.	사용자 이름, 바이패스가 유지될 시간(초), 바이패스가 필요한 이유를 입력하고 **바이패스**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/create2.png)
+7.	이 시점에서 일회성 바이패스가 만료되기 전에 사용자가 로그인해야 합니다.
 
-<center>![클라우드](./media/multi-factor-authentication-whats-next/create1.png)</center>
 
-<li>일회성 바이패스 페이지에서 새 일회성 바이패스를 클릭합니다.</li>
-<li>사용자 이름, 바이패스가 유지될 시간(초), 바이패스가 필요한 이유를 입력하고 바이패스를 클릭합니다.</li>
-
-<center>![클라우드](./media/multi-factor-authentication-whats-next/create2.png)</center>
-
-<li>이 시점에서 일회성 바이패스가 만료되기 전에 사용자가 로그인해야 합니다.</li>
 
 ### 일회성 바이패스 보고서를 보려면
 
@@ -125,59 +129,38 @@
 
 
 ### Multi-Factor Authentication에 사용자 지정 음성 메시지를 설정하려면
-<ol>
-<li>지원되는 파일 형식 중 하나를 사용하여 사용자 지정 음성 메시지 만들기 아래에서 사용자 지정 음성 메시지 관련 권장을 참조하십시오.</li>
-<li>여기로 로그온합니다. [Http://azure.microsoft.com] (http://azure.microsoft.com)</li>
-<li>왼쪽에서 Active Directory를 선택합니다.</li>
-<li>위쪽에서 Multi-Factor Auth 공급자를 선택합니다. 그러면 Multi-Factor Auth 공급자의 목록이 표시됩니다.</li>
-<li>둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사용자 지정 음성 메시지를 구성하려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.</li>
-<li>Azure Multi-factor Authentication 관리 포털의 왼쪽에서 음성 메시지를 클릭합니다.</li>
+1.	지원되는 파일 형식 중 하나를 사용하여 사용자 지정 음성 메시지 만들기
+2.	http://azure.microsoft.com에 로그온합니다.
+3.	이 페이지 맨 위에 있는 지침에 따라 MFA 관리 포털로 이동합니다.
+4.	Azure Multi-Factor Authentication 관리 포털의 구성 섹션에서 음성 메시지를 클릭합니다.
+5.	음성 메시지 섹션에서 **새 음성 메시지**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom1.png)
+6.	구성: 새 음성 메시지 페이지에서 **사운드 파일 관리**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom2.png)
+7.	구성: 사운드 파일 페이지에서 **사운드 파일 업로드**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom3.png)
+8.	구성: 사운드 파일 업로드에서 **찾아보기**를 클릭하고 음성 메시지로 이동하여 **열기**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom4.png)
+9.	설명을 추가하고 업로드를 클릭합니다.
+10.	이 작업이 완료되면 파일을 성공적으로 업로드했다는 메시지가 표시됩니다.
+11.	왼쪽에서 음성 메시지를 클릭합니다.
+12.	음성 메시지 섹션에서 새 음성 메시지를 클릭합니다.
+13.	언어 드롭다운 메뉴에서 언어를 선택합니다.
+14.	이 메시지가 특정 응용 프로그램용인 경우 응용 프로그램 상자에서 지정하십시오.
+15.	메시지 유형에서 새 사용자 지정 메시지와 함께 재정의될 수 있는 메시지 유형을 선택합니다.
+16.	사운드 파일 드롭다운에서 사운드 파일을 선택합니다.
+17.	**만들기**를 클릭합니다. 성공적으로 음성 메시지를 만들었다는 메시지가 표시됩니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
-<center>![클라우드](./media/multi-factor-authentication-whats-next/custom1.png)</center>
-
-<li>음성 메시지 섹션에서 새 음성 메시지를 클릭합니다.</li>
-
-<center>![클라우드](./media/multi-factor-authentication-whats-next/custom2.png)</center>
-
-<li>구성: 새 음성 메시지 페이지에서 사운드 파일 관리를 클릭합니다.</li>
-
-<center>![클라우드](./media/multi-factor-authentication-whats-next/custom3.png)</center>
-
-<li>구성: 사운드 파일 페이지에서 사운드 파일 업로드를 클릭합니다.</li>
-
-<center>![클라우드](./media/multi-factor-authentication-whats-next/custom4.png)</center>
-
-<li>구성: 사운드 파일 업로드에서 찾아보기를 클릭하고 음성 메시지로 이동하여 열기를 클릭합니다.</li>
-<li>설명을 추가하고 업로드를 클릭합니다.</li>
-<li>이 작업이 완료되면 파일을 성공적으로 업로드했다는 메시지가 표시됩니다.</li>
-<li>왼쪽에서 음성 메시지를 클릭합니다.</li>
-<li>음성 메시지 섹션에서 새 음성 메시지를 클릭합니다.</li>
-<li>언어 드롭다운 메뉴에서 언어를 선택합니다.</li>
-<li>이 메시지가 특정 응용 프로그램용인 경우 응용 프로그램 상자에서 지정하십시오.</li>
-<li>메시지 유형에서 새 사용자 지정 메시지와 함께 재정의될 수 있는 메시지 유형을 선택합니다.</li>
-<li>사운드 파일 드롭다운에서 사운드 파일을 선택합니다.</li>
-<li>만들기를 클릭합니다. 성공적으로 음성 메시지를 만들었다는 메시지가 표시됩니다.</li>
-
-<center>![클라우드](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 
 ## Azure Multi-Factor Authentication에서 캐싱
 
-캐싱을 사용하면 특정 시간 기간을 설정하여 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. 이렇게 하면 사용자가 이 시간 간격 내에서 인증하는 경우 전화 통화 또는 텍스트를 기다리지 않도록 할 수 있습니다.
-
+캐싱을 사용하면 특정 시간 기간을 설정하여 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. 첫 번째 요청이 진행 중인 동안 VPN과 같은 온-프레미스 시스템이 여러 확인 요청을 전송하는 경우 주로 사용됩니다. 이렇게 하면 사용자가 진행 중인 확인에 성공한 후에 자동으로 후속 요청이 성공할 수 있습니다. 캐싱은 로그인에 사용하기 위한 것이 아닙니다.
 
 
 ### Azure Multi-Factor Authentication에서 캐싱 설정
-<ol>
 
-1. 여기로 로그온합니다. [http://azure.microsoft.com](http://azure.microsoft.com)
-2. 왼쪽에서 Active Directory를 선택합니다.
-3. 위쪽에서 Multi-Factor Auth 공급자를 선택합니다. 그러면 Multi-Factor Auth 공급자의 목록이 표시됩니다.
-4. 둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사기 행위 경고를 활성화하려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.
-5. Azure Multi-factor Authentication 관리 포털의 왼쪽에서 캐싱을 클릭합니다.
-6. 캐싱 페이지 구성에서 새 캐시를 클릭합니다.
-7. 캐시 유형 및 캐시 시간(초)을 선택합니다. 만들기를 클릭합니다.
-
+1.	http://azure.microsoft.com에 로그온합니다.
+2.	이 페이지 맨 위에 있는 지침에 따라 MFA 관리 포털로 이동합니다.
+3.	Azure Multi-Factor Authentication 관리 포털의 구성 섹션에서 캐싱을 클릭합니다.
+4.	캐싱 페이지 구성에서 새 캐시를 클릭합니다.
+5.	캐시 유형 및 캐시 시간(초)을 선택합니다. 만들기를 클릭합니다.
 
 <center>![클라우드](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
@@ -203,23 +186,26 @@ Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
 
 ### 신뢰할 수 있는 IP를 활성화하려면
 
+1. Azure 관리 포털에 로그인합니다.
+2. 왼쪽에서 Active Directory를 클릭합니다.
+3. 디렉터리 아래에서 사용자가 Trusted IPsing을 설정하려는 디렉터리를 클릭합니다.
+4. 선택한 디렉터리에서 구성을 클릭합니다.
+5. Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.
+6. 서비스 설정 페이지의 신뢰할 수 있는 IP에서 다음 중 하나를 선택합니다.
+
+	- 내 인트라넷에서 발생한 페더레이션된 사용자의 요청에 대해 회사 네트워크에서 로그인하는 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하는 Multi-Factor Authentication을 바이패스합니다. 
+	- 공용 IP 중 특정 범위의 요청에 대해 CIDR 표기법을 사용하여 제공된 상자에 IP 주소를 입력합니다. 예를 들어 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 범위의 IP 주소에 xxx.xxx.xxx.0/24, 또는 단일 IP 주소에 xxx.xxx.xxx.xxx/32입니다. 최대 12개의 IP 주소 범위를 입력할 수 있습니다.
+
+7. 저장을 클릭합니다.
+8. 업데이트를 적용하면 닫기를 클릭합니다.
+
+
+
+![클라우드](./media/multi-factor-authentication-whats-next/trustedips2.png)
+
+
+
  
-<ol>
-<li>Azure 관리 포털에 로그인합니다.</li>
-<li>왼쪽에서 Active Directory를 클릭합니다.</li>
-<li>디렉터리 아래에서 사용자가 Trusted IPsing을 설정하려는 디렉터리를 클릭합니다.</li>
-<li>선택한 디렉터리에서 구성을 클릭합니다.</li>
-<li>Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.</li>
-<li>서비스 설정 페이지의 신뢰할 수 있는 IP 아래에서 <ul> <li> 중 하나를 선택합니다. 내 인트라넷에서 발생한 페더레이션된 사용자의 요청에 대해 회사 네트워크에서 로그인하는 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하는 Multi-factor Authentication을 바이패스합니다.
-
-<li>공용 IP 중 특정 범위의 요청에 대해 CIDR 표기법을 사용하여 제공된 상자에 IP 주소를 입력합니다. 예를 들어 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 범위의 IP 주소에 xxx.xxx.xxx.0/24, 또는 단일 IP 주소에 xxx.xxx.xxx.xxx/32입니다. 최대 12개의 IP 주소 범위를 입력할 수 있습니다.</li></ul>
-
-
-<center>![클라우드](./media/multi-factor-authentication-whats-next/trustedips.png)</center>
-
-
-<li>저장을 클릭합니다.</li>
-<li>업데이트를 적용하면 닫기를 클릭합니다.</li>
 ## 앱 암호
 
 Office 2010 또는 이전 및 Apple 메일과 같은일부 앱에서 Multi-factor Authentication를 사용할 수 없습니다. 이러한 앱을 사용하려면 기존의 암호 대신 "앱 암호"를 사용해야 합니다. 앱 암호를 사용하면 응용 프로그램이 Multi-factor Authentication을 바이패스하고 작업을 계속할 수 있습니다.
@@ -365,4 +351,4 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 <li>서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 장치를 기억하도록 하여 Multi-Factor Authentication을 일시 중단할 수 있습니다**를 선택/선택 취소합니다.</li>
 ![장치 일시 중단](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>일시 중단을 허용하려는 일 수를 설정합니다. 기본값은 14일입니다.</li> <li>저장을 클릭합니다.</li> <li>닫기를 클릭합니다.</li>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

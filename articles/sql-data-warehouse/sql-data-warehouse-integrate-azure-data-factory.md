@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 데이터 팩터리 사용
 
@@ -51,4 +51,4 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 [Azure 데이터 팩터리 설명서]: https://azure.microsoft.com/documentation/services/data-factory/
 [Copy data with Azure Data Factory]: https://azure.microsoft.com/ko-KR/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

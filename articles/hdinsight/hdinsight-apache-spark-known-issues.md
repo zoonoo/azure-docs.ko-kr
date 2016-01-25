@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/13/2016" 
 	ms.author="jgao"/>
 
 # Azure HDInsight(Linux)에서 Apache Spark의 알려진 문제
 
-이 문서는 Spark 공개 미리 보기에 대한 모든 알려진 문제를 추적합니다.
+이 문서는 HDInsight Spark 공개 미리 보기에 대한 모든 알려진 문제를 추적합니다.
 
 ##Livy 누수 대화형 세션
  
@@ -139,4 +139,4 @@ hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotF
 - [개요: Azure HDInsight에서 Apache Spark(Linux)](hdinsight-apache-spark-overview.md)
 - [시작: Azure HDInsight(Linux)에서 Apache Spark 프로비전 및 Spark SQL을 사용하여 대화형 쿼리 실행](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -20,11 +20,11 @@
 # Azure 포털을 사용하여 Linux를 실행하는 가상 컴퓨터 만들기
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -34,8 +34,6 @@
 Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 쉽습니다. 이 자습서에서는 Azure 포털을 사용하여 Linux를 실행하는 Azure 가상 컴퓨터를 빨리 만드는 방법과 `~/.ssh/id_rsa.pub` 공개 키 파일을 사용하여 VM에 연결된 **SSH** 연결 보안을 설정하는 방법을 보여줍니다. [사용자 고유의 이미지를 템플릿](virtual-machines-linux-create-upload-vhd.md)으로 사용하여 Linux VM을 만들 수도 있습니다.
 
 > [AZURE.NOTE]이 자습서에서는 Azure 리소스 그룹 API에 의해 관리되는 Azure 가상 컴퓨터를 만듭니다. 자세한 내용은 [ Azure 리소스 그룹 개요](resource-group-overview.md)를 참조하세요.
-
-</br>
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -138,4 +136,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

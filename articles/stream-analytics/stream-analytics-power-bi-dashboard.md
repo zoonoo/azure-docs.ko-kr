@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
 # Azure 스트림 분석 및 Power BI: 스트리밍 데이터에 대한 실시간 가시성을 제공하는 실시간 분석 대시보드
@@ -27,13 +27,13 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 
 > [AZURE.NOTE]Power BI 출력은 Azure 스트림 분석의 미리 보기 기능입니다. 이때 Power BI 출력의 생성 및 구성은 Azure Preview 포털에서 지원되지 않습니다.
 
-## 필수 조건 ##
+## 필수 조건
 
 * Microsoft Azure 계정
 * 스트리밍 데이터를 소비하는 스트림 분석 작업에 대한 입력. 스트림 분석은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
 * Power BI에 대한 회사 또는 학교 계정
 
-## Azure 스트림 분석 작업 만들기 ##
+## Azure 스트림 분석 작업 만들기
 
 [Azure 포털](https://manage.windowsazure.com)에서, **새로 만들기, 데이터 서비스, 스트림 분석, 빠른 생성**을 클릭합니다.
 
@@ -49,7 +49,7 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 
 > [AZURE.TIP]새 작업은 **시작되지 않음** 상태로 표시됩니다. 페이지 맨 아래의 **시작** 단추가 비활성화됩니다. 작업을 시작하기 전에 작업 입력, 출력, 쿼리 등을 구성해야 할 때 예상되는 동작입니다.
 
-## 작업 입력 지정 ##
+## 작업 입력 지정
 
 이 자습서에서는 JSON 직렬화 및 UTF-8 인코딩을 포함한 입력으로 이벤트 허브를 사용한다고 가정합니다.
 
@@ -74,7 +74,7 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
   *	**인코딩** - UTF8
 *	확인 단추를 클릭하여 이 소스를 추가하고 스트림 분석이 이벤트 허브에 성공적으로 연결될 수 있는지 확인합니다.
 
-## Power BI 출력 추가 ##
+## Power BI 출력 추가
 
 1.  페이지의 맨 위에서 **출력**을 클릭한 다음 **출력 추가**를 클릭합니다. Power BI가 출력 옵션으로 표시됩니다.
 
@@ -99,14 +99,14 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 * **데이터 집합 이름** - Power BI 출력에 포함할 데이터 집합 이름을 입력합니다. 예를 들어, “pbidemo”를 사용합니다.
 *	**테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, 스트림 분석 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
 
->	[AZURE.NOTE] Power BI 계정에서 이 데이터 집합과 테이블을 명시적으로 만들면 안 됩니다. 스트림 분석 작업을 시작하면 자동으로 만들어지며 이 작업에서 출력을 Power BI로 펌프하기 시작합니다. 작업 쿼리에서 아무 결과도 반환하지 않는 경우에는 데이터 집합과 테이블이 만들어지지 않습니다.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	**확인**, **연결 테스트**를 클릭하면 이제 출력 구성이 완료됩니다.
 
->	[AZURE.WARNING] 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
-## 쿼리 작성 ##
+## 쿼리 작성
 
 작업의 **쿼리** 탭으로 이동합니다. Power BI에서 원하는 쿼리, 출력을 작성합니다. 예를들어 다음 SQL 쿼리와 같을 수 있습니다.
 
@@ -127,7 +127,7 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
     
 사용자의 작업을 시작합니다. 이벤트 허브는 이벤트를 수신하고 쿼리가 예상된 결과를 생성하는지 확인합니다. 쿼리가 0개의 행을 출력하면, Power BI 데이터 집합 및 테이블이 자동으로 만들어지지 않습니다.
 
-## Power BI에서 대시보드 만들기 ##
+## Power BI에서 대시보드 만들기
 
 [Powerbi.com](https://powerbi.com)으로 이동하고 회사 또는 학교 계정으로 로그인합니다. 스트림 분석 작업 쿼리가 결과를 출력하면, 사용자 데이터 집합이 이미 생성되어 표시됩니다.
 
@@ -163,14 +163,18 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 
 Power BI 출력 구성 및 Power BI 그룹 사용 방법에 대한 자세한 내용은 [스트림 분석 출력 이해](stream-analytics-define-outputs.md "스트림 분석 출력 이해")의 [Power BI 섹션](stream-analytics-define-outputs.md#power-bi)을 참조하세요. Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유용한 리소스는 [Power BI 미리 보기의 대시보드](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)입니다.
 
-## 제한 사항 및 모범 사례 ##
+## 제한 사항 및 모범 사례
+
 Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 가격 책정")에 설명된 바와 같이 동시성과 처리량 제약 조건을 모두 사용합니다.
 
-때문에 Power BI는 Azure 스트림 분석으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다. TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시가 되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 다음 수식을 사용하여 수 초 내에 창에 공급할 값을 계산할 수 있습니다. ![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)
-
-예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 할 수 있습니다.
+때문에 Power BI는 Azure 스트림 분석으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다. TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 다음 수식을 사용하여 수 초 내에 창에 공급할 값을 계산할 수 있습니다.
+  
+![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)
+  
+예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 수행할 수 있습니다.
+  
 ![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
-
+  
 이를 위해 원래 쿼리가 아래와 같이 변경됩니다.
 
     SELECT
@@ -186,7 +190,13 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
-## 권한 부여 갱신
+### PowerBI 보기 새로 고침
+
+일반적인 질문은 다음과 같습니다. "PowerBI에서 대시보드가 왜 자동으로 업데이트되지 않나요?"
+
+이에 대한 답변을 얻기 위해 PowerBI에서 질문 및 답변에 "타임스탬프가 오늘인 임시 최대값"과 같이 질문하고 대시보드에 해당 타일을 고정합니다.
+
+### 권한 부여 갱신
 
 Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토큰을 수동으로 새로 고쳐야 하는 임시 제한 사항이 있습니다. 작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에도 Power BI 계정을 다시 인증해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
 
@@ -196,10 +206,10 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 
 ![graphic13][graphic13]
 
-## 도움말 보기 ##
+## 도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
-## 다음 단계 ##
+## 다음 단계
 
 - [Azure 스트림 분석 소개](stream-analytics-introduction.md)
 - [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
@@ -222,4 +232,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

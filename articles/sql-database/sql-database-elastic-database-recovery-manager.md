@@ -21,7 +21,7 @@
 
 GSM 및 LSM은 분할된 데이터베이스 환경에서 각 데이터베이스의 매핑을 추적합니다. 경우에 따라는 GSM과 LSM 사이에 중단이 발생합니다. 이 경우 RecoveryManager 클래스가 이를 감지하고 복구합니다.
 
-RecoveryManager 클래스는 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library)에 포함됩니다.
+RecoveryManager 클래스는 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)에 포함됩니다.
 
 
 ![분할된 맵][1]
@@ -157,4 +157,4 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

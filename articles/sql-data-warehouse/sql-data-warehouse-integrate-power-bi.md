@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Power BI 사용
 Azure SQL 데이터베이스와 함께, SQL 데이터 웨어하우스 직접 연결을 사용하면 사용자는 Power BI의 분석 기능과 함께 강력한 논리 푸시 다운을 활용할 수 있습니다. 직접 연결을 사용하여 쿼리는 데이터를 탐색할 때 실시간으로 Azure SQL 데이터 웨어하우스로 다시 전송됩니다. SQL 데이터 웨어하우스의 크기와 결합되어 사용자는 테라바이트 규모의 데이터에 대해 동적 보고서를 몇 분 내에 만들 수 있습니다. 또한 Power BI 단추에서 열기 소개를 사용하면 사용자는 Azure의 다른 부분에서 정보를 수집하지 않고 Power BI를 직접 SQL 데이터 웨어하우스에 연결할 수 있습니다.
@@ -63,4 +63,4 @@ Power BI에서 열기 단추를 사용 하는 것 외에도 사용자는 Power B
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->
