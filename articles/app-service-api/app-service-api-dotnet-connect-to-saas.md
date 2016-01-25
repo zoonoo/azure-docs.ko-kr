@@ -378,7 +378,12 @@ API 앱이 Dropbox API를 호출할 수 있게 하려면 API 앱과 Dropbox 개�
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	다른 공급자에 대해 사용하는 값은 다음과 같습니다. * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
+	다른 공급자에 대해 사용하는 값은 다음과 같습니다.
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * `GetConsentLinkAsync()` 메서드에 대한 두 번째 매개 변수는 사용자가 Dropbox에 로그인한 후 동의 서버가 리디렉션되는 콜백 URL로, 사용자 계정에 액세스할 수 있는 동의를 제공합니다.
 
@@ -386,7 +391,7 @@ API 앱이 Dropbox API를 호출할 수 있게 하려면 API 앱과 Dropbox 개�
 
 	클라이언트 응용 프로그램에서 사용자가 이동되어야 하는 다음 웹 페이지를 이 매개 변수로 지정할 수 있습니다. 이 데모 코드는 콘솔 앱에 있으므로 이동할 응용 프로그램 페이지는 없으며 이 코드는 게이트웨이 URL을 편리한 방문 페이지로 지정합니다.
 
-	클라이언트 응용 프로그램은 이 URL로 리디렉션되는지와 오류 메시지가 없는지 확인해야 합니다. 로그인/동의 프로세스가 실패하면 리디렉션 URL의 querystring에 오류 메시지가 포함될 수 있습니다. 자세한 내용은 [문제 해결](#troubleshooting) 섹션을 참조하세요.
+	클라이언트 응용 프로그램은 이 URL로 리디렉션되는지와 오류 메시지가 없는지 확인해야 합니다. 로그인/동의 프로세스가 실패하면 리디렉션 URL의 querystring에 오류 메시지가 포함될 수 있습니다. 자세한 내용은 [문제 해결](#troubleshooting)섹션을 참조하세요.
 
 ## 테스트
 
@@ -422,13 +427,13 @@ API 앱이 Dropbox API를 호출할 수 있게 하려면 API 앱과 Dropbox 개�
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-클라이언트가 비 SSL HTTP POST 요청을 시도하고, 게이트웨이가 **https://*으로 리디렉션하고, 이러한 리디렉션으로 인해 GET 요청을 발생하므로 405 메서드가 허용되지 않음 오류가 수신됩니다. 동의 링크를 검색하기 위한 URL은 POST 요청만 허용합니다.
+클라이언트가 비 SSL HTTP POST 요청을 시도하고, 게이트웨이가 *https://*으로 리디렉션하고, 이러한 리디렉션으로 인해 GET 요청을 발생하므로 405 메서드가 허용되지 않음 오류가 수신됩니다. 동의 링크를 검색하기 위한 URL은 POST 요청만 허용합니다.
 
 ### <a id="400"></a>Dropbox 로그인 페이지 대신 HTTP 오류 400 표시
 
 API 앱의 **인증** 블레이드에 올바른 **클라이언트 ID**가 있는지와 선행 또는 후행 공백이 없는지 확인합니다.
 
-### <a id="403"></a> API 앱을 호출할 때 HTTP 오류 403 표시
+### <a id="403"></a>API 앱을 호출할 때 HTTP 오류 403 표시
 
 * API 앱의 **액세스 수준**이 **내부**가 아닌 **공용(인증)**으로 설정되어 있는지 확인합니다.
 
@@ -446,7 +451,7 @@ Dropbox 로그인 이후에 나타나는 리디렉션 URL은 다음과 같을 �
 
 SaaS 플랫폼에 연결되는 API 앱을 코딩 및 구성하는 방법을 살펴보았습니다. API 앱에서 인증을 처리하는 방법에 대한 다른 자습서로 연결되는 링크를 보려면 [API 앱 및 모바일 앱에 대한 인증 - 다음 단계](../app-service/app-service-authentication-overview.md#next-steps)를 참조하세요.
 
-[Azure preview portal]: https://portal.azure.com/
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Preview 포털]: https://portal.azure.com/
+[Azure 포털]: https://manage.windowsazure.com/
 
 <!---HONumber=AcomDC_0114_2016-->

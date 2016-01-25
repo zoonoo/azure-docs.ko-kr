@@ -58,7 +58,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 시스템 및 사용자 정의 변수는 모두 자동 크기 조정 수식에 사용될 수 있습니다. 위의 두 줄 예제 수식에서 `$averageActiveTaskCount`가 사용자 정의 변수인 반면 `$TargetDedicated`는 시스템 정의 변수입니다. 아래 테이블은 배치 서비스에서 정의된 읽고 쓰기 및 읽기 전용 변수를 모두 보여줍니다.
 
-이러한 **시스템 정의 변수** 값을 *가져와서* *설정*하여 풀의 계산 노드 개수를 관리합니다.
+이러한 **시스템 정의 변수** 값을 *가져와서* *설정* 하여 풀의 계산 노드 개수를 관리합니다.
 
 <table>
   <tr>
@@ -349,17 +349,18 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
 </table>
 
-위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
+위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec* 의 조합입니다. 예:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*doubleVecList* 값은 평가 전 단일 *doubleVec*로 변환됩니다. 예를 들어 `v = [1,2,3]`인 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출에 해당하며 `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출에 해당합니다.
+*doubleVecList* 값은 평가 전 단일 *doubleVec* 로 변환됩니다. 예를 들어 `v = [1,2,3]`인 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출에 해당하며 `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출에 해당합니다.
 
 ## <a name="getsampledata"></a>샘플 데이터 가져오기
 
 자동 크기 조정 수식은 배치 서비스에서 제공한 메트릭 데이터 즉, 샘플에서 작동하며 이는 수식이 서비스에서 가져온 값에 따라 풀 크기를 늘이거나 줄입니다. 위에 설명한 시스템에 정의된 변수는 해당 개체에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 개체입니다. 예를 들어, 다음 식은 최근 5분 동안의 CPU 사용률을 얻기 위한 요청을 보여줍니다.
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
+
 
 <table>
   <tr>
@@ -384,7 +385,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
     <td>GetSamplePeriod()</td>
     <td>기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다.</td>
   </tr>
-	<tr>
+  <tr>
 		<td>Count()</td>
 		<td>메트릭 기록에 있는 총 샘플 수를 반환합니다.</td>
 	</tr>
@@ -491,7 +492,7 @@ CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분
 
 `$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
-다음 구문은 지난 60분의 평균 CPU 사용량이 20% *이하*인 경우 동일한 변수를 노드에 있는 현재 대상 수의 90%에 설정하여, 낮은 CPU 사용량이 낮을 때 대상 수를 줄입니다. 이 구문은 또한 위 구문의 사용자 정의 변수 *$TotalNodes*를 참조합니다.
+다음 구문은 지난 60분의 평균 CPU 사용량이 20% *이하* 인 경우 동일한 변수를 노드에 있는 현재 대상 수의 90%에 설정하여, 낮은 CPU 사용량이 낮을 때 대상 수를 줄입니다. 이 구문은 또한 위 구문의 사용자 정의 변수 *$TotalNodes* 를 참조합니다.
 
 `$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 

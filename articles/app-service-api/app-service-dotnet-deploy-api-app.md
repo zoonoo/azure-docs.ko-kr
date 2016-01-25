@@ -109,7 +109,7 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 9. **미리 보기** 탭을 클릭합니다.
 
-10. **미리 보기 시작**을 클릭하여 Azure에 복사될 파일을 볼 수 있습니다.
+10. **미리 보기 시작**을 클릭하여 Azure에 복사 될 파일을 볼 수 있습니다.
 
 	![웹 게시 대화 상자](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 

@@ -46,10 +46,10 @@ PowerShell 워크플로 Runbook의 매개 변수 정의에는 다음과 같은 �
 
          [Parameter (Mandatory= $true/$false)]
          [Type] Name2 = <Default value>
-     )
+     ) 
 ```
 
->[AZURE.NOTE]매개 변수를 정의할 때 **필수** 특성을 지정하지 않으면 기본적으로 매개 변수는 선택 사항으로 간주됩니다. 또한 PowerShell 워크플로 Runbook의 매개 변수에 대한 기본값을 설정하는 경우 **필수** 특성 값과 관계 없이 PowerShell에서 선택적 매개 변수로 처리됩니다.
+>[AZURE.NOTE] 매개 변수를 정의할 때 **필수** 특성을 지정하지 않으면 기본적으로 매개 변수는 선택 사항으로 간주됩니다. 또한 PowerShell 워크플로 Runbook의 매개 변수에 대한 기본값을 설정하는 경우 **필수** 특성 값과 관계 없이 PowerShell에서 선택적 매개 변수로 처리됩니다.
 
 예를 들어 가상 컴퓨터(단일 VM 또는 서비스 내의 모든 VM)에 대한 세부 정보를 출력하는 PowerShell 워크플로 Runbook에 대한 입력 매개 변수를 구성해보겠습니다. 다음 스크린샷에 보여준 대로 이 Runbook에는 가상 컴퓨터의 이름 및 서비스 이름이라는 두 가지 매개 변수가 있습니다.
 
@@ -77,7 +77,7 @@ Azure를 사용하여 인증하는 [**Add-AzureAccount**](https://msdn.microsoft
 
 [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) 활동을 사용하여 가상 컴퓨터의 이름을 출력할 수 있습니다. **Get-AzureVM** 활동은 **가상 컴퓨터 이름** 및 **서비스 계정 이름**과 같은 두 개의 매개 변수를 수락합니다. 이러한 매개 변수가 Runbook을 시작할 때마다 다른 값을 필요할 수 있기 때문에 Runbook에 입력 매개 변수를 추가할 수 있습니다. 입력 매개 변수를 추가하는 단계는 다음과 같습니다.
 
-1. **Runbook** 블레이드에서 그래픽 Runbook를 선택하고 [편집](automation-graphical-authoring-intro.md)합니다.
+1. **Runbook** 블레이드에서 그래픽 Runbook를 선택하고 [편집](automation-graphical-authoring-intro.md)합니다. 
 
 2. **편집** 블레이드에서 **입력 및 출력**을 클릭하여 **입력 및 출력** 블레이드를 엽니다.
 
@@ -98,9 +98,17 @@ Azure를 사용하여 인증하는 [**Add-AzureAccount**](https://msdn.microsoft
 
 4. **Get-AzureVM** 활동에서 사용될 다음 속성을 가진 두 개의 매개 변수를 만듭니다.
 
-    * **매개 변수1:** 이름--VMName, 형식--문자열, 필수--아니오
+    * **매개 변수1:** 
+    이름--VMName, 
+    형식--문자열, 
+    필수--아니오
 
-    * **매개 변수2:** 이름--VMNameServiceName, 형식--문자열, 필수--아니오, 기본값--사용자 지정, 사용자 지정 기본값--<가상 컴퓨터를 포함하는 기본 서비스의 이름>
+    * **매개 변수2:** 
+    이름--VMNameServiceName,
+     형식--문자열, 
+     필수--아니오, 
+     기본값--사용자 지정, 
+     사용자 지정 기본값--<가상 컴퓨터를 포함하는 기본 서비스의 이름>
 
 5. 매개 변수를 추가하면 **확인**을 클릭합니다. 이제 **입력 및 출력 블레이드**에서 볼 수 있습니다. 다시 **확인**을 클릭한 다음 Runbook을 **저장**하고 **게시**하도록 클릭합니다.
 
@@ -131,7 +139,8 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 
     **예제:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
@@ -141,7 +150,8 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 
     **예제:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```

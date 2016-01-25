@@ -108,7 +108,7 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 
 ## 빌드 컴퓨터 설정
 
-이 명령을 통해 만드는 빌드 정의는 병렬 빌드를 지원하지 않으며, 별도의 컴퓨터에서라도 마찬가지입니다. 각 빌드가 동일한 리소스 그룹/클러스터를 경쟁하게 되기 때문입니다. 여러 빌드 에이전트를 실행할 경우 이러한 간섭을 방지하기 위해 다음 명령/스크립트를 수정해야 합니다.
+이 명령을 통해 만드는 빌드 정의는병렬 빌드를 지원하지 않으며, 별도의 컴퓨터에서라도 마찬가지입니다. 각 빌드가 동일한 리소스 그룹/클러스터를 경쟁하게 되기 때문입니다. 여러 빌드 에이전트를 실행할 경우 이러한 간섭을 방지하기 위해 다음 명령/스크립트를 수정해야 합니다.
 
 ### Visual Studio 2015 설치
 
@@ -142,6 +142,7 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 
 >[AZURE.NOTE]`<path to service fabric SDK>`의 기본값은 `%ProgramFiles%\Microsoft SDKs\Service Fabric`입니다.
 
+
     NuGet.config:
 
     ```
@@ -168,7 +169,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 ### 자동화 인증서 가져오기
 
-1. 빌드 컴퓨터에 인증서를 가져옵니다. 다음을 수행합니다.
+1.	빌드 컴퓨터에 인증서를 가져옵니다. 다음을 수행합니다.
     1. CreateAndUpload-Certificate.ps1 스크립트를 통해 만든 PFX 파일을 빌드 컴퓨터에 복사합니다.
     2. 관리 PowerShell 계정을 열고 앞서 GenerateCertificate.ps1에 전달한 암호를 사용하여 다음 명령을 실행합니다.
 
@@ -183,6 +184,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
     2. **인증서**를 검색합니다.
     3. **관리 도구** > **컴퓨터 인증서 관리**를 선택합니다.
 
+
 3. 로컬 서비스 계정에 자동화 인증서 사용을 위한 권한을 부여합니다.
 
     1.	**인증서 - 로컬 컴퓨터**에서 **개인**을 확장한 다음 **인증서**를 선택합니다.
@@ -196,8 +198,8 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 ### 빌드 에이전트 등록
 
 1.	agent.zip을 다운로드합니다. 다음을 수행합니다.
-    1.	팀 프로젝트에 로그인합니다(예: ****https://[your-Team-Services-account-name].visualstudio.com**).
-1.	화면 오른쪽 위 모퉁이에서 '기어' 아이콘을 선택합니다.
+    1.	팀 프로젝트에 로그인합니다(예: **https://[your-Team-Services-account-name].visualstudio.com**).
+	1.	화면 오른쪽 위 모퉁이에서 '기어' 아이콘을 선택합니다.
     1.	제어판에서 **에이전트 풀** 탭을 선택합니다.
     1.	**에이전트 다운로드**를 선택하고 agent.zip 파일을 다운로드합니다.
     1.	앞서 만든 빌드 컴퓨터에 agent.zip을 복사합니다.

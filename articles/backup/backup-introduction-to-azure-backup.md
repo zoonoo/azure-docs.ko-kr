@@ -61,8 +61,8 @@ Azure 백업은 하이브리드 백업 솔루션이며 종단 간 백업 사용 
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)</p> |
-| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) | | Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
-
+| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
 ## 기능
 이러한 테이블은 각 구성 요소에 Azure 백업 기능이 처리되는 방법을 요약합니다.
 

@@ -29,7 +29,7 @@
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 
-> [AZURE.NOTE]Python 또는 [Python Azure 패키지][]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
+> [AZURE.NOTE] Python 또는 [Python Azure 패키지][]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
 
 ## 큐를 만드는 방법
 

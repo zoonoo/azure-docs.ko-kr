@@ -24,7 +24,7 @@
 
 이 문서에서는 Azure CLI를 설치했고 기본 작업을 수행하는 방법을 안다고 가정합니다. CLI에 대한 소개는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
-> [AZURE.NOTE][Azure 구독에 연결](../xplat-cli-connect.md)의 지침은 두 가지 대안, 회사 또는 학교 계정을 사용하여 로그인 및 *.publishsettings* 파일 다운로드를 제공합니다. API 앱의 경우, *.publishsettings* 파일 인증 방법이 작동하지 않습니다. 리소스 관리 모드를 사용하여 API 앱을 작업해야 하기 때문이며 *.publishsettings* 파일 인증 방법은 리소스 관리자와 작동하지 않습니다.
+> [AZURE.NOTE] [Azure 구독에 연결](../xplat-cli-connect.md)의 지침은 두 가지 대안, 회사 또는 학교 계정을 사용하여 로그인 및 *.publishsettings* 파일 다운로드를 제공합니다. API 앱의 경우, *.publishsettings* 파일 인증 방법이 작동하지 않습니다. 리소스 관리 모드를 사용하여 API 앱을 작업해야 하기 때문이며 *.publishsettings* 파일 인증 방법은 리소스 관리자와 작동하지 않습니다.
 
 ## 리소스 관리 모드 사용
 
@@ -288,4 +288,4 @@ Azure 리소스 관리자와 함께 Azure 명령줄 유틸리티를 사용하는
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->
