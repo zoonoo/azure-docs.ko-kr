@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 데이터 로드
 SQL 데이터 웨어하우스는 다음을 포함한 데이터 로드의 다양한 옵션을 제공합니다.
@@ -201,4 +201,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [Azure 저장소 설명서]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/
 [Express 경로 설명서]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

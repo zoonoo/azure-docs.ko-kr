@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/05/2015"
+ms.date="01/12/2016"
 ms.author="larryfr"/>
 
 #SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스
@@ -32,7 +32,6 @@ Ambari의 여러 메뉴는 클러스터에서 실행되는 다른 Hadoop 서비�
 * Thread Stacks,
 * Oozie web UI
 * HBase Master and Logs UI
-* Storm UI
 
 클러스터를 사용자 지정하는 스크립트 작업을 사용하는 경우 웹 UI를 노출하는 설치하는 모든 서비스 또는 유틸리티는 SSH 터널이 필요합니다. 예를 들어 스크립트 작업을 사용하여 Hue를 설치하는 경우 SSH 터널을 사용하여 Hue 웹 UI에 액세스해야 합니다.
 
@@ -88,7 +87,7 @@ PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니�
 
 1. PuTTY를 열고 연결 정보를 입력합니다. PuTTY를 잘 알고 있지 않다면 HDInsight와 함께 사용하는 방법에 대한 정보에 대해 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조합니다.
 
-2. 대화 상자의 왼쪽에 있는 **범주** 섹션에서 **연결**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
+2. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
 
 3. **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
 
@@ -149,11 +148,6 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 	* **URL 패턴** - ***internal.cloudapp.net*** - 클러스터 노드의 내부 정규화된 도메인 이름과 일치하는 패턴을 정의합니다.
 
 	![foxyproxy 패턴](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-    
-    HDInsight 클러스터에서 Storm을 사용하는 경우 다음 값으로 패턴을 추가해야 합니다.
-    
-    * **패턴 이름** - **작업자 노드**
-    * **URL 패턴** - ***10.0.0*** - Storm UI가 IP 주소를 통해 작업자 노드에서 데이터에 액세스하도록 합니다.
 
 4. **OK**를 클릭하여 프록시를 추가하고 **Proxy Settings**를 닫습니다.
 
@@ -161,7 +155,7 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	![foxyproxy 선택 모드](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
 
-이러한 단계를 따른 후에는 __internal.cloudapp.net__ 문자열이 포함된 URL에 대한 요청만 SSL 터널을 통해 라우팅됩니다.
+이러한 단계를 다른 후에는 __internal.cloudapp.net__ 문자열이 포함된 URL에 대한 요청만 SSL 터널을 통해 라우팅됩니다.
 
 ##Ambari 웹 UI 통해 확인
 
@@ -202,4 +196,4 @@ HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음�
 
 * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

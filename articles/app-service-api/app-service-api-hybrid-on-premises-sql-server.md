@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 하이브리드 연결을 사용하여 Azure 앱 서비스의 API 앱에서 온-프레미스 SQL Server에 연결
@@ -34,7 +34,7 @@
 
 - **Visual Studio** - Visual Studio 2013 또는 Visual Studio 2015의 무료 평가판 버전을 다운로드하려면 [Visual Studio 다운로드](http://www.visualstudio.com/downloads/download-visual-studio-vs)를 참조하세요. 계속하기 전에 다음 중 하나를 설치합니다. (이 자습서의 스크린샷은 Visual Studio 2013을 사용하여 수행되었음)
 
-- **SQL Server 2014 Express with Tools** - [Microsoft 웹 플랫폼 데이터베이스 페이지](https://www.microsoft.com/ko-KR/download/details.aspx?id=42299)에서 Microsoft SQL Server Express를 무료로 다운로드하세요. 이 자습서의 뒷부분에서 [SQL Server 설치](#InstallSQLDB) 방법을 참조하여 제대로 구성되었는지 확인합니다.
+- **SQL Server 2014 Express with Tools** - [Microsoft 웹 플랫폼 데이터베이스 페이지](https://www.microsoft.com/ko-KR/download/details.aspx?id=42299)에서 Microsoft SQL Server Express를 무료로 다운로드하세요. 이 자습서의 뒷부분에서 [SQL Server를 설치](#InstallSQLDB)하여 제대로 구성되었는지 확인하는 방법을 알 수 있습니다.
 
 - **SQL Server Management Studio Express** - 이 제품은 위에서 언급한 SQL Server 2014 Express with Tools 다운로드와 함께 포함되지만 별도로 설치해야 하는 경우 [SQL Server Express 다운로드 페이지](https://www.microsoft.com/ko-KR/download/details.aspx?id=42299)에서 이 제품을 다운로드하여 설치할 수 있습니다.
 
@@ -371,7 +371,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 	
 	![하이브리드 연결](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
-7. **하이브리드 연결** 블레이드에서 **추가** > **새 하이브리드 연결**을 클릭합니다.
+7. **하이브리드 연결** 블레이드에서, **추가** > **새 하이브리드 연결**을 클릭합니다.
 	
 8. **하이브리드 연결 블레이드 만들기**에서 다음을 수행합니다.
 	- **이름**에서 연결 이름을 입력합니다.
@@ -432,4 +432,4 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

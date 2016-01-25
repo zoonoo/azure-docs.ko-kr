@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #자습서: SmarterU와 Azure Active Directory 통합
@@ -99,7 +99,7 @@
     5.  다운로드한 메타데이터 파일의 내용을 복사한 다음 **Okta 메타데이터** 텍스트 상자에 붙여넣습니다.
     6.  **Save**를 클릭합니다.
 
-7.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+7.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Single Sign-On 구성")
 
@@ -136,10 +136,10 @@ Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU�
 
     ![사용자 할당](./media/active-directory-saas-smarteru-tutorial/IC777330.png "사용자 할당")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
     ![예](./media/active-directory-saas-smarteru-tutorial/IC767830.png "예")
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

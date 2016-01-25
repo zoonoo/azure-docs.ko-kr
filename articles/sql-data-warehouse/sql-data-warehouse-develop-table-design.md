@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 테이블 디자인 #
 SQL 데이터 웨어하우스는 방대한 병렬 처리(MPP) 분산 데이터베이스 시스템입니다. 따라서 **배포판**이라고 하는 여러 다른 위치에 데이터를 저장합니다. 각 **배포**는 버킷과 같은 것으로 데이터 웨어하우스에서 데이터의 고유 하위 집합을 저장합니다. 여러 노드에 걸쳐 처리 기능 및 데이터를 분배하여 SQL 데이터 웨어하우스는 모든 단일 시스템을 넘어서 확장성이 클 수 있습니다.
@@ -306,4 +306,4 @@ SQL 데이터 웨어하우스는 이 기능을 사용하지 않거나 지원하�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

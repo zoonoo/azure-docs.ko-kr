@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="11/23/2015"
+   ms.date="01/11/2016"
    ms.author="coreyp"/>
 
 # Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드
@@ -28,6 +28,8 @@ Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니�
 *    Azure 가상 컴퓨터
 *    온-프레미스나 Azure 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
 *    온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
+
+또한 **DSC 메타 구성**은 일반적으로 Azure 자동화 DSC에 위의 컴퓨터의 조합을 등록하기 위해 생성될 수 있습니다.
 
 다음 섹션에서는 Azure 자동화 DSC에 대해 각 컴퓨터 형식을 온보드하는 방법을 간략히 설명합니다.
 
@@ -138,33 +140,22 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 
 온-프레미스 Windows 컴퓨터와 비 Azure 클라우드(예: Amazon Web Services)의 Windows 컴퓨터도 인터넷에 대한 아웃바운드 액세스 권한이 있다면 Azure 자동화 DSC에 간단한 절차를 통해 온보드할 수 있습니다.
 
-1. 최신 버전의 [WMF 5](http://www.microsoft.com/ko-KR/download/details.aspx?id=48729)가 Azure 자동화 DSC에 온보드하려는 컴퓨터에 설치되었는지 확인합니다.
-
-2. 로컬 환경의 컴퓨터에서 관리자 권한으로 PowerShell 콘솔이나 PowerShell ISE를 엽니다. 이 컴퓨터에도 최신 버전의 WMF 5가 설치되어 있어야 합니다.
-
-3. Azure PowerShell 모듈을 사용하여 Azure 리소스 관리자에 연결합니다:`Login-AzureRmAccount`
-
-4. 노드를 온보드할 자동화 계정에서 온보드하려는 컴퓨터에 대한 PowerShell DSC 메타 구성을 다운로드합니다.
-
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName      		MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop`
-
-5. 선택적으로 출력 폴더에서 메타 구성을 확인하고 기본값이 사용 사례에 맞지 않으면 필요에 따라 [PowerShell DSC 로컬 구성 관리자 필드 및 값](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396)에 맞게 업데이트합니다.
-
-6. 온보드할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다.
+1. 최신 버전의 [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729)가 Azure 자동화 DSC에 온보드하려는 컴퓨터에 설치되었는지 확인합니다.
+2. 아래 [**DSC 메타 구성 생성**](#generating-dsc-metaconfigurations) 섹션의 지침에 따라 필요한 DSC 메타 구성을 포함하는 폴더를 생성합니다.
+3. 등록할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다. **이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729)가 설치되어 있어야 합니다.**
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
-7. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 4단계의 출력 폴더를 온보드할 각 컴퓨터에 복사합니다. 그런 다음 온보드할 각 컴퓨터에서 Set-DscLocalConfigurationManager를 로컬로 호출합니다.
-
-8. Azure 포털 또는 cmdlet를 사용하여 Azure 자동화 계정에서 등록된 DSC 노드로 온보드할 컴퓨터가 표시되는지 확인합니다.
+4. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 2단계의 메타 구성’ 폴더를 등록할 각 컴퓨터에 복사합니다. 그런 다음 등록할 각 컴퓨터에서 **Set-DscLocalConfigurationManager**를 로컬로 호출합니다.
+5. Azure 포털 또는 cmdlet를 사용하여 Azure 자동화 계정에서 등록된 DSC 노드로 온보드할 컴퓨터가 표시되는지 확인합니다.
 
 ## 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
 
 온-프레미스 Linux 컴퓨터, Azure의 Linux 컴퓨터 및 비 Azure 클라우드의 Linux 컴퓨터 또한 몇 가지 간단한 절차를 통해 인터넷으로의 아웃 바운드 액세스 권한만큼 Azure 자동화 DSC에 온보드할 수 있습니다.
 
-1. ㅁ최신 버전의 [DSC Linux 에이전트](http://www.microsoft.com/ko-KR/download/details.aspx?id=49150)가 Azure 자동화 DSC에 온보드하려는 컴퓨터에 설치되었는지 확인합니다.
+1. ㅁ최신 버전의 [DSC Linux 에이전트](http://www.microsoft.com/en-us/download/details.aspx?id=49150)가 Azure 자동화 DSC에 온보드하려는 컴퓨터에 설치되었는지 확인합니다.
 
-2. [PowerShell DSC 로컬 구성 관리자 기본값](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396)이 사용 사례와 일치하는 경우
+2. [PowerShell DSC 로컬 구성 관리자 기본값](hhttps://msdn.microsoft.com/powershell/dsc/metaconfig4)이 해당 사용 사례와 일치하는 경우 Azure 자동화 DSC에서 끌어오고 보고하는 **모든** 컴퓨터를 등록하려 합니다.
 
 	*    Azure 자동화 DSC에 온보드할 각 Linux 컴퓨터에서 PowerShell DSC 로컬 구성 관리자 기본값으로 Register.py를 사용하여 온보드합니다.
 
@@ -172,21 +163,10 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 
 	*    자동화 계정에 대한 등록 키와 등록 URL을 확인하려면 아래의 [**등록 보호**](#secure-registration) 섹션을 참조하세요.
 
-	PowerShell DSC 로컬 구성 관리자 기본값이 사용 사례와 일치**하지** **않는** 경우 3-9단계를 따릅니다. 그렇지 않으면 9단계로 직접 이동합니다.
+	PowerShell DSC 로컬 구성 관리자 기본값이 해당 사용 사례와 일치**하지** **않거나** Azure 자동화 DSC에 보고하지만 구성 또는 PowerShell 모듈을 끌어오지 않는 컴퓨터를 등록하려면 3-6단계를 수행합니다. 그렇지 않으면 6단계로 직접 이동합니다.
 
-3. 로컬 환경의 Windows 컴퓨터에서 관리자 권한으로 PowerShell 콘솔이나 PowerShell ISE를 엽니다. 이 컴퓨터에는 최신 버전의 [WMF 5](http://www.microsoft.com/ko-KR/download/details.aspx?id=48729)가 설치되어 있어야 합니다.
-
-4. Azure PowerShell 모듈을 사용하여 Azure 리소스 관리자에 연결합니다:
-
-	`Login-AzureRmAccount`
-
-5.  노드를 온보드할 자동화 계정에서 온보드하려는 컴퓨터에 대한 PowerShell DSC 메타 구성을 다운로드합니다.
-	
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
-
-6.  선택적으로 출력 폴더에서 메타 구성을 확인하고 기본값이 사용 사례에 맞지 않으면 필요에 따라 [PowerShell DSC 로컬 구성 관리자 필드 및 값](http://https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396)에 맞게 업데이트합니다.
-
-7.  온보드할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다.
+3.	아래 [**DSC 메타 구성 생성**](#generating-dsc-metaconfigurations) 섹션의 지침에 따라 필요한 DSC 메타 구성을 포함하는 폴더를 생성합니다.
+4.  온보드할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다.
     	
     	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
         $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
@@ -197,12 +177,146 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
         $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
+	
+이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729)가 설치되어 있어야 합니다.
 
-8.  PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 온보드할 각 Linux 컴퓨터에 대해 5단계의 폴더에서 해당 컴퓨터에 대한 메타 구성을 Linux 컴퓨터에 복사합니다. 그런 다음 Azure 자동화 DSC에 온보드할 각 Linux 컴퓨터에서 로컬로 `SetDscLocalConfigurationManager.py`를 호출합니다.
+5.  PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 온보드할 각 Linux 컴퓨터에 대해 5단계의 폴더에서 해당 컴퓨터에 대한 메타 구성을 Linux 컴퓨터에 복사합니다. 그런 다음 Azure 자동화 DSC에 온보드할 각 Linux 컴퓨터에서 로컬로 `SetDscLocalConfigurationManager.py`를 호출합니다.
 
 	`/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
 
-9.  Azure 포털 또는 cmdlet를 사용하여 Azure 자동화 계정에서 등록된 DSC 노드로 온보드할 컴퓨터가 표시되는지 확인합니다.
+6.  Azure 포털 또는 cmdlet를 사용하여 Azure 자동화 계정에서 등록된 DSC 노드로 온보드할 컴퓨터가 표시되는지 확인합니다.
+
+##DSC 메타 구성 생성
+일반적으로 컴퓨터를 Azure 자동화 DSC에 등록하려면 DSC 메타 구성은 적용될 때 생성될 수 있으며 컴퓨터의 DSC 에이전트가 Azure 자동화 DSC에서 끌어오거나 보고하도록 지시합니다. Azure 자동화 DSC에 대한 DSC 메타 구성은 PowerShell DSC 구성 또는 Azure 자동화 PowerShell cmdlet을 사용하여 생성될 수 있습니다.
+
+**참고:** DSC 메타 구성은 관리를 위해 자동화 계정에 컴퓨터를 등록하는 데 필요한 암호를 포함합니다. 사용한 후에 만들거나 삭제한 DSC 메타 구성을 제대로 보호해야 합니다.
+
+###DSC 구성 사용
+1.	로컬 환경의 컴퓨터에서 관리자 권한으로 PowerShell ISE를 엽니다. 이 컴퓨터에는 최신 버전의 [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729)가 설치되어 있어야 합니다.
+
+2.	다음 스크립트를 로컬로 복사합니다. 이 스크립트는 메타 구성을 만들기 위한 PowerShell DSC 구성 및 메타 구성 생성을 시작하는 명령을 포함합니다.
+    
+        # The DSC configuration that will generate metaconfigurations
+        [DscLocalConfigurationManager()]
+        Configuration DscMetaConfigs 
+        { 
+            param 
+            ( 
+                [Parameter(Mandatory=$True)] 
+                $RegistrationUrl,
+         
+                [Parameter(Mandatory=$True)] 
+                [String]$RegistrationKey,
+
+                [Parameter(Mandatory=$True)] 
+                [String[]]$ComputerName,
+
+                [Int]$RefreshFrequencyMins = 30, 
+            
+                [Int]$ConfigurationModeFrequencyMins = 15, 
+            
+                [String]$ConfigurationMode = "ApplyAndMonitor", 
+            
+                [String]$NodeConfigurationName,
+
+                [Boolean]$RebootNodeIfNeeded= $False,
+
+                [String]$ActionAfterReboot = "ContinueConfiguration",
+
+                [Boolean]$AllowModuleOverwrite = $False,
+
+                [Boolean]$ReportOnly
+            )
+
+    
+            if(!$NodeConfigurationName -or $NodeConfigurationName -eq "") 
+            { 
+                $ConfigurationNames = $null 
+            } 
+            else 
+            { 
+                $ConfigurationNames = @($NodeConfigurationName) 
+            }
+
+            if($ReportOnly)
+            {
+               $RefreshMode = "PUSH"
+            }
+            else
+            {
+               $RefreshMode = "PULL"
+            }
+
+            Node $ComputerName
+            {
+
+                Settings 
+                { 
+                    RefreshFrequencyMins = $RefreshFrequencyMins 
+                    RefreshMode = $RefreshMode 
+                    ConfigurationMode = $ConfigurationMode 
+                    AllowModuleOverwrite  = $AllowModuleOverwrite 
+                    RebootNodeIfNeeded = $RebootNodeIfNeeded 
+                    ActionAfterReboot = $ActionAfterReboot 
+                    ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins 
+                }
+
+                if(!$ReportOnly)
+                {
+                   ConfigurationRepositoryWeb AzureAutomationDSC 
+                    { 
+                        ServerUrl = $RegistrationUrl 
+                        RegistrationKey = $RegistrationKey 
+                        ConfigurationNames = $ConfigurationNames 
+                    }
+
+                    ResourceRepositoryWeb AzureAutomationDSC 
+                    { 
+                       ServerUrl = $RegistrationUrl 
+                       RegistrationKey = $RegistrationKey 
+                    }
+                }
+
+                ReportServerWeb AzureAutomationDSC 
+                { 
+                ServerUrl = $RegistrationUrl 
+                RegistrationKey = $RegistrationKey 
+                }
+            } 
+        }
+        # Create the metaconfigurations
+        # TODO: edit the below as needed for your use case
+        DscMetaConfigs `
+            -RegistrationUrl "<fill me in>" `
+            -RegistrationKey "<fill me in>" `
+            -ComputerName "<some VM to onboard>", "<some other VM to onboard>" `
+            -NodeConfigurationName "SimpleConfig.webserver" `
+            -RefreshFrequencyMins 30 `
+            -ConfigurationModeFrequencyMins 15 `
+            -RebootNodeIfNeeded $False `
+            -AllowModuleOverwrite $False `
+            -ConfigurationMode "ApplyAndMonitor" `
+            -ActionAfterReboot "ContinueConfiguration" `
+            -ReportOnly $False # Set to $True to have machines only report to AA DSC but not pull from it
+
+3.	등록할 컴퓨터의 이름 뿐만 아니라 자동화 계정에 대한 등록 키 및 URL을 입력합니다. 모든 다른 매개 변수는 선택 사항입니다. 자동화 계정에 대한 등록 키와 등록 URL을 확인하려면 아래의 [**등록 보호**](#secure-registration) 섹션을 참조하세요.
+
+4.	컴퓨터가 Azure 자동화 DSC에 DSC 상태 정보를 보고하지만 구성 또는 PowerShell 모듈을 끌어오지 않도록 하려면 **ReportOnly** 매개 변수를 true로 설정합니다.
+
+5.	스크립트를 실행합니다. 이제 작업 디렉터리에 **DscMetaConfigs**라는 폴더가 있어야 하며 이는 등록할 컴퓨터에 대한 PowerShell DSC 메타 구성을 포함합니다.
+
+###Azure 자동화 cmdlet 사용
+PowerShell DSC 로컬 구성 관리자 기본값이 해당 사용 사례와 일치하는 경우 Azure 자동화 DSC에서 끌어오고 보고하는 모든 컴퓨터를 등록하려 합니다. Azure 자동화 cmdlet은 필요한 DSC 메타 구성을 생성하는 단순화된 방법을 제공합니다.
+
+1.	로컬 환경의 컴퓨터에서 관리자 권한으로 PowerShell 콘솔이나 PowerShell ISE를 엽니다.
+
+2.	**Add-AzureRmAccount**을 사용하여 Azure 리소스 관리자에 연결
+
+3.	노드를 등록하려는 자동화 계정에서 등록하려 컴퓨터에 대한 PowerShell DSC 메타 구성을 다운로드합니다.
+
+        Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop
+
+이제 ***DscMetaConfigs***라는 폴더가 있어야 하며 이는 등록할 컴퓨터에 대한 PowerShell DSC 메타 구성을 포함합니다.
 
 ##등록 보호
 
@@ -236,4 +350,4 @@ Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하�
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC 가격 책정](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

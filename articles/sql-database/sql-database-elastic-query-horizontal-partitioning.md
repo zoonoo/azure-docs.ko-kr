@@ -21,7 +21,7 @@
 
 ![분할된 데이터베이스에 대한 쿼리][1]
 
-이 기능은 Azure SQL [데이터베이스 탄력적 데이터베이스 기능 집합](sql-database-elastic-scale.md)의 일부입니다.
+이 기능은 Azure SQL [데이터베이스 탄력적 데이터베이스 기능 집합](sql-database-elastic-scale-introduction.md)의 일부입니다.
  
 ## 데이터베이스 개체 만들기
 
@@ -241,4 +241,4 @@ sp\_execute\_fanout은 호출 매개 변수에서 제공한 분할 맵 정보를
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

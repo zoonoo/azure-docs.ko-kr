@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="01/07/2015"
    ms.author="ganesr" />
 
 # Express 경로 회로에 가상 네트워크 연결
@@ -23,7 +23,7 @@
 - [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)
 - [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-이 문서는 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다. 이 문서는 클래식 배포 모델을 사용하여 배포된 VNet에 적용됩니다. Azure 리소스 관리자 배포 방법을 사용하여 배포된 가상 네트워크 연결하려는 경우 템플릿을 사용하면 됩니다. 템플릿으로 이동하려면 위의 탭을 참조하세요.
+이 문서는 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다. 이 문서는 리소스 관리자 배포 모델을 사용하여 배포된 VNet에 적용됩니다. 클래식 배포 모델을 사용하여 배포된 가상 네트워크를 연결하려면 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-classic.md)을 참조하세요.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -137,4 +137,4 @@ Express 경로 회로와 가상 네트워크의 연결을 삭제하여 권한 �
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

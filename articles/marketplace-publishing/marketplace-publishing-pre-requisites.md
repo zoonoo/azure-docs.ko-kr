@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/06/2015"
+  ms.date="12/08/2015"
   ms.author="hascipio; v-divte"/>
 
 # Azure 마켓플레이스용 제품을 만들기 위한 일반적인 필수 조건
@@ -31,7 +31,7 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 
 > 판매자로 활동하려면 회사 등록을 완료해야 합니다. 하지만, 회사가 Microsoft 개발자 계정의 세금 및 은행 정보를 준비하는 동안 개발자는 [게시 포털](https://publish.windowsazure.com)에서 가상 컴퓨터 이미지를 만들어서 인증을 받고 Azure 스테이징 환경에서 테스트할 수 있습니다. Azure 마켓플레이스에 제품을 게시하는 마지막 단계에서만 판매자 계정 승인을 완료하면 됩니다.
 
-> 판매자 등록을 완료하는 데 문제가 있으면 다음과 같이 지원 티켓을 기록합니다. 1. [지원](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=ko-KR&pesid=15635&ccsid=635847950577064286)에 문의 2. **개발자 센터** 선택 3. **게시자 프로필** 선택 4. 연락 방법 선택.
+> 판매자 등록을 완료하는 데 문제가 있으면 다음과 같이 지원 티켓을 기록합니다. 1. [지원](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=ko-KR&pesid=15635&ccsid=635847950577064286)에 문의 2. **개발자 센터**를 선택합니다. 3. **게시자 프로필** 선택 4. 연락 방법 선택.
 
 
 ## Azure "종량제" 구독 구입
@@ -45,9 +45,9 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 
 | 가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
 |-----|-----|-----|-----|
-| [VM 기술적인 필수 조건](marketplace-publishing-vm-image-creation-prerequisites.md) | 개발자 서비스 기술적인 필수 조건 | [데이터 서비스 기술적인 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [VM 기술적인 필수 조건](marketplace-publishing-vm-image-creation-prerequisites.md) | [개발자 서비스 기술적인 필수 조건](marketplace-publishing-dev-service-creation-prerequisites.md) | [데이터 서비스 기술적인 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

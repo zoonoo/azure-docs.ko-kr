@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/08/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -43,11 +43,11 @@
 ![필수 구성 요소](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
 
-선택적 구성 | 설명
-------------- | ------------- |
-SQL Server 이름 | SQL Server 이름 및 인스턴스 이름을 지정할 수 있습니다. 사용하려는 데이터베이스 서버가 이미 있는 경우 이 옵션을 선택합니다.
-서비스 계정 | 기본적으로 Azure AD Connect는 사용할 동기화 서비스에 대한 로컬 서비스 계정을 만듭니다. 암호가 자동으로 생성되어 Azure AD Connect를 설치하는 사람이 암호를 알 수 없습니다. 원격 SQL server를 사용하는 경우 도메인에서 서비스 계정이 필요하고 암호를 알아야 합니다. 이러한 경우에 사용할 서비스 계정을 입력합니다. 설치를 실행하는 사용자가 SQL에서 SA이므로 서비스 계정에 대한 로그인을 만들 수 있도록 합니다. [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation)을 참조하세요. |
-권한 | 동기화 서비스가 설치되면 기본적으로 Azure AD Connect에서는 서버에 대해 4개의 그룹 로컬을 만듭니다. 이 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹, Password Reset 그룹입니다. 고유한 그룹을 지정하려면 여기서 지정하면 됩니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다. |
+| 선택적 구성 | 설명 |
+| ------------- | ------------- |
+| 기존 SQL Server 사용 | SQL Server 이름 및 인스턴스 이름을 지정할 수 있습니다. 사용하려는 데이터베이스 서버가 이미 있는 경우 이 옵션을 선택합니다. SQL Server에 검색이 사용하도록 설정되어 있지 않고 포트 번호를 지정해야 하는 경우 **인스턴스 이름** 상자에 인스턴스 이름을 입력하고 그 뒤에 쉼표와 포트 번호를 입력합니다. |
+| 기존 서비스 계정 사용 | 기본적으로 Azure AD Connect는 사용할 동기화 서비스에 대한 로컬 서비스 계정을 만듭니다. 암호가 자동으로 생성되어 Azure AD Connect를 설치하는 사람이 암호를 알 수 없습니다. 원격 SQL server를 사용하는 경우 도메인에서 서비스 계정이 필요하고 암호를 알아야 합니다. 이러한 경우에 사용할 서비스 계정을 입력합니다. 설치를 실행하는 사용자가 SQL에서 SA이므로 서비스 계정에 대한 로그인을 만들 수 있도록 합니다. [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation)을 참조하세요. |
+| 사용자 지정 동기화 그룹 지정 | 동기화 서비스가 설치되면 기본적으로 Azure AD Connect에서는 서버에 대해 4개의 그룹 로컬을 만듭니다. 이 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹, Password Reset 그룹입니다. 고유한 그룹을 지정하려면 여기서 지정하면 됩니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다. |
 
 
 ## 사용자 로그인
@@ -103,11 +103,13 @@ sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID�
 
 
 ### 그룹에 따라 동기화 필터링
-그룹 기능에 대한 필터링을 사용하면 Azure AD 및 Office 365에 개체의 작은 하위 집합만 만들어야 하는 작은 파일럿을 실행할 수 있습니다. 이 기능을 사용하려면, Active Directory에서 그룹을 만들고 직접 구성원으로 Azure AD와 동기화되어야 하는 사용자와 그룹을 추가합니다. 나중에 사용자를 이 그룹에 추가하고 제거하여 Azure AD에 있어야 하는 개체의 목록을 유지할 수 있습니다. 이 기능을 사용하려면 사용자 지정된 경로에 페이지가 표시됩니다.
+그룹 기능에 대한 필터링을 사용하면 Azure AD 및 Office 365에 개체의 작은 하위 집합만 만들어야 하는 작은 파일럿을 실행할 수 있습니다. 이 기능을 사용하려면, Active Directory에서 그룹을 만들고 직접 구성원으로 Azure AD와 동기화되어야 하는 사용자와 그룹을 추가합니다. 나중에 사용자를 이 그룹에 추가하고 제거하여 Azure AD에 있어야 하는 개체의 목록을 유지할 수 있습니다. 동기화하려는 모든 개체는 그룹의 직접 구성원이어야 합니다. 여기에는 사용자, 그룹, 연락처 및 컴퓨터/장치가 포함됩니다. 중첩된 그룹의 구성원을 확인할 수 없습니다. 그룹 구성원은 그룹 자체만 포함하고 해당 구성원은 포함하지 않습니다.
 
-![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+이 기능을 사용하려면 사용자 지정된 경로에 이 페이지가 표시됩니다. ![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
 >[AZURE.WARNING]이 기능은 파일럿 배포를 지원하기 위한 것이며 전체 프로덕션 배포에 사용할 수 없습니다.
+
+전체 프로덕션 배포에서 동기화할 모든 개체를 단일 그룹으로 유지하기는 어렵습니다. 대신 [구성 필터링](active-directory-aadconnectsync-configure-filtering.md)의 방법 중 하나를 사용합니다.
 
 ### 선택적 기능
 
@@ -248,4 +250,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

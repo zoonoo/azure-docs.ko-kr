@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="Microsoft Azure 저장소용 Java를 사용하는 클라이언트 쪽 암호화 | Microsoft Azure" 
-	description="Java용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음과의 통합을 지원합니다." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="dineshm" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Microsoft Azure 저장소용 Java를 사용하는 클라이언트 쪽 암호화 | Microsoft Azure"
+	description="Java용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음과의 통합을 지원합니다."
+	services="storage"
+	documentationCenter="java"
+	authors="dineshmurthy"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
-	ms.author="tamram"/>
-
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/13/2016"
+	ms.author="dineshm"/>
 
 # Microsoft Azure 저장소용 Java를 이용한 클라이언트쪽 암호화   
 
@@ -157,16 +156,17 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 
 	// Create the encryption policy to be used for upload and download.
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
-	
+
 	// Set the encryption policy on the request options.
 	BlobRequestOptions options = new BlobRequestOptions();
 	options.setEncryptionPolicy(policy);
-	
+
 	// Upload the encrypted contents to the blob.
 	blob.upload(stream, size, null, options, null);
-	
+
 	// Download and decrypt the encrypted contents from the blob.
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); blob.DownloadToStream(outputStream, null, options, null);
+	ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); 
+	blob.download(outputStream, null, options, null);
 
 ### 큐 서비스 암호화  
 **QueueEncryptionPolicy** 개체를 만들고 요청 옵션에서 설정합니다(**DefaultRequestOptions**를 사용하여 API 기준으로 또는 클라이언트 수준에서). 다른 모든 요소에서 처리 되는 클라이언트 라이브러리는 내부적으로 처리됩니다.
@@ -239,8 +239,10 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 응용 프로그램 성능을 테스트하는 것이 좋습니다.
 
 ## 다음 단계  
-[Java용 Azure 저장소 클라이언트 라이브러리 Maven 패키지](<fix URL>) 다운로드  
+[Java용 Azure 저장소 클라이언트 라이브러리 Maven 패키지](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0) 다운로드 
 [GitHub의 Java용 Azure 저장소 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-java) 다운로드   
-Azure 키 자격 증명 모음 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문  
+ Azure 키 자격 증명 모음 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드
 
-<!----HONumber=AcomDC_0107_2016-->
+[Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 참조
+
+<!---HONumber=AcomDC_0114_2016-->

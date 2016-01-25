@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/06/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 # HDInsight에서 Hadoop과 Pig 사용
@@ -146,4 +146,4 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016--->

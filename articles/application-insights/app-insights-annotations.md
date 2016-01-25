@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/12/2016"
     ms.author="awills"/>
 
 # Application Insights의 릴리스 주석
@@ -34,34 +34,43 @@
 
 Visual Studio Team Services 계정에 대해 이 작업을 한 번만 수행하면 됩니다. 이제 계정의 모든 프로젝트에 대해 릴리스 주석을 구성할 수 있습니다.
 
-
-
-## 릴리스 템플릿에 주석 작업 추가
+## Application Insights에서 API 키 가져오기
 
 릴리스 주석을 만들려는 각 릴리스 템플릿에 대해 이 작업을 수행해야 합니다.
 
-Visual Studio Team Services에서 배포를 관리하는 릴리스 템플릿을 열거나 만듭니다.
-
-작업을 추가하고 메뉴에서 Application Insights 릴리스 주석 작업을 선택합니다.
-
-![Team Services 웹 페이지의 오른쪽 위에서 마켓플레이스를 엽니다. Application Insights 주석을 검색하여 계정에 설치합니다.](./media/app-insights-annotations/40.png)
-
-이 단계를 완료하려면 응용 프로그램을 모니터링하는 데 사용하는 Application Insights 리소스의 일부 세부 정보가 필요합니다.
-
-Application Insights에서 세부 정보를 가져오는 동안 Team Services 창은 계속 열어 둡니다.
-
-## Application Insights에서 API 키 복사
-
-별도의 브라우저 창에서:
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인하고 응용 프로그램을 모니터링하는 Application Insights 리소스를 엽니다. (또는 아직 만들지 않은 경우 [지금 만듭니다](app-insights-overview.md).)
-2. **Essentials** 드롭다운 목록을 열고 구독 ID, 리소스 그룹 및 리소스의 이름을 릴리스 주석 작업에 복사합니다. ![](./media/app-insights-annotations/50.png)
-2. **설정**, **API 키**를 열고 새 키를 만듭니다. 이를 복사합니다. ![](./media/app-insights-annotations/30.png)
+2. **설정**, **API 액세스**를 차례로 열어 **Application Insights Id**를 복사합니다.
 
-마지막으로 릴리스 정의를 **저장**합니다.
+    ![portal.azure.com에서 Application Insights 리소스를 열고 설정을 선택합니다. API 액세스를 엽니다. 이제](./media/app-insights-annotations/20.png)
 
-## 배포 표식
+2. 별도의 브라우저 창에서, Visual Studio Team Services에서 배포를 관리하는 릴리스 템플릿을 열거나 만듭니다.
+
+    작업을 추가하고 메뉴에서 Application Insights 릴리스 주석 작업을 선택합니다.
+
+    API 액세스 블레이드에서 복사한 **Application Insights Id**를 붙여넣습니다.
+
+    ![Visual Studio Team Services에서 릴리스를 열고 릴리스 정의를 선택하고 편집을 선택합니다. 작업 추가를 클릭하고 Application Insights 릴리스 주석을 선택합니다. Application Insights ID를 붙여넣습니다.](./media/app-insights-annotations/30.png)
+
+3. **APIKey** 필드를 변수 `$(ApiKey)`로 설정합니다.
+
+4. API 액세스 블레이드로 돌아가 새 API 키를 만들어 복사합니다.
+
+    ![Azure 창의 API 액세스 블레이드에서 API 키 만들기를 클릭합니다. 설명을 입력하고 주석 쓰기를 선택하고 키 생성을 클릭합니다. 새 키를 복사합니다.](./media/app-insights-annotations/40.png)
+
+4. 릴리스 템플릿의 구성 탭을 엽니다.
+
+    `ApiKey`에 대한 변수 정의를 만듭니다.
+
+    ApiKey 변수 정의에 API 키를 붙여넣습니다.
+
+    ![Team Services 창에서 구성 탭을 선택하고 변수 추가를 클릭합니다. ApiKey에 대한 이름을 설정하고 값에 방금 생성한 키를 붙여넣습니다.](./media/app-insights-annotations/50.png)
+
+
+5. 마지막으로 릴리스 정의를 **저장**합니다.
+
+## 배포 주석
 
 이제 릴리스 템플릿을 사용하여 새 릴리스를 배포할 때마다 주석이 Application Insights로 전송됩니다. 주석은 메트릭 탐색기의 차트에 표시됩니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

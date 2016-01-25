@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 통계 관리
  SQL 데이터 웨어하우스는 통계를 사용하여 분산된 쿼리를 수행하는 여러가지 방법의 비용을 평가합니다. 통계가 정확한 경우, 쿼리 최적화 프로그램은 쿼리 성능을 향상시키는 고품질의 쿼리 계획을 생성할 수 있습니다.
@@ -459,4 +459,4 @@ DBCC SHOW\_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0114_2016--->

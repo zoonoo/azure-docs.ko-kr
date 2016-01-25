@@ -1,11 +1,11 @@
 <properties
-	pageTitle="저장소 분석 | Microsoft Azure"
-	description="Blob, 큐, 테이블 및 파일 서비스의 동시성을 관리하는 방법에 대해 알아봅니다."
+	pageTitle="저장소 분석을 사용하여 로그 및 메트릭 데이터 수집 | Microsoft Azure"
+	description="저장소 분석을 사용하면 모든 저장소 서비스에 대한 메트릭 데이터를 추적하고 Blob, 큐 및 테이블 저장소에 대한 로그를 수집할 수 있습니다."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 # 저장소 분석
@@ -74,7 +74,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 ### 로그 명명 규칙
 각 로그는 다음 형식으로 작성됩니다.
 
-    <service-name>/YYYY/MM/DD/hhmm/<counter>.log
+    <service-name>/YYYY/MM/DD/hhmm/<counter>.log 
 
 다음 표에서는 로그 이름의 각 특성에 대해 설명합니다.
 
@@ -94,7 +94,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 
 이전 로그에 액세스하는 데 사용할 수 있는 샘플 URI는 다음과 같습니다.
 
-    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
+    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log 
 
 저장소 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관 관계가 지정됩니다. 예를 들어 GetBlob 요청이 2011/7/31 오후 6:30에 완료된 경우 로그는 다음 접두사와 함께 작성됩니다. `blob/2011/07/31/1800/`
 
@@ -206,4 +206,4 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 - [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx)
 - [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

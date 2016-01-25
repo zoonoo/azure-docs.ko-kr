@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/12/2015" 
+	ms.date="01/07/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법
@@ -142,4 +142,4 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 - [RemoteApp의 클라우드 컬렉션을 만드는 방법](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

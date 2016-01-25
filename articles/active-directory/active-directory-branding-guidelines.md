@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
 
@@ -94,4 +94,4 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 앱이 Azure AD 및 Microsoft 계정을 모두 지원하는 경우 앱에 두 개의 개별 로그인 단추를 포함해야 합니다. 한 번 통합하면 Microsoft의 개인 계정과 회사 계정을 모두 지원할 수 있는 업데이트를 제공하기 위해 현재 적극적으로 노력하고 있습니다. 이 업데이트가 제공되면 앱에 하나의 "Microsoft로 로그인" 단추를 표시할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

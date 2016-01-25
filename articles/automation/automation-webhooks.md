@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화 Webhook"
+   pageTitle="Azure 자동화 webhook | Microsoft Azure"
    description="클라이언트가 Azure 자동화에서 HTTP 호출을 통해 runbook을 시작하는 데 사용되는 webhook입니다. 이 문서는 webhook을 만드는 방법 및 webhook을 호출하여 runbook을 시작하는 방법에 대해 설명합니다."
    services="automation"
    documentationCenter=""
@@ -127,8 +127,10 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
 	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
 	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
-    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
-    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+    $vms  = @(
+    			@{ Name="vm01";ServiceName="vm01"},
+    			@{ Name="vm02";ServiceName="vm02"}
+    		)
 	$body = ConvertTo-Json -InputObject $vms 
 
 	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
@@ -198,7 +200,7 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 
 가상 컴퓨터, CPU 사용률 등의 Azure 리소스를 주요한 성능 메트릭 중 하나로 고려해야 합니다. CPU 사용률이 100%이거나 장기간 특정 수준 이상이면 가상 컴퓨터를 다시 시작하여 문제를 해결하고자 할 수 있습니다. 이 문제는 가상 컴퓨터에 대한 규칙 경고를 구성하여 해결할 수 있으며 이 규칙에서는 CPU 백분율을 메트릭으로 적용합니다. 여기서 CPU 백분율은 단순한 예일 뿐이며 Azure 리소스에 대해 많은 다른 메트릭을 구성할 수 있습니다. 가상 컴퓨터를 다시 시작하는 것은 문제를 해결하기 위한 조치로, Runbook이 다른 조치를 취하도록 구성할 수 있습니다.
 
-이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](Azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **Timestamp** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 Runbook에 전송된 **WebhookData** 개체의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
+이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](Azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **Timestamp** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 **WebhookData**의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
 
 
 ### 예
@@ -268,10 +270,10 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 
  
 
-## 관련된 문서
+## 다음 단계
 
-- [Runbook 시작](automation-starting-a-runbook.md)
-- [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md)
+- Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
+- Runbook 작업의 상태 보기에 대한 내용은 [Azure 자동화에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
 - [Azure 자동화를 사용하여 Azure 경고에서 조치 취하기](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

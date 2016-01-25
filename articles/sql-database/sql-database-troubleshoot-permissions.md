@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/11/2016"
 	ms.author="v-shysun"/>
 
 #일반적인 Azure SQL 데이터베이스 권한 및 액세스 문제 해결
 이 항목을 통해 Azure SQL 데이터베이스에 대한 액세스 권한을 신속하게 부여 및 제거하는 방법을 알아보세요. 자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)
-- [SQL 데이터베이스 보안 설정](sql-database-security)
+- [SQL 데이터베이스 보안 설정](sql-database-security.md)
 - [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)
 
 ##논리 서버에 대한 관리 암호를 변경하려면
@@ -37,4 +37,4 @@
 ## 가상 마스터 데이터베이스에서 권한이 높은 사용자에 대한 추가 로그인을 만들려면
 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하세요. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)의 로그인 관리 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

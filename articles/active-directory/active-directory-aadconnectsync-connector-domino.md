@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="01/14/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino 커넥터 기술 참조
@@ -344,7 +344,7 @@ Lotus Domino 커넥터를 구성할 때 이 대화 상자 페이지를 건너뛸
 - 리소스
 - 예약
 
-리소스 예약 데이터베이스의 설정에 대한 자세한 내용은 [리소스 예약 데이터베이스 설정](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html)을 참조하세요.
+리소스 예약 데이터베이스의 설정에 대한 자세한 내용은 [리소스 예약 데이터베이스 설정](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html)을 참조하세요.
 
 **리소스 만들기, 업데이트 및 삭제**
 
@@ -477,15 +477,15 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 
 **접근 방식1: Lotus Domino 스키마 확장**
 
-1. [다음 단계](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html)를 수행하여 Domino 디렉터리 템플릿 <PUBNAMES.NTF>의 복사본을 만듭니다.(기본 IBM Lotus Domino 디렉터리 서식 파일을 사용자 지정하지 않아야 합니다)
-2. Domino 설계자에서 방금 만든 Domino 디렉터리 템플릿 <CONTOSO.NTF>의 복사본을 열고 다음 단계를 수행합니다.
+1. [다음 단계](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html)를 수행하여 Domino 디렉터리 템플릿 {PUBNAMES.NTF}의 복사본을 만듭니다. 기본 IBM Lotus Domino 디렉터리 서식 파일을 사용자 지정하지 않아야 합니다.
+2. Domino 디자이너에서 방금 만든 Domino 디렉터리 템플릿 {CONTOSO.NTF}의 복사본을 열고 다음 단계를 수행합니다.
     - 공유 요소를 클릭하고 하위 폼을 확장합니다.
-    - $[ObjectName]InheritableSchema 하위 폼을 두 번 클릭합니다.(여기서 [ObjectName]는 기본 구조적 개체 클래스의 이름입니다. 예: 사용자)
-    - 스키마 [MyPersonAtrribute]로 추가하려는 특성의 이름을 지정하고 이에 해당하는 "만들기" 메뉴를 선택하여 필드를 생성하며 메뉴에서 '필드'를 선택합니다.
+    - ${ObjectName}InheritableSchema 하위 폼을 두 번 클릭합니다. 여기서 {ObjectName}은 기본 구조적 개체 클래스의 이름(예: Person)입니다.
+    - 스키마 {MyPersonAtrribute}로 추가하려는 특성의 이름을 지정하고 이에 해당하는 "만들기" 메뉴를 선택하여 필드를 생성하며 메뉴에서 '필드'를 선택합니다.
     - 추가된 필드에서 필드 속성 창의 형식, 스타일, 크기, 글꼴 및 기타 관련된 매개 변수를 선택하여 해당 속성을 설정합니다.
     - 해당 특성에 대해 지정된 이름과 동일한 특성 기본값을 유지합니다.(예: 특성 이름이 MyPersonAttribute인 경우 같은 이름을 가진 기본값은 그대로 유지합니다)
-    - 업데이트된 값으로 $[ObjectName]InheritableSchema 하위 폼을 저장합니다.
-3. [다음 단계](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)를 수행하여 Domino 디렉터리 템플릿 <PUBNAMES.NTF>을 새로 사용자 지정된 템플릿 [CONTOSO.NTF]으로 바꿉니다.
+    - 업데이트된 값으로 ${ObjectName}InheritableSchema 하위 폼을 저장합니다.
+3. [다음 단계](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)를 수행하여 Domino 디렉터리 템플릿 {PUBNAMES.NTF}를 새로 사용자 지정된 템플릿 {CONTOSO.NTF}로 바꿉니다.
 4. Domino 관리자를 닫고 Domino 콘솔을 열어서 LDAP 서비스를 다시 시작하고 LDAP 스키마를 다시 로드합니다.
     - Domino 콘솔에서 **Domino 명령** 텍스트 파일에 명령을 삽입하여 LDAP 서비스를 다시 시작합니다. [작업 LDAP 다시 시작](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html)
     - LDAP를 다시 로드하려면 Tell LDAP을 사용합니다. - Tell LDAP ReloadSchema
@@ -494,8 +494,8 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 
 **접근 방식2: 사용자 지정 특성을 사용하여 auxClass 생성 및 개체 클래스와 연결**
 
-1. [다음 단계]()http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html를 수행하여 Domino 디렉터리 템플릿 [PUBNAMES.NTF]의 복사본을 만듭니다.(기본 IBM Lotus Domino 디렉터리 서식 파일을 사용자 지정하지 말 것)
-2. Domino 설계자에서 방금 만든 Domino 디렉터리 [CONTOSO.NTF] 템플릿의 복사본을 엽니다.
+1. [다음 단계](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html)를 수행하여 Domino 디렉터리 템플릿 {PUBNAMES.NTF}의 복사본을 만듭니다. 기본 IBM Lotus Domino 디렉터리 서식 파일을 사용자 지정하지 마세요.
+2. Domino 설계자에서 방금 만든 Domino 디렉터리 템플릿 {CONTOSO.NTF} 템플릿의 복사본을 엽니다.
 3. 왼쪽 창에서 공유 코드 및 하위 폼을 선택합니다.
 4. 새 하위 폼을 클릭합니다.
 5. 새 하위 폼에 대한 속성을 지정하려면 다음을 수행합니다.
@@ -508,16 +508,16 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 6. 보조 개체 클래스를 정의하기 위해 필드를 추가하려면 다음을 수행합니다.
     - 방금 만든 하위 폼을 엽니다.
     - 만들기 - 필드를 선택합니다.
-    - 필드 대화 상자의 기본 탭에서 이름 옆에 있는 이름을 지정합니다.(예: [MyPersonTestAttribute])
+    - 필드 대화 상자의 기본 탭에서 이름 옆에 이름(예: {MyPersonTestAttribute})을 지정합니다.
     - 추가된 필드에서 형식, 스타일, 크기, 글꼴 및 관련된 속성을 선택하여 해당 속성을 설정합니다.
     - 해당 특성에 대해 지정된 이름과 동일한 특성 기본값을 유지합니다.(예: 특성 이름이 MyPersonTestAttribute인 경우 같은 이름을 가진 기본값은 그대로 유지합니다)
     - 업데이트된 값이 있는 하위 폼을 저장하고 다음을 수행합니다.
         - 왼쪽 창에서 공유 코드 및 하위 폼을 선택합니다.
         - 새 하위 폼을 선택하고 설계 - 설계 속성을 선택합니다.
         - 왼쪽에서 세 번째 탭을 클릭하고 **설계 변경의 금지 전파**를 선택합니다.
-7. $[ObjectName]ExtensibleSchema 하위 폼을 엽니다.(여기서 [ObjectName]는 사용자와 같은 기본 구조적 개체 클래스의 이름입니다.)
-8. 리소스를 삽입하고 하위 폼(방금 만들어진 TestSubform와 같은)을 선택하고 $[ObjectName]ExtensibleSchema 하위 폼을 저장합니다.
-9. [다음 단계](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)를 수행하여 Domino 디렉터리 템플릿 [PUBNAMES.NTF]을 새로 사용자 지정된 템플릿 [CONTOSO.NTF]으로 바꿉니다.
+7. ${ObjectName}ExtensibleSchema 하위 폼을 엽니다. 여기서 {ObjectName}은 사용자와 같은 기본 구조적 개체 클래스의 이름입니다.
+8. 리소스를 삽입하고 하위 폼(방금 만든 TestSubform)을 선택하고 ${ObjectName}ExtensibleSchema 하위 폼을 저장합니다.
+9. [다음 단계](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)를 수행하여 Domino 디렉터리 템플릿 {PUBNAMES.NTF}를 새로 사용자 지정된 템플릿 {CONTOSO.NTF}로 바꿉니다.
 10. Domino 관리자를 닫고 Domino 콘솔을 열어서 LDAP 서비스를 다시 시작하고 LDAP 스키마를 다시 로드합니다.
     - Domino 콘솔에서 **Domino 명령** 텍스트 파일에 명령을 삽입하여 LDAP 서비스를 다시 시작합니다. [작업 LDAP 다시 시작](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html)
     - LDAP를 다시 로드하려면 Tell LDAP을 사용합니다. - Tell LDAP ReloadSchema
@@ -526,10 +526,10 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 
 **접근 방식3: ExtensibleObject 클래스에 사용자 지정 특성 추가**
 
-1. 루트 디렉터리에 배치된 [Schema.nsf] 파일을 엽니다.
+1. 루트 디렉터리에 배치된 {Schema.nsf} 파일을 엽니다.
 2. **모든 스키마 문서**의 왼쪽 메뉴에서 LDAP 개체 클래스를 선택하고 **개체 추가 클래스** 단추를 클릭합니다.
-3. 스키마를 확장하려는 개체를 참조하여 LDAP 이름을 [###ExtensibleSchema]의 형태로 제공합니다.(여기서 ###는 기본 구조적 개체 클래스의 이름입니다. 예: 사용자) 예를 들어 사용자 개체 클래스에 대한 스키마를를 확장하려면 LDAP 이름 [PersonExtensibleSchema]를 제공합니다.
-4. 스키마를 확장하기 위해 상위 개체 클래스 이름을 제공합니다. 예를 들어 사용자 개체 클래스에 대한 스키마를를 확장하려면 상위 개체 클래스 이름 [dominoPerson]을 제공합니다.
+3. 스키마를 확장하려는 개체를 참조하여 LDAP 이름을 {zzzExtensibleSchema}의 형식으로 제공합니다. 여기서 zzz는 기본 구조적 개체 클래스의 이름(예: Person)입니다. 예를 들어 Person 개체 클래스에 대한 스키마를 확장하려면 LDAP 이름 {PersonExtensibleSchema}를 제공합니다.
+4. 스키마를 확장하기 위해 상위 개체 클래스 이름을 제공합니다. 예를 들어 Person 개체 클래스에 대한 스키마를 확장하려면 상위 개체 클래스 이름 {dominoPerson}을 제공합니다.
 5. 개체 클래스에 해당하는 유효한 OID를 언급합니다.
 6. 요구 사항에 따라 필수 또는 선택적 특성 형식 필드에서 확장된/사용자 지정 특성을 선택합니다.
 7. 필수 특성을 ExtensibleObjectClass에 추가한 후에 **저장 및 닫기** 단추를 클릭합니다.
@@ -539,4 +539,4 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

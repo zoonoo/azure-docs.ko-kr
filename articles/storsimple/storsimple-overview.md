@@ -101,7 +101,7 @@ StorSimple을 사용하여 물리적 하이브리드 저장소 장치의 아키�
 
 업데이트 2 이상을 사용하여 StorSimple 가상 장치는 두 가지 모델, 8010 장치(이전의 1100 모델)와 8020 장치에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)로 이동합니다.
 
-StorSimple 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u1)로 이동합니다.
+StorSimple 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u1.md)로 이동합니다.
 
 ## StorSimple 관리자 서비스
 
@@ -278,4 +278,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

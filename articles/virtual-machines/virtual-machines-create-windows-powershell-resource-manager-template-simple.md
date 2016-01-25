@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # 리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기
@@ -32,76 +32,59 @@ Azure PowerShell과 함께 리소스 관리자 템플릿을 사용하여 새 Win
 
 Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 Windows VM을 만들려면 다음 단계를 수행하세요.
 
-Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치를 입력하고 다음 명령을 실행합니다.
-
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureRmResourceGroup –Name $RGName –Location $locName
-	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-**New-AzureRmResourceGroupDeployment** 명령을 실행하면 JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메시지가 표시됩니다. 매개 변수 값을 모두 지정하면 명령에서 리소스 그룹과 가상 컴퓨터를 만듭니다.
-
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureRmResourceGroup –Name $RGName –Location $locName
-	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-다음과 같이 표시됩니다.
-
-	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	newStorageAccountName: newsaacct
-	adminUsername: WinAdmin1
-	adminPassword: *********
-	dnsNameForPublicIP: contoso
-	VERBOSE: 10:56:59 AM - Template is valid.
-	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
-	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
-	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
-	VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+다음 명령에서 배포에 사용하려는 이름, 새 리소스 그룹에 대한 이름 및 리소스를 만들어야 하는 위치를 입력합니다.
 
 
-	DeploymentName    : TestDeployment
-	ResourceGroupName : TestRG
-	ProvisioningState : Succeeded
-	Timestamp         : 4/28/2015 6:02:13 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-                    	Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     newsaacct
-	                    adminUsername    String                     WinAdmin1
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contoso
-	                    windowsOSVersion  String                     2012-R2-Datacenter
+		$deployName="<deployment name>"
+		$RGName="<resource group name>"
+		$locName="<Azure location, such as West US>"
+		$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+		New-AzureRmResourceGroup –Name $RGName –Location $locName
+		New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-	Outputs           :
 
-이제 새 리소스 그룹에 MyWindowsVM이라는 새 Windows 가상 컴퓨터가 생성되었습니다.
+**New-AzureRmResourceGroupDeployment** 명령을 실행하면 JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메시지가 표시됩니다. 매개 변수 값을 모두 지정하는 경우 명령을 통해 리소스 그룹과 가상 컴퓨터를 만듭니다.
 
-## 추가 리소스
+다음과 유사한 결과가 표시됩니다.
 
-[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 리소스 관리자 개요](resource-group-overview.md)
+		cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+		Supply values for the following parameters:
+		(Type !? for Help.)
+		newStorageAccountName: newsaacct
+		adminUsername: WinAdmin1
+		adminPassword: *********
+		dnsNameForPublicIP: contoso
+		VERBOSE: 10:56:59 AM - Template is valid.
+		VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
+		VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+		VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
+		VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
+		VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
+		VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+		VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+		VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+		VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
 
-[Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager.md)
+		DeploymentName    : TestDeployment
+		ResourceGroupName : TestRG
+		ProvisioningState : Succeeded
+		Timestamp         : 4/28/2015 6:02:13 PM
+		Mode              : Incremental
+		TemplateLink      :
+		Parameters        :
+											Name                   Type                       Value
+											===============        =========================  ==========
+											newStorageAccountName  String                     newsaacct
+											adminUsername          String                     WinAdmin1
+											adminPassword          SecureString
+											dnsNameForPublicIP     String                     contoso
+											windowsOSVersion       String                     2012-R2-Datacenter
+		Outputs           :
 
-[PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
+## 다음 단계
 
-[Azure PowerShell 설치 및 구성하는 방법](install-configure-powershell.md)
+[Azure 리소스 관리자 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-deploy-rmtemplates-powershell.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Node.js에서 Blob 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다."
+	description="Blob 저장소를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 
@@ -24,7 +24,7 @@
 
 ## 개요
 
-이 문서에서는 Azure Blob 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. 여기서 다루는 시나리오는 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 포함합니다.
+이 문서에서는 Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. 여기서 다루는 시나리오는 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 포함합니다.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -95,7 +95,7 @@ Azure 웹앱의 [Azure 포털](portal.azure.com)에서 환경 변수를 설정�
 
 기본적으로 새 컨테이너는 개인 컨테이너이며 익명으로 액세스할 수 없습니다. 컨테이너를 공용으로 만들어 익명으로 액세스할 수 있게 하려면 컨테이너의 액세스 수준을 **Blob** 또는 **컨테이너**로 설정할 수 있습니다.
 
-* **Blob** - 이 컨테이너 내의 Blob 콘텐츠와 메타데이터에는 익명 읽기 액세스가 허용되지만, 컨테이너 내의 모든 Blob 나열과 같은 컨테이너 메타데이터에는 익명 읽기 권한이 허용되지 않습니다.
+* **blob** - 이 컨테이너 내의 Blob 콘텐츠와 메타데이터에는 익명 읽기 액세스가 허용되지만, 컨테이너 내의 모든 Blob 나열과 같은 컨테이너 메타데이터에는 익명 읽기 권한이 허용되지 않습니다.
 
 * **컨테이너** - Blob 콘텐츠 및 메타데이터와 컨테이너 메타데이터에 대한 익명 읽기 권한을 허용합니다.
 
@@ -158,7 +158,7 @@ Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob�
 	  }
 	});
 
-이 메서드에 의해 `result` 값이 반환되면 Blob의 **ETag**와 같은 작업 관련 정보가 포함됩니다.
+이 메서드에 의해 `result`반환되면 Blob의 **ETag**와 같은 작업 관련 정보가 포함됩니다.
 
 ### 페이지 Blob
 
@@ -377,4 +377,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 공유 액세스 서명�
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Node용 Azure 저장소 SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

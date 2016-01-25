@@ -25,7 +25,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [배치 및 HPC 솔루션](batch-hpc-solutions.md)
 
-* [비디오: 클라우드에서 Azure 및 HPC를 사용한 큰 계산](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)(영문)
+* [비디오: 클라우드에서 Azure 및 HPC를 사용한 큰 계산(영문)](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure 배치
@@ -50,7 +50,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC 솔루션으로, Windows와 Linux HPC 작업을 모두 실행할 수 있습니다.
 
-* [HPC 팩 2012 R2 업데이트 3 다운로드](https://www.microsoft.com/ko-KR/download/details.aspx?id=49922)(영문)
+* [HPC 팩 2012 R2 업데이트 3 다운로드(영문)](https://www.microsoft.com/ko-KR/download/details.aspx?id=49922)
 
 * [설명서](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -94,13 +94,11 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 
 ## 아키텍처 청사진
 
-* [대규모 컴퓨팅 - 금융 서비스](http://go.microsoft.com/fwlink/?LinkId=536378)(PDF)에서는 위험 관리, 보고, 시뮬레이션을 위해 클라우드에서 대규모 계산 및 데이터 분석을 운영 및 조정하는 방법을 보여 줍니다.
+* Microsoft Azure 배치 및 Azure Data Factory: 대규모 데이터 처리를 위한 아키텍처([PDF](http://go.microsoft.com/fwlink/?linkid=717686) 및 [문서](../data-factory/data-factory-data-processing-using-batch.md))에서 데이터 팩터리가 데이터 이동과 처리를 오케스트레이션하는 방법 및 Azure 배치가 병렬 방식으로 데이터를 처리하는 방법을 보여 줍니다.
 
 ## 샘플 및 데모
 
 * [Azure 배치 코드 샘플](https://github.com/Azure/azure-batch-samples)
-
-* [배치 응용 프로그램 혼합기 샘플](https://github.com/Azure/azure-batch-apps-blender) 및 [블로그 게시물](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
 ## 관련 Azure 서비스
 
@@ -123,4 +121,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](http://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](http://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](http://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

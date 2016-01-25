@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tamram" 
 	manager="carmonm" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -155,4 +155,4 @@
 - [공유 액세스 서명: SAS 모델 이해하기](storage-dotnet-shared-access-signature-part-1.md)
 - [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

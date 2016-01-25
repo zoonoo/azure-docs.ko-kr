@@ -94,6 +94,8 @@ HBase 클러스터를 프로비전하기 전에 Azure 가상 네트워크가 있
 	- **위치** - 위치는 만들 HBase 클러스터와 동일해야 합니다.
     
         > [AZURE.NOTE]> Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 선호도 그룹을 기반으로 하는 가상 네트워크와는 현재 연동되지 않습니다.
+        
+    가상 네트워크에 대한 특정 구성 요구 사항을 포함하여 가상 네트워크로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
 5. **만들기**를 클릭합니다.
 
@@ -389,4 +391,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

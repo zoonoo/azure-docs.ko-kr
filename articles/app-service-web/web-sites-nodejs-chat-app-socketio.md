@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 
@@ -285,4 +285,4 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

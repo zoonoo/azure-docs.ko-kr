@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure에서 Windows를 실행하는 가상 컴퓨터 만들기"
+	pageTitle="클래식 포털에서 Windows를 실행하는 VM 만들기 | Microsoft Azure"
 	description="Azure 클래식 포털에서 Windows 가상 컴퓨터를 만듭니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
 # Azure 클래식 포털에서 Windows를 실행하는 가상 컴퓨터 만들기
@@ -25,9 +25,11 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
+<!-- HHTML comment in to break between the selector and the note in the include below-->
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-tutorial.md).
 
-이 자습서에서는 Azure 클래식 포털에서 손쉽게 Azure VM(가상 컴퓨터)을 만드는 방법을 설명합니다. 한 예로, Windows Server 이미지를 사용할 것이지만, 해당 아미지는 Azure가 제공하는 여러 이미지 중 하나일 뿐입니다. 참고: 이미지 선택은 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
+이 자습서에서는 Azure 클래식 포털에서 Windows를 실행하는 Azure VM(가상 컴퓨터)을 손쉽게 만드는 방법을 설명합니다. 한 예로, Windows Server 이미지를 사용할 것이지만, 해당 아미지는 Azure가 제공하는 여러 이미지 중 하나일 뿐입니다. 참고: 이미지 선택은 구독에 따라 달라집니다. 예를 들어 Windows 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
 [사용자 고유의 이미지](virtual-machines-create-upload-vhd-windows-server.md)를 사용하여 VM을 만들 수도 있습니다. 이 방법 및 다른 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)을 참조하세요.
 
@@ -49,8 +51,8 @@
 
 ## 다음 단계
 
-- 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md)을 참조하세요.
+- 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온](virtual-machines-log-on-windows-server.md)을 참조하세요.
 
-- 데이터를 저장할 디스크를 연결합니다. 빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 자세한 내용은 [데이터 디스크 연결 자습서](storage-windows-attach-disk.md)를 참조하세요.
+- 데이터를 저장할 디스크를 연결합니다. 빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 지침은 [클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크 연결](storage-windows-attach-disk.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure에서 가상 컴퓨터에 끝점 설정"
+	pageTitle="클래식 가상 컴퓨터에 끝점 설정 | Microsoft Azure"
 	description="Azure에서 가상 컴퓨터와 통신을 허용하도록 Azure 클래식 포털에서 끝점을 설정하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,29 +11,21 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-#가상 컴퓨터에 끝점을 설정하는 방법
+# 클래식 Azure 가상 컴퓨터에 끝점을 설정하는 방법
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. 리소스 관리자 배포는 [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치 구성 시작](../load-balancer/load-balancer-arm-powershell.md) 및 [네트워크 보안 그룹 정보](virtual-networks-nsg.md)를 참조하세요.
 
-Azure에서 만든 모든 가상 컴퓨터는 개인 네트워크 채널을 사용하여 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 컴퓨터와 자동으로 통신할 수 있습니다. 그러나 인터넷이나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다.
+클래식 배포 모델을 사용하여 Azure에서 만든 모든 가상 컴퓨터는 개인 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 컴퓨터와 자동으로 통신할 수 있습니다. 그러나 인터넷이나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다.
 
-Azure 클래식 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크톱, Windows PowerShell 원격 및 SSH(Secure Shell)에 대한 끝점이 자동으로 만들어집니다. 가상 컴퓨터를 만드는 동안 또는 가상 컴퓨터를 만든 후 필요에 따라 추가 끝점을 만들 수 있습니다.
+Azure 클래식 포털에서 가상 컴퓨터를 만들 때 원격 데스크톱, Windows PowerShell 원격 및 SSH(보안 셸) 등에 대한 일반적인 끝점은 일반적으로 선택하는 운영 체제에 따라 자동으로 만들어집니다. 가상 컴퓨터를 만드는 동안 또는 가상 컴퓨터를 만든 후 필요에 따라 추가 끝점을 만들 수 있습니다.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [네트워크 보안 그룹 정보](virtual-networks-nsg.md)
-
-네트워크 보안 그룹은 가상 컴퓨터에 대한 액세스를 제어하지만 포트 전달 기능은 제공하지 않습니다. 포트 전달을 수행하려면 다음 문서를 참조하세요.
-
-- [Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치 구성 시작](../load-balancer/load-balancer-arm-powershell.md)
-
-각 끝점에는 공용 포트와 개인 포트가 있습니다.
+각 끝점에는 *공용 포트*와 *개인 포트*가 있습니다.
 
 - 공용 포트는 Azure 부하 분산 장치가 인터넷에서 가상 컴퓨터로 들어오는 트래픽을 수신 대기하는 데 사용됩니다.
 - 개인 포트는 가상 컴퓨터가 일반적으로 해당 가상 컴퓨터에서 실행되는 응용 프로그램 또는 서비스를 대상으로 하는 들어오는 트래픽을 수신 대기하는 데 사용됩니다.
@@ -44,7 +36,7 @@ Azure 클래식 포털을 사용하여 끝점을 만드는 경우 잘 알려진 
 
 > [AZURE.NOTE]Azure 가상 컴퓨터에 대한 방화벽 구성은 원격 데스크톱 및 SSH(Secure Shell)와 연결된 포트 및 대부분의 경우 Windows PowerShell 원격에 대해 자동으로 수행됩니다. 다른 모든 끝점에 지정된 포트의 경우 가상 컴퓨터의 방화벽에 대한 구성이 자동으로 수행되지 않습니다. 가상 컴퓨터에 대한 끝점을 만들 때 가상 컴퓨터의 방화벽에서 끝점 구성에 해당하는 프로토콜 및 개인 포트에 대한 트래픽도 허용하도록 해야 합니다.
 
-##끝점 만들기
+## 끝점 만들기
 
 1.	아직 로그인하지 않은 경우 Azure 클래식 포털에 로그인합니다.
 2.	**가상 컴퓨터**를 클릭하고 구성하려는 가상 컴퓨터의 이름을 클릭합니다.
@@ -56,7 +48,7 @@ Azure 클래식 포털을 사용하여 끝점을 만드는 경우 잘 알려진 
 5.	**가상 컴퓨터에 끝점 추가** 페이지에서 끝점 유형을 선택합니다.
 
 	- 부하 분산 집합의 일부가 아니거나 새 부하 분산 집합의 첫 번째 끝점이 아닌 새 끝점을 만드는 경우 **독립 실행형 끝점 추가**를 선택한 다음 왼쪽 화살표를 클릭합니다.
-	- 그렇지 않으면 **기존 부하 분산 집합에 끝점 추가**를 선택하고 부하 분산 집합의 이름을 선택한 후 왼쪽 화살표를 클릭합니다. **끝점의 세부 정보를 지정하십시오.** 페이지에서 끝점의 이름을 입력하고 확인 표시를 클릭하여 끝점을 만듭니다.
+	- 그렇지 않으면 **기존 부하 분산된 집합에 끝점 추가**를 선택하고 부하 분산된 집합의 이름을 선택한 후 왼쪽 화살표를 클릭합니다. **끝점의 세부 정보를 지정하십시오.** 페이지에서 끝점의 이름을 입력하고 확인 표시를 클릭하여 끝점을 만듭니다.
 
 6.	**끝점의 세부 정보를 지정하십시오.** 페이지에서 **이름**에 끝점의 이름을 입력합니다. **프로토콜**, **공용 포트** 및 **개인 포트**의 초기 값이 입력된 목록에서 네트워크 프로토콜 이름을 선택할 수도 있습니다.
 7.	사용자 지정 끝점의 경우 **프로토콜**에서 **TCP** 또는 **UDP**를 선택합니다.
@@ -68,9 +60,9 @@ Azure 클래식 포털을 사용하여 끝점을 만드는 경우 잘 알려진 
 
 ![끝점 만들기 성공](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
-Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)를 참조하세요.
+Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)를 참조하세요. 서비스 관리 모드에서 Azure CLI를 사용하는 경우 **azure vm endpoint create** 명령을 사용합니다.
 
-##끝점에 대한 ACL 관리
+## 끝점에 대한 ACL 관리
 
 트래픽을 보낼 수 있는 컴퓨터 집합을 정의하기 위해 끝점의 ACL이 원본 IP 주소에 따라 트래픽을 제한할 수 있습니다. 끝점에 대한 ACL을 추가, 수정 또는 제거하려면 다음 단계를 따르십시오.
 
@@ -100,4 +92,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [PowerShel
 
 [Azure 인프라 서비스를 위한 부하 분산](virtual-machines-load-balance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

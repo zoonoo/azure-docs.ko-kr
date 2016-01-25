@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스와 작동하는 솔루션을 제공하는 타사 파트너의 목록"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="joliang"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="joliang"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스 솔루션 파트너
 
@@ -101,4 +101,4 @@ SQL 데이터 웨어하우스와의 통합에 대한 자세한 내용은 [SQL �
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

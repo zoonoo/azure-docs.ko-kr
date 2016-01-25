@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="01/12/2016"
 	ms.author="markusvi"/>
 
 # 클라우드 앱 보안 및 개인정보 취급 방침 고려 사항
@@ -179,4 +179,4 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/08/2016"
    ms.author="danlep"/>
 
 # HPC 팩 IaaS 배포 스크립트를 사용하여 Azure VM에 HPC(고성능 컴퓨팅) 클러스터 만들기
@@ -36,10 +36,10 @@ HPC 팩 클러스터 계획에 대한 배경 정보는 HPC 팩 TechNet 라이브
 * **Azure 구독** - Azure Global 또는 Azure China 서비스의 구독을 사용할 수 있습니다. 구독 제한은 배포할 수 있는 클러스터 노드의 수와 유형에 영향을 줍니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
 
-* **Azure PowerShell 0.8.7 이상이 설치 및 구성된 Windows 클라이언트 컴퓨터** - [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. 이 스크립트는 Azure 서비스 관리에서 실행됩니다.
+* **Azure PowerShell 0.8.7 이상이 설치 및 구성된 Windows 클라이언트 컴퓨터** - [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요. 이 스크립트는 Azure 서비스 관리에서 실행됩니다.
 
 
-* **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인할 수 있습니다. 이 문서는 버전 4.4.0의 스크립트를 기반으로 합니다.
+* **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인합니다. 이 문서는 버전 4.4.0의 스크립트를 기반으로 합니다.
 
 * **스크립트 구성 파일** - 스크립트가 HPC 클러스터를 구성하는 데 사용하는 XML 파일을 만들어야 합니다. 자세한 내용과 예제는 이 문서의 뒷부분에 나오는 섹션을 참조하세요.
 
@@ -69,13 +69,13 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 * **NoCleanOnFailure**(선택 사항) - 성공적으로 배포되지 않은 Azure VM을 제거하지 않도록 지정합니다. 배포를 계속하려면 스크립트를 다시 실행하기 전에 이러한 VM을 수동으로 제거해야 하며, 그렇지 않을 경우 배포가 실패합니다.
 
-* **PSSessionSkipCACheck**(선택 사항) - 이 스크립트에서 배포한 VM을 사용하는 모든 클라우드 서비스에서는 Azure가 자체 서명 인증서를 자동으로 생성하며 클라우드 서비스의 모든 VM은 이 인증서를 기본 WinRM(Windows 원격 관리) 인증서로 사용합니다. 스크립트는 이러한 Azure VM에 HPC 기능을 배포하기 위해 기본적으로 이러한 인증서를 로컬 컴퓨터\\클라이언트 컴퓨터의 신뢰할 수 있는 루트 인증 기관 저장소에 일시적으로 설치하여 스크립트 실행 중 "신뢰할 수 없는 CA" 보안 오류를 표시하지 않습니다. 스크립트가 완료되면 인증서가 제거됩니다. 이 매개 변수를 지정할 경우 인증서가 클라이언트 컴퓨터에 설치되지 않고 보안 경고가 표시되지 않습니다.
+* **PSSessionSkipCACheck**(선택 사항) - 이 스크립트에서 배포한 VM을 사용하는 모든 클라우드 서비스에서는 Azure가 자체 서명된 인증서를 자동으로 생성하며 클라우드 서비스의 모든 VM은 이 인증서를 기본 WinRM(Windows 원격 관리) 인증서로 사용합니다. 스크립트는 이러한 Azure VM에 HPC 기능을 배포하기 위해 기본적으로 이러한 인증서를 로컬 컴퓨터\\클라이언트 컴퓨터의 신뢰할 수 있는 루트 인증 기관 저장소에 일시적으로 설치하여 스크립트 실행 중 "신뢰할 수 없는 CA" 보안 오류를 표시하지 않습니다. 스크립트가 완료되면 인증서가 제거됩니다. 이 매개 변수를 지정할 경우 인증서가 클라이언트 컴퓨터에 설치되지 않고 보안 경고가 표시되지 않습니다.
 
     >[AZURE.IMPORTANT]이 매개 변수는 프로덕션 배포에 권장되지 않습니다.
 
 ### 예
 
-다음 예제는 MyConfigFile.xml 구성 파일을 사용하여 새 HPC 팩 클러스터를 만들며 클러스터 설치를 위한 관리자 자격 증명을 지정합니다.
+다음 예제는 *MyConfigFile.xml* 구성 파일을 사용하여 새 HPC 팩 클러스터를 만들며 클러스터 설치를 위한 관리자 자격 증명을 지정합니다.
 
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
@@ -83,10 +83,9 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 추가 고려 사항
 
-* 이 스크립트는 Azure 마켓플레이스의 HPC 팩 VM 이미지를 사용하여 클러스터 헤드 노드를 만듭니다. 현재 이미지는 HPC Pack 2012 R2 업데이트 3이 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다.
+* 이 스크립트는 Azure 마켓플레이스의 HPC 팩 VM 이미지를 사용하여 클러스터 헤드 노드를 만듭니다. 최신 이미지는 HPC Pack 2012 R2 업데이트 3이 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다.
 
 * 이 스크립트는 HPC 팩 웹 포털 또는 HPC 팩 REST API를 통한 작업 제출을 선택적으로 활성화할 수 있습니다.
-
 
 * 추가 소프트웨어를 설치하거나 다른 설정을 구성하려는 경우 이 스크립트로 헤드 노드에서 사용자 지정 사전/사후 구성 스크립트를 선택적으로 실행할 수 있습니다.
 
@@ -99,7 +98,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 예 1
 
-다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 로컬 데이터베이스가 포함된 1개 헤드와 BGInfo VM 확장이 적용된 12개 계산 노드가 있습니다. 도메인 포리스트의 모든 VM에 대해 Windows 업데이트 자동 설치를 사용하지 않습니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. 계산 노드는 3개 클라우드 서비스와 3개 저장소 계정에 생성됩니다(즉, MyHPCCNService01 및 mycnstorage01에서 MyHPCCN-0001 - MyHPCCN-0005, MyHPCCNService02 및 mycnstorage02에서 MyHPCCN-0006 - MyHPCCN0010, MyHPCCNService03 및 mycnstorage03에서 MyHPCCN-0011 - MyHPCCN-0012). 계산 노드는 계산 노드에서 캡처된 기존 개인 이미지에서 만들어집니다. 자동 증가 및 축소 서비스를 사용하며 기본 증가 및 축소 간격이 적용됩니다.
+다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 로컬 데이터베이스가 포함된 1개 헤드와 BGInfo VM 확장이 적용된 12개 계산 노드가 있습니다. 도메인 포리스트의 모든 VM에 대해 Windows 업데이트 자동 설치를 사용하지 않습니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. 컴퓨터 노드는 3개 클라우드 서비스와 3개 저장소 계정에 생성됩니다(즉, _MyHPCCNService01_ 및 _mycnstorage01_에서 _MyHPCCN-0001_ - _MyHPCCN-0005_, _MyHPCCNService02_ 및 _mycnstorage02_에서 _MyHPCCN-0006_ - _MyHPCCN0010_, _MyHPCCNService03_ 및 _mycnstorage03_에서 _MyHPCCN-0011_ - _MyHPCCN-0012_). 계산 노드는 계산 노드에서 캡처된 기존 개인 이미지에서 만들어집니다. 자동 증가 및 축소 서비스를 사용하며 기본 증가 및 축소 간격이 적용됩니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -163,7 +162,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 예 2
 
-다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 1개 헤드 노드, 500GB 데이터 디스크가 포함된 1개 데이터베이스 서버, Windows Server 2012 R2 운영 체제를 실행하는 2개 broker 노드, Windows Server 2012 R2 운영 체제를 실행하는 5개 계산 노드가 포함되어 있습니다. 클라우드 서비스인 MyHPCCNService는 선호도 그룹 MyIBAffinityGroup에 만들어지며 기타 클라우드 서비스는 선호도 그룹 MyAffinityGroup에 만들어집니다. 헤드 노드에서 HPC 작업 스케줄러 REST API 및 HPC 웹 포털을 사용합니다.
+다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 1개 헤드 노드, 500GB 데이터 디스크가 포함된 1개 데이터베이스 서버, Windows Server 2012 R2 운영 체제를 실행하는 2개 broker 노드, Windows Server 2012 R2 운영 체제를 실행하는 5개 계산 노드가 포함되어 있습니다. 클라우드 서비스인 MyHPCCNService는 선호도 그룹 *MyIBAffinityGroup*에 만들어지며 기타 클라우드 서비스는 선호도 그룹 *MyAffinityGroup*에 만들어집니다. 헤드 노드에서 HPC 작업 스케줄러 REST API 및 HPC 웹 포털을 사용합니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -217,7 +216,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 예 3
 
-다음 구성 파일은 새 도메인 포리스트를 만들고 HPC 팩 클러스터(로컬 데이터베이스를 사용하는 1개 헤드 노드 및 20개 Linux 계산 노드)를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. Linux 계산 노드는 4개 클라우드 서비스와 4개 저장소 계정에 만들어집니다(즉, MyLnxCNService01 and mylnxstorage01에서 MyLnxCN-0001 - MyHPCCN-0005, MyLnxCNService02 및 mylnxstorage02에서 MyLnxCN-0006 - MyLnxCN-0010, MyLnxCNService03 및 mylnxstorage03에서 MyLnxCN-0011 - MyLnxCN-0015, MyLnxCNService04 및 mylnxstorage04에서 MyLnxCN-0016 - MyLnxCN-0020). 계산 노드는 OpenLogic CentOS 버전 7.0 Linux 이미지에서 만들어집니다.
+다음 구성 파일은 새 도메인 포리스트를 만들고 HPC 팩 클러스터(로컬 데이터베이스를 사용하는 1개 헤드 노드 및 20개 Linux 계산 노드)를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. Linux 컴퓨터 노드는 4개 클라우드 서비스와 4개 저장소 계정에 만들어집니다(즉, _MyLnxCNService01_ 및 _mylnxstorage01_에서 _MyLnxCN-0001_ - _MyLnxCN-0005_, _MyLnxCNService02_ 및 _mylnxstorage02_에서 _MyLnxCN-0006_ - _MyLnxCN-0010_, _MyLnxCNService03_ 및 _mylnxstorage03_에서 _MyLnxCN-0011_ - _MyLnxCN-0015_, _MyLnxCNService04_ 및 _mylnxstorage04_에서 _MyLnxCN-0016_ - _MyLnxCN-0020_). 계산 노드는 OpenLogic CentOS 버전 7.0 Linux 이미지에서 만들어집니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -305,7 +304,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 예제 5
 
-다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 로컬 데이터베이스를 사용하는 1개 헤드 노드가 포함되어 있으며, 2개 Azure 노드 템플릿이 만들어지고, Azure 노드 템플릿 AzureTemplate1에 대해 3개 중간 크기 Azure 노드가 만들어집니다. 헤드 노드가 구성된 다음 헤드 노드에 스크립트 파일이 실행됩니다.
+다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 로컬 데이터베이스를 사용하는 1개 헤드 노드가 포함되어 있으며, 2개 Azure 노드 템플릿이 만들어지고, Azure 노드 템플릿 _AzureTemplate1_에 대해 3개 중간 크기 Azure 노드가 만들어집니다. 헤드 노드가 구성된 다음 헤드 노드에 스크립트 파일이 실행됩니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -392,4 +391,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 * 사용자가 만든 클러스터에서 계산 노드를 시작, 중지, 추가, 제거하는 HPC 팩의 도구. [Azure에서 HPC 팩 클러스터의 계산 노드 관리](virtual-machines-hpcpack-cluster-node-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

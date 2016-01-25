@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 이름 바꾸기
 SQL Server는 저장된 프로시저 ```sp_renamedb```를 통한 데이터베이스 이름 변경을 지원하지만 SQL 데이터 웨어하우스는 해당 작업에 DDL 구문을 사용합니다. DDL 명령은 ```RENAME OBJECT```입니다.
@@ -53,4 +53,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Article references-->
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

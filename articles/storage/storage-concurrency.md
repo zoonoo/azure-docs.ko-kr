@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Microsoft Azure 저장소에서 동시성 관리" 
-	description="Blob, 큐, 테이블 및 파일 서비스의 동시성을 관리하는 방법에 대해 알아봅니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="jasonnewyork" 
-	manager="tadb" 
-	editor=""/>
+	pageTitle="Microsoft Azure 저장소에서 동시성 관리"
+	description="Blob, 큐, 테이블 및 파일 서비스의 동시성을 관리하는 방법에 대해 알아봅니다."
+	services="storage"
+	documentationCenter=""
+	authors="jasonnewyork"
+	manager="tadb"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="jahogg"/>
 
 # Microsoft Azure 저장소에서 동시성 관리
 
-## 개요 
+## 개요
 
 최신 인터넷 기반 응용 프로그램에서는 대개 여러 사용자가 데이터를 동시에 보고 업데이트합니다. 이로 인해 응용 프로그램 개발자는 최종 사용자에게 예측 가능한 환경을 제공하는 방법, 특히 여러 사용자가 같은 데이터를 업데이트할 수 있는 시나리오를 신중하게 고려해야 합니다. 개발자가 일반적으로 고려하는 주요 데이터 동시성 전략에는 다음의 세 가지가 있습니다.
 
@@ -34,7 +34,7 @@ Azure 저장소 서비스는 세 가지 전략을 모두 지원하지만 특히 
 
 개발자는 적절한 동시성 전략을 선택해야 할 뿐 아니라 저장소 플랫폼이 변경 내용, 특히 여러 트랜잭션 간의 같은 개체에 대한 변경 내용을 격리하는 방법도 파악해야 합니다. Azure 저장소 서비스는 스냅숏 격리를 사용하여 단일 파티션 내에서 읽기 작업과 쓰기 작업이 동시에 수행되도록 허용합니다. 다른 격리 수준과는 달리 스냅숏 격리에서는 업데이트가 수행되는 동안에도 모든 읽기 시 데이터의 일관된 스냅숏이 표시됩니다. 이를 위해 업데이트 트랜잭션을 처리하는 동안 마지막으로 커밋된 값을 반환합니다.
 
-## Blob 서비스에서 동시성 관리
+## Blob 저장소에서 동시성 관리
 낙관적 동시성 모델이나 비관적 동시성 모델을 사용하여 Blob 서비스의 컨테이너와 Blob에 대한 액세스를 관리할 수 있습니다. 전략을 명시적으로 지정하지 않으면 마지막 작성자의 업데이트 적용 전략이 기본적으로 사용됩니다.
 
 ### Blob 및 컨테이너에 대한 낙관적 동시성  
@@ -52,18 +52,18 @@ Azure 저장소 서비스는 세 가지 전략을 모두 지원하지만 특히 
 클라이언트 저장소 라이브러리 4.2.0을 사용하는 다음 C# 코드 조각은 이전에 검색했거나 삽입한 Blob의 속성에서 액세스할 수 있는 ETag 값을 기준으로 **If-Match AccessCondition**을 생성하는 방법의 간단한 예제를 보여 줍니다. 그런 다음 Blob을 업데이트할 때**AccessCondition** 개체를 사용합니다: **AccessCondition** 개체는 요청에 **If-match** 헤더를 추가합니다. 다른 프로세스가 Blob을 업데이트한 경우 Blob 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. 전체 샘플은 [여기](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)에서 다운로드할 수 있습니다.
 
 	// Retrieve the ETag from the newly created blob
-	// Etag is already populated as UploadText should cause a PUT Blob call 
+	// Etag is already populated as UploadText should cause a PUT Blob call
 	// to storage blob service which returns the etag in response.
 	string orignalETag = blockBlob.Properties.ETag;
-	 
+
 	// This code simulates an update by a third party.
 	string helloText = "Blob updated by a third party.";
-	 
+
 	// No etag, provided so orignal blob is overwritten (thus generating a new etag)
 	blockBlob.UploadText(helloText);
-	Console.WriteLine("Blob updated. Updated ETag = {0}", 
+	Console.WriteLine("Blob updated. Updated ETag = {0}",
 	blockBlob.Properties.ETag);
-	 
+
 	// Now try to update the blob using the orignal ETag provided when the blob was created
 	try
 	{
@@ -121,13 +121,13 @@ Blob 임대(*) | 예 | 예 | 스냅숏 Blob| 예 | 예 | Blob 복사| 예 | 예(
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
 	Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
-	 
+
 	// Update blob using lease. This operation will succeed
 	const string helloText = "Blob updated";
 	var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
 	blockBlob.UploadText(helloText, accessCondition: accessCondition);
 	Console.WriteLine("Blob updated using an exclusive lease");
-	 
+
 	//Simulate third party update to blob without lease
 	try
 	{
@@ -182,7 +182,7 @@ Blob 임대(*) | 예 | 예 | 스냅숏 Blob| 예 | 예 | Blob 복사| 예 | 예(
 
 - [Blob 서비스 작업의 조건부 헤더 지정](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 - [컨테이너 임대](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-- [Blob 임대 ](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
+- [Blob 임대 ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## 테이블 서비스에서 동시성 관리
 낙관적 동시성 검사를 수행하도록 명시적으로 선택해야 하는 Blob 서비스에서와는 달리 테이블 서비스에서는 엔터티로 작업할 때 낙관적 동시성 검사를 기본 동작으로 사용합니다. 테이블 서비스와 Blob 서비스의 또 다른 차이점은, 테이블 서비스에서는 엔터티의 동시성 동작만 관리할 수 있는 반면 Blob 서비스에서는 컨테이너와 Blob의 동시성을 모두 관리할 수 있다는 것입니다.
@@ -211,7 +211,7 @@ Blob 서비스와 달리 테이블 서비스에서는 클라이언트가 업데�
 	    if (ex.RequestInformation.HttpStatusCode == 412)
 	        Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
 	    else
-	        throw; 
+	        throw;
 	}  
 
 동시성 검사를 명시적으로 사용하지 않도록 설정하려면 바꾸기 작업을 실행하기 전에 **employee** 개체의 **ETag** 속성을 "*"로 설정해야 합니다.
@@ -228,7 +228,7 @@ customer.ETag = "*";
 엔터티 병합|	예|	예|
 엔터티 삭제|	아니요|	예|
 엔터티 삽입 또는 바꾸기|	예|	아니요|
-엔터티 삽입 또는 병합|	예|	아니요 
+엔터티 삽입 또는 병합|	예|	아니요
 
 **엔터티 삽입 또는 바꾸기**와 **엔터티 삽입 또는 병합** 작업에서는 테이블 서비스에 ETag 값을 보내지 않으므로 동시성 검사를 수행하지 *않습니다*.
 
@@ -271,6 +271,4 @@ Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 - [Blob](storage-dotnet-how-to-use-blobs.md), [테이블](storage-dotnet-how-to-use-tables.md) 및 [큐](storage-dotnet-how-to-use-queues.md)에 대한 저장소 시작 가이드
 - 저장소 아키텍처 – [Microsoft Azure 저장소: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

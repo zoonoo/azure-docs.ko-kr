@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="01/07/2016" 
 	ms.author="genemi"/>
 
 
@@ -32,7 +32,7 @@
 - [Azure SQL 데이터베이스 프로그래밍 방식으로 연결 하기 위한 지침](http://msdn.microsoft.com/library/azure/ee336282.aspx) -다음 사항을 다룹니다.
  - [포트 및 방화벽](sql-database-configure-firewall-settings.md)
  - 연결 문자열
-- [Azure SQL 데이터베이스 리소스 관리](http://msdn.microsoft.com/library/azure/dn338083.aspx) - 다음 사항을 다룹니다.
+- [Azure SQL 데이터베이스 리소스 관리](http://msdn.microsoft.com/library/azure/dn338083.aspx) -다음 사항을 다룹니다.
  - 리소스 관리
  - 제한 적용
  - 제한
@@ -129,7 +129,9 @@ SQL 데이터베이스 서비스에 과도한 워크로드 부하가 발생하�
 ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
 
-재시도 논리를 보여 주는 코드 샘플은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)을 참조하세요.
+재시도 논리를 보여 주는 코드 샘플은 다음을 참조하세요.
+
+- [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 
 
 ### 일시적인 오류에 대한 오류 번호
@@ -144,8 +146,12 @@ SQL 데이터베이스에서 오류가 발생하면 [SqlException](http://msdn.m
 
 
 자세한 내용은 다음을 참조하세요.
+
 - [Azure SQL 데이터베이스 개발: 방법 도움말 항목](http://msdn.microsoft.com/library/azure/ee621787.aspx)
-- [Azure SQL 데이터베이스에 대한 연결 문제 해결](http://support.microsoft.com/kb/2980233/)
+
+<!--  (per Penny Lee, 2016/01/07.  MightyPen==GeneMi)
+- [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+-->
 
 
 <a id="e-technologies" name="e-technologies"></a>
@@ -168,8 +174,8 @@ Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한
 - [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
 
 
-**드라이버 라이브러리:** 권장 버전을 포함한 연결 드라이버 라이브러리에 대한 자세한 내용은 다음을 참조하세요.
+**드라이버 라이브러리:** 권장 버전을 포함한 연결 드라이버 라이브러리에 대한 정보는 다음을 참조하세요:
 
 - [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결
@@ -111,7 +111,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 
 	![자세한 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(표시된 오류는 빨간색으로 표시된 줄이 *Views\\Home\\Index.cshtml*에 추가되어 생성됨)
+	(표시된 오류는 빨간색으로 표시된 줄이 *Views\Home\Index.cshtml*에 추가되어 생성됨)
 
 Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 있도록 Azure 웹 앱의 파일 읽기/편집 기능을 사용하는 한 가지 예에 지나지 않습니다.
 
@@ -125,7 +125,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 프로젝트를 엽니다.
 
-1. *Controllers\\HomeController.cs*를 엽니다.
+1. *Controllers\HomeController.cs*를 엽니다.
 
 2. `About()` 메서드를 삭제하고 그 자리에 다음 코드를 삽입합니다.
 
@@ -298,7 +298,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 ### 응용 프로그램에 추적 문 추가
 
-1. *Controllers\\HomeController.cs*를 열고 파일 내용을 다음 코드로 바꿔 `System.Diagnostics`에 대한 `Trace` 문과 `using` 문을 추가합니다.
+1. *Controllers\HomeController.cs*를 열고 파일 내용을 다음 코드로 바꿔 `System.Diagnostics`에 대한 `Trace` 문과 `using` 문을 추가합니다.
 
 		using System;
 		using System.Collections.Generic;
@@ -519,9 +519,9 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 	![다운로드한 파일](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* 응용 프로그램 추적 로그는 *LogFiles\\Application* 폴더에 *.txt* 파일로 기록됩니다.
-	* 웹 서버 로그는 *LogFiles\\http\\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
-	* 자세한 오류 메시지 로그는 *LogFiles\\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
+	* 응용 프로그램 추적 로그는 *LogFiles\Application* 폴더에 *.txt* 파일로 기록됩니다.
+	* 웹 서버 로그는 *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
+	* 자세한 오류 메시지 로그는 *LogFiles\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
 
 	참고로, *deployments* 폴더는 소스 제어 게시로 인해 생성되는 것이며 Visual Studio 게시와는 전혀 관계가 없습니다. *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.
 
@@ -735,7 +735,7 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 
 오류 로깅과 관련하여, 사용자 자신의 추적 코드를 기록하는 또 다른 방법은 [ELMAH](http://nuget.org/packages/elmah/) 같은 오픈 소스 로깅 프레임워크를 사용하는 것입니다. 자세한 내용은 [Scott Hanselman의 ELMAH 관련 블로그 게시물](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)(영문)을 참조하십시오.
 
-또한 Azure에서 로그를 스트리밍하려면 ASP.NET 또는 System.Diagnostics 추적 기능을 사용할 필요가 없습니다. Azure 웹 앱 로그 스트리밍 서비스는 *LogFiles* 폴더에 위치한 *.txt*, *.html* 또는 *.log* 파일로 스트리밍합니다. 따라서 웹 앱의 파일 시스템에 기록하는 사용자 자신의 로깅 시스템을 만들 수 있습니다. 그러면 파일이 자동으로 스트리밍되어 다운로드됩니다. 그러려면 *d:\\home\\logfiles* 폴더에 파일을 만드는 응용 프로그램 코드만 작성하면 됩니다.
+또한 Azure에서 로그를 스트리밍하려면 ASP.NET 또는 System.Diagnostics 추적 기능을 사용할 필요가 없습니다. Azure 웹 앱 로그 스트리밍 서비스는 *LogFiles* 폴더에 위치한 *.txt*, *.html* 또는 *.log* 파일로 스트리밍합니다. 따라서 웹 앱의 파일 시스템에 기록하는 사용자 자신의 로깅 시스템을 만들 수 있습니다. 그러면 파일이 자동으로 스트리밍되어 다운로드됩니다. 그러려면 *d:\home\logfiles* 폴더에 파일을 만드는 응용 프로그램 코드만 작성하면 됩니다.
 
 ### 웹 서버 로그 분석
 
@@ -762,4 +762,4 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

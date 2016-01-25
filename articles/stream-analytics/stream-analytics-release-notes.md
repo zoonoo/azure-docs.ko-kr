@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 스트림 분석 릴리스 정보
@@ -25,7 +25,7 @@
 제목 | 설명
 ---|---
 REST API 버전 업데이트 | REST API 버전은 2015-10-01에 업데이트되었습니다. 자세한 내용은 MSDN의 [스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx) 및 [스트림 분석에서 기계 학습 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)에서 확인할 수 있습니다.
-Azure 기계 학습 통합 | 이 릴리스에서는 Azure 기계 학습 사용자 정의 함수에 대해 지원합니다. 자습서를 [여기](stream-analytics-machine-learning-tutorial.md)에서 찾을 수 있을 뿐만 아니라 일반 블로그 알림도 [여기](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)에서 찾을 수 있습니다.
+Azure 기계 학습 통합 | 이 릴리스에서는 Azure 기계 학습 사용자 정의 함수에 대해 지원합니다. 자습서를 [여기](stream-analytics-machine-learning-integration-tutorial.md)에서 찾을 수 있을 뿐만 아니라 일반 블로그 알림도 [여기](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)에서 찾을 수 있습니다.
 
 ## 스트림 분석의 2015/11/12 릴리스에 대한 정보 ##
 
@@ -133,4 +133,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

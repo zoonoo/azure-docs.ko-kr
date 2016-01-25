@@ -125,6 +125,7 @@ degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 �
 우선 순위 | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요 
 매개 변수 | U-SQL 스크립트의 매개 변수 | 아니요 
 
+스크립트 정의에 대해서는 [SearchLogProcessing.txt 스크립트 정의](#script-definition)를 참조하세요.
 
 ### 샘플 입력 및 출력 데이터 집합
 
@@ -187,4 +188,35 @@ degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 �
 
 위의 Azure 데이터 레이크 저장소 연결된 서비스 및 데이터 집합 JSON 조각의 JSON 속성에 대한 설명을 보려면 [Azure 데이터 레이크 저장소에서 데이터 이동](data-factory-azure-datalake-connector.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+### 스크립트 정의
+
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+
+위 U-SQL 스크립트의 **@in** 및 **@out** 매개 변수 값은 'parameters' 섹션을 사용하여 ADF를 통해 동적으로 전달됩니다. 파이프라인 정의 윗부분의 ‘parameters' 섹션을 참조하세요.
+
+Azure 데이터 레이크 분석 서비스에서 실행되는 작업에 대한 파이프라인 정의뿐 아니라 다른 속성 viz. degreeOfParallelism, 우선 순위 등을 지정할 수 있습니다.
+
+<!---HONumber=AcomDC_0114_2016-->

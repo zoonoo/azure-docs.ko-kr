@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #자습서: TOPdesk - Public과 Azure Directory 통합
@@ -108,8 +108,8 @@
 
     ![앱 URL 구성](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "앱 URL 구성")
 
-    1.  **TOPdesk - Public Sign On URL** 텍스트 상자에서 TOPdesk - 사용자가 Public 응용 프로그램 로그인에 사용한 URL을 입력합니다 (예: "**https://qssolutions.topdesk.net*").
-    2.  **TOPdesk – Public Reply URL** 텍스트 상자에서 **TOPdesk - Public AssertionConsumerService URL**을 붙여넣기합니다 (예: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
+    1.  **TOPdesk - Public Sign On URL** 텍스트 상자에서 TOPdesk - 사용자가 Public 응용 프로그램 로그인에 사용한 URL을 입력합니다 (예: "*https://qssolutions.topdesk.net*").
+    2.  **TOPdesk – Public Reply URL** 텍스트 상자에서 **TOPdesk - Public AssertionConsumerService URL**을 붙여넣기합니다 (예: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
     3.  **다음**을 클릭합니다.
 
 10. **TOPdesk - Public에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 로컬 저장합니다.
@@ -191,10 +191,10 @@ Azure AD 사용자가 TOPdesk - Public에 로그인할 수 있도록 하려면 �
 
     ![사용자 할당](./media/active-directory-saas-topdesk-public-tutorial/IC790630.png "사용자 할당")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
     ![예](./media/active-directory-saas-topdesk-public-tutorial/IC767830.png "예")
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

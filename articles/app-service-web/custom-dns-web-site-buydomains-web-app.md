@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 사용자 지정 도메인 이름 구입 및 구성
@@ -98,4 +98,4 @@
 이때 브라우저에서 사용자 지정 도메인 이름을 입력해야 웹앱으로 이동하는지 확인할 수 있습니다.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

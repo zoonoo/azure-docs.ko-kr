@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/12/2015"
+    ms.date="01/07/2016"
     ms.author="elizapo" />
 
 
@@ -33,4 +33,4 @@ RemoteApp 컬렉션을 만든 후 사용자가 사용할 수 있게 하려는 �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

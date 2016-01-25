@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/08/2016"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
@@ -136,7 +136,7 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 
 ## 헤드 노드의 크기를 구성하는 방법 ##
 
-헤드 노드의 크기는 클러스터를 만들 때만 선택할 수 있습니다. 헤드 노드의 기본 크기는 **A3**이며 코어 4개, 7GB 메모리 및 로컬 저장소 285GB를 제공합니다. [HDInsight 가격 책정 페이지](http://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기(각각의 코어, 메모리 및 로컬 저장소 포함)의 목록을 찾을 수 있습니다.
+헤드 노드의 크기는 클러스터를 만들 때만 선택할 수 있습니다. [HDInsight 가격 책정 페이지](http://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기(각각의 코어, 메모리 및 로컬 저장소 포함)의 목록을 찾을 수 있습니다.
 
 새 클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음은 [Azure 포털][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 정보를 제공합니다.
 
@@ -166,4 +166,4 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

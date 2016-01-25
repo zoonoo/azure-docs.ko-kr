@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/16/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Azure 하이브리드 클라우드 테스트 환경
@@ -49,14 +49,8 @@
 쉽게 인터넷에 직접 연결할 수 없고 공용 IP 주소를 사용할 수 없는 조직 및 개인을 위해 [시뮬레이션된 하이브리드 클라우드 테스트 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)에서는 별도의 Azure 가상 네트워크에 간단한 온-프레미스 네트워크를 구축한 다음 VNet 간 VPN 연결을 사용하여 두 가상 네트워크를 연결합니다.
 
 
-## 추가 리소스
+## 다음 단계
 
-[Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
+- Azure 인프라 서비스에서 사용자 지정 개발/테스트 또는 프로덕션 배포를 디자인하기 위해 [구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)에 대해 알아봅니다.
 
-[Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-LOB-application.md)
-
-[Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
-
-[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

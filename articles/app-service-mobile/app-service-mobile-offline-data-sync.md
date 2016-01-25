@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="01/11/2015"
 	ms.author="wesmc"/>
 
 # Azure 모바일 앱에서 오프라인 데이터 동기화
@@ -36,10 +36,11 @@
 
 다음 자습서는 Azure 모바일 앱을 사용하여 모바일 클라이언트에 오프라인 동기화를 추가하는 방법을 보여줍니다.
 
+* [Android: 오프라인 동기화 사용]
 * [iOS: 오프라인 동기화 사용]			
 * [Xamarin iOS: 오프라인 동기화 사용]	
 * [Xamarin Android: 오프라인 동기화 사용]
-* [Windows 8.1: 오프라인 동기화 사용]	
+* [Windows 8.1: 오프라인 동기화 사용]
 
 ## 동기화 테이블 정의
 
@@ -121,9 +122,10 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
 <!-- Links -->
 
+[Android: 오프라인 동기화 사용]: ../app-service-mobile-android-get-started-offline-data.md
 [iOS: 오프라인 동기화 사용]: ../app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: 오프라인 동기화 사용]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: 오프라인 동기화 사용]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: 오프라인 동기화 사용]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

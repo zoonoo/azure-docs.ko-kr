@@ -70,11 +70,11 @@
 ## 참고 항목
 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)
 
-[탄력적 데이터베이스 풀에 사용자를 추가하는 방법](sql-database-elastic-jobs-add-logins-to-dbs.md)
+[SQL 데이터베이스 보안 설정](sql-database-security.md)
 
 [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

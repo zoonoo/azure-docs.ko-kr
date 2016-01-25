@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/31/2015"
+   ms.date="01/08/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 볼륨 컨테이너 관리
@@ -43,7 +43,7 @@ Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, �
 
 ## 볼륨 컨테이너 추가
 
-볼륨 컨테이너를 만들려면 다음 단계를 수행합니다.
+볼륨 컨테이너를 추가하려면 다음 단계를 수행합니다.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
@@ -66,4 +66,4 @@ Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, �
 - [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아봅니다. 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

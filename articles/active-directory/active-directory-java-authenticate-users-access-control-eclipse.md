@@ -5,7 +5,7 @@
     documentationCenter="java"
     authors="rmcmurray"
     manager="wpickett"
-    editor="jimbe" />
+    editor="" />
 
 <tags
     ms.service="active-directory"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="10/12/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm" />
 
 # Eclipse를 사용하여 Azure 액세스 제어 서비스를 통해 웹 사용자를 인증하는 방법
@@ -206,7 +206,7 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하
 1. Eclipse의 Project Explorer에서 **MyACSHelloWorld**를 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 후 **Package for Azure**를 클릭합니다.
 2. **Project name**에 **MyAzureACSProject**를 입력하고 **Next**를 클릭합니다.
 3. JDK 및 응용 프로그램 서버를 선택합니다. (이러한 단계는 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문) 자습서에 자세히 설명되어 있습니다.)
-4. **마침**을 클릭합니다.
+4. **Finish**를 클릭합니다.
 5. **Run in Azure Emulator** 단추를 클릭합니다.
 6. Java 웹 응용 프로그램이 계산 에뮬레이터에서 시작되고 나면 현재 브라우저 세션이 ACS 로그인 테스트를 방해하지 않도록 모든 브라우저 인스턴스를 닫습니다.
 7. 브라우저에서 <http://localhost:8080/MyACSHelloWorld/>(또는 **Require HTTPS connections**를 선택한 경우 <https://localhost:8080/MyACSHelloWorld/>)를 열어 응용 프로그램을 실행합니다. Windows Live ID 로그인 메시지가 표시되어야 하며, 그런 다음 신뢰 당사자 응용 프로그램에 대해 지정된 반환 URL로 이동되어야 합니다.
@@ -309,4 +309,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

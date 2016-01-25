@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="01/08/2016"
 	ms.author="tomfitz"/>
 
 #PHP 웹 및 작업자 역할을 만드는 방법
@@ -196,7 +196,7 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 
 ## 응용 프로그램 게시
 
-응용 프로그램을 게시하려면 먼저 **Import-PublishSettingsFile** cmdlet을 사용하여 게시 설정을 가져와야 합니다. 그런 다음 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet을 사용하여 응용 프로그램을 게시합니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
+응용 프로그램을 게시하려면 먼저 [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet을 사용하여 게시 설정을 가져와야 합니다. 그런 다음 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet을 사용하여 응용 프로그램을 게시합니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
 ## 다음 단계
 
@@ -211,4 +211,4 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

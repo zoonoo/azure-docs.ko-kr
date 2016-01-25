@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 정의
@@ -124,20 +124,21 @@ MFA 서버를 사용한 온-프레미스 응용프로그램에 대한 MFA| | | *
 
 ## Azure Multi-Factor Authentication 획득 방법
 
-Azure Multi-factor Authentication은 Azure Active Directory Premium 및 Enterprise Mobility Suite의 일부로 제공됩니다. 이미 있는 경우 Azure Multi-Factor Authentication도 있습니다.
+Office 365 사용자와 Azure 관리자에게만 제공되는 기능 대신 Azure Multi-Factor Authentication에서 제공하는 전체 기능을 사용하려는 경우 몇 가지 옵션이 있습니다.
 
-Office 365 사용자 또는 Azure 구독자이고 Azure Multi-factor Authentication에서 제공하는 추가 기능을 활용하려면 계속 읽으십시오.
+1.	Azure Multi-Factor Authentication 라이선스를 구매하여 사용자에게 할당합니다.
+2.	Azure Active Directory Premium, Enterprise Mobility Suite 또는 Enterprise Cloud Suite 등 Azure Multi-Factor Authentication이 함께 제공되는 라이선스를 구매하여 사용자에게 할당합니다.
+3.	Azure 구독 내에서 Azure Multi-Factor Authentication 공급자를 만듭니다. Azure 구독이 아직 없는 경우 Azure 평가판 사용에서 Azure 평가판 구독에 등록할 수 있습니다. 평가판이 만료되기 전 평가판 구독을 일반 구독으로 전환해야 합니다.
 
-Office 365 사용자 또는 Azure 구독자가 아닌 경우 Azure Multi-Factor Authentication을 사용하려면 Azure 구독 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)이 필요합니다.
+Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독을 통해 청구되는 두 가지 사용 모델을 사용할 수 있습니다.
 
-Azure Multi-Factor Authentication을 사용할 때 두 가지의 대금 청구 옵션이 있습니다.
 
 - **사용자당**. 규칙적으로 인증이 필요한 고정된 수의 직원에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
-- **인증당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
+- **인증 당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
 
 가격 책정에 대한 자세한 내용은 [Azure MFA 가격 책정](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)을 참조하십시오.
 
-여러분의 조직에 가장 적합한 모델을 선택하십시오. 그런 다음 시작하려면 [시작](multi-factor-authentication-get-started.md)을 참조하십시오.
+조직에 가장 적합한 사용자 단위 또는 소비 기반 모델을 선택합니다. 그런 다음 시작하려면 [시작](multi-factor-authentication-get-started.md)을 참조하세요.
 
 ## 다단계 보안 솔루션 선택
 
@@ -205,4 +206,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

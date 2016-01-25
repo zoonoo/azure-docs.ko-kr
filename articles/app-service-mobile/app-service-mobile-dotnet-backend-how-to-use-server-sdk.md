@@ -122,7 +122,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 
 다음 NuGet 기반 확장 패키지는 응용 프로그램에서 사용할 수 있는 다양한 모바일 기능을 제공합니다. **MobileAppConfiguration** 개체를 사용하여 초기화하는 동안 확장을 사용하도록 설정합니다.
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] 기본 모바일 앱 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가됩니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. Azure 포털에서 다운로드하는 빠른 시작 서버 프로젝트와 같습니다.
+- [Microsoft.Azure.Mobile.Server.Quickstart] 기본 모바일 앱 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가했습니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. Azure 포털에서 다운로드하는 빠른 시작 서버 프로젝트와 같습니다.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지*를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
 
@@ -130,13 +130,13 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 
 - [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) SQL 데이터베이스에서 데이터를 액세스하는 Entity Framework를 사용할 수 있도록 합니다. **AddTablesWithEntityFramework** 확장 메서드를 호출하여 구성에 추가합니다.
 
-- [Microsoft.Azure.Mobile.Server.Authentication] 인증을 사용할 수 있도록 하고 토큰의 유효성을 검사하는 데 사용되는 OWIN 미들웨어를 설정합니다. **AddAppServiceAuthentication** 및 **IAppBuilder**.**UseMobileAppAuthentication** 확장 메서드를 호출하여 구성에 추가합니다.
+- [Microsoft.Azure.Mobile.Server.Authentication] 인증을 사용할 수 있도록 하고 토큰의 유효성을 검사하는 데 사용되는 OWIN 미들웨어를 설정합니다. **AddAppServiceAuthentication** 및 **IAppBuilder**.**UseAppServiceAuthentication** 확장 메서드를 호출하여 구성에 추가합니다.
 
 - [Microsoft.Azure.Mobile.Server.Notifications] 푸시 알림을 사용할 수 있도록 하며 푸시 등록 끝점을 정의합니다. **AddPushNotifications** 확장 메서드를 호출하여 구성에 추가합니다.
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 모바일 앱에서 레거시 웹 브라우저에 데이터를 제공하는 컨트롤러를 만듭니다. **MapLegacyCrossDomainController** 확장 메서드를 호출하여 구성에 추가합니다.
 
-- [Microsoft.Azure.Mobile.Server.Login] MobileAppLoginHandler.CreateToken() 메서드를 통해 사용자 지정 인증에 대한 미리 보기 지원을 제공합니다. 이는 정적 메서드이며 구성에서 사용하도록 설정할 필요는 없습니다.
+- [Microsoft.Azure.Mobile.Server.Login] AppServiceLoginHandler.CreateToken() 메서드를 통해 사용자 지정 인증에 대한 미리 보기 지원을 제공합니다. 이는 정적 메서드이며 구성에서 사용하도록 설정할 필요는 없습니다.
 
 ## <a name="publish-server-project"></a>방법: 서버 프로젝트 게시
 
@@ -228,7 +228,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 2. Startup.cs 프로젝트 파일에서 **Configuration** 메서드의 시작 부분에 다음 코드 줄을 추가합니다.
 
-		app.UseMobileAppAuthentication(config);
+		app.UseAppServiceAuthentication(config);
 
 	Azure 모바일 앱을 사용하는 OWIN 미들웨어 구성 요소를 추가하여 관련된 앱 서비스 게이트웨이에서 발급된 토큰의 유효성을 검사합니다.
 
@@ -242,20 +242,20 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 사용자가 로그인해야 하는지 여부를 결정하려면 본인의 고유한 논리를 제공해야 합니다. 예를 들어 데이터베이스의 솔트되고 해시된 암호를 기준으로 검사할 수 있습니다. 다음 예제에서 `isValidAssertion()` 메서드는 이러한 검사를 담당하며 다른 곳에 정의됩니다.
 
-사용자 지정 인증은 새 ApiController를 만들고 아래와 같은 등록 및 로그인 작업을 노출하면 노출됩니다. 클라이언트는 사용자로부터 관련 정보를 수집하고 HTTPS POST 본문에 사용자 정보를 포함시켜 API에 제출하여 로그인을 시도할 수 있습니다. 정보가 확인된 후 `MobileAppLoginHandler.CreateToken()` 메서드를 사용하여 토큰을 발급할 수 있습니다.
+사용자 지정 인증은 새 ApiController를 만들고 아래와 같은 등록 및 로그인 작업을 노출하면 노출됩니다. 클라이언트는 사용자로부터 관련 정보를 수집하고 HTTPS POST 본문에 사용자 정보를 포함시켜 API에 제출하여 로그인을 시도할 수 있습니다. 서버가 어설션의 유효성을 검사하면 `AppServiceLoginHandler.CreateToken()` 메서드를 사용하여 토큰을 발급할 수 있습니다.
 
 로그인 작업 예제는 다음과 같습니다.
 
-		public HttpResponseMessage Post([FromBody] JObject assertion)
+		public IHttpActionResult Post([FromBody] JObject assertion)
 		{
 			if (isValidAssertion(assertion)) // user-defined function, checks against a database
 			{
-				JwtSecurityToken token = MobileAppLoginHandler.CreateToken(new Claim[] { new Claim(JwtRegisteredClaimNames.Sub, assertion["username"]) },
+				JwtSecurityToken token = AppServiceLoginHandler.CreateToken(new Claim[] { new Claim(JwtRegisteredClaimNames.Sub, assertion["username"]) },
 					mySigningKey,
 					myAppURL,
 					myAppURL,
 					TimeSpan.FromHours(24) );
-				return this.Request.CreateResponse(HttpStatusCode.OK, new LoginResult()
+				return Ok(new LoginResult()
 				{
 					AuthenticationToken = token.RawData,
 					User = new LoginResultUser() { UserId = userName.ToString() }
@@ -276,9 +276,17 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 			}
 		}
 
-`MobileAppLoginHandler.CreateToken()` 메서드는 _audience_ 및 _issuer_ 매개 변수를 포함합니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 _secretKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 _WEBSITE\_AUTH\_SIGNING\_KEY_ 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
+`MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` 메서드는 _audience_ 및 _issuer_ 매개 변수를 포함합니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 _secretKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 _WEBSITE\_AUTH\_SIGNING\_KEY_ 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
 
 발급된 토큰 및 포함하고자 하는 클레임에 대한 수명도 제공해야 합니다. 예제 코드에 나오는 것처럼 제목 클레임을 제공해야 합니다.
+
+수동 HTTP POST 대신 `loginAsync()` 메서드(이름은 플랫폼에 따라 달라질 수 있음)를 사용하도록 클라이언트 코드를 단순화할 수도 있습니다. 추가 토큰 매개 변수를 사용하고 POST할 어설션 개체를 상호 연결하는 오버로드를 사용합니다. 이 경우 공급자는 원하는 사용자 지정 이름이어야 합니다. 서버에서 로그인 작업은 이 사용자 지정 이름을 포함하는 _/.auth/login/{customProviderName}_ 경로에 있어야 합니다. 이 경로에 컨트롤러를 배치하려면 MobileAppConfiguration을 적용하기 전에 HttpConfiguration에 경로를 추가합니다.
+
+		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
+		
+위의 "CustomAuth" 문자열을 로그인 작업을 호스트하는 컨트롤러 이름으로 바꿉니다.
+
+>[AZURE.TIP]loginAsync() 방식을 사용하여 인증 토큰이 서비스에 대한 모든 후속 호출에 연결되어 있는지 확인합니다.
 
 ###<a name="user-info"></a>방법: 인증된 사용자 정보 검색
 
@@ -438,4 +446,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

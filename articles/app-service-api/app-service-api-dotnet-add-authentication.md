@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # API 앱 보호: Azure Active Directory 또는 소셜 공급자 인증 추가
@@ -274,4 +274,4 @@ Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure Preview 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

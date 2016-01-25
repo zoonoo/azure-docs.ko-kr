@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/04/2015"
-	ms.author="robinsh;selcint"/>
+	ms.author="robinsh;prkhad"/>
 
 
 # 프리미엄 저장소: Azure 가상 컴퓨터 작업용 고성능 저장소
@@ -72,7 +72,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 - VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다. 예를 들어, STANDARD\_DS1 VM에는 프리미엄 저장소 디스크 트래픽에 사용할 수 있는 초당 32MB의 전용 대역폭이 있습니다. 즉, 이 VM에 연결된 P10 프리미엄 저장소 디스크는 초당 최대 32MB로만 이동할 수 있으며 P10 디스크가 제공할 수 있는 초당 최대 100MB는 이동할 수 없습니다. 마찬가지로, STANDARD\_DS13 VM은 모든 디스크에서 초당 최대 256MB로 이동할 수 있습니다. 현재, DS 계열에서 가장 큰 VM은 STANDARD\_DS14 이며 모든 디스크에서 초당 최대 512MB를 제공할 수 있습니다. GS 시리즈에서 가장 큰 VM은 STANDARD\_GS5 이며 모든 디스크에서 초당 최대 2000MB를 제공할 수 있습니다.
 
 	이러한 한도는 캐시 적중 수 및 네트워크 트래픽을 포함하지 않는 디스크 트래픽에만 단독으로 적용됩니다. VM 네트워크 트래픽에 사용할 수 있는 별도 대역폭이 있으며, 프리미엄 저장소 디스크 전용 대역폭과는 다릅니다.
-	
+
 	DS 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션의 테이블을 참조하세요.
 
 > [AZURE.NOTE]캐시 적중 수는 디스크의 할당된 IOPS/처리량으로 제한되지 않습니다. 즉, DS 시리즈 VM 또는 GS 시리즈 VM에서 읽기 전용 캐시 설정된 데이터 디스크를 사용하는 경우 캐시에서 제공 하는 읽기는 프리미엄 저장소 디스크의 대상이 아닙니다. 따라서 워크로드가 대부분 읽기인 경우 디스크에서 상당히 높은 처리량을 얻을 수 있습니다. 캐시는 VM 크기에 기반한 VM 단계에서 별도의 IOPS/처리량으로 제한됩니다. DS 시리즈 VM은 대략 캐시 및 로컬 SSD IO에 대해 코어당 4000 IOPS 및 33MB/초여야 합니다.
@@ -335,6 +335,5 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/24/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # CSDL을 통해 기존 웹 서비스를 Odata에 매핑하는 예
@@ -155,4 +155,4 @@ GET을 사용한 데이터를 통해 RESTful 페이징 구현을 사용합니다
 - 특정 노드 및 해당 매개 변수를 학습하고 이해하려면 문서 [데이터 서비스 OData 매핑 노드](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)에서 정의 및 설명, 예제, 사용 사례 컨텍스트를 살펴보세요.
 - Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

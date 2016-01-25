@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
@@ -63,7 +63,7 @@
 
 	Express 경로 회로를 만들기 전에 연결 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다. PowerShell cmdlet *Get-AzureRmExpressRouteServiceProvider*는 나중에 사용할 이 정보를 반환합니다.
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	연결 공급자가 여기에 나열되었는지 확인합니다. 회로를 만들 때 필요하므로 다음을 기록해둡니다.
 	
@@ -93,13 +93,13 @@
 
 	응답에 서비스 키가 포함됩니다. 다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **모든 Express 경로 목록.**
 
 	*Get-AzureRmExpressRouteCircuit* 명령을 실행하여 자신이 만든 모든 Express 경로 회로 목록을 구할 수 있습니다.
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	응답은 아래 예제와 비슷합니다.
@@ -159,7 +159,7 @@
 
 	다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **프로비전을 위해 연결 공급자에게 서비스 키를 보냅니다.**
 
@@ -215,17 +215,22 @@
 
 6. **라우팅 구성을 만듭니다.**
 	
-	단계별 지침은 [Express 경로 회로 라우팅 구성(회로 피어링 만들기 및 수정)](expressroute-howto-routing-arm.md) 페이지를 참조하세요.
+	단계별 지침은 [Express 경로 회로 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)을 참조하세요.
 
-7. **VNet을 Express 경로 회로에 연결합니다.**
+>[AZURE.IMPORTANT]이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 이러한 경우에 피어링을 만들거나 관리할 수 없습니다.
 
-	이제 VNet을 Express 경로 회로에 연결합니다. Azure 리소스 관리자 배포 모드로 작업할 때 [이 서식 파일](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)을 사용할 수 있습니다. 현재 PowerShell 단계를 진행합니다.
+
+7. **VNet을 Express 경로 회로에 연결합니다.** 
+
+	이제 VNet을 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.
 
 ##  Express 경로 회로의 상태를 가져오려면
 
 언제든지 *Get-AzureRmExpressRouteCircuit* cmdlet를 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
 		Get-AzureRmExpressRouteCircuit
+
+응답은 아래 예제와 비슷합니다.
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -253,7 +258,8 @@
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	The response will be something similar to the example below:
+
+응답은 아래 예제와 비슷합니다.
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -279,7 +285,7 @@
 
 다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## Express 경로 회로를 수정하려면
 
@@ -349,12 +355,12 @@
 
 이 작업이 성공하려면 모든 가상 네트워크를 Express 경로에서 연결 해제해야 합니다. 이 작업이 실패할 경우 회로에 연결된 가상 네트워크가 있는지 확인하십시오.
 
-Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
+Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
 
-위의 cmdlet를 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
+위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
 
 ## 다음 단계
 
 - [라우팅 구성](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,64 +1,64 @@
 <!--author=alkohli last changed: 01/11/16-->
 
-#### To install Update 2 from the Azure portal
+#### Azure 포털에서 업데이트 2를 설치하려면
 
-1. On the StorSimple service page, select your device. Navigate to **Devices** > **Maintenance**.
+1. StorSimple 서비스 페이지에서 장치를 선택합니다. **장치** > **유지 관리**로 이동합니다.
 
-2. At the bottom of the page, click **Scan Updates**. A job will be created to scan for available updates. You will be notified when the job has completed successfully.
+2. 페이지 아래쪽에서 **업데이트 검색**을 클릭합니다. 사용 가능한 업데이트를 검색하는 작업이 만들어질 수 있습니다. 작업이 성공적으로 완료되면 알림이 표시됩니다.
 
-3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 2 on your device.
+3. 동일한 페이지의 **소프트웨어 업데이트** 섹션에 사용할 수 있는 새 소프트웨어 업데이트가 보입니다. 장치에 업데이트 2를 적용하기 전에 릴리스 정보를 검토하는 것이 좋습니다.
 
-    ![Install software updates](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![소프트웨어 업데이트 설치](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
 
-4. At the bottom of the page, click **Install Updates**.
+4. 페이지 아래쪽에서 **업데이트 설치**를 클릭합니다.
 
-5. You will be prompted for confirmation. Click **OK**.
+5. 확인하라는 메시지가 표시됩니다. **확인**을 클릭합니다.
 
-6. An **Install Updates** dialog box will be presented. Your device should satisfy the checks listed in this dialog box. These steps were completed prior to the update. Select **I understand the above requirement and am ready to update my device**. Click the check icon.
+6. **업데이트 설치** 대화 상자가 표시됩니다. 장치가 이 대화 상자에 나열된 검사를 충족해야 합니다. 업데이트 전에 이러한 단계가 완료되었습니다. **위의 요구 사항을 이해하고 장치를 업데이트할 준비가 되었습니다**를 선택합니다. 확인 아이콘을 클릭합니다.
 
-    ![Confirmation message](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
+    ![확인 메시지](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
 
-7. A set of automatic pre-checks will now start. These include:
+7. 이제 일련의 자동 사전 검사가 시작됩니다. 내용은 다음과 같습니다.
 
-	- **Controller health checks** to verify that both the device controllers are healthy and online.
+	- **컨트롤러 상태 검사** 장치 컨트롤러가 정상이고 온라인에 있는지 모두 확인합니다.
 	
-	- **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
+	- **하드웨어 구성 요소 상태 검사** StorSimple 장치에서 모든 하드웨어 구성 요소가 정상인지 확인합니다.
 	
-	- **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you will need to enable it and then retry.
+	- **데이터 0 검사** 데이터 0이 장치에서 사용할 수 있는지 확인합니다. 이 인터페이스를 사용하지 않는 경우 다음을 사용하도록 설정하고 다시 시도해야 합니다.
 	
-	- **DATA 2 and DATA 3 checks** to verify that DATA 2 and DATA 3 network interfaces are not enabled. If these interfaces are enabled, then you will need to disable them and then try to update your device. This check is performed only if you are updating from a device running GA software. Devices running versions 0.1, 0.2, or 0.3 will not need this check.
+	- **데이터 2 및 데이터 3 검사** 데이터 2와 데이터 3 네트워크 인터페이스를 사용하지 않도록 설정했는지 확인합니다. 이 인터페이스를 사용하는 경우 사용하지 않도록 설정한 다음 장치를 업데이트해야 합니다. 이 검사는 GA 소프트웨어를 실행하는 장치에서 업데이트 하는 경우에 수행됩니다. 0.1, 0.2, 또는 0.3 버전을 실행하는 장치에는 이 확인이 필요하지 않습니다.
 	
-	- **Gateway check** on any device running a version prior to Update 1. This check is performed on all the device running pre-update 1 software but fails on the devices that have a gateway configured for a network interface other than DATA 0.
+	- **게이트웨이 검사** 모든 장치에서 업데이트 1 이전 버전을 실행합니다. 이 검사는 업데이트 1 이전 소프트웨어를 실행하는 모든 장치에서 수행되지만 DATA 0 이외의 다른 네트워크 인터페이스에 대해 구성된 게이트웨이가 있는 장치에서는 실패합니다.
  
-	Update 2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
+	위의 사전 업데이트 검사를 모두 성공적으로 완료한 경우에만 업데이트 2가 적용됩니다. 진행 중인 업데이트 전 검사 알림이 표시 됩니다.
   
-    ![Pre-check notification](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
+    ![사전 검사 알림](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
 
-    The following is an example in which the pre-upgrade check failed. You will need to verify that both the device controllers are healthy and online. You will also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+    다음은 업그레이드 전 검사에 실패한 예시입니다. 장치 컨트롤러가 정상이고 온라인인지 모두 확인해야 합니다. 하드웨어 구성 요소 상태도 확인해야 합니다. 이 예시에서는 컨트롤러 0과 컨트롤러 1 구성 요소에 주의가 필요합니다. 혼자서 이러한 문제를 해결할 수 없는 경우 Microsoft 지원에 문의해야 할 수 있습니다.
 
-   	 ![Pre-check failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
+   	 ![사전 검사 실패](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied Update 2 on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA 2, DATA 3, and gateway pre-checks are not performed.
+	> [AZURE.NOTE]사전 업데이트 1 소프트웨어에서 업데이트하는 경우 StorSimple 장치에 업데이트 2를 적용한 후 데이터 2 및 데이터 3 검사와 게이트웨이 검사는 더 이상 이후 업데이트에 필요하지 않습니다. 다른 사전 검사는 여전히 필요합니다. 업데이트 1 이상에서 업데이트한 경우 데이터 2, 데이터 3 및 게이트웨이 사전 검사가 수행되지 않습니다.
 
 
-8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
+8. 업그레이드 전 검사를 성공적으로 완료한 후 업데이트 작업이 생성됩니다. 업데이트 작업이 성공적으로 만들어지면 알림이 표시됩니다.
  
-    ![Update job creation](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
+    ![업데이트 작업 만들기](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
 
-    The update will then be applied on your device.
+    그런 다음 업데이트가 장치에 적용됩니다.
  
-9. To monitor the progress of the update job, click **View Job**. On the **Jobs** page, you can see the update progress. 
+9. 업데이트 작업의 진행률을 모니터링하려면 **작업 보기**를 클릭합니다. **작업** 페이지에서 업데이트 진행률을 볼 수 있습니다.
     
-10. The update will take a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+10. 업데이트를 완료하는 데 몇 시간이 걸릴 수 있습니다. 업데이트 작업을 선택하고 **세부 정보**를 클릭하여 언제든지 작업의 세부 정보를 봅니다.
   
-11. After the job is complete, navigate to the **Maintenance** page and scroll down to **Software Updates**.
+11. 작업이 완료되면 **유지 관리** 페이지로 이동하여 **소프트웨어 업데이트**로 스크롤합니다.
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified.
-
-
-13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
-
-> [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
+12. 장치가 **StorSimple 8000 시리즈 업데이트 2(6.3.9600.17673)**를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜**도 수정해야 합니다.
 
 
+13. 이제 유지 관리 모드 업데이트가 제공되는 것을 확인할 수 있습니다. 이러한 업데이트는 작업 중단 업데이트이므로 장치 가동 중지 시간이 발생할 수 있으며, 장치의 Windows PowerShell 인터페이스를 통해서만 적용할 수 있습니다. [유지 관리 모드 핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfix)에 나열된 단계를 따라 이러한 유지 관리 모드 업데이트를 설치합니다.
+
+> [AZURE.NOTE]특정 인스턴스에서는 유지 관리 모드 업데이트가 장치에 성공적으로 적용된 후 유지 관리 모드 업데이트를 사용할 수 있음을 나타내는 메시지가 최대 24시간 동안 표시될 수 있습니다.
+
+<!---HONumber=AcomDC_0114_2016-->

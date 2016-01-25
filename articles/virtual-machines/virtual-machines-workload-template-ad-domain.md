@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 
@@ -37,7 +37,7 @@ Azure 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행
 1.	**템플릿** 창에서 **저장**을 클릭합니다.
 2.	**매개 변수**를 클릭합니다. **매개 변수** 창에서 새 값을 입력하거나 허용되는 값에서 선택하거나 기본값을 그대로 적용한 다음 **확인**을 클릭합니다.
 3.	필요한 경우 **구독**을 클릭하고 올바른 Azure 구독을 선택합니다.
-4.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 작업에 대한 새 그룹을 만듭니다.
+4.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 워크로드에 대한 새 그룹을 만듭니다.
 5.	필요한 경우 **리소스 그룹 위치**를 클릭하고 올바른 Azure 위치를 선택합니다.
 6.	필요한 경우 **약관**을 클릭하여 템플릿 사용 조건 및 규약을 검토합니다.
 7.	**만들기**를 클릭합니다.
@@ -93,19 +93,4 @@ Azure 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행
 
 템플릿 실행이 완료되면, 새로운 리소스 그룹에서 새로운 두 서버 Active Directory 도메인 서비스 도메인을 갖게 됩니다.
 
-
-## 추가 리소스
-
-[Azure 리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure 리소스 관리자 개요](../resource-group-overview.md)
-
-[Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

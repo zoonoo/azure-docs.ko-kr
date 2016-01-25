@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자로 Azure PowerShell 사용
@@ -302,6 +302,9 @@ ProviderNamespace는 관련 리소스 유형의 컬렉션을 표시합니다. �
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
+                "tags": {
+                    "team": "webdev"
+                },
                 "dependsOn": [
                     "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
                 ],
@@ -382,9 +385,9 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 
 - 구독에서 모든 리소스 그룹을 가져오려면 **Get-AzureRmResourceGroup** cmdlet를 사용합니다.
 
-		PS C:\>Get-AzureRmResourceGroup
+		PS C:\> Get-AzureRmResourceGroup
 
-		ResourceGroupName : TestRG
+		ResourceGroupName : TestRG1
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -392,21 +395,38 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 		
 		...
 
+      특정 리소스 그룹만 가져오려면 **Name** 매개 변수를 제공합니다.
+      
+          PS C:\> Get-AzureRmResourceGroup -Name TestRG1
+
 - 리소스 그룹에서 리소스를 가져오려면 **Get-AzureRmResource** cmdlet와 **ResourceGroupName** 매개 변수를 사용합니다. 매개 변수를 사용하지 않고 Find-AzureRmResource를 입력하면 Azure 구독에서 모든 리소스를 가져옵니다.
 
-		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
-		Name              : exampleserver
-                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-                ResourceName      : exampleserver
-                ResourceType      : Microsoft.Sql/servers
-                Kind              : v12.0
-                ResourceGroupName : TestRG1
-                Location          : westus
-                SubscriptionId    : {guid}
+        Name              : exampleserver
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+        ResourceName      : exampleserver
+        ResourceType      : Microsoft.Sql/servers
+        Kind              : v12.0
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
                 
-                ...
+        ...
 	        
+- 위의 템플릿에는 하나의 리소스에 대한 태그가 포함됩니다. 태그를 사용하여 구독에서 리소스를 논리적으로 구성할 수 있습니다. **Find-AzureRmResource** 및 **Find-AzureRmResourceGroup** 명령을 사용하여 태그별로 리소스를 쿼리할 수 있습니다.
+
+        PS C:\> Find-AzureRmResource -TagName team
+
+        Name              : ExampleSiteuxq53xiz5etmq
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
+        ResourceName      : ExampleSiteuxq53xiz5etmq
+        ResourceType      : Microsoft.Web/sites
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
+                
+      태그를 사용하여 더 많은 작업을 수행할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
 ## 리소스 그룹 추가
 
@@ -441,4 +461,4 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./virtual-machines/resource-group-deploy-debug.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

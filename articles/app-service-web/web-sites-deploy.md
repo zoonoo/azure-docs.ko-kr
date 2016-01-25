@@ -120,7 +120,7 @@ IDE를 사용하여 배포할 때의 단점:
 * [멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 Asp.Net.MVC 5 앱을 웹 앱에 배포합니다.](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) Visual Studio, 웹 배포 및 Entity Framework Code First 마이그레이션을 사용하여 SQL 데이터베이스가 포함된 ASP.NET MVC 웹 프로젝트를 만들고 배포하는 방법을 설명합니다.
 * [Visual Studio 및 ASP.NET의 웹 배포 개요](http://msdn.microsoft.com/library/dd394698.aspx)(영문). Visual Studio를 사용한 웹 배포에 대한 기본적인 소개입니다. 이전에 작성되기는 했지만 웹 응용 프로그램과 함께 데이터베이스를 배포하는 옵션의 개요, 직접 수행해야 하거나 Visual Studio에서 수행하도록 수동 구성해야 하는 추가 배포 작업 목록 등 여전히 관련 있는 정보를 포함하고 있습니다. 이 주제는 웹 앱으로의 배포에 국한된 내용이 아니라 일반적인 배포에 관한 내용입니다.
 * [Visual Studio를 사용한 ASP.NET 웹 배포](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)(영문). 12개 부분으로 구성된 자습서 시리즈로, 이 목록의 다른 자료보다 더 폭넓은 배포 작업 범위를 다룹니다. 일부 Azure 배포 기능은 이 자습서가 작성되기 전에 추가되었지만 이후에 추가된 참고 사항에 누락된 내용이 설명되어 있습니다.
-* [Visual Studio 2012를 사용하여 Git 리포지토리에서 바로 Azure에 ASP.NET 웹 사이트 배포](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)(영문). Git 플러그 인을 사용하여 코드를 Git에 커밋하고 Azure를 Git 리포지토리에 연결하여 Visual Studio에서 ASP.NET 웹 프로젝트를 배포하는 방법을 설명합니다. Visual Studio 2013부터 Git 지원이 기본적으로 제공되므로 플러그 인을 설치할 필요가 없습니다.
+* [Visual Studio 2012를 사용하여 Git 리포지토리에서 바로 Azure에 ASP.NET 웹 사이트 배포](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)(영문). Git 플러그 인을 사용하여 코드를 Git에 커밋하고 Azure를 Git 리포지토리에 연결하여 Visual Studio에서 ASP.NET 웹 프로젝트를 배포하는 방법을 설명합니다. Visual Studio 2013부터 Git 지원이 기본 제공되므로 플러그 인을 설치할 필요가 없습니다.
 
 ###<a name="webmatrix"></a>WebMatrix에서 직접 배포하는 방법
 
@@ -284,4 +284,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

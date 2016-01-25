@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="01/12/2016"
    ms.author="kyliel"/>
 
 # FreeBSD VHD를 만들어서 Azure에 업로드
@@ -72,7 +72,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
     5\.1 **python 설치**
 
-		# pkg install python27 py27-asn1
+		# pkg install python27
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
     5\.2 **wget 설치**
@@ -81,7 +81,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 6. **Azure 에이전트 설치**
 
-    언제든지 최신 버전의 Azure 에이전트를 [github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 버전 2.0.10 이상에서는 공식적으로 FreeBSD 10 이상 버전을 지원합니다.
+    언제든지 최신 버전의 Azure 에이전트를 [github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 버전 2.0.10 이상에서는 공식적으로 FreeBSD 10 이상 버전을 지원합니다. FreeBSD에 대한 최신 Azure 에이전트 버전은 2.0.16입니다.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
@@ -106,7 +106,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파일을 업로드하려면 Azure에 저장소 계정이 있어야 합니다. Azure 클래식 포털을 사용하여 저장소 계정을 만들 수 있습니다.
 
-1. Azure 클래식 포털에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
 
 2. 명령 모음에서 **New**를 클릭합니다.
 
@@ -175,7 +175,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	여기서 `<PathToFile>`은 .publishsettings 파일의 전체 경로입니다.
 
-   자세한 내용은 [Microsoft Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)(영문)을 참조하십시오.
+   자세한 내용은 [Microsoft Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)(영문)을 참조하세요.
 
    PowerShell을 설치하고 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)을 참조하세요.
 
@@ -186,7 +186,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 1. 이전 단계에서 사용한 Azure PowerShell 창에서 다음을 입력합니다.
 
-		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>		
+		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
 ## 5단계: 업로드한 VHD로 VM 만들기 ##
 .vhd를 업로드한 후 구독과 연결된 사용자 지정 이미지 목록에 이미지로 추가하고 이 사용자 지정 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다.
@@ -209,4 +209,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	![azure의 freebsd 이미지](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="01/08/2016" 
 	ms.author="erikre"/>
 
 # Visual Studio Code에서 ASP.NET 5 API 앱 만들기
@@ -446,4 +446,4 @@ Azure Preview 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드�
 이 자습서에서는 Visual Studio Code에서 API 앱을 만드는 방법을 알아보았습니다. Visual Studio Code에 대한 자세한 내용은 [Visual Studio Code](https://code.visualstudio.com/Docs/)를 참조하세요. API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,19 +1,19 @@
 <properties
     pageTitle="Azure 저장소에서 Azure CLI 사용 | Microsoft Azure"
-    description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다."
+    description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다. Azure CLI는 플랫폼 간 도구입니다."
     services="storage"
     documentationCenter="na"
     authors="tamram"
-    manager="jdial"/>
+    manager="carmonm"/>
 
 <tags
     ms.service="storage"
     ms.workload="storage"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article" 
+    ms.topic="article"
     ms.date="01/05/2016"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.author="micurd"/>
 
 # Azure 저장소에서 Azure CLI 사용
 
@@ -206,7 +206,7 @@ Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터�
 Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 또는 Blob을 파일로 복사할 수 있습니다. 아래에는 CLI 명령을 사용하여 이러한 복사 작업을 수행하는 방법이 나와 있습니다. 새 디렉터리에 파일을 복사하려면 다음을 수행합니다.
 
 	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
-	
+
 파일 디렉터리에 Blob을 복사하려면 다음을 수행합니다.
 
 	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
@@ -220,6 +220,5 @@ Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 �
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
- 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

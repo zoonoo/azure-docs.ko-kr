@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/03/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Azure 마켓플레이스에 대한 데이터 서비스 게시 가이드
@@ -146,4 +146,4 @@ SQL Azure DB를 기반으로 데이터 집합에 대한 CSDL 매핑을 만들려
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016--->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
+   ms.date="01/08/2016"
+   ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # 성능 및 확장 개요
 클라우드에 데이터 웨어하우스를 배치함으로써 더 이상 하위 수준의 하드웨어 문제를 처리하지 않아도 됩니다. 데이터 웨어하우스의 성능을 높이기 위해 어떤 유형의 프로세서, 얼마나 많은 메모리, 어떤 유형의 저장소가 필요한지 조사해야 했던 시절은 지나갔습니다. 대신 SQL 데이터 웨어하우스는 다음과 같은 질문을 합니다. 데이터를 얼마나 빨리 분석하고 싶나요?
@@ -69,7 +69,7 @@ SQL 데이터 웨어하우스는 여러 노드에 걸쳐 집계되는 계산 리
 [성능 및 확장]: sql-data-warehouse-performance-scale.md
 [동시성 모델]: sql-data-warehouse-develop-concurrency.md
 [테이블 디자인]: sql-data-warehouse-develop-table-design.md
-[테이블에 대한 해시 배포 키를 선택합니다.]: sql-data-warehouse-develop-hash-distribution-key
+[테이블에 대한 해시 배포 키를 선택합니다.]: sql-data-warehouse-develop-hash-distribution-key.md
 [성능 향상을 위해 통계]: sql-data-warehouse-develop-statistics.md
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
@@ -77,4 +77,4 @@ SQL 데이터 웨어하우스는 여러 노드에 걸쳐 집계되는 계산 리
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

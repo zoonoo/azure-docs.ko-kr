@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # 기본 구성 테스트 환경
@@ -51,9 +51,9 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 3.	APP1 구성
 4.	CLIENT1 구성
 
-아직 Azure 계정이 없는 경우에는 [1개월 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+아직 Azure 계정이 없는 경우에는 [1개월 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 플랫폼 구독이 있는 경우 [MSDN 플랫폼 구독자에 대한 Azure 혜택](https://azure.microsoft.com/offers/ms-azr-0062p/)을 참조하세요.
 
-> [AZURE.NOTE]Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](http://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
+> [AZURE.NOTE]Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 플랫폼 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](http://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
 
 ## 1단계: 가상 네트워크 만들기
 
@@ -250,15 +250,11 @@ CLIENT1과 DC1 간의 이름 확인 및 네트워크 통신을 확인하려면 W
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-이제 응용 프로그램 개발 및 테스트 또는 [시뮬레이션된 하이브리드 클라우드 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)과 같은 추가 테스트 환경을 위한 Azure의 기본 구성이 완료되었습니다.
+Azure 기본 구성이 응용 프로그램 개발 및 테스트 또는 추가적인 테스트 환경에 대한 준비를 마쳤습니다.
 
-## 추가 리소스
+## 다음 단계
 
-[Azure 테스트 랩](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
-
-[하이브리드 클라우드 테스트 환경](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경](virtual-machines-base-configuration-test-environment-resource-manager.md)
+- [시뮬레이트된 하이브리드 클라우드 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)을 설정하여 하이브리드 구성을 테스트합니다.
 
 ## <a id="costs"></a>Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화
 
@@ -288,4 +284,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

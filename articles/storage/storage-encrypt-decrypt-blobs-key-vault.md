@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="adhurwit"
    manager=""
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="storage"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/17/2015"
-   ms.author="adhurwit"/>
+   ms.date="01/06/2016"
+   ms.author="lakasa"/>
 
 # Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독
 
 ## 소개
- 
+
 이 자습서에서는 Azure 키 자격 증명 모음과 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 응용 프로그램에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
 
 **예상 완료 시간:** 20분
@@ -35,7 +35,7 @@ Azure 저장소에 대한 클라이언트 쪽 암호화의 개요 정보는 [Mic
 
 - Azure 저장소 계정
 - Visual Studio 2013 이상
-- Azure PowerShell 
+- Azure PowerShell
 
 
 ## 클라이언트 쪽 암호화 개요
@@ -69,13 +69,13 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다.
 
 패키지 관리자 콘솔에서 필요한 Nuget 패키지를 추가합니다.
 
-	Install-Package WindowsAzure.Storage 
+	Install-Package WindowsAzure.Storage
 
 	// This is the latest stable release for ADAL.
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	Install-Package Microsoft.Azure.KeyVault 
-	Install-Package Microsoft.Azure.KeyVault.Extensions 
+	Install-Package Microsoft.Azure.KeyVault
+	Install-Package Microsoft.Azure.KeyVault.Extensions
 
 
 AppSettings를 App.Config에 추가합니다.
@@ -108,13 +108,13 @@ AppSettings를 App.Config에 추가합니다.
 	{
 	    var authContext = new AuthenticationContext(authority);
 	    ClientCredential clientCred = new ClientCredential(
-	        ConfigurationManager.AppSettings["clientId"], 
+	        ConfigurationManager.AppSettings["clientId"],
 	        ConfigurationManager.AppSettings["clientSecret"]);
 		AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
-	
+
 	    if (result == null)
 	        throw new InvalidOperationException("Failed to obtain the JWT token");
-	
+
 	    return result.AccessToken;
 	}
 
@@ -148,14 +148,14 @@ Main 함수에 다음 코드를 추가합니다.
 ## Blob 암호화 및 업로드
 Blob을 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
 
-	
+
 	// Retrieve the key that you created previously.
 	// The IKey that is returned here is an RsaKey.
 	// Remember that we used the names contosokeyvault and testrsakey1.
     var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
 
-	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy. 
+	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
@@ -202,9 +202,9 @@ RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독�
 - SymmetricKey의 키는 Base64 인코딩이 되어 있어야 합니다.
 - SymmetricKey로 사용할 키 자격 증명 모음 암호는 키 자격 증명 모음에 "응용 프로그램/옥텟 스트림" 콘텐츠 형식을 가지고 있어야 합니다.
 
-다음은 SymmetricKey로 사용할 수 있는 키 자격 증명 모음의 암호를 만드는 Powershell의 예제입니다.
+다음은 SymmetricKey로 사용할 수 있는 키 자격 증명 모음의 암호를 만드는 Powershell의 예제입니다. 참고: $key는 하드 코드된 값이며 데모 전용입니다. 사용자 고유의 코드에서 이 키를 생성할 수 있습니다.
 
-	// Here we are making a 128-bit key so we have 16 characters. 
+	// Here we are making a 128-bit key so we have 16 characters.
 	// 	The characters are in the ASCII range of UTF8 so they are
 	//	each 1 byte. 16 x 8 = 128.
 	$key = "qwertyuiopasdfgh"
@@ -218,7 +218,7 @@ RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독�
 사용자의 콘솔 응용 프로그램에서는 전과 동일한 호출을 사용하여 이 암호를 검색할 수 있습니다.
 
 	SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/", 
+    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
         CancellationToken.None).GetAwaiter().GetResult();
 
 이것으로 끝입니다. 마음껏 즐기세요!
@@ -235,4 +235,4 @@ Microsoft Azure 저장소에 관한 최신 정보를 보려면 [Microsoft Azure 
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

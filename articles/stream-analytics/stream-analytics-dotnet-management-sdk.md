@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="01/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -150,6 +150,8 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
 **resourceGroupName** 변수의 값은 이전 단계에서 만들거나 선택한 리소스 그룹의 이름과 동일해야 합니다.
+
+작업 만들기의 자격 증명 프레젠테이션 측면을 자동화하려면 [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](./articles/resource-group-authenticate-service-principal.md)을 참조하세요.
 
 이 문서의 나머지 섹션에서는 이 코드가 **Main** 메서드의 시작 부분에 있다고 가정합니다.
 
@@ -364,4 +366,4 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

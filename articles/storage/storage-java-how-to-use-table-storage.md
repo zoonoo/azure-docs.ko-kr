@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Java에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";" 
-	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Java에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";"
+	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 
 # Java에서 테이블 저장소를 사용하는 방법
@@ -564,6 +564,5 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [블로그 게시글]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
- 
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="01/13/2015"
    ms.author="larryfr"/>
 
 
@@ -59,14 +59,29 @@ Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스�
 가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 > [AZURE.NOTE]HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](http://azure.microsoft.com/documentation/services/virtual-network/)을 참조하세요.
->
-> Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹을 기반으로 하는 가상 네트워크와는 연동되지 않습니다.
->
-> 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
->
-> Windows 기반 클러스터에는 v1(클래식) 가상 네트워크가 필요하고, Linux 기반 클러스터에는 v2(Azure 리소스 관리자) 가상 네트워크가 필요합니다. 올바른 유형의 네트워크가 없으면, 클러스터를 만들어도 사용할 수 없습니다.
->
-> 만들려는 클러스터에서 사용할 수 없는 가상 네트워크에 리소스가 있는 경우에는, 클러스터에서 사용할 수 있는 새로운 가상 네트워크를 만들어서 호환되지 않는 가상 네트워크에 연결할 수 있습니다. 그 후 필요한 네트워크 버전에서 클러스터를 만들면 두 네트워크가 연결되어 있기 때문에 다른 네트워크에 있는 리소스에 액세스할 수 있습니다. 클래식 가상 네트워크와 새 가상 네트워크 연결에 대한 내용은 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+
+## 가상 네트워크 요구 사항
+
+> [AZURE.IMPORTANT]가상 네트워크에 HDInsight 클러스터를 만들려면 이 섹션에 설명된 특정 가상 네트워크 구성이 필요합니다.
+
+* Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹을 기반으로 하는 가상 네트워크와는 연동되지 않습니다. 
+
+* 각각의 HDInsight 클러스터에 단일 서브넷을 만드는 것이 좋습니다.
+
+* Windows 기반 클러스터에는 v1(클래식) 가상 네트워크가 필요하고, Linux 기반 클러스터에는 v2(Azure 리소스 관리자) 가상 네트워크가 필요합니다. 올바른 유형의 네트워크가 없으면, 클러스터를 만들어도 사용할 수 없습니다.
+
+    만들려는 클러스터에서 사용할 수 없는 가상 네트워크에 리소스가 있는 경우에는, 클러스터에서 사용할 수 있는 새로운 가상 네트워크를 만들어서 호환되지 않는 가상 네트워크에 연결할 수 있습니다. 그 후 필요한 네트워크 버전에서 클러스터를 만들면 두 네트워크가 연결되어 있기 때문에 다른 네트워크에 있는 리소스에 액세스할 수 있습니다. 클래식 가상 네트워크와 새 가상 네트워크 연결에 대한 내용은 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+
+* HDInsight는 인터넷으로/인터넷에서 액세스를 명시적으로 제한하는 Azure 가상 네트워크에서 지원되지 않습니다. 예를 들어 네트워크 보안 그룹 또는 Express 경로를 사용하여 가상 네트워크의 리소스에 대한 인터넷 트래픽을 차단합니다. HDInsight 서비스는 관리 서비스로, 실행하는 동안 Azure에서 클러스터의 상태를 모니터링하고 클러스터 리소스의 장애 조치(failover) 및 다른 자동화된 관리 작업을 시작할 수 있도록 프로비전 중에 인터넷에 액세스할 수 있어야 합니다.
+
+    인터넷 트래픽을 차단하는 가상 네트워크에서 HDInsight를 사용하려는 경우 다음을 수행하면 됩니다.
+
+    1.	가상 네트워크 내에서 새 서브넷을 만듭니다. 이 서브넷은 HDInsight에서 사용됩니다.
+
+    2.	라우팅 테이블을 정의하고 인바운드 및 아웃바운드 인터넷 연결을 모두 허용하는 서브넷에 대한 UDR(사용자 정의 경로)을 만듭니다. * 경로를 사용하여 이 작업을 수행할 수 있습니다. 이렇게 하면 서브넷에 있는 리소스만 인터넷 연결을 사용할 수 있습니다. UDR로 작업하는 방법에 대한 자세한 내용은 https://azure.microsoft.com/ko-KR/documentation/articles/virtual-networks-udr-overview/ 및 https://azure.microsoft.com/ko-KR/documentation/articles/virtual-networks-udr-how-to/를 참조하세요.
+    
+    3.	HDInsight 클러스터를 만들 때 1단계에서 만든 서브넷을 선택합니다. 이렇게 하면 인터넷에 액세스된 서브넷에 클러스터를 배포합니다.
+
 
 가상 네트워크에서 HDInsight 클러스터를 프로비전하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
@@ -176,4 +191,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # 주문형 "버스트" 노드(작업자 역할 인스턴스)를 Azure의 HPC 팩 헤드 노드에 계산 리소스로 추가
@@ -21,13 +21,13 @@ ms.service="virtual-machines"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-이 문서는 Azure 주문형 "버스트" 노드(클라우드 서비스에서 실행되는 작업자 역할 인스턴스)를 Azure의 기존 HPC 팩 헤드 노드에 계산 리소스로 추가하는 방법을 보여줍니다. 이렇게 하면 사전 구성된 계산 노드 VM을 유지 관리하지 않고도 Azure에서 HPC 클러스터의 계산 용량을 확장할 수 있습니다.
+이 문서는 Azure 주문형 "버스트" 노드(클라우드 서비스에서 실행되는 작업자 역할 인스턴스)를 Azure의 기존 HPC 팩 헤드 노드에 계산 리소스로 추가하는 방법을 보여줍니다. 이렇게 하면 사전 구성된 컴퓨터 노드 VM을 유지 관리하지 않고 요청 시 Azure에서 HPC 클러스터의 계산 용량을 확장할 수 있습니다.
 
 ![버스트 노드][burst]
 
->[AZURE.TIP] [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에 클러스터를 만들 경우 자동 배포에 Azure 버스트 노드를 포함할 수 있습니다.
+>[AZURE.TIP] [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에 클러스터를 만들 경우 자동 배포에 Azure 버스트 노드를 포함할 수 있습니다. 해당 문서에서 예제를 참조하세요.
 
-이 문서의 단계를 통해 Azure 노드를 클라우드 기반 HPC 팩 헤드 노드 VM에 빠르게 추가하여 테스트 또는 개념 증명 배포를 수행할 수 있습니다. 이 절차는 기본적으로 온-프레미스 HPC 팩 클러스터에 클라우드 계산 용량을 추가하는 "Azure로 버스트"와 동일합니다. 자습서를 보려면 [Microsoft HPC 팩을 사용하여 하이브리드 계산 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. 프로덕션 배포에 대한 자세한 지침과 고려 사항을 보려면 [Microsoft HPC 팩을 사용하여 Azure로 버스트](http://go.microsoft.com/fwlink/p/?LinkID=200493)를 참조하세요.
+이 문서의 단계를 통해 Azure 노드를 클라우드 기반 HPC 팩 헤드 노드 VM에 빠르게 추가하여 테스트 또는 개념 증명 배포를 수행할 수 있습니다. 이 절차는 기본적으로 온-프레미스 HPC 팩 클러스터에 클라우드 계산 용량을 추가하는 "Azure로 버스트"와 동일합니다. 자습서를 보려면 [Microsoft HPC 팩을 사용하여 하이브리드 계산 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. 프로덕션 배포에 대한 자세한 지침과 고려 사항을 보려면 [Microsoft HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)를 참조하세요.
 
 A8 또는 A9 계산 집약적 인스턴스 크기를 사용하려는 경우 [A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)를 참조하세요.
 
@@ -83,9 +83,9 @@ Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 �
 
 ## 다음 단계
 
-* Azure 컴퓨팅 리소스를 현재 작업 워크로드 및 클러스터 작업에 따라 자동으로 증가 또는 축소하려는 경우 [HPC 팩 클러스터에서 Azure 계산 리소스 증가 및 축소](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
+* Azure 컴퓨팅 리소스를 현재 작업 워크로드 및 클러스터 작업에 따라 자동으로 증가 또는 축소하려는 경우 [HPC 팩 클러스터에서 Azure 계산 리소스 자동 증가 및 축소](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 앱 복원
@@ -81,7 +81,11 @@
 세부 정보 블레이드가 해당 작업과 관련된 사용 가능한 정보를 표시합니다.
 	
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-	
+
+## 다음 단계
+
+또한 REST API를 사용하여 앱 서비스 앱을 백업 및 복원할 수 있습니다([REST를 사용하여 앱 서비스 앱 백업 및 복원](websites-csm-backup.md) 참조).
+
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
@@ -102,4 +106,4 @@
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

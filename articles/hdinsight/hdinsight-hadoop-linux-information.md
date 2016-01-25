@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Linux에서 HDInsight 사용에 관한 정보
@@ -196,16 +196,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 	* __Storm UI__: Storm UI를 사용하여 토폴로지의 균형을 다시 조정하려면 다음 단계를 사용합니다.
 
-		1. [클러스터에 대한 SSH 터널을 만들고 Ambari 웹 UI를 엽니다](hdinsight-linux-ambari-ssh-tunnel.md).
-
-		2. 페이지의 왼쪽에 있는 서비스 목록에서 __Storm__을 선택합니다. 그런 다음 __빠른 링크__에서 __Storm UI__를 선택합니다.
-
-
-			![빠른 연결에서 Storm UI 항목](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
-
-			그러면 Storm UI가 표시됩니다.
-
-			![Storm UI](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+		1. 웹 브라우저에서 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__을 엽니다. 여기서 CLUSTERNAME은 Storm 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
 
 		3. 균형을 다시 조정하려는 토폴로지를 선택한 다음 __균형 다시 맞추기__ 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
 
@@ -256,4 +247,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

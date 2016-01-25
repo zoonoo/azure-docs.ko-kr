@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Blob 저장소를 사용하는 온-프레미스 응용 프로그램
 
@@ -366,4 +366,4 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
   [Azure 저장소 클라이언트 SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

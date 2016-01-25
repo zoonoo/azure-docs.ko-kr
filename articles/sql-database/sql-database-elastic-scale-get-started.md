@@ -61,7 +61,7 @@
 ### 기타 탄력적인 확장 작업
 
 1. **기존의 분할된 데이터베이스 분할**: **분할/병합 도구**를 통해 분할된 데이터베이스를 분할하는 기능이 제공됩니다. 이 도구에 대한 자세한 내용은 다음을 참조하세요. [분할/병합 도구 개요](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **기존의 분할된 데이터베이스 병합**: 분할 병합도 **분할/병합 도구**를 사용하여 수행할 수 있습니다. 자세한 내용은 [분할/병합 도구 개요](sql-database-elastic-scale-overview-split-and-merge)를 참조하세요.   
+2. **기존의 분할된 데이터베이스 병합**: 분할 병합도 **분할/병합 도구**를 사용하여 수행할 수 있습니다. 자세한 내용은 [분할/병합 도구 개요](sql-database-elastic-scale-overview-split-and-merge.md)를 참조하세요.   
 
 
 ## 비용
@@ -98,4 +98,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

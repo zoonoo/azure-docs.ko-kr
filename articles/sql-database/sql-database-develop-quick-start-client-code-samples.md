@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/10/2016" 
 	ms.author="genemi"/>
 
 
@@ -51,7 +51,7 @@
 | 언어 | 간단한 샘플 | 재시도 샘플 | 관계형에서 개체로 |
 | :-- | :-- | :-- | :-- |
 | Node.js | [지루한](sql-database-develop-nodejs-simple-linux.md) | . | . |
-| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-ubuntu-linux.md) | . | . |
 | Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
@@ -94,4 +94,4 @@
 - [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)
 - [GitHub의 EF 7, Entity Framework 6](http://entityframework.codeplex.com/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

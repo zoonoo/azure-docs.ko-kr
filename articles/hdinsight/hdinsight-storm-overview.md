@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/06/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #HDInsight의 Apache Storm 소개: Hadoop에 대한 실시간 분석
@@ -219,4 +219,4 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016--->

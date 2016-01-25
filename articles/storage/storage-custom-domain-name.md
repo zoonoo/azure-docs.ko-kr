@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="저장소 계정에서 Blob 데이터의 도메인 이름 구성 | Microsoft Azure" 
-	description="Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성하는 방법에 대해 알아봅니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="Blob 저장소 끝점에 대한 도메인 이름 구성 | Microsoft Azure"
+	description="Azure 저장소 계정에 대해 사용자 지정 사용자 도메인을 Blob 저장소 끝점에 매핑하는 방법을 알아봅니다."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/07/2015"
 	ms.author="tamram"/>
 
 
-# Azure 저장소 계정에서 Blob 데이터의 사용자 지정 도메인 이름 구성
+# Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성
 
 ## 개요
 
-Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Blob 서비스의 기본 끝점은 https://<*mystorageaccount*>.blob.core.windows.net.입니다. **www.contoso.com**과 같은 사용자 지정 도메인 및 하위 도메인을 저장소 계정의 Blob 끝점에 매핑하면 사용자도 해당 도메인을 사용하여 저장소 계정의 Blob 데이터에 액세스할 수 있습니다.
+Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Blob 저장소의 기본 끝점은 https://<*mystorageaccount*>.blob.core.windows.net입니다. **www.contoso.com**과 같은 사용자 지정 도메인 및 하위 도메인을 저장소 계정의 Blob 끝점에 매핑하면 사용자도 해당 도메인을 사용하여 저장소 계정의 Blob 데이터에 액세스할 수 있습니다.
 
 
 > [AZURE.NOTE]이 작업의 절차는 Azure 저장소 계정에 적용됩니다. 클라우드 서비스에 대해서는 <a href = "/develop/net/common-tasks/custom-dns/">Azure 클라우드 서비스의 사용자 지정 도메인 이름 구성</a>을, 웹 사이트에 대해서는 <a href="/develop/net/common-tasks/custom-dns-web-site/">Azure 웹 사이트의 사용자 지정 도메인 이름 구성을 참조하세요</a>.
@@ -44,7 +44,7 @@ Blob|**기본 URL:** http://mystorageaccount.blob.core.windows.net/mycontainer/m
 
 사용자 지정 도메인이 가동 중지 시간이 없어야 하는 응용 프로그램을 현재 지원하고 있다면 <a href="#register-asverify">중간 asverify 하위 도메인을 사용하여 저장소 계정의 사용자 지정 도메인 등록</a>에서 설명한 절차를 따르세요.
 
-사용자 지정 도메인 이름을 구성하려면 도메인 등록 기관에서 새 CNAME 레코드를 만들어야 합니다. CNAME 레코드에서 도메인 이름의 별칭을 지정합니다. 이 경우에는 사용자 지정 도메인의 주소를 저장소 계정의 Blob 서비스 끝점에 매핑합니다.
+사용자 지정 도메인 이름을 구성하려면 도메인 등록 기관에서 새 CNAME 레코드를 만들어야 합니다. CNAME 레코드에서 도메인 이름의 별칭을 지정합니다. 이 경우에는 사용자 지정 도메인의 주소를 저장소 계정의 Blob 저장소 끝점에 매핑합니다.
 
 각 등록 기관은 서로 유사하면서 약간 다른 방법으로 CNAME 레코드를 지정하지만 개념은 동일합니다. 대다수 기본 도메인 등록 패키지에서 DNS 구성을 제공하지 않으므로 CNAME 레코드를 만들려면 먼저 도메인 등록 패키지를 업그레이드해야 할 수 있습니다.
 
@@ -54,7 +54,7 @@ Blob|**기본 URL:** http://mystorageaccount.blob.core.windows.net/mycontainer/m
 
 3.  **구성** 탭을 클릭합니다.
 
-4.  화면 아래에 있는 **도메인 관리**를 클릭하여 **사용자 지정 도메인 관리** 대화 상자를 표시합니다. 대화 상자 위쪽에 있는 텍스트에서 CNAME 레코드를 만드는 방법에 대한 정보를 볼 수 있습니다. 이 절차에서는 **asverify** 하위 도메인을 참조하는 텍스트는 무시하세요.
+4.  화면 아래에 있는 **도메인 관리**를 클릭하여 **사용자 지정 도메인 관리** 대화 상자를 표시합니다. 대화 상자 위쪽에 있는 텍스트에서 CNAME 레코드를 만드는 방법에 대한 정보를 볼 수 있습니다. 이 절차에서는 **asverify** 하위 도메인을 참조하는 텍스트는 무시하십시오.
 
 5.  DNS 등록 기관의 웹 사이트에 로그온한 다음 DNS 관리 페이지로 이동합니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리**와 같은 섹션에서 이를 찾을 수 있습니다.
 
@@ -115,6 +115,5 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 ## 추가 리소스
 
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법</a>
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

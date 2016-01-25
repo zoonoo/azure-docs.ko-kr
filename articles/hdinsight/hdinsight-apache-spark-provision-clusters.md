@@ -32,7 +32,7 @@
 
 ##<a id="configuration"></a>다른 구성 옵션 정의
 
-###저장소 추가
+### 저장소 추가
 
 구성 중에는 Azure Blob 저장소 계정과 기본 컨테이너를 지정해야 합니다. 이 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요한 경우 역시 클러스터에 연결되는 추가 Azure 저장소 계정도 지정할 수 있습니다.
 
@@ -40,7 +40,7 @@
 
 보조 Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요.
 
-###메타 저장소
+### 메타 저장소
 
 Spark는 스키마를 원시 데이터에 대해 Hive 테이블 정의할 수 있습니다. 외부 메타 스토어에 이러한 스키마와 테이블 메타데이터를 저장할 수 있습니다. Metastore를 사용하면 Hive 메타데이터를 보존할 수 있으므로 새 클러스터를 만들 때 Hive 테이블을 다시 만들 필요가 없습니다. Hive는 기본적으로 포함된 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다.
 
@@ -51,7 +51,7 @@ Azure에서 SQL 데이터베이스를 만드는 방법에 대한 자세한 내�
 만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 작업**을 통해 호출됩니다. 스크립트 작업은 Azure 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-customize-cluster]을 참조하세요.
 
 
-###가상 네트워킹
+### 가상 네트워킹
 
 [Azure 가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
 
@@ -69,13 +69,7 @@ Azure에서 SQL 데이터베이스를 만드는 방법에 대한 자세한 내�
 
 	![지점 및 사이트 간 구성 다이어그램](./media/hdinsight-apache-spark-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
-
-> [AZURE.NOTE]클러스터를 만들기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크를 만드는 방법](virtual-networks-create-vnet.md)을 참조하세요.
->
-> Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
->
-> 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
+가상 네트워크에 대한 특정 구성 요구 사항을 포함하여 가상 네트워크로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
 ##<a id="portal"></a> Azure Preview 포털 사용
 
@@ -86,7 +80,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 1. [Azure 미리 보기 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
-    ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
+    ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.1.png "Azure Preview 포털에서 새 클러스터 만들기")
 
 3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Spark**를 선택하고 **클러스터 운영 체제** 드롭다운에서 **Windows Server 2012 R2 Datacenter**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
@@ -108,7 +102,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
 
-	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **모든 구독에서**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
+	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
 
 	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
@@ -178,9 +172,9 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
 	* **삭제**: HDInsight 클러스터를 삭제합니다.
 
-	* **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-apache-spark-provision-clusters/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
+	* **빠른 시작**(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)): HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
 
-	* **사용자(![사용자 아이콘](./media/hdinsight-apache-spark-provision-clusters/users.png))**: Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
+	* **사용자**(![사용자 아이콘](./media/hdinsight-apache-spark-provision-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
 		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
@@ -189,7 +183,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 	* **클러스터 대시보드**: 클러스터 대시보드를 자체적으로 시작하거나 Zeppelin 및 Jupyter Notebook을 시작할 수 있는 클러스터 대시보드 블레이드를 시작합니다.
 
 
-##<a id="powershell"></a> Azure PowerShell 사용
+##<a id="powershell"></a>Azure PowerShell 사용
 
 [HDInsight 클러스터 만들기](hdinsight-provision-clusters.md#create-using-azure-powershell)를 참조하세요.
 
@@ -248,4 +242,4 @@ Spark 클러스터 형식을 지정합니다.
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

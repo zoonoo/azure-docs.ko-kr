@@ -1,6 +1,6 @@
 <properties
    pageTitle="서비스 패브릭에 대한 연속 통합 | Microsoft Azure"
-   description="VSTS(Visual Studio Team Services)를 사용한 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정 방법의 개요를 확인합니다."
+   description="Visual Studio Team Services를 사용한 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정 방법의 개요를 확인합니다."
    services="service-fabric"
    documentationCenter="na"
    authors="cawams"
@@ -15,9 +15,9 @@
    ms.date="10/16/2015"
    ms.author="cawa" />
 
-# VSTS(Visual Studio Team Services)를 사용한 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정
+# Visual Studio Team Services를 사용한 Azure 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정
 
-이 문서에서는 자동화된 방식으로 응용 프로그램을 빌드, 패키지, 배포할 수 있게 VSTS(Visual Studio Team Services)를 사용하여 서비스 패브릭 응용 프로그램에 대한 CI(지속적인 통합)를 설정하는 과정을 안내합니다. 이 문서는 현재 환경을 반영하며 개발 진행에 따라 변경될 수 있습니다. 또한 이 지침에서는 매번 클러스터를 처음부터 다시 만듭니다.
+이 문서에서는 자동화된 방식으로 응용 프로그램을 빌드, 패키지, 배포할 수 있게 Visual Studio Team Services를 사용하여 서비스 패브릭 응용 프로그램에 대한 지속적인 통합을 설정하는 과정을 안내합니다. 이 문서는 현재 환경을 반영하며 개발 진행에 따라 변경될 수 있습니다. 또한 이 지침에서는 매번 클러스터를 처음부터 다시 만듭니다.
 
 ## 필수 조건
 
@@ -33,7 +33,7 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 
 ### 자동화를 위한 인증 설정
 
-빌드 컴퓨터를 설정하려면 먼저 자동화가 Azure에 대한 인증에 사용할 "서비스 주체"를 만들어야 합니다. 또한 Azure 주요 자격 증명 모음은 서비스 주체 인증을 지원하지 않으므로 인증서를 만들어 주요 자격 증명 모음에 업로드해야 합니다. 아무 컴퓨터에서나 다음 단계를 수행할 수 있습니다. 개발 컴퓨터를 사용하면 좋습니다.
+빌드 컴퓨터를 설정하기 전에 Azure에 인증하는 데 자동화를 사용하는 "서비스 주체"를 만들어야 합니다. 또한 Azure 키 자격 증명 모음은 서비스 주체 인증을 지원하지 않으므로 인증서를 만들고 키 자격 증명 모음에 업로드해야 합니다. 아무 컴퓨터에서나 다음 단계를 수행할 수 있습니다. 개발 컴퓨터를 사용하면 좋습니다.
 
 ### Azure PowerShell 설치 및 로그인
 
@@ -42,34 +42,35 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 
     >[AZURE.NOTE]최신 업데이트가 설치된 Windows 10을 실행 중인 경우 이 단계를 건너뛸 수 있습니다.
 
-1.	AzureRM 모듈을 설치하고 업데이트합니다.
-    1.  이전 버전의 Azure PowerShell이 설치되어 있다면 제거합니다. 시작 단추를 마우스 오른쪽 단추로 누르고 "프로그램 추가/제거"를 선택합니다. "Azure PowerShell"을 검색하여 제거합니다.
-    1.  Azure PowerShell 명령 프롬프트를 실행합니다.
-    1.	`Install-Module AzureRM` 명령을 사용하여 "AzureRM" 모듈을 설치합니다.
-    1.	`Update-AzureRM` 명령을 사용하여 "AzureRM" 모듈을 업데이트합니다.
-1.	Azure 데이터 수집을 비활성화(또는 활성화)합니다.
+2.	AzureRM 모듈을 설치하고 업데이트합니다.
+    1.  이전 버전의 Azure PowerShell이 설치되어 있다면 제거합니다. 시작 단추를 마우스 오른쪽 단추로 클릭한 다음 **프로그램 추가/제거**를 선택합니다. "Azure PowerShell"을 검색하여 제거합니다.
+    2.  Azure PowerShell 명령 프롬프트를 실행합니다.
+    3.	`Install-Module AzureRM` 명령을 사용하여 AzureRM 모듈을 설치합니다.
+    4.	`Update-AzureRM` 명령을 사용하여 AzureRM 모듈을 업데이트합니다.
+
+3.	Azure 데이터 수집을 비활성화(또는 활성화)합니다.
 
     Azure cmdlet은 데이터 수집의 옵트인 여부를 묻는 메시지를 사용자가 선택할 때까지 표시합니다. 이 프롬프트에서는 사용자 입력을 대기하는 동안 자동화가 차단됩니다. 미리 선택하여 이 프롬프트를 표시하지 않으려면 다음 명령 중 하나를 실행합니다.
 
     - Enable-AzureRmDataCollection
     - Disable-AzureRmDataCollection
 
-1.	Azure PowerShell에 로그인합니다.
+4.	Azure PowerShell에 로그인합니다.
     1. 관리자 PowerShell 프롬프트를 실행하고 `Login-AzureRMAccount` 명령을 실행합니다.
-    1. 나타나는 대화 상자에서 Azure 자격 증명을 입력합니다.
-    1. `Get-AzureRmSubscription` 명령을 실행합니다.
-    1. 사용하려는 구독을 찾은 다음 `Select-AzureRmSubscription -SubscriptionId <id for your subscription>` 명령을 실행합니다.
+    2. 나타나는 대화 상자에서 Azure 자격 증명을 입력합니다.
+    3. `Get-AzureRmSubscription` 명령을 실행합니다.
+    4. 사용하려는 구독을 찾은 다음 `Select-AzureRmSubscription -SubscriptionId <id for your subscription>` 명령을 실행합니다.
 
 ### 서비스 주체 만들기
 
 1.	이 컴퓨터의 폴더에서 [ServiceFabricCIManualScripts.zip](http://go.microsoft.com/fwlink/?LinkId=703773)의 압축을 풉니다.
-1.	관리자 PowerShell 명령 프롬프트에서 ServiceFabricCIManualScripts.zip의 압축을 푼 디렉터리로 변경합니다.
-1.	다음 명령을 사용하여 서비스 주체에 대한 암호를 선택합니다. 이 암호는 빌드 변수로 사용되므로 기억해 두어야 합니다.
+2.	관리자 PowerShell 명령 프롬프트에서 ServiceFabricCIManualScripts.zip의 압축을 푼 디렉터리로 변경합니다.
+3.	다음 명령을 사용하여 서비스 주체에 대한 암호를 선택합니다. 이 암호는 빌드 변수로 사용되므로 기억해 두어야 합니다.
 
     ```
     $password = Read-Host -AsSecureString
     ```
-1.	다음 매개 변수로 PowerShell 스크립트 Create-ServicePrincipal.ps1를 실행합니다.
+4.	다음 매개 변수로 PowerShell 스크립트 Create-ServicePrincipal.ps1를 실행합니다.
 
     |매개 변수|값|
     |---|---|
@@ -84,10 +85,10 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
     - ServicePrincipalTenantId
     - ServicePrincipalSubscriptionId
 
-### 인증서를 만들어 새 Azure 주요 자격 증명 모음에 업로드합니다.
+### 인증서를 만들고 새 키 자격 증명 모음에 업로드
 
 1.	관리자 PowerShell 프롬프트에서 ServiceFabricCIManualScripts.zip의 압축을 푼 디렉터리로 변경합니다.
-1.	다음 매개 변수로 PowerShell 스크립트 CreateAndUpload-Certificate.ps1를 실행합니다.
+2.	다음 매개 변수로 PowerShell 스크립트 CreateAndUpload-Certificate.ps1를 실행합니다.
 
     |매개 변수|값|
     |---|---|
@@ -113,16 +114,16 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 
 1.	이미 컴퓨터를 프로비전한 경우(또는 자체 제공할 계획인 경우) [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)를 해당 컴퓨터에 설치합니다.
 2.	컴퓨터가 아직 없는 경우 미리 설치된 Visual Studio 2015를 통해 Azure VM(가상 컴퓨터)를 신속하게 프로비전할 수 있습니다. 다음을 수행합니다.
-    1.	[Azure 관리 포털](http://portal.azure.com)에 로그인합니다.
-    1.	화면의 왼쪽 맨 위 모퉁이에서 **New** 명령을 선택합니다.
-    1.	**마켓플레이스**를 선택합니다.
-    1.	**Visual Studio 2015**를 검색합니다.
-    1.	**계산** > **가상 컴퓨터** > **갤러리에서**를 선택합니다.
-    1.	**Visual Studio Enterprise 2015 With Azure SDK 2.7 on Windows Server 2012 R2** 이미지를 선택합니다.
+    1.	[Azure 포털](http://portal.azure.com)에 로그인합니다.
+    2.	화면의 왼쪽 맨 위 모퉁이에서 **New** 명령을 선택합니다.
+    3.	**마켓플레이스**를 선택합니다.
+    4.	**Visual Studio 2015**를 검색합니다.
+    5.	**계산** > **가상 컴퓨터** > **갤러리에서**를 선택합니다.
+    6.	**Visual Studio Enterprise 2015 With Azure SDK 2.7 on Windows Server 2012 R2** 이미지를 선택합니다.
 
         >[AZURE.NOTE]Azure SDK는 필수 구성 요소가 아니지만 Visual Studio 2015만 설치하는 이미지는 제공되지 않습니다.
 
-    1.	대화 상자의 지침에 따라 VM을 만듭니다. 최적의 디스크 및 CPU 성능을 위해서는 D 시리즈를 선택하는 것이 좋습니다.
+    7.	대화 상자의 지침에 따라 VM을 만듭니다. 최적의 디스크 및 CPU 성능을 위해서는 D 시리즈 VM을 선택하는 것이 좋습니다.
 
 ### 서비스 패브릭 SDK 설치
 
@@ -156,7 +157,7 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 
 ### Azure PowerShell 설치
 
-Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 로그인**의 단계를 따릅니다. **Azure PowerShell 로그인** 하위 섹션은 건너뜁니다.
+Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 로그인**의 단계를 따릅니다. 4단계 **Azure PowerShell에 로그인**을 건너뜁니다.
 
 ### Azure PowerShell 모듈을 로컬 서비스 계정에 등록
 
@@ -170,32 +171,34 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 1.	빌드 컴퓨터에 인증서를 가져옵니다. 다음을 수행합니다.
     1. CreateAndUpload-Certificate.ps1 스크립트를 통해 만든 PFX 파일을 빌드 컴퓨터에 복사합니다.
-    1. 관리 PowerShell 계정을 열고 앞서 GenerateCertificate.ps1에 전달한 암호를 사용하여 다음 명령을 실행합니다.
+    2. 관리 PowerShell 계정을 열고 앞서 GenerateCertificate.ps1에 전달한 암호를 사용하여 다음 명령을 실행합니다.
 
         ```
         $password = Read-Host -AsSecureString
         Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
         ```  
 
-1.	인증서 관리자를 실행합니다.
+2. 인증서 관리자를 실행합니다.
+
     1. Windows 제어판을 엽니다. 시작 단추를 마우스 오른쪽 단추로 클릭하고 **제어판**을 선택합니다.
-    1. **인증서**를 검색합니다.
-    1. **관리 도구** > **컴퓨터 인증서 관리**를 선택합니다.
+    2. **인증서**를 검색합니다.
+    3. **관리 도구** > **컴퓨터 인증서 관리**를 선택합니다.
 
 
-1.	로컬 서비스 계정에 자동화 인증서 사용을 위한 권한을 부여합니다.
+3. 로컬 서비스 계정에 자동화 인증서 사용을 위한 권한을 부여합니다.
+
     1.	**인증서 - 로컬 컴퓨터**에서 **개인**을 확장한 다음 **인증서**를 선택합니다.
-    1.	목록에서 해당하는 인증서를 찾습니다.
-    1.	인증서를 마우스 오른쪽 단추로 클릭한 다음 **모든 작업** > **개인 키 관리**를 선택합니다.
-    1.	**추가** 단추를 선택하고 **로컬 서비스**를 입력한 다음 **이름 확인**을 선택합니다.
-    1.	**확인** 단추를 선택한 다음 인증서 관리자를 닫습니다.
+    2.	목록에서 해당하는 인증서를 찾습니다.
+    3.	인증서를 마우스 오른쪽 단추로 클릭한 다음 **모든 작업** > **개인 키 관리**를 선택합니다.
+    4.	**추가** 단추를 선택하고 **로컬 서비스**를 입력한 다음 **이름 확인**을 선택합니다.
+    5.	**확인** 단추를 선택한 다음 인증서 관리자를 닫습니다.
 
-![](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
+![Windows 인증서 관리자 UI의 그림](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
 ### 빌드 에이전트 등록
 
 1.	agent.zip을 다운로드합니다. 다음을 수행합니다.
-    1.	팀 프로젝트에 로그인합니다(예: **https://[your-VSTS-account-name].visualstudio.com**).
+    1.	팀 프로젝트에 로그인합니다(예: **https://[your-Team-Services-account-name].visualstudio.com**).
 	1.	화면 오른쪽 위 모퉁이에서 '기어' 아이콘을 선택합니다.
     1.	제어판에서 **에이전트 풀** 탭을 선택합니다.
     1.	**에이전트 다운로드**를 선택하고 agent.zip 파일을 다운로드합니다.
@@ -204,45 +207,46 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
         >[AZURE.NOTE]ASP.NET 5 웹 서비스 구축을 계획 중이라면 배포 중 **PathTooLongExceptions** 오류가 발생하지 않게 이 폴더에 가능한 가장 짧은 이름을 선택하는 것이 좋습니다.
 
-1.	관리자 PowerShell 명령 프롬프트에서 `C:\agent\ConfigureAgent.ps1`을 실행합니다. 스크립트가 다음 매개 변수를 입력하라는 메시지를 표시합니다.
+2.	관리자 PowerShell 명령 프롬프트에서 `C:\agent\ConfigureAgent.ps1`을 실행합니다. 스크립트가 다음 매개 변수를 입력하라는 메시지를 표시합니다.
 
     |매개 변수|값|
     |---|---|
     |에이전트 이름|기본값(`Agent-[machine name]`)을 적용합니다.
-    |TFS Url|팀 프로젝트에 대한 URL을 입력합니다(예: `https://[your-VSTS-account-name].visualstudio.com`).
+    |TFS Url|팀 프로젝트에 대한 URL을 입력합니다(예: `https://[your-Team-Services-account-name].visualstudio.com`).
     |에이전트 풀|에이전트 풀의 이름을 입력합니다. 에이전트 풀을 만들지 않은 경우 기본 값을 적용합니다.|
     |작업 폴더|기본값을 적용합니다. 빌드 에이전트가 실제로 응용 프로그램을 빌드하는 폴더입니다. 참고: ASP.NET 5 웹 서비스 구축을 계획 중이라면 배포 중 PathTooLongExceptions 오류가 발생하지 않게 이 폴더에 가능한 가장 짧은 이름을 선택하는 것이 좋습니다.|
     |Windows 서비스로 설치?|기본값은 N입니다. 이 값을 Y로 변경합니다.|
     |서비스를 실행하는 사용자 계정|기본값(`NT AUTHORITY\LocalService)`)을 적용합니다.|
     |기존 에이전트 구성 취소?|기본값(**N**)을 적용합니다.|
 
-1. 자격 증명을 입력하라는 메시지가 표시됩니다. 팀 프로젝트에 대한 권한이 있는 Microsoft 계정의 자격 증명을 입력합니다.
-1. 빌드 에이전트가 등록된 것을 확인합니다. 다음을 수행합니다.
+3. 자격 증명을 입력하라는 메시지가 표시됩니다. 팀 프로젝트에 대한 권한이 있는 Microsoft 계정의 자격 증명을 입력합니다.
+4. 빌드 에이전트가 등록된 것을 확인합니다. 다음을 수행합니다.
 
-    1. 웹 브라우저(`https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool` 페이지에 있어야 함)로 돌아가 페이지를 새로 고칩니다.
+    1. 웹 브라우저(`https://[your-Team-Services-account-name].visualstudio.com/_admin/_AgentPool` 페이지에 있어야 함)로 돌아가 페이지를 새로 고칩니다.
     1. 앞서 ConfigureAgent.ps1을 실행할 때 선택한 에이전트 풀을 선택합니다.
     1. 빌드 에이전트가 목록에 있고 녹색 상태가 강조 표시되었는지 확인합니다. 빨강으로 강조 표시된 경우 빌드 에이전트가 Team Services에 연결하는 데 문제가 있는 것입니다.
 
-![](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
+![제어판의 **에이전트 풀** 탭](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
 
 ## 빌드 정의 설정
 
-### 연속 통합 스크립트를 응용 프로그램에 대한 소스 제어에 추가합니다.
+### 연속 통합 스크립트를 응용 프로그램에 대한 소스 제어에 추가
 
 1.	소스 제어에서 임의의 폴더에 [ServiceFabricCIAutomationScripts.zip](http://go.microsoft.com/fwlink/?LinkId=703775)의 압축을 풉니다.
-1.	결과 파일을 체크인합니다.
+2.	결과 파일을 체크인합니다.
 
 ### 빌드 정의 만들기
 
 1.	빈 빌드 정의를 만듭니다. 다음을 수행합니다.
+
     1.	Visual Studio Team Services에서 프로젝트를 엽니다.
     1.	**빌드** 탭을 선택합니다.
     1.	녹색 **+** 기호를 선택하여 새 빌드 정의를 만듭니다.
     1.	**비어 있음**을 선택하고 **다음** 단추를 선택합니다.
     1.  오른쪽 리포지토리 및 분기가 선택되었는지 확인합니다.
     1.  빌드 에이전트를 등록한 에이전트 대기열을 선택하고 **연속 통합** 확인란을 선택합니다.
-1.	**변수** 탭에서 해당 값을 갖는 다음 변수를 만듭니다.
+2.	**변수** 탭에서 해당 값을 갖는 다음 변수를 만듭니다.
 
     |변수|값|Secret|큐 시간에 허용|
     |---|---|---|---|
@@ -264,9 +268,9 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
     |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
     |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` .sfproj 파일이 들어 있는 폴더여야 합니다.||||
 
-1.	**트리거** 탭에서 **연속 통합** 및 **일괄 변경** 옵션을 선택합니다.
-1.	**일반** 탭에서 빌드 에이전트를 등록한 큐를 선택합니다.
-1.	빌드 정의를 저장하고 이름을 지정합니다. 나중에 원하면 이 이름을 변경할 수 있습니다.
+3.	**트리거** 탭에서 **연속 통합** 및 **일괄 변경** 옵션을 선택합니다.
+4.	**일반** 탭에서 빌드 에이전트를 등록한 큐를 선택합니다.
+5.	빌드 정의를 저장하고 이름을 지정합니다. 나중에 원하면 이 이름을 변경할 수 있습니다.
 
 ### "빌드" 단계 추가
 
@@ -313,15 +317,15 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 ### "클러스터 리소스 그룹 제거" 단계추가
 
-임시 클러스터를 마쳤으므로 이제 정리해야 합니다. 정리하지 않으면 임시 클러스터에 대한 비용이 계속 청구됩니다. 이 단계에서는 리소스 그룹을 제거하여 클러스터와 그룹 내 모든 다른 리소스를 제거합니다.
+임시 클러스터를 마쳤으므로 이제 정리해야 합니다. 정리하지 않으면 임시 클러스터에 대한 비용이 계속 청구됩니다. 이 절차에서는 리소스 그룹을 제거하여 클러스터와 그룹 내 모든 다른 리소스를 제거합니다.
 
 1.	**빌드** 탭에서 **빌드 단계 추가...** 명령을 선택합니다.
-1.	**유틸리티** > **PowerShell**을 선택합니다.
-1.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **클러스터 리스소 그룹 제거**로 변경합니다.
-1.	**스크립트 파일 이름** 옆의 **...** 버튼을 선택합니다. 자동화 스크립트의 압축을 푼 위치로 이동한 다음 **RemoveClusterResourceGroup.ps1**을 선택합니다.
-1.	"인수"에 `-ServicePrincipalPassword "$(ServicePrincipalPassword)`를 입력합니다.
-1.	**제어 옵션**에서 **항상 실행** 확인란을 선택합니다.
-1.	빌드 정의를 저장합니다.
+2.	**유틸리티** > **PowerShell**을 선택합니다.
+3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **클러스터 리스소 그룹 제거**로 변경합니다.
+4.	**스크립트 파일 이름** 옆의 **...** 버튼을 선택합니다. 자동화 스크립트의 압축을 푼 위치로 이동한 다음 **RemoveClusterResourceGroup.ps1**을 선택합니다.
+5.	"인수"에 `-ServicePrincipalPassword "$(ServicePrincipalPassword)`를 입력합니다.
+6.	**제어 옵션**에서 **항상 실행** 확인란을 선택합니다.
+7.	빌드 정의를 저장합니다.
 
 ### 사용해 보세요.
 
@@ -332,14 +336,18 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 위의 지침은 각각의 빌드에 대해 새 클러스터를 만들며 빌드 마지막에 해당 클러스터를 제거합니다. 그 대신 각 빌드가 응용 프로그램 업그레이드를 수행하게 하려면(기존 클러스터에 대해) 다음 단계를 수행합니다.
 
-1.	Azure 관리 포털 또는 Azure PowerShell을 통해 수동으로 테스트 클러스터를 만듭니다. "ProvisionAndDeploy SecureCluster.ps1" 스크립트를 참고로 사용할 수 있습니다.
-1.	[이 지침](service-fabric-visualstudio-configure-upgrade.md)에 따라 응용 프로그램 업그레이드를 지원하는 게시 프로필을 구성합니다.
+1.	Azure 포털 또는 Azure PowerShell을 통해 수동으로 테스트 클러스터를 만듭니다. "ProvisionAndDeploy SecureCluster.ps1" 스크립트를 참고로 사용할 수 있습니다.
+2.	[이 지침](service-fabric-visualstudio-configure-upgrade.md)에 따라 응용 프로그램 업그레이드를 지원하는 게시 프로필을 구성합니다.
 
-1.	**클러스터 보호를 위한 프로비전 및 배포** 단계를 Deploy-FabricApplication.ps1을 직접 호출하는 단계로 대체합니다(게시 프로필로 전달).
-1.	빌드 정의에서 **클러스터 리소스 그룹 제거** 빌드 단계를 모두 제거합니다.
+3.	**클러스터 보호를 위한 프로비전 및 배포** 단계를 Deploy-FabricApplication.ps1을 직접 호출하는 단계로 대체합니다(게시 프로필로 전달).
+4.	빌드 정의에서 **클러스터 리소스 그룹 제거** 빌드 단계를 모두 제거합니다.
 
 ## 다음 단계
 
-서비스 패브릭 응용 프로그램과의 연속 통합에 대한 자세한 내용은 다음 문서에서 확인합니다. [빌드 설명서 홈](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+서비스 패브릭 응용 프로그램으로 연속 통합에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-<!-------HONumber=AcomDC_1217_2015-->
+- [빌드 설명서 홈](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
+- [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
+- [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 고객에게 Microsoft 계정으로 등록 및 로그인 제공
@@ -41,11 +41,9 @@ Azure AD(Active Directory) B2C에서 Microsoft 계정을 ID 공급자로 사용�
 
     ![MSA - URL 리디렉션](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
-6. 왼쪽 탐색에서 **앱 설정**을 클릭합니다. **클라이언트 ID** 및 **클라이언트 암호** 값을 복사합니다. 테넌트에서 Microsoft 계정을 ID 공급자로 구성하려면 둘 다 필요합니다.
+6. 왼쪽 탐색에서 **앱 설정**을 클릭합니다. **클라이언트 ID** 및 **클라이언트 암호** 값을 복사합니다. 테넌트에서 Microsoft 계정을 ID 공급자로 구성하려면 둘 다 필요합니다. 참고: **클라이언트 암호**는 중요한 보안 자격 증명입니다.
 
-> [AZURE.NOTE]**클라이언트 암호**는 중요한 보안 자격 증명입니다.
-
-    ![MSA - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
+    ![MSA - 클라이언트 암호](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
 ## 테넌트에서 Microsoft 계정을 ID 공급자로 구성
 
@@ -57,4 +55,4 @@ Azure AD(Active Directory) B2C에서 Microsoft 계정을 ID 공급자로 사용�
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 Microsoft 계정 응용 프로그램의 **클라이언트 ID** 및 **클라이언트 암호**를 입력합니다.
 7. **확인** 및 **만들기**를 차례로 클릭하여 Microsoft 계정 구성을 저장합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

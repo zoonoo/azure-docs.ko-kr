@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/13/2015"
    ms.author="cawa"/>
 
 # Azure PowerShell 명령을 사용하여 빈 클라우드 서비스 컨테이너를 만드는 방법
-1. Microsoft Azure PowerShell cmdlet을 [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) 다운로드에서 설치합니다. Azure PowerShell cmdlet 설치 및 Azure 구독에 연결에 대한 추가 지침은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+1. Microsoft Azure PowerShell cmdlet을 [Azure PowerShell](http://aka.ms/webpi-azps) 다운로드에서 설치합니다. PowerShell 명령 프롬프트를 엽니다. [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx)를 사용하여 로그인
+
+> [AZURE.NOTE]Azure PowerShell cmdlet 설치 및 Azure 구독에 연결에 대한 추가 지침은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 2. **New-AzureService**는 빈 클라우드 서비스 컨테이너를 만드는 cmdlet입니다.
 
@@ -41,4 +43,4 @@ Get-help New-AzureService
     - 클라우드 서비스 프로젝트를 Azure에 게시하려면, **PublishCloudService.ps1** 코드 예제를 [Azure에서 클라우드 서비스에 대한 지속적인 전송](cloud-services-dotnet-continuous-delivery.md)에서 참조하세요.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

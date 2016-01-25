@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 다중 경로 I/O 구성
@@ -111,7 +111,7 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 
 13. 디스크를 초기화하고 새 볼륨을 만듭니다. 포맷 프로세스 동안 64KB의 블록 크기를 선택합니다. ![디스크 관리](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. **디스크 관리**에서 **디스크**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
-15. StorSimple 모델 #### **다중 경로 디스크 장치 속성** 대화 상자에서 **MPIO 탭**을 클릭합니다. ![StorSimple 8100 다중 경로 디스크 장치 속성입니다.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. StorSimple 모델 #### **다중 경로 디스크 장치 속성** 대화 상자에서 **MPIO** 탭을 클릭합니다. ![StorSimple 8100 다중 경로 디스크 장치 속성입니다.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
 16. **DSM 이름** 섹션에서 **세부 정보**를 클릭하고 해당 매개 변수가 기본 매개 변수로 설정되었는지 확인합니다. 기본 매개 변수는 다음과 같습니다.
 
@@ -173,4 +173,4 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 [StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정](storsimple-modify-device-config.md)에 대해 자세히 알아봅니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

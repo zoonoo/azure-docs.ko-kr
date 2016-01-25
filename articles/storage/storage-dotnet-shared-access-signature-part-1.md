@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="공유 액세스 서명: SAS 모델 | Microsoft Azure 이해하기" 
-	description="SAS(공유 액세스 서명)를 사용하여 Blob, 큐, 테이블 및 파일을 비롯한 Azure 저장소 리소스에 대한 액세스 권한을 위임하는 방법을 알아봅니다. 공유 액세스 서명을 사용하여 계정에서 다른 사용자에게 리소스에 대한 액세스를 부여하는 동안 저장소 계정을 보호할 수 있습니다. 부여하는 사용 권한 및 SAS 유효 간격을 제어할 수 있습니다. 저장된 액세스 정책도 설정하는 경우 계정 보안 문제가 발생할 염려가 있는 SAS를 취소할 수 있습니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="공유 액세스 서명: SAS 모델 | Microsoft Azure 이해하기"
+	description="SAS(공유 액세스 서명)를 사용하여 Blob, 큐, 테이블 및 파일을 비롯한 Azure 저장소 리소스에 대한 액세스 권한을 위임하는 방법을 알아봅니다. 공유 액세스 서명을 통해 계정에서 다른 사용자에게 리소스에 액세스를 허용하는 동안 저장소 계정 키를 보호할 수 있습니다. 부여하는 사용 권한 및 SAS 유효 간격을 제어할 수 있습니다. 저장된 액세스 정책도 설정하는 경우 계정 보안 문제가 발생할 염려가 있는 SAS를 취소할 수 있습니다."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/16/2015"
 	ms.author="tamram"/>
 
 
@@ -51,8 +51,6 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 - 다른 저장소 계정에 있는 다른 파일에 파일을 복사하는 경우 SAS를 사용하여 원본 파일을 인증해야 합니다. 2015-04-05 버전에서는 필요에 따라 SAS를 사용하여 대상 파일도 인증할 수 있습니다.
 - Blob을 파일에 복사하거나 파일을 Blob에 복사하는 경우 원본 및 대상 개체가 동일한 저장소 계정 내에 있더라도 SAS를 사용하여 원본 개체를 인증해야 합니다.
 
->[AZURE.NOTE]현재 계정 SAS는 BLOB 및 파일 서비스에만 지원됩니다. 조만간 테이블 및 큐 서비스에도 지원될 예정입니다.
-
 ## 공유 액세스 서명의 유형
 
 2015-04-05 버전의 Azure 저장소부터 계정 SAS라는 새로운 유형의 공유 액세스 서명이 도입되었습니다. 이제 두 가지 유형의 공유 액세스 서명을 만들 수 있습니다.
@@ -69,12 +67,12 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 
 ### 계정 SAS 및 서비스 SAS 토큰에 일반적인 매개 변수
 
-- **Api 버전** 요청을 실행하기 위해 사용할 저장소 서비스 버전을 지정하는 선택적 매개 변수입니다. 
+- **Api 버전** 요청을 실행하기 위해 사용할 저장소 서비스 버전을 지정하는 선택적 매개 변수입니다.
 - **서비스 버전** 요청을 인증하기 위해 사용할 저장소 서비스 버전을 지정하는 선택적 매개 변수입니다.
-- **시작 시간.** SAS가 유효해지는 시간입니다. 공유 액세스 서명의 시작 시간은 선택 사항이며, 생략할 경우 SAS가 즉시 유효해집니다. 
+- **시작 시간.** SAS가 유효해지는 시간입니다. 공유 액세스 서명의 시작 시간은 선택 사항이며, 생략할 경우 SAS가 즉시 유효해집니다.
 - **만료 시간.** SAS가 더 이상 유효하지 않게 되는 시간입니다. 모범 사례에 따라 SAS의 만료 시간을 지정하거나 만료 시간을 저장된 액세스 정책과 연결하는 것이 좋습니다(아래 내용 참조).
 - **사용 권한** SAS에 지정된 사용 권한은 클라이언트가 SAS를 사용하여 저장소 리소스에 대해 수행할 수 있는 작업을 나타냅니다. 사용 가능한 권한은 계정 SAS와 서비스 SAS가 다릅니다.
-- **IP** 요청을 수락할 Azure 외부(Express 경로에 대한 [라우팅 세션 구성 상태](../expressroute/expressroute-workflows.md#routing-session-configuration-state) 섹션 참조)의 IP 주소 또는 IP 주소 범위를 지정하는 선택적 매개 변수입니다. 
+- **IP** 요청을 수락할 Azure 외부(Express 경로에 대한 [라우팅 세션 구성 상태](../expressroute/expressroute-workflows.md#routing-session-configuration-state) 섹션 참조)의 IP 주소 또는 IP 주소 범위를 지정하는 선택적 매개 변수입니다.
 - **프로토콜** 요청에 허용되는 프로토콜을 지정하는 선택적 매개 변수입니다. 기본값인 HTTPS 및 HTTP(https,http) 또는 HTTPS만(https) 허용됩니다. HTTP만은 허용되는 값이 아닙니다.
 - **서명** 서명은 토큰의 일부로 지정된 다음 암호화된 다른 매개 변수에서 구성됩니다. 서명은 SAS 인증에 사용됩니다.
 
@@ -129,7 +127,7 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 
 공유 액세스 서명은 다음 두 가지 형식 중 하나를 사용할 수 있습니다.
 
-- **임시 SAS:** 임시 SAS를 만들 때 SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정되거나 시작 시간이 생략되는 경우에는 묵시적으로 지정됩니다. 이 SAS 유형은 계정 SAS 또는 서비스 SAS로 만들 수 있습니다. 
+- **임시 SAS:** 임시 SAS를 만들 때 SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정되거나 시작 시간이 생략되는 경우에는 묵시적으로 지정됩니다. 이 SAS 유형은 계정 SAS 또는 서비스 SAS로 만들 수 있습니다.
 
 - **저장된 액세스 정책 사용 SAS:** 저장된 액세스 정책은 리소스 컨테이너(Blob 컨테이너, 테이블, 큐 또는 파일 공유)에서 정의되며, 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용할 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다.
 
@@ -151,7 +149,7 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 이 예제를 실행하려면 다음 패키지를 다운로드하여 참조해야 합니다.
 
 - [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage), 버전 6.x 이상(계정 SAS 사용을 위해).
-- [Azure 구성 관리자](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+- [Azure 구성 관리자](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 ### 예제: 계정 SAS
 
@@ -230,23 +228,23 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-       
+
     // Create the blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    
+
     // Get a reference to the container for which shared access signature will be created.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
     container.CreateIfNotExists();
-    
+
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
 
     // Clear the container's shared access policies to avoid naming conflicts.
     blobPermissions.SharedAccessPolicies.Clear();
-    
+
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
@@ -255,14 +253,14 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
        Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
-    
-    // The public access setting explicitly specifies that 
+
+    // The public access setting explicitly specifies that
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
-    
+
     // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
-    
+
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
@@ -270,15 +268,15 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 서비스 SAS를 소유한 클라이언트는 코드에 이 SAS를 사용하여 컨테이너의 Blob 읽기 또는 쓰기에 대한 요청을 인증할 수 있습니다. 예를 들어 다음 코드는 SAS 토큰을 사용하여 컨테이너에 새 블록 Blob을 만듭니다. 자신의 계정 이름을 사용하려면 코드를 변경합니다.
 
     Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
-    
+
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
-    
+
     // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
-    
-    // Upload the blob. 
-    // If the blob does not yet exist, it will be created. 
+
+    // Upload the blob.
+    // If the blob does not yet exist, it will be created.
     // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
@@ -312,7 +310,7 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 
 ## 다음 단계 ##
 
-- [공유 액세스 서명, 2부: Blob 서비스를 사용하여 SAS 만들기 및 사용](storage-dotnet-shared-access-signature-part-2.md)
+- [공유 액세스 서명, 2부: Blob 저장소를 사용하여 SAS 만들기 및 사용](storage-dotnet-shared-access-signature-part-2.md)
 - [Windows에서 Azure 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)
 - [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)
 - [공유 액세스 서명을 사용하여 액세스 위임](http://msdn.microsoft.com/library/azure/ee395415.aspx)
@@ -320,7 +318,4 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

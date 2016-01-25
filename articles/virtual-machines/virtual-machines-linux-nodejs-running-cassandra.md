@@ -6,9 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
-
 
 # Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 
 
@@ -32,7 +31,6 @@ Microsoft Azure 네트워킹을 사용하면 미세 조정된 네트워크 보�
 - 각 Cassandra 노드에 고정된 내부 IP 주소가 필요합니다.
 
 Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 지역에 배포할 수 있습니다. 다중 지역 배포 모델을 활용하면 동일한 Cassandra 인프라를 통해 특정 지역에 더 가까운 곳에서 최종 사용자에게 서비스를 제공할 수 있습니다. Cassandra의 기본 제공 노드 복제는 여러 데이터 센터에서 발생한 다중 마스터 쓰기를 동기화하고 일관된 데이터 뷰를 응용 프로그램에 제공합니다. 또한 다중 지역 배포는 광범위한 Azure 서비스 중단 위험의 완화에도 도움이 될 수 있습니다. Cassandra의 조정 가능한 일관성 및 복제 토폴로지는 응용 프로그램의 다양한 RPO 요구를 충족하는 데 유용합니다.
-
 
 ### 단일 지역 배포
 단일 지역 배포로 시작하여 다중 지역 모델을 만드는 방법을 알아보겠습니다. Azure 가상 네트워킹은 위에서 언급한 네트워크 보안 요구 사항을 충족할 수 있도록 격리된 서브넷을 만드는 데 사용됩니다. 단일 지역 배포를 만드는 방법에서 설명된 프로세스는 Ubuntu 14.04 LTS 및 Cassandra 2.08을 사용하지만 다른 Linux 변형에도 쉽게 이 프로세스를 채택할 수 있습니다. 다음은 단일 지역 배포의 몇 가지 시스템 특성입니다.
@@ -99,7 +97,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 | 복제 계수(RF) | 3 | 지정된 행의 복제본 수 |
 | 일관성 수준(쓰기) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] 수식의 결과는 버림됨 | 2개 노드는 첫 번째 데이터 센터에 동기적으로 기록됩니다. 할당량에 필요한 추가 2개 노드는 두 번째 데이터 센터에 비동기적으로 기록됩니다. |
 | 일관성 수준(읽기) | LOCAL\_QUORUM ((RF/2) +1) = 2 공식 결과는 버림됨 | 읽기 요청은 한 지역에서만 충족됩니다. 응답이 클라이언트로 다시 전송되기 전에 2개 노드를 읽습니다. |
-| 복제 전략 | NetworkTopologyStrategy 자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html)를 참조 | 배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
+| 복제 전략 | NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 | 배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
 | Snitch | GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)를 참조 | NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. | 
  
 
@@ -342,7 +340,7 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
 
 위 프로세스는 Azure 클래식 포털을 사용하여 실행할 수 있습니다. Windows 컴퓨터를 사용하고(Windows 컴퓨터에 대한 액세스 권한이 없는 경우 Azure에서 VM 사용) 다음 PowerShell 스크립트를 사용하여 VM 8개를 모두 자동으로 프로비전합니다.
 
-**List1: 가상 컴퓨터 프로비전을 위한 PowerShell 스크립트**
+**목록 1: 가상 컴퓨터 프로비전을 위한 PowerShell 스크립트**
 		
 		#Tested with Azure Powershell - November 2014	
 		#This powershell script deployes a number of VMs from an existing image inside an Azure region
@@ -499,6 +497,7 @@ Azure 클래식 포털에서 다음 세부 정보당 각 vnet을 선택하고 "�
 
 ###4단계: VNET1 및 VNET2에 게이트웨이 만들기
 두 가상 네트워크의 대시보드에서 게이트웨이 만들기를 클릭합니다. 그러면 VPN 게이트웨이 프로비저닝 프로세스가 트리거됩니다. 몇 분 후에 각 가상 네트워크의 대시보드에 실제 게이트웨이 주소가 표시되어야 합니다.
+
 ###5단계: "로컬" 네트워크를 해당 "게이트웨이" 주소로 업데이트###
 두 로컬 네트워크를 편집하여 자리 표시자 게이트웨이 IP 주소를 방금 프로비전한 게이트웨이의 실제 IP 주소로 바꿉니다. 다음 매핑을 사용합니다.
 
@@ -511,10 +510,10 @@ Azure 클래식 포털에서 다음 세부 정보당 각 vnet을 선택하고 "�
 ###6단계: 공유 키 업데이트
 각 VPN 게이트웨이의 IPSec 키를 업데이트하려면 다음 Powershell 스크립트를 사용하여 [두 게이트웨이에서 sake 키 사용]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###6단계: VNET 간 연결 설정
+###7단계: VNET 간 연결 설정
 Azure 클래식 포털에서 두 가상 네트워크의 "대시보드" 메뉴를 사용하여 게이트웨이 간 연결을 설정합니다. 아래쪽 도구 모음의 "연결" 메뉴 항목을 사용합니다. 몇 분 후에 대시보드에 연결 정보가 그래픽으로 표시되어야 합니다.
 
-###7단계: 지역 #2에 가상 컴퓨터 만들기 
+###8단계: 지역 #2에 가상 컴퓨터 만들기 
 동일한 단계를 수행하여 지역 #1 배포에서 설명한 대로 Ubuntu 이미지를 만들거나 이미지 VHD 파일을 지역 #2에 있는 Azure 저장소 계정에 복사하여 이미지를 만듭니다. 이 이미지를 사용하고 새 클라우드 서비스 hk-c-svc-east-us에 다음 가상 컴퓨터 목록을 만듭니다.
 
 
@@ -532,16 +531,19 @@ Azure 클래식 포털에서 두 가상 네트워크의 "대시보드" 메뉴를
 
 
 지역 #1과 동일한 지침을 따르되 10.2.xxx.xxx 주소 공간을 사용합니다.
-###8단계: 각 VM에서 Cassandra 구성
+
+###9단계: 각 VM에서 Cassandra 구성
 VM에 로그인하고 다음을 수행합니다.
 
 1. $CASS\_HOME/conf/cassandra-rackdc.properties를 편집하여 데이터 센터 및 랙 속성을 dc =EASTUS rack =rack1 형식으로 지정합니다.
 2. cassandra.yaml을 편집하여 시드 노드를 구성합니다. "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
-###9단계: Cassandra 시작
+
+###10단계: Cassandra 시작
 각 VM에 로그인하고 다음 명령을 실행하여 Cassandra를 백그라운드에서 시작합니다. $CASS\_HOME/bin/cassandra
 
 ## 다중 지역 클러스터 테스트
 지금까지 각 Azure 지역에 8개 노드씩, 16개 노드에 Cassandra가 배포되었습니다. 이러한 노드는 공통 클러스터 이름 및 시드 노드 구성으로 인해 동일한 클러스터에 있습니다. 클러스터를 테스트하려면 다음 프로세스를 사용합니다.
+
 ###1단계: PowerShell을 사용하여 두 지역에 대한 내부 부하 분산 장치 IP 가져오기
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
@@ -690,6 +692,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

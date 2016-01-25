@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+   ms.date="01/07/2016"
+   ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장
 계산 능력을 탄력적으로 늘리거나 줄이려면 SQL 데이터 웨어하우스에 할당된 데이터 웨어하우스 단위(DWU)의 수를 조정하기만 하면 됩니다. 데이터 웨어하우스 단위는 SQL 데이터 웨어하우스에서 제공하는 새로운 개념으로 이것을 간단하고 효과적으로 관리해줍니다. 이 토픽에서는 데이터 웨어하우스 단위를 사용하여 계산 능력을 탄력적으로 조정할 수 있는 방법과 함께 데이터 웨어하우스 단위에 대해 소개합니다. 이 문서는 또한 사용자 환경에 맞게 적절한 DWU 값을 설정하는 방법에 대한 일부 초기 지침도 제공합니다.
@@ -93,4 +93,4 @@ PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell cmdl
 
 [Azure 클래식 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

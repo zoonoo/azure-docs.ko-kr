@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #Ambari REST API를 사용하여 HDInsight 클러스터 관리
@@ -135,4 +135,4 @@ REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://git
 
 > [AZURE.NOTE]HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

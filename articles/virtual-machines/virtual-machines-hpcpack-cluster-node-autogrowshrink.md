@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/07/2016"
  ms.author="danlep"/>
 
 # 클러스터 워크로드에 따라 HPC 팩 클러스터에서 Azure 계산 리소스를 자동으로 확장 및 축소
@@ -27,12 +27,14 @@ HPC 팩 클러스터에 Azure "버스트" 노드를 배포하거나 Azure VM에 
 
 ## 필수 조건
 
-* **HPC 팩 2012 R2 업데이트 1 이상 클러스터** - **AzureAutoGrowShrink.ps1** 스크립트는 %CCP\_HOME%bin 폴더에 설치됩니다. 클러스터 헤드 노드는 온-프레미스 또는 Azure VM에 배포할 수 있습니다. 온-프레미스 헤드 노드 및 Azure "버스트" 노드로 시작하려면 [HPC 팩으로 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. Azure VM에 HPC 팩 클러스터를 빠르게 배포하려면 [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 참조하세요.
+* **HPC 팩 2012 R2 업데이트 1 이상 클러스터** - **AzureAutoGrowShrink.ps1** 스크립트는 %CCP\_HOME%bin 폴더에 설치됩니다. 클러스터 헤드 노드는 온-프레미스 또는 Azure VM에 배포할 수 있습니다. 온-프레미스 헤드 노드 및 Azure "버스트" 노드로 시작하려면 [HPC 팩으로 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)을 참조하세요. Azure VM에 HPC 팩 클러스터를 빠르게 배포하려면 [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 참조하세요. 또는 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)을 사용합니다.
+
+* **Azure PowerShell 0.8.12** - 현재 스크립트는 이 특정 버전의 Azure PowerShell에 따라 다릅니다. 헤드 노드에서 이후 버전을 실행하는 경우 스크립트를 실행하려면 Azure PowerShell을 [버전 0.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi)로 다운그레이드해야 할 수 있습니다.
 
 * **Azure 버스트 노드가 포함된 클러스터의 경우** - HPC 팩이 설치된 클라이언트 컴퓨터 또는 헤드 노드에서 스크립트를 실행합니다. 클라이언트 컴퓨터에서 실행할 경우 $env:CCP\_SCHEDULER 변수가 헤드 노드를 올바르게 가리키도록 설정합니다. Azure "버스트" 노드는 클러스터에 이미 추가되어 있어야 하지만, 배포되지 않음 상태일 수 있습니다.
 
 
-* **Azure VM에 배포된 클러스터의 경우** - 여기에 설치된 **Start-HpcIaaSNode.ps1** 및 **Stop-HpcIaaSNode.ps1** 스크립트에 따라 다라지므로 헤드 노드 VM에서 스크립트를 실행합니다. 이러한 스크립트는 추가적으로 Azure 관리 인증서 또는 게시 설정 파일이 필요합니다([Azure의 HPC 팩 클러스터에서 계산 노드 관리](virtual-machines-hpcpack-cluster-node-manage.md) 참조). 필요한 모든 계산 노드 VM이 이미 클러스터에 추가되었는지 확인합니다. 하지만 중지 상태일 수 있습니다.
+* **Azure VM에 배포된 클러스터의 경우** - 여기에 설치된 **Start-HpcIaaSNode.ps1** 및 **Stop-HpcIaaSNode.ps1** 스크립트에 따라 다라지므로 헤드 노드 VM에서 스크립트를 실행합니다. 이러한 스크립트는 추가적으로 Azure 관리 인증서 또는 게시 설정 파일이 필요합니다([Azure의 HPC 팩 클러스터에서 계산 노드 관리](virtual-machines-hpcpack-cluster-node-manage.md) 참조). 필요한 모든 컴퓨터 노드 VM이 클러스터에 이미 추가되어 있는지 확인합니다. 중지된 상태에 있을 수 있습니다.
 
 ## 구문
 
@@ -102,4 +104,4 @@ AzureAutoGrowShrink.ps1
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->
