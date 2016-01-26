@@ -159,7 +159,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 		FROM WebLogsRaw
 
 ### 샘플 입력 파일 만들기
-메모장을 사용하여 **c:\adfgetstarted**에 다음과 같은 내용으로 **input.log**라는 파일을 만듭니다.
+메모장을 사용하여 **c:\\adfgetstarted**에 다음과 같은 내용으로 **input.log**라는 파일을 만듭니다.
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -193,7 +193,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. c:\adfgetstarted 폴더로 이동하고 다음 명령을 실행하여 **input.log** 파일을 저장소 계정(**adfgetstarted** 컨테이너 및 **inputdata** 폴더)에 업로드합니다. **StorageAccountName**을 해당 저장소 계정의 이름으로 바꾸고 **저장소 키**를 저장소 계정 키로 바꿉니다.
+	3. c:\\adfgetstarted 폴더로 이동하고 다음 명령을 실행하여 **input.log** 파일을 저장소 계정(**adfgetstarted** 컨테이너 및 **inputdata** 폴더)에 업로드합니다. **StorageAccountName**을 해당 저장소 계정의 이름으로 바꾸고 **저장소 키**를 저장소 계정 키로 바꿉니다.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
@@ -209,7 +209,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. 이전 두 단계를 반복하여 adfgetstarted 컨테이너의 스크립트 폴더에 partitionweblogs.hql 파일을 업로드합니다. 명령은 다음과 같습니다. 
+	1. 다음 명령을 실행하여 **adfgetstarted** 컨테이너의 **스크립트** 폴더에 **partitionweblogs.hql** 파일을 업로드합니다. 명령은 다음과 같습니다. 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - Visual Studio
 - Azure 리소스 관리자 템플릿 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

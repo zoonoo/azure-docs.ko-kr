@@ -88,6 +88,8 @@ Azure PowerShell을 사용하면 권한이 있는 NS 레코드를 다음과 같�
 
 각 등록 기관에는 도메인에 대한 이름 서버 레코드를 변경하는 자체 DNS 관리 도구가 있습니다. 등록 기관의 DNS 관리 페이지에서 NS 레코드를 편집하고 NS 레코드를 Azure DNS에서 만든 레코드로 바꿉니다.
 
+>[AZURE.NOTE]Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이름 서버 이름을 사용해야 합니다. 이러한 IP 주소는 나중에 변경될 수 있으므로 Azure DNS 이름 서버 IP 주소를 가리키는 데 '연결 레코드'를 사용하지 않아야 합니다. 고유한 영역에서 이름 서버 이름을 사용하는 위임('베니티 이름 서버'라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
+
 위임을 완료한 후 'nslookup'과 같은 도구로 영역에 대한 SOA 레코드(영역을 만들 때 자동으로 생성됨)를 쿼리하여 이름 확인이 작동하는지 확인할 수 있습니다.
 
 일반적인 DNS 확인 프로세스는 위임이 올바르게 설정된 경우 자동으로 이름 서버를 찾기 때문에 Azure DNS 이름 서버를 지정할 필요가 없습니다.
@@ -153,10 +155,8 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 
 [DNS 레코드 관리](dns-operations-recordsets.md)
 
-[트래픽 관리자 개요](traffic-manager-overview.md)
-
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
 
 [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

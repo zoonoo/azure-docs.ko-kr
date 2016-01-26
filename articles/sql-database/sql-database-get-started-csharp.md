@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/20/2016"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 시도: C&#x23;을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기 
@@ -414,8 +414,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 ## 다음 단계
 이제 C#으로 SQL 데이터베이스를 시도하고 데이터베이스를 설정했으므로 다음 문서에 대한 준비가 되었습니다.
 
-- [C#을 사용하여 SQL 데이터베이스에 연결 및 쿼리하기](sql-database-connect-query.md)
-- [SQL Server Management Studio(SSMS)로 연결](sql-database-connect-to-database.md)
+- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
 
 ## 추가 리소스
 
@@ -436,4 +435,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

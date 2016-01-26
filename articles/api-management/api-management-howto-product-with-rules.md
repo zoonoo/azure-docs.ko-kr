@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리를 사용하여 속도 제한으로 API 보호
 
 이 가이드에서는 Azure API 관리로 속도 제한 및 할당량 정책을 구성하여 백엔드 API에 대한 보호를 추가하기가 얼마나 쉬운지 보여줍니다.
 
-이 자습서에서는 개발자가 API를 분당 최대 10번 및 주당 최대 200번까지 호출할 수 있는 “무료 평가판” API 제품을 만들어 봅니다. 그런 다음 API를 게시하고 속도 제한 정책을 테스트합니다.
+이 자습서에서는 개발자가 [구독별 호출 속도 제한](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) 및 [구독별 사용 할당량 설정](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)을 사용하여 API를 분당 최대 10번 및 주당 최대 200번까지 호출할 수 있는 "무료 평가판" API 제품을 만들어 봅니다. 그런 다음 API를 게시하고 속도 제한 정책을 테스트합니다.
 
->[AZURE.NOTE]이미 구성된 제품이 있어 이 자습서에 사용하려는 경우 무료 평가판 제품 대신 해당 제품을 사용하여 [호출 속도 제한 및 할당량 정책 구성][]으로 바로 이동한 다음 해당 단계에서부터 자습서를 진행할 수 있습니다.
+[rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) 및 [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) 정책을 사용하는 고급 제한 시나리오는 [Azure API 관리로 고급 요청 제한](api-management-sample-flexible-throttling.md)을 참조하세요.
 
 ## <a name="create-product"> </a>제품 만들기
 
 이 단계에서는 구독 승인을 요구하지 않는 무료 평가판 제품을 만듭니다.
+
+>[AZURE.NOTE]이미 구성된 제품이 있어 이 자습서에 사용하려는 경우 무료 평가판 제품 대신 해당 제품을 사용하여 [호출 속도 제한 및 할당량 정책 구성][]으로 바로 이동한 다음 해당 단계에서부터 자습서를 진행할 수 있습니다.
 
 시작하려면 API 관리 서비스에 대해 Azure 클래식에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
@@ -211,7 +213,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ![개발자 포털][api-management-developer-portal-api-menu]
 
-**GET Resource**을 클릭한 다음 **콘솔 시작**을 클릭합니다.
+**GET Resource**을 클릭한 다음 **사용해 보세요**를 클릭합니다.
 
 ![콘솔 시작][api-management-open-console]
 
@@ -221,17 +223,17 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 >[AZURE.NOTE]구독이 여러 개 있는 경우에는 **무료 평가판**의 키를 선택합니다. 그렇지 않은 경우 이전 단계에 구성한 정책이 적용되지 않습니다.
 
-**HTTP Get**을 클릭한 다음, 응답을 봅니다. **응답 상태** **200 OK**입니다.
+**보내기**를 클릭한 다음 응답을 봅니다. **응답 상태** **200 OK**입니다.
 
 ![작업 결과][api-management-http-get-results]
 
-속도 제한 정책인 분당 호출 10개를 초과하는 속도의 **HTTP Get**을 클릭합니다. 속도 제한 정책을 초과하면 응답 상태 **429 요청이 너무 많음**이 반환됩니다.
+속도 제한 정책인 분당 호출 10개를 초과하는 속도의 **보내기**를 클릭합니다. 속도 제한 정책을 초과하면 응답 상태 **429 요청이 너무 많음**이 반환됩니다.
 
 ![작업 결과][api-management-http-get-429]
 
-**응답 헤더** 및 **응답 콘텐츠** 영역은 재시도에 성공하기 전의 남은 간격을 나타냅니다.
+**응답 콘텐츠**는 재시도에 성공하기 전의 남은 간격을 나타냅니다.
 
-속도 제한 정책인 분당 호출 10개가 적용되는 경우 속도 제한이 초과하기 전에 처음 10개의 제품 호출에 성공한 후 60초가 경과할 때까지 후속 호출에 실패합니다. 이 예제에서는 남은 간격이 43초입니다.
+속도 제한 정책인 분당 호출 10개가 적용되는 경우 속도 제한이 초과하기 전에 처음 10개의 제품 호출에 성공한 후 60초가 경과할 때까지 후속 호출에 실패합니다. 이 예제에서는 남은 간격이 54초입니다.
 
 ## <a name="next-steps"> </a>다음 단계
 
@@ -292,4 +294,4 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [호출 속도 제한]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [사용 할당량 설정]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

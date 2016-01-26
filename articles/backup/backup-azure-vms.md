@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Azure 가상 컴퓨터 백업
@@ -40,8 +40,8 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
     ![워크로드 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 페이지 맨 아래에서 **검색**을 클릭합니다.
-    ![검색 단추](./media/backup-azure-vms/discover-button-only.png)
+3. 페이지 맨 아래에서 **검색**을 클릭합니다. 
+	![검색 단추](./media/backup-azure-vms/discover-button-only.png)
 
     검색 프로세스는 가상 컴퓨터를 표로 정리하는 동안 몇 분이 걸릴 수 있습니다. 화면 맨 아래에 있는 알림은 프로세스가 실행되고 있다는 것을 알려줍니다.
 
@@ -60,8 +60,8 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
     ![워크로드 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 페이지의 맨 아래에서 **등록**을 클릭합니다.
-    ![등록 단추](./media/backup-azure-vms/register-button-only.png)
+3. 페이지의 맨 아래에서 **등록**을 클릭합니다. 
+	![등록 단추](./media/backup-azure-vms/register-button-only.png)
 
 4. **등록 항목** 바로 가기 메뉴에서 등록하려는 가상 컴퓨터를 선택합니다. 동일한 이름을 가진 가상 컴퓨터가 두 개 이상 있는 경우 클라우드 서비스를 사용하여 가상 컴퓨터를 구분합니다.
 
@@ -131,7 +131,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
     ![보호 작업 구성](./media/backup-azure-vms/protect-configureprotection.png)
 
 ## 초기 백업
-가상 컴퓨터가 정책으로 보호되면, 이는 *보호됨 - (초기 백업 보류 중)* 상태로 **보호된 항목** 탭 아래에 표시됩니다. 기본적으로 첫 번째 예약된 백업은 *초기 백업* 입니다.
+가상 컴퓨터가 정책으로 보호되면, 이는 *보호됨 - (초기 백업 보류 중)* 상태로 **보호된 항목** 탭 아래에 표시됩니다. 기본적으로 첫 번째 예약된 백업은 *초기 백업*입니다.
 
 보호를 구성한 후에 즉시 초기 백업을 트리거하려면.
 
@@ -145,7 +145,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 
 >[AZURE.NOTE]백업 작업의 일부로 Azure 백업 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기를 플러시하고 일관된 스냅숏을 찍습니다.
 
-초기 백업이 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 상태가 *보호됨* 으로 표시됩니다.
+초기 백업이 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 상태가 *보호됨*으로 표시됩니다.
 
 ![가상 컴퓨터는 복구 지점으로 백업됨](./media/backup-azure-vms/protect-backedupvm.png)
 
@@ -164,4 +164,4 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 - [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

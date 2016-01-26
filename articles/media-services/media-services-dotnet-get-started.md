@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/17/2015"
+	ms.date="01/18/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,8 @@
 
 
 >[AZURE.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
+ 
 ##개요 
 
 이 자습서에서는 Azure Media Services(AMS) SDK for .NET를 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
@@ -107,7 +108,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 3. 스트리밍 단위 수를 지정하려면 크기 조정 탭을 클릭한 다음 **예약된 용량** 슬라이더를 움직입니다.
 
-![크기 조정 페이지](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+	![크기 조정 페이지](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. **저장**을 눌러 변경 내용을 저장합니다.
 
@@ -129,12 +130,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 얻으려면 Azure 클래식 포털을 열고 미디어 서비스 계정을 선택한 다음 **키 관리** 단추를 클릭합니다.
 
-<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
+<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
 		  
 		</configuration>
 
@@ -451,4 +447,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

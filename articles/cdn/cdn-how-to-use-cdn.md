@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 
@@ -35,7 +35,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 
 	CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝점이 하나 이상 있습니다. CDN 프로필을 만든 후에 선택한 원본을 사용하여 새 CDN 끝점을 만들 수 있습니다.
 	
-	>[AZURE.NOTE]단일 Azure 구독은 CDN 프로필이 네 개로 제한됩니다. 각 CDN 프로필은 CDN 끝점이 네 개로 제한됩니다.
+	>[AZURE.NOTE]기본적으로 단일 Azure 구독은 CDN 프로필이 네 개로 제한됩니다. 각 CDN 프로필은 CDN 끝점이 열 개로 제한됩니다.
 	>
 	> CDN 가격 책정은 CDN 프로필 수준에서 적용됩니다. 다양한 표준 및 프리미엄 CDN 기능을 사용하려는 경우 여러 CDN 프로필이 필요합니다.
 	
@@ -147,4 +147,4 @@ Microsoft Azure CDN은 [CDN 리소스 공급자 REST API](https://msdn.microsoft
 - [Azure CDN 끝점 삭제](cdn-purge-endpoint.md)
 - [CDN 리소스 공급자 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->
