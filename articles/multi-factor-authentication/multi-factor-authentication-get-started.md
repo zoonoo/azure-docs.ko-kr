@@ -42,7 +42,7 @@ VPN, RDG와 같은 원격 액세스| |* |
 
 ## 사용자는 어디에 있습니까
 
-다음으로 사용자의 위치에 따라 사용할 올바른 솔루션과 클라우드에 있는 다중 요소 인증인지 MFA 서버를 사용한 온-프레미스인지 여부를 확인할 수 있습니다.
+다음으로 사용자의 위치에 따라 사용할 올바른 솔루션이 클라우드에 있는 Multi-Factor Authentication인지 MFA 서버를 사용한 온-프레미스인지를 확인할 수 있습니다.
 
 
 
@@ -81,4 +81,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -71,7 +71,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 가상 장치를 프로비전하기 전에 Azure 환경에서 다음 준비를 확인해야 합니다.
 
-- 가상 장치의 경우, [Azure에서 가상 네트워크를 구성합니다](virtual-networks-create-vnet.md).
+- 가상 장치의 경우, [Azure에서 가상 네트워크를 구성합니다](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 - 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 올바르지 않으면 가상 장치 만들기에 실패합니다.
 - 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다.
 
@@ -134,8 +134,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 	4. **가상 장치를 만들기 위한 저장소 계정** – 프로비전하는 동안 가상 장치의 이미지를 저장하는데 사용할 저장소 계정입니다. 이 저장소 계정은 가상 장치 및 가상 네트워크와 동일한 지역에 있어야 합니다. 물리적 장치나 가상 장치에서 데이터 저장소에 대해 사용되어서는 안됩니다. 기본적으로 새 저장소 계정은 이 용도로 만들어집니다. 그러나 이 용도에 적합한 저장소 계정을 이미 알고 있는 경우 목록에서 선택할 수 있습니다.
 
-4. 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 이제 가상 장치가 만들어집니다. 가상 장치를 만드는데 45분에서 1시간까지 걸릴 수 있습니다.
-	![StorSimple 가상 장치 만들기 단계](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 이제 가상 장치가 만들어집니다. 가상 장치를 만드는데 45분에서 1시간까지 걸릴 수 있습니다.![StorSimple 가상 장치 만들기 단계](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 물리적 장치만 사용하는 경우, 암호화 키는 사용자 장치와 함께 유지되므로 Microsoft는 해독할 수 없습니다. 가상 장치를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [가상 장치를 사용하기 위한 보안 고려 사항](#security-considerations-for-using-a-virtual-device)을 참조하세요.
 
@@ -369,7 +368,7 @@ DR(재해 복구)는 StorSimple 가상 장치가 설계된 주요 시나리오 �
 
 StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도에 맞게 계산 비용 발생을 중지하려는 경우, 가상 장치를 종료할 수 있습니다. 가상 장치를 종료해도 저장소에서 해당 운영 체제 또는 데이터 디스크를 삭제하지 않습니다. 구독으로 발생하는 요금을 중지하지만 OS 및 데이터 디스크에 대한 저장소 비용은 계속 청구됩니다.
 
-가상 장치를 삭제하거나 종료하는 경우 StorSimple Manager 서비스의 장치 페이지에 **오프라인**으로 표시됩니다. 가상 장치에서 만든 백업도 삭제하려는 경우, 장치에 따라 삭제하거나 비활성화하도록 선택할 수 있습니다. 자세한 내용은 [장치 비활성화](storsimple-deactivate-and-delete-device.md#deactivate-a-device)를 참조하세요.
+가상 장치를 삭제하거나 종료하는 경우 StorSimple Manager 서비스의 **장치** 페이지에 **오프라인**으로 표시됩니다. 가상 장치에서 만든 백업도 삭제하려는 경우, 장치에 따라 삭제하거나 비활성화하도록 선택할 수 있습니다. 자세한 내용은 [StorSimple 장치 비활성화 및 삭제](storsimple-deactivate-and-delete-device.md)를 참조하세요.
 
 ### StorSimple 가상 장치를 종료하려면
 
@@ -383,13 +382,13 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 1. Azure 클래식 포털에 로그인합니다.
 
-- **가상 컴퓨터**를 클릭한 다음 가상 장치를 선택합니다.
+2. **가상 컴퓨터**를 클릭한 다음 가상 장치를 선택합니다.
 
-- **삭제**를 클릭하고 모든 가상 컴퓨터 디스크를 삭제하도록 선택합니다.
+3. **삭제**를 클릭하고 모든 가상 컴퓨터 디스크를 삭제하도록 선택합니다.
 
 
 ## 다음 단계
 
 가상 장치를 관리하려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 자세한 워크플로 목록을 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

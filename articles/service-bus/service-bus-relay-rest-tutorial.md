@@ -27,7 +27,7 @@
 
 ### 서비스 네임스페이스 생성 및 SAS 키 얻기
 
-1. [Azure 클래식 포털][]에서 네임스페이스를 만들려면 [방법: 서비스 버스 서비스 네임스페이스 만들기 또는 수정](https://msdn.microsoft.com/library/hh690931.aspx)의 단계를 따릅니다.
+1. 서비스 네임스페이스를 만들려면 [Azure 클래식 포털][]을 방문합니다. 왼쪽에서 **서비스 버스**를 클릭한 다음 **만들기**를 클릭합니다. 네임스페이스에 이름을 입력한 다음 확인 표시를 클릭합니다.
 
 2. 포털의 주 창에서 이전 단계에서 만든 서비스 네임스페이스의 이름을 클릭합니다.
 
@@ -584,4 +584,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

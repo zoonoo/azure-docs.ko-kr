@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="01/20/2016"
    ms.author="joaoma"/>
 
 
@@ -122,4 +122,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 및 사이트 간 VPN 연결을 구성하여 VNet와 함께 사용
@@ -189,7 +189,7 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
 
-3. 게이트웨이 서브넷이 /27 또는 더 짧은 접두사가 되도록 네트워크 구성 파일 스키마를 편집합니다.(/26 또는 /25와 같이) 다음 예제를 참조하세요. 네트워크 구성 파일을 사용하는 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+3. 게이트웨이 서브넷이 /27 또는 더 짧은 접두사가 되도록 네트워크 구성 파일 스키마를 편집합니다.(/26 또는 /25와 같이) 다음 예제를 참조하세요. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -211,4 +211,4 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

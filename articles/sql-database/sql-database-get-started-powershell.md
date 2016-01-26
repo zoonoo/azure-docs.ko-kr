@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # PowerShell cmdlet을 사용하여 새 SQL 데이터베이스 만들기 및 일반적인 데이터베이스 설치 작업 수행하기 
@@ -135,11 +135,11 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 ## 다음 단계
 새 SQL 데이터베이스를 만들고 기본 데이터베이스 설치 작업을 수행한 후 다음에 대한 준비가 됩니다.
 
-- [SQL Server Management Studio(SSMS)로 연결](sql-database-connect-to-database.md)
+- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
 
 
 ## 추가 리소스
 
 - [Azure SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->
