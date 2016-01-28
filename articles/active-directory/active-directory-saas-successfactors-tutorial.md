@@ -85,7 +85,7 @@ Single Sign-On을 구성하려면 SuccessFactors 지원 팀에 문의해야 합�
     ![앱 URL 구성](./media/active-directory-saas-successfactors-tutorial/IC791140.png "앱 URL 구성")
 
     1.  **SuccessFactors 로그온 URL** 텍스트 상자에 사용자가 SuccessFactors 응용 프로그램에 로그인하는 데 사용하는 URL(예: "**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*"))을 입력합니다.
-2.  **SuccessFactors 회신 URL** 텍스트 상자에 ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**을 입력합니다.
+    2.  **SuccessFactors 회신 URL** 텍스트 상자에 **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**을 입력합니다.
 
         >[AZURE.NOTE]이 값은 임시 자리 표시자입니다. SuccessFactors 지원팀에서 실제 값을 얻을 수 있습니다. 이 자습서의 뒷부분에서 SuccessFactors 지원 팀의 연락처 정보를 찾을 수 있습니다. 이 대화의 컨텍스트에서 실제 SuccessFactors 회신 URL을 받게 됩니다.
 
@@ -131,4 +131,4 @@ SuccessFactors에서 사용자를 생성하려면 SuccessFactors 지원 팀에 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
