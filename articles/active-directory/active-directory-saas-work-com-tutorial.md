@@ -132,7 +132,7 @@
     2.  Azure 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
     3.  다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     4.  **엔터티 ID** 텍스트 상자에 ****https://salesforce-work.com**를 입력합니다.
-5.  **SAML ID 형식**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
+    5.  **SAML ID 형식**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
     6.  **SAML ID 위치**에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
     7.  Azure 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
     8.  Azure 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
@@ -207,4 +207,4 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

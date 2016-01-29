@@ -12,6 +12,8 @@ Eclipse용 Azure 도구 키트에는 다음 소프트웨어 구성 요소가 필
 
 >[AZURE.NOTE]자세한 내용은 Eclipse 마켓플레이스의 [Eclipse용 Azure 도구 키트](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) 페이지에서 찾을 수 있습니다.
 
+<br>
+
 > [AZURE.IMPORTANT]Eclipse용 Azure 도구 키트를 Windows에서 사용하는 경우 도구 키트를 위해 Azure SDK 2.7 이상을 설치해야 합니다. Azure SDK 설치하는 옵션은 두 가지입니다.
 > 
 > * [WebPI(웹 플랫폼 설치 관리자)][]를 사용하여 Azure SDK를 다운로드하고 설치할 수 있습니다.
@@ -19,4 +21,4 @@ Eclipse용 Azure 도구 키트에는 다음 소프트웨어 구성 요소가 필
 > 
 > Azure SDK는 Windows에서만 필요합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

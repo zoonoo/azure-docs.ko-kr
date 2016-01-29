@@ -198,4 +198,4 @@ Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
