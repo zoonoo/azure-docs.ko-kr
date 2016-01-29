@@ -447,7 +447,8 @@ xxx에서 필요한 설치 관리자를 다운로드할 수 있습니다.
 원본 운영 체제 | 모바일 서비스 설치 파일
 --- | ---
 Windows Server(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -740,4 +741,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 Azure에서 실행 중인 장애 조치(Failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아보세요](site-recovery-failback-azure-to-vmware-classic.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
