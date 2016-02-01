@@ -80,8 +80,8 @@
 
     ![앱 URL 구성](./media/active-directory-saas-replicon-tutorial/IC777803.png "앱 URL 구성")
 
-    1.  **Replicon 로그온 URL** 텍스트 상자에 Replicon 테넌트 URL(예: **https://na2.replicon.com/company/saml2/sp-sso/post*))을 입력합니다.
-    2.  **Replicon 회신 URL** 텍스트 상자에 Replicon **AssertionConsumerService** URL(예: **https://global.replicon.com/!/saml2/company/sso/post*))을 입력합니다.
+    1.  **Replicon 로그온 URL** 텍스트 상자에 Replicon 테넌트 URL(예: *https://na2.replicon.com/company/saml2/sp-sso/post*)을 입력합니다.
+    2.  **Replicon 회신 URL** 텍스트 상자에 Replicon **AssertionConsumerService** URL(예: *https://global.replicon.com/!/saml2/company/sso/post*)을 입력합니다.
 
         >[AZURE.NOTE]**https://global.replicon.com/!/saml2/\<YourCompanyKey>**의 Replicon 메타데이터에서 URL을 가져올 수 있습니다.
 
