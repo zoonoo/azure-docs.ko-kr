@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/11/2016"
    ms.author="shoatman;billmath"/>
 
 # Microsoft Azure Active Directory 동기화(DirSync)를 Azure AD Connect로 업그레이드
@@ -93,7 +93,7 @@
     - SQL Server Express를 사용하고 50,000개 미만의 개체가 있는 경우 다음과 같은 화면이 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
     - DirSync에 전체 SQL Server를 사용하는 경우 대신 다음 페이지가 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)<BR/>DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버에 관한 정보가 표시됩니다. 필요한 경우 적절하게 조정합니다. **다음**을 클릭하여 설치를 계속합니다.
     - 50,000개 이상의 개체가 있는 경우 다음 화면이 대신 표시됩니다. ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/>현재 위치 업그레이드를 진행하려면 **이 컴퓨터에서 계속 DirSync 업그레이드** 메시지 옆에 있는 확인란을 클릭합니다. 대신 [병렬 배포](#parallel-deployment)를 수행하려면 DirSync 구성 설정을 내보내고 해당 사항을 새 서버로 이동합니다.
-5. Azure AD에 연결하는 데 현재 사용하는 계정의 암호를 제공합니다. DirSync에서 현재 사용한 계정이어야 합니다. ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
+5. Azure AD에 연결하는 데 현재 사용하는 계정의 암호를 제공합니다. DirSync에서 현재 사용한 계정이어야 합니다. ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png) 오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 6. Active Directory에 대한 엔터프라이즈 관리자 계정을 지정합니다. ![ADDS 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. 이제 구성할 준비가 되었습니다. **업그레이드**를 클릭하면 DirSync가 제거되고 Azure AD Connect가 구성되어 동기화를 시작합니다. ![구성할 준비 완료](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
 
@@ -141,7 +141,7 @@
 6. 다음을 포함한 고급 옵션을 구성합니다.
     - Azure AD Connect에 대한 사용자 지정 설치 위치
 	- 기존 SQL Server 인스턴스(기본값: Azure AD Connect는 SQL Server 2012 Express를 설치함) DirSync 서버와 동일한 데이터베이스 인스턴스를 사용하지 마세요.
-	- SQL Server에 연결하는 데 사용되는 서비스 계정(SQL Server 데이터베이스가 원격인 경우에는 이 계정이 도메인 서비스 계정이어야 함) 이러한 옵션은 다음 화면에서 볼 수 있습니다. ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
+	- SQL Server에 연결하는 데 사용되는 서비스 계정(SQL Server 데이터베이스가 원격인 경우에는 이 계정이 도메인 서비스 계정이어야 함) 이러한 옵션은 이 화면에서 볼 수 있습니다. ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. **다음**을 클릭합니다.
 8. **구성 준비 완료** 페이지에서 **구성이 완료되자마자 동기화 프로세스를 시작합니다.**를 선택한 상태로 둡니다. 서버가 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)이므로 이번에는 변경 내용을 Azure AD로 내보내지 않습니다.
 9. **Install**을 클릭합니다.
@@ -197,4 +197,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

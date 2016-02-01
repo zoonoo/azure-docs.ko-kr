@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/14/2016"
 	ms.author="josephd"/>
 
 # Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경
@@ -158,6 +158,8 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSForest -DomainName corp.contoso.com -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
+이 명령을 완료하려면 몇 분 정도 걸립니다.
+
 DC1이 다시 시작된 후 DC1 가상 컴퓨터에 다시 연결합니다.
 
 1.	Azure 포털에서 **가상 컴퓨터**를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.
@@ -169,12 +171,15 @@ DC1이 다시 시작된 후 DC1 가상 컴퓨터에 다시 연결합니다.
 - 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
-다음으로, Active Directory에서 CORP 도메인 구성원 컴퓨터에 로그인할 때 사용할 사용자 계정을 만듭니다. 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 한 번에 하나씩 실행합니다.
+다음으로, Active Directory에서 CORP 도메인 구성원 컴퓨터에 로그인할 때 사용할 사용자 계정을 만듭니다. 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
-첫 번째 명령을 실행하면 User1 계정 암호를 입력하라는 메시지가 나타납니다. 이 계정은 모든 CORP 도메인 구성원 컴퓨터에 대한 원격 데스크톱 연결에 사용되므로 강력한 암호를 선택해야 합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요. User1 계정 암호를 기록하고 안전한 위치에 저장합니다.
+이 명령은 User1 계정 암호를 입력하라는 메시지를 표시합니다. 이 계정은 모든 CORP 도메인 구성원 컴퓨터에 대한 원격 데스크톱 연결에 사용되므로 강력한 암호를 선택해야 합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요. User1 계정 암호를 기록하고 안전한 위치에 저장합니다.
+
+그 다음, 새로운 User1 계정을 엔터프라이즈 관리자로 구성합니다. 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+
+	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 DC1으로 연결된 원격 데스크톱 세션을 닫고 CORP\\User1 계정을 사용하여 다시 연결합니다.
 
@@ -291,7 +296,7 @@ Azure 기본 구성이 응용 프로그램 개발 및 테스트 또는 추가적
 
 ## 다음 단계
 
-- 이 구성을 기준으로 사용하여 [시뮬레이트된 하이브리드 클라우드 테스트 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)을 빌드할 수 있습니다.
+- Corpnet 서브넷(예: Microsoft SQL Server를 실행하는)에 [새 가상 컴퓨터를 추가](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)합니다.
 
 
 ## <a id="costs"></a>Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화
@@ -321,4 +326,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

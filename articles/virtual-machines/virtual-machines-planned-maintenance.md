@@ -3,7 +3,7 @@
 	description="Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Azure를 실행하는 가상 컴퓨터에 주는 영향에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="kenazk"
+	authors="drewm"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="01/05/2016"
+	ms.author="drewm"/>
 
 
 # Azure 가상 컴퓨터에 대한 계획된 유지 관리
@@ -72,6 +72,11 @@ SLA에 대한 자세한 내용은 [서비스 수준 계약](http://azure.microso
 <!--Image reference-->
 ![][image2]
 
+뷰어를 사용하여 가상 컴퓨터가 Azure 포털, Azure PowerShell, 또는 Azure CLI를 사용하여 다중 인스턴스 구성에서 구성되었는지 확인합니다. 예를 들어, 가상 컴퓨터가 다중 인스턴스 구성에 해당하는 지 확인하려면 가상 컴퓨터 찾아보기 대화 상자에 추가된 가용성 집합 열을 사용하여 가상 컴퓨터 목록을 검색할 수 있습니다. 다음 예에서 Example-VM1 가상 컴퓨터와 Example-VM2 가상 컴퓨터는 다중 인스턴스 구성에 해당합니다.
+
+<!--Image reference-->
+![][image4]
+
 ## 단일 인스턴스 구성 업데이트
 
 다중 인스턴스 구성 업데이트가 완료된 후 Azure는 단일 인스턴스 구성 업데이트를 수행합니다. 이 업데이트에서도 가용성 집합에서 실행되지 않는 가상 컴퓨터가 다시 부팅됩니다.
@@ -114,10 +119,11 @@ Azure는 지역 쌍의 집합을 구성합니다. Azure는 단일 인스턴스 �
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
+[image4]: ./media/virtual-machines-planned-maintenance/AvailabilitySetExample.png
 
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

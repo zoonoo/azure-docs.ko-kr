@@ -18,15 +18,15 @@
 
 # 응용 프로그램 업그레이드 문제 해결
 
-이 문서에서는 서비스 패브릭 응용 프로그램 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
+이 문서에서는 Azure 서비스 패브릭 응용 프로그램 업그레이드에 관한 일반적인 문제와 이를 해결하는 방법을 설명합니다.
 
 ## 응용 프로그램 업그레이드 실패 문제 해결
 
 업그레이드에 실패하는 경우, **Get-ServiceFabricApplicationUpgrade** 명령의 출력에 오류 디버깅에 관한 일부 추가 정보가 포함됩니다. 이 정보는 다음에 사용할 수 있습니다.
 
-1. 오류 형식 식별
-2. 오류 원인 식별
-3. 추가 조사를 위한 오류 구성 요소 분리
+1. 오류 형식을 식별합니다.
+2. 오류 원인을 식별합니다.
+3. 추가 조사를 위해 오류 구성 요소를 분리합니다.
 
 이 정보는 서비스 패브릭이 오류를 탐지하면 **FailureAction**이 롤백하거나 업그레이드를 일시 중단하는 여부에 관계 없이 즉시 사용할 수 있습니다.
 
@@ -78,15 +78,17 @@ ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
 ~~~
 
-이 예제에서는 업그레이드 도메인 *MYUD1*에서 업그레이드가 실패하고 두 파티션(*744c8d9f-1d26-417e-a60e-cd48f5c098f0* 및 *4b43f4d8-b26b-424e-9307-7a7a62e79750*)이 중단되어 대상 노드 *Node1* 및 *Node4*에서 주 복제본(*WaitForPrimaryPlacement*)을 배치할 수 없음을 볼 수 있습니다. **Get ServiceFabricNode** 명령은 이 두 노드가 업그레이드 도메인 *MYUD1*에 있는지 확인하는 데 사용할 수 있습니다. *UpgradePhase*는 업그레이드 도메인의 모든 노드가 업그레이드를 마친 후에 이 안전 검사가 발생하였음을 의미하는 *PostUpgradeSafetyCheck*입니다. 이 모든 정보가 종합되어 응용 프로그램 코드의 새 버전의 잠재적인 문제를 가리킵니다. 가장 일반적인 문제는 열 때 또는 기본 코드 경로의 프로모션에서의 서비스 오류입니다.
+이 예제에서는 업그레이드 도메인 MYUD1에서 업그레이드가 실패하고 두 파티션(744c8d9f-1d26-417e-a60e-cd48f5c098f0 및 4b43f4d8-b26b-424e-9307-7a7a62e79750)이 중단되어 대상 노드 Node1 및 Node4에서 주 복제본(WaitForPrimaryPlacement)을 배치할 수 없음을 볼 수 있습니다.
 
-*PreUpgradeSafetyCheck*의 *UpgradePhase*는 실제로 업그레이드를 수행하기 전에 업그레이드 도메인을 준비하는 문제를 의미합니다. 이 경우의 가장 일반적인 문제는 닫을 때 또는 기본 코드 경로의 수준 내리기에서의 서비스 오류입니다.
+**Get ServiceFabricNode** 명령은 이 두 노드가 업그레이드 도메인 MYUD1에 있는지 확인하는 데 사용할 수 있습니다. UpgradePhase는 업그레이드 도메인의 모든 노드가 업그레이드를 마친 후에 이 안전 검사가 발생하였음을 의미하는 PostUpgradeSafetyCheck입니다. 이 모든 정보가 응용 프로그램 코드의 새 버전의 잠재적인 문제를 가리킵니다. 가장 일반적인 문제는 열 때 또는 기본 코드 경로의 프로모션에서의 서비스 오류입니다.
 
-현재 **UpgradeState**는 *RollingBackCompleted*이므로 원래 업그레이드는 실패 시 업그레이드를 자동으로 롤백하는 롤백 **FailureAction**과 함께 수행되어야 합니다. 원래 업그레이드가 수동 **FailureAction**과 함께 수행되었으면 그 업그레이드는 일시 중단 상태 대신 응용 프로그램의 라이브 디버깅을 가능하게 합니다.
+PreUpgradeSafetyCheck의 UpgradePhase는 실제로 업그레이드를 수행하기 전에 업그레이드 도메인을 준비하는 문제를 의미합니다. 이 경우의 가장 일반적인 문제는 닫을 때 또는 기본 코드 경로의 수준 내리기에서의 서비스 오류입니다.
+
+현재 **UpgradeState**는 RollingBackCompleted이므로 원래 업그레이드는 실패 시 업그레이드를 자동으로 롤백하는 롤백 **FailureAction**과 함께 수행되어야 합니다. 원래 업그레이드가 수동 **FailureAction**과 함께 수행되었으면 그 업그레이드는 일시 중단 상태 대신 응용 프로그램의 라이브 디버깅을 가능하게 합니다.
 
 ### 상태 확인 오류 조사
 
-상태 확인 오류는 업그레이드 도메인의 모든 노드가 업그레이드를 완료하고 모든 안전 검사를 통과한 후 발생할 수 있는 추가할 수 있는 다양한 문제로 트리거할 수 있습니다. 다음 출력은 실패한 상태 검사로 인한 일반적인 업그레이드 오류입니다. **UnhealthyEvaluations** 필드는 사용자 지정 [상태 정책](service-fabric-health-introduction.md)에 따른 업그레이드 오류 시 모든 실패한 상태 검사의 스냅숏을 캡처합니다.
+상태 확인 오류는 업그레이드 도메인의 모든 노드가 업그레이드를 완료하고 모든 안전 검사를 통과한 후 발생할 수 있는 다양한 문제로 트리거할 수 있습니다. 다음 출력은 실패한 상태 검사로 인한 일반적인 업그레이드 오류입니다. **UnhealthyEvaluations** 필드는 사용자 지정 [상태 정책](service-fabric-health-introduction.md)에 따른 업그레이드 오류 시 모든 실패한 상태 검사의 스냅숏을 캡처합니다.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -140,7 +142,7 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ~~~
 
-상태 검사 오류 조사에는 우선 서비스 패브릭 상태 모델에 대한 이해가 필요하지만, 깊은 이해가 없더라도 오류 상태 보고서(이 경우 “InjectedFault”)와 함께 제공되는 *fabric:/DemoApp/Svc3* 및 *fabric:/DemoApp/Svc2*의 두 서비스가 비정상임은 알 수 있습니다. 이 예제에서는 4개의 서비스 중 2개는 비정상이며, 다음 0%의 기본 대상이 비정상입니다(*MaxPercentUnhealthyServices*).
+상태 검사 오류 조사에는 우선 서비스 패브릭 상태 모델에 대한 이해가 필요합니다. 하지만 깊은 이해가 없더라도 오류 상태 보고서(이 경우 "InjectedFault")와 함께 제공되는 fabric:/DemoApp/Svc3 및 fabric:/DemoApp/Svc2의 두 서비스가 비정상임은 알 수 있습니다. 이 예제에서는 4개의 서비스 중 2개는 비정상이며, 다음 0%의 기본 대상이 비정상입니다(MaxPercentUnhealthyServices).
 
 업그레이드를 시작할 때 수동 **FailureAction**을 지정해서 실패하면 업그레이드는 일시 중단되므로 다른 작업을 하기 전에 원하는 경우 라이브 시스템을 조사할 수 있습니다.
 
@@ -154,7 +156,7 @@ ServiceTypeHealthPolicyMap              :
 
 **Start-ServiceFabricApplicationRollback** 명령은 응용 프로그램 롤백을 시작하는 데 언제든지 사용할 수 있습니다. 명령이 성공적으로 반환되면 롤백 요청은 시스템에 등록되고 금방 시작됩니다.
 
-**Resume-ServiceFabricApplicationUpgrade** 명령은 업그레이드의 나머지 부분까지 수동으로 한 번에 업그레이드 도메인 하나씩 진행하는 데 사용할 수 있습니다. 이 모드에서는 안전 검사만이 시스템에 의해 수행되며, 더 이상의 상태 검사는 수행되지 않습니다. 이 명령은 *UpgradeState*가 현재 업그레이드 도메인의 업그레이드가 끝났으나 다음 업그레이드 도메인이 아직 시작되지 않았음(보류 중)을 의미하는 *RollingForwardPending*을 나타낼 때만 사용됩니다.
+**Resume-ServiceFabricApplicationUpgrade** 명령은 업그레이드의 나머지 부분까지 수동으로 한 번에 업그레이드 도메인 하나씩 진행하는 데 사용할 수 있습니다. 이 모드에서는 안전 검사만 시스템에 의해 수행됩니다. 더 이상의 상태 검사는 수행되지 않습니다. 이 명령은 UpgradeState가 현재 업그레이드 도메인의 업그레이드가 끝났으나 다음 업그레이드 도메인이 아직 시작되지 않았음(보류 중)을 의미하는 RollingForwardPending을 나타낼 때만 사용됩니다.
 
 **Update-ServiceFabricApplicationUpgrade** 명령은 안전 및 상태 검사가 수행된 모니터링된 업그레이드를 다시 시작하는 데 사용합니다.
 
@@ -180,7 +182,7 @@ ServiceTypeHealthPolicyMap              :
 PS D:\temp>
 ~~~
 
-업그레이드는 마지막으로 일시 중단되고 이전과 동일한 업그레이드 매개 변수 및 상태 정책을 사용하는 업그레이드 도메인에서 계속됩니다. 필요한 경우, 위의 출력에서 보이는 업그레이드 매개 변수 및 상태 정책 중 무엇이든 업그레이드를 다시 시작했을 때 동일한 명령에서 변경될 수 있습니다. 이 예제에서는 업그레이드가 이전과 동일한 업그레이드 매개 변수 및 상태 정책을 사용하여 다른 모든 매개 변수는 변경하지 않은 채로 Monitored 모드에서 다시 시작됩니다.
+업그레이드는 마지막으로 일시 중단되고 이전과 동일한 업그레이드 매개 변수 및 상태 정책을 사용하는 업그레이드 도메인에서 계속됩니다. 필요한 경우, 위의 출력에서 보이는 업그레이드 매개 변수 및 상태 정책 중 무엇이든 업그레이드를 다시 시작했을 때 동일한 명령에서 변경될 수 있습니다. 이 예제에서는 업그레이드가 이전과 동일한 업그레이드 매개 변수 및 상태 정책을 사용하고 다른 모든 매개 변수는 변경하지 않은 채로 모니터링 모드에서 다시 시작됩니다.
 
 ## 추가 문제 해결
 
@@ -188,43 +190,42 @@ PS D:\temp>
 
 가능한 원인 1:
 
-서비스 패브릭은 상태 병사에 대한 모든 백분율을 엔터티(예: 복제본, 파티션 및 서비스)의 실제 숫자로 변환하고, 항상 전체 엔터티에 가장 가까운 숫자로 반올림합니다. 예를 들어 최대 _MaxPercentUnhealthyReplicasPerPartition_이 21%이고 5개의 복제본이 있는 경우, 서비스 패브릭은 파티션 상태를 평가할 때 최대 2개의 복제본(예: `Math.Ceiling (5*0.21)`)이 비정상인 것까지 허용합니다. 상태 정책은 이 계정에 따라 설정해야 합니다.
+서비스 패브릭은 상태 병사에 대한 모든 백분율을 엔터티(예: 복제본, 파티션 및 서비스)의 실제 숫자로 변환하고, 항상 전체 엔터티에 가장 가까운 숫자로 반올림합니다. 예를 들어 최대 MaxPercentUnhealthyReplicasPerPartition이 21%이고 5개의 복제본이 있는 경우, 서비스 패브릭은 파티션 상태를 평가할 때 최대 2개의 복제본(예: `Math.Ceiling (5*0.21)`)이 비정상인 것까지 허용합니다. 상태 정책은 이 계정에 따라 설정해야 합니다.
 
 가능한 원인 2:
 
-상태 정책은 특정 서비스 인스턴스가 아닌 총 서비스의 백분율을 기준으로 지정됩니다. 예를 들어 업그레이드 전에 응용 프로그램이 4개의 인스턴스 A, B, C, D를 가지고, 서비스 D가 비정상이지만 응용 프로그램에 심각한 영향을 미치지는 않는 경우를 가정합니다. 업그레이드하는 동안 알려진 비정상 서비스 D를 무시하고자 하며, A, B, C만 정상이라고 가정하면 매개 변수 *MaxPercentUnhealthyServices*를 25%로 설정해야 합니다. 그러나 업그레이드하는 동안 C가 비정상이 되고 D가 정상이 될 수 있습니다. 이 경우 서비스의 25%만이 비정상이므로 업그레이드는 여전히 성공적으로 완료되며, D 대신 C가 예상치 못하게 비정상이 됨으로 인해 예기치 못한 오류가 발생할 수 있습니다. 이 상황에서 D는 다른 A, B,C에서 다른 서비스 유형으로 모델링되어야 합니다. 상태 정책은 서비스 유형별 기반으로 지정되므로 응용 프로그램에서의 역할에 기반한 다른 서비스에 다른 비정상 백분율 임계값을 적용할 수 있게 됩니다.
+상태 정책은 특정 서비스 인스턴스가 아닌 총 서비스의 백분율을 기준으로 지정됩니다. 예를 들어 업그레이드 전에 응용 프로그램이 4개의 인스턴스 A, B, C, D를 가지고, 서비스 D가 비정상이지만 응용 프로그램에 심각한 영향을 미치지는 않는 경우를 가정합니다. 업그레이드하는 동안 알려진 비정상 서비스 D를 무시하고자 하며, A, B, C만 정상이라고 가정하면 매개 변수 MaxPercentUnhealthyServices를 25%로 설정해야 합니다.
+
+그러나 업그레이드하는 동안 C가 비정상이 되고 D가 정상이 될 수 있습니다. 이 경우 서비스의 25%만이 비정상이므로 업그레이드는 여전히 성공적으로 완료되지만, D 대신 C가 예상치 못하게 비정상이 됨으로 인해 예기치 못한 오류가 발생할 수 있습니다. 이 상황에서 D는 다른 A, B,C에서 다른 서비스 유형으로 모델링되어야 합니다. 상태 정책은 서비스 유형별 기반으로 지정되므로 응용 프로그램에서의 역할에 기반한 다른 서비스에 다른 비정상 백분율 임계값을 적용할 수 있게 됩니다.
 
 ### 응용 프로그램 업그레이드에 대한 상태 정책을 지정하지 않았는데도 지정한 적이 없는 시간 제한 때문에 업그레이드에 실패합니다.
 
-업그레이드 요청에 상태 정책이 제공되지 않는 경우, 현재 응용 프로그램 버전의 *ApplicationManifest.xml*에서 가져옵니다(예를 들어 Application X를 v1에서 v2로 업그레이드하는 경우, 응용 프로그램 상태 정책은 v1의 Application X에 지정된 것이 사용됩니다). 다른 상태 정책을 업그레이드에 사용해야 하는 경우, 정책은 응용 프로그램 업그레이드 API 호출의 일부로 지정되어야 합니다. API 호출의 일부로 지정된 정책은 업그레이드 기간 중에만 적용됨에 주의하십시오. 업그레이드가 일단 완료되면 *ApplicationManifest.xml*에 지정된 정책이 사용됩니다.
+업그레이드 요청에 상태 정책이 제공되지 않는 경우, 현재 응용 프로그램 버전의 ApplicationManifest.xml에서 가져옵니다. 예를 들어 Application X를 v1에서 v2로 업그레이드하는 경우, 응용 프로그램 상태 정책은 v1의 Application X에 지정된 것이 사용됩니다. 다른 상태 정책을 업그레이드에 사용해야 하는 경우, 정책은 응용 프로그램 업그레이드 API 호출의 일부로 지정되어야 합니다. API 호출의 일부로 지정된 정책은 업그레이드 기간 중에만 적용됨에 주의하십시오. 업그레이드가 일단 완료되면 ApplicationManifest.xml에 지정된 정책이 사용됩니다.
 
-### 잘못된 제한 시간이 지정되었습니다.
+### 잘못된 제한 시간 지정
 
-예를 들어 *UpgradeDomainTimeout*보다 적은 *UpgradeTimeout*이 설정되는 등 제한 시간이 일관성 없이 설정되는 경우에 대해 사용자가 궁금해할 수 있습니다. 그 이유는 오류가 반환되었기 때문입니다. 이런 현상이 발생할 수 있는 다른 경우는, *UpgradeDomainTimeout*이 *HealthCheckWaitDuration*과 *HealthCheckRetryTimeout*의 합계보다 작거나 *UpgradeDomainTimeout*이 *HealthCheckWaitDuration*과 *HealthCheckStableDuration*의 합계보다 작은 경우입니다.
+예를 들어 UpgradeDomainTimeout보다 적은 UpgradeTimeout이 설정되는 등 제한 시간이 일관성 없이 설정되는 경우에 대해 사용자가 궁금해할 수 있습니다. 그 이유는 오류가 반환되었기 때문입니다. 이런 현상이 발생할 수 있는 다른 경우는, UpgradeDomainTimeout이 HealthCheckWaitDuration과 HealthCheckRetryTimeout의 합계보다 작거나 UpgradeDomainTimeout이 HealthCheckWaitDuration과 HealthCheckStableDuration의 합계보다 작은 경우입니다.
 
 ### 업그레이드에 시간이 너무 오래 걸립니다.
 
-업그레이드를 완료하는 데 걸리는 시간은 응용 프로그램을 업그레이드(패키지 복사, 배포 및 안정화 포함)하는 데 걸리는 시간에 따라 좌우되는 다양한 상태 검사 및 지정된 제한 시간에 따라 다릅니다. 제한 시간을 너무 적극적으로 지정하면 업그레이드에 더 많이 실패할 수 있으므로 더 긴 제한 시간으로 신중하게 시작하는 것이 바람직합니다.
+업그레이드를 완료하는 데 걸리는 시간은 응용 프로그램을 업그레이드(패키지 복사, 배포 및 안정화 포함)하는 데 걸리는 시간에 따라 좌우되는 다양한 상태 검사 및 지정된 제한 시간에 따라 다릅니다. 제한 시간을 너무 촉박하게 지정하면 업그레이드에 더 많이 실패할 수 있으므로 더 긴 제한 시간으로 신중하게 시작하는 것이 바람직합니다.
 
 업그레이드 시간과 제한 시간의 관계에 대해 간단히 정리하면 다음과 같습니다.
 
-업그레이드 도메인에 대한 업그레이드는 *HealthCheckWaitDuration*+*HealthCheckStableDuration*보다 빠르게 완료할 수 없습니다.
+업그레이드 도메인에 대한 업그레이드는 HealthCheckWaitDuration+HealthCheckStableDuration보다 빠르게 완료할 수 없습니다.
 
-*HealthCheckWaitDuration*+*HealthCheckRetryTimeout*보다 빠르면 업그레이드 오류가 발생할 수 있습니다.
+HealthCheckWaitDuration+HealthCheckRetryTimeout보다 빠르면 업그레이드 오류가 발생할 수 있습니다.
 
-업그레이드 도메인에 대한 업그레이드 시간은 *UpgradeDomainTimeout*으로 제한됩니다. *HealthCheckRetryTimeout* 및 *HealthCheckStableDuration*이 모두 0가 아니고 응용 프로그램이 앞뒤로 전환되는 상태를 유지하는 경우, 업그레이드는 궁극적으로 *UpgradeDomainTimeout*의 제한 시간이 됩니다. *UpgradeDomainTimeout*은 현재 업그레이드 도메인에 대한 업그레이드가 일단 시작되면 카운트다운을 시작합니다.
+업그레이드 도메인에 대한 업그레이드 시간은 UpgradeDomainTimeout으로 제한됩니다. HealthCheckRetryTimeout 및 HealthCheckStableDuration이 모두 0가 아니고 응용 프로그램이 앞뒤로 전환되는 상태를 유지하는 경우, 업그레이드는 궁극적으로 UpgradeDomainTimeout의 제한 시간이 됩니다. UpgradeDomainTimeout은 현재 업그레이드 도메인에 대한 업그레이드가 일단 시작되면 카운트다운을 시작합니다.
 
 ## 다음 단계
 
 [Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-
-[PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade-powershell.md)
 
 [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
 
 [수동 업그레이드 및 Diff 패키지로 업그레이드](service-fabric-application-upgrade-advanced.md)
 
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
- 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->

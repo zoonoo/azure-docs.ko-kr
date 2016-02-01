@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/06/2015"
+   ms.date="1/19/2016"
    ms.author="bruceper" />
 
 # Azure 키 자격 증명 모음 개발자 가이드
@@ -25,7 +25,7 @@
 
 - [만들기](https://msdn.microsoft.com/library/azure/dn903634.aspx), [가져오기](https://msdn.microsoft.com/library/azure/dn903626.aspx), [업데이트](https://msdn.microsoft.com/library/azure/dn903616.aspx), [삭제](https://msdn.microsoft.com/library/azure/dn903611.aspx) 및 기타 작업을 사용하여 암호화 키 관리
 
-- [가져오기](https://msdn.microsoft.com/library/azure/dn903633.aspx), [업데이트](https://msdn.microsoft.com/library/azure/dn986818.aspx, [삭제](https://msdn.microsoft.com/library/azure/dn903613.aspx) 및 기타 작업을 사용하여 비밀 관리
+- [가져오기](https://msdn.microsoft.com/library/azure/dn903633.aspx), [업데이트](https://msdn.microsoft.com/library/azure/dn986818.aspx), [삭제](https://msdn.microsoft.com/library/azure/dn903613.aspx) 및 기타 작업을 사용하여 비밀 관리
 
 - [서명](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[확인](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) 및 [암호화](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[암호 해독](https://msdn.microsoft.com/library/azure/dn878097.aspx) 작업에 암호화 키 사용
 
@@ -37,7 +37,8 @@
 
 |[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)로 바꿉니다.|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)로 바꿉니다.
 |:--:|:--:|
-|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[.NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js SDK 설명서](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[.NET SDK 패키지](https://azure.microsoft.com/ko-KR/documentation/api/)|[Node.js SDK 패키지](https://www.npmjs.com/package/azure-keyvault)|
 
 ## 키 자격 증명 모음 관리
 
@@ -65,4 +66,4 @@ Azure 주요 자격 증명 모음 컨테이너(자격 증명 모음)는 다음 �
 
 - [Microsoft Azure 키 자격 증명 모음 확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0)은 Azure 키 자격 증명 모음에 확장된 기능을 제공합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

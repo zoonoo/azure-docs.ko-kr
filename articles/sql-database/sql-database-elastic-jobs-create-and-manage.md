@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="01/19/2016"
 	ms.author="ddove; sidneyh"/>
 
 # 포털을 사용하여 SQL 데이터베이스 탄력적 작업 만들기 및 관리(미리 보기)
@@ -23,7 +23,7 @@
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
-**탄력적 데이터베이스 작업**은 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업 실행을 간소화하여 데이터베이스 그룹을 쉽고 안정적으로 관리할 수 있게 합니다. 탄력적 데이터베이스 작업은 현재 Azure 포털 및 PowerShell cmdlet을 통해 사용할 수 있습니다. 그러나 Azure 포털 화면은 [탄력적 데이터베이스 풀(미리 보기)](sql-database-elastic-pool.md)의 모든 데이터베이스에서 실행되도록 기능이 제한됩니다. [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-scale-introduction.md)를 사용하여 만든 분할된 데이터베이스 집합 또는 사용자 정의 컬렉션을 포함하여 데이터베이스의 그룹에서 스크립트의 추가 기능 및 실행에 액세스하려면 [PowerShell을 사용하여 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md)를 참조하세요. 작업에 대한 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
+**탄력적 데이터베이스 작업**을 사용하면 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업 실행을 간소화하여 데이터베이스 그룹을 쉽고 안정적으로 관리할 수 있게 합니다. 탄력적 데이터베이스 작업은 현재 Azure 포털 및 PowerShell cmdlet을 통해 사용할 수 있습니다. 그러나 Azure 포털 화면은 [탄력적 데이터베이스 풀(미리 보기)](sql-database-elastic-pool.md)의 모든 데이터베이스에서 실행되도록 기능이 제한됩니다. [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-scale-introduction.md)를 사용하여 만든 분할된 데이터베이스 집합 또는 사용자 정의 컬렉션을 포함하여 데이터베이스의 그룹에서 스크립트의 추가 기능 및 실행에 액세스하려면 [PowerShell을 사용하여 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md)를 참조하세요. 작업에 대한 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
 
 ## 필수 조건
 
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

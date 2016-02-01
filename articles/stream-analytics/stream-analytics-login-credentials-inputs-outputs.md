@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-#로그인 자격 증명 회전
+#스트림 분석 작업에서 입력 및 출력을 위한 로그인 자격 증명 회전
 
 ##요약
 오늘날 Azure 스트림 분석은 작업이 실행되는 동안에 입/출력 시 자격 증명을 대체할 수 없습니다.
@@ -194,4 +194,4 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

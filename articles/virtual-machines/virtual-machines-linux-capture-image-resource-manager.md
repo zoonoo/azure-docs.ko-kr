@@ -31,7 +31,7 @@
 
 - [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-예를 들어 미국 중부 지역에 *MyResourceGroup*이라는 이름의 리소스 그룹을 만듭니다. 그 후 리소스 그룹에서 Ubuntu 14.04 LTS VM을 배포하기 위해 다음과 유사하게 **azure vm quick-create** 명령을 사용합니다.
+예를 들어 미국 중부 지역에 MyResourceGroup이라는 이름의 리소스 그룹을 만듭니다. 그 후 리소스 그룹에서 Ubuntu 14.04 LTS VM을 배포하기 위해 다음과 유사하게 **azure vm quick-create** 명령을 사용합니다.
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:14.04.201507060 -u <your-user-name> -p <your-password>
 
@@ -180,7 +180,7 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 ## azure vm create 명령 사용
 
-리소스 관리자 템플릿을 사용하여 이미지에서 VM을 만드는 것이 일반적입니다. 하지만 **--os-disk-vhd** (**-d**) 매개 변수와 함께 **azure vm create** 명령을 사용하면 _명령문_으로 VM을 만들 수 있습니다.
+리소스 관리자 템플릿을 사용하여 이미지에서 VM을 만드는 것이 일반적입니다. 하지만 **--os-disk-vhd** (**-d**) 매개 변수와 함께 **azure vm create** 명령을 사용하면 명령문으로 VM을 만들 수 있습니다.
 
 이미지에 **azure vm create**을 실행하기 전에 다음을 수행합니다.
 
@@ -193,11 +193,11 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 그 후 다음과 유사한 명령을 실행합니다.
 
 	azure vm create -g <your-resource-group-name> -n <your-new-vm-name> -l eastus -y Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
-	
+
 추가적인 명령 옵션은 `azure help vm create`을 실행합니다.
 
 ## 다음 단계
 
 CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-azure-cli.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

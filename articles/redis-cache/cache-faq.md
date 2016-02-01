@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="01/20/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -134,6 +134,46 @@ ConnectTimeout|연결 작업의 시간 제한(ms)입니다.|
 		-	진단에 도움이 되도록 각 멀티플렉서의 `ClientName` 속성을 설정합니다. 
 		-	그러면 `ConnectionMultiplexer`당 대기 시간이 보다 간소화됩니다.
 
+<a name="threadpool"></a>
+## ThreadPool 증가에 대한 중요한 세부 정보
+
+CLR ThreadPool에는 두 가지 유형의 스레드 - "작업자" 및 "I/O 완료 포트"(즉, IOCP) 스레드가 있습니다.
+
+-	작업자 스레드는 `Task.Run(…)` 또는 `ThreadPool.QueueUserWorkItem(…)` 메서드처리 등을 위한 경우 사용됩니다. 이러한 스레드는 작업을 백그라운드 스레드에서 수행해야 할 경우에 CLR에서 다양한 구성 요소에서 사용됩니다.
+-	IOCP 스레드는 비동기 IO가 발생하는 경우(예: 네트워크에서 읽기) 사용됩니다.  
+
+스레드 풀은 스레드의 각 형식에 대한 "최소" 설정에 도달할 때까지 새 작업자 스레드 또는 주문형 I/O 완료 스레드(제한 없이)를 제공합니다. 기본적으로 최소 스레드 수는 시스템에서 프로세서의 수로 설정됩니다.
+
+기존(사용 중) 스레드의 수가 스레드의 "최소" 수에 도달하면 ThreadPool은 500 밀리초당 하나의 스레드에 새 스레드를 삽입하는 비율을 제한합니다. 즉, 시스템이 IOCP 스레드가 필요한 작업 폭주를 가져오는 경우 해당 작업을 매우 신속하게 처리합니다. 그러나 작업 폭주가 구성된 "최소" 설정보다 큰 경우 ThreadPool은 두 가지 중 하나가 발생하기를 기다리므로 일부 작업 처리에 약간의 지연이 있을 수 있습니다.
+
+1. 기존 스레드는 작업을 처리할 수 있는 상태가 됩니다.
+1. 500ms에 대해 기존 스레드를 사용할 수 없으므로 새 스레드가 만들어집니다.
+
+기본적으로 사용 중인 스레드의 수가 최소 스레드보다 큰 경우 네트워크 트래픽이 응용 프로그램에서 처리되기 전에 500ms 지연을 지불할 가능성이 있음을 의미합니다. 또한 기존 스레드가 15초보다 오랫동안 유휴 상태로 유지되는 경우(기억에 기반) 정리되고 증가 및 감소의 주기를 반복할 수 있다는 것에 유의해야 합니다.
+
+StackExchange.Redis(빌드 1.0.450 이상)의 예제 오류 메시지를 살펴보는 경우 ThreadPool 통계를 인쇄하는 것을 볼 수 있습니다(아래 IOCP 및 작업자 세부 정보 참조).
+
+	System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive, 
+	queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, 
+	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
+	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+
+위의 예에서 IOCP 스레드의 경우 사용 중인 6개의 스레드가 있고 시스템이 최소 4개의 스레드를 허용하도록 구성되어 있는 것을 확인할 수 있습니다. 이 경우 클라이언트는 6 > 4로 인해 두 500ms 지연을 볼 수 있습니다.
+
+IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchange.Redis는 시간 제한에 도달할 수 있습니다.
+
+### 권장 사항
+
+주어진 이 정보로 고객은 IOCP 및 작업자 스레드에 대해 기본값보다 큰 값으로 최소 구성 값을 설정하는 것이 좋습니다. 하나의 응용 프로그램에 대한 올바른 값은 다른 응용 프로그램에 대해 너무 높거나/낮을 수 있으므로 이 값에 대해 모든 지침에 맞는 하나의 크기를 제공할 수 없습니다. 이 설정은 복잡한 응용 프로그램의 다른 부분의 성능에 영향을 미칠 수 있으므로 각 고객은 특정 요구에 맞게 이 설정을 미세 조정해야 합니다. 좋은 시작 지점은 200 또는 300이며 필요에 따라 테스트 및 조정합니다.
+
+이 설정을 구성하는 방법
+
+-	ASP.NET에서 web.config의 `<processModel>` 구성 요소 아래에서 ["minIoThreads" 구성 설정][]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 global.asax.cs의 Application\_Start 메서드에서 프로그래밍 방식(아래 참조)으로 설정할 수 있어야 합니다.
+
+> **중요:** 이 구성 요소에 지정된 값은 코어당 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`을(를) 사용합니다.
+
+-	ASP.NET 외부에서 [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API를 사용합니다.
+
 <a name="cache-redis-commands"></a>
 ## 일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?
 
@@ -215,7 +255,7 @@ Azure 캐시에는 현재 다음과 같은 세 가지 제품이 있습니다.
 >질문이 있으면 [문의](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933)하시기 바랍니다.
 
 ### Azure Redis 캐시(영문)
-Azure Redis Cache가 이제 최대 53GB 크기로 출시되었으며 99.9%의 가용성 SLA를 제공합니다. 새 [프리미엄 계층](cache-premium-tier.md)은 99.9%의 SLA와 함께 최대 530GB 크기를 제공하며 클러스터링, VNET, 지속성 등을 지원합니다.
+Azure Redis Cache가 이제 최대 53GB 크기로 출시되었으며 99.9%의 가용성 SLA를 제공합니다. 새 [프리미엄 계층](cache-premium-tier-intro.md)은 99.9%의 SLA와 함께 최대 530GB 크기를 제공하며 클러스터링, VNET, 지속성 등을 지원합니다.
 
 Azure Redis Cache에서 고객은 Microsoft에서 관리하는 안전한 전용 Redis Cache를 사용할 수 있습니다. Redis에서 제공하는 다양한 기능 집합 및 에코시스템을 활용하면서 Microsoft의 안정적인 호스팅 및 모니터링 기능을 이용할 수 있습니다.
 
@@ -231,4 +271,6 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 ### In-Role Cache
 In-Role Cache는 2016년 11월 30일에 사용 중지되도록 설정됩니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+
+<!---HONumber=AcomDC_0121_2016-->

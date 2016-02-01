@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/19/2016"
 	ms.author="tarcher"/>
 # 연속 배달을 사용하여 Azure에 게시할 경우 원격 디버깅 사용
 
@@ -41,53 +41,53 @@
 4. Azure PowerShell(0.7.4 이후 버전)을 [Azure PowerShell 설치 및 구성 방법](powershell-install-configure.md)에 간략히 설명한 대로 설치합니다.
 5. 다음 스크립트를 실행하여 RemoteDebug 확장을 사용합니다. 경로 및 개인 데이터를 사용자의 데이터(예: 구독 이름, 서비스 이름 및 지문)로 바꿉니다.
 
-	>[AZURE.NOTE]이 스크립트는 Visual Studio 2015에서 구성되었습니다. Visual Studio 2013을 사용하는 경우, ReferenceName과 ExtensionName에 "RemoteDebugVS2013"을 사용합니다.
+	>[AZURE.NOTE]이 스크립트는 Visual Studio 2015에서 구성되었습니다. Visual Studio 2013을 사용하는 경우 아래 `$referenceName` 및 `$extensionName` 할당을 수정하여 `RemoteDebugVS2013`을(를) 사용합니다(`RemoteDebugVS2015` 대신).
 
 	<pre>
-    Add-AzureAccount
+Add-AzureAccount
 
-    Select-AzureSubscription "My Microsoft Subscription"
+Select-AzureSubscription "My Microsoft Subscription"
 
-    $vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
+$vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
 
-    $endpoints = @(
-    ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
-    ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
-    )
+$endpoints = @(
+,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
+,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
+)
 
-    foreach($endpoint in $endpoints)
-    {
-    Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
-    }
+foreach($endpoint in $endpoints)
+{
+Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
+}
 
-    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
-    $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
-    $extensionName = "RemoteDebugVS2015"
-    $version = "1.*"
-    $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
+$referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
+$publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
+$extensionName = "RemoteDebugVS2015"
+$version = "1.*"
+$publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
 
-    $vm | Set-AzureVMExtension `
-    -ReferenceName $referenceName `
-    -Publisher $publisher `
-    -ExtensionName $extensionName `
-    -Version $version `
-    -PublicConfiguration $publicConfiguration
+$vm | Set-AzureVMExtension `
+-ReferenceName $referenceName `
+-Publisher $publisher `
+-ExtensionName $extensionName `
+-Version $version `
+-PublicConfiguration $publicConfiguration
 
-    foreach($extension in $vm.VM.ResourceExtensionReferences)
-    {
-    if(($extension.ReferenceName -eq $referenceName) `
-    -and ($extension.Publisher -eq $publisher) `
-    -and ($extension.Name -eq $extensionName) `
-    -and ($extension.Version -eq $version))
-    {
-   $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
-    break
-    }
-    }
+foreach($extension in $vm.VM.ResourceExtensionReferences)
+{
+if(($extension.ReferenceName -eq $referenceName) `
+-and ($extension.Publisher -eq $publisher) `
+-and ($extension.Name -eq $extensionName) `
+-and ($extension.Version -eq $version))
+{
+$extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
+break
+}
+}
 
-    $vm | Update-AzureVM
-	</pre>
+$vm | Update-AzureVM
+</pre>
 
 6. Visual Studio 및 Azure SDK for .NET 2.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/19/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # Azure 백업이란?
@@ -33,7 +33,7 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | 무제한 데이터 전송 | Azure 백업 자격 증명에서 복원 작업 중 송신(아웃바운드) 데이터 전송 비용을 청구하지 않습니다. 또한 Azure에 대한 데이터 인바운드는 무료입니다. |
 | 중앙 관리 | Azure 포털의 단순성 및 친숙함입니다. 서비스가 발전함에 따라 중앙 관리와 같은 기능을 통해 단일 위치에서 백업 인프라를 관리할 수 있습니다. |
 | 데이터 암호화. | 공용 클라우드에서 고객 데이터의 전송 및 저장을 보호합니다. 암호화 암호는 원본에 저장되며 전송되거나 Azure에 저장되지 않습니다. 데이터를 복원하려면 암호화 키가 필요하며, 해당 고객만 서비스의 데이터에 완전히 액세스할 수 있습니다. |  
-| VSS 통합 | Windows에서 응용 프로그램이 일관된 백업은 복원 시 수정이 필요하지 않도록 합니다. RTO를 감소시키고 고객이 실행 상태를 빠르게 반환할 수 있도록 합니다. |
+| 응용 프로그램 일치 백업 | Windows에서 응용 프로그램이 일관된 백업은 복원 시 수정이 필요하지 않도록 합니다. RTO를 감소시키고 고객이 실행 상태를 빠르게 반환할 수 있도록 합니다. |
 | 장기 보존 | 고객은 오프사이트 테이프 백업 솔루션에 대한 요금을 내는 대신, 매우 저렴한 비용으로 테이프와 유사한 의미 체계의 매력적인 솔루션을 제공하는 Azure에 백업할 수 있습니다. |
 
 ## Azure 백업 구성 요소
@@ -45,12 +45,12 @@ Azure 백업은 하이브리드 백업 솔루션이며 종단 간 백업 사용 
 
 | 구성 요소 | Azure에 배포할 수 있나요? | 온-프레미스로 배포할 수 있나요? | 지원되는 대상 저장소|
 | --- | --- | --- | --- |
-| Azure 백업 에이전트 | <p>**예**</p> <p>Azure 백업 에이전트는 Azure에서 실행 중인 모든 Windows Server VM에 배포될 수 있습니다.</p> | <p>**예**</p> <p>Azure 백업 에이전트는 모든 Windows Server VM 또는 물리적 컴퓨터에 배포될 수 있습니다.</p> | Azure 자격 증명 모음 |
-| SCDPM(System Center Data Protection Manager) | <p>**예**</p> <p>[SCDPM을 사용하여 Azure에서 워크로드 보호](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)에 대해 자세히 알아보세요.</p> | <p>**Yes**</p> <p>[데이터 센터에서 워크로드 및 VM 보호](https://technet.microsoft.com/library/hh758173.aspx)에 대해 자세히 알아보세요. | 로컬로 연결된 디스크,</p> <p>Azure 백업 자격 증명 모음,</p> <p>T테이프(온-프레미스만)</p> |
-| Azure 백업 서버 | <p>**예**</p> <p>[Azure 백업 서버를 사용하여 Azure에서 워크로드 보호](backup-azure-microsoft-azure-backup.md)에 대해 자세히 알아보세요.</p> | <p>**예**</p> <p>[Azure 백업 서버를 사용하여 Azure에서 워크로드 보호](backup-azure-microsoft-azure-backup.md)에 대해 자세히 알아보세요.</p> | Azure 자격 증명 모음 |
-| Azure 백업(VM 확장) | <p>예</p> <p>[Azure IaaS 가상 컴퓨터의 백업](backup-azure-vms-introduction.md)에 맞게 특별히 설정됩니다.</p> | <p>**아니요**</p> <p>SCDPM을 사용하여 데이터 센터의 가상 컴퓨터를 백업합니다. | Azure 백업 자격 증명 모음</p> |
+| Azure 백업 에이전트 | <p>**예**</p> <p>Azure 백업 에이전트는 Azure에서 실행 중인 모든 Windows Server VM에 배포될 수 있습니다.</p> | <p>**예**</p> <p>Azure 백업 에이전트는 모든 Windows Server VM 또는 물리적 컴퓨터에 배포될 수 있습니다.</p> | <p>Azure 자격 증명 모음</p> |
+| SCDPM(System Center Data Protection Manager) | <p>**예**</p> <p>[SCDPM을 사용하여 Azure에서 워크로드 보호](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)에 대해 자세히 알아보세요.</p> | <p>**Yes**</p> <p>[데이터 센터에서 워크로드 및 VM 보호](https://technet.microsoft.com/library/hh758173.aspx)에 대해 자세히 알아보세요.</p> | <p>로컬로 연결된 디스크,</p> <p>Azure 백업 자격 증명 모음,</p> <p>T테이프(온-프레미스만)</p> |
+| Azure 백업 서버 | <p>**예**</p> <p>[Azure 백업 서버를 사용하여 Azure에서 워크로드 보호](backup-azure-microsoft-azure-backup.md)에 대해 자세히 알아보세요.</p> | <p>**예**</p> <p>[Azure 백업 서버를 사용하여 Azure에서 워크로드 보호](backup-azure-microsoft-azure-backup.md)에 대해 자세히 알아보세요.</p> | <p>Azure 자격 증명 모음</p> |
+| Azure 백업(VM 확장) | <p>예</p> <p>[Azure IaaS 가상 컴퓨터의 백업](backup-azure-vms-introduction.md)에 맞게 특별히 설정됩니다.</p> | <p>**아니요**</p> <p>SCDPM을 사용하여 데이터 센터의 가상 컴퓨터를 백업합니다.</p> | <p>Azure 자격 증명 모음</p> |
 
-## 응용 프로그램 및 워크로드
+## 어떤 응용 프로그램과 작업을 백업할 수 있나요?
 
 | 워크로드 | 원본 컴퓨터 | Azure 백업 솔루션 |
 | --- | --- |---|
@@ -61,12 +61,12 @@ Azure 백업은 하이브리드 백업 솔루션이며 종단 간 백업 사용 
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)</p> |
-| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
-| Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) | | Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
+
 ## 기능
 이러한 테이블은 각 구성 요소에 Azure 백업 기능이 처리되는 방법을 요약합니다.
 
-### 저장소
+### 1\. 저장소
 
 | 기능 | Azure 백업 에이전트 | SCDPM | Azure 백업 서버 | Azure 백업(VM 확장) |
 | ------- | --- | --- | --- | ---- |
@@ -82,14 +82,14 @@ Azure 백업 자격 증명 모음은 모든 구성 요소에서 원하는 저장
 #### 증분 백업
 대상 저장소에 관계 없이(예: 디스크, 테이프, 백업 자격 증명 모음) 모든 구성 요소는 증분 백업을 지원합니다. 이렇게 하면 백업은 마지막 백업 이후에 증분 변경만 수행하고 대상 저장소에 전송하여 저장소 및 시간을 효율적으로 사용할 수 있습니다. 또한 백업은 저장소 공간을 줄이도록 압축됩니다.
 
->[AZURE.NOTE]압축하지 않은 구성 요소는 VM을 확장합니다. 모든 백업 데이터는 압축하지 않고 고객 저장소 계정에서 동일한 지역의 백업 저장소로 복사됩니다. 사용된 저장소를 늘리는 동안 압축하지 않고 데이터를 저장하면 복원 시간을 단축할 수 있습니다.
+압축하지 않은 구성 요소는 VM을 확장합니다. 모든 백업 데이터는 압축하지 않고 고객 저장소 계정에서 동일한 지역의 백업 저장소로 복사됩니다. 사용된 저장소를 늘리는 동안 압축하지 않고 데이터를 저장하면 복원 시간을 단축할 수 있습니다.
 
 #### 중복 제거
 중복 제거는 [Hyper-V 가상 컴퓨터 내에 배포된](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx) 경우 SCDPM 및 Azure 백업 서버에 대해 지원됩니다. 중복 제거는 가상 컴퓨터에 백업 저장소로 연결된 VHD에서 Windows Server 중복 제거 기능을 활용하여 호스트 수준에서 수행됩니다.
 
 >[AZURE.WARNING]중복 제거는 Azure에서 Azure 백업 구성 요소에 사용할 수 없습니다. SCDPM 및 Azure 백업 서버가 Azure에 배포될 경우 VM에 연결된 저장소 디스크는 중복을 제거할 수 없습니다.
 
-### 보안
+### 2\. 보안
 
 | 기능 | Azure 백업 에이전트 | SCDPM | Azure 백업 서버 | Azure 백업(VM 확장) |
 | ------- | --- | --- | --- | ---- |
@@ -100,9 +100,9 @@ AES256을 사용하여 서버에서 Azure 백업 자격 증명 모음으로 모�
 
 >[AZURE.WARNING]백업 데이터를 암호화하는 데 사용되는 키는 고객을 통해서만 존재합니다. Microsoft는 Azure에 복사본을 유지하지 않으며 키에 대한 어떠한 액세스 권한도 없습니다. 키를 잃어버릴 경우 Microsoft는 백업 데이터를 복구할 수 없습니다.
 
-Azure VM을 백업하는 경우 가상 컴퓨터 *내에서* 명시적으로 암호화를 설정해야 합니다. Windows 가상 컴퓨터의 BitLocker 및 Linux 가상 컴퓨터의 dm-crypt을 사용합니다. Azure 백업은 이 경로를 통해 제공되는 백업 데이터를 자동으로 암호화하지 않습니다.
+Azure VM을 백업하는 경우 가상 컴퓨터 내에서 명시적으로 암호화를 설정해야 합니다. Windows 가상 컴퓨터의 BitLocker 및 Linux 가상 컴퓨터의 dm-crypt을 사용합니다. Azure 백업은 이 경로를 통해 제공되는 백업 데이터를 자동으로 암호화하지 않습니다.
 
-### 지원되는 워크로드
+### 3\. 지원되는 워크로드
 
 | 기능 | Azure 백업 에이전트 | SCDPM | Azure 백업 서버 | Azure 백업(VM 확장) |
 | ------- | --- | --- | --- | ---- |
@@ -116,7 +116,7 @@ Azure VM을 백업하는 경우 가상 컴퓨터 *내에서* 명시적으로 암
 | Azure 가상 컴퓨터(Windows) | | | | ![예][green] |
 | Azure 가상 컴퓨터(Linux) | | | | ![예][green] |
 
-### 네트워크
+### 4\. 네트워크
 
 | 기능 | Azure 백업 에이전트 | SCDPM | Azure 백업 서버 | Azure 백업(VM 확장) |
 | ------- | --- | --- | --- | ---- |
@@ -129,10 +129,11 @@ VM 확장이 직접 저장소 네트워크를 통해 Azure 저장소 계정에�
 
 백업 서버(SCDPM 또는 Azure 백업 서버)에 대한 데이터를 보호하는 고객의 경우 기본 서버에서 백업 서버로 이동하는 트래픽은 대역폭 사용률에 저장하기 위해 압축될 수 있습니다.
 
-### 백업 및 보존
+### 5\. 백업 및 보존
 
-| 백업 빈도(Azure 자격 증명 모음으로) | 하루에 3번 백업 | 하루에 2번 백업 | 하루에 1번 백업 |
+| | Azure 백업 에이전트 | SCDPM 및 Azure 백업 서버 | Azure 백업(VM 확장) |
 | --- | --- | --- | --- |
+| 백업 빈도(Azure 자격 증명 모음으로) | 하루에 3번 백업 | 하루에 2번 백업 | 하루에 1번 백업 |
 | 백업 주기(디스크로) | 해당 없음 | <p>SQL Server에 대해 15분 마다</p> <p>다른 워크로드에 대해 1시간 마다</p> | 해당 없음 |
 | 보존 옵션 | 매일, 매주, 매월, 매년 | 매일, 매주, 매월, 매년 | 매일, 매주, 매월, 매년 |
 | 보존 기간 | 최대 99년 | 최대 99년 | 최대 99년 |
@@ -164,4 +165,4 @@ Azure 백업은 데이터를 온-프레미스 또는 클라우드에 백업합�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

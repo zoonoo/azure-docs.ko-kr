@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos"/>
 
 # StorSimple 관리자 서비스를 사용하여 백업 정책 관리(업데이트 2)
@@ -36,7 +36,7 @@
 - **정책 이름** – 정책과 연결된 이름입니다. 다음과 같은 다양한 유형의 정책이 포함됩니다.
 
    - 사용자가 명시적으로 만든 예약된 정책입니다.
-   - 볼륨 생성 시 이 볼륨 옵션에 대한 기본 백업이 활성화되면 만들어지는 자동 정책입니다. 이러한 정책은 *VolumeName*\_Default로 이름이 지정됩니다. 여기서 *VolumeName*은 이 정책은 사용자가 Azure 클래식 포털에서 구성한 StorSimple 볼륨의 이름을 참조합니다. 자동 정책을 사용하면 22시 30분 장치 시간에서 시작하는 일일 클라우드 스냅숏이 발생됩니다.
+   - 볼륨 생성 시 이 볼륨 옵션에 대한 기본 백업이 활성화되면 만들어지는 자동 정책입니다. 이러한 정책은 VolumeName\_Default로 이름이 지정됩니다. 여기서 VolumeName은 이 정책은 사용자가 Azure 클래식 포털에서 구성한 StorSimple 볼륨의 이름을 참조합니다. 자동 정책을 사용하면 22시 30분 장치 시간에서 시작하는 일일 클라우드 스냅숏이 발생됩니다.
    - 원래 StorSimple 스냅숏 관리자에서 만든 가져온 정책입니다. 이 정책에서 가져온 StorSimple 스냅숏 관리자 호스트를 설명하는 태그가 포함됩니다.
 
 - **볼륨** – 정책과 연결된 볼륨입니다. 백업을 만들 때 백업 정책과 연관된 모든 볼륨이 함께 그룹화됩니다.
@@ -94,6 +94,6 @@ StorSimple 장치에서 백업 정책을 삭제하려면 Azure 클래식 포털�
 
 ## 다음 단계
 
-- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+[StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

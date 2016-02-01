@@ -17,9 +17,7 @@
 
 # Azure 자동화 Webhook
 
-*Webhook* 을 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.
-
-![Webhook](media/automation-webhooks/webhooks-overview.png)
+Webhook을 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다. ![Webhook](media/automation-webhooks/webhooks-overview.png)
 
 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)에서 Runbook을 시작하는 다른 방법과 Webhook을 비교할 수 있습니다.
 
@@ -36,7 +34,7 @@
 
 
 ### 매개 변수
-webhook은 runbook을 시작할 때 사용되는 runbook 매개 변수 값을 정의할 수 있습니다. webhook에는 runbook의 모든 필수 매개 변수 값이 포함되어야 하고 선택적 매개 변수 값이 포함 될 수 있습니다. 단일 runbook에 연결된 여러 webhook은 각각 다른 매개 변수 값을 사용할 수 있습니다.
+webhook은 runbook을 시작할 때 사용되는 runbook 매개 변수 값을 정의할 수 있습니다. webhook에는 runbook의 모든 필수 매개 변수 값이 포함되어야 하고 선택적 매개 변수 값이 포함 될 수 있습니다. Webhook에 구성된 매개 변수 값은 webhook을 만든 후에도 수정할 수 있습니다. 단일 runbook에 연결된 여러 webhook은 각각 다른 매개 변수 값을 사용할 수 있습니다.
 
 클라이언트는 webhook을 사용하여 runbook을 시작할 때 webhook에 정의된 매개 변수 값을 재정의할 수 없습니다. 클라이언트에서 데이터를 수신하기 위해 runbook은 클라이언트가 POST 요청에 포함하는 데이터가 포함된 [object] 형식의 **$WebhookData**라는 단일 매개 변수를 받아들일 수 있습니다.
 
@@ -61,9 +59,9 @@ webhook을 만들 때 $WebhookData에 값을 지정 하면 클라이언트가 �
 
 위의 runbook의 경우 WebhookData 매개 변수에 대한 다음 속성을 사용하는 경우:
 
-1. WebhookName: *MyWebhook*
-2. RequestHeader: *From=Test User*
-3. RequestBody: *[“VM1”, “VM2”]*
+1. WebhookName: MyWebhook
+2. RequestHeader: From=Test User
+3. RequestBody: [“VM1”, “VM2”]
 
 그런 다음 WebhookData 매개 변수에 대한 UI에서 다음 JSON 값을 전달합니다.
 
@@ -87,12 +85,10 @@ $WebhookData 매개 변수의 **WebhookName** 속성을 확인하여 webhook에�
 Azure Preview 포털에서 runbook에 연결된 새 webhook을 만들려면 다음 절차를 수행합니다.
 
 1. Azure Preview 포털의 **Runbook 블레이드**에서 webhook이 세부 정보 블레이드를 볼 runbook을 클릭합니다. 
-3. 블레이드 맨 위에서 **Webhook**을 클릭하여 **Webhook 추가** 블레이드를 엽니다. <br>
-![Webhook 단추](media/automation-webhooks/webhooks-button.png)
+3. 블레이드 맨 위에서 **Webhook**을 클릭하여 **Webhook 추가** 블레이드를 엽니다. <br> ![Webhook 단추](media/automation-webhooks/webhooks-button.png)
 4. **새 webhook 만들기**를 클릭하여 **webhook 블레이드 만들기**를 엽니다.
 5. webhook의 **이름**, **만료 날짜**와 사용 여부를 지정합니다. 이러한 속성에 대한 자세한 내용은 [webhook 세부 정보](#details-of-a-webhook)를 참조하십시오.
-6. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook을 만들고 나면 URL을 다시 검색할 수 없습니다.** <br>
-![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
+6. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook을 만들고 나면 URL을 다시 검색할 수 없습니다.** <br> ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 3. **매개 변수**를 클릭하여 runbook 매개 변수의 값을 제공합니다. runbook에 필수 매개 변수가 있으면 값을 제공 하지 않는 한 webhook를 만들 수 없습니다.
 1. **만들기**를 클릭하여 webhook을 만듭니다.
 
@@ -109,7 +105,7 @@ Azure Preview 포털에서 runbook에 연결된 새 webhook을 만들려면 다�
 |:---|:----|:---|
 | 202 | 수락됨 | 요청이 수락되었고 runbook에서 대기합니다. |
 | 400 | 잘못된 요청 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook이 만료되었습니다.</li> <li>webhook이 비활성화되었습니다.</li> <li>URL의 토큰이 잘못되었습니다.</li> </ul>|
-| 404 | 찾을 수 없음 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook을 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li> </ul> |
+| 404 | 찾을 수 없음 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul><li>webhook을 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li> </ul> |
 | 500 | 내부 서버 오류 | URL은 유효했지만 오류가 발생했습니다. 요청을 다시 제출하십시오. |
 
 요청이 성공했다고 가정하면 webhook 응답은 다음과 같은 JSON 형식의 작업 ID를 포함합니다. 단일 작업 ID를 포함하지만 잠재적인 이후 향상 기능에 대해 JSON 형식이 허용됩니다.
@@ -190,7 +186,7 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
 
 ## Azure 경고에 답하여 Runbook 시작
 
-Webhook 지원 Runbook을 사용하여 [Azure 경고](Azure-portal/insights-receive-alert-notifications.md)에 대처할 수 있습니다. Azure 경고를 통해 성능, 가용성 및 사용량 등의 통계를 수집하여 Azure의 리소스를 모니터링할 수 있습니다. 모니터링 메트릭이나 이벤트를 기반으로 Azure 리소스에 대한 경고를 받을 수 있습니다. 현재 자동화 계정은 메트릭만 지원합니다. 지정한 메트릭의 값이 할당된 임계값을 초과하거나 구성된 이벤트가 트리거된 경우 서비스 관리자나 공동 관리자에게 알림을 보내 경고를 해결하도록 합니다. 메트릭과 이벤트에 대한 자세한 내용은 [Azure 경고](Azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
+Webhook 지원 Runbook을 사용하여 [Azure 경고](../azure-portal/insights-receive-alert-notifications.md)에 대처할 수 있습니다. Azure 경고를 통해 성능, 가용성 및 사용량 등의 통계를 수집하여 Azure의 리소스를 모니터링할 수 있습니다. 모니터링 메트릭이나 이벤트를 기반으로 Azure 리소스에 대한 경고를 받을 수 있습니다. 현재 자동화 계정은 메트릭만 지원합니다. 지정한 메트릭의 값이 할당된 임계값을 초과하거나 구성된 이벤트가 트리거된 경우 서비스 관리자나 공동 관리자에게 알림을 보내 경고를 해결하도록 합니다. 메트릭과 이벤트에 대한 자세한 내용은 [Azure 경고](../azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
 
 Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대한 응답으로 Runbook을 실행할 수 있습니다. Azure 자동화는 Azure 경고를 통해 Webhook 지원 Rubbook을 실행하는 기능을 제공합니다. 메트릭이 구성된 임계값을 초과할 경우 경고 규칙이 활성화되고 그에 따라 Runbook을 실행하는 자동화 Webhook을 트리거합니다.
 
@@ -200,12 +196,12 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 
 가상 컴퓨터, CPU 사용률 등의 Azure 리소스를 주요한 성능 메트릭 중 하나로 고려해야 합니다. CPU 사용률이 100%이거나 장기간 특정 수준 이상이면 가상 컴퓨터를 다시 시작하여 문제를 해결하고자 할 수 있습니다. 이 문제는 가상 컴퓨터에 대한 규칙 경고를 구성하여 해결할 수 있으며 이 규칙에서는 CPU 백분율을 메트릭으로 적용합니다. 여기서 CPU 백분율은 단순한 예일 뿐이며 Azure 리소스에 대해 많은 다른 메트릭을 구성할 수 있습니다. 가상 컴퓨터를 다시 시작하는 것은 문제를 해결하기 위한 조치로, Runbook이 다른 조치를 취하도록 구성할 수 있습니다.
 
-이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](Azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **Timestamp** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 **WebhookData**의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
+이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](../azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **Timestamp** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 **WebhookData**의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
 
 
 ### 예
 
-구독에서 Azure 가상 컴퓨터를 만들고 [CPU 백분율 메트릭 모니터링을 위한 경고](Azure-portal/insights-receive-alert-notifications.md)에 연결합니다. 경고를 만들 때, Webhook을 만들 때 생성된 Webhook URL로 Webhook 필드를 입력할 수 있습니다.
+구독에서 Azure 가상 컴퓨터를 만들고 [CPU 백분율 메트릭 모니터링을 위한 경고](../azure-portal/insights-receive-alert-notifications.md)에 연결합니다. 경고를 만들 때, Webhook을 만들 때 생성된 Webhook URL로 Webhook 필드를 입력할 수 있습니다.
 
 다음 Rubbook 샘플은 경고 규칙이 활성화되었을 때 트리거되며 Runbook이 조치를 취할 리소스를 파악하는 데 필요한 경고 컨텍스트 매개 변수를 모읍니다.
 
@@ -276,4 +272,4 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 - Runbook 작업의 상태 보기에 대한 내용은 [Azure 자동화에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
 - [Azure 자동화를 사용하여 Azure 경고에서 조치 취하기](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="자습서: Azure 스트림 분석 및 Azure 기계 학습 통합 | Microsoft Azure" 
+	pageTitle="자습서: Azure 스트림 분석 및 Azure 기계 학습을 사용한 정서 분석 | Microsoft Azure" 
 	description="스트림 분석 작업에 UDF 및 기계 학습을 활용하는 방법"
 	keywords=""
 	documentationCenter=""
@@ -19,7 +19,7 @@
 	ms.author="jeffstok"
 />
 
-# 자습서: 스트림 분석과 기계 학습 통합에 대한 소개 #
+# 자습서: 스트림 분석 및 기계 학습을 사용하여 정서 분석 수행 #
 
 이 자습서는 간단한 스트림 분석 작업을 기계 학습과 신속하게 통합하는 방법을 알려주기 위해 설계되었습니다. Cortana Analytics 갤러리의 정서 분석 기계 학습 모델을 활용하여 스트리밍 텍스트 데이터를 분석하고 정서 점수를 실시간으로 확인하겠습니다. 스트리밍 Twitter 데이터의 실시간 정서 분석, 고객 지원 담당자와 고객 대화 기록 분석, 포럼/블로그/비디오에 대한 코멘트, 기타 여러 실시간 예측 점수 매기기 등의 시나리오를 이해하는 데 많은 도움이 되는 자습서입니다.
   
@@ -150,4 +150,4 @@
 
     ![스트림 분석 기계 학습 자습서 ml 모니터링 뷰](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

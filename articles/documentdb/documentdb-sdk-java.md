@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="01/19/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -26,15 +26,12 @@
 
 ##DocumentDB Java SDK
 
-<table>
-<tr><td>**다운로드**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
-<tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**설명서**</td><td>[Java SDK 참조 설명서](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**시작**</td><td>[Java SDK 시작](documentdb-java-application.md)</td></tr>
-<tr><td>**현재 지원되는 런타임**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
-</table></br>
+<table> <tr><td>**다운로드**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**설명서**</td><td>[Java SDK 참조 설명서](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**시작**</td><td>[Java SDK 시작](documentdb-java-application.md)</td></tr> <tr><td>**현재 지원되는 런타임**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
 
 ## 릴리스 정보
+
+### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+- 다른 SDK와 일치하도록 little-endian의 해시 값을 생성하는 HashPartitionResolver의 버그를 수정합니다.
 
 ### <a name="1.5.0"/>[1\.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
 - 여러 파티션 간의 응용 프로그램 분할을 지원하기 위해 해시 및 범위 파티션 해결 프로그램을 추가합니다.
@@ -70,19 +67,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.5.0](#1.5.0) | 2015년 12월 4일 |---
-| [1\.4.0](#1.4.0) | 2015년 10월 5일 |---
-| [1\.3.0](#1.3.0) | 2015년 10월 5일 |---
-| [1\.2.0](#1.2.0) | 2015년 8월 5일 |---
-| [1\.1.0](#1.1.0) | 2015년 7월 9일 |---
-| [1\.0.1](#1.0.1) | 2015년 3월 15일 |---
-| [1\.0.0](#1.0.0) | 2015년 4월 7일 |---
-| 0.9.5-prelease | 2015년 3월 9일 | 2016년 2월 29일
-| 0.9.4-prelease | 2015년 2월 17일 | 2016년 2월 29일
-| 0.9.3-prelease | 2015년 1월 13일 | 2016년 2월 29일
-| 0.9.2-prelease | 2014년 12월 19일 | 2016년 2월 29일
-| 0.9.1-prelease | 2014년 12월 19일 | 2016년 2월 29일
-| 0.9.0-prelease | 2014년 12월 10일 | 2016년 2월 29일
+| [1\.5.1](#1.5.1) | 2015년 12월 31일 |--- | | [1\.5.0](#1.5.0) | 2015년 12월 4일 |--- | [1\.4.0](#1.4.0) | 2015년 10월 5일 |--- | [1\.3.0](#1.3.0) | 2015년 10월 5일 |--- | [1\.2.0](#1.2.0) | 2015년 8월 5일 |--- | [1\.1.0](#1.1.0) | 2015년 7월 9일 |--- | [1\.0.1](#1.0.1) | 2015년 5월 12일 |--- | [1\.0.0](#1.0.0) | 2015년 4월 7일 |--- | 0.9.5-prelease | 2015년 3월 9일 | 2016년 2월 29일 | 0.9.4-prelease | 2015년 2월 17일 | 2016년 2월 29일 | 0.9.3-prelease | 2015년 1월 13일 | 2016년 2월 29일 | 0.9.2-prelease | 2014년 12월 19일 | 2016년 2월 29일 | 0.9.1-prelease | 2014년 12월 19일 | 2016년 2월 29일 | 0.9.0-prelease | 2014년 12월 10일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -91,4 +76,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

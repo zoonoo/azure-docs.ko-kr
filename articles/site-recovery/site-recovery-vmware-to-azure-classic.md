@@ -214,7 +214,7 @@ Azure Site Recovery에서 복제에 사용되는 대역폭을 늘리려면 레�
 1. Azure 포털 > **가상 네트워크 만들기**에서 네트워크 이름을 지정합니다. IP 주소 범위와 서브넷 이름입니다.
 2. 장애 복구(failback)를 수행해야 하는 경우 네트워크에 VPN/Express 경로를 추가해야 합니다. 장애 조치(Failover) 후에도 VPN/Express 경로를 네트워크에 추가할 수 있습니다. 
 
-Azure 네트워크에 대해 [자세히 알아보세요](virtual-networks-overview.md).
+Azure 네트워크에 대해 [자세히 읽어봅니다](../virtual-network/virtual-networks-overview.md).
 
 ## 3단계: VMware 구성 요소 설치
 
@@ -249,11 +249,11 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 
 5. **인터넷 설정**에서 서버에 설치될 공급자가 인터넷을 통해 Azure Site Recovery에 연결되는 방법을 지정합니다.
 
-- 공급자가 직접 연결되도록 하려면 **프록시 없이 직접 연결**을 선택합니다.
-- 현재 서버에 설정된 프록시를 사용하여 연결하려면 **기존 프록시 설정을 사용하여 연결**을 선택합니다.
-- 기존 프록시에 인증이 필요하거나 공급자 연결에 대해 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정을 사용하여 연결**을 선택합니다.
-- 사용자 지정 프록시를 사용하는 경우 주소, 포트 및 자격 증명을 지정해야 합니다.
-- 프록시를 사용하는 경우 다음 URL을 통해 액세스할 수 있어야 합니다.
+	- 공급자가 직접 연결되도록 하려면 **프록시 없이 직접 연결**을 선택합니다.
+	- 현재 서버에 설정된 프록시를 사용하여 연결하려면 **기존 프록시 설정을 사용하여 연결**을 선택합니다.
+	- 기존 프록시에 인증이 필요하거나 공급자 연결에 대해 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정을 사용하여 연결**을 선택합니다.
+	- 사용자 지정 프록시를 사용하는 경우 주소, 포트 및 자격 증명을 지정해야 합니다.
+	- 프록시를 사용하는 경우 다음 URL을 통해 액세스할 수 있어야 합니다.
 
 
 	![방화벽](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
@@ -264,10 +264,10 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 - **.accesscontrol.windows.net
 - **.backup.windowsazure.com
 - **.blob.core.windows.net
-- **. store.core.windows.net 서버에 IP 주소 기반 방화벽 규칙이 있는 경우 규칙에서 Azure에 대한 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://msdn.microsoft.com/library/azure/dn175718.aspx) 및 HTTPS(433) 프로토콜을 허용해야 합니다. 또한 구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용 목록으로 지정해야 합니다. 또한 MySQL 다운로드를 위해 다음 URL을 허용 목록으로 지정해야 합니다. http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
+- **. store.core.windows.net 서버에 IP 주소 기반 방화벽 규칙이 있는 경우 규칙에서 Azure에 대한 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://msdn.microsoft.com/library/azure/dn175718.aspx) 및 HTTPS(433) 프로토콜을 허용해야 합니다. 또한 구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용 목록으로 지정해야 합니다. 또한 MySQL 다운로드에 다음 URL을 허용 목록으로 지정해야 합니다. http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 
 
-7. **필수 구성 요소 확인** 설치 프로그램은 서버에서 필수 구성 요소 검사를 실행합니다.
+7. **필수 구성 요소 확인**에서 설치 프로그램은 서버에서 필수 구성 요소 검사를 실행합니다.
 
 	![필수 조건](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
@@ -295,6 +295,13 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 13.  **요약**에서 정보를 검토합니다.
 
 	![요약](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+14. 설치가 완료되면 Windows 시작 메뉴에서 "Microsoft Azure 복구 서비스 셸"이라는 응용 프로그램을 시작합니다. 열리는 명령 창에서 다음과 같은 명령 집합을 실행하여 프록시 서버 설정을 설정합니다.
+
+		PS C:\Windows\System32> $pwd = ConvertTo-SecureString -String ProxyUserPassword
+		PS C:\Windows\System32> Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd
+		PS C:\Windows\System32> net stop obengine.exe
+	 
+
 
 ### 명령줄에서 설치 실행
 
@@ -434,21 +441,20 @@ VMware VM을 복제하는 경우 vCenter Server(또는 ESXi 호스트)를 추가
 
 	- 루트로 로그인합니다.
 	- /etc/ssh/sshd\_config 파일에서 PasswordAuthentication으로 시작하는 줄을 찾습니다.
-	- 줄의 주석 처리를 제거하고 값을 **no**에서 **yes**로 변경합니다.
-	- **Subsystem**으로 시작하는 줄을 찾아서 주석 처리를 제거합니다.
+	- 줄의 주석 처리를 제거하고 값을 **아니오**에서 **예**로 변경합니다.
+	- **하위 시스템**으로 시작하는 줄을 찾아서 주석 처리를 제거합니다.
  
 		![Linux](./media/site-recovery-vmware-to-azure-classic/mobility2.png)
 
 
 ### 모바일 서비스 수동 설치
 
-xxx에서 필요한 설치 관리자를 다운로드할 수 있습니다.
+설치 관리자는 C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\home\\svsystems\\pushinstallsvc\\repository에서 사용할 수 있습니다.
 
 원본 운영 체제 | 모바일 서비스 설치 파일
 --- | ---
-Windows Server(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+Windows Server(64비트만 해당) | Microsoft-ASR\_UA\_9..0.0\_Windows\_ release.exe
+CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9..0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (64비트만 해당) | Microsoft-ASR\_UA\_9..0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -493,8 +499,8 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
 
 1. 위 표를 기준으로 해당 tar 아카이브를 보호하려는 Linux 컴퓨터에 복사합니다.
 2. 셸 프로그램을 열고 `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`을 실행하여 압축된 tar 아카이브를 로컬 경로로 추출합니다.
-3. tar 아카이브의 내용을 추출한 로컬 디렉터리에 passphrase.txt 파일을 만듭니다. 이렇게 하려면 관리 서버의 C:\\ProgramData\\Microsoft Azure Site Recovery\\private\\connection.passphrase에서 암호를 복사하고 셸에서 *`echo <passphrase> >passphrase.txt`*를 실행하여 passphrase.txt에 저장합니다.
-4. *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*를 입력하여 모바일 서비스를 설치합니다.
+3. tar 아카이브의 내용을 추출한 로컬 디렉터리에 passphrase.txt 파일을 만듭니다. 이렇게 하려면 관리 서버의 C:\\ProgramData\\Microsoft Azure Site Recovery\\private\\connection.passphrase에서 암호를 복사하고 셸에서 `echo <passphrase> >passphrase.txt`를 실행하여 passphrase.txt에 저장합니다.
+4. `sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`를 입력하여 모바일 서비스를 설치합니다.
 5. 관리 서버의 내부 IP 주소를 지정하고 포트 443이 선택되어 있는지 확인합니다.
 
 **또한 명령줄에서 설치할 수도 있습니다.**
@@ -569,7 +575,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
 3. 다음 설정을 수정할 수 있습니다.
 
 	-  **Azure VM 이름**: 장애 조치(Failover) 후에 Azure에서 컴퓨터에 지정될 이름입니다. 이름은 Azure 요구 사항을 준수해야 합니다.
-	-  **Azure VM 크기**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. 크기 및 어댑터에 대해 [자세히 알아보세요](virtual-machines-size-specs.md/#size-tables). 다음 사항에 유의하세요.
+	-  **Azure VM 크기**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. 크기 및 어댑터에 대해 [자세히 읽어봅니다](virtual-machines-size-specs.md/#size-tables). 다음 사항에 유의하세요.
 		- 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 탭을 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 네트워크 어댑터 수 이상이어야 하며 선택한 가상 머신 크기에서 지원하는 네트워크 어댑터 수 이하여야 합니다. 
 			- 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
 			- 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
@@ -635,7 +641,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
 
 5. 완료된 후 장애 조치가 테스트 완료 단계에 도달하면 테스트 완료를 클릭하여 마칩니다. 참고에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다.
 
-6. **테스트 장애 조치가 완료됨**을 클릭하면 테스트 환경이 자동으로 정리됩니다. 이것이 완료되면 테스트 장애 조치가 **Complete** 상태를 표시합니다. 테스트 장애 조치 중에 자동으로 생성된 모든 요소 또는 VM이 삭제됩니다. 테스트 장애 조치가 2주 이상 지속된다면 강제로 완료됩니다.
+6. **테스트 장애 조치가 완료됨**을 클릭하면 테스트 환경이 자동으로 정리됩니다. 이것이 완료되면 테스트 장애 조치가 **완료** 상태를 표시합니다. 테스트 장애 조치 중에 자동으로 생성된 모든 요소 또는 VM이 삭제됩니다. 테스트 장애 조치가 2주 이상 지속된다면 강제로 완료됩니다.
 
 
 	
@@ -721,7 +727,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
 --- | --- | ---
 Azure\_Site\_Recovery 역할 | VMware VM 검색 |v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 저장소->공간 할당, 데이터 저장소 찾아보기, 하위 수준 파일 작업., 파일 제거, 가상 컴퓨터 파일 업데이트<br/><br/>네트워크-> 네트워크 할당<br/><br/>리소스 -> 가상 컴퓨터를 리소스 풀에 할당, 전원 꺼짐 가상 컴퓨터 마이그레이션, 전원 켜진 가상 컴퓨터 마이그레이션<br/><br/>작업 -> 만들기 작업, 업데이트 작업<br/><br/>가상 컴퓨터 -> 구성<br/><br/>가상 컴퓨터 -> 상호 작용 -> 질문 답변, 장치 연결., CD 미디어 구성, 플로피 미디어 구성, 전원 꺼짐, 전원 켜짐, VMware 도구 설치<br/><br/>가상 컴퓨터 -> 인벤토리 -> 만들기, 등록, 등록 취소<br/><br/>가상 컴퓨터 -> 프로비전 -> 가상 컴퓨터 다운로드 허용, 가상 컴퓨터 파일 업로드 허용<br/><br/>가상 컴퓨터 -> 스냅숏 -> 스냅숏 제거
 vCenter 사용자 역할 | VMware VM 검색/원본 VM을 종료하지 않고 장애 조치 | v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 센터 개체 –> 자식 개체에 전파, 역할=읽기 전용 <br/><br/>사용자는 데이터 센터 수준에서 할당되므로 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다. 액세스를 제한하려는 경우 **자식 개체에 전파**를 사용하여 **액세스 권한 없음** 역할을 자식 개체(ESX 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다. 
-vCenter 사용자 역할 | 장애 조치 및 장애 복구 | v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 센터 개체 – 자식 개체에 전파, 역할=Azure\_Site\_Recovery<br/><br/>사용자는 데이터 센터 수준에서 할당되므로 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다. 액세스를 제한하려는 경우 **자식 개체에 전파**를 사용하여 **액세스 권한 없음** 역할을 자식 개체(ESX 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다. 
+vCenter 사용자 역할 | 장애 조치 및 장애 복구 | v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 센터 개체 – 자식 개체에 전파, 역할=Azure\_Site\_Recovery<br/><br/>사용자는 데이터 센터 수준에서 할당되므로 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다. 액세스를 제한하려는 경우 **자식 개체에 전파**를 사용하여 **액세스 권한 없음 **역할을 자식 개체(ESX 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다. 
 
 
 
@@ -735,10 +741,10 @@ The information in Section A is regarding Third Party Code components from the p
 
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 ## 다음 단계
 
 Azure에서 실행 중인 장애 조치(Failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아보세요](site-recovery-failback-azure-to-vmware-classic.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="10/09/2015"
+     ms.date="01/15/2016"
      ms.author="hegate"/>
 
 # OS 플랫폼 및 장치 SDK와의 하드웨어 호환성
@@ -116,7 +116,9 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 
 |장치| 테스트된 OS |언어|
 |:---------|:----------|:----------|
-|[ADLINK MXE 202i](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1589&seq=&id=&sid=&category=Fanless-Embedded-Computer_IoT-Gateway&utm_source=) |Wind River | JavaScript|
+|[Acme Systems Arietta G25](http://www.acmesystems.it/arietta) |Debian | C|
+|[ADLINK MXE 202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | JavaScript|
+|[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|
 |[Advantech Co., ARK-2121L](http://www.advantech.com/products/ark-2000_series_embedded_box_pcs/ark-2121l/mod_dd092808-0832-44bc-b38a-945eb7e016bd) |Windows 10 | C#|
 |[Advantech Co., ARK-1123C](http://www.advantech.com/products/92d96fda-cdd3-409d-aae5-2e516c0f1b01/ark-1123c/mod_0b91165c-aa8c-485d-8d25-fde6f88f4873) |Windows 10 | C#|
 |[Advantech Co., LTD UNO-1372G](http://www.advantech.com/products/gf-bvl2/uno-1372g/mod_8e63b3c9-b606-4725-a1af-94fccb98bb1a) |[Windows 10 | C#|
@@ -125,6 +127,7 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 |[Arduino MKR1000](https://www.arduino.cc/en/Main/ArduinoMKR1000) |Arduino IDE | C|
 |[Arduino Zero](https://www.arduino.cc/en/Guide/ArduinoZero) |Arduino IDE | C|
 |[Arrow DragonBoard 410c](http://partners.arrow.com/campaigns-na/qualcomm/dragonboard-410c/) |Windows 10 IoT 코어 | C#|
+|[Axiomtek ICO300](http://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=1151) |Windows 10 | C#|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | C, Javascript, Java|
 |[BeagleBone Green](http://beagleboard.org/green) |Debian | C, Javascript, Java|
 |[Dell Edge Gateway 5000 시리즈](http://www.dell.com/IoTgateway) |Ubuntu | Java|
@@ -135,6 +138,7 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 |[HPE Edgeline EL20](http://www8.hp.com/h20195/v2/GetPDF.aspx/c04884769.pdf) |Windows 10 | C#|
 |[Ilevia Eve Raspberry](http://www.ilevia.com/overview/) |Debian | C|
 |[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) |Yocto | C, Javascript|
+|[Libelium Meshlium Xtreme](http://www.libelium.com/products/meshlium/) |Debian | Java|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7,8, 10 | C#|
 |[NEXCOM NISE 50C](http://www.nexcom.com/Products/industrial-computing-solutions/industrial-fanless-computer/atom-compact/fanless-computer-nise-50c) |Windows 10 IoT 코어 | C#|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | C, Javascript, Java |
@@ -148,6 +152,7 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 |[Toradex Colibri T20](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-2) |Linux Angstrom(Yocto) | Java|
 |[Toradex Colibri T30](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-3) |Windows 10 IoT 코어 | C#|
 |[Toradex Colibri VF61](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-vybrid-vf6xx) |Linux Angstrom(Yocto) | C, Javascript, Java|
+|[Trueverit V4](http://www.trueverit.com/) |사용자 지정 Linux | C|
 
 [이러한 장치 사용을 시작](https://azure.microsoft.com/develop/iot/get-started/)하거나 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)를 방문하고 언어별 장치 문서를 검색하세요.
 
@@ -155,4 +160,4 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 
 [IoT 장치에 대한 인증](http://azure.com/iotdev)을 사용하여 솔루션을 개발하는 방법에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

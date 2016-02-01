@@ -189,6 +189,7 @@ CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 
 ## 다음 단계
 
 - [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
+
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

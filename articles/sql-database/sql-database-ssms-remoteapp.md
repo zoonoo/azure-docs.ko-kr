@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
 
 # Azure RemoteApp에서 SQL Server Management Studio를 사용하여Azure SQL 데이터베이스에 연결
@@ -137,7 +137,7 @@ Azure Active Directory에서 사용자에 이동할 때 Azure RemoteApp에 대�
 
 위의 모든 단계를 완료한 후에 Azure RemoteApp 클라이언트를 실행하고 할당된 사용자로 로그인할 수 있습니다. SSMS가 응용 프로그램 중 하나로 나타나고 Azure SQL Server에 액세스할 수 있는 컴퓨터에 설치되어 있는 경우처럼 실행할 수 있습니다.
 
-SQL 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [SSMS(SQL Server Management Studio)로 연결](sql-database-connect-to-database.md)을 참조하세요.
+SQL 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [SQL Server Management Studio로 SQL 데이터베이스에 연결 및 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
 
 
 이게 전부입니다. 마음껏 즐기세요!
@@ -152,4 +152,4 @@ SQL 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [SSM
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

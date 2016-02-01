@@ -25,7 +25,7 @@
 
 ### 네임 스페이스를 만들고 공유 비밀 키를 가져오기
 
-1. 서비스 네임스페이스를 만드는 방법에 대한 자세한 내용은 [서비스 버스 서비스 네임 스페이스 관리](https://msdn.microsoft.com/library/azure/hh690928.aspx) 섹션에서 [방법: 서비스 버스 서비스 네임스페이스 만들기 또는 수정](https://msdn.microsoft.com/library/azure/hh690931.aspx)을 참조하세요.
+1. 서비스 네임스페이스를 만들려면 [Azure 클래식 포털][]을 방문합니다. 왼쪽에서 **서비스 버스**를 클릭한 다음 **만들기**를 클릭합니다. 네임스페이스에 이름을 입력한 다음 확인 표시를 클릭합니다.
 
 1. [Azure 클래식 포털][]의 주 창에서 이전 단계에서 만든 네임스페이스의 이름을 클릭합니다.
 
@@ -57,7 +57,7 @@
 
 1. **시작** 메뉴에서 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭하여 Visual Studio를 관리자 권한으로 시작합니다.
 
-1. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**, **프로젝트**를 차례로 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**을 클릭하고(**Visual C#**이 보이지 않으면 **다른 언어** 아래 확인) **콘솔 응용 프로그램** 템플릿을 선택하여 이름을 **Microsoft.ServiceBus.Samples**로 지정합니다. 기본 위치를 사용합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
+1. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**, **프로젝트**를 차례로 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**을 클릭하고(**Visual C#**이 보이지 않으면 **다른 언어** 아래 확인) **콘솔 응용 프로그램** 서식 파일을 선택하여 이름을 **Microsoft.ServiceBus.Samples**로 지정합니다. 기본 위치를 사용합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 1. Program.cs에서 `using` 문이 다음과 같이 표시되는지 확인합니다.
 
@@ -296,7 +296,7 @@ private static string CreateTopic(string topicName)
 
 ### 구독 만들기
 
-다음 코드는 이전 단계에서 만든 항목에 대한 구독을 만듭니다. `CreateTopic()` 정의 바로 뒤에 다음 코드를 추가합니다.
+다음 코드는 이전 단계에서 만든 항목에 대한 구독을 만듭니다. 다음 코드를 `CreateTopic()` 정의 바로 뒤에 추가합니다.
 
 ```
 private static string CreateSubscription(string topicName, string subscriptionName)
@@ -628,9 +628,9 @@ namespace Microsoft.ServiceBus.Samples
 자세한 내용은 다음 문서를 참조하세요.
 
 - [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
-- [Azure 서비스 버스 기본 사항](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 릴레이 REST 자습서](service-bus-relay-rest-tutorial.md)
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

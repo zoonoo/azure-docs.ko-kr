@@ -2,7 +2,7 @@
     pageTitle="자습서: Jive와 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 Jive를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #자습서: Jive와 Azure Active Directory 통합
 
@@ -84,4 +84,4 @@
   
 이제 테스트 계정을 만들 수 있습니다. 10분 동안 기다린 후 계정이 Jive.com에 동기화되었는지 확인해 보십시오.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

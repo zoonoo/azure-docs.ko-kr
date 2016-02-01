@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="클라우드 서비스 역할 재활용의 일반적인 원인 | Microsoft Azure"
    description="갑작스런 재활용이 중요한 가동 중지 시간을 발생할 수 있는 클라우드 서비스 역할입니다. 역할이 재활용되도록 하는 일반적인 문제는 다음과 같으며 이는 가동 중지를 개선하는 데 도움이 될 수 있습니다."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # 역할을 재활용하게 하는 일반적인 문제
@@ -36,7 +36,7 @@
 - Visual studio를 사용하는 경우 **로컬 복사** 속성이 Azure SDK 또는.NET Framework의 일부가 아닌 프로젝트에서 참조된 각 어셈블리에 대해 **True**로 설정해야 합니다.
 
 - **web.config** 파일이 **컴파일** 요소에서 사용되지 않은 어셈블리를 참조하지 않도록 합니다.
- 
+
 - 모든 .cshtml 파일의 **빌드 작업**은 **콘텐츠**로 설정합니다. 이렇게 하면 패키지에서 파일이 올바르게 표시되고 기타 참조된 파일이 표시되도록 합니다.
 
 
@@ -66,8 +66,8 @@ Azure는 64비트 환경입니다. 따라서 32비트 대상에 컴파일된 .NE
 Azure에 응용 프로그램 패키지를 배포하기 전에 `DiagnosticsConnectionString` 설정이 올바른지 확인하려면 다음을 확인합니다.
 
 - `DiagnosticsConnectionString` 설정이 Azure의 유효한 저장소 계정을 가리킵니다. 기본적으로 이 설정은 에뮬레이트된 저장소 계정을 가리키므로 응용 프로그램 패키지를 배포하기 전에 이 설정을 명시적으로 변경해야 합니다. 이 설정을 변경하지 않는 경우 역할 인스턴스가 진단 모니터링을 시작하려고 할 때 예외가 throw됩니다. 역할 인스턴스가 무기한 재활용되게 할 수 있습니다.
-  
-- 연결 문자열은 다음에 [형식](storage-configure-connection-string.md)에 지정됩니다.(프로토콜은 HTTPS로 지정 되어야 함) *MyAccountName*을 저장소 계정의 이름으로 바꾸고 *MyAccountKey*를 선택키로 바꿉니다.
+
+- 연결 문자열은 다음에 [형식](../storage/storage-configure-connection-string.md)에 지정됩니다.(프로토콜은 HTTPS로 지정 되어야 함) MyAccountName을 저장소 계정의 이름으로 바꾸고 MyAccountKey를 선택키로 바꿉니다.
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -77,13 +77,15 @@ Azure에 응용 프로그램 패키지를 배포하기 전에 `DiagnosticsConnec
 
 ## 내보낸 인증서는 개인 키를 포함하지 않습니다.
 
-SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키를 포함해야 합니다. *Windows 인증서 관리자*를 사용하여 인증서를 내보내는 경우 *예*를 선택하여 개인 키 옵션을 내보내도록 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
+SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키를 포함해야 합니다. Windows 인증서 관리자를 사용하여 인증서를 내보내는 경우 예를 선택하여 개인 키 옵션을 내보내도록 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
 
 
 
 ## 다음 단계
 
 클라우드 서비스에 대한 [문제해결 문서](..\?tag=top-support-issue&service=cloud-services)를 더 봅니다.
+
+더 많은 역할 재활용 시나리오를 보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
 
 
 
@@ -93,4 +95,4 @@ SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [실행]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

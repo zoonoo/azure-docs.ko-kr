@@ -24,6 +24,8 @@
 
 [IoT Hub 리소스 공급자 REST API][lnk-rest-api]를 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리합니다. 이 자습서는 리소스 공급자 REST API를 사용하여 C# 프로그램에서 IoT Hub를 만드는 방법을 보여 줍니다.
 
+> [AZURE.NOTE]Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
+
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - Microsoft Visual Studio 2015.
@@ -40,9 +42,9 @@
 
 3. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 **Microsoft.Azure.Management.Resources**를 검색합니다. **2.18.11-preview** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
 
-4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다. 버전 **2.19.208020213**을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
+4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다. **2.19.208020213** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
 
-5. NuGet 패키지 관리자에서 **Microsoft.Azure.Common**을 검색합니다. 버전 **2.1.0**을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
+5. NuGet 패키지 관리자에서 **Microsoft.Azure.Common**을 검색합니다. **2.1.0** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
 
 6. Program.cs에서 기존 **using** 문을 다음으로 바꿉니다.
 
@@ -192,4 +194,4 @@ IoT Hub 리소스 공급자 REST API를 사용하여 리소스 그룹에 새 IoT
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

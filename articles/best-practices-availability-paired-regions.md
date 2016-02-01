@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure 지역 쌍으로 비즈니스 연속성 개선"
-	description="지역 쌍을 사용하여 데이터 센터 오류 중 응용 프로그램의 복원성을 유지할 수 있습니다."
-	services="multiple"
+	pageTitle="BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역 | Microsoft Azure"
+	description="Azure 지역 쌍을 통해 데이터 센터 오류 중 응용 프로그램의 복원성을 유지할 수 있습니다."
+	services="site-recovery"
 	documentationCenter=""
-	authors="rboucher"
+	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
     ms.service="backup"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/16/2015"
-    ms.author="robb"/>
+    ms.date="01/12/2016"
+    ms.author="raynew"/>
 
-# Azure 지역 쌍을 사용하여 가용성 향상
+# BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
-## Azure 쌍을 이루는 지역 설명
+## 쌍을 이루는 지역이란?
 
 Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치는 하나 이상의 Azure 지역을 포함하는 전 세계의 정의된 영역입니다. Azure 지역은 하나 이상의 데이터 센터를 포함하는 지리적 위치 내 영역입니다.
 
@@ -43,6 +43,7 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 | 브라질 | 브라질 남부(1) | 미국 중남부 |
 | 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 남동부|
 | 미국 정부 | 미국 정부 아이오와 | 미국 정부 버지니아 |
+| 인도 | 인도 중부 | 인도 남부 |
 
 표 1 - Azure 지역 쌍 매핑
 
@@ -50,7 +51,7 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 
 Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업을 복제하는 것이 좋습니다. 예를 덜어 계획된 Azure 시스템 업데이트는 쌍을 이루는 지역 간에 순차적으로 배포됩니다. 즉, 흔하지 않은 업데이트 오류가 발생한 경우에도 두 지역이 동시에 영향을 않습니다. 또한 거의 발생할 가능성이 없는 광범위한 중단 시 모든 쌍에서 하나 이상의 지역에 대한 복구 우선 순위가 지정됩니다.
 
-## 지역 쌍 예제
+## 쌍을 이루는 지역의 예
 아래 그림 2는 재해 복구에 지역 쌍을 사용하는 가상 응용 프로그램을 보여줍니다. 녹색 숫자는 세 개의 Azure 서비스(Azure 계산, 저장소 및 데이터베이스)에 대한 지역 간 활동 및 이러한 서비스가 지역 간에 복제되도록 구성된 방식을 강조합니다. 쌍을 이루는 지역에 걸친 배포의 고유한 이점은 주황색 숫자로 강조 표시되어 있습니다.
 
 
@@ -84,4 +85,4 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업
 
 ![9 주황색](./media/best-practices-availability-paired-regions/9Orange.png) **데이터 상주** – 지역은 세금 및 법률 집행 관할 구역의 데이터 상주 요구 사항을 충족하기 위해 동일한 지리적 위치 내에 쌍으로(브라질 남부 제외) 상주합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

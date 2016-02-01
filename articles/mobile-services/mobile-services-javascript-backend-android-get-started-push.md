@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 
@@ -86,7 +86,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 1. **Run** 메뉴 항목에서 **Run app**을 클릭하여 앱을 시작합니다.
 
-2. 앱에서 _A new Mobile Services task_ 등의 의미 있는 텍스트를 입력하고 **Add** 단추를 클릭합니다.
+2. 앱에서 A new Mobile Services task 등의 의미 있는 텍스트를 입력하고 **Add** 단추를 클릭합니다.
 
   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -156,4 +156,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

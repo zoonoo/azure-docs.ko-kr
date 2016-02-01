@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory의 Azure 데이터 레이크 분석에서 U-SQL 스크립트 실행 
@@ -56,7 +56,45 @@ subscriptionId | Azure 구독 ID | 아니요(지정하지 않으면 Data Factory
 resourceGroupName | Azure 리소스 그룹 이름 | 아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨).
 sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며 Data Factory 편집기에서 자동으로 생성됩니다. | 예
 
-   
+**권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. "자격 증명 작업 오류: invalid\_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21:09:31Z
+
+ 
+| 사용자 유형 | 다음 시간 후에 만료 |
+| :-------- | :----------- | 
+| 비-AAD 사용자(@hotmail.com, @live.com 등) | 12시간 |
+| AAD 사용자 및 OAuth 기반 원본은 사용자의 데이터 팩터리 테넌트와 다른 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에 있습니다. | 12시간 |
+| AAD 사용자 및 OAuth 기반 원본은 사용자의 데이터 팩터리 테넌트와 동일한 테넌트에 있습니다. | <p> 사용자가 14일마다 한 번 OAuth 기반 연결된 서비스 원본에 따라 분할 영역을 실행하는 경우 최대값은 90일입니다. </p><p>예상되는 90일 동안 사용자가 14일 동안 해당 원본에 따라 분할 영역을 실행하지 않으면 자격 증명은 마지막 분할 영역 실행 즉시 14일 후에 만료됩니다.</p> | 
+
+이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
+
+  
+### 프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+코드에 사용되는 데이터 팩터리 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가해야 합니다.
+ 
  
 ## 데이터 레이크 분석 U-SQL 작업 
 
@@ -219,4 +257,4 @@ degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 �
 
 Azure 데이터 레이크 분석 서비스에서 실행되는 작업에 대한 파이프라인 정의뿐 아니라 다른 속성 viz. degreeOfParallelism, 우선 순위 등을 지정할 수 있습니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

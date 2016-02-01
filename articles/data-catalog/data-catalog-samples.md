@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="12/02/2015"
+   ms.date="01/20/2015"
    ms.author="derrickv"/>
 
 
@@ -26,8 +26,12 @@
 
   데이터 카탈로그 REST API를 사용하여 데이터 자산을 등록, 검색 및 삭제하기 위해 Azure AD로 인증하는 방법을 보여 주는 샘플입니다.
 
-- [Azure 데이터 카탈로그 - 대량 등록 및 주석 달기](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+- [대량 등록 및 주석 추가](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
 
   데이터 카탈로그 REST API 및 Open XML을 사용하여 Excel 통합 문서에서 데이터 자산을 대량 등록하는 방법을 보여 주는 샘플입니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+- [가져오기/내보내기 도구](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
+
+  Azure 데이터 카탈로그에서 자산을 가져오고 파일로 직렬화하는 데이터 카탈로그 REST API를 사용하는 방법을 보여 주는 샘플입니다. 또한 json으로 직렬화된 자산 집합을 가져오고 카탈로그에 게시하는 방법을 보여 줍니다. 검색 쿼리를 사용하여 카탈로그의 하위 집합 내보내기를 지원합니다.
+
+<!---HONumber=AcomDC_0121_2016-->

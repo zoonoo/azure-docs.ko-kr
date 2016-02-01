@@ -12,18 +12,18 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 회로 및 라우팅 도메인
 
- 연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결하려면 *Express 경로 회로*를 주문해야 합니다. 아래 그림에는 WAN 및 Microsoft 간 연결의 논리적 표현을 제공합니다.
+ 연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결하려면 Express 경로 회로를 주문해야 합니다. 아래 그림에는 WAN 및 Microsoft 간 연결의 논리적 표현을 제공합니다.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 ## Express 경로 회로
 
-*Express 경로 회로*는 연결 공급자를 통한 온-프레미스 인프라와 Microsoft 클라우드 서비스 간의 논리적 연결을 나타냅니다. 여러 Express 경로 회로를 주문할 수 있습니다. 각 회로는 동일하거나 다른 지역에 있을 수 있으며 서로 다른 연결 공급자를 통해 프레미스에 연결할 수 있습니다.
+Express 경로 회로는 연결 공급자를 통한 온-프레미스 인프라와 Microsoft 클라우드 서비스 간의 논리적 연결을 나타냅니다. 여러 Express 경로 회로를 주문할 수 있습니다. 각 회로는 동일하거나 다른 지역에 있을 수 있으며 서로 다른 연결 공급자를 통해 프레미스에 연결할 수 있습니다.
 
 Express 경로 회로는 물리적 엔터티에 매핑되지 않습니다. 회로는 서비스 키(S 키)라고 하는 표준 GUID를 통해 고유하게 식별됩니다. 서비스 키는 Microsoft, 연결 공급자 및 사용자 간에 교환되는 유일한 정보의 부분입니다. S 키는 보안을 위한 암호가 아닙니다. Express 경로 회로와 S 키 사이에는 1:1 매핑이 있습니다.
 
@@ -33,11 +33,11 @@ Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft 등, 최대
 
 ### 할당량, 제한 및 제약 조건
 
-모든 Express 경로 회로에는 기본 할당량 및 제한이 적용됩니다. 할당량에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)을 참조하세요.
+모든 Express 경로 회로에는 기본 할당량 및 제한이 적용됩니다. 할당량에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../includes/expressroute-limits.md)을 참조하세요.
 
 ## Express 경로 라우팅 도메인
 
-Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft와 연결된 여러 라우팅 도메인이 있습니다. 각 라우팅 도메인은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 개인*으로 분류됩니다.
+Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft와 연결된 여러 라우팅 도메인이 있습니다. 각 라우팅 도메인은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 Azure 공용 및 Azure 개인으로 분류됩니다.
 
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
@@ -47,7 +47,7 @@ Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft와 연결�
 
 Azure 계산 서비스, 즉 가상 컴퓨 (IaaS) 및 가상 네트워크 내에 배포된 클라우드 서비스(PaaS)는 개인 피어링 도메인을 통해 연결될 수 있습니다. 개인 피어링 도메인은 Microsoft Azure로의 핵심 네트워크의 신뢰할 수 있는 확장으로 간주됩니다. 핵심 네트워크 및 Azure Vnet(가상 네트워크) 간의 양방향 연결을 설정할 수 있습니다. 이렇게 하면 개인 IP 주소에서 가상 컴퓨터와 클라우드 서비스에 직접 연결할 수 있습니다.
 
-둘 이상의 가상 네트워크를 개인 피어링 도메인에 연결할 수 있습니다. 제한 및 제한 사항에 대한 내용은 [FAQ 페이지](expressroute-faqs.md)를 검토하세요. 제한 사항에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)에서 확인할 수 있습니다. 라우팅 구성에 대한 자세한 내용은 [라우팅](expressroute-routing.md) 페이지를 참조하세요.
+둘 이상의 가상 네트워크를 개인 피어링 도메인에 연결할 수 있습니다. 제한 및 제한 사항에 대한 내용은 [FAQ 페이지](expressroute-faqs.md)를 검토하세요. 제한 사항에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../includes/expressroute-limits.md)에서 확인할 수 있습니다. 라우팅 구성에 대한 자세한 내용은 [라우팅](expressroute-routing.md) 페이지를 참조하세요.
 
 ### 공용 피어링
 
@@ -71,10 +71,10 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 
 ||**개인 피어링**|**공용 피어링**|**Microsoft 피어링**|
 |---|---|---|---|
-|**피어링 지원되는 접두사의 최대 수**|기본은 4000, Express 경로 프리미엄에서는 10,000|200|200|
-|**지원되는 IP 주소 범위**|WAN 내 유효한 IPv4 주소|사용자나 연결 공급자가 소유한 공용 IPv4 주소|사용자나 연결 공급자가 소유한 공용 IPv4 주소|
-|**AS 번호 요구 사항**|개인 및 공용 AS 번호. 고객은 자신의 공용 AS 번호를 소유해야 합니다. | 개인 및 공용 AS 번호. 고객은 자신의 공용 AS 번호를 소유해야 합니다. | 공용 AS 번호만. 소유권의 유효성을 검사하려면 라우팅 레지스트리에 대해 AS 번호의 유효성을 검사해야 합니다. |
-|**라우팅 인터페이스 IP 주소**|RFC1918 및 공용 IP 주소|라우팅 레지스트리에서 고객에게 등록된 공용 IP 주소| 라우팅 레지스트리에서 고객에게 등록된 공용 IP 주소|
+|**피어링당 지원되는 최대값 # 접두사**|기본적으로 4000, Express 경로 프리미엄으로 10,000|200|200|
+|**지원되는 IP 주소 범위**|WAN 내에서 모든 유효한 IPv4 주소.|사용자 또는 연결 공급자가 소유한 공용 IPv4 주소.|사용자 또는 연결 공급자가 소유한 공용 IPv4 주소.|
+|**AS 번호 요구 사항**|개인 및 공용 AS 번호. 고객은 자신의 공용 AS 번호를 소유 해야 합니다. | 개인 및 공용 AS 번호. 고객은 자신의 공용 AS 번호를 소유 해야 합니다.| 공용 AS 번호만. AS 번호는 소유권의 유효성을 검사하도록 라우팅 레지스트리에 대해 유효성을 검사해야 합니다.|
+|**라우팅 인터페이스 IP 주소**|RFC1918 및 공용 IP 주소|라우팅 레지스트리의 고객에게 등록된 공용 IP 주소.| 라우팅 레지스트리의 고객에게 등록된 공용 IP 주소.|
 |**MD5 해시 지원**| 예|예|예|
 
 자신의 Express 경로 회로의 일부로 하나 이상의 라우팅 도메인을 사용하도록 선택할 수 있습니다. 단일 라우팅 도메인으로 결합하려는 경우 모든 라우팅 도메인을 동일 VPN에 넣도록 선택할 수 있습니다. 위의 도표와 유사한 다른 라우팅 도메인에도 넣습니다. 개인 피어링이 직접 핵심 네트워크에 연결되고 공용 및 Microsoft 피어링 링크가 DMZ에 연결되는 것이 권장 구성입니다.
@@ -90,4 +90,4 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 	- [라우팅(회로 피어링) 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

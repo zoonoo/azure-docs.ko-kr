@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Azure에서 응용 프로그램에 대한 SSL 구성
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
-> [AZURE.NOTE]이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 웹 사이트의 경우 [Azure 웹 사이트에 대해 SSL 인증서 구성](../web-sites-configure-ssl-certificate.md)(영문)을 참조하세요.
+> [AZURE.NOTE]이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스에 대해서는 [이것](../app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
 
 이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 자세한 내용은 이 토픽의 끝 부분에서 제공됩니다.
 
@@ -67,7 +67,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
         ...
         </WebRole>
 
-    **Certificates** 섹션에서는 인증서의 이름, 위치 및 인증서가 위치한 저장소의 이름을 정의합니다. 여기서는 인증서를 CA(인증 기관) 저장소에 저장하도록 선택했지만 다른 옵션을 선택할 수도 있습니다. 자세한 내용은 [인증서를 서비스와 연결하는 방법][]을 참조하세요.
+    **Certificates** 섹션에서는 인증서의 이름, 위치 및 인증서가 위치한 저장소의 이름을 정의합니다.
 
 2.  서비스 정의 파일에서 **끝점** 섹션 내에 **InputEndpoint** 요소를 추가하여 HTTPS를 사용하도록 설정합니다.
 
@@ -160,4 +160,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

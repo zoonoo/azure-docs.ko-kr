@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/15/2016"
    ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
@@ -136,9 +136,9 @@ cmdlet이 **True** 또는 **False**를 반환합니다.
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
-	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName 
+	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName 
 	Remove-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName
 
 <!-- ################################ -->
@@ -156,7 +156,7 @@ cmdlet이 **True** 또는 **False**를 반환합니다.
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
 
 ### Azure Blob 저장소 계정 추가
@@ -166,7 +166,7 @@ cmdlet이 **True** 또는 **False**를 반환합니다.
 	$AzureStorageAccountName = "<AzureStorageAccountName>"
 	$AzureStorageAccountKey = "<AzureStorageAccountKey>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
 ### 데이터 레이크 저장소 계정 추가
 
@@ -174,15 +174,15 @@ cmdlet이 **True** 또는 **False**를 반환합니다.
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	$AzureDataLakeName = "<DataLakeStoreName>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -DataLake $AzureDataLakeName 
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
 
 ### 데이터 원본 나열:
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
-	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DataLakeStoreAccounts
-	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.StorageAccounts
+	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DataLakeStoreAccounts
+	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.StorageAccounts
 	
 
 
@@ -196,49 +196,49 @@ cmdlet이 **True** 또는 **False**를 반환합니다.
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -State Running, Queued
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -State Running, Queued
 	#States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Result Cancelled
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Result Cancelled
 	#Results: Cancelled, Failed, None, Successed 
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Name <Job Name>
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Submitter <Job submitter>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Name <Job Name>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Submitter <Job submitter>
 
 	# List all jobs submitted on January 1 (local time)
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-SubmittedAfter "2015/01/01"
 		-SubmittedBefore "2015/01/02"	
 
 	# List all jobs that succeeded on January 1 after 2 pm (UTC time)
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-State Ended
 		-Result Succeeded
 		-SubmittedAfter "2015/01/01 2:00 PM -0"
 		-SubmittedBefore "2015/01/02 -0"
 
 	# List all jobs submitted in the past hour
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-SubmittedAfter (Get-Date).AddHours(-1)
 
 ### 작업 세부 정보 가져오기
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -JobID <Job ID>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -JobID <Job ID>
 	
 ### 작업 제출
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
 	#Pass script via path
-	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-Name $jobName `
 		-ScriptPath $scriptPath
 
 	#Pass script contents
-	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-Name $jobName `
 		-Script $scriptContents
 
@@ -247,7 +247,7 @@ cmdlet이 **True** 또는 **False**를 반환합니다.
 
 ### 작업 취소
 
-	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-JobID $jobID
 
 
@@ -313,7 +313,7 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 
 ## Azure 리소스 관리자 그룹 사용
 
-응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
 데이터 레이크 분석 서비스는 다음 구성 요소를 포함할 수 있습니다.
 
@@ -332,64 +332,64 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 
 - [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 - [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
-- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md)
+- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##부록 A - 데이터 레이크 분석 ARM 템플릿
 
-다음 ARM 템플릿은 데이터 레이크 분석 계정 및 해당 종속 데이터 레이크 저장소 계정을 배포하는 데 사용할 수 있습니다. Json 파일로 저장한 다음 PowerShell 스크립트를 사용하여 해당 템플릿을 호출합니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md#deploy-with-powershell) 및 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+다음 ARM 템플릿은 데이터 레이크 분석 계정 및 해당 종속 데이터 레이크 저장소 계정을 배포하는 데 사용할 수 있습니다. Json 파일로 저장한 다음 PowerShell 스크립트를 사용하여 해당 템플릿을 호출합니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy.md#deploy-with-powershell) 및 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
 	{
-		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-		"contentVersion": "1.0.0.0",
-		"parameters": {
-			"adlAnalyticsName": {
-				"type": "string",
-				"metadata": {
-					"description": "The name of the Data Lake Analytics account to create."
-				}
-			},
-			"adlStoreName": {
-				"type": "string",
-				"metadata": {
-					"description": "The name of the Data Lake Store account to create."
-				}
-			}
-		},
-		"resources": [{
-			"name": "[parameters('adlAnalyticsName')]",
-			"type": "Microsoft.DataLakeAnalytics/accounts",
-			"location": "East US 2",
-			"apiVersion": "2015-10-01-preview",
-			"dependsOn": ["[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]"],
-			"tags": {
-				
-			},
-			"properties": {
-				"defaultDataLakeAccount": "[parameters('adlStoreName')]"
-				}
-			}
-		},
-		{
-			"name": "[parameters('adlName')]",
-			"type": "Microsoft.DataLakeStore/accounts",
-			"location": "East US 2",
-			"apiVersion": "2015-10-01-preview",
-			"dependsOn": [],
-			"tags": {
-				
-			}
-		}],
-		"outputs": {
-			"adlAnalyticsAccount": {
-				"type": "object",
-				"value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
-			},
-			"adlStoreAccount": {
-				"type": "object",
-				"value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
-			}
-		}
+	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {
+	    "adlAnalyticsName": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "The name of the Data Lake Analytics account to create."
+	      }
+	    },
+	    "adlStoreName": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "The name of the Data Lake Store account to create."
+	      }
+	    }
+	  },
+	  "resources": [
+	    {
+	      "name": "[parameters('adlStoreName')]",
+	      "type": "Microsoft.DataLakeStore/accounts",
+	      "location": "East US 2",
+	      "apiVersion": "2015-10-01-preview",
+	      "dependsOn": [ ],
+	      "tags": { }
+	    },
+	    {
+	      "name": "[parameters('adlAnalyticsName')]",
+	      "type": "Microsoft.DataLakeAnalytics/accounts",
+	      "location": "East US 2",
+	      "apiVersion": "2015-10-01-preview",
+	      "dependsOn": [ "[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]" ],
+	      "tags": { },
+	      "properties": {
+	        "defaultDataLakeStoreAccount": "[parameters('adlStoreName')]",
+	        "dataLakeStoreAccounts": [
+	          { "name": "[parameters('adlStoreName')]" }
+	        ]
+	      }
+	    }
+	  ],
+	  "outputs": {
+	    "adlAnalyticsAccount": {
+	      "type": "object",
+	      "value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
+	    },
+	    "adlStoreAccount": {
+	      "type": "object",
+	      "value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
+	    }
+	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

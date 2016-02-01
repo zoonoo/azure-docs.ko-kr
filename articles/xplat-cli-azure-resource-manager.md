@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="01/19/2016"
 	ms.author="danlep"/>
 
 # Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용
@@ -31,13 +31,13 @@
 
 ## Azure 리소스
 
-Azure 리소스 관리자를 통해 _리소스_(가상 컴퓨터, 데이터베이스 서버, 데이터베이스 또는 웹 사이트와 같은 사용자 관리 엔터티) 그룹을 만들어서 단일 논리 단위 또는 _리소스 그룹_으로 관리할 수 있습니다.
+Azure 리소스 관리자를 통해 리소스(가상 컴퓨터, 데이터베이스 서버, 데이터베이스 또는 웹 사이트와 같은 사용자 관리 엔터티) 그룹을 만들어서 단일 논리 단위 또는 리소스 그룹으로 관리할 수 있습니다.
 
-Azure 리소스 관리자의 장점 중 하나로 JSON *템플릿*에서 배포 가능한 리소스 그룹의 구조와 관계를 설명하여 _선언적_ 방식으로 Azure 리소스를 만들 수 있습니다. 템플릿에서는 명령을 실행할 때 인라인으로 채워지거나 별도의 JSON azuredeploy-parameters.json 파일에 저장될 수 있는 매개 변수를 식별합니다. 이를 통해 간단히 다른 매개 변수를 지정하여 동일한 템플릿을 사용하는 새 리소스를 쉽게 만들 수 있습니다. 예를 들어 웹 사이트를 만드는 템플릿에는 사이트 이름 및 웹 사이트가 위치할 지역에 대한 매개 변수와 기타 일반 설정이 있습니다.
+Azure 리소스 관리자의 장점 중 하나로 JSON 템플릿에서 배포 가능한 리소스 그룹의 구조와 관계를 설명하여 선언적 방식으로 Azure 리소스를 만들 수 있습니다. 템플릿에서는 명령을 실행할 때 인라인으로 채워지거나 별도의 JSON azuredeploy-parameters.json 파일에 저장될 수 있는 매개 변수를 식별합니다. 이를 통해 간단히 다른 매개 변수를 지정하여 동일한 템플릿을 사용하는 새 리소스를 쉽게 만들 수 있습니다. 예를 들어 웹 사이트를 만드는 템플릿에는 사이트 이름 및 웹 사이트가 위치할 지역에 대한 매개 변수와 기타 일반 설정이 있습니다.
 
-그룹을 수정 또는 생성하는 데 템플릿을 사용한 경우 _배포_가 만들어져서 그룹에 적용됩니다. Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
+그룹을 수정 또는 생성하는 데 템플릿을 사용한 경우 배포가 만들어져서 그룹에 적용됩니다. Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
-배포를 만든 후에는 클래식(서비스 관리) 배포 모델과 마찬가지로 명령줄에서 명령을 통해 개별 리소스를 관리할 수 있습니다. 예를 들어 Azure 리소스 관리자 CLI 명령을 사용하여 [Azure 리소스 관리자 가상 컴퓨터](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md) 같은 리소스를 시작, 중지 또는 삭제할 수 있습니다.
+배포를 만든 후에는 클래식(서비스 관리) 배포 모델과 마찬가지로 명령줄에서 명령을 통해 개별 리소스를 관리할 수 있습니다. 예를 들어 Azure 리소스 관리자 CLI 명령을 사용하여 [Azure 리소스 관리자 가상 컴퓨터](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md) 같은 리소스를 시작, 중지 또는 삭제할 수 있습니다.
 
 ## 인증
 
@@ -65,7 +65,7 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 ## 리소스 그룹 만들기
 
-리소스 그룹은 네트워크, 저장소 및 기타 리소스의 논리적 그룹화입니다. Azure 리소스 관리자 모드의 거의 모든 명령에 리소스 그룹이 필요합니다. 예를 들어 다음 명령을 사용하여 _testRG_라는 리소스 그룹을 만들 수 있습니다.
+리소스 그룹은 네트워크, 저장소 및 기타 리소스의 논리적 그룹화입니다. Azure 리소스 관리자 모드의 거의 모든 명령에 리소스 그룹이 필요합니다. 예를 들어 다음 명령을 사용하여 testRG라는 리소스 그룹을 만들 수 있습니다.
 
 	azure group create -n "testRG" -l "West US"
 
@@ -78,20 +78,19 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 템플릿으로 작업할 경우 [고유한 템플릿을 만들거나](resource-group-authoring-templates.md) [템플릿 갤러리](https://azure.microsoft.com/documentation/templates/)의 템플릿 중 하나를 사용할 수 있습니다. 템플릿 갤러리의 템플릿은 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서도 제공됩니다.
 
-새 템플릿 만들기는 이 기사의 범위를 벗어나기 때문에 우선 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm)에서 제공하는 _101-simple-vm-from-image_ 템플릿을 사용하겠습니다. 기본적으로 이 템플릿은 미국 서부 지역의 단일 서브넷을 사용하여 새로운 가상 네트워크에 단일 Ubuntu 14.04.2-LTS 가상 컴퓨터를 만듭니다. 사용자는 이 템플릿을 사용할 수 있도록 다음 매개 변수 몇 개만 지정하면 됩니다.
+새 템플릿 만들기는 이 기사의 범위를 벗어나기 때문에 우선 [템플릿 갤러리](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/)에서 제공하는 101-simple-vm-from-image 템플릿을 사용하겠습니다. 기본적으로 이 템플릿은 미국 서부 지역의 단일 서브넷을 사용하여 새로운 가상 네트워크에 단일 Ubuntu 14.04.2-LTS 가상 컴퓨터를 만듭니다. 사용자는 이 템플릿을 사용할 수 있도록 다음 매개 변수 몇 개만 지정하면 됩니다.
 
 * VM의 관리 사용자 이름 = `adminUsername`
 * 암호 = `adminPassword`
 * VM의 도메인 이름 = `dnsLabelPrefix`
 
->[AZURE.TIP]다음 단계는 Azure CLI를 통해 VM 템플릿을 사용하는 여러 방법 중 하나입니다. 다른 예는 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)를 참조하세요.
+>[AZURE.TIP]다음 단계는 Azure CLI를 통해 VM 템플릿을 사용하는 여러 방법 중 하나입니다. 다른 예는 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)를 참조하세요.
 
-1. [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)에서 로컬 컴퓨터의 작업 폴더로 azuredeploy.json 및 azuredeploy.parameters.json 파일을 다운로드합니다.
+1. GitHub에서 로컬 컴퓨터의 작업 폴더로 azuredeploy.json 및 azuredeploy.parameters.json 파일을 다운로드하려면 "Learn more with GitHub" 링크를 따릅니다. (GitHub에서 각 파일의 원시 형식을 선택해야 합니다.)
 
 2. 텍스트 편집기에서 azuredeploy.parameters.json 파일을 열고 사용 중인 환경에 적합한 매개 변수 값을 입력합니다(**ubuntuOSVersion** 값은 변경하지 않고 그대로 유지).
 
-
-```
+	```
 			{
 			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 			  "contentVersion": "1.0.0.0",
@@ -111,19 +110,22 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 			  }
 			}
 
-```
-
+	```
 3.  배포 매개 변수가 수정되었으므로 Ubuntu VM을 이전에 만든 리소스 그룹으로 배포합니다. 배포에 대한 이름을 선택하고 다음 명령을 사용하여 시작합니다.
 
-		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+	```
+	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+	```
 
-	이 예제에서는 리소스 그룹 _testRG_로 배포된 _testRGDeploy_라는 배포를 만듭니다. `-e` 옵션은 이전 단계에서 수정한 azuredeploy.parameters.json 파일을 지정합니다. `-f` 옵션으로 azuredeploy.json 템플릿 파일을 지정합니다.
+	이 예제에서는 리소스 그룹 testRG로 배포된 testRGDeploy라는 배포를 만듭니다. `-e` 옵션은 이전 단계에서 수정한 azuredeploy.parameters.json 파일을 지정합니다. `-f` 옵션으로 azuredeploy.json 템플릿 파일을 지정합니다.
 
 	이 명령은 배포가 업로드된 후, 배포가 그룹의 리소스에 적용되기 전에 OK를 반환합니다.
 
 4. 배포 상태를 확인하려면 다음 명령을 사용합니다.
 
-		azure group deployment show "testRG" "testRGDeploy"
+	```
+	azure group deployment show "testRG" "testRGDeploy"
+	```
 
 	**ProvisioningState**에서 배포 상태를 보여 줍니다.
 
@@ -161,12 +163,12 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 	이 명령을 사용하면 그룹의 리소스에 대한 정보가 반환됩니다. 그룹이 여러 개인 경우 `azure group list` 명령을 사용하여 그룹 이름 목록을 검색한 후 `azure group show` 명령을 사용하여 특정 그룹의 세부 정보를 확인합니다.
 
-또한 컴퓨터에 템플릿을 다운로드하는 대신 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 바로 템플릿을 사용할 수도 있습니다. 이렇게 하려면 **--template-url** 옵션을 사용하여 명령에서 템플릿의 azuredeploy.json 파일에 URL을 전달하세요. URL을 가져오려면 GitHub에서 azuredeploy.json을 _원시_ 모드로 열고 브라우저의 주소 표시줄에 표시되는 URL을 복사합니다. 그런 후 다음과 비슷한 명령으로 이 URL을 직접 사용하여 배포를 만들 수 있습니다.
+또한 컴퓨터에 템플릿을 다운로드하는 대신 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 바로 템플릿을 사용할 수도 있습니다. 이렇게 하려면 **--template-url** 옵션을 사용하여 명령에서 템플릿의 azuredeploy.json 파일에 URL을 전달하세요. URL을 가져오려면 GitHub에서 azuredeploy.json을 원시 모드로 열고 브라우저의 주소 표시줄에 표시되는 URL을 복사합니다. 그런 후 다음과 비슷한 명령으로 이 URL을 직접 사용하여 배포를 만들 수 있습니다.
 
-	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
+	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 필요한 템플릿 매개 변수를 입력하라는 메시지가 표시 됩니다.
 
-> [AZURE.NOTE]JSON 템플릿을 _원시_ 모드로 여는 것이 중요합니다. 브라우저의 주소 표시줄에 표시되는 URL이 일반 모드에서 표시되는 URL과 다릅니다. GitHub에서 파일을 볼 때 파일을 _원시_ 모드로 열려면 오른쪽 위 모서리에 있는 **원시**를 클릭합니다.
+> [AZURE.NOTE]JSON 템플릿을 원시 모드로 여는 것이 중요합니다. 브라우저의 주소 표시줄에 표시되는 URL이 일반 모드에서 표시되는 URL과 다릅니다. GitHub에서 파일을 볼 때 파일을 원시 모드로 열려면 오른쪽 위 모서리에 있는 **원시**를 클릭합니다.
 
 ## 리소스 작업
 
@@ -200,17 +202,17 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 ## 로깅
 
-그룹에 수행한 작업에 대해 기록된 정보를 보려면 `azure group log show` 명령을 사용합니다. 기본적으로 이 명령은 그룹에 대해 수행한 마지막 작업을 나열합니다. 모든 작업을 보려면 `--all` 매개 변수 옵션을 사용합니다. 마지막 배포의 경우 `--last-deployment`를 사용합니다. 특정 배포의 경우 `--deployment`를 사용하고 배포 이름을 지정합니다. 다음 예제를 실행하면 *MyGroup* 그룹에 대해 수행한 모든 작업의 로그가 반환됩니다.
+그룹에 수행한 작업에 대해 기록된 정보를 보려면 `azure group log show` 명령을 사용합니다. 기본적으로 이 명령은 그룹에 대해 수행한 마지막 작업을 나열합니다. 모든 작업을 보려면 `--all` 매개 변수 옵션을 사용합니다. 마지막 배포의 경우 `--last-deployment`를 사용합니다. 특정 배포의 경우 `--deployment`를 사용하고 배포 이름을 지정합니다. 다음 예제를 실행하면 MyGroup 그룹에 대해 수행한 모든 작업의 로그가 반환됩니다.
 
 	azure group log show MyGroup --all
 
 ## 다음 단계
 
-* Azure PowerShell을 사용하여 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+* Azure PowerShell을 사용하여 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 * Azure 포털에서 Azure 리소스 관리자 작업을 수행하는 방법에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][psrm]를 참조하세요.
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

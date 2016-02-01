@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    다음 버전이 표시되어야 합니다.
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    다음 버전이 표시되어야 합니다. - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. 펌웨어 업데이트가 제대로 적용되었는지 확인하려면 다음 cmdlet을 실행합니다.
 
@@ -110,19 +107,17 @@
 
 	<br/>![StorSimple 등록 장치 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
-14. 설치 마법사의 마지막 단계에서는 StorSimple 관리자 서비스에 장치를 등록합니다. 이 경우 [2단계: 서비스 등록 키 가져오기](storsimple-get-service-registration-key-gov.md)에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 장치가 등록되려면 2~3분 정도 기다려야 할 수 있습니다.
+14. 설치 마법사의 마지막 단계에서는 StorSimple 관리자 서비스에 장치를 등록합니다. 이 경우 [2단계: 서비스 등록 키 가져오기](#step-2-get-the-service-registration-key)에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 장치가 등록되려면 2~3분 정도 기다려야 할 수 있습니다.
 
       >[AZURE.NOTE]Ctrl + C를 눌러 언제든지 설치 마법사를 종료할 수 있습니다. 모든 네트워크 설정(Data 0, 서브넷 마스크 및 게이트웨이 IP 주소)를 입력한 경우, 항목이 유지됩니다.
 
 	![StorSimple 등록 진행률](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
 
-15. 장치를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 StorSimple 관리자 서비스로 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-security.md)을 참조하세요.
+15. 장치를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 StorSimple 관리자 서비스로 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](storsimple-security.md)을 참조하세요.
 	
 	![StorSimple 등록 장치 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]직렬 콘솔 창에서 텍스트를 복사하려면 해당 텍스트를 선택하면 됩니다. 그런 다음 클립보드나 임의의 텍스트 편집기에 붙여넣을 수 있습니다.
-      > 
-      > 서비스 데이터 암호화 키를 복사하려면 Ctrl + C를 사용하지 마세요. Ctrl + C를 사용하면 설치 마법사가 종료됩니다. 결과적으로, 장치 관리자 암호는 변경되지 않으며 장치는 기본 암호로 되돌아갑니다.
+      >[AZURE.IMPORTANT]직렬 콘솔 창에서 텍스트를 복사하려면 해당 텍스트를 선택하면 됩니다. 그런 다음 클립보드나 임의의 텍스트 편집기에 붙여넣을 수 있습니다. >> 서비스 데이터 암호화 키를 복사하려면 Ctrl + C를 사용하지 마세요. Ctrl + C를 사용하면 설치 마법사가 종료됩니다. 결과적으로, 장치 관리자 암호는 변경되지 않으며 장치는 기본 암호로 되돌아갑니다.
 
 16. 직렬 콘솔을 종료합니다.
 
@@ -133,10 +128,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        장치 상태가 **오프라인** 이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        몇 분 후에도 장치가 여전히 오프라인 상태인 경우에는 [StorSimple 장치에 대한 네트워크 요구 사항](https://msdn.microsoft.com/library/dn772371.aspx)에서 설명한 대로 방화벽 네트워크를 구성했는지 확인해야 합니다. HTTP 1.1이 지원되지 않으면 포트 9354가 아웃바운드 통신용으로 열려 있는지 확인합니다. 이 포트는 StorSimple 관리자 서비스와 StorSimple 장치 간의 통신에 사용됩니다.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

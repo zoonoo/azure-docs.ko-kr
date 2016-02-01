@@ -79,4 +79,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 - [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

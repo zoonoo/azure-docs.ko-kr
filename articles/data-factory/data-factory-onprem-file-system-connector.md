@@ -376,7 +376,7 @@
 	  }
 	}
 
-**복사 작업이 있는 파이프라인:** 파이프라인에는 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 활동을 포함하고 1시간마다 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **소스** 형식은 **SqlSource**로 설정되고 **싱크** 형식은 **FileSystemSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+**복사 작업이 있는 파이프라인:** 파이프라인에는 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 활동을 포함하고 1시간 마다 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **소스** 형식은 **SqlSource**로 설정되고 **싱크** 형식은 **FileSystemSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 	
 	{  
@@ -477,10 +477,10 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 속성 | 설명 | 필수
 -------- | ----------- | --------
 folderPath | 파일의 경로입니다. 예제: myfolder<p>문자열의 특수 문자에 이스케이프 문자 '\\'를 사용합니다. 예를 들어 folder\\subfolder, folder\\subfolder 및 d:\\samplefolder에 d:\\samplefolder를 지정합니다.</p><p>**partitionBy**로 이를 결합하여 조각 시작/종료 날짜-시간에 따라 폴더 경로를 가질 수 있습니다.</p> | 예
-fileName | 폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<p>출력 데이터 집합에 fileName을 지정하지 않으면 생성된 파일의 이름은 다음 이 서식에 있습니다.</p><p>Data.<Guid>.txt(예를 들어 Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 아니요
+fileName | 폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<p>출력 데이터 집합에 fileName을 지정하지 않으면 생성된 파일의 이름은 다음 이 서식에 있습니다.</p><p>데이터.<Guid>.txt(예를 들어 Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 아니요
 partitionedBy | 동적 folderPath, 시계열 데이터에 대 한 filename을 지정 하려면 partitionedBy는 활용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. | 아니요
 형식 | **TextFormat**, **AvroFormat**과 같은 두 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. forAvroFormatmat이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 형식 섹션을 참조하세요. **Format 속성은 현재 온-프레미스 파일 시스템에서 사용할 수 없습니다. 여기 설명된 대로 곧 사용할 수 있습니다.** | 아니요
-fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <p>허용되는 값은 다음과 같습니다. *(여러 문자) 및 ?(한 개의 문자).</p><p>예제 1: "fileFilter": "*.log"</p>예제 2: "fileFilter":2014-1-?.txt"</p><p>**참고**: fileFilter는 입력 FileShare 데이터 집합에 적용됩니다.</p> | 아니요
+fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <p>허용되는 값은 다음과 같습니다. *(여러 문자) 및 ?(한 개의 문자).</p><p>예제 1: "fileFilter": ".log"</p>예제 2: "fileFilter":2014-1-?.txt"</p><p>*참고**: fileFilter는 입력 FileShare 데이터 집합에 적용됩니다.</p> | 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 GZip, Deflate 및 BZip2이고 지원되는 수준은 최적 및 가장 빠름입니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 
 > [AZURE.NOTE]filename 및 fileFilter는 동시에 사용할 수 없습니다.
@@ -530,7 +530,7 @@ encodingName | 인코딩 이름을 지정합니다. 올바른 인코딩 이름 �
 
 #### 샘플:
 
-다음 샘플에서는 **TextFormat**에 대한 서식 속성 중 일부를 보여 줍니다.
+다음 예제는 **TextFormat**에 대한 형식 속성 중 일부를 보여 줍니다.
 
 	"typeProperties":
 	{
@@ -575,7 +575,7 @@ quoteChar 대신 escapeChar를 사용하려면 quoteChar가 있는 해당 줄을
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | 원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. | <p>copyBehavior 속성에 대한 세 가지 가능한 값이 있습니다. </p><ul><li>**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.</li><li>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준이 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다.</li><li>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 병합된 파일은 지정된 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 됩니다.</li></ul> | 아니요 |
+| copyBehavior | 원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. | <p>copyBehavior 속성에 대한 세 가지 가능한 값이 있습니다. </p><ul><li>**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.</li><li>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준이 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. </li></ul> | 아니요 |
 
 ### recursive 및 copyBehavior 예제
 이 섹션에서는 다양한 recursive 및 copyBehavior 값 조합에 대한 복사 작업의 결과 동작을 설명합니다.
@@ -603,4 +603,4 @@ false | mergeFiles | <p>다음 구조를 가진 원본 폴더 Folder1의 경우:
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -71,7 +71,7 @@
 - 압축 스트림: 지원되지 않음, 건너뜀
 - 스파스 스트림: 지원되지 않음, 건너뜀
 
-**Q13. 캐시 폴더의 최소 크기 요구 사항은 무엇인가요?** <br/> A13. 캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다. 일반적으로 데이터 저장에 필요한 공간의 10-15%가 캐시 폴더에 할당된다고 예상해야 합니다.
+**Q13. 캐시 폴더의 최소 크기 요구 사항은 무엇인가요?** <br/> A13. 캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다. 일반적으로 데이터 저장에 필요한 공간의 5%가 캐시 폴더에 할당된다고 예상해야 합니다.
 
 **Q14. 특정 서버 데이터를 조직 내 다른 서버에서 복구되지 않게 격리할 수 있나요?**<br/> A14. 동일한 자격 증명 모음을 사용하여 등록된 모든 서버는 동일한 암호를 사용하는 다른 서버에서 백업된 데이터를 복구할 수 있습니다. 조직 내 특정 서버로만 복구가 수행되도록 하려면 해당 서버에 지정된 별도의 암호를 사용해야 합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
 
@@ -166,8 +166,8 @@
 
 	| 레지스트리 경로 | 레지스트리 키 | 값 |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
 
 
 + 관리자 권한 명령 프롬프트에서 아래 명령을 실행하여 OBEngine을 시작합니다.
@@ -176,4 +176,4 @@
 
 새 캐시 위치로 성공적으로 백업되면 원래 캐시 폴더를 제거할 수 있습니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

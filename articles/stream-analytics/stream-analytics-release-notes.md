@@ -16,7 +16,7 @@
 	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
-#Microsoft 스트림 분석 릴리스 정보
+#스트림 분석 릴리스 정보
 
 ## 스트림 분석의 2015/12/10 릴리스에 대한 정보 ##
 
@@ -133,4 +133,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

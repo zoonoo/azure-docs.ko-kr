@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/09/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # 정부 포털에서 온-프레미스 StorSimple 장치 배포(업데이트 2)
@@ -44,7 +44,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | [배포 필수 조건](#deployment-prerequsites) | 배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
 | | |
 | **단계별 배포** | 프로덕션 환경에서 StorSimple 장치를 배포하려면 다음 단계가 필요합니다. |
-| [1단계: 새 서비스 만들기](#step-1-create-a-new-service) | StorSimple 장치에 대한 클라우드 관리 및 저장소를 설정합니다. *다른 StorSimple 장치에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다*. |
+| [1단계: 새 서비스 만들기](#step-1-create-a-new-service) | StorSimple 장치에 대한 클라우드 관리 및 저장소를 설정합니다. 다른 StorSimple 장치에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다. |
 | [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key) | 이 키를 사용하여 StorSimple 장치를 관리 서비스에 등록 및 연결합니다. |
 | [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](step 3-configure-and-register-the-device-through-windows-powershell-for-storsimple) | 장치를 네트워크에 연결하고 관리 서비스를 사용하여 Azure로 등록하여 설정을 완료합니다. |
 | [4단계: 최소 장치 설정 완료](#step-4-complete-the-minimum-device-setup) </br>선택 사항: StorSimple 장치를 업데이트합니다. | 관리 서비스를 사용하여 장치 설정을 완료하고 저장소를 제공할 수 있도록 설정합니다. |
@@ -232,15 +232,15 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 MPIO(다중 경로 I/O)는 선택적 기능이며 Windows Server에 기본적으로 설치되지 않습니다. 서버 관리자를 통해 기능으로 설치해야 합니다. MPIO 설치 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-configure-mpio-windows-server.md)으로 이동합니다.
 
-Linux 호스트에 연결된 StorSimple 장치에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-linux.md)으로 이동합니다.
+Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)으로 이동합니다.
 
 > [AZURE.NOTE]MPIO는 StorSimple 가상 장치에서 지원되지 않습니다.
 
 ## 다음 단계
 
-[가상 장치](storsimple-virtual-device.md)를 구성합니다.
+- [가상 장치](storsimple-virtual-device.md)를 구성합니다.
 
-[StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
+- [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

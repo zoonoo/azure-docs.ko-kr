@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="12/06/2015"
-      ms.author="v-jeana; hascipio"/>
+      ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # 일반적인 Azure 마켓플레이스 게시자 문제를 해결하는 방법
 이 문서에서는 일반적인 마켓플레이스 시나리오 문제를 해결하고 지원을 받는 방법에 대해 설명합니다.
@@ -65,7 +65,7 @@
 
 게시자 프로필을 업데이트하려는 경우 Microsoft 개발자 센터를 통해 수행할 수 있습니다.
 
-**1. Microsoft 개발자 센터에 로그인합니다**.
+**1. Windows 개발자 센터**에 로그인합니다.
 
 - 새 Chrome Incognito 또는 Internet Explorer InPrivate 검색 세션을 열어 개인 계정에 로그인되지 않았는지 확인합니다.
 - [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)로 이동합니다.
@@ -82,7 +82,7 @@
 
 ![protectacct][6]
 
-**4. 계정 세부 정보 및 회사 세부 정보로 이동합니다**.
+**4. 계정 세부 정보 및 연락처 정보**로 이동합니다.
 
 ![acctdetails][7]
 
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

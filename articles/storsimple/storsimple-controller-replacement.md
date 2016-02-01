@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 컨트롤러 모듈 교체
@@ -75,7 +75,7 @@ Microsoft Azure StorSimple 장치의 컨트롤러 중 하나에서 오류가 발
 
 #### 오류가 발생한 단일 컨트롤러 모듈을 꺼내려면
 
-1. StorSimple Manager 서비스의 Azure 클래식 포털에서 **장치** 탭을 클릭한 다음 모니터링하려는 장치의 이름을 클릭합니다.
+1. Azure 클래식 포털에서 StorSimple Manager 서비스로 이동하고 **장치** 탭을 클릭한 다음 모니터링하려는 장치의 이름을 클릭합니다.
 
 2. **유지 관리** 탭을 클릭하고 **하드웨어 상태**로 이동합니다. 컨트롤러 0 또는 컨트롤러 1의 상태가 오류를 나타내는 빨강이어야 합니다.
 
@@ -230,9 +230,9 @@ StorSimple 장치에서 결함이 있는 모듈을 꺼낸 후 팩터리 제공 �
 
 ### Azure 클래식 포털을 사용하여 활성 컨트롤러 식별
 
-관리 포털에서 **장치** > **유지 관리**로 이동한 다음 **컨트롤러** 섹션으로 스크롤합니다. 여기서 활성 컨트롤러를 확인할 수 있습니다.
+Azure 클래식 포털에서 **장치** > **유지 관리**로 이동한 다음 **컨트롤러** 섹션으로 스크롤합니다. 여기서 활성 컨트롤러를 확인할 수 있습니다.
 
-![관리 포털에서 활성 컨트롤러 식별](./media/storsimple-controller-replacement/IC752072.png)
+![Azure 클래식 포털에서 활성 컨트롤러 식별](./media/storsimple-controller-replacement/IC752072.png)
 
 **그림 6** Azure 클래식 포털을 사용하여 활성 컨트롤러 식별
 
@@ -266,4 +266,4 @@ StorSimple 장치에서 결함이 있는 모듈을 꺼낸 후 팩터리 제공 �
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

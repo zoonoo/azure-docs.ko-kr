@@ -40,7 +40,9 @@ Ubuntu의 경우 다음을 입력하면 됩니다.
 
     #sudo yum install waagent
 
-Oracle Linux의 경우 `/etc/yum.repo.d/public-yum-ol6.repo` 또는 `/etc/yum.repo.d/public-yum-ol7.repo` 파일에서 추가 기능 리포지토리를 사용하도록 설정했는지 확인한 후 다음을 입력합니다.
+Oracle Linux의 경우, `Addons`리포지토리가 사용하도록 설정되었는지 확인합니다. 파일 `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 **[ol6\_addons]** 또는 **[ol7\_addons]** 아래에서 줄 `enabled=0`을 `enabled=1`로 변경합니다.
+
+최신 버전의 Azure Linux 에이전트를 설치하려면 다음을 입력합니다.
 
     #sudo yum install WALinuxAgent
 
@@ -130,4 +132,4 @@ Linux 에이전트 버전이 새 버전으로 업데이트된 것을 확인할 �
 
 Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트 추가 정보](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -20,7 +20,19 @@
 # Azure용 RedHat 기반 가상 컴퓨터 준비
 이 문서에서는 Azure용 Red Hat Enterprise Linux(RHEL) 가상 컴퓨터를 준비하는 방법을 알아봅니다. 이 문서에서 다루는 RHEL 버전은 6.7, 7.1 및 7.2이며 이 문서에서 다루는 준비에 대한 하이퍼바이저는 Hyper-V, KVM, VMWare입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/articles/1989673)을 참조하세요.
 
+[Hyper-V 관리자에서 RHEL 6.7 가상 컴퓨터 준비](#rhel67hyperv)
 
+[Hyper-V 관리자에서 RHEL 7.1/7.2 가상 컴퓨터 준비](#rhel7xhyperv)
+
+[KVM에서 RHEL 6.7 가상 컴퓨터 준비](#rhel67kvm)
+
+[KVM에서 RHEL 7.1/7.2 가상 컴퓨터 준비](#rhel7xkvm)
+
+[VMWare에서 RHEL 6.7 가상 컴퓨터 준비](#rhel67vmware)
+
+[VMWare에서 RHEL 7.1/7.2 가상 컴퓨터 준비](#rhel7xvmware)
+
+[kickstart 파일에서 RHEL 7.1/7.2 가상 컴퓨터 준비](#rhel7xkickstart)
 
 
 ##Hyper-V 관리자에서 이미지 준비 
@@ -39,8 +51,8 @@
 
 - qemu-img를 사용하여 디스크 이미지를 VHD 형식으로 변환할 때는 qemu-img 버전 >=2.2.1로 인해 VHD 형식이 잘못 지정됩니다. 이는 알려진 버그입니다. 이 문제는 향후 qemu-img 릴리스에서 수정될 예정입니다. 현재에는 qemu-img 2.2.0 이하 버전을 이용하는 것이 좋습니다.
 
+### <a id="rhel67hyperv"> </a>Hyper-V 관리자에서 RHEL 6.7 가상 컴퓨터 준비###
 
-###RHEL 6.7
 
 1.	Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
@@ -134,7 +146,7 @@
 
 16.	Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-###RHEL 7.1/7.2
+### <a id="rhel7xhyperv"> </a>Hyper-V 관리자에서 RHEL 7.1/7.2 가상 컴퓨터 준비###
 
 1.  Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
@@ -214,7 +226,9 @@
 
 
 ##KVM에서 이미지 준비 
-###RHEL 6.7
+
+### <a id="rhel67kvm"> </a>KVM에서 RHEL 6.7 가상 컴퓨터 준비###
+
 
 1.	Red Hat 웹 사이트에서 RHEL 6.7의 KVM 이미지를 다운로드합니다.
 
@@ -335,7 +349,8 @@
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.1/7.2
+### <a id="rhel7xkvm"> </a>KVM에서 RHEL 7.1/7.2 가상 컴퓨터 준비###
+
 
 1.	Red Hat 웹 사이트에서 RHEL 7.1 (또는 7.2)의 KVM 이미지를 다운로드합니다. 여기에서는 RHEL 7.1을 예로 사용합니다.
 
@@ -487,7 +502,10 @@
 
 - 가상 하드 디스크를 만들 때 **가상 디스크를 단일 파일로 저장**을 선택합니다.
 
-###RHEL 6.7
+
+
+### <a id="rhel67vmware"> </a>VMWare에서 RHEL 6.7 가상 컴퓨터 준비###
+
 1.	다음 명령을 실행하여 NetworkManager를 제거합니다.
 
          # sudo rpm -e --nodeps NetworkManager
@@ -588,7 +606,8 @@
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.1/7.2
+
+### <a id="rhel7xvmware"> </a>VMWare에서 RHEL 7.1/7.2 가상 컴퓨터 준비###
 
 1.	다음 텍스트가 포함된 **network**라는 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
@@ -692,7 +711,10 @@
 
 
 ##kickstart 파일을 사용하여 ISO에서 자동으로 준비
-###RHEL 7.1/7.2
+
+
+### <a id="rhel7xkickstart"> </a>kickstart 파일에서 RHEL 7.1/7.2 가상 컴퓨터 준비###
+
 
 1.	아래 콘텐츠를 사용하여 kickstart 파일을 만들고 저장합니다. Kickstart 설치에 대한 자세한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/ko-KR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
 
@@ -842,6 +864,8 @@ Hyper-V 및 Azure에서 RHEL 7.1 사용 시 알려진 문제가 있습니다.
 
 
 ## 다음 단계
-이제 Red Hat Enterprise Linux를 사용하여 Azure에 새 Azure 가상 컴퓨터를 만들 준비가 되었습니다. Red Hat Enterprise Linux를 실행하기 위해 인증된 하이퍼바이저에 대한 자세한 내용은 [Red Hat 웹 사이트](https://access.redhat.com/certified-hypervisors)를 방문하세요.
+이제 Red Hat Enterprise Linux를 사용하여 Azure에 새 Azure 가상 컴퓨터를 만들 준비가 되었습니다. Azure 사용 및 Azure에 .vhd 파일 업로드가 처음이면 [이 지침](virtual-machines-linux-create-upload-vhd.md)의 2단계 및 3단계를 수행합니다.
+ 
+Red Hat Enterprise Linux를 실행하기 위해 인증된 하이퍼바이저에 대한 자세한 내용은 [Red Hat 웹 사이트](https://access.redhat.com/certified-hypervisors)를 방문하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

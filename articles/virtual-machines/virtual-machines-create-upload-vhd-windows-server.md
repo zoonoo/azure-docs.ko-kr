@@ -188,7 +188,7 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 
 	![사용자 지정 이미지](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	이제 가상 컴퓨터를 만들 때 **내 이미지**에서 이 새 이미지를 사용할 수 있습니다. 자세한 내용은 [Windows를 실행하는 사용자 지정 가상 컴퓨터를 만드는 방법](virtual-machines-windows-create-custom.md)을 참조하세요.
+	이제 가상 컴퓨터를 만들 때 **내 이미지**에서 이 새 이미지를 사용할 수 있습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터 만들기](virtual-machines-create-custom.md)를 참조하세요.
 
 	![사용자 지정 이미지에서 VM 만들기](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
@@ -203,4 +203,4 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

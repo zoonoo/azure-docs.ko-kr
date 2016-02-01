@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure CLI에서 Linux VM 암호 재설정 | Microsoft Azure"
-	description="Azure 클래식 포털 또는 CLI에서 VMAccess 확장을 사용하여 Linux 가상 컴퓨터 암호 및 SSH 키, SSH 구성과 사용자 계정을 삭제하는 방법."
+	pageTitle="Azure CLI에서 Linux VM 암호 재설정 및 사용자 추가 | Microsoft Azure"
+	description="Azure 포털 또는 CLI에서 VMAccess 확장을 사용하여 Linux VM 암호, SSH 키, SSH 구성을 재설정하고, 사용자 계정을 추가하거나 삭제하고, 디스크 일관성을 검사하는 방법을 설명합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/15/2015"
 	ms.author="cynthn"/>
 
-# Linux 가상 컴퓨터에 대한 암호 또는 SSH를 다시 설정하는 방법 #
+# Linux용 Azure VMAccess 확장을 사용하여 액세스를 재설정하고 사용자를 관리하고 디스크를 검사하는 방법#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-암호를 잊거나 SSH(보안 셸) 키가 맞지 않거나 SSH 구성에 문제가 생겨 Linux 가상 컴퓨터에 연결할 수 없는 경우, Azure 포털 또는 VMAccessForLinux 확장을 사용하여 암호, SSH 키, 또는 SSH 구성을 다시 설정합니다. 이 문서는 **클래식** 배포 모델을 사용하여 만든 가상 컴퓨터에 적용됩니다.
+암호를 잊었거나 SSH(보안 셸) 키가 맞지 않거나 SSH 구성에 문제가 생겨서 Azure에서 Linux 가상 컴퓨터에 연결할 수 없는 경우, Azure 포털 또는 VMAccessForLinux 확장과 Azure CLI를 사용하여 암호 또는 SSH 키를 재설정하고, SSH 구성을 수정하고, 디스크 일관성을 검사합니다.
 
 ## Azure 포털
 
-[Azure 포털](https://portal.azure.com)에서 SSH 구성을 다시 설정하려면, **찾아보기** >**가상 컴퓨터**>*사용자 Linux 가상 컴퓨터*>**원격 액세스 재설정**을 차례로 클릭합니다. 다음은 예제입니다.
+[Azure 포털](https://portal.azure.com)에서 SSH 구성을 다시 설정하려면, **찾아보기** >**가상 컴퓨터**>사용자 Linux 가상 컴퓨터>**원격 액세스 재설정**을 차례로 클릭합니다. 다음은 예제입니다.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-sudo 권한 또는 [Azure 포털](https://portal.azure.com)의 SSH 공개 키를 사용하여 사용자 계정의 이름과 암호를 재설정하려면, **찾아보기**>**가상 컴퓨터**>*사용자 Linux 가상 컴퓨터*>**모든 설정**>**암호 재설정**을 차례로 클릭합니다. 다음은 예제입니다.
+sudo 권한 또는 [Azure 포털](https://portal.azure.com)의 SSH 공개 키를 사용하여 사용자 계정의 이름과 암호를 재설정하려면, **찾아보기**>**가상 컴퓨터**>사용자 Linux 가상 컴퓨터>**모든 설정**>**암호 재설정**을 차례로 클릭합니다. 다음은 예제입니다.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -61,6 +61,8 @@ Azure CLI를 사용하여, 다음 작업을 수행할 수 있습니다.
 + [SSH 구성 재설정](#sshconfigresetcli)
 + [사용자 삭제](#deletecli)
 + [VMAccess 확장 상태 표시](#statuscli)
++ [추가된 디스크의 일관성 검사](#checkdisk)
++ [Linux VM에서 추가된 디스크 복구](#repairdisk)
 
 ### <a name="pwresetcli"></a>암호 재설정
 
@@ -149,6 +151,34 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 
 	azure vm extension get
 
+### <a name='checkdisk'<</a>추가된 디스크의 일관성 검사
+
+Linux 가상 컴퓨터의 모든 디스크에 fsck를 실행하려면, 다음을 수행해야 합니다.
+
+1단계: 이 콘텐츠를 포함하는 PublicConf.json 파일을 만듭니다. 디스크 검사는 부울 함수를 통해 가상 컴퓨터에 연결되어 있는 디스크를 검사할지 여부를 결정합니다.
+
+    {   
+    "check_disk": "true"
+    }
+
+2단계: 이 명령의 자리 표시자 값을 대체하고 실행합니다.
+
+   azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+
+### <a name='repairdisk'></a>Linux 가상 컴퓨터에서 추가된 디스크 복구
+
+탑재가 되지 않거나 탑재 구성 오류가 있는 디스크를 복구하려면, VMAccess 확장을 사용하여 Linux 가상 컴퓨터의 탑재 구성을 재설정합니다.
+
+1단계: 이 콘텐츠를 포함하는 PublicConf.json 파일을 만듭니다.
+
+    {
+    "repair_disk":"true",
+    "disk_name":"yourdisk"
+    }
+
+2단계: 이 명령의 자리 표시자 값을 대체하고 실행합니다.
+
+    azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
 
 ## Azure PowerShell 사용
 
@@ -179,6 +209,8 @@ Azure 클래식 포털을 사용하여 가상 컴퓨터를 만든 경우, 다음
 + [SSH 구성 재설정](#config)
 + [사용자 삭제](#delete)
 + [VMAccess 확장 상태 표시](#status)
++ [추가된 디스크의 일관성 검사](#checkdisk)
++ [Linux VM에서 추가된 디스크 복구](#repairdisk)
 
 ### <a name="password"></a>암호 재설정
 
@@ -252,6 +284,25 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 
 	$vm.GuestAgentStatus
 
+### <a name="checkdisk"<</a>추가된 디스크의 일관성 검사
+
+fsck 유틸리티를 사용하여 디스크의 일관성을 검사하려면 다음 명령을 실행합니다.
+
+	$PublicConfig = "{"check_disk": "true"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
+
+### <a name="checkdisk"<</a>Linux VM에서 추가된 디스크 복구
+
+fsck 유틸리티를 사용하여 디스크를 복구하려면 다음 명령을 실행합니다.
+
+	$PublicConfig = "{"repair_disk": "true", "disk_name": "my_disk"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
 
 ## 추가 리소스
 
@@ -266,4 +317,4 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 [Azure VM 확장 및 기능]: virtual-machines-extensions-features.md
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

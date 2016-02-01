@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/02/2015"
+   ms.date="01/19/2016"
    ms.author="juliako"/>
 
 
@@ -108,4 +108,4 @@ Azure SDK 2.6에서는 Azure 계산 에뮬레이터의 진단 로그를 수집�
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

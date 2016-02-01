@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="01/15/2016"
 	ms.author="cynthn"/>
 
 # 가상 컴퓨터에 대한 이미지 정보
@@ -29,7 +29,7 @@
 
 ## VM 이미지 및 OS 이미지 정보
 
-Azure에서 *VM 이미지* 및 *OS 이미지*의 두 가지 이미지 형식을 사용할 수 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 컴퓨터에 연결된 모든 디스크가 포함됩니다. 이미지의 최신 형식입니다. VM 이미지가 도입되기 전에는 Azure에서 이미지에 일반화된 운영 체제만 포함할 수 있었고 추가 디스크가 없었습니다. 일반화된 운영 체제만 포함된 VM 이미지는 기본적으로 이미지의 원래 형식인 OS 이미지와 같습니다.
+Azure에서 VM 이미지 및 OS 이미지의 두 가지 이미지 형식을 사용할 수 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 컴퓨터에 연결된 모든 디스크가 포함됩니다. 이미지의 최신 형식입니다. VM 이미지가 도입되기 전에는 Azure에서 이미지에 일반화된 운영 체제만 포함할 수 있었고 추가 디스크가 없었습니다. 일반화된 운영 체제만 포함된 VM 이미지는 기본적으로 이미지의 원래 형식인 OS 이미지와 같습니다.
 
 Azure의 가상 컴퓨터나 다른 곳에서 실행 중이지만 복사하여 업로드한 가상 컴퓨터를 기반으로 직접 이미지를 만들 수도 있습니다. 이미지를 사용하여 둘 이상의 가상 컴퓨터를 만들려는 경우에는 일반화를 통해 이미지로 사용할 준비를 해야 합니다. Windows Server 이미지를 만들려면 .vhd 파일을 업로드 하기 전에 서버에서 Sysprep 명령을 실행합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://go.microsoft.com/fwlink/p/?LinkId=392030)를 참조하세요. 소프트웨어 배포에 따라 Linux 이미지를 만들려면 Azure Linux 에이전트를 실행해야 함은 물론 배포에 관련된 명령 집합을 실행 해야 합니다.
 
@@ -53,10 +53,11 @@ Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux �
 >[Azure.Tip]데이터 디스크 및 운영 체제 디스크를 포함 하는 VM 이미지를 만들려면 OSState 매개 변수가 필요합니다. 매개 변수를 사용하지 않으면 cmdlet에서 OS 이미지를 만듭니다. 매개 변수의 값은 운영 체제 디스크가 다시 사용하도록 준비되어 있는지 여부에 따라 이미지가 일반화되었는지 특수화되었는지를 나타냅니다.
 -	**이미지 삭제**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
 
+
 ## 추가 리소스
 
 [Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-choices-create-vm.md)
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

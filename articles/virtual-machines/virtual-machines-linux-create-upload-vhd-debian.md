@@ -78,6 +78,6 @@ Debian VHD를 자동으로 빌드하는 데 도움이 되는 스크립트가 Cre
 
 ## 다음 단계
 
-이제 Debian.vhd를 사용하여 새 Azure 가상 컴퓨터를 만들 준비가 되었습니다.
+이제 Debian.vhd를 사용하여 새 Azure 가상 컴퓨터를 만들 준비가 되었습니다. Azure 사용 및 Azure에 .vhd 파일 업로드가 처음이면 [이 지침](virtual-machines-linux-create-upload-vhd.md)의 2단계 및 3단계를 수행합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

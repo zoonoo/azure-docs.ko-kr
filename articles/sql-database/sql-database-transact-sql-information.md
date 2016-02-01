@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL 데이터베이스 TRANSACT-SQL의 차이점
@@ -58,7 +58,6 @@ SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 �
 - 데이터베이스 다이어그램
 - 데이터베이스 메일
 - DATABASEPROPERTY(대신 DATABASEPROPERTYEX 사용)
-- 분산 트랜잭션
 - EXECUTE AS 로그인
 - 암호화: 확장 가능 키 관리
 - 이벤트: 이벤트, 이벤트 알림, 쿼리 알림
@@ -107,4 +106,4 @@ Transact-SQL 참조에는 현재까지 SQL Server 버전 2008과 관련된 항�
 
 경우에 따라 항목의 일반 제목이 제품에 사용될 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 항목의 중간점에 적절히 표시됩니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

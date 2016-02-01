@@ -54,32 +54,7 @@
 
 ## 질문: 지원되는 데이터 소스와 자산 형식은 무엇인가요?
 
-미리 보기 중에 **Azure 데이터 카탈로그**는 현재 SQL Server 관계형(Azure SQL DB 포함) 및 SQL Server Analysis Services(다차원 및 테이블 형식) 데이터베이스는 물론 SQL Server Reporting Services(기본 모드만 해당) 및 Oracle 데이터베이스를 지원합니다.
-
-미리 보기 중에 **Azure 데이터 카탈로그**는 다음 자산 유형의 등록 및 검색을 지원합니다.
-
-- SQL Server 테이블
-- SQL Server 뷰
-- SQL Server Analysis Services 차원
-- SQL Server Analysis Services 측정값
-- SQL Server Analysis Services KPI
-- SQL Server Analysis Services 테이블
-- SQL Server Reporting Services 보고서  
-- Oracle 데이터베이스 테이블
-- Oracle 데이터베이스 뷰
-- Azure 저장소 Blob
-- Azure 저장소 디렉터리
-- HDFS 파일
-- HDFS 디렉터리
-- Teradata 테이블
-- Teradata 뷰
-
-위에 나열된 자산 외에도 **Azure 데이터 카탈로그**는 다음 데이터 자산 컨테이너의 검색을 지원합니다.
-
-- SQL Server 데이터베이스
-- Oracle 데이터베이스
-- HDFS 클러스터
-- Teradata 데이터베이스
+현재 지원되는 데이터 원본 목록에 대해 [데이터 카탈로그 DSR](data-catalog-dsr.md)을 참조하세요.
 
 
 ## 질문: 다른 데이터 원본에 대한 지원을 어떻게 요청하나요?
@@ -172,4 +147,4 @@ Microsoft는 **Azure 데이터 카탈로그**에 더 많은 데이터 원본을 
 
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

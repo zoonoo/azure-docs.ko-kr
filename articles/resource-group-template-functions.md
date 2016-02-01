@@ -1,5 +1,5 @@
 <properties
-   pageTitle="리소스 관리자 템플릿 식 | Microsoft Azure"
+   pageTitle="리소스 관리자 템플릿 함수 | Microsoft Azure"
    description="Azure 리소스 관리자 템플릿에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/31/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
-# Azure 리소스 관리자 템플릿 식
+# Azure 리소스 관리자 템플릿 함수
 
-이 항목에서는 Azure 리소스 관리자 템플릿에서 사용할 수 있는 모든 식에 대해 설명합니다.
+이 항목에서는 Azure 리소스 관리자 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다.
 
-템플릿 식 및 해당 매개 변수는 대/소문자를 구분하지 않습니다. 예를 들어 리소스 관리자에서 **variables('var1')**와 **VARIABLES('VAR1')**는 동일합니다. 계산될 때 식은 대/소문자를 명시적으로 수정하지 않는 한(toUpper 또는 toLower 등) 대/소문자를 보존합니다. 특정 리소스 유형에는 식이 계산되는 방식에 관계없이 대/소문자 요구 사항이 있을 수 있습니다.
+템플릿 함수 및 해당 매개 변수는 대/소문자를 구분하지 않습니다. 예를 들어 리소스 관리자에서 **variables('var1')**와 **VARIABLES('VAR1')**는 동일합니다. 계산될 때 함수는 대/소문자를 명시적으로 수정하지 않는 한(toUpper 또는 toLower 등) 대/소문자를 보존합니다. 특정 리소스 유형에는 함수가 계산되는 방식에 관계없이 대/소문자 요구 사항이 있을 수 있습니다.
 
-## 숫자 식
+## 숫자 함수
 
-리소스 관리자는 정수 작업을 위한 다음 식을 제공합니다.
+리소스 관리자는 정수 작업을 위한 다음 함수를 제공합니다.
 
 - [추가](#add)
 - [copyIndex](#copyindex)
@@ -56,7 +56,7 @@
 
 반복 루프의 현재 인덱스를 반환합니다.
 
-이 식은 항상 **copy** 개체에 사용됩니다. **copyIndex**를 사용하는 방법의 예는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+이 함수는 항상 **copy** 개체에 사용됩니다. **copyIndex**를 사용하는 방법의 예는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
 
 <a id="div" />
@@ -157,9 +157,9 @@
 | operand2 | 예 | 뺄 수입니다.
 
 
-## 문자열 식
+## 문자열 함수
 
-리소스 관리자는 문자열 작업을 위한 다음 식을 제공합니다.
+리소스 관리자는 문자열 작업을 위한 다음 함수를 제공합니다.
 
 - [base64](#base64)
 - [concat](#concat)
@@ -199,16 +199,31 @@
 
 **concat (arg1, arg2, arg3, ...)**
 
-여러 문자열 값을 결합하고 결과 문자열 값을 반환합니다. 이 함수는 임의의 수의 인수를 사용할 수 있습니다.
+여러 값을 결합하고 연결된 결과를 반환합니다. 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다.
 
-다음 예에서는 여러 값을 결합하여 값을 반환하는 방법을 보여 줍니다.
+다음 예제에서는 여러 문자열 값을 결합하여 연결된 문자열을 반환하는 방법을 보여 줍니다.
 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+다음 예제에서는 두 개의 배열을 결합하는 방법을 보여 줍니다.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="padleft" />
 ### padLeft
@@ -430,17 +445,25 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
+## 배열 함수
 
+리소스 관리자는 배열 값 작업을 위한 여러 기능을 제공합니다.
 
-## 배포 값 식
+다중 배열을 단일 배열로 결합하려면 [concat](#concat)를 사용합니다.
 
-리소스 관리자는 템플릿의 섹션에서 값을 가져오고 배포와 관련된 값을 가져오기 위한 다음 식을 제공합니다.
+배열 내의 요소 수를 가져오려면 [length](#length)를 사용합니다.
+
+문자열 값을 문자열 값의 배열로 나누려면 [split](#split)을 사용합니다.
+
+## 배포 값 함수
+
+리소스 관리자는 템플릿의 섹션에서 값을 가져오고 배포와 관련된 값을 가져오기 위한 다음 함수를 제공합니다.
 
 - [deployment](#deployment)
 - [매개 변수](#parameters)
 - [variables](#variables)
 
-리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 식](#resource-expressions)을 참조하세요.
+리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 함수](#resource-functions)를 참조하세요.
 
 <a id="deployment" />
 ### deployment
@@ -449,7 +472,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 현재 배포 작업에 대한 정보를 반환합니다.
 
-이 식은 배포하는 동안 전달되는 개체를 반환합니다. 반환된 개체의 속성은 배포 개체가 링크로 전달되는지 아니면 인라인 개체로 전달되는지에 따라 다릅니다. 배포 개체가 로컬 파일을 가리키기 위해 Azure PowerShell의 **-TemplateFile** 매개 변수를 사용할 때와 같이 인라인으로 전달되는 경우 개체는 다음 형식으로 반환됩니다.
+이 함수는 배포하는 동안 전달되는 개체를 반환합니다. 반환된 개체의 속성은 배포 개체가 링크로 전달되는지 아니면 인라인 개체로 전달되는지에 따라 다릅니다. 배포 개체가 로컬 파일을 가리키기 위해 Azure PowerShell의 **-TemplateFile** 매개 변수를 사용할 때와 같이 인라인으로 전달되는 경우 개체는 다음 형식으로 반환됩니다.
 
     {
         "name": "",
@@ -528,9 +551,9 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 
 
-## 리소스 식
+## 리소스 함수
 
-리소스 관리자는 리소스 값을 가져오기 위한 다음 식을 제공합니다.
+리소스 관리자는 리소스 값을 가져오기 위한 다음 함수를 제공합니다.
 
 - [listkeys](#listkeys)
 - [providers](#providers)
@@ -539,7 +562,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 - [resourceId](#resourceid)
 - [(구독당)](#subscription)
 
-매개 변수, 변수 또는 현재 배포에서 값을 가져오려면 [배포 값 식](#deployment-value-expressions)을 참조하세요.
+매개 변수, 변수 또는 현재 배포에서 값을 가져오려면 [배포 값 함수](#deployment-value-functions)를 참조하세요.
 
 <a id="listkeys" />
 ### listKeys
@@ -605,7 +628,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 **reference** 함수는 런타임 상태에서 값을 파생하므로 변수 섹션에서 사용할 수 없습니다. 템플릿의 출력 섹션에서 사용할 수 있습니다.
 
-참조 식을 사용하여 참조되는 리소스가 동일한 템플릿 내에서 프로비전되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. 또한 **dependsOn** 속성도 사용할 필요가 없습니다. 참조 리소스가 배포를 완료할 때까지 식은 평가되지 않습니다.
+참조 함수를 사용하여 참조되는 리소스가 동일한 템플릿 내에서 프로비전되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. 또한 **dependsOn** 속성도 사용할 필요가 없습니다. 참조 리소스가 배포를 완료할 때까지 함수는 평가되지 않습니다.
 
 다음 예제는 같은 템플릿에 배포되는 저장소 계정을 참조합니다.
 
@@ -634,7 +657,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 		}
 	}
 
-템플릿에 API 버전을 직접 지정하려면 아래와 같이 **providers** 식을 사용하고 최신 버전 등의 값을 검색할 수 있습니다.
+템플릿에 API 버전을 직접 지정하려면 아래와 같이 [providers](#providers) 함수를 사용하고 최신 버전 등의 값을 검색할 수 있습니다.
 
     "outputs": {
 		"BlobUri": {
@@ -769,4 +792,4 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

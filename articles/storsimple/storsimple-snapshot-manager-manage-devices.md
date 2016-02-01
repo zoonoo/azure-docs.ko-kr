@@ -194,7 +194,7 @@ StorSimple 스냅숏 관리자의 **범위** 창에서 노드를 사용하여 �
 
 #### 만료된 암호를 변경하려면
 
-1. Azure 클래식 포털에서 StorSimple 관리자 서비스를 시작합니다.
+1. Azure 클래식 포털에서 StorSimple Manager 서비스를 시작합니다.
 
 2. 해당 장치에 대해 **장치** > **구성**을 클릭합니다.
 
@@ -263,4 +263,4 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 - [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 - [StorSimple 스냅숏 관리자를 사용하여 볼륨을 보고 관리](storsimple-snapshot-manager-manage-volumes.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

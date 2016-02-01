@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="역할에 대한 기본 TEMP 폴더 크기가 너무 작습니다. | Microsoft Azure"
    description="클라우드 서비스 역할에는 TEMP 폴더에 대한 공간이 제한되어 있습니다. 이 문서에서는 공간 부족을 방지하는 방법을 몇 가지 제안합니다."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # 클라우드 서비스 웹/작업자 역할에서 기본 TEMP 폴더 크기가 너무 작습니다.
@@ -56,18 +56,18 @@ namespace WorkerRole1
             // service definition file for the role named WorkerRole1:
             //
             // <LocalResources>
-            //    <LocalStorage name="CustomTempLocalStore" 
-            //                  cleanOnRoleRecycle="false" 
+            //    <LocalStorage name="CustomTempLocalStore"
+            //                  cleanOnRoleRecycle="false"
             //                  sizeInMB="1024" />
             // </LocalResources>
-            
-            string customTempLocalResourcePath = 
+
+            string customTempLocalResourcePath =
             RoleEnvironment.GetLocalResource("CustomTempLocalStore").RootPath;
             Environment.SetEnvironmentVariable("TMP", customTempLocalResourcePath);
             Environment.SetEnvironmentVariable("TEMP", customTempLocalResourcePath);
-            
+
             // The rest of your startup code goes here…
-            
+
             return base.OnStart();
         }
     }
@@ -76,6 +76,10 @@ namespace WorkerRole1
 
 ## 다음 단계
 
+[Azure 웹 역할 ASP.NET 임시 폴더의 크기를 늘리는 방법](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)을 설명하는 다른 블로그를 참조하세요.
+
 클라우드 서비스에 대한 [문제해결 문서](..\?tag=top-support-issue&service=cloud-services)를 더 봅니다.
 
-<!---HONumber=Oct15_HO4-->
+Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
+
+<!---HONumber=AcomDC_0121_2016-->

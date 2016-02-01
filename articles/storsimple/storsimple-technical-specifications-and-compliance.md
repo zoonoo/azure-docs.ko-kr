@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/27/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 기술 사양 및 규정 준수
@@ -170,6 +170,6 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 
 ## 다음 단계
 
-StorSimple 장치 사양에 대한 자세한 내용은 [StorSimple 8000 시리즈 사양](http://storsimple.seagate.com/Specifications-8000)을 다운로드하세요.
+이제 데이터 센터에 StorSimple 장치를 배포할 준비가 되었습니다. 자세한 내용은 [Deploying your on-premises device](storsimple-deployment-walkthrough-u2.md)(온-프레미스 장치 배포)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

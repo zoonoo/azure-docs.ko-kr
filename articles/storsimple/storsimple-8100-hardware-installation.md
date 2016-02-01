@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # StorSimple 8100 장치 개봉, 랙 탑재, 케이블 연결
@@ -259,9 +259,9 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 - 가능하면 각 컨트롤러의 네트워크 인터페이스를 2개의 다른 스위치에 연결하여 스위치 장애 시 가용성을 보장합니다. 이 그림은 2개의 다른 스위치에 연결된 각 컨트롤러에서 2개의 10GbE 네트워크 인터페이스, DATA 2 및 DATA 3을 나타냅니다.
 
-자세한 정보는 [StorSimple 장치에 대한 고가용성 요구 사항](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md) 아래의 **네트워크 인터페이스**를 참조하세요.
+자세한 정보는 [StorSimple 장치에 대한 고가용성 요구 사항](storsimple-system-requirements.md#high-availability-requirements-for-storsimple) 아래의 **네트워크 인터페이스**를 참조하세요.
 
->[AZURE.NOTE]10GbE 네트워크 인터페이스에서 SFP + 트랜시버를 사용하는 경우 제공된 QSFP-SFP + 어댑터를 사용합니다. [StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)에 대한 자세한 내용
+>[AZURE.NOTE]10GbE 네트워크 인터페이스로 SFP+ 트랜시버를 사용하는 경우 제공된 QSFP-SFP+ 어댑터를 사용합니다. 자세한 내용은 [StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)로 이동합니다.
     
 
    
@@ -289,6 +289,6 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 ## 다음 단계
 
-[온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)하는 방법에 대해 알아보기
+[온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

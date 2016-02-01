@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="01/13/2016"
     ms.author="elizapo" />
 
 
@@ -29,12 +29,7 @@
 ## 이미지가 올바르지 않음 ##
 Azure의 컬렉션 프로비전을 대기하는 중에 "GoldImageInvalid" 등의 메시지가 나타나면 템플릿 이미지가 [정의된 이미지 요구 사항](remoteapp-imagereqs.md)에 부합하지 않음을 나타냅니다. 따라서 해당 [요구 사항](remoteapp-imagereqs.md)을 읽고 이미지를 수정한 다음 다시 컬렉션을 만듭니다.
 
-## VNET이 강제 터널링을 사용하나요? ##
-RemoteApp은 현재 강제 터널링을 사용하는 VNET의 사용을 지원하지 않습니다. 이 기능이 필요한 경우 [RemoteApp 팀](mailto:remoteappforum@microsoft.com)에 지원을 요청합니다.
 
-요청이 승인되면 Azure RemoteApp에 대해 선택한 서브넷의 다음 포트와 서브넷의 VM이 열려 있는지 확인합니다. 또한 서브넷의 VM이 네트워크 보안 그룹 섹션에 언급된 URL에 액세스할 수 있어야 합니다.
-
-아웃바운드: TCP: 443, TCP: 10101-10175
 
 ## VNET에 네트워크 보안 그룹이 정의되어 있나요? ##
 컬렉션에 사용하고 있는 서브넷에 네트워크 보안 그룹이 정의되어 있는 경우 해당 서브넷 내에서 다음 URL에 액세스할 수 있는지 확인합니다.
@@ -84,4 +79,4 @@ RemoteApp은 현재 강제 터널링을 사용하는 VNET의 사용을 지원하
 
 만들거나 추가한 도메인 이름은 내부 도메인 이름(Azure AD 도메인 이름이 아님)이어야 하며 확인할 수 있는 DNS 형식(contoso.local)이어야 합니다. 예를 들어 Active Directory 내부 이름(contoso.local) 및 Active Directory UPN(contoso.com)이 있는 경우 컬렉션을 만들 때 내부 이름을 사용해야 합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

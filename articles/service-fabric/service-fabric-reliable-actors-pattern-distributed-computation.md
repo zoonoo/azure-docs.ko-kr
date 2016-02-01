@@ -16,26 +16,26 @@
    ms.date="11/14/2015"
    ms.author="vturecek"/>
 
-# 신뢰할 수 있는 행위자 디자인 패턴: 분산 계산
-터무니없이 짧은 시간 안에 서비스 패브릭 신뢰할 수 있는 행위자에서 재무 계산을 수행하는 실제 고객을 감시하려면 어느 정도는 위험한 계산을 정확하게 하는 Monte Carlo 시뮬레이션의 도움을 받아야 합니다.
+# Reliable Actors 설계 패턴: 분산 계산
+터무니없이 짧은 시간 안에 서비스 패브릭 Reliable Actors에서 재무 계산을 수행하는 실제 고객을 감시하려면 이 기능의 도움을 받아야 합니다. 위험 계산에 대한 Monte Carlo 시뮬레이션이었습니다.
 
-처음에는, 특히 도메인 관련 지식이 없는 사람들에게는, Azure 서비스 패브릭에서 제공하는 이런 종류의 작업 처리는, 말하자면 Map/Reduce 또는 MPI 등의 전통적인 방식과는 대조적인 이런 방식은 명확하지 않을 수 있습니다.
+도메인별 정보가 없으면 더 일반적인 방법(예: MapReduce 또는 메시지 전달 인터페이스) 대신 이 종류의 워크로드를 처리하는 서비스 패브릭을 사용하는 혜택은 바로 알 수 없을 수 있습니다.
 
-하지만 Azure 서비스 패브릭은 다음 다이어그램에 나오는 것처럼 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산에 적합하다는 것이 판명되었습니다.
+하지만 서비스 패브릭은 다음 다이어그램에 나오는 것처럼 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산에 적합합니다.
 
-![][1]
+![서비스 패브릭 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산][1]
 
-다음 예제에서는 단순히 Monte Carlo 시뮬레이션을 사용하여 Pi 계산을 수행합니다. 다음과 같은 행위자가 있습니다.
+다음 예제에서는 단순히 Monte Carlo 시뮬레이션을 사용하여 Pi 계산을 수행합니다. 다음과 같은 행위자를 사용합니다.
 
-* PoolTask 행위자를 사용하여 Pi 계산을 담당하는 프로세서.
+* 풀링된 작업 행위자를 사용하여 Pi 계산을 담당하는 프로세서
 
-* Monte Carlo 시뮬레이션을 담당하고 결과를 집계로 보내는 PoolTask.
+* Monte Carlo 시뮬레이션 및 결과를 집계로 전송하는 작업을 담당하는 풀링된 작업
 
-* 결과를 집계하여 종료자로 보내는 집계.
+* 결과를 집계하고 종료자로 보내는 작업을 담당하는 집계
 
-* 최종 결과를 계산하고 화면에 인쇄하는 종료자.
+* 최종 결과를 계산하고 화면에 인쇄하는 작업을 담당하는 종료자
 
-## 분산 계산 코드 샘플 – Monte Carlo 시뮬레이션
+## 분산 계산 코드 샘플--Monte Carlo 시뮬레이션
 
 ```csharp
 public interface IProcessor : IActor
@@ -91,9 +91,11 @@ public class PooledTask : StatelessActor, IPooledTask
 }
 ```
 
-Azure 서비스 패브릭에서 결과를 집계하는 일반적인 방법은 타이머를 사용하는 것입니다. 상태 비저장 행위자를 사용하는 주요 이유는 두 가지입니다. 런타임에서 동적으로 필요한 집계 수를 결정하므로 필요에 따라 규모를 확장할 수 있습니다. 또한 이러한 행위자는 "로컬"로, 다시 말해 호출 중인 행위자와 동일한 사일로에서 인스턴스화되므로 네트워크 홉 수가 감소됩니다. 집계 및 종료자는 다음과 같습니다.
+서비스 패브릭에서 결과를 집계하는 일반적인 방법은 타이머를 사용하는 것입니다. 상태 비저장 행위자를 사용하는 주요 이유는 두 가지입니다. 런타임에서 동적으로 필요한 집계 수를 결정하므로 필요한 규모를 제공하고 해당 행위자를 “로컬로” 인스턴스화합니다. 즉, 호출 중인 행위자와 동일한 사일로에서 발생하므로 네트워크 홉 수가 감소됩니다.
 
-## 분산 계산 코드 샘플 - 집계
+집계 및 종료자는 다음과 같습니다.
+
+## 분산 계산 코드 샘플--집계
 
 ```csharp
 public interface IAggregator : IActor
@@ -183,9 +185,9 @@ public class Finaliser : StatefulActor<FinalizerState>, IFinaliser
 }
 ```
 
-이 시점에서 집계를 통해 Leaderboard 예제에서 규모와 성능을 잠재적으로 어떻게 확장시킬 수 있는지 명확히 해야 합니다.
+이 시점에서 집계를 통해 Leaderboard 예제에서 규모와 성능을 어떻게 강화시킬 수 있는지 명확히 해야 합니다.
 
-Azure 서비스 패브릭이 빅 데이터 프레임워크 또는 고성능 컴퓨팅의 다른 분산 계산을 임시로 대체하는 방법은 절대로 아닙니다. 다른 것들 보다 더 나은 처리를 위해 빌드된 것일 뿐입니다. 하지만 Azure 서비스 패브릭에서 제공하는 단순성 이점을 얻으면서 워크플로 및 분산 병렬 계산을 모델링할 수 있습니다.
+서비스 패브릭이 빅 데이터 프레임워크 또는 고성능 컴퓨팅의 다른 분산 계산을 임시로 대체하는 방법이라는 말은 아닙니다. 다른 방법 보다 몇 가지를 잘 처리하도록 작성되었습니다. 하지만 서비스 패브릭에서 제공하는 단순성에서 이점을 얻으면서 동시에 워크플로 및 분산 병렬 계산을 모델링할 수 있습니다.
 
 ## 다음 단계
 [패턴: 스마트 캐시](service-fabric-reliable-actors-pattern-smart-cache.md)
@@ -198,12 +200,12 @@ Azure 서비스 패브릭이 빅 데이터 프레임워크 또는 고성능 컴�
 
 [패턴: 사물 인터넷](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[일부 패턴 방지](service-fabric-reliable-actors-anti-patterns.md)
+[일부 안티패턴](service-fabric-reliable-actors-anti-patterns.md)
 
-[서비스 패브릭 행위자 소개](service-fabric-reliable-actors-introduction.md)
+[서비스 패브릭 신뢰할 수 있는 행위자 소개](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

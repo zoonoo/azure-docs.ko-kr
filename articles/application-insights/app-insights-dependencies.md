@@ -18,7 +18,7 @@
 # Application Insights에서 종속성 문제 진단
 
 
-*종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. Visual Studio Application Insights에서 응용 프로그램이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 쉽게 확인할 수 있습니다.
+종속성은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. Visual Studio Application Insights에서 응용 프로그램이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 쉽게 확인할 수 있습니다.
 
 ## 사용 가능한 대상
 
@@ -38,6 +38,8 @@
  * Azure DocumentDb, 테이블, Blob 저장소 및 큐
 * Java
  * MySQL, SQL Server, PostgreSQL 또는 SQLite 등의 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 드라이버를 통해 데이터베이스를 호출합니다.
+* 웹 페이지
+ * AJAX 호출
 
 다시 말하지만, 자체 SDK 호출을 작성하여 다른 종속성을 모니터링할 수 있습니다.
 
@@ -129,4 +131,4 @@ IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소�
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

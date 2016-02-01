@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 # 모바일 서비스 Android 앱에 인증 추가(JavaScript 백 엔드)
@@ -49,7 +49,7 @@
 
 2. **실행** 메뉴에서 **앱 실행**을 클릭하여 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
 
-	 이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 _TodoItem_ 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
+	 이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 TodoItem 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
@@ -106,4 +106,4 @@
 [모바일 서비스 시작]: mobile-services-android-get-started.md
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

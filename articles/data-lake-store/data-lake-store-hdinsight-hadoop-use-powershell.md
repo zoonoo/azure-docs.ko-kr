@@ -1,7 +1,7 @@
 <properties 
    pageTitle="PowerShell을 사용하여 Azure 데이터 레이크 저장소로 HDInsight 클러스터 만들기 | Azure" 
    description="Azure PowerShell을 사용하여 Azure 데이터 레이크로 HDInsight Hadoop 클러스터 만들기 및 사용" 
-   services="data-lake" 
+   services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
    manager="paulettm" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/20/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -249,6 +249,38 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 
 HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업을 실행하여 HDInsight 클러스터가 데이터 레이크 저장소에 액세스할 수 있는지 테스트할 수 있습니다. 이렇게 하려면 데이터 레이크 저장소에 이전에 업로드한 샘플 데이터를 사용하여 테이블을 만드는 샘플 Hive 작업을 실행합니다.
 
+### Linux 클러스터의 경우
+
+이 섹션에서 클러스터로 SSH하고 샘플 Hive 쿼리를 실행합니다. Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
+
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+
+1. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
+
+    	hive
+
+2. CLI를 사용하여 다음 문을 입력하여 데이터 레이크 저장소에서 샘플 데이터를 사용한 **vehicles**라는 새 테이블을 만듭니다.
+
+		DROP TABLE vehicles;
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
+		SELECT * FROM vehicles LIMIT 10;
+
+	다음과 유사한 결과가 표시됩니다.
+
+		1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+		1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+		1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+		1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+		1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+		1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+		1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+		1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+		1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+		1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+
+
+### Windows 클러스터의 경우
+
 다음 cmdlet을 사용하여 Hive 쿼리를 실행합니다. 이 쿼리에서 데이터 레이크 저장소의 데이터에서 테이블을 만든 다음 만든 테이블에서 select 쿼리를 실행합니다.
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
@@ -290,11 +322,30 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 	1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
 
-	
-
 ## HDFS 명령을 사용한 액세스 데이터 레이크 저장소
 
 데이터 레이크 저장소를 사용하도록 HDInsight 클러스터를 구성한 후 HDFS 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.
+
+### Linux 클러스터의 경우
+
+이 섹션에서 클러스터로 SSH하고 HDFS 명령을 실행합니다. Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
+
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+
+연결되면 다음 HDFS 파일 시스템 명령을 사용하여 데이터 레이크 저장소에 파일을 나열합니다.
+
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+
+데이터 레이크 저장소에 이전에 업로드한 파일이 나열되어야 합니다.
+
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+
+`hdfs dfs -put` 명령을 사용하여 일부 파일을 데이터 레이크 저장소에 업로드한 다음 `hdfs dfs -ls`을(를) 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
+
+
+### Windows 클러스터의 경우
 
 1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -306,7 +357,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 	메시지가 표시되면 원격 데스크톱 사용자에 대해 제공된 자격 증명을 입력합니다.
 
-4. 원격 세션에서 Windows PowerShell을 시작하고 HDFS 파일 시스템 명령을 사용하여 Azure 데이터 레이크의 파일을 나열합니다.
+4. 원격 세션에서 Windows PowerShell을 시작하고 HDFS 파일 시스템 명령을 사용하여 Azure 데이터 레이크 저장소의 파일을 나열합니다.
 
 	 	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
@@ -316,7 +367,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	`hdfs dfs -put` 명령을 사용하여 일부 파일을 Azure 데이터 레이크에 업로드한 다음 `hdfs dfs -ls`을(를) 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
+	`hdfs dfs -put` 명령을 사용하여 일부 파일을 데이터 레이크 저장소에 업로드한 다음 `hdfs dfs -ls`을(를) 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
 
 ## 참고 항목
 
@@ -325,4 +376,4 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

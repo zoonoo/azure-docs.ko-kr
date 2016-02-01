@@ -61,7 +61,9 @@ Azure RemoteApp 관리자는 Azure AD Premium을 통해 사용할 수 있는 기
 	1. **직장이 아닐 때 액세스 차단**을 선택하여 사용자가 지정한 네트워크 환경 외부에서 Azure RemoteApp에 액세스하는 것을 완전히 차단합니다.
 	2. 아래 옵션을 클릭하여 "신뢰할 수 있는 네트워크"를 구성하는 IP 주소 범위를 정의합니다. 외부의 모든 항목은 거부됩니다.
 
-5.	지정한 범위 외부의 IP 주소에서 Azure RemoteApp 클라이언트를 시작하여 구성을 테스트합니다. Azure AD 자격 증명으로 로그인한 후에 다음과 같은 메시지가 표시되어야 합니다. ![Azure RemoteApp에 대한 거절된 액세스](./media/remoteapp-secureaccess/ra-accessdenied.png)
+5.	지정한 범위 외부의 IP 주소에서 Azure RemoteApp 클라이언트를 시작하여 구성을 테스트합니다. Azure AD 자격 증명으로 로그인한 후에 다음과 같은 메시지가 표시되어야 합니다.
+
+![Azure RemoteApp에 대한 거절된 액세스](./media/remoteapp-secureaccess/ra-accessdenied.png)
  
 
 ### 미래 조건부 액세스 기능 
@@ -106,6 +108,6 @@ Azure와 온-프레미스 환경을 연결하기 위한 몇 가지 구성 옵션
 Azure RemoteApp으로 VNet을 구성해야 하고 컬렉션의 만들기 과정에서 사용해야 합니다.
 
 ## 전체 솔루션
-아래 다이어그램에서는 최종 사용자로부터 Azure RemoteApp(ARA)을 통해 백 엔드 리소스에 보안 액세스 채널을 작성한 완전한 솔루션을 보여줍니다. ![Azure RemoteApp 보호](./media/remoteapp-secureaccess/ra-secureoverview.png) 1단계에서 사용자를 선택했고 ARA에 액세스할 수 있는 방법을 제어하는 액세스 규칙을 생성합니다. 아래 예제에서는 회사 네트워크에서 작업하는 사용자에 대해 액세스할 수 있습니다. 비규격 사용자는 ARA 환경에 전혀 액세스할 수 없습니다. "2단계"에서 제어하는 VNet/VPN 구성만를 통해서만 백 엔드 리소스를 노출했습니다. Azure RemoteApp은 동일한 VNet에 있습니다. 최종 결과는 ARA 환경을 통해 액세스할 수 있는 리소스입니다.
+아래 다이어그램에서는 최종 사용자로부터 Azure RemoteApp(ARA)을 통해 백 엔드 리소스에 보안 액세스 채널을 작성한 완전한 솔루션을 보여줍니다. ![Azure RemoteApp 보호](./media/remoteapp-secureaccess/ra-secureoverview.png) 1단계에서 사용자를 선택했고 ARA에 액세스할 수 있는 방법을 제어하는 액세스 규칙을 생성합니다. 아래 예제에서는 회사 네트워크에서 작업하는 사용자에 대해 액세스할 수 있습니다. 비규격 사용자는 ARA 환경에 전혀 액세스할 수 없습니다. "2단계"에서 제어하는 VNet/VPN 구성을 통해서만 백 엔드 리소스를 노출했습니다. Azure RemoteApp은 동일한 VNet에 있습니다. 최종 결과는 ARA 환경을 통해 액세스할 수 있는 리소스입니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

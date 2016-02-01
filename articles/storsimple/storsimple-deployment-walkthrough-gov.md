@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/09/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # 정부 포털에서 온-프레미스 StorSimple 장치 배포
@@ -70,7 +70,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 |----------------------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
 | **장치 케이블 연결** | 직렬 액세스 | 초기 장치 구성 | 예/아니요 |
 | | | | |
-| **장치 구성 및 등록** | 데이터 0 네트워크 설정 | 데이터 0 IP 주소:</br>서브넷 마스크:</br>게이트웨이:</br>기본 DNS 서버:</br>기본 NTP 서버:</br>웹 프록시 서버 IP/FQDN (선택 사항):</br>웹 프록시 포트:| |
+| **장치 구성 및 등록** | 데이터 0 네트워크 설정 | Data 0 IP 주소:</br>서브넷 마스크:</br>게이트웨이:</br>기본 DNS 서버:</br>기본 NTP 서버:</br>웹 프록시 서버 IP/FQDN (선택 사항):</br>웹 프록시 포트:| |
 | | 장치 관리자 암호 | 암호는 8~15자이며 소문자, 대문자, 숫자 및 특수 문자를 포함해야 합니다. | |
 | | StorSimple 스냅숏 관리자 암호 | 암호는 14 또는 15자이며 소문자, 대문자, 숫자 및 특수 문자를 포함해야 합니다.| |
 | | 서비스 등록 키 | Azure 포털에서 이 키가 생성됩니다. | |
@@ -203,7 +203,7 @@ Windows Server 호스트에서 이러한 단계를 수행합니다.
 
 > - Windows Server 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-configure-mpio-windows-server.md)으로 이동합니다. StorSimple 볼륨을 탑재, 초기화 및 포맷하는 단계도 포함됩니다.
 
-> - Linux 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-linux.md)으로 이동합니다.
+> - Linux 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)으로 이동합니다.
 
 MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows Server 호스트에서 StorSimple 볼륨을 탑재, 초기화 및 포맷합니다.
 
@@ -268,15 +268,15 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 MPIO(다중 경로 I/O)는 선택적 기능이며 Windows Server에 기본적으로 설치되지 않습니다. 서버 관리자를 통해 기능으로 설치해야 합니다. MPIO 설치 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-configure-mpio-windows-server.md)으로 이동합니다.
 
-Linux 호스트에 연결된 StorSimple 장치에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-linux.md)으로 이동합니다.
+Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)으로 이동합니다.
 
 > [AZURE.NOTE]MPIO는 StorSimple 가상 장치에서 지원되지 않습니다.
 
 ## 다음 단계
 
-[가상 장치](storsimple-virtual-device.md)를 구성합니다.
+- [가상 장치](storsimple-virtual-device.md)를 구성합니다.
 
-[StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
+- [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->
