@@ -62,7 +62,9 @@
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Single Sign-On 구성
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Central Desktop에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 Central Desktop 테넌트에 업로드해야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Central Desktop에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+이 절차의 일부로 base-64로 인코딩된 인증서 파일을 Central Desktop 테넌트에 업로드해야 합니다.  
+이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 
 
@@ -79,7 +81,7 @@
 3.  **앱 URL 구성** 페이지에서 다음 단계를 수행하고 **다음**을 선택합니다.
 
     -   **Central Desktop 로그인 URL** 텍스트 상자에서 Central Desktop 테넌트의 URL을 입력합니다.(예: **http://contoso.centraldesktop.com*))
--   Central Desktop 회신 URL 텍스트 상자에 Central Desktop AssertionConsumerService URL을 입력합니다.(예:https://contoso.centraldesktop.com/saml2-assertion.php))
+    -   Central Desktop 회신 URL 텍스트 상자에 Central Desktop AssertionConsumerService URL을 입력합니다.(예:https://contoso.centraldesktop.com/saml2-assertion.php))
 
     >[AZURE.NOTE]Central Desktop 메타데이터에서 값을 가져올 수 있습니다.(예: **http://contoso.centraldesktop.com*))
 
@@ -118,7 +120,7 @@
 
 9.  **업데이트**를 클릭합니다.
 
-10. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Single Sign-On 구성")
 ##사용자 프로비전 구성

@@ -16,7 +16,8 @@
 
 #자습서: Egnyte와 Azure Active Directory 통합
   
-이 자습서는 Azure 및 Egnyte의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 Egnyte의 통합을 보여주기 위한 것입니다.
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Egnyte Single Sign-on이 설정된 구독
@@ -55,7 +56,7 @@
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-egnyte-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
-6.  **검색 상자**에 **egnyte**를 입력합니다.
+6.  **검색 상자**에 **Egnyte**를 입력합니다.
 
     ![응용 프로그램 갤러리](./media/active-directory-saas-egnyte-tutorial/IC787813.png "응용 프로그램 갤러리")
 
@@ -64,7 +65,9 @@
     ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Egnyte에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. 이 절차의 일부로 base 64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Egnyte에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+이 절차의 일부로 base 64로 인코딩된 인증서 파일을 만들어야 합니다.  
+이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -115,7 +118,7 @@
     8.  **도메인 특정 발급자 값 사용**을 **비활성화**로 선택합니다.
     9.  **Save**를 클릭합니다.
 
-10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Single Sign-On 구성")
 ##사용자 프로비전 구성

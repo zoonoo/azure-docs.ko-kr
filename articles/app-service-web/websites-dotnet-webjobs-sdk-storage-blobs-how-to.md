@@ -24,13 +24,13 @@
 
 Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요
 		
-이 가이드에서는 [저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
+이 가이드에서는 저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 [Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
 
 ## <a id="trigger"></a> Blob가 만들어지거나 업데이트될 때 함수를 트리거하는 방법
 
 이 섹션에서는 `BlobTrigger` 특성을 사용하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]WebJobs SDK는 로그 파일을 검사하여 새 Blob 또는 변경된 Blob을 확인합니다. 이 프로세스는 실시간으로 처리되지 않으므로 Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그를 만들기 위해 “최선”](https://msdn.microsoft.com/library/azure/hh343262.aspx)을 다하고 있지만 모든 이벤트를 캡처하는 것을 보장하지는 않습니다. 경우에 따라 로그가 누락될 수 있습니다. 응용 프로그램에서 BLOB 트리거의 빠르고 안정성 있는 제한 사항을 사용할 수 없는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 `BlobTrigger`특성을 사용하는 대신 [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) 특성을 사용하는 것이 좋습니다.
+> [AZURE.NOTE] WebJobs SDK는 로그 파일을 검사하여 새 Blob 또는 변경된 Blob을 확인합니다. 이 프로세스는 실시간으로 처리되지 않으므로 Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그를 만들기 위해 “최선”](https://msdn.microsoft.com/library/azure/hh343262.aspx)을 다하고 있지만 모든 이벤트를 캡처하는 것을 보장하지는 않습니다. 경우에 따라 로그가 누락될 수 있습니다. 응용 프로그램에서 BLOB 트리거의 빠르고 안정성 있는 제한 사항을 사용할 수 없는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 `BlobTrigger`특성을 사용하는 대신 [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) 특성을 사용하는 것이 좋습니다.
 
 ### 확장명을 포함하는 Blob 이름에 대한 단일 자리 표시자  
 

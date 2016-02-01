@@ -57,7 +57,7 @@ Azure 서비스 패브릭은 시스템 구성 요소와 watchdogs가 모니터�
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
 
-> [AZURE.NOTE][서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)에 대해 자세히 알아봅니다.
+> [AZURE.NOTE] [서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md)에 대해 자세히 알아봅니다.
 
 ## 상태 쿼리
 서비스 패브릭은 각각의 지원되는 [엔터티 유형](service-fabric-health-introduction.md#health-entities-and-hierarchy)에 대해 상태 쿼리를 노출합니다. 이러한 쿼리는 API(**FabricClient.HealthManager**에서 찾을 수 있는 메서드), PowerShell cmdlet 및 REST를 통해 액세스할 수 있습니다. 이러한 쿼리는 집계된 성능 상태, 엔터티에 대해 보고된 상태 이벤트, 자녀 성능 상태(해당되는 경우) 및 엔터티가 정상이 아닐 때 비정상적인 평가 등을 포함한 엔터티에 대한 완벽한 상태 정보를 반환합니다.
@@ -839,4 +839,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0121_2016--->

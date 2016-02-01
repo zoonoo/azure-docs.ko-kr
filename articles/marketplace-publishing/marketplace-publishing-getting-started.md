@@ -35,7 +35,7 @@
 ||가상 컴퓨터 이미지 |개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
 |----|----|----|----|----|
 | **사전 승인 받기** | [Microsoft Azure 인증][link-certification] | [Microsoft Azure 인증][link-certification] | 해당 없음 | [Microsoft Azure 인증][link-certification] |
-| **1단계: develo9per 계정 등록** | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] |
+| **1단계: developer 계정 등록** | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] |
 |**2단계: 제품 만들기**| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)|
 || [VM 기술적인 필수 조건][link-single-vm-prereq] | 개발자 서비스 기술적인 필수 조건 | [데이터 서비스 기술적인 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
 ||[VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md) | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |

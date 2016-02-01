@@ -191,7 +191,7 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	* **Pattern Name** - **zeppelinnotebook** - 패턴의 이름입니다.
 
-	* **URL 패턴** - ***hn0*** - Zeppelin Notebook이 호스팅되는 끝점의 내부 정규화된 도메인 이름과 일치하는 패턴을 정의합니다. Zeppelin Notebook은 클러스터의 headnode0에만 사용할 수 있고 끝점은 일반적으로 `http://hn0-<string>.internal.cloudapp.net`이므로, **hn0** 패턴을 사용하면 요청이 반드시 Zeppelin 끝점으로 리디렉션됩니다.
+	* **URL 패턴** - **hn0** - Zeppelin Notebook이 호스팅되는 끝점의 내부 정규화된 도메인 이름과 일치하는 패턴을 정의합니다. Zeppelin Notebook은 클러스터의 headnode0에만 사용할 수 있고 끝점은 일반적으로 `http://hn0-<string>.internal.cloudapp.net`이므로, **hn0** 패턴을 사용하면 요청이 반드시 Zeppelin 끝점으로 리디렉션됩니다.
 
 		![foxyproxy 패턴](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 

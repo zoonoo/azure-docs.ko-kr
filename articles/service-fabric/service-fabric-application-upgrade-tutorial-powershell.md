@@ -33,7 +33,7 @@ GitHub에서 응용 프로그램을 다운로드하고, 샘플의 추가 정보 
 
 이러한 파일을 프로젝트에 추가한 후 다음과 같이 응용 프로그램 프로젝트 **VisualObjectsApplication**을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴 항목에서 **게시** 명령을 선택하여 응용 프로그램을 빌드 및 게시합니다. 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요. 또는 PowerShell을 사용하여 응용 프로그램을 배포할 수 있습니다.
 
-> [AZURE.NOTE]어떤 서비스 패브릭 명령이 PowerShell에서 사용되기 전에 `Connect-ServiceFabricCluster` cmdlet을 사용하여 클러스터에 처음 연결해야 합니다. 마찬가지로, 클러스터는 로컬 컴퓨터에 이미 설치된 것으로 간주됩니다. [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md) 문서를 참조하십시오.
+> [AZURE.NOTE] 어떤 서비스 패브릭 명령이 PowerShell에서 사용되기 전에 `Connect-ServiceFabricCluster` cmdlet을 사용하여 클러스터에 처음 연결해야 합니다. 마찬가지로, 클러스터는 로컬 컴퓨터에 이미 설치된 것으로 간주됩니다. [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md) 문서를 참조하십시오.
 
 Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 **Copy-ServiceFabricApplicationPackage**를 사용하여 응용 프로그램 패키지를 ImageStore에 복사합니다. 이 단계 다음에는 **Register-ServiceFabricApplicationPackage**을 사용하여 서비스 패브릭 런타임에 응용 프로그램을 등록합니다. 마지막 단계로, **New-ServiceFabricApplication** cmdlet을 사용하여 응용 프로그램의 인스턴스를 시작합니다. 이 세 단계는 Visual Studio의 **배포** 메뉴를 사용하는 것과 유사합니다.
 
@@ -45,7 +45,8 @@ Visual Studio에서 프로젝트를 빌드한 후, PowerShell 명령 **Copy-Serv
 
 VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택하고, StatefulVisualObjectActor.cs 파일을 엽니다. 해당 파일 내에서 `MoveObject` 메서드로 이동하고 `this.State.Move()`를 주석 처리하고 `this.State.Move(true)`의 주석 처리를 제거합니다. 이렇게 변경하면 서비스 업그레이드 후 개체가 회전됩니다.
 
-프로젝트 **VisualObjects.ActorService**의 ServiceManifest.xml 파일(PackageRoot 아래)도 업데이트해야 합니다. CodePackage 및 서비스 버전을 2.0으로 업데이트하고 ServiceManifest.xml 파일의 해당 줄을 업데이트합니다. 솔루션을 마우스 오른쪽 단추로 클릭한 다음 Visual Studio Edit Manifest Files(매니페스트 파일 편집) 옵션을 사용하여 매니패스트 파일을 변경할 수 있습니다.
+프로젝트 **VisualObjects.ActorService**의 ServiceManifest.xml 파일(PackageRoot 아래)도 업데이트해야 합니다. CodePackage 및 서비스 버전을 2.0으로 업데이트하고 ServiceManifest.xml 파일의 해당 줄을 업데이트합니다. 
+솔루션을 마우스 오른쪽 단추로 클릭한 다음 Visual Studio Edit Manifest Files(매니페스트 파일 편집) 옵션을 사용하여 매니패스트 파일을 변경할 수 있습니다.
 
 
 변경 후 매니페스트 버전은 다음과 같이 설정됩니다(강조 표시된 글씨가 변경된 부분임).

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="1/19/2016"
+   ms.date="01/19/2016"
    ms.author="bruceper" />
 
 # Azure 키 자격 증명 모음 개발자 가이드
@@ -66,4 +66,4 @@ Azure 주요 자격 증명 모음 컨테이너(자격 증명 모음)는 다음 �
 
 - [Microsoft Azure 키 자격 증명 모음 확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0)은 Azure 키 자격 증명 모음에 확장된 기능을 제공합니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

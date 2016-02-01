@@ -147,7 +147,11 @@ Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 
 
   >[AZURE.TIP]참가 정책은 [Azure 웹 사이트](http://azure.microsoft.com/support/legal/marketplace/participation-policies/)에 설명되어 있습니다.
 
-  > 개발자 센터 등록에 문제가 있으면 아래와 같이 지원 티켓을 기록하세요. 1. [지원](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=ko-KR&pesid=15635&ccsid=635847950577064286)에 문의합니다. 2. **개발자 센터**를 선택합니다. 3. **프로필**을 선택합니다. 4. 연락 방법 선택
+  > 개발자 센터 등록에 문제가 있으면 아래와 같이 지원 티켓을 기록하세요. 
+  1. [지원](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=ko-KR&pesid=15635&ccsid=635847950577064286)에 문의합니다. 
+  2. **개발자 센터**를 선택합니다. 
+  3. **프로필**을 선택합니다.
+   4. 연락 방법 선택
 
 
 

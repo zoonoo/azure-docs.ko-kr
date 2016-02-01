@@ -26,7 +26,13 @@
 
 ##DocumentDB Python SDK
 
-<table> <tr><td>**다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr> <tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr> <tr><td>**설명서**</td><td>[Python SDK 참조 설명서](http://azure.github.io/azure-documentdb-python/)</td></tr> <tr><td>**시작**</td><td>[Python SDK 시작](documentdb-python-application.md)</td></tr> <tr><td>**현재 지원되는 플랫폼**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr> </table></br>
+<table>
+<tr><td>**다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**설명서**</td><td>[Python SDK 참조 설명서](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**시작**</td><td>[Python SDK 시작](documentdb-python-application.md)</td></tr>
+<tr><td>**현재 지원되는 플랫폼**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
+</table></br>
 
 ## 릴리스 정보
 
@@ -64,7 +70,18 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.5.0](#1.5.0) | 2016년 1월 3일 |--- | | [1\.4.2](#1.4.2) | 2015년 10월 6일 |--| [1\.4.1](#1.4.1) | 2015년 10월 6일 |--| [1\.2.0](#1.2.0) | 2015년 8월 6일 |--| [1\.1.0](#1.1.0) | 2015년 7월 9일 |--| [1\.0.1](#1.0.1) | 2015년 5월 25일 |--| [1\.0.0](#1.0.0) | 2015년 4월 7일 |--| 0.9.4-prelease | 2015년 1월 14일 | 2016년 2월 29일 | 0.9.3-prelease | 2014년 12월 9일 | 2016년 2월 29일 | 0.9.2-prelease | 2014년 11월 25일 | 2016년 2월 29일 | 0.9.1-prelease | 2014년 9월 23일 | 2016년 2월 29일 | 0.9.0-prelease | 2014년 8월 21일 | 2016년 2월 29일
+| [1\.5.0](#1.5.0) | 2016년 1월 3일 |--
+| [1\.4.2](#1.4.2) | 2015년 10월 6일 |--
+| [1\.4.1](#1.4.1) | 2015년 10월 6일 |--
+| [1\.2.0](#1.2.0) | 2015년 8월 6일 |--
+| [1\.1.0](#1.1.0) | 2015년 7월 9일 |--
+| [1\.0.1](#1.0.1) | 2015년 5월 25일 |--
+| [1\.0.0](#1.0.0) | 2015년 4월 7일 |--
+| 0.9.4-prelease | 2015년 1월 14일 | 2016년 2월 29일 
+| 0.9.3-prelease | 2014년 12월 9일 | 2016년 2월 29일 
+| 0.9.2-prelease | 2014년 11월 25일 | 2016년 2월 29일 
+| 0.9.1-prelease | 2014년 9월 23일 | 2016년 2월 29일 
+| 0.9.0-prelease | 2014년 8월 21일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

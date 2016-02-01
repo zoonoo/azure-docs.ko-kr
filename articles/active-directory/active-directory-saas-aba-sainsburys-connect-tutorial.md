@@ -81,9 +81,9 @@
     ![앱 설정 구성](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "앱 설정 구성")
 
     1.  **로그온 URL** 텍스트 상자에 사용자가 Aba Sainsburys Connect 응용 프로그램에 로그인하는 데 사용하는 URL(예: **https://myaba.co.uk/client-access/sainsburys/saml.php*))을 입력합니다.
-2.  **다음**를 클릭합니다.
+    2.  **다음**를 클릭합니다.
 
-4.  **Aba Sainsburys Connect에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 저장합니다.
+4.  **Aba Sainsburys Connect에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807729.png "Single Sign-On 구성")
 
