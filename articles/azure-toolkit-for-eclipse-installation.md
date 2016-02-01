@@ -31,9 +31,11 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 ## Eclipse용 Azure 도구 키트 설치 ##
 
 1. Eclipse를 시작합니다.
-2. Eclipse의 메뉴에서 아래 다이어그램과 같이 <strong>Help</strong>를 클릭한 후 <strong>Install New Software</strong>를 클릭합니다. ![][ic590123]
+2. Eclipse의 메뉴에서 아래 다이어그램과 같이 <strong>Help</strong>를 클릭한 후 <strong>Install New Software</strong>를 클릭합니다.
+    ![][ic590123]
 3. <strong>Available Software</strong> 대화 상자의 <strong>Work with</strong> 텍스트 상자에 <strong>http://dl.msopentech.com/eclipse</strong>를 입력한 후 <strong>Enter</strong> 키를 누릅니다.
-4. <strong>Name</strong> 창에서 <strong>Azure Toolkit for Eclipse</strong>를 선택하고 <strong>Contact all update sites during install to find required software</strong>를 선택하지 않습니다. 화면은 다음과 유사한 모양입니다. ![][ic719482]
+4. <strong>Name</strong> 창에서 <strong>Azure Toolkit for Eclipse</strong>를 선택하고 <strong>Contact all update sites during install to find required software</strong>를 선택하지 않습니다. 화면은 다음과 유사한 모양입니다.
+    ![][ic719482]
 5. <strong>Azure Toolkit for Eclipse</strong>를 확장하면 다음 항목이 표시됩니다.
     * **Azure Access Control Services Filter**: 이 구성 요소는 Azure ACS를 사용한 응용 프로그램 사용자 인증을 지원합니다.
     * **Azure Common Plugin**: 이 구성 요소는 다른 구성 요소가 사용하는 공유 기능을 포함합니다.
@@ -64,6 +66,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Web Platform Installer (WebPI)]: http://go.microsoft.com/fwlink/?LinkID=252838
+[WebPI(웹 플랫폼 설치 관리자)]: http://go.microsoft.com/fwlink/?LinkID=252838
 [Eclipse용 Azure 도구 키트의 새로운 기능]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
