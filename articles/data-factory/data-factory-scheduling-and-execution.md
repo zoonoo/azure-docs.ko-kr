@@ -475,7 +475,7 @@ hive 작업에서는 2개의 입력을 받아 매일 출력 조각을 생성합�
 	          },
 	          {
 	            "name": "AzureBlobInputWeekly",
-	            "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayOfWeek(SliceStart))",
+	            "startTime": "Date.AddDays(SliceStart, - Date.DayOfWeek(SliceStart))",
 	            "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
 	          }
 	        ],
@@ -678,4 +678,4 @@ DateTime | Ticks(X) | X: DateTime | 매개 변수 X의 틱 속성을 가져옵�
 
   
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

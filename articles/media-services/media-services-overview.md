@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016"
+	ms.date="01/14/2016"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 개요 및 일반적인 시나리오
@@ -29,7 +29,10 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 미디어 서비스 솔루션을 빌드하려면 다음을 사용할 수 있습니다.
 
 - [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- 사용 가능한 클라이언트 SDK의 하나: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- 사용 가능한 클라이언트 SDK 중 하나: 
+	- [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services), 
+	- [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
+	- [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)(Node.js SDK의 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다). 
 - 기존 도구: [Azure 클래식 포털](http://manage.windowsazure.com/) 또는 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)
 
 
@@ -231,4 +234,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

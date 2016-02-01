@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="11/19/2015"
+	ms.date="01/21/2016"
 	ms.author="yidingz;v-marsma"/>
 
 # Azure 배치 기능 개요
@@ -26,9 +26,9 @@
 
 배치 서비스에서 개발된 거의 모든 분산 컴퓨팅 시나리오에는 일반적으로 다음과 같은 상위 수준 워크플로가 사용됩니다.
 
-1. 분산 컴퓨팅 시나리오에서 사용할 *데이터 파일*을 [Azure 저장소][azure_storage] 계정에 업로드합니다. 이러한 파일은 배치 서비스에서 액세스할 수 있도록 저장소 계정에 있어야 합니다. 이러한 파일은 태스크가 실행될 때 [계산 노드](#computenode)에 다운로드됩니다.
+1. 분산 컴퓨팅 시나리오에서 사용할 데이터 파일을 [Azure 저장소][azure_storage] 계정에 업로드합니다. 이러한 파일은 배치 서비스에서 액세스할 수 있도록 저장소 계정에 있어야 합니다. 이러한 파일은 태스크가 실행될 때 [계산 노드](#computenode)에 다운로드됩니다.
 
-2. 저장소 계정에 종속 *이진 파일*을 업로드합니다. 이러한 이진 파일에는 태스크 및 종속 어셈블리에서 실행되는 프로그램이 포함됩니다. 이러한 파일은 태스크에서 계산 노드에 다운로드할 수 있도록 저장소 계정에서도 액세스할 수 있어야 합니다.
+2. 저장소 계정에 종속 이진 파일을 업로드합니다. 이러한 이진 파일에는 태스크 및 종속 어셈블리에서 실행되는 프로그램이 포함됩니다. 이러한 파일은 태스크에서 계산 노드에 다운로드할 수 있도록 저장소 계정에서도 액세스할 수 있어야 합니다.
 
 3. 계산 노드 [풀](#pool)을 만듭니다. 풀을 만들 때 사용할 [계산 노드의 크기][cloud_service_sizes]를 지정합니다. 태스크가 실행될 때 이 풀의 노드가 할당됩니다.
 
@@ -62,6 +62,8 @@ Azure 배치 서비스를 사용하는 경우 다음 리소스를 활용할 수 
 
 	- [작업 준비 및 해제 태스크](#jobpreprelease)
 
+	- [다중 인스턴스 작업](#multiinstance)
+
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>계정
@@ -77,7 +79,7 @@ Azure 배치 서비스를 사용하는 경우 다음 리소스를 활용할 수 
 - 표준 **폴더 구조** 및 해당 경로를 자세히 설명하는 연관된 **환경 변수**가 각 계산 노드에 생성됩니다. 자세한 내용은 아래의 [파일 및 디렉터리](#files)를 참조하세요.
 - 태스크에서 참조할 수 있는 **환경 변수**
 - 액세스를 제어하도록 구성된 **방화벽** 설정
-- 디버깅 등을 위해 계산 노드에 **원격 액세스**해야 하는 경우 RDP 파일을 가져온 다음 *원격 데스크톱*을 통해 노드에 액세스하는 데 사용할 수 있습니다.
+- 디버깅 등을 위해 계산 노드에 **원격 액세스**해야 하는 경우 RDP 파일을 가져온 다음 원격 데스크톱을 통해 노드에 액세스하는 데 사용할 수 있습니다.
 
 ### <a name="pool"></a>풀
 
@@ -97,7 +99,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 	- A0을 제외하고 모든 [클라우드 서비스 노드 크기][cloud_service_sizes]를 풀에 구성할 수 있습니다.
 
 - 노드에서 실행되는 **운영 체제 제품군** 및 **버전**
-	- 클라우드 서비스 내의 작업자 역할과 마찬가지로 *OS 제품군* 및 *OS 버전*을 지정할 수 있습니다(작업자 역할에 대한 자세한 내용은 *Azure에서 제공하는 계산 호스팅 옵션*의 [클라우드 서비스에 대한 설명][about_cloud_services] 섹션 참조).
+	- 클라우드 서비스 내의 작업자 역할과 마찬가지로 OS 제품군 및 OS 버전을 지정할 수 있습니다(작업자 역할에 대한 자세한 내용은 Azure에서 제공하는 계산 호스팅 옵션의 [클라우드 서비스에 대한 설명][about_cloud_services] 섹션 참조).
 	- OS 제품군은 OS와 함께 설치되는 .NET 버전도 결정합니다.
 	- 작업자 역할과 마찬가지로, OS 버전에 대해 `*`를 지정하는 것이 좋습니다. 그러면 노드가 자동으로 업그레이드되며 새로 릴리스된 버전을 사용하는 데 필요한 조정 작업이 없습니다. 특정 OS 버전 선택의 기본 사용 사례는 버전을 업데이트하기 전에 이전 버전과의 호환성 테스트를 수행할 수 있게 하여 응용 프로그램 호환성을 유지하는 것입니다. 유효성이 검사되고 나면 풀의 OS 버전을 업데이트하고 새 OS 이미지를 설치할 수 있습니다. 실행 중인 태스크는 모두 중단되고 다시 큐에 대기됩니다.
 
@@ -116,7 +118,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 	- 대부분의 시나리오에서는 태스크가 독립적으로 작동하고 다른 태스크와 통신할 필요가 없지만, 태스크가 통신해야 하는 일부 응용 프로그램도 있습니다.
 
 - 풀에 포함된 노드의 **시작 태스크**
-	- 계산 노드가 풀에 연결될 때마다, 그리고 노드가 다시 시작될 때마다 실행되는 *시작 태스크*를 지정할 수 있습니다. 이는 종종 노드에서 실행 중인 태스크에서 사용할 응용 프로그램을 설치하는 데 사용됩니다.
+	- 계산 노드가 풀에 연결될 때마다, 그리고 노드가 다시 시작될 때마다 실행되는 시작 태스크를 지정할 수 있습니다. 이는 종종 노드에서 실행 중인 태스크에서 사용할 응용 프로그램을 설치하는 데 사용됩니다.
 
 ### <a name="job"></a>작업
 
@@ -145,10 +147,9 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 노드에서 계산을 수행하도록 정의하는 태스크 외에 다음과 같은 특수한 태스크도 배치 서비스에서 제공됩니다.
 
 - [시작 태스크](#starttask)
-
 - [작업 관리자 태스크](#jobmanagertask)
-
 - [작업 준비 및 해제 태스크](#jobmanagertask)
+- [다중 인스턴스 작업](#multiinstance)
 
 #### <a name="starttask"></a>시작 태스크
 
@@ -189,6 +190,18 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 작업 준비 및 해제 태스크에 대한 자세한 내용은 [Azure 배치 계산 노드에서 작업 준비 및 완료 태스크 실행](batch-job-prep-release.md)을 참조하세요.
 
+#### <a name="multiinstance"></a>다중 인스턴스 작업
+
+[다중 인스턴스 작업][rest_multiinstance]은 둘 이상의 컴퓨터 노드에서 동시에 실행될 수 있도록 구성된 작업입니다. 다중 인스턴스 작업과 함께 컴퓨터 노드 그룹에 함께 할당되어야 하는 MPI(Message Passing Interface)와 같은 고성능 컴퓨팅 시나리오를 사용하여 단일 워크로드를 처리할 수 있습니다.
+
+일괄 처리에서 일반적인 [작업](#task)에 다중 인스턴스 설정을 지정하여 다중 인스턴스 작업을 만듭니다. 이러한 설정에는 작업을 실행할 컴퓨터 노드의 수, 주 작업에 대한 명령줄("응용 프로그램 명령"), 조정 명령 및 각 작업에 대한 일반적인 리소스 파일 목록이 포함됩니다.
+
+작업에 다중 인스턴스 설정이 있는 작업을 제출하는 경우 배치 서비스는 다음을 수행합니다.
+
+1. 하나의 기본 작업과 지정한 노드의 총 수에서 함께 실행되기에 충분한 하위 작업을 자동으로 만듭니다. 지정한 공용 리소스 파일을 처음 다운로드한 노드에서 실행되도록 이러한 작업을 일괄 처리한 다음 예약합니다.
+2. 공용 리소스 파일을 다운로드한 후 조정 명령이 주 작업 및 하위 작업에서 실행됩니다. 이 조정 명령은 일반적으로 백그라운드 서비스(예: [MS-MPI][msmpi]의 `smpd.exe`)를 시작하고 노드가 노드 간 메시지를 처리할 준비가 되었는지 확인합니다.
+3. 조정 명령이 주 작업 및 모든 하위 작업에서 성공적으로 완료되면 작업의 명령줄("응용 프로그램 명령")이 일반적으로 노드에서 워크로드를 처리하는 사용자 지정 MPI 사용 응용 프로그램을 초기화하는 주 작업으로만 실행됩니다. 예를 들어 Windows MPI 시나리오에서는 일반적으로 응용 프로그램 명령을 사용하여 [MS-MPI][msmpi]의 `mpiexec.exe`를 사용하여 MPI 사용 응용 프로그램을 실행합니다.
+
 ### <a name="jobschedule"></a>예약된 작업
 
 작업 일정을 사용하여 배치 서비스 내에서 되풀이되는 작업을 만들 수 있습니다. 작업 일정은 작업을 실행할 시간을 지정하며, 실행할 작업에 대한 사양을 포함합니다. 작업 일정에서는 일정의 기간(일정이 적용되는 시점 및 기간) 및 해당 기간 동안 작업을 만들어야 하는 빈도에 대한 사양을 지정할 수 있습니다.
@@ -207,7 +220,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 - **시작** - 이 위치는 시작 태스크에서 작업 디렉터리로 사용됩니다. 시작 태스크를 시작하기 위해 배치 서비스에서 다운로드한 모든 파일도 이 디렉터리 아래에 저장됩니다. 노드에서 시작 디렉터리는 `%AZ_BATCH_NODE_START_DIR%`을 통해 사용할 수 있습니다. 시작 태스크는 이 디렉터리 아래에서 파일을 만들고, 읽고, 업데이트하고, 삭제할 수 있으며 이 디렉터리는 시작 태스크가 운영 체제를 구성하는 데 사용할 수 있습니다.
 
-- **태스크** - 노드에서 실행되는 각 태스크에 대해 `%AZ_BATCH_TASK_DIR%`을 통해 액세스할 수 있는 디렉터리가 만들어집니다. 각 태스크 디렉터리 내에서 배치 서비스는 `%AZ_BATCH_TASK_WORKING_DIR%` 환경 변수에 의해 고유 경로가 지정되는 작업 디렉터리(`wd`)를 만듭니다. 이 디렉터리는 태스크에 대한 읽기/쓰기 액세스를 제공합니다. 이 디렉터리 아래에서 태스크는 파일을 만들고, 읽고, 업데이트하고, 삭제할 수 있으며 이 디렉터리는 태스크에 대해 지정된 *RetentionTime* 제약 조건에 따라 유지됩니다.
+- **태스크** - 노드에서 실행되는 각 태스크에 대해 `%AZ_BATCH_TASK_DIR%`을 통해 액세스할 수 있는 디렉터리가 만들어집니다. 각 태스크 디렉터리 내에서 배치 서비스는 `%AZ_BATCH_TASK_WORKING_DIR%` 환경 변수에 의해 고유 경로가 지정되는 작업 디렉터리(`wd`)를 만듭니다. 이 디렉터리는 태스크에 대한 읽기/쓰기 액세스를 제공합니다. 이 디렉터리 아래에서 태스크는 파일을 만들고, 읽고, 업데이트하고, 삭제할 수 있으며 이 디렉터리는 태스크에 대해 지정된 RetentionTime 제약 조건에 따라 유지됩니다.
   - `stdout.txt` 및 `stderr.txt` - 이러한 파일은 태스크를 실행하는 동안 태스크 폴더에 기록됩니다.
 
 풀에서 노드가 제거되면 노드에 저장된 모든 파일이 제거됩니다.
@@ -216,11 +229,11 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 방법 및 시기와 해당 풀 내의 계산 노드를 사용 가능한 상태로 유지할 기간을 고려하여 이루어져야 합니다.
 
-하나의 극단적인 예로, 작업이 제출될 때 각 작업에 대해 풀을 만들고 태스크 실행이 완료되는 즉시 해당 노드를 제거할 수 있습니다. 이 경우 노드가 반드시 필요할 때만 할당되고 유휴 상태가 되는 즉시 종료되므로 사용률이 극대화됩니다. 이는 작업에서 노드가 할당되기를 기다려야 한다는 의미는 아니지만 노드가 개별적으로 사용 가능하고, 할당되고, 시작 태스크가 완료되는 즉시 노드에 태스크가 예약되는 것에 주의해야 합니다. 즉, 배치는 사용 가능한 모든 노드의 최대 사용률을 보장하기 위해 태스크를 할당하기 전에 풀 내의 모든 노드가 사용 가능할 때까지 기다리지 *않습니다*.
+하나의 극단적인 예로, 작업이 제출될 때 각 작업에 대해 풀을 만들고 태스크 실행이 완료되는 즉시 해당 노드를 제거할 수 있습니다. 이 경우 노드가 반드시 필요할 때만 할당되고 유휴 상태가 되는 즉시 종료되므로 사용률이 극대화됩니다. 이는 작업에서 노드가 할당되기를 기다려야 한다는 의미는 아니지만 노드가 개별적으로 사용 가능하고, 할당되고, 시작 태스크가 완료되는 즉시 노드에 태스크가 예약되는 것에 주의해야 합니다. 즉, 배치는 사용 가능한 모든 노드의 최대 사용률을 보장하기 위해 태스크를 할당하기 전에 풀 내의 모든 노드가 사용 가능할 때까지 기다리지 않습니다.
 
 또 다른 극단적인 예로, 작업을 즉시 시작하는 것이 우선 순위가 가장 높은 경우 미리 풀을 만들고 작업이 제출되기 전에 해당 노드를 사용할 수 있습니다. 이 시나리오에서는 작업 태스크를 즉시 시작할 수 있지만, 노드가 유휴 상태로 태스크가 할당되기를 기다릴 수 있습니다.
 
-일반적으로 가변적이지만 지속적인 부하를 처리하는 사용되는 통합 접근 방식은 여러 작업이 제출되는 하나의 풀을 사용하되 부하에 따라 노드 수를 확장하거나 축소하는 것입니다(아래 *응용 프로그램 크기 조정* 참조). 이는 현재 부하에 따라 사후 대응적으로 수행하거나 부하를 예측할 수 있는 경우 사전 대응적으로 수행할 수 있습니다.
+일반적으로 가변적이지만 지속적인 부하를 처리하는 사용되는 통합 접근 방식은 여러 작업이 제출되는 하나의 풀을 사용하되 부하에 따라 노드 수를 확장하거나 축소하는 것입니다(아래 응용 프로그램 크기 조정 참조). 이는 현재 부하에 따라 사후 대응적으로 수행하거나 부하를 예측할 수 있는 경우 사전 대응적으로 수행할 수 있습니다.
 
 ## <a name="scaling"></a>응용 프로그램 크기 조정
 
@@ -297,14 +310,14 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 	- 태스크의 명령줄에서 지정된 프로세스도 실패할 수 있습니다. 태스크가 실행한 프로세스에서 0이 아닌 종료 코드가 반환되면 프로세스가 실패한 것으로 간주됩니다.
 	- 응용 프로그램 오류의 경우 지정된 횟수까지 자동으로 태스크를 다시 시도하도록 배치를 구성할 수 있습니다.
 - **제약 조건 오류**
-	- 작업 또는 태스크의 최대 실행 기간을 지정하는 제약 조건(*maxWallClockTime*)을 지정할 수 있습니다. 이 기능은 “응답이 없는” 태스크를 종료하는 데 유용할 수 있습니다.
-	- 최대 기간을 초과하면 태스크가 *완료됨*으로 표시되지만 종료 코드가 `0xC000013A`로 설정되고 *schedulingError* 필드가 `{ category:"ServerError", code="TaskEnded"}`로 표시됩니다.
+	- 작업 또는 태스크의 최대 실행 기간을 지정하는 제약 조건(maxWallClockTime)을 지정할 수 있습니다. 이 기능은 “응답이 없는” 태스크를 종료하는 데 유용할 수 있습니다.
+	- 최대 기간을 초과하면 태스크가 완료됨으로 표시되지만 종료 코드가 `0xC000013A`로 설정되고 schedulingError 필드가 `{ category:"ServerError", code="TaskEnded"}`로 표시됩니다.
 
 ### 응용 프로그램 오류 디버그
 
 실행하는 동안 응용 프로그램에서 문제를 해결하는 데 사용할 수 있는 진단 출력을 생성할 수 있습니다. 위의 [파일 및 디렉터리](#files)에서 설명했듯이, 배치 서비스는 계산 노드의 태스크 디렉터리에 있는 `stdout.txt` 및 `stderr.txt` 파일로 stdout 및 stderr 출력을 보냅니다. Batch .NET API에서 [ComputeNode.GetNodeFile][net_getfile_node] 및 [CloudTask.GetNodeFile][net_getfile_task]을 사용하면 문제 해결을 위해 이러한 파일 및 다른 파일을 검색할 수 있습니다.
 
-*원격 데스크톱*을 사용하여 계산 노드에 로그인하면 훨씬 광범위한 디버그를 수행할 수 있습니다. [노드에서 원격 데스크톱 프로토콜 파일을 가져오거나][rest_rdp](Batch REST API), [ComputeNode.GetRDPFile][net_rdp] 메서드(Batch .NET API)를 원격 로그인에 사용할 수 있습니다.
+원격 데스크톱을 사용하여 계산 노드에 로그인하면 훨씬 광범위한 디버그를 수행할 수 있습니다. [노드에서 원격 데스크톱 프로토콜 파일을 가져오거나][rest_rdp](Batch REST API), [ComputeNode.GetRDPFile][net_rdp] 메서드(Batch .NET API)를 원격 로그인에 사용할 수 있습니다.
 
 >[AZURE.NOTE]RDP를 통해 노드에 연결하려면 먼저 해당 노드에서 사용자를 만들어야 합니다. Batch REST API에서 [노드에 사용자 계정을 추가][rest_create_user]하거나, Batch .NET에서 [ComputeNode.CreateComputeNodeUser][net_create_user] 메서드를 사용합니다.
 
@@ -332,6 +345,7 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -342,6 +356,7 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -351,7 +366,9 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/ko-KR/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션
@@ -24,9 +24,9 @@
 
 StorSimple은 [저장소 계층화](#automatic-storage-tiering)를 사용하여 다양한 저장소 미디어에 저장된 데이터를 관리합니다. 현재 작업 집합은 SSD(반도체 드라이브)에 온-프레미스로 저장되고, 자주 사용하지 않는 데이터는 HDD(하드 디스크 드라이브)에 저장되고, 보관 데이터는 클라우드에 푸시됩니다. 또한 StorSimple은 중복 제거 및 압축을 사용하여 데이터가 사용하는 저장소 크기를 줄입니다. 자세한 내용은 [중복 제거 및 압축](#deduplication-and-compression)으로 이동합니다. StorSimple 8000 시리즈 설명서에서 사용되는 다른 주요 용어의 정의 및 개념은 이 문서 끝에 있는 [StorSimple 용어](#storsimple-terminology)로 이동합니다.
 
-StorSimple 업데이트 2를 사용하여 *로컬로 고정*으로 적절한 볼륨을 식별하여 주 데이터를 장치에 로컬로 유지할 수 있으며 클라우드로 계층화하지 않습니다. 이를 통해 백업에 대한 클라우드를 사용하여 계속 진행하면서 로컬로 고정 볼륨에 SQL 및 가상 컴퓨터 작업과 같은 클라우드 대기 시간에 영향을 받는 작업을 실행할 수 있습니다. 로컬로 고정된 볼륨에 대한 자세한 내용은 [StorSimple 관리자 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes-u2.md)를 참조하세요.
+StorSimple 업데이트 2를 사용하여 로컬로 고정으로 적절한 볼륨을 식별하여 주 데이터를 장치에 로컬로 유지할 수 있으며 클라우드로 계층화하지 않습니다. 이를 통해 백업에 대한 클라우드를 사용하여 계속 진행하면서 로컬로 고정 볼륨에 SQL 및 가상 컴퓨터 작업과 같은 클라우드 대기 시간에 영향을 받는 작업을 실행할 수 있습니다. 로컬로 고정된 볼륨에 대한 자세한 내용은 [StorSimple 관리자 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes-u2.md)를 참조하세요.
 
-업데이트 2를 통해 Azure 프리미엄 저장소에서 제공하는 낮은 대기 시간 및 고성능을 활용하는 StorSimple 가상 장치를 만들 수 있습니다. StorSimple 프리미엄 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u1.md)를 참조하세요. Azure 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)로 이동합니다.
+업데이트 2를 통해 Azure 프리미엄 저장소에서 제공하는 낮은 대기 시간 및 고성능을 활용하는 StorSimple 가상 장치를 만들 수 있습니다. StorSimple 프리미엄 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u1.md)를 참조하세요. Azure 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage-preview-portal.md)로 이동합니다.
 
 저장소 관리 외에도 StorSimple 데이터 보호 기능을 통해 주문형 백업 및 예약된 백업을 만든 다음 로컬로 또는 클라우드에 저장할 수 있습니다. 백업은 증분 스냅숏 형태로 생성되므로 빠르게 만들고 복원할 수 있습니다. 클라우드 스냅숏은 보조 저장소 시스템(예: 테이프 백업)을 대체하기 때문에 재해 복구 시나리오에서 매우 중요할 수 있으며, 필요한 경우 데이터 센터 또는 대체 사이트에 데이터를 복원할 수 있게 해줍니다.
 
@@ -64,7 +64,7 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 - **StorSimple용 Windows PowerShell** – StorSimple 장치를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
 - **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](https://msdn.microsoft.com/library/dn920427.aspx)를 참조하세요.
 - **StorSimple 스냅숏 관리자** – 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 응용 프로그램에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다. 
-- **SharePoint용 StorSimple 어댑터** – SharePoint 관리 포털에서 StorSimple 저장소를 볼 수 있고 관리할 수 있도록 하면서 SharePoint 서버 팜으로 Microsoft Azure StorSimple 저장소 및 데이터 보호를 투명하게 확장하는 도구입니다.
+- **SharePoint용 StorSimple 어댑터** – SharePoint 중앙 관리 포털에서 StorSimple 저장소를 볼 수 있고 관리할 수 있도록 하면서 SharePoint 서버 팜으로 Microsoft Azure StorSimple 저장소 및 데이터 보호를 투명하게 확장하는 도구입니다.
 
 아래 다이어그램은 Microsoft Azure StorSimple 아키텍처 및 구성 요소에 대한 상위 레벨 보기를 제공합니다.
 
@@ -99,7 +99,7 @@ StorSimple을 사용하여 물리적 하이브리드 저장소 장치의 아키�
 - 클라우드에서 개수에 제한 없이 가상 장치를 만들 수 있으며 필요에 따라 설정 및 해제합니다. 
 - 재해 복구, 개발 및 테스트 시나리오에서 온-프레미스 환경을 시뮬레이션할 수 있고 백업에서 항목 수준의 검색에 도움이 될 수 있습니다. 
 
-업데이트 2 이상을 사용하여 StorSimple 가상 장치는 두 가지 모델, 8010 장치(이전의 1100 모델)와 8020 장치에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)로 이동합니다.
+업데이트 2 이상을 사용하여 StorSimple 가상 장치는 두 가지 모델, 8010 장치(이전의 1100 모델)와 8020 장치에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage-preview-portal.md)로 이동합니다.
 
 StorSimple 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u1.md)로 이동합니다.
 
@@ -234,7 +234,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | 동적 디스크 미러링 | 동적 디스크에 논리 디스크 볼륨을 복제합니다.|
 | 동적 디스크 | LDM(논리 디스크 관리자)을 사용하여 여러 실제 디스크에 데이터를 저장하고 관리하는 디스크 볼륨 형식입니다. 사용 가능한 추가 공간을 제공하기 위해 동적 디스크를 확장할 수 있습니다.|
 | EBOD(Extended Bunch of Disks) 엔클로저 | 추가 저장소를 위해 여분의 하드 드라이브 디스크를 포함하는 Microsoft Azure StorSimple 장치의 보조 엔클로저입니다.|
-| 팻 프로비저닝 | 예상 요구를 기준으로 저장소 공간이 할당되며 일반적으로 현재 요구를 초과하는 기존 저장소 프로비저닝입니다. *씬 프로비저닝*도 참조하세요.|
+| 팻 프로비저닝 | 예상 요구를 기준으로 저장소 공간이 할당되며 일반적으로 현재 요구를 초과하는 기존 저장소 프로비저닝입니다. 씬 프로비저닝도 참조하세요.|
 | 하드 디스크 드라이브(HDD) | 회전하는 플래터를 사용하여 데이터를 저장하는 드라이브입니다.|
 | 하이브리드 클라우드 저장소 | 클라우드 저장소를 포함하여 로컬 및 오프사이트 리소스를 사용하는 저장소 아키텍처입니다.|
 | Internet Small Computer System Interface(iSCSI) | 데이터 저장소 장비 또는 시설을 연결하기 위한 IP(인터넷 프로토콜) 기반 저장소 네트워킹 표준입니다.|
@@ -258,7 +258,7 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 | StorSimple 관리자 서비스 | Azure 클래식 포털의 확장은 StorSimple 온-프레미스 및 가상 장치를 관리할 수 있게 해줍니다.|
 | StorSimple 스냅숏 관리자 | Microsoft Azure StorSimple에서 백업 및 복원 작업을 관리하기 위한 MMC(Microsoft Management Console) 스냅인입니다.|
 | 백업 수행 | 사용자가 대화형으로 볼륨을 백업할 수 있게 해주는 기능입니다. 정의된 정책을 통해 자동화된 백업을 수행하는 대신 볼륨의 수동 백업을 수행하는 대체 방법입니다.|
-| 씬 프로비저닝 | 사용 가능한 저장소 공간이 저장소 시스템에서 사용되는 효율성을 최적화하는 방법입니다. 씬 프로비저닝에서는 지정된 시간에 각 사용자에게 필요한 최소 공간을 기준으로 여러 사용자 간에 저장소가 할당됩니다. *팻 프로비저닝*도 참조하세요.|
+| 씬 프로비저닝 | 사용 가능한 저장소 공간이 저장소 시스템에서 사용되는 효율성을 최적화하는 방법입니다. 씬 프로비저닝에서는 지정된 시간에 각 사용자에게 필요한 최소 공간을 기준으로 여러 사용자 간에 저장소가 할당됩니다. 팻 프로비저닝도 참조하세요.|
 | 계층화 | 현재 사용량, 수명 및 다른 데이터에 대한 관계에 따라 논리적 그룹화에서 데이터를 정렬합니다. StorSimple은 계층에서 데이터를 자동으로 정렬합니다. |
 | 볼륨 | 드라이브 형태로 제공되는 논리 저장소 영역입니다. StorSimple 볼륨은 iSCSI 및 StorSimple 장치를 사용하여 검색된 볼륨을 포함하여 호스트에 의해 탑재된 볼륨에 해당합니다.|
  | 볼륨 컨테이너 | 볼륨 및 볼륨에 적용되는 설정의 그룹화입니다. StorSimple 장치의 모든 볼륨은 볼륨 컨테이너로 그룹화됩니다. 볼륨 컨테이너 설정에는 저장소 계정, 연결된 암호화 키와 함께 클라우드에 전송된 데이터에 대한 암호화 설정 및 클라우드 관련 작업에 사용된 대역폭이 포함됩니다.|
@@ -278,4 +278,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

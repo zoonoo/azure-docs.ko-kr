@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로의 라우팅을 만들고 수정하기
@@ -188,7 +188,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침에 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
+	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
 
 	연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
@@ -305,7 +305,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침에 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
+	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-arm.md)를 만들고 연결 공급자를 통해 프로비전합니다.
 
 	연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
@@ -395,4 +395,4 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 -  가상 네트워크 작업에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

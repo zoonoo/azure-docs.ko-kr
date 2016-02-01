@@ -1,6 +1,6 @@
 <properties
    pageTitle="서비스 패브릭 서비스 끝점 지정 | Microsoft Azure"
-   description="HTTPS 끝점 설정을 포함하여 서비스 매니페스트에서 끝점 리소스를 설명하는 방법"
+   description="HTTPS 끝점을 설정하는 방법을 포함하여 서비스 매니페스트에서 끝점 리소스를 설명하는 방법"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -16,15 +16,15 @@
    ms.date="08/26/2015"
    ms.author="sumukhs"/>
 
-# 서비스 매니페스트에서 리소스 지정 
+# 서비스 매니페스트에서 리소스 지정
 
 ## 개요
 
-서비스 매니페스트는 컴파일된 코드를 변경하지 않고도 서비스에서 사용하는 리소스를 선언/변경할 수 있게 해줍니다. 서비스 패브릭은 서비스에 대한 끝점 리소스 구성을 지원합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 응용 프로그램 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 서비스에 새로운 구성 메커니즘을 도입하지 않고도 배포 시에 이러한 리소스를 변경할 수 있습니다.
+서비스 매니페스트를 사용하면 컴파일된 코드를 변경하지 않고도 서비스에서 사용하는 리소스를 선언/변경할 수 있게 해줍니다. Azure 서비스 패브릭은 서비스에 대한 끝점 리소스 구성을 지원합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 응용 프로그램 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다.
 
 ## 끝점
 
-서비스 매니페스트에 끝점 리소스가 정의되면 서비스 패브릭에서는 명시적 포트가 지정되지 않은 경우 예약된 응용 프로그램 포트 범위에 포함되는 포트를 할당합니다(예: 아래의 *ServiceEndpoint1* 끝점 확인). 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 같은 서비스의 복제본은 같은 포트를 공유합니다. 서비스 복제본에서 이러한 포트를 복제, 클라이언트 요청 수신 등의 다양한 용도에 사용할 수 있습니다.
+서비스 매니페스트에 끝점 리소스가 정의되면 서비스 패브릭에서는 명시적 포트가 지정되지 않은 경우 예약된 응용 프로그램 포트 범위에 포함되는 포트를 할당합니다(예: 아래의 ServiceEndpoint1 끝점 확인). 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 같은 서비스의 복제본은 같은 포트를 공유합니다. 서비스 복제본에서 이러한 포트를 복제, 클라이언트 요청 수신과 같은 다양한 용도에 사용할 수 있습니다.
 
 ```xml
 <Resources>
@@ -36,7 +36,7 @@
 </Resources>
 ```
 
-config 패키지 설정 파일(settings.xml)의 끝점 참조에 대한 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](../Service-Fabric/service-fabric-reliable-services-configuration.md)을 참조하세요.
+구성 패키지 설정 파일(settings.xml)의 끝점 참조에 대한 자세한 내용은 [상태 저장 Reliable Services 구성](../Service-Fabric/service-fabric-reliable-services-configuration.md)을 참조하세요.
 
 ## 예: 서비스에 대한 HTTP 끝점 지정
 
@@ -52,8 +52,8 @@ HTTP 끝점은 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
-    <!-- This is the name of your ServiceType. 
-         This name must match the string used in RegisterServiceType call in Program.cs. -->
+    <!-- This is the name of your ServiceType.
+         This name must match the string used in the RegisterServiceType call in Program.cs. -->
     <StatefulServiceType ServiceTypeName="Stateful1Type" HasPersistedState="true" />
   </ServiceTypes>
 
@@ -66,21 +66,21 @@ HTTP 끝점은 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
-       independently-updateable and versioned set of custom configuration settings for your service. -->
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+       independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
+      <!-- This endpoint is used by the communication listener to obtain the port number on which to
+           listen. Note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
 
       <!-- This endpoint is used by the replicator for replicating the state of your service.
-           This endpoint is configured through a ReplicatorSettings config section in the Settings.xml
+           This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
            file under the ConfigPackage. -->
       <Endpoint Name="ReplicatorEndpoint" />
     </Endpoints>
@@ -90,12 +90,12 @@ HTTP 끝점은 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
 
 ## 예: 서비스에 대한 HTTPS 끝점 지정
 
-HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통신을 암호화하는 데에도 사용됩니다. 서비스 패브릭 서비스에서 이를 사용할 수 있도록 서비스를 정의할 때 위의 *ServiceEndpoint3* 끝점과 같이 서비스 매니페스트의 *리소스 -> 끝점 -> 끝점* 섹션에서 프로토콜이 지정됩니다.
+HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통신을 암호화하는 데에도 사용됩니다. 서비스 패브릭 서비스에서 이를 사용할 수 있도록 서비스를 정의할 때 위의 ServiceEndpoint3 끝점과 같이 서비스 매니페스트의 리소스 -> 끝점 -> 끝점 섹션에서 프로토콜을 지정합니다.
 
 >[AZURE.NOTE]서비스의 프로토콜은 응용 프로그램을 업그레이드하는 동안 변경할 수 없습니다(이는 주요 변경 사항이기 때문).
 
- 
-다음은 HTTPS에 대해 설정(인증서의 지문을 제공하는 데 필요)해야 하는 예제 ApplicationManifest입니다. EndpointRef는 HTTPS 프로토콜을 설정하는 ServiceManifest의 EndpointResource에 대한 참조입니다. 둘 이상의 Endpointcertificates를 추가할 수 있습니다.
+
+HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같습니다. (인증서에 지문을 제공해야 합니다.) EndpointRef는 HTTPS 프로토콜을 설정하는 ServiceManifest의 EndpointResource에 대한 참조입니다. 둘 이상의 Endpointcertificate를 추가할 수 있습니다.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -109,8 +109,8 @@ HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통�
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
-       should match the Name and Version attributes of the ServiceManifest element defined in the 
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
@@ -120,10 +120,10 @@ HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통�
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types, when an instance of this 
-         application type is created. You can also create one or more instances of service type using the 
-         ServiceFabric PowerShell module.
-         
+    <!-- The section below creates instances of service types when an instance of this
+         application type is created. You can also create one or more instances of service type by using the
+         Service Fabric PowerShell module.
+
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
       <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
@@ -137,4 +137,4 @@ HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통�
 </ApplicationManifest>
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

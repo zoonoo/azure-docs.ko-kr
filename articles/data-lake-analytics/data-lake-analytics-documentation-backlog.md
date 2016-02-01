@@ -39,6 +39,7 @@ U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트
 부여 | Data Factory를 사용하여 작업 출력을 SQL 데이터 웨어하우스로 이동 |1 | 진행 중 | [@mumian](https://github.com/mumian) | 
 도구 | 진단 도구 사용 | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL | 범위 기반 JOIN을 수행 하기 위한 기술 설명 | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
+U-SQL | ADLS 인증 옵션 | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -56,4 +57,4 @@ U-SQL | 범위 기반 JOIN을 수행 하기 위한 기술 설명 | 1 | Pending |
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

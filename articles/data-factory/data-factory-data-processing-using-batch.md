@@ -1,39 +1,33 @@
-<properties 
-    pageTitle="Azure Data Factory 및 Azure 배치를 사용하여 대규모 데이터 처리" 
-    description="Azure 배치의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Azure 배치 및 데이터 팩터리를 사용하여 HPC 및 데이터 오케스트레이션"
+    description="Azure 배치의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다."
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
     editor="monicar"/>
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="12/16/2015" 
+<tags
+    ms.service="data-factory"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/20/2016"
     ms.author="spelluru"/>
-# Azure Data Factory 및 Azure 배치를 사용하여 대규모 데이터 처리
+# Azure 배치 및 데이터 팩터리를 사용하여 HPC 및 데이터 오케스트레이션
 
-이 간단한 아키텍처 솔루션은 **Microsoft** **Azure Data Factory** 및 **Azure** **배치**를 사용하여 클라우드에서 대규모 데이터 집합을 효율적으로 이동 및 처리하는 방법을 보여 줍니다. 아키텍처는 대규모 데이터 처리를 필요로 하는 많은 시나리오와 관련이 있습니다. 금융 서비스 조직에 의한 보고 및 위험 모델링, 이미지 처리 및 렌더링, 유전자 분석을 포함합니다.
+고성능 컴퓨팅(HPC)은 이전에 온-프레미스 데이터 센터(데이터에서 작동되지만 사용 가능한 물리적 컴퓨터의 수로 제한되는 슈퍼 컴퓨터)의 도메인에 있었습니다. Azure 배치 서비스는 서비스로 HPC를 제공하여 이를 혁신합니다. 필요에 따라 많은 컴퓨터를 구성할 수 있습니다. 또한 배치는 실행하는 알고리즘에 집중할 수 있도록 작업을 예약하고 조정하는 작업을 처리합니다. Azure 데이터 팩터리는 배치에 대한 완벽한 보완입니다. 데이터 이동의 오케스트레이션을 단순화합니다. 데이터 팩터리를 사용하여 ETL에 대한 데이터의 일반 동작을 지정하고 데이터를 처리한 다음 영구 저장소에 결과를 이동할 수 있습니다. 예를 들어 센서에서 수집된 데이터는 배치(데이터 팩터리의 제어 아래에서)가 데이터를 처리하고 새로운 결과 집합을 생성하는 임시 위치로 이동됩니다(데이터 팩터리에서). 그런 다음 데이터 팩터리는 최종 리포지토리로 결과를 이동합니다. 동시에 작업하는 이 두 서비스를 사용하여 정기적으로 많은 양의 데이터를 처리하도록 HPC를 효율적으로 사용할 수 있습니다.
 
-설계자와 IT 의사 결정자는 다이어그램 및 기본 단계에서 개요를 살펴볼 수 있습니다. 개발자는 자체 구현에 대한 시작점으로 코드를 사용할 수 있습니다. 이 문서는 전체 솔루션을 포함합니다.
+여기에서 대규모 데이터 집합을 자동으로 이동하고 처리하는 종단 간 솔루션 예제를 제공합니다. 아키텍처는 금융 서비스, 이미지 처리, 렌더링 및 유전자 분석으로 위험 모델링과 같은 다양한 시나리오에 관련이 있습니다. 설계자와 IT 의사 결정자는 다이어그램 및 기본 단계에서 개요를 살펴볼 수 있습니다. 개발자는 자체 구현에 대한 시작점으로 코드를 사용할 수 있습니다. 이 문서는 전체 솔루션을 포함합니다.
 
-## 데이터 팩터리 및 배치
-
-**Azure Data Factory** 는 클라우드 기반의 데이터 통합 서비스입니다. 원시 데이터의 이동을 오케스트레이션 및 자동화하고 바로 사용 가능한 정보로 변환합니다. 이 서비스를 살펴보려면 [Azure Data Factory 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 읽습니다.
-
-작업의 논리적 그룹화인 파이프라인은 데이터를 이동 및 처리합니다. 데이터 팩터리는 **복사 작업** 및 **HDInsight Hive 작업**과 같은 기본 제공 작업을 지원합니다. 전체 목록을 보려면 [데이터 이동 작업](data-factory-data-movement-activities.md) 및 [데이터 변환 작업](data-factory-data-transformation-activities.md)을 참조하세요. 솔루션에서 보여 줄 고유 처리 논리에 따라 **사용자 지정 작업**을 만들 수도 있습니다.
-
-**Azure 배치**는 클라우드에서 효율적으로 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 실행하도록 도와줍니다. 가상 컴퓨터의 관리된 컬렉션에서 실행되는 계산 집약적인 작업을 예약하는 플랫폼 서비스이며 작업의 요구를 충족하도록 계산 리소스의 크기를 조정할 수 있습니다. 자세한 내용은 [Azure 배치의 기본 사항](../batch/batch-technical-overview.md) 및 [Azure 배치 기능 개요](../batch/batch-api-basics.md)를 참조하세요.
+예제 솔루션을 수행하기 전에 이러한 서비스를 잘 모르는 경우 [Azure 배치](../batch/batch-api-basics.md) 및 [데이터 팩터리](data-factory-introduction.md)를 참조하세요.
 
 ## 아키텍처 다이어그램
 
-다이어그램은 1) 데이터 팩터리가 데이터 이동 및 처리를 오케스트레이션하는 방법 및 2) Azure 배치가 데이터를 병렬 방식으로 처리하는 방법을 보여 줍니다. 쉽게 참조할 수 있도록 다이어그램을 다운로드 및 인쇄(11 x 17 인치 또는 A3 크기): [Microsoft Azure 배치 및 Azure Data Factory: 대규모 데이터 처리를 위한 아키텍처](http://go.microsoft.com/fwlink/?LinkId=717686)
+다이어그램은 1) 데이터 팩터리가 데이터 이동 및 처리를 오케스트레이션하는 방법 및 2) Azure 배치가 데이터를 병렬 방식으로 처리하는 방법을 보여 줍니다. 쉽게 참조할 수 있도록 다이어그램을 다운로드하고 인쇄합니다(11 x 17 인치 또는 A3 크기). [Azure 배치 및 데이터 팩터리를 사용하여 HPC 및 데이터 오케스트레이션](http://go.microsoft.com/fwlink/?LinkId=717686)
 
-![](./media/data-factory-data-processing-using-batch/image1.png)
+![서비스 다이어그램으로 HPC](./media/data-factory-data-processing-using-batch/image1.png)
 
 프로세스의 기본 단계입니다. 솔루션에는 종단 간 솔루션을 구축하는 코드와 설명이 포함되어 있습니다.
 
@@ -70,17 +64,17 @@
 4.  적어도 2개의 계산 노드로 **Azure 배치 풀**을 만듭니다.
 
 	 [Azure 배치 탐색기 도구](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer)의 소스 코드를 다운로드하고 컴파일하고 사용하여 풀을 만들거나(**이 샘플 솔루션에 적극 권장됨**) [.NET용 Azure 배치 라이브러리](../batch/batch-dotnet-get-started.md)를 사용하여 풀을 만들 수 있습니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx)을 참조하세요. [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet을 사용하여 Azure 배치 풀을 만들 수도 있습니다.
-	
+
 	 배치 탐색기를 사용하여 아래와 같은 설정으로 풀을 만듭니다.
 
 	-   풀에 대한 ID(**풀 ID**)를 입력합니다. 데이터 팩터리 솔루션을 만들 때 필요하므로 **풀의 ID**를 메모해둡니다.
-	
+
 	-   **운영 체제 제품군** 설정에 **Windows Server 2012 R2**를 지정합니다.
-	
+
 	-   **계산 노드당 최대 작업** 설정에 대한 값으로 **2**를 지정합니다.
-	
+
 	-   **대상 전용 수** 설정에 대한 값으로 **2**를 지정합니다.
-	
+
 	 ![](./media/data-factory-data-processing-using-batch/image2.png)
 
 5.  [Azure 저장소 탐색기 6(도구)](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf 소프트웨어에서). 클라우드 호스티드 응용 프로그램의 로그를 포함한 Azure 저장소 프로젝트의 데이터 검사 및 변경에 대한 GUI 도구입니다.
@@ -92,7 +86,7 @@
  		![](./media/data-factory-data-processing-using-batch/image3.png)
 
 		 **Inputfolder** 및 **outputfolder**는 **mycontainer**에서 최상위 폴더이며 **inputfolder**에는 날짜-시간 스탬프(YYYY-MM-DD-HH)와 함께 하위 폴더가 있습니다.
-		
+
 		 **Azure 저장소 탐색기**를 사용 중인 경우 다음 단계에서 다음과 같은 이름이 지정된 파일을 업로드 해야 합니다: inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt 등 자동으로 폴더를 만듭니다.
 
 	3.  키워드 **Microsoft**가 있는 콘텐츠를 사용하여 컴퓨터에 텍스트 파일 **file.txt**를 만듭니다. 예: "테스트 사용자 지정 작업 Microsoft 테스트 사용자 지정 작업 Microsoft”
@@ -150,10 +144,10 @@
 Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업을 만들려면 **IDotNetActivity** 인터페이스를 구현하는 클래스와 함께 **.NET 클래스 라이브러리** 프로젝트를 만들어야 합니다. 이 인터페이스는 **Execute**라는 하나의 메서드만 포함합니다. 해당 메서드의 서명은 다음과 같습니다.
 
 	public IDictionary<string, string> Execute(
-	            IEnumerable<LinkedService> linkedServices, 
-	            IEnumerable<Dataset> datasets, 
-	            Activity activity, 
-	            IActivityLogger logger)        
+	            IEnumerable<LinkedService> linkedServices,
+	            IEnumerable<Dataset> datasets,
+	            Activity activity,
+	            IActivityLogger logger)
 
 이 메서드에는 이해해야 하는 몇 가지 주요 구성 요소가 포함됩니다.
 
@@ -169,7 +163,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 -   이 메서드는 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 샘플 솔루션에서는 이 기능을 사용하지 않습니다.
 
-### 절차: 사용자 지정 작업 만들기 
+### 절차: 사용자 지정 작업 만들기
 
 1.  Visual Studio에서 .NET 클래스 라이브러리 프로젝트를 만듭니다.
 
@@ -203,10 +197,10 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		using System.Globalization;
 		using System.Diagnostics;
 		using System.Linq;
-		
+
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
-		
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -221,7 +215,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 8.  **IDotNetActivity** 인터페이스의 **Execute** 메서드를 **MyDotNetActivity** 클래스에 구현(추가)하고 다음 샘플 코드를 메서드에 복사합니다. 이 메서드에 사용되는 논리에 대한 설명은 [메서드 실행](#execute-method) 섹션을 참조하세요.
 
 		/// <summary>
-        /// Execute method is the only method of IDotNetActivity interface you must implement. 
+        /// Execute method is the only method of IDotNetActivity interface you must implement.
         /// In this sample, the method invokes the Calculate method to perform the core logic.  
 		/// </summary>
         public IDictionary<string, string> Execute(
@@ -244,8 +238,8 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
-            // using First method instead of Single since we are using the same 
-            // Azure Storage linked service for input and output. 
+            // using First method instead of Single since we are using the same
+            // Azure Storage linked service for input and output.
             inputLinkedService = linkedServices.First(
                 linkedService =>
                 linkedService.Name ==
@@ -271,12 +265,12 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
                                          continuationToken,
                                          null,
                                          null);
-                
-                // Calculate method returns the number of occurrences of 
+
+                // Calculate method returns the number of occurrences of
                 // the search term (“Microsoft”) in each blob associated
-        		// with the data slice. 
-        		// 
-        	    // definition of the method is shown in the next step. 
+        		// with the data slice.
+        		//
+        	    // definition of the method is shown in the next step.
                 output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
             } while (continuationToken != null);
@@ -292,7 +286,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
             // create a storage object for the output blob.
             CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-            // write the name of the file. 
+            // write the name of the file.
             Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
             logger.Write("output blob URI: {0}", outputBlobUri.ToString());
@@ -309,7 +303,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 9.  클래스에 다음과 같은 도우미 메서드를 추가합니다. 이 메서드는 **Execute** 메서드로 호출됩니다. 가장 중요한 점은 **Calculate** 메서드가 각 Blob을 반복하는 코드를 격리한다는 것입니다.
 
         /// <summary>
-        /// Gets the folderPath value from the input/output dataset.   
+        /// Gets the folderPath value from the input/output dataset.
 		/// </summary>
 		private static string GetFolderPath(Dataset dataArtifact)
 		{
@@ -317,41 +311,41 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FolderPath;
 		}
-		
+
 		/// <summary>
-		/// Gets the fileName value from the input/output dataset.   
+		/// Gets the fileName value from the input/output dataset.
 		/// </summary>
-		
+
 		private static string GetFileName(Dataset dataArtifact)
 		{
 		    if (dataArtifact == null || dataArtifact.Properties == null)
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FileName;
 		}
-		
+
 		/// <summary>
-		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file, 
-		/// and prepares the output text that will be written to the output blob. 
+		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
+		/// and prepares the output text that will be written to the output blob.
 		/// </summary>
-		
+
 		public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
 		{
 		    string output = string.Empty;
@@ -407,7 +401,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
 		do
-		{   
+		{
 		// Get the list of input blobs from the input storage client object.
 		BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
 		    					true,
@@ -418,7 +412,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		                                  null);
 		// Return a string derived from parsing each blob.
 		    output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-		
+
 		} while (continuationToken != null);
 
 	자세한 내용은 [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) 메서드에 대한 설명서를 참조하세요.
@@ -433,29 +427,29 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-		
+
 		// Convert to blob location object.
 		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
 4.	이 코드는 도우미 메서드인 **GetFolderPath**도 호출합니다. 이 메서드는 폴더 경로(저장소 컨테이너 이름)를 검색합니다.
 
 		folderPath = GetFolderPath(outputDataset);
-		
+
 	**GetFolderPath**는 DataSet 개체를 AzureBlobDataSet로 캐스팅하며 여기에는 FolderPath라는 속성이 포함됩니다.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FolderPath;
 
 5.	이 코드는 파일 이름(BLOB 이름)을 검색할 **GetFileName** 메서드를 호출합니다. 이 코드는 폴더 경로를 가져오는 위의 코드와 유사합니다.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FileName;
 
 6.	파일 이름은 새 URI 개체를 만들어 기록합니다. URI 생성자는 컨테이너 이름을 반환하는 **BlobEndpoint** 속성을 사용합니다. 출력 BLOB URI를 생성하기 위해 폴더 경로 및 파일 이름이 추가됩니다.
 
-		// Write the name of the file. 
+		// Write the name of the file.
 		Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
 7.	파일 이름이 작성되었고 이제 **Calculate** 메서드에서 새 Blob으로 출력 문자열을 작성할 수 있습니다.
@@ -630,15 +624,15 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		        "external": true,
 		        "policy": {}
 		    }
-		} 
+		}
 
-	
+
 	 이 연습에서는 시작 시간: 2015-11-16T00:00:00Z 및 종료 시간: 2015-11-16T05:00:00Z로 나중에 파이프라인을 만듭니다. **매시간** 데이터를 생성하도록 예약되었으므로 5개의 입/출력 조각이 있습니다(**00**:00:00 -> **05**:00:00 범위).
-	
+
 	 입력 데이터 집합에 대한 **frequency** 및 **interval**은 **Hour** 및 **1**로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다.
-	
+
 	 다음은 각 조각에 대한 시작 시간이며 위의 JSON 코드 조각에서 **SliceStart** 시스템 변수로 표현됩니다.
-	
+
 	| **조각** | **시작 시간** |
 	|-----------|-------------------------|
 	| 1 | 2015-11-16T**00**:00:00 |
@@ -646,9 +640,9 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 	| 3 | 2015-11-16T**02**:00:00 |
 	| 4 | 2015-11-16T**03**:00:00 |
 	| 5 | 2015-11-16T**04**:00:00 |
-	
+
 	 **folderPath**는 조각 시작 시간(**SliceStart**)의 연도, 월, 일 및 시간 부분을 사용하여 계산됩니다. 따라서 입력 폴더가 조각에 매핑되는 방식은 다음과 같습니다.
-	
+
 	| **조각** | **시작 시간** | **입력 폴더** |
 	|-----------|-------------------------|-------------------|
 	| 1 | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
@@ -704,7 +698,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 	| 3 | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
 	| 4 | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
 	| 5 | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
-	
+
 	 입력 폴더(예: 2015-11-16-00)에 있는 모든 파일은 시작 시간(2015-11-16-00)의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어("Microsoft") 항목 수와 함께 출력 파일에 줄을 생성합니다. 폴더 2015-11-16-00에 세 개의 파일이 있는 경우 출력 파일(2015-11-16-00.txt)에 세 줄이 있게 됩니다.
 
 3.  도구 모음에서 **배포**를 클릭하여 **OutputDataset**을 만들고 배포합니다.
@@ -935,4 +929,4 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 
     -   [Azure 배치 라이브러리 .NET 시작](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

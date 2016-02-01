@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Microsoft 지원에 문의
@@ -30,7 +30,7 @@ Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지
 
 #### 지원 요청을 만들려면
 
-1. 지원 요청은 [Azure 클래식 포털](http://manage.windowsazure.com/)을 통해 만들 수 있습니다. [포털](http://manage.windowsazure.com/)에서 **계정 이름**을 클릭한 다음 **Microsoft 지원 문의**를 클릭합니다.
+1. 지원 요청은 [Azure 클래식 포털](https://manage.windowsazure.com/)을 통해 만들 수 있습니다. [클래식 포털](https://manage.windowsazure.com/)에서 **계정 이름**을 클릭한 다음 **Microsoft 지원 문의**를 클릭합니다.
 
 	![ManagementPortal을 통한 MS 지원 문의](./media/storsimple-contact-microsoft-support/IC777286.png)
 
@@ -76,4 +76,4 @@ StorSimple 장치에서 발생할 수 있는 문제를 해결하려면 Microsoft
 
 > [AZURE.IMPORTANT]`Disable-HcsSupportAccess`를 실행하여 지원 액세스를 비활성화할 수 있습니다. StorSimple 장치는 세션이 시작된 8시간 후에 지원 액세스를 비활성화하려고 합니다. 지원 세션을 시작한 후에 StorSimple 장치 자격 증명을 변경하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

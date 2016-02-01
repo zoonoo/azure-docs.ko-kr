@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="스트림 분석 작업에 데이터 입력을 추가하는 방법 | Microsoft Azure" 
+	pageTitle="스트림 분석 작업에 데이터 입력 추가 | Microsoft Azure" 
 	description="스트림 분석 작업에 입력 추가 | 학습 경로 세그먼트"
 	keywords="데이터 입력, 스트리밍 데이터"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 />
 
 
-# 스트림 분석 작업에 스트리밍 데이터 입력을 추가하는 방법
+# 스트림 분석 작업에 스트리밍 데이터 입력 추가
 
 Azure 스트림 분석 작업은 각각의 기존 데이터 원본에 대한 연결을 정의하는 하나 이상의 데이터 입력에 연결할 수 있습니다. 데이터가 해당 데이터 원본에 전송되면 스트림 분석 작업에서 사용되고 스트리밍 데이터와 같이 실시간으로 처리됩니다. 스트림 분석은 작업 구독 내부 및 외부의 [Azure 이벤트 허브](http://azure.microsoft.com/services/event-hubs/) 및 [Azure Blob 저장소](./storage/storage-dotnet-how-to-use-blobs.md)와 높은 수준으로 통합됩니다. 스트림 분석에는 데이터 스트림 및 참조 데이터 이렇게 두 가지 입력 형식이 있습니다.
 
@@ -80,4 +80,4 @@ Azure 스트림 분석 작업은 각각의 기존 데이터 원본에 대한 연
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="PowerShell을 사용하여 BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기" 
+    pageTitle="PowerShell을 사용하여 BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기 | Microsoft Azure" 
     description="PowerShell을 사용하여 BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/17/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # PowerShell을 사용하여 BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기
@@ -41,7 +41,7 @@ SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 - 복원할 데이터베이스의 .bacpac 파일(BACPAC). BACPAC은 [Azure 저장소 계정(클래식)](storage-create-storage-account.md) Blob 컨테이너에 있어야 합니다.
 
 
-> [AZURE.IMPORTANT]이 문서에서는 Azure PowerShell 버전 1.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
+> [AZURE.IMPORTANT]이 문서에서는 Azure PowerShell 버전 1.0 미만의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
 
 
 
@@ -142,7 +142,7 @@ Blob 이름은 데이터베이스를 만들려는 기존 .bacpac 파일의 이�
 
 ## 다음 단계
 
-- [SQL Server Management Studio(SSMS)로 연결](sql-database-connect-to-database.md)
+- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
 
 
 
@@ -153,4 +153,4 @@ Blob 이름은 데이터베이스를 만들려는 기존 .bacpac 파일의 이�
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

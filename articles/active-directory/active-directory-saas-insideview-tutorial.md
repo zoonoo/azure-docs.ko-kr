@@ -2,7 +2,7 @@
     pageTitle="자습서: InsideView와 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 InsideView를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
@@ -10,8 +10,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #자습서: InsideView와 Azure Active Directory 통합
   
@@ -129,10 +129,10 @@ InsideView에서 생성된 사용자 또는 연락처를 얻으려면, 고객 �
 
     ![사용자 할당](./media/active-directory-saas-insideview-tutorial/IC794138.png "사용자 할당")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
     ![예](./media/active-directory-saas-insideview-tutorial/IC767830.png "예")
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

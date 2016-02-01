@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 1/14/2016 -->
 
 >[AZURE.NOTE]SharePoint RBS용 StorSimple 어댑터 구성을 변경하면, Domain Admins 그룹에 속하는 사용자 계정으로 로그온해야 합니다. 또한 중앙 관리와 같은 호스트에서 실행 되는 브라우저에서 구성 페이지에 액세스해야 합니다.
 
@@ -104,4 +104,4 @@
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

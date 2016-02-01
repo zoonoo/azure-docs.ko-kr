@@ -29,28 +29,7 @@
 데이터 원본이 등록되면 카탈로그는 해당 위치를 추적하고 메타데이터를 인덱싱하여 사용자가 데이터 원본을 검색하고 찾아보고 발견할 수 있도록 하며 해당 위치를 사용하여 응용 프로그램이나 원하는 도구로 데이터에 연결할 수 있도록 합니다.
 
 ## 지원되는 원본
-현재 미리 보기에서 **Azure 데이터 카탈로그**는 다음과 같은 데이터 원본 및 개체 유형의 등록을 지원합니다.
-
-* SQL Server 데이터베이스 엔진 테이블 및 뷰
-* Oracle 데이터베이스 테이블 및 뷰
-* SQL Server Analysis Services 다차원 차원, 측정값 및 KPI
-* SQL Server Analysis Services 테이블 형식 테이블
-* SQL Server Reporting Services 보고서
-* Azure 저장소 Blob 및 디렉터리
-* Azure 데이터 레이크 저장소
-* HDFS 파일 및 디렉터리
-* Apache Hive 테이블
-* Teradata 테이블 및 뷰
-* Azure 데이터 레이크 저장소 파일 및 디렉터리
-* MySQL 테이블 및 뷰
-
-> [AZURE.NOTE]SQL Server 지원에는 Microsoft Azure SQL 데이터베이스 및 Microsoft Azure SQL 데이터 웨어하우스가 포함됩니다.
-
-<br/>
-
-> [AZURE.NOTE]SQL Server Reporting Services 지원은 기본 모드 서버만을 지원합니다. SharePoint 모드는 아직 지원되지 않습니다.
-
-<br/>
+현재 지원되는 데이터 원본 목록에 대해 [데이터 카탈로그 DSR](data-catalog-dsr.md)을 참조하세요. <br/>
 
 
 ## 구조적 메타데이터
@@ -97,4 +76,4 @@
 ## 요약
 데이터 원본을 **Azure 데이터 카탈로그**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터 원본을 보다 쉽게 검색하고 이해할 수 있게 됩니다. 데이터 원본이 등록되면 **Azure 데이터 카탈로그** 포털을 사용하여 주석을 추가하고, 관리하고, 검색할 수 있습니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

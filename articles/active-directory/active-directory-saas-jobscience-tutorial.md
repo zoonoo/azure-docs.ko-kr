@@ -2,7 +2,7 @@
     pageTitle="자습서: Jobscience와 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 Jobscience를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #자습서: Jobscience와 Azure Active Directory 통합
   
@@ -66,7 +66,7 @@
   
 이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jobscience에 인증할 수 있게 하는 방법을 간략하게 설명합니다.
 Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.
-이 절차를 잘 모르는 경우 [인증서의 손도장 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하세요.
+이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -122,10 +122,10 @@ Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(th
     3.  **엔터티 ID** 텍스트 상자에 ****https://salesforce-jobscience.com**를 입력합니다.
 4.  **찾아보기**를 클릭하여 Azure AD 인증서를 업로드합니다.
     5.  **SAML ID 형식**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
-    6.  **SAML ID 위치**에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
+    6.  **SAML ID 위치**로 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
     7.  Azure 포털의 **Jobscience에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
     8.  Azure 포털의 **Jobscience에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
-    9.  **Save**를 클릭합니다.
+    9.  **저장**를 클릭합니다.
 
 13. 왼쪽 탐색창의 **관리** 섹션에서 **도메인 관리**를 클릭해 관련된 섹션을 확장한 다음 **내 도메인**을 클릭해 **내 도메인** 페이지를 엽니다.
 
@@ -173,7 +173,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
     ![사용자 편집](./media/active-directory-saas-jobscience-tutorial/IC784371.png "사용자 편집")
 
     1.  프로비저닝하려는 Azure AD 사용자의 이름, 성, 별칭, 전자 메일, 애칭 속성을 해당하는 텍스트 상자에 입력합니다.
-    2.  **Save**를 클릭합니다.
+    2.  **저장**를 클릭합니다.
 
     >[AZURE.NOTE]Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
 
@@ -191,10 +191,10 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 
     ![사용자 할당](./media/active-directory-saas-jobscience-tutorial/IC784372.png "사용자 할당")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
     ![예](./media/active-directory-saas-jobscience-tutorial/IC767830.png "예")
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

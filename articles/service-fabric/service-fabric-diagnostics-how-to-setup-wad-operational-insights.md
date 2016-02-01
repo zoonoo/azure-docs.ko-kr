@@ -55,6 +55,7 @@ Operational Insights는 서비스 패브릭 클러스터에서 업로드되는 �
 추가적으로 이 배포 명령을 호출하려면 Azure 계정 추가(`Add-AzureAccount`), 구독 선택(`Select-AzureSubscription`), 리소스 관리자 모드로 전환(`Switch-AzureMode AzureResourceManager`) 및 아직 만들지 않은 경우 리소스 그룹 만들기(`New-AzureResourceGroup`) 등을 포함한 몇 가지 설정 작업이 필요할 수 있습니다.
 
 ```powershell
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -62,7 +63,9 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 진단이 배포되지 않은 기존 클러스터가 있으면 다음 단계에 따라 기존 클러스터를 추가할 수 있습니다. 아래의 JSON을 사용하여 WadConfigUpdate.json 및 WadConfigUpdateParams.json 파일을 만듭니다.
 
 ##### WadConfigUpdate.json
+
 ```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -141,7 +144,10 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 ```
 
 ##### WadConfigUpdateParams.json
-클러스터를 만드는 동안 VM 이름으로 선택한 접두사로 vmNamePrefix를 대체합니다. 그런 다음 VM에서 로그를 업로드할 저장소 계정이 되도록 vmStorageAccountName을 편집합니다. ```json
+클러스터를 만드는 동안 VM 이름으로 선택한 접두사로 vmNamePrefix를 대체합니다. 그런 다음 VM에서 로그를 업로드하려는 저장소 계정이 되도록 vmStorageAccountName을 편집합니다.
+
+```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -161,7 +167,10 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 
 위의 설명대로 Json 파일을 만든 후에는 환경에 맞게 변경합니다. 그 후 다음 명령을 호출하여 서비스 패브릭 클러스터에 대한 리소스 그룹의 이름을 전달합니다. 이 명령이 성공적으로 실행되면 진단이 모든 VM에 배포되고 클러스터로부터 지정된 Azure 저장소 계정의 테이블로 로그를 업로드하기 시작합니다.
 
-추가적으로 이 배포 명령을 호출하려면 Azure 계정 추가(`Add-AzureAccount`), 올바른 구독 선택(`Select-AzureSubscription`), 리소스 관리자 모드로 전환(`Switch-AzureMode AzureResourceManager`) 등을 포함한 몇 가지 설정 작업이 필요할 수 있습니다. ```powershell
+추가적으로 이 배포 명령을 호출하기 전에 Azure 계정 추가(`Add-AzureAccount`), 올바른 구독 선택(`Select-AzureSubscription`), 리소스 관리자 모드로 전환(`Switch-AzureMode AzureResourceManager`)을 비롯한 몇 가지 설정을 해야 할 수 있습니다.
+
+```ps
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToWADConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -174,7 +183,12 @@ Operational Insights 작업 영역을 만드는 단계를 확인하려면 아래
 [Operational Insights 탑재](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### 클러스터 로그를 표시하도록 Operational Insights 작업 영역 구성
-앞에서 설명한 것처럼 Operational Insights 작업 영역을 만든 후에는 진단 확장을 통해 클러스터에서 로그가 업로드되는 Azure 저장소 테이블로부터 로그를 가져오도록 작업 영역을 구성합니다. 현재 이 구성은 Operational Insights 포털에서 수행할 수 없고 PowerShell 명령을 통해서만 수행할 수 있습니다. 다음 PowerShell 스크립트를 실행 합니다. ```powershell <# 이 스크립트는 Operations Management Suite 작업 영역(즉 Operational Insights 작업 영역)이 Azure 저장소 계정에서 진단을 읽도록 구성합니다.
+앞에서 설명한 것처럼 Operational Insights 작업 영역을 만든 후에는 진단 확장을 통해 클러스터에서 로그가 업로드되는 Azure 저장소 테이블로부터 로그를 가져오도록 작업 영역을 구성합니다. 현재 이 구성은 Operational Insights 포털에서 수행할 수 없고 PowerShell 명령을 통해서만 수행할 수 있습니다. 다음 PowerShell 스크립트를 실행합니다.
+
+```powershell
+
+    <#
+    This script will configure an Operations Management Suite workspace (aka Operational Insights workspace) to read Diagnostics from an Azure Storage account.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
 
@@ -183,7 +197,7 @@ Operational Insights 작업 영역을 만드는 단계를 확인하려면 아래
     If you have more than one OMS workspace you will be prompted for the workspace to configure.
 
     If you have more than one storage account you will be prompted for which storage account to configure.
-#>
+    #>
 
 Add-AzureAccount
 
@@ -241,17 +255,38 @@ function Select-StorageAccount {
     return $storage
 }
 
-$workspace = Select-Workspace $storageAccount = Select-StorageAccount
+$workspace = Select-Workspace
+$storageAccount = Select-StorageAccount
 
 $insightsName = $storageAccount.Name + $workspace.Name
 
 $existingConfig = ""
 
-try { $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop } catch [Hyak.Common.CloudException] { # HTTP Not Found is returned if the storage insight doesn't exist }
+try
+{
+    $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop
+}
+catch [Hyak.Common.CloudException]
+{
+    # HTTP Not Found is returned if the storage insight doesn't exist
+}
 
-if ($existingConfig) { Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
+if ($existingConfig) {
+    Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
 
-} else { if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") { Switch-AzureMode -Name AzureServiceManagement $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary Switch-AzureMode -Name AzureResourceManager } else { $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1 } New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers } ``` Operational Insights 작업 영역이 저장소 계정의 Azure 테이블에서 진단을 읽도록 구성한 후에는 포털에 로그인하여 Operational Insights 리소스에 대한 **저장소** 탭으로 이동합니다. 다음과 유사하게 표시됩니다. ![Azure 포털에서 Operational Insights 저장소 구성](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+} else {
+    if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") {
+        Switch-AzureMode -Name AzureServiceManagement
+        $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary
+        Switch-AzureMode -Name AzureResourceManager
+    } else {
+        $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1
+    }
+    New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers
+}
+```
+
+저장소 계정의 Azure 테이블에서 읽을 Operational Insights 작업 영역을 구성하면 포털에 로그인하고 Operational Insights 리소스에 대한 **저장소** 탭으로 이동해야 합니다. 다음과 유사하게 표시됩니다. ![Azure 포털에서 Operational Insights 저장소 구성](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Operational Insights에서 로그 검색 및 보기
 Operational Insights 작업 영역이 특정 저장소 계정에서 로그를 읽도록 구성한 후 로그가 Operational Insights UI에 표시되는 데 최대 10분 정도 소요될 수 있습니다. 새 로그가 생성될 수 있게 서비스 패브릭 응용 프로그램을 클러스터에 배포해야 합니다. 그래야 서비스 플랫폼으로부터 운영 이벤트가 생성됩니다.
@@ -290,4 +325,4 @@ Operational Insights 작업 영역이 특정 저장소 계정에서 로그를 �
 ## 다음 단계
 문제를 해결하는 동안 조사해야 하는 이벤트에 대한 자세한 내용을 확인하려면 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 및 [Reliable Services](service-fabric-reliable-services-diagnostics.md)가 내보낸 진단 이벤트를 확인합니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

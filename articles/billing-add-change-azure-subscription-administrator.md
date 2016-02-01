@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="01/05/2016"
 	ms.author="genli"/>
 
 # Azure 관리자 역할을 추가 또는 변경하는 방법
@@ -64,6 +64,6 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 
 ## 계정 관리자를 변경하는 방법
 
-Azure 계정의 소유권을 다른 계정에 양도하려면 [Azure 구독 양도](../billing-subscription-transfer.md)를 참조하세요.
+Azure 계정의 소유권을 다른 계정에 양도하려면 [Azure 구독 양도](billing-subscription-transfer.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # NAT 설정 및 관리를 위한 라우터 구성 샘플
@@ -319,4 +319,4 @@ NAT 명령:
 
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

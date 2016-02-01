@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 Express 경로 회로의 라우팅 만들기 및 수정
@@ -51,7 +51,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로를 만듭니다.**
 	
-	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+	지침에 따라 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
 3. **Express 경로 회로를 확인하여 프로비전되도록 합니다.**
 
@@ -84,7 +84,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 개인 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
 	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다**.
 	
-	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링를 구성할 수 있습니다.
+	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링을 구성할 수 있습니다.
 
 		New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
 
@@ -178,7 +178,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 공용 AS 숫자를 사용해야 합니다.
 	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다**.
 	
-	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링를 구성할 수 있습니다.
+	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링을 구성할 수 있습니다.
 
 		New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
 
@@ -273,7 +273,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	- 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
 	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다.**
 	
-	다음 cmdlet을 실행하여 회로에 Microsoft 피어링를 구성할 수 있습니다.
+	다음 cmdlet을 실행하여 회로에 Microsoft 피어링을 구성할 수 있습니다.
 
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
@@ -318,4 +318,4 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 -  워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
 -  회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

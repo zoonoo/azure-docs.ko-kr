@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 사본 만들기" 
+    pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 사본 만들기 | Microsoft Azure" 
     description="PowerShell을 사용하여 Azure SQL 데이터베이스 사본 만들기" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -136,7 +136,7 @@
 
 ## 다음 단계
 
-- [SQL Server Management Studio(SSMS)로 연결](sql-database-connect-to-database.md)
+- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
 - [데이터베이스를 BACPAC로 내보내기](sql-database-export-powershell.md)
 
 
@@ -146,4 +146,4 @@
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

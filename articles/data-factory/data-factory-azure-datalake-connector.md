@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 간 데이터 이동
@@ -69,9 +69,13 @@
 3. 명령 모음에서 **권한 부여** 단추를 클릭합니다. 팝업 창이 표시됩니다.
 
 	![권한 부여 단추](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+
 4. 이제 자격 증명을 사용하여 로그인하면 JSON의 **authorization** 속성에 값이 할당됩니다.
 5. (선택 사항) JSON에서 **accountName**, **subscriptionID** 및 **resourceGroupName**과 같은 선택적 매개 변수의 값을 지정하거나 이러한 속성을 JSON에서 삭제합니다.
 6. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
+
+> [AZURE.IMPORTANT]**권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. **토큰이 만료**되면 **권한 부여** 단추를 사용하여 **다시 인증**하고 연결된 서비스를 다시 배포해야 합니다. 자세한 내용은 [Azure 데이터 레이크 저장소 연결된 서비스](#azure-data-lake-store-linked-service-properties) 섹션을 참조하세요.
+
 
 
 **Azure Blob 입력 데이터 집합:**
@@ -402,8 +406,46 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | sessionid | oauth authorization 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하며, 한 번만 사용할 수 있습니다. 데이터 팩터리 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |  
 | accountName | 데이터 레이크 계정 이름 | 아니요 |
 | subscriptionId | Azure 구독 ID | 아니요(지정하지 않으면 데이터 팩터리의 구독이 사용됨) |
-| resourceGroupName | Azure 리소스 그룹 이름 | 아니요(지정하지 않으면 데이터 팩터리의 리소스 그룹이 사용됨) |
+| resourceGroupName | Azure 리소스 그룹 이름 | 아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
 
+**권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. "자격 증명 작업 오류: invalid\_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21-09-31Z".
+
+
+| 사용자 유형 | 다음 시간 후에 만료 |
+| :-------- | :----------- | 
+| 비-AAD 사용자(@hotmail.com, @live.com 등) | 12시간 |
+| AAD 사용자 및 OAuth 기반 원본은 사용자의 데이터 팩터리 테넌트와 다른 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에 있습니다. | 12시간 |
+| AAD 사용자 및 OAuth 기반 원본은 사용자의 데이터 팩터리 테넌트와 동일한 테넌트에 있습니다. | <p> 사용자가 14일마다 한 번 OAuth 기반 연결된 서비스 원본에 따라 분할 영역을 실행하는 경우 최대값은 90일입니다. </p><p>예상되는 90일 동안 사용자가 14일 동안 해당 원본에 따라 분할 영역을 실행하지 않으면 자격 증명은 마지막 분할 영역 실행 즉시 14일 후에 만료됩니다.</p> |
+
+이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
+
+### 프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+코드에 사용되는 데이터 팩터리 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가해야 합니다.
+ 
 
 ## Azure 데이터 레이크 데이터 집합 형식 속성
 
@@ -420,7 +462,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 GZip, Deflate 및 BZip2이고 지원되는 수준은 최적 및 가장 빠름입니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 
 ### partitionedBy 속성 활용
-위에서 설명한 것처럼 **partitionedBy** 섹션, 데이터 팩터리 매크로 및 시스템 변수(지정된 데이터 조각에 대한 시작 및 종료 시간을 나타내는 SliceStart 및 SliceEnd)를 사용하여 동적 folderPath 및 시계열 데이터에 대해 및 filename을 지정할 수 있습니다.
+위에서 설명한 것처럼 **partitionedBy** 섹션, 데이터 팩터리 매크로 및 시스템 변수를 사용하여 동적 folderPath 및 시계열 데이터와 파일 이름을 지정할 수 있습니다. 지정된 데이터 조각에 대한 시작 및 종료 시간을 나타내는 SliceStart 및 SliceEnd입니다.
 
 시간 시계열 데이터 집합, 예약 및 조각에 대한 자세한 내용을 이해하려면 [데이터 집합 만들기](data-factory-create-datasets.md) 및 [일정 예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요.
 
@@ -454,8 +496,8 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| columnDelimiter | 파일에서 문자는 열 구분 기호로 사용됩니다. 이 태그는 선택 사항입니다. 기본값은 쉼표(,)입니다. | 아니요 |
-| rowDelimiter | 파일에서 문자는 원시 구분 기호로 사용됩니다. 이 태그는 선택 사항입니다. 기본값은 다음 중 하나입니다. ["\\r\\n", "\\r", "\\n"] | 아니요 |
+| columnDelimiter | 파일에서 문자는 열 구분 기호로 사용됩니다. 이때 하나의 문자만 허용됩니다. 이 태그는 선택 사항입니다. 기본값은 쉼표(,)입니다. | 아니요 |
+| rowDelimiter | 파일에서 문자는 원시 구분 기호로 사용됩니다. 이때 하나의 문자만 허용됩니다. 이 태그는 선택 사항입니다. 기본값은 다음 중 하나입니다. ["\\r\\n", "\\r", "\\n"] | 아니요 |
 | escapeChar | <p>열 구분 기호를 이스케이프하는 데 사용되는 특수 문자가 콘텐츠에 표시됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.</p><p>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: "Hello, world") '$'를 이스케이프 문자로 정의하고 원본에서 "$Hello, world" 문자열을 사용할 수 있습니다.</p><p>테이블에 escapeChar 및 quoteChar 모두를 지정할 수 없습니다.</p> | 아니요 | 
 | quoteChar | <p>특수 문자는 문자열 값을 따옴표로 묶는 데 사용됩니다. 인용 문자 내의 열 및 행 구분 기호는 문자열 값의 일부로 간주됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.</p><p>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: <Hello  world>) ‘"’를 인용 문자로 정의하고 원본에서 <"Hello, world"> 문자열을 사용할 수 있습니다. 이 속성은 입력 및 출력 테이블 모두에 적용됩니다.</p><p>테이블에 escapeChar 및 quoteChar을 모두 지정할 수 없습니다.</p> | 아니요 |
 | nullValue | <p>Blob 파일 콘텐츠에서 null 값을 나타내는 데 사용되는 문자입니다. 이 태그는 선택 사항입니다. 기본값은 "\\N"입니다.</p><p>예를 들어 위의 예제에 따라 blob의 "NaN"이 예를 들어 SQL Server에 복사되는 동안 null 값으로 변환됩니다.</p> | 아니요 |
@@ -553,7 +595,7 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | 복사 동작을 지정합니다. | <p>**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.</p><p>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준이 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. </p><p>**MergeFiles:**(이 기능은 곧 출시) 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다.</p> | 아니요 |
+| copyBehavior | 복사 동작을 지정합니다. | <p>**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.</p><p>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준이 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다.</p><p>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다.</p> | 아니요 |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +604,4 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

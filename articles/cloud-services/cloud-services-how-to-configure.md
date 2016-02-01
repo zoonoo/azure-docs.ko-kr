@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # 클라우드 서비스를 구성하는 방법
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-configure.md)
 - [Azure portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
 
 Azure 클래식 포털에서 클라우드 서비스에 가장 일반적으로 사용되는 설정을 구성할 수 있습니다. 또는 구성 파일을 직접 업데이트하려는 경우 업데이트할 서비스 구성 파일을 다운로드한 후 업데이트된 파일을 업로드하고 구성 변경 내용으로 클라우드 서비스를 업데이트합니다. 어느 방법이든 모든 역할 인스턴스에 구성 업데이트를 적용합니다.
 
@@ -43,7 +43,7 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 3. 역할을 기준으로 그룹화된 서비스 역할의 경우 다음 설정을 업데이트할 수 있습니다.
     
-    >**설정** 서비스 구성 파일(.cscfg)의 *ConfigurationSettings* 요소에 지정된 기타 구성 설정의 값을 수정합니다.
+    >**설정** 서비스 구성 파일(.cscfg)의 ConfigurationSettings 요소에 지정된 기타 구성 설정의 값을 수정합니다.
     >
     >**인증서** 역할의 SSL 암호화에 사용 중인 인증서 지문을 변경합니다. 인증서를 변경하려면 먼저 새 인증서를 업로드해야 합니다(**인증서** 페이지). 그런 다음, 역할 설정에 표시되는 인증서 문자열에서 인증서 지문을 업데이트합니다.
 
@@ -86,4 +86,4 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 * [Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용](cloud-services-role-enable-remote-desktop.md)
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

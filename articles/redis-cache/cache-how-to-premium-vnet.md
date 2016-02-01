@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/19/2016" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법
@@ -78,15 +78,23 @@ Azure Redis Cache VNET 통합은 **가상 네트워크** 블레이드에 구성�
 
 ## Azure Redis 캐시 및 VNET의 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
 
-다음은 Azure Redis Cache의 정상 작동에 방해가 될 수 있는 몇 가지 일반적인 구성 오류의 목록입니다.
+Azure Redis Cache가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다. 이러한 포트가 차단되면 캐시가 제대로 작동하지 않을 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNET에서 Azure Redis Cache를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
 
--	DNS에 액세스할 수 없습니다. VNET의 Azure Redis Cache 인스턴스는 캐시의 모니터링 및 런타임 시스템의 일부에 대해 DNS에 액세스해야 하합니다. 캐시 인스턴스가 DNS에 액세스할 수 없으면 모니터링이 작동하지 않고 캐시가 제대로 작동하지 않습니다.
--	클라이언트가 Redis 연결에 사용하는 포트, 즉 6379 또는 6380을 차단합니다.
--	가상 네트워크에서 나가는 HTTPS 트래픽 차단하거나 가로챕니다. Azure Redis Cache에서는 나가는 HTTPS 트래픽을 Azure 서비스, 특히 저장소에 사용합니다.
--	서브넷 내에서 Redis 역할 인스턴스 VM이 서로 통신하는 것을 차단합니다. Redis 역할 인스턴스는 사용되는 포트에서 TCP를 사용하여 서로 통신하도록 허용해야 합니다. 이 내용은 변경될 수 있으나 최소한 Redis CSDEF 파일에서 모든 포트가 사용된다고 가정할 수 있습니다.
--	Azure 부하 분산 장치가 TCP/HTTP 포트 16001에서 Redis VM에 연결하는 것을 차단합니다. Azure Redis Cache는 기본 Azure 부하 분산 장치 프로브를 사용하여 어떤 역할 인스턴스가 실행 중인지 판단합니다. 기본 부하 분산 장치 프로브는 포트 16001에서 Azure 게스트 에이전트를 Ping하여 작동합니다. 이 Ping에 응답한 역할 인스턴스만 ILB에서 전달한 트래픽을 수신하는 순서에 배치됩니다. 포트가 차단되어 Ping이 실패함에 따라 순서에 인스턴스가 없는 경우 ILB는 들어오는 TCP 연결을 수락하지 않게 됩니다.
--	SSL 공용 키 유효성 검사에 사용되는 클라이언트 응용 프로그램의 웹 트래픽을 차단합니다. Redis 클라이언트(가상 네트워크 내)가 포트 6380을 사용하여 Redis에 연결하고 SSL 서버 인증을 수행하기 위해 CA 인증서와 인증서 해지 목록을 다운로드하려면 공용 인터넷에 대한 HTTP 트래픽을 수행할 수 있어야 합니다.
--	Azure 부하 분산 장치가 포트 1300x (13000, 13001 등) 또는 1500x (15000, 15001 등)에서 TCP를 통해 클러스터 내의 Redis VM에 연결하는 것을 차단합니다. 이 포트를 열려면 부하 분산 장치 프로브를 통해 csdef 파일에서 VNET을 구성해야 합니다. Azure 부하 분산 장치는 NSG에서 허용되어야 합니다. 기본 NSG는 AZURE\_LOADBALANCER 태그를 사용하여 이를 수행합니다. Azure 부하 분산 장치에는 단일 고정 IP 주소 168.63.126.16이 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 원격 IP |
+|-------------|------------------|--------------------|-----------------------------------------------------------------------------------|-------------------------------------|
+| 80, 443 | 아웃바운드 | TCP | Azure 저장소/PKI(인터넷)에 대한 Redis 종속성 | * |
+| 53 | 아웃바운드 | TCP/UDP | DNS(인터넷/VNet)에 대한 Redis 종속성 | * |
+| 6379, 6380 | 인바운드 | TCP | Redis, Azure 부하 분산에 대한 클라이언트 통신 | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 8443 | 인바운드/아웃바운드 | TCP | Redis에 대한 구현 세부 정보 | VIRTUAL\_NETWORK |
+| 8500 | 인바운드 | TCP/UDP | Azure 부하 분산 | AZURE\_LOADBALANCER |
+| 10221-10231 | 인바운드/아웃바운드 | TCP | Redis에 대한 구현 세부 정보(VIRTUAL\_NETWORK에 원격 끝점을 제한할 수 있음) | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 13000-13999 | 인바운드 | TCP | Redis 클러스터, Azure 부하 분산에 대한 클라이언트 통신 | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 15000-15999 | 인바운드 | TCP | Redis 클러스터, Azure 부하 분산에 대한 클라이언트 통신 | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 16001 | 인바운드 | TCP/UDP | Azure 부하 분산 | AZURE\_LOADBALANCER |
+| 20226 | 인바운드+아웃바운드 | TCP | Redis 클러스터에 대한 구현 세부 정보 | VIRTUAL\_NETWORK |
+
+
+
 
 ## 표준 또는 기본 캐시에 VNET을 사용할 수 있나요?
 
@@ -117,4 +125,4 @@ VNET은 프리미엄 캐시에만 사용할 수 있습니다.
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

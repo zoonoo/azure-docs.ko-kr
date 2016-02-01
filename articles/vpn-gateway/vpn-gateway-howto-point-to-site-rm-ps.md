@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/11/2016"
+   ms.date="01/19/2016"
    ms.author="cherylmc" />
 
 # PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
+- [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
 지점 및 사이트 간 구성을 사용하면 개별적으로 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 연결을 시작하여 VPN 연결을 설정합니다. 지점 및 사이트 간 연결은 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우에 사용할 수 있는 뛰어난 솔루션입니다. 지점 및 사이트 간 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) 및 [프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요.
 
-이 문서는 **Azure 리소스 관리자** 배포 모델을 사용하여 만든 VNet 및 VPN 게이트웨이에 적용됩니다. 서비스 관리(클래식 배포 모델이라고도 함)를 사용하여 만든 VNet에 대한 지점 및 사이트 간 연결을 구성하려는 경우 [이 문서](vpn-gateway-point-to-site-create.md)를 참조하세요.
+이 문서는 **Azure 리소스 관리자** 배포 모델을 사용하여 만든 VNet 및 VPN 게이트웨이에 적용됩니다. 서비스 관리(클래식 배포 모델이라고도 함)를 사용하여 만든 VNet에 대한 지점 및 사이트 간 연결을 구성하려는 경우 [VNet에 지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요.
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -34,18 +34,18 @@
 
 이 구성에 대해 다음 값을 사용합니다.
 
-- 이름 = **TestVNet**, 주소 공간 192.168.0.0/16 및 10.254.0.0/16 사용. VNet에는 하나 이상의 주소 공간을 사용할 수 있습니다.
-- 서브넷 이름 = **FrontEnd**, 192.168.1.0/24 사용
-- 서브넷 이름 = **BackEnd**, 10.254.1.0/24 사용
-- 서브넷 이름 = **GatewaySubnet**, 192.168.200.0/24 사용. 서브넷 이름 *GatewaySubnet*은 게이트웨이가 작동하기 위한 필수 항목입니다. 
-- VPN 클라이언트 주소 풀: 172.16.201.0/24. 이 지점 및 사이트 간 연결을 사용 하여 VNet에 연결되는 VPN 클라이언트는 이 풀에서 IP 주소를 받습니다.
-- 구독 = 하나 이상 있는 경우 올바른 구독인지 확인합니다.
-- 리소스 그룹 = **TestRG**
-- 위치 = **미국 동부**
-- DNS 서버 = 이름 확인에 사용할 DNS 서버의 IP 주소.
-- GW 이름 = **GW**
-- 공용 IP 이름 = **GWIP**
-- VpnType = **RouteBased**
+- 이름: **TestVNet**, 주소 공간 **192.168.0.0/16** 및 **10.254.0.0/16** 사용. VNet에는 하나 이상의 주소 공간을 사용할 수 있습니다.
+- 서브넷 이름: **FrontEnd**, **192.168.1.0/24** 사용
+- 서브넷 이름: **BackEnd**, **10.254.1.0/24** 사용
+- 서브넷 이름: **GatewaySubnet**, **192.168.200.0/24** 사용. 서브넷 이름 GatewaySubnet은 게이트웨이가 작동하기 위한 필수 항목입니다. 
+- VPN 클라이언트 주소 풀: **172.16.201.0/24**. 이 지점 및 사이트 간 연결을 사용 하여 VNet에 연결되는 VPN 클라이언트는 이 풀에서 IP 주소를 받습니다.
+- 구독: 하나 이상 있는 경우 올바른 구독인지 확인합니다.
+- 리소스 그룹: **TestRG**
+- 위치: **미국 동부**
+- DNS 서버: 이름 확인에 사용할 DNS 서버의 **IP 주소**.
+- GW 이름: **GW**
+- 공용 IP 이름: **GWIP**
+- VpnType: **RouteBased**
 
 
 ## 시작하기 전에
@@ -94,7 +94,7 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 
 		New-AzureRmResourceGroup -Name $RG -Location $Location
 
-6. 가상 네트워크에 대한 서브넷 구성을 만들고 *FrontEnd*, *BackEnd* 및 *GatewaySubnet*으로 이름을 지정합니다. 이러한 접두사는 위에서 선언된 VNet 주소 공간의 일부여야 합니다.
+6. 가상 네트워크에 대한 서브넷 구성을 만들고 FrontEnd, BackEnd 및 GatewaySubnet으로 이름을 지정합니다. 이러한 접두사는 위에서 선언된 VNet 주소 공간의 일부여야 합니다.
 
 		$fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
 		$besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -106,7 +106,7 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 
 8. 방금 만든 가상 네트워크에 대한 변수를 지정합니다.
 
-		$vnet   = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+		$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 
 9. 동적으로 할당된 공용 IP 주소를 요청합니다. 이 IP 주소는 게이트웨이가 제대로 작동하는 데 필요합니다. 나중에 게이트웨이를 게이트웨이 IP 구성에 연결합니다.
@@ -114,7 +114,7 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Azure에 루트 인증서 .cer 파일을 업로드합니다. 엔터프라이즈 인증서 환경에서 루트 인증서를 사용하거나 자체 서명된 루트 인증서를 사용할 수 있습니다. 최대 20개의 루트 인증서를 업로드할 수 있습니다. *makecert*를 사용하여 자체 서명된 루트 인증서를 만드는 방법은 이 문서의 끝에 있는 섹션을 참조하세요. .cer 파일은 루트 인증서의 개인 키를 포함해서는 안 됩니다.
+10. Azure에 루트 인증서 .cer 파일을 업로드합니다. 엔터프라이즈 인증서 환경에서 루트 인증서를 사용하거나 자체 서명된 루트 인증서를 사용할 수 있습니다. 최대 20개의 루트 인증서를 업로드할 수 있습니다. makecert를 사용하여 자체 서명된 루트 인증서를 만드는 방법은 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조하세요. .cer 파일은 루트 인증서의 개인 키를 포함해서는 안 됩니다.
 	
 	다음은 이 구조에 대한 샘플입니다. 공용 인증서 데이터를 업로드하는 과정 중 어려운 부분은 전체 문자열을 공백없이 복사 및 붙여넣기 해야 한다는 점입니다. 그렇지 않으면 업로드가 동작하지 않습니다. 이 단계에 고유한 인증서.cer 파일을 사용해야 합니다. 아래에서 샘플을 복사 및 붙여넣기 하지 마세요.
 
@@ -137,9 +137,9 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
 	
-2. 클라이언트 컴퓨터의 루트 인증서에서 생성된 클라이언트 인증서(*.pfx)를 생성하고 설치합니다. 익숙한 설치 방법을 어떤 것이든 사용할 수 있습니다. 자체 서명된 루트 인증서를 사용 중이고 이 작업에 익숙하지 않은 경우 이 문서의 끝에 있는 지침을 참조하면 됩니다.
+2. 클라이언트 컴퓨터의 루트 인증서에서 생성된 클라이언트 인증서(*.pfx)를 생성하고 설치합니다. 익숙한 설치 방법을 어떤 것이든 사용할 수 있습니다. 자체 서명된 루트 인증서를 사용 중이고 이 작업에 익숙하지 않은 경우 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조하세요.
 
-3. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 방금 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름입니다. **Connect**를 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. 이 경우 **계속**을 클릭하여 상승된 권한을 사용합니다.
+3. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 방금 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름입니다. **연결**을 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. 이 경우 **계속**을 클릭하여 상승된 권한을 사용합니다.
 
 4. **연결** 상태 페이지에서 연결을 시작하도록 **연결**을 클릭합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용하여 올바른 인증서를 선택한 다음 **확인**을 클릭합니다.
 
@@ -147,7 +147,7 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 
 ## 연결 확인
 
-1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
+1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 ipconfig/all을 실행합니다.
 
 2. 결과를 확인합니다. 받은 IP 주소가 구성에 지정한 지점 및 사이트 VPN 클라이언트 주소 풀 내의 주소 중 하나인지 확인합니다. 결과는 다음과 같아야 합니다.
     
@@ -162,60 +162,73 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 			Default Gateway.................:
 			NetBIOS over Tcpip..............: Enabled
 
-## makecert를 사용하여 자체 서명된 루트 인증서를 만들려면
+## 루트 인증서를 추가 또는 제거하려면
 
-Makecert는 자체 서명된 루트 인증서를 만드는 한 가지 방법입니다. 아래 단계는 이에 대한 절차를 안내합니다.
+인증서는 지점 및 사이트 간 VPN에 대한 VPN 클라이언트를 인증하는 데 사용됩니다. 다음 단계에서는 루트 인증서를 추가하거나 제거하는 과정을 안내합니다.
 
-1. Windows 10을 실행하는 컴퓨터에서 [이 링크](https://dev.windows.com/en-us/downloads/windows-10-sdk)를 통해 Windows 10 SDK를 다운로드하여 설치합니다.
+### 루트 인증서 추가
 
-2. 설치가 끝나면 C:\\Program Files (x86)\\Windows Kits\\10\\bin<arch> 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다.
-		
-	예제:
-	
-		C:\Program Files (x86)\Windows Kits\10\bin\x64\makecert.exe
+Azure에 최대 20개의 루트 인증서를 추가할 수 있습니다. 아래 단계를 따라 루트 인증서를 추가합니다.
 
-3. 다음으로 컴퓨터의 개인 인증서 저장소에 루트 인증서를 만들고 설치합니다. 아래 예제에서는 나중에 업로드할 해당 *.cer* 파일을 만듭니다. 관리자 권한으로 다음 명령을 실행합니다. 여기서 *RootCertificateName*은 인증서에 사용할 이름입니다.
+1. 업로드할 새 루트 인증서를 만들고 준비합니다.
 
-	참고: 다음 예제를 변경하지 않고 실행하면 결과는 루트 인증서 및 해당 파일 *RootCertificateName.cer*입니다. 명령을 실행한 디렉터리에서 .cer 파일을 찾을 수 있습니다. 인증서는 사용자 인증서 위치인 Current User\\Personal\\Certificates에 있습니다.
+		$P2SRootCertName2 = "ARMP2SRootCert2.cer"
+		$MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
-    	makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
+2. 새 루트 인증서를 업로드합니다. 한번에 하나의 루트 인증서만 추가할 수 있습니다.
 
-	>[AZURE.NOTE]클라이언트 인증서를 생성할 루트 인증서를 만들었기 때문에 이 인증서를 해당 개인 키와 함께 내보내고 복구 가능한 안전한 위치에 저장할 수 있습니다.
+		Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
 
-## 자체 서명된 루트 인증서에서 클라이언트 인증서를 생성하려면
+3. 다음 cmdlet을 사용하여 새 인증서가 올바르게 추가되었는지 확인할 수 있습니다.
 
-다음 단계를 사용하면 자체 서명된 루트 인증서에서 클라이언트 인증서를 생성한 후 클라이언트 인증서를 내보내고 설치할 수 있습니다.
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
 
-### 클라이언트 인증서 생성
+### 루트 인증서 제거
 
-다음 단계는 자체 서명된 루트 인증서에서 클라이언트 인증서를 생성하는 한 가지 방법을 안내합니다. 동일한 루트 인증서에서 여러 클라이언트 인증서를 생성할 수 있습니다. 그런 다음 각 클라이언트 인증서를 내보내고 클라이언트 컴퓨터에 설치할 수 있습니다.
+Azure에서 루트 인증서를 제거할 수 있습니다. 루트 인증서를 제거하면 Azure에서 유효한 루트 인증서에서 생성된 클라이언트 인증서를 설치할 때까지 루트 인증서에서 생성되었던 클라이언트 인증서를 지점 및 사이트를 통해 Azure에 더 이상 연결할 수 없습니다.
 
-1. 자체 서명된 루트 인증서를 만드는 데 사용한 동일한 컴퓨터에서 관리자로 명령 프롬프트를 엽니다.
-2. 클라이언트 인증서 파일을 저장하려는 위치로 디렉터리를 변경합니다. *RootCertificateName*은 생성된 자체 서명된 루트 인증서를 말합니다. RootCertificateName을 루트 인증서 이름으로 변경하여 다음 예제를 실행하면 결과는 개인 인증서 저장소의 "ClientCertificateName"이라는 클라이언트 인증서입니다.
-3. 다음 명령을 입력합니다.
+1. 루트 인증서를 제거합니다.
 
-    	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
+		Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
-4. 모든 인증서는 컴퓨터의 사용자 인증서 위치인 Current User\\Personal\\Certificates 저장소에 저장됩니다. 이 절차를 기반으로 필요에 따라 많은 수의 클라이언트 인증서를 생성할 수 있습니다.
+ 
+2. 다음 cmdlet을 사용하여 인증서가 성공적으로 제거되었는지 확인합니다.
 
-### 클라이언트 인증서 내보내기 및 설치
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
 
-가상 네트워크에 연결하려는 각 컴퓨터에 클라이언트 인증서를 설치하는 작업은 필수 단계입니다. 다음 단계에서는 클라이언트 인증서의 수동 설치를 안내합니다.
+## 해지된 클라이언트 인증서 목록 관리
 
-1. 클라이언트 인증서를 내보내려면 *certmgr.msc*를 사용합니다. 내보낼 클라이언트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭 한 다음 **내보내기**를 클릭합니다. 그러면 인증서 내보내기 마법사가 열립니다.
-2. 마법사에서 **다음**을 클릭하고 **예, 개인 키를 내보냅니다.**를 선택한 후 **다음**을 클릭합니다.
-3. **파일 내보내기 형식** 페이지에서 선택된 기본값을 유지할 수 있습니다. 그런 후 **Next**를 클릭합니다.  
-4. **보안** 페이지에서 개인 키를 보호해야 합니다. 암호를 사용하도록 선택하는 경우 이 인증서에 대해 설정한 암호를 기록해두거나 기억한 후 **다음**을 클릭합니다.
-5. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **Next**를 클릭합니다.
-6. **마침**을 클릭하여 인증서를 내보냅니다.	
-3. *.pfx* 파일을 찾아 클라이언트 컴퓨터에 복사합니다. 클라이언트 컴퓨터에서 *.pfx* 파일을 두 번 클릭하여 설치합니다. **저장소 위치**를 **현재 사용자**로 유지한 후 **다음**을 클릭합니다.
-4. 가져올 **파일** 페이지에서 아무 것도 변경하지 않습니다. **다음**을 클릭합니다.
-5. **개인 키 보호** 페이지에서 인증서를 사용한 경우 인증서에 대한 암호를 입력하거나 인증서를 설치하는 보안 주체가 올바른지 확인한 후 **다음**을 클릭합니다.
-6. **인증서 저장소** 페이지에서 기본 위치를 유지한 후 **다음**을 클릭합니다.
-7. **마침**을 클릭합니다. 인증서 설치에 대한 **보안 경고**에서 **예**를 클릭합니다. 이제 인증서를 성공적으로 가져왔습니다.
+클라이언트 인증서를 해지할 수 있습니다. 인증서 해지 목록에서 개별 클라이언트 인증서를 기반으로 하는 지점 및 사이트 간 연결을 선택적으로 거부할 수 있습니다. Azure에서 루트 인증서를 제거하는 동안 해지된 루트 인증서에서 생성되고/서명된 모든 클라이언트 인증서에 대한 액세스 권한이 취소되며, 클라이언트 인증서를 해지하면 특정 인증서에 대한 액세스 권한을 제거할 수 있습니다. 해지된 클라이언트 인증서를 사용하는 동안 개별 사용자의 세분화된 액세스 제어를 위해 일반적으로 루트 인증서를 사용하여 팀 또는 조직 수준에서 액세스를 관리합니다.
+
+### 클라이언트 인증서 해지
+
+1. 해지할 클라이언트 인증서의 지문을 가져옵니다.
+
+		$RevokedClientCert1 = "ClientCert1"
+		$RevokedThumbprint1 = "‎ef2af033d0686820f5a3c74804d167b88b69982f"
+
+2. 해지된 지문 목록에 지문을 추가합니다.
+
+		Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+
+3. 지문이 인증서 해지 목록에 추가되었는지 확인합니다. 한번에 하나의 지문을 추가해야 합니다.
+
+		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
+
+### 클라이언트 인증서 복구
+
+해지된 클라이언트 인증서 목록에서 지문을 제거하여 클라이언트 인증서를 복구할 수 있습니다.
+
+1.  해지된 클라이언트 인증서 지문 목록에서 지문을 제거합니다.
+
+		Remove-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+
+2. 해지된 목록에서 지문이 제거되었는지 확인합니다.
+
+		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
 ## 다음 단계
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

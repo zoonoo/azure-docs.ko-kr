@@ -1,29 +1,31 @@
-## WordPress and Azure App Service
+## WordPress 및 Azure 앱 서비스
 
-* [What is WordPress?](https://wordpress.org/)
-* [How to setup enterprise-class WordPress web app](web-sites-php-enterprise-wordpress.md)
-* [How to purchase ClearDB Shared MySQL hosting for your WordPress app](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
-* [How to Purchase ClearDB dedicated MySQL cluster for your WordPress app ](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
-* [Deploy a WordPress web app backed with MySQL replication cluster](/documentation/templates/wordpress-mysql-replication/)
-* [Build your own Master-Master MySQL Cluster using Percona Cluster](/documentation/templates/mysql-ha-pxc/) and [learn more on how to manage the cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
-* [Deploy WordPress backed by MySQL replication cluster with master-slave configuration](/documentation/templates/mysql-replication/)
-* [Deploy a WordPress app backed by SQL Azure DB managed by ProjectNami](/marketplace/partners/projectnami/projectnami/)
-  
-## Chapter 2 : Troubleshooting WordPress Application
+* [WordPress란?](https://wordpress.org/)
+* [엔터프라이즈급 WordPress 웹앱을 설정하는 방법](web-sites-php-enterprise-wordpress.md)
+* [WordPress 앱에 대한 ClearDB 공유 MySQL 호스팅을 구매하는 방법](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
+* [WordPress 앱에 대한 ClearDB 전용 MySQL 클러스터를 구매하는 방법](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
+* [MySQL 복제 클러스터 지원 WordPress 웹앱 배포](/documentation/templates/wordpress-mysql-replication/)
+* [Percona 클러스터를 사용하여 사용자 고유의 마스터-마스터 MySQL 클러스터 빌드](/documentation/templates/mysql-ha-pxc/) 및 [클러스터를 관리하는 방법에 대한 자세한 내용](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
+* [마스터-슬레이브 구성을 사용하여 MySQL 복제 클러스터로 지원되는 WordPress 배포](/documentation/templates/mysql-replication/)
+* [ProjectNami에서 관리하는 SQL Azure DB로 지원되는 WordPress 앱 배포](/marketplace/partners/projectnami/projectnami/)
+  
+## 2장: WordPress 응용 프로그램 문제 해결
 
-* [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
-* [Gather usage  telemetry using Azure Application Insights  service](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
-* [Run Zend Zray profiler against your web app to diagnose issues and performance](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
-* [Use Kudu Support portal to diagnose and mitigate issues in real time](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
-* [Use various auto-heal rules to automate resolving real time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
-* [How to backup your web app](web-sites-backup.md) and [How to restore your web app](web-sites-restore.md)
+* [WordPress 앱의 문제를 해결하는 방법](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
+* [Azure Application Insights 서비스를 사용하여 사용 원격 분석 수집](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
+* [웹앱에 대해 Zend Zray 프로파일러를 실행하여 문제 및 성능 진단](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
+* [Kudu 지원 포털을 사용하여 실시간으로 문제 진단 및 완화](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
+* [다양한 자동 복구 규칙을 사용하여 실시간 문제 해결 자동화](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [웹앱 백업 방법](web-sites-backup.md) 및 [웹앱 복원 방법](web-sites-restore.md)
 
-## Chapter 3: Performance
+## 3장: 성능
 
-* [How to speed up WordPress web app](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
-* [How to enabled redis cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) using [redis cache plugin](https://wordpress.org/plugins/wp-redis/)
-* [How to enable memcached object cache for WordPress](web-sites-connect-to-redis-using-memcache-protocol.md) using [memcached plugin](https://wordpress.org/plugins/memcached/)
-* [Enable wincache with W3 total cache plugin](https://wordpress.org/plugins/w3-total-cache/)
-* [How to use supercache plugin to speed up WordPress app](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
-* [How to server caching using IIS output caching](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
-* [How to enabled browser caching for static content](http://www.iis.net/configreference/system.webserver/staticcontent)
+* [WordPress 웹앱을 가속화하는 방법](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
+* [Redis 캐시 플러그 인](https://wordpress.org/plugins/wp-redis/)을 사용하여 [Redis 캐시를 사용하도록 설정하는 방법](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
+* [Memcached 플러그 인](https://wordpress.org/plugins/memcached/)을 사용하여 [WordPress에 대한 Memcached object cache를 사용하도록 설정하는 방법](web-sites-connect-to-redis-using-memcache-protocol.md)
+* [W3 전체 캐시 플러그 인으로 wincache를 사용하도록 설정](https://wordpress.org/plugins/w3-total-cache/)
+* [supercache 플러그 인을 사용하여 WordPress 앱을 가속화하는 방법](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
+* [IIS 출력 캐싱을 사용하여 캐싱을 제공하는 방법](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
+* [정적 콘텐츠에 대한 브라우저 캐싱을 사용하도록 설정하는 방법](http://www.iis.net/configreference/system.webserver/staticcontent)
+
+<!---HONumber=AcomDC_0121_2016-->

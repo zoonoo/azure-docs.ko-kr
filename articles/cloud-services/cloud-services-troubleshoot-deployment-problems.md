@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/07/2016"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # 직면할 수 있는 클라우드 서비스 배포 문제를 해결하는 방법
@@ -41,7 +41,7 @@ Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 A
 
 1. Azure 포털에서 클라우드 서비스의 배포를 클릭합니다.
 2. Azure 포털의 **속성** 창에서 역할 인스턴스에 대한 포트를 확인합니다(입력 끝점에서).
-3. 포트가 *80*인 경우 응용 프로그램에 액세스할 때 URL에 올바른 포트 값을 추가합니다. 기본이 아닌 포트를 지정하려면 뒤에 콜론(:)과 공백 없이 포트 번호를 붙인 URL을 입력합니다.
+3. 포트가 80인 경우 응용 프로그램에 액세스할 때 URL에 올바른 포트 값을 추가합니다. 기본이 아닌 포트를 지정하려면 뒤에 콜론(:)과 공백 없이 포트 번호를 붙인 URL을 입력합니다.
 
 ## 문제: 아무 것도 하지 않았는데 내 역할 인스턴스가 다시 시작되었어요
 
@@ -86,7 +86,6 @@ Azure에서 문제가 있는 노드를 검색하고 역할 인스턴스를 새 �
 
 클라우드 서비스에 대한 [문제해결 문서](..\?tag=top-support-issue&service=cloud-services)를 더 봅니다.
 
+Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
 
-[Azure PaaS 계산 진단 데이터]: http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

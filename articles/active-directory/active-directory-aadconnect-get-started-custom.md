@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/11/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -70,6 +70,7 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 
 ![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
+오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 
 ## 섹션 동기화의 페이지
 
@@ -121,7 +122,7 @@ sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID�
 
 선택적 기능 | 설명
 -------------------    | ------------- |
-Exchange 하이브리드 배포 |Exchange 하이브리드 배포 기능을 사용하면 Azure AD에서 특정 [특성](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) 집합을 온-프레미스 디렉터리에 다시 동기화하여 Exchange 사서함이 온-프레미스와 Azure에서 공존할 수 있습니다.
+Exchange 하이브리드 배포 |Exchange 하이브리드 배포 기능을 사용하면 Azure AD에서 특정 [특성](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) 집합을 온-프레미스 디렉터리에 다시 동기화하여 Exchange 사서함이 온-프레미스와 Azure에서 공존할 수 있습니다.
 Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하도록 설정하면 동기화된 특성 집합을 마법사의 후속 페이지에 나오는 특정 집합에 맞게 지정할 수 있습니다. 마법사에서 두 개의 추가 구성 페이지가 열립니다.  
 암호 동기화 | 페더레이션을 로그인 솔루션으로 선택한 경우 이 옵션을 사용할 수 있습니다. 암호 동기화는 백업 옵션으로 사용할 수 있습니다. 자세한 내용은 [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요.
 암호 쓰기 저장|암호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 추가 정보는 [암호 관리 시작](active-directory-passwords-getting-started.md)을 참조하세요.
@@ -250,4 +251,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

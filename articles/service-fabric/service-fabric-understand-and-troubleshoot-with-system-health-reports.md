@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # 시스템 상태 보고서를 사용하여 문제 해결
@@ -24,7 +24,7 @@ Azure 서비스 패브릭 구성 요소가 클러스터 내의 모든 엔터티�
 
 시스템 상태 보고서는 상태를 통해 클러스터 및 응용 프로그램의 기능 및 플래그 문제에 대한 가시성을 제공합니다. 응용 프로그램 및 서비스의 경우, 시스템 상태 보고서는 서비스 패브릭 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 응답이 없는 프로세스의 감지 또는 서비스의 비즈니스 논리의 상태 모니터링은 제공하지 않습니다. 사용자 서비스는 논리에 고유한 정보로 건강 데이터를 보강할 수 있습니다.
 
-> [AZURE.NOTE]Watchdogs 상태 보고서는 시스템 구성 요소가 엔터티를 만든 *후*에만 표시됩니다. 엔터티가 삭제되면 Health 스토어가 연결된 모든 상태 보고서를 자동으로 삭제합니다. 엔터티의 새 인스턴스를 만들 때에도 동일합니다.(예를 들어 새로운 서비스 복제 인스턴스가 생성됩니다) 이전 인스턴스와 연결된 모든 보고서는 삭제되고 저장소에서 정리됩니다.
+> [AZURE.NOTE]Watchdogs 상태 보고서는 시스템 구성 요소가 엔터티를 만든 후에만 표시됩니다. 엔터티가 삭제되면 Health 스토어가 연결된 모든 상태 보고서를 자동으로 삭제합니다. 엔터티의 새 인스턴스를 만들 때에도 동일합니다.(예를 들어 새로운 서비스 복제 인스턴스가 생성됩니다) 이전 인스턴스와 연결된 모든 보고서는 삭제되고 저장소에서 정리됩니다.
 
 시스템 구성 요소 보고서는 "**System.**" 접두사로 시작되는 원본에 의해 식별됩니다. 잘못된 매개 변수가 있는 보고서가 거부되므로 Watchdogs는 소스에 대해 동일한 접두사를 사용할 수 없습니다. 일부 시스템 보고서를 검토하여 이들이 어떻게 트리거되고 이들이 나타내는 발생 가능한 문제를 수정하는 방법을 파악합니다.
 
@@ -97,7 +97,7 @@ HealthEvents          :
 
 - **SourceId**: System.CM
 - **속성**: 상태
-- **다음 단계**: 응용 프로그램이 만들어진 경우 클러스터 관리자 상태 보고서를 포함해야 합니다. 그렇지 않은 경우 쿼리를 발행하여 응용 프로그램의 상태를 확인합니다.(예: PowerShell cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName***)
+- **다음 단계**: 응용 프로그램이 만들어진 경우 클러스터 관리자 상태 보고서를 포함해야 합니다. 그렇지 않은 경우 쿼리를 발행하여 응용 프로그램의 상태를 확인합니다.(예: PowerShell cmdlet **Get-ServiceFabricApplication -ApplicationName applicationName**)
 
 다음은 **fabric:/WordCount** 응용 프로그램에 대한 상태 이벤트를 보여줍니다.
 
@@ -443,7 +443,7 @@ HealthEvents                       :
 **System.Hosting**은 응용 프로그램 패키지 다운로드에 실패하면 오류를 보고합니다.
 
 - **SourceId**: System.Hosting
-- **속성**: **다운로드:*RolloutVersion***
+- **속성**: **다운로드:RolloutVersion**
 - **다음 단계**: 노드에서 다운로드에 실패한 이유를 조사합니다.
 
 ## DeployedServicePackage 시스템 상태 보고서
@@ -460,7 +460,7 @@ System.Hosting은 노드에서 서비스 패키지 활성화가 성공하면 확
 **System.Hosting**은 활성화가 성공한 경우 각 코드 패키지에 대해 확인을 보고합니다. 활성화에 실패하는 경우 구성된 대로 경고를 보고합니다. **CodePackage**가 활성화에 실패하거나 구성된 **CodePackageHealthErrorThreshold** 보다 큰 오류와 함께 종료되면 호스팅이 오류를 보고합니다. 서비스 패키지에 여러 코드 패키지가 있다면 각 패키지에 대해 생성된 활성화 보고서가 있습니다.
 
 - **SourceId**: System.Hosting
-- **속성**: 접두사 **CodePackageActivation**를 사용하고 코드 패키지 및 진입점의 이름을 **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint***으로 포함합니다.(예를 들어 **CodePackageActivation:Code:SetupEntryPoint**)
+- **속성**: 접두사 **CodePackageActivation**를 사용하고 코드 패키지 및 진입점의 이름을 **CodePackageActivation:CodePackageName:SetupEntryPoint/EntryPoint**으로 포함합니다.(예를 들어 **CodePackageActivation:Code:SetupEntryPoint**)
 
 ### 서비스 유형 등록
 서비스 유형을 성공적으로 등록하면 **System.Hosting**이 확인을 보고합니다. 등록이 제시간에 완료되지 않으면 오류를 보고합니다.(**ServiceTypeRegistrationTimeout**을 사용하여 구성된 대로) 서비스 유형이 노드로부터 등록되지 않았다면 런타임이 닫혔기 때문입니다. 호스팅이 경고를 보고합니다.
@@ -520,7 +520,7 @@ HealthEvents          :
 서비스 패키지 다운로드에 실패하면 **System.Hosting**가 오류를 보고합니다.
 
 - **SourceId**: System.Hosting
-- **속성**: **다운로드:*RolloutVersion***
+- **속성**: **다운로드:RolloutVersion**
 - **다음 단계**: 노드에서 다운로드에 실패한 이유를 조사합니다.
 
 ### 유효성 검사 업그레이드
@@ -537,4 +537,4 @@ HealthEvents          :
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

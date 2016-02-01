@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 # Azure CDN(콘텐츠 배달 네트워크) 개요
@@ -49,6 +49,7 @@ CDN에 개체 요청을 처음 수행하는 경우 개체의 소스 원본 위�
 - 부하 분산
 - DDOS 보호
 - [빠른 삭제](cdn-purge-endpoint.md)
+- [자산 미리 로드](cdn-preload-endpoint.md)
 - [REST API를 통한 관리](https://msdn.microsoft.com/library/mt634456.aspx)
 
 
@@ -58,6 +59,6 @@ CDN에 개체 요청을 처음 수행하는 경우 개체의 소스 원본 위�
 
 - [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md)
 - [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-- [실시간 통계](cdn-read-time-stats.md)
+- [실시간 통계](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

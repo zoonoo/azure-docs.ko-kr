@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # SQL Server 저장 프로시저 작업
 
-데이터 팩터리 [파이프라인](data-factory-create-pipelines.md)에서 SQL Server 저장 프로시저 작업을 사용하여 **Azure SQL 데이터베이스** 또는 **Azure SQL 데이터 웨어하우스**에서 저장 프로시저를 호출할 수 있습니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
+데이터 팩터리 [파이프라인](data-factory-create-pipelines.md)에서 SQL Server 저장 프로시저 작업을 사용하여 다음 데이터 저장소 중 하나에서 저장된 프로시저를 호출할 수 있습니다.
+
+
+- Azure SQL 데이터베이스 
+- Azure SQL 데이터 웨어하우스  
+- 엔터프라이즈 또는 Azure VM에서 SQL Server 데이터베이스. 데이터베이스와 리소스 경쟁을 피하려면 데이터 관리 게이트웨이를 데이터베이스를 호스팅하는 컴퓨터와 동일한 컴퓨터 또는 별도의 컴퓨터에 설치해야 합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본/Azure VM에 호스팅된 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 소프트웨어입니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 
+
+이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 ## 구문
 	{
@@ -198,4 +205,4 @@ storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정�
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

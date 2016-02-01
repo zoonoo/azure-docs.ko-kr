@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/20/2016"
    ms.author="nitinme"/>
 
 # Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -25,7 +25,9 @@
 
 Azure 포털을 사용하여 Azure 데이터 레이크 저장소에 대한 액세스 권한을 가진 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 만드는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항:
 
-* **Hadoop 및 Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)입니다.
+* **Hadoop 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 추가 저장소 계정으로만 사용될 수 있습니다. 이러한 클러스터에 대한 기본 저장소 계정은 여전히 Azure 저장소 Blob(WASB)입니다.
+
+* **Storm 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 Storm 토폴로지에서 데이터를 쓰는 데 사용될 수 있습니다. 데이터 레이크 저장소는 Storm 토폴로지에서 읽을 수 있는 참조 데이터를 저장하는 데도 사용될 수 있습니다.
 
 * **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다.
 
@@ -128,6 +130,47 @@ Azure 포털을 사용하여 Azure 데이터 레이크 저장소에 대한 액�
 
 HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업을 실행하여 HDInsight 클러스터가 Azure 데이터 레이크 저장소의 데이터에 액세스할 수 있는지 테스트할 수 있습니다. 이렇게 하려면 데이터 레이크 저장소를 대상으로 하는 일부 hive 쿼리를 실행합니다.
 
+### Linux 클러스터의 경우
+
+1. 방금 프로비전한 클러스터에 대한 클러스터 블레이드를 연 다음 **대시보드**를 클릭합니다. Linux 클러스터에 대한 Ambari를 엽니다. Ambari에 액세스할 때 사이트에 인증하라는 메시지가 표시됩니다. 클러스터를 만들 때 사용한 관리자(기본 관리자), 계정 이름 및 암호를 입력합니다.
+
+	![클러스터 대시보드 시작](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "클러스터 대시보드 시작")
+
+	웹 브라우저의 https://CLUSTERNAME.azurehdinsight.net(으)로 이동하여 Ambari로 직접 이동할 수도 있습니다. (여기서 **CLUSTERNAME**은 HDInsight 클러스터의 이름입니다.)
+
+2. Hive 뷰를 엽니다. 사용 가능한 뷰를 나열하려면 페이지 메뉴(**관리자** 링크 옆 및 페이지 왼쪽의 버튼)에서 사각형 집합을 선택합니다. **Hive** 뷰를 선택합니다.
+
+	![Ambari 뷰 선택](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
+
+3. 다음과 유사한 결과가 표시됩니다.
+
+	![쿼리 편집기 섹션이 포함된 Hive 뷰 페이지 이미지](./media/data-lake-store-hdinsight-hadoop-use-portal/hiveview.png)
+
+4. 페이지의 **쿼리 편집기** 섹션에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
+
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
+
+5. **쿼리 편집기** 하단의 **실행** 단추를 클릭하여 쿼리를 시작합니다. **쿼리 편집기** 아래에 **쿼리 프로세스 결과** 섹션이 나타나고 작업에 대한 정보가 표시될 것입니다.
+
+6. 쿼리가 완료되면 **쿼리 프로세스 결과** 섹션에 작업 결과가 표시됩니다. **결과** 탭에는 다음 정보가 표시됩니다.
+
+7. 다음 쿼리를 실행하여 테이블이 생성되었는지 확인합니다.
+
+		SHOW TABLES;
+
+	**결과** 탭은 다음을 표시합니다.
+
+		hivesampletable
+		vehicles
+
+	**vehicles**는 앞에서 만든 테이블입니다. **hivesampletable**은 모든 HDInsight 클러스터에서 기본으로 사용할 수 있는 샘플 테이블입니다.
+
+8. 쿼리를 실행하여 **vehicles** 테이블에서 데이터를 검색할 수도 있습니다.
+
+		SELECT * FROM vehicles LIMIT 5;
+
+### Windows 클러스터의 경우
+
 1. 방금 프로비전한 클러스터에 대한 클러스터 블레이드를 연 다음 **대시보드**를 클릭합니다.
 
 	![클러스터 대시보드 시작](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "클러스터 대시보드 시작")
@@ -152,20 +195,42 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 		SHOW TABLES;
 
-	이 쿼리에 해당하는 세부 정보 보기를 클릭하고 출력은 다음을 표시해야 합니다.
+	이 쿼리에 해당하는 **세부 정보 보기**를 클릭하고 출력은 다음을 표시합니다.
 
 		hivesampletable
 		vehicles
 
 	**vehicles**는 앞에서 만든 테이블입니다. **hivesampletable**은 모든 HDInsight 클러스터에서 기본으로 사용할 수 있는 샘플 테이블입니다.
 
-5. 쿼리를 실행하여 **vehicles**에서 데이터를 검색할 수도 있습니다.
+5. 쿼리를 실행하여 **vehicles** 테이블에서 데이터를 검색할 수도 있습니다.
 
 		SELECT * FROM vehicles LIMIT 5;
+
 
 ## HDFS 명령을 사용한 액세스 데이터 레이크 저장소
 
 데이터 레이크 저장소를 사용하도록 HDInsight 클러스터를 구성한 후 HDFS 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.
+
+### Linux 클러스터의 경우
+
+이 섹션에서 클러스터로 SSH하고 HDFS 명령을 실행합니다. Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
+
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+
+연결되면 다음 HDFS 파일 시스템 명령을 사용하여 데이터 레이크 저장소에 파일을 나열합니다.
+
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+
+데이터 레이크 저장소에 이전에 업로드한 파일이 나열되어야 합니다.
+
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+
+`hdfs dfs -put` 명령을 사용하여 일부 파일을 데이터 레이크 저장소에 업로드한 다음 `hdfs dfs -ls`을(를) 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
+
+
+### Windows 클러스터의 경우
 
 1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -198,7 +263,9 @@ HBase 클러스터의 경우 데이터 레이크 저장소 계정을 기본 저�
 
 서비스 주체를 데이터 레이크 저장소 파일 시스템에 추가하는 방법에 대한 지침은 [서비스 주체를 구성하여 데이터 레이크 저장소 파일 시스템에 액세스](#acl)를 참조하세요.
 
+## Storm 토폴로지에서 데이터 레이크 저장소 사용
 
+데이터 레이크 저장소를 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. 이 시나리오를 달성하는 방법에 대 한 자세한 내용 [HDInsight에서 Apache Storm으로 Azure 데이터 레이크 저장소 사용](../hdinsight/hdinsight-storm-write-data-lake-store.md)을 참조하세요.
 
 ## 참고 항목
 
@@ -207,4 +274,4 @@ HBase 클러스터의 경우 데이터 레이크 저장소 계정을 기본 저�
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

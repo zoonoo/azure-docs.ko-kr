@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Azure 가상 컴퓨터를 백업하기 위한 환경 준비
 Azure 가상 컴퓨터(VM)를 백업하기 전에 환경을 준비하려면 이러한 필수 구성을 완료해야 합니다. 이미 수행한 경우 [VM 백업](backup-azure-vms.md)을 시작할 수 있습니다. 그렇지 않은 경우 아래 단계를 계속 진행하여 사용자 환경이 준비되었는지 확인합니다.
@@ -81,7 +81,7 @@ VM을 백업할 때 스냅숏 관리 명령은 HTTPS API를 사용하여 백업 
 
 >[AZURE.NOTE]사용해야 할 프록시 소프트웨어에 대한 권장 사항은 없습니다. 아래의 구성 단계와 호환되는 프록시를 선택하도록 합니다.
 
-아래 예제에서 앱 VM은 공용 인터넷에 대한 모든 HTTP 트래픽에 프록시 VM을 사용하도록 구성해야 합니다. 프록시 VM은 가상 네트워크의 VM에서 들어오는 트래픽을 허용하도록 구성해야 합니다. 마지막으로 NSG(*NSG-lockdown*이라고 명명됨)는 프록시 VM에서 아웃바운드 인터넷 트래픽을 허용하는 새 보안 규칙이 필요합니다.
+아래 예제에서 앱 VM은 공용 인터넷에 대한 모든 HTTP 트래픽에 프록시 VM을 사용하도록 구성해야 합니다. 프록시 VM은 가상 네트워크의 VM에서 들어오는 트래픽을 허용하도록 구성해야 합니다. 마지막으로 NSG(NSG-lockdown이라고 명명됨)는 프록시 VM에서 아웃바운드 인터넷 트래픽을 허용하는 새 보안 규칙이 필요합니다.
 
 ![HTTP 프록시 배포 다이어그램을 사용하는 NSG](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
@@ -140,7 +140,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 
 이 명령은 NSG에 예외를 추가하여 10.0.0.5의 포트에서 포트 80(HTTP) 또는 443(HTTPS)의 인터넷 주소에 TCP 트래픽을 허용합니다. 공용 인터넷에서 특정 포트를 적중해야 할 경우에 또한 해당 포트를 ```-DestinationPortRange```에 추가해야 합니다.
 
-*배포에 적절한 세부 정보를 사용하여 예제에서 이름을 대체하도록 합니다.*
+배포에 적절한 세부 정보를 사용하여 예제에서 이름을 대체하도록 합니다.
 
 ## 3\. VM 에이전트
 
@@ -156,7 +156,7 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
 | --- | --- | --- |
 | VM 에이전트 설치 | <li>[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li>[VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. | <li> GitHub에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent)를 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li> [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다. |
 | VM 에이전트 업데이트 | VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. | [Linux VM 에이전트 업데이트](../virtual-machines-linux-update-agent.md)의 지침을 따르세요. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
-| VM 에이전트 설치의 유효성 검사 | <li>Azure VM에서 *C:\\WindowsAzure\\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. | - |
+| VM 에이전트 설치의 유효성 검사 | <li>Azure VM에서 C:\\WindowsAzure\\Packages 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. | - |
 
 
 [VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)에 대해 알아보세요.
@@ -165,7 +165,7 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
 
 가상 컴퓨터를 백업하기 위해 Azure 백업 서비스는 VM 에이전트 확장을 설치합니다. Azure 백업 서비스는 추가 사용자 개입 없이 원활하게 백업 확장을 업그레이드 및 패치합니다.
 
-백업 확장은 VM을 실행하는 경우 설치됩니다. 또한 실행 중인 VM은 응용 프로그램 일치 복구 지점을 확보하는 가장 큰 기회를 제공합니다. 그러나 Azure 백업 서비스는 VM이 꺼져 확장을 설치할 수 없더라도(즉, 오프라인 VM) VM을 계속 백업합니다. 이 경우 복구 지점은 위에서 설명한 대로 *크래시 일관성 상태*가 됩니다.
+백업 확장은 VM을 실행하는 경우 설치됩니다. 또한 실행 중인 VM은 응용 프로그램 일치 복구 지점을 확보하는 가장 큰 기회를 제공합니다. 그러나 Azure 백업 서비스는 VM이 꺼져 확장을 설치할 수 없더라도(즉, 오프라인 VM) VM을 계속 백업합니다. 이 경우 복구 지점은 위에서 설명한 대로 크래시 일관성 상태가 됩니다.
 
 
 ## 제한 사항
@@ -178,7 +178,7 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
 - 지역 간 백업 및 복원은 지원되지 않습니다.
 - Azure 백업 서비스를 사용한 가상 컴퓨터 백업은 Azure의 모든 공용 지역에서 지원됩니다(지원되는 지역은 [검사 목록](http://azure.microsoft.com/regions/#services) 참조). 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 - Azure 백업 서비스를 사용하는 가상 컴퓨터 백업은 선택한 운영 체제 버전에 대해서만 지원됩니다.
-  - **Linux**: [Azure 인증 배포 목록](../virtual-machines-linux-endorsed-distributions.md)을 참조하세요. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
+  - **Linux**: [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distributions.md)을 참조하세요. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
   - **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 - 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#restoring-domain-controller-vms)에 대해 자세히 알아보세요.
 - 다음과 같은 특수 네트워크 구성을 포함하는 가상 컴퓨터 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 사용하여 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations)을 참조하세요.
@@ -195,4 +195,4 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
 - [가상 컴퓨터 설정](backup-azure-vms.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

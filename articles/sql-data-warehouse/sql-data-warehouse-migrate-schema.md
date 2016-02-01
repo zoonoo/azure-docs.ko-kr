@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/19/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스로 스키마 마이그레이션#
@@ -115,7 +115,7 @@ OR  y.[is_user_defined] = 1
 - **table**, 임시 테이블로 변환
 - **timestamp**, datetime2 및 `CURRENT_TIMESTAMP` 함수를 사용하도록 코드 재작업. current\_timestamp를 기본 제약 조건으로 사용할 수 없으며 값은 자동으로 업데이트되지 않습니다. rowversion 값을 타임스탬프 형식의 열에서 마이그레이션해야 하는 경우, NOT NULL 또는 NULL 행 버전 값으로 binary(8) 또는 varbinary(8)을 사용합니다.
 - **varchar(max)**, 더 나은 성능을 위해 varchar(8000) 이하 사용
-- **uniqueidentifier**, varbinary(8) 사용
+- **uniqueidentifier**, 값의 입력된 형식(이진 또는 문자)에 따라 varbinary(16) 또는 varchar(36)를 사용합니다. 입력 형식이 문자 기반인 경우 최적화가 가능합니다. 문자에서 이진 형식으로 변환하여 열 저장소를 50% 이상 줄일 수 있습니다. 매우 큰 테이블에서 이 최적화는 도움이 될 수 있습니다.
 - **사용자 정의 형식**, 가능한 경우 해당 네이티브 형식으로 다시 변환
 - **xml**, 더 나은 성능을 위해 varchar(8000) 이하 사용 필요한 경우 열에서 분할
 
@@ -145,4 +145,4 @@ SQLDW로 데이터베이스 스키마를 성공적으로 마이그레이션한 �
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

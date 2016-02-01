@@ -31,7 +31,7 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 > [AZURE.NOTE]Azure Site Recovery PowerShell cmdlet을 사용하여 VMM 사이트에서 VMM 사이트로, VMM 사이트에서 Azure로, Hyper-V 사이트에서 Azure 시나리오로 구성할 수 있습니다. 다른 ASR 시나리오에 대한 지원은 곧 추가될 예정입니다.
 
-이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념을 이해한다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Azure PowerShell을 사용하여 시작](http://technet.microsoft.com/library/hh857337.aspx)을 참조하세요. 자세한 내용은 [Azure 리소스 관리자를 사용하여 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 읽어보세요.
+이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념을 이해한다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Azure PowerShell을 사용하여 시작](http://technet.microsoft.com/library/hh857337.aspx)을 참조하세요. 자세한 내용은 [Azure 리소스 관리자를 사용하여 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 읽어보세요.
 
 
 ## 주요 기능
@@ -43,7 +43,7 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 다음 필수 조건이 충족되었는지 확인합니다.
 
-- [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다. 또한 [Azure Site Recovery Manager 가격](http://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수 있습니다.
+- [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](http://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
 - Azure PowerShell 1.0이 필요합니다. 이 릴리스에 대한 정보 및 설치하는 방법은 [Azure PowerShell 1.0](http://azure.microsoft.com/)을 참조하세요.
 - [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 및 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 모듈을 설치해야 합니다. [PowerShell 갤러리](https://www.powershellgallery.com/)에서 이러한 모듈의 최신 버전을 가져올 수 있습니다.
 
@@ -261,4 +261,4 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

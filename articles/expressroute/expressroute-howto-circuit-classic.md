@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/08/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
@@ -43,7 +43,7 @@
 
 2. **공급자, 위치 및 지원되는 대역폭의 목록을 가져옵니다.**
 
-	Express 경로 회로를 만들기 전에 연결 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다. PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider*는 나중에 사용할 이 정보를 반환합니다.
+	Express 경로 회로를 만들기 전에 연결 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다. PowerShell cmdlet Get-AzureDedicatedCircuitServiceProvider는 나중에 사용할 이 정보를 반환합니다.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -121,7 +121,7 @@
 
 4. **모든 Express 경로 목록.**
 
-	*Get-AzureDedicatedCircuit* 명령을 실행하여 직접 만든 모든 Express 경로 회로 목록을 가져올 수 있습니다.
+	Get-AzureDedicatedCircuit 명령을 실행하여 직접 만든 모든 Express 경로 회로 목록을 가져올 수 있습니다.
 
 		#Getting service key
 		Get-AzureDedicatedCircuit
@@ -137,7 +137,7 @@
 		Sku                              : Standard
 		Status                           : Enabled
 
-	언제든지 *Get-AzureDedicatedCircuit* cmdlet을 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 *ServiceKey* 필드에 나열됩니다.
+	언제든지 Get-AzureDedicatedCircuit cmdlet을 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 ServiceKey 필드에 나열됩니다.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -162,7 +162,7 @@
 		
 		Status                           : Enabled
 
-	*ServiceProviderProvisioningState*는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공하며, Status는 Microsoft 측의 상태를 제공합니다. Express 경로 회로를 사용하려면 다음 상태여야 합니다.
+	ServiceProviderProvisioningState는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공하며, Status는 Microsoft 측의 상태를 제공합니다. Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -178,7 +178,7 @@
 
 5. **주기적으로 회로 키의 상태 및 상태를 확인합니다.**
 
-	이를 통해 공급자가 회로 활성화를 마치면 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *프로비전됨*으로 표시됩니다.
+	이를 통해 공급자가 회로 활성화를 마치면 알 수 있습니다. 회로가 구성된 후에는 ServiceProviderProvisioningState가 아래 예에서처럼 프로비전됨으로 표시됩니다.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -201,7 +201,7 @@
 
 ##  Express 경로 회로의 상태를 가져오려면
 
-언제든지 *Get-AzureCircuit* cmdlet을 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
+언제든지 Get-AzureCircuit cmdlet을 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -320,12 +320,12 @@
 
 이 작업이 성공하려면 모든 가상 네트워크를 Express 경로에서 연결 해제해야 합니다. 이 작업이 실패할 경우 회로에 연결된 가상 네트워크가 있는지 확인하십시오.
 
-Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
+Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 사용 안 함으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
 
-위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
+위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 프로비전 안 됨으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
 
 ## 다음 단계
 
 - [라우팅 구성](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

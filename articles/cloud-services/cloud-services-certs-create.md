@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Azure 클라우드 서비스 인증서 개요
-Azure에서는 인증서가 클라우드 서비스([서비스 인증서](#what-are-service-certificates)) 및 관리 API를 사용한 인증([관리 인증서](#what-are-management-certificates))에 사용됩니다. 이 항목에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만드는](#create) 방법, 인증서를 Azure에 [배포하는](#deploy) 방법을 살펴봅니다.
+Azure에서는 인증서가 클라우드 서비스([서비스 인증서](#what-are-service-certificates)) 및 관리 API를 사용한 인증(ARM이 아닌 Azure 클래식 포털을 사용하는 경우 [관리 인증서](#what-are-management-certificates))에 사용됩니다. 이 항목에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 [배포하는](#deploy) 방법을 살펴봅니다.
 
 Azure에서 사용되는 인증서는 x.509 v3 인증서이며 다른 신뢰할 수 있는 인증서에 의해 서명되거나 자체 서명될 수 있습니다. 자체 서명된 인증서는 해당 작성자에 의해 서명되며 이로 인해 기본적으로 신뢰할 수 없습니다. 대부분의 브라우저는 이러한 인증서를 무시할 수 있습니다. 자체 서명된 인증서는 자신이 클라우드 서비스를 개발하고 테스트하는 경우에만 사용해야 합니다.
 
@@ -31,7 +31,7 @@ Azure 클래식 포털을 사용하거나 서비스 관리 API를 사용하여 �
 서비스 인증서는 서비스와 별도로 관리할 수 있으며 다른 개인이 관리할 수도 있습니다. 예를 들어 개발자는 IT 관리자가 이전에 Azure로 업로드한 인증서를 참조하는 서비스 패키지를 업로드할 수 있습니다. IT 관리자는 새 서비스 패키지를 업로드할 필요 없이 서비스 구성을 변경하는 해당 인증서를 관리하고 갱신할 수 있습니다. 이 작업이 가능한 이유는 인증서의 논리적 이름과 해당 저장소 이름 및 위치는 서비스 정의 파일에 지정되어 있고 인증서 지문은 서비스 구성 파일에 지정되어 있기 때문입니다. 인증서를 업데이트하려면 새 인증서를 업로드하고 서비스 구성 파일의 지문 값을 변경하기만 하면 됩니다.
 
 ## 관리 인증서란 무엇인가요?
-관리 인증서를 사용하면 Azure에서 제공하는 서비스 관리 API를 사용하여 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 클라우드 서비스와는 실제로 관련이 없습니다.
+관리 인증서를 사용하면 Azure 클래식에서 제공하는 서비스 관리 API를 사용하여 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 클라우드 서비스와는 실제로 관련이 없습니다.
 
 >[AZURE.WARNING]주의가 필요합니다! 이러한 형식의 인증서를 사용하면 해당 인증서로 인증된 사람은 누구나 연결된 구독을 관리할 수 있습니다.
 
@@ -51,7 +51,7 @@ Azure 클래식 포털을 사용하거나 서비스 관리 API를 사용하여 �
 * 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다.
     > cloudapp.net(또는 관련된 모든 Azure) 도메인용 SSL 인증서를 얻을 수 없으므로, 인증서의 주체 이름은 사용 중인 응용 프로그램 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어, **contoso.cloudapp.net**이 아니라**contoso.net**입니다.
 * 최소한 2048비트 암호화를 사용해야 합니다.
-* **서비스 인증서에만 해당**: 클라이언트 쪽 인증서는 *개인* 인증서 저장소에 있어야 합니다.
+* **서비스 인증서에만 해당**: 클라이언트 쪽 인증서는 개인 인증서 저장소에 있어야 합니다.
 
 Windows에서는 두 가지 방법, `makecert.exe` 유틸리티 또는 IIS를 사용하여 쉽게 인증서를 만들 수 있습니다.
 
@@ -74,10 +74,10 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 ## 다음 단계
 
-서비스 인증서를 Azure 포털(또는[Preview 포털](cloud-services-configure-ssl-certificate-portal.md))에 [업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
+[서비스 인증서를 Azure 클래식 포털(또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
 
 [관리 API 인증서](../azure-api-management-certs.md)를 Azure 클래식 포털에 업로드합니다.
 
 >[AZURE.NOTE]Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

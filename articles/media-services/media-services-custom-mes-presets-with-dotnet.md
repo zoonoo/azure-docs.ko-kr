@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/10/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -218,6 +218,9 @@
 
 이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 미리 보기를 생성하는 코드를 추가할 수 있습니다.
 
+>[AZURE.NOTE]다음 기본 설정에서 **SceneChangeDetection** 설정은 단일 비트 전송률 비디오로 인코딩하는 경우에만 true로 설정할 수 있습니다. 다중 비트 전송률 비디오로 인코딩하고 **SceneChangeDetection**을 true로 설정한 경우 인코더에서 오류를 반환합니다.
+
+
 스키마에 대한 자세한 내용은 [이 항목](https://msdn.microsoft.com/library/mt269962.aspx)을 참조하세요.
 
 [고려 사항](media-services-custom-mes-presets-with-dotnet.md#considerations) 섹션을 검토해야 합니다.
@@ -230,7 +233,7 @@
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
@@ -413,7 +416,7 @@
 
 	표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
 	
-	또한 Start는 콘텐츠의 첫 번째 “흥미로운" 프레임의 결정을 시도하는 특수 Macro:{Best}를 지원합니다. 참고: (Step 및 Range는 Start를 {Best}로 설정하면 무시됨)
+	또한 Start는 콘텐츠의 첫 번째 "흥미로운" 프레임의 결정을 시도하는 특수 Macro:{Best}를 지원합니다. 참고: (Step 및 Range는 Start를 {Best}로 설정하면 무시됨)
 	
 	- 기본값: Start:{Best}
 - 각 이미지 형식에 대해 출력 형식을 명시적으로 제공해야 합니다. Jpg/Png/BmpFormat. 있는 경우 MES는 JpgFormat을 JpgVideo에 일치시키는 식으로 진행합니다. OutputFormat은 새 이미지 코덱 특유의 Macro: {Index}를 도입하며, 이는 이미지 출력 형식에 대해 존재해야(한 번만) 합니다.
@@ -886,4 +889,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

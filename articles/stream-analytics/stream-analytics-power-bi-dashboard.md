@@ -17,7 +17,7 @@
 	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
-# Azure 스트림 분석 및 Power BI: 스트리밍 데이터에 대한 실시간 가시성을 제공하는 실시간 분석 대시보드
+#  스트림 분석 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 
 Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 Microsoft Power BI를 이용할 수 있습니다. Azure 스트림 분석을 사용하여 대용량, 스트리밍 데이터를 분석하고 실시간 Power BI 분석 대시보드에서 이해를 넓히는 방법에 대해 알아봅니다.
 
@@ -232,4 +232,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

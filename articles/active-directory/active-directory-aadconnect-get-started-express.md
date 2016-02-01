@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath;andkjell"/>
 
 # 기본 설정을 사용하여 Azure AD Connect 시작
@@ -43,7 +43,7 @@
 2. AzureADConnect.msi를 찾아 두 번 클릭합니다.
 3. 시작 화면에서 사용권 계약에 동의하는 상자를 선택하고 **계속**을 클릭합니다.
 4. 기본 설정 화면에서 **Use express settings**(기본 설정 사용)를 클릭합니다. ![Azure AD Connect 시작](./media/active-directory-aadconnect-get-started/express.png)
-5. Azure AD 화면에 연결에서 Azure AD에 대한 Azure 전역 관리자의 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다.
+5. Azure AD 화면에 연결에서 Azure AD에 대한 Azure 전역 관리자의 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다. 오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 6. AD DS 화면에 연결에서 엔터프라이즈 관리자 계정에 대한 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다. ![Azure AD Connect 시작](./media/active-directory-aadconnect-get-started/install4.png)
 7. 구성 준비 화면에서 **설치**를 클릭합니다.
 	- 선택적으로 구성 준비 페이지에서 "**구성이 완료되자마자 동기화 프로세스를 시작합니다.**"의 선택을 취소할 수 있습니다. 이 작업을 수행하는 경우 마법사는 동기화를 구성하지만 작업을 비활성화 상태로 두어 작업 스케줄러에서 수동으로 사용할 때까지 실행되지 않습니다. 작업을 사용하도록 설정하면 3시간마다 동기화가 실행됩니다.
@@ -63,4 +63,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

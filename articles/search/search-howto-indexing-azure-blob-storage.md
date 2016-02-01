@@ -17,9 +17,7 @@ ms.author="eugenesh" />
 
 # Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
 
-오랫동안 Azure 검색 고객은 [Azure SQL 데이터베이스](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) 및 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md)에 대한 인덱서를 사용하여 일부 자주 사용하는 데이터 원본을 "자동으로" 인덱싱할 수 있었습니다.
-
-현재 Azure Blob 저장소에 저장된 문서 인덱싱에 대한 지원을 추가하고 있습니다. 많은 고객으로부터 BLOB에 저장된 문서(예: PDF, Office 문서 또는 HTML 페이지)의 인덱싱을 간소화해달라는 요청이 있었습니다. 지금까지는 텍스트 추출을 위해 사용자 지정 코드를 작성하고 문서를 Azure 검색 인덱스에 추가하는 과정이 포함되었습니다.
+이 문서에서는 Azure 검색을 사용하여 Azure Blob 저장소에 저장된 문서(예: PDF 또는 Office 파일)를 인덱싱하는 방법을 보여줍니다. 새로운 Azure 검색 Blob 인덱서로 이 과정을 신속하게 원활하게 수행할 수 있습니다.
 
 > [AZURE.IMPORTANT]이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 
@@ -203,9 +201,10 @@ BLOB에 BLOB 인덱싱 및 문서 추출 프로세스의 특정 측면을 제어
 속성 이름 | 속성 값 | 설명
 --------------|----------------|------------
 AzureSearch\_Skip | "true" | BLOB 인덱서에 BLOB를 완전히 건너뛰도록 지시합니다. 메타데이터와 콘텐츠 추출을 시도하지 않습니다. 특정 콘텐츠 형식을 건너뛰거나 특정 BLOB가 반복적으로 실패하고 인덱싱 프로세스를 중단하는 경우 유용합니다.
+AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인덱싱하고 Blob의 콘텐츠를 압축 해제하는 과정을 건너뛰도록 지시합니다. Blob 콘텐츠에는 관심이 없지만 Blob에 연결된 메타데이터는 인덱싱하려는 경우 유용합니다.
 
 ## Azure 검색 개선 지원
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

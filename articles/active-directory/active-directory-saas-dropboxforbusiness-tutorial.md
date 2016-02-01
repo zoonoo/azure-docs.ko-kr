@@ -2,7 +2,7 @@
     pageTitle="자습서: Dropbox for Business와 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 Dropbox for Business를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #자습서: Dropbox for Business와 Azure Active Directory 통합
   
@@ -83,17 +83,17 @@
 
 3.  **앱 URL 구성** 페이지에서 다음 단계를 수행합니다.
 
-     3\.1. Dropbox for business 테넌트에 로그온합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Single Sign-On 구성")
+     3.1. Dropbox for business 테넌트에 로그온합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Single Sign-On 구성")
 
-     3\.2. 왼쪽의 탐색 창에서 **관리 콘솔**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Single Sign-On 구성")
+     3.2. 왼쪽의 탐색 창에서 **관리 콘솔**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Single Sign-On 구성")
 
-     3\.3. **관리 콘솔**에서 왼쪽 탐색 창의**인증**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Single Sign-On 구성")
+     3.3. **관리 콘솔**에서 왼쪽 탐색 창의**인증**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Single Sign-On 구성")
 
-     3\.4. **Single sign-on**섹션에서 **single sign-on 사용**을 선택한 다음 **추가**를 클릭하여 이 섹션을 확장합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Single Sign-On 구성")
+     3.4. **Single sign-on**섹션에서 **single sign-on 사용**을 선택한 다음 **추가**를 클릭하여 이 섹션을 확장합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Single Sign-On 구성")
 
-     3\.5. **자신의 전자 메일 주소를 입력하여 사용자가 로그인하거나 직접 이동할 수 있습니다.** 옆의 URL을 복사합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Single Sign-On 구성")
+     3.5. **자신의 전자 메일 주소를 입력하여 사용자가 로그인하거나 직접 이동할 수 있습니다.** 옆의 URL을 복사합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Single Sign-On 구성")
 
-     3\.6. Azure 포털의 **DropBox for business 로그인** URL 텍스트 상자에 URL을 붙여넣습니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Single Sign-On 구성")
+     3.6. Azure 포털의 **DropBox for business 로그인** URL 텍스트 상자에 URL을 붙여넣습니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Single Sign-On 구성")
 
 
 
@@ -102,18 +102,18 @@
 
 5. Dropbox for Business 테넌트의 **인증** 페이지의 **Single sign-on** 섹션에서 다음 단계를 수행합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Single Sign-On 구성")
 
-     5\.1. **필수**를 클릭합니다.
+     5.1. **필수**를 클릭합니다.
 
-     5\.2. Azure 포털의 **Dropbox for Business에서 Single Sign-On 설정** 대화상자 페이지에서 **로그인 페이지 URL** 값을 복사하여, **로그인 URL** 텍스트 상자에 붙여넣습니다.
-
-
-     5\.3. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다. >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+     5.2. Azure 포털의 **Dropbox for Business에서 Single Sign-On 설정** 대화상자 페이지에서 **로그인 페이지 URL** 값을 복사하여, **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
 
-     5\.4. **인증서 선택**을 클릭한 다음 **base-64로 인코딩된 인증서 파일**을 업로드합니다.
+     5.3. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다. > [AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 
-     5\.5. **변경 내용 저장**을 클릭하여 DropBox for Business 테넌트의 구성을 완료할 수 있습니다.
+     5.4. **인증서 선택**을 클릭한 다음 **base-64로 인코딩된 인증서 파일**을 업로드합니다.
+
+
+     5.5. **변경 내용 저장**을 클릭하여 DropBox for Business 테넌트의 구성을 완료할 수 있습니다.
 
 
 6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Single Sign-On 구성")
@@ -158,7 +158,7 @@
 
     ![사용자 할당](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "사용자 할당")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
     ![예](./media/active-directory-saas-dropboxforbusiness-tutorial/IC767830.png "예")
   
@@ -186,4 +186,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

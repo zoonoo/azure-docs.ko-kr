@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh"/>
 
 # Azure 모바일 서비스에 iOS 클라이언트 라이브러리를 사용하는 방법
@@ -253,7 +253,7 @@ Azure 모바일 서비스는 두 가지 인증 워크플로를 지원합니다.
 
 - **서버 관리 로그인**: Azure 모바일 서비스가 앱을 대신하여 로그인 프로세스를 관리합니다. 공급자 특정 로그인 페이지를 표시하고 선택한 공급자를 인증합니다.
 
-- **클라이언트 관리 로그인**: _앱_이 ID 공급자에게 토큰을 요청하고 이 토큰을 인증을 위해 Azure 모바일 서비스에 제시합니다.
+- **클라이언트 관리 로그인**: 앱이 ID 공급자에게 토큰을 요청하고 이 토큰을 인증을 위해 Azure 모바일 서비스에 제시합니다.
 
 인증에 성공하면 사용자 ID 값 및 인증 토큰과 함께 사용자 개체를 다시 받습니다. 이 사용자 ID를 사용하여 사용자를 인증하려면 [서비스 쪽 권한 부여]를 참조하세요. 인증된 사용자로만 테이블 액세스를 제한하려면 [권한]을 참조하세요.
 
@@ -334,4 +334,4 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

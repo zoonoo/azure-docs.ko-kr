@@ -1,6 +1,6 @@
 <properties
-   pageTitle="JavaScript API"
-   description="JavaScript API"
+   pageTitle="논리 앱에서 JavaScript API 앱 사용 | Microsoft Azure"
+   description="JavaScript API 앱 또는 커넥터"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="stepsic"/>
 
 #JavaScript API 앱
-JavaScript API 앱은 *논리 앱을 실행하는 동안* 간단한 JavaScript 식을 실행하는 간편한 방법을 제공합니다.
+JavaScript API 앱은 논리 앱을 실행하는 동안 간단한 JavaScript 식을 실행하는 간편한 방법을 제공합니다.
 
 ##이 API 앱을 언제 사용해야 할까요?
-이 API 앱의 주요 시나리오는 작성하는 코드의 수명 주기가 논리 앱과 동일하고 다른 시나리오에서는 해당 코드를 호출하지 *않는* 경우입니다.
+이 API 앱의 주요 시나리오는 작성하는 코드의 수명 주기가 논리 앱과 동일하고 다른 시나리오에서는 해당 코드를 호출하지 않는 경우입니다.
 
 반면, 논리 앱에 독립적인 수명 주기를 갖는 코드의 재사용 가능한 코드 조각을 원한다면 WebJobs API 앱을 사용하여 간단한 코드 식을 만들어 논리 앱에서 호출해야 합니다.
 
@@ -33,9 +33,9 @@ JavaScript API 앱을 사용하려면 먼저 JavaScript API 앱의 인스턴스�
 
 ##논리 앱 디자이너 화면에서 JavaScript API 앱 사용
 ###트리거
-논리 앱 서비스가 폴링(사용자가 정의한 간격으로)하여 임의의 내용을 반환하는 경우 논리 앱이 실행되고 그렇지 않으면 다음 폴링 간격에서 다시 확인할 때까지 대기하는 트리거를 만들 수 있습니다.
+논리 앱 서비스가 폴링(사용자가 정의한 간격으로)하여 콘텐츠를 반환하는 경우 논리 앱이 실행되고 그렇지 않으면 다음 폴링 간격에서 다시 확인할 때까지 대기하는 트리거를 만들 수 있습니다.
 
-트리거에 대한 입력은 다음과 같습니다. - **JavaScript 식** - 평가할 식. 함수 내에서 호출되며 논리 앱이 실행되는 것을 원치 않을 때는 `false`를 반환해야 합니다. 논리 앱이 실행되도록 하려면 그 이외의 값을 반환할 수 있습니다. 그러면 논리 앱 작업에서 응답 내용을 사용할 수 있게 됩니다. - **컨텍스트 개체** - 트리거에 전달할 수 있는 선택적인 개체. 원하는 만큼 속성을 정의할 수 있지만 최상위 엔터티는 `{ "bar" : 0}` 등의 개체여야 합니다.
+트리거에 대한 입력은 다음과 같습니다. - **JavaScript 식** - 평가할 식. 함수 내에서 호출되며 논리 앱이 실행되는 것을 원치 않을 때는 `false`를 반환해야 합니다. 논리 앱이 실행되도록 하려면 그 이외의 값을 반환할 수 있습니다. 그러면 논리 앱 작업에서 응답 내용을 사용할 수 있습니다. - **컨텍스트 개체** - 트리거에 전달할 수 있는 선택적인 개체. 원하는 만큼 속성을 정의할 수 있지만 최상위 엔터티는 `{ "bar" : 0}` 등의 개체여야 합니다.
 
 예를 들어 해당 시간의 15분과 30분 사이에만 논리 앱을 실행하는 간단한 트리거가 있을 수 있습니다.
 
@@ -91,4 +91,4 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

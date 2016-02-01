@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # 예 2 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드
@@ -566,4 +566,4 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

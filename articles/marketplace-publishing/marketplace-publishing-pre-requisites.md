@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/08/2015"
+  ms.date="01/07/2016"
   ms.author="hascipio; v-divte"/>
 
 # Azure 마켓플레이스용 제품을 만들기 위한 일반적인 필수 조건
@@ -45,9 +45,9 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 
 | 가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
 |-----|-----|-----|-----|
-| [VM 기술적인 필수 조건](marketplace-publishing-vm-image-creation-prerequisites.md) | [개발자 서비스 기술적인 필수 조건](marketplace-publishing-dev-service-creation-prerequisites.md) | [데이터 서비스 기술적인 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [VM 기술적인 필수 조건](marketplace-publishing-vm-image-creation-prerequisites.md) | 개발자 서비스 기술적인 필수 조건 | [데이터 서비스 기술적인 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

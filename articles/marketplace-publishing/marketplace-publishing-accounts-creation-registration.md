@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/07/2016"
    ms.author="hascipio"/>
 
 # Microsoft 개발자 계정 만들기
@@ -22,7 +22,7 @@
 ## 1\. Microsoft 계정 만들기
 > [AZURE.WARNING]게시 프로세스를 시작하려면 Microsoft 계정을 만들어야 합니다. 이 계정은 **Microsoft 개발자 센터** 및 **Azure 게시 포털**에 등록 및 로그인하는 데 사용됩니다. Azure 마켓플레이스 제품에 대해 Microsoft 계정이 하나만 있으면 됩니다. 서비스 또는 제품에 한정될 필요가 없습니다.
 
-사용자 이름을 구성하는 주소는 귀사의 도메인에 속하고 귀사의 IT 팀에서 제어해야 합니다(예: publishing@example.com). 결제, 세금 정보 및 보고가 이 계정을 통해 전송됩니다.
+사용자 이름을 구성하는 주소는 귀사의 도메인에 속하고 귀사의 IT 팀에서 제어해야 합니다(예: publishing@example.com)). 결제, 세금 정보 및 보고가 이 계정을 통해 전송됩니다.
 
   >[AZURE.WARNING]"Azure" 및 "Microsoft"와 같은 단어는 Microsoft 계정 등록에 대해 지원되지 않습니다. 계정 만들기 및 등록 프로세스를 완료하려면 이러한 단어를 사용하지 마십시오.
 
@@ -65,7 +65,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 
 2. [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)로 이동합니다.
 
-3. 회사 등록 Microsoft 계정(예: marketplace@example.com)으로 로그인합니다.
+3. 회사 등록 Microsoft 계정(예: marketplace@example.com))으로 로그인합니다.
 
     ![그리기][img-signin]
 
@@ -143,15 +143,15 @@ Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 
 
 2.	[http://publish.windowsazure.com](http://publish.windowsazure.com)으로 이동합니다.
 
-3.	회사 등록 Microsoft 계정(즉, marketplace@example.com)으로 로그인하고 필요에 따라 공동 관리자를 추가할 수 있습니다.
+3.	회사 등록 Microsoft 계정(즉, marketplace@example.com))으로 로그인하고 필요에 따라 공동 관리자를 추가할 수 있습니다.
 
   >[AZURE.TIP]참가 정책은 [Azure 웹 사이트](http://azure.microsoft.com/support/legal/marketplace/participation-policies/)에 설명되어 있습니다.
 
   > 개발자 센터 등록에 문제가 있으면 아래와 같이 지원 티켓을 기록하세요. 
   1. [지원](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=ko-KR&pesid=15635&ccsid=635847950577064286)에 문의합니다. 
   2. **개발자 센터**를 선택합니다. 
-  3. **프로필**을 선택합니다. 
-  4. 연락 방법 선택
+  3. **프로필**을 선택합니다.
+   4. 연락 방법 선택
 
 
 
@@ -163,9 +163,9 @@ Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 
 
 || 가상 컴퓨터 이미지 | 개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
 |----|-----|-----|-----|-----|
-|**2단계: 제품 만들기** |[일반 비기술 필수 조건](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 조건](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 조건](marketplace-publishing-pre-requisites.md)| [일반 비기술 필수 조건](marketplace-publishing-pre-requisites.md)|
-|| [VM 이미지 필수 기술][link-single-vm-prereq] | [개발자 서비스 기술 필수 조건](marketplace-publishing-dev-service-creation-prerequisites.md) | [데이터 서비스 기술 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [VM 이미지 게시 가이드][link-single-vm] | [개발자 서비스 게시 가이드](marketplace-publishing-dev-creation.md) | [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md) | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |
+|**2단계: 제품 만들기** |[일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)|
+|| [VM 이미지 기술적인 필수 조건][link-single-vm-prereq] | 개발자 서비스 기술적인 필수 조건 | [데이터 서비스 기술적인 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md) | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |
 || [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] |
 
 ## 참고 항목
@@ -198,4 +198,4 @@ Azure 게시 포털은 제품을 게시하고 관리하는 데 사용됩니다. 
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

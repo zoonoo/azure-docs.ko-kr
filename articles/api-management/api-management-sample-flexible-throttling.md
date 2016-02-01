@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="01/15/2016"
 	ms.author="v-darmi"/>
 
 
@@ -68,4 +68,9 @@ Azure API 관리에서는 속도 및 할당량 제한을 제공하여 API 서비
 ## 다음 단계
 이 항목에 대한 Disqus 스레드에 의견을 보내주세요. 귀하의 시나리오에서 논리적으로 선택된 잠재적인 다른 키 값에 대한 의견을 환영합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+## 이러한 정책에 대한 동영상 개요 시청
+이 문서에서 다루는 [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) 및 [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) 정책에 대한 자세한 내용은 다음 동영상을 참조하세요.
+
+> [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
+
+<!---HONumber=AcomDC_0121_2016-->

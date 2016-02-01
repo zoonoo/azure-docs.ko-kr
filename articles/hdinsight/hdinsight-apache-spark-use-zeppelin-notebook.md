@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용(Linux)
 
 Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Notebook 사용 방법을 알아봅니다.
+
+> [AZURE.IMPORTANT]HDInsight Spark 클러스터용 Zeppelin Notebook은 Azure HDInsight Spark 환경에서 Zeppelin을 사용하는 방법을 보여줍니다. HDInsight Spark와 함께 작동하도록 노트북을 사용하려는 경우에는 Jupyter 노트북을 대신 사용하는 것이 좋습니다. 또한 Jupyter 노트북은 Scala 등의 다른 커널 옵션을 제공하고 지속적으로 향상된 기능을 제공합니다. HDInsight Spark와 Jupyter 노트북을 사용하는 방법에 대한 지침은 [Jupyter 노트북을 사용하여 Spark SQL 쿼리 실행](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter)을 참조하세요.
 
 **필수 조건:**
 
@@ -37,7 +39,7 @@ Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Note
 
 ## 클러스터 만들기의 일부로 Zeppelin 설치
 
-스크립트 작업을 사용하여 Spark 클러스터에서 Zeppelin을 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. Spark 클러스터에서 Zeppelin을 설치하는 사용자 지정 스크립트는 * ***https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**에서 사용 가능합니다.
+스크립트 작업을 사용하여 Spark 클러스터에서 Zeppelin을 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. Spark 클러스터에서 Zeppelin을 설치하는 사용자 지정 스크립트는 ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**에서 사용 가능합니다.
 
 ### Azure 포털 사용
 
@@ -131,7 +133,7 @@ PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니�
 
 1. PuTTY를 열고 연결 정보를 입력합니다. PuTTY를 잘 알고 있지 않다면 HDInsight와 함께 사용하는 방법에 대한 정보에 대해 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조합니다.
 
-2. 대화 상자의 왼쪽에 있는 **범주** 섹션에서 **연결**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
+2. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
 
 3. **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
 
@@ -189,7 +191,7 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	* **Pattern Name** - **zeppelinnotebook** - 패턴의 이름입니다.
 
-	* **URL 패턴** - ***hn0*** - Zeppelin Notebook이 호스팅되는 끝점의 내부 정규화된 도메인 이름과 일치하는 패턴을 정의합니다. Zeppelin Notebook은 클러스터의 headnode0에만 사용할 수 있고 끝점은 일반적으로 `http://hn0-<string>.internal.cloudapp.net`이므로, **hn0** 패턴을 사용하면 요청이 반드시 Zeppelin 끝점으로 리디렉션됩니다.
+	* **URL 패턴** - **hn0** - Zeppelin Notebook이 호스팅되는 끝점의 내부 정규화된 도메인 이름과 일치하는 패턴을 정의합니다. Zeppelin Notebook은 클러스터의 headnode0에만 사용할 수 있고 끝점은 일반적으로 `http://hn0-<string>.internal.cloudapp.net`이므로, **hn0** 패턴을 사용하면 요청이 반드시 Zeppelin 끝점으로 리디렉션됩니다.
 
 		![foxyproxy 패턴](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -328,4 +330,4 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

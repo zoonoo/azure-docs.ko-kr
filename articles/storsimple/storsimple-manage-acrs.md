@@ -91,7 +91,8 @@ Azure 클래식 포털의 **구성** 페이지에서 ACR을 삭제합니다.
 ## 다음 단계
 
 - [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아봅니다.
+
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

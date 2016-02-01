@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # 클라우드 서비스를 만들고 배포하는 방법
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 Azure 클래식 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 **빨리 만들기** 및 **사용자 지정 만들기**를 제공합니다.
 
@@ -51,7 +51,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 - 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop.md)합니다.
 
-- 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링*(기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. "자세한 모니터링*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)(영문)을 참조하세요.
+- 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. 최소 모니터링(기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. "자세한 모니터링*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)(영문)을 참조하세요.
 
 웹 역할 또는 작업자 역할 배포를 통해 클라우드 서비스를 만들려면 [서비스 패키지를 만들어야](cloud-services-model-and-package.md#servicepackagecspkg) 합니다.
 
@@ -118,7 +118,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 4. **구성**에서 **찾아보기**를 사용하여 사용할 서비스 구성 파일(.cscfg)을 선택합니다.
 
-5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **Deploy even if one or more roles contain a single instance** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
+5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
 
     Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
@@ -147,7 +147,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure.md)
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md) 구성
-* [클라우드 서비스 관리](cloud-services-how-to-manage.md)
+* [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md) 구성
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure SQL 데이터베이스 복사"
+	pageTitle="Azure SQL 데이터베이스 복사 | Microsoft Azure"
 	description="Azure SQL 데이터베이스 사본 만들기"
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/16/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -84,7 +84,7 @@ SQL 데이터베이스를 복사하려면 다음이 필요합니다.
 
 ## 다음 단계
 
-- [SQL Server Management Studio(SSMS)로 연결](sql-database-connect-to-database.md)
+- [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
 - [데이터베이스를 BACPAC로 내보내기](sql-database-export.md)
 
 
@@ -101,4 +101,4 @@ SQL 데이터베이스를 복사하려면 다음이 필요합니다.
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -165,7 +165,7 @@
 	> 
 	> 크롬을 사용하는 경우 [Chrome 웹 스토어](https://chrome.google.com/webstore/)로 이동하여 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택해 설치합니다.
 	>  
-	> Firefox의 경우 동일한 작업을 수행해야 합니다(추가 기능 설치). 예를 들어 [여기](https://addons.mozilla.org/firefox/addon/fxclickonce/)서 하나를 설치할 수 있습니다.
+	> Firefox의 경우 동일한 작업을 수행해야 합니다(추가 기능 설치). 도구 모음(상단 오른쪽 모서리의 **세 가로 줄**)의 **열기 메뉴** 단추를 클릭하고 **추가 기능**을 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.
 
 	![게이트웨이 - 구성 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -424,7 +424,7 @@
 	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink**를 **sink type**으로 지정합니다.
-	- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
+- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
@@ -560,7 +560,7 @@
 	4. **확인**을 클릭하여 대화 상자를 닫습니다. 
 4. **확인**을 클릭하여 **자격 증명** 블레이드를 닫습니다. 
 5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
-6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.
+6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다. 
 	![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
@@ -643,4 +643,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 5.	게이트웨이는 동일한 인증서로 자격 증명의 암호를 해독하고 적절한 인증 형식으로 온-프레미스 데이터 저장소에 연결합니다.
 6.	게이트웨이는 데이터 파이프라인에서 복사 활동을 구성하는 방법에 따라 온-프레미스 저장소에서 클라우드 저장소에 또는 클라우드 저장소에서 온-프레미스 데이터 저장소에 데이터를 복사합니다. 참고: 이 단계의 경우 게이트웨이는 보안(HTTPS) 채널을 통해 클라우드 기반 저장소 서비스(예: Azure Blob, Azure SQL 등)와 직접 통신합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

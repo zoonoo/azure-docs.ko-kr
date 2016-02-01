@@ -517,8 +517,6 @@ SQL 데이터베이스 활용에 대한 일반적인 지침은 다음을 참조�
 
 	namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                             maxBackoff: TimeSpan.FromSeconds(30),
-	                                                             deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                             terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                             maxRetryCount: 3);
 
 이 코드에서는 명확하게 하기 위해 명명된 매개 변수를 사용합니다. 또는 매개 변수가 선택 사항이 아니므로 이름을 생략할 수 있습니다.
@@ -530,8 +528,6 @@ SQL 데이터베이스 활용에 대한 일반적인 지침은 다음을 참조�
 
 	messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                    maxBackoff: TimeSpan.FromSeconds(30),
-	                                                    deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                    terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                    maxRetryCount: 3);
 
 메시징 클라이언트에 대한 재시도 정책을 설정하거나 기본 정책을 재정의하려면 필요한 정책 클래스의 인스턴스를 사용하여 **RetryPolicy** 속성을 설정합니다.
@@ -539,8 +535,6 @@ SQL 데이터베이스 활용에 대한 일반적인 지침은 다음을 참조�
 ```csharp
 client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                        maxBackoff: TimeSpan.FromSeconds(30),
-	                                        deltaBackoff: TimeSpan.FromSeconds(2),
-	                                        terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                        maxRetryCount: 3);
 ```
 
@@ -619,8 +613,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(1.75),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(4),
 		                maxRetryCount: 3);
 
 		        // Policies cannot be specified on a per-operation basis.
@@ -644,8 +636,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -664,8 +654,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0.1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -955,13 +943,11 @@ Azure Active Directory를 사용하는 경우 다음 지침을 고려합니다.
 다음 코드 예제에서는 일시적인 오류 처리 응용 프로그램 블록(Topaz)을 사용하여 ADAL 클라이언트에서 사용하는 데 적합한 사용자 지정 일시적인 오류 검색 전략을 정의하는 방법을 보여 줍니다. 이 코드에서는 아래 코드 목록에 정의된 대로 **AdalDetectionStrategy** 형식의 사용자 지정 검색 전략에 따라 새 **RetryPolicy** 인스턴스를 만듭니다. Topaz에 대한 사용자 지정 검색 전략은 **ITransientErrorDetectionStrategy** 인터페이스를 구현하고 재시도를 시도해야 하는 경우에는 true를 반환하거나 오류가 일시적인 아닌 것으로 나타나 재시도를 시도하지 않아야 하는 경우에는 **false**를 반환합니다.
 
 	using System;
-	using System.Collections.Generic;
 	using System.Linq;
 	using System.Net;
-	using System.Text;
 	using System.Threading.Tasks;
+	using Microsoft.Practices.TransientFaultHandling;
 	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 
 	namespace RetryCodeSamples
 	{
@@ -1121,4 +1107,4 @@ Azure 또는 타사 서비스에 액세스하는 경우 다음 사항을 고려�
 | **선형(고정 간격)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1초<br />true | 재시도 횟수입니다.<br />재시도 사이의 지연 시간입니다.<br />첫 번째 재시도가 즉시 수행되는지 여부입니다. |
 일시적인 오류 처리 응용 프로그램 블록 사용에 대한 예제는 이 지침의 앞 부분에서 ADO.NET을 사용하는 SQL 데이터베이스 및 Azure Active Directory에 대한 예제 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

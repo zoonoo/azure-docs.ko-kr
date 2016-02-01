@@ -2,7 +2,7 @@
     pageTitle="자습서: 인바운드 동기화를 위한 Workday 구성 | Microsoft Azure" 
     description="Azure Active Directory에서 인바운드 동기화를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #자습서: 인바운드 동기화를 위한 Workday 구성
 >[AZURE.NOTE]Azure AD(Active Directory) Premium은 Azure AD의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. 중국의 21Vianet에서 운영하는 Microsoft Azure 서비스는 현재 Azure AD Premium을 지원하지 않습니다.
@@ -181,4 +181,4 @@
 
 이제 **사용자** 섹션으로 이동하여 Workday 사용자를 가져왔는지 확인할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="01/15/2016"
    ms.author="jroth" />
 
 # Azure SQL 데이터베이스 일반 제한 사항 및 지침
@@ -32,12 +32,6 @@
 ## SQL Server 에이전트/작업
 
 Microsoft Azure SQL 데이터베이스는 SQL Server 에이전트 또는 작업을 지원하지 않습니다. 그러나 온-프레미스 SQL Server에서 SQL Server 에이전트를 실행하고 Microsoft Azure SQL 데이터베이스에 연결할 수 있습니다.
-
-## 트랜잭션
-
-Azure SQL 데이터베이스는 여러 리소스에 영향을 주는 트랜잭션인 분산 트랜잭션을 지원하지 않습니다. 자세한 내용은 [분산 트랜잭션(ADO.NET)](https://msdn.microsoft.com/library/ms254973.aspx)을 참조하세요. SQL 데이터베이스는 장애 조치에서 현재 데이터베이스(DBTS)의 커밋되지 않은 타임스탬프 값을 보존하지 않을 수 있습니다.
-
-> [AZURE.NOTE]특정한 상황에서 트랜잭션은 분산 트랜잭션으로 자동 승격할 수 있습니다. 자세한 내용은 [SQL Server와 System.Transactions 통합](https://msdn.microsoft.com/library/ms172070.aspx)을 참조하세요.
 
 ## SQL Server 데이터 정렬 지원
 
@@ -69,4 +63,4 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 테이블 서비스를 사용하는 Node.js 웹앱"
-	description="Azure 테이블 서비스를 사용하여 Azure 앱 서비스 웹앱에서 호스팅되는 Node.js 응용프로그램의 데이터를 저장하는 방법을 설명하는 자습서입니다."
+	description="이 자습서는 Azure 테이블 서비스를 사용하여 Azure 앱 서비스 웹앱에서 호스트되는 Node.js 응용프로그램의 데이터를 저장하는 방법을 설명합니다."
 	tags="azure-portal"
 	services="app-service\web, storage"
 	documentationCenter="nodejs"
@@ -14,10 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/20/2016"
 	ms.author="robmcm"/>
-
-
 
 # Azure 테이블 서비스를 사용하는 Node.js 웹앱
 
@@ -39,8 +37,7 @@
 
 ![빈 tasklist가 표시된 웹 페이지][node-table-finished]
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 필수 조건
 
@@ -49,7 +46,6 @@
 * [node] 버전 0.10.24 이상
 
 * [Git]
-
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -92,7 +88,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE] '-g' 매개 변수는 모듈을 전역적으로 설치합니다. 이와 같이 **express**를 사용하여 추가 경로 정보를 입력하지 않고도 웹앱 스캐폴딩을 생성할 수 있습니다.
+	> [AZURE.NOTE]'-g' 매개 변수는 모듈을 전역적으로 설치합니다. 이와 같이 **express**를 사용하여 추가 경로 정보를 입력하지 않고도 웹앱 스캐폴딩을 생성할 수 있습니다.
 
 4. 응용프로그램에 대한 스캐폴딩을 만들려면 **express** 명령을 입력하세요.
 
@@ -171,7 +167,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ### 모델 만들기
 
-*모델*은 응용프로그램에서 데이터를 나타내는 개체입니다. 응용프로그램의 경우 모델만 할 일 목록에서 항목을 나타내는 작업 개체입니다. 작업에는 다음 필드가 포함됩니다.
+모델은 응용프로그램에서 데이터를 나타내는 개체입니다. 응용프로그램의 경우 모델만 할 일 목록에서 항목을 나타내는 작업 개체입니다. 작업에는 다음 필드가 포함됩니다.
 
 - PartitionKey
 - RowKey
@@ -262,7 +258,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ### 컨트롤러 만들기
 
-*컨트롤러*는 HTTP 요청을 처리하고 HTML 응답을 렌더링합니다.
+컨트롤러는 HTTP 요청을 처리하고 HTML 응답을 렌더링합니다.
 
 1. **tasklist/routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만들고 텍스트 편집기에서 엽니다.
 
@@ -293,7 +289,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		  },
 
 		  addTask: function(req,res) {
-		    var self = this
+		    var self = this;
 		    var item = req.body.item;
 		    self.task.addItem(item, function itemAdded(error) {
 		      if(error) {
@@ -340,7 +336,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE] nconf는 환경 변수 또는 나중에 만들 **config.json** 파일에서 구성 값을 로드합니다.
+	> [AZURE.NOTE]nconf는 환경 변수 또는 나중에 만들 **config.json** 파일에서 구성 값을 로드합니다.
 
 3. app.js 파일에서 다음 줄이 보일 때까지 아래로 스크롤합니다.
 
@@ -427,7 +423,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ### 구성 파일 만들기
 
-앱을 로컬로 실행하기 위해 Azure 저장소 자격 증명을 구성 파일에 배치합니다. 다음 JSON으로 **config.json**이라는 파일 이름을 만듭니다.
+앱을 로컬로 실행하기 위해 Azure 저장소 자격 증명을 구성 파일에 배치합니다. 다음 JSON으로 **config.json* *이라는 파일 이름을 만듭니다.
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -445,7 +441,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 	    "TABLE_NAME": "tasks"
 	}
 
-다음과 같이 이 파일을 **tasklist** 디렉터리보다 *한 디렉터리 높은 단계*에 저장합니다.
+다음과 같이 이 파일을 **tasklist** 디렉터리보다 한 디렉터리 높은 단계에 저장합니다.
 
 	parent/
 	  |-- config.json
@@ -468,7 +464,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 	다음 예제와 유사한 웹 페이지가 나타납니다.
 
-![빈 tasklist가 표시된 웹 페이지][node-table-finished]
+	![빈 tasklist가 표시된 웹 페이지][node-table-finished]
 
 4. 새 할 일 항목을 만들려면 이름 및 범주를 입력하고 **항목 추가**를 클릭합니다.
 
@@ -602,10 +598,11 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
+<!-- URLs -->
+
 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
-
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
@@ -624,6 +621,9 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 [Azure Portal]: https://portal.azure.com
 
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+ 
+<!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
@@ -632,13 +632,9 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [portal-storage-account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
 [portal-quick-create-storage]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
 [portal-storage-access-keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
-
 [go-to-dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

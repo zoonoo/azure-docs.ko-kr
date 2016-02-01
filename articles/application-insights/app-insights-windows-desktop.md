@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Windows 데스크톱 앱, 서비스 및 작업자 역할의 Application Insights
 
-*Application Insights는 미리 보기 상태입니다.*
+Application Insights는 미리 보기 상태입니다.
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -37,9 +37,9 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     (응용 프로그램 종류 선택은 개요 블레이드의 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성을 설정합니다.)
 
-2.  계측 키를 복사합니다.
+2.  계측 키를 복사합니다. 방금 만든 새 리소스의 필수 드롭다운에서 키를 찾습니다.
 
-    ![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-windows-desktop/02-props.png)
+    ![Essentials 클릭, 키 선택 및 Ctrl+C 누르기](./media/app-insights-windows-desktop/02-props.png)
 
 ## <a name="sdk"></a>응용 프로그램에 SDK를 설치합니다.
 
@@ -52,7 +52,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     !["Application Insights" 검색](./media/app-insights-windows-desktop/04-ai-nuget.png)
 
-    *다른 패키지를 사용할 수 있나요?*
+    다른 패키지를 사용할 수 있나요?
 
     예. API만 사용하여 사용자 고유의 원격 분석을 보내려는 경우 코어 API(Microsoft.ApplicationInsights)를 선택합니다. Windows Server 패키지에는 코어 API와 성능 카운터 수집 및 종속성 모니터링과 같은 다양한 다른 패키지가 자동으로 포함됩니다.
 
@@ -62,7 +62,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     * 코어 API 패키지 Microsoft.ApplicationInsights를 설치한 경우 main()와 같은 코드에서 키를 설정해야 합니다. 
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *키* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` 키 `";`
 
     다른 패키지 중 하나를 설치한 경우 코드를 사용하여 키를 설정하거나 ApplicationInsights.config에서 설정할 수 있습니다.
  
@@ -117,7 +117,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
 * 양식, 페이지 또는 탭 전환에서 `TrackPageView(pageName)`
 * 다른 사용자 작업에 대한 `TrackEvent(eventName)`
-* 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 백그라운드 작업에서 `TrackMetric(name, value)`입니다.
+* 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 배경 작업에서 `TrackMetric(name, value)`입니다.
 * [진단 로깅][diagnostic]을 위한 `TrackTrace(logEvent)`
 * catch 절에서 `TrackException(exception)`
 * 앱을 닫기 전에 모든 원격 분석이 전송되었는지 확인하려면 `Flush()`입니다. 코어 API(Microsoft.ApplicationInsights)를 사용하는 경우 이를 사용합니다. 웹 SDK는 이 동작을 자동으로 구현합니다. (인터넷을 항상 사용할 수 없는 컨텍스트에서 앱을 실행하는 경우 [지속성 채널](#persistence-channel)을 참조하세요.)
@@ -169,7 +169,7 @@ Azure 포털에서 사용자 응용 프로그램 블레이드로 돌아갑니다
 
 더 많은 데이터를 기대하는 경우 몇 초 후에 새로고침을 클릭합니다.
 
-TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메트릭 탐색기][metrics]를 열고 필터 블레이드를 엽니다. 여기에 메트릭을 표시해야 하지만 때로 파이프라인을 통해 얻으려면 시간이 걸리므로 필터 블레이드 닫고 잠시 기다린 다음 새로 고쳐야 할 수 있습니다.
+TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메트릭을 탐색기][metrics]를 열고 필터 블레이드를 엽니다. 여기에 메트릭을 표시해야 하지만 때로 파이프라인을 통해 얻으려면 시간이 걸리므로 필터 블레이드 닫고 잠시 기다린 다음 새로 고쳐야 할 수 있습니다.
 
 
 
@@ -177,9 +177,9 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 
 인터넷 연결을 항상 사용할 수 없거나 느린 곳에서 앱을 실행하는 경우 기본 메모리 내 채널 대신 지속성 채널을 사용하는 것이 좋습니다.
 
-기본 메모리 내 채널에서 앱을 닫을 때까지 전송되지 않은 모든 원격 분석은 손실됩니다. `Flush()`를 사용하여 버퍼에 남아 있는 데이터를 보내려고 시도할 수 있지만 인터넷에 연결되어 있지 않거나 전송이 완료되기 전에 앱이 종료되면 데이터가 손실됩니다.
+기본 메모리 내 채널에서 앱을 닫을 때까지 전송되지 않은 모든 원격 분석은 손실됩니다. `Flush()`를 사용하여 버퍼에 남아 있는 데이터를 보내려고 시도할 수 있지만 인터넷이 연결되어 있지 않거나 전송이 완료되기 전에 앱이 종료되면 데이터가 손실됩니다.
 
-반면에 지속성 채널은 파일을 포털에 보내기 전에 파일에서 원격 분석을 버퍼링합니다. `Flush()`는 데이터가 파일에 저장되도록 보장합니다. 앱을 닫을 때까지 모든 데이터가 전송되지 않은 경우 파일에 유지됩니다. 앱을 다시 시작하면 인터넷이 연결된 경우 데이터가 전송됩니다. 연결을 사용할 수 있을 때까지 필요한 만큼 데이터 파일이 누적됩니다.
+반면 지속성 채널은 파일을 포털에 보내기 전에 파일에서 원격 분석을 버퍼링합니다. `Flush()`은 데이터가 파일에 저장되도록 보장합니다. 앱을 닫을 때까지 모든 데이터가 전송되지 않은 경우 파일에 유지됩니다. 앱을 다시 시작하면 인터넷이 연결된 경우 데이터가 전송됩니다. 연결을 사용할 수 있을 때까지 필요한 만큼 데이터 파일이 누적됩니다.
 
 ### 지속성 채널을 사용하려면
 
@@ -198,7 +198,7 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
       TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
     
     ``` 
-3. 앱을 닫기 전에 `telemetryClient.Flush()`를 사용하여 데이터를 포털로 전송하거나 파일에 저장합니다.
+3. 앱을 닫기 전에 `telemetryClient.Flush()`을 사용하여 데이터를 포털로 전송하거나 파일에 저장합니다.
 
     Flush()는 지속성 채널에서 동기 상태이지만 타 채널에서는 비동기 상태입니다.
 
@@ -207,7 +207,7 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 
 #### 예
 
-처리되지 않은 예외를 모니터링하려는 경우를 가정해 보겠습니다. `UnhandledException` 이벤트에 구독합니다. 콜백에서 플러시에 호출을 포함하여 원격 분석이 유지되도록 합니다.
+처리되지 않은 예외를 모니터링하려는 경우를 가정해 보겠습니다. `UnhandledException` 이벤트를 구독합니다. 콜백에서 플러시에 호출을 포함하여 원격 분석이 유지되도록 합니다.
  
 ```C# 
 
@@ -299,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

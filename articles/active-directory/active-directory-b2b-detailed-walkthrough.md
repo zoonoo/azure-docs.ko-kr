@@ -3,6 +3,7 @@
    description="Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 응용 프로그램에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다."
    services="active-directory"
    authors="viv-liu"
+   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -79,4 +80,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 - [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=AcomDC_0121_2016-->

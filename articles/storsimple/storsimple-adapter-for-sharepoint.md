@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/14/2016"
    ms.author="v-sharos" />
 
 # SharePoint용 StorSimple 어댑터 설치 및 구성
@@ -197,7 +197,7 @@ SharePoint용 StorSimple 어댑터를 설치한 후에 다음 절차에서 설�
 
 개체가 SharePoint 사이트에서 삭제되면 RBS 저장소 볼륨에서 자동으로 삭제되지 않습니다. 대신 비동기 백그라운드 유지 관리 프로그램이 삭제 파일에서 분리된 BLOB를 삭제합니다. 시스템 관리자는 이 프로세스가 주기적으로 실행되도록 예약하거나 필요할 때마다 프로세스를 시작할 수 있습니다.
 
-RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 응용 프로그램 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다. *부팅 드라이브*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 응용 프로그램 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다. 부팅 드라이브:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
 유지 관리 프로그램을 구성 및 사용하는 방법에 대한 자세한 내용은 [SharePoint Server 2013에서 RBS 유지 관리][8]를 참조하세요.
 
@@ -308,4 +308,4 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ko-KR/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

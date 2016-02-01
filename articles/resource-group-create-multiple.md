@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기
@@ -157,17 +157,25 @@
 
 예를 들어, 데이터 집합을 데이터 팩터리 내에 중첩된 리소스로 정의한다고 가정합니다.
 
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "string"
+         }
+    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[variables('dataFactoryName')]",
+        "name": "[parameters('dataFactoryName')]",
         ...
         "resources": [
         {
             "type": "datasets",
-            "name": "[variables('dataSetName')]",
+            "name": "[parameters('dataSetName')]",
             "dependsOn": [
-                "[variables('dataFactoryName')]"
+                "[parameters('dataFactoryName')]"
             ],
             ...
         }
@@ -175,21 +183,29 @@
     
 데이터 집합의 여러 인스턴스를 만들려면 다음과 같이 템플릿을 변경해야 합니다. 정규화된 형식 및 이름이 데이터 팩터리 이름을 포함하는 것을 확인합니다.
 
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "array"
+         }
+    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[variables('dataFactoryName')]",
+        "name": "[parameters('dataFactoryName')]",
         ...
     },
     {
         "type": "Microsoft.DataFactory/datafactories/datasets",
-        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "name": "[concat(parameters('dataFactoryName'), '/', parameters('dataSetName')[copyIndex()])]",
         "dependsOn": [
-            "[variables('dataFactoryName')]"
+            "[parameters('dataFactoryName')]"
         ],
         "copy": { 
             "name": "datasetcopy", 
-            "count": "[parameters('count')]" 
+            "count": "[length(parameters('dataSetName'))]" 
         } 
         ...
     }]
@@ -199,4 +215,4 @@
 - 템플릿에서 사용할 수 있는 모든 함수는 [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
 - 템플릿 배포 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->
