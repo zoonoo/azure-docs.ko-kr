@@ -24,10 +24,11 @@
 ## Cortana Analytics 갤러리 찾아보기
 1. [갤러리](http://gallery.azureml.net/)로 이동합니다.
 2. **추세 실험** 또는 **Microsoft 샘플**로 이동하여 찾습니다.
-3. 검색 및 필터를 사용하여 결과 범위를 좁힙니다.
+3. 검색 및 필터를 사용하여 결과 범위를 좁힙니다. 
 ![](./media/machine-learning-sample-experiments/image1.png) 
 4. 실험을 클릭하여 자세히 알아봅니다. 실험을 실행 및/또는 수정하려면 **Studio에서 열기**를 클릭합니다. ![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Microsoft 계정 자격 증명으로 로그인합니다. 아직 기계 학습 작업 영역이 없는 경우 무료 평가판 작업 영역이 만들어집니다. [기계 학습 무료 평가판에 포함된 항목 알아보기](https://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
+5.  Microsoft 계정 자격 증명으로 로그인합니다. 아직 기계 학습 작업 영역이 없는 경우 무료 평가판 작업 영역이 만들어집니다. [기계 학습 무료 평가판에 포함된 항목 알아보기](https://azure.microsoft.com/pricing/details/machine-learning/) 
+![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Studio에서 템플릿으로 사용
 1. Microsoft 계정 자격 증명을 사용하여 [Studio](https://studio.azureml.net)에 로그인한 다음 **새로 만들기***를 클릭하여 새 실험을 만듭니다.
@@ -40,4 +41,4 @@
 - [웹 서비스 API 만들기](machine-learning-publish-a-machine-learning-web-service.md)
 - [바로 사용할 수 있는 응용 프로그램 찾아보기](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!----HONumber=AcomDC_0128_2016-->
+<!------HONumber=AcomDC_0128_2016-->
