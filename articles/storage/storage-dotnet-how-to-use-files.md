@@ -1,6 +1,6 @@
 <properties
-			pageTitle="Windows에서 Azure 파일 사용 방법 | Microsoft Azure"
-    		description="이 단계별 자습서를 사용하여 클라우드에 Azure 파일 공유를 만듭니다. 파일 공유 콘텐츠를 관리하고 Azure 가상 컴퓨터(VM) 또는 온-프레미스 응용 프로그램에서 파일 공유를 탑재합니다."
+			pageTitle="Windows에서 Azure 파일 저장소 시작 | Microsoft Azure"
+    		description="Azure 파일 저장소를 사용하여 클라우드에 파일 데이터를 저장하고 Azure 가상 컴퓨터(VM) 또는 Windows를 실행하는 온-프레미스 응용 프로그램에서 클라우드 파일 공유를 탑재합니다."
             services="storage"
             documentationCenter=".net"
             authors="robinsh"
@@ -12,22 +12,20 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="01/12/2015"
+      ms.date="01/24/2015"
       ms.author="robinsh" />
 
-# Windows에서 Azure 파일 저장소 사용 방법
+# Windows에서 Azure 파일 저장소 시작
 
 [AZURE.INCLUDE [저장소-선택기-파일-포함](../../includes/storage-selector-file-include.md)]
 
 ## 개요
 
-Azure 파일 저장소는 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 사용하여 클라우드에서 파일 공유를 제공합니다. 이 저장소는 이제 일반적으로 사용 가능하며 SMB 2.1과 SMB 3.0을 모두 지원합니다.
+Azure 파일 저장소는 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure 파일 저장소를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 컴퓨터 또는 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 응용 프로그램은 데스크톱 응용 프로그램이 일반적인 SMB 공유를 탑재하는 것처럼 클라우드에 파일 공유를 탑재할 수 있습니다. 파일 저장소 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
 
-[Azure 포털](portal.azure.com), Azure 저장소 PowerShell cmdlet, Azure 저장소 클라이언트 라이브러리 또는 Azure 저장소 REST API를 사용하여 Azure 파일 공유를 만들 수 있습니다. 또한 이러한 파일 공유가 SMB 공유이므로 익숙한 표준 파일 시스템 API를 통해 파일 공유에 액세스할 수 있습니다.
+파일 저장소 공유는 표준 SMB 파일 공유이므로 Azure에서 실행되는 응용 프로그램은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 응용 프로그램을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 응용 프로그램 관리의 일부로 파일 저장소 공유를 만들고 탑재하고 관리할 수 있습니다.
 
-Azure에서 실행 중인 응용 프로그램은 쉽게 Azure 가상 컴퓨터에서 파일 공유를 마운트할 수 있습니다. 그리고 파일 저장소의 일반적인 가용성을 사용하여 SMB 3.0을 지원하는 온-프레미스 클라이언트에서파일 공유를 마운트할 수 있습니다(예: 로컬 노트북, 데스크톱 및 서버).
-
-파일 저장소는 Blob, 테이블 및 큐 저장소와 동일한 기술을 토대로 만들어졌으므로 Azure 저장소 플랫폼에 기본 제공되는 기존 가용성, 내구성, 확장성 및 지리적 중복을 활용할 수 있습니다.
+[Azure 포털](https://portal.azure.com), Azure 저장소 PowerShell cmdlet, Azure 저장소 클라이언트 라이브러리 또는 Azure 저장소 REST API를 사용하여 Azure 파일 공유를 만들 수 있습니다. 또한 이러한 파일 공유가 SMB 공유이므로 익숙한 표준 파일 시스템 API를 통해 파일 공유에 액세스할 수 있습니다.
 
 Linux에서 파일 저장소 사용에 대한 자세한 내용은 [Linux에서 Azure 파일 저장소 사용 방법](storage-how-to-use-files-linux.md)을 참조하세요.
 
@@ -61,7 +59,7 @@ Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주�
 
 ## Azure 포털을 사용하여 파일 공유 관리
 
-[Azure 포털](portal.azure.com)은 고객이 파일 공유를 관리하기 위한 사용자 인터페이스를 제공합니다. 포털에서 다음을 수행할 수 있습니다.
+[Azure 포털](https://portal.azure.com)은 고객이 파일 공유를 관리하기 위한 사용자 인터페이스를 제공합니다. 포털에서 다음을 수행할 수 있습니다.
 
 - 파일 공유 만들기
 - 파일 공유에 대해 파일 업로드 및 다운로드
@@ -119,7 +117,7 @@ Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주�
 
 	![파일 공유를 마운트하는 방법을 보여주는 스크린 샷](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
 
-	>[AZURE.TIP]마운트를 위한 저장소 계정 선택키를 찾으려면 저장소 계정의 **설정**을 클릭한 다음 **선택키**를 클릭합니다.
+	>[AZURE.TIP] 마운트를 위한 저장소 계정 선택키를 찾으려면 저장소 계정의 **설정**을 클릭한 다음 **선택키**를 클릭합니다.
 
 	![저장소 계정 선택키를 찾는 방법을 보여주는 스크린 샷](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
 
@@ -134,13 +132,13 @@ Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주�
 
 PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)을 참조하세요.
 
-> [AZURE.NOTE]최신 Azure PowerShell 모듈을 다운로드하여 설치하거나 최신 모듈로 업그레이드하는 것이 좋습니다.
+> [AZURE.NOTE] 최신 Azure PowerShell 모듈을 다운로드하여 설치하거나 최신 모듈로 업그레이드하는 것이 좋습니다.
 
 **시작**을 클릭하고 **Azure PowerShell**을 입력하여 Azure PowerShell 창을 엽니다. Azure PowerShell 창에 Azure Powershell 모듈이 로드됩니다.
 
 ### 저장소 계정 및 키에 대한 컨텍스트 만들기
 
-이제 저장소 계정 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정 이름 및 계정 키를 캡슐화합니다. [Azure 포털](portal.azure.com)에서 계정 키 복사하기에 대한 지침은 [저장소 액세스 키 보기, 복사 및 재생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+이제 저장소 계정 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정 이름 및 계정 키를 캡슐화합니다. [Azure 포털](https://portal.azure.com)에서 계정 키 복사하기에 대한 지침은 [저장소 액세스 키 보기, 복사 및 재생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 
 다음 예제에서 `storage-account-name` 및 `storage-account-key`을(를) 본인의 저장소 계정 이름 및 키로 바꿉니다.
 
@@ -156,7 +154,7 @@ PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하�
 
 이제 파일 저장소에 파일 공유가 있습니다. 다음에는 디렉터리와 파일을 추가할 것입니다.
 
-> [AZURE.IMPORTANT]파일 공유의 이름은 모두 소문자여야 합니다. 파일 공유 및 파일 이름 지정에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](https://msdn.microsoft.com/library/azure/dn167011.aspx)를 참조하세요.
+> [AZURE.IMPORTANT] 파일 공유의 이름은 모두 소문자여야 합니다. 파일 공유 및 파일 이름 지정에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](https://msdn.microsoft.com/library/azure/dn167011.aspx)를 참조하세요.
 
 ### 파일 공유에 디렉터리 만들기
 
@@ -197,7 +195,7 @@ SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이�
 - 다른 지역의 Azure 가상 컴퓨터(SMB 3.0에만 해당)
 - 온-프레미스 클라이언트 응용 프로그램(SMB 3.0에만 해당) 
 
-클라이언트가 파일 저장소에 액세스하면 사용되는 SMB 버전은 운영 체제에서 지원하는 SMB 버전에 따라 달라집니다. 아래 표에 Windows 클라이언트에 대한 지원에 대한 요약을 제공합니다. [SMB 버전](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx)에 대한 자세한 내용은 이 블로그를 참조합니다.
+클라이언트가 파일 저장소에 액세스하면 사용되는 SMB 버전은 운영 체제에서 지원하는 SMB 버전에 따라 달라집니다. 아래 표에 Windows 클라이언트에 대한 지원에 대한 요약을 제공합니다. [SMB 버전](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx)에 대한 자세한 내용은 이 블로그를 참조하세요.
 
 | Windows 클라이언트 | SMB 버전 지원 |
 |------------------------|----------------------|
@@ -253,7 +251,7 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 - SMB 3.0을 지 원하는 Windows 버전을 설치합니다. Windows는 SMB 3.0 암호화를 활용하여 온-프레미스 클라이언트와 클라우드의 Azure 파일 공유 사이에 데이터를 안전하게 전송합니다. 
 - SMB 프로토콜에 필요하므로 로컬 네트워크에서 포트 445(TCP 아웃바운드)에 대한 인터넷 액세스를 엽니다. 
 
-> [AZURE.NOTE]일부 인터넷 서비스 공급자는 포트 445를 차단할 수 있으므로 서비스 공급자에게 확인해야 할 수 있습니다.
+> [AZURE.NOTE] 일부 인터넷 서비스 공급자는 포트 445를 차단할 수 있으므로 서비스 공급자에게 확인해야 할 수 있습니다.
 
 ## 파일 저장소를 사용하여 개발
 
@@ -281,7 +279,7 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
 	    </appSettings>
 	</configuration>
 
-> [AZURE.NOTE]최신 버전의 Azure 저장소 에뮬레이터는 파일 저장소를 지원하지 않습니다. 연결 문자열은 파일 저장소를 다룰 Azure 저장소 계정을 대상으로 해야 합니다.
+> [AZURE.NOTE] 최신 버전의 Azure 저장소 에뮬레이터는 파일 저장소를 지원하지 않습니다. 연결 문자열은 파일 저장소를 다룰 Azure 저장소 계정을 대상으로 해야 합니다.
 
 ### 네임스페이스 선언 추가
 
@@ -429,7 +427,7 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일을 다�
 
 AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. AzCopy를 사용하여 파일을 복사하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소를 통해 AzCopy를 사용하는 방법](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only)을 참조하세요.
 
-> [AZURE.NOTE]blob을 파일에 복사하거나 파일을 blob에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체를 인증해야 합니다.
+> [AZURE.NOTE] blob을 파일에 복사하거나 파일을 blob에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체를 인증해야 합니다.
 
 **파일을 다른 파일에 복사**
 
@@ -528,7 +526,7 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
 
 이제 Azure 저장소 분석이 파일 저장소에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
 
-[Azure 포털](portal.azure.com)에서 파일 저장소에 대한 메트릭을 사용하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
+[Azure 포털](https://portal.azure.com)에서 파일 저장소에 대한 메트릭을 사용하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
 
 ## 파일 저장소 FAQ
 
@@ -611,4 +609,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

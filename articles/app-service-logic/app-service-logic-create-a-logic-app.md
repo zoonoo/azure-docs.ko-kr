@@ -22,7 +22,7 @@
 | --------------- |
 | [논리 앱 정의 언어](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
 | [논리 앱 커넥터 문서](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
-| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
+| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurelogicapps) |
 
 이 항목에서는 단 몇 분 안에 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md)을 시작할 수 있는 방법을 보여줍니다. 관심이 있는 일련의 트윗을 Dropbox 폴더로 전달할 수 있는 워크플로 단계별로 안내합니다.
 
@@ -40,7 +40,7 @@
 
 1. Azure 포털에 로그인합니다.
 
-2. 홈 화면에서 [마켓플레이스](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps)를 클릭하고 Twitter를 검색합니다(또는 [여기 클릭](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+2. 홈 화면에서 [마켓플레이스](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/)를 클릭하고 Twitter를 검색합니다(또는 [여기 클릭](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/)).
 
 3. **Twitter 커넥터**를 선택하고 **만들기**를 클릭합니다. 모든 설정에 대한 뷰를 가져올 수 있습니다. 이름을 **Twitter 커넥터**로 그대로 둡니다.
 4. **패키지 설정**을 선택합니다. 여기서 Twitter 응용 프로그램의 정보를 입력해야 합니다. 이러한 단계를 사용하여 무료 응용 프로그램을 설정할 수 있습니다.
@@ -70,7 +70,7 @@
 
 10. **만들기**를 클릭합니다. 프로비전 단계는 2분 이상 걸릴 수 있습니다.
 
-11. 이제 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2)를 사용하여 프로세스를 반복합니다.
+11. 이제 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/)를 사용하여 프로세스를 반복합니다.
 
 ## 논리 앱 시작
 
@@ -122,7 +122,7 @@
 
 	![동작](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]**권한 부여** 단추는 OAUTH 보안을 사용하여 Twitter 같은 SaaS 서비스에 연결합니다. OAUTH에 대한 자세한 내용은 [OAUTH 보안](app-service-logic-oauth-security.md)을 참조하세요.
+	> [AZURE.NOTE] **권한 부여** 단추는 OAUTH 보안을 사용하여 Twitter 같은 SaaS 서비스에 연결합니다. OAUTH에 대한 자세한 내용은 [OAUTH 보안](app-service-logic-oauth-security.md)을 참조하세요.
 
 3. **트윗 검색**을 클릭한 다음, **쿼리 지정**에서 `#MicrosoftAzure`와 같은 내용을 입력하고 녹색 확인 표시를 클릭합니다.
 
@@ -163,7 +163,7 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 
 5. 녹색 확인 표시를 클릭하여 커넥터 설정을 저장합니다.
 
-5. 디자인이 완료되었으므로 이제 디자이너의 왼쪽 위에서 **코드 보기**를 클릭하면 표시되는 코드가 디자이너에서 방금 만든 워크플로를 정의하는 JSON 코드인 것을 확인할 수 있습니다. [다음 항목][Use logic app features]에서 이 코드에 대해 자세히 살펴보겠습니다.
+5. 디자인이 완료되었으므로 이제 디자이너의 왼쪽 위에서 **코드 보기**를 클릭하면 표시되는 코드가 디자이너에서 방금 만든 워크플로를 정의하는 JSON 코드인 것을 확인할 수 있습니다. [다음 항목](Use logic app features)에서 이 코드에 대해 자세히 살펴보겠습니다.
 
 6. 화면 맨 아래에서 **확인** 단추를 클릭한 다음 **만들기** 단추를 클릭합니다.
 
@@ -188,4 +188,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0128_2016-->

@@ -16,7 +16,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.0-preview.8</version>
+      <version>1.0.0-preview.9</version>
     </dependency>
     ```
     
@@ -84,7 +84,7 @@
 
 13. **장치 ID** 및 **장치 키**를 적어 둡니다. 나중에 장치로 IoT Hub에 연결하는 응용 프로그램을 만들 때 필요합니다.
 
-> [AZURE.NOTE]IoT Hub ID 레지스트리는 장치 ID만 저장하여 허브에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 하는 경우 응용 프로그램별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
+> [AZURE.NOTE] IoT Hub ID 레지스트리는 장치 ID만 저장하여 허브에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 하는 경우 응용 프로그램별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
 
 ## 장치-클라우드 메시지 받기
 
@@ -173,7 +173,7 @@
     }
     ```
 
-    > [AZURE.NOTE]이 메서드는 수신기를 만들 때 필터를 사용하여 수신기는 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지를 읽습니다. 테스트 환경에서 유용하므로 현재 메시지 집합을 볼 수 있지만 프로덕션 환경에서 코드가 모든 메시지를 처리하고 있는지 확인해야 합니다. 자세한 정보는 [IoT Hub가 장치-클라우드 메시지를 처리하는 방법][lnk-processd2c-tutorial] 자습서를 참조하세요.
+    > [AZURE.NOTE] 이 메서드는 수신기를 만들 때 필터를 사용하여 수신기는 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지를 읽습니다. 테스트 환경에서 유용하므로 현재 메시지 집합을 볼 수 있지만 프로덕션 환경에서 코드가 모든 메시지를 처리하고 있는지 확인해야 합니다. 자세한 정보는 [IoT Hub가 장치-클라우드 메시지를 처리하는 방법][lnk-processd2c-tutorial] 자습서를 참조하세요.
 
 11. 아래 표시된 예외를 포함하도록 **main** 메서드의 서명을 수정합니다.
 
@@ -181,7 +181,7 @@
     public static void main( String[] args ) throws IOException
     ```
 
-12. **App** 클래스의 **main** 메서드에 다음 코드를 추가합니다. 이 코드는 **EventHubClient** 인스턴스를 만들어 IoT Hub의 이벤트 허브 호환 끝점에 연결합니다. 그런 다음 두 개의 파티션에서 읽도록 두 개의 스레드를 만듭니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}** 및 **{youreventhubcompatiblename}**을 이전에 기록한 값으로 대체합니다.
+12. **App** 클래스의 **main** 메서드에 다음 코드를 추가합니다. 이 코드는 **EventHubClient** 인스턴스를 만들어 IoT Hub의 이벤트 허브 호환 끝점에 연결합니다. 그런 다음 두 개의 파티션에서 읽도록 두 개의 스레드를 만듭니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}** 및 **{youreventhubcompatiblename}**을 이전에 기록한 값으로 대체합니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점**에서 나오며 **xxxxnamespace.servicebus.windows.net** 형태를 취합니다.
 
     ```
     String policyName = "iothubowner";
@@ -209,7 +209,7 @@
     client.close();
     ```
 
-    > [AZURE.NOTE]이 코드는 무료 IoT Hub를 만들었다고 가정합니다. 무료 IoT Hub에는 "0" 및 "1"이라는 두 개의 파티션이 있습니다. 다른 가격 책정 계층 중 하나를 사용하여 IoT Hub를 만든 경우 각 파티션에 대해 **MessageReceiver**를 만들도록 코드를 조정해야 합니다.
+    > [AZURE.NOTE] 이 코드는 F1(무료) 계층에서 IoT Hub를 만들었다고 가정합니다. 무료 IoT Hub에는 "0" 및 "1"이라는 두 개의 파티션이 있습니다. 다른 가격 책정 계층 중 하나를 사용하여 IoT Hub를 만든 경우 각 파티션에 대해 **MessageReceiver**를 만들도록 코드를 조정해야 합니다.
 
 13. App.java 파일을 저장하고 닫습니다.
 
@@ -228,4 +228,4 @@
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

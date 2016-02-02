@@ -47,7 +47,7 @@
 
 이 자습서를 완료해야 다른 모든 Xamarin.Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
-> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)을 참조하세요.
 
 ##Google Cloud Messaging 사용
 
@@ -93,7 +93,7 @@
 
 3. 또는 **최소 Android 버전**을 다른 API 수준으로 설정합니다.
 
-4. **대상 Android 버전**을 대상으로 지정할다른 API 버전으로 설정합니다(API 수준 8 이상이어야 함).
+4. **대상 Android 버전**을 대상으로 지정할 다른 API 버전으로 설정합니다(API 수준 8 이상이어야 함).
 
 **확인**을 클릭하고 프로젝트 옵션 대화 상자를 닫습니다.
 
@@ -115,7 +115,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 	- **GoogleProjectNumber**: Google 개발자 포털의 앱 개요에서 이 프로젝트의 번호 값을 가져옵니다. 앞서 포털에서 앱을 생성할 때 이 값을 기입해 두었습니다.
 	- **연결 문자열 수신 대기**: [Azure 클래식 포털]의 대시보드에서 **연결 문자열 보기**를 클릭합니다. 이 값에 대해 *DefaultListenSharedAccessSignature* 연결 문자열을 복사합니다.
-	- **허브 이름**: [Azure 클래식 포털]에서 허브의 이름입니다. 예를 들어 *mynotificationhub2* 입니다.
+	- **허브 이름**: [Azure 클래식 포털]에서 허브의 이름입니다. 예를 들어 *mynotificationhub2*입니다.
 
 	Xamarin 프로젝트에 대해 **Constants.cs** 클래스를 만들고 클래스에 다음 상수 값을 정의합니다. 자리 표시자는 해당 값으로 바꿉니다.
 
@@ -373,7 +373,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 3. 위쪽 도구 모음에서 **Run**을 클릭하고 앱을 선택합니다. 에뮬레이터가 시작되고 앱이 실행됩니다.
 
-  앱이 GCM에서 *registrationId* 를 검색하고 알림 허브에 등록됩니다.
+  앱이 GCM에서 *registrationId*를 검색하고 알림 허브에 등록됩니다.
 
 ##백 엔드에서 알림 보내기
 
@@ -451,7 +451,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 4. 작업이 만들어졌으면 작업 이름을 클릭합니다. 그런 다음 위쪽 막대에서 **스크립트** 탭을 클릭합니다.
 
-5. 스케줄러 함수 내에 다음 스크립트를 삽입합니다. 자리 표시자를 알림 허브 이름과 앞에서 얻은 *DefaultFullSharedAccessSignature* 의 연결 문자열로 바꿔야 합니다. **저장**을 클릭합니다.
+5. 스케줄러 함수 내에 다음 스크립트를 삽입합니다. 자리 표시자를 알림 허브 이름과 앞에서 얻은 *DefaultFullSharedAccessSignature*의 연결 문자열로 바꿔야 합니다. **저장**을 클릭합니다.
 
         var azure = require('azure');
 		var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
@@ -523,4 +523,4 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -16,10 +16,10 @@
 
 5. 확인 아이콘 ![StorSimple 확인 아이콘](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png)을 클릭하여 이 대화 상자를 닫고 **빠른 시작** 페이지로 돌아옵니다.
 
-> [AZURE.NOTE]서비스 등록 키는 StorSimple 관리자 서비스에 등록해야 하는 모든 장치를 등록하는 데 사용됩니다.
+> [AZURE.NOTE] 서비스 등록 키는 StorSimple 관리자 서비스에 등록해야 하는 모든 장치를 등록하는 데 사용됩니다.
 
 ![동영상 사용 가능](./media/storsimple-get-service-registration-key/Video_icon.png) **동영상 사용 가능**
 
-서비스 등록 키를 가져오는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/)를 클릭하세요.
+서비스 등록 키를 가져오는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/)를 클릭하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

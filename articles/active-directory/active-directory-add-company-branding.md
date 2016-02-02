@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
+	ms.date="01/26/2016" 
 	ms.author="MarkVi"/>
 
 # 로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 >
 - 회사 브랜딩은 Azure Active Directory Premium 또는 Basic 버전으로 업그레이드한 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
-- Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 문의하세요.
+- Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
 
 대부분의 회사에서는 최종 사용자가 해당 사이트를 사용할 때마다 혼동되지 않도록 회사에서 관리하는 모든 웹 사이트 및 서비스 전체에 일관된 모양과 느낌을 적용하고자 합니다. Azure Active Directory는 다음과 같이 최종 사용자에게 표시되는 웹 페이지에 회사 로고 및 색 구성표를 포함하도록 모양을 사용자 지정하는 방식으로 이 기능을 제공합니다.
 
@@ -80,7 +80,8 @@
 큰 그림/배경색 | 페이지 왼쪽에 표시됩니다. 사용자가 로그인하려는 대상 사이트에 일반적으로 표시되는 이미지를 대체합니다. 낮은 대역폭 연결이나 매우 좁은 화면에서는 배경색이 큰 그림 대신 표시될 수 있습니다.
 로그인 페이지 텍스트 | 사용자가 회사 또는 학교 계정으로 로그인하기 전에 사용자에게 유용한 정보를 전달해야 하는 경우 페이지 바닥글 위에 표시됩니다. 예를 들어 지원 센터 전화 번호나 법적 고지 사항을 포함할 수 있습니다.
 
-> [AZURE.NOTE]모든 요소는 선택 사항입니다. 예를 들어 배너 로고는 지정하고 큰 그림은 지정하지 않으면 로그인 페이지에는 대상 사이트에 대한 로고와 그림(예: Office 365 캘리포니아 고속도로 이미지)이 표시됩니다.
+> [AZURE.NOTE]
+모든 요소는 선택 사항입니다. 예를 들어 배너 로고는 지정하고 큰 그림은 지정하지 않으면 로그인 페이지에는 대상 사이트에 대한 로고와 그림(예: Office 365 캘리포니아 고속도로 이미지)이 표시됩니다.
 
 이 페이지의 모든 요소를 지역화할 수도 있습니다. "기본" 사용자 지정 요소 집합을 구성한 후 다른 로캘로 추가 버전을 구성할 수 있습니다. 다양한 요소를 적절히 조합하여 사용할 수도 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
@@ -185,4 +186,4 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

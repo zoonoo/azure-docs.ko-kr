@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 SharePoint 팜 배포
@@ -31,7 +31,7 @@
 
 Azure 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행할 수 있습니다.
 
-> [AZURE.NOTE]또한 Azure 포털의 Azure 마켓플레이스에서 [SharePoint 2013 비 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) 항목을 사용하여 이 구성을 만들 수 있습니다.
+> [AZURE.NOTE] 또한 Azure 포털의 Azure 마켓플레이스에서 [SharePoint 2013 비 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) 항목을 사용하여 이 구성을 만들 수 있습니다.
 
 ### Azure 포털
 
@@ -50,7 +50,7 @@ Azure 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 **New-AzureRMResourceGroup**을 **New-AzureResourceGroup**로 대체하고, **New-AzureRMResourceGroupDeployment**를 **New-AzureResourceGroupDeployment**로 대체한 다음 **New-AzureResourceGroup** 명령 앞에 **Switch-AzureMode AzureResourceManager**를 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 다음 명령 세트에 Azure 배포 이름, 새 리소스 그룹 이름 및 Azure 데이터센터 위치를 입력합니다. < and > 문자를 포함하여 따옴표 안의 모든 내용을 제거합니다.
 
@@ -103,7 +103,7 @@ Azure 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]또한 Azure 포털의 Azure 마켓플레이스에서 [SharePoint 2013 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) 항목을 사용하여 이 구성을 만들 수 있습니다.
+> [AZURE.NOTE] 또한 Azure 포털의 Azure 마켓플레이스에서 [SharePoint 2013 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) 항목을 사용하여 이 구성을 만들 수 있습니다.
 
 ### Azure 포털
 
@@ -122,7 +122,7 @@ Azure 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]이 문서에는 Azure PowerShell Preview 1.0에 대한 명령이 포함되어 있습니다. Azure PowerShell 0.9.8 및 이전 버전에서 이러한 명령을 실행하려면 **New-AzureRMResourceGroup**을 **New-AzureResourceGroup**로 대체하고, **New-AzureRMResourceGroupDeployment**를 **New-AzureResourceGroupDeployment**로 대체한 다음 **New-AzureResourceGroup** 명령 앞에 **Switch-AzureMode AzureResourceManager**를 추가합니다. 자세한 내용은 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)를 참조하세요.
+> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 다음 명령 세트에 Azure 배포 이름, 새 리소스 그룹 이름 및 Azure 데이터센터 위치를 입력합니다. < and > 문자를 포함하여 따옴표 안의 모든 내용을 제거합니다.
 
@@ -170,20 +170,8 @@ Azure 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일을 실행
 템플릿 실행이 완료되면, 사용자의 새로운 리소스 그룹에 9-서버 SharePoint Server 2013 팜을 갖게 됩니다.
 
 
-## 추가 리소스
+## 다음 단계
 
-[Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
+- Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
 
-[Azure 리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure 리소스 관리자 개요](../resource-group-overview.md)
-
-[Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

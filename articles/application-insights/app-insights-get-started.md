@@ -29,7 +29,7 @@
 
 다음 다이어그램에 표시되는 진입점에서 순서에 상관없이 어떤 조합으로도 시작할 수 있습니다. 사용자에게 적합한 경로를 따릅니다.
 
-Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](http://portal.azure.com)에 원격 분석을 보냅니다. 지원되는 플랫폼, 언어, IDE의 다양한 조합에 대한 여러 SDK가 있습니다.
+Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](https://portal.azure.com)에 원격 분석을 보냅니다. 지원되는 플랫폼, 언어, IDE의 다양한 조합에 대한 여러 SDK가 있습니다.
 
 [Microsoft Azure](http://azure.com)의 계정이 필요합니다. 조직을 통해 이미 그룹 계정에 대한 액세스 권한이 있을 수 있습니다. 또는 종량제 계정을 만들 수 있습니다. Application Insights에는 무료 계층이 있으므로 앱이 많이 사용하게 될 때까지 지불할 필요가 없습니다. [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-insights/)를 검토합니다.
 
@@ -74,4 +74,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

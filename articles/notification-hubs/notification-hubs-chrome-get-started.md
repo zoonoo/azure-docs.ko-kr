@@ -24,7 +24,7 @@
 
 크롬 앱 알림을 사용하는 주요 이점 중 하나는 Google Chrome 브라우저의 컨텍스트 내에서 알림을 표한다는 점입니다. 크롬 앱을 실행하거나 브라우저에서 열 필요가 없습니다.(Chrome 브라우저 자체를 실행해야 함) 또한 Chrome 알림 창에서 모든 알림의 통합된 보기가 표시됩니다.
 
->[AZURE.NOTE]이 알림은 일반적인 브라우저 내 푸시 알림이 아니며 Chrome 앱에서만 표시됩니다. 자세한 내용은 [Chrome 앱 개요]를 참조하십시오. Chrome 앱(이전의 "패키지 앱")은 좀 더 단순한 "호스팅된 앱"과는 다릅니다. 이 두 가지 앱의 차이는 [설치 가능한 웹 앱]을 참조하십시오. Apache Cordova를 사용하여 모바일(Android 및 iOS)에서 Chrome 앱을 실행할 수도 있습니다. 자세한 내용은 [모바일의 Chrome 앱]을 참조하십시오.
+>[AZURE.NOTE] 이 알림은 일반적인 브라우저 내 푸시 알림이 아니며 Chrome 앱에서만 표시됩니다. 자세한 내용은 [Chrome 앱 개요]를 참조하십시오. Chrome 앱(이전의 "패키지 앱")은 좀 더 단순한 "호스팅된 앱"과는 다릅니다. 이 두 가지 앱의 차이는 [설치 가능한 웹 앱]을 참조하십시오. Apache Cordova를 사용하여 모바일(Android 및 iOS)에서 Chrome 앱을 실행할 수도 있습니다. 자세한 내용은 [모바일의 Chrome 앱]을 참조하십시오.
 
 이 자습서에서는 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 Chrome 앱을 만듭니다. 자습서를 완료하면 이 Chrome 앱을 설치한 모든 Chrome 사용자에게 푸시 알림을 브로드캐스트할 수 있습니다.
 
@@ -40,7 +40,7 @@
 
 알림 허브를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 "다음 단계" 섹션에 나오는 자습서의 작업도 함께 완료해야 합니다.
 
->[AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)을 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)을 참조하세요.
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
@@ -368,7 +368,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 		  }
 		}
 
-	위의 스크립트에 포함된 각 항목에 대한 설명은 다음과 같습니다.
+	위의 스크립트에 포함된 각 항목에 대한 설명은 다음과 같습니다. 
 	- *window.onload*는 UI에 포함된 두 단추 클릭 이벤트를 정의합니다. 이 두 단추 중 하나는 GCM에 등록하는 데 사용되며, 다른 하나는 GCM 등록 후 반환되는 등록 ID를 사용하여 Azure 알림 허브에 등록하는 데 사용됩니다.
 	- *updateLog* 함수는 단순 로깅 함수를 정의합니다.
 	- *registerWithGCM*은 GCM에 대한 *chrome.gcm.register* 호출을 수행하여 이 Chrome 앱 인스턴스를 등록하는 첫 번째 단추 클릭 처리기입니다.
@@ -388,7 +388,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 
    	![][16]
 
-2. **압축 해제된 확장 로드**를 클릭하고 파일을 만든 폴더로 이동합니다. 또한 선택적으로 **크롬 앱 및 확장 개발자 도구**.를 사용할 수 있습니다. 이 도구는(Chrome 웹 스토어에서 설치된) Chrome 응용 프로그램 자체이며 크롬 앱 개발에 대한 고급 디버깅 기능을 제공합니다.
+2. **압축 해제된 확장 로드**를 클릭하고 파일을 만든 폴더로 이동합니다. 또한 선택적으로 **크롬 앱 및 확장 개발자 도구**를 사용할 수 있습니다. 이 도구는(Chrome 웹 스토어에서 설치된) Chrome 응용 프로그램 자체이며 크롬 앱 개발에 대한 고급 디버깅 기능을 제공합니다.
 
    	![][17]
 
@@ -408,8 +408,8 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 
 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 그러나 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다.
 
-알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 "모바일 서비스에서 푸시 알림 시작"([.NET backend](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-android-get-started-push.md))을 참조하세요.  
-REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP/Python에서 알림 허브를 사용하는 방법** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))을 참조하십시오.
+알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 "모바일 서비스에서 푸시 알림 시작"([.NET backend](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-android-get-started-push.md))을 참조하세요.
+REST API를 사용하여 알림을 보내는 방법에 대한 예제는 Java/PHP/Python에서 알림 허브를 사용하는 방법([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))을 참조하십시오.
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#**에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 그러면 새 콘솔 응용 프로그램 프로젝트가 만들어집니다.
 
@@ -436,7 +436,7 @@ REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/P
 
    	*허브 이름* 자리 표시자를 포털의 **알림 허브** 탭에 나타나는 알림 허브의 이름으로 바꿔야 합니다. 또한 연결 문자열 자리 표시자를 "알림 허브 구성" 섹션에서 가져온 **DefaultFullSharedAccessSignature**라는 연결 문자열로 바꿉니다.
 
-	>[AZURE.NOTE]**수신 대기** 권한이 아니라 **모든** 권한을 가진 연결 문자열을 사용해야 합니다. **수신** 대기 권한 문자열은 알림을 보낼 수 있는 권한이 없습니다.
+	>[AZURE.NOTE] **수신 대기** 권한이 아니라 **모든** 권한을 가진 연결 문자열을 사용해야 합니다. **수신** 대기 권한 문자열은 알림을 보낼 수 있는 권한이 없습니다.
 
 5. **Main** 메서드에 다음 코드를 추가합니다.
 
@@ -494,4 +494,4 @@ REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/P
 [Azure 알림 허브 알릴 사용자]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 알림 허브 뉴스 속보]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

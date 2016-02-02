@@ -27,7 +27,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 * [HBase 자습서: HDInsight에서 Hadoop을 통해 HBase 사용 시작을 참조하세요.](hdinsight-hbase-tutorial-get-started.md)
  
-> [AZURE.NOTE]HBase(버전 0.98.0)는 HDInsight의 HDInsight 3.1 클러스터에서만 사용할 수 있습니다(Apache Hadoop 및 YARN 2.4.0 기준). 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
+> [AZURE.NOTE] HBase(버전 0.98.0)는 HDInsight의 HDInsight 3.1 클러스터에서만 사용할 수 있습니다(Apache Hadoop 및 YARN 2.4.0 기준). 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
 
 다음 비디오에서는 동일한 내용을 보여 줍니다.
 
@@ -40,7 +40,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 이 HBase 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - Visual Studio 2013이 포함된 **워크스테이션**: 지침은 [Visual Studio 설치](http://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하세요.
 
 ## HBase 클러스터 만들기
@@ -53,7 +53,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 1. [Azure 포털][azure-management-portal]에 로그인합니다.
 2. 왼쪽 아래에서 **새로 만들기**를 클릭한 후 **데이터 서비스** > **HDInsight** > **HBase**를 클릭합니다.
 
-	>[AZURE.NOTE]**사용자 지정 만들기** 옵션을 사용할 수도 있습니다.
+	>[AZURE.NOTE] **사용자 지정 만들기** 옵션을 사용할 수도 있습니다.
 3. **클러스터 이름**, **클러스터 크기**, HTTP 사용자 암호 및 **저장소 계정**을 입력합니다.
 
 	![HDInsight에서 HBase 클러스터 만들기][img-hdinsight-hbase-cluster-quick-create]
@@ -62,13 +62,13 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 	Azure 저장소 계정은 기본 HBase 생성 프로세스 사용에 필요합니다. 계정을 하나 만들려면 [Azure 저장소 계정 만들기][azure-create-storageaccount]를 참조하세요. 사용자 지정 만들기 옵션은 클러스터 생성 프로세스를 통해 저장소 계정을 만드는 옵션을 제공합니다.
 
-	> [AZURE.WARNING]HBase 서비스의 고가용성을 위해 **3개** 이상의 노드가 포함된 클러스터를 만들어야 합니다. 이렇게 하면 하나의 노드가 작동이 중지된 경우 다른 노드에서 HBase 데이터 영역을 사용할 수 있습니다.
+	> [AZURE.WARNING] HBase 서비스의 고가용성을 위해 **3개** 이상의 노드가 포함된 클러스터를 만들어야 합니다. 이렇게 하면 하나의 노드가 작동이 중지된 경우 다른 노드에서 HBase 데이터 영역을 사용할 수 있습니다.
 
 	> HBase를 학습하는 경우 항상 클러스터 크기로 1을 선택하고 각 사용 후에는 클러스터를 삭제하여 비용을 줄입니다.
 
 4. 오른쪽 아래에서 **HDInsight 클러스터 만들기**를 클릭하여 HBase 클러스터를 만듭니다.
 
->[AZURE.NOTE]HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다.
+>[AZURE.NOTE] HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다.
 
 ## HBase 셸 사용
 현재 HBase에 액세스하는 두 가지 방법이 있습니다. 이 섹션에서는 HBase 셸을 사용하여 설명합니다. 다음 섹션에서는.NET SDK를 사용하여 설명합니다.
@@ -140,7 +140,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 텍스트 파일을 만들고 원하는 경우 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침은 [HDInsight에서 Hadoop 작업에 대한 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
-> [AZURE.NOTE]이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
+> [AZURE.NOTE] 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
 
 1. RDP 세션 내에서 바탕 화면에 있는 **Hadoop 명령줄** 바로 가기를 클릭합니다.
 2. 디렉터리 변경:
@@ -365,4 +365,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

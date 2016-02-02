@@ -30,20 +30,20 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-trial/" target="_blank">[무료 평가판에 등록](http://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
+- 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-trial/" target="_blank">[무료 평가판에 등록](https://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
 - Runbook을 저장할 [자동화 계정](automation-configuring.md)
 - Azure 가상 컴퓨터. 프로덕션이 되지 않게하기 위해 이 가상 컴퓨터를 중지하고 시작합니다.
 - Azure 리소스에서 인증을 받을 [Azure Active Directory 사용자 및 자동화 자격 증명 자산](automation-configuring.md) 이 사용자는 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
 
 ## 1 단계-새 runbook 만들기
 
-먼저 *Hello World* 라는 텍스트를 출력하는 단순한 Runbook을 생성할 것입니다.
+먼저 *Hello World*라는 텍스트를 출력하는 단순한 Runbook을 생성할 것입니다.
  
 1. Azure Preview 포털에서 자동화 계정을 엽니다. 자동화 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자는 일부 자산이 이미 있어야 합니다. 대부분의 자산들은 새 자동화 계정에 자동적으로 포함되 있는 모듈입니다. 또한 사용자는 [필수 구성 요소](#prerequisites)에서 언급된 자격 증명 자산이 있어야 합니다.
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.  
     ![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
 3. **Runbook 추가** 단추를 클릭하고 **새 Runbook 만들기**를 클릭하여 새 Runbook을 만듭니다.
-4. Runbook 이름을 *MyFirstRunbook-PowerShell* 로 지정합니다.
+4. Runbook 이름을 *MyFirstRunbook-PowerShell*로 지정합니다.
 5. 이 경우 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)을 만들 예정이므로 **Runbook 형식**으로 **Powershell**을 선택합니다.  
     ![Runbook 형식](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
 6. **만들기**를 클릭하여 Runbook을 만들고 그래픽 편집기를 엽니다.
@@ -64,10 +64,9 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. 테스트 창을 열려면 **테스트 창**을 클릭합니다.  
 	![테스트 창](media/automation-first-runbook-textual-powershell/automation-testpane.png)  
 2. **시작**을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
-3. 이 창에서 [runbook 작업](automation-runbook-execution)이 생성되고 상태를 보여줍니다. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중* 에서 시작됩니다. 작업자가 작업을 요구한 경우, *시작 중* 으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중* 으로 바뀝니다.  
+3. 이 창에서 [runbook 작업](automation-runbook-execution)이 생성되고 상태를 보여줍니다. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*에서 시작됩니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
 4. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 여기서는 *Hello World* 가 표시됩니다.   
 	![테스트 창 출력](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)
-
 5. 캔버스로 돌아가려면 테스트 창을 닫습니다.
 
 ## 4 단계 - runbook 게시 및 시작
@@ -102,7 +101,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 2. **Write-Output** 줄은 더 이상 필요하지 않으므로 삭제합니다.
 3. 라이브러리 컨트롤에서 **자산**, **자격 증명**을 차례로 확장합니다.
 4. 자격 증명을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 클릭합니다. 이렇게 하면 자격 증명에 대해 **Get-AutomationPSCredential** 작업이 추가됩니다.
-5. **Get-AutomationPSCredential** 앞에 *$Credential =* 을 입력하여 자격 증명을 변수에 할당합니다. 
+5. **Get-AutomationPSCredential** 앞에 *$Credential =*을 입력하여 자격 증명을 변수에 할당합니다. 
 6. 다음 줄에 *Add-AzureAccount -Credential $Credential* 을 입력합니다.  
 	![자격 증명](media/automation-first-runbook-textual-powershell/automation-get-credential.png)
 7. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
@@ -148,5 +147,4 @@ PowerShell Runbook에는 PowerShell 워크플로 Runbook과 동일한 수명 주
 - Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 확인하려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 - PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
-
+<!---HONumber=AcomDC_0128_2016-->

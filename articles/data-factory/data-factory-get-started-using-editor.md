@@ -62,7 +62,7 @@
 	 
 	![데이터 팩터리 이름을 사용할 수 없음][image-data-factory-name-not-available]
 	
-	> [AZURE.NOTE]데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
+	> [AZURE.NOTE] 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 
 9. 왼쪽의 **알림** 허브를 클릭하고 만들기 프로세스에서 제공하는 알림을 찾습니다. **알림** 블레이드가 열려 있으면 **X**를 클릭하여 닫습니다.
 10. 만들기가 완료되면 아래와 같이 **데이터 팩터리** 블레이드가 표시됩니다.
@@ -79,7 +79,6 @@
 
 	![작성 및 배포 타일][image-author-deploy-tile]
 
-	데이터 팩터리 편집기에 대한 자세한 개요는 [데이터 팩터리 편집기][data-factory-editor] 토픽을 참조하세요.
 	 
 5. **편집기**의 도구 모음에서 **새 데이터 저장소** 단추를 클릭하고 드롭다운 메뉴에서 **Azure 저장소**를 선택합니다. 오른쪽 창에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다.
 
@@ -147,7 +146,7 @@
 		
      다음 사항에 유의하세요.
 	
-	- dataset **type**을 **AzureBlob**으로 설정합니다.
+	- 데이터 집합 **형식**을 **AzureBlob**로 설정합니다.
 	- **linkedServiceName**을 **StorageLinkedService**로 설정합니다. 이 연결된 서비스는 2단계에서 만들었습니다.
 	- **folderPath**를 **adftutorial** 컨테이너로 설정합니다. 또한 폴더 내의 Blob 이름을 지정할 수도 있습니다. Blob 이름을 지정하지 않으므로 컨테이너에 있는 모든 Blob의 데이터가 입력 데이터로 간주됩니다.  
 	- format **type**을 **TextFormat**으로 설정합니다.
@@ -398,7 +397,6 @@ Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerSh
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
-[data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -461,4 +459,4 @@ Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerSh
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

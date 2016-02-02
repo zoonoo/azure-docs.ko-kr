@@ -37,7 +37,7 @@
 
 - VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
 	
-- Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 ## PowerShell 모듈 설치
 
@@ -127,7 +127,7 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
->[AZURE.NOTE]리소스 관리자 배포 모델에 대한 Azure VPN 게이트웨이는 현재 동적 할당 방법을 사용하여 공용 IP 주소를 지원합니다. 그러나 이로 인해 IP 주소가 변경되지는 않습니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 Azure VPN 게이트웨이 IP 주소가 변경됩니다. 게이트웨이 공용 IP 주소는 크기 조정, 다시 설정 또는 Azure VPN 게이트웨이의 기타 내부 유지 관리/업그레이드를 변경하지 않습니다.
+>[AZURE.NOTE] 리소스 관리자 배포 모델에 대한 Azure VPN 게이트웨이는 현재 동적 할당 방법을 사용하여 공용 IP 주소를 지원합니다. 그러나 이로 인해 IP 주소가 변경되지는 않습니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 Azure VPN 게이트웨이 IP 주소가 변경됩니다. 게이트웨이 공용 IP 주소는 크기 조정, 다시 설정 또는 Azure VPN 게이트웨이의 기타 내부 유지 관리/업그레이드를 변경하지 않습니다.
 
 ## 5\. 게이트웨이 IP 주소 지정 구성 만들기
 
@@ -246,4 +246,4 @@ VPN 연결을 만들었고 로컬 사이트에 포함된 IP 주소 접두사를 
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

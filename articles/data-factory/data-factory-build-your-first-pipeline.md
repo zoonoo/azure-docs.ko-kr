@@ -26,7 +26,7 @@
 
 이 문서는 Azure 데이터 팩터리 작성을 처음 시작할 때 도움이 됩니다.
 
-> [AZURE.NOTE]이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요.
 
 ## 자습서 개요
 이 자습서는 처음 데이터 팩터리를 실행하는 데 필요한 단계를 안내합니다. 출력 데이터를 생성하는 입력 데이터를 변환/처리하는 데이터 팩터리에서 파이프라인을 만듭니다.
@@ -34,7 +34,7 @@
 ## 필수 구성 요소
 이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
-1.	**Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
+1.	**Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
 
 2.	**Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 
@@ -185,7 +185,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 ### Azure Blob 저장소에 입력 파일 및 HQL 파일 업로드
 
-이 작업을 수행하려면 선택한 모든 도구를 사용할 수 있습니다.(예: Azure 저장소 탐색기, ClumsyLeaf 소프트웨어에서 CloudXPlorer) 이 섹션에서는 AzCopy 도구를 사용하는 지침을 제공합니다.
+사용자가 원하는 아무 도구나 사용하여 이 작업을 수행할 수 있습니다(예: [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/), ClumsyLeaf Software CloudXPlorer). 이 섹션에서는 AzCopy 도구를 사용하는 지침을 제공합니다.
 	 
 2. 자습서에 대한 Azure 저장소를 준비하려면:
 	1. [최신 버전의 **AzCopy**](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 유틸리티 사용 지침은 [AzCopy 사용 방법](../storage/storage-use-azcopy.md)을 참조하세요.
@@ -197,7 +197,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE]위의 명령은 Azure Blob 저장소에 이름이 **adfgetstarted**인 컨테이너를 만들고 로컬 드라이브에서 컨테이너의 **inputdata** 폴더에 **partitionweblogs.hql** 파일을 복사합니다.
+		> [AZURE.NOTE] 위의 명령은 Azure Blob 저장소에 이름이 **adfgetstarted**인 컨테이너를 만들고 로컬 드라이브에서 컨테이너의 **inputdata** 폴더에 **partitionweblogs.hql** 파일을 복사합니다.
 	
 	5. 파일이 성공적으로 업로드되면 AzCopy에서 다음과 비슷한 출력이 표시됩니다.
 	
@@ -209,7 +209,7 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. 다음 명령을 실행하여 **adfgetstarted** 컨테이너의 **스크립트** 폴더에 **partitionweblogs.hql** 파일을 업로드합니다. 명령은 다음과 같습니다. 
+	1. 다음 명령을 실행하여 **adfgetstarted** 컨테이너의 **script** 폴더에 **partitionweblogs.hql** 파일을 업로드합니다. 명령은 다음과 같습니다. 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - Visual Studio
 - Azure 리소스 관리자 템플릿 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

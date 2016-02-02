@@ -30,7 +30,7 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [활성 Azure 계정](http://azure.microsoft.com/pricing/free-trial/)
+* [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 
 * [Visual Studio Community 2013] 이상이 설치된 PC
 
@@ -69,4 +69,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016--->

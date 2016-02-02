@@ -20,6 +20,7 @@
 #.NET에서 Azure 검색의 쿼리 작성
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
+- [Search Explorer](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
@@ -62,4 +63,4 @@
 
 두 번째 호출을 OData $filter 식, 범주 eq 'Luxury'를 사용합니다. 이는 범주 필드가 문자열 "Luxury"와 일치하는 문서만 반환하기 위해 검색을 제한합니다. [Azure 검색에 대한 OData 식 구문](https://msdn.microsoft.com/library/azure/dn798921.aspx)에서 OData 구문에 대해 자세히 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -31,7 +31,7 @@
 **VMM** | System Center 2012 R2에서 실행되는 VMM<br/><br/>하나 이상의 VMM 호스트 그룹을 포함하는 하나 이상의 VMM 클라우드 | 해당 없음 | 최신 업데이트가 설치된 System Center 2012 SP1 이상에서 실행 중인 기본 및 보조 사이트의 VMM 서버 <br/><br/> 각 VMM 서버에 클라우드가 하나 이상 있습니다. VMM 클라우드에는 Hyper-V 용량 프로필이 설정되어 있어야 합니다.<br/><br/> 원본 클라우드에는 VMM 호스트 그룹이 하나 이상 있어야 합니다. | 선택 사항입니다. Azure에 Hyper-V 가상 컴퓨터를 복제하기 위해 System Center VMM 배포할 필요는 없지만, 배포할 경우 VMM 서버가 제대로 설정되어 있는지 확인해야 합니다. 올바른 VMM 버전 실행하고 있으며 클라우드가 설정되었는지 확인하는 것이 여기에 포함됩니다.
 **Hyper-V** | Windows Server 2012 R2 이상을 실행하는 온-프레미스 데이터센터에서 하나 이상의 Hyper-V 호스트 서버 | Windows Server 2012 R2 이상을 실행하고 인터넷에 연결된 원본 및 대상 사이트에서 하나 이상의 Hyper-V 서버<br/><br/> Hyper-V 서버는 VMM 클라우드의 호스트 그룹에 있어야 합니다. | 최신 업데이트가 설치되고 인터넷에 연결된 Windows Server 2012 이상을 실행하는 원본 및 대상 사이트에서 하나 이상의 Hyper-V 서버<br/><br/> Hyper-V 서버는 VMM 클라우드의 호스트 그룹에 있어야 합니다. | 
 **가상 컴퓨터** | 원본 Hyper-V 호스트 서버에서 하나 이상의 VM | 원본 VMM 클라우드의 Hyper-V 호스트 서버에서 하나 이상의 VM | 원본 VMM 클라우드의 Hyper-V 호스트 서버에서 하나 이상의 VM. | Azure에 복제하는 VM은 [Azure 가상 컴퓨터 필수 조건](site-recovery-best-practices.md/#virtual-machines)에 부합해야 합니다.
-**Azure 계정** | [Azure](http://azure.microsoft.com/) 계정과 사이트 복구 서비스 구독이 필요합니다. | [Azure](http://azure.microsoft.com/) 계정과 사이트 복구 서비스 구독이 필요합니다. | 해당 없음 | 계정이 없는 경우 [무료 평가판](pricing/free-trial/)으로 시작하세요. 이 서비스에 대한 [가격 책정](pricing/details/site-recovery/)을 읽어보세요.
+**Azure 계정** | [Azure](https://azure.microsoft.com/) 계정과 사이트 복구 서비스 구독이 필요합니다. | [Azure](https://azure.microsoft.com/) 계정과 사이트 복구 서비스 구독이 필요합니다. | 해당 없음 | 계정이 없는 경우 [무료 평가판](pricing/free-trial/)으로 시작하세요. 이 서비스에 대한 [가격 책정](pricing/details/site-recovery/)을 읽어보세요.
 **Azure 저장소** | 지역에서 복제를 사용할 수 있는 Azure 저장소 계정에 대한 구독이 필요합니다. | 지역에서 복제를 사용할 수 있는 Azure 저장소 계정에 대한 구독이 필요합니다. | 해당 없음 | 계정이 Azure Site Recovery 자격 증명 모음과 동일한 하위 지역에 있고 동일한 구독과 연결되어야 합니다. [저장소에 대해 자세히 알아보기](../storage/storage-introduction.md)
 **저장소 매핑** | 해당 없음 | 해당 없음 | 장애 조치 후 가상 컴퓨터가 저장소에 최적으로 연결되도록 저장소 매핑을 선택적으로 설정할 수 있습니다. 2개의 온-프레미스 VMM 사이트 사이에서 복제하는 경우 기본적으로 복제본 가상 컴퓨터가 대상 Hyper-V 호스트 서버 상에서 표시된 곳에 저장됩니다. 원본 VMM 서버와 대상 VMM 서버에서 VMM 저장소 분류 사이에 매핑을 구성할 수 있습니다. | 이 기능을 사용하려면 배포를 시작하기 전에 저장소 분류를 설정해야 합니다. [자세히 알아보기](site-recovery-storage-mapping.md).
 **SAN 복제** | 해당 없음 | 해당 없음 | SAN 복제를 통해 두 온-프레미스 VMM 사이트 간을 복제할 경우 기존 SAN 환경을 사용할 수 있습니다. | [지원되는 SAN 어레이](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx)가 필요하며 VMM에서 SAN 저장소가 검색 및 분류되어야 합니다. <br/><br/>현재 복제하고 있지 않은 경우 LUN을 만들고 VMM 콘솔에 저장소를 할당해야 합니다. 이미 복제하고 있다면 이 단계를 건너뛰어도 됩니다.
@@ -76,7 +76,7 @@ iSCSI 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성
 FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 하드 디스크 형식| VHD <br/><br/> VHDX | 현재 Azure에서는 VHDX가 지원되지 않지만 Azure로 장애 조치하면 사이트 복구가 자동으로 VHDX를 VHD로 변환합니다. 온-프레미스에 장애 복구 시 가상 컴퓨터에서 계속해서 VHDX 형식을 사용합니다.
 가상 컴퓨터 이름| 1 자에서 63자 사이입니다. 문자, 숫자 및 하이픈으로 제한됩니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. | 사이트 복구에서 가상 컴퓨터 속성 내 값 업데이트
-가상 컴퓨터 유형 | <p>1세대</p> <p>2세대 Windows</p> | 300GB보다 작은 VHDX의 디스크 형식인 데이터 볼륨 1 또는 2를 포함하는 기본 디스크의 OS 디스크 형식인 2세대 가상 컴퓨터입니다. Linux 2세대 가상 컴퓨터는 지원되지 않습니다. [자세한 정보](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
+가상 컴퓨터 유형 | <p>1세대</p> <p>2세대 Windows</p> | 300GB보다 작은 VHDX의 디스크 형식인 데이터 볼륨 1 또는 2를 포함하는 기본 디스크의 OS 디스크 형식인 2세대 가상 컴퓨터입니다. Linux 2세대 가상 컴퓨터는 지원되지 않습니다. [자세한 정보](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
 
 
 
@@ -111,4 +111,4 @@ FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 �
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

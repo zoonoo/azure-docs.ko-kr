@@ -21,7 +21,7 @@
 ## 개요
 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 실행하는 제조 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
 
-데이터 팩터리는 온-프레미스 및 클라우드 데이터 원본 및 SaaS 모두에서 작업하면서 데이터를 수집, 준비, 변환, 분석 및 게시합니다. 데이터 팩터리는 서비스를 관리되는 데이터 흐름 파이프라인으로 작성하여 데이터를 변환하는 데 사용됩니다. 이때 빅 데이터 컴퓨팅을 위해서는 [Azure HDInsight(Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/), [Azure Batch](http://azure.microsoft.com/documentation/services/batch/)와 같은 서비스가 사용되고, 분석 솔루션을 운영하기 위해서는 [Azure 기계 학습](http://azure.microsoft.com/documentation/services/machine-learning/)이 사용됩니다. 테이블 형식의 모니터링 뷰를 능가하는 데이터 팩터리의 풍성한 시각화를 사용하여 데이터 파이프라인 간의 종속성과 계보를 신속하게 나타냅니다. 단일의 통합된 보기에서 모든 데이터 흐름 파이프라인을 모니터링하여 쉽게 문제를 파악하고 모니터링 경고를 설정합니다.
+데이터 팩터리는 온-프레미스 및 클라우드 데이터 원본 및 SaaS 모두에서 작업하면서 데이터를 수집, 준비, 변환, 분석 및 게시합니다. 빅 데이터 컴퓨팅 요구를 위해 [Azure HDInsight(Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) 및 [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) 같은 서비스를 사용하여 데이터를 변환하기 위해, [Azure 기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)으로 분석 솔루션을 운영할 수 있도록 하기 위해 데이터 팩터리를 사용하여 서비스를 관리되는 데이터 흐름 파이프라인으로 작성합니다. 테이블 형식의 모니터링 뷰를 능가하는 데이터 팩터리의 풍성한 시각화를 사용하여 데이터 파이프라인 간의 종속성과 계보를 신속하게 나타냅니다. 단일의 통합된 보기에서 모든 데이터 흐름 파이프라인을 모니터링하여 쉽게 문제를 파악하고 모니터링 경고를 설정합니다.
 
 ![개요](./media/data-factory-introduction/data-factory-overview.png)
 
@@ -57,4 +57,4 @@ Azure Data Factory에는 입력 및 출력 데이터, 처리 이벤트, 필요�
 
 데이터 집합, 활동, 파이프라인, 연결된 서비스라는 네 가지의 단순한 개념만으로 시작할 준비가 되었습니다. 처음부터 시작하여 [첫 번째 파이프라인을 빌드](data-factory-build-your-first-pipeline.md)하거나 [Data Factory 샘플](data-factory-samples.md)에 있는 지침에 따라 즉시 사용 가능한 샘플을 배포할 수 있습니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

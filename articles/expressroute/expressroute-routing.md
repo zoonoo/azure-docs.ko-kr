@@ -38,7 +38,7 @@ Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려�
  - /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다. 
 	 - 첫 번째 /30 서브넷 은 기본 링크에 사용하고 두 번째 /30 서브넷은 보조 링크에 사용됩니다.
 	 - 각 /30 서브넷의 경우 라우터에서 /30의 첫 번째 IP 주소를 사용해야 합니다. Microsoft는 /30의 두 번째 IP 주소를 사용하여 BGP 세션을 설치합니다.
-	 - [가용성 SLA](http://azure.microsoft.com/support/legal/sla/)이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.  
+	 - [가용성 SLA](https://azure.microsoft.com/support/legal/sla/)이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.  
 
 #### 개인 피어링에 대한 예제
 
@@ -59,7 +59,7 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
 - /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다. 
 	- 첫 번째 /30 서브넷 은 기본 링크에 사용하고 두 번째 /30 서브넷은 보조 링크에 사용됩니다.
 	- 각 /30 서브넷의 경우 라우터에서 /30의 첫 번째 IP 주소를 사용해야 합니다. Microsoft는 /30의 두 번째 IP 주소를 사용하여 BGP 세션을 설치합니다.
-	- [가용성 SLA](http://azure.microsoft.com/support/legal/sla/)이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.
+	- [가용성 SLA](https://azure.microsoft.com/support/legal/sla/)이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.
 
 사용자 IP 주소 및 AS 번호가 아래에 나열된 레지스트리 중 하나에 등록되었는지 확인합니다.
 
@@ -147,7 +147,7 @@ Microsoft는 공용 피어링 및 Microsoft 피어링을 통해 접두사가 호
 
 Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 태그되어야 합니다.
 
->[AZURE.IMPORTANT]전역 접두사는 적절한 커뮤니티 값으로 태그가 지정되며 Express 경로 Premium 추가 기능을 사용하는 경우에만 보급됩니다.
+>[AZURE.IMPORTANT] 전역 접두사는 적절한 커뮤니티 값으로 태그가 지정되며 Express 경로 Premium 추가 기능을 사용하는 경우에만 보급됩니다.
 
 
 또한 위의 내용 외에도 Microsoft는 자신이 속한 서비스에 기반한 접두사에 태그합니다. Microsoft 피어링에 적용됩니다. 다음 테이블에서는 BGP 커뮤니티 값에 서비스의 매핑을 제공합니다.
@@ -163,7 +163,7 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 
 ### 라우팅의 기본 설정 조작
 
-Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어링 당 한 쌍의 BGP 세션을 설치하여 [가용성 SLA](http://azure.microsoft.com/support/legal/sla/)에 대한 요구 사항이 충족되도록 해야 합니다. 그러나 표준 BGP 경로 조작 기술에 의존하여 다른 네트워크를 통해 링크를 선호하도록 사용자의 네트워크를 구성할 수 있습니다. 다른 BGP 로컬 기본 설정을 각 링크에 적용하여 사용자의 네트워크에서 Microsoft로 다른 경로 보다 하나의 경로를 우선할 수 있습니다. 경로 보급에 AS-PATH를 추가하여 Microsoft에서 네트워크로 가는 트래픽 흐름에 영향을 미칠 수 있습니다.
+Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어링 당 한 쌍의 BGP 세션을 설치하여 [가용성 SLA](https://azure.microsoft.com/support/legal/sla/)에 대한 요구 사항이 충족되도록 해야 합니다. 그러나 표준 BGP 경로 조작 기술에 의존하여 다른 네트워크를 통해 링크를 선호하도록 사용자의 네트워크를 구성할 수 있습니다. 다른 BGP 로컬 기본 설정을 각 링크에 적용하여 사용자의 네트워크에서 Microsoft로 다른 경로 보다 하나의 경로를 우선할 수 있습니다. 경로 보급에 AS-PATH를 추가하여 Microsoft에서 네트워크로 가는 트래픽 흐름에 영향을 미칠 수 있습니다.
 
 ## 다음 단계
 
@@ -173,4 +173,4 @@ Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

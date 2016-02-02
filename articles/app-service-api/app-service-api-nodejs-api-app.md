@@ -66,7 +66,7 @@
 
 1. **start** 폴더의 **lib** 폴더를 scaffolder에서 만든 **ContactList** 폴더에 복사합니다.
 
-1. **handlers/contacts.js** 파일의 코드를 아래 코드로 바꿉니다. 이 코드는 **lib/contactRepository.js**에서 제공하는 **lib/contacts.json** 파일에 저장된 JSON 데이터를 사용합니다. 아래의 새 contats.js 코드는 이 코드를 사용하여 모든 연락처를 가져오는 HTTP 요청에 응답합니다.
+1. **handlers/contacts.js** 파일의 코드를 아래 코드로 바꿉니다. 이 코드는 **lib/contactRepository.js**에서 제공하는 **lib/contacts.json** 파일에 저장된 JSON 데이터를 사용합니다. 아래의 새 contacts.js 코드는 이 코드를 사용하여 모든 연락처를 가져오는 HTTP 요청에 응답합니다.
 
         'use strict';
         
@@ -86,7 +86,7 @@
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 
@@ -151,7 +151,7 @@
 
 소스 코드를 복제한 GitHub 리포지토리는 배포를 위해 코드를 푸시할 리포지토리와 다릅니다. 샘플 GitHub 리포지토리에는 "Start" 상태의 코드가 포함되어 있으며, 이제 "end" 상태의 코드를 스캐폴드했으므로 이 코드를 API 앱과 연결된 Git 리포지토리에 푸시하기만 하면 됩니다. 먼저 Azure 포털을 사용하여 API 앱을 만든 후 다음 단계를 수행합니다.
 
-1. [Azure 포털](http://portal.azure.com)로 이동합니다. 
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 
 
 1. 새 API 앱을 만듭니다.
 
@@ -243,4 +243,4 @@ Azure 앱 서비스에서 기본 제공하는 지속적인 업데이트 기능�
 
 이 샘플을 작성하려면 데이터베이스 또는 API 앱 인스턴스의 디스크에 데이터를 저장하는 코드를 처리기에 추가할 수 있습니다. 연속 배포를 연결했으므로 코드를 변경하고 Git 리포지토리에 푸시하는 간단한 방법으로 API 앱의 기능을 변경하고 확장할 수 있습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

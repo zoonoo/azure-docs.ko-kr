@@ -28,7 +28,7 @@
 
 ### 계정
 
-- **Azure 계정** - Azure 구독이 아직 없는 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에서 몇 분 만에 무료 평가판 계정을 만들 수 있습니다
+- **Azure 계정** - Azure 구독이 아직 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에서 몇 분 만에 무료 평가판 계정을 만들 수 있습니다.
 - **배치 계정** - Azure 구독이 있으면 [Azure 배치 계정을 만들고 관리합니다](batch-account-create-portal.md).
 - **저장소 계정** - [Azure 저장소 계정 정보](../storage-create-storage-account.md)의 *저장소 계정 만들기* 섹션을 참조하세요.
 
@@ -88,7 +88,7 @@ private const string StorageAccountKey  = "";
 
 자격 증명으로 프로젝트를 업데이트했으므로 *솔루션 탐색기*에서 솔루션을 마우스 오른쪽으로 클릭하고 **솔루션 빌드**를 클릭합니다. 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다.
 
-> [AZURE.TIP]NuGet 패키지가 자동으로 복원되지 않거나 패키지 복원 실패와 관련된 오류가 표시되는 경우 [NuGet 패키지 관리자][nuget_packagemgr]가 설치되었는지 확인한 다음 누락된 패키지의 다운로드를 활성화합니다. 패키지 다운로드를 활성화하려면 [빌드하는 동안 패키지 복원 활성화][nuget_restore]를 참조하세요.
+> [AZURE.TIP] NuGet 패키지가 자동으로 복원되지 않거나 패키지 복원 실패와 관련된 오류가 표시되는 경우 [NuGet 패키지 관리자][nuget_packagemgr]가 설치되었는지 확인한 다음 누락된 패키지의 다운로드를 활성화합니다. 패키지 다운로드를 활성화하려면 [빌드하는 동안 패키지 복원 활성화][nuget_restore]를 참조하세요.
 
 다음 섹션에서는 배치 서비스의 워크로드를 처리하도록 수행하는 단계로 샘플 응용 프로그램을 세분화하고 해당 단계를 자세히 설명합니다. 샘플에 있는 코드의 모든 줄이 설명되어 있지 않으므로 이 문서의 나머지 부분에서 작업하는 동안 Visual Studio에서 공개 솔루션을 참조하는 것이 좋습니다.
 
@@ -234,7 +234,7 @@ DotNetTutorial 샘플 응용 프로그램은 JobPreparationTask 또는 JobReleas
 
 - **컨테이너 SAS** - 각 작업은 계산 노드에서 해당 작업을 완료하므로 해당 출력 파일을 Azure 저장소의 *출력* 컨테이너에 업로드합니다. 이렇게 하려면 TaskApplication은 파일을 업로드하는 경우 경로의 일부로 컨테이너에 쓰기 액세스를 제공하는 컨테이너 SAS를 사용합니다. 컨테이너 SAS 가져오기는 Blob을 가져올 때와 비슷한 방식으로 이루어지며 DotNetTutorial에서 이렇게 하기 위해 `GetContainerSasUrl` 도우미 메서드가 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]를 호출하는 것을 확인할 수 있습니다. 아래 6단계 "작업 모니터링"에서 TaskApplication이 컨테이너 SAS를 사용하는 방법에 대해 자세히 알아봅니다.
 
-> [AZURE.TIP]공유 액세스 서명에 대해 두 부분으로 이루어진 시리즈, [1부: SAS 모델 이해](./../storage/storage-dotnet-shared-access-signature-part-1.md) 및 [2부: Blob 서비스를 통해 SAS 만들기 및 사용](./../storage/storage-dotnet-shared-access-signature-part-2.md)을 확인하여 저장소 계정의 데이터에 대한 보안 액세스 제공에 대한 자세한 내용을 확인합니다.
+> [AZURE.TIP] 공유 액세스 서명에 대해 두 부분으로 이루어진 시리즈, [1부: SAS 모델 이해](./../storage/storage-dotnet-shared-access-signature-part-1.md) 및 [2부: Blob 서비스를 통해 SAS 만들기 및 사용](./../storage/storage-dotnet-shared-access-signature-part-2.md)을 확인하여 저장소 계정의 데이터에 대한 보안 액세스 제공에 대한 자세한 내용을 확인합니다.
 
 ## 3단계: 배치 풀 만들기
 
@@ -288,7 +288,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 [CreatePool][net_pool_create]을 사용하여 풀을 만들 때 계산 노드 수, [노드의 크기](./../cloud-services/cloud-services-sizes-specs.md), 노드의 [운영 체제](./../cloud-services/cloud-services-guestos-update-matrix.md)와 같은 매개 변수의 수를 지정합니다.
 
-> [AZURE.IMPORTANT]배치의 계산 리소스에 대한 요금이 부과됩니다. 비용을 최소화하려면 샘플을 실행하기 전에 `targetDedicated`을(를) 1로 낮출 수 있습니다.
+> [AZURE.IMPORTANT] 배치의 계산 리소스에 대한 요금이 부과됩니다. 비용을 최소화하려면 샘플을 실행하기 전에 `targetDedicated`을(를) 1로 낮출 수 있습니다.
 
 이러한 실제 노드 속성과 함께 풀에 대해 [StartTask][net_pool_starttask]를 지정할 수도 있습니다. StartTask는 노드가 다시 시작할 때도 해당 노드가 풀을 연결하는 대로 각 노드에서 실행됩니다. StartTask는 작업을 실행하기 전에 계산 노드에서 응용 프로그램을 설치하는 데 특히 유용합니다. 예를 들어 작업에서 Python 스크립트를 사용하여 데이터를 처리하는 경우 계산 노드에서 Python을 설치하는 데 StartTask를 사용할 수 있습니다.
 
@@ -296,7 +296,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 위의 코드 조각에서 주목할 만한 것은 StartTask의 *CommandLine* 속성에서 두 개의 환경 변수(`%AZ_BATCH_TASK_WORKING_DIR%` 및 `%AZ_BATCH_NODE_SHARED_DIR%`) 사용입니다. 배치 풀 내에서 각 계산 노드는 배치에 특정된 환경 변수의 수로 자동으로 구성되고 작업에 의해 실행된 모든 프로세스는 이러한 환경 변수에 대한 액세스를 가집니다.
 
-> [AZURE.TIP]작업 디렉터리에 대한 정보 뿐만 아니라 배치 풀의 계산 노드에 사용할 수 있는 환경 변수에 대한 자세한 내용은 [Azure 배치 기능 개요](batch-api-basics.md)에서 **작업에 대한 환경 설정** 및 **파일 및 디렉터리** 섹션을 참조하세요.
+> [AZURE.TIP] 작업 디렉터리에 대한 정보 뿐만 아니라 배치 풀의 계산 노드에 사용할 수 있는 환경 변수에 대한 자세한 내용은 [Azure 배치 기능 개요](batch-api-basics.md)에서 **작업에 대한 환경 설정** 및 **파일 및 디렉터리** 섹션을 참조하세요.
 
 ## 4단계: 배치 작업 만들기
 
@@ -356,7 +356,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
-> [AZURE.IMPORTANT]`%AZ_BATCH_NODE_SHARED_DIR%`와(과) 같은 환경 변수를 액세스하거나 노드의 `PATH`에서 찾을 수 없는 응용 프로그램을 실행하는 경우 명시적으로 명령 해석기를 실행하고 명령 실행 후에 종료하도록 지시하려면 태스크 명령줄은 `cmd /c` 접두사가 붙어야 합니다. 이 요구 사항은 태스크가 노드의 경로(예: *robocopy.exe* 또는 *powershell.exe*)에서 응용 프로그램을 실행하고 환경 변수가 사용되지 않는 경우 필요하지 않습니다.
+> [AZURE.IMPORTANT] `%AZ_BATCH_NODE_SHARED_DIR%`와(과) 같은 환경 변수를 액세스하거나 노드의 `PATH`에서 찾을 수 없는 응용 프로그램을 실행하는 경우 명시적으로 명령 해석기를 실행하고 명령 실행 후에 종료하도록 지시하려면 태스크 명령줄은 `cmd /c` 접두사가 붙어야 합니다. 이 요구 사항은 태스크가 노드의 경로(예: *robocopy.exe* 또는 *powershell.exe*)에서 응용 프로그램을 실행하고 환경 변수가 사용되지 않는 경우 필요하지 않습니다.
 
 위의 코드 조각의 `foreach` 루프 내에서 태스크에 대한 명령줄이 *TaskApplication.exe*에 전달되는 세 개의 명령줄 인수로 구성되어 있는 것을 확인할 수 있습니다.
 
@@ -521,7 +521,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
-> [AZURE.NOTE]*DotNetTutorial* 응용 프로그램에서 `DownloadBlobsFromContainerAsync`에 대한 호출은 파일을 `%TEMP%` 폴더에 다운로드해야 하는 것을 지정합니다. 이 출력 위치를 수정해도 됩니다.
+> [AZURE.NOTE] *DotNetTutorial* 응용 프로그램에서 `DownloadBlobsFromContainerAsync`에 대한 호출은 파일을 `%TEMP%` 폴더에 다운로드해야 하는 것을 지정합니다. 이 출력 위치를 수정해도 됩니다.
 
 ## 8단계: 컨테이너 삭제
 
@@ -576,7 +576,7 @@ if (response != "n" && response != "no")
 }
 ```
 
-> [AZURE.IMPORTANT]계산 리소스에 대해 요금이 부과되고 사용하지 않는 풀 삭제는 비용을 최소화한다는 점을 유의하세요. 풀 삭제는 해당 풀 내의 모든 계산 노드를 삭제하고 노드의 모든 데이터는 풀이 삭제되면 복구할 수 없게 됩니다.
+> [AZURE.IMPORTANT] 계산 리소스에 대해 요금이 부과되고 사용하지 않는 풀 삭제는 비용을 최소화한다는 점을 유의하세요. 풀 삭제는 해당 풀 내의 모든 계산 노드를 삭제하고 노드의 모든 데이터는 풀이 삭제되면 복구할 수 없게 됩니다.
 
 ## *DotNetTutorial* 샘플 실행
 
@@ -680,4 +680,4 @@ Sample complete, hit ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,13 +23,13 @@
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Microsoft Azure HDInsight의 Storm을 사용하여 실시간 빅 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
 
-> [AZURE.NOTE]이 문서의 단계는 Windows 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계는 Windows 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
 
 ## 필수 조건
 
 이 Apache Storm 자습서를 성공적으로 완료하려면 다음 항목이 필요합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 ## Storm 클러스터 만들기
 
@@ -49,7 +49,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 5. __리소스 그룹__의 경우 기존 리소스 그룹 목록을 표시할 항목을 선택한 다음 클러스터를 만들 리소스 그룹을 선택할 수 있습니다. 또는 __새로 만들기__를 선택한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
 
-	> [AZURE.NOTE]사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
+	> [AZURE.NOTE] 사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
 
 6. __자격 증명__을 선택한 다음 __클러스터 로그인 사용자 이름__ 및 __클러스터 로그인 암호__를 입력합니다. 마지막으로 __선택__을 사용하여 자격 증명을 설정합니다. 이 문서에서는 원격 데스크톱을 사용하지 않으므로 사용 안함으로 둡니다.
 
@@ -69,7 +69,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	- __위치__: 저장소 계정이 있거나 저장소 계정을 만들 지리적 하위 지역입니다.
 
-		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
+		> [AZURE.IMPORTANT] 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
 
 	- __선택__: 데이터 원본 구성을 저장하려면 이 항목을 사용합니다.
 
@@ -89,7 +89,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 프로비전](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인하세요.
+	> [AZURE.NOTE] 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인하세요.
 
 ## HDInsight에서 Storm Starter 샘플 실행
 
@@ -103,7 +103,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 ![Storm 대시보드 링크가 있는 Azure 포털](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
 
-> [AZURE.NOTE]대시보드를 연결할 때 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 이는 관리자 이름(**admin**) 및 클러스터를 만들 때 사용한 암호입니다.
+> [AZURE.NOTE] 대시보드를 연결할 때 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 이는 관리자 이름(**admin**) 및 클러스터를 만들 때 사용한 암호입니다.
 
 Storm 대시보드가 로드되면 **토폴로지 제출** 양식이 표시됩니다.
 
@@ -128,7 +128,7 @@ Storm Starter 샘플을 실행하려면 다음 단계를 수행합니다.
 
 	![톰 스타터 WordCount의 결과 및 제출 단추.](./media/hdinsight-apache-storm-tutorial-get-started/submit-results.png)
 
-	> [AZURE.NOTE]결과가 토폴로지가 완료되었음을 나타내지 않습니다. **Storm 토폴로지는 시작된 후 사용자가 중지할 때까지 실행됩니다.** 단어 개수 토폴로지는 임의의 문장을 생성하며 중지할 때까지 각 단어가 나오는 횟수를 계산합니다.
+	> [AZURE.NOTE] 결과가 토폴로지가 완료되었음을 나타내지 않습니다. **Storm 토폴로지는 시작된 후 사용자가 중지할 때까지 실행됩니다.** 단어 개수 토폴로지는 임의의 문장을 생성하며 중지할 때까지 각 단어가 나오는 횟수를 계산합니다.
 
 ### <a id="monitor"></a>토폴로지 모니터링
 
@@ -140,7 +140,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 	위 페이지에서는 토폴로지가 활성화된 시간과 작업자, 실행자 및 사용 중인 작업 수를 볼 수 있습니다.
 
-	> [AZURE.NOTE]**이름** 열에는 앞에서 **추가 매개 변수** 필드를 통해 제공한 이름이 포함되어 있습니다.
+	> [AZURE.NOTE] **이름** 열에는 앞에서 **추가 매개 변수** 필드를 통해 제공한 이름이 포함되어 있습니다.
 
 4. **토폴로지 요약** 아래의 **이름** 열에서 **wordcount** 항목을 선택합니다. 그러면 토폴로지에 대한 자세한 정보가 표시됩니다.
 
@@ -150,7 +150,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 	* **토폴로지 통계** - 기간으로 구성된 토폴로지 성능에 대한 기본 정보입니다.
 
-		> [AZURE.NOTE]특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
+		> [AZURE.NOTE] 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
 
 	* **Spout** - 각 Spout에서 반환된 마지막 오류를 포함하여 Spout에 대한 기본 정보입니다.
 
@@ -176,7 +176,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 	* **Spout/Bolt 통계** - 기간으로 구성된 구성 요소 성능에 대한 기본 정보입니다.
 
-		> [AZURE.NOTE]특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
+		> [AZURE.NOTE] 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
 
 	* **입력 통계**(Bolt에만 해당) - Bolt에서 사용되는 데이터를 생성하는 구성 요소에 대한 정보입니다.
 
@@ -223,7 +223,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 	'jar' 명령을 사용하여 소스 코드 또는 Java 문서를 추출합니다. 예를 들어 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar' 등을 사용할 수 있습니다.
 
-	> [AZURE.NOTE]Java 문서는 웹 페이지로 구성됩니다. 추출 후에는 브라우저를 사용하여 **index.html** 파일을 확인합니다.
+	> [AZURE.NOTE] Java 문서는 웹 페이지로 구성됩니다. 추출 후에는 브라우저를 사용하여 **index.html** 파일을 확인합니다.
 
 	이러한 샘플에 액세스하려면 HDInsight의 Storm 클러스터에 대한 원격 데스크톱을 사용하도록 설정한 다음 **%STORM\_HOME%\\contrib**에서 파일을 복사해야 합니다.
 
@@ -239,4 +239,4 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

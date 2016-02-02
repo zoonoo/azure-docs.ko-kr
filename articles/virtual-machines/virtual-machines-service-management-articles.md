@@ -42,7 +42,6 @@
 
 [Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Linux를 실행하는 사용자 지정 VM 만들기](virtual-machines-linux-create-custom.md)
 
-[Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## 계획
 
@@ -152,4 +151,4 @@
 
 [서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

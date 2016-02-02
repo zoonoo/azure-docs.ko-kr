@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="12/03/2015" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -49,15 +49,21 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 캐시를 만들려면 먼저 [Azure 포털][]에 로그인하고 **새로 만들기**, **데이터 + 저장소**, **Redis Cache**를 클릭합니다.
 
+>[AZURE.NOTE] Azure 포털에서 캐시를 만드는 것 외에도 ARM 템플릿, PowerShell 또는 Azure CLI를 사용해서도 만들 수 있습니다.
+>
+>-	ARM 템플릿을 사용하여 캐시를 만들려면 [템플릿을 사용하여 Redis Cache 만들기](cache-redis-cache-arm-provision.md)를 참조하세요.
+>-	Azure PowerShell을 사용하여 캐시를 만들려면 [Azure PowerShell을 사용하여 Azure Redis Cache 관리](cache-howto-manage-redis-cache-powershell.md)를 참조하세요.
+>-	Azure CLI를 사용하여 캐시를 만들려면 [Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법](cache-manage-cli.md)을 참조하세요.
+
 ![새 캐시][NewCacheMenu]
 
->[AZURE.NOTE]Azure 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][]을 참조하세요.
+>[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][]을 참조하세요.
 
 **새 Redis Cache** 블레이드에서 원하는 캐시 구성을 지정합니다.
 
 ![캐시 만들기][CacheCreate]
 
--	**DNS 이름** - 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은 6~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
+-	**DNS 이름** - 캐시 끝점에 사용할 캐시 이름을 입력합니다. 캐시 이름은 1~63자의 문자열로, 숫자, 영문자 및 `-` 문자만 포함할 수 있습니다. 캐시 이름은 `-` 문자로 시작하거나 끝날 수 없고 연속되는 `-` 문자는 유효하지 않습니다.
 -	**구독**에서는 캐시에 사용할 Azure 구독을 선택합니다. 계정에 구독이 하나뿐인 경우 해당 구독이 자동으로 선택되며 **구독** 드롭다운은 표시되지 않습니다.
 -	**리소스 그룹**에서 캐시에 대한 리소스 그룹을 선택하거나 만듭니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][](영문)를 참조하세요. 
 -	**위치**를 사용하여 캐시가 호스트되는 지리적 위치를 지정합니다. 성능을 최적화하려면 캐시 클라이언트 응용 프로그램과 동일한 지역에 캐시를 만드는 것이 좋습니다.
@@ -84,7 +90,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 Azure Redis Cache를 사용하여 만든 캐시는 모든 Azure 응용 프로그램에서 액세스할 수 있습니다. Visual Studio에서 개발한 .NET 응용 프로그램은 **StackExchange.Redis** 캐시 클라이언트를 사용할 수 있습니다. 이는 캐시 클라이언트 응용 프로그램의 구성을 단순화하는 NuGet 패키지를 사용하여 구성할 수 있습니다.
 
->[AZURE.NOTE]자세한 내용은 [StackExchange.Redis][](영문) github 페이지 및 [StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 참조하세요.
+>[AZURE.NOTE] 자세한 내용은 [StackExchange.Redis][](영문) github 페이지 및 [StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 참조하세요.
 
 StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
@@ -92,7 +98,7 @@ StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라�
 
 **온라인 검색** 텍스트 상자에 **StackExchange.Redis** 또는 **StackExchange.Redis.StrongName**을 입력하고 결과에서 원하는 버전을 선택한 후 **설치**를 클릭합니다.
 
->[AZURE.NOTE]강력한 이름의 **StackExchange.Redis** 클라이언트 라이브러리 버전을 사용하려면 **StackExchange.Redis.StrongName**을 선택하고 그렇지 않으면 **StackExchange.Redis**를 선택합니다.
+>[AZURE.NOTE] 강력한 이름의 **StackExchange.Redis** 클라이언트 라이브러리 버전을 사용하려면 **StackExchange.Redis.StrongName**을 선택하고 그렇지 않으면 **StackExchange.Redis**를 선택합니다.
 
 ![StackExchange.Redis NuGet 패키지][StackExchangeNuget]
 
@@ -116,7 +122,7 @@ NuGet 패키지는 클라이언트 응용 프로그램이 StackExchange.Redis �
 
     using StackExchange.Redis;
 
->[AZURE.NOTE]StackExchange.Redis 클라이언트를 사용하려면 .NET Framework 4 이상이 필요합니다.
+>[AZURE.NOTE] StackExchange.Redis 클라이언트를 사용하려면 .NET Framework 4 이상이 필요합니다.
 
 Azure Redis Cache 연결은 `ConnectionMultiplexer` 클래스로 관리됩니다. 이 클래스는 클라이언트 응용 프로그램 전체에서 공유하고 다시 사용하도록 설계되었으며 작업별로 만들 필요가 없습니다.
 
@@ -124,11 +130,11 @@ Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
->[AZURE.IMPORTANT]경고: 소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 소스 코드로 표시합니다. [응용 프로그램 설정 및 연결 문자열 작동 방식][](영문)에서 자격 증명 저장 방법에 대해 자세히 알아보세요.
+>[AZURE.IMPORTANT] 경고: 소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 소스 코드로 표시합니다. [응용 프로그램 설정 및 연결 문자열 작동 방식][](영문)에서 자격 증명 저장 방법에 대해 자세히 알아보세요.
 
 SSL을 사용하지 않으려면 `ssl=false`를 설정하거나 `ssl` 매개 변수를 생략합니다.
 
->[AZURE.NOTE]비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하는 지침은 [포트 액세스](cache-configure.md#access-ports)를 참조하세요...
+>[AZURE.NOTE] 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하는 지침은 [포트 액세스](cache-configure.md#access-ports)를 참조하세요...
 
 응용 프로그램의 `ConnectionMultiplexer` 인스턴스를 공유하는 방법은 다음 예제와 비슷하게 연결된 인스턴스를 반환하는 정적 속성을 갖는 것입니다. 스레드가 안전하도록 단일 연결된 `ConnectionMultiplexer` 인스턴스를 초기화하는 방법을 제공합니다. 이러한 예에서 `abortConnect`은 false로 설정되며 이는 Azure Redis Cache에 연결이 설정 되지 않은 경우에도 호출이 성공한다는 사실을 의미합니다. `ConnectionMultiplexer`의 한 가지 주요 기능은 연결 네트워크 문제 또는 다른 원인이 해결되면 캐시에 연결이 자동으로 복원된다는 점입니다.
 
@@ -329,4 +335,4 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

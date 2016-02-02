@@ -22,7 +22,7 @@ Azure 배치는 클라우드에서 효율적으로 대규모 병렬 및 HPC(고�
 
 ## 사용 사례
 
-배치는 대용량의 유사 태스크를 실행하여 원하는 결과를 얻을 수 있는 *배치 처리* 또는 *배치 컴퓨팅* 을 위한 관리된 서비스입니다. 배치 컴퓨팅은 일정에 따라 또는 요청이 있을 때 금융 서비스에서 엔지니어링에 이르는 필드에서 대량의 데이터를 처리하고, 변환하고, 분석하는 조직의 일반적인 패턴입니다.
+배치는 대용량의 유사 태스크를 실행하여 원하는 결과를 얻을 수 있는 *배치 처리* 또는 *배치 컴퓨팅*을 위한 관리된 서비스입니다. 배치 컴퓨팅은 일정에 따라 또는 요청이 있을 때 금융 서비스에서 엔지니어링에 이르는 필드에서 대량의 데이터를 처리하고, 변환하고, 분석하는 조직의 일반적인 패턴입니다.
 
 배치 작업은 기본적으로 병렬("병렬 처리가 적합한") 응용 프로그램이나 작업에 적합하며 이러한 응용 프로그램이나 작업이 여러 컴퓨터에서 병렬 작업으로 실행되도록 합니다. 그림 1을 참조하세요.
 
@@ -40,7 +40,7 @@ Azure 배치는 클라우드에서 효율적으로 대규모 병렬 및 HPC(고�
 
 또한 배치는 끝에 감소 단계가 있는 병렬 계산 및 메시지 전달 인터페이스(MPI) 응용 프로그램 등 보다 복잡한 HPC 작업을 수행할 수 있습니다.
 
->[AZURE.NOTE]이 때에 배치는 Windows Server 기반 가상 컴퓨터에서 실행하는 워크로드를 지원합니다.
+>[AZURE.NOTE] 이 때에 배치는 Windows Server 기반 가상 컴퓨터에서 실행하는 워크로드를 지원합니다.
 
 Azure에서 다른 HPC 솔루션 옵션과 배치의 비교는 [배치 및 HPC 솔루션](batch-hpc-solutions.md)을 참조하세요.
 
@@ -52,7 +52,7 @@ Azure에서 다른 HPC 솔루션 옵션과 배치의 비교는 [배치 및 HPC �
 
 ### 필요한 계정
 
-+ **Azure 계정 및 구독** - 계정이 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
++ **Azure 계정 및 구독** - 계정이 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 
 + **배치 계정** - 배치 API를 호출할 때 배치 계정 및 선택키의 이름 및 URL를 자격 증명으로 사용합니다. 배치 계정과 연관된 계산 노드, 풀, 작업 및 태스크와 같은 모든 배치 리소스입니다. 배치 계정을 만들고 계정에 대한 액세스 키를 관리하는 방법은 [Azure 포털](batch-account-create-portal.md)을 사용하는 것입니다.
 
@@ -103,4 +103,4 @@ Visual Studio와 함께 이러한 .NET 라이브러리 및 도구를 사용하�
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="SQL 데이터베이스 성능 및 옵션: 서비스 계층 | Microsoft Azure"
 	description="규모를 조정하는 동안 비용 및 기능의 균형을 유지하도록 서비스 계층의 SQL 데이터베이스 성능 및 비즈니스 연속성 기능을 비교합니다."
-	keywords="데이터베이스 옵션, 데이터베이스 성능, eDTU"
+	keywords="데이터베이스 옵션, 데이터베이스 성능"
 	services="sql-database"
 	documentationCenter=""
 	authors="rothja"
@@ -18,7 +18,7 @@
 	ms.author="jroth"/>
 
 # SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
- 
+
 
 [Azure SQL 데이터베이스](sql-database-technical-overview.md)는 다양한 유형의 워크로드를 처리할 수 있도록 복수의 서비스 계층을 제공합니다. 정의된 특성을 가진 [단일 데이터베이스를 만들고](sql-database-get-started.md) 가격을 책정할 수 있습니다. 또는 [탄력적 데이터베이스 풀을 만들어](sql-database-elastic-pool-portal.md) 여러 데이터베이스를 관리할 수 있습니다. 두 경우 모두 계층은 **Basic**, **Standard** 및 **Premium**을 포함합니다. 하지만 이러한 계층의 데이터베이스 옵션은 개별 데이터베이스를 만드는지 아니면 탄력적 데이터베이스 풀에 데이터베이스를 만드는지 여하에 따라 다릅니다. 이 문서에서는 두 컨텍스트 모두의 서비스 계층에 대한 개요를 제공합니다.
 
@@ -31,7 +31,7 @@
 | **Standard** | 대부분의 클라우드 응용 프로그램에 적합한 옵션이며 복수의 동시 쿼리를 지원합니다. 예를 들어 작업 그룹 또는 웹 응용 프로그램이 이 계층에 적합한 예입니다. |
 | **Premium** | 트랜잭션 양이 많은 경우에 적합하며 다수의 동시 사용자를 지원하고 가장 높은 수준의 비즈니스 연속성 기능을 요구합니다. 예를 들어 업무 필수 응용 프로그램을 지원하는 데이터베이스가 이 계층에 적합합니다. |
 
->[AZURE.NOTE]Web 및 Business 버전은 사용이 중지됩니다. [Web 및 Business 버전 업그레이드](sql-database-upgrade-new-service-tiers.md) 방법을 알아보세요. Web 및 Business Edition을 계속 사용하려는 경우 [지원 종료 FAQ](http://azure.microsoft.com/pricing/details/sql-database/web-business/)를 잘 읽어 보세요.
+>[AZURE.NOTE] Web 및 Business 버전은 사용이 중지됩니다. [Web 및 Business 버전 업그레이드](sql-database-upgrade-new-service-tiers.md) 방법을 알아보세요. Web 및 Business Edition을 계속 사용하려는 경우 [지원 종료 FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/)를 잘 읽어 보세요.
 
 ### 단일 데이터베이스 서비스 계층 및 성능 수준
 단일 데이터베이스의 경우 각 서비스 계층 내에 여러 성능 수준이 있으므로 워크로드 요구에 가장 적합한 수준을 융통성 있게 선택할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 응용 프로그램 가동 중지 시간 없이 Azure 클래식 포털에서 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 자세한 내용은 [데이터베이스 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md)을 참조하세요.
@@ -43,7 +43,7 @@
 
 DTU를 보다 잘 이해하려면 이 항목에서 [DTU 섹션](#understanding-dtus)을 참조하세요.
 
->[AZURE.NOTE]이 서비스 계층 표에서 다른 모든 행에 대한 자세한 설명은 [서비스 계층 기능 및 제한](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)을 참조하세요.
+>[AZURE.NOTE] 이 서비스 계층 표에서 다른 모든 행에 대한 자세한 설명은 [서비스 계층 기능 및 제한](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)을 참조하세요.
 
 ### 탄력적 데이터베이스 풀 서비스 계층 및 eDTU의 성능
 단일 데이터베이스를 만들고 규모를 확장하는 것 외에도 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md) 내에 복수의 데이터베이스를 관리하는 옵션이 있습니다. 탄력적 데이터베이스 풀에 있는 모든 데이터베이스가 공통의 리소스 집합을 공유합니다. 성능 특성은 *탄력적 데이터베이스 트랜잭션 장치*(eDTU)에 의해 측정됩니다. 단일 데이터베이스의 경우와 마찬가지로 탄력적 데이터베이스 툴은 세 가지 서비스 계층 **Basic**, **Standard** 및 **Premium**으로 제공됩니다. 탄력적 데이터베이스의 경우 이러한 세 가지 서비스 계층은 여전히 전체 성능 한계와 여러 기능을 정의합니다.
@@ -89,11 +89,10 @@ SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 �
 탄력적 데이터베이스 풀의 경우 이 섹션에서 설명하는 기법을 사용하여 풀의 개별 데이터베이스를 모니터링할 수 있습니다. 하지만 전체적으로 풀을 모니터링할 수도 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)를 참조하세요.
 
 ## 다음 단계
-[SQL 데이터베이스 가격](http://azure.microsoft.com/pricing/details/sql-database/)에서 이러한 계층의 가격에 대해 자세히 알아보세요.
+[SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)에서 이러한 계층의 가격에 대해 자세히 알아보세요.
 
 그룹으로 복수 데이터베이스 관리에 관심이 있는 경우 연결된 [탄력적 데이터베이스 풀에 대한 가격 및 성능 고려사항](sql-database-elastic-pool-guidance.md)에 따라 [탄력적 데이터베이스 풀](sql-database-elastic-pool-guidance.md)을 고려하십시오.
 
-SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
- 
+SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

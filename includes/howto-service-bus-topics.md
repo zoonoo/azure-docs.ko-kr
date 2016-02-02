@@ -16,7 +16,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 서비스 네임스페이스를 만들려면
 
-1.  [Azure 포털][]에 로그온합니다.
+1.  [Azure 클래식 포털][]에 로그온합니다.
 
 2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
@@ -26,7 +26,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
 
-	> [AZURE.IMPORTANT]응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
+	> [AZURE.IMPORTANT] 응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
 
 6. 	대화 상자의 다른 필드는 기본값으로 그대로 두고(**메시징** 및 **표준 계층**) 확인 표시를 클릭합니다. 이제 시스템이 서비스 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
@@ -47,7 +47,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 4.  **Access 연결 정보** 대화 상자에서 SAS 키 및 키 이름이 포함된 연결 문자열을 찾습니다. 나중에 이 정보를 사용하여 네임스페이스 관련 작업을 수행할 것이므로 이 값을 적어 둡니다.
 
 
-  [Azure 포털]: http://manage.windowsazure.com
+  [Azure 클래식 포털]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
@@ -55,4 +55,4 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->
