@@ -129,7 +129,7 @@ Azure 클래식 포털을 처음으로 열면 **모든 항목** 탭이 자동으
 
 #### 일반
 
-여기에는 **무료** 요금제인지 **표준** 요금제인지 여부가 표시됩니다.
+여기에는 **무료** 또는 **Standard** 버전 여부가 표시됩니다.
 
 #### 할당량
 
@@ -229,7 +229,7 @@ Azure 스케줄러는 여러 조건에 따라 할당량을 구현 합니다. 이
 
  [Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법](scheduler-advanced-complexity.md)
 
- [스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+ [스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
  [스케줄러 PowerShell Cmdlet 참조](scheduler-powershell-reference.md)
 
@@ -257,4 +257,4 @@ Azure 스케줄러는 여러 조건에 따라 할당량을 구현 합니다. 이
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

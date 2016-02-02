@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/24/2015"
+	ms.date="01/24/2016"
 	ms.author="awills"/>
 
 # Java 웹 프로젝트에서 Application Insights 시작하기
@@ -30,7 +30,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
 필요한 사항:
 
 * Oracle JRE 1.6 이상 또는 Zulu JRE 1.6 이상
-* [Microsoft Azure](http://azure.microsoft.com/) 구독. ([무료 평가판](http://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있음.)
+* [Microsoft Azure](https://azure.microsoft.com/) 구독. ([무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있음.)
 
 *이미 라이브 상태인 웹앱이 있는 경우 다른 절차에 따라 [웹 서버에서 런타임으로 SDK를 추가](app-insights-java-live.md)할 수 있습니다. 해당 다른 절차는 코드를 다시 작성할 필요가 없지만 사용자 활동을 추적하는 코드를 작성하는 옵션이 없습니다.*
 
@@ -117,7 +117,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
  * `applicationinsights-web`은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
 
 * *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
- * 최신 버전의 [Java용 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)를 다운로드하여 이전 버전을 대체합니다.
+ * 최신 버전의 [Java용 Application Insights SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip)를 다운로드하여 이전 버전을 대체합니다.
  * 변경 내용은 [SDK 릴리스 정보](app-insights-release-notes-java.md)에 설명되어 있습니다.
 
 
@@ -277,7 +277,7 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 ## 메서드 호출 및 외부 종속성 모니터링
 
-[Java 에이전트를 설치](app-insights-java-agent.md)하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록할 수 있습니다.
+[Java 에이전트를 설치](app-insights-java-agent.md)하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록합니다.
 
 
 ## 성능 카운터
@@ -398,4 +398,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

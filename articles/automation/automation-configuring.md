@@ -25,7 +25,7 @@ Azure 자동화를 처음 시작하려면 자동화 계정을 하나 이상 만�
 
 각 자동화 계정의 자동화 리소스는 단일 Azure 지역과 연결되지만 자동화 계정에서 모든 지역의 Azure 서비스를 관리할 수 있습니다. 여러 지역에서 자동화 계정을 만드는 주된 이유는 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있을 수 있기 때문입니다.
 
->[AZURE.NOTE]Azure Preview 포털에서 작성된 자동화 계정 및 자동화 계정이 포함하는 리소스는 Azure 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
+>[AZURE.NOTE] Azure Preview 포털에서 작성된 자동화 계정 및 자동화 계정이 포함하는 리소스는 Azure 포털에서 액세스할 수 없습니다. 이러한 계정 또는 해당 리소스를 Windows PowerShell을 사용하여 관리하려는 경우 Azure 리소스 관리자 모듈을 사용해야 합니다.
 >
 >Azure 포털을 사용하여 만든 자동화 계정을 전체 포털 및 각 cmdlet 집합에서 관리할 수 있습니다. 계정이 만들어지면 계정 내에서 리소스를 만들고 관리하는 방법에는 차이가 없습니다. Azure 포털을 계속 사용하려는 경우, Azure Preview 포털 대신 사용하여 모든 자동화 계정을 만들어야 합니다.
 
@@ -37,7 +37,7 @@ Azure 계정에 지불 연체와 같은 문제가 있는 경우 자동화 계정
 
 [Azure cmdlet](http://msdn.microsoft.com/library/azure/jj554330.aspx)을 사용하여 Azure 리소스에 액세스하는 경우 Azure 구독에 대한 인증을 제공해야 합니다. Azure 자동화에서 이 작업은 구독에 대한 관리자로 구성한 Azure Active Directory의 조직 계정을 통해 수행됩니다. 그런 다음 이 사용자 계정에 대한 [자격 증명](http://msdn.microsoft.com/library/dn940015.aspx)을 만들고 Runbook에서 [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx)와 함께 사용할 수 있습니다.
 
->[AZURE.NOTE]Microsoft 계정(이전의 LiveID)은 Azure 자동화에서 사용할 수 없습니다.
+>[AZURE.NOTE] Microsoft 계정(이전의 LiveID)은 Azure 자동화에서 사용할 수 없습니다.
 
 ## Azure 구독을 관리할 새 Azure Active Directory 사용자 만들기
 
@@ -62,7 +62,7 @@ Azure 계정에 지불 연체와 같은 문제가 있는 경우 자동화 계정
 
 3. **자동화 계정 추가** 블레이드에서 자동화 계정 세부 정보를 구성합니다.
 
->[AZURE.NOTE]Azure Preview 포털을 사용하여 자동화 계정이 만들어지면 계정과 연결된 모든 리소스가 다시 클래식 관리 포털로 돌아가지 않습니다.
+>[AZURE.NOTE] Azure Preview 포털을 사용하여 자동화 계정이 만들어지면 계정과 연결된 모든 리소스가 다시 클래식 관리 포털로 돌아가지 않습니다.
 
 아래는 구성할 매개 변수의 목록입니다.
 
@@ -76,7 +76,7 @@ Azure 계정에 지불 연체와 같은 문제가 있는 경우 자동화 계정
 
 ![계정 만들기](media/automation-configuration/automation-01-create-automation-account.png)
 
->[AZURE.NOTE]클래식 관리 포털을 사용하여 생성된 자동화 계정이 Azure Preview 포털을 사용하여 [다른 리소스 그룹으로 이동](../resource-group-move-resources.md)할 때 클래식 관리 포털에서 Azure 리소스 관리자 계정이 지원되지 않는 것처럼 자동화 계정은 더이상 Azure 클래식 포털에서 사용할 수 없습니다.
+>[AZURE.NOTE] 클래식 관리 포털을 사용하여 생성된 자동화 계정이 Azure Preview 포털을 사용하여 [다른 리소스 그룹으로 이동](../resource-group-move-resources.md)할 때 클래식 관리 포털에서 Azure 리소스 관리자 계정이 지원되지 않는 것처럼 자동화 계정은 더이상 Azure 클래식 포털에서 사용할 수 없습니다.
 
 
 
@@ -91,7 +91,7 @@ Azure 계정에 지불 연체와 같은 문제가 있는 경우 자동화 계정
 Runbook의 모든 [검사점](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) 뒤에 이러한 줄을 반복해야 합니다. Runbook이 일시 중단된 후 다른 작업자에서 다시 시작되는 경우에는 인증을 다시 수행해야 합니다.
 
 ## 관련된 문서
-- [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+- [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

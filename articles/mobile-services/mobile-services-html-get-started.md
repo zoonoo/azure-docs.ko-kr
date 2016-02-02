@@ -48,7 +48,7 @@
 	앱을 호스트하기 위한 웹 서버로 어떤 것이든 사용할 수 있지만, 다운로드한 스크립트는 위의 웹 서버에서만 지원됩니다.
 
 + HTML5를 지원하는 웹 브라우저.
-+ Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)을 참조하세요. 
++ Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)을 참조하세요. 
 
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
@@ -82,7 +82,7 @@
 
   	![][9]
 
-	> [AZURE.IMPORTANT]localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx)를 참조하십시오.
+	> [AZURE.IMPORTANT] localhost 이외의 웹 서버에 빠른 시작 앱을 배포하는 경우, 웹 서버 호스트 이름을 **호스트 이름의 요청 허용** 목록에 추가해야 합니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx)를 참조하십시오.
 
 ## HTML 앱 호스트 및 실행
 
@@ -94,7 +94,7 @@
 	+ **launch-mac.command**(Mac OS X 컴퓨터)
 	+ **launch-linux.sh**(Linux 컴퓨터)
 
-	> [AZURE.NOTE]Windows 컴퓨터의 경우 PowerShell에서 스크립트를 실행할 것인지 물으면 `R`을(를) 입력하세요. 인터넷에서 다운로드한 스크립트이므로 웹 브라우저에서 스크립트를 실행하지 말라는 경고가 나타날 수 있습니다. 이 경우 브라우저에서 스크립트 로드를 계속 진행하도록 요청해야 합니다.
+	> [AZURE.NOTE] Windows 컴퓨터의 경우 PowerShell에서 스크립트를 실행할 것인지 물으면 `R`을(를) 입력하세요. 인터넷에서 다운로드한 스크립트이므로 웹 브라우저에서 스크립트를 실행하지 말라는 경고가 나타날 수 있습니다. 이 경우 브라우저에서 스크립트 로드를 계속 진행하도록 요청해야 합니다.
 
 	새로운 앱을 호스트할 수 있도록 로컬 컴퓨터에서 웹 서버가 시작됩니다.
 
@@ -106,7 +106,7 @@
 
    	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. 테이블에 저장된 항목이 모바일 서비스에서 반환되고 그 데이터가 앱의 두 번째 열에 표시됩니다.
 
-	> [AZURE.NOTE]모바일 서비스에 액세스하는 코드를 검토하여 데이터를 쿼리 및 삽입할 수 있습니다(page.js 파일에 있음).
+	> [AZURE.NOTE] 모바일 서비스에 액세스하는 코드를 검토하여 데이터를 쿼리 및 삽입할 수 있습니다(page.js 파일에 있음).
 
 4. [Azure 클래식 포털]에 돌아와서 **데이터** 탭을 클릭한 후 **TodoItems** 테이블을 클릭합니다.
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

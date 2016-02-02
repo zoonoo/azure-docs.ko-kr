@@ -32,7 +32,7 @@ Baidu 클라우드 푸시는 모바일 장치로 푸시 알림을 보내는 데 
 + [모바일 서비스 Android SDK]
 + [Baidu 푸시 Android SDK]
 
->[AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)을 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)을 참조하세요.
 
 
 ##Baidu 계정 만들기
@@ -206,11 +206,11 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
-8. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname* 을 대체하여 **AndroidManifest.xml**의 **응용 프로그램** 요소에 **android:name** 속성을 추가합니다. 이 프로젝트 이름은 Baidu 콘솔에서 구성한 이름과 일치해야 합니다.
+8. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname*을 대체하여 **AndroidManifest.xml**의 **응용 프로그램** 요소에 **android:name** 속성을 추가합니다. 이 프로젝트 이름은 Baidu 콘솔에서 구성한 이름과 일치해야 합니다.
 
 		<application android:name="yourprojectname.DemoApplication"
 
-9. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname* 을 대체하여 **.MainActivity** 작업 요소 뒤의 응용 프로그램 요소 내에 다음 구성을 추가합니다.
+9. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname*을 대체하여 **.MainActivity** 작업 요소 뒤의 응용 프로그램 요소 내에 다음 구성을 추가합니다.
 
 		<receiver android:name="yourprojectname.MyPushMessageReceiver">
 		    <intent-filter>
@@ -437,7 +437,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
         using Microsoft.Azure.NotificationHubs;
 
-4. `Program` 클래스에 다음 메서드를 추가하고 *DefaultFullSharedAccessSignatureSASConnectionString* 및 *NotificationHubName* 을 보유한 값으로 대체합니다.
+4. `Program` 클래스에 다음 메서드를 추가하고 *DefaultFullSharedAccessSignatureSASConnectionString* 및 *NotificationHubName*을 보유한 값으로 대체합니다.
 
 		private static async void SendNotificationAsync()
 		{
@@ -503,4 +503,4 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

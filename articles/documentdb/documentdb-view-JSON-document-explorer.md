@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/28/2015"
 	ms.author="anhoh"/>
 
 # DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드 #
 
-이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드할 수 있는 Azure 포털 도구인 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대해 개괄적으로 설명합니다.
+이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드할 수 있는 Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대해 개괄적으로 설명합니다.
 
 이 자습서를 완료하면 다음 질문에 대답할 수 있습니다.
 
@@ -56,7 +56,7 @@
 
 	![문서 탐색기 저장 명령 스크린샷](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
-	> [AZURE.NOTE]"ID" 속성을 제공하지 않으면 문서 탐색기에서 ID 속성을 자동으로 추가하고 GUID를 ID 값으로 생성합니다.
+	> [AZURE.NOTE] "ID" 속성을 제공하지 않으면 문서 탐색기에서 ID 속성을 자동으로 추가하고 GUID를 ID 값으로 생성합니다.
 
 - JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소 Amazon DynamoDB, HBase 또는 기타 DocumentDB 컬렉션의 데이터가 이미 있는 경우 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용하여 데이터를 신속하게 가져올 수 있습니다.
 
@@ -84,7 +84,7 @@
 
 	![문서 탐색기 문서 속성 보기 스크린샷](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]타임스탬프(\_ts) 속성은 내부적으로 epoch 시간으로 표시되지만 문서 탐색기에서는 이 값을 사람이 읽을 수 있는 GMT 형식으로 표시합니다.
+	> [AZURE.NOTE] 타임스탬프(\_ts) 속성은 내부적으로 epoch 시간으로 표시되지만 문서 탐색기에서는 이 값을 사람이 읽을 수 있는 GMT 형식으로 표시합니다.
 
 ##<a id="Navigate"></a>문서 탐색기 탐색 옵션 및 고급 설정##
 
@@ -99,7 +99,7 @@
 
 	![문서 탐색기 설정 블레이드 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
 
-	> [AZURE.NOTE]문서 탐색기 설정을 수정한 후에는 **새로 고침** 명령을 클릭해야 새 설정이 적용됩니다. 설정을 현재 브라우저 세션에서만 유지됩니다.
+	> [AZURE.NOTE] 문서 탐색기 설정을 수정한 후에는 **새로 고침** 명령을 클릭해야 새 설정이 적용됩니다. 설정을 현재 브라우저 세션에서만 유지됩니다.
 	
 3. **데이터베이스** 및 **컬렉션** 드롭다운 목록 상자를 사용하면 문서 탐색기를 닫았다가 다시 실행할 필요 없이 현재 문서를 보고 있는 컬렉션을 쉽게 변경할 수 있습니다.
 
@@ -112,7 +112,7 @@
 	![필터링된 결과가 표시된 문서 탐색기 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]문서 탐색기 필터 기능은 ***현재*** 로드된 문서 집합만 필터링하고 현재 선택한 컬렉션에 대해 쿼리를 수행하지 않습니다.
+	> [AZURE.IMPORTANT] 문서 탐색기 필터 기능은 ***현재*** 로드된 문서 집합만 필터링하고 현재 선택한 컬렉션에 대해 쿼리를 수행하지 않습니다.
 
 5. 문서 탐색기에서 로드한 문서 목록을 새로 고치려면 블레이드 맨 위에 있는 **새로 고침** 명령을 클릭하면 됩니다.
 
@@ -130,7 +130,7 @@
 
 	![문서 탐색기 대량 수집 프로세스 스크린샷](./media/documentdb-view-JSON-document-explorer/adddocument2.png)
 
-	> [AZURE.NOTE]문서 탐색기는 현재 개별 업로드 작업당 최대 100개의 JSON 문서를 지원합니다.
+	> [AZURE.NOTE] 문서 탐색기는 현재 개별 업로드 작업당 최대 100개의 JSON 문서를 지원합니다.
 
 3. 원하는 대로 선택했으면 **업로드** 단추를 클릭합니다. 문서가 문서 탐색기 그리드에 자동으로 추가되고 작업이 진행됨에 따라 업로드 결과가 표시됩니다. 가져오기 오류는 개별 파일에 대해 보고됩니다.
 
@@ -145,4 +145,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

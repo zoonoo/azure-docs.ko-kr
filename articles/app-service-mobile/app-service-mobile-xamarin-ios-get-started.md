@@ -19,9 +19,7 @@
 
 #Xamarin.iOS 앱 만들기
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -33,7 +31,7 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * [Visual Studio Community 2013] 이상 버전입니다. Visual Studio 커뮤니티 2013을 설치하는 경우 별도로 [Xamarin]을 설치합니다. Visual Studio 2015를 설치할 때 Xamarin 도구를 설치할 수 있습니다.
 
@@ -41,7 +39,7 @@
  
 * Visual Studio를 실행하는 Windows 기반 컴퓨터에서 앱을 빌드하려는 경우에는, 실제로 빌드하고 배포하기 위해서 Xamarin.iOS 빌드 호스트를 실행하는 네트워크에 연결된 Mac에 대한 액세스가 필요합니다. 자세한 내용은 [Windows에서 Xamarin.iOS 설치](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 체험](https://tryappservice.azure.com/?appServiceName=mobile)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 체험](https://tryappservice.azure.com/?appServiceName=mobile)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
 
 ## 새 Azure 모바일 앱 백 엔드 만들기
 
@@ -70,7 +68,7 @@
 
 1. Mac의 브라우저 창에서 [Azure 포털]을 엽니다.
 
-	>[AZURE.NOTE]Mac에서 Xamarin.iOS 앱을 보다 쉽게 사용할 수 있습니다. 원하는 경우 Windows 기반 컴퓨터에서 Visual Studio를 사용하여 Xamarin.iOS 앱을 실행할 수 있지만 네트워크에 연결된 Mac에 연결해야 하기 때문에 좀더 복잡합니다. 실행에 관심이 있다면 [Windows에서 Xamarin.iOS 설치]를 참조하세요.
+	>[AZURE.NOTE] Mac에서 Xamarin.iOS 앱을 보다 쉽게 사용할 수 있습니다. 원하는 경우 Windows 기반 컴퓨터에서 Visual Studio를 사용하여 Xamarin.iOS 앱을 실행할 수 있지만 네트워크에 연결된 Mac에 연결해야 하기 때문에 좀더 복잡합니다. 실행에 관심이 있다면 [Windows에서 Xamarin.iOS 설치]를 참조하세요.
 
 2. 모바일 앱의 설정 블레이드에서 **시작** > **Xamarin.iOS**를 클릭합니다. 3단계 아래에서 **새 앱 만들기**가 선택되어 있지 않으면 클릭합니다. 그런 다음 **다운로드** 단추를 클릭합니다.
 
@@ -121,4 +119,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

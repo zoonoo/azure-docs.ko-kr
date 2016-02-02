@@ -17,8 +17,6 @@
 
 # Application Insights: 언어, 플랫폼 및 통합
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 이러한 내용은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 내용입니다.
 
 ## 언어
@@ -85,4 +83,4 @@
 
 아직 사용자 언어나 플랫폼에 대한 SDK가 없다면 빌드하고자 합니까? [GitHub에서 Application Insights SDK 프로젝트](https://github.com/Microsoft/AppInsights-Home)에 나열된 기존 SDK의 코드를 살펴보십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

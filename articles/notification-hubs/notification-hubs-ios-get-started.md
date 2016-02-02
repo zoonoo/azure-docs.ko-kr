@@ -42,11 +42,11 @@
 + iOS 8(이상) 지원 장치
 + iOS 개발자 프로그램 멤버 자격
 
-   >[AZURE.NOTE]푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+   >[AZURE.NOTE] 푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
 이 자습서를 완료해야 다른 모든 iOS 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하세요.
 
 [AZURE.INCLUDE [알림 허브가 Apple 푸시 알림 사용](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -88,11 +88,11 @@
 
 4. [모바일 서비스 iOS SDK 버전 1.2.4]를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
 
-	>[AZURE.NOTE]알림 허브 SDK는 현재 Xcode 7의 bitcode를 지원하지 않습니다. 프로젝터의 **빌드 옵션**에서 **Bitcode 사용**을 **No**로 설정해야 합니다.
+	>[AZURE.NOTE] 알림 허브 SDK는 현재 Xcode 7의 bitcode를 지원하지 않습니다. 프로젝터의 **빌드 옵션**에서 **Bitcode 사용**을 **No**로 설정해야 합니다.
 
    	![][10]
 
-5. **HubInfo.h**라는 프로젝트에 새 헤더 파일을 추가합니다. 이 파일에는 알림 허브에 대한 상수가 들어 있습니다. 다음 정의를 추가하고 문자열 리터럴 자리 표시자를 *허브 이름* 및 앞에서 메모해둔 *DefaultListenSharedAccessSignature* 으로 바꿉니다.
+5. **HubInfo.h**라는 프로젝트에 새 헤더 파일을 추가합니다. 이 파일에는 알림 허브에 대한 상수가 들어 있습니다. 다음 정의를 추가하고 문자열 리터럴 자리 표시자를 *허브 이름* 및 앞에서 메모해둔 *DefaultListenSharedAccessSignature*으로 바꿉니다.
 
 		#ifndef HubInfo_h
 		#define HubInfo_h
@@ -104,7 +104,7 @@
 
 6. AppDelegate.h 파일을 열고 import 지시문을 추가합니다.
 
-         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+         #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
 		 #import "HubInfo.h"
 		
 7. AppDelegate.m 파일에서 iOS 버전 기반의 `didFinishLaunchingWithOptions` 메서드에 다음 코드를 추가합니다. 이 코드는 APNS로 장치 핸들을 등록합니다.
@@ -436,7 +436,7 @@
 11. 프로젝트를 빌드하고 오류가 없는지 확인 합니다.
 
 
-> [AZURE.NOTE]bitcode 지원에 대한 Xcode7에 빌드 오류가 발생하는 경우 "빌드 설정" -> "Bitcode 사용"(ENABLE\_BITCODE)을 '아니요'로 변경해야 합니다. 알림 허브 SDK는 현재 bitcode를 지원하지 않습니다.
+> [AZURE.NOTE] bitcode 지원에 대한 Xcode7에 빌드 오류가 발생하는 경우 "빌드 설정" -> "Bitcode 사용"(ENABLE\_BITCODE)을 '아니요'로 변경해야 합니다. 알림 허브 SDK는 현재 bitcode를 지원하지 않습니다.
 
 Apple [로컬 및 푸시 알림 프로그래밍 가이드]에서 가능한 모든 알림 페이로드를 찾아볼 수 있습니다.
 
@@ -507,4 +507,4 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -9,17 +9,17 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
 # Azure 서비스 버스 릴레이 서비스를 사용하는 방법
 
-이 문서는 서비스 버스 릴레이 서비스를 사용하는 방법을 설명합니다. 샘플은 C#으로 작성되었으며 Microsoft Azure .NET SDK의 일부인 서비스 버스 어셈블리에 포함된 확장과 함께 WCF(Windows Communication Foundation) API를 사용합니다. 서비스 버스 릴레이에 대한 자세한 내용은 [서비스 버스 릴레이된 메시징](service-bus-relay-overview.md) 개요를 참조하세요.
+이 문서는 서비스 버스 릴레이 서비스를 사용하는 방법을 설명합니다. 이 샘플은 C#으로 작성되었으며 서비스 버스 어셈블리에 포함된 확장과 함께 WCF(Windows Communication Foundation) API를 사용합니다. 서비스 버스 릴레이에 대한 자세한 내용은 [서비스 버스 릴레이된 메시징](service-bus-relay-overview.md) 개요를 참조하세요.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -53,7 +53,7 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
 
-	> [AZURE.IMPORTANT]응용 프로그램을 배포하도록 선택할 지역과 *같은 지역*을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
+	> [AZURE.IMPORTANT] 응용 프로그램을 배포하도록 선택할 지역과 *같은 지역*을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
 
 6.	대화 상자의 다른 필드는 기본값으로 그대로 두고(**메시징** 및 **표준** 계층) 확인 표시를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
@@ -75,7 +75,7 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 ## 서비스 버스 NuGet 패키지 다운로드
 
-서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
+[서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
 
 응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
@@ -265,17 +265,13 @@ using (var ch = cf.CreateChannel())
 
 이제 서비스 버스 릴레이 서비스의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
-- [Azure 서비스 버스 아키텍처 개요](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 릴레이 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 - [Azure 샘플][]에서 서비스 버스 샘플을 다운로드하거나 [서비스 버스 샘플 개요][]를 참조하세요.
 
-  [Create a Service Namespace]: #create_namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
-  [Get the Service Bus NuGet Package]: #get_nuget_package
-  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Azure 클래식 포털]: http://manage.windowsazure.com
   [서비스 버스를 사용한 공유 액세스 서명 인증]: service-bus-shared-access-signature-authentication.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [서비스 버스 샘플 개요]: service-bus-samples.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

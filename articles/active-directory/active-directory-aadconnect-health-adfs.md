@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/14/2015" 
+	ms.date="01/21/2016" 
 	ms.author="billmath"/>
 
 # AD FS와 함께 Azure AD Connect Health 사용 
@@ -32,7 +32,7 @@ Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다
 ## AD FS의 사용량 분석
 Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 인증 트래픽을 분석합니다. 사용 현황 분석 상자를 선택하면 메트릭 및 그룹화가 표시된 사용 현황 분석 블레이드가 열립니다.
 
->[AZURE.NOTE]AD FS가 포함된 사용 현황 분석을 사용하려면 AD FS 감사가 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [AD FS 감사 사용](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)을 참조하십시오.
+>[AZURE.NOTE] AD FS가 포함된 사용 현황 분석을 사용하려면 AD FS 감사가 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [AD FS 감사 사용](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)을 참조하십시오.
 
 ![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/report1.png)
 
@@ -74,4 +74,4 @@ Azure AD Connect Health 성능 모니터링은 메트릭에 대한 모니터링 
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

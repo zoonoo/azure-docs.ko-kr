@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경을 만드는 방법 #
@@ -47,7 +47,7 @@ ASE에 대한 생성 환경에는 빠른 생성 환경을 사용할 수 있는 �
 - 2 P1 계산 리소스를 가진 작업자 풀
 - IP SSL에 사용할 단일 IP 주소
 
-ASE에 대한 최소 크기입니다. 프런트 엔드 풀은 P2 이상이 필요합니다. ASE를 두려는 구독을 선택하도록 합니다. ASE를 사용하여 콘텐츠를 호스트할 수 있는 계정은 ASE를 만드는 데 사용된 구독 내의 계정이어야 합니다.
+프런트 엔드 풀은 P2 이상이 필요합니다. ASE를 두려는 구독을 선택할 때는 주의가 필요합니다. ASE를 사용하여 콘텐츠를 호스트할 수 있는 계정은 ASE를 만드는 데 사용된 구독 내의 계정이어야 합니다.
 
 ![][1]
 
@@ -155,4 +155,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

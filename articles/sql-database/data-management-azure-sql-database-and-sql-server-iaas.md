@@ -1,8 +1,8 @@
 <properties
-	pageTitle="SQL (PaaS) 데이터베이스 vs Azure VM에서 클라우드의 SQL Server(IaaS) | Microsoft Azure"
+	pageTitle="SQL(PaaS) 데이터베이스 vs VM에서 클라우드의 SQL Server(IaaS) | Microsoft Azure"
 	description="다음 중 어떤 클라우드 SQL Server 옵션이 응용 프로그램에 맞는지 알아봅니다. Azure SQL (PaaS) 데이터베이스 또는 Azure 가상 컴퓨터 클라우드의 SQL Server."
 	services="sql-database, virtual-machines"
-	keywords="SQL Server 클라우드, 클라우드에서 SQL Server, SaaS 데이터베이스, 클라우드 SQL Server, DBaaS"
+	keywords="SQL Server 클라우드, 클라우드의 SQL Server, PaaS 데이터베이스, 클라우드 SQL Server, DBaaS"
 	documentationCenter=""
 	authors="jeffgoll"
 	manager="jeffreyg"
@@ -17,7 +17,7 @@
 	ms.date="12/04/2015"
 	ms.author="jeffreyg"/>
 
-# Azure에서 SQL Server 옵션 선택: Azure SQL 데이터베이스(PaaS) 또는 Azure VM의 SQL Server(IaaS)
+# 클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
 
 Azure에는 클라우드의 SQL Server 워크로드를 호스팅하는 경우 다음과 같은 두 옵션이 있습니다.
 
@@ -131,9 +131,9 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 현재 **SQL 데이터베이스**는 여러 서비스 계층에서 사용할 수 있으며 모두 선택하는 서비스 계층과 성능 수준을 기준으로 고정 요금이 시간당 청구됩니다. Basic, Standard 및 Premium 서비스 계층은 응용 프로그램의 최대 요구 사항에 맞게 여러 성능 수준의 예측 가능한 성능을 제공하기 위해 설계되었습니다. 응용 프로그램의 다양한 처리량 요구에 맞게 서비스 계층과 성능 수준을 변경할 수 있습니다. 현재 지원되는 서비스 계층에 대한 최신 정보는 [Azure SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
-**SQL 데이터베이스**에서 데이터베이스 소프트웨어는 Microsoft에서 구성, 패치 적용 및 업그레이드를 수행하며 이는 관리 비용을 줄입니다. 또한 [기본 제공 백업](sql-database-business-continuity.md) 기능을 사용하여 비용을 크게 절감할 수 있으며, 특히 데이터베이스 수가 많을 경우 그 효과가 큽니다. SQL 데이터베이스를 사용할 경우 SQL 데이터베이스에 대해 실행하거나 인터넷 트래픽이 들어오는 개별 쿼리에 대해 요금이 청구되지 않고 [인터넷 트래픽이 나가는](http://azure.microsoft.com/pricing/details/data-transfers/) 경우 요금이 청구됩니다. 데이터베이스에 트랜잭션 볼륨이 많고 지원해야 하는 동시 사용자가 많은 경우 Premium을 사용하는 것이 좋습니다.
+**SQL 데이터베이스**에서 데이터베이스 소프트웨어는 Microsoft에서 구성, 패치 적용 및 업그레이드를 수행하며 이는 관리 비용을 줄입니다. 또한 [기본 제공 백업](sql-database-business-continuity.md) 기능을 사용하여 비용을 크게 절감할 수 있으며, 특히 데이터베이스 수가 많을 경우 그 효과가 큽니다. SQL 데이터베이스를 사용할 경우 SQL 데이터베이스에 대해 실행하거나 인터넷 트래픽이 들어오는 개별 쿼리에 대해 요금이 청구되지 않고 [인터넷 트래픽이 나가는](https://azure.microsoft.com/pricing/details/data-transfers/) 경우 요금이 청구됩니다. 데이터베이스에 트랜잭션 볼륨이 많고 지원해야 하는 동시 사용자가 많은 경우 Premium을 사용하는 것이 좋습니다.
 
-**Azure VM의 SQL Server**에서는 기존 SQL Server 라이선스를 사용합니다. 플랫폼에서 제공하는 SQL Server 이미지(라이선스 포함)를 사용하거나 자신의 SQL Server 라이선스를 가져올 수 있습니다. Azure에서 제공하는 이미지를 사용할 경우 VM 크기 및 선택하는 SQL Server 버전에 따라 운영 비용이 달라집니다. VM 크기 또는 SQL Server 버전에 관계 없이 VM 디스크에 대한 Azure 저장소 비용과 함께 SQL Server 및 Windows Server의 분당 라이선스 비용을 지불합니다. 분당 청구 옵션을 사용하면 추가 SQL Server 라이선스를 구입하지 않고 필요한 시간 동안만 SQL Server를 사용할 수 있습니다. 고유한 SQL Server 라이선스를 Azure에 가져오는 경우 Windows Server 및 저장소 비용만 청구됩니다. 고유한 라이선스 가져오기에 대한 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/)을 참조하세요.
+**Azure VM의 SQL Server**에서는 기존 SQL Server 라이선스를 사용합니다. 플랫폼에서 제공하는 SQL Server 이미지(라이선스 포함)를 사용하거나 자신의 SQL Server 라이선스를 가져올 수 있습니다. Azure에서 제공하는 이미지를 사용할 경우 VM 크기 및 선택하는 SQL Server 버전에 따라 운영 비용이 달라집니다. VM 크기 또는 SQL Server 버전에 관계 없이 VM 디스크에 대한 Azure 저장소 비용과 함께 SQL Server 및 Windows Server의 분당 라이선스 비용을 지불합니다. 분당 청구 옵션을 사용하면 추가 SQL Server 라이선스를 구입하지 않고 필요한 시간 동안만 SQL Server를 사용할 수 있습니다. 고유한 SQL Server 라이선스를 Azure에 가져오는 경우 Windows Server 및 저장소 비용만 청구됩니다. 고유한 라이선스 가져오기에 대한 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 참조하세요.
 
 #### 총 응용 프로그램 비용 계산
 
@@ -151,11 +151,11 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 가격에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-- [SQL 데이터베이스 가격](http://azure.microsoft.com/pricing/details/sql-database/)
-- [SQL](http://azure.microsoft.com/pricing/details/virtual-machines/#sql) 및 [Windows](http://azure.microsoft.com/pricing/details/virtual-machines/#windows)에 대한 [가상 컴퓨터 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/)
-- [ Azure 가격 계산기](http://azure.microsoft.com/pricing/calculator/)
+- [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)
+- [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)에 대한 [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)
+- [ Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-> [AZURE.NOTE]SQL 데이터베이스에 적용되거나 사용할 수 없는 SQL Server의 기능 하위 집합이 있습니다. 자세한 내용은 [SQL 데이터베이스 일반 제한 사항 및 지침](sql-database-general-limitations.md) 및 [SQL 데이터베이스 Transact-SQL 정보](sql-database-transact-sql-information.md)를 참조하세요. 클라우드로 기존 SQL Server 솔루션을 이동하는 경우 [Azure SQL 데이터베이스에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. SQL 데이터베이스에 기존 온-프레미스 SQL Server 응용 프로그램을 마이그레이션하는 경우 클라우드 서비스가 제공하는 기능을 활용하려면 응용 프로그램을 업데이트하는 것이 좋습니다. 예를 들어 [Azure 웹앱 서비스](https://azure.microsoft.com/services/app-service/web/) 또는 [Azure 클라우드 서비스](http://azure.microsoft.com/services/cloud-services/)를 사용하여 비용 혜택이 증가하는 응용 프로그램 계층을 호스팅할 수 있습니다.
+> [AZURE.NOTE] SQL 데이터베이스에 적용되거나 사용할 수 없는 SQL Server의 기능 하위 집합이 있습니다. 자세한 내용은 [SQL 데이터베이스 일반 제한 사항 및 지침](sql-database-general-limitations.md) 및 [SQL 데이터베이스 Transact-SQL 정보](sql-database-transact-sql-information.md)를 참조하세요. 클라우드로 기존 SQL Server 솔루션을 이동하는 경우 [Azure SQL 데이터베이스에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. SQL 데이터베이스에 기존 온-프레미스 SQL Server 응용 프로그램을 마이그레이션하는 경우 클라우드 서비스가 제공하는 기능을 활용하려면 응용 프로그램을 업데이트하는 것이 좋습니다. 예를 들어 [Azure 웹앱 서비스](https://azure.microsoft.com/services/app-service/web/) 또는 [Azure 클라우드 서비스](https://azure.microsoft.com/services/cloud-services/)를 사용하여 비용 혜택이 증가하는 응용 프로그램 계층을 호스팅할 수 있습니다.
 
 ### 관리
 
@@ -197,6 +197,6 @@ IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충�
 
 실행하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하세요.
 
-> [AZURE.NOTE]SQL Server 2016 CTP2를 사용해보시겠습니까? Microsoft Azure에 등록한 다음 [여기](http://aka.ms/sql2016vm "여기")로 이동하여 SQL Server 2016 CTP2가 이미 설치된 가상 컴퓨터를 만듭니다.
+> [AZURE.NOTE] SQL Server 2016 CTP2를 사용해보시겠습니까? Microsoft Azure에 등록한 다음 [여기](http://aka.ms/sql2016vm "여기")로 이동하여 SQL Server 2016 CTP2가 이미 설치된 가상 컴퓨터를 만듭니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

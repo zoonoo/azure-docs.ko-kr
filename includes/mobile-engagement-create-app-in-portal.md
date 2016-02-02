@@ -1,4 +1,4 @@
-1. Azure 관리 포털에 로그온한 다음 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
 2. **앱 서비스**, **Mobile Engagement**, **만들기**를 차례로 클릭합니다.
 
@@ -23,4 +23,4 @@
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

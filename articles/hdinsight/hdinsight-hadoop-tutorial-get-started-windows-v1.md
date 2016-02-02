@@ -45,14 +45,14 @@ Windows의 Hadoop에 대해 알아보고 HDInsight를 사용하여 시작하는 
 
 Azure HDInsight의 일반적인 가용성과 더불어 Microsoft는 Azure용 HDInsight Emulator(이전의 *Microsoft HDInsight Developer Preview*)도 제공합니다. 이 Emulator는 개발자 시나리오를 대상으로 하기 때문에 단일 노드 배포만 지원합니다. HDInsight Emulator 사용에 대한 자세한 내용은 [HDInsight Emulator 시작][hdinsight-emulator]을 참조하세요.
 
-> [AZURE.NOTE]HBase 클러스터를 프로비전하는 방법에 대한 지침은 [HDInsight에서 HBase 클러스터 프로비전][hdinsight-hbase-custom-provision](영문)을 참조하세요. 두 가지 데이터베이스 중 하나를 선택해야 하는 이유를 이해하려면 <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Hadoop과 HBase 차이점</a>(영문)을 참조하세요.
+> [AZURE.NOTE] HBase 클러스터를 프로비전하는 방법에 대한 지침은 [HDInsight에서 HBase 클러스터 프로비전][hdinsight-hbase-custom-provision](영문)을 참조하세요. 두 가지 데이터베이스 중 하나를 선택해야 하는 이유를 이해하려면 <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Hadoop과 HBase 차이점</a>(영문)을 참조하세요.
 
 ## 필수 조건
 
 Windows의 Hadoop에 대해 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus가 있는 **워크스테이션 컴퓨터**
 
 **이 자습서를 완료하기 위한 예상 시간:** 30분
@@ -63,7 +63,7 @@ Windows의 Hadoop에 대해 이 자습서를 시작하기 전에 다음이 있�
 
 HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정을 지정합니다. Hadoop 분산 파일 시스템(HDFS)의 경우처럼 해당 계정의 특정 Blob 저장소 컨테이너는 기본 파일 시스템으로 지정됩니다. HDInsight 클러스터는 기본적으로 사용자가 지정한 저장소 계정과 동일한 데이터 센터에 프로비전됩니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
->[AZURE.NOTE]여러 Hadoop 클러스터의 기본 Blob 저장소 컨테이너를 공유하지 마세요.
+>[AZURE.NOTE] 여러 Hadoop 클러스터의 기본 Blob 저장소 컨테이너를 공유하지 마세요.
 
 사용자 지정 방식으로 클러스터를 구성할 때는 이 저장소 계정 외에 다른 저장소 계정을 추가할 수 있습니다. 이 추가 저장소 계정은 동일한 Azure 구독에서 가져오거나 다른 Azure 구독에서 가져올 수 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
@@ -76,7 +76,7 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 	![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 클래식 포털.][image-hdi-storageaccount-quickcreate]
 
->[AZURE.NOTE]클러스터에 대해 지원되는 위치에 저장소 계정을 만들어야 합니다. **동아시아**, **동남아시아**, **북유럽**, **서유럽**, **미국 동부**, **미국 서부**, **미국 중북부**, **미국 중남부**입니다.
+>[AZURE.NOTE]  클러스터에 대해 지원되는 위치에 저장소 계정을 만들어야 합니다. **동아시아**, **동남아시아**, **북유럽**, **서유럽**, **미국 동부**, **미국 서부**, **미국 중북부**, **미국 중남부**입니다.
 
 목록에서 새 저장소 계정을 선택하고 페이지 아래쪽에서 **액세스 키 관리**를 클릭합니다. **기본 액세스 키**(또는 **보조 액세스 키** 중 작동하는 키)를 적어 둡니다. 이 정보는 자습서의 뒷부분에서 필요합니다. 자세한 내용은 [저장소 계정을 만드는 방법][azure-create-storageaccount]을 참조하세요.
 
@@ -120,7 +120,7 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 -- COMMENTED OUT TEXT ENDS -->
 
->[AZURE.NOTE]이러한 단계에서는 버전 3.1로 HDInsight 클러스터를 프로비전합니다. 다른 클러스터 버전을 만들려면 포털에서 **사용자 지정 만들기** 방법을 사용하거나 Azure PowerShell을 사용합니다. 각 버전 간 차이에 대한 자세한 내용은 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요. **사용자 지정 만들기** 옵션 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
+>[AZURE.NOTE] 이러한 단계에서는 버전 3.1로 HDInsight 클러스터를 프로비전합니다. 다른 클러스터 버전을 만들려면 포털에서 **사용자 지정 만들기** 방법을 사용하거나 Azure PowerShell을 사용합니다. 각 버전 간 차이에 대한 자세한 내용은 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요. **사용자 지정 만들기** 옵션 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
 
 ##<a name="sample"></a>포털에서 샘플 데이터 실행
@@ -138,9 +138,9 @@ HDInsight의 Hadoop 클러스터를 프로비전할 때 Azure 저장소 계정�
 
 
 ##<a name="hivequery"></a>포털에서 Hive 쿼리 실행
-HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업을 실행하여 샘플 Hive 테이블을 쿼리하는 것입니다. HDInsight 클러스터와 함께 제공되는 *hivesampletable* 을 사용합니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블의 Hive 쿼리는 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
+HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업을 실행하여 샘플 Hive 테이블을 쿼리하는 것입니다. HDInsight 클러스터와 함께 제공되는 *hivesampletable*을 사용합니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블의 Hive 쿼리는 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
 
-> [AZURE.NOTE]Visual Studio용 HDInsight 도구는 Azure SDK for .NET 버전 2.5 이상과 함께 제공됩니다. Visual Studio에서 이 도구를 사용하여 HDInsight 클러스터에 연결하고, Hive 테이블을 만들고, Hive 쿼리를 실행할 수 있습니다. 자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]을 참조하세요.
+> [AZURE.NOTE] Visual Studio용 HDInsight 도구는 Azure SDK for .NET 버전 2.5 이상과 함께 제공됩니다. Visual Studio에서 이 도구를 사용하여 HDInsight 클러스터에 연결하고, Hive 테이블을 만들고, Hive 쿼리를 실행할 수 있습니다. 자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]을 참조하세요.
 
 **클러스터 대시보드에서 Hive 작업 실행**
 
@@ -153,7 +153,7 @@ HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업�
 
 	페이지의 위쪽에 탭이 여러 개 있습니다. 기본 탭은 **Hive 편집기**이고 다른 탭은 **작업 기록** 및 **파일 브라우저**입니다. 대시보드를 사용하여 Hive 쿼리를 제출하고, Hadoop 작업 로그를 확인하며, 저장소에서 파일을 찾아볼 수 있습니다.
 
-	> [AZURE.NOTE]웹 페이지의 URL은 *&lt;ClusterName&gt;.azurehdinsight.net* 입니다. 따라서 포털에서 대시보드를 여는 대신, URL을 사용하여 웹 브라우저에서 대시보드를 열 수도 있습니다.
+	> [AZURE.NOTE] 웹 페이지의 URL은 *&lt;ClusterName&gt;.azurehdinsight.net*입니다. 따라서 포털에서 대시보드를 여는 대신, URL을 사용하여 웹 브라우저에서 대시보드를 열 수도 있습니다.
 
 6. **Hive 편집기** 탭에서 **쿼리 이름**으로 **HTC20**을 입력합니다. 쿼리 이름은 작업 제목입니다. 쿼리 창에서 이미지에 표시된 대로 Hive 쿼리를 입력합니다.
 
@@ -280,4 +280,4 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

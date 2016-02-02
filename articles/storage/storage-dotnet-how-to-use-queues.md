@@ -1,6 +1,6 @@
 <properties
-	pageTitle=".NET에서 큐 저장소를 사용하는 방법 | Microsoft Azure"
-	description="큐 저장소를 사용하여 큐를 작성 및 삭제하고 큐 메시지를 삽입하고 미리 보고 가져오고 삭제하는 방법에 대해 알아봅니다."
+	pageTitle=".NET을 사용하여 Azure 큐 저장소 시작 | Microsoft Azure"
+	description="Azure 큐 저장소를 사용하여 응용 프로그램 구성 요소 간에 비동기적으로 메시지를 보내고 받습니다. 큐 만들기 및 삭제, 큐 메시지 추가, 읽기 및 삭제를 포함하여 간단한 큐 저장소 작업을 시작합니다."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/24/2016"
 	ms.author="gusapost"/>
 
-# .NET에서 큐 저장소를 사용하는 방법
+# .NET을 사용하여 Azure 큐 저장소 시작
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## 개요
 
-이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C# 코드로 작성되었으며 Azure Storage Client for .NET을 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다.
+Azure 큐 저장소는 클라우드에서 메시징 큐를 제공하는 서비스입니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. 큐 저장소는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인 응용 프로그램 구성 요소 사이의 비동기 통신을 위한 안정적인 메시징 솔루션을 제공합니다. 큐 저장소는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
+
+이 자습서에서는 Azure 큐 저장소를 사용하여 몇 가지 일반적인 시나리오에 대한 .NET 코드를 작성하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 큐 만들기 및 삭제, 큐 메시지 추가, 읽기 및 삭제가 포함됩니다.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -260,4 +262,4 @@
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Microsoft Azure"
-	description=" Azure 포털에서 새 저장소 계정을 만들고 선택키를 관리하며 저장소 계정을 삭제합니다."
+	pageTitle="Azure 포털에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Microsoft Azure"
+	description="Azure 포털에서 새 저장소 계정을 만들고 계정 액세스 키를 관리하거나 저장소 계정을 삭제합니다. 표준 및 프리미엄 저장소 계정에 대해 알아봅니다."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/26/2016"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ Azure 저장소 계정은 Azure 저장소의 Azure Blob, 큐, 테이블 및 파�
 
 저장소 계정에는 다음과 같은 두 종류가 있습니다.
 
-- 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다. 
+- 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다.
 - 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다. 프리미엄 저장소의 자세한 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
 
 ## 저장소 계정 사용 비용
@@ -39,17 +39,17 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 - 트랜잭션은 Azure 저장소에 대한 모든 읽기 및 쓰기 작업을 나타냅니다.
 - 데이터 송신은 Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Azure 서비스의 경우 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.  
 
-[Azure 가격 책정](http://azure.microsoft.com/pricing/details/#storage) 페이지는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](http://azure.microsoft.com/pricing/details/data-transfers/) 페이지는 데이터 송신에 대한 자세한 가격 정보를 제공합니다.
+[Azure 가격 책정](https://azure.microsoft.com/pricing/details/#storage) 페이지는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지는 데이터 송신에 대한 자세한 가격 정보를 제공합니다.
 
 저장소 계정 용량 및 성능 목표에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/library/azure/dn249410.aspx)를 참조하세요.
 
-> [AZURE.NOTE]Azure 가상 컴퓨터를 만드는 경우 배포 위치에 저장소 계정이 아직 없으면 해당 위치에서 자동으로 저장소 계정이 만들어집니다. 따라서 가상 컴퓨터 디스크에 대한 저장소 계정을 만들기 위해 아래 단계를 수행할 필요가 없습니다. 저장소 계정 이름은 가상 컴퓨터 이름을 기반으로 합니다. 자세한 내용은 [Azure 가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
+> [AZURE.NOTE] Azure 가상 컴퓨터를 만드는 경우 배포 위치에 저장소 계정이 아직 없으면 해당 위치에서 자동으로 저장소 계정이 만들어집니다. 따라서 가상 컴퓨터 디스크에 대한 저장소 계정을 만들기 위해 아래 단계를 수행할 필요가 없습니다. 저장소 계정 이름은 가상 컴퓨터 이름을 기반으로 합니다. 자세한 내용은 [Azure 가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
 ## 저장소 계정 끝점
 
-Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있습니다. 저장소 계정 이름은 해당 주소의 하위 도메인을 구성합니다. 하위 도메인과 도메인 이름의 조합은 각 서비스와 관련되며 저장소 계정의 *끝점* 을 구성합니다.
+Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있습니다. 저장소 계정 이름은 해당 주소의 하위 도메인을 구성합니다. 하위 도메인과 도메인 이름의 조합은 각 서비스와 관련되며 저장소 계정의 *끝점*을 구성합니다.
 
-예를 들어 저장소 계정의 이름이 *mystorageaccount* 일 경우 저장소 계정의 기본 끝점은 다음과 같습니다.
+예를 들어 저장소 계정의 이름이 *mystorageaccount*일 경우 저장소 계정의 기본 끝점은 다음과 같습니다.
 
 - Blob 서비스: http://*mystorageaccount*.blob.core.windows.net
 
@@ -73,7 +73,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 4. 저장소 계정의 이름을 입력합니다.
 
-	> [AZURE.NOTE]저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
+	> [AZURE.NOTE] 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
 	>  
 	> 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 선택한 저장소 계정 이름이 이미 사용된 경우 Azure 포털에 표시됩니다.
 
@@ -89,7 +89,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 7. Azure 구독이 두 개 이상인 경우 **구독** 필드가 표시됩니다. 새 저장소 계정을 만들려는 구독을 선택합니다.
 
-8. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../resource-group-portal.md)를 참조하세요.
+8. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
 
 9. 저장소 계정에 대한 지리적 위치를 선택합니다.
 
@@ -99,7 +99,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 저장소 계정을 만들면 Azure에서 두 개의 512비트 저장소 액세스 키를 생성합니다. 이 키는 저장소 계정에 액세스하는 경우 인증에 사용됩니다. Azure에서는 두 개의 저장소 액세스 키를 제공하므로 저장소 서비스나 해당 서비스에 대한 액세스 중단 없이 키를 다시 생성할 수 있습니다.
 
-> [AZURE.NOTE]저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명* 을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 자습서](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+> [AZURE.NOTE] 저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명*을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 자습서](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 ### 저장소 액세스 키 보기 및 복사
 
@@ -109,7 +109,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 저장소 연결을 안전하게 유지하는 데 도움이 되도록 정기적으로 저장소 계정의 액세스 키를 변경하는 것이 좋습니다. 두 개의 액세스 키가 할당되므로 하나의 액세스 키를 다시 생성하는 동안 다른 액세스 키를 사용하여 저장소 계정에 대한 연결을 유지할 수 있습니다.
 
-> [AZURE.WARNING]액세스 키를 다시 생성하면 가상 컴퓨터, 미디어 서비스 및 저장소 계정에 종속된 모든 응용 프로그램에 영향을 줍니다. 액세스 키를 사용하여 저장소 계정에 액세스하는 모든 클라이언트에서 새 키를 사용하도록 업데이트해야 합니다.
+> [AZURE.WARNING] 액세스 키를 다시 생성하면 가상 컴퓨터, 미디어 서비스 및 저장소 계정에 종속된 모든 응용 프로그램에 영향을 줍니다. 액세스 키를 사용하여 저장소 계정에 액세스하는 모든 클라이언트에서 새 키를 사용하도록 업데이트해야 합니다.
 
 **가상 컴퓨터** - 실행 중인 가상 컴퓨터가 저장소 계정에 포함된 경우 액세스 키를 다시 생성한 후 모든 가상 컴퓨터를 다시 배포해야 합니다. 다시 배포하지 않으려면 액세스 키를 다시 생성하기 전에 가상 컴퓨터를 종료합니다.
 
@@ -131,12 +131,27 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 더 이상 사용하지 않는 저장소 계정을 제거하려면 [Azure 포털](https://portal.azure.com)의 저장소 계정으로 이동하고 **삭제**를 클릭합니다. 저장소 계정 삭제는 계정의 모든 데이터를 포함한 전체 계정을 삭제합니다.
 
-> [AZURE.WARNING]삭제된 저장소 계정을 복원할 수 없거나 삭제 전에 포함된 콘텐츠를 검색할 수 없습니다. 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다. 또한 해당 계정의 리소스에 대해 true를 유지합니다. Blob, 테이블, 큐 또는 파일을 삭제하면 영구적으로 삭제됩니다.
+> [AZURE.WARNING] 삭제된 저장소 계정을 복원할 수 없거나 삭제 전에 포함된 콘텐츠를 검색할 수 없습니다. 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다. 또한 해당 계정의 리소스에 대해 true를 유지합니다. Blob, 테이블, 큐 또는 파일을 삭제하면 영구적으로 삭제됩니다.
+
+Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 가상 컴퓨터 디스크가 삭제되었는지 확인해야 합니다. 가상 컴퓨터 디스크를 먼저 삭제하지 않은 경우 저장소 계정을 삭제하려고 할 때 다음과 유사한 오류 메시지가 나타납니다.
+
+    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+
+가상 컴퓨터 디스크를 제거하려면 Azure 클래식 포털에서 이 단계를 따릅니다.
+
+1. [Azure 클래식 포털](https://manage.windowsazure.com)로 이동합니다.
+2. 가상 컴퓨터 탭으로 이동합니다.
+3. 디스크 탭을 클릭합니다.
+4. 데이터 디스크를 선택한 다음 디스크 삭제를 클릭합니다.
+5. 디스크 이미지를 삭제하려면 이미지 탭으로 이동하여 계정에 저장된 모든 이미지를 삭제합니다.
+
+자세한 내용은 [Azure 가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
 ## 다음 단계
 
-- Azure 저장소에 대한 자세한 내용은 [Azure.com](http://azure.microsoft.com/documentation/services/storage/)의 Azure 저장소 설명서를 참조하세요.
+- [Azure 저장소 복제](storage-redundancy.md)
+- [Azure 저장소에 대한 연결 문자열 구성](storage-configure-connection-string.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

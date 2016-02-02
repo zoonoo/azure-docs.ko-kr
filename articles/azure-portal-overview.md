@@ -24,7 +24,7 @@ Microsoft Azure 포털은 Azure 리소스를 프로비전 및 관리할 수 있�
 
 ## 시작하기 전에
 
-이 자습서를 진행하려면 유효한 Azure 구독이 필요합니다. 없는 경우 지금 [무료 평가판에 등록](http://azure.microsoft.com/pricing/free-trial/)하세요. 구독한 후에는 [https://portal.azure.com]에서 포털에 액세스할 수 있습니다.
+이 자습서를 진행하려면 유효한 Azure 구독이 필요합니다. 없는 경우 지금 [무료 평가판에 등록](https://azure.microsoft.com/pricing/free-trial/)하세요. 구독한 후에는 [https://portal.azure.com]에서 포털에 액세스할 수 있습니다.
 
 ## 리소스를 만드는 방법
 
@@ -70,7 +70,7 @@ Azure에서는 리소스의 블레이드를 미리 구성하지만 이러한 블
 
 ## 도움말을 보는 방법
 
-문제가 발생한 경우 걱정하지 않아도 됩니다. 포털에는 올바른 지침을 제공할 수 있는 도움말 및 지원 페이지가 있습니다. [지원 계획](http://azure.microsoft.com/support/plans/)에 따라 포털에서 직접 지원 티켓을 만들 수도 있습니다. 지원 티켓을 만든 후에는 포털 내에서 티켓의 수명 주기를 관리할 수 있습니다. 도움말 및 지원 페이지를 보려면 찾아보기 -> 도움말 + 지원으로 이동합니다.
+문제가 발생한 경우 걱정하지 않아도 됩니다. 포털에는 올바른 지침을 제공할 수 있는 도움말 및 지원 페이지가 있습니다. [지원 계획](https://azure.microsoft.com/support/plans/)에 따라 포털에서 직접 지원 티켓을 만들 수도 있습니다. 지원 티켓을 만든 후에는 포털 내에서 티켓의 수명 주기를 관리할 수 있습니다. 도움말 및 지원 페이지를 보려면 찾아보기 -> 도움말 + 지원으로 이동합니다.
 
 ![도움말 및 지원][HelpSupport]
 
@@ -78,7 +78,7 @@ Azure에서는 리소스의 블레이드를 미리 구성하지만 이러한 블
 
 이 자습서에서 배운 내용을 검토해 보겠습니다. - 등록하고, 구독을 얻고, 포털을 찾아보는 방법을 살펴보았습니다. - 포털 UI를 중심으로 리소스를 만들고 찾는 방법을 살펴보았습니다. - 리소스를 만들고 찾는 방법을 살펴보았습니다. - 구조 또는 관리 블레이드와 다양한 유형의 리소스를 일관적으로 관리할 수 있는 방법을 살펴보았습니다. - 가장 관심 있는 정보를 가져오도록 포털을 사용자 지정하는 방법을 살펴보았습니다. - RBAC(역할 기반 액세스)를 사용하여 리소스에 대한 액세스를 제어하는 방법을 살펴보았습니다. - 도움말 및 지원 페이지를 보는 방법을 살펴보았습니다.
 
-Microsoft Azure 포털은 클라우드에서 응용 프로그램을 빌드 및 관리하는 작업을 크게 간소화합니다. Microsoft는 지속적으로 [사용자 의견을 듣고](http://feedback.azure.com/forums/223579-azure-preview-portal) 개선하므로 항상 [관리 블로그](http://azure.microsoft.com/blog/topics/management/)에서 최신 정보를 확인하시기 바랍니다. 또한 [ScottGu의 블로그](http://weblogs.asp.net/scottgu)는 모든 Azure 업데이트를 확인하는 데 유용합니다.
+Microsoft Azure 포털은 클라우드에서 응용 프로그램을 빌드 및 관리하는 작업을 크게 간소화합니다. Microsoft는 지속적으로 [사용자 의견을 듣고](https://feedback.azure.com/forums/223579-azure-preview-portal/) 개선하므로 항상 [관리 블로그](https://azure.microsoft.com/blog/topics/management/)에서 최신 정보를 확인하시기 바랍니다. 또한 [ScottGu의 블로그](http://weblogs.asp.net/scottgu)는 모든 Azure 업데이트를 확인하는 데 유용합니다.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ Microsoft Azure 포털은 클라우드에서 응용 프로그램을 빌드 및 �
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

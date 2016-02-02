@@ -39,7 +39,7 @@
 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
 
 - Visual Studio 2013 또는 Visual Studio 2015
-- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
+- Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
 - [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 또는 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)용 최신 Azure Data Factory 플러그 인을 다운로드합니다. Visual Studio 2013을 사용하는 경우 메뉴에서 **도구** -> **확장 및 업데이트** -> **온라인** -> **Visual Studio 갤러리** -> **Visual Studio용 Microsoft Azure Data Factory 도구** -> **업데이트**를 클릭하여 플러그 인을 업데이트할 수도 있습니다. 
 	
 	
@@ -50,7 +50,7 @@
 
 	![새 프로젝트 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
-3. 프로젝트의 **이름**, **위치** 및 **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
+3. 프로젝트의 **이름**, **위치**, **솔루션**의 이름을 입력한 다음 **확인**을 클릭합니다.
 
 	![솔루션 탐색기](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
@@ -99,6 +99,15 @@
 	TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
 	linkedServiceName | HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다.
 
+	다음 사항에 유의하세요.
+	
+	- 데이터 팩터리는 사용자에 대해 **Windows 기반** HDInsight 클러스터를 JSON 위에 만듭니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. 
+	- 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터**를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 참조하세요.
+	- HDInsight 클러스터는 JSON (**linkedServiceName**)에서 지정한 Blob 저장소에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 의도적인 작동입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
+	
+		점점 더 많은 조각이 처리될수록 Azure Blob 저장소에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
+
+	자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. 
 4. **HDInsightOnDemandLinkedService1.json** 파일을 저장합니다.
 
 ### 데이터 집합 만들기
@@ -190,7 +199,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 2. 목록에서 **Hive 변환 파이프라인**을 선택하고 **추가**를 클릭합니다. 
 3. **JSON**을 다음 코드 조각으로 바꿉니다.
 
-	> [AZURE.IMPORTANT]**storageaccountname**을 저장소 계정 이름으로 바꿉니다.
+	> [AZURE.IMPORTANT] **storageaccountname**을 저장소 계정 이름으로 바꿉니다.
 
 		{
 		    "name": "MyFirstPipeline",
@@ -252,7 +261,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 ### partitionweblogs.hql 및 input.log 종속성으로 추가 
 
 1. **솔루션 탐색기** 창에서 **종속성**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **기존 항목**을 클릭합니다.  
-2. **C:\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
+2. **C:\\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
 
 다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 **adfgetstarted** Blob 저장소의 스크립트 컨테이너에 업로드됩니다.
 
@@ -268,22 +277,21 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 	1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
 	2. **이름**에 **FirstDataFactoryUsingVS**를 입력합니다. 
 	
-		> [AZURE.IMPORTANT]Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 **데이터 팩터리 이름 “FirstDataFactoryUsingVS”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다.(예: yournameFirstDataFactoryUsingVS) 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+		> [AZURE.IMPORTANT] Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 **데이터 팩터리 이름 “FirstDataFactoryUsingVS”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다.(예: yournameFirstDataFactoryUsingVS) 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 		> 
 		> 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 	3. **구독** 필드에서 올바른 구독을 선택합니다. 
 	4. 생성되는 데이터 팩터리의 **리소스 그룹**을 선택합니다. 
 	5. 데이터 팩터리의 **하위 지역**을 선택합니다. 
-	6. **다음**을 클릭하여 **항목 게시** 페이지로 전환합니다. (**다음** 단추를 사용할 수 없는 경우 **탭** 키를 눌러 이름 필드에서 나갑니다.) 
+	6. **다음**을 클릭하여 **항목 게시** 페이지로 전환합니다. **다음** 단추를 사용할 수 없는 경우 **Tab** 키를 눌러 이름 필드에서 나갑니다. 
 23. **항목 게시** 페이지에서 모든 데이터 팩터리 엔터티가 선택되었는지 확인하고 **다음**을 클릭하여 **요약** 페이지로 전환합니다.     
 24. 요약을 검토한 후 **다음**을 클릭하여 배포 프로세스를 시작하고 **배포 상태**를 봅니다.
 25. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다. 
  
 ## 4단계: 파이프라인 모니터링
 
-6. [Azure 포털](http://portal.azure.com/)에 로그인하고 다음을 수행합니다.
-	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
-		 ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+6. [Azure 포털](https://portal.azure.com/)에 로그인하고 다음을 수행합니다.
+	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다. ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 데이터 팩터리의 목록에서 **FirstDataFactoryUsingVS**를 선택합니다. 
 7. 데이터 팩터리에 대한 홈페이지에서 **다이어그램**을 클릭합니다.
   
@@ -307,8 +315,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.
-
-	>[AZURE.IMPORTANT]주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분)  
+	>[AZURE.IMPORTANT] 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분)  
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
 	
@@ -341,4 +348,4 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

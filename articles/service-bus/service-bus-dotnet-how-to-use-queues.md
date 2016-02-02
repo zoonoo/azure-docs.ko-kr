@@ -9,11 +9,11 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/07/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # 서비스 버스 큐를 사용하는 방법
@@ -26,13 +26,9 @@
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## 서비스 버스를 사용하도록 응용 프로그램 구성
-
-서비스 버스를 사용하는 응용 프로그램을 만드는 경우 서비스 버스 어셈블리에 대한 참조를 추가하고 해당 네임스페이스를 포함해야 합니다.
-
 ## 서비스 버스 NuGet 패키지 추가
 
-서비스 버스 **NuGet** 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
+[서비스 버스 **NuGet** 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
 
 응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
@@ -183,7 +179,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-서비스 버스 큐는 [메시지 크기를 최대 256KB](service-bus-quotas.md)까지 지원합니다.(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 크기는 최대 64KB임) 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [메시징 엔터티 분할](service-bus-partitioning.md)을 참조하세요.
+서비스 버스 큐는 [메시지 크기를 최대 256KB](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas)까지 지원합니다.(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 크기는 최대 64KB임) 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [메시징 엔터티 분할](service-bus-partitioning.md)을 참조하세요.
 
 ## 큐에서 메시지를 받는 방법
 
@@ -261,4 +257,4 @@ Client.OnMessage((message) =>
   [Abandon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
   [완료]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Azure AD Connect: Azure Active Directory와 온-프레미스 ID 통합 | Microsoft Azure"
-	description="Azure AD Connect의 정의 및 사용해야 하는 이유를 설명합니다."
+	description="Azure AD Connect는 Azure Active Directory와 Windows Server Active Directory와 같은 온-프레미스 ID 시스템을 통합하고 사용자를 Office 365, Azure 및 수 천개의 SaaS 응용 프로그램에 연결하는 도구입니다. 이 항목에서는 Azure AD Connect의 기능을 설명하고 Azure AD Connect 작동 방법 및 설치, 구성 및 사용자 지정하는 방법에 대한 정보를 제공합니다."
+    keywords="Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, active directory 설치"
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -140,4 +141,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

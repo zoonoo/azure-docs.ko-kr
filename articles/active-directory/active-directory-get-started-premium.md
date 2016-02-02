@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015"
+	ms.date="01/26/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory Premium 시작하기
 
 Azure Active Directory는 Free, Basic, Premium의 세 가지 버전으로 제공됩니다. Free 버전은 Azure 또는 Office 365 구독에 포함됩니다. Basic 및 Premium 버전은 [Microsoft 기업 계약](https://www.microsoft.com/ko-KR/licensing/licensing-programs/enterprise.aspx) 또는 [오픈 볼륨 라이선스](https://www.microsoft.com/ko-KR/licensing/licensing-programs/open-license.aspx) 프로그램을 통해 구입할 수 있습니다. 또한 Azure 및 Office 365 구독자는 Active Directory Premium을 온라인으로 구입할 수 있습니다. 구입하려면 [여기에서 로그인하세요](https://portal.office.com/Commerce/Catalog.aspx).
 
-> [AZURE.NOTE]Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 문의하세요.
+> [AZURE.NOTE]
+Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
 
 Azure Active Directory Premium은 **Enterprise Mobility Suite**에도 포함되어 있습니다. Enterprise Mobility Suite는 조직이 Microsoft Intune, Azure Rights Management, Active Directory Premium을 하나의 라이선싱 계획으로 함께 사용할 수 있는 비용 효율적인 방법입니다. 자세한 내용은 [Enterprise Mobility Suite](https://www.microsoft.com/ko-KR/server-cloud/enterprise-mobility/overview.aspx) 웹 사이트를 참조하세요.
 
@@ -121,4 +122,4 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

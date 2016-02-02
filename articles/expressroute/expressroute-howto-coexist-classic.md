@@ -20,7 +20,7 @@
 
 사이트 간 VPN 및 Express 경로를 구성하는 기능이 있으면 여러 장점이 있습니다. 사이트 간 VPN을 Exress 경로에 대한 안전한 장애 조치 경로로 구성하거나 사이트 간 VPN을 사용하여 사용자 네트워크의 일부가 아니지만 Express 경로를 통해 연결된 사이트에 연결할 수 있습니다. 이 문서에서는 두 시나리오 모두를 구성하는 단계를 설명합니다. 이 문서는 클래식 배포 모델을 사용하여 만든 연결에 적용됩니다.
 
->[AZURE.IMPORTANT]Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
+>[AZURE.IMPORTANT] Azure가 현재 두 가지 배포 모델인 리소스 관리자 및 클래식 모드에서 작동한다는 것을 알아야 합니다. 구성을 시작하기 전에 배포 모델 및 도구를 이해해야 합니다. 배포 모델에 대한 자세한 내용은 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요.
 
 
 Express 경로 회로는 아래 지침을 수행하기 전에 미리 구성되어야 합니다. 다음 단계를 수행하기 전에 [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md) 및 [라우팅 구성](expressroute-howto-routing-classic.md)을 위해 지침을 수행했는지 확인합니다.
@@ -46,7 +46,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 ![공존](media/expressroute-howto-coexist-classic/scenario2.jpg)
 
->[AZURE.NOTE]가상 네트워크를 통과 라우터로 구성할 수 없습니다.
+>[AZURE.NOTE] 가상 네트워크를 통과 라우터로 구성할 수 없습니다.
 
 ## 만들기 및 구성
 
@@ -67,7 +67,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 이 절차는 VNet 만들기를 안내하고 함께 사용하는 사이트 간 및 Express 경로 연결을 만듭니다.
 
-1. PowerShell cmdlet의 최신 버전이 있는지 확인합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
+1. PowerShell cmdlet의 최신 버전이 있는지 확인합니다. [다운로드 페이지](https://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
 
 2. 가상 네트워크의 스키마를 만듭니다. 네트워크 구성 파일을 사용하는 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
@@ -142,13 +142,13 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 7. 로컬 사이트 VPN 게이트웨이 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN 게이트웨이를 구성하지 않습니다. 대신, Azure VPN 게이트웨이를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
 
-	> [AZURE.IMPORTANT]사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. Azure 클래식 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.
+	> [AZURE.IMPORTANT] 사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. Azure 클래식 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.
 
 	다음 샘플(사용자 고유의 값으로 대체)을 사용합니다.
 
 	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
 
-	> [AZURE.NOTE]로컬 네트워크에 여러 경로가 있는 경우 모두 배열로 전달할 수 있습니다. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+	> [AZURE.NOTE] 로컬 네트워크에 여러 경로가 있는 경우 모두 배열로 전달할 수 있습니다. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
 	게이트웨이 ID와 공용 IP를 비롯한 가상 네트워크 게이트웨이 설정을 검색하려면 `Get-AzureVirtualNetworkGateway` cmdlet을 사용합니다. 다음 예제를 참조하세요.
@@ -179,7 +179,7 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 **구성을 시작하기 전에:** 게이트웨이 서브넷 크기를 늘릴 수 있도록 가상 네트워크에 충분한 IP 주소가 남아 있는지 확인합니다.
 
-1. 최신 버전의 PowerShell cmdlet를 다운로드합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
+1. 최신 버전의 PowerShell cmdlet를 다운로드합니다. [다운로드 페이지](https://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
 
 2. 기존 사이트 간 VPN 게이트웨이를 삭제합니다. 다음 cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
 
@@ -211,4 +211,4 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

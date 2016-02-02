@@ -23,7 +23,7 @@
 
 
 >[AZURE.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
  
 ##개요 
 
@@ -59,7 +59,7 @@
 
 ##샘플 다운로드
 
-[여기](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)에서 샘플을 가져와서 실행합니다.
+[여기](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)에서 샘플을 가져와서 실행합니다.
 
 ##포털을 사용하여 미디어 서비스 계정 만들기
 
@@ -114,7 +114,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 새 단위를 할당하는 작업은 완료하는 데 20분 정도 걸립니다.
 
->[AZURE.NOTE]현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 스트리밍을 사용하지 않을 수 있습니다.
+>[AZURE.NOTE] 현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 스트리밍을 사용하지 않을 수 있습니다.
 >
 > 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 책정 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
 
@@ -447,4 +447,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/14/2016"
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경에서 웹앱 만들기
@@ -22,7 +22,7 @@
 
 이 자습서는 [앱 서비스 환경](app-service-app-service-environment-intro.md)(ASE)에서 웹앱 및 앱 서비스 계획을 만드는 방법을 보여줍니다.
 
-> [AZURE.NOTE]웹앱을 만드는 방법을 알아보지만 앱 서비스 환경이 아니어도 된다면 [.NET 웹앱 만들기](web-sites-dotnet-get-started.md) 또는 기타 언어와 프레임워크에 관련된 자습서 중 하나를 참조하세요.
+> [AZURE.NOTE] 웹앱을 만드는 방법을 알아보지만 앱 서비스 환경이 아니어도 된다면 [.NET 웹앱 만들기](web-sites-dotnet-get-started.md) 또는 기타 언어와 프레임워크에 관련된 자습서 중 하나를 참조하세요.
 
 ## 필수 조건
 
@@ -118,4 +118,4 @@ ASE에서 웹앱을 실행하고 앱 서비스 계획을 관리하기 위해 고
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

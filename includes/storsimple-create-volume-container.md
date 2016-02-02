@@ -18,6 +18,6 @@
 
 ![동영상 사용 가능](./media/storsimple-create-volume-container/Video_icon.png) **동영상 사용 가능**
 
-StorSimple 솔루션에서 볼륨 컨테이너를 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/)를 클릭하세요.
+StorSimple 솔루션에서 볼륨 컨테이너를 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/)를 클릭하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

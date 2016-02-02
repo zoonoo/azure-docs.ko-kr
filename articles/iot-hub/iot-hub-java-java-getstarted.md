@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure IoT Hub 시작 | Microsoft Azure"
+	pageTitle="Java용 Azure IoT Hub 시작 | Microsoft Azure"
 	description="이 자습서에 따라 Java로 Azure IoT Hub 사용을 시작할 수 있습니다."
 	services="iot-hub"
 	documentationCenter="java"
@@ -16,7 +16,7 @@
      ms.date="12/21/2015"
      ms.author="dobett"/>
 
-# 자습서: Azure IoT Hub 시작
+# Java용 Azure IoT Hub 시작
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -120,14 +120,6 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 - [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial]는 장치에서 들어오는 대화형 메시지 및 원격 분석을 안정적으로 처리하는 방법을 보여 줍니다.
 - [장치에서 파일 업로드][lnk-upload-tutorial]는 장치에서 파일을 쉽게 업로드하기 위해 클라우드-장치 메시지를 사용하는 패턴을 설명합니다.
 
-다음 문서에서 IoT Hub에 대한 자세한 내용을 확인할 수 있습니다.
-
-* [IoT Hub 개요][lnk-hub-overview]
-* [IoT Hub 개발자 가이드][lnk-hub-dev-guide]
-* [IoT Hub 솔루션 디자인][lnk-hub-guidance]
-* [지원하는 장치 플랫폼 및 언어][lnk-supported-devices]
-* [Azure IoT 개발자 센터][lnk-dev-center]
-
 <!-- Images. -->
 [1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
 [2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
@@ -144,14 +136,9 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
-[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0128_2016-->

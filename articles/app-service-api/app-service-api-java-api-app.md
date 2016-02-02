@@ -25,7 +25,7 @@
 ## 필수 조건
 
 1. [Java 개발자 키트 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)(또는 이상)
-1. [Microsoft Azure](https://azure.microsoft.com)에 대한 유료 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 구독
+1. [Microsoft Azure](https://azure.microsoft.com/)에 대한 유료 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 구독
 1. 개발 컴퓨터에 [Maven](https://maven.apache.org/) 설치됨
 1. 개발 컴퓨터에 Git 설치됨 
 
@@ -254,7 +254,7 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 ## Azure 앱 서비스에 출력 게시
 이 섹션에서는 Azure 포털을 사용 하여 새 API 앱을 만들고 Java 응용 프로그램을 호스팅하기 위해 해당 API 앱을 준비하며 새 API 앱을 실행하기 위해 Azure 앱 서비스에 새로 만든 WAR 파일을 배포하는 방법을 알아봅니다.
 
-1. **새로 만들기 -> 웹 + 모바일 -> API 앱** 메뉴 항목을 클릭하여 [Azure 포털](http://portal.azure.com)에서 새 API 앱을 만듭니다.
+1. **새로 만들기 -> 웹 + 모바일 -> API 앱** 메뉴 항목을 클릭하여 [Azure 포털](https://portal.azure.com/)에서 새 API 앱을 만듭니다.
 	
 	![새 API 앱 만들기](media/app-service-api-java-api-app/create-api-app.png)
 
@@ -295,4 +295,4 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 
 Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

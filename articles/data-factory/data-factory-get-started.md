@@ -25,7 +25,7 @@
 
 이 문서의 자습서는 Azure Data Factory 서비스 사용을 빠르게 시작하는 데 도움이 됩니다. 이 자습서에서는 Azure Data Factory를 만들고 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인을 데이터 팩터리에 만듭니다.
 
-> [AZURE.NOTE]데이터 팩터리 서비스에 대한 자세한 개요는 [Azure Data Factory 소개][data-factory-introduction] 문서를 참조하세요.
+> [AZURE.NOTE] 데이터 팩터리 서비스에 대한 자세한 개요는 [Azure Data Factory 소개][data-factory-introduction] 문서를 참조하세요.
 
 ##자습서의 필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -88,9 +88,9 @@
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**SQL Server 2012/2014가 컴퓨터에 설치된 경우:** [2단계: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리의 SQL 데이터베이스에 연결][sql-management-studio] 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다. 이 문서에서는 [Azure 포털](http://portal.azure.com)이 아닌 [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하여 Azure SQL Server의 방화벽을 구성합니다.
+	**SQL Server 2012/2014가 컴퓨터에 설치된 경우:** [2단계: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 관리의 SQL 데이터베이스에 연결][sql-management-studio] 문서의 지침에 따라 Azure SQL Server에 연결하고 SQL 스크립트를 실행합니다. 이 문서에서는 [Azure 포털](https://portal.azure.com)이 아닌 [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하여 Azure SQL Server의 방화벽을 구성합니다.
 
-	**Visual Studio 2013이 컴퓨터에 설치된 경우:** [Azure 포털](http://portal.azure.com)에서 왼쪽의 **찾아보기** 허브를 클릭하고 **SQL Server**를 클릭한 다음 데이터베이스를 선택하고 도구 모음의 **Visual Studio에서 열기** 단추를 클릭하여 Azure SQL Server에 연결한 다음 스크립트를 실행합니다. 클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 위의 문서를 참조하세요.
+	**Visual Studio 2013이 컴퓨터에 설치된 경우:** [Azure 포털](https://portal.azure.com)에서 왼쪽의 **찾아보기** 허브를 클릭하고 **SQL Server**를 클릭한 다음 데이터베이스를 선택하고 도구 모음의 **Visual Studio에서 열기** 단추를 클릭하여 Azure SQL Server에 연결한 다음 스크립트를 실행합니다. 클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 위의 문서를 참조하세요.
 
 
 다음을 수행합니다.
@@ -111,4 +111,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

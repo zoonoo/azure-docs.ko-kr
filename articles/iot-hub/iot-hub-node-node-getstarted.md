@@ -1,22 +1,22 @@
 <properties
-	pageTitle="C#용 Azure IoT Hub 시작 | Microsoft Azure"
-	description="이 자습서에 따라 C#로 Azure IoT Hub 사용을 시작할 수 있습니다."
+	pageTitle="Node.js용 Azure IoT Hub 시작 | Microsoft Azure"
+	description="이 자습서에 따라 Node.js로 Azure IoT Hub 사용을 시작할 수 있습니다."
 	services="iot-hub"
-	documentationCenter=".net"
+	documentationCenter="nodejs"
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="dotnet"
+     ms.devlang="javascript"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/14/2015"
+     ms.date="01/19/2016"
      ms.author="dobett"/>
 
-# .NET용 Azure IoT Hub 시작
+# Node.js용 Azure IoT Hub 시작
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -32,19 +32,19 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 
 - Azure 포털을 사용하여 IoT Hub를 만듭니다.
 - IoT Hub에서 장치 ID를 만듭니다.
-- 클라우드 백 엔드로 원격 분석을 보내고, 클라우드 백 엔드로부터 명령을 받는 시뮬레이션된 장치를 만듭니다.
+- 클라우드 백 엔드에 원격 분석을 전송하는 시뮬레이션된 장치를 만듭니다.
 
-이 자습서의 끝 부분에서 다음의 세 가지 Windows 콘솔 응용 프로그램이 만들어집니다.
+이 자습서의 끝 부분에서 다음의 세 가지 Node.js 콘솔 응용 프로그램이 만들어집니다.
 
-* **CreateDeviceIdentity**는 장치 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 장치에 연결합니다.
-* **ReadDeviceToCloudMessages**는 시뮬레이션된 장치에서 보낸 원격 분석을 표시합니다.
-* **SimulatedDevice**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 매초마다 원격 분석 메시지를 보냅니다.
+* **CreateDeviceIdentity.js**는 장치 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 장치에 연결합니다.
+* **ReadDEviceToCloudMessages.js**는 시뮬레이션된 장치에서 보낸 원격 분석을 표시합니다.
+* **SimulatedDevice.js**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 매초마다 원격 분석 메시지를 보냅니다.
 
 > [AZURE.NOTE] [IoT Hub SDK][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 SDK에 관한 정보를 제공합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ Microsoft Visual Studio 2015.
++ Node.js 버전 0.12.x 이상 <br/> [개발 환경 준비][lnk-dev-setup]는 Windows 또는 Linux에서 이 자습서에 대한 Node.js을 설치하는 방법을 설명합니다.
 
 + 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
 
@@ -79,24 +79,36 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 
     ![][5]
 
-이제 IoT Hub가 만들어졌고 이 자습서 나머지 부분을 완료하는 데 필요한 호스트 이름과 연결 문자열을 갖게 되었습니다.
+7. IoT Hub 블레이드에서 **설정**을 클릭한 다음 **설정** 블레이드에서 **메시징**을 클릭합니다. **메시징** 블레이드에서 **이벤트 허브 호환 이름** 및 **이벤트 허브 호환 끝점**을 기록해 둡니다. **read-d2c-messages** 응용 프로그램을 만들 때 이러한 값이 필요합니다.
 
-[AZURE.INCLUDE [iot-hub-get-started-cloud-csharp](../../includes/iot-hub-get-started-cloud-csharp.md)]
+    ![][6]
+
+이제 IoT Hub를 만들었고 이 자습서의 나머지 부분을 완료해야 할 IoT Hub 호스트 이름, IoT Hub 연결 문자열, 이벤트 허브 호환 이름 및 이벤트 허브 호환 끝점 값이 있습니다.
+
+[AZURE.INCLUDE [iot-hub-get-started-cloud-node](../../includes/iot-hub-get-started-cloud-node.md)]
 
 
-[AZURE.INCLUDE [iot-hub-get-started-device-csharp](../../includes/iot-hub-get-started-device-csharp.md)]
+[AZURE.INCLUDE [iot-hub-get-started-device-node](../../includes/iot-hub-get-started-device-node.md)]
 
 ## 응용 프로그램 실행
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
-1.	솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ReadDeviceToCloudMessages** 및 **SimulatedDevice** 프로젝트 모두에 대한 **동작**으로 **시작**을 선택합니다.
+1. **readdevicetocloudmessages** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub 모니터링을 시작합니다.
 
-   	![][41]
+    ```
+    node ReadDeviceToCloudMessages.js 
+    ```
 
-2.	**F5**를 눌러 두 응용 프로그램 실행을 시작합니다. **SimulatedDevice** 앱에서 출력된 콘솔은 시뮬레이션된 장치가 IoT Hub에 보낸 메시지를 보여주고, **ReadDeviceToCloudMessages** 앱에서 출력된 콘솔은 IoT Hub가 수신한 메시지를 보여줍니다.
+    ![][7]
 
-   	![][42]
+2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub에 원격 분석 데이터 전송을 시작합니다.
+
+    ```
+    node SimulatedDevice.js
+    ```
+
+    ![][8]
 
 ## 다음 단계
 
@@ -107,15 +119,17 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 - [장치에서 파일 업로드][lnk-upload-tutorial]는 장치에서 파일을 쉽게 업로드하기 위해 클라우드-장치 메시지를 사용하는 패턴을 설명합니다.
 
 <!-- Images. -->
-[1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
-[2]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub2.png
-[3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
-[4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
-[5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
-[41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
-[42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
+[1]: ./media/iot-hub-node-node-getstarted/create-iot-hub1.png
+[2]: ./media/iot-hub-node-node-getstarted/create-iot-hub2.png
+[3]: ./media/iot-hub-node-node-getstarted/create-iot-hub3.png
+[4]: ./media/iot-hub-node-node-getstarted/create-iot-hub4.png
+[5]: ./media/iot-hub-node-node-getstarted/create-iot-hub5.png
+[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
+[7]: ./media/iot-hub-node-node-getstarted/runapp1.png
+[8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 
 <!-- Links -->
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/15/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # 서비스 버스 토픽 및 구독을 사용하는 방법
@@ -32,7 +32,7 @@
 
 ## 서비스 버스 NuGet 패키지 다운로드
 
-서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
+[서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다.
 
 응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
@@ -83,7 +83,7 @@
 </ServiceConfiguration>
 ```
 
-이전 섹션에서 설명한 대로 Azure 클래식 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
+이전 섹션에서 설명한 대로 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
 
 ### Azure 웹 사이트 또는 Azure 가상 컴퓨터를 사용하는 경우 연결 문자열 구성
 
@@ -98,13 +98,13 @@
 </configuration>
 ```
 
-이전 섹션에서 설명한 대로 Azure 클래식 포털에서 검색된 SAS 이름 및 키 값을 사용합니다.
+이전 섹션에서 설명한 대로 [Azure 클래식 포털][]에서 검색된 SAS 이름 및 키 값을 사용합니다.
 
 ## 토픽 만들기
 
 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용해서 서비스 버스 토픽과 구독에 대한 관리 작업을 수행할 수 있습니다. 이 클래스는 항목을 만들고 열거하고 삭제하는 메서드를 제공합니다.
 
-다음 예제에서는 Azure `CloudConfigurationManager` 클래스를 사용하여 `NamespaceManager` 개체를 생성합니다. 연결 문자열은 서비스 버스 서비스 네임스페이스의 기준 주소와 관리 권한이 있는 적절한 SAS 자격 증명으로 구성됩니다. 이 연결 문자열은 다음 형식을 사용합니다.
+다음 예제에서는 Azure `CloudConfigurationManager` 클래스를 사용하여 `NamespaceManager` 개체를 생성합니다. 연결 문자열은 서비스 버스 네임스페이스의 기준 주소와 관리 권한이 있는 적절한 SAS 자격 증명으로 구성됩니다. 이 연결 문자열은 다음 형식을 사용합니다.
 
 ```
 Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
@@ -236,11 +236,11 @@ for (int i=0; i<5; i++)
 }
 ```
 
-서비스 버스 토픽은 [256KB의 최대 메시지 크기](service-bus-quotas.md)를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [메시징 엔터티 분할](https://msdn.microsoft.com/library/azure/dn520246.aspx)을 참조하세요.
+서비스 버스 토픽은 [256KB의 최대 메시지 크기](service-bus-quotas.md)를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [분할된 메시징 엔티티](service-bus-partitioning.md)을 참조하세요.
 
 ## 구독에서 메시지를 받는 방법
 
-구독에서 메시지를 받는 권장 방법은 [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) 개체를 사용하는 것입니다. [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) 개체는 [ReceiveAndDelete 및 PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)의 두 가지 모드로 작동할 수 있습니다.
+구독에서 메시지를 받는 권장 방법은 [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) 개체를 사용하는 것입니다. [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) 개체는 [*ReceiveAndDelete* 및 *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)의 두 가지 모드로 작동할 수 있습니다.
 
 **ReceiveAndDelete** 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, 서비스 버스가 구독 메시지에 대한 읽기 요청을 받으면 메시지를 이용되는 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete** 모드는 가장 단순한 모델이며, 응용 프로그램이 실패 이벤트 시 메시지를 처리하지 않아도 안전한 시나리오에서 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스가 메시지를 이용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
 
@@ -312,7 +312,7 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 이제 서비스 버스 토픽 및 구독의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
--   [큐, 토픽 및 구독][]을 참조하세요.
+-   [큐, 토픽 및 구독][]
 -   [SqlFilter][]에 대한 API 참조
 -   서비스 버스 큐로 메시지를 보내고 받는 작동하는 응용 프로그램 만들기: [서비스 버스 조정된 메시징 .NET 자습서][].
 -   서비스 버스 샘플: [Azure 샘플][]에서 다운로드하거나 [개요](service-bus-samples.md)를 참조하세요.
@@ -327,4 +327,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [서비스 버스 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0128_2016-->

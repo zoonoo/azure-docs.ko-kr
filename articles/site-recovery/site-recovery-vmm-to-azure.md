@@ -33,7 +33,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 다음 필수 조건이 충족되었는지 확인합니다.
 ### Azure 필수 조건
 
-- [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. 없는 경우 [무료 평가판](http://aka.ms/try-azure)으로 시작하세요. 또한 [Azure Site Recovery Manager 가격](http://go.microsoft.com/fwlink/?LinkId=378268)에 대해 알아볼 수 있습니다.
+- [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. 없는 경우 [무료 평가판](http://aka.ms/try-azure)으로 시작하세요. 또한 [Azure Site Recovery Manager 가격](http://go.microsoft.com/fwlink/?LinkId=378268)에 대해 알아볼 수 있습니다.
 - Azure로 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure 사이트 복구 서비스와 같은 지역에 있고 같은 구독과 연결되어야 합니다. Azure 저장소에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](http://go.microsoft.com/fwlink/?LinkId=398704)를 참조하세요.
 - 보호할 가상 컴퓨터가 Azure 요구 사항을 준수하는지 확인해야 합니다. 자세한 내용은 [가상 컴퓨터 지원](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A)을 참조하세요.
 
@@ -123,26 +123,15 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 	![Microsoft 업데이트](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
 
 
-1.  설치 위치는 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**으로 설정됩니다. 공급자 설치를 시작하려면 설치 단추를 클릭합니다. 
-	![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
+1.  설치 위치는 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**으로 설정됩니다. 공급자 설치를 시작하려면 설치 단추를 클릭합니다. ![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
 
 
-1. 공급자가 설치된 후 '등록' 단추를 클릭하여 자격 증명 모음에 서버를 등록합니다. 
-	![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
+1. 공급자가 설치된 후 '등록' 단추를 클릭하여 자격 증명 모음에 서버를 등록합니다. ![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
 
 5. VMM 서버에서 실행 중인 공급자를 인터넷에 연결하는 방법을 **인터넷 연결**에서 지정합니다. 서버에 구성되어 있는 기본 인터넷 연결 설정을 사용하려면 *기본 시스템 프록시 설정 사용*을 선택합니다.
 
-	![인터넷 설정](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png)
-	- 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하는 경우 프록시 연결 상태를 확인하기 위한 테스트가 실행됩니다.
-	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요할 경우 프록시 주소와 포트를 포함한 프록시 상세 정보를 입력해야 합니다.
-	- 다음 URL은 VMM 서버 및 Hyper-v 호스트에서 액세스할 수 있어야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Allow the IP addresses described in [Azure 데이터 센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용하십시오. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+	![인터넷 설정](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하는 경우 프록시 연결 상태를 확인하기 위한 테스트가 실행됩니다. - 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요할 경우 프록시 주소와 포트를 포함한 프록시 상세 정보를 입력해야 합니다. - 다음 URL은 VMM 서버 및 Hyper-v 호스트에서 액세스할 수 있어야 합니다. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Allow the IP addresses described in [Azure 데이터 센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용하십시오. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	- 사용자 지정 프록시를 사용하는 경우 지정된 프록시 자격 증명을 사용하여 VMM 실행 계정(DRAProxyAccount)이 자동으로 만들어집니다. 이 계정이 성공적으로 인증될 수 있도록 프록시 서버를 구성합니다. VMM 콘솔에서 VMM 실행 계정 설정을 수정할 수 있습니다. 이렇게 하려면 설정 작업 영역을 열고 보안을 확장한 다음 실행 계정을 클릭하고 DRAProxyAccount의 암호를 수정합니다. 이 설정이 적용되도록 VMM 서비스를 다시 시작해야 합니다.
 
@@ -158,13 +147,12 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 
 8. 자격 증명 모음에서 VMM 서버를 식별하기 위한 이름을 **서버 이름**에서 지정합니다. 클러스터 구성에서 VMM 클러스터 역할 이름을 지정합니다.
 
-8. **초기 클라우드 메타데이터** 동기화에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지 여부를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다. 
-	![서버 등록](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
+8. **초기 클라우드 메타데이터** 동기화에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지 여부를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다. ![서버 등록](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
 
 
 8. *다음*을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 서버가 자격 증명 모음의 **서버** 페이지에서 *VMM 서버* 탭에 표시됩니다.
 
->[AZURE.NOTE]다음 명령줄을 사용하여 Azure Site Recovery 공급자를 설치할 수도 있습니다. 이 방법은 Windows Server 2012 R2용 Server CORE에 대한 공급자를 설치하는 데 사용할 수 있습니다.
+>[AZURE.NOTE] 다음 명령줄을 사용하여 Azure Site Recovery 공급자를 설치할 수도 있습니다. 이 방법은 Windows Server 2012 R2용 Server CORE에 대한 공급자를 설치하는 데 사용할 수 있습니다.
 
 1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
 1. System Center Virtual Machine Manager 서비스 중지
@@ -217,7 +205,7 @@ Azure 저장소 계정이 없을 경우 **Azure 저장소 계정 추가**를 클
 	
 	![MARS 에이전트 등록](./media/site-recovery-vmm-to-azure/MarsAgentRegister.png)
 
->[AZURE.NOTE]다음 명령을 사용하여 명령줄에서 Microsoft Azure 복구 서비스 에이전트를 설치할 수 있습니다.
+>[AZURE.NOTE] 다음 명령을 사용하여 명령줄에서 Microsoft Azure 복구 서비스 에이전트를 설치할 수 있습니다.
 >
 	marsagentinstaller.exe /q /nu
 
@@ -307,7 +295,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 		![네트워크 속성 수정](./media/site-recovery-vmm-to-azure/MultiNic.png)
 
->[AZURE.NOTE]고정 IP를 사용하는 Linux 가상 컴퓨터는 지원되지 않습니다.
+>[AZURE.NOTE] 고정 IP를 사용하는 Linux 가상 컴퓨터는 지원되지 않습니다.
 
 ## 배포 테스트
 배포를 테스트하려면 단일 가상 컴퓨터에 대한 테스트 장애 조치(Failover)를 실행하거나, 여러 개의 가상 컴퓨터로 구성된 복구 계획을 만들고 이 계획에 대한 테스트 장애 조치(Failover)를 실행하면 됩니다. 테스트 장애 조치(Failover)에서는 격리된 네트워크에서 장애 조치(Failover) 및 복구 메커니즘을 시뮬레이션합니다. 다음 사항에 유의하세요.
@@ -377,7 +365,6 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 <LI>정식 프로덕션 환경에서 Azure Site Recovery를 계획하고 배포하려면 <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Azure Site Recovery용 계획 가이드</a> 및 <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Azure Site Recovery용 배포 가이드</a>를 참조하세요.</LI>
 
 
-<LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI>
-</UL>
+<LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

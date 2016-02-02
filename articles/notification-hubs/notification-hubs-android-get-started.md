@@ -38,7 +38,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Android Studio - <a href="http://go.microsoft.com/fwlink/?LinkId=389797">사이트에서 다운로드</a>에서 다운로드 가능
-+ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)을 참조하세요.
++ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)을 참조하세요.
 
 
 이 자습서를 완료해야 다른 모든 Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
@@ -69,7 +69,7 @@
 
    	![][13]
 
-2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
+2. **Phone and Tablet** 폼 팩터와 지원할 **Minimum SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
 
    	![][14]
 
@@ -129,10 +129,7 @@
 	    private static Boolean isVisible = false;
 
 
-	세 개의 자리 표시자를 업데이트해야 합니다. 
-	* **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다.
-	* **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 클래식 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다.
-	* **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
+	세 개의 자리 표시자를 업데이트해야 합니다. * **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. * **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 클래식 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. * **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
 
 
 
@@ -204,7 +201,7 @@
 
 8. Android는 알림을 표시하지 않기 때문에 수신기를 직접 작성해야 합니다. **AndroidManifest.xml**에서 `<application>` 요소 내에 다음 요소를 추가합니다.
 
-	> [AZURE.NOTE]자리 표시자를 패키지 이름으로 교체하세요.
+	> [AZURE.NOTE] 자리 표시자를 패키지 이름으로 교체하세요.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -550,4 +547,4 @@
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-android-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

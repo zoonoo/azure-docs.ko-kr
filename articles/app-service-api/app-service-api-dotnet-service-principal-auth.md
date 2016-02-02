@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/08/2016" 
+	ms.date="01/26/2016" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스의 API 앱에 대한 서비스 주체 인증
@@ -22,258 +22,270 @@
 
 ## 개요
 
-이 자습서에서는 Azure 앱 서비스의 인증 및 권한 부여 기능을 사용하여 API 앱을 보호하는 방법 및 서비스 계정 대신 보호된 API 앱을 사용하는 방법을 보여 줍니다. 자습서에 나와 있는 인증 공급자는 Azure Active Directory이며 클라이언트와 API는 API 앱에서 실행 중인 ASP.NET Web API입니다.
+이 문서에서는 다음에 대해 알아봅니다.
 
-## Azure 앱 서비스의 인증 및 권한 부여
+* Azure AD(Azure Active Directory)를 사용하여 인증되지 않은 액세스로부터 API 앱을 보호하는 방법
+* 서비스 주체(앱 ID) 자격 증명을 사용하여 보호된 API 앱을 사용하는 방법입니다.
+* 로그온된 사용자가 보호된 API 앱을 브라우저에서 호출할 수 없도록 하는 방법입니다.
+* 특정 Azure AD 서비스 주체만이 보호된 API 앱을 호출할 수 있도록 하는 방법입니다.
 
-이 자습서에 사용된 인증 기능에 대한 개요는 시리즈의 이전 자습서인 [Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여](app-service-api-authentication.md)를 참조하세요.
+API 앱을 보호하는 메서드는 API 앱에서 다른 API 앱을 호출하는 경우와 같은 [내부 시나리오](app-service-api-authentication.md#internal)에 일반적으로 사용됩니다.
 
-## 이 자습서를 진행하는 방법
+이 문서에는 두 섹션이 포함되어 있습니다.
 
-이 자습서는 [API 앱 및 ASP.NET 시작 시리즈의 첫 번째 자습서](app-service-api-dotnet-get-started.md)에서 다운로드하여 만든 API 앱에 대한 응용 프로그램 예제를 기반으로 작성되었습니다.
+* [Azure 앱 서비스에서 서비스 주체 인증을 구성하는 방법](#authconfig) 섹션에서는 API 앱에 인증을 구성하는 방법 및 보호된 API 앱을 사용하는 방법을 일반적으로 설명합니다. 이 섹션은 .NET, Node.js 및 Java를 포함하여 앱 서비스에서 지원되는 모든 프레임워크에 동일하게 적용됩니다.
 
-## CompanyUsers.API 샘플 프로젝트
+* [문서의 나머지 부분](#tutorialstart)은 앱 서비스에서 실행되는 .NET 샘플 응용 프로그램에 "내부 액세스" 시나리오를 구성하도록 안내합니다.
 
-[ContactsList 응용 프로그램 예제](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list)에서 CompanyUsers.API 프로젝트는 하드 코드된 연락처 목록을 반환하는 Get 메서드 하나가 포함된 간단한 Web API 프로젝트입니다. 서비스 간 시나리오를 보여 주기 위해 ContactsList.API의 Get 메서드는 CompanyContacts.API의 Get 메서드를 호출하고 연락처를 다시 추가하여 자체 데이터 저장소로 가져온 후 조합된 목록을 반환합니다.
+## <a id="authconfig"></a> Azure 앱 서비스에서 서비스 주체를 인증하는 방법
 
-다음은 CompanyUsers.API의 Get 메서드입니다.
+이 섹션에서는 모든 API 앱에 적용되는 일반적인 지침을 제공합니다. 수행 목록 .NET 샘플 응용 프로그램에 특정한 단계는 [.NET 시작 자습서 계속](#tutorialstart)으로 이동합니다.
 
-		public async Task<IEnumerable<Contact>> Get()
-		{
-		    var contacts = new Contact[]{
-		                new Contact { Id = 1, EmailAddress = "nancy@contoso.com", Name = "Nancy Davolio"},
-		                new Contact { Id = 2, EmailAddress = "alexander@contoso.com", Name = "Alexander Carson"}
-		            };
-		
-		    return contacts;
-		}
+1. [Azure 포털](https://portal.azure.com/)에서 보호할 **API 앱** 블레이드로 이동한 다음 **설정**을 클릭합니다.
 
+2. **설정** 블레이드의 **기능** 섹션에서 **인증/권한 부여**를 클릭합니다.
 
-ContactsList.API의 Get 메서드는 다음과 같습니다. 이 코드는 CompanyContacts.API를 호출하고 반환되는 항목에 결과를 추가하는 방법을 보여 줍니다. 일부 코드는 명확한 설명을 위해 생략되어 있습니다.
-
-		private async Task<IEnumerable<Contact>> GetContacts()
-		{
-		    var contacts = await _storage.Get(FILENAME);
-		
-		    var contactsList = contacts.ToList<Contact>();
-		    using (var client = CompanyContactsAPIClientWithAuth())
-		    {
-		        var results = await client.Contacts.GetAsync();
-		        foreach (Contact c in results)
-		        {
-		            contactsList.Add(c);
-		        }
-		    }
-		
-		    return contactsList;
-		}
-
-위의 코드에서 `CompanyContactsAPIClientWithAuth()`가 반환한 클라이언트 개체는 생성된 클라이언트 코드를 기반으로 하지만 HTTP 요청에 권한 부여 토큰을 추가합니다.
-
-		private static CompanyContactsAPI CompanyContactsAPIClientWithAuth()
-		{
-		    var client = new CompanyContactsAPI(new Uri(ConfigurationManager.AppSettings["CompanyContactsAPIUrl"]));
-		    client.HttpClient.DefaultRequestHeaders.Authorization =
-		        new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
-		    return client;
-		}
-
-## Azure에서 API 앱을 만들고 이 앱에 CompanyContacts.API 프로젝트 배포
-
-1. **솔루션 탐색기**에서 CompanyContacts.API 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
-
-3.  **웹 게시** 마법사의 **프로필** 단계에서 **Microsoft Azure 앱 서비스**를 클릭합니다.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/selectappservice.png)
-
-4. Azure 계정에 로그인(아직 로그인하지 않은 경우)하거나 자격 증명을 새로 고칩니다(만료된 경우).
-
-4. **앱 서비스** 대화 상자에서 사용할 Azure **구독**을 선택하고 **새로 만들기**를 클릭합니다.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/clicknew.png)
-
-3. **앱 서비스 만들기** 대화 상자의 **호스팅** 탭에서 **형식 변경**을 클릭한 다음 **API 앱**을 클릭합니다.
-
-4. *azurewebsites.net* 도메인에서 고유한 **API 앱 이름**을 입력합니다.
-
-6. **리소스 그룹** 드롭다운에서 이러한 자습서에 사용한 리소스 그룹을 선택합니다.
-
-4. **앱 서비스 계획** 드롭다운에서 이러한 자습서에 사용한 계획을 선택합니다.
-
-7. **만들기**를 클릭합니다.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/createappservice.png)
-
-	Visual Studio에서 API 앱을 만들고 새 API 앱에 필요한 모든 설정이 있는 게시 프로필을 만듭니다.
-
-8. **웹 게시** 마법사의 **연결** 탭에서 **게시**를 클릭합니다.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/conntab.png)
-
-	Visual Studio에서 프로젝트를 새 API 앱에 배포하고 해당 API 앱의 URL로 브라우저를 엽니다. "만들기 성공" 페이지가 브라우저에 표시됩니다.
-
-9. 브라우저를 닫습니다.
-
-## ContactsList.API 프로젝트에서 생성된 클라이언트 코드 업데이트
-
-ContactsList.API 프로젝트에는 생성된 클라이언트 코드가 이미 있지만 이를 삭제하고 사용자 고유의 API 앱에서 다시 생성합니다.
-
-1. Visual Studio **솔루션 탐색기**의 ContactsList.API 프로젝트에서 *CompanyContactsAPI* 폴더를 삭제합니다.
-
-2. ContactsList.API 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > REST API 클라이언트**를 클릭합니다.
-
-3. **REST API 클라이언트 추가** 대화 상자에서 **Microsoft Azure API 앱에서 다운로드**를 클릭한 다음 **찾아보기**를 클릭합니다.
-
-8. **앱 서비스** 대화 상자에서 이 자습서에 사용하는 리소스 그룹을 확장한 다음 방금 만든 API 앱을 선택합니다.
-
-	목록에 API 앱이 보이지 않으면 API 앱을 만들 때 웹앱에서 API 앱으로 형식을 변경하는 단계를 실수로 생략했을 수 있습니다. 이 경우 앞서 수행한 단계를 반복하여 새 API 앱을 만들면 됩니다. 포털로 이동하여 웹앱을 먼저 삭제하지 않는 경우 API 앱에 다른 이름을 선택해야 합니다.
-
-10. **확인**을 클릭합니다.
-
-9. **REST API 클라이언트 추가** 대화 상자에서 **확인**을 클릭합니다.
-
-	Visual Studio에서 API 앱의 이름을 딴 폴더를 만들고 클라이언트 클래스를 생성합니다.
-
-## ContactsList.API에서 코드를 업데이트하고 프로젝트 배포
-
-CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습서에서 주석 처리되었습니다. 이 섹션에서는 이 코드의 주석을 제거하고 앱을 배포합니다.
-
-1. ContactsList.API 프로젝트에서 *Controllers/ContactsController.cs*를 엽니다.
-
-2. 생성된 클라이언트 클래스를 사용하여 권한 부여 토큰을 추가하는 코드에서 `ContactsController` 클래스의 위쪽에 있는 클래스 이름 `CompanyContactsAPI`를 API 앱에서 생성된 클래스 이름으로 바꿉니다.
-
-	예를 들어 API 앱의 이름이 CompanyContactsAPI3인 경우 코드는 다음과 같습니다.
-
-		 private static CompanyContactsAPI3 CompanyContactsAPIClientWithAuth()
-		 {
-		     var client = new CompanyContactsAPI3(new Uri(ConfigurationManager.AppSettings["CompanyContactsAPIUrl"]));
-		     client.HttpClient.DefaultRequestHeaders.Authorization =
-		         new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
-		     return client;
-		 }
- 
-4. `Get` 메서드에서 CompanyContacts.API를 호출하는 코드 블럭의 주석 처리를 제거합니다.
-
-		using (var client = CompanyContactsAPIClientWithAuth())
-		{
-		    var results = await client.Contacts.GetAsync();
-		    foreach (Contact c in results)
-		    {
-		        contactsList.Add(c);
-		    }
-		}
-
-2. ContactsList.API 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
-
-	이전에 사용한 게시 프로필로 **웹 게시** 마법사가 열립니다.
-
-3. **웹 게시** 마법사에서 **게시**를 클릭합니다.
-
-	Visual Studio에서 프로젝트를 배포하고 API 앱 기본 URL로 브라우저 창을 엽니다. 이 브라우저 창을 닫습니다.
-
-## Azure에서 새 API 앱에 대한 인증 및 권한 부여 설정
-
-1. [Azure 포털](https://portal.azure.com/)에서 CompanyContacts.API 프로젝트에 대해 이 자습서에서 만든 API 앱의 API 앱 블레이드로 이동하여 **설정**을 클릭합니다.
-
-2. **기능** 섹션을 찾아서 **인증/권한 부여**를 클릭합니다.
+	![](./media/app-service-api-dotnet-user-principal-auth/features.png)
 
 3. **인증/권한 부여** 블레이드에서 **설정**을 클릭합니다.
 
 4. **요청이 인증되지 않은 경우에 수행할 동작** 드롭다운 목록에서 **Azure Active Directory를 사용하여 로그인**을 선택합니다.
 
+5. **인증 공급자**에서 **Azure Active Directory**를 선택합니다.
+
+	![](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
+
+6. **Azure Active Directory 설정** 블레이드를 구성하여 새 Azure AD 응용 프로그램을 만들거나 또는 이미 기존 Azure AD 응용 프로그램이 있는 경우 해당 응용 프로그램을 사용합니다.
+
+	내부 시나리오는 일반적으로 API 앱을 호출하는 API 앱을 포함합니다. 각 API 앱 또는 하나의 Azure AD 응용 프로그램에 분리된 AD 응용 프로그램을 사용할 수 있습니다.
+
+	이 블레이드에서 자세한 지침은 [Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요.
+
+7. 인증 공급자 구성 블레이드를 마치면 **확인**을 클릭합니다.
+
+7. **인증/권한 부여** 블레이드에서 **저장**을 클릭합니다.
+
+이 작업이 완료되면 앱 서비스는 인증되지 않은 API 호출이 API 앱에 도달하지 않도록 방지합니다. 보호된 API 앱에 인증 또는 권한 부여 코드가 필요합니다.
+
+인증 기능은 .NET, Node.js, Java 등 앱 서비스가 지원하는 모든 언어에 동일한 방법으로 작동합니다.
+
+#### 보호된 API 앱을 사용하는 방법
+
+호출자는 API 호출로 Azure AD 전달자 토큰을 제공해야 합니다. 서비스 주체 자격 증명을 사용하여 전달자 토큰을 가져오려면 호출자는 Active Directory 인증 라이브러리([.NET](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory), [Node.js](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) 또는 [Java](https://github.com/AzureAD/azure-activedirectory-library-for-java)용 ADAL)를 사용합니다. 토큰을 가져오려면 ADAL을 호출하는 코드는 ADAL에 다음 정보를 제공합니다.
+
+* Azure AD 테넌트의 이름입니다.
+* Azure AD 앱의 클라이언트 ID 및 클라이언트 암호(앱 키)는 호출자와 연관되었습니다.
+* Azure AD 응용 프로그램의 클라이언트 ID는 보호된 API 앱과 연결되었습니다. (Azure AD 응용 프로그램을 하나만 사용한 경우 호출자에 대한 클라이언트 ID와 동일합니다.)
+
+이러한 값은 [Azure 클래식 포털](https://manage.windowsazure.com/)의 Azure AD 페이지에서 사용할 수 있습니다.
+
+토큰을 획득하면 호출자는 토큰을 권한 부여 헤더에 HTTP 요청으로 포함합니다. 앱 서비스는 토큰의 유효성을 검사하고 요청이 보호된 API 앱에 도달하도록 허용합니다.
+
+#### 동일한 테넌트의 사용자가 API 앱을 액세스로부터 보호하는 방법
+
+동일한 테넌트의 사용자에 대한 전달자 토큰은 보호된 API 앱에 대해 유효하다고 간주됩니다. 서비스 주체만이 보호된 API 앱을 호출할 수 있도록 하려는 경우 보호된 API 앱에 코드를 추가하여 다음 클레임을 검사합니다.
+
+* `appid`는 호출자와 관련된 Azure AD 응용 프로그램의 클라이언트 ID와 동일해야 합니다.
+* `objectidentifier`는 호출자의 서비스 주체 ID여야 합니다.
+
+### 브라우저 액세스로부터 API 앱을 보호하는 방법
+
+보호된 API 앱의 코드에서 클레임의 유효성을 검사하지 않은 경우 및 보호된 API 앱에 별도의 Azure AD 응용 프로그램을 사용하는 경우 Azure AD 응용 프로그램의 회신 URL이 API 앱의 기본 URL과 동일하지 않도록 해야 합니다. 회신 URL이 직접 보호된 API 앱을 가리키는 경우 동일한 Azure AD 테넌트의 사용자는 API 앱을 찾고 로그온한 다음 성공적으로 API를 호출할 수 있습니다.
+
+## <a id="tutorialstart"></a> .NET 시작 자습서 계속
+
+API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 [다음 단계](#next-steps) 섹션으로 건너뜁니다.
+
+이 문서의 나머지 부분에서는 API 앱에 .NET 시작 시리즈를 계속하며 [사용자 인증 자습서](app-service-api-user-principal-authentication.md)를 완료하고 사용자 인증을 사용하여 Azure에서 실행하는 샘플 응용 프로그램이 있다고 가정합니다.
+
+## Azure에서 인증 설정
+
+이 섹션에서는 앱 서비스를 구성하므로 데이터 계층 API 앱이 도달하도록 허용하는 HTTP 요청만이 유효한 Azure AD 전달자 토큰을 가집니다.
+
+다음 섹션에서는 데이터 계층 API 앱을 구성하여 Azure AD에 응용 프로그램 자격 증명을 보내고 전달자 토큰을 다시 가져오며 해당 전달자 토큰을 중간 계층 API 앱에 전달합니다. 이 프로세스는 다이어그램에 나와 있습니다.
+
+![](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
+
+1. [Azure 포털](https://portal.azure.com/)에서 ToDoListDataAPI(데이터 계층) API 앱에 만든 API 앱의 API 앱 블레이드로 이동한 다음 **설정**을 클릭합니다.
+
+2. **설정** 블레이드의 **기능** 섹션에서 **인증/권한 부여**를 클릭합니다.
+
+3. **인증/권한 부여** 블레이드에서 **설정**을 클릭합니다.
+
+4. **요청이 인증되지 않은 경우에 수행할 동작** 드롭다운 목록에서 **Azure Active Directory를 사용하여 로그인**을 선택합니다.
+
+	앱 서비스를 발생시켜서 인증된 요청이 API 앱에 도달하도록 하는 설정입니다. 유효한 전달자 토큰을 가진 요청의 경우 앱 서비스는 API 앱에 따라 토큰을 전달하고 해당 정보를 코드에 보다 쉽게 사용할 수 있도록 하는 자주 사용된 클레임으로 HTTP 헤더를 채웁니다.
+
 5. **인증 공급자** 아래에서 **Azure Active Directory**를 클릭합니다.
 
 6. **Azure Active Directory 설정** 블레이드에서 **Express**를 클릭합니다.
 
-	AAD 테넌트에 AAD 응용 프로그램이 자동으로 만들어집니다. 나중에 클라이언트 ID를 가져오기 위해 클래식 Azure 포털로 이동할 경우 선택할 것이므로 새 AAD 응용 프로그램의 이름을 적어 둡니다.
+	**Express** 옵션을 사용하면 Azure는 Azure AD [테넌트](https://msdn.microsoft.com/ko-KR/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에서 자동으로 AAD 응용 프로그램을 만들 수 있습니다.
+
+	자동으로 모든 Azure 계정에 하나씩 있기 때문에 테넌트를 만들 필요가 없습니다.
+
+7. **관리 모드**에서 **새 AD 앱 만들기**를 클릭합니다.
+
+	포털이 **앱 만들기** 입력 상자에 기본값을 채웁니다.
+	
+	![](./media/app-service-api-dotnet-service-principal-auth/aadsettings.png)
+
+	기본적으로 Azure AD 응용 프로그램의 이름은 API 앱과 동일합니다. 원하는 경우 다른 이름을 입력합니다.
+
+	대신 API 앱 및 보호된 API 앱을 호출하기 위해 단일 Azure AD 응용 프로그램을 사용할 수 있습니다. 해당 대안을 선택한 경우 앞의 사용자 인증 자습서에서 Azure AD 응용 프로그램을 이미 만들었기 때문에 **새 AD 앱 만들기** 옵션은 필요하지 않습니다. 이 자습서에서는 API 앱 및 보호된 API 앱을 호출하기 위해 별도의 Azure AD 응용 프로그램을 사용합니다.
+
+8. **앱 만들기** 입력 상자에 있는 값을 기록해 둡니다. 나중에 Azure 클래식 포털에서 이 AAD 응용 프로그램을 찾아 보겠습니다.
 
 7. **확인**을 클릭합니다.
 
 10. **인증/권한 부여** 블레이드에서 **저장**을 클릭합니다.
- 
+
+	![](./media/app-service-api-dotnet-service-principal-auth/saveauth.png)
+
+	앱 서비스는 자동으로 API 앱의 URL로 설정된 **로그온 URL** 및 **회신 URL**을 사용하여 Azure Active Directory 응용 프로그램을 만듭니다. 두 번째 값을 사용하면 AAD 테넌트의 사용자가 API 앱에 로그인하고 액세스할 수 있습니다.
+
+### API 앱이 보호되는지 확인합니다.
+
+1. 브라우저에서 API 앱의 URL로 이동: Azure 포털에서 **API 앱** 블레이드에서 **URL** 아래 링크를 클릭합니다. 
+
+	인증되지 않은 요청은 API 앱에 도달할 수 없으므로 로그인 화면으로 리디렉션됩니다.
+
+	브라우저가 Swagger UI로 이동하면 브라우저에서 이미 로그온했을 수 있습니다. 이 경우 InPrivate 또는 Incognito 창을 열고 Swagger UI URL로 이동합니다.
+
+18. AAD 테넌트의 사용자 자격 증명으로 로그인합니다.
+
+	로그온하면 "만들기 성공" 페이지가 브라우저에 표시됩니다.
+
+## ToDoListAPI 프로젝트를 구성하여 Azure AD 토큰 획득 및 전송
+
+이 섹션에서는 다음 작업을 수행합니다.
+
+* Azure AD 응용 프로그램 자격 증명을 사용하는 중간 계층 API 앱에서 코드를 추가하여 토큰을 획득하고 데이터 계층 API 앱에 HTTP 요청으로 보냅니다.
+* Azure AD에서 필요한 자격 증명을 가져옵니다.
+* 중간 계층 API 앱의 Azure 앱 서비스 런타임 환경 설정에 자격 증명을 입력합니다. 
+
+### ToDoListAPI 프로젝트를 구성하여 Azure AD 토큰 획득 및 전송
+
+Visual Studio의 ToDoListAPI 프로젝트에서 다음과 같이 변경합니다.
+
+1. *ServicePrincipal.cs* 파일의 모든 코드에 달린 주석을 제거합니다.
+
+	Azure AD 전달자 토큰을 획득하기 위해 .NET용 ADAL을 사용하는 코드입니다. 나중에 Azure 런타임 환경에서 설정할 몇 가지 구성 값을 사용합니다. 코드는 다음과 같습니다.
+
+		public static class ServicePrincipal
+		{
+		    static string authority = ConfigurationManager.AppSettings["ida:Authority"];
+		    static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+		    static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
+		    static string resource = ConfigurationManager.AppSettings["ida:Resource"];
+		
+		    public static AuthenticationResult GetS2SAccessTokenForProdMSA()
+		    {
+		        return GetS2SAccessToken(authority, resource, clientId, clientSecret);
+		    }
+		
+		    static AuthenticationResult GetS2SAccessToken(string authority, string resource, string clientId, string clientSecret)
+		    {
+		        var clientCredential = new ClientCredential(clientId, clientSecret);
+		        AuthenticationContext context = new AuthenticationContext(authority, false);
+		        AuthenticationResult authenticationResult = context.AcquireToken(
+		            resource,
+		            clientCredential);
+		        return authenticationResult;
+		    }
+		}
+
+	**참고:** 이 코드는 .NET NuGet 패키지(Microsoft.IdentityModel.Clients.ActiveDirectory)에 ADAL이 필요하며 이는 프로젝트에 이미 설치되어 있습니다. 처음부터 이 프로젝트를 만들 때 이 패키지를 설치해야 했습니다. 이 패키지는 API 앱 new-project 템플릿에서 자동으로 설치되지 않습니다.
+
+2. *컨트롤러/ToDoListController*에서 인증 헤더의 HTTP 요청에 토큰을 추가하는 `NewDataAPIClient` 메서드에서 코드의 주석 처리를 제거합니다.
+
+		client.HttpClient.DefaultRequestHeaders.Authorization =
+		    new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
+
+3. ToDoListAPI 프로젝트 배포 (프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시 > 게시**를 클릭합니다.)
+
+4. 프로젝트를 성공적으로 배포한 후에 열리는 브라우저 창을 닫습니다.
+
+### Azure AD 구성 값 가져오기
+
 11. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **Azure Active Directory**로 이동합니다.
 
 12. **디렉터리** 탭에서 AAD 테넌트를 클릭합니다.
 
 14. **응용 프로그램 > 회사 소유 응용 프로그램**을 클릭한 다음 확인 표시를 클릭합니다.
 
-15. 응용 프로그램 목록에서 API 앱에 대한 인증을 활성화할 때 만들어진 응용 프로그램의 이름을 클릭합니다.
+15. 응용 프로그램 목록에서 ToDoListDataAPI(데이터 계층) API 앱에 대한 인증을 활성화할 때 만들어진 응용 프로그램의 이름을 클릭합니다.
 
-16. **Configure**를 클릭합니다.
+16. **구성** 탭을 클릭합니다.
 
-17. 자습서의 이후 단계에서 값을 복사하고 붙여 넣으며 페이지에서 값을 업데이트할 수 있도록 이 페이지를 열어 둡니다.
+5. **클라이언트 ID** 값을 복사하여 나중에 가져올 수 있는 위치에 복사합니다.
 
-## ContactsList.API 프로젝트 코드를 실행하는 API 앱의 설정 업데이트
+8. Azure 클래식 포털에서 **회사가 보유한 응용 프로그램** 목록으로 이동하고 ToDoListAPI(중간 계층) API 앱에 만든 AAD 응용 프로그램을 클릭합니다.
 
-3. 다른 브라우저 창에서 [클래식 Azure 포털](https://manage.windowsazure.com/)로 이동한 후 ContactsList.API API 앱에 대해 만든 AAD 응용 프로그램의 **구성** 탭으로 이동합니다.
+16. **구성** 탭을 클릭합니다.
 
-5. **키** 아래의 **기간 선택** 드롭다운 목록에서 **1년**을 선택합니다.
+5. **클라이언트 ID** 값을 복사하여 나중에 가져올 수 있는 위치에 복사합니다.
+
+6. **키** 아래의 **기간 선택** 드롭다운 목록에서 **1년**을 선택합니다.
 
 6. **Save**를 클릭합니다.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
 
-7. 키 값을 복사합니다.
+7. 키 값을 복사하여 나중에 가져올 수 있는 위치에 복사합니다.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
-1. 다른 브라우저 창에서 [Azure 포털](https://portal.azure.com/)로 이동한 후 ContactsList.API 프로젝트를 배포한 API 앱에 대한 API 앱 블레이드로 이동합니다. (이것은 호출하는 API 앱으로, 호출되는 API 앱인 ContactsList.API가 아니며, CompanyContacts.API가 아닙니다.)
+### 중간 계층 API 앱의 런타임 환경에서 Azure AD 설정 구성
+
+1. [Azure 포털](https://portal.azure.com/)로 이동한 다음 TodoListAPI(중간 계층) 프로젝트를 호스팅하는 API 앱에 대한 **API 앱** 블레이드로 이동합니다.
 
 2. **설정 > 응용 프로그램 설정**을 클릭합니다.
 
-3. **앱 설정** 섹션에서 "ida:ClientSecret"라는 키를 추가하고 값 필드에 방금 만든 키를 붙여 넣습니다.
+3. **앱 설정** 섹션에서 다음 키와 값을 추가합니다.
 
-3. "Ida: ClientId"라는 키를 추가하고 값 필드에 동일한 AAD **구성** 페이지의 클라이언트 ID를 붙여 넣습니다.
+	|키|값|예
+	|---|---|---|
+	|ida:Authority|https://login.microsoftonline.com/{your Azure AD 테넌트 이름}|https://login.microsoftonline.com/contoso.onmicrosoft.com|
+	|ida:ClientId|호출하는 응용 프로그램(ToDoListAPI)의 클라이언트 ID|960adec2-b74a-484a-960adec2-b74a-484a|
+	|ida:ClientSecret|호출하는 응용 프로그램(ToDoListAPI)의 앱 키|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
+	|ida:Resource|호출되는 응용 프로그램(ToDoListDataAPI)의 클라이언트 ID|e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8|
 
-4. "Ida: Authority"라는 키를 추가하고 값 필드에 "https://login.windows.net/{테넌트}";를 입력합니다. 예를 들어 "https://login.windows.net/contoso.onmicrosoft.com"입니다.
+	API 앱 및 보호된 API 앱을 호출하기 위해 단일 Azure AD 응용 프로그램을 사용하는 경우 `ida:ClientId` 및 `ida:Resource` 모두에서 동일한 값을 사용합니다.
 
-3. 클래식 Azure 포털에서 CompanyContacts.API API 앱에 대해 만든 AAD 응용 프로그램의 **구성** 탭으로 이동합니다.
+	코드는 ConfigurationManager를 사용하여 이러한 값을 가져오므로 프로젝트의 Web.config 파일 또는 Azure 런타임 환경에 저장될 수 있습니다. Azure 앱 서비스에서 ASP.NET 응용 프로그램을 실행하는 동안 환경 설정은 Web.config에서 설정을 자동으로 재정의합니다. 환경 설정은 일반적으로 [Web.config 파일에 비해 중요한 정보를 저장하는 더 안전한 방법](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)입니다.
 
-4. 클라이언트 ID를 복사합니다.
-
-3. Azure 포털 **응용 프로그램 설정** 블레이드의 **앱 설정** 섹션에서 ida:Resource라는 키를 추가하고 값 필드에 방금 만든 클라이언트 ID를 붙여 넣습니다.
-
-4. "CompanyContactsAPIUrl"이라는 키를 추가하고 값 필드에 "https://{api 앱 이름}.azurewebsites.net"을 입력합니다. 예를 들어 "https://companycontactsapi.azurewebsites.net"입니다.
-
-6. 저장을 클릭합니다.
+6. **Save**를 클릭합니다.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/appsettings.png)
 
-## Azure에서 테스트
+### 응용 프로그램 테스트
 
-1. ContactsList.Angular.AAD 프로젝트를 배포한 웹앱의 URL로 이동합니다.
+1. 브라우저에서 AngularJS 프런트 엔드 웹앱의 HTTPS URL로 이동합니다.
 
-2. **연락처** 탭을 클릭한 다음 로그인합니다.
+2. **할 일 목록** 탭을 클릭하고 Azure AD 테넌트의 사용자에 대한 자격 증명으로 로그인합니다.
 
-	CompanyContacts.API API 앱에서 검색한 연락처가 추가된 연락처 페이지가 나타납니다.
+4. 응용 프로그램이 작동하고 있는지 확인하려면 할 일 항목을 추가합니다.
 
-	![](./media/app-service-api-dotnet-service-principal-auth/contactspagewithdavolio.png)
+	![](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
 
-이전 자습서와 마찬가지로 localhost SSL URL로 Visual Studio 프로젝트를 설정할 수 있으며 응용 프로그램을 로컬로 실행할 수 있습니다. 이 경우 Azure(클라이언트 ID, 클라이언트 암호 등)에서 실행을 위해 Azure에 저장한 설정을 Web.config 파일에 저장할 수 있습니다. 그러나 클라이언트 암호와 같은 중요한 정보가 포함된 Web.config 파일을 소스 제어에 체크 인하지 않도록 주의하세요. 자세한 내용은 [ASP.NET 및 Azure 앱 서비스에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
+	응용 프로그램이 예상 대로 작동하지 않으면 Azure 포털에 입력한 모든 설정을 다시 확인합니다. 모든 설정이 올바르다고 나타나는 경우 이 자습서의 뒷부분에서 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 
 ## 브라우저 액세스로부터 API 앱 보호
 
-이 자습서에서는 Azure 포털에서 Express 옵션을 사용하여 서비스 주체 인증을 사용하여 액세스할 API 앱에 대한 AAD 인증을 설정합니다. 기본적으로 앱 서비스는 사용자가 브라우저에서 API 앱의 URL로 이동한 후 로그인하도록 하는 방식으로 새 AAD 응용 프로그램을 구성합니다. 즉, 서비스 주체뿐만 아니라 최종 사용자도 API에 액세스할 수 있습니다. 서비스 주체만 API에 액세스할 수 있도록 하려면 AAD 응용 프로그램에서 **회신 URL**을 변경하여 API 앱의 기본 URL을 다르게 하여 브라우저 액세스를 차단할 수 있습니다.
+이 자습서의 경우 ToDoListDataAPI(데이터 계층) API 앱에 대한 별도의 Azure AD 응용 프로그램을 만들었습니다. 알고 있는 것처럼 앱 서비스가 AAD 응용 프로그램을 만들 때 사용자가 브라우저에서 API 앱의 URL로 이동한 후 로그인하도록 하는 방식으로 AAD 응용 프로그램을 구성합니다. 즉, 서비스 주체뿐만 아니라 Azure AD 테넌트의 최종 사용자도 API에 액세스할 수 있습니다.
 
-### 브라우저 액세스가 작동하는지 확인
-
-1. 새 브라우저 창에서 CompanyContacts.API 프로젝트에 대해 만든 API 앱의 HTTPS URL로 이동합니다.
-
-	브라우저에 로그인 화면이 표시됩니다.
-	
-2. AAD 테넌트의 사용자에 대한 자격 증명으로 로그인합니다.
-
-3. 브라우저에는 API 앱의 "만들기 성공" 화면이 표시됩니다.
-
-	Swagger UI를 활성화한 경우 `/swagger` URL로 이동하여 API를 호출할 수 있습니다. `/api/contacts/get`을 URL에 추가하여 브라우저에서 API를 호출할 수 있습니다.
+보호된 API 앱에서 코드를 작성하지 않고 브라우저가 액세스하는 것을 방지하려면 AAD 응용 프로그램에서 **회신 URL**을 변경하여 API 앱의 기본 URL을 다르게 할 수 있습니다.
 
 ### 브라우저 액세스 사용 안 함
 
-1. CompanyContacts.API 프로젝트에 대해 만든 AAD 응용 프로그램에 대한 클래식 포털 **구성** 탭에서 **회신 URL** 필드의 값을 변경하여 API 앱의 URL이 아닌 유효한 URL이 되도록 할 수 있습니다.
+1. TodoListService에 대해 만든 AAD 응용 프로그램에 대한 클래식 포털 **구성** 탭에서 **회신 URL** 필드의 값을 변경하여 API 앱의 URL이 아닌 유효한 URL이 되도록 할 수 있습니다.
  
 2. **Save**를 클릭합니다.
 
 ### 브라우저 액세스가 더 이상 작동하지 않는지 확인
+
+개별 사용자의 자격 증명으로 로그온하여 브라우저에서 API 앱 URL로 이동할 수 있다는 것을 이전에 확인했습니다. 이 섹션에서 더 이상 가능하지 않은지 확인합니다.
 
 1. 새 브라우저 창에서 API 앱의 URL로 다시 이동합니다.
 
@@ -281,27 +293,103 @@ CompanyContacts.API를 호출하는 ContactsList.API의 코드는 이전 자습�
 
 3. 로그인에 성공하지만 오류 페이지가 표시됩니다.
 
-	서비스 주체 토큰을 사용하여 계속 API 앱에 액세스할 수 있지만 AAD 테넌트의 사용자는 로그인할 수 없으며 브라우저에서 API에 액세스할 수 없습니다.
+	AAD 앱을 구성하여 AAD 테넌트의 사용자가 브라우저에서 API에 로그인하고 액세스할 수 없도록 합니다. 서비스 주체 토큰을 사용하여 API 앱에 계속 액세스할 수 있으며 이는 웹앱의 URL로 이동하고 할 일 항목을 더 추가하여 확인할 수 있습니다.
+
+## 특정 서비스 주체에 대한 액세스 제한  
+
+지금은 Azure AD 테넌트의 사용자 또는 서비스 주체에 대한 토큰을 얻을 수 있는 모든 호출자가 TodoListDataAPI(데이터 계층) API 앱을 호출할 수 있습니다. 데이터 계층 API 앱이 TodoListAPI(중간 계층) API 앱 및 특정 서비스 주체에서만 호출을 허용하도록 할 수 있습니다.
+
+들어오는 호출에서 `appid` 및 `objectidentifier` 클레임의 유효성을 검사하는 코드를 추가하여 이러한 제한을 추가할 수 있습니다.
+
+이 자습서의 경우 컨트롤러 작업에서 직접 앱 ID 및 서비스 주체 ID의 유효성을 검사하는 코드를 배치합니다. 대안은 사용자 지정 `Authorize` 특성을 사용하거나 시작 시퀀스(예: OWIN 미들웨어)에서 이 유효성 검사를 수행하는 것입니다.
+
+TodoListDataAPI 프로젝트를 다음과 같이 변경합니다.
+
+2. *Controllers/TodoListController.cs* 파일을 엽니다.
+
+3. `trustedCallerClientId` 및 `trustedCallerServicePrincipalId`를 설정하는 줄의 주석 처리를 제거합니다.
+
+		private static string trustedCallerClientId = ConfigurationManager.AppSettings["todo:TrustedCallerClientId"];
+		private static string trustedCallerServicePrincipalId = ConfigurationManager.AppSettings["todo:TrustedCallerServicePrincipalId"];
+
+4. CheckCallerId 메서드에서 코드의 주석 처리를 제거합니다. 이 메서드는 컨트롤러에서 모든 작업 메서드의 시작 부분에 호출됩니다.
+
+		private static void CheckCallerId()
+		{
+		    string currentCallerClientId = ClaimsPrincipal.Current.FindFirst("appid").Value;
+		    string currentCallerServicePrincipalId = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+		    if (currentCallerClientId != trustedCallerClientId || currentCallerServicePrincipalId != trustedCallerServicePrincipalId)
+		    {
+		        throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The appID or service principal ID is not the expected value." });
+		    }
+		}
+
+5. 새 Azure 앱 서비스에 ToDoListDataAPI 프로젝트를 다시 배포합니다.
+
+6. 브라우저에서 AngularJS 프런트 엔드 웹앱의 HTTPS URL로 이동하고 홈 페이지에서 **할 일 목록** 탭을 클릭합니다.
+
+	백 엔드에 대한 호출이 실패하기 때문에 응용 프로그램이 작동하지 않습니다. 새 코드는 실제 appid 및 objectidentifier를 검사하지만 확인할 올바른 값이 아직 없습니다. 브라우저 개발자 도구 콘솔은 서버가 HTTP 401 오류를 반환하고 있는지를 보고합니다.
+
+	![](./media/app-service-api-dotnet-service-principal-auth/webapperror.png)
+
+	다음 단계에서 예상 값을 구성합니다.
+
+8. Azure AD PowerShell을 사용하여 TodoListWebApp 프로젝트에 대해 만든 Azure AD 응용 프로그램에 대한 서비스 주체의 값을 가져옵니다.
+
+	a. Azure PowerShell을 설치하고 구독에 연결하는 방법에 대한 지침은 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+
+	b. 서비스 주체의 목록을 가져오려면 `Login-AzureRmAccount` 명령 및 `Get-AzureRmADServicePrincipal` 명령을 차례로 실행합니다.
+
+	c. TodoListAPI 응용 프로그램의 서비스 주체에 대한 objectid를 찾고 나중에 복사할 수 있는 위치에 저장합니다.
+
+7. Azure 포털에서 ToDoListAngular 프로젝트를 배포한 웹앱에 대한 웹앱 블레이드로 이동합니다.
+
+9. **설정 > 응용 프로그램 설정**을 클릭합니다.
+
+3. **앱 설정** 섹션에서 다음 키와 값을 추가합니다.
+
+	|키|값|예
+	|---|---|---|
+	|todo:TrustedCallerServicePrincipalId|호출하는 응용 프로그램의 서비스 주체 ID|4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072|
+	|todo:TrustedCallerClientId|TodoListAPI AAD 응용 프로그램에서 복사한 호출하는 응용 프로그램의 클라이언트 ID|960adec2-b74a-484a-960adec2-b74a-484a|
+
+6. **Save**를 클릭합니다.
+
+	![](./media/app-service-api-dotnet-service-principal-auth/trustedcaller.png)
+
+6. 브라우저에서 웹앱의 URL로 돌아가서 홈 페이지에서 **할 일 목록** 탭을 클릭합니다.
+
+	신뢰할 수 있는 호출자의 앱 ID 및 서비스 주체 ID가 예상된 값이기 때문에 이번에는 응용 프로그램이 예상 대로 작동합니다.
+
+	![](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
+
+## 처음부터 프로젝트 빌드
+
+**Azure API 앱** 프로젝트 템플릿을 사용하고 기본 Values 컨트롤러를 ToDoList 컨트롤러로 대체하여 두 개의 웹 API 프로젝트가 만들어졌습니다. ToDoListAPI 프로젝트에서 Azure AD 서비스 주체 토큰을 확보하기 위해 [.NET 용 ADAL(Active Directory 인증 라이브러리)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) NuGet 패키지가 설치되었습니다.
+ 
+ToDoListAngular와 같은 Web API 백 엔드를 통한 AngularJS 단일 페이지 응용 프로그램을 만드는 방법에 대한 내용은 [Hands On Lab: ASP.NET Web API 및 Angular.js를 통해 SPA(단일 페이지 응용 프로그램) 빌드](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs)를 참조하세요. Azure AD 인증 코드를 추가하는 방법에 대한 정보는 [Azure AD로 AngularJS 단일 페이지 앱 보안](../active-directory/active-directory-devquickstarts-angular.md)을 참조하세요.
+
+## 문제 해결
+
+인증 없이 성공적으로 실행했던 응용 프로그램이 인증 구현 후 제대로 작동하지 않을 경우 대부분 문제의 원인은 구성 설정이 부정확하거나 일관되지 않아서입니다. 먼저 Azure 앱 서비스와 Azure Active Directory의 모든 설정을 꼼꼼하게 확인합니다. 몇 가지 특정 제안 사항은 다음과 같습니다.
+
+* 프로젝트에서 코드를 구성한 후에 프로젝트를 다른 항목에 속하지 않게 다시 배포했는지 확인합니다.
+* Azure 포털 **응용 프로그램 설정** 블레이드에서 구성된 설정의 경우 설정을 입력할 때 올바른 API 앱 또는 웹앱을 선택했는지 확인합니다.
+* 브라우저에서 HTTP URL이 아닌 HTTPS URL을 사용하는지 확인합니다.
+* 중간 계층 API 앱에서 CORS가 계속 활성화되어 프런트 엔드 HTTPS URL에서 중간 계층에 대한 호출을 허용하는지 확인합니다. 문제가 CORS와 관련이 있는지 잘 모르겠으면 "*"를 다음 원래의 URL로 사용해 봅니다. **중요:** 실제 문제가 데이터 계층 인증인 경우 일부 브라우저 개발자 도구 콘솔 오류 메시지는 CORS 오류를 보고할 수 있습니다. 일시적으로 ToDoListDataAPI API 앱에 대한 인증을 비활성화한 경우인지 확인할 수 있습니다.
+* [customErrors 모드를 Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview)로 설정하여 오류 메시지에서 가능한 많은 정보를 확인할 수 있도록 합니다.
+* 다른 방법이 실패하면 [원격 디버깅 세션](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)을 시도하고 ToDoListAPI에서 전달자 토큰을 획득하는 코드에 전달되는 변수 값을 검토하며 Azure AD 값의 유효성을 검사하는 코드가 ToDoListDataAPI에서 전송되었습니다. 코드가 많은 다양한 원본에서 구성 값을 선택할 수 있으므로 이러한 방식으로 재미를 찾을 수 있습니다. 예를 들어 `ida:ClientId`를 `ida:ClientID`로 잘못 이름지은 경우 앱 서비스 설정을 구성할 때 코드가 앱 서비스 설정을 무시하고 Web.config 파일에서 찾는 `ida:ClientId` 값을 가져올 수 있습니다. 
 
 ## 다음 단계
 
-이 자습서는 API 앱 시작 시리즈의 마지막 자습서입니다. 이 섹션에서는 API 앱 작동 방법을 자세히 알아보기 위한 추가 제안을 제공합니다.
+이 문서는 API 앱 시작 시리즈의 마지막 문서입니다.
 
-* 앱 서비스 앱을 배포하는 다른 방법
+Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-	Visual Studio를 사용하거나 [소스 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 웹앱에 웹 프로젝트를 배포하는 다른 방법에 대한 개요는 [Azure 웹앱을 배포하는 방법](web-sites-deploy.md)을 참조하세요.
+* [Azure AD 개발자 가이드](http://aka.ms/aaddev)
+* [Azure AD 시나리오](http://aka.ms/aadscenarios)
+* [Azure AD 샘플](http://aka.ms/aadsamples)
 
-	Visual Studio에서 배포를 자동화하는 데 사용할 수 있는 Windows PowerShell 스크립트를 생성할 수도 있습니다. 자세한 내용은 [자동화(Azure에서 실제 클라우드 앱 빌드)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)(영문)를 참조하십시오.
+Visual Studio를 사용하거나 [원본 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 API 앱에 Visual Studio를 배포하는 다른 방법에 대한 정보는 [Azure 앱 서비스 앱을 배포하는 방법](web-sites-deploy.md)을 참조하세요.
 
-* 앱 서비스 앱의 문제를 해결하는 방법
-
-	Visual Studio는 Azure 로그가 생성될 때 실시간으로 보기 쉽도록 만드는 기능을 제공합니다. 원격으로 Azure에서 디버그 모드로 실행할 수도 있습니다. 자세한 내용은 [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
-
-* 사용자 지정 도메인 이름 및 SSL을 추가하는 방법
-
-	SSL 및 사용자만의 도메인(예: contoso.azurewebsites.net가 아닌 www.contoso.com 사용)을 사용하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
-
-	* [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)
-	* [Azure 웹 사이트에 HTTPS 사용](web-sites-configure-ssl-certificate.md)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -201,7 +201,7 @@ SLA(서비스 수준 계약)는 <a HREF="http://go.microsoft.com/fwlink/p/?LinkI
 </tr>
 </table>
 
-> [AZURE.NOTE]하드웨어 오류에 대한 복원력을 위해 고가용성은 단일 BizTalk 장치 내에 반드시 VM을 여러 개 가집니다.
+> [AZURE.NOTE] 하드웨어 오류에 대한 복원력을 위해 고가용성은 단일 BizTalk 장치 내에 반드시 VM을 여러 개 가집니다.
 
 
 ## FAQ
@@ -225,7 +225,7 @@ BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. Bi
 
 #### "장치당 하이브리드 연결 데이터 전송(GB)"은 무엇을 의미하나요? 분/시간/일/주/월 단위입니까? 한도에 도달하면 어떻게 됩니까?
 
-장치당 하이브리드 연결 비용은 BizTalk 서비스 버전에 따라 다릅니다. 즉, 전송하는 데이터 양에 따라 비용이 달라집니다. 예를 들어 매일 10GB 데이터를 전송하는 것이 매일 100GB를 전송하는 것보다 비용이 적게 듭니다. BizTalk 서비스용 [가격 계산기](http://azure.microsoft.com/pricing/calculator/?scenario=full)를 사용하여 특정 비용을 확인할 수 있습니다. 일반적으로 제한은 일별로 적용됩니다. 한도를 초과하면 초과분에 대해 GB당 1달러의 요금이 청구됩니다.
+장치당 하이브리드 연결 비용은 BizTalk 서비스 버전에 따라 다릅니다. 즉, 전송하는 데이터 양에 따라 비용이 달라집니다. 예를 들어 매일 10GB 데이터를 전송하는 것이 매일 100GB를 전송하는 것보다 비용이 적게 듭니다. BizTalk 서비스용 [가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=full)를 사용하여 특정 비용을 확인할 수 있습니다. 일반적으로 제한은 일별로 적용됩니다. 한도를 초과하면 초과분에 대해 GB당 1달러의 요금이 청구됩니다.
 
 #### BizTalk 서비스에서 계약을 생성할 때 왜 브리지 수가 하나가 아닌 두 개씩 증가합니까?
 
@@ -259,4 +259,4 @@ Azure 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: A
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

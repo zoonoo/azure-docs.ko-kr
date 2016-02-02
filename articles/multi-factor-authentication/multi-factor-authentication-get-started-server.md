@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication 서버로 시작하기" 
 	description="Azure MFA 서버 시작 방법을 설명하는 Azure 다단계 인증 페이지입니다." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="인증 서버, Azure Multi Factor Authentication 앱 활성화 페이지, 인증 서버 다운로드" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/11/2016" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 서버로 시작하기
@@ -105,8 +106,7 @@ IP 서브넷|네트워크 마스크|IP 범위
 1. 실행 파일을 두 번 클릭합니다. 설치가 시작됩니다.
 2. 설치 폴더 선택 화면에서 해당 폴더가 정확한지 확인하고 다음을 클릭합니다.
 3. 설치가 완료되면 마침을 클릭합니다. 그러면 구성 마법사가 시작됩니다.
-4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**를 선택한 후 **다음**을 클릭합니다.  마법사가 닫히고 서버가 시작됩니다.
-![클라우드](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**를 선택한 후 **다음**을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다. ![클라우드](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. 서버를 다운로드한 페이지로 돌아가서 **정품 인증 자격 증명 생성** 버튼을 클릭합니다. 이 정보를 제공된 상자의 Azure MFA 서버에 복사하고 **활성화**를 클릭합니다.
 
@@ -185,4 +185,4 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 [Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md)|Active Directory와 Azure MFA 서버 간의 동기화 설정 및 구성에 대한 정보입니다.
 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)|Azure MFA 서버 웹 서비스 구성 및 설치에 대한 정보입니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

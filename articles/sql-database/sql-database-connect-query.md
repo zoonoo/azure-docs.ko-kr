@@ -2,7 +2,7 @@
 	pageTitle="C# 쿼리로 SQL 데이터베이스에 연결 | Microsoft Azure"
 	description="C#에 프로그램을 작성하여 SQL 데이터베이스에 쿼리하고 연결합니다. IP 주소, 연결 문자열, 보안 로그인 및 무료 Visual Studio에 대한 정보입니다."
 	services="sql-database"
-	keywords="C# 데이터베이스 쿼리, C# 쿼리, 데이터베이스에 연결"
+	keywords="c# 데이터베이스 쿼리, c# 쿼리, 데이터베이스 연결, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -36,17 +36,17 @@ C#에 프로그램을 작성하여 클라우드의 Azure SQL 데이터베이스�
 C# 쿼리 코드 샘플을 실행하려면 다음이 있어야 합니다.
 
 
-- Azure 계정 및 구독 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 
 - Azure SQL 데이터베이스 서비스에서 **AdventureWorksLT** 데모 데이터베이스입니다.
  - 몇 분 안에 [데모 데이터베이스를 만듭니다.](sql-database-get-started.md)
 
 
-- Visual Studio 2013 업데이트 4(이후) Microsoft는 이제 Visual Studio 커뮤니티를 *무료* 로 제공합니다.
+- Visual Studio 2013 업데이트 4(이후) Microsoft는 이제 Visual Studio 커뮤니티를 *무료*로 제공합니다.
  - [Visual Studio Community, 다운로드](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [무료 Visual Studio에 대한 더 많은 옵션](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - 이 항목의 뒷부분에 나오는 [단계](#InstallVSForFree)는 [Azure 포털](http://portal.azure.com/)이 Visual Studio의 설치를 어떻게 안내하는지를 설명합니다.
+ - 이 항목의 뒷부분에 나오는 [단계](#InstallVSForFree)는 [Azure 포털](https://portal.azure.com/)이 Visual Studio의 설치를 어떻게 안내하는지를 설명합니다.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ C# 쿼리 코드 샘플을 실행하려면 다음이 있어야 합니다.
 Visual Studio를 설치해야 하는 경우 다음을 수행할 수 있습니다.
 
 - 무료 다운로드 및 기타 옵션을 제공하는 Visual Studio 제품 웹 페이지에 브라우저를 탐색하여 Visual Studio 커뮤니티를 무료로 설치합니다.
-- [Azure 포털](http://portal.azure.com/)은 다음에 설명할 다운로드 웹 페이지를 안내합니다.
+- [Azure 포털](https://portal.azure.com/)은 다음에 설명할 다운로드 웹 페이지를 안내합니다.
 
 
 ### Azure 포털을 통한 Visual Studio
 
 
-1. [Azure 포털](http://portal.azure.com/)(http://portal.azure.com/)을 통해 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)(http://portal.azure.com/)을 통해 로그인합니다.
 
 2. **모두*찾아보기** > **SQL 데이터베이스**를 클릭합니다. 블레이드는 데이터베이스에 대한 해당 검색을 엽니다.
 
@@ -127,7 +127,7 @@ C# 샘플이 .NET Framework 어셈블리 **System.Configuration.dll**를 사용�
 ## 4단계: 연결 문자열 가져오기
 
 
-[Azure 포털](http://portal.azure.com/)을 사용하여 SQL 데이터베이스에 필요한 연결 문자열을 복사합니다.
+[Azure 포털](https://portal.azure.com/)을 사용하여 SQL 데이터베이스에 필요한 연결 문자열을 복사합니다.
 
 첫 번째로 Azure SQL 데이터베이스 **AdventureWorksLT** 데이터베이스에 Visual Studio를 연결합니다.
 
@@ -305,7 +305,7 @@ namespace ConnectAndQuery_Example
 C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자와 같은 고객의 요청을 반영하기 위해 구성 파일을 읽습니다. 프로덕션 품질 프로그램은 .exe에서 하드 코딩된 리터럴 대신 구성 파일을 사용해야 합니다.
 
 
-> [AZURE.WARNING]코드를 간단하게 하기 위해 예외 처리에 코드를 포함하거나 이 교육적 샘플에서 논리를 다시 시도하지 않기로 합니다. 그러나 클라우드 데이터베이스와 상호 작용하는 프로덕션 프로그램은 모두를 포함해야 합니다.
+> [AZURE.WARNING] 코드를 간단하게 하기 위해 예외 처리에 코드를 포함하거나 이 교육적 샘플에서 논리를 다시 시도하지 않기로 합니다. 그러나 클라우드 데이터베이스와 상호 작용하는 프로덕션 프로그램은 모두를 포함해야 합니다.
 >
 > [여기](sql-database-develop-csharp-retry-windows.md)에 재시도 논리가 포함된 코드 샘플의 링크가 있습니다.
 
@@ -316,7 +316,7 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 클라이언트 컴퓨터의 IP 주소가 SQL 데이터베이스 방화벽에 추가될 때까지 클라이언트 C# 프로그램은 SQL 데이터베이스에 연결할 수 없습니다. 프로그램은 필요한 IP 주소를 보고하는 유용한 오류 메시지에 실패합니다.
 
 
-[Azure 포털](http://portal.azure.com/) 사용하여 IP 주소를 추가할 수 있습니다.
+[Azure 포털](https://portal.azure.com/) 사용하여 IP 주소를 추가할 수 있습니다.
 
 
 
@@ -324,8 +324,7 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 
 
 
-자세한 내용은<br/>
-[방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+자세한 내용은<br/> [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
 
@@ -359,4 +358,4 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

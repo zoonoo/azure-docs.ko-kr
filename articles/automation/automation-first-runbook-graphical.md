@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015"
+	ms.date="01/18/2016"
 	ms.author="bwren"/>
 
 
@@ -30,7 +30,7 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-trial/" target="_blank">[무료 평가판에 등록](http://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
+- 동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-trial/" target="_blank">[무료 평가판에 등록](https://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
 - Runbook을 저장할 [자동화 계정](automation-configuring.md)
 - Azure 가상 컴퓨터. 프로덕션이 되지 않게하기 위해 이 가상 컴퓨터를 중지하고 시작합니다.
 - Azure 리소스에서 인증을 받을 [Azure Active Directory 사용자 및 자동화 자격 증명 자산](automation-configuring.md) 이 사용자는 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
@@ -40,42 +40,34 @@
 먼저 *Hello World*라는 텍스트를 출력하는 단순한 Runbook을 생성할 것입니다.
 
 1. Azure Preview 포털에서 자동화 계정을 엽니다. 자동화 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자는 일부 자산이 이미 있어야 합니다. 대부분의 자산들은 새 자동화 계정에 자동적으로 포함되 있는 모듈입니다. 또한 사용자는 [필수 구성 요소](#prerequisites)에서 언급된 자격 증명 자산이 있어야 합니다.
-2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.<br>
-	![Runbook 컨트롤](media/automation-first-runbook-graphical/runbooks-control.png)
+2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.<br>![Runbook 컨트롤](media/automation-first-runbook-graphical/runbooks-control.png)
 2. **Runbook 추가** 단추를 클릭하고 **새 Runbook 만들기**를 클릭하여 새 Runbook을 만듭니다.
 3. Runbook 이름을 *MyFirstRunbook-Graphical*로 지정합니다.
-4. 이 경우 **Runbook 유형**으로 **그래픽**을 선택하여 [그래픽 Runbook](automation-graphical-authoring-intro.md)을 만듭니다. <br>
-	![새 runbook](media/automation-first-runbook-graphical/new-runbook.png)
+4. 이 경우 **Runbook 유형**으로 **그래픽**을 선택하여 [그래픽 Runbook](automation-graphical-authoring-intro.md)을 만듭니다. <br>![새 runbook](media/automation-first-runbook-graphical/new-runbook.png)
 5. **만들기**를 클릭하여 Runbook을 만들고 그래픽 편집기를 엽니다.
 
 ## 2 단계 - runbook에 활동을 추가 합니다.
 
 편집기의 왼쪽에 있는 라이브러리 컨트롤은 사용자의 runbook에 추가할 활동을 선택할 수 있게 해줍니다. **Write-Output** cmdlet을 추가하여 Runbook의 텍스트를 출력합니다.
 
-1.   라이브러리 컨트롤에서 **Cmdlet** 노드와 **Microsoft.PowerShell.Utility**를 차례로 확장합니다.<br>
-	![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/cmdlets-powershell-utility.png)
+1.   라이브러리 컨트롤에서 **Cmdlet** 노드와 **Microsoft.PowerShell.Utility**를 차례로 확장합니다.<br>![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/cmdlets-powershell-utility.png)
 2.   목록의 아래로 스크롤하십시오. **Write-Output**을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 클릭합니다.
 4.   캔버스에서 **Write-Output** 활동을 클릭합니다. 활동을 구성할 수 있게 해주는 구성 제어판이 열립니다.
 5.   **레이블**은 기본적으로 cmdlet의 이름이지만 보다 친숙하게 바꿀 수 있습니다. *Hello World 출력을 위해 쓰기*로 바꿉니다.
-6.   **매개 변수**를 클릭하여 cmdlet 매개 변수의 값을 제공합니다. 일부 cmdlet는 여러 매개 변수 집합이 있으며, 사용자는 사용하고자 하는 것을 선택해야 합니다. 이 경우 **Write-Output**에는 매개 변수 집합이 하나만 있으므로 선택하지 않아도 됩니다.<br>
-	![쓰기 출력 속성](media/automation-first-runbook-graphical/write-output-properties.png)
+6.   **매개 변수**를 클릭하여 cmdlet 매개 변수의 값을 제공합니다. 일부 cmdlet는 여러 매개 변수 집합이 있으며, 사용자는 사용하고자 하는 것을 선택해야 합니다. 이 경우 **Write-Output**에는 매개 변수 집합이 하나만 있으므로 선택하지 않아도 됩니다.<br>![쓰기 출력 속성](media/automation-first-runbook-graphical/write-output-properties.png)
 7.   **InputObject** 매개 변수를 선택합니다. 출력 스트림으로 보낼 텍스트를 지정하는 매개 변수입니다.
 9.   **데이터 원본** 드롭다운에서 **PowerShell 식**을 선택합니다. **데이터 원본** 드롭다운은 매개 변수 값을 채우는 데 사용하는 다른 소스들을 제공합니다. 다른 활동, 자동화 자산, 혹은 Power Shell식 같은 특정 소스들로부터 출력을 사용할 수 있습니다. 여기서는 *Hello World* 텍스트만 출력하려고 합니다. PowerShell 식을 사용하고 문자열을 지정할 수 있습니다.
-10.   **식** 상자에 *"Hello World"*를 입력한 후 **확인**을 두 번 클릭하여 캔버스로 돌아갑니다.<br>
-	![PowerShell 식](media/automation-first-runbook-graphical/expression-hello-world.png)
-11.   **저장**을 클릭하여 Runbook을 저장합니다.<br>
-	![Runbook을 저장 합니다.](media/automation-first-runbook-graphical/runbook-edit-toolbar-save.png)
+10.   **식** 상자에 *"Hello World"*를 입력한 후 **확인**을 두 번 클릭하여 캔버스로 돌아갑니다.<br>![PowerShell 식](media/automation-first-runbook-graphical/expression-hello-world.png)
+11.   **저장**을 클릭하여 Runbook을 저장합니다.<br>![Runbook을 저장 합니다.](media/automation-first-runbook-graphical/runbook-edit-toolbar-save.png)
 
 ## 3 단계 - runbook 테스트
 
 프로덕션 환경에서 사용할 수 있도록 runbook을 게시하기 전에 제대로 작동하는지 확인할 수 있게 테스트합니다. Runbook을 테스트할 때 **초안**버전을 실행하고 해당 출력을 대화형으로 봅니다.
  
-2. 테스트 창을 열려면 **테스트 창**을 클릭합니다.<br>
-	![테스트 창](media/automation-first-runbook-graphical/runbook-edit-toolbar-test-pane.png)
+2. 테스트 창을 열려면 **테스트 창**을 클릭합니다.<br>![테스트 창](media/automation-first-runbook-graphical/runbook-edit-toolbar-test-pane.png)
 2. **시작**을 클릭하여 테스트를 시작합니다. 유일하게 사용 가능한 옵션이어야 합니다.
 3. 이 창에서 [Runbook 작업](automation-runbook-execution)이 생성되고 해당 상태가 표시됩니다. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*에서 시작됩니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
-4. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 여기서는 *Hello World*가 표시됩니다.<br>
-	![Hello World](media/automation-first-runbook-graphical/test-output-hello-world.png)
+4. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 여기서는 *Hello World*가 표시됩니다.<br>![Hello World](media/automation-first-runbook-graphical/test-output-hello-world.png)
 5. 캔버스로 돌아가려면 테스트 창을 닫습니다.
 
 
@@ -83,8 +75,7 @@
 
 방금 만든 runbook은 아직 초안 모드입니다. 프로덕션 환경에서 실행하기 전에 게시해야 합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 사용자의 경우, 방금전에 runbook을 만들었기 때문에 게시 버전이 아직 없습니다.
 
-1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.<br>
-	![게시](media/automation-first-runbook-graphical/runbook-edit-toolbar-publish.png)
+1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![게시](media/automation-first-runbook-graphical/runbook-edit-toolbar-publish.png)
 2. **Runbook** 창의 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
 3. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook** 창이 표시됩니다. 위쪽에 표시되는 옵션을 사용하여 Runbook을 시작하거나, 미래의 특정 시간에 시작하도록 예약하거나, [webhook](automation-webhooks.md)을 생성하여 HTTP 호출을 통해 시작할 수 있습니다. 
 4. 여기서는 Runbook을 시작하기만 하면 되므로 **시작**을 클릭하고 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![Runbook 시작](media/automation-first-runbook-graphical/runbook-toolbar-start.png)
@@ -179,4 +170,4 @@
 - [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 4. **네트워크 인터페이스** 페이지에서 컨트롤러 0과 컨트롤러 1에 대한 고정 IP 주소를 입력합니다. 데이터 0 인터페이스가 IPv4에 대해 구성된 경우 고정 IP 주소는 IPv4 형식으로 제공해야 합니다. IPv6 구성에 대한 접두사를 제공하는 경우 고정 IP 주소는 이러한 필드에 자동으로 채워집니다.
 
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
  	> 
  	> - 컨트롤러 고정 IP 주소는 장치 IP 주소를 통해 접근할 수 있는 서브넷 내의 사용 가능한 IP여야 합니다.
  	> - 컨트롤러에 대한 고정 IP 주소는 장치에 대한 업데이트 서비스를 위해 사용되므로, 고정 IP는 라우팅할 수 있어야 하며 인터넷에 연결할 수 있어야 합니다.
@@ -32,10 +32,10 @@
 
 5. 확인 아이콘![StorSimple 확인 아이콘](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png)을 클릭합니다. 장치 **퀵 스타트** 페이지로 돌아갑니다.
 
- >[AZURE.NOTE]**구성** 페이지에 액세스하여 언제든지 다른 모든 장치 설정을 수정할 수 있습니다.
+ >[AZURE.NOTE] **구성** 페이지에 액세스하여 언제든지 다른 모든 장치 설정을 수정할 수 있습니다.
 
 ![동영상 사용 가능](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **동영상 사용 가능**
 
-최소 장치 설치를 완료하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)를 클릭하세요.
+최소 장치 설치를 완료하는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)를 클릭하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

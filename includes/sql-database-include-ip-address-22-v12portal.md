@@ -15,7 +15,7 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. http://portal.azure.com/에서 [Azure 포털](http://portal.azure.com/)에 로그인합니다.
+1. http://portal.azure.com/에서 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2. 왼쪽 배너에서 **모두 찾아보기**를 클릭합니다. **찾아보기** 블레이드가 표시됩니다.
 
@@ -63,4 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

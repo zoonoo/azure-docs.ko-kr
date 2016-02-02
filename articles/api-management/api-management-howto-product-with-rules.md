@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/15/2016"
+	ms.date="01/27/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리를 사용하여 속도 제한으로 API 보호
 
 이 가이드에서는 Azure API 관리로 속도 제한 및 할당량 정책을 구성하여 백엔드 API에 대한 보호를 추가하기가 얼마나 쉬운지 보여줍니다.
 
-이 자습서에서는 개발자가 [구독별 호출 속도 제한](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) 및 [구독별 사용 할당량 설정](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)을 사용하여 API를 분당 최대 10번 및 주당 최대 200번까지 호출할 수 있는 "무료 평가판" API 제품을 만들어 봅니다. 그런 다음 API를 게시하고 속도 제한 정책을 테스트합니다.
+이 자습서에서는 개발자가 [구독별 호출 속도 제한](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) 및 [구독별 사용 할당량 설정](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) 정책을 사용하여 API를 분당 최대 10번 및 주당 최대 200번까지 호출할 수 있는 "무료 평가판" API 제품을 만들어 봅니다. 그런 다음 API를 게시하고 속도 제한 정책을 테스트합니다.
 
 [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) 및 [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) 정책을 사용하는 고급 제한 시나리오는 [Azure API 관리로 고급 요청 제한](api-management-sample-flexible-throttling.md)을 참조하세요.
 
@@ -28,7 +28,7 @@
 
 이 단계에서는 구독 승인을 요구하지 않는 무료 평가판 제품을 만듭니다.
 
->[AZURE.NOTE]이미 구성된 제품이 있어 이 자습서에 사용하려는 경우 무료 평가판 제품 대신 해당 제품을 사용하여 [호출 속도 제한 및 할당량 정책 구성][]으로 바로 이동한 다음 해당 단계에서부터 자습서를 진행할 수 있습니다.
+>[AZURE.NOTE] 이미 구성된 제품이 있어 이 자습서에 사용하려는 경우 무료 평가판 제품 대신 해당 제품을 사용하여 [호출 속도 제한 및 할당량 정책 구성][]으로 바로 이동한 다음 해당 단계에서부터 자습서를 진행할 수 있습니다.
 
 시작하려면 API 관리 서비스에 대해 Azure 클래식에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
@@ -46,7 +46,7 @@
 
 **제목** 상자에 **무료 평가판**을 입력합니다.
 
-**설명** 상자에 **구독자는 분당 10회, 1주일에 최대 200회의 호출을 실행할 수 있습니다. 그 이후에는 액세스가 거부됩니다.**를 입력합니다.
+**설명** 상자에 **Subscribers will be able to run 10 calls/minute up to a maximum of 200 calls/week after which access is denied.**를 입력합니다.
 
 API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기 전에 먼저 보호된 제품을 구독할 수 있어야 합니다. 개방된 제품은 구독하지 않고 사용할 수 있습니다. 구독이 필요한 보호된 제품을 만들기 위해 **구독 필요**가 선택되었는지 확인하세요. 기본 설정입니다.
 
@@ -195,7 +195,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ![구독 추가][api-management-add-subscription]
 
->[AZURE.NOTE]이 자습서에서는 무료 평가판 제품에 대해 여러 동시 구독을 사용하도록 설정하지 않았습니다. 사용하도록 설정한 경우 다음 예제처럼 구독의 이름을 묻는 메시지가 표시됩니다.
+>[AZURE.NOTE] 이 자습서에서는 무료 평가판 제품에 대해 여러 동시 구독을 사용하도록 설정하지 않았습니다. 사용하도록 설정한 경우 다음 예제처럼 구독의 이름을 묻는 메시지가 표시됩니다.
 
 ![구독 추가][api-management-add-subscription-multiple]
 
@@ -221,7 +221,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 ![구독 키][api-management-select-key]
 
->[AZURE.NOTE]구독이 여러 개 있는 경우에는 **무료 평가판**의 키를 선택합니다. 그렇지 않은 경우 이전 단계에 구성한 정책이 적용되지 않습니다.
+>[AZURE.NOTE] 구독이 여러 개 있는 경우에는 **무료 평가판**의 키를 선택합니다. 그렇지 않은 경우 이전 단계에 구성한 정책이 적용되지 않습니다.
 
 **보내기**를 클릭한 다음 응답을 봅니다. **응답 상태** **200 OK**입니다.
 
@@ -294,4 +294,4 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [호출 속도 제한]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [사용 할당량 설정]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/16/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # 온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.
@@ -92,7 +92,7 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 | 요구 사항 | 설명|
 | ----------- | ---------- |
 |Azure AD Premium| Azure AD Connect Health는 Azure AD Premium 기능이기 때문에 Azure AD Premium이 필요합니다. </br></br>자세한 내용은 [Azure AD Premium 시작하기](active-directory-get-started-premium.md)를 참조하십시오.</br></br>30일 무료 평가판을 시작하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요.|.
-|사용자는 Azure AD Connect Health를 사용할(만들) 수 있는 Azure AD의 전역 관리자일 것입니다.|기본적으로 전역 관리자만이 Azure AD Connect Health 내에서 모든 정보를 사용하고(만들고) 액세스하며 모든 작업을 수행할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요. <br><br> 역할 기반 액세스 제어를 사용하여 조직에서 다른 사용자에게 Azure AD Connect Health에 액세스할 수 있습니다. 자세한 내용은 [Azure AD Connect Health 에 역할 기반 액세스 제어](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control)를 참조하세요. </br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 필히 작업 또는 조직 계정이어야 하며 Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](sign-up-organization.md)을 참조하세요.|
+|사용자는 Azure AD Connect Health를 사용할(만들) 수 있는 Azure AD의 전역 관리자일 것입니다.|기본적으로 전역 관리자만이 Azure AD Connect Health 내에서 모든 정보를 사용하고(만들고) 액세스하며 모든 작업을 수행할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](active-directory-administer.md)를 참조하세요. <br><br> 역할 기반 액세스 제어를 사용하여 조직에서 다른 사용자에게 Azure AD Connect Health에 액세스할 수 있습니다. 자세한 내용은 [Azure AD Connect Health용 역할 기반 액세스 제어](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control)를 참조하세요. </br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 필히 작업 또는 조직 계정 <!--school account-->이어야 하며 Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](sign-up-organization.md)을 참조하세요.|
 |AD FS의 경우 AD FS 감사에서 사용 현황 분석을 사용하도록 설정되어 있어야 함| AD FS로 사용 현황 분석을 사용하려는 경우, AD FS 감사를 사용해야 합니다. </br></br>[AD FS용 Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)를 참조하세요.
 |Azure AD Connect Health Agent 요구사항을 충족합니다.|에이전트의 특정 요구 사항은 아래 표를 참조하십시오.
 
@@ -123,4 +123,4 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

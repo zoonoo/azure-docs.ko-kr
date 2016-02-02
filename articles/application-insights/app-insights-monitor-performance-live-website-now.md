@@ -99,7 +99,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## 성능 원격 분석 보기
 
-[Azure 포털](http://portal.azure.com)에 로그인하고 Application Insights를 찾아본 다음 만든 리소스를 엽니다.
+[Azure 포털](https://portal.azure.com)에 로그인하고 Application Insights를 찾아본 다음 만든 리소스를 엽니다.
 
 ![찾아보기, Application Insights를 선택한 후 앱을 선택합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -136,7 +136,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## 샘플링
 
-응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다](app-insights-sampling.md).
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
 
 ## 문제 해결
@@ -220,4 +220,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -89,7 +89,7 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
 
 - **RemoteApp에 대한 지원 계획은 무엇인가요?** 청구 및 구독 관리 지원은 무료로 제공됩니다. 기술 지원은 [Azure 서비스 플랜](../../../support/plans/)을 통해 이용할 수 있습니다. [Azure 토론 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp)을 통해 커뮤니티 지원을 무료로 이용할 수도 있습니다. 
-- **사용자 의견을 제출하려면 어떻게 해야 하나요?** [피드백 포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)을 방문하세요.
+- **사용자 의견을 제출하려면 어떻게 해야 하나요?** [피드백 포럼](https://feedback.azure.com/forums/247748-azure-remoteapp/)을 방문하세요.
 - **Azure RemoteApp에 대해 자세히 알아보려면 어디로 문의해야 하나요?** 질문을 게시하는 데 유용한 [토론 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp) 외에도 RemoteApp과 관련된 모든 사항을 토론하는 주간 [전문가에게 물어보세요 웹 세미나](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html)에 참가할 수 있습니다.
 - **RemoteApp 설명서는 어떤가요?** 질문해 주셔서 감사합니다. 포털 도움말 서랍에 있는 도움말 콘텐츠(포털의 아무 페이지에서나 **?** 클릭) 외에도 RemoteApp과 관련된 모든 사항을 알려주는 다음 문서를 사용할 수 있습니다.
 	- **시작:**
@@ -108,10 +108,10 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 		- [사용자 추가](remoteapp-user.md)
 		- [RemoteApp 구성 및 사용 모범 사례](remoteapp-bestpractices.md)	
 
-	동영상! RemoteApp에 대한 많은 동영상도 있습니다. 소개 동영상([Azure RemoteApp 소개](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/))도 있고, 배포([클라우드 배포](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) 및 [하이브리드 배포](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be))를 안내하는 동영상도 있습니다. 지금 확인해 보세요.
+	동영상! RemoteApp에 대한 많은 동영상도 있습니다. 소개 동영상([Azure RemoteApp 소개](https://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/))도 있고, 배포([클라우드 배포](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) 및 [하이브리드 배포](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be))를 안내하는 동영상도 있습니다. 지금 확인해 보세요.
 
  
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

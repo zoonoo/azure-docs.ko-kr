@@ -22,13 +22,13 @@
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Azure HDInsight의 Storm을 사용하여 실시간 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
 
-> [AZURE.NOTE]이 문서의 단계는 Linux 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 빅 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 빅 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started.md)을 참조하세요.
 
 ## 시작하기 전에
 
 이 Apache Storm 자습서를 성공적으로 완료하려면 다음 항목이 필요합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 - **SSH 및 SCP 사용 경험**. HDInsight에서 SSH와 SCP를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -52,13 +52,13 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	__Ubuntu__를 선택하여 Linux 기반 HDInsight 클러스터를 만듭니다.
     
-    > [AZURE.NOTE]이 문서의 단계에 대한 기본 값에 __버전__ 필드를 둡니다.
+    > [AZURE.NOTE] 이 문서의 단계에 대한 기본 값에 __버전__ 필드를 둡니다.
 	
 4. 둘 이상의 구독이 있는 경우 __구독__ 항목을 선택하여 클러스터에 사용할 Azure 구독을 선택합니다.
 
 5. __리소스 그룹__의 경우 기존 리소스 그룹 목록을 표시할 항목을 선택한 다음 클러스터를 만들 리소스 그룹을 선택할 수 있습니다. 또는 __새로 만들기__를 선택한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
 
-	> [AZURE.NOTE]사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
+	> [AZURE.NOTE] 사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
 
 6. __자격 증명__을 선택한 다음 __클러스터 로그인 사용자 이름__에 대한 __클러스터 로그인 암호__를 입력합니다. __SSH 사용자 이름__과 __암호__ 또는 __공개 키__(SSH 사용자를 인증하는 데 사용됨)도 입력해야 합니다. 마지막으로 __선택__ 단추를 사용하여 자격 증명을 설정합니다.
 
@@ -86,11 +86,11 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	
 	- __위치__: 저장소 계정이 있거나 저장소 계정을 만들 지리적 지역입니다.
 	
-		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
+		> [AZURE.IMPORTANT] 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
     
     - __클러스터 AAD ID__: 이를 사용하여 Azure 데이터 레이크 저장소에 액세스하는 클러스터에서 사용할 수 있는 Azure Active Directory ID를 선택합니다.
     
-        > [AZURE.NOTE]이 문서에서 사용되지 않으며 기본 설정에 남아 있을 수 있습니다. 이 항목 및 Azure 데이터 레이크 저장소를 HDInsight와 함께 사용하는 데 대한 자세한 내용은 [Azure 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+        > [AZURE.NOTE] 이 문서에서 사용되지 않으며 기본 설정에 남아 있을 수 있습니다. 이 항목 및 Azure 데이터 레이크 저장소를 HDInsight와 함께 사용하는 데 대한 자세한 내용은 [Azure 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 		
 	- __선택__: 데이터 원본 구성을 저장하려면 이 항목을 사용합니다.
 	
@@ -114,7 +114,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 프로비전](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인합니다.
+	> [AZURE.NOTE] 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인합니다.
 
 ##HDInsight에서 Storm Starter 샘플 실행
 
@@ -136,11 +136,11 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
 		
-	> [AZURE.NOTE]파일 이름의 `0.9.3.2.2.4.9-1` 부분은 HDinsight가 새 버전의 Storm으로 업데이트되면 변경될 수 있습니다.
+	> [AZURE.NOTE] 파일 이름의 `0.9.3.2.2.4.9-1` 부분은 HDinsight가 새 버전의 Storm으로 업데이트되면 변경될 수 있습니다.
 
     'Wordcount'라는 친숙한 이름으로 클러스터에서 예제 WordCount 토폴로지를 시작합니다. 임의로 문장을 생성하고 문장에서 각 단어의 발생 횟수를 계산합니다.
 
-    > [AZURE.NOTE]클러스터에 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 Jar 파일을 포함하는 클러스터를 복사해야 합니다. 파일이 있는 클라이언트에서 `scp` 명령을 사용하여 수행할 수 있습니다. 예를 들어 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`과 같습니다.
+    > [AZURE.NOTE] 클러스터에 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 Jar 파일을 포함하는 클러스터를 복사해야 합니다. 파일이 있는 클라이언트에서 `scp` 명령을 사용하여 수행할 수 있습니다. 예를 들어 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`과 같습니다.
     >
     > WordCount 예제 및 다른 Storm 스타터 예제는 `/usr/hdp/current/storm-client/contrib/storm-starter/`에서 클러스터에 이미 포함되어 있습니다.
 
@@ -152,7 +152,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 1. https://CLUSTERNAME.azurehdinsight.net/stormui에 웹 브라우저를 엽니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다. Storm UI가 열립니다.
 
-	> [AZURE.NOTE]사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
+	> [AZURE.NOTE] 사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
 
 2. **토폴로지 요약** 아래의 **이름** 열에서 **wordcount** 항목을 선택합니다. 그러면 토폴로지에 대한 자세한 정보가 표시됩니다.
 
@@ -162,7 +162,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 	* **토폴로지 통계** - 기간으로 구성된 토폴로지 성능에 대한 기본 정보입니다.
 
-		> [AZURE.NOTE]특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
+		> [AZURE.NOTE] 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
 
 	* **Spout** - 각 Spout에서 반환된 마지막 오류를 포함하여 Spout에 대한 기본 정보입니다.
 
@@ -188,7 +188,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 	* **Spout/Bolt 통계** - 기간으로 구성된 구성 요소 성능에 대한 기본 정보입니다.
 
-		> [AZURE.NOTE]특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
+		> [AZURE.NOTE] 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
 
 	* **입력 통계**(Bolt에만 해당) - Bolt에서 사용되는 데이터를 생성하는 구성 요소에 대한 정보입니다.
 
@@ -233,4 +233,4 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

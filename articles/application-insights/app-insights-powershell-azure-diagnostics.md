@@ -111,9 +111,10 @@ Role 매개 변수 없이 `Set-AzureServiceDiagnosticsExtension` 또는 `New-Azu
 ```
 
 
-## 관련된 항목
+## 참고 항목
 
 * [Application Insights로 Azure 클라우드 서비스 앱 모니터링](app-insights-cloudservices.md)
 * [Application Insights에 Azure 진단 보내기](app-insights-azure-diagnostics.md)
+* [구성 경고 자동화](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

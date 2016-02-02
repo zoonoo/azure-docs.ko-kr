@@ -1,6 +1,6 @@
 <properties
-	pageTitle=".NET에서 Blob 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Azure Blob 저장소에 대한 정보, 컨테이너 생성 방법 및 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다."
+	pageTitle=".NET을 사용하여 Azure Blob 저장소 시작 | Microsoft Azure"
+	description="Azure Blob(개체) 저장소를 사용하여 클라우드에 파일 데이터를 저장합니다. 컨테이너 만들기 및 Blob 콘텐츠 업로드, 다운로드, 나열 및 삭제를 포함하여 간단한 Blob 저장소 작업을 시작합니다."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="01/22/2016"
 	ms.author="tamram"/>
 
 
-# .NET에서 Blob 저장소를 사용하는 방법
+# .NET을 사용하여 Azure Blob 저장소 시작
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## 개요
 
-이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 저장소 클라이언트 라이브러리는 Blob 저장소 REST API와의 상호작용을 단순화하는 SDK입니다. 이 가이드에서 다루는 시나리오는 Blob의 **업로드**, **나열**, **다운로드** 및 **삭제**를 포함하며 완료하는 데 한시간 정도가 걸려야 합니다. 비디오 시작을 시청하려면 [5분 만에 Azure 저장소 소개](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/)를 참조하거나 [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)을 읽을 수 있습니다.
+Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다.
+
+이 자습서에서는 Azure Blob 저장소를 사용하여 몇 가지 일반적인 시나리오에 대한 .NET 코드를 작성하는 방법을 보여 줍니다. Blob 업로드, 나열, 다운로드 및 삭제 시나리오를 다룹니다. 이 자습서를 완료하는 데 1시간을 초과하지 않습니다.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -38,6 +40,7 @@
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### 네임스페이스 선언
+
 프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 네임스페이스 선언을 추가합니다.
 
     using Microsoft.WindowsAzure;
@@ -292,7 +295,7 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 ## 추가 Blob에 쓰기
 
 추가 Blob은 .NET용 Azure 저장소 클라이언트 라이브러리의 버전 5.x에서 도입된 새로운 유형의 Blob입니다. 추가 Blob은 로깅 등의 추가 작업에 최적화되어 있습니다. 블록 Blob과 마찬가지로 추가 Blob은 블록으로 구성되지만 추가 Blob에 새 블록을 추가할 때 항상 Blob 끝에 추가됩니다. 추가 Blob의 기존 블록을 업데이트하거나 삭제할 수는 없습니다. 블록 Blob과 달리 추가 Blob의 블록 ID는 노출되지 않습니다.
- 
+
 추가 Blob의 각 블록은 최대 4MB까지 다양한 크기일 수 있으며, 추가 Blob 하나에 최대 50,000개의 블록이 포함될 수 있습니다. 따라서 추가 Blob의 최대 크기는 195GB(4MB X 50,000개 블록)보다 약간 더 큽니다.
 
 아래 예제에서는 새 추가 Blob을 만들고 간단한 로깅 작업을 시뮬레이트하여 일부 데이터를 추가합니다.
@@ -307,7 +310,7 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
     //Get a reference to a container.
     CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
 
-    //Create the container if it does not already exist. 
+    //Create the container if it does not already exist.
     container.CreateIfNotExists();
 
     //Get a reference to an append blob.
@@ -323,7 +326,7 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
     Random rnd = new Random();
     byte[] bytes = new byte[numBlocks];
     rnd.NextBytes(bytes);
-        
+
     //Simulate a logging operation by writing text data and byte data to the end of the append blob.
     for (int i = 0; i < numBlocks; i++)
     {
@@ -365,4 +368,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

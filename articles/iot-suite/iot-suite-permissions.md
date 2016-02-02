@@ -2,13 +2,14 @@
   pageTitle="Azure IoT Suite 및 Azure Active Directory | Microsoft Azure"
   description="Azure IoT Suite에서 Azure Active Directory를 사용하여 사용 권한을 관리하는 방법을 설명합니다."
   services=""
+  suite="iot-suite"
   documentationCenter=""
   authors="aguilaaj"
   manager="timlt"
   editor=""/>
 
 <tags
-  ms.service="na"
+  ms.service="iot-suite"
   ms.devlang="na"
   ms.topic="hero-article"
   ms.tgt_pltfrm="na"
@@ -145,4 +146,4 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

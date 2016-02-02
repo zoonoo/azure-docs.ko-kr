@@ -75,7 +75,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 - 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 올바르지 않으면 가상 장치 만들기에 실패합니다.
 - 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다.
 
->[AZURE.IMPORTANT]**가상 네트워크가 가상 장치와 사용 하려는 클라우드 저장소 계정과 동일한 지역에 있는지 확인합니다.**
+>[AZURE.IMPORTANT] **가상 네트워크가 가상 장치와 사용 하려는 클라우드 저장소 계정과 동일한 지역에 있는지 확인합니다.**
 
 - 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-about.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.
 	- iSCSI 초기자 소프트웨어가 설치된 Windows 또는 Linux VM입니다.
@@ -180,7 +180,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬및 클라우드 스냅숏의 형태로 StorSimple 장치의 백업을 관리할 수 있습니다.
 
->[AZURE.NOTE]가상 장치의 경우, Windows 호스트는 Azure VM입니다.
+>[AZURE.NOTE] 가상 장치의 경우, Windows 호스트는 Azure VM입니다.
 
 StorSimple 스냅숏 관리자에서 장치를 구성하면, StorSimple 장치 IP 주소 및 암호를 입력하여 저장소 장치를 인증하라는 메시지가 표시됩니다. 이 암호는 Windows PowerShell 인터페이스를 통해 처음 구성됩니다.
 
@@ -234,7 +234,7 @@ HTTP 또는 HTTPS를 통해 연결하도록 선택할 수 있습니다. 보안�
 
 ![동영상 사용 가능](./media/storsimple-virtual-device/Video_icon.png) **동영상 사용 가능**
 
-클라우드에서 가상 StorSimple 장치를 만드는 방법을 설명하는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/)를 클릭하세요.
+클라우드에서 가상 StorSimple 장치를 만드는 방법을 설명하는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/)를 클릭하세요.
 
 ## StorSimple 가상 장치 작업
 
@@ -280,7 +280,7 @@ StorSimple 가상 장치를 만들고 구성했으므로 작업을 시작할 준
 
 StorSimple 장치 구성 페이지에서 활성화한 후, Windows PowerShell 원격을 사용하여 동일한 가상 네트워크 내 다른 가상 컴퓨터에서 가상 장치에 연결할 수 있습니다. 예를 들어, iSCSI에 연결하도록 구성되고 사용된 호스트 VM에서 연결할 수 있습니다. 대부분의 배포에서는 가상 장치에 엑세스하기 위해 사용할 수 있는 호스트 VM에 액세스하기 위해 이미 공용 끝점이 열려 있습니다.
 
->[AZURE.WARNING]보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.
+>[AZURE.WARNING] 보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.
 
 [StorSimple 장치에 원격으로 연결](storsimple-remote-connect.md)의 절차에 따라 가상 장치에 대한 원격을 설정해야 합니다.
 
@@ -358,11 +358,11 @@ DR(재해 복구)는 StorSimple 가상 장치가 설계된 주요 시나리오 �
 
 장애 조치 프로세스가 시작됩니다. 장애 조치(Failover)가 완료되면 **장치** 페이지로 이동하여 장애 조치(Failover) 프로세스의 대상으로 사용된 가상 장치를 선택합니다. 볼륨 컨테이너 페이지로 이동합니다. 이전 장치의 볼륨과 함께 모든 볼륨 컨테이너에서 표시되어야 합니다.
 
->[AZURE.NOTE]가상 장치에서 지원하는 저장소 용량은 30TB입니다.
+>[AZURE.NOTE] 가상 장치에서 지원하는 저장소 용량은 30TB입니다.
 
 ![동영상 사용 가능](./media/storsimple-virtual-device/Video_icon.png) **동영상 사용 가능**
 
-장애 조치(Failover)된 물리적 장치를 클라우드의 가상 장치로 복원하는 방법을 설명하는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/)를 클릭하세요.
+장애 조치(Failover)된 물리적 장치를 클라우드의 가상 장치로 복원하는 방법을 설명하는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/)를 클릭하세요.
 
 ## 가상 장치를 종료하거나 삭제합니다.
 
@@ -391,4 +391,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 가상 장치를 관리하려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 자세한 워크플로 목록을 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

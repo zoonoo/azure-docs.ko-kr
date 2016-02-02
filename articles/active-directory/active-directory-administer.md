@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD 디렉터리 관리 | Microsoft Azure"
-	description="Azure AD 테넌트의 정의 및 Azure AD 디렉터리를 관리하는 방법을 설명하는 항목입니다."
+	description="Azure AD 테넌트의 정의 및 Azure Active Directory를 통해 Azure를 관리하는 방법을 설명합니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Azure AD 디렉터리 관리
@@ -27,7 +27,7 @@
 
 각 Azure AD 디렉터리는 고유하며 다른 Azure AD 디렉터리와 구분됩니다. 회사 사무실 건물이 해당 조직에게만 속하는 안전한 자산인 것처럼 Azure AD 디렉터리도 조직에서만 사용하기 위해 자산을 보호하도록 설계되었습니다. Azure AD 아키텍처는 고객 데이터 및 ID 정보가 함께 혼합되지 않도록 격리합니다. 즉, 한 Azure AD 디렉터리의 사용자 및 관리자가 실수로 또는 악의적으로 다른 디렉터리의 데이터에 액세스할 수 없습니다.
 
-![][1]
+![Azure Active Directory 관리][1]
 
 ## Azure AD 디렉터리를 받으려면 어떻게 하나요?
 
@@ -40,7 +40,8 @@ Azure AD는 다음을 포함하여 대부분의 Microsoft 클라우드 서비스
 
 Azure AD 디렉터리는 이러한 Microsoft 클라우드 서비스에 등록하면 제공됩니다. 필요에 따라 추가 디렉터리를 만들 수 있습니다. 예를 들어 첫 번째 디렉터리는 프로덕션 디렉터리로 유지 관리하고 테스트나 준비용으로 다른 디렉터리를 만들 수 있습니다.
 
-> [AZURE.NOTE]첫 번째 서비스에 등록한 후 다른 Microsoft 클라우드 서비스에 등록할 때 조직과 연결된 동일한 관리자 계정을 사용하는 것이 좋습니다.
+> [AZURE.NOTE]
+첫 번째 서비스에 등록한 후 다른 Microsoft 클라우드 서비스에 등록할 때 조직과 연결된 동일한 관리자 계정을 사용하는 것이 좋습니다.
 
 처음으로 Microsoft 클라우드 서비스에 등록하면 조직 및 조직의 인터넷 도메인 이름 등록에 대한 정보를 제공하라는 메시지가 표시됩니다. 이 정보는 조직의 새 Azure AD 디렉터리 인스턴스를 만드는 데 사용됩니다. 이 동일한 디렉터리는 여러 Microsoft 클라우드 서비스를 구독하는 경우 로그인 시도를 인증하는 데 사용됩니다.
 
@@ -115,7 +116,8 @@ Azure 관리 포털에서 Azure AD 디렉터리를 추가할 수 있습니다. �
 ## Azure AD 디렉터리를 삭제하려면 어떻게 하나요?
 전역 관리자는 포털에서 Azure AD 디렉터리를 삭제할 수 있습니다. 디렉터리가 삭제되면 디렉터리에 포함된 모든 리소스도 삭제됩니다. 따라서 디렉터리를 삭제하기 전에 필요 없는 디렉터리인지 확인해야 합니다.
 
-> [AZURE.NOTE]사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com으로 로그인하는 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
+> [AZURE.NOTE]
+사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com으로 로그인하는 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
 
 ### Azure AD 디렉터리를 삭제하려면 충족해야 하는 조건
 
@@ -127,7 +129,8 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 - 디렉터리에 응용 프로그램이 없을 수 있습니다. 디렉터리를 삭제하려면 먼저 응용 프로그램을 모두 삭제해야 합니다.
 - Microsoft Azure, Office 365 또는 Azure AD Premium 등 Microsoft Online Services에 대한 구독이 디렉터리에 연결되어 있지 않습니다. 예를 들어 Azure에서 직접 기본 디렉터리를 만든 경우 Azure 구독에서 인증에 이 디렉터리를 계속 사용하면 이 디렉터리를 삭제할 수 없습니다. 마찬가지로 다른 사용자가 구독을 연결한 경우 디렉터리를 삭제할 수 없습니다. 구독을 다른 디렉터리와 연결하려면 Azure 관리 포털에 로그인하고 왼쪽 탐색 영역에서 **설정**을 클릭합니다. 그런 다음 **구독** 페이지 아래쪽에서 **디렉터리 편집**을 클릭합니다. Azure 구독에 대한 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-    > [AZURE.NOTE]사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com으로 로그인하는 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
+    > [AZURE.NOTE]
+    사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com으로 로그인하는 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
 
 - 디렉터리에 연결된 Multi-Factor Authentication 공급자가 없습니다.
 
@@ -145,4 +148,4 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

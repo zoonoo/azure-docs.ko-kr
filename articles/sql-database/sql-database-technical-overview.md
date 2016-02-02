@@ -28,7 +28,7 @@ SQL 데이터베이스는 시장 선도적인 Microsoft SQL Server 엔진을 기
 
 
 ## 가동 중지 시간 없이 성능 및 규모 조정
-SQL 데이터베이스는 Basic, Standard 및 Premium *서비스 계층* 에서 사용할 수 있습니다. 각 서비스 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 [다양한 수준의 성능 및 기능](sql-database-service-tiers.md)을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스용 첫 번째 앱을 만든 다음 앱을 가상 환경으로 전환할 때 언제든지 앱 또는 고객에 대한 가동 중지 시간 없이 수동으로 또는 프로그램에 의해 [서비스 계층을 변경](sql-database-scale-up.md)할 수 있습니다.
+SQL 데이터베이스는 Basic, Standard 및 Premium *서비스 계층*에서 사용할 수 있습니다. 각 서비스 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 [다양한 수준의 성능 및 기능](sql-database-service-tiers.md)을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스용 첫 번째 앱을 만든 다음 앱을 가상 환경으로 전환할 때 언제든지 앱 또는 고객에 대한 가동 중지 시간 없이 수동으로 또는 프로그램에 의해 [서비스 계층을 변경](sql-database-scale-up.md)할 수 있습니다.
 
 많은 업무와 앱에서, 특히 사용 패턴이 비교적 예측 가능한 경우 데이터베이스를 만들고 단일 데이터베이스 성능을 확장하거나 축소할 수 있으면 충분합니다. 하지만 사용 패턴을 예측할 수 없는 경우 비용과 비즈니스 모델을 관리하기 어려워질 수 있습니다.
 
@@ -52,13 +52,13 @@ Azure의 업계 선도적인 99.99% 가용성 [SLA](http://azure.microsoft.com/s
 서로 다른 서비스 계층에 사용할 수 있는 다양한 무중단 업무 방식 기능에 대한 자세한 내용은 [무중단 업무 방식](sql-database-business-continuity.md)을 참조하세요.
 
 ## 데이터 보호
-SQL Server에는 SQL 데이터베이스가 액세스 제한, 데이터 보호 및 작업 모니터링 도움을 수행하는 기능을 통해 지원하는 확실한 데이터 보안의 전통을 이어갑니다. SQL 데이터베이스의 보안 옵션에 대한 빠른 요약은 [SQL 데이터베이스 보안](sql-database-security.md)을 참조하세요. 보안 기능을 더 광범위하게 보려면 [SQL Server 데이터베이스 엔진 및 SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)를 참조하세요. 그리고 Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](http://azure.microsoft.com/support/trust-center/security/)를 방문하세요.
+SQL Server에는 SQL 데이터베이스가 액세스 제한, 데이터 보호 및 작업 모니터링 도움을 수행하는 기능을 통해 지원하는 확실한 데이터 보안의 전통을 이어갑니다. SQL 데이터베이스의 보안 옵션에 대한 빠른 요약은 [SQL 데이터베이스 보안](sql-database-security.md)을 참조하세요. 보안 기능을 더 광범위하게 보려면 [SQL Server 데이터베이스 엔진 및 SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)를 참조하세요. 그리고 Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)를 방문하세요.
 
 ## 다음 단계
 SQL 데이터베이스에 대한 소개를 읽고 질문 "SQL 데이터베이스란?"에 답변했으므로 다음에 대한 준비가 되었습니다.
 
-- 단일 데이터베이스 및 탄력적 데이터베이스 가격 책정 및 계산기는 [가격 책정 페이지](http://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
+- 단일 데이터베이스 및 탄력적 데이터베이스 가격 책정 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
 - [첫 번째 데이터베이스 만들기](sql-database-get-started.md)로 시작합니다. 그런 다음 [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) 또는 [Ruby](sql-database-develop-ruby-simple-linux)에서 첫 앱을 만듭니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

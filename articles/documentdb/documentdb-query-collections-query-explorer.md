@@ -18,7 +18,7 @@
 
 # 쿼리 탐색기를 사용해서 DocumentDB 컬렉션에 대해 SQL 쿼리 만들기, 편집 및 실행 #
 
-이 문서에서는 DocumentDB 컬렉션에 대해 쿼리를 만들고, 편집 및 실행할 수 있게 해주는 Microsoft Azure 포털 도구인 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 쿼리 탐색기의 개요를 제공합니다.
+이 문서에서는 DocumentDB 컬렉션에 대해 쿼리를 만들고, 편집 및 실행할 수 있게 해주는 Microsoft Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 쿼리 탐색기의 개요를 제공합니다.
 
 이 자습서를 완료하면 다음 질문에 대답할 수 있습니다.
 
@@ -78,4 +78,4 @@
 - 쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [여기](documentdb-sql-query.md)를 클릭하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
