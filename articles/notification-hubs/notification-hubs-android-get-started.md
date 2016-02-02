@@ -69,7 +69,7 @@
 
    	![][13]
 
-2. **Phone and Tablet** 폼 팩터와 지원할 **Minimum SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
+2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
 
    	![][14]
 
@@ -129,7 +129,10 @@
 	    private static Boolean isVisible = false;
 
 
-	세 개의 자리 표시자를 업데이트해야 합니다. * **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. * **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 클래식 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. * **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
+	세 개의 자리 표시자를 업데이트해야 합니다. 
+	* **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. 
+	* **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 클래식 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. 
+	* **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
 
 
 

@@ -86,7 +86,9 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 **HBase 셸을 사용하려면**
 
->[AZURE.NOTE] 여기의 단계는 Windows 컴퓨터에서 제공합니다. Linux, Unix 또는 OS X에서 Linux 기반 HDInsight 클러스터로 연결하는 데 대한 지침은 [Linux, Unix, 또는 OS X의 HDInsight에서 Linux 기반 Hadoop로 SSH 사용(미리 보기)](hdinsight-hadoop-linux-use-ssh-unix.md)1을 참조하세요. **PuTTY**를 엽니다. 문서의 시작에 나열된 필수 구성 요소를 참조하세요. 2. 생성 과정에서 사용자 계정을 생성할 때 SSH 키를 제공한 경우 다음 단계를 수행하여 클러스터에 인증할 때 사용하려는 개인 키를 선택해야 합니다.
+>[AZURE.NOTE] 여기의 단계는 Windows 컴퓨터에서 제공합니다. Linux, Unix 또는 OS X에서 Linux 기반 HDInsight 클러스터로 연결하는 데 대한 지침은 [Linux, Unix, 또는 OS X의 HDInsight에서 Linux 기반 Hadoop로 SSH 사용(미리 보기)](hdinsight-hadoop-linux-use-ssh-unix.md)
+1. 을 참조하세요. **PuTTY**를 엽니다. 문서의 시작에 나열된 필수 구성 요소를 참조하세요. 
+2. 생성 과정에서 사용자 계정을 생성할 때 SSH 키를 제공한 경우 다음 단계를 수행하여 클러스터에 인증할 때 사용하려는 개인 키를 선택해야 합니다.
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -201,8 +203,8 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
   이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+    * **-u** - 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
+    * **-G** - GET 요청임을 나타냅니다.
 
 2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
 

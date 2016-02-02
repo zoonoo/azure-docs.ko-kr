@@ -163,7 +163,7 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 
 5. 녹색 확인 표시를 클릭하여 커넥터 설정을 저장합니다.
 
-5. 디자인이 완료되었으므로 이제 디자이너의 왼쪽 위에서 **코드 보기**를 클릭하면 표시되는 코드가 디자이너에서 방금 만든 워크플로를 정의하는 JSON 코드인 것을 확인할 수 있습니다. [다음 항목][Use logic app features]에서 이 코드에 대해 자세히 살펴보겠습니다.
+5. 디자인이 완료되었으므로 이제 디자이너의 왼쪽 위에서 **코드 보기**를 클릭하면 표시되는 코드가 디자이너에서 방금 만든 워크플로를 정의하는 JSON 코드인 것을 확인할 수 있습니다. [다음 항목](Use logic app features)에서 이 코드에 대해 자세히 살펴보겠습니다.
 
 6. 화면 맨 아래에서 **확인** 단추를 클릭한 다음 **만들기** 단추를 클릭합니다.
 
@@ -188,4 +188,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

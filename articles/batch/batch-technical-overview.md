@@ -40,7 +40,7 @@ Azure 배치는 클라우드에서 효율적으로 대규모 병렬 및 HPC(고�
 
 또한 배치는 끝에 감소 단계가 있는 병렬 계산 및 메시지 전달 인터페이스(MPI) 응용 프로그램 등 보다 복잡한 HPC 작업을 수행할 수 있습니다.
 
->[AZURE.NOTE]이 때에 배치는 Windows Server 기반 가상 컴퓨터에서 실행하는 워크로드를 지원합니다.
+>[AZURE.NOTE] 이 때에 배치는 Windows Server 기반 가상 컴퓨터에서 실행하는 워크로드를 지원합니다.
 
 Azure에서 다른 HPC 솔루션 옵션과 배치의 비교는 [배치 및 HPC 솔루션](batch-hpc-solutions.md)을 참조하세요.
 

@@ -130,9 +130,13 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 얻으려면 Azure 클래식 포털을 열고 미디어 서비스 계정을 선택한 다음 **키 관리** 단추를 클릭합니다.
 
-<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+<configuration> ... 
+	<appSettings> 
+		<add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> 
+		<add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> 
+	</appSettings>
 		  
-		</configuration>
+</configuration>
 
 5. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 **using** 문을 덮어씁니다.
 
