@@ -177,10 +177,17 @@ Woodgrove가 복제를 배포하고 IP 주소를 유지 관리하려면 다음�
 - 가상 컴퓨터가 시작되면 사용 중인 DNS 서버가 업데이트됩니다. DNS 항목은 일반적으로 네트워크 전체에서 변경되거나 플러시되어야 하고, 네트워크 테이블의 캐시된 항목도 업데이트되고 플러시되어야 하므로 이러한 상태가 변경되는 동안 가동 중지 시간이 발생하는 것은 흔한 일입니다. 이는 다음 방법으로 완화할 수 있습니다.
 
 	- 인트라넷 응용 프로그램의 경우 낮은 TTL 값 사용
-	- [사이트 복구와 함께 Azure 트래픽 관리자] 사용(인터넷 기반 응용 프로그램용 https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)
+	- [사이트 복구와 함께 Azure 트래픽 관리자](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/internet based applications) 사용인터넷 기반 응용 프로그램용
 	- DNS 서버를 업데이트할 때 제 시간에 업데이트되도록 하기 위해 복구 계획 내에서 다음 스크립트 사용(동적 DNS 등록이 구성되지 않은 경우 스크립트가 필요하지 않음)
 
-    [string]$Zone, [string]$name, [string]$IP ) $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name $newrecord = $record.clone() $newrecord.RecordData[0].IPv4Address = $IP Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+    [string]$Zone,
+    [string]$name,
+    [string]$IP
+    )
+    $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+    $newrecord = $record.clone()
+    $newrecord.RecordData[0].IPv4Address = $IP
+    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 #### 예 - Azure로 장애 조치(failover)
 
@@ -190,4 +197,4 @@ Woodgrove가 복제를 배포하고 IP 주소를 유지 관리하려면 다음�
 
 Site Recovery가 원본 및 대상 네트워크를 매핑하는 방법을 [알아봅니다.](site-recovery-network-mapping.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->
