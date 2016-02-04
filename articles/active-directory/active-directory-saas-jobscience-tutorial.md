@@ -16,7 +16,8 @@
 
 #자습서: Jobscience와 Azure Active Directory 통합
   
-이 자습서는 Azure와 Jobscience의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure와 Jobscience의 통합을 보여 주기 위한 것입니다.  
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Jobscience Single Sign-On이 가능하도록 설정된 구독
@@ -64,8 +65,8 @@
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Single Sign-On 구성
   
-이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jobscience에 인증할 수 있게 하는 방법을 간략하게 설명합니다.
-Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.
+이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Jobscience에 인증할 수 있게 하는 방법을 간략하게 설명합니다.  
+Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.  
 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
@@ -94,7 +95,7 @@ Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(th
 
     ![Single Sign-On 구성](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Single Sign-On 구성")
 
-8.  **앱 URL 구성** 페이지의 **Jobscience 로그인 URL** 텍스트 상자에 다음 패턴 "**http://company.my.salesforce.com*"을 사용하여 URL을 입력한 다음 **다음**을 클릭합니다.
+8.  **앱 URL 구성** 페이지의 **Jobscience 로그인 URL** 텍스트 상자에 다음 패턴 "*http://company.my.salesforce.com*"을 사용하여 URL을 입력한 다음 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-jobscience-tutorial/IC784362.png "앱 URL 구성")
 
@@ -119,8 +120,8 @@ Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(th
 
     1.  **이름** 텍스트 상자에 구성할 이름을 입력합니다.
     2.  Azure 포털의 **Jobscience에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
-    3.  **엔터티 ID** 텍스트 상자에 ****https://salesforce-jobscience.com**를 입력합니다.
-4.  **찾아보기**를 클릭하여 Azure AD 인증서를 업로드합니다.
+    3.  **엔터티 ID** 텍스트 상자에 **https://salesforce-jobscience.com**를 입력합니다.
+    4.  **찾아보기**를 클릭하여 Azure AD 인증서를 업로드합니다.
     5.  **SAML ID 형식**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
     6.  **SAML ID 위치**로 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
     7.  Azure 포털의 **Jobscience에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
@@ -147,10 +148,12 @@ Jobscience에 대한 Single Sign-On을 구성하려면 인증서의 손도장(th
 
 ![보안 제어](./media/active-directory-saas-jobscience-tutorial/IC784368.png "보안 제어")
   
-위 단계에서 만든 SSO 프로필을 클릭합니다. 이 페이지에 회사의 Single Sign-On URL(예: **https://companyname.my.salesforce.com?so=companyid*))이 표시됩니다.
+위 단계에서 만든 SSO 프로필을 클릭합니다.  
+이 페이지에 회사의 Single Sign-On URL(예: *https://companyname.my.salesforce.com?so=companyid*)이 표시됩니다.
 ##사용자 프로비저닝 구성
   
-Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscience로 프로비저닝되어야 합니다. Jobscience의 경우 프로비저닝은 수동 작업입니다.
+Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscience로 프로비저닝되어야 합니다.  
+Jobscience의 경우 프로비저닝은 수동 작업입니다.
 
 ###사용자 프로비저닝을 구성하려면 다음 단계를 수행합니다.
 
@@ -198,3 +201,4 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
 <!---HONumber=AcomDC_0121_2016-->
+
