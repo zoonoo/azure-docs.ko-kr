@@ -16,7 +16,8 @@
 
 #자습서: Dropbox for Business와 Azure Active Directory 통합
   
-이 자습서는 Azure 및 Dropbox for Business의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 Dropbox for Business의 통합을 보여주기 위한 것입니다.  
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Dropbox for Business의 테스트 테넌트
@@ -107,7 +108,9 @@
      5.2. Azure 포털의 **Dropbox for Business에서 Single Sign-On 설정** 대화상자 페이지에서 **로그인 페이지 URL** 값을 복사하여, **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
 
-     5.3. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다. > [AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+     5.3. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
+
+     >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 
      5.4. **인증서 선택**을 클릭한 다음 **base-64로 인코딩된 인증서 파일**을 업로드합니다.
@@ -154,7 +157,7 @@
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **Dropbox for Business ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Dropbox for Business** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "사용자 할당")
 
@@ -176,7 +179,8 @@
 <br><br> ![사용자 할당](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "사용자 할당")
 
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
 
 

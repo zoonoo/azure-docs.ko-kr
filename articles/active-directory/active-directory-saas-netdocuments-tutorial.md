@@ -82,7 +82,7 @@ NetDocuments에 대한 Single Sign-On을 구성하려면 인증서의 지문(thu
 
     ![앱 URL 구성](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "앱 URL 구성")
 
-    1.  **로그온 URL** 텍스트 상자에 사용자가 NetDocuments 응용 프로그램에 로그인하는 데 사용하는 URL(예: "**https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*"))을 입력합니다.
+    1.  **로그온 URL** 텍스트 상자에 사용자가 NetDocuments 응용 프로그램에 로그인하는 데 사용하는 URL(예: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*")을 입력합니다.
 	2.  **NetDocuments 회신 URL** 텍스트 상자에 **로그온 URL** 텍스트 상자에 입력한 것과 동일한 값을 입력합니다.  
 
         >[AZURE.NOTE]**페더레이션 ID** 대화 상자의 끝에서 올바른 값을 찾을 수 있습니다(9단계의 스크린샷 참조).

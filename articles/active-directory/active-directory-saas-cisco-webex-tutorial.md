@@ -16,7 +16,8 @@
 
 #자습서: Cisco Webex와 Azure Active Directory 통합
 
-이 자습서는 Azure 및 Cisco Webex의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 Cisco Webex의 통합을 보여 주기 위한 것입니다.  
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   Cisco Webex 테넌트
@@ -64,8 +65,8 @@
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##Single Sign-On 구성
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Cisco Webex에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
-이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Cisco Webex에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다.  
 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
@@ -82,8 +83,8 @@
 
     ![앱 URL 구성](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "앱 URL 구성")
 
-    1.  **URL에 로그온** 텍스트 상자에 Cisco Webex 테넌트 URL을 입력합니다.(예: **http://contoso.webex.com*))
-2.  **URL Cisco Webex 회신** 텍스트 상자에 **Cisco Webex AssertionConsumerService URL**를 입력합니다.(예: **https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*))
+    1.  **URL에 로그온** 텍스트 상자에 Cisco Webex 테넌트 URL을 입력합니다.(예: *http://contoso.webex.com*)
+    2.  **URL Cisco Webex 회신** 텍스트 상자에 **Cisco Webex AssertionConsumerService URL**를 입력합니다.(예: *https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*)
 
 4.  **Cisco Webex에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -122,7 +123,8 @@
     ![Single Sign-On 구성](./media/active-directory-saas-cisco-webex-tutorial/IC777624.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
 
-Azure AD 사용자가 Cisco Webex에 로그인할 수 있도록 하려면 Cisco Webex로 프로비전되어야 합니다. Cisco Webex의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자가 Cisco Webex에 로그인할 수 있도록 하려면 Cisco Webex로 프로비전되어야 합니다.  
+Cisco Webex의 경우 프로비전은 수동 작업입니다.
 
 ###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
 
@@ -150,7 +152,7 @@ Azure AD 사용자가 Cisco Webex에 로그인할 수 있도록 하려면 Cisco 
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **Cisco Webex ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Cisco Webex** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-cisco-webex-tutorial/IC777627.png "사용자 할당")
 
@@ -161,3 +163,4 @@ Azure AD 사용자가 Cisco Webex에 로그인할 수 있도록 하려면 Cisco 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
 <!---HONumber=AcomDC_0121_2016-->
+

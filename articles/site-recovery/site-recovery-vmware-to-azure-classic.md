@@ -260,11 +260,12 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 
 6. 관리 서버에서 다음 URL에 액세스할 수 있는지 확인합니다.
 
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **. store.core.windows.net 서버에 IP 주소 기반 방화벽 규칙이 있는 경우 규칙에서 Azure에 대한 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://msdn.microsoft.com/library/azure/dn175718.aspx) 및 HTTPS(433) 프로토콜을 허용해야 합니다. 또한 구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용 목록으로 지정해야 합니다. 또한 MySQL 다운로드에 다음 URL을 허용 목록으로 지정해야 합니다. http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *. store.core.windows.net
+	서버에 IP 주소 기반 방화벽 규칙이 있는 경우 규칙에서 Azure에 대한 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://msdn.microsoft.com/library/azure/dn175718.aspx) 및 HTTPS(433) 프로토콜을 허용해야 합니다. 또한 구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용 목록으로 지정해야 합니다. 또한 MySQL 다운로드에 다음 URL을 허용 목록으로 지정해야 합니다. http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 
 
 7. **필수 구성 요소 확인**에서 설치 프로그램은 서버에서 필수 구성 요소 검사를 실행합니다.
