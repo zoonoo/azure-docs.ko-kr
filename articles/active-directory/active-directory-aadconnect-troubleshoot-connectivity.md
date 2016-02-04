@@ -37,7 +37,9 @@ Azure AD Connect는 두 가지 서로 다른 구성 방법에 따라 Azure AD에
 | URL | 포트 | 설명 |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
-| **.verisign.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. | | *.windows.net | HTTPS/443 | Azure AD에 로그인하는 데 사용됩니다. | | *.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리 구성 및 데이터 가져오기/내보내기에 사용됩니다. |
+| *.verisign.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
+| *.windows.net | HTTPS/443 | Azure AD에 로그인하는 데 사용됩니다. |
+| *.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리 구성 및 데이터 가져오기/내보내기에 사용됩니다. |
 
 ## 마법사 오류
 설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 변경합니다. 프록시 구성은 컴퓨터에 전체적으로 적용되므로 문제가 있다면 이미 마법사의 **Azure AD에 연결** 페이지에 나타날 가능성이 매우 높습니다.
@@ -124,4 +126,4 @@ Time | URL
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->
