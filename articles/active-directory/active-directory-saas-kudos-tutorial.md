@@ -99,7 +99,7 @@
 
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
-    1.  Azure 포털의 **Kudos에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **로그인 URL ** 텍스트 상자에 붙여넣습니다.
+    1.  Azure 포털의 **Kudos에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 	2.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.  
 
         >[AZURE.TIP]
