@@ -132,7 +132,12 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 
 아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. [지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 비즈니스에 따라 최대 한도까지 기본 제한을 증가시킬 수 있습니다
 
-|| 기본 제한| 최대 제한| |---|---|---| | 공용 IP 주소 (동적) |5| 지원에 문의 | | 예약된 공용 IP 주소|20| 지원에 문의 | | 배포 당 공용 VIP(클라우드 서비스) |5| 지원에 문의 | | 배포 당 개인 VIP(ILB)(클라우드 서비스) |1|1|
+|| 기본 제한| 최대 제한|
+|---|---|---|
+| 공용 IP 주소 (동적) |5| 지원에 문의 |
+| 예약된 공용 IP 주소|20| 지원에 문의 |
+| 배포 당 공용 VIP(클라우드 서비스) |5| 지원에 문의 |
+| 배포 당 개인 VIP(ILB)(클라우드 서비스) |1|1|
 
 Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits) 전체 집합을 읽도록 합니다.
 
@@ -157,4 +162,4 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 ## 다음 단계
 - 클래식 포털을 사용하여 [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-classic-pportal.md)합니다.
 
-<!----HONumber=AcomDC_0114_2016-->
+<!-----HONumber=AcomDC_0114_2016-->
