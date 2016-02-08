@@ -32,7 +32,7 @@
 
 #### 지불을 할 경우 받는 혜택은 무엇입니까?
 
-* 더 큰 [월간 데이터 할당량](http://azure.microsoft.com/pricing/details/application-insights/).
+* 더 큰 [월간 데이터 할당량](https://azure.microsoft.com/pricing/details/application-insights/).
 * 월간 할당량을 초과해도 데이터를 계속 수집하고 '초과분'에 대해 요금을 지불하는 옵션입니다. 사용자의 데이터가 할당량을 초과하면 Mb당 요금이 청구됩니다.
 * [연속 내보내기](app-insights-export-telemetry.md).
 
@@ -155,7 +155,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 #### 데이터를 보는 데 중지되었습니다.
 
 * [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참고하십시오.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참고하십시오.
 
 
 #### 기대한 모든 데이터가 표시되지 않는 경우
@@ -252,4 +252,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

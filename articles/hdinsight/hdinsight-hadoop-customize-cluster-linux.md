@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/22/2016"
 	ms.author="larryfr"/>
 
 # 스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
@@ -23,7 +23,7 @@
 
 HDInsight는 사용자 지정 스크립트를 호출하는 **스크립트 작업**이라는 구성 옵션을 제공하며 이는 만들기 프로세스 중 클러스터에서 수행할 사용자 지정을 정의합니다. 이 스크립트를 사용하여 클러스터에 추가 소프트웨어를 설치하거나 클러스터에서 응용 프로그램의 구성을 변경할 수 있습니다.
 
-> [AZURE.NOTE]이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 지정된 이 문서의 버전은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Windows)](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 지정된 이 문서의 버전은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Windows)](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
 
 ## 클러스터 만들기 프로세스의 스크립트 작업
 
@@ -33,11 +33,11 @@ HDInsight는 사용자 지정 스크립트를 호출하는 **스크립트 작업
 
 HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에서 스크립트는 클러스터의 지정된 모든 노드에서 병렬 및 루트 권한으로 실행됩니다.
 
-> [AZURE.NOTE]스크립트가 실행될 때 클러스터 노드에 대한 루트 권한이 있으므로 Hadoop 관련 서비스를 비롯한 서비스의 중지 및 시작과 같은 작업을 수행할 수 있습니다. 서비스를 중지하는 경우 스크립트 실행이 완료되기 전에 Ambari 서비스 및 기타 Hadoop 관련 서비스가 실행 중인지 확인해야 합니다. 클러스터가 생성되는 동안 클러스터의 상태를 확인하려면 이러한 서비스가 필요합니다.
+> [AZURE.NOTE] 스크립트가 실행될 때 클러스터 노드에 대한 루트 권한이 있으므로 Hadoop 관련 서비스를 비롯한 서비스의 중지 및 시작과 같은 작업을 수행할 수 있습니다. 서비스를 중지하는 경우 스크립트 실행이 완료되기 전에 Ambari 서비스 및 기타 Hadoop 관련 서비스가 실행 중인지 확인해야 합니다. 클러스터가 생성되는 동안 클러스터의 상태를 확인하려면 이러한 서비스가 필요합니다.
 
 각 클러스터에서는 지정된 순서대로 호출되는 여러 스크립트 작업을 사용할 수 있습니다. 스크립트를 헤드 노드, 작업자 노드 또는 두 노드 모두에서 실행할 수 있습니다.
 
-> [AZURE.IMPORTANT]스크립트 동작은 60분 이내에 완료하지 않으면 시간이 초과됩니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
+> [AZURE.IMPORTANT] 스크립트 동작은 60분 이내에 완료하지 않으면 시간이 초과됩니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
 > 
 > 스크립트 실행 시간을 최소화하려면 다운로드 및 소스에서의 응용 프로그램 컴파일 등과 같은 작업은 실행하지 않습니다. 대신 응용 프로그램을 사전에 컴파일하여 Azure Blob 저장소에 이진으로 저장하면 신속하게 클러스터에 다운로드할 수 있습니다.
 
@@ -255,7 +255,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]`Get-AzureRmSubscription`을 사용하여 계정과 관련된 모든 구독 목록을 가져올 수 있습니다. 여기에는 각 구독에 대한 구독 ID가 포함되어 있습니다.
+    > [AZURE.NOTE] `Get-AzureRmSubscription`을 사용하여 계정과 관련된 모든 구독 목록을 가져올 수 있습니다. 여기에는 각 구독에 대한 구독 ID가 포함되어 있습니다.
 
 5. 기본 리소스 그룹이 없는 경우 새 리소스 그룹을 만듭니다. 솔루션에 필요한 위치 및 리소스 그룹의 이름을 제공합니다. 새 리소스 그룹에 대한 요약이 반환됩니다.
 
@@ -391,8 +391,8 @@ Ambari 웹 UI를 사용하여 클러스터를 만드는 동안 스크립트에�
 	![작업의 스크린샷](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
 	여기에서 로그가 헤드 노드, 작업자 노드, Zookeeper 노드에 대해 별도로 구성됩니다. 일부 예는 다음과 같습니다.
-	* **헤드 노드** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **작업자 노드** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **헤드 노드** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` 
+	* **작업자 노드** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` 
 	* **Zookeeper 노드** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * 해당 호스트의 모든 stdout 및 stderr은 저장소 계정에 업로드됩니다. 각 스크립트 작업마다 하나의 **output-*.txt** 및  **errors-\*.txt** 가 있습니다. output-*.txt 파일은 호스트에서 실행되는 스크립트의 URI 정보를 포함합니다. 예를 들면 다음과 같습니다.
@@ -412,7 +412,7 @@ Ambari 웹 UI를 사용하여 클러스터를 만드는 동안 스크립트에�
 
 ## HDInsight 클러스터에서 사용하는 오픈 소스 소프트웨어 지원
 
-Microsoft Azure HDInsight 서비스는 Hadoop에 형성된 오픈 소스 기술의 에코시스템을 사용하여 클라우드에 빅 데이터 응용 프로그램을 빌드할 수 있는 유연한 플랫폼입니다. Microsoft Azure에서는 [Azure 지원 FAQ 웹 사이트](http://azure.microsoft.com/support/faq/)의 **지원 범위** 섹션에 설명된 대로 일반적인 수준의 오픈 소스 기술을 제공합니다. HDInsight 서비스는 아래에 설명된 일부 구성 요소에 대해 추가 수준의 지원을 제공합니다.
+Microsoft Azure HDInsight 서비스는 Hadoop에 형성된 오픈 소스 기술의 에코시스템을 사용하여 클라우드에 빅 데이터 응용 프로그램을 빌드할 수 있는 유연한 플랫폼입니다. Microsoft Azure에서는 [Azure 지원 FAQ 웹 사이트](https://azure.microsoft.com/support/faq/)의 **지원 범위** 섹션에 설명된 대로 일반적인 수준의 오픈 소스 기술을 제공합니다. HDInsight 서비스는 아래에 설명된 일부 구성 요소에 대해 추가 수준의 지원을 제공합니다.
 
 HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는 두 가지 유형이 있습니다.
 
@@ -420,7 +420,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 - **사용자 지정 구성 요소** - 클러스터의 사용자로서 사용자는 커뮤니티에서 사용 가능한 모든 구성 요소 또는 사용자가 만든 구성 요소를 워크로드에 설치하거나 사용할 수 있습니다.
 
-> [AZURE.WARNING]HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+> [AZURE.WARNING] HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
 >
 > 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
 
@@ -446,4 +446,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

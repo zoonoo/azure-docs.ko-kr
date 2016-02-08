@@ -187,7 +187,7 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 
  [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+ [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
 
@@ -199,4 +199,4 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

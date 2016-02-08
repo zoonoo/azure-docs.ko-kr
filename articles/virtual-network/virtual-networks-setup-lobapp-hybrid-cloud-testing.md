@@ -46,7 +46,7 @@ Azure에서 호스트되는 프로덕션 LOB 응용 프로그램의 예는 [Micr
 2.	SQL Server 컴퓨터(SQL1) 구성
 3.	LOB 서버(LOB1) 구성
 
-아직 Azure 구독이 없는 경우에는 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+아직 Azure 구독이 없는 경우에는 [Azure 평가판 사용](https://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
 ## 1 단계: 하이브리드 클라우드 환경 설정
 
@@ -56,7 +56,7 @@ Azure에서 호스트되는 프로덕션 LOB 응용 프로그램의 예는 [Micr
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_1.png)
 
-> [AZURE.NOTE]1 단계에서는 시뮬레이션된 하이브리드 클라우드 테스트 환경 또한 설정할 수 있습니다. 자세한 내용은 [테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)을 참조하세요.
+> [AZURE.NOTE] 1 단계에서는 시뮬레이션된 하이브리드 클라우드 테스트 환경 또한 설정할 수 있습니다. 자세한 내용은 [테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) 지침을 참조하세요.
  
 ## 2단계: SQL Server 컴퓨터(SQL1) 구성
 
@@ -199,4 +199,4 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 [Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

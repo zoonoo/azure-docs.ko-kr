@@ -79,7 +79,7 @@ Azure 자동화 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러
 
 -   다음과 같이 사용자 워크스테이션에 필요한 모듈을 설치합니다.
     -   [Windows Management Framework, v5](http://aka.ms/wmf5latest) 설치 
-    -   `Install-Module  –ModuleName MODULENAME`<- PowerShell 갤러리에서 모듈 가져오기 
+    -   `Install-Module  –ModuleName MODULENAME` <- PowerShell 갤러리에서 모듈 가져오기 
 -   `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME`의 모듈 폴더를 임시 폴더에 복사 
 -   주 폴더에서 샘플 및 설명서 삭제 
 -   주 폴더를 압축하고 zip 파일 이름을 폴더와 정확히 같게 지정 
@@ -187,4 +187,4 @@ PowerShell 갤러리에 있는 cChoco DSC 리소스의 버전은 해당 소스�
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

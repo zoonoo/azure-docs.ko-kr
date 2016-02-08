@@ -24,7 +24,7 @@ VNet을 다음에 사용합니다.
 
 ### 어떻게 시작하나요?
 
-[가상 네트워크 설명서](http://azure.microsoft.com/documentation/services/virtual-network/)를 방문하여 시작합니다. 이 페이지에는 가상 네트워크를 디자인할 때 고려해야 할 사항을 이해하는데 도움이 되는 정보뿐만 아니라 일반적인 구성 단계에 대한 링크가 있습니다.
+[가상 네트워크 설명서](https://azure.microsoft.com/documentation/services/virtual-network/)를 방문하여 시작합니다. 이 페이지에는 가상 네트워크를 디자인할 때 고려해야 할 사항을 이해하는데 도움이 되는 정보뿐만 아니라 일반적인 구성 단계에 대한 링크가 있습니다.
 
 ### VNet은 어떤 서비스와 함께 사용할 수 있습니까?
 
@@ -143,7 +143,7 @@ VNet 내에서 PowerShell cmdlet 또는 NETCFG 파일을 사용하여 배포된 
 
 Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DNS 서비스입니다. Azure는 이 서비스에 모든 VM 및 역할 인스턴스를 등록합니다. 이 서비스는 동일한 클라우드 서비스 내에 포함된 VM 및 역할 인스턴스에 대한 호스트 이름 및 동일한 VNet에서 VM 및 역할 인스턴스에 대한 FQDN으로 이름 확인을 제공합니다.
 
-> [AZURE.NOTE]이번에는 Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 가상 네트워크의 첫 100개의 클라우드 서비스에 제한이 있습니다. 사용자 고유의 DNS 서버를 사용하는 경우 이러한 제한이 적용되지 않습니다.
+> [AZURE.NOTE] 이번에는 Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 가상 네트워크의 첫 100개의 클라우드 서비스에 제한이 있습니다. 사용자 고유의 DNS 서버를 사용하는 경우 이러한 제한이 적용되지 않습니다.
 
 ### VM 당/서비스 단위로 DNS 설정을 재정의할 수 있습니까?
 
@@ -173,7 +173,7 @@ Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DN
 
 - **내부 IP 주소 -** VNet에 VM을 배포하는 경우 VM은 지정한 내부 IP 주소 풀에서 내부 IP 주소를 받습니다. VM은 VNet 내에서 내부 IP 주소를 사용하여 통신합니다. 하지만 Azure에서 동적 내부 IP 주소를 할당하더라도 VM에 대 한 정적 주소를 요청할 수 있습니다. 고정 내부 IP 주소에 대한 자세한 내용을 보려면 [고정 내부 IP를 설정하는 방법](virtual-networks-reserved-private-ip.md)을 참조하세요.
 
-- **VIP -** VIP가 VM에 직접 할당되지 않더라도 VM은 VIP에 연결됩니다. VIP는 클라우드 서비스에 할당될 수 있는 공용 IP 주소입니다. 필요에 따라 클라우드 서비스에 대한 VIP를 예약할 수 있습니다. [예약된 공용 IP](virtual-networks-reserved-public-ip.md)를 참조하세요.
+- **VIP -** VIP가 VM에 직접 할당되지 않더라도 VM은 VIP에 연결됩니다. VIP는 클라우드 서비스에 할당될 수 있는 공용 IP 주소입니다. 필요에 따라 클라우드 서비스에 대한 VIP를 예약할 수 있습니다. [예약된 공용 IP](virtual-networks-reserved-public-ip.md)를 참조하십시오.
 
 - **ILPIP -** 인스턴스 수준 공용 IP 주소(ILPIP)를 구성할 수도 있습니다. ILPIP는 클라우드 서비스를 사용하지 않고 VM과 직접 연결됩니다. ILPIP에 대한 자세한 내용을 보려면 [인스턴스 수준 공용 IP(ILPIP) 개요](virtual-networks-instance-level-public-ip.md)를 참조하세요.
 
@@ -193,7 +193,7 @@ Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DN
 
 아무 일도 일어나지 않습니다. IP 주소(공용 VIP 및 내부 IP 주소)는 클라우드 서비스 또는 VM에 유지됩니다.
 
-> [AZURE.NOTE]단순히 VM을 종료하려는 경우 관리 포털을 사용하지 마세요. 현재 시스템 종료 단추가 가상 컴퓨터를 할당 취소합니다.
+> [AZURE.NOTE] 단순히 VM을 종료하려는 경우 관리 포털을 사용하지 마세요. 현재 시스템 종료 단추가 가상 컴퓨터를 할당 취소합니다.
 
 ### VM을 다시 배포하지 않고 VNet에서 하나의 서브넷에서 다른 서브넷으로 이동할 수 있습니까?
 
@@ -224,9 +224,9 @@ VNet 내에서 계산 서비스만 사용할 수 있습니다. 계산 서비스�
 
 - [앱 서비스 환경에서 웹앱 만들기](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
-- [웹앱 가상 네트워크 통합](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [웹앱 가상 네트워크 통합](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
-- [웹앱을 통해 VNet 통합 및 하이브리드 연결 사용](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
+- [웹앱을 통해 VNet 통합 및 하이브리드 연결 사용](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Azure 가상 네트워크에 웹앱 통합](web-sites-integrate-with-vnet.md)
 
@@ -266,4 +266,4 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 
 예. 다양한 플랫폼에 대해 PowerShell 및 명령줄 도구를 사용할 수 있습니다. 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?LinkId=317721)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

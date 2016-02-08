@@ -25,7 +25,7 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 
 ## 소개 및 필수 구성 요소
 
-큐는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다. FIFO에서는 일반적으로 메시지가 큐에 추가된 임시 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다. 큐 사용의 주요 장점은 응용 프로그램의 일시 분리 입니다. 즉 메시지가 큐에 지속적으로 저장되어 있으므로 생산자와 소비자가 동시에 메시지를 보내고 받을 필요가 없습니다. 관련된 이점은 부하 평준화 로 생산자와 소비자가 서로 다른 속도로 메시지를 주고받을 수 있습니다.
+큐는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다. FIFO에서는 일반적으로 메시지가 큐에 추가된 임시 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다. 큐 사용의 주요 장점은 응용 프로그램의 *일시 분리*입니다. 즉 메시지가 큐에 지속적으로 저장되어 있으므로 생산자와 소비자가 동시에 메시지를 보내고 받을 필요가 없습니다. 관련된 이점은 *부하 평준화*로 생산자와 소비자가 서로 다른 속도로 메시지를 주고받을 수 있습니다.
 
 이 자습서를 시작하기 전에 수행해야 하는 일부 관리 및 필수 구성 요소 단계는 다음과 같습니다. 첫 번째는 서비스 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 확보합니다. 서비스 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
@@ -39,7 +39,7 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 
 1. **공유 액세스 서명 생성기** 섹션에서 **RootManagerSharedAccessKey** 정책과 연결된 기본 키를 메모해 두거나 클립보드로 복사합니다. 나중에 이 자습서에서 이 값을 사용하게 됩니다.
 
-다음 단계는 Visual Studio 프로젝트를 만들고, 메시지의 쉼표 분리 목록을 강력한 형식의[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) 개체로 로드하는 두 도우미 함수를 작성하는 것입니다.
+다음 단계는 Visual Studio 프로젝트를 만들고, 메시지의 쉼표 분리 목록을 강력한 형식의[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [목록](https://msdn.microsoft.com/library/6sh2ey19.aspx) 개체로 로드하는 두 도우미 함수를 작성하는 것입니다.
 
 ### Visual Studio 프로젝트 만들기
 
@@ -94,7 +94,7 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 
 1. 솔루션 탐색기에서 프로젝트 이름(이 예제에서는 **QueueSample**)을 마우스 오른쪽 단추로 클릭하고 **추가**, **기존 항목**을 클릭합니다.
 
-1. 6단계에서 만든 Data.csv 파일을 찾습니다. 파일을 클릭한 다음 **추가**를 클릭합니다. 파일 형식 목록에서 **모든 파일(.)**을 선택했는지 확인합니다.
+1. 6단계에서 만든 Data.csv 파일을 찾습니다. 파일을 클릭한 다음 **추가**를 클릭합니다. 파일 형식 목록에서 **모든 파일(*.*)**을 선택했는지 확인합니다.
 
 ### 메시지 목록을 구문 분석하는 함수 만들기
 
@@ -103,7 +103,7 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
 	        private static DataTable issues;
@@ -202,14 +202,16 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList; 
-	        // Add these variablesprivatestaticstring ServiceNamespace;
-	        privatestaticstring sasKeyName = "RootManageSharedAccessKey";
-	        privatestaticstring sasKeyValue;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList; 
+
+	        // Add these variables
+			private static string ServiceNamespace;
+	        private static string sasKeyName = "RootManageSharedAccessKey";
+	        private static string sasKeyValue;
 	        …
 	```
 
@@ -219,11 +221,11 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 	static void CollectUserInput()
 	{
 	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
+	    Console.Write("Please enter the namespace to use: ");
 	    ServiceNamespace = Console.ReadLine();
 	
 	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
+	    Console.Write("Enter the SAS key to use: ");
 	    sasKeyValue = Console.ReadLine();
 	}
 	```
@@ -247,10 +249,6 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 
 Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 F6 키를 눌러 지금까지 수행한 작업의 정확성을 확인합니다.
 
-관리 자격 증명 만들기
-
-서비스 버스 메시징 기능 자습서의 두 번째 단계입니다. 이 단계에서는 응용 프로그램의 권한을 부여 받은 공유 액세스 서명 (SAS) 자격 증명을 만들기 위해 사용할 관리 작업을 정의합니다.
-
 ## 관리 자격 증명 만들기
 
 이 단계에서는 응용 프로그램의 권한을 부여 받은 공유 액세스 서명 (SAS) 자격 증명을 만들기 위해 사용할 관리 작업을 정의합니다.
@@ -262,7 +260,7 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 	{
 	…
 	}
-	staticvoid Queue()
+	static void Queue()
 	{
 	}
 	```
@@ -270,7 +268,7 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 1. 다음 단계는 [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) 개체를 사용하여 SAS 자격 증명을 만드는 것입니다. 만들기 메서드는 `CollectUserInput()` 메서드에서 얻은 SAS 키 이름과 값을 취합니다. `Queue()` 메서드에 다음 코드를 추가합니다.
 
 	```
-	staticvoid Queue()
+	static void Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -278,7 +276,7 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 	```
 ### 네임스페이스 관리자 만들기
 
-1. 직전 단계에서 확보한 네임스페이스 이름과 관리 자격 증명을 인수 형태로 포함하는 URI로 새로운 네임스페이스 관리 개체를 만듭니다. 이전 단계에서 추가한 코드 바로 아래에 이 코드를 추가합니다.
+1. 이전 단계에서 확보한 네임스페이스 이름과 관리 자격 증명을 인수 형태로 포함하는 URI로 새로운 네임스페이스 관리 개체를 만듭니다. 이전 단계에서 추가한 코드 바로 아래에 이 코드를 추가합니다.
 	
 	```
 	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
@@ -642,7 +640,7 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 
 ## 다음 단계
 
-이 자습서에서는 서비스 버스 "조정된" 메시징 기능을 사용하여 서비스 버스 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여줍니다. 서비스 버스 [릴레이된 메시징](service-bus-messaging-overview.md/#Relayed-messaging)을 사용하는 유사한 자습서는 [서비스 버스 릴레이된 메시징 자습서](service-bus-relay-tutorial.md)를 참조하세요.
+이 자습서에서는 서비스 버스 "조정된" 메시징 기능을 사용하여 서비스 버스 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여줍니다. 서비스 버스 [릴레이된 메시징](service-bus-messaging-overview.md#Relayed-messaging)을 사용하는 유사한 자습서는 [서비스 버스 릴레이된 메시징 자습서](service-bus-relay-tutorial.md)를 참조하세요.
 
 [서비스 버스](https://azure.microsoft.com/services/service-bus/)에 대한 자세한 내용은 다음 항목을 참조하세요.
 
@@ -652,4 +650,4 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

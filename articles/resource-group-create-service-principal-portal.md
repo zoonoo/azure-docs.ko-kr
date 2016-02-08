@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/20/2016"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기
 
 ## 개요
-구독에서 리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 클래식 포털을 사용하여 Active Directory 응용 프로그램을 만들고 적절한 권한이 있는 역할에 할당할 수 있습니다. 클래식 포털을 통해 Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 사용 권한을 설정하는 경우 서비스 주체를 사용합니다.
+리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 클래식 포털을 사용하여 Active Directory 응용 프로그램을 만들 수 있습니다. 클래식 포털을 통해 Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 응용 프로그램의 ID 또는 응용 프로그램에 로그인한 사용자의 ID로 응용 프로그램을 실행할 수 있습니다. 이러한 두 가지 응용 프로그램 인증 방법은 대화형(사용자 로그인) 및 비대화형(앱이 자체적으로 자격 증명 제공)이라고 합니다. 비대화형 모드에서는 역할에 맞는 권한과 함께 서비스 주체를 반드시 할당해야 합니다.
 
 이 항목에서는 클래식 포털을 사용하여 새 응용 프로그램 및 서비스 주체를 만드는 방법을 보여줍니다. 현재는 새 Active Directory 응용 프로그램을 만들려면 클래식 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure 포털에 추가될 예정입니다. 포털을 사용하여 응용 프로그램을 역할에 할당할 수 있습니다. Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수도 있습니다. 서비스 주체와 함께 PowerShell 또는 CLI를 사용하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 
@@ -31,7 +31,9 @@
 응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](active-directory/active-directory-application-objects.md)를 참조하세요. Active Directory 인증에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
 
 
-## 응용 프로그램 및 서비스 주체 개체 만들기
+## 응용 프로그램 만들기
+
+대화형 및 비대화형 응용 프로그램의 경우, Active Directory 응용 프로그램을 만들고 구성해야 합니다.
 
 1. [클래식 포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
 
@@ -59,16 +61,29 @@
 
      ![새 응용 프로그램][10]
 
-6. 응용 프로그램의 이름을 입력하고 사용할 응용 프로그램의 유형을 선택합니다. 여기서는 이 응용 프로그램의 서비스 사용자를 사용하여 Azure 리소스 관리자로 인증할 것이므로, **웹 응용 프로그램 및/또는 웹 API**를 만들도록 선택한 후 다음 단추를 클릭합니다.
+6. 응용 프로그램의 이름을 입력하고 사용할 응용 프로그램의 유형을 선택합니다. 만들 응용 프로그램의 유형을 선택합니다. 이 자습서에서는 **웹 응용 프로그램 및/또는 웹 API**를 만들기로 선택하고 다음 단추를 클릭합니다.
 
      ![응용 프로그램 이름 지정][9]
 
-7. 앱에 대한 속성을 입력합니다. **로그온 URL**의 경우 응용 프로그램을 설명하는 웹 사이트에 대한 URI를 제공합니다. 웹 사이트의 존재 여부는 확인되지 않습니다. **앱 ID URI**의 경우 응용 프로그램을 식별하는 URI를 제공합니다. 끝점의 고유성 또는 존재 여부는 확인되지 않습니다. **완료**를 클릭하여 AAD 응용 프로그램을 만듭니다.
+7. 앱에 대한 속성을 입력합니다. **로그온 URL**의 경우 응용 프로그램을 설명하는 웹 사이트에 대한 URI를 제공합니다. 웹 사이트의 존재 여부는 확인되지 않습니다. **앱 ID URI**의 경우 응용 프로그램을 식별하는 URI를 제공합니다. 끝점의 고유성 또는 존재 여부는 확인되지 않습니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 선택한 경우에는 **리디렉션 URI** 값을 입력합니다. **완료**를 클릭하여 AAD 응용 프로그램을 만듭니다.
 
      ![응용 프로그램 속성][4]
 
-## 응용 프로그램에 대한 인증 키 만들기
-이제 포털에서 개발자의 응용 프로그램이 선택되어 있습니다.
+응용 프로그램이 만들어졌습니다.
+
+## 클라이언트 ID 및 테넌트 ID 가져오기
+
+프로그래밍 방식으로 응용 프로그램에 액세스하는 경우에는 응용 프로그램에 대한 ID가 필요합니다. **구성** 탭을 선택하고 **클라이언트 ID**를 복사합니다.
+  
+   ![클라이언트 ID][5]
+
+경우에 따라 인증 요청과 함께 테넌트 ID를 전달해야 합니다. 아래와 같이 화면 아래쪽에서 **끝점 보기**를 선택하고 ID를 검색하여 테넌트 ID를 검색할 수 있습니다.
+
+   ![테넌트 ID](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+## 인증 키 만들기
+
+응용 프로그램이 자체적인 자격 증명으로 실행되는 경우에는 응용 프로그램에 대한 키를 반드시 만들어야 합니다.
 
 1. **구성** 탭을 클릭하여 응용 프로그램의 암호를 구성합니다.
 
@@ -86,22 +101,36 @@
 
      ![공유 키][8]
 
-4. 이제 키를 사용하여 서비스 사용자로 인증할 수 있습니다. 로그인하려면 **키** 이외에 **클라이언트 ID**가 필요합니다. **클라이언트 ID**로 이동하여 ID를 복사합니다.
-  
-     ![클라이언트 ID][5]
-
-5. 경우에 따라 인증 요청과 함께 테넌트 ID를 전달해야 합니다. 아래와 같이 **끝점 보기**를 선택하고 ID를 검색하여 테넌트 ID를 검색할 수 있습니다.
-
-     ![테넌트 ID](./media/resource-group-create-service-principal-portal/save-tenant.png)
-
 이제 응용 프로그램이 준비되고 테넌트에서 서비스 사용자가 만들어졌습니다. 서비스 사용자로 로그인할 때 다음을 사용해야 합니다.
 
 * **클라이언트 ID** - 사용자 이름으로 사용합니다.
 * **키** - 암호로 사용합니다.
 
+## 위임된 권한 설정
+
+응용 프로그램이 로그인한 사용자를 대신하여 리소스에 액세스하는 경우에는 응용 프로그램이 다른 응용 프로그램에 액세스하도록 위임된 권한을 부여해야 합니다. **구성** 탭의 **다른 응용 프로그램에 대한 권한** 섹션에서 이 작업을 수행합니다. 기본적으로 위임된 권한은 Azure Active Directory에서 사용하도록 이미 설정되어 있습니다. 위임된 권한을 변경하지 않고 그대로 둡니다.
+
+1. **응용 프로그램 추가**를 선택합니다.
+
+2. 목록에서 **Windows Azure 서비스 관리 API**를 선택합니다.
+
+      ![앱 선택](./media/resource-group-create-service-principal-portal/select-app.png)
+
+3. **Azure 서비스 관리(미리 보기) 액세스** 위임된 권한을 서비스 관리 API에 추가합니다.
+
+       ![사용 권한 선택](./media/resource-group-create-service-principal-portal/select-permissions.png)
+
+4. 변경 내용을 저장합니다.
+
+## 다중 테넌트 응용 프로그램 구성
+
+다른 Azure Active Directory의 사용자가 응용 프로그램에 동의하고 로그인할 수 있다면, 다중 테넌트를 사용하도록 설정해야 합니다. **구성** 탭에서 **응용 프로그램이 다중 테넌트입니다.**를 **예**로 설정합니다.
+
+![다중 테넌트](./media/resource-group-create-service-principal-portal/multi-tenant.png)
+
 ## 응용 프로그램을 역할에 할당
 
-작업 수행 권한을 부여하려면 응용 프로그램을 역할에 할당해야 합니다. 응용 프로그램에 역할을 할당하려면 클래식 포털에서 [Azure 포털](https://portal.azure.com)로 전환하세요. 응용 프로그램에 어떤 역할을, 어느 범위에서 할당할 것인지 결정해야 합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](./active-directory/role-based-access-built-in-roles.md)을 참조하세요. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
+응용 프로그램이 로그인한 사용자의 ID로 실행되지 않는 경우에는 응용 프로그램을 역할에 할당하여 작업 수행 권한을 부여해야 합니다. 응용 프로그램에 역할을 할당하려면 클래식 포털에서 [Azure 포털](https://portal.azure.com)로 전환하세요. 응용 프로그램에 어떤 역할을, 어느 범위에서 할당할 것인지 결정해야 합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](./active-directory/role-based-access-built-in-roles.md)을 참조하세요. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
 
 1. 포털에서 응용 프로그램에 할당하려는 범위 수준으로 이동합니다. 이 항목의 경우 리소스 그룹으로 이동한 다음 리소스 그룹 블레이드에서 **액세스** 아이콘을 선택합니다.
 
@@ -138,7 +167,7 @@
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
     PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
 
-응용 프로그램에서 토큰을 검색하는 다음과 같은 메서드를 추가합니다.
+응용 프로그램 ID와 암호로 로그인하려면 다음 방법을 사용하여 토큰을 검색합니다.
 
     public static string GetAccessToken()
     {
@@ -154,6 +183,28 @@
 
         return token;
     }
+
+사용자를 대신하여 로그인하려면 다음 방법을 사용하여 토큰을 검색합니다.
+
+    public static string GetAcessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {application id}, new Uri({redirect uri});
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
+
+다음 코드를 사용하여 요청 헤더의 토큰을 전달할 수 있습니다.
+
+    string token = GetAcessToken();
+    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+
 
 ## 다음 단계
 
@@ -178,4 +229,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

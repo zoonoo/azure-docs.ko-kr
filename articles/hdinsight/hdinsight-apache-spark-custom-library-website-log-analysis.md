@@ -21,13 +21,13 @@
 
 이 노트북에서는 HDInsight의 Spark와 함께 사용자 지정 라이브러리를 사용하여 로그 데이터를 분석하는 방법을 보여 줍니다. 사용하는 사용자 지정 라이브러리는 **iislogparser.py**라는 Python 라이브입니다.
 
-> [AZURE.TIP]이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. 노트북 경험을 통해 노트북 자체에서 Python 코드 조각을 실행할 수 있습니다. 노트북 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter 노트북(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 노트북 **사용자 지정 library.ipynb를 사용하여 Spark로 로그 분석**을 실행합니다.
+> [AZURE.TIP] 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. 노트북 경험을 통해 노트북 자체에서 Python 코드 조각을 실행할 수 있습니다. 노트북 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter 노트북(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 노트북 **사용자 지정 library.ipynb를 사용하여 Spark로 로그 분석**을 실행합니다.
 
 **필수 조건:**
 
 다음이 있어야 합니다.
 
-- Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## RDD로 원시 데이터 저장
@@ -40,7 +40,7 @@
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -231,4 +231,4 @@
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

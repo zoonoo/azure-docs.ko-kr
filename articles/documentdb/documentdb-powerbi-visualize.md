@@ -66,7 +66,7 @@ PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어�
 
 DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화형 Power BI 보고서에서 데이터를 시각화하려고 합니다.
 
-![데이터를 시각화하는 Power BI Desktop 화산 보고서](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
+![Power BI 커넥터를 사용하여 이 Power BI 자습서를 완료하여 Power BI Desktop 화산 보고서를 사용하여 데이터를 시각화할 수 있습니다.](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
 해 볼 준비가 되셨나요? 이제 시작하겠습니다.
 
@@ -74,30 +74,30 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 1. 워크스테이션에서 Power BI 데스크톱을 실행합니다.
 2. Power BI 데스크톱이 시작되면 *시작* 화면이 표시됩니다.
 
-	![Power BI 데스크톱 시작 화면](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
+	![Power BI 데스크톱 시작 화면 - Power BI 커넥터](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
 
 3. *시작* 화면에서 직접 **데이터를 가져오고**, **최근 원본을 보거나**, **다른 보고서를 직접 열 수 ** 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 X를 클릭합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
 
-	![Power BI 데스크톱 보고서 보기](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
+	![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
 
 4. **홈** 리본 메뉴를 선택한 다음 **데이터 가져오기**를 클릭합니다. **데이터 가져오기** 창이 나타납니다.
 
 5. **Azure**를 클릭하고 **Microsoft Azure DocumentDB(베타)**를 클릭 한 다음 **연결**을 클릭합니다. **Microsoft Azure DocumentDB 연결** 창이 표시됩니다.
 
-	![Power BI 데스크톱 데이터 가져오기](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
+	![Power BI 데스크톱 데이터 가져오기 - Power BI 커넥터](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
 6. 아래와 같이 데이터를 가져올 DocumentDB 계정 끝점 URL을 지정한 다음 **확인**을 클릭합니다. Azure 포털의 **키** 블레이드에서 URI 상자로부터 URL을 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다. 자세한 내용은 [키](documentdb-manage-account.md#keys)를 참조하세요.
 
 
 	*참고. 이 자습서에서는 데이터베이스 이름, 컬렉션 이름 또는 SQL 문은 선택 사항이므로 지정하지 않습니다. 대신 데이터의 출처를 식별하기 위해 탐색기를 사용하여 데이터베이스와 컬렉션을 선택합니다.*
 
-    ![Power BI 데스크톱 연결 창](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
+    ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 데스크톱 연결 창](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 
 7. 처음으로 이 끝점에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 계정 키를 입력하고 **연결**을 클릭합니다.
 	
 	*참고. 보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다. 이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure 포털의 읽기 전용 키 블레이드에서 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다.*
 
-    ![Power BI 데스크톱 계정 키](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
+    ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 계정 키](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
 8. 계정이 성공적으로 연결되면 **탐색기**가 표시됩니다. **탐색기**는 계정의 데이터베이스 목록을 표시합니다.
 9. 보고서의 데이터를 가져올 데이터베이스를 클릭하여 확장합니다. 데이터베이스의 컬렉션 목록이 표시됩니다.  
@@ -106,7 +106,7 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 
 	*참고. 미리 보기 창에는 **레코드** 항목의 목록이 표시됩니다. 문서는 Power BI에서 **레코드** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **레코드**입니다.*
 
-    ![Power BI 데스크톱 탐색기](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
+    ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 탐색기 창](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
 
 11. 데이터를 변환할 수 있게, **편집**을 클릭하여 쿼리 편집기를 실행합니다.
 
@@ -115,20 +115,20 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 
 2. **문서** 열 머리글의 오른쪽에서 확장 아이콘을 클릭합니다. 필드 목록이 있는 상황에 맞는 메뉴가 표시됩니다. 화산 이름, 국가, 지역, 위치, 상승, 유형, 상태, 마지막 분출일 등, 보고서에 필요한 필드를 선택하고 **확인**을 클릭합니다.
     
-	![Power BI 데스크톱 문서 확장](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
+	![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 문서 확장](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 
 3. 가운데 창에는 선택한 필드와 함께 결과의 미리 보기가 표시됩니다.
 
-	![Power BI 데스크톱 결과 평면화](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
+	![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 결과 평면화](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 
 4. 이 예제에서 위치 속성은 문서의 GeoJSON 블록입니다. 보이는 것처럼 위치는 Power BI 데스크톱에서 **레코드** 형식으로 나타납니다.
 5. 위치 열 머리글의 오른쪽에서 확장 아이콘을 클릭합니다. 유형 및 좌표 필드가 있는 상황에 맞는 메뉴가 표시됩니다. 좌표 필드를 선택하고 **확인**을 클릭해 보겠습니다.
 
-    ![Power BI 데스크톱 위치 레코드](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
+    ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 위치 레코드](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 
 6. 이제 가운데 창에는 **목록** 유형의 좌표 열이 표시됩니다. 자습서의 시작 부분에서 본 것처럼 이 자습서의 GeoJSON 데이터는 지점 유형으로, 위도와 경도 값이 좌표 배열에 기록됩니다.
 
-	*참고: 좌표 [0] 요소는 경도를, 좌표 [1]은 위도를 나타냅니다.* ![Power BI 데스크톱 좌표 목록](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
+	*참고: 좌표 [0] 요소는 경도를, 좌표 [1]은 위도를 나타냅니다.* ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 좌표 목록](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 
 7. 좌표 배열을 평면화하기 위해 이름이 LatLong인 **사용자 지정 열**을 만듭니다. **열 추가** 리본을 선택하고 **사용자 지정 열 추가**를 클릭합니다. **사용자 지정 열 추가** 창이 나타납니다.
 
@@ -138,24 +138,24 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 	
     *참고. DAX 함수를 포함한 데이터 분석 식(DAX)에 대한 자세한 내용은 [Power BI 데스크톱의 DAX 기초](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop)를 참조하세요.*
 
-    ![Power BI 데스크톱 사용자 지정 열](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
+    ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 사용자 지정 열 추가](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
 10. 이제 가운데 창에 쉼표로 구분한 위도와 경도 값이 입력된 새 LatLong 열이 표시됩니다.
 
-	![Power BI 데스크톱 사용자 LatLong](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
+	![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 사용자 지정 LatLong 열](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
 
 11. 이제 탭 형식으로 데이터를 평면화했습니다. 쿼리 편집기에서 사용 가능한 모든 기능을 활용하여 DocumentDB에서 데이터를 형성 및 변환할 수 있습니다. 예를 들어, **홈** 리본 메뉴에서 **데이터 형식**을 변경하여 상승의 데이터 형식을 **10진수**로 변경할 수 있습니다.
 
-    ![Power BI 데스크톱 유형 변경](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
+    ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 열 유형 변경](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 
 12. **닫고 적용**을 클릭하여 데이터 모델을 저장합니다.
     
-    ![Power BI 데스크톱 적용 종료](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
+    ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 닫기 및 적용](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
 ## 보고서 작성
 Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고서 만들기를 시작할 수 있습니다. 필드를 끌어서 **보고서** 캔버스에 놓으면 보고서를 만들 수 있습니다.
 
-![Power BI 데스크톱 보고서 보기](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
+![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
  
 보고서 보기에는 다음과 같은 항목이 있습니다.
 
@@ -180,7 +180,7 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 
 6. 이제 기본 보고서를 만들었습니다. 다른 시각화 요소를 추가하여 보고서를 상세히 사용자 지정할 수 있습니다. 여기서는 화산 유형 슬라이서를 추가하여 보고서를 대화형으로 구성했습니다.
 
-    ![Power BI 데스크톱 보고서 최종](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
+    ![DocumentDB에 대한 Power BI 자습서가 완료될 때 최종 Power BI 데스크톱 보고서의 스크린샷](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
 ## 보고서 게시 및 공유
 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.
@@ -194,4 +194,4 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 - Power BI에 대해 자세히 알아보려면 [여기](https://support.powerbi.com/knowledgebase)를 클릭하세요.
 - DocumentDB에 대해 자세히 알아보려면 [여기](https://azure.microsoft.com/documentation/services/documentdb/)를 클릭하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

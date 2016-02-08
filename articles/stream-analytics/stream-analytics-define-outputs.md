@@ -26,7 +26,7 @@
 
 ## SQL 데이터베이스 ##
 
-기본적으로 관계형 데이터 또는 관계형 데이터베이스에 호스트된 내용에 종속된 응용 프로그램에 대한 출력으로 [Azure SQL 데이터베이스](http://azure.microsoft.com/services/sql-database/)를 사용할 수 있습니다. Azure SQL 데이터베이스의 기존 테이블에 스트림 분석 작업을 기록합니다. 테이블 스키마가 작업에서 출력되는 필드 및 해당 유형과 정확히 일치해야 합니다. 다음 테이블은 SQL 데이터베이스 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
+기본적으로 관계형 데이터 또는 관계형 데이터베이스에 호스트된 내용에 종속된 응용 프로그램에 대한 출력으로 [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)를 사용할 수 있습니다. Azure SQL 데이터베이스의 기존 테이블에 스트림 분석 작업을 기록합니다. 테이블 스키마가 작업에서 출력되는 필드 및 해당 유형과 정확히 일치해야 합니다. 다음 테이블은 SQL 데이터베이스 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
 | 속성 이름 | 설명 |
 |---------------|-------------|
@@ -118,7 +118,7 @@
 
 [Power BI](https://powerbi.microsoft.com/)를 스트림 분석 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 작업 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
 
-> [AZURE.NOTE]이때 Power BI 출력의 생성 및 구성은 Azure Preview 포털에서 지원되지 않습니다.
+> [AZURE.NOTE] 이때 Power BI 출력의 생성 및 구성은 Azure Preview 포털에서 지원되지 않습니다.
 
 ### Power BI 계정 권한 부여
 
@@ -145,7 +145,7 @@ Power BI 계정의 인증을 설정하면 사용자가 Power BI 출력에 대한
 
 Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure스트림 분석 및 Power BI](stream-analytics-power-bi-dashboard.md) 문서를 참조하세요.
 
-> [AZURE.NOTE]Power BI 대시보드에 명시적으로 데이터 집합 및 테이블을 만들지 마세요. 작업을 시작하고 작업이 Power BI에 출력을 펌프하기 시작하는 경우 데이터 집합 및 테이블은 자동으로 채워집니다. 작업 쿼리가 결과 생성하지 않으면 데이터 집합 및 테이블은 생성되지 않은 것입니다. 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
+> [AZURE.NOTE] Power BI 대시보드에 명시적으로 데이터 집합 및 테이블을 만들지 마세요. 작업을 시작하고 작업이 Power BI에 출력을 펌프하기 시작하는 경우 데이터 집합 및 테이블은 자동으로 채워집니다. 작업 쿼리가 결과 생성하지 않으면 데이터 집합 및 테이블은 생성되지 않은 것입니다. 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
 
 ### Power BI 권한 부여 갱신
 
@@ -171,7 +171,7 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 | 테이블 이름 | 테이블의 이름입니다. 테이블이 존재하지 않는 경우 생성됩니다. |
 | Partition Key | 파티션 키를 포함하는 출력 열의 이름입니다. 파티션 키는 엔터티 기본 키의 첫 번째 부분을 형성하는 지정된 테이블 내에서 분할에 고유한 식별자입니다. 크기가 최대 1KB인 문자열 값입니다. |
 | Row Key | 행 키를 포함하는 출력 열의 이름입니다. 행 키는 주어진 파티션 내 엔터티의 고유 식별자입니다. 엔터티의 기본 키에서 두 번째 부분을 형성합니다. 행 키는 크기가 최대 1KB인 문자열 값입니다. |
-| 배치 크기 | 배치 작업에 대한 레코드 수입니다. 일반적으로 대부분의 작업은 기본값으로 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 일괄 작업 사양](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)을 참조하세요. |
+| 배치 크기 | 배치 작업에 대한 레코드 수입니다. 일반적으로 대부분의 작업은 기본값으로 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 배치 작업 사양](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)을 참조하세요. |
 
 ## 서비스 버스 큐
 
@@ -193,7 +193,7 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 
 ## 서비스 버스 토픽
 
-서비스 버스 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 방법을 제공하는 반면, [서비스 버스 토픽](https://msdn.microsoft.com/library/azure/hh367516.aspx)은 일대다 형태의 통신을 제공합니다.
+서비스 버스 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 방법을 제공하는 반면, [서비스 버스 항목](https://msdn.microsoft.com/library/azure/hh367516.aspx)은 일대다 형태의 통신을 제공합니다.
 
 다음 테이블은 테이블 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -210,7 +210,7 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 
 ## DocumentDB
 
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)는 완벽하게 관리되는 NoSQL 문서 데이터베이스 서비스로, 스키마 없는 데이터에 대한 쿼리 및 트랜잭션, 예측 가능하고 신뢰할 수 있는 성능 및 신속한 개발을 제공합니다.
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)는 완벽하게 관리되는 NoSQL 문서 데이터베이스 서비스로, 스키마 없는 데이터에 대한 쿼리 및 트랜잭션, 예측 가능하고 신뢰할 수 있는 성능 및 신속한 개발을 제공합니다.
 
 다음 테이블은 DocumentDB 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -267,4 +267,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

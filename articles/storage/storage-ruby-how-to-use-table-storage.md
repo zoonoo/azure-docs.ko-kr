@@ -58,7 +58,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 
 이러한 값을 얻으려면
 
-1. [Azure 포털](portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 저장소 계정으로 이동합니다.
 
@@ -128,7 +128,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
 
-> [AZURE.NOTE]단일 쿼리에서 반환할 결과 집합이 너무 크면 후속 페이지를 가져오는 데 사용할 수 있는 연속 토큰이 반환됩니다.
+> [AZURE.NOTE] 단일 쿼리에서 반환할 결과 집합이 너무 크면 후속 페이지를 가져오는 데 사용할 수 있는 연속 토큰이 반환됩니다.
 
 ## 엔터티 속성 하위 집합 쿼리
 
@@ -157,4 +157,4 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub의 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

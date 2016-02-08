@@ -30,7 +30,7 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
 
 1. 응용 프로그램을 컴파일 및 빌드하려면 컴퓨터에 [Visual Studio](https://www.visualstudio.com/)가 설치되어 있어야 합니다. 
 
-2. 최신 버전의 [.NET용 Azure SDK](http://azure.microsoft.com/downloads/)를 설치합니다. SDK에는 Azure 빠른 시작 샘플 프로젝트, Azure 저장소 에뮬레이터 및 [.NET 용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)가 포함되어 있습니다.
+2. 최신 버전의 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/)를 설치합니다. SDK에는 Azure 빠른 시작 샘플 프로젝트, Azure 저장소 에뮬레이터 및 [.NET 용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)가 포함되어 있습니다.
 
 3. [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) 이 자습서에서 사용할 Azure 빠른 시작 샘플 프로젝트에 필요하므로 컴퓨터에 이 프로그램이 설치되어 있어야 합니다.
 
@@ -38,7 +38,7 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
 
 4. Azure 구독 및 Azure 저장소 계정이 필요합니다.
 
-    - Azure 구독을 만들려면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/), [구입 옵션](http://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](http://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
+    - Azure 구독을 만들려면 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/), [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](https://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
     - Azure에서 저장소 계정을 만들려면 [저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](storage-create-storage-account.md)을 참조하세요.
 
 ## 클라우드의 Azure 저장소에 대해 첫 번째 Azure 저장소 응용 프로그램 실행
@@ -102,11 +102,11 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하세�
 * [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)
 * [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
-* [Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
+* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [Azure 저장소 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

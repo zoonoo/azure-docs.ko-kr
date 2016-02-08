@@ -136,7 +136,6 @@
 
 | 제목 | 설명 |
 | :-- | :-- |
-| [Azure 데이터 팩터리 편집기](data-factory-editor.md) | 간단한 웹 기반 UI를 사용하여 연결 서비스, 테이블 및 파이프라인의 JSON 정의를 만들기, 편집 및 배포할 수 있는 Azure 데이터 팩터리 편집기에 대해 설명합니다. |
 | [Azure 데이터 팩터리 - 질문과 대답](data-factory-faq.md) | Azure 데이터 팩터리에 대한 질문과 대답입니다. |
 | [Azure 데이터 팩터리 - 이름 지정 규칙](data-factory-naming-rules.md) | 데이터 팩터리 엔터티에 대한 이름 지정 규칙을 설명합니다. |
 | [Azure Data Factory 릴리스 정보](data-factory-release-notes.md) | 데이터 팩터리 릴리스 정보 |
@@ -145,10 +144,10 @@
 
 #### 추가 항목
 
-- [데이터 팩터리에 대한 학습 경로 그래픽](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-- [Microsoft Azure 설명서 검색](http://azure.microsoft.com/search/documentation/)
-- [Microsoft Azure 설명서 대체 검색](http://azure.microsoft.com/searchresults/?query=)
-- [데이터 팩터리 서비스에 대한 최신 업데이트 보기](http://azure.microsoft.com/updates/?service=data-factory)
-- [Microsoft Azure 서비스에 대한 학습 경로 그래픽](http://azure.microsoft.com/documentation/learning-paths/)
+- [데이터 팩터리에 대한 학습 경로 그래픽](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- [Microsoft Azure 설명서 검색](https://azure.microsoft.com/search/documentation/)
+- [Microsoft Azure 설명서 대체 검색](https://azure.microsoft.com/searchresults/?query=)
+- [데이터 팩터리 서비스에 대한 최신 업데이트 보기](https://azure.microsoft.com/updates/?service=data-factory)
+- [Microsoft Azure 서비스에 대한 학습 경로 그래픽](https://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

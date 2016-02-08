@@ -40,9 +40,9 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 ##필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
 	PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
@@ -54,7 +54,7 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 
 - **VPN으로 연결된 두 개의 Azure 가상 네트워크**. 자세한 내용은 [두 Azure 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-geo-replication-vnet]을 참조하세요.
 
->[AZURE.NOTE]Azure 서비스 이름과 가상 컴퓨터 이름은 고유해야 합니다. 이 자습서에서 사용되는 이름은 Contoso-[Azure Service/VM name]-[EU/US]입니다. 예를 들어 Contoso-VNet-EU는 북유럽 데이터 센터에 있는 Azure 가상 네트워크이고, Contoso-DNS-US는 미국 동부 데이터 센터에 있는 DNS 서버 VM입니다. 사용자 고유의 이름을 사용해야 합니다.
+>[AZURE.NOTE] Azure 서비스 이름과 가상 컴퓨터 이름은 고유해야 합니다. 이 자습서에서 사용되는 이름은 Contoso-[Azure Service/VM name]-[EU/US]입니다. 예를 들어 Contoso-VNet-EU는 북유럽 데이터 센터에 있는 Azure 가상 네트워크이고, Contoso-DNS-US는 미국 동부 데이터 센터에 있는 DNS 서버 VM입니다. 사용자 고유의 이름을 사용해야 합니다.
  
  
 ##DNS 서버로 사용할 Azure 가상 컴퓨터 만들기
@@ -220,4 +220,4 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

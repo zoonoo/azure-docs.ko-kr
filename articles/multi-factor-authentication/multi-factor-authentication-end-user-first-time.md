@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication으로 처음 로그인" 
 	description="이 페이지에서는 처음 로그인할 때의 사용자 환경에 대해 설명합니다." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="Active Directory 사용 방법, 클라우드의 Active Directory, Active Directory 자습서" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 # Azure Multi-Factor Authentication의 환경 설정
 
@@ -36,4 +37,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

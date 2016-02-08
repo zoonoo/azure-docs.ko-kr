@@ -30,7 +30,7 @@
 
 다음 단계를 실행하려면 다음이 필요 합니다.
 
- * 활성 Azure 구독. 없는 경우 [azure.com](https://azure.microsoft.com)에서 무료 평가판을 얻을 수 있습니다.
+ * 활성 Azure 구독. 없는 경우 [azure.com](https://azure.microsoft.com/)에서 무료 평가판을 얻을 수 있습니다.
  * Azure 리소스 그룹을 사용할 회사 또는 학교 ID. 개인 계정이 있고 Microsoft ID로 로그인하는 경우 [개인 계정에서 회사 ID를 만들어야](resource-group-create-work-id-from-personal.md) 합니다.
  * 클라이언트 운영 체제에 따라 [Azure PowerShell](powershell-install-configure.md) 또는 [Mac, Linux 및 Windows용 Azure CLI](xplat-cli-install.md)
  * [OpenSSL](https://www.openssl.org/). OpenSSL은 필요한 인증서를 생성하는 데 사용됩니다.
@@ -117,7 +117,7 @@ Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 
 
 ![부하 분산 장치에서 NAT 규칙](media/virtual-machines-deis-cluster/nat-rules.png)
 
-> [AZURE.NOTE]현재 템플릿은 3 개 노드 클러스터만 지원합니다. 이것은 루프 구문을 지원하지 않는 Azure 리소스 관리자 템플릿 NAT 규칙 정의의 제한 사항 때문입니다.
+> [AZURE.NOTE] 현재 템플릿은 3 개 노드 클러스터만 지원합니다. 이것은 루프 구문을 지원하지 않는 Azure 리소스 관리자 템플릿 NAT 규칙 정의의 제한 사항 때문입니다.
 
 ## Deis 플랫폼 설치 및 시작
 
@@ -128,7 +128,7 @@ Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]플랫폼을 시작하는 시간이 오래 걸립니다(10 분 정도). 특히, 작성기 서비스를 시작 하면 시간이 오래 걸릴 수 있습니다. 성공하기까지 여러 번 시도해야 하는 경우도 있습니다. 작업이 중지된 것처럼 보이는 경우 `ctrl+c`를 입력하여 명령 실행을 중단하고 다시 시도합니다.
+> [AZURE.NOTE] 플랫폼을 시작하는 시간이 오래 걸립니다(10 분 정도). 특히, 작성기 서비스를 시작 하면 시간이 오래 걸릴 수 있습니다. 성공하기 위해 몇 번의 시도를 할 수도 있습니다. 작업이 중지하는 것처럼 보이는 경우 `ctrl+c`을 입력하여 명령의 실행을 중단하고 다시 시도해보십시오.
 
 `deisctl list`를 사용하여 모든 서비스가 실행되고 있는지 확인할 수 있습니다.
 
@@ -201,7 +201,7 @@ Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 
         deis create
         git push deis master
 <p />
-8. Git push가 빌드 및 배포되도록 Docker 이미지를 트리거합니다. 이 작업은 시간이 몇 분 걸립니다. 경험으로는 보통 10단계(개인 저장소에 이미지 푸시하기)가 중단될 수 있습니다. 이 경우 프로세스를 중지하고 `deis apps:destroy –a <application name>`을 사용하여 응용 프로그램을 제거한 후 다시 시도할 수 있습니다. `deis apps:list`를 사용하여 응용 프로그램 이름을 확인할 수 있습니다. 모두 작동하는 경우 명령 출력의 끝에 다음과 같이 나타납니다.
+8. Git push가 빌드 및 배포되도록 Docker 이미지를 트리거합니다. 이 작업은 시간이 몇 분 걸립니다. 경험으로는 보통 10단계(개인 저장소에 이미지 푸시하기)가 중단될 수 있습니다. 이 경우에 프로세스를 중지하고 응용 프로그램을 제거하기 위해 `deis apps:destroy –a <application name>`을 사용하여 응용 프로그램을 제거하고 다시 시도할 수 있습니다. `deis apps:list`를 사용하여 응용 프로그램 이름을 확인할 수 있습니다. 모두 작동하는 경우 명령 출력의 끝에 다음과 같이 나타납니다.
 
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
@@ -258,4 +258,4 @@ Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

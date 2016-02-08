@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/23/2015"
+   ms.date="01/13/2016"
    ms.author="sdanie" />
 
 # Azure Redis Cache에 대한 ASP.NET 출력 캐시 공급자
@@ -61,13 +61,13 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 
 -	**호스트** – 캐시 끝점을 지정합니다.
 -	**포트** – ssl 설정에 따라 비-SSL 포트 또는 SSL 포트를 사용합니다.
--	**액세스키** – 캐시에 적합한 기본 또는 보조 키를 사용합니다.
+-	**선택키** – 캐시에 적합한 기본 또는 보조 키를 사용합니다.
 -	**ssl** – ssl로 캐시/클라이언트 통신을 보호하려는 경우 true가 되고, 그 외의 경우 false입니다. 올바른 포트를 지정해야 합니다.
 	-	비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. SSL 포트를 사용하여 설정에 대한 true를 지정합니다. 비-SSL 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 토픽의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하세요
 -	**databaseId** – 캐시 출력 데이터에 사용할 데이터베이스를 지정합니다. 지정하지 않으면 기본값 0이 사용됩니다.
 -	**applicationName** – <AppName>\_<SessionId>\_데이터로 redis에 저장된 키입니다. 이 방법으로 여러 응용 프로그램이 동일한 키를 공유할 수 있습니다. 이 매개변수는 선택적이며 사용자가 제공하지 않으면 기본값이 사용됩니다.
 -	**connectionTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 connectTimeout 설정을 무시할 수 있게 해줍니다. 지정하지 않으면 기본 connectTimeout 설정인 5000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](http://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
--	**operationTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 syncTimeout 설정을 무시할 수 있게 해줍니다. 지정하지 않으면 기본 syncTimeout 설정인 1000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](http://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
+-	**operationTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 syncTimeout 설정을 무시할 수 있게해줍니다. 지정하지 않으면 기본 syncTimeout 설정인 1000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](http://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
 
 출력을 캐시하고자 하는 각 페이지에 OutputCache 지시문을 추가합니다.
 
@@ -81,4 +81,4 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 
 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-asp.net-session-state-provider.md)를 확인하세요.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -42,13 +42,13 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 우선 [앱 등록 포털](https://apps.dev.microsoft.com)에서 앱을 만들거나 [자세한 단계](active-directory-v2-app-registration.md)에 따라서 진행합니다. 다음을 수행해야 합니다.
 
 - 앱에 대한 **웹** 플랫폼을 추가합니다.
-- 올바른 **리디렉션 URI**를 입력합니다. 이 샘플에 대한 기본 값은 `https://localhost:44326/`입니다.
+- 올바른 **리디렉션 URI**를 입력합니다. 이 샘플에 대한 기본값은 `https://localhost:44326/`입니다.
 - **암시적 흐름 허용** 확인란을 선택한 채로 둡니다. 
 
 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 이 정보가 필요합니다.
 
 ## adal.js 설치
-시작하려면 다운로드한 프로젝트로 이동하여 adal.js를 설치합니다. [bower](http://bower.io/)가 설치되어 있으면, 이 명령을 실행하기만 하면 됩니다. 종속성 버전 불일치의 경우, 높은 버전을 선택합니다. ```
+시작하려면 다운로드한 프로젝트로 이동하여 adal.js를 설치합니다. [bower](http://bower.io/)가 설치되어 있는 경우 이 명령을 실행하기만 하면 됩니다. 종속성 버전 불일치가 있는 경우 높은 버전을 선택합니다. ```
 bower install adal-angular#experimental
 ```
 
@@ -83,7 +83,7 @@ bower install adal-angular#experimental
 ...
 ```
 
-REST API 작동 방식에 대해서는 항상 많은 논의가 이뤄지고 있습니다. 코드를 자세히 살펴보고, Azure AD를 사용한 웹 API 보안 설정에 대해 자세히 알아보려면 [이 문서](active-directory-v2-devquickstarts-dotnet-api.md)를 참조하세요.
+REST API 작동 방식에 대해서는 항상 많은 논의가 이뤄지고 있습니다. 코드를 자유롭게 살펴보고, Azure AD를 사용한 웹 API 보안 설정에 대해 자세히 알아보려면 [이 문서](active-directory-v2-devquickstarts-dotnet-api.md)를 참조하세요.
 
 ## 사용자 로그인
 이제 ID 코드를 작성해 보겠습니다. 이미 눈치채셨겠지만, adal.js는 AngularJS 공급자를 포함하며, 이것은 Angular 라우팅 메커니즘을 잘 활용합니다. 먼저 adal 모듈을 앱에 추가합니다.
@@ -98,7 +98,7 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
 ...
 ```
 
-이제 응용 프로그램 ID로 `adalProvider`를 초기화합니다.
+이제 응용 프로그램 ID로 `adalProvider`를 초기화할 수 있습니다.
 
 ```js
 // app/scripts/app.js
@@ -138,7 +138,7 @@ adal.js에 앱 보안과 사용자 로그인에 필요한 모든 정보가 준�
 ...
 ```
 
-이제 사용자가 `TodoList`를 클릭하면 adal.js는 필요한 경우 로그인을 위해 Azure AD에 자동으로 리디렉션합니다. 컨트롤러에서 adal.js를 호출하여 명시적으로 로그인 및 로그아웃 요청을 보낼 수 있습니다.
+이제 사용자가 `TodoList` 링크를 클릭하면 adal.js는 필요한 경우 로그인을 위해 Azure AD에 자동으로 리디렉션합니다. 컨트롤러에서 adal.js를 호출하여 명시적으로 로그인 및 로그아웃 요청을 보낼 수 있습니다.
 
 ```js
 // app/scripts/homeCtrl.js
@@ -172,7 +172,7 @@ angular.module('todoApp')
 .controller('userDataCtrl', ['$scope', 'adalAuthenticationService', function ($scope, adalService) {}]);
 ```
 
-그 후 `userInfo` 개체를 보기에 직접 지정합니다.
+그런 다음 보기에서 `userInfo` 개체를 직접 처리할 수 있습니다.
 
 ```html
 <!--app/views/UserData.html-->
@@ -205,7 +205,7 @@ angular.module('todoApp')
 ## REST API 호출
 마지막으로 작업에 대한 생성, 읽기, 업데이트, 삭제를 위해 토큰을 가져오고 REST API를 호출하겠습니다. 무엇이 필요할까요? *아무것도* 할 필요가 없습니다. Adal.js에서 토큰 가져오기, 캐싱, 새로 고침 작업을 자동으로 처리합니다. REST API에 보내는 AJAX 요청에 토큰을 연결하는 작업도 수행합니다.
 
-작동 원리는 바로 이렇습니다. 모두 [AngularJS 인터셉터](https://docs.angularjs.org/api/ng/service/$http)의 덕분입니다. 이것은 나가고 들어오는 http 메시지를 adal.js에서 확인하도록 허용합니다. 또한 adal.js에서는 창과 동일한 도메인에 보내는 모든 요청이 AngularJS 앱과 동일한 응용 프로그램 ID용 토큰을 사용하는 것으로 가정합니다. 이런 이유 때문에 Angular 앱과 NodeJS REST API에서 동일한 응용 프로그램 ID를 사용합니다. 물론, 필요한 경우 이러한 동작을 무시하고 adal.js에서 다른 REST API용 토큰을 가져오도록 작성할 수 있지만 이 샘플 시나리오에서는 기본 사항대로 진행하겠습니다.
+작동 원리는 바로 이렇습니다. 모두 [AngularJS 인터셉터](https://docs.angularjs.org/api/ng/service/$http) 덕분으로, adal.js에서 나가고 들어오는 http 메시지를 변환할 수 있게 해줍니다. 또한 adal.js에서는 창과 동일한 도메인에 보내는 모든 요청이 AngularJS 앱과 동일한 응용 프로그램 ID용 토큰을 사용하는 것으로 가정합니다. 이런 이유 때문에 Angular 앱과 NodeJS REST API에서 동일한 응용 프로그램 ID를 사용합니다. 물론, 필요한 경우 이러한 동작을 무시하고 adal.js에서 다른 REST API용 토큰을 가져오도록 작성할 수 있지만 이 샘플 시나리오에서는 기본 사항대로 진행하겠습니다.
 
 아래 코드 조각은 Azure AD의 전달자 토큰을 사용하여 손쉽게 요청을 보낼 수 있는 방법을 보여 줍니다.
 
@@ -217,12 +217,12 @@ return $http.get('/api/tasks');
 ...
 ```
 
-축하합니다. Azure AD 통합 단일 페이지 앱이 완성되었습니다. 수고 많으셨습니다. 이제 앱에서 사용자를 인증하고, OpenID Connect를 사용하여 백 엔드 REST API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있습니다. 기본적으로, 개인 Microsoft 계정이나 Azure AD의 회사/학교 계정이 있는 모든 사용자를 지원합니다. 앱을 실행하고 브라우저에서 `https://localhost:44326/`으로 이동합니다. 개인 Microsoft 계정 또는 회사/학교 계정을 사용하여 로그인합니다. 사용자의 할 일 모음에 작업을 추가하고 로그아웃합니다. 다른 유형의 계정으로 로그인을 시도합니다. Azure AD 테넌트에서 회사/학교 사용자를 만들어야 하는 경우에는 [여기에서 만드는 방법을(무료로) 알아봅니다](active-directory-howto-tenant.md).
+축하합니다. Azure AD 통합 단일 페이지 앱이 완성되었습니다. 수고 많으셨습니다. 이제 앱에서 사용자를 인증하고, OpenID Connect를 사용하여 백 엔드 REST API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있습니다. 기본적으로, 개인 Microsoft 계정이나 Azure AD의 회사/학교 계정이 있는 모든 사용자를 지원합니다. 앱을 실행하고 브라우저에서 `https://localhost:44326/`으로 이동합니다. 개인 Microsoft 계정 또는 회사/학교 계정을 사용하여 로그인합니다. 사용자의 할 일 모음에 작업을 추가하고 로그아웃합니다. 다른 유형의 계정으로 로그인을 시도합니다. Azure AD 테넌트에서 회사/학교 사용자를 만들어야 하는 경우에는 [여기에서 만드는 방법을 알아봅니다(무료)](active-directory-howto-tenant.md).
 
 앱 모델 v2.0 미리 보기에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-directory-appmodel-v2-overview.md)로 돌아가세요. 추가 리소스는 다음을 확인해보세요.
 
 - [GitHub의 Azure 샘플(영문) >>](https://github.com/Azure-Samples)
 - [스택 오버플로의 Azure AD(영문) >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
+- [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

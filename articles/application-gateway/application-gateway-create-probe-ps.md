@@ -124,7 +124,7 @@ IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라�
 - **-호스트 이름 및 -경로** - 응용 프로그램 게이트웨이가 인스턴스의 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.
 - **-UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수입니다.
 
-
+<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
@@ -168,7 +168,7 @@ IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라�
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 
->[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
+>[AZURE.NOTE]  *InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
 
 ## New-AzureRmApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -238,4 +238,4 @@ IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라�
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

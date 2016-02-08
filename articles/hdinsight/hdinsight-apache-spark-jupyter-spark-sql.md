@@ -26,7 +26,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 **필수 조건:**
 
-- **Azure 구독**. 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 - **SSH(보안 셸) 클라이언트**: Linux, Unix 및 OS X 시스템은 `ssh` 명령을 통해 SSH 클라이언트를 제공합니다. Windows 시스템의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 사용하는 것이 좋습니다.
     
@@ -41,7 +41,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 이 섹션에서는 Spark 버전 1.5.1을 기반으로 하는 HDInsight 버전 3.3 클러스터를 만듭니다. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
 
->[AZURE.NOTE]이 문서의 단계에서는 기본 구성 설정을 사용하여 HDInsight에서 Apache Spark 클러스터를 만듭니다. 추가 저장소, Azure 가상 네트워크 또는 Hive용 Metastore를 사용하는 등의 기타 클러스터 구성 설정에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight Spark 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+>[AZURE.NOTE] 이 문서의 단계에서는 기본 구성 설정을 사용하여 HDInsight에서 Apache Spark 클러스터를 만듭니다. 추가 저장소, Azure 가상 네트워크 또는 Hive용 Metastore를 사용하는 등의 기타 클러스터 구성 설정에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight Spark 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 
 **Spark 클러스터를 만들려면**
@@ -60,13 +60,13 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 5. **리소스 그룹**을 클릭하여 기존 리소스 그룹 목록을 확인하고 클러스터를 만들 리소스 그룹을 선택합니다. 또는 **새로 만들기**를 클릭한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
 
-	> [AZURE.NOTE]사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
+	> [AZURE.NOTE] 사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
 
 6. **자격 증명**을 클릭한 다음 관리자의 암호를 입력합니다. 또한 **SSH 사용자 이름**을 사용해야 합니다. **SSH 인증 형식**의 경우 **암호**를 클릭하고 SSH 사용자에 대한 암호를 지정합니다. 아래쪽의 **선택**을 클릭하여 자격 증명 구성을 저장합니다.
 
 	![클러스터 자격 증명 제공](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.3.png "클러스터 자격 증명 제공")
 
-    > [AZURE.NOTE]SSH는 명령줄을 사용하여 HDInsight 클러스터에 원격으로 액세스하는 데 사용됩니다. 여기에 사용되는 사용자 이름 및 암호는 SSH 통해 클러스터에 연결할 때 사용됩니다. 또한 모든 HDInsight 클러스터 노드에 대해 사용자 계정을 생성하므로 SSH 사용자 이름은 고유해야 합니다. 다음은 클러스터에서 서비스에 의해 사용하도록 예약된 계정 이름 중 일부이며 SSH 사용자 이름으로 사용할 수 없습니다.
+    > [AZURE.NOTE] SSH는 명령줄을 사용하여 HDInsight 클러스터에 원격으로 액세스하는 데 사용됩니다. 여기에 사용되는 사용자 이름 및 암호는 SSH 통해 클러스터에 연결할 때 사용됩니다. 또한 모든 HDInsight 클러스터 노드에 대해 사용자 계정을 생성하므로 SSH 사용자 이름은 고유해야 합니다. 다음은 클러스터에서 서비스에 의해 사용하도록 예약된 계정 이름 중 일부이며 SSH 사용자 이름으로 사용할 수 없습니다.
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
@@ -90,7 +90,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지리적인 지역입니다.
 
-		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
+		> [AZURE.IMPORTANT] 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
 
 	**선택**을 클릭하여 데이터 원본 구성을 저장합니다.
 
@@ -106,7 +106,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 생성 프로세스를 확인합니다.
+	> [AZURE.NOTE] 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 생성 프로세스를 확인합니다.
 
 10. 만들기가 완료되면 시작 보드에서 Spark 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다.
 
@@ -120,7 +120,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -248,4 +248,4 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

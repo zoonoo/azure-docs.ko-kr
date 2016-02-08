@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure 자동화에서 Runbook 출력 및 메시지
@@ -168,4 +168,4 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](http://msdn.microsoft.co
 - [Runbook 작업 추적](automation-runbook-execution.md)
 - [자식 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

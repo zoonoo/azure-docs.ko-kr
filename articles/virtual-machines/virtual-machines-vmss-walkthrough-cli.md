@@ -41,7 +41,7 @@
 
 1. **Microsoft Azure에 로그인** - 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 `azure config mode arm`을 입력하여 리소스 관리자 모드인지 확인한 다음 대화형 로그인 환경에 대해 표시되는 메시지에 따라 `azure login`을 입력하여 Azure 계정에 [회사 또는 학교 ID를 사용하여 로그인합니다](../xplat-cli-connect.md#use-the-log-in-method).
 
-	> [AZURE.NOTE]회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우 `azure login -u`와(과) 회사 또는 학교 ID를 사용하여 대화형 세션 없이 로그인할 수 있습니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](resource-group-create-work-id-from-personal.md).
+	> [AZURE.NOTE] 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우 `azure login -u`와(과) 회사 또는 학교 ID를 사용하여 대화형 세션 없이 로그인할 수 있습니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](resource-group-create-work-id-from-personal.md).
 
 2. **리소스 그룹 만들기** – 모든 리소스는 리소스 그룹에 배포되어야 합니다. 이 자습서의 경우 리소스 그룹의 이름을 **vmsstest1**로 지정합니다.
 
@@ -604,4 +604,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 가상 컴퓨터 규모 집합의 자동 크기 조정 기능을 실행하도록 LAMP 스택을 설정하는 [Ubuntu/Apache/PHP 앱을 실행하는 VM 규모 집합 크기 자동 조정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) 템플릿을 확인합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

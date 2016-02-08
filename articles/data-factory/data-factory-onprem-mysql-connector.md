@@ -29,6 +29,8 @@
 ## 설치 
 MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [MySQL 커넥터/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885)를 설치해야 합니다.
 
+> [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+
 ## 샘플: MySQL에서 Azure Blob로 데이터 복사
 
 아래 샘플은 다음을 보여줍니다.
@@ -256,7 +258,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 
 ### MySQL에 대한 형식 매핑
 
-[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -310,4 +312,4 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

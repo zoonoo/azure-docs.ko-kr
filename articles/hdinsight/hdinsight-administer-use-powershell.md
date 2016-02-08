@@ -29,7 +29,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 ##Azure PowerShell 1.0 이상 설치
 
@@ -164,7 +164,7 @@ Azure PowerShell은 HDInsight 만들기 프로세스 중 Blob 컨테이너를 �
 ##클러스터 크기 조정
 클러스터 크기 조정 기능을 사용하여 클러스터를 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 작업자 노드 수를 변경합니다.
 
->[AZURE.NOTE]HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 포털 인터페이스에 대해 알아보기](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)를 참조하세요.
+>[AZURE.NOTE] HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다. [클러스터 포털 인터페이스에 대해 알아보기](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)를 참조하세요.
 
 HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노드 수를 변경하는 영향은 다음과 같습니다.
 
@@ -241,7 +241,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 	
 	Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
->[AZURE.NOTE]액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
+>[AZURE.NOTE] 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
 이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure 포털을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
 
@@ -332,4 +332,4 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

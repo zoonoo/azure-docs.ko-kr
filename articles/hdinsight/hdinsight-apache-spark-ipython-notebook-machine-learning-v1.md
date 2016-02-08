@@ -20,7 +20,7 @@
 
 # Apache Spark를 사용하여 Azure HDInsight에서 기계 학습 응용 프로그램 빌드(Windows)
 
-> [AZURE.NOTE]이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Spark Linux 클러스터에서 기계 학습 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [Apache Spark를 사용하여 Azure HDInsight에서 기계 학습 응용 프로그램 빌드(Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
+> [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Spark Linux 클러스터에서 기계 학습 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [Apache Spark를 사용하여 Azure HDInsight에서 기계 학습 응용 프로그램 빌드(Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
 
 Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 프로그램을 빌드하는 방법을 알아봅니다. 이 문서에서는 응용 프로그램을 빌드하고 테스트할 클러스터와 함께 사용할 수 있는 Jupyter Python 노트북을 사용하는 방법을 보여 줍니다. 응용 프로그램은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 HVAC.csv 데이터를 사용합니다.
 
@@ -28,7 +28,7 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 다음이 있어야 합니다.
 
-- Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-provision-clusters.md)를 참조하세요. 
 
 ##<a name="data"></a>데이터 표시
@@ -49,11 +49,11 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 새 노트북을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
@@ -96,7 +96,7 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 	 ![Jupyter 노트북 작업의 상태](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.jupyter.job.status.png "Jupyter 노트북 작업의 상태")
  
-4. 이제 데이터(hvac.csv)를 로드하고 분석하고 모델 학습에 사용해야 합니다. 이를 위해 건물의 실제 온도가 대상 온도보다 큰지를 확인하는 함수를 정의합니다. 실제 온도가 높은 경우 건물이 더운 것이고 값이 **1.0**으로 표시됩니다. 실제 온도가 낮은 경우 건물이 추운 것이고 값이 **0.0**으로 표시됩니다.
+4. 이제 데이터(hvac.csv)를 로드하고 분석하고 모델 학습에 사용해야 합니다. 이를 위해 건물의 실제 온도가 대상 온도보다 큰지를 확인하는 함수를 정의합니다. 실제 온도가 큰 경우 건물이 더운 것이고 값이 **1.0**으로 표시됩니다. 실제 온도가 작은 경우 건물이 추운 것이고 값이 **0.0**으로 표시됩니다.
 
 	빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
 
@@ -222,7 +222,7 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 ##<a name="anaconda"></a>기계 학습에 대한 Anaconda scikit-learn 라이브러리 사용
 
-HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. 기계 학습에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예제는 [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)을 참조하세요.
+HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. 기계 학습에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예는 [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)를 참조하세요.
 
 ##<a name="seealso"></a>참고 항목
 
@@ -249,4 +249,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

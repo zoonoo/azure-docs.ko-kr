@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # 서비스 패브릭 서비스의 가용성
@@ -38,7 +38,7 @@ Azure 서비스 패브릭 서비스는 상태 저장 또는 상태 비저장이 
 ### 복제본 역할
 복제본의 역할은 해당 복제본에 의해 관리되는 상태의 수명 주기를 관리하는 데 사용됩니다. 주 역할의 복제본은 읽기 요청을 서비스합니다. 또한 해당 상태를 업데이트하여 쓰기 요청을 서비스하고 변경 사항을 해당 복제본 세트의 활성 보조에 복제합니다. 활성 보조 역할은 주 복제본이 복제되고 상태 보기를 업데이트하는 상태 변경을 수신하는 것입니다.
 
->[AZURE.NOTE] [Reliable Actors 프레임워크](service-fabric-reliable-actors-introduction.md)와 같은 더 높은 수준의 프로그래밍 모델은 개발자의 복제본 역할의 개념을 추상화합니다.
+>[AZURE.NOTE] [Reliable Actors 프레임워크](service-fabric-reliable-actors-introduction.md)와 같은 더 높은 수준의 프로그래밍 모델은 개발자의 복제본 역할의 개념을 추상화합니다.
 
 ## 다음 단계
 
@@ -50,4 +50,4 @@ Azure 서비스 패브릭 서비스는 상태 저장 또는 상태 비저장이 
 
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

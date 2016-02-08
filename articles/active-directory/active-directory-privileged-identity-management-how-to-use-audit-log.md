@@ -3,7 +3,7 @@
    description="Azure 권한 있는 ID 관리 확장에서 감사 로그를 사용하는 방법을 알아봅니다."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,16 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
-# Azure 권한 있는 ID 관리: 감사 로그를 사용하는 방법
+# Azure Privileged Identity Management: 감사 로그를 사용하는 방법
 
-## 감사 로그 사용
-권한 있는 ID 관리 감사 로그를 사용하면 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다.
+Azure Privileged Identity Management(PIM) 감사 로그를 사용하면 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다.
 
 ## 감사 로그로 이동
-PIM 대시보드에서 Audit history(감사 기록)을 클릭하여 감사 로그에 액세스할 수 있습니다.
+PIM 대시보드에서 **Audit history**(감사 기록)을 클릭하여 감사 로그에 액세스할 수 있습니다.
 
 ## 감사 로그 그래프
 감사 로그를 사용하여 전체 활성화, 일일 최대 활성화, 일일 평균 활성화를 선 그래프로 보도록 사용할 수 있습니다. 감사 기록에 역할이 둘 이상인 경우 역할별로 데이터를 필터링할 수도 있습니다.
@@ -51,10 +50,10 @@ PIM 대시보드에서 Audit history(감사 기록)을 클릭하여 감사 로�
 
 로그에 포함시키거나 제외시키려는 각 역할의 옆에 있는 **역할** 확인란을 선택 또는 선택 해제합니다.
 
-감사 로그 세트에 대한 필터가 모두 준비되면 업데이트를 클릭하여 로그의 데이터를 필터링합니다. 데이터가 바로 표시되지 않으면 **새로 고침** 단추를 클릭합니다.
+감사 로그 세트에 대한 필터가 모두 준비되면 업데이트를 클릭하여 로그의 데이터를 필터링합니다. 데이터가 바로 표시되지 않으면 페이지를 새로 고칩니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

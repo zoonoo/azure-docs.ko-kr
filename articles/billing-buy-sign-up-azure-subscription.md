@@ -24,7 +24,7 @@
 
 Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, Microsoft 계정을 지정해야 합니다. Microsoft 계정은 사용하는 메일 주소이며 암호와 함께 사용하여 Outlook, Hotmail 또는 OneDrive와 같은 Windows Live 프로그램 또는 서비스에 로그인합니다. 회사 메일을 비롯하여 사용하는 모든 메일 주소로 Microsoft 계정을 설정할 수 있습니다. 자세한 내용은 [Microsoft 계정 FAQ](https://www.microsoft.com/ko-KR/account/faq.aspx)를 참조하세요.
 
->[AZURE.NOTE]전화번호 및 신용카드 세부 정보는 오직 신원 확인을 위해 사용됩니다. 신용 카드에 요금이 부과되지 않아도 Microsoft는 신용 카드가 유효한지 확인하기 위해 최소 기간 동안 권한 부여를 보류합니다. 보류는 3-5일 이내에 금융 기관의 정책에 따라 해제됩니다.
+>[AZURE.NOTE] 전화번호 및 신용카드 세부 정보는 오직 신원 확인을 위해 사용됩니다. 신용 카드에 요금이 부과되지 않아도 Microsoft는 신용 카드가 유효한지 확인하기 위해 최소 기간 동안 권한 부여를 보류합니다. 보류는 3-5일 이내에 금융 기관의 정책에 따라 해제됩니다.
 
 1. [Azure 무료 평가판 페이지](https://azure.microsoft.com/pricing/free-trial/)를 열고, **지금 평가판 사용**을 선택합니다.
 2. Microsoft 계정 또는 학교/직장 계정으로 로그인합니다.
@@ -62,7 +62,7 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 1. azure.com의 [구독 요약 페이지](https://account.windowsazure.com/subscriptions)로 이동합니다.
 
-2. **Azure in Open**을 선택합니다. [Azure in Open 라이선스 키](http://azure.microsoft.com/offers/ms-azr-0111p/) 페이지에서 **새 구독 또는 기존 구독 활성화**를 선택합니다.
+2. **Azure in Open**을 선택합니다. [Azure in Open 라이선스 키](https://azure.microsoft.com/offers/ms-azr-0111p/) 페이지에서 **새 구독 또는 기존 구독 활성화**를 선택합니다.
 
 3. 제품 키를 입력하고 규약 옵션을 확인합니다.
 
@@ -92,4 +92,4 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 - [Microsoft BizSpark Plus 포털](http://www.microsoft.com/bizspark/plus/default.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,8 @@
 
 Azure AD와 통합된 앱은 사용자가 앱이 데이터에 액세스하는 방법을 제어할 수 있는 특정 권한 부여 모델을 따릅니다. 앱 모델 v2.0에서는 이 권한 부여 모델의 구현이 업데이트되어 앱이 Azure AD와 상호 작용하는 방법이 변경되었습니다. 이 항목에서는 범위, 사용 권한 및 동의를 포함하여 이 권한 부여 모델의 기본 개념에 대해 설명합니다.
 
-> [AZURE.NOTE]이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+> [AZURE.NOTE]
+	이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
 ## 범위 및 사용 권한
 
@@ -100,20 +101,29 @@ Content-Type: application/json
 
 OAuth 2.0 프로토콜 및 액세스 토큰을 획득하는 방법에 대한 자세한 내용은 [앱 모델 v2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조하세요.
 
-## OpenId 및 Offline\_Access
 
-앱 모델 v2.0에는 특정 리소스에 적용되지 않는 두 개의 잘 정의된 범위 `openid` 및 `offline_access`가 있습니다.
+## OpenId Connect 범위
+
+OpenID Connect의 v2.0 구현에는 특정 리소스에 적용되지 않는 몇 가지의 잘 정의된 범위 `openid`, `email`, `profile` 및 `offline_access`가 있습니다.
 
 #### OpenId
 
-앱이 [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 화면에서는 "로그인" 권한으로 표시되고 Microsoft 계정 동의 화면에서는 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱이 OpenID Connect 사용자 정보 끝점에 액세스할 수 있으므로 사용자 승인이 필요합니다. v2.0 토큰 끝점에서 `openid` 범위를 사용하여 id\_token을 획득할 수도 있습니다. 이 토큰을 사용하면 앱의 다양한 구성 요소 간 HTTP 호출의 보안을 유지할 수 있습니다.
+앱이 [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 화면에서는 "로그인" 권한으로 표시되고 Microsoft 계정 동의 화면에서는 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱이 `sub` 클레임 형식으로 사용자에 대한 고유 식별자를 받을 수 있습니다. 또한 앱이 사용자 정보 끝점에 액세스할 수 있도록 해줍니다. v2.0 토큰 끝점에서 `openid` 범위를 사용하여 id\_token을 획득할 수도 있습니다. 이 토큰을 사용하면 앱의 다양한 구성 요소 간 HTTP 호출의 보안을 유지할 수 있습니다.
 
-#### Offline\_Access
+#### Email
 
-`offline_access` 범위를 사용하면 앱이 오랜 기간 동안 사용자 대신 리소스에 액세스할 수 있습니다. 작업 계정 동의 화면에서는 이 범위가 "언제든지 데이터 액세스" 권한으로 표시됩니다. 개인 Microsoft 계정 동의 화면에서는 이 범위가 "언제든지 정보 액세스" 권한으로 표시됩니다. 사용자가 `offline_access` 범위를 승인하면 앱이 v2.0 토큰 끝점에서 새로 고침 토큰을 받을 수 있습니다. 새로 고침 토큰은 수명이 길며, 이전 암호가 만료되면 앱이 새 액세스 토큰을 획득할 수 있도록 합니다.
+`email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 포함될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. 전자 메일 주소가 사용자 계정과 연결된 경우 `email` 클레임은 오직 토큰에만 포함되지만, 항상 그런 것은 아닙니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
 
-앱이 `offline_access` 범위를 요청하지 않으면 refresh\_token을 받을 수 없습니다. 즉, [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols.md#oauth2-authorization-code-flow)에서 authorization\_code를 교환하는 경우 `/token` 끝점에서 access\_token만 받게 됩니다. 해당 access\_token은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/authorize` 끝점으로 다시 리디렉션하여 새 authorization\_code를 검색해야 합니다. 앱 형식에 따라 이 리디렉션 중에 사용자가 자격 증명을 다시 입력하거나 사용 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
+#### 프로필
 
-새로 고침 토큰을 가져오고 사용하는 방법에 대한 자세한 내용은 [앱 모델 v2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조하세요.
+`profile` 범위는 `openid` 범위 및 다른 모든 범위와 함께 포함될 수 있습니다. 이는 앱이 사용자에 대한 다양한 정보에 액세스할 수 있도록 해줍니다. 포함하지만 사용자 이름, 성, 기본 설정된 사용자 이름, 개체 ID 등에 제한되지 않습니다. 프로필 클레임의 전체 목록을 지정된 사용자에 대한 id\_token에서 사용할 수 있는 경우 [v2.0 토큰 참조](active-directory-v2-tokens.md)를 참조합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+#### Offline\_access
+
+[`offline_access` 범위](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)를 사용하면 앱이 오랜 기간 동안 사용자 대신 리소스에 액세스할 수 있습니다. 작업 계정 동의 화면에서는 이 범위가 "언제든지 데이터 액세스" 권한으로 표시됩니다. 개인 Microsoft 계정 동의 화면에서는 이 범위가 "언제든지 정보 액세스" 권한으로 표시됩니다. 사용자가 `offline_access` 범위를 승인하면 앱이 v2.0 토큰 끝점에서 새로 고침 토큰을 받을 수 있습니다. 새로 고침 토큰은 수명이 길며, 이전 암호가 만료되면 앱이 새 액세스 토큰을 획득할 수 있도록 합니다.
+
+앱이 `offline_access` 범위를 요청하지 않으면 refresh\_token을 받을 수 없습니다. 즉, [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols.md#oauth2-authorization-code-flow)에서 authorization\_code를 교환하는 경우 `/token` 끝점에서 access\_token만 받게 됩니다. 해당 access\_token은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/authorize` 끝점으로 다시 리디렉션하여 새 authorization\_code를 검색해야 합니다. 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
+
+새로 고침 토큰을 가져오고 사용하는 방법에 대한 자세한 내용은 [v2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0128_2016-->

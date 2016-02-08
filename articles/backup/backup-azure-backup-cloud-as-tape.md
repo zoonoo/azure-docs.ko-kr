@@ -47,7 +47,7 @@ Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수�
 
 복구 지점의 총 수는 56개입니다.
 
-> [AZURE.NOTE]Azure 백업은 복구 지점 개수에 대한 제한이 없습니다.
+> [AZURE.NOTE] Azure 백업은 복구 지점 개수에 대한 제한이 없습니다.
 
 ## 고급 구성
 위 화면에서 **수정**을 클릭하면 보존 일정을 더 유연하게 지정할 수 있습니다.
@@ -60,4 +60,4 @@ Azure 백업에 대한 자세한 내용은 참조
 - [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 - [Azure 백업 시도](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

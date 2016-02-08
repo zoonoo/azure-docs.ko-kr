@@ -21,7 +21,7 @@
 
 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
 
->[AZURE.NOTE]Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure 미디어 서비스 MSDN 포럼]에 게시해 주세요.
+>[AZURE.NOTE] Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure 미디어 서비스 MSDN 포럼]에 게시해 주세요.
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
@@ -92,9 +92,9 @@ Azure SDK 팀은 Microsoft Azure 미디어 서비스에 대한 업데이트 및 
 
 ##<a id="nov_changes_15"></a>2015년 11월 릴리스
 
-이제 Azure 미디어 서비스는 클라우드에서 Google Widevine 라이선스 배달 서비스를 제공합니다. 자세한 내용은 [이 공지 사항 블로그](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요. 또한 [이 자습서](media-services-protect-with-drm.md) 및 [GitHub 리포지토리](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)도 참조하세요.
+이제 Azure 미디어 서비스는 클라우드에서 Google Widevine 라이선스 배달 서비스를 제공합니다. 자세한 내용은 [이 공지 사항 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요. 또한 [이 자습서](media-services-protect-with-drm.md) 및 [GitHub 리포지토리](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)도 참조하세요.
 
-Azure 미디어 서비스에서 제공하는 Widevine 라이선스 배달 서비스는 미리 보기로 제공됩니다. 자세한 내용은 [이 게시물](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)을 참조하세요.
+Azure 미디어 서비스에서 제공하는 Widevine 라이선스 배달 서비스는 미리 보기로 제공됩니다. 자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)을 참조하세요.
 
 ##<a id="oct_changes_15"></a>2015년 10월 릴리스
 
@@ -106,24 +106,24 @@ AMS(Azure 미디어 서비스)는 이제 브라질 남부, 인도 서부, 인도
 
 ##<a id="september_changes_15"></a>2015년 9월 릴리스 
 
-- 이제 AMS에서 Widevine 모듈식 DRM 기술을 사용하여 VOD(Video-On-Demand)와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 배달 서비스 파트너 [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/)를 사용하여 Widevine 라이선스를 배달할 수 있습니다. 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)를 참조하세요.
+- 이제 AMS에서 Widevine 모듈식 DRM 기술을 사용하여 VOD(Video-On-Demand)와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 배달 서비스 파트너 [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/)를 사용하여 Widevine 라이선스를 배달할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)를 참조하세요.
 
 	[AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)(버전 3.5.1부터 시작) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.
 
-- AMS에서 Apple ProRes 동영상 지원을 추가했습니다. 이제 Apple ProRes 또는 기타 코덱을 사용하는 QuickTime 원본 동영상 파일을 업로드할 수 있습니다. 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)를 참조하세요.
+- AMS에서 Apple ProRes 동영상 지원을 추가했습니다. 이제 Apple ProRes 또는 기타 코덱을 사용하는 QuickTime 원본 동영상 파일을 업로드할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)를 참조하세요.
 
-- 이제 미디어 인코더 표준을 사용하여 하위 클리핑 및 라이브 보관 추출을 수행할 수 있습니다. 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)를 참조하세요.
+- 이제 미디어 인코더 표준을 사용하여 하위 클리핑 및 라이브 보관 추출을 수행할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)를 참조하세요.
 
 - 다음 필터링이 업데이트되었습니다.
 
 	- 이제 오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷을 사용할 수 있습니다. 이 업데이트를 통해 오디오 전용 트랙을 URL에 지정하여(audio-only=false) 제거할 수 있습니다.
 	- 자산에 대한 필터를 정의할 때 이제는 단일 URL에 여러(최대 3개) 필터를 조합할 수 있습니다.
 
-	자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)를 참조하세요.
+	자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)를 참조하세요.
 
 - AMS는 이제 HLS v4에 I-프레임을 지원합니다. I-프레임 지원은 빨리 감기와 되감기 작업을 최적화합니다. 기본적으로 모든 HLS v4 출력은 I-프레임 재생 목록(EXT-X-I-FRAME-STREAM-INF)를 포함합니다.
  
-	자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)를 참조하세요.
+	자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)를 참조하세요.
 
 ##<a id="august_changes_15"></a>2015년 8월 릴리스
 
@@ -136,9 +136,9 @@ AMS(Azure 미디어 서비스)는 이제 브라질 남부, 인도 서부, 인도
 
 ##<a id="july_changes_15"></a>2015년 7월 릴리스
 
-- 미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 블로그 게시물](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)을 참조하세요.
+- 미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)을 참조하세요.
 
-	미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
+	미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
 - Azure 미디어 서비스 및 플레이어의 라이브 실시간 캡션. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)을 참조하세요.
 
 ###미디어 서비스 .NET SDK 업데이트
@@ -171,19 +171,19 @@ OpenID Connect Discovery 문서를 노출하는 ID 공급자(예: Azure Active D
 
 - [미디어 서비스로 라이브 인코딩 미리 보기](media-services-manage-live-encoder-enabled-channels.md)
 - [동적 매니페스트](media-services-dynamic-manifest-overview.md)
-- [Azure 미디어 Hyperlapse 미디어 프로세서 미리 보기](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
+- [Azure 미디어 Hyperlapse 미디어 프로세서 미리 보기](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ##<a id="april_changes_15"></a>2015년 4월 릴리스
 
 ###일반 미디어 서비스 업데이트
 
-- [Azure 미디어 플레이어가 도입](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)되었습니다.
+- [Azure 미디어 플레이어가 도입](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)되었습니다.
 - 미디어 서비스 REST 2.10부터 RTMP 프로토콜을 수집하도록 구성된 채널이 기본 및 보조 수집 URL을 통해 생성됩니다. 자세한 내용은 [채널 수집 구성](media-services-manage-channels-overview.md#channel_input)을 참조하세요.
 - Azure 미디어 인덱서 업데이트
 	- 스페인어 지원
 	- 새로운 구성 xml 형식
 	
-	자세한 내용은 [이 게시물](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
+	자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
 ###미디어 서비스 .NET SDK 업데이트
 
 Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
@@ -202,7 +202,7 @@ Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
 ### 일반 미디어 서비스 업데이트
 
 - 미디어 서비스는 이제 Azure CDN 통합을 제공합니다. 통합을 지원하기 위해 **CdnEnabled** 속성이 **StreamingEndpoint**에 추가되었습니다. **CdnEnabled**는 버전 2.9부터 REST API와 함께 사용할 수 있습니다(자세한 내용은 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx) 참조). **CdnEnabled**는 버전 3.1.0.2부터 .NET SDK와 함께 사용할 수 있습니다(자세한 내용은 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint(v=azure.10).aspx))) 참조).
-- **미디어 인코더 Premium 워크플로** 알림. 자세한 내용은 [Azure 미디어 서비스의 프리미엄 인코딩 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)를 참조하세요.
+- **미디어 인코더 Premium 워크플로** 알림. 자세한 내용은 [Azure 미디어 서비스의 프리미엄 인코딩 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)를 참조하세요.
  
 
 
@@ -216,7 +216,7 @@ Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
 
 ### 일반 미디어 서비스 업데이트
 
-동적 암호화를 통해 GA(General Availability)의 콘텐츠 보호 알림. 자세한 내용은 [Azure 미디어 서비스에서 DRM 기술의 일반적인 가용성으로 스트리밍 보안 강화](http://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/)를 참조하세요.
+동적 암호화를 통해 GA(General Availability)의 콘텐츠 보호 알림. 자세한 내용은 [Azure 미디어 서비스에서 DRM 기술의 일반적인 가용성으로 스트리밍 보안 강화](https://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/)를 참조하세요.
 
 ###미디어 서비스 .NET SDK 업데이트
 
@@ -231,7 +231,7 @@ Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
 
 ###일반 미디어 서비스 업데이트
 
-- 일부 업데이트 및 새 기능이 Azure 인덱서 미디어 프로세서에 추가 되었습니다. 자세한 내용은[ Azure 미디어 인덱서 버전 1.1.6.7 릴리스 정보](http://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/)를 참조하세요.
+- 일부 업데이트 및 새 기능이 Azure 인덱서 미디어 프로세서에 추가 되었습니다. 자세한 내용은[ Azure 미디어 인덱서 버전 1.1.6.7 릴리스 정보](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/)를 참조하세요.
 - 인코딩 예약 단위를 업데이트할 수 있는 새 REST API인 [EncodingReservedUnitType이 REST](http://msdn.microsoft.com/library/azure/dn859236.aspx)에 추가되었습니다.
 - 키 배달 서비스를 위한 CORS 지원이 추가되었습니다.
 - 권한 부여 정책 옵션을 쿼리하는 성능이 향상되었습니다.
@@ -408,7 +408,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 ### <a name="dec_13_donnet_changes"></a>Azure 미디어 서비스 .NET SDK 3.0.0.0
 
->[AZURE.NOTE]3.0.x.x 릴리스는 이전 버전인 2.4.x.x 릴리스와 호환되지 않습니다.
+>[AZURE.NOTE] 3.0.x.x 릴리스는 이전 버전인 2.4.x.x 릴리스와 호환되지 않습니다.
 
 이제 .NET용 미디어 서비스의 최신 버전이 3.0.0.0입니다. Nuget에서 최신 패키지를 다운로드하거나 [GitHub]에서 비트를 받을 수 있습니다.
 
@@ -635,4 +635,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

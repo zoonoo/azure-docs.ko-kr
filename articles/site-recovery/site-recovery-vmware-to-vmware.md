@@ -27,7 +27,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 ## 필수 조건
 
-- **Azure 계정**—[Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
+- **Azure 계정**—[Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
 
 
 ## 1단계: 자격 증명 모음 만들기
@@ -60,7 +60,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 다음과 같이 설치합니다.
 
-1. [업데이트](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASRScout 8.0.1 Update1.zip) 다운로드 zip 파일입니다. 이 zip 파일에는 다음 파일이 포함됩니다.
+1. [update](http://aka.ms/scoutupdates) zip 파일을 다운로드합니다. 이 zip 파일에는 다음 파일이 포함됩니다.
 
 	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
 	-  CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe
@@ -71,7 +71,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 2. **RX 서버**: **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
 2. **구성 서버/프로세스 서버**: **CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.
 3. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. Windows용으로 통합된 에이전트는 원본 서버에 적용할 수 없습니다. Windows 마스터 대상 서버에만 설치해야 합니다.
-4. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+4. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_RHEL6 64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
 5. **vContinuum 서버**: **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe**를 vContinuum 서버에 복사합니다. VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
 
 ## 4단계: 복제 설정
@@ -130,4 +130,4 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

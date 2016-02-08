@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/20/2016"
+   ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -97,6 +97,8 @@ WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적�
 
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+
+	>[AZURE.NOTE] 데이터 레이크 저장소 리소스 공급자를 등록할 때 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`와(과) 유사한 오류가 나타나는 경우 구독이 Azure 데이터 레이크 저장소에 대한 허용 목록에 추가되지 않았을 수 있습니다. 이 [지침](data-lake-store-get-started-portal.md#signup)에 따라 데이터 레이크 저장소 공개 미리 보기에 대한 Azure 구독을 활성화해야 합니다.
 
 3. Azure 데이터 레이크 저장소 계정은 Azure 리소스 그룹과 연결됩니다. Azure 리소스 그룹을 만드는 작업부터 시작합니다.
 
@@ -376,4 +378,4 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

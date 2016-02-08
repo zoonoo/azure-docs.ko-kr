@@ -33,7 +33,7 @@ Visual Studio Application Insights는 Microsoft Azure *리소스*에 응용 프�
 
 또는 새 구독을 만들 수 있습니다. 무료 평가판을 사용하면 Azure의 모든 기능을 이용할 수 있습니다. 평가 기간이 만료된 후부터는 무료 서비스에 대해 요금이 부과되지 않으므로 종량제 구독이 적합할 수 있습니다.
 
-구독에 액세스할 수 있으면 [http://portal.azure.com](http://portal.azure.com)에서 Application Insights에 로그인하고 Live ID를 사용하여 로그인합니다.
+구독에 액세스할 수 있으면 [http://portal.azure.com](https://portal.azure.com)에서 Application Insights에 로그인하고 Live ID를 사용하여 로그인합니다.
 
 
 ## Application Insights 리소스 만들기
@@ -94,4 +94,4 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

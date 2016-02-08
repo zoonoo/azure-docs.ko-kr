@@ -38,7 +38,7 @@
 **프레임워크 버전**. 앱에서 다음 프레임워크를 사용하는 경우 이러한 옵션을 설정합니다.
 
 - **.NET Framework**: .NET Framework 버전을 설정합니다. 
-- **PHP**: PHP 버전을 설정하거나 **PHP**를 사용하지 않으려면 **OFF **를 선택합니다.
+- **PHP**: PHP 버전을 설정하거나 PHP를 사용하지 않으려면 **끄기**를 선택합니다.
 - **Java**: Java 버전을 선택하거나 Java를 사용하지 않도록 **끄기**를 선택합니다. **웹 컨테이너** 옵션을 사용하여 Tomcat 및 Jetty 버전 사이에서 선택합니다.
 - **Python**: Python 버전을 설정하거나, Python을 사용하지 않도록 설정하려면 **끄기**를 선택합니다.
 
@@ -164,7 +164,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 
 자세한 내용은 [방법: 웹 끝점 모니터링](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409)을 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 다음 단계
 
@@ -177,4 +177,4 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

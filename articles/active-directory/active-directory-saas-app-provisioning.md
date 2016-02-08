@@ -69,7 +69,7 @@ Azure AD는 5 ~ 10분 마다 변경 내용을 확인합니다. SaaS 앱에서 �
 
 **엔지니어링 팀에 의견을 제출할 수 있는 방법은 무엇입니까?**
 
-[Azure Active Directory 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 연락해 주십시오.
+[Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 연락해 주십시오.
 
 ##자동 프로비저닝은 어떻게 수행됩니까?
 
@@ -104,8 +104,8 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 
 응용 프로그램에서 자동 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램이 사용자를 만들고, 유지 관리하고, 제거하는 데 필요한 끝점을 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 앱이 이를 지원하면 Azure AD 엔지니어링 팀이 이 앱에 대한 프로비저닝 커넥터를 만들 수 있게 되며, 이러한 작업은 현재와 잠재 고객의 필요에 따라 우선 순위가 지정됩니다.
 
-추가 응용 프로그램을 위한 프로비저닝 지원을 요청하기 위해 Azure AD 엔지니어링 팀에 문의하려면 [Azure Active Directory 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 메시지를 제출하십시오.
+추가 응용 프로그램을 위한 프로비저닝 지원을 요청하기 위해 Azure AD 엔지니어링 팀에 문의하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 메시지를 제출하십시오.
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,6 +22,11 @@
 
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 0.10.1에서 0.11.0으로 마이그레이션하는 경우에는 먼저 "0.9.0에서 0.10.1로 마이그레이션" 절차를 수행한 후에 "0.10.1에서 0.11.0으로 마이그레이션" 절차를 수행해야 합니다.
 
+##3\.2.0에서 3.3.0으로
+
+### 리소스
+이 단계는 사용자 지정된 리소스에만 관련됩니다. SDK(html, 이미지, 오버레이)에서 제공되는 리소스를 사용자 지정한 경우 업그레이드된 리소스에서 사용자 지정한 내용을 업그레이드 및 다시 적용하기 전에 백업해야 합니다.
+
 ##3\.1.0에서 3.2.0으로
 
 ### 리소스
@@ -151,7 +156,7 @@ XAML 페이지 ()에서:
 
 아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다.
 
-> [Azure.IMPORTANT]Capptain과 Mobile Engagement는 같은 서비스가 아니며, 아래에서 제공하는 절차에서는 클라이언트 앱을 마이그레이션하는 방법만 중점적으로 설명합니다. 앱에서 SDK를 마이그레이션해도 데이터가 Capptain 서버에서 Mobile Engagement 서버로 마이그레이션되지는 않습니다.
+> [Azure.IMPORTANT] Capptain과 Mobile Engagement는 같은 서비스가 아니며, 아래에서 제공하는 절차에서는 클라이언트 앱을 마이그레이션하는 방법만 중점적으로 설명합니다. 앱에서 SDK를 마이그레이션해도 데이터가 Capptain 서버에서 Mobile Engagement 서버로 마이그레이션되지는 않습니다.
 
 이전 버전에서 마이그레이션하는 경우에는 Capptain 웹 사이트를 참조하여 1.1.1로 먼저 마이그레이션한 후에 다음 절차를 따르세요.
 
@@ -227,7 +232,7 @@ Capptain 리소스를 사용자 지정한 경우 이전 파일 콘텐츠를 복�
 		</engagement:EngagementPage>
 
 4. 오버레이 페이지 변경
-	> [AZURE.IMPORTANT]오버레이도 변경됩니다. 새 네임스페이스는 `Microsoft.Azure.Engagement.Overlay`입니다. xaml 및 cs 파일에서 모두 이 네임스페이스를 사용해야 합니다. 또한 `CapptainGrid` 이름은 `EngagementGrid`(으)로, `capptain_notification_content` 및 `capptain_announcement_content` 이름은 `engagement_notification_content` 및 `engagement_announcement_content`(으)로 지정됩니다.
+	> [AZURE.IMPORTANT] 오버레이도 변경됩니다. 새 네임스페이스는 `Microsoft.Azure.Engagement.Overlay`입니다. xaml 및 cs 파일에서 모두 이 네임스페이스를 사용해야 합니다. 또한 `CapptainGrid` 이름은 `EngagementGrid`(으)로, `capptain_notification_content` 및 `capptain_announcement_content` 이름은 `engagement_notification_content` 및 `engagement_announcement_content`(으)로 지정됩니다.
 	
 	오버레이의 경우 아래 코드는
 	
@@ -275,7 +280,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 ### 항목 이름 변경
 
-이름에 *capptain* 이 포함된 모든 항목은 이름에 *engagement* 를 포함하도록 지정됩니다. 마찬가지로 *Capptain* 은 *Engagement* 로 지정됩니다.
+이름에 *capptain*이 포함된 모든 항목은 이름에 *engagement*를 포함하도록 지정됩니다. 마찬가지로 *Capptain*은 *Engagement*로 지정됩니다.
 
 일반적으로 사용되는 Capptain 항목의 예제:
 
@@ -289,4 +294,4 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

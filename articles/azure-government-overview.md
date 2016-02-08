@@ -27,7 +27,7 @@ Azure Government는 속도, 규모, 보안, 규정 준수 및 경제성이 필�
 
 또한 Azure Government는 FedRAMP(United States Federal Risk and Authorization Management Program), ECSB(Department of Defense Enterprise Cloud Service Broker), CJIS(Criminal Justice Information Services) Security Policy, HIPAA(Health Insurance Portability and Accountability Act) 등의 규정에 명시된 민감한 미국 공공 부문 전용 작업에 대한 보다 높은 수준의 보안 및 규정 준수 요구 사항을 충족하도록 설계되었습니다.
 
-다음은 정부 기관이 목표를 달성하기 위해 하이브리드 클라우드 솔루션을 구축할 수 있게 도와주는 Azure 정부 인프라, 패브릭, 서비스 및 프레임워크의 요약 보기 입니다. 일반적으로 사용 가능한 가장 최근의 서비스가 나열된 [하위 지역 페이지](http://azure.microsoft.com/regions/#services)를 참조하세요.
+다음은 정부 기관이 목표를 달성하기 위해 하이브리드 클라우드 솔루션을 구축할 수 있게 도와주는 Azure 정부 인프라, 패브릭, 서비스 및 프레임워크의 요약 보기 입니다. 일반적으로 사용 가능한 가장 최근의 서비스가 나열된 [하위 지역 페이지](https://azure.microsoft.com/regions/#services)를 참조하세요.
 
 ![][2]
 
@@ -80,7 +80,7 @@ Azure 정부 서비스는 미국 정부 아이오와 및 버지니아 지역 모
 - Express 경로
 - etc.
 
-기타 서비스도 사용할 수 있으며, 계속해서 서비스가 더 추가될 예정입니다. 서비스의 최신 목록은 사용 가능한 각 지역과 해당 서비스가 강조 표시되어 있는 [지역 페이지](http://azure.microsoft.com/regions/#services)를 참조하세요.
+기타 서비스도 사용할 수 있으며, 계속해서 서비스가 더 추가될 예정입니다. 서비스의 최신 목록은 사용 가능한 각 지역과 해당 서비스가 강조 표시되어 있는 [지역 페이지](https://azure.microsoft.com/regions/#services)를 참조하세요.
 
 현재 미국 정부 아이오와 및 미국 정부 버지니아는 Azure Government를 지원하는 데이터 센터입니다. 현재 사용 가능한 데이터 센터 및 서비스에 대해서는 위의 지역 페이지를 참조하세요.
 
@@ -98,7 +98,7 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 
 - **[Azure 정부 블로그](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Azure 규정 준수](http://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Azure 규정 준수](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 
 
@@ -117,4 +117,4 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,11 +27,11 @@ Microsoft Azure 가상 컴퓨터 갤러리에는 SQL Server 설치가 포함된 
 
 Microsoft Azure 가상 컴퓨터의 SQL Server에 라이선스를 허여하는 데 다음 두 가지 방법을 사용할 수 있습니다.
 
-1. Software Assurance에 속한 라이선스 이동 혜택. 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/)을 참조하세요.
+1. Software Assurance에 속한 라이선스 이동 혜택. 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 참조하세요.
 
-1. SQL Server가 설치된 Azure 가상 컴퓨터의 시간당 요금. [가상 컴퓨터 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)의 "SQL Server" 섹션을 참조하세요.
+1. SQL Server가 설치된 Azure 가상 컴퓨터의 시간당 요금. [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)의 "SQL Server" 섹션을 참조하세요.
 
-라이선스 및 현재 요금에 대한 자세한 내용은 [가상 컴퓨터 라이선스 FAQ](http://azure.microsoft.com/pricing/licensing-faq/%20)를 참조하세요.
+라이선스 및 현재 요금에 대한 자세한 내용은 [가상 컴퓨터 라이선스 FAQ](https://azure.microsoft.com/pricing/licensing-faq/%20/)를 참조하세요.
 
 ## Azure 가상 컴퓨터 갤러리에서 사용 가능한 SQL Server 이미지
 
@@ -108,7 +108,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 
 	![SQL Server 서비스](./media/virtual-machines-sql-server-business-intelligence/IC650107.gif)
 
-	>[AZURE.NOTE]지원되는 BI 시나리오에서는 SQL Server 데이터베이스 엔진이 필요합니다. 단일 서버 VM 토폴로지에서는 데이터베이스 엔진이 동일한 VM에서 실행되어야 합니다.
+	>[AZURE.NOTE] 지원되는 BI 시나리오에서는 SQL Server 데이터베이스 엔진이 필요합니다. 단일 서버 VM 토폴로지에서는 데이터베이스 엔진이 동일한 VM에서 실행되어야 합니다.
 
 	자세한 내용은 [Reporting Services 제거](https://msdn.microsoft.com/library/hh479745.aspx) 및 [Analysis Services의 인스턴스 제거](https://msdn.microsoft.com/library/ms143687.aspx)를 참조하세요.
 
@@ -152,7 +152,7 @@ Analysis Services, Reporting Services, SQL Server 데이터베이스 엔진 및 
 
 SQL Server에 대한 가상 컴퓨터 갤러리 이미지에는 Reporting Services 기본 모드가 설치되어 있지만 보고서 서버는 구성되어 있지 않습니다. 이 섹션의 단계에서 Reporting Services 보고서 서버를 구성합니다. Reporting Services 기본 모드 구성에 대한 자세한 내용은 [Reporting Services 기본 모드 보고서 서버(SSRS)](https://msdn.microsoft.com/library/ms143711.aspx)를 참조하세요.
 
->[AZURE.NOTE]Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하는 방법과 유사한 내용은 [PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](virtual-machines-sql-server-create-native-mode-report-server-powershell.md)를 참조하세요.
+>[AZURE.NOTE] Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하는 방법과 유사한 내용은 [PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](virtual-machines-sql-server-create-native-mode-report-server-powershell.md)를 참조하세요.
 
 ### 가상 컴퓨터에 연결 및 Reporting Services 구성 관리자 시작
 
@@ -170,7 +170,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 		
 		Myservice.cloudapp.net:63133
 		
-		자세한 내용은 [클라우드 서비스란?](http://www.windowsazure.com/manage/services/cloud-services/what-is-a-cloud-service/)을 참조하세요.
+		자세한 내용은 [클라우드 서비스란?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/)을 참조하세요.
 
 **Reporting Services 구성 관리자를 시작합니다.**
 
@@ -314,7 +314,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 또는 C:\\SQLServer\_12.0\_full\\setup.exe나 C:\\SQLServer\_11.0\_full\\setup.exe를 실행합니다.
 
->[AZURE.NOTE]처음으로 SQL Server 설치 프로그램을 실행하면 더 많은 설치 파일이 다운로드될 수 있으며 가상 컴퓨터를 재부팅하고 SQL Server 설치를 다시 시작해야 할 수도 있습니다.
+>[AZURE.NOTE] 처음으로 SQL Server 설치 프로그램을 실행하면 더 많은 설치 파일이 다운로드될 수 있으며 가상 컴퓨터를 재부팅하고 SQL Server 설치를 다시 시작해야 할 수도 있습니다.
 >
 >Microsoft Azure 가상 컴퓨터에서 선택된 이미지를 반복적으로 사용자 지정해야 하는 경우 사용자 고유의 SQL Server 이미지를 생성하는 것이 좋습니다. Analysis Services SysPrep 기능은 SQL Server 2012 SP1 CU2에서 사용하도록 설정되어 있습니다. 자세한 내용은 [SysPrep을 사용하여 SQL Server 설치에 대한 고려 사항](https://msdn.microsoft.com/library/ee210754.aspx)을 참조하세요.
 
@@ -411,7 +411,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)
 
-- [가상 컴퓨터](http://azure.microsoft.com/documentation/services/virtual-machines/)
+- [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 - [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)
 
@@ -423,7 +423,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [다차원 모델링(Adventure Works 자습서)](https://technet.microsoft.com/library/ms170208.aspx)
 
-- [Azure 설명서 센터](http://azure.microsoft.com/documentation/)
+- [Azure 설명서 센터](https://azure.microsoft.com/documentation/)
 
 - [하이브리드 환경에서 Power BI 사용](https://msdn.microsoft.com/library/dn798994.aspx)
 
@@ -433,4 +433,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

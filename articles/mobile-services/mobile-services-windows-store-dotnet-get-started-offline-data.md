@@ -33,7 +33,7 @@
 
 이 자습서에서는 Azure 모바일 서비스의 오프라인 기능을 지원하도록 [모바일 서비스 시작] 자습서의 범용 앱 프로젝트를 업데이트합니다. 그런 다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 [Azure 클래식 포털]에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
 
->[AZURE.NOTE]이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
+>[AZURE.NOTE] 이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 ##필수 조건
 
@@ -44,27 +44,27 @@
 * [Azure 모바일 서비스 SDK 버전 1.3.0 이상][Mobile Services SDK Nuget]
 * [Azure 모바일 서비스 SQLite 스토어 버전 1.0.0 이상][SQLite store nuget]
 * [Windows 8.1용 SQLite](http://www.sqlite.org/download.html)
-* Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하세요.
+* Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하세요.
 
 ## <a name="enable-offline-app"></a>오프라인 기능을 지원하도록 앱 업데이트
 
 Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에서 모바일 서비스를 사용하여 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 `MobileServiceClient.SyncContext`을(를) 초기화합니다. 그런 다음 `IMobileServiceSyncTable` 인터페이스를 통해 테이블을 참조합니다. 이 자습서에서는 SQLite를 로컬 저장소로 사용합니다.
 
->[AZURE.NOTE]이 섹션을 건너뛰고 모바일 서비스용 GitHub 샘플 리포지토리의 오프라인 지원이 이미 포함된 예제 프로젝트를 가져올 수 있습니다. 오프라인 지원을 사용하도록 설정한 샘플 프로젝트는 [TodoList 오프라인 샘플]에 있습니다.
+>[AZURE.NOTE] 이 섹션을 건너뛰고 모바일 서비스용 GitHub 샘플 리포지토리의 오프라인 지원이 이미 포함된 예제 프로젝트를 가져올 수 있습니다. 오프라인 지원을 사용하도록 설정한 샘플 프로젝트는 [TodoList 오프라인 샘플]에 있습니다.
 
 1. Windows 8.1 및 Windows Phone 8.1용 SQLite 런타임을 설치합니다.
 
     * **Windows 8.1 런타임:**: [Windows 8.1용 SQLite]를 설치합니다.
     * **Windows Phone 8.1:** [Windows Phone 8.1용 SQLite]를 설치합니다.
 
-    >[AZURE.NOTE]Internet Explorer를 사용하는 경우 SQLite를 설치하기 위해 링크를 클릭하면 .vsix를 .zip 파일로 다운로드할지를 묻는 메시지가 표시될 수 있습니다. 파일을 하드 드라이브의 원하는 위치에 .zip 대신 .vsix 확장명으로 저장합니다. Windows 탐색기에서 .vsix 파일을 두 번 클릭하여 설치를 실행합니다.
+    >[AZURE.NOTE] Internet Explorer를 사용하는 경우 SQLite를 설치하기 위해 링크를 클릭하면 .vsix를 .zip 파일로 다운로드할지를 묻는 메시지가 표시될 수 있습니다. 파일을 하드 드라이브의 원하는 위치에 .zip 대신 .vsix 확장명으로 저장합니다. Windows 탐색기에서 .vsix 파일을 두 번 클릭하여 설치를 실행합니다.
 
 2. Visual Studio에서 [모바일 서비스 시작] 자습서에서 완료한 프로젝트를 엽니다. Windows 8.1 런타임 및 Windows Phone 8.1 프로젝트용 **WindowsAzure.MobileServices.SQLiteStore** NuGet 패키지를 설치합니다.
 
     * **Windows 8.1:** 솔루션 탐색기에서 Windows 8.1 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 클릭하여 NuGet 패키지 관리자를 실행합니다. **SQLiteStore**를 검색하여 `WindowsAzure.MobileServices.SQLiteStore` 패키지를 설치합니다.
     * **Windows Phone 8.1:** Windows Phone 8.1 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 클릭하여 NuGet 패키지 관리자를 실행합니다. **SQLiteStore**를 검색하여 `WindowsAzure.MobileServices.SQLiteStore` 패키지를 설치합니다.
 
-    >[AZURE.NOTE]설치에서 이전 버전의 SQLite 대한 참조를 만드는 경우 해당하는 중복 참조를 삭제할 수 있습니다.
+    >[AZURE.NOTE] 설치에서 이전 버전의 SQLite 대한 참조를 만드는 경우 해당하는 중복 참조를 삭제할 수 있습니다.
 
     ![][2]
 
@@ -183,7 +183,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
     이 예에서는 원격 `todoTable`에 있는 모든 레코드를 검색하지만 쿼리를 전달하여 레코드를 필터링할 수도 있습니다. `PullAsync`에 대한 첫 번째 매개 변수는 증분 동기화에 사용되는 쿼리 ID이며, `UpdatedAt` 타임스탬프를 사용하여 마지막 동기화 이후에 수정된 레코드만 가져옵니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `null`을(를) 쿼리 ID로 전달합니다. 그러면 각 끌어오기 작업에서 모든 레코드를 검색하므로 비효율적일 수 있습니다.
 
-    >[AZURE.NOTE]* 모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 `IMobileServiceSyncTable.PurgeAsync()`에 대해 호출하여 로컬 저장소를 제거합니다.
+    >[AZURE.NOTE] * 모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 `IMobileServiceSyncTable.PurgeAsync()`에 대해 호출하여 로컬 저장소를 제거합니다.
 
     `MobileServicePushFailedException`이(가) 푸시 및 끌어오기 작업 둘 다에 대해 발생할 수 있습니다. 끌어오기의 경우 끌어오기 작업에서 내부적으로 푸시를 수행하여 모든 테이블 및 관계가 동기화된 상태인지 확인하기 때문에 이 예외가 발생할 수 있습니다. 다음 자습서인 [모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리]에서 이러한 동기화 관련 예외를 처리하는 방법을 보여줍니다.
 
@@ -284,4 +284,4 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

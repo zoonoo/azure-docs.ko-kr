@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Android 응용 프로그램에 Azure AD 통합
@@ -404,8 +404,8 @@ ADAL이 생성하는 HTTP 트래픽을 캡처하기 위해 다양한 도구를 �
 
 Fiddler는 가장 쉬운 HTTP 추적 도구입니다. 다음 링크에서 ADAL 네트워크 트래픽을 올바르게 기록하도록 설정할 수 있습니다. 편리한 작업을 위해 fiddler 또는 Charles와 같은 다른 도구가 암호화되지 않은 SSL 트래픽을 기록하도록 구성해야 할 수 있습니다. 참고: 이 방식으로 생성된 추적에는 액세스 토큰, 사용자 이름 및 암호와 같은 높은 권한이 필요한 정보가 포함될 수 있습니다. 프로덕션 계정을 사용하는 경우 이러한 추적 정보를 제3자와 공유하지 않도록 하세요. 지원을 얻기 위해 누군가에게 추적 정보를 제공해야 하는 경우 공유해도 괜찮은 사용자 이름 및 암호를 사용한 임시 계정으로 문제를 재현하도록 합니다.
 
-+ [Android용 Fiddler 설정](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)(영문)
-+ [ADAL에 대한 Fiddler 규칙 구성](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)(영문)
++ [Android용 Fiddler 설정(영문)](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
++ [ADAL에 대한 Fiddler 규칙 구성(영문)](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
 
 
 ### 대화 상자 모드
@@ -452,6 +452,5 @@ ADAL 라이브러리에는 다음 두 ProgressDialog 메시지에 대한 영어 
 Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통해 처리되는 NTLM 대화 상자를 지원합니다. 대화 상자 레이아웃 및 문자열은 사용자 지정할 수 있습니다. # # # 5단계: iOS 네이티브 클라이언트 샘플 코드 다운로드
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

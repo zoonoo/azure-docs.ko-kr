@@ -29,7 +29,7 @@ Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, �
 
 표준 크기는 A, D, DS, G 및 GS 시리즈로 구성됩니다. 이러한 크기 중 일부에 대한 고려 사항은 다음을 포함합니다.
 
-*   D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 가상 컴퓨터 크기](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
+*   D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 가상 컴퓨터 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
 
 *   원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서에 기반하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.2GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
@@ -37,7 +37,7 @@ Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, �
 
 *   DS 시리즈 및 GS 시리즈 VM은 I/O가 많은 작업에 대한 고성능, 지연율이 낮은 저장소를 제공하는 프리미엄 저장소를 사용할 수 있습니다. 이러한 VM은 SSD(반도체 드라이브)를 사용하여 가상 컴퓨터의 디스크를 호스트하고 로컬 SSD 디스크 캐시를 제공합니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage-premium-storage-preview-portal.md)를 참조하세요.
 
-가상 컴퓨터의 크기는 가격 산정에 영향을 줍니다. 크기는 가상 컴퓨터의 처리, 메모리 및 저장소 용량에 영향을 줍니다. 저장소 비용은 저장소 계정에 사용된 페이지에 따라 개별적으로 계산됩니다. 자세한 내용은 [가상 컴퓨터 가격 세부 정보](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 저장소 가격](http://azure.microsoft.com/pricing/details/storage/)을 참조하세요. VM용 저장소에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](virtual-machines-disks-vhds.md)를 참조하세요.
+가상 컴퓨터의 크기는 가격 산정에 영향을 줍니다. 크기는 가상 컴퓨터의 처리, 메모리 및 저장소 용량에 영향을 줍니다. 저장소 비용은 저장소 계정에 사용된 페이지에 따라 개별적으로 계산됩니다. 자세한 내용은 [가상 컴퓨터 가격 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요. VM용 저장소에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](virtual-machines-disks-vhds.md)를 참조하세요.
 
 다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, �
 
 Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 성능 비교 방법을 제공합니다. 어떤 SKU가 성능 요구 사항을 충족할 가능성이 높은지 쉽게 식별하도록 합니다. ACU는 현재 100인 작은(Standard\_A1) VM에서 표준화되고 다른 SKU는 모두 SKU가 표준 벤치 마크를 얼마나 빨리 실행할 수 있는지를 나타냅니다.
 
->[AZURE.IMPORTANT]ACU는 단지 지침일 뿐입니다. 워크로드에 대한 결과가 달라질 수 있습니다.
+>[AZURE.IMPORTANT] ACU는 단지 지침일 뿐입니다. 워크로드에 대한 결과가 달라질 수 있습니다.
 
 <br>
 
@@ -79,7 +79,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 다음 표에서 제공된 크기와 용량을 표시합니다.
 
->[AZURE.NOTE]저장소 용량은 1024^3 바이트를 사용하여 GB의 측정 단위로 표시됩니다. gibibyte, 또는 기본 2 정의라고도 합니다. 다른 기본 시스템을 사용하는 크기와 비교할 때, 기본 2 크기가 기본 10보다 작게 나타날 수 있지만 특정 크기(예: 1GB)의 경우 1024 ^3이 1000^3 보다 크기 때문에 기본 2 시스템은 기본 10 시스템보다 더 많은 용량을 제공합니다.
+>[AZURE.NOTE] 저장소 용량은 1024^3 바이트를 사용하여 GB의 측정 단위로 표시됩니다. gibibyte, 또는 기본 2 정의라고도 합니다. 다른 기본 시스템을 사용하는 크기와 비교할 때, 기본 2 크기가 기본 10보다 작게 나타날 수 있지만 특정 크기(예: 1GB)의 경우 1024 ^3이 1000^3 보다 크기 때문에 기본 2 시스템은 기본 10 시스템보다 더 많은 용량을 제공합니다.
 
 <br>
 
@@ -189,4 +189,4 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

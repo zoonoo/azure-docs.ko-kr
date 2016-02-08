@@ -41,7 +41,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/libr
 ## 필수 조건
 
 
-- Azure 계정 및 구독 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 
 - 테이블을 만들 수 있는 데이터베이스.
@@ -597,4 +597,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

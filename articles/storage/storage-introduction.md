@@ -1,36 +1,36 @@
-<properties 
-	pageTitle="저장소 소개 | Microsoft Azure" 
-	description="Microsoft Azure 저장소에 대해 간략하게 소개합니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="저장소 소개 | Microsoft Azure"
+	description="클라우드의 Azure 저장소, Microsoft 온라인 데이터 저장소에 대한 개요 응용 프로그램에서 사용 가능한 최상의 클라우드 저장소 솔루션을 사용하는 방법을 알아봅니다."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
 	ms.author="tamram"/>
 
 # Microsoft Azure 저장소 소개
 
 ## 개요
 
-이 문서에서는 개발자, IT 전문가 및 비즈니스 의사 결정자를 위해 Microsoft Azure 저장소를 자세히 소개합니다. 이 문서를 읽어 보면 다음을 알게 됩니다.
+Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다. 이 문서를 통해 개발자, IT 전문가 및 비즈니스 의사 결정자는 다음에 대한 내용을 배울 수 있습니다.
 
 - Azure 저장소의 정의 및 클라우드, 모바일, 서버 및 데스크톱 응용 프로그램에서 Azure 저장소를 활용할 수 있는 방법
-- Azure 저장소 서비스로 저장할 수 있는 데이터의 종류: Blob, 테이블, 큐 및 파일 저장소
+- Azure 저장소 서비스에서 저장할 수 있는 데이터의 종류: blob(개체) 데이터, NoSQL 테이블 데이터, 큐 메시지 및 파일 공유
 - Azure 저장소의 데이터에 대한 액세스를 관리하는 방법
-- 중복 및 복제를 통해 Azure 저장소 데이터를 보호하는 방법 
+- 중복 및 복제를 통해 Azure 저장소 데이터를 보호하는 방법
 - 첫 Azure 저장소 응용 프로그램을 작성하기 위한 다음 단계
 
 Azure 저장소를 빠르게 시작하려면 [5분 내에 Azure Blob, 테이블 및 큐 시작하기](storage-getting-started-guide.md)를 참조하세요.
 
-저장소의 고급 개요를 빠르게 찾으려는 경우 여기를 확인하고, 제품 특정 개요를 찾으려는 경우 Azure Blob, Azure 테이블, Azure 큐 및 Azure 파일을 참조하세요.
+Azure 저장소 작업을 위한 도구, 라이브러리 및 기타 리소스는 아래 [다음 단계](next-steps)를 참조하세요.
 
 ## Azure 저장소란?
 
@@ -55,18 +55,18 @@ Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권�
 - 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다.
 - 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다.
 
-저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. [단일 구독으로 고유하게 명명된 저장소 계정을 최대 100개까지 만들 수 있습니다.](../azure-subscription-service-limits.md) 볼륨 가격에 대한 자세한 내용은 [저장소 가격 정보](http://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
+저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. [단일 구독으로 고유하게 명명된 저장소 계정을 최대 100개까지 만들 수 있습니다.](../azure-subscription-service-limits.md) 볼륨 가격에 대한 자세한 내용은 [저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
-[무료 평가판](http://azure.microsoft.com/pricing/free-trial/)으로 Azure를 시작할 수 있습니다. 계획을 구입하기로 결정하는 경우 다양한 [구입 옵션](http://azure.microsoft.com/pricing/purchase-options/) 중에서 선택할 수 있습니다. [MSDN 구독자](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다.
+[무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 Azure를 시작할 수 있습니다. 계획을 구입하기로 결정하는 경우 다양한 [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 중에서 선택할 수 있습니다. [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다.
 
 ### 표준 저장소 계정
 
 표준 저장소 계정은 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소에 대한 액세스 권한을 제공합니다.
 
-- **Blob 저장소**는 파일 데이터를 저장합니다. Blob은 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램 등 모든 종류의 텍스트 또는 이진 데이터일 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다. 
+- **Blob 저장소**는 파일 데이터를 저장합니다. Blob은 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램 등 모든 종류의 텍스트 또는 이진 데이터일 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다.
 - **테이블 저장소**는 구조화된 데이터 집합을 저장합니다. 테이블 저장소는 신속한 개발과 대량 데이터에 대한 빠른 액세스를 가능하게 하는 NoSQL 키-특성 데이터 저장소입니다.
-- **큐 저장소**는 워크플로 처리 및 클라우드 서비스 구성 요소 사이의 통신을 위한 안정적인 메시징을 제공합니다.
-- **파일 저장소**는 표준 SMB 프로토콜을 사용하여 레거시 응용 프로그램을 위한 공유 저장소를 제공합니다. Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 응용 프로그램은 파일 서비스 REST API를 통해 공유의 파일 데이터에 액세스할 수 있습니다. 
+- **큐 저장소**는 워크플로 처리 및 클라우드 서비스 구성 요소 사이의 통신을 위한 안정적인 메시지를 제공합니다.
+- **파일 저장소**는 표준 SMB 프로토콜을 사용하여 레거시 응용 프로그램을 위한 공유 저장소를 제공합니다. Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 응용 프로그램은 파일 서비스 REST API를 통해 공유의 파일 데이터에 액세스할 수 있습니다.
 
 각 표준 저장소 계정은 Blob, 큐, 테이블 및 파일 데이터를 합해서 최대 500TB까지 포함할 수 있습니다. 표준 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
 
@@ -86,7 +86,7 @@ Azure 프리미엄 저장소는 현재 Azure 가상 컴퓨터 디스크만 지�
 
 클라우드에 저장할 대량의 구조화되지 않은 데이터를 가진 사용자에게 Blob 저장소는 비용 효율적이고 확장성 있는 솔루션이 됩니다. Blob 저장소를 사용하여 다음과 같은 콘텐츠를 저장할 수 있습니다.
 
-- 문서 
+- 문서
 - 사진, 비디오, 음악, 블로그 등의 소셜 데이터
 - 파일, 컴퓨터, 데이터베이스 및 장치의 백업
 - 웹 응용 프로그램의 이미지 및 텍스트
@@ -155,7 +155,7 @@ Azure 저장소에 대한 요금은 사용한 저장소 용량, 선택한 복제
 
 저장소 용량은 데이터를 저장하는 데 사용하는 저장소 계정 서비스 단위가 어느 정도인지를 나타냅니다. 단순히 데이터를 저장하는 비용은 저장하는 데이터의 양과 복제 방법에 따라 결정됩니다. Azure 저장소에 대한 모든 읽기 및 쓰기 작업은 Azure 서비스에 대해 요청을 생성합니다. 데이터 송신은 Microsoft Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Microsoft Azure 서비스의 경우 프로세스 및 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.
 
-[저장소 가격 정보](http://azure.microsoft.com/pricing/details/storage/) 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](http://azure.microsoft.com/pricing/details/data-transfers/)에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기](http://azure.microsoft.com/pricing/calculator/?scenario=data-management)를 사용하여 비용을 예측할 수 있습니다.
+[저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/) 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/)에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)를 사용하여 비용을 예측할 수 있습니다.
 
 ## 저장소에 대한 개발
 
@@ -177,7 +177,7 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 ### 다운로드
 
 - [Azure 저장소 NuGet 패키지 - .NET용 클라이언트 라이브러리, Windows Phone 및 Windows 런타임](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure SDK 및 도구](http://azure.microsoft.com/downloads/)
+- [Azure SDK 및 도구](https://azure.microsoft.com/downloads/)
 - [Azure 저장소 에뮬레이터](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 - [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
@@ -187,7 +187,7 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 
 ### 설명서
 
-- [Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
+- [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 저장소 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [AzCopy 명령줄 도구 참조](storage-use-azcopy.md)
 
@@ -234,6 +234,5 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [Python에서 Blob 저장소를 사용하는 방법](storage-python-how-to-use-blob-storage.md)
 - [Python에서 테이블 저장소를 사용하는 방법](storage-python-how-to-use-table-storage.md)
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
- 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -37,7 +37,7 @@ Windows 유니버설 앱용 Mobile Engagement SDK는 다음을 대상으로 하�
 -   Windows Phone 8.1
 -   Windows 10(데스크톱 및 모바일 제품군)
 
-> [AZURE.NOTE]Windows Phone Silverlight를 대상으로 하는 경우 [Windows Phone Silverlight 통합 절차](mobile-engagement-windows-phone-integrate-engagement.md)를 참조하세요.
+> [AZURE.NOTE] Windows Phone Silverlight를 대상으로 하는 경우 [Windows Phone Silverlight 통합 절차](mobile-engagement-windows-phone-integrate-engagement.md)를 참조하세요.
 
 ## Mobile Engagement 유니버설 Apps SDK 설치
 
@@ -58,8 +58,6 @@ NuGet이 아직 UWP 응용 프로그램에서 SDK 리소스를 자동으로 배�
 3.  파일 탐색기에서 **Resources** 폴더를 Visual Studio의 프로젝트 루트에 끌어다 놓습니다.
 4.  Visual Studio에서 프로젝트를 선택하고 **솔루션 탐색기** 맨 위에서 **모든 파일 표시** 아이콘을 활성화합니다.
 5.  일부 파일이 프로젝트에 포함되지 않았습니다. 한 번에 가져오려면 **Resources** 폴더를 마우스 오른쪽 단추로 클릭하고 **프로젝트에서 제외**를 클릭한 다음 **Resources** 폴더를 다시 한 번 마우스 오른쪽 단추로 클릭하고 **프로젝트에 포함**을 다시 클릭하여 전체 폴더를 다시 포함합니다. 이제 **Resources** 폴더의 모든 파일이 프로젝트에 포함되었습니다.
-
-또한 추출된 Engagement 패키지는 *$(Solutiondir)\\Packages*에서 또는 *NuGet.config* 파일에 정의된 위치에서 찾을 수 있습니다.
 
 ## 기능 추가
 
@@ -127,7 +125,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
           InitEngagement(args);
 		}
 
-> [AZURE.IMPORTANT]응용 프로그램의 다른 위치에는 Engagement 초기화를 추가하지 않는 것이 좋습니다.
+> [AZURE.IMPORTANT] 응용 프로그램의 다른 위치에는 Engagement 초기화를 추가하지 않는 것이 좋습니다.
 
 ## 기본 보고
 
@@ -169,7 +167,7 @@ Engagement에서 사용자, 세션, 활동, 작동 중단 및 기술 통계를 �
 		  }
 		}
 
-> [AZURE.IMPORTANT]페이지가 `OnNavigatedTo` 메서드를 재정의하는 경우에는 `base.OnNavigatedTo(e)`을(를) 호출해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다.
+> [AZURE.IMPORTANT] 페이지가 `OnNavigatedTo` 메서드를 재정의하는 경우에는 `base.OnNavigatedTo(e)`을(를) 호출해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다.
 
 #### XAML 파일
 
@@ -232,7 +230,7 @@ Engagement에서 사용자, 세션, 활동, 작동 중단 및 기술 통계를 �
 			  EngagementAgent.Instance.StartActivity("MyPage");
 			}
 
-> [AZURE.IMPORTANT]세션을 올바르게 종료해야 합니다.
+> [AZURE.IMPORTANT]  세션을 올바르게 종료해야 합니다.
 > 
 > 응용 프로그램을 닫을 때 Windows 유니버설 SDK는 `EndActivity` 메서드를 자동으로 호출합니다. 따라서 사용자 활동이 변경될 때마다 `StartActivity` 메서드를 호출하는 것이 **상당히** 좋으며 `EndActivity` 메서드는 호출하지 **않는** 것이 좋습니다. 이 메서드는 현재 사용자가 응용 프로그램을 떠난 Engagement 서버에 보내며 이는 모든 응용 프로그램 로그에 영향을 미칩니다.
 
@@ -248,7 +246,7 @@ Engagement에서 사용자, 세션, 활동, 작동 중단 및 기술 통계를 �
 
 Engagement의 자동 작동 중단 보고를 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 처리되지 않은 예외 발생 시 Engagement에서 아무런 작업도 수행하지 않습니다.
 
-> [AZURE.WARNING]이 기능을 사용하지 않도록 설정하려는 경우 앱에서 처리되지 않은 작동 중단이 발생해도 Engagement에서 작동 중단을 전송하지 않으며 **또한** 세션 및 작업도 닫지 않습니다.
+> [AZURE.WARNING] 이 기능을 사용하지 않도록 설정하려는 경우 앱에서 처리되지 않은 작동 중단이 발생해도 Engagement에서 작동 중단을 전송하지 않으며 **또한** 세션 및 작업도 닫지 않습니다.
 
 자동 작동 중단 보고를 사용하지 않도록 설정하려면 구성을 선언한 방식에 따라 사용자 지정합니다.
 
@@ -279,10 +277,10 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 
 버스트 모드를 사용하는 경우 배터리 수명은 약간 길어지지만 Engagement 모니터에 영향을 주게 됩니다. 모든 세션 및 작업 기간이 버스트 임계값으로 반올림되므로 버스트 임계값보다 짧은 세션과 작업은 표시되지 않을 수도 있습니다. 30000(30초) 이하의 버스트 임계값을 사용하는 것이 좋습니다. 저장된 로드는 300개 항목으로 제한됩니다. 보내는 로그가 너무 길면 일부 로그가 손실될 수 있습니다.
 
-> [AZURE.WARNING]1초보다 짧은 기간으로 버스트 임계값을 구성할 수는 없습니다. 버스트 임계값을 1초보다 짧게 구성하면 SDK에는 오류가 포함된 추적이 표시되며, 값은 자동으로 기본값인 0초로 다시 설정됩니다. 그러면 SDK에서 실시간 로그 보고가 트리거됩니다.
+> [AZURE.WARNING] 1초보다 짧은 기간으로 버스트 임계값을 구성할 수는 없습니다. 버스트 임계값을 1초보다 짧게 구성하면 SDK에는 오류가 포함된 추적이 표시되며, 값은 자동으로 기본값인 0초로 다시 설정됩니다. 그러면 SDK에서 실시간 로그 보고가 트리거됩니다.
 
 [here]: http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

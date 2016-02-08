@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="abhisram"/>
 
 # Reliable Actors에 대한 진단 및 성능 모니터링
@@ -153,4 +153,4 @@ Reliable Actors 런타임에서는 다음과 같은 [행위자 활성화 및 비
 |ActorActivated|5|정보 제공|0x1|행위자가 활성화되었습니다.|
 |ActorDeactivated|6|정보 제공|0x1|행위자가 비활성화되었습니다.|
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

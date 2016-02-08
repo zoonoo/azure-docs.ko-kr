@@ -23,7 +23,7 @@
 - [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
+이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 클래식 배포 모델에서 템플릿을 사용할 수 없습니다.
 
@@ -58,11 +58,11 @@ Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI �
 
 ### Azure 계정 및 구독 설정
 
-Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화할 수 있습니다. 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화할 수 있습니다. 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 이제 `azure login`를 입력하여 [Azure 계정에 대화식으로 로그인](../xplat-cli-connect.md#use-the-log-in-method)하고 Azure 계정의 대화식 로그인 환경에 대한 메시지를 따릅니다.
 
-> [AZURE.NOTE]회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](resource-group-create-work-id-from-personal.md) 있습니다.
+> [AZURE.NOTE] 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](resource-group-create-work-id-from-personal.md) 있습니다.
 
 계정에는 둘 이상의 구독이 있을 수 있습니다. `azure account list`를 입력하여 구독을 나열할 수 있으며, 다음과 같이 표시될 수 있습니다.
 
@@ -124,7 +124,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure 리소스
 
 두 번째로 이미지가 필요합니다. Azure CLI를 사용하여 이미지를 찾으려면 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](resource-groups-vm-searching.md)을 참조하세요. 그러나 이 문서에서는 다음과 같이 많이 사용되는 간단한 이미지 목록을 제공합니다. 이 quick-create에서는 CoreOS의 Stable 이미지를 사용합니다.
 
-> [AZURE.NOTE]ComputeImageVersion의 경우, 템플릿 언어 및 Azure CLI 모두에서 매개 변수로 단순히 '최신'을 제공할 수도 있습니다. 이렇게 하면 사용자 스크립트 또는 템플릿을 수정하지 않고도 최신 및 패치가 적용된 버전의 이미지를 항상 사용할 수 있습니다. 다음과 같습니다.
+> [AZURE.NOTE] ComputeImageVersion의 경우, 템플릿 언어 및 Azure CLI 모두에서 매개 변수로 단순히 '최신'을 제공할 수도 있습니다. 이렇게 하면 사용자 스크립트 또는 템플릿을 수정하지 않고도 최신 및 패치가 적용된 버전의 이미지를 항상 사용할 수 있습니다. 다음과 같습니다.
 
 | PublisherName | 제안 | SKU | 버전 |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
@@ -1171,7 +1171,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
     data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
 
-이 템플릿은 Windows Server 이미지를 배포하지만 Linux 이미지로 간단하게 대체할 수 있습니다. 여러 swarm 관리자로 Docker Cluster를 만들려고 하시나요? [가능합니다](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+이 템플릿은 Windows Server 이미지를 배포하지만 Linux 이미지로 간단하게 대체할 수 있습니다. 여러 swarm 관리자로 Docker Cluster를 만들려고 하시나요? [가능합니다](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 ## <a id="remove-a-resource-group"></a>작업: 리소스 그룹 제거
 
@@ -1264,7 +1264,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
     info:    vm show command OK
 
 
-> [AZURE.NOTE]콘솔 명령의 출력을 프로그래밍 방식으로 저장하고 조작하려는 경우 **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** 또는 작업에 적합한 언어 라이브러리 같은 JSON 구문 분석 도구를 사용할 수 있습니다.
+> [AZURE.NOTE] 콘솔 명령의 출력을 프로그래밍 방식으로 저장하고 조작하려는 경우 **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** 또는 작업에 적합한 언어 라이브러리 같은 JSON 구문 분석 도구를 사용할 수 있습니다.
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>작업: Linux 기반 가상 컴퓨터에 로그온
 
@@ -1276,7 +1276,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]해당 vnet의 마지막 VM인 경우 이 매개 변수를 사용하여 vnet의 VIP(가상 IP)를 유지합니다. <br><br> `StayProvisioned` 매개 변수를 사용하는 경우에도 VM에 대한 요금이 청구됩니다.
+>[AZURE.IMPORTANT] 해당 vnet의 마지막 VM인 경우 이 매개 변수를 사용하여 vnet의 VIP(가상 IP)를 유지합니다. <br><br> `StayProvisioned` 매개 변수를 사용하는 경우에도 VM에 대한 요금이 청구됩니다.
 
 ## <a id="start-a-virtual-machine"></a>작업: VM 시작
 
@@ -1303,6 +1303,6 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 **arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리자에 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
-사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
+사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

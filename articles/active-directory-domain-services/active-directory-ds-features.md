@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)*
@@ -39,10 +39,10 @@
 
 - **그룹 정책:** 사용자 계정과 도메인에 가입한 컴퓨터에 대해 필수 보안 정책을 준수하도록 하기 위해 사용자 및 컴퓨터 컨테이너마다 단일 기본 제공 GPO를 활용할 수 있습니다.
 
-- **여러 Azure 지역에서 사용 가능:** Azure AD 도메인 서비스를 사용할 수 있는 Azure 지역의 목록은 [지원되는 Azure 지역](active-directory-ds-regions.md) 페이지를 참조하세요.
+- **여러 Azure 지역에서 사용 가능:** Azure AD 도메인 서비스를 사용할 수 있는 Azure 지역의 목록을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
 
 - **고가용성:** Azure AD 도메인 서비스는 도메인에 고가용성을 제공합니다. 이에 따라 향상된 서비스 가동 시간과 오류 복원 기능이 보장됩니다. 기본 제공 상태 모니터링은 새 인스턴스를 생성하여 실패한 인스턴스를 대체하고 도메인에 연속 서비스를 제공하는 방법으로 오류에 대한 자동 수정 기능을 제공합니다.
 
 - **익숙한 관리 도구 사용:** Azure AD 도메인 서비스에서 제공하는 도메인을 관리하기 위해 Active Directory 관리 센터 또는 Active Directory PowerShell과 같은 익숙한 Windows Server Active Directory 관리 도구를 사용할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

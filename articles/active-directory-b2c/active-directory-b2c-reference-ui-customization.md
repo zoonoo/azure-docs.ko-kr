@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: Azure AD B2C 사용자 인터페이스(UI)를 사용자 지정하는 방법
 
 사용자 환경은 소비자 지향 응용 프로그램에서 가장 중요합니다. 좋은 응용 프로그램과 훌륭한 응용 프로그램, 그저 활발한 소비자와 진정으로 참여하는 소비자 간의 차이점입니다. Azure Active Directory(AD) B2C를 사용하면 픽셀을 완벽하게 제어하여 소비자 등록, 로그인(*아래 참고를 참조*) 및 프로필 편집 페이지를 사용자 지정할 수 있습니다.
 
-> [AZURE.NOTE]현재 로컬 계정 로그인 페이지, 확인 전자 메일 및 셀프 서비스 암호 재설정 페이지는 이 문서에서 설명하는 메커니즘이 아닌 [회사 브랜딩 기능](./active-directory/active-directory-add-company-branding.md)을 사용하여 사용자 지정할 수 있습니다.
+> [AZURE.NOTE]
+현재 로컬 계정 로그인 페이지, 확인 전자 메일 및 셀프 서비스 암호 재설정 페이지는 이 문서에서 설명하는 메커니즘이 아닌 [회사 브랜딩 기능](./active-directory/active-directory-add-company-branding.md)을 사용하여 사용자 지정할 수 있습니다.
 
 이 문서에서는 다음에 대해 읽습니다.
 
@@ -45,7 +46,8 @@ Azure Blob 저장소에서 호스팅되는 샘플 HTML 및 CSS 콘텐츠를 사�
 
 아래 섹션에는 Azure AD B2C가 콘텐츠의 <div id="api"></div> 요소에 병합하는 각 페이지 형식에 대한 HTML5 조각의 예가 있습니다. 사용자 고유의 스타일시트를 사용하여 이러한 UI 요소를 사용자 지정할 수 있습니다. 이러한 스타일시트는 <head> 조각에서 해당 페이지에 추가하는 기본 스타일시트를 재정의해야 합니다.
 
-> [AZURE.IMPORTANT]미리 보기를 하는 동안 여러분의 의견에서 학습하고 적용한 대로 변경할 정확한 UI 요소가 필요합니다. 항상 기본 페이지의 소스 코드에서 최신 업데이트를 검사합니다. 실제로 고려되는 첫 번째 변경 내용은 기본 스타일시트 제거입니다. 즉, 콘텐츠에서 이러한 UI 요소에 대한 사용자 고유의 스타일시트를 항상 제공해야 합니다.
+> [AZURE.IMPORTANT]
+	미리 보기를 하는 동안 여러분의 의견에서 학습하고 적용한 대로 변경할 정확한 UI 요소가 필요합니다. 항상 기본 페이지의 소스 코드에서 최신 업데이트를 검사합니다. 실제로 고려되는 첫 번째 변경 내용은 기본 스타일시트 제거입니다. 즉, 콘텐츠에서 이러한 UI 요소에 대한 사용자 고유의 스타일시트를 항상 제공해야 합니다.
 
 ## ID 공급자 선택 페이지
 
@@ -57,7 +59,7 @@ Azure Blob 저장소에서 호스팅되는 샘플 HTML 및 CSS 콘텐츠를 사�
 	<div class="intro">
          <p>Sign up</p>
 	</div>
-	
+
 	<div>
 		<ul>
 			<li>
@@ -81,21 +83,21 @@ Azure Blob 저장소에서 호스팅되는 샘플 HTML 및 CSS 콘텐츠를 사�
 
 ```HTML
 
-<div id="api" data-name="SelfAsserted"> 
-	<div class="intro"> 
+<div id="api" data-name="SelfAsserted">
+	<div class="intro">
 		<p>Create your account by providing the following details</p>
 	</div>
-	
-	<div id="attributeVerification"> 
+
+	<div id="attributeVerification">
 		<div class="errorText" id="passwordEntryMismatch" style="display: none;">The password entry fields do not match. Please enter the same password in both fields and try again.</div>
 		<div class="errorText" id="requiredFieldMissing" style="display: none;">A required field is missing. Please fill out all required fields and try again.</div>
 		<div class="errorText" id="fieldIncorrect" style="display: none;">One or more fields are filled out incorrectly. Please check your entries and try again.</div>
 		<div class="errorText" id="claimVerificationServerError" style="display: none;"></div>
-		<div class="attr" id="attributeList"> 
+		<div class="attr" id="attributeList">
 			<ul>
-				<li> 
+				<li>
 					<div class="attrEntry validate">
-						<div> 
+						<div>
 							<div class="verificationInfoText" id="email_intro" style="display: inline;">Verification is necessary. Please click Send button.</div>
 							<div class="verificationInfoText" id="email_info" style="display:none">Verification code has been sent to your inbox. Please copy it to the input box below.</div>
 							<div class="verificationSuccessText" id="email_success" style="display:none">E-mail address verified. You can now continue.</div>
@@ -109,40 +111,40 @@ Azure Blob 저장소에서 호스팅되는 샘플 HTML 및 CSS 콘텐츠를 사�
 						<label>Email</label>
 						<input id="email" class="textInput" type="text" placeholder="Email" required="" autofocus=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Email address that can be used to contact you.');" class="tiny">What is this?</a>
 
-					<div class="buttons verify" claim_id="email"> 
+					<div class="buttons verify" claim_id="email">
 						<div id="email_ver_wait" class="working" style="display: none;"></div>
-							<label id="email_ver_input_label" for="email_ver_input" style="display: none;">Verification code</label> 
+							<label id="email_ver_input_label" for="email_ver_input" style="display: none;">Verification code</label>
 							<input id="email_ver_input" type="text" placeholder="Verification code" style="display:none">
 							<button id="email_ver_but_send" class="sendButton" type="button" style="display: inline;">Send verification code</button>
 							<button id="email_ver_but_verify" class="verifyButton" type="button" style="display:none">Verify code</button>
 							<button id="email_ver_but_resend" class="sendButton" type="button" style="display:none">Send new code</button>
 							<button id="email_ver_but_edit" class="editButton" type="button" style="display:none">Change e-mail</button>
-							<button id="email_ver_but_default" class="defaultButton" type="button" style="display:none">Default</button> 
+							<button id="email_ver_but_default" class="defaultButton" type="button" style="display:none">Default</button>
 						</div>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .This information is required</div>
 						<label>Enter password</label>
 						<input id="password" class="textInput" type="password" placeholder="Enter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title="8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ "; ( ) ; ." required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Enter password');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"> This information is required</div>
 						<label>Reenter password</label>
 						<input id="reenterPassword" class="textInput" type="password" placeholder="Reenter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title=" " required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Reenter password');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">This information is required</div>
 						<label>Name</label>
 						<input id="displayName" class="textInput" type="text" placeholder="Name" required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Your display name.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>Gender</label>
@@ -153,14 +155,14 @@ Azure Blob 저장소에서 호스팅되는 샘플 HTML 및 CSS 콘텐츠를 사�
 						<a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>Loyalty number</label>
 						<input id="extension_MemNum" class="textInput" type="text" placeholder="Loyalty number"><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Membership number');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>State</label>
@@ -173,18 +175,18 @@ Azure Blob 저장소에서 호스팅되는 샘플 HTML 및 CSS 콘텐츠를 사�
 						<a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Your residential state or province.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">This information is required</div>
 						<label>Zip code</label>
 						<input id="postalCode" class="textInput" type="text" placeholder="Zip code" required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('The postal code of your address.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-			</ul> 
+			</ul>
 		</div>
 		<div class="buttons"> <button id="continue" disabled="">Create</button> <button id="cancel">Cancel</button></div>
 	</div>
-	<div class="verifying-modal"> 
+	<div class="verifying-modal">
 		<div class="preloader"> <img src="https://login.microsoftonline.com/static/img/win8loader.gif" alt="Please wait"></div>
 		<div id="verifying_blurb"></div>
 	</div>
@@ -265,7 +267,7 @@ Azure Blob 저장소에서 호스팅되는 샘플 HTML 및 CSS 콘텐츠를 사�
 페이지 UI 사용자 지정 기능을 사용하려는 경우 다음 모범 사례를 검토하세요.
 
 - Azure AD B2C의 기본 템플릿을 덮어 쓰거나 수정하려 하지 마세요. 처음부터 HTML5 콘텐츠를 작성하고 기본 템플릿을 참조로 사용하는 것이 가장 좋습니다.
-- 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다. 필요한 것은 대부분 독창적으로 사용 가능해야 합니다. 그렇지 않은 경우 [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 새로운 기능을 요청합니다.
+- 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다. 필요한 것은 대부분 독창적으로 사용 가능해야 합니다. 그렇지 않은 경우 [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 새로운 기능을 요청합니다.
 - 지원되는 브라우저 버전:
 	- Internet Explorer 11
 	- Internet Explorer 10
@@ -276,4 +278,4 @@ Azure Blob 저장소에서 호스팅되는 샘플 HTML 및 CSS 콘텐츠를 사�
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

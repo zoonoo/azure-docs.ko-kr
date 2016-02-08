@@ -47,7 +47,7 @@ Azure 서비스 버스는 신뢰할 수 있는 메시지 큐 및 지속형 게�
 
 ## 코드 표시
 
-[서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서는 서비스 버스 계정에 등록하고 서비스 네임스페이스를 만드는 방법을 설명합니다. 서비스 버스 네임스페이스를 사용하려면 특히 Microsoft.ServiceBus.dll 등, 응용 프로그램이 서비스 버스 어셈블리를 참조해야 합니다. 서비스 버스 종속성을 참조하는 가장 쉬운 방법은 서비스 버스 [Nuget 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)를 설치하는 것입니다. 또한 Azure SDK의 일부로 어셈블리를 찾을 수 있습니다. 이 다운로드는 [Azure SDK 다운로드 페이지](http://azure.microsoft.com/downloads/)에서 제공합니다.
+[서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)에서는 서비스 버스 계정에 등록하고 서비스 네임스페이스를 만드는 방법을 설명합니다. 서비스 버스 네임스페이스를 사용하려면 특히 Microsoft.ServiceBus.dll 등, 응용 프로그램이 서비스 버스 어셈블리를 참조해야 합니다. 서비스 버스 종속성을 참조하는 가장 쉬운 방법은 서비스 버스 [Nuget 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)를 설치하는 것입니다. 또한 Azure SDK의 일부로 어셈블리를 찾을 수 있습니다. 이 다운로드는 [Azure SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 제공합니다.
 
 ### 토픽 및 구독 만들기
 
@@ -150,4 +150,4 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 POS 유통업 시나리오에서 큐를 사용하는 방법에 대한 정보는 [서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

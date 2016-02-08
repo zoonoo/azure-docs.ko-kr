@@ -116,19 +116,25 @@
 모든 코드를 작성하기 전에 파티션 및 파티션 키에 대해 생각해야 합니다. 알파벳의 각 문자로 26개의 파티션이 필요하지만 하위 키 및 상위 키는 어떻게 해야 할까요? 문자 그대로 문자당 하나의 파티션을 가지려 하기 때문에 각 문자는 해당 키이므로 하위 키로 0을, 상위 키로 25를 사용할 수 있습니다.
 
 
->[AZURE.NOTE]실제로는 균등하게 분산되지 않으므로 여기서는 간소화된 시나리오를 사용합니다. 문자 "S" 또는 "M"으로 시작하는 성이 "X" 또는 "Y"로 시작하는 성보다 더 많습니다.
+>[AZURE.NOTE] 실제로는 균등하게 분산되지 않으므로 여기서는 간소화된 시나리오를 사용합니다. 문자 "S" 또는 "M"으로 시작하는 성이 "X" 또는 "Y"로 시작하는 성보다 더 많습니다.
 
 
 1. **Visual Studio** > **파일** > **새로 만들기** > **프로젝트**를 엽니다.
 2. **새 프로젝트** 대화 상자에서 서비스 패브릭 응용 프로그램을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
-4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 아래 이미지에 표시된 것처럼 "Alphabet.Processing"으로 지정합니다. ![상태 저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 아래 이미지에 표시된 것처럼 "Alphabet.Processing"으로 지정합니다.
+
+    ![상태 저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+
 5. 파티션 수를 설정합니다. AlphabetPartitions 프로젝트에서 ApplicationManifest.xml 파일을 열고 아래와 같이 매개 변수 Processing\_PartitionCount를 26으로 업데이트합니다.
 
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    또한 아래와 같이 StatefulService 요소의 LowKey 및 HighKey 속성을 업데이트해야 합니다. ```xml
+    
+    또한 아래와 같이 StatefulService 요소의 LowKey 및 HighKey 속성을 업데이트해야 합니다.
+    
+    ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[Processing_PartitionCount]" LowKey="0" HighKey="25" />
@@ -146,84 +152,93 @@
 
 7. 다음으로 처리 클래스의 `CreateServiceReplicaListeners()` 메서드를 재정의해야 합니다.
 
-    >[AZURE.NOTE]이 샘플의 경우 간단한 HttpCommunicationListener를 사용하고 있다고 가정합니다. Reliable Services 통신에 대한 자세한 내용은 [Reliable Services 통신 모델](service-fabric-reliable-services-communication.md)을 참조하세요.
+    >[AZURE.NOTE] 이 샘플의 경우 간단한 HttpCommunicationListener를 사용하고 있다고 가정합니다. Reliable Services 통신에 대한 자세한 내용은 [Reliable Services 통신 모델](service-fabric-reliable-services-communication.md)을 참조하세요.
 
 8. 복제본이 수신하는 URL에 대한 권장 패턴은 `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}` 형식입니다. 따라서 통신 수신기가 올바른 끝점에서 이 패턴을 사용하여 수신하도록 구성해야 합니다.
 
-이 서비스의 여러 복제본은 동일한 컴퓨터에서 호스팅될 수 있으므로 이 주소가 복제본에 고유해야 합니다. 이 때문에 URL에 파티션 ID와 복제본 ID가 있습니다. HttpListener는 URL 접두사가 고유하기만 하면 동일한 포트에서 여러 주소를 수신할 수 있습니다.
+    이 서비스의 여러 복제본은 동일한 컴퓨터에서 호스팅될 수 있으므로 이 주소가 복제본에 고유해야 합니다. 이 때문에 URL에 파티션 ID와 복제본 ID가 있습니다. HttpListener는 URL 접두사가 고유하기만 하면 동일한 포트에서 여러 주소를 수신할 수 있습니다.
 
-추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. '+'는 여기에서 주소로 사용되어 복제본은 모든 사용 가능한 호스트(IP, FQDM, localhost 등)를 수신합니다. 아래 코드는 예제를 보여 줍니다.
+    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. '+'는 여기에서 주소로 사용되어 복제본은 모든 사용 가능한 호스트(IP, FQDM, localhost 등)를 수신합니다. 아래 코드는 예제를 보여 줍니다.
 
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-            return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
+        return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
     }
     private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
     {
         EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
 
         string uriPrefix = String.Format(
-                "{0}://+:{1}/{2}/{3}-{4}/",
-                internalEndpoint.Protocol,
-                internalEndpoint.Port,
-                this.ServiceInitializationParameters.PartitionId,
-                this.ServiceInitializationParameters.ReplicaId,
-                Guid.NewGuid());
+            "{0}://+:{1}/{2}/{3}-{4}/",
+            internalEndpoint.Protocol,
+            internalEndpoint.Port,
+            this.ServiceInitializationParameters.PartitionId,
+            this.ServiceInitializationParameters.ReplicaId,
+            Guid.NewGuid());
 
         string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
         string uriPublished = uriPrefix.Replace("+", nodeIP);
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
     }
     ```
-게시된 URL은 수신 대기 URL 접두사와 약간 다릅니다. 수신 대기 URL이 HttpListener에 제공됩니다. 게시된 URL은 서비스 검색에 사용되는 서비스 패브릭 이름 명명 서비스에 게시된 URL입니다. 클라이언트는 해당 검색 서비스를 통해 이 주소에 대해 요청합니다. 클라이언트가 가져오는 주소에 연결하려면 노드의 실제 IP 또는 FQDN이 필요합니다. 따라서 아래와 같이 '+'를 노드의 IP 또는 FQDN으로 바꿔야 합니다. 9. 마지막 단계는 아래와 같이 서비스에 처리 논리를 추가하는 것입니다.
+
+    게시된 URL은 수신 대기 URL 접두사와 약간 다릅니다. 수신 대기 URL이 HttpListener에 제공됩니다. 게시된 URL은 서비스 검색에 사용되는 서비스 패브릭 이름 명명 서비스에 게시된 URL입니다. 클라이언트는 해당 검색 서비스를 통해 이 주소에 대해 요청합니다. 클라이언트가 가져오는 주소에 연결하려면 노드의 실제 IP 또는 FQDN이 필요합니다. 따라서 아래와 같이 '+'를 노드의 IP 또는 FQDN으로 바꿔야 합니다.
+    
+9. 마지막 단계는 아래와 같이 서비스에 처리 논리를 추가하는 것입니다.
 
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-          string output = null;
-          string user = context.Request.QueryString["lastname"].ToString();
+        string output = null;
+        string user = context.Request.QueryString["lastname"].ToString();
 
-          try
-          {
-              output = await this.AddUserAsync(user);
-          }
-          catch (Exception ex)
-          {
-              output = ex.Message;
-          }
+        try
+        {
+            output = await this.AddUserAsync(user);
+        }
+        catch (Exception ex)
+        {
+            output = ex.Message;
+        }
 
-          using (HttpListenerResponse response = context.Response)
-          {
-              if (output != null)
-              {
-                  byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                  response.OutputStream.Write(outBytes, 0, outBytes.Length);
-              }
-          }
-      }
-      private async Task<string> AddUserAsync(string user)
-      {
-          IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
+        using (HttpListenerResponse response = context.Response)
+        {
+            if (output != null)
+            {
+                byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                response.OutputStream.Write(outBytes, 0, outBytes.Length);
+            }
+        }
+    }
+    private async Task<string> AddUserAsync(string user)
+    {
+        IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
 
-          using (ITransaction tx = this.StateManager.CreateTransaction())
-          {
-              bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
+        using (ITransaction tx = this.StateManager.CreateTransaction())
+        {
+            bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
 
-              await tx.CommitAsync();
+            await tx.CommitAsync();
 
-              return String.Format(
-                  "User {0} {1}",
-                  user,
-                  addResult ? "sucessfully added" : "already exists");
-          }
-      }
+            return String.Format(
+                "User {0} {1}",
+                user,
+                addResult ? "sucessfully added" : "already exists");
+        }
+    }
     ```
+        
+    `ProcessInternalRequest`는 파티션을 호출하는 데 사용되는 쿼리 문자열 매개 변수의 값을 읽고 신뢰할 수 있는 사전 `dictionary`에 성을 추가하도록 `AddUserAsync`를 호출합니다.
+    
+10. 특정 파티션을 호출할 수 있는 방법을 보도록 프로젝트에 상태 비저장 서비스를 추가하겠습니다.
 
-    `ProcessInternalRequest`는 파티션을 호출하는 데 사용되는 쿼리 문자열 매개 변수의 값을 읽고 신뢰할 수 있는 사전 `m_name`에 성을 추가하도록 `AddUserAsync`를 호출합니다.
-
-10. 특정 파티션을 호출할 수 있는 방법을 보도록 프로젝트에 상태 비저장 서비스를 추가하겠습니다. 이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
-11. **서비스 만들기** 대화 상자에서 **상태 비저장** 서비스를 선택하고 아래와 같이 Alphabet.WebApi로 지정합니다. ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
+    이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
+    
+11. **서비스 만들기** 대화 상자에서 **상태 비저장** 서비스를 선택하고 아래와 같이 Alphabet.WebApi로 지정합니다.
+    
+    ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
+    
 12. Alphabet.WebApi 서비스의 ServiceManifest.xml에서 끝점 정보를 업데이트하여 아래와 같이 포트를 엽니다.
 
     ```xml
@@ -235,62 +250,64 @@
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-           return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
+        return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
     }
     private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
     {
-           // Service instance's URL is the node's IP & desired port
-           EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
-           string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
-           var uriPublished = uriPrefix.Replace("+", m_nodeIP);
-           return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
-     }
-     ```
+        // Service instance's URL is the node's IP & desired port
+        EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
+        string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
+        var uriPublished = uriPrefix.Replace("+", m_nodeIP);
+        return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
+    }
+    ```
+     
 14. 이제 처리 논리를 구현해야 합니다. HttpCommunicationListener는 요청이 들어올 때 `ProcessInputRequest`를 호출합니다. 따라서 계속해서 아래 코드를 추가합니다.
 
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-           String output = null;
-           try
-           {
-               string lastname = context.Request.QueryString["lastname"];
-               char firstLetterOfLastName = lastname.First();
-               int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+        String output = null;
+        try
+        {
+            string lastname = context.Request.QueryString["lastname"];
+            char firstLetterOfLastName = lastname.First();
+            int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
 
-               ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
-               ResolvedServiceEndpoint ep = partition.GetEndpoint();
-               JObject addresses = JObject.Parse(ep.Address);
-               string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+            ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
+            ResolvedServiceEndpoint ep = partition.GetEndpoint();
+            JObject addresses = JObject.Parse(ep.Address);
+            string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
 
-               UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
-               primaryReplicaUriBuilder.Query = "lastname=" + lastname;
+            UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
+            primaryReplicaUriBuilder.Query = "lastname=" + lastname;
 
-               string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
+            string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
 
-               output = String.Format(
-               "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
-               result,
-               partitionKey,
-               firstLetterOfLastName,
-               lastname,
-               partition.Info.Id,
-               primaryReplicaAddress);
+            output = String.Format(
+                    "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
+                    result,
+                    partitionKey,
+                    firstLetterOfLastName,
+                    lastname,
+                    partition.Info.Id,
+                    primaryReplicaAddress);
+        }
+        catch (Exception ex) { output = ex.Message; }
+        
+        using (var response = context.Response)
+        {
+            if (output != null)
+            {
+                output = output + "added to Partition: " + primaryReplicaAddress;
+                byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                response.OutputStream.Write(outBytes, 0, outBytes.Length);
+            }
+        }
     }
-    catch (Exception ex) { output = ex.Message; }
-    using (var response = context.Response)
-    {
-               if (output != null)
-               {
-                   output = output + "added to Partition: " + primaryReplicaAddress;
-                   byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                   response.OutputStream.Write(outBytes, 0, outBytes.Length);
-               }
-           }
-      }
-      ```
+    ```
 
-    단계 별로 안내하겠습니다. T코드는 쿼리 문자열 매개 변수 `lastname`의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 hex 값에서 `A`의 hex 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
+    단계 별로 안내하겠습니다. 코드는 쿼리 문자열 매개 변수 `lastname`의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 16진수 값에서 `A`의 16진수 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
 
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
@@ -330,11 +347,16 @@
     <Parameters>
       <Parameter Name="Processing_PartitionCount" Value="26" />
       <Parameter Name="WebApi_InstanceCount" Value="1" />
-  </Parameters>
-  ```
+    </Parameters>
+    ```
 
-16. 배포가 완료되면 서비스 패브릭 탐색기에서 서비스 및 모든 해당 파티션을 확인할 수 있습니다. ![서비스 패브릭 탐색기 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. 브라우저에서 `http://localhost:8090/?lastname=somename`을 입력하여 분할 논리를 테스트할 수 있습니다. 동일한 문자로 시작하는 각 성이 동일한 파티션에 저장되는 것을 확인할 수 있습니다. ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. 배포가 완료되면 서비스 패브릭 탐색기에서 서비스 및 모든 해당 파티션을 확인할 수 있습니다.
+    
+    ![서비스 패브릭 탐색기 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+    
+17. 브라우저에서 `http://localhost:8090/?lastname=somename`을 입력하여 분할 논리를 테스트할 수 있습니다. 동일한 문자로 시작하는 각 성이 동일한 파티션에 저장되는 것을 확인할 수 있습니다.
+    
+    ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)에서 확인할 수 있습니다.
 
@@ -350,4 +372,4 @@
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

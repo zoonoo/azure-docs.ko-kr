@@ -69,7 +69,7 @@ Application Insights는 다시 작성하지 않는 기존 ASP.NET 웹앱으로�
 
 SDK에는 사용자, 세션 및 성능을 계산하는 모듈을 비롯하여 원격 분석을 수집하는 여러 모듈이 있습니다. 또한 포털에 원격 분석 데이터를 보내도록 사용자 지정 코드를 작성할 수도 있습니다. 사용자 지정 원격 분석은 사용자 스토리를 추적할 때 특히 유용합니다. 단추 클릭, 특정 목표 달성, 사용자 실수 등의 이벤트를 계산할 수 있습니다.
 
-ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [상태 모니터][redfield]도 설치할 수 있습니다. 상태 모니터의 기능은 다음과 같습니다.
+ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상태 모니터][redfield]도 설치할 수 있습니다. 상태 모니터의 기능은 다음과 같습니다.
 
 * 웹앱을 다시 작성하거나 다시 설치하지 않고 모니터링합니다.
 * 종속 모듈에 대한 호출을 추적합니다.
@@ -86,7 +86,7 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
 1. [Microsoft Azure](http://azure.com)를 구독해야 합니다. Application Insights의 무료 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)을 선택하여 무료로 등록할 수 있습니다.
 
-2. [Azure 포털](http://portal.azure.com) 로그인
+2. [Azure 포털](https://portal.azure.com) 로그인
 3. Application Insights 리소스 만들기 이곳에서 응용 프로그램의 데이터를 볼 수 있습니다.
 
     ![새로 만들기, 개발자 서비스, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -151,4 +151,4 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

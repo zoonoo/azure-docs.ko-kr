@@ -20,7 +20,7 @@
 Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 RemoteApp 템플릿 이미지를 만들려면 기존 이미지에서 시작하거나 새 이미지를 만듭니다.
 
 
-> [AZURE.TIP]Azure VM에서 이미지를 만들 수 있다는 것을 알고 있나요? 이 방법을 사용하면 이미지를 가져오는 데 소요되는 시간을 크게 줄일 수 있습니다. [여기](remoteapp-image-on-azurevm.md)서 단계를 확인하세요.
+> [AZURE.TIP] Azure VM에서 이미지를 만들 수 있다는 것을 알고 있나요? 이 방법을 사용하면 이미지를 가져오는 데 소요되는 시간을 크게 줄일 수 있습니다. [여기](remoteapp-image-on-azurevm.md)서 단계를 확인하세요.
 
 Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
 
@@ -43,7 +43,7 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 
 서비스를 만들기 전에 다음을 수행해야 합니다.
 
-- RemoteApp에 [등록](http://azure.microsoft.com/services/remoteapp/)합니다.
+- RemoteApp에 [등록](https://azure.microsoft.com/services/remoteapp/)합니다.
 - RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다. 자세한 내용은 [RemoteApp에 대해 Azure Active Directory 구성](remoteapp-ad.md)을 참조하세요.
 - 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
 - [Azure PowerShell](../install-configure-powershell.md) 모듈을 설치합니다.
@@ -142,4 +142,4 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 - [RemoteApp의 클라우드 컬렉션을 만드는 방법](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

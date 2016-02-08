@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # 디렉터리 통합 도구 비교
 
 디렉터리 통합 도구는 수년에 걸쳐 성장하고 발전했습니다. 이 문서는 이러한 도구에 대한 통합 뷰와 각각에서 사용할 수 있는 기능에 대한 비교를 제공하는데 도움이 됩니다.
 
->[AZURE.NOTE]Azure AD Connect는 이전에 DirSync 및 AAD 동기화로 릴리스된 구성 요소와 기능을 통합합니다. 이러한 도구는 이제 개별적으로 릴리스되지 않습니다. 향후의 모든 향상 기능은 Azure AD Connect 업데이트에 포함되므로, 최신 기능을 구할 위치를 항상 알 수 있습니다.
+>[AZURE.NOTE] Azure AD Connect는 이전에 DirSync 및 AAD 동기화로 릴리스된 구성 요소와 기능을 통합합니다. 이러한 도구는 이제 개별적으로 릴리스되지 않습니다. 향후의 모든 향상 기능은 Azure AD Connect 업데이트에 포함되므로, 최신 기능을 구할 위치를 항상 알 수 있습니다.
 >
 >현재는 디렉터리 동기화가 계속 지원되지만 이후 특정 시점이 되면 더 이상 사용되지 않을 것입니다. 더 이상 사용되지 않게 되면 특정 기간 동안만 지원됩니다. 해당 기간 후에는 디렉터리 동기화 지원이 종료됩니다.
 
@@ -91,4 +91,4 @@ AD에서 Azure AD로의 흐름에서 특성 제거 허용 | ● | ● | |
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

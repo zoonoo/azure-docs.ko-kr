@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure 자동화의 연결 자산
@@ -21,7 +21,7 @@
 
 연결을 만들 때 *연결 형식*을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈에서 Azure 자동화에 추가되거나 [Azure 자동화 API](http://msdn.microsoft.com/library/azure/mt163818.aspx)를 사용하여 만들어집니다. 연결을 만들 때 사용할 수 있는 연결 형식만 자동화 계정에 설치됩니다.
 
->[AZURE.NOTE]Azure 자동화의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure 자동화에 저장됩니다. 이 키는 마스터 인증서로 암호화되어 Azure 자동화에 저장됩니다. 자동화 계정에 대한 키는 보안 자산을 저장하기 전에 마스터 인증서를 사용하여 암호가 해독된 후 자산을 암호화하는 데 사용됩니다.
+>[AZURE.NOTE] Azure 자동화의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure 자동화에 저장됩니다. 이 키는 마스터 인증서로 암호화되어 Azure 자동화에 저장됩니다. 자동화 계정에 대한 키는 보안 자산을 저장하기 전에 마스터 인증서를 사용하여 암호가 해독된 후 자산을 암호화하는 데 사용됩니다.
 
 ## Windows PowerShell cmdlet
 
@@ -42,7 +42,7 @@
 |---|---|
 |Get-AutomationConnection|사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
 
->[AZURE.NOTE]**Get- AutomationConnection**의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
+>[AZURE.NOTE] **Get- AutomationConnection**의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
 
 ## 새 연결 만들기
 
@@ -120,4 +120,4 @@ Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.c
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -2,13 +2,14 @@
  pageTitle="미리 구성된 Azure IoT 솔루션 | Microsoft Azure"
  description="미리 구성된 Azure IoT 솔루션에 대한 솔루션 및 추가 리소스에 대한 링크와 해당 아키텍처에 대한 설명입니다."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -92,7 +93,7 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 - 특정 장치에 명령을 보냅니다.
 - 규칙 및 작업을 관리합니다.
 
-> [AZURE.NOTE]솔루션 포털은 솔루션의 DocumentDB 데이터베이스에서 다양한 장치 상태 정보의 저장소와 동기화된 IoT Hub [장치 ID 레지스트리][lnk-identity-registry]를 유지합니다.
+> [AZURE.NOTE] 솔루션 포털은 솔루션의 DocumentDB 데이터베이스에서 다양한 장치 상태 정보의 저장소와 동기화된 IoT Hub [장치 ID 레지스트리][lnk-identity-registry]를 유지합니다.
 
 미리 구성된 솔루션에서 솔루션 포털은 *IoT 솔루션 백 엔드*의 일부를 형성하며 일반적인 [IoT 솔루션 아키텍처][lnk-what-is-azure-iot]에서 *처리 및 비즈니스 연결*의 일부입니다.
 
@@ -115,4 +116,4 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

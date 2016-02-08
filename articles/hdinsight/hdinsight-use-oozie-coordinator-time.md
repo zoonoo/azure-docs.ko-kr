@@ -22,7 +22,7 @@
 
 이 문서에서는 워크플로 및 코디네이터를 정의하는 방법, 시간을 기준으로 코디네이터 작업을 트리거하는 방법을 알아봅니다. 이 문서를 시작하기 전에 [HDInsight에서 Oozie 사용][hdinsight-use-oozie]을 확인하는 것이 도움이 됩니다. Azure 데이터 팩터리를 알아보려면 [데이터 팩터리에서 Pig 및 Hive 사용](../data-factory/data-factory-pig-hive-activities.md)을 참조하세요.
 
-> [AZURE.NOTE]이 문서를 사용하려면 Windows 기반 HDInsight 클러스터가 필요합니다. Linux 기반 클러스터에서 시간 기준의 작업을 포함하여 Oozie 사용에 대한 자세한 내용은 [Oozie를 Hadoop와 함께 사용하여 Linux 기반 HDInsight 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서를 사용하려면 Windows 기반 HDInsight 클러스터가 필요합니다. Linux 기반 클러스터에서 시간 기준의 작업을 포함하여 Oozie 사용에 대한 자세한 내용은 [Oozie를 Hadoop와 함께 사용하여 Linux 기반 HDInsight 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
 ##<a id="whatisoozie"></a>Oozie 정의
 
@@ -54,41 +54,40 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 2.  HiveQL 작업 출력을 Azure SQL 데이터베이스의 테이블에 내보내는 Sqoop 작업. Sqoop에 대한 자세한 내용은 [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
 
-> [AZURE.NOTE]HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
+> [AZURE.NOTE] HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 
-> [AZURE.NOTE]이 자습서는 HDInsight 클러스터 버전 2.1 및 3.0에 적용됩니다. 이 문서는 HDInsight 에뮬레이터에서는 테스트되지 않았습니다.
+> [AZURE.NOTE] 이 자습서는 HDInsight 클러스터 버전 2.1 및 3.0에 적용됩니다. 이 문서는 HDInsight 에뮬레이터에서는 테스트되지 않았습니다.
 
 
 ##<a id="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. Windows PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. 자세한 내용은 [Windows PowerShell 스크립트 실행][powershell-script]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. Windows PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. 자세한 내용은 [Windows PowerShell 스크립트 실행][powershell-script]을 참조하세요.
 - **HDInsight 클러스터**. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision] 또는 [HDInsight 시작][hdinsight-get-started]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
 	<table border = "1">
-	<tr><th>클러스터 속성</th><th>Windows PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-	<tr><td>HDInsight 클러스터 이름</td><td>$clusterName</td><td></td><td>이 자습서를 실행할 HDInsight 클러스터입니다.</td></tr>
-	<tr><td>HDInsight 클러스터 사용자 이름</td><td>$clusterUsername</td><td></td><td>HDInsight 클러스터 사용자 이름. </td></tr>
-	<tr><td>HDInsight 클러스터 사용자 암호 </td><td>$clusterPassword</td><td></td><td>HDInsight 클러스터 사용자의 암호입니다.</td></tr>
-	<tr><td>Azure 저장소 계정 이름</td><td>$storageAccountName</td><td></td><td>Azure 저장소 계정은 HDInsight 클러스터에서 사용할 수 있습니다. 이 자습서의 경우 클러스터 프로비전 프로세스 도중에 지정된 기본 저장소 계정을 사용합니다.</td></tr>
-	<tr><td>Azure Blob 컨테이너 이름</td><td>$containerName</td><td></td><td>이 예에서는 기본 HDInsight 클러스터 파일 시스템에 사용되는 Azure Blob 저장소 컨테이너를 사용합니다. 기본적으로 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.</td></tr>
-	</table>
+<tr><th>클러스터 속성</th><th>Windows PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
+<tr><td>HDInsight 클러스터 이름</td><td>$clusterName</td><td></td><td>이 자습서를 실행할 HDInsight 클러스터입니다.</td></tr>
+<tr><td>HDInsight 클러스터 사용자 이름</td><td>$clusterUsername</td><td></td><td>HDInsight 클러스터 사용자 이름. </td></tr>
+<tr><td>HDInsight 클러스터 사용자 암호 </td><td>$clusterPassword</td><td></td><td>HDInsight 클러스터 사용자의 암호입니다.</td></tr>
+<tr><td>Azure 저장소 계정 이름</td><td>$storageAccountName</td><td></td><td>Azure 저장소 계정은 HDInsight 클러스터에서 사용할 수 있습니다. 이 자습서의 경우 클러스터 프로비전 프로세스 도중에 지정된 기본 저장소 계정을 사용합니다.</td></tr>
+<tr><td>Azure Blob 컨테이너 이름</td><td>$containerName</td><td></td><td>이 예에서는 기본 HDInsight 클러스터 파일 시스템에 사용되는 Azure Blob 저장소 컨테이너를 사용합니다. 기본적으로 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.</td></tr>
+</table>
 
 - **Azure SQL 데이터베이스**입니다. 워크스테이션에서 액세스할 수 있도록 SQL 데이터베이스 서버의 방화벽 규칙을 구성해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 구성에 대한 자세한 내용은 [Azure SQL 데이터베이스 사용 시작][sqldatabase-get-started]을 참조하세요. 이 문서에는 이 자습서에 필요한 Azure SQL 데이터베이스 테이블을 만들기 위한 Windows PowerShell 스크립트가 있습니다.
 
 	<table border = "1">
-	<tr><th>SQL 데이터베이스 속성</th><th>Windows PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-	<tr><td>SQL 데이터베이스 서버 이름</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop에서 데이터를 내보낼 SQL 데이터베이스 서버입니다. </td></tr>
-	<tr><td>SQL 데이터베이스 로그인 이름</td><td>$sqlDatabaseLogin</td><td></td><td>SQL 데이터베이스 로그인 이름입니다.</td></tr>
-	<tr><td>SQL 데이터베이스 로그인 암호</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL 데이터베이스 로그인 암호입니다.</td></tr>
-	<tr><td>SQL 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보낼 Azure SQL 데이터베이스입니다. </td></tr>
+<tr><th>SQL 데이터베이스 속성</th><th>Windows PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
+<tr><td>SQL 데이터베이스 서버 이름</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop에서 데이터를 내보낼 SQL 데이터베이스 서버입니다. </td></tr>
+<tr><td>SQL 데이터베이스 로그인 이름</td><td>$sqlDatabaseLogin</td><td></td><td>SQL 데이터베이스 로그인 이름입니다.</td></tr>
+<tr><td>SQL 데이터베이스 로그인 암호</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL 데이터베이스 로그인 암호입니다.</td></tr>
+<tr><td>SQL 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보낼 Azure SQL 데이터베이스입니다. </td></tr>
 	</table>
-
 	> [AZURE.NOTE]기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure 포털에서 사용하도록 설정해야 합니다. SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL 데이터베이스 만들기 및 구성][sqldatabase-create-configure]을 참조하세요.
 
 
-> [AZURE.NOTE]테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
+> [AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
 
 
 ##<a id="defineworkflow"></a>Oozie 워크플로 및 관련 HiveQL 스크립트 정의
@@ -188,28 +187,23 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 	RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사용하여 워크스테이션에서 Oozie 작업을 제출할 때 이러한 값을 전달합니다.
 
 	<table border = "1">
-	<tr><th>워크플로 변수</th><th>설명</th></tr>
-	<tr><td>${jobTracker}</td><td>Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 클러스터 버전 3.0 및 2.0에는 <strong>jobtrackerhost:9010</strong>을 사용합니다.</td></tr>
-	<tr><td>${nameNode}</td><td>Hadoop 이름 노드의 URL을 지정합니다. 기본 파일 시스템 wasb:// 주소를 사용하세요. 예: <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
-	<tr><td>${queueName}</td><td>작업을 제출할 큐 이름을 지정합니다. <strong>기본값</strong>을 사용합니다.</td></tr>
+<tr><th>워크플로 변수</th><th>설명</th></tr>
+<tr><td>${jobTracker}</td><td>Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 클러스터 버전 3.0 및 2.0에는 <strong>jobtrackerhost:9010</strong>을 사용합니다.</td></tr>
+<tr><td>${nameNode}</td><td>Hadoop 이름 노드의 URL을 지정합니다. 기본 파일 시스템 wasb:// 주소를 사용하세요. 예: <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
+<tr><td>${queueName}</td><td>작업을 제출할 큐 이름을 지정합니다. <strong>기본값</strong>을 사용합니다.</td></tr>
 	</table>
-
-
 	<table border = "1">
-	<tr><th>Hive 작업 변수</th><th>설명</th></tr>
-	<tr><td>${hiveDataFolder}</td><td>Hive Create Table 명령의 소스 디렉터리입니다.</td></tr>
-	<tr><td>${hiveOutputFolder}</td><td>INSERT OVERWRITE 문의 출력 폴더입니다.</td></tr>
-	<tr><td>${hiveTableName}</td><td>log4j 데이터 파일을 참조하는 Hive 테이블의 이름입니다.</td></tr>
+<tr><th>Hive 작업 변수</th><th>설명</th></tr>
+<tr><td>${hiveDataFolder}</td><td>Hive Create Table 명령의 소스 디렉터리입니다.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>INSERT OVERWRITE 문의 출력 폴더입니다.</td></tr>
+<tr><td>${hiveTableName}</td><td>log4j 데이터 파일을 참조하는 Hive 테이블의 이름입니다.</td></tr>
 	</table>
-
-
 	<table border = "1">
-	<tr><th>Sqoop 작업 변수</th><th>설명</th></tr>
-	<tr><td>${sqlDatabaseConnectionString}</td><td>SQL 데이터베이스 연결 문자열입니다.</td></tr>
-	<tr><td>${sqlDatabaseTableName}</td><td>데이터를 내보낼 Azure SQL 데이터베이스 테이블입니다.</td></tr>
-	<tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 문의 출력 폴더입니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.</td></tr>
+<tr><th>Sqoop 작업 변수</th><th>설명</th></tr>
+<tr><td>${sqlDatabaseConnectionString}</td><td>SQL 데이터베이스 연결 문자열입니다.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>데이터를 내보낼 Azure SQL 데이터베이스 테이블입니다.</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 문의 출력 폴더입니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.</td></tr>
 	</table>
-
 	Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 클러스터 버전 3.0의 경우) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 클러스터 버전 2.1의 경우)를 참조하세요.
 
 2. ANSI(ASCII) 인코딩을 사용하여 파일을**C:\Tutorials\UseOozie\workflow.xml**로 저장하세요. (텍스트 편집기에서 이 옵션을 제공하지 않는 경우 메모장을 사용하세요.)
@@ -258,7 +252,7 @@ HDInsight 클러스터를 프로비전할 때 Azure Blob 저장소 계정 및 �
 
 > [AZURE.NOTE]HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터 이상 버전에서는 지원되지 않습니다.
 
-> [AZURE.NOTE]wasb:// 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
+> [AZURE.NOTE] wasb:// 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
 기본 파일 시스템 컨테이너에 저장된 파일은 다음 URI 중 아무거나 사용하여 HDInsight에서 액세스할 수 있습니다(여기서는 예제로 workflow.xml를 사용합니다).
 
@@ -291,7 +285,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 	Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 구독 연결을 추가하는 이 메서드의 시간이 초과하고 12시간 후에 cmdlet을 다시 실행해야 합니다.
 
-	> [AZURE.NOTE]여러 Azure 구독이 있는 경우 기본 구독이 사용하려는 구독이 아니면<strong>Select-AzureSubscription</strong> cmdlet을 사용하여 구독을 선택합니다.
+	> [AZURE.NOTE] 여러 Azure 구독이 있는 경우 기본 구독이 사용하려는 구독이 아니면<strong>Select-AzureSubscription</strong> cmdlet을 사용하여 구독을 선택합니다.
 
 3. 다음 스크립트를 스크립트 창에 복사한 다음 처음 6개의 변수를 설정합니다:
 
@@ -522,7 +516,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 		</configuration>
 		"@
 
-	>[AZURE.NOTE]워크플로 제출 페이로드 파일과 비교할 때 주요 차이점은 **oozie.coord.application.path** 변수입니다. 워크플로 작업을 제출할 때는 대신 **oozie.wf.application.path**를 사용합니다.
+	>[AZURE.NOTE] 워크플로 제출 페이로드 파일과 비교할 때 주요 차이점은 **oozie.coord.application.path** 변수입니다. 워크플로 작업을 제출할 때는 대신 **oozie.wf.application.path**를 사용합니다.
 
 4. 스크립트에 다음을 추가합니다. 이 부분은 Oozie 웹 서비스 상태를 확인합니다.
 
@@ -560,7 +554,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 		    return $oozieJobId
 		}
 
-	> [AZURE.NOTE]워크플로 작업을 제출하는 경우 이 작업이 만들어진 후에 시작되도록 다른 웹 서비스를 호출해야 합니다. 이 경우 코디네이터 작업은 시간별로 트리거됩니다. 작업이 자동으로 시작됩니다.
+	> [AZURE.NOTE] 워크플로 작업을 제출하는 경우 이 작업이 만들어진 후에 시작되도록 다른 웹 서비스를 호출해야 합니다. 이 경우 코디네이터 작업은 시간별로 트리거됩니다. 작업이 자동으로 시작됩니다.
 
 6. 스크립트에 다음을 추가합니다. 이 부분은 Oozie 작업 상태를 확인합니다.
 
@@ -645,7 +639,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 **작업 오류 로그를 검사하려면**
 
-워크플로 문제를 해결하기 위해 클러스터 headnode에서 C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log에 있는 Oozie 로그 파일을 확인할 수 있습니다. RDP에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
+워크플로 문제를 해결하기 위해 클러스터 headnode에서 C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log에 있는 Oozie 로그 파일을 확인할 수 있습니다. RDP에 대한 자세한 내용은 [관리 포털을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
 
 **자습서를 다시 실행하려면**
 
@@ -690,7 +684,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 - [HDInsight Emulator 시작][hdinsight-get-started-emulator]
 - [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]
 - [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
-- [HDInsight에 데이터 업로드][hdinsight-upload-data]\:
+- [HDInsight에 데이터 업로드:][hdinsight-upload-data]
 - [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]
 - [HDInsight에서 Hive 사용][hdinsight-use-hive]
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
@@ -744,4 +738,4 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

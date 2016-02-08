@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 동기화: PowerShell 커넥터"
+   pageTitle="Azure AD Connect 동기화: PowerShell 커넥터 | Microsoft Azure"
    description="이 문서에서는 Microsoft의 Windows PowerShell 커넥터를 구성하는 방법을 설명합니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # WIndows PowerShell 커넥터 기술 참조
@@ -138,7 +138,7 @@ MAData 폴더에서 FIMPowerShellConnectorModule.psm1이라는 모듈을 로드�
 | 파티션 | 옵션을 선택하면 커넥터는 여러 파티션 및 파티션 검색을 지원합니다. |
 | 계층 구조 | 옵션을 선택하면 커넥터는 LDAP 스타일 계층 구조를 지원합니다. |
 | 가져오기 사용 | 옵션을 선택하면 커넥터는 가져오기 스크립트를 통해 데이터를 가져옵니다. |
-| 델타 가져오기 사용 | 옵션을 선택하면 커넥터는 가져오기 스크립트를 통해 델타를 요청합할 수 있습니다. |
+| 델타 가져오기 사용 | 옵션을 선택하면 커넥터는 가져오기 스크립트를 통해 델타를 요청할 수 있습니다. |
 | 내보내기 사용 | 옵션을 선택하면 커넥터는 내보내기 스크립트를 통해 데이터를 내보냅니다. |
 | 전체 내보내기 사용 | 옵션을 선택하면 내보내기 스크립트는 전체 커넥터 공간을 내보내도록 지원합니다. 또한 이 옵션을 사용하려면 내보내기 사용을 선택해야 합니다.|
 | 첫 번째 내보내기 단계에서 참조 값 없음 | 옵션을 선택하면 두 번째 내보내기 과정에서 참조 특성을 내보냅니다. |
@@ -201,7 +201,7 @@ MAData 폴더에서 FIMPowerShellConnectorModule.psm1이라는 모듈을 로드�
 
 **데이터 가져오기**
 
-데이터 가져오기 스크립트는는 스크립트가 가져올 추가 데이터가 없음을 나타낼 때까지 커넥터에서 호출됩니다. 그리고 동기화 서비스는 델타를 가져오는 동안 전체 가져오기를 요청하지 않아도 됩니다. Windows PowerShell 커넥터에는 9,999개의 개체를 가직 페이지 크기가 있습니다. 스크립트가 가져오기에 9,999개 이상의 개체를 반환하면 페이징을 지원해야 합니다. 커넥터가 저장소에 사용할 수 있는 사용자 지정 데이터 속성을 노출하므로 데이터 가져오기 스크립트가 호출될 때마다 스크립트는 중단된 위치에서 개체를 다시 가져오기 시작합니다.
+데이터 가져오기 스크립트는 스크립트가 가져올 추가 데이터가 없음을 나타낼 때까지 커넥터에서 호출됩니다. 그리고 동기화 서비스는 델타를 가져오는 동안 전체 가져오기를 요청하지 않아도 됩니다. Windows PowerShell 커넥터에는 9,999개의 개체를 가진 페이지 크기가 있습니다. 스크립트가 가져오기에 9,999개 이상의 개체를 반환하면 페이징을 지원해야 합니다. 커넥터가 저장소에 사용할 수 있는 사용자 지정 데이터 속성을 노출하므로 데이터 가져오기 스크립트가 호출될 때마다 스크립트는 중단된 위치에서 개체를 다시 가져오기 시작합니다.
 
 데이터 가져오기 스크립트는 커넥터에서 다음 매개 변수를 받습니다.
 
@@ -370,4 +370,4 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

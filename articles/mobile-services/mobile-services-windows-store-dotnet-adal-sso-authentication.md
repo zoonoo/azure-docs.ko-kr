@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="01/14/2016"
 	ms.author="wesmc"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
@@ -32,7 +32,7 @@
 사용자를 인증하려면 먼저 AAD(Azure Active Directory)에 응용 프로그램을 등록해야 합니다. 이 작업은 다음 두 단계로 수행됩니다. 먼저, 모바일 서비스를 등록하고 그에 대한 사용 권한을 표시합니다. 두 번째로 Windows 스토어 앱을 등록하여 해당 사용 권한에 대한 액세스를 부여해야 합니다.
 
 
->[AZURE.NOTE]이 자습서는 모바일 서비스에서 [클라이언트 지향 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 사용하여 Windows 스토어 앱에 대해 Single Sign-On Azure Active Directory 인증을 수행할 수 있도록 하는 방법의 이해를 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
+>[AZURE.NOTE] 이 자습서는 모바일 서비스에서 [클라이언트 지향 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 사용하여 Windows 스토어 앱에 대해 Single Sign-On Azure Active Directory 인증을 수행할 수 있도록 하는 방법의 이해를 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 
 ##필수 조건
@@ -76,21 +76,14 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
     ![][3]
 
-2. 그런 다음 **서비스**를 클릭합니다.
+2. **앱 관리** > **앱 ID**를 클릭하고 페이지의 패키지 SID를 복사합니다.
 
     ![][4]
 
-3. 그런 다음 **라이브 서비스 사이트**를 클릭합니다.
-
-    ![][5]
-
-4. 페이지 맨 위에서 패키지 SID를 복사합니다.
-
-    ![][6]
 
 ###네이티브 앱 등록 만들기
 
-1. **Azure 클래식 포털**에서 [Active Directory]로 이동한 다음 디렉터리를 클릭합니다.
+1. [클래식 포털]에서 **Active Directory**로 이동한 다음 디렉터리를 클릭합니다.
 
     ![][7]
 
@@ -130,7 +123,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-4. Visual Studio의 솔루션 탐색기에서 MainPage.xaml.cs 파일을 열고 문을 사용하여 다음을 추가합니다.
+4. Visual Studio의 솔루션 탐색기에서 MainPage.cs 파일을 열고 문을 사용하여 다음을 추가합니다.
 
         using Windows.UI.Popups;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -216,9 +209,9 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 <!-- URLs. -->
 [Azure Active Directory에 등록하는 방법]: mobile-services-how-to-register-active-directory-authentication.md
-[Active Directory]: https://manage.windowsazure.com/
 [Azure 클래식 포털]: https://manage.windowsazure.com/
+[클래식 포털]: https://manage.windowsazure.com/
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 개발자 센터 대시보드]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

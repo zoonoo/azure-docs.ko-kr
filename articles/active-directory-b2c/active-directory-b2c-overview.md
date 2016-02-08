@@ -18,11 +18,11 @@
 
 # Azure Active Directory B2C 미리 보기: 응용 프로그램에 등록 및 로그인
 
-**Azure Active Directory B2C**는 소비자 지향 웹 및 모바일 응용 프로그램을 위한 포괄적인 클라우드 ID 관리 솔루션입니다. 수 억개의 소비자 ID로 확장되는 고가용성 글로벌 서비스입니다. 엔터프라이즈급 보안 플랫폼에 기반하여 Azure Active Directory B2C는 응용 프로그램, 비즈니스 및 소비자를 보호합니다.
+**Azure Active Directory B2C**는 소비자 지향 웹 및 모바일 응용 프로그램을 위한 포괄적인 클라우드 ID 관리 솔루션입니다. 수억 개의 소비자 ID로 확장되는 고가용성 글로벌 서비스입니다. 엔터프라이즈급 보안 플랫폼에 기반하여 Azure Active Directory B2C는 응용 프로그램, 비즈니스 및 소비자를 보호합니다.
 
 이전에는 고객을 응용 프로그램에 가입 및 로그인하게 하고자 했던 응용 프로그램 개발자들이 자체 코드를 작성했습니다. 또한 온-프레미스 데이터베이스나 시스템을 사용하여 사용자 이름과 암호를 저장했습니다. Azure Active Directory B2C는 개발자에게 안전한 표준 기반 플랫폼 및 확장할 수 있는 정책의 다양한 집합으로 소비자 ID 관리를 응용 프로그램에 통합하는 더 나은 방법을 제공합니다. Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(전자 메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 응용 프로그램을 등록할 수 있습니다. 후자를 "로컬 계정"이라고 합니다.
 
-Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 작업을 시도할 때 여러분의 의견 및 경험을 듣고자 합니다. 사용자 의견에 기반하여 주요 서비스를 향상시키기 위해 주요 내용을 변경할 수 있습니다. 이 기간 동안 미리 보기를 사용하여 프로덕션 응용 프로그램을 릴리스하면 안됩니다. [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 의견을 보내주세요.
+Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 작업을 시도할 때 여러분의 의견 및 경험을 듣고자 합니다. 사용자 의견에 기반하여 주요 서비스를 향상시키기 위해 주요 내용을 변경할 수 있습니다. 이 기간 동안 미리 보기를 사용하여 프로덕션 응용 프로그램을 릴리스하면 안됩니다. [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 의견을 보내주세요.
 
 ## 시작하기
 
@@ -54,13 +54,13 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 
 이러한 링크는 서비스를 자세히 탐색하는 데 유용합니다.
 
-- [Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c)를 참조하세요.
+- [Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c/)를 참조하세요.
 - [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
-- [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 미리 보기에 대한 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
+- [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 미리 보기에 대한 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
 - Azure Active Directory B2C는 "앱 모델 v2.0"이라고 하는 응용 프로그램 등록 모델을 사용하여 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0을 지원합니다.
   - [앱 모델 v2.0 프로토콜 참조](active-directory-b2c-reference-protocols.md)
   - [앱 모델 v2.0 토큰 참조](active-directory-b2c-reference-tokens.md)
 - [Azure Active Directory B2C FAQ](active-directory-b2c-faqs.md)
 - [Azure Active Directory B2C에 대한 파일 지원 요청](active-directory-b2c-support.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@
 
 # 스트림 분석에서 JSON 출력에 대한 대상 Azure DocumentDB
 
-스트림 분석에서 비구조적 JSON 데이터에 대해 데이터 보관 및 짧은 대기 시간 쿼리를 실행하도록 JSON에 대한 [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)를 대상으로 할 수 있습니다. 통합을 구현하는 최상의 방법을 알아봅니다.
+스트림 분석에서 비구조적 JSON 데이터에 대해 데이터 보관 및 짧은 대기 시간 쿼리를 실행하도록 JSON에 대한 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)를 대상으로 할 수 있습니다. 통합을 구현하는 최상의 방법을 알아봅니다.
 
 DocumentDB에 대해 잘 모를 경우 먼저 [DocumentDB의 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 살펴보세요.
 
@@ -62,4 +62,4 @@ DocumentDB를 스트림 분석의 출력으로 만들면 아래와 같은 정보
 -   **파티션 키** – 컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다. 단일 컬렉션 출력의 경우 임의의 출력 열(예: PartitionId)이 사용될 수 있습니다.  
 -   **문서 ID** – 선택 사항입니다. 삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

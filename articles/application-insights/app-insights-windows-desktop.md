@@ -17,7 +17,7 @@
 
 # Windows 데스크톱 앱, 서비스 및 작업자 역할의 Application Insights
 
-Application Insights는 미리 보기 상태입니다.
+*Application Insights는 미리 보기 상태입니다.*
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -52,7 +52,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     !["Application Insights" 검색](./media/app-insights-windows-desktop/04-ai-nuget.png)
 
-    다른 패키지를 사용할 수 있나요?
+    *다른 패키지를 사용할 수 있나요?*
 
     예. API만 사용하여 사용자 고유의 원격 분석을 보내려는 경우 코어 API(Microsoft.ApplicationInsights)를 선택합니다. Windows Server 패키지에는 코어 API와 성능 카운터 수집 및 종속성 모니터링과 같은 다양한 다른 패키지가 자동으로 포함됩니다.
 
@@ -62,7 +62,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 
     * 코어 API 패키지 Microsoft.ApplicationInsights를 설치한 경우 main()와 같은 코드에서 키를 설정해야 합니다. 
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "` 키 `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *키* `";`
 
     다른 패키지 중 하나를 설치한 경우 코드를 사용하여 키를 설정하거나 ApplicationInsights.config에서 설정할 수 있습니다.
  
@@ -183,7 +183,7 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 
 ### 지속성 채널을 사용하려면
 
-1. NuGet 패키지 [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel)을 가져옵니다.
+1. NuGet 패키지 [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3)을 가져옵니다.
 2. 초기화가 적합한 위치에서 앱에 이 코드를 포함합니다.
  
     ```C# 
@@ -274,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-지속성 채널의 코드는 [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel)에 있습니다.
+지속성 채널의 코드는 [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel)에 있습니다.
 
 
 ## <a name="usage"></a>다음 단계
@@ -299,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,16 +20,16 @@
 
 이 문서는 Azure 보안 센터를 신속하게 시작할 수 있도록 보안 모니터링 및 정책 관리 구성 요소를 안내하고 다음 단계로 연결해 줍니다.
 
-> [AZURE.NOTE]이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 예제 배포를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
+> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 예제 배포를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
 
 ## Azure 보안 센터란?
 Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 ## 필수 조건
 
-Azure 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. Azure 보안 센터는 구독을 사용하여 사용하도록 설정됩니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial)을 등록할 수 있습니다.
+Azure 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. Azure 보안 센터는 구독을 사용하여 사용하도록 설정됩니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 
-Azure 보안 센터는 [Azure 포털](http://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
+Azure 보안 센터는 [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
 
 
 ## Azure 보안 센터 액세스
@@ -92,7 +92,7 @@ Azure 보안 센터는 [Azure 포털](http://azure.microsoft.com/features/azure-
 - [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) – Azure 리소스의 상태를 모니터링하는 방법 알아보기
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – 최신 Azure 보안 뉴스 및 정보 얻기
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – 최신 Azure 보안 뉴스 및 정보 가져오기
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
@@ -103,4 +103,4 @@ Azure 보안 센터는 [Azure 포털](http://azure.microsoft.com/features/azure-
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

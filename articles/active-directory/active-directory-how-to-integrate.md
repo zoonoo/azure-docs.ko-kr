@@ -48,7 +48,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 
 ### Azure 및 Office 365 마켓플레이스에서 응용 프로그램 홍보
 
-**이미 Azure AD를 사용 중인 수백만 개의 조직에 응용 프로그램을 홍보합니다.** 이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure 마켓플레이스](http://azure.microsoft.com/marketplace/partner-program/)에서 응용 프로그램 홍보하기에 대해 자세히 알아보세요.
+**이미 Azure AD를 사용 중인 수백만 개의 조직에 응용 프로그램을 홍보합니다.** 이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partner-program/)에서 응용 프로그램 홍보하기에 대해 자세히 알아보세요.
 
 **사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.** 사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
 
@@ -68,7 +68,7 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 ### 고급 보안 기능
 
-**다단계 인증.** Azure AD는 네이티브 다단계 인증을 제공합니다. 응용 프로그램에 액세스하기 위해 IT 관리자가 다단계 인증을 요구할 수 있으므로 이 지원을 직접 코딩할 필요가 없습니다. [Multi-Factor Authentication](http://azure.microsoft.com/documentation/services/multi-factor-authentication/)에 대해 자세히 알아보세요.
+**다단계 인증.** Azure AD는 네이티브 다단계 인증을 제공합니다. 응용 프로그램에 액세스하기 위해 IT 관리자가 다단계 인증을 요구할 수 있으므로 이 지원을 직접 코딩할 필요가 없습니다. [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)에 대해 자세히 알아보세요.
 
 **비정상적인 로그인 감지.** Azure AD는 의심스러운 활동을 감지하고 발생 가능한 문제를 IT 관리자에게 알리는 기계 학습 알고리즘을 사용하면서 하루 10억 개가 넘는 로그인을 처리합니다. Azure AD 로그인을 지원함으로써 응용 프로그램이 보호됩니다. [Azure Active Directory 액세스 보고서 보기](active-directory-view-access-usage-reports.md)에 대해 자세히 알아보세요.
 
@@ -90,4 +90,4 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 [Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

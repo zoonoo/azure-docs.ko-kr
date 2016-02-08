@@ -27,7 +27,7 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 - Azure 게시 프로세스의 관련자가 이 주소로 전송되는 메일을 받는지 확인합니다. 게시 프로세스를 완료하려면 이 메일을 모니터링하고 응답해야 합니다.
 - 한 명의 사용자와 연결된 계정을 사용하지 마세요. 해당 사용자가 퇴사하는 경우 SKU 관련 정보에 액세스하고 SKU를 게시하는 기능에 영향을 줄 수 있기 때문입니다.
 
-> [AZURE.IMPORTANT]무료(또는 사용자 라이선스 필요) 제품만 게시하려는 경우에는 회사 세금 및 은행 정보를 작성하지 않아도 됩니다.
+> [AZURE.IMPORTANT] 무료(또는 사용자 라이선스 필요) 제품만 게시하려는 경우에는 회사 세금 및 은행 정보를 작성하지 않아도 됩니다.
 
 > 판매자로 활동하려면 회사 등록을 완료해야 합니다. 하지만, 회사가 Microsoft 개발자 계정의 세금 및 은행 정보를 준비하는 동안 개발자는 [게시 포털](https://publish.windowsazure.com)에서 가상 컴퓨터 이미지를 만들어서 인증을 받고 Azure 스테이징 환경에서 테스트할 수 있습니다. Azure 마켓플레이스에 제품을 게시하는 마지막 단계에서만 판매자 계정 승인을 완료하면 됩니다.
 
@@ -35,10 +35,11 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 
 
 ## Azure "종량제" 구독 구입
-이 구독은 VM 이미지를 만들고 [Azure 마켓플레이스](http://azure.microsoft.com/marketplace)에 이미지를 넘겨주는 데 사용됩니다. 기존 구독이 없는 경우 https://account.windowsazure.com/signup?offer=ms-azr-0003p에서 등록하세요.
+이 구독은 VM 이미지를 만들고 [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/)에 이미지를 넘겨주는 데 사용됩니다. 기존 구독이 없는 경우 https://account.windowsazure.com/signup?offer=ms-azr-0003p에서 등록하세요.
 
 ## "판매" 국가
-> [AZURE.WARNING]Microsoft Azure 마켓플레이스에서 서비스를 판매하려면, 승인된 “판매" 국가 중 한 곳에 사용자의 등록 법인이 속해 있는지 확인해야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [Azure 마켓플레이스 참가 정책](http://go.microsoft.com/fwlink/?LinkID=526833)의 섹션 1b를 참조하세요.
+> [AZURE.WARNING]
+Microsoft Azure 마켓플레이스에서 서비스를 판매하려면, 승인된 “판매" 국가 중 한 곳에 사용자의 등록 법인이 속해 있는지 확인해야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [Azure 마켓플레이스 참가 정책](http://go.microsoft.com/fwlink/?LinkID=526833)의 섹션 1b를 참조하세요.
 
 ## 다음 단계
 다음은 각 제품 유형에 대한 기술적인 필수 조건입니다. Azure 마켓플레이스용으로 만들 제품 유형에 해당하는 문서로 연결되는 링크를 클릭하세요.
@@ -50,4 +51,4 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

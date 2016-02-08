@@ -3,7 +3,7 @@
 	description="Azure Active Directory 및 CloudPassage 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="markvi"/>
+	ms.date="01/26/2016"
+	ms.author="jeedes"/>
 
 
 # 자습서: CloudPassage와 Azure Active Directory 통합
@@ -23,7 +23,8 @@
 
 - CloudPassage에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
 - 사용자가 해당 Azure AD 계정으로 CloudPassage에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure Active Directory에서 계정을 관리할 수 있습니다. 
+- 
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -35,7 +36,7 @@ CloudPassage와의 Azure AD 통합을 구성하려면 다음 항목이 필요합
 - CloudPassage One Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -56,7 +57,7 @@ CloudPassage의 Azure AD 통합을 구성하려면 갤러리의 CloudPassage를 
 
 ### 갤러리에서 CloudPassage를 추가하려면 다음 단계를 수행합니다.
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -83,11 +84,11 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 CloudPassage에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.<br> CloudPassage 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. <br><br> ![Single Sign-On 구성][21]
+이 섹션은 Azure AD 클래식 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 CloudPassage 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.<br> CloudPassage 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. <br><br> ![Single Sign-On 구성][21]
 
 **CloudPassage에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **CloudPassage** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][7]
+1. Azure AD 클래식 포털의 **CloudPassage** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][7]
 
 2. **CloudPassage에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.<br><br> ![Single Sign-On 구성][8]
 
@@ -113,22 +114,22 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 8. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다. <br><br> ![Single Sign-On 구성][14]
 
 
-     8\.1. Azure 포털의 **CloudPassage에 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **SAML 발급자 URL** 텍스트 상자에 붙여넣습니다.
+     8\.1. Azure 클래식 포털의 **CloudPassage에 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **SAML 발급자 URL** 텍스트 상자에 붙여넣습니다.
 
-     8\.2. Azure 포털의 **CloudPassage에서 Single Sign-On 구성** 대화 상자 페이지에서 **SP(서비스 공급자) 시작 끝점** 값을 복사한 다음 **SAML 끝점 URL** 텍스트 상자에 붙여넣습니다.
+     8\.2. Azure 클래식 포털의 **CloudPassage에서 Single Sign-On 구성** 대화 상자 페이지에서 **SP(서비스 공급자) 시작 끝점** 값을 복사한 다음 **SAML 끝점 URL** 텍스트 상자에 붙여넣습니다.
 
-     8\.3. Azure 포털의 **CloudPassage에서 Single Sign-On 구성** 대화 상자 페이지에서 **로그아웃 URL** 값을 복사한 다음 **로그아웃 방문 페이지** 텍스트 상자에 붙여넣습니다.
+     8\.3. Azure 클래식 포털의 **CloudPassage에서 Single Sign-On 구성** 대화 상자 페이지에서 **로그아웃 URL** 값을 복사한 다음 **로그아웃 방문 페이지** 텍스트 상자에 붙여넣습니다.
 
      8\.4. 다운로드한 인증서에서 **Base-64**로 인코드된 파일을 만듭니다.
           
-      >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+      >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
 
      8\.5. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
 
      8\.6. **Save**를 클릭합니다.
 
 
-9. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.<br><br> ![Single Sign-On 구성][15]
+9. Azure AD 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성][15]
 
 
 10. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. <br><br> ![Single Sign-On 구성][16]
@@ -158,11 +159,11 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### Azure AD 테스트 사용자 만들기
 
-이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br><br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br><br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -182,9 +183,9 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
   4. **역할** 목록에서 **사용자**를 선택합니다.
   5. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.<br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png)
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png)
  
-8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.<br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png)
+8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png)
   1. **새 암호** 값을 적어둡니다.
   2. **완료**를 클릭합니다.   
 
@@ -230,7 +231,7 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 **Britta Simon을 CloudPassage에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br><br>![사용자 할당][26]
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br><br>![사용자 할당][26]
 2. 응용 프로그램 목록에서 **CloudPassage**를 선택합니다. <br><br>![사용자 할당][27]
 1. 위쪽 메뉴에서 **사용자**를 클릭합니다.<br> <br><br>![사용자 할당][25]
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
@@ -281,4 +282,4 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

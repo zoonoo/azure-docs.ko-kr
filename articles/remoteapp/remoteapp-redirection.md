@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="01/21/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp에서 리디렉션 사용
@@ -67,13 +67,13 @@ USB 및 드라이브 리디렉션을 둘 다 사용하도록 설정하려면 다
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
 
-> [AZURE.IMPORTANT]변경 내용을 테스트하기 전에 단순히 연결을 끊는 것이 아니라 컬렉션의 모든 사용자를 완전히 로그오프해야 합니다. 사용자가 완전히 로그오프되었는지 확인하려면 Azure 포털에서 컬렉션의 **세션** 탭으로 이동한 다음 연결이 끊어졌거나 로그인된 모든 사용자를 로그오프합니다. 경우에 따라 세션 내의 탐색기에 로컬 드라이브가 표시될 때까지 몇 초 정도 걸릴 수 있습니다.
+> [AZURE.IMPORTANT] 변경 내용을 테스트하기 전에 단순히 연결을 끊는 것이 아니라 컬렉션의 모든 사용자를 완전히 로그오프해야 합니다. 사용자가 완전히 로그오프되었는지 확인하려면 Azure 포털에서 컬렉션의 **세션** 탭으로 이동한 다음 연결이 끊어졌거나 로그인된 모든 사용자를 로그오프합니다. 경우에 따라 세션 내의 탐색기에 로컬 드라이브가 표시될 때까지 몇 초 정도 걸릴 수 있습니다.
 
 ## Windows 클라이언트에서 USB 리디렉션 설정 변경
 
 RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 경우 다음 두 작업이 수행되어야 합니다. 1 - 관리자가 Azure PowerShell을 사용하여 컬렉션 수준에서 USB 리디렉션을 사용하도록 설정해야 합니다. 2 - USB 리디렉션을 사용하려는 각 장치에서 허용하는 그룹 정책을 사용하도록 설정해야 합니다. 이 단계는 USB 리디렉션을 사용하려는 각 사용자에 대해 수행해야 합니다.
 
-> [AZURE.NOTE]Azure RemoteApp을 사용한 USB 리디렉션은 Windows 컴퓨터에서만 지원됩니다.
+> [AZURE.NOTE] Azure RemoteApp을 사용한 USB 리디렉션은 Windows 컴퓨터에서만 지원됩니다.
 
 ### RemoteApp 컬렉션에 대해 USB 리디렉션 사용
 컬렉션 수준에서 USB 리디렉션을 사용하도록 설정하려면 다음 cmdlet을 사용합니다.
@@ -104,4 +104,4 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 7. **사용**을 선택한 다음 **RemoteFX USB 리디렉션 액세스 권한의 관리자 및 사용자**를 선택합니다.
 8. **확인**을 클릭합니다.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

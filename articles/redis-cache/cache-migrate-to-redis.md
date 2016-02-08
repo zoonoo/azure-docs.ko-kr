@@ -71,7 +71,7 @@ Azure Redis Cache의 캐시는 [Azure 포털](https://portal.azure.com)에서 �
 -	Azure PowerShell을 사용하여 캐시를 만들려면 [Azure PowerShell을 사용하여 Azure Redis Cache 관리](cache-howto-manage-redis-cache-powershell.md)를 참조하세요.
 -	Azure CLI를 사용하여 캐시를 만들려면 [Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법](cache-manage-cli.md)을 참조하세요.
 
->[AZURE.NOTE]Azure Redis Cache를 사용하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero)을 참조하세요.
+>[AZURE.NOTE] Azure Redis Cache를 사용하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero)을 참조하세요.
 
 ## 캐시 클라이언트 구성
 
@@ -143,7 +143,7 @@ StackExchange.Redis 캐시 클라이언트에 대한 API는 관리된 캐시 서
 								
 이 네임스페이스가 해결되지 않으면 [캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)에서 설명한 대로 StackExchange.Redis NuGet 패키지를 추가했는지 확인합니다.
 
->[AZURE.NOTE]StackExchange.Redis 클라이언트를 사용하려면 .NET Framework 4 이상이 필요합니다.
+>[AZURE.NOTE] StackExchange.Redis 클라이언트를 사용하려면 .NET Framework 4 이상이 필요합니다.
 
 Azure Redis Cache 인스턴스에 연결하려면 정적 `ConnectionMultiplexer.Connect` 메서드를 호출하고 끝점 및 키에 전달합니다. 응용 프로그램의 `ConnectionMultiplexer` 인스턴스를 공유하는 방법은 다음 예제와 비슷하게 연결된 인스턴스를 반환하는 정적 속성을 갖는 것입니다. 스레드가 안전하도록 단일 연결된 `ConnectionMultiplexer` 인스턴스를 초기화하는 방법을 제공합니다. 이러한 예에서 `abortConnect`은 false로 설정되며 이는 캐시에 연결이 설정되지 않은 경우에도 호출이 성공한다는 사실을 의미합니다. `ConnectionMultiplexer`의 한 가지 주요 기능은 연결 네트워크 문제 또는 다른 원인이 해결되면 캐시에 연결이 자동으로 복원된다는 점입니다.
 
@@ -195,4 +195,4 @@ Azure Redis Cache에는 ASP.NET 세션 상태 및 페이지 출력 캐싱 모두
 
 자습서, 샘플, 비디오, 등은 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/cache/)를 탐색합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

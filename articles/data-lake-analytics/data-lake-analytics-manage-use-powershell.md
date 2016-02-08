@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/15/2016"
+   ms.date="01/26/2016"
    ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
@@ -26,7 +26,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정, 데이
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판]https://azure.microsoft.com/ko-KR/pricing/free-trial/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 
 <!-- ################################ -->
@@ -242,7 +242,7 @@ cmdlet이 **True** 또는 **False**를 반환합니다.
 		-Name $jobName `
 		-Script $scriptContents
 
-> [AZURE.NOTE]작업의 기본 우선 순위는 1000이고 작업에 대한 기본 병렬 처리 수준은 1입니다.
+> [AZURE.NOTE] 작업의 기본 우선 순위는 1000이고 작업에 대한 기본 병렬 처리 수준은 1입니다.
 
 
 ### 작업 취소
@@ -392,4 +392,4 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 	  }
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

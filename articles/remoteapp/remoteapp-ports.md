@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@
 *	 https://*remoteapp.windowsazure.com  
 *	 https://*.core.windows.net  
 *	 아웃바운드: TCP: 443, TCP: 10101-10175 
-*	 선택 사항 - UDP: 10201-10275 
+*	 선택 사항 - UDP: 10201-10275  
  
 ## Azure RemoteApp 클라이언트에 다음 끝점 및 URL에 대한 액세스 권한 필요: 
 
@@ -44,6 +44,6 @@
 -  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  아웃바운드: TCP: 443  
--  선택 사항 - UDP: 10201-10275
+-  선택 사항 - UDP: 3391 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

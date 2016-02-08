@@ -20,15 +20,15 @@
 
 # Azure 앱 서비스 및 기존 Azure 서비스
 
-이 문서에서는 여러 Azure 서비스를 새로운 통합 제품인 [Azure 앱 서비스](http://azure.microsoft.com/services/app-service/)로 결합하는 변경의 일부로 적용된 기존 Azure 서비스의 변경 내용을 설명합니다.
+이 문서에서는 여러 Azure 서비스를 새로운 통합 제품인 [Azure 앱 서비스](https://azure.microsoft.com/services/app-service/)로 결합하는 변경의 일부로 적용된 기존 Azure 서비스의 변경 내용을 설명합니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 개요 
 
-[Azure 앱 서비스](http://azure.microsoft.com/services/app-service/)는 개발자가 모든 플랫폼 및 장치용 웹앱과 모바일 앱을 만들 수 있게 해주는 고유한 새 클라우드 서비스입니다. 앱 서비스는 반복 코딩 기능을 간소화하고 엔터프라이즈 및 SaaS 시스템과 통합되며 보안, 안정성 및 확장성 요구를 충족하는 동시에 비즈니스 프로세스를 자동화하도록 설계된 통합 솔루션입니다.
+[Azure 앱 서비스](https://azure.microsoft.com/services/app-service/)는 개발자가 모든 플랫폼 및 장치용 웹앱과 모바일 앱을 만들 수 있게 해주는 고유한 새 클라우드 서비스입니다. 앱 서비스는 반복 코딩 기능을 간소화하고 엔터프라이즈 및 SaaS 시스템과 통합되며 보안, 안정성 및 확장성 요구를 충족하는 동시에 비즈니스 프로세스를 자동화하도록 설계된 통합 솔루션입니다.
 
-앱 서비스는 강력한 새 기능을 추가하는 동시에 [웹 사이트](http://azure.microsoft.com/services/websites/), [모바일 서비스](http://azure.microsoft.com/services/mobile-services/) 및 [Biztalk 서비스](http://azure.microsoft.com/services/biztalk-services/)와 같은 기존 Azure 서비스를 하나의 통합 서비스로 결합합니다. 앱 서비스를 통해 다음과 같은 앱 유형을 호스트할 수 있습니다.
+앱 서비스는 강력한 새 기능을 추가하는 동시에 [웹 사이트](https://azure.microsoft.com/services/websites/), [모바일 서비스](https://azure.microsoft.com/services/mobile-services/) 및 [Biztalk 서비스](https://azure.microsoft.com/services/biztalk-services/)와 같은 기존 Azure 서비스를 하나의 통합 서비스로 결합합니다. 앱 서비스를 통해 다음과 같은 앱 유형을 호스트할 수 있습니다.
 
 -   웹앱
 -   모바일 앱
@@ -90,7 +90,7 @@
 </tbody>
 </table>
 
-자세한 내용은 [앱 서비스 설명서](http://azure.microsoft.com/documentation/services/app-service/)를 참조하세요.
+자세한 내용은 [앱 서비스 설명서](https://azure.microsoft.com/documentation/services/app-service/)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

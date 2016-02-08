@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="ronitr"
    manager="jeffreyg"
-   editor="v-romcal"/>
+   editor="jeffreyg"/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 클래식 포털)
@@ -34,7 +34,7 @@ SQL 데이터베이스 동적 데이터 마스킹에서는 권한이 없는 사�
 데이터베이스에 대한 Azure 클래식 포털의 감사 및 보안 탭에서 동적 데이터 마스킹 정책을 설정합니다.
 
 
-> [AZURE.NOTE]Azure 포털에서 동적 데이터 마스킹을 설정하려면 [SQL 데이터베이스 동적 데이터 마스킹(Azure 포털)](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
+> [AZURE.NOTE] Azure 포털에서 동적 데이터 마스킹을 설정하려면 [SQL 데이터베이스 동적 데이터 마스킹(Azure 포털)](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
 
 
 ### 동적 데이터 마스킹 사용 권한
@@ -71,7 +71,7 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 
 4. 마스킹에서 제외되며 마스크되지 않은 중요 데이터에 액세스할 수 있는 SQL 사용자 또는 AAD ID를 입력합니다. 세미콜론으로 구분된 사용자 목록이어야 합니다. 관리자 권한이 있는 사용자는 항상 원래의 마스킹되지 않은 데이터에 액세스할 수 있습니다.
 
-	>[AZURE.TIP]응용 프로그램 계층에서 권한이 있는 응용 프로그램 사용자에 대해 중요한 데이터를 표시할 수 있도록 지정하려면 응용 프로그램이 데이터베이스 쿼리에 사용할 SQL 사용자나 AAD ID를 추가합니다. 중요한 데이터의 노출을 최소화하려면 권한이 있는 사용자 수를 최소한으로 이 목록에 포함하는 것이 좋습니다.
+	>[AZURE.TIP] 응용 프로그램 계층에서 권한이 있는 응용 프로그램 사용자에 대해 중요한 데이터를 표시할 수 있도록 지정하려면 응용 프로그램이 데이터베이스 쿼리에 사용할 SQL 사용자나 AAD ID를 추가합니다. 중요한 데이터의 노출을 최소화하려면 권한이 있는 사용자 수를 최소한으로 이 목록에 포함하는 것이 좋습니다.
 
 	![탐색 창](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
@@ -96,4 +96,4 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 
 [Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

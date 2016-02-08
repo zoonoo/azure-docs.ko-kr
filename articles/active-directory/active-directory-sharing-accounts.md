@@ -55,7 +55,7 @@ Azure AD는 모든 유형의 암호 Single Sign-on 응용 프로그램 전체에
 - [앱 사용 대시보드/보고서](active-directory-passwords-get-insights.md)
 - 최종 사용자 액세스 패널
 - [앱 프록시](active-directory-application-proxy-get-started.md)
-- [Active Directory 마켓플레이스](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## 계정 공유
 Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
@@ -72,4 +72,4 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 - [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
 - [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

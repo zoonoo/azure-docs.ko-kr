@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Azure 기계 학습 질문과 대답(FAQ): 대금 청구, 기능, 제한 사항 및 지원
@@ -47,7 +47,7 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 
 **기계 학습 결제는 어떤 방식으로 이루어지나요?**
 
-대금 청구 및 가격 정보는 [기계 학습 가격](http://azure.microsoft.com/pricing/details/machine-learning/)을 참조하세요.
+대금 청구 및 가격 정보는 [기계 학습 가격](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조하세요.
 
 **Azure 기계 학습의 무료 평가판이 있나요?**
 
@@ -164,7 +164,7 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 
 **기계 학습 스튜디오에서 사용 가능한 R 패키지는 무엇인가요?**
 
-기계 학습 스튜디오는 현재 400개 이상의 R 패키지를 지원하며 이 목록은 지속적으로 늘어나고 있습니다. 지원되는 R 패키지 목록을 가져오는 방법은 [R을 사용하여 실험 확장](machine-learning-extend-your-experiment-with-r.md)을 참조하세요. 원하는 패키지가 이 목록에 없는 경우 [사용자 피드백 포럼](http://go.microsoft.com/fwlink/?LinkId=404231)에서 패키지 이름을 제공해 주세요.
+기계 학습 스튜디오는 현재 400개 이상의 CRAN R 패키지를 지원하며 이 목록은 지속적으로 늘어나고 있습니다. 지원되는 R 패키지 목록을 가져오는 방법은 [R을 사용하여 실험 확장](machine-learning-extend-your-experiment-with-r.md)을 참조하세요. 원하는 패키지가 이 목록에 없는 경우 [사용자 피드백 포럼](http://go.microsoft.com/fwlink/?LinkId=404231)에서 패키지 이름을 제공해 주세요.
 
 **사용자 지정 R 모듈을 빌드할 수 있나요?**
 
@@ -219,7 +219,9 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 
 RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입니다. Blob으로 작성할 수도 있습니다. BES의 경우 기본적으로 출력은 Blob에 기록됩니다. 기록기 모듈을 사용하여 출력을 데이터베이스 또는 테이블에 기록할 수도 있습니다.
 
- ****스튜디오에서 만든 모델에서만 웹 서비스를 만들 수 있나요? 아니요. Jupyter 노트북 및 RStudio에서 직접 웹 서비스를 만들 수도 있습니다.
+ **스튜디오에서 만든 모델에서만 웹 서비스를 만들 수 있나요? 아니요. Jupyter 노트북 및 RStudio에서 직접 웹 서비스를 만들 수도 있습니다.
+ 
+ ****오류 코드에 대한 정보를 어디서 찾을 수 있습니까? 오류 코드는 [여기](https://msdn.microsoft.com/library/azure/dn905910.aspx)에 설명되어 있습니다.
 
 ## 확장성
 
@@ -311,4 +313,4 @@ Azure 기계 학습에 대한 기술 지원을 받으려면 [Azure 지원](/supp
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

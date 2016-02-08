@@ -75,8 +75,8 @@ Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로�
 
  - [MSDN 포럼: Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Azure AD 설명서](http://azure.microsoft.com/documentation/services/active-directory/)
+ - [Azure AD 설명서](https://azure.microsoft.com/documentation/services/active-directory/)
 
  - [블로그 게시물: Azure AD에 대한 소개](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

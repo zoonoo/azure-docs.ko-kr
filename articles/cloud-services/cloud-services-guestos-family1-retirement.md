@@ -26,7 +26,7 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 
 **2014년 11월 3일** 게스트 OS 제품군 1에 대한 연장 지원이 종료되어 완전히 사용 중지됩니다. 제품군 1의 모든 서비스에 적용됩니다. 언제든지 이러한 서비스를 중지할 수 있습니다. 수동으로 직접 업그레이드하지 않으면 서비스가 계속된다는 보장이 없습니다.
 
-추가 질문이 있으면 [클라우드 서비스 포럼](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc)을 방문하거나 [Azure 지원에 문의하세요](http://azure.microsoft.com/support/options/).
+추가 질문이 있으면 [클라우드 서비스 포럼](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc)을 방문하거나 [Azure 지원에 문의하세요](https://azure.microsoft.com/support/options/).
 
 
 
@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## 다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

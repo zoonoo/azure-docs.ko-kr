@@ -30,7 +30,7 @@ DevTest Lab *아티팩트*를 통해 VM을 만들 때 수행하는 작업을 지
 
 ## 아티팩트를 사용하여 VM 추가
 
-1. [Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -98,4 +98,4 @@ VM에 아티팩트를 추가하고 구성할 때 현재 아티팩트의 수를 �
 
 [VM에 대한 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md) 방법에 대해 알아봅니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

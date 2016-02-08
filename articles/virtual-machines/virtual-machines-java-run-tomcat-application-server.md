@@ -125,7 +125,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
     Tomcat이 자동으로 시작되도록 설정할 경우의 이점은 가상 컴퓨터가 다시 부팅되면(예를 들어 재부팅이 필요한 소프트웨어 업데이트가 설치된 후) Tomcat이 시작된다는 점입니다.
 
 ## 다음 단계
-Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저장소, 서비스 버스, SQL 데이터베이스)에 대한 자세한 내용은 [Java 개발자 센터](http://azure.microsoft.com/develop/java/)에 제공되는 정보를 참조하세요.
+Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저장소, 서비스 버스, SQL 데이터베이스)에 대한 자세한 내용은 [Java 개발자 센터](https://azure.microsoft.com/develop/java/)에 제공되는 정보를 참조하세요.
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -146,4 +146,4 @@ Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

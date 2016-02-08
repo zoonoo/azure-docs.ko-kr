@@ -3,7 +3,7 @@
    description="Azure 권위 있는 ID 관리 확장을 사용하여 권한 있는 ID에 사용되는 역할을 알아봅니다."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
 # Azure 권위 있는 ID 관리: 역할
 
@@ -22,7 +22,7 @@
 
 ## Azure Active Directory, Office 365 및 기타 소스의 역할
 
-Azure PIM은 다음 역할을 기본 관리자 역할로 사용합니다.
+Azure Privileged Identity Management(PIM)는 다음 역할을 기본 관리자 역할로 사용합니다.
 
 - 전역 관리자
 - 대금 청구 관리자
@@ -30,7 +30,7 @@ Azure PIM은 다음 역할을 기본 관리자 역할로 사용합니다.
 - 사용자 관리자
 - 암호 관리자
 
-Office 365, Exchange Online, Sharepoint Online 및 비즈니스용 Skype의 역할에 대한 자세한 내용을 보려면 여기를 클릭하세요.[Office 365에서 관리자 역할 할당](https://support.office.com/en-us/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=en-US&rs=en-US&ad=US)
+Office 365, Exchange Online, SharePoint Online 및 비즈니스용 Skype의 역할에 대한 자세한 내용을 보려면 [Office 365에서 관리자 역할 할당](https://support.office.com/ko-KR/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=ko-KR&rs=ko-KR&ad=US)으로 이동하세요.
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -42,7 +42,7 @@ Office 365, Exchange Online, Sharepoint Online 및 비즈니스용 Skype의 역�
 
 ## Azure AD에서 사용자에게 라이선스 할당
 
-> [AZURE.NOTE]라이선스 옵션은 이 구독에 대한 라이선스가 실제로 종료되는 경우에만 표시됩니다.
+> [AZURE.NOTE] 라이선스 옵션은 이 구독에 대한 라이선스가 실제로 종료되는 경우에만 표시됩니다.
 
 1. 전역 관리자 계정 또는 공동 관리자 계정을 사용하여 [http://manage.windowsazure.com](http://manage.windowsazure.com)에 로그인합니다.
 2. 주 메뉴에서 **모든 항목**을 클릭합니다.
@@ -57,4 +57,4 @@ Office 365, Exchange Online, Sharepoint Online 및 비즈니스용 Skype의 역�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

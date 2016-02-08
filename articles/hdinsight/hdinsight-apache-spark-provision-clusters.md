@@ -19,7 +19,7 @@
 
 # 사용자 지정 옵션을 사용하여 HDInsight에서 Apache Spark 클러스터 만들기(Windows)
 
-> [AZURE.NOTE]이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 사용자 지정 Spark 클러스터를 만드는 방법은 [HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+> [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 사용자 지정 Spark 클러스터를 만드는 방법은 [HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 대부분의 시나리오의 경우 [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)에서 설명한 것처럼 빠른 만들기 메서드를 사용하여 Spark를 만들 수 있습니다. 특정 시나리오에서 사용자 지정된 클러스터를 만들 수 있습니다. 예를 들어 클러스터의 수명을 넘도록 영구 Hive 메타데이터를 유지하기 위해 외부 메타 데이터 저장소에 연결하거나 클러스터와 함께 추가 저장소를 사용할 수 있습니다.
 
@@ -28,7 +28,7 @@
 
 **필수 조건:**
 
-이 문서의 지침을 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+이 문서의 지침을 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 ##<a id="configuration"></a>다른 구성 옵션 정의
 
@@ -36,7 +36,7 @@
 
 구성 중에는 Azure Blob 저장소 계정과 기본 컨테이너를 지정해야 합니다. 이 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요한 경우 역시 클러스터에 연결되는 추가 Azure 저장소 계정도 지정할 수 있습니다.
 
->[AZURE.NOTE]여러 클러스터에서 하나의 Blob 저장소 컨테이너를 공유하지 마세요. 이 기능은 지원되지 않습니다.
+>[AZURE.NOTE] 여러 클러스터에서 하나의 Blob 저장소 컨테이너를 공유하지 마세요. 이 기능은 지원되지 않습니다.
 
 보조 Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요.
 
@@ -53,7 +53,7 @@ Azure에서 SQL 데이터베이스를 만드는 방법에 대한 자세한 내�
 
 ### 가상 네트워킹
 
-[Azure 가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
+[Azure 가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
 
 * 개인 네트워크(클라우드 전용)에서 클라우드 리소스를 연결합니다.
 
@@ -90,7 +90,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
 5. **리소스 그룹**을 클릭하여 기존 리소스 그룹 목록을 표시한 다음 클러스터를 만들 리소스 그룹을 선택합니다. 또는 **새로 만들기**를 클릭한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
 
-	> [AZURE.NOTE]사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
+	> [AZURE.NOTE] 사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
 
 6. **자격 증명**을 클릭한 다음 **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**를 입력합니다. 클러스터 노드에 대해 원격 데스크톱을 사용하도록 설정하려면 **원격 데스크톱 사용**에 대해 **예**를 클릭합니다. 클러스터에 대한 원격 데스크톱 액세스가 만료되는 경우 날짜를 선택하고 원격 데스크톱 사용자에 대한 사용자 이름/암호를 제공합니다. 아래쪽의 **선택**을 클릭하여 자격 증명 구성을 저장합니다.
 
@@ -110,7 +110,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
 	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지리적인 지역입니다.
 
-		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
+		> [AZURE.IMPORTANT] 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
 
 	**선택**을 클릭하여 데이터 원본 구성을 저장합니다.
 
@@ -134,7 +134,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
 		**Hive 메타데이터에 기존 SQL DB 사용**에 대해 **예**를 클릭하고 SQL 데이터베이스를 선택한 다음 데이터베이스의 사용자 이름/암호를 입력합니다. **Oozie 메타데이터에 기존 SQL DB 사용**을 원하는 경우 이러한 단계를 반복합니다. **옵션 구성** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
 
-		>[AZURE.NOTE]메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
+		>[AZURE.NOTE] 메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
 
 	* 클러스터를 만들 때 사용자 지정 스크립트를 사용하여 클러스터를 사용자 지정하려는 경우 **스크립트 동작**을 클릭합니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. 스크립트 동작 블레이드에서는 화면 캡처에 표시된 것과 같은 세부 정보를 제공합니다.
 
@@ -154,7 +154,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 만들기](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![만든 클러스터 타일](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 생성 프로세스를 확인하세요.
+	> [AZURE.NOTE] 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 생성 프로세스를 확인하세요.
 
 11. 생성이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다. 클러스터 블레이드는 이름, 속한 리소스 그룹, 위치, 운영 체제, 클러스터 대시보드의 URL 등 클러스터에 대한 필수 정보를 제공합니다.
 
@@ -176,7 +176,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
 	* **사용자**(![사용자 아이콘](./media/hdinsight-apache-spark-provision-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
-		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
+		> [AZURE.IMPORTANT] 이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
 	* **태그(![태그 아이콘](./media/hdinsight-apache-spark-provision-clusters/tags.png))**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
@@ -242,4 +242,4 @@ Spark 클러스터 형식을 지정합니다.
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

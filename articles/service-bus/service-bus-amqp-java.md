@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # AMQP 1.0을 사용하여 Java에서 서비스 버스 사용
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-JMS(Java Message Service)는 Java 플랫폼의 메시지 지향 미들웨어 작업에 대한 표준 API입니다. Azure 서비스 버스는 Apache Qpid 프로젝트에 의해 개발된 JMS 클라이언트 라이브러리 기반 AMQP 1.0과 함께 테스트되었습니다. 이 라이브러리는 전체 JMS 1.1 API를 지원하며 모든 AMQP 1.0 호환 메시징 서비스와 함께 사용할 수 있습니다. 이 시나리오는 Windows Server(서비스 버스 온-프레미스)용 서비스 버스에서도 지원됩니다. 자세한 내용은 [Windows Server용 서비스 버스의 AMQP][]를 참조하세요.
+JMS(Java Message Service)는 Java 플랫폼의 메시지 지향 미들웨어 작업에 대한 표준 API입니다. Microsoft Azure 서비스 버스는 Apache Qpid 프로젝트에 의해 개발된 JMS 클라이언트 라이브러리 기반 AMQP 1.0과 함께 테스트되었습니다. 이 라이브러리는 전체 JMS 1.1 API를 지원하며 모든 AMQP 1.0 호환 메시징 서비스와 함께 사용할 수 있습니다. 이 시나리오는 [Windows Serve용 서비스 버스](https://msdn.microsoft.com/library/dn282144.aspx)(온-프레미스 서비스 버스)에서도 지원됩니다. 자세한 내용은 [Windows Server용 서비스 버스의 AMQP][]를 참조하세요.
 
 ## Apache Qpid AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 
@@ -86,7 +86,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 | `[username]` | [Azure 클래식 포털][]에서 얻은 서비스 버스 발급자 이름입니다. | | | | |
 | `[password]` | [Azure 클래식 포털][]에서 얻은 URL 인코딩된 형식의 서비스 버스 발급자 키입니다. | | | | |
 
-> [AZURE.NOTE]수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
+> [AZURE.NOTE] 수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
 
 예를 들어 포털에서 얻은 정보가 다음과 같다고 가정합니다.
 
@@ -101,7 +101,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
 ```
 
-#### destinations 구성
+#### destination 구성
 
 Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 항목의 형식은 다음과 같습니다.
 
@@ -362,12 +362,12 @@ while (propertyNames.hasMoreElements())
 
 | .NET 속성 형식 | JMS 속성 형식 | 참고 |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - |
-| sbyte | Byte | - |
-| char | Character | - |
-| short | Short | - |
-| ushort | UnsignedShort | - |
-| int | Integer | - |
+| byte | UnsignedByte | - | 
+| sbyte | Byte | - | 
+| char | Character | - | 
+| short | Short | - | 
+| ushort | UnsignedShort | - | 
+| int | Integer | - | 
 | uint | UnsignedInteger | - |
 | long | Long | - |
 | ulong | UnsignedLong | - |
@@ -446,4 +446,4 @@ while (propertyNames.hasMoreElements())
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -92,7 +92,7 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 
 ## 데이터가 얼마 동안 보존되나요? 
 
-[계획 가격](http://azure.microsoft.com/pricing/details/application-insights/)에 따라 다릅니다.
+[계획 가격](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 다릅니다.
 
 원시 데이터 요소(즉, 진단 검색에서 검사할 수 있는 항목): 7일에서 30일 사이입니다.
 
@@ -264,4 +264,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

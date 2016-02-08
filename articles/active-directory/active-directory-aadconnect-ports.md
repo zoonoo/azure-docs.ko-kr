@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect 포트"
+	pageTitle="Azure AD Connect: 포트 | Microsoft Azure"
 	description="이 페이지는 Azure AD Connect에 대해 열려야 하는 포트에 대한 기술 참조 페이지입니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # 포트 및 프로토콜이 필요한 하이브리드 ID
@@ -79,4 +79,4 @@ Office 365 포트의 목록 및 IP 주소에 대한 자세한 내용은 [Office 
 ### 6b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 끝점
 끝점의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](active-directory-aadconnect-health.md#requirements)을 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

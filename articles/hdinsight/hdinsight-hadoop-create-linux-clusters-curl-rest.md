@@ -23,13 +23,13 @@
 
 Azure REST API를 사용하면 Linux 기반 HDInsight 클러스터 등과 같은 새 리소스 생성을 포함하여 Azure 플랫폼에서 호스팅되는 관리 작업을 수행할 수 있습니다. 이 문서에서는 HDInsight 클러스터 및 관련 저장소를 구성하는 Azure 리소스 관리자 템플릿을 만들고 cURL을 사용하여 템플릿을 Azure REST API에 배치하여 새 HDInsight 클러스터를 만듭니다.
 
-> [AZURE.IMPORTANT]이 문서의 단계는 HDInsight 클러스터에 대해 작업자 노드 (4)의 기본 갯수를 사용합니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
+> [AZURE.IMPORTANT] 이 문서의 단계는 HDInsight 클러스터에 대해 작업자 노드 (4)의 기본 갯수를 사용합니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
 >
 > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
 ###필수 조건
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 - __Azure CLI__ Azure CLI는 서비스 주체를 만드는 데 사용됩니다. 서비스 주체는 Azure REST API에 대한 요청의 인증 토큰을 생성하는 데 사용됩니다.
 
@@ -37,7 +37,7 @@ Azure REST API를 사용하면 Linux 기반 HDInsight 클러스터 등과 같은
 
 - __cURL__. 이 유틸리티는 패키지 관리 시스템을 통해서나 [http://curl.haxx.se/](http://curl.haxx.se/)에서 다운로드하여 사용할 수 있습니다.
 
-    > [AZURE.NOTE]PowerShell을 사용하여 이 문서의 명령을 실행하는 경우 먼저 기본적으로 생성한 `curl` 별칭을 제거합니다. 이 별칭은 PowerShell 프롬프트에서 `curl` 명령을 사용할 때 cURL 대신 PowerShell cmdlet인 Invoke-WebRequest을 사용하며 이 문서에서 사용되는 많은 명령에 대해 오류를 반환합니다.
+    > [AZURE.NOTE] PowerShell을 사용하여 이 문서의 명령을 실행하는 경우 먼저 기본적으로 생성한 `curl` 별칭을 제거합니다. 이 별칭은 PowerShell 프롬프트에서 `curl` 명령을 사용할 때 cURL 대신 PowerShell cmdlet인 Invoke-WebRequest을 사용하며 이 문서에서 사용되는 많은 명령에 대해 오류를 반환합니다.
     > 
     > 이 별칭을 제거하려면 PowerShell 프롬프트에서 다음을 사용합니다.
     >
@@ -263,7 +263,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
 ##서비스 주체 만들기
 
-> [AZURE.IMPORTANT]아래 링크의 문서에 있는 단계를 따를 때는 다음 항목을 변경해야 합니다.
+> [AZURE.IMPORTANT] 아래 링크의 문서에 있는 단계를 따를 때는 다음 항목을 변경해야 합니다.
 > 
 > * 이 단계에서 __reader__의 값이 언급되면 대신 __owner__를 사용합니다. 그러면 구독에서 서비스에 대해 변경할 수 있는 서비스 주체가 만들어집니다. 이 항목은 HDInsight 클러스터를 만들 때 필요합니다.
 >
@@ -290,7 +290,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
 이 요청에 성공하면 200 시리즈 응답을 받게 되며 응답 본문에 JSON 문서가 포함되어 있습니다.
 
-> [AZURE.IMPORTANT]이 요청에서 반환한 JSON 문서는 이름이 __access\_token__인 요소를 포함하며, 이 요소의 값은 이 문서의 다음 섹션에서 사용되는 요청을 인증하는 데 필요한 액세스 토큰입니다.
+> [AZURE.IMPORTANT] 이 요청에서 반환한 JSON 문서는 이름이 __access\_token__인 요소를 포함하며, 이 요소의 값은 이 문서의 다음 섹션에서 사용되는 요청을 인증하는 데 필요한 액세스 토큰입니다.
 
 ##리소스 그룹 만들기
 
@@ -315,13 +315,13 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
     curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d "{본문 문자열을 템플릿 및 매개 변수로 설정}"
 
-> [AZURE.NOTE]템플릿과 매개 변수가 담긴 JSON 문서를 파일로 저장한 경우 `-d "{ 템플릿 및 매개 변수}"' 대신 다음을 사용할 수 있습니다.
+> [AZURE.NOTE] 템플릿과 매개 변수가 담긴 JSON 문서를 파일로 저장한 경우 `-d "{ 템플릿 및 매개 변수}"' 대신 다음을 사용할 수 있습니다.
 >
 > ```--data-binary "@/path/to/file.json"```
 
 이 요청에 성공하면 200 시리즈 응답을 받게 되며 응답 본문에 배포 작업 정보가 담긴 JSON 문서가 포함되어 있습니다.
 
-> [AZURE.IMPORTANT]이 시점에서는 배포가 제출되었으나 완료된 것은 아닙니다. 배포가 완료되려면 보통 몇 분(보통 15분 전후)이 소요됩니다.
+> [AZURE.IMPORTANT] 이 시점에서는 배포가 제출되었으나 완료된 것은 아닙니다. 배포가 완료되려면 보통 몇 분(보통 15분 전후)이 소요됩니다.
 
 ##배포 상태 확인
 
@@ -355,4 +355,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -2,13 +2,14 @@
  pageTitle="예측 유지 관리 연습 | Microsoft Azure"
  description="Azure IoT 예측 정비 사전 구성 솔루션에 대한 연습입니다."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="aguilaaj"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -123,4 +124,4 @@ RUL가 160(데모를 위해 선택한 대 한 임의의 임계값) 보다 작은
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

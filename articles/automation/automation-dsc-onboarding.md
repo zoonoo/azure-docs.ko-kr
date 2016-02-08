@@ -29,7 +29,7 @@ Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니�
 *    온-프레미스나 Azure 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
 *    온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
 
-또한 **DSC 메타 구성**은 일반적으로 Azure 자동화 DSC에 위의 컴퓨터의 조합을 등록하기 위해 생성될 수 있습니다.
+또한 클라우드에서 컴퓨터 구성을 관리할 수 없는 경우 Azure 자동화 DSC는 보고서 전용 끝점으로 사용될 수 있습니다. 이 옵션을 사용하면 DSC 온-프레미스를 통해 원하는 구성을 설정(푸시)하고 Azure 자동화에서 원하는 상태로 노드 준수에서 다양하게 보고하는 세부 정보를 볼 수 있습니다.
 
 다음 섹션에서는 Azure 자동화 DSC에 대해 각 컴퓨터 형식을 온보드하는 방법을 간략히 설명합니다.
 
@@ -40,7 +40,8 @@ Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하�
 
 ### Azure 포털
 
-[Azure Preview 포털](http://portal.azure.com/)에서 **찾아보기** -> **가상 컴퓨터(기본)**를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 컴퓨터의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure 자동화 DSC** -> **만들기**를 클릭합니다. 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), 자동화 계정의 등록 키 및 등록 URL과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+[Azure Preview 포털](http://portal.azure.com/)에서 **찾아보기** -> **가상 컴퓨터(기본)**를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 컴퓨터의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure 자동화 DSC** -> **만들기**를 클릭합니다. 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4), 자동화 계정의 등록 키 및 등록 URL과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
@@ -51,7 +52,7 @@ Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하�
 
     # log in to both Azure Service Management and Azure Resource Manager
     Add-AzureAccount
-    Login-AzureRmAccount
+    Add-AzureRmAccount
     
     # fill in correct values for your VM / Automation Account here
     $VMName = ""
@@ -76,19 +77,19 @@ Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하�
 
     # update these DSC agent Local Configuration Manager defaults if they do not match your use case.
     # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
-    Properties = @{
-       RegistrationKey = @{
-         UserName = 'notused'
-         Password = 'PrivateSettingsRef:RegistrationKey'
-    }
-      RegistrationUrl = $RegistrationInfo.Endpoint
-      NodeConfigurationName = $NodeConfigName
-      ConfigurationMode = "ApplyAndMonitor"
-      ConfigurationModeFrequencyMins = 15
-      RefreshFrequencyMins = 30
-      RebootNodeIfNeeded = $False
-      ActionAfterReboot = "ContinueConfiguration"
-      AllowModuleOverwrite = $False
+     Properties = @{
+        RegistrationKey = @{
+          UserName = 'notused'
+          Password = 'PrivateSettingsRef:RegistrationKey'
+        }
+        RegistrationUrl = $RegistrationInfo.Endpoint
+        NodeConfigurationName = $NodeConfigName
+        ConfigurationMode = "ApplyAndMonitor"
+        ConfigurationModeFrequencyMins = 15
+        RefreshFrequencyMins = 30
+        RebootNodeIfNeeded = $False
+        ActionAfterReboot = "ContinueConfiguration"
+        AllowModuleOverwrite = $False
       }
     }
 
@@ -102,7 +103,7 @@ Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하�
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.6 `
+     -Version 2.13 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
@@ -116,21 +117,21 @@ Azure 자동화 DSC를 사용하면 Azure 포털, Azure 리소스 관리자 템�
 
 ### Azure 포털
 
-[Azure 미리 보기 포털](http://portal.azure.com/)에서 가상 컴퓨터를 온보드할 Azure 자동화 계정으로 이동합니다. 자동화 계정 대시보드에서 **DSC 노드** -> **Azure VM 추가**를 클릭합니다.
+[Azure 미리 보기 포털](https://portal.azure.com/)에서 가상 컴퓨터를 온보드할 Azure 자동화 계정으로 이동합니다. 자동화 계정 대시보드에서 **DSC 노드** -> **Azure VM 추가**를 클릭합니다.
 
 **온보드할 가상 컴퓨터 선택**에서 온보드할 하나 이상의 Azure 가상 컴퓨터를 선택합니다.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
 
 
-**등록 데이터 구성**에서 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396)과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+**등록 데이터 구성**에서 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4)과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
 
  
 ### Azure 리소스 관리자 템플릿
 
-Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure 자동화 DSC에 배포 및 온보드할 수 있습니다. 기존 VM을 Azure 자동화 DSC에 온보드하는 템플릿 예는 [DSC 확장 및 Azure 자동화 DSC를 통한 VM 구성](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)을 참조하세요. 이 템플릿에서 입력으로 가져온 등록 키와 등록 URL을 찾으려면 아래의 [**등록 보호**](#secure-registration) 섹션을 참조하세요.
+Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure 자동화 DSC에 배포 및 온보드할 수 있습니다. 기존 VM을 Azure 자동화 DSC에 온보드하는 템플릿 예는 [DSC 확장 및 Azure 자동화 DSC를 통한 VM 구성](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)을 참조하세요. 이 템플릿에서 입력으로 가져온 등록 키와 등록 URL을 찾으려면 아래의 [**등록 보호**](#secure-registration) 섹션을 참조하세요.
 
 ### PowerShell
 
@@ -140,9 +141,9 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 
 온-프레미스 Windows 컴퓨터와 비 Azure 클라우드(예: Amazon Web Services)의 Windows 컴퓨터도 인터넷에 대한 아웃바운드 액세스 권한이 있다면 Azure 자동화 DSC에 간단한 절차를 통해 온보드할 수 있습니다.
 
-1. 최신 버전의 [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729)가 Azure 자동화 DSC에 온보드하려는 컴퓨터에 설치되었는지 확인합니다.
+1. 최신 버전의 [WMF 5](http://aka.ms/wmf5latest)가 Azure 자동화 DSC에 온보드하려는 컴퓨터에 설치되었는지 확인합니다.
 2. 아래 [**DSC 메타 구성 생성**](#generating-dsc-metaconfigurations) 섹션의 지침에 따라 필요한 DSC 메타 구성을 포함하는 폴더를 생성합니다.
-3. 등록할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다. **이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729)가 설치되어 있어야 합니다.**
+3. 등록할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다. **이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://aka.ms/wmf5latest)가 설치되어 있어야 합니다**.
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
@@ -153,9 +154,9 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 
 온-프레미스 Linux 컴퓨터, Azure의 Linux 컴퓨터 및 비 Azure 클라우드의 Linux 컴퓨터 또한 몇 가지 간단한 절차를 통해 인터넷으로의 아웃 바운드 액세스 권한만큼 Azure 자동화 DSC에 온보드할 수 있습니다.
 
-1. ㅁ최신 버전의 [DSC Linux 에이전트](http://www.microsoft.com/en-us/download/details.aspx?id=49150)가 Azure 자동화 DSC에 온보드하려는 컴퓨터에 설치되었는지 확인합니다.
+1. ㅁ최신 버전의 [DSC Linux 에이전트](http://www.microsoft.com/download/details.aspx?id=49150)가 Azure 자동화 DSC에 온보드하려는 컴퓨터에 설치되었는지 확인합니다.
 
-2. [PowerShell DSC 로컬 구성 관리자 기본값](hhttps://msdn.microsoft.com/powershell/dsc/metaconfig4)이 해당 사용 사례와 일치하는 경우 Azure 자동화 DSC에서 끌어오고 보고하는 **모든** 컴퓨터를 등록하려 합니다.
+2. [PowerShell DSC 로컬 구성 관리자 기본값](https://msdn.microsoft.com/powershell/dsc/metaconfig4)이 해당 사용 사례와 일치하는 경우 Azure 자동화 DSC에서 끌어오고 보고하는 **모든** 컴퓨터를 등록하려 합니다.
 
 	*    Azure 자동화 DSC에 온보드할 각 Linux 컴퓨터에서 PowerShell DSC 로컬 구성 관리자 기본값으로 Register.py를 사용하여 온보드합니다.
 
@@ -178,7 +179,7 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
 	
-이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729)가 설치되어 있어야 합니다.
+이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://aka.ms/wmf5latest)가 설치되어 있어야 합니다.
 
 5.  PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 온보드할 각 Linux 컴퓨터에 대해 5단계의 폴더에서 해당 컴퓨터에 대한 메타 구성을 Linux 컴퓨터에 복사합니다. 그런 다음 Azure 자동화 DSC에 온보드할 각 Linux 컴퓨터에서 로컬로 `SetDscLocalConfigurationManager.py`를 호출합니다.
 
@@ -192,7 +193,7 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 **참고:** DSC 메타 구성은 관리를 위해 자동화 계정에 컴퓨터를 등록하는 데 필요한 암호를 포함합니다. 사용한 후에 만들거나 삭제한 DSC 메타 구성을 제대로 보호해야 합니다.
 
 ###DSC 구성 사용
-1.	로컬 환경의 컴퓨터에서 관리자 권한으로 PowerShell ISE를 엽니다. 이 컴퓨터에는 최신 버전의 [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729)가 설치되어 있어야 합니다.
+1.	로컬 환경의 컴퓨터에서 관리자 권한으로 PowerShell ISE를 엽니다. 이 컴퓨터에는 최신 버전의 [WMF 5](http://aka.ms/wmf5latest)가 설치되어 있어야 합니다.
 
 2.	다음 스크립트를 로컬로 복사합니다. 이 스크립트는 메타 구성을 만들기 위한 PowerShell DSC 구성 및 메타 구성 생성을 시작하는 명령을 포함합니다.
     
@@ -279,11 +280,12 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 
                 ReportServerWeb AzureAutomationDSC 
                 { 
-                ServerUrl = $RegistrationUrl 
-                RegistrationKey = $RegistrationKey 
+                    ServerUrl = $RegistrationUrl 
+                    RegistrationKey = $RegistrationKey 
                 }
             } 
         }
+        
         # Create the metaconfigurations
         # TODO: edit the below as needed for your use case
         DscMetaConfigs `
@@ -335,7 +337,7 @@ Azure Preview 포털의 **키 관리** 블레이드에서 DSC 등록 프로토�
 
 Azure 자동화 DSC를 사용하면 구성 관리를 위해 간편하게 Azure Windows VM을 온보드할 수 있습니다. 내부적으로 Azure VM 필요 상태 구성 확장은 VM을 Azure 자동화 DSC에 등록하는 데 사용됩니다. Azure VM 필요 상태 구성 확장은 비동기적으로 실행되므로 그 진행 상황 추적과 실행 문제 해결이 중요할 수 있습니다.
 
->[AZURE.NOTE]Azure VM 필요 상태 구성 확장을 사용하는 Azure 자동화 DSC에 Azure Windows VM을 온보드하는 모든 방법에서 노드가 Azure 자동화에 등록된 것으로 나타나는 데는 최대 1시간이 소요됩니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
+>[AZURE.NOTE] Azure VM 필요 상태 구성 확장을 사용하는 Azure 자동화 DSC에 Azure Windows VM을 온보드하는 모든 방법에서 노드가 Azure 자동화에 등록된 것으로 나타나는 데는 최대 1시간이 소요됩니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
 
 Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하려면 Azure Preview 포털에서 온보드할 VM으로 이동한 다음 **모든 설정** -> **확장** -> **DSC**를 클릭합니다. 자세한 내용을 보려면 **자세한 상태 보기**를 클릭합니다.
 
@@ -343,11 +345,18 @@ Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하�
 
 ## 인증서 만료 및 다시 등록
 
-등록 후에는 1년 후 만료되는 인증에 대해 각 노드가 자동으로 고유의 인증서를 협상합니다. 현재 PowerShell DSC 등록 프로토콜이 만료가 임박한 인증서를 자동으로 갱신할 수 없으므로 1년 기한 후 노드를 다시 등록해야 합니다. 다시 등록하기 전에 각 노드가 Windows Management Framework 5.0 RTM을 실행 중인지 확인합니다. 노드의 인증 인증서가 만료되고 노드가 다시 등록되지 않은 경우, 노드가 Azure 자동화와 통신할 수 없으며 '응답 없음'으로 표시됩니다. 재등록은 노드를 처음 등록할 때와 같은 방식으로 수행됩니다. 노드 만료 시점으로부터 90일 안이나, 인증서 만료 이후에 재등록을 수행하면 새 인증서를 생성하여 사용하게 됩니다.
+컴퓨터를 Azure 자동화 DSC의 DSC 노드로 등록한 후에 해당 노드를 나중에 등록해야 하는 많은 이유가 있습니다.
+
+* 등록 후에는 1년 후 만료되는 인증에 대해 각 노드가 자동으로 고유의 인증서를 협상합니다. 현재 PowerShell DSC 등록 프로토콜이 만료가 임박한 인증서를 자동으로 갱신할 수 없으므로 1년 기한 후 노드를 다시 등록해야 합니다. 다시 등록하기 전에 각 노드가 Windows Management Framework 5.0 RTM을 실행 중인지 확인합니다. 노드의 인증 인증서가 만료되고 노드가 다시 등록되지 않은 경우, 노드가 Azure 자동화와 통신할 수 없으며 '응답 없음'으로 표시됩니다. 노드 만료 시점으로부터 90일 안이나, 인증서 만료 이후에 재등록을 수행하면 새 인증서를 생성하여 사용하게 됩니다.
+
+* ConfigurationMode와 같은 노드의 초기 등록 중에 설정된 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4)을 변경 하려면. 현재 DSC 에이전트 값은 다시 등록을 통해 변경될 수 있습니다. 한 가지 예외는 노드에 할당된 노드 구성입니다. 이는 직접 Azure 자동화 DSC에서 변경될 수 있습니다.
+
+다시 등록은 이 문서에서 설명하는 등록 방법 중 하나를 사용하여 처음에 노드를 등록한 동일한 방법으로 수행될 수 있습니다. 다시 등록하기 전에 Azure 자동화 DSC에서 노드를 등록 취소할 필요가 없습니다.
+
 
 ## 관련 문서
 * [Azure 자동화 DSC 개요](automation-dsc-overview.md)
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
-* [Azure 자동화 DSC 가격 책정](http://azure.microsoft.com/pricing/details/automation/)
+* [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

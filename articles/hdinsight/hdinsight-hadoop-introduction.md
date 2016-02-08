@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="cgronlun"/>
 
 
@@ -85,7 +85,7 @@ HDInsight는 Apache Hadoop, Spark, HBase 또는 Storm에 대한 클러스터 구
 
 다음 구성 요소와 유틸리티가 HDInsight 클러스터에 포함됩니다.
 
-* **[Ambari](#ambari)**: 클러스터 프로비전, 관리 및 모니터링.
+* **[Ambari](#ambari)**: 클러스터 프로비전, 관리, 모니터링 및 유틸리티.
 
 * **[Avro](#avro)**(Microsoft .NET Library for Avro): Microsoft .NET 환경을 위한 데이터 직렬화.
 
@@ -93,7 +93,7 @@ HDInsight는 Apache Hadoop, Spark, HBase 또는 Storm에 대한 클러스터 구
 
 * **[Mahout](#mahout)** - 기계 학습.
 
-* **[MapReduce 및 YARN](#mapreduce)** - 분산형 처리 및 리소스 관리.
+* **[MapReduce](#mapreduce)** - Hadoop에 대한 레거시 프레임워크 분산형 처리 및 리소스 관리. [YARN](#yarn), 차세대 리소스 프레임워크를 참조하세요.
 
 * **[Oozie](#oozie)** - 워크플로 관리.
 
@@ -105,13 +105,15 @@ HDInsight는 Apache Hadoop, Spark, HBase 또는 Storm에 대한 클러스터 구
 
 * **[Tez](#tez)**: 데이터 집약적인 프로세스를 대규모로 효율적으로 실행할 수 있게 합니다.
 
+* **[YARN](#yarn)**: Hadoop 핵심 라이브러리의 일부 및 차세대 MapReduce 소프트웨어 프레임워크.
+
 * **[ZooKeeper](#zookeeper)** - 분산 시스템의 프로세스 조정.
 
-> [AZURE.NOTE]특정 구성 요소 및 버전에 대한 자세한 내용은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][component-versioning]을 참조하세요.
+> [AZURE.NOTE] 특정 구성 요소 및 버전에 대한 자세한 내용은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][component-versioning]을 참조하세요.
 
-###<a name="ambari"></a>Ambari
+### <a name="ambari"></a>Ambari
 
-Apache Ambari는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. Linux 기반 HDInsight 클러스터는 Ambari 웹 UI와 Ambari REST API 둘 다 제공하는 반면 Windows 기반 클러스터는 REST API의 하위 집합을 제공합니다.
+Apache Ambari는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. Linux 기반 HDInsight 클러스터는 Ambari 웹 UI와 Ambari REST API 둘 다 제공하는 반면 Windows 기반 클러스터는 REST API의 하위 집합을 제공합니다. HDInsight 클러스터의 Ambari 뷰는 플러그 인 UI 기능을 허용합니다.
 
 [Ambari를 사용하여 HDInsight 클러스터링 관리](hdinsight-hadoop-manage-ambari.md)(Linux만 해당), [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md) 및 <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API 참조</a>를 참조하세요.
 
@@ -134,12 +136,12 @@ HDFS(Hadoop Distributed File System)는 MapReduce 및 YARN과 함께 Hadoop 에�
 
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a>는 Hadoop에서 실행되는 기계 학습 알고리즘의 확장 가능한 라이브러리입니다. 기계 학습 응용 프로그램은 통계 원칙을 사용하여 시스템이 데이터로부터 학습을 하고 이전 결과를 사용해 이후 동작을 결정하도록 가르칩니다. [Hadoop에서 Mahout를 사용하여 영화 추천 생성](hdinsight-mahout.md)을 참조하세요.
 
-### <a name="mapreduce"></a>MapReduce 및 YARN
-Hadoop MapReduce는 빅 데이터 집합을 병렬로 처리하는 응용 프로그램 작성용 소프트웨어 프레임워크로, 이 작업에서는 큰 데이터 집합을 분할한 다음 처리를 위해 데이터를 키-값 쌍으로 구성합니다.
+### <a name="mapreduce"></a>MapReduce
+MapReduce는 빅 데이터 집합을 병렬로 일괄 처리하는 응용 프로그램 작성용 Hadoop에 대한 레거시 소프트웨어 프레임워크입니다. 이 작업에서는 큰 데이터 집합을 분할한 다음 처리를 위해 데이터를 키-값 쌍으로 구성합니다.
 
-Apache YARN은 JobTracker의 두 가지 주요 작업, 즉 리소스 관리 및 작업 일정 계획/모니터링을 개별 엔터티로 분할하는 차세대 MapReduce(MapReduce 2.0, MRv2)입니다.
+[YARN](#yarn)은 Hadoop 차세대 리소스 관리자 및 응용 프로그램 프레임워크이며 MapReduce 2.0이라고 합니다. MapReduce 작업은 YARN에서 실행됩니다.
 
-MapReduce에 대한 자세한 내용은 Hadoop Wiki에서 <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a>를 참조하세요. YARN에 대한 자세한 내용은 <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce(YARN)</a>를 참조하세요.
+MapReduce에 대한 자세한 내용은 Hadoop Wiki에서 <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a>를 참조하세요.
 
 ### <a name="oozie"></a>Oozie
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a>는 Hadoop 작업을 관리하는 워크플로 코디네이션 시스템입니다. Hadoop 스택과 통합되며 MapReduce, Pig, Hive 및 Sqoop용 Hadoop 작업을 지원합니다. Java 프로그램이나 셸 스크립트와 같이 시스템에 특정한 작업을 예약하는 데에도 사용할 수 있습니다. [Hadoop에서 시간 기준 Oozie 코디네이터 사용](hdinsight-use-oozie-coordinator-time.md)을 참조하세요.
@@ -155,11 +157,51 @@ MapReduce에 대한 자세한 내용은 Hadoop Wiki에서 <a target="_blank" hre
 <a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a>은 Hadoop과 관계형 데이터베이스(예: SQL) 또는 기타 구조적 데이터 저장소 간에 대량 데이터를 최대한 효율적으로 전송하는 도구입니다. [Hadoop과 함께 Sqoop 사용](hdinsight-use-sqoop.md)을 참조하세요.
 
 ### <a name="tez"></a>Tez
-<a  target="_blank" href="http://tez.apache.org/">Apache Tez</a>는 복잡하고 방향이 있는 일반 데이터 처리 그래프를 실행하는 Hadoop YARN에서 빌드된 응용 프로그램 프레임워크입니다. 대규모로 보다 효율적으로 실행되도록 Hive와 같은 데이터를 많이 사용하는 프로세스를 허용하는 MapReduce 프레임 워크에 대한 더 유연하고 강력한 후속 작업입니다. [Hive와 HiveQL에서"향상된 성능을 위해 Apache Tez 사용"](hdinsight-use-hive.md#usetez)을 참조하세요.
+<a  target="_blank" href="http://tez.apache.org/">Apache Tez</a>는 복잡하고 방향이 있는 일반 데이터 처리 그래프를 실행하는 Hadoop YARN에서 빌드된 응용 프로그램 프레임워크입니다. 대규모로 보다 효율적으로 실행되도록 Hive와 같은 데이터를 많이 사용하는 프로세스를 허용하는 MapReduce 프레임 워크에 대한 더 유연하고 강력한 후속 작업입니다. [Hive와 HiveQL에서 "향상된 성능을 위해 Apache Tez 사용"](hdinsight-use-hive.md#usetez)을 참조하세요.
+
+### <a name="yarn"></a>YARN
+Apache YARN은 차세대 MapReduce(MapReduce 2.0 또는 MRv2)이며 더 큰 확장성 및 실시간 처리로 MapReduce 일괄 처리를 초과하는 데이터 처리 시나리오를 지원합니다. YARN은 리소스 관리 및 분산된 응용 프로그램 프레임워크를 제공합니다. MapReduce 작업은 YARN에서 실행됩니다.
+
+YARN에 대한 자세한 내용은 <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce(YARN)</a>를 참조하세요.
 
 
 ### <a name="zookeeper"></a>ZooKeeper
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a>는 데이터 레지스터의 공유 계층 구조 네임스페이스(znode)를 통해 대규모 분산 시스템의 프로세스를 조정합니다. Znode에는 상태, 위치, 구성 등 프로세스를 조정하기 위해 필요한 소량의 메타 정보가 들어 있습니다.
+
+## HDInsight의 프로그래밍 언어
+
+HDInsight 클러스터--Hadoop, HBase, Storm 및 Spark 클러스터는 다양한 프로그래밍 언어를 지원하지만 일부는 기본적으로 설치되지 않습니다. 라이브러리의 경우 모듈 또는 패키지는 기본적으로 설치되지 않으며 스크립트 작업을 사용하여 구성 요소를 설치합니다. [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+
+### 기본 프로그래밍 언어 지원
+
+기본적으로 HDInsight 클러스터는 다음을 지원합니다.
+
+* Java
+
+* Python
+
+스크립트 작업을 사용하여 추가 언어를 설치할 수 있습니다. [HDInsight를 사용하여 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)
+
+### Java 가상 컴퓨터(JVM) 언어
+
+JVM(Java virtual machine)을 사용하여 Java 이외의 여러 언어를 실행할 수 있지만 이러한 언어 중 일부를 실행하려면 클러스터에 설치된 추가 구성 요소가 필요할 수 있습니다.
+
+이러한 JVM 기반 언어는 HDInsight 클러스터에서 지원됩니다.
+
+* Clojure
+
+* Jython(Java용 Python)
+
+* Scala
+
+### Hadoop 관련 언어
+
+HDInsight 클러스터는 Hadoop 에코시스템에만 적용되는 다음 언어에 대한 지원을 제공합니다.
+
+* Pig 작업에 대한 Pig Latin
+
+* Hive 작업에 대한 HiveQL 및 SparkSQL
+
 
 ## <a name="advantage"></a>클라우드에서 Hadoop이 제공하는 이점
 
@@ -189,7 +231,7 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 
 ### HDInsight용 Hadoop 설명서
 
-* [HDInsight 설명서](http://azure.microsoft.com/documentation/services/hdinsight/): 문서, 비디오 및 추가 리소스에 대한 링크가 있는 Azure HDInsight용 설명서 페이지입니다.
+* [HDInsight 설명서](https://azure.microsoft.com/documentation/services/hdinsight/): 문서, 비디오 및 추가 리소스에 대한 링크가 있는 Azure HDInsight용 설명서 페이지입니다.
 
 * [Linux에서 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md): Linux에 HDInsight Hadoop 클러스터를 프로비전하고 샘플 Hive 쿼리를 실행하는 데 관한 빠른 시작 자습서입니다.
 
@@ -250,4 +292,4 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

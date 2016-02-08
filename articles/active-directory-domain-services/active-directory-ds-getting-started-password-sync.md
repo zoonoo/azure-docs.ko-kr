@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)* - 시작
@@ -46,15 +46,13 @@ Azure AD 테넌트에 Azure AD 도메인 서비스를 사용하도록 설정한 
 
 #### Azure AD Connect 설치 또는 업데이트
 
-도메인에 가입한 컴퓨터에 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. Azure AD Connect 설치의 기존 인스턴스가 있는 경우 Azure AD Connect GA 빌드를 사용하도록 업데이트해야 합니다. 알려진 문제/버그를 피하려면 현재 버전의 Azure AD Connect를 사용해야 합니다.
+도메인에 가입한 컴퓨터에 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. Azure AD Connect 설치의 기존 인스턴스가 있는 경우 Azure AD Connect GA 빌드를 사용하도록 업데이트해야 합니다. 알려진 문제/버그를 피하려면 최신 버전의 Azure AD Connect를 사용해야 합니다.
 
 **[Azure AD Connect 다운로드](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-최소 권장 버전: **1.0.9125** - 2015년 11월 3일에 게시되었습니다.
+최소 권장 버전: **1.0.9131** - 2015년 12월 3일에 게시되었습니다.
 
-  >[AZURE.WARNING]Azure AD 테넌트에 동기화할 레거시 암호 자격 증명(NTLM 및 Kerberos 인증에 필요)을 사용하도록 설정하려면 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. 이 기능은 Azure AD Connect의 이전 릴리스 또는 레거시 DirSync 도구에서 사용할 수 없습니다.
-
-참고: 최신 버전의 Azure AD Connect(1.0.9125 이상)에서는 'EnableWindowsLegacyCredentialsSync' 레지스트리 키를 만들 필요가 없습니다.
+  >[AZURE.WARNING] Azure AD 테넌트에 동기화할 레거시 암호 자격 증명(NTLM 및 Kerberos 인증에 필요)을 사용하도록 설정하려면 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. 이 기능은 Azure AD Connect의 이전 릴리스 또는 레거시 DirSync 도구에서 사용할 수 없습니다.
 
 Azure AD Connect에 대한 설치 지침은 [Azure AD Connect 시작](../active-directory/active-directory-aadconnect.md) 문서에 나와 있습니다.
 
@@ -79,4 +77,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 디렉터리의 크기(사용자, 그룹 등의 수)에 따라 자격 증명을 Azure AD에 동기화하는 데는 시간이 걸립니다. 자격 증명 해시를 Azure AD에 동기화한 직후 Azure AD 도메인 서비스 관리되는 도메인에서 암호를 사용할 수 있습니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

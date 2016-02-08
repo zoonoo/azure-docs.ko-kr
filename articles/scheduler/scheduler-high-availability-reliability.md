@@ -24,7 +24,7 @@
 
 ### 지리적 중복 서비스 배포
 
-Azure 스케줄러는 현재 Azure에 있는 거의 모든 지리적 지역에서 UI를 통해 사용할 수 있습니다. Azure 스케줄러에서 사용할 수 있는 지역 목록은 [여기에 있습니다](http://azure.microsoft.com/regions/#services). 호스팅되는 지역의 데이터 센터가 사용할 수 없게 렌더링될 경우 Azure 스케줄러의 장애 조치 기능을 통해 다른 데이터 센터에서 해당 서비스를 제공할 수 있습니다.
+Azure 스케줄러는 현재 Azure에 있는 거의 모든 지리적 지역에서 UI를 통해 사용할 수 있습니다. Azure 스케줄러에서 사용할 수 있는 지역 목록은 [여기에 있습니다](https://azure.microsoft.com/regions/#services). 호스팅되는 지역의 데이터 센터가 사용할 수 없게 렌더링될 경우 Azure 스케줄러의 장애 조치 기능을 통해 다른 데이터 센터에서 해당 서비스를 제공할 수 있습니다.
 
 ### 지리적 지역 작업 복제
 
@@ -72,10 +72,9 @@ Azure 스케줄러 작업에 대한 대상 끝점이 연결 불가 상태로 있
 
  [Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법](scheduler-advanced-complexity.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+ [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
-
 
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
@@ -88,4 +87,4 @@ Azure 스케줄러 작업에 대한 대상 끝점이 연결 불가 상태로 있
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

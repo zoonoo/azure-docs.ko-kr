@@ -22,7 +22,7 @@
 
 이 자습서에서는 Azure Site Recovery가 복구 계획에 확장성을 제공하는 Azure 자동화와 통합하는 방법을 설명합니다. 복구 계획은 보조 클라우드에 복제 및 Azure 시나리오에 복제 둘 다에 Azure Site Recovery를 사용하여 보호되는 가상 컴퓨터의 복구를 오케스트레이션할 수 있습니다. 복구를 **일관적으로 정확**하고, **반복 가능**하며, **자동화**되도록 할 수도 있습니다. Azure에 가상 컴퓨터의 장애를 복구하는 경우, Azure 자동화와의 통합은 복구 계획을 확대하고 runbook을 실행하는 기능을 제공하므로 강력한 자동화 작업이 가능합니다.
 
-Azure 자동화에 대해 아직 들어보지 못한 경우 [여기](http://azure.microsoft.com/services/automation/)에 등록하여 [여기](http://azure.microsoft.com/documentation/scripts/)에서 샘플 스크립트를 다운로드합니다. [여기](http://azure.microsoft.com/blog/?p=166264)에서 [Azure Site Recovery](http://azure.microsoft.com/services/site-recovery/) 및 복구 계획을 사용하여 Azure에 복구를 오케스트레이션하는 방법에 대해 더 알아봅니다.
+Azure 자동화에 대해 아직 들어보지 못한 경우 [여기](https://azure.microsoft.com/services/automation/)에 등록하여 [여기](https://azure.microsoft.com/documentation/scripts/)에서 샘플 스크립트를 다운로드합니다. [여기](https://azure.microsoft.com/blog/?p=166264)에서 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) 및 복구 계획을 사용하여 Azure에 복구를 오케스트레이션하는 방법에 대해 더 알아봅니다.
 
 이 자습서에서는 Azure 자동화 runbook을 복구 계획에 통합하는 방법에 대해 살펴봅니다. 앞서 수동 개입이 필요한 단순한 작업을 자동화하고 여러 단계의 복구를 클릭 한 번의 복구 동작으로 변환하는 방법에 대해 알아봅니다. 문제가 발생하는 경우 간단한 스크립트 문제를 해결하는 방법에 대해서도 살펴보겠습니다.
 
@@ -310,4 +310,4 @@ Azure에 장애 조치(Failover)를 실행할 때 기본 측 스크립트를 실
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

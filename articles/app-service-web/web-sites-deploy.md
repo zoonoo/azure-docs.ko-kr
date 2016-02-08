@@ -35,7 +35,7 @@ Azure 앱 서비스에서 앱을 만들거나 프로비전하는 즉시, 이 앱
 
 널리 사용되는 웹 개발 도구는 이러한 배포 프로세스 중 하나 이상을 지원합니다. 선택하는 도구에 따라 활용할 수 있는 배포 프로세스가 결정되지만 실제 사용하는 DevOps 기능은 선택하는 배포 프로세스 및 특정 도구의 조합에 따라 달라집니다. 예를 들어 [Azure SDK가 있는 Visual Studio](#vspros)에서 웹 배포를 수행하는 경우 Kudu에서 자동화 기능을 가져오지 않아도 Visual Studio에서 패키지 복원 및 MSBuild 자동화 기능을 가져옵니다. 또한 Azure SDK는 Visual Studio 인터페이스에서 직접 필요한 Azure 리소스를 만들 수 있도록 사용하기 쉬운 마법사를 제공합니다.
 
->[AZURE.NOTE]이러한 배포 프로세스는 앱 서비스 계획, 앱 서비스 앱 및 SQL 데이터베이스와 같이 앱에서 필요할 수 있는 [Azure 리소스를 실제로 프로비전](resource-group-portal)하지 않습니다. 그러나 연결된 대부분의 사용 방법 문서는 앱을 프로비전하고 종단 간으로 코드를 배포하는 방법을 보여 줍니다. Azure 리소스를 프로비전하기 위한 추가 옵션은 [명령줄 도구를 사용하여 배포 자동화](#automate) 섹션에도 나와 있습니다.
+>[AZURE.NOTE] 이러한 배포 프로세스는 앱 서비스 계획, 앱 서비스 앱 및 SQL 데이터베이스와 같이 앱에서 필요할 수 있는 [Azure 리소스를 실제로 프로비전](resource-group-portal)하지 않습니다. 그러나 연결된 대부분의 사용 방법 문서는 앱을 프로비전하고 종단 간으로 코드를 배포하는 방법을 보여 줍니다. Azure 리소스를 프로비전하기 위한 추가 옵션은 [명령줄 도구를 사용하여 배포 자동화](#automate) 섹션에도 나와 있습니다.
 
 ## <a name="ftp"></a>Azure에 파일을 수동으로 복사하여 배포
 웹 콘텐츠를 웹 호스터에 수동으로 복사(PHP 개발자를 위한 일반 워크플로)하는 것이 익숙한 경우 Windows 탐색기 또는 [FileZilla](https://filezilla-project.org/)와 같은 [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 유틸리티를 사용하여 파일을 복사할 수 있습니다.
@@ -201,8 +201,8 @@ Visual Studio Team Services를 사용하여 배포할 때의 추가 장점:
 ###<a name="cloudgitmercurial"></a>클라우드 기반 Git 또는 Mercurial 리포지토리에서 배포하는 방법
 
 - [Git를 사용하여 소스 제어에서 웹 앱으로 게시합니다.](web-sites-publish-source-control.md) GitHub, CodePlex 또는 BitBucket에서 리포지토리의 지속적인 배포를 가능하게 하는 방법도 보여 줍니다. 이 자습서에서는 Git 리포지토리를 게시하는 방법을 설명하지만, CodePlex 또는 BitBucket에서 호스트되는 Mercurial 리포지토리에 대한 프로세스도 비슷합니다.
-- [Kudu를 사용하는 GitHub를 통해 웹 앱에 배포합니다.](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/) GitHub에서 앱 서비스에 직접 웹앱을 배포하는 방법을 보여 주는 Scott Hanselman과 David Ebbo의 동영상.
-- [웹 앱에 대한 Azure 단추에 배포합니다.](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) Git 리포지토리에서 배포를 트리거하는 방법에 대한 블로그입니다.
+- [Kudu를 사용하는 GitHub를 통해 웹 앱에 배포합니다.](https://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/) GitHub에서 앱 서비스에 직접 웹앱을 배포하는 방법을 보여 주는 Scott Hanselman과 David Ebbo의 동영상.
+- [웹 앱에 대한 Azure 단추에 배포합니다.](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) Git 리포지토리에서 배포를 트리거하는 방법에 대한 블로그입니다.
 - [Git, Mercurial 및 Dropbox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)(영문).
 
 자세한 내용은 다음 리소스를 참조하십시오.
@@ -264,7 +264,7 @@ Windows, Mac 또는 Linux 컴퓨터에서 명령줄을 사용하여 FTP를 사�
 
 자세한 내용은 다음 리소스를 참조하십시오.
 
-* [간단한 웹 앱: 배포](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). 웹 배포를 보다 쉽게 사용할 수 있도록 하기 위해 자신이 작성한 도구에 대해 소개하는 David Ebbo의 블로그입니다.
+* [간단한 웹 앱: 배포](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). 웹 배포를 보다 쉽게 사용할 수 있도록 하기 위해 자신이 작성한 도구에 대해 소개하는 David Ebbo의 블로그입니다.
 * [웹 배포 도구](http://technet.microsoft.com/library/dd568996)(영문). Microsoft TechNet 사이트의 공식적인 설명서입니다. 이전에 작성되었지만 시작할 때 참조하기 좋습니다.
 * [웹 배포 사용](http://www.iis.net/learn/publish/using-web-deploy)(영문). Microsoft IIS.NET 사이트의 공식적인 설명서입니다. 마찬가지로, 이전에 작성되었지만 시작할 때 참조하기 좋습니다.
 * [StackOverflow](http://www.stackoverflow.com)(영문). 명령줄에서 웹 배포를 사용하는 방법에 대한 최신 정보를 원하는 경우 가장 적합한 자료입니다.
@@ -276,7 +276,7 @@ Windows, Mac 또는 Linux 컴퓨터에서 명령줄을 사용하여 FTP를 사�
 
 백업 및 복원 계획을 마련하는 일은 배포 워크플로의 중요한 부분입니다. 웹 앱 백업 및 복원 기능에 대한 자세한 내용은 [웹 앱 백업](web-sites-backup.md)을 참조하세요.
 
-Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한 액세스를 관리하는 방법은 [RBAC 및 웹 앱 게시](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing)를 참조하세요.
+Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한 액세스를 관리하는 방법은 [RBAC 및 웹 앱 게시](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/)를 참조하세요.
 
 다른 배포 항목에 대한 자세한 내용은 [웹 앱 설명서](/documentation/services/web-sites/)의 배포 섹션을 참조하세요.
 
@@ -284,4 +284,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -33,9 +33,9 @@ New Relic은 서버 및 사용자 브라우저의 웹 트랜잭션에 대한 부
 
 New Relic Standard는 Azure 사용자에게 무료이며, New Relic Pro는 Azure 클라우드 서비스의 인스턴스 크기에 따라 제공됩니다.
 
-가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic)(영문)를 참조하십시오.
+가격 책정 정보는 [Azure 스토어의 New Relic 페이지](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/)(영문)를 참조하십시오.
 
-> [AZURE.NOTE]최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.
+> [AZURE.NOTE] 최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
 
@@ -148,4 +148,4 @@ Applications Overview 대시보드에는 [표준 New Relic UI](https://newrelic.
  * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring): RUM에서 사용자의 브라우저가 웹 페이지를 로드하는 데 걸리는 시간, 사용자의 위치 및 사용하는 브라우저의 종류를 자세히 표시하는 방법에 대한 개요
  * [도움말 찾기](https://newrelic.com/docs/site/finding-help): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

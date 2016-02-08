@@ -123,7 +123,7 @@ Azure 앱 서비스는 처음에 무료로 사용한 후 필요할 때 기능을
 
 ### <a id="lob"></a>회사 네트워크에 연결해야 하는 LOB(기간 업무) 애플리케이션이 있는 경우
 
-LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. 앱 서비스, 클라우드 서비스 및 가상 컴퓨터에서 [Azure 가상 네트워크 서비스](/services/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. 앱 서비스에서 [VNET 통합 기능](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 사용하면 Azure 응용 프로그램을 회사 네트워크에서와 같이 실행할 수 있습니다.
+LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. 앱 서비스, 클라우드 서비스 및 가상 컴퓨터에서 [Azure 가상 네트워크 서비스](/services/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. 앱 서비스에서 [VNET 통합 기능](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 사용하면 Azure 응용 프로그램을 회사 네트워크에서와 같이 실행할 수 있습니다.
 
 ### <a id="mobile"></a>모바일 클라이언트를 위해 REST API 또는 웹 서비스를 호스트하려는 경우
 
@@ -170,14 +170,15 @@ TFS를 사용하여 코드 배포|X|X|X|
 ETW 이벤트 수신 가능||X|X|
 
 
-> [AZURE.NOTE]계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 여기서 Azure 앱 서비스에 단기 시작 앱을 무료로 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [AZURE.NOTE]
+계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 여기서 Azure 앱 서비스에 단기 시작 앱을 무료로 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 
 ## <a id="nextsteps"></a> 다음 단계
 
 3개 웹 호스팅 옵션에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure 소개](../fundamentals-introduction-to-azure.md)(영문)
+* [Azure 소개(영문)](../fundamentals-introduction-to-azure.md)
 * [Azure에서 제공하는 계산 호스팅 옵션](../fundamentals-application-models.md)
 
 응용 프로그램에 대해 선택한 옵션 사용을 시작하려면 다음 리소스를 참조하세요.
@@ -204,4 +205,4 @@ ETW 이벤트 수신 가능||X|X|
   [저장소]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

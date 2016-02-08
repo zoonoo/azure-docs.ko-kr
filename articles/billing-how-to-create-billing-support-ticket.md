@@ -24,7 +24,7 @@
 
 >[AZURE.NOTE]Azure 계정 관리자만 계정 센터에 액세스할 수 있는 권한이 있습니다.
 
-1. [Azure 지원](http://azure.microsoft.com/support) 웹 사이트로 가서 **지원 받기**를 클릭합니다. Microsoft Azure 포털 또는 Azure 계정 센터에서 인시던트를 제출할 수도 있습니다.
+1. [Azure 지원](https://azure.microsoft.com/support/) 웹 사이트로 가서 **지원 받기**를 클릭합니다. Microsoft Azure 포털 또는 Azure 계정 센터에서 인시던트를 제출할 수도 있습니다.
 
  * [Azure 포털](https://manage.windowsazure.com/)에서 지원 티켓을 제출하려면 해당 계정 이름을 클릭한 다음 Microsoft 지원에 문의를 클릭합니다.
  * [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원 티켓을 제출하려면 구독을 선택하고 Microsoft 지원에 문의를 클릭합니다.
@@ -49,4 +49,4 @@
 
 계약 내용에 따라 Azure 지원 담당자의 연락을 받게 됩니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

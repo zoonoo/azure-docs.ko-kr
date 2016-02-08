@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
@@ -34,9 +34,8 @@ WCF “릴레이” 바인딩 모음을 사용하여 온-프레미스 서비스�
 서비스 버스 릴레이에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
-
 - [서비스 버스 릴레이 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

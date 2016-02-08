@@ -80,7 +80,7 @@ Azure 데이터 과학 환경을 설정하려면
 
 3. [SQL Server 및 IPython Notebook 서버 역할을 할 데이터 과학 가상 컴퓨터 프로비전](machine-learning-data-science-setup-sql-server-virtual-machine.md)
 
-	> [AZURE.NOTE]샘플 스크립트와 IPython Notebook은 설정 프로세스 중에 데이터 과학 가상 컴퓨터로 다운로드됩니다. VM 사후 설치 스크립트가 완료되면 샘플이 VM의 문서 라이브러리에 배치됩니다. - 샘플 스크립트:`C:\Users<user_name>\Documents\Data Science Scripts` -샘플 IPython 노트북: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` 여기서 `<user_name>`은(는) VM의 Windows 로그인 이름입니다. 샘플 폴더는 **Sample Scripts** 및 **Sample IPython Notebooks**라고 합니다.
+	> [AZURE.NOTE] 샘플 스크립트와 IPython Notebook은 설정 프로세스 중에 데이터 과학 가상 컴퓨터로 다운로드됩니다. VM 사후 설치 스크립트가 완료되면 샘플이 VM의 문서 라이브러리에 배치됩니다. - 샘플 스크립트:`C:\Users<user_name>\Documents\Data Science Scripts` -샘플 IPython 노트북: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` 여기서 `<user_name>`은(는) VM의 Windows 로그인 이름입니다. 샘플 폴더는 **Sample Scripts** 및 **Sample IPython Notebooks**라고 합니다.
 
 
 데이터 집합 크기, 데이터 원본 위치 및 선택한 Azure 대상 환경에 따라 이 시나리오는 [시나리오 5: 로컬 파일에서 큰 데이터집합, Azure VM에서 대상 SQL Server](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)
@@ -612,7 +612,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 2. [Azure 기계 학습 스튜디오](https://studio.azureml.net)에 로그인합니다.
 
-3. 스튜디오 홈 페이지에서는 다양한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공합니다. Azure 기계 학습에 대한 자세한 내용은 [Azure 기계 학습 설명서 센터](http://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
+3. 스튜디오 홈 페이지에서는 다양한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공합니다. Azure 기계 학습에 대한 자세한 내용은 [Azure 기계 학습 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
 일반적인 학습 실험은 다음으로 구성됩니다.
 
@@ -649,7 +649,7 @@ SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실
 
 ![Azure 기계 학습][10]
 
-> [AZURE.IMPORTANT]이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
+> [AZURE.IMPORTANT] 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
 >
 > 필요 없는 열 및/또는 목표 누설을 제외하려면 [프로젝트 열][project-columns] 모듈 또는 [메타데이터 편집기][metadata-editor]를 사용하면 됩니다. 자세한 내용은 [프로젝트 열][project-columns] 및 [메타데이터 편집기][metadata-editor] 참조 페이지를 참조하세요.
 
@@ -714,4 +714,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

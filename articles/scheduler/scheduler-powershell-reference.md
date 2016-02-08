@@ -46,7 +46,7 @@
 
  [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+ [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
 
@@ -59,4 +59,4 @@
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

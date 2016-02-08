@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치
@@ -26,8 +26,6 @@
 
 <br>
 
-
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## OpenSUSE Linux를 실행하는 가상 컴퓨터 만들기
 
@@ -43,4 +41,4 @@ MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs]를 참조하세
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

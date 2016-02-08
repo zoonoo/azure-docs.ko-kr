@@ -106,13 +106,13 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 이
 
 ###Azure AD 응용 프로그램 갤러리 사용
 
-[Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)는 Azure Active Directory와의 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록을 제공합니다.
+[Azure Active Directory 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)는 Azure Active Directory와의 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록을 제공합니다.
 
 ![][1]
 
 다음은 이들이 지원하는 기능별 앱 찾기에 대한 몇 가지 팁입니다.
 
-*	Azure AD는 [Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)에서 모든 "기능을 갖춘" 앱에 대한 자동 프로비저닝 및 프로비저닝 해제를 지원합니다.
+*	Azure AD는 [Azure Active Directory 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 모든 "기능을 갖춘" 앱에 대한 자동 프로비저닝 및 프로비저닝 해제를 지원합니다.
 
 *	SAML, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 사용하여 페더레이션된 Single Sign-On을 지원하는 페더레이션된 응용 프로그램 목록은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)서 확인할 수 있습니다.
 
@@ -131,7 +131,7 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 이
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**앱 통합 요청** - [Azure AD 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 필요한 응용 프로그램에 대한 지원을 요청합니다.
+*	**앱 통합 요청** - [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 필요한 응용 프로그램에 대한 지원을 요청합니다.
 
 ###Azure 관리 포털
 
@@ -168,7 +168,7 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 ###Azure AD 액세스 패널
 
-https://myapps.microsoft.com의 액세스 패널은 Azure Active Directory에 회사 계정이 있는 최종 사용자가 Azure AD 관리자에 의해 액세스 권한이 부여된 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/)이 있는 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
+https://myapps.microsoft.com의 액세스 패널은 Azure Active Directory에 회사 계정이 있는 최종 사용자가 Azure AD 관리자에 의해 액세스 권한이 부여된 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
 ![][3]
 
@@ -220,4 +220,4 @@ Azure AD는 또한 암호 기반 Single Sign-On, 기존 Single Sign-On 및 페�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

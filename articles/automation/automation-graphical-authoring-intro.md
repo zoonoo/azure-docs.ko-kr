@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/19/2016"
    ms.author="bwren" />
 
 # Azure 자동화에서 그래픽 작성
@@ -40,6 +40,10 @@ Azure 자동화의 모든 Runbook은 Windows PowerShell 워크플로입니다. �
 
 ### 캔버스
 캔버스는 Runbook을 디자인하는 곳입니다. 라이브러리 컨트롤의 노드에서 Runbook에 활동을 추가하고 Runbook의 논리를 정의하는 링크와 연결합니다.
+
+확대 및 축소할 캔버스의 맨 아래에서 컨트롤을 사용할 수 있습니다.
+
+![그래픽 작업 영역](media/automation-graphical-authoring-intro/canvas-zoom.png)
 
 ### 라이브러리 컨트롤
 
@@ -141,6 +145,38 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 
 모든 cmdlet에는 추가 매개 변수를 제공할 수 있는 옵션이 있습니다. 이는 PowerShell 일반 매개 변수 또는 기타 사용자 지정 매개 변수입니다. PowerShell 구문을 사용하여 매개 변수를 제공할 수 있는 텍스트 상자가 표시됩니다. 예를 들어 **Verbose** 일반 매개 변수를 사용하려면 **"-Verbose:$True"**를 지정합니다.
 
+### 작업 다시 시도
+
+**동작 다시 시도**를 사용하면 특정 조건이 충족될 때까지 활동이 여러 번 실행될 수 있습니다. 여러 번 실행해야 하고 오류가 발생하기 쉬운 작업에 이 기능을 사용할 수 있으며 성공하기 위해 한 번 이상 시도해야 할 수 있습니다.
+
+활동에 재시도 사용하면 지연 및 조건을 설정할 수 있습니다. 지연은 작업을 다시 실행하기 전에 Runbook이 대기하는 시간(분 또는 초 단위로 측정됨)입니다. 지연이 지정되지 않은 경우 작업은 완료된 후에 즉시 다시 실행됩니다.
+
+![작업 다시 시도 지연](media/automation-graphical-authoring-intro/retry-delay.png)
+
+다시 시도 조건은 작업이 실행된 이후 마다 평가되는 PowerShell 식입니다. 식이 True로 확인되면 작업을 다시 실행합니다. 식이 False로 확인되면 활동이 다시 실행되지 않고 Runbook이 다음 활동으로 이동합니다.
+
+![작업 다시 시도 지연](media/automation-graphical-authoring-intro/retry-condition.png)
+
+다시 시도 조건은 작업 다시 시도에 대한 정보에 액세스를 제공하는 $RetryData라는 변수를 사용할 수 있습니다. 이 변수는 다음 테이블의 속성을 가집니다.
+
+| 속성 | 설명 |
+|:--|:--|
+| NumberOfAttempts | 활동이 실행된 횟수입니다. |
+| 출력 | 활동의 마지막 실행에서 출력입니다. |
+| TotalDuration | 작업이 처음으로 시작된 이후 경과된 시간입니다. |
+| StartedAt | 작업을 처음으로 시작한 UTC 형식의 시간입니다. |
+
+다음은 활동 다시 시도 조건의 예제입니다.
+
+	# Run the activity exactly 10 times.
+	$RetryData.NumberOfAttempts -ge 10 
+
+	# Run the activity repeatedly until it produces any output.
+	$RetryData.Output.Count -ge 1 
+
+	# Run the activity repeatedly until 2 minutes has elapsed. 
+	$RetryData.TotalDuration.TotalMinutes -ge 2
+
 ### 워크플로 스크립트 컨트롤
 
 워크플로 스크립트 컨트롤은 다른 방법으로 사용할 수 없는 기능을 제공하기 위해 PowerShell 워크플로 코드를 허용하는 특별한 활동입니다. 완전한 워크플로는 아니지만 PowerShell 워크플로 코드의 유효한 줄을 포함해야 합니다. 매개 변수를 사용할 수 없지만 활동 출력 및 Runbook 입력 매개 변수에 변수를 사용할 수는 있습니다. 활동의 출력은 나가는 링크가 없는 경우 데이터 버스에 추가되고, 나가는 링크가 있는 경우 Runbook의 출력에 추가됩니다.
@@ -239,7 +275,11 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 
 ### 검사점
 
-Runbook에서 [검사점](automation-powershell-workflow/#checkpoints)을 설정하는 데 적용되는 동일한 지침이 그래픽 Runbook에 적용됩니다. 검사점을 설정해야 하는 Checkpoint-Workflow cmdlet에 대한 활동을 추가할 수 있습니다. 그런 다음 이 검사점에서 다른 작업자에 대해 Runbook이 시작되는 경우 Add-AzureAccount를 사용하여 이 활동을 따릅니다.
+활동에서 *검사점 Runbook*을 선택하여 그래픽 Runbook에서 [검사점](automation-powershell-workflow/#checkpoints)을 설정할 수 있습니다. 활동을 실행한 후에 검사점을 설정하게 됩니다.
+
+![검사점](media/automation-graphical-authoring-intro/set-checkpoint.png)
+
+Runbook에서 검사점을 설정하는 데 적용되는 동일한 지침이 그래픽 Runbook에 적용됩니다. Runbook이 Azure cmdlet를 사용하면 다른 작업자의 이 검사점에서 Runbook이 일시 중지되었다가 다시 시작되는 경우 AzureRMAccount를 사용하여 검사점이 지정된 작업을 수행해야 합니다.
 
 
 ## Azure 리소스 인증
@@ -379,4 +419,4 @@ Runbook의 이전 작업에서 출력을 사용하려면 다음 구문을 사용
 - [연산자](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,12 +24,12 @@
 
 에뮬레이터 설치되면 단어 개수에 대해 MapReduce 자습서를 따르고 샘플을 실행합니다.
 
-> [AZURE.NOTE]HDInsight Emulator에는 Hadoop 클러스터만 포함될 수 있으며, HBase나 Storm은 포함되지 않습니다.
+> [AZURE.NOTE] HDInsight Emulator에는 Hadoop 클러스터만 포함될 수 있으며, HBase나 Storm은 포함되지 않습니다.
 
 
 HDInsight Emulator에서는 Hadoop 샌드박스와 매우 비슷한 로컬 개발 환경을 제공합니다. Hadoop에 익숙한 경우 Hadoop 분산 파일 시스템(HDFS)을 사용하여 HDInsight Emulator를 시작할 수 있습니다. HDInsight에서 기본 파일 시스템은 Azure Blob 저장소입니다. 따라서 Azure Blob 저장소를 사용하여 작업을 개발하게 됩니다. HDInsight Emulator와 Azure Blob 저장소를 사용하려면 에뮬레이터의 구성을 변경해야 합니다.
 
-> [AZURE.NOTE]HDInsight Emulator는 단일 노드 배포만 사용할 수 있습니다.
+> [AZURE.NOTE] HDInsight Emulator는 단일 노드 배포만 사용할 수 있습니다.
 
 
 ## 필수 조건
@@ -41,14 +41,14 @@ HDInsight Emulator에서는 Hadoop 샌드박스와 매우 비슷한 로컬 개�
 	- Windows 8
 	- Windows Server 2012
 
-- **Azure PowerShell**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
+- **Azure PowerShell**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
 
 ##<a name="install"></a>HDInsight Emulator 설치
 
 Microsoft HDInsight Emulator는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다.
 
-> [AZURE.NOTE]현재 HDInsight Emulator에서는 영어 운영 체제만 지원합니다. 이전 버전의 에뮬레이터가 설치되어 있는 경우 최신 버전의 에뮬레이터를 설치하기 전에 제어판/프로그램 및 기능에서 다음 두 구성 요소를 설치 제거해야 합니다. <ul> <li>Microsoft HDInsight Emulator for Azure 또는 HDInsight Developer Preview 중 </li> <li>Hortonworks Data Platform</li> </ul>이 설치되어 있는 구성 요소.
+> [AZURE.NOTE] 현재 HDInsight Emulator에서는 영어 운영 체제만 지원합니다. 이전 버전의 에뮬레이터가 설치되어 있는 경우 최신 버전의 에뮬레이터를 설치하기 전에 제어판/프로그램 및 기능에서 다음 두 구성 요소를 설치 제거해야 합니다. <ul> <li>Microsoft HDInsight Emulator for Azure 또는 HDInsight Developer Preview 중 </li> <li>Hortonworks Data Platform</li> </ul>이 설치되어 있는 구성 요소.
 
 
 **HDInsight Emulator 설치**
@@ -294,7 +294,7 @@ jar 파일과 원본 파일은 C:\\Hadoop\\GettingStarted\\Java 폴더에 있습
 
 5. 다음 명령을 실행하여 **w3ccreate.hql** 스크립트 파일을 실행합니다. 이 스크립트는 Hive 테이블을 만들고 데이터를 그 Hive 테이블로 로드합니다.
 
-	> [AZURE.NOTE]이 단계에서는 HDInsight Visual Studio 도구를 사용하여 Hive 쿼리도 실행할 수 있습니다. Visual Studio를 열고 새 프로젝트를 만든 다음 HDInsight 템플릿에서 **Hive 응용 프로그램**을 선택합니다. 프로젝트를 연 다음 새 항목으로 쿼리를 추가합니다. 쿼리는 **C:/hdp/GettingStarted/Hive/w3c**에 있습니다. 프로젝트에 쿼리를 추가하고 나면 **${hiveconf:input}**을 **/w3c/hive/input**으로 바꾼 다음 **제출**을 누릅니다.
+	> [AZURE.NOTE] 이 단계에서는 HDInsight Visual Studio 도구를 사용하여 Hive 쿼리도 실행할 수 있습니다. Visual Studio를 열고 새 프로젝트를 만든 다음 HDInsight 템플릿에서 **Hive 응용 프로그램**을 선택합니다. 프로젝트를 연 다음 새 항목으로 쿼리를 추가합니다. 쿼리는 **C:/hdp/GettingStarted/Hive/w3c**에 있습니다. 프로젝트에 쿼리를 추가하고 나면 **${hiveconf:input}**을 **/w3c/hive/input**으로 바꾼 다음 **제출**을 누릅니다.
 
 		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
@@ -313,7 +313,7 @@ jar 파일과 원본 파일은 C:\\Hadoop\\GettingStarted\\Java 폴더에 있습
 
 6. 다음 명령을 실행하여 **w3ctotalhitsbypage.hql** HiveQL 스크립트 파일을 실행합니다.
 
-	> [AZURE.NOTE]앞에서 설명한 대로 HDInsight Visual Studio 도구도 사용하여 이 쿼리를 실행할 수 있습니다.
+	> [AZURE.NOTE] 앞에서 설명한 대로 HDInsight Visual Studio 도구도 사용하여 이 쿼리를 실행할 수 있습니다.
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
@@ -390,7 +390,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Azure Blob 저장소에 연결
 HDInsight Emulator는 HDFS를 기본 파일 시스템으로 사용합니다. 그러나 Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용합니다. 로컬 저장소 대신 Azure Blob 저장소를 사용하도록 HDInsight Emulator를 구성할 수 있습니다. Azure에서 저장소 컨테이너를 만들어 HDInsight Emulator에 연결하려면 다음 지침을 따릅니다.
 
->[AZURE.NOTE]HDInsight에서 Azure Blob 저장소를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요.
+>[AZURE.NOTE] HDInsight에서 Azure Blob 저장소를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요.
 
 아래 지침에 따라 작업을 시작하기 전에 먼저 저장소 계정을 만들어야 합니다. 자세한 내용은 [저장소 계정을 만드는 방법](../storage-create-storage-account.md)을 참조하세요.
 
@@ -497,4 +497,4 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

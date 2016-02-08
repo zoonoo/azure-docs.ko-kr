@@ -8,7 +8,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/25/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Azure 가상 컴퓨터 백업 관리 및 모니터링
 
@@ -51,7 +58,7 @@
 
     ![백업 작업 만들기](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE]가상 컴퓨터와 연결된 정책을 보려면 **보호되는 항목** 페이지에서 가상 컴퓨터로 드릴다운하고 백업 정책 탭으로 이동합니다.
+    >[AZURE.NOTE] 가상 컴퓨터와 연결된 정책을 보려면 **보호되는 항목** 페이지에서 가상 컴퓨터로 드릴다운하고 백업 정책 탭으로 이동합니다.
 
 3. 작업이 생성된 후에는 알림 표시줄의 **작업 보기** 단추를 클릭하여 작업 페이지에서 해당 작업을 확인할 수 있습니다.
 
@@ -65,7 +72,7 @@
 - Azure 백업 자격 증명 모음에 가상 컴퓨터와 연결된 백업 데이터 유지
 - 가상 컴퓨터와 연결된 백업 데이터 삭제
 
-가상 컴퓨터와 연결된 백업 데이터를 유지하도록 선택한 경우 백업 데이터를 사용하여 가상 컴퓨터를 복원할 수 있습니다. 이러한 가상 컴퓨터의 가격 정보를 보려면 [여기](http://azure.microsoft.com/pricing/details/backup/)를 클릭하세요.
+가상 컴퓨터와 연결된 백업 데이터를 유지하도록 선택한 경우 백업 데이터를 사용하여 가상 컴퓨터를 복원할 수 있습니다. 이러한 가상 컴퓨터의 가격 정보를 보려면 [여기](https://azure.microsoft.com/pricing/details/backup/)를 클릭하세요.
 
 가상 컴퓨터에 대한 보호를 중지하려면
 
@@ -104,7 +111,7 @@
 
   ![다시 보호된 VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE]가상 컴퓨터를 다시 보호하는 경우 가상 컴퓨터가 처음에 보호된 정책과 다른 정책을 선택할 수 있습니다.
+>[AZURE.NOTE] 가상 컴퓨터를 다시 보호하는 경우 가상 컴퓨터가 처음에 보호된 정책과 다른 정책을 선택할 수 있습니다.
 
 ## 가상 컴퓨터 등록 취소
 
@@ -153,7 +160,7 @@
 
 ![대시보드](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE]대시보드의 값은 24시간마다 한 번 새로 고쳐집니다.
+>[AZURE.NOTE] 대시보드의 값은 24시간마다 한 번 새로 고쳐집니다.
 
 ## 작업 감사
 Azure 백업은 백업 자격 증명 모음에서 관리 작업이 무엇을 수행하는지 정확하게 볼 수 있도록고객에 의해 트리거된 백업 작업의 "작업 로그"를 검토합니다. 작업 로그를 사용하면 백업 작업에 대한 post-mortem 및 감사 지원이 가능합니다.
@@ -213,7 +220,7 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 **OperationName**: EventName이 위에서 설명한 것처럼 "Microsoft.Backup/backupvault/<EventName>" 형식입니다.
 
-**상태**: 지원되는 값은 시작함, 성공 및 실패입니다. 정보를 Succeeded 상태에 대한 수준으로 유지하는 것이 좋습니다.
+**상태**: 지원되는 값은 시작함, 성공함 및 실패함입니다. 정보를 Succeeded 상태에 대한 수준으로 유지하는 것이 좋습니다.
 
 **하위 상태**: 백업 작업에 대한 상태와 동일합니다.
 
@@ -249,4 +256,4 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 - [Azure VM 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

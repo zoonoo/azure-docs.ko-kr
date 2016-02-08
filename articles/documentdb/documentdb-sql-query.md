@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="DocumentDB, NoSQL 데이터베이스에서 SQL 쿼리 | Microsoft Azure" 
-	description="DocumentDB, NoSQL 데이터베이스를 쿼리하기 위해 SQL 쿼리 문을 사용하는 방법에 대해 알아봅니다. JSON 쿼리 언어인 SQL 쿼리는 빅 데이터 분석에 사용할 수 있습니다." 
-	keywords="SQL 쿼리, 여러 SQL 쿼리, SQL 구문, json 쿼리 언어, 데이터베이스 개념 및 SQL 쿼리"
+	pageTitle="DocumentDB에 대한 SQL 구문 및 SQL 쿼리 | Microsoft Azure" 
+	description="SQL 구문, DocumentDB에 대한 데이터베이스 개념 및 SQL 쿼리, NoSQL 데이터베이스에 대해 알아봅니다. SQL은 DocumentDB에서 JSON 쿼리 언어로 사용될 수 있습니다." 
+	keywords="sql 구문, sql 쿼리, 여러 SQL 쿼리, json 쿼리 언어, 데이터베이스 개념 및 sql 쿼리"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -17,12 +17,12 @@
 	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
-# DocumentDB에서 SQL 쿼리
+# DocumentDB의 SQL 쿼리 및 SQL 구문
 Microsoft Azure DocumentDB는 JSON 쿼리 언어인 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. DocumentDB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다.
 
 DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
 
--	새 쿼리 언어를 고안하는 대신 SQL 언어를 지원하려고 했습니다. SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
+-	새 JSON 쿼리 언어를 고안하는 대신 SQL 언어를 지원하려고 했습니다. SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
 -	데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
 
 이러한 기능은 응용 프로그램과 데이터베이스 간의 충돌을 줄이는 데 도움이 되며 개발자 생산성에 중요합니다.
@@ -884,7 +884,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 
 -	배열의 각 자식 요소 **c**를 확장합니다.
 -	문서 루트 **f**와 첫 번째 단계에서 평면화된 각 자식 요소 **c**의 교차곱을 적용합니다.
--	끝으로, 루트 개체 **f**의 이름 속성만 프로젝션합니다. 
+-	마지막으로, 루트 개체 **f**의 이름 속성만 프로젝션합니다. 
 
 첫 번째 문서(`AndersenFamily`)에는 하나의 자식 요소만 포함되어 있으므로 이 문서에 해당하는 단일 개체만 결과 집합에 포함됩니다. 두 번째 문서(`WakefieldFamily`)에는 두 개의 자식이 포함되어 있습니다. 따라서 교차곱을 통해 각 자식에 대한 개별 개체가 생성되므로 이 문서에 해당하는 각 자식에 하나씩, 두 개의 개체가 생성됩니다. 교차곱에서 예상한 대로 두 문서의 루트 필드는 동일합니다.
 
@@ -997,7 +997,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 
 이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다. 쿼리 내에서 호출하는 경우 대/소문자를 구분하는 접두사 "udf."를 사용하여 UDF를 한정해야 합니다.
 
->[AZURE.NOTE]2015년 3월 17일 이전에는 DocumentDB가 SELECT REGEX\_MATCH()와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.
+>[AZURE.NOTE] 2015년 3월 17일 이전에는 DocumentDB가 SELECT REGEX\_MATCH()와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.
 
 **쿼리**
 
@@ -1489,7 +1489,7 @@ ST\_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. �
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]DocumentDB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리에서 결과가 반환되지 않는 경우 ST\_ISVALIDDETAILED를 실행하여 공간 형식이 잘못된 이유를 디버그합니다.
+>[AZURE.NOTE] DocumentDB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리에서 결과가 반환되지 않는 경우 ST\_ISVALIDDETAILED를 실행하여 공간 형식이 잘못된 이유를 디버그합니다.
 
 ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 확인할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. ST\_ISVALID는 부울 값만 반환하고 ST\_ISVALIDDETAILED는 부울 및 잘못된 것으로 간주된 이유를 포함하는 문자열을 반환합니다.
 
@@ -1527,7 +1527,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 
 아래 그림은 DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처를 보여 줍니다. 개발자는 DocumentDB 클라이언트를 사용하여 쿼리를 DocumentDB 쿼리 공급자로 보내는 **IQueryable** 개체를 만들 수 있습니다. 쿼리 공급자가 LINQ 쿼리를 DocumentDB 쿼리로 변환합니다. 그런 다음 JSON 형식으로 결과 집합을 검색하기 위해 쿼리가 DocumentDB 서버로 전달됩니다. 반환된 결과는 클라이언트 쪽에서 .NET 개체 스트림으로 역직렬화됩니다.
 
-![DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처][1]
+![DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처 - SQL 구문, JSON 쿼리 언어, 데이터베이스 개념 및 SQL 쿼리][1]
  
 
 
@@ -2144,4 +2144,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

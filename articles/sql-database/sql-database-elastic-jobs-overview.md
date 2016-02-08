@@ -40,7 +40,7 @@
 * 실행 일정 정의
 * Azure SQL 데이터베이스의 컬렉션에서 단일 대상 테이블로 데이터 집계
 
-> [AZURE.NOTE]Azure 포털에서는 SQL Azure 탄력적 풀로 제한된 감소된 기능 집합만 사용할 수 있습니다. PowerShell API를 사용하여 현재 기능의 전체 집합에 액세스할 수 있습니다.
+> [AZURE.NOTE] Azure 포털에서는 SQL Azure 탄력적 풀로 제한된 감소된 기능 집합만 사용할 수 있습니다. PowerShell API를 사용하여 현재 기능의 전체 집합에 액세스할 수 있습니다.
 
 ## 시나리오
 
@@ -88,10 +88,10 @@
 ## 구성 요소 및 가격 
 다음 구성 요소는 함께 작동하여 관리 작업의 임시 실행을 지원하는 Azure 클라우드 서비스를 구성합니다. 구성 요소는 구독에 포함되어 설치 도중 자동으로 설치 및 구성됩니다. 서비스는 모두 동일하게 자동으로 생성된 이름을 가지므로 식별할 수 있습니다. 각 이름은 고유하며, 접두사 "edj"에 이어 임의로 생성된 문자 21개로 구성됩니다.
 
-* **Azure 클라우드 서비스**: 탄력적 데이터베이스 작업(Preview)은 고객이 호스트하는 Azure 클라우드 서비스 형태로 제공되어 요청된 작업의 실행을 처리합니다. 포털에서 서비스가 배포되며 Microsoft Azure 구독에 포함되어 호스팅됩니다. 기본적으로 배포되는 서비스는 고가용성을 위한 최소 2개의 작업자 역할로 실행됩니다. 각 작업자 역할(ElasticDatabaseJobWorker)의 기본 크기가 A0 인스턴스에서 실행됩니다. 가격에 대한 내용은 [클라우드 서비스 가격](http://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요. 
-* **Azure SQL 데이터베이스**: 이 서비스는 **제어 데이터베이스**로 알려진 Azure SQL 데이터베이스를 사용하여 모든 작업 메타데이터를 저장합니다. 기본 서비스 계층은 S0입니다. 가격에 대한 내용은 [SQL 데이터베이스 가격](http://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
-* **Azure 서비스 버스**: Azure 서비스 버스는 Azure 클라우드 서비스 내의 작업 조정에 사용됩니다. [서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
-* **Azure 저장소**: Azure 저장소 계정은 추가로 디버그해야 하는 문제가 있을 경우([Azure 진단](cloud-services-dotnet-diagnostics.md)에서 일반적인 사례) 진단 출력 로그를 저장하는 데 사용됩니다. 가격에 대한 내용은 [Azure 저장소 가격](http://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+* **Azure 클라우드 서비스**: 탄력적 데이터베이스 작업(Preview)은 고객이 호스트하는 Azure 클라우드 서비스 형태로 제공되어 요청된 작업의 실행을 처리합니다. 포털에서 서비스가 배포되며 Microsoft Azure 구독에 포함되어 호스팅됩니다. 기본적으로 배포되는 서비스는 고가용성을 위한 최소 2개의 작업자 역할로 실행됩니다. 각 작업자 역할(ElasticDatabaseJobWorker)의 기본 크기가 A0 인스턴스에서 실행됩니다. 가격에 대한 내용은 [클라우드 서비스 가격](https://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요. 
+* **Azure SQL 데이터베이스**: 이 서비스는 **제어 데이터베이스**로 알려진 Azure SQL 데이터베이스를 사용하여 모든 작업 메타데이터를 저장합니다. 기본 서비스 계층은 S0입니다. 가격에 대한 내용은 [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
+* **Azure 서비스 버스**: Azure 서비스 버스는 Azure 클라우드 서비스 내의 작업 조정에 사용됩니다. [서비스 버스 가격](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
+* **Azure 저장소**: Azure 저장소 계정은 추가로 디버그해야 하는 문제가 있을 경우([Azure 진단](cloud-services-dotnet-diagnostics.md)에서 일반적인 사례) 진단 출력 로그를 저장하는 데 사용됩니다. 가격에 대한 내용은 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 ## 탄력적 데이터베이스 작업의 작동 방식
 1.	Azure SQL 데이터베이스는 모든 메타데이터 및 상태 데이터를 저장하는 제어 데이터베이스로 지정됩니다.
@@ -124,4 +124,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

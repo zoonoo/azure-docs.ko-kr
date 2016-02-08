@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/22/2016"
     ms.author="torsteng" />
 
 # Azure SQL 탄력적 데이터베이스 쿼리 개요(미리 보기)
@@ -21,7 +21,7 @@
 
 ## 탄력적 데이터베이스 쿼리의 새로운 기능
 
-* 이제 단일 원격 데이터베이스가 있는 데이터베이스 간 쿼리 시나리오를 T-SQL에서 완전히 정의할 수 있습니다. 이렇게 하면 원격 데이터베이스의 읽기 전용 쿼리가 가능합니다. 이 기능은 현재 온-프레미스 SQL Server 고객에게 3부분 및 4부분 이름이나 SQL DB 연결 서버를 사용하여 응용 프로그램을 마이그레이션하는 옵션을 제공합니다. 
+* 이제 단일 원격 데이터베이스가 있는 데이터베이스 간 쿼리 시나리오를 T-SQL에서 완전히 정의할 수 있습니다. 이렇게 하면 원격 데이터베이스의 읽기 전용 쿼리가 가능합니다. 이 기능은 현재 온-프레미스 SQL Server 고객에게 3부분 및 4부분 이름이나 SQL DB 연결 서버를 사용하여 응용 프로그램을 마이그레이션하는 옵션을 제공합니다.
 * 프리미엄 성능 계층뿐 아니라 표준 성능 계층에서도 이제 탄력적 쿼리가 지원됩니다. 낮은 성능 계층의 성능 제한 사항은 아래의 미리 보기 제한 사항 섹션을 참조하세요.
 * 이제 탄력적 쿼리가 SQL 매개 변수를 원격 데이터베이스에 푸시하여 실행할 수 있습니다.
 * sp\_execute\_fanout을 사용하는 원격 저장 프로시저 호출 도는 원격 함수 호출은 이제 [sp\_executesql](https://msdn.microsoft.com/library/ms188001.aspx)과 유사한 매개 변수를 사용합니다.
@@ -39,9 +39,9 @@
 탄력적 쿼리의 고객 시나리오는 다음 포톨로지로 구분됩니다.
 
 * **수직 분할 – 데이터베이스 간 쿼리**(토폴로지 1): 한 데이터 계층의 많은 데이터베이스 간에 데이터를 수직으로 분할합니다. 일반적으로 서로 다른 테이블 집합이 서로 다른 데이터베이스에 상주합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다. 이 토폴로지의 일반적인 사용 사례에서는 여러 데이터베이스의 테이블에서 쿼리하거나 보고서를 컴파일해야 합니다.
-* **행 분할 – 분할**(토폴로지 2): 데이터가 수평 확장된 데이터 계층에서 수평으로 배포되기 위해 분할됩니다. 이 방법에서는 스키마가 모든 분할 데이터베이스에서 동일합니다. 이 방법을 "분할"이라고도 합니다. 분할은 (1)탄력적 데이터베이스 도구 라이브러리 또는 (2)자체 분할을 사용하여 수행 및 관리됩니다. 탄력적 쿼리는 여러 분할에서 보고서를 쿼리 또는 컴파일하는 데 사용됩니다. 
+* **행 분할 – 분할**(토폴로지 2): 데이터가 수평 확장된 데이터 계층에서 수평으로 배포되기 위해 분할됩니다. 이 방법에서는 스키마가 모든 분할 데이터베이스에서 동일합니다. 이 방법을 "분할"이라고도 합니다. 분할은 (1)탄력적 데이터베이스 도구 라이브러리 또는 (2)자체 분할을 사용하여 수행 및 관리됩니다. 탄력적 쿼리는 여러 분할에서 보고서를 쿼리 또는 컴파일하는 데 사용됩니다.
 
-> [AZURE.NOTE]탄력적 데이터베이스 쿼리는 대부분의 처리 데이터 계층에서 수행할 수 있는 부차적인 보고 시나리오에 가장 적합합니다. 쿼리가 보다 복잡한 과도한 보고 작업 부하 또는 데이터 웨어하우징 시나리오의 경우, [Azure SQL 데이터 웨어하우스](http://azure.microsoft.com/services/sql-data-warehouse/) 사용을 고려합니다.
+> [AZURE.NOTE] 탄력적 데이터베이스 쿼리는 대부분의 처리 데이터 계층에서 수행할 수 있는 부차적인 보고 시나리오에 가장 적합합니다. 쿼리가 보다 복잡한 과도한 보고 작업 부하 또는 데이터 웨어하우징 시나리오의 경우, [Azure SQL 데이터 웨어하우스](https://azure.microsoft.com/services/sql-data-warehouse/) 사용을 고려합니다.
 
 
 ## 탄력적 데이터베이스 쿼리 토폴로지
@@ -74,7 +74,7 @@
 
 ![행 분할 - 탄력적 쿼리를 사용하여 분할된 데이터 계층에 대해 보고][5]
 
-> [AZURE.NOTE]전용 탄력적 데이터베이스 쿼리 데이터베이스는 SQL DB v12 데이터베이스여야 합니다. 자체 분할에 제한은 없습니다.
+> [AZURE.NOTE] 전용 탄력적 데이터베이스 쿼리 데이터베이스는 SQL DB v12 데이터베이스여야 합니다. 자체 분할에 제한은 없습니다.
 
 
 ## 탄력적 데이터베이스 쿼리 구현
@@ -85,19 +85,19 @@
 
 다음 단계에서는 원격 SQLDB 데이터베이스에 있는 테이블에 대한 액세스가 필요한 수직 분할 시나리오에 탄력적 데이터베이스 쿼리를 사용합니다.
 
-*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey 
+*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource of type **RDBMS**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
 DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테이블처럼 액세스할 수 있습니다. Azure SQL 데이터베이스는 자동으로 원격 데이터베이스에 대한 연결을 실행하고, 원격 데이터베이스에서 요청을 처리하며, 결과를 반환합니다. 수직 분할 시나리오에 필요한 단계에 대한 자세한 내용은 [수직 분할에 대한 탄력적 쿼리](sql-database-elastic-query-vertical-partitioning.md)에서 제공합니다.
 
-### 행 분할 - 분할 
+### 행 분할 - 분할
 
 다음 단계에서는 (보통) 여러 개의 원격 SQLDB 데이터베이스에 있는 테이블 집합에 액세스가 필요한 행 분할 시나리오에 탄력적 데이터베이스 쿼리를 구성합니다.
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential 
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 데이터 계층을 나타내는 [분할 맵](sql-database-elastic-scale-shard-map-management.md)을 만듭니다.   
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource of type **SHARD\_MAP\_MANAGER**
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
@@ -117,7 +117,7 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 ## 미리 보기 제한 사항
 * 표준 성능 계층에서 처음으로 탄력적 쿼리를 실행하면 몇 분 정도 걸릴 수 있습니다. 이 때 탄력적 쿼리 기능을 로드해야 하며 성능 계층이 높으면 로드 성능이 향상됩니다.
 * 외부 데이터 원본이나, SSMS 또는 SSDT에서의 외부 테이블 스크립팅은 아직 지원되지 않습니다.
-* SQL DB 가져오기/내보내기는 외부 데이터 원본 및 외부 테이블을 아직 지원하지 않습니다. 가져오기/내보내기를 사용해야 하는 경우 내보내기 전에 이러한 개체를 삭제하고 가져온 후 다시 만듭니다. 
+* SQL DB 가져오기/내보내기는 외부 데이터 원본 및 외부 테이블을 아직 지원하지 않습니다. 가져오기/내보내기를 사용해야 하는 경우 내보내기 전에 이러한 개체를 삭제하고 가져온 후 다시 만듭니다.
 * 탄력적 데이터베이스 쿼리는 현재 외부 테이블에 대한 읽기 전용 액세스만 지원합니다. 그러나 외부 테이블이 정의된 데이터베이스에서 전체 T-SQL 기능을 사용할 수 있습니다. 예를 들어, SELECT <column_list> INTO <local_table>을 사용하여 나온 일시적 결과를 유지하거나 외부 테이블을 참조하는 탄력적 쿼리 데이터베이스의 저장 프로시저를 정의할 때 이 기능이 유용합니다.
 * nvarchar(max)를 제외하고 LOB 형식은 외부 테이블 정의에서 지원되지 않습니다. 차선책으로, LOB 형식을 nvarchar(max)로 캐스팅하고, 기준 테이블 대신 뷰에서 외부 테이블을 정의한 다음 다시 쿼리에서 원래의 LOB 형식으로 캐스팅하는 원격 데이터베이스에서 뷰를 만들 수 있습니다.
 * 외부 테이블에 대한 열 통계는 현재 지원되지 않습니다. 테이블 통계는 지원되지만 수동으로 만들어야 합니다.
@@ -135,7 +135,7 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 
 행 분할 및 분할 시나리오에 대한 자세한 내용은 다음에서 제공합니다.
 
-* [행 분할 및 분할 개요](sql-database-elastic-query-horizontal-partitioning.md) 
+* [행 분할 및 분할 개요](sql-database-elastic-query-horizontal-partitioning.md)
 * [행 분할(분할)을 위한 탄력적 쿼리 시작하기](sql-database-elastic-query-getting-started.md) 단계별 자습서에서 몇 분 안에 끝낼 수 있는 전체 작업 예제들을 시도해 봅니다.
 
 
@@ -150,4 +150,4 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

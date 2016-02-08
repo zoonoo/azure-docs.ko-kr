@@ -32,6 +32,6 @@ Microsoft Azure HDInsight는 클러스터에서 Hadoop 작업을 수행하는 Po
 
 ## 참고 항목
 
-* [HDInsight 학습 경로](http://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+* [HDInsight 학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

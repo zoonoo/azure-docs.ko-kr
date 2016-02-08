@@ -56,7 +56,7 @@ Azure CDN이 요구 사항에 맞지 않는 경우에는 응용 프로그램에�
 다음 목록에서는 여러 지리적 위치에서 첫 번째 바이트까지의 중간 시간 값의 예를 보여줍니다. 대상 웹 역할은 Azure West US에 배포됩니다. CDN으로 인한 대폭적인 증가와 CDN 노드까지의 근접도 간에는 큰 상관관계가 있습니다. Azure CDN 노드 위치의 전체 목록은 [Azure CDN(콘텐츠 배달 네트워크) 노드 위치](cdn/cdn-pop-locations.md/)를 참조하세요.
 
 
-|| 첫 번째 바이트(원점)까지의 시간(ms) | 첫 번째(CDN)까지의 시간(ms) |%CDN 시간 향상|
+| 첫 번째 바이트(원점)까지 시간(ms) | 첫 번째(CDN)까지 시간(ms) |%CDN 시간 개선|
 |-------------|------------------------|--------------------|------------------|
 |\*산호세, 캘리포니아| 47.5 | 46.5 | 2 % |
 |\*\*덜레스, 버지니아| 109 | 40.5 | 169% |
@@ -281,11 +281,10 @@ URL 다시 쓰기를 사용하면 리소스 묶음에 대한 변경을 수행해
 ## 자세한 정보
 
 
-+ [Azure CDN](http://azure.microsoft.com/services/cdn/)
++ [Azure CDN](https://azure.microsoft.com/services/cdn/)
 + [Azure 콘텐츠 배달 네트워크(CDN) 설명서](https://azure.microsoft.com/documentation/services/cdn/)
 + [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](cdn/cdn-serve-content-from-cdn-in-your-web-application/)
 + [Azure CDN과 클라우드 서비스 통합](cdn/cdn-cloud-service-with-cdn.md/)
-+ [Microsoft Azure 콘텐츠 배달 네트워크 모범 사례](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Microsoft Azure 콘텐츠 배달 네트워크 모범 사례](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_1223_2015-->
-
+<!---HONumber=AcomDC_0128_2016-->

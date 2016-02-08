@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # 사용 사례 - 제품 추천 
@@ -36,7 +36,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현�
 
 ## 솔루션 개요
 
-이 사용 사례 예에서는 실제 Azure 사용자가 [HDInsight](http://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/)를 포함한 Azure Data Factory 및 기타 Cortana Analytics 구성 요소 서비스를 사용하여 최종 데이터를 수집, 준비, 변환, 분석 및 게시하는 방법으로 해결 및 구현했습니다.
+이 사용 사례 예에서는 실제 Azure 사용자가 [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/)를 포함한 Azure Data Factory 및 기타 Cortana Analytics 구성 요소 서비스를 사용하여 최종 데이터를 수집, 준비, 변환, 분석 및 게시하는 방법으로 해결 및 구현했습니다.
 
 이 온라인 소매점은 전체 워크플로에서 Azure Blob 저장소, 온-프레미스 SQL server, Azure SQL DB 및 관계형 데이터 마트를 데이터 저장소 옵션으로 사용합니다. Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터는 SQL 데이터 웨어하우스에 온-프레미스로 저장된 제품 브랜드 정보와 제품 카탈로그를 포함합니다.
 
@@ -44,9 +44,9 @@ Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현�
 
 ![사용 사례 다이어그램](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-온라인 소매점 웹 사이트에서 원시 웹 로그 파일(기가바이트)이 반구조적 파일로 매일 생성됩니다. 원시 웹 로그 파일, 고객 및 제품 카탈로그 정보가 데이터 팩터리의 전역 배포된 데이터 이동을 서비스로 사용하여 정기적으로 Azure Blob 저장소 계정에 수집됩니다. 하루 동안의 원시 로그 파일은 blob 저장소에 장기간 보관을 위해 분할됩니다(연 및 월 단위). 관리 효율성, 가용성 및 성능을 위해 [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/)(서비스로 Hadoop)가 blob 저장소에서 원시 로그 파일을 분할하고 Hive 및 Pig 스크립트를 사용하여 수집된 로그를 규모로 처리합니다. 그런 다음 분할된 웹 로그 데이터를 처리하여 기계 학습 권장 시스템에 필요한 입력을 추출하고 개인 설정된 제품 추천을 생성합니다.
+온라인 소매점 웹 사이트에서 원시 웹 로그 파일(기가바이트)이 반구조적 파일로 매일 생성됩니다. 원시 웹 로그 파일, 고객 및 제품 카탈로그 정보가 데이터 팩터리의 전역 배포된 데이터 이동을 서비스로 사용하여 정기적으로 Azure Blob 저장소 계정에 수집됩니다. 하루 동안의 원시 로그 파일은 blob 저장소에 장기간 보관을 위해 분할됩니다(연 및 월 단위). 관리 효율성, 가용성 및 성능을 위해 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)(서비스로 Hadoop)가 blob 저장소에서 원시 로그 파일을 분할하고 Hive 및 Pig 스크립트를 사용하여 수집된 로그를 규모로 처리합니다. 그런 다음 분할된 웹 로그 데이터를 처리하여 기계 학습 권장 시스템에 필요한 입력을 추출하고 개인 설정된 제품 추천을 생성합니다.
 
-이 예에서 기계 학습에 사용되는 권장 시스템은 [Apache Mahout](http://mahout.apache.org/)의 공개 소스 기계 학습 권장 플랫폼입니다. 모든 [Azure 기계 학습](http://azure.microsoft.com/services/machine-learning/) 또는 사용자 지정 모델을 적용할 수 있습니다. Mahout 모델은 전체 사용 패턴을 기반으로 소매점 웹 사이트에 있는 항목 간의 유사성을 예측하고 개별 사용자에 따라 개인 설정된 권장을 생성하는 데 사용됩니다.
+이 예에서 기계 학습에 사용되는 권장 시스템은 [Apache Mahout](http://mahout.apache.org/)의 공개 소스 기계 학습 권장 플랫폼입니다. 모든 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 또는 사용자 지정 모델을 적용할 수 있습니다. Mahout 모델은 전체 사용 패턴을 기반으로 소매점 웹 사이트에 있는 항목 간의 유사성을 예측하고 개별 사용자에 따라 개인 설정된 권장을 생성하는 데 사용됩니다.
 
 마지막으로, 개인 설정된 제품 추천의 결과 집합이 소매점 웹 사이트에서 사용되도록 관계형 데이터 마트로 이동됩니다. 결과 집합은 blob 저장소에서도 다른 응용 프로그램으로 직접 액세스할 수 있으며 다른 소비자 및 사용 사례를 위한 추가 저장소로 이동할 수 있습니다.
 
@@ -60,4 +60,4 @@ Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현�
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

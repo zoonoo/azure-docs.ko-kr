@@ -3,11 +3,18 @@
    description="Windows 서버 또는 Windows 클라이언트에서 복원하는 방법을 알아보세요."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/25/2016"
+	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
 이 문서는 두가지 유형의 복원 작업을 수행하는 데 필요한 단계를 다룹니다.
@@ -64,7 +71,7 @@
 - *대상 컴퓨터* – 데이터가 복구되는 컴퓨터입니다.
 - *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록된 백업 자격 증명 모음입니다. <br/>
 
-> [AZURE.NOTE]이전 버전의 운영 체제를 실행 중인 컴퓨터에는 컴퓨터에서 수행된 백업을 복원할 수 없습니다. 예를 들어 백업이 Windows 7 컴퓨터에서 수행된 경우 Windows 8 이상의 컴퓨터에서 복원할 수 있습니다. 그러나 그 반대의 경우는 그렇지 않습니다.
+> [AZURE.NOTE] 이전 버전의 운영 체제를 실행 중인 컴퓨터에는 컴퓨터에서 수행된 백업을 복원할 수 없습니다. 예를 들어 백업이 Windows 7 컴퓨터에서 수행된 경우 Windows 8 이상의 컴퓨터에서 복원할 수 있습니다. 그러나 그 반대의 경우는 그렇지 않습니다.
 
 1. *대상 컴퓨터*에서 **Microsoft Azure 백업** 스냅인을 엽니다.
 2. *대상 컴퓨터* 및 *원본 컴퓨터*가 동일한 백업 자격 증명 모음에 등록됐는지 확인합니다.
@@ -109,4 +116,4 @@
 - [Azure 가상 컴퓨터 백업](backup-azure-vms-introduction.md)
 - [Microsoft 워크로드 백업](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

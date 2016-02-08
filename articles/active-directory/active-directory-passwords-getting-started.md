@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="시작: Azure AD 암호 관리 | Microsoft Azure" 
-	description="사용자가 자신의 암호를 재설정하고, 암호 재설정을 위한 사전 필수 구성 요소를 검색하고 Active Directory에서 온-프레미스 암호를 관리하는 암호 쓰기 저장을 사용할 수 있도록 합니다." 
-	services="active-directory" 
+	description="암호 관리를 통해 사용자가 자신의 암호를 재설정하고, 암호 재설정을 위한 사전 필수 구성 요소를 검색하고 Active Directory에서 온-프레미스 암호를 관리하는 암호 쓰기 저장을 사용할 수 있도록 합니다." 
+	services="active-directory"
+	keywords="Active directory 암호 관리, 암호 관리, Azure AD 암호 재설정" 
 	documentationCenter="" 
 	authors="asteen" 
 	manager="kbrint" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="01/25/2016" 
 	ms.author="asteen"/>
 
 # 암호 관리 시작
-사용자가 자신의 클라우드 Azure Active Directory 또는 온-프레미스 Active Directory 암호를 사용하려면 간단한 몇 단계를 거치면 됩니다. 몇가지 간단한 필수 구성 요소를 충족한 후, 전체 조직에 대해 암호 변경 및 재설정을 사용할 수 있도록 설정해야 합니다. 이 문서는 다음 개념을 설명합니다.
+사용자가 자신의 클라우드 Azure Active Directory 또는 온-프레미스 Active Directory 암호를 사용하려면 간단한 몇 단계를 거치면 됩니다. 몇 가지 간단한 필수 구성 요소를 충족한 후, 전체 조직에 대해 암호 변경 및 재설정을 사용할 수 있도록 설정해야 합니다. 이 문서는 다음 개념을 설명합니다.
 
 * [**사용자가 클라우드 Azure Active Directory 암호를 재설정할 수 있도록 하는 방법**](#enable-users-to-reset-their-azure-ad-passwords)
  - [셀프 서비스 암호 재설정 사전 요구 사항](#prerequisites)
@@ -47,9 +48,9 @@
 - AAD 테넌트를 만듭니다. 자세한 내용은 [Azure AD Premium 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요.
 - Azure 구독. 자세한 내용은 [Azure AD 테넌트 정의](active-directory-administer.md#what-is-an-azure-ad-tenant)를 참조하세요.
 - AAD 테넌트를 Azure 구독과 연결합니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](https://msdn.microsoft.com/library/azure/dn629581.aspx)를 참조하세요.
-- Azure AD Premium, Basic으로 업그레이드합니다. 자세한 내용은 [Azure Active Directory 버전](http://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+- Azure AD Premium, Basic으로 업그레이드합니다. 자세한 내용은 [Azure Active Directory 버전](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
 
-  >[AZURE.NOTE]셀프 서비스 암호 재설정을 사용하려면 Azure AD Premium 또는 Azure AD Basic으로 업그레이드해야 합니다. 자세한 내용은 Azure Active Directory 버전을 참조하세요. 이 정보에는 Azure AD Premium 또는 Basic을 등록하는 방법, 라이선스 계획을 활성화하고 Azure AD 액세스를 활성화하는 방법 및 관리자와 사용자 계정에 대한 액세스를 할당하는 방법에 대한 지침이 포함됩니다.
+  >[AZURE.NOTE] 셀프 서비스 암호 재설정을 사용하려면 Azure AD Premium 또는 Azure AD Basic으로 업그레이드해야 합니다. 자세한 내용은 Azure Active Directory 버전을 참조하세요. 이 정보에는 Azure AD Premium 또는 Basic을 등록하는 방법, 라이선스 계획을 활성화하고 Azure AD 액세스를 활성화하는 방법 및 관리자와 사용자 계정에 대한 액세스를 할당하는 방법에 대한 지침이 포함됩니다.
   
 - AAD 디렉터리에 하나 이상의 관리자 계정 및 사용자 계정 하나를 만듭니다.
 - 만든 관리자 및 사용자 계정에 AAD Premium 또는 Basic 라이선스를 할당합니다.
@@ -60,7 +61,7 @@
 1.	사용자가 선택한 브라우저를 열고 [Azure 관리 포털](https://manage.windowsazure.com)로 이동합니다.
 2.	[Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탐색 모음에서 **Active Directory 확장**을 찾습니다.
 
-    ![][001]
+    ![Azure AD에서 암호 관리][001]
 
 3. **디렉터리** 탭에서 사용자 암호 재설정 정책을 구성할 디렉터리를 클릭합니다(예: Wingtip Toys).
 
@@ -72,7 +73,7 @@
 
 5.	**구성** 탭에서 **사용자 암호 재설정 정책** 섹션으로 아래로 스크롤합니다. 지정된 디렉터리에 대한 사용자 암호 재설정 정책의 모든 측면을 구성하는 곳입니다.
 
-    >[AZURE.NOTE]이 **정책은 관리자가 아닌 조직에서 최종 사용자에만 적용됩니다.** 보안상의 이유로 Microsoft는 관리자에 대 한 암호 재설정 정책을 제어합니다. 이 섹션이 표시되지 않는 경우, Azure Active Directory Premium 또는 Basic에 대 해 로그인하고 이 기능을 구성 중인 관리자 계정에 **라이선스를 할당**했는지 확인합니다.
+    >[AZURE.NOTE] 이 **정책은 관리자가 아닌 조직에서 최종 사용자에만 적용됩니다.** 보안상의 이유로 Microsoft는 관리자에 대 한 암호 재설정 정책을 제어합니다. 이 섹션이 표시되지 않는 경우, Azure Active Directory Premium 또는 Basic에 대 해 로그인하고 이 기능을 구성 중인 관리자 계정에 **라이선스를 할당**했는지 확인합니다.
 
     ![][004]
 
@@ -82,12 +83,12 @@
 
 7.	테넌트에 대해 원하는 대로 사용자 암호 재설정 정책을 구성한 후, 화면 아래에서 **저장** 단추를 클릭합니다.
 
-  >[AZURE.NOTE]가장 복잡한 경우에 기능이 동작하는 방법을 볼 수 있도록 두 개의 인증 질문 사용자 암호 재설정 정책을 권장합니다.
+  >[AZURE.NOTE] 가장 복잡한 경우에 기능이 동작하는 방법을 볼 수 있도록 두 개의 인증 질문 사용자 암호 재설정 정책을 권장합니다.
 
   ![][006]
 
 ### 2단계: 테스트 사용자에 대한 연락처 데이터 추가
-암호 재설정에 사용할 사용자의 조직에서 사용자에 대한 데이터를 지정하는 방법에 대한 몇가지 옵션이 있습니다.
+암호 재설정에 사용할 사용자의 조직에서 사용자에 대한 데이터를 지정하는 방법에 대한 몇 가지 옵션이 있습니다.
 
 -	[Azure 관리 포털](https://manage.windowsazure.com) 또는 [Office 365 관리자 포털](https://portal.microsoftonline.com)에서 사용자를 편집합니다.
 -	AAD Connect를 사용하여 온-프레미스 Active Directory 도메인에서 Azure AD로 사용자 속성을 동기화합니다.
@@ -126,7 +127,7 @@
 
     ![][012]
 
-3.	사용자가 **사무실 전화**, **휴대폰** 및 **대체 전자 메일**을 지정했으므로 이 경우에 첫번째 인증을 통과하기 위해 제공한 모든 옵션을 표시합니다.
+3.	사용자가 **사무실 전화**, **휴대폰** 및 **대체 전자 메일**을 지정했으므로 이 경우에 첫 번째 인증을 통과하기 위해 제공한 모든 옵션을 표시합니다.
 
     ![][013]
 
@@ -134,11 +135,11 @@
 
     ![][014]
 
-5.	사용자가 전화 번호를 확인한 후, 전화를 클릭하면 스피너가 표시되며 전화가 울립니다. 수화기를 들면 **사용자가 "#"를 눌러야 ** 계정을 확인할 수 있다는 메시지가 한 번 재생됩니다. 이 키를 누르면 사용자는 첫번째 질문을 소유하고 두번째 확인 단계로의 UI를 진행함을 자동으로 확인합니다.
+5.	사용자가 전화 번호를 확인한 후, 전화를 클릭하면 스피너가 표시되며 전화가 울립니다. 수화기를 들면 **사용자가 "#"를 눌러야 ** 계정을 확인할 수 있다는 메시지가 한 번 재생됩니다. 이 키를 누르면 사용자는 첫 번째 질문을 소유하고 두 번째 확인 단계로의 UI를 진행함을 자동으로 확인합니다.
 
     ![][015]
 
-6.	첫 번째 질문을 통과하면, UI가 자동으로 업데이트되어 사용자가 소유한 선택 항목 목록에서 제거됩니다. 이 경우, 먼저 **사무실 전화**를 사용했기 때문에 **휴대폰** 및 **대체 전자 메일**은 두번째 확인 단계에 대한 질문으로 사용할 수 있는 유효한 옵션으로 유지됩니다. **내 대체 전자 메일로 메일 전송** 옵션을 클릭합니다. 완료한 후 전자 메일을 누르면 파일의 대체 전자 메일로 메일을 전송합니다.
+6.	첫 번째 질문을 통과하면, UI가 자동으로 업데이트되어 사용자가 소유한 선택 항목 목록에서 제거됩니다. 이 경우, 먼저 **사무실 전화**를 사용했기 때문에 **휴대폰** 및 **대체 전자 메일**은 두 번째 확인 단계에 대한 질문으로 사용할 수 있는 유효한 옵션으로 유지됩니다. **내 대체 전자 메일로 메일 전송** 옵션을 클릭합니다. 완료한 후 전자 메일을 누르면 파일의 대체 전자 메일로 메일을 전송합니다.
 
     ![][016]
 
@@ -146,7 +147,7 @@
 
     ![][017]
 
-8.	전자 메일이 도착하면 페이지가 업데이트되며, 아래에 표시된 입력 상자의 전자 메일에서 찾은 확인을 입력할 수 있습니다. 적절한 코드를 입력한 후 다음 단추가 켜지고 두번째 확인 단계를 통해 전달할 수 있습니다.
+8.	전자 메일이 도착하면 페이지가 업데이트되며, 아래에 표시된 입력 상자의 전자 메일에서 찾은 확인을 입력할 수 있습니다. 적절한 코드를 입력한 후 다음 단추가 켜지고 두 번째 확인 단계를 통해 전달할 수 있습니다.
 
     ![][018]
 
@@ -178,19 +179,19 @@
 - 암호 재설정이 구성되고 테넌트에서 사용하도록 설정합니다. 자세한 정보는 [사용자가 Azure AD 암호를 재설정할 수 있도록 설정](#enable-users-to-reset-their-azure-ad-passwords)을 참조하세요.
 - 하나 이상의 관리자 계정이 있고 이 기능을 테스트하는데 사용할 수 있는 Azure AD Premium 라이선스가 있는 테스트 사용자 계정이 하나 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
-  >[AZURE.NOTE]암호 쓰기 저장을 설정하는 데 사용하는 관리자 계정이 페더레이션된 계정(온-프레미스 AD에서 만들고 Azure AD로 동기화된)이 아닌 클라우드 관리자 계정(Azure AD에서 만든)인지 확인합니다.
+  >[AZURE.NOTE] 암호 쓰기 저장을 설정하는 데 사용하는 관리자 계정이 페더레이션된 계정(온-프레미스 AD에서 만들고 Azure AD로 동기화된)이 아닌 클라우드 관리자 계정(Azure AD에서 만든)인지 확인합니다.
   
 - Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 또는 최신 서비스 팩이 설치된 Windows Server 2012 R2를 실행 중인 단일 또는 다중 포리스트 AD 온-프레미스 배포가 있습니다.
 
-  >[AZURE.NOTE]이전 버전의 Windows Server 2008 또는 2008 R2를 실행 중인 경우, 이 기능을 여전히 사용할 수 있지만 클라우드에서 로컬 AD 암호 정책을 적용할 수 있으려면 [KB 2386717를 다운로드하고 설치](https://support.microsoft.com/kb/2386717)해야 합니다.
+  >[AZURE.NOTE] 이전 버전의 Windows Server 2008 또는 2008 R2를 실행 중인 경우, 이 기능을 여전히 사용할 수 있지만 클라우드에서 로컬 AD 암호 정책을 적용할 수 있으려면 [KB 2386717를 다운로드하고 설치](https://support.microsoft.com/kb/2386717)해야 합니다.
   
 - Azure AD Connect 도구가 설치되어 있고 클라우드로 동기화할 AD 환경을 준비합니다. 자세한 내용은 [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)을 참조하세요.
 
-  >[AZURE.NOTE]비밀번호 쓰기 저장을 테스트하기 전에 먼저 Azure AD Connect의 AD와 Azure AD에서 모두 전체 가져오기 및 전체 동기화를 완료하도록 합니다.
+  >[AZURE.NOTE] 비밀번호 쓰기 저장을 테스트하기 전에 먼저 Azure AD Connect의 AD와 Azure AD에서 모두 전체 가져오기 및 전체 동기화를 완료하도록 합니다.
 
 - Azure AD Sync 또는 Azure AD Connect를 사용하는 경우, **TCP 443** 아웃바운드(및 경우에 따라 **TCP 9350-9354**)가 열려 있어야 합니다. 자세한 내용은 [3단계: 방화벽 구성](#step-3-configure-your-firewall)을 참조하세요. 이 시나리오에서 DirSync 사용은 더 이상 지원되지 않습니다. DirSync를 아직 사용 중인 경우, 비밀번호 쓰기 저장을 배포하기 전에 최신 버전의 Azure AD Connect로 업그레이드하십시오.
 
-  >[AZURE.NOTE]Azure AD Sync 또는 디렉터리 동기화 도구를 사용하는 사람은 최신 버전의 Azure AD Connect로 업그레이드하여 가능한 최상의 경험 및 릴리스될 때의 새로운 기능을 확인하는 것이 좋습니다.
+  >[AZURE.NOTE] Azure AD Sync 또는 디렉터리 동기화 도구를 사용하는 사람은 최신 버전의 Azure AD Connect로 업그레이드하여 가능한 최상의 경험 및 릴리스될 때의 새로운 기능을 확인하는 것이 좋습니다.
   
 
 ### 1단계: 최신 버전의 Azure AD Connect 다운로드
@@ -207,7 +208,7 @@
 
 이 버전 번호가 **1.0.0419.0911**보다 크거나 같거나, 또는 Azure AD Connect를 설치하면, [2단계: UI 또는 powershell을 통해 Azure AD Connect에서 암호 쓰기 저장을 사용하도록 설정 및 확인](#step-2-enable-password-writeback-in-azure-ad-connect)으로 건너뛸 수 있습니다.
 
- >[AZURE.NOTE]처음으로 Azure AD Connect 도구를 설치한 경우, 디렉터리 동기화를 위한 환경을 준비하는 몇가지 모범 사례를 따르는 것이 좋습니다. Azure AD Connect 도구를 설치하기 전에 [Office 365 관리자 포털](https://portal.microsoftonline.com) 또는 [Azure 관리 포털](https://manage.windowsazure.com)에서 디렉터리 동기화를 활성화해야 합니다. 자세한 내용은 [Azure AD Connect 관리](active-directory-aadconnect-whats-next.md)를 참조하세요.
+ >[AZURE.NOTE] 처음으로 Azure AD Connect 도구를 설치한 경우, 디렉터리 동기화를 위한 환경을 준비하는 몇 가지 모범 사례를 따르는 것이 좋습니다. Azure AD Connect 도구를 설치하기 전에 [Office 365 관리자 포털](https://portal.microsoftonline.com) 또는 [Azure 관리 포털](https://manage.windowsazure.com)에서 디렉터리 동기화를 활성화해야 합니다. 자세한 내용은 [Azure AD Connect 관리](active-directory-aadconnect-whats-next.md)를 참조하세요.
 
 
 ### 2단계: Azure AD Connect에서 암호 쓰기 저장 사용
@@ -222,7 +223,7 @@
 
 4.	마법사를 완료하면, 마지막 페이지는 변경 내용을 요약하고 암호 쓰기 저장 구성 변경 내용이 포함됩니다.
 
-> [AZURE.NOTE]이 마법사를 다시 실행하고 해당 기능을 선택 취소하거나, 또는 [Azure 관리 포털](https://manage.windowsazure.com)에서 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책** 섹션에서 **온-프레미스 디렉터리로 암호 쓰기 저장** 설정을 **아니오**로 설정하여 언제든지 암호 쓰기 저장을 사용하지 않도록 설정할 수 있습니다. 사용자 암호 재설정 환경 사용자 지정에 관한 자세한 내용은 [사용자 지정: Azure AD 암호 관리](active-directory-passwords-customize.md)를 확인합니다.
+> [AZURE.NOTE] 이 마법사를 다시 실행하고 해당 기능을 선택 취소하거나, 또는 [Azure 관리 포털](https://manage.windowsazure.com)에서 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책** 섹션에서 **온-프레미스 디렉터리로 암호 쓰기 저장** 설정을 **아니오**로 설정하여 언제든지 암호 쓰기 저장을 사용하지 않도록 설정할 수 있습니다. 사용자 암호 재설정 환경 사용자 지정에 관한 자세한 내용은 [사용자 지정: Azure AD 암호 관리](active-directory-passwords-customize.md)를 확인합니다.
 
 #### Windows PowerShell을 사용하여 암호 쓰기 저장을 사용하도록 설정하려면
 1.	사용자 **디렉터리 동기화 컴퓨터**에서 새 **관리자 권한 Windows PowerShell 창**을 엽니다.
@@ -231,7 +232,7 @@
 4.	다음 cmdlet을 실행하여 현재 커넥터에 대한 쓰기 저장의 현재 상태를 가져오려면: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	이 cmdlet을 실행하여 암호 쓰기 저장을 활성화합니다. `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE]자격 증명을 입력하라는 메시지가 표시되면, AzureADCredential에 대해 지정되는 관리자 계정이 페더레이션된 계정(온-프레미스 AD에서 만들고 Azure AD로 동기화된)이 아닌 **클라우드 관리자 계정(Azure AD에서 만든)**입니다.[AZURE.NOTE]위의 동일한 지침을 반복하지만 단계에서 `$false`을 전달하거나, 또는 [Azure 관리 포털](https://manage.windowsazure.com)에서 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책 섹션**에서 **온-프레미스 디렉터리로 암호 쓰기 저장** 설정을 **아니오**로 설정하여 언제든지 암호 쓰기 저장을 사용하지 않도록 설정하여 PowerShell을 통해 암호 쓰기 저장을 사용하지 않도록 설정할 수 있습니다.
+> [AZURE.NOTE] 자격 증명을 입력하라는 메시지가 표시되면, AzureADCredential에 대해 지정되는 관리자 계정이 페더레이션된 계정(온-프레미스 AD에서 만들고 Azure AD로 동기화된)이 아닌 **클라우드 관리자 계정(Azure AD에서 만든)**입니다.[AZURE.NOTE] 위의 동일한 지침을 반복하지만 단계에서 `$false`을 전달하거나, 또는 [Azure 관리 포털](https://manage.windowsazure.com)에서 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책 섹션**에서 **온-프레미스 디렉터리로 암호 쓰기 저장** 설정을 **아니오**로 설정하여 언제든지 암호 쓰기 저장을 사용하지 않도록 설정하여 PowerShell을 통해 암호 쓰기 저장을 사용하지 않도록 설정할 수 있습니다.
 
 #### 구성이 성공되었는지 확인합니다.
 구성이 성공하면 Windows PowerShell 창에서 암호 재설정 쓰기 저장을 사용하도록 설정되었다는 메시지를 보거나, 구성 UI에서 성공 메시지를 볼 수 있습니다.
@@ -259,7 +260,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
   이러한 사용 권한을 설정하면 각 포리스트에 대한 MA 서비스 계정이 해당 포리스트 내에서 사용자 계정을 대신하여 암호를 관리할 수 있습니다. 이러한 사용 권한을 할당하는 것을 잊은 경우, 쓰기 저장이 올바르게 구성된 것으로 표시되면, 클라우드에서 온-프레미스 암호 관리를 시도하면 오류가 발생합니다. 다음은 **Active Directory 사용자 및 컴퓨터** 관리 스냅인을 사용하여 수행할 수 있는 방법에 대한 자세한 단계입니다.
 
->[AZURE.NOTE]이 사용 권한이 디렉터리의 모든 개체를 복제하려면 한 시간이 걸릴 수 있습니다.
+>[AZURE.NOTE] 이 사용 권한이 디렉터리의 모든 개체를 복제하려면 한 시간이 걸릴 수 있습니다.
 
 #### 쓰기 저장이 이루어지도록 올바른 권한을 설정하려면
 
@@ -308,7 +309,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템 사용자로서 자신의 암호를 재설정하거나 변경하는 방법을 알아봅니다.
+* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템의 사용자로서 자신의 암호를 재설정 또는 변경하는 방법에 대해 알아봅니다.
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
@@ -352,4 +353,4 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,9 +22,9 @@
 
 ## Azure 고객 지원 서비스에 문의
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다.
 
-또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
+또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 
 ## 런타임 종속성 누락
@@ -67,7 +67,7 @@ Azure에 응용 프로그램 패키지를 배포하기 전에 `DiagnosticsConnec
 
 - `DiagnosticsConnectionString` 설정이 Azure의 유효한 저장소 계정을 가리킵니다. 기본적으로 이 설정은 에뮬레이트된 저장소 계정을 가리키므로 응용 프로그램 패키지를 배포하기 전에 이 설정을 명시적으로 변경해야 합니다. 이 설정을 변경하지 않는 경우 역할 인스턴스가 진단 모니터링을 시작하려고 할 때 예외가 throw됩니다. 역할 인스턴스가 무기한 재활용되게 할 수 있습니다.
 
-- 연결 문자열은 다음에 [형식](../storage/storage-configure-connection-string.md)에 지정됩니다.(프로토콜은 HTTPS로 지정 되어야 함) MyAccountName을 저장소 계정의 이름으로 바꾸고 MyAccountKey를 선택키로 바꿉니다.
+- 연결 문자열은 다음에 [형식](../storage/storage-configure-connection-string.md)에 지정됩니다.(프로토콜은 HTTPS로 지정 되어야 함) *MyAccountName*을 저장소 계정의 이름으로 바꾸고 *MyAccountKey*를 선택키로 바꿉니다.
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -77,7 +77,7 @@ Azure에 응용 프로그램 패키지를 배포하기 전에 `DiagnosticsConnec
 
 ## 내보낸 인증서는 개인 키를 포함하지 않습니다.
 
-SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키를 포함해야 합니다. Windows 인증서 관리자를 사용하여 인증서를 내보내는 경우 예를 선택하여 개인 키 옵션을 내보내도록 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
+SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키를 포함해야 합니다. *Windows 인증서 관리자*를 사용하여 인증서를 내보내는 경우 *예*를 선택하여 개인 키 옵션을 내보내도록 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
 
 
 
@@ -95,4 +95,4 @@ SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [실행]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

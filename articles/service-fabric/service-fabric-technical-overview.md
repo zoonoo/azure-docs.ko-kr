@@ -53,4 +53,4 @@ Azure 서비스 패브릭은 확장 가능하고 안정적이며 대기 시간�
 - [응용 프로그램 모델](service-fabric-application-model.md)
 - [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

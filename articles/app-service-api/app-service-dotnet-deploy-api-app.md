@@ -109,7 +109,7 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 9. **미리 보기** 탭을 클릭합니다.
 
-10. **미리 보기 시작**을 클릭하여 Azure에 복사 될 파일을 볼 수 있습니다.
+10. **미리 보기 시작**을 클릭하여 Azure에 복사될 파일을 볼 수 있습니다.
 
 	![웹 게시 대화 상자](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
@@ -129,4 +129,4 @@ API 앱은 API 호스팅을 위한 추가 기능이 있는 웹앱입니다. 즉 
 
 API 앱 기능에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

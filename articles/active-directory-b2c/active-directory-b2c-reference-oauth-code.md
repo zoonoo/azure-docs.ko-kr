@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: OAuth 2.0 인증 코드 흐름
@@ -74,7 +74,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
 | response\_type | 필수 | 인증 코드 흐름에 대한 `code`를 포함해야 합니다. |
 | redirect\_uri | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect\_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect\_uri 중 하나와 정확히 일치해야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다.(앞으로 추가됨) `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
@@ -134,7 +134,7 @@ Content-Type: application/json
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | 필수 | 권한 부여 코드를 획득하는 데 사용된 정책입니다. 이 요청에 다른 정책을 사용할 수 없습니다. **이 매개 변수는 쿼리 문자열에 추가 됩니다**. 게시 본문은 안됩니다. |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
 | grant\_type | 필수 | 인증 코드 흐름에 대한 `authorization_code`여야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다. 앱 자체의 백 엔드 Web API에 토큰을 가져오기 위해 사용할 수 있으며 이는 클라이언트와 동일한 응용 프로그램 ID로 나타납니다. `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
 | 코드 | 필수 | 흐름의 첫 번째 레그에서 얻은 authorization\_code입니다. |
@@ -165,7 +165,8 @@ Content-Type: application/json
 | refresh\_token | OAuth 2.0 새로 고침 토큰입니다. 앱은 현재 토큰이 만료된 후 이 토큰을 사용하여 추가 토큰을 획득할 수 있습니다. refresh\_token은 수명이 길며, 오랜 시간 동안 리소스에 대한 액세스를 유지하는 데 사용할 수 있습니다. 자세한 내용은 [B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요. |
 | refresh\_token\_expires\_in | 최대 시간 새로 고침 토큰은 (초)동안 유효할 수 있습니다. 그러나 새로 고침 토큰은 언제든지 잘못될 수 있습니다. |
 
-> [AZURE.NOTE]이 시점에서 "access\_token가 어디 있는지" 생각하고 있다면 다음을 고려합니다. `openid` 범위를 요청하는 경우 Azure AD는 응답에서 JWT `id_token`를 발급합니다. `id_token`이 기술적으로 OAuth 2.0 access\_token이 아닌 반면 앱 자체의 백 엔드 서비스와 통신할 때와 같이 사용될 수 있으며 클라이언트와 동일한 client\_id로 나타납니다. `id_token`는 여전히 HTTP 권한 부여 헤더에 있는 리소스에 전송되고 요청을 인증하는 데 사용될 수 있는 서명된 JWT 전달자 토큰입니다. 차이점은 `id_token`이 특정 클라이언트 응용 프로그램이 가질 수 있는 액세스 범위를 축소하는 메커니즘이 없다는 점입니다. 그러나 클라이언트 응용 프로그램이 백 엔드 서비스와 통신할 수 있는 클라이언트인 경우(현재 Azure AD B2C 미리 보기를 사용한 경우처럼) 범위 지정 메커니즘과 같은 것은 필요하지 않습니다. Azure AD B2C 미리 보기는 추가 본사 및 타사 리소스와 통신하는 클라이언트에 대한 기능을 추가하며 access\_tokens을 소개합니다. 그러나 해당 시간에도 앱 자체의 백 엔드 서비스와 통신하는 데 `id_tokens`을 사용하는 것이 추천되는 패턴입니다. Azure AD B2C 미리 보기로 빌드할 수 있는 응용 프로그램의 형식에 대해 자세한 정보는 [이 문서](active-directory-b2c-apps.md)를 참조하세요.
+> [AZURE.NOTE]
+	이 시점에서 "access\_token가 어디 있는지" 생각하고 있다면 다음을 고려합니다. `openid` 범위를 요청하는 경우 Azure AD는 응답에서 JWT `id_token`를 발급합니다. `id_token`이 기술적으로 OAuth 2.0 access\_token이 아닌 반면 앱 자체의 백 엔드 서비스와 통신할 때와 같이 사용될 수 있으며 클라이언트와 동일한 client\_id로 나타납니다. `id_token`는 여전히 HTTP 권한 부여 헤더에 있는 리소스에 전송되고 요청을 인증하는 데 사용될 수 있는 서명된 JWT 전달자 토큰입니다. 차이점은 `id_token`이 특정 클라이언트 응용 프로그램이 가질 수 있는 액세스 범위를 축소하는 메커니즘이 없다는 점입니다. 그러나 클라이언트 응용 프로그램이 백 엔드 서비스와 통신할 수 있는 클라이언트인 경우(현재 Azure AD B2C 미리 보기를 사용한 경우처럼) 범위 지정 메커니즘과 같은 것은 필요하지 않습니다. Azure AD B2C 미리 보기는 추가 본사 및 타사 리소스와 통신하는 클라이언트에 대한 기능을 추가하며 access\_tokens을 소개합니다. 그러나 해당 시간에도 앱 자체의 백 엔드 서비스와 통신하는 데 `id_tokens`을 사용하는 것이 추천되는 패턴입니다. Azure AD B2C 미리 보기로 빌드할 수 있는 응용 프로그램의 형식에 대해 자세한 정보는 [이 문서](active-directory-b2c-apps.md)를 참조하세요.
 
 오류 응답은 다음과 같습니다.
 
@@ -210,8 +211,8 @@ Content-Type: application/json
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | -------- |
 | p | 필수 | 원래 새로 고침 토큰을 획득하는 데 사용된 정책입니다. 이 요청에 다른 정책을 사용할 수 없습니다. **이 매개 변수는 쿼리 문자열에 추가 됩니다**. 게시 본문은 안됩니다. |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
-| grant\_type | 필수 | 이 인증 코드 흐름 레그에 대한 `refresh_token`이어야 합니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
+| grant\_type | 필수 | 이 인증 코드 흐름 범례에 대한 `refresh_token`이어야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다. 앱 자체의 백 엔드 Web API에 토큰을 가져오기 위해 사용할 수 있으며 이는 클라이언트와 동일한 응용 프로그램 ID로 나타납니다. `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
 | redirect\_uri | 필수 | authorization\_code을 받은 응용 프로그램의 redirect\_uri입니다. |
 | refresh\_token | 필수 | 흐름의 두 번째 레그에서 얻은 원래 refresh\_token입니다. |
@@ -256,11 +257,11 @@ Content-Type: application/json
 | error\_description | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 
-<!-- 
+<!--
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 -->
 
@@ -272,4 +273,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [응용 프로그램을 만들어](active-directory-b2c-app-registration.md) 응용 프로그램 ID 및 redirect\_uri를 얻을 수 있습니다. 앱에서 **네이티브 클라이언트**를 포함하려 합니다.
 - [정책을 만들어](active-directory-b2c-reference-policies.md) 정책 이름을 얻습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

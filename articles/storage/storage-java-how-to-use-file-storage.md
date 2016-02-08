@@ -50,7 +50,7 @@ Azure 저장소 API를 사용하려면 저장소 서비스를 액세스하고자
 	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]your\_storage\_account\_name과 your\_storage\_account\_key를 자신의 저장소 계정에 대한 실제 값으로 바꿉니다.
+> [AZURE.NOTE] your\_storage\_account\_name과 your\_storage\_account\_key를 자신의 저장소 계정에 대한 실제 값으로 바꿉니다.
 
 ## Azure 저장소 계정에 연결
 
@@ -221,4 +221,4 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 [Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -40,7 +40,7 @@ Azure 가상 네트워크는 모두 올바른 이름 지정 및 적절한 트래
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
-[MSDN 구독](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
+[MSDN 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 [Azure 평가판 구독](https://azure.microsoft.com/pricing/free-trial/)을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
 
 다음 단계는 Azure에서 고가용성 LOB(기간 업무) 응용 프로그램을 만드는 것입니다.
 
@@ -86,4 +86,4 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 
 - 구성에 대해 자세히 알아보기 전에 프로덕션 워크로드의 [개요](virtual-machines-workload-high-availability-lob-application-overview.md)를 확인합니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

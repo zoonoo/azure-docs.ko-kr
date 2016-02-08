@@ -43,7 +43,7 @@ ASP.NET 4.5 Web Forms에서 빌드되고 데이터베이스 액세스에 Entity 
 ![연락처 - 편집 페이지](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
 >[AZURE.NOTE] 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다. 계정을 등록하기 전에 Azure를 시작하려면 [Try App Service](https://tryappservice.azure.com/)(앱 서비스 체험)로 이동합니다. 여기서 Azure로 단기 ASP.NET 시작 사이트를 즉시 무료로 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Visual Studio 구독자 혜택</a>을 <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">활성화하거나 <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다. 계정을 등록하기 전에 Azure를 시작하려면 [Try App Service](https://tryappservice.azure.com/)(앱 서비스 체험)로 이동합니다. 여기서 Azure로 단기 ASP.NET 시작 사이트를 즉시 무료로 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ##개발 환경 설정 
 시작하려면 Visual Studio 2013 및 Azure SDK for .NET을 설치하여 개발 환경 설정을 설정합니다.
@@ -772,7 +772,7 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 사용자 및 역할 관리를 도와줄 도구를 개발 중입니다.
 
 ##다음 단계
-ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft Azure Microsoft 자습서 및 가이드](http://azure.microsoft.com/documentation/services/web-sites/#net)에서[ASP.NET Web Forms 알아보기](http://www.asp.net/web-forms)를 참조하세요.
+ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft Azure Microsoft 자습서 및 가이드](https://azure.microsoft.com/documentation/services/web-sites/#net)에서[ASP.NET Web Forms 알아보기](http://www.asp.net/web-forms)를 참조하세요.
 
 이 자습서는 Rick Anderson(Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))이 Tom Dykstra 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))의 도움을 받아 작성한 MVC 자습서인 [OAuth 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)(영문) 내용을 바탕으로 합니다.
 
@@ -780,4 +780,4 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft A
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

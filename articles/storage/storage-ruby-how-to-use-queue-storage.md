@@ -58,7 +58,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 
 이러한 값을 얻으려면
 
-1. [Azure 포털](portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 탐색 창 아래쪽에서 **키 관리**를 클릭합니다.
 4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 선택할 수 있습니다.
@@ -152,4 +152,4 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 이 항목에서 다룬 Azure 큐 서비스와 [서비스 버스 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure 서비스 버스 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하십시오.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

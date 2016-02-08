@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure 자동화의 변수 자산
@@ -55,7 +55,7 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 |Get-AutomationVariable|기존 변수의 값을 검색합니다.|
 |Set-AutomationVariable|기존 변수의 값을 설정합니다.|
 
->[AZURE.NOTE]**Get-AutomationVariable**의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
+>[AZURE.NOTE] **Get-AutomationVariable**의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
 
 ## 새 자동화 변수 만들기
 
@@ -188,4 +188,4 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

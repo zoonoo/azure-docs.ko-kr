@@ -40,13 +40,13 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 
 여기서 AMS 학습 경로를 볼 수 있습니다.
 
-- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [AMS 라이브 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##포스터
 
 
-[여기서](http://azure.microsoft.com/documentation/infographics/media-services/) 미디어 만들기부터 소비까지의 AMS 워크플로를 표시하는 Azure 미디어 서비스 포스터를 볼 수 있습니다.
+[여기서](https://azure.microsoft.com/documentation/infographics/media-services/) 미디어 만들기부터 소비까지의 AMS 워크플로를 표시하는 Azure 미디어 서비스 포스터를 볼 수 있습니다.
 
 ##필수 조건
 
@@ -206,7 +206,7 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 
 ##지원
 
-[Azure 지원](http://azure.microsoft.com/support/options/)에서는 미디어 서비스를 포함하여 Azure에 대한 지원 옵션을 제공합니다.
+[Azure 지원](https://azure.microsoft.com/support/options/)에서는 미디어 서비스를 포함하여 Azure에 대한 지원 옵션을 제공합니다.
 
 ##패턴 및 작업 방식 지침
 
@@ -225,7 +225,7 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 - 콘텐츠 보호를 위해 최소 99.9%의 시간 동안 주요 요청을 처리할 것을 보장합니다.
 - 인덱서를 위해 99.9%의 시간 동안 인코딩 예약 단위로 처리되는 인덱서 작업 요청을 서비스합니다.
 
-	자세한 내용은 [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
+	자세한 내용은 [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -234,4 +234,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

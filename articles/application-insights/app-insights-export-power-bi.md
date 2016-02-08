@@ -17,17 +17,17 @@
  
 # 스트림 분석을 사용하여 Application Insights에서 Power BI 공급
 
-이 문서에서는 [스트림 분석](http://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Visual Studio Application Insights](app-insights-overview.md)에서 [내보낸](app-insights-export-telemetry.md) 데이터를 처리하는 방법을 보여 줍니다. 예제 대상으로 데이터를 [Microsoft Power BI](https://powerbi.microsoft.com/)로 보냅니다.
+이 문서에서는 [스트림 분석](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Visual Studio Application Insights](app-insights-overview.md)에서 [내보낸](app-insights-export-telemetry.md) 데이터를 처리하는 방법을 보여 줍니다. 예제 대상으로 데이터를 [Microsoft Power BI](https://powerbi.microsoft.com/)로 보냅니다.
 
 
-> [AZURE.NOTE]Application Insights에서 Power BI로 데이터를 가져오는 가장 쉬운 방법은 서비스 아래의 Power BI 갤러리에 있는 [어댑터를 사용](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-application-insights/)하는 것입니다. 이 문서에서 설명하는 내용은 현재 보다 다양하지만 Application Insights에서 스트림 분석을 사용하는 방법에 대한 데모이기도 합니다.
+> [AZURE.NOTE] Application Insights에서 Power BI로 데이터를 가져오는 가장 쉬운 방법은 서비스 아래의 Power BI 갤러리에 있는 [어댑터를 사용](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-application-insights/)하는 것입니다. 이 문서에서 설명하는 내용은 현재 보다 다양하지만 Application Insights에서 스트림 분석을 사용하는 방법에 대한 데모이기도 합니다.
 
 [Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적 개체로 데이터를 표시합니다.
 
 
 ![Application Insights 사용 데이터의 Power BI 보기의 샘플](./media/app-insights-export-power-bi/010.png)
 
-[스트림 분석](http://azure.microsoft.com/services/stream-analytics/)은 어댑터로 작동하는 Azure 서비스로, Application Insights에서 내보낸 데이터를 지속적으로 처리합니다.
+[스트림 분석](https://azure.microsoft.com/services/stream-analytics/)은 어댑터로 작동하는 Azure 서비스로, Application Insights에서 내보낸 데이터를 지속적으로 처리합니다.
 
 ![Application Insights 사용 데이터의 Power BI 보기의 샘플](./media/app-insights-export-power-bi/020.png)
 
@@ -137,12 +137,12 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 이 예제에서:
 
-* `webapplication27`는 Application Insights 리소스의 이름으로, **모두 소문자**입니다.
+* `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다.
 * `1234...`는 **대시를 생략한** Application Insights 리소스의 계측 키입니다. 
 * `PageViews`는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조합니다.
 * `/{date}/{time}`은 문자로 기록된 패턴입니다.
 
-> [AZURE.NOTE]저장소를 검사하여 올바른 경로를 가져오는지 확인합니다.
+> [AZURE.NOTE] 저장소를 검사하여 올바른 경로를 가져오는지 확인합니다.
 
 #### 초기 설치 완료
 
@@ -152,7 +152,7 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 마법사를 닫고 설치가 완료될 때까지 기다립니다.
 
-> [AZURE.TIP]샘플 명령을 사용하여 일부 데이터를 다운로드합니다. 쿼리를 디버그할 테스트 샘플로 보관합니다.
+> [AZURE.TIP] 샘플 명령을 사용하여 일부 데이터를 다운로드합니다. 쿼리를 디버그할 테스트 샘플로 보관합니다.
 
 ## 출력 설정
 
@@ -269,4 +269,4 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 * [Application Insights](app-insights-overview.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

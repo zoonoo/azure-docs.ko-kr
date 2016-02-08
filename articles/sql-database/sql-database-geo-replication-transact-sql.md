@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="11/10/2015"
+    ms.date="01/25/2015"
     ms.author="carlrab"/>
 
 # TRANSACT-SQL로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
@@ -46,9 +46,9 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 보조 데이터베이스 추가
 
-**ALTER DATABASE** 문을 사용하여 파트너 서버에서 지역에서 복제된 보조 데이터베이스를 만들 수 있습니다. 복제할 데이터베이스를 포함하는 서버의 마스터 데이터베이스에서 이 문을 실행합니다. 지역에서 복제된 데이터베이스("주 데이터베이스")는 복제되는 데이터베이스와 동일한 이름을 가지며 기본적으로 주 데이터베이스와 동일한 서비스 수준을 가집니다. 보조 데이터베이스는 읽을 수 있거나 읽을 수 없을 수 있으며 단일 데이터베이스 또는 탄력적인 데이터베이스가 될 수 있습니다. 자세한 내용은 [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 및 [서비스 계층](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/)을 참조하세요. 보조 데이터베이스가 만들어지고 시드된 후 데이터는 주 데이터베이스에서 비동기적으로 복제를 시작합니다. 다음 단계에서는 Management Studio를 사용하여 지역에서 복제를 구성하는 방법을 설명합니다. 단일 데이터베이스 또는 탄력적 데이터베이스를 사용하여 읽을 수 없는 및 읽을 수 있는 보조를 만드는 단계가 제공됩니다.
+**ALTER DATABASE** 문을 사용하여 파트너 서버에서 지역에서 복제된 보조 데이터베이스를 만들 수 있습니다. 복제할 데이터베이스를 포함하는 서버의 마스터 데이터베이스에서 이 문을 실행합니다. 지역에서 복제된 데이터베이스("주 데이터베이스")는 복제되는 데이터베이스와 동일한 이름을 가지며 기본적으로 주 데이터베이스와 동일한 서비스 수준을 가집니다. 보조 데이터베이스는 읽을 수 있거나 읽을 수 없을 수 있으며 단일 데이터베이스 또는 탄력적인 데이터베이스가 될 수 있습니다. 자세한 내용은 [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요. 보조 데이터베이스가 만들어지고 시드된 후 데이터는 주 데이터베이스에서 비동기적으로 복제를 시작합니다. 다음 단계에서는 Management Studio를 사용하여 지역에서 복제를 구성하는 방법을 설명합니다. 단일 데이터베이스 또는 탄력적 데이터베이스를 사용하여 읽을 수 없는 및 읽을 수 있는 보조를 만드는 단계가 제공됩니다.
 
-> [AZURE.NOTE]보조 데이터베이스가 지정된 파트너 서버에 있는 경우(예: 지역에서 복제 관계는 현재 존재하거나 이전에 존재했으므로) 명령이 실패합니다.
+> [AZURE.NOTE] 보조 데이터베이스가 지정된 파트너 서버에 있는 경우(예: 지역에서 복제 관계는 현재 존재하거나 이전에 존재했으므로) 명령이 실패합니다.
 
 
 ### 읽을 수 없는 보조(단일 데이터베이스) 추가
@@ -57,12 +57,12 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 1. SQL Server Management Studio 13.0.600.65 이상의 버전을 사용합니다.다.
 
- 	 >[AZURE.IMPORTANT] [최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. Azure 포털에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
+ 	 >[AZURE.IMPORTANT] [최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. Azure 포털에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
 
 
 2. 데이터베이스 폴더를 열고 **시스템 데이터베이스** 폴더를 확장한 후 **master**를 마우스 오른쪽 단추로 클릭한 다음 **새 쿼리**를 클릭합니다.
 
-3. 다음 **ALTER DATABASE** 문을 사용하여 로컬 데이터베이스를 지역에서 복제 주 데이터베이스(<MySecondaryServer1>의 읽을 수 있는 보조 데이터베이스와 함께)로 만듭니다.
+3. 다음 **ALTER DATABASE** 문을 사용하여 지역에서 복제 주 데이터베이스에 로컬 데이터베이스를 만듭니다. MySecondaryServer1의 읽을 수 없는 보조 데이터베이스를 사용하며 MySecondaryServer1는 서버의 식별 이름입니다.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -96,8 +96,8 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 3. 다음 **ALTER DATABASE** 문을 사용하여 로컬 데이터베이스를 지역에서 복제 주 데이터베이스(탄력적 풀에 포함된 보조 서버의 읽을 수 없는 보조 데이터베이스와 함께)로 만듭니다.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool1);
+           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
 4. **실행**을 클릭하여 쿼리를 실행합니다.
 
@@ -113,8 +113,8 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 3. 다음 **ALTER DATABASE** 문을 사용하여 로컬 데이터베이스를 지역에서 복제 주 데이터베이스(탄력적 풀에 포함된 보조 서버의 읽을 수 있는 보조 데이터베이스와 함께)로 만듭니다.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool2);
+           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
 4. **실행**을 클릭하여 쿼리를 실행합니다.
 
@@ -122,7 +122,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 보조 데이터베이스 제거
 
-**ALTER DATABASE** 문을 사용하여 보조 데이터베이스와 주 데이터베이스 간의 복제 파트너 관계를 영구적으로 종료합니다. 이 문은 주 데이터베이스가 상주하는 마스터 데이터베이스에서 실행됩니다. 관계가 종료된 후 보조 데이터베이스는 일반 읽기-쓰기 데이터베이스가 됩니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후 보조는 읽기-쓰기가 됩니다. 자세한 내용은 [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 및 [서비스 계층](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/)을 참조하세요.
+**ALTER DATABASE** 문을 사용하여 보조 데이터베이스와 주 데이터베이스 간의 복제 파트너 관계를 영구적으로 종료합니다. 이 문은 주 데이터베이스가 상주하는 마스터 데이터베이스에서 실행됩니다. 관계가 종료된 후 보조 데이터베이스는 일반 읽기-쓰기 데이터베이스가 됩니다. 보조 데이터베이스에 대한 연결이 끊어진 경우 명령이 성공하지만 연결이 복원된 후 보조는 읽기-쓰기가 됩니다. 자세한 내용은 [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
 지역에서 복제 파트너 관계에서 지역에서 복제된 보조 데이터베이스를 제거하려면 다음 단계를 사용합니다.
 
@@ -140,7 +140,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 새 주 데이터베이스가 되도록 보조 데이터베이스를 승격하는 계획된 장애 조치 시작
 
-**ALTER DATABASE** 문을 사용하여 계획된 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 수준을 올리고, 기존의 주 데이터베이스가 보조 데이터베이스가 되도록 수준을 내릴 수 있습니다 이 문은 승격되는 지역에서 복제된 보조 데이터베이스가 상주하는 Azure SQL 데이터베이스 논리 서버의 마스터 데이터베이스에서 실행됩니다. 이 기능은 DR 훈련 중과 같은 계획된 장애 조치에 대해 설계되었으며 주 데이터베이스는 사용할 수 있어야 합니다.
+**ALTER DATABASE** 문을 사용하여 기존 주가 보조가 되도록 강등시키는 계획된 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다. 이 문은 승격되는 지역에서 복제된 보조 데이터베이스가 상주하는 Azure SQL 데이터베이스 논리 서버의 마스터 데이터베이스에서 실행됩니다. 이 기능은 DR 훈련 중과 같은 계획된 장애 조치에 대해 설계되었으며 주 데이터베이스는 사용할 수 있어야 합니다.
 
 명령은 다음 워크플로 수행합니다.
 
@@ -148,10 +148,10 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 2. 지역에서 복제 파트너 관계에서 두 데이터베이스의 역할을 전환합니다.
 
-이 시퀀스는 데이터 손실이 발생하지 않음을 보장합니다. 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다. 자세한 내용은 [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 및 [서비스 계층](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/)을 참조하세요.
+이 시퀀스는 데이터 손실이 발생하지 않음을 보장합니다. 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다. 자세한 내용은 [ALTER DATABASE(Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 
 
-> [AZURE.NOTE]명령이 실행될 때 주 데이터베이스를 사용할 수 없는 경우 기본 서버를 사용할 수 없음을 나타내는 오류 메시지와 함께 명령이 실패합니다. 드문 경우로 작업을 완료할 수 없으며 중지될 수 있습니다. 이 경우 사용자는 강제 장애 조치 명령을 실행하고 데이터 손실을 허용할 수 있습니다.
+> [AZURE.NOTE] 명령이 실행될 때 주 데이터베이스를 사용할 수 없는 경우 기본 서버를 사용할 수 없음을 나타내는 오류 메시지와 함께 명령이 실패합니다. 드문 경우로 작업을 완료할 수 없으며 중지될 수 있습니다. 이 경우 사용자는 강제 장애 조치 명령을 실행하고 데이터 손실을 허용할 수 있습니다.
 
 계획된 장애 조치를 시작하려면 다음 단계를 사용합니다.
 
@@ -175,7 +175,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 그러나 특정 시점 복원은 보조 데이터베이스에서 지원되지 않으므로 강제 장애 조치가 발생하기 전에 새 주 데이터베이스에 복제되지 않은 이전 주 데이터베이스에 커밋된 데이터를 복구하고자 할 경우 사용자는 손실된 데이터를 복구하도록 지원해야 합니다.
 
-> [AZURE.NOTE]주 및 보조가 온라인일 때 명령이 실행되는 경우 이전 주는 새 보조가 되지만 데이터 동기화는 시도되지 않습니다. 따라서 일부 데이터 손실이 발생할 수 있습니다.
+> [AZURE.NOTE] 주 및 보조가 온라인일 때 명령이 실행되는 경우 이전 주는 새 보조가 되지만 데이터 동기화는 시도되지 않습니다. 따라서 일부 데이터 손실이 발생할 수 있습니다.
 
 
 주 데이터베이스에 여러 보조 데이터베이스가 있는 경우 명령은 명령이 실행된 보조 서버에서만 성공합니다. 그러나 다른 보조 데이터베이스는 강제 장애 조치가 발생했음을 모릅니다. 사용자는 "보조 제거" API를 사용하여 이 구성을 수동으로 복구한 다음 이러한 추가 보조 데이터베이스에 대해 지역에서 복제를 다시 구성해야 합니다.
@@ -228,9 +228,9 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 추가 리소스
 
-- [새 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [새 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [지역에서 복제를 사용하여 비즈니스 연속성을 위한 클라우드 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
-- [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
+- [SQL 데이터베이스 설명서](sql-database.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

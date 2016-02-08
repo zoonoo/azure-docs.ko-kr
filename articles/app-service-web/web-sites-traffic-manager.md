@@ -19,7 +19,7 @@
 
 # Azure 트래픽 관리자를 사용하여 Azure 웹 앱 트래픽 제어
 
-> [AZURE.NOTE]이 문서에서는 Azure 앱 서비스 웹 앱과 관련된 Microsoft Azure 트래픽 관리자의 요약 정보를 제공합니다." Microsoft Azure 트래픽 관리자 자체에 대한 추가 정보는 이 문서의 끝 부분에 있는 링크를 방문하면 찾아볼 수 있습니다.
+> [AZURE.NOTE] 이 문서에서는 Azure 앱 서비스 웹 앱과 관련된 Microsoft Azure 트래픽 관리자의 요약 정보를 제공합니다." Microsoft Azure 트래픽 관리자 자체에 대한 추가 정보는 이 문서의 끝 부분에 있는 링크를 방문하면 찾아볼 수 있습니다.
 
 ## 소개
 Azure 트래픽 관리자를 사용하면 웹 클라이언트의 요청을 Azure 앱 서비스의 웹 앱에 분산하는 방법을 제어할 수 있습니다. 웹 앱 끝점을 Azure 트래픽 관리자 프로필에 추가하는 경우 Azure 트래픽 관리자가 웹 앱의 상태(실행 중, 중지됨 또는 삭제됨)를 계속 추적하므로 트래픽을 수신할 끝점을 결정할 수 있습니다.
@@ -60,7 +60,7 @@ Azure 트래픽 관리자의 개념 및 기술 개요에 대해서는 [트래픽
 
 Azure 트래픽 관리자의 부하 분산에 대한 자세한 내용은 [트래픽 관리자 부하 분산 방법 정보](../traffic-manager/traffic-manager-load-balancing-methods.md)를 참조하십시오.
 
-웹앱에서 트래픽 관리자를 사용하는 방법에 대한 자세한 내용은 블로그 게시물 [Azure 웹 사이트에서 Azure 트래픽 관리자 사용](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) 및 [이제 Azure 트래픽 관리자를 Azure 웹 사이트와 통합할 수 있음](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)을 참조하세요.
+웹앱에서 트래픽 관리자를 사용하는 방법에 대한 자세한 내용은 블로그 게시물 [Azure 웹 사이트에서 Azure 트래픽 관리자 사용](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) 및 [이제 Azure 트래픽 관리자를 Azure 웹 사이트와 통합할 수 있음](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

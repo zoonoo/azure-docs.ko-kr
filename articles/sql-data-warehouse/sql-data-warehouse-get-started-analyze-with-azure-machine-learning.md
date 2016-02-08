@@ -19,6 +19,7 @@
 # Azure 기계 학습을 사용하여 데이터 분석
 이 자습서는 Azure SQL 데이터 웨어하우스에 데이터를 사용하여 Azure 기계 학습으로 예측 기계 학습 모델을 구축하는 방법을 보여 줍니다. 이 자습서에는 고객이 자전거를 구매할 가능성 여부를 예측하여 자전거 매장인 Adventure Works에 대한 대상 마케팅 캠페인을 구축합니다.
 
+> [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
 ## 필수 조건
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
@@ -139,4 +140,4 @@ AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에서 데이터를
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-get-started-manually-load-samples.md
 [SQL 데이터 웨어하우스에 만들기]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

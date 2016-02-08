@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -25,7 +25,7 @@
 
 [SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)를 통해 명령줄 인터페이스를 사용하여 Liux 기반 HDInsight 클러스터에 대한 작업을 원격으로 수행할 수 있습니다. 이 문서에서는 PuTTY SSH 클라이언트를 사용하여 Windows 기반 클라이언트에서 HDInsight에 연결하는 방법을 설명합니다.
 
-> [AZURE.NOTE]이 문서의 단계에서는 Windows 기반 클라이언트를 사용한다고 가정합니다. Linux, Unix 또는 OS X 클라이언트를 사용하는 경우 [Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계에서는 Windows 기반 클라이언트를 사용한다고 가정합니다. Linux, Unix 또는 OS X 클라이언트를 사용하는 경우 [Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ##필수 조건
 
@@ -73,15 +73,15 @@ SSH 사용자는 인증에 암호 또는 공개 키를 사용할 수 있습니�
 
 	![암호](./media/hdinsight-hadoop-linux-use-ssh-windows/key.png)
 
-	> [AZURE.NOTE]키에 대한 보안 암호를 사용하는 것이 좋습니다. 그러나 암호를 잊은 경우 복구할 수 있는 방법이 없습니다.
+	> [AZURE.NOTE] 키에 대한 보안 암호를 사용하는 것이 좋습니다. 그러나 암호를 잊은 경우 복구할 수 있는 방법이 없습니다.
 
 5. **Save private key**를 클릭하여 **.ppk** 파일에 키를 저장합니다. 이 키는 Linux 기반 HDInsight 클러스터에 인증하는 데 사용됩니다.
 
-	> [AZURE.NOTE]Linux 기반 HDInsight 클러스터에 액세스하는 데 사용하기 때문에 이 키를 안전한 위치에 저장해야 합니다.
+	> [AZURE.NOTE] Linux 기반 HDInsight 클러스터에 액세스하는 데 사용하기 때문에 이 키를 안전한 위치에 저장해야 합니다.
 
 6. **Save public key**를 클릭하여 **.txt** 파일로 키를 저장합니다. 이 옵션을 사용하면 추가 Linux 기반 HDInsight 클러스터를 만들 때 공개 키를 나중에 다시 사용할 수 있습니다.
 
-	> [AZURE.NOTE]공개 키는 PuTTYGen의 상단에도 표시됩니다. Azure 포털을 사용하여 클러스터를 만들 때 이 필드를 마우스 오른쪽 단추로 클릭하고 값을 복사한 다음 양식에 붙여 넣을 수 있습니다.
+	> [AZURE.NOTE] 공개 키는 PuTTYGen의 상단에도 표시됩니다. Azure 포털을 사용하여 클러스터를 만들 때 이 필드를 마우스 오른쪽 단추로 클릭하고 값을 복사한 다음 양식에 붙여 넣을 수 있습니다.
 
 ##Linux 기반 HDInsight 클러스터 만들기
 
@@ -107,7 +107,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)를 사용하여 `azure hdinsight cluster create` 명령을 통해 새 클러스터를 만들 수 있습니다.
 
-이 명령 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
+이 명령 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ##Linux 기반 HDInsight 클러스터에 연결
 
@@ -129,11 +129,11 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 5. **Open**을 클릭하여 클러스터에 연결합니다.
 
-	> [AZURE.NOTE]처음으로 클러스터에 연결한 경우 보안 경고를 받게 됩니다. 이것은 정상입니다. 서버의 RSA2 키를 계속 캐시하려면 **예**를 선택합니다.
+	> [AZURE.NOTE] 처음으로 클러스터에 연결한 경우 보안 경고를 받게 됩니다. 이것은 정상입니다. 서버의 RSA2 키를 계속 캐시하려면 **예**를 선택합니다.
 
 6. 메시지가 표시되면 클러스터를 생성할 때 입력한 사용자를 입력합니다. 사용자에 대한 암호를 제공한 경우 사용자를 입력하라는 메시지도 나타납니다.
 
-> [AZURE.NOTE]위의 단계는 HDInsight 클러스터의 헤드 노드0에 연결되는 포트 22를 사용한다는 것을 가정합니다. 23 포트를 사용하는 경우, 헤드 노드 1에 연결 됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
+> [AZURE.NOTE] 위의 단계는 HDInsight 클러스터의 헤드 노드0에 연결되는 포트 22를 사용한다는 것을 가정합니다. 23 포트를 사용하는 경우, 헤드 노드 1에 연결 됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 ###작업자 노드에 연결
 
@@ -149,7 +149,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 3. 찾아보기 대화 상자가 나타나면 키가 포함된 .ppk 파일을 선택하고 **열기**를 클릭합니다. 그러면 Pageant에 키가 추가되어 클러스터에 연결할 때 PuTTY에 제공됩니다.
 
-    > [AZURE.IMPORTANT]SSH 키를 사용하여 계정의 보안을 유지하는 경우에는 이전 단계를 완료해야 작업자 노드에 연결할 수 있습니다.
+    > [AZURE.IMPORTANT] SSH 키를 사용하여 계정의 보안을 유지하는 경우에는 이전 단계를 완료해야 작업자 노드에 연결할 수 있습니다.
 
 4. PuTTY를 엽니다.
 
@@ -161,7 +161,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 6. 앞에서 설명한 대로 클러스터에 연결합니다. 인증에 SSH 키를 사용하는 경우에는 키를 선택할 필요가 없습니다. Pageant에 추가된 SSH 키가 클러스터를 인증하는 데 사용됩니다.
 
-7. 연결이 설정되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD* 를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME* 을 클러스터의 이름으로 바꿉니다.
+7. 연결이 설정되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD*를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME*을 클러스터의 이름으로 바꿉니다.
 
         curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
 
@@ -173,9 +173,9 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
         ssh USERNAME@FQDN
 
-    *USERNAME* 을 SSH 사용자 이름으로, *FQDN* 을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
+    *USERNAME*을 SSH 사용자 이름으로, *FQDN*을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
 
-    > [AZURE.NOTE]암호를 사용하여 SSH 세션을 인증하는 경우 암호를 입력하라는 메시지가 다시 표시됩니다. SSH 키를 사용하는 경우에는 아무 메시지 없이 연결이 완료됩니다.
+    > [AZURE.NOTE] 암호를 사용하여 SSH 세션을 인증하는 경우 암호를 입력하라는 메시지가 다시 표시됩니다. SSH 키를 사용하는 경우에는 아무 메시지 없이 연결이 완료됩니다.
 
 9. 세션이 설정되면 작업자 노드에 연결되었음을 나타내도록 PuTTY 세션에 대한 프롬프트가 `username@hn0-clustername`에서 `username@wn0-clustername`로 변경됩니다. 이 시점부터 실행하는 모든 명령은 작업자 노드에서 실행됩니다.
 
@@ -213,7 +213,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수 있습니다. HDInsight 클러스터 헤드 노드에서 발생하는 경우 요청이 요청된 리소스에 라우팅됩니다.
 
-> [AZURE.IMPORTANT]SSH 터널은 일부 Hadoop 서비스의 웹 UI에 액세스하기 위한 요구 사항입니다. 예를 들어 작업 기록 UI와 리소스 관리자 UI는 둘 다 SSH 터널을 사용해서만 액세스할 수 있습니다.
+> [AZURE.IMPORTANT] SSH 터널은 일부 Hadoop 서비스의 웹 UI에 액세스하기 위한 요구 사항입니다. 예를 들어 작업 기록 UI와 리소스 관리자 UI는 둘 다 SSH 터널을 사용해서만 액세스할 수 있습니다.
 
 SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -229,4 +229,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

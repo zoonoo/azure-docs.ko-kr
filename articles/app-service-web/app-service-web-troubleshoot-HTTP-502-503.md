@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # 문제 해결: HTTP 502/503으로 인해 사용할 수 없는 웹앱
 
 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 호스트된 웹앱의 HTTP 502/503 오류 문제를 해결할 방법을 이 문서에서 찾을 수 있습니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
 
 ## 증상
 
@@ -132,10 +132,10 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
 ####	웹앱 재시작
 
-이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. [Azure 포털](https://portal.azure.com) 또는 웹앱의 블레이드에서 앱을 멈추거나 재시작 하는 옵션을 사용할 수 있습니다.
+이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. [Azure 포털](https://portal.azure.com/) 또는 웹앱의 블레이드에서 앱을 멈추거나 재시작 하는 옵션을 사용할 수 있습니다.
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

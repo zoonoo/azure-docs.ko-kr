@@ -41,7 +41,7 @@ IoT Hub가 이벤트 허브 호환 끝점을 노출하여 장치-클라우드 �
 * **ProcessDeviceToCloudMessages**는 [EventProcessorHost]를 사용하여 이벤트 허브와 호환 가능한 끝점에서 메시지를 검색하고 Azure Blob에서 데이터 지점 메시지를 안정적으로 저장하며 서비스 버스 큐에 대화형 메시지를 전달합니다.
 * **ProcessD2CInteractiveMessages**는 서비스 버스 큐에서 대화형 메시지를 제거합니다.
 
-> [AZURE.NOTE]IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 일반적으로 장치를 Azure IoT Hub에 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+> [AZURE.NOTE] IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 일반적으로 장치를 Azure IoT Hub에 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
 
 이 자습서는 [HDInsight(Hadoop)] 프로젝트와 같이 이벤트 허브와 호환되는 메시지를 사용하는 다른 방법에 직접 적용할 수 있습니다. 자세한 내용은 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]를 참조하세요.
 
@@ -49,7 +49,7 @@ IoT Hub가 이벤트 허브 호환 끝점을 노출하여 장치-클라우드 �
 
 + Microsoft Visual Studio 2015.
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")을 참조하세요.
 
 [Azure 저장소] 및 [Azure 서비스 버스]의 기본 지식이 있어야 합니다.
 
@@ -69,7 +69,7 @@ IoT Hub가 이벤트 허브 호환 끝점을 노출하여 장치-클라우드 �
 
   ![][50]
 
-> [AZURE.NOTE]Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX\_BLOCK\_SIZE** 상수를 **1024**과 같은 더 작은 값으로 줄여야 합니다. 즉, 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문입니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
+> [AZURE.NOTE] Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX\_BLOCK\_SIZE** 상수를 **1024**과 같은 더 작은 값으로 줄여야 합니다. 즉, 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문입니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
 
 ## 다음 단계
 
@@ -98,7 +98,6 @@ IoT Hub에 대한 추가 정보:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
-[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
 
 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]: https://azure.microsoft.com/ko-KR/documentation/articles/iot-hub-devguide/#d2c
 
@@ -108,7 +107,6 @@ IoT Hub에 대한 추가 정보:
 
 
 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
-[장치-클라우드 메시지 처리]: iot-hub-csharp-csharp-process-d2c.md
 [장치에서 파일 업로드]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT Hub 개요]: iot-hub-what-is-iot-hub.md
@@ -119,4 +117,4 @@ IoT Hub에 대한 추가 정보:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

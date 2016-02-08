@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 서비스 버스 릴레이 메시징 자습서
@@ -21,9 +21,9 @@
 
 이 자습서를 통해 서비스 버스 클라이언트 및 서비스 응용 프로그램을 만드는 데 필요한 단계를 이해할 수 있습니다. WCF 대응처럼 서비스는 하나 이상의 끝점을 노출하는 구문으로, 각각 하나 이상의 서비스 작업을 노출합니다. 서비스 끝점은 서비스를 찾을 수 있는 주소, 클라이언트가 서비스와 통신해야 하는 정보가 포함된 바인딩, 서비스가 클라이언트에 제공하는 기능을 정의하는 계약을 지정합니다. WCF와 서비스 버스 서비스 간의 가장 큰 차이는 끝점이 컴퓨터의 로컬이 아닌 클라우드에서 노출된다는 점입니다.
 
-이 자습서의 항목을 순서대로 진행한 후에는 실행되는 서비스와, 서비스 작업을 호출할 수 있는 클라이언트가 있을 것입니다. 첫 번째 항목에서는 계정을 설정하는 방법을 설명합니다. 다음 단계에서는 계약을 사용하는 서비스 정의 방법, 서비스 구현 방법, 클라우드에서의 서비스 구성 방법을 설명합니다. 또한 서비스 호스팅 및 실행 방법을 설명합니다. 만들어지는 서비스는 자체 호스팅되며 클라이언트와 서비스가 동일한 컴퓨터에서 실행됩니다. 코드 또는 구성 파일을 사용하여 서비스를 구성할 수 있습니다. 자세한 내용은 [서비스 버스에 등록할 WCF 서비스 구성](https://msdn.microsoft.com/library/ee173579.aspx) 및 [서비스 버스용 서비스 빌드](https://msdn.microsoft.com/library/ee173564.aspx)를 참조하세요.
+이 자습서의 항목을 순서대로 진행한 후에는 실행되는 서비스와, 서비스 작업을 호출할 수 있는 클라이언트가 있을 것입니다. 첫 번째 항목에서는 계정을 설정하는 방법을 설명합니다. 다음 단계에서는 계약을 사용하는 서비스 정의 방법, 서비스 구현 방법, 클라우드에서의 서비스 구성 방법을 설명합니다. 또한 서비스 호스팅 및 실행 방법을 설명합니다. 만들어지는 서비스는 자체 호스팅되며 클라이언트와 서비스가 동일한 컴퓨터에서 실행됩니다. 코드 또는 구성 파일을 사용하여 서비스를 구성할 수 있습니다.
 
-마지막 세 단계에서는 클라이언트 응용 프로그램 만들기 및 구성 방법과, 호스트의 기능에 액세스할 수 있는 클라이언트 만들기 및 사용 방법을 설명합니다. 자세한 내용은 [서비스 버스 클라이언트 응용 프로그램 빌드](https://msdn.microsoft.com/library/ee173543.aspx) 및 [서비스 버스 서비스 검색 및 노출](https://msdn.microsoft.com/library/dd582704.aspx)을 참조하세요.
+마지막 세 단계에서는 클라이언트 응용 프로그램 만들기 및 구성 방법과, 호스트의 기능에 액세스할 수 있는 클라이언트 만들기 및 사용 방법을 설명합니다.
 
 이 섹션의 모든 항목에서는 모든 개발 환경으로 Visual Studio를 사용한다고 가정합니다.
 
@@ -33,17 +33,17 @@
 
 1. 서비스 네임스페이스를 만들려면 [Azure 클래식 포털][]을 방문합니다. 왼쪽에서 **서비스 버스**를 클릭한 다음 **만들기**를 클릭합니다. 네임스페이스에 이름을 입력한 다음 확인 표시를 클릭합니다.
 
-	>[AZURE.NOTE]클라이언트와 서비스 응용 프로그램에 동일한 네임스페이스를 사용할 필요는 없습니다.
+	>[AZURE.NOTE] 클라이언트와 서비스 응용 프로그램에 동일한 네임스페이스를 사용할 필요는 없습니다.
 
-1. [Azure 클래식 포털][]의 주 창에서 이전 단계에서 만든 서비스 네임스페이스의 이름을 클릭합니다.
+1. 포털의 주 창에서 이전 단계에서 만든 네임스페이스의 이름을 클릭합니다.
 
-2. **구성**을 클릭하여 서비스 네임스페이스에 대한 기본 공유 액세스 정책을 확인합니다.
+2. **구성**을 클릭하여 네임스페이스에 대한 기본 공유 액세스 정책을 확인합니다.
 
 3. **RootManageSharedAccessKey** 정책에 대한 기본 키를 기록해 두거나 클립보드로 복사합니다. 이 자습서의 뒷부분에서 이 값을 사용하게 됩니다.
 
 ## 서비스 버스에 사용할 WCF 서비스 계약을 정의합니다.
 
-서비스 계약은 서비스가 지원하는 작업(메서드 또는 함수에 대한 웹 서비스 용어)을 지정합니다. 계약은 C++, C#, 또는 Visual Basic 인터페이스를 정의하여 만듭니다. 인터페이스의 각 메서드는 특정 서비스 작업에 해당합니다. 각 인터페이스에는 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 특성이, 각 작업에는 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 특성이 적용되어 있어야 합니다. [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 특성을 포함하는 인터페이스의 메서드에 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 특성이 없으면 해당 메서드는 드러나지 않습니다. 이 작업을 위한 코드는 과정을 수행하면서 예제에 제공됩니다. 계약 정의 방법에 대한 자세한 내용은 [서비스 버스용 WCF 계약 디자인](https://msdn.microsoft.com/library/ee173585.aspx)을 참조하세요. 계약 및 서비스에 대한 더 자세한 논의는 WCF 설명서의 [서비스 디자인 및 구현](https://msdn.microsoft.com/library/ms729746.aspx)을 참조하세요.
+서비스 계약은 서비스가 지원하는 작업(메서드 또는 함수에 대한 웹 서비스 용어)을 지정합니다. 계약은 C++, C#, 또는 Visual Basic 인터페이스를 정의하여 만듭니다. 인터페이스의 각 메서드는 특정 서비스 작업에 해당합니다. 각 인터페이스에는 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 특성이, 각 작업에는 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 특성이 적용되어 있어야 합니다. [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 특성을 포함하는 인터페이스의 메서드에 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 특성이 없으면 해당 메서드는 드러나지 않습니다. 이 작업을 위한 코드는 과정을 수행하면서 예제에 제공됩니다. 계약 및 서비스에 대한 더 자세한 논의는 WCF 설명서의 [서비스 디자인 및 구현](https://msdn.microsoft.com/library/ms729746.aspx)을 참조하세요.
 
 ### 인터페이스와 함께 서비스 버스 계약을 만들려면
 
@@ -65,7 +65,7 @@
 
 1. 네임스페이스 이름을 **EchoService**의 기본 이름에서 **Microsoft.ServiceBus.Samples**로 변경합니다.
 
-	>[AZURE.IMPORTANT]이 자습서에서는 C# 네임스페이스 Micr**osoft.ServiceBus.Samples**를 사용합니다. 이것은 6단계: WCF 클라이언트 구성의 구성 파일에서 사용된 계약 관리 유형의 네임스페이스입니다. 이 샘플을 빌드할 때 아무 네임스페이스나 지정할 수 있지만, 응용 프로그램 구성 파일에서 계약과 서비스의 네임스페이스를 그에 맞게 수정하지 않으면 자습서가 작동하지 않습니다. App.config 파일에서 지정한 네임스페이스는 C# 파일에서 지정한 네임스페이스와 동일합니다.
+	>[AZURE.IMPORTANT] 이 자습서에서는 C# 네임스페이스 **Microsoft.ServiceBus.Samples**를 사용합니다. 이는 [WCF 클라이언트 구성](#configure-the-wcf-client) 단계의 구성 파일에서 사용된 계약 관리 유형의 네임스페이스입니다. 이 샘플을 빌드할 때 아무 네임스페이스나 지정할 수 있지만, 응용 프로그램 구성 파일에서 계약과 서비스의 네임스페이스를 그에 맞게 수정하지 않으면 자습서가 작동하지 않습니다. App.config 파일에서 지정한 네임스페이스는 C# 파일에서 지정한 네임스페이스와 동일합니다.
 
 1. `Microsoft.ServiceBus.Samples` 네임스페이스 선언 직후 네임스페이스 안에서 이름이 `IEchoContract`인 새 인터페이스를 정의하고 네임스페이스 값이 ****http://samples.microsoft.com/ServiceModel/Relay/**인 `ServiceContractAttribute` 특성을 해당 인터페이스에 적용합니다. 네임스페이스 값은 코드 전반에 사용하는 네임스페이스에 따라 다릅니다. 대신 네임스페이스 값은 이 계약에 대한 고유 식별자로 사용됩니다. 네임스페이스를 명시적으로 지정하면 기본 네임스페이스 값이 계약 이름에 추가되는 경우를 방지합니다.
 
@@ -76,9 +76,9 @@
 	}
 	```
 
-	>[AZURE.NOTE]일반적으로 서비스 계약 네임스페이스는 버전 정보가 들어있는 명명 체계를 포함합니다. 서비스 계약 네임 스페이스에 버전 정보를 포함하면 서비스에서 새로운 네임스페이스로 새 서비스 계약을 정의하고 새 끝점에 노출함으로써 주요 변경 내용을 분리할 수 있습니다. 이렇게 하면 클라이언트가 업데이트 없이도 기존의 서비스 계약을 지속적으로 사용할 수 있습니다. 버전 정보는 날짜 또는 빌드 번호로 구성될 수 있습니다. 자세한 내용은 [서비스 버전 관리](http://go.microsoft.com/fwlink/?LinkID=180498)를 참조하세요. 이 자습서에서는 서비스 계약 네임 스페이스의 명명 체계에 버전 정보가 포함되지 않았습니다.
+	>[AZURE.NOTE] 일반적으로 서비스 계약 네임스페이스는 버전 정보가 들어있는 명명 체계를 포함합니다. 서비스 계약 네임 스페이스에 버전 정보를 포함하면 서비스에서 새로운 네임스페이스로 새 서비스 계약을 정의하고 새 끝점에 노출함으로써 주요 변경 내용을 분리할 수 있습니다. 이렇게 하면 클라이언트가 업데이트 없이도 기존의 서비스 계약을 지속적으로 사용할 수 있습니다. 버전 정보는 날짜 또는 빌드 번호로 구성될 수 있습니다. 자세한 내용은 [서비스 버전 관리](http://go.microsoft.com/fwlink/?LinkID=180498)를 참조하세요. 이 자습서에서는 서비스 계약 네임 스페이스의 명명 체계에 버전 정보가 포함되지 않았습니다.
 
-1. IEchoContract 인터페이스 내에서 `IEchoContract` 계약이 인터페이스에 노출하는 단일 작업에 대한 메서드를 선언하고 공개 서비스 버스 계약의 일부로 노출하려는 메서드에 `OperationContractAttribute` 특성을 적용합니다.
+1. `IEchoContract` 인터페이스 내에서 `IEchoContract` 계약이 인터페이스에 노출하는 단일 작업에 대한 메서드를 선언하고 공개 서비스 버스 계약의 일부로 노출하려는 메서드에 `OperationContractAttribute` 특성을 적용합니다.
 
 	```
 	[OperationContract]
@@ -100,7 +100,7 @@
 
 	채널은 호스트 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 두 응용 프로그램 간에 정보를 에코할 채널에 대한 코드를 작성합니다.
 
-1. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 F6을 눌러 작업의 정확성을 확인합니다.
+1. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 F6 키를 눌러 지금까지의 작업의 정확성을 확인합니다.
 
 ### 예
 
@@ -168,7 +168,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### 서비스 호스트에 대한 구성을 정의하려면
 
-1. 구성 파일은 WCF 구성 파일과 매우 유사합니다. 여기에는 서비스 이름, 끝점(즉, 클라이언트와 호스트가 서로 통신하도록 서비스 버스가 노출하는 위치) 및 바인딩(통신에 사용되는 프로토콜 유형)이 포함되어 있습니다. 주요 차이점은 구성된 서비스 끝점이 .NET Framework에 속하지 않는 [netTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx)을 참조한다는 것입니다. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx)은 서비스 버스에서 정의한 바인딩 중 하나입니다.
+1. 구성 파일은 WCF 구성 파일과 매우 유사합니다. 여기에는 서비스 이름, 끝점(즉, 클라이언트와 호스트가 서로 통신하도록 서비스 버스가 노출하는 위치) 및 바인딩(통신에 사용되는 프로토콜 유형)이 포함되어 있습니다. 주요 차이점은 구성된 서비스 끝점이 .NET Framework에 속하지 않는 [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) 바인딩을 참조한다는 것입니다. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx)은 서비스 버스에서 정의한 바인딩 중 하나입니다.
 
 1. **솔루션 탐색기**에서 현재 다음과 같은 XML 요소를 포함하는 App.config를 클릭합니다.
 
@@ -215,7 +215,7 @@ namespace Microsoft.ServiceBus.Samples
 	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
 	```
 
-	끝점은 클라이언트가 호스트 응용 프로그램을 검색하는 위치를 정의합니다. 나중에 이 자습서에서는 이 단계를 사용하여 서비스를 버스를 통해 호스트를 완전히 노출하는 URI를 만듭니다. 바인딩은 서비스 버스와의 통신에 TCP를 프로토콜로 사용한다고 선언합니다.
+	끝점은 클라이언트가 호스트 응용 프로그램을 검색하는 위치를 정의합니다. 나중에 이 자습서에서는 이 단계를 사용하여 서비스 버스를 통해 호스트를 완전히 공개하는 URI를 만듭니다. 바인딩은 서비스 버스와의 통신에 TCP를 프로토콜로 사용한다고 선언합니다.
 
 
 1. `<services>` 요소 바로 뒤에 다음 바인딩 확장을 추가합니다.
@@ -273,15 +273,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### 서비스 버스 자격 증명을 만들려면
 
-1. Microsoft.ServiceBus.dll에 대한 참조를 프로젝트에 추가: [NuGet 서비스 버스 패키지 사용](https://msdn.microsoft.com/library/dn741354.aspx)을 참조하세요.
-
-	>[AZURE.NOTE]명령줄 컴파일러를 사용하는 경우어셈블리에 대한 경로도 제공해야 합니다.
-
-1. Program.cs에서 Microsoft.ServiceBus 네임스페이스에 `using` 문을 추가합니다.
-
-	```
-	using Microsoft.ServiceBus;
-	```
+1. [서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 설치
 
 1. `Main()`에서 콘솔 창으로부터 읽은 네임스페이스와 SAS 키를 저장할 두 변수를 만듭니다.
 
@@ -292,7 +284,7 @@ namespace Microsoft.ServiceBus.Samples
 	string sasKey = Console.ReadLine();
 	```
 
-	SAS 키는 나중에 서비스 버스 프로젝트에 액세스하는 데 사용됩니다. 서비스 네임스페이스는 서비스 URI를 만들기 위해 매개 변수 형태로 `CreateServiceUri`에 전달됩니다.
+	SAS 키는 나중에 서비스 버스 프로젝트에 액세스하는 데 사용됩니다. 네임스페이스는 서비스 URI를 만들기 위해 매개 변수 형태로 `CreateServiceUri`에 전달됩니다.
 
 4. [TransportClientEndpointBehavior](https://msdn.microsoft.com/library/microsoft.servicebus.transportclientendpointbehavior.aspx) 개체를 사용하여 자격 증명 형식으로 사용할 SAS 키를 선언합니다. 마지막 단계에서 추가한 코드 바로 뒤에 다음 코드를 추가합니다.
 
@@ -396,7 +388,6 @@ using Microsoft.ServiceBus.Description;
 namespace Microsoft.ServiceBus.Samples
 {
     [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     public interface IEchoContract
     {
         [OperationContract]
@@ -406,7 +397,6 @@ namespace Microsoft.ServiceBus.Samples
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
     [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -514,7 +504,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -624,17 +614,11 @@ namespace Microsoft.ServiceBus.Samples
 이 단계에서는 이 자습서의 앞에서 만든 서비스에 액세스하는 기본 클라이언트 응용 프로그램을 구현합니다. 서비스와 마찬가지로, 클라이언트는 서비스 버스 액세스와 많은 동일한 작업을 수행합니다.
 
 1. 연결 모드를 설정합니다.
-
 1. 호스트 서비스를 찾는 URI를 만듭니다.
-
 1. 보안 자격 증명을 정의합니다.
-
 1. 연결에 자격 증명을 적용합니다.
-
 1. 연결을 엽니다.
-
 1. 응용 프로그램 특정 작업을 수행합니다.
-
 1. 연결을 닫습니다.
 
 그러나 주요 차이 중 하나는 클라이언트 응용 프로그램이 채널을 사용하여 서비스 버스에 연결하는 것과 달리 서비스는 **ServiceHost**에 대한 호출을 사용한다는 점입니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
@@ -732,15 +716,11 @@ namespace Microsoft.ServiceBus.Samples
 
 	콘솔 창의 출력 예는 다음과 같습니다. 여기서 입력한 값은 오직 예시용입니다.
 
-	`Your Service Namespace: myNamespace`
-
-	`Your SAS Key: <SAS key value>`
+	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
 	서비스 응용 프로그램이 시작되고 다음 예제에서처럼 콘솔 창에 수신 중인 주소가 출력됩니다.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
 1. 클라이언트 응용 프로그램을 실행합니다. 이제 이름이 EchoClient.exe인 에코 클라이언트 응용 프로그램의 실행 파일이 클라이언트 프로젝트 폴더 \\bin\\Debug\\EchoClient.exe(디버그 구성) 또는 \\bin\\Release\\EchoClient.exe(릴리스 구성) 아래에 있을 것입니다. 클라이언트 응용 프로그램을 시작하려면 이 파일을 두 번 클릭합니다.
 
@@ -843,4 +823,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

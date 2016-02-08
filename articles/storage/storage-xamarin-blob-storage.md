@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/22/2016"
 	ms.author="micurd"/>
 
 # Xamarin에서 Blob 저장소를 사용하는 방법(미리 보기)
@@ -177,6 +177,5 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)  
 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)  
 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
-[AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

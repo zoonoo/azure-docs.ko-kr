@@ -28,7 +28,7 @@ Azure Active Directory(Azure AD)는 클라우드에서 사용자가 사용할 ID
 
 Azure AD 계정은 클라우드를 사용하기 위한 운전 면허증에 비유할 수 있습니다. 온라인 서비스에 액세스하는 데 필요한 고유의 ID입니다. 같은 맥락에서, Azure AD는 클라우드에서 운전 면허증을 관리하는 사설 등록 기관의 역할을 합니다. 클라우드 내 어디에서나 ID를 사용할 수 있게 해주고 온-프레미스 리소스에 액세스하는 사용자의 이동성을 개선합니다.
 
-> [AZURE.NOTE]Azure Active Directory를 사용하려면 Azure 계정이 필요합니다. 계정이 없으면 [무료 Azure 계정을 등록](http://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
+> [AZURE.NOTE] Azure Active Directory를 사용하려면 Azure 계정이 필요합니다. 계정이 없으면 [무료 Azure 계정을 등록](https://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
 
 ## Azure AD는 Office 365, Microsoft Intune 및 다른 Azure 서비스를 어떻게 지원하나요?
 Azure 포털, Office 365 관리 센터, Microsoft Intune 계정 포털 및 Azure AD PowerShell 모듈의 cmdlet은 모두 사용자의 디렉터리에 연결된 Azure AD의 단일 공유 인스턴스에서 쓰고 읽습니다. 포털(또는 cmdlet)은 디렉터리 정보를 가져오거나 변경하는 프런트 엔드 인터페이스로 작동합니다. [다른 서비스 지원에 대한 자세한 정보](active-directory-administer.md#what-is-an-azure-ad-tenant)
@@ -48,4 +48,4 @@ Azure AD를 관리하는 방법, 디렉터리를 얻는 방법, 디렉터리를 
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

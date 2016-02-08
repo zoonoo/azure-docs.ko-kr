@@ -90,8 +90,8 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
      - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [azure.microsoft.com의 저장소](http://azure.microsoft.com/services/storage)
+     - [azure.microsoft.com의 저장소](https://azure.microsoft.com/services/storage/)
 
-     - [azure.microsoft.com의 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
+     - [azure.microsoft.com의 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

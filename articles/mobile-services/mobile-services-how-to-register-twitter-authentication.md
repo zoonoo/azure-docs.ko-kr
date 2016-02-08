@@ -28,7 +28,7 @@
 
 이 항목에서는 Twitter를 사용하여 Azure 모바일 서비스에 인증할 수 있도록 앱을 등록하는 방법을 보여 줍니다.
 
->[AZURE.NOTE]이 자습서에서는 플랫폼에 구애받지 않는 확장 가능한 모바일 응용 프로그램을 손쉽게 빌드할 수 있도록 하는 솔루션인 [Azure 모바일 서비스](http://azure.microsoft.com/services/mobile-services/)에 대해 다룹니다. 모바일 서비스를 사용하면 데이터 동기화, 사용자 인증, 푸시 알림 보내기 작업을 간편하게 수행할 수 있습니다. 이 페이지는 [앱에 인증 추가](mobile-services-ios-get-started-users.md) 자습서를 보완하는 역할을 하며, 사용자를 앱에 로그인하는 방법을 설명합니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작](mobile-services-ios-get-started.md) 자습서를 완료하는 것이 좋습니다.
+>[AZURE.NOTE] 이 자습서에서는 플랫폼에 구애받지 않는 확장 가능한 모바일 응용 프로그램을 손쉽게 빌드할 수 있도록 하는 솔루션인 [Azure 모바일 서비스](https://azure.microsoft.com/services/mobile-services/)에 대해 다룹니다. 모바일 서비스를 사용하면 데이터 동기화, 사용자 인증, 푸시 알림 보내기 작업을 간편하게 수행할 수 있습니다. 이 페이지는 [앱에 인증 추가](mobile-services-ios-get-started-users.md) 자습서를 보완하는 역할을 하며, 사용자를 앱에 로그인하는 방법을 설명합니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작](mobile-services-ios-get-started.md) 자습서를 완료하는 것이 좋습니다.
 
 이 항목의 절차를 완료하려면 검증된 전자 메일 주소가 포함된 Twitter 계정이 있어야 합니다. 새 Twitter 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>으로 이동합니다.
 
@@ -49,7 +49,7 @@
 
 6. 앱 대시보드에서 **Keys and Access Tokens** 탭을 클릭하고 **Consumer key** 및 **Consumer secret** 값을 기록해 둡니다.
 
-    > [AZURE.NOTE]소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마십시오.
+    > [AZURE.NOTE] 소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마십시오.
 
 7. **설정** 탭을 클릭하고 아래로 스크롤하여 **Twitter로 로그인하는 데 이 응용 프로그램을 사용하도록 허용** 확인란이 선택되어 있는지 확인한 후 **설정 업데이트**를 클릭합니다.
 
@@ -66,4 +66,4 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

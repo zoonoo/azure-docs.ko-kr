@@ -15,7 +15,7 @@
 	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
-# Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결 
+# Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 
 [AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
@@ -32,12 +32,12 @@
 Microsoft Azure 저장소를 사용하는 클라이언트 응용 프로그램 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
 
 - **Azure 저장소 분석**. [Azure 저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)은 Azure 저장소에 대한 로깅 및 메트릭을 제공합니다.
-	- **저장소 메트릭**은 저장소 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요. 
+	- **저장소 메트릭**은 저장소 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요.
 
 	- **저장소 로깅**은 Azure 저장소 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](http://msdn.microsoft.com/library/azure/hh343259.aspx)을 참조하세요.
 
-- **Azure 포털**. [Azure 포털](portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 응용 프로그램이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 응용 프로그램이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
-	
+- **Azure 포털**. [Azure 포털](https://portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 응용 프로그램이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 응용 프로그램이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
+
 	Azure 포털에서 모니터링을 구성하는 방법에 대한 자세한 내용은 [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)을 참조하세요.
 
 - **AzCopy**. Azure 저장소의 서버 로그는 Blob으로 저장되므로 AzCopy를 사용하여 해당 로그 Blob을, Microsoft Message Analyzer를 사용한 분석의 로컬 디렉터리로 복사할 수 있습니다. AzCopy에 대한 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)을 참조하세요.
@@ -46,7 +46,7 @@ Microsoft Azure 저장소를 사용하는 클라이언트 응용 프로그램 �
 
 ## 샘플 시나리오 정보
 
-이 자습서에서는 Azure 저장소 메트릭이 Azure 저장소를 호출하는 응용 프로그램에 대한 낮은 성공률을 나타내는 시나리오를 살펴보겠습니다. 낮은 성공률 메트릭([Azure 포털](portal.azure.com) 및 메트릭 테이블에서 **PercentSuccess**로 표시됨)은 성공은 했지만 299보다 큰 HTTP 상태 코드를 반환하는 작업을 추적합니다. 서버 쪽 저장소 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다. 낮은 비율의 성공 메트릭에 대한 자세한 내용은 [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)을 참조하세요.
+이 자습서에서는 Azure 저장소 메트릭이 Azure 저장소를 호출하는 응용 프로그램에 대한 낮은 성공률을 나타내는 시나리오를 살펴보겠습니다. 낮은 성공률 메트릭([Azure 포털](https://portal.azure.com) 및 메트릭 테이블에서 **PercentSuccess**로 표시됨)은 성공은 했지만 299보다 큰 HTTP 상태 코드를 반환하는 작업을 추적합니다. 서버 쪽 저장소 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다. 낮은 비율의 성공 메트릭에 대한 자세한 내용은 [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)을 참조하세요.
 
 Azure 저장소 작업은 299보다 큰 HTTP 상태 코드를 정상적인 기능의 일부로 반환할 수 있습니다. 그러나 일부의 경우에 이러한 오류는 성능 향상을 위해 클라이언트 응용 프로그램을 최적화할 수 있음을 나타냅니다.
 
@@ -64,15 +64,15 @@ Azure 저장소 작업은 299보다 큰 HTTP 상태 코드를 정상적인 기�
 
 Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대한 읽기 작업이 실패할 때 발생합니다.
 
-- 이 요청 이전에 다른 클라이언트가 컨테이너 또는 Blob을 삭제한 경우에 발생합니다. 
+- 이 요청 이전에 다른 클라이언트가 컨테이너 또는 Blob을 삭제한 경우에 발생합니다.
 - 컨테이너 또는 Blob이 있는지를 확인한 이후 컨테이너 또는 Blob을 생성한 API 호출을 사용하는 경우에 발생합니다. CreateIfNotExists API가 컨테이너 또는 Blob이 있는지 확인하기 위해 첫 번째 HEAD 호출을 실행합니다. 그런 다음 컨테이너 또는 Blob이 존재하지 않는 경우 404 오류가 반환되고 컨테이너 또는 Blob을 작성하기 위한 두 번째 PUT 호출이 실행됩니다.
 
 **상태 코드 409(충돌) 예제**
 
-- 해당 이름을 가진 컨테이너 또는 Blob이 있는지 먼저 확인하지 않고 만들기 API를 사용하여 새로운 컨테이너 또는 Blob을 생성하는 경우 발생합니다. 
+- 해당 이름을 가진 컨테이너 또는 Blob이 있는지 먼저 확인하지 않고 만들기 API를 사용하여 새로운 컨테이너 또는 Blob을 생성하는 경우 발생합니다.
 - 컨테이너를 삭제하는데 이 삭제 작업이 완료되기 전에 같은 이름의 새 컨테이너를 생성하려고 시도하는 경우에 발생합니다.
 - 컨테이너 또는 Blob에서 임대를 지정하는데 임대가 이미 존재하는 경우에 발생합니다.
- 
+
 **상태 코드 412(전제 조건 실패) 예제**
 
 - 조건부 헤더에서 지정한 조건이 충족되지 않은 경우에 발생합니다.
@@ -83,18 +83,18 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 이 자습서에서는 Message Analyzer를 사용하여 세 가지 유형의 로그 파일로 작업할 수 있지만, 다음과 같이 해당 로그 중 하나를 선택하여 사용할 수 있습니다.
 
 - **서버 로그**, Azure 저장소 로깅을 사용하도록 설정한 경우 생성됩니다. 서버 로그에는 Blob, 큐, 테이블, 파일 등의 Azure 저장소 서비스 중 하나에 대해 호출된 각 작업에 관한 데이터가 포함됩니다. 서버 로그는 요청 및 응답에 대한 기타 세부 정보뿐만 아니라 어떤 작업이 호출되었는지와 어떤 상태 코드가 반환되었는지도 나타냅니다.
-- **.NET 클라이언트 로그**, .NET 응용 프로그램 내에서 클라이언트 쪽 로깅을 사용하도록 설정한 경우 생성됩니다. 클라이언트 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다. 
+- **.NET 클라이언트 로그**, .NET 응용 프로그램 내에서 클라이언트 쪽 로깅을 사용하도록 설정한 경우 생성됩니다. 클라이언트 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
 - **HTTP 네트워크 추적 로그**, Azure 저장소에 대한 작업을 비롯하여 HTTP/HTTPS 요청 및 응답 데이터에 대한 데이터를 수집합니다. 이 자습서에서는 Message Analyzer를 통해 네트워크 추적을 생성합니다.
 
 ### 서버 쪽 로깅 및 메트릭 구성
 
-먼저 Azure 저장소 로깅 및 메트릭을 구성하여 분석할 클라이언트 응용 프로그램의 데이터를 수집해야 합니다. [Azure 포털](portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [저장소 메트릭 사용 및 메트릭 데이터 보기](http://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](http://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
+먼저 Azure 저장소 로깅 및 메트릭을 구성하여 분석할 클라이언트 응용 프로그램의 데이터를 수집해야 합니다. [Azure 포털](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [저장소 메트릭 사용 및 메트릭 데이터 보기](http://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](http://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
 
 **Azure 포털을 통해**
 
-[Azure 포털](portal.azure.com)을 사용하여 저장소 계정의 로깅 및 메트릭을 구성하려면 [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)의 지침을 따릅니다.
+[Azure 포털](https://portal.azure.com)을 사용하여 저장소 계정의 로깅 및 메트릭을 구성하려면 [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)의 지침을 따릅니다.
 
-> [AZURE.NOTE]Azure 포털을 사용하여 분 메트릭을 설정할 수는 없습니다. 그러나 이 자습서의 목적에 맞게 그리고 응용 프로그램의 성능 문제를 조사하도록 메트릭을 설정하는 것이 좋습니다. 아래와 같이 PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 분 메트릭을 설정할 수 있습니다.
+> [AZURE.NOTE] Azure 포털을 사용하여 분 메트릭을 설정할 수는 없습니다. 그러나 이 자습서의 목적에 맞게 그리고 응용 프로그램의 성능 문제를 조사하도록 메트릭을 설정하는 것이 좋습니다. 아래와 같이 PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 분 메트릭을 설정할 수 있습니다.
 >
 > Azure 포털은 분 메트릭을 표시할 수 없으며 시간별 메트릭만 표시할 수 있습니다.
 
@@ -113,19 +113,19 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 	```
 	$SubscriptionName = 'Your subscription name'
-	$StorageAccountName = 'yourstorageaccount' 
-	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
+	$StorageAccountName = 'yourstorageaccount'
+	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
 	```
 
 4. 다음과 같이 Blob 서비스에 대한 저장소 로깅을 사용하도록 설정합니다.
- 
+
 	```
-	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
+	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
 	```
 5. 다음과 같이 Blob 서비스의 저장소 메트릭을 사용하도록 설정하고 **-MetricsType**을 `Minute`다음으로 설정했는지 확인합니다.
 
 	```
-	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
+	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
 	```
 
 ### .NET 클라이언트 쪽 로깅 구성
@@ -157,26 +157,26 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 4. **Microsoft-Pef-WebProxy** ETW 공급자의 오른쪽에 있는 **Configure(구성)** 링크를 선택합니다.
 5. **Advanced Settings(고급 설정)** 대화 상자에서 **Provider(공급자)** 탭을 클릭합니다.
 6. **Hostname Filter(호스트 이름 필터)** 필드에서 공백으로 구분하여 저장소 끝점을 지정합니다. 예를 들어 다음과 같이 끝점을 지정할 수 있습니다. `storagesample`를 사용 중인 저장소 계정 이름으로 변경합니다.
-	
-	```	
-	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
+
+	```
+	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
 	```
 
 7. 대화 상자를 종료하고 **Restart(다시 시작)**를 클릭하여 적절한 호스트 이름 필터가 있는 추적의 수집을 시작합니다. 그러면 Azure 저장소 네트워크 트래픽만 추적에 포함됩니다.
 
->[AZURE.NOTE]네트워크 추적의 수집을 완료한 후 HTTPS 트래픽을 해독하기 위해 Fiddler에서 변경한 설정을 되돌리는 것이 좋습니다. Fiddler의 Options(옵션) 대화 상자에서 **Capture HTTPS CONNECTs(HTTPS 연결 캡처)** 및 **Decrypt HTTPS Traffic(HTTPS 트래픽 해독)** 확인란의 선택을 취소합니다.
+>[AZURE.NOTE] 네트워크 추적의 수집을 완료한 후 HTTPS 트래픽을 해독하기 위해 Fiddler에서 변경한 설정을 되돌리는 것이 좋습니다. Fiddler의 Options(옵션) 대화 상자에서 **Capture HTTPS CONNECTs(HTTPS 연결 캡처)** 및 **Decrypt HTTPS Traffic(HTTPS 트래픽 해독)** 확인란의 선택을 취소합니다.
 
 자세한 내용은 Technet의 [네트워크 추적 기능 사용(영문)](http://technet.microsoft.com/library/jj674819.aspx)을 참조하세요.
 
 ## Azure 포털에서 메트릭 데이터 검토
 
-응용 프로그램을 일정 기간 실행하면 [Azure 포털](portal.azure.com)에 표시되는 메트릭 차트를 검토하여 서비스가 수행된 방법을 관찰할 수 있습니다. 먼저 Azure 포털의 저장소 계정으로 이동하고 **성공 비율** 메트릭에 대한 차트를 추가합니다.
+응용 프로그램을 일정 기간 실행하면 [Azure 포털](https://portal.azure.com)에 표시되는 메트릭 차트를 검토하여 서비스가 수행된 방법을 관찰할 수 있습니다. 먼저 Azure 포털의 저장소 계정으로 이동하고 **성공 비율** 메트릭에 대한 차트를 추가합니다.
 
 이제 추가한 다른 메트릭과 함께 **성공 비율**이 Azure 포털의 모니터링 차트에 표시됩니다. Message Analyzer에서 로그를 분석하여 조사하는 시나리오에서 성공률이 100% 아래인 몇 가지를 볼 수 있습니다.
 
 모니터링 페이지에 메트릭을 추가하는 방법에 대한 자세한 내용은 [방법: 메트릭 테이블에 메트릭 추가](storage-monitor-storage-account.md#addmonitoringmetrics)를 참조하세요.
 
-> [AZURE.NOTE]저장소 메트릭을 사용하도록 설정한 이후 Azure 포털에 메트릭 데이터가 표시되는 데 약간의 시간이 걸릴 수 있습니다. 현재 시간이 경과할 때까지 이전 시간에 대한 시간별 메트릭이 Azure 포털에 표시되지 않기 때문입니다. 현재는 분 메트릭도 Azure 포털에 표시되지 않습니다. 따라서 메트릭을 사용하도록 설정한 시간에 따라 메트릭 데이터가 표시되는 데에는 최대 2시간까지 걸릴 수 있습니다.
+> [AZURE.NOTE] 저장소 메트릭을 사용하도록 설정한 이후 Azure 포털에 메트릭 데이터가 표시되는 데 약간의 시간이 걸릴 수 있습니다. 현재 시간이 경과할 때까지 이전 시간에 대한 시간별 메트릭이 Azure 포털에 표시되지 않기 때문입니다. 현재는 분 메트릭도 Azure 포털에 표시되지 않습니다. 따라서 메트릭을 사용하도록 설정한 시간에 따라 메트릭 데이터가 표시되는 데에는 최대 2시간까지 걸릴 수 있습니다.
 
 ## AzCopy를 사용하여 로컬 디렉터리에 서버 로그 복사
 
@@ -186,7 +186,7 @@ AzCopy 명령줄 도구를 사용하여 이러한 서버 쪽 로그 파일을 �
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy는 [Azure 다운로드](http://azure.microsoft.com/downloads/) 페이지에서 다운로드할 수 있습니다. AzCopy를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)을 참조하세요.
+AzCopy는 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 다운로드할 수 있습니다. AzCopy를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)을 참조하세요.
 
 서버 쪽 로그를 다운로드하는 방법에 대한 자세한 내용은 [저장소 로깅 사용 및 로그 데이터 액세스](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)를 참조하세요.
 
@@ -201,7 +201,7 @@ Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석
 1. Microsoft 다운로드 센터에서 [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226)를 다운로드하고 설치 관리자를 실행합니다.
 2. Message Analyzer를 시작합니다.
 3. **Start(시작)** 페이지에서 **Downloads(다운로드)**로 이동한 후 **Azure Storage(Azure 저장소)**에 대해 필터링합니다. 아래 그림에 표시된 대로 Azure 저장소 자산이 표시됩니다.
-4. **Sync All Displayed Items(표시된 모든 항목 동기화)**를 클릭하여 Azure 저장소 자산을 설치합니다. 사용 가능한 자산은 다음과 같습니다. 
+4. **Sync All Displayed Items(표시된 모든 항목 동기화)**를 클릭하여 Azure 저장소 자산을 설치합니다. 사용 가능한 자산은 다음과 같습니다.
 	- **Azure Storage Color Rules(Azure 저장소 색 규칙):** Azure 저장소 색 규칙을 통해 색상, 텍스트 및 글꼴 스타일을 사용하여 추적에 특정 정보를 포함하는 메시지를 강조 표시하는 특수 필터를 정의할 수 있습니다.
 	- **Azure 저장소 차트:** Azure 저장소 차트는 서버 로그 데이터를 그래프로 표시하는 미리 정의된 차트입니다. 이번에 Azure 저장소 차트를 사용하려면 서버 로그를 분석 격자로 로드하기만 하면 됩니다.
 	- **Azure 저장소 파서:** Azure 저장소 파서는 Azure 저장소 클라이언트, 서버 및 HTTP 로그를 분석 그리드에 표시하기 위해 구문 분석합니다.
@@ -211,14 +211,14 @@ Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석
 
 ![Message Analyzer 시작 페이지](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
-> [AZURE.NOTE]이 자습서의 용도에 맞는 Azure 저장소 자산을 모두 설치합니다.
+> [AZURE.NOTE] 이 자습서의 용도에 맞는 Azure 저장소 자산을 모두 설치합니다.
 
 ### Message Analyzer로 로그 파일 가져오기
 
 Microsoft Message Analyzer에서 분석을 위해 저장된 모든 로그 파일(서버 쪽, 클라이언트 쪽 및 네트워크)을 단일 세션으로 가져올 수 있습니다.
 
-1. Microsoft Message Analyzer에서 **File(파일)** 메뉴의 **New Session(새 세션)**을 클릭한 후 **Blank Session(빈 세션)**을 클릭합니다. **New Session(새 세션)** 대화 상자에서 분석 세션의 이름을 입력합니다. **Session Details(세션 정보)** 패널에서 **Files(파일)** 단추를 클릭합니다. 
-1. Message Analyzer에서 생성한 네트워크 추적 데이터를 로드하려면 **Add Files(파일 추가)**를 클릭하고, 웹 추적 세션의 .matp 파일을 저장한 위치를 찾아 .matp 파일을 선택하고 **Open(열기)**을 클릭합니다. 
+1. Microsoft Message Analyzer에서 **File(파일)** 메뉴의 **New Session(새 세션)**을 클릭한 후 **Blank Session(빈 세션)**을 클릭합니다. **New Session(새 세션)** 대화 상자에서 분석 세션의 이름을 입력합니다. **Session Details(세션 정보)** 패널에서 **Files(파일)** 단추를 클릭합니다.
+1. Message Analyzer에서 생성한 네트워크 추적 데이터를 로드하려면 **Add Files(파일 추가)**를 클릭하고, 웹 추적 세션의 .matp 파일을 저장한 위치를 찾아 .matp 파일을 선택하고 **Open(열기)**을 클릭합니다.
 1. 서버 쪽 로그 데이터를 로드하려면 **Add Files(파일 추가)**를 클릭하고, 서버 쪽 로그를 다운로드한 위치를 찾아 분석하려는 시간 범위의 로그 파일을 선택하고 **Open(열기)**을 클릭합니다. 그런 다음 **Session Details(세션 정보)** 패널에서 각 서버 쪽 로그 파일의 **Text Log Configuration(텍스트 로그 구성)** 드롭다운을 **AzureStorageLog**로 설정하여 Microsoft Message Analyzer가 로그 파일을 올바르게 구문 분석할 수 있도록 합니다.
 1. 클라이언트 쪽 로그 데이터를 로드하려면 **Add Files(파일 추가)**를 클릭하고, 클라이언트 쪽 로그를 저장한 위치를 찾아 분석할 로그 파일을 선택하고 **Open(열기)**을 클릭합니다. 그런 다음 **Session Details(세션 정보)** 패널에서 각 클라이언트 쪽 로그 파일의 **Text Log Configuration(텍스트 로그 구성)** 드롭다운을 **AzureStorageClientDotNetV4**로 설정하여 Microsoft Message Analyzer가 로그 파일을 올바르게 구문 분석할 수 있도록 합니다.
 1. **New Session(새 세션)** 대화 상자에서 **Start(시작)**를 클릭하여 로그 데이터를 로드하고 구문 분석합니다. Message Analyzer 분석 그리드에 로그 데이터가 표시됩니다.
@@ -255,7 +255,7 @@ Message Analyzer의 저장소 자산에는 다양한 시나리오에서 유용�
 
 ![Azure 저장소 보기 레이아웃](./media/storage-e2e-troubleshooting/view-layout-client-request-id-module.png)
 
->[AZURE.NOTE]다른 로그 파일에는 다른 열이 있으므로 여러 로그 파일의 데이터가 분석 그리드에 표시될 때 일부 열이 지정된 행의 데이터를 포함하지 않을 수 있습니다. 클라이언트 로그 행은 **Timestamp**, **TimeElapsed**, **Source** 및 **Destination** 열의 데이터를 표시하지 않습니다. 이러한 열이 클라이언트 로그에 존재하지 않지만, 네트워크 추적에는 존재하기 때문입니다. 마찬가지로 **Timestamp** 열에는 서버 로그의 타임스탬프 데이터가 표시되지만, 서버 로그의 일부가 아닌 **TimeElapsed**, **Source** 및 **Destination** 열에는 데이터가 표시되지 않습니다.
+>[AZURE.NOTE] 다른 로그 파일에는 다른 열이 있으므로 여러 로그 파일의 데이터가 분석 그리드에 표시될 때 일부 열이 지정된 행의 데이터를 포함하지 않을 수 있습니다. 클라이언트 로그 행은 **Timestamp**, **TimeElapsed**, **Source** 및 **Destination** 열의 데이터를 표시하지 않습니다. 이러한 열이 클라이언트 로그에 존재하지 않지만, 네트워크 추적에는 존재하기 때문입니다. 마찬가지로 **Timestamp** 열에는 서버 로그의 타임스탬프 데이터가 표시되지만, 서버 로그의 일부가 아닌 **TimeElapsed**, **Source** 및 **Destination** 열에는 데이터가 표시되지 않습니다.
 
 Azure 저장소 보기 레이아웃을 사용할 뿐만 아니라 고유의 보기 레이아웃을 정의 및 저장할 수도 있습니다. 그룹화 데이터에 대해 원하는 다른 필드를 선택하고 해당 그룹화를 사용자 지정 레이아웃의 일부로 저장할 수도 있습니다.
 
@@ -286,7 +286,7 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 
 이 필터를 적용한 이후 클라이언트 로그가 **StatusCode** 열을 포함하지 않기 때문에 클라이언트 로그에서 행이 제외되는 것을 볼 수 있습니다. 먼저 서버 및 네트워크 추적 로그를 검토하여 404 오류를 찾은 후 클라이언트 로그로 돌아가 해당 오류를 야기한 클라이언트 작업을 검사합니다.
 
->[AZURE.NOTE]상태 코드가 null인 로그 항목을 포함하는 필터에 식을 추가한 경우 **StatusCode** 열을 필터링하고 클라이언트 로그를 비롯하여 세 로그 모두의 데이터를 여전히 표시할 수 있습니다. 이 필터 식을 생성하려면 다음을 사용하세요.
+>[AZURE.NOTE] 상태 코드가 null인 로그 항목을 포함하는 필터에 식을 추가한 경우 **StatusCode** 열을 필터링하고 클라이언트 로그를 비롯하여 세 로그 모두의 데이터를 여전히 표시할 수 있습니다. 이 필터 식을 생성하려면 다음을 사용하세요.
 >
 > <code>&#42;StatusCode >= 400 또는 !&#42;StatusCode</code>
 >
@@ -302,7 +302,7 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 4. 필터에 있는 타임스탬프를 표시하려는 범위로 편집합니다. 이 작업은 분석할 데이터의 범위를 좁히는 데 도움이 됩니다.
 5. 필터는 아래 예제와 같이 표시됩니다. **Apply(적용)**를 클릭하여 분석 그리드에 필터를 적용합니다.
 
-		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
+		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
 		(#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
 
 ![Azure 저장소 보기 레이아웃](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
@@ -317,8 +317,8 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 
 이제, 이 클라이언트 요청 ID를 클라이언트 로그 데이터와 상호 연결하여 오류가 발생했을 때 클라이언트가 수행한 작업을 알아보겠습니다. 다음과 같이 이 세션의 새 분석 그리드 보기를 표시하여 두 번째 탭에서 열리는 클라이언트 로그 데이터를 볼 수 있습니다.
 
-1. 먼저 **ClientRequestId** 필드의 값을 클립보드로 복사합니다. 행을 선택하고 **ClientRequestId** 필드를 찾아 데이터 값을 마우스 오른쪽 단추로 클릭하고 **Copy('ClientRequestId' 복사)**를 선택하여 이 작업을 수행할 수 있습니다. 
-1. 도구 모음 리본에서 **New Viewer(새 뷰어)**를 선택한 후 **Analysis Grid(분석 그리드)**를 선택하여 새 탭을 엽니다. 새 탭에 그룹화, 필터링 또는 색 규칙 없이 로그 파일의 모든 데이터가 표시됩니다. 
+1. 먼저 **ClientRequestId** 필드의 값을 클립보드로 복사합니다. 행을 선택하고 **ClientRequestId** 필드를 찾아 데이터 값을 마우스 오른쪽 단추로 클릭하고 **Copy('ClientRequestId' 복사)**를 선택하여 이 작업을 수행할 수 있습니다.
+1. 도구 모음 리본에서 **New Viewer(새 뷰어)**를 선택한 후 **Analysis Grid(분석 그리드)**를 선택하여 새 탭을 엽니다. 새 탭에 그룹화, 필터링 또는 색 규칙 없이 로그 파일의 모든 데이터가 표시됩니다.
 2. 도구 모음 리본에서 **View Layout(보기 레이아웃)**을 선택한 후 **Azure Storage(Azure 저장소)** 섹션 아래의 **All .NET Client Columns(모든 .NET 클라이언트 열)**를 선택합니다. 이 보기 레이아웃은 서버 및 네트워크 추적 로그는 물론 클라이언트 로그의 데이터를 보여 줍니다. 기본적으로 **MessageNumber** 열을 기준으로 정렬됩니다.
 3. 그런 다음 클라이언트 요청 ID의 클라이언트 로그를 검색합니다. 도구 모음 리본에서 **Find Messages(메시지 찾기)**를 선택한 후 **Find(찾기)** 필드에서 클라이언트 요청 ID에 대한 사용자 지정 필터를 지정합니다. 이 필터에 다음 구문을 사용하여 고유의 클라이언트 요청 ID를 지정합니다.
 
@@ -341,17 +341,17 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 큐에서 메시지 배달의 예기치 않은 지연 | AzureStorageClientDotNetV4.Description은 "다시 시도 중 작업이 실패 했습니다."를 포함 | 클라이언트 |
 | PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | 네트워크 |
 | PercentTimeoutError의 증가 | HTTP.Response.StatusCode == 500 | 네트워크 |
-| PercentTimeoutError의 증가(모두) |    *StatusCode == 500 | 모두 | 
-| PercentNetworkError의 증가 | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | 클라이언트 | 
-| HTTP 403(사용할 수 없음) 메시지 | HTTP.Response.StatusCode == 403 | 네트워크 | 
-| HTTP 404(찾을 수 없음) 메시지 | HTTP.Response.StatusCode == 404 | 네트워크 | 
-| 404(모두) | *StatusCode == 404 | 모두 | 
-| SAS(공유 액세스 서명) 권한 부여 문제 | AzureStorageLog.RequestStatus == "SASAuthorizationError" | 네트워크 | 
-| HTTP 409(충돌) 메시지 | HTTP.Response.StatusCode == 409 | 네트워크 | 
-| 409(모두) | *StatusCode == 409 | 모두 | 
-| 낮은 PercentSuccess 또는 분석 로그 항목에 ClientOtherErrors의 트랜잭션 상태와 함께 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 | 
-| Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 | 
-| 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 | 
+| PercentTimeoutError의 증가(모두) |    *StatusCode == 500 | All |
+| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
+| HTTP 403(사용할 수 없음) 메시지 | HTTP.Response.StatusCode == 403 | 네트워크 |
+| HTTP 404(찾을 수 없음) 메시지 | HTTP.Response.StatusCode == 404 | 네트워크 |
+| 404(모두) | *StatusCode == 404 | 모두 |
+| SAS(공유 액세스 서명) 권한 부여 문제 | AzureStorageLog.RequestStatus == "SASAuthorizationError" | 네트워크 |
+| HTTP 409(충돌) 메시지 | HTTP.Response.StatusCode == 409 | 네트워크 |
+| 409 (모두) | *StatusCode == 409 | 모두 |
+| 낮은 PercentSuccess 또는 분석 로그 항목에 ClientOtherErrors의 트랜잭션 상태인 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 |
+| Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 |
+| 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 |
 | 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
 
 
@@ -365,4 +365,4 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 - [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

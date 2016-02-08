@@ -16,7 +16,7 @@
 
 # Application Insights SDK for Java에 대한 릴리스 정보
 
-[Application Insights SDK for Java](app-insights-java-get-started.md)는 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
+[Application Insights SDK for Java](app-insights-java-get-started.md)는 라이브 앱에 대한 원격 분석을 [Application Insights](https://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
 
 #### 응용 프로그램에 SDK를 설치하려면
 
@@ -73,4 +73,4 @@
 - 새로운 ```trackDependency``` 메서드 API를 사용하여 수동으로 종속성을 추적할 수 있습니다.
 - 보고된 항목에 ```SyntheticSource``` 속성을 추가하여 원격 분석 항목에 가상으로 태그를 지정할 수 있습니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

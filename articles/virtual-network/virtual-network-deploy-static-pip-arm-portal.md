@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2015"
+   ms.date="01/08/2016"
    ms.author="telmos" />
 
 # Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포
@@ -31,7 +31,7 @@
 
 Azure 포털에서 고정 공용 IP 주소의 VM을 만들려면 다음 단계를 수행합니다.
 
-1. 브라우저에서 [Azure 포털](http://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+1. 브라우저에서 [Azure 포털](https://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 2. 포털의 왼쪽 맨 위에서 **새로 만들기**>>**계산**>**Windows Server 2012 R2 Datacenter**를 차례로 클릭합니다.
 3. **배포 모델 선택** 목록에서 **리소스 관리자**를 선택하고 **만들기**를 클릭합니다.
 4. **기본 사항** 블레이드에서 아래와 같이 VM 정보를 입력한 다음 **확인**을 클릭합니다.
@@ -59,4 +59,4 @@ Azure 포털에서 고정 공용 IP 주소의 VM을 만들려면 다음 단계�
 
 	![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

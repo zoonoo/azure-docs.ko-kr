@@ -32,7 +32,7 @@ Apache Tomcat(또는 간단히 Tomcat, 이전에는 Jakarta Tomcat이라고도 �
 -	tomcat7에 대해 가상 컴퓨터를 준비하는 방법
 -	tomcat7을 설치하는 방법
 
-독자에게 이미 Azure 구독이 있다고 가정합니다. 그렇지 않으면 [http://azure.microsoft.com](http://azure.microsoft.com)에서 무료 평가판을 등록할 수 있습니다. MSDN 구독이 있는 경우에는 [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 이점](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)을 참조하세요. Azure에 대한 자세한 내용은 [Azure 정의](http://azure.microsoft.com/overview/what-is-azure/)를 참조하세요.
+독자에게 이미 Azure 구독이 있다고 가정합니다. 그렇지 않으면 [http://azure.microsoft.com](https://azure.microsoft.com/)에서 무료 평가판을 등록할 수 있습니다. MSDN 구독이 있는 경우에는 [Microsoft Azure 특별 가격: MSDN, MPN 및 Bizspark 이점](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)을 참조하세요. Azure에 대한 자세한 내용은 [Azure 정의](https://azure.microsoft.com/overview/what-is-azure/)를 참조하세요.
 
 이 항목에서는 사용자에게 tomcat 및 Linux에 대한 기본 실무 지식이 있다고 가정합니다.
 
@@ -306,4 +306,4 @@ tomcat 서비스를 다시 시작하려면：
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

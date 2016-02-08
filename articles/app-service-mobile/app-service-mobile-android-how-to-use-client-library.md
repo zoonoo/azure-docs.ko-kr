@@ -71,7 +71,7 @@ Azure에 액세스하려면 앱은 인터넷 사용 권한을 사용하도록 �
 
 이 섹션은 퀵 스타트 앱의 코드 중 일부를 설명합니다. 퀵 스타트를 완료하지 않은 경우 앱에 이 코드를 추가해야 합니다.
 
-> [AZURE.NOTE]"MobileServices" 문자열은 코드에서 자주 발생합니다. 코드는 모바일 앱 SDK를 실제로 참조하고 과거에서 가져온 임시 결과일 뿐입니다.
+> [AZURE.NOTE] "MobileServices" 문자열은 코드에서 자주 발생합니다. 코드는 모바일 앱 SDK를 실제로 참조하고 과거에서 가져온 임시 결과일 뿐입니다.
 
 
 ###<a name="data-object"></a>클라이언트 데이터 클래스 정의
@@ -125,7 +125,7 @@ SQL Azure 테이블이 더 많은 열을 포함하는 경우 이 클래스에 �
 				"MobileAppUrl", // Replace with the above Site URL
 				this)
 
-위의 코드에서 `MobileAppUrl`을 모바일 앱 백 엔드의 URL로 대체하며 이는 모바일 앱 백 엔드에 대한 블레이드의 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다. 또한 컴파일할 코드의 줄의 경우 다음 **가져오기** 문을 추가해야 합니다.
+위의 코드에서 `MobileAppUrl`을 모바일 앱 백 엔드의 URL로 대체하며 이는 모바일 앱 백 엔드에 대한 블레이드의 [Azure 포털](https://portal.azure.com/)에서 찾을 수 있습니다. 또한 컴파일할 코드의 줄의 경우 다음 **가져오기** 문을 추가해야 합니다.
 
 	import com.microsoft.windowsazure.mobileservices.*;
 
@@ -602,6 +602,85 @@ Android 클라이언트에서 **invokeApi** 메서드를 호출하여 사용자 
 
 만료된 토큰을 사용하려고 하면 *401 권한 없음* 응답을 받습니다. 그러면 사용자는 로그인하여 새 토큰을 획득해야 합니다. 모바일 서비스 호출 및 모바일 서비스에서 나오는 응답을 차단할 수 있게 하는 필터를 사용하면 앱에서 모바일 서비스를 호출하는 모든 위치에서 이를 처리하는 코드를 작성할 필요가 없습니다. 필터 코드가 401의 응답을 테스트하고 필요한 경우 로그인 프로세스를 트리거한 후 401을 생성한 요청을 다시 시작합니다. 또한 토큰을 검사하여 만료를 확인할 수 있습니다.
 
+
+## <a name="adal"></a>방법: Active Directory 인증 라이브러리를 사용하여 사용자 인증
+
+Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. `loginAsync()` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+
+1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md) 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다.
+
+2. 다음을 포함하는 build.gradle 파일을 수정하여 ADAL을 설치합니다.
+
+	repositories { mavenCentral() flatDir { dirs 'libs' } maven { url "YourLocalMavenRepoPath\\.m2\\repository" } } packagingOptions { exclude 'META-INF/MSFTSIG.RSA' exclude 'META-INF/MSFTSIG.SF' } dependencies { compile fileTree(dir: 'libs', include: ['*.jar']) compile('com.microsoft.aad:adal:1.1.1') { exclude group: 'com.android.support' } // Recent version is 1.1.1 compile 'com.android.support:support-v4:23.0.0' }
+
+3. 응용 프로그램에 아래 코드를 추가하며 이는 다음의 대체 작업을 수행합니다.
+
+* **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사될 수 있습니다.
+
+* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급**에서 이를 가져올 수 있습니다.
+
+* **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+
+* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
+
+		private AuthenticationContext mContext;
+		private void authenticate() {
+		String authority = "INSERT-AUTHORITY-HERE";
+		String resourceId = "INSERT-RESOURCE-ID-HERE";
+		String clientId = "INSERT-CLIENT-ID-HERE";
+		String redirectUri = "INSERT-REDIRECT-URI-HERE";
+		try {
+		    mContext = new AuthenticationContext(this, authority, true);
+		    mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
+		} catch (Exception exc) {
+		    exc.printStackTrace();
+		}
+		}
+		private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+		@Override
+		public void onError(Exception exc) {
+		    if (exc instanceof AuthenticationException) {
+		        Log.d(TAG, "Cancelled");
+		    } else {
+		        Log.d(TAG, "Authentication error:" + exc.getMessage());
+		    }
+		}
+		@Override
+			public void onSuccess(AuthenticationResult result) {
+		    if (result == null || result.getAccessToken() == null
+		            || result.getAccessToken().isEmpty()) {
+		        Log.d(TAG, "Token is empty");
+		    } else {
+		        try {
+		            JSONObject payload = new JSONObject();
+		            payload.put("access_token", result.getAccessToken());
+		            ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
+		            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+		                @Override
+		                public void onFailure(Throwable exc) {
+		                    exc.printStackTrace();
+		                }
+		                @Override
+		                public void onSuccess(MobileServiceUser user) {
+		            		Log.d(TAG, "Login Complete");
+		                }
+		            });
+		        }
+		        catch (Exception exc){
+		            Log.d(TAG, "Authentication error:" + exc.getMessage());
+		        }
+		    }
+		}
+		};
+		@Override
+		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (mContext != null) {
+		    mContext.onActivityResult(requestCode, resultCode, data);
+		}
+		}
+
+
 ## 방법: 앱에 푸시 알림 추가
 
 Microsoft Azure 알림 허브가 다양한 푸시 알림을 지원하는 방법을 설명하는 [개요를 읽](notification-hubs-overview.md/#integration-with-app-service-mobile-apps)을 수 있습니다.
@@ -762,4 +841,4 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 [Azure 포털]: https://portal.azure.com
 [인증 시작]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

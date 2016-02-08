@@ -3,7 +3,7 @@
 	description="Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # Azure CLI(명령줄 인터페이스)를 사용하여 역할 기반 액세스 제어 관리 #
 
@@ -24,7 +24,7 @@
 
 Azure 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
-이 자습서에서는 Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어를 관리하는 방법에 대해 알아봅니다. 역할 할당을 만들고 확인하는 프로세스를 단계별로 살펴봅니다.
+이 자습서에서는 Azure CLI를 사용하여 RBAC를 관리하는 방법에 대해 알아보고 역할 할당을 만들고 확인하는 프로세스를 단계별로 살펴봅니다.
 
 **예상 완료 시간:** 15분
 
@@ -33,7 +33,7 @@ Azure 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기반 액세스 �
 Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
 - Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../xplat-cli-install.md)을 참조하세요.
-- Azure CLI에서 Azure 리소스 관리자를 설치하고 사용하는 방법을 익히려면 다음 자습서도 확인하세요.[리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
+- Azure CLI에서 Azure 리소스 관리자를 설치하고 사용하는 방법을 익히려면 다음 자습서도 확인하세요. [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
 
 ## 자습서 내용 ##
 
@@ -92,7 +92,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 역할 할당을 만들려면 다음 사항을 고려해야 합니다.
 
-- 역할을 할당할 사람: 다음 Azure Active Directory cmdlet을 사용하여 디렉터리에 포함된 사용자, 그룹 및 서비스 사용자를 확인할 수 있습니다.
+- 역할을 할당할 대상: 다음 Azure Active Directory cmdlet을 사용하여 디렉터리에 포함된 사용자, 그룹 및 서비스 주체를 확인할 수 있습니다.
 
     ```
     azure ad user list  
@@ -116,16 +116,13 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 그런 다음 `azure role assignment create`를 사용하여 역할 할당을 만듭니다. 예:
 
- - 아래 명령을 입력하면 사용자에 대해 현재 구독 수준에 읽기 권한자로 역할 할당이 생성됩니다.
-
+ 	#This will create a role assignment at the current subscription level for a user as a reader:
     `azure role assignment create --upn <user's email> -o Reader`
 
-- 아래 명령을 입력하면 리소스 그룹 수준에서 역할 할당이 생성됩니다.
-
+	#This will create a role assignment at a resource group level:
     `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
-- 아래 명령을 입력하면 리소스 수준에서 역할 할당이 생성됩니다.
-
+	#This will create a role assignment at a resource level:
     `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
 ## <a id="verify"></a>권한 확인 ##
@@ -151,4 +148,4 @@ Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법�
 - [Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-powershell.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

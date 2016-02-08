@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="01/19/2016"
 	ms.author="bwren" />
 
 # Azure 자동화에서 텍스트 Runbook 편집
@@ -21,7 +21,7 @@ Azure 자동화에서 텍스트 편집기를 사용하여 [PowerShell Runbook](a
 
 텍스트 편집기에는 활동, 자산 및 자식 Runbook에 대한 코드를 Runbook에 삽입하는 기능이 포함되어 있습니다. 코드를 직접 입력하지 않고 사용 가능한 리스소 목록에서 선택하여 적합한 코드를 Runbook에 에 삽입할 수 있습니다.
 
-Azure 자동화의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. 워크플로의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시](automation-creating-importing-runbook.md#publishing-a-runbook)를 참조하세요.
+Azure 자동화의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. Runbook의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시](automation-creating-importing-runbook.md#publishing-a-runbook)를 참조하세요.
 
 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 작업은 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 
@@ -58,7 +58,7 @@ Azure 자동화의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 2. 텍스트 편집기의 캔버스에서 코드를 배치하려는 위치에 커서를 놓습니다.
 3. 라이브러리 컨트롤에서 **자산** 노드를 확장합니다. 
 4. 원하는 자산 유형의 노드를 확장합니다.
-3. 마우스 오른쪽 단추로 삽입할 자산을 클릭하고 **캔버스에 추가**를 선택합니다. [변수 자산](variable-assets.md)의 경우 변수를 가져올지 또는 설정할지 여부에 따라 **"변수 가져오기"를 캔버스에 추가** 또는 **"변수 설정"을 캔버스에 추가** 중에서 선택합니다.
+3. 마우스 오른쪽 단추로 삽입할 자산을 클릭하고 **캔버스에 추가**를 선택합니다. [변수 자산](automation-variables.md)의 경우 변수를 가져올지 또는 설정할지 여부에 따라 **"변수 가져오기"를 캔버스에 추가** 또는 **"변수 설정"을 캔버스에 추가** 중에서 선택합니다.
 4. 자산에 대한 코드가 Runbook에 삽입됩니다.
 
 
@@ -107,7 +107,7 @@ Azure 자동화의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 
 ## Windows PowerShell을 사용하여 Azure 자동화 Runbook을 편집하려면
 
-Windows PowerShell을 사용하여 runbook을 편집하려면 원하는 편집기를 사용하여 워크플로를 편집하고 .ps1 파일에 저장합니다. [Get AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) cmdlet을 사용하여 Runbook의 콘텐츠를 가져온 다음 [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) cmdlet을 사용하여 기존 초안 워크플로를 수정 항목으로 교체할 수 있습니다.
+Windows PowerShell을 사용하여 Runbook을 편집하려면 원하는 편집기를 사용하고 .ps1 파일에 저장합니다. [Get AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) cmdlet을 사용하여 Runbook의 콘텐츠를 가져온 다음 [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) cmdlet을 사용하여 기존 초안 Runbook를 수정 항목으로 교체할 수 있습니다.
 
 ### Windows PowerShell을 사용하여 Runbook의 콘텐츠를 검색하려면
 
@@ -124,7 +124,7 @@ Windows PowerShell을 사용하여 runbook을 편집하려면 원하는 편집�
 
 ### Windows PowerShell을 사용하여 Runbook의 콘텐츠를 변경하려면
 
-다음 예제 명령에서는 워크플로를 포함하는 스크립트 파일의 콘텐츠로 기존 Runbook 콘텐츠를 대체하는 방법을 보여줍니다. 이 내용은 [Windows PowerShell을 사용하여 스크립트 파일에서 Runbook을 가져오려면](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS)에서 설명한 절차와 동일한 예제입니다.
+다음 샘플 명령에서는 스크립트 파일의 콘텐츠로 기존 Runbook 콘텐츠를 대체하는 방법을 보여줍니다. 이 내용은 [Windows PowerShell을 사용하여 스크립트 파일에서 Runbook을 가져오려면](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS)에서 설명한 절차와 동일한 예제입니다.
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -135,7 +135,7 @@ Windows PowerShell을 사용하여 runbook을 편집하려면 원하는 편집�
 
 ## 관련된 문서
 
-- [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creatnig-importing-runbook.md)
+- [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 - [PowerShell 워크플로 학습](automation-powershell-workflow.md)
 - [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
 - [인증서](automation-certificates.md)
@@ -144,4 +144,4 @@ Windows PowerShell을 사용하여 runbook을 편집하려면 원하는 편집�
 - [일정](automation-schedules.md)
 - [변수](automation-variables.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,8 +3,8 @@
 	description="이 FAQ는 Azure AD Connect Health에 대한 질문에 답변합니다. 이 FAQ는 요금 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용에 대한 질문을 다룹니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="karavar"
+	manager="samueld"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="billmath"/>
+	ms.date="01/22/2016"
+	ms.author="vakarand"/>
 
 
 # Azure AD Connect Health FAQ(질문과 대답)
@@ -43,7 +43,7 @@ ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 �
 - 메모리 소비: 전체 시스템 메모리의 최대 10%
 - 네트워크 대역폭 사용: ~1MB/ADFS 요청 1000개
 
->[AZURE.NOTE]Azure와 통신할 수 없는 에이전트의 경우 에이전트는 정의된 최대 제한까지 로컬로 데이터를 저장합니다. 에이전트가 제한에 도달해서 에이전트가 서비스에 데이터를 업로드할 수 없는 경우 새 ADFS 트랜잭션은 "오래 전에 서비스된 항목" 기준으로 "캐시된" 트랜잭션을 덮어씁니다.
+>[AZURE.NOTE] Azure와 통신할 수 없는 에이전트의 경우 에이전트는 정의된 최대 제한까지 로컬로 데이터를 저장합니다. 에이전트가 제한에 도달해서 에이전트가 서비스에 데이터를 업로드할 수 없는 경우 새 ADFS 트랜잭션은 "오래 전에 서비스된 항목" 기준으로 "캐시된" 트랜잭션을 덮어씁니다.
 
 - AD Health Agent의 로컬 버퍼 저장소: ~20MB
 - 감사 채널에 필요한 데이터 저장소
@@ -60,7 +60,7 @@ ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 �
 
 **Q: Azure AD Connect Health Services는 통과 http 프록시를 통해 작동하나요?**
 
-예. 진행 중인 작업은 HTTP 프록시를 사용하여 아웃바운드 http 요청을 전달하도록 상태 에이전트를 구성할 수 있습니다. 자세한 내용은 [HTTP 프록시를 사용하도록 Azure AD Connect Health 에이전트 구성](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy)을 참조하세요.
+예. 진행 중인 작업은 HTTP 프록시를 사용하여 아웃바운드 http 요청을 전달하도록 상태 에이전트를 구성할 수 있습니다. 자세한 내용은 [HTTP 프록시를 사용하도록 Azure AD Connect Health 에이전트 구성](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)을 참조하세요.
 
 에이전트를 등록하는 동안 프록시를 구성해야 하는 경우 Internet Explorer 프록시 설정을 수정해야 합니다. <br> Internet Explorer -> 설정 -> 인터넷 옵션 -> 연결 -> LAN 설정을 엽니다.<br> LAN에 프록시 서버 사용을 선택합니다.<br> HTTP 및 HTTPS/보안의 프록시 포트가 다른 경우 고급을 선택합니다.<br>
 
@@ -100,4 +100,4 @@ Azure AD Connect Health 에이전트가 Azure AD Health 서비스 끝점과 통�
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

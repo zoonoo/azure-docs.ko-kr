@@ -65,6 +65,7 @@
 
 - 가상 컴퓨터
 - 저장소
+- Express 경로
 
 웹앱으로 작업할 경우에는 앱 서비스 계획만 이동할 수 없습니다. 웹앱을 이동하려면 옵션은 다음과 같습니다.
 
@@ -116,4 +117,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

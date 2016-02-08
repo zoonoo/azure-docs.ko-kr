@@ -25,7 +25,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 ## 필수 조건
 
-- Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 * [Power BI](https://powerbi.com) 액세스 권한이 있는 Azure Active Directory 사용자
 
@@ -49,7 +49,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 * **Data.cs**: Power BI로 보낼 데이터 개체/행을 설명합니다.
 
-> [AZURE.WARNING]Power BI는 이름이 같은 여러 데이터 집합의 만들기를 허용하는 것처럼 보입니다. 이는 데이터 집합이 존재하지 않고 토폴로지에서 Power BI Bolt의 여러 인스턴스를 만든 경우에 발생할 수 있습니다. 이를 방지하려면 bolt의 병렬 처리 힌트를 1로 설정(이 예제와 같이)하거나 토폴로지를 배포하기 전에 데이터 집합을 만듭니다.
+> [AZURE.WARNING] Power BI는 이름이 같은 여러 데이터 집합의 만들기를 허용하는 것처럼 보입니다. 이는 데이터 집합이 존재하지 않고 토폴로지에서 Power BI Bolt의 여러 인스턴스를 만든 경우에 발생할 수 있습니다. 이를 방지하려면 bolt의 병렬 처리 힌트를 1로 설정(이 예제와 같이)하거나 토폴로지를 배포하기 전에 데이터 집합을 만듭니다.
 >
 > 이 솔루션에 포함된 **CreateDataset** 콘솔 응용 프로그램은 토폴로지 외부에서 데이터 집합을 만드는 방법의 예로 제공됩니다.
 
@@ -59,7 +59,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 2. [앱 등록](https://msdn.microsoft.com/library/dn877542.aspx) 단계에 따라 응용 프로그램 등록을 만듭니다. 이는 Power BI REST API에 액세스할 때 사용됩니다.
 
-    > [AZURE.IMPORTANT]응용 프로그램 등록을 위한 **클라이언트 ID**를 저장합니다.
+    > [AZURE.IMPORTANT] 응용 프로그램 등록을 위한 **클라이언트 ID**를 저장합니다.
 
 ## 예제 다운로드
 
@@ -83,7 +83,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 1. **솔루션 탐색기**에서 **WordCount** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight에서 Storm에 제출**을 선택합니다. **Storm 클러스터** 드롭다운 대화 상자에서 HDInsight 클러스터를 선택합니다.
 
-    > [AZURE.NOTE]**Storm 클러스터** 드롭다운을 서버 이름으로 채우는 데 몇 초 정도 걸릴 수 있습니다.
+    > [AZURE.NOTE] **Storm 클러스터** 드롭다운을 서버 이름으로 채우는 데 몇 초 정도 걸릴 수 있습니다.
     >
     > 메시지가 표시되면 Azure 구독에 대한 로그인 자격 증명을 입력합니다. 하나 이상의 구독이 있는 경우 HDInsight 클러스터의 Storm을 포함하는 자격 증명으로 로그인합니다.
 
@@ -91,7 +91,7 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
     ![WordCount 토폴로지가 선택된 토폴로지](./media/hdinsight-storm-power-bi-topology/topologysummary.png)
 
-    > [AZURE.NOTE]Azure, HDInsight를 확장한 다음 HDInsight 클러스터의 Storm을 마우스 오른쪽 단추로 클릭하고 Storm 토폴로지 보기를 선택하여 서버 탐색기에서 Storm 토폴로지를 볼 수도 있습니다.
+    > [AZURE.NOTE] Azure, HDInsight를 확장한 다음 HDInsight 클러스터의 Storm을 마우스 오른쪽 단추로 클릭하고 Storm 토폴로지 보기를 선택하여 서버 탐색기에서 Storm 토폴로지를 볼 수도 있습니다.
 
 3. **토폴로지 요약**을 볼 때 **Bolts** 섹션이 나타날 때까지 스크롤합니다. 이 섹션에서 **PowerBI** bolt에 대한 **Executed** 열을 확인합니다. 페이지 위쪽의 새로 고침 단추를 사용하여 값이 0이 아닌 값으로 변경될 때까지 새로 고칩니다. 이 숫자가 증가하기 시작하면 항목이 Power BI에 기록되고 있는 것입니다.
 
@@ -139,4 +139,4 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

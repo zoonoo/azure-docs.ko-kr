@@ -25,7 +25,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 이 자습서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
-- 활성 Azure 구독. [무료 평가판](http://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
+- 활성 Azure 구독. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 - 기존 AlwaysOn 가용성 그룹 온-프레미스. 가용성 그룹에 대한 자세한 내용은 [AlwaysOn 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
@@ -91,7 +91,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 1. 프로비전 프로세스가 시작됩니다. 마법사가 성공적으로 완료되면 **닫기**를 클릭하여 마법사를 종료합니다.
 
->[AZURE.NOTE]Azure 복제본 추가 마법사는 <Users><user name>\\AppData\\Local\\SQL Server\\AddReplicaWizard에 로그 파일을 만듭니다. 이 로그 파일을 사용하여 실패한 Azure 복제본 배포의 문제를 해결할 수 있습니다. 마법사가 어떤 작업을 실행하는 데 실패할 경우 프로비전된 VM 삭제를 포함하여 이전의 모든 작업이 롤백됩니다.
+>[AZURE.NOTE] Azure 복제본 추가 마법사는 <Users><user name>\\AppData\\Local\\SQL Server\\AddReplicaWizard에 로그 파일을 만듭니다. 이 로그 파일을 사용하여 실패한 Azure 복제본 배포의 문제를 해결할 수 있습니다. 마법사가 어떤 작업을 실행하는 데 실패할 경우 프로비전된 VM 삭제를 포함하여 이전의 모든 작업이 롤백됩니다.
 
 ## 가용성 그룹 수신기 만들기
 
@@ -103,4 +103,4 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

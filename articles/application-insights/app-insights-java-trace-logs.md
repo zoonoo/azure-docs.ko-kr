@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="01/21/2016" 
 	ms.author="awills"/>
 
 # Application Insights에서 Java 추적 로그 탐색
@@ -87,9 +87,9 @@
 
 로거 | 다운로드 | 라이브러리
 ----|----|----
-Logback|[Logback 어펜더를 사용한 SDK](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[Log4J v2 어펜더를 사용한 SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[Log4J v1.2 어펜더를 사용한 SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Logback|[Logback 어펜더를 사용한 SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[Log4J v2 어펜더를 사용한 SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4j v1.2|[Log4J v1.2 어펜더를 사용한 SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
 
 
 
@@ -149,4 +149,4 @@ Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

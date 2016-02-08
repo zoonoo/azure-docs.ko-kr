@@ -57,7 +57,7 @@
 
 ![동영상 사용 가능](./media/storsimple-manage-backup-policies/Video_icon.png) **동영상 사용 가능**
 
-로컬 또는 클라우드 백업 정책을 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)를 클릭하세요.
+로컬 또는 클라우드 백업 정책을 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)를 클릭하세요.
 
 
 ## 일정 추가 또는 수정
@@ -90,4 +90,4 @@ StorSimple 장치에서 백업 정책을 삭제하려면 Azure 클래식 포털�
 
 [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

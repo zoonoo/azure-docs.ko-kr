@@ -9,11 +9,11 @@
 다음 단계에서는 새 ASP.NET WebAPI 백 엔드를 만드는 방법을 보여 줍니다.
 
 
-> [AZURE.NOTE]**중요**: 이 자습서를 시작하기 전에 최신 버전의 NuGet 패키지 관리자를 설치했는지 확인하세요. 확인하려면 Visual Studio를 시작합니다. **도구** 메뉴에서 **확장 및 업데이트**를 클릭합니다. **Visual Studio 2013용 NuGet 패키지 관리자**를 검색하고 버전이 2.8.50313.46 이상인지 확인합니다. 그렇지 않은 경우 제거한 다음, NuGet 패키지 관리자를 다시 설치합니다.
+> [AZURE.NOTE] **중요**: 이 자습서를 시작하기 전에 최신 버전의 NuGet 패키지 관리자를 설치했는지 확인하세요. 확인하려면 Visual Studio를 시작합니다. **도구** 메뉴에서 **확장 및 업데이트**를 클릭합니다. **Visual Studio 2013용 NuGet 패키지 관리자**를 검색하고 버전이 2.8.50313.46 이상인지 확인합니다. 그렇지 않은 경우 제거한 다음, NuGet 패키지 관리자를 다시 설치합니다.
 > 
 > ![][B4]
 
-> [AZURE.NOTE]웹 사이트 배포를 위해 Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/)를 설치했는지 확인합니다.
+> [AZURE.NOTE] 웹 사이트 배포를 위해 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)를 설치했는지 확인합니다.
 
 1. Visual Studio 또는 Visual Studio Express를 시작합니다. **서버 탐색기**를 클릭하고 Azure 계정에 로그인합니다. 계정에 웹 사이트 리소스를 만들려면 Visual Studio에 로그인해야 합니다.
 2. Visual Studio에서 **파일**을 클릭한 후 **새로 만들기**, **프로젝트**를 클릭하고 **템플릿**, **Visual C#**을 확장한 다음 **웹** 및 **ASP.NET 웹 응용프로그램**을 클릭하고 **AppBackend**라는 이름을 입력한 후 **확인**을 클릭합니다. 
@@ -101,7 +101,7 @@
 	        }
 	    }
 
-	> [AZURE.NOTE]**보안 정보**: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 응용프로그램 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.
+	> [AZURE.NOTE] **보안 정보**: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 응용프로그램 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.
 
 4. **App\_Start/WebApiConfig.cs** 클래스의 `Register` 메서드 끝에 다음 코드를 추가하여 메시지 처리기를 등록합니다.
 
@@ -364,4 +364,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

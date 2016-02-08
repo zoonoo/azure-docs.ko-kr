@@ -65,9 +65,9 @@
 
 ##관련된 항목
 
-[Azure SDK for .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
+[Azure SDK for .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
 
 [MSDN의 Azure SDK 릴리스 정보](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 동기화: 일반 SQL 커넥터"
+   pageTitle="Azure AD Connect 동기화: 일반 SQL 커넥터 | Microsoft Azure"
    description="이 문서에서는 Microsoft의 일반 SQL 커넥터를 구성하는 방법을 설명합니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # 일반 SQL 커넥터 기술 참조
@@ -129,7 +129,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
 
-- **DataType**: 동기화 엔진에 의해 알려진 위치에 특성 형식을 매핑하는 데 사용됩니다. 기본값은 SQL 스키마에서 검색하는 대로 동일한 형식을 사용지만 날짜/시간 및 참조는 쉽게 검색할 수 없습니다. 이 경우에 **DateTime** 또는 **참조**를 지정해야 합니다.
+- **DataType**: 동기화 엔진에 의해 알려진 위치에 특성 형식을 매핑하는 데 사용됩니다. 기본값은 SQL 스키마에서 검색하는 대로 동일한 형식을 사용하지만 날짜/시간 및 참조는 쉽게 검색할 수 없습니다. 이 경우에 **DateTime** 또는 **참조**를 지정해야 합니다.
 - **방향**: 방향 특성을 가져오기, 내보내기 또는 ImportExport로 설정할 수 있습니다. ImportExport는 기본값입니다. ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 참고:
@@ -295,4 +295,4 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

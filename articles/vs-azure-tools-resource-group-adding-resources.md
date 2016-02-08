@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Visual Studio를 사용하여 리소스 관리자 템플릿 편집 | Microsoft Azure"
    description="Visual Studio를 사용하여 Azure 리소스 관리자 템플릿에 리소스를 추가하는 방법에 대해 알아봅니다."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
+   authors="tfitzmac"
+   manager="wpickett"
    editor="" />
 <tags 
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Visual Studio를 사용하여 리소스 관리자 템플릿 편집
 
@@ -69,4 +69,4 @@ Visual Studio를 사용하여 템플릿을 직접 편집할 수도 있습니다.
 
 [Channel9 비디오: Azure 리소스 관리자](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

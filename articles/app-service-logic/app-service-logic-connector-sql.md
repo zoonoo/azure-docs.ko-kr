@@ -54,7 +54,7 @@ SQL 커넥터에서 사용할 수 있는 트리거와 작업은 다음과 같습
 암호 | 예 | 사용자 이름 암호를 입력합니다.
 데이터베이스 이름 | 예 | 연결 중인 데이터베이스를 입력합니다. 예를 들어 *Customers* 또는 *dbo/orders*를 입력할 수 있습니다.
 온-프레미스 | 예 | 기본값은 False입니다. Azure SQL 데이터베이스에 연결하는 경우 False를 입력합니다. 온-프레미스 SQL Server에 연결하는 경우 True를 입력합니다.
-서비스 버스 연결 문자열 | 아니요 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)
+서비스 버스 연결 문자열 | 아니요 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](https://azure.microsoft.com/pricing/details/service-bus/)
 파트너 서버 이름 | 아니요 | 기본 서버를 사용할 수 없는 경우 대체 또는 백업 서버로 파트너 서버를 입력할 수 있습니다.
 테이블 | 아니요 | 커넥터를 통해 업데이트할 수 있는 데이터베이스 테이블을 나열합니다. 예를 들어 *OrdersTable* 또는 *EmployeeTable*을 입력합니다. 테이블이 입력되지 않은 경우 모든 테이블을 사용할 수 있습니다. 유효한 테이블 및/또는 저장 프로시저는 해당 커넥터를 작업으로서 사용하도록 요구됩니다.
 저장 프로시저 | 아니요 | 커넥터를 통해 호출할 수 있는 기존 저장 프로시저를 입력합니다. 예를 들어 *sp\_IsEmployeeEligible* 또는 *sp\_CalculateOrderDiscount*를 입력합니다. 유효한 테이블 및/또는 저장 프로시저는 해당 커넥터를 작업으로서 사용하도록 요구됩니다.
@@ -73,7 +73,7 @@ SQL 커넥터를 트리거로 사용하려면 **데이터 사용 가능한 쿼�
 
 **데이터 폴링 쿼리**는 데이터 사용 가능 쿼리가 데이터를 사용 가능한 것으로 나타내는 경우에 실행됩니다. 이 문은 트랜잭션 내에서 실행되고 추출한 데이터가 워크플로에 영구적으로 저장될 때만 제출됩니다. 동일한 데이터를 무한으로 다시 추출하는 것을 방지하는 것이 중요합니다. 다음에 데이터를 쿼리할 때 수집하지 않도록 하기 위해 데이터를 삭제하거나 업데이트하려면 실행의 트랜잭션 특성을 사용할 수 있습니다.
 
-> [AZURE.NOTE]이 문에 의해 반환되는 스키마는 커넥터에 사용 가능한 속성을 식별합니다. 모든 열은 이름을 지정해야 합니다.
+> [AZURE.NOTE] 이 문에 의해 반환되는 스키마는 커넥터에 사용 가능한 속성을 식별합니다. 모든 열은 이름을 지정해야 합니다.
 
 #### 데이터 사용 가능한 쿼리 예
 
@@ -125,11 +125,11 @@ Where 절 | <ul><li>연산자: AND, OR, =, <>, <, <=, >, >= 및 LIKE</li><li>여
 
 ## 하이브리드 구성(선택 사항)
 
-> [AZURE.NOTE]이 단계는 방화벽 뒤의 SQL Server 온-프레미스를 사용하는 경우에만 필요합니다.
+> [AZURE.NOTE] 이 단계는 방화벽 뒤의 SQL Server 온-프레미스를 사용하는 경우에만 필요합니다.
 
 앱 서비스는 하이브리드 구성 관리자를 사용하여 온-프레미스 시스템에 안전하게 연결합니다. 커넥터가 온-프레미스 SQL Server을 사용하는 경우 하이브리드 연결 관리자가 필요합니다.
 
-> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)을 참조하세요.
 
@@ -153,4 +153,4 @@ Where 절 | <ul><li>연산자: AND, OR, =, <>, <, <=, >, >= 및 LIKE</li><li>여
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

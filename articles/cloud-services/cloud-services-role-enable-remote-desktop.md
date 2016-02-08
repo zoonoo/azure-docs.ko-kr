@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="10/14/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용
@@ -20,7 +20,7 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 응용 프로그램 실행 중에 응용 프로그램 문제를 진단하고 해결할 수 있습니다.
@@ -28,8 +28,8 @@ ms.author="saurabh"/>
 서비스 정의에 원격 데스크톱 모듈을 포함하여 개발 중에 원격 데스크톱 연결을 사용하도록 설정하거나 원격 데스크톱 확장을 통해 원격 데스크톱을 사용 하도록 선택할 수 있습니다. 권장되는 방법은 원격 데스크톱 확장을 사용하는 것입니다. 이 방법을 사용하면 응용 프로그램이 배포된 후에도 응용 프로그램을 다시 배포할 필요 없이 원격 데스크톱을 사용하도록 설정할 수 있습니다.
 
 
-## 포털에서 원격 데스크톱 구성
-포털에서는 응용 프로그램이 배포된 후에도 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장 접근 방법을 사용합니다. 클라우드 서비스의 **구성** 페이지에서 원격 데스크톱을 사용하도록 설정하거나 가상 컴퓨터에 연결하는 데 사용되는 로컬 관리자 계정, 인증에 사용되는 인증서를 변경하고 만료 날짜를 설정할 수 있습니다.
+## Azure 클래식 포털에서 원격 데스크톱 구성
+Azure 클래식 포털에서는 응용 프로그램이 배포된 후에도 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장 접근 방법을 사용합니다. 클라우드 서비스의 **구성** 페이지에서 원격 데스크톱을 사용하도록 설정하거나 가상 컴퓨터에 연결하는 데 사용되는 로컬 관리자 계정, 인증에 사용되는 인증서를 변경하고 만료 날짜를 설정할 수 있습니다.
 
 
 1. **클라우드 서비스**, 클라우드 서비스의 이름, **구성**을 차례로 클릭합니다.
@@ -38,7 +38,7 @@ ms.author="saurabh"/>
     
     ![클라우드 서비스 원격](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING]처음으로 원격 데스크톱을 사용하도록 설정한 후 확인(확인 표시)을 클릭하면 모든 역할 인스턴스가 다시 시작됩니다. 다시 부팅되지 않도록 하려면 암호를 암호화하는 데 사용되는 인증서가 역할에 설치되어 있어야 합니다. 다시 시작되지 않도록 하려면 [클라우드 서비스에 대 한 인증서를 업로드](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)하고 이 대화 상자로 돌아옵니다.
+    > [AZURE.WARNING] 처음으로 원격 데스크톱을 사용하도록 설정한 후 확인(확인 표시)을 클릭하면 모든 역할 인스턴스가 다시 시작됩니다. 다시 부팅되지 않도록 하려면 암호를 암호화하는 데 사용되는 인증서가 역할에 설치되어 있어야 합니다. 다시 시작되지 않도록 하려면 [클라우드 서비스에 대 한 인증서를 업로드](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)하고 이 대화 상자로 돌아옵니다.
     
 
 3. **역할**에서 업데이트할 역할을 선택하거나 모든 역할을 선택하려면 **모두**를 선택합니다.
@@ -61,7 +61,7 @@ ms.author="saurabh"/>
 ## 원격으로 역할 인스턴스 액세스
 역할에 대해 원격 데스크톱이 사용되도록 설정되면 다양한 도구를 통해 역할 인스턴스에 원격으로 연결할 수 있습니다.
 
-포털에서 역할 인스턴스에 연결하려면
+Azure 클래식 포털에서 역할 인스턴스에 연결하려면
     
   1.   **인스턴스**를 클릭하여 **인스턴스** 페이지를 엽니다.
   2.   원격 데스크톱이 구성된 역할 인스턴스를 선택합니다.
@@ -147,4 +147,4 @@ Visual Studio를 사용하여 서비스 정의 파일 접근 방식을 통해 [�
 
 [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

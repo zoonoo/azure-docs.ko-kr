@@ -169,6 +169,6 @@ NuGet 패키지 참조가 제거되고 파일이 제거 및 백업되었습니�
 ###Azure Active Directory 앱이 업데이트됨
 Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함하도록 업데이트되었으며, 추가 키가 생성되어 **web.config** 파일에서 *ida:ClientSecret*으로 사용되었습니다.
 
-[Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

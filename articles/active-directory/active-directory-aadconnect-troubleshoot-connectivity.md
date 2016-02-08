@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="andkjell"/>
 
 # Azure AD Connect 연결 문제 해결
@@ -26,7 +26,7 @@ Azure AD Connect는 두 가지 서로 다른 구성 방법에 따라 Azure AD에
 
 첫째, [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity)가 올바르게 구성되었는지 확인해야 합니다. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE]일부 블로그에 miiserver.exe.config를 대신 변경하는 것에 대한 내용이 나와 있습니다. 그러나 업그레이드할 때마다 이 파일을 덮어쓰기 때문에 초기 설치 중에는 작동한다 해도 첫 번째 업그레이드에서 시스템이 작동을 멈춥니다. 이런 이유로 인해 machine.config를 업데이트하는 것이 좋습니다.
+> [AZURE.NOTE] 일부 블로그에 miiserver.exe.config를 대신 변경하는 것에 대한 내용이 나와 있습니다. 그러나 업그레이드할 때마다 이 파일을 덮어쓰기 때문에 초기 설치 중에는 작동한다 해도 첫 번째 업그레이드에서 시스템이 작동을 멈춥니다. 이런 이유로 인해 machine.config를 업데이트하는 것이 좋습니다.
 
 둘째, winhttp가 구성되었는지 확인해야 합니다. [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity)를 사용하여 이를 확인할 수 있습니다. ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
@@ -37,9 +37,7 @@ Azure AD Connect는 두 가지 서로 다른 구성 방법에 따라 Azure AD에
 | URL | 포트 | 설명 |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
-| *.verisign.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
-| *.windows.net | HTTPS/443 | Azure AD에 로그인하는 데 사용됩니다. |
-| *.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리 구성 및 데이터 가져오기/내보내기에 사용됩니다. |
+| **.verisign.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. | | *.windows.net | HTTPS/443 | Azure AD에 로그인하는 데 사용됩니다. | | *.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리 구성 및 데이터 가져오기/내보내기에 사용됩니다. |
 
 ## 마법사 오류
 설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 변경합니다. 프록시 구성은 컴퓨터에 전체적으로 적용되므로 문제가 있다면 이미 마법사의 **Azure AD에 연결** 페이지에 나타날 가능성이 매우 높습니다.
@@ -88,7 +86,7 @@ PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사�
 - 끝점 adminwebservice 및 provisioningapi(로그의 아래 참조)는 검색 끝점이며 사용할 실제 끝점을 찾는 데 사용되며 지역에 따라 다릅니다.
 
 ### 참조 프록시 로그
-다음은 실제 프록시 로그의 덤프 및 수행된 설치 마법사 페이지입니다(동일한 끝점에 대한 중복 항목은 제거됨). 이 로그는 고유한 프록시 및 네트워크 로그에 대한 참조로 사용할 수 있습니다. 실제 끝점은 사용자 환경에서 다를 수 있습니다(특히 기울임꼴 부분).
+다음은 실제 프록시 로그의 덤프 및 수행된 설치 마법사 페이지입니다(동일한 끝점에 대한 중복 항목은 제거됨). 이 로그는 고유한 프록시 및 네트워크 로그에 대한 참조로 사용할 수 있습니다. 실제 끝점은 사용자 환경에서 다를 수 있습니다(특히 *기울임꼴* 부분).
 
 **Azure에 연결**
 
@@ -126,4 +124,4 @@ Time | URL
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

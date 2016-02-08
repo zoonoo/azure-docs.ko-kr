@@ -37,7 +37,7 @@ SDK가 자동으로 전송하는 원격 분석을 보려면 진단 검색을 엽
 
 ## 샘플링 
 
-응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
 
 ##<a name="events"></a>사용자 지정 이벤트
@@ -294,7 +294,7 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -305,4 +305,4 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

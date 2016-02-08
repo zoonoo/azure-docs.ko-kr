@@ -20,13 +20,10 @@
 
 v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱에 빠르게 추가할 수 있습니다. Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다.
 
-  > [AZURE.NOTE]
+  >[AZURE.NOTE]
     이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
- 여기서는 OWIN을 사용하여 다음과 같은 작업을 수행합니다.
--	즉, Azure AD와 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인하고.
--	사용자에 대한 일부 정보를 표시하고.
--	사용자를 앱에서 로그아웃합니다.
+ 여기서는 OWIN을 사용하여 다음과 같은 작업을 수행합니다. 즉, Azure AD와 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인하고, 사용자에 대한 일부 정보를 표시하고, 사용자를 앱에서 로그아웃합니다.
 
 이 작업을 수행하려면 다음 작업이 필요합니다.
 
@@ -99,7 +96,7 @@ public void ConfigureAuth(IAppBuilder app)
 									 ClientId = clientId,
 									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
 									 RedirectUri = redirectUri,
-									 Scope = "openid",
+									 Scope = "openid email profile",
 									 ResponseType = "id_token",
 									 PostLogoutRedirectUri = redirectUri,
 									 TokenValidationParameters = new TokenValidationParameters
@@ -201,7 +198,7 @@ public ActionResult About()
 
 마지막으로 앱을 빌드하고 실행합니다. 개인 Microsoft 계정이나 회사 또는 학교 계정으로 로그인하고 위쪽 탐색 모음에 사용자 ID가 반영되는 방식을 확인합니다. 이제 개인 및 회사/학교 계정으로 사용자를 인증할 수 있는 업계 표준 프로토콜을 사용하여 웹앱이 보안되었습니다.
 
-참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
+참조를 위해 완료된 샘플(사용자 구성 값 제외)이 [여기에 .zip으로 제공](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
@@ -215,4 +212,4 @@ public ActionResult About()
 - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) 
 - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -39,7 +39,7 @@ REST 인터페이스에서 HTTPS를 통해 클러스터로 작업을 제출하�
 
 자세한 절차는 [Microsoft HPC 팩 웹 구성 요소 설치](http://technet.microsoft.com/library/hh314627.aspx)를 참조하세요.
 
->[AZURE.TIP]일부 Azure 빠른 시작 템플릿은 웹 구성을 자동으로 설치하고 구성합니다. [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 사용하여 클러스터를 만드는 경우 배포의 일환으로 웹 구성 요소를 선택적으로 설치 및 구성할 수 있습니다.
+>[AZURE.TIP] 일부 Azure 빠른 시작 템플릿은 웹 구성을 자동으로 설치하고 구성합니다. [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md)를 사용하여 클러스터를 만드는 경우 배포의 일환으로 웹 구성 요소를 선택적으로 설치 및 구성할 수 있습니다.
 
 **웹 구성 요소를 설치하려면**
 
@@ -64,9 +64,9 @@ REST 인터페이스에서 HTTPS를 통해 클러스터로 작업을 제출하�
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
 
-4. 인증서를 선택하라는 메시지가 표시되면 헤드 노드의 공용 DNS 이름에 해당하는 인증서를 선택합니다. 예를 들어 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 만드는 경우, 인증서 이름의 양식은 CN=&lt;HeadNodeDnsName&gt;.cloudapp.net입니다. Azure 빠른 시작 템플릿을 사용하는 경우, 인증서 이름의 양식은 CN=&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure입니다.
+4. 인증서를 선택하라는 메시지가 표시되면 헤드 노드의 공용 DNS 이름에 해당하는 인증서를 선택합니다. 예를 들어 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 만드는 경우, 인증서 이름의 양식은 CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net입니다. Azure 빠른 시작 템플릿을 사용하는 경우, 인증서 이름의 양식은 CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure입니다.
 
-    >[AZURE.NOTE]나중에 온-프레미스 컴퓨터에서 헤드 노드로 작업을 제출하려면 이 인증서를 선택해야 합니다. Active Directory 도메인에 있는 헤드 노드의 컴퓨터 이름(예: CN=*MyHPCHeadNode.HpcAzure.local*)에 해당하는 인증서를 선택 또는 구성하지 마십시오.
+    >[AZURE.NOTE] 나중에 온-프레미스 컴퓨터에서 헤드 노드로 작업을 제출하려면 이 인증서를 선택해야 합니다. Active Directory 도메인에 있는 헤드 노드의 컴퓨터 이름(예: CN=*MyHPCHeadNode.HpcAzure.local*)에 해당하는 인증서를 선택 또는 구성하지 마십시오.
 
 5. 작업 제출을 위해 웹 포털을 구성하려면 다음 명령을 입력합니다.
 
@@ -114,7 +114,7 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
 
 
 
->[AZURE.SECURITY]클라이언트 컴퓨터가 헤드 노드의 인증 기관을 인식할 수 없기 때문에 보안 경고가 표시될 수 있습니다. 테스트 목적으로 이 경고를 무시하고 인증서 가져오기를 완료할 수 있습니다.
+>[AZURE.SECURITY] 클라이언트 컴퓨터가 헤드 노드의 인증 기관을 인식할 수 없기 때문에 보안 경고가 표시될 수 있습니다. 테스트 목적으로 이 경고를 무시하고 인증서 가져오기를 완료할 수 있습니다.
 
 ## 3단계: 클러스터에서 테스트 작업 실행
 
@@ -134,7 +134,7 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP]스케줄러 URL에 IP 주소가 아닌 헤드 노드의 전체 DNS 이름을 사용합니다. IP 주소를 지정할 경우 "서버 인증서에 유효한 신뢰 체인이 있거나 서버 인증서를 신뢰할 수 있는 루트 저장소에 저장해야 합니다."와 유사한 오류가 표시됩니다.
+    >[AZURE.TIP] 스케줄러 URL에 IP 주소가 아닌 헤드 노드의 전체 DNS 이름을 사용합니다. IP 주소를 지정할 경우 "서버 인증서에 유효한 신뢰 체인이 있거나 서버 인증서를 신뢰할 수 있는 루트 저장소에 저장해야 합니다."와 유사한 오류가 표시됩니다.
 
 3. 메시지가 표시되면 구성해 놓은 HPC 클러스터 관리자 또는 다른 클러스터 사용자의 사용자 이름(&lt;DomainName&gt;\\&lt;UserName&gt; 형식)과 암호를 입력합니다. 추가 작업에 대해 자격 증명을 저장할 수도 있습니다.
 
@@ -188,4 +188,4 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,7 @@ Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처
 - Express 경로 프리미엄 추가 기능으로 모든 지역에 걸쳐 Microsoft 서비스에 전역 연결합니다.
 - 업계 표준 프로토콜을 통해 네트워크와 Microsoft 간의 동적 라우팅입니다.(BGP)
 - 높은 안정성을 위한 모든 피어링 위치의 기본 중복성입니다.
-- 연결 가동 시간 [SLA](http://azure.microsoft.com/support/legal/sla/)입니다.
+- 연결 가동 시간 [SLA](https://azure.microsoft.com/support/legal/sla/)입니다.
 - 비즈니스용 Skype와 같은 특수한 응용 프로그램에 대한 서비스의 여러 클래스에 대 한 QoS 및 지원입니다.
 
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
@@ -55,7 +55,7 @@ Microsoft에서는 업계 표준 동적 라우팅 프로토콜(BGP)을 사용하
 
 ### 중복
 
-각 Express 경로 회로는 연결 공급자/네트워크 Edge에서 두 가지 Microsoft Enterprise Edge 라우터(MSEE)에 두 개의 연결로 구성됩니다. Microsoft는 MSEE 각각에 하나의 연결 공급자/사용자 쪽에서 이중 BGP 연결이 필요합니다. 종단에 중복 장치/이더넷 회로를 배포하지 않도록 선택할 수도 있습니다. 그러나 연결 공급자는 중복 장치를 사용하여 연결이 중복 방식으로 Microsoft에 넘겨지도록 합니다. 중복 3계층 연결 구성은 [SLA](http://azure.microsoft.com/support/legal/sla/)가 유효한 경우 요구됩니다.
+각 Express 경로 회로는 연결 공급자/네트워크 Edge에서 두 가지 Microsoft Enterprise Edge 라우터(MSEE)에 두 개의 연결로 구성됩니다. Microsoft는 MSEE 각각에 하나의 연결 공급자/사용자 쪽에서 이중 BGP 연결이 필요합니다. 종단에 중복 장치/이더넷 회로를 배포하지 않도록 선택할 수도 있습니다. 그러나 연결 공급자는 중복 장치를 사용하여 연결이 중복 방식으로 Microsoft에 넘겨지도록 합니다. 중복 3계층 연결 구성은 [SLA](https://azure.microsoft.com/support/legal/sla/)가 유효한 경우 요구됩니다.
 
 ### Microsoft 클라우드 서비스에 연결
 
@@ -124,4 +124,4 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

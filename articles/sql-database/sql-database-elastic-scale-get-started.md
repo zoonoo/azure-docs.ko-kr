@@ -70,7 +70,7 @@
 
 예를 들어 샘플 응용 프로그램이 새 데이터베이스를 만드는 경우 해당 비용은 선택한 Azure SQL DB 데이터베이스 버전과 응용 프로그램의 Azure 사용량에 따라 부과됩니다.
 
-가격 정보는 [SQL 데이터베이스 가격 정보](http://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
+가격 정보는 [SQL 데이터베이스 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
 ## 다음 단계
 탄력적 데이터베이스 도구에 대한 자세한 내용은 다음을 참조하세요.
@@ -80,7 +80,7 @@
     -    [Azure SQL과 탄력적 DB - 시작](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Azure SQL과 탄력적 DB - Entity Framework와 통합](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [스크립트 센터의 분할된 데이터베이스 탄력성](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
--    블로그: [탄력적인 확장 발표](http://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+-    블로그: [탄력적인 확장 발표](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 -    채널 9: [탄력적인 확장 개요 비디오](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    토론 포럼: [Azure SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 
@@ -98,4 +98,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

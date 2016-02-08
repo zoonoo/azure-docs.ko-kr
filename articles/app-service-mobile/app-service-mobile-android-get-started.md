@@ -35,7 +35,7 @@
 * Android Studio 통합 개발 환경이 포함된 [Android 개발자 도구](https://developer.android.com/sdk/index.html) 및 최신 Android 플랫폼이 필요합니다.
 * 다운로드한 빠른 시작 프로젝트의 일부로 자동으로 참조된 Azure 모바일 Android SDK
 * [Visual Studio Community 2013] 이상이 설치된 PC - Node.js 백 엔드에는 필요하지 않음
-* [활성 Azure 계정](http://azure.microsoft.com/pricing/free-trial/)
+* [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 
 ## 새 Azure 모바일 앱 백 엔드 만들기
 
@@ -56,4 +56,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

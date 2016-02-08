@@ -29,7 +29,7 @@
 
 프로덕션 웹앱의 경우 사용자에게 사용자 지정 도메인 이름을 표시할 수 있습니다. 이 문서에서는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 사용자 지정 도메인을 구성하는 방법에 대해 설명합니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -61,7 +61,7 @@ DNS(Domain Name System)는 데이터 레코드를 사용하여 도메인 이름�
 
 IP 주소가 변경되는 경우 CNAME 항목은 여전히 유효한 반면 A 레코드는 업데이트되어야 합니다. 하지만 일부 도메인 등록 기관은 루트 도메인 또는 와일드카드 도메인에 대해 CNAME 레코드를 허용하지 않습니다. 이 경우에는 A 레코드를 사용해야 합니다.
 
-> [AZURE.NOTE]웹 앱을 삭제하고 다시 만들거나 웹 앱 모드를 무료로 다시 변경할 경우 IP 주소가 변경될 수 있습니다.
+> [AZURE.NOTE] 웹 앱을 삭제하고 다시 만들거나 웹 앱 모드를 무료로 다시 변경할 경우 IP 주소가 변경될 수 있습니다.
 
 
 ## 가상 IP 주소 찾기
@@ -112,7 +112,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 - 168\.62.48.183에 매핑된 **contoso.com**
 - **contoso.azurewebsites.net**에 매핑된 **www.contoso.com**
 
->[AZURE.NOTE]Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns-web-sites-custom-domain)를 참조하세요.
+>[AZURE.NOTE] Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns-web-sites-custom-domain)를 참조하세요.
 
 <a name="awverify" />
 ## awverify 레코드 만들기(A 레코드 전용)
@@ -128,7 +128,7 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## DNS 적용 확인
 
@@ -136,7 +136,7 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 ![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
-> [AZURE.NOTE]DNS 항목이 적용되는 데는 최대 48시간이 걸립니다(더 걸리는 경우도 있음). 모든 항목이 올바르게 구성된 경우 성공적으로 적용될 때까지 기다려야 합니다.
+> [AZURE.NOTE] DNS 항목이 적용되는 데는 최대 48시간이 걸립니다(더 걸리는 경우도 있음). 모든 항목이 올바르게 구성된 경우 성공적으로 적용될 때까지 기다려야 합니다.
 
 ## 다음 단계
 
@@ -155,4 +155,4 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

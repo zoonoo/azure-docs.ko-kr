@@ -17,7 +17,7 @@ ms.author="heidist" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)#
 
-> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](./search-api-2015-02-28-preview)의 인덱서를 설명합니다. 현재 [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이는 없습니다. 이 API가 변경되지 않은 경우에도 이 문서를 제공하는 이유는 `2015-02-28-Preview`에 대한 전체 설명서 집합을 제공하기 위한 것입니다.
+> [AZURE.NOTE] 이 문서에서는 [2015-02-28-Preview](./search-api-2015-02-28-preview)의 인덱서를 설명합니다. 현재 [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이는 없습니다. 이 API가 변경되지 않은 경우에도 이 문서를 제공하는 이유는 `2015-02-28-Preview`에 대한 전체 설명서 집합을 제공하기 위한 것입니다.
 
 ## 개요 ##
 
@@ -38,7 +38,7 @@ Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비
 - Azure SQL 데이터베이스와 Azure VM의 SQL Server
 - Azure DocumentDB 
 
-향후 추가 데이터 원본에 대한 지원을 추가할 예정입니다. 이러한 의사 결정의 우선 순위를 지정하는 데 도움이 되도록 [Azure 검색 사용자 의견 포럼](http://feedback.azure.com/forums/263029-azure-search)에서 사용자 의견을 제공해 주시기 바랍니다.
+향후 추가 데이터 원본에 대한 지원을 추가할 예정입니다. 이러한 의사 결정의 우선 순위를 지정하는 데 도움이 되도록 [Azure 검색 사용자 의견 포럼](https://feedback.azure.com/forums/263029-azure-search/)에서 사용자 의견을 제공해 주시기 바랍니다.
 
 인덱서 및 데이터 원본 리소스와 관련된 최대 제한은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
@@ -776,4 +776,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

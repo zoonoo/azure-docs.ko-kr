@@ -31,7 +31,7 @@ RateCard API의 데이터와 사용 API에서 데이터의 소위 "multiplicatio
 ## RateCard 및 사용 API와 Cloudyn 통합
 RateCard API는 지역 정보, 통화 및 로컬과 같은 여러 입력된 매개 변수가 필요하지만 가장 중요한 것은 OfferDurableID로 사용하는 고객에게 제공하는 Azure의 유형을 지정합니다.(종량제, 레거시 6 및 12개월 약정 계획, MSDN 제공, MPN 제공, 프로모션 제공 및 기타) OfferDurableID는 지정된 구독에 대한 "Offer ID" 아래 [Azure 사용 및 대금 청구 포털](https://account.windowsazure.com/Subscriptions)에서 찾을 수 있습니다.
 
-[Azure용 Cloudyn](https://www.cloudyn.com/microsoft-azure/) 서비스에 등록하여 고객은 Cloudyn RateCard API를 통해 관련 가격 정보를 가져올 수 있는 OfferDurableID 코드를 추가할 수 있습니다. 다른 유형의 제품에 대한 정보는 [Microsoft Azure 제품 세부 정보](http://azure.microsoft.com/en-gb/support/legal/offer-details/) 페이지에서 찾을 수 있습니다.
+[Azure용 Cloudyn](https://www.cloudyn.com/microsoft-azure/) 서비스에 등록하여 고객은 Cloudyn RateCard API를 통해 관련 가격 정보를 가져올 수 있는 OfferDurableID 코드를 추가할 수 있습니다. 다른 유형의 제품에 대한 정보는 [Microsoft Azure 제품 세부 정보](https://azure.microsoft.com/support/legal/offer-details/) 페이지에서 찾을 수 있습니다.
 
 ![Cloudyn ITFM 엔진 개요][2]
 
@@ -77,7 +77,7 @@ Azure 성능 API 외에도 Cloudyn은 사용 및 RateCard API를 모두 사용�
 + 샘플 코드를 곧바로 시작하려면 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?term=billing)의 Microsoft Azure 청구 API 코드 샘플을 확인하세요.
 
 ## 자세한 정보
-+ Microsoft Azure 엔터프라이즈 규약(EA) 제공에 대한 자세한 내용을 보려면 [엔터프라이즈용 Azure 라이선스](http://azure.microsoft.com/pricing/enterprise-agreement/)를 방문하십시오
++ Microsoft Azure 엔터프라이즈 규약(EA) 제공에 대한 자세한 내용을 보려면 [엔터프라이즈용 Azure 라이선스](https://azure.microsoft.com/pricing/enterprise-agreement/)를 방문하십시오
 + Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하십시오.
 + 클라우드 지출을 이해하는 데 필요한 도구 모음에 대한 추가 정보는 Gartner 문서 [IT 재무 관리(ITFM) 도구에 대한 시장 가이드](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)를 참조하십시오.
 
@@ -90,4 +90,4 @@ Azure 성능 API 외에도 Cloudyn은 사용 및 RateCard API를 모두 사용�
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

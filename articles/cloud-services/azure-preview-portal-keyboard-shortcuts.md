@@ -50,4 +50,4 @@
 
 Azure 클래식 포털을 더 알아 봅니다(http://azure.microsoft.com).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,4 +1,4 @@
-다음 표에는 서비스 버스 메시징에 특정한 할당량 정보가 나와 있습니다. 이 표에는 이벤트 허브 제한이 포함되지만 이벤트 허브에 대한 자세한 내용은 [이벤트 허브 가격 책정](http://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요. 서비스 버스에 대한 가격 책정 및 기타 할당량에 대한 정보는 [서비스 버스 가격 책정](http://azure.microsoft.com/pricing/details/service-bus/) 개요를 참조하세요.
+다음 표에는 서비스 버스 메시징에 특정한 할당량 정보가 나와 있습니다. 이 표에는 이벤트 허브 제한이 포함되지만 이벤트 허브에 대한 자세한 내용은 [이벤트 허브 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요. 서비스 버스에 대한 가격 책정 및 기타 할당량에 대한 정보는 [서비스 버스 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/) 개요를 참조하세요.
 
 |할당량 이름|범위|유형|초과 시 동작|값|
 |---|---|---|---|---|
@@ -26,4 +26,4 @@
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

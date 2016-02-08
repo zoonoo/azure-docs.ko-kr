@@ -35,7 +35,7 @@
 * 여러 장치에서 데이터 동기화
 * 두 장치에서 동일한 레코드 수정 시 충돌 감지
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](http://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank")을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](https://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank")을 참조하세요.
 
 이 자습서는 먼저 완료해야 하는 [모바일 서비스 퀵 스타트 자습서]를 기반으로 합니다. 먼저 퀵 스타트에서 오프라인 동기화와 관련된 코드를 검토해 보겠습니다.
 
@@ -102,7 +102,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 ```
 
 
->[AZURE.NOTE]모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 `MSSyncTable.purgeWithQuery`에 대해 호출하여 로컬 저장소를 제거합니다.
+>[AZURE.NOTE] 모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 `MSSyncTable.purgeWithQuery`에 대해 호출하여 로컬 저장소를 제거합니다.
 
 
 * **QSTodoService.m**에서 `addItem` 및 `completeItem` 메서드는 데이터 수정 후에 `syncData`을(를) 호출합니다. **QSTodoListViewController.m**에서 `refresh` 메서드도 `syncData`을(를) 호출하므로 새고 고침되고 실행될 때마다 UI가 최신 데이터를 표시합니다(`init`이(가) `refresh` 호출).
@@ -120,7 +120,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
       * MS\_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
       * TodoItem: 할 일 항목 저장 시스템 열 **ms\_createdAt**, **ms\_updatedAt** 및 **ms\_version**은 선택적 시스템 속성입니다.
 
->[AZURE.NOTE]모바일 서비스 SDK는 "**`ms_`**"(으)로 시작하는 열 이름을 예약합니다. 시스템 열 이외에 이 접두사를 사용하지 마세요. 사용하는 경우 원격 서비스를 사용하면 열 이름이 수정됩니다.
+>[AZURE.NOTE] 모바일 서비스 SDK는 "**`ms_`**"(으)로 시작하는 열 이름을 예약합니다. 시스템 열 이외에 이 접두사를 사용하지 마세요. 사용하는 경우 원격 서비스를 사용하면 열 이름이 수정됩니다.
 
 - 오프라인 동기화 기능을 사용할 경우 아래와 같이 시스템 테이블을 정의해야 합니다.
 
@@ -275,4 +275,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [모바일 서비스 퀵 스타트 자습서]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

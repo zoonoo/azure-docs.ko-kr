@@ -24,11 +24,11 @@ Azure AD(Azure Active Directory)는 Microsoft의 IDaaS(Identity as a Service) �
 
 [이제 Azure AD premium을 시도합니다.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-> [AZURE.NOTE]Azure AD 관리 포털은 Azure 클래식 포털의 일부입니다. Azure AD를 사용하기 위해 Azure를 구매할 필요는 없지만 이 포털에 액세스하려면 활성 Azure 구독 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)이 필요합니다.
+> [AZURE.NOTE] Azure AD 관리 포털은 Azure 클래식 포털의 일부입니다. Azure AD를 사용하기 위해 Azure를 구매할 필요는 없지만 이 포털에 액세스하려면 활성 Azure 구독 또는 [Azure 평가판 구독](https://azure.microsoft.com/pricing/free-trial/)이 필요합니다.
 
-Azure AD 서비스 기능에 대한 광범위한 개요는 [Azure AD란?](active-directory-whatis.md)을 참조하세요. [Azure AD 서비스 수준에 대한 자세한 정보](http://azure.microsoft.com/support/legal/sla/)
+Azure AD 서비스 기능에 대한 광범위한 개요는 [Azure AD란?](active-directory-whatis.md)을 참조하세요. [Azure AD 서비스 수준에 대한 자세한 정보](https://azure.microsoft.com/support/legal/sla/)
 
-> [AZURE.NOTE]Azure 종량제 구독은 다릅니다. 디렉터리에 표시되기도 하지만 이러한 구독을 통해 Azure 리소스를 만들 수 있고 지불 방법에 매핑할 수도 있습니다. 이 경우 구독과 연결된 라이센스 수가 없습니다. 사용자와 구독과의 연결, 관리되는 구독 리소스에 대한 사용자 액세스는 구독에 매핑된 Azure 리소스에 대해 작동하는 권한을 부여하여 수행됩니다.
+> [AZURE.NOTE]  Azure 종량제 구독은 다릅니다. 디렉터리에 표시되기도 하지만 이러한 구독을 통해 Azure 리소스를 만들 수 있고 지불 방법에 매핑할 수도 있습니다. 이 경우 구독과 연결된 라이센스 수가 없습니다. 사용자와 구독과의 연결, 관리되는 구독 리소스에 대한 사용자 액세스는 구독에 매핑된 Azure 리소스에 대해 작동하는 권한을 부여하여 수행됩니다.
 
 
 ##Azure AD 라이선스 작동 방식
@@ -41,9 +41,9 @@ Enterprise Mobility Suite, Azure AD Premium 또는 Azure AD Basic을 구매 또�
 
 일반적으로 Azure AD 구독 정보는 Azure 클래식 포털을 통해 특정 디렉터리에 대한 라이선스 탭에서 관리됩니다. Azure AD Premium 이외의 Azure AD 구독은 Office 포털에 표시되지 않습니다.
 
-> [AZURE.IMPORTANT]Enterprise Mobility Suite 구독 뿐만 아니라 Azure AD Premium 및 Basic도 프로비저닝된 디렉터리/테넌트로 제한됩니다. 구독은 디렉터리 간에 분할하거나 다른 디렉터리의 사용자에게 자격을 부여하는 데 사용될 수 없습니다. 구독을 디렉터리 간에 이동하는 것은 가능하지만 지원 티켓을 제출하거나, 직접 구매의 경우 취소 후 다시 구매해야 합니다.
+> [AZURE.IMPORTANT] Enterprise Mobility Suite 구독 뿐만 아니라 Azure AD Premium 및 Basic도 프로비저닝된 디렉터리/테넌트로 제한됩니다. 구독은 디렉터리 간에 분할하거나 다른 디렉터리의 사용자에게 자격을 부여하는 데 사용될 수 없습니다. 구독을 디렉터리 간에 이동하는 것은 가능하지만 지원 티켓을 제출하거나, 직접 구매의 경우 취소 후 다시 구매해야 합니다.
 
-> [AZURE.IMPORTANT]볼륨 라이선싱을 통해 Azure AD 또는 Enterprise Mobility Suite를 구입하는 경우 계약에 다른 Microsoft Online 서비스(예: Office 365)가 포함되어 있으면 자동으로 구독 활성화가 발생합니다.
+> [AZURE.IMPORTANT] 볼륨 라이선싱을 통해 Azure AD 또는 Enterprise Mobility Suite를 구입하는 경우 계약에 다른 Microsoft Online 서비스(예: Office 365)가 포함되어 있으면 자동으로 구독 활성화가 발생합니다.
 
 유료 Azure AD 기능은 광범위한 디렉터리로 확장됩니다. 예를 들면 다음과 같습니다. - 응용 프로그램에 대한 그룹 기반 할당은 관리 중인 특정 응용 프로그램에서 사용하도록 설정됩니다. - 고급 및 셀프 서비스 그룹 관리 기능은 디렉터리 구성에서 또는 특정 그룹 내에서 사용할 수 있습니다. - 프리미엄 보안 보고서는 보고 탭에 있습니다. - 클라우드 응용 프로그램 검색은 Azure 포털의 ID 아래에 표시됩니다.
 
@@ -60,7 +60,7 @@ Azure AD를 시작하는 것은 간단합니다. 항상 무료 Azure 평가판�
 
 몇 가지 모범 사례가 있습니다. - Microsoft의 조직 서비스를 이미 사용 중이면 이미 Azure AD 디렉터리가 있는 것입니다. 이 경우 프로비전 및 하이브리드 SSO를 포함하여 핵심 ID 관리를 서비스 전체에서 활용할 수 있도록 다른 서비스에도 동일한 디렉터리를 계속 사용해야 합니다. 사용자는 단일 로그온 경험을 갖게 되며 서비스 전반에서 더욱 다양한 기능을 통해 이점을 얻을 수 있습니다. 따라서 직원을 위해 Azure AD 유료 서비스를 구입하기로 결정하는 경우 동일한 디렉터리를 사용하여 이 작업을 수행하는 것이 좋습니다. -다른 사용자 집합(파트너, 고객 등)에서 Azure AD를 사용할 계획이거나, 프로덕션 서비스와 격리된 환경에서 Azure AD 서비스를 평가하려는 경우 또는 서비스에 대한 샌드박스 환경을 설치하려는 경우, 먼저 Azure 클래식 포털을 통해 새 디렉터리를 만드는 것이 좋습니다. [Azure 클래식 포털에서 Azure AD 디렉터리를 만드는 방법에 대해 알아보세요](active-directory-licensing-directory-independence.md). 새 디렉터리는 사용자 계정을 전역 관리자 권한이 있는 외부 사용자로 사용하여 만들어집니다. 이 계정으로 Azure 클래식 포털에 로그인하면 이 디렉터리가 표시되며 모든 디렉터리 관리 작업에 액세스할 수 있습니다. (Azure 클래식 포털을 통해 액세스할 수 없는) 다른 Microsoft 서비스를 관리하는 적절한 권한을 가진 로컬 계정을 만드는 것이 좋습니다. [Azure AD에서 사용자 계정을 만드는 방법에 대해 자세히 알아보세요](active-directory-create-users.md).
 
-> [AZURE.NOTE]Azure AD는 "외부 사용자"를 지원하는데, 이 외부 사용자는 Microsoft 계정(MSA) 또는 다른 디렉터리의 Azure AD ID 중 하나를 사용하여 생성된 Azure AD 인스턴스의 사용자 계정입니다. 이 기능을 모든 Microsoft 조직 서비스로 확장하기 위해 노력하고 있지만 지금 현재 이러한 계정이 일부 서비스 환경에서 지원되지 않습니다. 예를 들어 Office 365 관리 포털은 현재 이러한 사용자를 지원하지 않습니다. 그 결과, Microsoft 계정을 가진 외부 사용자가 Office 365 관리 포털에 전혀 액세스할 수 없으며 다른 Azure AD 디렉터리의 외부 사용자는 무시됩니다. 후자의 경우, 사용자의 로컬 계정, 사용자가 원래 만든 Azure AD 또는 Office 365 디렉터리만 이러한 환경을 통해 액세스할 수 있습니다.
+> [AZURE.NOTE] Azure AD는 "외부 사용자"를 지원하는데, 이 외부 사용자는 Microsoft 계정(MSA) 또는 다른 디렉터리의 Azure AD ID 중 하나를 사용하여 생성된 Azure AD 인스턴스의 사용자 계정입니다. 이 기능을 모든 Microsoft 조직 서비스로 확장하기 위해 노력하고 있지만 지금 현재 이러한 계정이 일부 서비스 환경에서 지원되지 않습니다. 예를 들어 Office 365 관리 포털은 현재 이러한 사용자를 지원하지 않습니다. 그 결과, Microsoft 계정을 가진 외부 사용자가 Office 365 관리 포털에 전혀 액세스할 수 없으며 다른 Azure AD 디렉터리의 외부 사용자는 무시됩니다. 후자의 경우, 사용자의 로컬 계정, 사용자가 원래 만든 Azure AD 또는 Office 365 디렉터리만 이러한 환경을 통해 액세스할 수 있습니다.
 
 표시된 대로 Azure AD에는 다른 유료 버전이 있습니다. 이러한 버전은 구매 가용성에 약간의 차이가 있습니다.
 
@@ -132,4 +132,4 @@ Office 365 포털을 통해 평가판을 셀프 서비스로 확장할 수 있�
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Azure AD Premium 라이선스 직접 구매](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

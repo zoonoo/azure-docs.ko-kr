@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # AMQP 1.0을 사용하여 .NET에서 서비스 버스 사용
@@ -21,7 +21,7 @@
 
 ## 서비스 버스 SDK 다운로드
 
-AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 있습니다. [NuGet][]에서 최신 SDK를 다운로드할 수 있습니다.
+AMQP 1.0 지원은 서비스 버스 SDK 버전 2.1 이상에서 이용할 수 있습니다. [NuGet][]에서 최신 서비스 버스 비트를 다운로드할 수 있습니다.
 
 ## AMQP 1.0을 사용하여 .NET 응용 프로그램 구성
 
@@ -198,10 +198,9 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
   [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-
 [Azure 클래식 포털]: http://manage.windowsazure.com
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 [서비스 버스 분할 큐 및 항목을 위한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

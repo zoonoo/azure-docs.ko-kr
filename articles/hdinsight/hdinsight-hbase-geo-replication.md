@@ -46,9 +46,9 @@
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. Set-executionpolicy cmdlet 사용을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. Set-executionpolicy cmdlet 사용을 참조하세요.
 
 - **VPN 연결 및 DNS가 구성된 두 개의 Azure 가상 네트워크**. 자세한 내용은 [두 Azure 가상 네트워크 간의 VPN 연결 구성][hdinsight-hbase-replication-vnet] 및 [두 Azure 가상 네트워크 간의 DNS 구성][hdinsight-hbase-replication-dns]을 참조하세요.
 
@@ -192,7 +192,7 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 4. RDP 세션을 닫지 마세요. 이 자습서의 뒷부분에서 필요합니다.
 5. 같은 단계를 반복하여 Contoso-HBase-US에서 Contoso-HBase-EU의 headnode0을 ping합니다.
 
->[AZURE.IMPORTANT]다음 단계를 진행하려면 먼저 DNS를 작동해야 합니다.
+>[AZURE.IMPORTANT] 다음 단계를 진행하려면 먼저 DNS를 작동해야 합니다.
 
 ## HBase 테이블 간에 복제 사용
 
@@ -285,8 +285,8 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 
 이 자습서에서는 두 데이터 센터에서 HBase 복제를 구성하는 방법을 살펴보았습니다. HDInsight 및 HBase에 대한 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight 서비스 페이지](http://azure.microsoft.com/services/hdinsight/)
-- [HDInsight 설명서](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [HDInsight 서비스 페이지](https://azure.microsoft.com/services/hdinsight/)
+- [HDInsight 설명서](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [HDInsight에서 Apache HBase 시작][hdinsight-hbase-get-started]
 - [HDInsight HBase 개요][hdinsight-hbase-overview]
 - [Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]
@@ -311,4 +311,4 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

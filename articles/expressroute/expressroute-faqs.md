@@ -34,7 +34,7 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [Express 경로 파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 Express 경로 회로를 주문할 수 있습니다.
 
 ### Express 경로 비용
-가격 정보는 [가격 정보](http://azure.microsoft.com/pricing/details/expressroute/)를 참조하세요.
+가격 정보는 [가격 정보](https://azure.microsoft.com/pricing/details/expressroute/)를 참조하세요.
 
 ### 지정된 대역폭의 Express 경로 회로에 대한 비용을 지불하는 경우, 네트워크 서비스 공급자로부터 구입한 VPN 연결은 동일한 속도여야 하나요?
 아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입할 Express 경로 회로 대역폭으로 제한됩니다.
@@ -46,7 +46,7 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 예. Express 경로 회로를 일단 설정하면 동시에 가상 네트워크 내 서비스 및 기타 Azure 서비스에 액세스할 수 있습니다. 공용 피어링 경로를 통해 가상 네트워크에 연결하고 공용 피어링 경로를 통해 기타 서비스에 연결합니다.
 
 ### Express 경로는 SLA(서비스 수준 계약)을 제공하나요?
-자세한 내용은 [Express 경로 SLA 페이지](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
+자세한 내용은 [Express 경로 SLA 페이지](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
 ## 지원되는 서비스
 대부분의 Azure 서비스는 Express 경로를 통해 지원됩니다.
@@ -65,7 +65,7 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 ## 데이터 및 연결
 
 ### Express 경로를 사용하여 전송할 수 있는 데이터의 양에 제한이 있나요?
-데이터 전송 크기에 대한 제한을 설정하지 않습니다. 대역폭 요금에 대한 정보는 [가격 정보](http://azure.microsoft.com/pricing/details/expressroute/)을 참조하세요.
+데이터 전송 크기에 대한 제한을 설정하지 않습니다. 대역폭 요금에 대한 정보는 [가격 정보](https://azure.microsoft.com/pricing/details/expressroute/)을 참조하세요.
 
 ### Express 경로에서 지원되는 연결 속도는 무엇인가요?
 지원되는 대역폭은 다음을 제공합니다.
@@ -208,7 +208,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 아니요. 필요한 기능을 선택할 수 없습니다. Express 경로 프리미엄을 켜면 모든 기능을 사용합니다.
 
 ### Express 경로 프리미엄 비용
-비용은 [가격 정보](http://azure.microsoft.com/pricing/details/expressroute/)을 참조하세요.
+비용은 [가격 정보](https://azure.microsoft.com/pricing/details/expressroute/)을 참조하세요.
 
 ### 표준 Express 경로 요금 외에도 Express 경로 프리미엄에 대한 납부 여부
 예. Express 경로 프리미엄 요금은 Express 경로 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
@@ -249,7 +249,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 인터넷을 통해 이 서비스에 연결할 수 있습니다.
 
 ### Office 365용 Express 경로 비용
-Express 경로를 통해 Office 365에 연결하기 위한 추가 비용은 없습니다. [가격 세부 정보 페이지](http://azure.microsoft.com/pricing/details/expressroute/)는 Express 경로에 대한 비용의 세부 정보를 제공합니다.
+Express 경로를 통해 Office 365에 연결하기 위한 추가 비용은 없습니다. [가격 세부 정보 페이지](https://azure.microsoft.com/pricing/details/expressroute/)는 Express 경로에 대한 비용의 세부 정보를 제공합니다.
 
 ### Office 365용 Express 경로가 지원하는 영역
 Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용은 [Express 경로 파트너 및 위치](expressroute-locations.md)를 참조하세요.
@@ -258,4 +258,4 @@ Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용�
 예. Express 경로가 네트워크에 대해 구성된 경우라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. Express 경로를 통해 Office 365 서비스에 연결하도록 구성된 위치에 있는 경우 Express 경로를 통해 연결됩니다.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

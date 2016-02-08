@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/05/2015" 
+	ms.date="01/20/2016" 
 	ms.author="glenga"/>
 
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
@@ -51,15 +51,16 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm)는 클라이언트 형식과 테이블 간의 *PropertyName* 매핑을 정의하는 데 사용됩니다.
 
-모바일 앱 백 엔드에 새 테이블을 작성하는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller)(.NET 백 엔드) 또는 [동적 스키마를 사용하여 테이블 정의](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations)(Node.js 백 엔드)를 참조하세요. 또한 Node.js 백 엔드의 경우 [Azure 포털](https://portal.azure.com)에서 **쉬운 테이블** 설정을 사용할 수 있습니다.
+모바일 앱 백 엔드에 새 테이블을 작성하는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller)(.NET 백 엔드) 또는 [동적 스키마를 사용하여 테이블 정의](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations)(Node.js 백 엔드)를 참조하세요. 또한 Node.js 백 엔드의 경우 [Azure 포털](https://portal.azure.com/)에서 **쉬운 테이블** 설정을 사용할 수 있습니다.
 
 ##<a name="create-client"></a>방법: 모바일 앱 클라이언트 만들기
 
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 `MobileServiceClient` 개체를 만듭니다.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+		"MOBILE_APP_URL", "", "");
 
-위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털](https://portal.azure.com)의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다.
+위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털](https://portal.azure.com/)의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다.
 
 ##<a name="instantiating"></a>방법: 테이블 참조 만들기
 
@@ -85,7 +86,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 - [특정 열 선택]
 - [ID를 기준으로 데이터 조회]
 
->[AZURE.NOTE]모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환]에서 설명하는 대로 `Take` 메서드를 사용하십시오.
+>[AZURE.NOTE] 모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환]에서 설명하는 대로 `Take` 메서드를 사용하세요.
 
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
 
@@ -244,7 +245,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 ###ID 값으로 작업
 
-모바일 앱은 테이블의 **ID** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다.
+모바일 앱은 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다.
 
 문자열 ID는 다음과 같은 이점을 제공합니다.
 
@@ -260,7 +261,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 	await todoTable.UpdateAsync(todoItem);
 
-형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다.
+형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다. 
 	JObject jo = new JObject();
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	jo.Add("Text", "Hello World");
@@ -477,6 +478,111 @@ Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `IM
 `ToCollectionAsync` 또는 `ToCollection`을(를) 호출하여 만들어진 컬렉션을 사용하는 경우 UI 컨트롤에 바인딩할 수 있는 컬렉션을 얻게 됩니다. 이 컬렉션은 페이징을 인식합니다. 다시 말해서, 컨트롤은 "더 많은 항목을 로드"하도록 컬렉션에 요청할 수 있고 컬렉션은 이를 수행합니다. 이때 사용자 코드가 사용되지 않으며 컨트롤에서 흐름을 시작합니다. 하지만 컬렉션이 네트워크에서 데이터를 로드하기 때문에 로딩에 실패하는 경우도 있습니다. 이 오류를 처리하려면 컨트롤에서 수행한 `LoadMoreItemsAsync` 호출의 결과로 발생한 예외를 처리하도록 `MobileServiceIncrementalLoadingCollection`에 대한 `OnException` 메서드를 재정의할 수 있습니다.
 
 마지막으로, 테이블에 필드가 많지만 컨트롤에 일부 필드만 표시하려는 경우를 가정하겠습니다. 위에 나온 “[특정 열 선택](#selecting)” 섹션의 참고 자료에 따라 UI에 표시할 특정 열을 선택할 수 있습니다.
+
+## <a name="adal"></a>방법: Active Directory 인증 라이브러리를 사용하여 사용자 인증
+
+Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. `loginAsync()` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
+
+1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md) 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다.
+
+2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
+
+3. 사용하는 플랫폼에 따라 응용 프로그램에 아래 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
+
+* **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사될 수 있습니다.
+
+* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급**에서 이를 가져올 수 있습니다.
+
+* **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+
+* HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE**를 사이트의 _/.auth/login/done_ 끝점으로 바꿉니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
+
+각 플랫폼에 필요한 코드는 다음과 같습니다.
+
+**Windows:**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync()
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            while (user == null)
+            {
+                string message;
+                try
+                {
+                  AuthenticationContext ac = new AuthenticationContext(authority);
+                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+                  JObject payload = new JObject();
+                  payload["access_token"] = ar.AccessToken;
+                  user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+                  message = string.Format("You are now logged in - {0}", user.UserId);
+                }
+                catch (InvalidOperationException)
+                {
+                  message = "You must log in. Login Required";
+                }
+                var dialog = new MessageDialog(message);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
+
+**Xamarin.iOS**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync(UIViewController view)
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            try
+			{
+				AuthenticationContext ac = new AuthenticationContext(authority);
+				AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
+				JObject payload = new JObject();
+				payload["access_token"] = ar.AccessToken;
+				user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+			}
+			catch (Exception ex)
+			{
+				Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+			}
+        }
+
+**Xamarin.Android**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync()
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            try
+			{
+				AuthenticationContext ac = new AuthenticationContext(authority);
+				AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
+				JObject payload = new JObject();
+				payload["access_token"] = ar.AccessToken;
+				user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+			}
+			catch (Exception ex)
+			{
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.SetMessage(ex.Message);
+				builder.SetTitle("You must log in. Login Required");
+				builder.Create().Show();
+			}
+        }
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			base.OnActivityResult(requestCode, resultCode, data);
+			AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+		}
 
 ## <a name="package-sid"></a>방법: Windows 스토어 패키지 SID 가져오기
 
@@ -762,4 +868,4 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

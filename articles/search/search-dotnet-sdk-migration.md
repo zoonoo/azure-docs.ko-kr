@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 검색 .NET SDK 버전 1.0.0-Preview | Microsoft Azure | 호스트된 클라우드 검색 서비스"
-   description="Azure 검색 .NET SDK 버전 1.0.0-preview로 업그레이드"
+   pageTitle="Azure 검색 .NET SDK 버전 1.0.1-Preview | Microsoft Azure | 호스트된 클라우드 검색 서비스"
+   description="Azure 검색 .NET SDK 버전 1.0.1-preview로 업그레이드"
    services="search"
    documentationCenter=""
    authors="brjohnstmsft"
@@ -13,21 +13,21 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/20/2016"
+   ms.date="01/22/2016"
    ms.author="brjohnst"/>
 
-# Azure 검색 .NET SDK 버전 1.0.0-preview로 업그레이드
+# Azure 검색 .NET SDK 버전 1.0.1-preview로 업그레이드
 
-버전 0.13.0-preview 또는 이전 버전의 [Azure 검색.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 사용하는 경우 이 문서를 통해 최신 버전인 1.0.0-preview로 응용 프로그램을 업그레이드할 수 있습니다.
+버전 0.13.0-preview 또는 이전 버전의 [Azure 검색.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 사용하는 경우 이 문서를 통해 최신 버전인 1.0.1-preview로 응용 프로그램을 업그레이드할 수 있습니다.
 
 예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 응용 프로그램에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-Azure 검색.NET SDK의 버전 1.0.0-preview에는 이전 버전(0.13.0-preview)에서 몇 가지 주요 변경된 내용이 포함됩니다. 대부분 소소한 변경이므로 코드를 변경하는 데 최소한의 작업만 필요합니다. 새 SDK 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps)를 참조하세요.
+Azure 검색.NET SDK의 버전 1.0.1-preview에는 이전 버전(0.13.0-preview)에서 몇 가지 주요 변경된 내용이 포함됩니다. 대부분 소소한 변경이므로 코드를 변경하는 데 최소한의 작업만 필요합니다. 새 SDK 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps)를 참조하세요.
 
 <a name="WhatsNew"></a>
-## 1\.0.0-preview의 새로운 기능
+## 1\.0.1-preview의 새로운 기능
 
-버전 1.0.0-preview는 이전 버전의 Azure 검색 .NET SDK(2015-02-28)와 동일한 REST API를 대상으로 하므로 이 릴리스에는 새로운 서비스 기능이 없습니다. 그러나 SDK의 고급 사용자를 위한 새로운 클라이언트 쪽 기능이 하나 있습니다.
+버전 1.0.1-preview는 이전 버전의 Azure 검색 .NET SDK(2015-02-28)와 동일한 REST API를 대상으로 하므로 이 릴리스에는 새로운 서비스 기능이 없습니다. 하지만 새로운 클라이언트쪽 serialization 기능이 있습니다.
 
 이 SDK는 문서를 직렬화 및 역직렬화하는 데 JSON.NET을 사용합니다. 새 버전의 SDK에서는 `JsonConverter` 및 `IContractResolver`를 통해 사용자 지정 serialization을 지원합니다(자세한 내용은 [JSON.NET 설명서](http://www.newtonsoft.com/json/help/html/Introduction.htm) 참조). 이 기능은 Azure 검색에 사용할 응용 프로그램에서 기존 모델 클래스를 적용하려는 경우와 기타 고급 시나리오에서 유용할 수 있습니다. 예를 들어 사용자 지정 serialization으로 다음을 수행할 수 있습니다.
  
@@ -37,12 +37,14 @@ Azure 검색.NET SDK의 버전 1.0.0-preview에는 이전 버전(0.13.0-preview)
 
 GitHub에서 Azure 검색 .NET SDK에 대한 단위 테스트에서 사용자 지정 serialization을 구현하는 예제를 찾을 수 있습니다. 적절한 시작 지점은 [이 폴더](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models)입니다. 여기에는 사용자 지정 serialization 테스트에 사용되는 클래스가 있습니다.
 
+사용자 지정 serialization 외에, 새 SDK 역시 `SearchContinuationToken` 개체의 serialization을 지원합니다. 웹 응용 프로그램에서 Azure 검색을 호출하고 검색 결과를 통해 페이징을 하는 동안 브라우저 또는 모바일 클라이언트와 연속 토큰을 교환해야 하는 경우에 유용합니다.
+
 <a name="UpgradeSteps"></a>
 ## 업그레이드 단계
 
 먼저, NuGet 패키지 관리자 콘솔을 사용하거나 Visual Studio에서 프로젝트 참조를 마우스 오른쪽 단추로 클릭하고 "NuGet 패키지 관리..."를 선택하여 `Microsoft.Azure.Search`에 대한 NuGet 참조를 업데이트합니다.
 
-> [AZURE.NOTE]Visual Studio를 사용하는 경우 "시험판 포함"을 선택하고 패키지 관리자 콘솔을 사용하는 경우 `-IncludePrerelease` 스위치를 사용하여 시험판 패키지를 볼 수 있는지 확인합니다.
+> [AZURE.NOTE] Visual Studio를 사용하는 경우 "시험판 포함"을 선택하고 패키지 관리자 콘솔을 사용하는 경우 `-IncludePrerelease` 스위치를 사용하여 시험판 패키지를 볼 수 있는지 확인합니다.
 
 NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝트를 다시 빌드합니다. 다음과 유사한 빌드 오류가 표시됩니다.
 
@@ -51,14 +53,14 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
     Program.cs(146,41,146,54): error CS1061: 'Microsoft.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'Microsoft.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
     Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSearchResponse' could not be found (are you missing a using directive or an assembly reference?)
 
-다음은 빌드 오류를 하나씩 수정하는 과정입니다. 대부분은 SDK에서 이름이 변경된 일부 클래스와 메서드 이름을 변경해야 합니다. [1\.0.0-preview의 주요 변경 내용 목록](#ListOfChanges)에는 이러한 이름 변경 목록이 있습니다.
+다음은 빌드 오류를 하나씩 수정하는 과정입니다. 대부분은 SDK에서 이름이 변경된 일부 클래스와 메서드 이름을 변경해야 합니다. [1\.0.1-preview의 주요 변경 내용 목록](#ListOfChanges)에는 이러한 이름 변경 목록이 있습니다.
 
-사용자 지정 클래스를 사용하여 문서를 모델링하고 해당 클래스에 Null이 허용되지 않는 기본 형식(예를 들어 C#의 `int` 또는 `bool`)이 있는 경우 알고 있어야 할 SDK 1.0.0-preview 버전의 버그 수정이 있습니다. 자세한 내용은 [1\.0.0-preview의 버그 수정](#BugFixes)을 참조하세요.
+사용자 지정 클래스를 사용하여 문서를 모델링하고 해당 클래스에 Null이 허용되지 않는 기본 형식(예를 들어 C#의 `int` 또는 `bool`)이 있는 경우 알고 있어야 할 SDK 1.0.1-preview 버전의 버그 수정이 있습니다. 자세한 내용은 [1\.0.1-preview의 버그 수정](#BugFixes)을 참조하세요.
 
-마지막으로, 모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 응용 프로그램을 변경할 수 있습니다. 새 SDK의 사용자 지정 serialization 기능은 [1\.0.0-preview의 새로운 기능](#WhatsNew)에 자세히 설명되어 있습니다.
+마지막으로, 모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 응용 프로그램을 변경할 수 있습니다. 새 SDK의 사용자 지정 serialization 기능은 [1\.0.1-preview의 새로운 기능](#WhatsNew)에 자세히 설명되어 있습니다.
 
 <a name="ListOfChanges"></a>
-## 1\.0.0-preview의 주요 변경 내용 목록
+## 1\.0.1-preview의 주요 변경 내용 목록
 
 다음 목록은 변경이 응용 프로그램 코드에 영향을 줄 가능성 순서로 정렬되어 있습니다.
 
@@ -112,7 +114,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 <a name="OperationMethodChanges"></a>
 ### 작업 메서드 변경
 
-Azure 검색 .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 메서드 오버로드 집합으로 노출됩니다. 이러한 메서드 오버로드의 서명 및 팩터링이 1.0.0-preview에서 변경되었습니다.
+Azure 검색 .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 메서드 오버로드 집합으로 노출됩니다. 이러한 메서드 오버로드의 서명 및 팩터링이 1.0.1-preview에서 변경되었습니다.
 
 예를 들어 이전 버전의 SDK에서 "인덱스 통계 가져오기" 작업은 다음과 같은 서명을 노출했습니다.
 
@@ -135,7 +137,7 @@ Azure 검색 .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
         this IIndexOperations operations,
         string indexName);
 
-버전 1.0.0-preview에서 동일한 작업에 대한 메서드 서명은 다음과 같습니다.
+버전 1.0.1-preview에서 동일한 작업에 대한 메서드 서명은 다음과 같습니다.
 
 `IIndexesOperations`:
 
@@ -161,7 +163,7 @@ Azure 검색 .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
         string indexName,
         SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
 
-버전 1.0.0-preview부터 Azure 검색 .NET SDK가 작업 메서드를 다르게 구성합니다.
+버전 1.0.1-preview부터 Azure 검색 .NET SDK가 작업 메서드를 다르게 구성합니다.
  
  - 이제 선택적 매개 변수는 추가 메서드 오버로드가 아닌 기본 매개 변수로 모델링됩니다. 따라서 메서드 오버로드 수가 경우에 따라서는 상당히 줄어듭니다.
  - 이제 확장 메서드는 호출자에게 HTTP의 불필요한 많은 세부 정보를 숨깁니다. 예를 들어 이전 버전의 SDK에서는 HTTP 상태 코드와 함께 응답 개체를 반환했지만 작업 메서드가 오류를 나타내는 상태 코드에 대해 `CloudException`을 throw하므로 보통은 이를 확인할 필요가 없었습니다. 새로운 확장 메서드는 모델 개체만 반환하여 코드에서 래핑 해제해야 하는 문제가 없어집니다.
@@ -296,7 +298,7 @@ Azure 검색 .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 
 이전 버전의 SDK에서는 요청 ID를 `SearchServiceClient` 또는 `SearchIndexClient`에서 설정하고 REST API에 대한 모든 요청에 포함했습니다. 지원에 문의해야 하는 경우 검색 서비스로 문제를 해결하는 데 유용합니다. 그러나 모든 작업에 대해 동일한 ID를 사용하기보다는 모든 작업에 고유한 요청 ID를 설정하는 것이 더 유용합니다. 이러한 이유로 `SearchServiceClient` 및 `SearchIndexClient`의 `SetClientRequestId` 메서드는 제거되었습니다. 대신, `SearchRequestOptions` 매개 변수(선택 사항)를 통해 요청 ID를 각 작업 메서드에 전달할 수 있습니다.
 
-> [AZURE.NOTE]SDK의 이후 릴리스에서는 다른 Azure SDK에서 사용하는 방법과 일치하는 클라이언트 개체에서 요청 ID를 전역적으로 설정하는 새 메커니즘을 추가할 예정입니다.
+> [AZURE.NOTE] SDK의 이후 릴리스에서는 다른 Azure SDK에서 사용하는 방법과 일치하는 클라이언트 개체에서 요청 ID를 전역적으로 설정하는 새 메커니즘을 추가할 예정입니다.
 
 #### 예
 
@@ -322,7 +324,7 @@ Azure 검색 .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 이 변경은 테스트 용도로 모의 인터페이스를 만들지 않은 경우 코드에 영향을 줄 가능성은 없습니다.
 
 <a name="BugFixes"></a>
-## 1\.0.0-preview의 버그 수정
+## 1\.0.1-preview의 버그 수정
 
 이전 버전의 Azure 검색 .NET SDK에는 사용자 지정 모델 클래스의 serialization과 관련된 버그가 있었습니다. Null이 허용되지 않는 값 형식의 속성으로 사용자 지정 모델 클래스를 만든 경우 버그가 발생할 수 있습니다.
 
@@ -336,7 +338,7 @@ Null이 허용되지 않는 값 형식의 속성으로 사용자 지정 모델 �
 
 ### 수정 세부 정보
 
-SDK 버전 1.0.0-preview에서 이 문제를 해결했습니다. 이제 다음과 같이 모델 클래스가 있고
+SDK 버전 1.0.1-preview에서 이 문제를 해결했습니다. 이제 다음과 같이 모델 클래스가 있고
 
     public class Model
     {
@@ -364,4 +366,4 @@ SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [Az
 
 Azure 검색을 이용해 주셔서 감사합니다!
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

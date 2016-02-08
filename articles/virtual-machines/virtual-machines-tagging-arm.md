@@ -28,7 +28,7 @@
 
 먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)은 계산(가상 컴퓨터), 저장소(저장소 계정) 및 네트워크(공용 IP 주소, 가상 네트워크 및 네트워크 인터페이스) 리소스에 태그를 배치합니다.
 
-[템플릿 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)에서 **Azure에 배포** 단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](http://portal.azure.com/)로 이동합니다.
+[템플릿 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)에서 **Azure에 배포** 단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
 ![태그가 포함된 간단한 배포](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -190,4 +190,4 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

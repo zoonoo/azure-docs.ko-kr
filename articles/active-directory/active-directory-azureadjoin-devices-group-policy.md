@@ -68,14 +68,17 @@ Azure AD Connect를 사용하면 컴퓨터 온-프레미스를 클라우드에�
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
->[AZURE.NOTE] [*커넥터 계정 이름*]을 AD 커넥터 계정으로 사용된 도메인 계정으로 바꿉니다.
+>[AZURE.NOTE]
+ [*커넥터 계정 이름*]을 AD 커넥터 계정으로 사용된 도메인 계정으로 바꿉니다.
 
->[AZURE.NOTE]Get-Credential 팝업이 표시될 때 입력한 자격 증명의 사용자 이름은 *user@example.com* 형식이어야 합니다.
+>[AZURE.NOTE]
+Get-Credential 팝업이 표시될 때 입력한 자격 증명의 사용자 이름은 *user@example.com* 형식이어야 합니다.
 
 ### AD FS 클레임 규칙 구성
 이를 사용하면 컴퓨터가 AD FS를 통해 Kerberos/NTLM을 사용하여 인증하도록 허용함으로써 Azure DRS를 사용하여 컴퓨터를 즉각적으로 등록합니다. 이 단계 없이 컴퓨터는 지연된 방식으로 Azure AD를 가져옵니다.(Azure AD Connect 동기화의 시간에 종속됨)
 
->[AZURE.NOTE]페더레이션 서버 온-프레미스인 AD FS가 없는 경우 클레임 규칙을 만드는 공급 업체의 지침을 수행하십시오.
+>[AZURE.NOTE]
+페더레이션 서버 온-프레미스인 AD FS가 없는 경우 클레임 규칙을 만드는 공급 업체의 지침을 수행하십시오.
 
 AD FS에서 서버는 다음 PowerShell 명령을 실행합니다.(또는 AD FS 서버에 연결된 세션에서)
 
@@ -109,7 +112,8 @@ AD FS에서 서버는 다음 PowerShell 명령을 실행합니다.(또는 AD FS 
  
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
->[AZURE.NOTE]Windows 10 컴퓨터는 AD FS에서 호스팅된 활성 WS-Trust 끝점에 Windows 통합 인증을 사용하여 인증합니다. 이 끝점을 사용할 수 있도록 합니다. 또한 웹 인증 프록시를 사용하는 경우 이 끝점이 프록시를 통해 게시되도록 합니다. 이렇게 하려면 adfs/services/trust/13/windowstransport가 서비스 > 끝점의 AD FS 관리 콘솔에서 사용하도록 표시되었는지 확인합니다.
+>[AZURE.NOTE]
+Windows 10 컴퓨터는 AD FS에서 호스팅된 활성 WS-Trust 끝점에 Windows 통합 인증을 사용하여 인증합니다. 이 끝점을 사용할 수 있도록 합니다. 또한 웹 인증 프록시를 사용하는 경우 이 끝점이 프록시를 통해 게시되도록 합니다. 이렇게 하려면 adfs/services/trust/13/windowstransport가 서비스 > 끝점의 AD FS 관리 콘솔에서 사용하도록 표시되었는지 확인합니다.
 
 
 ## 2단계: Active Directory에서 그룹 정책을 통해 자동 장치 등록 구성
@@ -127,7 +131,8 @@ Active Directory 그룹 정책을 사용하여 Windows 10 도메인 가입 장�
  - Windows 10 도메인에 가입된 컴퓨터가 배치될 AD의 특정 OU(조직 구성 단위)입니다.
  - Azure AD에 자동 등록될 Windows 10 도메인에 가입된 컴퓨터를 포함하는 특정 보안 그룹입니다.
  
->[AZURE.NOTE]이 그룹 정책 템플릿은 Windows 10에서 이름이 변경되었습니다. Windows 10 컴퓨터에서 그룹 정책 도구를 실행하는 경우 정책은 다음과 같이 나타납니다. <br> **도메인 가입 컴퓨터를 장치로 등록합니다** 그리고 다음 위치에 배치됩니다.<br> ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
+>[AZURE.NOTE]
+이 그룹 정책 템플릿은 Windows 10에서 이름이 변경되었습니다. Windows 10 컴퓨터에서 그룹 정책 도구를 실행하는 경우 정책은 다음과 같이 나타납니다. <br> **도메인 가입 컴퓨터를 장치로 등록합니다** 그리고 정책을 다음 위치에 배치합니다.<br> ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
 
  
 ## 추가 정보
@@ -137,4 +142,4 @@ Active Directory 그룹 정책을 사용하여 Windows 10 도메인 가입 장�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

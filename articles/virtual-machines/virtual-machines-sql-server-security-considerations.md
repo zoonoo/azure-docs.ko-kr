@@ -25,19 +25,19 @@
 
 SQL Server 보안 방법에 대한 자세한 내용은 [SQL Server 2008 R2 보안 모범 사례 - 운영 및 관리 작업](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)을 참조하세요.
 
-Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루션을 제작할 수 있도록 하는 몇 가지 산업 규정 및 표준을 준수합니다. Azure 규정 준수에 대한 자세한 내용은 [Azure 보안 센터](http://azure.microsoft.com/support/trust-center/)를 참조하세요.
+Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루션을 제작할 수 있도록 하는 몇 가지 산업 규정 및 표준을 준수합니다. Azure 규정 준수에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요.
 
 다음은 Azure VM에서 SQL Server의 인스턴스를 구성 및 연결할 때 고려해야 하는 보안 권장 사항의 목록입니다.
 
 ## 계정 관리에 대한 고려 사항:
 
-- **Administrator**가 아닌 다른 이름으로 로컬 관리자 계정을 만듭니다.
+- 로컬 관리자 계정의 이름을 **Administrator**가 아닌 다른 이름으로 만듭니다.
 
 - 모든 계정에 복잡하고 강력한 암호를 사용합니다. 강력한 암호를 만드는 방법은 안전 및 보안 센터의 [강력한 암호 만들기](http://go.microsoft.com/fwlink/?LinkId=293596) 문서를 참조하세요.
 
 - 기본적으로 Azure는 SQL Server 가상 컴퓨터를 설치하는 동안 Windows 인증을 선택합니다. 따라서 **SA** 로그인이 사용하지 않도록 설정되고 설치 프로그램에서 암호를 할당합니다. **SA** 로그인을 사용하거나 사용하도록 설정하지 않는 것이 좋습니다. SQL 로그인을 원할 경우 다음과 같은 다른 전략을 사용할 수 있습니다.
 	- **서버 제어** 권한이 있는 SQL 계정을 만듭니다.
-	- **SA** 로그인을 사용해야 하는 경우 로그인을 사용하도록 설정하고 이름을 바꾼 다음 새 암호를 할당합니다.
+	- **SA** 로그인을 사용해야 한다면, 로그인을 사용하도록 설정하고 이름을 변경한 다음 새 암호를 할당합니다.
 	- 위에 설명한 두 옵션 모두 인증 모드를 SQL Server 및 Windows 인증 모드로 변경해야 합니다. 자세한 내용은 서버 인증 모드 변경을 참조하세요.
 
 - 서버 제어 사용 권한이 있는 SQL 계정을 만듭니다.
@@ -62,4 +62,4 @@ Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루�
 
 Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

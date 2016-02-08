@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="11/06/2015"
+	ms.date="01/26/2016"
 	ms.author="tomfitz"/>
 
 #Azure 앱 서비스의 엔터프라이즈급 WordPress
@@ -26,11 +26,11 @@ Azure 앱 서비스는 중요 업무용 대규모 [WordPress][wordpress] 사이�
 
 * **MySQL 데이터베이스** - [Azure 마켓플레이스의 ClearDB][cdbnstore]를 통해 사용하거나 [Windows][mysqlwindows] 또는 [Linux][mysqllinux]를 사용하여 Azure 가상 컴퓨터에서 자체 MySQL 설치를 관리할 수 있습니다.
 
-    > [AZURE.NOTE]ClearDB는 각각 다양한 성능 특성을 갖는 여러 MySQL 구성을 제공합니다. Azure Store를 통해 제공되는 서비스에 대해서는 [Azure Store][cdbnstore](영문)를 참조하고, ClearDB에서 직접 제공되는 서비스에 대해서는 [ClearDB 가격 책정](http://www.cleardb.com/pricing.view)(영문)을 참조하세요.
+    > [AZURE.NOTE] ClearDB는 각각 다양한 성능 특성을 갖는 여러 MySQL 구성을 제공합니다. Azure Store를 통해 제공되는 서비스에 대해서는 [Azure Store][cdbnstore](영문)를 참조하고, ClearDB에서 직접 제공되는 서비스에 대해서는 [ClearDB 가격 책정](http://www.cleardb.com/pricing.view)(영문)을 참조하세요.
 
 * **PHP 5.2.4 이상** - Azure 앱 서비스에서는 현재 [PHP 버전 5.4, 5.5 및 5.6][phpwebsite]을 제공합니다.
 
-	> [AZURE.NOTE]최신 버전의 PHP에서 실행하여 최신 보안 픽스를 설치하는 것이 좋습니다.
+	> [AZURE.NOTE] 최신 버전의 PHP에서 실행하여 최신 보안 픽스를 설치하는 것이 좋습니다.
 
 ###기본 배포
 
@@ -53,7 +53,7 @@ Azure [트래픽 관리자][trafficmanager]를 사용하여 방문자에게 단�
 
 ###미디어 저장소 및 캐싱을 사용한 다중 지역 배포
 
-사이트가 업로드를 허용하거나 미디어 파일을 호스트하는 경우에는 Azure Blob 저장소를 사용합니다. 캐싱이 필요한 경우에는 [Redis 캐시][rediscache], [Memcache 클라우드](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 또는 [Azure Store](http://azure.microsoft.com/gallery/store/)에 제공되는 기타 캐싱 서비스 중 하나를 고려하세요.
+사이트가 업로드를 허용하거나 미디어 파일을 호스트하는 경우에는 Azure Blob 저장소를 사용합니다. 캐싱이 필요한 경우에는 [Redis 캐시][rediscache], [Memcache 클라우드](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 또는 [Azure Store](https://azure.microsoft.com/gallery/store/)에 제공되는 기타 캐싱 서비스 중 하나를 고려하세요.
 
 ![Azure 웹 앱, 다중 지역에 호스트, MySQL용 CDBR 고가용성 라우터 사용, 관리되는 캐시, Blob 저장소 및 CDN 포함][performance-diagram]
 
@@ -96,7 +96,7 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 * **[WordPress 보내기][export]** - 이 기능은 블로그 콘텐츠를 내보낸 다음 [WordPress 가져오기 플러그 인][import]을 사용하여 Azure 앱 서비스에서 새 WordPress 사이트로 가져올 수 있습니다.
 
-	> [AZURE.NOTE]이 프로세스를 통해 콘텐츠를 마이그레이션할 수 있지만 플러그 인, 테마 또는 다른 사용자 지정 내용은 마이그레이션되지 않습니다. 이러한 항목은 수동으로 다시 설치해야 합니다.
+	> [AZURE.NOTE] 이 프로세스를 통해 콘텐츠를 마이그레이션할 수 있지만 플러그 인, 테마 또는 다른 사용자 지정 내용은 마이그레이션되지 않습니다. 이러한 항목은 수동으로 다시 설치해야 합니다.
 
 * **수동 마이그레이션** - [사이트][wordpressbackup] 및 [데이터베이스를 백업][wordpressdbbackup]한 다음 Azure 앱 서비스의 웹앱과 관련 MySQL 데이터베이스에 수동으로 복원하여 고가용성 사이트를 마이그레이션하고, 플러그 인, 테마 및 사용자 지정 내용을 수동으로 설치하는 번거로움을 피할 수 있습니다.
 
@@ -232,7 +232,7 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 
 * [Azure의 WordPress 관련 팁](http://www.johnpapa.net/azurecleardbmysql/)
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -282,4 +282,4 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # <a id="nonendorsed"> </a>보증되지 않는 배포에 대한 정보 #
 
@@ -32,7 +32,9 @@ Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되
 따라서 가능한 경우 [Azure 보증 배포판의 Linux](../linux-endorsed-distributions.md) 중 하나를 사용하여 시작하는 것이 좋습니다. 다음 문서에서는 Azure에서 지원되는 다양한 Linux 보증 배포판을 준비하는 방법을 안내합니다.
 
 - **[CentOS 기반 배포판](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES 및 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
@@ -76,7 +78,7 @@ Azure의 VHD 이미지는 가상 크기가 1MB 단위로 조정되어야 합니�
 
 이 문제를 해결하려면 Hyper-V 관리자 콘솔 또는 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet을 사용하여 VM 크기를 조정하면 됩니다. Windows 환경에서 실행 중이지 않은 경우 qemu-img를 사용하여 VHD를 변환(필요한 경우)하고 크기를 조정하는 것이 좋습니다.
 
-> [AZURE.NOTE]VHD 형식이 잘못 지정되는 qemu-img 버전 >=2.2.1에 알려진 버그가 있습니다. 이 문제는 향후 qemu-img 릴리스에서 수정될 예정입니다. 현재에는 qemu-img 2.2.0 이하 버전을 이용하는 것이 좋습니다. 참조: https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] VHD 형식이 잘못 지정되는 qemu-img 버전 >=2.2.1에 알려진 버그가 있습니다. 이 문제는 향후 qemu-img 릴리스에서 수정될 예정입니다. 현재에는 qemu-img 2.2.0 이하 버전을 이용하는 것이 좋습니다. 참조: https://bugs.launchpad.net/qemu/+bug/1490611
 
 
  1. `qemu-img` 또는 `vbox-manage`와 같은 도구를 사용하여 직접 VHD 크기를 조정하면 VHD가 부팅되지 않을 수도 있습니다. 따라서 먼저 VHD를 원시 디스크 이미지로 변환하는 것이 좋습니다. VM 이미지가 이미 원시 디스크 이미지로 만들어진 경우(KVM과 같은 일부 하이퍼바이저의 경우 기본값)에는 다음 단계를 건너뛸 수 있습니다.
@@ -193,4 +195,4 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 
 - 그런 다음 가상 컴퓨터를 종료하고 VHD를 Azure에 업로드해야 합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

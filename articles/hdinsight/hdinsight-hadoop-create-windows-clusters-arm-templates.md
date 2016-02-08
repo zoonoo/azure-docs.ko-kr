@@ -27,7 +27,7 @@ ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터�
 
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
-- [Azure 구독](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) 및/또는 [Azure CLI](xplat-cli-install.md). 
 
 ## ARM 템플릿
@@ -444,4 +444,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법은 [Visual Studi
 	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

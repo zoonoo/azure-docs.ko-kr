@@ -114,6 +114,6 @@ Azure CLI(Azure 명령줄 인터페이스)에는 **AzureServiceManagement** 모�
 
 **Azure 리소스 관리자 템플릿 예제는 어디서 찾을 수 있나요?**
 
-[Azure 리소스 관리자 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
+[Azure 리소스 관리자 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

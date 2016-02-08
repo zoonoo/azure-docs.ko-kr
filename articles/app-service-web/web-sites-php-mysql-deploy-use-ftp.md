@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -38,7 +38,7 @@
 
 ![Azure PHP 웹 사이트][running-app]
 
->[AZURE.NOTE]계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 
 ##Azure 웹 앱 만들기 및 FTP 게시 설정
@@ -46,31 +46,27 @@
 웹 앱 및 MySQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
 1. [Azure 포털][management-portal]에 로그인합니다.
-2. Azure 포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+2. Azure 포털의 왼쪽 맨 위에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
 	![새 Azure 웹 사이트 만들기][new-website]
 
-3. **웹 + 모바일**, **웹앱 + MySQL**을 차례로 클릭합니다.
+3. 검색에 **웹앱 + MySQL**을 입력하고 **웹앱 + MySQL**을 클릭합니다.
 
 	![새 웹 사이트 사용자 지정 만들기][custom-create]
 
-4. 리소스 그룹의 올바른 이름을 입력합니다.
+4. **만들기**를 클릭합니다. 고유한 앱 서비스 이름, 올바른 리소스 그룹 이름 및 새 서비스 계획을 입력합니다.
 
     ![리소스 그룹 이름 설정][resource-group]
 
-5. 새 웹 앱의 값을 입력합니다.
-
-     ![웹앱 만들기][new-web-app]
 
 6. 약관에 대한 동의를 포함하여 새 데이터베이스의 값을 입력합니다.
 
 	![새 MySQL 데이터베이스 만들기][new-mysql-db]
 	
-7. 웹 앱이 만들어지면 새 리소스 그룹이 보입니다. 웹 앱의 이름을 클릭하여 해당 설정을 구성합니다.
+7. 웹 앱이 만들어지면 새 앱 서비스 블레이드가 보입니다.
 
-	![웹앱을 엽니다.][go-to-webapp]
 
-6. **배포 자격 증명 설정**을 찾을 때까지 아래로 스크롤합니다.
+6. **설정** > **배포 자격 증명**을 클릭합니다.
 
 	![배포 자격 증명 설정][set-deployment-credentials]
 
@@ -118,7 +114,8 @@
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [AZURE.NOTE]<code>$user</code> 및 <code>$pwd</code> 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
+	> [AZURE.NOTE] 
+	<code>$user</code> 및 <code>$pwd</code> 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
 
 4. 웹 브라우저를 열고 [http://localhost/registration/createtable.php][localhost-createtable]로 이동합니다. 그러면 데이터베이스에 `registration_tbl` 테이블이 만들어집니다.
 
@@ -171,7 +168,8 @@
 			die(var_dump($e));
 		}
 
-	> [AZURE.NOTE]다시 <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
+	> [AZURE.NOTE]
+	다시 <code>$user</code> 및 <code>$pwd</code>의 값을 로컬 MySQL 사용자 이름 및 암호로 업데이트해야 합니다.
 
 7. 데이터베이스 연결 코드 다음에 등록 정보를 데이터베이스에 삽입하는 데 필요한 코드를 추가합니다.
 
@@ -222,11 +220,15 @@
 
 웹 앱에서 실행되는 MySQL 데이터베이스에 연결하려면 연결 정보가 필요합니다. MySQL 연결 정보를 가져오려면 다음 단계를 따르십시오.
 
+1. 앱 서비스 웹앱 블레이드에서 리소스 그룹 링크를 클릭합니다.
+
+	![리소스 그룹 선택][select-resourcegroup]
+
 1. 리소스 그룹에서 다음 데이터베이스를 클릭합니다.
 
 	![데이터베이스 선택][select-database]
 
-2. 데이터베이스 요약에서 **속성**을 선택합니다.
+2. 데이터베이스 요약에서 **설정** >서 **속성**을 선택합니다.
 
     ![속성 선택][select-properties]
 	
@@ -292,6 +294,7 @@
 [resource-group]: ./media/web-sites-php-mysql-deploy-use-ftp/set_group.png
 [new-web-app]: ./media/web-sites-php-mysql-deploy-use-ftp/create_wa.png
 [select-database]: ./media/web-sites-php-mysql-deploy-use-ftp/select_database.png
+[select-resourcegroup]: ./media/web-sites-php-mysql-deploy-use-ftp/select_resourcegroup.png
 [select-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/select_properties.png
 [note-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/note-properties.png
 
@@ -300,4 +303,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

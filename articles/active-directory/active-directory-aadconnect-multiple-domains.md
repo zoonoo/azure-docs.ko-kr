@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 #복수 도메인 지원
@@ -50,8 +50,8 @@ Azure AD PowerShell을 사용하여 페더레이션으로 두 번째 도메인�
 Azure AD에서 다음 구성을 제공합니다.
 
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 IssuerURI가 내 도메인을 기반으로 한 값으로 설정되므로 고유한 끝점 url 값은 원래 contoso.com 도메인의 경우와 마찬가지로 fs.contoso100.com의 내 페더레이션 서비스를 가리키도록 여전히 구성됩니다. 따라서 모든 도메인은 여전히 같은 AD FS 시스템을 가리킵니다.
 
@@ -74,11 +74,11 @@ PowerShell에서 SupportMultipleDomain 스위치를 수동으로 제공해야 �
 이 작업을 수행하면 Azure AD에서 두 개의 도메인에 대한 구성을 갖게 됩니다.
 
 - DomainName: contoso.com
-- IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://contoso.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 이제 contoso.com 및 fabrikam.com 도메인에서 사용자에 대한 페더레이션된 로그온이 작동됩니다. 남아 있는 단 하나의 문제는 하위 도메인의 사용자에 대한 로그온 문제입니다.
 
@@ -91,4 +91,4 @@ Azure AD는 발급자를 도메인의 필수 값이 일치하지 않아 인증�
 
 요약하면 같은 AD FS 서버에 연결된 모든 하위 도메인뿐만 아니라 서로 다른 이름을 가진 여러 도메인을 가질 수 있도록 발급자 값이 모든 사용자에 대해 올바르게 설정되어 있는지 확인하려면 몇 가지 추가 단계만 수행하면 됩니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -27,7 +27,7 @@
 
 암호 동기화는 온 프레미스 Active Directory에서 Azure Active Directory(Azure AD)로 사용자의 암호를 동기화하는 Azure Active Directory Connect 동기화(Azure AD Connect 동기화)의 기능입니다. 이 기능은 사용자가 자신의 Azure Active Directory 서비스 (예: Office 365, Microsoft Intune, CRM Online)에 로그인할 때 온-프레미스 네트워크에 로그인할 때 사용하는 동일한 암호를 사용합니다.
 
-> [AZURE.NOTE]FIPS 및 암호 동기화에 대해 Active Directory 도메인 서비스 구성에 대한 자세한 내용은 [암호 동기화 및 FIPS](#password-synchronization-and-fips)를 참조하세요.
+> [AZURE.NOTE] FIPS 및 암호 동기화에 대해 Active Directory 도메인 서비스 구성에 대한 자세한 내용은 [암호 동기화 및 FIPS](#password-synchronization-and-fips)를 참조하세요.
 
 ### 암호 동기화의 가용성
 
@@ -45,7 +45,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 암호 동기화는 현재 로그온한 사용자에게 아무런 영향도 미치지 않습니다. 클라우드 서비스에 로그인한 사용자가 온-프레미스 암호를 바꿔도, 클라우드 서비스 세션을 중단없이 계속됩니다. 그러나, 새 암호를 제공 받으려면, 사용자는 클라우드 서비스에 빨리 재인증을 해야합니다. 이 시점에서 사용자는 새 암호 즉, 온-프레미스 Active Directory에서 클라우드로 최근에 동기화된 암호를 제공하도록 요구받습니다.
 
-> [AZURE.NOTE]암호 동기화는 Active Directory의 개체 형식 사용자에만 지원됩니다. iNetOrgPerson 개체 형식에 대해 지원되지 않습니다.
+> [AZURE.NOTE] 암호 동기화는 Active Directory의 개체 형식 사용자에만 지원됩니다. iNetOrgPerson 개체 형식에 대해 지원되지 않습니다.
 
 ### Azure AD 도메인 서비스와 함께 암호를 동기화하는 방법
 
@@ -68,7 +68,7 @@ Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에�
 
 암호 동기화를 사용하도록 설정하면, 온-프레미스 Active Directory 내에서 구성된 암호 복잡성 정책은 동기화된 사용자의 클라우드 내에서 정의되었을 수 있는 모든 복잡성 정책을 재정의합니다. 즉, 고객의 온-프레미스 Active Directory 환경에서 유효한 모든 암호는 Azure AD 서비스에 액세스하는데 사용할 수 있습니다.
 
-> [AZURE.NOTE]클라우드에서 직접 만든 사용자의 암호는 클라우드 내에서 정의된 암호 정책을 계속 따릅니다.
+> [AZURE.NOTE] 클라우드에서 직접 만든 사용자의 암호는 클라우드 내에서 정의된 암호 정책을 계속 따릅니다.
 
 **암호 만료 정책**
 
@@ -160,4 +160,4 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

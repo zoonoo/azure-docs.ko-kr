@@ -278,9 +278,9 @@ Microsoft Azure 저장소 서비스는 개발자가 기본적으로 제공하려
 
 Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft Azure 저장소 홈페이지](http://azure.microsoft.com/services/storage/)
+- [Microsoft Azure 저장소 홈페이지](https://azure.microsoft.com/services/storage/)
 - [Azure 저장소 소개](storage-introduction.md)
 - [Blob](storage-dotnet-how-to-use-blobs.md), [테이블](storage-dotnet-how-to-use-tables.md) 및 [큐](storage-dotnet-how-to-use-queues.md)에 대한 저장소 시작 가이드
 - 저장소 아키텍처 – [Microsoft Azure 저장소: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

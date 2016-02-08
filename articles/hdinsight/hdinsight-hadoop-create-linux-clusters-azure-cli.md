@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/17/2015"
+   	ms.date="01/22/2016"
    	ms.author="larryfr"/>
 
 #Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -27,13 +27,13 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
 이 문서의 단계는 Azure CLI 및 템플릿을 사용하여 새 HDInsight 클러스터를 만드는 과정을 안내합니다.
 
-> [AZURE.IMPORTANT]이 문서의 단계는 HDInsight 클러스터에 대해 작업자 노드 (4)의 기본 갯수를 사용합니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
+> [AZURE.IMPORTANT] 이 문서의 단계는 HDInsight 클러스터에 대해 작업자 노드 (4)의 기본 갯수를 사용합니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
 >
 > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
 ##필수 조건
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 - __Azure CLI__. CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요.
 
@@ -84,7 +84,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
         azure group create RESOURCEGROUPNAME LOCATION
     
-    > [AZURE.NOTE]위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "미국 중남부"입니다.
+    > [AZURE.NOTE] 위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "미국 중남부"입니다.
 
 6. 다음 명령을 사용하여 이 리소스 그룹에 초기 배포를 만듭니다. __PATHTOTEMPLATE__를 __azuredeploy.json__ 템플릿 파일에 대한 경로로 바꿉니다. __PATHTOPARAMETERSFILE__를 __azuredeploy.parameters.json__ 파일에 대한 경로로 바꿉니다. __RESOURCEGROUPNAME__를 이전 단계에서 만든 그룹의 이름으로 바꿉니다.
 
@@ -121,4 +121,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

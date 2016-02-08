@@ -71,7 +71,7 @@ Azure AD 인증에 대한 시작 논리가 포함된 인증 시작 클래스 **A
 
 마법사에서 선택한 디렉터리에 Azure AD 응용 프로그램이 만들어졌습니다.
 
-[Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
 ##*개별 사용자 계정 인증을 사용하지 않도록 설정*한 경우 내 프로젝트에 추가된 변경 내용은 무엇인가요?
 NuGet 패키지 참조가 제거되고 파일이 제거 및 백업되었습니다. 프로젝트의 상태에 따라 수동으로 추가 참조 또는 파일을 제거하거나 적절하게 코드를 수정해야 할 수도 있습니다.
@@ -114,6 +114,6 @@ NuGet 패키지 참조가 제거되고 파일이 제거 및 백업되었습니�
 ###Azure Active Directory 앱이 업데이트됨
 Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함하도록 업데이트되었으며, 추가 키가 생성되어 `web.config` 파일에서 *ida:Password*로 사용되었습니다.
 
-[Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

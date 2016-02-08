@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="01/25/2016"
 	ms.author="thmullan"/>
 
 # 자습서: Entity Framework 및 행 수준 보안을 사용하여 다중 테넌트 데이트베이스를 포함하는 웹 앱
@@ -28,9 +28,9 @@
 
 ## 1 단계: SESSION\_CONTEXT를 설정하기 위해 응용 프로그램에 인터셉터 클래스를 추가합니다.
 
-응용 프로그램에서 변경해야 하는 항목은 한 가지입니다. 모든 응용 프로그램 사용자가 동일한 연결 문자열(예: 동일한 SQL 로그인)을 사용하여 데이터베이스에 연결하기 때문에 RLS 정책에서 어떤 사용자를 필터링해야 할지를 알 수 있는 방법이 현재로서는 없습니다. 이러한 접근 방법은 효율적인 연결 풀링을 가능하게 하기 때문에 웹 응용 프로그램에서는 매우 일반적이지만, 데이터베이스 내에서 현재 응용 프로그램 사용자를 식별하기 위해 다른 방법이 필요하다는 것을 의미합니다. 해결책은 쿼리를 실행하기 전에 응용 프로그램에서 [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806)의 현재 UserId에 대해 키-값 쌍을 설정하도록 하는 것입니다. SESSION\_CONTEXT는 세션 범위 키-쌍 저장소이며, RLS 정책은 여기에 저장된 UserId를 사용하여 현재 사용자를 식별하게 됩니다. *참고: SESSION\_CONTEXT는 현재 Azure SQL 데이터베이스의 미리 보기 기능입니다.*
+응용 프로그램에서 변경해야 하는 항목은 한 가지입니다. 모든 응용 프로그램 사용자가 동일한 연결 문자열(예: 동일한 SQL 로그인)을 사용하여 데이터베이스에 연결하기 때문에 RLS 정책에서 어떤 사용자를 필터링해야 할지를 알 수 있는 방법이 현재로서는 없습니다. 이러한 접근 방법은 효율적인 연결 풀링을 가능하게 하기 때문에 웹 응용 프로그램에서는 매우 일반적이지만, 데이터베이스 내에서 현재 응용 프로그램 사용자를 식별하기 위해 다른 방법이 필요하다는 것을 의미합니다. 해결책은 연결된 직후에 쿼리를 실행하기 전에 응용 프로그램에서 [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806)의 현재 UserId에 대해 키-값 쌍을 설정하도록 하는 것입니다. SESSION\_CONTEXT는 세션 범위 키-쌍 저장소이며, RLS 정책은 여기에 저장된 UserId를 사용하여 현재 사용자를 식별하게 됩니다.
 
-EF가 각 쿼리를 실행하기 전에 T-SQL 문을 준비하여 SESSION\_CONTEXT의 현재 UserId를 자동으로 설정하도록 Entity Framework(EF) 6의 새로운 기능인 [interceptor](https://msdn.microsoft.com/data/dn469464.aspx)를 추가하겠습니다.
+EF가 연결을 시작할 때마다 T-SQL 문을 실행하여 SESSION\_CONTEXT에 자동으로 현재 UserId를 설정하기 위해, Entity Framework(EF) 6의 새 기능인 [interceptor](https://msdn.microsoft.com/data/dn469464.aspx)(특히 [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor))를 추가해 보겠습니다.
 
 1.	Visual Studio에서 ContactManager 프로젝트를 엽니다.
 2.	솔루션 탐색기에서 Models 폴더를 마우스 오른쪽 단추로 클릭하고 추가 > 클래스를 선택합니다.
@@ -43,27 +43,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
 using Microsoft.AspNet.Identity;
 
 namespace ContactManager.Models
 {
-    public class SessionContextInterceptor : IDbCommandInterceptor
+    public class SessionContextInterceptor : IDbConnectionInterceptor
     {
-        private void SetSessionContext(DbCommand command)
+        public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
+        	// Set SESSION_CONTEXT to current UserId whenever EF opens a connection
             try
             {
                 var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
                 if (userId != null)
                 {
-                    // Set SESSION_CONTEXT to current UserId before executing queries
-                    var sql = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId;";
-
-                    command.CommandText = sql + command.CommandText;
-                    command.Parameters.Insert(0, new SqlParameter("@UserId", userId));
+                    DbCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
+                    DbParameter param = cmd.CreateParameter();
+                    param.ParameterName = "@UserId";
+                    param.Value = userId;
+                    cmd.Parameters.Add(param);
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (System.NullReferenceException)
@@ -71,29 +73,97 @@ namespace ContactManager.Models
                 // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
             }
         }
-        public void NonQueryExecuting(DbCommand command, DbCommandInterceptionContext<int> interceptionContext)
+        
+        public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void NonQueryExecuted(DbCommand command, DbCommandInterceptionContext<int> interceptionContext)
-        {
 
-        }
-        public void ReaderExecuting(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
+        public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void ReaderExecuted(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
-        {
 
-        }
-        public void ScalarExecuting(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
+        public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
         {
-            this.SetSessionContext(command);
         }
-        public void ScalarExecuted(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
-        {
 
+        public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
+        }
+
+        public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
         }
     }
 
@@ -164,7 +234,7 @@ go
 
 ```
 
-이 코드는 세 가지를 수행합니다. 우선, RLS 개체에 대한 액세스를 중앙 집중화하고 제한하는 모범 사례의 하나로 새로운 스키마를 만듭니다. 다음으로, 행의 UserId가 SESSION\_CONTEXT의 UserId와 일치하면 '1'을 반환하는 조건자 함수를 만듭니다. 마지막으로, Contacts 테이블에 대한 필터 및 차단 조건자로 이 함수를 추가하는 보안 정책을 만듭니다. 필터 조건자는 쿼리가 현재 사용자에게 속하는 행만 반환하도록 하며, 차단 조건자는 응용 프로그램이 우발적으로 잘못된 사용자의 행을 삽입하지 못하도록 막는 안전 장치 역할을 합니다. *참고: 차단 조건자는 현재 Azure SQL 데이터베이스의 미리 보기 기능입니다.*
+이 코드는 세 가지를 수행합니다. 우선, RLS 개체에 대한 액세스를 중앙 집중화하고 제한하는 모범 사례의 하나로 새로운 스키마를 만듭니다. 다음으로, 행의 UserId가 SESSION\_CONTEXT의 UserId와 일치하면 '1'을 반환하는 조건자 함수를 만듭니다. 마지막으로, Contacts 테이블에 대한 필터 및 차단 조건자로 이 함수를 추가하는 보안 정책을 만듭니다. 필터 조건자는 쿼리가 현재 사용자에게 속하는 행만 반환하도록 하며, 차단 조건자는 응용 프로그램이 우발적으로 잘못된 사용자의 행을 삽입하지 못하도록 막는 안전 장치 역할을 합니다.
 
 이제 응용 프로그램을 실행하고 user1@contoso.com으로 로그인합니다. 이제 이 사용자에는 자신의 UserId에 할당된 연락처만 볼 수 있습니다.
 
@@ -180,4 +250,4 @@ go
 
 이러한 가능성 외에도 RLS를 훨씬 더 개선하기 위해 최선을 다하고 있습니다. 질문이나 아이디어가 있거나 보고 싶은 내용이 있으면 의견을 알려 주시기 바랍니다. 여러분의 의견에 감사드립니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

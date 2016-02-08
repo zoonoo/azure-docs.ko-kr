@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="01/25/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -36,6 +36,10 @@
 </table></br>
 
 ##릴리스 정보
+
+###<a name="1.5.2"/>1.5.2</a>
+
+- 문제 해결 [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter 수신기 누수 경고
 
 ###<a name="1.5.1"/>1.5.1</a>
 
@@ -105,7 +109,8 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.5.1](#1.5.1) | 2016년 1월 4일--- 
+| [1\.5.2](#1.5.2) | 2016년 1월 22일 |--- 
+| | [1\.5.1](#1.5.1) | 2016년 1월 4일--- 
 | [1\.5.0](#1.5.0) | 2015년 12월 31일--- 
 | [1\.4.0](#1.4.0) | 2015년 10월 6일--- 
 | [1\.3.0](#1.3.0) | 2015년 10월 6일 |--- 
@@ -131,4 +136,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

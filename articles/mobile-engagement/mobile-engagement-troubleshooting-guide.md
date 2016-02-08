@@ -110,7 +110,7 @@
 문제를 스스로 해결할 수 없는 경우 다음을 수행할 수 있습니다.
 
 1. StackOverflow 포럼 및 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/windows/ko-KR/home?forum=azuremobileengagement)의 기존 스레드에서 문제를 검색하고 그렇지 않으면 질문을 합니다. 
-2. 누락된 기능을 찾은 경우 [UserVoice 포럼](http://feedback.azure.com/forums/285737-mobile-engagement)에서 요청에 대해 추가/투표를 합니다.
+2. 누락된 기능을 찾은 경우 [UserVoice 포럼](https://feedback.azure.com/forums/285737-mobile-engagement/)에서 요청에 대해 추가/투표를 합니다.
 3. Microsoft 지원이 있는 경우 다음 세부 정보를 제공하여 지원 인시던트를 엽니다. 
 	- Azure 구독 ID
 	- 플랫폼(예:: iOS, Android 등)
@@ -120,4 +120,4 @@
 	- 모바일 고객 관리 SDK 버전(예: Android SDK v2.1.0)
 	- 정확한 오류 메시지 및 시나리오가 있는 오류 세부 정보
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

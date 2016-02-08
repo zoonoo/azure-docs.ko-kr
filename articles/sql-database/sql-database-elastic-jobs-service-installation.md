@@ -23,7 +23,7 @@
 포털을 통해 기존 **탄력적 데이터베이스 풀**에서 **탄력적 데이터베이스 작업**을 이미 설치한 경우 최신 Powershell 미리 보기에는 기존 설치를 업그레이드하는 스크립트가 포함되어 있습니다. PowerShell API를 통해 노출된 새로운 기능을 활용하려면 최신 **탄력적 데이터베이스 작업** 구성 요소로 설치를 업그레이드하는 것이 좋습니다.
 
 ## 필수 조건
-* Azure 구독. 무료 평가판에 대해서는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Azure PowerShell 버전 0.8.16 이상. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 통해 최신 버전(0.9.5)을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 * [NuGet 명령줄 유틸리티](https://nuget.org/nuget.exe)는 탄력적 데이터베이스 작업 패키지를 설치하는 데 사용됩니다. 자세한 내용은 http://docs.nuget.org/docs/start-here/installing-nuget을 참조하세요.
 
@@ -188,4 +188,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

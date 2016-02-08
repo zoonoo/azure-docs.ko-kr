@@ -47,4 +47,4 @@ Microsoft Azure 미디어 서비스를 사용하면 CENC(Common Encryption) 사�
 
 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

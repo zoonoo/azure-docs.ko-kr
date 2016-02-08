@@ -26,7 +26,7 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 
 랩에 대한 정책을 보거나 변경하려면 다음 단계를 수행합니다.
 
-1. [Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -100,4 +100,4 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 
 1. **저장**을 탭합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

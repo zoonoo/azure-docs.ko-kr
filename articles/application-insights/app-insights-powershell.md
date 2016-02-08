@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # PowerShell을 사용하여 Application Insights 리소스 만들기
@@ -117,6 +117,27 @@ find | 대체
 `"myappname"`(소문자) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
 
+## 앱이 Azure 웹앱인 경우
+
+이 리소스를 추가하거나 `siteextensions` 리소스가 이미 있는 경우 다음과 같이 매개 변수화합니다.
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+이 리소스는 Azure 웹앱에 Application Insights SDK를 배포합니다.
+
 ## 리소스 간의 종속성 설정
 
 Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 설정 시작 전에 하나의 설정이 완료되게 하려면 종속성 줄을 추가합니다.
@@ -145,6 +166,7 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
     * -webTestName은 만들려는 웹 테스트의 이름입니다.
     * -Url은 웹앱의 url입니다.
     * -text는 웹 페이지에 표시되는 문자열입니다.
+    * Azure 웹 사이트인 경우 -siteName -가 사용됩니다.
 
 
 ## 메트릭 경고 정의
@@ -288,4 +311,4 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 
 ```
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,9 +25,9 @@ Azure 기계 학습 개발자 환경은 실시간 또는 일괄 처리 모드로
 스튜디오를 사용하여 Azure 기계 학습 웹 서비스를 만들고 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 - [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
-- [기계 학습 스튜디오 시작](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [기계 학습 스튜디오 시작](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure 기계 학습 미리 보기](https://studio.azureml.net/)
-- [기계 학습 설명서 센터](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [기계 학습 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Azure 기계 학습 웹 서비스 ##
 
@@ -103,4 +103,4 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

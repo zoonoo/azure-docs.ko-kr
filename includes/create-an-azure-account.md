@@ -3,9 +3,9 @@
 ## Azure 계정 만들기
 
 1.  웹 브라우저를 열고 <http://azure.microsoft.com>으로 이동합니다.
-2.  MSDN 구독이 있는 경우 [MSDN 구독자에 대한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 페이지로 이동한 다음 단계에 따라 MSDN 구독자 혜택을 활성화하여 계정을 만듭니다.
+2.  MSDN 구독이 있는 경우 [MSDN 구독자에 대한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 페이지로 이동한 다음 단계에 따라 MSDN 구독자 혜택을 활성화하여 계정을 만듭니다.
 
-   그렇지 않으면 [무료 체험 계정 만들기](http://azure.microsoft.com/pricing/free-trial/) 페이지로 이동한 다음 단계에 따라 체험 계정을 만듭니다. ID 증명을 위해 신용 카드 번호와 휴대폰 번호가 필요하지만 대금이 청구되지는 않습니다.
+   그렇지 않으면 [무료 체험 계정 만들기](https://azure.microsoft.com/pricing/free-trial/) 페이지로 이동한 다음 단계에 따라 체험 계정을 만듭니다. ID 증명을 위해 신용 카드 번호와 휴대폰 번호가 필요하지만 대금이 청구되지는 않습니다.
 
 ## Azure 미리 보기 기능 사용
 
@@ -18,4 +18,4 @@
 [2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
 [3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

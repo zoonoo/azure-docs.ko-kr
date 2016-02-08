@@ -27,7 +27,7 @@ Azure CLI을 사용하여 HDInsight 클러스터를 만드는 방법을 알아�
 
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
 ##Azure에 연결
@@ -70,7 +70,7 @@ HDInsight 클러스터를 만들려면 먼저 ARM(Azure 리소스 관리) 및 Az
 	
 		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
-	> [AZURE.NOTE]저장소 계정은 데이터 센터에 HDInsight와 함께 배치되어야 합니다. ZRS는 테이블을 지원하지 않으므로 저장소 계정 유형은 ZRS일 수 없습니다.
+	> [AZURE.NOTE] 저장소 계정은 데이터 센터에 HDInsight와 함께 배치되어야 합니다. ZRS는 테이블을 지원하지 않으므로 저장소 계정 유형은 ZRS일 수 없습니다.
 
 	Azure 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제][azure-create-storageaccount]를 참조하세요.
 	
@@ -134,4 +134,4 @@ ARM 템플릿을 호출하여 클러스터를 만기 위해 CLI를 사용할 수
 - [Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md)
 - [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -410,6 +410,6 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 
 ##참고 항목
 
-[OSMF용 Microsoft 적응 스트리밍 플러그 인 업데이트](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
+[OSMF용 Microsoft 적응 스트리밍 플러그 인 업데이트](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,11 +25,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Microsoft Azure를 사용하는 모바일 개발이 처음이라면 Azure 모바일 서비스 대신 [Azure 모바일 앱부터 시작](app-service-mobile-dotnet-backend-ios-get-started-preview.md)하세요. 모바일 앱이 [추가적인 이점](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)을 제공합니다.
+>[AZURE.TIP] Microsoft Azure를 사용하는 모바일 개발이 처음이라면 Azure 모바일 서비스 대신 [Azure 모바일 앱부터 시작](app-service-mobile-dotnet-backend-ios-get-started-preview.md)하세요. 모바일 앱이 [추가적인 이점](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)을 제공합니다.
 
 이 자습서는 Azure 모바일 서비스를 사용하여 iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 _할 일 모음_ 앱을 둘 다 만듭니다. 모바일 서비스는 서버 쪽 비즈니스 논리에 .NET 및 Visual Studio를 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리로 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전]을 참조하세요.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](http://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F)을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](https://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F)을 참조하세요.
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
@@ -103,4 +103,4 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 백 엔드 버전]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

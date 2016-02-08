@@ -63,9 +63,9 @@ A10 및 A11 인스턴스에는 Azure 서비스 및 인터넷에 연결하는 한
 
 ## 구독 고려 사항
 
-* **Azure 계정** - 소량의 계산 집약적 인스턴스를 배포하려는 경우 종량제 구독 또는 기타 구매 옵션을 고려합니다. MSDN 구독을 이용할 수도 있습니다. [MSDN 구독자에 대한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세. [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
+* **Azure 계정** - 소량의 계산 집약적 인스턴스를 배포하려는 경우 종량제 구독 또는 기타 구매 옵션을 고려합니다. MSDN 구독을 이용할 수도 있습니다. [MSDN 구독자에 대한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
 
-* **코어 할당량** – 8개 코어 인스턴스 또는 16개 코어 인스턴스가 있는 많은 시나리오에서, 구독당 20개 코어(Azure 서비스 관리 배포) 또는 지역당 20개 코어(Azure 리소스 관리자 배포)인 코어 할당량 기본값을 늘려야 하는 경우가 있습니다. 초기 테스트의 경우 할당량을 100개의 코어로 높이도록 요청해볼 수 있습니다. 이를 위해 [Azure 제한 및 증가 이해](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)에 표시된 대로 무료 지원 티켓을 엽니다.
+* **코어 할당량** – 8개 코어 인스턴스 또는 16개 코어 인스턴스가 있는 많은 시나리오에서, 구독당 20개 코어(Azure 서비스 관리 배포) 또는 지역당 20개 코어(Azure 리소스 관리자 배포)인 코어 할당량 기본값을 늘려야 하는 경우가 있습니다. 초기 테스트의 경우 할당량을 100개의 코어로 높이도록 요청해볼 수 있습니다. 이를 위해 [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)에 표시된 대로 무료 지원 티켓을 엽니다.
 
     >[AZURE.NOTE]Azure 할당량은 신용 제한이며 용량 보증이 아닙니다. 사용하는 코어에 대해서만 요금이 청구됩니다.
 
@@ -91,7 +91,7 @@ Windows Server에서 HPC 팩을 사용하여 계산 집약적 인스턴스를 �
 
 단일 클라우드 서비스 또는 가용성 집합 내에서 A8 및 A9 인스턴스는 인스턴스간 통신을 위한 Linux RDMA 드라이버를 사용하는 MPI 응용 프로그램을 실행하여 Azure의 RDMA 네트워크에 액세스할 수 있습니다. 이때 Azure Linux RDMA는 [Intel MPI Library 5](https://software.intel.com/ko-KR/intel-mpi-library/)에서만 지원됩니다.
 
->[AZURE.NOTE]현재 Azure Linux RDMA 드라이버는 드라이버 확장을 통한 설치에 사용할 수 없습니다. 오직 Azure Marketplace의 RDMA-enabled SLES 12 이미지를 사용하는 경우에만 사용 가능합니다.
+>[AZURE.NOTE] 현재 Azure Linux RDMA 드라이버는 드라이버 확장을 통한 설치에 사용할 수 없습니다. 오직 Azure Marketplace의 RDMA-enabled SLES 12 이미지를 사용하는 경우에만 사용 가능합니다.
 
 계산 노드의 클러스터(laaS)에서 RDMA 네트워크에 액세스하기 위해 Linux MPI 응용 프로그램에 대한 필수 구성 요소는 다음 표를 참조하세요. 배포 옵션 및 구성 단계는 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)을 참조하세요.
 
@@ -126,8 +126,8 @@ MPI | MS-MPI 2012 R2 이상, 독립 실행형 또는 HPC Pack 2012 R2 이상을 
 
 ## 다음 단계
 
-* A8, A9, A10 및 A11 인스턴스의 가용성 및 가격에 대한 세부 정보는 [가상 컴퓨터 가격](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [클라우드 서비스 가격](http://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요.
+* A8, A9, A10 및 A11 인스턴스의 가용성 및 가격에 대한 세부 정보는 [가상 컴퓨터 가격](https://azure.microsoft.com/pricing/details/virtual-machines/) 및 [클라우드 서비스 가격](https://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요.
 * Azure RDMA 네트워크에 액세스할 수 있는 A8 및 A9 인스턴스를 포함한 Linux 기반 클러스터를 배포 및 구성하려면 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)을 참조하세요.
 * Windows에서 HPC 팩을 사용하여 A8 및 A9 인스턴스의 배포 및 사용을 시작하려면 [MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정](virtual-machines-windows-hpcpack-cluster-rdma.md)을 참조하세요.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

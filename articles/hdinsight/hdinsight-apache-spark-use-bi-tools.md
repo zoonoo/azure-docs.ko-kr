@@ -25,13 +25,13 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 * 원시 샘플 데이터를 가져와서 하이브 테이블로 저장
 * Power BI 및 Tableau와 같은 BI 도구를 사용하여 데이터를 분석하고 시각화합니다.
 
-> [AZURE.TIP]이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter Notebook으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 Notebook **HDInsight.ipynb에서 Apache Spark와 함께 BI 도구 사용**을 실행합니다.
+> [AZURE.TIP] 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter Notebook으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 Notebook **HDInsight.ipynb에서 Apache Spark와 함께 BI 도구 사용**을 실행합니다.
 
 **필수 조건:**
 
 다음이 있어야 합니다.
 
-- Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 - Microsoft Spark ODBC 드라이버가 설치된 컴퓨터(Tableau 작업할 HDInsight에서 Spark 필요). [여기](http://go.microsoft.com/fwlink/?LinkId=616229)에서 드라이버를 설치할 수 있습니다.
 - [Power BI](http://www.powerbi.com/) 또는 [Tableau Desktop](http://www.tableau.com/products/desktop)과 같은 BI 도구. [http://www.powerbi.com/](http://www.powerbi.com/)에서 Power BI의 미리 보기 구독을 무료로 받을 수 있습니다.
@@ -46,11 +46,11 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **Python 2**를 클릭합니다.
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
@@ -94,7 +94,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. 테이블이 성공적으로 만들어졌는지 확인합니다. Notebook의 빈 셀에서 다음 코드 조각을 복사하고 **Shift + Enter**를 누릅니다.
+5. 테이블이 성공적으로 만들어졌는지 확인합니다. 노트북의 빈 셀에서 다음 코드 조각을 복사하고 **SHIFT + ENTER**를 누릅니다.
 
 		hiveCtx.sql("SHOW TABLES").show()
 
@@ -237,4 +237,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

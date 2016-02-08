@@ -39,7 +39,7 @@
 - 관계형 결과 집합을 개체 지향 형식으로 변환하는 코드 샘플
 
 
-> [AZURE.NOTE]더 많은 언어의 코드 샘플이 준비되고 있으며, 이 샘플에 대한 링크가 이 항목에 추가됩니다.
+> [AZURE.NOTE] 더 많은 언어의 코드 샘플이 준비되고 있으며, 이 샘플에 대한 링크가 이 항목에 추가됩니다.
 
 
 ## Linux 기반 클라이언트
@@ -86,7 +86,7 @@
 ## 참고 항목
 
 
-- [다양한 언어 및 플랫폼에 대한 도구 및 SDK 다운로드](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [다양한 언어 및 플랫폼에 대한 도구 및 SDK 다운로드](https://azure.microsoft.com/downloads/#cmd-line-tools)
 - [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)
 - [일시적인 오류에 대한 숫자 코드 목록](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Azure SQL 데이터베이스 개발: 방법 도움말 항목](http://msdn.microsoft.com/library/azure/ee621787.aspx)
@@ -94,4 +94,4 @@
 - [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)
 - [GitHub의 EF 7, Entity Framework 6](http://entityframework.codeplex.com/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

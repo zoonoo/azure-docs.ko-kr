@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="powershell"
 	ms.workload="na"
-	ms.date="10/09/2015"
+	ms.date="01/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 #Azure 리소스 관리자 관리 PowerShell cmdlet에 대한 변경 내용
@@ -91,4 +91,4 @@ AzureRmResource 및 Get-AzureRmResourceGroup cmdlet에 대한 변경 내용을 �
 
 Azure 리소스 관리자에 정책 지원을 추가했습니다. 이 릴리스에는 정책을 관리하는 PowerShell cmdlet이 추가되었습니다. 정책에 대한 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

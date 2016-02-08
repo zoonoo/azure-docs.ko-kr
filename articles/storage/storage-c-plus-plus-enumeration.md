@@ -19,7 +19,7 @@
 
 목록 작업은 Azure 저장소를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 저장소에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
 
->[AZURE.NOTE]이 가이드는 [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용할 수 있는 Azure Storage Client Library for C++ 버전 1.x을(를) 대상으로 합니다.
+>[AZURE.NOTE] 이 가이드는 [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용할 수 있는 Azure Storage Client Library for C++ 버전 1.x을(를) 대상으로 합니다.
 
 Storage Client Library는 Azure 저장소에서 개체를 나열 또는 쿼리하는 다양한 방법을 제공합니다. 이 문서는 다음과 같은 시나리오를 다룹니다.
 
@@ -182,6 +182,6 @@ Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은
 -	[C++에서 큐 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-queues.md)
 -	[Azure Storage Client Library for C++ API 설명서](http://azure.github.io/azure-storage-cpp/)
 -	[Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
+-	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

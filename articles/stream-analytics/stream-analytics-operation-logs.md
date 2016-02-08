@@ -83,7 +83,7 @@ Azure Preview 포털에서 **중요** 이벤트를 보려면 메시지의 수준
 
   ![작업 세부 정보](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-[지원](http://azure.microsoft.com/support/options/)에 문의하거나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 통해 팀에 정보를 제공해야 하는 경우 작업 세부 정보, 특히 **상관관계 ID**를 적어 두세요.
+[지원](https://azure.microsoft.com/support/options/)에 문의하거나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 통해 팀에 정보를 제공해야 하는 경우 작업 세부 정보, 특히 **상관관계 ID**를 적어 두세요.
 
 ## 도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -96,4 +96,4 @@ Azure Preview 포털에서 **중요** 이벤트를 보려면 메시지의 수준
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

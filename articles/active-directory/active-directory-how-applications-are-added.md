@@ -91,7 +91,7 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 ## 응용 프로그램이 Azure AD 인스턴스에 어떻게 추가되나요?
 다음과 같은 여러 가지 방법으로 응용 프로그램을 Azure AD에 추가할 수 있습니다.
 
-* [Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)에서 앱 추가
+* [Azure Active Directory 응용 프로그램 갤러리](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)에서 앱 추가
 * Azure Active Directory와 통합된 타사 응용 프로그램에 등록/로그인(예: [Smartsheet](https://app.smartsheet.com/b/home) 또는 [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
     * 등록/로그인하는 동안 해당 프로필 및 다른 사용 권한에 액세스하도록 앱에 권한을 부여하라는 메시지가 사용자에게 표시됩니다. 처음으로 동의하는 사람이 응용 프로그램을 나타내는 서비스 주체를 디렉터리에 추가하게 됩니다.
 * [Office 365](http://products.office.com/)와 같은 Microsoft 온라인 서비스에 등록/로그인
@@ -146,4 +146,4 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

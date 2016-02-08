@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="event-hubs" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 원격 분석 및 응용 프로그램 이벤트 규모 수집
@@ -23,7 +23,7 @@
 
 ## 탐색
 - [이벤트 허브](event-hubs-overview.md)
-- [이벤트 허브 가격 정보](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [이벤트 허브 가격 정보](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [이벤트 허브 가용성 및 지원 FAQ](event-hubs-availability-and-support-faq.md)
 - [이벤트 소싱 패턴](http://msdn.microsoft.com/library/dn589792.aspx)
  
@@ -32,9 +32,9 @@
 - [이벤트 허브 코드 샘플](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## 관련 서비스
-- [서비스 버스](http://azure.microsoft.com/services/service-bus/)
-- [Azure 저장소](http://azure.microsoft.com/services/storage/)
-- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
+- [서비스 버스](https://azure.microsoft.com/services/service-bus/)
+- [Azure 저장소](https://azure.microsoft.com/services/storage/)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

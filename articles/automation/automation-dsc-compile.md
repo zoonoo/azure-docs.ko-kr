@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="10/15/2015"
+   ms.date="01/25/2016"
    ms.author="coreyp"/>
    
 #Azure 자동화 DSC에서 구성을 컴파일#
@@ -56,9 +56,9 @@ Windows PowerShell을 사용하여 컴파일하기 시작하는 데 [`Start-Azur
     $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
     
     while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	
-    {$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    {
+    	$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     	Start-Sleep -Seconds 3
-    
     }
     
     $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any 
@@ -70,33 +70,34 @@ Windows PowerShell을 사용하여 컴파일하기 시작하는 데 [`Start-Azur
 
 다음 예제에서는 **FeatureName** 및 **IsPresent**라는 두 개의 매개 변수를 사용하여 **ParametersExample.sample** 노드 구에서 속성의 값을 결정하며 이는 컴파일하는 동안 생성됩니다.
 
-    Configuration ParametersExample {
+    Configuration ParametersExample
+    {
     	param(
-    	[Parameter(Mandatory=$true)]
+    		[Parameter(Mandatory=$true)]
     
-    	[string] $FeatureName,
+    		[string] $FeatureName,
     
-    	[Parameter(Mandatory=$true)]
-    	[boolean] $IsPresent
+    		[Parameter(Mandatory=$true)]
+    		[boolean] $IsPresent
+    	)
     
-    )
+    	$EnsureString = "Present"
+    	if($IsPresent -eq $false)
+    	{
+    		$EnsureString = "Absent"
+    	}
     
-    $EnsureString = "Present"
-    if($IsPresent -eq $false) {
-    	$EnsureString = "Absent"
-    
-    }
-    
-    Node "sample" {
-    
-    	WindowsFeature ($FeatureName + "Feature") {
-    		Ensure = $EnsureString
-    		Name = $FeatureName
+    	Node "sample"
+    	{
+    		WindowsFeature ($FeatureName + "Feature")
+    		{
+    			Ensure = $EnsureString
+    			Name = $FeatureName
     		}
     	}
     }
 
-Azure 자동화 DSC 포털 또는 Azure PowerShell에서 기본 매개 변수를 사용하는 DSC 구성을 컴파일할 수 있습니다.
+Azure 자동화 DSC 포털 또는 Azure PowerShell로 기본 매개 변수를 사용하는 DSC 구성을 컴파일할 수 있습니다.
 
 ###포털###
 
@@ -123,31 +124,28 @@ PSCredentials을 매개 변수로 전달하는 방법에 대한 정보는 아래
 
 **ConfigurationData**를 사용하면 PowerShell DSC를 사용하는 동안 환경의 특정 구성에서 구조적 구성을 구분할 수 있습니다. [PowerShell DSC의 "위치"에서 "대상" 분리](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)를 참조하여 **ConfigurationData**에 대해 자세히 알아봅니다.
 
->[AZURE.NOTE]Azure PowerShell을 사용하여 Azure 포털이 아닌 Azure 자동화 DSC에서 컴파일하는 경우 **ConfigurationData**를 사용할 수 있습니다.
+>[AZURE.NOTE] Azure PowerShell을 사용하여 Azure 포털이 아닌 Azure 자동화 DSC에서 컴파일하는 경우 **ConfigurationData**를 사용할 수 있습니다.
 
 다음 예제 DSC 구성은 **$ConfigurationData** 및 **$AllNodes** 키워드를 통해 **ConfigurationData**를 사용합니다. 또한 다음과 같이 예를 들어 [**xWebAdministration** 모듈](https://www.powershellgallery.com/packages/xWebAdministration/)이 필요합니다.
 
-     Configuration ConfigurationDataSample {
+     Configuration ConfigurationDataSample
+     {
     	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
     	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
     	Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
     	{
-    
     		xWebsite Site
     		{
-    
     			Name = $Node.SiteName
     			PhysicalPath = $Node.SiteContents
     			Ensure   = "Present"
     		}
-    
     	}
- 
     }
 
-PowerShell을 사용하여 위에 DSC 구성을 컴파일하여 Azure 자동화 DSC 끌어오기 서버에 두 개의 노드 구성을 추가할 수 있습니다. **ConfigurationDataSample.MyVM1** 및 **ConfigurationDataSample.MyVM3**.
+PowerShell로 위의 DSC 구성을 컴파일할 수 있습니다. 아래 PowerShell은 Azure 자동화 DSC 끌어오기 서버에 **ConfigurationDataSample.MyVM1** 및 **ConfigurationDataSample.MyVM3**과 같은 두 개의 노드 구성을 추가합니다.
 
     $ConfigData = @{
     	AllNodes = @(
@@ -195,45 +193,39 @@ PowerShell DSC가 생성된 노드 구성 MOF에서 <a href="#configurationdata"
 
 다음 예제에서는 자동화 자격 증명 자산을 사용하는 DSC 구성을 보여줍니다.
 
-    Configuration CredentialSample {
-    
+    Configuration CredentialSample
+    {
        $Cred = Get-AutomationPSCredential -Name "SomeCredentialAsset"
     
-    	Node $AllNodes.NodeName { 
-    
-    		File ExampleFile { 
+    	Node $AllNodes.NodeName
+    	{ 
+    		File ExampleFile
+    		{ 
     			SourcePath = "\\Server\share\path\file.ext" 
     			DestinationPath = "C:\destinationPath" 
     			Credential = $Cred 
-    
        		}
-    
     	}
-    
     }
 
-PowerShell을 사용하여 위에 DSC 구성을 컴파일하여 Azure 자동화 DSC 끌어오기 서버에 두 개의 노드 구성을 추가할 수 있습니다. **CredentialSample.MyVM1** 및 **CredentialSample.MyVM2**.
+PowerShell로 위의 DSC 구성을 컴파일할 수 있습니다. 아래 PowerShell은 Azure 자동화 DSC 끌어오기 서버에 **CredentialSample.MyVM1** 및 **CredentialSample.MyVM2**와 같은 두 개의 노드 구성을 추가합니다.
 
 
     $ConfigData = @{
     	AllNodes = @(
-    		 @{
+    		@{
     			NodeName = "*"
     			PSDscAllowPlainTextPassword = $True
     		},
-    
     		@{
     			NodeName = "MyVM1"
     		},
-    
     		@{
     			NodeName = "MyVM2"
     		}
     	)
-    } 
-    
-    
+    }
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

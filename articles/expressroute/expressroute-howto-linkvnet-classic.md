@@ -29,7 +29,7 @@
 
 ## 필수 구성 요소
 
-- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침을 따르려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행하세요. 
+- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침을 따르려면 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행하세요. 
 - 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 - 활성화된 Express 경로 회로가 있어야 합니다. 
 	- 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
@@ -49,13 +49,13 @@
 
 여러 구독에서 Express 경로 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독 작업에서 Express 경로 회로를 공유하는 방법의 간단한 계통도가 나와 있습니다. 큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 Express 경로 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 Express 경로 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 Express 경로 회로를 사용할 수 있습니다.
 
->[AZURE.NOTE]전용 회로에 대한 연결 및 대역폭 요금은 Express 경로 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
+>[AZURE.NOTE] 전용 회로에 대한 연결 및 대역폭 요금은 Express 경로 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
 
 ![구독 간 연결](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### 관리
 
-회로 소유자는 Express 경로 회로를 만드는 구독의 관리자/공동 관리자입니다. 회로 소유자는 자신이 소유한 전용 회로를 다른 구독의 관리자/공동 관리자(워크플로 다이어그램에서 회로 사용자로 지칭됨)가 사용하도록 권한을 부여할 수 있습니다. 조직의 Express 경로 회로 사용 권한을 부여받은 회로 사용자는 권한이 부여된 후 구독의 VNet을 Express 경로 회로에 연결할 수 있습니다.
+*회로 소유자*는 Express 경로 회로를 만드는 구독의 관리자/공동 관리자입니다. 회로 소유자는 자신이 소유한 전용 회로를 다른 구독의 관리자/공동 관리자(워크플로 다이어그램에서 *회로 사용자*로 지칭됨)가 사용하도록 권한을 부여할 수 있습니다. 조직의 Express 경로 회로 사용 권한을 부여받은 회로 사용자는 권한이 부여된 후 구독의 VNet을 Express 경로 회로에 연결할 수 있습니다.
 
 회로 소유자는 언제든지 부여된 권한을 수정하고 해지할 수 있습니다. 권한 부여를 해지하면 액세스가 해지된 구독에서 모든 링크가 삭제됩니다.
 
@@ -150,4 +150,4 @@
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

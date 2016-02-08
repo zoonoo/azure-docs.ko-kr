@@ -94,7 +94,7 @@ PowerApps 엔터프라이즈를 시작하려면 Azure Active Directory(Azure AD)
 
 
 ## 3단계: Azure 작업 구독에서 PowerApps 엔터프라이즈에 대한 등록
-> [AZURE.NOTE]다음 단계에서는 구독 관리자가 Azure 포털에 로그인하고 요청을 제출해야 합니다.
+> [AZURE.NOTE] 다음 단계에서는 구독 관리자가 Azure 포털에 로그인하고 요청을 제출해야 합니다.
 
 이제 AD 테넌트 및 Azure 구독을 가지고 있으므로 작업 구독 관리자가 PowerApps 엔터프라이즈에 대해 등록할 수 있습니다. 또한 관리자는 회사 내의 사용자를 'administer' PowerApps에 추가하고(사용자에게 권한 부여 등) Azure 구독에 게시된 PowerApps를 관리할 수 있습니다.
 
@@ -133,7 +133,7 @@ PowerApps API 및 연결, 그리고 모바일 앱, 웹 앱, API 앱 및 논리 �
 - 사용자는 PowerApps 관리자(PowerApps의 "소유자") 또는 구독 관리자로 Azure 포털에 로그인했습니다.
 
 ### 앱 서비스 환경 만들기
-> [AZURE.NOTE]앱 서비스 환경을 만드는 옵션이 표시되지 않으면 테넌트에 대해 이미 만들어진 것입니다. 세부 정보를 보려면 **설정**을 선택하여 앱 서비스 환경을 엽니다.
+> [AZURE.NOTE] 앱 서비스 환경을 만드는 옵션이 표시되지 않으면 테넌트에 대해 이미 만들어진 것입니다. 세부 정보를 보려면 **설정**을 선택하여 앱 서비스 환경을 엽니다.
 
 1. [Azure 포털](https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
  
@@ -143,13 +143,13 @@ PowerApps API 및 연결, 그리고 모바일 앱, 웹 앱, API 앱 및 논리 �
 
 4. **PowerApps** 블레이드에서 **시작하기 위해 앱 서비스 환경 만들기**를 선택하거나 *설정* 아래에서 **앱 서비스 환경**을 선택합니다. ![][5]
 
-	> [AZURE.NOTE]**시작하기 위한 앱 서비스 환경 만들기**를 클릭하면 추가 블레이드에 앱 서비스 환경에 관한 세부 정보가 표시됩니다. 블레이드 만들기를 시작하려면 해당 블레이드에서 만들기 링크를 클릭하기만 하면 됩니다.
+	> [AZURE.NOTE] **시작하기 위한 앱 서비스 환경 만들기**를 클릭하면 추가 블레이드에 앱 서비스 환경에 관한 세부 정보가 표시됩니다. 블레이드 만들기를 시작하려면 해당 블레이드에서 만들기 링크를 클릭하기만 하면 됩니다.
 
 5. 다음으로 이름을 입력하고 사용할 구독을 선택하고 새 리소스 그룹을 선택하거나 만들고 가상 네트워크를 선택합니다. **여기서** 가상 네트워크를 선택한 후에는 변경할 수 없습니다. ![][6] 가상 네트워크가 앱 서비스 환경에서 작동하는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](../app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 
 6. **추가**를 선택하여 앱 서비스 환경 만들기를 완료합니다.
 
-> [AZURE.TIP]PowerApps를 사용하여 앱 서비스 환경을 만들 때 계산 리소스 풀을 구성하라는 메시지가 표시되지 않습니다. 이 단계는 자동으로 처리됩니다.
+> [AZURE.TIP] PowerApps를 사용하여 앱 서비스 환경을 만들 때 계산 리소스 풀을 구성하라는 메시지가 표시되지 않습니다. 이 단계는 자동으로 처리됩니다.
 
 이 앱 서비스 환경에 웹 앱, 모바일 앱 및 API 앱을 추가할 수도 있습니다. 사실 이 환경은 앱 서비스 환경에서 지원하는 모든 항목을 추가하는 환경입니다.
 
@@ -159,9 +159,9 @@ PowerApps API 및 연결, 그리고 모바일 앱, 웹 앱, API 앱 및 논리 �
 
 1. 방금 만든 앱 서비스 환경을 선택합니다.
 2. Essentials에서 **리소스 그룹** 속성을 선택합니다. 그러면 앱 서비스 환경을 포함하고 있는 리소스 그룹이 열립니다. ![][7]
-3. 사용 권한을 관리하는 RBAC 아이콘을 선택합니다. ![][8] 사용자 추가 및 역할 할당은 Azure 내에서 [역할 기반 액세스 제어](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure)를 사용할 때와 같습니다.
+3. 사용 권한을 관리하는 RBAC 아이콘을 선택합니다. ![][8] 사용자 추가 및 역할 할당은 Azure 내에서 [역할 기반 액세스 제어]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)를 사용할 때와 같습니다.
 
-> [AZURE.NOTE]현재 앱 서비스 환경에 RBAC 권한을 부여할 수 없습니다. 부모 리소스 그룹 수준에서 RBAC 사용 권한을 부여할 수 있습니다.
+> [AZURE.NOTE] 현재 앱 서비스 환경에 RBAC 권한을 부여할 수 없습니다. 부모 리소스 그룹 수준에서 RBAC 사용 권한을 부여할 수 있습니다.
 
 ## 요약 및 다음 단계
 회사는 이제 PowerApps에 등록되었으며 앱 서비스 환경을 가지고 있습니다. 다음으로 API 및 앱에서 사용할 수 있는 연결을 추가할 수 있습니다.
@@ -181,4 +181,4 @@ PowerApps API 및 연결, 그리고 모바일 앱, 웹 앱, API 앱 및 논리 �
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@
 
 원격 분석에서 사용자 지정된 분석을 수행하시겠습니까? 또는 특정 속성으로 이벤트에 대한 이메일 경고를 받으시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.
 
-연속 내보내기는 무료 평가 기간에 사용할 수 있고 [표준 및 프리미엄 요금제](http://azure.microsoft.com/pricing/details/application-insights/)에서 확인할 수 있습니다.
+연속 내보내기는 무료 평가 기간에 사용할 수 있고 [표준 및 프리미엄 요금제](https://azure.microsoft.com/pricing/details/application-insights/)에서 확인할 수 있습니다.
 
 (단순히 메트릭에서 보거나 블레이드를 검색할 내용의 [일회성 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 수행하려면 블레이드 맨 위의 내보내기를 클릭합니다. Power BI에서 데이터를 확인하려는 경우 연속 내보내기를 사용하지 *않는* [어댑터](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)를 사용합니다.)
 
@@ -75,7 +75,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 데이터에는 설정한 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)의 결과도 포함됩니다.
 
-> [AZURE.NOTE]**샘플링** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+> [AZURE.NOTE] **샘플링** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
 ## <a name="get"></a> 데이터 검사
 
@@ -152,7 +152,7 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
  * Power BI를 사용하는 표준 방법이 아닙니다. 연속 내보내기가 필요하지 않은 [어댑터](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)가 있습니다.
 
 
-더 큰 규모에서는 [HDInsight](http://azure.microsoft.com/services/hdinsight/)(클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터를 관리 및 분석하는 다양한 기술을 제공합니다.
+더 큰 규모에서는 [HDInsight](https://azure.microsoft.com/services/hdinsight/)(클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터를 관리 및 분석하는 다양한 기술을 제공합니다.
 
 
 
@@ -210,4 +210,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

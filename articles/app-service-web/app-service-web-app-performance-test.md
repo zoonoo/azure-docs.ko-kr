@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/11/2015"
+   ms.date="01/13/2016"
    ms.author="estfan; manasma"/>
 
 # 부하 상태에서 Azure 웹앱 성능 테스트
@@ -28,7 +28,7 @@
 
 *	[Azure 구독][AzureSubscription]이 아직 없다면, 이 테스트를 위해 필요합니다. [무료로 Azure 계정을 여는 방법][AzureFreeTrial]을 알아보세요.
 
-*	성능 테스트 내역을 유지하려면 [VSTS(Visual Studio Team Services)][WhatIsVSTS] 계정이 필요합니다. 성능 테스트를 위해 새 계정을 만들거나, 기존 계정이 있다면 그대로 사용하면 됩니다. [Visual Studio Team Services 계정을 사용하여 또 어떤 작업이 가능한가요?](#VSTSAccount)
+*	성능 테스트 내역을 유지하려면 [Visual Studio Team Services(Team Services)][WhatIsTeamServices] 계정이 필요합니다. 성능 테스트를 위해 새 계정을 만들거나, 기존 계정이 있다면 그대로 사용하면 됩니다. [Visual Studio Team Services 계정을 사용하여 또 어떤 작업이 가능한가요?](#TeamServicesAccount)
 
 *	비-프로덕션 환경에서 테스트를 위해 응용 프로그램을 배포합니다. 프로덕션 환경이 아닌 용도로 앱에서 앱 서비스 계획을 사용하도록 합니다. 이렇게 하면 프로덕션 환경에서 기존 고객에 영향을 주거나 앱의 속도가 저하되지 않습니다.
 
@@ -44,11 +44,11 @@
 
 	![도구, 성능 테스트로 이동][ExpandedTools]
  
-0.	이제 성능 테스트 내역을 유지하려면 [VSTS(Visual Studio Team Services)][WhatIsVSTS] 계정을 연결합니다.
+0.	성능 테스트 내역을 유지하려면 [Visual Studio Team Services(Team Services)][WhatIsTeamServices] 계정에 연결합니다.
 
-	사용할 VSTS 계정이 있다면 이 계정을 선택합니다. 계정이 없다면 새 계정을 만듭니다.
+	사용할 Team Services 계정이 있다면 이 계정을 선택합니다. 계정이 없다면 새 계정을 만듭니다.
 
-	![기존 VSTS 계정을 선택하거나 새 계정 만들기][ExistingNewVSTSAccount]
+	![기존 Team Services 계정을 선택하거나 새 계정 만들기][ExistingNewTeamServicesAccount]
 
 0.	성능 테스트를 만듭니다. 세부 정보를 설정하고 테스트를 실행합니다. 테스트를 실행하는 동안 실시간으로 결과를 볼 수 있습니다.
 
@@ -86,30 +86,30 @@ A: Preview 버전이 공개된 후 Visual Studio Team Services 계정으로 한 
 
 A: Azure 포털에서 이 양을 확인할 수 있습니다.
 
-![VSTS 계정으로 이동][VSTSAccount]
+![Team Services 계정으로 이동][TeamServicesAccount]
 
 ![사용한 VUM 확인][CheckTestTime]
 
 <a name="VSOAccount"></a>
 #### Q: Visual Studio Team Services 계정을 사용하여 또 어떤 작업이 가능한가요?
 
-A: 새 계정을 찾으려면 ```https://{accountname}.visualstudio.com```으로 이동합니다. 소프트웨어 코드를 공유하고, 빌드하고, 테스트하고, 작업을 추적하고, 발송하는 모든 작업이 모든 도구와 언어를 사용하여 클라우드 내에서 가능합니다. [Visual Studio Team Services][WhatIsVSTS]의 기능과 서비스가 팀이 더 쉽게 협력하며 지속적으로 배포하는 데 어떤 도움이 되는지 알아보십시오.
+A: 새 계정을 찾으려면 ```https://{accountname}.visualstudio.com```으로 이동합니다. 소프트웨어 코드를 공유하고, 빌드하고, 테스트하고, 작업을 추적하고, 발송하는 모든 작업이 모든 도구와 언어를 사용하여 클라우드 내에서 가능합니다. [Visual Studio Team Services][WhatIsTeamServices]의 기능과 서비스가 팀이 더 쉽게 협력하며 지속적으로 배포하는 데 어떤 도움이 되는지 알아보십시오.
 
 <!--Image references-->
 [WebApp]: ./media/app-service-web-app-performance-test/azure-np-web-apps.png
 [TestOverview]: ./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png
 [ExpandedTools]: ./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png
-[ExistingNewVSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
+[ExistingNewTeamServicesAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
 [NewTest]: ./media/app-service-web-app-performance-test/azure-np-new-performance-test.png
 [TestRunning]: ./media/app-service-web-app-performance-test/azure-np-running-perf-test.png
 [TestDone]: ./media/app-service-web-app-performance-test/azure-np-perf-test-done.png
-[VSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
+[TeamServicesAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
 [CheckTestTime]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png
 
 <!--Reference links -->
 [AzurePortal]: https://portal.azure.com
 [AzureSubscription]: https://account.windowsazure.com/subscriptions
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
+[WhatIsTeamServices]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 이 문서는 Visual Studio 리소스 그룹 배포를 사용하여 Azure 가상 컴퓨터 규모 집합을 배포하는 방법을 보여줍니다.
 
 
-[Azure 가상 컴퓨터 규모 집합](azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/)은 자동 크기 조정 및 부하 분산을 위해 손쉽게 통합되는 옵션을 사용하여 유사한 가상 컴퓨터 컬렉션을 배포하고 관리하기 위한 Azure 계산 리소스입니다. [Azure 리소스 관리자(ARM) 템플릿](https://github.com/Azure/azure-quickstart-templates)을 사용하여 VM 규모 집합을 프로비전하고 배포할 수 있습니다. ARM 템플릿은 Azure CLI, PowerShell, REST를 사용하여 배포가 가능하고 Visual Studio에서 직접 배포할 수도 있습니다. Visual Studio는 Azure 리소스 그룹 배포 프로젝트의 일부로 배포될 수 있는 예제 템플릿 집합을 제공합니다.
+[Azure 가상 컴퓨터 규모 집합](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/)은 자동 크기 조정 및 부하 분산을 위해 손쉽게 통합되는 옵션을 사용하여 유사한 가상 컴퓨터 컬렉션을 배포하고 관리하기 위한 Azure 계산 리소스입니다. [Azure 리소스 관리자(ARM) 템플릿](https://github.com/Azure/azure-quickstart-templates)을 사용하여 VM 규모 집합을 프로비전하고 배포할 수 있습니다. ARM 템플릿은 Azure CLI, PowerShell, REST를 사용하여 배포가 가능하고 Visual Studio에서 직접 배포할 수도 있습니다. Visual Studio는 Azure 리소스 그룹 배포 프로젝트의 일부로 배포될 수 있는 예제 템플릿 집합을 제공합니다.
 
 Azure 리소스 그룹 배포는 단일 배포 작업을 통해 관련된 Azure 리소스 집합을 그룹으로 모아서 게시하는 방법입니다. 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/)를 참조하세요.
 
@@ -108,4 +108,4 @@ Visual Studio를 통해 VM 규모 집합을 성공적으로 배포하고 나면 
 [output_window]: ./media/virtual-machines-vmss-vstemplates/9-Output.png
 [cloud_explorer]: ./media/virtual-machines-vmss-vstemplates/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

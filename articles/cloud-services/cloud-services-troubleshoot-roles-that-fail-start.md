@@ -22,9 +22,9 @@
 
 ## Azure 고객 지원 서비스에 문의
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다.
 
-또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
+또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 
 ## DLL 또는 종속성 누락
@@ -107,7 +107,7 @@ Azure Microsoft Azure 계산 에뮬레이터를 사용하여 누락된 종속성
 
 이 진단 방법을 사용하여 최상의 결과가 발생한 경우 Windows 새로 설치한 컴퓨터 또는 가상 컴퓨터를 사용해야 합니다. Azure 환경을 시뮬레이션하려면 Windows Server 2008 R2 x64를 사용해야 합니다.
 
-1. [Azure SDK](https://azure.microsoft.com/downloads)의 독립 실행형 버전 설치
+1. [Azure SDK](https://azure.microsoft.com/downloads/)의 독립 실행형 버전 설치
 
 2. 개발 컴퓨터에서 클라우드 서비스 프로젝트를 빌드합니다.
 
@@ -167,4 +167,4 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 
 Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

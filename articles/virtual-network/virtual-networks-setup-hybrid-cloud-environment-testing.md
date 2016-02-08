@@ -46,9 +46,9 @@
 4.	사이트 간 VPN 연결 만들기
 5.	DC2 구성 
 
-Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+Azure 구독이 아직 없는 경우 [Azure 평가판 사용](https://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
->[AZURE.NOTE]Azure의 가상 컴퓨터 및 가상 네트워크 게이트웨이는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 이 테스트 환경을 사용하지 않을 때 실행 비용을 절감하려면, 자세한 내용은 이 항목의 [이 환경의 지속적인 비용 최소화](#costs)를 참조하세요.
+>[AZURE.NOTE] Azure의 가상 컴퓨터 및 가상 네트워크 게이트웨이는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 이 테스트 환경을 사용하지 않을 때 실행 비용을 절감하려면, 자세한 내용은 이 항목의 [이 환경의 지속적인 비용 최소화](#costs)를 참조하세요.
 
 이 구성에서는 공용 IP 주소를 사용하여 인터넷에 직접 연결된 최대 네 대의 컴퓨터의 테스트 서브넷이 필요합니다. 이러한 리소스를 설정하지 않은 경우, [테스트를 위해 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)을 수행할 수도 있습니다. 시뮬레이션된 하이브리드 클라우드 테스트 환경은 Azure 구독에만 필요합니다.
 
@@ -309,7 +309,7 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 이 환경에서 가상 컴퓨터를 실행하는 데 드는 비용을 최소화하려면 가능한 신속하게 필요한 테스트 및 데모를 수행한 다음 가상 컴퓨터를 삭제하거나, 사용하지 않을 때 가상 컴퓨터를 종료합니다. 예를 들어 Azure 자동화 및 Runbook을 사용하여 업무 시간이 끝날 때마다 Test\_VNET 가상 네트워크의 가상 컴퓨터를 자동으로 종료할 수 있습니다. 자세한 내용은 [Azure 자동화 시작](../automation-create-runbook-from-samples.md)을 참조하세요.
 
-Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azure 가상 컴퓨터 집합으로 구현됩니다. 자세한 내용은 [가격-가상 네트워크](http://azure.microsoft.com/pricing/details/virtual-network/)를 참조하세요. VPN 게이트웨이의 비용을 최소화하려면 테스트 환경을 만들고 가능한 신속하게 필요한 테스트 및 데모를 수행하거나 다음 단계를 사용하여 게이트웨이를 삭제합니다.
+Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azure 가상 컴퓨터 집합으로 구현됩니다. 자세한 내용은 [가격-가상 네트워크](https://azure.microsoft.com/pricing/details/virtual-network/)를 참조하세요. VPN 게이트웨이의 비용을 최소화하려면 테스트 환경을 만들고 가능한 신속하게 필요한 테스트 및 데모를 수행하거나 다음 단계를 사용하여 게이트웨이를 삭제합니다.
 
 1.	로컬 컴퓨터의 Azure 관리 포털의 왼쪽 창에서 **네트워크**, **TestVNET**, **대시보드**를 차례로 클릭합니다.
 2.	작업 표시줄에서 **게이트웨이 삭제**를 클릭합니다. 메시지가 표시되면 **예**를 클릭합니다. 게이트웨이가 삭제되고 해당 상태가 **게이트웨이가 만들어지지 않음**으로 변경될 때까지 대기합니다.
@@ -329,4 +329,4 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 그런 다음 로컬 컴퓨터에서 Azure 관리 포털로 이동하여 TestVNET 가상 네트워크의 상태가 연결됨으로 표시될 때까지 기다립니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

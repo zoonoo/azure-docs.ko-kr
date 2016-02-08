@@ -23,7 +23,7 @@
 
 REST API를 사용하고 웹 서비스에 액세스하는 방법은 많습니다. 예를 들어, 웹 서비스를 배포할 때 생성된 샘플 코드를 사용하여 C#, R 또는 Python에서 응용 프로그램을 작성할 수 있습니다(기계 학습 스튜디오의 웹 서비스 대시보드에서 API 도움말 페이지에 사용 가능). 또는 만든 샘플 Microsoft Excel 통합 문서를 사용할 수 있습니다(Studio의 웹 서비스 대시보드에서도 사용 가능).
 
-그러나 웹 서비스에 액세스하는 가장 빠르고 쉬운 방법은 [Azure 웹앱 마켓플레이스](https://azure.microsoft.com/marketplace/web-applications/all/)에서 사용 가능한 웹앱 템플릿을 통한 것입니다.
+그러나 웹 서비스를 액세스하는 가장 빠르고 쉬운 방법은 [Azure 웹 앱 마켓플레이스](https://azure.microsoft.com/marketplace/web-applications/all/)에서 사용 가능한 웹 앱 템플릿을 통한 것입니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 
 	![요청 URI][image4]
 
-3. [Azure ML 요청-응답 서비스 웹앱](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)으로 이동하고 **웹앱 만들기**를 클릭합니다. 템플릿은 새 웹앱이 만들어진 Microsoft Azure 클래식 포털로 이동시켜줍니다.
+3. [Azure 포털](https://portal.azure.com), **로그인**으로 이동하고 **새로 만들기**를 클릭하고 **Azure ML 요청-응답 서비스 웹앱**을 검색하고 선택한 다음 **만들기**를 클릭합니다.
 
 	- 웹 앱에 고유한 이름을 지정합니다. 웹앱의 URL이 이름 뒤에 됩니다 `.azurewebsites.net.`예를 들어, `http://carprediction.azurewebsites.net.`
 
@@ -78,7 +78,7 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 
 6. 웹앱은 현재 웹 서비스 설정과 함께 **웹앱 구성** 페이지를 표시합니다. 여기서 웹 앱에서 사용되는 설정을 변경할 수 있습니다.
 
-	> [AZURE.NOTE]여기서 설정을 변경하면 이 웹 앱에 대 한 설정만 변경됩니다. 웹 서비스의 기본 설정을 변경되지 않습니다. 예를 들어, 여기에서**설명**을 변경하면 기계 학습 스튜디오의 웹 서비스 대시보드에 표시되는 설명은 변경되지 않습니다.
+	> [AZURE.NOTE] 여기서 설정을 변경하면 이 웹 앱에 대 한 설정만 변경됩니다. 웹 서비스의 기본 설정을 변경되지 않습니다. 예를 들어, 여기에서**설명**을 변경하면 기계 학습 스튜디오의 웹 서비스 대시보드에 표시되는 설명은 변경되지 않습니다.
 
 	완료되면 **변경 내용 저장**을 클릭한 다음 **홈페이지로 이동**을 클릭합니다.
 
@@ -125,4 +125,4 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

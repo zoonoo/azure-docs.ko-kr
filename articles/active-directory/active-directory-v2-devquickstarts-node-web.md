@@ -19,7 +19,8 @@
 # 앱 모델 v2.0 미리 보기: nodeJS 웹앱에 로그인 추가
 
 
-  >[AZURE.NOTE]이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+  >[AZURE.NOTE]
+    이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
 
 여기서는 Passport를 통해 다음 작업을 수행합니다.
@@ -44,7 +45,7 @@
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
 ## 1. 앱 등록
-[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르세요.  다음을 수행해야 합니다.
+[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
 
 - 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
 - 앱에 대한 **웹** 플랫폼을 추가합니다.
@@ -67,7 +68,7 @@
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- 또한 빠른 시작의 뼈대에 Preview를 위해 `passport-azure-ad` 을(를) 사용했습니다.
+- 또한 빠른 시작의 뼈대에 Preview를 위해 `passport-azure-ad`를 사용했습니다.
 
 - `npm install passport-azure-ad`
 
@@ -88,17 +89,17 @@
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Add some logging 
-var log = bunyan.createLogger({ 
-	name: 'Microsoft OIDC Example Web Application' 
-}); 
+// Add some logging
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
 ```
 
 - 그런 후에 방금 참조한 전략을 사용하여 로그인 요청을 처리합니다.
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -112,7 +113,7 @@ passport.use(new OIDCStrategy({
     responseType: config.creds.responseType,
     responseMode: config.creds.responseMode,
     skipUserProfile: config.creds.skipUserProfile
-    //scope: config.creds.scope
+    scope: config.creds.scope
   },
   function(iss, sub, profile, accessToken, refreshToken, done) {
     log.info('Example: Email address we received was: ', profile.email);
@@ -135,7 +136,8 @@ passport.use(new OIDCStrategy({
 ```
 Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 전략(Twitter, Facebook 등)에 대해 사용합니다. 전략을 보면 토큰 및 완료가 매개 변수로 포함된 function()이 전달되는 것을 확인할 수 있습니다. 전략은 모든 작업을 수행한 후 돌아옵니다. 전략이 돌아오면 사용자를 저장하고 토큰을 다시 요청할 필요가 없도록 보관하려 합니다.
 
-> [AZURE.IMPORTANT]위 코드는 서버에 인증하는 모든 사용자를 사용합니다. 이를 자동 등록이라고 합니다. 프로덕션 서버에서는 결정한 등록 프로세스를 먼저 통과해야만 사용자 액세스를 허용하려 합니다. 일반적으로 이는 Facebook으로 등록할 수 있도록 하지만 추가 정보를 입력하도록 요구하는 소비자 앱에서 나타나는 패턴입니다. 샘플 응용 프로그램이 아니라면 반환된 토큰 개체에서 메일을 추출하고 추가 정보를 입력하도록 요구할 수 있습니다. 테스트 서버이므로 메모리 내 데이터베이스에 추가합니다.
+> [AZURE.IMPORTANT]
+위 코드는 서버에 인증하는 모든 사용자를 사용합니다. 이를 자동 등록이라고 합니다. 프로덕션 서버에서는 결정한 등록 프로세스를 먼저 통과해야만 사용자 액세스를 허용하려 합니다. 일반적으로 이는 Facebook으로 등록할 수 있도록 하지만 추가 정보를 입력하도록 요구하는 소비자 앱에서 나타나는 패턴입니다. 샘플 응용 프로그램이 아니라면 반환된 토큰 개체에서 메일을 추출하고 추가 정보를 입력하도록 요구할 수 있습니다. 테스트 서버이므로 메모리 내 데이터베이스에 추가합니다.
 
 - 다음에는 Passport에서 요구하는 대로 로그인한 사용자를 추적할 수 있는 메서드를 추가하겠습니다. 여기에는 사용자 정보의 직렬화 및 역직렬화가 포함됩니다.
 
@@ -228,7 +230,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 
@@ -241,7 +243,7 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 ```
@@ -282,7 +284,7 @@ app.get('/logout', function(req, res){
     -	`/` 경로는 요청에 사용자를 전달하여(있는 경우) index.ejs 뷰로 리디렉션됩니다.
     - `/account` 경로는 먼저 ***인증되었는지 확인***하고(아래에서 구현) 사용자에 대한 추가 정보를 얻을 수 있도록 요청에 사용자를 전달합니다.
     - `/login` 경로는 `passport-azuread`에서 azuread-openidconnect 인증자를 호출하고, 실패할 경우 사용자를 다시 /login으로 리디렉션합니다.
-    - `/logout`은 쿠키를 지우는 logout.ejs(및 경로)를 호출하고 사용자를 다시 index.ejs로 돌려보냅니다.
+    - `/logout`은(는) 쿠키를 지우는 logout.ejs(및 경로)를 호출하고 사용자를 다시 index.ejs로 돌려보냅니다.
 
 
 - `app.js`의 마지막 부분을 위해 위의 `/account`에서 사용된 EnsureAuthenticated 메서드를 추가하겠습니다.
@@ -328,7 +330,7 @@ exports.index = function(req, res){
 };
 ```
 
-- 루트 디렉터리 아래에 `/routes/user.js` 경로를 만듭니다.
+- 루트 디렉터리 아래에 `/routes/user.js` 경로 만들기
 
 ```JavaScript
 
@@ -343,7 +345,7 @@ exports.list = function(req, res){
 
 이러한 간단한 경로는 단순히 사용자(있는 경우)를 포함하여 요청을 뷰에 전달합니다.
 
-- 루트 디렉터리 아래에 `/views/index.ejs` 뷰를 만듭니다. 이는 login 및 logout 메서드를 호출하고 계정 정보를 얻을 수 있게 해주는 간단한 페이지입니다. 요청에 전달되는 사용자가 로그인한 사용자가 있음을 입증하므로 조건부 `if (!user)`를 사용할 수 있습니다.
+- 루트 디렉터리 아래에 `/views/index.ejs` 뷰를 만듭니다. 이는 login 및 logout 메서드를 호출하고 계정 정보를 얻을 수 있게 해주는 간단한 페이지입니다. 요청에 전달되는 사용자가 로그인한 사용자가 있음을 입증하므로 조건부 `if (!user)`을(를) 사용할 수 있습니다.
 
 ```JavaScript
 <% if (!user) { %>
@@ -387,13 +389,13 @@ exports.list = function(req, res){
 	<body>
 		<% if (!user) { %>
 			<p>
-			<a href="/">Home</a> | 
+			<a href="/">Home</a> |
 			<a href="/login">Log In</a>
 			</p>
 		<% } else { %>
 			<p>
-			<a href="/">Home</a> | 
-			<a href="/account">Account</a> | 
+			<a href="/">Home</a> |
+			<a href="/account">Account</a> |
 			<a href="/logout">Log Out</a>
 			</p>
 		<% } %>
@@ -421,4 +423,4 @@ exports.list = function(req, res){
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

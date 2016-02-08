@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB용 github의 Node.js 샘플 | Microsoft Azure" 
-	description="NoSQL 데이터베이스에서 JSON 문서에 대한 CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 Node.js 샘플을 찾습니다." 
+	pageTitle="DocumentDB용 NoSQL Node.js 예제 | Microsoft Azure" 
+	description="NoSQL 데이터베이스에서 JSON 문서에 대한 CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 NoSQL Node.js 예제를 찾습니다." 
+	keywords="node.js 예제"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -17,30 +18,30 @@
 	ms.author="mimig"/>
 
 
-# DocumentDB Node.js 샘플
+# DocumentDB Node.js 예제
 
 > [AZURE.SELECTOR]
-- [.NET Samples](documentdb-dotnet-samples.md)
-- [Node.js Samples](documentdb-nodejs-samples.md)
+- [.NET Examples](documentdb-dotnet-samples.md)
+- [Node.js Examples](documentdb-nodejs-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
 
-- 각 샘플 Node.js 프로젝트 파일에서 작업에 연결합니다. 
+- 각 Node.js 예제 프로젝트 파일에서 작업에 연결합니다. 
 - 관련된 API 참조 콘텐츠에 대한 링크입니다.
 
 **필수 구성 요소**
 
-1. 이러한 샘플을 사용하려면 Azure 계정이 필요합니다.
+1. 이러한 Node.js 예제를 사용하려면 Azure 계정이 필요합니다.
     - [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
    - [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 2. 또한 [Node.js SDK](documentdb-sdk-node.md)가 필요합니다. 
 
-    > [AZURE.NOTE]각 샘플은 자체 포함되며 자체를 설정하고 자체를 정리합니다. 샘플은 [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html)에 대한 여러 호출을 실행합니다. 구독에 이렇게 영향을 줄 때마다 생성되는 컬렉션의 성능 계층 당 1시간 사용량이 청구됩니다.
+    > [AZURE.NOTE] 각 샘플은 자체 포함되며 자체를 설정하고 자체를 정리합니다. 샘플은 [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html)에 대한 여러 호출을 실행합니다. 구독에 이렇게 영향을 줄 때마다 생성되는 컬렉션의 성능 계층 당 1시간 사용량이 청구됩니다.
 
-## 데이터베이스 샘플
+## 데이터베이스 예제
 
-[DocumentDB.Samples.CollectionManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.CollectionManagement) 프로젝트의 [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.CollectionManagement/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여줍니다.
+[DocumentDB.Samples.CollectionManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.CollectionManagement) 프로젝트의 [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.CollectionManagement/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -50,9 +51,9 @@ DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수
 [계정에 대한 데이터베이스 나열](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DatabaseManagement/app.js#L111-L119) | [DocumentClient.readDatabases](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDatabase)
 [데이터베이스 삭제](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DatabaseManagement/app.js#L133-L144) | [DocumentClient.deleteDatabase](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDatabase)
 
-## 컬렉션 샘플 
+## 컬렉션 예제 
 
-[DocumentDB.Samples.CollectionManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.CollectionManagement) 프로젝트의 [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.CollectionManagement/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여줍니다.
+[DocumentDB.Samples.CollectionManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.CollectionManagement) 프로젝트의 [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.CollectionManagement/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -64,9 +65,9 @@ DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수
 [컬렉션의 성능 계층 변경](https://github.com/mimig1/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L188-L202) | [DocumentClient.replaceOffer](http://azure.github.io/azure-documentdb-node/DocumentClient.html#replaceOffer)
 [컬렉션 삭제](https://github.com/mimig1/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L204-L215) | [DocumentClient.deleteCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteCollection)
 
-## 문서 샘플
+## 문서 예제
 
-[DocumentDB.Samples.DocumentManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.DocumentManagement) 프로젝트의 [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.DocumentManagement/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여줍니다.
+[DocumentDB.Samples.DocumentManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.DocumentManagement) 프로젝트의 [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.DocumentManagement/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -77,9 +78,9 @@ DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수
 [문서 업데이트](https://github.com/mimig1/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L112-L119) | [DocumentClient.replaceDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#replaceDocument)
 [문서 삭제](https://github.com/mimig1/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L122-L133) | [DocumentClient.deleteDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDocument)
 
-## 인덱싱 샘플
+## 청구 예제
 
-[DocumentDB.Samples.IndexManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.IndexManagement) 프로젝트의 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.IndexManagement/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여줍니다.
+[DocumentDB.Samples.IndexManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.IndexManagement) 프로젝트의 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.IndexManagement/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -95,9 +96,9 @@ DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수
 
 인덱싱에 대한 자세한 내용은 [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
 
-## 서버 쪽 프로그래밍 샘플
+## 서버 쪽 프로그래밍 예제
 
-[DocumentDB.Samples.IndexManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.ServerSideScripts) 프로젝트의 [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.ServerSideScripts/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여줍니다.
+[DocumentDB.Samples.IndexManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.ServerSideScripts) 프로젝트의 [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.ServerSideScripts/app.js) 파일에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -106,4 +107,4 @@ DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수
 
 서버 쪽 프로그래밍에 대한 자세한 내용은 [DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

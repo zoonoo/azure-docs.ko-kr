@@ -27,7 +27,7 @@
 
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
-> [AZURE.NOTE]이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스에 대해서는 [이것](../app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
+> [AZURE.NOTE] 이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 앱 서비스에 대해서는 [이것](../app-service-web/web-sites-configure-ssl-certificate.md)을 참조하세요.
 
 이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 자세한 내용은 이 토픽의 끝 부분에서 제공됩니다.
 
@@ -62,12 +62,20 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
     **Certificates** 섹션에서는 인증서의 이름, 위치 및 인증서가 위치한 저장소의 이름을 정의합니다.
+    
+    권한(`permisionLevel` 특성)은 다음 중 하나로 설정될 수 있습니다.
+
+    | 권한 값 | 설명 |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(기본값)** 모든 역할 프로세스는 개인 키에 액세스할 수 있습니다. |
+    | elevated | 승격된 프로세스만 개인 키에 액세스할 수 있습니다.|
 
 2.  서비스 정의 파일에서 **끝점** 섹션 내에 **InputEndpoint** 요소를 추가하여 HTTPS를 사용하도록 설정합니다.
 
@@ -160,4 +168,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>모바일 앱 정의
@@ -36,7 +36,7 @@ Azure 앱 서비스는 전문적 개발자를 위한 완전히 관리되는 PaaS
 ## 모바일 앱 개념
 - **Single Sign On** - Azure Active Directory, Facebook, Google, Twitter 및 Microsoft 계정을 포함하여 점점 증가하는 ID 공급자 목록에서 선택한 다음 모바일 앱을 활용하여 몇 분 내에 인증을 앱에 추가합니다.
 - **오프라인 동기화** - 모바일 앱을 사용하면 연결을 사용할 수 없는 경우 직원들이 오프라인에서 작업하고 장치가 다시 온라인 상태가 되면 엔터프라이즈 백 엔드와 동기화할 수 있게 해주는 강력하고 응답성이 우수한 앱을 쉽게 빌드할 수 있습니다. 오프라인 동기화 기능은 모든 클라이언트 플랫폼에서 지원되며 SQL, 테이블 저장소, Mongo 또는 문서 DB를 비롯한 모든 데이터 원본과 Office 365, Salesforce, Dynamics 또는 온-프레미스 데이터베이스를 비롯한 모든 SaaS API에서 작동합니다.
-- **푸시 알림** - 모바일 앱은 iOS, Android, Windows 또는 Kindle 장치를 사용하는 동적 고객층에게 개인 설정된 수백만 개의 푸시 알림을 몇 초 내에 전송할 수 있는 고확장성 모바일 푸시 알림 엔진인 알림 허브를 제공합니다. 백 엔드가 온-프레미스에서 호스트되는지 또는 클라우드에서 호스트되는지에 관계없이 기존의 모든 앱 백 엔드에 알림 허브를 쉽게 연결할 수 있습니다.
+- **푸시 알림** - 모바일 앱은 iOS, Android, Windows 또는 Kindle 장치를 사용하는 동적 고객층에게 개인 설정된 수백만 개의 푸시 알림을 몇 초 내에 전송할 수 있는 확장성이 뛰어난 모바일 푸시 알림 엔진인 알림 허브를 제공합니다. 백 엔드가 온-프레미스에서 호스트되는지 또는 클라우드에서 호스트되는지에 관계없이 기존의 모든 앱 백 엔드에 알림 허브를 쉽게 연결할 수 있습니다.
 - **자동 크기 조정** - 앱 서비스를 사용하면 들어오는 고객 부하를 처리하기 위해 신속하게 확장하거나 축소할 수 있습니다. VM 수와 크기를 수동으로 선택하거나 부하 또는 일정에 따라 모바일 앱 백 엔드의 크기를 조정하도록 자동 크기 조정을 설정합니다.
 
 ## 시작하기 ##
@@ -44,7 +44,7 @@ Azure 앱 서비스는 전문적 개발자를 위한 완전히 관리되는 PaaS
 
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스]를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](https://tryappservice.azure.com/?appServiceName=mobile)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](https://tryappservice.azure.com/?appServiceName=mobile)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
@@ -54,4 +54,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

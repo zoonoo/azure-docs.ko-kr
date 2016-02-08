@@ -23,7 +23,7 @@
 
 Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 실시간 통신을 제공합니다. 또한 이전 브라우저에서 작동하는 다른 전송(예: 긴 폴링)으로의 대체를 지원합니다. 이 자습서는 Azure 웹 앱으로 Socket.IO를 기반으로 하는 호스팅을 안내하고 [Azure Redis Cache](/documentation/services/cache)를 사용하여 응용 프로그램을 [크기 조정하는](#scale-out) 방법을 보여줍니다. Socket.IO에 대한 자세한 내용은 [http://socket.io/][socketio](영문)를 참조하십시오.
 
-> [AZURE.NOTE]이 작업의 절차는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 적용됩니다. 클라우드 서비스에 대해서는 <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드</a>를 참조하세요.
+> [AZURE.NOTE] 이 작업의 절차는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 적용됩니다. 클라우드 서비스에 대해서는 <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드</a>를 참조하세요.
 
 
 ## 채팅 예제 다운로드
@@ -67,7 +67,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 다음 단계에 따라 Azure 웹 앱을 만들고, Git 게시를 사용하도록 설정한 다음, 웹 앱에 대한 WebSocket 지원을 사용하도록 설정합니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 1. Azure CLI(Azure 명령줄 인터페이스)를 설치하고 Azure 구독에 연결합니다. [Azure CLI 설치 및 구성](../xplat-cli)을 참조하세요.
 
@@ -93,7 +93,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 	메시지가 표시되면 2단계에서 자격 증명을 입력합니다. 서버에서 모듈을 가져올 때 상태 메시지가 표시됩니다. 이 프로세스가 완료되면 응용 프로그램이 Azure 웹 앱에 호스트됩니다.
 
- 	> [AZURE.NOTE]모듈이 설치되는 동안 'The imported project ... was not found' 오류가 발생할 수 있습니다. 이 오류는 무시해도 됩니다.
+ 	> [AZURE.NOTE] 모듈이 설치되는 동안 'The imported project ... was not found' 오류가 발생할 수 있습니다. 이 오류는 무시해도 됩니다.
 
 4. Socket.IO는 Azure에서 기본적으로 사용되지 않는 WebSocket을 사용합니다. WebSocket을 사용하도록 설정하려면 다음 명령을 사용하십시오.
 
@@ -101,7 +101,8 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 	메시지가 표시되면 웹 앱 이름을 입력하세요.
 
-	>[AZURE.NOTE]'azure site set -w' 명령은 버전 0.7.4 이상의 Azure 명령줄 인터페이스에서만 작동합니다. 또한 [Azure 포털](https://portal.azure.com)에서 WebSocket 지원을 사용하도록 설정할 수도 있습니다.
+	>[AZURE.NOTE]
+	'azure site set -w' 명령은 버전 0.7.4 이상의 Azure 명령줄 인터페이스에서만 작동합니다. 또한 [Azure 포털](https://portal.azure.com)에서 WebSocket 지원을 사용하도록 설정할 수도 있습니다.
 	>
 	>Azure Portal에서 WebSocket을 사용하도록 설정하려면 웹 앱 블레이드에서 해당 웹 앱을 클릭하고 **모든 설정** > **응용 프로그램 설정**을 클릭합니다. **웹 소켓**에서 **켜기**를 클릭합니다. 그런 다음 **Save**를 클릭합니다.
 
@@ -115,13 +116,13 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메시지 및 이벤트를 배포하는 방식으로 Socket.IO 응용 프로그램을 확장할 수 있습니다. 사용 가능한 여러 어댑터가 있지만 Azure Redis 캐시 기능에 사용하기 편리한 어댑터는 [socket.io-redis](https://github.com/automattic/socket.io-redis) 어댑터입니다.
 
-> [AZURE.NOTE]Socket.IO 솔루션 확장에 대한 추가 요구 사항은 고정 세션의 지원입니다. 고정 세션은 Azure 요청 라우팅을 통해 Azure 웹 앱에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Azure 웹 사이트의 인스턴스 선호도](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)를 참조하세요.
+> [AZURE.NOTE] Socket.IO 솔루션 확장에 대한 추가 요구 사항은 고정 세션의 지원입니다. 고정 세션은 Azure 요청 라우팅을 통해 Azure 웹 앱에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Azure 웹 사이트의 인스턴스 선호도](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)를 참조하세요.
 
 ###Redis 캐시 만들기
 
 [Azure Redis 캐시에서 캐시 만들기](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)의 단계를 수행하여 새 캐시를 만듭니다.
 
-> [AZURE.NOTE]캐시의 __호스트 이름__ 및 __기본 키__를 저장합니다. 이러한 정보는 다음 단계에서 필요합니다.
+> [AZURE.NOTE] 캐시의 __호스트 이름__ 및 __기본 키__를 저장합니다. 이러한 정보는 다음 단계에서 필요합니다.
 
 ###Redis 및 socket.io-redis 모듈 추가
 
@@ -129,7 +130,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
-	> [AZURE.NOTE]이 명령에 지정된 버전은 이 문서를 테스트할 때 사용된 버전입니다.
+	> [AZURE.NOTE] 이 명령에 지정된 버전은 이 문서를 테스트할 때 사용된 버전입니다.
 
 2. __app.js__ 파일을 수정하여 다음 줄을 `var io = require('socket.io')(server);` 바로 뒤에 추가합니다.
 
@@ -143,7 +144,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 	그러면 이전에 만든 Redis 캐시에 대한 게시 및 구독 클라이언트가 만들어집니다. 이 클라이언트는 어댑터에서 응용 프로그램의 인스턴스 간에 메시지 및 이벤트를 전달하는 데 Redis 캐시를 사용하도록 Socket.IO를 구성하는 데 사용됩니다.
 
-	> [AZURE.NOTE]__socket.io-redis__ 어댑터는 Redis와 직접 통신할 수 있지만 현재 버전에서는 Azure Redis 캐시에 필요한 인증을 지원하지 않습니다. 따라서 __redis__ 모듈을 통해 초기 연결이 만들어진 다음 __socket.io-redis__ 어댑터로 클라이언트가 전달됩니다.
+	> [AZURE.NOTE] __socket.io-redis__ 어댑터는 Redis와 직접 통신할 수 있지만 현재 버전에서는 Azure Redis 캐시에 필요한 인증을 지원하지 않습니다. 따라서 __redis__ 모듈을 통해 초기 연결이 만들어진 다음 __socket.io-redis__ 어댑터로 클라이언트가 전달됩니다.
 	>
 	> Azure Redis 캐시는 포트 6380을 사용한 보안 연결을 지원하지만 이 예제에 사용된 모듈에서는 2014년 7월 14일 현재 보안 연결을 지원하지 않습니다. 위의 코드에서는 기본적으로 비보안 포트 6379를 사용합니다.
 
@@ -183,7 +184,7 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 		  io.set('transports', ['websocket']);
 		});
 
-	> [AZURE.NOTE]위 코드가 활성화되어 있는 동안에는 통신이 WebSocket으로만 제한되므로 WebSocket을 지원하지 않는 이전 브라우저에서 사이트에 연결할 수 없게 됩니다.
+	> [AZURE.NOTE] 위 코드가 활성화되어 있는 동안에는 통신이 WebSocket으로만 제한되므로 WebSocket을 지원하지 않는 이전 브라우저에서 사이트에 연결할 수 없게 됩니다.
 
 * **SSL 사용**
 
@@ -207,7 +208,7 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 
 	일반적으로 Node.js 응용 프로그램에는 **web.config** 파일이 포함되어 있지 않으므로 Azure 웹 사이트를 배포할 때 해당 웹 사이트에서 Node.js 응용 프로그램에 대해 이 파일을 자동으로 생성합니다. 이 파일은 서버에서 자동으로 생성되기 때문에 이 파일을 보려면 웹 사이트에 FTP 또는 FTPS URL을 사용해야 합니다. 사이트의 FTP 및 FTPS URL은 클래식 포털에서 웹앱을 선택한 후 **대시보드** 링크를 선택하여 찾을 수 있습니다. 이러한 URL은 **간략 상태** 섹션에 표시됩니다.
 
-	> [AZURE.NOTE]**web.config** 파일은 응용 프로그램에서 제공하지 않는 경우에만 Azure 웹 사이트에서 생성됩니다. 응용 프로그램 프로젝트의 루트에 **web.config** 파일을 제공한 경우에는 Azure 웹 앱에서 이 파일이 사용됩니다.
+	> [AZURE.NOTE] **web.config** 파일은 응용 프로그램에서 제공하지 않는 경우에만 Azure 웹 사이트에서 생성됩니다. 응용 프로그램 프로젝트의 루트에 **web.config** 파일을 제공한 경우에는 Azure 웹 앱에서 이 파일이 사용됩니다.
 
 	이 항목이 없거나 `true` 값으로 설정된 경우 Node.js 응용 프로그램의 루트에 **web.config**를 만들고 `false` 값을 지정해야 합니다. 참고로 다음은 **app.js**를 진입점으로 사용하는 응용 프로그램의 기본 **web.config**입니다.
 
@@ -262,7 +263,7 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 
 	사용자 응용 프로그램에서 **app.js**가 아닌 다른 진입점을 사용하는 경우, 표시되는 **app.js**를 모두 올바른 진입점으로 바꿔야 합니다. 예를 들어 **app.js**를 **server.js**로 바꿉니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ##다음 단계
 
@@ -285,4 +286,4 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

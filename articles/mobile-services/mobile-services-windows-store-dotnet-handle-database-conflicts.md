@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="wesmc"/>
 
 # 데이터베이스 쓰기 충돌 처리
@@ -125,7 +125,7 @@
 			public string Version { set; get; }
 		}
 
-	> [AZURE.NOTE]형식화되지 않은 테이블을 사용할 경우 테이블의 SystemProperties에 Version 플래그를 추가하여 낙관적 동시성을 사용하도록 설정합니다.
+	> [AZURE.NOTE] 형식화되지 않은 테이블을 사용할 경우 테이블의 SystemProperties에 Version 플래그를 추가하여 낙관적 동시성을 사용하도록 설정합니다.
 	>
 	>`````
 	//Enable optimistic concurrency by retrieving __version
@@ -370,4 +370,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [시스템 속성]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

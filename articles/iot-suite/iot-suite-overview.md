@@ -2,13 +2,14 @@
 	pageTitle="Microsoft Azure IoT Suite 개요 | Microsoft Azure"
 	description="패키징 및 미리 구성된 솔루션을 포함한 Azure IoT Suite에 대한 개요를 제공합니다."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -69,4 +70,4 @@ Azure IoT Hub 서비스에 대한 자세한 내용을 보려면 [IoT Hub 설명�
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

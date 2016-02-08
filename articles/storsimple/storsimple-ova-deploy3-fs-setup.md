@@ -101,7 +101,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
 	**웹 프록시** 페이지에서:
 
-	1.  http://&lt;host-IP 주소 또는 FDQN&gt;:포트 번호 형식으로 **웹 프록시 URL**을 입력합니다. HTTPS URL은 지원되지 않습니다.
+	1.  *http://&lt;host-IP 주소 또는 FDQN&gt;:포트 번호* 형식으로 **웹 프록시 URL**을 입력합니다. HTTPS URL은 지원되지 않습니다.
 
 	2.  **인증**은 **기본**, **NTLM** 또는 **없음**으로 지정합니다.
 
@@ -169,7 +169,7 @@ StorSimple 장치의 구성을 완료하려면 다음 사항이 필요합니다.
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
-> [AZURE.NOTE]
+> [AZURE.NOTE]                                                              
 >
 > **구성** 페이지에 액세스하여 언제든지 다른 모든 장치 설정을 수정할 수 있습니다.
 
@@ -199,7 +199,7 @@ StorSimple 장치의 구성을 완료하려면 다음 사항이 필요합니다.
 
 1.  화살표 아이콘![](./media/storsimple-ova-deploy3-fs-setup/image19.png)을 클릭하여 다음 페이지로 이동합니다.
 
-1.  **추가 설정** 페이지에서 공유에 액세스할 사용자 또는 그룹에 권한을 할당합니다. 사용자 또는 사용자 그룹의 이름을 <john@contoso.com> 형식으로 지정합니다. 이 공유에 액세스하는 관리자 권한은 사용자 그룹(단일 사용자 대신)을 사용하여 허용하는 것이 좋습니다. 여기에서 권한을 할당한 후에 Windows 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
+1.  **추가 설정** 페이지에서 공유에 액세스할 사용자 또는 그룹에 권한을 할당합니다. 사용자 또는 사용자 그룹의 이름을 *<john@contoso.com>* 형식으로 지정합니다. 이 공유에 액세스하는 관리자 권한은 사용자 그룹(단일 사용자 대신)을 사용하여 허용하는 것이 좋습니다. 여기에서 권한을 할당한 후에 Windows 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
 
@@ -211,7 +211,7 @@ StorSimple 장치의 구성을 완료하려면 다음 사항이 필요합니다.
 
 #### 공유에 연결하려면
 
-1.  ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R 키를 누릅니다. 실행 창에서 \<file server name>로 경로를 지정하고, 파일 서버 이름을 파일 서버에 할당한 장치 이름으로 변경합니다. **확인**을 클릭합니다.
+1.  ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R 키를 누릅니다. 실행 창에서 *\<file server name>*로 경로를 지정하고, *파일 서버 이름*을 파일 서버에 할당한 장치 이름으로 변경합니다. **확인**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
 
@@ -231,4 +231,4 @@ StorSimple 가상 배열을 파일 서버로 구성하고 등록하는 방법을
 
 로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

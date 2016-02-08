@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2015"
+   ms.date="01/13/2016"
    ms.author="larryfr"/>
 
 
@@ -21,12 +21,12 @@
 
 Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스에 통합하기 위해 또는 클라우드의 리소스 간의 안전한 개인 네트워크를 만드는 Hadoop 솔루션을 확장할 수 있습니다.
 
-> [AZURE.NOTE]HDInsight에서는 선호도 기반 Azure 가상 네트워크를 지원하지 않습니다. HDInsight를 사용할 때는 위치 기반 가상 네트워크를 사용해야 합니다.
+> [AZURE.NOTE] HDInsight에서는 선호도 기반 Azure 가상 네트워크를 지원하지 않습니다. HDInsight를 사용할 때는 위치 기반 가상 네트워크를 사용해야 합니다.
 
 
 ##<a id="whatis"></a>Azure 가상 네트워크란?
 
-[Azure 가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
+[Azure 가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
 
 * 개인 네트워크(클라우드 전용)에서 클라우드 리소스를 연결합니다.
 
@@ -58,11 +58,11 @@ Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스�
 
 가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-> [AZURE.NOTE]HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](http://azure.microsoft.com/documentation/services/virtual-network/)을 참조하세요.
+> [AZURE.NOTE] HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](https://azure.microsoft.com/documentation/services/virtual-network/)을 참조하세요.
 
 ## 가상 네트워크 요구 사항
 
-> [AZURE.IMPORTANT]가상 네트워크에 HDInsight 클러스터를 만들려면 이 섹션에 설명된 특정 가상 네트워크 구성이 필요합니다.
+> [AZURE.IMPORTANT] 가상 네트워크에 HDInsight 클러스터를 만들려면 이 섹션에 설명된 특정 가상 네트워크 구성이 필요합니다.
 
 * Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹을 기반으로 하는 가상 네트워크와는 연동되지 않습니다. 
 
@@ -87,7 +87,7 @@ Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스�
     
     2. HDInsight 클러스터를 만듭니다. 클러스터에 대한 가상 네트워크 설정을 구성하는 경우 1단계에서 만든 서브넷을 선택합니다.
 
-    > [AZURE.NOTE]위의 단계에서는 가상 네트워크 IP 주소 범위 내에 있는 IP 주소로 통신이 제한되지 않았다고 가정합니다. 제한된 경우 새 서브넷과 통신을 허용하도록 이러한 제한을 수정해야 할 수 있습니다.
+    > [AZURE.NOTE] 위의 단계에서는 _가상 네트워크 IP 주소 범위 내에 있는_ IP 주소로 통신이 제한되지 않았다고 가정합니다. 제한된 경우 새 서브넷과 통신을 허용하도록 이러한 제한을 수정해야 할 수 있습니다.
 
     네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/virtual-networks-nsg.md)를 참조하세요. Azure 가상 네트워크에서 라우팅 제어에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
 
@@ -103,11 +103,11 @@ HDInsight 클러스터는 가상 네트워크 인터페이스에 대한 특정 F
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE]HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)을 참조하세요.
+> [AZURE.NOTE] HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)을 참조하세요.
 
 클러스터 이름, 서비스 및 YARN 리소스 관리자와 같은 클러스터에서 실행 중인 구성 요소를 지정해야 합니다.
 
-> [AZURE.NOTE]반환되는 데이터는 많은 구성 요소에 대한 정보가 포함된 JSON(JavaScript Object Notation) 문서입니다. FQDN만 추출하려면 JSON 파서를 사용하여 `host_components[0].HostRoles.host_name` 값을 검색해야 합니다.
+> [AZURE.NOTE] 반환되는 데이터는 많은 구성 요소에 대한 정보가 포함된 JSON(JavaScript Object Notation) 문서입니다. FQDN만 추출하려면 JSON 파서를 사용하여 `host_components[0].HostRoles.host_name` 값을 검색해야 합니다.
 
 예를 들어, HDInsight Hadoop 클러스터에서 FQDN을 반환하려면 다음 방법 중 하나를 사용하여 YARN 리소스 관리자에 대한 데이터를 검색할 수 있습니다.
 
@@ -158,7 +158,7 @@ Zookeeper 쿼럼 주소를 얻으려면 다음 방법 중 하나를 사용하여
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE]HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)을 참조하세요.
+> [AZURE.NOTE] HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)을 참조하세요.
 
 쿼럼 정보를 만든 후 클라이언트 응용 프로그램에서 사용합니다.
 
@@ -199,4 +199,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

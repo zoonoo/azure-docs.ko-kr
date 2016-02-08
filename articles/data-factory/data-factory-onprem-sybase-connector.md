@@ -30,6 +30,8 @@
 
 Sybase 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [data provider for Sybase](http://go.microsoft.com/fwlink/?linkid=324846)를 설치해야 합니다.
 
+> [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+
 ## 샘플: Sybase에서 Azure Blob로 데이터 복사
 
 아래 샘플은 다음을 보여줍니다.
@@ -264,4 +266,4 @@ Sybase는 T-SQL 및 T-SQL 형식을 지원합니다. sql 형식에서 .NET 형�
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

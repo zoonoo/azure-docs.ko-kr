@@ -31,8 +31,8 @@
 
 **추가 리소스**
 
-* [Microsoft Azure 블로그](http://azure.microsoft.com/blog/)
+* [Microsoft Azure 블로그](https://azure.microsoft.com/blog/)
 * [ Azure AD란?](active-directory-whatis.md)
 * [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

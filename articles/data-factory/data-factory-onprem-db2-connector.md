@@ -31,6 +31,9 @@ DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 �
 
 추가 설치 단계가 필요한 Windows 8의 경우 IBM DB2 데이터 서버 드라이버를 설치에 대해 IBM에서 보고한 문제가 있습니다. Windows 8의 IBM DB2 데이터 서버 드라이버에 대한 자세한 내용은 [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434)를 참조하십시오.
 
+> [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+
+
 ## 샘플: DB2에서 Azure Blob로 데이터 복사
 
 아래 샘플은 다음을 보여줍니다.
@@ -309,4 +312,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

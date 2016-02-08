@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/26/2016"
 	ms.author="torsteng" />
 
 # 데이터베이스 간 쿼리 시작(수직 분할) 
@@ -109,4 +109,4 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

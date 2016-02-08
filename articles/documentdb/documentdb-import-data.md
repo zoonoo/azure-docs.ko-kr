@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB로 데이터 가져오기 | Microsoft Azure" 
-	description="오픈 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 비롯한 다양한 소스에서 DocumentDB로 데이터를 가져오는 방법을 알아봅니다." 
+	pageTitle="데이터베이스 마이그레이션 도구 - CSV에서 JSON으로 변환 | Microsoft Azure" 
+	description="오픈 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 DocumentDB로 데이터를 가져오는 방법에 대해 알아봅니다. MongoDB, SQL, 테이블 저장소, DynamoDB 및 CSV에서 JSON입니다." 
+	keywords="csv에서 json으로, 데이터베이스 마이그레이션 도구, csv에서 json으로 변환"
 	services="documentdb" 
 	authors="andrewhoh" 
 	manager="jhubbard" 
@@ -16,9 +17,9 @@
 	ms.date="10/16/2015" 
 	ms.author="anhoh"/>
 
-# DocumentDB로 데이터 가져오기 #
+# DocumentDB로 데이터 가져오기 - 데이터베이스 마이그레이션 도구
 
-이 문서는 공개 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 포함한 다양한 소스에서 데이터를 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)로 가져오는 방법을 보여줍니다.
+이 문서는 공개 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 포함한 다양한 소스에서 데이터를 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)로 가져오는 방법을 보여줍니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
@@ -64,7 +65,7 @@ DocumentDB 데이터 마이그레이션 도구는 다음을 비롯한 다양한 
 
 JSON 파일 원본 가져오기 옵션을 사용하면 단일 문서 JSON 파일이나 각각 JSON 문서 배열을 포함하는 JSON 파일을 하나 이상 가져올 수 있습니다. 가져올 JSON 파일을 포함하는 폴더를 추가하면, 하위 폴더에서 재귀적으로 파일을 검색하는 옵션도 있습니다.
 
-![JSON 파일 원본 옵션의 스크린샷](./media/documentdb-import-data/jsonsource.png)
+![JSON 파일 원본 옵션의 스크린샷 - 데이터베이스 마이그레이션 도구](./media/documentdb-import-data/jsonsource.png)
 
 JSON 파일을 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다.
 
@@ -72,13 +73,13 @@ JSON 파일을 가져오는 몇 가지 명령줄 샘플은 다음과 같습니�
 	dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
 	#Import a directory of JSON files
-	dt.exe /s:JsonFile /s.Files:C:\TESessions\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:C:\TESessions*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
 	#Import a directory (including sub-directories) of JSON files
-	dt.exe /s:JsonFile /s.Files:C:\LastFMMusic\**\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Music /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:C:\LastFMMusic***.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Music /t.CollectionTier:S3
 
 	#Import a directory (single), directory (recursive), and individual JSON files
-	dt.exe /s:JsonFile /s.Files:C:\Tweets\*.*;C:\LargeDocs\**\*.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:C:\Tweets*.*;C:\LargeDocs***.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
 	#Import a single JSON file and partition the data across 4 collections
 	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
@@ -87,13 +88,13 @@ JSON 파일을 가져오는 몇 가지 명령줄 샘플은 다음과 같습니�
 
 MongoDB 원본 가져오기 옵션을 사용하면 개별 MongoDB 컬렉션에서 가져오고 필요에 따라 쿼리를 사용하여 문서를 필터링하거나 프로젝션을 사용하여 문서 구조를 수정할 수 있습니다.
 
-![MongoDB 원본 옵션의 스크린샷](./media/documentdb-import-data/mongodbsource.png)
+![MongoDB 원본 옵션의 스크린샷 - documentdb vs mongodb](./media/documentdb-import-data/mongodbsource.png)
 
 연결 문자열은 표준 MongoDB 형식입니다.
 
 	mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database>
 
-> [AZURE.NOTE]Verify 명령을 사용하여 연결 문자열 필드에 지정된 MongoDB 인스턴스를 액세스할 수 있는지 확인합니다.
+> [AZURE.NOTE] Verify 명령을 사용하여 연결 문자열 필드에 지정된 MongoDB 인스턴스를 액세스할 수 있는지 확인합니다.
 
 데이터를 가져올 컬렉션의 이름을 입력합니다. 필요에 따라 쿼리(예: {pop: {$gt: 5000}}) 및/또는 프로젝션(예: {loc:0})에 대한 파일을 제공하여 가져올 데이터를 필터링하고 형식을 지정할 수 있습니다.
 
@@ -109,7 +110,7 @@ MongoDB에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다
 
 MongoDB 내보내기 JSON 파일 원본 가져오기 옵션을 사용하면 mongoexport 유틸리티에서 생성된 JSON 파일을 하나 이상 가져올 수 있습니다.
 
-![MongoDB 내보내기 원본 옵션의 스크린샷](./media/documentdb-import-data/mongodbexportsource.png)
+![MongoDB 내보내기 원본 옵션의 스크린샷 - documentdb vs mongodb](./media/documentdb-import-data/mongodbexportsource.png)
 
 가져올 MongoDB 내보내기 JSON 파일이 포함된 폴더를 추가할 때 하위 폴더의 파일을 재귀적으로 검색하는 옵션이 있습니다.
 
@@ -121,11 +122,11 @@ MongoDB 내보내기 JSON 파일에서 가져오는 명령줄 샘플은 다음�
 
 SQL 원본 가져오기 옵션을 사용하면 개별 SQL Server 데이터베이스에서 가져오고 필요에 따라 쿼리를 사용하여 가져올 레코드를 필터링할 수 있습니다. 또한 중첩 구분 기호를 지정하여 문서 구조를 수정할 수 있습니다(추가 정보 제공 예정).
 
-![SQL 원본 옵션의 스크린샷](./media/documentdb-import-data/sqlexportsource.png)
+![SQL 원본 옵션의 스크린샷 - 데이터베이스 마이그레이션 도구](./media/documentdb-import-data/sqlexportsource.png)
 
 연결 문자열의 형식은 표준 SQL 연결 문자열 형식입니다.
 
-> [AZURE.NOTE]Verify 명령을 사용하여 연결 문자열 필드에 지정된 SQL Server 인스턴스를 액세스할 수 있는지 확인합니다.
+> [AZURE.NOTE] Verify 명령을 사용하여 연결 문자열 필드에 지정된 SQL Server 인스턴스를 액세스할 수 있는지 확인합니다.
 
 중첩 구분 기호 속성을 사용하여 가져오는 동안 계층 관계(하위 문서)를 만듭니다. 다음과 같은 SQL 쿼리를 고려해 보세요.
 
@@ -160,15 +161,15 @@ SQL Server에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니
 	#Import records from sql which match a query and create hierarchical relationships
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
-##<a id="CSV"></a>CSV 파일 가져오기 ##
+##<a id="CSV"></a>CSV 파일 가져오기 - CSV에서 JSON으로 변환 ##
 
 CSV 파일 원본 가져오기 옵션을 사용하면 하나 이상의 CSV 파일을 가져올 수 있습니다. 가져올 CSV 파일이 포함된 폴더를 추가하면, 하위 폴더에서 재귀적으로 파일을 검색하는 옵션도 있습니다.
 
-![CSV 원본 옵션의 스크린샷](media/documentdb-import-data/csvsource.png)
+![CSV 원본 옵션의 스크린샷 - CSV에서 JSON으로](media/documentdb-import-data/csvsource.png)
 
 SQL 원본과 마찬가지로, 중첩 구분 기호 속성을 사용하여 가져오는 동안 계층 관계(하위 문서)를 만들 수 있습니다. 다음과 같은 CSV 머리글 행과 데이터 행을 고려하세요.
 
-![CSV 샘플 레코드의 스크린샷](./media/documentdb-import-data/csvsample.png)
+![CSV 샘플 레코드의 스크린샷 - CSV에서 JSON으로](./media/documentdb-import-data/csvsample.png)
 
 DomainInfo.Domain_Name 및 RedirectInfo.Redirecting과 같은 별칭을 확인하세요. 중첩 구분 기호 '.'을 지정하면 가져오기 도구가 가져오는 동안 DomainInfo 및 RedirectInfo 하위 문서를 만듭니다. DocumentDB의 결과 문서 예는 다음과 같습니다.
 
@@ -208,7 +209,7 @@ Azure 테이블 저장소 연결 문자열의 형식은 다음과 같습니다.
 
 	DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;
 
-> [AZURE.NOTE]Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure 테이블 저장소 인스턴스를 액세스할 수 있는지 확인합니다.
+> [AZURE.NOTE] Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure 테이블 저장소 인스턴스를 액세스할 수 있는지 확인합니다.
 
 데이터를 가져올 Azure 테이블의 이름을 입력합니다. 필요에 따라 [필터](https://msdn.microsoft.com/library/azure/ff683669.aspx)를 지정할 수 있습니다.
 
@@ -229,9 +230,9 @@ Azure 테이블 저장소에서 가져오는 명령줄 샘플은 다음과 같�
 
 Amazon DynamoDB 원본 가져오기 옵션을 사용하면 개별 Amazon DynamoDB 테이블에서 가져오고 필요에 따라 가져올 엔터티를 필터링할 수 있습니다. 여러 템플릿이 제공되므로 가져오기를 최대한 쉽게 설정할 수 있습니다.
 
-![Amazon DynamoDB 원본 옵션의 스크린샷](./media/documentdb-import-data/dynamodbsource1.png)
+![Amazon DynamoDB 원본 옵션의 스크린샷 - 데이터베이스 마이그레이션 도구](./media/documentdb-import-data/dynamodbsource1.png)
 
-![Amazon DynamoDB 원본 옵션의 스크린샷](./media/documentdb-import-data/dynamodbsource2.png)
+![Amazon DynamoDB 원본 옵션의 스크린샷 - 데이터베이스 마이그레이션 도구](./media/documentdb-import-data/dynamodbsource2.png)
 
 Amazon DynamoDB 연결 문자열의 형식은 다음과 같습니다.
 
@@ -425,7 +426,7 @@ DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 
 
 ![DocumentDB 인덱싱 정책 고급 옵션의 스크린샷](./media/documentdb-import-data/indexingpolicy2.png)
 
-> [AZURE.NOTE]인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. DocumentDB 인덱싱 정책에 대한 자세한 정보는 [여기서](documentdb-indexing-policies.md) 읽을 수 있습니다.
+> [AZURE.NOTE] 인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. DocumentDB 인덱싱 정책에 대한 자세한 정보는 [여기서](documentdb-indexing-policies.md) 읽을 수 있습니다.
 
 
 ## JSON 파일로 내보내기
@@ -501,4 +502,4 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

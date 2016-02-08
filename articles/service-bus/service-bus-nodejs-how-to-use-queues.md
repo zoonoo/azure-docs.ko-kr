@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 서비스 버스 큐를 사용하는 방법
@@ -202,4 +202,4 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
   [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

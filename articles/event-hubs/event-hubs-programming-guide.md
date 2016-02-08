@@ -12,24 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 이벤트 허브 프로그래밍 가이드
 
-이 항목은 Azure.NET SDK를 사용하여 Azure 이벤트 허브와 함께 프로그래밍하는 것을 설명합니다. 이벤트 허브에 대한 예비 이해가 있다고 가정합니다. 이벤트 허브의 개요에 대한 개념은 [이벤트 허브 개요](event-hubs-overview.md)를 참조하십시오.
+이 항목은 Azure.NET SDK를 사용하여 Azure 이벤트 허브와 함께 프로그래밍하는 것을 설명합니다. 이벤트 허브에 대한 예비 이해가 있다고 가정합니다. 이벤트 허브의 개요에 대한 개념은 [이벤트 허브 개요](event-hubs-overview.md)를 참조하세요.
 
 ## 이벤트 게시자
 
 이벤트 허브로 이벤트를 전송은 HTTP POST를 사용하거나 AMQP 1.0 연결을 통해 수행됩니다. 처리되는 특정 시나리오에 따라 어떤 것을 언제 사용할지를 선택합니다. AMQP 1.0 연결은 영구 메시징 채널을 제공하기 때문에 서비스 버스에서 조정된 연결로 계량되며 시나리오에서 자주 높은 메시지 볼륨 및 낮은 대기 시간 요구 사항에 적절합니다.
 
-이벤트 허브는 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용하여 만들어지고 관리됩니다. .NET가 관리한 API를 사용하는 경우 이벤트 허브에 데이터를 게시하기 위한 기본 구조는 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 및 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스입니다. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 클래스는 이벤트가 이벤트 허브로 전송되는 AMQP 통신 채널을 제공합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스는 이벤트를 나타내며 이벤트 허브로 메시지를 게시하는데 사용됩니다. 이 클래스는 이벤트에 대한 본문, 일부 메타데이터 및 헤더 정보를 포함합니다. .[EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 개체가 이벤트 허브를 통과하는 경우 여기에 다른 속성을 추가합니다
+이벤트 허브는 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용하여 만들어지고 관리됩니다. .NET가 관리한 API를 사용하는 경우 이벤트 허브에 데이터를 게시하기 위한 기본 구조는 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 및 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스입니다. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx)는 이벤트가 이벤트 허브로 전송되는 AMQP 통신 채널을 제공합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스는 이벤트를 나타내며 이벤트 허브로 메시지를 게시하는데 사용됩니다. 이 클래스는 이벤트에 대한 본문, 일부 메타데이터 및 헤더 정보를 포함합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 개체가 이벤트 허브를 통과하는 경우 여기에 다른 속성을 추가합니다
 
 ## 시작
 
-이벤트 허브를 지원하는 .NET 클래스는 Microsoft.ServiceBus.dll 어셈블리의 일부입니다. 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법은 서비스 버스 NuGet 패키지를 다운로드하는 것입니다. 자세한 내용은 [NuGet 서비스 버스 패키지 사용](https://msdn.microsoft.com/library/azure/dn741354.aspx)을 참조하십시오. 또는 Visual Studio에서 [패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)을 사용할 수 있습니다. 이렇게 하려면 [패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 발급합니다.
+이벤트 허브를 지원하는 .NET 클래스는 Microsoft.ServiceBus.dll 어셈블리에 제공됩니다. 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법은 [서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)를 다운로드하는 것입니다. 또는 Visual Studio에서 [패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)을 사용할 수 있습니다. 이렇게 하려면 [패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 발급합니다.
 
-```powershell
+```
 Install-Package WindowsAzure.ServiceBus
 ```
 
@@ -37,7 +37,7 @@ Install-Package WindowsAzure.ServiceBus
 
 이벤트 허브 만들기에 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용할 수 있습니다. 예:
 
-```c
+```
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
@@ -89,7 +89,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 
 ## 이벤트 직렬화
 
-[EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스에는 개체 및 직렬 변환기, 바이트 배열, 또는 스트림과 같은 다양한 매개 변수를 가진 [4개의 오버로드된 생성자](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)가 있습니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스를 인스턴스화하고 나중에 본문 스트림을 설정할 수 있습니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()**를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다.
+[EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스에는 개체 및 직렬 변환기, 바이트 배열, 또는 스트림과 같은 다양한 매개 변수를 가진 [4개의 오버로드된 생성자](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.eventdata.aspx)가 있습니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스를 인스턴스화하고 나중에 본문 스트림을 설정할 수 있습니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)와 함께 JSON을 사용하는 경우 **Encoding.UTF8.GetBytes()**를 사용하여 JSON으로 인코딩된 문자열에 대한 바이트 배열을 검색할 수 있습니다.
 
 ## 파티션 키
 
@@ -185,4 +185,4 @@ while(receive)
 - [이벤트 허브 코드 샘플](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

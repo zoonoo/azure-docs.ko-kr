@@ -45,11 +45,11 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
 
 - [다음 단계](#Next)
 
-이 자습서에서는 사용자에게 Azure 계정이 이미 있다고 가정합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
+이 자습서에서는 사용자에게 Azure 계정이 이미 있다고 가정합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
 
 ## <a id="Provision">리소스 관리자 배포 모델을 사용하여 갤러리에서 SQL VM 이미지 프로비전
 
-1. 사용자 계정을 사용하여 [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. 사용자 계정을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인합니다.
 1. Azure 포털에서 **+새로 만들기**를 클릭합니다. 포털에서 **새** 블레이드가 열립니다. SQL Server VM 템플릿은 마켓플레이스의 **계산** 그룹에 있습니다.
 
 1. **새** 블레이드에서 **계산**을 클릭합니다.
@@ -87,7 +87,7 @@ Azure 포털에는 SQL Server 가상 컴퓨터를 구성하기 위한 5개의 �
 
 - **저장소** 아래에서 디스크 유형을 지정합니다. 프리미엄 저장소는 프로덕션 워크로드용으로 권장됩니다.
 
->[AZURE.NOTE]프리미엄 저장소는 기본적으로 사용됩니다. 프리미엄 저장소를 지원하는 크기로 컴퓨터의 크기가 자동으로 조정됩니다. 프리미엄 저장소를 비활성화하면 이전 컴퓨터 크기 선택이 사용됩니다.
+>[AZURE.NOTE] 프리미엄 저장소는 기본적으로 사용됩니다. 프리미엄 저장소를 지원하는 크기로 컴퓨터의 크기가 자동으로 조정됩니다. 프리미엄 저장소를 비활성화하면 이전 컴퓨터 크기 선택이 사용됩니다.
 
 - **저장소 계정** 아래에서 자동으로 프로비전된 저장소 계정 이름을 적용 하거나, **저장소 계정**을 클릭하여 기존 계정을 선택하고 저장소 계정 유형을 구성할 수 있습니다. 기본적으로 Azure에서는 로컬 중복 저장소로 새 저장소 계정을 만듭니다.
 
@@ -129,7 +129,7 @@ SQL Server 인증을 요구하는 경우 **SQL 인증** 아래 **사용**을 클
 
 SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** 및 **암호**를 지정합니다. 이 사용자 이름은 SQL Server 인증 로그인 및 sysadmin 고정된 서버 역할의 멤버가 됩니다. 인증 모드에 대한 자세한 내용은 [인증 모드 선택](http://msdn.microsoft.com/library/ms144284.aspx)을 참조하세요. 기본적으로 SQL Server는 SQL Server 인증을 사용하지 않습니다. 이 시나리오에서 가상 컴퓨터의 로컬 관리자는 SQL Server 인스턴스에 연결할 수 있습니다.
 
->[AZURE.NOTE]인터넷(즉, 공용 연결 옵션)을 통해 SQL Server에 액세스하려는 경우 여기에서 SQL 인증을 사용해야 합니다. SQL Server에 대한 공용 액세스를 위해서는 SQL 인증을 사용해야 합니다.
+>[AZURE.NOTE] 인터넷(즉, 공용 연결 옵션)을 통해 SQL Server에 액세스하려는 경우 여기에서 SQL 인증을 사용해야 합니다. SQL Server에 대한 공용 액세스를 위해서는 SQL 인증을 사용해야 합니다.
 
 ### 저장소 최적화
 저장소 요구 사항을 지정하려면 **저장소 구성**을 클릭합니다. 초당 입/출력 작업(IOPs), 처리량(MB/s) 및 총 저장소 크기로 요구 사항을 지정할 수 있습니다. 슬라이딩 규모를 사용하여 이를 구성합니다. 포털에는 이러한 요구 사항에 따라 디스크 수를 자동으로 계산합니다.
@@ -142,7 +142,7 @@ SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** �
 
 다음 이미지는 저장소 구성 블레이드를 보여줍니다. <br/>![SQL ARM 저장소](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE]저장소 구성 제한은 가상 컴퓨터 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
+>[AZURE.NOTE] 저장소 구성 제한은 가상 컴퓨터 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
 
 ### 패치
 기본적으로 **SQL 자동화된 패치**가 사용됩니다. Azure에서는 자동화된 패치를 통해 SQL Server와 운영 체제를 자동으로 패치합니다. 요일, 시간 및 유지 관리 기간에 대한 날짜를 지정합니다. Azure에서 유지 관리 기간에 패치를 수행합니다. 유지 관리 기간 일정에서는 VM 로캘 시간을 사용합니다. Azure에서 SQL Server와 운영 체제를 자동으로 패치하도록 하지 않으려면 **사용 안 함**을 클릭합니다.
@@ -197,7 +197,7 @@ SQL Server 가상 컴퓨터에 연결되었으면 SQL Server Management Studio�
 
 포털을 사용하여 리소스 관리자를 통해 SQL Server 가상 컴퓨터 이미지를 프로비전하는 경우 SQL 연결 옵션 및 사용된 SQL Server 인증에 **공용**을 선택하면 다음 단계가 수행됩니다. 그러나 인터넷을 통한 SQL Server 인스턴스 액세스를 완료하는 데 몇 가지 남은 단계가 있습니다.
 
->[AZURE.NOTE]프로비전 중에 공용을 선택하지 않은 경우 인터넷을 통한 SQL Server 인스턴스 액세스에 추가 단계가 필요합니다. 자세한 내용은 [SQL Server 가상 컴퓨터에 연결(리소스 관리자) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md)를 참조하세요.
+>[AZURE.NOTE] 프로비전 중에 공용을 선택하지 않은 경우 인터넷을 통한 SQL Server 인스턴스 액세스에 추가 단계가 필요합니다. 자세한 내용은 [SQL Server 가상 컴퓨터에 연결(리소스 관리자) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md)를 참조하세요.
 
 가상 컴퓨터에 로컬로 액세스하거나 동일한 가상 네트워크 내에서 액세스해야 하는 경우 다음 단계가 필요하지 않습니다.
 
@@ -206,4 +206,4 @@ SQL Server 가상 컴퓨터에 연결되었으면 SQL Server Management Studio�
 ##<a id="Next">다음 단계
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

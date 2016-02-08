@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 배포 – 포털 준비(미리 보기)
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
-## 소개 
+## 개요 
 
 이 문서는 1.1.1.0(공개 미리 보기) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에만 적용됩니다. 가상 배열을 파일 서버 또는 iSCSI 서버로 완전히 배포하는 데 필요한 배포 자습서 시리즈의 첫 번째 문서입니다. 이 문서는 가상 배열을 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성하는 데 필요한 준비 사항을 설명합니다. 이 문서는 배포 구성 검사 목록 뿐만 아니라 필수 조건과도 연관됩니다.
 
@@ -40,7 +40,7 @@
 
 StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대로 참조하세요.
 
-| **#** | **단계** | **수행할 사항** | **사용할 문서**|
+| **#** | **단계** | **수행할 사항** | **이러한 문서를 사용합니다.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **Azure 클래식 포털 설정** | StorSimple 가상 장치를 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성합니다. |[포털 준비](storsimple-ova-deploy1-portal-prep.md)| 
 |2\. | **가상 배열 프로비전** | Hyper-V의 경우, Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에서 StorSimple 가상 장치에 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우, VMware ESXi 5.5 이상을 실행하는 호스트 시스템에서 StorSimple 온-프레미스 가상 장치에 프로비전하고 연결합니다.| [Hyper-V에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)|
@@ -48,13 +48,13 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 
 #### 배포 동영상
 
-| **이 단계를 수행하려면...** | **아래 동영상을 보세요.**|
+| **이 단계를 수행하려면...** | **이 동영상을 보세요.**|
 |----------------|-------------|
-| StorSimple 가상 배열을 시작하는 단계별 지침 | [StorSimple 가상 배열 시작](http://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array)|
-| Hyper-V에서 StorSimple 가상 배열을 프로비전하는 단계별 지침|[StorSimple 가상 배열 만들기](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array) |
-|StorSimple 가상 배열을 구성하고 등록하는 단계별 지침|[StorSimple 가상 배열 구성](http://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array)|
-|파일 서버로 구성된 StorSimple 가상 배열에서 공유를 만들고, 공유를 백업하고, 데이터를 복원하는 단계별 지침|[StorSimple 가상 배열 사용](http://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array)|
-|StorSimple 가상 배열의 장애 조치(failover) 및 재해 복구에 대한 단계별 지침|[StorSimple 가상 배열 재해 복구](http://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery)
+| StorSimple 가상 배열을 시작하는 단계별 지침 | [StorSimple 가상 배열 시작](https://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array/)|
+| Hyper-V에서 StorSimple 가상 배열을 프로비전하는 단계별 지침|[StorSimple 가상 배열 만들기](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array/) |
+|StorSimple 가상 배열을 구성하고 등록하는 단계별 지침|[StorSimple 가상 배열 구성](https://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array/)|
+|파일 서버로 구성된 StorSimple 가상 배열에서 공유를 만들고, 공유를 백업하고, 데이터를 복원하는 단계별 지침|[StorSimple 가상 배열 사용](https://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array/)|
+|StorSimple 가상 배열의 장애 조치(failover) 및 재해 복구에 대한 단계별 지침|[StorSimple 가상 배열 재해 복구](https://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery/)
 
 이제 Azure 클래식 포털 설치를 시작할 수 있습니다.
 
@@ -112,48 +112,14 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 
 StorSimple Manager 서비스 단일 인스턴스는 여러 StorSimple 1200 장치를 관리할 수 있습니다. StorSimple 관리자 서비스의 새 인스턴스를 만들려면 다음 단계를 수행합니다. 1200 장치를 관리하는 기존 StorSimple Manager 서비스가 있는 경우에는 이 단계를 건너뛰고 [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key)로 이동합니다.
 
-#### 새 서비스를 만들려면
-
-1.  URL <https://manage.windowsazure.com/>에서 Microsoft 계정 자격 증명을 사용하여 Azure 클래식 포털에 로그온합니다.
-
-2.  포털에서 **새로 만들기 > 데이터 서비스 > StorSimple Manager > 빠른 생성**을 클릭합니다.
-
-3.  표시되는 양식에서 다음을 수행합니다.
-
-	1.  서비스에 고유한 **이름**을 지정합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이름은 문자, 숫자 및 하이픈이 될 수 있는 2자에서 50자 사이여야 합니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
-
-	2.  StorSimple 가상 장치를 관리하는 서비스의 경우, **관리되는 장치 유형** 드롭다운 목록에서 **가상 장치 시리즈**를 선택합니다.
-
-	3.  서비스의 **위치**를 지정합니다. 위치는 장치를 배포하려는 지리적 영역을 가리킵니다.
-
-	 -   Azure에 StorSimple 장치에 배포하려는 다른 작업이 있는 경우에는 해당 데이터 센터를 사용하는 것이 좋습니다.
-
-   	 -   StorSimple Manager 및 Azure 저장소는 두 곳의 다른 위치에 있을 수 있습니다. そのような場合、StorSimple Manager と Azure Storage のアカウントを別々に作成する必要があります。 Azure 저장소 계정을 만들려면 포털의 Azure 저장소 서비스로 이동하고 [Azure 저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account)의 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 저장소 계정 구성](#appendix-a-configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple Manager 서비스에 계정을 추가합니다.
-   	 
-   	 -   미리 보기에서는 StorSimple Manager 서비스를 미국 서부 및 일본 동부에서만 만들 수 있습니다.
-	
-	1.  드롭다운 목록에서 **구독**을 선택합니다. 구독은 대금 청구 계정에 연결됩니다. 이 필드는 구독이 하나만 있는 경우에는 나타나지 않습니다.
-
-	1.  **새 Azure 저장소 계정 만들기**를 선택하여 서비스를 포함하는 저장소 계정을 자동으로 만듭니다. 이 저장소 계정에는 "storsimplebwv8c6dcnf"와 같은 특수한 이름이 주어집니다. 다른 위치에 있는 데이터가 필요하면 확인란의 선택을 취소합니다.
-
-	1.  **StorSimple 관리자 만들기**를 클릭하여 서비스를 만듭니다.
-
-		![](./media/storsimple-ova-deploy1-portal-prep/image1.png)
-
-	**서비스** 방문 페이지로 이동됩니다. 서비스 만들기에는 몇 분 정도 소요됩니다. 서비스가 성공적으로 만들어진 후 적절한 알림이 표시됩니다.
-
-	![](./media/storsimple-ova-deploy1-portal-prep/image2.png)
-
-	서비스의 상태가 **활성**으로 변경됩니다.
-
-	![](./media/storsimple-ova-deploy1-portal-prep/image3.png)
+[AZURE.INCLUDE [storsimple-ova-create-new-service](../../includes/storsimple-ova-create-new-service.md)]
 
 > [AZURE.IMPORTANT]
 > 
 > 서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다.
 > 
 
-> - 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#appendix-a-configure-a-new-storage-account-for-the-service)을 참조하세요.
+> - 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#optional-step-configure-a-new-storage-account-for-the-service)을 참조하세요.
 > 
 
 > - 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key)로 이동합니다.
@@ -166,16 +132,8 @@ StorSimple 관리자 서비스를 실행한 후에는 서비스 등록 키를 �
 
 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 다음 단계를 수행합니다.
 
-#### StorSimple 서비스 등록 키를 가져오려면
 
-1.  **StorSimple Manager 서비스** 페이지의 맨 아래에서 **등록 키**를 클릭합니다.
-
-2.  키를 검색하는 동안 몇 분 정도 기다려야 합니다. **서비스 등록 키** 대화 상자가 나타납니다.
-
-
-	1.  **서비스 등록 키**를 찾습니다.
-
-	2.  복사 아이콘 ![](./media/storsimple-ova-deploy1-portal-prep/image6.png)을 클릭하여 키를 복사한 다음 나중에 사용할 수 있도록 저장합니다.
+[AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
 
 > [AZURE.NOTE]
 > 
@@ -210,20 +168,13 @@ StorSimple 가상 배열을 시작하는 단계별 지침에 대한 동영상을
 
 > [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 
-## 다음 단계
-
-다음 단계는 StorSimple 가상 장치에 대한 가상 컴퓨터를 프로비전하는 것입니다. 호스트 운영 체제에 따라서 다음의 자세한 지침을 참조하세요.
-
--   [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md)
-
--   [VMware에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)
 
 
-## 부록 A: 서비스에 대한 새 저장소 계정 구성
+## 선택적 단계: 서비스에 대한 새 저장소 계정 구성
 
 서비스와 저장소 계정을 자동으로 생성하도록 설정하지 않은 경우에만 수행해야 하는 선택적 단계입니다.
 
-다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+다른 지역에 Azure 저장소 계정을 만들어야 하는 경우 단계별 지침은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
 
 기존 Microsoft Azure 저장소 계정을 추가하려면 StorSimple Manager 서비스 페이지의 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 다음 단계를 수행합니다.
 
@@ -239,7 +190,7 @@ StorSimple 가상 배열을 시작하는 단계별 지침에 대한 동영상을
 
 	1.  Microsoft Azure 저장소 계정의 기본 **액세스 키**를 지정합니다.
 
-	1.  **SSL 모드 사용**을 선택하여 장치와 클라우드 간의 네트워크 통신을 위한 안전한 채널을 만듭니다. 사설 클라우드 내에서 작업 중인 경우에만 **SSL 모드 사용** 확인란을 지웁니다.
+	1.  **SSL 모드 사용**을 선택하여 장치와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 사설 클라우드 내에서 작업 중인 경우에만 **SSL 모드 사용** 확인란을 지웁니다.
 
 	1.  확인 아이콘![](./media/storsimple-ova-deploy1-portal-prep/image7.png)을 클릭합니다. 저장소 계정이 성공적으로 만들어진 후 알림이 표시됩니다.
 
@@ -247,4 +198,13 @@ StorSimple 가상 배열을 시작하는 단계별 지침에 대한 동영상을
 
 1.  새로 만들어진 저장소 계정이 **저장소 계정**의 **구성** 페이지에 표시됩니다. **저장**을 클릭하여 새로 만들어진 저장소 계정을 저장합니다. 확인하라는 메시지가 표시되면 **확인**을 클릭합니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+
+## 다음 단계
+
+다음 단계는 StorSimple 가상 장치에 대한 가상 컴퓨터를 프로비전하는 것입니다. 호스트 운영 체제에 따라서 다음의 자세한 지침을 참조하세요.
+
+-   [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md)
+
+-   [VMware에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)
+
+<!---HONumber=AcomDC_0128_2016-->

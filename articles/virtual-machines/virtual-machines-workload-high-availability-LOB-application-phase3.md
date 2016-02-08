@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # 비즈니스 응용 프로그램 작업 라인 3단계: SQL Server 인프라 구성
@@ -25,7 +25,7 @@ Azure 인프라 서비스의 비즈니스 응용 프로그램 고가용성 라�
 
 [4단계](virtual-machines-workload-high-availability-LOB-application-phase4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 모든 단계는 [Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)를 참조하세요.
 
-> [AZURE.NOTE]이 명령에서는 Azure 이미지 갤러리의 SQL Server 이미지를 사용하며 SQL Server 라이선스 사용에 대해 지속적인 비용이 청구됩니다. Azure에서 가상 컴퓨터를 만들고 사용자 고유의 SQL Server 라이선스를 설치할 수도 있지만 Azure 가상 컴퓨터를 포함하여 가상 컴퓨터에서 SQL Server 라이선스를 사용하려면 Software Assurance 및 License Mobility가 있어야 합니다. 가상 컴퓨터에 SQL Server를 설치하는 방법에 대한 자세한 내용은 [SQL Server 설치](https://msdn.microsoft.com/library/bb500469.aspx)를 참조하세요.
+> [AZURE.NOTE] 이 명령에서는 Azure 이미지 갤러리의 SQL Server 이미지를 사용하며 SQL Server 라이선스 사용에 대해 지속적인 비용이 청구됩니다. Azure에서 가상 컴퓨터를 만들고 사용자 고유의 SQL Server 라이선스를 설치할 수도 있지만 Azure 가상 컴퓨터를 포함하여 가상 컴퓨터에서 SQL Server 라이선스를 사용하려면 Software Assurance 및 License Mobility가 있어야 합니다. 가상 컴퓨터에 SQL Server를 설치하는 방법에 대한 자세한 내용은 [SQL Server 설치](https://msdn.microsoft.com/library/bb500469.aspx)를 참조하세요.
 
 ## Azure에서 SQL Server 클러스터 가상 컴퓨터 만들기
 
@@ -41,7 +41,7 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 
 [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의한 테이블 M과, [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의한 테이블 V, S, ST 및 A를 불러옵니다.
 
-> [AZURE.NOTE]다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
@@ -113,7 +113,7 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다. 원격 데스크톱 연결 액세서리 또는 다른 원격 데스크톱 도구를 통해 해당 개인 IP 주소 또는 인트라넷 DNS 이름을 사용하여 가상 컴퓨터에 연결합니다.
+> [AZURE.NOTE] 이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다. 원격 데스크톱 연결 액세서리 또는 다른 원격 데스크톱 도구를 통해 해당 개인 IP 주소 또는 인트라넷 DNS 이름을 사용하여 가상 컴퓨터에 연결합니다.
 
 ## SQL Server를 실행하는 컴퓨터를 구성합니다.
 
@@ -172,7 +172,7 @@ Add-Computer 명령을 입력한 후에는 반드시 도메인 계정 자격 증
 1.	시작 화면에서 **이 PC**를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 2.	**시스템** 창에서 **원격 설정**을 클릭합니다.
 3.	**원격 데스크톱** 섹션에서 **사용자 선택**을 클릭하고 **추가**를 클릭합니다.
-4.	**선택할 개체 이름을 입력하십시오**에 [도메인]**\\sqladmin**을 입력한 다음 **확인**을 세 번 클릭합니다.
+4.	**선택할 개체 이름을 입력하십시오**에 [domain]**\\sqladmin**를 입력한 다음 **확인**을 세 번 클릭합니다.
 
 SQL Server 서비스에서는 클라이언트가 데이터베이스 서버에 액세스하는 데 사용하는 포트가 필요합니다. 또한 SQL Server Management Studio에 연결하고 고가용성 그룹을 관리하기 위한 포트도 필요합니다. 다음으로 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 두 번(각 SQL Server 가상 컴퓨터에 대해 한 번씩) 실행하여 이 유형의 인바운드 트래픽을 허용하는 방화벽 규칙을 추가합니다.
 
@@ -259,4 +259,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 - [4단계](virtual-machines-workload-high-availability-LOB-application-phase4.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

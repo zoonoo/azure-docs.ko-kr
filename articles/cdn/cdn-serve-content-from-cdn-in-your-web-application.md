@@ -18,6 +18,8 @@
 
 # 웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공 #
 
+> [AZURE.NOTE] 이 자습서는 클래식 CDN 서비스에 적용됩니다. CDN의 현재 버전에 대한 업데이트를 작성하는 작업을 진행 중입니다.
+
 이 자습서에서는 Azure CDN을 활용하여 웹 응용 프로그램의 도달 범위 및 성능을 개선하는 방법을 보여 줍니다. Azure CDN은 다음과 같은 경우에 웹 응용 프로그램의 성능을 개선하는 데 도움을 줄 수 있습니다.
 
 - 페이지에 정적 콘텐츠 또는 정적인 요소가 일부 포함된 콘텐츠에 대한 여러 링크가 있는 경우
@@ -43,7 +45,7 @@
 -	Blob 관리 GUI용 [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)를 설치한 Visual Studio 2013
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)([ASP.NET 응용 프로그램에서 CDN 끝점으로 콘텐츠 업로드 자동화](#upload)에서 사용)
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 사이트)를 사용할 수 있습니다. + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 사이트)를 사용할 수 있습니다. + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 <a name="static"></a>
 ## Azure CDN 끝점에서 정적 콘텐츠 제공 ##
@@ -63,13 +65,13 @@
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG)
 
-	>[AZURE.NOTE]여기서는 지역으로 동아시아를 사용합니다. 나중에 CDN을 테스트할 북아메리카로부터 충분히 멀리 떨어져 있기 때문입니다.
+	>[AZURE.NOTE] 여기서는 지역으로 동아시아를 사용합니다. 나중에 CDN을 테스트할 북아메리카로부터 충분히 멀리 떨어져 있기 때문입니다.
 
 2. 새 저장소 계정의 상태가 **온라인**이 되면 생성한 저장소 계정과 연결된 새 CDN 끝점을 만듭니다. **새로 만들기 > 앱 서비스 > CDN > 빠른 생성**을 클릭합니다. 생성한 저장소 계정을 선택하고 **만들기**를 클릭합니다.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG)
 
-	>[AZURE.NOTE]CDN이 생성되면 Azure 포털에 해당 URL 및 연결된 원본 도메인이 표시됩니다. 그러나 CDN 끝점의 구성이 모든 노드 위치에 완전히 전파되는 데는 시간이 조금 걸릴 수 있습니다.
+	>[AZURE.NOTE] CDN이 생성되면 Azure 포털에 해당 URL 및 연결된 원본 도메인이 표시됩니다. 그러나 CDN 끝점의 구성이 모든 노드 위치에 완전히 전파되는 데는 시간이 조금 걸릴 수 있습니다.
 
 3. CDN 끝점에 ping을 실행하여 온라인 상태인지 확인하기 위해 CDN 끝점을 테스트합니다. CDN 끝점이 모든 노드에 전파되지 않은 경우 아래와 유사한 메시지가 표시됩니다.
 
@@ -93,7 +95,7 @@
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG)
 
-	>[AZURE.NOTE]이 자습서에서는 쿼리 문자열 사용이 필요하지 않지만, 여기서 변경한 사항이 나머지 노드에 전파되는 데 시간이 걸리기 때문에 그리고 쿼리 문자열을 사용하지 않는 콘텐츠가 CDN 캐시를 막는 것을 방지하기 위해 편의상 가능한 한 빨리 쿼리 문자열을 사용하도록 설정할 수 있습니다(CDN 콘텐츠 업데이트에 대해서는 뒷부분에서 설명). 쿼리 문자열을 활용하는 방법은 [쿼리 문자열을 통해 최신 콘텐츠 즉시 제공](#query)에서 찾아볼 수 있습니다.
+	>[AZURE.NOTE] 이 자습서에서는 쿼리 문자열 사용이 필요하지 않지만, 여기서 변경한 사항이 나머지 노드에 전파되는 데 시간이 걸리기 때문에 그리고 쿼리 문자열을 사용하지 않는 콘텐츠가 CDN 캐시를 막는 것을 방지하기 위해 편의상 가능한 한 빨리 쿼리 문자열을 사용하도록 설정할 수 있습니다(CDN 콘텐츠 업데이트에 대해서는 뒷부분에서 설명). 쿼리 문자열을 활용하는 방법은 [쿼리 문자열을 통해 최신 콘텐츠 즉시 제공](#query)에서 찾아볼 수 있습니다.
 
 6. Visual Studio 2013의 서버 탐색기에서 **Microsoft Azure에 연결** 단추를 클릭합니다.
 
@@ -126,7 +128,7 @@
 
 13.	적절하게 렌더링된 Blob이 브라우저에 표시되는 경우 Azure CDN의 URL을 `http://<yourStorageAccountName>.blob.core.windows.net`(으)로 변경합니다. 여기서는 CDN 끝점에서 첫 번째 이미지를 테스트하기 위해 `http://az623979.vo.msecnd.net/cdn/cephas_lin.png`을(를) 사용합니다.
 
-	>[AZURE.NOTE]Azure 관리 포털의 CDN 탭에서 CDN 끝점의 URL을 확인할 수 있습니다.
+	>[AZURE.NOTE] Azure 관리 포털의 CDN 탭에서 CDN 끝점의 URL을 확인할 수 있습니다.
 
 	직접 Blob 액세스와 CDN 액세스의 성능을 비교하는 경우 Azure CDN을 사용하여 성능 향상을 확인할 수 있습니다. 다음은 Internet Explorer 11에서 이미지에 대한 Blob URL 액세스를 F12 개발자 도구로 캡처한 스크린샷입니다.
 
@@ -155,7 +157,7 @@ ASP.NET 웹 응용 프로그램의 모든 정적 콘텐츠를 CDN 끝점으로 �
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
 
-	>[AZURE.NOTE]게시 설정 파일을 가져오면 해당 파일이 모든 Azure PowerShell 세션에 사용되는 기본 Azure 계정이 됩니다. 즉, 위 단계를 한 번만 수행해야 합니다.
+	>[AZURE.NOTE] 게시 설정 파일을 가져오면 해당 파일이 모든 Azure PowerShell 세션에 사용되는 기본 Azure 계정이 됩니다. 즉, 위 단계를 한 번만 수행해야 합니다.
 	
 1. [다운로드 페이지](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a)에서 스크립트를 다운로드합니다. 다운로드한 스크립트를 ASP.NET 응용 프로그램의 프로젝트 폴더에 저장합니다.
 2. 다운로드한 스크립트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
@@ -271,4 +273,4 @@ Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 �
 - [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

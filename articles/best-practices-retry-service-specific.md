@@ -41,7 +41,7 @@
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz*(사용자 지정 검색 전략 포함) | 선언적 방식 및 프로그래밍 방식 | 코드의 블록 | 사용자 지정 |
 **Topaz는 <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>에 포함된 일시적인 오류 처리 응용 프로그램 블록에 대한 식별 이름입니다. 이 지침에 설명된 대로 대부분의 서비스 유형에 대해 Topaz와 사용자 지정 검색 전략을 사용할 수 있습니다. Topaz에 대한 기본 전략은 이 지침의 끝에 있는 [일시적인 오류 처리 응용 프로그램 블록(Topaz) 전략](#transient-fault-handling-application-block-topaz-strategies) 섹션에 표시되어 있습니다. 이제 블록은 오픈 소스 프레임워크이며 Microsoft에서 직접 지원하지 않습니다.
 
-> [AZURE.NOTE]대부분의 Azure 기본 제공 재시도 메커니즘의 경우 재시도 정책에 포함된 기능 이상의 다양한 재시도 정책을 서로 다른 유형의 오류 또는 예외에 적용할 방법이 없습니다. 따라서 작성 시 사용할 수 있는 최상의 지침은 최적의 평균 성능 및 가용성을 제공하는 정책을 구성하는 것입니다. 정책을 미세 조정하는 한 가지 방법은 로그 파일을 분석하여 발생하는 일시적인 오류의 유형을 확인하는 것입니다. 예를 들어 대부분의 오류가 네트워크 연결 문제와 관련된 경우 첫 번째 재시도까지 오랫동안 대기하지 않고 즉시 재시도를 수행할 수 있습니다.
+> [AZURE.NOTE] 대부분의 Azure 기본 제공 재시도 메커니즘의 경우 재시도 정책에 포함된 기능 이상의 다양한 재시도 정책을 서로 다른 유형의 오류 또는 예외에 적용할 방법이 없습니다. 따라서 작성 시 사용할 수 있는 최상의 지침은 최적의 평균 성능 및 가용성을 제공하는 정책을 구성하는 것입니다. 정책을 미세 조정하는 한 가지 방법은 로그 파일을 분석하여 발생하는 일시적인 오류의 유형을 확인하는 것입니다. 예를 들어 대부분의 오류가 네트워크 연결 문제와 관련된 경우 첫 번째 재시도까지 오랫동안 대기하지 않고 즉시 재시도를 수행할 수 있습니다.
 
 ## Azure 저장소 재시도 지침
 
@@ -212,7 +212,7 @@ namespace RetryCodeSamples
 
 ## 자세한 정보
 
-- [Azure 저장소 클라이언트 라이브러리 재시도 정책 권장 사항(영문)](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [Azure 저장소 클라이언트 라이브러리 재시도 정책 권장 사항(영문)](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 - [저장소 클라이언트 라이브러리 2.0 – 재시도 정책 구현(영문)](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
 ## Entity Framework 6을 사용하는 SQL 데이터베이스 재시도 지침
@@ -302,7 +302,7 @@ EF6을 사용하는 SQL 데이터베이스에 액세스하는 경우 다음 지�
 | 대화형, UI<br />또는 포그라운드 | 2초 | 지수 | MaxRetryCount<br />MaxDelay | 3<br />750ms | 시도 1 - 0초 지연<br />시도 2 - 750ms 지연<br />시도 3 – 750ms 지연 |
 | 백그라운드<br /> 또는 일괄 처리 | 30초 | 지수 | MaxRetryCount<br />MaxDelay | 5<br />12초 | 시도 1 - 0초 지연<br />시도 2 - ~1초 지연<br />시도 3 - ~3초 지연<br />시도 4 - ~7초 지연<br />시도 5 - 12초 지연 |
 
-> [AZURE.NOTE]종단 간 대기 시간 대상은 서비스에 대한 연결의 기본 제한 시간을 가정합니다. 연결 제한 시간을 더 길게 지정하면 종단 간 대기 시간이 모든 재시도에 대해 이 추가 시간만큼 확장됩니다.
+> [AZURE.NOTE] 종단 간 대기 시간 대상은 서비스에 대한 연결의 기본 제한 시간을 가정합니다. 연결 제한 시간을 더 길게 지정하면 종단 간 대기 시간이 모든 재시도에 대해 이 추가 시간만큼 확장됩니다.
 
 ## 예제(Entity Framework 6을 사용하는 SQL 데이터베이스)
 
@@ -429,7 +429,7 @@ ADO.NET을 사용하는 SQL 데이터베이스에 액세스하는 경우 다음 
 | 대화형, UI<br />또는 포그라운드 | 2초 | FixedInterval | 재시도 횟수<br />다시 시도 간격<br />첫 번째 빠른 재시도 | 3<br />500ms<br />true | 시도 1 - 0초 지연<br />시도 2 - 500ms 지연<br />시도 3 – 500ms 지연 |
 | 백그라운드<br />또는 일괄 처리 | 30초 | ExponentialBackoff | 재시도 횟수<br />최소 백오프<br />최대 백오프<br />델타 백오프<br />첫 번째 빠른 재시도 | 5<br />0초<br />60초<br />2초<br />false | 시도 1 - 0초 지연<br />시도 2 - ~2초 지연<br />시도 3 - ~6초 지연<br />시도 4 - ~14초 지연<br />시도 5 - ~30초 지연 |
 
-> [AZURE.NOTE]종단 간 대기 시간 대상은 서비스에 대한 연결의 기본 제한 시간을 가정합니다. 연결 제한 시간을 더 길게 지정하면 종단 간 대기 시간이 모든 재시도에 대해 이 추가 시간만큼 확장됩니다.
+> [AZURE.NOTE] 종단 간 대기 시간 대상은 서비스에 대한 연결의 기본 제한 시간을 가정합니다. 연결 제한 시간을 더 길게 지정하면 종단 간 대기 시간이 모든 재시도에 대해 이 추가 시간만큼 확장됩니다.
 
 ### 예제(ADO.NET을 사용하는 SQL 데이터베이스)
 
@@ -437,7 +437,7 @@ ADO.NET을 사용하는 SQL 데이터베이스에 액세스하는 경우 다음 
 
 그러나 현재 버전의 일시적인 오류 처리 응용 프로그램 블록에서는 이러한 방법이 SQL 데이터베이스에 대한 비동기 작업을 기본적으로 지원하지 않습니다. 비동기 기술만 사용하여 SQL 데이터베이스와 같은 Azure 서비스에 액세스하는 것이 좋으므로 SQL 데이터베이스에서 일시적인 오류 처리 응용 프로그램 블록을 사용하려면 다음과 같은 기술을 고려해야 합니다.
 
-C# 언어의 버전 5에서 간단한 비동기 지원을 사용하여 블록에서 제공하는 메서드의 비동기 버전을 만들 수 있습니다. 예를 들어 다음 코드에서는 **ExecuteReaderWithRetry** 확장 메서드의 비동기 버전을 만드는 방법을 보여 줍니다. 원래 코드에서 변경되고 추가된 코드는 강조 표시됩니다. Topaz에 대한 소스 코드는 GitHub의 [일시적인 오류 처리 응용 프로그램 블록("Topaz")](http://topaz.codeplex.com/SourceControl/latest)에서 사용할 수 있습니다.
+C# 언어의 버전 5에서 간단한 비동기 지원을 사용하여 블록에서 제공하는 메서드의 비동기 버전을 만들 수 있습니다. 예를 들어 다음 코드에서는 **ExecuteReaderWithRetry** 확장 메서드의 비동기 버전을 만드는 방법을 보여 줍니다. 원래 코드에서 변경되고 추가된 코드는 강조 표시됩니다. Topaz에 대한 소스 코드는 Codeplex의 [일시적인 오류 처리 응용 프로그램 블록("Topaz")](http://topaz.codeplex.com/SourceControl/latest)에서 사용할 수 있습니다.
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command, RetryPolicy cmdRetryPolicy,
@@ -713,7 +713,7 @@ var conn = ConnectionMultiplexer.Connect("redis0:6380,redis1:6380,connectRetry=3
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConfigurationOptions | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />최대 5000ms와 SyncTimeout<br />1000 | 초기 연결 작업 중 연결 시도 반복 횟수입니다.<br />연결 작업에 대한 제한 시간(ms)입니다. 재시도 사이에 지연은 없습니다.<br />동기 작업을 허용하는 시간(ms)입니다. |
 
-> [AZURE.NOTE]SyncTimeout은 작업의 종단 간 대기 시간에 영향을 줍니다. 그러나 일반적으로 동기 작업은 사용하지 않는 것이 좋습니다. 자세한 내용은 [파이프라인 및 멀티플렉서](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md)(영문)를 참조하세요.
+> [AZURE.NOTE] SyncTimeout은 작업의 종단 간 대기 시간에 영향을 줍니다. 그러나 일반적으로 동기 작업은 사용하지 않는 것이 좋습니다. 자세한 내용은 [파이프라인 및 멀티플렉서](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md)(영문)를 참조하세요.
 
 ## 재시도 사용 지침
 
@@ -1107,4 +1107,4 @@ Azure 또는 타사 서비스에 액세스하는 경우 다음 사항을 고려�
 | **선형(고정 간격)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1초<br />true | 재시도 횟수입니다.<br />재시도 사이의 지연 시간입니다.<br />첫 번째 재시도가 즉시 수행되는지 여부입니다. |
 일시적인 오류 처리 응용 프로그램 블록 사용에 대한 예제는 이 지침의 앞 부분에서 ADO.NET을 사용하는 SQL 데이터베이스 및 Azure Active Directory에 대한 예제 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -268,7 +268,7 @@ Azure 가상 네트워크의 특정 서브넷에 가상 컴퓨터를 할당합�
 
 ## 추가 리소스
 
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure 가상 컴퓨터 FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
@@ -280,4 +280,4 @@ Azure 가상 네트워크의 특정 서브넷에 가상 컴퓨터를 할당합�
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

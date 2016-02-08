@@ -16,7 +16,7 @@
  
 # Application Insights SDK for .NET에 대한 릴리스 정보
 
-[Application Insights SDK for.NET](app-insights-asp-net.md)은 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
+[Application Insights SDK for.NET](app-insights-asp-net.md)은 라이브 앱에 대한 원격 분석을 [Application Insights](https://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
 
 
 #### 응용 프로그램에 SDK를 설치하려면
@@ -136,4 +136,4 @@
 
  
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

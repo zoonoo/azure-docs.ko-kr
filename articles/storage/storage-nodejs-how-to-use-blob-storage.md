@@ -67,7 +67,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 Azure 모듈은 및 또는 환경 변수를 읽고 `AZURE_STORAGE_ACCOUNT``AZURE_STORAGE_ACCESS_KEY`Azure 저장소 계정에 연결하는 데 `AZURE_STORAGE_CONNECTION_STRING`필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **createBlobService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹앱의 [Azure 포털](portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
+Azure 웹앱의 [Azure 포털](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## 컨테이너 만들기
 
@@ -75,7 +75,7 @@ Azure 웹앱의 [Azure 포털](portal.azure.com)에서 환경 변수를 설정�
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE]**createBlobServiceAnonymous**를 사용하고 호스트 주소를 제공하여 익명으로 Blob에 액세스할 수 있습니다. 예를 들면 `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`를 사용합니다.
+> [AZURE.NOTE] **createBlobServiceAnonymous**를 사용하고 호스트 주소를 제공하여 익명으로 Blob에 액세스할 수 있습니다. 예를 들면 `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`를 사용합니다.
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -182,7 +182,7 @@ Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob�
 	  }
 	});
 
-> [AZURE.NOTE]페이지 Bobl은 512바이트의 '페이지'로 구성됩니다. 크기가 512의 배수가 아닌 경우에는 데이터를 업로드할 때 오류가 표시될 수 있습니다.
+> [AZURE.NOTE] 페이지 Bobl은 512바이트의 '페이지'로 구성됩니다. 크기가 512의 배수가 아닌 경우에는 데이터를 업로드할 때 오류가 표시될 수 있습니다.
 
 ## 컨테이너의 Blob 나열
 
@@ -270,7 +270,7 @@ ETag를 사용하는 경우 일반적인 패턴:
 
 **myblob**의 후속 작업에서는 `options.leaseId` 매개 변수를 제공해야 합니다. 임대 ID는 **acquireLease**에서 `result.id`로 반환됩니다.
 
-> [AZURE.NOTE]기본적으로 임대 기간은 무한입니다. 15초에서 60초까지의 유한한 기간을 지정하려면 `options.leaseDuration` 매개 변수를 제공합니다.
+> [AZURE.NOTE] 기본적으로 임대 기간은 무한입니다. 15초에서 60초까지의 유한한 기간을 지정하려면 `options.leaseDuration` 매개 변수를 제공합니다.
 
 임대를 제거하려면 **releaseLease**를 사용합니다. 임대를 중단하면서 원래 기간이 만료될 때까지 다른 사람이 새 임대를 얻지 못하게 하려면 **breakLease**를 사용합니다.
 
@@ -278,7 +278,7 @@ ETag를 사용하는 경우 일반적인 패턴:
 
 SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 Blob 및 컨테이너에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. 공유 액세스 서명은 모바일 앱에서 Blob에 액세스하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
-> [AZURE.NOTE]Blob에 대해 익명 액세스를 허용할 수도 있지만 공유 액세스 서명에서 더 잘 제어된 액세스를 제공할 수 있으므로 SAS를 생성해야 합니다.
+> [AZURE.NOTE] Blob에 대해 익명 액세스를 허용할 수도 있지만 공유 액세스 서명에서 더 잘 제어된 액세스를 제공할 수 있으므로 SAS를 생성해야 합니다.
 
 클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **BlobService**의 **generateSharedAccessSignature**를 사용하여 공유 액세스 서명을 생성하고 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. 공유 액세스 서명은 공유 액세스 서명이 유효한 시작 및 종료 날짜와 공유 액세스 서명 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
@@ -377,4 +377,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 공유 액세스 서명�
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Node용 Azure 저장소 SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

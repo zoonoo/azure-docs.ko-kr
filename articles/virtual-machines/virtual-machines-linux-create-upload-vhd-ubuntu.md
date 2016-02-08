@@ -14,29 +14,33 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # Azure용 Ubuntu 가상 컴퓨터 준비
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##필수 조건##
+## 공식 Ubuntu 클라우드 이미지
+이제 Ubuntu는 [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/)에서 다운로드할 수 있도록 공식 Azure VHD를 게시합니다. Azure에 대해 특수한 사용자 고유의 Ubuntu 이미지를 빌드해야 하는 경우 아래 수동 절차 대신 이러한 알려진 작업 VHD를 시작하고 필요에 따라 사용자 지정하는 것이 좋습니다.
+
+
+## 필수 조건
 
 이 문서에서는 가상 하드 디스크에 Ubuntu Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
 
 **Ubuntu 설치 참고 사항**
 
 - VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
-
 - Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
-
 - OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
-
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04 ##
+## 수동 단계
+
+> [AZURE.NOTE] Azure에 대해 고유한 사용자 지정 Ubuntu 이미지를 만들기 전에 [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/)의 이미지를 사용하는 것을 고려하세요.
+
 
 1. Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
 
@@ -59,7 +63,7 @@
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. 이제 Ubuntu Azure 이미지는 하드웨어 지원(HWE) 커널을 따릅니다. 다음 명령을 실행하여 운영 체제를 최신 커널로 업데이트합니다.
+4. 이제 Ubuntu Azure 이미지는 *하드웨어 지원*(HWE) 커널을 따릅니다. 다음 명령을 실행하여 운영 체제를 최신 커널로 업데이트합니다.
 
 	Ubuntu 12.04:
 
@@ -122,4 +126,4 @@ Ubuntu 하드웨어 지원(HWE) 커널
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

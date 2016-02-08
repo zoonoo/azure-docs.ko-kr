@@ -20,11 +20,11 @@
 
 HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 데이터를 처리하고, D3.js를 통해 이를 시각화하는 방법에 대해 알아봅니다. 또한 이 문서에서는 Azure 가상 네트워크를 사용하여 HDInsight의 Storm을 HDInsight의 HBase와 연결하고 토폴로지의 데이터를 HBase에 저장하는 방법에 대해서도 설명합니다.
 
-> [AZURE.NOTE]이 문서에 있는 정보는 HDInsight 클러스터에 Windows 기반 Storm 사용에 기반합니다. HDInsight의 Linux 기반 Storm에서 Azure 이벤트 허브를 사용하는 작업에 대한 정보는 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서에 있는 정보는 HDInsight 클러스터에 Windows 기반 Storm 사용에 기반합니다. HDInsight의 Linux 기반 Storm에서 Azure 이벤트 허브를 사용하는 작업에 대한 정보는 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 ## 필수 조건
 
-* Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 * [HDInsight의 Apache Storm 클러스터](../hdinsight-storm-getting-started.md)
 
@@ -36,7 +36,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 * [Git](http://git-scm.com/)
 
-> [AZURE.NOTE]Java, JDK, Maven 및 Git는 [Chocolatey NuGet](http://chocolatey.org/) 패키지 관리자를 통해서도 제공됩니다.
+> [AZURE.NOTE] Java, JDK, Maven 및 Git는 [Chocolatey NuGet](http://chocolatey.org/) 패키지 관리자를 통해서도 제공됩니다.
 
 ## 아키텍처
 
@@ -58,7 +58,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 	* [Socket.io](http://socket.io/)는 Storm 토폴로지와 웹 사이트 간의 실시간 통신에 사용됩니다.
 
-		> [AZURE.NOTE]이 구현 세부 정보입니다. 원시 WebSocket 또는 SignalR과 같은 모든 통신 프레임워크를 사용할 수 있습니다.
+		> [AZURE.NOTE] 이 구현 세부 정보입니다. 원시 WebSocket 또는 SignalR과 같은 모든 통신 프레임워크를 사용할 수 있습니다.
 
 	* [D3.js](http://d3js.org/)는 웹 사이트로 전송되는 데이터의 그래프를 작성하는 데 사용됩니다.
 
@@ -70,7 +70,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ![토폴로지 다이어그램](./media/hdinsight-storm-sensor-data-analysis/sensoranalysis.png)
 
-> [AZURE.NOTE]이는 토폴로지의 매우 단순화된 보기입니다. 런타임에 읽고 있는 이벤트 허브의 각 파티션에 대해 각 구성 요소의 인스턴스가 만들어집니다. 이러한 인스턴스는 클러스터의 노드에 분산되며 노드 간에 다음과 같이 데이터가 라우팅됩니다.
+> [AZURE.NOTE] 이는 토폴로지의 매우 단순화된 보기입니다. 런타임에 읽고 있는 이벤트 허브의 각 파티션에 대해 각 구성 요소의 인스턴스가 만들어집니다. 이러한 인스턴스는 클러스터의 노드에 분산되며 노드 간에 다음과 같이 데이터가 라우팅됩니다.
 >
 > * Spout에서 파서로 전송되는 데이터는 부하 분산됩니다.
 > * 파서에서 대시보드 및 HBase(사용하는 경우)로 전송되는 데이터는 장치 ID별로 그룹화되므로 같은 장치의 메시지는 항상 동일한 구성 요소로 흐릅니다.
@@ -87,7 +87,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 이 예제를 사용하려면 먼저 Storm 토폴로지에서 읽을 Azure 이벤트 허브를 만들어야 합니다. 또한 이벤트 허브에서 데이터를 읽는 데 사용되는 구성 요소는 클러스터에서만 사용할 수 있기 때문에 HDInsight의 Storm 토폴로지를 만들어야 합니다.
 
-> [AZURE.NOTE]최종적으로 이벤트 허브 Spout는 Maven에서 사용할 수 있습니다.
+> [AZURE.NOTE] 최종적으로 이벤트 허브 Spout는 Maven에서 사용할 수 있습니다.
 
 ### 이벤트 허브 구성
 
@@ -123,7 +123,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 5. 이 클러스터에 사용할 **데이터 노드**의 수로 1을 입력합니다.
 
-	> [AZURE.NOTE]이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
+	> [AZURE.NOTE] 이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
 
 6. 관리자의 **사용자 이름** 및 **암호**를 입력하고 화살표를 클릭하여 계속합니다.
 
@@ -155,7 +155,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 			dashboard/ - this is the node.js web dashboard
 			SendEvents/ - utilities to send fake sensor data
 
-> [AZURE.NOTE]이 문서에서는 이 샘플에 포함된 코드에 대해 자세히 알아보지 않습니다. 그러나 코드는 완전히 주석 처리되어 있습니다.
+> [AZURE.NOTE] 이 문서에서는 이 샘플에 포함된 코드에 대해 자세히 알아보지 않습니다. 그러나 코드는 완전히 주석 처리되어 있습니다.
 
 **Config.properties** 파일을 열고 이전에 이벤트 허브를 만들 때 사용한 정보를 추가합니다. 이 정보를 추가한 후 파일을 저장합니다.
 
@@ -202,7 +202,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ### 데이터 생성 시작
 
-> [AZURE.NOTE]이 섹션의 단계에서는 모든 플랫폼에서 실행할 수 있도록 Node.js를 사용합니다. 다른 언어 예제는 **SendEvents** 디렉터리를 참조하세요.
+> [AZURE.NOTE] 이 섹션의 단계에서는 모든 플랫폼에서 실행할 수 있도록 Node.js를 사용합니다. 다른 언어 예제는 **SendEvents** 디렉터리를 참조하세요.
 
 
 1. 새 명령 프롬프트 또는 터미널을 열고 디렉터리를 **hdinsight-eventhub-example/SendEvents/nodejs**로 변경한 후 다음 명령을 사용하여 응용 프로그램에 필요한 종속성을 설치합니다.
@@ -316,7 +316,7 @@ Storm과 HBase를 함께 사용하려면 Azure 가상 네트워크를 만든 다
 
 9. 페이지 아래쪽에 표시된 기본 서브넷 이름은 **Subnet-1**입니다. **서브넷 추가** 단추를 사용하여 **Subnet-2**를 추가합니다. 이러한 서브넷에 Storm 및 HBase 클러스터가 포함됩니다.
 
-	> [AZURE.NOTE]이 문서에서는 노드가 하나뿐인 클러스터를 사용합니다. 다중 노드 클러스터를 만드는 경우에는 클러스터에 사용할 서브넷의 **CIDR(주소 수)**을 확인해야 합니다. 주소 수는 작업자 노드 수에 7(게이트웨이: 2, 헤드 노드: 2, Zookeeper: 3)을 더한 값보다 커야 합니다. 예를 들어 10개 노드 HBase 클러스터가 필요한 경우 서브넷의 주소 수는 17(10+7)보다 커야 합니다. 그렇지 않으면 배포에 실패합니다.
+	> [AZURE.NOTE] 이 문서에서는 노드가 하나뿐인 클러스터를 사용합니다. 다중 노드 클러스터를 만드는 경우에는 클러스터에 사용할 서브넷의 **CIDR(주소 수)**을 확인해야 합니다. 주소 수는 작업자 노드 수에 7(게이트웨이: 2, 헤드 노드: 2, Zookeeper: 3)을 더한 값보다 커야 합니다. 예를 들어 10개 노드 HBase 클러스터가 필요한 경우 서브넷의 주소 수는 17(10+7)보다 커야 합니다. 그렇지 않으면 배포에 실패합니다.
 	>
 	> 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
 
@@ -334,7 +334,7 @@ Storm과 HBase를 함께 사용하려면 Azure 가상 네트워크를 만든 다
 
 5. 이 클러스터에 사용할 **데이터 노드**의 수로 1을 입력합니다. **하위 지역/가상 네트워크**에서 앞에서 만든 Azure 가상 네트워크를 선택합니다. **가상 네트워크 서브넷**으로는 **Subnet-1**을 선택합니다.
 
-	> [AZURE.NOTE]이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
+	> [AZURE.NOTE] 이 문서에서 사용하는 클러스터의 비용을 최소화하려면 **클러스터 크기**를 1로 줄이고 클러스터를 다 사용한 후에는 삭제합니다.
 
 6. 관리자의 **사용자 이름** 및 **암호**를 입력하고 화살표를 클릭하여 계속합니다.
 
@@ -377,7 +377,7 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화
 
 	그러면 HBase Bolt가 사용하도록 설정됩니다.
 
-	> [AZURE.NOTE]로컬로 테스트할 때까지 아니라 Storm 클러스터에 배포할 때만 HBase Bolt를 사용하도록 설정해야 합니다.
+	> [AZURE.NOTE] 로컬로 테스트할 때까지 아니라 Storm 클러스터에 배포할 때만 HBase Bolt를 사용하도록 설정해야 합니다.
 
 ### HBase 및 Storm 데이터
 
@@ -422,4 +422,4 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

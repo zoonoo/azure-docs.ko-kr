@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 서비스 버스 토픽 및 구독을 사용하는 방법
@@ -63,7 +63,7 @@ bus_service.create_topic('mytopic', topic_options)
 
 토픽에 대한 구독은 **ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
-> [AZURE.NOTE]구독은 영구적이며, 구독 자체 또는 구독하는 토픽이 삭제될 때까지 계속 유지됩니다.
+> [AZURE.NOTE] 구독은 영구적이며, 구독 자체 또는 구독하는 토픽이 삭제될 때까지 계속 유지됩니다.
 
 ### 기본(MatchAll) 필터를 사용하여 구독 만들기
 
@@ -81,7 +81,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 **ServiceBusService** 개체의 **create\_rule** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
-> [AZURE.NOTE]기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **delete\_rule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
+> [AZURE.NOTE] 기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **delete\_rule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
 다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 `HighMessages`(이)라는 구독을 만듭니다.
 
@@ -182,4 +182,4 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

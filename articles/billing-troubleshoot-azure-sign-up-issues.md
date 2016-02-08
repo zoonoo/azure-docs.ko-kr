@@ -55,9 +55,9 @@
 ## 과거에 Azure 구독을 이미 사용한 적이 있고 지금 Azure 무료 평가판을 활성화하려 합니까?
 Azure 사용 약관에는 이전에 Azure를 사용하지 않은 사용자에게 사용 가능한 무료 평가판 활성화가 한 개로만 제한되어 있습니다. 다른 유형의 Azure 구독이 있는 경우 무료 평가판을 활성화할 수 없습니다.
 
-제안: - 이전에 Azure 구독을 이미 활성화했기 때문에 무료 평가판 활성화에 실패한 경우 종량제 구독의 구입을 고려하십시오. 사용자가 혜택 제품에 대한 자격이 있을 수도 있습니다. Azure 무료 평가판 계획 대신에 [Microsoft Azure 제품 정보 페이지](http://azure.microsoft.com/support/legal/offer-details/)에서 더 자세히 알아보십시오. 참고로 혜택 계획에 특정 필수 구성 요소가 필요합니다.
+제안: - 이전에 Azure 구독을 이미 활성화했기 때문에 무료 평가판 활성화에 실패한 경우 종량제 구독의 구입을 고려하십시오. 사용자가 혜택 제품에 대한 자격이 있을 수도 있습니다. Azure 무료 평가판 계획 대신에 [Microsoft Azure 제품 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)에서 더 자세히 알아보십시오. 참고로 혜택 계획에 특정 필수 구성 요소가 필요합니다.
 
 ## 여전히 등록할 수 없습니까?
 여전히 등록 문제를 경험하거나 이 문서에서 문제를 다루지 않은 경우 지원에 대해서는 [Azure 지원에 문의](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하십시오.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

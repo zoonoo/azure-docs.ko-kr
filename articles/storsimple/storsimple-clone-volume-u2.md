@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="alkohli" />
 
-# StorSimple 관리자 서비스를 사용하여 볼륨 복제
+# StorSimple 관리자 서비스를 사용하여 볼륨 복제(업데이트 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
@@ -27,7 +27,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
 이 자습서에서는 개별 볼륨 복제에 백업 세트를 사용하는 방법을 설명합니다. *임시* 및 *영구* 복제의 차이점에 대해서도 설명합니다.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >로컬로 고정된 볼륨은 계층화된 볼륨으로 복제됩니다. 복제된 볼륨을 로컬로 고정해야 하는 경우 복제 작업이 성공적으로 완료된 후 클론을 로컬로 고정된 볼륨으로 변환할 수 있습니다. 계층화된 볼륨을 로컬로 고정된 볼륨으로 변환하는 방법에 대한 자세한 내용은 [볼륨 유형 변경](storsimple-manage-volumes-u2.md#change-the-volume-type)으로 이동하세요.
 >
@@ -82,7 +82,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
   1. **장치** 페이지로 이동하여 **볼륨 컨테이너** 탭을 선택합니다.
   2. 복제한 원본 볼륨에 연관된 볼륨 컨테이너를 선택합니다. 볼륨 목록에 방금 만든 클론이 보입니다.
 
->[AZURE.NOTE]모니터링 및 기본 백업은 복제된 볼륨에서 자동으로 비활성화됩니다.
+>[AZURE.NOTE] 모니터링 및 기본 백업은 복제된 볼륨에서 자동으로 비활성화됩니다.
 
 이러한 방식으로 만들어진 클론은 임시 클론입니다. 복제 유형에 대한 자세한 내용은 [임시 및 영구 복제본 비교](#transient-vs.-permanent-clones)를 참조하세요.
 
@@ -104,7 +104,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
  
 ![동영상 사용 가능](./media/storsimple-clone-volume-u2/Video_icon.png) **동영상 사용 가능**
 
-StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
+StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
 
 ### 영구 클론을 사용하여 프로덕션 환경에서 테스트
 
@@ -117,4 +117,4 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

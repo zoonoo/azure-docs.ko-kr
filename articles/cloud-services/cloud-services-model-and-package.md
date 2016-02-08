@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="01/21/2016"
     ms.author="adegeo"/>
 
 # 클라우드 서비스 모델 정의 및 패키지 방법
@@ -138,7 +138,7 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 
 <p/>
 
- >[AZURE.NOTE]인증서의 지문은 텍스트 편집기를 사용하여 구성 파일에 추가하거나 Visual Studio에서 역할 **속성** 페이지의 **인증서** 탭에서 값을 추가할 수도 있습니다.
+ >[AZURE.NOTE] 인증서의 지문은 텍스트 편집기를 사용하여 구성 파일에 추가하거나 Visual Studio에서 역할 **속성** 페이지의 **인증서** 탭에서 값을 추가할 수도 있습니다.
 
 
 
@@ -190,16 +190,16 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
 - **인증서 지문 변경** 역할 인스턴스가 오프라인인 상태에서는 인증서만 업데이트할 수 있습니다. 역할 인스턴스가 온라인인 상태에서 인증서를 추가, 삭제 또는 변경하면 Azure가 정상적으로 인스턴스를 오프라인 상태로 전환하여 인증서를 업데이트하고 변경이 완료되면 온라인 상태로 다시 전환합니다.
 
 ### 서비스 런타임 이벤트를 사용하여 구성 변경 사항 처리
-[Azure 런타임 라이브러리](https://msdn.microsoft.com/library/azure/dn511024.aspx)는 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) 네임스페이스를 포함하여 역할 인스턴스에서 실행되는 코드에서 Azure 환경과 상호 작용하기 위한 클래스를 제공합니다. [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 클래스는 구성 변경 전후 발생하는 다음 이벤트를 정의합니다.
+[Azure 런타임 라이브러리](https://msdn.microsoft.com/library/azure/mt419365.aspx)는 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) 네임스페이스를 포함하여 역할 인스턴스에서 실행되는 코드에서 Azure 환경과 상호 작용하기 위한 클래스를 제공합니다. [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 클래스는 구성 변경 전후 발생하는 다음 이벤트를 정의합니다.
 
 - **이벤트 [변경](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)** 필요한 경우 구성 변경이 지정된 역할 인스턴스에 적용되어 역할 인스턴스가 작동 중지하는 기회가 생기기 전에 발생합니다.
 - **[변경된](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) 이벤트** 지정된 역할 인스턴스에 구성 변경이 적용된 후 발생합니다.
 
-> [AZURE.NOTE]인증서 변경 사항이 있으면 항상 역할 인스턴스가 오프라인으로 전환되기 때문에 RoleEnvironment.Changing 또는 RoleEnvironment.Changed 이벤트가 발생하지 않습니다.
+> [AZURE.NOTE] 인증서 변경 사항이 있으면 항상 역할 인스턴스가 오프라인으로 전환되기 때문에 RoleEnvironment.Changing 또는 RoleEnvironment.Changed 이벤트가 발생하지 않습니다.
 
 <a name="cspkg"></a>
 ## ServicePackage.cspkg
-응용 프로그램을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 응용 프로그램을 패키지해야 합니다. **CSPack** 명령줄 도구([Azure SDK](http://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
+응용 프로그램을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 응용 프로그램을 패키지해야 합니다. **CSPack** 명령줄 도구([Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
 
 **CSPack**은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack**은 [Azure 클래식 포털](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service)을 사용하여 Azure에 업로드할 수 있는 응용 프로그램 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack**의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
 
@@ -209,13 +209,15 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
 | 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
 | &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
 
->[AZURE.NOTE]CSPack.exe(Windows)는 SDK로 설치되는 **Microsoft Azure 명령 프롬프트** 바로 가기를 실행하여 사용할 수 있습니다.
+>[AZURE.NOTE]
+CSPack.exe(Windows)는 SDK로 설치되는 **Microsoft Azure 명령 프롬프트** 바로 가기를 실행하여 사용할 수 있습니다.
 >  
 >가능한 모든 스위치 및 명령에 대한 설명서를 보려면 자체적으로 CSPack.exe 프로그램을 실행합니다.
 
 <p />
 
->[AZURE.TIP]**Microsoft Azure 계산 에뮬레이터**에서 로컬로 클라우드 서비스를 실행하고 **/copyonly** 옵션을 사용합니다. 이 옵션은 응용 프로그램에 대한 이진 파일을 계산 에뮬레이터에서 실행할 수 있는 디렉터리 레이아웃에 복사합니다.
+>[AZURE.TIP]
+**Microsoft Azure 계산 에뮬레이터**에서 로컬로 클라우드 서비스를 실행하고 **/copyonly** 옵션을 사용합니다. 이 옵션은 응용 프로그램에 대한 이진 파일을 계산 에뮬레이터에서 실행할 수 있는 디렉터리 레이아웃에 복사합니다.
 
 ### 클라우드 서비스를 패키지하는 예제 명령
 다음 예제에서는 웹 역할에 대한 정보를 포함하는 응용 프로그램 패키지를 만듭니다. 명령으로 사용할 서비스 정의 파일, 이진 파일을 찾을 수 있는 디렉터리 및 패키지 파일의 이름을 지정합니다.
@@ -262,12 +264,11 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 * [클라우드 서비스 프로젝트 배포][vs_deploy]
 * [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][vs_remote]
 
-
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
-[vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
+[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
+[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
+[vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -8,7 +8,14 @@
    editor=""
    keywords="백업 솔루션; 백업 서비스"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/26/2016"
+	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure 백업 서비스 - FAQ
 다음은 Azure 백업에 대한 질문과 대답 목록입니다. Azure 백업 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)으로 이동하여 질문을 게시하세요. 커뮤니티의 구성원이 답변을 얻는 데 도움을 줄 것입니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -41,7 +48,7 @@
 
 **Q6. 자격 증명 모음을 청구 엔터티로 고려해야 하나요?** <br/> A6. 각 자격 증명 모음에 대한 청구 명세서를 받을 수 있지만 청구 엔터티로 Azure 구독을 고려하는 것이 가장 좋습니다. 청구 엔터티는 모든 서비스에서 일관되며 더욱 쉽게 관리할 수 있습니다.
 
-**Q7. 각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요?** <br/> A7. 예, 자격 증명 모음당 컴퓨터를 최대 50대까지 등록할 수 있습니다. Azure IaaS 가상 컴퓨터에 대한 제한은 자격 증명 모음당 100개 VM입니다. 더 많은 컴퓨터를 등록해야 할 경우 새 자격 증명 모음을 만드세요.
+**Q7. 각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요?** <br/> A7. 예, 자격 증명 모음당 컴퓨터를 최대 50대까지 등록할 수 있습니다. Azure IaaS 가상 컴퓨터의 경우 자격 증명 모음당 200개 VM으로 제한됩니다. 더 많은 컴퓨터를 등록해야 할 경우 새 자격 증명 모음을 만드세요.
 
 **Q8. 이 Windows 서버/클라이언트 또는 SCDPM 서버에서 백업할 수 있는 데이터의 양에 제한이 있나요?** <br/> A8. 번호
 
@@ -176,4 +183,4 @@
 
 새 캐시 위치로 성공적으로 백업되면 원래 캐시 폴더를 제거할 수 있습니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

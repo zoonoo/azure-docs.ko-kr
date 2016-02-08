@@ -34,7 +34,7 @@ Microsoft Azure 미디어 서비스에서 컨텐츠를 DASH, 부드러운 스트
 
 - [Azure 미디어 플레이어](http://aka.ms/ampinfo)
 - [Azure 미디어 플레이어 서비스 설명서](http://aka.ms/ampdocs) 
-- [Azure 미디어 플레이어 시작 블로그](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Azure 미디어 플레이어 시작 블로그](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [최신 Azure 미디어 플레이어 관련 최신 정보를 얻으려면 등록](http://aka.ms/ampsignup)
 - [새로운 기능 요청, 아이디어, 사용자 의견 추가](http://aka.ms/ampuservoice) 
 
@@ -82,4 +82,4 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

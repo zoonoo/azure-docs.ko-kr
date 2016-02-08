@@ -18,7 +18,7 @@
 
 #Android에서 Engagement 도달률을 통합하는 방법
 
-> [AZURE.IMPORTANT]이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
+> [AZURE.IMPORTANT] 이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
 
 ##표준 통합
 
@@ -87,7 +87,7 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT]도달률 캠페인을 만들 때 시스템 알림을 사용하려는 경우 이 섹션은 **필수**입니다. Android는 아이콘이 없는 시스템 알림이 표시되지 않도록 방지합니다. 따라서 이 섹션을 누락하는 경우 최종 사용자가 해당 시스템 알림을 받을 수 없게 됩니다.
+> [AZURE.IMPORTANT] 도달률 캠페인을 만들 때 시스템 알림을 사용하려는 경우 이 섹션은 **필수**입니다. Android는 아이콘이 없는 시스템 알림이 표시되지 않도록 방지합니다. 따라서 이 섹션을 누락하는 경우 최종 사용자가 해당 시스템 알림을 받을 수 없게 됩니다.
 
 -   큰 그림을 사용하는 시스템 알림이 있는 캠페인을 만드는 경우 다음 권한을 `</application>` 태그 뒤에 추가해야 합니다(누락된 경우).
 
@@ -193,7 +193,7 @@ Amazon 및 Google Play 장치를 모두 대상으로 하려는 경우 개발을 
 
 알림 오버레이의 모양을 수정하려면 요구에 맞게 간단히 파일 `engagement_notification_area.xml`을(를) 수정하면 됩니다.
 
-> [AZURE.NOTE]파일 `engagement_notification_overlay.xml`은(는) 알림 오버레이를 만드는 데 사용되는 파일이며, 이 파일에는 파일`engagement_notification_area.xml`이(가) 포함되어 있습니다. 또한 요구에 맞게 사용자 지정할 수도 있습니다(예: 오버레이 내에서 알림 영역 위치 지정).
+> [AZURE.NOTE] 파일 `engagement_notification_overlay.xml`은(는) 알림 오버레이를 만드는 데 사용되는 파일이며, 이 파일에는 파일`engagement_notification_area.xml`이(가) 포함되어 있습니다. 또한 요구에 맞게 사용자 지정할 수도 있습니다(예: 오버레이 내에서 알림 영역 위치 지정).
 
 ##### 작업 레이아웃의 일부로 알림 레이아웃 포함
 
@@ -233,7 +233,7 @@ Android의 **include** 문 덕분에 기존 레이아웃에서 알림 레이아�
 
 Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 이 작업의 오버레이를 추가하지 않을 것임을 자동으로 검색합니다.
 
-> [AZURE.TIP]응용 프로그램에서 ListActivity를 사용하는 경우 표시되는 도달률 오버레이는 목록 보기의 클릭된 항목에 더 이상 반응하지 못하도록 방지합니다. 이는 알려진 문제입니다. 이 문제를 해결하려면 앞의 샘플에서와 같이 고유한 목록 작업 레이아웃에 알림 레이아웃을 포함하는 것이 좋습니다.
+> [AZURE.TIP] 응용 프로그램에서 ListActivity를 사용하는 경우 표시되는 도달률 오버레이는 목록 보기의 클릭된 항목에 더 이상 반응하지 못하도록 방지합니다. 이는 알려진 문제입니다. 이 문제를 해결하려면 앞의 샘플에서와 같이 고유한 목록 작업 레이아웃에 알림 레이아웃을 포함하는 것이 좋습니다.
 
 ##### 작업별 응용 프로그램 알림 비활성화
 
@@ -249,7 +249,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 알림의 범주 처리기를 등록하려면 응용 프로그램이 초기화될 때 호출을 추가해야 합니다.
 
-> [AZURE.IMPORTANT]계속하기 전에 Android에서 Engagement를 통합하는 방법 항목에서 android:process attribute<android-sdk-engagement-process>에 관한 경고를 읽어보세요.
+> [AZURE.IMPORTANT] 계속하기 전에 Android에서 Engagement를 통합하는 방법 항목에서 android:process attribute<android-sdk-engagement-process>에 관한 경고를 읽어보세요.
 
 다음 예제에서는 이전 경고를 확인하였고 `EngagementApplication`의 하위 클래스를 사용한다고 가정합니다.
 
@@ -499,7 +499,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 -   시스템 알림의 경우 `onNotificationPrepared`을(를) 재정의하고 `Notification` 개체에서 `contentIntent` 또는 `deleteIntent`을(를) 수정했습니다.
 -   앱 내 알림의 경우 `prepareInAppArea`을(를) 재정의합니다. U.I 컨트롤 중 하나에 적어도 `actionNotification`을(를) 매핑합니다.
 
-> [AZURE.NOTE]`handleNotification`에서 예외가 throw되는 경우 콘텐츠는 삭제되고 `dropContent`이(가) 호출됩니다. 이 사항은 통계로 보고되며 이제 다음 캠페인을 처리할 수 있습니다.
+> [AZURE.NOTE] `handleNotification`에서 예외가 throw되는 경우 콘텐츠는 삭제되고 `dropContent`이(가) 호출됩니다. 이 사항은 통계로 보고되며 이제 다음 캠페인을 처리할 수 있습니다.
 
 ### 알림 및 설문 조사
 
@@ -640,13 +640,9 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 
 여기에서 알 수 있듯이 `actionContent(this)`을(를) 호출한 후 작업을 완료하는 경우 `exitContent(this)`이(가) 영향을 받지 않고 안전하게 호출될 수 있습니다.
 
-##테스트
-
-이제 Android에서 Engagement 통합을 테스트하는 방법을 읽어보고 통합을 확인하세요.
-
 [여기]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

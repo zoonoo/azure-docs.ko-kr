@@ -27,7 +27,7 @@ Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 �
 
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
-- Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 ## 클러스터 만들기
 
@@ -124,7 +124,7 @@ Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 �
 	* **사용자**(![사용자 아이콘](./media/hdinsight-provision-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 	
 
-		> [AZURE.IMPORTANT]이는 _오직_ 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
+		> [AZURE.IMPORTANT] 이는 _오직_ 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 		
 	* **태그(![태그 아이콘](./media/hdinsight-provision-clusters/tags.png))**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
@@ -140,4 +140,4 @@ Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 �
 * [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md) - 프로그래밍 방식으로 작업을 HDInsight에 제출하는 방법을 알아봅니다.
 * [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

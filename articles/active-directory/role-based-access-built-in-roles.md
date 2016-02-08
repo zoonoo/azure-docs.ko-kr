@@ -3,7 +3,7 @@
 	description="이 항목에서는 역할 기반 액세스 제어(RBAC)에 대한 기본 제공 역할에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
 #RBAC: 기본 제공 역할
 
 ## 기본 제공 역할
 
-Azure 역할 기반 액세스 제어에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 향후 Azure RBAC 릴리스에서는 Azure 리소스에 대해 수행할 수 있는 작업 목록에서 작업 집합을 작성하여 사용자 지정 역할을 정의할 수 있도록 할 예정입니다.
+Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 향후 Azure RBAC 릴리스에서는 Azure 리소스에 대해 수행할 수 있는 작업 목록에서 작업 집합을 작성하여 사용자 지정 역할을 정의할 수 있도록 할 예정입니다.
 
-역할 정의의 **작업** 및 **작업 안 함** 속성을 보려면 해당 링크를 클릭합니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. 역할 정의의 **작업 안 함** 속성 허용된 작업에서 제외해야 하는 작업을 지정합니다.
+역할 정의의 **작업** 및 **작업 안 함** 속성을 보려면 아래 링크를 클릭합니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. 역할 정의의 **작업 안 함** 속성 허용된 작업에서 제외해야 하는 작업을 지정합니다.
 
 
 | 역할 이름 | 설명 |
@@ -39,8 +39,8 @@ Azure 역할 기반 액세스 제어에는 사용자, 그룹 및 서비스에 �
 | [지능형 시스템 계정 참여자](#intelligent-systems-account-contributor) | 지능형 시스템 계정을 관리할 수 있음 |
 | [네트워크 참여자](#network-contributor) | 모든 네트워크 리소스를 관리할 수 있음 |
 | [NewRelic APM 계정 참여자](#newrelic-apm-account-contributor) | NewRelic 응용 프로그램 성능 관리 계정 만들기 및 응용 프로그램을 관리할 수 있음 |
-| [소유자](#owner) | 소유자는 액세스를 제외한 모든 것을 관리할 수 있습니다. |
-| [판독기](#reader) | 읽기 권한자는 모든 항목을 볼 수 있지만 변경할 수 없습니다. |
+| [소유자](#owner) | 액세스를 제외한 모든 것을 관리할 수 있음 |
+| [판독기](#reader) | 모든 항목을 볼 수 있지만 변경할 수는 없음 |
 | [Redis 캐시 참여자](#redis-cache-contributor]) | Redis 캐시를 관리할 수 있음 |
 | [스케줄러 작업 컬렉션 참여자](#scheduler-job-collections-contributor) | 스케줄러 작업 컬렉션을 관리할 수 있음 |
 | [검색 서비스 참여자](#search-service-contributor) | 검색 서비스를 관리할 수 있음 |
@@ -85,7 +85,7 @@ Application Insights 구성 요소를 관리할 수 있음
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 자동화 운영자
-자동화 운영자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있음
+작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있음
 
 | **actions** ||
 | ------- | ------ |
@@ -128,12 +128,14 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 참여자
-참여자는 액세스를 제외한 모든 것을 관리할 수 있음
+액세스를 제외한 모든 것을 관리할 수 있음
 
 | **actions** ||
 | ------- | ------ |
 | * | 모든 유형의 리소스 만들기 및 관리 |
-| **할 수 없는 작업 |  |
+
+| **not actions** | |
+| ------- | ------ |
 | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
 | Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
 
@@ -301,7 +303,9 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+
 | **not actions** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | 연결 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | 데이터 마스킹 정책을 편집할 수 없음 |
@@ -341,7 +345,9 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | 구독 리소스 그룹 배포 만들기 및 관리 |
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+
 | **not actions** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL 서버 데이터베이스 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL 서버 데이터베이스 연결 정책을 편집할 수 없음 |
@@ -483,4 +489,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

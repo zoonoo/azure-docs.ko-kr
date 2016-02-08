@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 
@@ -40,7 +40,7 @@
 
 ### Azure 리소스 관리자 템플릿(JSON) ###
  
-예를 들어, Azure 앱 서비스에서 웹 앱을 만들 때마다 Azure 리소스 관리자는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [확장 가능한 WordPress](/marketplace/partners/wordpress/scalablewordpress/) 앱과 같이 [Azure 마켓플레이스](/marketplace)에서 복잡한 템플릿은 MySQL 데이터베이스, 저장소 계정, 앱 서비스 계획, 웹 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 및 기타를 포함할 수 있으며 PowerShell을 통해 이러한 모든 템플릿을 사용할 수 있습니다. 이러한 템플릿을 다운로드하고 사용는하 방법에 대한 정보는 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요..
+예를 들어, Azure 앱 서비스에서 웹 앱을 만들 때마다 Azure 리소스 관리자는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [확장 가능한 WordPress](/marketplace/partners/wordpress/scalablewordpress/) 앱과 같이 [Azure 마켓플레이스](/marketplace)에서 복잡한 템플릿은 MySQL 데이터베이스, 저장소 계정, 앱 서비스 계획, 웹 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 및 기타를 포함할 수 있으며 PowerShell을 통해 이러한 모든 템플릿을 사용할 수 있습니다. 이러한 템플릿을 다운로드하고 사용는하 방법에 대한 정보는 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하십시오..
 
 Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요.
 
@@ -58,7 +58,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 
 ### Azure 리소스 탐색기 ###
 
-이 [미리 보기 도구](https://resources.azure.com)는 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다. 이 도구에서 현재 사용 가능한 정보는 리소스, 올바른 값 등 특정 형식에 대해 설정해야 하는 속성을 보여주기 때문에 템플릿 작성에 매우 유용합니다. [Azure 포털](https://portal.azure.com)에서 리소스 그룹을 만들 수도 있고, 그런 다음 리소스 그룹을 템플릿화할 수 있도록 탐색기 도구에서 JSON 정의를 검사합니다.
+이 [미리 보기 도구](https://resources.azure.com)는 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다. 이 도구에서 현재 사용 가능한 정보는 리소스, 올바른 값 등 특정 형식에 대해 설정해야 하는 속성을 보여주기 때문에 템플릿 작성에 매우 유용합니다. [Azure 포털](https://portal.azure.com/)에서 리소스 그룹을 만들 수도 있고, 그런 다음 리소스 그룹을 템플릿화할 수 있도록 탐색기 도구에서 JSON 정의를 검사합니다.
 
 ### Azure 단추에 배포 ###
 
@@ -101,7 +101,7 @@ Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모
 
 ## AZUREDEPLOY.JSON 검사(또는 편집) ##
 
-이제를 GitHub 리포지토리를 설정하는 방법에 대해 살펴보겠습니다. Azure.NET SDK에서 JSON 편집기를 사용할 수 있으므로 [Azure.NET SDK 2.6](/downloads/)를 아직 설치하지 않았다면 지금 설치하세요.
+이제를 GitHub 리포지토리를 설정하는 방법에 대해 살펴보겠습니다. Azure.NET SDK에서 JSON 편집기를 사용할 수 있으므로 [Azure.NET SDK 2.6](/downloads/)를 아직 설치하지 않았다면 지금 설치하십시오.
 
 1.	즐겨 찾는 git 도구를 사용하여 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 리포지토리를 복제합니다. 아래 스크린샷은 Visual Studio 2013의 팀 탐색기에서 이것을 보여줍니다.
 
@@ -129,7 +129,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 `type` 요소는 (오래 전 서버 팜을 호출했을) 앱 서비스 계획에 대한 문자열을 지정하고 JSON 파일에 정의된 매개 변수를 사용하여 다른 요소 및 속성을 채웁니다. 또한 이 리소스에는 모든 중첩된 리소스가 없습니다.
 
->[AZURE.NOTE]또한 `apiVersion`의 값이 Azure에 JSON 리소스 정의를 사용할 REST API 버전을 알려주고 `{}` 내부에 형식을 지정하는 데 영향을 줄 수 있습니다.
+>[AZURE.NOTE] 또한 `apiVersion`의 값이 Azure에 JSON 리소스 정의를 사용할 REST API 버전을 알려주고 `{}` 내부에 형식을 지정하는 데 영향을 줄 수 있습니다.
 
 #### SQL Server ####
 
@@ -143,7 +143,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 -	SQLServer 리소스에는 `type`에 각각 다른 값을 가진 두 중첩된 리소스가 있습니다.
 -	데이터베이스 및 방화벽 규칙이 정의된 `“resources”: […]` 내부의 중첩된 리소스가 루트 수준의 SQLServer 리소스의 리소스 ID를 지정 하는 `dependsOn` 요소입니다. 이는 Azure 리소스 관리자에게 다음과 같은 사실을 알려줍니다. "이 리소스를 만들기 전에 다른 리소스가 이미 존재해야 합니다. 그 다른 리소스가 템플릿에 정의된 경우 그 하나를 먼저 만듭니다".
 
-	>[AZURE.NOTE]`resourceId()` 함수를 사용하는 방법에 대 한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
+	>[AZURE.NOTE] `resourceId()` 함수를 사용하는 방법에 대 한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
 
 -	`dependsOn` 요소의 효과로 Azure 리소스 관리자가 어떤 리소스를 동시에 만들 수 있고 어떤 리소스를 순차적으로 만들어야 하는지 알 수 있습니다.
 
@@ -176,7 +176,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 `config/connectionstrings`를 위한 `properties` 요소에서 각 연결 문자열은 `“<name>” : {“value”: “…”, “type”: “…”}`이라는 특정 형식을 가직 이름: 값 쌍으로 정의됩니다. `type` 요소에 대해 가능한 값은 `MySql`, `SQLServer`, `SQLAzure`, 및 `Custom`입니다.
 
->[AZURE.TIP]연결 문자열 형식의 선언적 목록에 대해 Azure PowerShell에서 다음 명령을 실행합니다. [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+>[AZURE.TIP] 연결 문자열 형식의 선언적 목록에 대해 Azure PowerShell에서 다음 명령을 실행합니다. [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
     
 ##### 소스 제어 #####
 
@@ -186,13 +186,13 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 `RepoUrl` 및 `branch`는 매우 직관적이어야 하며 Git 리포지토리와 게시하려는 분기의 이름을 가리켜야 합니다. 다시, 입력 매개 변수에 의해 정의됩니다.
 
-`dependsOn` 요소에서 웹 앱 리소스 자체 외에도 `sourcecontrols/web`는 `config/appsettings` 및 `config/connectionstrings`에 따라서 달라집니다. 일단 `sourcecontrols/web`가 구성되기 때문에 Azure 배포 프로세스는 응용 프로그램 코드를 자동으로 배포, 빌드 및 시작하려 합니다. 따라서 이 종속성을 삽입하면 응용 프로그램이 코드를 실행하기 전에 응용 프로그램에 필요한 앱 설정 및 연결 문자열에 액세스할 수 있는지 확인할 수 있습니다. [TODO:이것이 true인지 확인해야 함.]
+`dependsOn` 요소에서 웹 앱 리소스 자체 외에도 `sourcecontrols/web`는 `config/appsettings` 및 `config/connectionstrings`에 따라서 달라집니다. 일단 `sourcecontrols/web`가 구성되기 때문에 Azure 배포 프로세스는 응용 프로그램 코드를 자동으로 배포, 빌드 및 시작하려 합니다. 따라서 이 종속성을 삽입하면 응용 프로그램 코드를 실행하기 전에 응용 프로그램이 필요한 앱 설정 및 연결 문자열에 액세스할 수 있는지 확인할 수 있습니다.
 
->[AZURE.NOTE]또한 `IsManualIntegration`은 `true`로 설정됩니다. 실제로 GitHub 리포지토리를 소유하지 않고 따라서 연속 게시를 구성하려면 Azure에 실제로 권한을 부여할 수 없기 때문에 이 속성은 이 자습서에 필요합니다.[ToDoApp](https://github.com/azure-appservice-samples/ToDoApp)(즉, Azure에 자동 저장소 업데이트 밀어넣기) [Azure Preview 포털](https://portal.azure.com)에서 소유자의 GitHub 자격 증명을 사용하도록 구성한 경우에만 지정된 리포지토리에 기본값 `false`을 사용할 수 있습니다. 즉, [Azure 포털](https://portal.azure.com)에 먼저 모든 앱용 GitHub 또는 BitBucket에 소스 제어를 설정하는 경우, 사용자 자격 증명을 사용하여 Azure가 자격 증명을 기억하고 이후에 GitHub 또는 BitBucket에서 모든 앱을 배포할 때마다 이것을 사용합니다. 그러나 이것을 미리 수행하지 않은 경우 Azure 리소스 관리자가 리포지토리 소유자의 자격 증명으로 GitHub 또는 BitBucket에 로그인할 수 없기 때문에 웹 앱의 소스 제어 설정을 구성할 때 JSON 템플릿 배포는 실패합니다.
+>[AZURE.NOTE] 또한 `IsManualIntegration`은 `true`로 설정됩니다. 실제로 GitHub 리포지토리를 소유하지 않고 따라서 연속 게시를 구성하려면 Azure에 실제로 권한을 부여할 수 없기 때문에 이 속성은 이 자습서에 필요합니다.[ToDoApp](https://github.com/azure-appservice-samples/ToDoApp)(즉, Azure에 자동 저장소 업데이트 밀어넣기) [Azure 포털](https://portal.azure.com/)에서 소유자의 GitHub 자격 증명을 사용하도록 구성한 경우에만 지정된 리포지토리에 기본값 `false`을 사용할 수 있습니다. 즉, [Azure 포털](https://portal.azure.com/)에 먼저 모든 앱용 GitHub 또는 BitBucket에 소스 제어를 설정하는 경우, 사용자 자격 증명을 사용하여 Azure가 자격 증명을 기억하고 이후에 GitHub 또는 BitBucket에서 모든 앱을 배포할 때마다 이것을 사용합니다. 그러나 이것을 미리 수행하지 않은 경우 Azure 리소스 관리자가 리포지토리 소유자의 자격 증명으로 GitHub 또는 BitBucket에 로그인할 수 없기 때문에 웹 앱의 소스 제어 설정을 구성할 때 JSON 템플릿 배포는 실패합니다.
 
 ## 배포된 리소스 그룹과 JSON 템플릿 비교 ##
 
-[Azure 포털](https://portal.azure.com)에서 모든 웹 앱의 블레이드를 진행할 수 있지만, 더 사용할 수 없는 경우 유용한 다른 도구가 있습니다. [Azure 리소스 탐색기](https://resources.azure.com) 미리 보기 도구로 이동하면 구독하는 모든 리소스 그룹이 Azure 백엔드에 실제로 존재하기에 그 JSON 표현을 제공합니다. Azure에서 리소스 그룹의 JSON 계층이 어떻게 그것을 만드는데 사용되는 템플릿 파일의 계층 구조와 일치하는지를 볼 수 있습니다.
+[Azure 포털](https://portal.azure.com/)에서 모든 웹 앱의 블레이드를 진행할 수 있지만, 더 사용할 수 없는 경우 유용한 다른 도구가 있습니다. [Azure 리소스 탐색기](https://resources.azure.com) 미리 보기 도구로 이동하면 구독하는 모든 리소스 그룹이 Azure 백엔드에 실제로 존재하기에 그 JSON 표현을 제공합니다. Azure에서 리소스 그룹의 JSON 계층이 어떻게 그것을 만드는데 사용되는 템플릿 파일의 계층 구조와 일치하는지를 볼 수 있습니다.
 
 예를 들어 [Azure 리소스 탐색기](https://resources.azure.com) 도구로 이동하고 탐색기에서 노드를 확장하는 경우 해당 리소스 형식에서 수집되는 리소스 그룹 및 루트 수준 리소스를 볼 수 있습니다.
 
@@ -264,11 +264,11 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
  
 	![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
 
-	>[AZURE.NOTE]자동 크기 조정은 **표준** 계층 또는 그 이상에서 제공되는 기능이며 계획 수준 경고는 **기본** 계층 또는 그 이상에서 제공되는 기능입니다. 모든 새 App Insights 리소스를 켜서 참조하기 위해서는 **sku** 매개 변수를 **표준** 또는 **프리미엄**으로 설정해야 합니다.
+	>[AZURE.NOTE] 자동 크기 조정은 **표준** 계층 또는 그 이상에서 제공되는 기능이며 계획 수준 경고는 **기본** 계층 또는 그 이상에서 제공되는 기능입니다. 모든 새 App Insights 리소스를 켜서 참조하기 위해서는 **sku** 매개 변수를 **표준** 또는 **프리미엄**으로 설정해야 합니다.
 	
 16.	**배포**를 클릭합니다. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
 
-끝났습니다. 이제 응용 프로그램에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure 포털](https://portal.azure.com) 및 [Azure 리소스 탐색기](https://resources.azure.com)로 이동하면 됩니다.
+끝났습니다. 이제 응용 프로그램에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure 포털](https://portal.azure.com/) 및 [Azure 리소스 탐색기](https://resources.azure.com)로 이동하면 됩니다.
 
 이 섹션의 단계에서 주로 다음을 수행합니다.
 
@@ -305,4 +305,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

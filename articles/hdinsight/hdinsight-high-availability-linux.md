@@ -21,7 +21,7 @@
 
 두 번째 헤드 노드는 Azure HDInsight에 의해 배포된 Linux 기반 Hadoop 클러스터에 사용됩니다. 따라서 Azure에서 실행 중인 Hadoop 서비스 및 작업의 가용성과 안정성이 향상됩니다.
 
-> [AZURE.NOTE]이 문서에 사용된 단계는 Linux 기반 HDInsight 클러스터에 한정됩니다. Windows 기반 클러스터를 사용하는 경우 Windows 관련 정보는 [HDInsight에서 Windows 기반 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서에 사용된 단계는 Linux 기반 HDInsight 클러스터에 한정됩니다. Windows 기반 클러스터를 사용하는 경우 Windows 관련 정보는 [HDInsight에서 Windows 기반 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability.md)을 참조하세요.
 
 ##헤드 노드 이해
 
@@ -29,7 +29,7 @@
 
 HDInsight 클러스터는 주 노드에서 오류가 발생할 경우 마스터 서비스 및 구성 요소가 보조 노드에서 계속 실행될 수 있도록 보조 헤드 노드를 제공합니다.
 
-> [AZURE.IMPORTANT]두 헤드 노드는 동시에 클러스터 내에서 활성화되어 실행됩니다. 일부 서비스(예: HDFS 또는 YARN)는 항상 헤드 노드 하나에서만 '활성화'됩니다(다른 헤드 노드에서는 '대기'). 다른 서비스(예: HiveServer2 또는 Hive MetaStore)는 두 헤드 노드에서 동시에 활성화됩니다.
+> [AZURE.IMPORTANT] 두 헤드 노드는 동시에 클러스터 내에서 활성화되어 실행됩니다. 일부 서비스(예: HDFS 또는 YARN)는 항상 헤드 노드 하나에서만 '활성화'됩니다(다른 헤드 노드에서는 '대기'). 다른 서비스(예: HiveServer2 또는 Hive MetaStore)는 두 헤드 노드에서 동시에 활성화됩니다.
 
 [ZooKeeper](http://zookeeper.apache.org/) 노드(ZK)는 헤드 노드에서 마스터 서비스의 리더 선택에 사용되고 서비스, 데이터(작업자) 노드 및 게이트웨이에서 마스터 서비스가 활성화된 헤드 노드를 알도록 하는 데 사용됩니다.
 
@@ -128,7 +128,7 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
 
 ###Ambari
 
-> [AZURE.NOTE]Ambari를 통해 로그 파일에 액세스하려면 SSH 터널이 필요합니다. 개별 서비스의 웹 사이트는 인터넷에서 공개적으로 노출되지 않기 때문입니다. SSH 터널의 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+> [AZURE.NOTE] Ambari를 통해 로그 파일에 액세스하려면 SSH 터널이 필요합니다. 개별 서비스의 웹 사이트는 인터넷에서 공개적으로 노출되지 않기 때문입니다. SSH 터널의 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음 **빠른 연결**을 사용하여 로그를 볼 헤드 노드를 선택합니다.
 
@@ -136,7 +136,7 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 
 ## 헤드 노드의 크기를 구성하는 방법 ##
 
-헤드 노드의 크기는 클러스터를 만들 때만 선택할 수 있습니다. [HDInsight 가격 책정 페이지](http://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기(각각의 코어, 메모리 및 로컬 저장소 포함)의 목록을 찾을 수 있습니다.
+헤드 노드의 크기는 클러스터를 만들 때만 선택할 수 있습니다. [HDInsight 가격 책정 페이지](https://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기(각각의 코어, 메모리 및 로컬 저장소 포함)의 목록을 찾을 수 있습니다.
 
 새 클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음은 [Azure 포털][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 정보를 제공합니다.
 
@@ -166,4 +166,4 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

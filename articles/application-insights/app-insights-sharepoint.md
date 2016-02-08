@@ -26,7 +26,7 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 ## Application Insights 리소스 만들기
 
 
-[Azure 포털](http://portal.azure.com)에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET을 선택합니다.
+[Azure 포털](https://portal.azure.com)에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET을 선택합니다.
 
 ![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-sharepoint/01-new.png)
 
@@ -75,7 +75,7 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 응용 프로그램을 다시 배포 합니다.
 
-[Azure 포털](http://portal.azure.com)에서 사용자 응용 프로그램 블레이드로 돌아갑니다.
+[Azure 포털](https://portal.azure.com)에서 사용자 응용 프로그램 블레이드로 돌아갑니다.
 
 첫 번째 이벤트가 검색에 표시됩니다.
 
@@ -108,4 +108,4 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 <!--Link references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

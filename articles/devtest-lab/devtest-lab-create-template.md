@@ -24,7 +24,7 @@
 
 ## VM 템플릿 만들기
 
-1. [Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -60,7 +60,7 @@
 
 1. **OS 구성** 탭에서 **Windows** 또는 **Linux**를 선택합니다.
 
-1. **Windows**가 선택되면 확인란을 통해 컴퓨터에서 *Sysprep* 의 실행 여부를 지정합니다.
+1. **Windows**가 선택되면 확인란을 통해 컴퓨터에서 *Sysprep*의 실행 여부를 지정합니다.
 
 1. 컴퓨터의 **사용자 이름**을 입력합니다.
 
@@ -86,4 +86,4 @@
 
 VM을 만들 때 사용할 VM 템플릿을 추가했으면 다음 단계는 [DevTest Lab에 VM을 추가](devtest-lab-add-vm-with-artifacts)하는 것입니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2015"
+   ms.date="01/12/2016"
    ms.author="telmos" />
 
 # Azure의 IP 주소(기본)
@@ -26,7 +26,7 @@
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 ## 공용 IP 주소
-공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs), [SQL 데이터베이스](sql-database-technical-overview.md) 및 [Azure 저장소](storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
+공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/), [SQL 데이터베이스](sql-database-technical-overview.md) 및 [Azure 저장소](storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
 
 공용 IP 주소는 다음 리소스 유형과 연결됩니다.
 
@@ -39,7 +39,7 @@
 ### 할당 방법
 공용 IP 주소를 Azure 리소스에 할당해야 하는 경우 리소스가 생성된 위치 내 사용 가능한 공용 IP 주소 풀에서 *동적으로* 할당됩니다. 이 IP 주소는 리소스가 중지되면 해제됩니다. 클라우드 서비스의 경우 모든 역할 인스턴스가 중지되면 이러한 상황이 발생하며, *정적* (예약된) IP 주소를 사용하면 이를 방지할 수 있습니다.([클라우드 서비스](#Cloud-services) 참조)
 
->[AZURE.NOTE]공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
+>[AZURE.NOTE] 공용 IP 주소를 Azure 리소스에 할당할 때 사용되는 IP 범위 목록은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 게시되어 있습니다.
 
 ### DNS 호스트 이름 확인
 클라우드 서비스 또는 IaaS VM을 만들 때는 Azure의 모든 리소스에서 고유한 클라우드 서비스 DNS 이름을 제공해야 합니다. 이는 Azure 관리 DNS 서버에서 *dnsname*.cloudapp.net과 리소스의 공용 IP 주소에 대한 매핑을 만듭니다. 예를 들어, **contoso**라는 클라우드 서비스 DNS 이름으로 클라우드 서비스를 만들면 정규화된 도메인 이름(FQDN) **contoso.cloudapp.net**이 클라우드 서비스의 공용 IP 주소(VIP)로 확인됩니다. 이 FQDN을 사용하여 Azure의 공용 IP 주소를 가리키는 사용자 지정 도메인 CNAME 레코드를 만들 수 있습니다.
@@ -132,14 +132,14 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 
 아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. [지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 비즈니스에 따라 최대 한도까지 기본 제한을 증가시킬 수 있습니다
 
-|| 기본 제한| 최대 제한|
+|기본 제한|최대 제한|
 |---|---|---|
-| 공용 IP 주소 (동적) |5| 지원에 문의 |
-| 예약된 공용 IP 주소|20| 지원에 문의 |
-| 배포 당 공용 VIP(클라우드 서비스) |5| 지원에 문의 |
-| 배포 당 개인 VIP(ILB)(클라우드 서비스) |1|1|
+|공용 IP 주소(동적)|5|지원에 문의|
+|예약된 공용 IP 주소|20|지원에 문의|
+|배포당 공용 VIP(클라우드 서비스)|5|지원에 문의|
+|배포당 개인 VIP(ILB)(클라우드 서비스)|1|1|
 
-Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits) 전체 집합을 읽도록 합니다.
+Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md#networking-limits)에 대한 전체 내용을 확인해야 합니다.
 
 ## 가격
 
@@ -148,18 +148,18 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 ## 리소스 관리자와 클래식 배포 간 차이점
 아래는 리소스 관리자와 클래식 배포 모델의 IP 주소 기능을 비교한 것입니다.
 
-|| 리소스|클래식|리소스 관리자|
+|리소스|클래식|리소스 관리자|
 |---|---|---|---|
-|**공용 IP 주소**| VM|ILPIP라고 함(동적에만 해당)|공용 IP 라고 함(동적 또는 정적)|
-|||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 연결됨|
-||인터넷 연결 부하 분산 장치| VIP(동적) 또는 예약된 IP(정적)라고 함|공용 IP라고 함(동적 또는 정적)|
-|||클라우드 서비스에 할당됨|부하 분산 장치의 프런트 엔드 구성에 연결됨|
-||||
-|**개인 IP 주소**|VM|DIP라고 함|개인 IP 주소라고 함|
-|||IaaS VM 또는 PaaS 역할 인스턴스에 할당됨|VM의 NIC에 할당됨|
-||내부 부하 분산 장치(ILB)|ILB에 할당됨(동적 또는 정적)| ILB의 프런트 엔드 구성에 할당됨(동적 또는 정적)|
+|**공용 IP 주소**|VM|ILPIP(동적 전용)로 참조|공용 IP(동적 또는 정적)로 참조|
+|IaaS VM 또는 PaaS 역할 인스턴스에 할당|VM의 NIC에 연결|
+|인터넷 연결 부하 분산 장치|VIP(동적) 또는 예약된 IP(정적)로 참조|공용 IP(동적 또는 정적)로 참조|
+|클라우드 서비스에 할당|부하 분산 장치의 프런트 엔드 구성에 연결|
+|
+|**개인 IP 주소**|VM|DIP로 참조|개인 IP 주소로 참조|
+|IaaS VM 또는 PaaS 역할 인스턴스에 할당|VM의 NIC에 할당|
+|ILB(내부 부하 분산 장치)|ILB(동적 또는 정적)에 할당|ILB의 프런트 엔드 구성(동적 또는 정적)에 할당|
 
 ## 다음 단계
 - 클래식 포털을 사용하여 [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-classic-pportal.md)합니다.
 
-<!-----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

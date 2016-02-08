@@ -64,7 +64,7 @@ Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 Premium 청구 단�
 
 ## 가격
 
-가격 세부 정보는 [스케줄러 가격 책정](http://azure.microsoft.com/pricing/details/scheduler/)을 참조하세요.
+가격 세부 정보는 [스케줄러 가격 책정](https://azure.microsoft.com/pricing/details/scheduler/)을 참조하세요.
 
 ## 참고 항목
  
@@ -75,7 +75,7 @@ Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 Premium 청구 단�
 
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+ [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
 
@@ -89,4 +89,4 @@ Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 Premium 청구 단�
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

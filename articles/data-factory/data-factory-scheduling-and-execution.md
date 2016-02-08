@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/27/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 예약 및 실행
@@ -22,7 +22,7 @@
 
 ## 활동 예약
 
-작업 JSON의 **scheduler** 섹션에서 작업에 대한 되풀이 일정을 지정할 수 있습니다. 예를 들어 1시간마다 실행되는 작업을 다음과 같이 예약할 수 있습니다.
+작업 JSON의 **scheduler** 섹션에서 작업에 대한 되풀이 일정을 지정할 수 있습니다. 예를 들어 1시간마다 작업을 다음과 같이 예약할 수 있습니다.
 
 	"scheduler": {
 		"frequency": "Hour",
@@ -31,11 +31,11 @@
     
 ![스케줄러 예제](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-위와 같이 매시간 예약을 지정하여 일련의 연속 창에 해당하여 실행되는 작업을 만듭니다. 연속 창은 여러 창이 고정 크기로, 겹치지 않으며 연속적인 시간 간격으로 나타나는 것입니다.
+위에 표시된 것과 같이 작업에 대한 일정을 지정하면 연속 창의 시리즈가 만들어집니다. 연속 창은 여러 창이 고정 크기로, 겹치지 않으며 연속적인 시간 간격으로 나타나는 것입니다. 작업에 대한 이러한 논리 연속 창은 **작업 창**이라고 합니다.
  
-현재 실행 중인 작업 실행의 경우 창 시간 간격은 작업 JSON에서 **WindowStart** 및 **WindowEnd** 시스템 변수를 통해 액세스할 수 있습니다. 이러한 변수는 입력에서 데이터 선택, 출력 데이터 집합에서 시계열 데이터 표현 등 작업 JSON 및 작업에 연결된 스크립트에서 다양한 용도로 사용할 수 있습니다.
+현재 실행 중인 작업 창의 경우 작업 창과 관련된 시간 간격은 작업 JSON에서 **WindowStart** 및 **WindowEnd** 시스템 변수를 통해 액세스할 수 있습니다. 이러한 변수는 입력에서 데이터 선택, 출력 데이터 집합에서 시계열 데이터 표현 등 작업 JSON 및 작업에 연결된 스크립트에서 다양한 용도로 사용할 수 있습니다.
 
-특정 시간 오프셋에 예약, 창에 대한 간격 시작 또는 끝에 처리에 맞게 모드 설정 등 스케줄러에서 제공되는 다양한 속성에 대한 자세한 내용은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요.
+특정 시간 오프셋에 예약, 작업 창에 대한 간격 시작 또는 끝에 처리에 맞게 모드 설정 등 스케줄러에서 제공되는 다양한 속성에 대한 자세한 내용은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요.
 
 ## 시계열 데이터 집합 및 데이터 조각
 
@@ -523,7 +523,7 @@ WindowEnd | 현재 작업 실행 창에 대한 시간 간격의 끝 | 작업 | �
 SliceStart | 생성되는 데이터 조각에 대한 시간 간격 시작 | 활동<br/>데이터 집합 | <ol><li>[Azure Blob](data-factory-azure-blob-connector.md) 및 [파일 시스템 데이터 집합](data-factory-onprem-file-system-connector.md)으로 작동하는 동안 동적 폴더 경로 및 파일 이름을 지정합니다.</li><li>작업 입력 컬렉션에 입력 종속성과 데이터 팩터리 함수를 지정합니다.</li></ol>
 SliceEnd | 생성되는 현재 데이터 조각에 대한 시간 간격 끝 | 활동<br/>데이터 집합 | 위와 동일. 
 
-> [AZURE.NOTE]현재 데이터 팩터리에서는 작업에 지정된 일정이 출력 데이터 집합의 가용성에 지정된 일정과 정확히 일치해야 합니다. 즉, WindowStart, WindowEnd와 SliceStart, SliceEnd가 항상 같은 기간과 단일 출력 조각으로 매핑됩니다.
+> [AZURE.NOTE] 현재 데이터 팩터리에서는 작업에 지정된 일정이 출력 데이터 집합의 가용성에 지정된 일정과 정확히 일치해야 합니다. 즉, WindowStart, WindowEnd와 SliceStart, SliceEnd가 항상 같은 기간과 단일 출력 조각으로 매핑됩니다.
  
 ## 데이터 팩터리 함수 참조
 
@@ -577,7 +577,7 @@ DateTime | Ticks(X) | X: DateTime | 매개 변수 X의 틱 속성을 가져옵�
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]다른 함수 내에서 함수를 사용할 경우 내부 함수에 대한 접두사로 **$$**를 사용해야 합니다. 예: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예에서는 **Time.AddHours** 함수에 대해 **$$** 접두사가 사용되지 않았습니다.
+> [AZURE.NOTE] 다른 함수 내에서 함수를 사용할 경우 내부 함수에 대한 접두사로 **$$**를 사용해야 합니다. 예: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예에서는 **Time.AddHours** 함수에 대해 **$$** 접두사가 사용되지 않았습니다.
   
 
 ## 데이터 종속성 자세히 알아보기
@@ -678,4 +678,4 @@ DateTime | Ticks(X) | X: DateTime | 매개 변수 X의 틱 속성을 가져옵�
 
   
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

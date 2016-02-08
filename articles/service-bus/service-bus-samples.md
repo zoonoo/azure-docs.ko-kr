@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 서비스 버스 샘플
 
-서비스 버스 샘플에서는 서비스 버스(클라우드 서비스) 및 Windows Server용 서비스 버스의 주요 기능을 보여줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
+서비스 버스 샘플에서는 [서비스 버스](https://azure.microsoft.com/services/service-bus/)(클라우드 서비스) 및 [Windows Server용 서비스 버스](https://msdn.microsoft.com/library/dn282144.aspx)의 주요 기능을 보여 줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
 
->[AZURE.NOTE]서비스 버스 샘플은 SDK로 설치되지 않습니다. 샘플을 얻으려면 [Azure SDK 샘플 페이지](https://code.msdn.microsoft.com)를 방문하세요.
+>[AZURE.NOTE] 서비스 버스 샘플은 SDK로 설치되지 않습니다. 샘플을 얻으려면 [Azure SDK 샘플 페이지](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5)를 방문하세요.
 
 ## 서비스 버스 조정된 메시징
 
@@ -126,10 +126,10 @@
 
 ## 다음 단계
 
-서비스 버스의 자세한 개요는 다음 항목을 참조하세요.
+서비스 버스의 개념적 개요는 다음 항목을 참조하세요.
 
 - [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 - [서비스 버스 아키텍처](service-bus-architecture.md)
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

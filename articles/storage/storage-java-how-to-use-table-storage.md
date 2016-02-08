@@ -48,18 +48,18 @@ SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제�
 
 ## Azure 저장소 연결 문자열 설정
 
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, 저장소 계정의 이름 및 [Azure 포털](portal.azure.com)에 나열된 저장소 계정의 기본 액세스 키를 *AccountName* 과 *AccountKey* 값에 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, 저장소 계정의 이름 및 [Azure 포털](https://portal.azure.com)에 나열된 저장소 계정의 기본 액세스 키를 *AccountName*과 *AccountKey* 값에 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
     // Define the connection-string with your values.
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
-Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 이 문자열이 서비스 구성 파일 *ServiceConfiguration.cscfg* 에 저장될 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일에서 이름이 **StorageConnectionString**인 *설정* 요소에서 연결 문자열을 가져오는 예제입니다.
+Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 이 문자열이 서비스 구성 파일 *ServiceConfiguration.cscfg*에 저장될 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일에서 이름이 **StorageConnectionString**인 *설정* 요소에서 연결 문자열을 가져오는 예제입니다.
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
@@ -128,19 +128,19 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
         String email;
         String phoneNumber;
-        
+
         public String getEmail() {
             return this.email;
         }
-        
+
         public void setEmail(String email) {
             this.email = email;
         }
-        
+
         public String getPhoneNumber() {
             return this.phoneNumber;
         }
-        
+
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
@@ -156,15 +156,15 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
     	// Create a cloud table object for the table.
     	CloudTable cloudTable = tableClient.getTableReference("people");
-			
+
     	// Create a new customer entity.
     	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
     	customer1.setEmail("Walter@contoso.com");
     	customer1.setPhoneNumber("425-555-0101");
-			
+
     	// Create an operation to add the new customer to the people table.
     	TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
@@ -247,13 +247,13 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
 	   // Create a cloud table object for the table.
 	   CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
@@ -265,7 +265,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         // Loop through the results, displaying information about the entity.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
             System.out.println(entity.getPartitionKey() +
-                " " + entity.getRowKey() + 
+                " " + entity.getRowKey() +
                 "\t" + entity.getEmail() +
                 "\t" + entity.getPhoneNumber());
 	   }
@@ -286,7 +286,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
     	final String PARTITION_KEY = "PartitionKey";
     	final String ROW_KEY = "RowKey";
     	final String TIMESTAMP = "Timestamp";
-			
+
     	// Retrieve storage account from connection-string.
     	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
@@ -299,18 +299,18 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
     	// Create a filter condition where the row key is less than the letter "E".
     	String rowFilter = TableQuery.generateFilterCondition(
-	       ROW_KEY, 
+	       ROW_KEY,
 	       QueryComparisons.LESS_THAN,
 	       "E");
 
     	// Combine the two conditions into a filter expression.
-    	String combinedFilter = TableQuery.combineFilters(partitionFilter, 
+    	String combinedFilter = TableQuery.combineFilters(partitionFilter,
 	        Operators.AND, rowFilter);
 
     	// Specify a range query, using "Smith" as the partition key,
@@ -350,13 +350,13 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff"
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
 	   // Submit the operation to the table service and get the specific entity.
 	   CustomerEntity specificEntity =
     		cloudTable.execute(retrieveSmithJeff).getResultAsType();
-			
+
     	// Output the entity.
     	if (specificEntity != null)
     	{
@@ -389,7 +389,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
     	// Submit the operation to the table service and get the specific entity.
@@ -428,7 +428,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Define a projection query that retrieves only the Email property
-    	TableQuery<CustomerEntity> projectionQuery = 
+    	TableQuery<CustomerEntity> projectionQuery =
 	       TableQuery.from(CustomerEntity.class)
 	       .select(new String[] {"Email"});
 
@@ -441,7 +441,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         };
 
         // Loop through the results, displaying the Email values.
-        for (String projectedString : 
+        for (String projectedString :
             cloudTable.execute(projectionQuery, emailResolver)) {
                 System.out.println(projectedString);
         }
@@ -565,4 +565,4 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 [블로그 게시글]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

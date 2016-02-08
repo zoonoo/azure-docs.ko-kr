@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/25/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -30,14 +30,10 @@
  		# Log in to your Azure account
 		Add-AzureAccount
 
-		# Select the Azure subscription you want to use to create the resource group
+		# Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
 		Select-AzureSubscription -SubscriptionName <subscription name>
  
-		# Set the appropriate Azure mode to access Stream Analytics cmdlets
-		Switch-AzureMode AzureResourceManager
-
-		# Optional - Create an Azure resource group	
-			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+		# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
 		#Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group
@@ -45,7 +41,7 @@
 		
 
 
-> [AZURE.NOTE]프로그래밍 방식으로 만든 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 모니터링을 설정하거나 [Azure 스트림 분석 - 프로그래밍 방식으로 스트림 분석 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
+> [AZURE.NOTE] 프로그래밍 방식으로 만든 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 모니터링을 설정하거나 [Azure 스트림 분석 - 프로그래밍 방식으로 스트림 분석 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
 
 ## 스트림 분석용 Azure PowerShell cmdlet
 다음 Azure PowerShell cmdlet은 Azure 스트림 분석 작업을 모니터링하고 관리하는 데 사용할 수 있습니다.
@@ -289,4 +285,4 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

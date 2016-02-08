@@ -28,7 +28,7 @@
 
 ##개요
 
-이 항목에서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 [Azure 클래식 포털]에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
+이 항목에서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
 또한 다음 비디오에서 Nick Harris가 이를 데모하는 것을 볼 수도 있습니다.
 >[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
@@ -37,7 +37,7 @@
 
 + Visual Studio 2012 Express for Windows Phone 8 및 Windows 8에서 시행 중인 [Windows Phone 8 SDK]. 이 자습서를 완료하여 Windows Phone 8.1 앱을 만들려면 Visual Studio 2013 업데이트 2 이상 버전을 사용해야 합니다.
 
-+ Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)을 참조하십시오.
++ Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)을 참조하십시오.
 
 ##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
 
@@ -196,4 +196,4 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

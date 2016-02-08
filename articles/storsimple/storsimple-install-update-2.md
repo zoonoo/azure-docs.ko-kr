@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/12/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 업데이트 2 설치
@@ -81,16 +81,16 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 이 메서드를 통해 적용된 핫픽스는 아래에서 표로 정리되어 있습니다.
 
-| 순서 | KB | 이름 | 패키지 설명 | 업데이트 유형 |
-|--------|-----------|-------------------------|-----------------------------|-------------|
-| 1 | KB3121901 | 소프트웨어 업데이트 | HcsMdsSfotwareUpdate.exe <br></br> CisMdsAgentUpdateBundle.exe | 일반 |
-| 2 | KB3121900 | LSI 드라이버 | HcsLsiUpdate.exe | 일반 |
-| 3 | KB3080728 | Storport 수정 | Storport-KB3080728-x64.msu | 일반 |
-| 4 | KB3090322 | Spaceport 수정 | Spaceport-KB3090322-x64.msu | 일반 |
-| 5 | KB3121899 | 디스크 펌웨어 | DiskFirmwarePackage.exe | 유지 관리 |
+| 순서 | KB | 이름 | 업데이트 유형 |
+|--------|-----------|-------------------------|------------- |
+| 1 | KB3121901 | 소프트웨어 업데이트 | 일반 |
+| 2 | KB3121900 | LSI 드라이버 | 일반 |
+| 3 | KB3080728 | Storport 수정 | 일반 |
+| 4 | KB3090322 | Spaceport 수정 | 일반 |
+| 5 | KB3121899 | 디스크 펌웨어 | 유지 관리 |
 
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - 장치가 릴리스(GA) 버전을 실행하는 경우 이 업데이트 설치를 위한 지원을 받으려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 > - 이 절차는 업데이트 2에만 적용하도록 한 번만 수행해야 됩니다. Azure 클래식 포털을 사용하여 후속 업데이트를 적용할 수 있습니다.
@@ -127,4 +127,4 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 [업데이트 2 릴리스](storsimple-update2-release-notes.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

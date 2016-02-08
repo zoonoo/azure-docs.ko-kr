@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)에서 Azure 구독에 연결합니다.
@@ -35,7 +35,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 Azure 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][free-trial]을 참조하십시오.
 
->[AZURE.NOTE]0.9.10 이전 버전인 Azure CLI를 사용하는 경우 `azure login` 명령을 회사 또는 학교 계정 ID에서만 사용할 수 있으며 Microsoft 계정 ID는 사용할 수 없습니다. 그러나 Azure CLI 0.9.10 이상 버전을 사용하면 모든 ID에서 대화형 `azure login` 명령을 사용하여 계정에 로그인할 수 있습니다.
+>[AZURE.NOTE] 0.9.10 이전 버전인 Azure CLI를 사용하는 경우 `azure login` 명령을 회사 또는 학교 계정 ID에서만 사용할 수 있으며 Microsoft 계정 ID는 사용할 수 없습니다. 그러나 Azure CLI 0.9.10 이상 버전을 사용하면 모든 ID에서 대화형 `azure login` 명령을 사용하여 계정에 로그인할 수 있습니다.
 >
 CLI 0.9.9 이상 버전은 다단계 인증을 지원합니다.
 
@@ -48,7 +48,7 @@ CLI 0.9.9 이상 버전은 다단계 인증을 지원합니다.
 - 다단계 인증이 필요한 회사나 학교 계정 ID
 - 리소스 관리자 배포 모드 기능에 액세스하려는 경우 Microsoft 계정 ID
 
-> [AZURE.NOTE]두 경우 모두, 인증 및 권한 부여는 Azure Active Directory를 사용하여 수행합니다. Microsoft 계정 ID를 사용하는 경우 로그인 프로세스에서 Azure Active Directory 기본 도메인에 액세스합니다. (무료 평가판에 등록한 경우 Azure Active Directory에서 계정에 대한 기본 도메인을 생성한 것을 인식하지 못할 수 있습니다.)
+> [AZURE.NOTE]  두 경우 모두, 인증 및 권한 부여는 Azure Active Directory를 사용하여 수행합니다. Microsoft 계정 ID를 사용하는 경우 로그인 프로세스에서 Azure Active Directory 기본 도메인에 액세스합니다. (무료 평가판에 등록한 경우 Azure Active Directory에서 계정에 대한 기본 도메인을 생성한 것을 인식하지 못할 수 있습니다.)
 
 대화형으로 로그인하는 방법은 간단합니다. `azure login`을 입력하고 아래와 같은 메시지를 따릅니다.
 
@@ -96,9 +96,9 @@ CLI 0.9.9 이상 버전은 다단계 인증을 지원합니다.
 
 기본 브라우저가 열리고 [Azure 클래식 포털][portal]에 로그인하라는 메시지가 표시됩니다. 로그인하면 `.publishsettings` 파일이 다운로드됩니다. 이 파일이 저장된 위치를 기록해 둡니다.
 
-	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
-	>
-	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+> [AZURE.NOTE] 계정이 여러 개의 Azure Active Directory 테넌트와 연결된 경우 게시 설정 파일을 다운로드하려는 Active Directory를 선택하라는 메시지가 표시될 수도 있습니다.
+>
+> Azure 클래식 포털을 방문하여 다운로드 페이지를 사용하도록 선택한 후에는 선택한 Active Directory가 클래식 포털 및 다운로드 페이지에서 기본값으로 사용됩니다. 기본값이 설정되고 나면 다운로드 페이지의 맨 위에 '__선택 페이지로 돌아가려면 여기를 클릭하십시오.__' 텍스트가 표시됩니다. 제공된 링크를 사용하여 선택 페이지로 돌아갑니다.
 
 * **게시 설정 파일을 가져오려면** 다음 명령을 실행합니다.
 
@@ -123,7 +123,7 @@ Azure 구독이 여러 개 있는 경우 Azure에 연결하면 자격 증명과 
 
 이 경우 기본 구독이 Azure-sub-2로 변경됩니다.
 
-> [AZURE.NOTE]기본 구독 변경은 즉시 적용되며 전체적으로 변경됩니다. 동일한 명령줄 인스턴스에서 실행되었든 또는 다른 인스턴스에서 실행되었든 관계없이 새 Azure CLI 명령은 새 기본 구독을 사용합니다.
+> [AZURE.NOTE] 기본 구독 변경은 즉시 적용되며 전체적으로 변경됩니다. 동일한 명령줄 인스턴스에서 실행되었든 또는 다른 인스턴스에서 실행되었든 관계없이 새 Azure CLI 명령은 새 기본 구독을 사용합니다.
 
 Azure CLI와 함께 기본값이 아닌 구독을 사용하지만 현재 기본값을 변경하지 않으려는 경우 해당 명령에 대히 `--subscription` 옵션을 사용하고 작업에 사용할 구독의 이름을 제공할 수 있습니다.
 
@@ -158,4 +158,4 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 �
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

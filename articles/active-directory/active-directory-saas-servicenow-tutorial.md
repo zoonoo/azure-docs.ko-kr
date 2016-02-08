@@ -2,7 +2,7 @@
     pageTitle="자습서: ServiceNow와 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 ServiceNow를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법에 대해 알아봅니다." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,12 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/02/2015" 
-    ms.author="markvi" />
+    ms.date="01/26/2016" 
+    ms.author="jeedes" />
 
 #자습서: ServiceNow와 Azure Active Directory 통합
   
-이 자습서는 Azure와 ServiceNow의 통합을 보여주기 위한 것입니다.
+이 자습서는 Azure와 ServiceNow의 통합을 보여주기 위한 것입니다. 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
@@ -38,7 +38,7 @@
 
 ###ServiceNow에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-servicenow-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  Azure AD 클래식 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Single Sign-On 구성")
 
@@ -145,9 +145,7 @@
     e. **형식**으로 **저장소 인증서 신뢰**를 선택합니다.
 
     f. 다운로드한 인증서에서 Base-64로 인코딩한 파일을 만듭니다.
-
     > [AZURE.NOTE] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
-
     
     g. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **PEM 인증서** 텍스트 상자에 붙여 넣습니다.
 
@@ -177,15 +175,15 @@
 
     b. **사용자 필드** 텍스트 상자에 **전자 메일**을 입력합니다.
 
-    c. Azure AD 포털에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
+    c. Azure AD 클래식 포털에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여 넣습니다.
 
-    d. Azure AD 포털에서 **인증 요청 URL** 값을 복사한 다음 **ID 공급자의 AuthnRequest** 텍스트 상자에 붙여넣습니다.
+    d. Azure AD 클래식 포털에서 **인증 요청 URL** 값을 복사한 다음 **ID 공급자의 AuthnRequest** 텍스트 상자에 붙여 넣습니다.
 
-    e. Azure AD 포털에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **ID 공급자의 SingleLogoutRequest** 텍스트 상자에 붙여넣습니다.
+    e. Azure AD 클래식 포털에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **ID 공급자의 SingleLogoutRequest** 텍스트 상자에 붙여 넣습니다.
 
     f. **ServiceNow 홈페이지** 텍스트 상자에 ServiceNow 인스턴스 홈페이지의 URL을 입력합니다.
 
-    > [AZURE.NOTE] ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다.(e.g.: *https://fabrikam.service-now.com/navpage.do*).
+    > [AZURE.NOTE] ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다.(e.g.: **https://fabrikam.service-now.com/navpage.do*).
  
 
     g. **엔터티 ID/발급자** 텍스트 상자에 ServiceNow 테넌트의 URL을 입력합니다.
@@ -210,7 +208,7 @@
 
 
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+6. Azure AD 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Single Sign-On 구성")
 
@@ -227,7 +225,7 @@
 
 ### 사용자 프로비전을 구성하려면
 
-1. Azure 관리 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭합니다. <br><br> ![사용자 프로비전](./media/active-directory-saas-servicenow-tutorial/IC769498.png "사용자 프로비전")
+1. Azure 관리 클래식 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭합니다. <br><br> ![사용자 프로비전](./media/active-directory-saas-servicenow-tutorial/IC769498.png "사용자 프로비전")
 
 
 2. **ServiceNow 자격 증명을 입력하여 자동 사용자 프로비전 사용** 페이지에서 사용자 프로비전 구성 설정을 제공합니다.
@@ -262,13 +260,13 @@
 
 ###ServiceNow에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure AD 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **ServiceNow ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-servicenow-tutorial/IC769499.png "사용자 할당")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
     ![예](./media/active-directory-saas-servicenow-tutorial/IC767830.png "예")
   
@@ -280,4 +278,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!------HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

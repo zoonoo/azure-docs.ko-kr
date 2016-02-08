@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="v-sharos"/>
 
 # StorSimple 보안 및 데이터 보호
@@ -38,9 +38,9 @@ Microsoft Azure StorSimple 솔루션은 서로 상호 작용 하는 네 가지 �
 
 StorSimple 관리자 서비스는 Microsoft Azure에서 호스트되고 조직에 조달하는 모든 StorSimple 장치를 관리하는데 사용되는 관리 서비스입니다. 웹 브라우저를 통해 Azure 클래식 포털에 로그온 후, 조직 자격 증명을 사용하여 StorSimple 관리자 서비스에 액세스할 수 있습니다.
 
-StorSimple Manager 서비스에 액세스하려면 StorSimple을 포함하는 Azure 구독 조직에 있어야 합니다. 구독은 Azure 클래식 포털에 액세스할 수 있는 기능을 제어합니다. 조직에 Azure 구독이 없고 이에 대한 자세한 정보를 알려면 [조직으로 Azure에 등록](../sign-up-organization.md)을 참조하세요.
+StorSimple Manager 서비스에 액세스하려면 StorSimple을 포함하는 Azure 구독 조직에 있어야 합니다. 구독은 Azure 클래식 포털에 액세스할 수 있는 기능을 제어합니다. 조직에 Azure 구독이 없고 이에 대한 자세한 정보를 알려면 [조직으로 Azure에 등록](../active-directory/sign-up-organization.md)을 참조하세요.
 
-StorSimple 관리자 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/security/)로 이동합니다.
+StorSimple 관리자 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)로 이동합니다.
 
 ## StorSimple 장치 보호
 
@@ -56,7 +56,7 @@ StorSimple 관리자 서비스는 Azure에서 호스팅되므로 Azure 보안 �
 
 장치를 등록 한 후에 토큰을 사용하여 Microsoft Azure와 통신할 수 있습니다. 장치를 등록한 후 서비스 등록 키는 사용되지 않습니다.
 
-> [AZURE.NOTE]사용한 후 항상 서비스 등록 키를 다시 생성하는 것이 좋습니다.
+> [AZURE.NOTE] 사용한 후 항상 서비스 등록 키를 다시 생성하는 것이 좋습니다.
 
 ## 암호를 통해 StorSimple 솔루션 보호
 
@@ -127,7 +127,7 @@ StorSimple 암호를 강력하고 잘 보호되도록 만들기 위해서 다음
 
 다른 섹션에서 설명한 것처럼 암호는 StorSimple 솔루션에 대한 액세스 권한을 얻기 전에 사용자를 인증하고 권한을 부여하는데 사용됩니다. 다른 보안 고려 사항은 저장하는 동안 및 저장소 시스템 간에 전송되는 동안 권한이 없는 사용자로부터 데이터를 보호하기 위한 것입니다. 다음 섹션은 StorSimple에 제공되는 데이터 보호 기능을 설명합니다.
 
-> [AZURE.NOTE]중복 제거는 StorSimple 장치에 및 Microsoft Azure 저장소에 저장된 데이터에 대한 추가 보호를 제공합니다. 데이터가 중복 제거된 경우, 데이터 개체는 이들 항목에 매핑 및 액세스하는데 사용되는 메타데이터와 별도로 저장됩니다. 볼륨 구조, 파일 시스템 또는 파일 이름에 따라 데이터를 다시 구성하는 사용 가능한 저장소 수준의 컨텍스트가 없습니다.
+> [AZURE.NOTE] 중복 제거는 StorSimple 장치에 및 Microsoft Azure 저장소에 저장된 데이터에 대한 추가 보호를 제공합니다. 데이터가 중복 제거된 경우, 데이터 개체는 이들 항목에 매핑 및 액세스하는데 사용되는 메타데이터와 별도로 저장됩니다. 볼륨 구조, 파일 시스템 또는 파일 이름에 따라 데이터를 다시 구성하는 사용 가능한 저장소 수준의 컨텍스트가 없습니다.
 
 ## 서비스를 통해 흐르는 데이터 보호
 
@@ -144,7 +144,7 @@ StorSimple Manager 서비스의 주요 목적은 StorSimple 장치를 관리하�
 
 서비스 데이터 암호화 키는 서비스에 등록된 첫 번째 장치에만 생성됩니다. 서비스에 등록되는 모든 후속 장치는 동일한 서비스 데이터 암호화 키를 사용해야 합니다.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > 서비스 데이터 암호화 키의 복사본을 만들어 안전한 위치에 저장하는 것이 매우 중요합니다. 서비스 데이터 암호화 키의 복사본은 권한 있는 사용자가 액세스하고 장치 관리자에게 쉽게 전달될 수 있는 방식으로 저장되어야 합니다.
 >
@@ -213,7 +213,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 **Q:** 서비스 등록 키를 요청하는 새 StorSimple 장치가 있습니다. 어떻게 장치를 검색하나요?
 
-**A:** 이 키는 StorSimple Manager 서비스를 처음 만들 때 생성됩니다. StorSimple Manager 서비스를 사용 하여 장치에 연결하는 경우 빠른 시작 페이지를 사용하여 서비스 등록 키를 보거나 다시 생성할 수 있습니다. 새 서비스 등록 키를 생성해도 기존에 등록된 장치에는 영향을 주지 않습니다. 자세한 내용은 다음을 참조하세요.
+**A:** StorSimple Manager 서비스를 처음 만들 때 이 키가 생성 됩니다. StorSimple Manager 서비스를 사용 하여 장치에 연결하는 경우 빠른 시작 페이지를 사용하여 서비스 등록 키를 보거나 다시 생성할 수 있습니다. 새 서비스 등록 키를 생성해도 기존에 등록된 장치에는 영향을 주지 않습니다. 자세한 내용은 다음을 참조하세요.
 
 - [서비스 등록 키 보기 또는 다시 생성](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
@@ -269,4 +269,4 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 [StorSimple 장치 배포](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

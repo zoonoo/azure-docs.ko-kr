@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 이벤트 허브 가용성 및 지원 FAQ
@@ -23,7 +23,7 @@
 
 ## 가격 정보
 
-이벤트 허브 가격 책정에 대한 전체 내용은 [이벤트 허브 가격 책정 정보](http://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
+이벤트 허브 가격 책정에 대한 전체 내용은 [이벤트 허브 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
 
 ## 이벤트 허브 수신 이벤트 계산하는 방법
 
@@ -73,11 +73,11 @@
 
 ## 조정된 연결 요금이 이벤트 허브에 적용됩니까?
 
-송신자의 경우, AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예를 들어, 보다 효율적인 이벤트 스트리밍을 달성하거나는 사물 인터넷 명령 및 컨트롤 시나리오에서 양방향 통신을 설정하려면), 조정 된 연결을 구성하는 정보 및 계량 방법에 대한 자세한 내용은 [서비스 버스 가격 정보](http://azure.microsoft.com/pricing/details/service-bus/) 페이지를 참조하세요.
+송신자의 경우, AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예를 들어, 보다 효율적인 이벤트 스트리밍을 달성하거나는 사물 인터넷 명령 및 컨트롤 시나리오에서 양방향 통신을 설정하려면), 조정 된 연결을 구성하는 정보 및 계량 방법에 대한 자세한 내용은 [서비스 버스 가격 정보](https://azure.microsoft.com/pricing/details/service-bus/) 페이지를 참조하세요.
 
 ## 이벤트 허브 기본 및 표준 계층 간의 차이는 무엇입니까?
 
-이벤트 허브 표준 계층은 몇몇 경쟁 시스템에서와 같이 이벤트 허브 기본에서 제공할 수 있는 것 보다 많은 기능을 제공합니다. 이러한 기능에는 24시간 이상 보존 기간, 단일 AMQP 연결을 사용하여 1초 미만의 대기 시간으로 여러 장치에 명령을 보내고 이러한 장치에서 이벤트 허브로 원격 분석을 보낼 수 기능이 포함됩니다. 기능 목록은 [가격 정보]([이벤트 허브 가격 정보](http://azure.microsoft.com/pricing/details/event-hubs/))를 참조하세요.
+이벤트 허브 표준 계층은 몇몇 경쟁 시스템에서와 같이 이벤트 허브 기본에서 제공할 수 있는 것 보다 많은 기능을 제공합니다. 이러한 기능에는 24시간 이상 보존 기간, 단일 AMQP 연결을 사용하여 1초 미만의 대기 시간으로 여러 장치에 명령을 보내고 이러한 장치에서 이벤트 허브로 원격 분석을 보낼 수 기능이 포함됩니다. 기능 목록은 [이벤트 허브 가격 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
 
 ## 지리적 가용성
 
@@ -96,7 +96,7 @@
 
 이벤트 허브에 대한 기술 지원은 [커뮤니티 포럼](https://social.msdn.microsoft.com/forums/azure/home)을 통해 사용할 수 있습니다. 청구 및 구독 관리 지원은 무료로 제공됩니다.
 
-SLA에 대한 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/) 페이지를 방문하세요.
+SLA에 대한 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 페이지를 방문하세요.
 
 ## 다음 단계
 
@@ -110,4 +110,4 @@ SLA에 대한 자세한 내용은 [서비스 수준 계약](http://azure.microso
 [이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

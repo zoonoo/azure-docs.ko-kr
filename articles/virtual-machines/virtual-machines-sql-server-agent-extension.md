@@ -27,7 +27,7 @@
 ## 필수 조건
 Powershell cmdlet 사용의 요구 사항:
 
-- 최신 Azure 명령줄 SDK는 [여기에서 사용할 수 있습니다.](http://azure.microsoft.com/downloads/)
+- 최신 Azure 명령줄 SDK는 [여기에서 사용할 수 있습니다.](https://azure.microsoft.com/downloads/)
 
 VM에서 확장을 사용하기 위한 요구 사항:
 
@@ -49,7 +49,7 @@ VM에서 확장을 사용하기 위한 요구 사항:
 
 Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-AutoBackupSettings <AutoBackupSettings>] [-AutoPatchingSetttings <AutoPatchingSetttings>] [-Confirm] [-WhatIf] [<CommonParameters>]
 
-> [AZURE.NOTE]–Version 매개 변수는 생략하는 것이 좋습니다. 이 매개 변수가 없으면 기본값은 확장의 최신 버전입니다.
+> [AZURE.NOTE] –Version 매개 변수는 생략하는 것이 좋습니다. 이 매개 변수가 없으면 기본값은 확장의 최신 버전입니다.
 
 ### 예
 	Get-AzureVM –ServiceName serviceName –Name vmName | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
@@ -65,7 +65,7 @@ Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-Auto
 
 Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<CommonParameters>]
 
-> [AZURE.NOTE]–Version 매개 변수는 생략할 수 있습니다. 이 매개 변수가 없으면 기본값은 확장의 최신 버전입니다.
+> [AZURE.NOTE] –Version 매개 변수는 생략할 수 있습니다. 이 매개 변수가 없으면 기본값은 확장의 최신 버전입니다.
 
 ### 예
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
@@ -78,4 +78,4 @@ VM에서 이 확장을 제거하려는 경우 다음 Azure Powershell cmdlet을 
 ### 구문
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@
 
 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 실행하는 제조 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
 
-데이터 팩터리는 온-프레미스 및 클라우드 데이터 원본 및 SaaS 모두에서 작업하면서 데이터를 수집, 준비, 변환, 분석 및 게시합니다. 빅 데이터 컴퓨팅 요구를 위해 [Azure HDInsight(Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) 및 [Azure Batch](http://azure.microsoft.com/documentation/services/batch/) 같은 서비스를 사용하여 데이터를 변환하기 위해, [Azure 기계 학습](http://azure.microsoft.com/documentation/services/machine-learning/)으로 분석 솔루션을 운영할 수 있도록 하기 위해 데이터 팩터리를 사용하여 서비스를 관리되는 데이터 흐름 파이프라인으로 작성합니다. 테이블 형식의 모니터링 뷰를 능가하는 데이터 팩터리의 풍성한 시각화를 사용하여 데이터 파이프라인 간의 종속성과 계보를 신속하게 나타냅니다. 단일의 통합된 보기에서 모든 데이터 흐름 파이프라인을 모니터링하여 쉽게 문제를 파악하고 모니터링 경고를 설정합니다.
+데이터 팩터리는 온-프레미스 및 클라우드 데이터 원본 및 SaaS 모두에서 작업하면서 데이터를 수집, 준비, 변환, 분석 및 게시합니다. 빅 데이터 컴퓨팅 요구를 위해 [Azure HDInsight(Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) 및 [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) 같은 서비스를 사용하여 데이터를 변환하기 위해, [Azure 기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)으로 분석 솔루션을 운영할 수 있도록 하기 위해 데이터 팩터리를 사용하여 서비스를 관리되는 데이터 흐름 파이프라인으로 작성합니다. 테이블 형식의 모니터링 뷰를 능가하는 데이터 팩터리의 풍성한 시각화를 사용하여 데이터 파이프라인 간의 종속성과 계보를 신속하게 나타냅니다. 단일의 통합된 보기에서 모든 데이터 흐름 파이프라인을 모니터링하여 쉽게 문제를 파악하고 모니터링 경고를 설정합니다.
 
 자세한 내용은 [개요 및 주요 개념](data-factory-introduction.md)을 참조하세요.
  
@@ -72,7 +72,7 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 
 다음 중 하나를 사용하여 데이터 팩터리를 작성/생성할 수 있습니다.
 
-- **Azure 포털** Azure 포털의 데이터 팩터리 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 편집기 개요는 [데이터 팩터리 편집기][data-factory-editor]를 참조하고, 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [데이터 팩터리 시작][datafactory-getstarted]을 참조하세요.   
+- **Azure 포털** Azure 포털의 데이터 팩터리 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [데이터 팩터리 시작][datafactory-getstarted]을 참조하세요.   
 - **Azure PowerShell**. PowerShell 사용자이며 포털 UI 대신 PowerShell을 사용하려는 경우 Azure PowerShell의 일부로 제공되는 Azure 데이터 팩터리 cmdlet을 사용하여 데이터 팩터리를 만들고 배포할 수 있습니다. 간단한 예제는 [Azure PowerShell을 사용하여 Azure 데이터 팩터리 만들기 및 모니터링][create-data-factory-using-powershell]을 참조하고, PowerShell cmdlet을 사용하여 데이터 팩터리를 만들고 배포하는 고급 예제는 [자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial]를 참조하세요. 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조하세요.  
 - **Visual Studio**. 또한 Visual Studio를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들고, 모니터링하고, 관리할 수 있습니다. 자세한 내용은 [데이터 팩터리 .NET SDK를 사용하여 Azure 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md) 문서를 참조하세요.  
 - **.NET 클래스 라이브러리**. 데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리][create-factory-using-dotnet-sdk]를 참조하세요. 데이터 팩터리 .NET SDK의 포괄적인 설명서는 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference]를 참조하세요.  
@@ -156,7 +156,6 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 [adfgetstarted]: data-factory-get-started.md
 [adf-introduction]: data-factory-introduction.md
 [adf-troubleshoot]: data-factory-troubleshoot.md
-[data-factory-editor]: data-factory-editor.md
 [datafactory-getstarted]: data-factory-get-started.md
 [create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
@@ -175,4 +174,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

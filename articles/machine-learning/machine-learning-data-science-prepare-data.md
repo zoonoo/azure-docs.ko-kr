@@ -26,7 +26,7 @@
 
 이 문서에서는 Azure 기계 학습에 데이터를 수집하기 전 또는 후에 수행할 수 있는 다양한 데이터 처리 개념 및 작업을 소개합니다.
 
-Azure 기계 학습 스튜디오 내부에서 수행된 데이터 탐색 및 전처리의 예는 [Azure ML Studio에서 데이터 전처리](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) 비디오를 참조하세요.
+Azure 기계 학습 스튜디오 내부에서 수행된 데이터 탐색 및 전처리의 예는 [Azure ML Studio에서 데이터 전처리](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) 비디오를 참조하세요.
 
 
 ## 데이터 전처리 및 정리가 필요한 이유
@@ -111,4 +111,4 @@ Azure 기계 학습 스튜디오 내부에서 수행된 데이터 탐색 및 전
 >*데이터 마이닝: 개념 및 기술*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber 및 Jian Pei
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,7 +32,7 @@
 
 • Linux VM의 경우 -- [Azure 인증 배포의 Linux](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows 8.1의 특정 버전은 MSDN Azure 혜택 구독자와 MSDN 개발 및 테스트 종량제 구독자가 개발 및 테스트 작업을 위해 사용할 수 있습니다. 지침과 제한 사항을 포함한 자세한 내용은 [MSDN 구독자를 위한 Windows 클라이언트 이미지](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)를 참조하세요.
+Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows 8.1의 특정 버전은 MSDN Azure 혜택 구독자와 MSDN 개발 및 테스트 종량제 구독자가 개발 및 테스트 작업을 위해 사용할 수 있습니다. 지침과 제한 사항을 포함한 자세한 내용은 [MSDN 구독자를 위한 Windows 클라이언트 이미지](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)를 참조하세요.
 
 ## 가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
 
@@ -119,7 +119,7 @@ Azure는 바이러스 백신 솔루션에 대한 몇 가지 옵션을 제공하�
 
 - [Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 - [Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-- [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## 백업 및 복구에 대한 나의 옵션은 무엇입니까?
 
@@ -137,7 +137,7 @@ VM 상태가 실행 중이거나 정지되면 요금이 부과되지만, VM 상�
 - Azure Powershell 모듈에서 사용할 수 있는 Stop-Azure cmdlet을 사용합니다.
 - 서비스 관리 REST API에서 종료 역할 작업을 사용하고 PostShutDownAction 요소에 대한 StoppedDeallocated를 지정합니다.
 
-자세한 내용은 [가상 컴퓨터 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
+자세한 내용은 [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
 
 ## Azure는 유지관리를 위해 내 VM을 다시 부팅합니까?
 
@@ -147,7 +147,7 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 모든 독립 실행형 VM(VM은 가용성 집합의 일부가 아니라는 의미)에 대해, 업데이트를 하는 동안 VM이 다시 시작될 수 있기 때문에, Azure는 계획된 유지 관리 시행 시기 기준 적어도 한 주 전에 구독의 서비스 관리자에게 e-mail로 알립니다. VM에서 실행 중인 응용 프로그램에서 가동 중지 시간이 발생할 수 있습니다.
 
-또한 계획된 유지 관리로 인해 다시 부팅할 때 Azure 클래식 포털 또는 Azure PowerShell을 사용하여 다시 부팅 로그를 볼 수 있습니다. 자세한 내용은 [VM 다시 부팅 로그 보기](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)를 참조하세요.
+또한 계획된 유지 관리로 인해 다시 부팅할 때 Azure 클래식 포털 또는 Azure PowerShell을 사용하여 다시 부팅 로그를 볼 수 있습니다. 자세한 내용은 [VM 다시 부팅 로그 보기](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)를 참조하세요.
 
 중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-manage-availability.md)를 참조하세요.
 
@@ -159,4 +159,4 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

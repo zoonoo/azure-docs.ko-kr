@@ -28,7 +28,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md)하는 것이 좋습니다. 이러한 방식으로 동일한 앱 서비스 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
+>[AZURE.TIP] 업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md)하는 것이 좋습니다. 이러한 방식으로 동일한 앱 서비스 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
 
 ###모바일 앱 .NET 서버 SDK에서 향상된 기능
 
@@ -46,7 +46,7 @@
 
 대부분의 경우 새 모바일 앱 서버 SDK로 전환한 다음 새 모바일 앱 인스턴스에 코드를 다시 게시하기만 하면 간단히 업그레이드할 수 있습니다. 그러나 고급 인증 시나리오 및 예약된 작업 사용과 같이 추가 구성이 필요한 일부 시나리오도 있습니다. 각 시나리오는 이후 섹션에서 설명합니다.
 
->[AZURE.TIP]업그레이드를 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해하는 것이 좋습니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
+>[AZURE.TIP] 업그레이드를 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해하는 것이 좋습니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
 
 모바일 서비스 클라이언트 SDK는 새 모바일 앱 서버 SDK와 호환할 수 **없습니다**. 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 응용 프로그램을 동일한 앱 서비스 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
 
@@ -95,7 +95,7 @@ SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있�
             .UseDefaultConfiguration()
         .ApplyTo(config);
 
->[AZURE.NOTE]앱에서 기능을 추가/제거하는 방법 및 새 .NET 서버 SDK에 대한 자세한 내용을 보려면, [.NET 서버 SDK를 사용하는 방법] 항목을 참조하세요.
+>[AZURE.NOTE] 앱에서 기능을 추가/제거하는 방법 및 새 .NET 서버 SDK에 대한 자세한 내용을 보려면, [.NET 서버 SDK를 사용하는 방법] 항목을 참조하세요.
 
 또한 앱이 인증 기능을 사용하는 경우 OWIN 미들웨어를 등록해야 합니다. 이 경우 새 OWIN 시작 클래스에 위의 구성 코드를 이동해야 합니다.
  
@@ -277,4 +277,4 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

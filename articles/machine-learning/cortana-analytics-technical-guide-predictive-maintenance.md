@@ -24,13 +24,13 @@
 
 이 문서의 목적은 참조 아키텍처 및 이 솔루션 템플릿의 일부로 구독에 프로비전된 다른 구성 요소를 설명하는 것입니다. 문서는 사용자 고유 데이터에서 통찰력과 예측을 볼 수 있도록 샘플 데이터를 사용자 고유의 실제 데이터로 대체하는 방법에 대해서도 설명합니다. 또한 문서는 사용자 고유 데이터로 솔루션을 사용자 지정하려는 경우 수정되어야 하는 솔루션 템플릿의 부분을 설명합니다. 이 솔루션 템플릿에 대한 Power BI 대시보드를 빌드하는 방법에 대한 지침은 끝에 제공됩니다.
 
->[AZURE.TIP] [이 문서의 PDF 버전](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf)을 다운로드 및 인쇄할 수 있습니다.
+>[AZURE.TIP] [이 문서의 PDF 버전](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf)을 다운로드 및 인쇄할 수 있습니다.
 
 ## **큰 그림**
 
 ![](media/cortana-analytics-technical-guide-predictive-maintenance\predictive-maintenance-architecture.png)
 
-솔루션이 배포될 때 Cortana Analytics Suite 내에서 다양한 Azure 서비스가 활성화됩니다(즉, 이벤트 허브, 스트림 분석, HDInsight, 데이터 팩터리, 기계 학습 등). 위의 아키텍처 다이어그램은 높은 수준에서 항공 솔루션 템플릿에 대한 예측 유지 관리가 종단 간에서 생성되는 방법을 보여 줍니다. 솔루션의 배포를 사용하여 만든 솔루션 템플릿 다이어그램을 클릭하여 이러한 서비스를 조사할 수 있습니다. [다이어그램의 전체 크기 버전](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)을 다운로드할 수 있습니다.
+솔루션이 배포될 때 Cortana Analytics Suite 내에서 다양한 Azure 서비스가 활성화됩니다(*즉,* 이벤트 허브, 스트림 분석, HDInsight, 데이터 팩터리, 기계 학습 *등*). 위의 아키텍처 다이어그램은 높은 수준에서 항공 솔루션 템플릿에 대한 예측 유지 관리가 종단 간에서 생성되는 방법을 보여 줍니다. 솔루션의 배포를 사용하여 만든 솔루션 템플릿 다이어그램을 클릭하여 이러한 서비스를 조사할 수 있습니다. [다이어그램의 전체 크기 버전](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)을 다운로드할 수 있습니다.
 
 다음 섹션은 각 부분을 설명합니다.
 
@@ -98,15 +98,15 @@ Azure 스트림 분석 쿼리는 다음으로 찾을 수 있습니다.
 
 -   Azure 포털에 로그인
 
--   솔루션이 배포될 때 생성된 스트림 분석 작업 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-stream-analytics.png) 배치(예: 예측 유지 관리 솔루션에 대한**maintenancesa02asapbi** 및 **maintenancesa02asablob**)
+-   솔루션이 배포될 때 생성된 스트림 분석 작업 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-stream-analytics.png) 배치(*예:* 예측 유지 관리 솔루션에 대한**maintenancesa02asapbi** 및 **maintenancesa02asablob**)
 
 -   선택
 
-    -   쿼리 입력을 보려면 **입력**
+    -   쿼리 입력을 보려면 ***입력***
 
-    -   쿼리 자체를 보려면 **쿼리**
+    -   쿼리 자체를 보려면 ***쿼리***
 
-    -   다른 출력을 보려면 **출력**
+    -   다른 출력을 보려면 ***출력***
 
 Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분석 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 찾을 수 있습니다.
 
@@ -128,33 +128,45 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 [Azure 스트림 분석](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 이러한 쿼리는 데이터 형식 및 [기능 엔지니어링](machine-learning-feature-selection-and-engineering.md) 요구 사항에 따라 변경해야 합니다.
 
-#### AggregateFlightInfoPipeline
+#### *AggregateFlightInfoPipeline*
 
 이 [파이프라인](../data-factory/data-factory-create-pipelines.md)은 [Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 작업 동안 [Azure 저장소](https://azure.microsoft.com/services/storage/)에 넣은 데이터를 분할하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 단일 작업([HDInsightHive](../data-factory/data-factory-hive-activity.md) 작업)을 포함합니다.
 
-이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 **AggregateFlightInfo.hql**입니다.
+이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateFlightInfo.hql***입니다.
 
-#### MLScoringPipeline
+#### *MLScoringPipeline*
 
 이 [파이프라인](../data-factory/data-factory-create-pipelines.md)은 여러 작업을 포함하고 해당 최종 결과는 이 솔루션 템플릿과 연결된 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 실험의 점수가 매겨진 예측입니다.
 
 이에 포함된 작업은 다음과 같습니다.
 
--   [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 [HDInsightHive](../data-factory/data-factory-hive-activity.md) 작업. 이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 **PrepareMLInput.hql**입니다.
+-   [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 [HDInsightHive](../data-factory/data-factory-hive-activity.md) 작업. 이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***PrepareMLInput.hql***입니다.
 
 -   [HDInsightHive](../data-factory/data-factory-hive-activity.md) 작업의 결과를 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업으로 액세스할 수 있는 단일 [Azure 저장소](https://azure.microsoft.com/services/storage/) Blob으로 이동하는 [복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업.
 
 -   단일 [Azure 저장소](https://azure.microsoft.com/services/storage/) Blob에 배치되는 결과를 유발하는 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 실험을 호출하는 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업.
 
-#### CopyScoredResultPipeline
+#### *CopyScoredResultPipeline*
 
-이 [파이프라인](../data-factory/data-factory-create-pipelines.md)은 **MLScoringPipeline**에서 [Azure 기계 학습](#azure-machine-learning) 실험의 결과를 솔루션 템플릿 설치의 일부로 프로비전되는 [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)에 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
+이 [파이프라인](../data-factory/data-factory-create-pipelines.md)은 ***MLScoringPipeline***에서 [Azure 기계 학습](#azure-machine-learning) 실험의 결과를 솔루션 템플릿 설치의 일부로 프로비전되는 [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)에 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
 
 ### Azure 기계 학습
 
 이 솔루션 템플릿에 사용된 [Azure 기계 학습](https://azure.microsoft.com/services/machine-learning/) 실험은 항공기 엔진의 잔여 수명(RUL)을 제공합니다. 실험은 사용된 데이터 집합에 특정되므로 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.
 
 Azure 기계 학습 실험 생성 방법에 대한 정보는 [예측 유지 관리: 1/3단계, 데이터 준비 및 기능 엔지니어링](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)을 참조하세요.
+
+## **진행률 모니터링**
+ 데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
+
+1. 스트림 분석 작업 중 하나는 Blob 저장소에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 Blob 저장소 구성 요소를 클릭하고 오른쪽 창에서 열기를 클릭하면 [관리 포털](https://portal.azure.com/)로 이동합니다. Blob을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **maintenancesadata**를 클릭합니다. 다음 패널에서 **rawdata** 폴더가 표시됩니다. rawdata 폴더 안에 hour=17, hour=18 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 성공적으로 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 MB의 한정된 크기로 있어야 하는 csv 파일이 표시됩니다.
+
+2. 파이프라인의 마지막 단계는 SQL 데이터베이스에 데이터(예: 기계 학습에서 예측)를 작성하는 것입니다. 데이터를 SQL 데이터베이스에 표시하려면 최대 3시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL 데이터베이스에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [azure 포털](https://manage.windowsazure.com/)을 통한 것입니다. 왼쪽 패널에서 SQL 데이터베이스 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-SQL-databases.png)를 찾고 클릭합니다. 그런 다음 데이터베이스 **pmaintenancedb**를 찾고 클릭합니다. 맨 아래의 다음 페이지에서 관리를 클릭합니다.
+
+	![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-manage.png).
+
+	여기에서는 새 쿼리 및 행(예: PMResult의 select count(*))의 수에 대한 쿼리를 클릭할 수 있습니다. 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 합니다.
+
 
 ## **Power BI 대시보드**
 
@@ -168,7 +180,7 @@ Azure 기계 학습 실험 생성 방법에 대한 정보는 [예측 유지 관�
 
 Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQL 데이터베이스에 연결합니다. 참고: 1) 솔루션 배포 시 실제 예측은 3시간 이내로 데이터베이스에 표시됩니다. 생성기 다운로드와 함께 제공되는 pbix 파일은 지금 바로 Power BI 대시보드를 만들 수 있도록 일부 시드 데이터를 포함합니다. 2) 이 단계에서 필수 구성 요소는 무료 소프트웨어 [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)을 다운로드 및 설치하는 것입니다.
 
-다음 단계는 pbix 파일을 시각화에 대한 데이터(예: 예측 결과)를 포함하는 솔루션 배포 시 스핀업된 SQL 데이터베이스에 연결하는 방법을 안내합니다.
+다음 단계는 pbix 파일을 시각화에 대한 데이터(*예:* 예측 결과)를 포함하는 솔루션 배포 시 스핀업된 SQL 데이터베이스에 연결하는 방법을 안내합니다.
 
 1.  데이터베이스 자격 증명을 가져옵니다.
 
@@ -180,7 +192,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 
     -   솔루션 배포에 사용 중인 구독을 선택한 다음 **'YourSolutionName\_ResourceGroup'**을 선택합니다.
 
-    -   새 팝 아웃 패널에서 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-sql.png) 아이콘을 클릭하여 데이터베이스에 액세스합니다. 데이터베이스 이름은 이 아이콘 옆에 있으며(예: **'pmaintenancedb'**) **데이터베이스 서버 이름**은 서버 이름 속성 아래에 나열되고 **YourSoutionName.database.windows.net**과 유사하게 보입니다.
+    -   새 팝 아웃 패널에서 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-sql.png) 아이콘을 클릭하여 데이터베이스에 액세스합니다. 데이터베이스 이름은 이 아이콘 옆에 있으며(*예:* **'pmaintenancedb'**) **데이터베이스 서버 이름**은 서버 이름 속성 아래에 나열되고 **YourSoutionName.database.windows.net**과 유사하게 보입니다.
 
 	-   데이터베이스 **사용자 이름** 및 **암호**는 솔루션 배포 중 이전에 기록된 사용자 이름 및 암호와 동일합니다.
 
@@ -194,7 +206,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 
     -   팝 아웃 창에서 **'서버'** 및 **'데이터베이스'**를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **'확인'**을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSoutionName.database.windows.net, 1433**). 화면에 나타나는 경고 메시지를 무시합니다.
 
-    -   다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **'데이터베이스'**를 클릭하고 **'사용자 이름'** 및 **'암호'**를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). **이러한 설정을 적용할 수준 선택**에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **'연결'**을 클릭합니다.
+    -   다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **'데이터베이스'**를 클릭하고 **'사용자 이름'** 및 **'암호'**를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **'연결'**을 클릭합니다.
 
     -   두 번째 테이블 **PMResult**를 클릭한 다음 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래에서 **'원본'** 옆의 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-navigation.png)을(를) 클릭하고 위의 단계에서와 같이 서버 및 데이터베이스 이름을 업데이트하고 확인을 클릭합니다.
 
@@ -219,13 +231,13 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 
     -  [Azure 스트림 분석 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 실시간 분석 대시보드](stream-analytics-power-bi-dashboard.md)의 침에 따라 Power BI 대시보드로 Azure 스트림 분석 작업의 출력을 설정해야 합니다.
 	- [Azure 포털](https://manage.windowsazure.com)에서 스트림 분석 작업 **maintenancesa02asapbi**를 찾습니다.
-	- 세 개의 ASA 쿼리 출력 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**를 설정합니다. **출력 별칭**, **데이터 집합 이름** 및 **테이블 이름**은 쿼리와 동일해야 합니다(**aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**). 세 개의 출력 테이블을 추가하고 스트림 분석 작업을 시작한 후 확인 메시지를 받아야 합니다(예: " 스트림 분석 작업 maintenancesa02asapbi 시작 성공").
+	- 세 개의 ASA 쿼리 출력 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**를 설정합니다. **출력 별칭**, **데이터 집합 이름** 및 **테이블 이름**은 쿼리와 동일해야 합니다(**aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**). 세 개의 출력 테이블을 추가하고 스트림 분석 작업을 시작한 후 확인 메시지를 받아야 합니다(*예:* " 스트림 분석 작업 maintenancesa02asapbi 시작 성공").
 
 2. [Power BI 온라인](http://www.powerbi.com)에 로그인합니다.
 
-    -   내 작업 영역의 왼쪽 패널 데이터 집합 섹션에서 ASA 작업의 Power BI 출력 설정에서 이전에 정의한 **데이터 집합** 이름 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**가 표시됩니다.
+    -   내 작업 영역의 왼쪽 패널 데이터 집합 섹션에서 ASA 작업의 Power BI 출력 설정에서 이전에 정의한 ***데이터 집합*** 이름 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**가 표시됩니다.
 
-    -   **시각화** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
+    -   ***시각화*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
 
 3. "센서 11 vs. 임계값 48.26의 Fleet 보기" 타일을 만듭니다.
 
@@ -255,4 +267,4 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 
 -   [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

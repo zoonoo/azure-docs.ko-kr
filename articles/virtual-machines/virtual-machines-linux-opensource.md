@@ -31,7 +31,7 @@ Azure와 오픈 소스 컴퓨팅 환경은 둘 다 빠르게 변화하고 있으
 ## 일반 사항
 섹션은 이 페이지 오른쪽에 구분되어 있습니다. 항목이 둘 이상의 개념, Linux 배포판 또는 기술과 관련이 있응 수 있으므로 링크가 둘 이상의 섹션에 나와 있을 수 있습니다. 또한 여러 Linux 옵션, 이미지 리포지토리, 사례 연구 및 고유한 사용자 지정 이미지 업로드 방법을 설명하는 여러 항목이 있습니다.
 
-- [Azure 마켓플레이스](http://azure.microsoft.com/marketplace/virtual-machines/)
+- [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/virtual-machines/)
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
 - [이벤트 및 데모: Microsoft Openness CEE](http://www.opennessatcee.com/)
 - [클래식 배포]: [방법: 사용자 고유의 Distro 이미지 업로드](virtual-machines-linux-create-upload-vhd.md)(및 [Azure 보증 배포판](virtual-machines-linux-endorsed-distributions.md) 사용 지침)
@@ -53,7 +53,7 @@ Azure와 오픈 소스 컴퓨팅 환경은 둘 다 빠르게 변화하고 있으
 
 일반적으로 패키지 관리 시스템에서 세분화되는 다수의 Linux 배포판이 있습니다. 일부는 dpkg 기반, Debian 및 Ubuntu와 같으며 나머지는 rpm 기반, CentOS, SUSE, RedHat 등입니다. 일부 회사는 Microsoft의 공식 파트너로서 보증된 Linux 배포판 이미지를 제공합니다. 커뮤니티에서 제공하는 Linux 배포판도 있습니다. 이 섹션의 Linux 배포판은 다른 기술의 예제에서만 사용된 경우에도 관련 공식 문서가 있습니다.
 
-### [Ubuntu](http://azure.microsoft.com/marketplace/partners/Canonical/)
+### [Ubuntu](https://azure.microsoft.com/marketplace/partners/Canonical/)
 
 Ubuntu는 매우 널리 사용되는 Azure 보증 Linux 배포판으로, dkpg 및 apt-get 패키지 관리를 기반으로 합니다.
 
@@ -63,9 +63,9 @@ Ubuntu는 매우 널리 사용되는 Azure 보증 Linux 배포판으로, dkpg �
 4. [클래식 배포]: [방법: Node.js 및 Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 5. [리소스 관리자 배포]: [방법: IPython Notebook](virtual-machines-python-ipython-notebook.md)
 6. [클래식 배포]: [Geeking out: Docker 컨테이너를 사용하여 Linux에서 ASP.NET 5 실행](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
-7. [이미지: Redis 서버](http://azure.microsoft.com/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
-8. [이미지: Minecraft 서버](http://azure.microsoft.com/marketplace/partners/bitnami/craftbukkitminecraft179r030ubuntu1210/)
-11. [이미지: Mono as a Service](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
+7. [이미지: Redis 서버](https://azure.microsoft.com/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
+8. [이미지: Minecraft 서버](https://azure.microsoft.com/marketplace/partners/bitnami/craftbukkitminecraft179r030ubuntu1210/)
+11. [이미지: Mono as a Service](https://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
 
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
@@ -77,12 +77,12 @@ Debian은 Linux 및 오픈 소스 환경에 중요한 배포판으로, dpgk 및 
 CentOS Linux 배포판은 RHEL(Red Hat Enterprise Linux) 원본에서 파생된 안정적이고, 예측 가능하며, 관리가 용이하고, 재현 가능한 플랫폼입니다.
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [이미지 갤러리](http://azure.microsoft.com/marketplace/partners/OpenLogic/)
+2. [이미지 갤러리](https://azure.microsoft.com/marketplace/partners/OpenLogic/)
 3. [방법: Azure에 대한 사용자 지정 CentOS 기반 VM 준비](virtual-machines-linux-create-upload-vhd-centos.md)
-4. [클래식 배포]: [블로그: OpenLogic에서 CentOS VM 이미지를 배포하는 방법](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
+4. [클래식 배포]: [블로그: OpenLogic에서 CentOS VM 이미지를 배포하는 방법](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [클래식 배포]: [방법: AMQP 및 서비스 버스용 Apache Qpid Proton-C 설치](../service-bus/service-bus-amqp-apache.md/)
-7. [이미지: OpenLogic CentOS 6.3의 Apache 2.2.15](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
-8. [이미지: Drupal 7.2, OpenLogic CentOS 6.3의 LAMP 서버](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
+7. [이미지: OpenLogic CentOS 6.3의 Apache 2.2.15](https://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
+8. [이미지: Drupal 7.2, OpenLogic CentOS 6.3의 LAMP 서버](https://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
 ### SUSE Linux Enterprise Server 및 openSUSE
 
@@ -90,28 +90,28 @@ CentOS Linux 배포판은 RHEL(Red Hat Enterprise Linux) 원본에서 파생된 
 11. [클래식 배포]: [방법: MySQL 설치 및 실행](virtual-machines-linux-mysql-use-opensuse.md)
 12. [방법: Prep a Custom SLES or openSUSE VM](virtual-machines-linux-create-upload-vhd-suse.md)  
 13. [[SUSE 포럼] 방법: 새 패치 서버로 이동](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
-14. [이미지: SAP 클라우드 어플라이언스 라이브러리용 SUSE Linux Enterprise Server](http://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
+14. [이미지: SAP 클라우드 어플라이언스 라이브러리용 SUSE Linux Enterprise Server](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
 
 ### CoreOS
 
 CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용으로 최적화된 소규모 Linux 배포판입니다.
 
-10. [이미지 갤러리](http://azure.microsoft.com/marketplace/partners/coreos/)  
+10. [이미지 갤러리](https://azure.microsoft.com/marketplace/partners/coreos/)  
 11. [클래식 배포]: [방법: Azure에서 CoreOS 사용](virtual-machines-linux-coreos-how-to.md)
 12. [클래식 배포]: [방법: Azure의 CoreOS에서 Fleet 및 Docker 시작](virtual-machines-linux-coreos-fleet-get-started.md)
 
 
-#### [Oracle Linux](http://azure.microsoft.com/marketplace/?term=Oracle+Linux)
+#### [Oracle Linux](https://azure.microsoft.com/marketplace/?term=Oracle+Linux)
   2. [Azure용 Oracle Linux 가상 컴퓨터 준비](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 ### FreeBSD
 
 12. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Date&search=FreeBSD)
-13. [클래식 배포]: [블로그: Azure에서 FreeBSD 실행](http://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
+13. [클래식 배포]: [블로그: Azure에서 FreeBSD 실행](https://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
 14. [클래식 배포]: [블로그: 간편한 FreeBSD 배포](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
 15. [블로그: 사용자 지정 FreeBSD 이미지 배포](http://msopentech.com/blog/2014/05/14/deploy-customize-freebsd-virtual-machine-image-microsoft-azure/)
 17. [방법: Azure Linux 에이전트 설치](virtual-machines-linux-agent-user-guide.md)
-18. [마켓플레이스: Linux 파일 서버용 Kaspersky AV](http://azure.microsoft.com/marketplace/partners/kaspersky-lab/kav-for-lfs-kav-for-lfs/)
+18. [마켓플레이스: Linux 파일 서버용 Kaspersky AV](https://azure.microsoft.com/marketplace/partners/kaspersky-lab/kav-for-lfs-kav-for-lfs/)
 
 ## 기본 사항
 
@@ -142,19 +142,19 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 5. [Docker 허브 레지스트리](https://registry.hub.docker.com/) &mdash; Docker 컨테이너 이미지용 레지스트리
 
 ## 언어 및 플랫폼
-### [Azure Java 개발자 센터](http://azure.microsoft.com/develop/java/)
+### [Azure Java 개발자 센터](https://azure.microsoft.com/develop/java/)
 
 1. [이미지](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
 2. [방법: AMQP 1.0을 사용하여 Java에서 서비스 버스 사용](http://msdn.microsoft.com/library/azure/jj841073.aspx)
 3. [방법: Azure 클래식 포털을 사용하여 Linux에 Tomcat7 설치](virtual-machines-linux-setup-tomcat7-linux.md)
 4. [비디오: 서비스 관리용 Azure Java SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
-5. [블로그: Java 용 Azure 관리 라이브러리 블로그: 시작](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
+5. [블로그: Java 용 Azure 관리 라이브러리 블로그: 시작](https://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
 5. [GitHub 리포지토리: Azure Toolkit for Eclipse with Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
 6. [참고: Azure Toolkit for Eclipse with Java](http://msdn.microsoft.com/library/azure/hh694271.aspx)
 7. [GitHub 리포지토리: IntelliJ IDEA 및 Android Studio용 MS Open Tech Tools 플러그 인](https://github.com/MSOpenTech/msopentech-tools-for-intellij)
 7. [블로그: MSOpenTech는 OpenJDK에 참가](http://msopentech.com/blog/2014/10/21/ms-open-techs-first-contribution-openjdk/)
-8. [이미지: WebSphere](http://azure.microsoft.com/marketplace/partners/msopentech/was-8-5-was-8-5-5-3/)
-9. [이미지: WebLogic](http://azure.microsoft.com/marketplace/?term=weblogic)
+8. [이미지: WebSphere](https://azure.microsoft.com/marketplace/partners/msopentech/was-8-5-was-8-5-5-3/)
+9. [이미지: WebLogic](https://azure.microsoft.com/marketplace/?term=weblogic)
 
 
 ### JVM 언어
@@ -206,7 +206,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
     - [블로그: Azure Redis Cache 서비스에서 Windows의 Redis](http://msopentech.com/blog/2014/05/12/redis-on-windows/)
     - [블로그: Redis용 ASP.NET 세션 상태 제공자 미리 보기 릴리스 발표](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)
 6. RavenHQ
-    - [블로그: 이제 Azure 마켓플레이스에서 RavenHQ 사용 가능](http://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
+    - [블로그: 이제 Azure 마켓플레이스에서 RavenHQ 사용 가능](https://azure.microsoft.com/blog/2014/08/12/ravenhq-now-available-in-the-azure-store/)
 
 ### 빅 데이터
 2. Hadoop/Cloudera  
@@ -239,8 +239,8 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 
 오픈 소스 도구나 Microsoft HPC Pack을 통해 Linux VM 클러스터에서 HPC 작업을 실행합니다.
 
-1.	[퀵스타트 템플릿: SLURM 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/slurm/)(및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
-2.	[빠른 시작 템플릿: 토크 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+1.	[퀵스타트 템플릿: SLURM 클러스터 스핀업](https://azure.microsoft.com/documentation/templates/slurm/)(및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
+2.	[빠른 시작 템플릿: 토크 클러스터 스핀업](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 3.	[빠른 시작 템플릿: Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
 4.	[자습서: Azure에서 HPC Pack 클러스터의 Linux 컴퓨터 노드 시작](virtual-machines-linux-cluster-hpcpack.md)
 5.	[자습서: Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-cluster-hpcpack-namd.md)
@@ -249,7 +249,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 
 ## 개발, 관리 및 최적화
 
-이 섹션에는 일련의 비디오를 포함하는 블로그 항목의 시작 [비디오: Azure 가상 컴퓨터: Chef를 사용하여, Puppet 및 Linux VM을 관리하기 위한 Docker](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/). 그러나 개발, 관리 및 최적화 환경은 매우 광범위하고 빠르게 변화하므로 아래 목록을 출발점으로 고려해야 합니다.
+이 섹션에는 일련의 비디오를 포함하는 블로그 항목의 시작 [비디오: Azure 가상 컴퓨터: Chef를 사용하여, Puppet 및 Linux VM을 관리하기 위한 Docker](https://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/). 그러나 개발, 관리 및 최적화 환경은 매우 광범위하고 빠르게 변화하므로 아래 목록을 출발점으로 고려해야 합니다.
 
 1. Docker
 	- [Azure의 Linux용 Docker VM 확장](virtual-machines-docker-vm-extension.md)
@@ -265,7 +265,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 	- [GitHub 리포지토리: Azure에서 CoreOS 클러스터에 Deis 설치](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)
 4. Kubernetes
 	- [CoreOS 및 Weave로 자동화된 Kubernetes 클러스터에 대한 완벽한 가이드](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
-	- [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
+	- [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 5. Jenkins 및 Hudson
 	- [블로그: Azure용 Jenkins Slave 플러그인](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
 	- [GitHub 리포지토리: Azure용 Jenkins 저장소 플러그인](https://github.com/jenkinsci/windows-azure-storage-plugin)
@@ -302,4 +302,4 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

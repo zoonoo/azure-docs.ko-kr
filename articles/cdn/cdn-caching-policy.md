@@ -26,7 +26,7 @@ Azure 미디어 서비스는 HTTP 기반 적응 스트리밍 및 점진적 다�
 
 ##Azure CDN 통합
 
-Azure 미디어 서비스는 스트리밍 끝점에 대한 [CDN 통합](http://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/)을 제공합니다. Cache-control 헤더는 CDN 사용 스트리밍 끝점에 스트리밍 끝점과 동일한 방식으로 적용됩니다. Azure CDN은 스트리밍 끝점에 구성된 캐시 값을 사용하여 내부적으로 캐시된 개체의 수명을 정의하며, 이 값을 사용하여 배달 캐시 헤더도 설정합니다. CDN 사용 스트리밍 끝점을 사용하는 경우에는 작은 캐시 값을 설정하지 않는 것이 좋습니다. 작은 값을 설정하면 성능이 저하되고 CDN의 이점이 줄어듭니다. CDN 사용 스트리밍 끝점의 경우 캐시 헤더를 600초보다 작게 설정할 수 없습니다.
+Azure 미디어 서비스는 스트리밍 끝점에 대한 [CDN 통합](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/)을 제공합니다. Cache-control 헤더는 CDN 사용 스트리밍 끝점에 스트리밍 끝점과 동일한 방식으로 적용됩니다. Azure CDN은 스트리밍 끝점에 구성된 캐시 값을 사용하여 내부적으로 캐시된 개체의 수명을 정의하며, 이 값을 사용하여 배달 캐시 헤더도 설정합니다. CDN 사용 스트리밍 끝점을 사용하는 경우에는 작은 캐시 값을 설정하지 않는 것이 좋습니다. 작은 값을 설정하면 성능이 저하되고 CDN의 이점이 줄어듭니다. CDN 사용 스트리밍 끝점의 경우 캐시 헤더를 600초보다 작게 설정할 수 없습니다.
 
 ##Azure 미디어 서비스를 사용하여 캐시 헤더 구성
 
@@ -43,4 +43,4 @@ Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 
 3. 라이브 스트리밍에는 Azure 미디어 또는 Azure 저장소 구성에 상관없이 기본적으로 2초 캐시 헤더가 적용되며, 이 값은 재정의할 수 없습니다.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -29,7 +29,7 @@ SSH를 사용하여 VM에 즉시 연결할 수 있으며, 아무 작업도 수�
 
 ## 포털 로그온
 
-Azure 계정이 있으면 간단합니다. [Azure 계정을 무료로 받는 것도 간단합니다](http://azure.microsoft.com/pricing/free-trial/)!
+Azure 계정이 있으면 간단합니다. [Azure 계정을 무료로 받는 것도 간단합니다](https://azure.microsoft.com/pricing/free-trial/)!
 
 ## Canonical 및 MSOpenTech의 Docker 이미지를 사용하여 VM 만들기
 
@@ -78,4 +78,4 @@ Docker 명령을 실행해 보세요. 이 Azure VM의 기본 구성에는 **`sud
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

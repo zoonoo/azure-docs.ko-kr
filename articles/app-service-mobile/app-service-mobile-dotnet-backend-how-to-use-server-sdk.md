@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/24/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱용 .NET 백엔드 서버 SDK 사용
@@ -25,7 +25,7 @@
 
 이 항목은 주요 Azure 앱 서비스 모바일 앱 시나리오에서 .NET 백 엔드 서버 SDK를 사용하는 방법을 보여줍니다. Azure 모바일 앱 SDK를 사용하면 ASP.NET 응용 프로그램에서 모바일 클라이언트를 사용하여 작업할 수 있습니다.
 
->[AZURE.TIP] [Azure 모바일 앱용 .NET 서버 SDK](https://github.com/Azure/azure-mobile-apps-net-server)는 GitHub의 오픈 소스입니다. 리포지토리에는 전체 서버 SDK 단위 테스트 도구 모음과 일부 샘플 프로젝트가 포함되어 있습니다.
+>[AZURE.TIP] [Azure 모바일 앱용 .NET 서버 SDK](https://github.com/Azure/azure-mobile-apps-net-server)는 GitHub의 오픈 소스입니다. 리포지토리에는 전체 서버 SDK 단위 테스트 도구 모음과 일부 샘플 프로젝트가 포함되어 있습니다.
 
 ## 참조 설명서
 
@@ -43,7 +43,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-&nbsp;&nbsp;9. 시작 블레이드로 돌아가서 **테이블 API 만들기** 아래에서 **백 엔드 언어**로 **C#**을 선택합니다.
+&nbsp;&nbsp;9. _시작_ 블레이드로 돌아가서 **테이블 API 만들기** 아래에서 **백 엔드 언어**로 **C#**을 선택합니다.
 
 &nbsp;&nbsp;10. 다운로드를 클릭하고 로컬 컴퓨터에 압축된 프로젝트 파일을 풀고 Visual Studio에서 솔루션을 엽니다.
 
@@ -51,7 +51,7 @@
 
 Visual Studio에서 모바일 앱 프로젝트를 만들려면 [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.8.1 이상의 버전을 설치해야 합니다. SDK를 설치한 후 새 ASP.NET 응용 프로그램을 만듭니다.
 
-1. **새 프로젝트** 대화를 엽니다.(파일 > **새로 만들기** > **프로젝트...**에서)
+1. **새 프로젝트** 대화를 엽니다.(*파일* > **새로 만들기** > **프로젝트...**에서)
 
 2. **템플릿** > **Visual C#**를 확장하고 **웹**을 선택합니다.
 
@@ -59,7 +59,7 @@ Visual Studio에서 모바일 앱 프로젝트를 만들려면 [Azure SDK for .N
 
 4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
 
-5. ASP.NET 4.5.2 템플릿 아래에서 **Azure 모바일 앱**을 선택합니다. **클라우드에 호스트**를 선택하여 클라우드에 이 프로젝트를 게시할 수 있는 새 모바일 앱을 만듭니다.
+5. _ASP.NET 4.5.2 템플릿_ 아래에서 **Azure 모바일 앱**을 선택합니다. **클라우드에 호스트**를 선택하여 클라우드에 이 프로젝트를 게시할 수 있는 새 모바일 앱을 만듭니다.
 
 6. **확인**을 클릭합니다. 응용 프로그램이 만들어지고 솔루션 탐색기에 나타납니다.
 
@@ -124,7 +124,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 
 - [Microsoft.Azure.Mobile.Server.Quickstart] 기본 모바일 앱 설정을 지원합니다. 초기화하는 동안 **UseDefaultConfiguration** 확장 메서드를 호출하여 구성에 추가했습니다. 이 확장은 알림, 인증, 엔터티, 테이블, Crossdomain 및 홈 패키지와 같은 확장을 포함합니다. Azure 포털에서 다운로드하는 빠른 시작 서버 프로젝트와 같습니다.
 
-- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 이 모바일 앱이 실행 중인 페이지를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
+- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 웹 사이트 루트에 대해 기본 *이 모바일 앱이 실행 중인 페이지*를 구현합니다. **AddMobileAppHomeController** 확장 메서드를 호출하여 구성에 추가합니다.
 
 - [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 데이터로 작업하기 위한 클래스를 포함하고 데이터 파이프라인을 설정합니다. **AddTables** 확장 메서드를 호출하여 구성에 추가합니다.
 
@@ -184,7 +184,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 ## 방법: 사용자 지정 API 컨트롤러 정의
 
-사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. `MobileAppControllerAttribute` 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. 이 특성은 경로를 등록하고 모바일 앱 JSON 직렬 변환기를 설정합니다.
+사용자 지정 API 컨트롤러는 끝점을 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. 이 특성은 경로를 등록하고 모바일 앱 JSON 직렬 변환기를 설정합니다.
 
 1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 컨트롤러&mdash;비어 있음**을 선택한 후 **추가**를 클릭합니다.
 
@@ -194,7 +194,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. 다음 예제와 같이 **MobileAppControllerAttribute**를 API 컨트롤러 클래스 정의에 적용합니다.
+4. 다음 예제와 같이 **[MobileAppController]** 특성을 API 컨트롤러 클래스 정의에 적용합니다.
 
 		[MobileAppController] 
 		public class CustomController : ApiController
@@ -276,23 +276,23 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 			}
 		}
 
-`MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` 메서드는 audience 및 issuer 매개 변수를 포함합니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 secretKey를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 WEBSITE\_AUTH\_SIGNING\_KEY 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
+`MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` 메서드는 _audience_ 및 _issuer_ 매개 변수를 포함합니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 _secretKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 _WEBSITE\_AUTH\_SIGNING\_KEY_ 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
 
 발급된 토큰 및 포함하고자 하는 클레임에 대한 수명도 제공해야 합니다. 예제 코드에 나오는 것처럼 제목 클레임을 제공해야 합니다.
 
-수동 HTTP POST 대신 `loginAsync()` 메서드(이름은 플랫폼에 따라 달라질 수 있음)를 사용하도록 클라이언트 코드를 단순화할 수도 있습니다. 추가 토큰 매개 변수를 사용하고 POST할 어설션 개체를 상호 연결하는 오버로드를 사용합니다. 이 경우 공급자는 원하는 사용자 지정 이름이어야 합니다. 서버에서 로그인 작업은 이 사용자 지정 이름을 포함하는 /.auth/login/{customProviderName} 경로에 있어야 합니다. 이 경로에 컨트롤러를 배치하려면 MobileAppConfiguration을 적용하기 전에 HttpConfiguration에 경로를 추가합니다.
+수동 HTTP POST 대신 `loginAsync()` 메서드(이름은 플랫폼에 따라 달라질 수 있음)를 사용하도록 클라이언트 코드를 단순화할 수도 있습니다. 추가 토큰 매개 변수를 사용하고 POST할 어설션 개체를 상호 연결하는 오버로드를 사용합니다. 이 경우 공급자는 원하는 사용자 지정 이름이어야 합니다. 서버에서 로그인 작업은 이 사용자 지정 이름을 포함하는 _/.auth/login/{customProviderName}_ 경로에 있어야 합니다. 이 경로에 컨트롤러를 배치하려면 MobileAppConfiguration을 적용하기 전에 HttpConfiguration에 경로를 추가합니다.
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
 		
 위의 "CustomAuth" 문자열을 로그인 작업을 호스트하는 컨트롤러 이름으로 바꿉니다.
 
->[AZURE.TIP]loginAsync() 방식을 사용하여 인증 토큰이 서비스에 대한 모든 후속 호출에 연결되어 있는지 확인합니다.
+>[AZURE.TIP] loginAsync() 방식을 사용하여 인증 토큰이 서비스에 대한 모든 후속 호출에 연결되어 있는지 확인합니다.
 
 ###<a name="user-info"></a>방법: 인증된 사용자 정보 검색
 
 사용자가 앱 서비스에서 인증을 하는 경우 .NET 백 엔드 코드에서 할당된 사용자 ID와 기타 정보에 액세스할 수 있습니다. 특정 사용자가 테이블 행 또는 다른 리소스에 액세스할 수 있는지 여부와 같이 백 엔드에서 지정된 사용자에 대한 권한 부여 결정에 유용합니다. 다음 코드에서는 로그인한 사용자에 대한 사용자 ID를 가져오는 방법을 보여줍니다.
 
-    // Get the current user SID and create a tag for the current user.
+    // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -420,7 +420,7 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 
 ### <a name="local-debug"></a>인증을 사용하여 로컬 디버깅
 
-응용 프로그램을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 앱이 많은 경우에도 Visual Studio에 있는 동안 F5를 누르기만 하면 됩니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.
+응용 프로그램을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 앱이 많은 경우에도 Visual Studio에 있는 동안 *F5*를 누르기만 하면 됩니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.
 
 클라우드 기반 모바일 앱에서 앱 서비스 인증/권한 부여를 구성해야 하며 클라이언트가 클라우드 끝점을 대체 로그인 호스트로 지정해야 합니다. 필요한 구체적인 단계는 선택한 클라이언트 플랫폼([iOS](app-service-mobile-ios-how-to-use-client-library.md), [Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md))에 대한 설명서를 참조하세요.
 
@@ -434,7 +434,7 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 			TokenHandler = config.GetMobileAppTokenHandler()
 		});
 
-위의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 authAudience 및 authIssuer 응용 프로그램 설정을 응용 프로그램 루트의 URL로 구성해야 합니다. 마찬가지로 authSigningKey를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 이 값을 가져오려면 [Azure 포털] 내에서 앱으로 이동하고 **도구**를 클릭합니다. 그런 다음 **Kudu**, **이동**을 차례로 클릭합니다. 그러면 사이트에 대한 Kudu 관리 끝점으로 이동됩니다. **환경**을 클릭하고 WEBSITE\_AUTH\_SIGNING\_KEY 아래에서 값을 찾습니다. 이 값은 로컬 앱 구성에서 authSigningKey에 대해 사용해야 하는 값입니다.
+위의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 _authAudience_ 및 _authIssuer_ 응용 프로그램 설정을 응용 프로그램 루트의 URL로 구성해야 합니다. 마찬가지로 _authSigningKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 이 값을 가져오려면 [Azure 포털] 내에서 앱으로 이동하고 **도구**를 클릭합니다. 그런 다음 **Kudu**, **이동**을 차례로 클릭합니다. 그러면 사이트에 대한 Kudu 관리 끝점으로 이동됩니다. **환경**을 클릭하고 _WEBSITE\_AUTH\_SIGNING\_KEY_ 아래에서 값을 찾습니다. 이 값은 로컬 앱 구성에서 _authSigningKey_에 대해 사용해야 하는 값입니다.
 
 로컬로 실행 중인 서버가 이제 클라이언트가 클라우드 기반 끝점에서 가져오는 토큰을 확인하게 됩니다.
 
@@ -446,4 +446,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

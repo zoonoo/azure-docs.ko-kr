@@ -18,7 +18,7 @@
 
 # Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포 #
 
-이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
+이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
 
 이 자습서를 완료하고 나면 다음을 알게 됩니다.
 
@@ -27,11 +27,11 @@
 
 <a id="Prerequisites"></a>
 ## 필수 조건 ##
-> [AZURE.TIP]이 자습서에서는 Azure 리소스 관리자 템플릿, JSON 또는 Azure PowerShell을 이전에 사용해 본 경험이 있다고 가정하지는 않지만, 참조된 템플릿 또는 배포 옵션을 수정하려면 이러한 각 영역에 대한 지식이 필요합니다.
+> [AZURE.TIP] 이 자습서에서는 Azure 리소스 관리자 템플릿, JSON 또는 Azure PowerShell을 이전에 사용해 본 경험이 있다고 가정하지는 않지만, 참조된 템플릿 또는 배포 옵션을 수정하려면 이러한 각 영역에 대한 지식이 필요합니다.
 
 이 자습서의 지침을 따르기 전에 다음이 있는지 확인하세요.
 
-- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](https://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](https://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - Azure 저장소 계정. 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 - Azure PowerShell 0.9.8.이 포함된 워크스테이션 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요. 이 자습서는 Azure PowerShell 1.0 미리 보기에 대해 아직 업데이트되지 않았습니다. 
 
@@ -42,7 +42,7 @@
 
 2. [DocumentDB 계정 및 웹앱 만들기 샘플을 로컬 폴더](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)(예: C:\\DocumentDBTemplates)에 다운로드하고 파일 압축을 풉니다. 이 샘플은 DocumentDB 계정 및 앱 서비스 웹앱을 배포하고 쉽게 DocumentDB 연결 정보를 노출하도록 웹앱의 구성을 수정하지만 웹 응용 프로그램을 포함하지는 않습니다.
 
-> [AZURE.TIP]컴퓨터의 보안 설정에 따라, 압축을 푼 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭한 후 **차단 해제**를 클릭하여 해당 파일을 차단 해제해야 할 수 있습니다.
+> [AZURE.TIP] 컴퓨터의 보안 설정에 따라, 압축을 푼 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭한 후 **차단 해제**를 클릭하여 해당 파일을 차단 해제해야 할 수 있습니다.
 
 ![차단 해제 단추가 강조 표시된 속성 창의 스크린샷](./media/documentdb-create-documentdb-website/image1.png)
 
@@ -51,7 +51,7 @@
 
 이제 첫 번째 템플릿을 배포합니다.
 
-> [AZURE.TIP]템플릿은 아래에 입력된 웹앱 이름과 DocumentDB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다. PowerShell 배포 스크립트를 실행하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
+> [AZURE.TIP] 템플릿은 아래에 입력된 웹앱 이름과 DocumentDB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다. PowerShell 배포 스크립트를 실행하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
 
 1. Microsoft Azure PowerShell을 열고 [DocumentDB 계정, 앱 서비스 웹앱 만들기 및 데모 응용 프로그램 배포 샘플](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)을 다운로드하고 압축을 푼 폴더(예: C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo)로 이동합니다.
 
@@ -70,7 +70,7 @@
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebAppTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebapp" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
+	> [AZURE.TIP] 스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
 
 4. 다음은 결과 출력의 예입니다.
 
@@ -151,7 +151,7 @@
 
 이제 두 번째 템플릿을 배포합니다.
 
-> [AZURE.TIP]템플릿은 아래에 입력된 웹앱 이름과 DocumentDB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다. PowerShell 배포 스크립트를 실행하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
+> [AZURE.TIP] 템플릿은 아래에 입력된 웹앱 이름과 DocumentDB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다. PowerShell 배포 스크립트를 실행하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
 
 1. Microsoft Azure PowerShell을 열고 [DocumentDB 계정 및 웹앱 만들기 샘플](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)을 다운로드하고 압축을 푼 폴더(예: C:\\DocumentDBTemplates\\CreateDocDBWebsite)로 이동합니다.
 
@@ -169,7 +169,7 @@
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebSite> .\CreateDocDBWebSite.ps1 -WebSiteName "myotherdocumentdbwebapp" -ResourceGroupName "myOtherDemoResourceGroup" -docDBAccountName "myotherdocumentdbdemoaccount" -location "East US"
 
-	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
+	> [AZURE.TIP] 스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
 
 4. 배포 출력은 첫 번째 템플릿 예제와 매우 유사합니다.
 5. Azure 포털을 열기 전에 이 템플릿 배포에서 수행한 내용을 살펴보겠습니다.
@@ -207,7 +207,7 @@
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 클래식 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

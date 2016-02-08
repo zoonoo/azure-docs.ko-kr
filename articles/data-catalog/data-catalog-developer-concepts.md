@@ -90,7 +90,7 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 이러한 속성은 모든 루트 자산 형식 및 모든 주석 형식에 적용 됩니다.
 
-> [AZURE.NOTE]이중 밑줄로 시작하는 속성에는 시스템 형식이 있습니다.
+> [AZURE.NOTE] 이중 밑줄로 시작하는 속성에는 시스템 형식이 있습니다.
 
 <table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>마지막으로 루트가 수정된 시간. 이 시간은 클라이언트에 의해 설정됩니다. (서버에 이 값이 유지되지 않습니다).</td></tr><tr><td>__id</td><td>String</td><td>항목의 id입니다 (읽기 전용). 이 id는 카탈로그 내 자산의 고유성을 보장합니다.</td></tr><tr><td>__type</td><td>String</td><td>자산 유형(읽기 전용) </td></tr><tr><td>__creatorId</td><td>문자열</td><td>자산을 고유하게 식별하는 자산의 작성자에 의해 사용되는 문자열입니다. </td></tr></table>
 
@@ -172,9 +172,9 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 
 <table><tr><td><b>역할</b></td><td><b>범위</b></td><td><b>권한</b></td></tr><tr><td>관리자</td><td>카탈로그 (즉, 카탈로그의 모든 자산/주석)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>소유자</td><td>각 자산 (즉,일명 루트 항목)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참여자</td><td>각 개별 자산 및 주석</td><td>읽기/업데이트/삭제/권한보기/참고(Read Update Delete ViewRoles Note): 항목에서 읽기(Read) 권한을 참여자가 해지하는 경우 모든 권한이 취소 됩니다.</td></tr></table>
 
-> [AZURE.NOTE]**읽기**, **업데이트**, **삭제**, **역할 보기** 권한은 모든 항목 (자산 또는 주석)에 적용할 수 있으며, 반면에 **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions**는 루트 자산에만 적용됩니다.
+> [AZURE.NOTE] **읽기**, **업데이트**, **삭제**, **역할 보기** 권한은 모든 항목 (자산 또는 주석)에 적용할 수 있으며, 반면에 **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions**는 루트 자산에만 적용됩니다.
 >
->**삭제** 권한은 항목 뿐만 그 아래의 하위 항목 및 단일 항목에 적용됩니다. 예를들어, 자산을 삭제하면 해당 자산에 대한 모든 주석도 삭제됩니다.
+>**삭제** 권한은 항목 뿐만 그 아래에 있는의 모든 하위 항목 단일 항목에 적용 됩니다. 예를들어, 자산을 삭제하면 해당 자산에 대한 모든 주석도 삭제됩니다.
 
 ### 권한
 
@@ -257,9 +257,9 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 	    ]
 	}
 
-> [AZURE.NOTE]PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
+> [AZURE.NOTE] PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

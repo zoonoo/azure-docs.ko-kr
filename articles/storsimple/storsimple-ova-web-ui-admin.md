@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # 웹 UI를 사용하여 StorSimple 가상 배열 관리(미리 보기)
@@ -23,7 +23,7 @@
 
 이 문서의 자습서는 1.1.1.0(미리 보기) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치라고도 함)에 적용됩니다. 이 문서는 StorSimple 가상 배열에서 수행할 수 있는 복잡한 워크플로 및 관리 작업 중 일부를 설명합니다. StorSimple 가상 배열을 관리하는 데 사용될 수 있는 UI는 StorSimple Manager 서비스 UI(포털 UI라고 함) 및 장치에 대한 로컬 웹 UI 이렇게 두 가지입니다. 이 문서는 웹 UI를 사용하여 수행할 수 있는 작업에 중점을 둡니다.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- StorSimple 가상 배열은 미기 보기 중이며 평가 및 배포 계획 용도로 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다. 
 >- StorSimple 가상 배열에서 문제가 발생하는 경우 [StorSimple MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)에 문제를 게시해 주세요.
@@ -132,14 +132,8 @@
 
     다시 시작을 진행하는 동안 UI에 대한 연결이 끊어집니다. 주기적으로 UI를 새로 고쳐서 다시 시작을 모니터링할 수 있습니다. 또는 Hyper-V 관리자를 통해 장치 다시 시작 상태를 모니터링할 수 있습니다.
 
-![video\_icon](./media/storsimple-ova-web-ui-admin/video_icon.png) **동영상 사용 가능**
-
-StorSimple 가상 배열에서 공유를 만들고, 공유를 백업하고, 데이터를 복원하는 방법을 보려면 동영상을 시청하세요.
-
-> [AZURE.VIDEO use-the-storsimple-virtual-array]
-
 ## 다음 단계
 
 [StorSimple Manager 서비스를 사용하여 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

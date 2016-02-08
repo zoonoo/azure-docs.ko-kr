@@ -1,5 +1,5 @@
 <properties
-	pageTitle="클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기 | Microsoft Azure"
+	pageTitle="클라우드 앱 검색을 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기 | Microsoft Azure"
 	description="Cloud App Discovery를 사용한 응용 프로그램 찾기 및 관리, 이점 및 작동 방식에 대한 정보를 제공합니다."
 	services="active-directory"
 	keywords="Cloud App Discovery, 응용 프로그램 관리"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
-# 클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기
+# 클라우드 앱 검색을 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기
 
 ## 개요
 오늘날 기업에서 IT 부서가 해당 조직 멤버가 일을 위해 사용하고 있는 클라우드 앱을 일부 인지하지 못하는 경우가 있습니다. 관리자가 회사 데이터에 대한 무단 액세스, 데이터 유출 가능성 및 기타 보안 위험에 대해 우려하는 원인을 쉽게 확인합니다. 인식이 부족하여 이러한 보안 위험을 다루는 계획 수립이 어려울 수 있습니다.
@@ -48,4 +48,4 @@
 - [클라우드 앱 검색 에이전트 Changelog](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [클라우드 앱 검색 질문과 대답](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

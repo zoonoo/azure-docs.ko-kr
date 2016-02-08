@@ -131,7 +131,7 @@ foreach (UserProfile activeUser in query)
 
 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)을 참조하세요.
 
->[AZURE.NOTE]컬렉션 만들기는 DocumentDB에 의해 속도가 제한되므로 여기에 표시된 일부 샘플 메서드는 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+>[AZURE.NOTE] 컬렉션 만들기는 DocumentDB에 의해 속도가 제한되므로 여기에 표시된 일부 샘플 메서드는 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ##FAQ
 **DocumentDB는 왜 클라이언트 쪽 분할 및 서버 쪽 분할을 지원하나요?**
@@ -164,7 +164,7 @@ DocumentDB는 다음 몇 가지 이유로 클라이언트 쪽 분할을 지원�
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB 제한](documentdb-limits.md)
-* [성능 팁에 대한 DocumentDB 블로그](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

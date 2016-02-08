@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure SQL 데이터베이스 Web 및 Business 버전 지원 종료 FAQ | Microsoft Azure"
    description="Azure SQL Web 및 Business 데이터베이스가 사용되지 않는 시기를 확인하고 새 서비스 계층의 특징 및 기능에 대해 알아보십시오."
    services="sql-database"
@@ -6,13 +6,13 @@
    authors="stevestein"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/01/2015"
    ms.author="sstein" />
 
 # Web 및 Business 버전 지원 종료 FAQ
@@ -23,10 +23,10 @@ Web 및 Business 데이터베이스 업그레이드를 지원하기 위해 SQL �
 
 **가격 책정 계층 권장 사항 가져오기:**
 
-- [Azure 포털](sql-database-upgrade-server-portal.md)을 사용하여 SQL 데이터베이스 V12로 업그레이드
+- [Azure 포털을 사용하여 SQL 데이터베이스 V12로 업그레이드](sql-database-upgrade-server-portal.md)
 - [PowerShell을 사용하여 SQL 데이터베이스 V12로 업그레이드 준비](sql-database-upgrade-server-powershell.md)
 - [Web 또는 Business 데이터베이스의 가격 책정 계층 변경](sql-database-service-tier-advisor.md)
- 
+
 
 
 ## Azure 포털이 내 Web 및 Business edition 데이터베이스를 사용되지 않음으로 표시하는 이유가 무엇입니까?
@@ -45,7 +45,7 @@ Web 및 Business 버전 데이터베이스는 2015 년 9 월 후 사용할 수 �
 
 ## 새 서비스 계층에 대해 더 자세한 내용을 어디서 알아볼 수 있습니까?
 
-새 서비스 계층 및 성능 모델에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요. 새 서비스 계층에 대한 자세한 가격 책정 정보는 [SQL 데이터베이스 가격 책정](http://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
+새 서비스 계층 및 성능 모델에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요. 새 서비스 계층에 대한 자세한 가격 책정 정보는 [SQL 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 ## Basic, Standard 및 Premium에서 제공되지 않는 특징 또는 기능은 무엇입니까?
 
@@ -55,7 +55,7 @@ Web 및 Business 버전에서 페더레이션 기능이 사용되지 않습니�
 
 ## Basic, Standard 및 Premium은 내 요금 청구 경험을 어떻게 개선합니까?
 
-기본, 표준 및 Premium Azure SQL 데이터베이스에서는 시간 단위로 요금이 청구되며 24시간 동안 각 데이터베이스를 4번 확장 및 축소할 수 있습니다. 매 시간 선택하는 최고 서비스 계층과 성능 수준을 기반으로 고정된 요금이 청구됩니다. 또한 청구서에서 성능 수준이 분할되므로(Basic, S1 및 P2) 각 성능 수준에서 한 달에 발생한 데이터베이스 일/시간 수를 더 쉽게 볼 수 있습니다. Web 및 Business 데이터베이스는 계속해서 데이터베이스 크기를 기반으로 Database Units를 사용하여 요금이 청구됩니다. 가격 책정 및 새 서비스 계층 사이의 차이점에 대해 더 자세히 알아보려면 [SQL 데이터베이스 가격 책정 페이지](http://azure.microsoft.com/pricing/details/sql-database/)를 방문하세요.
+기본, 표준 및 Premium Azure SQL 데이터베이스에서는 시간 단위로 요금이 청구되며 24시간 동안 각 데이터베이스를 4번 확장 및 축소할 수 있습니다. 매 시간 선택하는 최고 서비스 계층과 성능 수준을 기반으로 고정된 요금이 청구됩니다. 또한 청구서에서 성능 수준이 분할되므로(Basic, S1 및 P2) 각 성능 수준에서 한 달에 발생한 데이터베이스 일/시간 수를 더 쉽게 볼 수 있습니다. Web 및 Business 데이터베이스는 계속해서 데이터베이스 크기를 기반으로 Database Units를 사용하여 요금이 청구됩니다. 가격 책정 및 새 서비스 계층 사이의 차이점에 대해 더 자세히 알아보려면 [SQL 데이터베이스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 방문하세요.
 
 
 ## 참고 항목
@@ -68,4 +68,4 @@ Web 및 Business 버전에서 페더레이션 기능이 사용되지 않습니�
 
 [SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

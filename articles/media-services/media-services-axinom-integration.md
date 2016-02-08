@@ -209,4 +209,4 @@ Widevine 라이선스 획득 URL|DASH 스트리밍에 대한 자산 배달 정�
 
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Axinom의 Kristjan Jõgi, Mingfei Yan 및 Amit Rajput
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

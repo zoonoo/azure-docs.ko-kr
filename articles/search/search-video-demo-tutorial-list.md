@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="12/23/2015"
+	ms.date="01/23/2016"
 	ms.author="heidist"/>
 
 #Azure 검색: 자습서, 비디오 데모 및 샘플
@@ -31,23 +31,25 @@
 
 ##비디오
 
-링크|설명
-----|-----------
-[Azure 검색이란?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|1\.5분짜리 Azure 검색 개요입니다.
-[Azure 검색에 대한 AzureCon 2015 모범 사례](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|웹 또는 모바일 시나리오용 앱을 만들 때 크기 조정, 최적 성능 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언입니다. 
-[Microsoft Virtual Academy: 웹 사이트 및 앱에 Azure 검색 추가](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|응용 프로그램에 Azure 검색을 추가하는 방법에 관한 7부 시리즈입니다. Liam Cavanagh, Janusz Lembicz 및 Bernardita Torres Garayar가 제공합니다.
-[빌드 2015: 최신 데이터](http://channel9.msdn.com/Events/Build/2015/2-663)|세션에서 29분 동안 Azure 검색이 최근의 데이터 혁명에서 차지하는 위치에 대해 알아봅니다. Shawn Bice 및 Pablo Castro가 제공합니다.
-[빌드 2015: Azure 검색을 사용하여 모바일 및 WebApp에서 우수한 검색 경험 구축](http://channel9.msdn.com/Events/Build/2015/2-745)|Microsoft 빌드 2015에서 Pablo Castro가 제공합니다.
-[Ignite 2015: Microsoft Azure 검색을 사용하여 비즈니스 응용 프로그램에 검색 기능 추가](http://channel9.msdn.com/Events/Ignite/2015/BRK2565)|Microsoft Ignite 2015에서 Liam Cavanagh가 제공합니다.
-[Microsoft의 실시간 검색 지원](https://www.elastic.co/elasticon/2015/sf/powering-real-time-search-at-microsoft)|Elastic{ON} 2015에서 Pablo Castro가 16분 동안 프레젠테이션을 통해 Azure 검색 및 Microsoft의 다른 그룹에서 ElasticSearch를 사용하는 방법을 설명합니다.
-[Azure 검색 일반 가용성 및 새로운 기능](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-General-Availability-and-Whats-New)|일반 공급되는 Azure 검색 릴리스의 새로운 기능을 소개하는 비디오 기록입니다. Liam Cavanagh가 제공하며 길이는 12분입니다.
-[자세히 알아보기](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410)|TechEd Europe에서 Pablo Castro가 제공하는 1시간 15분 길이의 프레젠테이션입니다.
-[8 분 개요](http://channel9.msdn.com/events/Visual-Studio/Connect-event-2014/421)|Connect Visual Studio 이벤트에서 Liam Cavanagh가 제공하는 8분 58초 길이의 짧은 프레젠테이션입니다.
-[Azure 검색 소개](http://go.microsoft.com/fwlink/?LinkId=511340)|Azure 검색의 아키텍처와 기능에 대해 설명하는 비디오 기록입니다. Liam Cavanagh가 제공하며 길이는 22분입니다.
-[클라우드 커버: Channel 9의 에피소드 152](http://channel9.msdn.com/Shows/Cloud%20Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)|Fiddler를 통해 정기적으로 지리 공간 쿼리를 수행하고 돌아온 결과를 이해하며 기능에 대해 심층적으로 설명하는 비디오 기록입니다. Liam Cavanagh가 제공하며 길이는 25분입니다.
-[제공되는 데이터: Azure 검색 제안](https://channel9.msdn.com/Shows/Data-Exposed/DataExposedAzureSearchSuggestions)|제안(사전 입력 또는 자동 완성 쿼리라고도 하며 사용자가 단어를 입력하는 동안 검색어 후보 표시)에 대한 비디오 기록입니다. Liam Cavanagh가 제공하며 길이는 15분입니다. Azure 검색에서 유사 일치는 제안을 통해 구현됩니다.
-[제공되는 데이터: 지리 공간 데이터와 Azure 검색](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)|지리 공간 검색 시나리오에 대한 비디오 기록입니다. Liam Cavanagh가 제공하며 길이는 18분입니다.
-[제공되는 데이터: SQL Server에서 Azure 검색으로의 동기화](http://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-to-Azure-Search-Synchronization)|Azure 검색과 데이터베이스 트랜잭션을 동기화하는 방법에 대한 비디오 기록입니다. Liam Cavanagh가 제공하며 길이는 16분입니다.
+링크|릴리스 날짜|세부 정보
+----|------------|-----------
+[Channel9 제공 데이터: "Azure 검색의 사용자 지정 분석기, 검색 분석 및 포털 쿼리"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|2016년 1월|21분. 사용자 지정 분석기를 사용하면 토크나이저 및 토큰 파일을 구성할 수 있습니다. 검색 분석을 사용하면 사용자가 입력한 검색 용어와 검색 인덱스의 효율에 대한 통찰력을 가질 수 있습니다. 검색 탐색기는 포털 내부에서 쿼리를 시도할 수 있는 기본 제공 쿼리 도구입니다. 
+[Channel9 제공 데이터: "Azure 검색 향상"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements)|2015년 11월|17분. StackExchange 데이터 수집. Azure 포털에서 인덱스 작성. 인덱서가 지원되는 데이터 원본을 크롤링하여 Azure 검색 인덱스로 데이터를 끌어 넣는 방식을 알아봅니다. 언어 분석기. Lucene 쿼리 식.
+[Azure 검색이란?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|2015년 10월|약 1분 30초 Azure 검색을 소개하는 약 1분 30초 길이의 비디오를 시청하세요.
+[AzureCon 2015 : Azure 검색에 대한 모범 사례](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|2015년 9월|웹 또는 모바일 시나리오용 앱 개발 시 확장, 성능 최적화 및 코딩 효율을 달성하는 방법에 관한 실용적인 조언입니다. 게시자: Pablo Castro 
+[빌드 2015: 최신 데이터](http://channel9.msdn.com/Events/Build/2015/2-663)|2015년 6월|세션에서 29분 동안 Azure 검색이 최근의 데이터 혁명에서 차지하는 위치에 대해 알아봅니다. Shawn Bice 및 Pablo Castro가 제공합니다.
+[빌드 2015: Azure 검색을 사용하여 모바일 및 WebApp에서 우수한 검색 경험 구축](http://channel9.msdn.com/Events/Build/2015/2-745)|2015년 6월|1시간 Microsoft 빌드 2015에서 Pablo Castro가 제공합니다.
+[Ignite 2015: Microsoft Azure 검색을 사용하여 비즈니스 응용 프로그램에 검색 기능 추가](http://channel9.msdn.com/Events/Ignite/2015/BRK2565)|2015년 5월|1 시간 16 분. Microsoft Ignite 2015에서 Liam Cavanagh가 제공합니다.
+[Microsoft Virtual Academy: 웹 사이트 및 앱에 Azure 검색 추가](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|2015년 4월|응용 프로그램에 Azure 검색을 추가하는 방법에 관한 7부 시리즈입니다. Liam Cavanagh, Janusz Lembicz 및 Bernardita Torres Garayar가 제공합니다.
+[Elastic{ON} 2015: Microsoft의 실시간 검색 지원](https://www.elastic.co/elasticon/2015/sf/powering-real-time-search-at-microsoft)|2015년 3월|16분. Elastic{ON} 2015에서 Pablo Castro가 프레젠테이션을 통해 Azure 검색 및 Microsoft의 다른 그룹에서 ElasticSearch를 사용하는 방법을 설명합니다.
+[Channel9 제공 데이터: "Azure 검색 일반 공급 및 새로운 기능"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-General-Availability-and-Whats-New)|2015년 3월|12분. Azure 검색이 일반 공급("GA")됩니다. 게시자: Liam Cavanagh
+[Channel9 제공 데이터: “Azure 검색 제안”](https://channel9.msdn.com/Shows/Data-Exposed/DataExposedAzureSearchSuggestions)|2015년 2월| 15분 제안(사용자가 단어를 입력하는 동안 검색어 후보 표시하는 사전 입력 또는 자동 완성 쿼리라고도 함). Azure 검색에서 유사 일치는 제안을 통해 구현됩니다.
+[Channel9 제공 데이터: “SQL Server에서 Azure 검색으로의 동기화”](http://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-to-Azure-Search-Synchronization)|2014년 12월|16분. 데이터베이스 트랜잭션을 동기화합니다. Azure SQL 관계형 데이터를 Azure 검색에 로드합니다.
+[TechEd Europe: Azure 검색에 대한 심층 분석](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410)|2014년 10월|1 시간 15 분. Azure 검색에 대한 빠르고 심층적인 데모. 게시자: Pablo Castro
+[Channel9 제공 데이터: “지리 공간 데이터와 Azure 검색”](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)|2014년 9월|18분. 지리 공간 검색 시나리오.
+[이벤트 연결: 8분 개요](http://channel9.msdn.com/events/Visual-Studio/Connect-event-2014/421)|2014년 9월|9분. Azure 검색의 장점에 대한 짧은 프레젠테이션. 게시자: Liam Cavanagh
+[Channel9 클라우드 커버: 에피소드 152](http://channel9.msdn.com/Shows/Cloud%20Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)|2014년 9월|25분 Fiddler를 통해 일반적인 쿼리와 지리 공간적인 쿼리를 생성하고 반환되는 결과를 이해하는 방법에 대한 기술적인 기능 설명
+[Channel9 제공 데이터: “Azure 검색 소개”](https://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)|2014년 8월|22분. 공개 미리 보기 상태인 Azure 검색의 아키텍처 및 기능.
 
 ##자습서
 
@@ -58,12 +60,12 @@
 [.NET에서 Azure 검색 시작](search-get-started-dotnet.md)|관리 코드에서 Azure 검색을 사용하는 방법을 알아봅니다.
 [NodeJS에서 Azure 검색 시작](search-get-started-nodejs.md)|NodeJS에서 Azure 검색을 사용하는 방법을 알아봅니다.
 [Java에서 Azure 검색 시작](search-get-started-java.md)|Eclipse 및 Apache Tomcat 서버를 사용하여 Azure 검색을 사용하는 샘플 응용 프로그램을 구축하고 실행할 Java 프로그래머를 위한 자습서입니다.
-[Azure 검색 시나리오 및 기능](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|현재 기능으로 사용할 수 있는 기본 시나리오에 대해 설명하는 블로그 게시물입니다.
+[Azure 검색 시나리오 및 기능](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|현재 기능으로 사용할 수 있는 기본 시나리오에 대해 설명하는 블로그 게시물입니다.
 [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)|Azure 검색과 통합되는 샘플 Visual Studio 웹 응용 프로그램을 구성하고 실행합니다.
-[검색 응용 프로그램에 제안을 추가하는 방법](http://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|일반적으로 자동 완성이라고 하는 제안 기능을 구현하는 방법을 알아봅니다. 이 데모에서는 Azure 검색 제안을 활용하는 MVC4 응용 프로그램 개발, JavaScript에서 Twitter typeahead.js 라이브러리를 사용한 효과적인 자동 제안 구성 요소 개발, 유사 일치 제안을 사용하여 사용자가 단어를 잘못 입력한 경우에도 제안을 표시하도록 하는 방법 등의 다양한 주제를 자세히 설명합니다.
+[검색 응용 프로그램에 제안을 추가하는 방법](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|일반적으로 자동 완성이라고 하는 제안 기능을 구현하는 방법을 알아봅니다. 이 데모에서는 Azure 검색 제안을 활용하는 MVC4 응용 프로그램 개발, JavaScript에서 Twitter typeahead.js 라이브러리를 사용한 효과적인 자동 제안 구성 요소 개발, 유사 일치 제안을 사용하여 사용자가 단어를 잘못 입력한 경우에도 제안을 표시하도록 하는 방법 등의 다양한 주제를 자세히 설명합니다.
 [TechNet 가상 실습: Microsoft Azure 검색 응용 프로그램 구축](http://go.microsoft.com/?linkid=9874663)|개발 환경, 도구, 설명서 및 데이터를 제공 하는 가상 실습입니다. 실습을 완료하려면 평가판 구독 또는 개인 Azure 구독이 있는 Azure 계정이 필요합니다.
 [Azure 검색을 사용한 지리 공간 검색 앱 개발](search-create-geospatial.md)|Bing 지도와 좌표를 사용하여 지리 공간 검색을 지원합니다.
-[SQL Server 데이터와 Azure 검색 동기화](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Azure 검색 인덱스에 SQL Server 관계형 데이터베이스의 데이터를 로드하는 방법을 설명하는 블로그 게시물입니다.
+[SQL Server 데이터와 Azure 검색 동기화](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Azure 검색 인덱스에 SQL Server 관계형 데이터베이스의 데이터를 로드하는 방법을 설명하는 블로그 게시물입니다.
 [프로필 자습서 점수 매기기](search-get-started-scoring-profiles.md)|콘솔 앱을 사용하여 점수 매기기 프로필을 테스트합니다.
 [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md)|관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다.
 
@@ -98,4 +100,4 @@ CodePlex에서 공개 미리 보기 중에 현재 버전과 여전히 관련이 
 - [**SQL Server와 Azure 검색의 동기화 샘플**](http://sqlserver2azuresearch.codeplex.com/)은 포함된 로컬 데이터베이스에서 SQL Server 행 집합을 로드하는 Windows 콘솔 응용 프로그램입니다.
 - [**점수 매기기 프로필 데모**](https://azuresearchscoringprofiles.codeplex.com/)는 검색 결과 조정을 위한 점수 매기기 프로필을 정의하고 실행하며 업데이트하는 Windows 콘솔 응용 프로그램입니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드 서비스를 관리하는 방법 | Microsoft Azure" 
+	pageTitle="일반적인 클라우드 서비스 관리 작업(클래식) | Microsoft Azure" 
 	description="Azure 클래식 포털에서 클라우드 서비스를 관리하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 
@@ -154,13 +154,14 @@ Azure 클래식 포털의 **데이터베이스** 노드에서 데이터베이스
 
 5. 클라우드 서비스를 삭제하려면 **클라우드 서비스 삭제**를 클릭합니다. 그리고 확인 메시지가 나타나면 **예**를 클릭합니다.
 
-> [AZURE.NOTE]클라우드 서비스에 대해 자세한 모니터링이 구성되어 있는 경우, 클라우드 서비스를 삭제해도 Azure는 저장소 계정에서 모니터링 데이터를 삭제하지 않습니다. 이 데이터를 수동으로 삭제해야 합니다. 메트릭 테이블이 있는 위치에 대한 자세한 내용은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 "방법: Azure 클래식 포털 외부에서 자세한 모니터링 데이터 액세스"를 참조하세요.
+> [AZURE.NOTE]
+클라우드 서비스에 대해 자세한 모니터링이 구성되어 있는 경우, 클라우드 서비스를 삭제해도 Azure는 저장소 계정에서 모니터링 데이터를 삭제하지 않습니다. 이 데이터를 수동으로 삭제해야 합니다. 메트릭 테이블이 있는 위치에 대한 자세한 내용은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 "방법: Azure 클래식 포털 외부에서 자세한 모니터링 데이터 액세스"를 참조하세요.
 
 ## 다음 단계
 
  * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md)을 구성합니다.
-* [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
+* [SSL 인증서](cloud-services-configure-ssl-certificate.md) 구성
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

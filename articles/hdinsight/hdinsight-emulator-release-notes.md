@@ -23,7 +23,8 @@
 
 
 
-> [AZURE.NOTE]버전 번호를 확인하는 가장 쉬운 방법은 **Microsoft HDInsight Emulator for Azure**(버전 1.0.0.0 이상의 경우) 또는 **Microsoft HDInsight Developer Preview**(버전 1.0.0.0 이전의 경우) 항목에서 프로그램 추가/제거를 확인하는 것입니다.
+> [AZURE.NOTE] 
+버전 번호를 확인하는 가장 쉬운 방법은 **Microsoft HDInsight Emulator for Azure**(버전 1.0.0.0 이상의 경우) 또는 **Microsoft HDInsight Developer Preview**(버전 1.0.0.0 이전의 경우) 항목에서 프로그램 추가/제거를 확인하는 것입니다.
 
 ## 버전 2.0.0.0, 2014년 8월 29일 출시
 
@@ -89,7 +90,7 @@
 
 * 다음 기능이 포함된 새 HDInsight 대시보드
  
-	* Azure HDInsight 서비스를 사용하여 원격으로 실행 중인 클러스터 및 로컬 설치 등 여러 클러스터에 연결합니다. HDInsight 서비스에 대한 자세한 내용은 [http://azure.microsoft.com/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/)를 참조하세요.
+	* Azure HDInsight 서비스를 사용하여 원격으로 실행 중인 클러스터 및 로컬 설치 등 여러 클러스터에 연결합니다. HDInsight 서비스에 대한 자세한 내용은 [http://azure.microsoft.com/documentation/services/hdinsight/](https://azure.microsoft.com/documentation/services/hdinsight/)를 참조하세요.
  
 	* 로컬 클러스터에서 Azure Blob 저장소를 구성합니다. 자세한 지침은 아래를 참조하세요.
 
@@ -276,4 +277,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

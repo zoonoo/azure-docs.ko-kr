@@ -223,7 +223,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 3. 명령이 완료되면 __wordcountjava/target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
 
-	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일은 는 WordCount 작업뿐만 아니라 런타임에 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
+	> [AZURE.NOTE] __wordcountjava-1.0-SNAPSHOT.jar__ 파일은 는 WordCount 작업뿐만 아니라 런타임에 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
 
 
 ##<a id="upload"></a>jar 업로드
@@ -236,7 +236,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 로컬 시스템에서 헤드 노드로 파일이 복사됩니다.
 
-> [AZURE.NOTE]SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`
+> [AZURE.NOTE] SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`
 
 ##<a name="run"></a>MapReduce 작업 실행
 
@@ -270,7 +270,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
 - [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-자세한 내용은 [Java 개발자 센터](http://azure.microsoft.com/develop/java/)를 참조하세요.
+자세한 내용은 [Java 개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -292,4 +292,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

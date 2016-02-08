@@ -19,7 +19,7 @@
 # 앱 서비스 환경에 대한 웹 응용 프로그램 방화벽(WAF) 구성
 
 ## 개요 ##
-[Azure Marketplace](http://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용 가능한 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 웹 응용 프로그램 방화벽은 SQL 주입, 교차 사이트 스크립팅, 맬웨어 업로드와 DDos 응용 프로그램 및 다른 공격을 막는 인바운드 웹트래 픽을 검사하여 웹 응용 프로그램 보안을 도와줍니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. 앱 서비스 환경은 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다.
+[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용 가능한 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 웹 응용 프로그램 방화벽은 SQL 주입, 교차 사이트 스크립팅, 맬웨어 업로드와 DDos 응용 프로그램 및 다른 공격을 막는 인바운드 웹트래 픽을 검사하여 웹 응용 프로그램 보안을 도와줍니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. 앱 서비스 환경은 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다.
 
 \+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -35,7 +35,7 @@
 Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대한 [자세한 문서](https://techlib.barracuda.com/WAF/AzureDeploy)가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
 
 ### 클라우드 서비스에 끝점 추가 ###
-클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com)을 사용하여 아래의 그림처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 끝점을 추가할 수 있습니다.
+클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com/)을 사용하여 아래의 그림처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 끝점을 추가할 수 있습니다.
 
 ![끝점 구성][ConfigureEndpoint]
 
@@ -99,4 +99,4 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

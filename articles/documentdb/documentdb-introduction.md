@@ -23,8 +23,8 @@ DocumentDB는 간편한 확장 및 고가용성이 필요한 JSON 데이터를 �
 
 이 JSON 데이터베이스에 대해 알아보고 작동 방식을 확인하는 빠른 방법은 다음 세 단계를 수행하는 것입니다.
 
-1. DocumentDB의 사용 이점을 소개하는 [DocumentDB 정의](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) 동영상(2분)을 시청합니다.
-2. Azure 포털을 사용하여 DocumentDB를 시작하는 방법을 강조하는 [Azure에서 DocumentDB 만들기](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 동영상(3분)을 시청합니다.
+1. DocumentDB의 사용 이점을 소개하는 [DocumentDB 정의](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) 동영상(2분)을 시청합니다.
+2. Azure 포털을 사용하여 DocumentDB를 시작하는 방법을 강조하는 [Azure에서 DocumentDB 만들기](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 동영상(3분)을 시청합니다.
 3. 다양한 활동을 통해 DocumentDB에서 사용할 수 있는 풍부한 쿼리 기능에 대해 알아볼 수 있는 [쿼리 실습](http://www.documentdb.com/sql/demo)을 방문합니다. 샌드박스 탭으로 이동하여 고유한 사용자 지정 SQL 쿼리를 실행하고 DocumentDB를 시험해 보세요.
 
 그런 다음 이 문서로 돌아와서 다음 내용을 자세히 살펴보세요.
@@ -102,13 +102,13 @@ Azure 계정이 이미 있는 경우 [Azure 포털](https://portal.azure.com/#ga
 
 Azure 계정이 없는 경우
 
-- [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 200달러로 모든 Azure 서비스를 사용해 볼 수 있습니다. 
-- MSDN 구독이 있는 경우 모든 Azure 서비스에 사용할 수 있는 [월별 150달러의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다. 
+- [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 ₩240,000으로 모든 Azure 서비스를 사용해 볼 수 있습니다. 
+- MSDN 구독이 있는 경우 모든 Azure 서비스에 사용할 수 있는 [월별 150달러의 무료 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다. 
 
-자세히 배울 준비가 되면 [학습 경로](http://azure.microsoft.com/documentation/learning-paths/documentdb/)를 방문하여 사용 가능한 모든 학습 리소스를 살펴보세요.
+자세히 배울 준비가 되면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 방문하여 사용 가능한 모든 학습 리소스를 살펴보세요.
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

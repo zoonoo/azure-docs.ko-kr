@@ -14,13 +14,13 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/19/2016"
+	 ms.date="01/22/2016"
 	 ms.author="jimpark;"/>
 
 # Azure에 Windows Server 또는 Windows 클라이언트 파일 및 폴더 백업
 이 간단한 절차로 Windows 파일 및 폴더를 Azure로 간단하게 백업합니다. 아직 수행하지 않은 경우 계속 진행하기 전에 [필수 조건](backup-configure-vault.md#before-you-start)을 완료하여 Windows 컴퓨터를 백업하기 위한 환경을 준비합니다.
 
-## 파일 백업
+## 파일 및 폴더 백업
 1. 컴퓨터가 등록되면 Microsoft Azure 백업 mmc 스냅인을 엽니다.
 
     ![검색 결과](./media/backup-azure-backup-windows-server/result.png)
@@ -52,4 +52,4 @@
 - [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

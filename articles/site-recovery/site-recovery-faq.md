@@ -88,7 +88,7 @@ Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery
 
 ### Hyper-V 2세대 가상 컴퓨터를 Azure로 복제할 수 있습니까?
 
-예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세히 알아보기](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+예. 장애 조치(failover) 동안 Site Recovery가 컴퓨터를 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터가 다시 2세대로 변환됩니다. [자세히 알아보기](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### Azure로 복제할 경우 Azure VM 요금을 어떻게 결제합니까? 
 
@@ -129,28 +129,28 @@ Site Recovery는 ISO 27001:2005 인증이며, HIPAA, DPA 및 FedRAMP JAB 평가�
 
 [표준 지역 중복 저장소](../storage/storage-redundancy.md/#geo-redundant-storage) 계정이 필요합니다. [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal/)은 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우에만 지원됩니다.
 
-표준 로컬 중복 저장소에 대한 지원은 백로그에 있습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support)을 통해 이 기능에 대한 의견을 보내 주세요.
+표준 로컬 중복 저장소에 대한 지원은 백로그에 있습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support/)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### 데이터를 얼마나 자주 복제할 수 있나요?
 - **Hyper-V:** Hyper-V VM을 30초, 5분 또는 15분마다 복제할 수 있습니다. SAN 복제를 설정하면 복제가 동기화됩니다.
 - **VMware 및 물리적 서버:** 복제 빈도는 이와 관련이 없습니다. 복제는 지속적으로 수행됩니다. 
 
 ### 기존 복구 사이트에서 3차 사이트로 복제를 확장할 수 있습니까?
-확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
+확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 
 ### Azure에 처음으로 복제할 때 오프라인으로 복제할 수 있습니까? 
 
-지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
+지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 
 ### 특정 디스크를 복제에서 제외할 수 있습니까?
 
-지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
+지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication/)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### 동적 디스크를 사용하여 가상 컴퓨터를 복제할 수 있습니까?
 
-동적 디스크는 Hyper-V 가상 컴퓨터를 복제할 때 지원됩니다. VMware 가상 컴퓨터 또는 물리적 서버를 복제할 때에는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery)을 통해 이 기능에 대한 의견을 보내 주세요.
+동적 디스크는 Hyper-V 가상 컴퓨터를 복제할 때 지원됩니다. VMware 가상 컴퓨터 또는 물리적 서버를 복제할 때에는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### Azure로 장애 조치(Failover)하는 경우 장애 조치(Failover) 후에 어떻게 Azure 가상 컴퓨터에 액세스할 수 있습니까? 
 
@@ -223,4 +223,4 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

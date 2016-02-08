@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/12/2016"
 	ms.author="erikre"/>
 
 # GoDaddy에서 직접 구입한 Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
@@ -50,7 +50,7 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도�
 
 	기존 레코드에 대해 **edit**를 수행하려면 해당 레코드 옆의 펜과 종이 아이콘을 선택합니다.
 
-	> [AZURE.NOTE]새 레코드를 추가하기 전에 GoDaddy에서 많이 사용되는 하위 도메인에 대한 DNS 레코드(편집기에서 **Host**)(예: **email**, **files**, **mail** 등)를 이미 만든 것을 볼 수 있습니다. 사용하려는 이름이 이미 있는 경우 새로 만들지 않고 기존 레코드를 수정하십시오.
+	> [AZURE.NOTE] 새 레코드를 추가하기 전에 GoDaddy에서 많이 사용되는 하위 도메인에 대한 DNS 레코드(편집기에서 **Host**)(예: **email**, **files**, **mail** 등)를 이미 만든 것을 볼 수 있습니다. 사용하려는 이름이 이미 있는 경우 새로 만들지 않고 기존 레코드를 수정하십시오.
 
 4. 레코드를 추가할 때 먼저 레코드 유형을 선택해야 합니다.
 
@@ -67,7 +67,7 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도�
 5. **다른 항목 추가**를 클릭합니다.
 6. 레코드 유형으로 **CNAME**를 선택한 다음 **awverify**의 **호스트** 값 및 **awverify.&lt;yourwebappname&gt;.azurewebsites.net**의 **Points to** 값을 지정합니다.
 
-	> [AZURE.NOTE]이 CNAME 레코드는 Azure에서 A 레코드 또는 첫 번째 CNAME 레코드가 설명하는 도메인을 개발자가 소유하고 있는지 확인하는 데 사용됩니다. 도메인이 Azure 포털에서 웹앱으로 매핑되면 **awverify** 항목을 제거할 수 있습니다.
+	> [AZURE.NOTE] 이 CNAME 레코드는 Azure에서 A 레코드 또는 첫 번째 CNAME 레코드가 설명하는 도메인을 개발자가 소유하고 있는지 확인하는 데 사용됩니다. 도메인이 Azure 포털에서 웹앱으로 매핑되면 **awverify** 항목을 제거할 수 있습니다.
 
 5. 레코드 추가 또는 수정을 완료하면 **Finish**를 클릭하여 변경 내용을 저장합니다.
 
@@ -76,9 +76,9 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도�
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

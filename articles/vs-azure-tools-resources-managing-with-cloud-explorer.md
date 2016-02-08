@@ -30,7 +30,7 @@ Microsoft Azure Preview 포털에서와 마찬가지로 Azure 리소스 관리�
 - Visual Studio 2015 RTM.
 
 - Azure SDK용 Visual Studio 도구입니다.
-- 클라우드 탐색기에서 Azure 리소스를 보려면 Azure 계정이 있고 로그인되어 있어야 합니다. 없는 경우에는 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](http://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
+- 클라우드 탐색기에서 Azure 리소스를 보려면 Azure 계정이 있고 로그인되어 있어야 합니다. 없는 경우에는 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
 
 - 클라우드 탐색기가 표시되지 않는 경우 메뉴 모음에서 **보기**, **다른 창**, **클라우드 탐색기**를 선택하여 표시할 수 있습니다.
 
@@ -95,4 +95,4 @@ Azure 계정 구독에서 특정 이름의 리소스를 찾으려면, 클라우�
 
 검색 상자에 문자를 입력하면 해당 문자와 일치하는 리소스만 리소스 트리에 나타납니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

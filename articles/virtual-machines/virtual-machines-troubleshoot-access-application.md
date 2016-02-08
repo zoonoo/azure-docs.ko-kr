@@ -24,7 +24,7 @@
 
 Azure 가상 컴퓨터에서 실행중인 응용 프로그램에 액세스 할 수 없는 경우, 이 문서는 문제의 원인을 찾아내고 해당 문제를 수정하기 위한 체계적인 방법을 설명합니다.
 
-> [AZURE.NOTE]Azure 가상 컴퓨터에 연결하는 방법에 대한 도움말은 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md) 또는 [Linux 기반 Azure 가상 컴퓨터에 대한 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)을 참조하세요.
+> [AZURE.NOTE]  Azure 가상 컴퓨터에 연결하는 방법에 대한 도움말은 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md) 또는 [Linux 기반 Azure 가상 컴퓨터에 대한 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)을 참조하세요.
 
 Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문제 해결에 대한 4개의 주요 영역이 있습니다.
 
@@ -54,7 +54,7 @@ Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문�
 
 Windows 및 Linux 기반 가상 컴퓨터 둘 다에서 **netstat -a** 명령을 사용하여 활성 수신 포트를 표시합니다. 응용 프로그램이 수신해야 할 예상되는 포트에 대한 출력을 검토하세요. 응용 프로그램을 다시 시작하거나 필요에 따라 예상되는 포트를 사용하도록 구성하세요.
 
-## <a id="step2"></a>2단계: 동일한 가상 네트워크의 다른 가상 컴퓨터에서 응용 프로그램에 액세스할 수 있나요?
+## <a id="step2"></a>2단계: 동일한 가상 네트워크상의 다른 가상 컴퓨터에서 응용 프로그램에 액세스할 수 있습니까?
 
 가상 컴퓨터의 호스트 이름 또는 해당 Azure-할당 공용, 개인 또는 공급자 IP 주소를 사용하여 응용 프로그램을 실행 중인 가상 컴퓨터와 동일한 가상 네트워크에 있는 또 다른 가상 컴퓨터에서 응용 프로그램에 대한 액세스를 시도하세요. 서비스 관리 API를 사용하여 만든 가상 컴퓨터의 경우 클라우드 서비스의 공용 IP 주소를 사용하지 않습니다.
 
@@ -116,8 +116,8 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 �
 
 이 문서에서 위의 단계를 실행하였지만 문제 해결을 위해 추가적인 도움이 필요한 경우, 다음을 수행합니다.
 
-- 전 세계에 있는 Azure 전문가로 부터 도움을 받으세요. MSDN Azure 또는 스택 오버플로 포럼에 귀하의 문제를 제출하세요. 자세한 내용은 [Microsoft Azure 포럼](http://azure.microsoft.com/support/forums/)을 참조하세요.
-- Azure 지원 인시던트 제출 [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **기술 및 대금 청구 지원**에서 **지원 받기**를 클릭합니다.
+- 전 세계에 있는 Azure 전문가로 부터 도움을 받으세요. MSDN Azure 또는 스택 오버플로 포럼에 귀하의 문제를 제출하세요. 자세한 내용은 [Microsoft Azure 포럼](https://azure.microsoft.com/support/forums/)을 참조하세요.
+- Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **기술 및 대금 청구 지원**에서 **지원 받기**를 클릭합니다.
 
 ## 추가 리소스
 
@@ -125,4 +125,4 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 �
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -33,9 +33,9 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 - [이미지에서 가상 컴퓨터 만들기](virtual-machines-create-custom.md)
 - [가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)
 
-> [AZURE.WARNING]이 프로세스는 캡처된 후 원래의 가상 컴퓨터를 삭제합니다.
+> [AZURE.WARNING] 이 프로세스는 캡처된 후 원래의 가상 컴퓨터를 삭제합니다.
 
-가상 컴퓨터를 백업하는 방법으로는 적합하지 않습니다. 가상 컴퓨터를 백업하는 데 사용할 수 있는 한 가지 방법은 특정 지역에서 미리 보기로 제공되는 Azure 백업입니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](../backup/backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure 마켓플레이스를 검색합니다.
+Azure 가상 컴퓨터의 이미지를 캡처하기 전에 대상 가상 컴퓨터를 백업하는 것이 좋습니다. Azure 백업을 사용하여 Azure 가상 컴퓨터를 백업할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](../backup/backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure 마켓플레이스를 검색합니다.
 
 
 ##가상 컴퓨터 캡처
@@ -90,4 +90,4 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

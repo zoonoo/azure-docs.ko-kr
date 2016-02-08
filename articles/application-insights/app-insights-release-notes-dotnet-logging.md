@@ -16,7 +16,7 @@
  
 # .NET의 로깅 어댑터에 대한 릴리스 정보
 
-log4net, NLog 또는 System.Diagnostics.Trace 같은 로깅 프레임워크를 이미 사용 중인 경우 이러한 로그를 캡처하여 [Application Insights](http://azure.microsoft.com/services/application-insights/)로 전송할 수 있습니다. 여기서 로그 추적을 사용자 작업, 예외 및 다른 이벤트와 상관 관계를 지정할 수 있습니다.
+log4net, NLog 또는 System.Diagnostics.Trace 같은 로깅 프레임워크를 이미 사용 중인 경우 이러한 로그를 캡처하여 [Application Insights](https://azure.microsoft.com/services/application-insights/)로 전송할 수 있습니다. 여기서 사용자 작업, 예외 및 다른 이벤트와 로그 추적의 상관 관계를 지정할 수 있습니다.
 
 
 #### 시작하기:
@@ -32,4 +32,4 @@ log4net, NLog 또는 System.Diagnostics.Trace 같은 로깅 프레임워크를 �
 ## 버전 1.2.5
 - 처음 오픈 소스 버전: Application Insights API 버전 1.2.3 이상을 참조합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

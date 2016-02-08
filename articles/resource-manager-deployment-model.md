@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="tomfitz"/>
 
 # 리소스 관리자 배포 및 클래식 배포 이해
@@ -22,19 +22,17 @@
 
 서비스 관리 모델로 클래식 배포 모델도 알 수 있습니다.
 
-이 항목은 두 모델 간 차이점 및 클래식 모델에서 리소스 관리자로 전환할 때 발생할 수 있는 문제 중 일부를 설명합니다. 이 모델의 개요를 제공하지만 개별 서비스로 차이점을 자세히 다루지 않습니다. 전환, 계산, 저장소 및 네트워킹 리소스에 관한 자세한 내용은 [Azure 리소스 관리자에서 Azure 계산, 네트워크 및 저장소 공급자](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
+이 항목은 두 모델 간 차이점 및 클래식 모델에서 리소스 관리자로 전환할 때 발생할 수 있는 문제 중 일부를 설명합니다. 이 모델의 개요를 제공하지만 개별 서비스로 차이점을 자세히 다루지 않습니다.
 
 많은 리소스가 클래식 모델 및 리소스 관리자 모두에서 문제 없이 작동합니다. 이 리소스는 클래식 모델에서 만든 경우에도 완벽하게 리소스 관리자를 지원합니다. 문제나 추가 작업 없이 리소스 관리자로 전환할 수 있습니다.
 
 그러나, 몇 리소스 공급자 모델은 모델 간 구조적 차이로 인해 리소스의 두 버전(클래식용, 및 리소스 관리자용)을 제공합니다. 두 모델 간을 구분하는 리소스 공급자는 다음과 같습니다.
 
-- 계산
-- 저장소
-- 네트워크
+- **계산** - 가상 컴퓨터 및 옵션 가용성 집합의 인스턴스를 지원합니다.
+- **저장소** - 운영 체제 및 추가 데이터 디스크를 비롯하여 가상 컴퓨터를 위한 VHD를 저장하는 데 필요한 저장소 계정을 지원합니다.
+- **네트워크** - 필수 NIC, 가상 컴퓨터 IP 주소, 가상 네트워크 및 옵션 부하 분산 장치, 부하 분산 장치 IP 주소 내의 서브넷, 네트워크 보안 그룹을 지원합니다.
 
-이 리소스 종류에 대해 지원되는 작업이 서로 다르기 때문에 사용 중인 버전을 알고 있어야 합니다.
-
-두 모델 간 아키텍처 차이점을 이해하려면 [Azure 리소스 관리자 아키텍처](virtual-machines/virtual-machines-azure-resource-manager-architecture.md)을 참조하세요.
+이 리소스 종류에 대해 지원되는 작업이 서로 다르기 때문에 사용 중인 버전을 알고 있어야 합니다. 전환, 계산, 저장소 및 네트워킹 리소스에 관한 자세한 내용은 [Azure 리소스 관리자에서 Azure 계산, 네트워크 및 저장소 공급자](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
 
 ## 리소스 관리자 특성
 
@@ -42,15 +40,15 @@
 
 - 다음 방법 중 하나를 통해 만들어집니다.
 
-  - [미리 보기 포털](https://portal.azure.com/).
+  - [Azure 포털](https://portal.azure.com/)입니다.
 
-        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
         계산, 저장, 네트워킹 리소스에 리소스 관리자를 사용할지 클래식 배포를 사용할지 선택할 수 있습니다. **리소스 관리자**를 선택합니다.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - PowerShell 명령은 **AzureResourceManager** 모드에서 실행합니다.
+  - Azure PowerShell 1.0 이전 버전의 경우 명령이 **AzureResourceManager** 모드에서 실행됩니다.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
@@ -67,7 +65,25 @@
 
     ![웹앱](./media/resource-manager-deployment-model/resource-manager-type.png)
 
+다음 다이어그램에 표시된 응용 프로그램은 리소스 관리자를 통해 배포된 리소스가 단일 리소스 그룹에 포함되는 방식을 보여줍니다.
+
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+
+또한 다음과 같이 리소스 공급자 내에서 리소스 간에 관계가 있습니다.
+
+- Blob 저장소(필수)에 해당 디스크를 저장하기 위해 가상 컴퓨터는 SRP에서 정의된 특정 저장소 계정에 따라 달라집니다.
+- 가상 컴퓨터는 NRP(필수)에서 정의된 특정 NIC 및 CRP(옵션)에서 정의된 가용성 집합을 참조합니다.
+- NIC는 가상 컴퓨터의 할당된 IP 주소(필수), 가상 컴퓨터에 대한 가상 네트워크의 서브넷(필수) 및 네트워크 보안 그룹(옵션)을 참조합니다.
+- 가상 네트워크 내의 서브넷은 네트워크 보안 그룹(옵션)을 참조합니다.
+- 부하 분산 장치 인스턴스는 가상 컴퓨터의 NIC(옵션)를 포함하는 IP 주소의 백 엔드 풀을 참조하며 로드 분산 장치 공용 또는 개인 IP 주소(옵션)를 참조합니다.
+
 ## 클래식 배포 특성
+
+Azure 서비스 관리에서 다음을 통해 가상 컴퓨터 호스팅에 대한 계산, 저장소 또는 계산 리소스가 제공됩니다.
+
+- 가상 컴퓨터 호스팅(계산)을 위한 컨테이너 역할을 하는 데 필요한 클라우드 서비스. 가상 컴퓨터는 NIC(네트워크 인터페이스 카드) 및 Azure에서 할당된 IP 주소와 함께 자동으로 제공됩니다. 또한 클라우드 서비스는 외부 부하 분산 장치 인스턴스, 공용 IP 주소, 기본 끝점을 포함하여 Windows 기반의 가상 컴퓨터를 위한 원격 데스크톱 및 원격 PowerShell 트래픽 및 Linux 기반의 가상 컴퓨터를 위한 SSH(Secure Shell) 트래픽을 허용합니다.
+- 운영 체제, 임시 및 추가 데이터 디스크(저장소)를 비롯하여 가상 컴퓨터를 위한 VHD를 저장하는 데 필요한 저장소 계정.
+- 서브넷된 구조를 만들고 가상 컴퓨터가 위치한(네트워크) 서브넷을 지정할 수 있는 추가 컨테이너 역할을 하는 옵션 가상 네트워크입니다.
 
 클래식 배포 모델에서 만든 리소스는 다음 특징을 공유합니다.
 
@@ -77,7 +93,7 @@
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        또는 Preview 포털과 **클래식** 배포(계산, 저장소 및 네트워킹의 경우)를 지정합니다.
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -97,13 +113,17 @@
 
 여전히 클래식 배포를 통해 생성된 리소스를 관리하는 포털을 사용할 수 있습니다.
 
+Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 같습니다.
+
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+
 ## 리소스 관리자 및 리소스 그룹을 사용할 경우의 이점
 
 리소스 관리자는 리소스 그룹의 개념을 추가했습니다. 리소스 관리자를 통해 만드는 모든 리소스는 리소스 그룹 내에 있습니다. 리소스 관리자 배포 모델에는 여러 이점을 제공합니다.
 
 - 이 서비스를 개별적으로 처리하는 것이 아니라 그룹으로 솔루션에 대한 모든 서비스를 배포, 관리 및 모니터링할 수 있습니다.
 - 앱 수명 주기 내내 응용 프로그램을 반복적으로 배포하며 안심하고 일관된 상태로 리소스를 배포할 수 있습니다.
-- 선언적 템플릿을 사용하여 배포를 정의할 수 있습니다. 
+- 선언적 템플릿을 사용하여 배포를 정의할 수 있습니다.
 - 올바른 순서로 배포되므로 리소스 간의 종속성을 정의할 수 있습니다.
 - 역할 기반 액세스 제어(RBAC)가 관리 플랫폼으로 통합되기 때문에 리소스 그룹의 모든 서비스에 대해 액세스 제어를 적용할 수 있습니다.
 - 리소스에 태그를 적용하여 논리적으로 구독에서 모든 리소스를 구성할 수 있습니다.
@@ -168,4 +188,4 @@
 - 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
